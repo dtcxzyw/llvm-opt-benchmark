@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @orig_termios = internal global %struct.termios zeroinitializer, align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__tcsetattr(i32 noundef %fd, i32 noundef %how, ptr noundef %term) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__tcsetattr(i32 noundef %fd, i32 noundef %how, ptr noundef %term) local_unnamed_addr #0 {
 entry:
   br label %do.body
 
@@ -49,7 +49,7 @@ define dso_local i32 @uv_tty_init(ptr noundef %loop, ptr noundef %tty, i32 nound
 entry:
   %dummy.i = alloca i32, align 4
   %path = alloca [256 x i8], align 16
-  %call = tail call i32 @uv_guess_handle(i32 noundef %fd), !range !5
+  %call = tail call i32 @uv_guess_handle(i32 noundef %fd)
   switch i32 %call, label %do.body [
     i32 17, label %return
     i32 0, label %return
@@ -139,7 +139,7 @@ return:                                           ; preds = %entry, %entry, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_guess_handle(i32 noundef %file) local_unnamed_addr #0 {
+define dso_local range(i32 0, 18) i32 @uv_guess_handle(i32 noundef %file) local_unnamed_addr #0 {
 entry:
   %ss = alloca %struct.sockaddr_storage, align 8
   %s = alloca %struct.stat, align 8
@@ -237,7 +237,7 @@ declare i32 @uv__nonblock_ioctl(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @uv__stream_open(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_tty_set_mode(ptr noundef %tty, i32 noundef %mode) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr noundef %tty, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.termios, align 16
   %mode1 = getelementptr inbounds i8, ptr %tty, i64 308
@@ -350,7 +350,7 @@ declare i32 @tcgetattr(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_tty_get_winsize(ptr nocapture noundef readonly %tty, ptr nocapture noundef writeonly %width, ptr nocapture noundef writeonly %height) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_get_winsize(ptr nocapture noundef readonly %tty, ptr nocapture noundef writeonly %width, ptr nocapture noundef writeonly %height) local_unnamed_addr #0 {
 entry:
   %ws = alloca %struct.winsize, align 2
   %fd = getelementptr inbounds i8, ptr %tty, i64 184
@@ -400,7 +400,7 @@ declare i32 @getsockname(i32 noundef, ptr, ptr noundef) local_unnamed_addr #1
 declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_tty_reset_mode() local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_reset_mode() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @__errno_location() #9
   %0 = load i32, ptr %call, align 4
@@ -480,4 +480,3 @@ attributes #9 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 18}

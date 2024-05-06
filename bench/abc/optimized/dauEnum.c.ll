@@ -126,10 +126,10 @@ Dau_EnumLift.exit:                                ; preds = %11, %8
   %28 = select i1 %27, ptr getelementptr inbounds ([64 x i8], ptr @Dau_EnumLift.pBuffer, i64 0, i64 1), ptr @Dau_EnumLift.pBuffer
   %29 = select i1 %.not13, i32 41, i32 93
   %30 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer, ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull %19, i32 noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %28, i32 noundef %29) #12
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #13
+  %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #13
   %32 = add i64 %31, 1
   %33 = tail call noalias ptr @malloc(i64 noundef %32) #14
-  %34 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #12
+  %34 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull readonly dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #12
   %35 = getelementptr inbounds i8, ptr %0, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = load i32, ptr %0, align 8
@@ -275,10 +275,10 @@ Dau_EnumLift2.exit:                               ; preds = %23, %Dau_EnumLift.e
   %42 = icmp eq i8 %41, 42
   %43 = select i1 %42, ptr getelementptr inbounds ([64 x i8], ptr @Dau_EnumLift2.pBuffer, i64 0, i64 1), ptr @Dau_EnumLift2.pBuffer
   %44 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineThree.pBuffer, ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %31, i32 noundef 60, ptr noundef nonnull %32, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %43, i32 noundef 62) #12
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineThree.pBuffer) #13
+  %45 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) @Dau_EnumCombineThree.pBuffer) #13
   %46 = add i64 %45, 1
   %47 = tail call noalias ptr @malloc(i64 noundef %46) #14
-  %48 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineThree.pBuffer) #12
+  %48 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull readonly dereferenceable(1) @Dau_EnumCombineThree.pBuffer) #12
   %49 = getelementptr inbounds i8, ptr %0, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %0, align 8
@@ -369,7 +369,7 @@ define void @Dau_EnumTestDump(ptr nocapture noundef readonly %0, ptr nocapture n
   %.val21 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds ptr, ptr %.val21, i64 %indvars.iv29
   %10 = load ptr, ptr %9, align 8
-  %11 = trunc i64 %indvars.iv29 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv29 to i32
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, i32 noundef %11) #12
   %13 = getelementptr i8, ptr %10, i64 4
   %.val2023 = load i32, ptr %13, align 4
@@ -434,7 +434,7 @@ Vec_PtrPush.exit254:
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8
   %8 = tail call noalias dereferenceable_or_null(3) ptr @malloc(i64 noundef 3) #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %8, ptr noundef nonnull align 1 dereferenceable(3) @.str.8, i64 3, i1 false) #12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %8, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.8, i64 3, i1 false) #12
   store i32 1, ptr %5, align 4
   store ptr %8, ptr %6, align 8
   store i32 2, ptr %1, align 4
@@ -529,10 +529,10 @@ Dau_EnumLift.exit.i:                              ; preds = %.lr.ph.i.i, %.lr.ph
   %48 = icmp eq i8 %47, 42
   %49 = select i1 %48, ptr getelementptr inbounds ([64 x i8], ptr @Dau_EnumLift.pBuffer, i64 0, i64 1), ptr @Dau_EnumLift.pBuffer
   %50 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer, ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.2, i32 noundef 40, ptr noundef nonnull @.str.2, ptr noundef nonnull %46, ptr noundef nonnull @.str.2, ptr noundef nonnull %49, i32 noundef 41) #12
-  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #13
+  %51 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #13
   %52 = add i64 %51, 1
   %53 = tail call noalias ptr @malloc(i64 noundef %52) #14
-  %54 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #12
+  %54 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull readonly dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #12
   %55 = load i32, ptr %12, align 4
   %56 = load i32, ptr %11, align 8
   %57 = icmp eq i32 %55, %56
@@ -630,10 +630,10 @@ Dau_EnumLift.exit.i261:                           ; preds = %.lr.ph.i.i256, %84
   %97 = icmp eq i8 %96, 42
   %98 = select i1 %97, ptr getelementptr inbounds ([64 x i8], ptr @Dau_EnumLift.pBuffer, i64 0, i64 1), ptr @Dau_EnumLift.pBuffer
   %99 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer, ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.2, i32 noundef 40, ptr noundef nonnull @.str.3, ptr noundef nonnull %95, ptr noundef nonnull @.str.2, ptr noundef nonnull %98, i32 noundef 41) #12
-  %100 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #13
+  %100 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #13
   %101 = add i64 %100, 1
   %102 = tail call noalias ptr @malloc(i64 noundef %101) #14
-  %103 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #12
+  %103 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull readonly dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #12
   %104 = load i32, ptr %12, align 4
   %105 = load i32, ptr %11, align 8
   %106 = icmp eq i32 %104, %105
@@ -736,10 +736,10 @@ Dau_EnumLift.exit.i277:                           ; preds = %.lr.ph.i.i272, %135
   %147 = icmp eq i8 %146, 42
   %148 = select i1 %147, ptr getelementptr inbounds ([64 x i8], ptr @Dau_EnumLift.pBuffer, i64 0, i64 1), ptr @Dau_EnumLift.pBuffer
   %149 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer, ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.2, i32 noundef 40, ptr noundef nonnull @.str.2, ptr noundef nonnull %145, ptr noundef nonnull @.str.3, ptr noundef nonnull %148, i32 noundef 41) #12
-  %150 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #13
+  %150 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #13
   %151 = add i64 %150, 1
   %152 = tail call noalias ptr @malloc(i64 noundef %151) #14
-  %153 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #12
+  %153 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull readonly dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #12
   %154 = load i32, ptr %12, align 4
   %155 = load i32, ptr %11, align 8
   %156 = icmp eq i32 %154, %155
@@ -843,10 +843,10 @@ Dau_EnumLift.exit.i293:                           ; preds = %.lr.ph.i.i288, %184
   %196 = icmp eq i8 %195, 42
   %197 = select i1 %196, ptr getelementptr inbounds ([64 x i8], ptr @Dau_EnumLift.pBuffer, i64 0, i64 1), ptr @Dau_EnumLift.pBuffer
   %198 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer, ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.2, i32 noundef 40, ptr noundef nonnull @.str.3, ptr noundef nonnull %194, ptr noundef nonnull @.str.3, ptr noundef nonnull %197, i32 noundef 41) #12
-  %199 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #13
+  %199 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #13
   %200 = add i64 %199, 1
   %201 = tail call noalias ptr @malloc(i64 noundef %200) #14
-  %202 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %201, ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #12
+  %202 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %201, ptr noundef nonnull readonly dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #12
   %203 = load i32, ptr %12, align 4
   %204 = load i32, ptr %11, align 8
   %205 = icmp eq i32 %203, %204
@@ -952,10 +952,10 @@ Dau_EnumLift.exit.i309:                           ; preds = %.lr.ph.i.i304, %thr
   %249 = icmp eq i8 %248, 42
   %250 = select i1 %249, ptr getelementptr inbounds ([64 x i8], ptr @Dau_EnumLift.pBuffer, i64 0, i64 1), ptr @Dau_EnumLift.pBuffer
   %251 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer, ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull %244, i32 noundef 91, ptr noundef nonnull @.str.2, ptr noundef nonnull %247, ptr noundef nonnull @.str.2, ptr noundef nonnull %250, i32 noundef 93) #12
-  %252 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #13
+  %252 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #13
   %253 = add i64 %252, 1
   %254 = tail call noalias ptr @malloc(i64 noundef %253) #14
-  %255 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %254, ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #12
+  %255 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %254, ptr noundef nonnull readonly dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #12
   %256 = load i32, ptr %12, align 4
   %257 = load i32, ptr %11, align 8
   %258 = icmp eq i32 %256, %257
@@ -1048,13 +1048,13 @@ Dau_EnumCombineTwo.exit318:                       ; preds = %.Vec_PtrGrow.exit11
 
 .preheader331:                                    ; preds = %288, %351
   %indvars.iv407 = phi i64 [ %indvars.iv.next408, %351 ], [ 1, %288 ]
-  %289 = trunc i64 %indvars.iv407 to i32
+  %289 = trunc nuw nsw i64 %indvars.iv407 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader331, %350
   %indvars.iv397 = phi i64 [ 1, %.preheader331 ], [ %indvars.iv.next398, %350 ]
   %290 = add nuw nsw i64 %indvars.iv397, %indvars.iv407
-  %291 = trunc i64 %290 to i32
+  %291 = trunc nuw nsw i64 %290 to i32
   br label %292
 
 292:                                              ; preds = %.preheader, %.critedge4
@@ -1290,7 +1290,7 @@ Vec_PtrPush.exit325:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond415.not, label %380, label %10, !llvm.loop !20
 
 380:                                              ; preds = %Vec_PtrPush.exit325
-  %381 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5)
+  %381 = tail call noalias ptr @fopen(ptr noundef nonnull readonly @.str.9, ptr noundef nonnull @.str.5)
   %382 = icmp eq ptr %381, null
   %.val222.pre = load i32, ptr %1, align 4
   br i1 %382, label %Dau_EnumTestDump.exit, label %.preheader.i
@@ -1308,7 +1308,7 @@ Vec_PtrPush.exit325:                              ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %.critedge2.i ], [ 0, %.lr.ph27.i.preheader ]
   %385 = getelementptr inbounds ptr, ptr %.val21.i, i64 %indvars.iv29.i
   %386 = load ptr, ptr %385, align 8
-  %387 = trunc i64 %indvars.iv29.i to i32
+  %387 = trunc nuw nsw i64 %indvars.iv29.i to i32
   %388 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %381, ptr noundef nonnull @.str.6, i32 noundef %387) #12
   %389 = getelementptr i8, ptr %386, i64 4
   %.val2023.i = load i32, ptr %389, align 4
@@ -1353,7 +1353,7 @@ Dau_EnumTestDump.exit:                            ; preds = %380, %.critedge.i
   %indvars.iv420 = phi i64 [ 0, %.lr.ph362 ], [ %indvars.iv.next421, %.critedge12 ]
   %401 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %indvars.iv420
   %402 = load ptr, ptr %401, align 8
-  %403 = trunc i64 %indvars.iv420 to i32
+  %403 = trunc nuw nsw i64 %indvars.iv420 to i32
   %404 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %403)
   %405 = getelementptr i8, ptr %402, i64 4
   %.val221358 = load i32, ptr %405, align 4
@@ -1396,7 +1396,7 @@ Dau_EnumTestDump.exit:                            ; preds = %380, %.critedge.i
   %416 = load ptr, ptr %415, align 8
   %417 = getelementptr i8, ptr %416, i64 4
   %.val = load i32, ptr %417, align 4
-  %418 = trunc i64 %indvars.iv424 to i32
+  %418 = trunc nuw nsw i64 %indvars.iv424 to i32
   %419 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %418, i32 noundef %.val)
   %.val15.i.i = load i32, ptr %417, align 4
   %420 = icmp sgt i32 %.val15.i.i, 0

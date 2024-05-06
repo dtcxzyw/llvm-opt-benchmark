@@ -189,7 +189,7 @@ define noundef i32 @ompi_group_translate_ranks_sporadic_reverse(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_group_incl_spor(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
+define range(i32 0, 10) i32 @ompi_group_incl_spor(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = icmp eq i32 %1, 0
   br i1 %6, label %8, label %.preheader

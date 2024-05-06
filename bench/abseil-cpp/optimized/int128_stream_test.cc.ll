@@ -1902,7 +1902,7 @@ entry:
 define internal void @_ZN12_GLOBAL__N_130Uint128_OStreamFormatTest_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i5.i1.i = tail call noalias noundef nonnull dereferenceable(24576) ptr @_Znwm(i64 noundef 24576) #18, !noalias !37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24576) %call5.i.i.i.i5.i1.i, ptr noundef nonnull align 16 dereferenceable(24576) @constinit, i64 24576, i1 false), !noalias !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24576) %call5.i.i.i.i5.i1.i, ptr noundef nonnull readonly align 16 dereferenceable(24576) @constinit, i64 24576, i1 false), !noalias !37
   br label %for.body
 
 _ZNSt6vectorIN12_GLOBAL__N_115Uint128TestCaseESaIS1_EED2Ev.exit: ; preds = %for.inc
@@ -2738,7 +2738,7 @@ entry:
 define internal void @_ZN12_GLOBAL__N_129Int128_OStreamFormatTest_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i5.i1.i = tail call noalias noundef nonnull dereferenceable(30720) ptr @_Znwm(i64 noundef 30720) #18, !noalias !53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(30720) %call5.i.i.i.i5.i1.i, ptr noundef nonnull align 16 dereferenceable(30720) @constinit.118, i64 30720, i1 false), !noalias !53
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(30720) %call5.i.i.i.i5.i1.i, ptr noundef nonnull readonly align 16 dereferenceable(30720) @constinit.118, i64 30720, i1 false), !noalias !53
   br label %for.body
 
 _ZNSt6vectorIN12_GLOBAL__N_114Int128TestCaseESaIS1_EED2Ev.exit: ; preds = %for.inc

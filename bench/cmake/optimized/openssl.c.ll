@@ -847,15 +847,15 @@ declare i32 @PEM_write_bio_X509(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_ossl_set_client_cert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
-  %10 = tail call fastcc i32 @cert_stuff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8), !range !10
+define dso_local range(i32 0, 59) i32 @Curl_ossl_set_client_cert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+  %10 = tail call fastcc i32 @cert_stuff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %.not.not = icmp eq i32 %10, 0
   %. = select i1 %.not.not, i32 58, i32 0
   ret i32 %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cert_stuff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cert_stuff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [256 x i8], align 16
   %11 = alloca ptr, align 8
   %12 = alloca %struct.anon, align 8
@@ -959,7 +959,7 @@ do_file_type.exit:                                ; preds = %9, %15, %17, %19, %
 45:                                               ; preds = %.preheader.i
   %46 = tail call i64 @SSL_CTX_ctrl(ptr noundef %1, i32 noundef 89, i64 noundef 0, ptr noundef nonnull %44) #13
   %.not30.i = icmp eq i64 %46, 0
-  br i1 %.not30.i, label %47, label %.preheader.i, !llvm.loop !11
+  br i1 %.not30.i, label %47, label %.preheader.i, !llvm.loop !10
 
 47:                                               ; preds = %45
   tail call void @X509_free(ptr noundef nonnull %44) #13
@@ -1128,7 +1128,7 @@ is_pkcs11_uri.exit:                               ; preds = %112
   br i1 %.not294, label %116, label %114
 
 114:                                              ; preds = %is_pkcs11_uri.exit
-  %115 = tail call i32 @ossl_set_engine(ptr noundef nonnull %0, ptr noundef nonnull @.str.40), !range !12
+  %115 = tail call i32 @ossl_set_engine(ptr noundef nonnull %0, ptr noundef nonnull @.str.40)
   %.not190 = icmp eq i32 %115, 0
   br i1 %.not190, label %116, label %296
 
@@ -1352,7 +1352,7 @@ ossl_strerror.exit236:                            ; preds = %155, %157, %160
 207:                                              ; preds = %202
   %208 = call i64 @SSL_CTX_ctrl(ptr noundef %1, i32 noundef 14, i64 noundef 0, ptr noundef %204) #13
   %.not187 = icmp eq i64 %208, 0
-  br i1 %.not187, label %209, label %.preheader, !llvm.loop !13
+  br i1 %.not187, label %209, label %.preheader, !llvm.loop !11
 
 209:                                              ; preds = %207
   call void @X509_free(ptr noundef %204) #13
@@ -1507,7 +1507,7 @@ is_pkcs11_uri.exit251:                            ; preds = %252
   br i1 %.not295, label %256, label %254
 
 254:                                              ; preds = %is_pkcs11_uri.exit251
-  %255 = call i32 @ossl_set_engine(ptr noundef nonnull %0, ptr noundef nonnull @.str.40), !range !12
+  %255 = call i32 @ossl_set_engine(ptr noundef nonnull %0, ptr noundef nonnull @.str.40)
   %.not200 = icmp eq i32 %255, 0
   br i1 %.not200, label %256, label %296
 
@@ -1629,7 +1629,7 @@ do_file_type.exit245.thread270:                   ; preds = %229, %do_file_type.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_ossl_verifyhost(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 61) i32 @Curl_ossl_verifyhost(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.in6_addr, align 4
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %2, align 8
@@ -1736,7 +1736,7 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   %47 = add nuw nsw i32 %.095168.us, 1
   %48 = icmp sge i32 %47, %24
   %.not116.us = or i1 %48, %.194.us
-  br i1 %.not116.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
+  br i1 %.not116.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split.us179:                               ; preds = %.lr.ph, %.thread217
   %.085172.us180 = phi i1 [ %.186.us187221, %.thread217 ], [ false, %.lr.ph ]
@@ -1788,7 +1788,7 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   %.192.us189 = phi i1 [ %.091170.us182.mux, %59 ], [ true, %63 ], [ true, %60 ], [ %.091170.us182, %51 ], [ %.091170.us182, %.fold.split.us185 ], [ %.091170.us182, %.lr.ph.split.us179 ]
   %65 = add nuw nsw i32 %.095168.us184, 1
   %exitcond.not = icmp eq i32 %65, %24
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us179, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us179, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %77
   %.085172 = phi i1 [ %.186, %77 ], [ false, %.lr.ph ]
@@ -1824,7 +1824,7 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
 77:                                               ; preds = %71, %69
   %78 = add nuw nsw i32 %.095168, 1
   %exitcond204.not = icmp eq i32 %78, %24
-  br i1 %exitcond204.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !14
+  br i1 %exitcond204.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge.thread:                               ; preds = %77, %23
   %.088.lcssa.ph = phi i1 [ false, %23 ], [ %.189, %77 ]
@@ -1878,7 +1878,7 @@ subj_alt_hostcheck.exit.us:                       ; preds = %30, %.lr.ph.split.u
   %.081 = phi i32 [ %92, %.preheader ], [ -1, %.thread143 ]
   %92 = call i32 @X509_NAME_get_index_by_NID(ptr noundef nonnull %91, i32 noundef 13, i32 noundef %.081) #13
   %93 = icmp sgt i32 %92, -1
-  br i1 %93, label %.preheader, label %94, !llvm.loop !15
+  br i1 %93, label %.preheader, label %94, !llvm.loop !13
 
 94:                                               ; preds = %.preheader
   %95 = icmp sgt i32 %.081, -1
@@ -2266,7 +2266,7 @@ load_cacert_from_memory.exit.thread121.i:         ; preds = %105
   %125 = add nuw nsw i32 %.02335.i.i, 1
   %126 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %106) #13
   %127 = icmp slt i32 %125, %126
-  br i1 %127, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !16
+  br i1 %127, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !14
 
 ._crit_edge.loopexit.i.i:                         ; preds = %123
   %128 = icmp sgt i32 %124, 0
@@ -2532,7 +2532,7 @@ define internal void @ossl_cleanup() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_version(ptr noundef %0, i64 noundef %1) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @ossl_version(ptr noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @OpenSSL_version(i32 noundef 6) #13
   %4 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef %3) #13
   %5 = sext i32 %4 to i64
@@ -2542,7 +2542,7 @@ define internal i64 @ossl_version(ptr noundef %0, i64 noundef %1) #0 {
 declare i32 @Curl_none_check_cxn(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossl_shutdown(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @ossl_shutdown(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [256 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -2680,7 +2680,7 @@ ossl_strerror.exit:                               ; preds = %53, %switch.lookup,
 65:                                               ; preds = %29, %32
   %66 = add nsw i32 %20, -1
   %.not49 = icmp eq i32 %20, 0
-  br i1 %.not49, label %.critedge, label %19, !llvm.loop !17
+  br i1 %.not49, label %.critedge, label %19, !llvm.loop !15
 
 .critedge:                                        ; preds = %24, %24, %65, %36, %33, %62, %61, %ossl_strerror.exit
   %.0.lcssa = phi i32 [ 0, %36 ], [ 0, %33 ], [ -1, %62 ], [ 0, %61 ], [ 0, %ossl_strerror.exit ], [ 0, %65 ], [ 0, %24 ], [ 0, %24 ]
@@ -2757,7 +2757,7 @@ define internal noundef zeroext i1 @ossl_data_pending(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossl_random(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i32 0, 3) i32 @ossl_random(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %4
 
@@ -3079,7 +3079,7 @@ define internal void @ossl_session_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossl_set_engine(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 67) i32 @ossl_set_engine(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [256 x i8], align 16
   %4 = tail call ptr @ENGINE_by_id(ptr noundef %1) #13
   %.not = icmp eq ptr %4, null
@@ -3160,7 +3160,7 @@ ossl_strerror.exit:                               ; preds = %27, %29, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossl_set_engine_default(ptr noundef %0) #0 {
+define internal range(i32 0, 55) i32 @ossl_set_engine_default(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3600
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3216,7 +3216,7 @@ define internal ptr @ossl_engines_list(ptr nocapture readnone %0) #0 {
 6:                                                ; preds = %.lr.ph
   %7 = tail call ptr @ENGINE_get_next(ptr noundef nonnull %.016) #13
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %6, %1, %5
   %.09 = phi ptr [ null, %5 ], [ null, %1 ], [ %4, %6 ]
@@ -3226,7 +3226,7 @@ define internal ptr @ossl_engines_list(ptr nocapture readnone %0) #0 {
 declare zeroext i1 @Curl_none_false_start() #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossl_sha256sum(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 %3) #0 {
+define internal range(i32 0, 28) i32 @ossl_sha256sum(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = tail call ptr @EVP_MD_CTX_new() #13
@@ -3275,7 +3275,7 @@ define internal void @ossl_free_multi_ssl_backend_data(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_recv(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @ossl_recv(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = alloca [256 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -3369,7 +3369,7 @@ define internal i64 @ossl_recv(ptr nocapture noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_send(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i64 -1, 2147483648) i64 @ossl_send(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = alloca [256 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -4223,7 +4223,7 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %132
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds i8, ptr %49, i64 168
   %173 = load ptr, ptr %172, align 8
-  %174 = call fastcc i32 @cert_stuff(ptr noundef nonnull %1, ptr noundef %165, ptr noundef %53, ptr noundef %55, ptr noundef %57, ptr noundef %167, ptr noundef %169, ptr noundef %171, ptr noundef %173), !range !10
+  %174 = call fastcc i32 @cert_stuff(ptr noundef nonnull %1, ptr noundef %165, ptr noundef %53, ptr noundef %55, ptr noundef %57, ptr noundef %167, ptr noundef %169, ptr noundef %171, ptr noundef %173)
   %.not196.not.i = icmp eq i32 %174, 0
   br i1 %.not196.not.i, label %ossl_connect_step1.exit.thread, label %175
 
@@ -4803,7 +4803,7 @@ ossl_connect_step2.exit:                          ; preds = %414
   br i1 %switch64, label %ossl_connect_step3.exit.thread, label %.backedge
 
 .backedge:                                        ; preds = %424, %423
-  br label %294, !llvm.loop !19
+  br label %294, !llvm.loop !17
 
 426:                                              ; preds = %294
   %427 = load ptr, ptr %32, align 8
@@ -4938,7 +4938,7 @@ servercert.exit.thread12.i:                       ; preds = %473
   %..i.i.i = call i64 @llvm.umin.i64(i64 %491, i64 2047)
   %492 = getelementptr inbounds i8, ptr %490, i64 8
   %493 = load ptr, ptr %492, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %21, ptr align 1 %493, i64 %..i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %21, ptr align 1 %493, i64 %..i.i.i, i1 false)
   %494 = getelementptr inbounds i8, ptr %21, i64 %..i.i.i
   store i8 0, ptr %494, align 1
   %495 = call i32 @BIO_free(ptr noundef nonnull %486) #13
@@ -5005,7 +5005,7 @@ servercert.exit.thread12.i:                       ; preds = %473
 529:                                              ; preds = %523
   %530 = getelementptr inbounds i8, ptr %434, i64 8
   %531 = load ptr, ptr %472, align 8
-  %532 = call i32 @Curl_ossl_verifyhost(ptr noundef nonnull %1, ptr noundef %433, ptr noundef nonnull %530, ptr noundef %531), !range !20
+  %532 = call i32 @Curl_ossl_verifyhost(ptr noundef nonnull %1, ptr noundef %433, ptr noundef nonnull %530, ptr noundef %531)
   %.not185.i.i = icmp eq i32 %532, 0
   br i1 %.not185.i.i, label %535, label %533
 
@@ -5036,7 +5036,7 @@ x509_name_oneline.exit211.i.i:                    ; preds = %535
   %..i208.i.i = call i64 @llvm.umin.i64(i64 %543, i64 2047)
   %544 = getelementptr inbounds i8, ptr %542, i64 8
   %545 = load ptr, ptr %544, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %21, ptr align 1 %545, i64 %..i208.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %21, ptr align 1 %545, i64 %..i208.i.i, i1 false)
   %546 = getelementptr inbounds i8, ptr %21, i64 %..i208.i.i
   store i8 0, ptr %546, align 1
   %547 = call i32 @BIO_free(ptr noundef nonnull %539) #13
@@ -5331,7 +5331,7 @@ ossl_strerror.exit216.i.i:                        ; preds = %582, %579, %577
 673:                                              ; preds = %669, %.lr.ph.split.i.i.i
   %674 = add nuw nsw i32 %.02429.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %674, %655
-  br i1 %exitcond.not.i.i.i, label %infof_certstack.exit.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !21
+  br i1 %exitcond.not.i.i.i, label %infof_certstack.exit.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !18
 
 infof_certstack.exit.i.i:                         ; preds = %673, %654
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13)
@@ -5443,7 +5443,7 @@ infof_certstack.exit.i.i:                         ; preds = %673, %654
   %716 = add nuw nsw i32 %.019.i.i.i, 1
   %717 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %701) #13
   %718 = icmp slt i32 %716, %717
-  br i1 %718, label %.lr.ph.i220.i.i, label %.thread.i.i.i, !llvm.loop !22
+  br i1 %718, label %.lr.ph.i220.i.i, label %.thread.i.i.i, !llvm.loop !19
 
 .thread.i.i.i:                                    ; preds = %715, %.preheader.i.i.i
   call void @X509_free(ptr noundef nonnull %711) #13
@@ -5957,7 +5957,7 @@ define internal void @ossl_keylog_callback(ptr nocapture readnone %0, ptr nounde
 declare void @SSL_CTX_sess_set_new_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossl_new_session_cb(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @ossl_new_session_cb(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8
   %5 = tail call ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef 0) #13
@@ -6246,7 +6246,7 @@ define internal i32 @ossl_bio_cf_in_read(ptr noundef %0, ptr noundef %1, i32 nou
 declare i32 @BIO_meth_set_ctrl(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_bio_cf_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @ossl_bio_cf_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call ptr @BIO_get_data(ptr noundef %0) #13
   switch i32 %1, label %20 [
     i32 8, label %6
@@ -6301,7 +6301,7 @@ define internal noundef i32 @ossl_bio_cf_create(ptr noundef %0) #0 {
 declare i32 @BIO_meth_set_destroy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ossl_bio_cf_destroy(ptr noundef readnone %0) #5 {
+define internal range(i32 0, 2) i32 @ossl_bio_cf_destroy(ptr noundef readnone %0) #5 {
   %.not = icmp ne ptr %0, null
   %. = zext i1 %.not to i32
   ret i32 %.
@@ -6484,9 +6484,9 @@ attributes #15 = { nounwind willreturn memory(none) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i32 0, i32 67}
+!12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
@@ -6494,6 +6494,3 @@ attributes #15 = { nounwind willreturn memory(none) }
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = !{i32 0, i32 61}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}

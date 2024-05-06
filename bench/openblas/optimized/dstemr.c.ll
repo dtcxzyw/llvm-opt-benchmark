@@ -791,7 +791,7 @@ thread-pre-split19:                               ; preds = %322
   br i1 %467, label %459, label %.loopexit28
 
 468:                                              ; preds = %459
-  %469 = trunc i64 %460 to i32
+  %469 = trunc nuw nsw i64 %460 to i32
   br label %.loopexit28
 
 .loopexit28:                                      ; preds = %465, %468

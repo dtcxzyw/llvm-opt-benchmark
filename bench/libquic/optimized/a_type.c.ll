@@ -58,7 +58,7 @@ if.end7:                                          ; preds = %if.else, %if.then4
 declare void @ASN1_primitive_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_TYPE_set1(ptr noundef %a, i32 noundef %type, ptr noundef %value) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ASN1_TYPE_set1(ptr noundef %a, i32 noundef %type, ptr noundef %value) local_unnamed_addr #1 {
 entry:
   %a.addr.i21 = alloca ptr, align 8
   %a.addr.i12 = alloca ptr, align 8

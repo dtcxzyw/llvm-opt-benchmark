@@ -1003,7 +1003,7 @@ if.else306:                                       ; preds = %if.else299
   br i1 %cmp307, label %if.end319, label %if.else310
 
 if.else310:                                       ; preds = %if.else306
-  %64 = tail call i32 @llvm.ctlz.i32(i32 %conv, i1 true), !range !11
+  %64 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %conv, i1 true)
   %xor = shl nuw nsw i32 %64, 1
   %shl311 = xor i32 %xor, 62
   %conv312 = zext nneg i32 %shl311 to i64
@@ -1186,7 +1186,7 @@ if.then31:                                        ; preds = %if.then28
   %add43 = sub i32 0, %shl38
   %or44 = or i32 %shl38, %add43
   %and45 = and i32 %shl35, %or44
-  %5 = tail call i32 @llvm.cttz.i32(i32 %and45, i1 true), !range !12
+  %5 = tail call range(i32 2, 33) i32 @llvm.cttz.i32(i32 %and45, i1 true)
   %conv46 = zext nneg i32 %5 to i64
   %smallbins47 = getelementptr inbounds i8, ptr %msp, i64 56
   %shl48 = shl nuw nsw i64 %conv46, 1
@@ -1289,7 +1289,7 @@ if.else115:                                       ; preds = %if.then28
   br i1 %cmp116.not, label %if.end143, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else115
-  %14 = tail call i32 @llvm.cttz.i32(i32 %13, i1 true), !range !13
+  %14 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %13, i1 true)
   %conv.i = zext nneg i32 %14 to i64
   %treebins.i = getelementptr inbounds i8, ptr %msp, i64 584
   %arrayidx.i = getelementptr inbounds [32 x ptr], ptr %treebins.i, i64 0, i64 %conv.i
@@ -1324,7 +1324,7 @@ while.body.i:                                     ; preds = %cond.end.i, %while.
   %cmp12.i = icmp ult i64 %sub11.i, %rsize.0.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sub11.i, i64 %rsize.0.i)
   %spec.select85.i = select i1 %cmp12.i, ptr %cond89.i, ptr %v.0.i
-  br label %while.cond.i, !llvm.loop !14
+  br label %while.cond.i, !llvm.loop !11
 
 while.end.i:                                      ; preds = %cond.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %v.0.i, i64 %cond
@@ -1378,7 +1378,7 @@ lor.rhs.i:                                        ; preds = %while.cond29.i
 while.cond29.i.backedge:                          ; preds = %lor.rhs.i, %while.cond29.i
   %RP.1.i.be = phi ptr [ %arrayidx31.i, %while.cond29.i ], [ %child30.i, %lor.rhs.i ]
   %R.1.i.be = phi ptr [ %25, %while.cond29.i ], [ %26, %lor.rhs.i ]
-  br label %while.cond29.i, !llvm.loop !15
+  br label %while.cond29.i, !llvm.loop !12
 
 while.end39.i:                                    ; preds = %lor.rhs.i
   store ptr null, ptr %RP.1.i, align 8
@@ -1549,7 +1549,7 @@ if.else.i122:                                     ; preds = %land.lhs.true136
   br i1 %cmp2.i, label %if.end10.i, label %if.else5.i
 
 if.else5.i:                                       ; preds = %if.else.i122
-  %40 = tail call i32 @llvm.ctlz.i32(i32 %conv.i121, i1 true), !range !11
+  %40 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %conv.i121, i1 true)
   %xor.i = shl nuw nsw i32 %40, 1
   %shl.i123 = xor i32 %xor.i, 62
   %conv6.i = zext nneg i32 %shl.i123 to i64
@@ -1629,7 +1629,7 @@ if.then52.i:                                      ; preds = %if.end46.i
   br i1 %cmp62.not.i, label %if.end143, label %if.then64.i
 
 if.then64.i:                                      ; preds = %if.then52.i
-  %45 = tail call i32 @llvm.cttz.i32(i32 %and61.i, i1 true), !range !16
+  %45 = tail call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %and61.i, i1 true)
   %idxprom.i = zext nneg i32 %45 to i64
   %arrayidx66.i = getelementptr inbounds [32 x ptr], ptr %treebins.i126, i64 0, i64 %idxprom.i
   %46 = load ptr, ptr %arrayidx66.i, align 8
@@ -1671,7 +1671,7 @@ cond.false86.i:                                   ; preds = %while.body.i134
 cond.end89.i:                                     ; preds = %cond.false86.i, %while.body.i134
   %cond90.i = phi ptr [ %49, %cond.false86.i ], [ %48, %while.body.i134 ]
   %cmp69.not.i = icmp eq ptr %cond90.i, null
-  br i1 %cmp69.not.i, label %while.end.i137, label %while.body.i134, !llvm.loop !17
+  br i1 %cmp69.not.i, label %while.end.i137, label %while.body.i134, !llvm.loop !13
 
 while.end.i137:                                   ; preds = %cond.end89.i, %if.end68.i
   %rsize.3.lcssa.i = phi i64 [ %rsize.2.i, %if.end68.i ], [ %spec.select.i135, %cond.end89.i ]
@@ -1738,7 +1738,7 @@ lor.rhs.i153:                                     ; preds = %while.cond114.i
 while.cond114.i.backedge:                         ; preds = %lor.rhs.i153, %while.cond114.i
   %RP.1.i150.be = phi ptr [ %arrayidx116.i, %while.cond114.i ], [ %child115.i, %lor.rhs.i153 ]
   %R.1.i151.be = phi ptr [ %56, %while.cond114.i ], [ %57, %lor.rhs.i153 ]
-  br label %while.cond114.i, !llvm.loop !18
+  br label %while.cond114.i, !llvm.loop !14
 
 while.end124.i:                                   ; preds = %lor.rhs.i153
   store ptr null, ptr %RP.1.i150, align 8
@@ -1883,7 +1883,7 @@ if.else232.i:                                     ; preds = %if.else223.i
   br i1 %cmp233.i, label %if.end247.i, label %if.else236.i
 
 if.else236.i:                                     ; preds = %if.else232.i
-  %68 = tail call i32 @llvm.ctlz.i32(i32 %conv228.i, i1 true), !range !11
+  %68 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %conv228.i, i1 true)
   %xor238.i = shl nuw nsw i32 %68, 1
   %shl239.i = xor i32 %xor238.i, 62
   %conv240.i = zext nneg i32 %shl239.i to i64
@@ -2121,7 +2121,7 @@ while.body.i162:                                  ; preds = %land.rhs.i
   %next.i = getelementptr inbounds i8, ptr %sp.0105.i, i64 16
   %86 = load ptr, ptr %next.i, align 8
   %cmp26.not.i163 = icmp eq ptr %86, null
-  br i1 %cmp26.not.i163, label %if.else.i164, label %land.rhs.i, !llvm.loop !19
+  br i1 %cmp26.not.i163, label %if.else.i164, label %land.rhs.i, !llvm.loop !15
 
 land.lhs.true.i:                                  ; preds = %land.rhs.i
   %top.i = getelementptr inbounds i8, ptr %msp, i64 32
@@ -2170,7 +2170,7 @@ while.body57.i:                                   ; preds = %land.rhs51.i
   %next58.i = getelementptr inbounds i8, ptr %sp.1106.i, i64 16
   %92 = load ptr, ptr %next58.i, align 8
   %cmp49.not.i = icmp eq ptr %92, null
-  br i1 %cmp49.not.i, label %if.else68.i, label %land.rhs51.i, !llvm.loop !20
+  br i1 %cmp49.not.i, label %if.else68.i, label %land.rhs51.i, !llvm.loop !16
 
 if.then62.i:                                      ; preds = %land.rhs51.i
   store ptr %call17.i, ptr %sp.1106.i, align 8
@@ -2315,7 +2315,7 @@ lor.rhs.i.i:                                      ; preds = %while.cond.i.i
 while.cond.i.i.backedge:                          ; preds = %lor.rhs.i.i, %while.cond.i.i
   %RP.1.i.i.be = phi ptr [ %arrayidx62.i.i, %while.cond.i.i ], [ %child61.i.i, %lor.rhs.i.i ]
   %R.1.i.i.be = phi ptr [ %109, %while.cond.i.i ], [ %110, %lor.rhs.i.i ]
-  br label %while.cond.i.i, !llvm.loop !21
+  br label %while.cond.i.i, !llvm.loop !17
 
 while.end.i.i:                                    ; preds = %lor.rhs.i.i
   store ptr null, ptr %RP.1.i.i, align 8
@@ -2456,7 +2456,7 @@ if.else159.i.i:                                   ; preds = %if.else151.i.i
   br i1 %cmp160.i.i, label %if.end172.i.i, label %if.else163.i.i
 
 if.else163.i.i:                                   ; preds = %if.else159.i.i
-  %121 = tail call i32 @llvm.ctlz.i32(i32 %conv.i.i, i1 true), !range !11
+  %121 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %conv.i.i, i1 true)
   %xor.i.i = shl nuw nsw i32 %121, 1
   %shl164.i.i = xor i32 %xor.i.i, 62
   %conv165.i.i = zext nneg i32 %shl164.i.i to i64
@@ -2579,7 +2579,7 @@ land.lhs.true.i.i.i:                              ; preds = %for.cond.i.i.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i.i, %for.cond.i.i.i
   %next.i.i.i = getelementptr inbounds i8, ptr %sp.0.i.i.i, i64 16
-  %131 = load ptr, ptr %next.i.i.i, align 8, !nonnull !22, !noundef !22
+  %131 = load ptr, ptr %next.i.i.i, align 8, !nonnull !18, !noundef !18
   br label %for.cond.i.i.i
 
 segment_holding.exit.i.i:                         ; preds = %land.lhs.true.i.i.i
@@ -2690,7 +2690,7 @@ if.else56.i.i:                                    ; preds = %if.else50.i.i
   br i1 %cmp57.i.i, label %if.end69.i.i, label %if.else60.i.i
 
 if.else60.i.i:                                    ; preds = %if.else56.i.i
-  %137 = tail call i32 @llvm.ctlz.i32(i32 %conv.i76.i, i1 true), !range !11
+  %137 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %conv.i76.i, i1 true)
   %xor.i77.i = shl nuw nsw i32 %137, 1
   %shl61.i.i = xor i32 %xor.i77.i, 62
   %conv62.i.i = zext nneg i32 %shl61.i.i to i64
@@ -2926,7 +2926,7 @@ while.cond31:                                     ; preds = %while.cond31.backed
 while.cond31.backedge:                            ; preds = %while.cond31, %lor.rhs
   %RP.1.be = phi ptr [ %arrayidx33, %while.cond31 ], [ %child32, %lor.rhs ]
   %R.1.be = phi ptr [ %12, %while.cond31 ], [ %13, %lor.rhs ]
-  br label %while.cond31, !llvm.loop !23
+  br label %while.cond31, !llvm.loop !19
 
 lor.rhs:                                          ; preds = %while.cond31
   %child32 = getelementptr inbounds i8, ptr %R.1, i64 32
@@ -3029,7 +3029,7 @@ if.else92:                                        ; preds = %if.else87
   br i1 %cmp93, label %if.end105, label %if.else96
 
 if.else96:                                        ; preds = %if.else92
-  %22 = tail call i32 @llvm.ctlz.i32(i32 %conv, i1 true), !range !11
+  %22 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %conv, i1 true)
   %xor = shl nuw nsw i32 %22, 1
   %shl97 = xor i32 %xor, 62
   %conv98 = zext nneg i32 %shl97 to i64
@@ -3130,7 +3130,7 @@ if.end167:                                        ; preds = %if.then85, %if.else
   %sp.1 = phi ptr [ %sp.0115, %while.body ], [ %pred.0116, %if.then85 ], [ %sp.0115, %if.else151 ], [ %sp.0115, %if.else156 ], [ %sp.0115, %if.then118 ]
   %released.1 = phi i64 [ %released.0118, %while.body ], [ %add, %if.then85 ], [ %released.0118, %if.else151 ], [ %released.0118, %if.else156 ], [ %released.0118, %if.then118 ]
   %cmp.not = icmp eq ptr %3, null
-  br i1 %cmp.not, label %while.end168, label %while.body, !llvm.loop !24
+  br i1 %cmp.not, label %while.end168, label %while.body, !llvm.loop !20
 
 while.end168:                                     ; preds = %if.end167, %entry
   %nsegs.0.lcssa = phi i64 [ 0, %entry ], [ %inc, %if.end167 ]
@@ -3181,17 +3181,13 @@ attributes #10 = { nounwind }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 16, i32 33}
-!12 = !{i32 2, i32 33}
-!13 = !{i32 0, i32 33}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i32 1, i32 33}
+!16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!18 = !{}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = !{}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}

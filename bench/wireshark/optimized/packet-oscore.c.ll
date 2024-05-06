@@ -842,7 +842,7 @@ define internal void @oscore_context_post_update_cb() #0 {
   %104 = getelementptr i8, ptr %4, i64 %103
   %.mask.i = and i32 %93, 255
   %105 = zext nneg i32 %.mask.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %104, ptr nonnull align 1 %91, i64 %105, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %104, ptr nonnull readonly align 1 %91, i64 %105, i1 false)
   %106 = add i8 %.0.i.i, %94
   br label %cborencoder_put_bytes.exit.i
 
@@ -888,7 +888,7 @@ cborencoder_put_bytes.exit.i:                     ; preds = %102, %99
   %128 = getelementptr i8, ptr %114, i64 %127
   %.mask152.i = and i32 %112, 255
   %129 = zext nneg i32 %.mask152.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr nonnull align 1 %116, i64 %129, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %128, ptr nonnull readonly align 1 %116, i64 %129, i1 false)
   %130 = add i8 %.0.i110.i, %117
   br label %cborencoder_put_bytes.exit113.i
 
@@ -926,11 +926,11 @@ cborencoder_put_unsigned.exit.i:                  ; preds = %141, %135
   %145 = getelementptr [85 x i8], ptr %2, i64 0, i64 %144
   store i8 99, ptr %145, align 1
   %146 = getelementptr i8, ptr %145, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %146, ptr noundef nonnull align 1 dereferenceable(3) @.str.158, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %146, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.158, i64 3, i1 false)
   %147 = add nuw nsw i32 %143, 4
   %148 = zext nneg i32 %147 to i64
   %149 = getelementptr [85 x i8], ptr %2, i64 0, i64 %148
-  %150 = trunc i32 %..i.i to i8
+  %150 = trunc nuw nsw i32 %..i.i to i8
   store i8 %150, ptr %149, align 1
   %151 = icmp ult i32 %143, 80
   br i1 %151, label %153, label %152
@@ -984,7 +984,7 @@ cborencoder_put_unsigned.exit.i:                  ; preds = %141, %135
   %181 = getelementptr i8, ptr %4, i64 %180
   %.mask153.i = and i32 %170, 255
   %182 = zext nneg i32 %.mask153.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %181, ptr nonnull align 1 %168, i64 %182, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %181, ptr nonnull readonly align 1 %168, i64 %182, i1 false)
   %183 = add i8 %.0.i121.i, %171
   br label %cborencoder_put_bytes.exit124.i
 
@@ -1029,7 +1029,7 @@ cborencoder_put_bytes.exit124.i:                  ; preds = %179, %176
   %204 = getelementptr i8, ptr %190, i64 %203
   %.mask154.i = and i32 %188, 255
   %205 = zext nneg i32 %.mask154.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %204, ptr nonnull align 1 %192, i64 %205, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %204, ptr nonnull readonly align 1 %192, i64 %205, i1 false)
   %206 = add i8 %.0.i126.i, %193
   br label %cborencoder_put_bytes.exit129.i
 
@@ -1067,7 +1067,7 @@ cborencoder_put_unsigned.exit136.i:               ; preds = %217, %211
   %221 = getelementptr [85 x i8], ptr %2, i64 0, i64 %220
   store i8 99, ptr %221, align 1
   %222 = getelementptr i8, ptr %221, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %222, ptr noundef nonnull align 1 dereferenceable(3) @.str.158, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %222, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.158, i64 3, i1 false)
   %223 = add nuw nsw i32 %219, 4
   %224 = zext nneg i32 %223 to i64
   %225 = getelementptr [85 x i8], ptr %2, i64 0, i64 %224
@@ -1127,7 +1127,7 @@ cborencoder_put_unsigned.exit136.i:               ; preds = %217, %211
   %255 = getelementptr i8, ptr %5, i64 %254
   %.mask155.i = and i32 %242, 255
   %256 = zext nneg i32 %.mask155.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %255, ptr nonnull align 1 %244, i64 %256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %255, ptr nonnull readonly align 1 %244, i64 %256, i1 false)
   %257 = add i8 %.0.i141.i, %245
   br label %cborencoder_put_bytes.exit144.i
 
@@ -1168,7 +1168,7 @@ cborencoder_put_unsigned.exit147.i:               ; preds = %267, %261
   %273 = add nuw nsw i32 %269, 3
   %274 = zext nneg i32 %273 to i64
   %275 = getelementptr [85 x i8], ptr %2, i64 0, i64 %274
-  %276 = trunc i32 %..i108.i to i8
+  %276 = trunc nuw nsw i32 %..i108.i to i8
   store i8 %276, ptr %275, align 1
   %277 = icmp ult i32 %269, 81
   br i1 %277, label %oscore_context_derive_params.exit, label %278
@@ -1548,7 +1548,7 @@ cborencoder_put_unsigned.exit.i:                  ; preds = %155, %148
   %170 = zext nneg i8 %.0.i105.i to i64
   %171 = getelementptr i8, ptr %158, i64 %170
   %172 = zext i8 %160 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %171, ptr nonnull align 1 %159, i64 %172, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %171, ptr nonnull readonly align 1 %159, i64 %172, i1 false)
   %173 = add i8 %.0.i105.i, %160
   br label %cborencoder_put_bytes.exit.i
 
@@ -1586,7 +1586,7 @@ cborencoder_put_bytes.exit.i:                     ; preds = %169, %166
   %190 = zext nneg i8 %.0.i107.i to i64
   %191 = getelementptr i8, ptr %176, i64 %190
   %192 = zext i8 %180 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %191, ptr nonnull align 1 %178, i64 %192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %191, ptr nonnull readonly align 1 %178, i64 %192, i1 false)
   %193 = add i8 %.0.i107.i, %180
   br label %cborencoder_put_bytes.exit110.i
 
@@ -1615,25 +1615,25 @@ cborencoder_put_bytes.exit110.i:                  ; preds = %189, %186
   %204 = getelementptr inbounds i8, ptr %11, i64 11
   %205 = or disjoint i8 %197, 64
   store i8 %205, ptr %204, align 1
-  %.not122.i = icmp eq i8 %197, 0
-  br i1 %.not122.i, label %cborencoder_put_bytes.exit121.i, label %206
+  %.not123.i = icmp eq i8 %197, 0
+  br i1 %.not123.i, label %cborencoder_put_bytes.exit122.i, label %206
 
 206:                                              ; preds = %200
   %207 = getelementptr inbounds i8, ptr %11, i64 12
   %208 = zext nneg i8 %197 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %207, ptr nonnull align 16 %10, i64 %208, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %207, ptr nonnull readonly align 16 %10, i64 %208, i1 false)
   %209 = add nuw nsw i8 %194, 13
   %210 = zext nneg i8 %209 to i32
-  br label %cborencoder_put_bytes.exit121.i
+  br label %cborencoder_put_bytes.exit122.i
 
-cborencoder_put_bytes.exit121.i:                  ; preds = %206, %200
-  %.1.i120.i = phi i32 [ %210, %206 ], [ 12, %200 ]
+cborencoder_put_bytes.exit122.i:                  ; preds = %206, %200
+  %.1.i121.i = phi i32 [ %210, %206 ], [ 12, %200 ]
   call void @ccm_init_block(ptr noundef nonnull %7, i32 noundef 1, i32 noundef %..i.i, i64 noundef 0, i32 noundef 0, i8 noundef zeroext 0, i32 noundef %.087.i, ptr noundef nonnull %6) #9
-  %211 = call i32 @ccm_cbc_mac(ptr noundef %.088.i, ptr noundef nonnull %7, ptr noundef nonnull %11, i32 noundef %.1.i120.i, ptr noundef %140, i32 noundef %.087.i, ptr noundef nonnull %9) #9
+  %211 = call i32 @ccm_cbc_mac(ptr noundef %.088.i, ptr noundef nonnull %7, ptr noundef nonnull %11, i32 noundef %.1.i121.i, ptr noundef %140, i32 noundef %.087.i, ptr noundef nonnull %9) #9
   %.not99.i = icmp eq i32 %211, 0
   br i1 %.not99.i, label %oscore_decrypt_and_verify.exit.thread76, label %214
 
-oscore_decrypt_and_verify.exit.thread76:          ; preds = %cborencoder_put_bytes.exit121.i
+oscore_decrypt_and_verify.exit.thread76:          ; preds = %cborencoder_put_bytes.exit122.i
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -1644,7 +1644,7 @@ oscore_decrypt_and_verify.exit.thread76:          ; preds = %cborencoder_put_byt
   %213 = call i32 @tvb_reported_length(ptr noundef %0) #9
   br label %248
 
-214:                                              ; preds = %cborencoder_put_bytes.exit121.i
+214:                                              ; preds = %cborencoder_put_bytes.exit122.i
   %215 = zext nneg i32 %..i.i to i64
   %bcmp.i62 = call i32 @bcmp(ptr nonnull %9, ptr nonnull %8, i64 %215)
   %.not100.i = icmp ne i32 %bcmp.i62, 0

@@ -24,7 +24,7 @@ $_ZNK13ObjDefManager14getObjectTitleEv = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTV13ObjDefManager = dso_local unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTI13ObjDefManager, ptr @_ZN13ObjDefManagerD2Ev, ptr @_ZN13ObjDefManagerD0Ev, ptr @_ZNK13ObjDefManager14getObjectTitleEv, ptr @_ZN13ObjDefManager5clearEv, ptr @_ZNK13ObjDefManager9getByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN13ObjDefManager3addEP6ObjDef, ptr @_ZNK13ObjDefManager3getEj, ptr @_ZN13ObjDefManager3setEjP6ObjDef, ptr @_ZN13ObjDefManager6addRawEP6ObjDef, ptr @_ZNK13ObjDefManager6getRawEj, ptr @_ZN13ObjDefManager6setRawEjP6ObjDef] }, align 8
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str = private unnamed_addr constant [22 x i8] c"ObjDefManager: added \00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c": name=\22\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"\22 index=\00", align 1
@@ -347,7 +347,7 @@ cond.end:                                         ; preds = %cond.true, %land.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK13ObjDefManager14validateHandleEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, i32 noundef %handle) local_unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 -1, 262144) i32 @_ZNK13ObjDefManager14validateHandleEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, i32 noundef %handle) local_unnamed_addr #7 align 2 {
 entry:
   %cmp.not = icmp eq i32 %handle, 0
   br i1 %cmp.not, label %land.end.thread, label %land.lhs.true
@@ -481,7 +481,7 @@ cleanup:                                          ; preds = %if.end, %land.end.i
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef i32 @_ZN13ObjDefManager6addRawEP6ObjDef(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %obj) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -1, 262144) i32 @_ZN13ObjDefManager6addRawEP6ObjDef(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %obj) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_objects = getelementptr inbounds i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -495,7 +495,7 @@ entry:
   br i1 %cmp, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %sub.ptr.div.i to i32
+  %conv = trunc nuw nsw i64 %sub.ptr.div.i to i32
   %index = getelementptr inbounds i8, ptr %obj, i64 8
   store i32 %conv, ptr %index, align 8, !tbaa !31
   %call2 = tail call noundef i32 @_Z6myrandv()

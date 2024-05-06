@@ -186,7 +186,7 @@ define void @dtptri_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 99:                                               ; preds = %97
   %100 = add nuw nsw i32 %66, 1
-  %101 = mul nsw i32 %100, %66
+  %101 = mul nuw nsw i32 %100, %66
   %102 = lshr i32 %101, 1
   br label %103
 

@@ -12,9 +12,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
 define hidden noundef i32 @_sodium_blake2b_init_param(ptr nocapture noundef %S, ptr nocapture noundef readonly %P) local_unnamed_addr #0 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
   %t.i = getelementptr inbounds i8, ptr %S, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(297) %t.i, i8 0, i64 297, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(297) %t.i, i8 0, i64 297, i1 false)
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -56,9 +56,9 @@ if.end:                                           ; preds = %entry
   store i8 1, ptr %depth, align 1
   %leaf_length = getelementptr inbounds i8, ptr %P, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %leaf_length, i8 0, i64 60, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
   %t.i.i = getelementptr inbounds i8, ptr %S, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end
@@ -111,7 +111,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp13.not, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %if.end
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %salt18, ptr noundef nonnull align 1 dereferenceable(16) %salt, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %salt18, ptr noundef nonnull readonly align 1 dereferenceable(16) %salt, i64 16, i1 false)
   br label %if.end20
 
 if.else:                                          ; preds = %if.end
@@ -124,7 +124,7 @@ if.end20:                                         ; preds = %if.else, %if.then15
   br i1 %cmp21.not, label %if.else26, label %if.then23
 
 if.then23:                                        ; preds = %if.end20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %personal28, ptr noundef nonnull align 1 dereferenceable(16) %personal, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %personal28, ptr noundef nonnull readonly align 1 dereferenceable(16) %personal, i64 16, i1 false)
   br label %if.end30
 
 if.else26:                                        ; preds = %if.end20
@@ -132,9 +132,9 @@ if.else26:                                        ; preds = %if.end20
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else26, %if.then23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
   %t.i.i = getelementptr inbounds i8, ptr %S, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end30
@@ -188,9 +188,9 @@ if.end10:                                         ; preds = %if.end
   store i8 1, ptr %depth, align 1
   %leaf_length = getelementptr inbounds i8, ptr %P, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %leaf_length, i8 0, i64 60, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
   %t.i.i = getelementptr inbounds i8, ptr %S, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end10
@@ -250,7 +250,7 @@ if.end.i:                                         ; preds = %while.body.i
   %conv6.i.i = trunc i128 %add.i.i to i64
   store i64 %conv6.i.i, ptr %t.i.i, align 1
   %shr9.i.i = lshr i128 %add.i.i, 64
-  %conv10.i.i = trunc i128 %shr9.i.i to i64
+  %conv10.i.i = trunc nuw i128 %shr9.i.i to i64
   store i64 %conv10.i.i, ptr %arrayidx.i.i, align 1
   %11 = load ptr, ptr @blake2b_compress, align 8
   %call5.i = tail call i32 %11(ptr noundef nonnull %S, ptr noundef nonnull %buf15.i) #8, !callees !7
@@ -317,7 +317,7 @@ if.end:                                           ; preds = %while.body
   %conv6.i = trunc i128 %add.i to i64
   store i64 %conv6.i, ptr %t1.i, align 1
   %shr9.i = lshr i128 %add.i, 64
-  %conv10.i = trunc i128 %shr9.i to i64
+  %conv10.i = trunc nuw i128 %shr9.i to i64
   store i64 %conv10.i, ptr %arrayidx.i, align 1
   %5 = load ptr, ptr @blake2b_compress, align 8
   %call5 = tail call i32 %5(ptr noundef nonnull %S, ptr noundef nonnull %buf15) #8, !callees !7
@@ -375,7 +375,7 @@ if.end10:                                         ; preds = %if.end
   br i1 %cmp22.not, label %if.else, label %if.then24
 
 if.then24:                                        ; preds = %if.end10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %salt27, ptr noundef nonnull align 1 dereferenceable(16) %salt, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %salt27, ptr noundef nonnull readonly align 1 dereferenceable(16) %salt, i64 16, i1 false)
   br label %if.end29
 
 if.else:                                          ; preds = %if.end10
@@ -388,7 +388,7 @@ if.end29:                                         ; preds = %if.else, %if.then24
   br i1 %cmp30.not, label %if.else35, label %if.then32
 
 if.then32:                                        ; preds = %if.end29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %personal37, ptr noundef nonnull align 1 dereferenceable(16) %personal, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %personal37, ptr noundef nonnull readonly align 1 dereferenceable(16) %personal, i64 16, i1 false)
   br label %if.end39
 
 if.else35:                                        ; preds = %if.end29
@@ -396,9 +396,9 @@ if.else35:                                        ; preds = %if.end29
   br label %if.end39
 
 if.end39:                                         ; preds = %if.else35, %if.then32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
   %t.i.i = getelementptr inbounds i8, ptr %S, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(297) %t.i.i, i8 0, i64 297, i1 false)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end39
@@ -458,7 +458,7 @@ if.end.i:                                         ; preds = %while.body.i
   %conv6.i.i = trunc i128 %add.i.i to i64
   store i64 %conv6.i.i, ptr %t.i.i, align 1
   %shr9.i.i = lshr i128 %add.i.i, 64
-  %conv10.i.i = trunc i128 %shr9.i.i to i64
+  %conv10.i.i = trunc nuw i128 %shr9.i.i to i64
   store i64 %conv10.i.i, ptr %arrayidx.i.i, align 1
   %11 = load ptr, ptr @blake2b_compress, align 8
   %call5.i = tail call i32 %11(ptr noundef nonnull %S, ptr noundef nonnull %buf15.i) #8, !callees !7
@@ -477,7 +477,7 @@ _sodium_blake2b_update.exit:                      ; preds = %if.end.i, %if.end.t
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_blake2b_final(ptr noundef %S, ptr nocapture noundef writeonly %out, i8 noundef zeroext %outlen) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @_sodium_blake2b_final(ptr noundef %S, ptr nocapture noundef writeonly %out, i8 noundef zeroext %outlen) local_unnamed_addr #1 {
 entry:
   %buffer = alloca [64 x i8], align 16
   %0 = add i8 %outlen, -65
@@ -513,7 +513,7 @@ if.then7:                                         ; preds = %if.end4
   %conv6.i = trunc i128 %add.i to i64
   store i64 %conv6.i, ptr %t1.i, align 1
   %shr9.i = lshr i128 %add.i, 64
-  %conv10.i = trunc i128 %shr9.i to i64
+  %conv10.i = trunc nuw i128 %shr9.i to i64
   store i64 %conv10.i, ptr %arrayidx.i, align 1
   %5 = load ptr, ptr @blake2b_compress, align 8
   %buf = getelementptr inbounds i8, ptr %S, i64 96
@@ -541,7 +541,7 @@ if.end16:                                         ; preds = %if.then7, %if.end4
   %conv6.i37 = trunc i128 %add.i36 to i64
   store i64 %conv6.i37, ptr %t1.i30, align 1
   %shr9.i38 = lshr i128 %add.i36, 64
-  %conv10.i39 = trunc i128 %shr9.i38 to i64
+  %conv10.i39 = trunc nuw i128 %shr9.i38 to i64
   store i64 %conv10.i39, ptr %arrayidx.i31, align 1
   %last_node.i = getelementptr inbounds i8, ptr %S, i64 360
   %10 = load i8, ptr %last_node.i, align 1
@@ -653,9 +653,9 @@ if.end.i:                                         ; preds = %if.end21
   store i8 1, ptr %depth.i, align 1
   %leaf_length.i = getelementptr inbounds i8, ptr %P.i, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %leaf_length.i, i8 0, i64 60, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 64 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
   %t.i.i.i = getelementptr inbounds i8, ptr %S, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(297) %t.i.i.i, i8 0, i64 297, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 64 dereferenceable(297) %t.i.i.i, i8 0, i64 297, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i
@@ -719,7 +719,7 @@ if.end.i15:                                       ; preds = %while.body.i
   %conv6.i.i = trunc i128 %add.i.i to i64
   store i64 %conv6.i.i, ptr %t1.i.i, align 64
   %shr9.i.i = lshr i128 %add.i.i, 64
-  %conv10.i.i = trunc i128 %shr9.i.i to i64
+  %conv10.i.i = trunc nuw i128 %shr9.i.i to i64
   store i64 %conv10.i.i, ptr %arrayidx.i.i14, align 8
   %7 = load ptr, ptr @blake2b_compress, align 8
   %call5.i = call i32 %7(ptr noundef nonnull %S, ptr noundef nonnull %buf15.i) #8, !callees !7
@@ -733,7 +733,7 @@ if.end.i15:                                       ; preds = %while.body.i
   br i1 %cmp.not.i, label %_sodium_blake2b_update.exit, label %while.body.i, !llvm.loop !8
 
 _sodium_blake2b_update.exit:                      ; preds = %if.end.i15, %if.end36, %if.end.thread.i
-  %call40 = call i32 @_sodium_blake2b_final(ptr noundef nonnull %S, ptr noundef nonnull %out, i8 noundef zeroext %outlen), !range !9
+  %call40 = call i32 @_sodium_blake2b_final(ptr noundef nonnull %S, ptr noundef nonnull %out, i8 noundef zeroext %outlen)
   ret i32 0
 }
 
@@ -809,7 +809,7 @@ if.end.i:                                         ; preds = %if.end21
   br i1 %cmp13.not.i, label %if.else.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %salt18.i, ptr noundef nonnull align 1 dereferenceable(16) %salt, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %salt18.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %salt, i64 16, i1 false)
   br label %if.end20.i
 
 if.else.i:                                        ; preds = %if.end.i
@@ -822,7 +822,7 @@ if.end20.i:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp21.not.i, label %if.else26.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end20.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %personal28.i, ptr noundef nonnull align 1 dereferenceable(16) %personal, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %personal28.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %personal, i64 16, i1 false)
   br label %if.end30.i
 
 if.else26.i:                                      ; preds = %if.end20.i
@@ -830,9 +830,9 @@ if.else26.i:                                      ; preds = %if.end20.i
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.else26.i, %if.then23.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 64 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
   %t.i.i.i = getelementptr inbounds i8, ptr %S, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(297) %t.i.i.i, i8 0, i64 297, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 64 dereferenceable(297) %t.i.i.i, i8 0, i64 297, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end30.i
@@ -896,7 +896,7 @@ if.end.i17:                                       ; preds = %while.body.i
   %conv6.i.i = trunc i128 %add.i.i to i64
   store i64 %conv6.i.i, ptr %t1.i.i, align 64
   %shr9.i.i = lshr i128 %add.i.i, 64
-  %conv10.i.i = trunc i128 %shr9.i.i to i64
+  %conv10.i.i = trunc nuw i128 %shr9.i.i to i64
   store i64 %conv10.i.i, ptr %arrayidx.i.i16, align 8
   %7 = load ptr, ptr @blake2b_compress, align 8
   %call5.i = call i32 %7(ptr noundef nonnull %S, ptr noundef nonnull %buf15.i) #8, !callees !7
@@ -910,7 +910,7 @@ if.end.i17:                                       ; preds = %while.body.i
   br i1 %cmp.not.i, label %_sodium_blake2b_update.exit, label %while.body.i, !llvm.loop !8
 
 _sodium_blake2b_update.exit:                      ; preds = %if.end.i17, %if.end36, %if.end.thread.i
-  %call40 = call i32 @_sodium_blake2b_final(ptr noundef nonnull %S, ptr noundef nonnull %out, i8 noundef zeroext %outlen), !range !9
+  %call40 = call i32 @_sodium_blake2b_final(ptr noundef nonnull %S, ptr noundef nonnull %out, i8 noundef zeroext %outlen)
   ret i32 0
 }
 
@@ -979,4 +979,3 @@ attributes #8 = { nounwind }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{ptr @_sodium_blake2b_compress_avx2, ptr @_sodium_blake2b_compress_ref, ptr @_sodium_blake2b_compress_sse41, ptr @_sodium_blake2b_compress_ssse3}
 !8 = distinct !{!8, !6}
-!9 = !{i32 -1, i32 1}

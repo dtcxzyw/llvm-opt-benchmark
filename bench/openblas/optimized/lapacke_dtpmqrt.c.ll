@@ -59,7 +59,7 @@ define i32 @LAPACKE_dtpmqrt(i32 noundef %0, i8 noundef signext %1, i8 noundef si
 46:                                               ; preds = %._crit_edge
   %47 = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   %48 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
-  %49 = mul nsw i32 %47, %48
+  %49 = mul nuw nsw i32 %47, %48
   br label %57
 
 50:                                               ; preds = %._crit_edge
@@ -70,7 +70,7 @@ define i32 @LAPACKE_dtpmqrt(i32 noundef %0, i8 noundef signext %1, i8 noundef si
 53:                                               ; preds = %50
   %54 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %55 = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
-  %56 = mul nsw i32 %55, %54
+  %56 = mul nuw nsw i32 %55, %54
   br label %57
 
 57:                                               ; preds = %53, %50, %46

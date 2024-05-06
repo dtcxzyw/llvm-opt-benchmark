@@ -849,7 +849,7 @@ if.else.i.i.i:                                    ; preds = %sw.default.i.i.i
   %arrayidx29.i.i.i = getelementptr i8, ptr %arrayidx23.i.i.i, i64 1
   %match_mode30.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   store i32 2, ptr %match_mode30.i.i.i, align 8
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx29.i.i.i) #18
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %arrayidx29.i.i.i) #18
   %call1.i.i.i.i = call ptr @xmallocz(i64 noundef %call.i.i.i.i) #16
   br label %for.cond.i.i.i.i
 
@@ -1690,7 +1690,7 @@ st_mult.exit:                                     ; preds = %entry
 
 st_mult.exit.i:                                   ; preds = %st_mult.exit
   %1 = load ptr, ptr %items2, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call1, ptr align 1 %1, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %call1, ptr readonly align 1 %1, i64 %mul.i, i1 false)
   br label %copy_array.exit
 
 copy_array.exit:                                  ; preds = %st_mult.exit, %st_mult.exit.i
@@ -1733,7 +1733,7 @@ st_mult.exit30:                                   ; preds = %for.body
 
 st_mult.exit.i35:                                 ; preds = %st_mult.exit30
   %8 = load ptr, ptr %attr_match18, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call17, ptr align 1 %8, i64 %mul.i28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %call17, ptr readonly align 1 %8, i64 %mul.i28, i1 false)
   br label %copy_array.exit38
 
 copy_array.exit38:                                ; preds = %st_mult.exit30, %st_mult.exit.i35

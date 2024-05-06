@@ -311,7 +311,7 @@ Abc_ObjFanin0Ntk.exit193:                         ; preds = %106, %115
   %.val179 = load i32, ptr %126, align 4
   %127 = shl i32 %.val179, 21
   %128 = ashr i32 %127, 31
-  %129 = trunc i32 %128 to i8
+  %129 = trunc nsw i32 %128 to i8
   %130 = add nsw i8 %129, 49
   %131 = getelementptr inbounds i8, ptr %122, i64 64
   %132 = load ptr, ptr %131, align 8
@@ -488,7 +488,7 @@ Abc_ObjFanin0Ntk.exit207:                         ; preds = %186, %195
   br i1 %213, label %Extra_ProgressBarUpdate.exit, label %214
 
 214:                                              ; preds = %210, %.critedge12
-  %215 = trunc i64 %indvars.iv268 to i32
+  %215 = trunc nuw nsw i64 %indvars.iv268 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %98, i32 noundef %215, ptr noundef null) #10
   br label %Extra_ProgressBarUpdate.exit
 
@@ -572,7 +572,7 @@ declare void @Extra_ProgressBarStop(ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Io_WritePla(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Io_WritePla(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.9)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -704,7 +704,7 @@ define noundef i32 @Io_WriteMoPlaOneInt(ptr nocapture noundef %0, ptr nocapture 
   tail call void @Cudd_Ref(ptr noundef %39) #10
   tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.0115140) #10
   tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %38) #10
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %40)
   %42 = tail call i32 @Cudd_DagSize(ptr noundef %33) #10
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %42)
@@ -941,7 +941,7 @@ define noundef i32 @Io_WriteMoPlaOneIntMinterms(ptr nocapture noundef %0, ptr no
 
 .lr.ph71.us:                                      ; preds = %.preheader.us, %.lr.ph71.us
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.lr.ph71.us ], [ 0, %.preheader.us ]
-  %46 = trunc i64 %indvars.iv98 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv98 to i32
   %47 = lshr i32 %.04976.us, %46
   %48 = and i32 %47, 1
   %49 = getelementptr inbounds [1000 x i32], ptr %5, i64 0, i64 %indvars.iv98
@@ -971,7 +971,7 @@ define noundef i32 @Io_WriteMoPlaOneIntMinterms(ptr nocapture noundef %0, ptr no
 
 52:                                               ; preds = %.preheader.us78, %52
   %indvars.iv92 = phi i64 [ 0, %.preheader.us78 ], [ %indvars.iv.next93, %52 ]
-  %53 = trunc i64 %indvars.iv92 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv92 to i32
   %54 = lshr i32 %.04976.us79, %53
   %55 = and i32 %54, 1
   %56 = getelementptr inbounds [1000 x i32], ptr %5, i64 0, i64 %indvars.iv92
@@ -1007,7 +1007,7 @@ declare ptr @Cudd_ReadOne(ptr noundef) local_unnamed_addr #1
 declare ptr @Cudd_Eval(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Io_WriteMoPlaOne(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Io_WriteMoPlaOne(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Abc_NtkBuildGlobalBdds(ptr noundef %1, i32 noundef 10000000, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %100, label %5
@@ -1242,7 +1242,7 @@ declare ptr @Abc_NtkFreeGlobalBdds(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @Extra_StopManager(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Io_WriteMoPla(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Io_WriteMoPla(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 56
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 4
@@ -1269,7 +1269,7 @@ define noundef i32 @Io_WriteMoPla(ptr noundef %0, ptr nocapture noundef readonly
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr (...) @Extra_TimeStamp() #10
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.11, ptr noundef %15, ptr noundef %16) #10
-  %18 = tail call i32 @Io_WriteMoPlaOne(ptr noundef nonnull %8, ptr noundef nonnull %0), !range !26
+  %18 = tail call i32 @Io_WriteMoPlaOne(ptr noundef nonnull %8, ptr noundef nonnull %0)
   %19 = tail call i32 @fclose(ptr noundef nonnull %8)
   br label %20
 
@@ -1315,7 +1315,7 @@ define noundef i32 @Io_WriteMoPlaOneIntMintermsM(ptr nocapture noundef %0, ptr n
   %.val64.val = load i32, ptr %25, align 4
   %26 = sext i32 %.val64.val to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %.critedge, !llvm.loop !27
+  br i1 %27, label %.lr.ph, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %.lr.ph, %5
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
@@ -1368,7 +1368,7 @@ switch.lookup:                                    ; preds = %.lr.ph74
   %.val63.val = load i32, ptr %46, align 4
   %47 = sext i32 %.val63.val to i64
   %48 = icmp slt i64 %indvars.iv.next80, %47
-  br i1 %48, label %.lr.ph74, label %._crit_edge, !llvm.loop !28
+  br i1 %48, label %.lr.ph74, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %45, %.lr.ph76
   %fputc57 = tail call i32 @fputc(i32 32, ptr %0)
@@ -1376,7 +1376,7 @@ switch.lookup:                                    ; preds = %.lr.ph74
   %fputc59 = tail call i32 @fputc(i32 10, ptr %0)
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge77, label %.lr.ph76, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge77, label %.lr.ph76, !llvm.loop !28
 
 ._crit_edge77:                                    ; preds = %._crit_edge, %.critedge
   %49 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 3, i64 1, ptr %0)
@@ -1407,7 +1407,7 @@ declare ptr @Cudd_bddPickArbitraryMinterms(ptr noundef, ptr noundef, ptr noundef
 declare i32 @Cudd_BddToCubeArray(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Io_WriteMoPlaOneM(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Io_WriteMoPlaOneM(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.val65 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %.val65, 3
   br i1 %.not, label %4, label %114
@@ -1599,7 +1599,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val54.val = load i32, ptr %93, align 4
   %94 = sext i32 %.val54.val to i64
   %95 = icmp slt i64 %indvars.iv.next, %94
-  br i1 %95, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !30
+  br i1 %95, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !29
 
 .critedge.loopexit:                               ; preds = %Vec_PtrPush.exit
   %.val57.pre = load ptr, ptr %18, align 8
@@ -1649,7 +1649,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %5, ptr noundef %113) #10
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count
-  br i1 %exitcond.not, label %Vec_PtrFree.exit, label %.lr.ph74, !llvm.loop !31
+  br i1 %exitcond.not, label %Vec_PtrFree.exit, label %.lr.ph74, !llvm.loop !30
 
 Vec_PtrFree.exit:                                 ; preds = %.lr.ph74, %109
   tail call void @free(ptr noundef nonnull %.val57) #10
@@ -1712,7 +1712,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %114, %Vec_PtrFree.e
 declare void @Cudd_Quit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Io_WriteMoPlaM(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Io_WriteMoPlaM(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.9)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
@@ -1727,7 +1727,7 @@ define noundef i32 @Io_WriteMoPlaM(ptr noundef %0, ptr nocapture noundef readonl
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr (...) @Extra_TimeStamp() #10
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.11, ptr noundef %11, ptr noundef %12) #10
-  %14 = tail call i32 @Io_WriteMoPlaOneM(ptr noundef nonnull %4, ptr noundef %0, i32 noundef %2), !range !26
+  %14 = tail call i32 @Io_WriteMoPlaOneM(ptr noundef nonnull %4, ptr noundef %0, i32 noundef %2)
   %15 = tail call i32 @fclose(ptr noundef nonnull %4)
   br label %16
 
@@ -1799,9 +1799,8 @@ attributes #13 = { nounwind allocsize(0,1) }
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = !{i32 0, i32 2}
+!26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}

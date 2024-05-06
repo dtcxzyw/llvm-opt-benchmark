@@ -63,7 +63,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end.loopexit.split.loop.exit:                 ; preds = %for.body
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit, %entry
@@ -83,7 +83,7 @@ for.cond6.preheader:                              ; preds = %for.end
 for.cond6:                                        ; preds = %for.cond6.preheader, %for.body9
   %indvars.iv26 = phi i64 [ %4, %for.cond6.preheader ], [ %indvars.iv.next27, %for.body9 ]
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %7 = trunc i64 %indvars.iv.next27 to i32
+  %7 = trunc nuw i64 %indvars.iv.next27 to i32
   %cmp8 = icmp sgt i32 %0, %7
   br i1 %cmp8, label %for.body9, label %for.end17
 
@@ -182,7 +182,7 @@ for.inc.i:                                        ; preds = %for.body.i6
   br i1 %exitcond.not.i12, label %for.end.i, label %for.body.i6, !llvm.loop !6
 
 for.end.loopexit.split.loop.exit.i:               ; preds = %for.body.i6
-  %4 = trunc i64 %indvars.iv.i7 to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i7 to i32
   %.pre = and i64 %indvars.iv.i7, 4294967295
   br label %for.end.i
 
@@ -200,7 +200,7 @@ for.cond6.preheader.i:                            ; preds = %for.end.i
 for.cond6.i:                                      ; preds = %for.body9.i, %for.cond6.preheader.i
   %indvars.iv26.i = phi i64 [ %.pre-phi, %for.cond6.preheader.i ], [ %indvars.iv.next27.i, %for.body9.i ]
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
-  %6 = trunc i64 %indvars.iv.next27.i to i32
+  %6 = trunc nuw i64 %indvars.iv.next27.i to i32
   %cmp8.i = icmp sgt i32 %0, %6
   br i1 %cmp8.i, label %for.body9.i, label %for.end17.i
 

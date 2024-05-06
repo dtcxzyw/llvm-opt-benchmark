@@ -212,7 +212,7 @@ define dso_local i32 @acpi_get_event_resources(ptr noundef %0, ptr noundef %1) #
 declare dso_local i32 @acpi_rs_get_aei_method_data(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @acpi_resource_to_address64(ptr noundef readonly %0, ptr noundef writeonly %1) #3 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_resource_to_address64(ptr noundef readonly %0, ptr noundef writeonly %1) #3 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4

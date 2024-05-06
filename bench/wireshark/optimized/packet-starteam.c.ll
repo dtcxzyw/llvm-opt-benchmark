@@ -347,7 +347,7 @@ define hidden void @proto_reg_handoff_starteam() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_starteam_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_starteam_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %6 = icmp ugt i32 %5, 31
   br i1 %6, label %7, label %20

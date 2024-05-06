@@ -723,7 +723,7 @@ if.then9:                                         ; preds = %if.end7
   br label %return
 
 if.end10:                                         ; preds = %if.end7
-  %call12 = tail call noundef i32 @_ZN6icu_7512SelectFormat14findSubMessageERKNS_14MessagePatternEiRKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %msgPattern, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(64) %keyword, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !4
+  %call12 = tail call noundef i32 @_ZN6icu_7512SelectFormat14findSubMessageERKNS_14MessagePatternEiRKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %msgPattern, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(64) %keyword, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %aposMode.i.i = getelementptr inbounds i8, ptr %this, i64 336
   %7 = load i32, ptr %aposMode.i.i, align 8
   %cmp.i13.not = icmp eq i32 %7, 1
@@ -765,7 +765,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7511Formattabl
 declare noundef signext i8 @_ZN6icu_7512PatternProps12isIdentifierEPKDsi(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7512SelectFormat14findSubMessageERKNS_14MessagePatternEiRKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %pattern, i32 noundef %partIndex, ptr noundef nonnull align 8 dereferenceable(64) %keyword, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %ec) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7512SelectFormat14findSubMessageERKNS_14MessagePatternEiRKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %pattern, i32 noundef %partIndex, ptr noundef nonnull align 8 dereferenceable(64) %keyword, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %ec) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %other = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -780,7 +780,7 @@ if.end:                                           ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.end
   %1 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #10, !srcloc !5
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #10, !srcloc !4
   %partsLength.i = getelementptr inbounds i8, ptr %pattern, i64 96
   %2 = load i32, ptr %partsLength.i, align 8
   %parts.i = getelementptr inbounds i8, ptr %pattern, i64 88
@@ -812,7 +812,7 @@ lpad:                                             ; preds = %if.end
   %5 = landingpad { ptr, i32 }
           cleanup
   %6 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #10, !srcloc !5
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #10, !srcloc !4
   br label %eh.resume
 
 lpad1:                                            ; preds = %if.else.i.i.i25, %if.else.i.i.i
@@ -917,7 +917,7 @@ if.end20:                                         ; preds = %invoke.cont15, %if.
   %start..i = call noundef i32 @llvm.smax.i32(i32 %29, i32 %inc)
   %inc23 = add nsw i32 %start..i, 1
   %cmp24 = icmp slt i32 %inc23, %2
-  br i1 %cmp24, label %do.body, label %cleanup, !llvm.loop !6
+  br i1 %cmp24, label %do.body, label %cleanup, !llvm.loop !5
 
 cleanup:                                          ; preds = %if.end20, %do.body, %invoke.cont10
   %retval.0 = phi i32 [ %inc, %invoke.cont10 ], [ %msgStart.0, %do.body ], [ %msgStart.1, %if.end20 ]
@@ -1091,7 +1091,6 @@ attributes #12 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483647, i32 -2147483648}
-!5 = !{i64 2148229806}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!4 = !{i64 2148229806}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

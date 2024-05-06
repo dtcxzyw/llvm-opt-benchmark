@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [11 x i8] c"TRAILER!!!\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_format_cpio_odc(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_format_cpio_odc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #11
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %23, label %4
@@ -83,7 +83,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_write_odc_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_write_odc_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.4) #13
@@ -119,7 +119,7 @@ define internal i32 @archive_write_odc_options(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_write_odc_header(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -30, 1) i32 @archive_write_odc_header(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = tail call i32 @archive_entry_filetype(ptr noundef %1) #11
@@ -209,7 +209,7 @@ get_sconv.exit:                                   ; preds = %11, %._crit_edge.i,
   br label %46
 
 44:                                               ; preds = %40
-  %45 = call fastcc i32 @write_header(ptr noundef nonnull %0, ptr noundef %1), !range !5
+  %45 = call fastcc i32 @write_header(ptr noundef nonnull %0, ptr noundef %1)
   br label %46
 
 46:                                               ; preds = %44, %43, %37, %28, %10
@@ -243,12 +243,12 @@ define internal i32 @archive_write_odc_finish_entry(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_write_odc_close(ptr noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_write_odc_close(ptr noundef %0) #0 {
   %2 = tail call ptr @archive_entry_new2(ptr noundef null) #11
   tail call void @archive_entry_set_nlink(ptr noundef %2, i32 noundef 1) #11
   tail call void @archive_entry_set_size(ptr noundef %2, i64 noundef 0) #11
   tail call void @archive_entry_set_pathname(ptr noundef %2, ptr noundef nonnull @.str.16) #11
-  %3 = tail call fastcc i32 @write_header(ptr noundef %0, ptr noundef %2), !range !5
+  %3 = tail call fastcc i32 @write_header(ptr noundef %0, ptr noundef %2)
   tail call void @archive_entry_free(ptr noundef %2) #11
   ret i32 %3
 }
@@ -284,7 +284,7 @@ declare i32 @archive_entry_size_is_set(ptr noundef) local_unnamed_addr #1
 declare i64 @archive_entry_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_header(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @write_header(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [76 x i8], align 16
@@ -340,11 +340,11 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %.049 = phi i32 [ -20, %24 ], [ 0, %get_sconv.exit ]
   %28 = load i64, ptr %6, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %5, i8 0, i64 76, i1 false)
-  %29 = call fastcc i64 @format_octal_recursive(i64 noundef 29127, ptr noundef nonnull %5, i32 noundef 6), !range !6
+  %29 = call fastcc i64 @format_octal_recursive(i64 noundef 29127, ptr noundef nonnull writeonly %5, i32 noundef 6)
   %30 = call i64 @archive_entry_dev(ptr noundef %1) #11
   %31 = getelementptr inbounds i8, ptr %5, i64 6
   %..i = call i64 @llvm.umin.i64(i64 %30, i64 262143)
-  %32 = call fastcc i64 @format_octal_recursive(i64 noundef %..i, ptr noundef nonnull %31, i32 noundef 6), !range !6
+  %32 = call fastcc i64 @format_octal_recursive(i64 noundef %..i, ptr noundef nonnull writeonly %31, i32 noundef 6)
   %33 = call i64 @archive_entry_ino64(ptr noundef %1) #11
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %.thread, label %35
@@ -376,7 +376,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
 47:                                               ; preds = %49
   %48 = add nuw i64 %.03240.i, 1
   %exitcond.not.i = icmp eq i64 %48, %39
-  br i1 %exitcond.not.i, label %._crit_edge.i63, label %49, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.i63, label %49, !llvm.loop !5
 
 49:                                               ; preds = %47, %.lr.ph.i
   %.03240.i = phi i64 [ 0, %.lr.ph.i ], [ %48, %47 ]
@@ -456,28 +456,28 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
   br label %162
 
 .thread:                                          ; preds = %27, %82
-  %.0.i65105107 = phi i32 [ %.0.i65, %82 ], [ 0, %27 ]
-  %85 = zext nneg i32 %.0.i65105107 to i64
+  %.0.i65111113 = phi i32 [ %.0.i65, %82 ], [ 0, %27 ]
+  %85 = zext nneg i32 %.0.i65111113 to i64
   %86 = getelementptr inbounds i8, ptr %5, i64 12
-  %87 = call fastcc i64 @format_octal_recursive(i64 noundef %85, ptr noundef nonnull %86, i32 noundef 6), !range !6
+  %87 = call fastcc i64 @format_octal_recursive(i64 noundef %85, ptr noundef nonnull writeonly %86, i32 noundef 6)
   %88 = call i32 @archive_entry_mode(ptr noundef %1) #11
   %89 = getelementptr inbounds i8, ptr %5, i64 18
   %90 = call i32 @llvm.umin.i32(i32 %88, i32 262143)
-  %..i69 = zext nneg i32 %90 to i64
-  %91 = call fastcc i64 @format_octal_recursive(i64 noundef %..i69, ptr noundef nonnull %89, i32 noundef 6), !range !6
+  %..i74 = zext nneg i32 %90 to i64
+  %91 = call fastcc i64 @format_octal_recursive(i64 noundef %..i74, ptr noundef nonnull writeonly %89, i32 noundef 6)
   %92 = call i64 @archive_entry_uid(ptr noundef %1) #11
   %93 = getelementptr inbounds i8, ptr %5, i64 24
-  %..i73 = call i64 @llvm.umin.i64(i64 %92, i64 262143)
-  %94 = call fastcc i64 @format_octal_recursive(i64 noundef %..i73, ptr noundef nonnull %93, i32 noundef 6), !range !6
+  %..i78 = call i64 @llvm.umin.i64(i64 %92, i64 262143)
+  %94 = call fastcc i64 @format_octal_recursive(i64 noundef %..i78, ptr noundef nonnull writeonly %93, i32 noundef 6)
   %95 = call i64 @archive_entry_gid(ptr noundef %1) #11
   %96 = getelementptr inbounds i8, ptr %5, i64 30
-  %..i77 = call i64 @llvm.umin.i64(i64 %95, i64 262143)
-  %97 = call fastcc i64 @format_octal_recursive(i64 noundef %..i77, ptr noundef nonnull %96, i32 noundef 6), !range !6
+  %..i82 = call i64 @llvm.umin.i64(i64 %95, i64 262143)
+  %97 = call fastcc i64 @format_octal_recursive(i64 noundef %..i82, ptr noundef nonnull writeonly %96, i32 noundef 6)
   %98 = call i32 @archive_entry_nlink(ptr noundef %1) #11
   %99 = getelementptr inbounds i8, ptr %5, i64 36
   %100 = call i32 @llvm.umin.i32(i32 %98, i32 262143)
-  %..i80 = zext nneg i32 %100 to i64
-  %101 = call fastcc i64 @format_octal_recursive(i64 noundef %..i80, ptr noundef nonnull %99, i32 noundef 6), !range !6
+  %..i86 = zext nneg i32 %100 to i64
+  %101 = call fastcc i64 @format_octal_recursive(i64 noundef %..i86, ptr noundef nonnull writeonly %99, i32 noundef 6)
   %102 = call i32 @archive_entry_filetype(ptr noundef %1) #11
   %103 = icmp eq i32 %102, 24576
   br i1 %103, label %107, label %104
@@ -490,26 +490,26 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
 107:                                              ; preds = %104, %.thread
   %108 = call i64 @archive_entry_rdev(ptr noundef %1) #11
   %109 = getelementptr inbounds i8, ptr %5, i64 42
-  %..i84 = call i64 @llvm.umin.i64(i64 %108, i64 262143)
-  %110 = call fastcc i64 @format_octal_recursive(i64 noundef %..i84, ptr noundef nonnull %109, i32 noundef 6), !range !6
+  %..i90 = call i64 @llvm.umin.i64(i64 %108, i64 262143)
+  %110 = call fastcc i64 @format_octal_recursive(i64 noundef %..i90, ptr noundef nonnull writeonly %109, i32 noundef 6)
   br label %114
 
 111:                                              ; preds = %104
   %112 = getelementptr inbounds i8, ptr %5, i64 42
-  %113 = call fastcc i64 @format_octal_recursive(i64 noundef 0, ptr noundef nonnull %112, i32 noundef 6), !range !6
+  %113 = call fastcc i64 @format_octal_recursive(i64 noundef 0, ptr noundef nonnull writeonly %112, i32 noundef 6)
   br label %114
 
 114:                                              ; preds = %111, %107
   %115 = call i64 @archive_entry_mtime(ptr noundef %1) #11
   %116 = getelementptr inbounds i8, ptr %5, i64 48
-  %..i88 = call i64 @llvm.umin.i64(i64 %115, i64 8589934591)
-  %117 = call fastcc i64 @format_octal_recursive(i64 noundef %..i88, ptr noundef nonnull %116, i32 noundef 11), !range !6
+  %..i94 = call i64 @llvm.umin.i64(i64 %115, i64 8589934591)
+  %117 = call fastcc i64 @format_octal_recursive(i64 noundef %..i94, ptr noundef nonnull writeonly %116, i32 noundef 11)
   %118 = shl i64 %28, 32
   %sext = add i64 %118, 4294967296
   %119 = ashr exact i64 %sext, 32
   %120 = getelementptr inbounds i8, ptr %5, i64 59
-  %..i92 = call i64 @llvm.umin.i64(i64 %119, i64 262143)
-  %121 = call fastcc i64 @format_octal_recursive(i64 noundef %..i92, ptr noundef nonnull %120, i32 noundef 6), !range !6
+  %..i98 = call i64 @llvm.umin.i64(i64 %119, i64 262143)
+  %121 = call fastcc i64 @format_octal_recursive(i64 noundef %..i98, ptr noundef nonnull writeonly %120, i32 noundef 6)
   %122 = call i32 @archive_entry_filetype(ptr noundef %1) #11
   %.not53 = icmp eq i32 %122, 32768
   br i1 %.not53, label %124, label %123
@@ -562,11 +562,11 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
   br label %145
 
 145:                                              ; preds = %143, %141
-  %.sink111 = phi i64 [ %144, %143 ], [ %142, %141 ]
+  %.sink117 = phi i64 [ %144, %143 ], [ %142, %141 ]
   %146 = getelementptr inbounds i8, ptr %5, i64 65
-  %..i100 = call i64 @llvm.umin.i64(i64 %.sink111, i64 8589934591)
-  %147 = call fastcc i64 @format_octal_recursive(i64 noundef %..i100, ptr noundef nonnull %146, i32 noundef 11), !range !6
-  %.0.in = icmp ult i64 %.sink111, 8589934592
+  %..i106 = call i64 @llvm.umin.i64(i64 %.sink117, i64 8589934591)
+  %147 = call fastcc i64 @format_octal_recursive(i64 noundef %..i106, ptr noundef nonnull writeonly %146, i32 noundef 11)
+  %.0.in = icmp ult i64 %.sink117, 8589934592
   br i1 %.0.in, label %149, label %148
 
 148:                                              ; preds = %145
@@ -646,7 +646,7 @@ declare i32 @__archive_write_output(ptr noundef, ptr noundef, i64 noundef) local
 declare void @archive_entry_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: write) uwtable
-define internal fastcc i64 @format_octal_recursive(i64 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc range(i64 0, 8589934592) i64 @format_octal_recursive(i64 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #7 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %common.ret9, label %5
 
@@ -657,7 +657,7 @@ common.ret9:                                      ; preds = %3, %5
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %1, i64 1
   %7 = add nsw i32 %2, -1
-  %8 = tail call fastcc i64 @format_octal_recursive(i64 noundef %0, ptr noundef nonnull %6, i32 noundef %7), !range !6
+  %8 = tail call fastcc i64 @format_octal_recursive(i64 noundef %0, ptr noundef nonnull %6, i32 noundef %7)
   %9 = trunc i64 %8 to i8
   %10 = and i8 %9, 7
   %11 = or disjoint i8 %10, 48
@@ -712,7 +712,5 @@ attributes #15 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -30, i32 1}
-!6 = !{i64 0, i64 8589934592}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

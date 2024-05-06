@@ -1024,7 +1024,7 @@ Ivy_ObjDisconnect.exit:                           ; preds = %30, %33, %42
 
 53:                                               ; preds = %56, %47
   %indvars.iv.i = phi i64 [ %57, %56 ], [ %52, %47 ]
-  %54 = trunc i64 %indvars.iv.i to i32
+  %54 = trunc nuw i64 %indvars.iv.i to i32
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %56, label %62
 
@@ -1070,7 +1070,7 @@ Ivy_ObjDisconnect.exit:                           ; preds = %30, %33, %42
 
 80:                                               ; preds = %83, %73
   %indvars.iv.i34 = phi i64 [ %84, %83 ], [ %79, %73 ]
-  %81 = trunc i64 %indvars.iv.i34 to i32
+  %81 = trunc nuw i64 %indvars.iv.i34 to i32
   %82 = icmp sgt i32 %81, 0
   br i1 %82, label %83, label %89
 
@@ -1124,7 +1124,7 @@ Ivy_ObjDisconnect.exit:                           ; preds = %30, %33, %42
 
 110:                                              ; preds = %113, %103
   %indvars.iv.i42 = phi i64 [ %114, %113 ], [ %109, %103 ]
-  %111 = trunc i64 %indvars.iv.i42 to i32
+  %111 = trunc nuw i64 %indvars.iv.i42 to i32
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %113, label %119
 
@@ -1337,7 +1337,7 @@ define void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %68 = getelementptr inbounds i8, ptr %1, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = load i32, ptr %1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(80) %.0, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull readonly align 8 dereferenceable(80) %.0, i64 80, i1 false)
   store i32 %70, ptr %1, align 8
   store i32 %69, ptr %68, align 4
   %71 = load i32, ptr %61, align 8

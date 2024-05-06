@@ -118,7 +118,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare dso_local void @setup_sysctl_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal i32 @set_is_seen(ptr noundef readnone %0) #3 align 16 {
+define internal range(i32 0, 2) i32 @set_is_seen(ptr noundef readnone %0) #3 align 16 {
   %2 = icmp eq ptr %0, getelementptr inbounds (%struct.user_namespace, ptr @init_user_ns, i64 0, i32 14)
   %3 = zext i1 %2 to i32
   ret i32 %3
@@ -762,7 +762,7 @@ define internal fastcc void @do_dec_rlimit_put_ucounts(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @inc_rlimit_get_ucounts(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, -9223372036854775808) i64 @inc_rlimit_get_ucounts(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit6, label %5
@@ -977,7 +977,7 @@ define internal nonnull ptr @set_lookup(ptr nocapture readnone %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @set_permissions(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 0, 512) i32 @set_permissions(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -376

@@ -113,7 +113,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 
 64:                                               ; preds = %60
   %65 = icmp eq i32 %.val327.val, 0
-  %66 = tail call i32 @llvm.ctlz.i32(i32 %.val327.val, i1 true), !range !6
+  %66 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.val327.val, i1 true)
   %narrow.i = sub nuw nsw i32 32, %66
   %67 = shl nuw i32 1, %narrow.i
   %.0.i330 = select i1 %65, i32 1, i32 %67
@@ -212,7 +212,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   store i32 %.sink, ptr %112, align 4
   %indvars.iv.next409 = add nuw nsw i64 %indvars.iv408, 1
   %exitcond412.not = icmp eq i64 %indvars.iv.next409, %wide.trip.count411
-  br i1 %exitcond412.not, label %._crit_edge370, label %.lr.ph369, !llvm.loop !7
+  br i1 %exitcond412.not, label %._crit_edge370, label %.lr.ph369, !llvm.loop !6
 
 ._crit_edge370:                                   ; preds = %111
   store i32 0, ptr %95, align 4
@@ -234,7 +234,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %118 = getelementptr inbounds i32, ptr %95, i64 %indvars.iv.next414
   store i32 %117, ptr %118, align 4
   %exitcond417.not = icmp eq i64 %indvars.iv.next414, %wide.trip.count416
-  br i1 %exitcond417.not, label %._crit_edge374, label %.lr.ph373, !llvm.loop !8
+  br i1 %exitcond417.not, label %._crit_edge374, label %.lr.ph373, !llvm.loop !7
 
 ._crit_edge374:                                   ; preds = %.lr.ph373, %._crit_edge370.thread, %._crit_edge370
   %119 = ashr i32 %.0.i330, 2
@@ -276,9 +276,9 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %135 = load i32, ptr %134, align 4
   %136 = add nsw i32 %135, %.0251385
   %indvars.iv.next425 = add nuw nsw i64 %indvars.iv424, 1
-  %137 = trunc i64 %indvars.iv.next425 to i32
+  %137 = trunc nuw i64 %indvars.iv.next425 to i32
   %138 = icmp sgt i32 %.0256395, %137
-  br i1 %138, label %.lr.ph387, label %.lr.ph391.preheader, !llvm.loop !9
+  br i1 %138, label %.lr.ph387, label %.lr.ph391.preheader, !llvm.loop !8
 
 .lr.ph391:                                        ; preds = %.lr.ph391.preheader, %.lr.ph391
   %indvars.iv427 = phi i64 [ %132, %.lr.ph391.preheader ], [ %indvars.iv.next428, %.lr.ph391 ]
@@ -288,7 +288,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %141 = add nsw i32 %140, %.0390
   %indvars.iv.next428 = add nsw i64 %indvars.iv427, 1
   %142 = icmp slt i64 %indvars.iv.next428, %133
-  br i1 %142, label %.lr.ph391, label %.loopexit, !llvm.loop !10
+  br i1 %142, label %.lr.ph391, label %.loopexit, !llvm.loop !9
 
 .lr.ph378.preheader:                              ; preds = %.lr.ph397
   %143 = sext i32 %.0257394 to i64
@@ -311,7 +311,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %149 = add nsw i32 %148, %.1252376
   %indvars.iv.next419 = add nsw i64 %indvars.iv418, 1
   %150 = icmp slt i64 %indvars.iv.next419, %144
-  br i1 %150, label %.lr.ph378, label %.preheader361, !llvm.loop !11
+  br i1 %150, label %.lr.ph378, label %.preheader361, !llvm.loop !10
 
 .lr.ph382:                                        ; preds = %.lr.ph382.preheader, %.lr.ph382
   %indvars.iv421 = phi i64 [ %146, %.lr.ph382.preheader ], [ %indvars.iv.next422, %.lr.ph382 ]
@@ -320,9 +320,9 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %152 = load i32, ptr %151, align 4
   %153 = add nsw i32 %152, %.1381
   %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1
-  %154 = trunc i64 %indvars.iv.next422 to i32
+  %154 = trunc nuw i64 %indvars.iv.next422 to i32
   %155 = icmp sgt i32 %.0256395, %154
-  br i1 %155, label %.lr.ph382, label %.loopexit, !llvm.loop !12
+  br i1 %155, label %.lr.ph382, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph382, %.lr.ph391
   %.1260 = phi i32 [ %128, %.lr.ph391 ], [ %.0257394, %.lr.ph382 ]
@@ -407,7 +407,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %196 = add nuw nsw i32 %.1258435, %.0261393
   %197 = lshr i32 %.0261393, 1
   %.not399 = icmp ult i32 %.0261393, 2
-  br i1 %.not399, label %._crit_edge398, label %.lr.ph397, !llvm.loop !13
+  br i1 %.not399, label %._crit_edge398, label %.lr.ph397, !llvm.loop !12
 
 ._crit_edge398:                                   ; preds = %195, %._crit_edge374
   %198 = sext i32 %.val to i64
@@ -567,7 +567,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store ptr %4, ptr %6, align 8
-  %10 = trunc i64 %3 to i32
+  %10 = trunc nsw i64 %3 to i32
   store i32 %10, ptr %9, align 4
   %11 = icmp ugt i64 %3, 2147483647
   br i1 %11, label %12, label %30
@@ -594,7 +594,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   tail call fastcc void @ompi_op_reduce(ptr noundef %0, ptr noundef %24, ptr noundef %25, i64 noundef %27, ptr noundef %4)
   %28 = add i64 %27, %.045
   %29 = icmp ult i64 %28, %3
-  br i1 %29, label %18, label %.loopexit, !llvm.loop !14
+  br i1 %29, label %18, label %.loopexit, !llvm.loop !13
 
 30:                                               ; preds = %5
   %31 = getelementptr inbounds i8, ptr %0, i64 84
@@ -710,7 +710,7 @@ ompi_comm_remote_size.exit:                       ; preds = %7, %13
   %24 = add nsw i32 %23, %.093146
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %ompi_comm_remote_size.exit
   %.093.lcssa = phi i32 [ 0, %ompi_comm_remote_size.exit ], [ %24, %.lr.ph ]
@@ -771,7 +771,7 @@ opal_datatype_span.exit:                          ; preds = %26, %32
   %57 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv.next161
   store i32 %56, ptr %57, align 4
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %._crit_edge150, label %.lr.ph149, !llvm.loop !16
+  br i1 %exitcond164.not, label %._crit_edge150, label %.lr.ph149, !llvm.loop !15
 
 ._crit_edge150:                                   ; preds = %.lr.ph149, %50
   %58 = tail call noalias ptr @malloc(i64 noundef %.0.i) #5
@@ -819,7 +819,7 @@ opal_datatype_span.exit:                          ; preds = %26, %32
   call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef %.087152, ptr noundef %.086153, i64 noundef %27, ptr noundef %3)
   %78 = add nuw nsw i32 %.2151, 1
   %exitcond165.not = icmp eq i32 %78, %18
-  br i1 %exitcond165.not, label %.loopexit, label %.lr.ph154, !llvm.loop !17
+  br i1 %exitcond165.not, label %.loopexit, label %.lr.ph154, !llvm.loop !16
 
 79:                                               ; preds = %._crit_edge
   %80 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
@@ -908,7 +908,7 @@ attributes #6 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 33}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -919,4 +919,3 @@ attributes #6 = { nounwind }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}

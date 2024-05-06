@@ -418,7 +418,7 @@ if.else.i:                                        ; preds = %do.body.i
   unreachable
 
 do.end.i:                                         ; preds = %do.body.i
-  %4 = trunc i32 %3 to i8
+  %4 = trunc nuw i32 %3 to i8
   %conv.i = add nuw nsw i8 %4, 3
   tail call void @replay_put_event(i8 noundef zeroext %conv.i) #9
   %5 = load i32, ptr %1, align 8

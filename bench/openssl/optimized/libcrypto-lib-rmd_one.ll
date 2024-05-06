@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @RIPEMD160.m = internal global [20 x i8] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define ptr @RIPEMD160(ptr noundef %d, i64 noundef %n, ptr noundef %md) local_unnamed_addr #0 {
+define noundef ptr @RIPEMD160(ptr noundef %d, i64 noundef %n, ptr noundef %md) local_unnamed_addr #0 {
 entry:
   %c = alloca %struct.RIPEMD160state_st, align 4
   %call = call i32 @RIPEMD160_Init(ptr noundef nonnull %c) #2

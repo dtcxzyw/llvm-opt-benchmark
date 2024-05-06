@@ -2612,7 +2612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @"_ZN3nix3$_18__invokeEv"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.34") align 8 %0) #18 align 2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !13
   ret void
 }
 
@@ -17229,7 +17229,7 @@ define internal noundef i64 @_ZNSt17_Function_handlerIFmPcmEZZZN3nix12sourceToSi
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %18, i64 %.val3)
   %19 = getelementptr inbounds i8, ptr %4, i64 64
   %20 = load ptr, ptr %19, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.val, ptr align 1 %20, i64 %.sroa.speculated.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %.val, ptr align 1 %20, i64 %.sroa.speculated.i.i.i, i1 false)
   %21 = load ptr, ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 %.sroa.speculated.i.i.i
   store ptr %22, ptr %19, align 8
@@ -17260,7 +17260,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFmPcmEZZZN3nix12sou
   br label %_ZNSt14_Function_base13_Base_managerIZZZN3nix12sourceToSinkESt8functionIFvRNS1_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESH_EUlPcmE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %_ZNSt14_Function_base13_Base_managerIZZZN3nix12sourceToSinkESt8functionIFvRNS1_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESH_EUlPcmE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIZZZN3nix12sourceToSinkESt8functionIFvRNS1_6SourceEEEEN12SourceToSinkclESt17basic_string_viewIcSt11char_traitsIcEEENKUlRN5boost11coroutines26detail14pull_coroutineIbEEE_clESH_EUlPcmE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit: ; preds = %3, %6, %5, %4

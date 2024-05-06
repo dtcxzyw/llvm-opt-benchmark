@@ -912,7 +912,7 @@ mythread_condtime_set.exit.i:                     ; preds = %231, %216
 
 .split.us.us.i.outer:                             ; preds = %234, %248
   %.2.us.us.us.i.ph = phi i8 [ %251, %248 ], [ 0, %234 ]
-  %236 = trunc i8 %.2.us.us.us.i.ph to i1
+  %236 = trunc nuw i8 %.2.us.us.us.i.ph to i1
   br label %.split.us.us.i
 
 .split.us.us.i:                                   ; preds = %.split.us.us.i.outer, %252
@@ -959,7 +959,7 @@ mythread_condtime_set.exit.i:                     ; preds = %231, %216
   %.232.i = phi i8 [ %.3.i, %266 ], [ 0, %.split.i102 ]
   %255 = load i32, ptr %28, align 4
   %256 = icmp ne i32 %255, 0
-  %257 = trunc i8 %.232.i to i1
+  %257 = trunc nuw i8 %.232.i to i1
   %or.cond.not.i = select i1 %256, i1 true, i1 %257
   br i1 %or.cond.not.i, label %wait_for_work.exit, label %258
 
@@ -986,7 +986,7 @@ mythread_condtime_set.exit.i:                     ; preds = %231, %216
 wait_for_work.exit:                               ; preds = %.lr.ph.i, %266, %239, %241, %243, %.split.i102
   %.us-phi.i = phi i8 [ 0, %.split.i102 ], [ %.2.us.us.us.i.ph, %243 ], [ %.2.us.us.us.i.ph, %241 ], [ %.2.us.us.us.i.ph, %239 ], [ %.232.i, %.lr.ph.i ], [ %.3.i, %266 ]
   %268 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #11
-  %269 = trunc i8 %.us-phi.i to i1
+  %269 = trunc nuw i8 %.us-phi.i to i1
   br i1 %269, label %threads_stop.exit, label %.outer
 
 270:                                              ; preds = %209

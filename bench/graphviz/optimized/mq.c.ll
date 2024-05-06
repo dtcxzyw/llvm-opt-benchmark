@@ -766,7 +766,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
 43:                                               ; preds = %.lr.ph541
   %44 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv578
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr i8, ptr %44, i64 4
+  %46 = getelementptr inbounds i8, ptr %44, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = icmp slt i32 %45, %47
   br i1 %48, label %.lr.ph485.preheader, label %._crit_edge486.thread

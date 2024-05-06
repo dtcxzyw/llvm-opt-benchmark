@@ -45,16 +45,16 @@ define hidden i32 @logcat_exported_pdu_length(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @logcat_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @logcat_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
-  %5 = tail call fastcc i32 @detect_version(ptr noundef %4, ptr noundef %1, ptr noundef %2), !range !6
+  %5 = tail call fastcc i32 @detect_version(ptr noundef %4, ptr noundef %1, ptr noundef %2)
   %switch.tableidx = add nsw i32 %5, 2
   %6 = icmp ult i32 %switch.tableidx, 3
   br i1 %6, label %switch.lookup, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
-  %9 = tail call fastcc i32 @detect_version(ptr noundef %8, ptr noundef %1, ptr noundef %2), !range !6
+  %9 = tail call fastcc i32 @detect_version(ptr noundef %8, ptr noundef %1, ptr noundef %2)
   switch i32 %9, label %11 [
     i32 -1, label %33
     i32 0, label %10
@@ -70,7 +70,7 @@ define hidden noundef i32 @logcat_open(ptr noundef %0, ptr noundef %1, ptr nound
 
 12:                                               ; preds = %11
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call fastcc i32 @detect_version(ptr noundef %13, ptr noundef %1, ptr noundef %2), !range !6
+  %14 = tail call fastcc i32 @detect_version(ptr noundef %13, ptr noundef %1, ptr noundef %2)
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %33, label %16
 
@@ -119,7 +119,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @detect_version(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 -2, 3) i32 @detect_version(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca i16, align 2
   %5 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 2, ptr noundef %1, ptr noundef %2) #9
   %.not = icmp eq i32 %5, 0
@@ -216,7 +216,7 @@ define internal fastcc i32 @detect_version(ptr noundef %0, ptr noundef %1, ptr n
 get_priority.exit.thread.us:                      ; preds = %41, %38, %35
   %51 = add nuw nsw i32 %.05581.us, 1
   %exitcond97.not = icmp eq i32 %51, 3
-  br i1 %exitcond97.not, label %.split88.us, label %.split.us, !llvm.loop !7
+  br i1 %exitcond97.not, label %.split88.us, label %.split.us, !llvm.loop !6
 
 .split:                                           ; preds = %20
   %52 = zext nneg i16 %25 to i32
@@ -280,7 +280,7 @@ get_priority.exit.thread:                         ; preds = %56, %65, %71, %68
   %.1 = phi i16 [ %25, %68 ], [ %25, %71 ], [ %25, %65 ], [ %.05282, %56 ]
   %78 = add nuw nsw i32 %.05581, 1
   %exitcond.not = icmp eq i32 %78, 3
-  br i1 %exitcond.not, label %.split88.us, label %56, !llvm.loop !7
+  br i1 %exitcond.not, label %.split88.us, label %56, !llvm.loop !6
 
 .split88.us:                                      ; preds = %get_priority.exit.thread, %get_priority.exit.thread.us
   call void @g_free(ptr noundef %22) #9
@@ -297,19 +297,19 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #1 {
+define internal range(i32 0, 2) i32 @logcat_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #1 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #9
   store i64 %8, ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = tail call fastcc i32 @logcat_read_packet(ptr noundef %10, ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !8
+  %12 = tail call fastcc i32 @logcat_read_packet(ptr noundef %10, ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #1 {
+define internal range(i32 0, 2) i32 @logcat_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #9
@@ -320,7 +320,7 @@ define internal noundef i32 @logcat_seek_read(ptr nocapture noundef readonly %0,
   %12 = getelementptr inbounds i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %7, align 8
-  %15 = tail call fastcc i32 @logcat_read_packet(ptr noundef %13, ptr noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !8
+  %15 = tail call fastcc i32 @logcat_read_packet(ptr noundef %13, ptr noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %20
 
@@ -367,7 +367,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @logcat_read_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @logcat_read_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
   %7 = alloca [2 x i32], align 4
   %8 = call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 2, ptr noundef %4, ptr noundef %5) #9
   %.not = icmp eq i32 %8, 0
@@ -442,7 +442,7 @@ declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_add
 declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @logcat_dump_can_write_encap(i32 noundef %0) #6 {
+define internal range(i32 -9, 1) i32 @logcat_dump_can_write_encap(i32 noundef %0) #6 {
   switch i32 %0, label %.fold.split [
     i32 -1, label %3
     i32 163, label %2
@@ -468,7 +468,7 @@ define internal noundef i32 @logcat_binary_dump_open(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @logcat_binary_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal range(i32 0, 2) i32 @logcat_binary_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
   %6 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %8, label %7
@@ -567,6 +567,4 @@ attributes #12 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -2, i32 3}
-!7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}

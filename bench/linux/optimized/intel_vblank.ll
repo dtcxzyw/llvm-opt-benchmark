@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29, ptr @trace_i915_reg_rw.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace777, ptr @trace_i915_reg_rw.__UNIQUE_ID___addressable___SCK__tp_func_i915_reg_rw776], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_get_vblank_counter(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 16777216) i32 @i915_get_vblank_counter(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 320
   %4 = load ptr, ptr %3, align 8
@@ -282,7 +282,7 @@ define dso_local i32 @g4x_get_vblank_counter(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @intel_crtc_scanline_to_hw(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -65534, 65535) i32 @intel_crtc_scanline_to_hw(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 320
   %5 = load ptr, ptr %4, align 8
@@ -585,7 +585,7 @@ define internal noundef zeroext i1 @i915_get_crtc_scanoutpos(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_get_crtc_scanline(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -65534, 65535) i32 @intel_get_crtc_scanline(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
@@ -611,7 +611,7 @@ define dso_local i32 @intel_get_crtc_scanline(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__intel_get_crtc_scanline(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -65534, 65535) i32 @__intel_get_crtc_scanline(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1648
   %4 = load i32, ptr %3, align 8

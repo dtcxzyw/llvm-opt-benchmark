@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [8 x i8] c"ustar  \00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @is_tar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @is_tar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i32 %1, 512
   br i1 %3, label %51, label %4
 

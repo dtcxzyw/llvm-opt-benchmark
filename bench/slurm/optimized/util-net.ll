@@ -691,7 +691,7 @@ define internal void @_getnameinfo_cache_destroy(ptr noundef %0) #0 {
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_name_cache_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 0, 2) i32 @_name_cache_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i16, ptr %3, align 2
   %5 = load i16, ptr %1, align 2

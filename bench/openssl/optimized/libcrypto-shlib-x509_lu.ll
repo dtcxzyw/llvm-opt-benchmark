@@ -654,7 +654,7 @@ x509_object_free_internal.exit:                   ; preds = %entry, %if.end.i, %
 declare void @CRYPTO_free_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @X509_STORE_up_ref(ptr nocapture noundef %xs) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @X509_STORE_up_ref(ptr nocapture noundef %xs) local_unnamed_addr #4 {
 entry:
   %references = getelementptr inbounds i8, ptr %xs, i64 144
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
@@ -760,7 +760,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %call.i, align 8
-  %call.i4 = tail call fastcc i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef %ctx, i32 noundef %type, ptr noundef %name, ptr noundef nonnull %call.i), !range !7
+  %call.i4 = tail call fastcc i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef readonly %ctx, i32 noundef %type, ptr noundef %name, ptr noundef nonnull writeonly %call.i)
   %cmp.i5 = icmp slt i32 %call.i4, 1
   br i1 %cmp.i5, label %if.end.i.i, label %return
 
@@ -808,16 +808,16 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_STORE_CTX_get_by_subject(ptr nocapture noundef readonly %ctx, i32 noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_STORE_CTX_get_by_subject(ptr nocapture noundef readonly %ctx, i32 noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef %ctx, i32 noundef %type, ptr noundef %name, ptr noundef %ret), !range !7
+  %call = tail call fastcc i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef %ctx, i32 noundef %type, ptr noundef %name, ptr noundef %ret)
   %cmp = icmp sgt i32 %call, 0
   %conv = zext i1 %cmp to i32
   ret i32 %conv
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ossl_x509_store_ctx_get_by_subject(ptr nocapture noundef readonly %ctx, i32 noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %ret) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @ossl_x509_store_ctx_get_by_subject(ptr nocapture noundef readonly %ctx, i32 noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %ret) unnamed_addr #0 {
 entry:
   %stmp.i.i.i = alloca %struct.x509_object_st, align 8
   %x509_s.i.i.i = alloca %struct.x509_st, align 8
@@ -971,7 +971,7 @@ for.inc:                                          ; preds = %land.lhs.true.i, %X
   %16 = load ptr, ptr %get_cert_methods, align 8
   %call24 = call i32 @OPENSSL_sk_num(ptr noundef %16) #6
   %cmp25 = icmp slt i32 %inc, %call24
-  br i1 %cmp25, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp25, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   br i1 %cmp20, label %return, label %if.end42
@@ -1020,9 +1020,9 @@ return:                                           ; preds = %if.end31, %X509_OBJ
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_STORE_add_cert(ptr nocapture noundef readonly %xs, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_STORE_add_cert(ptr nocapture noundef readonly %xs, ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @x509_store_add(ptr noundef %xs, ptr noundef %x, i32 noundef 0), !range !9
+  %call = tail call fastcc i32 @x509_store_add(ptr noundef %xs, ptr noundef %x, i32 noundef 0)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %return
 
@@ -1038,7 +1038,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_store_add(ptr nocapture noundef readonly %store, ptr noundef %x, i32 noundef %crl) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @x509_store_add(ptr nocapture noundef readonly %store, ptr noundef %x, i32 noundef %crl) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end
@@ -1138,9 +1138,9 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_STORE_add_crl(ptr nocapture noundef readonly %xs, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_STORE_add_crl(ptr nocapture noundef readonly %xs, ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @x509_store_add(ptr noundef %xs, ptr noundef %x, i32 noundef 1), !range !9
+  %call = tail call fastcc i32 @x509_store_add(ptr noundef %xs, ptr noundef %x, i32 noundef 1)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %return
 
@@ -1235,7 +1235,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_OBJECT_set1_X509(ptr noundef %a, ptr noundef %obj) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_OBJECT_set1_X509(ptr noundef %a, ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1276,7 +1276,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_OBJECT_set1_X509_CRL(ptr noundef %a, ptr noundef %obj) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_OBJECT_set1_X509_CRL(ptr noundef %a, ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1476,7 +1476,7 @@ for.inc:                                          ; preds = %for.body, %lor.lhs.
   %inc = add nuw nsw i32 %i.020, 1
   %call11 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #6
   %cmp12 = icmp slt i32 %inc, %call11
-  br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.end6
   %5 = load ptr, ptr %lock.i, align 8
@@ -1558,7 +1558,7 @@ if.end14:                                         ; preds = %if.then9
   store i32 0, ptr %call.i26, align 8
   %5 = load ptr, ptr %lock.i, align 8
   %call.i28 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %5) #6
-  %call15 = call fastcc i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef nonnull %ctx, i32 noundef 1, ptr noundef %nm, ptr noundef nonnull %call.i26), !range !7
+  %call15 = call fastcc i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef nonnull %ctx, i32 noundef 1, ptr noundef %nm, ptr noundef nonnull %call.i26)
   %cmp16 = icmp slt i32 %call15, 1
   %6 = load i32, ptr %call.i26, align 8
   br i1 %cmp16, label %if.end.i.i, label %if.end.i.i30
@@ -1669,7 +1669,7 @@ for.inc:                                          ; preds = %for.body
   %inc47 = add nuw nsw i32 %idx.149, 1
   %18 = load i32, ptr %cnt, align 4
   %cmp38 = icmp slt i32 %inc, %18
-  br i1 %cmp38, label %for.body, label %end, !llvm.loop !11
+  br i1 %cmp38, label %for.body, label %end, !llvm.loop !9
 
 end:                                              ; preds = %for.inc, %for.cond.preheader, %if.end33, %if.then30
   %sk.0 = phi ptr [ %call31, %if.then30 ], [ null, %if.end33 ], [ %call34, %for.cond.preheader ], [ %call34, %for.inc ]
@@ -1700,7 +1700,7 @@ X509_OBJECT_new.exit:                             ; preds = %entry
   br i1 %cmp, label %X509_OBJECT_free.exit, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %X509_OBJECT_new.exit
-  %call5 = tail call fastcc i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef %nm, ptr noundef nonnull %call.i), !range !7
+  %call5 = tail call fastcc i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef %nm, ptr noundef nonnull %call.i)
   %cmp6 = icmp slt i32 %call5, 0
   %.pr = load i32, ptr %call.i, align 8
   br i1 %cmp6, label %if.end.i.i, label %if.end.i.i28
@@ -1824,7 +1824,7 @@ for.inc:                                          ; preds = %if.end32
   %inc42 = add nuw nsw i32 %idx.047, 1
   %14 = load i32, ptr %cnt, align 4
   %cmp22 = icmp slt i32 %inc, %14
-  br i1 %cmp22, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp22, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %15 = load ptr, ptr %lock.i, align 8
@@ -1927,7 +1927,7 @@ if.then28:                                        ; preds = %if.end17
 for.inc:                                          ; preds = %if.then20, %if.then28
   %inc = add i32 %i.023, 1
   %exitcond.not = icmp eq i32 %inc, %call11
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !11
 
 return:                                           ; preds = %x509_object_cmp.exit, %for.inc, %if.then20, %if.then28, %if.end17, %for.body, %if.end9, %entry, %if.then6
   %retval.0 = phi ptr [ %call8, %if.then6 ], [ null, %entry ], [ null, %if.end9 ], [ null, %x509_object_cmp.exit ], [ null, %for.inc ], [ %call14, %if.then20 ], [ %call14, %if.then28 ], [ %call14, %if.end17 ], [ null, %for.body ]
@@ -1941,7 +1941,7 @@ declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @X509_CRL_match(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_STORE_CTX_get1_issuer(ptr nocapture noundef %issuer, ptr noundef %ctx, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @X509_STORE_CTX_get1_issuer(ptr nocapture noundef %issuer, ptr noundef %ctx, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %stmp.i = alloca %struct.x509_object_st, align 8
   %x509_s.i = alloca %struct.x509_st, align 8
@@ -1956,7 +1956,7 @@ if.end:                                           ; preds = %entry
   store i32 0, ptr %nmatch, align 4
   store ptr null, ptr %issuer, align 8
   %call2 = tail call ptr @X509_get_issuer_name(ptr noundef %x) #6
-  %call3 = tail call fastcc i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef nonnull %ctx, i32 noundef 1, ptr noundef %call2, ptr noundef nonnull %call.i), !range !7
+  %call3 = tail call fastcc i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef nonnull %ctx, i32 noundef 1, ptr noundef %call2, ptr noundef nonnull %call.i)
   %cmp4.not = icmp eq i32 %call3, 1
   br i1 %cmp4.not, label %if.end6, label %if.end.i.i
 
@@ -2108,7 +2108,7 @@ for.inc:                                          ; preds = %if.end35, %if.then5
   %25 = load i32, ptr %nmatch, align 4
   %add = add nsw i32 %25, %call6.i
   %cmp28 = icmp slt i32 %inc, %add
-  br i1 %cmp28, label %for.body, label %if.end57thread-pre-split, !llvm.loop !14
+  br i1 %cmp28, label %for.body, label %if.end57thread-pre-split, !llvm.loop !12
 
 if.end57thread-pre-split:                         ; preds = %for.inc, %for.body, %if.end22
   %ret.2.ph = phi i32 [ 0, %if.end22 ], [ %ret.1, %for.inc ], [ %ret.064, %for.body ]
@@ -2466,11 +2466,9 @@ attributes #6 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -1, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}

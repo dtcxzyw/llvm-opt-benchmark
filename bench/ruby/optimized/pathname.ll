@@ -676,7 +676,7 @@ get_strpath.exit5:                                ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @path_cmp(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 -1, 5) i64 @path_cmp(i64 noundef %0, i64 noundef %1) #0 {
   %3 = load i64, ptr @rb_cPathname, align 8
   %4 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %3) #6
   %.not = icmp eq i64 %4, 0
@@ -792,7 +792,7 @@ RSTRING_PTR.exit36:                               ; preds = %RSTRING_PTR.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @path_hash(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @path_hash(i64 noundef %0) #0 {
   %2 = load i64, ptr @id_at_path, align 8
   %3 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef %2) #6
   %4 = and i64 %3, 7

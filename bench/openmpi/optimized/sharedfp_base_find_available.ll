@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [59 x i8] c"sharedfp:find_avalable: sharedfp component %s is available\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_sharedfp_base_find_available(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mca_sharedfp_base_find_available(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
   %.not19 = icmp eq ptr %3, getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_sharedfp_base_framework, i64 0, i32 12, i32 1)
   br i1 %.not19, label %._crit_edge, label %.lr.ph

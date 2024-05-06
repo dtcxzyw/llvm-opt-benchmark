@@ -10,14 +10,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [127 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/evp/digestsign.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EVP_DigestSignInit(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_DigestSignInit(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @do_sigver_init(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey, i32 noundef 0), !range !7
+  %call = tail call fastcc i32 @do_sigver_init(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_sigver_init(ptr noundef %ctx, ptr noundef writeonly %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey, i32 noundef %is_verify) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %ctx, ptr noundef writeonly %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey, i32 noundef %is_verify) unnamed_addr #0 {
 entry:
   %pctx1 = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %pctx1, align 8
@@ -82,9 +82,9 @@ return:                                           ; preds = %if.end30, %if.end21
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EVP_DigestVerifyInit(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_DigestVerifyInit(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @do_sigver_init(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey, i32 noundef 1), !range !7
+  %call = tail call fastcc i32 @do_sigver_init(ptr noundef %ctx, ptr noundef %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey, i32 noundef 1)
   ret i32 %call
 }
 
@@ -165,7 +165,7 @@ declare i32 @EVP_MD_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 declare i64 @EVP_MD_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EVP_DigestVerifyFinal(ptr noundef %ctx, ptr noundef %sig, i64 noundef %sig_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_DigestVerifyFinal(ptr noundef %ctx, ptr noundef %sig, i64 noundef %sig_len) local_unnamed_addr #0 {
 entry:
   %tmp_ctx = alloca %struct.env_md_ctx_st, align 8
   %md = alloca [64 x i8], align 16
@@ -227,4 +227,3 @@ attributes #2 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}

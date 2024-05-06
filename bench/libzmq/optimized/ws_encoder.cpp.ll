@@ -170,7 +170,7 @@ if.end42:                                         ; preds = %if.end25, %if.then4
   br i1 %cmp, label %if.then43, label %if.else52
 
 if.then43:                                        ; preds = %if.end42
-  %conv44 = trunc i64 %size.1 to i8
+  %conv44 = trunc nuw i64 %size.1 to i8
   %or = or i8 %10, %conv44
   store i8 %or, ptr %arrayidx28, align 1
   br label %if.end84
@@ -183,7 +183,7 @@ if.then54:                                        ; preds = %if.else52
   %11 = or i8 %10, 126
   store i8 %11, ptr %arrayidx28, align 1
   %shr = lshr i64 %size.1, 8
-  %conv63 = trunc i64 %shr to i8
+  %conv63 = trunc nuw i64 %shr to i8
   %arrayidx67 = getelementptr inbounds i8, ptr %this, i64 74
   store i8 %conv63, ptr %arrayidx67, align 2
   %conv69 = trunc i64 %size.1 to i8
@@ -196,7 +196,7 @@ if.else74:                                        ; preds = %if.else52
   store i8 %12, ptr %arrayidx28, align 1
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 74
   %shr.i = lshr i64 %size.1, 56
-  %conv.i = trunc i64 %shr.i to i8
+  %conv.i = trunc nuw i64 %shr.i to i8
   store i8 %conv.i, ptr %add.ptr, align 2
   %shr1.i = lshr i64 %size.1, 48
   %conv3.i = trunc i64 %shr1.i to i8
@@ -238,7 +238,7 @@ if.then87:                                        ; preds = %if.end84
   %idx.ext91 = zext nneg i32 %offset.1 to i64
   %add.ptr92 = getelementptr inbounds i8, ptr %_tmp_buf26, i64 %idx.ext91
   %shr.i40 = lshr i32 %call88, 24
-  %conv.i41 = trunc i32 %shr.i40 to i8
+  %conv.i41 = trunc nuw i32 %shr.i40 to i8
   store i8 %conv.i41, ptr %add.ptr92, align 2
   %shr1.i42 = lshr i32 %call88, 16
   %conv3.i43 = trunc i32 %shr1.i42 to i8

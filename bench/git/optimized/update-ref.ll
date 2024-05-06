@@ -572,7 +572,7 @@ if.then122:                                       ; preds = %if.end120
   br i1 %tobool123.not, label %if.then124, label %if.else125
 
 if.then124:                                       ; preds = %if.then122
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oldoid, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oldoid, i8 0, i64 32, i1 false)
   %43 = load ptr, ptr @the_repository, align 8
   %hash_algo.i = getelementptr inbounds i8, ptr %43, i64 256
   %44 = load ptr, ptr %hash_algo.i, align 8
@@ -632,11 +632,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oldoid, ptr noundef nonnull dereferenceable(32) %call.i21, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oldoid, ptr noundef nonnull readonly dereferenceable(32) %call.i21, i64 32)
   br label %is_null_oid.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oldoid, ptr noundef nonnull dereferenceable(20) %call.i21, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oldoid, ptr noundef nonnull readonly dereferenceable(20) %call.i21, i64 20)
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i
@@ -729,7 +729,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @parse_next_oid(ptr noundef nonnull %next.addr, ptr noundef %end, ptr noundef nonnull %new_oid, ptr noundef nonnull @.str.23, ptr noundef nonnull %call, i32 noundef 2), !range !9
+  %call1 = call fastcc i32 @parse_next_oid(ptr noundef nonnull %next.addr, ptr noundef %end, ptr noundef nonnull %new_oid, ptr noundef nonnull @.str.23, ptr noundef nonnull %call, i32 noundef 2)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
@@ -738,7 +738,7 @@ if.then3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %call5 = call fastcc i32 @parse_next_oid(ptr noundef nonnull %next.addr, ptr noundef %end, ptr noundef nonnull %old_oid, ptr noundef nonnull @.str.23, ptr noundef nonnull %call, i32 noundef 1), !range !9
+  %call5 = call fastcc i32 @parse_next_oid(ptr noundef nonnull %next.addr, ptr noundef %end, ptr noundef nonnull %old_oid, ptr noundef nonnull @.str.23, ptr noundef nonnull %call, i32 noundef 1)
   %0 = load ptr, ptr %next.addr, align 8
   %1 = load i8, ptr %0, align 1
   %conv = sext i8 %1 to i32
@@ -794,7 +794,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @parse_next_oid(ptr noundef nonnull %next.addr, ptr noundef %end, ptr noundef nonnull %new_oid, ptr noundef nonnull @.str.24, ptr noundef nonnull %call, i32 noundef 0), !range !9
+  %call1 = call fastcc i32 @parse_next_oid(ptr noundef nonnull %next.addr, ptr noundef %end, ptr noundef nonnull %new_oid, ptr noundef nonnull @.str.24, ptr noundef nonnull %call, i32 noundef 0)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
@@ -828,11 +828,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %new_oid, ptr noundef nonnull dereferenceable(32) %call.i, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %new_oid, ptr noundef nonnull readonly dereferenceable(32) %call.i, i64 32)
   br label %is_null_oid.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %new_oid, ptr noundef nonnull dereferenceable(20) %call.i, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %new_oid, ptr noundef nonnull readonly dereferenceable(20) %call.i, i64 20)
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i
@@ -898,7 +898,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @parse_next_oid(ptr noundef nonnull %next.addr, ptr noundef %end, ptr noundef nonnull %old_oid, ptr noundef nonnull @.str.25, ptr noundef nonnull %call, i32 noundef 1), !range !9
+  %call1 = call fastcc i32 @parse_next_oid(ptr noundef nonnull %next.addr, ptr noundef %end, ptr noundef nonnull %old_oid, ptr noundef nonnull @.str.25, ptr noundef nonnull %call, i32 noundef 1)
   %tobool2.not.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not.not, label %if.else, label %if.end8
 
@@ -928,11 +928,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %old_oid, ptr noundef nonnull dereferenceable(32) %call.i, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %old_oid, ptr noundef nonnull readonly dereferenceable(32) %call.i, i64 32)
   br label %is_null_oid.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %old_oid, ptr noundef nonnull dereferenceable(20) %call.i, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %old_oid, ptr noundef nonnull readonly dereferenceable(20) %call.i, i64 20)
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i
@@ -997,12 +997,12 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @parse_next_oid(ptr noundef nonnull %next.addr, ptr noundef %end, ptr noundef nonnull %old_oid, ptr noundef nonnull @.str.26, ptr noundef nonnull %call, i32 noundef 1), !range !9
+  %call1 = call fastcc i32 @parse_next_oid(ptr noundef nonnull %next.addr, ptr noundef %end, ptr noundef nonnull %old_oid, ptr noundef nonnull @.str.26, ptr noundef nonnull %call, i32 noundef 1)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %old_oid, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %old_oid, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr @the_repository, align 8
   %hash_algo.i = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo.i, align 8
@@ -1067,7 +1067,7 @@ do.cond.i:                                        ; preds = %do.body.i
   %1 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i = icmp eq i8 %1, %0
-  br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !10
+  br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !9
 
 skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
   %tobool.not.i = icmp eq i8 %0, 0
@@ -1275,7 +1275,7 @@ return:                                           ; preds = %if.end9, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_next_oid(ptr nocapture noundef %next, ptr noundef readnone %end, ptr noundef %oid, ptr noundef %command, ptr noundef %refname, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_next_oid(ptr nocapture noundef %next, ptr noundef readnone %end, ptr noundef %oid, ptr noundef %command, ptr noundef %refname, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %arg = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arg, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)
@@ -1360,16 +1360,16 @@ if.then40:                                        ; preds = %if.else38
   br label %if.end44.sink.split
 
 if.end44.sink.split:                              ; preds = %if.end12, %if.then40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid, i8 0, i64 32, i1 false)
   %9 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i31 = getelementptr inbounds i8, ptr %9, i64 256
-  %10 = load ptr, ptr %hash_algo.i31, align 8
-  %sub.ptr.lhs.cast.i.i32 = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i.i33 = sub i64 %sub.ptr.lhs.cast.i.i32, ptrtoint (ptr @hash_algos to i64)
-  %sub.ptr.div.i.i34 = sdiv exact i64 %sub.ptr.sub.i.i33, 104
-  %conv.i.i35 = trunc i64 %sub.ptr.div.i.i34 to i32
-  %algo.i36 = getelementptr inbounds i8, ptr %oid, i64 32
-  store i32 %conv.i.i35, ptr %algo.i36, align 4
+  %hash_algo.i30 = getelementptr inbounds i8, ptr %9, i64 256
+  %10 = load ptr, ptr %hash_algo.i30, align 8
+  %sub.ptr.lhs.cast.i.i31 = ptrtoint ptr %10 to i64
+  %sub.ptr.sub.i.i32 = sub i64 %sub.ptr.lhs.cast.i.i31, ptrtoint (ptr @hash_algos to i64)
+  %sub.ptr.div.i.i33 = sdiv exact i64 %sub.ptr.sub.i.i32, 104
+  %conv.i.i34 = trunc i64 %sub.ptr.div.i.i33 to i32
+  %algo.i35 = getelementptr inbounds i8, ptr %oid, i64 32
+  store i32 %conv.i.i34, ptr %algo.i35, align 4
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end44.sink.split, %if.else38, %if.then32, %if.then14
@@ -1487,7 +1487,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %arrayidx3.i, align 1
   %15 = load i8, ptr %incdec.ptr, align 1
   %tobool11.not = icmp eq i8 %15, 0
-  br i1 %tobool11.not, label %if.end19, label %land.rhs, !llvm.loop !11
+  br i1 %tobool11.not, label %if.end19, label %land.rhs, !llvm.loop !10
 
 if.end19:                                         ; preds = %strbuf_addch.exit, %land.rhs, %entry, %if.end, %land.lhs.true
   %16 = phi ptr [ %1, %if.end ], [ %1, %land.lhs.true ], [ %next, %entry ], [ %incdec.ptr, %strbuf_addch.exit ], [ %6, %land.rhs ]
@@ -1560,6 +1560,5 @@ attributes #13 = { nounwind willreturn memory(read) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}

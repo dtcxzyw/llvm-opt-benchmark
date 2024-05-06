@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ucnv_extInitialMatchToU_75(ptr noundef %cnv, ptr noundef %cx, i32 noundef %firstLength, ptr nocapture noundef %src, ptr noundef %srcLimit, ptr noundef %target, ptr noundef %targetLimit, ptr noundef %offsets, i32 noundef %srcIndex, i8 noundef signext %flush, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucnv_extInitialMatchToU_75(ptr noundef %cnv, ptr noundef %cx, i32 noundef %firstLength, ptr nocapture noundef %src, ptr noundef %srcLimit, ptr noundef %target, ptr noundef %targetLimit, ptr noundef %offsets, i32 noundef %srcIndex, i8 noundef signext %flush, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   store i32 0, ptr %value, align 4
@@ -29,7 +29,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond8 = phi i32 [ %conv2, %cond.true ], [ %cond, %cond.false ]
-  %conv9 = trunc i32 %cond8 to i8
+  %conv9 = trunc nsw i32 %cond8 to i8
   %toUBytes = getelementptr inbounds i8, ptr %cnv, i64 65
   %3 = load ptr, ptr %src, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %srcLimit to i64
@@ -371,7 +371,7 @@ return:                                           ; preds = %for.end, %if.then4,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ucnv_extSimpleMatchToU_75(ptr noundef %cx, ptr nocapture noundef readonly %source, i32 noundef %length, i8 noundef signext %useFallback) local_unnamed_addr #2 {
+define range(i32 -2031616, 1114112) i32 @ucnv_extSimpleMatchToU_75(ptr noundef %cx, ptr nocapture noundef readonly %source, i32 noundef %length, i8 noundef signext %useFallback) local_unnamed_addr #2 {
 entry:
   %value = alloca i32, align 4
   store i32 0, ptr %value, align 4
@@ -421,7 +421,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond10 = phi i32 [ %conv4, %cond.true ], [ %cond, %cond.false ]
-  %conv11 = trunc i32 %cond10 to i8
+  %conv11 = trunc nsw i32 %cond10 to i8
   %preToU = getelementptr inbounds i8, ptr %cnv, i64 250
   %preToULength = getelementptr inbounds i8, ptr %cnv, i64 282
   %4 = load i8, ptr %preToULength, align 2
@@ -566,7 +566,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ucnv_extInitialMatchFromU_75(ptr noundef %cnv, ptr noundef %cx, i32 noundef %cp, ptr nocapture noundef %src, ptr noundef %srcLimit, ptr noundef %target, ptr noundef %targetLimit, ptr noundef %offsets, i32 noundef %srcIndex, i8 noundef signext %flush, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucnv_extInitialMatchFromU_75(ptr noundef %cnv, ptr noundef %cx, i32 noundef %cp, ptr nocapture noundef %src, ptr noundef %srcLimit, ptr noundef %target, ptr noundef %targetLimit, ptr noundef %offsets, i32 noundef %srcIndex, i8 noundef signext %flush, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %buffer.i = alloca [32 x i8], align 16
   %value = alloca i32, align 4
@@ -1013,7 +1013,7 @@ return:                                           ; preds = %if.end91, %if.else8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ucnv_extSimpleMatchFromU_75(ptr noundef %cx, i32 noundef %cp, ptr nocapture noundef writeonly %pValue, i8 noundef signext %useFallback) local_unnamed_addr #2 {
+define range(i32 -3, 4) i32 @ucnv_extSimpleMatchFromU_75(ptr noundef %cx, i32 noundef %cp, ptr nocapture noundef writeonly %pValue, i8 noundef signext %useFallback) local_unnamed_addr #2 {
 entry:
   %value = alloca i32, align 4
   %call = call fastcc noundef i32 @_ZL18ucnv_extMatchFromUPKiiPKDsiS2_iPjaa(ptr noundef %cx, i32 noundef %cp, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value, i8 noundef signext %useFallback, i8 noundef signext 1)
@@ -1347,7 +1347,7 @@ if.then40:                                        ; preds = %if.else38
   br i1 %cmp42, label %if.then43, label %if.else47
 
 if.then43:                                        ; preds = %if.then40
-  %conv44 = trunc i32 %c.2 to i16
+  %conv44 = trunc nuw i32 %c.2 to i16
   store i16 %conv44, ptr %s, align 16
   call fastcc void @_ZL27ucnv_extGetUnicodeSetStringPK20UConverterSharedDataPKiPK9USetAdder20UConverterUnicodeSetiiPDsiiP10UErrorCode(ptr noundef nonnull %0, ptr noundef %sa, i32 noundef %which, i32 noundef %minLength.0, i32 noundef %c.2, ptr noundef nonnull %s, i32 noundef 1, i32 noundef %9)
   br label %do.cond

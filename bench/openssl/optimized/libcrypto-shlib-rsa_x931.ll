@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.RSA_padding_check_X931 = private unnamed_addr constant [23 x i8] c"RSA_padding_check_X931\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RSA_padding_add_X931(ptr nocapture noundef writeonly %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @RSA_padding_add_X931(ptr nocapture noundef writeonly %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
 entry:
   %sub = sub nsw i32 %tlen, %flen
   %cmp = icmp slt i32 %sub, 2
@@ -169,7 +169,7 @@ return:                                           ; preds = %if.end34, %if.then3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @RSA_X931_hash_id(i32 noundef %nid) local_unnamed_addr #4 {
+define range(i32 -1, 55) i32 @RSA_X931_hash_id(i32 noundef %nid) local_unnamed_addr #4 {
 entry:
   switch i32 %nid, label %sw.epilog [
     i32 64, label %return

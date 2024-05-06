@@ -165,8 +165,8 @@ entry:
   %tobool.not.i.i = icmp eq i32 %3, 0
   %bf.load.i.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 2), align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
-  %tobool.not14.i = icmp ne i8 %bf.clear.i.i, 0
-  %tobool.not.i = select i1 %tobool.not.i.i, i1 %tobool.not14.i, i1 false
+  %tobool.not15.i = icmp ne i8 %bf.clear.i.i, 0
+  %tobool.not.i = select i1 %tobool.not.i.i, i1 %tobool.not15.i, i1 false
   br i1 %tobool.not.i, label %do.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -176,8 +176,8 @@ if.then.i:                                        ; preds = %entry
 do.end.i:                                         ; preds = %if.then.i, %entry
   %nr.i = getelementptr inbounds i8, ptr %transaction, i64 24
   %4 = load i64, ptr %nr.i, align 8
-  %cmp16.not.i = icmp eq i64 %4, 0
-  br i1 %cmp16.not.i, label %do.body2.i, label %if.end5.i.lr.ph.i
+  %cmp17.not.i = icmp eq i64 %4, 0
+  br i1 %cmp17.not.i, label %do.body2.i, label %if.end5.i.lr.ph.i
 
 if.end5.i.lr.ph.i:                                ; preds = %do.end.i
   %updates.i = getelementptr inbounds i8, ptr %transaction, i64 8
@@ -215,25 +215,25 @@ if.then9.i.i:                                     ; preds = %if.end5.i.i
   %refname.i = getelementptr inbounds i8, ptr %6, i64 112
   %and6.i.i = and i32 %7, 15
   %and.i.i = and i32 %8, 15
-  %11 = trunc i64 %indvars.iv.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str, i32 noundef 74, ptr noundef nonnull @trace_refs, ptr noundef nonnull @.str.9, i32 noundef %11, ptr noundef nonnull %refname.i, ptr noundef nonnull %o.i.i, ptr noundef nonnull %n.i.i, i32 noundef %and6.i.i, i32 noundef %and.i.i, ptr noundef %9) #6
   br label %print_update.exit.i
 
 print_update.exit.i:                              ; preds = %if.then9.i.i, %if.end5.i.i
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %o.i.i)
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %n.i.i)
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = load i64, ptr %nr.i, align 8
   %cmp.i = icmp ugt i64 %12, %indvars.iv.next.i
   br i1 %cmp.i, label %if.end5.i.i, label %do.body2.i, !llvm.loop !5
 
 do.body2.i:                                       ; preds = %print_update.exit.i, %do.end.i
   %13 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
-  %tobool.not.i10.i = icmp eq i32 %13, 0
-  %bf.load.i11.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 2), align 4
-  %bf.clear.i12.i = and i8 %bf.load.i11.i, 1
-  %tobool4.not15.i = icmp ne i8 %bf.clear.i12.i, 0
-  %tobool4.not.i = select i1 %tobool.not.i10.i, i1 %tobool4.not15.i, i1 false
+  %tobool.not.i11.i = icmp eq i32 %13, 0
+  %bf.load.i12.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 2), align 4
+  %bf.clear.i13.i = and i8 %bf.load.i12.i, 1
+  %tobool4.not16.i = icmp ne i8 %bf.clear.i13.i, 0
+  %tobool4.not.i = select i1 %tobool.not.i11.i, i1 %tobool4.not16.i, i1 false
   br i1 %tobool4.not.i, label %do.end, label %print_transaction.exit
 
 print_transaction.exit:                           ; preds = %do.body2.i
@@ -413,7 +413,7 @@ do.end:                                           ; preds = %entry, %if.then
 define internal i32 @debug_read_raw_ref(ptr nocapture noundef readonly %ref_store, ptr noundef %refname, ptr noundef %oid, ptr noundef %referent, ptr noundef %type, ptr noundef %failure_errno) #0 {
 entry:
   %call = tail call ptr @null_oid() #6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, ptr noundef nonnull align 4 dereferenceable(32) %call, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %call, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %call, i64 32
   %0 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %oid, i64 32

@@ -11197,7 +11197,7 @@ if.end30:                                         ; preds = %for.end28, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %array1, ptr noundef %array2, i32 noundef %count) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %array1, ptr noundef %array2, i32 noundef %count) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp ne ptr %array1, %array2
   %cmp110 = icmp sgt i32 %count, 0
@@ -11600,7 +11600,7 @@ if.then106:                                       ; preds = %land.lhs.true102
   %68 = load ptr, ptr %fEras, align 8
   %fEras107 = getelementptr inbounds i8, ptr %other, i64 8
   %69 = load ptr, ptr %fEras107, align 8
-  %call109 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %68, ptr noundef %69, i32 noundef %0), !range !27
+  %call109 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %68, ptr noundef %69, i32 noundef %0)
   %tobool.not = icmp eq i8 %call109, 0
   br i1 %tobool.not, label %return, label %land.lhs.true110
 
@@ -11610,7 +11610,7 @@ land.lhs.true110:                                 ; preds = %if.then106
   %fEraNames111 = getelementptr inbounds i8, ptr %other, i64 24
   %71 = load ptr, ptr %fEraNames111, align 8
   %72 = load i32, ptr %fEraNamesCount, align 8
-  %call113 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %70, ptr noundef %71, i32 noundef %72), !range !27
+  %call113 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %70, ptr noundef %71, i32 noundef %72)
   %tobool114.not = icmp eq i8 %call113, 0
   br i1 %tobool114.not, label %return, label %land.lhs.true115
 
@@ -11620,7 +11620,7 @@ land.lhs.true115:                                 ; preds = %land.lhs.true110
   %fNarrowEras116 = getelementptr inbounds i8, ptr %other, i64 40
   %74 = load ptr, ptr %fNarrowEras116, align 8
   %75 = load i32, ptr %fNarrowErasCount, align 8
-  %call118 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %73, ptr noundef %74, i32 noundef %75), !range !27
+  %call118 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %73, ptr noundef %74, i32 noundef %75)
   %tobool119.not = icmp eq i8 %call118, 0
   br i1 %tobool119.not, label %return, label %land.lhs.true120
 
@@ -11630,7 +11630,7 @@ land.lhs.true120:                                 ; preds = %land.lhs.true115
   %fMonths121 = getelementptr inbounds i8, ptr %other, i64 56
   %77 = load ptr, ptr %fMonths121, align 8
   %78 = load i32, ptr %fMonthsCount, align 8
-  %call123 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %76, ptr noundef %77, i32 noundef %78), !range !27
+  %call123 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %76, ptr noundef %77, i32 noundef %78)
   %tobool124.not = icmp eq i8 %call123, 0
   br i1 %tobool124.not, label %return, label %land.lhs.true125
 
@@ -11640,7 +11640,7 @@ land.lhs.true125:                                 ; preds = %land.lhs.true120
   %fShortMonths126 = getelementptr inbounds i8, ptr %other, i64 72
   %80 = load ptr, ptr %fShortMonths126, align 8
   %81 = load i32, ptr %fShortMonthsCount, align 8
-  %call128 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %79, ptr noundef %80, i32 noundef %81), !range !27
+  %call128 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %79, ptr noundef %80, i32 noundef %81)
   %tobool129.not = icmp eq i8 %call128, 0
   br i1 %tobool129.not, label %return, label %land.lhs.true130
 
@@ -11650,7 +11650,7 @@ land.lhs.true130:                                 ; preds = %land.lhs.true125
   %fNarrowMonths131 = getelementptr inbounds i8, ptr %other, i64 88
   %83 = load ptr, ptr %fNarrowMonths131, align 8
   %84 = load i32, ptr %fNarrowMonthsCount, align 8
-  %call133 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %82, ptr noundef %83, i32 noundef %84), !range !27
+  %call133 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %82, ptr noundef %83, i32 noundef %84)
   %tobool134.not = icmp eq i8 %call133, 0
   br i1 %tobool134.not, label %return, label %land.lhs.true135
 
@@ -11660,7 +11660,7 @@ land.lhs.true135:                                 ; preds = %land.lhs.true130
   %fStandaloneMonths136 = getelementptr inbounds i8, ptr %other, i64 104
   %86 = load ptr, ptr %fStandaloneMonths136, align 8
   %87 = load i32, ptr %fStandaloneMonthsCount, align 8
-  %call138 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %85, ptr noundef %86, i32 noundef %87), !range !27
+  %call138 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %85, ptr noundef %86, i32 noundef %87)
   %tobool139.not = icmp eq i8 %call138, 0
   br i1 %tobool139.not, label %return, label %land.lhs.true140
 
@@ -11670,7 +11670,7 @@ land.lhs.true140:                                 ; preds = %land.lhs.true135
   %fStandaloneShortMonths141 = getelementptr inbounds i8, ptr %other, i64 120
   %89 = load ptr, ptr %fStandaloneShortMonths141, align 8
   %90 = load i32, ptr %fStandaloneShortMonthsCount, align 8
-  %call143 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %88, ptr noundef %89, i32 noundef %90), !range !27
+  %call143 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %88, ptr noundef %89, i32 noundef %90)
   %tobool144.not = icmp eq i8 %call143, 0
   br i1 %tobool144.not, label %return, label %land.lhs.true145
 
@@ -11680,7 +11680,7 @@ land.lhs.true145:                                 ; preds = %land.lhs.true140
   %fStandaloneNarrowMonths146 = getelementptr inbounds i8, ptr %other, i64 136
   %92 = load ptr, ptr %fStandaloneNarrowMonths146, align 8
   %93 = load i32, ptr %fStandaloneNarrowMonthsCount, align 8
-  %call148 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %91, ptr noundef %92, i32 noundef %93), !range !27
+  %call148 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %91, ptr noundef %92, i32 noundef %93)
   %tobool149.not = icmp eq i8 %call148, 0
   br i1 %tobool149.not, label %return, label %land.lhs.true150
 
@@ -11690,7 +11690,7 @@ land.lhs.true150:                                 ; preds = %land.lhs.true145
   %fWeekdays151 = getelementptr inbounds i8, ptr %other, i64 152
   %95 = load ptr, ptr %fWeekdays151, align 8
   %96 = load i32, ptr %fWeekdaysCount, align 8
-  %call153 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %94, ptr noundef %95, i32 noundef %96), !range !27
+  %call153 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %94, ptr noundef %95, i32 noundef %96)
   %tobool154.not = icmp eq i8 %call153, 0
   br i1 %tobool154.not, label %return, label %land.lhs.true155
 
@@ -11700,7 +11700,7 @@ land.lhs.true155:                                 ; preds = %land.lhs.true150
   %fShortWeekdays156 = getelementptr inbounds i8, ptr %other, i64 168
   %98 = load ptr, ptr %fShortWeekdays156, align 8
   %99 = load i32, ptr %fShortWeekdaysCount, align 8
-  %call158 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %97, ptr noundef %98, i32 noundef %99), !range !27
+  %call158 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %97, ptr noundef %98, i32 noundef %99)
   %tobool159.not = icmp eq i8 %call158, 0
   br i1 %tobool159.not, label %return, label %land.lhs.true160
 
@@ -11710,7 +11710,7 @@ land.lhs.true160:                                 ; preds = %land.lhs.true155
   %fShorterWeekdays161 = getelementptr inbounds i8, ptr %other, i64 184
   %101 = load ptr, ptr %fShorterWeekdays161, align 8
   %102 = load i32, ptr %fShorterWeekdaysCount, align 8
-  %call163 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %100, ptr noundef %101, i32 noundef %102), !range !27
+  %call163 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %100, ptr noundef %101, i32 noundef %102)
   %tobool164.not = icmp eq i8 %call163, 0
   br i1 %tobool164.not, label %return, label %land.lhs.true165
 
@@ -11720,7 +11720,7 @@ land.lhs.true165:                                 ; preds = %land.lhs.true160
   %fNarrowWeekdays166 = getelementptr inbounds i8, ptr %other, i64 200
   %104 = load ptr, ptr %fNarrowWeekdays166, align 8
   %105 = load i32, ptr %fNarrowWeekdaysCount, align 8
-  %call168 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %103, ptr noundef %104, i32 noundef %105), !range !27
+  %call168 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %103, ptr noundef %104, i32 noundef %105)
   %tobool169.not = icmp eq i8 %call168, 0
   br i1 %tobool169.not, label %return, label %land.lhs.true170
 
@@ -11730,7 +11730,7 @@ land.lhs.true170:                                 ; preds = %land.lhs.true165
   %fStandaloneWeekdays171 = getelementptr inbounds i8, ptr %other, i64 216
   %107 = load ptr, ptr %fStandaloneWeekdays171, align 8
   %108 = load i32, ptr %fStandaloneWeekdaysCount, align 8
-  %call173 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %106, ptr noundef %107, i32 noundef %108), !range !27
+  %call173 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %106, ptr noundef %107, i32 noundef %108)
   %tobool174.not = icmp eq i8 %call173, 0
   br i1 %tobool174.not, label %return, label %land.lhs.true175
 
@@ -11740,7 +11740,7 @@ land.lhs.true175:                                 ; preds = %land.lhs.true170
   %fStandaloneShortWeekdays176 = getelementptr inbounds i8, ptr %other, i64 232
   %110 = load ptr, ptr %fStandaloneShortWeekdays176, align 8
   %111 = load i32, ptr %fStandaloneShortWeekdaysCount, align 8
-  %call178 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %109, ptr noundef %110, i32 noundef %111), !range !27
+  %call178 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %109, ptr noundef %110, i32 noundef %111)
   %tobool179.not = icmp eq i8 %call178, 0
   br i1 %tobool179.not, label %return, label %land.lhs.true180
 
@@ -11750,7 +11750,7 @@ land.lhs.true180:                                 ; preds = %land.lhs.true175
   %fStandaloneShorterWeekdays181 = getelementptr inbounds i8, ptr %other, i64 248
   %113 = load ptr, ptr %fStandaloneShorterWeekdays181, align 8
   %114 = load i32, ptr %fStandaloneShorterWeekdaysCount, align 8
-  %call183 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %112, ptr noundef %113, i32 noundef %114), !range !27
+  %call183 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %112, ptr noundef %113, i32 noundef %114)
   %tobool184.not = icmp eq i8 %call183, 0
   br i1 %tobool184.not, label %return, label %land.lhs.true185
 
@@ -11760,7 +11760,7 @@ land.lhs.true185:                                 ; preds = %land.lhs.true180
   %fStandaloneNarrowWeekdays186 = getelementptr inbounds i8, ptr %other, i64 264
   %116 = load ptr, ptr %fStandaloneNarrowWeekdays186, align 8
   %117 = load i32, ptr %fStandaloneNarrowWeekdaysCount, align 8
-  %call188 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %115, ptr noundef %116, i32 noundef %117), !range !27
+  %call188 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %115, ptr noundef %116, i32 noundef %117)
   %tobool189.not = icmp eq i8 %call188, 0
   br i1 %tobool189.not, label %return, label %land.lhs.true190
 
@@ -11770,7 +11770,7 @@ land.lhs.true190:                                 ; preds = %land.lhs.true185
   %fAmPms191 = getelementptr inbounds i8, ptr %other, i64 280
   %119 = load ptr, ptr %fAmPms191, align 8
   %120 = load i32, ptr %fAmPmsCount, align 8
-  %call193 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %118, ptr noundef %119, i32 noundef %120), !range !27
+  %call193 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %118, ptr noundef %119, i32 noundef %120)
   %tobool194.not = icmp eq i8 %call193, 0
   br i1 %tobool194.not, label %return, label %land.lhs.true195
 
@@ -11780,7 +11780,7 @@ land.lhs.true195:                                 ; preds = %land.lhs.true190
   %fNarrowAmPms196 = getelementptr inbounds i8, ptr %other, i64 296
   %122 = load ptr, ptr %fNarrowAmPms196, align 8
   %123 = load i32, ptr %fNarrowAmPmsCount, align 8
-  %call198 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %121, ptr noundef %122, i32 noundef %123), !range !27
+  %call198 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %121, ptr noundef %122, i32 noundef %123)
   %tobool199.not = icmp eq i8 %call198, 0
   br i1 %tobool199.not, label %return, label %land.lhs.true200
 
@@ -11796,7 +11796,7 @@ land.lhs.true203:                                 ; preds = %land.lhs.true200
   %fQuarters204 = getelementptr inbounds i8, ptr %other, i64 376
   %125 = load ptr, ptr %fQuarters204, align 8
   %126 = load i32, ptr %fQuartersCount, align 8
-  %call206 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %124, ptr noundef %125, i32 noundef %126), !range !27
+  %call206 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %124, ptr noundef %125, i32 noundef %126)
   %tobool207.not = icmp eq i8 %call206, 0
   br i1 %tobool207.not, label %return, label %land.lhs.true208
 
@@ -11806,7 +11806,7 @@ land.lhs.true208:                                 ; preds = %land.lhs.true203
   %fShortQuarters209 = getelementptr inbounds i8, ptr %other, i64 392
   %128 = load ptr, ptr %fShortQuarters209, align 8
   %129 = load i32, ptr %fShortQuartersCount, align 8
-  %call211 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %127, ptr noundef %128, i32 noundef %129), !range !27
+  %call211 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %127, ptr noundef %128, i32 noundef %129)
   %tobool212.not = icmp eq i8 %call211, 0
   br i1 %tobool212.not, label %return, label %land.lhs.true213
 
@@ -11816,7 +11816,7 @@ land.lhs.true213:                                 ; preds = %land.lhs.true208
   %fNarrowQuarters214 = getelementptr inbounds i8, ptr %other, i64 408
   %131 = load ptr, ptr %fNarrowQuarters214, align 8
   %132 = load i32, ptr %fNarrowQuartersCount, align 8
-  %call216 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %130, ptr noundef %131, i32 noundef %132), !range !27
+  %call216 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %130, ptr noundef %131, i32 noundef %132)
   %tobool217.not = icmp eq i8 %call216, 0
   br i1 %tobool217.not, label %return, label %land.lhs.true218
 
@@ -11826,7 +11826,7 @@ land.lhs.true218:                                 ; preds = %land.lhs.true213
   %fStandaloneQuarters219 = getelementptr inbounds i8, ptr %other, i64 424
   %134 = load ptr, ptr %fStandaloneQuarters219, align 8
   %135 = load i32, ptr %fStandaloneQuartersCount, align 8
-  %call221 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %133, ptr noundef %134, i32 noundef %135), !range !27
+  %call221 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %133, ptr noundef %134, i32 noundef %135)
   %tobool222.not = icmp eq i8 %call221, 0
   br i1 %tobool222.not, label %return, label %land.lhs.true223
 
@@ -11836,7 +11836,7 @@ land.lhs.true223:                                 ; preds = %land.lhs.true218
   %fStandaloneShortQuarters224 = getelementptr inbounds i8, ptr %other, i64 440
   %137 = load ptr, ptr %fStandaloneShortQuarters224, align 8
   %138 = load i32, ptr %fStandaloneShortQuartersCount, align 8
-  %call226 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %136, ptr noundef %137, i32 noundef %138), !range !27
+  %call226 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %136, ptr noundef %137, i32 noundef %138)
   %tobool227.not = icmp eq i8 %call226, 0
   br i1 %tobool227.not, label %return, label %land.lhs.true228
 
@@ -11846,7 +11846,7 @@ land.lhs.true228:                                 ; preds = %land.lhs.true223
   %fStandaloneNarrowQuarters229 = getelementptr inbounds i8, ptr %other, i64 456
   %140 = load ptr, ptr %fStandaloneNarrowQuarters229, align 8
   %141 = load i32, ptr %fStandaloneNarrowQuartersCount, align 8
-  %call231 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %139, ptr noundef %140, i32 noundef %141), !range !27
+  %call231 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %139, ptr noundef %140, i32 noundef %141)
   %tobool232.not = icmp eq i8 %call231, 0
   br i1 %tobool232.not, label %return, label %land.lhs.true233
 
@@ -11856,7 +11856,7 @@ land.lhs.true233:                                 ; preds = %land.lhs.true228
   %fLeapMonthPatterns234 = getelementptr inbounds i8, ptr %other, i64 472
   %143 = load ptr, ptr %fLeapMonthPatterns234, align 8
   %144 = load i32, ptr %fLeapMonthPatternsCount, align 8
-  %call236 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %142, ptr noundef %143, i32 noundef %144), !range !27
+  %call236 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %142, ptr noundef %143, i32 noundef %144)
   %tobool237.not = icmp eq i8 %call236, 0
   br i1 %tobool237.not, label %return, label %land.lhs.true238
 
@@ -11866,7 +11866,7 @@ land.lhs.true238:                                 ; preds = %land.lhs.true233
   %fShortYearNames239 = getelementptr inbounds i8, ptr %other, i64 488
   %146 = load ptr, ptr %fShortYearNames239, align 8
   %147 = load i32, ptr %fShortYearNamesCount, align 8
-  %call241 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %145, ptr noundef %146, i32 noundef %147), !range !27
+  %call241 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %145, ptr noundef %146, i32 noundef %147)
   %tobool242.not = icmp eq i8 %call241, 0
   br i1 %tobool242.not, label %return, label %land.lhs.true243
 
@@ -11876,7 +11876,7 @@ land.lhs.true243:                                 ; preds = %land.lhs.true238
   %fShortZodiacNames244 = getelementptr inbounds i8, ptr %other, i64 504
   %149 = load ptr, ptr %fShortZodiacNames244, align 8
   %150 = load i32, ptr %fShortZodiacNamesCount, align 8
-  %call246 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %148, ptr noundef %149, i32 noundef %150), !range !27
+  %call246 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %148, ptr noundef %149, i32 noundef %150)
   %tobool247.not = icmp eq i8 %call246, 0
   br i1 %tobool247.not, label %return, label %land.lhs.true248
 
@@ -11886,7 +11886,7 @@ land.lhs.true248:                                 ; preds = %land.lhs.true243
   %fAbbreviatedDayPeriods249 = getelementptr inbounds i8, ptr %other, i64 864
   %152 = load ptr, ptr %fAbbreviatedDayPeriods249, align 8
   %153 = load i32, ptr %fAbbreviatedDayPeriodsCount, align 8
-  %call251 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %151, ptr noundef %152, i32 noundef %153), !range !27
+  %call251 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %151, ptr noundef %152, i32 noundef %153)
   %tobool252.not = icmp eq i8 %call251, 0
   br i1 %tobool252.not, label %return, label %land.lhs.true253
 
@@ -11896,7 +11896,7 @@ land.lhs.true253:                                 ; preds = %land.lhs.true248
   %fWideDayPeriods254 = getelementptr inbounds i8, ptr %other, i64 880
   %155 = load ptr, ptr %fWideDayPeriods254, align 8
   %156 = load i32, ptr %fWideDayPeriodsCount, align 8
-  %call256 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %154, ptr noundef %155, i32 noundef %156), !range !27
+  %call256 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %154, ptr noundef %155, i32 noundef %156)
   %tobool257.not = icmp eq i8 %call256, 0
   br i1 %tobool257.not, label %return, label %land.lhs.true258
 
@@ -11906,7 +11906,7 @@ land.lhs.true258:                                 ; preds = %land.lhs.true253
   %fNarrowDayPeriods259 = getelementptr inbounds i8, ptr %other, i64 896
   %158 = load ptr, ptr %fNarrowDayPeriods259, align 8
   %159 = load i32, ptr %fNarrowDayPeriodsCount, align 8
-  %call261 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %157, ptr noundef %158, i32 noundef %159), !range !27
+  %call261 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %157, ptr noundef %158, i32 noundef %159)
   %tobool262.not = icmp eq i8 %call261, 0
   br i1 %tobool262.not, label %return, label %land.lhs.true263
 
@@ -11916,7 +11916,7 @@ land.lhs.true263:                                 ; preds = %land.lhs.true258
   %fStandaloneAbbreviatedDayPeriods264 = getelementptr inbounds i8, ptr %other, i64 912
   %161 = load ptr, ptr %fStandaloneAbbreviatedDayPeriods264, align 8
   %162 = load i32, ptr %fStandaloneAbbreviatedDayPeriodsCount, align 8
-  %call266 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %160, ptr noundef %161, i32 noundef %162), !range !27
+  %call266 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %160, ptr noundef %161, i32 noundef %162)
   %tobool267.not = icmp eq i8 %call266, 0
   br i1 %tobool267.not, label %return, label %land.lhs.true268
 
@@ -11926,7 +11926,7 @@ land.lhs.true268:                                 ; preds = %land.lhs.true263
   %fStandaloneWideDayPeriods269 = getelementptr inbounds i8, ptr %other, i64 928
   %164 = load ptr, ptr %fStandaloneWideDayPeriods269, align 8
   %165 = load i32, ptr %fStandaloneWideDayPeriodsCount, align 8
-  %call271 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %163, ptr noundef %164, i32 noundef %165), !range !27
+  %call271 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %163, ptr noundef %164, i32 noundef %165)
   %tobool272.not = icmp eq i8 %call271, 0
   br i1 %tobool272.not, label %return, label %land.lhs.true273
 
@@ -11936,7 +11936,7 @@ land.lhs.true273:                                 ; preds = %land.lhs.true268
   %fStandaloneNarrowDayPeriods274 = getelementptr inbounds i8, ptr %other, i64 944
   %167 = load ptr, ptr %fStandaloneNarrowDayPeriods274, align 8
   %168 = load i32, ptr %fStandaloneWideDayPeriodsCount, align 8
-  %call276 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %166, ptr noundef %167, i32 noundef %168), !range !27
+  %call276 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %166, ptr noundef %167, i32 noundef %168)
   %tobool277.not = icmp eq i8 %call276, 0
   br i1 %tobool277.not, label %return, label %if.then278
 
@@ -11989,14 +11989,14 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx306 = getelementptr inbounds ptr, ptr %177, i64 %indvars.iv
   %178 = load ptr, ptr %arrayidx306, align 8
   %179 = load i32, ptr %fZoneStringsColCount, align 4
-  %call308 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %176, ptr noundef %178, i32 noundef %179), !range !27
+  %call308 = tail call noundef signext i8 @_ZN6icu_7517DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %176, ptr noundef %178, i32 noundef %179)
   %tobool309 = icmp ne i8 %call308, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %180 = load i32, ptr %fZoneStringsRowCount, align 8
   %181 = sext i32 %180 to i64
   %cmp301 = icmp slt i64 %indvars.iv.next, %181
   %182 = and i1 %tobool309, %cmp301
-  br i1 %182, label %for.body, label %return, !llvm.loop !28
+  br i1 %182, label %for.body, label %return, !llvm.loop !27
 
 if.end313:                                        ; preds = %if.else, %land.lhs.true296, %if.then293, %if.then283
   br label %return
@@ -12361,7 +12361,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
+  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
   %fShortYearNamesCount = getelementptr inbounds i8, ptr %this, i64 496
@@ -12460,7 +12460,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
+  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
   %fShortZodiacNamesCount = getelementptr inbounds i8, ptr %this, i64 512
@@ -12543,7 +12543,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
+  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
   %fErasCount = getelementptr inbounds i8, ptr %this, i64 16
@@ -12623,7 +12623,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
+  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
   %fEraNamesCount = getelementptr inbounds i8, ptr %this, i64 32
@@ -12703,7 +12703,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
+  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
   %fNarrowErasCount = getelementptr inbounds i8, ptr %this, i64 48
@@ -12783,7 +12783,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
+  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
   %fMonthsCount = getelementptr inbounds i8, ptr %this, i64 64
@@ -12863,7 +12863,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
+  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
   %fShortMonthsCount = getelementptr inbounds i8, ptr %this, i64 80
@@ -12956,7 +12956,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i29 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %sw.epilog107.sink.split, !llvm.loop !29
+  br i1 %cmp.i, label %while.body.i, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb8:                                           ; preds = %sw.bb
   %fShortMonths = getelementptr inbounds i8, ptr %this, i64 72
@@ -13028,7 +13028,7 @@ while.body.i45:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i51 = getelementptr inbounds i8, ptr %dst.addr.03.i47, i64 64
   %call.i52 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i47, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i48)
   %cmp.i53 = icmp ugt i32 %count.addr.04.i46, 1
-  br i1 %cmp.i53, label %while.body.i45, label %sw.epilog107.sink.split, !llvm.loop !29
+  br i1 %cmp.i53, label %while.body.i45, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb27:                                          ; preds = %sw.bb
   %fNarrowMonths = getelementptr inbounds i8, ptr %this, i64 88
@@ -13100,7 +13100,7 @@ while.body.i70:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i76 = getelementptr inbounds i8, ptr %dst.addr.03.i72, i64 64
   %call.i77 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i72, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i73)
   %cmp.i78 = icmp ugt i32 %count.addr.04.i71, 1
-  br i1 %cmp.i78, label %while.body.i70, label %sw.epilog107.sink.split, !llvm.loop !29
+  br i1 %cmp.i78, label %while.body.i70, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb46:                                          ; preds = %entry
   switch i32 %width, label %sw.epilog107 [
@@ -13179,7 +13179,7 @@ while.body.i95:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i101 = getelementptr inbounds i8, ptr %dst.addr.03.i97, i64 64
   %call.i102 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i97, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i98)
   %cmp.i103 = icmp ugt i32 %count.addr.04.i96, 1
-  br i1 %cmp.i103, label %while.body.i95, label %sw.epilog107.sink.split, !llvm.loop !29
+  br i1 %cmp.i103, label %while.body.i95, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb66:                                          ; preds = %sw.bb46
   %fStandaloneShortMonths = getelementptr inbounds i8, ptr %this, i64 120
@@ -13251,7 +13251,7 @@ while.body.i120:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i126 = getelementptr inbounds i8, ptr %dst.addr.03.i122, i64 64
   %call.i127 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i122, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i123)
   %cmp.i128 = icmp ugt i32 %count.addr.04.i121, 1
-  br i1 %cmp.i128, label %while.body.i120, label %sw.epilog107.sink.split, !llvm.loop !29
+  br i1 %cmp.i128, label %while.body.i120, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb85:                                          ; preds = %sw.bb46
   %fStandaloneNarrowMonths = getelementptr inbounds i8, ptr %this, i64 136
@@ -13323,7 +13323,7 @@ while.body.i145:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i151 = getelementptr inbounds i8, ptr %dst.addr.03.i147, i64 64
   %call.i152 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i147, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i148)
   %cmp.i153 = icmp ugt i32 %count.addr.04.i146, 1
-  br i1 %cmp.i153, label %while.body.i145, label %sw.epilog107.sink.split, !llvm.loop !29
+  br i1 %cmp.i153, label %while.body.i145, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.epilog107.sink.split:                          ; preds = %while.body.i145, %while.body.i120, %while.body.i95, %while.body.i70, %while.body.i45, %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
   %.sink = phi i64 [ 64, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ], [ 80, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43 ], [ 96, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68 ], [ 112, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93 ], [ 128, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118 ], [ 144, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143 ], [ 64, %while.body.i ], [ 80, %while.body.i45 ], [ 96, %while.body.i70 ], [ 112, %while.body.i95 ], [ 128, %while.body.i120 ], [ 144, %while.body.i145 ]
@@ -13407,7 +13407,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
+  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
   %fWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 160
@@ -13487,7 +13487,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
+  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
   %fShortWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 176
@@ -13581,7 +13581,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i39 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %sw.epilog146.sink.split, !llvm.loop !29
+  br i1 %cmp.i, label %while.body.i, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.bb8:                                           ; preds = %sw.bb
   %fShortWeekdays = getelementptr inbounds i8, ptr %this, i64 168
@@ -13653,7 +13653,7 @@ while.body.i55:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i61 = getelementptr inbounds i8, ptr %dst.addr.03.i57, i64 64
   %call.i62 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i57, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i58)
   %cmp.i63 = icmp ugt i32 %count.addr.04.i56, 1
-  br i1 %cmp.i63, label %while.body.i55, label %sw.epilog146.sink.split, !llvm.loop !29
+  br i1 %cmp.i63, label %while.body.i55, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.bb27:                                          ; preds = %sw.bb
   %fShorterWeekdays = getelementptr inbounds i8, ptr %this, i64 184
@@ -13725,7 +13725,7 @@ while.body.i80:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i86 = getelementptr inbounds i8, ptr %dst.addr.03.i82, i64 64
   %call.i87 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i82, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i83)
   %cmp.i88 = icmp ugt i32 %count.addr.04.i81, 1
-  br i1 %cmp.i88, label %while.body.i80, label %sw.epilog146.sink.split, !llvm.loop !29
+  br i1 %cmp.i88, label %while.body.i80, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.bb46:                                          ; preds = %sw.bb
   %fNarrowWeekdays = getelementptr inbounds i8, ptr %this, i64 200
@@ -13797,7 +13797,7 @@ while.body.i105:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i111 = getelementptr inbounds i8, ptr %dst.addr.03.i107, i64 64
   %call.i112 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i107, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i108)
   %cmp.i113 = icmp ugt i32 %count.addr.04.i106, 1
-  br i1 %cmp.i113, label %while.body.i105, label %sw.epilog146.sink.split, !llvm.loop !29
+  br i1 %cmp.i113, label %while.body.i105, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.bb66:                                          ; preds = %entry
   switch i32 %width, label %sw.epilog146 [
@@ -13877,7 +13877,7 @@ while.body.i130:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i136 = getelementptr inbounds i8, ptr %dst.addr.03.i132, i64 64
   %call.i137 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i132, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i133)
   %cmp.i138 = icmp ugt i32 %count.addr.04.i131, 1
-  br i1 %cmp.i138, label %while.body.i130, label %sw.epilog146.sink.split, !llvm.loop !29
+  br i1 %cmp.i138, label %while.body.i130, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.bb86:                                          ; preds = %sw.bb66
   %fStandaloneShortWeekdays = getelementptr inbounds i8, ptr %this, i64 232
@@ -13949,7 +13949,7 @@ while.body.i155:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i161 = getelementptr inbounds i8, ptr %dst.addr.03.i157, i64 64
   %call.i162 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i157, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i158)
   %cmp.i163 = icmp ugt i32 %count.addr.04.i156, 1
-  br i1 %cmp.i163, label %while.body.i155, label %sw.epilog146.sink.split, !llvm.loop !29
+  br i1 %cmp.i163, label %while.body.i155, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.bb105:                                         ; preds = %sw.bb66
   %fStandaloneShorterWeekdays = getelementptr inbounds i8, ptr %this, i64 248
@@ -14021,7 +14021,7 @@ while.body.i180:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i186 = getelementptr inbounds i8, ptr %dst.addr.03.i182, i64 64
   %call.i187 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i182, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i183)
   %cmp.i188 = icmp ugt i32 %count.addr.04.i181, 1
-  br i1 %cmp.i188, label %while.body.i180, label %sw.epilog146.sink.split, !llvm.loop !29
+  br i1 %cmp.i188, label %while.body.i180, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.bb124:                                         ; preds = %sw.bb66
   %fStandaloneNarrowWeekdays = getelementptr inbounds i8, ptr %this, i64 264
@@ -14093,7 +14093,7 @@ while.body.i205:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i211 = getelementptr inbounds i8, ptr %dst.addr.03.i207, i64 64
   %call.i212 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i207, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i208)
   %cmp.i213 = icmp ugt i32 %count.addr.04.i206, 1
-  br i1 %cmp.i213, label %while.body.i205, label %sw.epilog146.sink.split, !llvm.loop !29
+  br i1 %cmp.i213, label %while.body.i205, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.epilog146.sink.split:                          ; preds = %while.body.i205, %while.body.i180, %while.body.i155, %while.body.i130, %while.body.i105, %while.body.i80, %while.body.i55, %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit203, %_ZN6icu_75L21newUnicodeStringArrayEm.exit178, %_ZN6icu_75L21newUnicodeStringArrayEm.exit153, %_ZN6icu_75L21newUnicodeStringArrayEm.exit128, %_ZN6icu_75L21newUnicodeStringArrayEm.exit103, %_ZN6icu_75L21newUnicodeStringArrayEm.exit78, %_ZN6icu_75L21newUnicodeStringArrayEm.exit53, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
   %.sink = phi i64 [ 160, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ], [ 176, %_ZN6icu_75L21newUnicodeStringArrayEm.exit53 ], [ 192, %_ZN6icu_75L21newUnicodeStringArrayEm.exit78 ], [ 208, %_ZN6icu_75L21newUnicodeStringArrayEm.exit103 ], [ 224, %_ZN6icu_75L21newUnicodeStringArrayEm.exit128 ], [ 240, %_ZN6icu_75L21newUnicodeStringArrayEm.exit153 ], [ 256, %_ZN6icu_75L21newUnicodeStringArrayEm.exit178 ], [ 272, %_ZN6icu_75L21newUnicodeStringArrayEm.exit203 ], [ 160, %while.body.i ], [ 176, %while.body.i55 ], [ 192, %while.body.i80 ], [ 208, %while.body.i105 ], [ 224, %while.body.i130 ], [ 240, %while.body.i155 ], [ 256, %while.body.i180 ], [ 272, %while.body.i205 ]
@@ -14190,7 +14190,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i29 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %sw.epilog107.sink.split, !llvm.loop !29
+  br i1 %cmp.i, label %while.body.i, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb8:                                           ; preds = %sw.bb
   %fShortQuarters = getelementptr inbounds i8, ptr %this, i64 392
@@ -14262,7 +14262,7 @@ while.body.i45:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i51 = getelementptr inbounds i8, ptr %dst.addr.03.i47, i64 64
   %call.i52 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i47, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i48)
   %cmp.i53 = icmp ugt i32 %count.addr.04.i46, 1
-  br i1 %cmp.i53, label %while.body.i45, label %sw.epilog107.sink.split, !llvm.loop !29
+  br i1 %cmp.i53, label %while.body.i45, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb27:                                          ; preds = %sw.bb
   %fNarrowQuarters = getelementptr inbounds i8, ptr %this, i64 408
@@ -14334,7 +14334,7 @@ while.body.i70:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i76 = getelementptr inbounds i8, ptr %dst.addr.03.i72, i64 64
   %call.i77 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i72, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i73)
   %cmp.i78 = icmp ugt i32 %count.addr.04.i71, 1
-  br i1 %cmp.i78, label %while.body.i70, label %sw.epilog107.sink.split, !llvm.loop !29
+  br i1 %cmp.i78, label %while.body.i70, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb46:                                          ; preds = %entry
   switch i32 %width, label %sw.epilog107 [
@@ -14413,7 +14413,7 @@ while.body.i95:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i101 = getelementptr inbounds i8, ptr %dst.addr.03.i97, i64 64
   %call.i102 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i97, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i98)
   %cmp.i103 = icmp ugt i32 %count.addr.04.i96, 1
-  br i1 %cmp.i103, label %while.body.i95, label %sw.epilog107.sink.split, !llvm.loop !29
+  br i1 %cmp.i103, label %while.body.i95, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb66:                                          ; preds = %sw.bb46
   %fStandaloneShortQuarters = getelementptr inbounds i8, ptr %this, i64 440
@@ -14485,7 +14485,7 @@ while.body.i120:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i126 = getelementptr inbounds i8, ptr %dst.addr.03.i122, i64 64
   %call.i127 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i122, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i123)
   %cmp.i128 = icmp ugt i32 %count.addr.04.i121, 1
-  br i1 %cmp.i128, label %while.body.i120, label %sw.epilog107.sink.split, !llvm.loop !29
+  br i1 %cmp.i128, label %while.body.i120, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb85:                                          ; preds = %sw.bb46
   %fStandaloneNarrowQuarters = getelementptr inbounds i8, ptr %this, i64 456
@@ -14557,7 +14557,7 @@ while.body.i145:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i151 = getelementptr inbounds i8, ptr %dst.addr.03.i147, i64 64
   %call.i152 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i147, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i148)
   %cmp.i153 = icmp ugt i32 %count.addr.04.i146, 1
-  br i1 %cmp.i153, label %while.body.i145, label %sw.epilog107.sink.split, !llvm.loop !29
+  br i1 %cmp.i153, label %while.body.i145, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.epilog107.sink.split:                          ; preds = %while.body.i145, %while.body.i120, %while.body.i95, %while.body.i70, %while.body.i45, %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
   %.sink = phi i64 [ 384, %_ZN6icu_75L21newUnicodeStringArrayEm.exit ], [ 400, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43 ], [ 416, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68 ], [ 432, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93 ], [ 448, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118 ], [ 464, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143 ], [ 384, %while.body.i ], [ 400, %while.body.i45 ], [ 416, %while.body.i70 ], [ 432, %while.body.i95 ], [ 448, %while.body.i120 ], [ 464, %while.body.i145 ]
@@ -14641,7 +14641,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
   %cmp.i = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !29
+  br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
   %fAmPmsCount = getelementptr inbounds i8, ptr %this, i64 288
@@ -14815,7 +14815,7 @@ invoke.cont48:                                    ; preds = %if.end44
 
 invoke.cont54:                                    ; preds = %invoke.cont48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %while.cond, !llvm.loop !30
+  br label %while.cond, !llvm.loop !29
 
 do.end:                                           ; preds = %invoke.cont, %if.then43
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %tzDispName) #16
@@ -14862,7 +14862,7 @@ arraydestroy.done73:                              ; preds = %arraydestroy.body69
 for.inc:                                          ; preds = %for.body, %arraydestroy.done73
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !30
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   call void @uprv_free_75(ptr noundef nonnull %call9)
@@ -14923,7 +14923,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_7517DateFormatSymbols19getPatternCharIndexEDs(i16 noundef zeroext %c) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZN6icu_7517DateFormatSymbols19getPatternCharIndexEDs(i16 noundef zeroext %c) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ugt i16 %c, 127
   br i1 %cmp, label %return, label %if.end
@@ -14943,7 +14943,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZN6icu_7517DateFormatSymbols14isNumericFieldE16UDateFormatFieldi(i32 noundef %f, i32 noundef %count) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7517DateFormatSymbols14isNumericFieldE16UDateFormatFieldi(i32 noundef %f, i32 noundef %count) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp eq i32 %f, 38
   br i1 %cmp, label %return, label %if.end
@@ -14969,7 +14969,7 @@ return:                                           ; preds = %if.end, %lor.rhs, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZN6icu_7517DateFormatSymbols20isNumericPatternCharEDsi(i16 noundef zeroext %c, i32 noundef %count) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7517DateFormatSymbols20isNumericPatternCharEDsi(i16 noundef zeroext %c, i32 noundef %count) local_unnamed_addr #7 align 2 {
 entry:
   %cmp.i = icmp ugt i16 %c, 127
   br i1 %cmp.i, label %_ZN6icu_7517DateFormatSymbols14isNumericFieldE16UDateFormatFieldi.exit, label %_ZN6icu_7517DateFormatSymbols19getPatternCharIndexEDs.exit
@@ -15275,7 +15275,7 @@ if.end31:                                         ; preds = %if.else, %if.then23
   %6 = load i32, ptr %stringCount, align 4
   %7 = sext i32 %6 to i64
   %cmp17 = icmp slt i64 %indvars.iv.next, %7
-  br i1 %cmp17, label %for.body, label %cleanup, !llvm.loop !32
+  br i1 %cmp17, label %for.body, label %cleanup, !llvm.loop !31
 
 for.body36:                                       ; preds = %for.cond34.preheader, %for.inc40
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %for.inc40 ], [ 0, %for.cond34.preheader ]
@@ -15288,7 +15288,7 @@ for.inc40:                                        ; preds = %for.body36
   %8 = load i32, ptr %stringCount, align 4
   %9 = sext i32 %8 to i64
   %cmp35 = icmp slt i64 %indvars.iv.next15, %9
-  br i1 %cmp35, label %for.body36, label %cleanup, !llvm.loop !33
+  br i1 %cmp35, label %for.body36, label %cleanup, !llvm.loop !32
 
 cleanup:                                          ; preds = %if.end31, %for.inc40, %for.cond.preheader, %for.cond34.preheader, %if.then13
   %retval.0 = phi ptr [ null, %if.then13 ], [ %.ptr, %for.cond34.preheader ], [ %.ptr, %for.cond.preheader ], [ %.ptr, %for.inc40 ], [ %.ptr, %if.end31 ]
@@ -15408,7 +15408,7 @@ call.i.i.noexc:                                   ; preds = %while.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %src.addr.02.i.i, i64 64
   %dec.i.i = add nsw i32 %count.addr.04.i.i, -1
   %cmp.i.i = icmp ugt i32 %count.addr.04.i.i, 1
-  br i1 %cmp.i.i, label %while.body.i.i, label %cleanup, !llvm.loop !29
+  br i1 %cmp.i.i, label %while.body.i.i, label %cleanup, !llvm.loop !28
 
 if.else:                                          ; preds = %invoke.cont
   store i32 0, ptr %length, align 4
@@ -15498,7 +15498,7 @@ for.inc.i:                                        ; preds = %_ZN6icu_759Hashtabl
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = sext i32 %10 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %11
-  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !34
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !33
 
 for.end.i:                                        ; preds = %for.inc.i, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit
   %needToRelease.i.i.i = getelementptr inbounds i8, ptr %this, i64 292
@@ -15644,7 +15644,7 @@ for.inc:                                          ; preds = %for.body, %_ZN6icu_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = sext i32 %7 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %8
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !34
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !33
 
 for.end:                                          ; preds = %for.inc, %entry
   %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -16151,7 +16151,7 @@ for.inc:                                          ; preds = %_ZN6icu_7512LocalPo
   %resourcesToVisitNext.sroa.0.6.ph = phi ptr [ %resourcesToVisitNext.sroa.0.2, %invoke.cont50 ], [ %resourcesToVisitNext.sroa.0.2, %invoke.cont54 ], [ %resourcesToVisitNext.sroa.0.2, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit112 ], [ %resourcesToVisitNext.sroa.0.2, %if.end16 ], [ %resourcesToVisitNext.sroa.0.2, %land.lhs.true106 ], [ %resourcesToVisitNext.sroa.0.2, %lor.lhs.false191 ], [ %resourcesToVisitNext.sroa.0.2, %if.then194 ], [ %resourcesToVisitNext.sroa.0.2, %invoke.cont120 ], [ %resourcesToVisitNext.sroa.0.2, %_ZN6icu_7510LocalArrayINS_13UnicodeStringEED2Ev.exit ], [ %resourcesToVisitNext.sroa.0.5, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString) #16
   %inc = add nuw nsw i32 %i.0, 1
-  br label %for.cond, !llvm.loop !35
+  br label %for.cond, !llvm.loop !34
 
 ehcleanup201:                                     ; preds = %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit118, %lpad63, %lpad25, %lpad150.body, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit89, %lpad10
   %resourcesToVisitNext.sroa.0.7 = phi ptr [ %resourcesToVisitNext.sroa.0.2, %lpad150.body ], [ %resourcesToVisitNext.sroa.0.3, %lpad10 ], [ %resourcesToVisitNext.sroa.0.5, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit89 ], [ null, %lpad25 ], [ %resourcesToVisitNext.sroa.0.2, %lpad63 ], [ %resourcesToVisitNext.sroa.0.2, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit118 ]
@@ -16267,7 +16267,7 @@ call.i180.noexc:                                  ; preds = %while.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %dec.i = add nsw i32 %count.addr.04.i, -1
   %cmp.i181 = icmp ugt i32 %count.addr.04.i, 1
-  br i1 %cmp.i181, label %while.body.i, label %invoke.cont271.loopexit, !llvm.loop !29
+  br i1 %cmp.i181, label %while.body.i, label %invoke.cont271.loopexit, !llvm.loop !28
 
 invoke.cont271.loopexit:                          ; preds = %call.i180.noexc
   %.pre349 = load ptr, ptr %aliasArrayCopy, align 8
@@ -16427,13 +16427,13 @@ if.end324:                                        ; preds = %invoke.cont319, %if
   %modified.1 = phi i8 [ %modified.0329, %if.else322 ], [ 1, %invoke.cont319 ]
   %67 = load i32, ptr %count.i158, align 8
   %cmp207 = icmp slt i32 %i202.1, %67
-  br i1 %cmp207, label %for.body208, label %do.cond, !llvm.loop !36
+  br i1 %cmp207, label %for.body208, label %do.cond, !llvm.loop !35
 
 do.cond:                                          ; preds = %if.end324
   %tobool326.not = icmp eq i8 %modified.1, 0
   %cmp.i233.not = icmp eq i32 %67, 0
   %or.cond = or i1 %tobool326.not, %cmp.i233.not
-  br i1 %or.cond, label %do.end, label %do.body, !llvm.loop !37
+  br i1 %or.cond, label %do.end, label %do.body, !llvm.loop !36
 
 do.end:                                           ; preds = %do.body, %do.cond, %do.body.preheader
   %cmp.i235.not = icmp eq ptr %resourcesToVisitNext.sroa.0.2, null
@@ -17423,7 +17423,7 @@ for.inc:                                          ; preds = %cleanup241.thread25
   %inc = add nuw nsw i32 %i.0264, 1
   %call6 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %table, i32 noundef %inc, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool7.not = icmp eq i8 %call6, 0
-  br i1 %tobool7.not, label %for.end, label %for.body, !llvm.loop !39
+  br i1 %tobool7.not, label %for.end, label %for.body, !llvm.loop !38
 
 ehcleanup244:                                     ; preds = %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit200, %lpad150, %lpad.i97, %lpad58, %lpad, %lpad.i, %cleanup.action55, %lpad211, %lpad75, %lpad8
   %.pn81 = phi { ptr, i32 } [ %21, %cleanup.action55 ], [ %72, %lpad211 ], [ %38, %lpad75 ], [ %8, %lpad8 ], [ %7, %lpad ], [ %11, %lpad.i ], [ %23, %lpad58 ], [ %20, %lpad.i97 ], [ %59, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit200 ], [ %55, %lpad150 ]
@@ -17976,7 +17976,7 @@ attributes #19 = { nounwind willreturn memory(read) }
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
-!27 = !{i8 0, i8 2}
+!27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
@@ -17985,7 +17985,6 @@ attributes #19 = { nounwind willreturn memory(read) }
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
 !35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6, !38}
-!38 = !{!"llvm.loop.unswitch.partial.disable"}
-!39 = distinct !{!39, !6}
+!36 = distinct !{!36, !6, !37}
+!37 = !{!"llvm.loop.unswitch.partial.disable"}
+!38 = distinct !{!38, !6}

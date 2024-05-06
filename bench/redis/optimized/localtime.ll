@@ -17,12 +17,12 @@ entry:
   %rem = srem i64 %add, 86400
   %tm_isdst = getelementptr inbounds i8, ptr %tmp, i64 32
   store i32 %dst, ptr %tm_isdst, align 8
-  %div1.lhs.trunc = trunc i64 %rem to i32
+  %div1.lhs.trunc = trunc nsw i64 %rem to i32
   %div147 = sdiv i32 %div1.lhs.trunc, 3600
   %tm_hour = getelementptr inbounds i8, ptr %tmp, i64 8
   store i32 %div147, ptr %tm_hour, align 8
   %rem348 = srem i32 %div1.lhs.trunc, 3600
-  %div4.lhs.trunc = trunc i32 %rem348 to i16
+  %div4.lhs.trunc = trunc nsw i32 %rem348 to i16
   %div449 = sdiv i16 %div4.lhs.trunc, 60
   %conv5 = sext i16 %div449 to i32
   %tm_min = getelementptr inbounds i8, ptr %tmp, i64 4
@@ -32,7 +32,7 @@ entry:
   store i32 %conv8, ptr %tmp, align 8
   %add9 = add nsw i64 %div, 4
   %rem10 = srem i64 %add9, 7
-  %conv11 = trunc i64 %rem10 to i32
+  %conv11 = trunc nsw i64 %rem10 to i32
   %tm_wday = getelementptr inbounds i8, ptr %tmp, i64 24
   store i32 %conv11, ptr %tm_wday, align 8
   br label %while.body
@@ -114,7 +114,7 @@ while.body29:                                     ; preds = %is_leap_year.exit39
   br i1 %cmp27.not, label %while.end37.loopexit, label %while.body29, !llvm.loop !5
 
 while.end37.loopexit:                             ; preds = %while.body29
-  %3 = trunc i64 %indvars.iv.next to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %while.end37
 
 while.end37:                                      ; preds = %while.end37.loopexit, %is_leap_year.exit39

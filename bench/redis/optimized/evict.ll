@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @getMonotonicUs = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getLRUClock() local_unnamed_addr #0 {
+define dso_local range(i32 0, 16777216) i32 @getLRUClock() local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @mstime() #14
   %div = sdiv i64 %call, 1000
@@ -483,7 +483,7 @@ declare ptr @sdsdup(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i64 @LFUGetTimeInMinutes() local_unnamed_addr #8 {
+define dso_local range(i64 0, 65536) i64 @LFUGetTimeInMinutes() local_unnamed_addr #8 {
 entry:
   %atomic-load = load atomic i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 349) seq_cst, align 8
   %div = sdiv i64 %atomic-load, 60
@@ -578,7 +578,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 declare i64 @sdsAllocSize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @getMaxmemoryState(ptr noundef writeonly %total, ptr noundef writeonly %logical, ptr noundef writeonly %tofree, ptr noundef writeonly %level) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @getMaxmemoryState(ptr noundef writeonly %total, ptr noundef writeonly %logical, ptr noundef writeonly %tofree, ptr noundef writeonly %level) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @zmalloc_used_memory() #14
   %tobool.not = icmp eq ptr %total, null
@@ -680,7 +680,7 @@ return:                                           ; preds = %if.end27, %if.then2
 declare i64 @zmalloc_used_memory() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @overMaxmemoryAfterAlloc(i64 noundef %moremem) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @overMaxmemoryAfterAlloc(i64 noundef %moremem) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
   %tobool.not = icmp eq i64 %0, 0
@@ -753,9 +753,9 @@ if.end:                                           ; preds = %if.then, %entry
 declare i64 @aeCreateTimeEvent(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @evictionTimeProc(ptr nocapture readnone %eventLoop, i64 %id, ptr nocapture readnone %clientData) #0 {
+define internal range(i32 -1, 1) i32 @evictionTimeProc(ptr nocapture readnone %eventLoop, i64 %id, ptr nocapture readnone %clientData) #0 {
 entry:
-  %call = tail call i32 @performEvictions(), !range !9
+  %call = tail call i32 @performEvictions()
   %cmp = icmp eq i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -769,7 +769,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @performEvictions() local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @performEvictions() local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @isInsideYieldingLongCommand() #14
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -799,10 +799,10 @@ if.end:                                           ; preds = %isSafeToPerformEvic
   %4 = load i64, ptr %len, align 8
   %call.i96 = tail call i64 @zmalloc_used_memory() #14
   %5 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
-  %tobool1.not.i98 = icmp ne i64 %5, 0
+  %tobool1.not.i99 = icmp ne i64 %5, 0
   %cmp.i = icmp ugt i64 %call.i96, %5
-  %or.cond209 = select i1 %tobool1.not.i98, i1 %cmp.i, i1 false
-  br i1 %or.cond209, label %if.end9.i, label %if.else296
+  %or.cond213 = select i1 %tobool1.not.i99, i1 %cmp.i, i1 false
+  br i1 %or.cond213, label %if.end9.i, label %if.else296
 
 if.end9.i:                                        ; preds = %if.end
   %6 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 279), align 8
@@ -848,8 +848,8 @@ if.end4:                                          ; preds = %freeMemoryGetNotCou
 
 if.end8:                                          ; preds = %if.end4
   %11 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 318), align 8
-  %cmp.i100 = icmp sgt i32 %11, -1
-  br i1 %cmp.i100, label %cond.end.i, label %cond.false.i
+  %cmp.i102 = icmp sgt i32 %11, -1
+  br i1 %cmp.i102, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end8
   tail call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 499) #14
@@ -867,27 +867,27 @@ cond.false11.i:                                   ; preds = %cond.end.i
 
 cond.end12.i:                                     ; preds = %cond.end.i
   %cmp13.i = icmp ult i32 %11, 11
-  br i1 %cmp13.i, label %if.then.i, label %if.end.i101
+  br i1 %cmp13.i, label %if.then.i, label %if.end.i103
 
 if.then.i:                                        ; preds = %cond.end12.i
   %narrow.i = mul nuw nsw i32 %11, 50
   %mul.i = zext nneg i32 %narrow.i to i64
   br label %evictionTimeLimitUs.exit
 
-if.end.i101:                                      ; preds = %cond.end12.i
-  %cmp16.not.i102 = icmp eq i32 %11, 100
-  br i1 %cmp16.not.i102, label %evictionTimeLimitUs.exit, label %if.then18.i
+if.end.i103:                                      ; preds = %cond.end12.i
+  %cmp16.not.i104 = icmp eq i32 %11, 100
+  br i1 %cmp16.not.i104, label %evictionTimeLimitUs.exit, label %if.then18.i
 
-if.then18.i:                                      ; preds = %if.end.i101
+if.then18.i:                                      ; preds = %if.end.i103
   %12 = add nsw i32 %11, -10
   %sub.i = sitofp i32 %12 to double
-  %call.i103 = tail call double @pow(double noundef 1.150000e+00, double noundef %sub.i) #14
-  %mul20.i = fmul double %call.i103, 5.000000e+02
+  %call.i105 = tail call double @pow(double noundef 1.150000e+00, double noundef %sub.i) #14
+  %mul20.i = fmul double %call.i105, 5.000000e+02
   %conv21.i = fptoui double %mul20.i to i64
   br label %evictionTimeLimitUs.exit
 
-evictionTimeLimitUs.exit:                         ; preds = %if.then.i, %if.end.i101, %if.then18.i
-  %retval.0.i104 = phi i64 [ %mul.i, %if.then.i ], [ %conv21.i, %if.then18.i ], [ -1, %if.end.i101 ]
+evictionTimeLimitUs.exit:                         ; preds = %if.then.i, %if.end.i103, %if.then18.i
+  %retval.0.i106 = phi i64 [ %mul.i, %if.then.i ], [ %conv21.i, %if.then18.i ], [ -1, %if.end.i103 ]
   %13 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 393), align 8
   %tobool10.not = icmp eq i64 %13, 0
   br i1 %tobool10.not, label %if.end13, label %if.then11
@@ -899,14 +899,14 @@ if.then11:                                        ; preds = %evictionTimeLimitUs
 if.end13:                                         ; preds = %evictionTimeLimitUs.exit, %if.then11
   %latency.0 = phi i64 [ %call12, %if.then11 ], [ 0, %evictionTimeLimitUs.exit ]
   %14 = load ptr, ptr @getMonotonicUs, align 8
-  %call.i105 = tail call i64 %14() #14
+  %call.i107 = tail call i64 %14() #14
   %15 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 248, i32 1), align 8
   %cmp14 = icmp eq i32 %15, 0
   br i1 %cmp14, label %while.cond.preheader, label %cond.false
 
 while.cond.preheader:                             ; preds = %if.end13
-  %cmp19227 = icmp sgt i64 %sub24.i, 0
-  br i1 %cmp19227, label %while.body.lr.ph, label %cant_free
+  %cmp19231 = icmp sgt i64 %sub24.i, 0
+  br i1 %cmp19231, label %while.body.lr.ph, label %cant_free
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %16 = and i64 %4, 4294967295
@@ -919,9 +919,9 @@ cond.false:                                       ; preds = %if.end13
   unreachable
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end230
-  %keys_freed.0230 = phi i32 [ 0, %while.body.lr.ph ], [ %inc207, %if.end230 ]
-  %mem_freed.0229 = phi i64 [ 0, %while.body.lr.ph ], [ %add205, %if.end230 ]
-  %bestdbid.0228 = phi i32 [ undef, %while.body.lr.ph ], [ %bestdbid.5195, %if.end230 ]
+  %keys_freed.0234 = phi i32 [ 0, %while.body.lr.ph ], [ %inc207, %if.end230 ]
+  %mem_freed.0233 = phi i64 [ 0, %while.body.lr.ph ], [ %add205, %if.end230 ]
+  %bestdbid.0232 = phi i32 [ undef, %while.body.lr.ph ], [ %bestdbid.5199, %if.end230 ]
   %17 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 316), align 8
   %.fr = freeze i32 %17
   %and = and i32 %.fr, 3
@@ -939,37 +939,37 @@ if.then24:                                        ; preds = %while.body
   br label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then24, %for.end136
-  %bestdbid.1226 = phi i32 [ %bestdbid.0228, %if.then24 ], [ %bestdbid.4, %for.end136 ]
+  %bestdbid.1230 = phi i32 [ %bestdbid.0232, %if.then24 ], [ %bestdbid.4, %for.end136 ]
   %19 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 173), align 8
-  %cmp31219 = icmp sgt i32 %19, 0
-  br i1 %cmp31219, label %for.body.lr.ph, label %if.then236
+  %cmp31223 = icmp sgt i32 %19, 0
+  br i1 %cmp31223, label %for.body.lr.ph, label %if.then236
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br i1 %tobool26.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %indvars.iv243 = phi i64 [ %indvars.iv.next244, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %total_keys.0223.us = phi i64 [ %total_keys.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %indvars.iv247 = phi i64 [ %indvars.iv.next248, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %total_keys.0227.us = phi i64 [ %total_keys.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %20 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 10), align 8
-  %add.ptr.us = getelementptr inbounds %struct.redisDb, ptr %20, i64 %indvars.iv243
+  %add.ptr.us = getelementptr inbounds %struct.redisDb, ptr %20, i64 %indvars.iv247
   %call33.us = tail call i64 @dbSize(ptr noundef %add.ptr.us, i32 noundef %cond) #14
   %cmp34.us = icmp eq i64 %call33.us, 0
   br i1 %cmp34.us, label %for.inc.us, label %if.end37.us
 
 if.end37.us:                                      ; preds = %for.body.us
-  %add.us = add i64 %call33.us, %total_keys.0223.us
+  %add.us = add i64 %call33.us, %total_keys.0227.us
   %call38.us = tail call i32 @dbNonEmptySlots(ptr noundef %add.ptr.us, i32 noundef %cond) #14
   %expires.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 8
-  %21 = trunc nuw nsw i64 %indvars.iv243 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv247 to i32
   br label %while.cond39.us.us
 
 for.inc.us:                                       ; preds = %while.cond39.us.us, %while.body41.us.us, %for.body.us
-  %total_keys.1.us = phi i64 [ %total_keys.0223.us, %for.body.us ], [ %add.us, %while.body41.us.us ], [ %add.us, %while.cond39.us.us ]
-  %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
+  %total_keys.1.us = phi i64 [ %total_keys.0227.us, %for.body.us ], [ %add.us, %while.body41.us.us ], [ %add.us, %while.cond39.us.us ]
+  %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %22 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 173), align 8
   %23 = sext i32 %22 to i64
-  %cmp31.us = icmp slt i64 %indvars.iv.next244, %23
-  br i1 %cmp31.us, label %for.body.us, label %for.end, !llvm.loop !10
+  %cmp31.us = icmp slt i64 %indvars.iv.next248, %23
+  br i1 %cmp31.us, label %for.body.us, label %for.end, !llvm.loop !9
 
 while.cond39.us.us:                               ; preds = %while.body41.us.us, %if.end37.us
   %sampled_keys.0.us.us = phi i64 [ 0, %if.end37.us ], [ %add57.us.us, %while.body41.us.us ]
@@ -996,11 +996,11 @@ while.body41.us.us:                               ; preds = %while.cond39.us.us
   %mul.us.us = mul nsw i64 %conv58.us.us, 10
   %cmp64.us.us = icmp ult i64 %call33.us, %mul.us.us
   %or.cond92.us.us = select i1 %cmp59.not.us.us, i1 true, i1 %cmp64.us.us
-  br i1 %or.cond92.us.us, label %for.inc.us, label %while.cond39.us.us, !llvm.loop !11
+  br i1 %or.cond92.us.us, label %for.inc.us, label %while.cond39.us.us, !llvm.loop !10
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.lr.ph ]
-  %total_keys.0223 = phi i64 [ %total_keys.1, %for.inc ], [ 0, %for.body.lr.ph ]
+  %total_keys.0227 = phi i64 [ %total_keys.1, %for.inc ], [ 0, %for.body.lr.ph ]
   %28 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 10), align 8
   %add.ptr = getelementptr inbounds %struct.redisDb, ptr %28, i64 %indvars.iv
   %call33 = tail call i64 @dbSize(ptr noundef %add.ptr, i32 noundef %cond) #14
@@ -1008,7 +1008,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp34, label %for.inc, label %if.end37
 
 if.end37:                                         ; preds = %for.body
-  %add = add i64 %call33, %total_keys.0223
+  %add = add i64 %call33, %total_keys.0227
   %call38 = tail call i32 @dbNonEmptySlots(ptr noundef %add.ptr, i32 noundef %cond) #14
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.cond39
@@ -1035,15 +1035,15 @@ while.body41:                                     ; preds = %while.cond39
   %mul = mul nsw i64 %conv58, 10
   %cmp64 = icmp ult i64 %call33, %mul
   %or.cond92 = select i1 %cmp59.not, i1 true, i1 %cmp64
-  br i1 %or.cond92, label %for.inc, label %while.cond39, !llvm.loop !11
+  br i1 %or.cond92, label %for.inc, label %while.cond39, !llvm.loop !10
 
 for.inc:                                          ; preds = %while.cond39, %while.body41, %for.body
-  %total_keys.1 = phi i64 [ %total_keys.0223, %for.body ], [ %add, %while.body41 ], [ %add, %while.cond39 ]
+  %total_keys.1 = phi i64 [ %total_keys.0227, %for.body ], [ %add, %while.body41 ], [ %add, %while.cond39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 173), align 8
   %33 = sext i32 %32 to i64
   %cmp31 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %cmp31, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp31, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %for.inc.us
   %total_keys.0.lcssa = phi i64 [ %total_keys.1.us, %for.inc.us ], [ %total_keys.1, %for.inc ]
@@ -1051,9 +1051,9 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
   br i1 %tobool68.not, label %if.then236, label %for.body74
 
 for.body74:                                       ; preds = %for.end, %for.inc134
-  %indvars.iv246 = phi i64 [ %indvars.iv.next247, %for.inc134 ], [ 15, %for.end ]
-  %bestdbid.2225 = phi i32 [ %bestdbid.3, %for.inc134 ], [ %bestdbid.1226, %for.end ]
-  %arrayidx76 = getelementptr inbounds %struct.evictionPoolEntry, ptr %18, i64 %indvars.iv246
+  %indvars.iv250 = phi i64 [ %indvars.iv.next251, %for.inc134 ], [ 15, %for.end ]
+  %bestdbid.2229 = phi i32 [ %bestdbid.3, %for.inc134 ], [ %bestdbid.1230, %for.end ]
+  %arrayidx76 = getelementptr inbounds %struct.evictionPoolEntry, ptr %18, i64 %indvars.iv250
   %key = getelementptr inbounds i8, ptr %arrayidx76, i64 8
   %34 = load ptr, ptr %key, align 8
   %cmp77 = icmp eq ptr %34, null
@@ -1097,16 +1097,16 @@ if.then130:                                       ; preds = %if.end123
   br label %for.end136
 
 for.inc134:                                       ; preds = %if.end123, %for.body74
-  %bestdbid.3 = phi i32 [ %bestdbid.2225, %for.body74 ], [ %35, %if.end123 ]
-  %indvars.iv.next247 = add nsw i64 %indvars.iv246, -1
-  %cmp72.not = icmp eq i64 %indvars.iv246, 0
-  br i1 %cmp72.not, label %for.end136, label %for.body74, !llvm.loop !12
+  %bestdbid.3 = phi i32 [ %bestdbid.2229, %for.body74 ], [ %35, %if.end123 ]
+  %indvars.iv.next251 = add nsw i64 %indvars.iv250, -1
+  %cmp72.not = icmp eq i64 %indvars.iv250, 0
+  br i1 %cmp72.not, label %for.end136, label %for.body74, !llvm.loop !11
 
 for.end136:                                       ; preds = %for.inc134, %if.then130
   %bestkey.1 = phi ptr [ %call131, %if.then130 ], [ null, %for.inc134 ]
   %bestdbid.4 = phi i32 [ %35, %if.then130 ], [ %bestdbid.3, %for.inc134 ]
   %cmp28 = icmp eq ptr %bestkey.1, null
-  br i1 %cmp28, label %for.cond.preheader, label %if.then182.loopexit, !llvm.loop !13
+  br i1 %cmp28, label %for.cond.preheader, label %if.then182.loopexit, !llvm.loop !12
 
 if.else138:                                       ; preds = %while.body
   switch i32 %.fr, label %if.then236 [
@@ -1116,18 +1116,18 @@ if.else138:                                       ; preds = %while.body
 
 if.then144:                                       ; preds = %if.else138, %if.else138
   %43 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 173), align 8
-  %cmp146217 = icmp sgt i32 %43, 0
-  br i1 %cmp146217, label %for.body148, label %if.then236
+  %cmp146221 = icmp sgt i32 %43, 0
+  br i1 %cmp146221, label %for.body148, label %if.then236
 
 for.cond145:                                      ; preds = %cond.end164
-  %inc177 = add nuw nsw i32 %i.1218, 1
+  %inc177 = add nuw nsw i32 %i.1222, 1
   %44 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 173), align 8
   %cmp146 = icmp slt i32 %inc177, %44
-  br i1 %cmp146, label %for.body148, label %if.then236, !llvm.loop !14
+  br i1 %cmp146, label %for.body148, label %if.then236, !llvm.loop !13
 
 for.body148:                                      ; preds = %if.then144, %for.cond145
   %45 = phi i32 [ %44, %for.cond145 ], [ %43, %if.then144 ]
-  %i.1218 = phi i32 [ %inc177, %for.cond145 ], [ 0, %if.then144 ]
+  %i.1222 = phi i32 [ %inc177, %for.cond145 ], [ 0, %if.then144 ]
   %46 = load i32, ptr @performEvictions.next_db, align 4
   %inc149 = add i32 %46, 1
   store i32 %inc149, ptr @performEvictions.next_db, align 4
@@ -1171,16 +1171,16 @@ if.end180:                                        ; preds = %cond.end164
   br i1 %tobool181.not, label %if.then236, label %if.then182
 
 if.then182.loopexit:                              ; preds = %for.end136
-  %.pre251 = sext i32 %bestdbid.4 to i64
+  %.pre255 = sext i32 %bestdbid.4 to i64
   br label %if.then182
 
 if.then182:                                       ; preds = %if.then182.loopexit, %if.end180
-  %idx.ext183.pre-phi = phi i64 [ %.pre251, %if.then182.loopexit ], [ %idx.ext150, %if.end180 ]
-  %bestdbid.5195 = phi i32 [ %bestdbid.4, %if.then182.loopexit ], [ %rem, %if.end180 ]
-  %bestkey.2194 = phi ptr [ %bestkey.1, %if.then182.loopexit ], [ %call174, %if.end180 ]
+  %idx.ext183.pre-phi = phi i64 [ %.pre255, %if.then182.loopexit ], [ %idx.ext150, %if.end180 ]
+  %bestdbid.5199 = phi i32 [ %bestdbid.4, %if.then182.loopexit ], [ %rem, %if.end180 ]
+  %bestkey.2198 = phi ptr [ %bestkey.1, %if.then182.loopexit ], [ %call174, %if.end180 ]
   %53 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 10), align 8
   %add.ptr184 = getelementptr inbounds %struct.redisDb, ptr %53, i64 %idx.ext183.pre-phi
-  %arrayidx.i = getelementptr inbounds i8, ptr %bestkey.2194, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %bestkey.2198, i64 -1
   %54 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %54 to i32
   %and.i = and i32 %conv.i, 7
@@ -1198,31 +1198,31 @@ sw.bb.i:                                          ; preds = %if.then182
   br label %sdslen.exit
 
 sw.bb3.i:                                         ; preds = %if.then182
-  %add.ptr.i = getelementptr inbounds i8, ptr %bestkey.2194, i64 -3
+  %add.ptr.i = getelementptr inbounds i8, ptr %bestkey.2198, i64 -3
   %55 = load i8, ptr %add.ptr.i, align 1
   %conv4.i = zext i8 %55 to i64
   br label %sdslen.exit
 
 sw.bb5.i:                                         ; preds = %if.then182
-  %add.ptr6.i = getelementptr inbounds i8, ptr %bestkey.2194, i64 -5
+  %add.ptr6.i = getelementptr inbounds i8, ptr %bestkey.2198, i64 -5
   %56 = load i16, ptr %add.ptr6.i, align 1
   %conv8.i = zext i16 %56 to i64
   br label %sdslen.exit
 
 sw.bb9.i:                                         ; preds = %if.then182
-  %add.ptr10.i = getelementptr inbounds i8, ptr %bestkey.2194, i64 -9
+  %add.ptr10.i = getelementptr inbounds i8, ptr %bestkey.2198, i64 -9
   %57 = load i32, ptr %add.ptr10.i, align 1
   %conv12.i = zext i32 %57 to i64
   br label %sdslen.exit
 
 sw.bb13.i:                                        ; preds = %if.then182
-  %add.ptr14.i = getelementptr inbounds i8, ptr %bestkey.2194, i64 -17
+  %add.ptr14.i = getelementptr inbounds i8, ptr %bestkey.2198, i64 -17
   %58 = load i64, ptr %add.ptr14.i, align 1
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %if.then182, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
-  %retval.0.i106 = phi i64 [ %58, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.then182 ]
-  %call186 = tail call ptr @createStringObject(ptr noundef nonnull %bestkey.2194, i64 noundef %retval.0.i106) #14
+  %retval.0.i108 = phi i64 [ %58, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.then182 ]
+  %call186 = tail call ptr @createStringObject(ptr noundef nonnull %bestkey.2198, i64 noundef %retval.0.i108) #14
   tail call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #14
   %call187 = tail call i64 @zmalloc_used_memory() #14
   %59 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 393), align 8
@@ -1256,7 +1256,7 @@ if.then201:                                       ; preds = %if.end197
 
 if.end202:                                        ; preds = %if.end192, %if.then201, %if.end197
   %call203 = tail call i64 @zmalloc_used_memory() #14
-  %sub204 = add i64 %call187, %mem_freed.0229
+  %sub204 = add i64 %call187, %mem_freed.0233
   %add205 = sub i64 %sub204, %call203
   %62 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 95), align 8
   %inc206 = add nsw i64 %62, 1
@@ -1270,7 +1270,7 @@ if.end202:                                        ; preds = %if.end192, %if.then
   tail call void @exitExecutionUnit() #14
   tail call void @postExecutionUnitOperations() #14
   tail call void @decrRefCount(ptr noundef %call186) #14
-  %inc207 = add nuw nsw i32 %keys_freed.0230, 1
+  %inc207 = add nuw nsw i32 %keys_freed.0234, 1
   %rem208 = and i32 %inc207, 15
   %cmp209 = icmp eq i32 %rem208, 0
   br i1 %cmp209, label %if.then211, label %if.end230
@@ -1288,71 +1288,71 @@ if.end214:                                        ; preds = %if.then213, %if.the
   br i1 %tobool215.not, label %if.end222, label %if.then216
 
 if.then216:                                       ; preds = %if.end214
-  %call.i107 = tail call i64 @zmalloc_used_memory() #14
+  %call.i109 = tail call i64 @zmalloc_used_memory() #14
   %66 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
-  %tobool1.not.i109 = icmp ne i64 %66, 0
-  %cmp.i111 = icmp ugt i64 %call.i107, %66
-  %or.cond210 = select i1 %tobool1.not.i109, i1 %cmp.i111, i1 false
-  br i1 %or.cond210, label %if.end9.i113, label %cant_free
+  %tobool1.not.i111 = icmp ne i64 %66, 0
+  %cmp.i113 = icmp ugt i64 %call.i109, %66
+  %or.cond214 = select i1 %tobool1.not.i111, i1 %cmp.i113, i1 false
+  br i1 %or.cond214, label %if.end9.i116, label %cant_free
 
-if.end9.i113:                                     ; preds = %if.then216
+if.end9.i116:                                     ; preds = %if.then216
   %67 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 279), align 8
   %68 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 269), align 8
-  %cmp.i.i114 = icmp sgt i64 %67, %68
-  br i1 %cmp.i.i114, label %if.then.i.i131, label %if.end5.i.i115
+  %cmp.i.i117 = icmp sgt i64 %67, %68
+  br i1 %cmp.i.i117, label %if.then.i.i134, label %if.end5.i.i118
 
-if.then.i.i131:                                   ; preds = %if.end9.i113
-  %div.i.i132 = sdiv i64 %68, 16384
-  %add.i.i133 = shl nsw i64 %div.i.i132, 6
-  %mul.i.i134 = add i64 %68, 64
-  %add1.i.i135 = add i64 %mul.i.i134, %add.i.i133
-  %spec.select.i.i136 = tail call i64 @llvm.usub.sat.i64(i64 %67, i64 %add1.i.i135)
-  br label %if.end5.i.i115
+if.then.i.i134:                                   ; preds = %if.end9.i116
+  %div.i.i135 = sdiv i64 %68, 16384
+  %add.i.i136 = shl nsw i64 %div.i.i135, 6
+  %mul.i.i137 = add i64 %68, 64
+  %add1.i.i138 = add i64 %mul.i.i137, %add.i.i136
+  %spec.select.i.i139 = tail call i64 @llvm.usub.sat.i64(i64 %67, i64 %add1.i.i138)
+  br label %if.end5.i.i118
 
-if.end5.i.i115:                                   ; preds = %if.then.i.i131, %if.end9.i113
-  %overhead.0.i.i116 = phi i64 [ 0, %if.end9.i113 ], [ %spec.select.i.i136, %if.then.i.i131 ]
+if.end5.i.i118:                                   ; preds = %if.then.i.i134, %if.end9.i116
+  %overhead.0.i.i119 = phi i64 [ 0, %if.end9.i116 ], [ %spec.select.i.i139, %if.then.i.i134 ]
   %69 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 185), align 8
-  %cmp6.not.i.i117 = icmp eq i32 %69, 0
-  br i1 %cmp6.not.i.i117, label %freeMemoryGetNotCountedMemory.exit.i122, label %if.then7.i.i118
+  %cmp6.not.i.i120 = icmp eq i32 %69, 0
+  br i1 %cmp6.not.i.i120, label %freeMemoryGetNotCountedMemory.exit.i125, label %if.then7.i.i121
 
-if.then7.i.i118:                                  ; preds = %if.end5.i.i115
+if.then7.i.i121:                                  ; preds = %if.end5.i.i118
   %70 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 198), align 8
-  %call.i.i119 = tail call i64 @sdsAllocSize(ptr noundef %70) #14
-  %add8.i.i120 = add i64 %call.i.i119, %overhead.0.i.i116
-  %.pre19.pre.i121 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
-  br label %freeMemoryGetNotCountedMemory.exit.i122
+  %call.i.i122 = tail call i64 @sdsAllocSize(ptr noundef %70) #14
+  %add8.i.i123 = add i64 %call.i.i122, %overhead.0.i.i119
+  %.pre19.pre.i124 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
+  br label %freeMemoryGetNotCountedMemory.exit.i125
 
-freeMemoryGetNotCountedMemory.exit.i122:          ; preds = %if.then7.i.i118, %if.end5.i.i115
-  %.pre19.i123 = phi i64 [ %.pre19.pre.i121, %if.then7.i.i118 ], [ %66, %if.end5.i.i115 ]
-  %overhead.1.i.i124 = phi i64 [ %add8.i.i120, %if.then7.i.i118 ], [ %overhead.0.i.i116, %if.end5.i.i115 ]
-  %cond.i125 = tail call i64 @llvm.usub.sat.i64(i64 %call.i107, i64 %overhead.1.i.i124)
-  %cmp16.not.i126 = icmp ugt i64 %call.i107, %.pre19.i123
-  %cmp20.not.i127 = icmp ugt i64 %cond.i125, %.pre19.i123
-  %or.cond18.i128 = select i1 %cmp16.not.i126, i1 %cmp20.not.i127, i1 false
-  br i1 %or.cond18.i128, label %if.end222, label %cant_free
+freeMemoryGetNotCountedMemory.exit.i125:          ; preds = %if.then7.i.i121, %if.end5.i.i118
+  %.pre19.i126 = phi i64 [ %.pre19.pre.i124, %if.then7.i.i121 ], [ %66, %if.end5.i.i118 ]
+  %overhead.1.i.i127 = phi i64 [ %add8.i.i123, %if.then7.i.i121 ], [ %overhead.0.i.i119, %if.end5.i.i118 ]
+  %cond.i128 = tail call i64 @llvm.usub.sat.i64(i64 %call.i109, i64 %overhead.1.i.i127)
+  %cmp16.not.i129 = icmp ugt i64 %call.i109, %.pre19.i126
+  %cmp20.not.i130 = icmp ugt i64 %cond.i128, %.pre19.i126
+  %or.cond18.i131 = select i1 %cmp16.not.i129, i1 %cmp20.not.i130, i1 false
+  br i1 %or.cond18.i131, label %if.end222, label %cant_free
 
-if.end222:                                        ; preds = %freeMemoryGetNotCountedMemory.exit.i122, %if.end214
+if.end222:                                        ; preds = %freeMemoryGetNotCountedMemory.exit.i125, %if.end214
   %71 = load ptr, ptr @getMonotonicUs, align 8
-  %call.i139 = tail call i64 %71() #14
-  %sub.i140 = sub i64 %call.i139, %call.i105
-  %cmp224 = icmp ugt i64 %sub.i140, %retval.0.i104
+  %call.i142 = tail call i64 %71() #14
+  %sub.i143 = sub i64 %call.i142, %call.i107
+  %cmp224 = icmp ugt i64 %sub.i143, %retval.0.i106
   br i1 %cmp224, label %if.then226, label %if.end230
 
 if.then226:                                       ; preds = %if.end222
   %.b.i = load i1, ptr @isEvictionProcRunning, align 4
-  br i1 %.b.i, label %cant_free, label %if.then.i141
+  br i1 %.b.i, label %cant_free, label %if.then.i144
 
-if.then.i141:                                     ; preds = %if.then226
+if.then.i144:                                     ; preds = %if.then226
   store i1 true, ptr @isEvictionProcRunning, align 4
   %72 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 14), align 8
-  %call.i142 = tail call i64 @aeCreateTimeEvent(ptr noundef %72, i64 noundef 0, ptr noundef nonnull @evictionTimeProc, ptr noundef null, ptr noundef null) #14
+  %call.i145 = tail call i64 @aeCreateTimeEvent(ptr noundef %72, i64 noundef 0, ptr noundef nonnull @evictionTimeProc, ptr noundef null, ptr noundef null) #14
   br label %cant_free
 
 if.end230:                                        ; preds = %if.end202, %if.end222
   %cmp19 = icmp slt i64 %add205, %sub24.i
-  br i1 %cmp19, label %while.body, label %cant_free, !llvm.loop !15
+  br i1 %cmp19, label %while.body, label %cant_free, !llvm.loop !14
 
-cant_free:                                        ; preds = %if.end230, %freeMemoryGetNotCountedMemory.exit.i122, %if.then216, %while.cond.preheader, %if.then226, %if.then.i141
+cant_free:                                        ; preds = %if.end230, %freeMemoryGetNotCountedMemory.exit.i125, %if.then216, %while.cond.preheader, %if.then226, %if.then.i144
   %.b = load i1, ptr @isEvictionProcRunning, align 4
   %cond233 = zext i1 %.b to i32
   br label %if.end274thread-pre-split
@@ -1368,74 +1368,74 @@ if.then238:                                       ; preds = %if.then236
 
 if.end241:                                        ; preds = %if.then236, %if.then238
   %lazyfree_latency.0 = phi i64 [ %call239, %if.then238 ], [ 0, %if.then236 ]
-  %call243231 = tail call i64 @bioPendingJobsOfType(i32 noundef 2) #14
-  %tobool244.not232 = icmp eq i64 %call243231, 0
-  br i1 %tobool244.not232, label %while.end262, label %land.rhs.lr.ph
+  %call243235 = tail call i64 @bioPendingJobsOfType(i32 noundef 2) #14
+  %tobool244.not236 = icmp eq i64 %call243235, 0
+  br i1 %tobool244.not236, label %while.end262, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end241
-  %cond259 = tail call i64 @llvm.umin.i64(i64 %retval.0.i104, i64 1000)
+  %cond259 = tail call i64 @llvm.umin.i64(i64 %retval.0.i106, i64 1000)
   %conv260 = trunc nuw nsw i64 %cond259 to i32
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end253
   %74 = load ptr, ptr @getMonotonicUs, align 8
-  %call.i144 = tail call i64 %74() #14
-  %sub.i145 = sub i64 %call.i144, %call.i105
-  %cmp246 = icmp ult i64 %sub.i145, %retval.0.i104
+  %call.i147 = tail call i64 %74() #14
+  %sub.i148 = sub i64 %call.i147, %call.i107
+  %cmp246 = icmp ult i64 %sub.i148, %retval.0.i106
   br i1 %cmp246, label %while.body248, label %while.end262
 
 while.body248:                                    ; preds = %land.rhs
-  %call.i146 = tail call i64 @zmalloc_used_memory() #14
+  %call.i149 = tail call i64 @zmalloc_used_memory() #14
   %75 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
-  %tobool1.not.i148 = icmp ne i64 %75, 0
-  %cmp.i150 = icmp ugt i64 %call.i146, %75
-  %or.cond211 = select i1 %tobool1.not.i148, i1 %cmp.i150, i1 false
-  br i1 %or.cond211, label %if.end9.i152, label %while.end262
+  %tobool1.not.i151 = icmp ne i64 %75, 0
+  %cmp.i153 = icmp ugt i64 %call.i149, %75
+  %or.cond215 = select i1 %tobool1.not.i151, i1 %cmp.i153, i1 false
+  br i1 %or.cond215, label %if.end9.i156, label %while.end262
 
-if.end9.i152:                                     ; preds = %while.body248
+if.end9.i156:                                     ; preds = %while.body248
   %76 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 279), align 8
   %77 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 269), align 8
-  %cmp.i.i153 = icmp sgt i64 %76, %77
-  br i1 %cmp.i.i153, label %if.then.i.i170, label %if.end5.i.i154
+  %cmp.i.i157 = icmp sgt i64 %76, %77
+  br i1 %cmp.i.i157, label %if.then.i.i174, label %if.end5.i.i158
 
-if.then.i.i170:                                   ; preds = %if.end9.i152
-  %div.i.i171 = sdiv i64 %77, 16384
-  %add.i.i172 = shl nsw i64 %div.i.i171, 6
-  %mul.i.i173 = add i64 %77, 64
-  %add1.i.i174 = add i64 %mul.i.i173, %add.i.i172
-  %spec.select.i.i175 = tail call i64 @llvm.usub.sat.i64(i64 %76, i64 %add1.i.i174)
-  br label %if.end5.i.i154
+if.then.i.i174:                                   ; preds = %if.end9.i156
+  %div.i.i175 = sdiv i64 %77, 16384
+  %add.i.i176 = shl nsw i64 %div.i.i175, 6
+  %mul.i.i177 = add i64 %77, 64
+  %add1.i.i178 = add i64 %mul.i.i177, %add.i.i176
+  %spec.select.i.i179 = tail call i64 @llvm.usub.sat.i64(i64 %76, i64 %add1.i.i178)
+  br label %if.end5.i.i158
 
-if.end5.i.i154:                                   ; preds = %if.then.i.i170, %if.end9.i152
-  %overhead.0.i.i155 = phi i64 [ 0, %if.end9.i152 ], [ %spec.select.i.i175, %if.then.i.i170 ]
+if.end5.i.i158:                                   ; preds = %if.then.i.i174, %if.end9.i156
+  %overhead.0.i.i159 = phi i64 [ 0, %if.end9.i156 ], [ %spec.select.i.i179, %if.then.i.i174 ]
   %78 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 185), align 8
-  %cmp6.not.i.i156 = icmp eq i32 %78, 0
-  br i1 %cmp6.not.i.i156, label %freeMemoryGetNotCountedMemory.exit.i161, label %if.then7.i.i157
+  %cmp6.not.i.i160 = icmp eq i32 %78, 0
+  br i1 %cmp6.not.i.i160, label %freeMemoryGetNotCountedMemory.exit.i165, label %if.then7.i.i161
 
-if.then7.i.i157:                                  ; preds = %if.end5.i.i154
+if.then7.i.i161:                                  ; preds = %if.end5.i.i158
   %79 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 198), align 8
-  %call.i.i158 = tail call i64 @sdsAllocSize(ptr noundef %79) #14
-  %add8.i.i159 = add i64 %call.i.i158, %overhead.0.i.i155
-  %.pre19.pre.i160 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
-  br label %freeMemoryGetNotCountedMemory.exit.i161
+  %call.i.i162 = tail call i64 @sdsAllocSize(ptr noundef %79) #14
+  %add8.i.i163 = add i64 %call.i.i162, %overhead.0.i.i159
+  %.pre19.pre.i164 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 314), align 8
+  br label %freeMemoryGetNotCountedMemory.exit.i165
 
-freeMemoryGetNotCountedMemory.exit.i161:          ; preds = %if.then7.i.i157, %if.end5.i.i154
-  %.pre19.i162 = phi i64 [ %.pre19.pre.i160, %if.then7.i.i157 ], [ %75, %if.end5.i.i154 ]
-  %overhead.1.i.i163 = phi i64 [ %add8.i.i159, %if.then7.i.i157 ], [ %overhead.0.i.i155, %if.end5.i.i154 ]
-  %cond.i164 = tail call i64 @llvm.usub.sat.i64(i64 %call.i146, i64 %overhead.1.i.i163)
-  %cmp16.not.i165 = icmp ugt i64 %call.i146, %.pre19.i162
-  %cmp20.not.i166 = icmp ugt i64 %cond.i164, %.pre19.i162
-  %or.cond18.i167 = select i1 %cmp16.not.i165, i1 %cmp20.not.i166, i1 false
-  br i1 %or.cond18.i167, label %if.end253, label %while.end262
+freeMemoryGetNotCountedMemory.exit.i165:          ; preds = %if.then7.i.i161, %if.end5.i.i158
+  %.pre19.i166 = phi i64 [ %.pre19.pre.i164, %if.then7.i.i161 ], [ %75, %if.end5.i.i158 ]
+  %overhead.1.i.i167 = phi i64 [ %add8.i.i163, %if.then7.i.i161 ], [ %overhead.0.i.i159, %if.end5.i.i158 ]
+  %cond.i168 = tail call i64 @llvm.usub.sat.i64(i64 %call.i149, i64 %overhead.1.i.i167)
+  %cmp16.not.i169 = icmp ugt i64 %call.i149, %.pre19.i166
+  %cmp20.not.i170 = icmp ugt i64 %cond.i168, %.pre19.i166
+  %or.cond18.i171 = select i1 %cmp16.not.i169, i1 %cmp20.not.i170, i1 false
+  br i1 %or.cond18.i171, label %if.end253, label %while.end262
 
-if.end253:                                        ; preds = %freeMemoryGetNotCountedMemory.exit.i161
+if.end253:                                        ; preds = %freeMemoryGetNotCountedMemory.exit.i165
   %call261 = tail call i32 @usleep(i32 noundef %conv260) #14
   %call243 = tail call i64 @bioPendingJobsOfType(i32 noundef 2) #14
   %tobool244.not = icmp eq i64 %call243, 0
-  br i1 %tobool244.not, label %while.end262, label %land.rhs, !llvm.loop !16
+  br i1 %tobool244.not, label %while.end262, label %land.rhs, !llvm.loop !15
 
-while.end262:                                     ; preds = %land.rhs, %if.end253, %freeMemoryGetNotCountedMemory.exit.i161, %while.body248, %if.end241
-  %result.1 = phi i32 [ 2, %if.end241 ], [ 0, %while.body248 ], [ 0, %freeMemoryGetNotCountedMemory.exit.i161 ], [ 2, %if.end253 ], [ 2, %land.rhs ]
+while.end262:                                     ; preds = %land.rhs, %if.end253, %freeMemoryGetNotCountedMemory.exit.i165, %while.body248, %if.end241
+  %result.1 = phi i32 [ 2, %if.end241 ], [ 0, %while.body248 ], [ 0, %freeMemoryGetNotCountedMemory.exit.i165 ], [ 2, %if.end253 ], [ 2, %land.rhs ]
   %80 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 393), align 8
   %tobool263.not = icmp eq i64 %80, 0
   br i1 %tobool263.not, label %update_metrics, label %if.end267
@@ -1443,9 +1443,9 @@ while.end262:                                     ; preds = %land.rhs, %if.end25
 if.end267:                                        ; preds = %while.end262
   %call265 = tail call i64 @mstime() #14
   %sub266 = sub nsw i64 %call265, %lazyfree_latency.0
-  %.pre249 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 393), align 8
-  %tobool268.not = icmp eq i64 %.pre249, 0
-  %cmp270.not = icmp slt i64 %sub266, %.pre249
+  %.pre253 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 393), align 8
+  %tobool268.not = icmp eq i64 %.pre253, 0
+  %cmp270.not = icmp slt i64 %sub266, %.pre253
   %or.cond94 = select i1 %tobool268.not, i1 true, i1 %cmp270.not
   br i1 %or.cond94, label %if.end274, label %if.then272
 
@@ -1459,7 +1459,7 @@ if.end274thread-pre-split:                        ; preds = %cant_free, %if.then
   br label %if.end274
 
 if.end274:                                        ; preds = %if.end274thread-pre-split, %if.end267
-  %81 = phi i64 [ %.pr, %if.end274thread-pre-split ], [ %.pre249, %if.end267 ]
+  %81 = phi i64 [ %.pr, %if.end274thread-pre-split ], [ %.pre253, %if.end267 ]
   %result.2 = phi i32 [ %result.2.ph, %if.end274thread-pre-split ], [ %result.1, %if.end267 ]
   %tobool275.not = icmp eq i64 %81, 0
   br i1 %tobool275.not, label %update_metrics, label %if.end279
@@ -1467,9 +1467,9 @@ if.end274:                                        ; preds = %if.end274thread-pre
 if.end279:                                        ; preds = %if.end274
   %call277 = tail call i64 @mstime() #14
   %sub278 = sub nsw i64 %call277, %latency.0
-  %.pre250 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 393), align 8
-  %tobool280.not = icmp eq i64 %.pre250, 0
-  %cmp282.not = icmp slt i64 %sub278, %.pre250
+  %.pre254 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 393), align 8
+  %tobool280.not = icmp eq i64 %.pre254, 0
+  %cmp282.not = icmp slt i64 %sub278, %.pre254
   %or.cond95 = select i1 %tobool280.not, i1 true, i1 %cmp282.not
   br i1 %or.cond95, label %update_metrics, label %if.then284
 
@@ -1478,20 +1478,20 @@ if.then284:                                       ; preds = %if.end279
   br label %update_metrics
 
 update_metrics:                                   ; preds = %while.end262, %if.end274, %if.end279, %if.then284
-  %result.2264270 = phi i32 [ %result.2, %if.end279 ], [ %result.2, %if.then284 ], [ %result.2, %if.end274 ], [ %result.1, %while.end262 ]
-  %82 = add nsw i32 %result.2264270, -1
+  %result.2268274 = phi i32 [ %result.2, %if.end279 ], [ %result.2, %if.then284 ], [ %result.2, %if.end274 ], [ %result.1, %while.end262 ]
+  %82 = add nsw i32 %result.2268274, -1
   %or.cond2 = icmp ult i32 %82, 2
   br i1 %or.cond2, label %if.then291, label %if.else296
 
 if.then291:                                       ; preds = %if.end4, %update_metrics
-  %result.3204 = phi i32 [ %result.2264270, %update_metrics ], [ 2, %if.end4 ]
+  %result.3208 = phi i32 [ %result.2268274, %update_metrics ], [ 2, %if.end4 ]
   %83 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 98), align 8
   %cmp292 = icmp eq i64 %83, 0
   br i1 %cmp292, label %if.then294, label %return
 
 if.then294:                                       ; preds = %if.then291
   %84 = load ptr, ptr @getMonotonicUs, align 8
-  %call.i178 = tail call i64 %84() #14
+  %call.i182 = tail call i64 %84() #14
   br label %return.sink.split
 
 if.else296:                                       ; preds = %freeMemoryGetNotCountedMemory.exit.i, %if.end, %update_metrics
@@ -1501,21 +1501,21 @@ if.else296:                                       ; preds = %freeMemoryGetNotCou
 
 if.then302:                                       ; preds = %if.else296
   %86 = load ptr, ptr @getMonotonicUs, align 8
-  %call.i179 = tail call i64 %86() #14
-  %sub.i180 = sub i64 %call.i179, %85
+  %call.i183 = tail call i64 %86() #14
+  %sub.i184 = sub i64 %call.i183, %85
   %87 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 97), align 8
-  %add304 = add i64 %sub.i180, %87
+  %add304 = add i64 %sub.i184, %87
   store i64 %add304, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 97), align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then302, %if.then294
-  %call.i178.sink = phi i64 [ %call.i178, %if.then294 ], [ 0, %if.then302 ]
-  %retval.0.ph = phi i32 [ %result.3204, %if.then294 ], [ 0, %if.then302 ]
-  store i64 %call.i178.sink, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 98), align 8
+  %call.i182.sink = phi i64 [ %call.i182, %if.then294 ], [ 0, %if.then302 ]
+  %retval.0.ph = phi i32 [ %result.3208, %if.then294 ], [ 0, %if.then302 ]
+  store i64 %call.i182.sink, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 98), align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end.i, %entry, %lor.lhs.false.i, %if.then291, %if.else296, %isSafeToPerformEvictions.exit
-  %retval.0 = phi i32 [ 0, %isSafeToPerformEvictions.exit ], [ 0, %if.else296 ], [ %result.3204, %if.then291 ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %if.end.i ], [ %retval.0.ph, %return.sink.split ]
+  %retval.0 = phi i32 [ 0, %isSafeToPerformEvictions.exit ], [ 0, %if.else296 ], [ %result.3208, %if.then291 ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 0, %if.end.i ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -1600,11 +1600,10 @@ attributes #16 = { noreturn nounwind }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 3}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

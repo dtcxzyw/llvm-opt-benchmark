@@ -146,13 +146,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.123 = private unnamed_addr constant [39 x i8] c"Can't allocate memory for Mac metadata\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_support_format_zip(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @archive_read_support_format_zip_streamable(ptr noundef %0), !range !5
+define dso_local range(i32 -30, 1) i32 @archive_read_support_format_zip(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @archive_read_support_format_zip_streamable(ptr noundef %0)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @archive_read_support_format_zip_seekable(ptr noundef %0), !range !5
+  %4 = tail call i32 @archive_read_support_format_zip_seekable(ptr noundef %0)
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -161,7 +161,7 @@ define dso_local noundef i32 @archive_read_support_format_zip(ptr noundef %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_support_format_zip_streamable(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_support_format_zip_streamable(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str) #21
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %13, label %4
@@ -194,7 +194,7 @@ define dso_local noundef i32 @archive_read_support_format_zip_streamable(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_support_format_zip_seekable(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_support_format_zip_seekable(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str.3) #21
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %13, label %4
@@ -243,7 +243,7 @@ define internal i64 @real_crc32(i64 noundef %0, ptr noundef %1, i64 noundef %2) 
 declare i32 @__archive_read_register_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_read_format_zip_streamable_bid(ptr noundef %0, i32 %1) #0 {
+define internal range(i32 -1, 30) i32 @archive_read_format_zip_streamable_bid(ptr noundef %0, i32 %1) #0 {
   %3 = tail call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 4, ptr noundef null) #21
   %4 = icmp eq ptr %3, null
   br i1 %4, label %39, label %5
@@ -316,7 +316,7 @@ define internal noundef i32 @archive_read_format_zip_streamable_bid(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_read_format_zip_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_read_format_zip_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2072
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -421,7 +421,7 @@ define internal noundef i32 @archive_read_format_zip_options(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_read_format_zip_streamable_read_header(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -30, 2) i32 @archive_read_format_zip_streamable_read_header(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 327680, ptr %4, align 8
@@ -543,7 +543,7 @@ define internal i32 @archive_read_format_zip_streamable_read_header(ptr noundef 
 
 63:                                               ; preds = %59
   %64 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.04960) #21
-  %65 = call fastcc i32 @zip_read_local_file_header(ptr noundef %0, ptr noundef %1, ptr noundef %12), !range !5
+  %65 = call fastcc i32 @zip_read_local_file_header(ptr noundef %0, ptr noundef %1, ptr noundef %12)
   br label %.loopexit
 
 66:                                               ; preds = %56
@@ -569,7 +569,7 @@ define internal i32 @archive_read_format_zip_streamable_read_header(ptr noundef 
   %79 = add nuw nsw i64 %.04960, 1
   %80 = getelementptr inbounds i8, ptr %.04861, i64 5
   %.not52 = icmp ugt ptr %80, %49
-  br i1 %.not52, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not52, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.thread55, %.lr.ph63
   %.049.lcssa = phi i64 [ 0, %.lr.ph63 ], [ %79, %.thread55 ]
@@ -584,7 +584,7 @@ define internal i32 @archive_read_format_zip_streamable_read_header(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_read_format_zip_read_data(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal i32 @archive_read_format_zip_read_data(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 2072
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -637,7 +637,7 @@ define internal noundef i32 @archive_read_format_zip_read_data(ptr noundef %0, p
   br i1 %.not89, label %35, label %.thread
 
 .thread:                                          ; preds = %29
-  %34 = tail call fastcc i32 @read_decryption_header(ptr noundef nonnull %0), !range !8
+  %34 = tail call fastcc i32 @read_decryption_header(ptr noundef nonnull %0)
   br label %116
 
 35:                                               ; preds = %29
@@ -647,11 +647,11 @@ define internal noundef i32 @archive_read_format_zip_read_data(ptr noundef %0, p
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %35
-  %40 = tail call fastcc i32 @init_WinZip_AES_decryption(ptr noundef nonnull %0), !range !5
+  %40 = tail call fastcc i32 @init_WinZip_AES_decryption(ptr noundef nonnull %0)
   br label %43
 
 41:                                               ; preds = %35
-  %42 = tail call fastcc i32 @init_traditional_PKWARE_decryption(ptr noundef nonnull %0), !range !5
+  %42 = tail call fastcc i32 @init_traditional_PKWARE_decryption(ptr noundef nonnull %0)
   br label %43
 
 43:                                               ; preds = %39, %41
@@ -712,7 +712,7 @@ define internal noundef i32 @archive_read_format_zip_read_data(ptr noundef %0, p
 65:                                               ; preds = %66
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 26
-  br i1 %exitcond.not.i, label %compression_name.exit, label %66, !llvm.loop !9
+  br i1 %exitcond.not.i, label %compression_name.exit, label %66, !llvm.loop !7
 
 66:                                               ; preds = %65, %63
   %indvars.iv.i = phi i64 [ 0, %63 ], [ %indvars.iv.next.i, %65 ]
@@ -878,7 +878,7 @@ define internal i32 @archive_read_format_zip_read_data_skip_streamable(ptr nound
   br i1 %.not57, label %39, label %.thread
 
 .thread:                                          ; preds = %34
-  %38 = tail call fastcc i32 @read_decryption_header(ptr noundef nonnull %0), !range !8
+  %38 = tail call fastcc i32 @read_decryption_header(ptr noundef nonnull %0)
   br label %.loopexit
 
 39:                                               ; preds = %34
@@ -888,11 +888,11 @@ define internal i32 @archive_read_format_zip_read_data_skip_streamable(ptr nound
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %39
-  %44 = tail call fastcc i32 @init_WinZip_AES_decryption(ptr noundef nonnull %0), !range !5
+  %44 = tail call fastcc i32 @init_WinZip_AES_decryption(ptr noundef nonnull %0)
   br label %47
 
 45:                                               ; preds = %39
-  %46 = tail call fastcc i32 @init_traditional_PKWARE_decryption(ptr noundef nonnull %0), !range !5
+  %46 = tail call fastcc i32 @init_traditional_PKWARE_decryption(ptr noundef nonnull %0)
   br label %47
 
 47:                                               ; preds = %43, %45
@@ -926,7 +926,7 @@ define internal i32 @archive_read_format_zip_read_data_skip_streamable(ptr nound
 57:                                               ; preds = %.preheader
   %58 = call fastcc i32 @zip_read_data_deflate(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.not62 = icmp eq i32 %58, 0
-  br i1 %.not62, label %.preheader, label %.loopexit, !llvm.loop !10
+  br i1 %.not62, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .preheader66:                                     ; preds = %.preheader67, %._crit_edge
   %59 = phi i64 [ %101, %._crit_edge ], [ %54, %.preheader67 ]
@@ -1004,7 +1004,7 @@ define internal i32 @archive_read_format_zip_read_data_skip_streamable(ptr nound
 95:                                               ; preds = %.lr.ph, %65, %93, %67
   %.1 = phi ptr [ %66, %65 ], [ %68, %67 ], [ %94, %93 ], [ %63, %.lr.ph ]
   %.not59 = icmp ugt ptr %.1, %62
-  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %95, %.preheader66
   %.052.lcssa = phi ptr [ %60, %.preheader66 ], [ %.1, %95 ]
@@ -1100,7 +1100,7 @@ define internal noundef i32 @archive_read_format_zip_cleanup(ptr nocapture nound
   tail call void @archive_string_free(ptr noundef nonnull %41) #21
   tail call void @free(ptr noundef nonnull %.039) #21
   %.not36 = icmp eq ptr %40, null
-  br i1 %.not36, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %.not36, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %36
   %42 = getelementptr inbounds i8, ptr %4, i64 8016
@@ -1181,7 +1181,7 @@ define internal i32 @archive_read_format_zip_has_encrypted_entries(ptr noundef r
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_read_format_zip_seekable_bid(ptr noundef %0, i32 noundef %1) #0 {
+define internal range(i32 -1, 33) i32 @archive_read_format_zip_seekable_bid(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2072
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1232,7 +1232,7 @@ define internal noundef i32 @archive_read_format_zip_seekable_bid(ptr noundef %0
 
 26:                                               ; preds = %24
   %27 = add nuw nsw i64 %13, %21
-  %28 = tail call fastcc i32 @read_eocd(ptr noundef %5, ptr noundef nonnull %22, i64 noundef %27), !range !13
+  %28 = tail call fastcc i32 @read_eocd(ptr noundef %5, ptr noundef nonnull %22, i64 noundef %27)
   %29 = icmp ugt i32 %.03948, 19
   br i1 %29, label %30, label %.loopexit
 
@@ -1243,7 +1243,7 @@ define internal noundef i32 @archive_read_format_zip_seekable_bid(ptr noundef %0
   br i1 %32, label %33, label %.loopexit
 
 33:                                               ; preds = %30
-  %34 = tail call fastcc i32 @read_zip64_eocd(ptr noundef %0, ptr noundef %5, ptr noundef nonnull %31), !range !13
+  %34 = tail call fastcc i32 @read_zip64_eocd(ptr noundef %0, ptr noundef %5, ptr noundef nonnull %31)
   %spec.select = tail call i32 @llvm.umax.i32(i32 %34, i32 %28)
   br label %.loopexit
 
@@ -1260,7 +1260,7 @@ define internal noundef i32 @archive_read_format_zip_seekable_bid(ptr noundef %0
   %.sink = phi i32 [ -4, %37 ], [ -3, %36 ], [ -2, %35 ], [ -4, %24 ], [ -1, %.lr.ph ]
   %39 = add nsw i32 %.03948, %.sink
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %38, %33, %26, %30, %15, %10, %7, %2
   %.0 = phi i32 [ -1, %2 ], [ 0, %7 ], [ 0, %10 ], [ 0, %15 ], [ %28, %30 ], [ %28, %26 ], [ %spec.select, %33 ], [ 0, %38 ]
@@ -1381,14 +1381,14 @@ define internal i32 @archive_read_format_zip_seekable_read_header(ptr noundef %0
 58:                                               ; preds = %56, %54, %47, %45, %40, %38, %.lr.ph.i
   %.1.i = phi i64 [ %57, %56 ], [ %55, %54 ], [ %48, %47 ], [ %46, %45 ], [ %41, %40 ], [ %39, %38 ], [ %35, %.lr.ph.i ]
   %59 = icmp slt i64 %.1.i, %33
-  br i1 %59, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
+  br i1 %59, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %58, %.preheader.i
   %.0143.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %.1.i, %58 ]
   %60 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.0143.lcssa.i) #21
   %61 = call ptr @__archive_read_ahead(ptr noundef %0, i64 noundef 20, ptr noundef nonnull %6) #21
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %slurp_central_directory.exit.thread, label %.preheader.i, !llvm.loop !16
+  br i1 %62, label %slurp_central_directory.exit.thread, label %.preheader.i, !llvm.loop !13
 
 63:                                               ; preds = %52, %49, %42
   %64 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.0143185.i) #21
@@ -1624,7 +1624,7 @@ define internal i32 @archive_read_format_zip_seekable_read_header(ptr noundef %0
 
 202:                                              ; preds = %196
   %203 = getelementptr inbounds i8, ptr %199, i64 %167
-  %204 = call fastcc i32 @process_extra(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %203, i64 noundef %173, ptr noundef nonnull %93), !range !17
+  %204 = call fastcc i32 @process_extra(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %203, i64 noundef %173, ptr noundef nonnull %93)
   %.not162.i = icmp eq i32 %204, 0
   br i1 %.not162.i, label %205, label %slurp_central_directory.exit.thread
 
@@ -1838,7 +1838,7 @@ slurp_central_directory.exit.thread:              ; preds = %._crit_edge.i, %264
 314:                                              ; preds = %311, %312, %308
   %315 = getelementptr inbounds i8, ptr %9, i64 104
   store i64 0, ptr %315, align 8
-  %316 = call fastcc i32 @zip_read_local_file_header(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9), !range !5
+  %316 = call fastcc i32 @zip_read_local_file_header(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9)
   %.not70 = icmp eq i32 %316, 0
   br i1 %.not70, label %317, label %.thread
 
@@ -1882,7 +1882,7 @@ slurp_central_directory.exit.thread:              ; preds = %._crit_edge.i, %264
 332:                                              ; preds = %333
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 26
-  br i1 %exitcond.not.i.i, label %compression_name.exit.i, label %333, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %compression_name.exit.i, label %333, !llvm.loop !7
 
 333:                                              ; preds = %332, %330
   %indvars.iv.i.i = phi i64 [ 0, %330 ], [ %indvars.iv.next.i.i, %332 ]
@@ -2119,7 +2119,7 @@ zip_deflate_init.exit.i:                          ; preds = %416
   %.not108.i = icmp eq i32 %.2.i, 0
   %433 = icmp ne i64 %432, 0
   %434 = select i1 %.not108.i, i1 %433, i1 false
-  br i1 %434, label %388, label %._crit_edge.loopexit.i, !llvm.loop !18
+  br i1 %434, label %388, label %._crit_edge.loopexit.i, !llvm.loop !14
 
 ._crit_edge.loopexit.i:                           ; preds = %430
   %.pre132.i = load i64, ptr %342, align 8
@@ -2191,7 +2191,7 @@ declare void @__archive_read_reset_passphrase(ptr noundef) local_unnamed_addr #1
 declare i64 @__archive_read_consume(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zip_read_local_file_header(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca %struct.archive_wstring, align 8
   %6 = alloca %struct.archive_wstring, align 8
@@ -2451,7 +2451,7 @@ define internal fastcc i32 @zip_read_local_file_header(ptr noundef %0, ptr nound
   br label %399
 
 153:                                              ; preds = %148
-  %154 = tail call fastcc i32 @process_extra(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %150, i64 noundef %119, ptr noundef nonnull %11), !range !17
+  %154 = tail call fastcc i32 @process_extra(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %150, i64 noundef %119, ptr noundef nonnull %11)
   %.not270 = icmp eq i32 %154, 0
   br i1 %.not270, label %155, label %399
 
@@ -2523,7 +2523,7 @@ define internal fastcc i32 @zip_read_local_file_header(ptr noundef %0, ptr nound
   %186 = phi i64 [ %179, %.lr.ph ], [ %.pre, %184 ]
   %187 = add nuw i64 %.0235327, 1
   %188 = icmp ult i64 %187, %186
-  br i1 %188, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %188, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %185, %174
   %189 = load ptr, ptr %5, align 8
@@ -2805,7 +2805,7 @@ define internal fastcc i32 @zip_read_local_file_header(ptr noundef %0, ptr nound
 310:                                              ; preds = %311
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 26
-  br i1 %exitcond.not.i, label %compression_name.exit, label %311, !llvm.loop !9
+  br i1 %exitcond.not.i, label %compression_name.exit, label %311, !llvm.loop !7
 
 311:                                              ; preds = %310, %.thread314
   %indvars.iv.i = phi i64 [ 0, %.thread314 ], [ %indvars.iv.next.i, %310 ]
@@ -2972,7 +2972,7 @@ compression_name.exit:                            ; preds = %310, %315
 389:                                              ; preds = %390
   %indvars.iv.next.i306 = add nuw nsw i64 %indvars.iv.i305, 1
   %exitcond.not.i307 = icmp eq i64 %indvars.iv.next.i306, 26
-  br i1 %exitcond.not.i307, label %compression_name.exit309, label %390, !llvm.loop !9
+  br i1 %exitcond.not.i307, label %compression_name.exit309, label %390, !llvm.loop !7
 
 390:                                              ; preds = %389, %381
   %indvars.iv.i305 = phi i64 [ 0, %381 ], [ %indvars.iv.next.i306, %389 ]
@@ -3016,7 +3016,7 @@ declare ptr @__errno_location() local_unnamed_addr #11
 declare ptr @archive_string_conversion_charset_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_extra(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 2072
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
@@ -3055,7 +3055,7 @@ define internal fastcc noundef i32 @process_extra(ptr noundef %0, ptr noundef %1
 31:                                               ; preds = %.preheader
   %32 = add nuw i64 %.0238343, 1
   %exitcond.not = icmp eq i64 %32, %3
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .preheader:                                       ; preds = %10, %31
   %.0238343 = phi i64 [ %32, %31 ], [ 0, %10 ]
@@ -3338,7 +3338,7 @@ define internal fastcc noundef i32 @process_extra(ptr noundef %0, ptr noundef %1
   %184 = icmp slt i8 %182, 0
   %185 = icmp ne i16 %.4243, 0
   %186 = select i1 %184, i1 %185, i1 false
-  br i1 %186, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %186, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %171
   %.4243.in.lcssa = phi i16 [ %45, %171 ], [ %.4243335, %.lr.ph ]
@@ -3663,7 +3663,7 @@ define internal fastcc noundef i32 @process_extra(ptr noundef %0, ptr noundef %1
   %353 = add i32 %.9, %352
   %354 = zext i32 %353 to i64
   %.not = icmp ult i64 %12, %354
-  br i1 %.not, label %.loopexit, label %37, !llvm.loop !22
+  br i1 %.not, label %.loopexit, label %37, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.thread, %31, %5, %326, %113, %107, %89, %71, %51, %35
   %.0236 = phi i32 [ -25, %35 ], [ -25, %51 ], [ -25, %326 ], [ -25, %113 ], [ -25, %71 ], [ -25, %89 ], [ -25, %107 ], [ 0, %5 ], [ 0, %31 ], [ 0, %.thread ]
@@ -3716,7 +3716,7 @@ declare void @archive_entry_set_atime(ptr noundef, i64 noundef, i64 noundef) loc
 declare void @archive_entry_set_size(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zip_read_data_deflate(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @zip_read_data_deflate(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i64, align 8
@@ -3916,7 +3916,7 @@ thread-pre-split:                                 ; preds = %32, %45, %41
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %84
-  br i1 %exitcond.not.i, label %trad_enc_decrypt_update.exit, label %87, !llvm.loop !23
+  br i1 %exitcond.not.i, label %trad_enc_decrypt_update.exit, label %87, !llvm.loop !19
 
 116:                                              ; preds = %81
   store i64 %.1, ptr %7, align 8
@@ -4057,12 +4057,12 @@ trad_enc_decrypt_update.exit:                     ; preds = %87, %82, %116
   br i1 %.not114, label %189, label %187
 
 187:                                              ; preds = %185
-  %188 = call fastcc i32 @check_authentication_code(ptr noundef %0, ptr noundef null), !range !5
+  %188 = call fastcc i32 @check_authentication_code(ptr noundef %0, ptr noundef null)
   %.not115 = icmp eq i32 %188, 0
   br i1 %.not115, label %189, label %191
 
 189:                                              ; preds = %187, %185, %168
-  %190 = call fastcc i32 @consume_optional_marker(ptr noundef %0, ptr noundef nonnull %10), !range !5
+  %190 = call fastcc i32 @consume_optional_marker(ptr noundef %0, ptr noundef nonnull %10)
   br label %191
 
 191:                                              ; preds = %zip_deflate_init.exit, %189, %187, %142, %141, %48, %18
@@ -4071,7 +4071,7 @@ trad_enc_decrypt_update.exit:                     ; preds = %87, %82, %116
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zip_read_data_zipx_lzma_alone(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @zip_read_data_zipx_lzma_alone(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca %struct._alone_header, align 1
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 2072
@@ -4301,7 +4301,7 @@ zipx_lzma_alone_init.exit:                        ; preds = %45
   store i64 %102, ptr %2, align 8
   %109 = load ptr, ptr %69, align 8
   store ptr %109, ptr %1, align 8
-  %110 = call fastcc i32 @consume_optional_marker(ptr noundef nonnull %0, ptr noundef nonnull %8), !range !5
+  %110 = call fastcc i32 @consume_optional_marker(ptr noundef nonnull %0, ptr noundef nonnull %8)
   %.not68 = icmp eq i32 %110, 0
   br i1 %.not68, label %111, label %116
 
@@ -4332,7 +4332,7 @@ declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #13
 declare i32 @cm_zlib_inflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_authentication_code(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @check_authentication_code(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 2072
@@ -4377,7 +4377,7 @@ define internal fastcc noundef i32 @check_authentication_code(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @consume_optional_marker(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @consume_optional_marker(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 162
   %4 = load i8, ptr %3, align 2
   %.not = icmp eq i8 %4, 0
@@ -4517,7 +4517,7 @@ declare void @lzma_end(ptr noundef) local_unnamed_addr #14
 declare i32 @lzma_alone_decoder(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @read_decryption_header(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -30, -24) i32 @read_decryption_header(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2072
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -4665,7 +4665,7 @@ define internal fastcc noundef i32 @read_decryption_header(ptr noundef %0) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @init_WinZip_AES_decryption(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @init_WinZip_AES_decryption(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [66 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 2072
   %4 = load ptr, ptr %3, align 8
@@ -4823,7 +4823,7 @@ define internal fastcc noundef i32 @init_WinZip_AES_decryption(ptr noundef %0) u
   %82 = load i8, ptr %81, align 4
   %83 = getelementptr inbounds i8, ptr %70, i64 128
   store i8 %82, ptr %83, align 8
-  %84 = call fastcc i32 @zip_alloc_decryption_buffer(ptr noundef %0), !range !5
+  %84 = call fastcc i32 @zip_alloc_decryption_buffer(ptr noundef %0)
   br label %87
 
 85:                                               ; preds = %18
@@ -4840,7 +4840,7 @@ define internal fastcc noundef i32 @init_WinZip_AES_decryption(ptr noundef %0) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @init_traditional_PKWARE_decryption(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @init_traditional_PKWARE_decryption(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
@@ -4945,7 +4945,7 @@ define internal fastcc noundef i32 @init_traditional_PKWARE_decryption(ptr nound
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %59 = add i64 %.01315.i, -1
   %.not.i = icmp eq i64 %59, 0
-  br i1 %.not.i, label %._crit_edge.i.preheader, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %._crit_edge.i.preheader, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i.preheader:                          ; preds = %.lr.ph.i, %35
   %.val.i.i.ph = phi i32 [ 878082192, %35 ], [ %58, %.lr.ph.i ]
@@ -4994,7 +4994,7 @@ define internal fastcc noundef i32 @init_traditional_PKWARE_decryption(ptr nound
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 12
-  br i1 %exitcond.not.i.i, label %trad_enc_init.exit, label %._crit_edge.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %trad_enc_init.exit, label %._crit_edge.i, !llvm.loop !19
 
 trad_enc_init.exit:                               ; preds = %._crit_edge.i
   %88 = load i8, ptr %32, align 1
@@ -5074,7 +5074,7 @@ zip_alloc_decryption_buffer.exit:                 ; preds = %125, %124, %1, %94,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zip_read_data_none(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @zip_read_data_none(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i64, align 8
@@ -5221,7 +5221,7 @@ define internal fastcc noundef i32 @zip_read_data_none(ptr noundef %0, ptr nocap
   br i1 %.not128, label %95, label %93
 
 93:                                               ; preds = %88
-  %94 = call fastcc i32 @check_authentication_code(ptr noundef nonnull %0, ptr noundef nonnull %19), !range !5
+  %94 = call fastcc i32 @check_authentication_code(ptr noundef nonnull %0, ptr noundef nonnull %19)
   %.not129 = icmp eq i32 %94, 0
   br i1 %.not129, label %95, label %217
 
@@ -5285,7 +5285,7 @@ define internal fastcc noundef i32 @zip_read_data_none(ptr noundef %0, ptr nocap
 122:                                              ; preds = %.lr.ph, %104, %120, %106
   %.2 = phi ptr [ %105, %104 ], [ %107, %106 ], [ %121, %120 ], [ %102, %.lr.ph ]
   %123 = icmp ult ptr %.2, %100
-  br i1 %123, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %123, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %122, %97, %119
   %.3 = phi ptr [ %spec.select131, %119 ], [ %98, %97 ], [ %.2, %122 ]
@@ -5310,7 +5310,7 @@ define internal fastcc noundef i32 @zip_read_data_none(ptr noundef %0, ptr nocap
   br i1 %.not117, label %137, label %135
 
 135:                                              ; preds = %131
-  %136 = tail call fastcc i32 @check_authentication_code(ptr noundef nonnull %0, ptr noundef null), !range !5
+  %136 = tail call fastcc i32 @check_authentication_code(ptr noundef nonnull %0, ptr noundef null)
   %.not118 = icmp eq i32 %136, 0
   br i1 %.not118, label %137, label %217
 
@@ -5410,7 +5410,7 @@ define internal fastcc noundef i32 @zip_read_data_none(ptr noundef %0, ptr nocap
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %160
-  br i1 %exitcond.not.i, label %trad_enc_decrypt_update.exit, label %163, !llvm.loop !23
+  br i1 %exitcond.not.i, label %trad_enc_decrypt_update.exit, label %163, !llvm.loop !19
 
 192:                                              ; preds = %151
   %193 = getelementptr inbounds i8, ptr %10, i64 8032
@@ -5460,7 +5460,7 @@ trad_enc_decrypt_update.exit:                     ; preds = %163, %154, %192
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zip_read_data_zipx_bzip2(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @zip_read_data_zipx_bzip2(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 2072
   %6 = load ptr, ptr %5, align 8
@@ -5606,7 +5606,7 @@ zipx_bzip2_init.exit:                             ; preds = %20
   store i64 %68, ptr %2, align 8
   %77 = load ptr, ptr %43, align 8
   store ptr %77, ptr %1, align 8
-  %78 = call fastcc i32 @consume_optional_marker(ptr noundef nonnull %0, ptr noundef nonnull %7), !range !5
+  %78 = call fastcc i32 @consume_optional_marker(ptr noundef nonnull %0, ptr noundef nonnull %7)
   br label %zipx_bzip2_init.exit.thread
 
 zipx_bzip2_init.exit.thread:                      ; preds = %26, %19, %59, %58, %55, %36, %31
@@ -5615,7 +5615,7 @@ zipx_bzip2_init.exit.thread:                      ; preds = %26, %19, %59, %58, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zip_read_data_zipx_xz(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @zip_read_data_zipx_xz(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 2072
   %6 = load ptr, ptr %5, align 8
@@ -5750,7 +5750,7 @@ zipx_xz_init.exit:                                ; preds = %19
   store i64 %62, ptr %2, align 8
   %66 = load ptr, ptr %37, align 8
   store ptr %66, ptr %1, align 8
-  %67 = call fastcc i32 @consume_optional_marker(ptr noundef nonnull %0, ptr noundef nonnull %7), !range !5
+  %67 = call fastcc i32 @consume_optional_marker(ptr noundef nonnull %0, ptr noundef nonnull %7)
   br label %zipx_xz_init.exit.thread
 
 zipx_xz_init.exit.thread:                         ; preds = %25, %18, %54, %51, %46, %45, %30
@@ -5759,7 +5759,7 @@ zipx_xz_init.exit.thread:                         ; preds = %25, %18, %54, %51, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zip_read_data_zipx_zstd(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @zip_read_data_zipx_zstd(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.ZSTD_outBuffer_s, align 8
   %6 = alloca %struct.ZSTD_inBuffer_s, align 8
@@ -5910,7 +5910,7 @@ zipx_zstd_init.exit:                              ; preds = %26
   store i64 %73, ptr %2, align 8
   %82 = load ptr, ptr %47, align 8
   store ptr %82, ptr %1, align 8
-  %83 = call fastcc i32 @consume_optional_marker(ptr noundef nonnull %0, ptr noundef nonnull %9), !range !5
+  %83 = call fastcc i32 @consume_optional_marker(ptr noundef nonnull %0, ptr noundef nonnull %9)
   br label %zipx_zstd_init.exit.thread
 
 zipx_zstd_init.exit.thread:                       ; preds = %33, %24, %70, %55, %43, %38
@@ -5919,7 +5919,7 @@ zipx_zstd_init.exit.thread:                       ; preds = %33, %24, %70, %55, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zip_read_data_zipx_ppmd(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @zip_read_data_zipx_ppmd(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 2072
   %6 = load ptr, ptr %5, align 8
@@ -6086,7 +6086,7 @@ zipx_ppmd8_init.exit:                             ; preds = %51
   %88 = add nuw i64 %.037, 1
   %89 = load i64, ptr %75, align 8
   %90 = icmp ult i64 %88, %89
-  br i1 %90, label %76, label %.loopexit, !llvm.loop !26
+  br i1 %90, label %76, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %84, %79
   %.1 = phi i64 [ %.037, %79 ], [ %88, %84 ]
@@ -6119,7 +6119,7 @@ zipx_ppmd8_init.exit:                             ; preds = %51
   br label %107
 
 107:                                              ; preds = %104, %.loopexit
-  %108 = call fastcc i32 @consume_optional_marker(ptr noundef %0, ptr noundef nonnull %7), !range !5
+  %108 = call fastcc i32 @consume_optional_marker(ptr noundef %0, ptr noundef nonnull %7)
   br label %zipx_ppmd8_init.exit.thread
 
 zipx_ppmd8_init.exit.thread:                      ; preds = %25, %46, %50, %58, %39, %107, %83, %68
@@ -6130,7 +6130,7 @@ zipx_ppmd8_init.exit.thread:                      ; preds = %25, %46, %50, %58, 
 declare ptr @__archive_read_next_passphrase(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zip_alloc_decryption_buffer(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @zip_alloc_decryption_buffer(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2072
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -6222,7 +6222,7 @@ declare i32 @cm_zlib_inflateEnd(ptr noundef) local_unnamed_addr #1
 declare i64 @__archive_read_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @read_eocd(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #15 {
+define internal fastcc range(i32 0, 33) i32 @read_eocd(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #15 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %.val27 = load i16, ptr %4, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 12
@@ -6266,7 +6266,7 @@ define internal fastcc noundef i32 @read_eocd(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @read_zip64_eocd(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 33) i32 @read_zip64_eocd(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 1
   %.not = icmp eq i32 %5, 0
@@ -6365,7 +6365,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare ptr @archive_strncat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmp_node(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #16 {
+define internal range(i32 -1, 2) i32 @cmp_node(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 32
@@ -6462,25 +6462,21 @@ attributes #25 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -30, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i32 -30, i32 -24}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = !{i32 0, i32 33}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = !{i32 -25, i32 1}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}

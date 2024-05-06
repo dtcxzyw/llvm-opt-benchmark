@@ -519,7 +519,7 @@ if.then104:                                       ; preds = %if.then101
   %add.ptr109 = getelementptr inbounds i16, ptr %dest, i64 %idx.ext108
   %cond111 = select i1 %cmp105, ptr null, ptr %add.ptr109
   %sub112 = sub nsw i32 %destCapacity, %destIndex.3
-  %call113 = call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_17toLowerEijPDsiPKDsP12UCaseContextiiPNS_5EditsER10UErrorCode(i32 noundef %caseLocale, i32 noundef %options, ptr noundef %cond111, i32 noundef %sub112, ptr noundef %src, ptr noundef nonnull %csc, i32 noundef %titleLimit.4, i32 noundef %index.1, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !6
+  %call113 = call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_17toLowerEijPDsiPKDsP12UCaseContextiiPNS_5EditsER10UErrorCode(i32 noundef %caseLocale, i32 noundef %options, ptr noundef %cond111, i32 noundef %sub112, ptr noundef %src, ptr noundef nonnull %csc, i32 noundef %titleLimit.4, i32 noundef %index.1, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %add114 = add nsw i32 %call113, %destIndex.3
   %17 = load i32, ptr %errorCode, align 4
   %cmp115 = icmp eq i32 %17, 15
@@ -577,7 +577,7 @@ if.then128:                                       ; preds = %if.end2.i.i126, %_Z
 if.end133:                                        ; preds = %if.end117.thread, %if.end5.i.i129, %if.then7.i.i132, %if.end75, %if.end117, %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit136, %if.end99, %while.body
   %destIndex.4 = phi i32 [ %add114, %if.end117 ], [ %destIndex.3, %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit136 ], [ %destIndex.3, %if.end99 ], [ %destIndex.1, %if.end75 ], [ %destIndex.0197, %while.body ], [ %add.i.i130, %if.then7.i.i132 ], [ %add.i.i130, %if.end5.i.i129 ], [ %add114, %if.end117.thread ]
   %cmp = icmp slt i32 %index.1, %srcLength
-  br i1 %cmp, label %while.body, label %while.end134, !llvm.loop !7
+  br i1 %cmp, label %while.body, label %while.end134, !llvm.loop !6
 
 while.end134:                                     ; preds = %if.end133
   %.pre = load i32, ptr %errorCode, align 4
@@ -614,7 +614,7 @@ declare i32 @ucase_getType_75(i32 noundef) local_unnamed_addr #2
 declare i32 @ucase_toFullTitle_75(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZN6icu_7512_GLOBAL__N_125utf16_caseContextIteratorEPva(ptr nocapture noundef %context, i8 noundef signext %dir) #3 {
+define internal noundef range(i32 -56613888, 10559488) i32 @_ZN6icu_7512_GLOBAL__N_125utf16_caseContextIteratorEPva(ptr nocapture noundef %context, i8 noundef signext %dir) #3 {
 entry:
   %cmp = icmp slt i8 %dir, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -884,7 +884,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i16 %4, ptr %arrayidx73, align 2
   %dec = add nsw i32 %length.265, -1
   %cmp70 = icmp ugt i32 %length.265, 1
-  br i1 %cmp70, label %while.body, label %return.loopexit, !llvm.loop !8
+  br i1 %cmp70, label %while.body, label %return.loopexit, !llvm.loop !7
 
 if.else78:                                        ; preds = %if.end33
   %add79 = add nsw i32 %length.1, %destIndex
@@ -900,7 +900,7 @@ return:                                           ; preds = %return.loopexit, %w
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_17toLowerEijPDsiPKDsP12UCaseContextiiPNS_5EditsER10UErrorCode(i32 noundef %caseLocale, i32 noundef %options, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, ptr noundef %csc, i32 noundef %srcStart, i32 noundef %srcLimit, ptr noundef %edits, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %errorCode) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZN6icu_7512_GLOBAL__N_17toLowerEijPDsiPKDsP12UCaseContextiiPNS_5EditsER10UErrorCode(i32 noundef %caseLocale, i32 noundef %options, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, ptr noundef %csc, i32 noundef %srcStart, i32 noundef %srcLimit, ptr noundef %edits, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %errorCode) unnamed_addr #0 {
 entry:
   %s = alloca ptr, align 8
   %cmp = icmp eq i32 %caseLocale, 1
@@ -968,7 +968,7 @@ if.end14:                                         ; preds = %if.then8
 while.cond.backedge:                              ; preds = %if.end14, %if.end38
   %srcIndex.1.be = phi i32 [ %inc, %if.end14 ], [ %inc39, %if.end38 ]
   %cmp6 = icmp slt i32 %srcIndex.1.be, %srcLimit
-  br i1 %cmp6, label %while.body, label %for.end, !llvm.loop !9
+  br i1 %cmp6, label %while.body, label %for.end, !llvm.loop !8
 
 if.else20:                                        ; preds = %while.body
   %cmp22 = icmp ugt i16 %1, -10241
@@ -1083,7 +1083,7 @@ if.end64:                                         ; preds = %_ZN6icu_7512_GLOBAL
 while.cond.outer.outer.backedge:                  ; preds = %if.end64, %if.end109
   %prev.1.ph.ph.be = phi i32 [ %srcIndex.3, %if.end109 ], [ %srcIndex.2, %if.end64 ]
   %destIndex.1.ph.ph.be = phi i32 [ %call108, %if.end109 ], [ %retval.0.i86, %if.end64 ]
-  br label %while.cond.outer.outer, !llvm.loop !10
+  br label %while.cond.outer.outer, !llvm.loop !9
 
 if.end70:                                         ; preds = %if.else24, %if.else20, %if.then8
   %inc71 = add nsw i32 %srcIndex.1151, 1
@@ -1127,7 +1127,7 @@ if.else96:                                        ; preds = %if.end91
 if.end98:                                         ; preds = %if.else96, %if.then93
   %c.1 = phi i32 [ %call95, %if.then93 ], [ %call97, %if.else96 ]
   %cmp99 = icmp sgt i32 %c.1, -1
-  br i1 %cmp99, label %if.then100, label %while.cond.outer, !llvm.loop !10
+  br i1 %cmp99, label %if.then100, label %while.cond.outer, !llvm.loop !9
 
 if.then100:                                       ; preds = %if.end98
   %idx.ext101 = sext i32 %prev.1.ph.ph to i64
@@ -1218,7 +1218,7 @@ return:                                           ; preds = %if.then7.i.i120, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_7510GreekUpper13getLetterDataEi(i32 noundef %c) local_unnamed_addr #4 {
+define noundef range(i32 0, 65536) i32 @_ZN6icu_7510GreekUpper13getLetterDataEi(i32 noundef %c) local_unnamed_addr #4 {
 entry:
   %0 = add i32 %c, -8487
   %or.cond = icmp ult i32 %0, -7607
@@ -1261,7 +1261,7 @@ return:                                           ; preds = %if.else14, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_7510GreekUpper16getDiacriticDataEi(i32 noundef %c) local_unnamed_addr #4 {
+define noundef range(i32 0, 131073) i32 @_ZN6icu_7510GreekUpper16getDiacriticDataEi(i32 noundef %c) local_unnamed_addr #4 {
 entry:
   switch i32 %c, label %sw.default [
     i32 768, label %return
@@ -1301,7 +1301,7 @@ return:                                           ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7510GreekUpper23isFollowedByCasedLetterEPKDsii(ptr nocapture noundef readonly %s, i32 noundef %i, i32 noundef %length) local_unnamed_addr #0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510GreekUpper23isFollowedByCasedLetterEPKDsii(ptr nocapture noundef readonly %s, i32 noundef %i, i32 noundef %length) local_unnamed_addr #0 {
 entry:
   br label %while.cond
 
@@ -1344,7 +1344,7 @@ do.end:                                           ; preds = %do.body, %if.then8,
   %call = tail call i32 @ucase_getTypeOrIgnorable_75(i32 noundef %c.0)
   %and12 = and i32 %call, 4
   %cmp13.not = icmp eq i32 %and12, 0
-  br i1 %cmp13.not, label %if.else, label %while.cond, !llvm.loop !11
+  br i1 %cmp13.not, label %if.else, label %while.cond, !llvm.loop !10
 
 if.else:                                          ; preds = %do.end
   %cmp15.not = icmp ne i32 %call, 0
@@ -1359,7 +1359,7 @@ return:                                           ; preds = %while.cond, %if.els
 declare i32 @ucase_getTypeOrIgnorable_75(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7510GreekUpper7toUpperEjPDsiPKDsiPNS_5EditsER10UErrorCode(i32 noundef %options, ptr nocapture noundef writeonly %dest, i32 noundef %destCapacity, ptr nocapture noundef readonly %src, i32 noundef %srcLength, ptr noundef %edits, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 {
+define noundef range(i32 0, -2147483648) i32 @_ZN6icu_7510GreekUpper7toUpperEjPDsiPKDsiPNS_5EditsER10UErrorCode(i32 noundef %options, ptr nocapture noundef writeonly %dest, i32 noundef %destCapacity, ptr nocapture noundef readonly %src, i32 noundef %srcLength, ptr noundef %edits, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 {
 entry:
   %s = alloca ptr, align 8
   %cmp198 = icmp sgt i32 %srcLength, 0
@@ -1531,7 +1531,7 @@ if.then50:                                        ; preds = %sw.bb4.i, %sw.bb3.i
   %spec.select114 = add i32 %8, %numYpogegrammeni.0187
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %0
-  br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !12
+  br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end.loopexit.split.loop.exit:               ; preds = %while.body
   %9 = trunc nsw i64 %indvars.iv to i32
@@ -1597,7 +1597,7 @@ do.end.i:                                         ; preds = %if.then8.i, %land.l
   %call.i = call i32 @ucase_getTypeOrIgnorable_75(i32 noundef %c.0.i)
   %and12.i = and i32 %call.i, 4
   %cmp13.not.i = icmp eq i32 %and12.i, 0
-  br i1 %cmp13.not.i, label %_ZN6icu_7510GreekUpper23isFollowedByCasedLetterEPKDsii.exit, label %while.cond.i, !llvm.loop !11
+  br i1 %cmp13.not.i, label %_ZN6icu_7510GreekUpper23isFollowedByCasedLetterEPKDsii.exit, label %while.cond.i, !llvm.loop !10
 
 _ZN6icu_7510GreekUpper23isFollowedByCasedLetterEPKDsii.exit: ; preds = %do.end.i
   %cmp15.not.i.not = icmp eq i32 %call.i, 0
@@ -1800,7 +1800,7 @@ _ZN6icu_7512_GLOBAL__N_111appendUCharEPDsiiDs.exit163: ; preds = %if.then.i160, 
   %add.i158 = add nuw nsw i32 %destIndex.3196, 1
   %dec = add nsw i32 %numYpogegrammeni.2195, -1
   %cmp184 = icmp ugt i32 %numYpogegrammeni.2195, 1
-  br i1 %cmp184, label %while.body185, label %if.end199, !llvm.loop !13
+  br i1 %cmp184, label %while.body185, label %if.end199, !llvm.loop !12
 
 while.end187:                                     ; preds = %if.end181
   %cmp188 = icmp slt i32 %destIndex.2, 0
@@ -1819,7 +1819,7 @@ if.end199:                                        ; preds = %_ZN6icu_7512_GLOBAL
   %nextIndex.2 = phi i32 [ %nextIndex.1.lcssa, %while.end187 ], [ %nextIndex.1.lcssa, %if.end164 ], [ %nextIndex.0, %if.else192 ], [ %nextIndex.1.lcssa, %_ZN6icu_7512_GLOBAL__N_111appendUCharEPDsiiDs.exit163 ]
   %destIndex.4 = phi i32 [ %destIndex.2, %while.end187 ], [ %destIndex.0201, %if.end164 ], [ %call195, %if.else192 ], [ %add.i158, %_ZN6icu_7512_GLOBAL__N_111appendUCharEPDsiiDs.exit163 ]
   %cmp = icmp slt i32 %nextIndex.2, %srcLength
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !13
 
 return.sink.split:                                ; preds = %if.else192, %while.end187, %if.else.i145, %if.else.i135, %if.else.i128, %if.else.i155
   store i32 8, ptr %errorCode, align 4
@@ -1845,7 +1845,7 @@ entry:
   store ptr %src, ptr %csc, align 8
   %limit = getelementptr inbounds i8, ptr %csc, i64 16
   store i32 %srcLength, ptr %limit, align 8
-  %call = call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_17toLowerEijPDsiPKDsP12UCaseContextiiPNS_5EditsER10UErrorCode(i32 noundef %caseLocale, i32 noundef %options, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, ptr noundef nonnull %csc, i32 noundef 0, i32 noundef %srcLength, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !6
+  %call = call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_17toLowerEijPDsiPKDsP12UCaseContextiiPNS_5EditsER10UErrorCode(i32 noundef %caseLocale, i32 noundef %options, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, ptr noundef nonnull %csc, i32 noundef 0, i32 noundef %srcLength, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %2 = load i32, ptr %errorCode, align 4
   %cmp.i.i = icmp sgt i32 %2, 0
   br i1 %cmp.i.i, label %_ZN6icu_7512_GLOBAL__N_126checkOverflowAndEditsErrorEiiPNS_5EditsER10UErrorCode.exit, label %if.then.i
@@ -1879,7 +1879,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = tail call noundef i32 @_ZN6icu_7510GreekUpper7toUpperEjPDsiPKDsiPNS_5EditsER10UErrorCode(i32 noundef %options, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !6
+  %call = tail call noundef i32 @_ZN6icu_7510GreekUpper7toUpperEjPDsiPKDsiPNS_5EditsER10UErrorCode(i32 noundef %options, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -1933,7 +1933,7 @@ if.end9.i:                                        ; preds = %if.then3.i
 while.cond.backedge.i:                            ; preds = %if.end32.i, %if.end9.i
   %srcIndex.1.be.i = phi i32 [ %inc.i, %if.end9.i ], [ %inc33.i, %if.end32.i ]
   %cmp1.i = icmp slt i32 %srcIndex.1.be.i, %srcLength
-  br i1 %cmp1.i, label %while.body.i, label %for.end.i, !llvm.loop !15
+  br i1 %cmp1.i, label %while.body.i, label %for.end.i, !llvm.loop !14
 
 if.else15.i:                                      ; preds = %while.body.i
   %cmp17.i = icmp ugt i16 %2, -10241
@@ -2048,7 +2048,7 @@ if.end57.i:                                       ; preds = %if.then55.i, %_ZN6i
 while.cond.outer.i.outer.backedge:                ; preds = %if.end57.i, %if.end97.i
   %prev.1.ph.i.ph.be = phi i32 [ %srcIndex.3.i, %if.end97.i ], [ %srcIndex.2.i, %if.end57.i ]
   %destIndex.1.ph.i.ph.be = phi i32 [ %call96.i, %if.end97.i ], [ %retval.0.i76.i, %if.end57.i ]
-  br label %while.cond.outer.i.outer, !llvm.loop !16
+  br label %while.cond.outer.i.outer, !llvm.loop !15
 
 if.end63.i:                                       ; preds = %if.else19.i, %if.else15.i, %if.then3.i
   %inc64.i = add nsw i32 %srcIndex.1141.i, 1
@@ -2081,7 +2081,7 @@ if.end85.i:                                       ; preds = %if.then76.i, %land.
   store i32 %srcIndex.3.i, ptr %cpLimit.i, align 8
   %call86.i = call i32 @ucase_toFullUpper_75(i32 noundef %c.0.i, ptr noundef nonnull @_ZN6icu_7512_GLOBAL__N_125utf16_caseContextIteratorEPva, ptr noundef nonnull %csc, ptr noundef nonnull %s.i, i32 noundef %caseLocale)
   %cmp87.i = icmp sgt i32 %call86.i, -1
-  br i1 %cmp87.i, label %if.then88.i, label %while.cond.outer.i, !llvm.loop !16
+  br i1 %cmp87.i, label %if.then88.i, label %while.cond.outer.i, !llvm.loop !15
 
 if.then88.i:                                      ; preds = %if.end85.i
   %idx.ext89.i = sext i32 %prev.1.ph.i.ph to i64
@@ -2200,7 +2200,7 @@ _ZN6icu_7512_GLOBAL__N_126checkOverflowAndEditsErrorEiiPNS_5EditsER10UErrorCode.
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @ustrcase_internalFold_75(i32 %0, i32 noundef %options, ptr nocapture readnone %1, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) #0 {
 entry:
-  %call = tail call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_17toLowerEijPDsiPKDsP12UCaseContextiiPNS_5EditsER10UErrorCode(i32 noundef -1, i32 noundef %options, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, ptr noundef null, i32 noundef 0, i32 noundef %srcLength, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !6
+  %call = tail call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_17toLowerEijPDsiPKDsP12UCaseContextiiPNS_5EditsER10UErrorCode(i32 noundef -1, i32 noundef %options, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, ptr noundef null, i32 noundef 0, i32 noundef %srcLength, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %2 = load i32, ptr %errorCode, align 4
   %cmp.i.i = icmp sgt i32 %2, 0
   br i1 %cmp.i.i, label %_ZN6icu_7512_GLOBAL__N_126checkOverflowAndEditsErrorEiiPNS_5EditsER10UErrorCode.exit, label %if.then.i
@@ -2503,7 +2503,7 @@ if.then29.i:                                      ; preds = %if.end25.i
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.then29.i, %if.end25.i
-  %call.i = tail call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_17toLowerEijPDsiPKDsP12UCaseContextiiPNS_5EditsER10UErrorCode(i32 noundef -1, i32 noundef %options, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef nonnull %src, ptr noundef null, i32 noundef 0, i32 noundef %srcLength.addr.0.i, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !6
+  %call.i = tail call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_17toLowerEijPDsiPKDsP12UCaseContextiiPNS_5EditsER10UErrorCode(i32 noundef -1, i32 noundef %options, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef nonnull %src, ptr noundef null, i32 noundef 0, i32 noundef %srcLength.addr.0.i, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %1 = load i32, ptr %errorCode, align 4
   %cmp.i.i.i = icmp sgt i32 %1, 0
   br i1 %cmp.i.i.i, label %ustrcase_internalFold_75.exit, label %if.then.i.i
@@ -2534,7 +2534,7 @@ ustrcase_map_75.exit:                             ; preds = %entry, %if.then7.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @u_strcmpFold_75(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr nocapture noundef readonly %pErrorCode) local_unnamed_addr #0 {
+define noundef range(i32 -65535, 65536) i32 @u_strcmpFold_75(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr nocapture noundef readonly %pErrorCode) local_unnamed_addr #0 {
 entry:
   %pErrorCode.val = load i32, ptr %pErrorCode, align 4
   %call = tail call fastcc noundef i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef null, ptr noundef null, i32 %pErrorCode.val)
@@ -2542,7 +2542,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef writeonly %matchLen1, ptr nocapture noundef writeonly %matchLen2, i32 %pErrorCode.0.val) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -65535, 65536) i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef writeonly %matchLen1, ptr nocapture noundef writeonly %matchLen2, i32 %pErrorCode.0.val) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %stack1 = alloca [2 x %struct.CmpEquivLevel], align 16
@@ -2670,7 +2670,7 @@ do.body.us:                                       ; preds = %do.body.us.preheade
   %arrayidx.us = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %stack1, i64 0, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx.us, align 8
   %cmp26.us = icmp eq ptr %2, null
-  br i1 %cmp26.us, label %do.body.us, label %do.end.us, !llvm.loop !17
+  br i1 %cmp26.us, label %do.body.us, label %do.end.us, !llvm.loop !16
 
 do.end.us:                                        ; preds = %do.body.us
   %3 = trunc nsw i64 %indvars.iv.next to i32
@@ -2678,7 +2678,7 @@ do.end.us:                                        ; preds = %do.body.us
   %4 = load ptr, ptr %s.us, align 8
   %limit.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 16
   %5 = load ptr, ptr %limit.us, align 8
-  br label %for.cond14.us, !llvm.loop !18
+  br label %for.cond14.us, !llvm.loop !17
 
 for.cond14:                                       ; preds = %for.cond14.preheader, %do.end
   %start1.1 = phi ptr [ %8, %do.end ], [ %start1.0, %for.cond14.preheader ]
@@ -2719,7 +2719,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %arrayidx = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %stack1, i64 0, i64 %indvars.iv.next118
   %8 = load ptr, ptr %arrayidx, align 8
   %cmp26 = icmp eq ptr %8, null
-  br i1 %cmp26, label %do.body, label %do.end, !llvm.loop !17
+  br i1 %cmp26, label %do.body, label %do.end, !llvm.loop !16
 
 do.end:                                           ; preds = %do.body
   %9 = trunc nsw i64 %indvars.iv.next118 to i32
@@ -2727,7 +2727,7 @@ do.end:                                           ; preds = %do.body
   %10 = load ptr, ptr %s, align 8
   %limit = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %11 = load ptr, ptr %limit, align 8
-  br label %for.cond14, !llvm.loop !18
+  br label %for.cond14, !llvm.loop !17
 
 if.end31:                                         ; preds = %if.then20.us, %if.then20, %if.else24, %for.cond
   %start1.2 = phi ptr [ %.us-phi43, %if.else24 ], [ %start1.0, %for.cond ], [ %start1.1, %if.then20 ], [ %start1.1.us, %if.then20.us ]
@@ -2773,7 +2773,7 @@ do.body51:                                        ; preds = %do.body51.preheader
   %arrayidx54 = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %stack2, i64 0, i64 %indvars.iv.next121
   %14 = load ptr, ptr %arrayidx54, align 8
   %cmp57 = icmp eq ptr %14, null
-  br i1 %cmp57, label %do.body51, label %do.end58, !llvm.loop !19
+  br i1 %cmp57, label %do.body51, label %do.end58, !llvm.loop !18
 
 do.end58:                                         ; preds = %do.body51
   %15 = trunc nsw i64 %indvars.iv.next121 to i32
@@ -2781,7 +2781,7 @@ do.end58:                                         ; preds = %do.body51
   %16 = load ptr, ptr %s61, align 8
   %limit64 = getelementptr inbounds i8, ptr %arrayidx54, i64 16
   %17 = load ptr, ptr %limit64, align 8
-  br label %for.cond34, !llvm.loop !20
+  br label %for.cond34, !llvm.loop !19
 
 if.end66:                                         ; preds = %if.then44, %if.else48, %if.end31
   %s2.addr.2 = phi ptr [ %incdec.ptr49, %if.else48 ], [ %s2.addr.0, %if.end31 ], [ %s2.addr.1, %if.then44 ]
@@ -2805,7 +2805,7 @@ if.else74:                                        ; preds = %if.end71
   br i1 %cmp75, label %if.end80, label %for.cond.outer.backedge
 
 for.cond.outer.backedge:                          ; preds = %if.else74, %if.end80
-  br label %for.cond.outer, !llvm.loop !21
+  br label %for.cond.outer, !llvm.loop !20
 
 if.end80:                                         ; preds = %if.else74, %if.end71
   %next1.0 = phi ptr [ %s1.addr.2, %if.end71 ], [ %s1.addr.355.ph, %if.else74 ]
@@ -2820,7 +2820,7 @@ if.then82:                                        ; preds = %if.end80
   %cmp92.not = icmp eq ptr %next2.0, null
   %spec.select = select i1 %cmp92.not, ptr %m1.0.ph.ph, ptr %next1.0
   %spec.select134 = select i1 %cmp92.not, ptr %m2.0, ptr %next2.0
-  br label %for.cond.outer.outer, !llvm.loop !21
+  br label %for.cond.outer.outer, !llvm.loop !20
 
 if.else96:                                        ; preds = %if.end66
   br i1 %cmp69, label %for.end339, label %if.else99
@@ -2990,7 +2990,7 @@ if.end219:                                        ; preds = %if.else205, %if.the
   %length.0 = phi i32 [ %call171, %if.then195 ], [ 1, %if.then200 ], [ 2, %if.else205 ]
   %idx.ext222 = zext nneg i32 %length.0 to i64
   %add.ptr223 = getelementptr inbounds i16, ptr %fold1, i64 %idx.ext222
-  br label %for.cond.outer227, !llvm.loop !21
+  br label %for.cond.outer227, !llvm.loop !20
 
 if.end224:                                        ; preds = %land.lhs.true170, %if.end168
   %cmp225 = icmp eq i32 %level2.3, 0
@@ -3061,7 +3061,7 @@ if.end280:                                        ; preds = %if.else264, %if.the
   %length.1 = phi i32 [ %call227, %if.then252 ], [ 1, %if.then259 ], [ 2, %if.else264 ]
   %idx.ext283 = zext nneg i32 %length.1 to i64
   %add.ptr284 = getelementptr inbounds i16, ptr %fold2, i64 %idx.ext283
-  br label %for.cond, !llvm.loop !21
+  br label %for.cond, !llvm.loop !20
 
 if.end285:                                        ; preds = %land.lhs.true226, %if.end224
   %cmp286 = icmp ult i32 %c1.1, 55296
@@ -3166,7 +3166,7 @@ return:                                           ; preds = %for.end339, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @u_strCaseCompare_75(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define range(i32 -65535, 65536) i32 @u_strCaseCompare_75(ptr noundef %s1, i32 noundef %length1, ptr noundef %s2, i32 noundef %length2, i32 noundef %options, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -3201,7 +3201,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @u_strcasecmp_75(ptr noundef %s1, ptr noundef %s2, i32 noundef %options) local_unnamed_addr #0 {
+define noundef range(i32 -65535, 65536) i32 @u_strcasecmp_75(ptr noundef %s1, ptr noundef %s2, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %or = or i32 %options, 65536
   %call.i = tail call fastcc noundef i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %s1, i32 noundef -1, ptr noundef %s2, i32 noundef -1, i32 noundef %or, ptr noundef null, ptr noundef null, i32 0)
@@ -3209,7 +3209,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @u_memcasecmp_75(ptr noundef %s1, ptr noundef %s2, i32 noundef %length, i32 noundef %options) local_unnamed_addr #0 {
+define noundef range(i32 -65535, 65536) i32 @u_memcasecmp_75(ptr noundef %s1, ptr noundef %s2, i32 noundef %length, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %or = or i32 %options, 65536
   %call.i = tail call fastcc noundef i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %s1, i32 noundef %length, ptr noundef %s2, i32 noundef %length, i32 noundef %or, ptr noundef null, ptr noundef null, i32 0)
@@ -3217,7 +3217,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @u_strncasecmp_75(ptr noundef %s1, ptr noundef %s2, i32 noundef %n, i32 noundef %options) local_unnamed_addr #0 {
+define noundef range(i32 -65535, 65536) i32 @u_strncasecmp_75(ptr noundef %s1, ptr noundef %s2, i32 noundef %n, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %or = or i32 %options, 69632
   %call.i = tail call fastcc noundef i32 @_ZL8_cmpFoldPKDsiS0_ijPiS1_P10UErrorCode(ptr noundef %s1, i32 noundef %n, ptr noundef %s2, i32 noundef %n, i32 noundef %or, ptr noundef null, ptr noundef null, i32 0)
@@ -3273,7 +3273,7 @@ attributes #10 = { allocsize(0) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 -2147483648}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -3288,4 +3288,3 @@ attributes #10 = { allocsize(0) }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}

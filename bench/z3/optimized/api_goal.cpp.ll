@@ -479,7 +479,7 @@ declare void @_Z19log_Z3_goal_dec_refP11_Z3_contextP8_Z3_goal(ptr noundef, ptr n
 declare void @_ZN3api6object7dec_refEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define i32 @Z3_goal_precision(ptr noundef %c, ptr noundef %g) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 4) i32 @Z3_goal_precision(ptr noundef %c, ptr noundef %g) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = atomicrmw xchg ptr @g_z3_log_enabled, i8 0 seq_cst, align 1
   %tobool.i = trunc i8 %0 to i1

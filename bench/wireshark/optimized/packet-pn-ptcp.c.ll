@@ -254,7 +254,7 @@ define hidden void @proto_reg_handoff_pn_ptcp() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_PNPTCP_Data_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_PNPTCP_Data_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = ptrtoint ptr %3 to i64
   %6 = trunc i64 %5 to i32
   %7 = and i32 %6, 65535
@@ -416,7 +416,7 @@ define internal fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef
 
 48:                                               ; preds = %7
   %49 = udiv i64 %39, 1000000
-  %.lhs.trunc = trunc i64 %49 to i16
+  %.lhs.trunc = trunc nuw i64 %49 to i16
   %50 = udiv i16 %.lhs.trunc, 1000
   %.zext = zext nneg i16 %50 to i32
   %51 = urem i16 %.lhs.trunc, 1000

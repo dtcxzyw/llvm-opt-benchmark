@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @rcsid], section "llvm.metadata"
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @file_is_json(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @file_is_json(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [6 x i64], align 16
   %5 = getelementptr inbounds i8, ptr %1, i64 152
@@ -34,7 +34,7 @@ define hidden i32 @file_is_json(ptr noundef %0, ptr nocapture noundef readonly %
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 0, i64 48, i1 false)
-  %15 = call fastcc i32 @json_parse(ptr noundef nonnull %3, ptr noundef %14, ptr noundef nonnull %4, i64 noundef 0), !range !4
+  %15 = call fastcc i32 @json_parse(ptr noundef nonnull %3, ptr noundef %14, ptr noundef nonnull %4, i64 noundef 0)
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %28, label %17
 
@@ -69,7 +69,7 @@ define hidden i32 @file_is_json(ptr noundef %0, ptr nocapture noundef readonly %
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @json_parse(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 3) i32 @json_parse(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -170,7 +170,7 @@ json_skip_space.exit90:                           ; preds = %.lr.ph.i86, %json_i
   br i1 %35, label %44, label %36
 
 36:                                               ; preds = %33
-  %37 = call fastcc i32 @json_parse(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %27), !range !4
+  %37 = call fastcc i32 @json_parse(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %27)
   %.not.i = icmp eq i32 %37, 0
   %.pre.pre = load ptr, ptr %6, align 8
   %38 = icmp eq ptr %.pre.pre, %1
@@ -301,7 +301,7 @@ json_skip_space.exit98:                           ; preds = %.lr.ph.i94, %json_i
   br i1 %.not21.i, label %79, label %json_parse_object.exit.loopexit.split.loop.exit172
 
 79:                                               ; preds = %76
-  %80 = call fastcc i32 @json_parse(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %52), !range !4
+  %80 = call fastcc i32 @json_parse(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %52)
   %.not22.i = icmp eq i32 %80, 0
   %storemerge.i49.pre.pre = load ptr, ptr %5, align 8
   %81 = icmp eq ptr %storemerge.i49.pre.pre, %1
@@ -632,7 +632,7 @@ json_isspace.exit.i80:                            ; preds = %.lr.ph.i78, %.lr.ph
   br i1 %198, label %199, label %.thread120
 
 199:                                              ; preds = %195
-  %200 = call fastcc i32 @json_parse(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i64 noundef 1), !range !4
+  %200 = call fastcc i32 @json_parse(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i64 noundef 1)
   %.not44 = icmp eq i32 %200, 0
   br i1 %.not44, label %.thread120, label %201
 
@@ -657,7 +657,7 @@ json_isspace.exit.i80:                            ; preds = %.lr.ph.i78, %.lr.ph
 declare i32 @file_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @json_parse_string(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @json_parse_string(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp ult ptr %3, %1
   br i1 %4, label %.lr.ph, label %json_isxdigit.exit
@@ -770,4 +770,3 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 3}

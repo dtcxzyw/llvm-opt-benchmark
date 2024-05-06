@@ -5,7 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @.str = private unnamed_addr constant [18 x i8] c"----------------\0A\00", align 1
 @tcg_env = external local_unnamed_addr global ptr, align 8
-@tcg_ctx = external thread_local global ptr, align 8
+@tcg_ctx = external thread_local local_unnamed_addr global ptr, align 8
 @qemu_loglevel = external local_unnamed_addr global i32, align 4
 @.str.3 = private unnamed_addr constant [31 x i8] c"../qemu/accel/tcg/translator.c\00", align 1
 @__func__.plugin_insn_append = private unnamed_addr constant [19 x i8] c"plugin_insn_append\00", align 1
@@ -416,7 +416,7 @@ if.then18.i:                                      ; preds = %if.else.i
   br i1 %cmp22.i, label %if.then30.i, label %if.end31.i
 
 if.then30.i:                                      ; preds = %if.then18.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
   br label %if.end
 
 if.end31.i:                                       ; preds = %if.then18.i
@@ -578,7 +578,7 @@ if.then18.i:                                      ; preds = %if.else.i
   br i1 %cmp22.i, label %if.then30.i, label %if.end31.i
 
 if.then30.i:                                      ; preds = %if.then18.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
   br label %if.end
 
 if.end31.i:                                       ; preds = %if.then18.i
@@ -748,7 +748,7 @@ if.then18.i:                                      ; preds = %if.else.i
   br i1 %cmp22.i, label %if.then30.i, label %if.end31.i
 
 if.then30.i:                                      ; preds = %if.then18.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
   br label %if.end
 
 if.end31.i:                                       ; preds = %if.then18.i
@@ -917,7 +917,7 @@ if.then18.i:                                      ; preds = %if.else.i
   br i1 %cmp22.i, label %if.then30.i, label %if.end31.i
 
 if.then30.i:                                      ; preds = %if.then18.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1, i8 -1, i64 16, i1 false)
   br label %if.end
 
 if.end31.i:                                       ; preds = %if.then18.i

@@ -385,7 +385,7 @@ for.end:                                          ; preds = %for.body42
   %17 = load i32, ptr %pixel, align 4
   %sub = sub i32 %17, %previousPixel.082
   %shr = lshr i32 %sub, 24
-  %conv = trunc i32 %shr to i8
+  %conv = trunc nuw i32 %shr to i8
   %incdec.ptr45 = getelementptr inbounds i8, ptr %ptr.sroa.0.081, i64 1
   store i8 %conv, ptr %ptr.sroa.0.081, align 1
   %shr46 = lshr i32 %sub, 16

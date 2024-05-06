@@ -385,7 +385,7 @@ declare dso_local i64 @seq_lseek(ptr noundef, i64 noundef, i32 noundef) #2
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @pri_wm_latency_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef range(i64 -22, 32) i64 @pri_wm_latency_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 112
@@ -428,7 +428,7 @@ define internal i32 @pri_wm_latency_open(ptr nocapture noundef readonly %0, ptr 
 declare dso_local i32 @single_release(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i64 @wm_latency_write(ptr %.200.val.112.val, ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i64 -22, 32) i64 @wm_latency_write(ptr %.200.val.112.val, ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = alloca [8 x i16], align 16
   %5 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
@@ -572,7 +572,7 @@ define internal noundef i32 @pri_wm_latency_show(ptr noundef %0, ptr nocapture r
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @spr_wm_latency_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef range(i64 -22, 32) i64 @spr_wm_latency_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 112
@@ -669,7 +669,7 @@ define internal noundef i32 @spr_wm_latency_show(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @cur_wm_latency_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef range(i64 -22, 32) i64 @cur_wm_latency_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 112

@@ -1201,7 +1201,7 @@ define hidden void @proto_reg_handoff_hl7() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_hl7_heur(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_hl7_heur(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #4
   %6 = icmp slt i32 %5, 5
   br i1 %6, label %19, label %7

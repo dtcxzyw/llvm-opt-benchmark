@@ -52493,7 +52493,7 @@ define internal fastcc void @_ZN3refIN12_GLOBAL__N_19MyObject1EEC2EPS1_(ptr noun
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  invoke fastcc void @_Z20print_constr_detailsI3refIN12_GLOBAL__N_19MyObject1EEJRA13_KcRPS2_EEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 dereferenceable(13) @.str.189, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke fastcc void @_Z20print_constr_detailsI3refIN12_GLOBAL__N_19MyObject1EEJRA13_KcRPS2_EEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 dereferenceable(13) @.str.189, ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
           to label %22 unwind label %74
 
 22:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
@@ -52608,7 +52608,7 @@ _ZN16ConstructorStats7createdEPv.exit.i.i:        ; preds = %42, %.loopexit.i.i.
   %66 = add i64 %65, 1
   store i64 %66, ptr %64, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
-  invoke fastcc void @_ZN16ConstructorStats5valueIPN12_GLOBAL__N_19MyObject1EJEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(100) %29, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke fastcc void @_ZN16ConstructorStats5valueIPN12_GLOBAL__N_19MyObject1EJEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(100) %29, ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
           to label %_Z13print_createdI3refIN12_GLOBAL__N_19MyObject1EEJRA13_KcRPS2_EEvPT_DpOT0_.exit unwind label %67
 
 67:                                               ; preds = %61, %58, %_ZN16ConstructorStats7createdEPv.exit.i.i
@@ -52689,7 +52689,7 @@ define internal fastcc void @_ZN3refIN12_GLOBAL__N_19MyObject1EEC2ERKS2_(ptr nou
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc7.i
-  invoke fastcc void @_Z20print_constr_detailsI3refIN12_GLOBAL__N_19MyObject1EEJRA13_KcRPS2_EEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(13) @.str.187, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  invoke fastcc void @_Z20print_constr_detailsI3refIN12_GLOBAL__N_19MyObject1EEJRA13_KcRPS2_EEvPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(13) @.str.187, ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
           to label %12 unwind label %47
 
 12:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
@@ -59330,7 +59330,7 @@ _ZN16ConstructorStats3getI3refIN12_GLOBAL__N_19MyObject1EEEERS_v.exit.i.i.i: ; p
   %115 = add i64 %114, 1
   store i64 %115, ptr %113, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
-  invoke fastcc void @_ZN16ConstructorStats5valueIPN12_GLOBAL__N_19MyObject1EJEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(100) %102, ptr noundef nonnull align 8 dereferenceable(8) %38)
+  invoke fastcc void @_ZN16ConstructorStats5valueIPN12_GLOBAL__N_19MyObject1EJEEEvRKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(100) %102, ptr noundef nonnull readonly align 8 dereferenceable(8) %38)
           to label %_Z19print_copy_assignedI3refIN12_GLOBAL__N_19MyObject1EEJRA8_KcRKPS2_EEvPT_DpOT0_.exit.i unwind label %116
 
 116:                                              ; preds = %110, %107, %_ZN16ConstructorStats3getI3refIN12_GLOBAL__N_19MyObject1EEEERS_v.exit.i.i.i
@@ -61806,7 +61806,7 @@ _ZN8pybind116detail15argument_loaderIJSt10shared_ptrIN12_GLOBAL__N_19MyObject2EE
   store ptr null, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %14 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 32
@@ -62350,7 +62350,7 @@ _ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_19MyObject2ESt10shared
   store ptr %100, ptr %90, align 8
   store ptr null, ptr %91, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
   %108 = invoke fastcc noundef zeroext i1 @_ZN8pybind116detail19type_caster_generic9load_implINS0_22copyable_holder_casterIN12_GLOBAL__N_19MyObject2ESt10shared_ptrIS5_EvEEEEbNS_6handleEb(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull %1, i1 noundef zeroext %2)
           to label %_ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_19MyObject2ESt10shared_ptrIS3_EvE4loadENS_6handleEb.exit unwind label %159
 
@@ -62944,7 +62944,7 @@ _ZN8pybind116detail15argument_loaderIJRKSt10shared_ptrIN12_GLOBAL__N_19MyObject2
   store ptr null, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %15 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 32
@@ -63218,7 +63218,7 @@ _ZN8pybind116detail15argument_loaderIJPKSt10shared_ptrIN12_GLOBAL__N_19MyObject2
   store ptr null, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %15 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 32
@@ -64442,7 +64442,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19MyObject3C2Ei(ptr noundef nonnull
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i64 0, i32 0, i64 2), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %1, ptr %14, align 8
@@ -65182,7 +65182,7 @@ _ZN8pybind116detail13get_type_infoERKSt10type_indexb.exit.thread16: ; preds = %1
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_19MyObject3EE21make_copy_constructorIS3_vEEDTcmnw_T_piclsr3stdE7declvalIKS6_EEEtlPFPvPKvEEEPS7_ENUlSA_E_8__invokeESA_(ptr nocapture noundef readonly %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i64 0, i32 0, i64 2), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -65195,7 +65195,7 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_19MyObject3EE21make_move_constructorIS3_vEEDTcmnw_T_piclsr3stdE7declvalIOS6_EEEtlPFPvPKvEEEPKS6_ENUlSA_E_8__invokeESA_(ptr nocapture noundef readonly %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i64 0, i32 0, i64 2), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -65689,7 +65689,7 @@ _ZN8pybind116detail15argument_loaderIJSt10shared_ptrIN12_GLOBAL__N_19MyObject3EE
   store ptr null, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %14 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 32
@@ -66233,7 +66233,7 @@ _ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_19MyObject3ESt10shared
   store ptr %100, ptr %90, align 8
   store ptr null, ptr %91, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
   %108 = invoke fastcc noundef zeroext i1 @_ZN8pybind116detail19type_caster_generic9load_implINS0_22copyable_holder_casterIN12_GLOBAL__N_19MyObject3ESt10shared_ptrIS5_EvEEEEbNS_6handleEb(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull %1, i1 noundef zeroext %2)
           to label %_ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_19MyObject3ESt10shared_ptrIS3_EvE4loadENS_6handleEb.exit unwind label %159
 
@@ -66827,7 +66827,7 @@ _ZN8pybind116detail15argument_loaderIJRKSt10shared_ptrIN12_GLOBAL__N_19MyObject3
   store ptr null, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %15 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 32
@@ -67101,7 +67101,7 @@ _ZN8pybind116detail15argument_loaderIJPKSt10shared_ptrIN12_GLOBAL__N_19MyObject3
   store ptr null, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %15 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 32
@@ -72351,7 +72351,7 @@ _ZN8pybind116detail16value_and_holder23set_instance_registeredEb.exit: ; preds =
   store ptr null, ptr %1, align 8
   %69 = getelementptr inbounds i8, ptr %.val9.i, i64 16
   %70 = getelementptr inbounds i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %69, ptr noundef nonnull align 8 dereferenceable(80) %70, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %69, ptr noundef nonnull align 8 dereferenceable(80) %70, i64 80, i1 false)
   %71 = load ptr, ptr %3, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 48
   %73 = load i8, ptr %72, align 8
@@ -75598,7 +75598,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIRKZ24test_submodul
   %4 = alloca %"class.std::shared_ptr.964", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIN12_GLOBAL__N_112SharedPtrRefE, ptr %2, align 8
   %5 = call noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -76663,7 +76663,7 @@ _ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_112SharedPtrRef1AESt10
   store ptr %100, ptr %90, align 8
   store ptr null, ptr %91, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
   %108 = invoke fastcc noundef zeroext i1 @_ZN8pybind116detail19type_caster_generic9load_implINS0_22copyable_holder_casterIN12_GLOBAL__N_112SharedPtrRef1AESt10shared_ptrIS6_EvEEEEbNS_6handleEb(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull %1, i1 noundef zeroext %2)
           to label %_ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_112SharedPtrRef1AESt10shared_ptrIS4_EvE4loadENS_6handleEb.exit unwind label %159
 
@@ -78893,7 +78893,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117SharedFromThisRef1BC2Ev(ptr noun
   %3 = alloca %"struct.std::type_index", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #28
@@ -79289,7 +79289,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117SharedFromThisRef1BC2ERKS1_(ptr 
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28
@@ -79478,7 +79478,7 @@ define internal noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIN12_
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28
@@ -80146,7 +80146,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIRKZ24test_submodul
   %4 = alloca %"class.std::shared_ptr.1048", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIN12_GLOBAL__N_117SharedFromThisRefE, ptr %2, align 8
   %5 = call noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -81211,7 +81211,7 @@ _ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_117SharedFromThisRef1B
   store ptr %100, ptr %90, align 8
   store ptr null, ptr %91, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
   %108 = invoke fastcc noundef zeroext i1 @_ZN8pybind116detail19type_caster_generic9load_implINS0_22copyable_holder_casterIN12_GLOBAL__N_117SharedFromThisRef1BESt10shared_ptrIS6_EvEEEEbNS_6handleEb(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull %1, i1 noundef zeroext %2)
           to label %_ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_117SharedFromThisRef1BESt10shared_ptrIS4_EvE4loadENS_6handleEb.exit unwind label %159
 
@@ -82034,7 +82034,7 @@ _ZNKSt8weak_ptrIN12_GLOBAL__N_119SharedFromThisVBaseEE4lockEv.exit.i.thread.i: ;
   br label %_ZN8pybind116detailL24try_get_shared_from_thisIN12_GLOBAL__N_119SharedFromThisVBaseEEESt10shared_ptrIT_EPSt23enable_shared_from_thisIS5_E.exit.i
 
 _ZSt20dynamic_pointer_castIN12_GLOBAL__N_118SharedFromThisVirtENS0_19SharedFromThisVBaseEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread16.i: ; preds = %_ZN8pybind116detail16value_and_holder23set_instance_registeredEb.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !alias.scope !2069
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !alias.scope !2069
   br label %_ZN8pybind116detail16value_and_holder22set_holder_constructedEb.exit.i
 
 _ZN8pybind116detailL24try_get_shared_from_thisIN12_GLOBAL__N_119SharedFromThisVBaseEEESt10shared_ptrIT_EPSt23enable_shared_from_thisIS5_E.exit.i: ; preds = %102, %100
@@ -82071,7 +82071,7 @@ _ZN8pybind116detailL24try_get_shared_from_thisIN12_GLOBAL__N_119SharedFromThisVB
   br label %_ZSt20dynamic_pointer_castIN12_GLOBAL__N_118SharedFromThisVirtENS0_19SharedFromThisVBaseEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread.i
 
 _ZSt20dynamic_pointer_castIN12_GLOBAL__N_118SharedFromThisVirtENS0_19SharedFromThisVBaseEESt10shared_ptrIT_ERKS3_IT0_E.exit.i: ; preds = %107, %_ZN8pybind116detailL24try_get_shared_from_thisIN12_GLOBAL__N_119SharedFromThisVBaseEEESt10shared_ptrIT_EPSt23enable_shared_from_thisIS5_E.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !alias.scope !2069
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !alias.scope !2069
   %.not.i.i.i.i = icmp eq ptr %.sroa.2.12.i, null
   br i1 %.not.i.i.i.i, label %_ZN8pybind116detail16value_and_holder22set_holder_constructedEb.exit.i, label %_ZSt20dynamic_pointer_castIN12_GLOBAL__N_118SharedFromThisVirtENS0_19SharedFromThisVBaseEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread.i
 
@@ -82599,7 +82599,7 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 0, i32 0, i64 3), ptr %2, align 8
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 0, i32 1, i64 3), ptr %3, align 8
   ret ptr %2
@@ -82610,7 +82610,7 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 0, i32 0, i64 3), ptr %2, align 8
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i64 0, i32 1, i64 3), ptr %3, align 8
   ret ptr %2
@@ -84655,7 +84655,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
   store i32 %56, ptr %.0.i.i.i.i.i.i.i.i, align 4, !noalias !2116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !2116
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !2116
-  call fastcc void @_ZN12_GLOBAL__N_134shared_ptr_with_addressof_operatorINS_26TypeForHolderWithAddressOfEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %6)
+  call fastcc void @_ZN12_GLOBAL__N_134shared_ptr_with_addressof_operatorINS_26TypeForHolderWithAddressOfEEC2EPS1_(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull %6)
   ret void
 }
 
@@ -84690,7 +84690,7 @@ _ZN8pybind116detail15argument_loaderIJRKN12_GLOBAL__N_134shared_ptr_with_address
   store ptr null, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %13 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 32
@@ -85839,7 +85839,7 @@ _ZN8pybind116detail15argument_loaderIJN12_GLOBAL__N_134shared_ptr_with_addressof
   store ptr null, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %14 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 32
@@ -86184,7 +86184,7 @@ _ZN8pybind116detail15argument_loaderIJRKN12_GLOBAL__N_134shared_ptr_with_address
   store ptr null, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %15 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 32
@@ -86380,7 +86380,7 @@ _ZN8pybind116detail15argument_loaderIJPKN12_GLOBAL__N_134shared_ptr_with_address
   store ptr null, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %15 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 32
@@ -88189,7 +88189,7 @@ define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZ24test_su
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.pybind11::detail::argument_loader.1267", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr @_ZTIN12_GLOBAL__N_119HeldByDefaultHolderE, ptr %2, align 8
   %4 = call noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -88216,7 +88216,7 @@ _ZN8pybind116detail15argument_loaderIJSt10shared_ptrIN12_GLOBAL__N_119HeldByDefa
   store ptr null, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %13 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 32
@@ -88800,7 +88800,7 @@ _ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_119HeldByDefaultHolder
   store ptr %100, ptr %90, align 8
   store ptr null, ptr %91, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
   %108 = invoke fastcc noundef zeroext i1 @_ZN8pybind116detail19type_caster_generic9load_implINS0_22copyable_holder_casterIN12_GLOBAL__N_119HeldByDefaultHolderESt10shared_ptrIS5_EvEEEEbNS_6handleEb(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull %1, i1 noundef zeroext %2)
           to label %_ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_119HeldByDefaultHolderESt10shared_ptrIS3_EvE4loadENS_6handleEb.exit unwind label %159
 
@@ -91748,7 +91748,7 @@ _ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_111ElementBaseESt10sha
   store ptr %100, ptr %90, align 8
   store ptr null, ptr %91, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
   %108 = invoke fastcc noundef zeroext i1 @_ZN8pybind116detail19type_caster_generic9load_implINS0_22copyable_holder_casterIN12_GLOBAL__N_111ElementBaseESt10shared_ptrIS5_EvEEEEbNS_6handleEb(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull %1, i1 noundef zeroext %2)
           to label %_ZN8pybind116detail22copyable_holder_casterIN12_GLOBAL__N_111ElementBaseESt10shared_ptrIS3_EvE4loadENS_6handleEb.exit unwind label %159
 

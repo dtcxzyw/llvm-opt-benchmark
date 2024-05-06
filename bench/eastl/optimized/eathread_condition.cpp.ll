@@ -35,7 +35,7 @@ define dso_local void @_ZN2EA6Thread9ConditionC2EPKNS0_19ConditionParametersEb(p
 entry:
   %cattr.i6 = alloca %union.pthread_condattr_t, align 4
   %cattr.i = alloca %union.pthread_condattr_t, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %this, i8 0, i64 48, i1 false)
   %tobool.not = icmp eq ptr %pConditionParameters, null
   br i1 %tobool.not, label %land.lhs.true, label %_ZN2EA6Thread9Condition4InitEPKNS0_19ConditionParametersE.exit
 
@@ -57,10 +57,10 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cattr.i6)
-  %call.i8 = call i32 @pthread_condattr_init(ptr noundef nonnull %cattr.i6) #10
-  %call5.i10 = call i32 @pthread_condattr_setpshared(ptr noundef nonnull %cattr.i6, i32 noundef 0) #10
-  %call6.i11 = call i32 @pthread_cond_init(ptr noundef nonnull %this, ptr noundef nonnull %cattr.i6) #10
-  %call7.i12 = call i32 @pthread_condattr_destroy(ptr noundef nonnull %cattr.i6) #10
+  %call.i9 = call i32 @pthread_condattr_init(ptr noundef nonnull %cattr.i6) #10
+  %call5.i11 = call i32 @pthread_condattr_setpshared(ptr noundef nonnull %cattr.i6, i32 noundef 0) #10
+  %call6.i12 = call i32 @pthread_cond_init(ptr noundef nonnull %this, ptr noundef nonnull %cattr.i6) #10
+  %call7.i13 = call i32 @pthread_condattr_destroy(ptr noundef nonnull %cattr.i6) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cattr.i6)
   br label %if.end
 
@@ -115,7 +115,7 @@ declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @pthread_condattr_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA6Thread9Condition4WaitEPNS0_5MutexERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %pMutex, ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 -2, 1) i32 @_ZN2EA6Thread9Condition4WaitEPNS0_5MutexERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %pMutex, ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN11EAMutexData12SimulateLockEb(ptr noundef nonnull align 8 dereferenceable(44) %pMutex, i1 noundef zeroext false)
   %tv_nsec.i = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
@@ -189,23 +189,23 @@ if.then:                                          ; preds = %entry
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 48, ptr noundef null, i32 noundef 0)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call1, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %call1, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cattr.i6.i)
-  %call.i8.i = call i32 @pthread_condattr_init(ptr noundef nonnull %cattr.i6.i) #10
-  %call5.i10.i = call i32 @pthread_condattr_setpshared(ptr noundef nonnull %cattr.i6.i, i32 noundef 0) #10
-  %call6.i11.i = call i32 @pthread_cond_init(ptr noundef nonnull %call1, ptr noundef nonnull %cattr.i6.i) #10
-  %call7.i12.i = call i32 @pthread_condattr_destroy(ptr noundef nonnull %cattr.i6.i) #10
+  %call.i9.i = call i32 @pthread_condattr_init(ptr noundef nonnull %cattr.i6.i) #10
+  %call5.i11.i = call i32 @pthread_condattr_setpshared(ptr noundef nonnull %cattr.i6.i, i32 noundef 0) #10
+  %call6.i12.i = call i32 @pthread_cond_init(ptr noundef nonnull %call1, ptr noundef nonnull %cattr.i6.i) #10
+  %call7.i13.i = call i32 @pthread_condattr_destroy(ptr noundef nonnull %cattr.i6.i) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cattr.i6.i)
   br label %return
 
 if.else:                                          ; preds = %entry
   %call2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call2, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %call2, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cattr.i6.i2)
-  %call.i8.i3 = call i32 @pthread_condattr_init(ptr noundef nonnull %cattr.i6.i2) #10
-  %call5.i10.i4 = call i32 @pthread_condattr_setpshared(ptr noundef nonnull %cattr.i6.i2, i32 noundef 0) #10
-  %call6.i11.i5 = call i32 @pthread_cond_init(ptr noundef nonnull %call2, ptr noundef nonnull %cattr.i6.i2) #10
-  %call7.i12.i6 = call i32 @pthread_condattr_destroy(ptr noundef nonnull %cattr.i6.i2) #10
+  %call.i9.i3 = call i32 @pthread_condattr_init(ptr noundef nonnull %cattr.i6.i2) #10
+  %call5.i11.i4 = call i32 @pthread_condattr_setpshared(ptr noundef nonnull %cattr.i6.i2, i32 noundef 0) #10
+  %call6.i12.i5 = call i32 @pthread_cond_init(ptr noundef nonnull %call2, ptr noundef nonnull %cattr.i6.i2) #10
+  %call7.i13.i6 = call i32 @pthread_condattr_destroy(ptr noundef nonnull %cattr.i6.i2) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cattr.i6.i2)
   br label %return
 
@@ -262,12 +262,12 @@ entry:
 define dso_local noundef ptr @_ZN2EA6Thread16ConditionFactory18ConstructConditionEPv(ptr noundef returned %pMemory) local_unnamed_addr #2 align 2 {
 entry:
   %cattr.i6.i = alloca %union.pthread_condattr_t, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pMemory, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %pMemory, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cattr.i6.i)
-  %call.i8.i = call i32 @pthread_condattr_init(ptr noundef nonnull %cattr.i6.i) #10
-  %call5.i10.i = call i32 @pthread_condattr_setpshared(ptr noundef nonnull %cattr.i6.i, i32 noundef 0) #10
-  %call6.i11.i = call i32 @pthread_cond_init(ptr noundef nonnull %pMemory, ptr noundef nonnull %cattr.i6.i) #10
-  %call7.i12.i = call i32 @pthread_condattr_destroy(ptr noundef nonnull %cattr.i6.i) #10
+  %call.i9.i = call i32 @pthread_condattr_init(ptr noundef nonnull %cattr.i6.i) #10
+  %call5.i11.i = call i32 @pthread_condattr_setpshared(ptr noundef nonnull %cattr.i6.i, i32 noundef 0) #10
+  %call6.i12.i = call i32 @pthread_cond_init(ptr noundef nonnull %pMemory, ptr noundef nonnull %cattr.i6.i) #10
+  %call7.i13.i = call i32 @pthread_condattr_destroy(ptr noundef nonnull %cattr.i6.i) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cattr.i6.i)
   ret ptr %pMemory
 }

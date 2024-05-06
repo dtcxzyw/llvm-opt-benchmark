@@ -583,7 +583,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_doip_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 1, -2147483648) i32 @get_doip_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 0) #4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #4
   %7 = xor i8 %6, %5

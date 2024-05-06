@@ -68,7 +68,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.55 = private unnamed_addr constant [69 x i8] c"Unable to read the interleaved parameter from Transport header: [%s]\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rtsp_setup_connection(ptr nocapture noundef writeonly %data, ptr noundef %conn) #0 {
+define internal range(i32 0, 28) i32 @rtsp_setup_connection(ptr nocapture noundef writeonly %data, ptr noundef %conn) #0 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call = tail call ptr %0(i64 noundef 1, i64 noundef 128) #7
@@ -867,7 +867,7 @@ if.end103:                                        ; preds = %if.then97, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rtsp_conncheck(ptr noundef %data, ptr noundef %conn, i32 noundef %checks_to_perform) #0 {
+define internal range(i32 0, 2) i32 @rtsp_conncheck(ptr noundef %data, ptr noundef %conn, i32 noundef %checks_to_perform) #0 {
 entry:
   %input_pending = alloca i8, align 1
   %and = and i32 %checks_to_perform, 1
@@ -886,7 +886,7 @@ if.end2:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_rtsp_parseheader(ptr noundef %data, ptr noundef %header) local_unnamed_addr #0 {
+define hidden range(i32 0, 87) i32 @Curl_rtsp_parseheader(ptr noundef %data, ptr noundef %header) local_unnamed_addr #0 {
 entry:
   %endp.i = alloca ptr, align 8
   %endp = alloca ptr, align 8
@@ -1014,7 +1014,7 @@ if.then93:                                        ; preds = %if.else90
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endp.i)
   br label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %if.end65.i, %if.then93
+land.rhs.i:                                       ; preds = %if.then93, %if.end65.i
   %start.038.i = phi ptr [ %add.ptr67.i, %if.end65.i ], [ %add.ptr94, %if.then93 ]
   %7 = load i8, ptr %start.038.i, align 1
   %tobool1.not.i = icmp eq i8 %7, 0

@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @new_dir(ptr nocapture noundef writeonly %lu) #1 {
+define internal range(i32 0, 2) i32 @new_dir(ptr nocapture noundef writeonly %lu) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str.1, i32 noundef 110) #6
   %cmp = icmp eq ptr %call, null
@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dir_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr nocapture readnone %retp) #1 {
+define internal range(i32 0, 2) i32 @dir_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %cmd, ptr noundef %argp, i64 noundef %argl, ptr nocapture readnone %retp) #1 {
 entry:
   %method_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %method_data, align 8
@@ -119,12 +119,12 @@ if.then:                                          ; preds = %sw.bb
   br i1 %tobool.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %call3 = tail call fastcc i32 @add_cert_dir(ptr noundef %0, ptr noundef nonnull %call1, i32 noundef 1), !range !4
+  %call3 = tail call fastcc i32 @add_cert_dir(ptr noundef %0, ptr noundef nonnull %call1, i32 noundef 1)
   br label %if.end
 
 if.else:                                          ; preds = %if.then
   %call4 = tail call ptr @X509_get_default_cert_dir() #6
-  %call5 = tail call fastcc i32 @add_cert_dir(ptr noundef %0, ptr noundef %call4, i32 noundef 1), !range !4
+  %call5 = tail call fastcc i32 @add_cert_dir(ptr noundef %0, ptr noundef %call4, i32 noundef 1)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then2
@@ -140,7 +140,7 @@ if.then7:                                         ; preds = %if.end
 
 if.else9:                                         ; preds = %sw.bb
   %conv = trunc i64 %argl to i32
-  %call10 = tail call fastcc i32 @add_cert_dir(ptr noundef %0, ptr noundef %argp, i32 noundef %conv), !range !4
+  %call10 = tail call fastcc i32 @add_cert_dir(ptr noundef %0, ptr noundef %argp, i32 noundef %conv)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.else9, %if.then7, %if.end, %entry
@@ -149,14 +149,14 @@ sw.epilog:                                        ; preds = %if.else9, %if.then7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_cert_by_subject(ptr noundef %xl, i32 noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %ret) #1 {
+define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %xl, i32 noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %ret) #1 {
 entry:
-  %call = tail call i32 @get_cert_by_subject_ex(ptr noundef %xl, i32 noundef %type, ptr noundef %name, ptr noundef %ret, ptr noundef null, ptr noundef null), !range !4
+  %call = tail call i32 @get_cert_by_subject_ex(ptr noundef %xl, i32 noundef %type, ptr noundef %name, ptr noundef %ret, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_cert_by_subject_ex(ptr noundef %xl, i32 noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %ret, ptr noundef %libctx, ptr noundef %propq) #1 {
+define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %xl, i32 noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %ret, ptr noundef %libctx, ptr noundef %propq) #1 {
 entry:
   %data = alloca %union.anon, align 8
   %i = alloca i32, align 4
@@ -461,7 +461,7 @@ for.inc:                                          ; preds = %for.end, %if.end154
   %50 = load ptr, ptr %dirs, align 8
   %call.i = call i32 @OPENSSL_sk_num(ptr noundef %50) #6
   %cmp19 = icmp slt i32 %inc163, %call.i
-  br i1 %cmp19, label %for.body, label %finish, !llvm.loop !5
+  br i1 %cmp19, label %for.body, label %finish, !llvm.loop !4
 
 finish:                                           ; preds = %if.then34, %if.then87, %if.then109, %for.inc, %for.cond.preheader, %if.end13, %if.then157, %if.then139, %if.then130, %if.then29, %if.then12, %if.else8
   %b.0 = phi ptr [ null, %if.then12 ], [ %call, %if.end13 ], [ %call, %if.then130 ], [ %call, %if.then157 ], [ %call, %if.then139 ], [ %call, %if.then29 ], [ null, %if.else8 ], [ %call, %for.cond.preheader ], [ %call, %for.inc ], [ %call, %if.then109 ], [ %call, %if.then87 ], [ %call, %if.then34 ]
@@ -542,7 +542,7 @@ declare ptr @ossl_safe_getenv(ptr noundef) local_unnamed_addr #2
 declare ptr @X509_get_default_cert_dir_env() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @add_cert_dir(ptr nocapture noundef %ctx, ptr noundef %dir, i32 noundef %type) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @add_cert_dir(ptr nocapture noundef %ctx, ptr noundef %dir, i32 noundef %type) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %dir, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -609,7 +609,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %5 = load ptr, ptr %dirs, align 8
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %5) #6
   %cmp15 = icmp slt i32 %inc, %call.i
-  br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !7
+  br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %land.lhs.true, %for.cond.preheader
   %j.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %j.043, %land.lhs.true ], [ %inc, %for.inc ]
@@ -684,7 +684,7 @@ do.cond:                                          ; preds = %do.body, %if.end61,
   %s.1 = phi ptr [ %add.ptr, %if.then10 ], [ %add.ptr, %for.end ], [ %add.ptr, %if.end61 ], [ %s.0, %do.body ]
   %13 = load i8, ptr %p.0, align 1
   %cmp69.not = icmp eq i8 %13, 0
-  br i1 %cmp69.not, label %return, label %do.bodythread-pre-split, !llvm.loop !8
+  br i1 %cmp69.not, label %return, label %do.bodythread-pre-split, !llvm.loop !7
 
 return:                                           ; preds = %do.cond, %if.end44, %if.then65, %if.then60, %if.then42, %if.then
   %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then60 ], [ 0, %if.then65 ], [ 0, %if.then42 ], [ 1, %do.cond ], [ 0, %if.end44 ]
@@ -700,7 +700,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @by_dir_hash_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
+define internal range(i32 -1, 2) i32 @by_dir_hash_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load i64, ptr %0, align 8
@@ -771,8 +771,7 @@ attributes #7 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

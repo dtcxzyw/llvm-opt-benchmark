@@ -6308,7 +6308,7 @@ declare i64 @GetWalRcvFlushRecPtr(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @readTimeLineHistory(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @XLogFileRead(i64 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileRead(i64 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %5 = alloca [64 x i8], align 16
   %6 = alloca [80 x i8], align 16
   %7 = alloca [1024 x i8], align 16

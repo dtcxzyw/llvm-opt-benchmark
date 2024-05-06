@@ -121,7 +121,7 @@ define i32 @PMPI_Group_range_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2
 .lr.ph116.preheader:                              ; preds = %.preheader
   %48 = zext nneg i32 %32 to i64
   %49 = zext nneg i32 %42 to i64
-  %50 = trunc i64 %indvars.iv129 to i32
+  %50 = trunc nuw nsw i64 %indvars.iv129 to i32
   br label %.lr.ph116
 
 .lr.ph116:                                        ; preds = %.lr.ph116.preheader, %53
@@ -134,7 +134,7 @@ define i32 @PMPI_Group_range_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2
 53:                                               ; preds = %.lr.ph116
   store i32 %50, ptr %51, align 4
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, %49
-  %54 = trunc i64 %indvars.iv.next127 to i32
+  %54 = trunc nuw i64 %indvars.iv.next127 to i32
   %.not97 = icmp slt i32 %37, %54
   br i1 %.not97, label %.loopexit, label %.lr.ph116, !llvm.loop !4
 
@@ -154,7 +154,7 @@ define i32 @PMPI_Group_range_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %59 = zext nneg i32 %32 to i64
   %60 = sext i32 %42 to i64
   %61 = zext nneg i32 %37 to i64
-  %62 = trunc i64 %indvars.iv129 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv129 to i32
   br label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %.lr.ph113.preheader, %65
@@ -178,7 +178,7 @@ define i32 @PMPI_Group_range_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %.not94, label %70, label %.loopexit102
 
 70:                                               ; preds = %66
-  %71 = trunc i64 %indvars.iv129 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv129 to i32
   store i32 %71, ptr %68, align 4
   br label %.loopexit
 

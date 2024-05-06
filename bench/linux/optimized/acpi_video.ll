@@ -160,7 +160,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [27 x ptr] [ptr @__UNIQUE_ID___addressable_acpi_video_get_edid455, ptr @__UNIQUE_ID___addressable_acpi_video_get_levels454, ptr @__UNIQUE_ID___addressable_acpi_video_handles_brightness_key_presses459, ptr @__UNIQUE_ID___addressable_acpi_video_init461, ptr @__UNIQUE_ID___addressable_acpi_video_register456, ptr @__UNIQUE_ID___addressable_acpi_video_register_backlight458, ptr @__UNIQUE_ID___addressable_acpi_video_unregister457, ptr @__UNIQUE_ID_allow_duplicatestype447, ptr @__UNIQUE_ID_author442, ptr @__UNIQUE_ID_brightness_switch_enabledtype446, ptr @__UNIQUE_ID_description443, ptr @__UNIQUE_ID_device_id_schemetype452, ptr @__UNIQUE_ID_file444, ptr @__UNIQUE_ID_hw_changes_brightness451, ptr @__UNIQUE_ID_hw_changes_brightnesstype450, ptr @__UNIQUE_ID_license445, ptr @__UNIQUE_ID_only_lcdtype453, ptr @__UNIQUE_ID_report_key_events449, ptr @__UNIQUE_ID_report_key_eventstype448, ptr @__exitcall_acpi_video_exit, ptr @__param_allow_duplicates, ptr @__param_brightness_switch_enabled, ptr @__param_device_id_scheme, ptr @__param_hw_changes_brightness, ptr @__param_only_lcd, ptr @__param_report_key_events, ptr @acpi_video_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_video_get_levels(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) #0 align 16 {
   %4 = alloca %struct.acpi_buffer, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -430,7 +430,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_video_get_edid(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define dso_local noundef range(i32 -22, 257) i32 @acpi_video_get_edid(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
   %5 = alloca %struct.acpi_buffer, align 8
   %6 = alloca %union.acpi_object, align 8
   %7 = alloca %struct.acpi_object_list, align 8
@@ -918,7 +918,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   br i1 %127, label %133, label %128
 
 128:                                              ; preds = %124
-  %129 = trunc i64 %indvars.iv.i to i32
+  %129 = trunc nuw nsw i64 %indvars.iv.i to i32
   %130 = add nsw i32 %129, -2
   store i32 %130, ptr %126, align 8
   br label %133
@@ -1161,7 +1161,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %131, %110, %102
   br i1 %281, label %293, label %282
 
 282:                                              ; preds = %278
-  %283 = trunc i64 %indvars.iv.i16 to i32
+  %283 = trunc nuw nsw i64 %indvars.iv.i16 to i32
   %284 = add nsw i32 %283, -2
   store i32 %284, ptr %280, align 8
   br label %293
@@ -1859,7 +1859,7 @@ define internal void @acpi_video_bus_remove(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @acpi_walk_namespace(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @acpi_video_bus_match(ptr noundef %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i32 0, 16388) i32 @acpi_video_bus_match(ptr noundef %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %0
@@ -2492,7 +2492,7 @@ define internal fastcc void @acpi_video_device_enumerate(ptr nocapture noundef %
 declare dso_local i32 @acpi_dev_for_each_child(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_video_bus_get_one_device(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @acpi_video_bus_get_one_device(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   store i64 0, ptr %3, align 8, !annotation !10
@@ -2977,7 +2977,7 @@ define internal void @acpi_video_switch_brightness(ptr nocapture noundef %0) #0 
   br i1 %103, label %109, label %104
 
 104:                                              ; preds = %101
-  %105 = trunc i64 %indvars.iv.i to i32
+  %105 = trunc nuw nsw i64 %indvars.iv.i to i32
   %106 = add nsw i32 %105, -2
   store i32 %106, ptr %102, align 8
   %.pre = load ptr, ptr %6, align 8
@@ -3290,7 +3290,7 @@ declare dso_local void @thermal_cooling_device_unregister(ptr noundef) local_unn
 declare dso_local void @acpi_dev_remove_notify_handler(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_video_resume(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @acpi_video_resume(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2) #0 align 16 {
   switch i64 %1, label %.loopexit [
     i64 2, label %4
     i64 4, label %4
@@ -3372,7 +3372,7 @@ define internal noundef i32 @acpi_video_resume(ptr nocapture noundef readonly %0
   br i1 %53, label %acpi_video_device_lcd_set_level.exit, label %54
 
 54:                                               ; preds = %50
-  %55 = trunc i64 %indvars.iv.i to i32
+  %55 = trunc nuw nsw i64 %indvars.iv.i to i32
   %56 = add nsw i32 %55, -2
   store i32 %56, ptr %52, align 8
   br label %acpi_video_device_lcd_set_level.exit
@@ -3444,7 +3444,7 @@ define internal i32 @acpi_video_get_brightness(ptr nocapture noundef readonly %0
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %15
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = add nsw i32 %21, -2
   br label %.loopexit
 
@@ -3469,7 +3469,7 @@ declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local i32 @sysfs_create_link(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_video_set_brightness(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_video_set_brightness(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load i32, ptr %0, align 8
   %3 = add i32 %2, 2
   %4 = getelementptr inbounds i8, ptr %0, i64 264
@@ -3528,7 +3528,7 @@ define internal noundef i32 @acpi_video_set_brightness(ptr nocapture noundef rea
   br i1 %43, label %acpi_video_device_lcd_set_level.exit, label %44
 
 44:                                               ; preds = %40
-  %45 = trunc i64 %indvars.iv.i to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.i to i32
   %46 = add nsw i32 %45, -2
   store i32 %46, ptr %42, align 8
   br label %acpi_video_device_lcd_set_level.exit
@@ -3568,7 +3568,7 @@ define internal noundef i32 @video_get_max_state(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @video_get_cur_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @video_get_cur_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 760
   %5 = load ptr, ptr %4, align 8
@@ -3598,7 +3598,7 @@ define internal noundef i32 @video_get_cur_state(ptr nocapture noundef readonly 
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %16
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = xor i32 %22, -1
   %24 = add nsw i32 %9, %23
   %25 = sext i32 %24 to i64
@@ -3617,7 +3617,7 @@ define internal noundef i32 @video_get_cur_state(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @video_set_cur_state(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @video_set_cur_state(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -3682,7 +3682,7 @@ define internal noundef i32 @video_set_cur_state(ptr nocapture noundef readonly 
   br i1 %48, label %acpi_video_device_lcd_set_level.exit, label %49
 
 49:                                               ; preds = %45
-  %50 = trunc i64 %indvars.iv.i to i32
+  %50 = trunc nuw nsw i64 %indvars.iv.i to i32
   %51 = add nsw i32 %50, -2
   store i32 %51, ptr %47, align 8
   br label %acpi_video_device_lcd_set_level.exit
@@ -3705,7 +3705,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %.loopexit.i, %49, %
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @intel_opregion_present() unnamed_addr #5 section ".init.text" align 16 {
+define internal fastcc range(i32 0, 2) i32 @intel_opregion_present() unnamed_addr #5 section ".init.text" align 16 {
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #18
   store i32 0, ptr %1, align 4, !annotation !10

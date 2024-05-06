@@ -28,7 +28,7 @@ define dso_local i32 @archive_read_support_filter_rpm(ptr noundef %0) local_unna
 declare i32 @__archive_read_register_bidder(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rpm_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal range(i32 0, 57) i32 @rpm_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = call ptr @__archive_read_filter_ahead(ptr noundef %1, i64 noundef 8, ptr noundef nonnull %3) #9
   %5 = icmp eq ptr %4, null
@@ -65,7 +65,7 @@ define internal i32 @rpm_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rpm_bidder_init(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @rpm_bidder_init(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 8, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48

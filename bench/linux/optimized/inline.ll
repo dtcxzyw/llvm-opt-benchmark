@@ -346,7 +346,7 @@ define dso_local i32 @ext4_find_inline_data_nolock(ptr noundef %0) local_unnamed
 declare dso_local i32 @ext4_xattr_ibody_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ext4_readpage_inline(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ext4_readpage_inline(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -208
   tail call void @down_read(ptr noundef %3) #8
   %4 = getelementptr i8, ptr %0, i64 -216
@@ -1972,7 +1972,7 @@ define dso_local i32 @ext4_try_add_inline_entry(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_add_dirent_to_inline(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 1, 0) i32 @ext4_add_dirent_to_inline(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 align 16 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
   store ptr null, ptr %8, align 8, !annotation !5

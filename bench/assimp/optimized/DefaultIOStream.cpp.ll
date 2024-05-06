@@ -109,7 +109,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN6Assimp15DefaultIOStream4SeekEm8aiOrigin(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %pOffset, i32 noundef %pOrigin) unnamed_addr #3 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN6Assimp15DefaultIOStream4SeekEm8aiOrigin(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %pOffset, i32 noundef %pOrigin) unnamed_addr #3 align 2 {
 entry:
   %mFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8

@@ -1513,14 +1513,14 @@ find_attribute.exit:                              ; preds = %111
   %121 = getelementptr inbounds i8, ptr %110, i64 %storemerge.i
   %122 = getelementptr inbounds i8, ptr %121, i64 1
   %123 = call i64 @llvm.umin.i64(i64 %storemerge50.i, i64 5)
-  %124 = call i32 @strncmp(ptr noundef %97, ptr noundef nonnull @.str.33, i64 noundef %123) #26
+  %124 = call i32 @strncmp(ptr noundef readonly %97, ptr noundef nonnull readonly @.str.33, i64 noundef %123) #26
   %.not.i.i.i = icmp eq i32 %124, 0
   %125 = icmp eq i64 %storemerge50.i, 5
   %spec.select.i.i = and i1 %125, %.not.i.i.i
   br i1 %spec.select.i.i, label %126, label %195
 
 126:                                              ; preds = %find_attribute.exit
-  %127 = call noalias ptr @strndup(ptr noundef nonnull %110, i64 noundef %storemerge.i) #21
+  %127 = call noalias ptr @strndup(ptr noundef nonnull readonly %110, i64 noundef %storemerge.i) #21
   %128 = icmp eq ptr %127, null
   br i1 %128, label %129, label %strview_str.exit
 
@@ -1673,14 +1673,14 @@ svg_units_convert.exit:                           ; preds = %sub_137.i, %.tail35
 
 195:                                              ; preds = %find_attribute.exit
   %196 = call i64 @llvm.umin.i64(i64 %storemerge50.i, i64 6)
-  %197 = call i32 @strncmp(ptr noundef %97, ptr noundef nonnull @.str.37, i64 noundef %196) #26
+  %197 = call i32 @strncmp(ptr noundef readonly %97, ptr noundef nonnull readonly @.str.37, i64 noundef %196) #26
   %.not.i.i.i59 = icmp eq i32 %197, 0
   %198 = icmp eq i64 %storemerge50.i, 6
   %spec.select.i.i60 = and i1 %198, %.not.i.i.i59
   br i1 %spec.select.i.i60, label %199, label %268
 
 199:                                              ; preds = %195
-  %200 = call noalias ptr @strndup(ptr noundef nonnull %110, i64 noundef %storemerge.i) #21
+  %200 = call noalias ptr @strndup(ptr noundef nonnull readonly %110, i64 noundef %storemerge.i) #21
   %201 = icmp eq ptr %200, null
   br i1 %201, label %202, label %strview_str.exit61
 
@@ -1833,14 +1833,14 @@ svg_units_convert.exit91:                         ; preds = %sub_137.i74, %.tail
 
 268:                                              ; preds = %195
   %269 = call i64 @llvm.umin.i64(i64 %storemerge50.i, i64 7)
-  %270 = call i32 @strncmp(ptr noundef %97, ptr noundef nonnull @.str.38, i64 noundef %269) #26
+  %270 = call i32 @strncmp(ptr noundef readonly %97, ptr noundef nonnull readonly @.str.38, i64 noundef %269) #26
   %.not.i.i.i100 = icmp eq i32 %270, 0
   %271 = icmp eq i64 %storemerge50.i, 7
   %spec.select.i.i101 = and i1 %271, %.not.i.i.i100
   br i1 %spec.select.i.i101, label %272, label %293
 
 272:                                              ; preds = %268
-  %273 = call noalias ptr @strndup(ptr noundef nonnull %110, i64 noundef %storemerge.i) #21
+  %273 = call noalias ptr @strndup(ptr noundef nonnull readonly %110, i64 noundef %storemerge.i) #21
   %274 = icmp eq ptr %273, null
   br i1 %274, label %275, label %strview_str.exit102
 

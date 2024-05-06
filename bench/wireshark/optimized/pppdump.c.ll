@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pppdump_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @pppdump_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @pppdump_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [6 x i8], align 1
   %5 = load ptr, ptr %0, align 8
   %6 = call i32 @wtap_read_bytes(ptr noundef %5, ptr noundef nonnull %4, i32 noundef 6, ptr noundef %1, ptr noundef %2) #6
@@ -88,7 +88,7 @@ define hidden i32 @pppdump_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   store i32 0, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %23, i64 8224
   %50 = getelementptr inbounds i8, ptr %23, i64 8248
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   store i32 1, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %23, i64 8252
   store i32 0, ptr %51, align 4
@@ -98,7 +98,7 @@ define hidden i32 @pppdump_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %54 = getelementptr inbounds i8, ptr %23, i64 16504
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %23, i64 16480
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
   store i64 5, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 19, ptr %56, align 8
@@ -148,7 +148,7 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pppdump_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @pppdump_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 96
@@ -181,7 +181,7 @@ define internal noundef i32 @pppdump_read(ptr nocapture noundef readonly %0, ptr
   %22 = getelementptr inbounds i8, ptr %2, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr i8, ptr %21, i64 %23
-  %25 = call fastcc i32 @collate(ptr noundef %10, ptr noundef %20, ptr noundef %3, ptr noundef %4, ptr noundef %24, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %.0, i64 noundef 0), !range !4
+  %25 = call fastcc i32 @collate(ptr noundef %10, ptr noundef %20, ptr noundef %3, ptr noundef %4, ptr noundef %24, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %.0, i64 noundef 0)
   %.not31 = icmp eq i32 %25, 0
   br i1 %.not31, label %26, label %27
 
@@ -243,7 +243,7 @@ define internal noundef i32 @pppdump_read(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pppdump_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @pppdump_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 96
@@ -285,7 +285,7 @@ define internal noundef i32 @pppdump_seek_read(ptr nocapture noundef readonly %0
   store i32 0, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %26, i64 8224
   %33 = getelementptr inbounds i8, ptr %26, i64 8248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   store i32 1, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %26, i64 8252
   store i32 0, ptr %34, align 4
@@ -295,7 +295,7 @@ define internal noundef i32 @pppdump_seek_read(ptr nocapture noundef readonly %0
   %37 = getelementptr inbounds i8, ptr %26, i64 16504
   store ptr null, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %26, i64 16480
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   store i64 1048576, ptr %38, align 8
   %39 = load i64, ptr %15, align 8
   %40 = load ptr, ptr %25, align 8
@@ -315,7 +315,7 @@ define internal noundef i32 @pppdump_seek_read(ptr nocapture noundef readonly %0
   %.0 = phi i64 [ %47, %24 ], [ 0, %53 ]
   %50 = load ptr, ptr %25, align 8
   %51 = load ptr, ptr %19, align 8
-  %52 = call fastcc i32 @collate(ptr noundef %50, ptr noundef %51, ptr noundef %4, ptr noundef %5, ptr noundef %45, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, i64 noundef %.0), !range !4
+  %52 = call fastcc i32 @collate(ptr noundef %50, ptr noundef %51, ptr noundef %4, ptr noundef %5, ptr noundef %45, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, i64 noundef %.0)
   %.not28 = icmp eq i32 %52, 0
   br i1 %.not28, label %.loopexit, label %53
 
@@ -323,7 +323,7 @@ define internal noundef i32 @pppdump_seek_read(ptr nocapture noundef readonly %0
   %54 = load i32, ptr %8, align 4
   %55 = load i32, ptr %48, align 8
   %.not29 = icmp eq i32 %54, %55
-  br i1 %.not29, label %56, label %49, !llvm.loop !5
+  br i1 %.not29, label %56, label %49, !llvm.loop !4
 
 56:                                               ; preds = %53
   %57 = load i32, ptr %7, align 4
@@ -386,7 +386,7 @@ define internal void @pppdump_close(ptr nocapture noundef readonly %0) #0 {
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %20 = icmp ult i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa = phi ptr [ %9, %.preheader ], [ %16, %.lr.ph ]
@@ -419,7 +419,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @collate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr noundef %7, i64 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @collate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr noundef %7, i64 noundef %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i8, align 1
   %12 = getelementptr inbounds i8, ptr %0, i64 16488
@@ -430,7 +430,7 @@ define internal fastcc noundef i32 @collate(ptr noundef %0, ptr noundef %1, ptr 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %0, i64 16496
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call fastcc i32 @process_data(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %17, i32 noundef %13, ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef %7), !range !8
+  %18 = tail call fastcc i32 @process_data(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %17, i32 noundef %13, ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef %7)
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %.loopexit117, label %20
 
@@ -486,7 +486,7 @@ define internal fastcc noundef i32 @collate(ptr noundef %0, ptr noundef %1, ptr 
     i32 7, label %75
     i32 5, label %94
     i32 6, label %122
-  ], !llvm.loop !9
+  ], !llvm.loop !7
 
 38:                                               ; preds = %35, %35
   %39 = icmp eq i32 %34, 1
@@ -526,7 +526,7 @@ define internal fastcc noundef i32 @collate(ptr noundef %0, ptr noundef %1, ptr 
 
 60:                                               ; preds = %57, %49
   %61 = icmp eq i32 %53, 0
-  br i1 %61, label %33, label %.preheader, !llvm.loop !9
+  br i1 %61, label %33, label %.preheader, !llvm.loop !7
 
 .preheader:                                       ; preds = %60
   %.not113129 = icmp eq i64 %.097.ph.ph, 0
@@ -549,17 +549,17 @@ define internal fastcc noundef i32 @collate(ptr noundef %0, ptr noundef %1, ptr 
   store i64 %68, ptr %27, align 8
   %69 = add i64 %.1130, -1
   %.not113 = icmp eq i64 %69, 0
-  br i1 %.not113, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not113, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %66, %.preheader
   %.096.lcssa = phi i32 [ %53, %.preheader ], [ %63, %66 ]
-  %70 = call fastcc i32 @process_data(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %40, i32 noundef %.096.lcssa, ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef %7), !range !8
+  %70 = call fastcc i32 @process_data(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %40, i32 noundef %.096.lcssa, ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef %7)
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %.loopexit117, label %72
 
 72:                                               ; preds = %._crit_edge
   %.not114 = icmp eq i32 %70, 0
-  br i1 %.not114, label %.outer.outer, label %73, !llvm.loop !9
+  br i1 %.not114, label %.outer.outer, label %73, !llvm.loop !7
 
 73:                                               ; preds = %72
   store i32 %70, ptr %5, align 4
@@ -669,7 +669,7 @@ define internal fastcc noundef i32 @collate(ptr noundef %0, ptr noundef %1, ptr 
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %35, %35, %.loopexit118.sink.split, %124, %96
-  br label %.outer, !llvm.loop !9
+  br label %.outer, !llvm.loop !7
 
 .loopexit:                                        ; preds = %33, %44, %38, %.lr.ph
   %140 = call i32 @file_error(ptr noundef %1, ptr noundef %3) #6
@@ -696,7 +696,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @process_data(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr noundef %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 8193) i32 @process_data(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr noundef %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = icmp sgt i32 %3, 0
   br i1 %9, label %.lr.ph, label %.loopexit
 
@@ -837,7 +837,7 @@ define internal fastcc i32 @process_data(ptr nocapture noundef %0, ptr noundef %
 70:                                               ; preds = %55, %65, %23
   %71 = add nsw i32 %.05571, -1
   %72 = icmp sgt i32 %.05571, 1
-  br i1 %72, label %14, label %.loopexit, !llvm.loop !11
+  br i1 %72, label %14, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %70, %8, %61, %49, %28, %17
   %.0 = phi i32 [ -1, %17 ], [ -1, %61 ], [ -1, %28 ], [ %24, %49 ], [ 0, %8 ], [ 0, %70 ]
@@ -878,11 +878,9 @@ attributes #8 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = !{i32 -1, i32 8193}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

@@ -34,7 +34,7 @@ define dso_local i32 @acpi_tb_get_rsdp_length(ptr nocapture noundef readonly %0)
 declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_tb_validate_rsdp(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 8196) i32 @acpi_tb_validate_rsdp(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str, i64 noundef 8) #6
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %15
@@ -67,7 +67,7 @@ define dso_local noundef i32 @acpi_tb_validate_rsdp(ptr noundef %0) local_unname
 declare dso_local zeroext i8 @acpi_ut_checksum(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @acpi_find_root_pointer(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local noundef range(i32 0, 6) i32 @acpi_find_root_pointer(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 section ".init.text" align 16 {
   %2 = tail call ptr @acpi_os_map_memory(i64 noundef 1038, i64 noundef 2) #6
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5

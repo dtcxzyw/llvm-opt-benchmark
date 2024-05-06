@@ -74,7 +74,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %call2 = tail call ptr @qemu_get_cpu(i32 noundef %0) #11
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
   %1 = getelementptr i8, ptr %call.i, i64 15192
@@ -109,7 +109,7 @@ declare ptr @qemu_get_cpu(i32 noundef) local_unnamed_addr #3
 declare noalias ptr @g_strjoinv(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @riscv_calc_kernel_start_addr(ptr nocapture noundef readonly %harts, i64 noundef %firmware_end_addr) local_unnamed_addr #0 {
+define dso_local range(i64 0, -2097151) i64 @riscv_calc_kernel_start_addr(ptr nocapture noundef readonly %harts, i64 noundef %firmware_end_addr) local_unnamed_addr #0 {
 entry:
   %harts1.i = getelementptr inbounds i8, ptr %harts, i64 840
   %0 = load ptr, ptr %harts1.i, align 8
@@ -434,7 +434,7 @@ declare i64 @load_uimage_as(ptr noundef, ptr noundef, ptr noundef, ptr noundef, 
 declare i32 @qemu_fdt_setprop_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @riscv_compute_fdt_addr(i64 noundef %dram_base, i64 noundef %dram_size, ptr nocapture noundef readonly %ms) local_unnamed_addr #1 {
+define dso_local range(i64 0, -2097151) i64 @riscv_compute_fdt_addr(i64 noundef %dram_base, i64 noundef %dram_size, ptr nocapture noundef readonly %ms) local_unnamed_addr #1 {
 entry:
   %fdt = getelementptr inbounds i8, ptr %ms, i64 40
   %0 = load ptr, ptr %fdt, align 8
@@ -571,9 +571,9 @@ entry:
   %1 = load i32, ptr %misa_mxl_max.i, align 4
   %cmp.i = icmp eq i32 %1, 1
   %shr = lshr i64 %start_addr, 32
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw i64 %shr to i32
   %shr1 = lshr i64 %fdt_load_addr, 32
-  %conv2 = trunc i64 %shr1 to i32
+  %conv2 = trunc nuw i64 %shr1 to i32
   %start_addr_hi32.0 = select i1 %cmp.i, i32 0, i32 %conv
   %fdt_load_addr_hi32.0 = select i1 %cmp.i, i32 0, i32 %conv2
   store i32 663, ptr %reset_vec, align 16

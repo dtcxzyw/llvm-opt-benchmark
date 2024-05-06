@@ -35,13 +35,13 @@ $__clang_call_terminate = comdat any
 @.str.4 = private unnamed_addr constant [43 x i8] c"FFT plan mismatch - bad plan or direction.\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z15gmx_fft_init_1dPP7gmx_fftii(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef i32 @_Z20gmx_fft_init_many_1dPP7gmx_fftiii(ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %2), !range !5
+define noundef range(i32 0, 13) i32 @_Z15gmx_fft_init_1dPP7gmx_fftii(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call noundef i32 @_Z20gmx_fft_init_many_1dPP7gmx_fftiii(ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z20gmx_fft_init_many_1dPP7gmx_fftiii(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 13) i32 @_Z20gmx_fft_init_many_1dPP7gmx_fftiii(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -181,7 +181,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   br label %76
 
 75:                                               ; preds = %76
-  br i1 %77, label %76, label %85, !llvm.loop !6
+  br i1 %77, label %76, label %85, !llvm.loop !5
 
 76:                                               ; preds = %.preheader, %75
   %77 = phi i1 [ true, %.preheader ], [ false, %75 ]
@@ -205,10 +205,10 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   br label %.sink.split
 
 85:                                               ; preds = %75
-  br i1 %74, label %.preheader, label %86, !llvm.loop !8
+  br i1 %74, label %.preheader, label %86, !llvm.loop !7
 
 86:                                               ; preds = %85
-  br i1 %73, label %.preheader103, label %87, !llvm.loop !9
+  br i1 %73, label %.preheader103, label %87, !llvm.loop !8
 
 87:                                               ; preds = %86
   call void @fftwf_free(ptr noundef nonnull %39)
@@ -394,13 +394,13 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #6
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z20gmx_fft_init_1d_realPP7gmx_fftii(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef i32 @_Z25gmx_fft_init_many_1d_realPP7gmx_fftiii(ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %2), !range !5
+define noundef range(i32 0, 13) i32 @_Z20gmx_fft_init_1d_realPP7gmx_fftii(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call noundef i32 @_Z25gmx_fft_init_many_1d_realPP7gmx_fftiii(ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z25gmx_fft_init_many_1d_realPP7gmx_fftiii(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 13) i32 @_Z25gmx_fft_init_many_1d_realPP7gmx_fftiii(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -564,7 +564,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   br label %100
 
 99:                                               ; preds = %100
-  br i1 %101, label %100, label %109, !llvm.loop !10
+  br i1 %101, label %100, label %109, !llvm.loop !9
 
 100:                                              ; preds = %.preheader, %99
   %101 = phi i1 [ true, %.preheader ], [ false, %99 ]
@@ -588,10 +588,10 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   br label %.sink.split
 
 109:                                              ; preds = %99
-  br i1 %98, label %.preheader, label %110, !llvm.loop !11
+  br i1 %98, label %.preheader, label %110, !llvm.loop !10
 
 110:                                              ; preds = %109
-  br i1 %97, label %.preheader103, label %111, !llvm.loop !12
+  br i1 %97, label %.preheader103, label %111, !llvm.loop !11
 
 111:                                              ; preds = %110
   call void @fftwf_free(ptr noundef nonnull %41)
@@ -631,7 +631,7 @@ declare ptr @fftwf_plan_many_dft_r2c(i32 noundef, ptr noundef, i32 noundef, ptr 
 declare ptr @fftwf_plan_many_dft_c2r(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z20gmx_fft_init_2d_realPP7gmx_fftiii(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 13) i32 @_Z20gmx_fft_init_2d_realPP7gmx_fftiii(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %7 = shl i32 %3, 6
@@ -758,7 +758,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %14
   br label %66
 
 65:                                               ; preds = %66
-  br i1 %67, label %66, label %75, !llvm.loop !13
+  br i1 %67, label %66, label %75, !llvm.loop !12
 
 66:                                               ; preds = %.preheader, %65
   %67 = phi i1 [ true, %.preheader ], [ false, %65 ]
@@ -782,10 +782,10 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %14
   br label %.sink.split
 
 75:                                               ; preds = %65
-  br i1 %64, label %.preheader, label %76, !llvm.loop !14
+  br i1 %64, label %.preheader, label %76, !llvm.loop !13
 
 76:                                               ; preds = %75
-  br i1 %63, label %.preheader113, label %77, !llvm.loop !15
+  br i1 %63, label %.preheader113, label %77, !llvm.loop !14
 
 77:                                               ; preds = %76
   tail call void @fftwf_free(ptr noundef nonnull %38)
@@ -1116,13 +1116,13 @@ define void @_Z15gmx_fft_destroyP7gmx_fft(ptr noundef %0) local_unnamed_addr #0 
   br label %25
 
 25:                                               ; preds = %4, %22
-  br i1 %5, label %4, label %26, !llvm.loop !16
+  br i1 %5, label %4, label %26, !llvm.loop !15
 
 26:                                               ; preds = %25
-  br i1 %3, label %.preheader, label %27, !llvm.loop !17
+  br i1 %3, label %.preheader, label %27, !llvm.loop !16
 
 27:                                               ; preds = %26
-  br i1 %2, label %.preheader46, label %28, !llvm.loop !18
+  br i1 %2, label %.preheader46, label %28, !llvm.loop !17
 
 28:                                               ; preds = %27
   %29 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL14big_fftw_mutex) #10
@@ -1221,17 +1221,16 @@ attributes #11 = { noreturn nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 13}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}

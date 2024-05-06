@@ -831,7 +831,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor10decompressEv(ptr nocap
 
 32:                                               ; preds = %.loopexit3
   %33 = add nsw i32 %17, -1
-  %34 = mul nsw i32 %20, %17
+  %34 = mul nuw nsw i32 %20, %17
   %35 = add nsw i32 %15, -1
   %36 = zext nneg i32 %15 to i64
   %37 = zext nneg i32 %35 to i64
@@ -909,7 +909,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %15 = getelementptr inbounds i8, ptr %5, i64 48
   %16 = load i32, ptr %15, align 8, !tbaa !134, !noalias !140
   %17 = ashr i32 %16, 1
-  %18 = mul nsw i32 %17, %14
+  %18 = mul nuw nsw i32 %17, %14
   %19 = icmp sgt i32 %12, -1
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %14, -1
@@ -1055,16 +1055,16 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %114 = phi i32 [ %107, %103 ], [ %81, %74 ]
   %115 = phi i32 [ %86, %103 ], [ %80, %74 ]
   %116 = lshr i64 %113, 61
-  %117 = trunc i64 %116 to i32
+  %117 = trunc nuw nsw i64 %116 to i32
   %118 = and i32 %117, 3
   %119 = lshr i64 %113, 59
-  %120 = trunc i64 %119 to i32
+  %120 = trunc nuw nsw i64 %119 to i32
   %121 = and i32 %120, 3
   %122 = lshr i64 %113, 57
-  %123 = trunc i64 %122 to i32
+  %123 = trunc nuw nsw i64 %122 to i32
   %124 = and i32 %123, 3
   %125 = lshr i64 %113, 55
-  %126 = trunc i64 %125 to i32
+  %126 = trunc nuw nsw i64 %125 to i32
   %127 = and i32 %126, 3
   %128 = add nsw i32 %114, -9
   %129 = shl i64 %113, 9
@@ -1092,7 +1092,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %137 = icmp sgt i32 %115, -1
   tail call void @llvm.assume(i1 %137)
   %138 = lshr i64 %133, 60
-  %139 = trunc i64 %138 to i32
+  %139 = trunc nuw nsw i64 %138 to i32
   %140 = add nsw i32 %134, -4
   %141 = shl i64 %133, 4
   br label %149
@@ -1125,7 +1125,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %155 = icmp sgt i32 %115, -1
   tail call void @llvm.assume(i1 %155)
   %156 = lshr i64 %151, 60
-  %157 = trunc i64 %156 to i32
+  %157 = trunc nuw nsw i64 %156 to i32
   %158 = add nsw i32 %152, -4
   %159 = shl i64 %151, 4
   br label %167
@@ -1158,7 +1158,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %173 = icmp sgt i32 %115, -1
   tail call void @llvm.assume(i1 %173)
   %174 = lshr i64 %169, 60
-  %175 = trunc i64 %174 to i32
+  %175 = trunc nuw nsw i64 %174 to i32
   %176 = add nsw i32 %170, -4
   %177 = shl i64 %169, 4
   br label %185
@@ -1182,7 +1182,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
 
 189:                                              ; preds = %112
   %190 = lshr i64 %129, 60
-  %191 = trunc i64 %190 to i32
+  %191 = trunc nuw nsw i64 %190 to i32
   %192 = add nsw i32 %114, -13
   %193 = shl i64 %113, 13
   br label %131
@@ -1313,7 +1313,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %263 = zext nneg i32 %132 to i64
   %264 = shl i64 %257, %263
   %265 = ashr i64 %257, %261
-  %266 = trunc i64 %265 to i16
+  %266 = trunc nsw i64 %265 to i16
   tail call void @llvm.assume(i1 %51)
   tail call void @llvm.assume(i1 %54)
   %267 = getelementptr inbounds i16, ptr %56, i64 %79
@@ -1376,7 +1376,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %304 = sub nsw i32 %302, %132
   %305 = shl i64 %301, %263
   %306 = ashr i64 %301, %261
-  %307 = trunc i64 %306 to i16
+  %307 = trunc nsw i64 %306 to i16
   %308 = or disjoint i64 %79, 2
   %309 = icmp ult i64 %308, %72
   tail call void @llvm.assume(i1 %309)
@@ -1438,7 +1438,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %347 = sub nsw i32 %345, %132
   %348 = shl i64 %344, %263
   %349 = ashr i64 %344, %261
-  %350 = trunc i64 %349 to i16
+  %350 = trunc nsw i64 %349 to i16
   %351 = or disjoint i64 %79, 4
   %352 = icmp ult i64 %351, %72
   tail call void @llvm.assume(i1 %352)
@@ -1500,7 +1500,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %390 = sub nsw i32 %388, %132
   %391 = shl i64 %387, %263
   %392 = ashr i64 %387, %261
-  %393 = trunc i64 %392 to i16
+  %393 = trunc nsw i64 %392 to i16
   br label %394
 
 394:                                              ; preds = %385, %211
@@ -1598,7 +1598,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %458 = zext nneg i32 %150 to i64
   %459 = shl i64 %452, %458
   %460 = ashr i64 %452, %456
-  %461 = trunc i64 %460 to i16
+  %461 = trunc nsw i64 %460 to i16
   %462 = or disjoint i64 %79, 8
   %463 = icmp ult i64 %462, %72
   tail call void @llvm.assume(i1 %463)
@@ -1660,7 +1660,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %501 = sub nsw i32 %499, %150
   %502 = shl i64 %498, %458
   %503 = ashr i64 %498, %456
-  %504 = trunc i64 %503 to i16
+  %504 = trunc nsw i64 %503 to i16
   %505 = or disjoint i64 %79, 10
   %506 = icmp ult i64 %505, %72
   tail call void @llvm.assume(i1 %506)
@@ -1722,7 +1722,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %544 = sub nsw i32 %542, %150
   %545 = shl i64 %541, %458
   %546 = ashr i64 %541, %456
-  %547 = trunc i64 %546 to i16
+  %547 = trunc nsw i64 %546 to i16
   %548 = or disjoint i64 %79, 12
   %549 = icmp ult i64 %548, %72
   tail call void @llvm.assume(i1 %549)
@@ -1784,7 +1784,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %587 = sub nsw i32 %585, %150
   %588 = shl i64 %584, %458
   %589 = ashr i64 %584, %456
-  %590 = trunc i64 %589 to i16
+  %590 = trunc nsw i64 %589 to i16
   br label %591
 
 591:                                              ; preds = %582, %406
@@ -1886,7 +1886,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %655 = zext nneg i32 %168 to i64
   %656 = shl i64 %649, %655
   %657 = ashr i64 %649, %653
-  %658 = trunc i64 %657 to i16
+  %658 = trunc nsw i64 %657 to i16
   %659 = or disjoint i64 %79, 1
   tail call void @llvm.assume(i1 %64)
   tail call void @llvm.assume(i1 %67)
@@ -1948,7 +1948,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %697 = sub nsw i32 %695, %168
   %698 = shl i64 %694, %655
   %699 = ashr i64 %694, %653
-  %700 = trunc i64 %699 to i16
+  %700 = trunc nsw i64 %699 to i16
   %701 = or disjoint i64 %79, 3
   %702 = getelementptr inbounds i16, ptr %69, i64 %701
   %703 = load i16, ptr %702, align 2, !tbaa !135
@@ -2008,7 +2008,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %739 = sub nsw i32 %737, %168
   %740 = shl i64 %736, %655
   %741 = ashr i64 %736, %653
-  %742 = trunc i64 %741 to i16
+  %742 = trunc nsw i64 %741 to i16
   %743 = or disjoint i64 %79, 5
   %744 = getelementptr inbounds i16, ptr %69, i64 %743
   %745 = load i16, ptr %744, align 2, !tbaa !135
@@ -2068,7 +2068,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %781 = sub nsw i32 %779, %168
   %782 = shl i64 %778, %655
   %783 = ashr i64 %778, %653
-  %784 = trunc i64 %783 to i16
+  %784 = trunc nsw i64 %783 to i16
   br label %785
 
 785:                                              ; preds = %776, %603
@@ -2162,7 +2162,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %847 = zext nneg i32 %186 to i64
   %848 = shl i64 %841, %847
   %849 = ashr i64 %841, %845
-  %850 = trunc i64 %849 to i16
+  %850 = trunc nsw i64 %849 to i16
   %851 = or disjoint i64 %79, 9
   %852 = getelementptr inbounds i16, ptr %69, i64 %851
   %853 = load i16, ptr %852, align 2, !tbaa !135
@@ -2222,7 +2222,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %889 = sub nsw i32 %887, %186
   %890 = shl i64 %886, %847
   %891 = ashr i64 %886, %845
-  %892 = trunc i64 %891 to i16
+  %892 = trunc nsw i64 %891 to i16
   %893 = or disjoint i64 %79, 11
   %894 = getelementptr inbounds i16, ptr %69, i64 %893
   %895 = load i16, ptr %894, align 2, !tbaa !135
@@ -2282,7 +2282,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %931 = sub nsw i32 %929, %186
   %932 = shl i64 %928, %847
   %933 = ashr i64 %928, %845
-  %934 = trunc i64 %933 to i16
+  %934 = trunc nsw i64 %933 to i16
   %935 = or disjoint i64 %79, 13
   %936 = getelementptr inbounds i16, ptr %69, i64 %935
   %937 = load i16, ptr %936, align 2, !tbaa !135
@@ -2342,7 +2342,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %973 = sub nsw i32 %971, %186
   %974 = shl i64 %970, %847
   %975 = ashr i64 %970, %845
-  %976 = trunc i64 %975 to i16
+  %976 = trunc nsw i64 %975 to i16
   br label %977
 
 977:                                              ; preds = %968, %796
@@ -2450,7 +2450,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1039 = zext nneg i32 %132 to i64
   %1040 = shl i64 %1033, %1039
   %1041 = ashr i64 %1033, %1037
-  %1042 = trunc i64 %1041 to i16
+  %1042 = trunc nsw i64 %1041 to i16
   %1043 = add i16 %997, %1042
   tail call void @llvm.assume(i1 %70)
   tail call void @llvm.assume(i1 %57)
@@ -2512,7 +2512,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1079 = sub nsw i32 %1077, %132
   %1080 = shl i64 %1076, %1039
   %1081 = ashr i64 %1076, %1037
-  %1082 = trunc i64 %1081 to i16
+  %1082 = trunc nsw i64 %1081 to i16
   br label %1083
 
 1083:                                             ; preds = %1074, %999
@@ -2592,7 +2592,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1132 = zext nneg i32 %132 to i64
   %1133 = shl i64 %1126, %1132
   %1134 = ashr i64 %1126, %1130
-  %1135 = trunc i64 %1134 to i16
+  %1135 = trunc nsw i64 %1134 to i16
   br label %1136
 
 1136:                                             ; preds = %1124, %1093
@@ -2672,7 +2672,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1185 = zext nneg i32 %132 to i64
   %1186 = shl i64 %1179, %1185
   %1187 = ashr i64 %1179, %1183
-  %1188 = trunc i64 %1187 to i16
+  %1188 = trunc nsw i64 %1187 to i16
   br label %1189
 
 1189:                                             ; preds = %1177, %1146
@@ -2753,7 +2753,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1239 = zext nneg i32 %150 to i64
   %1240 = shl i64 %1233, %1239
   %1241 = ashr i64 %1233, %1237
-  %1242 = trunc i64 %1241 to i16
+  %1242 = trunc nsw i64 %1241 to i16
   br label %1243
 
 1243:                                             ; preds = %1231, %1199
@@ -2833,7 +2833,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1292 = zext nneg i32 %150 to i64
   %1293 = shl i64 %1286, %1292
   %1294 = ashr i64 %1286, %1290
-  %1295 = trunc i64 %1294 to i16
+  %1295 = trunc nsw i64 %1294 to i16
   br label %1296
 
 1296:                                             ; preds = %1284, %1253
@@ -2913,7 +2913,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1345 = zext nneg i32 %150 to i64
   %1346 = shl i64 %1339, %1345
   %1347 = ashr i64 %1339, %1343
-  %1348 = trunc i64 %1347 to i16
+  %1348 = trunc nsw i64 %1347 to i16
   br label %1349
 
 1349:                                             ; preds = %1337, %1306
@@ -2993,7 +2993,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1398 = zext nneg i32 %150 to i64
   %1399 = shl i64 %1392, %1398
   %1400 = ashr i64 %1392, %1396
-  %1401 = trunc i64 %1400 to i16
+  %1401 = trunc nsw i64 %1400 to i16
   br label %1402
 
 1402:                                             ; preds = %1390, %1359
@@ -3087,7 +3087,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1458 = zext nneg i32 %168 to i64
   %1459 = shl i64 %1452, %1458
   %1460 = ashr i64 %1452, %1456
-  %1461 = trunc i64 %1460 to i16
+  %1461 = trunc nsw i64 %1460 to i16
   br label %1462
 
 1462:                                             ; preds = %1450, %1416
@@ -3167,7 +3167,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1511 = zext nneg i32 %168 to i64
   %1512 = shl i64 %1505, %1511
   %1513 = ashr i64 %1505, %1509
-  %1514 = trunc i64 %1513 to i16
+  %1514 = trunc nsw i64 %1513 to i16
   br label %1515
 
 1515:                                             ; preds = %1503, %1472
@@ -3247,7 +3247,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1564 = zext nneg i32 %168 to i64
   %1565 = shl i64 %1558, %1564
   %1566 = ashr i64 %1558, %1562
-  %1567 = trunc i64 %1566 to i16
+  %1567 = trunc nsw i64 %1566 to i16
   br label %1568
 
 1568:                                             ; preds = %1556, %1525
@@ -3327,7 +3327,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1617 = zext nneg i32 %168 to i64
   %1618 = shl i64 %1611, %1617
   %1619 = ashr i64 %1611, %1615
-  %1620 = trunc i64 %1619 to i16
+  %1620 = trunc nsw i64 %1619 to i16
   br label %1621
 
 1621:                                             ; preds = %1609, %1578
@@ -3408,7 +3408,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1671 = zext nneg i32 %186 to i64
   %1672 = shl i64 %1665, %1671
   %1673 = ashr i64 %1665, %1669
-  %1674 = trunc i64 %1673 to i16
+  %1674 = trunc nsw i64 %1673 to i16
   br label %1675
 
 1675:                                             ; preds = %1663, %1631
@@ -3488,7 +3488,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1724 = zext nneg i32 %186 to i64
   %1725 = shl i64 %1718, %1724
   %1726 = ashr i64 %1718, %1722
-  %1727 = trunc i64 %1726 to i16
+  %1727 = trunc nsw i64 %1726 to i16
   br label %1728
 
 1728:                                             ; preds = %1716, %1685
@@ -3568,7 +3568,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1777 = zext nneg i32 %186 to i64
   %1778 = shl i64 %1771, %1777
   %1779 = ashr i64 %1771, %1775
-  %1780 = trunc i64 %1779 to i16
+  %1780 = trunc nsw i64 %1779 to i16
   br label %1781
 
 1781:                                             ; preds = %1769, %1738
@@ -3648,7 +3648,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10
   %1830 = zext nneg i32 %186 to i64
   %1831 = shl i64 %1824, %1830
   %1832 = ashr i64 %1824, %1828
-  %1833 = trunc i64 %1832 to i16
+  %1833 = trunc nsw i64 %1832 to i16
   br label %1834
 
 1834:                                             ; preds = %1822, %1791
@@ -3768,7 +3768,7 @@ define hidden noundef i32 @_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16Bit
   %58 = shl i64 %51, %57
   store i64 %58, ptr %0, align 8, !tbaa !150
   %59 = ashr i64 %51, %55
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nsw i64 %59 to i32
   br label %61
 
 61:                                               ; preds = %50, %2

@@ -492,7 +492,7 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
 
 110:                                              ; preds = %62
   %111 = lshr i64 %97, 48
-  %112 = trunc i64 %111 to i16
+  %112 = trunc nuw i64 %111 to i16
   %113 = getelementptr inbounds i8, ptr %8, i64 82
   %114 = and i16 %112, -8193
   store i16 %114, ptr %113, align 2
@@ -515,18 +515,18 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
   %127 = phi i16 [ %106, %115 ], [ %175, %161 ]
   %128 = shl nuw nsw i32 %125, 1
   %129 = lshr i32 %119, %128
-  %130 = trunc i32 %129 to i16
+  %130 = trunc nuw i32 %129 to i16
   %131 = and i16 %130, 3
   %132 = lshr i32 %122, %128
-  %133 = trunc i32 %132 to i16
+  %133 = trunc nuw i32 %132 to i16
   %134 = and i16 %133, 3
   %135 = zext i16 %126 to i32
   %136 = lshr i32 %135, %128
-  %137 = trunc i32 %136 to i16
+  %137 = trunc nuw i32 %136 to i16
   %138 = and i16 %137, 3
   %139 = zext i16 %127 to i32
   %140 = lshr i32 %139, %128
-  %141 = trunc i32 %140 to i16
+  %141 = trunc nuw i32 %140 to i16
   %142 = and i16 %141, 3
   %143 = and i32 %140, 3
   %144 = icmp eq i32 %143, 3
@@ -618,7 +618,7 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
   br label %199
 
 199:                                              ; preds = %190, %188
-  %200 = tail call i32 @ieee80211_sta_cur_vht_bw(ptr noundef %4), !range !12
+  %200 = tail call i32 @ieee80211_sta_cur_vht_bw(ptr noundef %4)
   %201 = load ptr, ptr %7, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 232
   store i32 %200, ptr %202, align 8
@@ -663,7 +663,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_sta_cur_vht_bw(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 5) i32 @ieee80211_sta_cur_vht_bw(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @__rcu_read_lock() #12
@@ -676,12 +676,12 @@ define dso_local i32 @ieee80211_sta_cur_vht_bw(ptr nocapture noundef readonly %0
   %10 = getelementptr [15 x ptr], ptr %6, i64 0, i64 %9
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14, !prof !13
+  br i1 %12, label %13, label %14, !prof !12
 
 13:                                               ; preds = %1
-  tail call void asm sideeffect "2965: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2965b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2965) #12, !srcloc !14
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 515, i32 2305, i64 12) #12, !srcloc !15
-  tail call void asm sideeffect "2966: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2966b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2966) #12, !srcloc !16
+  tail call void asm sideeffect "2965: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2965b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2965) #12, !srcloc !13
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 515, i32 2305, i64 12) #12, !srcloc !14
+  tail call void asm sideeffect "2966: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2966b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2966) #12, !srcloc !15
   br label %17
 
 14:                                               ; preds = %1
@@ -692,7 +692,7 @@ define dso_local i32 @ieee80211_sta_cur_vht_bw(ptr nocapture noundef readonly %0
 17:                                               ; preds = %14, %13
   %18 = phi i32 [ %16, %14 ], [ 0, %13 ]
   tail call void @__rcu_read_unlock() #12
-  %19 = tail call i32 @ieee80211_sta_cap_rx_bw(ptr noundef %0), !range !12
+  %19 = tail call i32 @ieee80211_sta_cap_rx_bw(ptr noundef %0), !range !16
   %20 = getelementptr inbounds i8, ptr %0, i64 904
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %3, i64 216
@@ -790,7 +790,7 @@ define dso_local i32 @ieee80211_sta_cur_vht_bw(ptr nocapture noundef readonly %0
 declare dso_local void @ieee80211_sta_recalc_aggregates(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_sta_cap_rx_bw(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 5) i32 @ieee80211_sta_cap_rx_bw(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 912
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 84
@@ -895,7 +895,7 @@ define dso_local i32 @ieee80211_sta_cap_rx_bw(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @ieee80211_sta_cap_chan_bw(ptr nocapture noundef readonly %0) local_unnamed_addr #7 align 16 {
+define dso_local range(i32 0, 6) i32 @ieee80211_sta_cap_chan_bw(ptr nocapture noundef readonly %0) local_unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 912
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 68
@@ -933,7 +933,7 @@ define dso_local i32 @ieee80211_sta_cap_chan_bw(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @ieee80211_sta_rx_bw_to_chan_width(ptr nocapture noundef readonly %0) local_unnamed_addr #7 align 16 {
+define dso_local range(i32 0, 6) i32 @ieee80211_sta_rx_bw_to_chan_width(ptr nocapture noundef readonly %0) local_unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 912
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 232
@@ -971,7 +971,7 @@ define dso_local i32 @ieee80211_sta_rx_bw_to_chan_width(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_chan_width_to_rx_bw(i32 noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @ieee80211_chan_width_to_rx_bw(i32 noundef %0) local_unnamed_addr #2 align 16 {
   switch i32 %0, label %6 [
     i32 0, label %7
     i32 1, label %7
@@ -1165,7 +1165,7 @@ define dso_local void @ieee80211_sta_set_rx_nss(ptr nocapture noundef readonly %
   %123 = tail call i32 @llvm.umax.i32(i32 %72, i32 %122)
   %124 = tail call i32 @llvm.umax.i32(i32 %25, i32 %123)
   %125 = tail call i32 @llvm.umax.i32(i32 %124, i32 1)
-  %126 = trunc i32 %125 to i8
+  %126 = trunc nuw i32 %125 to i8
   store i8 %126, ptr %4, align 2
   br label %127
 
@@ -1174,7 +1174,7 @@ define dso_local void @ieee80211_sta_set_rx_nss(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__ieee80211_vht_handle_opmode(ptr nocapture noundef readonly %0, ptr noundef %1, i8 noundef zeroext %2, i32 %3) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 16) i32 @__ieee80211_vht_handle_opmode(ptr nocapture noundef readonly %0, ptr noundef %1, i8 noundef zeroext %2, i32 %3) local_unnamed_addr #2 align 16 {
   %5 = alloca %struct.sta_opmode_info, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -1266,7 +1266,7 @@ default.unreachable4:                             ; preds = %31
   unreachable
 
 47:                                               ; preds = %45, %44, %43, %37, %35
-  %48 = tail call i32 @ieee80211_sta_cur_vht_bw(ptr noundef %1), !range !12
+  %48 = tail call i32 @ieee80211_sta_cur_vht_bw(ptr noundef %1)
   %49 = load ptr, ptr %11, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 232
   %51 = load i32, ptr %50, align 8
@@ -1387,7 +1387,7 @@ define dso_local void @ieee80211_update_mu_groups(ptr noundef %0, i32 noundef %1
   %11 = getelementptr inbounds i8, ptr %8, i64 766
   %12 = load i8, ptr %11, align 2, !range !5, !noundef !6
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %14, label %15, !prof !13
+  br i1 %13, label %14, label %15, !prof !12
 
 14:                                               ; preds = %10, %4
   tail call void asm sideeffect "2987: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2987b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2987) #12, !srcloc !24
@@ -1418,7 +1418,7 @@ define dso_local void @ieee80211_vht_handle_opmode(ptr noundef %0, ptr noundef %
   %10 = zext i32 %3 to i64
   %11 = getelementptr [6 x ptr], ptr %9, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @__ieee80211_vht_handle_opmode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 poison), !range !27
+  %13 = tail call i32 @__ieee80211_vht_handle_opmode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 poison)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %23, label %15
 
@@ -1476,7 +1476,7 @@ define dso_local void @ieee80211_get_vht_mask_from_cap(i16 noundef zeroext %0, p
   store i16 %15, ptr %10, align 2
   %16 = add nuw nsw i64 %5, 1
   %17 = icmp eq i64 %16, 8
-  br i1 %17, label %18, label %4, !llvm.loop !28
+  br i1 %17, label %18, label %4, !llvm.loop !27
 
 18:                                               ; preds = %14
   ret void
@@ -1532,11 +1532,11 @@ attributes #13 = { cold nounwind }
 !9 = !{!"llvm.loop.unroll.disable"}
 !10 = distinct !{!10, !8, !9}
 !11 = distinct !{!11, !8, !9}
-!12 = !{i32 0, i32 5}
-!13 = !{!"branch_weights", i32 1, i32 2000}
-!14 = !{i64 2167318799, i64 2167318603, i64 2167318655, i64 2167318701, i64 2167318729}
-!15 = !{i64 2167318876, i64 2167318905, i64 2167318951, i64 2167319009, i64 2167319063, i64 2167319117, i64 2167319172, i64 2167319203, i64 2167319511, i64 2167319517, i64 2167319564, i64 2167319587, i64 2167319613}
-!16 = !{i64 2167320069, i64 2167319875, i64 2167319925, i64 2167319971, i64 2167319999}
+!12 = !{!"branch_weights", i32 1, i32 2000}
+!13 = !{i64 2167318799, i64 2167318603, i64 2167318655, i64 2167318701, i64 2167318729}
+!14 = !{i64 2167318876, i64 2167318905, i64 2167318951, i64 2167319009, i64 2167319063, i64 2167319117, i64 2167319172, i64 2167319203, i64 2167319511, i64 2167319517, i64 2167319564, i64 2167319587, i64 2167319613}
+!15 = !{i64 2167320069, i64 2167319875, i64 2167319925, i64 2167319971, i64 2167319999}
+!16 = !{i32 0, i32 5}
 !17 = !{i64 2167311841, i64 2167311645, i64 2167311697, i64 2167311743, i64 2167311771}
 !18 = !{i64 2167311918, i64 2167311947, i64 2167311993, i64 2167312051, i64 2167312105, i64 2167312159, i64 2167312214, i64 2167312245, i64 2167312553, i64 2167312559, i64 2167312606, i64 2167312629, i64 2167312655}
 !19 = !{i64 2167313111, i64 2167312917, i64 2167312967, i64 2167313013, i64 2167313041}
@@ -1547,5 +1547,4 @@ attributes #13 = { cold nounwind }
 !24 = !{i64 2167413499, i64 2167413303, i64 2167413355, i64 2167413401, i64 2167413429}
 !25 = !{i64 2167413576, i64 2167413605, i64 2167413651, i64 2167413709, i64 2167413763, i64 2167413817, i64 2167413872, i64 2167413903, i64 2167414211, i64 2167414217, i64 2167414264, i64 2167414287, i64 2167414313}
 !26 = !{i64 2167414769, i64 2167414575, i64 2167414625, i64 2167414671, i64 2167414699}
-!27 = !{i32 0, i32 16}
-!28 = distinct !{!28, !8, !9}
+!27 = distinct !{!27, !8, !9}

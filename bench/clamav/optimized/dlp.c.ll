@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [14 x i8] c"Discover 2009\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dlp_is_valid_cc(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [20 x i8], align 16
   %5 = icmp eq ptr %0, null
   %6 = icmp ult i64 %1, 13
@@ -328,7 +328,7 @@ define i32 @dlp_get_cc_count(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
 29:                                               ; preds = %22, %20
   %30 = ptrtoint ptr %.02532.i to i64
   %31 = sub i64 %.neg.i, %30
-  %32 = tail call i32 @dlp_is_valid_cc(ptr noundef nonnull %.02532.i, i64 noundef %31, i32 noundef %2), !range !4
+  %32 = tail call i32 @dlp_is_valid_cc(ptr noundef nonnull %.02532.i, i64 noundef %31, i32 noundef %2)
   %.not30.i = icmp eq i32 %32, 0
   br i1 %.not30.i, label %36, label %33
 
@@ -395,7 +395,7 @@ define noundef i32 @dlp_has_cc(ptr noundef %0, i64 noundef %1, i32 noundef %2) l
 26:                                               ; preds = %19, %17
   %27 = ptrtoint ptr %.02532.us.i to i64
   %28 = sub i64 %.neg.i, %27
-  %29 = tail call i32 @dlp_is_valid_cc(ptr noundef nonnull %.02532.us.i, i64 noundef %28, i32 noundef %2), !range !4
+  %29 = tail call i32 @dlp_is_valid_cc(ptr noundef nonnull %.02532.us.i, i64 noundef %28, i32 noundef %2)
   %.not30.us.i = icmp eq i32 %29, 0
   br i1 %.not30.us.i, label %30, label %contains_cc.exit
 
@@ -410,7 +410,7 @@ contains_cc.exit:                                 ; preds = %26, %30, %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dlp_is_valid_ssn(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dlp_is_valid_ssn(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -567,7 +567,7 @@ define i32 @dlp_get_stripped_ssn_count(ptr noundef %0, i64 noundef %1) local_unn
 25:                                               ; preds = %18, %16
   %26 = ptrtoint ptr %.02431.us.i to i64
   %27 = sub i64 %.neg.i, %26
-  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.us.i, i64 noundef %27, i32 noundef 1), !range !4
+  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.us.i, i64 noundef %27, i32 noundef 1)
   %.not29.us.i = icmp eq i32 %28, 0
   br i1 %.not29.us.i, label %32, label %29
 
@@ -635,7 +635,7 @@ define i32 @dlp_get_normal_ssn_count(ptr noundef %0, i64 noundef %1) local_unnam
 25:                                               ; preds = %18, %16
   %26 = ptrtoint ptr %.02431.us.i to i64
   %27 = sub i64 %.neg.i, %26
-  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.us.i, i64 noundef %27, i32 noundef 0), !range !4
+  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.us.i, i64 noundef %27, i32 noundef 0)
   %.not29.us.i = icmp eq i32 %28, 0
   br i1 %.not29.us.i, label %32, label %29
 
@@ -703,7 +703,7 @@ define i32 @dlp_get_ssn_count(ptr noundef %0, i64 noundef %1) local_unnamed_addr
 25:                                               ; preds = %18, %16
   %26 = ptrtoint ptr %.02431.us.i.i to i64
   %27 = sub i64 %.neg.i.i, %26
-  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.us.i.i, i64 noundef %27, i32 noundef 1), !range !4
+  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.us.i.i, i64 noundef %27, i32 noundef 1)
   %.not29.us.i.i = icmp eq i32 %28, 0
   br i1 %.not29.us.i.i, label %32, label %29
 
@@ -748,7 +748,7 @@ define i32 @dlp_get_ssn_count(ptr noundef %0, i64 noundef %1) local_unnamed_addr
 50:                                               ; preds = %43, %41
   %51 = ptrtoint ptr %.02431.us.i.i9 to i64
   %52 = sub i64 %.neg.i.i, %51
-  %53 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.us.i.i9, i64 noundef %52, i32 noundef 0), !range !4
+  %53 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.us.i.i9, i64 noundef %52, i32 noundef 0)
   %.not29.us.i.i14 = icmp eq i32 %53, 0
   br i1 %.not29.us.i.i14, label %57, label %54
 
@@ -817,7 +817,7 @@ define noundef i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_unnamed_ad
 25:                                               ; preds = %18, %16
   %26 = ptrtoint ptr %.02431.i to i64
   %27 = sub i64 %.neg.i, %26
-  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.i, i64 noundef %27, i32 noundef 0), !range !4
+  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.i, i64 noundef %27, i32 noundef 0)
   %.not29.i = icmp eq i32 %28, 0
   br i1 %.not29.i, label %29, label %.lr.ph.i5
 
@@ -858,7 +858,7 @@ define noundef i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_unnamed_ad
 47:                                               ; preds = %40, %38
   %48 = ptrtoint ptr %.02431.i8 to i64
   %49 = sub i64 %.neg.i, %48
-  %50 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.i8, i64 noundef %49, i32 noundef 1), !range !4
+  %50 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.i8, i64 noundef %49, i32 noundef 1)
   %.not29.i11 = icmp eq i32 %50, 0
   br i1 %.not29.i11, label %51, label %contains_ssn.exit12
 
@@ -920,7 +920,7 @@ define noundef i32 @dlp_has_stripped_ssn(ptr noundef %0, i64 noundef %1) local_u
 25:                                               ; preds = %18, %16
   %26 = ptrtoint ptr %.02431.i to i64
   %27 = sub i64 %.neg.i, %26
-  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.i, i64 noundef %27, i32 noundef 1), !range !4
+  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.i, i64 noundef %27, i32 noundef 1)
   %.not29.i = icmp eq i32 %28, 0
   br i1 %.not29.i, label %29, label %contains_ssn.exit
 
@@ -980,7 +980,7 @@ define noundef i32 @dlp_has_normal_ssn(ptr noundef %0, i64 noundef %1) local_unn
 25:                                               ; preds = %18, %16
   %26 = ptrtoint ptr %.02431.i to i64
   %27 = sub i64 %.neg.i, %26
-  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.i, i64 noundef %27, i32 noundef 0), !range !4
+  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.i, i64 noundef %27, i32 noundef 0)
   %.not29.i = icmp eq i32 %28, 0
   br i1 %.not29.i, label %29, label %contains_ssn.exit
 
@@ -995,7 +995,7 @@ contains_ssn.exit:                                ; preds = %25, %29, %2, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @is_bank_code_valid(i32 noundef %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @is_bank_code_valid(i32 noundef %0) local_unnamed_addr #5 {
   switch i32 %0, label %2 [
     i32 1, label %3
     i32 2, label %3
@@ -1043,7 +1043,7 @@ define noundef i32 @is_bank_code_valid(i32 noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @cdn_ctn_is_valid(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @cdn_ctn_is_valid(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ult i64 %1, 9
   %or.cond = or i1 %3, %4
@@ -1098,7 +1098,7 @@ define noundef i32 @cdn_ctn_is_valid(ptr noundef readonly %0, i64 noundef %1) lo
   br i1 %exitcond30.not, label %31, label %.preheader
 
 31:                                               ; preds = %26
-  %32 = tail call i32 @is_bank_code_valid(i32 noundef %30), !range !4
+  %32 = tail call i32 @is_bank_code_valid(i32 noundef %30)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %.preheader, %5, %2, %31
@@ -1107,7 +1107,7 @@ define noundef i32 @cdn_ctn_is_valid(ptr noundef readonly %0, i64 noundef %1) lo
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @cdn_eft_is_valid(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @cdn_eft_is_valid(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ult i64 %1, 9
   %or.cond = or i1 %3, %4
@@ -1145,7 +1145,7 @@ define noundef i32 @cdn_eft_is_valid(ptr noundef readonly %0, i64 noundef %1) lo
   br i1 %exitcond.not, label %22, label %9
 
 22:                                               ; preds = %17
-  %23 = tail call i32 @is_bank_code_valid(i32 noundef %21), !range !4
+  %23 = tail call i32 @is_bank_code_valid(i32 noundef %21)
   %.not19 = icmp eq i32 %23, 0
   br i1 %.not19, label %.loopexit, label %.preheader
 
@@ -1171,7 +1171,7 @@ define noundef i32 @cdn_eft_is_valid(ptr noundef readonly %0, i64 noundef %1) lo
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @us_micr_is_valid(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @us_micr_is_valid(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = alloca [9 x i8], align 1
   %4 = icmp eq ptr %0, null
   %5 = icmp ult i64 %1, 9
@@ -1276,4 +1276,3 @@ attributes #11 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

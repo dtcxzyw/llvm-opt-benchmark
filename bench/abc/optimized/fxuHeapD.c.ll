@@ -57,7 +57,7 @@ define void @Fxu_HeapDoublePrint(ptr nocapture noundef %0, ptr nocapture noundef
 
 8:                                                ; preds = %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %9 = trunc i64 %indvars.iv.next.i to i32
+  %9 = trunc nuw i64 %indvars.iv.next.i to i32
   store i32 %9, ptr %3, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Fxu_HeapDoubleCheck.exit, label %10, !llvm.loop !4
@@ -93,7 +93,7 @@ Fxu_HeapDoubleCheck.exit:                         ; preds = %8, %10, %2
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %25, i32 noundef %24) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = shl nuw i32 1, %.028
@@ -139,7 +139,7 @@ define void @Fxu_HeapDoubleCheck(ptr nocapture noundef %0) local_unnamed_addr #5
 
 7:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = trunc i64 %indvars.iv.next to i32
+  %8 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %8, ptr %2, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !4

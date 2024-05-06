@@ -44,7 +44,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tls_alert_re
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_tls_alert_recv1114, ptr @__UNIQUE_ID___addressable_tls_get_record_type1113, ptr @trace_tls_alert_recv.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1104, ptr @trace_tls_alert_recv.__UNIQUE_ID___addressable___SCK__tp_func_tls_alert_recv1103, ptr @trace_tls_alert_send.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1090, ptr @trace_tls_alert_send.__UNIQUE_ID___addressable___SCK__tp_func_tls_alert_send1089, ptr @trace_tls_contenttype.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1076, ptr @trace_tls_contenttype.__UNIQUE_ID___addressable___SCK__tp_func_tls_contenttype1075], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tls_alert_send(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @tls_alert_send(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = alloca [24 x i8], align 16
   %5 = alloca %struct.msghdr, align 8
   %6 = alloca %struct.kvec, align 8

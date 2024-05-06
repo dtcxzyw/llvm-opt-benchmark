@@ -336,7 +336,7 @@ define void @Mio_LibrarySetName(ptr nocapture noundef %0, ptr noundef %1) local_
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Mio_LibraryReadGateNameMax(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, -2147483648) i32 @Mio_LibraryReadGateNameMax(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %.09 = load ptr, ptr %2, align 8
   %.not10 = icmp eq ptr %.09, null
@@ -670,7 +670,7 @@ define void @Mio_GateAddToProfile2(ptr nocapture noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Mio_GateIsInv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Mio_GateIsInv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 6148914691236517205

@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.OSSL_CMP_print_to_bio = private unnamed_addr constant [6 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @OSSL_CMP_log_open() local_unnamed_addr #0 {
+define noundef i32 @OSSL_CMP_log_open() local_unnamed_addr #0 {
 entry:
   ret i32 1
 }
@@ -69,7 +69,7 @@ cond.end:                                         ; preds = %entry
 if.then:                                          ; preds = %cond.end
   %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 1
   %call2 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr, i32 noundef 58) #7
-  %call3 = tail call fastcc i32 @parse_level(ptr noundef nonnull %buf), !range !4
+  %call3 = tail call fastcc i32 @parse_level(ptr noundef nonnull %buf)
   store i32 %call3, ptr %level, align 4
   %cmp4 = icmp slt i32 %call3, 0
   %cmp5 = icmp ne ptr %call2, null
@@ -91,7 +91,7 @@ land.lhs.true10:                                  ; preds = %if.then6
   br i1 %cmp12, label %if.then14, label %if.end39
 
 if.then14:                                        ; preds = %land.lhs.true10
-  %call15 = tail call fastcc i32 @parse_level(ptr noundef nonnull %incdec.ptr11), !range !4
+  %call15 = tail call fastcc i32 @parse_level(ptr noundef nonnull %incdec.ptr11)
   store i32 %call15, ptr %level, align 4
   %cmp16 = icmp sgt i32 %call15, -1
   br i1 %cmp16, label %if.then18, label %if.end39
@@ -130,7 +130,7 @@ if.end39:                                         ; preds = %cond.end.thread, %l
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_level(ptr noundef %level) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 8) i32 @parse_level(ptr noundef %level) unnamed_addr #1 {
 entry:
   %level_copy = alloca [6 x i8], align 1
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %level, i32 noundef 58) #7
@@ -205,7 +205,7 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 declare noalias ptr @CRYPTO_strndup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CMP_print_to_bio(ptr noundef %bio, ptr nocapture noundef readnone %component, ptr nocapture noundef readnone %file, i32 noundef %line, i32 noundef %level, ptr noundef %msg) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_print_to_bio(ptr noundef %bio, ptr nocapture noundef readnone %component, ptr nocapture noundef readnone %file, i32 noundef %line, i32 noundef %level, ptr noundef %msg) local_unnamed_addr #1 {
 entry:
   %0 = icmp ult i32 %level, 6
   br i1 %0, label %switch.lookup, label %cond.false15
@@ -275,7 +275,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   br i1 %cmp3.i, label %improve_location_name.exit, label %lor.lhs.false5.i
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.18) #7
+  %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.18) #7
   %cmp6.i = icmp eq i32 %call.i, 0
   %spec.select.i = select i1 %cmp6.i, ptr %call1, ptr %0
   br label %improve_location_name.exit
@@ -348,7 +348,7 @@ if.else42:                                        ; preds = %if.end30
 if.end49:                                         ; preds = %if.else42, %if.then33, %if.then37
   %call = call i64 @ERR_get_error_all(ptr noundef nonnull %file, ptr noundef nonnull %line, ptr noundef nonnull %func, ptr noundef nonnull %data, ptr noundef nonnull %flags) #6
   %cmp.not = icmp eq i64 %call, 0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !5
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end49, %if.else42, %entry
   ret void
@@ -369,7 +369,7 @@ declare ptr @BIO_new_fp(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_X509_STORE_add1_certs(ptr noundef %store, ptr noundef %certs, i32 noundef %only_self_signed) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cmp_X509_STORE_add1_certs(ptr noundef %store, ptr noundef %certs, i32 noundef %only_self_signed) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %store, null
   br i1 %cmp, label %if.then, label %if.end
@@ -404,7 +404,7 @@ for.inc.us:                                       ; preds = %for.body.us
   %inc.us = add nuw nsw i32 %i.09.us, 1
   %call4.us = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %certs) #6
   %cmp5.us = icmp slt i32 %inc.us, %call4.us
-  br i1 %cmp5.us, label %for.body.us, label %return, !llvm.loop !7
+  br i1 %cmp5.us, label %for.body.us, label %return, !llvm.loop !6
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.09 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
@@ -422,7 +422,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   %inc = add nuw nsw i32 %i.09, 1
   %call4 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %certs) #6
   %cmp5 = icmp slt i32 %inc, %call4
-  br i1 %cmp5, label %for.body, label %return, !llvm.loop !7
+  br i1 %cmp5, label %for.body, label %return, !llvm.loop !6
 
 return:                                           ; preds = %if.then10, %for.inc, %for.body.us, %for.inc.us, %for.cond.preheader, %if.end, %if.then
   %retval.0 = phi i32 [ 0, %if.then ], [ 1, %if.end ], [ 1, %for.cond.preheader ], [ 0, %for.body.us ], [ 1, %for.inc.us ], [ 0, %if.then10 ], [ 1, %for.inc ]
@@ -444,7 +444,7 @@ declare i32 @X509_self_signed(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @X509_STORE_add_cert(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_sk_ASN1_UTF8STRING_push_str(ptr noundef %sk, ptr noundef %text, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cmp_sk_ASN1_UTF8STRING_push_str(ptr noundef %sk, ptr noundef %text, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ne ptr %sk, null
   %cmp1 = icmp ne ptr %text, null
@@ -484,7 +484,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @ASN1_UTF8STRING_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_asn1_octet_string_set1(ptr noundef %tgt, ptr noundef %src) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cmp_asn1_octet_string_set1(ptr noundef %tgt, ptr noundef %src) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %tgt, null
   br i1 %cmp, label %if.then, label %if.end
@@ -530,7 +530,7 @@ declare ptr @ASN1_OCTET_STRING_dup(ptr noundef) local_unnamed_addr #2
 declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_asn1_octet_string_set1_bytes(ptr noundef %tgt, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cmp_asn1_octet_string_set1_bytes(ptr noundef %tgt, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %tgt, null
   br i1 %cmp, label %if.then, label %if.end
@@ -601,7 +601,6 @@ attributes #7 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 8}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

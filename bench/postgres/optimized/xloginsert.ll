@@ -459,7 +459,7 @@ define dso_local void @XLogSetRecordFlags(i8 noundef zeroext %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @XLogInsert(i8 noundef zeroext %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %union.PGAlignedBlock, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
@@ -1234,7 +1234,7 @@ BufferGetPage.exit:                               ; preds = %BufferGetBlock.exit
 XLogRegisterBlock.exit:                           ; preds = %36
   %41 = load ptr, ptr @registered_buffers, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %42, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %42, ptr noundef nonnull readonly align 4 dereferenceable(12) %4, i64 12, i1 false)
   %43 = getelementptr inbounds i8, ptr %41, i64 16
   store i32 %32, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %41, i64 20
@@ -1249,7 +1249,7 @@ XLogRegisterBlock.exit:                           ; preds = %36
   %49 = getelementptr inbounds i8, ptr %41, i64 32
   store i32 0, ptr %49, align 8
   store i8 1, ptr %41, align 8
-  %50 = call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -96), !range !10
+  %50 = call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -96)
   br label %51
 
 51:                                               ; preds = %XLogRegisterBlock.exit, %2
@@ -1262,7 +1262,7 @@ declare i64 @GetRedoRecPtr() local_unnamed_addr #1
 declare i64 @BufferGetLSNAtomic(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @log_newpage(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local range(i64 1, 0) i64 @log_newpage(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %spec.select = select i1 %4, i8 9, i8 1
   tail call void @XLogBeginInsert()
   %6 = load i32, ptr @max_registered_block_id, align 4
@@ -1288,7 +1288,7 @@ define dso_local i64 @log_newpage(ptr nocapture noundef readonly %0, i32 noundef
 XLogRegisterBlock.exit:                           ; preds = %8
   %13 = load ptr, ptr @registered_buffers, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull readonly align 4 dereferenceable(12) %0, i64 12, i1 false)
   %15 = getelementptr inbounds i8, ptr %13, i64 16
   store i32 %1, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 20
@@ -1303,7 +1303,7 @@ XLogRegisterBlock.exit:                           ; preds = %8
   %21 = getelementptr inbounds i8, ptr %13, i64 32
   store i32 0, ptr %21, align 8
   store i8 1, ptr %13, align 8
-  %22 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80), !range !10
+  %22 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80)
   %23 = getelementptr i8, ptr %3, i64 14
   %.val = load i16, ptr %23, align 2
   %24 = icmp eq i16 %.val, 0
@@ -1400,7 +1400,7 @@ XLogEnsureRecordSpace.exit:                       ; preds = %38, %41
 
 .loopexit:                                        ; preds = %93, %78
   %46 = icmp slt i32 %80, %2
-  br i1 %46, label %.lr.ph36, label %._crit_edge, !llvm.loop !11
+  br i1 %46, label %.lr.ph36, label %._crit_edge, !llvm.loop !10
 
 .lr.ph36:                                         ; preds = %.lr.ph36.preheader, %.loopexit
   %.02835 = phi i32 [ %80, %.loopexit ], [ 0, %.lr.ph36.preheader ]
@@ -1446,7 +1446,7 @@ XLogEnsureRecordSpace.exit:                       ; preds = %38, %41
 XLogRegisterBlock.exit:                           ; preds = %61
   %66 = getelementptr %struct.registered_buffer, ptr %48, i64 %indvars.iv
   %67 = getelementptr inbounds i8, ptr %66, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %67, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %67, ptr noundef nonnull readonly align 4 dereferenceable(12) %0, i64 12, i1 false)
   %68 = getelementptr inbounds i8, ptr %66, i64 16
   store i32 %1, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %66, i64 20
@@ -1466,12 +1466,12 @@ XLogRegisterBlock.exit:                           ; preds = %61
   %75 = icmp ult i64 %indvars.iv, 31
   %76 = icmp slt i64 %indvars.iv.next39, %45
   %77 = select i1 %75, i1 %76, i1 false
-  br i1 %77, label %51, label %78, !llvm.loop !12
+  br i1 %77, label %51, label %78, !llvm.loop !11
 
 78:                                               ; preds = %XLogRegisterBlock.exit
   %79 = trunc nsw i64 %indvars.iv38 to i32
   %80 = trunc nsw i64 %indvars.iv.next39 to i32
-  %81 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80), !range !10
+  %81 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80)
   %.not = icmp sgt i32 %.02835, %79
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -1501,14 +1501,14 @@ XLogRegisterBlock.exit:                           ; preds = %61
 93:                                               ; preds = %86, %91
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %94 = icmp slt i64 %indvars.iv43, %85
-  br i1 %94, label %86, label %.loopexit, !llvm.loop !13
+  br i1 %94, label %86, label %.loopexit, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit, %XLogEnsureRecordSpace.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @log_newpage_buffer(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local range(i64 1, 0) i64 @log_newpage_buffer(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.RelFileLocator, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1536,7 +1536,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   call void @BufferGetTag(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %19 = load i32, ptr %4, align 4
   %20 = load i32, ptr %5, align 4
-  %21 = call i64 @log_newpage(ptr noundef nonnull %3, i32 noundef %19, i32 noundef %20, ptr noundef %.0.i.i, i1 noundef zeroext %1), !range !10
+  %21 = call i64 @log_newpage(ptr noundef nonnull %3, i32 noundef %19, i32 noundef %20, ptr noundef %.0.i.i, i1 noundef zeroext %1)
   ret i64 %21
 }
 
@@ -1675,7 +1675,7 @@ BufferGetPage.exit:                               ; preds = %51, %57
   %72 = icmp slt i32 %.132, 32
   %73 = icmp ult i32 %71, %3
   %74 = select i1 %72, i1 %73, i1 false
-  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %70
   %75 = icmp eq i32 %.132, 0
@@ -1690,7 +1690,7 @@ BufferGetPage.exit:                               ; preds = %51, %57
   br i1 %79, label %.lr.ph44.preheader, label %._crit_edge45.thread
 
 ._crit_edge45.thread:                             ; preds = %76
-  %80 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80), !range !10
+  %80 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80)
   br label %._crit_edge49
 
 .lr.ph44.preheader:                               ; preds = %76
@@ -1766,10 +1766,10 @@ XLogRegisterBuffer.exit:                          ; preds = %101, %107
   store i8 1, ptr %96, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge45, label %.lr.ph44, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge45, label %.lr.ph44, !llvm.loop !14
 
 ._crit_edge45:                                    ; preds = %XLogRegisterBuffer.exit
-  %118 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80), !range !10
+  %118 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -80)
   br i1 %79, label %.lr.ph48, label %._crit_edge49
 
 .lr.ph48:                                         ; preds = %._crit_edge45
@@ -1810,14 +1810,14 @@ BufferGetPage.exit38:                             ; preds = %126, %132
   tail call void @UnlockReleaseBuffer(i32 noundef %124) #10
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge49, label %122, !llvm.loop !16
+  br i1 %exitcond59.not, label %._crit_edge49, label %122, !llvm.loop !15
 
 ._crit_edge49:                                    ; preds = %BufferGetPage.exit38, %._crit_edge45.thread, %._crit_edge45
   %139 = load volatile i32, ptr @CritSectionCount, align 4
   %140 = add i32 %139, -1
   store volatile i32 %140, ptr @CritSectionCount, align 4
   %141 = icmp ult i32 %71, %3
-  br i1 %141, label %.lr.ph51, label %._crit_edge52, !llvm.loop !17
+  br i1 %141, label %.lr.ph51, label %._crit_edge52, !llvm.loop !16
 
 ._crit_edge52:                                    ; preds = %47, %._crit_edge49, %._crit_edge, %XLogEnsureRecordSpace.exit
   ret void
@@ -1941,11 +1941,10 @@ attributes #11 = { cold nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i64 1, i64 0}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}

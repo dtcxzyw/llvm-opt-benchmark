@@ -642,7 +642,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_solaredge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65558) i32 @dissect_solaredge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #5
   %6 = load i32, ptr @proto_solaredge, align 4
   %7 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %5, i32 noundef %6) #5
@@ -688,7 +688,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_solaredge_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i16, align 2
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -779,9 +779,9 @@ define internal fastcc i32 @dissect_solaredge_recursive(ptr noundef %0, ptr noun
   %69 = tail call noalias ptr @wmem_alloc(ptr noundef %67, i64 noundef %68) #5
   %70 = tail call ptr @wmem_packet_scope() #5
   %71 = tail call noalias ptr @wmem_alloc(ptr noundef %70, i64 noundef %68) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(16) %63, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull readonly align 1 dereferenceable(16) %63, i64 16, i1 false)
   %72 = getelementptr i8, ptr %63, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %72, i64 %68, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr readonly align 1 %72, i64 %68, i1 false)
   %73 = call i32 @gcry_cipher_encrypt(ptr noundef %65, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %11, i64 noundef 16) #5
   %74 = icmp ugt i16 %23, 16
   br i1 %74, label %.lr.ph.preheader.i, label %solaredge_decrypt.exit

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_revoke_init() local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @ompi_comm_revoke_init() local_unnamed_addr #0 {
   %1 = tail call i32 @ompi_comm_rbcast_register_cb_type(ptr noundef nonnull @ompi_comm_revoke_local) #2
   %2 = icmp sgt i32 %1, -1
   br i1 %2, label %3, label %4
@@ -29,7 +29,7 @@ define i32 @ompi_comm_revoke_init() local_unnamed_addr #0 {
 declare i32 @ompi_comm_rbcast_register_cb_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ompi_comm_revoke_local(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @ompi_comm_revoke_local(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 361
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1

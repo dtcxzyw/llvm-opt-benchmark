@@ -144,7 +144,7 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly %1, double noundef %2) lo
   %82 = load ptr, ptr %57, align 8
   %83 = load ptr, ptr %58, align 8
   %84 = load ptr, ptr %59, align 8
-  %85 = trunc i64 %indvars.iv263 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv263 to i32
   br i1 %.not217, label %89, label %86
 
 86:                                               ; preds = %80

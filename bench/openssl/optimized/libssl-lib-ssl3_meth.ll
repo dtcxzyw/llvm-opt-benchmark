@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ssl3_pad_2 = internal constant [48 x i8] c"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\", align 16
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssl3_set_crypto_state(ptr noundef %rl, i32 %level, ptr noundef %key, i64 %keylen, ptr noundef %iv, i64 %ivlen, ptr nocapture noundef readonly %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 %taglen, i32 %mactype, ptr noundef %md, ptr noundef %comp) #0 {
+define internal range(i32 -2, 2) i32 @ssl3_set_crypto_state(ptr noundef %rl, i32 %level, ptr noundef %key, i64 %keylen, ptr noundef %iv, i64 %ivlen, ptr nocapture noundef readonly %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 %taglen, i32 %mactype, ptr noundef %md, ptr noundef %comp) #0 {
 entry:
   %direction = getelementptr inbounds i8, ptr %rl, i64 28
   %0 = load i32, ptr %direction, align 4
@@ -268,7 +268,7 @@ return:                                           ; preds = %if.then48, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ssl3_mac(ptr noundef %rl, ptr nocapture noundef readonly %rec, ptr noundef %md, i32 noundef %sending) #0 {
+define internal range(i32 0, 2) i32 @ssl3_mac(ptr noundef %rl, ptr nocapture noundef readonly %rec, ptr noundef %md, i32 noundef %sending) #0 {
 entry:
   %rec_char = alloca i8, align 1
   %md_size = alloca i64, align 8

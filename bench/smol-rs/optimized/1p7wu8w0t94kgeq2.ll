@@ -367,7 +367,7 @@ define hidden void @_ZN3std6thread7Builder16spawn_unchecked_17hef5cea9761198ae6E
   %23 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   %24 = load i64, ptr %1, align 8, !range !13, !noundef !5
-  %trunc = trunc i64 %24 to i1
+  %trunc = trunc nuw i64 %24 to i1
   br i1 %trunc, label %27, label %25
 
 25:                                               ; preds = %3
@@ -414,7 +414,7 @@ _ZN4core3ops8function6FnOnce9call_once17hae4bab4817340d33E.exit: ; preds = %25, 
 
 37:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull readonly align 8 dereferenceable(32) %10, i64 32, i1 false)
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.d9dca68437048593c2e97c9a831dc069.0, i64 noundef 47, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d9dca68437048593c2e97c9a831dc069.17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d9dca68437048593c2e97c9a831dc069.2) #16
           to label %40 unwind label %38, !noalias !14
 
@@ -657,7 +657,7 @@ _ZN4core3ops8function6FnOnce9call_once17hae4bab4817340d33E.exit: ; preds = %25, 
 
 115:                                              ; preds = %114
   %116 = load i64, ptr %12, align 8, !range !13, !noundef !5
-  %trunc48 = trunc i64 %116 to i1
+  %trunc48 = trunc nuw i64 %116 to i1
   %117 = getelementptr inbounds i8, ptr %12, i64 8
   %118 = load ptr, ptr %117, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -1823,7 +1823,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$concurrent_queue..PushError$LT$T$GT
   %3 = alloca { i64, ptr, i8, i8, [6 x i8] }, align 8
   %4 = alloca { i64, ptr, i8, i8, [6 x i8] }, align 8
   %5 = load i64, ptr %0, align 8, !range !13, !noundef !5
-  %trunc = trunc i64 %5 to i1
+  %trunc = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %trunc, label %10, label %7
 

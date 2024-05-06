@@ -129,11 +129,11 @@ $_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE17_M_realloc_insertIJRS1_EE
 @.str.35 = private unnamed_addr constant [22 x i8] c"fdn->already_shutdown\00", align 1
 @.str.36 = private unnamed_addr constant [46 x i8] c"(c-ares resolver) request:%p Ref ev_driver %p\00", align 1
 @.str.37 = private unnamed_addr constant [94 x i8] c"(c-ares resolver) request:%p ev_driver=%p on_timeout_locked. driver->shutting_down=%d. err=%s\00", align 1
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.38 = private unnamed_addr constant [81 x i8] c"(c-ares resolver) request:%p ev_driver=%p. next ares process poll time in %ld ms\00", align 1
 @.str.39 = private unnamed_addr constant [109 x i8] c"(c-ares resolver) request:%p ev_driver=%p on_ares_backup_poll_alarm_locked. driver->shutting_down=%d. err=%s\00", align 1
 @.str.40 = private unnamed_addr constant [99 x i8] c"(c-ares resolver) request:%p ev_driver=%p on_ares_backup_poll_alarm_locked; ares_process_fd. fd=%s\00", align 1
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.41 = private unnamed_addr constant [64 x i8] c"(c-ares resolver) request:%p c-ares address sorting: %s[%lu]=%s\00", align 1
 @.str.42 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
 @.str.44 = private unnamed_addr constant [43 x i8] c"Unable to split host and port for name: %s\00", align 1
@@ -5837,7 +5837,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #23
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i33
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i36
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt16allocator_traitsISaIN9grpc_core17EndpointAddressesEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr) #23
@@ -5849,11 +5849,11 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i33:                                      ; preds = %lpad
+if.then.i36:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #24
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %if.then.i33, %if.end.thread
+invoke.cont21:                                    ; preds = %if.then.i36, %if.end.thread
   invoke void @__cxa_rethrow() #22
           to label %unreachable unwind label %lpad19
 
@@ -6091,7 +6091,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #23
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i33
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i36
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt16allocator_traitsISaIN9grpc_core17EndpointAddressesEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr) #23
@@ -6103,11 +6103,11 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i33:                                      ; preds = %lpad
+if.then.i36:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #24
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %if.then.i33, %if.end.thread
+invoke.cont21:                                    ; preds = %if.then.i36, %if.end.thread
   invoke void @__cxa_rethrow() #22
           to label %unreachable unwind label %lpad19
 
@@ -6238,7 +6238,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #23
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i33
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i36
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt16allocator_traitsISaIN9grpc_core17EndpointAddressesEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr) #23
@@ -6250,11 +6250,11 @@ lpad17:                                           ; preds = %invoke.cont19
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i33:                                      ; preds = %lpad
+if.then.i36:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #24
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i33, %if.end.thread
+invoke.cont19:                                    ; preds = %if.then.i36, %if.end.thread
   invoke void @__cxa_rethrow() #22
           to label %unreachable unwind label %lpad17
 

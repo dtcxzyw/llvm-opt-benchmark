@@ -780,7 +780,7 @@ for.body.i:                                       ; preds = %invoke.cont1, %for.
   %2 = load i8, ptr %__first.sroa.0.06.i, align 1
   %3 = add i8 %2, -65
   %or.cond.i.i.i = icmp ult i8 %3, 26
-  %add.i.i.i = add i8 %2, 32
+  %add.i.i.i = add nuw nsw i8 %2, 32
   %cond.i.i.i = select i1 %or.cond.i.i.i, i8 %add.i.i.i, i8 %2
   store i8 %cond.i.i.i, ptr %__result.sroa.0.07.i, align 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i, i64 1

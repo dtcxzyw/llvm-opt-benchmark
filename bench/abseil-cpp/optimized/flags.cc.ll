@@ -680,13 +680,13 @@ invoke.cont11.i:                                  ; preds = %invoke.cont7.i
   %sub.i.i = sub i64 %4, %add.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %add.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i.i)
-  %call.i.i6.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %sub.i.i, ptr nonnull %add.ptr.i.i, ptr noundef nonnull %val.i.i.i, i32 noundef 10)
+  %call.i.i7.i = invoke noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %sub.i.i, ptr nonnull %add.ptr.i.i, ptr noundef nonnull %val.i.i.i, i32 noundef 10)
           to label %invoke.cont13.i unwind label %lpad.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont11.i
   %6 = load i32, ptr %val.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i.i)
-  br i1 %call.i.i6.i, label %if.end17.i, label %if.then15.invoke.i
+  br i1 %call.i.i7.i, label %if.end17.i, label %if.then15.invoke.i
 
 if.then15.invoke.i:                               ; preds = %invoke.cont13.i, %if.end.i, %_ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKNS_14flags_internal4FlagIS7_EE.exit.i
   invoke void @_ZN4absl25ClearLogBacktraceLocationEv()

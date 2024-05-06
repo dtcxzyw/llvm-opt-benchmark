@@ -226,7 +226,7 @@ if.end44:                                         ; preds = %if.end37
   br i1 %cmp62, label %if.then64, label %do.cond
 
 if.then64:                                        ; preds = %if.end44
-  %call65 = tail call fastcc i32 @block_out(ptr noundef %b), !range !7
+  %call65 = tail call fastcc i32 @block_out(ptr noundef %b)
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %if.then67, label %do.cond
 
@@ -236,7 +236,7 @@ if.then67:                                        ; preds = %if.then64
 
 do.cond:                                          ; preds = %if.end44, %if.then64
   %cmp70 = icmp sgt i32 %sub60, 0
-  br i1 %cmp70, label %do.body, label %do.end, !llvm.loop !8
+  br i1 %cmp70, label %do.body, label %do.end, !llvm.loop !7
 
 do.end:                                           ; preds = %do.cond
   tail call void @BIO_clear_flags(ptr noundef %b, i32 noundef 15) #8
@@ -575,7 +575,7 @@ if.end78:                                         ; preds = %block_in.exit.threa
   %cmp79 = icmp sgt i32 %33, 0
   %cmp9 = icmp sgt i32 %outl.addr.177, 0
   %or.cond1 = and i1 %cmp9, %cmp79
-  br i1 %or.cond1, label %while.body, label %while.end, !llvm.loop !9
+  br i1 %or.cond1, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end78, %if.end47, %if.end43, %while.cond
   %ret.2 = phi i32 [ 0, %while.cond ], [ %ret.176, %if.end78 ], [ %ret.176, %if.end47 ], [ %add, %if.end43 ]
@@ -653,14 +653,14 @@ sw.bb14:                                          ; preds = %entry
   br i1 %cmp16, label %if.then17, label %while.cond.preheader
 
 if.then17:                                        ; preds = %sw.bb14
-  %call18 = tail call fastcc i32 @block_out(ptr noundef %b), !range !7
+  %call18 = tail call fastcc i32 @block_out(ptr noundef %b)
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.then17
   %.pr.pre = load i32, ptr %blockout15, align 8
   %5 = icmp eq i32 %.pr.pre, 0
-  br i1 %5, label %while.end, label %while.cond.preheader, !llvm.loop !10
+  br i1 %5, label %while.end, label %while.cond.preheader, !llvm.loop !9
 
 while.cond.preheader:                             ; preds = %sw.bb14, %if.end22
   br label %while.cond
@@ -723,7 +723,7 @@ return:                                           ; preds = %sw.bb, %while.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ok_new(ptr noundef %bi) #2 {
+define internal range(i32 0, 2) i32 @ok_new(ptr noundef %bi) #2 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 4352, ptr noundef nonnull @.str.2, i32 noundef 135) #8
   %cmp = icmp eq ptr %call, null
@@ -755,7 +755,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ok_free(ptr noundef %a) #2 {
+define internal range(i32 0, 2) i32 @ok_free(ptr noundef %a) #2 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end
@@ -809,7 +809,7 @@ declare i32 @BIO_test_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @block_out(ptr noundef %b) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @block_out(ptr noundef %b) unnamed_addr #2 {
 entry:
   %call = tail call ptr @BIO_get_data(ptr noundef %b) #8
   %md1 = getelementptr inbounds i8, ptr %call, i64 40
@@ -934,7 +934,6 @@ attributes #8 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

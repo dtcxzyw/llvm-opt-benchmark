@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.UriIp4ParserStruct = type { i8, i8, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriParseIpFourAddressA(ptr noundef %octetOutput, ptr noundef %first, ptr noundef %afterLast) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @uriParseIpFourAddressA(ptr noundef %octetOutput, ptr noundef %first, ptr noundef %afterLast) local_unnamed_addr #0 {
 entry:
   %parser = alloca %struct.UriIp4ParserStruct, align 1
   %cmp = icmp ne ptr %octetOutput, null
@@ -214,7 +214,7 @@ return:                                           ; preds = %sw.bb.i30, %if.end.
 declare void @uriStackToOctet(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriParseIpFourAddressW(ptr noundef %octetOutput, ptr noundef %first, ptr noundef %afterLast) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @uriParseIpFourAddressW(ptr noundef %octetOutput, ptr noundef %first, ptr noundef %afterLast) local_unnamed_addr #0 {
 entry:
   %parser = alloca %struct.UriIp4ParserStruct, align 1
   %cmp = icmp ne ptr %octetOutput, null
@@ -323,7 +323,7 @@ if.end.i:                                         ; preds = %sw.bb1
   br i1 %switch.i, label %sw.bb.i, label %return
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %2 = trunc i32 %1 to i8
+  %2 = trunc nuw i32 %1 to i8
   %conv.i = add nsw i8 %2, -48
   tail call void @uriPushToStack(ptr noundef %parser, i8 noundef zeroext %conv.i) #2
   %add.ptr.i = getelementptr inbounds i8, ptr %first, i64 8
@@ -337,7 +337,7 @@ if.end.i.i:                                       ; preds = %sw.bb.i
   br i1 %switch.i.i, label %sw.bb.i.i, label %return
 
 sw.bb.i.i:                                        ; preds = %if.end.i.i
-  %4 = trunc i32 %3 to i8
+  %4 = trunc nuw i32 %3 to i8
   %conv.i.i = add nsw i8 %4, -48
   tail call void @uriPushToStack(ptr noundef %parser, i8 noundef zeroext %conv.i.i) #2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %first, i64 12
@@ -414,7 +414,7 @@ if.end.i28:                                       ; preds = %sw.bb6
   br i1 %switch.i30, label %sw.bb.i31, label %return
 
 sw.bb.i31:                                        ; preds = %if.end.i28
-  %12 = trunc i32 %11 to i8
+  %12 = trunc nuw i32 %11 to i8
   %conv.i32 = add nsw i8 %12, -48
   tail call void @uriPushToStack(ptr noundef %parser, i8 noundef zeroext %conv.i32) #2
   %add.ptr.i33 = getelementptr inbounds i8, ptr %first, i64 8

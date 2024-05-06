@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [8 x i8] c"[stack]\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @pmix_vmem_find_hole(i32 noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pmix_vmem_find_hole(i32 noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [96 x i8], align 16
   %6 = tail call noalias ptr @fopen(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1)

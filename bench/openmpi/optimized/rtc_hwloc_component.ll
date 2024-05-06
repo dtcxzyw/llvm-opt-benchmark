@@ -32,7 +32,7 @@ define internal noundef i32 @rtc_hwloc_query(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rtc_hwloc_register() #1 {
+define internal range(i32 -1, 1) i32 @rtc_hwloc_register() #1 {
   store i32 70, ptr @my_priority, align 4
   %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_rtc_hwloc_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef nonnull @my_priority) #4
   store i32 3, ptr getelementptr inbounds (%struct.prte_mca_rtc_hwloc_component_t, ptr @prte_mca_rtc_hwloc_component, i64 0, i32 1), align 8

@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [26 x i8] c"The LUT size is too small\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CreateDecomposedNetwork(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CreateDecomposedNetwork(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.timespec, align 8
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.timespec, align 8
@@ -147,7 +147,7 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %31, %29
   br i1 %.not, label %26, label %.preheader312, !llvm.loop !6
 
 .preheader312:                                    ; preds = %47
-  %57 = trunc i64 %indvars.iv.next to i32
+  %57 = trunc nuw i64 %indvars.iv.next to i32
   %58 = icmp sgt i32 %25, 0
   br i1 %58, label %.lr.ph, label %._crit_edge
 
@@ -260,7 +260,7 @@ Abc_Base2Log.exit:                                ; preds = %.lr.ph.i, %31, %29
 123:                                              ; preds = %.lr.ph323, %123
   %indvars.iv366 = phi i64 [ 0, %.lr.ph323 ], [ %indvars.iv.next367, %123 ]
   %124 = load i32, ptr %74, align 4
-  %125 = trunc i64 %indvars.iv366 to i32
+  %125 = trunc nuw nsw i64 %indvars.iv366 to i32
   %126 = add nsw i32 %124, %125
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds i32, ptr %122, i64 %127
@@ -429,7 +429,7 @@ Abc_Clock.exit292:                                ; preds = %Abc_Clock.exit290, 
 .lr.ph331:                                        ; preds = %._crit_edge328, %.lr.ph331
   %indvars.iv374 = phi i64 [ %indvars.iv.next375, %.lr.ph331 ], [ 0, %._crit_edge328 ]
   %228 = getelementptr inbounds [1024 x i32], ptr @CreateDecomposedNetwork.Permute, i64 0, i64 %indvars.iv374
-  %229 = trunc i64 %indvars.iv374 to i32
+  %229 = trunc nuw nsw i64 %indvars.iv374 to i32
   store i32 %229, ptr %228, align 4
   %indvars.iv.next375 = add nuw nsw i64 %indvars.iv374, 1
   %230 = load i32, ptr %69, align 8
@@ -753,7 +753,7 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr nocapture
   %indvars.iv126 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next127, %._crit_edge103 ]
   %15 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv126
   %16 = load ptr, ptr %15, align 8
-  %17 = trunc i64 %indvars.iv126 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv126 to i32
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %17) #9
   %.not = icmp ne i64 %indvars.iv126, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %16, i64 4
@@ -769,7 +769,7 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr nocapture
 
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @WriteLUTSintoBLIFfile.Buffer, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %21, i32 noundef %23) #9
   %25 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull @WriteLUTSintoBLIFfile.Buffer) #9
   %26 = load ptr, ptr %11, align 8
@@ -807,7 +807,7 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr nocapture
 
 .lr.ph93.split.us:                                ; preds = %.lr.ph93, %.lr.ph93.split.us
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.lr.ph93.split.us ], [ 0, %.lr.ph93 ]
-  %42 = trunc i64 %indvars.iv114 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv114 to i32
   %43 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @WriteLUTSintoBLIFfile.Buffer, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %10, i32 noundef %42) #9
   %44 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull @.str.16) #9
   %45 = getelementptr inbounds [1024 x ptr], ptr @WriteLUTSintoBLIFfile.pNamesLocalOut, i64 0, i64 %indvars.iv114
@@ -848,7 +848,7 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr nocapture
 
 .lr.ph93.split:                                   ; preds = %.lr.ph93, %.lr.ph93.split
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.lr.ph93.split ], [ 0, %.lr.ph93 ]
-  %73 = trunc i64 %indvars.iv111 to i32
+  %73 = trunc nuw nsw i64 %indvars.iv111 to i32
   %74 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @WriteLUTSintoBLIFfile.Buffer, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %17, i32 noundef %73) #9
   %75 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull @WriteLUTSintoBLIFfile.Buffer) #9
   %76 = getelementptr inbounds [1024 x ptr], ptr @WriteLUTSintoBLIFfile.pNamesLocalOut, i64 0, i64 %indvars.iv111
@@ -884,7 +884,7 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr nocapture
   %92 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %1, ptr noundef %91, ptr noundef %83) #9
   tail call void @Cudd_Ref(ptr noundef %92) #9
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %91) #9
-  %93 = trunc i64 %indvars.iv117 to i32
+  %93 = trunc nuw nsw i64 %indvars.iv117 to i32
   %94 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @WriteLUTSintoBLIFfile.Buffer, ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %17, i32 noundef %93) #9
   %95 = getelementptr inbounds [1024 x ptr], ptr @WriteLUTSintoBLIFfile.pNamesLocalOut, i64 0, i64 %indvars.iv117
   %96 = load ptr, ptr %95, align 8

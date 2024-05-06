@@ -191,9 +191,9 @@ define dso_local void @_ZN5vcpkg31try_extract_port_name_from_pathB5cxx11ENS_10St
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 6
-  %10 = getelementptr inbounds i8, ptr %1, i64 %2
+  %10 = getelementptr i8, ptr %1, i64 %2
   %11 = ptrtoint ptr %10 to i64
-  %gepdiff = add nsw i64 %2, -6
+  %gepdiff = add i64 %2, -6
   %12 = ashr i64 %gepdiff, 2
   %13 = icmp sgt i64 %12, 0
   br i1 %13, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i

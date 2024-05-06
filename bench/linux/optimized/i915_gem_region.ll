@@ -240,7 +240,7 @@ define dso_local ptr @i915_gem_object_create_region_at(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_gem_process_region(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -34, -35) i32 @i915_gem_process_region(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.list_head, align 8
   %4 = alloca %struct.i915_gem_ww_ctx, align 8
   %5 = load ptr, ptr %1, align 8

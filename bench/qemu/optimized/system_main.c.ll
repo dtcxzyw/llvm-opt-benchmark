@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qemu_main = dso_local local_unnamed_addr global ptr @qemu_default_main, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_default_main() #0 {
+define dso_local noundef i32 @qemu_default_main() #0 {
 entry:
   %call = tail call i32 @qemu_main_loop() #2
   tail call void @qemu_cleanup(i32 noundef %call) #2

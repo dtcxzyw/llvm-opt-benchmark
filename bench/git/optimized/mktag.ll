@@ -196,7 +196,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mktag_fsck_error_func(ptr nocapture readnone %o, ptr nocapture readnone %oid, i32 %object_type, i32 noundef %msg_type, i32 %msg_id, ptr noundef %message) #0 {
+define internal range(i32 0, 2) i32 @mktag_fsck_error_func(ptr nocapture readnone %o, ptr nocapture readnone %oid, i32 %object_type, i32 noundef %msg_type, i32 %msg_id, ptr noundef %message) #0 {
 entry:
   switch i32 %msg_type, label %sw.default [
     i32 4, label %sw.bb

@@ -256,7 +256,7 @@ entry:
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_policy_node_match(ptr nocapture noundef readonly %lvl, ptr nocapture noundef readonly %node, ptr noundef %oid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_policy_node_match(ptr nocapture noundef readonly %lvl, ptr nocapture noundef readonly %node, ptr noundef %oid) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %node, align 8
   %flags = getelementptr inbounds i8, ptr %lvl, i64 24

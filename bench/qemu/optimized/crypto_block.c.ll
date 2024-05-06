@@ -288,7 +288,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_block_init_cipher(ptr nocapture noundef %block, i32 noundef %alg, i32 noundef %mode, ptr noundef %key, i64 noundef %nkey, i64 noundef %n_threads, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_block_init_cipher(ptr nocapture noundef %block, i32 noundef %alg, i32 noundef %mode, ptr noundef %key, i64 noundef %nkey, i64 noundef %n_threads, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %ciphers = getelementptr inbounds i8, ptr %block, i64 24
   %0 = load ptr, ptr %ciphers, align 8
@@ -546,7 +546,7 @@ declare void @qcrypto_ivgen_free(ptr noundef) local_unnamed_addr #2
 declare void @qemu_mutex_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_block_cipher_decrypt_helper(ptr noundef %cipher, i64 noundef %niv, ptr noundef %ivgen, i32 noundef %sectorsize, i64 noundef %offset, ptr noundef %buf, i64 noundef %len, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_block_cipher_decrypt_helper(ptr noundef %cipher, i64 noundef %niv, ptr noundef %ivgen, i32 noundef %sectorsize, i64 noundef %offset, ptr noundef %buf, i64 noundef %len, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq i64 %niv, 0
   br i1 %tobool.not.i, label %cond.end.i, label %cond.true.i
@@ -632,7 +632,7 @@ do_qcrypto_block_cipher_encdec.exit:              ; preds = %while.body.us37.i, 
 declare i32 @qcrypto_cipher_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_block_cipher_encrypt_helper(ptr noundef %cipher, i64 noundef %niv, ptr noundef %ivgen, i32 noundef %sectorsize, i64 noundef %offset, ptr noundef %buf, i64 noundef %len, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_block_cipher_encrypt_helper(ptr noundef %cipher, i64 noundef %niv, ptr noundef %ivgen, i32 noundef %sectorsize, i64 noundef %offset, ptr noundef %buf, i64 noundef %len, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq i64 %niv, 0
   br i1 %tobool.not.i, label %cond.end.i, label %cond.true.i
@@ -718,7 +718,7 @@ do_qcrypto_block_cipher_encdec.exit:              ; preds = %while.body.us37.i, 
 declare i32 @qcrypto_cipher_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_block_decrypt_helper(ptr noundef %block, i32 noundef %sectorsize, i64 noundef %offset, ptr noundef %buf, i64 noundef %len, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_block_decrypt_helper(ptr noundef %block, i32 noundef %sectorsize, i64 noundef %offset, ptr noundef %buf, i64 noundef %len, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -852,7 +852,7 @@ qcrypto_block_push_cipher.exit:                   ; preds = %do_qcrypto_block_ci
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_block_encrypt_helper(ptr noundef %block, i32 noundef %sectorsize, i64 noundef %offset, ptr noundef %buf, i64 noundef %len, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_block_encrypt_helper(ptr noundef %block, i32 noundef %sectorsize, i64 noundef %offset, ptr noundef %buf, i64 noundef %len, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr

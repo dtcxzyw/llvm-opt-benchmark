@@ -49,7 +49,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [15 x ptr] [ptr @__UNIQUE_ID___addressable_drm_buddy_alloc_blocks342, ptr @__UNIQUE_ID___addressable_drm_buddy_block_print343, ptr @__UNIQUE_ID___addressable_drm_buddy_block_trim337, ptr @__UNIQUE_ID___addressable_drm_buddy_fini323, ptr @__UNIQUE_ID___addressable_drm_buddy_free_block328, ptr @__UNIQUE_ID___addressable_drm_buddy_free_list329, ptr @__UNIQUE_ID___addressable_drm_buddy_init318, ptr @__UNIQUE_ID___addressable_drm_buddy_module_init347, ptr @__UNIQUE_ID___addressable_drm_buddy_print345, ptr @__UNIQUE_ID___addressable_drm_get_buddy326, ptr @__UNIQUE_ID_description348, ptr @__UNIQUE_ID_file349, ptr @__UNIQUE_ID_license350, ptr @__exitcall_drm_buddy_module_exit, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched208], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_buddy_init(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_buddy_init(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = icmp uge i64 %1, %2
   %5 = icmp ugt i64 %2, 4095
   %6 = and i1 %4, %5
@@ -1989,7 +1989,7 @@ define dso_local void @drm_buddy_print(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @drm_buddy_module_init() #4 section ".init.text" align 16 {
+define internal range(i32 -12, 1) i32 @drm_buddy_module_init() #4 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.8, i32 noundef 72, i32 noundef 8, i32 noundef 0, ptr noundef null) #8
   store ptr %1, ptr @slab_blocks, align 8
   %2 = icmp eq ptr %1, null
@@ -2017,7 +2017,7 @@ declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @split_block(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @split_block(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = trunc i64 %3 to i32
   %5 = and i32 %4, 63

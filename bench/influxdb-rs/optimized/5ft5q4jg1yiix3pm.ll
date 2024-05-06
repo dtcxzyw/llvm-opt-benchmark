@@ -856,7 +856,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
 12:                                               ; preds = %10
   %13 = getelementptr inbounds [0 x { i64, ptr }], ptr %2, i64 0, i64 %.0.i
   %14 = add nuw nsw i64 %.0.i, 1
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$influxdb_influxql_parser..statement..Statement$GT$17h3617c84437831de1E.llvm.8662718313598535933"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$influxdb_influxql_parser..statement..Statement$GT$17h3617c84437831de1E.llvm.8662718313598535933"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13)
           to label %10 unwind label %17
 
 15:                                               ; preds = %19, %17
@@ -872,7 +872,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
 19:                                               ; preds = %15
   %20 = getelementptr inbounds [0 x { i64, ptr }], ptr %2, i64 0, i64 %.1.i
   %21 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$influxdb_influxql_parser..statement..Statement$GT$17h3617c84437831de1E.llvm.8662718313598535933"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20) #13
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$influxdb_influxql_parser..statement..Statement$GT$17h3617c84437831de1E.llvm.8662718313598535933"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20) #13
           to label %15 unwind label %23
 
 22:                                               ; preds = %15

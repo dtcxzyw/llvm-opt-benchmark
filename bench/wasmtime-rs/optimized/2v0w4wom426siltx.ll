@@ -676,8 +676,8 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner5erase17hd1482bca816b8fc9E(p
   store <2 x i64> %30, ptr %3, align 16
   %31 = call i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817ha910d90ad4761bb3E(ptr nonnull align 16 %3)
   %32 = trunc i32 %31 to i16
-  %33 = call i16 @llvm.ctlz.i16(i16 %25, i1 false), !range !5
-  %34 = call i16 @llvm.cttz.i16(i16 %32, i1 false), !range !5
+  %33 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %25, i1 false)
+  %34 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %32, i1 false)
   %narrow = add nuw nsw i16 %34, %33
   %35 = icmp ugt i16 %narrow, 15
   br i1 %35, label %40, label %36
@@ -729,7 +729,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw19capacity_to_buckets17h2a3a4ae4f5f
 10:                                               ; preds = %8
   %11 = udiv i64 %4, 7
   %12 = add nsw i64 %11, -1
-  %13 = tail call i64 @llvm.ctlz.i64(i64 %12, i1 true), !range !6
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 true)
   %14 = lshr i64 -1, %13
   %15 = add nuw nsw i64 %14, 1
   br label %16
@@ -838,5 +838,3 @@ attributes #11 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i64 8}
-!5 = !{i16 0, i16 17}
-!6 = !{i64 0, i64 65}

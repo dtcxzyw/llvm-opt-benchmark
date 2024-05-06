@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdscr = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @set_form_win(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @set_form_win(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 

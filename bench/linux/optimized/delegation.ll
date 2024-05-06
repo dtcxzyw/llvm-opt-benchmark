@@ -88,7 +88,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs4_have_delegation(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @nfs4_have_delegation(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #12
   %3 = getelementptr i8, ptr %0, i64 -72
   %4 = load volatile ptr, ptr %3, align 8
@@ -127,7 +127,7 @@ define dso_local noundef i32 @nfs4_have_delegation(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs4_check_delegation(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @nfs4_check_delegation(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #12
   %3 = getelementptr i8, ptr %0, i64 -72
   %4 = load volatile ptr, ptr %3, align 8
@@ -277,7 +277,7 @@ define dso_local void @nfs_inode_reclaim_delegation(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs_inode_set_delegation(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @nfs_inode_set_delegation(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 872
@@ -1966,7 +1966,7 @@ define dso_local void @nfs_expire_unreferenced_delegations(ptr noundef %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs_async_inode_return_delegation(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @nfs_async_inode_return_delegation(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 872
@@ -2455,7 +2455,7 @@ define dso_local void @nfs_reap_expired_delegations(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nfs_server_reap_expired_delegations(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -11, 1) i32 @nfs_server_reap_expired_delegations(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = alloca %struct.nfs4_stateid_struct, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !51
@@ -2731,7 +2731,7 @@ define dso_local void @nfs_inode_find_delegation_state_and_recover(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs_delegations_present(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @nfs_delegations_present(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #12
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   br label %3

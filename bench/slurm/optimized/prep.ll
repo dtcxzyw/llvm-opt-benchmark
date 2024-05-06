@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [16 x i8] c"prep_p_required\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -167,7 +167,7 @@ define noundef i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph35:                                         ; preds = %.preheader
   %65 = getelementptr inbounds [5 x i8], ptr @prep_is_required, i64 0, i64 %indvars.iv43
-  %66 = trunc i64 %indvars.iv43 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv43 to i32
   br label %67
 
 67:                                               ; preds = %67, %.lr.ph35

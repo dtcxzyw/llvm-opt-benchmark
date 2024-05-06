@@ -138,7 +138,7 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %52
-  %71 = trunc i64 %indvars.iv281 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv281 to i32
   %72 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.4204.us212, i32 noundef %82, i32 noundef %71, ptr noundef nonnull %9) #13
   br label %73
 
@@ -163,7 +163,7 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
   %79 = sext i32 %78 to i64
   %80 = shl nsw i32 %75, 1
   %81 = sext i32 %80 to i64
-  %82 = trunc i64 %indvars.iv286 to i32
+  %82 = trunc nuw nsw i64 %indvars.iv286 to i32
   br label %52
 
 83:                                               ; preds = %45
@@ -192,7 +192,7 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %88, label %.lr.ph196, label %.loopexit120
 
 .lr.ph196:                                        ; preds = %87
-  %89 = trunc i64 %indvars.iv262 to i32
+  %89 = trunc nuw nsw i64 %indvars.iv262 to i32
   br label %90
 
 90:                                               ; preds = %.lr.ph196, %345
@@ -229,12 +229,12 @@ gv_calloc.exit221.i:                              ; preds = %gv_calloc.exit.i
   br i1 %.not.i, label %.critedge.thread.i, label %106
 
 106:                                              ; preds = %gv_calloc.exit221.i
-  %107 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) @.str.3) #18
+  %107 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) @.str.3) #18
   %.not205.i = icmp eq ptr %107, null
   br i1 %.not205.i, label %.lr.ph.split.us.split.i, label %.lr.ph.split.split.i
 
 .lr.ph.split.us.split.i:                          ; preds = %106
-  %108 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) @.str.4) #18
+  %108 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) @.str.4) #18
   %.not206.i = icmp eq ptr %108, null
   %109 = getelementptr inbounds i8, ptr %108, i64 2
   %spec.select.i = select i1 %.not206.i, ptr %93, ptr %109
@@ -487,7 +487,7 @@ gv_recalloc.exit111:                              ; preds = %220, %218, %211, %.
   br i1 %.not211.i, label %.critedge3.thread.i, label %226
 
 226:                                              ; preds = %.critedge.thread.i
-  %227 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull dereferenceable(1) @.str.3) #18
+  %227 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %95, ptr noundef nonnull dereferenceable(1) @.str.3) #18
   %.not212.i = icmp ne ptr %227, null
   br i1 %.not212.i, label %228, label %230
 
@@ -496,7 +496,7 @@ gv_recalloc.exit111:                              ; preds = %220, %218, %211, %.
   br label %.lr.ph291.preheader.i
 
 230:                                              ; preds = %226
-  %231 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull dereferenceable(1) @.str.4) #18
+  %231 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %95, ptr noundef nonnull dereferenceable(1) @.str.4) #18
   %.not213.i = icmp eq ptr %231, null
   %232 = getelementptr inbounds i8, ptr %231, i64 2
   %spec.select220.i = select i1 %.not213.i, ptr %95, ptr %232
@@ -748,7 +748,7 @@ splines_intersect.exit:                           ; preds = %.split.us.i, %.spli
 .critedge:                                        ; preds = %334, %319
   call void @free(ptr noundef %.3170.i) #13
   call void @free(ptr noundef %.3.i) #13
-  %343 = trunc i64 %indvars.iv257 to i32
+  %343 = trunc nuw nsw i64 %indvars.iv257 to i32
   %344 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.1194, i32 noundef %89, i32 noundef %343, ptr noundef nonnull %9) #13
   br label %345
 
@@ -781,7 +781,7 @@ splines_intersect.exit:                           ; preds = %.split.us.i, %.spli
   %352 = sext i32 %351 to i64
   %353 = shl nsw i32 %348, 1
   %354 = sext i32 %353 to i64
-  %355 = trunc i64 %indvars.iv274 to i32
+  %355 = trunc nuw nsw i64 %indvars.iv274 to i32
   br label %356
 
 356:                                              ; preds = %375, %.lr.ph206
@@ -806,7 +806,7 @@ splines_intersect.exit:                           ; preds = %.split.us.i, %.spli
   br i1 %371, label %372, label %375
 
 372:                                              ; preds = %356
-  %373 = trunc i64 %indvars.iv269 to i32
+  %373 = trunc nuw nsw i64 %indvars.iv269 to i32
   %374 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.4204.us, i32 noundef %355, i32 noundef %373, ptr noundef nonnull %9) #13
   br label %375
 

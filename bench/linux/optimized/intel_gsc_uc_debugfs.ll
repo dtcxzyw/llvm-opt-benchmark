@@ -50,7 +50,7 @@ declare dso_local i32 @single_release(ptr noundef, ptr noundef) #1
 declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @gsc_info_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @gsc_info_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = alloca %struct.drm_printer, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #3
   store ptr @__drm_printfn_seq_file, ptr %3, align 8, !alias.scope !5

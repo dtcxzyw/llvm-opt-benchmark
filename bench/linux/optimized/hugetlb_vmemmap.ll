@@ -118,7 +118,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_restore_folio(ptr nocapture nounde
   %24 = inttoptr i64 %17 to ptr
   %25 = load i64, ptr %24, align 16
   %26 = lshr i64 %25, 58
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw nsw i64 %26 to i32
   %28 = icmp ult i64 %23, 4096
   br i1 %28, label %.loopexit, label %29
 
@@ -347,7 +347,7 @@ define internal fastcc i32 @__hugetlb_vmemmap_optimize_folio(ptr nocapture nound
   store i64 %3, ptr %30, align 8
   %31 = load i64, ptr %1, align 16
   %32 = lshr i64 %31, 58
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw nsw i64 %32 to i32
   %34 = tail call ptr @__alloc_pages(i32 noundef 76992, i32 noundef 0, i32 noundef %33, ptr noundef null) #7
   store ptr %34, ptr %27, align 8
   %35 = icmp eq ptr %34, null
@@ -763,7 +763,7 @@ declare dso_local void @__mmap_lock_do_trace_start_locking(ptr noundef, i1 nound
 declare dso_local void @__mmap_lock_do_trace_acquire_returned(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vmemmap_pmd_entry(ptr noundef %0, i64 noundef %1, i64 %2, ptr nocapture noundef %3) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @vmemmap_pmd_entry(ptr noundef %0, i64 noundef %1, i64 %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8

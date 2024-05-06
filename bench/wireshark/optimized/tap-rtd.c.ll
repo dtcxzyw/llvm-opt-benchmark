@@ -188,7 +188,7 @@ define internal void @rtd_draw(ptr nocapture noundef readonly %0) #0 {
 
 40:                                               ; preds = %33
   %41 = load ptr, ptr %32, align 8
-  %42 = trunc i64 %indvars.iv116 to i32
+  %42 = trunc nuw i64 %indvars.iv116 to i32
   %43 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %42, ptr noundef %41, ptr noundef nonnull @.str.12) #7
   %44 = load ptr, ptr %13, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
@@ -254,7 +254,7 @@ define internal void @rtd_draw(ptr nocapture noundef readonly %0) #0 {
   br i1 %.not109, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %86 = trunc i64 %indvars.iv113 to i32
+  %86 = trunc nuw i64 %indvars.iv113 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %143

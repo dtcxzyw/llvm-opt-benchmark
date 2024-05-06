@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [28 x i8] c"cannot close a %s coroutine\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_coroutine(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_coroutine(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @luaL_checkversion_(ptr noundef %L, double noundef 5.040000e+02, i64 noundef 136) #3
   tail call void @lua_createtable(ptr noundef %L, i32 noundef 0, i32 noundef 8) #3
@@ -40,7 +40,7 @@ declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnam
 declare void @luaL_setfuncs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_cocreate(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_cocreate(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 6) #3
   %call = tail call ptr @lua_newthread(ptr noundef %L) #3
@@ -50,7 +50,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_coresume(ptr noundef %L) #0 {
+define internal range(i32 1, -2147483648) i32 @luaB_coresume(ptr noundef %L) #0 {
 entry:
   %call.i = tail call ptr @lua_tothread(ptr noundef %L, i32 noundef 1) #3
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -85,7 +85,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_corunning(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_corunning(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_pushthread(ptr noundef %L) #3
   tail call void @lua_pushboolean(ptr noundef %L, i32 noundef %call) #3
@@ -93,7 +93,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_costatus(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_costatus(ptr noundef %L) #0 {
 entry:
   %ar.i = alloca %struct.lua_Debug, align 8
   %call.i = tail call ptr @lua_tothread(ptr noundef %L, i32 noundef 1) #3
@@ -140,7 +140,7 @@ auxstatus.exit:                                   ; preds = %getco.exit, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_cowrap(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_cowrap(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 6) #3
   %call.i = tail call ptr @lua_newthread(ptr noundef %L) #3
@@ -159,7 +159,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_yieldable(ptr noundef %L) #0 {
+define internal noundef i32 @luaB_yieldable(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #3
   %cmp = icmp eq i32 %call, -1

@@ -124,7 +124,7 @@ define ptr @cs_multiply(ptr noundef %0, ptr noundef readonly %1) local_unnamed_a
 
 .lr.ph.us.us.preheader:                           ; preds = %67
   %76 = sext i32 %72 to i64
-  %77 = trunc i64 %indvars.iv.next178 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv.next178 to i32
   br label %.lr.ph.us.us
 
 ._crit_edge.split.us.us.us:                       ; preds = %.lr.ph.us.us
@@ -197,7 +197,7 @@ define ptr @cs_multiply(ptr noundef %0, ptr noundef readonly %1) local_unnamed_a
 
 .lr.ph.us.preheader:                              ; preds = %101
   %108 = sext i32 %104 to i64
-  %109 = trunc i64 %indvars.iv.next165 to i32
+  %109 = trunc nuw nsw i64 %indvars.iv.next165 to i32
   br label %.lr.ph.us
 
 ._crit_edge.split.us.us:                          ; preds = %.lr.ph.us, %101
@@ -251,7 +251,7 @@ define ptr @cs_multiply(ptr noundef %0, ptr noundef readonly %1) local_unnamed_a
 
 .lr.ph.preheader:                                 ; preds = %126
   %133 = sext i32 %129 to i64
-  %134 = trunc i64 %indvars.iv.next146 to i32
+  %134 = trunc nuw nsw i64 %indvars.iv.next146 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

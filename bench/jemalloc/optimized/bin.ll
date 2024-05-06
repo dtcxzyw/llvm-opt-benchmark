@@ -22,8 +22,8 @@ if.end.i:                                         ; preds = %entry
 if.end12.i:                                       ; preds = %if.end.i
   %shl.i = shl nuw nsw i64 %start_size, 1
   %sub13.i = add nsw i64 %shl.i, -1
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true), !range !5
-  %2 = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true)
+  %2 = trunc nuw nsw i64 %1 to i32
   %conv1.i.i.i12.i = xor i32 %2, 63
   %cond21.i = tail call i32 @llvm.usub.sat.i32(i32 %conv1.i.i.i12.i, i32 6)
   %shl22.i = shl nuw nsw i32 %cond21.i, 2
@@ -42,49 +42,49 @@ if.end12.i:                                       ; preds = %if.end.i
 
 sz_size2index_compute.exit:                       ; preds = %if.end.i, %if.end12.i
   %retval.0.i = phi i32 [ %add36.i, %if.end12.i ], [ 0, %if.end.i ]
-  %cmp6.i9 = icmp ult i64 %end_size, 9
-  br i1 %cmp6.i9, label %sz_size2index_compute.exit27, label %if.end12.i10
+  %cmp6.i10 = icmp ult i64 %end_size, 9
+  br i1 %cmp6.i10, label %sz_size2index_compute.exit28, label %if.end12.i11
 
-if.end12.i10:                                     ; preds = %sz_size2index_compute.exit
-  %shl.i11 = shl nuw nsw i64 %spec.store.select, 1
-  %sub13.i12 = add nsw i64 %shl.i11, -1
-  %4 = tail call i64 @llvm.ctlz.i64(i64 %sub13.i12, i1 true), !range !5
-  %5 = trunc i64 %4 to i32
-  %conv1.i.i.i12.i13 = xor i32 %5, 63
-  %cond21.i14 = tail call i32 @llvm.usub.sat.i32(i32 %conv1.i.i.i12.i13, i32 6)
-  %shl22.i15 = shl nuw nsw i32 %cond21.i14, 2
-  %cmp23.i16 = icmp ult i32 %conv1.i.i.i12.i13, 7
-  %sub28.i17 = sub nuw nsw i64 60, %4
-  %sh_prom.i18 = select i1 %cmp23.i16, i64 4, i64 %sub28.i17
-  %shl31.i19 = shl nsw i64 -1, %sh_prom.i18
-  %sub32.i20 = add nsw i64 %spec.store.select, -1
-  %and.i21 = and i64 %shl31.i19, %sub32.i20
-  %shr.i22 = lshr i64 %and.i21, %sh_prom.i18
-  %6 = trunc i64 %shr.i22 to i32
-  %conv35.i23 = and i32 %6, 3
-  %add.i24 = or disjoint i32 %shl22.i15, 1
-  %add36.i25 = add nuw nsw i32 %add.i24, %conv35.i23
-  br label %sz_size2index_compute.exit27
+if.end12.i11:                                     ; preds = %sz_size2index_compute.exit
+  %shl.i12 = shl nuw nsw i64 %spec.store.select, 1
+  %sub13.i13 = add nsw i64 %shl.i12, -1
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i13, i1 true)
+  %5 = trunc nuw nsw i64 %4 to i32
+  %conv1.i.i.i12.i14 = xor i32 %5, 63
+  %cond21.i15 = tail call i32 @llvm.usub.sat.i32(i32 %conv1.i.i.i12.i14, i32 6)
+  %shl22.i16 = shl nuw nsw i32 %cond21.i15, 2
+  %cmp23.i17 = icmp ult i32 %conv1.i.i.i12.i14, 7
+  %sub28.i18 = sub nuw nsw i64 60, %4
+  %sh_prom.i19 = select i1 %cmp23.i17, i64 4, i64 %sub28.i18
+  %shl31.i20 = shl nsw i64 -1, %sh_prom.i19
+  %sub32.i21 = add nsw i64 %spec.store.select, -1
+  %and.i22 = and i64 %shl31.i20, %sub32.i21
+  %shr.i23 = lshr i64 %and.i22, %sh_prom.i19
+  %6 = trunc i64 %shr.i23 to i32
+  %conv35.i24 = and i32 %6, 3
+  %add.i25 = or disjoint i32 %shl22.i16, 1
+  %add36.i26 = add nuw nsw i32 %add.i25, %conv35.i24
+  br label %sz_size2index_compute.exit28
 
-sz_size2index_compute.exit27:                     ; preds = %sz_size2index_compute.exit, %if.end12.i10
-  %retval.0.i26 = phi i32 [ %add36.i25, %if.end12.i10 ], [ 0, %sz_size2index_compute.exit ]
-  %cmp9.not28 = icmp ugt i32 %retval.0.i, %retval.0.i26
-  br i1 %cmp9.not28, label %return, label %for.body.lr.ph
+sz_size2index_compute.exit28:                     ; preds = %sz_size2index_compute.exit, %if.end12.i11
+  %retval.0.i27 = phi i32 [ %add36.i26, %if.end12.i11 ], [ 0, %sz_size2index_compute.exit ]
+  %cmp9.not29 = icmp ugt i32 %retval.0.i, %retval.0.i27
+  br i1 %cmp9.not29, label %return, label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %sz_size2index_compute.exit27
-  %conv = trunc i64 %nshards to i32
+for.body.lr.ph:                                   ; preds = %sz_size2index_compute.exit28
+  %conv = trunc nuw nsw i64 %nshards to i32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.029 = phi i32 [ %retval.0.i, %for.body.lr.ph ], [ %inc, %for.body ]
-  %idxprom = zext i32 %i.029 to i64
+  %i.030 = phi i32 [ %retval.0.i, %for.body.lr.ph ], [ %inc, %for.body ]
+  %idxprom = zext i32 %i.030 to i64
   %arrayidx = getelementptr inbounds i32, ptr %bin_shard_sizes, i64 %idxprom
   store i32 %conv, ptr %arrayidx, align 4
-  %inc = add i32 %i.029, 1
-  %cmp9.not = icmp ugt i32 %inc, %retval.0.i26
-  br i1 %cmp9.not, label %return, label %for.body, !llvm.loop !6
+  %inc = add i32 %i.030, 1
+  %cmp9.not = icmp ugt i32 %inc, %retval.0.i27
+  br i1 %cmp9.not, label %return, label %for.body, !llvm.loop !5
 
-return:                                           ; preds = %for.body, %sz_size2index_compute.exit27, %entry
+return:                                           ; preds = %for.body, %sz_size2index_compute.exit28, %entry
   ret i1 %or.cond
 }
 
@@ -99,7 +99,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i32 1, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 36
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -184,7 +184,6 @@ attributes #6 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

@@ -195,7 +195,7 @@ if.end22:                                         ; preds = %if.then7, %if.else,
   %1 = phi ptr [ %.pre, %if.then7 ], [ %call14, %if.else ], [ null, %if.else16 ]
   %config_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %pem_root_certs3, align 8
-  %call29 = tail call noundef i32 @_ZN20grpc_ssl_credentials33InitializeClientHandshakerFactoryEPK15grpc_ssl_configPKcPK24tsi_ssl_root_certs_storeP21tsi_ssl_session_cachePP33tsi_ssl_client_handshaker_factory(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull %config_, ptr noundef %2, ptr noundef %1, ptr noundef null, ptr noundef nonnull %client_handshaker_factory_), !range !4
+  %call29 = tail call noundef i32 @_ZN20grpc_ssl_credentials33InitializeClientHandshakerFactoryEPK15grpc_ssl_configPKcPK24tsi_ssl_root_certs_storeP21tsi_ssl_session_cachePP33tsi_ssl_client_handshaker_factory(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull %config_, ptr noundef %2, ptr noundef %1, ptr noundef null, ptr noundef nonnull %client_handshaker_factory_)
   %client_handshaker_initialization_status_ = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %call29, ptr %client_handshaker_initialization_status_, align 8
   ret void
@@ -276,7 +276,7 @@ declare ptr @gpr_strdup(ptr noundef) local_unnamed_addr #0
 declare noundef ptr @_ZN9grpc_core19DefaultSslRootStore12GetRootStoreEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN20grpc_ssl_credentials33InitializeClientHandshakerFactoryEPK15grpc_ssl_configPKcPK24tsi_ssl_root_certs_storeP21tsi_ssl_session_cachePP33tsi_ssl_client_handshaker_factory(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %this, ptr nocapture noundef readonly %config, ptr noundef %pem_root_certs, ptr noundef %root_store, ptr noundef %ssl_session_cache, ptr noundef %handshaker_factory) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN20grpc_ssl_credentials33InitializeClientHandshakerFactoryEPK15grpc_ssl_configPKcPK24tsi_ssl_root_certs_storeP21tsi_ssl_session_cachePP33tsi_ssl_client_handshaker_factory(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %this, ptr nocapture noundef readonly %config, ptr noundef %pem_root_certs, ptr noundef %root_store, ptr noundef %ssl_session_cache, ptr noundef %handshaker_factory) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %options = alloca %struct.tsi_ssl_client_handshaker_options, align 8
   %client_handshaker_factory_ = getelementptr inbounds i8, ptr %this, i64 64
@@ -576,7 +576,7 @@ if.then7:                                         ; preds = %invoke.cont
   %root_store_ = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %root_store_, align 8
   %call13 = invoke noundef i32 @_ZN20grpc_ssl_credentials33InitializeClientHandshakerFactoryEPK15grpc_ssl_configPKcPK24tsi_ssl_root_certs_storeP21tsi_ssl_session_cachePP33tsi_ssl_client_handshaker_factory(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull %config_, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %call.i.i910, ptr noundef nonnull %factory_with_cache)
-          to label %invoke.cont12 unwind label %ehcleanup.thread129, !range !4
+          to label %invoke.cont12 unwind label %ehcleanup.thread129
 
 invoke.cont12:                                    ; preds = %if.then7
   %cmp14.not = icmp eq i32 %call13, 0
@@ -592,10 +592,10 @@ lpad:                                             ; preds = %if.end
   br label %ehcleanup63
 
 invoke.cont20:                                    ; preds = %invoke.cont12
-  call void @llvm.experimental.noalias.scope.decl(metadata !5)
+  call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !5
-  store ptr %this, ptr %agg.tmp19, align 8, !alias.scope !5
+  %4 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !4
+  store ptr %this, ptr %agg.tmp19, align 8, !alias.scope !4
   %5 = load ptr, ptr %call_creds, align 8
   store ptr %5, ptr %agg.tmp21, align 8
   store ptr null, ptr %call_creds, align 8
@@ -702,10 +702,10 @@ if.else:                                          ; preds = %invoke.cont
   br i1 %cmp34.not, label %invoke.cont40, label %_ZN9grpc_core13RefCountedPtrI31grpc_channel_security_connectorED2Ev.exit103
 
 invoke.cont40:                                    ; preds = %if.else
-  call void @llvm.experimental.noalias.scope.decl(metadata !8)
+  call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %refs_.i.i43 = getelementptr inbounds i8, ptr %this, i64 8
-  %24 = atomicrmw add ptr %refs_.i.i43, i64 1 monotonic, align 8, !noalias !8
-  store ptr %this, ptr %agg.tmp39, align 8, !alias.scope !8
+  %24 = atomicrmw add ptr %refs_.i.i43, i64 1 monotonic, align 8, !noalias !7
+  store ptr %this, ptr %agg.tmp39, align 8, !alias.scope !7
   %25 = load ptr, ptr %call_creds, align 8
   store ptr %25, ptr %agg.tmp41, align 8
   store ptr null, ptr %call_creds, align 8
@@ -898,7 +898,7 @@ define void @_ZN20grpc_ssl_credentials4TypeEv(ptr noalias nocapture writeonly sr
 entry:
   %0 = load atomic i8, ptr @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !11
+  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !10
 
 init.check:                                       ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #18
@@ -914,14 +914,14 @@ invoke.cont:                                      ; preds = %init
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  %2 = load ptr, ptr @_ZZN20grpc_ssl_credentials4TypeEvE8kFactory, align 8, !noalias !12
-  %call.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #18, !noalias !12
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  %2 = load ptr, ptr @_ZZN20grpc_ssl_credentials4TypeEvE8kFactory, align 8, !noalias !11
+  %call.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #18, !noalias !11
   %3 = extractvalue { i64, ptr } %call.i, 0
   %4 = extractvalue { i64, ptr } %call.i, 1
-  store i64 %3, ptr %agg.result, align 8, !alias.scope !12
+  store i64 %3, ptr %agg.result, align 8, !alias.scope !11
   %name.sroa.2.0.name_.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %4, ptr %name.sroa.2.0.name_.sroa_idx.i.i, align 8, !alias.scope !12
+  store ptr %4, ptr %name.sroa.2.0.name_.sroa_idx.i.i, align 8, !alias.scope !11
   ret void
 
 lpad:                                             ; preds = %init
@@ -1302,10 +1302,10 @@ entry:
 define void @_ZN27grpc_ssl_server_credentials25create_security_connectorERKN9grpc_core11ChannelArgsE(ptr noalias sret(%"class.grpc_core::RefCountedPtr.12") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.grpc_core::RefCountedPtr.13", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !15
-  store ptr %this, ptr %agg.tmp, align 8, !alias.scope !15
+  %1 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !14
+  store ptr %this, ptr %agg.tmp, align 8, !alias.scope !14
   invoke void @_Z41grpc_ssl_server_security_connector_createN9grpc_core13RefCountedPtrI23grpc_server_credentialsEE(ptr sret(%"class.grpc_core::RefCountedPtr.12") align 8 %agg.result, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -1361,7 +1361,7 @@ define void @_ZN27grpc_ssl_server_credentials4TypeEv(ptr noalias nocapture write
 entry:
   %0 = load atomic i8, ptr @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !11
+  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !10
 
 init.check:                                       ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #18
@@ -1377,14 +1377,14 @@ invoke.cont:                                      ; preds = %init
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %2 = load ptr, ptr @_ZZN27grpc_ssl_server_credentials4TypeEvE8kFactory, align 8, !noalias !18
-  %call.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #18, !noalias !18
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  %2 = load ptr, ptr @_ZZN27grpc_ssl_server_credentials4TypeEvE8kFactory, align 8, !noalias !17
+  %call.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #18, !noalias !17
   %3 = extractvalue { i64, ptr } %call.i, 0
   %4 = extractvalue { i64, ptr } %call.i, 1
-  store i64 %3, ptr %agg.result, align 8, !alias.scope !18
+  store i64 %3, ptr %agg.result, align 8, !alias.scope !17
   %name.sroa.2.0.name_.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %4, ptr %name.sroa.2.0.name_.sroa_idx.i.i, align 8, !alias.scope !18
+  store ptr %4, ptr %name.sroa.2.0.name_.sroa_idx.i.i, align 8, !alias.scope !17
   ret void
 
 lpad:                                             ; preds = %init
@@ -1444,7 +1444,7 @@ do.end17:                                         ; preds = %do.body11
   store ptr %call25, ptr %arrayidx21, align 8
   %inc = add nuw i64 %i.017, 1
   %exitcond.not = icmp eq i64 %inc, %num_key_cert_pairs
-  br i1 %exitcond.not, label %for.end, label %do.body5, !llvm.loop !21
+  br i1 %exitcond.not, label %for.end, label %do.body5, !llvm.loop !20
 
 for.end:                                          ; preds = %do.end17, %entry
   %tsi_pairs.019 = phi ptr [ null, %entry ], [ %call, %do.end17 ]
@@ -1531,7 +1531,7 @@ do.end22:                                         ; preds = %do.body16
   store ptr %call31, ptr %arrayidx33, align 8
   %inc = add nuw i64 %i.021, 1
   %exitcond.not = icmp eq i64 %inc, %num_key_cert_pairs
-  br i1 %exitcond.not, label %for.end, label %do.body10, !llvm.loop !23
+  br i1 %exitcond.not, label %for.end, label %do.body10, !llvm.loop !22
 
 for.end:                                          ; preds = %do.end22, %if.end7.thread
   ret ptr %call
@@ -1562,7 +1562,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %inc = add nuw i64 %i.011, 1
   %5 = load i64, ptr %num_key_cert_pairs, align 8
   %cmp1 = icmp ult i64 %inc, %5
-  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !24
+  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %6 = load ptr, ptr %config, align 8
@@ -1764,7 +1764,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw i64 %i.011.i, 1
   %7 = load i64, ptr %num_key_cert_pairs.i, align 8
   %cmp1.i = icmp ult i64 %inc.i, %7
-  br i1 %cmp1.i, label %for.body.i, label %for.end.i, !llvm.loop !24
+  br i1 %cmp1.i, label %for.body.i, label %for.end.i, !llvm.loop !23
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
   %8 = load ptr, ptr %1, align 8
@@ -1786,10 +1786,10 @@ return:                                           ; preds = %entry, %grpc_ssl_se
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN24grpc_channel_credentials34duplicate_without_call_credentialsEv(ptr noalias sret(%"class.grpc_core::RefCountedPtr.8") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !25
-  store ptr %this, ptr %agg.result, align 8, !alias.scope !25
+  %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !24
+  store ptr %this, ptr %agg.result, align 8, !alias.scope !24
   ret void
 }
 
@@ -1803,39 +1803,39 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK20grpc_ssl_credentials4typeEv(ptr noalias sret(%"class.grpc_core::UniqueTypeName") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %0 = load atomic i8, ptr @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory acquire, align 8, !noalias !28
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
+  %0 = load atomic i8, ptr @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory acquire, align 8, !noalias !27
   %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN20grpc_ssl_credentials4TypeEv.exit, !prof !11
+  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN20grpc_ssl_credentials4TypeEv.exit, !prof !10
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #18, !noalias !28
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #18, !noalias !27
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN20grpc_ssl_credentials4TypeEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
   invoke void @_ZN9grpc_core14UniqueTypeName7FactoryC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN20grpc_ssl_credentials4TypeEvE8kFactory, i64 3, ptr nonnull @.str.7)
-          to label %invoke.cont.i unwind label %lpad.i, !noalias !28
+          to label %invoke.cont.i unwind label %lpad.i, !noalias !27
 
 invoke.cont.i:                                    ; preds = %init.i
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #18, !noalias !28
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #18, !noalias !27
   br label %_ZN20grpc_ssl_credentials4TypeEv.exit
 
 lpad.i:                                           ; preds = %init.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #18, !noalias !28
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN20grpc_ssl_credentials4TypeEvE8kFactory) #18, !noalias !27
   resume { ptr, i32 } %2
 
 _ZN20grpc_ssl_credentials4TypeEv.exit:            ; preds = %entry, %init.check.i, %invoke.cont.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %3 = load ptr, ptr @_ZZN20grpc_ssl_credentials4TypeEvE8kFactory, align 8, !noalias !34
-  %call.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18, !noalias !34
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
+  %3 = load ptr, ptr @_ZZN20grpc_ssl_credentials4TypeEvE8kFactory, align 8, !noalias !33
+  %call.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18, !noalias !33
   %4 = extractvalue { i64, ptr } %call.i.i, 0
   %5 = extractvalue { i64, ptr } %call.i.i, 1
-  store i64 %4, ptr %agg.result, align 8, !alias.scope !34
+  store i64 %4, ptr %agg.result, align 8, !alias.scope !33
   %name.sroa.2.0.name_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %5, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i, align 8, !alias.scope !34
+  store ptr %5, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i, align 8, !alias.scope !33
   ret void
 }
 
@@ -1852,39 +1852,39 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK27grpc_ssl_server_credentials4typeEv(ptr noalias sret(%"class.grpc_core::UniqueTypeName") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %0 = load atomic i8, ptr @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory acquire, align 8, !noalias !35
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  %0 = load atomic i8, ptr @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory acquire, align 8, !noalias !34
   %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN27grpc_ssl_server_credentials4TypeEv.exit, !prof !11
+  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN27grpc_ssl_server_credentials4TypeEv.exit, !prof !10
 
 init.check.i:                                     ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #18, !noalias !35
+  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #18, !noalias !34
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %_ZN27grpc_ssl_server_credentials4TypeEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
   invoke void @_ZN9grpc_core14UniqueTypeName7FactoryC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN27grpc_ssl_server_credentials4TypeEvE8kFactory, i64 3, ptr nonnull @.str.7)
-          to label %invoke.cont.i unwind label %lpad.i, !noalias !35
+          to label %invoke.cont.i unwind label %lpad.i, !noalias !34
 
 invoke.cont.i:                                    ; preds = %init.i
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #18, !noalias !35
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #18, !noalias !34
   br label %_ZN27grpc_ssl_server_credentials4TypeEv.exit
 
 lpad.i:                                           ; preds = %init.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #18, !noalias !35
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN27grpc_ssl_server_credentials4TypeEvE8kFactory) #18, !noalias !34
   resume { ptr, i32 } %2
 
 _ZN27grpc_ssl_server_credentials4TypeEv.exit:     ; preds = %entry, %init.check.i, %invoke.cont.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  %3 = load ptr, ptr @_ZZN27grpc_ssl_server_credentials4TypeEvE8kFactory, align 8, !noalias !41
-  %call.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18, !noalias !41
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  %3 = load ptr, ptr @_ZZN27grpc_ssl_server_credentials4TypeEvE8kFactory, align 8, !noalias !40
+  %call.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18, !noalias !40
   %4 = extractvalue { i64, ptr } %call.i.i, 0
   %5 = extractvalue { i64, ptr } %call.i.i, 1
-  store i64 %4, ptr %agg.result, align 8, !alias.scope !41
+  store i64 %4, ptr %agg.result, align 8, !alias.scope !40
   %name.sroa.2.0.name_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %5, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i, align 8, !alias.scope !41
+  store ptr %5, ptr %name.sroa.2.0.name_.sroa_idx.i.i.i, align 8, !alias.scope !40
   ret void
 }
 
@@ -2017,41 +2017,40 @@ attributes #21 = { builtin allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
-!7 = distinct !{!7, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
-!10 = distinct !{!10, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
-!11 = !{!"branch_weights", i32 1, i32 1048575}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv: %agg.result"}
-!14 = distinct !{!14, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
-!17 = distinct !{!17, !"_ZN9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv: %agg.result"}
-!20 = distinct !{!20, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv"}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22}
-!24 = distinct !{!24, !22}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
-!27 = distinct !{!27, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN20grpc_ssl_credentials4TypeEv: %agg.result"}
-!30 = distinct !{!30, !"_ZN20grpc_ssl_credentials4TypeEv"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv: %agg.result"}
-!33 = distinct !{!33, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv"}
-!34 = !{!32, !29}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN27grpc_ssl_server_credentials4TypeEv: %agg.result"}
-!37 = distinct !{!37, !"_ZN27grpc_ssl_server_credentials4TypeEv"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv: %agg.result"}
-!40 = distinct !{!40, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv"}
-!41 = !{!39, !36}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
+!6 = distinct !{!6, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
+!9 = distinct !{!9, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
+!10 = !{!"branch_weights", i32 1, i32 1048575}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv: %agg.result"}
+!13 = distinct !{!13, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
+!16 = distinct !{!16, !"_ZN9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv: %agg.result"}
+!19 = distinct !{!19, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv"}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = distinct !{!22, !21}
+!23 = distinct !{!23, !21}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
+!26 = distinct !{!26, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN20grpc_ssl_credentials4TypeEv: %agg.result"}
+!29 = distinct !{!29, !"_ZN20grpc_ssl_credentials4TypeEv"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv: %agg.result"}
+!32 = distinct !{!32, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv"}
+!33 = !{!31, !28}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZN27grpc_ssl_server_credentials4TypeEv: %agg.result"}
+!36 = distinct !{!36, !"_ZN27grpc_ssl_server_credentials4TypeEv"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv: %agg.result"}
+!39 = distinct !{!39, !"_ZN9grpc_core14UniqueTypeName7Factory6CreateEv"}
+!40 = !{!38, !35}

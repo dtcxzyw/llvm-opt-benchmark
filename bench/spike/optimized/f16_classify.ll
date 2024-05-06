@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @f16_classify(i16 %0) local_unnamed_addr #0 {
+define range(i64 0, 1024) i64 @f16_classify(i16 %0) local_unnamed_addr #0 {
   %2 = zext i16 %0 to i64
   %3 = lshr i16 %0, 10
   %4 = and i16 %3, 31

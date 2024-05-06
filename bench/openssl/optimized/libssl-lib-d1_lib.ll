@@ -39,13 +39,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @dtls1_default_timeout() local_unnamed_addr #2 {
+define noundef range(i64 -1, 7200000000001) i64 @dtls1_default_timeout() local_unnamed_addr #2 {
 entry:
   ret i64 7200000000000
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dtls1_new(ptr noundef %ssl) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @dtls1_new(ptr noundef %ssl) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %cond.false
@@ -353,7 +353,7 @@ dtls1_clear_sent_buffer.exit:                     ; preds = %if.end.i, %dtls1_cl
 declare void @DTLS_RECORD_LAYER_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dtls1_clear(ptr noundef %ssl) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @dtls1_clear(ptr noundef %ssl) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %cond.false
@@ -473,7 +473,7 @@ declare i64 @SSL_get_options(ptr noundef) local_unnamed_addr #0
 declare i32 @ssl3_clear(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define i64 @dtls1_ctrl(ptr noundef %ssl, i32 noundef %cmd, i64 noundef %larg, ptr noundef %parg) local_unnamed_addr #1 {
+define range(i64 -2147483648, -9223372036854775808) i64 @dtls1_ctrl(ptr noundef %ssl, i32 noundef %cmd, i64 noundef %larg, ptr noundef %parg) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %cond.false
@@ -511,7 +511,7 @@ if.then7:                                         ; preds = %sw.bb
   %t.sroa.0.0.i = select i1 %cmp.i.i, i64 999, i64 %5
   %div.i = udiv i64 %t.sroa.0.0.i, 1000000000
   %rem.i = urem i64 %t.sroa.0.0.i, 1000000000
-  %div7.lhs.trunc.i = trunc i64 %rem.i to i32
+  %div7.lhs.trunc.i = trunc nuw nsw i64 %rem.i to i32
   %div77.i = udiv i32 %div7.lhs.trunc.i, 1000
   %div7.zext.i = zext nneg i32 %div77.i to i64
   store i64 %div.i, ptr %parg, align 8
@@ -561,7 +561,7 @@ return:                                           ; preds = %entry, %cond.false,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dtls1_get_timeout(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %timeleft) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @dtls1_get_timeout(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %timeleft) local_unnamed_addr #1 {
 entry:
   %d1 = getelementptr inbounds i8, ptr %s, i64 1136
   %0 = load ptr, ptr %d1, align 8
@@ -638,7 +638,7 @@ if.then.i:                                        ; preds = %if.else
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then.i, %if.else, %if.then1
-  %call9 = tail call i32 @dtls1_check_timeout_num(ptr noundef nonnull %s), !range !7
+  %call9 = tail call i32 @dtls1_check_timeout_num(ptr noundef nonnull %s)
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %return, label %if.end12
 
@@ -686,7 +686,7 @@ dtls1_start_timer.exit:                           ; preds = %if.end12, %if.end10
   %t.sroa.0.0.i.i.i = tail call i64 @llvm.uadd.sat.i64(i64 %.val.i, i64 999)
   %div.i.i.i = udiv i64 %t.sroa.0.0.i.i.i, 1000000000
   %rem.i.i.i = urem i64 %t.sroa.0.0.i.i.i, 1000000000
-  %div7.lhs.trunc.i.i.i = trunc i64 %rem.i.i.i to i32
+  %div7.lhs.trunc.i.i.i = trunc nuw nsw i64 %rem.i.i.i to i32
   %div77.i.i.i = udiv i32 %div7.lhs.trunc.i.i.i, 1000
   %div7.zext.i.i.i = zext nneg i32 %div77.i.i.i to i64
   store i64 %div.i.i.i, ptr %tv.i.i, align 8
@@ -751,7 +751,7 @@ if.end10:                                         ; preds = %if.end10.sink.split
   %t.sroa.0.0.i.i = tail call i64 @llvm.uadd.sat.i64(i64 %.val, i64 999)
   %div.i.i = udiv i64 %t.sroa.0.0.i.i, 1000000000
   %rem.i.i = urem i64 %t.sroa.0.0.i.i, 1000000000
-  %div7.lhs.trunc.i.i = trunc i64 %rem.i.i to i32
+  %div7.lhs.trunc.i.i = trunc nuw nsw i64 %rem.i.i to i32
   %div77.i.i = udiv i32 %div7.lhs.trunc.i.i, 1000
   %div7.zext.i.i = zext nneg i32 %div77.i.i to i64
   store i64 %div.i.i, ptr %tv.i, align 8
@@ -767,7 +767,7 @@ declare i64 @ossl_time_now() local_unnamed_addr #0
 declare ptr @SSL_get_rbio(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define i32 @dtls1_is_timer_expired(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @dtls1_is_timer_expired(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
 entry:
   %d1.i = getelementptr inbounds i8, ptr %s, i64 1136
   %0 = load ptr, ptr %d1.i, align 8
@@ -814,7 +814,7 @@ entry:
   %t.sroa.0.0.i.i = tail call i64 @llvm.uadd.sat.i64(i64 %.val, i64 999)
   %div.i.i = udiv i64 %t.sroa.0.0.i.i, 1000000000
   %rem.i.i = urem i64 %t.sroa.0.0.i.i, 1000000000
-  %div7.lhs.trunc.i.i = trunc i64 %rem.i.i to i32
+  %div7.lhs.trunc.i.i = trunc nuw nsw i64 %rem.i.i to i32
   %div77.i.i = udiv i32 %div7.lhs.trunc.i.i, 1000
   %div7.zext.i.i = zext nneg i32 %div77.i.i to i64
   store i64 %div.i.i, ptr %tv.i, align 8
@@ -876,7 +876,7 @@ dtls1_clear_sent_buffer.exit:                     ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dtls1_check_timeout_num(ptr noundef %s) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @dtls1_check_timeout_num(ptr noundef %s) local_unnamed_addr #1 {
 entry:
   %d1 = getelementptr inbounds i8, ptr %s, i64 1136
   %0 = load ptr, ptr %d1, align 8
@@ -940,7 +940,7 @@ declare void @ossl_statem_fatal(ptr noundef, i32 noundef, i32 noundef, ptr nound
 declare i32 @dtls1_retransmit_buffered_messages(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define i32 @DTLSv1_listen(ptr noundef %ssl, ptr noundef %client) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @DTLSv1_listen(ptr noundef %ssl, ptr noundef %client) local_unnamed_addr #1 {
 entry:
   %cookie = alloca [255 x i8], align 16
   %seq = alloca [8 x i8], align 8
@@ -1509,7 +1509,7 @@ if.end300:                                        ; preds = %if.end289
   %call301 = call i64 @BIO_ctrl(ptr noundef nonnull %call13, i32 noundef 11, i64 noundef 0, ptr noundef null) #9
   %conv302 = trunc i64 %call301 to i32
   %cmp303 = icmp slt i32 %conv302, 1
-  br i1 %cmp303, label %if.then305, label %do.body, !llvm.loop !8
+  br i1 %cmp303, label %if.then305, label %do.body, !llvm.loop !7
 
 if.then305:                                       ; preds = %if.end300
   %call306 = call i32 @BIO_test_flags(ptr noundef nonnull %call13, i32 noundef 8) #9
@@ -1638,7 +1638,7 @@ entry:
 declare i32 @ssl3_shutdown(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dtls1_query_mtu(ptr noundef %s) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @dtls1_query_mtu(ptr noundef %s) local_unnamed_addr #1 {
 entry:
   %d1 = getelementptr inbounds i8, ptr %s, i64 1136
   %0 = load ptr, ptr %d1, align 8
@@ -1715,7 +1715,7 @@ return:                                           ; preds = %if.end, %if.then16,
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @dtls1_min_mtu(ptr noundef %s) local_unnamed_addr #1 {
+define range(i64 -4294967039, 257) i64 @dtls1_min_mtu(ptr noundef %s) local_unnamed_addr #1 {
 entry:
   %call2 = tail call ptr @SSL_get_wbio(ptr noundef %s) #9
   %call3 = tail call i64 @BIO_ctrl(ptr noundef %call2, i32 noundef 49, i64 noundef 0, ptr noundef null) #9
@@ -1862,5 +1862,4 @@ attributes #10 = { nounwind willreturn memory(none) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -1, i32 1}
-!8 = distinct !{!8, !5}
+!7 = distinct !{!7, !5}

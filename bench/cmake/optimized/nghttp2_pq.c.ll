@@ -28,7 +28,7 @@ define dso_local void @nghttp2_pq_free(ptr nocapture noundef %0) local_unnamed_a
 declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_pq_push(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_pq_push(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -385,7 +385,7 @@ nghttp2_pq_pop.exit:                              ; preds = %80, %100, %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @nghttp2_pq_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @nghttp2_pq_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -490,7 +490,7 @@ bubble_down.exit.loopexit:                        ; preds = %33
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_pq_each(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @nghttp2_pq_each(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0

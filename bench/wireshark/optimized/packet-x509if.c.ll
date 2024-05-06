@@ -1205,7 +1205,7 @@ define hidden ptr @x509if_get_last_dn() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @x509if_register_fmt(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @x509if_register_fmt(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr @x509if_register_fmt.idx, align 4
   %4 = icmp slt i32 %3, 31
   br i1 %4, label %5, label %13

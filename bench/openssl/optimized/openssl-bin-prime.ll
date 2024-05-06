@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.35 = private unnamed_addr constant [7 x i8] c"is not\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @prime_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @prime_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %bn = alloca ptr, align 8
   store ptr null, ptr %bn, align 8
@@ -169,7 +169,7 @@ for.cond28.i.us:                                  ; preds = %for.body.us, %for.c
   %4 = load i8, ptr %arrayidx30.i.us, align 1
   %5 = add i8 %4, -48
   %or.cond21.i.us = icmp ult i8 %5, 10
-  %indvars.iv.next29.i.us = add nuw i64 %indvars.iv28.i.us, 1
+  %indvars.iv.next29.i.us = add nuw nsw i64 %indvars.iv28.i.us, 1
   br i1 %or.cond21.i.us, label %for.cond28.i.us, label %check_num.exit.loopexit.us, !llvm.loop !7
 
 if.then55.us:                                     ; preds = %check_num.exit.loopexit.us
@@ -289,7 +289,7 @@ switch.early.test.i:                              ; preds = %for.cond.i
   ]
 
 for.inc.i:                                        ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %for.cond.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %for.cond.i, !llvm.loop !9
 
 check_num.exit.loopexit20:                        ; preds = %switch.early.test.i

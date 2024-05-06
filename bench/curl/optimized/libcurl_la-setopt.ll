@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [4 x i8] c"all\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_setstropt(ptr nocapture noundef %charp, ptr noundef %s) local_unnamed_addr #0 {
+define hidden range(i32 0, 44) i32 @Curl_setstropt(ptr nocapture noundef %charp, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   %1 = load ptr, ptr %charp, align 8
@@ -52,7 +52,7 @@ return:                                           ; preds = %if.end, %if.then, %
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_setblobopt(ptr nocapture noundef %blobp, ptr noundef readonly %blob) local_unnamed_addr #0 {
+define hidden range(i32 0, 44) i32 @Curl_setblobopt(ptr nocapture noundef %blobp, ptr noundef readonly %blob) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   %1 = load ptr, ptr %blobp, align 8
@@ -491,7 +491,7 @@ vaarg.in_mem35:                                   ; preds = %sw.bb28
 vaarg.end39:                                      ; preds = %vaarg.in_mem35, %vaarg.in_reg33
   %vaarg.addr40 = phi ptr [ %12, %vaarg.in_reg33 ], [ %overflow_arg_area37, %vaarg.in_mem35 ]
   %14 = load ptr, ptr %vaarg.addr40, align 8
-  %call = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx, ptr noundef %14), !range !4
+  %call = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx, ptr noundef %14)
   br label %sw.epilog5747
 
 sw.bb41:                                          ; preds = %entry
@@ -519,7 +519,7 @@ vaarg.in_mem50:                                   ; preds = %sw.bb41
 vaarg.end54:                                      ; preds = %vaarg.in_mem50, %vaarg.in_reg48
   %vaarg.addr55 = phi ptr [ %17, %vaarg.in_reg48 ], [ %overflow_arg_area52, %vaarg.in_mem50 ]
   %19 = load ptr, ptr %vaarg.addr55, align 8
-  %call56 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx44, ptr noundef %19), !range !4
+  %call56 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx44, ptr noundef %19)
   br label %sw.epilog5747
 
 sw.bb57:                                          ; preds = %entry
@@ -551,7 +551,7 @@ vaarg.in_mem68:                                   ; preds = %if.then59
 vaarg.end72:                                      ; preds = %vaarg.in_mem68, %vaarg.in_reg66
   %vaarg.addr73 = phi ptr [ %22, %vaarg.in_reg66 ], [ %overflow_arg_area70, %vaarg.in_mem68 ]
   %24 = load ptr, ptr %vaarg.addr73, align 8
-  %call74 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx62, ptr noundef %24), !range !4
+  %call74 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx62, ptr noundef %24)
   br label %sw.epilog5747
 
 sw.bb77:                                          ; preds = %entry
@@ -583,7 +583,7 @@ vaarg.in_mem88:                                   ; preds = %if.then79
 vaarg.end92:                                      ; preds = %vaarg.in_mem88, %vaarg.in_reg86
   %vaarg.addr93 = phi ptr [ %27, %vaarg.in_reg86 ], [ %overflow_arg_area90, %vaarg.in_mem88 ]
   %29 = load ptr, ptr %vaarg.addr93, align 8
-  %call94 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx82, ptr noundef %29), !range !4
+  %call94 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx82, ptr noundef %29)
   br label %sw.epilog5747
 
 sw.bb99:                                          ; preds = %entry
@@ -974,7 +974,7 @@ vaarg.in_mem342:                                  ; preds = %sw.bb333
 vaarg.end346:                                     ; preds = %vaarg.in_mem342, %vaarg.in_reg340
   %vaarg.addr347 = phi ptr [ %84, %vaarg.in_reg340 ], [ %overflow_arg_area344, %vaarg.in_mem342 ]
   %86 = load ptr, ptr %vaarg.addr347, align 8
-  %call348 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx336, ptr noundef %86), !range !4
+  %call348 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx336, ptr noundef %86)
   br label %sw.epilog5747
 
 sw.bb349:                                         ; preds = %entry
@@ -1201,7 +1201,7 @@ vaarg.in_mem484:                                  ; preds = %sw.bb475
 vaarg.end488:                                     ; preds = %vaarg.in_mem484, %vaarg.in_reg482
   %vaarg.addr489 = phi ptr [ %120, %vaarg.in_reg482 ], [ %overflow_arg_area486, %vaarg.in_mem484 ]
   %122 = load ptr, ptr %vaarg.addr489, align 8
-  %call490 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx478, ptr noundef %122), !range !4
+  %call490 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx478, ptr noundef %122)
   br label %sw.epilog5747
 
 sw.bb491:                                         ; preds = %entry
@@ -1415,7 +1415,7 @@ lor.lhs.false619:                                 ; preds = %vaarg.end616
 
 lor.lhs.false619.split:                           ; preds = %lor.lhs.false619
   %arrayidx6261044 = getelementptr inbounds i8, ptr %data, i64 2448
-  %call6271045 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx6261044, ptr noundef nonnull %153), !range !4
+  %call6271045 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx6261044, ptr noundef nonnull %153)
   br label %if.end650
 
 if.else628:                                       ; preds = %lor.lhs.false619
@@ -1657,13 +1657,13 @@ land.lhs.true787:                                 ; preds = %vaarg.end784
 
 land.lhs.true787.split:                           ; preds = %land.lhs.true787
   %arrayidx7981052 = getelementptr inbounds i8, ptr %data, i64 1888
-  %call7991053 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx7981052, ptr noundef nonnull %194), !range !4
+  %call7991053 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx7981052, ptr noundef nonnull %194)
   br label %sw.epilog5747
 
 if.then789:                                       ; preds = %land.lhs.true787
   call void @Curl_all_content_encodings(ptr noundef nonnull %all, i64 noundef 256) #8
   %arrayidx792 = getelementptr inbounds i8, ptr %data, i64 1888
-  %call794 = call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx792, ptr noundef nonnull %all), !range !4
+  %call794 = call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx792, ptr noundef nonnull %all)
   br label %sw.epilog5747
 
 sw.bb801:                                         ; preds = %entry
@@ -1938,7 +1938,7 @@ vaarg.in_mem959:                                  ; preds = %sw.bb950
 vaarg.end963:                                     ; preds = %vaarg.in_mem959, %vaarg.in_reg957
   %vaarg.addr964 = phi ptr [ %239, %vaarg.in_reg957 ], [ %overflow_arg_area961, %vaarg.in_mem959 ]
   %241 = load ptr, ptr %vaarg.addr964, align 8
-  %call965 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx953, ptr noundef %241), !range !4
+  %call965 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx953, ptr noundef %241)
   %242 = load ptr, ptr %arrayidx953, align 8
   %tobool969.not = icmp eq ptr %242, null
   br i1 %tobool969.not, label %sw.epilog5747, label %if.then970
@@ -1991,7 +1991,7 @@ vaarg.in_mem999:                                  ; preds = %if.end990
 vaarg.end1003:                                    ; preds = %vaarg.in_mem999, %vaarg.in_reg997
   %vaarg.addr1004 = phi ptr [ %248, %vaarg.in_reg997 ], [ %overflow_arg_area1001, %vaarg.in_mem999 ]
   %250 = load ptr, ptr %vaarg.addr1004, align 8
-  %call1005 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx993, ptr noundef %250), !range !4
+  %call1005 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx993, ptr noundef %250)
   %251 = load ptr, ptr %arrayidx993, align 8
   %referer1010 = getelementptr inbounds i8, ptr %data, i64 4704
   store ptr %251, ptr %referer1010, align 8
@@ -2022,7 +2022,7 @@ vaarg.in_mem1020:                                 ; preds = %sw.bb1011
 vaarg.end1024:                                    ; preds = %vaarg.in_mem1020, %vaarg.in_reg1018
   %vaarg.addr1025 = phi ptr [ %254, %vaarg.in_reg1018 ], [ %overflow_arg_area1022, %vaarg.in_mem1020 ]
   %256 = load ptr, ptr %vaarg.addr1025, align 8
-  %call1026 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1014, ptr noundef %256), !range !4
+  %call1026 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1014, ptr noundef %256)
   br label %sw.epilog5747
 
 sw.bb1027:                                        ; preds = %entry
@@ -2111,7 +2111,7 @@ vaarg.in_mem1071:                                 ; preds = %sw.bb1062
 vaarg.end1075:                                    ; preds = %vaarg.in_mem1071, %vaarg.in_reg1069
   %vaarg.addr1076 = phi ptr [ %269, %vaarg.in_reg1069 ], [ %overflow_arg_area1073, %vaarg.in_mem1071 ]
   %271 = load ptr, ptr %vaarg.addr1076, align 8
-  %call1077 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1065, ptr noundef %271), !range !4
+  %call1077 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1065, ptr noundef %271)
   br label %sw.epilog5747
 
 sw.bb1078:                                        ; preds = %entry
@@ -2217,7 +2217,7 @@ vaarg.in_mem1132:                                 ; preds = %sw.bb1123
 vaarg.end1136:                                    ; preds = %vaarg.in_mem1132, %vaarg.in_reg1130
   %vaarg.addr1137 = phi ptr [ %286, %vaarg.in_reg1130 ], [ %overflow_arg_area1134, %vaarg.in_mem1132 ]
   %288 = load ptr, ptr %vaarg.addr1137, align 8
-  %call1138 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1126, ptr noundef %288), !range !4
+  %call1138 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1126, ptr noundef %288)
   %cookies1139 = getelementptr inbounds i8, ptr %data, i64 2720
   %289 = load ptr, ptr %cookies1139, align 8
   %cookiesession = getelementptr inbounds i8, ptr %data, i64 2706
@@ -2724,7 +2724,7 @@ while.body:                                       ; preds = %while.cond
   %shl = shl nuw nsw i64 1, %indvars.iv1136
   %and1457 = and i64 %shl, %and1454
   %tobool1458.not = icmp eq i64 %and1457, 0
-  br i1 %tobool1458.not, label %while.cond, label %if.end1463, !llvm.loop !5
+  br i1 %tobool1458.not, label %while.cond, label %if.end1463, !llvm.loop !4
 
 if.end1463:                                       ; preds = %while.body
   %httpauth1465 = getelementptr inbounds i8, ptr %data, i64 472
@@ -2756,7 +2756,7 @@ vaarg.in_mem1475:                                 ; preds = %sw.bb1466
 vaarg.end1479:                                    ; preds = %vaarg.in_mem1475, %vaarg.in_reg1473
   %vaarg.addr1480 = phi ptr [ %361, %vaarg.in_reg1473 ], [ %overflow_arg_area1477, %vaarg.in_mem1475 ]
   %363 = load ptr, ptr %vaarg.addr1480, align 8
-  %call1481 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1469, ptr noundef %363), !range !4
+  %call1481 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1469, ptr noundef %363)
   br label %sw.epilog5747
 
 sw.bb1482:                                        ; preds = %entry
@@ -2884,7 +2884,7 @@ while.body1569:                                   ; preds = %while.cond1566
   %shl1572 = shl nuw nsw i64 1, %indvars.iv
   %and1573 = and i64 %shl1572, %and1565
   %tobool1574.not = icmp eq i64 %and1573, 0
-  br i1 %tobool1574.not, label %while.cond1566, label %if.end1580, !llvm.loop !7
+  br i1 %tobool1574.not, label %while.cond1566, label %if.end1580, !llvm.loop !6
 
 if.end1580:                                       ; preds = %while.body1569
   %proxyauth1582 = getelementptr inbounds i8, ptr %data, i64 480
@@ -2916,7 +2916,7 @@ vaarg.in_mem1592:                                 ; preds = %sw.bb1583
 vaarg.end1596:                                    ; preds = %vaarg.in_mem1592, %vaarg.in_reg1590
   %vaarg.addr1597 = phi ptr [ %383, %vaarg.in_reg1590 ], [ %overflow_arg_area1594, %vaarg.in_mem1592 ]
   %385 = load ptr, ptr %vaarg.addr1597, align 8
-  %call1598 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1586, ptr noundef %385), !range !4
+  %call1598 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1586, ptr noundef %385)
   br label %sw.epilog5747
 
 sw.bb1599:                                        ; preds = %entry
@@ -2944,7 +2944,7 @@ vaarg.in_mem1608:                                 ; preds = %sw.bb1599
 vaarg.end1612:                                    ; preds = %vaarg.in_mem1608, %vaarg.in_reg1606
   %vaarg.addr1613 = phi ptr [ %388, %vaarg.in_reg1606 ], [ %overflow_arg_area1610, %vaarg.in_mem1608 ]
   %390 = load ptr, ptr %vaarg.addr1613, align 8
-  %call1614 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1602, ptr noundef %390), !range !4
+  %call1614 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1602, ptr noundef %390)
   br label %sw.epilog5747
 
 sw.bb1615:                                        ; preds = %entry
@@ -3080,7 +3080,7 @@ vaarg.in_mem1692:                                 ; preds = %sw.bb1683
 vaarg.end1696:                                    ; preds = %vaarg.in_mem1692, %vaarg.in_reg1690
   %vaarg.addr1697 = phi ptr [ %408, %vaarg.in_reg1690 ], [ %overflow_arg_area1694, %vaarg.in_mem1692 ]
   %410 = load ptr, ptr %vaarg.addr1697, align 8
-  %call1698 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1686, ptr noundef %410), !range !4
+  %call1698 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1686, ptr noundef %410)
   br label %sw.epilog5747
 
 sw.bb1699:                                        ; preds = %entry
@@ -3108,7 +3108,7 @@ vaarg.in_mem1708:                                 ; preds = %sw.bb1699
 vaarg.end1712:                                    ; preds = %vaarg.in_mem1708, %vaarg.in_reg1706
   %vaarg.addr1713 = phi ptr [ %413, %vaarg.in_reg1706 ], [ %overflow_arg_area1710, %vaarg.in_mem1708 ]
   %415 = load ptr, ptr %vaarg.addr1713, align 8
-  %call1714 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1702, ptr noundef %415), !range !4
+  %call1714 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1702, ptr noundef %415)
   br label %sw.epilog5747
 
 sw.bb1715:                                        ; preds = %entry
@@ -3319,7 +3319,7 @@ vaarg.in_mem1826:                                 ; preds = %sw.bb1817
 vaarg.end1830:                                    ; preds = %vaarg.in_mem1826, %vaarg.in_reg1824
   %vaarg.addr1831 = phi ptr [ %448, %vaarg.in_reg1824 ], [ %overflow_arg_area1828, %vaarg.in_mem1826 ]
   %450 = load ptr, ptr %vaarg.addr1831, align 8
-  %call1832 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1820, ptr noundef %450), !range !4
+  %call1832 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1820, ptr noundef %450)
   %451 = load ptr, ptr %arrayidx1820, align 8
   %tobool1836.not = icmp eq ptr %451, null
   %ftp_use_port = getelementptr inbounds i8, ptr %data, i64 2706
@@ -3520,7 +3520,7 @@ vaarg.in_mem1962:                                 ; preds = %sw.bb1953
 vaarg.end1966:                                    ; preds = %vaarg.in_mem1962, %vaarg.in_reg1960
   %vaarg.addr1967 = phi ptr [ %479, %vaarg.in_reg1960 ], [ %overflow_arg_area1964, %vaarg.in_mem1962 ]
   %481 = load ptr, ptr %vaarg.addr1967, align 8
-  %call1968 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1956, ptr noundef %481), !range !4
+  %call1968 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1956, ptr noundef %481)
   br label %sw.epilog5747
 
 sw.bb1969:                                        ; preds = %entry
@@ -3548,7 +3548,7 @@ vaarg.in_mem1978:                                 ; preds = %sw.bb1969
 vaarg.end1982:                                    ; preds = %vaarg.in_mem1978, %vaarg.in_reg1976
   %vaarg.addr1983 = phi ptr [ %484, %vaarg.in_reg1976 ], [ %overflow_arg_area1980, %vaarg.in_mem1978 ]
   %486 = load ptr, ptr %vaarg.addr1983, align 8
-  %call1984 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1972, ptr noundef %486), !range !4
+  %call1984 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx1972, ptr noundef %486)
   br label %sw.epilog5747
 
 sw.bb1985:                                        ; preds = %entry
@@ -3609,7 +3609,7 @@ vaarg.in_mem2016:                                 ; preds = %sw.bb2007
 vaarg.end2020:                                    ; preds = %vaarg.in_mem2016, %vaarg.in_reg2014
   %vaarg.addr2021 = phi ptr [ %494, %vaarg.in_reg2014 ], [ %overflow_arg_area2018, %vaarg.in_mem2016 ]
   %496 = load ptr, ptr %vaarg.addr2021, align 8
-  %call2022 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2010, ptr noundef %496), !range !4
+  %call2022 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2010, ptr noundef %496)
   %497 = load ptr, ptr %arrayidx2010, align 8
   %tobool2026.not = icmp eq ptr %497, null
   %krb = getelementptr inbounds i8, ptr %data, i64 2706
@@ -4028,7 +4028,7 @@ vaarg.in_mem2254:                                 ; preds = %if.end2245
 vaarg.end2258:                                    ; preds = %vaarg.in_mem2254, %vaarg.in_reg2252
   %vaarg.addr2259 = phi ptr [ %563, %vaarg.in_reg2252 ], [ %overflow_arg_area2256, %vaarg.in_mem2254 ]
   %565 = load ptr, ptr %vaarg.addr2259, align 8
-  %call2260 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2248, ptr noundef %565), !range !4
+  %call2260 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2248, ptr noundef %565)
   %566 = load ptr, ptr %arrayidx2248, align 8
   %url2265 = getelementptr inbounds i8, ptr %data, i64 4696
   store ptr %566, ptr %url2265, align 8
@@ -4279,7 +4279,7 @@ vaarg.in_mem2417:                                 ; preds = %sw.bb2408
 vaarg.end2421:                                    ; preds = %vaarg.in_mem2417, %vaarg.in_reg2415
   %vaarg.addr2422 = phi ptr [ %604, %vaarg.in_reg2415 ], [ %overflow_arg_area2419, %vaarg.in_mem2417 ]
   %606 = load ptr, ptr %vaarg.addr2422, align 8
-  %call2423 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2411, ptr noundef %606), !range !4
+  %call2423 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2411, ptr noundef %606)
   br label %sw.epilog5747
 
 sw.bb2424:                                        ; preds = %entry
@@ -4307,7 +4307,7 @@ vaarg.in_mem2433:                                 ; preds = %sw.bb2424
 vaarg.end2437:                                    ; preds = %vaarg.in_mem2433, %vaarg.in_reg2431
   %vaarg.addr2438 = phi ptr [ %609, %vaarg.in_reg2431 ], [ %overflow_arg_area2435, %vaarg.in_mem2433 ]
   %611 = load ptr, ptr %vaarg.addr2438, align 8
-  %call2439 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2427, ptr noundef %611), !range !4
+  %call2439 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2427, ptr noundef %611)
   br label %sw.epilog5747
 
 sw.bb2440:                                        ; preds = %entry
@@ -4335,7 +4335,7 @@ vaarg.in_mem2449:                                 ; preds = %sw.bb2440
 vaarg.end2453:                                    ; preds = %vaarg.in_mem2449, %vaarg.in_reg2447
   %vaarg.addr2454 = phi ptr [ %614, %vaarg.in_reg2447 ], [ %overflow_arg_area2451, %vaarg.in_mem2449 ]
   %616 = load ptr, ptr %vaarg.addr2454, align 8
-  %call2455 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2443, ptr noundef %616), !range !4
+  %call2455 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2443, ptr noundef %616)
   br label %sw.epilog5747
 
 sw.bb2456:                                        ; preds = %entry
@@ -4363,7 +4363,7 @@ vaarg.in_mem2465:                                 ; preds = %sw.bb2456
 vaarg.end2469:                                    ; preds = %vaarg.in_mem2465, %vaarg.in_reg2463
   %vaarg.addr2470 = phi ptr [ %619, %vaarg.in_reg2463 ], [ %overflow_arg_area2467, %vaarg.in_mem2465 ]
   %621 = load ptr, ptr %vaarg.addr2470, align 8
-  %call2471 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2459, ptr noundef %621), !range !4
+  %call2471 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2459, ptr noundef %621)
   br label %sw.epilog5747
 
 sw.bb2472:                                        ; preds = %entry
@@ -4560,7 +4560,7 @@ vaarg.in_mem2587:                                 ; preds = %sw.bb2578
 vaarg.end2591:                                    ; preds = %vaarg.in_mem2587, %vaarg.in_reg2585
   %vaarg.addr2592 = phi ptr [ %649, %vaarg.in_reg2585 ], [ %overflow_arg_area2589, %vaarg.in_mem2587 ]
   %651 = load ptr, ptr %vaarg.addr2592, align 8
-  %call2593 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2581, ptr noundef %651), !range !4
+  %call2593 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2581, ptr noundef %651)
   br label %sw.epilog5747
 
 sw.bb2594:                                        ; preds = %entry
@@ -4588,7 +4588,7 @@ vaarg.in_mem2603:                                 ; preds = %sw.bb2594
 vaarg.end2607:                                    ; preds = %vaarg.in_mem2603, %vaarg.in_reg2601
   %vaarg.addr2608 = phi ptr [ %654, %vaarg.in_reg2601 ], [ %overflow_arg_area2605, %vaarg.in_mem2603 ]
   %656 = load ptr, ptr %vaarg.addr2608, align 8
-  %call2609 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2597, ptr noundef %656), !range !4
+  %call2609 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2597, ptr noundef %656)
   br label %sw.epilog5747
 
 sw.bb2610:                                        ; preds = %entry
@@ -4616,7 +4616,7 @@ vaarg.in_mem2619:                                 ; preds = %sw.bb2610
 vaarg.end2623:                                    ; preds = %vaarg.in_mem2619, %vaarg.in_reg2617
   %vaarg.addr2624 = phi ptr [ %659, %vaarg.in_reg2617 ], [ %overflow_arg_area2621, %vaarg.in_mem2619 ]
   %661 = load ptr, ptr %vaarg.addr2624, align 8
-  %call2625 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2613, ptr noundef %661), !range !4
+  %call2625 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2613, ptr noundef %661)
   br label %sw.epilog5747
 
 sw.bb2626:                                        ; preds = %entry
@@ -4644,7 +4644,7 @@ vaarg.in_mem2635:                                 ; preds = %sw.bb2626
 vaarg.end2639:                                    ; preds = %vaarg.in_mem2635, %vaarg.in_reg2633
   %vaarg.addr2640 = phi ptr [ %664, %vaarg.in_reg2633 ], [ %overflow_arg_area2637, %vaarg.in_mem2635 ]
   %666 = load ptr, ptr %vaarg.addr2640, align 8
-  %call2641 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2629, ptr noundef %666), !range !4
+  %call2641 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2629, ptr noundef %666)
   br label %sw.epilog5747
 
 sw.bb2642:                                        ; preds = %entry
@@ -5038,7 +5038,7 @@ vaarg.in_mem2847:                                 ; preds = %sw.bb2838
 vaarg.end2851:                                    ; preds = %vaarg.in_mem2847, %vaarg.in_reg2845
   %vaarg.addr2852 = phi ptr [ %730, %vaarg.in_reg2845 ], [ %overflow_arg_area2849, %vaarg.in_mem2847 ]
   %732 = load ptr, ptr %vaarg.addr2852, align 8
-  %call2853 = tail call i32 @Curl_setstropt(ptr noundef nonnull %str2840, ptr noundef %732), !range !4
+  %call2853 = tail call i32 @Curl_setstropt(ptr noundef nonnull %str2840, ptr noundef %732)
   br label %sw.epilog5747
 
 sw.bb2854:                                        ; preds = %entry
@@ -5066,7 +5066,7 @@ vaarg.in_mem2862:                                 ; preds = %sw.bb2854
 vaarg.end2866:                                    ; preds = %vaarg.in_mem2862, %vaarg.in_reg2860
   %vaarg.addr2867 = phi ptr [ %735, %vaarg.in_reg2860 ], [ %overflow_arg_area2864, %vaarg.in_mem2862 ]
   %737 = load ptr, ptr %vaarg.addr2867, align 8
-  %call2868 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %blobs, ptr noundef %737), !range !4
+  %call2868 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %blobs, ptr noundef %737)
   br label %sw.epilog5747
 
 sw.bb2869:                                        ; preds = %entry
@@ -5094,7 +5094,7 @@ vaarg.in_mem2878:                                 ; preds = %sw.bb2869
 vaarg.end2882:                                    ; preds = %vaarg.in_mem2878, %vaarg.in_reg2876
   %vaarg.addr2883 = phi ptr [ %740, %vaarg.in_reg2876 ], [ %overflow_arg_area2880, %vaarg.in_mem2878 ]
   %742 = load ptr, ptr %vaarg.addr2883, align 8
-  %call2884 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2872, ptr noundef %742), !range !4
+  %call2884 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2872, ptr noundef %742)
   br label %sw.epilog5747
 
 sw.bb2885:                                        ; preds = %entry
@@ -5122,7 +5122,7 @@ vaarg.in_mem2894:                                 ; preds = %sw.bb2885
 vaarg.end2898:                                    ; preds = %vaarg.in_mem2894, %vaarg.in_reg2892
   %vaarg.addr2899 = phi ptr [ %745, %vaarg.in_reg2892 ], [ %overflow_arg_area2896, %vaarg.in_mem2894 ]
   %747 = load ptr, ptr %vaarg.addr2899, align 8
-  %call2900 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %arrayidx2888, ptr noundef %747), !range !4
+  %call2900 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %arrayidx2888, ptr noundef %747)
   br label %sw.epilog5747
 
 sw.bb2901:                                        ; preds = %entry
@@ -5150,7 +5150,7 @@ vaarg.in_mem2910:                                 ; preds = %sw.bb2901
 vaarg.end2914:                                    ; preds = %vaarg.in_mem2910, %vaarg.in_reg2908
   %vaarg.addr2915 = phi ptr [ %750, %vaarg.in_reg2908 ], [ %overflow_arg_area2912, %vaarg.in_mem2910 ]
   %752 = load ptr, ptr %vaarg.addr2915, align 8
-  %call2916 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2904, ptr noundef %752), !range !4
+  %call2916 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2904, ptr noundef %752)
   br label %sw.epilog5747
 
 sw.bb2917:                                        ; preds = %entry
@@ -5178,7 +5178,7 @@ vaarg.in_mem2926:                                 ; preds = %sw.bb2917
 vaarg.end2930:                                    ; preds = %vaarg.in_mem2926, %vaarg.in_reg2924
   %vaarg.addr2931 = phi ptr [ %755, %vaarg.in_reg2924 ], [ %overflow_arg_area2928, %vaarg.in_mem2926 ]
   %757 = load ptr, ptr %vaarg.addr2931, align 8
-  %call2932 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2920, ptr noundef %757), !range !4
+  %call2932 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2920, ptr noundef %757)
   br label %sw.epilog5747
 
 sw.bb2933:                                        ; preds = %entry
@@ -5206,7 +5206,7 @@ vaarg.in_mem2942:                                 ; preds = %sw.bb2933
 vaarg.end2946:                                    ; preds = %vaarg.in_mem2942, %vaarg.in_reg2940
   %vaarg.addr2947 = phi ptr [ %760, %vaarg.in_reg2940 ], [ %overflow_arg_area2944, %vaarg.in_mem2942 ]
   %762 = load ptr, ptr %vaarg.addr2947, align 8
-  %call2948 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2936, ptr noundef %762), !range !4
+  %call2948 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2936, ptr noundef %762)
   br label %sw.epilog5747
 
 sw.bb2949:                                        ; preds = %entry
@@ -5234,7 +5234,7 @@ vaarg.in_mem2958:                                 ; preds = %sw.bb2949
 vaarg.end2962:                                    ; preds = %vaarg.in_mem2958, %vaarg.in_reg2956
   %vaarg.addr2963 = phi ptr [ %765, %vaarg.in_reg2956 ], [ %overflow_arg_area2960, %vaarg.in_mem2958 ]
   %767 = load ptr, ptr %vaarg.addr2963, align 8
-  %call2964 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %arrayidx2952, ptr noundef %767), !range !4
+  %call2964 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %arrayidx2952, ptr noundef %767)
   br label %sw.epilog5747
 
 sw.bb2965:                                        ; preds = %entry
@@ -5262,7 +5262,7 @@ vaarg.in_mem2974:                                 ; preds = %sw.bb2965
 vaarg.end2978:                                    ; preds = %vaarg.in_mem2974, %vaarg.in_reg2972
   %vaarg.addr2979 = phi ptr [ %770, %vaarg.in_reg2972 ], [ %overflow_arg_area2976, %vaarg.in_mem2974 ]
   %772 = load ptr, ptr %vaarg.addr2979, align 8
-  %call2980 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2968, ptr noundef %772), !range !4
+  %call2980 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx2968, ptr noundef %772)
   br label %sw.epilog5747
 
 sw.bb2981:                                        ; preds = %entry
@@ -5290,7 +5290,7 @@ vaarg.in_mem2990:                                 ; preds = %sw.bb2981
 vaarg.end2994:                                    ; preds = %vaarg.in_mem2990, %vaarg.in_reg2988
   %vaarg.addr2995 = phi ptr [ %775, %vaarg.in_reg2988 ], [ %overflow_arg_area2992, %vaarg.in_mem2990 ]
   %777 = load ptr, ptr %vaarg.addr2995, align 8
-  %call2996 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %arrayidx2984, ptr noundef %777), !range !4
+  %call2996 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %arrayidx2984, ptr noundef %777)
   br label %sw.epilog5747
 
 sw.bb2997:                                        ; preds = %entry
@@ -5318,7 +5318,7 @@ vaarg.in_mem3006:                                 ; preds = %sw.bb2997
 vaarg.end3010:                                    ; preds = %vaarg.in_mem3006, %vaarg.in_reg3004
   %vaarg.addr3011 = phi ptr [ %780, %vaarg.in_reg3004 ], [ %overflow_arg_area3008, %vaarg.in_mem3006 ]
   %782 = load ptr, ptr %vaarg.addr3011, align 8
-  %call3012 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3000, ptr noundef %782), !range !4
+  %call3012 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3000, ptr noundef %782)
   br label %sw.epilog5747
 
 sw.bb3013:                                        ; preds = %entry
@@ -5346,7 +5346,7 @@ vaarg.in_mem3022:                                 ; preds = %sw.bb3013
 vaarg.end3026:                                    ; preds = %vaarg.in_mem3022, %vaarg.in_reg3020
   %vaarg.addr3027 = phi ptr [ %785, %vaarg.in_reg3020 ], [ %overflow_arg_area3024, %vaarg.in_mem3022 ]
   %787 = load ptr, ptr %vaarg.addr3027, align 8
-  %call3028 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3016, ptr noundef %787), !range !4
+  %call3028 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3016, ptr noundef %787)
   br label %sw.epilog5747
 
 sw.bb3029:                                        ; preds = %entry
@@ -5374,7 +5374,7 @@ vaarg.in_mem3038:                                 ; preds = %sw.bb3029
 vaarg.end3042:                                    ; preds = %vaarg.in_mem3038, %vaarg.in_reg3036
   %vaarg.addr3043 = phi ptr [ %790, %vaarg.in_reg3036 ], [ %overflow_arg_area3040, %vaarg.in_mem3038 ]
   %792 = load ptr, ptr %vaarg.addr3043, align 8
-  %call3044 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3032, ptr noundef %792), !range !4
+  %call3044 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3032, ptr noundef %792)
   br label %sw.epilog5747
 
 sw.bb3045:                                        ; preds = %entry
@@ -5402,7 +5402,7 @@ vaarg.in_mem3054:                                 ; preds = %sw.bb3045
 vaarg.end3058:                                    ; preds = %vaarg.in_mem3054, %vaarg.in_reg3052
   %vaarg.addr3059 = phi ptr [ %795, %vaarg.in_reg3052 ], [ %overflow_arg_area3056, %vaarg.in_mem3054 ]
   %797 = load ptr, ptr %vaarg.addr3059, align 8
-  %call3060 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3048, ptr noundef %797), !range !4
+  %call3060 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3048, ptr noundef %797)
   br label %sw.epilog5747
 
 sw.bb3061:                                        ; preds = %entry
@@ -5439,7 +5439,7 @@ land.lhs.true3074:                                ; preds = %vaarg.end3071
 
 if.then3078:                                      ; preds = %land.lhs.true3074
   %arrayidx3081 = getelementptr inbounds i8, ptr %data, i64 2144
-  %call3082 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3081, ptr noundef nonnull %802), !range !4
+  %call3082 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3081, ptr noundef nonnull %802)
   %tobool3083.not = icmp eq i32 %call3082, 0
   br i1 %tobool3083.not, label %if.then3084, label %sw.epilog5747
 
@@ -5547,7 +5547,7 @@ vaarg.in_mem3145:                                 ; preds = %sw.bb3136
 vaarg.end3149:                                    ; preds = %vaarg.in_mem3145, %vaarg.in_reg3143
   %vaarg.addr3150 = phi ptr [ %818, %vaarg.in_reg3143 ], [ %overflow_arg_area3147, %vaarg.in_mem3145 ]
   %820 = load ptr, ptr %vaarg.addr3150, align 8
-  %call3151 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3139, ptr noundef %820), !range !4
+  %call3151 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3139, ptr noundef %820)
   %haproxyprotocol3153 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load3154 = load i64, ptr %haproxyprotocol3153, align 2
   %bf.set3156 = or i64 %bf.load3154, 140737488355328
@@ -5579,7 +5579,7 @@ vaarg.in_mem3166:                                 ; preds = %sw.bb3157
 vaarg.end3170:                                    ; preds = %vaarg.in_mem3166, %vaarg.in_reg3164
   %vaarg.addr3171 = phi ptr [ %823, %vaarg.in_reg3164 ], [ %overflow_arg_area3168, %vaarg.in_mem3166 ]
   %825 = load ptr, ptr %vaarg.addr3171, align 8
-  %call3172 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3160, ptr noundef %825), !range !4
+  %call3172 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3160, ptr noundef %825)
   br label %sw.epilog5747
 
 sw.bb3173:                                        ; preds = %entry
@@ -6125,7 +6125,7 @@ vaarg.in_mem3524:                                 ; preds = %if.then3515
 vaarg.end3528:                                    ; preds = %vaarg.in_mem3524, %vaarg.in_reg3522
   %vaarg.addr3529 = phi ptr [ %906, %vaarg.in_reg3522 ], [ %overflow_arg_area3526, %vaarg.in_mem3524 ]
   %908 = load ptr, ptr %vaarg.addr3529, align 8
-  %call3530 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3518, ptr noundef %908), !range !4
+  %call3530 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3518, ptr noundef %908)
   br label %sw.epilog5747
 
 sw.bb3533:                                        ; preds = %entry
@@ -6157,7 +6157,7 @@ vaarg.in_mem3544:                                 ; preds = %if.then3535
 vaarg.end3548:                                    ; preds = %vaarg.in_mem3544, %vaarg.in_reg3542
   %vaarg.addr3549 = phi ptr [ %911, %vaarg.in_reg3542 ], [ %overflow_arg_area3546, %vaarg.in_mem3544 ]
   %913 = load ptr, ptr %vaarg.addr3549, align 8
-  %call3550 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3538, ptr noundef %913), !range !4
+  %call3550 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3538, ptr noundef %913)
   br label %sw.epilog5747
 
 sw.bb3553:                                        ; preds = %entry
@@ -6185,7 +6185,7 @@ vaarg.in_mem3562:                                 ; preds = %sw.bb3553
 vaarg.end3566:                                    ; preds = %vaarg.in_mem3562, %vaarg.in_reg3560
   %vaarg.addr3567 = phi ptr [ %916, %vaarg.in_reg3560 ], [ %overflow_arg_area3564, %vaarg.in_mem3562 ]
   %918 = load ptr, ptr %vaarg.addr3567, align 8
-  %call3568 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3556, ptr noundef %918), !range !4
+  %call3568 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3556, ptr noundef %918)
   br label %sw.epilog5747
 
 sw.bb3569:                                        ; preds = %entry
@@ -6217,7 +6217,7 @@ vaarg.in_mem3580:                                 ; preds = %if.then3571
 vaarg.end3584:                                    ; preds = %vaarg.in_mem3580, %vaarg.in_reg3578
   %vaarg.addr3585 = phi ptr [ %921, %vaarg.in_reg3578 ], [ %overflow_arg_area3582, %vaarg.in_mem3580 ]
   %923 = load ptr, ptr %vaarg.addr3585, align 8
-  %call3586 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %arrayidx3574, ptr noundef %923), !range !4
+  %call3586 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %arrayidx3574, ptr noundef %923)
   br label %sw.epilog5747
 
 sw.bb3588:                                        ; preds = %entry
@@ -6245,7 +6245,7 @@ vaarg.in_mem3597:                                 ; preds = %sw.bb3588
 vaarg.end3601:                                    ; preds = %vaarg.in_mem3597, %vaarg.in_reg3595
   %vaarg.addr3602 = phi ptr [ %926, %vaarg.in_reg3595 ], [ %overflow_arg_area3599, %vaarg.in_mem3597 ]
   %928 = load ptr, ptr %vaarg.addr3602, align 8
-  %call3603 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3591, ptr noundef %928), !range !4
+  %call3603 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3591, ptr noundef %928)
   br label %sw.epilog5747
 
 sw.bb3604:                                        ; preds = %entry
@@ -6277,7 +6277,7 @@ vaarg.in_mem3615:                                 ; preds = %if.then3606
 vaarg.end3619:                                    ; preds = %vaarg.in_mem3615, %vaarg.in_reg3613
   %vaarg.addr3620 = phi ptr [ %931, %vaarg.in_reg3613 ], [ %overflow_arg_area3617, %vaarg.in_mem3615 ]
   %933 = load ptr, ptr %vaarg.addr3620, align 8
-  %call3621 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %arrayidx3609, ptr noundef %933), !range !4
+  %call3621 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %arrayidx3609, ptr noundef %933)
   br label %sw.epilog5747
 
 sw.bb3623:                                        ; preds = %entry
@@ -6309,7 +6309,7 @@ vaarg.in_mem3634:                                 ; preds = %if.then3625
 vaarg.end3638:                                    ; preds = %vaarg.in_mem3634, %vaarg.in_reg3632
   %vaarg.addr3639 = phi ptr [ %936, %vaarg.in_reg3632 ], [ %overflow_arg_area3636, %vaarg.in_mem3634 ]
   %938 = load ptr, ptr %vaarg.addr3639, align 8
-  %call3640 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3628, ptr noundef %938), !range !4
+  %call3640 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3628, ptr noundef %938)
   br label %sw.epilog5747
 
 sw.bb3643:                                        ; preds = %entry
@@ -6341,7 +6341,7 @@ vaarg.in_mem3654:                                 ; preds = %if.then3645
 vaarg.end3658:                                    ; preds = %vaarg.in_mem3654, %vaarg.in_reg3652
   %vaarg.addr3659 = phi ptr [ %941, %vaarg.in_reg3652 ], [ %overflow_arg_area3656, %vaarg.in_mem3654 ]
   %943 = load ptr, ptr %vaarg.addr3659, align 8
-  %call3660 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3648, ptr noundef %943), !range !4
+  %call3660 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3648, ptr noundef %943)
   br label %sw.epilog5747
 
 sw.bb3663:                                        ; preds = %entry
@@ -6369,7 +6369,7 @@ vaarg.in_mem3672:                                 ; preds = %sw.bb3663
 vaarg.end3676:                                    ; preds = %vaarg.in_mem3672, %vaarg.in_reg3670
   %vaarg.addr3677 = phi ptr [ %946, %vaarg.in_reg3670 ], [ %overflow_arg_area3674, %vaarg.in_mem3672 ]
   %948 = load ptr, ptr %vaarg.addr3677, align 8
-  %call3678 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3666, ptr noundef %948), !range !4
+  %call3678 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3666, ptr noundef %948)
   br label %sw.epilog5747
 
 sw.bb3679:                                        ; preds = %entry
@@ -6397,7 +6397,7 @@ vaarg.in_mem3688:                                 ; preds = %sw.bb3679
 vaarg.end3692:                                    ; preds = %vaarg.in_mem3688, %vaarg.in_reg3686
   %vaarg.addr3693 = phi ptr [ %951, %vaarg.in_reg3686 ], [ %overflow_arg_area3690, %vaarg.in_mem3688 ]
   %953 = load ptr, ptr %vaarg.addr3693, align 8
-  %call3694 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3682, ptr noundef %953), !range !4
+  %call3694 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3682, ptr noundef %953)
   br label %sw.epilog5747
 
 sw.bb3695:                                        ; preds = %entry
@@ -6425,7 +6425,7 @@ vaarg.in_mem3704:                                 ; preds = %sw.bb3695
 vaarg.end3708:                                    ; preds = %vaarg.in_mem3704, %vaarg.in_reg3702
   %vaarg.addr3709 = phi ptr [ %956, %vaarg.in_reg3702 ], [ %overflow_arg_area3706, %vaarg.in_mem3704 ]
   %958 = load ptr, ptr %vaarg.addr3709, align 8
-  %call3710 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3698, ptr noundef %958), !range !4
+  %call3710 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3698, ptr noundef %958)
   br label %sw.epilog5747
 
 sw.bb3711:                                        ; preds = %entry
@@ -6453,7 +6453,7 @@ vaarg.in_mem3720:                                 ; preds = %sw.bb3711
 vaarg.end3724:                                    ; preds = %vaarg.in_mem3720, %vaarg.in_reg3718
   %vaarg.addr3725 = phi ptr [ %961, %vaarg.in_reg3718 ], [ %overflow_arg_area3722, %vaarg.in_mem3720 ]
   %963 = load ptr, ptr %vaarg.addr3725, align 8
-  %call3726 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %arrayidx3714, ptr noundef %963), !range !4
+  %call3726 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %arrayidx3714, ptr noundef %963)
   br label %sw.epilog5747
 
 sw.bb3727:                                        ; preds = %entry
@@ -6481,7 +6481,7 @@ vaarg.in_mem3736:                                 ; preds = %sw.bb3727
 vaarg.end3740:                                    ; preds = %vaarg.in_mem3736, %vaarg.in_reg3734
   %vaarg.addr3741 = phi ptr [ %966, %vaarg.in_reg3734 ], [ %overflow_arg_area3738, %vaarg.in_mem3736 ]
   %968 = load ptr, ptr %vaarg.addr3741, align 8
-  %call3742 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3730, ptr noundef %968), !range !4
+  %call3742 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx3730, ptr noundef %968)
   br label %sw.epilog5747
 
 sw.bb3743:                                        ; preds = %entry
@@ -6509,7 +6509,7 @@ vaarg.in_mem3752:                                 ; preds = %sw.bb3743
 vaarg.end3756:                                    ; preds = %vaarg.in_mem3752, %vaarg.in_reg3750
   %vaarg.addr3757 = phi ptr [ %971, %vaarg.in_reg3750 ], [ %overflow_arg_area3754, %vaarg.in_mem3752 ]
   %973 = load ptr, ptr %vaarg.addr3757, align 8
-  %call3758 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %arrayidx3746, ptr noundef %973), !range !4
+  %call3758 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %arrayidx3746, ptr noundef %973)
   br label %sw.epilog5747
 
 sw.bb3759:                                        ; preds = %entry
@@ -7047,7 +7047,7 @@ vaarg.in_mem4251:                                 ; preds = %sw.bb4242
 vaarg.end4255:                                    ; preds = %vaarg.in_mem4251, %vaarg.in_reg4249
   %vaarg.addr4256 = phi ptr [ %1063, %vaarg.in_reg4249 ], [ %overflow_arg_area4253, %vaarg.in_mem4251 ]
   %1065 = load ptr, ptr %vaarg.addr4256, align 8
-  %call4257 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4245, ptr noundef %1065), !range !4
+  %call4257 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4245, ptr noundef %1065)
   br label %sw.epilog5747
 
 sw.bb4258:                                        ; preds = %entry
@@ -7690,7 +7690,7 @@ vaarg.in_mem4617:                                 ; preds = %sw.bb4611
 vaarg.end4621:                                    ; preds = %vaarg.in_mem4617, %vaarg.in_reg4615
   %vaarg.addr4622 = phi ptr [ %1168, %vaarg.in_reg4615 ], [ %overflow_arg_area4619, %vaarg.in_mem4617 ]
   %1170 = load ptr, ptr %vaarg.addr4622, align 8
-  %call4623 = call fastcc i32 @protocol2num(ptr noundef %1170, ptr noundef nonnull %prot), !range !4
+  %call4623 = call fastcc i32 @protocol2num(ptr noundef %1170, ptr noundef nonnull %prot)
   %tobool4624.not = icmp eq i32 %call4623, 0
   br i1 %tobool4624.not, label %if.end4626, label %return
 
@@ -7724,7 +7724,7 @@ vaarg.in_mem4636:                                 ; preds = %sw.bb4629
 vaarg.end4640:                                    ; preds = %vaarg.in_mem4636, %vaarg.in_reg4634
   %vaarg.addr4641 = phi ptr [ %1174, %vaarg.in_reg4634 ], [ %overflow_arg_area4638, %vaarg.in_mem4636 ]
   %1176 = load ptr, ptr %vaarg.addr4641, align 8
-  %call4642 = call fastcc i32 @protocol2num(ptr noundef %1176, ptr noundef nonnull %prot4630), !range !4
+  %call4642 = call fastcc i32 @protocol2num(ptr noundef %1176, ptr noundef nonnull %prot4630)
   %tobool4643.not = icmp eq i32 %call4642, 0
   br i1 %tobool4643.not, label %if.end4645, label %return
 
@@ -7759,7 +7759,7 @@ vaarg.in_mem4657:                                 ; preds = %sw.bb4648
 vaarg.end4661:                                    ; preds = %vaarg.in_mem4657, %vaarg.in_reg4655
   %vaarg.addr4662 = phi ptr [ %1180, %vaarg.in_reg4655 ], [ %overflow_arg_area4659, %vaarg.in_mem4657 ]
   %1182 = load ptr, ptr %vaarg.addr4662, align 8
-  %call4663 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4651, ptr noundef %1182), !range !4
+  %call4663 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4651, ptr noundef %1182)
   br label %sw.epilog5747
 
 sw.bb4664:                                        ; preds = %entry
@@ -7787,7 +7787,7 @@ vaarg.in_mem4673:                                 ; preds = %sw.bb4664
 vaarg.end4677:                                    ; preds = %vaarg.in_mem4673, %vaarg.in_reg4671
   %vaarg.addr4678 = phi ptr [ %1185, %vaarg.in_reg4671 ], [ %overflow_arg_area4675, %vaarg.in_mem4673 ]
   %1187 = load ptr, ptr %vaarg.addr4678, align 8
-  %call4679 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4667, ptr noundef %1187), !range !4
+  %call4679 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4667, ptr noundef %1187)
   br label %sw.epilog5747
 
 sw.bb4680:                                        ; preds = %entry
@@ -7815,7 +7815,7 @@ vaarg.in_mem4689:                                 ; preds = %sw.bb4680
 vaarg.end4693:                                    ; preds = %vaarg.in_mem4689, %vaarg.in_reg4687
   %vaarg.addr4694 = phi ptr [ %1190, %vaarg.in_reg4687 ], [ %overflow_arg_area4691, %vaarg.in_mem4689 ]
   %1192 = load ptr, ptr %vaarg.addr4694, align 8
-  %call4695 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4683, ptr noundef %1192), !range !4
+  %call4695 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4683, ptr noundef %1192)
   br label %sw.epilog5747
 
 sw.bb4696:                                        ; preds = %entry
@@ -7904,7 +7904,7 @@ vaarg.in_mem4738:                                 ; preds = %sw.bb4729
 vaarg.end4742:                                    ; preds = %vaarg.in_mem4738, %vaarg.in_reg4736
   %vaarg.addr4743 = phi ptr [ %1206, %vaarg.in_reg4736 ], [ %overflow_arg_area4740, %vaarg.in_mem4738 ]
   %1208 = load ptr, ptr %vaarg.addr4743, align 8
-  %call4744 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4732, ptr noundef %1208), !range !4
+  %call4744 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4732, ptr noundef %1208)
   br label %sw.epilog5747
 
 sw.bb4745:                                        ; preds = %entry
@@ -7998,7 +7998,7 @@ vaarg.in_mem4802:                                 ; preds = %sw.bb4793
 vaarg.end4806:                                    ; preds = %vaarg.in_mem4802, %vaarg.in_reg4800
   %vaarg.addr4807 = phi ptr [ %1222, %vaarg.in_reg4800 ], [ %overflow_arg_area4804, %vaarg.in_mem4802 ]
   %1224 = load ptr, ptr %vaarg.addr4807, align 8
-  %call4808 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4796, ptr noundef %1224), !range !4
+  %call4808 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4796, ptr noundef %1224)
   br label %sw.epilog5747
 
 sw.bb4809:                                        ; preds = %entry
@@ -8026,7 +8026,7 @@ vaarg.in_mem4818:                                 ; preds = %sw.bb4809
 vaarg.end4822:                                    ; preds = %vaarg.in_mem4818, %vaarg.in_reg4816
   %vaarg.addr4823 = phi ptr [ %1227, %vaarg.in_reg4816 ], [ %overflow_arg_area4820, %vaarg.in_mem4818 ]
   %1229 = load ptr, ptr %vaarg.addr4823, align 8
-  %call4824 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4812, ptr noundef %1229), !range !4
+  %call4824 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4812, ptr noundef %1229)
   br label %sw.epilog5747
 
 sw.bb4825:                                        ; preds = %entry
@@ -8054,7 +8054,7 @@ vaarg.in_mem4834:                                 ; preds = %sw.bb4825
 vaarg.end4838:                                    ; preds = %vaarg.in_mem4834, %vaarg.in_reg4832
   %vaarg.addr4839 = phi ptr [ %1232, %vaarg.in_reg4832 ], [ %overflow_arg_area4836, %vaarg.in_mem4834 ]
   %1234 = load ptr, ptr %vaarg.addr4839, align 8
-  %call4840 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4828, ptr noundef %1234), !range !4
+  %call4840 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4828, ptr noundef %1234)
   br label %sw.epilog5747
 
 sw.bb4841:                                        ; preds = %entry
@@ -8367,7 +8367,7 @@ vaarg.in_mem4988:                                 ; preds = %sw.bb4979
 vaarg.end4992:                                    ; preds = %vaarg.in_mem4988, %vaarg.in_reg4986
   %vaarg.addr4993 = phi ptr [ %1287, %vaarg.in_reg4986 ], [ %overflow_arg_area4990, %vaarg.in_mem4988 ]
   %1289 = load ptr, ptr %vaarg.addr4993, align 8
-  %call4994 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4982, ptr noundef %1289), !range !4
+  %call4994 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4982, ptr noundef %1289)
   br label %sw.epilog5747
 
 sw.bb4995:                                        ; preds = %entry
@@ -8395,7 +8395,7 @@ vaarg.in_mem5004:                                 ; preds = %sw.bb4995
 vaarg.end5008:                                    ; preds = %vaarg.in_mem5004, %vaarg.in_reg5002
   %vaarg.addr5009 = phi ptr [ %1292, %vaarg.in_reg5002 ], [ %overflow_arg_area5006, %vaarg.in_mem5004 ]
   %1294 = load ptr, ptr %vaarg.addr5009, align 8
-  %call5010 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4998, ptr noundef %1294), !range !4
+  %call5010 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx4998, ptr noundef %1294)
   br label %sw.epilog5747
 
 sw.bb5011:                                        ; preds = %entry
@@ -8423,7 +8423,7 @@ vaarg.in_mem5020:                                 ; preds = %sw.bb5011
 vaarg.end5024:                                    ; preds = %vaarg.in_mem5020, %vaarg.in_reg5018
   %vaarg.addr5025 = phi ptr [ %1297, %vaarg.in_reg5018 ], [ %overflow_arg_area5022, %vaarg.in_mem5020 ]
   %1299 = load ptr, ptr %vaarg.addr5025, align 8
-  %call5026 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx5014, ptr noundef %1299), !range !4
+  %call5026 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx5014, ptr noundef %1299)
   br label %sw.epilog5747
 
 sw.bb5027:                                        ; preds = %entry
@@ -8451,7 +8451,7 @@ vaarg.in_mem5036:                                 ; preds = %sw.bb5027
 vaarg.end5040:                                    ; preds = %vaarg.in_mem5036, %vaarg.in_reg5034
   %vaarg.addr5041 = phi ptr [ %1302, %vaarg.in_reg5034 ], [ %overflow_arg_area5038, %vaarg.in_mem5036 ]
   %1304 = load ptr, ptr %vaarg.addr5041, align 8
-  %call5042 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx5030, ptr noundef %1304), !range !4
+  %call5042 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx5030, ptr noundef %1304)
   br label %sw.epilog5747
 
 sw.bb5043:                                        ; preds = %entry
@@ -8714,7 +8714,7 @@ vaarg.in_mem5203:                                 ; preds = %sw.bb5190
 vaarg.end5207:                                    ; preds = %vaarg.in_mem5203, %vaarg.in_reg5201
   %vaarg.addr5208 = phi ptr [ %1342, %vaarg.in_reg5201 ], [ %overflow_arg_area5205, %vaarg.in_mem5203 ]
   %1344 = load ptr, ptr %vaarg.addr5208, align 8
-  %call5209 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx5197, ptr noundef %1344), !range !4
+  %call5209 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx5197, ptr noundef %1344)
   br label %sw.epilog5747
 
 sw.bb5210:                                        ; preds = %entry
@@ -8746,7 +8746,7 @@ vaarg.in_mem5224:                                 ; preds = %sw.bb5210
 vaarg.end5228:                                    ; preds = %vaarg.in_mem5224, %vaarg.in_reg5222
   %vaarg.addr5229 = phi ptr [ %1347, %vaarg.in_reg5222 ], [ %overflow_arg_area5226, %vaarg.in_mem5224 ]
   %1349 = load ptr, ptr %vaarg.addr5229, align 8
-  %call5230 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx5218, ptr noundef %1349), !range !4
+  %call5230 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx5218, ptr noundef %1349)
   br label %sw.epilog5747
 
 sw.bb5231:                                        ; preds = %entry
@@ -9029,7 +9029,7 @@ vaarg.in_mem5399:                                 ; preds = %sw.bb5390
 vaarg.end5403:                                    ; preds = %vaarg.in_mem5399, %vaarg.in_reg5397
   %vaarg.addr5404 = phi ptr [ %1393, %vaarg.in_reg5397 ], [ %overflow_arg_area5401, %vaarg.in_mem5399 ]
   %1395 = load ptr, ptr %vaarg.addr5404, align 8
-  %call5405 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx5393, ptr noundef %1395), !range !4
+  %call5405 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx5393, ptr noundef %1395)
   %1396 = load ptr, ptr %arrayidx5393, align 8
   %tobool5409.not.not = icmp eq ptr %1396, null
   %doh = getelementptr inbounds i8, ptr %data, i64 2706
@@ -9345,7 +9345,7 @@ vaarg.end5567:                                    ; preds = %vaarg.in_mem5563, %
 
 if.then5570:                                      ; preds = %vaarg.end5567
   %arrayidx5573 = getelementptr inbounds i8, ptr %data, i64 2368
-  %call5574 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx5573, ptr noundef nonnull %1447), !range !4
+  %call5574 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx5573, ptr noundef nonnull %1447)
   %tobool5575.not = icmp eq i32 %call5574, 0
   br i1 %tobool5575.not, label %if.end5577, label %return
 
@@ -9467,7 +9467,7 @@ vaarg.end5651:                                    ; preds = %vaarg.in_mem5647, %
   %vaarg.addr5652 = phi ptr [ %1462, %vaarg.in_reg5645 ], [ %overflow_arg_area5649, %vaarg.in_mem5647 ]
   %1464 = load ptr, ptr %vaarg.addr5652, align 8
   %arrayidx5655 = getelementptr inbounds i8, ptr %data, i64 2360
-  %call5656 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx5655, ptr noundef %1464), !range !4
+  %call5656 = tail call i32 @Curl_setstropt(ptr noundef nonnull %arrayidx5655, ptr noundef %1464)
   %tobool5657.not = icmp eq i32 %call5656, 0
   br i1 %tobool5657.not, label %if.end5659, label %return
 
@@ -9757,7 +9757,7 @@ declare zeroext i1 @Curl_ssl_false_start(ptr noundef) local_unnamed_addr #3
 declare void @Curl_hsts_cleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @protocol2num(ptr noundef %str, ptr nocapture noundef %val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 44) i32 @protocol2num(ptr noundef %str, ptr nocapture noundef %val) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %return, label %if.end
@@ -9896,7 +9896,6 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 44}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

@@ -60,8 +60,8 @@ entry:
 switch.lookup:                                    ; preds = %entry
   %switch.offset10 = add nuw nsw i8 %0, 1
   %2 = zext nneg i8 %0 to i64
-  %3 = getelementptr i8, ptr %parser, i64 %2
-  %stackThree = getelementptr i8, ptr %3, i64 1
+  %3 = getelementptr inbounds i8, ptr %parser, i64 %2
+  %stackThree = getelementptr inbounds i8, ptr %3, i64 1
   store i8 %digit, ptr %stackThree, align 1
   store i8 %switch.offset10, ptr %parser, align 1
   br label %sw.epilog

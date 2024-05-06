@@ -87,7 +87,7 @@ declare dso_local void @snd_sequencer_device_done() local_unnamed_addr #1
 declare dso_local void @snd_seq_autoload_exit() local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @alsa_seq_init() #0 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @alsa_seq_init() #0 section ".init.text" align 16 {
   %1 = tail call i32 @client_init_data() #2
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %16, label %3

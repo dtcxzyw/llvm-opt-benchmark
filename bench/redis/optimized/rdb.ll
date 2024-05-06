@@ -476,7 +476,7 @@ rdbWriteRaw.exit:                                 ; preds = %if.end12.i.i, %entr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rdbLoadType(ptr noundef %rdb) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 256) i32 @rdbLoadType(ptr noundef %rdb) local_unnamed_addr #0 {
 entry:
   %type = alloca i8, align 1
   %flags.i = getelementptr inbounds i8, ptr %rdb, i64 48
@@ -538,7 +538,7 @@ rioRead.exit:                                     ; preds = %if.end12.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @rioRead(ptr noundef %r, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef %r, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %r, i64 48
   %0 = load i64, ptr %flags, align 8
@@ -598,7 +598,7 @@ return:                                           ; preds = %if.end12, %while.co
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @rdbLoadTime(ptr noundef %rdb) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @rdbLoadTime(ptr noundef %rdb) local_unnamed_addr #0 {
 entry:
   %t32 = alloca i32, align 4
   %flags.i = getelementptr inbounds i8, ptr %rdb, i64 48
@@ -784,7 +784,7 @@ rioRead.exit:                                     ; preds = %if.end12.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 10) i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %len.addr = alloca i64, align 8
   %buf = alloca [2 x i8], align 1
@@ -1130,7 +1130,7 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #5
 declare i64 @intrev64(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef writeonly %isencoded, ptr nocapture noundef writeonly %lenptr) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef writeonly %isencoded, ptr nocapture noundef writeonly %lenptr) local_unnamed_addr #0 {
 entry:
   %buf = alloca [2 x i8], align 1
   %len = alloca i32, align 4
@@ -1396,7 +1396,7 @@ declare i32 @ntohl(i32 noundef) local_unnamed_addr #5
 define dso_local i64 @rdbLoadLen(ptr noundef %rdb, ptr noundef %isencoded) local_unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
-  %call = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef %isencoded, ptr noundef nonnull %len), !range !8
+  %call = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef %isencoded, ptr noundef nonnull %len)
   %cmp = icmp eq i32 %call, -1
   %0 = load i64, ptr %len, align 8
   %retval.0 = select i1 %cmp, i64 -1, i64 %0
@@ -1404,7 +1404,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @rdbEncodeInteger(i64 noundef %value, ptr nocapture noundef writeonly %enc) local_unnamed_addr #6 {
+define dso_local range(i32 0, 6) i32 @rdbEncodeInteger(i64 noundef %value, ptr nocapture noundef writeonly %enc) local_unnamed_addr #6 {
 entry:
   %0 = add i64 %value, 128
   %or.cond = icmp ult i64 %0, 256
@@ -1710,7 +1710,7 @@ declare ptr @createStringObjectFromLongLongForValue(i64 noundef) local_unnamed_a
 declare ptr @createStringObjectFromLongLongWithSds(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbTryIntegerEncoding(ptr noundef %s, i64 noundef %len, ptr nocapture noundef writeonly %enc) local_unnamed_addr #0 {
+define dso_local range(i32 0, 6) i32 @rdbTryIntegerEncoding(ptr noundef %s, i64 noundef %len, ptr nocapture noundef writeonly %enc) local_unnamed_addr #0 {
 entry:
   %value = alloca i64, align 8
   %call = call i32 @string2ll(ptr noundef %s, i64 noundef %len, ptr noundef nonnull %value) #21
@@ -1836,12 +1836,12 @@ if.end12.i.i:                                     ; preds = %if.end8.i.i
   br i1 %tobool1.not.i.i, label %if.end, label %while.body.i.i, !llvm.loop !5
 
 if.end:                                           ; preds = %if.end12.i.i, %entry
-  %call1 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %compress_len), !range !9
+  %call1 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %compress_len)
   %cmp2 = icmp eq i32 %call1, -1
   br i1 %cmp2, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %call7 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %original_len), !range !9
+  %call7 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %original_len)
   %cmp9 = icmp eq i32 %call7, -1
   br i1 %cmp9, label %return, label %if.end12
 
@@ -1962,7 +1962,7 @@ entry:
   %len.i = alloca i64, align 8
   %and = and i32 %flags, 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i)
-  %call.i = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i), !range !8
+  %call.i = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i)
   %cmp.i = icmp eq i32 %call.i, -1
   %0 = load i64, ptr %len.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i)
@@ -1972,7 +1972,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i29)
-  %call.i30 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i29), !range !8
+  %call.i30 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i29)
   %cmp.i31 = icmp eq i32 %call.i30, -1
   %1 = load i64, ptr %len.i29, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i29)
@@ -2315,7 +2315,7 @@ if.end18:                                         ; preds = %rdbSaveLzfStringObj
   br i1 %cmp19, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end.i, %rdbSaveLzfStringObject.exit.thread67, %if.end10.thread, %if.end18, %if.end10
-  %call24 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %len), !range !9
+  %call24 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %len)
   %conv25 = sext i32 %call24 to i64
   %cmp26 = icmp eq i32 %call24, -1
   br i1 %cmp26, label %return, label %if.end29
@@ -2508,7 +2508,7 @@ cond.false:                                       ; preds = %if.else
 
 cond.end:                                         ; preds = %if.else
   %conv9 = sext i32 %call4 to i64
-  %call10 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %conv9), !range !9
+  %call10 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %conv9)
   %conv11 = sext i32 %call10 to i64
   %cmp12 = icmp eq i32 %call10, -1
   br i1 %cmp12, label %return, label %if.end
@@ -2723,7 +2723,7 @@ entry:
   %isencoded = alloca i32, align 4
   %and = and i32 %flags, 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i)
-  %call.i = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef nonnull %isencoded, ptr noundef nonnull %len.i), !range !8
+  %call.i = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef nonnull %isencoded, ptr noundef nonnull %len.i)
   %cmp.i = icmp eq i32 %call.i, -1
   %0 = load i64, ptr %len.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i)
@@ -3105,7 +3105,7 @@ declare i32 @fpconv_dtoa(double noundef, ptr noundef) local_unnamed_addr #3
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbLoadDoubleValue(ptr noundef %rdb, ptr noundef %val) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbLoadDoubleValue(ptr noundef %rdb, ptr noundef %val) local_unnamed_addr #0 {
 entry:
   %buf = alloca [256 x i8], align 16
   %len = alloca i8, align 1
@@ -3316,7 +3316,7 @@ rdbWriteRaw.exit:                                 ; preds = %if.end12.i.i, %entr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbLoadBinaryDoubleValue(ptr noundef %rdb, ptr noundef %val) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbLoadBinaryDoubleValue(ptr noundef %rdb, ptr noundef %val) local_unnamed_addr #0 {
 entry:
   %flags.i = getelementptr inbounds i8, ptr %rdb, i64 48
   %0 = load i64, ptr %flags.i, align 8
@@ -3435,7 +3435,7 @@ rdbWriteRaw.exit:                                 ; preds = %if.end12.i.i, %entr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbLoadBinaryFloatValue(ptr noundef %rdb, ptr noundef %val) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbLoadBinaryFloatValue(ptr noundef %rdb, ptr noundef %val) local_unnamed_addr #0 {
 entry:
   %flags.i = getelementptr inbounds i8, ptr %rdb, i64 48
   %0 = load i64, ptr %flags.i, align 8
@@ -4331,7 +4331,7 @@ entry:
   %t64.i = alloca i64, align 8
   %ri = alloca %struct.raxIterator, align 8
   %call = tail call i64 @raxSize(ptr noundef %pel) #21
-  %call1 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %call), !range !9
+  %call1 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %call)
   %cmp = icmp eq i32 %call1, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -4363,14 +4363,14 @@ while.body.us.us:                                 ; preds = %while.body.lr.ph.sp
   %add1017.us.us = add nuw nsw i64 %nwritten.039.us.us, 16
   %call4.us.us = call i32 @raxNext(ptr noundef nonnull %ri) #21
   %tobool.not.us.us = icmp eq i32 %call4.us.us, 0
-  br i1 %tobool.not.us.us, label %return.sink.split, label %while.body.us.us, !llvm.loop !10
+  br i1 %tobool.not.us.us, label %return.sink.split, label %while.body.us.us, !llvm.loop !8
 
 while.body.us:                                    ; preds = %while.body.lr.ph.split.us, %if.end24.us
   %nwritten.039.us = phi i64 [ %add25.us, %if.end24.us ], [ %conv, %while.body.lr.ph.split.us ]
   %0 = load ptr, ptr %data, align 8
   %delivery_count.us = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %delivery_count.us, align 8
-  %call19.us = call i32 @rdbSaveLen(ptr noundef null, i64 noundef %1), !range !9
+  %call19.us = call i32 @rdbSaveLen(ptr noundef null, i64 noundef %1)
   %cmp21.us = icmp eq i32 %call19.us, -1
   br i1 %cmp21.us, label %return.sink.split, label %if.end24.us
 
@@ -4380,7 +4380,7 @@ if.end24.us:                                      ; preds = %while.body.us
   %add25.us = add nsw i64 %add18.us, %conv20.us
   %call4.us = call i32 @raxNext(ptr noundef nonnull %ri) #21
   %tobool.not.us = icmp eq i32 %call4.us, 0
-  br i1 %tobool.not.us, label %return.sink.split, label %while.body.us, !llvm.loop !10
+  br i1 %tobool.not.us, label %return.sink.split, label %while.body.us, !llvm.loop !8
 
 while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
   br i1 %tobool11.not18, label %while.body.us40, label %while.body
@@ -4430,7 +4430,7 @@ if.end9.us:                                       ; preds = %if.end12.i.i.us
   %add10.us = add nuw nsw i64 %nwritten.039.us41, 16
   %call4.us44 = call i32 @raxNext(ptr noundef nonnull %ri) #21
   %tobool.not.us45 = icmp eq i32 %call4.us44, 0
-  br i1 %tobool.not.us45, label %return.sink.split, label %while.body.us40, !llvm.loop !10
+  br i1 %tobool.not.us45, label %return.sink.split, label %while.body.us40, !llvm.loop !8
 
 while.body:                                       ; preds = %while.body.lr.ph.split, %if.end24
   %nwritten.039 = phi i64 [ %add25, %if.end24 ], [ %conv, %while.body.lr.ph.split ]
@@ -4533,7 +4533,7 @@ if.end17.loopexit:                                ; preds = %if.end12.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t64.i)
   %delivery_count = getelementptr inbounds i8, ptr %17, i64 8
   %26 = load i64, ptr %delivery_count, align 8
-  %call19 = call i32 @rdbSaveLen(ptr noundef nonnull %rdb, i64 noundef %26), !range !9
+  %call19 = call i32 @rdbSaveLen(ptr noundef nonnull %rdb, i64 noundef %26)
   %cmp21 = icmp eq i32 %call19, -1
   br i1 %cmp21, label %return.sink.split, label %if.end24
 
@@ -4543,7 +4543,7 @@ if.end24:                                         ; preds = %if.end17.loopexit
   %add25 = add nsw i64 %add18, %conv20
   %call4 = call i32 @raxNext(ptr noundef nonnull %ri) #21
   %tobool.not = icmp eq i32 %call4, 0
-  br i1 %tobool.not, label %return.sink.split, label %while.body, !llvm.loop !10
+  br i1 %tobool.not, label %return.sink.split, label %while.body, !llvm.loop !8
 
 return.sink.split:                                ; preds = %if.end24, %if.end17.loopexit, %while.body, %if.end9.us, %while.body.us40, %if.end24.us, %while.body.us, %while.body.us.us, %if.end, %if.then10.i.i, %if.then16
   %retval.0.ph = phi i64 [ -1, %if.then16 ], [ -1, %if.then10.i.i ], [ %conv, %if.end ], [ %add1017.us.us, %while.body.us.us ], [ -1, %while.body.us ], [ %add25.us, %if.end24.us ], [ -1, %while.body.us40 ], [ %add10.us, %if.end9.us ], [ -1, %while.body ], [ -1, %if.end17.loopexit ], [ %add25, %if.end24 ]
@@ -4574,7 +4574,7 @@ entry:
   %consumers = getelementptr inbounds i8, ptr %cg, i64 32
   %0 = load ptr, ptr %consumers, align 8
   %call = tail call i64 @raxSize(ptr noundef %0) #21
-  %call1 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %call), !range !9
+  %call1 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %call)
   %cmp = icmp eq i32 %call1, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -4621,7 +4621,7 @@ if.end28.us:                                      ; preds = %if.end10.us
   %add29.us = add nsw i64 %add23.us, %call24.us
   %call5.us = call i32 @raxNext(ptr noundef nonnull %ri) #21
   %tobool.not.us = icmp eq i32 %call5.us, 0
-  br i1 %tobool.not.us, label %return.sink.split, label %while.body.us, !llvm.loop !11
+  br i1 %tobool.not.us, label %return.sink.split, label %while.body.us, !llvm.loop !9
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end28
   %nwritten.067 = phi i64 [ %add29, %if.end28 ], [ %conv, %while.body.lr.ph ]
@@ -4746,7 +4746,7 @@ if.end28:                                         ; preds = %if.end22.loopexit
   %add29 = add nsw i64 %add23, %call24
   %call5 = call i32 @raxNext(ptr noundef nonnull %ri) #21
   %tobool.not = icmp eq i32 %call5, 0
-  br i1 %tobool.not, label %return.sink.split, label %while.body, !llvm.loop !11
+  br i1 %tobool.not, label %return.sink.split, label %while.body, !llvm.loop !9
 
 return.sink.split:                                ; preds = %if.end28, %if.end22.loopexit, %while.body, %if.end28.us, %if.end10.us, %while.body.us, %if.end, %if.then15, %if.then21
   %retval.0.ph = phi i64 [ -1, %if.then21 ], [ -1, %if.then15 ], [ %conv, %if.end ], [ -1, %while.body.us ], [ -1, %if.end10.us ], [ %add29.us, %if.end28.us ], [ -1, %while.body ], [ -1, %if.end22.loopexit ], [ %add29, %if.end28 ]
@@ -4799,7 +4799,7 @@ if.then10:                                        ; preds = %if.then6
   %1 = load ptr, ptr %0, align 8
   %len = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i64, ptr %len, align 8
-  %call11 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %2), !range !9
+  %call11 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %2)
   %cmp12 = icmp eq i32 %call11, -1
   br i1 %cmp12, label %return, label %if.end15
 
@@ -4816,7 +4816,7 @@ while.body:                                       ; preds = %if.end15, %if.end50
   %bf.lshr18 = lshr i32 %bf.load17, 18
   %bf.clear19 = and i32 %bf.lshr18, 3
   %conv20 = zext nneg i32 %bf.clear19 to i64
-  %call21 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %conv20), !range !9
+  %call21 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %conv20)
   %cmp23 = icmp eq i32 %call21, -1
   br i1 %cmp23, label %return, label %if.end26
 
@@ -4851,7 +4851,7 @@ if.end50:                                         ; preds = %if.else41, %if.then
   %next = getelementptr inbounds i8, ptr %node.0398, i64 8
   %8 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %8, null
-  br i1 %tobool.not, label %if.end509, label %while.body, !llvm.loop !12
+  br i1 %tobool.not, label %if.end509, label %while.body, !llvm.loop !10
 
 if.then57:                                        ; preds = %if.then6
   %ptr58 = getelementptr inbounds i8, ptr %o, i64 8
@@ -5003,7 +5003,7 @@ if.then94:                                        ; preds = %if.then88
   %arrayidx98 = getelementptr inbounds i8, ptr %24, i64 32
   %26 = load i64, ptr %arrayidx98, align 8
   %add99 = add i64 %26, %25
-  %call100 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %add99), !range !9
+  %call100 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %add99)
   %cmp102 = icmp eq i32 %call100, -1
   br i1 %cmp102, label %if.then104, label %if.end105
 
@@ -5021,7 +5021,7 @@ while.cond107:                                    ; preds = %sdslen.exit
   %add119 = add nsw i64 %call114, %nwritten.2394
   %call108 = tail call ptr @dictNext(ptr noundef %call96) #21
   %cmp109.not = icmp eq ptr %call108, null
-  br i1 %cmp109.not, label %while.end120, label %while.body111, !llvm.loop !13
+  br i1 %cmp109.not, label %while.end120, label %while.body111, !llvm.loop !11
 
 while.body111:                                    ; preds = %if.end105, %while.cond107
   %call108395 = phi ptr [ %call108, %while.cond107 ], [ %call108392, %if.end105 ]
@@ -5129,7 +5129,7 @@ if.then186:                                       ; preds = %if.then163
   %39 = load ptr, ptr %zsl188, align 8
   %length = getelementptr inbounds i8, ptr %39, i64 16
   %40 = load i64, ptr %length, align 8
-  %call189 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %40), !range !9
+  %call189 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %40)
   %cmp191 = icmp eq i32 %call189, -1
   br i1 %cmp191, label %return, label %if.end194
 
@@ -5259,7 +5259,7 @@ if.end214:                                        ; preds = %if.end12.i.i.i271, 
   %backward = getelementptr inbounds i8, ptr %zn.0390, i64 16
   %zn.0 = load ptr, ptr %backward, align 8
   %cmp197.not = icmp eq ptr %zn.0, null
-  br i1 %cmp197.not, label %if.end509, label %while.body199, !llvm.loop !14
+  br i1 %cmp197.not, label %if.end509, label %while.body199, !llvm.loop !12
 
 if.else217:                                       ; preds = %if.then163
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.12, i32 noundef 928, ptr noundef nonnull @.str.19) #21
@@ -5293,7 +5293,7 @@ if.then248:                                       ; preds = %if.then225
   %arrayidx258 = getelementptr inbounds i8, ptr %58, i64 32
   %60 = load i64, ptr %arrayidx258, align 8
   %add259 = add i64 %60, %59
-  %call260 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %add259), !range !9
+  %call260 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %add259)
   %cmp262 = icmp eq i32 %call260, -1
   br i1 %cmp262, label %if.then264, label %if.end265
 
@@ -5418,7 +5418,7 @@ if.end286:                                        ; preds = %sdslen.exit315
   %add287 = add nsw i64 %add280, %call282
   %call268 = tail call ptr @dictNext(ptr noundef %call251) #21
   %cmp269.not = icmp eq ptr %call268, null
-  br i1 %cmp269.not, label %while.end288, label %while.body271, !llvm.loop !15
+  br i1 %cmp269.not, label %while.end288, label %while.body271, !llvm.loop !13
 
 while.end288:                                     ; preds = %if.end286, %if.end265
   %nwritten.4.lcssa = phi i64 [ %conv261, %if.end265 ], [ %add287, %if.end286 ]
@@ -5435,7 +5435,7 @@ if.then297:                                       ; preds = %entry
   %71 = load ptr, ptr %ptr298, align 8
   %72 = load ptr, ptr %71, align 8
   %call300 = tail call i64 @raxSize(ptr noundef %72) #21
-  %call301 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %call300), !range !9
+  %call301 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %call300)
   %cmp303 = icmp eq i32 %call301, -1
   br i1 %cmp303, label %return, label %if.end306
 
@@ -5481,63 +5481,63 @@ if.end327:                                        ; preds = %if.end321
   %add328 = add nsw i64 %add322, %call323
   %call310 = call i32 @raxNext(ptr noundef nonnull %ri) #21
   %tobool311.not = icmp eq i32 %call310, 0
-  br i1 %tobool311.not, label %while.end329, label %while.body312, !llvm.loop !16
+  br i1 %tobool311.not, label %while.end329, label %while.body312, !llvm.loop !14
 
 while.end329:                                     ; preds = %if.end327, %if.end306
   %nwritten.5.lcssa = phi i64 [ %conv302, %if.end306 ], [ %add328, %if.end327 ]
   call void @raxStop(ptr noundef nonnull %ri) #21
   %length330 = getelementptr inbounds i8, ptr %71, i64 8
   %76 = load i64, ptr %length330, align 8
-  %call331 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %76), !range !9
+  %call331 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %76)
   %cmp333 = icmp eq i32 %call331, -1
   br i1 %cmp333, label %return, label %if.end336
 
 if.end336:                                        ; preds = %while.end329
   %last_id = getelementptr inbounds i8, ptr %71, i64 16
   %77 = load i64, ptr %last_id, align 8
-  %call338 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %77), !range !9
+  %call338 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %77)
   %cmp340 = icmp eq i32 %call338, -1
   br i1 %cmp340, label %return, label %if.end343
 
 if.end343:                                        ; preds = %if.end336
   %seq = getelementptr inbounds i8, ptr %71, i64 24
   %78 = load i64, ptr %seq, align 8
-  %call346 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %78), !range !9
+  %call346 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %78)
   %cmp348 = icmp eq i32 %call346, -1
   br i1 %cmp348, label %return, label %if.end351
 
 if.end351:                                        ; preds = %if.end343
   %first_id = getelementptr inbounds i8, ptr %71, i64 32
   %79 = load i64, ptr %first_id, align 8
-  %call354 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %79), !range !9
+  %call354 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %79)
   %cmp356 = icmp eq i32 %call354, -1
   br i1 %cmp356, label %return, label %if.end359
 
 if.end359:                                        ; preds = %if.end351
   %seq362 = getelementptr inbounds i8, ptr %71, i64 40
   %80 = load i64, ptr %seq362, align 8
-  %call363 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %80), !range !9
+  %call363 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %80)
   %cmp365 = icmp eq i32 %call363, -1
   br i1 %cmp365, label %return, label %if.end368
 
 if.end368:                                        ; preds = %if.end359
   %max_deleted_entry_id = getelementptr inbounds i8, ptr %71, i64 48
   %81 = load i64, ptr %max_deleted_entry_id, align 8
-  %call371 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %81), !range !9
+  %call371 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %81)
   %cmp373 = icmp eq i32 %call371, -1
   br i1 %cmp373, label %return, label %if.end376
 
 if.end376:                                        ; preds = %if.end368
   %seq379 = getelementptr inbounds i8, ptr %71, i64 56
   %82 = load i64, ptr %seq379, align 8
-  %call380 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %82), !range !9
+  %call380 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %82)
   %cmp382 = icmp eq i32 %call380, -1
   br i1 %cmp382, label %return, label %if.end385
 
 if.end385:                                        ; preds = %if.end376
   %entries_added = getelementptr inbounds i8, ptr %71, i64 64
   %83 = load i64, ptr %entries_added, align 8
-  %call387 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %83), !range !9
+  %call387 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %83)
   %cmp389 = icmp eq i32 %call387, -1
   br i1 %cmp389, label %return, label %if.end392
 
@@ -5569,7 +5569,7 @@ cond.true:                                        ; preds = %if.end392
 
 cond.end:                                         ; preds = %if.end392, %cond.true
   %cond = phi i64 [ %call396, %cond.true ], [ 0, %if.end392 ]
-  %call397 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %cond), !range !9
+  %call397 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %cond)
   %cmp399 = icmp eq i32 %call397, -1
   br i1 %cmp399, label %return, label %if.end402
 
@@ -5608,7 +5608,7 @@ if.then418:                                       ; preds = %while.body411
 
 if.end419:                                        ; preds = %while.body411
   %89 = load i64, ptr %86, align 8
-  %call423 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %89), !range !9
+  %call423 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %89)
   %cmp425 = icmp eq i32 %call423, -1
   br i1 %cmp425, label %if.then427, label %if.end428
 
@@ -5619,7 +5619,7 @@ if.then427:                                       ; preds = %if.end419
 if.end428:                                        ; preds = %if.end419
   %seq431 = getelementptr inbounds i8, ptr %86, i64 8
   %90 = load i64, ptr %seq431, align 8
-  %call432 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %90), !range !9
+  %call432 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %90)
   %cmp434 = icmp eq i32 %call432, -1
   br i1 %cmp434, label %if.then436, label %if.end437
 
@@ -5630,7 +5630,7 @@ if.then436:                                       ; preds = %if.end428
 if.end437:                                        ; preds = %if.end428
   %entries_read = getelementptr inbounds i8, ptr %86, i64 16
   %91 = load i64, ptr %entries_read, align 8
-  %call439 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %91), !range !9
+  %call439 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %91)
   %cmp441 = icmp eq i32 %call439, -1
   br i1 %cmp441, label %if.then443, label %if.end444
 
@@ -5670,7 +5670,7 @@ if.end456:                                        ; preds = %if.end450
   %add457 = add nsw i64 %add451, %call452
   %call409 = call i32 @raxNext(ptr noundef nonnull %ri) #21
   %tobool410.not = icmp eq i32 %call409, 0
-  br i1 %tobool410.not, label %while.end458, label %while.body411, !llvm.loop !17
+  br i1 %tobool410.not, label %while.end458, label %while.body411, !llvm.loop !15
 
 while.end458:                                     ; preds = %if.end456, %if.then405
   %nwritten.6.lcssa = phi i64 [ %add403, %if.then405 ], [ %add457, %if.end456 ]
@@ -5682,7 +5682,7 @@ if.then465:                                       ; preds = %entry
   %93 = load ptr, ptr %ptr466, align 8
   %94 = load ptr, ptr %93, align 8
   %95 = load i64, ptr %94, align 8
-  %call468 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %95), !range !9
+  %call468 = tail call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %95)
   %cmp469 = icmp eq i32 %call468, -1
   br i1 %cmp469, label %return, label %do.body
 
@@ -5826,7 +5826,7 @@ declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #3
 declare void @moduleFreeContext(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @rdbSavedObjectLen(ptr noundef %o, ptr noundef %key, i32 noundef %dbid) local_unnamed_addr #0 {
+define dso_local range(i64 0, -1) i64 @rdbSavedObjectLen(ptr noundef %o, ptr noundef %key, i32 noundef %dbid) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @rdbSaveObject(ptr noundef null, ptr noundef %o, ptr noundef %key, i32 noundef %dbid)
   %cmp.not = icmp eq i64 %call, -1
@@ -5842,7 +5842,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbSaveKeyValuePair(ptr noundef %rdb, ptr noundef %key, ptr noundef %val, i64 noundef %expiretime, i32 noundef %dbid) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @rdbSaveKeyValuePair(ptr noundef %rdb, ptr noundef %key, ptr noundef %val, i64 noundef %expiretime, i32 noundef %dbid) local_unnamed_addr #0 {
 entry:
   %type.addr.i73 = alloca i8, align 1
   %type.addr.i43 = alloca i8, align 1
@@ -6041,7 +6041,7 @@ rdbSaveType.exit72.thread:                        ; preds = %if.then10.i.i.i70, 
 if.end14:                                         ; preds = %if.end12.i.i.i65, %if.then9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %type.addr.i43)
   %div = udiv i64 %call10, 1000
-  %call15 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %div), !range !9
+  %call15 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %div)
   %cmp16 = icmp eq i32 %call15, -1
   br i1 %cmp16, label %return, label %if.end19
 
@@ -6453,7 +6453,7 @@ rdbSaveAuxField.exit:                             ; preds = %rdbSaveType.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rdbSaveInfoAuxFields(ptr noundef %rdb, i32 noundef %rdbflags, ptr noundef readonly %rsi) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @rdbSaveInfoAuxFields(ptr noundef %rdb, i32 noundef %rdbflags, ptr noundef readonly %rsi) local_unnamed_addr #0 {
 entry:
   %and = and i32 %rdbflags, 1
   %call = tail call i64 @rdbSaveAuxFieldStrStr(ptr noundef %rdb, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25)
@@ -6599,7 +6599,7 @@ rdbSaveType.exit.thread:                          ; preds = %if.then10.i.i.i, %e
 if.end:                                           ; preds = %if.end12.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %type.addr.i)
   %7 = load i64, ptr %mt, align 8
-  %call3 = call i32 @rdbSaveLen(ptr noundef nonnull %aux_save_headers_rio, i64 noundef %7), !range !9
+  %call3 = call i32 @rdbSaveLen(ptr noundef nonnull %aux_save_headers_rio, i64 noundef %7)
   %cmp4 = icmp eq i32 %call3, -1
   br i1 %cmp4, label %error69, label %if.end6
 
@@ -6654,7 +6654,7 @@ rdbSaveLen.exit.thread:                           ; preds = %if.then10.i.i.i36, 
 if.end10:                                         ; preds = %if.end12.i.i.i31
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i)
   %conv = sext i32 %when to i64
-  %call11 = call i32 @rdbSaveLen(ptr noundef nonnull %aux_save_headers_rio, i64 noundef %conv), !range !9
+  %call11 = call i32 @rdbSaveLen(ptr noundef nonnull %aux_save_headers_rio, i64 noundef %conv)
   %cmp12 = icmp eq i32 %call11, -1
   br i1 %cmp12, label %error69, label %if.end15
 
@@ -6916,7 +6916,7 @@ declare void @rioInitWithBuffer(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @sdsempty() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @rdbSaveFunctions(ptr noundef %rdb) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @rdbSaveFunctions(ptr noundef %rdb) local_unnamed_addr #0 {
 entry:
   %type.addr.i = alloca i8, align 1
   %call = tail call ptr @functionsLibGet() #21
@@ -6991,7 +6991,7 @@ if.end13.us:                                      ; preds = %sdslen.exit.us
   %add14.us = add nuw nsw i64 %add.us, %call9.us
   %call3.us = tail call ptr @dictNext(ptr noundef %call1) #21
   %tobool.not.us = icmp eq ptr %call3.us, null
-  br i1 %tobool.not.us, label %return, label %while.body.us, !llvm.loop !18
+  br i1 %tobool.not.us, label %return, label %while.body.us, !llvm.loop !16
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end13
   %call317 = phi ptr [ %call3, %if.end13 ], [ %call314, %while.body.lr.ph ]
@@ -7099,7 +7099,7 @@ if.end13:                                         ; preds = %sdslen.exit
   %add14 = add nuw nsw i64 %add, %call9
   %call3 = call ptr @dictNext(ptr noundef %call1) #21
   %tobool.not = icmp eq ptr %call3, null
-  br i1 %tobool.not, label %return, label %while.body, !llvm.loop !18
+  br i1 %tobool.not, label %return, label %while.body, !llvm.loop !16
 
 return:                                           ; preds = %sdslen.exit, %if.end13, %sdslen.exit.us, %if.end13.us, %rdbSaveType.exit.thread, %entry
   %retval.0 = phi i64 [ 0, %entry ], [ -1, %rdbSaveType.exit.thread ], [ %add14.us, %if.end13.us ], [ -1, %sdslen.exit.us ], [ %add14, %if.end13 ], [ -1, %sdslen.exit ]
@@ -7110,7 +7110,7 @@ return:                                           ; preds = %sdslen.exit, %if.en
 declare ptr @functionsLibGet() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @rdbSaveDb(ptr noundef %rdb, i32 noundef %dbid, i32 noundef %rdbflags, ptr nocapture noundef %key_counter) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @rdbSaveDb(ptr noundef %rdb, i32 noundef %dbid, i32 noundef %rdbflags, ptr nocapture noundef %key_counter) local_unnamed_addr #0 {
 entry:
   %type.addr.i85 = alloca i8, align 1
   %type.addr.i55 = alloca i8, align 1
@@ -7188,7 +7188,7 @@ rdbSaveType.exit.thread:                          ; preds = %if.then10.i.i.i, %l
 
 if.end5:                                          ; preds = %if.end12.i.i.i, %if.end
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %type.addr.i)
-  %call7 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %idx.ext), !range !9
+  %call7 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %idx.ext)
   %cmp9 = icmp slt i32 %call7, 0
   br i1 %cmp9, label %return, label %if.end12
 
@@ -7254,12 +7254,12 @@ rdbSaveType.exit84.thread:                        ; preds = %if.then10.i.i.i82, 
 
 if.end20:                                         ; preds = %if.end12.i.i.i77, %if.end12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %type.addr.i55)
-  %call22 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %call), !range !9
+  %call22 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %call)
   %cmp24 = icmp slt i32 %call22, 0
   br i1 %cmp24, label %return, label %if.end27
 
 if.end27:                                         ; preds = %if.end20
-  %call29 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %call14), !range !9
+  %call29 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %call14)
   %cmp31 = icmp slt i32 %call29, 0
   br i1 %cmp31, label %return, label %if.end34
 
@@ -7349,7 +7349,7 @@ rdbSaveType.exit114.thread:                       ; preds = %land.lhs.true.i.i87
 if.end50:                                         ; preds = %if.end12.i.i.i107, %if.then44
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %type.addr.i85)
   %conv52 = sext i32 %call40 to i64
-  %call53 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %conv52), !range !9
+  %call53 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %conv52)
   %cmp55 = icmp slt i32 %call53, 0
   br i1 %cmp55, label %werr, label %if.end58
 
@@ -7362,7 +7362,7 @@ if.end58:                                         ; preds = %if.end50
   %arrayidx65 = getelementptr inbounds i8, ptr %24, i64 32
   %26 = load i64, ptr %arrayidx65, align 8
   %add66 = add i64 %26, %25
-  %call67 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %add66), !range !9
+  %call67 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %add66)
   %cmp69 = icmp slt i32 %call67, 0
   br i1 %cmp69, label %werr, label %if.end72
 
@@ -7375,7 +7375,7 @@ if.end72:                                         ; preds = %if.end58
   %arrayidx82 = getelementptr inbounds i8, ptr %28, i64 32
   %30 = load i64, ptr %arrayidx82, align 8
   %add83 = add i64 %30, %29
-  %call84 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %add83), !range !9
+  %call84 = call i32 @rdbSaveLen(ptr noundef %rdb, i64 noundef %add83)
   %cmp86 = icmp slt i32 %call84, 0
   br i1 %cmp86, label %werr, label %if.end89
 
@@ -7401,7 +7401,7 @@ if.end91:                                         ; preds = %if.end89, %while.bo
   store i32 %bf.clear95, ptr %key, align 8
   store ptr %call92, ptr %ptr, align 8
   %call97 = call i64 @getExpire(ptr noundef %add.ptr, ptr noundef nonnull %key) #21
-  %call98 = call i32 @rdbSaveKeyValuePair(ptr noundef %rdb, ptr noundef nonnull %key, ptr noundef %call93, i64 noundef %call97, i32 noundef %dbid), !range !19
+  %call98 = call i32 @rdbSaveKeyValuePair(ptr noundef %rdb, ptr noundef nonnull %key, ptr noundef %call93, i64 noundef %call97, i32 noundef %dbid)
   %cmp100 = icmp slt i32 %call98, 0
   br i1 %cmp100, label %werr, label %if.end103
 
@@ -7442,7 +7442,7 @@ if.then117:                                       ; preds = %if.then112
 if.end119:                                        ; preds = %if.then112, %if.then117, %if.end108
   %call37 = call ptr @dbIteratorNext(ptr noundef %call36) #21
   %cmp38.not = icmp eq ptr %call37, null
-  br i1 %cmp38.not, label %while.end, label %while.body, !llvm.loop !20
+  br i1 %cmp38.not, label %while.end, label %while.body, !llvm.loop !17
 
 while.end:                                        ; preds = %if.end119, %if.end34
   %written.0.lcssa = phi i64 [ %add35, %if.end34 ], [ %add104, %if.end119 ]
@@ -7481,7 +7481,7 @@ declare void @sendChildInfo(i32 noundef, i64 noundef, ptr noundef) local_unnamed
 declare void @dbReleaseIterator(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbSaveRio(i32 noundef %req, ptr noundef %rdb, ptr noundef writeonly %error, i32 noundef %rdbflags, ptr noundef %rsi) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbSaveRio(i32 noundef %req, ptr noundef %rdb, ptr noundef writeonly %error, i32 noundef %rdbflags, ptr noundef %rsi) local_unnamed_addr #0 {
 entry:
   %type.addr.i = alloca i8, align 1
   %magic = alloca [10 x i8], align 1
@@ -7557,7 +7557,7 @@ if.end12.i.i:                                     ; preds = %if.end8.i.i
 
 if.end4:                                          ; preds = %if.end12.i.i, %if.end
   %tobool.not.i23 = phi i1 [ true, %if.end ], [ %tobool.not.i22, %if.end12.i.i ]
-  %call5 = call i32 @rdbSaveInfoAuxFields(ptr noundef %rdb, i32 noundef %rdbflags, ptr noundef %rsi), !range !19
+  %call5 = call i32 @rdbSaveInfoAuxFields(ptr noundef %rdb, i32 noundef %rdbflags, ptr noundef %rsi)
   %cmp6 = icmp eq i32 %call5, -1
   br i1 %cmp6, label %werr, label %if.end8
 
@@ -7577,7 +7577,7 @@ if.end13:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool15.not, label %land.lhs.true16, label %if.end20
 
 land.lhs.true16:                                  ; preds = %if.end13
-  %call17 = call i64 @rdbSaveFunctions(ptr noundef %rdb), !range !21
+  %call17 = call i64 @rdbSaveFunctions(ptr noundef %rdb)
   %cmp18 = icmp eq i64 %call17, -1
   br i1 %cmp18, label %werr, label %if.end20
 
@@ -7593,11 +7593,11 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %j.033, 1
   %9 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 173), align 8
   %cmp24 = icmp slt i32 %inc, %9
-  br i1 %cmp24, label %for.body, label %land.lhs.true32, !llvm.loop !22
+  br i1 %cmp24, label %for.body, label %land.lhs.true32, !llvm.loop !18
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %j.033 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %call25 = call i64 @rdbSaveDb(ptr noundef %rdb, i32 noundef %j.033, i32 noundef %rdbflags, ptr noundef nonnull %key_counter), !range !21
+  %call25 = call i64 @rdbSaveDb(ptr noundef %rdb, i32 noundef %j.033, i32 noundef %rdbflags, ptr noundef nonnull %key_counter)
   %cmp26 = icmp eq i64 %call25, -1
   br i1 %cmp26, label %werr, label %for.cond
 
@@ -7742,7 +7742,7 @@ declare i64 @rdbSaveModulesAux(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbSaveRioWithEOFMark(i32 noundef %req, ptr noundef %rdb, ptr noundef %error, ptr noundef %rsi) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbSaveRioWithEOFMark(i32 noundef %req, ptr noundef %rdb, ptr noundef %error, ptr noundef %rsi) local_unnamed_addr #0 {
 entry:
   %eofmark = alloca [40 x i8], align 16
   %call5.i = tail call i32 @getpid() #21
@@ -7875,7 +7875,7 @@ if.end12.i56:                                     ; preds = %if.end8.i53
   br i1 %tobool1.not.i60, label %if.end11, label %while.body.i46, !llvm.loop !5
 
 if.end11:                                         ; preds = %if.end12.i56
-  %call12 = call i32 @rdbSaveRio(i32 noundef %req, ptr noundef nonnull %rdb, ptr noundef %error, i32 noundef 0, ptr noundef %rsi), !range !8
+  %call12 = call i32 @rdbSaveRio(i32 noundef %req, ptr noundef nonnull %rdb, ptr noundef %error, i32 noundef 0, ptr noundef %rsi)
   %cmp13 = icmp eq i32 %call12, -1
   br i1 %cmp13, label %werr, label %if.end15
 
@@ -7969,14 +7969,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbSaveToFile(ptr noundef %filename) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbSaveToFile(ptr noundef %filename) local_unnamed_addr #0 {
 entry:
   %call5.i = tail call i32 @getpid() #21
   %0 = load i32, ptr @server, align 8
   %cmp6.not.i = icmp eq i32 %call5.i, %0
   %..i = select i1 %cmp6.not.i, i32 2, i32 0
   tail call void @moduleFireServerEvent(i64 noundef 1, i32 noundef %..i, ptr noundef null) #21
-  %call = tail call fastcc i32 @rdbSaveInternal(i32 noundef 0, ptr noundef %filename, ptr noundef null, i32 noundef 0), !range !8
+  %call = tail call fastcc i32 @rdbSaveInternal(i32 noundef 0, ptr noundef %filename, ptr noundef null, i32 noundef 0)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -7997,7 +7997,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rdbSaveInternal(i32 noundef %req, ptr noundef %filename, ptr noundef %rsi, i32 noundef %rdbflags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @rdbSaveInternal(i32 noundef %req, ptr noundef %filename, ptr noundef %rsi, i32 noundef %rdbflags) unnamed_addr #0 {
 entry:
   %cwd = alloca [4096 x i8], align 16
   %rdb = alloca %struct._rio, align 8
@@ -8043,7 +8043,7 @@ if.then12:                                        ; preds = %if.then10
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then10, %if.then12, %if.end8
-  %call15 = call i32 @rdbSaveRio(i32 noundef %req, ptr noundef nonnull %rdb, ptr noundef nonnull %error, i32 noundef %rdbflags, ptr noundef %rsi), !range !8
+  %call15 = call i32 @rdbSaveRio(i32 noundef %req, ptr noundef nonnull %rdb, ptr noundef nonnull %error, i32 noundef %rdbflags, ptr noundef %rsi)
   %cmp16 = icmp eq i32 %call15, -1
   br i1 %cmp16, label %if.then17, label %if.end19
 
@@ -8123,7 +8123,7 @@ return:                                           ; preds = %if.end42, %if.end58
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbSave(i32 noundef %req, ptr noundef %filename, ptr noundef %rsi, i32 noundef %rdbflags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbSave(i32 noundef %req, ptr noundef %filename, ptr noundef %rsi, i32 noundef %rdbflags) local_unnamed_addr #0 {
 entry:
   %tmpfile = alloca [256 x i8], align 16
   %cwd = alloca [4096 x i8], align 16
@@ -8134,7 +8134,7 @@ entry:
   tail call void @moduleFireServerEvent(i64 noundef 1, i32 noundef %..i, ptr noundef null) #21
   %call = tail call i32 @getpid() #21
   %call1 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmpfile, i64 noundef 256, ptr noundef nonnull @.str.39, i32 noundef %call) #21
-  %call3 = call fastcc i32 @rdbSaveInternal(i32 noundef %req, ptr noundef nonnull %tmpfile, ptr noundef %rsi, i32 noundef %rdbflags), !range !8
+  %call3 = call fastcc i32 @rdbSaveInternal(i32 noundef %req, ptr noundef nonnull %tmpfile, ptr noundef %rsi, i32 noundef %rdbflags)
   %cmp.not = icmp eq i32 %call3, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -8219,7 +8219,7 @@ declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #
 declare i32 @fsyncFileDir(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbSaveBackground(i32 noundef %req, ptr noundef %filename, ptr noundef %rsi, i32 noundef %rdbflags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbSaveBackground(i32 noundef %req, ptr noundef %filename, ptr noundef %rsi, i32 noundef %rdbflags) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @hasActiveChildProcess() #21
   %tobool.not = icmp eq i32 %call, 0
@@ -8243,7 +8243,7 @@ if.then3:                                         ; preds = %if.end
   %call5 = tail call i32 @redisSetProcTitle(ptr noundef nonnull @.str.44) #21
   %2 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 409), align 8
   tail call void @redisSetCpuAffinity(ptr noundef %2) #21
-  %call6 = tail call i32 @rdbSave(i32 noundef %req, ptr noundef %filename, ptr noundef %rsi, i32 noundef %rdbflags), !range !8
+  %call6 = tail call i32 @rdbSave(i32 noundef %req, ptr noundef %filename, ptr noundef %rsi, i32 noundef %rdbflags)
   %cmp7 = icmp ne i32 %call6, 0
   br i1 %cmp7, label %if.end9, label %if.then8
 
@@ -8345,7 +8345,7 @@ entry:
   %val = alloca float, align 4
   %val22 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i)
-  %call.i40 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i), !range !8
+  %call.i40 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i)
   %cmp.i41 = icmp eq i32 %call.i40, -1
   %0 = load i64, ptr %len.i, align 8
   %retval.0.i42 = select i1 %cmp.i41, i64 -1, i64 %0
@@ -8366,7 +8366,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  %call3 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len), !range !8
+  %call3 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len)
   %cmp4 = icmp eq i32 %call3, -1
   br i1 %cmp4, label %if.then5, label %if.end30
 
@@ -8488,13 +8488,13 @@ if.then25:                                        ; preds = %if.then6.i.i35, %if
 
 if.end30:                                         ; preds = %if.end12.i.i30, %if.end12.i.i, %if.else, %if.end11, %if.then25, %if.then17, %if.then, %if.then5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i)
-  %call.i = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i), !range !8
+  %call.i = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i)
   %cmp.i = icmp eq i32 %call.i, -1
   %15 = load i64, ptr %len.i, align 8
   %retval.0.i = select i1 %cmp.i, i64 -1, i64 %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i)
   %cmp.not = icmp eq i64 %retval.0.i, 0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !23
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !19
 
 while.end:                                        ; preds = %if.end30, %entry
   %call31 = call ptr @createStringObject(ptr noundef nonnull @.str.53, i64 noundef 18) #21
@@ -8531,7 +8531,7 @@ if.end7:                                          ; preds = %if.then5, %entry
 declare i32 @ziplistValidateIntegrity(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_ziplistPairsEntryConvertAndValidate(ptr noundef %p, i32 noundef %head_count, ptr nocapture noundef %userdata) #0 {
+define internal range(i32 0, 2) i32 @_ziplistPairsEntryConvertAndValidate(ptr noundef %p, i32 noundef %head_count, ptr nocapture noundef %userdata) #0 {
 entry:
   %str = alloca ptr, align 8
   %slen = alloca i32, align 4
@@ -8663,7 +8663,7 @@ declare i32 @lpValidateIntegrity(ptr noundef, i64 noundef, i32 noundef, ptr noun
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_lpEntryValidation(ptr noundef %p, i32 noundef %head_count, ptr nocapture noundef %userdata) #0 {
+define internal range(i32 0, 2) i32 @_lpEntryValidation(ptr noundef %p, i32 noundef %head_count, ptr nocapture noundef %userdata) #0 {
 entry:
   %slen = alloca i64, align 8
   %buf = alloca [21 x i8], align 16
@@ -8846,7 +8846,7 @@ if.end28:                                         ; preds = %if.then24
 
 if.then32:                                        ; preds = %if.end21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i)
-  %call.i530 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i), !range !8
+  %call.i530 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i)
   %cmp.i = icmp eq i32 %call.i530, -1
   %6 = load i64, ptr %len.i, align 8
   %retval.0.i = select i1 %cmp.i, i64 -1, i64 %6
@@ -8928,7 +8928,7 @@ sdslen.exit:                                      ; preds = %if.end49, %sw.bb.i,
   tail call void @decrRefCount(ptr noundef nonnull %call50) #21
   tail call void @decrRefCount(ptr noundef nonnull %call.i531) #21
   %tobool44.not = icmp eq i64 %dec43971, 0
-  br i1 %tobool44.not, label %while.end, label %while.body, !llvm.loop !24
+  br i1 %tobool44.not, label %while.end, label %while.body, !llvm.loop !20
 
 while.end:                                        ; preds = %sdslen.exit, %if.end41
   tail call void @listTypeTryConversion(ptr noundef nonnull %call42, i32 noundef 0, ptr noundef null, ptr noundef null) #21
@@ -8936,7 +8936,7 @@ while.end:                                        ; preds = %sdslen.exit, %if.en
 
 if.then60:                                        ; preds = %if.end21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i533)
-  %call.i534 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i533), !range !8
+  %call.i534 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i533)
   %cmp.i535 = icmp eq i32 %call.i534, -1
   %17 = load i64, ptr %len.i533, align 8
   %retval.0.i536 = select i1 %cmp.i535, i64 -1, i64 %17
@@ -9177,7 +9177,7 @@ for.inc:                                          ; preds = %if.else187, %if.the
   %inc = add i32 %i.0968, 1
   %conv90 = zext i32 %inc to i64
   %cmp91 = icmp ugt i64 %retval.0.i536, %conv90
-  br i1 %cmp91, label %for.body, label %if.end1109, !llvm.loop !25
+  br i1 %cmp91, label %for.body, label %if.end1109, !llvm.loop !21
 
 if.else189:                                       ; preds = %if.end21
   %cmp190 = icmp eq i32 %rdbtype, 5
@@ -9189,7 +9189,7 @@ if.else189:                                       ; preds = %if.end21
 
 if.then194:                                       ; preds = %if.else189, %if.else189
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i556)
-  %call.i557 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i556), !range !8
+  %call.i557 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i556)
   %cmp.i558 = icmp eq i32 %call.i557, -1
   %40 = load i64, ptr %len.i556, align 8
   %retval.0.i559 = select i1 %cmp.i558, i64 -1, i64 %40
@@ -9293,7 +9293,7 @@ if.then231:                                       ; preds = %if.then227, %if.the
   br label %return
 
 if.else233:                                       ; preds = %if.end224
-  %call234 = call i32 @rdbLoadDoubleValue(ptr noundef %rdb, ptr noundef nonnull %score), !range !8
+  %call234 = call i32 @rdbLoadDoubleValue(ptr noundef %rdb, ptr noundef nonnull %score)
   %cmp235 = icmp eq i32 %call234, -1
   br i1 %cmp235, label %if.then237, label %if.end239
 
@@ -9444,7 +9444,7 @@ sdslen.exit616:                                   ; preds = %if.end247.thread869
   %score252 = getelementptr inbounds i8, ptr %call250, i64 8
   %call253 = call i32 @dictAdd(ptr noundef %62, ptr noundef nonnull %call220, ptr noundef nonnull %score252) #21
   %cmp254.not = icmp eq i32 %call253, 0
-  br i1 %cmp254.not, label %while.cond215, label %if.then256, !llvm.loop !26
+  br i1 %cmp254.not, label %while.cond215, label %if.then256, !llvm.loop !22
 
 if.then256:                                       ; preds = %sdslen.exit616
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 2037, ptr noundef nonnull @.str.57)
@@ -9471,7 +9471,7 @@ if.then268:                                       ; preds = %land.lhs.true265
 
 if.then273:                                       ; preds = %if.else189
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i617)
-  %call.i618 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i617), !range !8
+  %call.i618 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i617)
   %cmp.i619 = icmp eq i32 %call.i618, -1
   %65 = load i64, ptr %len.i617, align 8
   %retval.0.i620 = select i1 %cmp.i619, i64 -1, i64 %65
@@ -9859,7 +9859,7 @@ sdslen.exit734:                                   ; preds = %sdslen.exit715, %sw
   %cmp298 = icmp eq i32 %103, 176
   %cmp301 = icmp ne i64 %dec305, 0
   %104 = select i1 %cmp298, i1 %cmp301, i1 false
-  br i1 %104, label %while.body304, label %while.end366, !llvm.loop !27
+  br i1 %104, label %while.body304, label %while.end366, !llvm.loop !23
 
 while.end366:                                     ; preds = %sdslen.exit734, %if.end293, %if.then345
   %len274.1 = phi i64 [ %dec305, %if.then345 ], [ %65, %if.end293 ], [ %dec305, %sdslen.exit734 ]
@@ -9927,7 +9927,7 @@ if.end407:                                        ; preds = %if.end402
   %109 = load ptr, ptr %ptr408, align 8
   %call409 = tail call i32 @dictAdd(ptr noundef %109, ptr noundef nonnull %call398, ptr noundef nonnull %call403) #21
   %cmp410 = icmp eq i32 %call409, 1
-  br i1 %cmp410, label %if.then412, label %while.cond386, !llvm.loop !28
+  br i1 %cmp410, label %if.then412, label %while.cond386, !llvm.loop !24
 
 if.then412:                                       ; preds = %if.end407
   tail call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 2162, ptr noundef nonnull @.str.59)
@@ -9967,7 +9967,7 @@ if.else423:                                       ; preds = %if.else189
 
 if.then429:                                       ; preds = %if.else423, %if.else423
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i735)
-  %call.i736 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i735), !range !8
+  %call.i736 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i735)
   %cmp.i737 = icmp eq i32 %call.i736, -1
   %110 = load i64, ptr %len.i735, align 8
   %retval.0.i738 = select i1 %cmp.i737, i64 -1, i64 %110
@@ -9999,7 +9999,7 @@ while.body444:                                    ; preds = %while.body444.lr.ph
 
 if.then447:                                       ; preds = %while.body444
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i739)
-  %call.i740 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i739), !range !8
+  %call.i740 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i739)
   %cmp.i741 = icmp eq i32 %call.i740, -1
   %114 = load i64, ptr %len.i739, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i739)
@@ -10046,7 +10046,7 @@ if.then471:                                       ; preds = %if.end468
 
 while.cond441.backedge:                           ; preds = %if.then471, %if.then496, %if.else497
   %tobool443.not = icmp eq i64 %dec442992, 0
-  br i1 %tobool443.not, label %while.end500, label %while.body444, !llvm.loop !29
+  br i1 %tobool443.not, label %while.end500, label %while.body444, !llvm.loop !25
 
 if.end473:                                        ; preds = %if.end468
   br i1 %cmp427, label %if.then476, label %if.else485
@@ -10221,7 +10221,7 @@ if.end579:                                        ; preds = %lor.lhs.false571
   %call581 = call ptr @lpAppend(ptr noundef %call580, ptr noundef %138, i32 noundef %139) #21
   %call551 = call ptr @zipmapNext(ptr noundef nonnull %call551986, ptr noundef nonnull %fstr, ptr noundef nonnull %flen, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen) #21
   %cmp552.not = icmp eq ptr %call551, null
-  br i1 %cmp552.not, label %while.end582.loopexit, label %while.body554, !llvm.loop !30
+  br i1 %cmp552.not, label %while.end582.loopexit, label %while.body554, !llvm.loop !26
 
 while.end582.loopexit:                            ; preds = %if.end579
   %140 = zext i32 %maxlen.2 to i64
@@ -10609,7 +10609,7 @@ if.then790:                                       ; preds = %if.else423, %if.els
   %ptr792 = getelementptr inbounds i8, ptr %call791, i64 8
   %178 = load ptr, ptr %ptr792, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i749)
-  %call.i750 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i749), !range !8
+  %call.i750 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i749)
   %cmp.i751 = icmp eq i32 %call.i750, -1
   %179 = load i64, ptr %len.i749, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i749)
@@ -10744,7 +10744,7 @@ if.end830:                                        ; preds = %if.end825
   %call832 = call i32 @raxTryInsert(ptr noundef %187, ptr noundef nonnull %call802, i64 noundef 16, ptr noundef nonnull %call813, ptr noundef null) #21
   call void @sdsfree(ptr noundef nonnull %call802) #21
   %tobool833.not = icmp eq i32 %call832, 0
-  br i1 %tobool833.not, label %if.then834, label %while.cond798, !llvm.loop !31
+  br i1 %tobool833.not, label %if.then834, label %while.cond798, !llvm.loop !27
 
 if.then834:                                       ; preds = %if.end830
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 2555, ptr noundef nonnull @.str.80)
@@ -10754,7 +10754,7 @@ if.then834:                                       ; preds = %if.end830
 
 while.end836:                                     ; preds = %while.cond798
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i772)
-  %call.i773 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i772), !range !8
+  %call.i773 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i772)
   %cmp.i774 = icmp eq i32 %call.i773, -1
   %188 = load i64, ptr %len.i772, align 8
   %retval.0.i775 = select i1 %cmp.i774, i64 -1, i64 %188
@@ -10762,7 +10762,7 @@ while.end836:                                     ; preds = %while.cond798
   %length = getelementptr inbounds i8, ptr %178, i64 8
   store i64 %retval.0.i775, ptr %length, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i776)
-  %call.i777 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i776), !range !8
+  %call.i777 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i776)
   %cmp.i778 = icmp eq i32 %call.i777, -1
   %189 = load i64, ptr %len.i776, align 8
   %retval.0.i779 = select i1 %cmp.i778, i64 -1, i64 %189
@@ -10770,7 +10770,7 @@ while.end836:                                     ; preds = %while.cond798
   %last_id = getelementptr inbounds i8, ptr %178, i64 16
   store i64 %retval.0.i779, ptr %last_id, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i780)
-  %call.i781 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i780), !range !8
+  %call.i781 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i780)
   %cmp.i782 = icmp eq i32 %call.i781, -1
   %190 = load i64, ptr %len.i780, align 8
   %retval.0.i783 = select i1 %cmp.i782, i64 -1, i64 %190
@@ -10783,14 +10783,14 @@ while.end836:                                     ; preds = %while.cond798
 
 if.then843:                                       ; preds = %while.end836
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i784)
-  %call.i785 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i784), !range !8
+  %call.i785 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i784)
   %cmp.i786 = icmp eq i32 %call.i785, -1
   %191 = load i64, ptr %len.i784, align 8
   %retval.0.i787 = select i1 %cmp.i786, i64 -1, i64 %191
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i784)
   store i64 %retval.0.i787, ptr %first_id, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i788)
-  %call.i789 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i788), !range !8
+  %call.i789 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i788)
   %cmp.i790 = icmp eq i32 %call.i789, -1
   %192 = load i64, ptr %len.i788, align 8
   %retval.0.i791 = select i1 %cmp.i790, i64 -1, i64 %192
@@ -10798,7 +10798,7 @@ if.then843:                                       ; preds = %while.end836
   %seq848 = getelementptr inbounds i8, ptr %178, i64 40
   store i64 %retval.0.i791, ptr %seq848, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i792)
-  %call.i793 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i792), !range !8
+  %call.i793 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i792)
   %cmp.i794 = icmp eq i32 %call.i793, -1
   %193 = load i64, ptr %len.i792, align 8
   %retval.0.i795 = select i1 %cmp.i794, i64 -1, i64 %193
@@ -10806,7 +10806,7 @@ if.then843:                                       ; preds = %while.end836
   %max_deleted_entry_id = getelementptr inbounds i8, ptr %178, i64 48
   store i64 %retval.0.i795, ptr %max_deleted_entry_id, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i796)
-  %call.i797 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i796), !range !8
+  %call.i797 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i796)
   %cmp.i798 = icmp eq i32 %call.i797, -1
   %194 = load i64, ptr %len.i796, align 8
   %retval.0.i799 = select i1 %cmp.i798, i64 -1, i64 %194
@@ -10814,7 +10814,7 @@ if.then843:                                       ; preds = %while.end836
   %seq853 = getelementptr inbounds i8, ptr %178, i64 56
   store i64 %retval.0.i799, ptr %seq853, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i800)
-  %call.i801 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i800), !range !8
+  %call.i801 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i800)
   %cmp.i802 = icmp eq i32 %call.i801, -1
   %195 = load i64, ptr %len.i800, align 8
   %retval.0.i803 = select i1 %cmp.i802, i64 -1, i64 %195
@@ -10862,7 +10862,7 @@ if.then874:                                       ; preds = %land.lhs.true870
 
 if.end875:                                        ; preds = %land.lhs.true870, %if.end867
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i805)
-  %call.i806 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i805), !range !8
+  %call.i806 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i805)
   %cmp.i807 = icmp eq i32 %call.i806, -1
   %200 = load i64, ptr %len.i805, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i805)
@@ -10899,14 +10899,14 @@ if.then888:                                       ; preds = %while.body884
 
 if.end889:                                        ; preds = %while.body884
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i809)
-  %call.i810 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i809), !range !8
+  %call.i810 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i809)
   %cmp.i811 = icmp eq i32 %call.i810, -1
   %201 = load i64, ptr %len.i809, align 8
   %retval.0.i812 = select i1 %cmp.i811, i64 -1, i64 %201
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i809)
   store i64 %retval.0.i812, ptr %cg_id, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i813)
-  %call.i814 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i813), !range !8
+  %call.i814 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i813)
   %cmp.i815 = icmp eq i32 %call.i814, -1
   %202 = load i64, ptr %len.i813, align 8
   %retval.0.i816 = select i1 %cmp.i815, i64 -1, i64 %202
@@ -10928,7 +10928,7 @@ if.end897:                                        ; preds = %if.end889
 
 if.then900:                                       ; preds = %if.end897
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i818)
-  %call.i819 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i818), !range !8
+  %call.i819 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i818)
   %cmp.i820 = icmp eq i32 %call.i819, -1
   %203 = load i64, ptr %len.i818, align 8
   %retval.0.i821 = select i1 %cmp.i820, i64 -1, i64 %203
@@ -10964,7 +10964,7 @@ if.then913:                                       ; preds = %if.end908
 if.end914:                                        ; preds = %if.end908
   call void @sdsfree(ptr noundef nonnull %call885) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i823)
-  %call.i824 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i823), !range !8
+  %call.i824 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i823)
   %cmp.i825 = icmp eq i32 %call.i824, -1
   %204 = load i64, ptr %len.i823, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i823)
@@ -10988,7 +10988,7 @@ while.cond920:                                    ; preds = %while.cond920.prehe
   br i1 %tobool922.not, label %while.end941, label %while.body923
 
 while.body923:                                    ; preds = %while.cond920
-  %call924 = call fastcc i64 @rioRead(ptr noundef nonnull %rdb, ptr noundef nonnull %rawid, i64 noundef 16), !range !32
+  %call924 = call fastcc i64 @rioRead(ptr noundef nonnull %rdb, ptr noundef nonnull %rawid, i64 noundef 16)
   %cmp925 = icmp eq i64 %call924, 0
   br i1 %cmp925, label %if.then927, label %if.end928
 
@@ -11002,7 +11002,7 @@ if.end928:                                        ; preds = %while.body923
   %call930 = call i64 @rdbLoadMillisecondTime(ptr noundef %rdb, i32 poison)
   store i64 %call930, ptr %call929, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i827)
-  %call.i828 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i827), !range !8
+  %call.i828 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i827)
   %cmp.i829 = icmp eq i32 %call.i828, -1
   %205 = load i64, ptr %len.i827, align 8
   %retval.0.i830 = select i1 %cmp.i829, i64 -1, i64 %205
@@ -11024,7 +11024,7 @@ if.end935:                                        ; preds = %if.end928
   %206 = load ptr, ptr %pel, align 8
   %call937 = call i32 @raxTryInsert(ptr noundef %206, ptr noundef nonnull %rawid, i64 noundef 16, ptr noundef nonnull %call929, ptr noundef null) #21
   %tobool938.not = icmp eq i32 %call937, 0
-  br i1 %tobool938.not, label %if.then939, label %while.cond920, !llvm.loop !33
+  br i1 %tobool938.not, label %if.then939, label %while.cond920, !llvm.loop !28
 
 if.then939:                                       ; preds = %if.end935
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 2686, ptr noundef nonnull @.str.91)
@@ -11034,7 +11034,7 @@ if.then939:                                       ; preds = %if.end935
 
 while.end941:                                     ; preds = %while.cond920
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i832)
-  %call.i833 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i832), !range !8
+  %call.i833 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i832)
   %cmp.i834 = icmp eq i32 %call.i833, -1
   %207 = load i64, ptr %len.i832, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i832)
@@ -11053,7 +11053,7 @@ if.then945:                                       ; preds = %while.end941
 
 while.cond947.loopexit:                           ; preds = %while.cond982
   %tobool949.not = icmp eq i64 %dec948978, 0
-  br i1 %tobool949.not, label %while.end1008, label %while.body950, !llvm.loop !34
+  br i1 %tobool949.not, label %while.end1008, label %while.body950, !llvm.loop !29
 
 while.body950:                                    ; preds = %while.cond947.preheader, %while.cond947.loopexit
   %dec948978.in = phi i64 [ %dec948978, %while.cond947.loopexit ], [ %207, %while.cond947.preheader ]
@@ -11115,7 +11115,7 @@ if.else973:                                       ; preds = %if.end964
 
 if.end976:                                        ; preds = %if.then967, %if.else973
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i838)
-  %call.i839 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i838), !range !8
+  %call.i839 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i838)
   %cmp.i840 = icmp eq i32 %call.i839, -1
   %208 = load i64, ptr %len.i838, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i838)
@@ -11139,7 +11139,7 @@ while.cond982:                                    ; preds = %while.cond982.prehe
   br i1 %tobool984.not, label %while.cond947.loopexit, label %while.body985
 
 while.body985:                                    ; preds = %while.cond982
-  %call988 = call fastcc i64 @rioRead(ptr noundef %rdb, ptr noundef nonnull %rawid986, i64 noundef 16), !range !32
+  %call988 = call fastcc i64 @rioRead(ptr noundef %rdb, ptr noundef nonnull %rawid986, i64 noundef 16)
   %cmp989 = icmp eq i64 %call988, 0
   br i1 %cmp989, label %if.then991, label %if.end992
 
@@ -11166,7 +11166,7 @@ if.end998:                                        ; preds = %if.end992
   %211 = load ptr, ptr %pel1001, align 8
   %call1003 = call i32 @raxTryInsert(ptr noundef %211, ptr noundef nonnull %rawid986, i64 noundef 16, ptr noundef %210, ptr noundef null) #21
   %tobool1004.not = icmp eq i32 %call1003, 0
-  br i1 %tobool1004.not, label %if.then1005, label %while.cond982, !llvm.loop !35
+  br i1 %tobool1004.not, label %if.then1005, label %while.cond982, !llvm.loop !30
 
 if.then1005:                                      ; preds = %if.end998
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 2770, ptr noundef nonnull @.str.100)
@@ -11193,7 +11193,7 @@ while.body1016:                                   ; preds = %while.cond1013
   %consumer1019 = getelementptr inbounds i8, ptr %213, i64 16
   %214 = load ptr, ptr %consumer1019, align 8
   %tobool1020.not = icmp eq ptr %214, null
-  br i1 %tobool1020.not, label %if.then1021, label %while.cond1013, !llvm.loop !36
+  br i1 %tobool1020.not, label %if.then1021, label %while.cond1013, !llvm.loop !31
 
 if.then1021:                                      ; preds = %while.body1016
   call void @raxStop(ptr noundef nonnull %ri_cg_pel) #21
@@ -11207,7 +11207,7 @@ while.end1023:                                    ; preds = %while.cond1013
 
 if.end1024:                                       ; preds = %while.end1023, %while.end1008
   %tobool883.not = icmp eq i64 %dec882981, 0
-  br i1 %tobool883.not, label %if.end1109, label %while.body884, !llvm.loop !37
+  br i1 %tobool883.not, label %if.end1109, label %while.body884, !llvm.loop !32
 
 if.then1029:                                      ; preds = %if.else423
   tail call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 2796, ptr noundef nonnull @.str.102)
@@ -11215,7 +11215,7 @@ if.then1029:                                      ; preds = %if.else423
 
 if.then1033:                                      ; preds = %if.else423
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i842)
-  %call.i843 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i842), !range !8
+  %call.i843 = call i32 @rdbLoadLenByRef(ptr noundef %rdb, ptr noundef null, ptr noundef nonnull %len.i842)
   %cmp.i844 = icmp eq i32 %call.i843, -1
   %215 = load i64, ptr %len.i842, align 8
   %retval.0.i845 = select i1 %cmp.i844, i64 -1, i64 %215
@@ -11288,7 +11288,7 @@ if.then1071:                                      ; preds = %do.body
 
 if.end1074:                                       ; preds = %if.then1071, %do.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i847)
-  %call.i848 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i847), !range !8
+  %call.i848 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i847)
   %cmp.i849 = icmp eq i32 %call.i848, -1
   %222 = load i64, ptr %len.i847, align 8
   %retval.0.i850 = select i1 %cmp.i849, i64 -1, i64 %222
@@ -11414,7 +11414,7 @@ declare void @quicklistAppendPlainNode(ptr noundef, ptr noundef, i64 noundef) lo
 declare ptr @lpNew(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_ziplistEntryConvertAndValidate(ptr noundef %p, i32 %head_count, ptr nocapture noundef %userdata) #0 {
+define internal range(i32 0, 2) i32 @_ziplistEntryConvertAndValidate(ptr noundef %p, i32 %head_count, ptr nocapture noundef %userdata) #0 {
 entry:
   %str = alloca ptr, align 8
   %slen = alloca i32, align 4
@@ -11468,7 +11468,7 @@ declare i64 @hashTypeLength(ptr noundef) local_unnamed_addr #3
 declare ptr @quicklistNew(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_listZiplistEntryConvertAndValidate(ptr noundef %p, i32 %head_count, ptr noundef %userdata) #0 {
+define internal range(i32 0, 2) i32 @_listZiplistEntryConvertAndValidate(ptr noundef %p, i32 %head_count, ptr noundef %userdata) #0 {
 entry:
   %str = alloca ptr, align 8
   %slen = alloca i32, align 4
@@ -11735,7 +11735,7 @@ declare void @processModuleLoadingProgressEvent(i32 noundef) local_unnamed_addr 
 declare zeroext i8 @rioCheckType(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbFunctionLoad(ptr noundef %rdb, i32 %ver, ptr noundef %lib_ctx, i32 noundef %rdbflags, ptr noundef writeonly %err) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbFunctionLoad(ptr noundef %rdb, i32 %ver, ptr noundef %lib_ctx, i32 noundef %rdbflags, ptr noundef writeonly %err) local_unnamed_addr #0 {
 entry:
   %error = alloca ptr, align 8
   store ptr null, ptr %error, align 8
@@ -11816,7 +11816,7 @@ declare ptr @sdsnew(ptr noundef) local_unnamed_addr #3
 declare ptr @functionsCreateWithLibraryCtx(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbLoadRio(ptr noundef %rdb, i32 noundef %rdbflags, ptr noundef %rsi) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbLoadRio(ptr noundef %rdb, i32 noundef %rdbflags, ptr noundef %rsi) local_unnamed_addr #0 {
 entry:
   %loading_ctx = alloca %struct.rdbLoadingCtx, align 8
   %call = tail call ptr @functionsLibCtxGetCurrent() #21
@@ -11824,14 +11824,14 @@ entry:
   store ptr %0, ptr %loading_ctx, align 8
   %functions_lib_ctx1 = getelementptr inbounds i8, ptr %loading_ctx, i64 8
   store ptr %call, ptr %functions_lib_ctx1, align 8
-  %call3 = call i32 @rdbLoadRioWithLoadingCtx(ptr noundef %rdb, i32 noundef %rdbflags, ptr noundef %rsi, ptr noundef nonnull %loading_ctx), !range !8
+  %call3 = call i32 @rdbLoadRioWithLoadingCtx(ptr noundef %rdb, i32 noundef %rdbflags, ptr noundef %rsi, ptr noundef nonnull %loading_ctx)
   ret i32 %call3
 }
 
 declare ptr @functionsLibCtxGetCurrent() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbLoadRioWithLoadingCtx(ptr noundef %rdb, i32 noundef %rdbflags, ptr noundef writeonly %rsi, ptr nocapture noundef readonly %rdb_loading_ctx) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbLoadRioWithLoadingCtx(ptr noundef %rdb, i32 noundef %rdbflags, ptr noundef writeonly %rsi, ptr nocapture noundef readonly %rdb_loading_ctx) local_unnamed_addr #0 {
 entry:
   %len.i259 = alloca i64, align 8
   %len.i254 = alloca i64, align 8
@@ -12227,7 +12227,7 @@ while.body.backedge:                              ; preds = %if.end523, %if.then
 
 if.then56:                                        ; preds = %rdbLoadType.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i)
-  %call.i218 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i), !range !8
+  %call.i218 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i)
   %cmp.i = icmp eq i32 %call.i218, -1
   %47 = load i64, ptr %len.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i)
@@ -12237,7 +12237,7 @@ if.then56:                                        ; preds = %rdbLoadType.exit
 
 if.then69:                                        ; preds = %rdbLoadType.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i220)
-  %call.i221 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i220), !range !8
+  %call.i221 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i220)
   %cmp.i222 = icmp eq i32 %call.i221, -1
   %48 = load i64, ptr %len.i220, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i220)
@@ -12271,7 +12271,7 @@ if.end85:                                         ; preds = %if.end74
 
 if.then91:                                        ; preds = %rdbLoadType.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i224)
-  %call.i225 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i224), !range !8
+  %call.i225 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i224)
   %cmp.i226 = icmp eq i32 %call.i225, -1
   %52 = load i64, ptr %len.i224, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i224)
@@ -12281,7 +12281,7 @@ if.then91:                                        ; preds = %rdbLoadType.exit
 
 if.end96:                                         ; preds = %if.then91
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i228)
-  %call.i229 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i228), !range !8
+  %call.i229 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i228)
   %cmp.i230 = icmp eq i32 %call.i229, -1
   %53 = load i64, ptr %len.i228, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i228)
@@ -12291,7 +12291,7 @@ if.end96:                                         ; preds = %if.then91
 
 if.then105:                                       ; preds = %rdbLoadType.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i232)
-  %call.i233 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i232), !range !8
+  %call.i233 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i232)
   %cmp.i234 = icmp eq i32 %call.i233, -1
   %54 = load i64, ptr %len.i232, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i232)
@@ -12301,7 +12301,7 @@ if.then105:                                       ; preds = %rdbLoadType.exit
 
 if.end110:                                        ; preds = %if.then105
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i236)
-  %call.i237 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i236), !range !8
+  %call.i237 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i236)
   %cmp.i238 = icmp eq i32 %call.i237, -1
   %55 = load i64, ptr %len.i236, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i236)
@@ -12311,7 +12311,7 @@ if.end110:                                        ; preds = %if.then105
 
 if.end115:                                        ; preds = %if.end110
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i240)
-  %call.i241 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i240), !range !8
+  %call.i241 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i240)
   %cmp.i242 = icmp eq i32 %call.i241, -1
   %56 = load i64, ptr %len.i240, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i240)
@@ -12539,17 +12539,17 @@ if.end293:                                        ; preds = %if.then161, %if.the
 
 if.then297:                                       ; preds = %rdbLoadType.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i246)
-  %call.i247 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i246), !range !8
+  %call.i247 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i246)
   %cmp.i248 = icmp eq i32 %call.i247, -1
   %80 = load i64, ptr %len.i246, align 8
   %retval.0.i249 = select i1 %cmp.i248, i64 -1, i64 %80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i246)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i250)
-  %call.i251 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i250), !range !8
+  %call.i251 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i250)
   %81 = load i64, ptr %len.i250, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i250)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i254)
-  %call.i255 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i254), !range !8
+  %call.i255 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i254)
   %cmp.i256 = icmp eq i32 %call.i255, -1
   %82 = load i64, ptr %len.i254, align 8
   %83 = trunc i64 %82 to i32
@@ -12658,7 +12658,7 @@ if.end367:                                        ; preds = %if.then361
 
 if.end370:                                        ; preds = %if.end355
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i259)
-  %call.i260 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i259), !range !8
+  %call.i260 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %rdb, ptr noundef null, ptr noundef nonnull %len.i259)
   %cmp.i261 = icmp ne i32 %call.i260, -1
   %94 = load i64, ptr %len.i259, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i259)
@@ -12688,7 +12688,7 @@ if.then389:                                       ; preds = %rdbLoadType.exit
 if.then393:                                       ; preds = %rdbLoadType.exit
   store ptr null, ptr %err, align 8
   %96 = load ptr, ptr %functions_lib_ctx, align 8
-  %call394 = call i32 @rdbFunctionLoad(ptr noundef nonnull %rdb, i32 poison, ptr noundef %96, i32 noundef %rdbflags, ptr noundef nonnull %err), !range !8
+  %call394 = call i32 @rdbFunctionLoad(ptr noundef nonnull %rdb, i32 poison, ptr noundef %96, i32 noundef %rdbflags, ptr noundef nonnull %err)
   %cmp395.not = icmp eq i32 %call394, 0
   br i1 %cmp395.not, label %while.body.backedge, label %do.body398
 
@@ -12877,7 +12877,7 @@ while.end:                                        ; preds = %rdbLoadType.exit
 if.then529:                                       ; preds = %while.end
   %cksum530 = getelementptr inbounds i8, ptr %rdb, i64 40
   %115 = load i64, ptr %cksum530, align 8
-  %call531 = call fastcc i64 @rioRead(ptr noundef nonnull %rdb, ptr noundef nonnull %cksum, i64 noundef 8), !range !32
+  %call531 = call fastcc i64 @rioRead(ptr noundef nonnull %rdb, ptr noundef nonnull %cksum, i64 noundef 8)
   %cmp532 = icmp eq i64 %call531, 0
   br i1 %cmp532, label %do.body579, label %if.end535
 
@@ -12995,7 +12995,7 @@ declare i32 @objectSetLRUOrLFU(ptr noundef, i64 noundef, i64 noundef, i64 nounde
 declare void @moduleNotifyKeyspaceEvent(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbLoad(ptr noundef %filename, ptr noundef %rsi, i32 noundef %rdbflags) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @rdbLoad(ptr noundef %filename, ptr noundef %rsi, i32 noundef %rdbflags) local_unnamed_addr #0 {
 entry:
   %loading_ctx.i = alloca %struct.rdbLoadingCtx, align 8
   %rdb = alloca %struct._rio, align 8
@@ -13048,7 +13048,7 @@ if.end10:                                         ; preds = %entry
   store ptr %3, ptr %loading_ctx.i, align 8
   %functions_lib_ctx1.i = getelementptr inbounds i8, ptr %loading_ctx.i, i64 8
   store ptr %call.i, ptr %functions_lib_ctx1.i, align 8
-  %call3.i = call noundef i32 @rdbLoadRioWithLoadingCtx(ptr noundef nonnull %rdb, i32 noundef %rdbflags, ptr noundef %rsi, ptr noundef nonnull %loading_ctx.i), !range !8
+  %call3.i = call i32 @rdbLoadRioWithLoadingCtx(ptr noundef nonnull %rdb, i32 noundef %rdbflags, ptr noundef %rsi, ptr noundef nonnull %loading_ctx.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %loading_ctx.i)
   %call18 = call i32 @fclose(ptr noundef nonnull %call)
   %cmp19.not = icmp eq i32 %call3.i, 0
@@ -13294,7 +13294,7 @@ entry:
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbSaveToSlavesSockets(i32 noundef %req, ptr noundef %rsi) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbSaveToSlavesSockets(i32 noundef %req, ptr noundef %rsi) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %pipefds = alloca [2 x i32], align 4
@@ -13376,7 +13376,7 @@ if.end24:                                         ; preds = %if.then21
 while.cond.backedge:                              ; preds = %while.body, %if.end24, %if.then21
   %call18 = call ptr @listNext(ptr noundef nonnull %li) #21
   %tobool19.not = icmp eq ptr %call18, null
-  br i1 %tobool19.not, label %while.end, label %while.body, !llvm.loop !38
+  br i1 %tobool19.not, label %while.end, label %while.body, !llvm.loop !33
 
 while.end:                                        ; preds = %while.cond.backedge, %if.end14
   %call29 = call i32 @redisFork(i32 noundef 1) #21
@@ -13390,7 +13390,7 @@ if.then31:                                        ; preds = %while.end
   %call34 = call i32 @redisSetProcTitle(ptr noundef nonnull @.str.145) #21
   %16 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 409), align 8
   call void @redisSetCpuAffinity(ptr noundef %16) #21
-  %call35 = call i32 @rdbSaveRioWithEOFMark(i32 noundef %req, ptr noundef nonnull %rdb, ptr noundef null, ptr noundef %rsi), !range !8
+  %call35 = call i32 @rdbSaveRioWithEOFMark(i32 noundef %req, ptr noundef nonnull %rdb, ptr noundef null, ptr noundef %rsi)
   %cmp36 = icmp eq i32 %call35, 0
   br i1 %cmp36, label %if.end40, label %if.end43
 
@@ -13454,7 +13454,7 @@ if.then68:                                        ; preds = %while.body62
 if.end70:                                         ; preds = %if.then68, %while.body62
   %call60 = call ptr @listNext(ptr noundef nonnull %li) #21
   %tobool61.not = icmp eq ptr %call60, null
-  br i1 %tobool61.not, label %while.end71, label %while.body62, !llvm.loop !39
+  br i1 %tobool61.not, label %while.end71, label %while.body62, !llvm.loop !34
 
 while.end71:                                      ; preds = %if.end70, %do.end
   %call72 = call i32 @close(i32 noundef %2) #21
@@ -13539,7 +13539,7 @@ if.end:                                           ; preds = %entry
   %1 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 111), align 8
   %inc = add nsw i64 %1, 1
   store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 111), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %rsi, ptr noundef nonnull align 8 dereferenceable(64) @__const.rdbPopulateSaveInfo.rsi_init, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %rsi, ptr noundef nonnull align 8 dereferenceable(64) @__const.rdbPopulateSaveInfo.rsi_init, i64 64, i1 false)
   %2 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
   %tobool.i = icmp eq ptr %2, null
   %3 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 268), align 8
@@ -13585,7 +13585,7 @@ return.sink.split.i:                              ; preds = %if.then7.i, %if.the
 rdbPopulateSaveInfo.exit:                         ; preds = %if.end5.i, %return.sink.split.i
   %retval.0.i = phi ptr [ null, %if.end5.i ], [ %rsi, %return.sink.split.i ]
   %11 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 225), align 8
-  %call1 = call i32 @rdbSave(i32 noundef 0, ptr noundef %11, ptr noundef %retval.0.i, i32 noundef 0), !range !8
+  %call1 = call i32 @rdbSave(i32 noundef 0, ptr noundef %11, ptr noundef %retval.0.i, i32 noundef 0)
   %cmp2 = icmp eq i32 %call1, 0
   br i1 %cmp2, label %if.then3, label %if.else
 
@@ -13690,7 +13690,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br label %if.end26
 
 if.end4:                                          ; preds = %land.lhs.true, %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %rsi, ptr noundef nonnull align 8 dereferenceable(64) @__const.rdbPopulateSaveInfo.rsi_init, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %rsi, ptr noundef nonnull align 8 dereferenceable(64) @__const.rdbPopulateSaveInfo.rsi_init, i64 64, i1 false)
   %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
   %tobool.i = icmp eq ptr %5, null
   %6 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 268), align 8
@@ -13766,7 +13766,7 @@ if.else17:                                        ; preds = %if.then12
 
 if.else19:                                        ; preds = %if.else8
   %16 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 225), align 8
-  %call20 = call i32 @rdbSaveBackground(i32 noundef 0, ptr noundef %16, ptr noundef %retval.0.i, i32 noundef 0), !range !8
+  %call20 = call i32 @rdbSaveBackground(i32 noundef 0, ptr noundef %16, ptr noundef %retval.0.i, i32 noundef 0)
   %cmp21 = icmp eq i32 %call20, 0
   br i1 %cmp21, label %if.then22, label %if.else23
 
@@ -13869,8 +13869,8 @@ attributes #25 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -1, i32 1}
-!9 = !{i32 -1, i32 10}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
@@ -13880,9 +13880,9 @@ attributes #25 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = !{i32 -1, i32 2}
+!19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = !{i64 -1, i64 -9223372036854775808}
+!21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
@@ -13893,11 +13893,6 @@ attributes #25 = { nounwind willreturn memory(read) }
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
-!32 = !{i64 0, i64 2}
+!32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6}
-!39 = distinct !{!39, !6}

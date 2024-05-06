@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [27 x i8] c"unsupported address family\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nsm_monitor(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @nsm_monitor(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.nsm_res, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
@@ -647,7 +647,7 @@ define internal void @nsm_xdr_enc_mon(ptr nocapture readnone %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nsm_xdr_dec_stat_res(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @nsm_xdr_dec_stat_res(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 8) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %13, label %6, !prof !16
@@ -705,7 +705,7 @@ define internal void @nsm_xdr_enc_unmon(ptr nocapture readnone %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nsm_xdr_dec_stat(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @nsm_xdr_dec_stat(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6, !prof !16

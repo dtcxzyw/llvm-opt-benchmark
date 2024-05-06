@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [48 x i8] c"SRP parameters set: username = \22%s\22 info=\22%s\22 \0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_up_srp_arg(ptr noundef %ctx, ptr noundef %srp_arg, i32 noundef %srp_lateuser, i32 noundef %c_msg, i32 noundef %c_debug) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @set_up_srp_arg(ptr noundef %ctx, ptr noundef %srp_arg, i32 noundef %srp_lateuser, i32 noundef %c_msg, i32 noundef %c_debug) local_unnamed_addr #0 {
 entry:
   %srp_arg.addr = alloca ptr, align 8
   store ptr %srp_arg, ptr %srp_arg.addr, align 8
@@ -120,7 +120,7 @@ declare i32 @SSL_CTX_set_srp_strength(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @SSL_CTX_set_srp_verify_param_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssl_srp_verify_param_cb(ptr noundef %s, ptr nocapture noundef readonly %arg) #0 {
+define internal range(i32 0, 2) i32 @ssl_srp_verify_param_cb(ptr noundef %s, ptr nocapture noundef readonly %arg) #0 {
 entry:
   %call = tail call ptr @SSL_get_srp_N(ptr noundef %s) #3
   %cmp = icmp eq ptr %call, null
@@ -269,7 +269,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_up_srp_verifier_file(ptr noundef %ctx, ptr noundef %srp_callback_parm, ptr noundef %srpuserseed, ptr noundef %srp_verifier_file) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @set_up_srp_verifier_file(ptr noundef %ctx, ptr noundef %srp_callback_parm, ptr noundef %srpuserseed, ptr noundef %srp_verifier_file) local_unnamed_addr #0 {
 entry:
   %srp_callback_parm.addr = alloca ptr, align 8
   store ptr %srp_callback_parm, ptr %srp_callback_parm.addr, align 8
@@ -319,7 +319,7 @@ declare i32 @verify_callback(i32 noundef, ptr noundef) #1
 declare i32 @SSL_CTX_set_srp_username_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssl_srp_server_param_cb(ptr noundef %s, ptr nocapture noundef writeonly %ad, ptr nocapture noundef %arg) #0 {
+define internal range(i32 -1, 3) i32 @ssl_srp_server_param_cb(ptr noundef %s, ptr nocapture noundef writeonly %ad, ptr nocapture noundef %arg) #0 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   %cmp = icmp eq ptr %0, null

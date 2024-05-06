@@ -354,7 +354,7 @@ if.end.i.i:                                       ; preds = %if.end.i75
   br i1 %cmp11.i.i, label %if.then12.i.i, label %if.end13.i.i
 
 if.then12.i.i:                                    ; preds = %if.end.i.i
-  call fastcc void @uv__process_child_init(ptr noundef nonnull %options, i32 noundef %spec.store.select, ptr noundef nonnull %pipes.0146, i32 noundef %12)
+  call fastcc void @uv__process_child_init(ptr noundef nonnull readonly %options, i32 noundef %spec.store.select, ptr noundef nonnull %pipes.0146, i32 noundef %12)
   unreachable
 
 if.end13.i.i:                                     ; preds = %if.end.i.i
@@ -662,7 +662,7 @@ declare void @uv__free(ptr noundef) local_unnamed_addr #1
 declare i32 @uv__close_nocheckstdio(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_process_kill(ptr nocapture noundef readonly %process, i32 noundef %signum) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_process_kill(ptr nocapture noundef readonly %process, i32 noundef %signum) local_unnamed_addr #0 {
 entry:
   %pid = getelementptr inbounds i8, ptr %process, i64 104
   %0 = load i32, ptr %pid, align 8
@@ -682,7 +682,7 @@ uv_kill.exit:                                     ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_kill(i32 noundef %pid, i32 noundef %signum) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_kill(i32 noundef %pid, i32 noundef %signum) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @kill(i32 noundef %pid, i32 noundef %signum) #12
   %tobool.not = icmp eq i32 %call, 0

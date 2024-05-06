@@ -726,7 +726,7 @@ define internal noundef i32 @component_finalize() #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ompi_osc_sm_shared_query(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #2 {
+define range(i32 0, 54) i32 @ompi_osc_sm_shared_query(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 272
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 240
@@ -799,7 +799,7 @@ define noundef i32 @ompi_osc_sm_shared_query(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ompi_osc_sm_attach(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i64 %2) #3 {
+define range(i32 0, 70) i32 @ompi_osc_sm_attach(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i64 %2) #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 272
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 240
@@ -810,7 +810,7 @@ define i32 @ompi_osc_sm_attach(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ompi_osc_sm_detach(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 {
+define range(i32 0, 70) i32 @ompi_osc_sm_detach(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 240
@@ -977,7 +977,7 @@ define i32 @ompi_osc_sm_set_info(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_sm_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 -3, 1) i32 @ompi_osc_sm_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_info_t_class, i64 0, i32 8), align 8

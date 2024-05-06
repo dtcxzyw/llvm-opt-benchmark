@@ -347,7 +347,7 @@ Lzma2Dec_UpdateState.exit:                        ; preds = %35, %40, %45, %47, 
   %116 = load ptr, ptr %21, align 8
   %117 = load i64, ptr %11, align 8
   %118 = getelementptr inbounds i8, ptr %116, i64 %117
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %118, ptr align 1 %.093120, i64 %113, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %118, ptr readonly align 1 %.093120, i64 %113, i1 false)
   %119 = load i64, ptr %11, align 8
   %120 = add i64 %119, %113
   store i64 %120, ptr %11, align 8

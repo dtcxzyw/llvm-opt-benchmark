@@ -155,7 +155,7 @@ define hidden noundef ptr @mbedtls_ecp_curve_info_from_name(ptr noundef readonly
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mbedtls_ecp_get_type(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 3) i32 @mbedtls_ecp_get_type(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -422,7 +422,7 @@ define hidden i32 @mbedtls_ecp_set_zero(ptr noundef %0) local_unnamed_addr #6 {
 declare i32 @mbedtls_mpi_lset(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecp_is_zero(ptr noundef %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @mbedtls_ecp_is_zero(ptr noundef %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = tail call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %2, i64 noundef 0) #19
   %4 = icmp eq i32 %3, 0
@@ -433,7 +433,7 @@ define hidden i32 @mbedtls_ecp_is_zero(ptr noundef %0) local_unnamed_addr #6 {
 declare i32 @mbedtls_mpi_cmp_int(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_ecp_point_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden range(i32 -20352, 1) i32 @mbedtls_ecp_point_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = tail call i32 @mbedtls_mpi_cmp_mpi(ptr noundef %0, ptr noundef %1) #19
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %15
@@ -814,7 +814,7 @@ mbedtls_ecp_tls_read_group_id.exit.thread:        ; preds = %22, %5, %3, %25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_ecp_tls_read_group_id(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #9 {
+define hidden range(i32 -20352, 1) i32 @mbedtls_ecp_tls_read_group_id(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = icmp ult i64 %2, 3
   br i1 %4, label %mbedtls_ecp_curve_info_from_tls_id.exit.thread, label %5
 
@@ -863,7 +863,7 @@ mbedtls_ecp_curve_info_from_tls_id.exit.thread:   ; preds = %22, %5, %3, %mbedtl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @mbedtls_ecp_tls_write_group(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #10 {
+define hidden range(i32 -20352, 1) i32 @mbedtls_ecp_tls_write_group(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #10 {
   %5 = load i32, ptr %0, align 8
   br label %6
 
@@ -929,7 +929,7 @@ define internal fastcc i32 @ecp_mul_restartable_internal(ptr noundef %0, ptr nou
   %15 = alloca %struct.mbedtls_ecp_point, align 8
   %16 = alloca %struct.mbedtls_mpi, align 8
   %17 = alloca [4 x %struct.mbedtls_mpi], align 16
-  %18 = tail call i32 @mbedtls_ecp_check_privkey(ptr noundef %0, ptr noundef %2), !range !11
+  %18 = tail call i32 @mbedtls_ecp_check_privkey(ptr noundef %0, ptr noundef %2)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %ecp_mul_comb.exit
 
@@ -969,7 +969,7 @@ mbedtls_ecp_get_type.exit:                        ; preds = %25
   %32 = getelementptr inbounds i8, ptr %.013.i.i, i64 24
   call void @mbedtls_mpi_init(ptr noundef nonnull %.013.i.i) #19
   %.not.i.i = icmp eq i64 %31, 0
-  br i1 %.not.i.i, label %mpi_init_many.exit.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %mpi_init_many.exit.i, label %.lr.ph.i.i, !llvm.loop !11
 
 mpi_init_many.exit.i:                             ; preds = %.lr.ph.i.i
   %33 = icmp eq ptr %4, null
@@ -1028,7 +1028,7 @@ mbedtls_ecp_copy.exit.i:                          ; preds = %38
 54:                                               ; preds = %51
   %55 = call i32 @mbedtls_mpi_sub_abs(ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef nonnull %50) #19
   %.not59.i = icmp eq i32 %55, 0
-  br i1 %.not59.i, label %51, label %mbedtls_ecp_copy.exit.thread.i, !llvm.loop !13
+  br i1 %.not59.i, label %51, label %mbedtls_ecp_copy.exit.thread.i, !llvm.loop !12
 
 56:                                               ; preds = %51
   %57 = call fastcc i32 @ecp_randomize_mxz(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %4, ptr noundef %5)
@@ -1070,7 +1070,7 @@ mbedtls_ecp_copy.exit.i:                          ; preds = %38
 72:                                               ; preds = %70
   %73 = call i32 @mbedtls_mpi_safe_cond_swap(ptr noundef nonnull %46, ptr noundef nonnull %30, i8 noundef zeroext %64) #19
   %.not58.i = icmp eq i32 %73, 0
-  br i1 %.not58.i, label %60, label %mbedtls_ecp_copy.exit.thread.i, !llvm.loop !14
+  br i1 %.not58.i, label %60, label %mbedtls_ecp_copy.exit.thread.i, !llvm.loop !13
 
 74:                                               ; preds = %60
   %75 = call fastcc i32 @ecp_randomize_mxz(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef %5)
@@ -1096,7 +1096,7 @@ mbedtls_ecp_copy.exit.thread.i:                   ; preds = %54, %72, %70, %68, 
   %79 = getelementptr inbounds i8, ptr %.013.i63.i, i64 24
   call void @mbedtls_mpi_free(ptr noundef nonnull %.013.i63.i) #19
   %.not.i64.i = icmp eq i64 %78, 0
-  br i1 %.not.i64.i, label %ecp_mul_mxz.exit, label %.lr.ph.i61.i, !llvm.loop !15
+  br i1 %.not.i64.i, label %ecp_mul_mxz.exit, label %.lr.ph.i61.i, !llvm.loop !14
 
 ecp_mul_mxz.exit:                                 ; preds = %.lr.ph.i61.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15)
@@ -1199,7 +1199,7 @@ ecp_pick_window_size.exit.i:                      ; preds = %.critedge.i.i, %102
   %125 = add i8 %.05526.i, 1
   %126 = zext i8 %125 to i32
   %127 = icmp ugt i32 %108, %126
-  br i1 %127, label %.preheader23.i, label %128, !llvm.loop !16
+  br i1 %127, label %.preheader23.i, label %128, !llvm.loop !15
 
 128:                                              ; preds = %.preheader23.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13)
@@ -1214,7 +1214,7 @@ ecp_pick_window_size.exit.i:                      ; preds = %.critedge.i.i, %102
   %130 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 24
   call void @mbedtls_mpi_init(ptr noundef nonnull %.013.i.i.i) #19
   %.not.i.i69.i = icmp eq i64 %129, 0
-  br i1 %.not.i.i69.i, label %mpi_init_many.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i69.i, label %mpi_init_many.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 mpi_init_many.exit.i.i:                           ; preds = %.lr.ph.i.i.i
   %131 = call i32 @mbedtls_mpi_copy(ptr noundef nonnull %119, ptr noundef %3) #19
@@ -1243,7 +1243,7 @@ mbedtls_ecp_copy.exit.i.i:                        ; preds = %132
 140:                                              ; preds = %164
   %141 = add nuw i64 %.05412.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %141, %139
-  br i1 %exitcond.not.i.i, label %.preheader8.i.i, label %.lr.ph.i.i29, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %.preheader8.i.i, label %.lr.ph.i.i29, !llvm.loop !16
 
 .preheader8.i.i:                                  ; preds = %140, %.preheader9.i.i
   %142 = and i32 %108, 255
@@ -1300,7 +1300,7 @@ mbedtls_ecp_copy.exit78.i.i:                      ; preds = %157
   %171 = shl nuw nsw i32 %166, 1
   %172 = and i32 %171, 254
   %173 = icmp ult i32 %172, %142
-  br i1 %173, label %.lr.ph14.i.i, label %._crit_edge.i.i, !llvm.loop !18
+  br i1 %173, label %.lr.ph14.i.i, label %._crit_edge.i.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph14.i.i
   %174 = call fastcc i32 @ecp_normalize_jac_many(ptr noundef %0, ptr noundef nonnull %13, i64 noundef %169)
@@ -1334,12 +1334,12 @@ mbedtls_ecp_copy.exit78.i.i:                      ; preds = %157
   %183 = getelementptr %struct.mbedtls_ecp_point, ptr %182, i64 %177
   %184 = call fastcc i32 @ecp_add_mixed(ptr noundef %0, ptr noundef %183, ptr noundef %182, ptr noundef nonnull %178, ptr noundef nonnull %14)
   %.not71.i.i = icmp eq i32 %184, 0
-  br i1 %.not71.i.i, label %179, label %mbedtls_ecp_copy.exit.thread.i.i, !llvm.loop !19
+  br i1 %.not71.i.i, label %179, label %mbedtls_ecp_copy.exit.thread.i.i, !llvm.loop !18
 
 185:                                              ; preds = %179
   %186 = shl i8 %.116.i.i, 1
   %187 = icmp ult i8 %186, %109
-  br i1 %187, label %.lr.ph17.i.i, label %.preheader5.i.i, !llvm.loop !20
+  br i1 %187, label %.lr.ph17.i.i, label %.preheader5.i.i, !llvm.loop !19
 
 .lr.ph19.i.i:                                     ; preds = %.lr.ph19.i.i, %.preheader5.i.i
   %188 = phi i64 [ %190, %.lr.ph19.i.i ], [ 1, %.preheader5.i.i ]
@@ -1349,7 +1349,7 @@ mbedtls_ecp_copy.exit78.i.i:                      ; preds = %157
   store ptr %gep.i.i, ptr %189, align 8
   %190 = add nuw nsw i64 %188, 1
   %exitcond30.not.i.i = icmp eq i64 %190, %176
-  br i1 %exitcond30.not.i.i, label %._crit_edge20.i.i, label %.lr.ph19.i.i, !llvm.loop !21
+  br i1 %exitcond30.not.i.i, label %._crit_edge20.i.i, label %.lr.ph19.i.i, !llvm.loop !20
 
 ._crit_edge20.i.i:                                ; preds = %.lr.ph19.i.i, %._crit_edge.thread.i.i
   %.3.lcssa.i.i = phi i64 [ 0, %._crit_edge.thread.i.i ], [ %188, %.lr.ph19.i.i ]
@@ -1368,7 +1368,7 @@ mbedtls_ecp_copy.exit78.i.i:                      ; preds = %157
   call void @mbedtls_mpi_free(ptr noundef nonnull %192) #19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond32.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond32.not.i.i, label %mbedtls_ecp_copy.exit.thread.i.i, label %.lr.ph23.i.i, !llvm.loop !22
+  br i1 %exitcond32.not.i.i, label %mbedtls_ecp_copy.exit.thread.i.i, label %.lr.ph23.i.i, !llvm.loop !21
 
 mbedtls_ecp_copy.exit.thread.i.i:                 ; preds = %164, %mbedtls_ecp_copy.exit78.i.i, %157, %152, %180, %.lr.ph23.i.i, %._crit_edge20.i.i, %._crit_edge.thread.i.i, %._crit_edge.i.i, %mbedtls_ecp_copy.exit.i.i, %132, %mpi_init_many.exit.i.i
   %.0.i.i = phi i32 [ %137, %mbedtls_ecp_copy.exit.i.i ], [ %174, %._crit_edge.i.i ], [ %191, %._crit_edge20.i.i ], [ %134, %132 ], [ %131, %mpi_init_many.exit.i.i ], [ %175, %._crit_edge.thread.i.i ], [ 0, %.lr.ph23.i.i ], [ %184, %180 ], [ %156, %152 ], [ %160, %157 ], [ %165, %164 ], [ %163, %mbedtls_ecp_copy.exit78.i.i ]
@@ -1381,7 +1381,7 @@ mbedtls_ecp_copy.exit.thread.i.i:                 ; preds = %164, %mbedtls_ecp_c
   %194 = getelementptr inbounds i8, ptr %.013.i81.i.i, i64 24
   call void @mbedtls_mpi_free(ptr noundef nonnull %.013.i81.i.i) #19
   %.not.i82.i.i = icmp eq i64 %193, 0
-  br i1 %.not.i82.i.i, label %ecp_precompute_comb.exit.i, label %.lr.ph.i79.i.i, !llvm.loop !15
+  br i1 %.not.i82.i.i, label %ecp_precompute_comb.exit.i, label %.lr.ph.i79.i.i, !llvm.loop !14
 
 ecp_precompute_comb.exit.i:                       ; preds = %.lr.ph.i79.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
@@ -1460,12 +1460,12 @@ ecp_comb_recode_scalar.exit.thread.i.i:           ; preds = %200
   store i8 %223, ptr %214, align 1
   %224 = add nuw nsw i64 %.04449.us.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %224, %110
-  br i1 %exitcond.not.i.i.i.i, label %._crit_edge.us.i.i.i.i, label %215, !llvm.loop !23
+  br i1 %exitcond.not.i.i.i.i, label %._crit_edge.us.i.i.i.i, label %215, !llvm.loop !22
 
 ._crit_edge.us.i.i.i.i:                           ; preds = %215
   %225 = add nuw i64 %.050.us.i.i.i.i, 1
   %exitcond57.not.i.i.i.i = icmp eq i64 %225, %113
-  br i1 %exitcond57.not.i.i.i.i, label %.lr.ph.i.i.i.i.preheader, label %.preheader48.us.i.i.i.i, !llvm.loop !24
+  br i1 %exitcond57.not.i.i.i.i, label %.lr.ph.i.i.i.i.preheader, label %.preheader48.us.i.i.i.i, !llvm.loop !23
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %._crit_edge.us.i.i.i.i
   %load_initial = load i8, ptr %12, align 16
@@ -1492,7 +1492,7 @@ ecp_comb_recode_scalar.exit.thread.i.i:           ; preds = %200
   store i8 %237, ptr %232, align 1
   %238 = add i64 %.153.i.i.i.i, 1
   %exitcond58.not.i.i.i.i = icmp eq i64 %.153.i.i.i.i, %113
-  br i1 %exitcond58.not.i.i.i.i, label %ecp_comb_recode_scalar.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !25
+  br i1 %exitcond58.not.i.i.i.i, label %ecp_comb_recode_scalar.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !24
 
 ecp_comb_recode_scalar.exit.i.i:                  ; preds = %.lr.ph.i.i.i.i, %212, %210, %208, %203
   %.0.i.i.i = phi i32 [ %207, %203 ], [ %209, %208 ], [ %211, %210 ], [ 0, %212 ], [ 0, %.lr.ph.i.i.i.i ]
@@ -1520,7 +1520,7 @@ ecp_comb_recode_scalar.exit.i.i:                  ; preds = %.lr.ph.i.i.i.i, %21
   %243 = getelementptr inbounds i8, ptr %.013.i.i.i.i, i64 24
   call void @mbedtls_mpi_init(ptr noundef nonnull %.013.i.i.i.i) #19
   %.not.i.i.i.i = icmp eq i64 %242, 0
-  br i1 %.not.i.i.i.i, label %mpi_init_many.exit.i.i.i, label %.lr.ph.i.i31.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i, label %mpi_init_many.exit.i.i.i, label %.lr.ph.i.i31.i.i, !llvm.loop !11
 
 mpi_init_many.exit.i.i.i:                         ; preds = %.lr.ph.i.i31.i.i
   %244 = getelementptr inbounds i8, ptr %12, i64 %113
@@ -1566,7 +1566,7 @@ mpi_init_many.exit.i.i.i:                         ; preds = %.lr.ph.i.i31.i.i
   %260 = icmp eq i32 %259, 0
   %261 = icmp ne i64 %252, 0
   %or.cond.i.i.i = select i1 %260, i1 %261, i1 false
-  br i1 %or.cond.i.i.i, label %.preheader.i.i.i, label %.loopexit.i.i.i, !llvm.loop !26
+  br i1 %or.cond.i.i.i, label %.preheader.i.i.i, label %.loopexit.i.i.i, !llvm.loop !25
 
 .loopexit.i.i.i:                                  ; preds = %258, %254, %.preheader.i.i.i, %251, %248, %mpi_init_many.exit.i.i.i
   %.029.i.i.i = phi i32 [ %246, %mpi_init_many.exit.i.i.i ], [ %249, %248 ], [ 0, %251 ], [ %253, %.preheader.i.i.i ], [ %257, %254 ], [ %259, %258 ]
@@ -1582,7 +1582,7 @@ mpi_init_many.exit.i.i.i:                         ; preds = %.lr.ph.i.i31.i.i
   %263 = getelementptr inbounds i8, ptr %.013.i42.i.i.i, i64 24
   call void @mbedtls_mpi_free(ptr noundef nonnull %.013.i42.i.i.i) #19
   %.not.i43.i.i.i = icmp eq i64 %262, 0
-  br i1 %.not.i43.i.i.i, label %ecp_mul_comb_core.exit.i.i, label %.lr.ph.i40.i.i.i, !llvm.loop !15
+  br i1 %.not.i43.i.i.i, label %ecp_mul_comb_core.exit.i.i, label %.lr.ph.i40.i.i.i, !llvm.loop !14
 
 ecp_mul_comb_core.exit.i.i:                       ; preds = %.lr.ph.i40.i.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
@@ -1656,7 +1656,7 @@ mbedtls_ecp_point_free.exit.i:                    ; preds = %mbedtls_ecp_point_f
   call void @mbedtls_mpi_free(ptr noundef nonnull %283) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %mbedtls_ecp_point_free.exit.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %mbedtls_ecp_point_free.exit.i, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %mbedtls_ecp_point_free.exit.i
   call void @free(ptr noundef %.1.i) #19
@@ -1728,7 +1728,7 @@ mbedtls_ecp_get_type.exit:                        ; preds = %13
   %20 = getelementptr inbounds i8, ptr %.013.i, i64 24
   call void @mbedtls_mpi_init(ptr noundef nonnull %.013.i) #19
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %mpi_init_many.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %mpi_init_many.exit, label %.lr.ph.i, !llvm.loop !11
 
 mpi_init_many.exit:                               ; preds = %.lr.ph.i
   %21 = call fastcc i32 @mbedtls_ecp_mul_shortcuts(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3)
@@ -1760,7 +1760,7 @@ mpi_init_many.exit:                               ; preds = %.lr.ph.i
   %30 = getelementptr inbounds i8, ptr %.013.i28, i64 24
   call void @mbedtls_mpi_free(ptr noundef nonnull %.013.i28) #19
   %.not.i29 = icmp eq i64 %29, 0
-  br i1 %.not.i29, label %mpi_free_many.exit, label %.lr.ph.i26, !llvm.loop !15
+  br i1 %.not.i29, label %mpi_free_many.exit, label %.lr.ph.i26, !llvm.loop !14
 
 mpi_free_many.exit:                               ; preds = %.lr.ph.i26
   call void @mbedtls_mpi_free(ptr noundef nonnull %8) #19
@@ -2157,7 +2157,7 @@ mbedtls_ecp_get_type.exit:                        ; preds = %12
 31:                                               ; preds = %.preheader.i.i
   %32 = call i32 @mbedtls_mpi_sub_mpi(ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef nonnull %26) #19
   %.not9.i.i = icmp eq i32 %32, 0
-  br i1 %.not9.i.i, label %.preheader.i.i, label %ecp_check_bad_points_mx.exit.i, !llvm.loop !28
+  br i1 %.not9.i.i, label %.preheader.i.i, label %ecp_check_bad_points_mx.exit.i, !llvm.loop !27
 
 33:                                               ; preds = %.preheader.i.i
   %34 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %5, i64 noundef 1) #19
@@ -2283,7 +2283,7 @@ ecp_check_pubkey_mx.exit:                         ; preds = %8, %ecp_check_bad_p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecp_check_privkey(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden range(i32 -20352, 1) i32 @mbedtls_ecp_check_privkey(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2575,7 +2575,7 @@ mbedtls_ecp_get_type.exit65:                      ; preds = %39
   br i1 %.not61, label %44, label %.thread
 
 44:                                               ; preds = %mbedtls_ecp_get_type.exit65
-  %45 = tail call i32 @mbedtls_ecp_check_privkey(ptr noundef nonnull %1, ptr noundef nonnull %42), !range !11
+  %45 = tail call i32 @mbedtls_ecp_check_privkey(ptr noundef nonnull %1, ptr noundef nonnull %42)
   br label %mbedtls_ecp_get_type.exit65.thread
 
 mbedtls_ecp_get_type.exit65.thread:               ; preds = %39, %mbedtls_ecp_get_type.exit.thread, %44
@@ -2911,7 +2911,7 @@ define internal noundef i32 @self_test_rng(ptr nocapture readnone %0, ptr nocapt
   store i8 %7, ptr %8, align 1
   %9 = add nuw i64 %.04, 1
   %exitcond.not = icmp eq i64 %9, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store i32 %6, ptr @self_test_rng.state, align 4
@@ -2972,7 +2972,7 @@ define internal fastcc i32 @self_test_point(i32 noundef %0, ptr noundef %1, ptr 
 20:                                               ; preds = %16
   %21 = add nuw nsw i64 %.02658, 1
   %exitcond.not = icmp eq i64 %21, 6
-  br i1 %exitcond.not, label %.loopexit.thread, label %.preheader, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit.thread, label %.preheader, !llvm.loop !29
 
 .loopexit:                                        ; preds = %14, %.preheader, %9, %6
   %.127 = phi i64 [ 0, %6 ], [ 0, %9 ], [ %.02658, %.preheader ], [ %.02658, %14 ]
@@ -3054,7 +3054,7 @@ define internal fastcc i32 @ecp_double_add_mxz(ptr noundef %0, ptr noundef %1, p
 14:                                               ; preds = %11
   %15 = tail call i32 @mbedtls_mpi_sub_abs(ptr noundef %6, ptr noundef %6, ptr noundef nonnull %10) #19
   %.not12.i = icmp eq i32 %15, 0
-  br i1 %.not12.i, label %11, label %mbedtls_mpi_sub_mod.exit, !llvm.loop !31
+  br i1 %.not12.i, label %11, label %mbedtls_mpi_sub_mod.exit, !llvm.loop !30
 
 mbedtls_mpi_add_mod.exit:                         ; preds = %11
   %16 = getelementptr inbounds i8, ptr %6, i64 24
@@ -3075,7 +3075,7 @@ mbedtls_mpi_add_mod.exit:                         ; preds = %11
 22:                                               ; preds = %20
   %23 = tail call i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %16, ptr noundef nonnull %16, ptr noundef nonnull %10) #19
   %.not13.i = icmp eq i32 %23, 0
-  br i1 %.not13.i, label %.preheader.i107, label %mbedtls_mpi_sub_mod.exit, !llvm.loop !32
+  br i1 %.not13.i, label %.preheader.i107, label %mbedtls_mpi_sub_mod.exit, !llvm.loop !31
 
 24:                                               ; preds = %.preheader.i107, %20
   %25 = getelementptr inbounds i8, ptr %6, i64 48
@@ -3092,7 +3092,7 @@ mbedtls_mpi_add_mod.exit:                         ; preds = %11
 30:                                               ; preds = %.preheader.i111
   %31 = tail call i32 @mbedtls_mpi_sub_abs(ptr noundef nonnull %25, ptr noundef nonnull %25, ptr noundef nonnull %10) #19
   %.not12.i112 = icmp eq i32 %31, 0
-  br i1 %.not12.i112, label %.preheader.i111, label %mbedtls_mpi_sub_mod.exit, !llvm.loop !31
+  br i1 %.not12.i112, label %.preheader.i111, label %mbedtls_mpi_sub_mod.exit, !llvm.loop !30
 
 mbedtls_mpi_add_mod.exit113:                      ; preds = %.preheader.i111
   %32 = getelementptr inbounds i8, ptr %6, i64 72
@@ -3113,7 +3113,7 @@ mbedtls_mpi_add_mod.exit113:                      ; preds = %.preheader.i111
 38:                                               ; preds = %36
   %39 = tail call i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %32, ptr noundef nonnull %32, ptr noundef nonnull %10) #19
   %.not13.i118 = icmp eq i32 %39, 0
-  br i1 %.not13.i118, label %.preheader.i116, label %mbedtls_mpi_sub_mod.exit, !llvm.loop !32
+  br i1 %.not13.i118, label %.preheader.i116, label %mbedtls_mpi_sub_mod.exit, !llvm.loop !31
 
 40:                                               ; preds = %.preheader.i116, %36
   %41 = tail call fastcc i32 @mbedtls_mpi_mul_mod(ptr noundef %0, ptr noundef nonnull %32, ptr noundef nonnull %32, ptr noundef %6)
@@ -3272,7 +3272,7 @@ define internal fastcc i32 @mbedtls_mpi_mul_mod(ptr noundef %0, ptr noundef %1, 
 30:                                               ; preds = %28
   %31 = tail call i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %24) #19
   %.not31.i = icmp eq i32 %31, 0
-  br i1 %.not31.i, label %25, label %ecp_modp.exit.thread, !llvm.loop !33
+  br i1 %.not31.i, label %25, label %ecp_modp.exit.thread, !llvm.loop !32
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %34
   %32 = tail call i32 @mbedtls_mpi_cmp_mpi(ptr noundef nonnull %1, ptr noundef nonnull %24) #19
@@ -3282,7 +3282,7 @@ define internal fastcc i32 @mbedtls_mpi_mul_mod(ptr noundef %0, ptr noundef %1, 
 34:                                               ; preds = %.critedge.i
   %35 = tail call i32 @mbedtls_mpi_sub_abs(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %24) #19
   %.not30.i = icmp eq i32 %35, 0
-  br i1 %.not30.i, label %.critedge.i, label %ecp_modp.exit.thread, !llvm.loop !34
+  br i1 %.not30.i, label %.critedge.i, label %ecp_modp.exit.thread, !llvm.loop !33
 
 ecp_modp.exit:                                    ; preds = %6
   %36 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3325,7 +3325,7 @@ define internal fastcc i32 @mbedtls_mpi_add_mod(ptr noundef %0, ptr noundef %1, 
 10:                                               ; preds = %7
   %11 = tail call i32 @mbedtls_mpi_sub_abs(ptr noundef %1, ptr noundef %1, ptr noundef nonnull %6) #19
   %.not12 = icmp eq i32 %11, 0
-  br i1 %.not12, label %7, label %.loopexit, !llvm.loop !31
+  br i1 %.not12, label %7, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %7, %10, %4
   %.1 = phi i32 [ %5, %4 ], [ 0, %7 ], [ %11, %10 ]
@@ -3355,7 +3355,7 @@ define internal fastcc i32 @mbedtls_mpi_sub_mod(ptr noundef %0, ptr noundef %1, 
 12:                                               ; preds = %10
   %13 = tail call i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %6) #19
   %.not13 = icmp eq i32 %13, 0
-  br i1 %.not13, label %7, label %.critedge, !llvm.loop !32
+  br i1 %.not13, label %7, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %7, %10, %12, %4
   %.1 = phi i32 [ %5, %4 ], [ 0, %7 ], [ 0, %10 ], [ %13, %12 ]
@@ -3408,7 +3408,7 @@ define internal fastcc i32 @ecp_double_jac(ptr noundef %0, ptr noundef %1, ptr n
 22:                                               ; preds = %19
   %23 = tail call i32 @mbedtls_mpi_sub_abs(ptr noundef nonnull %16, ptr noundef nonnull %16, ptr noundef nonnull %18) #19
   %.not12.i = icmp eq i32 %23, 0
-  br i1 %.not12.i, label %19, label %mbedtls_mpi_sub_mod.exit, !llvm.loop !31
+  br i1 %.not12.i, label %19, label %mbedtls_mpi_sub_mod.exit, !llvm.loop !30
 
 mbedtls_mpi_add_mod.exit:                         ; preds = %19
   %24 = getelementptr inbounds i8, ptr %3, i64 72
@@ -3429,7 +3429,7 @@ mbedtls_mpi_add_mod.exit:                         ; preds = %19
 30:                                               ; preds = %28
   %31 = tail call i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %24, ptr noundef nonnull %24, ptr noundef nonnull %18) #19
   %.not13.i = icmp eq i32 %31, 0
-  br i1 %.not13.i, label %.preheader.i154, label %mbedtls_mpi_sub_mod.exit, !llvm.loop !32
+  br i1 %.not13.i, label %.preheader.i154, label %mbedtls_mpi_sub_mod.exit, !llvm.loop !31
 
 32:                                               ; preds = %.preheader.i154, %28
   %33 = tail call fastcc i32 @mbedtls_mpi_mul_mod(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %16, ptr noundef nonnull %24)
@@ -3463,7 +3463,7 @@ mbedtls_mpi_add_mod.exit:                         ; preds = %19
 44:                                               ; preds = %41
   %45 = tail call i32 @mbedtls_mpi_sub_abs(ptr noundef %3, ptr noundef %3, ptr noundef nonnull %40) #19
   %.not12.i159 = icmp eq i32 %45, 0
-  br i1 %.not12.i159, label %41, label %mbedtls_mpi_sub_mod.exit, !llvm.loop !35
+  br i1 %.not12.i159, label %41, label %mbedtls_mpi_sub_mod.exit, !llvm.loop !34
 
 mbedtls_mpi_mul_int_mod.exit:                     ; preds = %41
   %46 = tail call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %7, i64 noundef 0) #19
@@ -3615,7 +3615,7 @@ define internal fastcc i32 @ecp_normalize_jac_many(ptr noundef %0, ptr nocapture
   %14 = getelementptr inbounds i8, ptr %.013.i, i64 24
   call void @mbedtls_mpi_init(ptr noundef nonnull %.013.i) #19
   %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %mpi_init_many.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %mpi_init_many.exit, label %.lr.ph.i, !llvm.loop !11
 
 mpi_init_many.exit:                               ; preds = %.lr.ph.i
   %15 = load ptr, ptr %1, align 8
@@ -3627,7 +3627,7 @@ mpi_init_many.exit:                               ; preds = %.lr.ph.i
 18:                                               ; preds = %.lr.ph
   %19 = add nuw i64 %.069104, 1
   %exitcond.not = icmp eq i64 %19, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 .lr.ph:                                           ; preds = %mpi_init_many.exit, %18
   %.069104 = phi i64 [ %19, %18 ], [ 1, %mpi_init_many.exit ]
@@ -3739,7 +3739,7 @@ mpi_init_many.exit:                               ; preds = %.lr.ph.i
   %73 = getelementptr inbounds i8, ptr %.013.i100, i64 24
   call void @mbedtls_mpi_free(ptr noundef nonnull %.013.i100) #19
   %.not.i101 = icmp eq i64 %72, 0
-  br i1 %.not.i101, label %mpi_free_many.exit, label %.lr.ph.i98, !llvm.loop !15
+  br i1 %.not.i101, label %mpi_free_many.exit, label %.lr.ph.i98, !llvm.loop !14
 
 mpi_free_many.exit:                               ; preds = %.lr.ph.i98
   call void @free(ptr noundef %10) #19
@@ -3768,7 +3768,7 @@ define internal fastcc i32 @mbedtls_mpi_mul_int_mod(ptr noundef %0, ptr noundef 
 9:                                                ; preds = %6
   %10 = tail call i32 @mbedtls_mpi_sub_abs(ptr noundef %1, ptr noundef %1, ptr noundef nonnull %5) #19
   %.not12 = icmp eq i32 %10, 0
-  br i1 %.not12, label %6, label %.loopexit, !llvm.loop !35
+  br i1 %.not12, label %6, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %6, %9, %3
   %.1 = phi i32 [ %4, %3 ], [ 0, %6 ], [ %10, %9 ]
@@ -3793,7 +3793,7 @@ define internal fastcc i32 @mbedtls_mpi_shift_l_mod(ptr noundef %0, ptr noundef 
 8:                                                ; preds = %5
   %9 = tail call i32 @mbedtls_mpi_sub_abs(ptr noundef %1, ptr noundef %1, ptr noundef nonnull %4) #19
   %.not11 = icmp eq i32 %9, 0
-  br i1 %.not11, label %5, label %.loopexit, !llvm.loop !37
+  br i1 %.not11, label %5, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %5, %8, %2
   %.1 = phi i32 [ %3, %2 ], [ 0, %5 ], [ %9, %8 ]
@@ -3868,7 +3868,7 @@ define internal fastcc i32 @ecp_select_comb(ptr noundef %0, ptr noundef %1, ptr 
 11:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !37
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
@@ -3945,7 +3945,7 @@ define internal fastcc i32 @mbedtls_mpi_sub_int_mod(ptr noundef %0, ptr noundef 
 11:                                               ; preds = %9
   %12 = tail call i32 @mbedtls_mpi_add_mpi(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %5) #19
   %.not13 = icmp eq i32 %12, 0
-  br i1 %.not13, label %6, label %.critedge, !llvm.loop !39
+  br i1 %.not13, label %6, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %6, %9, %11, %3
   %.1 = phi i32 [ %4, %3 ], [ 0, %6 ], [ 0, %9 ], [ %12, %11 ]
@@ -4008,7 +4008,7 @@ attributes #20 = { nounwind allocsize(0,1) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5, !10}
 !10 = !{!"llvm.loop.unswitch.partial.disable"}
-!11 = !{i32 -20352, i32 1}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
@@ -4036,4 +4036,3 @@ attributes #20 = { nounwind allocsize(0,1) }
 !36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}

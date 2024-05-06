@@ -35,7 +35,7 @@ define internal void @mca_bml_base_btl_array_destruct(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @mca_bml_base_btl_array_reserve(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @mca_bml_base_btl_array_reserve(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = mul i64 %4, 24

@@ -1558,7 +1558,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1107 = private unnamed_addr constant [75 x i8] c"Registered tick function cannot be unregistered while it is being executed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zm_startup_basic(i32 noundef %0, i32 noundef %1) #0 {
+define hidden range(i32 -1, 1) i32 @zm_startup_basic(i32 noundef %0, i32 noundef %1) #0 {
   %3 = alloca %struct._zend_class_entry, align 8
   %4 = alloca %struct._zend_class_entry, align 8
   store i32 -1, ptr getelementptr inbounds (%struct._php_basic_globals, ptr @basic_globals, i64 0, i32 30), align 8
@@ -3058,7 +3058,7 @@ thread-pre-split:                                 ; preds = %17
   br label %68
 
 52:                                               ; preds = %39, %36
-  %53 = call ptr @getenv(ptr noundef nonnull %.1.ph) #18
+  %53 = call ptr @getenv(ptr noundef nonnull readonly %.1.ph) #18
   %.not.i = icmp eq ptr %53, null
   br i1 %.not.i, label %php_getenv.exit.thread, label %php_getenv.exit
 
@@ -3607,7 +3607,7 @@ select.unfold490:                                 ; preds = %56, %46
   %119 = sext i32 %79 to i64
   %120 = getelementptr inbounds ptr, ptr %82, i64 %119
   store ptr null, ptr %120, align 8
-  %121 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.ph) #19
+  %121 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.ph) #19
   %122 = and i64 %121, 4294967295
   %.not.i = icmp eq i64 %122, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -4996,7 +4996,7 @@ thread-pre-split:                                 ; preds = %41
   %.2217297 = phi ptr [ %.0215253, %.thread304 ], [ null, %50 ], [ null, %33 ], [ null, %19 ], [ %.0215, %59 ]
   %63 = load i64, ptr %6, align 8
   %64 = trunc i64 %63 to i32
-  %65 = call i32 @_php_error_log_ex(i32 noundef %64, ptr noundef nonnull %23, i64 noundef %22, ptr noundef %.2300, ptr noundef %.2217297), !range !5
+  %65 = call i32 @_php_error_log_ex(i32 noundef %64, ptr noundef nonnull %23, i64 noundef %22, ptr noundef %.2300, ptr noundef %.2217297)
   %66 = icmp eq i32 %65, -1
   %67 = getelementptr inbounds i8, ptr %1, i64 8
   br i1 %66, label %68, label %69
@@ -5014,7 +5014,7 @@ thread-pre-split:                                 ; preds = %41
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @_php_error_log_ex(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @_php_error_log_ex(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   switch i32 %0, label %17 [
     i32 1, label %6
     i32 2, label %8
@@ -5064,12 +5064,12 @@ define noundef i32 @_php_error_log_ex(i32 noundef %0, ptr noundef %1, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @_php_error_log(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @_php_error_log(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq i32 %0, 3
   br i1 %5, label %.split, label %.split5
 
 .split5:                                          ; preds = %4
-  %6 = tail call i32 @_php_error_log_ex(i32 noundef %0, ptr noundef %1, i64 noundef 0, ptr noundef %2, ptr noundef %3), !range !5
+  %6 = tail call i32 @_php_error_log_ex(i32 noundef %0, ptr noundef %1, i64 noundef 0, ptr noundef %2, ptr noundef %3)
   br label %_php_error_log_ex.exit
 
 .split:                                           ; preds = %4
@@ -6022,7 +6022,7 @@ fci_addref.exit:                                  ; preds = %20, %23
 append_user_shutdown_function.exit:               ; preds = %40, %38
   %42 = phi ptr [ %39, %38 ], [ %41, %40 ]
   store ptr %42, ptr %34, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %42, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %42, ptr noundef nonnull readonly align 8 dereferenceable(104) %4, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %43
 
@@ -7394,32 +7394,32 @@ define hidden void @zif_ini_set(ptr noundef %0, ptr nocapture noundef %1) #0 {
   ]
 
 php_ini_check_path.exit:                          ; preds = %67
-  %71 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(10) @.str.34, i64 noundef 9) #19
+  %71 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(10) @.str.34, i64 noundef 9) #19
   %.not5.i.not = icmp eq i32 %71, 0
   br i1 %.not5.i.not, label %77, label %php_ini_check_path.exit251
 
 php_ini_check_path.exit247:                       ; preds = %67
-  %72 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(16) @.str.35, i64 noundef 15) #19
+  %72 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(16) @.str.35, i64 noundef 15) #19
   %.not5.i246.not = icmp eq i32 %72, 0
   br i1 %.not5.i246.not, label %77, label %php_ini_check_path.exit263.thread
 
 php_ini_check_path.exit251:                       ; preds = %php_ini_check_path.exit
-  %73 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(10) @.str.36, i64 noundef 9) #19
+  %73 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(10) @.str.36, i64 noundef 9) #19
   %.not5.i250.not = icmp eq i32 %73, 0
   br i1 %.not5.i250.not, label %77, label %php_ini_check_path.exit263.thread
 
 php_ini_check_path.exit255:                       ; preds = %67
-  %74 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(9) @.str.37, i64 noundef 8) #19
+  %74 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(9) @.str.37, i64 noundef 8) #19
   %.not5.i254.not = icmp eq i32 %74, 0
   br i1 %.not5.i254.not, label %77, label %php_ini_check_path.exit263.thread
 
 php_ini_check_path.exit259:                       ; preds = %67
-  %75 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(18) @.str.38, i64 noundef 17) #19
+  %75 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(18) @.str.38, i64 noundef 17) #19
   %.not5.i258.not = icmp eq i32 %75, 0
   br i1 %.not5.i258.not, label %77, label %php_ini_check_path.exit263.thread
 
 php_ini_check_path.exit263:                       ; preds = %67
-  %76 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(19) @.str.39, i64 noundef 18) #19
+  %76 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %68, ptr noundef nonnull readonly dereferenceable(19) @.str.39, i64 noundef 18) #19
   %.not5.i262.not = icmp eq i32 %76, 0
   br i1 %.not5.i262.not, label %77, label %php_ini_check_path.exit263.thread
 
@@ -8559,7 +8559,7 @@ define hidden void @zif_unregister_tick_function(ptr noundef %0, ptr nocapture r
 declare void @zend_llist_del_element(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @user_tick_function_compare(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @user_tick_function_compare(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -10616,4 +10616,3 @@ attributes #23 = { nounwind returns_twice }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -1, i32 1}

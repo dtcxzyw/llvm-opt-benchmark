@@ -1931,7 +1931,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %call3 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 88)
-  %6 = call ptr @__dynamic_cast(ptr nonnull %r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %6 = call ptr @__dynamic_cast(ptr nonnull readonly %r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %7 = icmp eq ptr %6, null
   br i1 %7, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -1940,7 +1940,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %if.then
   unreachable
 
 _ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit: ; preds = %if.then
-  %8 = call ptr @__dynamic_cast(ptr nonnull %r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %8 = call ptr @__dynamic_cast(ptr nonnull readonly %r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %9 = icmp eq ptr %8, null
   br i1 %9, label %dynamic_cast.bad_cast.i26, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit27
 
@@ -1965,7 +1965,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %call8 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 88)
-  %13 = call ptr @__dynamic_cast(ptr nonnull %r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %13 = call ptr @__dynamic_cast(ptr nonnull readonly %r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %14 = icmp eq ptr %13, null
   br i1 %14, label %dynamic_cast.bad_cast.i32, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit33
 
@@ -1991,7 +1991,7 @@ if.end10:                                         ; preds = %if.end
 
 if.then12:                                        ; preds = %if.end10
   %call13 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 88)
-  %18 = call ptr @__dynamic_cast(ptr nonnull %r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %18 = call ptr @__dynamic_cast(ptr nonnull readonly %r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %19 = icmp eq ptr %18, null
   br i1 %19, label %dynamic_cast.bad_cast.i38, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit39
 
@@ -2236,7 +2236,7 @@ entry:
   br i1 %cmp.i.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %3 = call ptr @__dynamic_cast(ptr nonnull %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %3 = call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -2778,7 +2778,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr null, ptr %trans, align 8
-  %3 = call ptr @__dynamic_cast(ptr nonnull %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %3 = call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dynamic_cast.bad_cast.i, label %for.cond.preheader
 
@@ -3166,7 +3166,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true3
   br i1 %cmp.i27, label %if.then, label %if.end25
 
 if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true3
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -3175,7 +3175,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %if.then
   unreachable
 
 _ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit: ; preds = %if.then
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull readonly %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %6 = icmp eq ptr %5, null
   br i1 %6, label %dynamic_cast.bad_cast.i28, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit29
 
@@ -3241,7 +3241,7 @@ land.lhs.true8:                                   ; preds = %for.cond.i, %for.co
   br i1 %tobool.not, label %if.then14, label %_ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit
 
 _ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit: ; preds = %land.lhs.true8
-  %15 = tail call ptr @__dynamic_cast(ptr nonnull %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %15 = tail call ptr @__dynamic_cast(ptr nonnull readonly %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   br i1 %cmp.i.i.i, label %_ZNK7datalog16product_relation4sizeEv.exit.i36, label %if.end.i.i.i34
 
 if.end.i.i.i34:                                   ; preds = %_ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit
@@ -3294,7 +3294,7 @@ for.body.i50:                                     ; preds = %for.cond.i57, %for.
 
 if.then14:                                        ; preds = %for.cond.i57, %for.cond.preheader.i46, %land.lhs.true8
   %call15 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  %23 = tail call ptr @__dynamic_cast(ptr nonnull %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %23 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %24 = icmp eq ptr %23, null
   br i1 %24, label %dynamic_cast.bad_cast.i61, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit62
 
@@ -3303,7 +3303,7 @@ dynamic_cast.bad_cast.i61:                        ; preds = %if.then14
   unreachable
 
 _ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit62: ; preds = %if.then14
-  %25 = tail call ptr @__dynamic_cast(ptr nonnull %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %25 = tail call ptr @__dynamic_cast(ptr nonnull readonly %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %26 = icmp eq ptr %25, null
   br i1 %26, label %dynamic_cast.bad_cast.i63, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit64
 
@@ -3315,7 +3315,7 @@ _ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit64: ; preds =
   br i1 %tobool.not, label %_ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit66, label %dynamic_cast.notnull.i65
 
 dynamic_cast.notnull.i65:                         ; preds = %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit64
-  %27 = tail call ptr @__dynamic_cast(ptr nonnull %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %27 = tail call ptr @__dynamic_cast(ptr nonnull readonly %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   br label %_ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit66
 
 _ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit66: ; preds = %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit64, %dynamic_cast.notnull.i65
@@ -3359,7 +3359,7 @@ lpad8.i:                                          ; preds = %invoke.cont2.i
 
 if.end:                                           ; preds = %for.body.i, %for.body.i50, %_ZNK7datalog16product_relation4sizeEv.exit12.i42, %_ZNK7datalog16product_relation4sizeEv.exit12.i
   %call20 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
-  %34 = tail call ptr @__dynamic_cast(ptr nonnull %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %34 = tail call ptr @__dynamic_cast(ptr nonnull readonly %tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %35 = icmp eq ptr %34, null
   br i1 %35, label %dynamic_cast.bad_cast.i67, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit68
 
@@ -3368,7 +3368,7 @@ dynamic_cast.bad_cast.i67:                        ; preds = %if.end
   unreachable
 
 _ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit68: ; preds = %if.end
-  %36 = tail call ptr @__dynamic_cast(ptr nonnull %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %36 = tail call ptr @__dynamic_cast(ptr nonnull readonly %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %37 = icmp eq ptr %36, null
   br i1 %37, label %dynamic_cast.bad_cast.i69, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit70
 
@@ -3380,7 +3380,7 @@ _ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit70: ; preds =
   br i1 %tobool.not, label %_ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit72, label %dynamic_cast.notnull.i71
 
 dynamic_cast.notnull.i71:                         ; preds = %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit70
-  %38 = tail call ptr @__dynamic_cast(ptr nonnull %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %38 = tail call ptr @__dynamic_cast(ptr nonnull readonly %delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   br label %_ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit72
 
 _ZN7datalog23product_relation_plugin3getEPKNS_13relation_baseE.exit72: ; preds = %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit70, %dynamic_cast.notnull.i71
@@ -3392,7 +3392,7 @@ if.end25:                                         ; preds = %lor.lhs.false, %ent
   br i1 %cmp.i25, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end25
-  %40 = tail call ptr @__dynamic_cast(ptr nonnull %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %40 = tail call ptr @__dynamic_cast(ptr nonnull readonly %src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %41 = icmp eq ptr %40, null
   br i1 %41, label %dynamic_cast.bad_cast.i75, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit76
 
@@ -3764,7 +3764,7 @@ entry:
   br i1 %cmp.i.i, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %entry
-  %3 = call ptr @__dynamic_cast(ptr nonnull %_t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %3 = call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -4009,7 +4009,7 @@ entry:
   br i1 %cmp.i.i, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %entry
-  %3 = call ptr @__dynamic_cast(ptr nonnull %_t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %3 = call ptr @__dynamic_cast(ptr nonnull readonly %_t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %4 = icmp eq ptr %3, null
   br i1 %4, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -4218,7 +4218,7 @@ declare noundef ptr @_ZN7datalog16relation_manager18mk_filter_equal_fnERKNS_13re
 define hidden noundef ptr @_ZN7datalog23product_relation_plugin24mk_filter_interpreted_fnERKNS_13relation_baseEP3app(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(28) %t, ptr noundef %condition) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %t, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -9176,7 +9176,7 @@ cond.false:                                       ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then.i, label %cond.end
 
 if.then.i:                                        ; preds = %.noexc
-  %9 = call ptr @__dynamic_cast(ptr nonnull %_r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %9 = call ptr @__dynamic_cast(ptr nonnull readonly %_r1, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %10 = icmp eq ptr %9, null
   br i1 %10, label %dynamic_cast.bad_cast.i.i.invoke, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit.i
 
@@ -9225,7 +9225,7 @@ cond.false19:                                     ; preds = %cond.end
   br i1 %cmp.i.i.i30, label %if.then.i32, label %cond.end24
 
 if.then.i32:                                      ; preds = %.noexc38
-  %20 = call ptr @__dynamic_cast(ptr nonnull %_r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %20 = call ptr @__dynamic_cast(ptr nonnull readonly %_r2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %21 = icmp eq ptr %20, null
   br i1 %21, label %dynamic_cast.bad_cast.i.i.invoke, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit.i33
 
@@ -10428,7 +10428,7 @@ entry:
 define linkonce_odr hidden noundef ptr @_ZN7datalog23product_relation_plugin12transform_fnclERKNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(28) %_r) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %relations = alloca %class.ptr_vector.33, align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -11098,7 +11098,7 @@ entry:
   %fresh_delta133 = alloca %"class.datalog::scoped_rel", align 8
   %side_result146 = alloca %"class.datalog::scoped_rel", align 8
   %side_delta151 = alloca %"class.datalog::scoped_rel", align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERNS_13relation_baseE.exit
 
@@ -11107,7 +11107,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog23product_relation_plugin3getERNS_13relation_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i54, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -11120,7 +11120,7 @@ _ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit: ; preds = %
   br i1 %4, label %_ZN7datalog23product_relation_plugin3getEPNS_13relation_baseE.exit, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %_delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   br label %_ZN7datalog23product_relation_plugin3getEPNS_13relation_baseE.exit
 
 _ZN7datalog23product_relation_plugin3getEPNS_13relation_baseE.exit: ; preds = %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit, %dynamic_cast.notnull.i
@@ -12395,7 +12395,7 @@ _ZN7datalog23product_relation_plugin18unaligned_union_fnD2Ev.exit: ; preds = %_Z
 define linkonce_odr hidden void @_ZN7datalog23product_relation_plugin18unaligned_union_fnclERNS_13relation_baseERKS2_PS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(28) %_tgt, ptr noundef nonnull align 8 dereferenceable(28) %_src, ptr noundef %_delta) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %src_scoped = alloca %"class.datalog::scoped_rel.108", align 8
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_tgt, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERNS_13relation_baseE.exit
 
@@ -12404,7 +12404,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZN7datalog23product_relation_plugin3getERNS_13relation_baseE.exit: ; preds = %entry
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %3 = icmp eq ptr %2, null
   br i1 %3, label %dynamic_cast.bad_cast.i11, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -12422,7 +12422,7 @@ cond.end.thread:                                  ; preds = %_ZN7datalog23produc
   br label %if.end
 
 cond.end:                                         ; preds = %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %_delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %m_common_spec = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7datalog16product_relation12convert_specERKNS_8rel_specE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %m_common_spec)
   %tobool4.not = icmp eq ptr %4, null
@@ -12736,7 +12736,7 @@ _ZN7datalog23product_relation_plugin35single_non_transparent_src_union_fnD2Ev.ex
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog23product_relation_plugin35single_non_transparent_src_union_fnclERNS_13relation_baseERKS2_PS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(28) %tgt, ptr noundef nonnull align 8 dereferenceable(28) %_src, ptr noundef %delta) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_src, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %_ZN7datalog23product_relation_plugin3getERKNS_13relation_baseE.exit
 
@@ -12893,7 +12893,7 @@ _ZN7datalog23product_relation_plugin10mutator_fnD2Ev.exit: ; preds = %entry, %in
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog23product_relation_plugin10mutator_fnclERNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(28) %_r) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %for.cond.preheader
 
@@ -13078,7 +13078,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog23product_relation_plugin21filter_interpreted_fnclERNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(28) %_r) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = tail call ptr @__dynamic_cast(ptr nonnull %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
+  %0 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_r, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog16product_relationE, i64 0) #23
   %1 = icmp eq ptr %0, null
   br i1 %1, label %dynamic_cast.bad_cast.i, label %for.cond.preheader
 
@@ -18773,7 +18773,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
-  %0 = tail call i64 @llvm.ctlz.i64(i64 %sub.ptr.div, i1 true), !range !108
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div, i1 true)
   %sub.i = shl nuw nsw i64 %0, 1
   %mul = xor i64 %sub.i, 126
   tail call void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %__first, ptr noundef %__last, i64 noundef %mul)
@@ -18807,14 +18807,14 @@ while.body.i.i.i:                                 ; preds = %if.else.i.i, %while
   %__next.0.i.i.i = getelementptr inbounds i8, ptr %__next.012.i.i.i, i64 -4
   %5 = load i32, ptr %__next.0.i.i.i, align 4
   %cmp.i.i.i.i = icmp slt i32 %1, %5
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i, label %for.inc.i.i, !llvm.loop !109
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i, label %for.inc.i.i, !llvm.loop !108
 
 for.inc.i.i:                                      ; preds = %while.body.i.i.i, %if.else.i.i, %if.then2.i.i
   %__first.sink.i.i = phi ptr [ %__first, %if.then2.i.i ], [ %__i.015.i.ptr.i, %if.else.i.i ], [ %__next.012.i.i.i, %while.body.i.i.i ]
   store i32 %1, ptr %__first.sink.i.i, align 4
   %__i.015.i.add.i = add nuw nsw i64 %__i.015.i.idx.i, 4
   %cmp1.not.i.i = icmp eq i64 %__i.015.i.add.i, 64
-  br i1 %cmp1.not.i.i, label %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i, label %for.body.i.i, !llvm.loop !110
+  br i1 %cmp1.not.i.i, label %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i, label %for.body.i.i, !llvm.loop !109
 
 _ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i: ; preds = %for.inc.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %__first, i64 64
@@ -18837,14 +18837,14 @@ while.body.i.i9.i:                                ; preds = %for.body.i7.i, %whi
   %__next.0.i.i12.i = getelementptr inbounds i8, ptr %__next.012.i.i10.i, i64 -4
   %9 = load i32, ptr %__next.0.i.i12.i, align 4
   %cmp.i.i.i13.i = icmp slt i32 %6, %9
-  br i1 %cmp.i.i.i13.i, label %while.body.i.i9.i, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i, !llvm.loop !109
+  br i1 %cmp.i.i.i13.i, label %while.body.i.i9.i, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i, !llvm.loop !108
 
 _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i: ; preds = %while.body.i.i9.i, %for.body.i7.i
   %__last.addr.0.lcssa.i.i.i = phi ptr [ %__i.04.i.i, %for.body.i7.i ], [ %__next.012.i.i10.i, %while.body.i.i9.i ]
   store i32 %6, ptr %__last.addr.0.lcssa.i.i.i, align 4
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__i.04.i.i, i64 4
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
-  br i1 %cmp.not.i.i, label %if.end, label %for.body.i7.i, !llvm.loop !111
+  br i1 %cmp.not.i.i, label %if.end, label %for.body.i7.i, !llvm.loop !110
 
 if.else.i:                                        ; preds = %if.then
   %cmp1.not13.i.i = icmp eq ptr %scevgep.i, %__last
@@ -18881,14 +18881,14 @@ while.body.i.i26.i:                               ; preds = %if.else.i20.i, %whi
   %__next.0.i.i29.i = getelementptr inbounds i8, ptr %__next.012.i.i27.i, i64 -4
   %14 = load i32, ptr %__next.0.i.i29.i, align 4
   %cmp.i.i.i30.i = icmp slt i32 %10, %14
-  br i1 %cmp.i.i.i30.i, label %while.body.i.i26.i, label %for.inc.i22.i, !llvm.loop !109
+  br i1 %cmp.i.i.i30.i, label %while.body.i.i26.i, label %for.inc.i22.i, !llvm.loop !108
 
 for.inc.i22.i:                                    ; preds = %while.body.i.i26.i, %if.else.i20.i, %if.then2.i31.i
   %__first.sink.i23.i = phi ptr [ %__first, %if.then2.i31.i ], [ %__i.015.i17.i, %if.else.i20.i ], [ %__next.012.i.i27.i, %while.body.i.i26.i ]
   store i32 %10, ptr %__first.sink.i23.i, align 4
   %__i.0.i24.i = getelementptr inbounds i8, ptr %__i.015.i17.i, i64 4
   %cmp1.not.i25.i = icmp eq ptr %__i.0.i24.i, %__last
-  br i1 %cmp1.not.i25.i, label %if.end, label %for.body.i16.i, !llvm.loop !110
+  br i1 %cmp1.not.i25.i, label %if.end, label %for.body.i16.i, !llvm.loop !109
 
 if.end:                                           ; preds = %for.inc.i22.i, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i, %if.else.i, %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i, %entry
   ret void
@@ -18951,7 +18951,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i, %wh
   %add.ptr4.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.025.i.i.i.i
   store i32 %4, ptr %add.ptr4.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !112
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !111
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %while.body.i.i
   %__secondChild.0.lcssa.i.i.i.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i.i.i, %while.body.i.i.i.i ]
@@ -18992,14 +18992,14 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %add.ptr2.i.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.014.i.i.i.i.i
   store i32 %7, ptr %add.ptr2.i.i.i.i.i, align 4
   %cmp.i23.i.not.i.i.i = icmp ult i64 %__parent.015.in.i.i.i.i.i, 2
-  br i1 %cmp.i23.i.not.i.i.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i, label %land.rhs.i.i.i.i.i, !llvm.loop !113
+  br i1 %cmp.i23.i.not.i.i.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i, label %land.rhs.i.i.i.i.i, !llvm.loop !112
 
 _ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i: ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end16.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end16.i.i.i.i ], [ %__holeIndex.addr.014.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ]
   %add.ptr5.i.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store i32 %0, ptr %add.ptr5.i.i.i.i.i, align 4
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i, 4
-  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !114
+  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !113
 
 if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.024, -1
@@ -19076,14 +19076,14 @@ while.cond1.i.i:                                  ; preds = %while.cond1.i.i, %w
   %16 = load i32, ptr %__first.addr.1.i.i, align 4
   %cmp.i.i8.i = icmp slt i32 %16, %15
   %incdec.ptr.i.i11 = getelementptr inbounds i8, ptr %__first.addr.1.i.i, i64 4
-  br i1 %cmp.i.i8.i, label %while.cond1.i.i, label %while.cond4.i.i, !llvm.loop !115
+  br i1 %cmp.i.i8.i, label %while.cond1.i.i, label %while.cond4.i.i, !llvm.loop !114
 
 while.cond4.i.i:                                  ; preds = %while.cond1.i.i, %while.cond4.i.i
   %__last.addr.0.pn.i.i = phi ptr [ %__last.addr.1.i.i, %while.cond4.i.i ], [ %__last.addr.0.i.i, %while.cond1.i.i ]
   %__last.addr.1.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i, i64 -4
   %17 = load i32, ptr %__last.addr.1.i.i, align 4
   %cmp.i11.i.i = icmp slt i32 %15, %17
-  br i1 %cmp.i11.i.i, label %while.cond4.i.i, label %while.end8.i.i, !llvm.loop !116
+  br i1 %cmp.i11.i.i, label %while.cond4.i.i, label %while.end8.i.i, !llvm.loop !115
 
 while.end8.i.i:                                   ; preds = %while.cond4.i.i
   %cmp.i.i12 = icmp ult ptr %__first.addr.1.i.i, %__last.addr.1.i.i
@@ -19092,14 +19092,14 @@ while.end8.i.i:                                   ; preds = %while.cond4.i.i
 if.end.i.i:                                       ; preds = %while.end8.i.i
   store i32 %17, ptr %__first.addr.1.i.i, align 4
   store i32 %16, ptr %__last.addr.1.i.i, align 4
-  br label %while.body.i.i10, !llvm.loop !117
+  br label %while.body.i.i10, !llvm.loop !116
 
 _ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_less_iterEET_S4_S4_T0_.exit: ; preds = %while.end8.i.i
   tail call void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef nonnull %__first.addr.1.i.i, ptr noundef %__last.addr.025, i64 noundef %dec)
   %sub.ptr.lhs.cast = ptrtoint ptr %__first.addr.1.i.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 64
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !118
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !117
 
 while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_less_iterEET_S4_S4_T0_.exit, %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i, %entry
   ret void
@@ -19141,7 +19141,7 @@ while.body.i:                                     ; preds = %if.end.split, %whil
   %add.ptr4.i = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.025.i
   store i32 %3, ptr %add.ptr4.i, align 4
   %cmp.i = icmp slt i64 %spec.select.i, %div.i5557
-  br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !112
+  br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !111
 
 while.end.i:                                      ; preds = %while.body.i, %if.end.split
   %__secondChild.0.lcssa.i = phi i64 [ %div11, %if.end.split ], [ %spec.select.i, %while.body.i ]
@@ -19179,7 +19179,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   %add.ptr2.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.014.i.i
   store i32 %6, ptr %add.ptr2.i.i, align 4
   %cmp.i23.i = icmp sgt i64 %__parent.015.i.i, %div11
-  br i1 %cmp.i23.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit, !llvm.loop !113
+  br i1 %cmp.i23.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit, !llvm.loop !112
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit: ; preds = %land.rhs.i.i, %while.body.i.i, %if.end16.i
   %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end16.i ], [ %__parent.015.i.i, %while.body.i.i ], [ %__holeIndex.addr.014.i.i, %land.rhs.i.i ]
@@ -19221,7 +19221,7 @@ while.body.i42.us:                                ; preds = %if.end7.split.us, %
   %add.ptr4.i52.us = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.025.i43.us
   store i32 %10, ptr %add.ptr4.i52.us, align 4
   %cmp.i53.us = icmp slt i64 %spec.select.i50.us, %div.i5557
-  br i1 %cmp.i53.us, label %while.body.i42.us, label %while.end.i15.us, !llvm.loop !112
+  br i1 %cmp.i53.us, label %while.body.i42.us, label %while.end.i15.us, !llvm.loop !111
 
 while.end.i15.us:                                 ; preds = %while.body.i42.us
   %cmp13.i.i21.not.us = icmp slt i64 %spec.select.i50.us, %__parent.059.us
@@ -19240,14 +19240,14 @@ while.body.i.i30.us:                              ; preds = %land.rhs.i.i24.us
   %add.ptr2.i.i31.us = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.014.i.i25.us
   store i32 %11, ptr %add.ptr2.i.i31.us, align 4
   %cmp.i23.i32.not.us = icmp slt i64 %__parent.015.i.i27.us, %__parent.059.us
-  br i1 %cmp.i23.i32.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %land.rhs.i.i24.us, !llvm.loop !113
+  br i1 %cmp.i23.i32.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %land.rhs.i.i24.us, !llvm.loop !112
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us: ; preds = %land.rhs.i.i24.us, %while.body.i.i30.us, %if.end7.split.us, %while.end.i15.us
   %__holeIndex.addr.0.lcssa.i.i22.us = phi i64 [ %spec.select.i50.us, %while.end.i15.us ], [ %dec.us, %if.end7.split.us ], [ %__parent.015.i.i27.us, %while.body.i.i30.us ], [ %__holeIndex.addr.014.i.i25.us, %land.rhs.i.i24.us ]
   %add.ptr5.i.i23.us = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i22.us
   store i32 %7, ptr %add.ptr5.i.i23.us, align 4
   %cmp5.us = icmp eq i64 %dec.us, 0
-  br i1 %cmp5.us, label %return, label %if.end7.split.us, !llvm.loop !119
+  br i1 %cmp5.us, label %return, label %if.end7.split.us, !llvm.loop !118
 
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54 ], [ %div11, %if.end7.split.preheader ]
@@ -19273,7 +19273,7 @@ while.body.i42:                                   ; preds = %if.end7.split, %whi
   %add.ptr4.i52 = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.025.i43
   store i32 %15, ptr %add.ptr4.i52, align 4
   %cmp.i53 = icmp slt i64 %spec.select.i50, %div.i5557
-  br i1 %cmp.i53, label %while.body.i42, label %while.end.i15, !llvm.loop !112
+  br i1 %cmp.i53, label %while.body.i42, label %while.end.i15, !llvm.loop !111
 
 while.end.i15:                                    ; preds = %while.body.i42, %if.end7.split
   %__secondChild.0.lcssa.i16 = phi i64 [ %dec, %if.end7.split ], [ %spec.select.i50, %while.body.i42 ]
@@ -19303,14 +19303,14 @@ while.body.i.i30:                                 ; preds = %land.rhs.i.i24
   %add.ptr2.i.i31 = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.014.i.i25
   store i32 %17, ptr %add.ptr2.i.i31, align 4
   %cmp.i23.i32.not = icmp slt i64 %__parent.015.i.i27, %__parent.059
-  br i1 %cmp.i23.i32.not, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54, label %land.rhs.i.i24, !llvm.loop !113
+  br i1 %cmp.i23.i32.not, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54, label %land.rhs.i.i24, !llvm.loop !112
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54: ; preds = %land.rhs.i.i24, %while.body.i.i30, %if.end16.i19
   %__holeIndex.addr.0.lcssa.i.i22 = phi i64 [ %__holeIndex.addr.1.i20, %if.end16.i19 ], [ %__parent.015.i.i27, %while.body.i.i30 ], [ %__holeIndex.addr.014.i.i25, %land.rhs.i.i24 ]
   %add.ptr5.i.i23 = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i22
   store i32 %12, ptr %add.ptr5.i.i23, align 4
   %cmp5 = icmp eq i64 %dec, 0
-  br i1 %cmp5, label %return, label %if.end7.split, !llvm.loop !119
+  br i1 %cmp5, label %return, label %if.end7.split, !llvm.loop !118
 
 return:                                           ; preds = %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit, %entry
   ret void
@@ -19642,7 +19642,7 @@ attributes #26 = { builtin nounwind }
 !105 = distinct !{!105, !5}
 !106 = distinct !{!106, !5}
 !107 = distinct !{!107, !5}
-!108 = !{i64 0, i64 65}
+!108 = distinct !{!108, !5}
 !109 = distinct !{!109, !5}
 !110 = distinct !{!110, !5}
 !111 = distinct !{!111, !5}
@@ -19653,4 +19653,3 @@ attributes #26 = { builtin nounwind }
 !116 = distinct !{!116, !5}
 !117 = distinct !{!117, !5}
 !118 = distinct !{!118, !5}
-!119 = distinct !{!119, !5}

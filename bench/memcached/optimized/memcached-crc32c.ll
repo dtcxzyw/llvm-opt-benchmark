@@ -379,7 +379,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
   %shr = lshr i32 %0, 1
@@ -591,7 +591,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
   %shr = lshr i32 %0, 1
@@ -874,7 +874,7 @@ for.body:                                         ; preds = %crc32c_zeros_op.exi
   br i1 %tobool.not5.i, label %gf2_matrix_times.exit46.thread, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %for.body
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.body.i
 
 gf2_matrix_times.exit46.thread:                   ; preds = %for.body

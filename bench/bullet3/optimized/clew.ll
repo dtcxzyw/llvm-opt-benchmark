@@ -207,7 +207,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @dlclose(ptr noundef nonnull %0) #3
+  %call = tail call i32 @dlclose(ptr noundef nonnull %0) #4
   store ptr null, ptr @module, align 8
   br label %if.end
 
@@ -219,247 +219,247 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @clewInit(ptr noundef %path) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @clewInit(ptr noundef %path) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @module, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call ptr @dlopen(ptr noundef %path, i32 noundef 258) #3
+  %call = tail call ptr @dlopen(ptr noundef %path, i32 noundef 258) #4
   store ptr %call, ptr @module, align 8
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call4 = tail call i32 @atexit(ptr noundef nonnull @clewExit) #3
+  %call4 = tail call i32 @atexit(ptr noundef nonnull @clewExit) #4
   %tobool.not = icmp eq i32 %call4, 0
   %1 = load ptr, ptr @module, align 8
   br i1 %tobool.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %call6 = tail call i32 @dlclose(ptr noundef %1) #3
+  %call6 = tail call i32 @dlclose(ptr noundef %1) #4
   store ptr null, ptr @module, align 8
   br label %return
 
 if.end7:                                          ; preds = %if.end3
-  %call8 = tail call ptr @dlsym(ptr noundef %1, ptr noundef nonnull @.str) #3
+  %call8 = tail call ptr @dlsym(ptr noundef %1, ptr noundef nonnull @.str) #4
   store ptr %call8, ptr @__clewGetPlatformIDs, align 8
   %2 = load ptr, ptr @module, align 8
-  %call9 = tail call ptr @dlsym(ptr noundef %2, ptr noundef nonnull @.str.1) #3
+  %call9 = tail call ptr @dlsym(ptr noundef %2, ptr noundef nonnull @.str.1) #4
   store ptr %call9, ptr @__clewGetPlatformInfo, align 8
   %3 = load ptr, ptr @module, align 8
-  %call10 = tail call ptr @dlsym(ptr noundef %3, ptr noundef nonnull @.str.2) #3
+  %call10 = tail call ptr @dlsym(ptr noundef %3, ptr noundef nonnull @.str.2) #4
   store ptr %call10, ptr @__clewGetDeviceIDs, align 8
   %4 = load ptr, ptr @module, align 8
-  %call11 = tail call ptr @dlsym(ptr noundef %4, ptr noundef nonnull @.str.3) #3
+  %call11 = tail call ptr @dlsym(ptr noundef %4, ptr noundef nonnull @.str.3) #4
   store ptr %call11, ptr @__clewGetDeviceInfo, align 8
   %5 = load ptr, ptr @module, align 8
-  %call12 = tail call ptr @dlsym(ptr noundef %5, ptr noundef nonnull @.str.4) #3
+  %call12 = tail call ptr @dlsym(ptr noundef %5, ptr noundef nonnull @.str.4) #4
   store ptr %call12, ptr @__clewCreateContext, align 8
   %6 = load ptr, ptr @module, align 8
-  %call13 = tail call ptr @dlsym(ptr noundef %6, ptr noundef nonnull @.str.5) #3
+  %call13 = tail call ptr @dlsym(ptr noundef %6, ptr noundef nonnull @.str.5) #4
   store ptr %call13, ptr @__clewCreateContextFromType, align 8
   %7 = load ptr, ptr @module, align 8
-  %call14 = tail call ptr @dlsym(ptr noundef %7, ptr noundef nonnull @.str.6) #3
+  %call14 = tail call ptr @dlsym(ptr noundef %7, ptr noundef nonnull @.str.6) #4
   store ptr %call14, ptr @__clewRetainContext, align 8
   %8 = load ptr, ptr @module, align 8
-  %call15 = tail call ptr @dlsym(ptr noundef %8, ptr noundef nonnull @.str.7) #3
+  %call15 = tail call ptr @dlsym(ptr noundef %8, ptr noundef nonnull @.str.7) #4
   store ptr %call15, ptr @__clewReleaseContext, align 8
   %9 = load ptr, ptr @module, align 8
-  %call16 = tail call ptr @dlsym(ptr noundef %9, ptr noundef nonnull @.str.8) #3
+  %call16 = tail call ptr @dlsym(ptr noundef %9, ptr noundef nonnull @.str.8) #4
   store ptr %call16, ptr @__clewGetContextInfo, align 8
   %10 = load ptr, ptr @module, align 8
-  %call17 = tail call ptr @dlsym(ptr noundef %10, ptr noundef nonnull @.str.9) #3
+  %call17 = tail call ptr @dlsym(ptr noundef %10, ptr noundef nonnull @.str.9) #4
   store ptr %call17, ptr @__clewCreateCommandQueue, align 8
   %11 = load ptr, ptr @module, align 8
-  %call18 = tail call ptr @dlsym(ptr noundef %11, ptr noundef nonnull @.str.10) #3
+  %call18 = tail call ptr @dlsym(ptr noundef %11, ptr noundef nonnull @.str.10) #4
   store ptr %call18, ptr @__clewRetainCommandQueue, align 8
   %12 = load ptr, ptr @module, align 8
-  %call19 = tail call ptr @dlsym(ptr noundef %12, ptr noundef nonnull @.str.11) #3
+  %call19 = tail call ptr @dlsym(ptr noundef %12, ptr noundef nonnull @.str.11) #4
   store ptr %call19, ptr @__clewReleaseCommandQueue, align 8
   %13 = load ptr, ptr @module, align 8
-  %call20 = tail call ptr @dlsym(ptr noundef %13, ptr noundef nonnull @.str.12) #3
+  %call20 = tail call ptr @dlsym(ptr noundef %13, ptr noundef nonnull @.str.12) #4
   store ptr %call20, ptr @__clewGetCommandQueueInfo, align 8
   %14 = load ptr, ptr @module, align 8
-  %call21 = tail call ptr @dlsym(ptr noundef %14, ptr noundef nonnull @.str.13) #3
+  %call21 = tail call ptr @dlsym(ptr noundef %14, ptr noundef nonnull @.str.13) #4
   store ptr %call21, ptr @__clewCreateBuffer, align 8
   %15 = load ptr, ptr @module, align 8
-  %call22 = tail call ptr @dlsym(ptr noundef %15, ptr noundef nonnull @.str.13) #3
+  %call22 = tail call ptr @dlsym(ptr noundef %15, ptr noundef nonnull @.str.13) #4
   store ptr %call22, ptr @__clewCreateSubBuffer, align 8
   %16 = load ptr, ptr @module, align 8
-  %call23 = tail call ptr @dlsym(ptr noundef %16, ptr noundef nonnull @.str.14) #3
+  %call23 = tail call ptr @dlsym(ptr noundef %16, ptr noundef nonnull @.str.14) #4
   store ptr %call23, ptr @__clewCreateImage2D, align 8
   %17 = load ptr, ptr @module, align 8
-  %call24 = tail call ptr @dlsym(ptr noundef %17, ptr noundef nonnull @.str.15) #3
+  %call24 = tail call ptr @dlsym(ptr noundef %17, ptr noundef nonnull @.str.15) #4
   store ptr %call24, ptr @__clewCreateImage3D, align 8
   %18 = load ptr, ptr @module, align 8
-  %call25 = tail call ptr @dlsym(ptr noundef %18, ptr noundef nonnull @.str.16) #3
+  %call25 = tail call ptr @dlsym(ptr noundef %18, ptr noundef nonnull @.str.16) #4
   store ptr %call25, ptr @__clewRetainMemObject, align 8
   %19 = load ptr, ptr @module, align 8
-  %call26 = tail call ptr @dlsym(ptr noundef %19, ptr noundef nonnull @.str.17) #3
+  %call26 = tail call ptr @dlsym(ptr noundef %19, ptr noundef nonnull @.str.17) #4
   store ptr %call26, ptr @__clewReleaseMemObject, align 8
   %20 = load ptr, ptr @module, align 8
-  %call27 = tail call ptr @dlsym(ptr noundef %20, ptr noundef nonnull @.str.18) #3
+  %call27 = tail call ptr @dlsym(ptr noundef %20, ptr noundef nonnull @.str.18) #4
   store ptr %call27, ptr @__clewGetSupportedImageFormats, align 8
   %21 = load ptr, ptr @module, align 8
-  %call28 = tail call ptr @dlsym(ptr noundef %21, ptr noundef nonnull @.str.19) #3
+  %call28 = tail call ptr @dlsym(ptr noundef %21, ptr noundef nonnull @.str.19) #4
   store ptr %call28, ptr @__clewGetMemObjectInfo, align 8
   %22 = load ptr, ptr @module, align 8
-  %call29 = tail call ptr @dlsym(ptr noundef %22, ptr noundef nonnull @.str.20) #3
+  %call29 = tail call ptr @dlsym(ptr noundef %22, ptr noundef nonnull @.str.20) #4
   store ptr %call29, ptr @__clewGetImageInfo, align 8
   %23 = load ptr, ptr @module, align 8
-  %call30 = tail call ptr @dlsym(ptr noundef %23, ptr noundef nonnull @.str.21) #3
+  %call30 = tail call ptr @dlsym(ptr noundef %23, ptr noundef nonnull @.str.21) #4
   store ptr %call30, ptr @__clewSetMemObjectDestructorCallback, align 8
   %24 = load ptr, ptr @module, align 8
-  %call31 = tail call ptr @dlsym(ptr noundef %24, ptr noundef nonnull @.str.22) #3
+  %call31 = tail call ptr @dlsym(ptr noundef %24, ptr noundef nonnull @.str.22) #4
   store ptr %call31, ptr @__clewCreateSampler, align 8
   %25 = load ptr, ptr @module, align 8
-  %call32 = tail call ptr @dlsym(ptr noundef %25, ptr noundef nonnull @.str.23) #3
+  %call32 = tail call ptr @dlsym(ptr noundef %25, ptr noundef nonnull @.str.23) #4
   store ptr %call32, ptr @__clewRetainSampler, align 8
   %26 = load ptr, ptr @module, align 8
-  %call33 = tail call ptr @dlsym(ptr noundef %26, ptr noundef nonnull @.str.24) #3
+  %call33 = tail call ptr @dlsym(ptr noundef %26, ptr noundef nonnull @.str.24) #4
   store ptr %call33, ptr @__clewReleaseSampler, align 8
   %27 = load ptr, ptr @module, align 8
-  %call34 = tail call ptr @dlsym(ptr noundef %27, ptr noundef nonnull @.str.25) #3
+  %call34 = tail call ptr @dlsym(ptr noundef %27, ptr noundef nonnull @.str.25) #4
   store ptr %call34, ptr @__clewGetSamplerInfo, align 8
   %28 = load ptr, ptr @module, align 8
-  %call35 = tail call ptr @dlsym(ptr noundef %28, ptr noundef nonnull @.str.26) #3
+  %call35 = tail call ptr @dlsym(ptr noundef %28, ptr noundef nonnull @.str.26) #4
   store ptr %call35, ptr @__clewCreateProgramWithSource, align 8
   %29 = load ptr, ptr @module, align 8
-  %call36 = tail call ptr @dlsym(ptr noundef %29, ptr noundef nonnull @.str.27) #3
+  %call36 = tail call ptr @dlsym(ptr noundef %29, ptr noundef nonnull @.str.27) #4
   store ptr %call36, ptr @__clewCreateProgramWithBinary, align 8
   %30 = load ptr, ptr @module, align 8
-  %call37 = tail call ptr @dlsym(ptr noundef %30, ptr noundef nonnull @.str.28) #3
+  %call37 = tail call ptr @dlsym(ptr noundef %30, ptr noundef nonnull @.str.28) #4
   store ptr %call37, ptr @__clewRetainProgram, align 8
   %31 = load ptr, ptr @module, align 8
-  %call38 = tail call ptr @dlsym(ptr noundef %31, ptr noundef nonnull @.str.29) #3
+  %call38 = tail call ptr @dlsym(ptr noundef %31, ptr noundef nonnull @.str.29) #4
   store ptr %call38, ptr @__clewReleaseProgram, align 8
   %32 = load ptr, ptr @module, align 8
-  %call39 = tail call ptr @dlsym(ptr noundef %32, ptr noundef nonnull @.str.30) #3
+  %call39 = tail call ptr @dlsym(ptr noundef %32, ptr noundef nonnull @.str.30) #4
   store ptr %call39, ptr @__clewBuildProgram, align 8
   %33 = load ptr, ptr @module, align 8
-  %call40 = tail call ptr @dlsym(ptr noundef %33, ptr noundef nonnull @.str.31) #3
+  %call40 = tail call ptr @dlsym(ptr noundef %33, ptr noundef nonnull @.str.31) #4
   store ptr %call40, ptr @__clewUnloadCompiler, align 8
   %34 = load ptr, ptr @module, align 8
-  %call41 = tail call ptr @dlsym(ptr noundef %34, ptr noundef nonnull @.str.32) #3
+  %call41 = tail call ptr @dlsym(ptr noundef %34, ptr noundef nonnull @.str.32) #4
   store ptr %call41, ptr @__clewGetProgramInfo, align 8
   %35 = load ptr, ptr @module, align 8
-  %call42 = tail call ptr @dlsym(ptr noundef %35, ptr noundef nonnull @.str.33) #3
+  %call42 = tail call ptr @dlsym(ptr noundef %35, ptr noundef nonnull @.str.33) #4
   store ptr %call42, ptr @__clewGetProgramBuildInfo, align 8
   %36 = load ptr, ptr @module, align 8
-  %call43 = tail call ptr @dlsym(ptr noundef %36, ptr noundef nonnull @.str.34) #3
+  %call43 = tail call ptr @dlsym(ptr noundef %36, ptr noundef nonnull @.str.34) #4
   store ptr %call43, ptr @__clewCreateKernel, align 8
   %37 = load ptr, ptr @module, align 8
-  %call44 = tail call ptr @dlsym(ptr noundef %37, ptr noundef nonnull @.str.35) #3
+  %call44 = tail call ptr @dlsym(ptr noundef %37, ptr noundef nonnull @.str.35) #4
   store ptr %call44, ptr @__clewCreateKernelsInProgram, align 8
   %38 = load ptr, ptr @module, align 8
-  %call45 = tail call ptr @dlsym(ptr noundef %38, ptr noundef nonnull @.str.36) #3
+  %call45 = tail call ptr @dlsym(ptr noundef %38, ptr noundef nonnull @.str.36) #4
   store ptr %call45, ptr @__clewRetainKernel, align 8
   %39 = load ptr, ptr @module, align 8
-  %call46 = tail call ptr @dlsym(ptr noundef %39, ptr noundef nonnull @.str.37) #3
+  %call46 = tail call ptr @dlsym(ptr noundef %39, ptr noundef nonnull @.str.37) #4
   store ptr %call46, ptr @__clewReleaseKernel, align 8
   %40 = load ptr, ptr @module, align 8
-  %call47 = tail call ptr @dlsym(ptr noundef %40, ptr noundef nonnull @.str.38) #3
+  %call47 = tail call ptr @dlsym(ptr noundef %40, ptr noundef nonnull @.str.38) #4
   store ptr %call47, ptr @__clewSetKernelArg, align 8
   %41 = load ptr, ptr @module, align 8
-  %call48 = tail call ptr @dlsym(ptr noundef %41, ptr noundef nonnull @.str.39) #3
+  %call48 = tail call ptr @dlsym(ptr noundef %41, ptr noundef nonnull @.str.39) #4
   store ptr %call48, ptr @__clewGetKernelInfo, align 8
   %42 = load ptr, ptr @module, align 8
-  %call49 = tail call ptr @dlsym(ptr noundef %42, ptr noundef nonnull @.str.40) #3
+  %call49 = tail call ptr @dlsym(ptr noundef %42, ptr noundef nonnull @.str.40) #4
   store ptr %call49, ptr @__clewGetKernelWorkGroupInfo, align 8
   %43 = load ptr, ptr @module, align 8
-  %call50 = tail call ptr @dlsym(ptr noundef %43, ptr noundef nonnull @.str.41) #3
+  %call50 = tail call ptr @dlsym(ptr noundef %43, ptr noundef nonnull @.str.41) #4
   store ptr %call50, ptr @__clewWaitForEvents, align 8
   %44 = load ptr, ptr @module, align 8
-  %call51 = tail call ptr @dlsym(ptr noundef %44, ptr noundef nonnull @.str.42) #3
+  %call51 = tail call ptr @dlsym(ptr noundef %44, ptr noundef nonnull @.str.42) #4
   store ptr %call51, ptr @__clewGetEventInfo, align 8
   %45 = load ptr, ptr @module, align 8
-  %call52 = tail call ptr @dlsym(ptr noundef %45, ptr noundef nonnull @.str.43) #3
+  %call52 = tail call ptr @dlsym(ptr noundef %45, ptr noundef nonnull @.str.43) #4
   store ptr %call52, ptr @__clewCreateUserEvent, align 8
   %46 = load ptr, ptr @module, align 8
-  %call53 = tail call ptr @dlsym(ptr noundef %46, ptr noundef nonnull @.str.44) #3
+  %call53 = tail call ptr @dlsym(ptr noundef %46, ptr noundef nonnull @.str.44) #4
   store ptr %call53, ptr @__clewRetainEvent, align 8
   %47 = load ptr, ptr @module, align 8
-  %call54 = tail call ptr @dlsym(ptr noundef %47, ptr noundef nonnull @.str.45) #3
+  %call54 = tail call ptr @dlsym(ptr noundef %47, ptr noundef nonnull @.str.45) #4
   store ptr %call54, ptr @__clewReleaseEvent, align 8
   %48 = load ptr, ptr @module, align 8
-  %call55 = tail call ptr @dlsym(ptr noundef %48, ptr noundef nonnull @.str.46) #3
+  %call55 = tail call ptr @dlsym(ptr noundef %48, ptr noundef nonnull @.str.46) #4
   store ptr %call55, ptr @__clewSetUserEventStatus, align 8
   %49 = load ptr, ptr @module, align 8
-  %call56 = tail call ptr @dlsym(ptr noundef %49, ptr noundef nonnull @.str.47) #3
+  %call56 = tail call ptr @dlsym(ptr noundef %49, ptr noundef nonnull @.str.47) #4
   store ptr %call56, ptr @__clewSetEventCallback, align 8
   %50 = load ptr, ptr @module, align 8
-  %call57 = tail call ptr @dlsym(ptr noundef %50, ptr noundef nonnull @.str.48) #3
+  %call57 = tail call ptr @dlsym(ptr noundef %50, ptr noundef nonnull @.str.48) #4
   store ptr %call57, ptr @__clewGetEventProfilingInfo, align 8
   %51 = load ptr, ptr @module, align 8
-  %call58 = tail call ptr @dlsym(ptr noundef %51, ptr noundef nonnull @.str.49) #3
+  %call58 = tail call ptr @dlsym(ptr noundef %51, ptr noundef nonnull @.str.49) #4
   store ptr %call58, ptr @__clewFlush, align 8
   %52 = load ptr, ptr @module, align 8
-  %call59 = tail call ptr @dlsym(ptr noundef %52, ptr noundef nonnull @.str.50) #3
+  %call59 = tail call ptr @dlsym(ptr noundef %52, ptr noundef nonnull @.str.50) #4
   store ptr %call59, ptr @__clewFinish, align 8
   %53 = load ptr, ptr @module, align 8
-  %call60 = tail call ptr @dlsym(ptr noundef %53, ptr noundef nonnull @.str.51) #3
+  %call60 = tail call ptr @dlsym(ptr noundef %53, ptr noundef nonnull @.str.51) #4
   store ptr %call60, ptr @__clewEnqueueReadBuffer, align 8
   %54 = load ptr, ptr @module, align 8
-  %call61 = tail call ptr @dlsym(ptr noundef %54, ptr noundef nonnull @.str.52) #3
+  %call61 = tail call ptr @dlsym(ptr noundef %54, ptr noundef nonnull @.str.52) #4
   store ptr %call61, ptr @__clewEnqueueReadBufferRect, align 8
   %55 = load ptr, ptr @module, align 8
-  %call62 = tail call ptr @dlsym(ptr noundef %55, ptr noundef nonnull @.str.53) #3
+  %call62 = tail call ptr @dlsym(ptr noundef %55, ptr noundef nonnull @.str.53) #4
   store ptr %call62, ptr @__clewEnqueueWriteBuffer, align 8
   %56 = load ptr, ptr @module, align 8
-  %call63 = tail call ptr @dlsym(ptr noundef %56, ptr noundef nonnull @.str.54) #3
+  %call63 = tail call ptr @dlsym(ptr noundef %56, ptr noundef nonnull @.str.54) #4
   store ptr %call63, ptr @__clewEnqueueWriteBufferRect, align 8
   %57 = load ptr, ptr @module, align 8
-  %call64 = tail call ptr @dlsym(ptr noundef %57, ptr noundef nonnull @.str.55) #3
+  %call64 = tail call ptr @dlsym(ptr noundef %57, ptr noundef nonnull @.str.55) #4
   store ptr %call64, ptr @__clewEnqueueCopyBuffer, align 8
   %58 = load ptr, ptr @module, align 8
-  %call65 = tail call ptr @dlsym(ptr noundef %58, ptr noundef nonnull @.str.56) #3
+  %call65 = tail call ptr @dlsym(ptr noundef %58, ptr noundef nonnull @.str.56) #4
   store ptr %call65, ptr @__clewEnqueueCopyBufferRect, align 8
   %59 = load ptr, ptr @module, align 8
-  %call66 = tail call ptr @dlsym(ptr noundef %59, ptr noundef nonnull @.str.57) #3
+  %call66 = tail call ptr @dlsym(ptr noundef %59, ptr noundef nonnull @.str.57) #4
   store ptr %call66, ptr @__clewEnqueueReadImage, align 8
   %60 = load ptr, ptr @module, align 8
-  %call67 = tail call ptr @dlsym(ptr noundef %60, ptr noundef nonnull @.str.58) #3
+  %call67 = tail call ptr @dlsym(ptr noundef %60, ptr noundef nonnull @.str.58) #4
   store ptr %call67, ptr @__clewEnqueueWriteImage, align 8
   %61 = load ptr, ptr @module, align 8
-  %call68 = tail call ptr @dlsym(ptr noundef %61, ptr noundef nonnull @.str.59) #3
+  %call68 = tail call ptr @dlsym(ptr noundef %61, ptr noundef nonnull @.str.59) #4
   store ptr %call68, ptr @__clewEnqueueCopyImage, align 8
   %62 = load ptr, ptr @module, align 8
-  %call69 = tail call ptr @dlsym(ptr noundef %62, ptr noundef nonnull @.str.60) #3
+  %call69 = tail call ptr @dlsym(ptr noundef %62, ptr noundef nonnull @.str.60) #4
   store ptr %call69, ptr @__clewEnqueueCopyImageToBuffer, align 8
   %63 = load ptr, ptr @module, align 8
-  %call70 = tail call ptr @dlsym(ptr noundef %63, ptr noundef nonnull @.str.61) #3
+  %call70 = tail call ptr @dlsym(ptr noundef %63, ptr noundef nonnull @.str.61) #4
   store ptr %call70, ptr @__clewEnqueueCopyBufferToImage, align 8
   %64 = load ptr, ptr @module, align 8
-  %call71 = tail call ptr @dlsym(ptr noundef %64, ptr noundef nonnull @.str.62) #3
+  %call71 = tail call ptr @dlsym(ptr noundef %64, ptr noundef nonnull @.str.62) #4
   store ptr %call71, ptr @__clewEnqueueMapBuffer, align 8
   %65 = load ptr, ptr @module, align 8
-  %call72 = tail call ptr @dlsym(ptr noundef %65, ptr noundef nonnull @.str.63) #3
+  %call72 = tail call ptr @dlsym(ptr noundef %65, ptr noundef nonnull @.str.63) #4
   store ptr %call72, ptr @__clewEnqueueMapImage, align 8
   %66 = load ptr, ptr @module, align 8
-  %call73 = tail call ptr @dlsym(ptr noundef %66, ptr noundef nonnull @.str.64) #3
+  %call73 = tail call ptr @dlsym(ptr noundef %66, ptr noundef nonnull @.str.64) #4
   store ptr %call73, ptr @__clewEnqueueUnmapMemObject, align 8
   %67 = load ptr, ptr @module, align 8
-  %call74 = tail call ptr @dlsym(ptr noundef %67, ptr noundef nonnull @.str.65) #3
+  %call74 = tail call ptr @dlsym(ptr noundef %67, ptr noundef nonnull @.str.65) #4
   store ptr %call74, ptr @__clewEnqueueNDRangeKernel, align 8
   %68 = load ptr, ptr @module, align 8
-  %call75 = tail call ptr @dlsym(ptr noundef %68, ptr noundef nonnull @.str.66) #3
+  %call75 = tail call ptr @dlsym(ptr noundef %68, ptr noundef nonnull @.str.66) #4
   store ptr %call75, ptr @__clewEnqueueTask, align 8
   %69 = load ptr, ptr @module, align 8
-  %call76 = tail call ptr @dlsym(ptr noundef %69, ptr noundef nonnull @.str.67) #3
+  %call76 = tail call ptr @dlsym(ptr noundef %69, ptr noundef nonnull @.str.67) #4
   store ptr %call76, ptr @__clewEnqueueNativeKernel, align 8
   %70 = load ptr, ptr @module, align 8
-  %call77 = tail call ptr @dlsym(ptr noundef %70, ptr noundef nonnull @.str.68) #3
+  %call77 = tail call ptr @dlsym(ptr noundef %70, ptr noundef nonnull @.str.68) #4
   store ptr %call77, ptr @__clewEnqueueMarker, align 8
   %71 = load ptr, ptr @module, align 8
-  %call78 = tail call ptr @dlsym(ptr noundef %71, ptr noundef nonnull @.str.69) #3
+  %call78 = tail call ptr @dlsym(ptr noundef %71, ptr noundef nonnull @.str.69) #4
   store ptr %call78, ptr @__clewEnqueueWaitForEvents, align 8
   %72 = load ptr, ptr @module, align 8
-  %call79 = tail call ptr @dlsym(ptr noundef %72, ptr noundef nonnull @.str.70) #3
+  %call79 = tail call ptr @dlsym(ptr noundef %72, ptr noundef nonnull @.str.70) #4
   store ptr %call79, ptr @__clewEnqueueBarrier, align 8
   %73 = load ptr, ptr @module, align 8
-  %call80 = tail call ptr @dlsym(ptr noundef %73, ptr noundef nonnull @.str.71) #3
+  %call80 = tail call ptr @dlsym(ptr noundef %73, ptr noundef nonnull @.str.71) #4
   store ptr %call80, ptr @__clewGetExtensionFunctionAddress, align 8
   br label %return
 
@@ -471,14 +471,14 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind
 declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #1
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local ptr @clewErrorString(i32 noundef %error) local_unnamed_addr #2 {
+define dso_local ptr @clewErrorString(i32 noundef %error) local_unnamed_addr #3 {
 entry:
   %sub = sub nsw i32 0, %error
   %idxprom = sext i32 %sub to i64
@@ -489,8 +489,9 @@ entry:
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

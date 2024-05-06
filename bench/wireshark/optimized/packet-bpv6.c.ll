@@ -718,7 +718,7 @@ define internal i32 @dissect_bpv6(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %138
 
 131:                                              ; preds = %127
-  %132 = trunc i64 %128 to i32
+  %132 = trunc nuw nsw i64 %128 to i32
   br label %138
 
 133:                                              ; preds = %87
@@ -838,7 +838,7 @@ define internal i32 @dissect_bpv6(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %evaluate_sdnv.exit144.i
 
 214:                                              ; preds = %210
-  %215 = trunc i64 %211 to i32
+  %215 = trunc nuw nsw i64 %211 to i32
   br label %evaluate_sdnv.exit144.i
 
 evaluate_sdnv.exit144.i:                          ; preds = %214, %213, %138
@@ -857,7 +857,7 @@ evaluate_sdnv.exit144.i:                          ; preds = %214, %213, %138
 
 222:                                              ; preds = %evaluate_sdnv.exit144.i
   %223 = add i32 %208, %207
-  %224 = call fastcc i32 @dissect_dictionary(ptr noundef nonnull %1, ptr noundef %83, ptr noundef %0, i32 noundef %223, ptr noundef nonnull %68, i8 noundef zeroext %88, ptr noundef nonnull %70, i32 noundef 0, i32 noundef 0)
+  %224 = call fastcc i32 @dissect_dictionary(ptr noundef nonnull %1, ptr noundef %83, ptr noundef %0, i32 noundef %223, ptr noundef nonnull %68, i8 noundef zeroext %88, ptr noundef nonnull writeonly %70, i32 noundef 0, i32 noundef 0)
   br label %dissect_version_4_primary_header.exit
 
 dissect_version_4_primary_header.exit:            ; preds = %133, %219, %222
@@ -931,7 +931,7 @@ dissect_version_4_primary_header.exit:            ; preds = %133, %219, %222
   br label %277
 
 270:                                              ; preds = %266
-  %271 = trunc i64 %267 to i32
+  %271 = trunc nuw nsw i64 %267 to i32
   br label %277
 
 272:                                              ; preds = %235
@@ -965,7 +965,7 @@ dissect_version_4_primary_header.exit:            ; preds = %133, %219, %222
   br label %evaluate_sdnv.exit199.i
 
 287:                                              ; preds = %283
-  %288 = trunc i64 %284 to i32
+  %288 = trunc nuw nsw i64 %284 to i32
   br label %evaluate_sdnv.exit199.i
 
 evaluate_sdnv.exit199.i:                          ; preds = %287, %286, %277
@@ -996,7 +996,7 @@ evaluate_sdnv.exit199.i:                          ; preds = %287, %286, %277
   br label %evaluate_sdnv.exit201.i
 
 302:                                              ; preds = %298
-  %303 = trunc i64 %299 to i32
+  %303 = trunc nuw nsw i64 %299 to i32
   br label %evaluate_sdnv.exit201.i
 
 evaluate_sdnv.exit201.i:                          ; preds = %302, %301, %evaluate_sdnv.exit199.i
@@ -1026,7 +1026,7 @@ evaluate_sdnv.exit201.i:                          ; preds = %302, %301, %evaluat
   br label %evaluate_sdnv.exit203.i
 
 316:                                              ; preds = %312
-  %317 = trunc i64 %313 to i32
+  %317 = trunc nuw nsw i64 %313 to i32
   br label %evaluate_sdnv.exit203.i
 
 evaluate_sdnv.exit203.i:                          ; preds = %316, %315, %evaluate_sdnv.exit201.i
@@ -1057,7 +1057,7 @@ evaluate_sdnv.exit203.i:                          ; preds = %316, %315, %evaluat
   br label %evaluate_sdnv.exit205.i
 
 331:                                              ; preds = %327
-  %332 = trunc i64 %328 to i32
+  %332 = trunc nuw nsw i64 %328 to i32
   br label %evaluate_sdnv.exit205.i
 
 evaluate_sdnv.exit205.i:                          ; preds = %331, %330, %evaluate_sdnv.exit203.i
@@ -1087,7 +1087,7 @@ evaluate_sdnv.exit205.i:                          ; preds = %331, %330, %evaluat
   br label %evaluate_sdnv.exit207.i
 
 345:                                              ; preds = %341
-  %346 = trunc i64 %342 to i32
+  %346 = trunc nuw nsw i64 %342 to i32
   br label %evaluate_sdnv.exit207.i
 
 evaluate_sdnv.exit207.i:                          ; preds = %345, %344, %evaluate_sdnv.exit205.i
@@ -1118,7 +1118,7 @@ evaluate_sdnv.exit207.i:                          ; preds = %345, %344, %evaluat
   br label %evaluate_sdnv.exit209.i
 
 360:                                              ; preds = %356
-  %361 = trunc i64 %357 to i32
+  %361 = trunc nuw nsw i64 %357 to i32
   br label %evaluate_sdnv.exit209.i
 
 evaluate_sdnv.exit209.i:                          ; preds = %360, %359, %evaluate_sdnv.exit207.i
@@ -1147,7 +1147,7 @@ evaluate_sdnv.exit209.i:                          ; preds = %360, %359, %evaluat
   br label %evaluate_sdnv.exit211.i
 
 374:                                              ; preds = %370
-  %375 = trunc i64 %371 to i32
+  %375 = trunc nuw nsw i64 %371 to i32
   br label %evaluate_sdnv.exit211.i
 
 evaluate_sdnv.exit211.i:                          ; preds = %374, %373, %evaluate_sdnv.exit209.i
@@ -1178,7 +1178,7 @@ evaluate_sdnv.exit211.i:                          ; preds = %374, %373, %evaluat
   br label %evaluate_sdnv.exit213.i
 
 389:                                              ; preds = %385
-  %390 = trunc i64 %386 to i32
+  %390 = trunc nuw nsw i64 %386 to i32
   br label %evaluate_sdnv.exit213.i
 
 evaluate_sdnv.exit213.i:                          ; preds = %389, %388, %evaluate_sdnv.exit211.i
@@ -1207,7 +1207,7 @@ evaluate_sdnv.exit213.i:                          ; preds = %389, %388, %evaluat
   br label %evaluate_sdnv.exit215.i
 
 403:                                              ; preds = %399
-  %404 = trunc i64 %400 to i32
+  %404 = trunc nuw nsw i64 %400 to i32
   br label %evaluate_sdnv.exit215.i
 
 evaluate_sdnv.exit215.i:                          ; preds = %403, %402, %evaluate_sdnv.exit213.i
@@ -1266,7 +1266,7 @@ add_sdnv_time_to_tree.exit.thread.i:              ; preds = %evaluate_sdnv.exit2
   br label %436
 
 425:                                              ; preds = %421
-  %426 = trunc i64 %422 to i32
+  %426 = trunc nuw nsw i64 %422 to i32
   br label %436
 
 427:                                              ; preds = %415
@@ -1317,7 +1317,7 @@ add_sdnv_time_to_tree.exit.thread.i:              ; preds = %evaluate_sdnv.exit2
   br label %evaluate_sdnv.exit220.i
 
 450:                                              ; preds = %446
-  %451 = trunc i64 %447 to i32
+  %451 = trunc nuw nsw i64 %447 to i32
   br label %evaluate_sdnv.exit220.i
 
 evaluate_sdnv.exit220.i:                          ; preds = %450, %449, %439
@@ -1448,7 +1448,7 @@ evaluate_sdnv.exit220.i:                          ; preds = %450, %449, %439
   br label %515
 
 515:                                              ; preds = %513, %510
-  %516 = call fastcc i32 @dissect_dictionary(ptr noundef nonnull %1, ptr noundef %83, ptr noundef %0, i32 noundef %460, ptr noundef nonnull %65, i8 noundef zeroext %230, ptr noundef nonnull %70, i32 noundef %.0.i214.i, i32 noundef %.0.i216256.i)
+  %516 = call fastcc i32 @dissect_dictionary(ptr noundef nonnull %1, ptr noundef %83, ptr noundef %0, i32 noundef %460, ptr noundef nonnull %65, i8 noundef zeroext %230, ptr noundef nonnull writeonly %70, i32 noundef %.0.i214.i, i32 noundef %.0.i216256.i)
   br label %dissect_version_5_and_6_primary_header.exit
 
 dissect_version_5_and_6_primary_header.exit:      ; preds = %233, %272, %add_sdnv_time_to_tree.exit.thread.i, %456, %515
@@ -1523,7 +1523,7 @@ dissect_version_5_and_6_primary_header.exit:      ; preds = %233, %272, %add_sdn
   br label %evaluate_sdnv.exit.i
 
 552:                                              ; preds = %548
-  %553 = trunc i64 %549 to i32
+  %553 = trunc nuw nsw i64 %549 to i32
   br label %evaluate_sdnv.exit.i
 
 evaluate_sdnv.exit.i:                             ; preds = %552, %551, %545
@@ -1571,7 +1571,7 @@ evaluate_sdnv.exit.i:                             ; preds = %552, %551, %545
   br label %587
 
 581:                                              ; preds = %577
-  %582 = trunc i64 %578 to i32
+  %582 = trunc nuw nsw i64 %578 to i32
   br label %587
 
 583:                                              ; preds = %574
@@ -1811,7 +1811,7 @@ add_sdnv_time_to_tree.exit.i.i:                   ; preds = %697, %696
   br label %721
 
 710:                                              ; preds = %706
-  %711 = trunc i64 %707 to i32
+  %711 = trunc nuw nsw i64 %707 to i32
   br label %721
 
 712:                                              ; preds = %702
@@ -1858,7 +1858,7 @@ add_sdnv_time_to_tree.exit.i.i:                   ; preds = %697, %696
   br label %736
 
 732:                                              ; preds = %728
-  %733 = trunc i64 %729 to i32
+  %733 = trunc nuw nsw i64 %729 to i32
   br label %736
 
 734:                                              ; preds = %724
@@ -1972,7 +1972,7 @@ add_sdnv_time_to_tree.exit328.i.i:                ; preds = %777, %776
   br label %801
 
 790:                                              ; preds = %786
-  %791 = trunc i64 %787 to i32
+  %791 = trunc nuw nsw i64 %787 to i32
   br label %801
 
 792:                                              ; preds = %782
@@ -2019,7 +2019,7 @@ add_sdnv_time_to_tree.exit328.i.i:                ; preds = %777, %776
   br label %816
 
 812:                                              ; preds = %808
-  %813 = trunc i64 %809 to i32
+  %813 = trunc nuw nsw i64 %809 to i32
   br label %816
 
 814:                                              ; preds = %804
@@ -2063,7 +2063,7 @@ add_sdnv_time_to_tree.exit328.i.i:                ; preds = %777, %776
   br label %evaluate_sdnv.exit335.i.i
 
 838:                                              ; preds = %834
-  %839 = trunc i64 %835 to i32
+  %839 = trunc nuw nsw i64 %835 to i32
   br label %evaluate_sdnv.exit335.i.i
 
 evaluate_sdnv.exit335.i.i:                        ; preds = %838, %837, %823
@@ -2097,7 +2097,7 @@ evaluate_sdnv.exit335.i.i:                        ; preds = %838, %837, %823
   br label %evaluate_sdnv.exit337.i.i
 
 853:                                              ; preds = %849
-  %854 = trunc i64 %850 to i32
+  %854 = trunc nuw nsw i64 %850 to i32
   br label %evaluate_sdnv.exit337.i.i
 
 evaluate_sdnv.exit337.i.i:                        ; preds = %853, %852, %845
@@ -2143,7 +2143,7 @@ evaluate_sdnv.exit337.i.i:                        ; preds = %853, %852, %845
   br label %evaluate_sdnv.exit339.i.i
 
 874:                                              ; preds = %870
-  %875 = trunc i64 %871 to i32
+  %875 = trunc nuw nsw i64 %871 to i32
   br label %evaluate_sdnv.exit339.i.i
 
 evaluate_sdnv.exit339.i.i:                        ; preds = %874, %873, %.lr.ph.i.i
@@ -2177,7 +2177,7 @@ evaluate_sdnv.exit339.i.i:                        ; preds = %874, %873, %.lr.ph.
   br label %evaluate_sdnv.exit341.i.i
 
 889:                                              ; preds = %885
-  %890 = trunc i64 %886 to i32
+  %890 = trunc nuw nsw i64 %886 to i32
   br label %evaluate_sdnv.exit341.i.i
 
 evaluate_sdnv.exit341.i.i:                        ; preds = %889, %888, %881
@@ -2307,7 +2307,7 @@ dissect_payload_header.exit:                      ; preds = %583, %dissect_admin
   br label %evaluate_sdnv.exit.i56
 
 949:                                              ; preds = %945
-  %950 = trunc i64 %946 to i32
+  %950 = trunc nuw nsw i64 %946 to i32
   br label %evaluate_sdnv.exit.i56
 
 evaluate_sdnv.exit.i56:                           ; preds = %949, %948, %935
@@ -2364,7 +2364,7 @@ evaluate_sdnv.exit362.thread.i:                   ; preds = %977
   br label %.lr.ph.preheader.i
 
 evaluate_sdnv.exit362.i:                          ; preds = %977
-  %982 = trunc i64 %978 to i32
+  %982 = trunc nuw nsw i64 %978 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   %.not.i59 = icmp eq i32 %982, 0
   br i1 %.not.i59, label %.loopexit469.i, label %.lr.ph.preheader.i
@@ -2446,7 +2446,7 @@ evaluate_sdnv.exit366.i:                          ; preds = %989
   br label %1014
 
 1008:                                             ; preds = %1004
-  %1009 = trunc i64 %1005 to i32
+  %1009 = trunc nuw nsw i64 %1005 to i32
   br label %1014
 
 1010:                                             ; preds = %.loopexit469.i
@@ -2501,7 +2501,7 @@ evaluate_sdnv.exit366.i:                          ; preds = %989
   br label %evaluate_sdnv.exit370.i
 
 1032:                                             ; preds = %1028
-  %1033 = trunc i64 %1029 to i32
+  %1033 = trunc nuw nsw i64 %1029 to i32
   %1034 = udiv i32 %1033, 1000000
   br label %evaluate_sdnv.exit370.i
 
@@ -2551,7 +2551,7 @@ evaluate_sdnv.exit370.i:                          ; preds = %1032, %1031, %1025
   br label %evaluate_sdnv.exit372.i
 
 1060:                                             ; preds = %1056
-  %1061 = trunc i64 %1057 to i32
+  %1061 = trunc nuw nsw i64 %1057 to i32
   br label %evaluate_sdnv.exit372.i
 
 evaluate_sdnv.exit372.i:                          ; preds = %1060, %1059, %1053
@@ -2576,7 +2576,7 @@ evaluate_sdnv.exit372.i:                          ; preds = %1060, %1059, %1053
   br label %evaluate_sdnv.exit374.i
 
 1071:                                             ; preds = %1067
-  %1072 = trunc i64 %1068 to i32
+  %1072 = trunc nuw nsw i64 %1068 to i32
   br label %evaluate_sdnv.exit374.i
 
 evaluate_sdnv.exit374.i:                          ; preds = %1071, %1070, %evaluate_sdnv.exit372.i
@@ -2601,7 +2601,7 @@ evaluate_sdnv.exit374.i:                          ; preds = %1071, %1070, %evalu
   br label %evaluate_sdnv.exit376.i
 
 1082:                                             ; preds = %1078
-  %1083 = trunc i64 %1079 to i32
+  %1083 = trunc nuw nsw i64 %1079 to i32
   br label %evaluate_sdnv.exit376.i
 
 evaluate_sdnv.exit376.i:                          ; preds = %1082, %1081, %evaluate_sdnv.exit374.i
@@ -2626,7 +2626,7 @@ evaluate_sdnv.exit376.i:                          ; preds = %1082, %1081, %evalu
   br label %evaluate_sdnv.exit378.i
 
 1093:                                             ; preds = %1089
-  %1094 = trunc i64 %1090 to i32
+  %1094 = trunc nuw nsw i64 %1090 to i32
   br label %evaluate_sdnv.exit378.i
 
 evaluate_sdnv.exit378.i:                          ; preds = %1093, %1092, %evaluate_sdnv.exit376.i
@@ -2661,7 +2661,7 @@ evaluate_sdnv.exit378.i:                          ; preds = %1093, %1092, %evalu
   br label %1115
 
 1111:                                             ; preds = %1107
-  %1112 = trunc i64 %1108 to i32
+  %1112 = trunc nuw nsw i64 %1108 to i32
   br label %1115
 
 1113:                                             ; preds = %1104
@@ -2700,7 +2700,7 @@ evaluate_sdnv.exit378.i:                          ; preds = %1093, %1092, %evalu
   br label %evaluate_sdnv.exit380.i
 
 1128:                                             ; preds = %1124
-  %1129 = trunc i64 %1125 to i32
+  %1129 = trunc nuw nsw i64 %1125 to i32
   br label %evaluate_sdnv.exit380.i
 
 evaluate_sdnv.exit380.i:                          ; preds = %1128, %1127, %.lr.ph487.i
@@ -2725,7 +2725,7 @@ evaluate_sdnv.exit380.i:                          ; preds = %1128, %1127, %.lr.p
   br label %1145
 
 1139:                                             ; preds = %1135
-  %1140 = trunc i64 %1136 to i32
+  %1140 = trunc nuw nsw i64 %1136 to i32
   br label %1145
 
 1141:                                             ; preds = %evaluate_sdnv.exit380.i
@@ -2773,7 +2773,7 @@ evaluate_sdnv.exit380.i:                          ; preds = %1128, %1127, %.lr.p
   br label %evaluate_sdnv.exit386.i
 
 1160:                                             ; preds = %1156
-  %1161 = trunc i64 %1157 to i32
+  %1161 = trunc nuw nsw i64 %1157 to i32
   br label %evaluate_sdnv.exit386.i
 
 evaluate_sdnv.exit386.i:                          ; preds = %1160, %1159, %1153
@@ -2798,7 +2798,7 @@ evaluate_sdnv.exit386.i:                          ; preds = %1160, %1159, %1153
   br label %evaluate_sdnv.exit388.i
 
 1171:                                             ; preds = %1167
-  %1172 = trunc i64 %1168 to i32
+  %1172 = trunc nuw nsw i64 %1168 to i32
   br label %evaluate_sdnv.exit388.i
 
 evaluate_sdnv.exit388.i:                          ; preds = %1171, %1170, %evaluate_sdnv.exit386.i
@@ -2834,7 +2834,7 @@ evaluate_sdnv.exit388.i:                          ; preds = %1171, %1170, %evalu
   br label %evaluate_sdnv.exit390.i
 
 1186:                                             ; preds = %1182
-  %1187 = trunc i64 %1183 to i32
+  %1187 = trunc nuw nsw i64 %1183 to i32
   br label %evaluate_sdnv.exit390.i
 
 evaluate_sdnv.exit390.i:                          ; preds = %1186, %1185, %.loopexit468.i
@@ -2868,7 +2868,7 @@ evaluate_sdnv.exit390.i:                          ; preds = %1186, %1185, %.loop
   br label %evaluate_sdnv.exit392.i
 
 1201:                                             ; preds = %1197
-  %1202 = trunc i64 %1198 to i32
+  %1202 = trunc nuw nsw i64 %1198 to i32
   br label %evaluate_sdnv.exit392.i
 
 evaluate_sdnv.exit392.i:                          ; preds = %1201, %1200, %.lr.ph491.i
@@ -2893,7 +2893,7 @@ evaluate_sdnv.exit392.i:                          ; preds = %1201, %1200, %.lr.p
   br label %1218
 
 1212:                                             ; preds = %1208
-  %1213 = trunc i64 %1209 to i32
+  %1213 = trunc nuw nsw i64 %1209 to i32
   br label %1218
 
 1214:                                             ; preds = %evaluate_sdnv.exit392.i
@@ -2941,7 +2941,7 @@ evaluate_sdnv.exit392.i:                          ; preds = %1201, %1200, %.lr.p
   br label %evaluate_sdnv.exit398.i
 
 1233:                                             ; preds = %1229
-  %1234 = trunc i64 %1230 to i32
+  %1234 = trunc nuw nsw i64 %1230 to i32
   br label %evaluate_sdnv.exit398.i
 
 evaluate_sdnv.exit398.i:                          ; preds = %1233, %1232, %1226
@@ -2966,7 +2966,7 @@ evaluate_sdnv.exit398.i:                          ; preds = %1233, %1232, %1226
   br label %evaluate_sdnv.exit400.i
 
 1244:                                             ; preds = %1240
-  %1245 = trunc i64 %1241 to i32
+  %1245 = trunc nuw nsw i64 %1241 to i32
   br label %evaluate_sdnv.exit400.i
 
 evaluate_sdnv.exit400.i:                          ; preds = %1244, %1243, %evaluate_sdnv.exit398.i
@@ -3017,7 +3017,7 @@ evaluate_sdnv.exit400.i:                          ; preds = %1244, %1243, %evalu
   br label %evaluate_sdnv.exit402.i
 
 1267:                                             ; preds = %1263
-  %1268 = trunc i64 %1264 to i32
+  %1268 = trunc nuw nsw i64 %1264 to i32
   br label %evaluate_sdnv.exit402.i
 
 evaluate_sdnv.exit402.i:                          ; preds = %1267, %1266, %1260
@@ -3119,7 +3119,7 @@ evaluate_sdnv.exit402.i:                          ; preds = %1267, %1266, %1260
   br label %1327
 
 1321:                                             ; preds = %1317
-  %1322 = trunc i64 %1318 to i32
+  %1322 = trunc nuw nsw i64 %1318 to i32
   br label %1327
 
 1323:                                             ; preds = %1314
@@ -3688,7 +3688,7 @@ define internal fastcc i32 @add_sdnv_to_tree(ptr noundef %0, ptr noundef %1, ptr
   br label %18
 
 13:                                               ; preds = %9
-  %14 = trunc i64 %10 to i32
+  %14 = trunc nuw nsw i64 %10 to i32
   br label %18
 
 15:                                               ; preds = %5
@@ -3774,7 +3774,7 @@ evaluate_sdnv.exit:                               ; preds = %4
   br label %27
 
 25:                                               ; preds = %21
-  %26 = trunc i64 %22 to i32
+  %26 = trunc nuw nsw i64 %22 to i32
   br label %27
 
 evaluate_sdnv.exit14:                             ; preds = %17

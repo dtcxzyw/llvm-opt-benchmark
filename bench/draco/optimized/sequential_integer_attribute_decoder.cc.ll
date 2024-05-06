@@ -4907,7 +4907,7 @@ _ZNK5draco24MeshAttributeCornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_t
   br i1 %exitcond271.not, label %._crit_edge227, label %306, !llvm.loop !34
 
 ._crit_edge227:                                   ; preds = %.loopexit
-  %328 = mul nsw i64 %indvars.iv278, %11
+  %328 = mul nuw nsw i64 %indvars.iv278, %11
   %329 = icmp eq i32 %.184, 0
   br i1 %329, label %330, label %.preheader
 
@@ -13122,7 +13122,7 @@ _ZNK5draco11CornerTable9SwingLeftENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.e
   br i1 %exitcond265.not, label %._crit_edge221, label %269, !llvm.loop !203
 
 ._crit_edge221:                                   ; preds = %.loopexit
-  %291 = mul nsw i64 %indvars.iv272, %11
+  %291 = mul nuw nsw i64 %indvars.iv272, %11
   %292 = icmp eq i32 %.184, 0
   br i1 %292, label %293, label %.preheader
 

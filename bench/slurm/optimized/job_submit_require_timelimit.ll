@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.job_modify = private unnamed_addr constant [11 x i8] c"job_modify\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @job_submit(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define range(i32 0, 8001) i32 @job_submit(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 652
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %12 [
@@ -47,7 +47,7 @@ declare i32 @get_log_level() local_unnamed_addr #1
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @job_modify(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define range(i32 0, 2052) i32 @job_modify(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 652
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, -1

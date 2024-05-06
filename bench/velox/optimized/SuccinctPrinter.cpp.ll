@@ -100,11 +100,11 @@ if.then12.i:                                      ; preds = %invoke.cont.i
           to label %if.end16.i unwind label %lpad.i, !noalias !4
 
 if.end16.i:                                       ; preds = %if.then12.i, %if.end.i
-  %sub3248.i = phi i64 [ %sub26.i, %if.then12.i ], [ %conv6, %if.end.i ]
-  %div63446.i = phi i64 [ %div627.i, %if.then12.i ], [ %div6.i, %if.end.i ]
-  %conv73544.i = phi i32 [ %conv728.i, %if.then12.i ], [ %conv7.i, %if.end.i ]
+  %sub3348.i = phi i64 [ %sub26.i, %if.then12.i ], [ %conv6, %if.end.i ]
+  %div63547.i = phi i64 [ %div627.i, %if.then12.i ], [ %div6.i, %if.end.i ]
+  %conv73646.i = phi i32 [ %conv728.i, %if.then12.i ], [ %conv7.i, %if.end.i ]
   %add.ptr17.i = getelementptr inbounds i8, ptr %out.i, i64 16
-  %call19.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr17.i, i32 noundef %conv73544.i)
+  %call19.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr17.i, i32 noundef %conv73646.i)
           to label %invoke.cont18.i unwind label %lpad.i, !noalias !4
 
 invoke.cont18.i:                                  ; preds = %if.end16.i
@@ -118,20 +118,20 @@ if.end22.i:                                       ; preds = %if.end.i
   br i1 %tobool33.not.i, label %if.end52.i, label %if.end40.i
 
 if.then36.i:                                      ; preds = %invoke.cont18.i
-  %sext2055.i = mul i64 %div63446.i, 15461882265600
+  %sext2055.i = mul i64 %div63547.i, 15461882265600
   %conv2456.i = ashr exact i64 %sext2055.i, 32
-  %sub2557.i = sub i64 %sub3248.i, %conv2456.i
+  %sub2557.i = sub i64 %sub3348.i, %conv2456.i
   %div2758.i = udiv i64 %sub2557.i, 60
   %conv2859.i = trunc i64 %div2758.i to i32
   %call39.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr17.i, ptr noundef nonnull @.str.1)
           to label %if.end40.i unwind label %lpad.i, !noalias !4
 
 if.end40.i:                                       ; preds = %if.then36.i, %if.end22.i
-  %sub256476.i = phi i64 [ %sub2557.i, %if.then36.i ], [ %conv6, %if.end22.i ]
-  %div276674.i = phi i64 [ %div2758.i, %if.then36.i ], [ %div27.i, %if.end22.i ]
-  %conv286772.i = phi i32 [ %conv2859.i, %if.then36.i ], [ %conv28.i, %if.end22.i ]
+  %sub256576.i = phi i64 [ %sub2557.i, %if.then36.i ], [ %conv6, %if.end22.i ]
+  %div276875.i = phi i64 [ %div2758.i, %if.then36.i ], [ %div27.i, %if.end22.i ]
+  %conv286974.i = phi i32 [ %conv2859.i, %if.then36.i ], [ %conv28.i, %if.end22.i ]
   %add.ptr41.i = getelementptr inbounds i8, ptr %out.i, i64 16
-  %call43.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr41.i, i32 noundef %conv286772.i)
+  %call43.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr41.i, i32 noundef %conv286974.i)
           to label %invoke.cont42.i unwind label %lpad.i, !noalias !4
 
 invoke.cont42.i:                                  ; preds = %if.end40.i
@@ -143,11 +143,11 @@ if.then48.i:                                      ; preds = %invoke.cont42.i
           to label %if.end52.i unwind label %lpad.i, !noalias !4
 
 if.end52.i:                                       ; preds = %if.then48.i, %if.end22.i
-  %div2765.i = phi i64 [ %div276674.i, %if.then48.i ], [ %div27.i, %if.end22.i ]
-  %sub2563.i = phi i64 [ %sub256476.i, %if.then48.i ], [ %conv6, %if.end22.i ]
-  %sext21.i = mul i64 %div2765.i, 257698037760
+  %div2767.i = phi i64 [ %div276875.i, %if.then48.i ], [ %div27.i, %if.end22.i ]
+  %sub2564.i = phi i64 [ %sub256576.i, %if.then48.i ], [ %conv6, %if.end22.i ]
+  %sext21.i = mul i64 %div2767.i, 257698037760
   %conv54.i = ashr exact i64 %sext21.i, 32
-  %sub55.i = sub i64 %sub2563.i, %conv54.i
+  %sub55.i = sub i64 %sub2564.i, %conv54.i
   %add.ptr56.i = getelementptr inbounds i8, ptr %out.i, i64 16
   %call58.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr56.i, i64 noundef %sub55.i)
           to label %invoke.cont57.i unwind label %lpad.i, !noalias !4

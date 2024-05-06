@@ -769,7 +769,7 @@ entry:
 for.body.preheader.i:                             ; preds = %entry
   %3 = sub i64 55, %add
   %4 = and i64 %3, 63
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i, i8 0, i64 %4, i1 false)
   br label %legacy_pad.exit
 
 legacy_pad.exit:                                  ; preds = %entry, %for.body.preheader.i
@@ -813,7 +813,7 @@ entry:
   %mul.i = and i32 %sub2, -64
   %idx.ext.i = zext i32 %mul.i to i64
   %add.ptr.i = getelementptr i8, ptr %add.ptr, i64 %idx.ext.i
-  call void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef nonnull %s, ptr noundef %add.ptr, i32 noundef %div13.i)
+  call void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef nonnull %s, ptr noundef readonly %add.ptr, i32 noundef %div13.i)
   %conv.i = zext i32 %sub2 to i64
   %sub3.i = sub i32 55, %input_len
   %rem4.i = and i32 %sub3.i, 63
@@ -821,7 +821,7 @@ entry:
   %add.ptr9.i = getelementptr i8, ptr %tmp_twoblocks.i, i64 %idx.ext8.i
   %0 = sub nuw nsw i64 128, %idx.ext8.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr9.i, i8 0, i64 %0, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tmp_twoblocks.i, ptr align 1 %add.ptr.i, i64 %idx.ext8.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tmp_twoblocks.i, ptr readonly align 1 %add.ptr.i, i64 %idx.ext8.i, i1 false)
   store i8 -128, ptr %add.ptr9.i, align 1
   %add.ptr.i.i = getelementptr i8, ptr %add.ptr9.i, i64 1
   %cmp7.not.i.i = icmp eq i32 %rem4.i, 0
@@ -830,7 +830,7 @@ entry:
 for.body.preheader.i.i:                           ; preds = %entry
   %1 = sub nsw i64 55, %conv.i
   %2 = and i64 %1, 63
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %2, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i, i8 0, i64 %2, i1 false)
   br label %Hacl_Hash_MD5_legacy_update_last.exit
 
 Hacl_Hash_MD5_legacy_update_last.exit:            ; preds = %entry, %for.body.preheader.i.i
@@ -885,7 +885,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) local_unnamed_addr #9 {
+define hidden zeroext range(i8 0, 4) i8 @Hacl_Streaming_MD5_legacy_update(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) local_unnamed_addr #9 {
 entry:
   %s.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
   %s.sroa.1.0.copyload = load i64, ptr %s.sroa.1.0..sroa_idx, align 8
@@ -899,7 +899,7 @@ if.end:                                           ; preds = %entry
   %cmp3 = icmp eq i64 %rem, 0
   %cmp5 = icmp ne i64 %s.sroa.1.0.copyload, 0
   %or.cond = and i1 %cmp5, %cmp3
-  %conv9 = trunc i64 %rem to i32
+  %conv9 = trunc nuw nsw i64 %rem to i32
   %sz.0 = select i1 %or.cond, i32 64, i32 %conv9
   %sub11 = sub nuw nsw i32 64, %sz.0
   %cmp12.not = icmp ult i32 %sub11, %len
@@ -935,7 +935,7 @@ if.then59:                                        ; preds = %if.then37
 if.end60:                                         ; preds = %if.then37, %if.then59
   %rem62 = and i64 %conv, 63
   %cmp63 = icmp eq i64 %rem62, 0
-  %conv73 = trunc i64 %rem62 to i32
+  %conv73 = trunc nuw nsw i64 %rem62 to i32
   %ite.0 = select i1 %cmp63, i32 64, i32 %conv73
   %sub75 = sub i32 %len, %ite.0
   %div74 = lshr i32 %sub75, 6
@@ -976,7 +976,7 @@ if.end143:                                        ; preds = %if.else89, %if.then
   %conv146 = zext i32 %sub145 to i64
   %rem147 = and i64 %conv146, 63
   %cmp148.not = icmp eq i64 %rem147, 0
-  %conv160 = trunc i64 %rem147 to i32
+  %conv160 = trunc nuw nsw i64 %rem147 to i32
   %ite144.0 = select i1 %cmp148.not, i32 64, i32 %conv160
   %sub164 = sub i32 %sub145, %ite144.0
   %div16573 = lshr i32 %sub164, 6
@@ -1016,7 +1016,7 @@ entry:
   %cmp = icmp eq i64 %rem, 0
   %cmp3 = icmp ne i64 %scrut.sroa.3.0.copyload, 0
   %or.cond = and i1 %cmp3, %cmp
-  %conv = trunc i64 %rem to i32
+  %conv = trunc nuw nsw i64 %rem to i32
   %r.0 = select i1 %or.cond, i32 64, i32 %conv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp_block_state, ptr noundef nonnull align 4 dereferenceable(16) %scrut.sroa.0.0.copyload, i64 16, i1 false)
   %rem5 = and i32 %r.0, 63
@@ -1034,14 +1034,14 @@ entry:
   %mul.i = and i32 %r.0, 64
   %idx.ext.i = zext nneg i32 %mul.i to i64
   %add.ptr.i = getelementptr i8, ptr %add.ptr16, i64 %idx.ext.i
-  call void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef nonnull %tmp_block_state, ptr noundef %add.ptr16, i32 noundef %div13.i)
+  call void @Hacl_Hash_MD5_legacy_update_multi(ptr noundef nonnull %tmp_block_state, ptr noundef readonly %add.ptr16, i32 noundef %div13.i)
   %1 = trunc i64 %scrut.sroa.3.0.copyload to i32
   %sub3.i = sub i32 55, %1
   %rem4.i = and i32 %sub3.i, 63
   %add.ptr9.i = getelementptr i8, ptr %tmp_twoblocks.i, i64 %0
   %2 = sub nuw nsw i64 128, %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr9.i, i8 0, i64 %2, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tmp_twoblocks.i, ptr align 1 %add.ptr.i, i64 %0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tmp_twoblocks.i, ptr readonly align 1 %add.ptr.i, i64 %0, i1 false)
   store i8 -128, ptr %add.ptr9.i, align 1
   %add.ptr.i.i = getelementptr i8, ptr %add.ptr9.i, i64 1
   %cmp7.not.i.i = icmp eq i32 %rem4.i, 0
@@ -1050,7 +1050,7 @@ entry:
 for.body.preheader.i.i:                           ; preds = %entry
   %3 = sub i64 55, %scrut.sroa.3.0.copyload
   %4 = and i64 %3, 63
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i, i8 0, i64 %4, i1 false)
   br label %Hacl_Hash_MD5_legacy_update_last.exit
 
 Hacl_Hash_MD5_legacy_update_last.exit:            ; preds = %entry, %for.body.preheader.i.i

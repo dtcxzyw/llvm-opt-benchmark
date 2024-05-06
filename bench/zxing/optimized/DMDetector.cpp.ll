@@ -140,7 +140,7 @@ define void @_ZN5ZXing10DataMatrix6DetectERKNS_9BitMatrixEbbb(ptr dead_on_unwind
   br i1 %51, label %53, label %52
 
 52:                                               ; preds = %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false), !alias.scope !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false), !alias.scope !4
   br label %161
 
 53:                                               ; preds = %5
@@ -185,7 +185,7 @@ _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit._ZN5ZXing15BitMatr
   br label %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit.thread.i
 
 _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit.thread88.i: ; preds = %61, %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false), !alias.scope !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false), !alias.scope !4
   br label %161
 
 _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit.thread.i: ; preds = %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit._ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit.thread_crit_edge.i, %53
@@ -227,7 +227,7 @@ _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit47._ZN5ZXing15BitMa
   br label %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit47.thread.i
 
 _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit47.thread93.i: ; preds = %72, %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit47.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false), !alias.scope !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false), !alias.scope !4
   br label %161
 
 _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit47.thread.i: ; preds = %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit47._ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit47.thread_crit_edge.i, %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit.thread.i
@@ -365,7 +365,7 @@ _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i: ; preds = %131
   br i1 %140, label %141, label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread.i
 
 _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread.i: ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i, %131, %116, %112, %105, %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE10countEdgesEi.exit71.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false), !alias.scope !4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false), !alias.scope !4
   br label %161
 
 141:                                              ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.i
@@ -1955,13 +1955,13 @@ _ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i: ; pr
   br i1 %or.cond12.i.i, label %922, label %.thread.i29
 
 922:                                              ; preds = %921
-  invoke fastcc void @_ZN5ZXing10DataMatrixL18TransitionsBetweenERKNS_9BitMatrixERKNS_11ResultPointES6_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %.1.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  invoke fastcc void @_ZN5ZXing10DataMatrixL18TransitionsBetweenERKNS_9BitMatrixERKNS_11ResultPointES6_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %.1.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %.noexc.i30 unwind label %750, !noalias !21
 
 .noexc.i30:                                       ; preds = %922
   %923 = getelementptr inbounds i8, ptr %11, i64 16
   %924 = load i32, ptr %923, align 8, !noalias !21
-  invoke fastcc void @_ZN5ZXing10DataMatrixL18TransitionsBetweenERKNS_9BitMatrixERKNS_11ResultPointES6_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %.154.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  invoke fastcc void @_ZN5ZXing10DataMatrixL18TransitionsBetweenERKNS_9BitMatrixERKNS_11ResultPointES6_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %.154.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %.noexc97.i unwind label %750, !noalias !21
 
 .noexc97.i:                                       ; preds = %.noexc.i30
@@ -1972,13 +1972,13 @@ _ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i: ; pr
   %929 = sub nsw i32 %834, %928
   %930 = call i32 @llvm.abs.i32(i32 %929, i1 true)
   %931 = add nuw nsw i32 %930, %926
-  invoke fastcc void @_ZN5ZXing10DataMatrixL18TransitionsBetweenERKNS_9BitMatrixERKNS_11ResultPointES6_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %.1.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @_ZN5ZXing10DataMatrixL18TransitionsBetweenERKNS_9BitMatrixERKNS_11ResultPointES6_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %.1.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %.noexc98.i unwind label %750, !noalias !21
 
 .noexc98.i:                                       ; preds = %.noexc97.i
   %932 = getelementptr inbounds i8, ptr %13, i64 16
   %933 = load i32, ptr %932, align 8, !noalias !21
-  invoke fastcc void @_ZN5ZXing10DataMatrixL18TransitionsBetweenERKNS_9BitMatrixERKNS_11ResultPointES6_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %.154.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @_ZN5ZXing10DataMatrixL18TransitionsBetweenERKNS_9BitMatrixERKNS_11ResultPointES6_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %.154.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %.noexc99.i unwind label %750, !noalias !21
 
 .noexc99.i:                                       ; preds = %.noexc98.i
@@ -1995,7 +1995,7 @@ _ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i: ; pr
 
 .thread.i29:                                      ; preds = %.noexc99.i, %921, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i
   %..sink.i.i = phi ptr [ %..i.i, %.noexc99.i ], [ %10, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i ], [ %9, %921 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %..sink.i.i, i64 16, i1 false), !noalias !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %..sink.i.i, i64 16, i1 false), !noalias !21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !21

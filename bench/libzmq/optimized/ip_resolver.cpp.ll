@@ -36,7 +36,7 @@ $_ZN3zmq13ip_resolver_tD0Ev = comdat any
 @_ZN3zmq13ip_resolver_tC1ENS_21ip_resolver_options_tE = unnamed_addr alias void (ptr, i48), ptr @_ZN3zmq13ip_resolver_tC2ENS_21ip_resolver_options_tE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3zmq9ip_addr_t6familyEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZNK3zmq9ip_addr_t6familyEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
   %conv = zext i16 %0 to i32
@@ -91,7 +91,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3zmq9ip_addr_t12sockaddr_lenEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 16, 29) i32 @_ZNK3zmq9ip_addr_t12sockaddr_lenEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
   %cmp = icmp eq i16 %0, 10
@@ -556,7 +556,7 @@ land.lhs.true116:                                 ; preds = %land.lhs.true107, %
 
 if.then119:                                       ; preds = %land.lhs.true116
   %call121 = invoke noundef i32 @_ZN3zmq13ip_resolver_t16resolve_nic_nameEPNS_9ip_addr_tEPKc(ptr noundef nonnull align 8 dereferenceable(14) %this, ptr noundef %ip_addr_, ptr noundef %call104)
-          to label %invoke.cont120 unwind label %lpad47, !range !4
+          to label %invoke.cont120 unwind label %lpad47
 
 invoke.cont120:                                   ; preds = %if.then119
   %cmp122 = icmp eq i32 %call121, 0
@@ -570,7 +570,7 @@ if.else124:                                       ; preds = %invoke.cont120
 
 if.then132:                                       ; preds = %land.lhs.true116, %if.else124
   %call135 = invoke noundef i32 @_ZN3zmq13ip_resolver_t19resolve_getaddrinfoEPNS_9ip_addr_tEPKc(ptr noundef nonnull align 8 dereferenceable(14) %this, ptr noundef %ip_addr_, ptr noundef %call104)
-          to label %invoke.cont134 unwind label %lpad47, !range !4
+          to label %invoke.cont134 unwind label %lpad47
 
 invoke.cont134:                                   ; preds = %if.then132
   %cmp136.not = icmp eq i32 %call135, 0
@@ -655,7 +655,7 @@ declare i32 @isalpha(i32 noundef) local_unnamed_addr #13
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq13ip_resolver_t16resolve_nic_nameEPNS_9ip_addr_tEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(14) %this, ptr nocapture noundef writeonly %ip_addr_, ptr nocapture noundef readonly %nic_) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t16resolve_nic_nameEPNS_9ip_addr_tEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(14) %this, ptr nocapture noundef writeonly %ip_addr_, ptr nocapture noundef readonly %nic_) local_unnamed_addr #9 align 2 {
 entry:
   %ifa = alloca ptr, align 8
   store ptr null, ptr %ifa, align 8
@@ -682,7 +682,7 @@ if.end:                                           ; preds = %land.lhs.true, %lor
   %call6 = call i32 @usleep(i32 noundef %mul14)
   %inc = add nuw nsw i32 %i.024, 1
   %exitcond.not = icmp eq i32 %inc, 10
-  br i1 %exitcond.not, label %if.end.land.lhs.true8_crit_edge, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %if.end.land.lhs.true8_crit_edge, label %for.body, !llvm.loop !4
 
 if.end.land.lhs.true8_crit_edge:                  ; preds = %if.end
   %.pre = tail call ptr @__errno_location() #17
@@ -763,7 +763,7 @@ if.then43:                                        ; preds = %land.lhs.true41
 for.inc48:                                        ; preds = %if.end37, %land.lhs.true41, %for.body34
   %ifp.0 = load ptr, ptr %ifp.027, align 8
   %cmp33.not.not = icmp eq ptr %ifp.0, null
-  br i1 %cmp33.not.not, label %if.then51, label %for.body34, !llvm.loop !7
+  br i1 %cmp33.not.not, label %if.then51, label %for.body34, !llvm.loop !6
 
 if.then51:                                        ; preds = %for.inc48, %do.end31
   %12 = phi ptr [ null, %do.end31 ], [ %7, %for.inc48 ]
@@ -778,7 +778,7 @@ return:                                           ; preds = %if.then43, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq13ip_resolver_t19resolve_getaddrinfoEPNS_9ip_addr_tEPKc(ptr noundef nonnull align 8 dereferenceable(14) %this, ptr nocapture noundef writeonly %ip_addr_, ptr noundef %addr_) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq13ip_resolver_t19resolve_getaddrinfoEPNS_9ip_addr_tEPKc(ptr noundef nonnull align 8 dereferenceable(14) %this, ptr nocapture noundef writeonly %ip_addr_, ptr noundef %addr_) local_unnamed_addr #9 align 2 {
 entry:
   %res = alloca ptr, align 8
   %req = alloca %struct.addrinfo, align 8
@@ -1011,7 +1011,6 @@ attributes #21 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

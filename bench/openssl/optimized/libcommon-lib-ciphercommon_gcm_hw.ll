@@ -14,7 +14,7 @@ entry:
 declare void @CRYPTO_gcm128_setiv(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_gcm_aad_update(ptr noundef %ctx, ptr noundef %aad, i64 noundef %aad_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_aad_update(ptr noundef %ctx, ptr noundef %aad, i64 noundef %aad_len) local_unnamed_addr #0 {
 entry:
   %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
   %call = tail call i32 @CRYPTO_gcm128_aad(ptr noundef nonnull %gcm, ptr noundef %aad, i64 noundef %aad_len) #2
@@ -26,7 +26,7 @@ entry:
 declare i32 @CRYPTO_gcm128_aad(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_gcm_cipher_update(ptr noundef %ctx, ptr noundef %in, i64 noundef %len, ptr noundef %out) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_cipher_update(ptr noundef %ctx, ptr noundef %in, i64 noundef %len, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   %enc = getelementptr inbounds i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %enc, align 4
@@ -58,7 +58,7 @@ declare i32 @CRYPTO_gcm128_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 no
 declare i32 @CRYPTO_gcm128_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_gcm_cipher_final(ptr noundef %ctx, ptr noundef %tag) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_cipher_final(ptr noundef %ctx, ptr noundef %tag) local_unnamed_addr #0 {
 entry:
   %enc = getelementptr inbounds i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %enc, align 4
@@ -93,7 +93,7 @@ declare void @CRYPTO_gcm128_tag(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare i32 @CRYPTO_gcm128_finish(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_gcm_one_shot(ptr noundef %ctx, ptr noundef %aad, i64 noundef %aad_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %out, ptr noundef %tag, i64 noundef %tag_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_gcm_one_shot(ptr noundef %ctx, ptr noundef %aad, i64 noundef %aad_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %out, ptr noundef %tag, i64 noundef %tag_len) local_unnamed_addr #0 {
 entry:
   %hw = getelementptr inbounds i8, ptr %ctx, i64 240
   %0 = load ptr, ptr %hw, align 8

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ge25519_p3 = type { [5 x i64], [5 x i64], [5 x i64], [5 x i64] }
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_scalarmult_ristretto255(ptr noundef nonnull %q, ptr nocapture noundef nonnull readonly %n, ptr noundef nonnull %p) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_scalarmult_ristretto255(ptr noundef nonnull %q, ptr nocapture noundef nonnull readonly %n, ptr noundef nonnull %p) local_unnamed_addr #0 {
 entry:
   %Q = alloca %struct.ge25519_p3, align 8
   %P = alloca %struct.ge25519_p3, align 8
@@ -50,7 +50,7 @@ declare void @_sodium_ristretto255_p3_tobytes(ptr noundef, ptr noundef) local_un
 declare i32 @sodium_is_zero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_scalarmult_ristretto255_base(ptr noundef nonnull %q, ptr nocapture noundef nonnull readonly %n) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_scalarmult_ristretto255_base(ptr noundef nonnull %q, ptr nocapture noundef nonnull readonly %n) local_unnamed_addr #0 {
 entry:
   %Q = alloca %struct.ge25519_p3, align 8
   br label %for.body

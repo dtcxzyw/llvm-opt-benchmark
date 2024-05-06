@@ -24,25 +24,25 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @qemu_spice_migrate_info_stub(ptr nocapture readnone %h, i32 %p, i32 %t, ptr nocapture readnone %s) #0 {
+define internal noundef i32 @qemu_spice_migrate_info_stub(ptr nocapture readnone %h, i32 %p, i32 %t, ptr nocapture readnone %s) #0 {
 entry:
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @qemu_spice_set_passwd_stub(ptr nocapture readnone %passwd, i1 zeroext %fail_if_connected, i1 zeroext %disconnect_if_connected) #0 {
+define internal noundef i32 @qemu_spice_set_passwd_stub(ptr nocapture readnone %passwd, i1 zeroext %fail_if_connected, i1 zeroext %disconnect_if_connected) #0 {
 entry:
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @qemu_spice_set_pw_expire_stub(i64 %expires) #0 {
+define internal noundef i32 @qemu_spice_set_pw_expire_stub(i64 %expires) #0 {
 entry:
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @qemu_spice_display_add_client_stub(i32 %csock, i32 %skipauth, i32 %tls) #0 {
+define internal noundef i32 @qemu_spice_display_add_client_stub(i32 %csock, i32 %skipauth, i32 %tls) #0 {
 entry:
   ret i32 -1
 }

@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ethnl_set_channels.__msg.3 = internal constant [73 x i8] c"requested channel counts are too low for existing ntuple filter settings\00", align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @channels_prepare_data(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @channels_prepare_data(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 760
   %6 = load ptr, ptr %5, align 8
@@ -52,7 +52,7 @@ define internal noundef i32 @channels_reply_size(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @channels_fill_reply(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -90, 1) i32 @channels_fill_reply(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -165,7 +165,7 @@ define internal noundef i32 @channels_fill_reply(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ethnl_set_channels_validate(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal range(i32 -95, 2) i32 @ethnl_set_channels_validate(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 760
   %5 = load ptr, ptr %4, align 8

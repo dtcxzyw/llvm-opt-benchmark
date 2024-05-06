@@ -3960,7 +3960,7 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_FlowRetime_RefineConstraints() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_FlowRetime_RefineConstraints() local_unnamed_addr #0 {
   %1 = load ptr, ptr @pManMR, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 48
   %3 = load ptr, ptr %2, align 8

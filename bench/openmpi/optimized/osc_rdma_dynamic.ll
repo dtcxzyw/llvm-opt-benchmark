@@ -177,7 +177,7 @@ opal_obj_run_destructors.exit12:                  ; preds = %.lr.ph.i9, %opal_li
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_rdma_attach(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -108, 1) i32 @ompi_osc_rdma_attach(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
@@ -376,7 +376,7 @@ ompi_osc_rdma_find_region_containing.exit:        ; preds = %._crit_edge
   %105 = sext i32 %.lcssa141 to i64
   %106 = getelementptr inbounds ptr, ptr %104, i64 %105
   %107 = load ptr, ptr %106, align 8
-  %108 = call fastcc i32 @ompi_osc_rdma_add_attachment(ptr noundef %107, i64 noundef %72, i64 noundef %2), !range !9
+  %108 = call fastcc i32 @ompi_osc_rdma_add_attachment(ptr noundef %107, i64 noundef %72, i64 noundef %2)
   %109 = load i8, ptr @opal_uses_threads, align 1
   %110 = trunc i8 %109 to i1
   br i1 %110, label %111, label %114
@@ -617,7 +617,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i110, %208
   %.sink = phi ptr [ %189, %217 ], [ null, %opal_obj_new.exit ]
   %223 = getelementptr inbounds i8, ptr %166, i64 16
   store ptr %.sink, ptr %223, align 8
-  %224 = call fastcc i32 @ompi_osc_rdma_add_attachment(ptr noundef nonnull %166, i64 noundef %72, i64 noundef %2), !range !9
+  %224 = call fastcc i32 @ompi_osc_rdma_add_attachment(ptr noundef nonnull %166, i64 noundef %72, i64 noundef %2)
   %225 = getelementptr inbounds i8, ptr %8, i64 1152
   %226 = load ptr, ptr %225, align 64
   %227 = sext i32 %.1120 to i64
@@ -861,7 +861,7 @@ opal_thread_add_fetch_32.exit48.i.i:              ; preds = %85, %82
   %91 = call i32 @opal_progress() #9
   %92 = load volatile i8, ptr %73, align 8
   %93 = trunc i8 %92 to i1
-  br i1 %93, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %93, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %opal_thread_add_fetch_32.exit48.i.i, %.preheader.i.i
   %.4.i.i = phi i32 [ %.3.i.i, %opal_thread_add_fetch_32.exit48.i.i ], [ 0, %.preheader.i.i ], [ 0, %.lr.ph.i.i ]
@@ -935,14 +935,14 @@ ompi_osc_rdma_lock_try_acquire_exclusive.exit:    ; preds = %ompi_osc_rdma_btl_c
 
 123:                                              ; preds = %ompi_osc_rdma_lock_try_acquire_exclusive.exit
   %124 = call i32 @opal_progress() #9
-  br label %11, !llvm.loop !11
+  br label %11, !llvm.loop !10
 
 125:                                              ; preds = %ompi_osc_rdma_lock_try_acquire_exclusive.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ompi_osc_rdma_add_attachment(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -104, 1) i32 @ompi_osc_rdma_add_attachment(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @ompi_osc_rdma_attachment_t_class, i64 0, i32 8), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #11
   %6 = load i32, ptr @opal_class_init_epoch, align 4
@@ -988,7 +988,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %9, %10
   %21 = getelementptr inbounds i8, ptr %.01422.i, i64 16
   %.014.i = load volatile ptr, ptr %21, align 8
   %.not.not.i = icmp eq ptr %.014.i, %18
-  br i1 %.not.not.i, label %ompi_osc_rdma_find_conflicting_attachment.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.not.i, label %ompi_osc_rdma_find_conflicting_attachment.exit, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.i:                                         ; preds = %opal_obj_new.exit, %20
   %.01422.i = phi ptr [ %.014.i, %20 ], [ %.01420.i, %opal_obj_new.exit ]
@@ -1103,7 +1103,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_rdma_detach(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -107, 1) i32 @ompi_osc_rdma_detach(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 272
   %5 = load ptr, ptr %4, align 8
@@ -1271,12 +1271,12 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %86
 
 94:                                               ; preds = %.lr.ph.i
   %.not.i74 = icmp eq ptr %62, %56
-  br i1 %.not.i74, label %ompi_osc_rdma_remove_attachment.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i74, label %ompi_osc_rdma_remove_attachment.exit, label %.lr.ph.i, !llvm.loop !12
 
 ompi_osc_rdma_remove_attachment.exit:             ; preds = %94, %55, %42, %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %33
-  br i1 %exitcond.not, label %ompi_osc_rdma_remove_attachment.exit.thread.thread, label %42, !llvm.loop !14
+  br i1 %exitcond.not, label %ompi_osc_rdma_remove_attachment.exit.thread.thread, label %42, !llvm.loop !13
 
 ompi_osc_rdma_remove_attachment.exit.thread:      ; preds = %opal_obj_run_destructors.exit.i, %opal_thread_add_fetch_32.exit.i
   %95 = icmp eq i64 %33, %indvars.iv
@@ -1856,7 +1856,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ompi_osc_rdma_frag_alloc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -18, 1) i32 @ompi_osc_rdma_frag_alloc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %.sroa.22.i.i.i.i = alloca i64, align 8
@@ -2232,7 +2232,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_op(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 1072
   %8 = load i8, ptr %7, align 16
   %9 = trunc i8 %8 to i1
@@ -2447,7 +2447,7 @@ opal_obj_run_destructors.exit87:                  ; preds = %.lr.ph.i84, %92
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_osc_rdma_btl_fop(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc range(i32 2, 1) i32 @ompi_osc_rdma_btl_fop(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 1072
   %10 = load i8, ptr %9, align 16
   %11 = trunc i8 %10 to i1
@@ -2639,7 +2639,7 @@ opal_thread_add_fetch_32.exit74:                  ; preds = %88, %91
   %101 = tail call i32 @opal_progress() #9
   %102 = load volatile i8, ptr %98, align 8
   %103 = trunc i8 %102 to i1
-  br i1 %103, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %103, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %opal_thread_add_fetch_32.exit74, %79, %97
   %.3 = phi i32 [ 0, %79 ], [ %.2, %opal_thread_add_fetch_32.exit74 ], [ 0, %97 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
@@ -2728,10 +2728,9 @@ attributes #12 = { nounwind allocsize(1) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -104, i32 1}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}

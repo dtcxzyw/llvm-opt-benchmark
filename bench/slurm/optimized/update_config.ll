@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [124 x i8] c"SuspendExcNodes may have ':' in it. Append and remove are not supported in this case. Please use direct assignment instead.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_update_front_end(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_update_front_end(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.slurm_msg, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -51,7 +51,7 @@ _slurm_update.exit:                               ; preds = %1, %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_update_job(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_update_job(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.slurm_msg, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 344
@@ -203,7 +203,7 @@ declare i32 @slurm_free_msg_data(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @slurm_seterrno(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_create_node(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_create_node(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.slurm_msg, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -238,7 +238,7 @@ _slurm_update.exit:                               ; preds = %1, %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_update_node(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_update_node(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.slurm_msg, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -273,7 +273,7 @@ _slurm_update.exit:                               ; preds = %1, %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_delete_node(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_delete_node(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.slurm_msg, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -308,7 +308,7 @@ _slurm_update.exit:                               ; preds = %1, %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_create_partition(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_create_partition(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.slurm_msg, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -343,7 +343,7 @@ _slurm_update.exit:                               ; preds = %1, %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_update_partition(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_update_partition(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.slurm_msg, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -378,7 +378,7 @@ _slurm_update.exit:                               ; preds = %1, %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_delete_partition(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_delete_partition(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.slurm_msg, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -479,7 +479,7 @@ define noalias ptr @slurm_create_reservation(ptr noundef %0) local_unnamed_addr 
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_update_reservation(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_update_reservation(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.slurm_msg, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -514,7 +514,7 @@ _slurm_update.exit:                               ; preds = %1, %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_delete_reservation(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_delete_reservation(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.slurm_msg, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -549,7 +549,7 @@ _slurm_update.exit:                               ; preds = %1, %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_update_step(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_update_step(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.slurm_msg, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -584,7 +584,7 @@ _slurm_update.exit:                               ; preds = %1, %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_update_suspend_exc_nodes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_update_suspend_exc_nodes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.suspend_exc_update_msg, align 8
@@ -651,7 +651,7 @@ declare ptr @xstrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_update_suspend_exc_parts(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_update_suspend_exc_parts(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.suspend_exc_update_msg, align 8
@@ -690,7 +690,7 @@ _slurm_update.exit:                               ; preds = %2, %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_update_suspend_exc_states(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_update_suspend_exc_states(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.suspend_exc_update_msg, align 8

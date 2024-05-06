@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i8 @"_ZN4core3str6traits48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$str$GT$3cmp17hfcfc25dadbf82116E"(ptr align 1 %0, i64 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
+define hidden range(i8 -1, 2) i8 @"_ZN4core3str6traits48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$str$GT$3cmp17hfcfc25dadbf82116E"(ptr align 1 %0, i64 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
   %5 = tail call i8 @"_ZN49_$LT$u8$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hf4337e30eaa0ce08E"(ptr align 1 %0, i64 %1, ptr align 1 %2, i64 %3), !range !3
   ret i8 %5
 }
@@ -20,7 +20,7 @@ define hidden zeroext i1 @"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..Partial
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i8 @"_ZN4core3str6traits55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$str$GT$11partial_cmp17h4fcf8fc77a57ee64E"(ptr align 1 %0, i64 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
+define hidden range(i8 -1, 2) i8 @"_ZN4core3str6traits55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$str$GT$11partial_cmp17h4fcf8fc77a57ee64E"(ptr align 1 %0, i64 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
   %5 = tail call i8 @"_ZN49_$LT$u8$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hf4337e30eaa0ce08E"(ptr align 1 %0, i64 %1, ptr align 1 %2, i64 %3), !range !3
   ret i8 %5
 }

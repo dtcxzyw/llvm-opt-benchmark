@@ -19,8 +19,8 @@ $_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFvvEJEEvRS_OT_DpOT0_EUlvE
 @_ZN6icu_7512_GLOBAL__N_18initFlagE = internal global %"struct.std::once_flag" zeroinitializer, align 4
 @"_ZZZN6icu_75L9umtx_initEvENK3$_0clEvE7storage" = internal global [40 x i8] zeroinitializer, align 8
 @"_ZZZN6icu_75L9umtx_initEvENK3$_1clEvE7storage" = internal global [48 x i8] zeroinitializer, align 8
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_756UMutex8getMutexEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -178,7 +178,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr nocapture noundef nonnull align 4 dereferenceable(8) %uio) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr nocapture noundef nonnull align 4 dereferenceable(8) %uio) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__callable.i = alloca %class.anon.4, align 8
   %lock = alloca %"class.std::unique_lock", align 8

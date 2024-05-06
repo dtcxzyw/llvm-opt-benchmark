@@ -9688,7 +9688,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt13unordered_mapIP11AstVarScope
   %9 = load ptr, ptr %.040, align 8
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZSt8_DestroyISt13unordered_mapIP11AstVarScopeP11AstNodeExprSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEEvPT_.exit.i.i.i, %.lr.ph
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph, %_ZSt8_DestroyISt13unordered_mapIP11AstVarScopeP11AstNodeExprSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEEvPT_.exit.i.i.i
   %.05.i.i.i.idx = phi i64 [ %.05.i.i.i.add, %_ZSt8_DestroyISt13unordered_mapIP11AstVarScopeP11AstNodeExprSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEEEvPT_.exit.i.i.i ], [ 0, %.lr.ph ]
   %.05.i.i.i.ptr = getelementptr inbounds i8, ptr %9, i64 %.05.i.i.i.idx
   %10 = getelementptr inbounds i8, ptr %.05.i.i.i.ptr, i64 16

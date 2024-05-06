@@ -60,7 +60,7 @@ define dso_local void @put_filesystem(ptr nocapture noundef readonly %0) local_u
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @register_filesystem(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @register_filesystem(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call ptr @strchr(ptr noundef %2, i32 noundef 46) #6
   %4 = icmp eq ptr %3, null
@@ -140,7 +140,7 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare dso_local void @_raw_write_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @unregister_filesystem(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @unregister_filesystem(ptr noundef %0) #0 align 16 {
   tail call void @_raw_write_lock(ptr noundef nonnull @file_systems_lock) #6
   %2 = load ptr, ptr @file_systems, align 8
   %3 = icmp eq ptr %2, null
@@ -188,7 +188,7 @@ define dso_local noundef i32 @unregister_filesystem(ptr noundef %0) #0 align 16 
 declare dso_local void @synchronize_rcu() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_sysfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_sysfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -200,7 +200,7 @@ define dso_local i64 @__x64_sys_sysfs(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_sysfs(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_sysfs(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = trunc i64 %0 to i32
   switch i32 %4, label %74 [
     i32 1, label %5
@@ -340,7 +340,7 @@ define internal fastcc i64 @__se_sys_sysfs(i64 noundef %0, i64 noundef %1, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_sysfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_sysfs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295

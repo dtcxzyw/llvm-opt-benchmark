@@ -450,7 +450,7 @@ tailrecurse:                                      ; preds = %3, %._crit_edge
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Mtr_SwapGroups(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Mtr_SwapGroups(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %0
@@ -516,13 +516,13 @@ define noundef i32 @Mtr_SwapGroups(ptr noundef %0, ptr noundef %1) local_unnamed
   store ptr %37, ptr %38, align 8
   store ptr %.035, ptr %36, align 8
   store ptr %.034, ptr %29, align 8
-  %39 = tail call fastcc i32 @mtrShiftHL(ptr noundef nonnull %.034, i32 noundef %13), !range !11
+  %39 = tail call fastcc i32 @mtrShiftHL(ptr noundef nonnull %.034, i32 noundef %13)
   %.not42 = icmp eq i32 %39, 0
   br i1 %.not42, label %43, label %40
 
 40:                                               ; preds = %33
   %41 = sub nsw i32 0, %11
-  %42 = tail call fastcc i32 @mtrShiftHL(ptr noundef nonnull %.035, i32 noundef %41), !range !11
+  %42 = tail call fastcc i32 @mtrShiftHL(ptr noundef nonnull %.035, i32 noundef %41)
   br label %43
 
 43:                                               ; preds = %40, %33, %9, %17, %6
@@ -531,7 +531,7 @@ define noundef i32 @Mtr_SwapGroups(ptr noundef %0, ptr noundef %1) local_unnamed
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @mtrShiftHL(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @mtrShiftHL(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, %1
@@ -553,7 +553,7 @@ define internal fastcc noundef i32 @mtrShiftHL(ptr nocapture noundef %0, i32 nou
 
 .preheader:                                       ; preds = %10, %14
   %.0 = phi ptr [ %16, %14 ], [ %12, %10 ]
-  %13 = tail call fastcc i32 @mtrShiftHL(ptr noundef nonnull %.0, i32 noundef %1), !range !11
+  %13 = tail call fastcc i32 @mtrShiftHL(ptr noundef nonnull %.0, i32 noundef %1)
   %.not20 = icmp eq i32 %13, 0
   br i1 %.not20, label %.loopexit, label %14
 
@@ -561,7 +561,7 @@ define internal fastcc noundef i32 @mtrShiftHL(ptr nocapture noundef %0, i32 nou
   %15 = getelementptr inbounds i8, ptr %.0, i64 40
   %16 = load ptr, ptr %15, align 8
   %.not21 = icmp eq ptr %16, null
-  br i1 %.not21, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %.not21, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %14, %.preheader, %7, %10, %2
   %.015 = phi i32 [ 0, %2 ], [ 1, %10 ], [ 1, %7 ], [ 1, %14 ], [ 0, %.preheader ]
@@ -604,7 +604,7 @@ define void @Mtr_PrintGroups(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %15 = getelementptr inbounds i8, ptr %.030, i64 40
   %16 = load ptr, ptr %15, align 8
   %.not19 = icmp eq ptr %16, null
-  br i1 %.not19, label %17, label %.preheader, !llvm.loop !13
+  br i1 %.not19, label %17, label %.preheader, !llvm.loop !12
 
 17:                                               ; preds = %.preheader
   br i1 %.not, label %18, label %.critedge
@@ -751,12 +751,12 @@ Mtr_InitGroupTree.exit:                           ; preds = %2
 34:                                               ; preds = %.preheader, %26, %28, %30, %32
   %.1 = phi i32 [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %.024, %.preheader ]
   %35 = getelementptr inbounds i8, ptr %.0, i64 1
-  br label %.preheader, !llvm.loop !14
+  br label %.preheader, !llvm.loop !13
 
 36:                                               ; preds = %.preheader
   %37 = call ptr @Mtr_MakeGroup(ptr noundef nonnull %6, i32 noundef %15, i32 noundef %18, i32 noundef %.024)
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %Mtr_InitGroupTree.exit.thread.sink.split, label %10, !llvm.loop !15
+  br i1 %38, label %Mtr_InitGroupTree.exit.thread.sink.split, label %10, !llvm.loop !14
 
 Mtr_InitGroupTree.exit.thread.sink.split:         ; preds = %36, %22, %14, %17, %12
   call void @Mtr_FreeTree(ptr noundef nonnull %6) #9
@@ -808,8 +808,7 @@ attributes #10 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}

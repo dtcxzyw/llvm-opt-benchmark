@@ -66,7 +66,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.49 = private unnamed_addr constant [15 x i8] c"(long)test2len\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_bio_callback_ex) #6
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_bio_callback) #6
@@ -76,7 +76,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_callback_ex() #0 {
+define internal range(i32 0, 2) i32 @test_bio_callback_ex() #0 {
 entry:
   %test1 = alloca [5 x i8], align 1
   %test2 = alloca [6 x i8], align 1
@@ -706,7 +706,7 @@ finish:                                           ; preds = %lor.lhs.false329, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bio_callback() #0 {
+define internal range(i32 0, 2) i32 @test_bio_callback() #0 {
 entry:
   %test1 = alloca [5 x i8], align 1
   %test2 = alloca [6 x i8], align 1
@@ -1217,7 +1217,7 @@ declare ptr @BIO_s_mem() local_unnamed_addr #1
 declare void @BIO_set_callback_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal i64 @my_bio_cb_ex(ptr noundef %b, i32 noundef %oper, ptr noundef %argp, i64 noundef %len, i32 noundef %argi, i64 noundef %argl, i32 noundef %ret, ptr noundef readonly %processed) #3 {
+define internal range(i64 -2147483648, 2147483648) i64 @my_bio_cb_ex(ptr noundef %b, i32 noundef %oper, ptr noundef %argp, i64 noundef %len, i32 noundef %argi, i64 noundef %argl, i32 noundef %ret, ptr noundef readonly %processed) #3 {
 entry:
   %0 = load i32, ptr @my_param_count, align 4
   %cmp = icmp sgt i32 %0, 4
@@ -1286,7 +1286,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare void @BIO_set_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @my_bio_callback(ptr noundef %b, i32 noundef %oper, ptr noundef %argp, i32 noundef %argi, i64 noundef %argl, i64 noundef %ret) #5 {
+define internal noundef i64 @my_bio_callback(ptr noundef %b, i32 noundef %oper, ptr noundef %argp, i32 noundef %argi, i64 noundef %argl, i64 noundef %ret) #5 {
 entry:
   %0 = load i32, ptr @my_param_count, align 4
   %cmp = icmp sgt i32 %0, 4

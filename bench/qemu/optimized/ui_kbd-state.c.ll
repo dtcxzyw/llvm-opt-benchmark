@@ -202,7 +202,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @qkbd_state_key_event(ptr noundef nonnull %kbd, i32 noundef %3, i1 noundef zeroext false)
   br label %for.inc
 

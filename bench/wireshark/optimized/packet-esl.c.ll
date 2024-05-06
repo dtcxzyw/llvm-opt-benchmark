@@ -180,7 +180,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_esl_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_esl_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %.b = load i1, ptr @dissect_esl_heur.in_heur, align 4
   br i1 %.b, label %43, label %6
@@ -216,7 +216,7 @@ define internal noundef i32 @dissect_esl_heur(ptr noundef %0, ptr noundef %1, pt
   br i1 %20, label %43, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call fastcc i32 @is_esl_header(ptr noundef %0, i32 noundef 0), !range !4
+  %22 = tail call fastcc i32 @is_esl_header(ptr noundef %0, i32 noundef 0)
   %.not36 = icmp eq i32 %22, 0
   br i1 %.not36, label %30, label %23
 
@@ -234,7 +234,7 @@ define internal noundef i32 @dissect_esl_heur(ptr noundef %0, ptr noundef %1, pt
 
 30:                                               ; preds = %21
   %31 = add i32 %5, -16
-  %32 = tail call fastcc i32 @is_esl_header(ptr noundef %0, i32 noundef %31), !range !4
+  %32 = tail call fastcc i32 @is_esl_header(ptr noundef %0, i32 noundef %31)
   %.not37 = icmp eq i32 %32, 0
   br i1 %.not37, label %42, label %33
 
@@ -282,7 +282,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @is_esl_header(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_esl_header(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #3
   %4 = icmp eq i8 %3, 1
   br i1 %4, label %5, label %29
@@ -430,4 +430,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

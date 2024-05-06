@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_status_conversion.cc, ptr null }]
 @switch.table._Z26grpc_status_to_http2_error16grpc_status_code = private unnamed_addr constant [15 x i32] [i32 0, i32 8, i32 2, i32 2, i32 8, i32 2, i32 2, i32 12, i32 11, i32 2, i32 2, i32 2, i32 2, i32 2, i32 7], align 4
 
@@ -20,7 +20,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_Z26grpc_status_to_http2_error16grpc_status_code(i32 noundef %status) local_unnamed_addr #3 {
+define noundef range(i32 0, 13) i32 @_Z26grpc_status_to_http2_error16grpc_status_code(i32 noundef %status) local_unnamed_addr #3 {
 entry:
   %0 = icmp ult i32 %status, 15
   br i1 %0, label %switch.lookup, label %return
@@ -37,7 +37,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_Z31grpc_http2_error_to_grpc_status21grpc_http2_error_codeN9grpc_core9TimestampE(i32 noundef %error, i64 %deadline.coerce) local_unnamed_addr #4 {
+define noundef range(i32 1, 15) i32 @_Z31grpc_http2_error_to_grpc_status21grpc_http2_error_codeN9grpc_core9TimestampE(i32 noundef %error, i64 %deadline.coerce) local_unnamed_addr #4 {
 entry:
   switch i32 %error, label %return [
     i32 7, label %sw.bb7
@@ -78,7 +78,7 @@ return:                                           ; preds = %entry, %sw.bb7, %sw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_Z32grpc_http2_status_to_grpc_statusi(i32 noundef %status) local_unnamed_addr #3 {
+define noundef range(i32 0, 17) i32 @_Z32grpc_http2_status_to_grpc_statusi(i32 noundef %status) local_unnamed_addr #3 {
 entry:
   switch i32 %status, label %sw.default [
     i32 200, label %return

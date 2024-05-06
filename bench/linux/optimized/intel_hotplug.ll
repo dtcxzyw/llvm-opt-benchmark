@@ -49,13 +49,13 @@ define dso_local noundef i32 @intel_hpd_pin_default(ptr nocapture noundef readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_encoder_hotplug(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @intel_encoder_hotplug(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = tail call fastcc i32 @intel_hotplug_detect_connector(ptr noundef %1), !range !5
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @intel_hotplug_detect_connector(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @intel_hotplug_detect_connector(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 368
   %4 = tail call zeroext i1 @mutex_is_locked(ptr noundef %3) #8
@@ -1733,7 +1733,7 @@ declare dso_local i64 @seq_lseek(ptr noundef, i64 noundef, i32 noundef) #3
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @i915_hpd_storm_ctl_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #1 align 16 {
+define internal noundef range(i64 -22, 16) i64 @i915_hpd_storm_ctl_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca [16 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 200
@@ -1899,7 +1899,7 @@ declare dso_local zeroext i1 @flush_work(ptr noundef) local_unnamed_addr #3
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @i915_hpd_short_storm_ctl_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #1 align 16 {
+define internal noundef range(i64 -22, 16) i64 @i915_hpd_short_storm_ctl_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 200

@@ -202,7 +202,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcrypto_block_luks_open(ptr noundef %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture noundef readonly %readfunc, ptr noundef %opaque, i32 noundef %flags, i64 noundef %n_threads, ptr noundef %errp) #1 {
+define internal range(i32 -1, 1) i32 @qcrypto_block_luks_open(ptr noundef %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture noundef readonly %readfunc, ptr noundef %opaque, i32 noundef %flags, i64 noundef %n_threads, ptr noundef %errp) #1 {
 entry:
   %local_err.i = alloca ptr, align 8
   %and = and i32 %flags, 1
@@ -284,7 +284,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %exitcond.not.i.i, label %if.end17, label %for.body.i.i, !llvm.loop !7
 
 if.end17:                                         ; preds = %for.body.i.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %call10, ptr noundef nonnull dereferenceable(6) @qcrypto_block_luks_magic, i64 6)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %call10, ptr noundef nonnull dereferenceable(6) @qcrypto_block_luks_magic, i64 6)
   %cmp.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.not.i, label %if.end.i44, label %if.then.i
 
@@ -305,7 +305,7 @@ if.then4.i:                                       ; preds = %if.end.i44
 
 if.end8.i:                                        ; preds = %if.end.i44
   %cipher_name.i = getelementptr inbounds i8, ptr %call10, i64 8
-  %call11.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %cipher_name.i, i32 noundef 0, i64 noundef 32) #18
+  %call11.i = tail call ptr @memchr(ptr noundef nonnull readonly dereferenceable(1) %cipher_name.i, i32 noundef 0, i64 noundef 32) #18
   %tobool.not.i = icmp eq ptr %call11.i, null
   br i1 %tobool.not.i, label %if.then12.i, label %if.end13.i
 
@@ -315,7 +315,7 @@ if.then12.i:                                      ; preds = %if.end8.i
 
 if.end13.i:                                       ; preds = %if.end8.i
   %cipher_mode.i = getelementptr inbounds i8, ptr %call10, i64 40
-  %call16.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %cipher_mode.i, i32 noundef 0, i64 noundef 32) #18
+  %call16.i = tail call ptr @memchr(ptr noundef nonnull readonly dereferenceable(1) %cipher_mode.i, i32 noundef 0, i64 noundef 32) #18
   %tobool17.not.i = icmp eq ptr %call16.i, null
   br i1 %tobool17.not.i, label %if.then18.i, label %if.end19.i
 
@@ -325,7 +325,7 @@ if.then18.i:                                      ; preds = %if.end13.i
 
 if.end19.i:                                       ; preds = %if.end13.i
   %hash_spec.i = getelementptr inbounds i8, ptr %call10, i64 72
-  %call22.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %hash_spec.i, i32 noundef 0, i64 noundef 32) #18
+  %call22.i = tail call ptr @memchr(ptr noundef nonnull readonly dereferenceable(1) %hash_spec.i, i32 noundef 0, i64 noundef 32) #18
   %tobool23.not.i = icmp eq ptr %call22.i, null
   br i1 %tobool23.not.i, label %if.then24.i, label %if.end25.i
 
@@ -689,7 +689,7 @@ for.cond.i:                                       ; preds = %if.end.i60
 
 for.body.i58:                                     ; preds = %for.cond.i, %if.then28
   %i.05.i = phi i64 [ 0, %if.then28 ], [ %inc.i61, %for.cond.i ]
-  %call.i59 = call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.05.i, ptr noundef %password.0, ptr noundef %call29, ptr noundef %readfunc, ptr noundef %opaque, ptr noundef %errp), !range !13
+  %call.i59 = call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.05.i, ptr noundef %password.0, ptr noundef %call29, ptr noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp)
   %cmp1.i = icmp slt i32 %call.i59, 0
   br i1 %cmp1.i, label %fail, label %if.end.i60
 
@@ -765,7 +765,7 @@ cleanup:                                          ; preds = %if.end, %fail, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcrypto_block_luks_create(ptr noundef %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture noundef readonly %initfunc, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) #1 {
+define internal range(i32 -1, 1) i32 @qcrypto_block_luks_create(ptr noundef %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture noundef readonly %initfunc, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) #1 {
 entry:
   %uuid.i = alloca %struct.QemuUUID, align 4
   %local_err = alloca ptr, align 8
@@ -869,7 +869,7 @@ for.cond1.i:                                      ; preds = %for.body5.i
   %3 = load i32, ptr %arrayidx2.i, align 4
   %conv.i = zext i32 %3 to i64
   %cmp3.i = icmp ult i64 %inc.i, %conv.i
-  br i1 %cmp3.i, label %for.body5.i, label %for.inc12.i, !llvm.loop !14
+  br i1 %cmp3.i, label %for.body5.i, label %for.inc12.i, !llvm.loop !13
 
 for.body5.i:                                      ; preds = %for.cond1.preheader.i, %for.cond1.i
   %j.014.i = phi i64 [ %inc.i, %for.cond1.i ], [ 0, %for.cond1.preheader.i ]
@@ -881,7 +881,7 @@ for.body5.i:                                      ; preds = %for.cond1.preheader
 for.inc12.i:                                      ; preds = %for.cond1.i, %for.cond1.preheader.i
   %inc13.i = add nuw nsw i64 %i.016.i, 1
   %exitcond.not.i = icmp eq i64 %inc13.i, 4
-  br i1 %exitcond.not.i, label %qcrypto_block_luks_cipher_alg_lookup.exit.thread, label %for.cond1.preheader.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %qcrypto_block_luks_cipher_alg_lookup.exit.thread, label %for.cond1.preheader.i, !llvm.loop !14
 
 qcrypto_block_luks_cipher_alg_lookup.exit.thread: ; preds = %for.inc12.i
   %call.i = call ptr @qapi_enum_lookup(ptr noundef nonnull @QCryptoCipherAlgorithm_lookup, i32 noundef %luks_opts.sroa.325.0) #16
@@ -1078,7 +1078,7 @@ for.body:                                         ; preds = %if.end208, %for.bod
   store i32 4000, ptr %stripes, align 4
   %inc = add nuw nsw i64 %i.0152, 1
   %exitcond.not = icmp eq i64 %inc, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body
   %mul217 = shl nuw nsw i32 %conv6.i, 3
@@ -1101,7 +1101,7 @@ if.then229:                                       ; preds = %for.end
   br label %error
 
 if.end230:                                        ; preds = %for.end
-  %call232 = call fastcc i32 @qcrypto_block_luks_store_key(ptr noundef nonnull %block, i32 noundef 0, ptr noundef nonnull %call45, ptr noundef %call126, i64 noundef %spec.select, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef %errp), !range !17
+  %call232 = call fastcc i32 @qcrypto_block_luks_store_key(ptr noundef nonnull %block, i32 noundef 0, ptr noundef nonnull %call45, ptr noundef %call126, i64 noundef %spec.select, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef %errp)
   %cmp233 = icmp slt i32 %call232, 0
   br i1 %cmp233, label %error, label %if.end236
 
@@ -1147,7 +1147,7 @@ cleanup:                                          ; preds = %if.end245, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcrypto_block_luks_amend_options(ptr noundef %block, ptr nocapture noundef readonly %readfunc, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr nocapture noundef readonly %options, i1 noundef zeroext %force, ptr noundef %errp) #1 {
+define internal range(i32 -1, 1) i32 @qcrypto_block_luks_amend_options(ptr noundef %block, ptr nocapture noundef readonly %readfunc, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr nocapture noundef readonly %options, i1 noundef zeroext %force, ptr noundef %errp) #1 {
 entry:
   %slots_to_erase_bitmap.i = alloca i64, align 8
   %u = getelementptr inbounds i8, ptr %options, i64 8
@@ -1234,7 +1234,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.el
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 8
-  br i1 %exitcond.not.i.i, label %if.then24.i, label %for.body.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %if.then24.i, label %for.body.i.i, !llvm.loop !16
 
 qcrypto_block_luks_find_free_keyslot.exit.i:      ; preds = %for.body.i.i
   %conv.le.i.i = trunc nuw nsw i64 %i.06.i.i to i32
@@ -1288,7 +1288,7 @@ for.cond.i.i:                                     ; preds = %if.end.i.i
 
 for.body.i31.i:                                   ; preds = %for.cond.i.i, %if.end35.i
   %i.05.i.i = phi i64 [ 0, %if.end35.i ], [ %inc.i33.i, %for.cond.i.i ]
-  %call.i.i = tail call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.05.i.i, ptr noundef nonnull %call32.i, ptr noundef %call37.i, ptr noundef %readfunc, ptr noundef %opaque, ptr noundef %errp), !range !13
+  %call.i.i = tail call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.05.i.i, ptr noundef nonnull %call32.i, ptr noundef %call37.i, ptr noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp)
   %cmp1.i32.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp1.i32.i, label %if.then41.i, label %if.end.i.i
 
@@ -1311,7 +1311,7 @@ if.end42.i:                                       ; preds = %if.end.i.i
   br i1 %tobool45.not.i, label %qcrypto_block_luks_amend_add_keyslot.exit, label %if.end47.i
 
 if.end47.i:                                       ; preds = %if.end42.i
-  %call48.i = tail call fastcc i32 @qcrypto_block_luks_store_key(ptr noundef %block, i32 noundef %keyslot.0.i, ptr noundef nonnull %call44.i, ptr noundef %call37.i, i64 noundef %cond.i, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef %errp), !range !17
+  %call48.i = tail call fastcc i32 @qcrypto_block_luks_store_key(ptr noundef %block, i32 noundef %keyslot.0.i, ptr noundef nonnull %call44.i, ptr noundef %call37.i, i64 noundef %cond.i, ptr noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp)
   %tobool49.not.i = icmp eq i32 %call48.i, 0
   br i1 %tobool49.not.i, label %qcrypto_block_luks_amend_add_keyslot.exit, label %if.then50.i
 
@@ -1406,7 +1406,7 @@ if.end24.i:                                       ; preds = %if.then17.i
 
 if.then27.i:                                      ; preds = %if.end24.i
   %conv28.i = and i64 %21, 7
-  %call29.i = tail call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef nonnull %block, i64 noundef %conv28.i, ptr noundef %old_password.0.i20, ptr noundef %tmpkey.0.i, ptr noundef %readfunc, ptr noundef %opaque, ptr noundef %errp), !range !13
+  %call29.i = tail call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef nonnull %block, i64 noundef %conv28.i, ptr noundef %old_password.0.i20, ptr noundef %tmpkey.0.i, ptr noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp)
   switch i32 %call29.i, label %if.end38.i [
     i32 -1, label %qcrypto_block_luks_amend_erase_keyslots.exit
     i32 0, label %if.then35.i
@@ -1441,7 +1441,7 @@ for.body.i.i29:                                   ; preds = %qcrypto_block_luks_
   %spec.select.i.i = add i32 %ret.05.i.i, %inc.i.i32
   %inc1.i.i = add nuw nsw i64 %i.04.i.i, 1
   %exitcond.not.i.i33 = icmp eq i64 %inc1.i.i, 8
-  br i1 %exitcond.not.i.i33, label %qcrypto_block_luks_count_active_slots.exit.i, label %for.body.i.i29, !llvm.loop !19
+  br i1 %exitcond.not.i.i33, label %qcrypto_block_luks_count_active_slots.exit.i, label %for.body.i.i29, !llvm.loop !17
 
 qcrypto_block_luks_count_active_slots.exit.i:     ; preds = %for.body.i.i29
   %cmp46.i = icmp eq i32 %spec.select.i.i, 1
@@ -1452,7 +1452,7 @@ if.then48.i:                                      ; preds = %qcrypto_block_luks_
   br label %qcrypto_block_luks_amend_erase_keyslots.exit
 
 if.end49.i:                                       ; preds = %qcrypto_block_luks_count_active_slots.exit.i, %if.end38.i
-  %call50.i = tail call fastcc i32 @qcrypto_block_luks_erase_key(ptr noundef %block, i32 noundef %conv19.i, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef %errp), !range !17
+  %call50.i = tail call fastcc i32 @qcrypto_block_luks_erase_key(ptr noundef %block, i32 noundef %conv19.i, ptr noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp)
   %tobool51.not.i = icmp eq i32 %call50.i, 0
   br i1 %tobool51.not.i, label %qcrypto_block_luks_amend_erase_keyslots.exit, label %if.then52.i
 
@@ -1471,7 +1471,7 @@ if.then57.i:                                      ; preds = %if.else54.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then57.i
   %i.076.i = phi i64 [ 0, %if.then57.i ], [ %inc.i, %for.inc.i ]
-  %call61.i = call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.076.i, ptr noundef %old_password.0.i20, ptr noundef %tmpkey.0.i, ptr noundef %readfunc, ptr noundef %opaque, ptr noundef %errp), !range !13
+  %call61.i = call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %i.076.i, ptr noundef %old_password.0.i20, ptr noundef %tmpkey.0.i, ptr noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp)
   switch i32 %call61.i, label %for.inc.i [
     i32 -1, label %qcrypto_block_luks_amend_erase_keyslots.exit
     i32 1, label %if.then68.i
@@ -1484,12 +1484,12 @@ if.then68.i:                                      ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then68.i, %for.body.i
   %inc.i = add nuw nsw i64 %i.076.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !18
 
 for.end.i:                                        ; preds = %for.inc.i
   %slots_to_erase_bitmap.val.i = load i64, ptr %slots_to_erase_bitmap.i, align 8
   %and6.i.i = and i64 %slots_to_erase_bitmap.val.i, 255
-  %26 = call i64 @llvm.ctpop.i64(i64 %and6.i.i), !range !21
+  %26 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and6.i.i)
   %conv72.i = trunc nuw nsw i64 %26 to i32
   %cmp73.i = icmp eq i32 %conv72.i, 0
   br i1 %cmp73.i, label %if.then75.i, label %if.end76.i
@@ -1518,7 +1518,7 @@ for.body.i61.i:                                   ; preds = %for.body.i61.i, %la
   %spec.select.i67.i = add i32 %ret.05.i62.i, %inc.i66.i
   %inc1.i68.i = add nuw nsw i64 %i.04.i63.i, 1
   %exitcond.not.i69.i = icmp eq i64 %inc1.i68.i, 8
-  br i1 %exitcond.not.i69.i, label %qcrypto_block_luks_count_active_slots.exit70.i, label %for.body.i61.i, !llvm.loop !19
+  br i1 %exitcond.not.i69.i, label %qcrypto_block_luks_count_active_slots.exit70.i, label %for.body.i61.i, !llvm.loop !17
 
 qcrypto_block_luks_count_active_slots.exit70.i:   ; preds = %for.body.i61.i
   %cmp80.i = icmp eq i32 %spec.select.i67.i, %conv72.i
@@ -1538,7 +1538,7 @@ for.body87.i:                                     ; preds = %for.body87.i.prehea
 
 if.end91.i:                                       ; preds = %for.body87.i
   %conv92.i = trunc nuw nsw i64 %i.177.i to i32
-  %call93.i = call fastcc i32 @qcrypto_block_luks_erase_key(ptr noundef %block, i32 noundef %conv92.i, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef %errp), !range !17
+  %call93.i = call fastcc i32 @qcrypto_block_luks_erase_key(ptr noundef %block, i32 noundef %conv92.i, ptr noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp)
   %tobool94.not.i = icmp eq i32 %call93.i, 0
   br i1 %tobool94.not.i, label %for.inc97.i, label %if.then95.i
 
@@ -1549,7 +1549,7 @@ if.then95.i:                                      ; preds = %if.end91.i
 for.inc97.i:                                      ; preds = %if.end91.i, %for.body87.i
   %inc98.i = add nuw nsw i64 %i.177.i, 1
   %exitcond80.not.i = icmp eq i64 %inc98.i, 8
-  br i1 %exitcond80.not.i, label %qcrypto_block_luks_amend_erase_keyslots.exit, label %for.body87.i, !llvm.loop !22
+  br i1 %exitcond80.not.i, label %qcrypto_block_luks_amend_erase_keyslots.exit, label %for.body87.i, !llvm.loop !19
 
 if.else100.i:                                     ; preds = %if.else54.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1818, ptr noundef nonnull @__func__.qcrypto_block_luks_amend_erase_keyslots, ptr noundef nonnull @.str.59) #16
@@ -1666,7 +1666,7 @@ do.body:                                          ; preds = %for.body, %if.then3
   %12 = load ptr, ptr %tail.036, align 8
   %inc = add nuw nsw i64 %i.037, 1
   %exitcond.not = icmp eq i64 %inc, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %do.body
   ret i32 0
@@ -1900,7 +1900,7 @@ declare i64 @qcrypto_cipher_get_key_len(i32 noundef) local_unnamed_addr #4
 declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %slot_idx, ptr noundef %password, ptr noundef %masterkey, ptr nocapture noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef %slot_idx, ptr noundef %password, ptr noundef %masterkey, ptr nocapture noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %keydigest = alloca [20 x i8], align 16
   %opaque1 = getelementptr inbounds i8, ptr %block, i64 16
@@ -2054,7 +2054,7 @@ declare i64 @qcrypto_pbkdf2_count_iters(i32 noundef, ptr noundef, i64 noundef, p
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @qcrypto_block_luks_store_key(ptr noundef %block, i32 noundef %slot_idx, ptr noundef %password, ptr noundef %masterkey, i64 noundef %iter_time, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @qcrypto_block_luks_store_key(ptr noundef %block, i32 noundef %slot_idx, ptr noundef %password, ptr noundef %masterkey, i64 noundef %iter_time, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %local_err = alloca ptr, align 8
   %opaque1 = getelementptr inbounds i8, ptr %block, i64 16
@@ -2186,7 +2186,7 @@ if.end76:                                         ; preds = %if.end71
 
 if.end83:                                         ; preds = %if.end76
   store i32 11301363, ptr %arrayidx, align 4
-  %call84 = call fastcc i32 @qcrypto_block_luks_store_header(ptr noundef nonnull %block, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef %errp), !range !17
+  %call84 = call fastcc i32 @qcrypto_block_luks_store_header(ptr noundef nonnull %block, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef %errp)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end83, %if.end76, %if.end71, %if.end60, %if.end53, %if.end46, %if.end25
@@ -2248,7 +2248,7 @@ declare i32 @qcrypto_afsplit_encode(i32 noundef, i64 noundef, i32 noundef, ptr n
 declare i32 @qcrypto_block_cipher_encrypt_helper(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @qcrypto_block_luks_store_header(ptr noundef %block, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @qcrypto_block_luks_store_header(ptr noundef %block, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %local_err = alloca ptr, align 8
   %opaque1 = getelementptr inbounds i8, ptr %block, i64 16
@@ -2319,7 +2319,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @qcrypto_block_luks_erase_key(ptr noundef %block, i32 noundef %slot_idx, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @qcrypto_block_luks_erase_key(ptr noundef %block, i32 noundef %slot_idx, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %local_err = alloca ptr, align 8
   %opaque1 = getelementptr inbounds i8, ptr %block, i64 16
@@ -2346,7 +2346,7 @@ if.end7:                                          ; preds = %entry
   %iterations = getelementptr inbounds i8, ptr %arrayidx, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %iterations, i8 0, i64 36, i1 false)
   store i32 57005, ptr %arrayidx, align 4
-  %call8 = call fastcc i32 @qcrypto_block_luks_store_header(ptr noundef nonnull %block, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef nonnull %local_err), !range !17
+  %call8 = call fastcc i32 @qcrypto_block_luks_store_header(ptr noundef nonnull %block, ptr noundef %writefunc, ptr noundef %opaque, ptr noundef nonnull %local_err)
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %if.then11, label %if.end12
 
@@ -2362,7 +2362,7 @@ if.end12:                                         ; preds = %if.then11, %if.end7
 for.cond:                                         ; preds = %if.end23
   %inc = add nuw nsw i64 %i.020, 1
   %exitcond.not = icmp eq i64 %inc, 40
-  br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !24
+  br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !21
 
 for.body:                                         ; preds = %if.end12, %for.cond
   %i.020 = phi i64 [ 0, %if.end12 ], [ %inc, %for.cond ]
@@ -2461,15 +2461,12 @@ attributes #20 = { nounwind allocsize(0) }
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i32 -1, i32 2}
+!13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = !{i32 -1, i32 1}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = !{i64 0, i64 65}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
+!21 = distinct !{!21, !6}

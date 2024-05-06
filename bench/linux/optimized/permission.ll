@@ -133,7 +133,7 @@ declare dso_local i32 @groups_search(ptr noundef, i32) local_unnamed_addr #1
 declare dso_local i32 @security_key_permission(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @key_validate(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -128, 1) i32 @key_validate(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load volatile i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88

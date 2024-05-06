@@ -955,7 +955,7 @@ if.else.i:                                        ; preds = %while.body
   br i1 %cmp1.i, label %clip_swap_int32_t.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.else.i
-  %conv.i = trunc i64 %add to i32
+  %conv.i = trunc nsw i64 %add to i32
   %2 = tail call i32 @llvm.bswap.i32(i32 %conv.i)
   br label %clip_swap_int32_t.exit
 
@@ -1469,7 +1469,7 @@ if.else.i:                                        ; preds = %while.body
   br i1 %cmp1.i, label %clip_swap_int32_t.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.else.i
-  %conv.i = trunc i64 %0 to i32
+  %conv.i = trunc nsw i64 %0 to i32
   %1 = tail call i32 @llvm.bswap.i32(i32 %conv.i)
   br label %clip_swap_int32_t.exit
 
@@ -1487,7 +1487,7 @@ if.else.i5:                                       ; preds = %clip_swap_int32_t.e
   br i1 %cmp1.i6, label %clip_swap_int32_t.exit10, label %if.end3.i7
 
 if.end3.i7:                                       ; preds = %if.else.i5
-  %conv.i8 = trunc i64 %2 to i32
+  %conv.i8 = trunc nsw i64 %2 to i32
   %3 = tail call i32 @llvm.bswap.i32(i32 %conv.i8)
   br label %clip_swap_int32_t.exit10
 
@@ -1738,7 +1738,7 @@ while.body:                                       ; preds = %if.end42, %if.end19
   br i1 %cmp23.not64, label %while.end, label %while.body25.preheader
 
 while.body25.preheader:                           ; preds = %while.body
-  %8 = trunc i64 %shr to i32
+  %8 = trunc nuw i64 %shr to i32
   br label %while.body25
 
 while.cond21:                                     ; preds = %while.body25
@@ -1899,7 +1899,7 @@ while.body:                                       ; preds = %if.end41, %if.end18
   br i1 %cmp22.not64, label %while.end, label %while.body24.preheader
 
 while.body24.preheader:                           ; preds = %while.body
-  %6 = trunc i64 %shr to i32
+  %6 = trunc nuw i64 %shr to i32
   br label %while.body24
 
 while.cond20:                                     ; preds = %while.body24
@@ -2058,7 +2058,7 @@ if.else:                                          ; preds = %if.end
   %ipos5 = getelementptr inbounds i8, ptr %opaque, i64 16
   %4 = load i32, ptr %ipos5, align 8
   %shr = lshr i64 %sub, 32
-  %5 = trunc i64 %shr to i32
+  %5 = trunc nuw i64 %shr to i32
   %conv7 = add i32 %4, %5
   br label %if.end8
 
@@ -2070,7 +2070,7 @@ if.end8:                                          ; preds = %if.else, %if.then1
   %sub10 = mul i64 %0, %6
   %add13 = add i64 %sub10, %opos_start.0
   %shr14 = lshr i64 %add13, 32
-  %7 = trunc i64 %shr14 to i32
+  %7 = trunc nuw i64 %shr14 to i32
   %add17 = add i32 %7, 2
   %cond = tail call i32 @llvm.usub.sat.i32(i32 %add17, i32 %ipos_start.0)
   br label %return
@@ -2111,7 +2111,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %conv.i = sext i32 %len to i64
   %mul.i = shl nsw i64 %conv.i, 4
-  tail call void @llvm.memset.p0.i64(ptr align 8 %buf, i8 0, i64 %mul.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %buf, i8 0, i64 %mul.i, i1 false)
   br label %while.end
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body

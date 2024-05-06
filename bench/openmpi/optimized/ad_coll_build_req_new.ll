@@ -377,7 +377,7 @@ define internal fastcc void @view_state_add_region(i64 noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ADIOI_Build_agg_reqs(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr noundef %7) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @ADIOI_Build_agg_reqs(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr noundef %7) local_unnamed_addr #2 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -828,7 +828,7 @@ find_next_off.exit:                               ; preds = %.critedge.i
   br i1 %or.cond, label %259, label %261
 
 259:                                              ; preds = %find_next_off.exit
-  %260 = trunc i64 %indvars.iv to i32
+  %260 = trunc nuw nsw i64 %indvars.iv to i32
   call void @ADIOI_Heap_insert(ptr noundef nonnull %20, i64 noundef %251, i32 noundef %260, i64 noundef %256) #10
   br label %261
 
@@ -1541,7 +1541,7 @@ find_next_off.exit243:                            ; preds = %422, %.critedge.i23
   br i1 %655, label %656, label %660
 
 656:                                              ; preds = %.lr.ph470
-  %657 = trunc i64 %indvars.iv560 to i32
+  %657 = trunc nuw nsw i64 %indvars.iv560 to i32
   %658 = load ptr, ptr @stderr, align 8
   %659 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %658, ptr noundef nonnull @.str.8, i32 noundef %657) #11
   br label %742
@@ -1558,7 +1558,7 @@ find_next_off.exit243:                            ; preds = %422, %.critedge.i23
 
 667:                                              ; preds = %660
   %668 = getelementptr inbounds ptr, ptr %638, i64 %indvars.iv560
-  %669 = trunc i64 %indvars.iv560 to i32
+  %669 = trunc nuw nsw i64 %indvars.iv560 to i32
   %670 = load ptr, ptr %668, align 8
   call void @ADIOI_Free_fn(ptr noundef %670, i32 noundef 620, ptr noundef nonnull @.str.1) #10
   %671 = load ptr, ptr @stderr, align 8
@@ -1658,7 +1658,7 @@ find_next_off.exit243:                            ; preds = %422, %.critedge.i23
   br i1 %.not220, label %710, label %706
 
 706:                                              ; preds = %.lr.ph487
-  %707 = trunc i64 %indvars.iv573 to i32
+  %707 = trunc nuw nsw i64 %indvars.iv573 to i32
   %708 = load ptr, ptr @stderr, align 8
   %709 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %708, ptr noundef nonnull @.str.12, i32 noundef %707, i32 noundef %703, i32 noundef %705) #11
   br label %742
@@ -1870,7 +1870,7 @@ declare i32 @PMPI_Type_commit(ptr noundef) local_unnamed_addr #4
 declare i32 @PMPI_Type_contiguous(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ADIOI_Build_client_reqs(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @ADIOI_Build_client_reqs(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) local_unnamed_addr #2 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -2355,7 +2355,7 @@ view_state_add_region.exit208.us:                 ; preds = %248, %.loopexit.i20
   %.2152337.us = phi i32 [ %.3.us, %find_next_off.exit.thread.us ], [ %.1151351.us, %.preheader293.us ]
   %.2158336.us = phi i64 [ %.3159.us, %find_next_off.exit.thread.us ], [ %.1157350.us, %.preheader293.us ]
   %.0160335.us = phi i64 [ %.1161.us, %find_next_off.exit.thread.us ], [ -1, %.preheader293.us ]
-  %282 = trunc i64 %indvars.iv457 to i32
+  %282 = trunc nuw nsw i64 %indvars.iv457 to i32
   %283 = call i32 @ADIOI_Agg_idx(i32 noundef %282, ptr noundef %0) #10
   %284 = icmp slt i32 %283, 0
   br i1 %284, label %find_next_off.exit.thread.us, label %285
@@ -2946,7 +2946,7 @@ find_next_off.exit.thread.us:                     ; preds = %499, %496, %find_ne
 declare i32 @ADIOI_Agg_idx(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ADIOI_Build_client_pre_req(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @ADIOI_Build_client_pre_req(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -3021,7 +3021,7 @@ define noundef i32 @ADIOI_Build_client_pre_req(ptr nocapture noundef readonly %0
   %49 = phi i1 [ true, %.preheader228 ], [ false, %282 ]
   %.0161279 = phi i32 [ 0, %.preheader228 ], [ 1, %282 ]
   %.0162278 = phi i32 [ 0, %.preheader228 ], [ %.2164.lcssa, %282 ]
-  %trunc = trunc i32 %.0161279 to i1
+  %trunc = trunc nuw i32 %.0161279 to i1
   %.1140.v = select i1 %trunc, i64 48, i64 80
   %.1140 = getelementptr inbounds i8, ptr %3, i64 %.1140.v
   %50 = select i1 %trunc, i64 48, i64 80
@@ -3495,7 +3495,7 @@ view_state_add_region.exit202:                    ; preds = %.loopexit.i200, %24
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ADIOI_Build_client_req(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @ADIOI_Build_client_req(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -3585,7 +3585,7 @@ define noundef i32 @ADIOI_Build_client_req(ptr nocapture noundef readonly %0, i3
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %55
-  %58 = trunc i64 %indvars.iv60.i to i32
+  %58 = trunc nuw nsw i64 %indvars.iv60.i to i32
   %59 = add nuw nsw i32 %58, 1
   br label %.loopexit.i
 
@@ -3595,7 +3595,7 @@ define noundef i32 @ADIOI_Build_client_req(ptr nocapture noundef readonly %0, i3
   br i1 %exitcond.not, label %.loopexit.i, label %48, !llvm.loop !30
 
 process_pre_req.exit.thread:                      ; preds = %48
-  %61 = trunc i64 %indvars.iv60.i to i32
+  %61 = trunc nuw nsw i64 %indvars.iv60.i to i32
   %62 = add nuw nsw i32 %61, 1
   br label %._crit_edge315
 
@@ -3649,7 +3649,7 @@ process_pre_req.exit.thread:                      ; preds = %48
 
 97:                                               ; preds = %.lr.ph.i
   %98 = getelementptr inbounds i32, ptr %.076322, i64 %indvars.iv.i
-  %99 = trunc i64 %indvars.iv.i to i32
+  %99 = trunc nuw nsw i64 %indvars.iv.i to i32
   %100 = sub nsw i64 %.0177320, %.014133.i
   %101 = trunc i64 %100 to i32
   store i32 %101, ptr %98, align 4
@@ -3671,7 +3671,7 @@ process_pre_req.exit.thread:                      ; preds = %48
   br i1 %113, label %114, label %117
 
 114:                                              ; preds = %112
-  %115 = trunc i64 %indvars.iv.i to i32
+  %115 = trunc nuw nsw i64 %indvars.iv.i to i32
   %116 = add nuw nsw i32 %115, 1
   br label %.loopexit6.i
 
@@ -3683,7 +3683,7 @@ process_pre_req.exit.thread:                      ; preds = %48
   br i1 %120, label %.lr.ph.i, label %.loopexit6.loopexit.i, !llvm.loop !31
 
 .loopexit6.loopexit.i:                            ; preds = %117
-  %121 = trunc i64 %indvars.iv.next.i to i32
+  %121 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %.loopexit6.i
 
 .loopexit6.i:                                     ; preds = %.loopexit6.loopexit.i, %114, %97, %.preheader5.i

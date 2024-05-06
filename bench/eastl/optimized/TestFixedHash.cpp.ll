@@ -32540,7 +32540,7 @@ for.cond82.preheader:                             ; preds = %invoke.cont76
 
 for.body84:                                       ; preds = %for.cond82.preheader, %for.inc89
   %indvars.iv3257 = phi i64 [ 0, %for.cond82.preheader ], [ %indvars.iv.next3258, %for.inc89 ]
-  %118 = trunc i64 %indvars.iv3257 to i32
+  %118 = trunc nuw nsw i64 %indvars.iv3257 to i32
   store i32 %118, ptr %ref.tmp85, align 4
   store i32 %118, ptr %second.i145, align 4
   invoke void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE28DoInsertValueExtraForwardingIS3_NS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mPNS_9hash_nodeIS3_Lb0EEEOT_(ptr nonnull sret(%"struct.eastl::pair") align 8 %tmp87, ptr noundef nonnull align 8 dereferenceable(104) %fixedHashMap54, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp85, i64 noundef %indvars.iv3257, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp85)
@@ -32850,7 +32850,7 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm1
 
 for.body140:                                      ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit, %for.inc145
   %indvars.iv3261 = phi i64 [ 0, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit ], [ %indvars.iv.next3262, %for.inc145 ]
-  %156 = trunc i64 %indvars.iv3261 to i32
+  %156 = trunc nuw nsw i64 %indvars.iv3261 to i32
   store i32 %156, ptr %ref.tmp141, align 4
   invoke void @_ZN5eastl9hashtableIjNS_4pairIKjjEENS_25fixed_hashtable_allocatorILm514ELm16ELm512ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIjEENS_4hashIjEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE11DoInsertKeyENS_17integral_constantIbLb1EEERS2_m(ptr nonnull sret(%"struct.eastl::pair.167") align 8 %tmp142, ptr noundef nonnull align 8 dereferenceable(112) %fixedHashMap132, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp141, i64 noundef %indvars.iv3261)
           to label %for.inc145 unwind label %lpad143.loopexit
@@ -36083,7 +36083,7 @@ for.body667:                                      ; preds = %invoke.cont661, %fo
   %560 = inttoptr i64 %shr.i to ptr
   store ptr %560, ptr %p, align 8
   %561 = load i64, ptr %mnBucketCount.i819, align 8
-  %rem.i.i.i.lhs.trunc = trunc i64 %shr.i to i32
+  %rem.i.i.i.lhs.trunc = trunc nuw nsw i64 %shr.i to i32
   %rem.i.i.i.rhs.trunc = trunc i64 %561 to i32
   %rem.i.i.i3011 = urem i32 %rem.i.i.i.lhs.trunc, %rem.i.i.i.rhs.trunc
   %rem.i.i.i.zext = zext nneg i32 %rem.i.i.i3011 to i64
@@ -36238,7 +36238,7 @@ delete.notnull:                                   ; preds = %for.inc678
 
 while.body:                                       ; preds = %delete.notnull, %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS4_.exit
   %indvars.iv3266 = phi i64 [ 9, %delete.notnull ], [ %indvars.iv.next3267, %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertEOS4_.exit ]
-  %583 = trunc i64 %indvars.iv3266 to i32
+  %583 = trunc nuw nsw i64 %indvars.iv3266 to i32
   store i32 %583, ptr %ref.tmp686, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %renderData.sroa.3.0.ref.tmp686.sroa_idx, ptr noundef nonnull align 4 dereferenceable(36) %renderData.sroa.3, i64 36, i1 false)
   store i32 %583, ptr %second.i850, align 4
@@ -36325,7 +36325,7 @@ entry.if.end_crit_edge.i2500:                     ; preds = %call.i.noexc2544
 
 if.then.i2512:                                    ; preds = %call.i.noexc2544
   %bRehash.sroa.21.0.extract.shift.i2513 = lshr i64 %call.i2545, 32
-  %bRehash.sroa.21.0.extract.trunc.i = trunc i64 %bRehash.sroa.21.0.extract.shift.i2513 to i32
+  %bRehash.sroa.21.0.extract.trunc.i = trunc nuw i64 %bRehash.sroa.21.0.extract.shift.i2513 to i32
   %rem.i.i.i2514 = urem i64 %indvars.iv3266, %bRehash.sroa.21.0.extract.shift.i2513
   %add.i.i.i2515 = shl nuw nsw i64 %bRehash.sroa.21.0.extract.shift.i2513, 3
   %599 = load ptr, ptr %mpBucketBuffer.i.i.i.i2516, align 8, !noalias !659
@@ -36486,7 +36486,7 @@ _ZN5eastl14fixed_hash_mapIK18InstanceRenderDatajLm10ELm11ELb0ENS_4hashIS2_EENS_8
 
 for.body697:                                      ; preds = %_ZN5eastl14fixed_hash_mapIK18InstanceRenderDatajLm10ELm11ELb0ENS_4hashIS2_EENS_8equal_toIS2_EELb0ENS_9allocatorEED2Ev.exit, %for.inc703
   %indvars.iv3269 = phi i64 [ 0, %_ZN5eastl14fixed_hash_mapIK18InstanceRenderDatajLm10ELm11ELb0ENS_4hashIS2_EENS_8equal_toIS2_EELb0ENS_9allocatorEED2Ev.exit ], [ %indvars.iv.next3270, %for.inc703 ]
-  %627 = trunc i64 %indvars.iv3269 to i32
+  %627 = trunc nuw nsw i64 %indvars.iv3269 to i32
   store i32 %627, ptr %ref.tmp698, align 4
   store i32 %627, ptr %second.i884, align 4
   invoke void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE28DoInsertValueExtraForwardingIS3_NS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mPNS_9hash_nodeIS3_Lb0EEEOT_(ptr nonnull sret(%"struct.eastl::pair") align 8 %tmp701, ptr noundef nonnull align 8 dereferenceable(112) %c693, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp698, i64 noundef %indvars.iv3269, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp698)
@@ -39343,7 +39343,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %for.body4
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJRiSI_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %result.0.i.i.i.i = phi ptr [ %1, %if.then.i.i.i.i.i.i ], [ %3, %if.else.i.i.i.i.i.i ]
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %6, ptr %result.0.i.i.i.i, align 4, !noalias !812
   %second.i.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i.i, i64 4
   store i32 %6, ptr %second.i.i.i.i, align 4, !noalias !812
@@ -39913,7 +39913,7 @@ if.else8.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJRiSI_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit.i: ; preds = %if.else8.i.i.i.i.i, %if.then4.i.i.i.i.i, %if.then.i.i.i.i.i
   %result.0.i.i.i = phi ptr [ %1, %if.then.i.i.i.i.i ], [ %3, %if.then4.i.i.i.i.i ], [ %call.i.i.i.i.i.i77, %if.else8.i.i.i.i.i ]
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %6, ptr %result.0.i.i.i, align 4, !noalias !829
   %second.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i, i64 4
   store i32 %6, ptr %second.i.i.i, align 4, !noalias !829
@@ -40588,7 +40588,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE14DoAllocateNodeIJRiSI_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i73
   %result.0.i.i.i = phi ptr [ %19, %if.then.i.i.i.i.i73 ], [ %21, %if.else.i.i.i.i.i ]
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %24, ptr %result.0.i.i.i, align 4, !noalias !847
   %second.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i, i64 4
   store i32 %24, ptr %second.i.i.i, align 4, !noalias !847
@@ -41174,7 +41174,7 @@ if.else8.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EE14DoAllocateNodeIJRiSI_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit.i: ; preds = %if.else8.i.i.i.i.i, %if.then4.i.i.i.i.i, %if.then.i.i.i.i.i
   %result.0.i.i.i = phi ptr [ %21, %if.then.i.i.i.i.i ], [ %23, %if.then4.i.i.i.i.i ], [ %call.i.i.i.i.i.i80, %if.else8.i.i.i.i.i ]
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %26, ptr %result.0.i.i.i, align 4, !noalias !865
   %second.i.i.i = getelementptr inbounds i8, ptr %result.0.i.i.i, i64 4
   store i32 %26, ptr %second.i.i.i, align 4, !noalias !865
@@ -86042,7 +86042,7 @@ if.then4:                                         ; preds = %if.then
 
 if.then.i:                                        ; preds = %if.then4
   %bRehash.sroa.21.0.extract.shift.i = lshr i64 %call.i, 32
-  %bRehash.sroa.21.0.extract.trunc.i = trunc i64 %bRehash.sroa.21.0.extract.shift.i to i32
+  %bRehash.sroa.21.0.extract.trunc.i = trunc nuw i64 %bRehash.sroa.21.0.extract.shift.i to i32
   %rem.i1.i.i = urem i32 %c, %bRehash.sroa.21.0.extract.trunc.i
   %conv4.i = zext i32 %rem.i1.i.i to i64
   tail call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %bRehash.sroa.21.0.extract.shift.i), !noalias !2791
@@ -86108,7 +86108,7 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS
 
 if.then.i37:                                      ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE14DoAllocateNodeIJKiEEEPNS_9hash_nodeIiLb1EEEDpOT_.exit
   %bRehash.sroa.21.0.extract.shift.i38 = lshr i64 %call.i24, 32
-  %bRehash.sroa.21.0.extract.trunc.i39 = trunc i64 %bRehash.sroa.21.0.extract.shift.i38 to i32
+  %bRehash.sroa.21.0.extract.trunc.i39 = trunc nuw i64 %bRehash.sroa.21.0.extract.shift.i38 to i32
   %rem.i1.i.i40 = urem i32 %c, %bRehash.sroa.21.0.extract.trunc.i39
   %conv4.i41 = zext i32 %rem.i1.i.i40 to i64
   tail call void @_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %bRehash.sroa.21.0.extract.shift.i38), !noalias !2794
@@ -86483,7 +86483,7 @@ if.then4:                                         ; preds = %if.then
 
 if.then.i:                                        ; preds = %if.then4
   %bRehash.sroa.21.0.extract.shift.i = lshr i64 %call.i, 32
-  %bRehash.sroa.21.0.extract.trunc.i = trunc i64 %bRehash.sroa.21.0.extract.shift.i to i32
+  %bRehash.sroa.21.0.extract.trunc.i = trunc nuw i64 %bRehash.sroa.21.0.extract.shift.i to i32
   %rem.i1.i.i = urem i32 %c, %bRehash.sroa.21.0.extract.trunc.i
   %conv4.i = zext i32 %rem.i1.i.i to i64
   tail call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %bRehash.sroa.21.0.extract.shift.i), !noalias !2803
@@ -86549,7 +86549,7 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1EL
 
 if.then.i37:                                      ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE14DoAllocateNodeIJKS3_EEEPNS_9hash_nodeIS3_Lb1EEEDpOT_.exit
   %bRehash.sroa.21.0.extract.shift.i38 = lshr i64 %call.i24, 32
-  %bRehash.sroa.21.0.extract.trunc.i39 = trunc i64 %bRehash.sroa.21.0.extract.shift.i38 to i32
+  %bRehash.sroa.21.0.extract.trunc.i39 = trunc nuw i64 %bRehash.sroa.21.0.extract.shift.i38 to i32
   %rem.i1.i.i40 = urem i32 %c, %bRehash.sroa.21.0.extract.trunc.i39
   %conv4.i41 = zext i32 %rem.i1.i.i40 to i64
   tail call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %bRehash.sroa.21.0.extract.shift.i38), !noalias !2806
@@ -86672,7 +86672,7 @@ if.then:                                          ; preds = %for.inc.i, %_ZN5eas
 
 if.then.i:                                        ; preds = %if.then
   %bRehash.sroa.21.0.extract.shift.i = lshr i64 %call.i, 32
-  %bRehash.sroa.21.0.extract.trunc.i = trunc i64 %bRehash.sroa.21.0.extract.shift.i to i32
+  %bRehash.sroa.21.0.extract.trunc.i = trunc nuw i64 %bRehash.sroa.21.0.extract.shift.i to i32
   %rem.i1.i.i = urem i32 %6, %bRehash.sroa.21.0.extract.trunc.i
   %conv4.i = zext i32 %rem.i1.i.i to i64
   tail call void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %bRehash.sroa.21.0.extract.shift.i), !noalias !2809
@@ -88324,7 +88324,7 @@ if.then4:                                         ; preds = %if.then
 
 if.then.i:                                        ; preds = %if.then4
   %bRehash.sroa.21.0.extract.shift.i = lshr i64 %call.i, 32
-  %bRehash.sroa.21.0.extract.trunc.i = trunc i64 %bRehash.sroa.21.0.extract.shift.i to i32
+  %bRehash.sroa.21.0.extract.trunc.i = trunc nuw i64 %bRehash.sroa.21.0.extract.shift.i to i32
   %rem.i1.i.i = urem i32 %c, %bRehash.sroa.21.0.extract.trunc.i
   %conv4.i = zext i32 %rem.i1.i.i to i64
   tail call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %bRehash.sroa.21.0.extract.shift.i), !noalias !2827
@@ -88390,7 +88390,7 @@ _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1
 
 if.then.i37:                                      ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE14DoAllocateNodeIJKS1_EEEPNS_9hash_nodeIS1_Lb1EEEDpOT_.exit
   %bRehash.sroa.21.0.extract.shift.i38 = lshr i64 %call.i24, 32
-  %bRehash.sroa.21.0.extract.trunc.i39 = trunc i64 %bRehash.sroa.21.0.extract.shift.i38 to i32
+  %bRehash.sroa.21.0.extract.trunc.i39 = trunc nuw i64 %bRehash.sroa.21.0.extract.shift.i38 to i32
   %rem.i1.i.i40 = urem i32 %c, %bRehash.sroa.21.0.extract.trunc.i39
   %conv4.i41 = zext i32 %rem.i1.i.i40 to i64
   tail call void @_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb0ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %bRehash.sroa.21.0.extract.shift.i38), !noalias !2830
@@ -88765,7 +88765,7 @@ if.then4:                                         ; preds = %if.then
 
 if.then.i:                                        ; preds = %if.then4
   %bRehash.sroa.21.0.extract.shift.i = lshr i64 %call.i, 32
-  %bRehash.sroa.21.0.extract.trunc.i = trunc i64 %bRehash.sroa.21.0.extract.shift.i to i32
+  %bRehash.sroa.21.0.extract.trunc.i = trunc nuw i64 %bRehash.sroa.21.0.extract.shift.i to i32
   %rem.i1.i.i = urem i32 %c, %bRehash.sroa.21.0.extract.trunc.i
   %conv4.i = zext i32 %rem.i1.i.i to i64
   tail call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %bRehash.sroa.21.0.extract.shift.i), !noalias !2839
@@ -88831,7 +88831,7 @@ _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24E
 
 if.then.i37:                                      ; preds = %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE14DoAllocateNodeIJKS4_EEEPNS_9hash_nodeIS4_Lb1EEEDpOT_.exit
   %bRehash.sroa.21.0.extract.shift.i38 = lshr i64 %call.i24, 32
-  %bRehash.sroa.21.0.extract.trunc.i39 = trunc i64 %bRehash.sroa.21.0.extract.shift.i38 to i32
+  %bRehash.sroa.21.0.extract.trunc.i39 = trunc nuw i64 %bRehash.sroa.21.0.extract.shift.i38 to i32
   %rem.i1.i.i40 = urem i32 %c, %bRehash.sroa.21.0.extract.trunc.i39
   %conv4.i41 = zext i32 %rem.i1.i.i40 to i64
   tail call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %bRehash.sroa.21.0.extract.shift.i38), !noalias !2842
@@ -88954,7 +88954,7 @@ if.then:                                          ; preds = %for.inc.i, %_ZN5eas
 
 if.then.i:                                        ; preds = %if.then
   %bRehash.sroa.21.0.extract.shift.i = lshr i64 %call.i, 32
-  %bRehash.sroa.21.0.extract.trunc.i = trunc i64 %bRehash.sroa.21.0.extract.shift.i to i32
+  %bRehash.sroa.21.0.extract.trunc.i = trunc nuw i64 %bRehash.sroa.21.0.extract.shift.i to i32
   %rem.i1.i.i = urem i32 %6, %bRehash.sroa.21.0.extract.trunc.i
   %conv4.i = zext i32 %rem.i1.i.i to i64
   tail call void @_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm24ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE8DoRehashEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %bRehash.sroa.21.0.extract.shift.i), !noalias !2845

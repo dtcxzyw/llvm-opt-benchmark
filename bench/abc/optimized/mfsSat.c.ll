@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkMfsSolveSat_iter(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Abc_NtkMfsSolveSat_iter(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca [12 x i32], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load i32, ptr %3, align 8
@@ -83,7 +83,7 @@ define i32 @Abc_NtkMfsSolveSat_iter(ptr nocapture noundef %0) local_unnamed_addr
   br i1 %.not40, label %40, label %45
 
 40:                                               ; preds = %32
-  %41 = trunc i64 %indvars.iv to i32
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
   %42 = shl nuw i32 1, %41
   %43 = or i32 %.043, %42
   %44 = or disjoint i32 %35, 1
@@ -128,7 +128,7 @@ declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef
 declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkMfsSolveSat(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkMfsSolveSat(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
@@ -270,7 +270,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %84
 
 84:                                               ; preds = %84, %.critedge
-  %85 = tail call i32 @Abc_NtkMfsSolveSat_iter(ptr noundef nonnull %0), !range !7
+  %85 = tail call i32 @Abc_NtkMfsSolveSat_iter(ptr noundef nonnull %0)
   switch i32 %85, label %86 [
     i32 1, label %84
     i32 -1, label %.thread60
@@ -371,7 +371,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare void @Extra_PrintBinary(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkAddOneHotness(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkAddOneHotness(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca [2 x i32], align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
@@ -399,7 +399,7 @@ define noundef i32 @Abc_NtkAddOneHotness(ptr nocapture noundef %0) local_unnamed
   %.pre39 = phi ptr [ %20, %.loopexit.loopexit ], [ %.pre, %14 ]
   %13 = icmp slt i64 %indvars.iv.next33, %.pre-phi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %13, label %14, label %.loopexit23, !llvm.loop !8
+  br i1 %13, label %14, label %.loopexit23, !llvm.loop !7
 
 14:                                               ; preds = %.lr.ph28, %.loopexit
   %.val20.pre = phi i32 [ %.val2026, %.lr.ph28 ], [ %.val20.pre41, %.loopexit ]
@@ -418,9 +418,9 @@ define noundef i32 @Abc_NtkAddOneHotness(ptr nocapture noundef %0) local_unnamed
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 4
   %.val = load i32, ptr %21, align 4
-  %22 = trunc i64 %indvars.iv.next30 to i32
+  %22 = trunc nuw i64 %indvars.iv.next30 to i32
   %23 = icmp sgt i32 %.val, %22
-  br i1 %23, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !9
+  br i1 %23, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %14, %17
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %17 ], [ %indvars.iv, %14 ]
@@ -497,6 +497,5 @@ attributes #9 = { nounwind allocsize(0) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -1, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

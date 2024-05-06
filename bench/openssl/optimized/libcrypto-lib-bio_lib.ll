@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BIO_free(ptr noundef %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_free(ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end
@@ -227,12 +227,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @BIO_vfree(ptr noundef %a) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @BIO_free(ptr noundef %a), !range !4
+  %call = tail call i32 @BIO_free(ptr noundef %a)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @BIO_up_ref(ptr nocapture noundef %a) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @BIO_up_ref(ptr nocapture noundef %a) local_unnamed_addr #4 {
 entry:
   %references = getelementptr inbounds i8, ptr %a, i64 88
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
@@ -401,7 +401,7 @@ if.end.i:                                         ; preds = %land.lhs.true
   br i1 %cmp10.i, label %return, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end.i
-  %conv14.i = trunc i64 %dlen to i32
+  %conv14.i = trunc nuw nsw i64 %dlen to i32
   %call28.i = tail call i64 %2(ptr noundef nonnull %b, i32 noundef 2, ptr noundef %data, i32 noundef %conv14.i, i64 noundef 0, i64 noundef 1) #14
   br label %bio_call_callback.exit
 
@@ -458,7 +458,7 @@ if.end.i30:                                       ; preds = %if.then29
   br i1 %cmp10.i31, label %bio_call_callback.exit38, label %if.end13.i32
 
 if.end13.i32:                                     ; preds = %if.end.i30
-  %conv14.i33 = trunc i64 %dlen to i32
+  %conv14.i33 = trunc nuw nsw i64 %dlen to i32
   br i1 %cmp18, label %land.lhs.true.i, label %if.end27.i
 
 land.lhs.true.i:                                  ; preds = %if.end13.i32
@@ -506,7 +506,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_read_ex(ptr noundef %b, ptr noundef %data, i64 noundef %dlen, ptr noundef %readbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_read_ex(ptr noundef %b, ptr noundef %data, i64 noundef %dlen, ptr noundef %readbytes) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @bio_read_intern(ptr noundef %b, ptr noundef %data, i64 noundef %dlen, ptr noundef %readbytes)
   %cmp = icmp sgt i32 %call, 0
@@ -592,7 +592,7 @@ if.end.i:                                         ; preds = %land.lhs.true
   br i1 %cmp10.i, label %return, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end.i
-  %conv14.i = trunc i64 %dlen to i32
+  %conv14.i = trunc nuw nsw i64 %dlen to i32
   %call28.i = tail call i64 %2(ptr noundef nonnull %b, i32 noundef 3, ptr noundef %data, i32 noundef %conv14.i, i64 noundef 0, i64 noundef 1) #14
   br label %bio_call_callback.exit
 
@@ -655,7 +655,7 @@ if.end.i28:                                       ; preds = %if.then32
   br i1 %cmp10.i29, label %bio_call_callback.exit36, label %if.end13.i30
 
 if.end13.i30:                                     ; preds = %if.end.i28
-  %conv14.i31 = trunc i64 %dlen to i32
+  %conv14.i31 = trunc nuw nsw i64 %dlen to i32
   br i1 %cmp21, label %land.lhs.true.i, label %if.end27.i
 
 land.lhs.true.i:                                  ; preds = %if.end13.i30
@@ -693,7 +693,7 @@ return:                                           ; preds = %if.end.i, %if.end36
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_write_ex(ptr noundef %b, ptr noundef %data, i64 noundef %dlen, ptr noundef %written) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_write_ex(ptr noundef %b, ptr noundef %data, i64 noundef %dlen, ptr noundef %written) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @bio_write_intern(ptr noundef %b, ptr noundef %data, i64 noundef %dlen, ptr noundef %written)
   %cmp1 = icmp ne ptr %b, null
@@ -1227,7 +1227,7 @@ if.then43:                                        ; preds = %if.then40
   br label %return
 
 if.else:                                          ; preds = %if.then40
-  %conv44 = trunc i64 %11 to i32
+  %conv44 = trunc nuw nsw i64 %11 to i32
   br label %return
 
 return:                                           ; preds = %if.end37, %if.else, %if.then43, %bio_call_callback.exit, %if.then15, %if.then4, %if.then
@@ -1379,7 +1379,7 @@ if.then44:                                        ; preds = %if.end41
   %10 = load i64, ptr %readbytes, align 8
   %conv45 = zext nneg i32 %size to i64
   %cmp46 = icmp ugt i64 %10, %conv45
-  %conv49 = trunc i64 %10 to i32
+  %conv49 = trunc nuw nsw i64 %10 to i32
   %spec.select = select i1 %cmp46, i32 -1, i32 %conv49
   br label %return
 
@@ -1441,7 +1441,7 @@ if.then7:                                         ; preds = %if.end6
 while.cond:                                       ; preds = %while.body
   %dec31 = add nsw i32 %dec31.in, -1
   %cmp9 = icmp sgt i32 %dec31.in, 2
-  br i1 %cmp9, label %land.rhs, label %while.end, !llvm.loop !5
+  br i1 %cmp9, label %land.rhs, label %while.end, !llvm.loop !4
 
 land.rhs:                                         ; preds = %while.cond.preheader, %while.cond
   %dec31.in = phi i32 [ %dec31, %while.cond ], [ %size, %while.cond.preheader ]
@@ -1464,7 +1464,7 @@ while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %ptr.030, i64 1
   %2 = load i8, ptr %ptr.030, align 1
   %cmp11 = icmp eq i8 %2, 10
-  br i1 %cmp11, label %while.end.thread, label %while.cond, !llvm.loop !5
+  br i1 %cmp11, label %while.end.thread, label %while.cond, !llvm.loop !4
 
 while.end.thread:                                 ; preds = %while.body
   store i8 0, ptr %incdec.ptr, align 1
@@ -1496,7 +1496,7 @@ return:                                           ; preds = %cond.true, %lor.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BIO_indent(ptr noundef %b, i32 noundef %indent, i32 noundef %max) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_indent(ptr noundef %b, i32 noundef %indent, i32 noundef %max) local_unnamed_addr #0 {
 entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %indent, i32 0)
   %spec.select = tail call i32 @llvm.smin.i32(i32 %spec.store.select, i32 %max)
@@ -1511,7 +1511,7 @@ while.body:                                       ; preds = %while.cond
   %dec = add nsw i32 %indent.addr.1, -1
   %call = tail call i32 @BIO_puts(ptr noundef %b, ptr noundef nonnull @.str.1)
   %cmp4.not = icmp eq i32 %call, 1
-  br i1 %cmp4.not, label %while.cond, label %return, !llvm.loop !7
+  br i1 %cmp4.not, label %while.cond, label %return, !llvm.loop !6
 
 return:                                           ; preds = %while.cond, %while.body
   %retval.0 = phi i32 [ 0, %while.body ], [ 1, %while.cond ]
@@ -1660,7 +1660,7 @@ while.cond:                                       ; preds = %entry, %while.cond
   %next_bio = getelementptr inbounds i8, ptr %lb.0, i64 72
   %0 = load ptr, ptr %next_bio, align 8
   %cmp1.not = icmp eq ptr %0, null
-  br i1 %cmp1.not, label %while.end, label %while.cond, !llvm.loop !8
+  br i1 %cmp1.not, label %while.end, label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
   %next_bio.le = getelementptr inbounds i8, ptr %lb.0, i64 72
@@ -1810,7 +1810,7 @@ if.end14.us:                                      ; preds = %if.then2.us, %do.bo
   %next_bio.us = getelementptr inbounds i8, ptr %bio.addr.0.us, i64 72
   %2 = load ptr, ptr %next_bio.us, align 8
   %cmp15.not.us = icmp eq ptr %2, null
-  br i1 %cmp15.not.us, label %return, label %do.body.us, !llvm.loop !9
+  br i1 %cmp15.not.us, label %return, label %do.body.us, !llvm.loop !8
 
 do.body:                                          ; preds = %if.end, %if.end14
   %bio.addr.0 = phi ptr [ %5, %if.end14 ], [ %bio, %if.end ]
@@ -1828,7 +1828,7 @@ if.end14:                                         ; preds = %if.then2, %do.body
   %next_bio = getelementptr inbounds i8, ptr %bio.addr.0, i64 72
   %5 = load ptr, ptr %next_bio, align 8
   %cmp15.not = icmp eq ptr %5, null
-  br i1 %cmp15.not, label %return, label %do.body, !llvm.loop !9
+  br i1 %cmp15.not, label %return, label %do.body, !llvm.loop !8
 
 return:                                           ; preds = %if.then2, %if.end14, %if.end14.us, %if.then2.us, %if.then
   %retval.0 = phi ptr [ null, %if.then ], [ null, %if.end14.us ], [ %bio.addr.0.us, %if.then2.us ], [ null, %if.end14 ], [ %bio.addr.0, %if.then2 ]
@@ -1871,11 +1871,11 @@ while.body:                                       ; preds = %entry, %while.body
   %0 = load atomic i32, ptr %references monotonic, align 4
   %next_bio = getelementptr inbounds i8, ptr %bio.addr.0, i64 72
   %1 = load ptr, ptr %next_bio, align 8
-  %call1 = tail call i32 @BIO_free(ptr noundef nonnull %bio.addr.0), !range !4
+  %call1 = tail call i32 @BIO_free(ptr noundef nonnull %bio.addr.0)
   %cmp2 = icmp slt i32 %0, 2
   %cmp = icmp ne ptr %1, null
   %or.cond = select i1 %cmp2, i1 %cmp, i1 false
-  br i1 %or.cond, label %while.body, label %while.end, !llvm.loop !10
+  br i1 %or.cond, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -1950,7 +1950,7 @@ while.cond.i:                                     ; preds = %if.else, %while.con
   %next_bio.i = getelementptr inbounds i8, ptr %lb.0.i, i64 72
   %8 = load ptr, ptr %next_bio.i, align 8
   %cmp1.not.i = icmp eq ptr %8, null
-  br i1 %cmp1.not.i, label %if.end6.i, label %while.cond.i, !llvm.loop !8
+  br i1 %cmp1.not.i, label %if.end6.i, label %while.cond.i, !llvm.loop !7
 
 if.end6.i:                                        ; preds = %while.cond.i
   %next_bio.i.le = getelementptr inbounds i8, ptr %lb.0.i, i64 72
@@ -1965,10 +1965,10 @@ for.inc:                                          ; preds = %if.end6.i, %if.else
   %next_bio = getelementptr inbounds i8, ptr %bio.043, i64 72
   %9 = load ptr, ptr %next_bio, align 8
   %cmp.not = icmp eq ptr %9, null
-  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !11
+  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !10
 
 err.sink.split:                                   ; preds = %if.end13, %if.end
-  %call17 = tail call i32 @BIO_free(ptr noundef nonnull %call.i), !range !4
+  %call17 = tail call i32 @BIO_free(ptr noundef nonnull %call.i)
   br label %err
 
 err:                                              ; preds = %for.body, %err.sink.split
@@ -1981,11 +1981,11 @@ while.body.i:                                     ; preds = %err, %while.body.i
   %10 = load atomic i32, ptr %references.i monotonic, align 4
   %next_bio.i29 = getelementptr inbounds i8, ptr %bio.addr.0.i, i64 72
   %11 = load ptr, ptr %next_bio.i29, align 8
-  %call1.i = tail call i32 @BIO_free(ptr noundef nonnull %bio.addr.0.i), !range !4
+  %call1.i = tail call i32 @BIO_free(ptr noundef nonnull %bio.addr.0.i)
   %cmp2.i = icmp slt i32 %10, 2
   %cmp.i30 = icmp ne ptr %11, null
   %or.cond.i = select i1 %cmp2.i, i1 %cmp.i30, i1 false
-  br i1 %or.cond.i, label %while.body.i, label %return, !llvm.loop !10
+  br i1 %or.cond.i, label %while.body.i, label %return, !llvm.loop !9
 
 return:                                           ; preds = %for.inc, %while.body.i, %entry, %err
   %retval.0 = phi ptr [ null, %err ], [ null, %entry ], [ null, %while.body.i ], [ %ret.1, %for.inc ]
@@ -2459,11 +2459,10 @@ attributes #14 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

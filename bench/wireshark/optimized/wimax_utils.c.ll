@@ -885,7 +885,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.wimax_pkm_configuration_settings_decoder = private unnamed_addr constant [7 x ptr] [ptr @hf_pkm_config_settings_authorize_waitout, ptr @hf_pkm_config_settings_reauthorize_waitout, ptr @hf_pkm_config_settings_grace_time, ptr @hf_pkm_config_settings_operational_waittime, ptr @hf_pkm_config_settings_rekey_wait_timeout, ptr @hf_pkm_config_settings_tek_grace_time, ptr @hf_pkm_config_settings_authorize_reject_wait_timeout], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden i32 @get_service_type() local_unnamed_addr #0 {
+define hidden range(i32 -1, 256) i32 @get_service_type() local_unnamed_addr #0 {
   %1 = load i32, ptr @scheduling_service_type, align 4
   ret i32 %1
 }

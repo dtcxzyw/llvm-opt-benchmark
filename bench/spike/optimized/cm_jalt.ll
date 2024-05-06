@@ -113,7 +113,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv32i_cm_jaltP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_cm_jaltP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = shl i64 %2, 32
   %5 = add i64 %4, 8589934592
   %6 = ashr exact i64 %5, 32
@@ -247,7 +247,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv64i_cm_jaltP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, -1) i64 @_Z18fast_rv64i_cm_jaltP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = add i64 %2, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %5, align 8
@@ -364,7 +364,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %46
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv32i_cm_jaltP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_cm_jaltP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = shl i64 %2, 32
   %5 = add i64 %4, 8589934592
   %6 = ashr exact i64 %5, 32
@@ -540,7 +540,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %72
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv64i_cm_jaltP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, -1) i64 @_Z20logged_rv64i_cm_jaltP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = add i64 %2, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %5, align 8
@@ -713,7 +713,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %70
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv32e_cm_jaltP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_cm_jaltP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = shl i64 %2, 32
   %5 = add i64 %4, 8589934592
   %6 = ashr exact i64 %5, 32
@@ -833,7 +833,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %48
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv64e_cm_jaltP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, -1) i64 @_Z18fast_rv64e_cm_jaltP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = add i64 %2, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %5, align 8
@@ -950,7 +950,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %46
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv32e_cm_jaltP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_cm_jaltP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = shl i64 %2, 32
   %5 = add i64 %4, 8589934592
   %6 = ashr exact i64 %5, 32
@@ -1126,7 +1126,7 @@ _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %72
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv64e_cm_jaltP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, -1) i64 @_Z20logged_rv64e_cm_jaltP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = add i64 %2, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %5, align 8

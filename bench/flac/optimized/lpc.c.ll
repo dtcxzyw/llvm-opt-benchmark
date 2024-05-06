@@ -78,7 +78,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw i64 %indvars.iv to i32
   %add2 = add i32 %0, %data_shift
   %idxprom = zext i32 %add2 to i64
   %arrayidx = getelementptr inbounds i32, ptr %in, i64 %idxprom
@@ -156,7 +156,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw i64 %indvars.iv to i32
   %add2 = add i32 %0, %data_shift
   %idxprom = zext i32 %add2 to i64
   %arrayidx = getelementptr inbounds i64, ptr %in, i64 %idxprom
@@ -271,7 +271,7 @@ for.cond8.for.inc20_crit_edge.us:                 ; preds = %for.body11.us
   br i1 %cmp4.not.us.not, label %for.body5.us, label %for.cond23.preheader.loopexit142, !llvm.loop !12
 
 for.cond23.preheader.loopexit142:                 ; preds = %for.cond8.for.inc20_crit_edge.us
-  %8 = trunc i64 %indvars.iv.next235 to i32
+  %8 = trunc nuw i64 %indvars.iv.next235 to i32
   br label %for.cond23.preheader
 
 for.cond23.preheader:                             ; preds = %for.cond23.preheader.loopexit142, %for.body5.preheader
@@ -289,7 +289,7 @@ for.body34.preheader:                             ; preds = %for.inc44, %for.bod
   %arrayidx28 = getelementptr inbounds float, ptr %data, i64 %indvars.iv240
   %10 = load float, ptr %arrayidx28, align 4
   %conv29 = fpext float %10 to double
-  %11 = trunc i64 %indvars.iv240 to i32
+  %11 = trunc nuw i64 %indvars.iv240 to i32
   %sub31 = sub i32 %data_len, %11
   %12 = zext i32 %sub31 to i64
   br label %for.body34
@@ -539,7 +539,7 @@ for.cond:                                         ; preds = %for.end46, %entry
   %indvars.iv58 = phi i32 [ %indvars.iv.next59, %for.end46 ], [ 1, %entry ]
   %err.0 = phi double [ %mul, %for.end46 ], [ %0, %entry ]
   %umax60 = tail call i32 @llvm.umax.i32(i32 %indvars.iv58, i32 1)
-  %1 = trunc i64 %indvars.iv63 to i32
+  %1 = trunc nuw i64 %indvars.iv63 to i32
   %2 = lshr i32 %1, 1
   %umax = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
   %3 = load i32, ptr %max_order, align 4
@@ -647,7 +647,7 @@ for.end46:                                        ; preds = %for.body36
   br i1 %cmp49, label %if.then51, label %for.cond, !llvm.loop !30
 
 if.then51:                                        ; preds = %for.end46
-  %20 = trunc i64 %indvars.iv.next64 to i32
+  %20 = trunc nuw i64 %indvars.iv.next64 to i32
   store i32 %20, ptr %max_order, align 4
   br label %for.end56
 
@@ -656,7 +656,7 @@ for.end56:                                        ; preds = %for.cond, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__lpc_quantize_coefficients(ptr nocapture noundef readonly %lp_coeff, i32 noundef %order, i32 noundef %precision, ptr nocapture noundef writeonly %qlp_coeff, ptr nocapture noundef %shift) local_unnamed_addr #2 {
+define hidden range(i32 0, 3) i32 @FLAC__lpc_quantize_coefficients(ptr nocapture noundef readonly %lp_coeff, i32 noundef %order, i32 noundef %precision, ptr nocapture noundef writeonly %qlp_coeff, ptr nocapture noundef %shift) local_unnamed_addr #2 {
 entry:
   %log2cmax = alloca i32, align 4
   %dec = add i32 %precision, -1
@@ -2824,7 +2824,7 @@ if.end1144:                                       ; preds = %sw.epilog, %for.bod
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden noundef i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual(ptr noalias nocapture noundef readonly %data, i32 noundef %data_len, ptr noalias nocapture noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias nocapture noundef writeonly %residual) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual(ptr noalias nocapture noundef readonly %data, i32 noundef %data_len, ptr noalias nocapture noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias nocapture noundef writeonly %residual) local_unnamed_addr #0 {
 entry:
   %invariant.gep = getelementptr i8, ptr %data, i64 -128
   %invariant.gep133 = getelementptr i8, ptr %data, i64 -124
@@ -3296,7 +3296,7 @@ sw.epilog:                                        ; preds = %sw.bb273, %for.body
   br i1 %or.cond, label %return, label %if.else
 
 if.else:                                          ; preds = %sw.epilog
-  %conv290 = trunc i64 %sub285 to i32
+  %conv290 = trunc nsw i64 %sub285 to i32
   %arrayidx292 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv
   store i32 %conv290, ptr %arrayidx292, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3309,7 +3309,7 @@ return:                                           ; preds = %sw.epilog, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden noundef i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual_33bit(ptr noalias nocapture noundef readonly %data, i32 noundef %data_len, ptr noalias nocapture noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias nocapture noundef writeonly %residual) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @FLAC__lpc_compute_residual_from_qlp_coefficients_limit_residual_33bit(ptr noalias nocapture noundef readonly %data, i32 noundef %data_len, ptr noalias nocapture noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noalias nocapture noundef writeonly %residual) local_unnamed_addr #0 {
 entry:
   %invariant.gep = getelementptr i8, ptr %data, i64 -256
   %invariant.gep133 = getelementptr i8, ptr %data, i64 -248
@@ -3748,7 +3748,7 @@ sw.epilog:                                        ; preds = %sw.bb242, %for.body
   br i1 %or.cond, label %return, label %if.else
 
 if.else:                                          ; preds = %sw.epilog
-  %conv257 = trunc i64 %sub252 to i32
+  %conv257 = trunc nsw i64 %sub252 to i32
   %arrayidx259 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv
   store i32 %conv257, ptr %arrayidx259, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6484,7 +6484,7 @@ FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit: ; pre
   %conv4 = uitofp i32 %mul3 to double
   %4 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %retval.0.i, double %conv2, double %conv4)
   %cmp5 = fcmp reassoc nsz arcp olt double %4, %best_bits.011
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw i64 %indvars.iv to i32
   %best_index.1 = select i1 %cmp5, i32 %5, i32 %best_index.09
   %best_bits.1 = select i1 %cmp5, double %4, double %best_bits.011
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

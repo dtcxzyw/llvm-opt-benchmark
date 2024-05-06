@@ -1933,7 +1933,7 @@ define dso_local void @outNode(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %9, label %switch.lookup, label %10
 
 switch.lookup:                                    ; preds = %7
-  %switch.cast = trunc i32 %switch.tableidx to i24
+  %switch.cast = trunc nuw i32 %switch.tableidx to i24
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 7892841, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8

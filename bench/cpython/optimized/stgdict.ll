@@ -906,7 +906,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.25 = private unnamed_addr constant [16 x i8] c"unexpected type\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PyCStgDict_clone(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @PyCStgDict_clone(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @PyCStgDict_clear(ptr noundef %dst)
   %elements = getelementptr inbounds i8, ptr %dst, i64 88
@@ -1239,7 +1239,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @PyCStgDict_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal range(i32 -1, 1) i32 @PyCStgDict_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDict_Type, i64 0, i32 35), align 8
   %call = tail call i32 %0(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #9
@@ -1337,7 +1337,7 @@ declare ptr @_ctypes_alloc_format_string(ptr noundef, ptr noundef) local_unnamed
 declare i32 @PyOS_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PyCStructUnionType_update_stgdict(ptr noundef %type, ptr noundef %fields, i32 noundef %isStruct) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @PyCStructUnionType_update_stgdict(ptr noundef %type, ptr noundef %fields, i32 noundef %isStruct) local_unnamed_addr #0 {
 entry:
   %offset = alloca i64, align 8
   %size = alloca i64, align 8
@@ -2680,7 +2680,7 @@ if.then494:                                       ; preds = %if.end490
 if.end495:                                        ; preds = %if.end490
   %or497 = or disjoint i32 %170, 4096
   store i32 %or497, ptr %flags, align 8
-  %call498 = call fastcc i32 @MakeAnonFields(ptr noundef %type), !range !9
+  %call498 = call fastcc i32 @MakeAnonFields(ptr noundef %type)
   br label %return
 
 return:                                           ; preds = %for.body344, %if.then1.i.i, %if.end.i.i, %if.then.i, %if.end.i556, %if.then1.i559, %if.then357, %if.end318, %if.then309, %if.end.i583, %if.then1.i586, %Py_DECREF.exit597, %if.end.i601, %if.then1.i604, %if.then276, %if.end.i610, %if.then1.i613, %Py_DECREF.exit624, %if.end.i646, %if.then1.i649, %Py_DECREF.exit660, %if.end.i664, %if.then1.i667, %if.then227, %if.end.i673, %if.then1.i676, %if.then222, %if.end.i682, %if.then1.i685, %if.then205, %if.end.i691, %if.then1.i694, %sw.default, %for.body.split, %if.end130, %if.then29, %if.then32, %lor.lhs.false19, %if.then22, %if.end3, %if.end, %entry, %if.end495, %if.then494, %Py_DECREF.exit507, %Py_DECREF.exit516, %Py_DECREF.exit525, %if.then427, %if.then394, %Py_DECREF.exit543, %Py_DECREF.exit552, %Py_DECREF.exit633, %Py_DECREF.exit705, %if.then123, %if.then86, %if.then40, %if.then37
@@ -2727,7 +2727,7 @@ declare ptr @_ctypes_alloc_format_string_with_shape(i32 noundef, ptr noundef, pt
 declare i32 @PyObject_SetAttr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @MakeAnonFields(ptr noundef %type) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @MakeAnonFields(ptr noundef %type) unnamed_addr #0 {
 entry:
   %anon = alloca ptr, align 8
   %call = call i32 @PyObject_GetOptionalAttr(ptr noundef %type, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 175), ptr noundef nonnull %anon) #9
@@ -2856,7 +2856,7 @@ if.end30:                                         ; preds = %if.end25
   %18 = load i64, ptr %index, align 8
   %offset = getelementptr inbounds i8, ptr %call22, i64 16
   %19 = load i64, ptr %offset, align 8
-  %call31 = call fastcc i32 @MakeFields(ptr noundef %type, ptr noundef nonnull %call22, i64 noundef %18, i64 noundef %19), !range !9
+  %call31 = call fastcc i32 @MakeFields(ptr noundef %type, ptr noundef nonnull %call22, i64 noundef %18, i64 noundef %19)
   %cmp32 = icmp eq i32 %call31, -1
   %20 = load i64, ptr %call22, align 8
   %21 = and i64 %20, 2147483648
@@ -2903,7 +2903,7 @@ if.then1.i41:                                     ; preds = %if.end.i38
 
 for.inc:                                          ; preds = %if.end.i38, %if.then1.i41, %if.end34
   %inc = add nuw nsw i64 %i.0, 1
-  br label %for.cond, !llvm.loop !10
+  br label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %cond.end.thread, %cond.end
   %24 = load i64, ptr %call4, align 8
@@ -2983,7 +2983,7 @@ declare ptr @PySequence_Fast(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @MakeFields(ptr noundef %type, ptr nocapture noundef readonly %descr, i64 noundef %index, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @MakeFields(ptr noundef %type, ptr nocapture noundef readonly %descr, i64 noundef %index, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %fname = alloca ptr, align 8
   %ftype = alloca ptr, align 8
@@ -3136,7 +3136,7 @@ if.then33:                                        ; preds = %if.end31
   %offset35 = getelementptr inbounds i8, ptr %call24, i64 16
   %23 = load i64, ptr %offset35, align 8
   %add36 = add i64 %23, %offset
-  %call37 = call fastcc i32 @MakeFields(ptr noundef %type, ptr noundef nonnull %call24, i64 noundef %add, i64 noundef %add36), !range !9
+  %call37 = call fastcc i32 @MakeFields(ptr noundef %type, ptr noundef nonnull %call24, i64 noundef %add, i64 noundef %add36)
   %24 = load i64, ptr %call24, align 8
   %25 = and i64 %24, 2147483648
   %cmp.i199.not = icmp eq i64 %25, 0
@@ -3310,7 +3310,7 @@ if.then1.i68:                                     ; preds = %if.end.i65
 
 for.inc:                                          ; preds = %if.end.i65, %if.then1.i68, %if.end61, %Py_DECREF.exit133
   %inc = add nuw nsw i64 %i.0, 1
-  br label %for.cond, !llvm.loop !11
+  br label %for.cond, !llvm.loop !10
 
 for.end:                                          ; preds = %cond.end.thread, %cond.end
   %49 = load i64, ptr %call1, align 8
@@ -3366,6 +3366,5 @@ attributes #10 = { nounwind willreturn memory(read) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -1, i32 1}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

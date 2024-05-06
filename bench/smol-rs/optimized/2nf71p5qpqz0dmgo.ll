@@ -389,7 +389,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17hcf89595deae72817E.exit.i.i.i.
   %135 = zext i64 %114 to i128
   %136 = mul nuw i128 %134, %135
   %137 = lshr i128 %136, 64
-  %138 = trunc i128 %137 to i64
+  %138 = trunc nuw i128 %137 to i64
   %139 = mul i64 %114, %133
   %140 = icmp ult i64 %139, %114
   br i1 %140, label %145, label %.lr.ph.i.i.i.i.i
@@ -399,7 +399,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17hcf89595deae72817E.exit.i.i.i.
   %141 = and i128 %156, 18446744073709551615
   %142 = mul nuw i128 %141, %135
   %143 = lshr i128 %142, 64
-  %144 = trunc i128 %143 to i64
+  %144 = trunc nuw i128 %143 to i64
   br label %.lr.ph.i.i.i.i.i
 
 145:                                              ; preds = %124
@@ -778,7 +778,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit.i.i.i.i.
 281:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h00d3d7638698e9ffE.exit.i.i.i.i.i"
   %.fca.0.extract1.i.i.i.i.i = extractvalue { ptr, ptr } %278, 0
   %.fca.1.extract2.i.i.i.i.i = extractvalue { ptr, ptr } %278, 1
-  %282 = trunc i8 %.0.i.i.i.i3.i.i.i.i to i1
+  %282 = trunc nuw i8 %.0.i.i.i.i3.i.i.i.i to i1
   br i1 %282, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i.i.i, label %283
 
 283:                                              ; preds = %281
@@ -951,7 +951,7 @@ define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$std..sync..mutex..M
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
-  %3 = trunc i8 %.8.val to i1
+  %3 = trunc nuw i8 %.8.val to i1
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %4
 
 4:                                                ; preds = %0

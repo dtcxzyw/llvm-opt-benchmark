@@ -295,7 +295,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @key2any_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @key2any_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %ciphername = alloca ptr, align 8
   %props = alloca ptr, align 8
@@ -362,7 +362,7 @@ return:                                           ; preds = %if.then25, %land.lh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsa_to_type_specific_keypair_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_type_specific_keypair_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -447,7 +447,7 @@ return:                                           ; preds = %if.end8, %if.then6,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dh_to_type_specific_params_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_type_specific_params_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -533,20 +533,20 @@ land.lhs.true6.i:                                 ; preds = %if.then3.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %der.i)
   store ptr null, ptr %der.i, align 8
   %call.i = tail call i32 @DH_test_flags(ptr noundef nonnull %key, i32 noundef 4096) #5
-  %tobool.not.i8 = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i8, label %if.end.i12, label %if.then.i9
+  %tobool.not.i9 = icmp eq i32 %call.i, 0
+  br i1 %tobool.not.i9, label %if.end.i13, label %if.then.i10
 
-if.then.i9:                                       ; preds = %land.lhs.true6.i
-  %call1.i10 = call i32 @i2d_DHxparams(ptr noundef nonnull %key, ptr noundef nonnull %der.i) #5
+if.then.i10:                                      ; preds = %land.lhs.true6.i
+  %call1.i11 = call i32 @i2d_DHxparams(ptr noundef nonnull %key, ptr noundef nonnull %der.i) #5
   br label %dh_type_specific_params_to_der.exit
 
-if.end.i12:                                       ; preds = %land.lhs.true6.i
+if.end.i13:                                       ; preds = %land.lhs.true6.i
   %call2.i = call i32 @i2d_DHparams(ptr noundef nonnull %key, ptr noundef nonnull %der.i) #5
   br label %dh_type_specific_params_to_der.exit
 
-dh_type_specific_params_to_der.exit:              ; preds = %if.then.i9, %if.end.i12
-  %retval.0.i11 = phi i32 [ %call1.i10, %if.then.i9 ], [ %call2.i, %if.end.i12 ]
-  %cmp.i2 = icmp slt i32 %retval.0.i11, 1
+dh_type_specific_params_to_der.exit:              ; preds = %if.then.i10, %if.end.i13
+  %retval.0.i12 = phi i32 [ %call1.i11, %if.then.i10 ], [ %call2.i, %if.end.i13 ]
+  %cmp.i2 = icmp slt i32 %retval.0.i12, 1
   br i1 %cmp.i2, label %if.then.i4, label %if.end.i3
 
 if.then.i4:                                       ; preds = %dh_type_specific_params_to_der.exit
@@ -557,7 +557,7 @@ if.then.i4:                                       ; preds = %dh_type_specific_pa
 
 if.end.i3:                                        ; preds = %dh_type_specific_params_to_der.exit
   %1 = load ptr, ptr %der.i, align 8
-  %call1.i = call i32 @BIO_write(ptr noundef nonnull %call4.i, ptr noundef %1, i32 noundef %retval.0.i11) #5
+  %call1.i = call i32 @BIO_write(ptr noundef nonnull %call4.i, ptr noundef %1, i32 noundef %retval.0.i12) #5
   %2 = load ptr, ptr %der.i, align 8
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 388) #5
   %cmp2.i = icmp sgt i32 %call1.i, 0
@@ -592,7 +592,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dhx_to_type_specific_params_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_type_specific_params_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -737,7 +737,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal noundef i32 @dsa_to_type_specific_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_type_specific_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -981,7 +981,7 @@ return:                                           ; preds = %if.end.i36, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ec_to_type_specific_no_pub_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_type_specific_no_pub_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -1167,7 +1167,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @sm2_to_type_specific_no_pub_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_type_specific_no_pub_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -1353,7 +1353,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsa_to_type_specific_keypair_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_type_specific_keypair_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -1531,7 +1531,7 @@ return:                                           ; preds = %if.else14.i26, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dh_to_type_specific_params_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_type_specific_params_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -1643,7 +1643,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dhx_to_type_specific_params_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_type_specific_params_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -1755,7 +1755,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal noundef i32 @dsa_to_type_specific_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_type_specific_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -1940,7 +1940,7 @@ return:                                           ; preds = %if.end.i36, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ec_to_type_specific_no_pub_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_type_specific_no_pub_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2087,7 +2087,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @sm2_to_type_specific_no_pub_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_type_specific_no_pub_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2234,7 +2234,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsa_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2310,7 +2310,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsa_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2386,7 +2386,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsa_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2462,7 +2462,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsa_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2538,7 +2538,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsa_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2614,7 +2614,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsa_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2690,7 +2690,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsapss_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2766,7 +2766,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsapss_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2842,7 +2842,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsapss_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2918,7 +2918,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsapss_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2994,7 +2994,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsapss_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3070,7 +3070,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsapss_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3146,7 +3146,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dh_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3222,7 +3222,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dh_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3298,7 +3298,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dh_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3374,7 +3374,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dh_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3450,7 +3450,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dh_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3526,7 +3526,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dh_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3602,7 +3602,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dhx_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3678,7 +3678,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dhx_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3754,7 +3754,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dhx_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3830,7 +3830,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dhx_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3906,7 +3906,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dhx_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3982,7 +3982,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dhx_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4058,7 +4058,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dsa_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4166,7 +4166,7 @@ if.end.i1:                                        ; preds = %if.then11.i
 land.lhs.true.if.end3_crit_edge.i:                ; preds = %if.end.i1
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre8.i = load i32, ptr %strtype.i, align 4
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 116, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull @dsa_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 116, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull readonly @dsa_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -4202,7 +4202,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dsa_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4310,7 +4310,7 @@ if.end.i1:                                        ; preds = %if.then11.i
 land.lhs.true.if.end3_crit_edge.i:                ; preds = %if.end.i1
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre8.i = load i32, ptr %strtype.i, align 4
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 116, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull @dsa_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 116, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull readonly @dsa_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -4346,7 +4346,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dsa_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4453,7 +4453,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dsa_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4560,7 +4560,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dsa_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4662,7 +4662,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
 land.lhs.true.if.end_crit_edge.i:                 ; preds = %if.then11.i
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre6.i = load i32, ptr %strtype.i, align 4
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 116, ptr noundef %.pre.i, i32 noundef %.pre6.i, ptr noundef nonnull @dsa_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 116, ptr noundef %.pre.i, i32 noundef %.pre6.i, ptr noundef nonnull readonly @dsa_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %if.end5.i, label %if.then3.i
 
@@ -4698,7 +4698,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dsa_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4805,7 +4805,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ec_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4911,7 +4911,7 @@ if.end.i1:                                        ; preds = %if.then11.i
 land.lhs.true.if.end3_crit_edge.i:                ; preds = %if.end.i1
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre8.i = load i32, ptr %strtype.i, align 4
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 408, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 408, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull readonly @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -4947,7 +4947,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ec_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5053,7 +5053,7 @@ if.end.i1:                                        ; preds = %if.then11.i
 land.lhs.true.if.end3_crit_edge.i:                ; preds = %if.end.i1
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre8.i = load i32, ptr %strtype.i, align 4
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 408, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 408, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull readonly @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -5089,7 +5089,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ec_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5196,7 +5196,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ec_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5303,7 +5303,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ec_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5403,7 +5403,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
 land.lhs.true.if.end_crit_edge.i:                 ; preds = %if.then11.i
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre6.i = load i32, ptr %strtype.i, align 4
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 408, ptr noundef %.pre.i, i32 noundef %.pre6.i, ptr noundef nonnull @ec_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 408, ptr noundef %.pre.i, i32 noundef %.pre6.i, ptr noundef nonnull readonly @ec_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %if.end5.i, label %if.then3.i
 
@@ -5439,7 +5439,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ec_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5546,7 +5546,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @sm2_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5652,7 +5652,7 @@ if.end.i1:                                        ; preds = %if.then11.i
 land.lhs.true.if.end3_crit_edge.i:                ; preds = %if.end.i1
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre8.i = load i32, ptr %strtype.i, align 4
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1172, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1172, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull readonly @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -5688,7 +5688,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @sm2_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5794,7 +5794,7 @@ if.end.i1:                                        ; preds = %if.then11.i
 land.lhs.true.if.end3_crit_edge.i:                ; preds = %if.end.i1
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre8.i = load i32, ptr %strtype.i, align 4
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1172, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1172, ptr noundef %.pre.i, i32 noundef %.pre8.i, ptr noundef nonnull readonly @ec_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -5830,7 +5830,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @sm2_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5937,7 +5937,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @sm2_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6044,7 +6044,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @sm2_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6144,7 +6144,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
 land.lhs.true.if.end_crit_edge.i:                 ; preds = %if.then11.i
   %.pre.i = load ptr, ptr %str.i, align 8
   %.pre6.i = load i32, ptr %strtype.i, align 4
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1172, ptr noundef %.pre.i, i32 noundef %.pre6.i, ptr noundef nonnull @ec_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1172, ptr noundef %.pre.i, i32 noundef %.pre6.i, ptr noundef nonnull readonly @ec_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %if.end5.i, label %if.then3.i
 
@@ -6180,7 +6180,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @sm2_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6287,7 +6287,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ed25519_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed25519_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6380,7 +6380,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -6410,7 +6410,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ed25519_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed25519_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6503,7 +6503,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -6533,7 +6533,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ed25519_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed25519_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6640,7 +6640,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ed25519_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed25519_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6747,7 +6747,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ed25519_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed25519_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6834,7 +6834,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_der_pub_bio.exit, label %if.then3.i
 
@@ -6864,7 +6864,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ed25519_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed25519_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6951,7 +6951,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1087, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_pem_pub_bio.exit, label %if.then3.i
 
@@ -6981,7 +6981,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ed448_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed448_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7074,7 +7074,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -7104,7 +7104,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ed448_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed448_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7197,7 +7197,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -7227,7 +7227,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ed448_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed448_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7334,7 +7334,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ed448_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed448_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7441,7 +7441,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ed448_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed448_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7528,7 +7528,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_der_pub_bio.exit, label %if.then3.i
 
@@ -7558,7 +7558,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ed448_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed448_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7645,7 +7645,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1088, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_pem_pub_bio.exit, label %if.then3.i
 
@@ -7675,7 +7675,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @x25519_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x25519_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7768,7 +7768,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -7798,7 +7798,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @x25519_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x25519_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7891,7 +7891,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -7921,7 +7921,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @x25519_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x25519_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8028,7 +8028,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @x25519_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x25519_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8135,7 +8135,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @x25519_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x25519_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8222,7 +8222,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_der_pub_bio.exit, label %if.then3.i
 
@@ -8252,7 +8252,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @x25519_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x25519_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8339,7 +8339,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1034, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_pem_pub_bio.exit, label %if.then3.i
 
@@ -8369,7 +8369,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @x448_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x448_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8462,7 +8462,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -8492,7 +8492,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @x448_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x448_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8585,7 +8585,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
+  %call4.i2 = tail call fastcc ptr @key_to_encp8(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_pki_priv_to_der, ptr noundef nonnull %ctx)
   %cmp5.not.i3 = icmp eq ptr %call4.i2, null
   br i1 %cmp5.not.i3, label %if.end8.i, label %if.then6.i
 
@@ -8615,7 +8615,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @x448_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x448_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8722,7 +8722,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @x448_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x448_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8829,7 +8829,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @x448_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x448_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8916,7 +8916,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_der_pub_bio.exit, label %if.then3.i
 
@@ -8946,7 +8946,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @x448_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x448_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -9033,7 +9033,7 @@ lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull @ecx_spki_pub_to_der)
+  %call1.i = tail call fastcc ptr @key_to_pubkey(ptr noundef nonnull %key, i32 noundef 1035, ptr noundef null, i32 noundef -1, ptr noundef nonnull readonly @ecx_spki_pub_to_der)
   %cmp2.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp2.not.i, label %key_to_spki_pem_pub_bio.exit, label %if.then3.i
 
@@ -9063,7 +9063,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsa_to_RSA_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_RSA_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -9148,7 +9148,7 @@ return:                                           ; preds = %if.end8, %if.then6,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsa_to_RSA_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_RSA_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -9326,7 +9326,7 @@ return:                                           ; preds = %if.else14.i26, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dh_to_DH_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_DH_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -9412,20 +9412,20 @@ land.lhs.true6.i:                                 ; preds = %if.then3.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %der.i)
   store ptr null, ptr %der.i, align 8
   %call.i = tail call i32 @DH_test_flags(ptr noundef nonnull %key, i32 noundef 4096) #5
-  %tobool.not.i8 = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i8, label %if.end.i12, label %if.then.i9
+  %tobool.not.i9 = icmp eq i32 %call.i, 0
+  br i1 %tobool.not.i9, label %if.end.i13, label %if.then.i10
 
-if.then.i9:                                       ; preds = %land.lhs.true6.i
-  %call1.i10 = call i32 @i2d_DHxparams(ptr noundef nonnull %key, ptr noundef nonnull %der.i) #5
+if.then.i10:                                      ; preds = %land.lhs.true6.i
+  %call1.i11 = call i32 @i2d_DHxparams(ptr noundef nonnull %key, ptr noundef nonnull %der.i) #5
   br label %dh_type_specific_params_to_der.exit
 
-if.end.i12:                                       ; preds = %land.lhs.true6.i
+if.end.i13:                                       ; preds = %land.lhs.true6.i
   %call2.i = call i32 @i2d_DHparams(ptr noundef nonnull %key, ptr noundef nonnull %der.i) #5
   br label %dh_type_specific_params_to_der.exit
 
-dh_type_specific_params_to_der.exit:              ; preds = %if.then.i9, %if.end.i12
-  %retval.0.i11 = phi i32 [ %call1.i10, %if.then.i9 ], [ %call2.i, %if.end.i12 ]
-  %cmp.i2 = icmp slt i32 %retval.0.i11, 1
+dh_type_specific_params_to_der.exit:              ; preds = %if.then.i10, %if.end.i13
+  %retval.0.i12 = phi i32 [ %call1.i11, %if.then.i10 ], [ %call2.i, %if.end.i13 ]
+  %cmp.i2 = icmp slt i32 %retval.0.i12, 1
   br i1 %cmp.i2, label %if.then.i4, label %if.end.i3
 
 if.then.i4:                                       ; preds = %dh_type_specific_params_to_der.exit
@@ -9436,7 +9436,7 @@ if.then.i4:                                       ; preds = %dh_type_specific_pa
 
 if.end.i3:                                        ; preds = %dh_type_specific_params_to_der.exit
   %1 = load ptr, ptr %der.i, align 8
-  %call1.i = call i32 @BIO_write(ptr noundef nonnull %call4.i, ptr noundef %1, i32 noundef %retval.0.i11) #5
+  %call1.i = call i32 @BIO_write(ptr noundef nonnull %call4.i, ptr noundef %1, i32 noundef %retval.0.i12) #5
   %2 = load ptr, ptr %der.i, align 8
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 388) #5
   %cmp2.i = icmp sgt i32 %call1.i, 0
@@ -9471,7 +9471,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dh_to_DH_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_DH_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -9583,7 +9583,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dhx_to_DHX_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_DHX_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -9728,7 +9728,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dhx_to_DHX_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_DHX_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -9840,7 +9840,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal noundef i32 @dsa_to_DSA_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_DSA_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -10084,7 +10084,7 @@ return:                                           ; preds = %if.end.i36, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal noundef i32 @dsa_to_DSA_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_DSA_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -10269,7 +10269,7 @@ return:                                           ; preds = %if.end.i36, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ec_to_EC_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_EC_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -10455,7 +10455,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ec_to_EC_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_EC_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -10602,7 +10602,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @sm2_to_SM2_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_SM2_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -10788,7 +10788,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @sm2_to_SM2_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_SM2_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -10935,7 +10935,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsa_to_PKCS1_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_PKCS1_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -11020,7 +11020,7 @@ return:                                           ; preds = %if.end8, %if.then6,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsa_to_PKCS1_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_PKCS1_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -11198,7 +11198,7 @@ return:                                           ; preds = %if.else14.i26, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsapss_to_PKCS1_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_PKCS1_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -11283,7 +11283,7 @@ return:                                           ; preds = %if.end8, %if.then6,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @rsapss_to_PKCS1_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_PKCS1_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -11461,7 +11461,7 @@ return:                                           ; preds = %if.else14.i26, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dh_to_PKCS3_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_PKCS3_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -11547,20 +11547,20 @@ land.lhs.true6.i:                                 ; preds = %if.then3.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %der.i)
   store ptr null, ptr %der.i, align 8
   %call.i = tail call i32 @DH_test_flags(ptr noundef nonnull %key, i32 noundef 4096) #5
-  %tobool.not.i8 = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i8, label %if.end.i12, label %if.then.i9
+  %tobool.not.i9 = icmp eq i32 %call.i, 0
+  br i1 %tobool.not.i9, label %if.end.i13, label %if.then.i10
 
-if.then.i9:                                       ; preds = %land.lhs.true6.i
-  %call1.i10 = call i32 @i2d_DHxparams(ptr noundef nonnull %key, ptr noundef nonnull %der.i) #5
+if.then.i10:                                      ; preds = %land.lhs.true6.i
+  %call1.i11 = call i32 @i2d_DHxparams(ptr noundef nonnull %key, ptr noundef nonnull %der.i) #5
   br label %dh_type_specific_params_to_der.exit
 
-if.end.i12:                                       ; preds = %land.lhs.true6.i
+if.end.i13:                                       ; preds = %land.lhs.true6.i
   %call2.i = call i32 @i2d_DHparams(ptr noundef nonnull %key, ptr noundef nonnull %der.i) #5
   br label %dh_type_specific_params_to_der.exit
 
-dh_type_specific_params_to_der.exit:              ; preds = %if.then.i9, %if.end.i12
-  %retval.0.i11 = phi i32 [ %call1.i10, %if.then.i9 ], [ %call2.i, %if.end.i12 ]
-  %cmp.i2 = icmp slt i32 %retval.0.i11, 1
+dh_type_specific_params_to_der.exit:              ; preds = %if.then.i10, %if.end.i13
+  %retval.0.i12 = phi i32 [ %call1.i11, %if.then.i10 ], [ %call2.i, %if.end.i13 ]
+  %cmp.i2 = icmp slt i32 %retval.0.i12, 1
   br i1 %cmp.i2, label %if.then.i4, label %if.end.i3
 
 if.then.i4:                                       ; preds = %dh_type_specific_params_to_der.exit
@@ -11571,7 +11571,7 @@ if.then.i4:                                       ; preds = %dh_type_specific_pa
 
 if.end.i3:                                        ; preds = %dh_type_specific_params_to_der.exit
   %1 = load ptr, ptr %der.i, align 8
-  %call1.i = call i32 @BIO_write(ptr noundef nonnull %call4.i, ptr noundef %1, i32 noundef %retval.0.i11) #5
+  %call1.i = call i32 @BIO_write(ptr noundef nonnull %call4.i, ptr noundef %1, i32 noundef %retval.0.i12) #5
   %2 = load ptr, ptr %der.i, align 8
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 388) #5
   %cmp2.i = icmp sgt i32 %call1.i, 0
@@ -11606,7 +11606,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dh_to_PKCS3_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_PKCS3_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -11718,7 +11718,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dhx_to_X9_42_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_X9_42_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -11863,7 +11863,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @dhx_to_X9_42_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_X9_42_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -11975,7 +11975,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ec_to_X9_62_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_X9_62_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -12161,7 +12161,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ec_to_X9_62_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_X9_62_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -12397,7 +12397,7 @@ if.end16:                                         ; preds = %if.end, %if.else14,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rsa_check_key_type(ptr noundef %rsa, i32 noundef %expected_type) #0 {
+define internal range(i32 0, 2) i32 @rsa_check_key_type(ptr noundef %rsa, i32 noundef %expected_type) #0 {
 entry:
   %call = tail call i32 @RSA_test_flags(ptr noundef %rsa, i32 noundef 61440) #5
   switch i32 %call, label %return [
@@ -12420,7 +12420,7 @@ return:                                           ; preds = %entry, %sw.bb1, %sw
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @key_to_type_specific_der_bio(ptr noundef %out, ptr noundef %key, i32 %key_nid, ptr nocapture readnone %pemname, ptr nocapture readnone %p2s, ptr nocapture noundef readonly %k2d, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 2) i32 @key_to_type_specific_der_bio(ptr noundef %out, ptr noundef %key, i32 %key_nid, ptr nocapture readnone %pemname, ptr nocapture readnone %p2s, ptr nocapture noundef readonly %k2d, ptr nocapture readnone %ctx) #0 {
 entry:
   %der = alloca ptr, align 8
   store ptr null, ptr %der, align 8
@@ -12449,7 +12449,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @prepare_rsa_params(ptr noundef %rsa, i32 %nid, i32 %save, ptr nocapture noundef writeonly %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
+define internal range(i32 0, 2) i32 @prepare_rsa_params(ptr noundef %rsa, i32 %nid, i32 %save, ptr nocapture noundef writeonly %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %str_sz = alloca i64, align 8
@@ -12589,7 +12589,7 @@ declare ptr @ASN1_STRING_new() local_unnamed_addr #3
 declare void @ASN1_STRING_set0(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_check_key_type(ptr noundef %dh, i32 noundef %expected_type) #0 {
+define internal range(i32 0, 2) i32 @dh_check_key_type(ptr noundef %dh, i32 noundef %expected_type) #0 {
 entry:
   %call = tail call i32 @DH_test_flags(ptr noundef %dh, i32 noundef 4096) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -12626,7 +12626,7 @@ declare i32 @i2d_DHxparams(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @i2d_DHparams(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @prepare_dsa_params(ptr noundef %dsa, i32 %nid, i32 noundef %save, ptr nocapture noundef writeonly %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
+define internal range(i32 0, 2) i32 @prepare_dsa_params(ptr noundef %dsa, i32 %nid, i32 noundef %save, ptr nocapture noundef writeonly %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
 entry:
   %call = tail call ptr @DSA_get0_p(ptr noundef %dsa) #5
   %call1 = tail call ptr @DSA_get0_q(ptr noundef %dsa) #5
@@ -12695,7 +12695,7 @@ declare ptr @DSA_get0_g(ptr noundef) local_unnamed_addr #3
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @prepare_ec_params(ptr noundef %eckey, i32 %nid, i32 %save, ptr nocapture noundef writeonly %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
+define internal range(i32 0, 2) i32 @prepare_ec_params(ptr noundef %eckey, i32 %nid, i32 %save, ptr nocapture noundef writeonly %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
 entry:
   %call = tail call ptr @EC_KEY_get0_group(ptr noundef %eckey) #5
   %cmp = icmp eq ptr %call, null
@@ -13044,7 +13044,7 @@ land.lhs.true.if.end3_crit_edge.i:                ; preds = %land.lhs.true.i
 if.end3.i:                                        ; preds = %land.lhs.true.if.end3_crit_edge.i, %if.end.i
   %2 = phi i32 [ %.pre8.i, %land.lhs.true.if.end3_crit_edge.i ], [ -1, %if.end.i ]
   %3 = phi ptr [ %.pre.i, %land.lhs.true.if.end3_crit_edge.i ], [ null, %if.end.i ]
-  %call4.i = call fastcc ptr @key_to_encp8(ptr noundef %key, i32 noundef %key_nid, ptr noundef %3, i32 noundef %2, ptr noundef %k2d, ptr noundef nonnull %ctx)
+  %call4.i = call fastcc ptr @key_to_encp8(ptr noundef %key, i32 noundef %key_nid, ptr noundef %3, i32 noundef %2, ptr noundef readonly %k2d, ptr noundef nonnull %ctx)
   %cmp5.not.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.not.i, label %if.end8.i, label %if.then6.i
 
@@ -13155,7 +13155,7 @@ land.lhs.true.if.end3_crit_edge.i:                ; preds = %land.lhs.true.i
 if.end3.i:                                        ; preds = %land.lhs.true.if.end3_crit_edge.i, %if.end.i
   %2 = phi i32 [ %.pre8.i, %land.lhs.true.if.end3_crit_edge.i ], [ -1, %if.end.i ]
   %3 = phi ptr [ %.pre.i, %land.lhs.true.if.end3_crit_edge.i ], [ null, %if.end.i ]
-  %call4.i = call fastcc ptr @key_to_encp8(ptr noundef %key, i32 noundef %key_nid, ptr noundef %3, i32 noundef %2, ptr noundef %k2d, ptr noundef nonnull %ctx)
+  %call4.i = call fastcc ptr @key_to_encp8(ptr noundef %key, i32 noundef %key_nid, ptr noundef %3, i32 noundef %2, ptr noundef readonly %k2d, ptr noundef nonnull %ctx)
   %cmp5.not.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.not.i, label %if.end8.i, label %if.then6.i
 
@@ -13377,7 +13377,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare i32 @PEM_write_bio_X509_PUBKEY(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @prepare_dh_params(ptr noundef %dh, i32 noundef %nid, i32 %save, ptr nocapture noundef writeonly %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
+define internal range(i32 0, 2) i32 @prepare_dh_params(ptr noundef %dh, i32 noundef %nid, i32 %save, ptr nocapture noundef writeonly %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
 entry:
   %call = tail call ptr @ASN1_STRING_new() #5
   %cmp = icmp eq ptr %call, null
@@ -13619,7 +13619,7 @@ declare ptr @EC_KEY_get0_public_key(ptr noundef) local_unnamed_addr #3
 declare i32 @i2o_ECPublicKey(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecx_pki_priv_to_der(ptr noundef readonly %vecxkey, ptr noundef %pder) #0 {
+define internal range(i32 0, -2147483648) i32 @ecx_pki_priv_to_der(ptr noundef readonly %vecxkey, ptr noundef %pder) #0 {
 entry:
   %oct = alloca %struct.asn1_string_st, align 8
   %cmp = icmp eq ptr %vecxkey, null

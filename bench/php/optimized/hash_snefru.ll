@@ -179,7 +179,7 @@ SnefruTransform.exit52:                           ; preds = %70
   %97 = getelementptr inbounds [32 x i8], ptr %95, i64 0, i64 %34
   %98 = sub nuw nsw i64 32, %34
   tail call void @explicit_bzero(ptr noundef nonnull %97, i64 noundef %98) #7
-  %99 = trunc i64 %34 to i8
+  %99 = trunc nuw nsw i64 %34 to i8
   br label %100
 
 100:                                              ; preds = %._crit_edge, %27
@@ -257,7 +257,7 @@ SnefruTransform.exit:                             ; preds = %7
   %37 = getelementptr inbounds [16 x i32], ptr %1, i64 0, i64 %indvars.iv30
   %38 = load i32, ptr %37, align 4
   %39 = lshr i32 %38, 24
-  %40 = trunc i32 %39 to i8
+  %40 = trunc nuw i32 %39 to i8
   %41 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   store i8 %40, ptr %41, align 1
   %42 = load i32, ptr %37, align 4

@@ -9665,7 +9665,7 @@ declare ptr @llvm.returnaddress(i32 immarg) #8
 declare ptr @llvm.frameaddress.p0(i32 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @mas_ascend(ptr nocapture noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @mas_ascend(ptr nocapture noundef %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -13452,7 +13452,7 @@ mas_free.exit:                                    ; preds = %597, %592, %581, %5
   %1292 = getelementptr inbounds i8, ptr %11, i64 272
   %1293 = sext i32 %1290 to i64
   %1294 = shl nsw i64 %1293, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1254, ptr align 8 %1292, i64 %1294, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1254, ptr readonly align 8 %1292, i64 %1294, i1 false)
   %1295 = trunc i64 %1289 to i8
   %1296 = icmp ult i32 %1242, 2
   br i1 %1296, label %1324, label %1297, !prof !12
@@ -13761,7 +13761,7 @@ mas_free.exit:                                    ; preds = %597, %592, %581, %5
   %1482 = getelementptr inbounds i8, ptr %11, i64 272
   %1483 = sext i32 %1480 to i64
   %1484 = shl nsw i64 %1483, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1444, ptr align 8 %1482, i64 %1484, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1444, ptr readonly align 8 %1482, i64 %1484, i1 false)
   %1485 = trunc i64 %1479 to i8
   %1486 = icmp ult i32 %1432, 2
   br i1 %1486, label %1514, label %1487, !prof !12
@@ -16104,7 +16104,7 @@ define internal fastcc void @mas_spanning_rebalance(ptr nocapture noundef %0, pt
   %812 = getelementptr inbounds i8, ptr %753, i64 272
   %813 = sext i32 %810 to i64
   %814 = shl nsw i64 %813, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %774, ptr align 8 %812, i64 %814, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %774, ptr readonly align 8 %812, i64 %814, i1 false)
   %815 = getelementptr [33 x i64], ptr %790, i64 0, i64 %809
   %816 = load i64, ptr %815, align 8
   store i64 %816, ptr %15, align 8
@@ -18722,7 +18722,7 @@ mas_free.exit:                                    ; preds = %.preheader.split, %
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc i32 @mab_calc_split(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #14 align 16 {
+define internal fastcc range(i32 -256, 256) i32 @mab_calc_split(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #14 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 608
   %6 = load i8, ptr %5, align 8
   %7 = zext i8 %6 to i32
@@ -18882,7 +18882,7 @@ define internal fastcc i32 @mab_calc_split(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc noundef i32 @mab_no_null_split(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2) unnamed_addr #15 align 16 {
+define internal fastcc noundef range(i32 0, 256) i32 @mab_no_null_split(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2) unnamed_addr #15 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 272
   %5 = zext i8 %1 to i64
   %6 = getelementptr [34 x ptr], ptr %4, i64 0, i64 %5
@@ -20497,7 +20497,7 @@ define internal fastcc void @mas_split_final_node(ptr nocapture noundef readonly
   %199 = getelementptr inbounds i8, ptr %136, i64 272
   %200 = sext i32 %197 to i64
   %201 = shl nsw i64 %200, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %161, ptr align 8 %199, i64 %201, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %161, ptr readonly align 8 %199, i64 %201, i1 false)
   %202 = getelementptr [33 x i64], ptr %177, i64 0, i64 %196
   %203 = load i64, ptr %202, align 8
   %204 = getelementptr inbounds i8, ptr %143, i64 40
@@ -21165,7 +21165,7 @@ define internal fastcc void @mast_split_data(ptr nocapture noundef readonly %0, 
   %64 = getelementptr inbounds i8, ptr %6, i64 272
   %65 = sext i32 %62 to i64
   %66 = shl nsw i64 %65, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %64, i64 %66, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr readonly align 8 %64, i64 %66, i1 false)
   %67 = getelementptr [33 x i64], ptr %42, i64 0, i64 %61
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %8, i64 40
@@ -21764,7 +21764,7 @@ define internal fastcc void @mast_fill_bnode(ptr nocapture noundef readonly %0, 
 declare dso_local void @kmem_cache_free_bulk(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @mas_next_node(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @mas_next_node(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, %2
@@ -22058,7 +22058,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #0
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @mas_prev_node(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @mas_prev_node(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64

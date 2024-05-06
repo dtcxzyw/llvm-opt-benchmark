@@ -574,7 +574,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define noundef signext i8 @checkAssemblyHeaderName(ptr nocapture noundef readonly %optAssembly) local_unnamed_addr #6 {
+define signext range(i8 0, 2) i8 @checkAssemblyHeaderName(ptr nocapture noundef readonly %optAssembly) local_unnamed_addr #6 {
 entry:
   store i32 -1, ptr @_ZL19assemblyHeaderIndex, align 4
   br label %for.body

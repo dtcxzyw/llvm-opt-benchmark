@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @rcsid], section "llvm.metadata"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @file_encoding(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @file_encoding(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 152
@@ -167,7 +167,7 @@ looks_ascii.exit:                                 ; preds = %.lr.ph.i
 looks_utf8_with_BOM.exit:                         ; preds = %62
   %66 = getelementptr inbounds i8, ptr %11, i64 3
   %67 = add i64 %.0127, -3
-  %68 = call i32 @file_looks_utf8(ptr noundef nonnull %66, i64 noundef %67, ptr noundef %53, ptr noundef nonnull %spec.select), !range !4
+  %68 = call i32 @file_looks_utf8(ptr noundef nonnull readonly %66, i64 noundef %67, ptr noundef %53, ptr noundef nonnull %spec.select)
   %69 = icmp sgt i32 %68, 0
   br i1 %69, label %70, label %looks_utf8_with_BOM.exit.looks_utf8_with_BOM.exit.thread_crit_edge
 
@@ -182,7 +182,7 @@ looks_utf8_with_BOM.exit.looks_utf8_with_BOM.exit.thread_crit_edge: ; preds = %l
 
 looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM.exit.looks_utf8_with_BOM.exit.thread_crit_edge, %looks_ascii.exit, %55, %58, %62
   %71 = phi ptr [ %.pre, %looks_utf8_with_BOM.exit.looks_utf8_with_BOM.exit.thread_crit_edge ], [ %53, %looks_ascii.exit ], [ %53, %55 ], [ %53, %58 ], [ %53, %62 ]
-  %72 = call i32 @file_looks_utf8(ptr noundef nonnull %11, i64 noundef %.0127, ptr noundef %71, ptr noundef nonnull %spec.select), !range !4
+  %72 = call i32 @file_looks_utf8(ptr noundef nonnull %11, i64 noundef %.0127, ptr noundef %71, ptr noundef nonnull %spec.select)
   %73 = icmp sgt i32 %72, 1
   br i1 %73, label %74, label %75
 
@@ -363,7 +363,7 @@ looks_ucs32.exit:                                 ; preds = %139, %104
 
 .loopexit191:                                     ; preds = %.lr.ph.split.i, %172, %.lr.ph.split.us.i, %136, %75, %100, %96, %92, %88, %84, %80, %78
   %179 = load ptr, ptr %spec.store.select, align 8
-  %180 = call fastcc i32 @looks_ucs16(ptr noundef %11, i64 noundef %.0127, ptr noundef %179, ptr noundef nonnull %spec.select), !range !5
+  %180 = call fastcc i32 @looks_ucs16(ptr noundef %11, i64 noundef %.0127, ptr noundef %179, ptr noundef nonnull %spec.select)
   switch i32 %180, label %182 [
     i32 0, label %.lr.ph.i148.preheader
     i32 1, label %181
@@ -557,7 +557,7 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @file_oomem(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @file_looks_utf8(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #3 {
+define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #3 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5
 
@@ -720,7 +720,7 @@ define hidden noundef i32 @file_looks_utf8(ptr nocapture noundef readonly %0, i6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @looks_ucs16(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #4 {
   %5 = icmp ult i64 %1, 2
   br i1 %5, label %.thread, label %6
 
@@ -913,5 +913,3 @@ attributes #9 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 3}
-!5 = !{i32 0, i32 3}

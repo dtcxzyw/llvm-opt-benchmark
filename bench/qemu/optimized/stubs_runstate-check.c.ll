@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @runstate_check(i32 noundef %state) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @runstate_check(i32 noundef %state) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %state, 6
   ret i1 %cmp

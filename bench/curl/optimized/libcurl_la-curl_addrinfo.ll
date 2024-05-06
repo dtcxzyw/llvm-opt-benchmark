@@ -107,7 +107,7 @@ if.end26:                                         ; preds = %if.end20
   %8 = load i32, ptr %ai_protocol, align 4
   %ai_protocol31 = getelementptr inbounds i8, ptr %call23, i64 12
   store i32 %8, ptr %ai_protocol31, align 4
-  %conv32 = trunc i64 %ss_size.0 to i32
+  %conv32 = trunc nuw nsw i64 %ss_size.0 to i32
   %ai_addrlen33 = getelementptr inbounds i8, ptr %call23, i64 16
   store i32 %conv32, ptr %ai_addrlen33, align 8
   %ai_addr34 = getelementptr inbounds i8, ptr %call23, i64 32
@@ -266,7 +266,7 @@ if.end19:                                         ; preds = %if.then18, %if.end9
   store i32 %7, ptr %ai_family, align 4
   %ai_socktype = getelementptr inbounds i8, ptr %call6, i64 8
   store i32 1, ptr %ai_socktype, align 8
-  %conv = trunc i64 %. to i32
+  %conv = trunc nuw nsw i64 %. to i32
   %ai_addrlen = getelementptr inbounds i8, ptr %call6, i64 16
   store i32 %conv, ptr %ai_addrlen, align 8
   switch i32 %7, label %sw.epilog [
@@ -298,7 +298,7 @@ sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb27
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end19
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load ptr, ptr %h_addr_list, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv.next
   %13 = load ptr, ptr %arrayidx, align 8
@@ -450,7 +450,7 @@ if.end.i7:                                        ; preds = %if.then4
 
 if.end4.i10:                                      ; preds = %if.end.i7
   %addrentry7.i = getelementptr inbounds i8, ptr %call.i5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %addrentry7.i, ptr noundef nonnull align 4 dereferenceable(16) %in6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %addrentry7.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %in6, i64 16, i1 false)
   store ptr %call1.i8, ptr %call.i5, align 8
   %h_aliases.i11 = getelementptr inbounds i8, ptr %call.i5, i64 8
   store ptr null, ptr %h_aliases.i11, align 8

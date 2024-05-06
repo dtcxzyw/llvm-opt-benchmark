@@ -3261,7 +3261,7 @@ if.else42:                                        ; preds = %if.else28
 for.inc:                                          ; preds = %if.end, %if.then33, %if.then19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %14 = load i32, ptr %argc, align 8
-  %15 = trunc i64 %indvars.iv.next to i32
+  %15 = trunc nuw i64 %indvars.iv.next to i32
   %cmp = icmp sgt i32 %14, %15
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
@@ -3343,7 +3343,7 @@ if.end70:                                         ; preds = %if.then68, %if.end6
 
 if.then.i:                                        ; preds = %if.end70
   %.lobit63 = lshr i64 %16, 63
-  %cond.i = trunc i64 %.lobit63 to i32
+  %cond.i = trunc nuw nsw i64 %.lobit63 to i32
   %ptr.i = getelementptr inbounds i8, ptr %call53, i64 8
   %28 = load ptr, ptr %ptr.i, align 8
   %call10.i = call ptr @quicklistGetIteratorAtIdx(ptr noundef %28, i32 noundef %cond.i, i64 noundef %.lobit) #9
@@ -3841,7 +3841,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @getListPositionFromObjectOrReply(ptr noundef %c, ptr nocapture noundef readonly %arg, ptr nocapture noundef writeonly %position) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @getListPositionFromObjectOrReply(ptr noundef %c, ptr nocapture noundef readonly %arg, ptr nocapture noundef writeonly %position) local_unnamed_addr #0 {
 entry:
   %ptr = getelementptr inbounds i8, ptr %arg, i64 8
   %0 = load ptr, ptr %ptr, align 8

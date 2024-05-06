@@ -2516,7 +2516,7 @@ _ZN7QStringD2Ev.exit485:                          ; preds = %632, %_ZN17QArrayDa
 
 _ZNK7QString3argEjii5QChar.exit536:               ; preds = %702
   %709 = urem i32 %608, 3600
-  %.lhs.trunc = trunc i32 %709 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %709 to i16
   %710 = udiv i16 %.lhs.trunc, 60
   %711 = zext nneg i16 %710 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %67, ptr noundef nonnull align 8 dereferenceable(24) %68, i64 noundef %711, i32 noundef 2, i32 noundef 10, i16 48)

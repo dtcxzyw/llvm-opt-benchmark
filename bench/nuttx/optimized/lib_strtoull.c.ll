@@ -40,7 +40,7 @@ define i64 @strtoull(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) l
   %17 = zext nneg i32 %12 to i64
   %18 = udiv i64 -1, %17
   %19 = urem i64 -1, %17
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %21 = load ptr, ptr %4, align 8
   %22 = load i8, ptr %21, align 1
   %23 = sext i8 %22 to i32

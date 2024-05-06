@@ -261,7 +261,7 @@ sink_checkphi.exit.thread.i:                      ; preds = %if.then18.i.i, %lan
 
 sink_checkphi.exit.i:                             ; preds = %if.end.i54.i
   store i32 64, ptr %work.i.i, align 4
-  %call.i.i = call fastcc i32 @sink_phidep(ptr noundef nonnull %J, i32 noundef %conv35.i, ptr noundef nonnull %work.i.i), !range !5
+  %call.i.i = call fastcc i32 @sink_phidep(ptr noundef nonnull %J, i32 noundef %conv35.i, ptr noundef nonnull %work.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %work.i.i)
   %tobool37.not.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool37.not.not.i, label %if.end49.i, label %sink_checkphi.exit.if.then38_crit_edge.i
@@ -359,7 +359,7 @@ sink_checkphi.exit85.thread.i:                    ; preds = %if.then18.i65.i, %l
 
 sink_checkphi.exit85.i:                           ; preds = %if.end.i71.i
   store i32 64, ptr %work.i56.i, align 4
-  %call.i75.i = call fastcc i32 @sink_phidep(ptr noundef nonnull %J, i32 noundef %conv68.i, ptr noundef nonnull %work.i56.i), !range !5
+  %call.i75.i = call fastcc i32 @sink_phidep(ptr noundef nonnull %J, i32 noundef %conv68.i, ptr noundef nonnull %work.i56.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %work.i56.i)
   %tobool70.not.not.i = icmp eq i32 %call.i75.i, 0
   br i1 %tobool70.not.not.i, label %sw.bb78.i, label %sink_checkphi.exit85.if.then71_crit_edge.i
@@ -533,11 +533,11 @@ for.inc.i31:                                      ; preds = %if.end.i, %land.lhs
   %o.i33 = getelementptr inbounds i8, ptr %ir.022.i, i64 -3
   %102 = load i8, ptr %o.i33, align 1
   %cmp.i34 = icmp eq i8 %102, 19
-  br i1 %cmp.i34, label %for.body.i23, label %do.cond.i, !llvm.loop !6
+  br i1 %cmp.i34, label %for.body.i23, label %do.cond.i, !llvm.loop !5
 
 do.cond.i:                                        ; preds = %for.inc.i31
   %tobool49.not.i = icmp eq i32 %remark.1.i, 0
-  br i1 %tobool49.not.i, label %if.end23, label %do.body.i, !llvm.loop !7
+  br i1 %tobool49.not.i, label %if.end23, label %do.body.i, !llvm.loop !6
 
 if.end23:                                         ; preds = %do.cond.i, %do.body.i, %sink_mark_ins.exit
   %103 = load ptr, ptr %ir1.i, align 8
@@ -723,7 +723,7 @@ sw.default.i74:                                   ; preds = %for.body.i43
 for.inc.i48:                                      ; preds = %sw.default.i74, %if.else87.i, %if.then85.i, %if.else47.i, %if.then39.i, %if.else25.i, %if.then23.i, %if.else.i, %if.then.i69
   %ir.0.add.i = add nsw i64 %ir.0.idx48.i, -8
   %cmp.not.i = icmp slt i64 %ir.0.idx48.i, 262152
-  br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i43, !llvm.loop !8
+  br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i43, !llvm.loop !7
 
 for.end.loopexit.i:                               ; preds = %for.inc.i48
   %.pre.i49 = load ptr, ptr %ir1.i, align 8
@@ -765,14 +765,14 @@ for.inc125.i:                                     ; preds = %land.lhs.true117.i,
   %ir.2.i = phi ptr [ %ir.151.i, %for.body104.i ], [ %spec.select.i, %land.lhs.true117.i ]
   %incdec.ptr126.i = getelementptr inbounds i8, ptr %ir.2.i, i64 8
   %cmp102.i = icmp ult ptr %incdec.ptr126.i, %arrayidx.i38
-  br i1 %cmp102.i, label %for.body104.i, label %if.end24, !llvm.loop !9
+  br i1 %cmp102.i, label %for.body104.i, label %if.end24, !llvm.loop !8
 
 if.end24:                                         ; preds = %for.inc125.i, %for.end.i, %lor.lhs.false10, %entry
   ret void
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @sink_phidep(ptr noundef %J, i32 noundef %ref, ptr noundef %workp) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @sink_phidep(ptr noundef %J, i32 noundef %ref, ptr noundef %workp) unnamed_addr #1 {
 entry:
   %ir1 = getelementptr inbounds i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir1, align 8
@@ -798,7 +798,7 @@ if.end4:                                          ; preds = %if.end
 
 land.lhs.true:                                    ; preds = %if.end4
   %conv5 = zext i16 %4 to i32
-  %call = tail call fastcc i32 @sink_phidep(ptr noundef nonnull %J, i32 noundef %conv5, ptr noundef nonnull %workp), !range !5
+  %call = tail call fastcc i32 @sink_phidep(ptr noundef nonnull %J, i32 noundef %conv5, ptr noundef nonnull %workp)
   %tobool9.not = icmp eq i32 %call, 0
   br i1 %tobool9.not, label %if.end11, label %return
 
@@ -810,7 +810,7 @@ if.end11:                                         ; preds = %land.lhs.true, %if.
 
 land.lhs.true15:                                  ; preds = %if.end11
   %conv12 = zext i16 %5 to i32
-  %call18 = tail call fastcc i32 @sink_phidep(ptr noundef nonnull %J, i32 noundef %conv12, ptr noundef nonnull %workp), !range !5
+  %call18 = tail call fastcc i32 @sink_phidep(ptr noundef nonnull %J, i32 noundef %conv12, ptr noundef nonnull %workp)
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.end21, label %return
 
@@ -843,8 +843,7 @@ attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{i32 0, i32 2}
+!5 = distinct !{!5, !4}
 !6 = distinct !{!6, !4}
 !7 = distinct !{!7, !4}
 !8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}

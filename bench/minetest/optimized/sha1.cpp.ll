@@ -47,7 +47,7 @@ entry:
 define dso_local void @_ZN4SHA120storeBigEndianUint32EPhj(ptr nocapture noundef writeonly %byte, i32 noundef %num) local_unnamed_addr #3 align 2 {
 entry:
   %shr = lshr i32 %num, 24
-  %conv = trunc i32 %shr to i8
+  %conv = trunc nuw i32 %shr to i8
   store i8 %conv, ptr %byte, align 1, !tbaa !4
   %shr1 = lshr i32 %num, 16
   %conv2 = trunc i32 %shr1 to i8
@@ -664,12 +664,12 @@ if.end:                                           ; preds = %if.end.loopexit, %i
   store i8 0, ptr %arrayidx3.i, align 1, !tbaa !4
   %arrayidx6.i = getelementptr inbounds i8, ptr %add.ptr, i64 2
   store i8 0, ptr %arrayidx6.i, align 1, !tbaa !4
-  %conv7.i = trunc i32 %shr to i8
+  %conv7.i = trunc nuw nsw i32 %shr to i8
   %arrayidx8.i = getelementptr inbounds i8, ptr %add.ptr, i64 3
   store i8 %conv7.i, ptr %arrayidx8.i, align 1, !tbaa !4
   %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %shr.i43 = lshr i32 %shl, 24
-  %conv.i44 = trunc i32 %shr.i43 to i8
+  %conv.i44 = trunc nuw i32 %shr.i43 to i8
   store i8 %conv.i44, ptr %add.ptr10, align 1, !tbaa !4
   %shr1.i45 = lshr i32 %shl, 16
   %conv2.i46 = trunc i32 %shr1.i45 to i8
@@ -717,7 +717,7 @@ if.end.i71:                                       ; preds = %if.then.i73, %while
 _ZN4SHA18addBytesEPKcj.exit74:                    ; preds = %if.end.i71, %if.end
   %11 = load i32, ptr %this, align 4, !tbaa !15
   %shr.i75 = lshr i32 %11, 24
-  %conv.i76 = trunc i32 %shr.i75 to i8
+  %conv.i76 = trunc nuw i32 %shr.i75 to i8
   store i8 %conv.i76, ptr %digest, align 1, !tbaa !4
   %shr1.i77 = lshr i32 %11, 16
   %conv2.i78 = trunc i32 %shr1.i77 to i8
@@ -734,7 +734,7 @@ _ZN4SHA18addBytesEPKcj.exit74:                    ; preds = %if.end.i71, %if.end
   %H1 = getelementptr inbounds i8, ptr %this, i64 4
   %12 = load i32, ptr %H1, align 4, !tbaa !16
   %shr.i85 = lshr i32 %12, 24
-  %conv.i86 = trunc i32 %shr.i85 to i8
+  %conv.i86 = trunc nuw i32 %shr.i85 to i8
   store i8 %conv.i86, ptr %add.ptr12, align 1, !tbaa !4
   %shr1.i87 = lshr i32 %12, 16
   %conv2.i88 = trunc i32 %shr1.i87 to i8
@@ -751,7 +751,7 @@ _ZN4SHA18addBytesEPKcj.exit74:                    ; preds = %if.end.i71, %if.end
   %H2 = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load i32, ptr %H2, align 4, !tbaa !17
   %shr.i95 = lshr i32 %13, 24
-  %conv.i96 = trunc i32 %shr.i95 to i8
+  %conv.i96 = trunc nuw i32 %shr.i95 to i8
   store i8 %conv.i96, ptr %add.ptr13, align 1, !tbaa !4
   %shr1.i97 = lshr i32 %13, 16
   %conv2.i98 = trunc i32 %shr1.i97 to i8
@@ -768,7 +768,7 @@ _ZN4SHA18addBytesEPKcj.exit74:                    ; preds = %if.end.i71, %if.end
   %H3 = getelementptr inbounds i8, ptr %this, i64 12
   %14 = load i32, ptr %H3, align 4, !tbaa !18
   %shr.i105 = lshr i32 %14, 24
-  %conv.i106 = trunc i32 %shr.i105 to i8
+  %conv.i106 = trunc nuw i32 %shr.i105 to i8
   store i8 %conv.i106, ptr %add.ptr14, align 1, !tbaa !4
   %shr1.i107 = lshr i32 %14, 16
   %conv2.i108 = trunc i32 %shr1.i107 to i8
@@ -785,7 +785,7 @@ _ZN4SHA18addBytesEPKcj.exit74:                    ; preds = %if.end.i71, %if.end
   %H4 = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load i32, ptr %H4, align 4, !tbaa !11
   %shr.i115 = lshr i32 %15, 24
-  %conv.i116 = trunc i32 %shr.i115 to i8
+  %conv.i116 = trunc nuw i32 %shr.i115 to i8
   store i8 %conv.i116, ptr %add.ptr15, align 1, !tbaa !4
   %shr1.i117 = lshr i32 %15, 16
   %conv2.i118 = trunc i32 %shr1.i117 to i8

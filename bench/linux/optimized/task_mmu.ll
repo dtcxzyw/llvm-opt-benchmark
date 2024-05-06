@@ -264,7 +264,7 @@ declare dso_local void @seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare dso_local void @hugetlb_report_usage(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @task_vsize(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local range(i64 0, -4095) i64 @task_vsize(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load i64, ptr %2, align 64
   %4 = shl i64 %3, 12
@@ -458,7 +458,7 @@ define internal i32 @smaps_rollup_release(ptr noundef %0, ptr noundef %1) #0 ali
 declare dso_local i64 @noop_llseek(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @clear_refs_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i64 -2147483648, 13) i64 @clear_refs_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = alloca [13 x i8], align 1
   %6 = alloca i32, align 4
   %7 = alloca %struct.vma_iterator, align 8
@@ -630,7 +630,7 @@ define internal i64 @clear_refs_write(ptr nocapture noundef readonly %0, ptr nou
 declare dso_local i64 @mem_lseek(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pagemap_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pagemap_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = alloca %struct.pagemapread, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
@@ -847,7 +847,7 @@ define internal i64 @pagemap_read(ptr noundef %0, ptr noundef %1, i64 noundef %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @do_pagemap_cmd(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @do_pagemap_cmd(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.pagemap_scan_private, align 8
   %5 = alloca %struct.mmu_notifier_range, align 8
   %6 = icmp eq i32 %1, -1067424240
@@ -3769,7 +3769,7 @@ define internal noundef i32 @clear_refs_pte_range(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal noundef i32 @clear_refs_test_walk(i64 %0, i64 %1, ptr nocapture noundef readonly %2) #10 align 16 {
+define internal noundef range(i32 0, 2) i32 @clear_refs_test_walk(i64 %0, i64 %1, ptr nocapture noundef readonly %2) #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32
@@ -3817,7 +3817,7 @@ declare dso_local void @__mmu_notifier_invalidate_range_end(ptr noundef) local_u
 declare dso_local zeroext i1 @file_ns_capable(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pagemap_pmd_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal range(i32 0, 2) i32 @pagemap_pmd_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 24
@@ -4175,7 +4175,7 @@ define internal i32 @pagemap_pmd_range(ptr noundef %0, i64 noundef %1, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pagemap_pte_hole(i64 noundef %0, i64 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define internal range(i32 0, 2) i32 @pagemap_pte_hole(i64 noundef %0, i64 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8
@@ -4271,7 +4271,7 @@ define internal noundef i32 @pagemap_pte_hole(i64 noundef %0, i64 noundef %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pagemap_hugetlb_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @pagemap_hugetlb_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) #0 align 16 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -4475,7 +4475,7 @@ declare dso_local ptr @find_vma(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pagemap_scan_pmd_entry(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal range(i32 -28, 1) i32 @pagemap_scan_pmd_entry(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -5240,7 +5240,7 @@ define internal i32 @pagemap_scan_pmd_entry(ptr noundef %0, i64 noundef %1, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @pagemap_scan_pte_hole(i64 noundef %0, i64 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #11 align 16 {
+define internal noundef range(i32 -28, 1) i32 @pagemap_scan_pte_hole(i64 noundef %0, i64 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #11 align 16 {
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 24
@@ -5360,7 +5360,7 @@ define internal noundef i32 @pagemap_scan_pte_hole(i64 noundef %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pagemap_scan_hugetlb_entry(ptr noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) #0 align 16 {
+define internal noundef range(i32 -28, 1) i32 @pagemap_scan_hugetlb_entry(ptr noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) #0 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -5926,7 +5926,7 @@ define internal noundef i32 @pagemap_scan_hugetlb_entry(ptr noundef %0, i64 %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @pagemap_scan_test_walk(i64 %0, i64 %1, ptr nocapture noundef readonly %2) #11 align 16 {
+define internal noundef range(i32 -1, 2) i32 @pagemap_scan_test_walk(i64 %0, i64 %1, ptr nocapture noundef readonly %2) #11 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24

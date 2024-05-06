@@ -758,12 +758,12 @@ Dar_CutFindFree.exit:                             ; preds = %.lr.ph.i, %.thread.
   br i1 %.not.i69, label %139, label %137
 
 137:                                              ; preds = %Dar_CutFindFree.exit
-  %138 = tail call fastcc i32 @Dar_CutMergeOrdered(ptr noundef nonnull %.041.i, ptr noundef nonnull %.060102, ptr noundef nonnull %.061105), !range !16
+  %138 = tail call fastcc i32 @Dar_CutMergeOrdered(ptr noundef nonnull %.041.i, ptr noundef nonnull readonly %.060102, ptr noundef nonnull readonly %.061105)
   %.not13.i = icmp eq i32 %138, 0
   br i1 %.not13.i, label %Dar_CutMerge.exit.thread, label %141
 
 139:                                              ; preds = %Dar_CutFindFree.exit
-  %140 = tail call fastcc i32 @Dar_CutMergeOrdered(ptr noundef nonnull %.041.i, ptr noundef nonnull %.061105, ptr noundef nonnull %.060102), !range !16
+  %140 = tail call fastcc i32 @Dar_CutMergeOrdered(ptr noundef nonnull %.041.i, ptr noundef nonnull readonly %.061105, ptr noundef nonnull readonly %.060102)
   %.not12.i = icmp eq i32 %140, 0
   br i1 %.not12.i, label %Dar_CutMerge.exit.thread, label %141
 
@@ -779,7 +779,7 @@ Dar_CutFindFree.exit:                             ; preds = %.lr.ph.i, %.thread.
   %148 = load i32, ptr %23, align 8
   %149 = add nsw i32 %148, 1
   store i32 %149, ptr %23, align 8
-  %150 = tail call fastcc i32 @Dar_CutFilter(ptr noundef %1, ptr noundef nonnull %.041.i), !range !16
+  %150 = tail call fastcc i32 @Dar_CutFilter(ptr noundef %1, ptr noundef nonnull %.041.i)
   %.not62 = icmp eq i32 %150, 0
   br i1 %.not62, label %151, label %Dar_CutMerge.exit.thread
 
@@ -821,7 +821,7 @@ Dar_CutFindFree.exit:                             ; preds = %.lr.ph.i, %.thread.
   %.1.i.i = add nuw nsw i32 %.017.i.i, %172
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Dar_CutTruthPhase.exit.i, label %160, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %Dar_CutTruthPhase.exit.i, label %160, !llvm.loop !16
 
 Dar_CutTruthPhase.exit.i:                         ; preds = %162, %160, %151
   %.013.lcssa.i.i = phi i32 [ 0, %151 ], [ %.01315.i.i, %160 ], [ %.114.i.i, %162 ]
@@ -884,7 +884,7 @@ Dar_CutTruthSwapAdjacentVars.exit.i.i:            ; preds = %194, %186, %178, %.
   %.0.i.i.i = phi i32 [ %185, %178 ], [ %193, %186 ], [ %201, %194 ], [ 0, %.lr.ph.i18.i ]
   %202 = add nsw i32 %.01318.i.i, 1
   %203 = icmp slt i32 %202, %.01420.i.i
-  br i1 %203, label %.lr.ph.i18.i, label %._crit_edge.i.i, !llvm.loop !18
+  br i1 %203, label %.lr.ph.i18.i, label %._crit_edge.i.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %Dar_CutTruthSwapAdjacentVars.exit.i.i, %.preheader.i.i
   %.116.lcssa.i.i = phi i32 [ %.01519.i.i, %.preheader.i.i ], [ %.0.i.i.i, %Dar_CutTruthSwapAdjacentVars.exit.i.i ]
@@ -896,7 +896,7 @@ Dar_CutTruthSwapAdjacentVars.exit.i.i:            ; preds = %194, %186, %178, %.
   %.1.i17.i = phi i32 [ %204, %._crit_edge.i.i ], [ %.022.i.i, %174 ]
   %206 = add nsw i32 %.01420.i.i, -1
   %.not23.i.i = icmp eq i32 %.01420.i.i, 0
-  br i1 %.not23.i.i, label %Dar_CutTruthStretch.exit.i, label %174, !llvm.loop !19
+  br i1 %.not23.i.i, label %Dar_CutTruthStretch.exit.i, label %174, !llvm.loop !18
 
 Dar_CutTruthStretch.exit.i:                       ; preds = %205
   %207 = lshr i32 %154, 29
@@ -931,7 +931,7 @@ Dar_CutTruthStretch.exit.i:                       ; preds = %205
   %.1.i26.i = add nuw nsw i32 %.017.i23.i, %223
   %indvars.iv.next.i27.i = add nuw nsw i64 %indvars.iv.i22.i, 1
   %exitcond.not.i28.i = icmp eq i64 %indvars.iv.next.i27.i, %wide.trip.count.i21.i
-  br i1 %exitcond.not.i28.i, label %Dar_CutTruthPhase.exit31.i, label %211, !llvm.loop !17
+  br i1 %exitcond.not.i28.i, label %Dar_CutTruthPhase.exit31.i, label %211, !llvm.loop !16
 
 Dar_CutTruthPhase.exit31.i:                       ; preds = %213, %211, %Dar_CutTruthStretch.exit.i
   %.013.lcssa.i30.i = phi i32 [ 0, %Dar_CutTruthStretch.exit.i ], [ %.01315.i24.i, %211 ], [ %.114.i25.i, %213 ]
@@ -994,7 +994,7 @@ Dar_CutTruthSwapAdjacentVars.exit.i45.i:          ; preds = %245, %237, %229, %.
   %.0.i.i46.i = phi i32 [ %236, %229 ], [ %244, %237 ], [ %252, %245 ], [ 0, %.lr.ph.i42.i ]
   %253 = add nsw i32 %.01318.i43.i, 1
   %254 = icmp slt i32 %253, %.01420.i33.i
-  br i1 %254, label %.lr.ph.i42.i, label %._crit_edge.i37.i, !llvm.loop !18
+  br i1 %254, label %.lr.ph.i42.i, label %._crit_edge.i37.i, !llvm.loop !17
 
 ._crit_edge.i37.i:                                ; preds = %Dar_CutTruthSwapAdjacentVars.exit.i45.i, %.preheader.i36.i
   %.116.lcssa.i38.i = phi i32 [ %.01519.i34.i, %.preheader.i36.i ], [ %.0.i.i46.i, %Dar_CutTruthSwapAdjacentVars.exit.i45.i ]
@@ -1006,7 +1006,7 @@ Dar_CutTruthSwapAdjacentVars.exit.i45.i:          ; preds = %245, %237, %229, %.
   %.1.i40.i = phi i32 [ %255, %._crit_edge.i37.i ], [ %.022.i32.i, %225 ]
   %257 = add nsw i32 %.01420.i33.i, -1
   %.not23.i41.i = icmp eq i32 %.01420.i33.i, 0
-  br i1 %.not23.i41.i, label %Dar_CutTruth.exit, label %225, !llvm.loop !19
+  br i1 %.not23.i41.i, label %Dar_CutTruth.exit, label %225, !llvm.loop !18
 
 Dar_CutTruth.exit:                                ; preds = %256
   %258 = and i32 %.2.i.i, 65535
@@ -1045,7 +1045,7 @@ Dar_CutTruth.exit:                                ; preds = %256
   %.1.i = add nsw i32 %.045.i, %275
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i72 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i72, label %._crit_edge.i73, label %.lr.ph.i71, !llvm.loop !20
+  br i1 %exitcond.not.i72, label %._crit_edge.i73, label %.lr.ph.i71, !llvm.loop !19
 
 ._crit_edge.i73:                                  ; preds = %.lr.ph.i71
   %276 = icmp eq i32 %.1.i, %263
@@ -1107,7 +1107,7 @@ Dar_CutTruth.exit:                                ; preds = %256
 Dar_CutTruthSwapAdjacentVars.exit.i.i85:          ; preds = %295, %287, %279, %.lr.ph.i.i84
   %.0.i.i.i86 = phi i32 [ %286, %279 ], [ %294, %287 ], [ %302, %295 ], [ 0, %.lr.ph.i.i84 ]
   %.not16.not.i.i = icmp sgt i32 %.012.i.i, %.023.i.i
-  br i1 %.not16.not.i.i, label %.lr.ph.i.i84, label %._crit_edge.i.i77, !llvm.loop !21
+  br i1 %.not16.not.i.i, label %.lr.ph.i.i84, label %._crit_edge.i.i77, !llvm.loop !20
 
 ._crit_edge.i.i77:                                ; preds = %Dar_CutTruthSwapAdjacentVars.exit.i.i85, %.preheader.i.i76
   %.115.lcssa.i.i = phi i32 [ %.01420.i.i74, %.preheader.i.i76 ], [ %.0.i.i.i86, %Dar_CutTruthSwapAdjacentVars.exit.i.i85 ]
@@ -1119,7 +1119,7 @@ Dar_CutTruthSwapAdjacentVars.exit.i.i85:          ; preds = %295, %287, %279, %.
   %.1.i.i79 = phi i32 [ %303, %._crit_edge.i.i77 ], [ %.023.i.i, %.preheader.i ]
   %305 = add nuw nsw i32 %.01321.i.i, 1
   %exitcond.not.i.i80 = icmp eq i32 %305, 4
-  br i1 %exitcond.not.i.i80, label %.lr.ph49.i, label %.preheader.i, !llvm.loop !22
+  br i1 %exitcond.not.i.i80, label %.lr.ph49.i, label %.preheader.i, !llvm.loop !21
 
 .lr.ph49.i:                                       ; preds = %304
   %306 = and i32 %.2.i.i78, 65535
@@ -1161,14 +1161,14 @@ Dar_CutTruthSwapAdjacentVars.exit.i.i85:          ; preds = %295, %287, %279, %.
   %326 = lshr i32 %325, 29
   %327 = zext nneg i32 %326 to i64
   %328 = icmp ult i64 %indvars.iv.next57.i, %327
-  br i1 %328, label %309, label %329, !llvm.loop !23
+  br i1 %328, label %309, label %329, !llvm.loop !22
 
 329:                                              ; preds = %324
   %330 = shl i32 %.1.i, 29
   %331 = and i32 %325, 536870911
   %332 = or disjoint i32 %331, %330
   store i32 %332, ptr %145, align 4
-  %333 = tail call fastcc i32 @Dar_CutFilter(ptr noundef %1, ptr noundef nonnull %.041.i), !range !16
+  %333 = tail call fastcc i32 @Dar_CutFilter(ptr noundef %1, ptr noundef nonnull %.041.i)
   %.pr.pre = load i32, ptr %145, align 4
   br label %thread-pre-split
 
@@ -1215,7 +1215,7 @@ Aig_ManObj.exit.i:                                ; preds = %346, %.lr.ph.split.
   %354 = add nuw nsw i32 %.026.i, %353
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, %wide.trip.count.i90
-  br i1 %exitcond.not.i93, label %.critedge.i, label %Aig_ManObj.exit.i, !llvm.loop !24
+  br i1 %exitcond.not.i93, label %.critedge.i, label %Aig_ManObj.exit.i, !llvm.loop !23
 
 .critedge.i:                                      ; preds = %346
   %355 = icmp ult i32 %334, 1073741824
@@ -1260,7 +1260,7 @@ Dar_CutMerge.exit.thread:                         ; preds = %139, %137, %41, %37
   %376 = lshr i64 %375, 56
   %377 = trunc nuw nsw i64 %376 to i32
   %378 = icmp ult i32 %373, %377
-  br i1 %378, label %41, label %.loopexit.loopexit, !llvm.loop !25
+  br i1 %378, label %41, label %.loopexit.loopexit, !llvm.loop !24
 
 .loopexit.loopexit:                               ; preds = %Dar_CutMerge.exit.thread
   %.pre = load i64, ptr %12, align 8
@@ -1273,7 +1273,7 @@ Dar_CutMerge.exit.thread:                         ; preds = %139, %137, %41, %37
   %382 = lshr i64 %379, 56
   %383 = trunc nuw nsw i64 %382 to i32
   %384 = icmp ult i32 %380, %383
-  br i1 %384, label %32, label %._crit_edge, !llvm.loop !26
+  br i1 %384, label %32, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   %385 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1311,7 +1311,7 @@ Dar_CutMerge.exit.thread:                         ; preds = %139, %137, %41, %37
   %402 = lshr i64 %399, 56
   %403 = trunc nuw nsw i64 %402 to i32
   %404 = icmp ult i32 %400, %403
-  br i1 %404, label %389, label %._crit_edge113, !llvm.loop !27
+  br i1 %404, label %389, label %._crit_edge113, !llvm.loop !26
 
 ._crit_edge113:                                   ; preds = %398, %._crit_edge
   %405 = getelementptr inbounds i8, ptr %0, i64 2756
@@ -1327,7 +1327,7 @@ Dar_CutMerge.exit.thread:                         ; preds = %139, %137, %41, %37
 declare ptr @Aig_ObjReal_rec(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @Dar_CutFilter(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @Dar_CutFilter(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %.not60 = icmp ult i64 %4, 72057594037927936
@@ -1396,12 +1396,12 @@ define internal fastcc noundef i32 @Dar_CutFilter(ptr nocapture noundef readonly
 32:                                               ; preds = %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Dar_CutCheckDominance.exit.thread, label %28, !llvm.loop !28
+  br i1 %exitcond.not.i, label %Dar_CutCheckDominance.exit.thread, label %28, !llvm.loop !27
 
 ._crit_edge.us.i:                                 ; preds = %28
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count30.i
-  br i1 %exitcond31.not.i, label %Dar_CutCheckDominance.exit, label %.preheader.us.i, !llvm.loop !29
+  br i1 %exitcond31.not.i, label %Dar_CutCheckDominance.exit, label %.preheader.us.i, !llvm.loop !28
 
 Dar_CutCheckDominance.exit:                       ; preds = %._crit_edge.us.i, %24
   %33 = and i32 %11, -268435457
@@ -1443,7 +1443,7 @@ Dar_CutCheckDominance.exit:                       ; preds = %._crit_edge.us.i, %
 43:                                               ; preds = %39
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i33
-  br i1 %exitcond.not.i38, label %Dar_CutCheckDominance.exit.thread, label %39, !llvm.loop !28
+  br i1 %exitcond.not.i38, label %Dar_CutCheckDominance.exit.thread, label %39, !llvm.loop !27
 
 ._crit_edge.us.i40:                               ; preds = %39
   %44 = trunc nuw nsw i64 %indvars.iv.i36 to i32
@@ -1453,7 +1453,7 @@ Dar_CutCheckDominance.exit:                       ; preds = %._crit_edge.us.i, %
 46:                                               ; preds = %._crit_edge.us.i40
   %indvars.iv.next28.i41 = add nuw nsw i64 %indvars.iv27.i35, 1
   %exitcond31.not.i42 = icmp eq i64 %indvars.iv.next28.i41, %wide.trip.count30.i32
-  br i1 %exitcond31.not.i42, label %Dar_CutCheckDominance.exit43, label %.preheader.us.i34, !llvm.loop !29
+  br i1 %exitcond31.not.i42, label %Dar_CutCheckDominance.exit43, label %.preheader.us.i34, !llvm.loop !28
 
 Dar_CutCheckDominance.exit43:                     ; preds = %35, %46
   %47 = and i32 %17, -268435457
@@ -1467,7 +1467,7 @@ Dar_CutCheckDominance.exit.thread:                ; preds = %._crit_edge.us.i40,
   %51 = lshr i64 %48, 56
   %52 = trunc nuw nsw i64 %51 to i32
   %53 = icmp ult i32 %49, %52
-  br i1 %53, label %8, label %.loopexit, !llvm.loop !30
+  br i1 %53, label %8, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %Dar_CutCheckDominance.exit.thread, %2, %Dar_CutCheckDominance.exit43
   %.023 = phi i32 [ 1, %Dar_CutCheckDominance.exit43 ], [ 0, %2 ], [ 0, %Dar_CutCheckDominance.exit.thread ]
@@ -1534,7 +1534,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @Dar_CutMergeOrdered(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %.mask = and i32 %5, -536870912
@@ -1568,7 +1568,7 @@ define internal fastcc noundef i32 @Dar_CutMergeOrdered(ptr nocapture noundef %0
 19:                                               ; preds = %21
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, 4
-  br i1 %exitcond151.not, label %.preheader, label %21, !llvm.loop !31
+  br i1 %exitcond151.not, label %.preheader, label %21, !llvm.loop !30
 
 .preheader:                                       ; preds = %19
   %.not131 = icmp ult i32 %5, 536870912
@@ -1598,7 +1598,7 @@ define internal fastcc noundef i32 @Dar_CutMergeOrdered(ptr nocapture noundef %0
   %31 = lshr i32 %30, 29
   %32 = zext nneg i32 %31 to i64
   %33 = icmp ult i64 %indvars.iv.next153, %32
-  br i1 %33, label %26, label %._crit_edge127.loopexit, !llvm.loop !32
+  br i1 %33, label %26, label %._crit_edge127.loopexit, !llvm.loop !31
 
 ._crit_edge127.loopexit:                          ; preds = %26
   %.pre = and i32 %30, -536870912
@@ -1645,12 +1645,12 @@ define internal fastcc noundef i32 @Dar_CutMergeOrdered(ptr nocapture noundef %0
   %45 = getelementptr inbounds [4 x i32], ptr %37, i64 0, i64 %indvars.iv.next139
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, %40
-  br i1 %47, label %48, label %43, !llvm.loop !33
+  br i1 %47, label %48, label %43, !llvm.loop !32
 
 48:                                               ; preds = %44
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count
-  br i1 %exitcond144.not, label %.preheader110, label %.preheader111, !llvm.loop !34
+  br i1 %exitcond144.not, label %.preheader110, label %.preheader111, !llvm.loop !33
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv145 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next146, %49 ]
@@ -1663,7 +1663,7 @@ define internal fastcc noundef i32 @Dar_CutMergeOrdered(ptr nocapture noundef %0
   %54 = lshr i32 %53, 29
   %55 = zext nneg i32 %54 to i64
   %56 = icmp ult i64 %indvars.iv.next146, %55
-  br i1 %56, label %49, label %._crit_edge.loopexit, !llvm.loop !35
+  br i1 %56, label %49, label %._crit_edge.loopexit, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %49
   %.pre155 = and i32 %53, -536870912
@@ -1746,7 +1746,7 @@ define internal fastcc noundef i32 @Dar_CutMergeOrdered(ptr nocapture noundef %0
   %.2 = phi i32 [ %.1120, %68 ], [ %76, %75 ], [ %.1120, %90 ], [ %95, %94 ], [ %98, %96 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %100, label %57, !llvm.loop !36
+  br i1 %exitcond.not, label %100, label %57, !llvm.loop !35
 
 100:                                              ; preds = %99
   %101 = load i32, ptr %4, align 4
@@ -1819,7 +1819,7 @@ attributes #13 = { nounwind allocsize(0) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i32 0, i32 2}
+!16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
@@ -1839,4 +1839,3 @@ attributes #13 = { nounwind allocsize(0) }
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}

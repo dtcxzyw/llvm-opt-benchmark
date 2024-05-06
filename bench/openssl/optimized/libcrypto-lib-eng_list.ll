@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.engine_list_remove = private unnamed_addr constant [19 x i8] c"engine_list_remove\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @engine_add_dynamic_id(ptr noundef %e, ptr noundef %dynamic_id, i32 noundef %not_locked) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @engine_add_dynamic_id(ptr noundef %e, ptr noundef %dynamic_id, i32 noundef %not_locked) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %e, null
   br i1 %cmp, label %return, label %if.end
@@ -390,7 +390,7 @@ return:                                           ; preds = %if.end, %if.end9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ENGINE_add(ptr noundef %e) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ENGINE_add(ptr noundef %e) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %e, null
   br i1 %cmp, label %if.then, label %if.end
@@ -526,7 +526,7 @@ return:                                           ; preds = %if.end4, %if.end10,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ENGINE_remove(ptr noundef %e) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ENGINE_remove(ptr noundef %e) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %e, null
   br i1 %cmp, label %if.then, label %if.end
@@ -880,7 +880,7 @@ declare ptr @ossl_safe_getenv(ptr noundef) local_unnamed_addr #1
 declare i32 @ENGINE_ctrl_cmd_string(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ENGINE_up_ref(ptr noundef %e) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ENGINE_up_ref(ptr noundef %e) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %e, null
   br i1 %cmp, label %if.then, label %if.end
@@ -912,10 +912,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %iterator.04 = phi ptr [ %iterator.0, %while.body ], [ %iterator.02, %entry ]
-  %call = tail call i32 @ENGINE_remove(ptr noundef nonnull %iterator.04), !range !9
+  %call = tail call i32 @ENGINE_remove(ptr noundef nonnull %iterator.04)
   %iterator.0 = load ptr, ptr @engine_list_head, align 8
   %cmp.not = icmp eq ptr %iterator.0, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !10
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -941,5 +941,4 @@ attributes #5 = { nounwind willreturn memory(read) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 2}
-!10 = distinct !{!10, !5}
+!9 = distinct !{!9, !5}

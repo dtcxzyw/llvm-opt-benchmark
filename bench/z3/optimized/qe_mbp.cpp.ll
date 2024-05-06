@@ -7417,8 +7417,8 @@ if.then:                                          ; preds = %_ZNK17array_recogni
   %6 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %6 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %7 = getelementptr i8, ptr %n, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %7, i64 32
+  %7 = getelementptr inbounds i8, ptr %n, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %7, i64 32
   %cmp.not58 = icmp eq i32 %6, 0
   br i1 %cmp.not58, label %if.end31, label %for.body.lr.ph
 
@@ -18925,7 +18925,7 @@ if.end58:                                         ; preds = %_ZN6vectorIN13rewri
 declare noundef ptr @_ZN9act_cache4findEP4exprj(ptr noundef nonnull align 8 dereferenceable(92), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_122app_const_arr_rewriter10reduce_appEP9func_decljPKP4exprR7obj_refIS3_11ast_managerERS7_I3appS8_E(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %f, i32 noundef %num, ptr nocapture noundef readonly %args, ptr noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 4, 6) i32 @_ZN12_GLOBAL__N_122app_const_arr_rewriter10reduce_appEP9func_decljPKP4exprR7obj_refIS3_11ast_managerERS7_I3appS8_E(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %f, i32 noundef %num, ptr nocapture noundef readonly %args, ptr noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i = alloca ptr, align 8
   %param.i = alloca %class.parameter, align 8
@@ -28968,7 +28968,7 @@ if.end58:                                         ; preds = %_ZN6vectorIN13rewri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_119rd_over_wr_rewriter10reduce_appEP9func_decljPKP4exprR7obj_refIS3_11ast_managerERS7_I3appS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr readonly %f.24.val, ptr nocapture noundef readonly %args, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 6) i32 @_ZN12_GLOBAL__N_119rd_over_wr_rewriter10reduce_appEP9func_decljPKP4exprR7obj_refIS3_11ast_managerERS7_I3appS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr readonly %f.24.val, ptr nocapture noundef readonly %args, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ind1 = alloca %class.obj_ref, align 8
   %ind2 = alloca %class.obj_ref, align 8

@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20fast_rv32i_vsext_vf8P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vsext_vf8P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 7
   %5 = and i64 %4, 31
   %6 = lshr i64 %1, 20
@@ -158,7 +158,7 @@ define noundef i64 @_Z20fast_rv32i_vsext_vf8P11processor_t6insn_tm(ptr noundef %
   unreachable
 
 46:                                               ; preds = %34
-  %47 = trunc i64 %5 to i32
+  %47 = trunc nuw nsw i64 %5 to i32
   %48 = fptoui float %36 to i32
   %.not.i = icmp eq i32 %48, 0
   %49 = add i32 %48, 31
@@ -180,7 +180,7 @@ define noundef i64 @_Z20fast_rv32i_vsext_vf8P11processor_t6insn_tm(ptr noundef %
   unreachable
 
 58:                                               ; preds = %46
-  %59 = trunc i64 %7 to i32
+  %59 = trunc nuw nsw i64 %7 to i32
   %60 = fptoui float %37 to i32
   %.not.i110 = icmp eq i32 %60, 0
   %61 = add i32 %60, 31
@@ -450,7 +450,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %197, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %trunc = trunc i64 %108 to i8
+  %trunc = trunc nuw i64 %108 to i8
   br label %198
 
 198:                                              ; preds = %.lr.ph, %239
@@ -654,7 +654,7 @@ define noundef i64 @_Z20fast_rv64i_vsext_vf8P11processor_t6insn_tm(ptr noundef %
   unreachable
 
 46:                                               ; preds = %34
-  %47 = trunc i64 %5 to i32
+  %47 = trunc nuw nsw i64 %5 to i32
   %48 = fptoui float %36 to i32
   %.not.i = icmp eq i32 %48, 0
   %49 = add i32 %48, 31
@@ -676,7 +676,7 @@ define noundef i64 @_Z20fast_rv64i_vsext_vf8P11processor_t6insn_tm(ptr noundef %
   unreachable
 
 58:                                               ; preds = %46
-  %59 = trunc i64 %7 to i32
+  %59 = trunc nuw nsw i64 %7 to i32
   %60 = fptoui float %37 to i32
   %.not.i110 = icmp eq i32 %60, 0
   %61 = add i32 %60, 31
@@ -946,7 +946,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %197, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %trunc = trunc i64 %108 to i8
+  %trunc = trunc nuw i64 %108 to i8
   br label %198
 
 198:                                              ; preds = %.lr.ph, %239
@@ -1035,7 +1035,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22logged_rv32i_vsext_vf8P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vsext_vf8P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 7
   %5 = and i64 %4, 31
   %6 = lshr i64 %1, 20
@@ -1117,7 +1117,7 @@ define noundef i64 @_Z22logged_rv32i_vsext_vf8P11processor_t6insn_tm(ptr noundef
   unreachable
 
 46:                                               ; preds = %34
-  %47 = trunc i64 %5 to i32
+  %47 = trunc nuw nsw i64 %5 to i32
   %48 = fptoui float %36 to i32
   %.not.i = icmp eq i32 %48, 0
   %49 = add i32 %48, 31
@@ -1139,7 +1139,7 @@ define noundef i64 @_Z22logged_rv32i_vsext_vf8P11processor_t6insn_tm(ptr noundef
   unreachable
 
 58:                                               ; preds = %46
-  %59 = trunc i64 %7 to i32
+  %59 = trunc nuw nsw i64 %7 to i32
   %60 = fptoui float %37 to i32
   %.not.i110 = icmp eq i32 %60, 0
   %61 = add i32 %60, 31
@@ -1409,7 +1409,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %197, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %trunc = trunc i64 %108 to i8
+  %trunc = trunc nuw i64 %108 to i8
   br label %198
 
 198:                                              ; preds = %.lr.ph, %239
@@ -1582,7 +1582,7 @@ define noundef i64 @_Z22logged_rv64i_vsext_vf8P11processor_t6insn_tm(ptr noundef
   unreachable
 
 46:                                               ; preds = %34
-  %47 = trunc i64 %5 to i32
+  %47 = trunc nuw nsw i64 %5 to i32
   %48 = fptoui float %36 to i32
   %.not.i = icmp eq i32 %48, 0
   %49 = add i32 %48, 31
@@ -1604,7 +1604,7 @@ define noundef i64 @_Z22logged_rv64i_vsext_vf8P11processor_t6insn_tm(ptr noundef
   unreachable
 
 58:                                               ; preds = %46
-  %59 = trunc i64 %7 to i32
+  %59 = trunc nuw nsw i64 %7 to i32
   %60 = fptoui float %37 to i32
   %.not.i110 = icmp eq i32 %60, 0
   %61 = add i32 %60, 31
@@ -1874,7 +1874,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %197, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %trunc = trunc i64 %108 to i8
+  %trunc = trunc nuw i64 %108 to i8
   br label %198
 
 198:                                              ; preds = %.lr.ph, %239
@@ -1963,7 +1963,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20fast_rv32e_vsext_vf8P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vsext_vf8P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 7
   %5 = and i64 %4, 31
   %6 = lshr i64 %1, 20
@@ -2045,7 +2045,7 @@ define noundef i64 @_Z20fast_rv32e_vsext_vf8P11processor_t6insn_tm(ptr noundef %
   unreachable
 
 46:                                               ; preds = %34
-  %47 = trunc i64 %5 to i32
+  %47 = trunc nuw nsw i64 %5 to i32
   %48 = fptoui float %36 to i32
   %.not.i = icmp eq i32 %48, 0
   %49 = add i32 %48, 31
@@ -2067,7 +2067,7 @@ define noundef i64 @_Z20fast_rv32e_vsext_vf8P11processor_t6insn_tm(ptr noundef %
   unreachable
 
 58:                                               ; preds = %46
-  %59 = trunc i64 %7 to i32
+  %59 = trunc nuw nsw i64 %7 to i32
   %60 = fptoui float %37 to i32
   %.not.i110 = icmp eq i32 %60, 0
   %61 = add i32 %60, 31
@@ -2337,7 +2337,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %197, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %trunc = trunc i64 %108 to i8
+  %trunc = trunc nuw i64 %108 to i8
   br label %198
 
 198:                                              ; preds = %.lr.ph, %239
@@ -2510,7 +2510,7 @@ define noundef i64 @_Z20fast_rv64e_vsext_vf8P11processor_t6insn_tm(ptr noundef %
   unreachable
 
 46:                                               ; preds = %34
-  %47 = trunc i64 %5 to i32
+  %47 = trunc nuw nsw i64 %5 to i32
   %48 = fptoui float %36 to i32
   %.not.i = icmp eq i32 %48, 0
   %49 = add i32 %48, 31
@@ -2532,7 +2532,7 @@ define noundef i64 @_Z20fast_rv64e_vsext_vf8P11processor_t6insn_tm(ptr noundef %
   unreachable
 
 58:                                               ; preds = %46
-  %59 = trunc i64 %7 to i32
+  %59 = trunc nuw nsw i64 %7 to i32
   %60 = fptoui float %37 to i32
   %.not.i110 = icmp eq i32 %60, 0
   %61 = add i32 %60, 31
@@ -2802,7 +2802,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %197, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %trunc = trunc i64 %108 to i8
+  %trunc = trunc nuw i64 %108 to i8
   br label %198
 
 198:                                              ; preds = %.lr.ph, %239
@@ -2891,7 +2891,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22logged_rv32e_vsext_vf8P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vsext_vf8P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 7
   %5 = and i64 %4, 31
   %6 = lshr i64 %1, 20
@@ -2973,7 +2973,7 @@ define noundef i64 @_Z22logged_rv32e_vsext_vf8P11processor_t6insn_tm(ptr noundef
   unreachable
 
 46:                                               ; preds = %34
-  %47 = trunc i64 %5 to i32
+  %47 = trunc nuw nsw i64 %5 to i32
   %48 = fptoui float %36 to i32
   %.not.i = icmp eq i32 %48, 0
   %49 = add i32 %48, 31
@@ -2995,7 +2995,7 @@ define noundef i64 @_Z22logged_rv32e_vsext_vf8P11processor_t6insn_tm(ptr noundef
   unreachable
 
 58:                                               ; preds = %46
-  %59 = trunc i64 %7 to i32
+  %59 = trunc nuw nsw i64 %7 to i32
   %60 = fptoui float %37 to i32
   %.not.i110 = icmp eq i32 %60, 0
   %61 = add i32 %60, 31
@@ -3265,7 +3265,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %197, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %trunc = trunc i64 %108 to i8
+  %trunc = trunc nuw i64 %108 to i8
   br label %198
 
 198:                                              ; preds = %.lr.ph, %239
@@ -3438,7 +3438,7 @@ define noundef i64 @_Z22logged_rv64e_vsext_vf8P11processor_t6insn_tm(ptr noundef
   unreachable
 
 46:                                               ; preds = %34
-  %47 = trunc i64 %5 to i32
+  %47 = trunc nuw nsw i64 %5 to i32
   %48 = fptoui float %36 to i32
   %.not.i = icmp eq i32 %48, 0
   %49 = add i32 %48, 31
@@ -3460,7 +3460,7 @@ define noundef i64 @_Z22logged_rv64e_vsext_vf8P11processor_t6insn_tm(ptr noundef
   unreachable
 
 58:                                               ; preds = %46
-  %59 = trunc i64 %7 to i32
+  %59 = trunc nuw nsw i64 %7 to i32
   %60 = fptoui float %37 to i32
   %.not.i110 = icmp eq i32 %60, 0
   %61 = add i32 %60, 31
@@ -3730,7 +3730,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %197, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
-  %trunc = trunc i64 %108 to i8
+  %trunc = trunc nuw i64 %108 to i8
   br label %198
 
 198:                                              ; preds = %.lr.ph, %239

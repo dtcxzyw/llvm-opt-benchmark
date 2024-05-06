@@ -9,7 +9,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mpi_invm: ; 
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_mpi_invm344], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mpi_invm(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @mpi_invm(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i32 @mpi_cmp_ui(ptr noundef %1, i64 noundef 0) #2
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %113, label %6

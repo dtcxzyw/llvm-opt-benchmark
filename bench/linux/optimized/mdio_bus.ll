@@ -729,7 +729,7 @@ declare dso_local i32 @trace_event_reg(ptr noundef, i32 noundef, ptr noundef) #0
 declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mdiobus_register_device(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @mdiobus_register_device(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 728
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1928
@@ -774,7 +774,7 @@ define dso_local noundef i32 @mdiobus_register_device(ptr noundef %0) #1 align 1
 declare dso_local void @mdio_device_reset(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @mdiobus_unregister_device(ptr noundef readonly %0) #4 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @mdiobus_unregister_device(ptr noundef readonly %0) #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 728
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1928
@@ -1895,7 +1895,7 @@ define dso_local i32 @mdiobus_c45_write_nested(ptr noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__mdiobus_modify(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @__mdiobus_modify(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) #1 align 16 {
   %6 = tail call i32 @__mdiobus_read(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %20, label %8
@@ -1923,7 +1923,7 @@ define dso_local i32 @__mdiobus_modify(ptr noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mdiobus_modify(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @mdiobus_modify(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) #1 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 1152
   tail call void @mutex_lock(ptr noundef %6) #15
   %7 = tail call i32 @__mdiobus_read(ptr noundef %0, i32 noundef %1, i32 noundef %2)
@@ -1954,7 +1954,7 @@ define dso_local i32 @mdiobus_modify(ptr noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mdiobus_c45_modify(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @mdiobus_c45_modify(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5) #1 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 1152
   tail call void @mutex_lock(ptr noundef %7) #15
   %8 = tail call i32 @__mdiobus_c45_read(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3)
@@ -2229,7 +2229,7 @@ define internal void @mdiobus_release(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @mdio_bus_stat_field_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @mdio_bus_stat_field_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
@@ -2315,7 +2315,7 @@ declare void @llvm.write_register.i64(metadata, i64) #12
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @mdio_bus_device_stat_field_show(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @mdio_bus_device_stat_field_show(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 728
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 792

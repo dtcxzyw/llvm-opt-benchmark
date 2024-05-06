@@ -172,7 +172,7 @@ define void @_Z21glucose2_solver_resetPN6Gluco210SimpSolverE(ptr noundef %0) loc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.preheader.lr.ph, label %._crit_edge
 
@@ -436,7 +436,7 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %._ZN6Gluco23vecINS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z22glucose2_solver_addvarPN6Gluco210SimpSolverE(ptr noundef nonnull %0) local_unnamed_addr #0 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_Z22glucose2_solver_addvarPN6Gluco210SimpSolverE(ptr noundef nonnull %0) local_unnamed_addr #0 {
   %2 = tail call noundef i32 @_ZN6Gluco210SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1684) %0, i1 noundef zeroext true, i1 noundef zeroext true)
   %3 = getelementptr inbounds i8, ptr %0, i64 736
   %4 = load i32, ptr %3, align 8
@@ -452,7 +452,7 @@ define noundef ptr @_Z24glucose2_solver_read_cexPN6Gluco210SimpSolverE(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_Z33glucose2_solver_read_cex_varvaluePN6Gluco210SimpSolverEi(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define noundef range(i32 0, 2) i32 @_Z33glucose2_solver_read_cex_varvaluePN6Gluco210SimpSolverEi(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -612,8 +612,8 @@ define void @bmcg2_sat_solver_reset(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @bmcg2_sat_solver_addclause(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef %1, i32 noundef %2), !range !10
+define noundef range(i32 0, 2) i32 @bmcg2_sat_solver_addclause(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
@@ -645,7 +645,7 @@ define i32 @bmcg2_sat_solver_final(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @bmcg2_sat_solver_addvar(ptr noundef nonnull %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @bmcg2_sat_solver_addvar(ptr noundef nonnull %0) local_unnamed_addr #0 {
   %2 = tail call noundef i32 @_ZN6Gluco210SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1684) %0, i1 noundef zeroext true, i1 noundef zeroext true)
   %3 = getelementptr inbounds i8, ptr %0, i64 736
   %4 = load i32, ptr %3, align 8
@@ -665,7 +665,7 @@ define void @bmcg2_sat_solver_set_nvars(ptr noundef %0, i32 noundef %1) local_un
   %6 = tail call noundef i32 @_ZN6Gluco210SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1684) %0, i1 noundef zeroext true, i1 noundef zeroext true)
   %7 = add i32 %.04, 1
   %exitcond.not = icmp eq i32 %7, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -679,7 +679,7 @@ define i32 @bmcg2_sat_solver_varnum(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @bmcg2_sat_solver_eliminate(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bmcg2_sat_solver_eliminate(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne i32 %1, 0
   %4 = tail call noundef zeroext i1 @_ZN6Gluco210SimpSolver9eliminateEb(ptr noundef nonnull align 8 dereferenceable(1684) %0, i1 noundef zeroext %3)
   %5 = zext i1 %4 to i32
@@ -689,7 +689,7 @@ define noundef i32 @bmcg2_sat_solver_eliminate(ptr noundef nonnull %0, i32 nound
 declare noundef zeroext i1 @_ZN6Gluco210SimpSolver9eliminateEb(ptr noundef nonnull align 8 dereferenceable(1684), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @bmcg2_sat_solver_var_is_elim(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @bmcg2_sat_solver_var_is_elim(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1664
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -794,7 +794,7 @@ define ptr @bmcg2_sat_solver_read_cex(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @bmcg2_sat_solver_read_cex_varvalue(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @bmcg2_sat_solver_read_cex_varvalue(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -998,7 +998,7 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
   store i32 %58, ptr %61, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader78, label %33, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader78, label %33, !llvm.loop !11
 
 .preheader:                                       ; preds = %.lr.ph87, %.preheader78
   %62 = add nsw i32 %23, %3
@@ -1018,7 +1018,7 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
   store i32 %64, ptr %gep113, align 4
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %.preheader, label %.lr.ph87, !llvm.loop !13
+  br i1 %exitcond99.not, label %.preheader, label %.lr.ph87, !llvm.loop !12
 
 65:                                               ; preds = %.lr.ph89, %65
   %indvars.iv100 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next101, %65 ]
@@ -1029,7 +1029,7 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
   store i32 %68, ptr %gep115, align 4
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
-  br i1 %exitcond104.not, label %._crit_edge, label %65, !llvm.loop !14
+  br i1 %exitcond104.not, label %._crit_edge, label %65, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %65, %.preheader
   %69 = tail call noundef i32 @_ZN6Gluco210SimpSolver12solveLimitedEPiibb(ptr noundef nonnull align 8 dereferenceable(1684) %0, ptr noundef %1, i32 noundef %62, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -1057,7 +1057,7 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @bmcg2_sat_solver_add_and(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bmcg2_sat_solver_add_and(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca [3 x i32], align 4
   %.not = icmp eq i32 %6, 0
   %9 = zext i1 %.not to i32
@@ -1068,7 +1068,7 @@ define noundef i32 @bmcg2_sat_solver_add_and(ptr noundef %0, i32 noundef %1, i32
   %13 = add nsw i32 %12, %4
   %14 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %13, ptr %14, align 4
-  %15 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 2), !range !10
+  %15 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %8, i32 noundef 2)
   %.not17 = icmp eq i32 %15, 0
   br i1 %.not17, label %28, label %16
 
@@ -1077,7 +1077,7 @@ define noundef i32 @bmcg2_sat_solver_add_and(ptr noundef %0, i32 noundef %1, i32
   %17 = shl nsw i32 %3, 1
   %18 = add nsw i32 %17, %5
   store i32 %18, ptr %14, align 4
-  %19 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 2), !range !10
+  %19 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %8, i32 noundef 2)
   %.not18 = icmp eq i32 %19, 0
   br i1 %.not18, label %28, label %20
 
@@ -1093,7 +1093,7 @@ define noundef i32 @bmcg2_sat_solver_add_and(ptr noundef %0, i32 noundef %1, i32
   %25 = or disjoint i32 %17, %24
   %26 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %25, ptr %26, align 4
-  %27 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 3), !range !10
+  %27 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %8, i32 noundef 3)
   br label %28
 
 28:                                               ; preds = %20, %16, %7
@@ -1117,20 +1117,20 @@ define noundef i32 @bmcg2_sat_solver_add_xor(ptr noundef %0, i32 noundef %1, i32
   %14 = or disjoint i32 %13, 1
   %15 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %14, ptr %15, align 4
-  %16 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 3), !range !10
+  %16 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %6, i32 noundef 3)
   store i32 %9, ptr %6, align 4
   store i32 %10, ptr %12, align 4
   store i32 %13, ptr %15, align 4
-  %17 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 3), !range !10
+  %17 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %6, i32 noundef 3)
   %18 = add nsw i32 %8, %4
   store i32 %18, ptr %6, align 4
   store i32 %11, ptr %12, align 4
   store i32 %13, ptr %15, align 4
-  %19 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 3), !range !10
+  %19 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %6, i32 noundef 3)
   store i32 %18, ptr %6, align 4
   store i32 %10, ptr %12, align 4
   store i32 %14, ptr %15, align 4
-  %20 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 3), !range !10
+  %20 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %6, i32 noundef 3)
   ret i32 4
 }
 
@@ -1525,7 +1525,7 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit:            ; preds = %2, %.preheader.i
   %15 = load i8, ptr %.141, align 1
   %.not50 = icmp eq i8 %15, 10
   %16 = getelementptr inbounds i8, ptr %.141, i64 1
-  br i1 %.not50, label %.critedge2, label %14, !llvm.loop !15
+  br i1 %.not50, label %.critedge2, label %14, !llvm.loop !14
 
 .preheader:                                       ; preds = %12, %.critedge
   %17 = phi i8 [ %.pr, %.critedge ], [ %13, %12 ]
@@ -1541,7 +1541,7 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit:            ; preds = %2, %.preheader.i
 .critedge:                                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader
   %18 = getelementptr inbounds i8, ptr %.242, i64 1
   %.pr = load i8, ptr %18, align 1
-  br label %.preheader, !llvm.loop !16
+  br label %.preheader, !llvm.loop !15
 
 19:                                               ; preds = %.preheader
   %20 = getelementptr inbounds i8, ptr %.242, i64 1
@@ -1573,7 +1573,7 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit:            ; preds = %2, %.preheader.i
   %30 = tail call noundef i32 @_ZN6Gluco210SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1684) %1, i1 noundef zeroext true, i1 noundef zeroext true)
   %31 = load i32, ptr %9, align 8
   %.not.i51 = icmp sgt i32 %31, %.0
-  br i1 %.not.i51, label %_ZN6Gluco210SimpSolver6addVarEi.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i51, label %_ZN6Gluco210SimpSolver6addVarEi.exit, label %.lr.ph.i, !llvm.loop !16
 
 _ZN6Gluco210SimpSolver6addVarEi.exit:             ; preds = %.lr.ph.i, %28
   %32 = load ptr, ptr %10, align 8
@@ -1685,13 +1685,13 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit54:          ; preds = %.preheader.i53, %_Z
   %80 = add i8 %79, -48
   %or.cond = icmp ult i8 %80, 10
   %81 = getelementptr inbounds i8, ptr %.5, i64 1
-  br i1 %or.cond, label %78, label %.critedge2, !llvm.loop !18
+  br i1 %or.cond, label %78, label %.critedge2, !llvm.loop !17
 
 .critedge2:                                       ; preds = %14, %78
   %.6 = phi ptr [ %.5, %78 ], [ %.141, %14 ]
   %.2 = phi i32 [ %.1, %78 ], [ %.0, %14 ]
   %82 = getelementptr inbounds i8, ptr %.6, i64 1
-  br label %12, !llvm.loop !19
+  br label %12, !llvm.loop !18
 
 83:                                               ; preds = %12
   %.not49 = icmp eq ptr %4, null
@@ -2038,7 +2038,7 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %._ZN6Gluco23vecINS_
   %61 = call noundef i32 @_ZN6Gluco210SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1684) %1, i1 noundef zeroext true, i1 noundef zeroext true)
   %62 = load i32, ptr %19, align 8
   %.not.i26 = icmp sgt i32 %62, %59
-  br i1 %.not.i26, label %_ZN6Gluco210SimpSolver6addVarEi.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i26, label %_ZN6Gluco210SimpSolver6addVarEi.exit, label %.lr.ph.i, !llvm.loop !16
 
 _ZN6Gluco210SimpSolver6addVarEi.exit:             ; preds = %.lr.ph.i, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
   %63 = getelementptr inbounds i8, ptr %.02536, i64 4
@@ -2046,7 +2046,7 @@ _ZN6Gluco210SimpSolver6addVarEi.exit:             ; preds = %.lr.ph.i, %_ZN6Gluc
   %65 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv.next
   %66 = load ptr, ptr %65, align 8
   %67 = icmp ult ptr %63, %66
-  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %_ZN6Gluco210SimpSolver6addVarEi.exit, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit
   %68 = load ptr, ptr %20, align 8
@@ -2083,7 +2083,7 @@ _ZN6Gluco210SimpSolver9addClauseERKNS_3vecINS_3LitEEE.exit: ; preds = %.lr.ph.i.
   %81 = load i32, ptr %13, align 8
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %22, label %._crit_edge39, !llvm.loop !21
+  br i1 %83, label %22, label %._crit_edge39, !llvm.loop !20
 
 ._crit_edge39:                                    ; preds = %_ZN6Gluco210SimpSolver9addClauseERKNS_3vecINS_3LitEEE.exit, %_ZL9Abc_Clockv.exit
   %84 = phi i32 [ %14, %_ZL9Abc_Clockv.exit ], [ %81, %_ZN6Gluco210SimpSolver9addClauseERKNS_3vecINS_3LitEEE.exit ]
@@ -2100,7 +2100,7 @@ _ZN6Gluco210SimpSolver9addClauseERKNS_3vecINS_3LitEEE.exit: ; preds = %.lr.ph.i.
   %93 = call noalias ptr @malloc(i64 noundef %92) #35
   %94 = getelementptr inbounds i8, ptr %89, i64 8
   store ptr %93, ptr %94, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %93, ptr align 4 %86, i64 %92, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %93, ptr readonly align 4 %86, i64 %92, i1 false)
   %95 = getelementptr inbounds i8, ptr %12, i64 12
   %96 = load i32, ptr %95, align 4
   %97 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %88, i32 noundef %84, i32 noundef %96)
@@ -2159,11 +2159,11 @@ define noalias noundef ptr @_Z22Glucose_SolverFromAig2P10Gia_Man_t_RN6Gluco210Si
   %16 = sub i64 %14, %15
   %17 = lshr exact i64 %16, 2
   %18 = trunc i64 %17 to i32
-  %19 = tail call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef nonnull %1, ptr noundef %11, i32 noundef %18), !range !10
+  %19 = tail call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef nonnull %1, ptr noundef %11, i32 noundef %18)
   %20 = load i32, ptr %4, align 8
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %8, label %._crit_edge, !llvm.loop !22
+  br i1 %22, label %8, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %8, %2
   %23 = getelementptr inbounds i8, ptr %3, i64 32
@@ -2179,7 +2179,7 @@ define noalias noundef ptr @_Z22Glucose_SolverFromAig2P10Gia_Man_t_RN6Gluco210Si
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #35
   %32 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %31, ptr %32, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %31, ptr align 4 %24, i64 %30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %31, ptr readonly align 4 %24, i64 %30, i1 false)
   tail call void @Cnf_DataFree(ptr noundef nonnull %3)
   ret ptr %27
 }
@@ -2286,7 +2286,7 @@ _ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i:            ; preds = %36, %_ZL12Vec_StrAl
   store i8 45, ptr %43, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %41
-  br i1 %exitcond.not, label %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not, label %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit, label %.lr.ph.i, !llvm.loop !22
 
 _ZL11Vec_StrFillP10Vec_Str_t_ic.exit:             ; preds = %.lr.ph.i, %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i.thread, %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i
   %44 = phi i1 [ false, %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i.thread ], [ false, %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i ], [ true, %.lr.ph.i ]
@@ -2308,7 +2308,7 @@ _ZL11Vec_StrFillP10Vec_Str_t_ic.exit:             ; preds = %.lr.ph.i, %_ZL11Vec
   %52 = add nuw nsw i32 %.0104, 1
   %53 = icmp slt i32 %52, %3
   %54 = select i1 %.not, i1 true, i1 %53
-  br i1 %54, label %55, label %_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit._crit_edge, !llvm.loop !24
+  br i1 %54, label %55, label %_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit._crit_edge, !llvm.loop !23
 
 55:                                               ; preds = %.lr.ph105, %51
   %.0104 = phi i32 [ 0, %.lr.ph105 ], [ %52, %51 ]
@@ -2414,7 +2414,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   %.val67 = load i32, ptr %5, align 4
   %103 = sext i32 %.val67 to i64
   %104 = icmp slt i64 %indvars.iv.next, %103
-  br i1 %104, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !25
+  br i1 %104, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !24
 
 .critedge.loopexit:                               ; preds = %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
   %.val68.pre = load i32, ptr %12, align 4
@@ -2441,7 +2441,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   store i32 %110, ptr %108, align 4
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count
-  br i1 %exitcond111.not, label %._crit_edge, label %.lr.ph99, !llvm.loop !26
+  br i1 %exitcond111.not, label %._crit_edge, label %.lr.ph99, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph99, %.critedge
   %111 = load i32, ptr %20, align 8
@@ -2478,7 +2478,7 @@ _ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i80:          ; preds = %118, %._crit_edge
   store i8 45, ptr %121, align 1
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next.i83, %smax
-  br i1 %exitcond112.not, label %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit85, label %.lr.ph.i81, !llvm.loop !23
+  br i1 %exitcond112.not, label %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit85, label %.lr.ph.i81, !llvm.loop !22
 
 _ZL11Vec_StrFillP10Vec_Str_t_ic.exit85:           ; preds = %.lr.ph.i81, %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i80
   br i1 %107, label %.lr.ph102.preheader, label %._crit_edge103
@@ -2519,12 +2519,12 @@ _ZL11Vec_StrFillP10Vec_Str_t_ic.exit85:           ; preds = %.lr.ph.i81, %_ZL11V
   %.1 = phi i32 [ %.059101, %.lr.ph102 ], [ %130, %129 ]
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
-  br i1 %exitcond117.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !27
+  br i1 %exitcond117.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !26
 
 ._crit_edge103:                                   ; preds = %139, %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit85
   %.059.lcssa = phi i32 [ 0, %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit85 ], [ %.1, %139 ]
   %.val74 = load ptr, ptr %45, align 8
-  %140 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val74) #34
+  %140 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val74) #34
   %141 = trunc i64 %140 to i32
   %142 = icmp sgt i32 %141, 0
   br i1 %142, label %.lr.ph.i.i, label %_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit
@@ -2599,11 +2599,11 @@ _ZL11Vec_StrPushP10Vec_Str_t_c.exit.i.i:          ; preds = %166, %_ZL11Vec_StrG
   store i8 %145, ptr %171, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit, label %143, !llvm.loop !28
+  br i1 %exitcond.not.i.i, label %_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit, label %143, !llvm.loop !27
 
 _ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit:          ; preds = %_ZL11Vec_StrPushP10Vec_Str_t_c.exit.i.i, %._crit_edge103
   %172 = load ptr, ptr %47, align 8
-  %173 = tail call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %172, ptr noundef %.val71, i32 noundef %.059.lcssa), !range !10
+  %173 = tail call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %172, ptr noundef readonly %.val71, i32 noundef %.059.lcssa)
   %.not65 = icmp eq i32 %173, 0
   br i1 %.not65, label %_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit._crit_edge, label %51
 
@@ -2787,7 +2787,7 @@ define noundef ptr @bmcg2_sat_solver_sop(ptr noundef %0, i32 noundef %1) local_u
   %3 = alloca [2 x ptr], align 16
   %4 = alloca i32, align 4
   %5 = tail call noalias noundef nonnull dereferenceable(1688) ptr @_Znwm(i64 noundef 1688) #28
-  %indvars.iv90.sroa.gep137 = getelementptr inbounds i8, ptr %3, i64 8
+  %indvars.iv90.sroa.gep134 = getelementptr inbounds i8, ptr %3, i64 8
   invoke void @_ZN6Gluco210SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1684) %5)
           to label %bmcg2_sat_solver_start.exit unwind label %6
 
@@ -2832,7 +2832,7 @@ bmcg2_sat_solver_start.exit46:                    ; preds = %bmcg2_sat_solver_st
 
 20:                                               ; preds = %bmcg2_sat_solver_start.exit46, %126
   %21 = phi i1 [ true, %bmcg2_sat_solver_start.exit46 ], [ false, %126 ]
-  %indvars.iv90.sroa.phi = phi ptr [ %3, %bmcg2_sat_solver_start.exit46 ], [ %indvars.iv90.sroa.gep137, %126 ]
+  %indvars.iv90.sroa.phi = phi ptr [ %3, %bmcg2_sat_solver_start.exit46 ], [ %indvars.iv90.sroa.gep134, %126 ]
   %indvars.iv90 = phi i32 [ 0, %bmcg2_sat_solver_start.exit46 ], [ 1, %126 ]
   %22 = load ptr, ptr %indvars.iv90.sroa.phi, align 8
   %23 = load i32, ptr %15, align 8
@@ -2846,7 +2846,7 @@ bmcg2_sat_solver_start.exit46:                    ; preds = %bmcg2_sat_solver_st
   %27 = tail call noundef i32 @_ZN6Gluco210SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1684) %22, i1 noundef zeroext true, i1 noundef zeroext true)
   %28 = add i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %28, %23
-  br i1 %exitcond.not.i, label %bmcg2_sat_solver_set_nvars.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %bmcg2_sat_solver_set_nvars.exit, label %.lr.ph.i, !llvm.loop !10
 
 bmcg2_sat_solver_set_nvars.exit:                  ; preds = %.lr.ph.i, %20
   %29 = xor i32 %indvars.iv90, 3
@@ -3051,7 +3051,7 @@ _ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i:       ; preds = %98, %92, %79
   store i32 0, ptr %108, align 4
   %indvars.iv.next.i59 = add nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i56
-  br i1 %exitcond.not.i60, label %._crit_edge.i55, label %.lr.ph.i57, !llvm.loop !29
+  br i1 %exitcond.not.i60, label %._crit_edge.i55, label %.lr.ph.i57, !llvm.loop !28
 
 ._crit_edge.i55:                                  ; preds = %.lr.ph.i57, %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i
   store i32 %.sroa.9.0.lcssa.i, ptr %78, align 8
@@ -3092,7 +3092,7 @@ _Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii.exit: ; preds = %_ZN6Gluc
   %115 = load i32, ptr %18, align 8
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next, %116
-  br i1 %117, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !30
+  br i1 %117, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !29
 
 ._crit_edge.loopexit:                             ; preds = %_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii.exit
   %.pre96 = load ptr, ptr %indvars.iv90.sroa.phi, align 8
@@ -3100,7 +3100,7 @@ _Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii.exit: ; preds = %_ZN6Gluc
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %bmcg2_sat_solver_set_nvars.exit
   %118 = phi ptr [ %.pre96, %._crit_edge.loopexit ], [ %22, %bmcg2_sat_solver_set_nvars.exit ]
-  %119 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %118, ptr noundef nonnull %4, i32 noundef 1), !range !10
+  %119 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %118, ptr noundef nonnull readonly %4, i32 noundef 1)
   %.not = icmp eq i32 %119, 0
   br i1 %.not, label %120, label %126
 
@@ -3118,7 +3118,7 @@ _Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii.exit: ; preds = %_ZN6Gluc
   br label %bmcg2_sat_solver_stop.exit50
 
 126:                                              ; preds = %._crit_edge
-  br i1 %21, label %20, label %127, !llvm.loop !31
+  br i1 %21, label %20, label %127, !llvm.loop !30
 
 127:                                              ; preds = %126
   tail call void @Cnf_DataFree(ptr noundef nonnull %12)
@@ -3241,7 +3241,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   store i32 %147, ptr %177, align 4
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge76.thread, label %146, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge76.thread, label %146, !llvm.loop !31
 
 ._crit_edge76.thread:                             ; preds = %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
   %178 = call noundef ptr @_Z22Glucose2_GenerateCubesPPvP10Vec_Int_t_S2_i(ptr noundef nonnull %3, ptr noundef nonnull %128, ptr noundef nonnull %132, i32 noundef %1)
@@ -3360,7 +3360,7 @@ define void @_Z30bmcg2_sat_solver_print_sop_litP10Gia_Man_t_i(ptr noundef %0, i3
   %.val = load i32, ptr %5, align 4
   %20 = sext i32 %.val to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %12, label %.critedge, !llvm.loop !33
+  br i1 %21, label %12, label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %12, %2
   %.val.lcssa = phi i32 [ %.val25, %2 ], [ %.val, %12 ]
@@ -3379,7 +3379,7 @@ define void @_Z30bmcg2_sat_solver_print_sop_litP10Gia_Man_t_i(ptr noundef %0, i3
   %.val.i = load i32, ptr %5, align 4
   %27 = sext i32 %.val.i to i64
   %28 = icmp slt i64 %indvars.iv.next.i, %27
-  br i1 %28, label %.lr.ph.i, label %_ZL12Vec_IntPrintP10Vec_Int_t_.exit, !llvm.loop !34
+  br i1 %28, label %.lr.ph.i, label %_ZL12Vec_IntPrintP10Vec_Int_t_.exit, !llvm.loop !33
 
 _ZL12Vec_IntPrintP10Vec_Int_t_.exit:              ; preds = %.lr.ph.i, %.critedge
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
@@ -3525,13 +3525,13 @@ _ZL12Vec_IntStarti.exit:                          ; preds = %_ZL12Vec_IntAlloci.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.03451, i64 %indvars.iv.next
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  br label %28, !llvm.loop !35
+  br label %28, !llvm.loop !34
 
 .critedge:                                        ; preds = %28, %28
   %39 = getelementptr inbounds i8, ptr %.03451, i64 %21
   %40 = load i8, ptr %39, align 1
   %.not = icmp eq i8 %40, 0
-  br i1 %.not, label %.preheader.loopexit, label %25, !llvm.loop !36
+  br i1 %.not, label %.preheader.loopexit, label %25, !llvm.loop !35
 
 41:                                               ; preds = %.lr.ph54, %82
   %.val64 = phi i32 [ %.val66, %.lr.ph54 ], [ %.val, %82 ]
@@ -3622,7 +3622,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %83 = sext i32 %.val to i64
   %84 = icmp slt i64 %indvars.iv.next57, %83
-  br i1 %84, label %41, label %.critedge2, !llvm.loop !37
+  br i1 %84, label %41, label %.critedge2, !llvm.loop !36
 
 .critedge2:                                       ; preds = %82, %.preheader
   %.val44 = load i32, ptr %18, align 4
@@ -3699,7 +3699,7 @@ define noundef i32 @_Z26bmcg2_sat_solver_quantify2P10Gia_Man_t_iiPFiPviES1_P10Ve
   %.val85 = load i32, ptr %10, align 4
   %28 = sext i32 %.val85 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %20, label %.critedge, !llvm.loop !38
+  br i1 %29, label %20, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %20, %.preheader
   %30 = call ptr @Gia_ManDupConeSupp(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %9)
@@ -3729,7 +3729,7 @@ define noundef i32 @_Z26bmcg2_sat_solver_quantify2P10Gia_Man_t_iiPFiPviES1_P10Ve
   %.val = load i32, ptr %10, align 4
   %39 = sext i32 %.val to i64
   %40 = icmp slt i64 %indvars.iv.next107, %39
-  br i1 %40, label %.lr.ph104, label %.critedge2, !llvm.loop !39
+  br i1 %40, label %.lr.ph104, label %.critedge2, !llvm.loop !38
 
 .critedge2:                                       ; preds = %38, %.critedge
   %.074.lcssa = phi ptr [ %30, %.critedge ], [ %.1, %38 ]
@@ -4008,7 +4008,7 @@ define void @_Z20Gia_ManQuantLoadCnf2P10Gia_Man_t_P10Vec_Int_t_PPv(ptr nocapture
   %23 = tail call noundef i32 @_ZN6Gluco210SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1684) %18, i1 noundef zeroext true, i1 noundef zeroext true)
   %24 = add i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %24, %.val54
-  br i1 %exitcond.not.i, label %bmcg2_sat_solver_set_nvars.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %bmcg2_sat_solver_set_nvars.exit.loopexit, label %.lr.ph.i, !llvm.loop !10
 
 bmcg2_sat_solver_set_nvars.exit.loopexit:         ; preds = %.lr.ph.i
   %.val82.pre86.pre = load i32, ptr %19, align 4
@@ -4031,7 +4031,7 @@ bmcg2_sat_solver_set_nvars.exit:                  ; preds = %bmcg2_sat_solver_se
   %30 = tail call noundef i32 @_ZN6Gluco210SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1684) %25, i1 noundef zeroext true, i1 noundef zeroext true)
   %31 = add i32 %.04.i71, 1
   %exitcond.not.i72 = icmp eq i32 %31, %.val82.pre86
-  br i1 %exitcond.not.i72, label %bmcg2_sat_solver_set_nvars.exit73.loopexit, label %.lr.ph.i70, !llvm.loop !11
+  br i1 %exitcond.not.i72, label %bmcg2_sat_solver_set_nvars.exit73.loopexit, label %.lr.ph.i70, !llvm.loop !10
 
 bmcg2_sat_solver_set_nvars.exit73.loopexit:       ; preds = %.lr.ph.i70
   %.val82.pre = load i32, ptr %19, align 4
@@ -4099,7 +4099,7 @@ bmcg2_sat_solver_set_nvars.exit73:                ; preds = %bmcg2_sat_solver_se
   %70 = shl nsw i32 %57, 1
   %71 = or disjoint i32 %70, %67
   store i32 %71, ptr %36, align 4
-  %72 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %65, ptr noundef nonnull %5, i32 noundef 2), !range !10
+  %72 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %65, ptr noundef nonnull readonly %5, i32 noundef 2)
   %.not17.i = icmp eq i32 %72, 0
   br i1 %.not17.i, label %bmcg2_sat_solver_add_and.exit, label %73
 
@@ -4111,7 +4111,7 @@ bmcg2_sat_solver_set_nvars.exit73:                ; preds = %bmcg2_sat_solver_se
   %77 = shl nsw i32 %64, 1
   %78 = or disjoint i32 %77, %76
   store i32 %78, ptr %36, align 4
-  %79 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %65, ptr noundef nonnull %5, i32 noundef 2), !range !10
+  %79 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %65, ptr noundef nonnull readonly %5, i32 noundef 2)
   %.not18.i = icmp eq i32 %79, 0
   br i1 %.not18.i, label %bmcg2_sat_solver_add_and.exit, label %80
 
@@ -4121,7 +4121,7 @@ bmcg2_sat_solver_set_nvars.exit73:                ; preds = %bmcg2_sat_solver_se
   store i32 %81, ptr %36, align 4
   %82 = xor i32 %78, 1
   store i32 %82, ptr %37, align 4
-  %83 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %65, ptr noundef nonnull %5, i32 noundef 3), !range !10
+  %83 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %65, ptr noundef nonnull readonly %5, i32 noundef 3)
   br label %bmcg2_sat_solver_add_and.exit
 
 bmcg2_sat_solver_add_and.exit:                    ; preds = %49, %73, %80
@@ -4139,7 +4139,7 @@ bmcg2_sat_solver_add_and.exit:                    ; preds = %49, %73, %80
   store i32 %69, ptr %4, align 4
   %89 = or disjoint i32 %88, %70
   store i32 %89, ptr %38, align 4
-  %90 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef nonnull %84, ptr noundef nonnull %4, i32 noundef 2), !range !10
+  %90 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef nonnull %84, ptr noundef nonnull readonly %4, i32 noundef 2)
   %.not17.i74 = icmp eq i32 %90, 0
   br i1 %.not17.i74, label %bmcg2_sat_solver_add_and.exit79, label %91
 
@@ -4151,7 +4151,7 @@ bmcg2_sat_solver_add_and.exit:                    ; preds = %49, %73, %80
   %95 = shl nsw i32 %64, 1
   %96 = or disjoint i32 %94, %95
   store i32 %96, ptr %38, align 4
-  %97 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef nonnull %84, ptr noundef nonnull %4, i32 noundef 2), !range !10
+  %97 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef nonnull %84, ptr noundef nonnull readonly %4, i32 noundef 2)
   %.not18.i75 = icmp eq i32 %97, 0
   br i1 %.not18.i75, label %bmcg2_sat_solver_add_and.exit79, label %98
 
@@ -4161,7 +4161,7 @@ bmcg2_sat_solver_add_and.exit:                    ; preds = %49, %73, %80
   store i32 %99, ptr %38, align 4
   %100 = xor i32 %96, 1
   store i32 %100, ptr %39, align 4
-  %101 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef nonnull %84, ptr noundef nonnull %4, i32 noundef 3), !range !10
+  %101 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef nonnull %84, ptr noundef nonnull readonly %4, i32 noundef 3)
   br label %bmcg2_sat_solver_add_and.exit79
 
 bmcg2_sat_solver_add_and.exit79:                  ; preds = %85, %91, %98
@@ -4180,13 +4180,13 @@ bmcg2_sat_solver_add_and.exit79:                  ; preds = %85, %91, %98
   %107 = or disjoint i32 %106, 1
   store i32 %107, ptr %6, align 4
   %108 = load ptr, ptr %2, align 8
-  %109 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %108, ptr noundef nonnull %6, i32 noundef 1), !range !10
+  %109 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %108, ptr noundef nonnull readonly %6, i32 noundef 1)
   %110 = load ptr, ptr %11, align 8
   %.not51 = icmp eq ptr %110, null
   br i1 %.not51, label %113, label %111
 
 111:                                              ; preds = %104
-  %112 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef nonnull %110, ptr noundef nonnull %6, i32 noundef 1), !range !10
+  %112 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef nonnull %110, ptr noundef nonnull readonly %6, i32 noundef 1)
   br label %113
 
 113:                                              ; preds = %bmcg2_sat_solver_add_and.exit79, %bmcg2_sat_solver_add_and.exit, %104, %111, %102
@@ -4194,7 +4194,7 @@ bmcg2_sat_solver_add_and.exit79:                  ; preds = %85, %91, %98
   %.val = load i32, ptr %19, align 4
   %114 = sext i32 %.val to i64
   %115 = icmp slt i64 %indvars.iv.next, %114
-  br i1 %115, label %40, label %.critedge, !llvm.loop !40
+  br i1 %115, label %40, label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %40, %113, %bmcg2_sat_solver_set_nvars.exit73
   ret void
@@ -4249,7 +4249,7 @@ define noundef i32 @_Z17Gia_ManFactorSop2P10Gia_Man_t_P10Vec_Int_t_P10Vec_Str_t_
   %25 = sub nsw i32 %.val42.val, %.val41
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %14, label %.critedge, !llvm.loop !41
+  br i1 %27, label %14, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %14, %15, %4
   %28 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4491,7 +4491,7 @@ _ZL16Gia_ManAppendAndP10Gia_Man_t_ii.exit.us:     ; preds = %180, %178
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %189 = sext i32 %188 to i64
   %190 = icmp slt i64 %indvars.iv.next62, %189
-  br i1 %190, label %.lr.ph54.split.us, label %.critedge2, !llvm.loop !42
+  br i1 %190, label %.lr.ph54.split.us, label %.critedge2, !llvm.loop !41
 
 .lr.ph54.split:                                   ; preds = %.lr.ph54, %216
   %191 = phi i32 [ %217, %216 ], [ %29, %.lr.ph54 ]
@@ -4538,7 +4538,7 @@ _ZL16Gia_ManAppendAndP10Gia_Man_t_ii.exit.us:     ; preds = %180, %178
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %218 = sext i32 %217 to i64
   %219 = icmp slt i64 %indvars.iv.next59, %218
-  br i1 %219, label %.lr.ph54.split, label %.critedge2, !llvm.loop !42
+  br i1 %219, label %.lr.ph54.split, label %.critedge2, !llvm.loop !41
 
 .critedge2:                                       ; preds = %.lr.ph54.split, %216, %.lr.ph54.split.us, %187, %.critedge
   %.val37 = load ptr, ptr %7, align 8
@@ -4680,7 +4680,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   %59 = xor i32 %58, 1
   store i32 %59, ptr %8, align 4
   %60 = load ptr, ptr %0, align 8
-  %61 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %60, ptr noundef nonnull %8, i32 noundef 1), !range !10
+  %61 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %60, ptr noundef nonnull readonly %8, i32 noundef 1)
   %.not90 = icmp eq i32 %61, 0
   br i1 %.not90, label %.critedge.thread, label %62
 
@@ -4705,7 +4705,7 @@ _ZN6Gluco210SimpSolver12solveLimitedEPiibb.exit:  ; preds = %62, %.preheader.i.i
   store i32 %58, ptr %8, align 4
   %70 = getelementptr inbounds i8, ptr %0, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %71, ptr noundef nonnull %8, i32 noundef 1), !range !10
+  %72 = call noundef i32 @_Z25glucose2_solver_addclausePN6Gluco210SimpSolverEPii(ptr noundef %71, ptr noundef nonnull readonly %8, i32 noundef 1)
   %.not91 = icmp eq i32 %72, 0
   br i1 %.not91, label %.critedge.thread, label %73
 
@@ -4803,7 +4803,7 @@ _ZL16Vec_IntStartFulli.exit:                      ; preds = %_ZL12Vec_IntAlloci.
   %.val95 = load i32, ptr %14, align 4
   %111 = sext i32 %.val95 to i64
   %112 = icmp slt i64 %indvars.iv.next, %111
-  br i1 %112, label %94, label %.critedge, !llvm.loop !43
+  br i1 %112, label %94, label %.critedge, !llvm.loop !42
 
 .critedge:                                        ; preds = %110
   %113 = icmp eq i32 %.1, 0
@@ -4833,7 +4833,7 @@ _ZL16Vec_IntStartFulli.exit:                      ; preds = %_ZL12Vec_IntAlloci.
   %.val93 = load i32, ptr %14, align 4
   %124 = sext i32 %.val93 to i64
   %125 = icmp slt i64 %indvars.iv.next147, %124
-  br i1 %125, label %.lr.ph140, label %.critedge2, !llvm.loop !44
+  br i1 %125, label %.lr.ph140, label %.critedge2, !llvm.loop !43
 
 .critedge2:                                       ; preds = %.lr.ph140, %116
   br i1 %.not, label %127, label %126
@@ -4867,7 +4867,7 @@ _ZL16Vec_IntStartFulli.exit:                      ; preds = %_ZL12Vec_IntAlloci.
   %.val = load i32, ptr %10, align 4
   %134 = sext i32 %.val to i64
   %135 = icmp slt i64 %indvars.iv.next150, %134
-  br i1 %135, label %.lr.ph143, label %.critedge4, !llvm.loop !45
+  br i1 %135, label %.lr.ph143, label %.critedge4, !llvm.loop !44
 
 .critedge4:                                       ; preds = %.lr.ph143, %.critedge.thread
   %136 = load ptr, ptr %12, align 8
@@ -5015,7 +5015,7 @@ _ZL11Vec_IntGrowP10Vec_Int_t_i.exit:              ; preds = %_ZL11Vec_IntGrowP10
   store i32 -1, ptr %39, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %37, %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit
   store i32 %1, ptr %3, align 4
@@ -5026,7 +5026,7 @@ _ZL11Vec_IntGrowP10Vec_Int_t_i.exit:              ; preds = %_ZL11Vec_IntGrowP10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_Z18Gia_ManCiIsToKeep2Pvi(ptr nocapture readnone %0, i32 noundef %1) #14 {
+define noundef range(i32 0, 2) i32 @_Z18Gia_ManCiIsToKeep2Pvi(ptr nocapture readnone %0, i32 noundef %1) #14 {
   %3 = srem i32 %1, 5
   %4 = icmp ne i32 %3, 0
   %5 = zext i1 %4 to i32
@@ -5196,7 +5196,7 @@ _ZL9Abc_Clockv.exit30:                            ; preds = %_ZL9Abc_Clockv.exit
   %78 = sitofp i64 %75 to double
   %79 = fdiv double %78, 1.000000e+06
   call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 poison, ptr noundef nonnull @.str.39, double noundef %79)
-  %80 = call i32 @bmcg2_sat_solver_equiv_overlap_check(ptr noundef nonnull %14, ptr noundef nonnull %0, i32 noundef %37, i32 noundef %64, i32 noundef 1), !range !10
+  %80 = call i32 @bmcg2_sat_solver_equiv_overlap_check(ptr noundef nonnull %14, ptr noundef nonnull %0, i32 noundef %37, i32 noundef %64, i32 noundef 1)
   %.not = icmp eq i32 %80, 0
   %str.3.str.4 = select i1 %.not, ptr @str.5, ptr @str.6
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %str.3.str.4)
@@ -5218,7 +5218,7 @@ _ZL9Abc_Clockv.exit30:                            ; preds = %_ZL9Abc_Clockv.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @bmcg2_sat_solver_equiv_overlap_check(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bmcg2_sat_solver_equiv_overlap_check(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [2 x ptr], align 16
   %7 = alloca [2 x i32], align 4
   store ptr %0, ptr %6, align 16
@@ -5276,7 +5276,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %16, %5
   %.val = load i32, ptr %10, align 4
   %34 = sext i32 %.val to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %.critedge, !llvm.loop !47
+  br i1 %35, label %.lr.ph, label %.critedge, !llvm.loop !46
 
 .critedge:                                        ; preds = %.lr.ph, %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
   %36 = load ptr, ptr %12, align 8
@@ -5463,7 +5463,7 @@ define noundef i32 @_Z30bmcg2_sat_solver_quantify_testPPvP10Gia_Man_t_iiPFiS_iES
 
 bmcg2_sat_solver_start.exit:                      ; preds = %7
   tail call void @_ZN6Gluco26Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1416) %10)
-  %13 = tail call i32 @bmcg2_sat_solver_equiv_overlap_check(ptr noundef nonnull %10, ptr noundef %1, i32 noundef %8, i32 noundef %9, i32 noundef 1), !range !10
+  %13 = tail call i32 @bmcg2_sat_solver_equiv_overlap_check(ptr noundef nonnull %10, ptr noundef %1, i32 noundef %8, i32 noundef %9, i32 noundef 1)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %15, label %14
 
@@ -5532,7 +5532,7 @@ bmcg2_sat_solver_start.exit:                      ; preds = %1
   %27 = and i32 %26, 1
   %28 = shl nsw i32 %25, 1
   %29 = or disjoint i32 %28, %27
-  %30 = tail call i32 @bmcg2_sat_solver_equiv_overlap_check(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %18, i32 noundef %29, i32 noundef %.019), !range !10
+  %30 = tail call i32 @bmcg2_sat_solver_equiv_overlap_check(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %18, i32 noundef %29, i32 noundef %.019)
   %31 = load ptr, ptr %2, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
@@ -5541,7 +5541,7 @@ bmcg2_sat_solver_start.exit:                      ; preds = %1
   %.not12 = icmp eq i32 %30, 0
   %.str.36..str.37 = select i1 %.not12, ptr @.str.37, ptr @.str.36
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull %34, ptr noundef nonnull %.str.36..str.37)
-  br i1 %.not, label %7, label %36, !llvm.loop !48
+  br i1 %.not, label %7, label %36, !llvm.loop !47
 
 36:                                               ; preds = %7
   %37 = load ptr, ptr %2, align 8
@@ -5552,7 +5552,7 @@ bmcg2_sat_solver_start.exit:                      ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @Glucose2_SolveAig(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 21) i32 @Glucose2_SolveAig(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -5818,7 +5818,7 @@ _ZL13Abc_PrintTimeiPKcl.exit49:                   ; preds = %.noexc47
   %.val = load i32, ptr %139, align 4
   %140 = sext i32 %.val to i64
   %141 = icmp slt i64 %indvars.iv.next, %140
-  br i1 %141, label %112, label %.critedge, !llvm.loop !49
+  br i1 %141, label %112, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %137, %112, %104, %_ZL13Abc_PrintTimeiPKcl.exit49
   %142 = getelementptr inbounds i8, ptr %31, i64 8
@@ -5911,7 +5911,7 @@ _ZN6Gluco23vecINS_3LitEE8capacityEi.exit:         ; preds = %5, %18, %25
   store i32 0, ptr %35, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit
   store i32 %1, ptr %3, align 8
@@ -6193,7 +6193,7 @@ _ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread: ; preds = %2, %_
   %56 = getelementptr inbounds i32, ptr %54, i64 %55
   store i32 %.01522.i, ptr %56, align 4
   %.not.i = icmp ult i32 %.023.in.i, 2
-  br i1 %.not.i, label %.split16.loopexit.i, label %22, !llvm.loop !50
+  br i1 %.not.i, label %.split16.loopexit.i, label %22, !llvm.loop !49
 
 _ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %22, %12, %.split16.loopexit.i
   %.01518.i = phi i32 [ 0, %12 ], [ %.023.i, %.split16.loopexit.i ], [ %.01522.i, %22 ]
@@ -6344,7 +6344,7 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
   %85 = getelementptr inbounds i32, ptr %83, i64 %84
   store i32 %.01522.i, ptr %85, align 4
   %.not.i = icmp ult i32 %.023.in.i, 2
-  br i1 %.not.i, label %.split16.loopexit.i, label %51, !llvm.loop !50
+  br i1 %.not.i, label %.split16.loopexit.i, label %51, !llvm.loop !49
 
 _ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %51, %_ZN6Gluco23vecIiE4pushERKi.exit, %.split16.loopexit.i
   %.01518.i = phi i32 [ 0, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %.023.i, %.split16.loopexit.i ], [ %.01522.i, %51 ]
@@ -6476,7 +6476,7 @@ define linkonce_odr void @_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE13percolateDow
   %86 = or disjoint i32 %85, 1
   %87 = load i32, ptr %8, align 8
   %88 = icmp slt i32 %86, %87
-  br i1 %88, label %18, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !51
+  br i1 %88, label %18, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !50
 
 .._crit_edge.loopexit_crit_edge:                  ; preds = %76
   %.pre25.pre = load ptr, ptr %3, align 8
@@ -6567,7 +6567,7 @@ _ZN6Gluco23vecIiE8capacityEi.exit:                ; preds = %6, %19, %26
   store i32 %.pre, ptr %36, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN6Gluco23vecIiE8capacityEi.exit
   store i32 %1, ptr %4, align 8
@@ -7244,7 +7244,7 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL19Vec_IntSortCompare1PiS_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal noundef range(i32 -1, 2) i32 @_ZL19Vec_IntSortCompare1PiS_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4
@@ -7509,7 +7509,7 @@ attributes #36 = { noreturn nounwind }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
@@ -7551,4 +7551,3 @@ attributes #36 = { noreturn nounwind }
 !49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
 !51 = distinct !{!51, !5}
-!52 = distinct !{!52, !5}

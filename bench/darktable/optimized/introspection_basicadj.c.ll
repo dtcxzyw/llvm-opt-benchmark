@@ -107,7 +107,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %2, 1
   br i1 %7, label %8, label %27
 
@@ -224,7 +224,7 @@ define void @gui_changed(ptr nocapture noundef readonly %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mouse_moved(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @mouse_moved(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #4 {
   %7 = alloca float, align 4
   %8 = alloca float, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 704
@@ -279,7 +279,7 @@ declare i32 @dt_dev_get_preview_size(ptr noundef, ptr noundef, ptr noundef) loca
 declare void @dt_control_queue_redraw_center(...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @button_released(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @button_released(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 704
   %8 = load ptr, ptr %7, align 16, !tbaa !25
   %9 = icmp eq ptr %8, null
@@ -360,7 +360,7 @@ declare i32 @dt_dev_distort_backtransform(ptr noundef, ptr noundef, i64 noundef)
 declare void @dt_dev_reprocess_all(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @button_pressed(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @button_pressed(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7) local_unnamed_addr #4 {
   %9 = alloca float, align 4
   %10 = alloca float, align 4
   %11 = getelementptr inbounds i8, ptr %0, i64 704
@@ -2082,7 +2082,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %351 = select reassoc nsz arcp contract afn i1 %349, double %350, double %348
   %352 = bitcast double %351 to i64
   %353 = lshr i64 %352, 52
-  %354 = trunc i64 %353 to i32
+  %354 = trunc nuw nsw i64 %353 to i32
   %355 = and i32 %354, 2047
   %356 = select i1 %349, i32 -1322, i32 -1022
   %357 = add nsw i32 %355, %356
@@ -2172,7 +2172,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %426 = select reassoc nsz arcp contract afn i1 %424, double %425, double %423
   %427 = bitcast double %426 to i64
   %428 = lshr i64 %427, 52
-  %429 = trunc i64 %428 to i32
+  %429 = trunc nuw nsw i64 %428 to i32
   %430 = and i32 %429, 2047
   %431 = select i1 %424, i32 -1322, i32 -1022
   %432 = add nsw i32 %430, %431
@@ -3250,7 +3250,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #19 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !141
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

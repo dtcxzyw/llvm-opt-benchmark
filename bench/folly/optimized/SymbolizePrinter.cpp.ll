@@ -1277,7 +1277,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !10
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 
@@ -1628,7 +1628,7 @@ if.then.i:                                        ; preds = %invoke.cont4
   br i1 %cmp4.i, label %if.end.i, label %if.then6.i, !prof !76
 
 if.then6.i:                                       ; preds = %if.then.i
-  %4 = trunc i64 %add.i to i8
+  %4 = trunc nuw nsw i64 %add.i to i8
   %conv.i40.i = sub nuw nsw i8 23, %4
   store i8 %conv.i40.i, ptr %arrayidx.i.i, align 1, !tbaa !10
   %arrayidx2.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 %add.i

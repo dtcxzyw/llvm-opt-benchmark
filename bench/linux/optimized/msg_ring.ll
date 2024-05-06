@@ -37,7 +37,7 @@ define dso_local void @io_msg_ring_cleanup(ptr nocapture noundef %0) local_unnam
 declare dso_local void @fput(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i32 @io_msg_ring_prep(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -22, 1) i32 @io_msg_ring_prep(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0
@@ -88,7 +88,7 @@ define dso_local i32 @io_msg_ring_prep(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @io_msg_ring(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @io_msg_ring(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call zeroext i1 @io_is_uring_fops(ptr noundef %3) #3
   br i1 %4, label %5, label %.thread.thread
@@ -494,7 +494,7 @@ define internal void @io_msg_tw_complete(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @io_double_lock_ctx(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -11, 1) i32 @io_double_lock_ctx(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = and i32 %1, 2
   %4 = icmp eq i32 %3, 0
   %5 = getelementptr inbounds i8, ptr %0, i64 64

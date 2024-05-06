@@ -52,7 +52,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.30 = private unnamed_addr constant [15 x i8] c"add_trace_func\00", align 1
 @.str.31 = private unnamed_addr constant [11 x i8] c"TracePoint\00", align 1
 @rb_cObject = external local_unnamed_addr global i64, align 8
-@ruby_current_ec = external thread_local global ptr, align 8
+@ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 @ruby_threadptr_data_type = external constant %struct.rb_data_type_struct, align 8
 @rb_eTypeError = external local_unnamed_addr global i64, align 8
 @.str.37 = private unnamed_addr constant [64 x i8] c"Can not specify normal event and internal event simultaneously.\00", align 1
@@ -1799,7 +1799,7 @@ get_event_id.exit:                                ; preds = %.lr.ph.i98.i, %.lr.
 declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_tracearg_lineno(ptr nocapture noundef nonnull %0) local_unnamed_addr #0 {
+define dso_local range(i64 1, 0) i64 @rb_tracearg_lineno(ptr nocapture noundef nonnull %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 36
@@ -2973,7 +2973,7 @@ define hidden void @rb_hook_list_remove_tracepoint(ptr nocapture noundef %0, i64
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_tracepoint_enabled_p(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 21) i64 @rb_tracepoint_enabled_p(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @tp_data_type) #4
   %3 = getelementptr inbounds i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4219,7 +4219,7 @@ define internal i64 @tracepoint_disable_m(ptr nocapture readnone %0, i64 noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_enabled_p(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @tracepoint_enabled_p(ptr nocapture readnone %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @tp_data_type) #4
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
@@ -4248,7 +4248,7 @@ get_trace_arg.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_attr_lineno(ptr nocapture readnone %0, i64 %1) #0 {
+define internal range(i64 1, 0) i64 @tracepoint_attr_lineno(ptr nocapture readnone %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 112
@@ -5126,7 +5126,7 @@ define hidden i64 @rb_vm_memsize_workqueue(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @rb_workqueue_register(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @rb_workqueue_register(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #23
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %17, label %5
@@ -5248,7 +5248,7 @@ define dso_local i32 @rb_postponed_job_preregister(i32 noundef %0, ptr noundef %
   br i1 %or.cond, label %15, label %20
 
 15:                                               ; preds = %8
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = ptrtoint ptr %2 to i64
   %19 = atomicrmw volatile xchg ptr %17, i64 %18 seq_cst, align 8
@@ -5289,7 +5289,7 @@ get_valid_ec.exit:                                ; preds = %1, %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @rb_postponed_job_register(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rb_postponed_job_register(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1184
   %6 = load ptr, ptr %5, align 8
@@ -5313,7 +5313,7 @@ define dso_local noundef i32 @rb_postponed_job_register(i32 noundef %0, ptr noun
   br i1 %exitcond.not.i.i, label %pjob_register_legacy_impl.exit, label %8, !llvm.loop !19
 
 rb_postponed_job_preregister.exit.i:              ; preds = %8
-  %16 = trunc i64 %indvars.iv.i.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = ptrtoint ptr %2 to i64
   %19 = atomicrmw volatile xchg ptr %17, i64 %18 seq_cst, align 8
@@ -5348,7 +5348,7 @@ pjob_register_legacy_impl.exit:                   ; preds = %15, %rb_postponed_j
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @rb_postponed_job_register_one(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rb_postponed_job_register_one(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1184
   %6 = load ptr, ptr %5, align 8
@@ -5372,7 +5372,7 @@ define dso_local noundef i32 @rb_postponed_job_register_one(i32 noundef %0, ptr 
   br i1 %exitcond.not.i.i, label %pjob_register_legacy_impl.exit, label %8, !llvm.loop !19
 
 rb_postponed_job_preregister.exit.i:              ; preds = %8
-  %16 = trunc i64 %indvars.iv.i.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = ptrtoint ptr %2 to i64
   %19 = atomicrmw volatile xchg ptr %17, i64 %18 seq_cst, align 8
@@ -5563,7 +5563,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %66, %rb_ec_ractor_p
 
 .lr.ph:                                           ; preds = %71, %.lr.ph
   %.050 = phi i32 [ %77, %.lr.ph ], [ %27, %71 ]
-  %73 = call i32 @llvm.ctlz.i32(i32 %.050, i1 true), !range !20
+  %73 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.050, i1 true)
   %74 = xor i32 %73, 31
   %75 = zext nneg i32 %74 to i64
   %76 = shl nuw i32 1, %74
@@ -5574,7 +5574,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %66, %rb_ec_ractor_p
   %81 = load ptr, ptr %80, align 8
   call void %79(ptr noundef %81) #4
   %.not39 = icmp eq i32 %77, 0
-  br i1 %.not39, label %.preheader, label %.lr.ph, !llvm.loop !21
+  br i1 %.not39, label %.preheader, label %.lr.ph, !llvm.loop !20
 
 ccan_list_pop_.exit:                              ; preds = %.preheader, %ccan_list_pop_.exit
   %82 = phi ptr [ %92, %ccan_list_pop_.exit ], [ %72, %.preheader ]
@@ -5593,7 +5593,7 @@ ccan_list_pop_.exit:                              ; preds = %.preheader, %ccan_l
   call void %89(ptr noundef %91) #4
   %92 = load ptr, ptr %4, align 8
   %.not.i44 = icmp eq ptr %92, %4
-  br i1 %.not.i44, label %ccan_list_pop_.exit.thread, label %ccan_list_pop_.exit, !llvm.loop !22
+  br i1 %.not.i44, label %ccan_list_pop_.exit.thread, label %ccan_list_pop_.exit, !llvm.loop !21
 
 ccan_list_pop_.exit.thread:                       ; preds = %ccan_list_pop_.exit, %.preheader, %.thread
   %93 = phi ptr [ %.pre, %.thread ], [ %4, %.preheader ], [ %4, %ccan_list_pop_.exit ]
@@ -6133,6 +6133,5 @@ attributes #27 = { nounwind willreturn memory(read) }
 !17 = distinct !{!17, !8}
 !18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
-!20 = !{i32 0, i32 33}
+!20 = distinct !{!20, !8}
 !21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}

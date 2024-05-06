@@ -38,7 +38,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
 declare i32 @curl_easy_setopt(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cert_store_load(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 9) i32 @cert_store_load(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @cert_store_get_int() #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.sink.split, label %4

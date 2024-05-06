@@ -670,7 +670,7 @@ declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unname
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_lwm_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_lwm_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %.not = icmp ult i8 %5, 16
   br i1 %.not, label %6, label %19

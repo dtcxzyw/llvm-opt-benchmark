@@ -64,7 +64,7 @@ define internal ptr @ns_dname(ptr nocapture noundef readonly %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ns_get_path_cb(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ns_get_path_cb(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %7, %3
@@ -86,7 +86,7 @@ define dso_local noundef i32 @ns_get_path_cb(ptr nocapture noundef writeonly %0,
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__ns_get_path(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__ns_get_path(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = load ptr, ptr @nsfs_mnt, align 8
   tail call void @__rcu_read_lock() #12
   %4 = load volatile i64, ptr %1, align 8
@@ -178,7 +178,7 @@ define internal fastcc noundef i32 @__ns_get_path(ptr nocapture noundef writeonl
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ns_get_path(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ns_get_path(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   br label %5
 
@@ -397,7 +397,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #0
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @ns_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @ns_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 592
@@ -484,7 +484,7 @@ declare i64 @llvm.read_register.i64(metadata) #10
 declare void @llvm.write_register.i64(metadata, i64) #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nsfs_init_fs_context(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 -12, 1) i32 @nsfs_init_fs_context(ptr noundef %0) #2 align 16 {
   %2 = tail call ptr @init_pseudo(ptr noundef %0, i64 noundef 1853056627) #12
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4

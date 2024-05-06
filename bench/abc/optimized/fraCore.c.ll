@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [44 x i8] c"Fra_FraigNode(): Error in class refinement!\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Fra_FraigMiterStatus(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Fra_FraigMiterStatus(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -174,11 +174,11 @@ define i32 @Fra_FraigMiterAssertedOutput(ptr nocapture noundef readonly %0) loca
   br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !6
 
 .critedge.loopexit.split.loop.exit28:             ; preds = %20
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge.loopexit.split.loop.exit30:             ; preds = %18
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %31, %.critedge.loopexit.split.loop.exit28, %.critedge.loopexit.split.loop.exit30, %1
@@ -715,7 +715,7 @@ Fra_ObjChild1Fra.exit:                            ; preds = %Fra_ObjChild0Fra.ex
 123:                                              ; preds = %119
   %124 = load i64, ptr %53, align 8
   %125 = lshr i64 %124, 32
-  %126 = trunc i64 %125 to i32
+  %126 = trunc nuw i64 %125 to i32
   %127 = and i32 %126, 16777215
   %128 = icmp sgt i32 %127, %122
   br i1 %128, label %129, label %131
@@ -736,7 +736,7 @@ Fra_ObjChild1Fra.exit:                            ; preds = %Fra_ObjChild0Fra.ex
 135:                                              ; preds = %131
   %136 = load i64, ptr %53, align 8
   %137 = lshr i64 %136, 32
-  %138 = trunc i64 %137 to i32
+  %138 = trunc nuw i64 %137 to i32
   %139 = and i32 %138, 16777215
   %140 = icmp sgt i32 %139, %134
   br i1 %140, label %141, label %143

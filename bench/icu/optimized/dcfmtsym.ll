@@ -889,7 +889,7 @@ invoke.cont75:                                    ; preds = %invoke.cont72
   %dfs.i = getelementptr inbounds i8, ptr %sink, i64 8
   store ptr %this, ptr %dfs.i, align 8
   %seenSymbol.i = getelementptr inbounds i8, ptr %sink, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %seenSymbol.i, i8 0, i64 29, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(29) %seenSymbol.i, i8 0, i64 29, i1 false)
   %call76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %nsName.0, ptr noundef nonnull dereferenceable(5) @_ZN6icu_75L5gLatnE) #18
   %cmp77.not = icmp eq i32 %call76, 0
   br i1 %cmp77.not, label %for.body.i.preheader, label %if.then78

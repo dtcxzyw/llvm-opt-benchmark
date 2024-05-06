@@ -10130,7 +10130,7 @@ _ZN3vcg8Matrix44IfE15FromEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRK
 declare void @glVertex3f(float noundef, float noundef, float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK18DecorateBasePlugin18getDecorationClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK18DecorateBasePlugin18getDecorationClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -10151,7 +10151,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK18DecorateBasePlugin18getDecorationClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #11 align 2 {
+define noundef range(i32 0, 3) i32 @_ZThn16_NK18DecorateBasePlugin18getDecorationClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #11 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8

@@ -197,7 +197,7 @@ for.body75:                                       ; preds = %for.body75.lr.ph, %
   br i1 %cmp81.not, label %if.end84, label %if.then83
 
 if.then83:                                        ; preds = %for.body75
-  %17 = trunc i64 %indvars.iv109 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv109 to i32
   call void (ptr, ...) @die(ptr noundef nonnull @.str.10, i32 noundef %17, i32 noundef %12) #8
   unreachable
 
@@ -227,7 +227,7 @@ for.body96:                                       ; preds = %for.cond93.preheade
   br i1 %cmp100.not, label %for.inc104, label %if.then102
 
 if.then102:                                       ; preds = %for.body96
-  %21 = trunc i64 %indvars.iv113 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv113 to i32
   call void (ptr, ...) @die(ptr noundef nonnull @.str.11, i32 noundef %21, i32 noundef %12) #8
   unreachable
 
@@ -252,7 +252,7 @@ for.body110:                                      ; preds = %for.cond107.prehead
   br i1 %cmp114.not, label %for.inc118, label %if.then116
 
 if.then116:                                       ; preds = %for.body110
-  %23 = trunc i64 %indvars.iv118 to i32
+  %23 = trunc nuw nsw i64 %indvars.iv118 to i32
   call void (ptr, ...) @die(ptr noundef nonnull @.str.12, i32 noundef %23, i32 noundef %12) #8
   unreachable
 

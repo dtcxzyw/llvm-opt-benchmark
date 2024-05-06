@@ -216,7 +216,7 @@ for.end:                                          ; preds = %for.inc, %if.end61.
   br i1 %tobool74.not, label %if.end79, label %land.lhs.true75
 
 land.lhs.true75:                                  ; preds = %for.end
-  %call76 = call i32 @PKCS12_add_safe_ex(ptr noundef nonnull %safes, ptr noundef nonnull %9, i32 noundef %spec.store.select, i32 noundef %spec.store.select1, ptr noundef %pass, ptr noundef %ctx, ptr noundef %propq), !range !6
+  %call76 = call i32 @PKCS12_add_safe_ex(ptr noundef nonnull %safes, ptr noundef nonnull %9, i32 noundef %spec.store.select, i32 noundef %spec.store.select1, ptr noundef %pass, ptr noundef %ctx, ptr noundef %propq)
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %err, label %land.lhs.true75.if.end79_crit_edge
 
@@ -516,7 +516,7 @@ entry:
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS12_add_safe_ex(ptr nocapture noundef %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass, ptr noundef %ctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_add_safe_ex(ptr nocapture noundef %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass, ptr noundef %ctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %psafes, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -659,9 +659,9 @@ declare i32 @PKCS12_add_friendlyname_utf8(ptr noundef, ptr noundef, i32 noundef)
 declare i32 @PKCS12_add_localkeyid(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS12_add_safe(ptr nocapture noundef %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_add_safe(ptr nocapture noundef %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @PKCS12_add_safe_ex(ptr noundef %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass, ptr noundef null, ptr noundef null), !range !6
+  %call = tail call i32 @PKCS12_add_safe_ex(ptr noundef %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
@@ -844,4 +844,3 @@ attributes #3 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}

@@ -117,7 +117,7 @@ opal_list_remove_first.exit:                      ; preds = %8, %11
   br label %30
 
 30:                                               ; preds = %unlock_recv_request.exit.i, %27
-  %31 = tail call i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef nonnull %.0.i, ptr noundef null), !range !4
+  %31 = tail call i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef nonnull %.0.i, ptr noundef null)
   %cond.i = icmp eq i32 %31, -2
   br i1 %cond.i, label %mca_pml_ob1_recv_request_schedule_exclusive.exit, label %32
 
@@ -141,7 +141,7 @@ opal_list_remove_first.exit:                      ; preds = %8, %11
 unlock_recv_request.exit.i:                       ; preds = %38, %35
   %.0.i.i.i = phi i32 [ %37, %35 ], [ %41, %38 ]
   %42 = icmp eq i32 %.0.i.i.i, 0
-  br i1 %42, label %43, label %30, !llvm.loop !5
+  br i1 %42, label %43, label %30, !llvm.loop !4
 
 43:                                               ; preds = %unlock_recv_request.exit.i
   %44 = icmp eq i32 %31, 0
@@ -191,7 +191,7 @@ lock_recv_request.exit.i.i:                       ; preds = %60, %57
 66:                                               ; preds = %65, %lock_recv_request.exit.i.i, %49, %45, %43
   %67 = add nuw nsw i32 %.09, 1
   %exitcond.not = icmp eq i32 %67, %2
-  br i1 %exitcond.not, label %mca_pml_ob1_recv_request_schedule_exclusive.exit, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %mca_pml_ob1_recv_request_schedule_exclusive.exit, label %.lr.ph, !llvm.loop !6
 
 mca_pml_ob1_recv_request_schedule_exclusive.exit: ; preds = %66, %25, %30, %0
   ret void
@@ -235,7 +235,7 @@ define internal void @mca_pml_ob1_recv_request_construct(ptr noundef %0) #0 {
   %16 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !7
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10
   ret void
@@ -258,7 +258,7 @@ define internal void @mca_pml_ob1_recv_request_destruct(ptr noundef %0) #0 {
   %8 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !8
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %1
   %10 = getelementptr inbounds i8, ptr %0, i64 656
@@ -282,7 +282,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_ob1_recv_request_ack_send_btl(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_ack_send_btl(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %1, i64 16
@@ -379,7 +379,7 @@ define internal void @mca_pml_ob1_recv_ctl_completion(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_ob1_recv_request_get_frag(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_get_frag(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -442,7 +442,7 @@ define noundef i32 @mca_pml_ob1_recv_request_get_frag(ptr noundef %0) local_unna
   br i1 %38, label %.sink.split, label %40
 
 .sink.split:                                      ; preds = %.thread, %14
-  %39 = tail call fastcc i32 @mca_pml_ob1_recv_request_get_frag_failed(ptr noundef nonnull %0, i32 noundef -2), !range !4
+  %39 = tail call fastcc i32 @mca_pml_ob1_recv_request_get_frag_failed(ptr noundef nonnull %0, i32 noundef -2)
   br label %40
 
 40:                                               ; preds = %.sink.split, %.thread
@@ -451,7 +451,7 @@ define noundef i32 @mca_pml_ob1_recv_request_get_frag(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mca_pml_ob1_recv_request_get_frag_failed(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_get_frag_failed(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 496
@@ -460,7 +460,7 @@ define internal fastcc noundef i32 @mca_pml_ob1_recv_request_get_frag_failed(ptr
   br i1 %7, label %8, label %27
 
 8:                                                ; preds = %2
-  %9 = tail call fastcc i32 @mca_pml_ob1_recv_request_put_frag(ptr noundef nonnull %0), !range !10
+  %9 = tail call fastcc i32 @mca_pml_ob1_recv_request_put_frag(ptr noundef nonnull %0)
   switch i32 %9, label %27 [
     i32 0, label %opal_free_list_return.exit
     i32 -2, label %10
@@ -548,7 +548,7 @@ define internal fastcc noundef i32 @mca_pml_ob1_recv_request_get_frag_failed(ptr
   %56 = load i64, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 152
   %58 = load i64, ptr %57, align 8
-  %59 = tail call fastcc i32 @mca_pml_ob1_recv_request_ack_send(ptr noundef null, ptr noundef %6, i64 noundef %54, ptr noundef nonnull %4, i64 noundef %56, i64 noundef %58, i1 noundef zeroext false), !range !4
+  %59 = tail call fastcc i32 @mca_pml_ob1_recv_request_ack_send(ptr noundef null, ptr noundef %6, i64 noundef %54, ptr noundef nonnull %4, i64 noundef %56, i64 noundef %58, i1 noundef zeroext false)
   %60 = getelementptr inbounds i8, ptr %0, i64 208
   %61 = load ptr, ptr %60, align 8
   %.not = icmp eq ptr %61, null
@@ -643,7 +643,7 @@ define internal void @mca_pml_ob1_rget_completion(ptr nocapture readnone %0, ptr
   br i1 %.not, label %33, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call fastcc i32 @mca_pml_ob1_recv_request_get_frag_failed(ptr noundef nonnull %5, i32 noundef %6), !range !4
+  %11 = tail call fastcc i32 @mca_pml_ob1_recv_request_get_frag_failed(ptr noundef nonnull %5, i32 noundef %6)
   %.not32 = icmp eq i32 %11, 0
   br i1 %.not32, label %opal_thread_add_fetch_size_t.exit, label %12
 
@@ -892,7 +892,7 @@ define void @mca_pml_ob1_recv_request_progress_frag(ptr noundef %0, ptr nocaptur
   %12 = add i64 %11, %.09.i
   %13 = add nuw i64 %.078.i, 1
   %exitcond.not.i = icmp eq i64 %13, %3
-  br i1 %exitcond.not.i, label %mca_pml_ob1_compute_segment_length_base.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %mca_pml_ob1_compute_segment_length_base.exit, label %.lr.ph.i, !llvm.loop !9
 
 mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %.lr.ph.i, %4
   %.0.lcssa.i = phi i64 [ 0, %4 ], [ %12, %.lr.ph.i ]
@@ -943,7 +943,7 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %.lr.ph.i, %4
   %35 = add nuw i64 %.02941, 1
   %36 = getelementptr inbounds i8, ptr %.043, i64 16
   %exitcond.not = icmp eq i64 %35, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %33, %19
   %37 = load i8, ptr @opal_uses_threads, align 1
@@ -1094,7 +1094,7 @@ lock_recv_request.exit.i37:                       ; preds = %111, %108
   br i1 %115, label %.preheader.i, label %mca_pml_ob1_recv_request_schedule.exit
 
 .preheader.i:                                     ; preds = %lock_recv_request.exit.i37, %unlock_recv_request.exit.i.i
-  %116 = call i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef %0, ptr noundef null), !range !4
+  %116 = call i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef %0, ptr noundef null)
   %cond.i.i = icmp eq i32 %116, -2
   br i1 %cond.i.i, label %mca_pml_ob1_recv_request_schedule.exit, label %117
 
@@ -1118,7 +1118,7 @@ lock_recv_request.exit.i37:                       ; preds = %111, %108
 unlock_recv_request.exit.i.i:                     ; preds = %123, %120
   %.0.i.i.i.i = phi i32 [ %122, %120 ], [ %126, %123 ]
   %127 = icmp eq i32 %.0.i.i.i.i, 0
-  br i1 %127, label %128, label %.preheader.i, !llvm.loop !5
+  br i1 %127, label %128, label %.preheader.i, !llvm.loop !4
 
 128:                                              ; preds = %unlock_recv_request.exit.i.i
   %129 = icmp eq i32 %116, 0
@@ -1235,7 +1235,7 @@ define void @mca_pml_ob1_recv_request_frag_copy_start(ptr noundef %0, ptr nocapt
   %13 = add i64 %12, %.09.i
   %14 = add nuw i64 %.078.i, 1
   %exitcond.not.i = icmp eq i64 %14, %3
-  br i1 %exitcond.not.i, label %mca_pml_ob1_compute_segment_length_base.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %mca_pml_ob1_compute_segment_length_base.exit, label %.lr.ph.i, !llvm.loop !9
 
 mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %.lr.ph.i
   %15 = getelementptr inbounds i8, ptr %10, i64 8
@@ -1296,7 +1296,7 @@ mca_pml_ob1_compute_segment_length_base.exit.thread: ; preds = %5
   %40 = add nuw i64 %.02937, 1
   %41 = getelementptr inbounds i8, ptr %.039, i64 16
   %exitcond.not = icmp eq i64 %40, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %38, %.thread, %23
   %42 = phi i64 [ %16, %23 ], [ %20, %.thread ], [ %16, %38 ]
@@ -1488,7 +1488,7 @@ lock_recv_request.exit.i10:                       ; preds = %53, %50
   br i1 %57, label %.preheader.i, label %mca_pml_ob1_recv_request_schedule.exit
 
 .preheader.i:                                     ; preds = %lock_recv_request.exit.i10, %unlock_recv_request.exit.i.i
-  %58 = tail call i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef %6, ptr noundef null), !range !4
+  %58 = tail call i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef %6, ptr noundef null)
   %cond.i.i = icmp eq i32 %58, -2
   br i1 %cond.i.i, label %mca_pml_ob1_recv_request_schedule.exit, label %59
 
@@ -1512,7 +1512,7 @@ lock_recv_request.exit.i10:                       ; preds = %53, %50
 unlock_recv_request.exit.i.i:                     ; preds = %65, %62
   %.0.i.i.i.i = phi i32 [ %64, %62 ], [ %68, %65 ]
   %69 = icmp eq i32 %.0.i.i.i.i, 0
-  br i1 %69, label %70, label %.preheader.i, !llvm.loop !5
+  br i1 %69, label %70, label %.preheader.i, !llvm.loop !4
 
 70:                                               ; preds = %unlock_recv_request.exit.i.i
   %71 = icmp eq i32 %58, 0
@@ -1661,7 +1661,7 @@ mca_bml_base_get_endpoint.exit:                   ; preds = %opal_convertor_need
 54:                                               ; preds = %56
   %55 = add nuw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %55, %51
-  br i1 %exitcond.not.i, label %.loopexit117, label %56, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.loopexit117, label %56, !llvm.loop !12
 
 56:                                               ; preds = %54, %.lr.ph.i
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %55, %54 ]
@@ -1691,7 +1691,7 @@ mca_bml_base_get_endpoint.exit:                   ; preds = %opal_convertor_need
 68:                                               ; preds = %70
   %69 = add nuw i64 %.09.i87, 1
   %exitcond.not.i88 = icmp eq i64 %69, %65
-  br i1 %exitcond.not.i88, label %mca_bml_base_btl_array_find.exit90, label %70, !llvm.loop !14
+  br i1 %exitcond.not.i88, label %mca_bml_base_btl_array_find.exit90, label %70, !llvm.loop !12
 
 70:                                               ; preds = %68, %.lr.ph.i86
   %.09.i87 = phi i64 [ 0, %.lr.ph.i86 ], [ %69, %68 ]
@@ -1975,7 +1975,7 @@ opal_convertor_set_position.exit99:               ; preds = %160, %163, %171, %1
   br i1 %216, label %mca_pml_ob1_recv_request_get_frag.exit, label %mca_pml_ob1_recv_request_get_frag.exit.thread
 
 mca_pml_ob1_recv_request_get_frag.exit:           ; preds = %204, %.thread.i101
-  %217 = call fastcc i32 @mca_pml_ob1_recv_request_get_frag_failed(ptr noundef nonnull %146, i32 noundef -2), !range !4
+  %217 = call fastcc i32 @mca_pml_ob1_recv_request_get_frag_failed(ptr noundef nonnull %146, i32 noundef -2)
   %.not82 = icmp eq i32 %217, 0
   br i1 %.not82, label %mca_pml_ob1_recv_request_get_frag.exit.thread, label %.loopexit
 
@@ -1985,7 +1985,7 @@ mca_pml_ob1_recv_request_get_frag.exit.thread:    ; preds = %.thread.i101, %mca_
   %220 = add i64 %219, %spec.select
   store i64 %220, ptr %5, align 8
   %.not81 = icmp eq i64 %218, 0
-  br i1 %.not81, label %.loopexit, label %145, !llvm.loop !15
+  br i1 %.not81, label %.loopexit, label %145, !llvm.loop !13
 
 .loopexit:                                        ; preds = %mca_pml_ob1_recv_request_get_frag.exit.thread, %mca_pml_ob1_recv_request_get_frag.exit, %133, %77, %30
   ret void
@@ -2145,7 +2145,7 @@ opal_convertor_need_buffers.exit.thread56:        ; preds = %28, %68, %76, %70, 
   %91 = getelementptr inbounds i8, ptr %2, i64 24
   %92 = load i64, ptr %91, align 8
   %93 = icmp eq i64 %89, %3
-  %94 = tail call fastcc i32 @mca_pml_ob1_recv_request_ack_send(ptr noundef %1, ptr noundef nonnull %6, i64 noundef %92, ptr noundef nonnull %0, i64 noundef %89, i64 noundef 0, i1 noundef zeroext %93), !range !4
+  %94 = tail call fastcc i32 @mca_pml_ob1_recv_request_ack_send(ptr noundef %1, ptr noundef nonnull %6, i64 noundef %92, ptr noundef nonnull %0, i64 noundef %89, i64 noundef 0, i1 noundef zeroext %93)
   br label %95
 
 95:                                               ; preds = %opal_convertor_need_buffers.exit.thread56, %88
@@ -2302,13 +2302,13 @@ opal_lifo_pop_atomic.exit.i:                      ; preds = %.lr.ph.i.i
   %54 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 12, i32 12, i32 1, i32 0, i32 0)) #9
   %55 = load volatile i32, ptr getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 12, i32 13, i32 2), align 4
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %.lr.ph3.i.i, label %.loopexit.i.i, !llvm.loop !16
+  br i1 %56, label %.lr.ph3.i.i, label %.loopexit.i.i, !llvm.loop !14
 
 .lr.ph.i21.i:                                     ; preds = %.preheader1.i.i, %.lr.ph.i21.i
   %57 = call i32 @opal_progress() #9
   %58 = load volatile i32, ptr getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 12, i32 13, i32 2), align 4
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %.lr.ph.i21.i, label %.loopexit.i.i, !llvm.loop !17
+  br i1 %59, label %.lr.ph.i21.i, label %.loopexit.i.i, !llvm.loop !15
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i21.i, %.lr.ph3.i.i, %.preheader.i.i, %.preheader1.i.i
   %60 = load volatile i32, ptr getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 12, i32 13, i32 2), align 4
@@ -2426,7 +2426,7 @@ opal_update_counted_pointer.exit.i40.i:           ; preds = %.lr.ph.i28.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i24.i)
   store ptr %.0.i46.i, ptr %8, align 8
   %98 = icmp eq ptr %.0.i46.i, null
-  br i1 %98, label %.lr.ph.i, label %opal_free_list_wait_mt.exit, !llvm.loop !18
+  br i1 %98, label %.lr.ph.i, label %opal_free_list_wait_mt.exit, !llvm.loop !16
 
 opal_free_list_wait_mt.exit:                      ; preds = %opal_condition_signal.exit.i, %.loopexit.i, %opal_lifo_pop_atomic.exit.i
   %.lcssa6.i = phi ptr [ %17, %opal_lifo_pop_atomic.exit.i ], [ %.0.i46.i, %.loopexit.i ], [ %78, %opal_condition_signal.exit.i ]
@@ -2568,7 +2568,7 @@ opal_lifo_pop_atomic.exit.i30.i:                  ; preds = %opal_update_counted
   %.0.i9.i = phi ptr [ %.0.i.i31.i, %opal_lifo_pop_atomic.exit.i30.i ], [ %140, %145 ], [ null, %138 ]
   store ptr %.0.i9.i, ptr %3, align 8
   %148 = icmp eq ptr %.0.i9.i, null
-  br i1 %148, label %.lr.ph.i4, label %opal_free_list_wait_st.exit, !llvm.loop !19
+  br i1 %148, label %.lr.ph.i4, label %opal_free_list_wait_st.exit, !llvm.loop !17
 
 opal_free_list_wait_st.exit:                      ; preds = %114, %147, %opal_lifo_pop.exit.i
   %.lcssa4.i = phi ptr [ %101, %opal_lifo_pop.exit.i ], [ %.0.i9.i, %147 ], [ %115, %114 ]
@@ -2599,7 +2599,7 @@ define void @mca_pml_ob1_recv_request_progress_rndv(ptr noundef %0, ptr noundef 
   %12 = add i64 %11, %.09.i
   %13 = add nuw i64 %.078.i, 1
   %exitcond.not.i = icmp eq i64 %13, %3
-  br i1 %exitcond.not.i, label %mca_pml_ob1_compute_segment_length_base.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %mca_pml_ob1_compute_segment_length_base.exit, label %.lr.ph.i, !llvm.loop !9
 
 mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %.lr.ph.i, %4
   %.0.lcssa.i = phi i64 [ 0, %4 ], [ %12, %.lr.ph.i ]
@@ -2672,7 +2672,7 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %.lr.ph.i, %4
   %47 = add nuw i64 %.04662, 1
   %48 = getelementptr inbounds i8, ptr %.064, i64 16
   %exitcond.not = icmp eq i64 %47, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %45, %31
   %49 = load i8, ptr @opal_uses_threads, align 1
@@ -2822,7 +2822,7 @@ lock_recv_request.exit.i58:                       ; preds = %122, %119
   br i1 %126, label %.preheader.i, label %mca_pml_ob1_recv_request_schedule.exit
 
 .preheader.i:                                     ; preds = %lock_recv_request.exit.i58, %unlock_recv_request.exit.i.i
-  %127 = call i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef %0, ptr noundef null), !range !4
+  %127 = call i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef %0, ptr noundef null)
   %cond.i.i = icmp eq i32 %127, -2
   br i1 %cond.i.i, label %mca_pml_ob1_recv_request_schedule.exit, label %128
 
@@ -2846,7 +2846,7 @@ lock_recv_request.exit.i58:                       ; preds = %122, %119
 unlock_recv_request.exit.i.i:                     ; preds = %134, %131
   %.0.i.i.i.i = phi i32 [ %133, %131 ], [ %137, %134 ]
   %138 = icmp eq i32 %.0.i.i.i.i, 0
-  br i1 %138, label %139, label %.preheader.i, !llvm.loop !5
+  br i1 %138, label %139, label %.preheader.i, !llvm.loop !4
 
 139:                                              ; preds = %unlock_recv_request.exit.i.i
   %140 = icmp eq i32 %127, 0
@@ -2939,7 +2939,7 @@ define void @mca_pml_ob1_recv_request_progress_match(ptr noundef %0, ptr nocaptu
   %12 = add i64 %11, %.09.i
   %13 = add nuw i64 %.078.i, 1
   %exitcond.not.i = icmp eq i64 %13, %3
-  br i1 %exitcond.not.i, label %mca_pml_ob1_compute_segment_length_base.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %mca_pml_ob1_compute_segment_length_base.exit.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 mca_pml_ob1_compute_segment_length_base.exit.loopexit: ; preds = %.lr.ph.i
   %14 = add i64 %12, -14
@@ -2999,7 +2999,7 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %mca_pml_ob1_compute
   %39 = add nuw i64 %.02935, 1
   %40 = getelementptr inbounds i8, ptr %.037, i64 16
   %exitcond.not = icmp eq i64 %39, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %37, %23
   %.lcssa34 = phi i32 [ 0, %23 ], [ %38, %37 ]
@@ -3119,7 +3119,7 @@ define internal fastcc void @recv_request_pml_complete(ptr noundef %0) unnamed_a
   %24 = add nuw nsw i64 %.038, 1
   %25 = zext i32 %23 to i64
   %26 = icmp ult i64 %24, %25
-  br i1 %26, label %11, label %._crit_edge, !llvm.loop !22
+  br i1 %26, label %11, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %22, %6
   store i32 0, ptr %8, align 8
@@ -3348,7 +3348,7 @@ define void @mca_pml_ob1_recv_request_matched_probe(ptr noundef %0, ptr nocaptur
   %10 = add i64 %9, %.09.i
   %11 = add nuw i64 %.078.i, 1
   %exitcond.not.i = icmp eq i64 %11, %3
-  br i1 %exitcond.not.i, label %mca_pml_ob1_compute_segment_length_base.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %mca_pml_ob1_compute_segment_length_base.exit.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 mca_pml_ob1_compute_segment_length_base.exit.loopexit: ; preds = %.lr.ph.i
   %12 = add i64 %10, -14
@@ -3378,7 +3378,7 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %7, %mca_pml_ob1_com
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 568
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 560
@@ -3420,7 +3420,7 @@ define noundef i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef %0, ptr n
 21:                                               ; preds = %12
   %22 = add nuw nsw i64 %.081128, 1
   %exitcond.not = icmp eq i64 %22, %10
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !21
 
 .loopexit:                                        ; preds = %21, %.preheader, %18, %15, %2
   %.not95134 = icmp eq i64 %9, 0
@@ -3518,7 +3518,7 @@ define noundef i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef %0, ptr n
   %spec.store.select = select i1 %.not96, i32 %72, i32 0
   store i32 %spec.store.select, ptr %24, align 4
   %.not97 = icmp eq i64 %71, 0
-  br i1 %.not97, label %65, label %73, !llvm.loop !24
+  br i1 %.not97, label %65, label %73, !llvm.loop !22
 
 73:                                               ; preds = %65
   %74 = getelementptr inbounds i8, ptr %69, i64 8
@@ -3696,7 +3696,7 @@ opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atom
   %161 = load i64, ptr %7, align 8
   %162 = getelementptr inbounds i8, ptr %79, i64 192
   store i64 %161, ptr %162, align 8
-  %163 = tail call fastcc i32 @mca_pml_ob1_recv_request_put_frag(ptr noundef %79), !range !10
+  %163 = tail call fastcc i32 @mca_pml_ob1_recv_request_put_frag(ptr noundef %79)
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %165, label %179
 
@@ -3810,7 +3810,7 @@ opal_free_list_return_mt.exit.sink.split.i106:    ; preds = %213, %203
 opal_free_list_return.exit114:                    ; preds = %opal_free_list_return_mt.exit.sink.split.i106, %213, %205, %203, %opal_lifo_push_atomic.exit.i.i110, %opal_thread_add_fetch_32.exit
   %.183 = phi i64 [ %178, %opal_thread_add_fetch_32.exit ], [ %.082.ph136, %opal_lifo_push_atomic.exit.i.i110 ], [ %.082.ph136, %203 ], [ %.082.ph136, %205 ], [ %.082.ph136, %213 ], [ %.082.ph136, %opal_free_list_return_mt.exit.sink.split.i106 ]
   %.not95 = icmp eq i64 %.183, 0
-  br i1 %.not95, label %.critedge, label %.lr.ph132, !llvm.loop !25
+  br i1 %.not95, label %.critedge, label %.lr.ph132, !llvm.loop !23
 
 .critedge:                                        ; preds = %opal_free_list_return.exit114, %.lr.ph132, %opal_free_list_return.exit, %.loopexit, %61, %58
   %.079 = phi i32 [ -2, %58 ], [ -2, %61 ], [ 0, %.loopexit ], [ 0, %opal_free_list_return.exit ], [ 0, %.lr.ph132 ], [ 0, %opal_free_list_return.exit114 ]
@@ -4011,7 +4011,7 @@ lock_recv_request.exit.i25:                       ; preds = %96, %93
   br i1 %100, label %.preheader.i, label %mca_pml_ob1_recv_request_schedule.exit
 
 .preheader.i:                                     ; preds = %lock_recv_request.exit.i25, %unlock_recv_request.exit.i.i
-  %101 = tail call i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef %4, ptr noundef %6), !range !4
+  %101 = tail call i32 @mca_pml_ob1_recv_request_schedule_once(ptr noundef %4, ptr noundef %6)
   %cond.i.i = icmp eq i32 %101, -2
   br i1 %cond.i.i, label %mca_pml_ob1_recv_request_schedule.exit, label %102
 
@@ -4035,7 +4035,7 @@ lock_recv_request.exit.i25:                       ; preds = %96, %93
 unlock_recv_request.exit.i.i:                     ; preds = %108, %105
   %.0.i.i.i.i = phi i32 [ %107, %105 ], [ %111, %108 ]
   %112 = icmp eq i32 %.0.i.i.i.i, 0
-  br i1 %112, label %113, label %.preheader.i, !llvm.loop !5
+  br i1 %112, label %113, label %.preheader.i, !llvm.loop !4
 
 113:                                              ; preds = %unlock_recv_request.exit.i.i
   %114 = icmp eq i32 %101, 0
@@ -4121,7 +4121,7 @@ mca_pml_ob1_recv_request_schedule.exit:           ; preds = %.preheader.i, %mca_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mca_pml_ob1_recv_request_put_frag(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @mca_pml_ob1_recv_request_put_frag(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -4186,7 +4186,7 @@ define internal fastcc i32 @mca_pml_ob1_recv_request_put_frag(ptr noundef %0) un
   %46 = getelementptr inbounds i8, ptr %26, i64 48
   store i64 %38, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %26, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %47, ptr align 1 %.025, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %47, ptr readonly align 1 %.025, i64 %9, i1 false)
   %48 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr @mca_pml_ob1_put_completion, ptr %48, align 8
   store i8 1, ptr %27, align 1
@@ -4389,7 +4389,7 @@ define void @mca_pml_ob1_recv_req_start(ptr noundef %0) local_unnamed_addr #0 {
   %101 = getelementptr inbounds i8, ptr %.031.i.i, i64 16
   %.0.i.i = load volatile ptr, ptr %101, align 8
   %.not21.i.i = icmp eq ptr %.0.i.i, %94
-  br i1 %.not21.i.i, label %recv_req_match_specific_proc.exit.i, label %.lr.ph32.i.i, !llvm.loop !26
+  br i1 %.not21.i.i, label %recv_req_match_specific_proc.exit.i, label %.lr.ph32.i.i, !llvm.loop !24
 
 102:                                              ; preds = %92
   br i1 %.not2130.i.i, label %recv_req_match_specific_proc.exit.i, label %.lr.ph.i.i
@@ -4405,12 +4405,12 @@ define void @mca_pml_ob1_recv_req_start(ptr noundef %0) local_unnamed_addr #0 {
   %107 = getelementptr inbounds i8, ptr %.126.i.i, i64 16
   %.1.i.i = load volatile ptr, ptr %107, align 8
   %.not.i.i = icmp eq ptr %.1.i.i, %94
-  br i1 %.not.i.i, label %recv_req_match_specific_proc.exit.i, label %.lr.ph.i.i, !llvm.loop !27
+  br i1 %.not.i.i, label %recv_req_match_specific_proc.exit.i, label %.lr.ph.i.i, !llvm.loop !25
 
 recv_req_match_specific_proc.exit.i:              ; preds = %106, %100, %102, %96, %87, %83
   %.037.i = add nuw i64 %.03791.i, 1
   %exitcond.not.i = icmp eq i64 %.037.i, %79
-  br i1 %exitcond.not.i, label %.preheader.i, label %83, !llvm.loop !28
+  br i1 %exitcond.not.i, label %.preheader.i, label %83, !llvm.loop !26
 
 .loopexit69.i:                                    ; preds = %.lr.ph.i.i, %.lr.ph32.i.i
   %.018.i.ph.i = phi ptr [ %.031.i.i, %.lr.ph32.i.i ], [ %.126.i.i, %.lr.ph.i.i ]
@@ -4505,7 +4505,7 @@ recv_req_match_specific_proc.exit.i:              ; preds = %106, %100, %102, %9
   %163 = getelementptr inbounds i8, ptr %.031.i51.i, i64 16
   %.0.i52.i = load volatile ptr, ptr %163, align 8
   %.not21.i53.i = icmp eq ptr %.0.i52.i, %156
-  br i1 %.not21.i53.i, label %.loopexit.i, label %.lr.ph32.i50.i, !llvm.loop !26
+  br i1 %.not21.i53.i, label %.loopexit.i, label %.lr.ph32.i50.i, !llvm.loop !24
 
 164:                                              ; preds = %154
   br i1 %.not2130.i44.i, label %.loopexit.i, label %.lr.ph.i45.i
@@ -4521,7 +4521,7 @@ recv_req_match_specific_proc.exit.i:              ; preds = %106, %100, %102, %9
   %169 = getelementptr inbounds i8, ptr %.126.i46.i, i64 16
   %.1.i47.i = load volatile ptr, ptr %169, align 8
   %.not.i48.i = icmp eq ptr %.1.i47.i, %156
-  br i1 %.not.i48.i, label %.loopexit.i, label %.lr.ph.i45.i, !llvm.loop !27
+  br i1 %.not.i48.i, label %.loopexit.i, label %.lr.ph.i45.i, !llvm.loop !25
 
 recv_req_match_specific_proc.exit54.i:            ; preds = %.lr.ph.i45.i, %.lr.ph32.i50.i
   %.018.i49.i = phi ptr [ %.031.i51.i, %.lr.ph32.i50.i ], [ %.126.i46.i, %.lr.ph.i45.i ]
@@ -4583,7 +4583,7 @@ recv_req_match_specific_proc.exit54.i:            ; preds = %.lr.ph.i45.i, %.lr.
 .loopexit.i:                                      ; preds = %168, %162, %164, %158, %149, %145
   %207 = add i64 %.03693.i, 1
   %.not.i = icmp ugt i64 %207, %77
-  br i1 %.not.i, label %208, label %145, !llvm.loop !29
+  br i1 %.not.i, label %208, label %145, !llvm.loop !27
 
 208:                                              ; preds = %.loopexit.i
   %209 = getelementptr inbounds i8, ptr %5, i64 88
@@ -4711,7 +4711,7 @@ recv_req_match_specific_proc.exit54.i:            ; preds = %.lr.ph.i45.i, %.lr.
   %285 = getelementptr inbounds i8, ptr %.031.i, i64 16
   %.0.i110 = load volatile ptr, ptr %285, align 8
   %.not21.i = icmp eq ptr %.0.i110, %278
-  br i1 %.not21.i, label %recv_req_match_specific_proc.exit, label %.lr.ph32.i, !llvm.loop !26
+  br i1 %.not21.i, label %recv_req_match_specific_proc.exit, label %.lr.ph32.i, !llvm.loop !24
 
 286:                                              ; preds = %276
   br i1 %.not2130.i, label %recv_req_match_specific_proc.exit, label %.lr.ph.i107
@@ -4727,7 +4727,7 @@ recv_req_match_specific_proc.exit54.i:            ; preds = %.lr.ph.i45.i, %.lr.
   %291 = getelementptr inbounds i8, ptr %.126.i, i64 16
   %.1.i = load volatile ptr, ptr %291, align 8
   %.not.i108 = icmp eq ptr %.1.i, %278
-  br i1 %.not.i108, label %recv_req_match_specific_proc.exit, label %.lr.ph.i107, !llvm.loop !27
+  br i1 %.not.i108, label %recv_req_match_specific_proc.exit, label %.lr.ph.i107, !llvm.loop !25
 
 recv_req_match_specific_proc.exit:                ; preds = %.lr.ph.i107, %290, %.lr.ph32.i, %284, %264, %280, %286
   %.018.i = phi ptr [ null, %264 ], [ null, %280 ], [ null, %286 ], [ null, %284 ], [ %.031.i, %.lr.ph32.i ], [ null, %290 ], [ %.126.i, %.lr.ph.i107 ]
@@ -5068,7 +5068,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %432, %424
   %466 = add i64 %465, %.09.i.i
   %467 = add nuw i64 %.078.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %467, %460
-  br i1 %exitcond.not.i.i, label %mca_pml_ob1_compute_segment_length_base.exit.loopexit.i, label %.lr.ph.i.i122, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %mca_pml_ob1_compute_segment_length_base.exit.loopexit.i, label %.lr.ph.i.i122, !llvm.loop !9
 
 mca_pml_ob1_compute_segment_length_base.exit.loopexit.i: ; preds = %.lr.ph.i.i122
   %468 = add i64 %466, -14
@@ -5131,7 +5131,7 @@ mca_pml_ob1_recv_request_matched_probe.exit:      ; preds = %456, %463, %mca_pml
   %493 = add i64 %492, %.09.i.i126
   %494 = add nuw i64 %.078.i.i127, 1
   %exitcond.not.i.i128 = icmp eq i64 %494, %487
-  br i1 %exitcond.not.i.i128, label %mca_pml_ob1_compute_segment_length_base.exit.loopexit.i129, label %.lr.ph.i.i125, !llvm.loop !11
+  br i1 %exitcond.not.i.i128, label %mca_pml_ob1_compute_segment_length_base.exit.loopexit.i129, label %.lr.ph.i.i125, !llvm.loop !9
 
 mca_pml_ob1_compute_segment_length_base.exit.loopexit.i129: ; preds = %.lr.ph.i.i125
   %495 = add i64 %493, -14
@@ -5506,7 +5506,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %13, %16
   %28 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %29, null
-  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %8, align 8
@@ -5566,7 +5566,7 @@ opal_thread_add_fetch_32.exit26:                  ; preds = %40, %43
   %55 = getelementptr inbounds i8, ptr %.07.i29, i64 8
   %56 = load ptr, ptr %55, align 8
   %.not.i30 = icmp eq ptr %56, null
-  br i1 %.not.i30, label %opal_obj_run_destructors.exit31.loopexit, label %.lr.ph.i28, !llvm.loop !9
+  br i1 %.not.i30, label %opal_obj_run_destructors.exit31.loopexit, label %.lr.ph.i28, !llvm.loop !8
 
 opal_obj_run_destructors.exit31.loopexit:         ; preds = %.lr.ph.i28
   %.pre32 = load ptr, ptr %32, align 8
@@ -5636,7 +5636,7 @@ declare void @mca_pml_ob1_send_request_process_pending(ptr noundef) local_unname
 declare void @mca_pml_ob1_process_pending_rdma() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mca_pml_ob1_recv_request_ack_send(ptr noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_ack_send(ptr noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %.sroa.22.i.i.i.i = alloca i64, align 8
@@ -5765,7 +5765,7 @@ mca_pml_ob1_recv_request_ack_send_btl.exit.thread: ; preds = %mca_bml_base_btl_a
   %74 = add nuw i64 %.02837, 1
   %.val = load i64, ptr %29, align 8
   %75 = icmp ult i64 %74, %.val
-  br i1 %75, label %34, label %._crit_edge, !llvm.loop !30
+  br i1 %75, label %34, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %mca_pml_ob1_recv_request_ack_send_btl.exit.thread, %mca_bml_base_get_endpoint.exit
   %76 = load i8, ptr @opal_uses_threads, align 1
@@ -5994,30 +5994,28 @@ attributes #10 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = !{i32 -2147483648, i32 1}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}

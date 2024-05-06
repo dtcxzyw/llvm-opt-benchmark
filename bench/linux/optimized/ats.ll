@@ -76,7 +76,7 @@ define dso_local zeroext i1 @pci_ats_supported(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_enable_ats(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pci_enable_ats(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2016
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0
@@ -223,7 +223,7 @@ define dso_local void @pci_restore_ats_state(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_ats_queue_depth(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 33) i32 @pci_ats_queue_depth(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
   %3 = getelementptr inbounds i8, ptr %0, i64 2016
@@ -257,7 +257,7 @@ define dso_local i32 @pci_ats_queue_depth(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_ats_page_aligned(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @pci_ats_page_aligned(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
   %3 = getelementptr inbounds i8, ptr %0, i64 2016
@@ -314,7 +314,7 @@ define dso_local void @pci_pri_init(ptr noundef %0) local_unnamed_addr #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_enable_pri(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @pci_enable_pri(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #5
@@ -459,7 +459,7 @@ define dso_local void @pci_restore_pri_state(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_reset_pri(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pci_reset_pri(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2020
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i32
@@ -495,7 +495,7 @@ define dso_local noundef i32 @pci_reset_pri(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @pci_prg_resp_pasid_required(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 0, 2) i32 @pci_prg_resp_pasid_required(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2028
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 1
@@ -520,7 +520,7 @@ define dso_local void @pci_pasid_init(ptr noundef %0) local_unnamed_addr #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_enable_pasid(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @pci_enable_pasid(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #5
   %4 = getelementptr inbounds i8, ptr %0, i64 2030
@@ -573,7 +573,7 @@ define dso_local i32 @pci_enable_pasid(ptr noundef %0, i32 noundef %1) #0 align 
   br i1 %33, label %34, label %42
 
 34:                                               ; preds = %26
-  %35 = trunc i32 %1 to i16
+  %35 = trunc nuw nsw i32 %1 to i16
   %36 = or i16 %35, 1
   %37 = getelementptr inbounds i8, ptr %0, i64 2032
   store i16 %35, ptr %37, align 8
@@ -657,7 +657,7 @@ define dso_local void @pci_restore_pasid_state(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_pasid_features(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -22, 7) i32 @pci_pasid_features(ptr noundef %0) #0 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
   %3 = getelementptr inbounds i8, ptr %0, i64 2030
@@ -682,7 +682,7 @@ define dso_local i32 @pci_pasid_features(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_max_pasids(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -22, -2147483647) i32 @pci_max_pasids(ptr noundef %0) #0 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
   %3 = getelementptr inbounds i8, ptr %0, i64 2030

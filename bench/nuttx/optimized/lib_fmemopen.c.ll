@@ -215,7 +215,7 @@ define internal i64 @fmemopen_write(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fmemopen_seek(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #0 {
+define internal range(i32 -1, -2147483648) i32 @fmemopen_seek(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #0 {
   switch i32 %2, label %16 [
     i32 0, label %4
     i32 2, label %6

@@ -118,7 +118,7 @@ declare zeroext i1 @tcg_exec_realizefn(ptr noundef, ptr noundef) #1
 declare void @tcg_exec_unrealizefn(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i32 @tcg_gdbstub_supported_sstep_flags() #2 {
+define internal range(i32 1, 8) i32 @tcg_gdbstub_supported_sstep_flags() #2 {
 entry:
   %0 = load i32, ptr @replay_mode, align 4
   %cmp.not = icmp eq i32 %0, 0

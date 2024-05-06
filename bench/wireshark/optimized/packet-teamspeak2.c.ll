@@ -567,14 +567,14 @@ define internal fastcc void @ts2_standard_dissect(ptr noundef %0, ptr noundef %1
 28:                                               ; preds = %22
   %29 = getelementptr inbounds i8, ptr %3, i64 36
   %30 = getelementptr inbounds i8, ptr %3, i64 40
-  %31 = call fastcc i32 @ts2_standard_find_fragments(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %6), !range !4
+  %31 = call fastcc i32 @ts2_standard_find_fragments(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %6)
   br label %37
 
 32:                                               ; preds = %22
   %33 = getelementptr inbounds i8, ptr %3, i64 4
   %34 = getelementptr inbounds i8, ptr %3, i64 44
   %35 = getelementptr inbounds i8, ptr %3, i64 48
-  %36 = call fastcc i32 @ts2_standard_find_fragments(ptr noundef %0, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %6), !range !4
+  %36 = call fastcc i32 @ts2_standard_find_fragments(ptr noundef %0, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %6)
   br label %37
 
 37:                                               ; preds = %32, %28
@@ -789,7 +789,7 @@ declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef)
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ts2_standard_find_fragments(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ts2_standard_find_fragments(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 18) #4
   %7 = zext i16 %6 to i32
   store i32 0, ptr %4, align 4
@@ -948,7 +948,7 @@ define internal fastcc void @ts2_parse_channellist(ptr noundef %0, ptr noundef %
   %59 = add i32 %58, %53
   %60 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #4
   %61 = icmp slt i32 %59, %60
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -998,7 +998,7 @@ define internal fastcc void @ts2_parse_playerlist(ptr noundef %0, ptr noundef %1
   %37 = icmp slt i32 %34, %36
   %38 = icmp slt i32 %35, %5
   %39 = select i1 %37, i1 %38, i1 false
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.036.lcssa = phi i32 [ 4, %2 ], [ %34, %.lr.ph ]
@@ -1136,7 +1136,6 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

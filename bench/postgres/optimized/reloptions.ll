@@ -161,7 +161,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.116 = private unnamed_addr constant [9 x i8] c"cascaded\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @add_reloption_kind() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2147483647) i32 @add_reloption_kind() local_unnamed_addr #0 {
   %1 = load i32, ptr @last_assigned_kind, align 4
   %2 = icmp ugt i32 %1, 1073741823
   br i1 %2, label %3, label %7
@@ -2268,7 +2268,7 @@ define dso_local noundef ptr @tablespace_reloptions(i64 noundef %0, i1 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @AlterTableGetRelOptionsLockLevel(ptr noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @AlterTableGetRelOptionsLockLevel(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -2716,7 +2716,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %56 = getelementptr i8, ptr %18, i64 %55
   %57 = getelementptr i8, ptr %56, i64 1
   %58 = sext i32 %49 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr align 1 %57, i64 %58, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr readonly align 1 %57, i64 %58, i1 false)
   %59 = getelementptr i8, ptr %51, i64 %58
   store i8 0, ptr %59, align 1
   %60 = load ptr, ptr %23, align 8
@@ -2872,7 +2872,7 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
 
 .loopexit.i:                                      ; preds = %146, %142, %135
   %.0.i = phi i8 [ 1, %142 ], [ 0, %135 ], [ 0, %146 ]
-  %149 = trunc i8 %.0.i to i1
+  %149 = trunc nuw i8 %.0.i to i1
   br i1 %1, label %150, label %162
 
 150:                                              ; preds = %.loopexit.i
@@ -2939,7 +2939,7 @@ parse_one_reloption.exit.thread:                  ; preds = %167, %169, %172
 
 .thread.i:                                        ; preds = %163, %162, %150, %120, %114, %89, %83, %63
   %.1.i = phi i8 [ %.0.i, %162 ], [ %.0.i, %163 ], [ %107, %120 ], [ %107, %114 ], [ %76, %89 ], [ %76, %83 ], [ %66, %63 ], [ %.0.i, %150 ]
-  %179 = trunc i8 %.1.i to i1
+  %179 = trunc nuw i8 %.1.i to i1
   br i1 %179, label %180, label %.thread100.i
 
 180:                                              ; preds = %.thread.i

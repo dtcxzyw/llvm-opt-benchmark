@@ -98,7 +98,7 @@ define hidden void @proto_reg_handoff_tali() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_tali_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_tali_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca [4 x i8], align 1
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %7 = icmp ult i32 %6, 10
@@ -174,7 +174,7 @@ define internal noundef i32 @dissect_tali_heur(ptr noundef %0, ptr noundef %1, p
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_tali_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 10, 65546) i32 @get_tali_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 8
   %6 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %5) #3
   %7 = zext i16 %6 to i32

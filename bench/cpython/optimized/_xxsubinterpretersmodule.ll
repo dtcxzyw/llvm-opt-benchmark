@@ -1180,7 +1180,7 @@ return:                                           ; preds = %if.end15.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_interp_exec(ptr noundef %id_arg, ptr noundef %code_arg, ptr noundef %shared_arg, ptr nocapture noundef writeonly %p_excinfo) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_interp_exec(ptr noundef %id_arg, ptr noundef %code_arg, ptr noundef %shared_arg, ptr nocapture noundef writeonly %p_excinfo) unnamed_addr #0 {
 entry:
   %session.i = alloca %struct.xi_session, align 8
   %len.i = alloca i64, align 8
@@ -1392,7 +1392,7 @@ declare i32 @_PyInterpreterState_IDIncref(ptr noundef) local_unnamed_addr #1
 declare void @_PyInterpreterState_IDDecref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @module_exec(ptr noundef %mod) #0 {
+define internal range(i32 -1, 1) i32 @module_exec(ptr noundef %mod) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #7
   %0 = load ptr, ptr @PyExc_InterpreterError, align 8
@@ -1456,7 +1456,7 @@ declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) loc
 declare i32 @_PyCrossInterpreterData_RegisterClass(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_memoryview_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @_memoryview_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr noundef %data) #0 {
 entry:
   %call = tail call ptr @PyMem_RawMalloc(i64 noundef 80) #7
   %cmp = icmp eq ptr %call, null

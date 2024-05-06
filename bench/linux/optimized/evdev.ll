@@ -808,7 +808,7 @@ define internal i64 @evdev_read(ptr nocapture noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @evdev_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @evdev_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #2 align 16 {
   %5 = alloca %struct.input_event, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
@@ -916,7 +916,7 @@ split:                                            ; preds = %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @evdev_poll(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal range(i32 24, 512) i32 @evdev_poll(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -964,14 +964,14 @@ define internal i32 @evdev_poll(ptr noundef %0, ptr noundef %1) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @evdev_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @evdev_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call fastcc i64 @evdev_ioctl_handler(ptr noundef %0, i32 noundef %1, ptr noundef %4, i32 noundef 0), !range !20
   ret i64 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @evdev_ioctl_compat(ptr noundef %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @evdev_ioctl_compat(ptr noundef %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
   %4 = and i64 %2, 4294967295
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call fastcc i64 @evdev_ioctl_handler(ptr noundef %0, i32 noundef %1, ptr noundef %5, i32 noundef 1), !range !20
@@ -1222,7 +1222,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @evdev_ioctl_handler(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @evdev_ioctl_handler(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = alloca %struct.input_keymap_entry, align 4
   %6 = alloca %struct.input_keymap_entry, align 4
   %7 = alloca %struct.input_keymap_entry, align 4
@@ -2018,7 +2018,7 @@ define internal fastcc i64 @evdev_ioctl_handler(ptr noundef %0, i32 noundef %1, 
 
 494:                                              ; preds = %491
   %495 = and i32 %1, 31
-  %496 = tail call fastcc i32 @handle_eviocgbit(ptr noundef %36, i32 noundef %495, i32 noundef %420, ptr noundef %2, i32 noundef %3), !range !40
+  %496 = tail call fastcc i32 @handle_eviocgbit(ptr noundef %36, i32 noundef %495, i32 noundef %420, ptr noundef %2, i32 noundef %3)
   %497 = sext i32 %496 to i64
   br label %.thread23
 
@@ -2115,9 +2115,9 @@ declare void @llvm.write_register.i64(metadata, i64) #10
 declare dso_local i32 @input_ff_erase(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @evdev_handle_mt_request(ptr readonly %.320.val, i32 noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @evdev_handle_mt_request(ptr readonly %.320.val, i32 noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %4 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 4, i64 %3) #14, !srcloc !41
+  %4 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 4, i64 %3) #14, !srcloc !40
   %5 = extractvalue { ptr, i32, i64 } %4, 0
   %6 = extractvalue { ptr, i32, i64 } %4, 1
   %7 = extractvalue { ptr, i32, i64 } %4, 2
@@ -2162,14 +2162,14 @@ define internal fastcc noundef i32 @evdev_handle_mt_request(ptr readonly %.320.v
   %35 = add nuw nsw i64 %26, 1
   %36 = getelementptr i32, ptr %1, i64 %35
   %37 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %38 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %36, i32 %34, i64 4, i64 %37) #14, !srcloc !42
+  %38 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %36, i32 %34, i64 4, i64 %37) #14, !srcloc !41
   %39 = extractvalue { ptr, i64 } %38, 0
   %40 = extractvalue { ptr, i64 } %38, 1
   %41 = ptrtoint ptr %39 to i64
   tail call void @llvm.write_register.i64(metadata !0, i64 %40)
   %42 = and i64 %41, 4294967295
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %25, label %.loopexit, !llvm.loop !43
+  br i1 %43, label %25, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %32, %25, %13, %11, %2
   %44 = phi i32 [ -14, %2 ], [ -22, %13 ], [ -22, %11 ], [ 0, %25 ], [ -14, %32 ]
@@ -2262,7 +2262,7 @@ define internal fastcc i32 @evdev_handle_get_val(ptr noundef %0, ptr noundef %1,
   %61 = add i32 %31, 1
   %62 = and i32 %61, %20
   %63 = icmp eq i32 %62, %24
-  br i1 %63, label %.loopexit, label %28, !llvm.loop !44
+  br i1 %63, label %.loopexit, label %28, !llvm.loop !43
 
 .loopexit:                                        ; preds = %58, %11
   %64 = phi i32 [ %22, %11 ], [ %59, %58 ]
@@ -2340,7 +2340,7 @@ define internal fastcc i32 @evdev_handle_get_val(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @str_to_user(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -14, 16384) i32 @str_to_user(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %14, label %5
 
@@ -2367,7 +2367,7 @@ declare dso_local i32 @input_ff_effect_from_user(ptr noundef, i64 noundef, ptr n
 declare dso_local i32 @input_ff_upload(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @handle_eviocgbit(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -22, 104) i32 @handle_eviocgbit(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #2 align 16 {
   switch i32 %1, label %35 [
     i32 0, label %14
     i32 1, label %6
@@ -2583,8 +2583,7 @@ attributes #19 = { nounwind allocsize(0) }
 !37 = !{i64 2154784909}
 !38 = !{i32 -14, i32 16384}
 !39 = !{i64 2154828456}
-!40 = !{i32 -22, i32 104}
-!41 = !{i64 2154787047}
-!42 = !{i64 2154789133}
+!40 = !{i64 2154787047}
+!41 = !{i64 2154789133}
+!42 = distinct !{!42, !7, !8}
 !43 = distinct !{!43, !7, !8}
-!44 = distinct !{!44, !7, !8}

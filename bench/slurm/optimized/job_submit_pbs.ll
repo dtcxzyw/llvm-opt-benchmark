@@ -477,7 +477,7 @@ define internal fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %1, i
   %reass.sub = sub i64 %112, %113
   %114 = add i64 %reass.sub, -3
   %115 = call i64 @llvm.umin.i64(i64 %114, i64 15)
-  %116 = trunc i64 %115 to i32
+  %116 = trunc nuw nsw i64 %115 to i32
   %117 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.36, i32 noundef %116, i32 noundef %spec.select.i.i) #13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %106, ptr nonnull align 16 %4, i64 %115, i1 false)
   br label %_decr_depend_cnt.exit.i

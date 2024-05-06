@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [11 x i8] c"Curve25519\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @crypto_scalarmult_curve25519(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -30,7 +30,7 @@ copy_and_reverse.exit:                            ; preds = %.lr.ph.i
   store i8 %11, ptr %4, align 16
   %12 = call i32 @gcry_mpi_scan(ptr noundef nonnull %5, i32 noundef 5, ptr noundef nonnull %4, i64 noundef 32, ptr noundef null) #3
   %13 = load ptr, ptr %5, align 8
-  %14 = call fastcc i32 @x25519_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %13), !range !6
+  %14 = call fastcc i32 @x25519_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %13)
   %15 = load ptr, ptr %5, align 8
   call void @gcry_mpi_release(ptr noundef %15) #3
   ret i32 %14
@@ -39,7 +39,7 @@ copy_and_reverse.exit:                            ; preds = %.lr.ph.i
 declare i32 @gcry_mpi_scan(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @x25519_mpi(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @x25519_mpi(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca i64, align 8
@@ -129,9 +129,9 @@ copy_and_reverse.exit18:                          ; preds = %.lr.ph.i14, %33, %3
 declare void @gcry_mpi_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @crypto_scalarmult_curve25519_base(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_base(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @gcry_mpi_set_ui(ptr noundef null, i64 noundef 9) #3
-  %4 = tail call fastcc i32 @x25519_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %3), !range !6
+  %4 = tail call fastcc i32 @x25519_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   tail call void @gcry_mpi_release(ptr noundef %3) #3
   ret i32 %4
 }
@@ -172,4 +172,3 @@ attributes #3 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -1, i32 1}

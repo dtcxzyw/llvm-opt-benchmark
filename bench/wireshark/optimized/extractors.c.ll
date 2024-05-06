@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @extract_uint(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @extract_uint(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   store i64 0, ptr %3, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.loopexit, label %6
@@ -49,7 +49,7 @@ declare ptr @proto_get_finfo_ptr_array(ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @fvalue_get_uinteger(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @extract_ui64(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @extract_ui64(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   store i64 0, ptr %3, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.loopexit, label %6
@@ -92,7 +92,7 @@ define hidden noundef i32 @extract_ui64(ptr noundef %0, i32 noundef %1, ptr noca
 declare i64 @fvalue_get_uinteger64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @extract_si64(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @extract_si64(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   store i64 0, ptr %3, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.loopexit, label %6
@@ -135,7 +135,7 @@ define hidden noundef i32 @extract_si64(ptr noundef %0, i32 noundef %1, ptr noca
 declare i64 @fvalue_get_sinteger64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @extract_bool(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @extract_bool(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   store i64 0, ptr %3, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.loopexit, label %6
@@ -178,7 +178,7 @@ define hidden noundef i32 @extract_bool(ptr noundef %0, i32 noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @extract_instance_count(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @extract_instance_count(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   store i64 0, ptr %2, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %12, label %5

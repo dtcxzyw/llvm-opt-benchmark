@@ -6366,7 +6366,7 @@ type_flatten.exit:                                ; preds = %.preheader
   %.sroa.213.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
   %113 = zext i32 %109 to i64
   %wide.trip.count = zext i32 %106 to i64
-  %invariant.gep = getelementptr i8, ptr %81, i64 8
+  %invariant.gep = getelementptr inbounds i8, ptr %81, i64 8
   br label %114
 
 114:                                              ; preds = %.lr.ph, %sema_check_type_case.exit
@@ -6386,7 +6386,7 @@ type_flatten.exit:                                ; preds = %.preheader
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %116
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds ptr, ptr %invariant.gep, i64 %indvars.iv
   %121 = load ptr, ptr %gep, align 8
   br label %122
 
@@ -6756,7 +6756,7 @@ sema_check_type_case.exit:                        ; preds = %168, %.loopexit141,
   %304 = getelementptr inbounds i8, ptr %0, i64 252
   %305 = zext i32 %296 to i64
   %wide.trip.count237 = zext i32 %.0252.i271 to i64
-  %invariant.gep290 = getelementptr i8, ptr %81, i64 8
+  %invariant.gep290 = getelementptr inbounds i8, ptr %81, i64 8
   br label %306
 
 306:                                              ; preds = %.lr.ph195, %431
@@ -6776,7 +6776,7 @@ sema_check_type_case.exit:                        ; preds = %168, %.loopexit141,
   br i1 %312, label %315, label %313
 
 313:                                              ; preds = %306
-  %gep291 = getelementptr ptr, ptr %invariant.gep290, i64 %indvars.iv235
+  %gep291 = getelementptr inbounds ptr, ptr %invariant.gep290, i64 %indvars.iv235
   %314 = load ptr, ptr %gep291, align 8
   br label %315
 

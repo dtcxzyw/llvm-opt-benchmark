@@ -129,7 +129,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cipso_v4_cache_add(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @cipso_v4_cache_add(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = load volatile i32, ptr @cipso_v4_cache_bucketsize, align 4
   %4 = load volatile i32, ptr @cipso_v4_cache_enabled, align 4
   %5 = icmp eq i32 %4, 0
@@ -539,7 +539,7 @@ define internal fastcc i32 @cipso_v4_map_cache_hash(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cipso_v4_doi_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @cipso_v4_doi_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -746,7 +746,7 @@ define dso_local void @cipso_v4_doi_free(ptr noundef %0) local_unnamed_addr #0 a
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cipso_v4_doi_remove(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @cipso_v4_doi_remove(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @cipso_v4_doi_list_lock) #14
   %3 = load volatile ptr, ptr @cipso_v4_doi_list, align 8
   %4 = icmp eq ptr %3, @cipso_v4_doi_list
@@ -1070,7 +1070,7 @@ define dso_local noundef ptr @cipso_v4_optptr(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cipso_v4_validate(ptr noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 256) i32 @cipso_v4_validate(ptr noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %3, i64 1
   %5 = load i8, ptr %4, align 1
@@ -1431,7 +1431,7 @@ define dso_local i32 @cipso_v4_validate(ptr noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @cipso_v4_map_cat_rbm_valid(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @cipso_v4_map_cat_rbm_valid(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = shl nuw nsw i32 %2, 3
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -1537,7 +1537,7 @@ declare dso_local i32 @__ip_options_compile(ptr noundef, ptr noundef, ptr nounde
 declare dso_local void @__icmp_send(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cipso_v4_sock_setattr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @cipso_v4_sock_setattr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %56, label %5
 
@@ -1778,7 +1778,7 @@ define internal fastcc i32 @cipso_v4_genopt(ptr noundef %0, ptr nocapture nounde
   %91 = phi i32 [ %50, %.loopexit65 ], [ %25, %.thread30 ], [ %38, %40 ]
   %92 = phi i32 [ %90, %.loopexit65 ], [ 4, %40 ], [ 4, %.thread30 ]
   store i8 1, ptr %6, align 1
-  %93 = trunc i32 %92 to i8
+  %93 = trunc nuw nsw i32 %92 to i8
   store i8 %93, ptr %7, align 1
   %94 = trunc i32 %91 to i8
   store i8 %94, ptr %15, align 1
@@ -1845,7 +1845,7 @@ define internal fastcc i32 @cipso_v4_genopt(ptr noundef %0, ptr nocapture nounde
   br i1 %132, label %133, label %.preheader57, !llvm.loop !31
 
 133:                                              ; preds = %124
-  %134 = trunc i64 %125 to i32
+  %134 = trunc nuw nsw i64 %125 to i32
   %135 = add nuw nsw i32 %134, 4
   br label %.loopexit62
 
@@ -2120,7 +2120,7 @@ define dso_local void @cipso_v4_sock_delattr(ptr noundef %0) local_unnamed_addr 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 1214
   %12 = load i16, ptr %11, align 2
-  %13 = trunc i32 %3 to i16
+  %13 = trunc nuw nsw i32 %3 to i16
   %14 = sub i16 %12, %13
   store i16 %14, ptr %11, align 2
   %15 = getelementptr inbounds i8, ptr %0, i64 1200
@@ -2135,7 +2135,7 @@ define dso_local void @cipso_v4_sock_delattr(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @cipso_v4_delopt(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -252, 256) i32 @cipso_v4_delopt(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %92, label %4
@@ -2819,7 +2819,7 @@ define dso_local i32 @cipso_v4_sock_getattr(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cipso_v4_skbuff_setattr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @cipso_v4_skbuff_setattr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = alloca [40 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 44
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
@@ -3002,7 +3002,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare dso_local void @ip_send_check(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cipso_v4_skbuff_delattr(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @cipso_v4_skbuff_delattr(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 58
   %3 = load i8, ptr %2, align 2
   %4 = icmp eq i8 %3, 0
@@ -3136,7 +3136,7 @@ declare dso_local i32 @netlbl_catmap_setrng(ptr noundef, i32 noundef, i32 nounde
 declare dso_local i32 @pskb_expand_head(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @cipso_v4_cache_init() unnamed_addr #7 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @cipso_v4_cache_init() unnamed_addr #7 section ".init.text" align 16 {
   %1 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 12), align 16
   %2 = tail call noalias noundef align 8 dereferenceable_or_null(3072) ptr @kmalloc_trace(ptr noundef %1, i32 noundef 3520, i64 noundef 3072) #15
   store ptr %2, ptr @cipso_v4_cache, align 8

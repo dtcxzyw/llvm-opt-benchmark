@@ -296,7 +296,7 @@ Vec_IntGrow.exit.i:                               ; preds = %52, %Vec_IntAlloc.e
 Vec_IntFill.exit:                                 ; preds = %57, %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
   store i32 %.val, ptr %33, align 4
   %60 = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %60, i8 0, i64 176, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(184) %60, i8 0, i64 176, i1 false)
   store i32 1000, ptr %2, align 8
   %61 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 100, ptr %61, align 4
@@ -310,7 +310,7 @@ Vec_IntFill.exit:                                 ; preds = %57, %Vec_IntAlloc.e
   store i32 0, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %2, i64 84
   %67 = getelementptr inbounds i8, ptr %2, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %66, i8 0, i64 60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(60) %66, i8 0, i64 60, i1 false)
   store i32 100, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %2, i64 172
   store i32 100, ptr %68, align 4
@@ -482,7 +482,7 @@ define i32 @CbsP_ManPropagate(ptr nocapture noundef %0, i32 noundef %1) local_un
   %32 = and i64 %.val.i.i, 1073741824
   %.not.i.i = icmp eq i64 %32, 0
   %33 = lshr i64 %.val.i.i, 62
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw nsw i64 %33 to i32
   %35 = trunc i64 %.val.i to i32
   %36 = lshr i32 %35, 29
   %37 = xor i32 %36, %34
@@ -498,7 +498,7 @@ define i32 @CbsP_ManPropagate(ptr nocapture noundef %0, i32 noundef %1) local_un
   %45 = lshr i64 %.val.i74.i, 62
   %46 = lshr i64 %.val.i, 61
   %47 = xor i64 %45, %46
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %49 = and i32 %48, 1
   %50 = select i1 %.not.i75.i, i32 2, i32 %49
   %51 = and i64 %.val.i, 4611686018427387904
@@ -742,7 +742,7 @@ CbsP_VarIsJust.exit.thread:                       ; preds = %.lr.ph105, %154, %C
   %167 = and i64 %.val.i.i54, 1073741824
   %.not.i.i55 = icmp eq i64 %167, 0
   %168 = lshr i64 %.val.i.i54, 62
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw nsw i64 %168 to i32
   %170 = trunc i64 %.val6.i to i32
   %171 = lshr i32 %170, 29
   %172 = xor i32 %171, %169
@@ -758,7 +758,7 @@ CbsP_VarIsJust.exit.thread:                       ; preds = %.lr.ph105, %154, %C
   %180 = lshr i64 %.val.i28.i, 62
   %181 = lshr i64 %.val6.i, 61
   %182 = xor i64 %180, %181
-  %183 = trunc i64 %182 to i32
+  %183 = trunc nuw nsw i64 %182 to i32
   %184 = and i32 %183, 1
   %185 = select i1 %.not.i29.i, i32 2, i32 %184
   %186 = icmp eq i32 %174, 0
@@ -1097,7 +1097,7 @@ CbsP_ManDecideHighest.exit:                       ; preds = %85, %82, %99, %96, 
   br i1 %.not66, label %CbsP_ManCheckLimits.exit.thread, label %138
 
 138:                                              ; preds = %CbsP_ManDecideHighest.exit
-  %139 = tail call fastcc i32 @CbsP_ManCheckLimits(ptr noundef nonnull %0), !range !11
+  %139 = tail call fastcc i32 @CbsP_ManCheckLimits(ptr noundef nonnull %0)
   %.not67 = icmp eq i32 %139, 0
   br i1 %.not67, label %140, label %CbsP_ManCheckLimits.exit.thread
 
@@ -1123,7 +1123,7 @@ CbsP_ManDecideHighest.exit:                       ; preds = %85, %82, %99, %96, 
   br i1 %.not69, label %CbsP_ManCheckLimits.exit.thread, label %151
 
 151:                                              ; preds = %148
-  %152 = tail call fastcc i32 @CbsP_ManCheckLimits(ptr noundef nonnull %0), !range !11
+  %152 = tail call fastcc i32 @CbsP_ManCheckLimits(ptr noundef nonnull %0)
   %.not70 = icmp eq i32 %152, 0
   br i1 %.not70, label %153, label %CbsP_ManCheckLimits.exit.thread
 
@@ -1148,7 +1148,7 @@ CbsP_ManCheckLimits.exit.thread:                  ; preds = %CbsP_QueStore.exit,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @CbsP_ManCheckLimits(ptr nocapture noundef readonly %0) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @CbsP_ManCheckLimits(ptr nocapture noundef readonly %0) unnamed_addr #9 {
   %2 = getelementptr i8, ptr %0, i64 56
   %.val = load i32, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 176
@@ -1254,7 +1254,7 @@ define internal fastcc ptr @CbsP_ManDecideMaxFF(ptr nocapture noundef readonly %
   %spec.select17 = select i1 %39, ptr %13, ptr %.021
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !12
+  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !11
 
 .critedge:                                        ; preds = %11, %14, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %spec.select17, %14 ], [ %.021, %11 ]
@@ -1618,7 +1618,7 @@ define internal fastcc void @CbsP_ManCancelUntil(ptr nocapture noundef %0, i32 n
   %29 = load i32, ptr %5, align 4
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %11, label %.critedge, !llvm.loop !13
+  br i1 %31, label %11, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %11, %15, %2
   store i32 %1, ptr %5, align 4
@@ -1800,7 +1800,7 @@ CbsP_QuePush.exit55:                              ; preds = %._crit_edge.i49, %6
   %92 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv.next
   %93 = load ptr, ptr %92, align 8
   %.not = icmp eq ptr %93, null
-  br i1 %.not, label %.preheader, label %44, !llvm.loop !14
+  br i1 %.not, label %.preheader, label %44, !llvm.loop !13
 
 94:                                               ; preds = %.lr.ph74, %140
   %95 = phi ptr [ %36, %.lr.ph74 ], [ %141, %140 ]
@@ -1891,7 +1891,7 @@ CbsP_QuePush.exit62:                              ; preds = %._crit_edge.i56, %1
   %142 = getelementptr inbounds ptr, ptr %141, i64 %indvars.iv.next83
   %143 = load ptr, ptr %142, align 8
   %.not45 = icmp eq ptr %143, null
-  br i1 %.not45, label %._crit_edge, label %94, !llvm.loop !15
+  br i1 %.not45, label %._crit_edge, label %94, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %140, %.preheader
   %.2.lcssa = phi i32 [ %.0.lcssa, %.preheader ], [ %.3, %140 ]
@@ -1918,7 +1918,7 @@ CbsP_QuePush.exit62:                              ; preds = %._crit_edge.i56, %1
   %154 = load i32, ptr %5, align 4
   %155 = sext i32 %154 to i64
   %156 = icmp slt i64 %indvars.iv.next86, %155
-  br i1 %156, label %.lr.ph79, label %._crit_edge80, !llvm.loop !16
+  br i1 %156, label %.lr.ph79, label %._crit_edge80, !llvm.loop !15
 
 ._crit_edge80:                                    ; preds = %.lr.ph79, %._crit_edge
   tail call fastcc void @CbsP_ManDeriveReason(ptr noundef nonnull %0, i32 noundef %.2.lcssa)
@@ -1970,7 +1970,7 @@ CbsP_QueFinish.exit:                              ; preds = %._crit_edge.i.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CbsP_ManSolve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @CbsP_ManSolve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2070,7 +2070,7 @@ CbsP_ManCheckLimits.exit.thread:                  ; preds = %7, %10, %16, %22, %
   %57 = load i32, ptr %34, align 4
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next.i, %58
-  br i1 %59, label %39, label %CbsP_ManCancelUntil.exit, !llvm.loop !13
+  br i1 %59, label %39, label %CbsP_ManCancelUntil.exit, !llvm.loop !12
 
 CbsP_ManCancelUntil.exit:                         ; preds = %39, %43, %CbsP_ManCheckLimits.exit.thread
   store i32 0, ptr %34, align 4
@@ -2179,7 +2179,7 @@ define internal fastcc void @CbsP_ManSaveModel(ptr nocapture noundef %0, ptr noc
   %23 = sdiv exact i64 %22, 12
   %24 = trunc i64 %23 to i32
   %25 = lshr i64 %.val, 62
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw nsw i64 %25 to i32
   %27 = and i32 %26, 1
   %28 = shl nsw i32 %24, 1
   %29 = or disjoint i32 %28, %27
@@ -2254,14 +2254,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %10, label %.critedge, !llvm.loop !17
+  br i1 %62, label %10, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %10, %59, %2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CbsP_ManSolve2(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @CbsP_ManSolve2(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
@@ -2393,7 +2393,7 @@ CbsP_ManCheckLimits.exit.thread:                  ; preds = %23, %25, %30, %35, 
   %70 = load i32, ptr %47, align 4
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next.i, %71
-  br i1 %72, label %52, label %CbsP_ManCancelUntil.exit, !llvm.loop !13
+  br i1 %72, label %52, label %CbsP_ManCancelUntil.exit, !llvm.loop !12
 
 CbsP_ManCancelUntil.exit:                         ; preds = %52, %56, %CbsP_ManCheckLimits.exit.thread
   store i32 0, ptr %47, align 4
@@ -2818,7 +2818,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #23
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #23
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -2837,7 +2837,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2974,7 +2974,7 @@ Vec_StrAlloc.exit:                                ; preds = %Abc_Clock.exit, %26
   br i1 %.not69, label %103, label %75
 
 75:                                               ; preds = %73
-  %76 = trunc i64 %indvars.iv to i32
+  %76 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Cec_ManSatAddToStore(ptr noundef nonnull %31, ptr noundef nonnull %40, i32 noundef %76) #23
   %77 = load i32, ptr %25, align 4
   %78 = load i32, ptr %23, align 8
@@ -3129,8 +3129,8 @@ Abc_Clock.exit88:                                 ; preds = %130, %133
   %142 = ptrtoint ptr %139 to i64
   %143 = xor i64 %141, %142
   %144 = inttoptr i64 %143 to ptr
-  %145 = call i32 @CbsP_ManSolve(ptr noundef nonnull %18, ptr noundef %144), !range !18
-  %146 = trunc i32 %145 to i8
+  %145 = call i32 @CbsP_ManSolve(ptr noundef nonnull %18, ptr noundef %144)
+  %146 = trunc nsw i32 %145 to i8
   %147 = load i32, ptr %25, align 4
   %148 = load i32, ptr %23, align 8
   %149 = icmp eq i32 %147, %148
@@ -3204,7 +3204,7 @@ Vec_StrPush.exit95:                               ; preds = %.Vec_StrGrow.exit10
   %177 = load i32, ptr %53, align 8
   %178 = add nsw i32 %177, %176
   store i32 %178, ptr %53, align 8
-  %179 = trunc i64 %indvars.iv to i32
+  %179 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Cec_ManSatAddToStore(ptr noundef nonnull %31, ptr noundef null, i32 noundef %179) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %180 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #23
@@ -3286,7 +3286,7 @@ Abc_Clock.exit99:                                 ; preds = %203, %211
   %224 = load i32, ptr %57, align 4
   %225 = add nsw i32 %224, %223
   store i32 %225, ptr %57, align 4
-  %226 = trunc i64 %indvars.iv to i32
+  %226 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Cec_ManSatAddToStore(ptr noundef nonnull %31, ptr noundef nonnull %40, i32 noundef %226) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %227 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #23
@@ -3317,7 +3317,7 @@ Abc_Clock.exit101:                                ; preds = %220, %229
   %.val70 = load i32, ptr %240, align 4
   %241 = sext i32 %.val70 to i64
   %242 = icmp slt i64 %indvars.iv.next, %241
-  br i1 %242, label %60, label %.critedge.loopexit, !llvm.loop !19
+  br i1 %242, label %60, label %.critedge.loopexit, !llvm.loop !17
 
 .critedge.loopexit:                               ; preds = %238, %60
   %.val74117 = phi ptr [ %239, %238 ], [ %61, %60 ]
@@ -3898,7 +3898,7 @@ CbsP_QuePush.exit62:                              ; preds = %._crit_edge.i56, %1
   %151 = load i32, ptr %9, align 4
   %152 = sext i32 %151 to i64
   %153 = icmp slt i64 %indvars.iv.next, %152
-  br i1 %153, label %19, label %._crit_edge, !llvm.loop !20
+  br i1 %153, label %19, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %150, %2
   %.0.lcssa = phi i32 [ %8, %2 ], [ %.1, %150 ]
@@ -3925,7 +3925,7 @@ CbsP_QuePush.exit62:                              ; preds = %._crit_edge.i56, %1
   %.val = load i32, ptr %164, align 4
   %165 = sext i32 %.val to i64
   %166 = icmp slt i64 %indvars.iv.next71, %165
-  br i1 %166, label %.lr.ph68, label %.critedge, !llvm.loop !21
+  br i1 %166, label %.lr.ph68, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %.lr.ph68, %._crit_edge
   ret void
@@ -3938,19 +3938,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #12
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #15
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #15
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17
@@ -3979,8 +3979,8 @@ attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessib
 attributes #12 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -4003,14 +4003,12 @@ attributes #24 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = !{i32 -1, i32 2}
+!18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}

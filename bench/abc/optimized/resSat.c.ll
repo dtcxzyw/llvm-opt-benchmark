@@ -29,7 +29,7 @@ define ptr @Res_SatProveUnsat(ptr noundef %0, ptr nocapture noundef readonly %1)
   br i1 %17, label %.lr.ph, label %.critedge.preheader
 
 .critedge.preheader.loopexit:                     ; preds = %.lr.ph
-  %18 = trunc i64 %indvars.iv.next to i32
+  %18 = trunc nuw i64 %indvars.iv.next to i32
   br label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.critedge.preheader.loopexit, %2
@@ -65,7 +65,7 @@ define ptr @Res_SatProveUnsat(ptr noundef %0, ptr nocapture noundef readonly %1)
   br i1 %30, label %.lr.ph, label %.critedge.preheader.loopexit, !llvm.loop !4
 
 .critedge2.preheader.loopexit:                    ; preds = %.critedge
-  %31 = trunc i64 %indvars.iv.next161 to i32
+  %31 = trunc nuw i64 %indvars.iv.next161 to i32
   br label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %.critedge2.preheader.loopexit, %.critedge.preheader
@@ -111,7 +111,7 @@ define ptr @Res_SatProveUnsat(ptr noundef %0, ptr nocapture noundef readonly %1)
   br i1 %45, label %.critedge2, label %.critedge4.loopexit, !llvm.loop !7
 
 .critedge4.loopexit:                              ; preds = %.critedge2
-  %46 = trunc i64 %indvars.iv.next168 to i32
+  %46 = trunc nuw i64 %indvars.iv.next168 to i32
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.critedge2.preheader
@@ -395,7 +395,7 @@ declare ptr @sat_solver_new() local_unnamed_addr #1
 declare void @sat_solver_store_alloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Res_SatAddConst1(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Res_SatAddConst1(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = shl nsw i32 %1, 1
   %6 = icmp ne i32 %2, 0
@@ -410,7 +410,7 @@ define i32 @Res_SatAddConst1(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Res_SatAddAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Res_SatAddAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [3 x i32], align 4
   %8 = shl nsw i32 %1, 1
   %9 = or disjoint i32 %8, 1
@@ -459,7 +459,7 @@ define i32 @Res_SatAddAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Res_SatAddEqual(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Res_SatAddEqual(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [2 x i32], align 4
   %6 = shl nsw i32 %1, 1
   store i32 %6, ptr %5, align 4
@@ -536,7 +536,7 @@ Vec_PtrPush.exit104:
   br i1 %20, label %.lr.ph, label %.critedge.preheader
 
 .critedge.preheader.loopexit:                     ; preds = %.lr.ph
-  %21 = trunc i64 %indvars.iv.next to i32
+  %21 = trunc nuw i64 %indvars.iv.next to i32
   br label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.critedge.preheader.loopexit, %Vec_PtrPush.exit104
@@ -572,7 +572,7 @@ Vec_PtrPush.exit104:
   br i1 %33, label %.lr.ph, label %.critedge.preheader.loopexit, !llvm.loop !11
 
 .critedge2.preheader.loopexit:                    ; preds = %.critedge
-  %34 = trunc i64 %indvars.iv.next147 to i32
+  %34 = trunc nuw i64 %indvars.iv.next147 to i32
   br label %.critedge2.preheader139
 
 .critedge2.preheader139:                          ; preds = %.critedge.preheader, %.critedge2.preheader.loopexit
@@ -857,7 +857,7 @@ Vec_PtrFree.exit122:                              ; preds = %Res_SatAddEqual.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Res_SatSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Res_SatSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)

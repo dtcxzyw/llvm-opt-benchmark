@@ -4939,7 +4939,7 @@ define internal fastcc void @_ZL15low_do_pbc_mtopP8_IO_FILE7PbcTypebPA3_KfS4_PK1
   unreachable
 
 30:                                               ; preds = %17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %10, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %10, i8 0, i64 36, i1 false)
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.split.us.i, %30
@@ -5254,7 +5254,7 @@ _ZN7t_graphD2Ev.exit:                             ; preds = %136, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_Z21setBoxDeformationRatePA3_KfS1_PA3_f(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #14 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %2, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %2, i8 0, i64 36, i1 false)
   br label %.preheader
 
 .preheader:                                       ; preds = %3, %.split.us

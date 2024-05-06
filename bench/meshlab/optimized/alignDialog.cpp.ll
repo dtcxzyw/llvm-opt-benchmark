@@ -7169,7 +7169,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEESt10_Select1stI
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11AlignDialog18currentMeshChangedEi(ptr noundef nonnull align 8 dereferenceable(376) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
-  tail call void @_ZN11AlignDialog13updateButtonsEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
+  tail call void @_ZN11AlignDialog13updateButtonsEv(ptr noundef nonnull readonly align 8 dereferenceable(376) %0)
   tail call void @_ZN11AlignDialog11rebuildTreeEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
   ret void
 }

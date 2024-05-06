@@ -41,7 +41,7 @@ entry:
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @BIO_ADDR_copy(ptr noundef writeonly %dst, ptr noundef readonly %src) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @BIO_ADDR_copy(ptr noundef writeonly %dst, ptr noundef readonly %src) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %dst, null
   %cmp1 = icmp eq ptr %src, null
@@ -58,19 +58,19 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then4:                                         ; preds = %if.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %dst, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(112) %dst, i8 0, i64 112, i1 false)
   br label %return
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dst, ptr noundef nonnull align 2 dereferenceable(16) %src, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %dst, ptr noundef nonnull readonly align 2 dereferenceable(16) %src, i64 16, i1 false)
   br label %return
 
 if.then6.i:                                       ; preds = %if.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %dst, ptr noundef nonnull align 2 dereferenceable(28) %src, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %dst, ptr noundef nonnull readonly align 2 dereferenceable(28) %src, i64 28, i1 false)
   br label %return
 
 if.then12.i:                                      ; preds = %if.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(110) %dst, ptr noundef nonnull align 2 dereferenceable(110) %src, i64 110, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(110) %dst, ptr noundef nonnull readonly align 2 dereferenceable(110) %src, i64 110, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then12.i, %if.then6.i, %if.then.i, %entry, %if.then4
@@ -86,7 +86,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @BIO_ADDR_make(ptr nocapture noundef writeonly %ap, ptr nocapture noundef readonly %sa) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @BIO_ADDR_make(ptr nocapture noundef writeonly %ap, ptr nocapture noundef readonly %sa) local_unnamed_addr #2 {
 entry:
   %0 = load i16, ptr %sa, align 2
   switch i16 %0, label %return [
@@ -134,19 +134,19 @@ if.end.i6:                                        ; preds = %if.then
   ]
 
 if.then4.i:                                       ; preds = %if.end.i6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %call.i, i8 0, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(112) %call.i, i8 0, i64 112, i1 false)
   br label %if.end4
 
 if.then.i.i:                                      ; preds = %if.end.i6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %call.i, ptr noundef nonnull align 2 dereferenceable(16) %ap, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %call.i, ptr noundef nonnull readonly align 2 dereferenceable(16) %ap, i64 16, i1 false)
   br label %if.end4
 
 if.then6.i.i:                                     ; preds = %if.end.i6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %call.i, ptr noundef nonnull align 2 dereferenceable(28) %ap, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %call.i, ptr noundef nonnull readonly align 2 dereferenceable(28) %ap, i64 28, i1 false)
   br label %if.end4
 
 if.then12.i.i:                                    ; preds = %if.end.i6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(110) %call.i, ptr noundef nonnull align 2 dereferenceable(110) %ap, i64 110, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(110) %call.i, ptr noundef nonnull readonly align 2 dereferenceable(110) %ap, i64 110, i1 false)
   br label %if.end4
 
 if.then3:                                         ; preds = %if.end.i6
@@ -165,7 +165,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @BIO_ADDR_rawmake(ptr noundef %ap, i32 noundef %family, ptr nocapture noundef readonly %where, i64 noundef %wherelen, i16 noundef zeroext %port) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @BIO_ADDR_rawmake(ptr noundef %ap, i32 noundef %family, ptr nocapture noundef readonly %where, i64 noundef %wherelen, i16 noundef zeroext %port) local_unnamed_addr #6 {
 entry:
   switch i32 %family, label %return [
     i32 1, label %if.then
@@ -223,7 +223,7 @@ return:                                           ; preds = %entry, %if.then15, 
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @BIO_ADDR_family(ptr nocapture noundef readonly %ap) local_unnamed_addr #8 {
+define range(i32 0, 65536) i32 @BIO_ADDR_family(ptr nocapture noundef readonly %ap) local_unnamed_addr #8 {
 entry:
   %0 = load i16, ptr %ap, align 4
   %conv = zext i16 %0 to i32
@@ -231,7 +231,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @BIO_ADDR_rawaddress(ptr nocapture noundef readonly %ap, ptr noundef writeonly %p, ptr noundef writeonly %l) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @BIO_ADDR_rawaddress(ptr nocapture noundef readonly %ap, ptr noundef writeonly %p, ptr noundef writeonly %l) local_unnamed_addr #9 {
 entry:
   %0 = load i16, ptr %ap, align 4
   switch i16 %0, label %return [
@@ -303,7 +303,7 @@ define ptr @BIO_ADDR_hostname_string(ptr noundef %ap, i32 noundef %numeric) loca
 entry:
   %hostname = alloca ptr, align 8
   store ptr null, ptr %hostname, align 8
-  %call = call fastcc i32 @addr_strings(ptr noundef %ap, i32 noundef %numeric, ptr noundef nonnull %hostname, ptr noundef null), !range !4
+  %call = call fastcc i32 @addr_strings(ptr noundef %ap, i32 noundef %numeric, ptr noundef nonnull %hostname, ptr noundef null)
   %tobool.not = icmp eq i32 %call, 0
   %0 = load ptr, ptr %hostname, align 8
   %retval.0 = select i1 %tobool.not, ptr null, ptr %0
@@ -311,7 +311,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @addr_strings(ptr noundef %ap, i32 noundef %numeric, ptr noundef %hostname, ptr noundef %service) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @addr_strings(ptr noundef %ap, i32 noundef %numeric, ptr noundef %hostname, ptr noundef %service) unnamed_addr #0 {
 entry:
   %host = alloca [1025 x i8], align 16
   %serv = alloca [32 x i8], align 16
@@ -451,7 +451,7 @@ define ptr @BIO_ADDR_service_string(ptr noundef %ap, i32 noundef %numeric) local
 entry:
   %service = alloca ptr, align 8
   store ptr null, ptr %service, align 8
-  %call = call fastcc i32 @addr_strings(ptr noundef %ap, i32 noundef %numeric, ptr noundef null, ptr noundef nonnull %service), !range !4
+  %call = call fastcc i32 @addr_strings(ptr noundef %ap, i32 noundef %numeric, ptr noundef null, ptr noundef nonnull %service)
   %tobool.not = icmp eq i32 %call, 0
   %0 = load ptr, ptr %service, align 8
   %retval.0 = select i1 %tobool.not, ptr null, ptr %0
@@ -490,7 +490,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @BIO_ADDR_sockaddr_size(ptr nocapture noundef readonly %ap) local_unnamed_addr #8 {
+define range(i32 16, 113) i32 @BIO_ADDR_sockaddr_size(ptr nocapture noundef readonly %ap) local_unnamed_addr #8 {
 entry:
   %0 = load i16, ptr %ap, align 4
   switch i16 %0, label %if.end13 [
@@ -666,7 +666,7 @@ while.body:                                       ; preds = %if.end, %while.body
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 473) #14
   tail call void @CRYPTO_free(ptr noundef nonnull %bai.addr.07, ptr noundef nonnull @.str, i32 noundef 474) #14
   %cmp4.not = icmp eq ptr %1, null
-  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !5
+  br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body, %entry, %if.then2
   ret void
@@ -676,7 +676,7 @@ while.end:                                        ; preds = %while.body, %entry,
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BIO_parse_hostserv(ptr noundef %hostserv, ptr noundef writeonly %host, ptr noundef writeonly %service, i32 noundef %hostserv_prio) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_parse_hostserv(ptr noundef %hostserv, ptr noundef writeonly %host, ptr noundef writeonly %service, i32 noundef %hostserv_prio) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %hostserv, align 1
   %cmp = icmp eq i8 %0, 91
@@ -834,14 +834,14 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BIO_lookup(ptr noundef %host, ptr noundef %service, i32 noundef %lookup_type, i32 noundef %family, i32 noundef %socktype, ptr noundef %res) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_lookup(ptr noundef %host, ptr noundef %service, i32 noundef %lookup_type, i32 noundef %family, i32 noundef %socktype, ptr noundef %res) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @BIO_lookup_ex(ptr noundef %host, ptr noundef %service, i32 noundef %lookup_type, i32 noundef %family, i32 noundef %socktype, i32 noundef 0, ptr noundef %res), !range !4
+  %call = tail call i32 @BIO_lookup_ex(ptr noundef %host, ptr noundef %service, i32 noundef %lookup_type, i32 noundef %family, i32 noundef %socktype, i32 noundef 0, ptr noundef %res)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BIO_lookup_ex(ptr noundef %host, ptr noundef %service, i32 noundef %lookup_type, i32 noundef %family, i32 noundef %socktype, i32 noundef %protocol, ptr noundef %res) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_lookup_ex(ptr noundef %host, ptr noundef %service, i32 noundef %lookup_type, i32 noundef %family, i32 noundef %socktype, i32 noundef %protocol, ptr noundef %res) local_unnamed_addr #0 {
 entry:
   %hints = alloca %struct.addrinfo, align 8
   switch i32 %family, label %sw.default [
@@ -886,7 +886,7 @@ if.end.i17.i:                                     ; preds = %if.then14.i
   store i16 0, ptr %1, align 4
   store i16 1, ptr %call.i.i, align 4
   %sun_path.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2
-  %call.i18.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %sun_path.i.i, ptr noundef nonnull dereferenceable(1) %host, i64 noundef 107) #14
+  %call.i18.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %sun_path.i.i, ptr noundef nonnull readonly dereferenceable(1) %host, i64 noundef 107) #14
   br label %BIO_ADDR_rawmake.exit.i
 
 BIO_ADDR_rawmake.exit.i:                          ; preds = %if.end.i17.i, %if.then14.i
@@ -924,7 +924,7 @@ while.body.i.i:                                   ; preds = %if.end.i20.i, %whil
   tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 473) #14
   tail call void @CRYPTO_free(ptr noundef nonnull %bai.addr.07.i.i, ptr noundef nonnull @.str, i32 noundef 474) #14
   %cmp4.not.i.i = icmp eq ptr %7, null
-  br i1 %cmp4.not.i.i, label %BIO_ADDRINFO_free.exit.i, label %while.body.i.i, !llvm.loop !5
+  br i1 %cmp4.not.i.i, label %BIO_ADDRINFO_free.exit.i, label %while.body.i.i, !llvm.loop !4
 
 BIO_ADDRINFO_free.exit.i:                         ; preds = %while.body.i.i, %if.then2.i.i
   store ptr null, ptr %res, align 8
@@ -1061,6 +1061,5 @@ attributes #16 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

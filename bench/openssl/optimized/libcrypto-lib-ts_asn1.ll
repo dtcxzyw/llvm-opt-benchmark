@@ -515,7 +515,7 @@ declare ptr @ASN1_BIT_STRING_it() #1
 declare ptr @PKCS7_it() #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ts_resp_cb(i32 noundef %op, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #0 {
+define internal range(i32 0, 2) i32 @ts_resp_cb(i32 noundef %op, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #0 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   switch i32 %op, label %return [

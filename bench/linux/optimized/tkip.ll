@@ -112,7 +112,7 @@ define dso_local void @ieee80211_get_tkip_rx_p1k(ptr nocapture noundef readonly 
   %5 = getelementptr inbounds i8, ptr %0, i64 20
   %6 = trunc i32 %2 to i16
   %7 = lshr i32 %2, 16
-  %8 = trunc i32 %7 to i16
+  %8 = trunc nuw i32 %7 to i16
   %9 = load i16, ptr %1, align 1
   %10 = getelementptr i8, ptr %1, i64 2
   %11 = load i16, ptr %10, align 1
@@ -233,7 +233,7 @@ define internal fastcc void @tkip_mixing_phase1(ptr nocapture noundef readonly %
   %5 = trunc i32 %3 to i16
   store i16 %5, ptr %1, align 2
   %6 = lshr i32 %3, 16
-  %7 = trunc i32 %6 to i16
+  %7 = trunc nuw i32 %6 to i16
   %8 = getelementptr i8, ptr %1, i64 2
   store i16 %7, ptr %8, align 2
   %9 = load i16, ptr %2, align 1
@@ -523,7 +523,7 @@ define internal fastcc void @tkip_mixing_phase2(ptr nocapture noundef readonly %
   %120 = tail call noundef i16 @llvm.fshl.i16(i16 %119, i16 %119, i16 15)
   %121 = add i16 %120, %103
   %122 = lshr i16 %2, 8
-  %123 = trunc i16 %122 to i8
+  %123 = trunc nuw i16 %122 to i8
   %124 = getelementptr i8, ptr %3, i64 1
   store i8 %123, ptr %3, align 1
   %125 = and i8 %123, 95
@@ -596,7 +596,7 @@ ieee80211_get_tkip_p2k.exit:                      ; preds = %26, %30
   %33 = shl nuw i16 %32, 8
   %34 = zext i8 %17 to i16
   %35 = or disjoint i16 %33, %34
-  call fastcc void @tkip_mixing_phase2(ptr noundef %22, ptr noundef %21, i16 noundef zeroext %35, ptr noundef nonnull %6)
+  call fastcc void @tkip_mixing_phase2(ptr noundef %22, ptr noundef %21, i16 noundef zeroext %35, ptr noundef nonnull writeonly %6)
   tail call void @_raw_spin_unlock(ptr noundef %7) #13
   %36 = call i32 @ieee80211_wep_encrypt_data(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 16, ptr noundef %3, i64 noundef %4) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
@@ -684,7 +684,7 @@ define dso_local i32 @ieee80211_tkip_decrypt_data(ptr noundef %0, ptr noundef %1
 
 .thread:                                          ; preds = %61
   store i32 2, ptr %63, align 4
-  %.pre = trunc i32 %25 to i16
+  %.pre = trunc nuw i32 %25 to i16
   br label %103
 
 64:                                               ; preds = %61
@@ -742,7 +742,7 @@ define dso_local i32 @ieee80211_tkip_decrypt_data(ptr noundef %0, ptr noundef %1
 
 98:                                               ; preds = %69, %76, %81, %94
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false), !annotation !9
-  %99 = trunc i32 %25 to i16
+  %99 = trunc nuw i32 %25 to i16
   call fastcc void @tkip_mixing_phase2(ptr noundef %13, ptr noundef %16, i16 noundef zeroext %99, ptr noundef nonnull %11)
   %100 = add i64 %3, -12
   %101 = call i32 @ieee80211_wep_decrypt_data(ptr noundef %0, ptr noundef nonnull %11, i64 noundef 16, ptr noundef %30, i64 noundef %100) #13

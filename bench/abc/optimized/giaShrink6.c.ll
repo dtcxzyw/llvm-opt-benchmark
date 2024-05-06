@@ -149,10 +149,10 @@ Vec_WrdStart.exit:                                ; preds = %Vec_IntStart.exit, 
   br i1 %.not.i39, label %Abc_UtilStrsav.exit, label %62
 
 62:                                               ; preds = %Vec_WrdStart.exit
-  %63 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #21
+  %63 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %61) #21
   %64 = add i64 %63, 1
   %65 = tail call noalias ptr @malloc(i64 noundef %64) #19
-  %66 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %61) #20
+  %66 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull readonly dereferenceable(1) %61) #20
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_WrdStart.exit, %62
@@ -164,10 +164,10 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_WrdStart.exit, 
   br i1 %.not.i40, label %Abc_UtilStrsav.exit41, label %70
 
 70:                                               ; preds = %Abc_UtilStrsav.exit
-  %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %69) #21
+  %71 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %69) #21
   %72 = add i64 %71, 1
   %73 = tail call noalias ptr @malloc(i64 noundef %72) #19
-  %74 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(1) %69) #20
+  %74 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull readonly dereferenceable(1) %69) #20
   br label %Abc_UtilStrsav.exit41
 
 Abc_UtilStrsav.exit41:                            ; preds = %Abc_UtilStrsav.exit, %70
@@ -458,7 +458,7 @@ define i32 @Shr_ObjPerformBidec(ptr nocapture noundef readonly %0, ptr noundef %
   %15 = getelementptr inbounds i32, ptr %.val44, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = trunc i64 %indvars.iv.next to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.next to i32
   %18 = call ptr @Bdc_ManFunc(ptr noundef %1, i32 noundef %17) #20
   %19 = shl nsw i32 %16, 1
   call void @Bdc_FuncSetCopyInt(ptr noundef %18, i32 noundef %19) #20
@@ -582,7 +582,7 @@ define i32 @Shr_ObjPerformBidec(ptr nocapture noundef readonly %0, ptr noundef %
   %101 = trunc i64 %100 to i32
   %.val3.i50 = load i64, ptr %50, align 4
   %102 = lshr i64 %.val3.i50, 32
-  %103 = trunc i64 %102 to i32
+  %103 = trunc nuw i64 %102 to i32
   %104 = and i32 %103, 536870911
   %105 = sub nsw i32 %101, %104
   call fastcc void @Shr_ManAddFanout(ptr noundef %0, i32 noundef %105, i32 noundef %101)
@@ -746,7 +746,7 @@ common.ret42:                                     ; preds = %12, %common.ret
   %23 = trunc i64 %22 to i32
   %.val3.i40 = load i64, ptr %14, align 4
   %24 = lshr i64 %.val3.i40, 32
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw i64 %24 to i32
   %26 = and i32 %25, 536870911
   %27 = sub nsw i32 %23, %26
   %28 = tail call i64 @Shr_ManComputeTruth6_rec(ptr noundef nonnull %0, i32 noundef %27, ptr noundef %2)
@@ -935,7 +935,7 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
   %60 = getelementptr inbounds i64, ptr %.val47, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = lshr i64 %.val44, 32
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw i64 %62 to i32
   %64 = and i32 %63, 536870911
   %65 = sub nsw i32 %53, %64
   %66 = sext i32 %65 to i64
@@ -1628,7 +1628,7 @@ Shr_ManComputeTruth6.exit:                        ; preds = %279, %.critedge2
   %341 = getelementptr inbounds [8 x i64], ptr @Truth, i64 0, i64 %indvars.iv252
   %342 = load i64, ptr %341, align 8
   %343 = and i64 %342, %.0125233
-  %344 = trunc i64 %indvars.iv252 to i32
+  %344 = trunc nuw nsw i64 %indvars.iv252 to i32
   %345 = shl nuw i32 1, %344
   %346 = zext i32 %345 to i64
   %347 = lshr i64 %343, %346
@@ -1831,7 +1831,7 @@ Shr_ManFanIterStart.exit.i:                       ; preds = %.lr.ph92.i
 
 448:                                              ; preds = %439
   %449 = lshr i64 %.val60.i, 32
-  %450 = trunc i64 %449 to i32
+  %450 = trunc nuw i64 %449 to i32
   %451 = and i32 %450, 536870911
   %452 = sub nsw i32 %.04787.i, %451
   %453 = sext i32 %452 to i64
@@ -2166,7 +2166,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #20
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #20
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -2185,7 +2185,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2614,16 +2614,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15

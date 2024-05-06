@@ -130,7 +130,7 @@ declare void @pq_sendtext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @nameeq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @nameeq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -162,7 +162,7 @@ namecmp.exit:                                     ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @namene(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @namene(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -194,7 +194,7 @@ namecmp.exit:                                     ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @namelt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @namelt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -226,7 +226,7 @@ namecmp.exit:                                     ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @namele(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @namele(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -258,7 +258,7 @@ namecmp.exit:                                     ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @namegt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @namegt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -290,7 +290,7 @@ namecmp.exit:                                     ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @namege(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @namege(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -322,7 +322,7 @@ namecmp.exit:                                     ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @btnamecmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @btnamecmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

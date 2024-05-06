@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kZeroIV = internal constant [16 x i8] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @AES_CMAC(ptr noundef %out, ptr noundef %key, i64 noundef %key_len, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @AES_CMAC(ptr noundef %out, ptr noundef %key, i64 noundef %key_len, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %scratch.i = alloca [16 x i8], align 16
   %ctx = alloca %struct.cmac_ctx_st, align 8
@@ -31,7 +31,7 @@ sw.bb1:                                           ; preds = %entry
 sw.epilog:                                        ; preds = %sw.bb1, %sw.bb
   %cipher.0 = phi ptr [ %call2, %sw.bb1 ], [ %call, %sw.bb ]
   call void @EVP_CIPHER_CTX_init(ptr noundef nonnull %ctx) #8
-  %call3 = call i32 @CMAC_Init(ptr noundef nonnull %ctx, ptr noundef %key, i64 noundef %key_len, ptr noundef %cipher.0, ptr poison), !range !7
+  %call3 = call i32 @CMAC_Init(ptr noundef nonnull %ctx, ptr noundef %key, i64 noundef %key_len, ptr noundef %cipher.0, ptr poison)
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %land.end, label %land.lhs.true
 
@@ -52,7 +52,7 @@ if.then.i:                                        ; preds = %land.lhs.true
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %in, i64 %spec.select.i, i1 false)
   %sub7.i = sub i64 %in_len, %spec.select.i
   %1 = load i32, ptr %block_used.i, align 8
-  %2 = trunc i64 %spec.select.i to i32
+  %2 = trunc nuw i64 %spec.select.i to i32
   %conv10.i = add i32 %1, %2
   store i32 %conv10.i, ptr %block_used.i, align 8
   %cmp11.i = icmp eq i64 %sub7.i, 0
@@ -81,14 +81,14 @@ if.end28.i:                                       ; preds = %while.body.i
   %add.ptr29.i = getelementptr inbounds i8, ptr %in.addr.128.i, i64 16
   %sub30.i = add i64 %in_len.addr.129.i, -16
   %cmp21.i = icmp ugt i64 %sub30.i, 16
-  br i1 %cmp21.i, label %while.body.i, label %while.end.i, !llvm.loop !8
+  br i1 %cmp21.i, label %while.body.i, label %while.end.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %if.end28.i, %if.end20.i
   %in.addr.1.lcssa.i = phi ptr [ %in.addr.0.i, %if.end20.i ], [ %add.ptr29.i, %if.end28.i ]
   %in_len.addr.1.lcssa.i = phi i64 [ %in_len.addr.0.i, %if.end20.i ], [ %sub30.i, %if.end28.i ]
   %block31.i = getelementptr inbounds i8, ptr %ctx, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %block31.i, ptr align 1 %in.addr.1.lcssa.i, i64 %in_len.addr.1.lcssa.i, i1 false)
-  %conv33.i = trunc i64 %in_len.addr.1.lcssa.i to i32
+  %conv33.i = trunc nuw nsw i64 %in_len.addr.1.lcssa.i to i32
   store i32 %conv33.i, ptr %block_used.i, align 8
   br label %land.rhs
 
@@ -137,7 +137,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   store i8 %xor17.i, ptr %arrayidx22.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i
   %call.i8 = call i32 @EVP_Cipher(ptr noundef nonnull %ctx, ptr noundef nonnull %out, ptr noundef nonnull %out, i64 noundef 16) #8
@@ -164,7 +164,7 @@ declare ptr @EVP_aes_128_cbc() local_unnamed_addr #1
 declare ptr @EVP_aes_256_cbc() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CMAC_Init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, ptr noundef %cipher, ptr nocapture readnone %engine) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CMAC_Init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, ptr noundef %cipher, ptr nocapture readnone %engine) local_unnamed_addr #0 {
 entry:
   %scratch = alloca [16 x i8], align 16
   %call = tail call i32 @EVP_CIPHER_block_size(ptr noundef %cipher) #8
@@ -207,7 +207,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %arrayidx6.i = getelementptr inbounds i8, ptr %k1, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx6.i, align 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %exitcond.not.i, label %binary_field_mul_x.exit, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %binary_field_mul_x.exit, label %for.body.i, !llvm.loop !10
 
 binary_field_mul_x.exit:                          ; preds = %for.body.i
   %arrayidx12.i = getelementptr inbounds i8, ptr %scratch, i64 15
@@ -232,7 +232,7 @@ for.body.i9:                                      ; preds = %for.body.i9, %binar
   %arrayidx6.i15 = getelementptr inbounds i8, ptr %k2, i64 %indvars.iv.i10
   store i8 %or.i14, ptr %arrayidx6.i15, align 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i12, 15
-  br i1 %exitcond.not.i16, label %binary_field_mul_x.exit23, label %for.body.i9, !llvm.loop !11
+  br i1 %exitcond.not.i16, label %binary_field_mul_x.exit23, label %for.body.i9, !llvm.loop !10
 
 binary_field_mul_x.exit23:                        ; preds = %for.body.i9
   %shl14.i18 = shl i8 %xor.i, 1
@@ -251,7 +251,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CMAC_Update(ptr noundef %ctx, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CMAC_Update(ptr noundef %ctx, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %scratch = alloca [16 x i8], align 16
   %block_used = getelementptr inbounds i8, ptr %ctx, i64 200
@@ -269,7 +269,7 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %in, i64 %spec.select, i1 false)
   %sub7 = sub i64 %in_len, %spec.select
   %1 = load i32, ptr %block_used, align 8
-  %2 = trunc i64 %spec.select to i32
+  %2 = trunc nuw i64 %spec.select to i32
   %conv10 = add i32 %1, %2
   store i32 %conv10, ptr %block_used, align 8
   %cmp11 = icmp eq i64 %sub7, 0
@@ -298,14 +298,14 @@ if.end28:                                         ; preds = %while.body
   %add.ptr29 = getelementptr inbounds i8, ptr %in.addr.128, i64 16
   %sub30 = add i64 %in_len.addr.129, -16
   %cmp21 = icmp ugt i64 %sub30, 16
-  br i1 %cmp21, label %while.body, label %while.end, !llvm.loop !8
+  br i1 %cmp21, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end28, %if.end20
   %in.addr.1.lcssa = phi ptr [ %in.addr.0, %if.end20 ], [ %add.ptr29, %if.end28 ]
   %in_len.addr.1.lcssa = phi i64 [ %in_len.addr.0, %if.end20 ], [ %sub30, %if.end28 ]
   %block31 = getelementptr inbounds i8, ptr %ctx, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %block31, ptr align 1 %in.addr.1.lcssa, i64 %in_len.addr.1.lcssa, i1 false)
-  %conv33 = trunc i64 %in_len.addr.1.lcssa to i32
+  %conv33 = trunc nuw nsw i64 %in_len.addr.1.lcssa to i32
   store i32 %conv33, ptr %block_used, align 8
   br label %return
 
@@ -358,7 +358,7 @@ for.body:                                         ; preds = %if.end10, %for.body
   store i8 %xor17, ptr %arrayidx22, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body
   %call = tail call i32 @EVP_Cipher(ptr noundef nonnull %ctx, ptr noundef nonnull %out, ptr noundef nonnull %out, i64 noundef 16) #8
@@ -472,8 +472,7 @@ attributes #9 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

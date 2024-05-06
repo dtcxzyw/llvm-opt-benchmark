@@ -1269,7 +1269,7 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %412, %409, %277, %d
 
 501:                                              ; preds = %499
   %502 = load i32, ptr %134, align 4
-  %503 = call fastcc i32 @mp2t_get_packet_length(ptr noundef %0, i32 noundef %.0219.i.i, ptr noundef nonnull %1, i32 noundef %.0.i114.i, i32 noundef %502), !range !4
+  %503 = call fastcc i32 @mp2t_get_packet_length(ptr noundef %0, i32 noundef %.0219.i.i, ptr noundef nonnull %1, i32 noundef %.0.i114.i, i32 noundef %502)
   %504 = icmp eq i32 %503, -1
   br i1 %504, label %dissect_tsp.exit, label %505
 
@@ -1321,7 +1321,7 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %412, %409, %277, %d
 522:                                              ; preds = %518
   %523 = add nuw i32 %.0217.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %523, %.1226308.i.i
-  br i1 %exitcond.not.i.i, label %.thread266.i.i, label %518, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %.thread266.i.i, label %518, !llvm.loop !4
 
 524:                                              ; preds = %518
   %.not253.i.i = icmp eq i32 %.0217.i.i, 0
@@ -1346,7 +1346,7 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %412, %409, %277, %d
   %.3228.i.i = phi i32 [ %531, %529 ], [ %.1226308.i.i, %524 ]
   %.2221.i.i = phi i32 [ %530, %529 ], [ %.1220309.i.i, %524 ]
   %533 = load i32, ptr %134, align 4
-  %534 = call fastcc i32 @mp2t_get_packet_length(ptr noundef %0, i32 noundef %.2221.i.i, ptr noundef %1, i32 noundef %.2310.i.i, i32 noundef %533), !range !4
+  %534 = call fastcc i32 @mp2t_get_packet_length(ptr noundef %0, i32 noundef %.2221.i.i, ptr noundef %1, i32 noundef %.2310.i.i, i32 noundef %533)
   %535 = add nsw i32 %534, -1
   %or.cond3.i.i = icmp ult i32 %535, -2
   br i1 %or.cond3.i.i, label %537, label %536
@@ -1366,7 +1366,7 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %412, %409, %277, %d
   %541 = add i32 %534, %.2221.i.i
   %542 = add i32 %.2310.i.i, 1
   %.not251.i.i = icmp eq i32 %540, 0
-  br i1 %.not251.i.i, label %.loopexit.i.i, label %515, !llvm.loop !7
+  br i1 %.not251.i.i, label %.loopexit.i.i, label %515, !llvm.loop !6
 
 543:                                              ; preds = %537
   %544 = icmp eq i32 %.3228.i.i, 0
@@ -1523,7 +1523,7 @@ dissect_tsp.exit:                                 ; preds = %152, %154, %dissect
   %.0..0..0..0.28 = load volatile i32, ptr %6, align 4
   %600 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.28) #9
   %601 = icmp sgt i32 %600, 187
-  br i1 %601, label %71, label %._crit_edge, !llvm.loop !8
+  br i1 %601, label %71, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %596, %58
   %602 = call i32 @tvb_captured_length(ptr noundef %0) #9
@@ -1555,7 +1555,7 @@ define internal i32 @mp2t_stream_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mp2t_stream_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @mp2t_stream_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -1605,7 +1605,7 @@ define hidden void @proto_reg_handoff_mp2t() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @heur_dissect_mp2t(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @heur_dissect_mp2t(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #9
   %6 = icmp ne i32 %5, 0
   %7 = srem i32 %5, 188
@@ -1622,7 +1622,7 @@ define internal noundef i32 @heur_dissect_mp2t(ptr noundef %0, ptr noundef %1, p
   %10 = add i32 %.018, 188
   %11 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %10) #9
   %.not15 = icmp eq i32 %11, 0
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.preheader, %9
   %.018 = phi i32 [ %10, %9 ], [ 0, %.preheader ]
@@ -1709,7 +1709,7 @@ declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mp2t_get_packet_length(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 65542) i32 @mp2t_get_packet_length(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_mp2t, align 4
@@ -2074,7 +2074,7 @@ define internal i32 @mp2t_fragment_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mp2t_fragment_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @mp2t_fragment_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2171,9 +2171,8 @@ attributes #12 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 65542}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PACKET = type { ptr, i64 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_encode_der_length(ptr noundef %pkt, i64 noundef %cont_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_encode_der_length(ptr noundef %pkt, i64 noundef %cont_len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %cont_len, 65535
   br i1 %cmp, label %return, label %if.end
@@ -51,7 +51,7 @@ return:                                           ; preds = %if.end11, %land.lhs
 declare i32 @WPACKET_put_bytes__(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_encode_der_integer(ptr noundef %pkt, ptr noundef %n) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_encode_der_integer(ptr noundef %pkt, ptr noundef %n) local_unnamed_addr #0 {
 entry:
   %bnbytes = alloca ptr, align 8
   %call = tail call i32 @BN_is_negative(ptr noundef %n) #3
@@ -143,7 +143,7 @@ declare i32 @WPACKET_close(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_bn2binpad(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_encode_der_dsa_sig(ptr noundef %pkt, ptr noundef %r, ptr noundef %s) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_encode_der_dsa_sig(ptr noundef %pkt, ptr noundef %r, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %tmppkt = alloca %struct.wpacket_st, align 8
   %cont_len = alloca i64, align 8
@@ -163,12 +163,12 @@ if.then3:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end, %if.then3
   %dummypkt.0 = phi ptr [ %tmppkt, %if.then3 ], [ %pkt, %if.end ]
-  %call9 = call i32 @ossl_encode_der_integer(ptr noundef %dummypkt.0, ptr noundef %r), !range !4
+  %call9 = call i32 @ossl_encode_der_integer(ptr noundef %dummypkt.0, ptr noundef %r)
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.then20, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end8
-  %call11 = call i32 @ossl_encode_der_integer(ptr noundef %dummypkt.0, ptr noundef %s), !range !4
+  %call11 = call i32 @ossl_encode_der_integer(ptr noundef %dummypkt.0, ptr noundef %s)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.then20, label %lor.lhs.false13
 
@@ -234,12 +234,12 @@ lor.lhs.false30:                                  ; preds = %if.end11.i, %lor.lh
   br i1 %tobool2.not, label %land.lhs.true32, label %lor.lhs.false40
 
 land.lhs.true32:                                  ; preds = %lor.lhs.false30
-  %call33 = call i32 @ossl_encode_der_integer(ptr noundef %pkt, ptr noundef %r), !range !4
+  %call33 = call i32 @ossl_encode_der_integer(ptr noundef %pkt, ptr noundef %r)
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %return, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %land.lhs.true32
-  %call38 = call i32 @ossl_encode_der_integer(ptr noundef %pkt, ptr noundef %s), !range !4
+  %call38 = call i32 @ossl_encode_der_integer(ptr noundef %pkt, ptr noundef %s)
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %return, label %lor.lhs.false40
 
@@ -265,7 +265,7 @@ declare i32 @WPACKET_finish(ptr noundef) local_unnamed_addr #1
 declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ossl_decode_der_length(ptr nocapture noundef %pkt, ptr nocapture noundef writeonly %subpkt) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_decode_der_length(ptr nocapture noundef %pkt, ptr nocapture noundef writeonly %subpkt) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val.i.i = load i64, ptr %0, align 8
@@ -360,7 +360,7 @@ return:                                           ; preds = %entry, %if.end.i18,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_decode_der_integer(ptr nocapture noundef %pkt, ptr noundef %n) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_decode_der_integer(ptr nocapture noundef %pkt, ptr noundef %n) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val.i.i = load i64, ptr %0, align 8
@@ -571,12 +571,12 @@ if.end.i18.i:                                     ; preds = %lor.lhs.false.i14.i
 
 lor.lhs.false7:                                   ; preds = %if.end.i18.i, %if.end.i11.i, %if.end.i7.i
   %pkt.sroa.0.2 = phi ptr [ %add.ptr.i.i8.i, %if.end.i7.i ], [ %add.ptr.i.i6.i.i, %if.end.i18.i ], [ %add.ptr.i.i5.i.i, %if.end.i11.i ]
-  %call8 = call i32 @ossl_decode_der_integer(ptr noundef nonnull %contpkt, ptr noundef %r), !range !4
+  %call8 = call i32 @ossl_decode_der_integer(ptr noundef nonnull %contpkt, ptr noundef %r)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false7
-  %call11 = call i32 @ossl_decode_der_integer(ptr noundef nonnull %contpkt, ptr noundef %s), !range !4
+  %call11 = call i32 @ossl_decode_der_integer(ptr noundef nonnull %contpkt, ptr noundef %s)
   %tobool12.not = icmp ne i32 %call11, 0
   %6 = getelementptr inbounds i8, ptr %contpkt, i64 8
   %contpkt.val = load i64, ptr %6, align 8
@@ -609,4 +609,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

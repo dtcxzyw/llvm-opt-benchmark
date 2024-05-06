@@ -1463,7 +1463,7 @@ declare i32 @dissect_optional_attr_list(ptr noundef, ptr noundef, ptr noundef, p
 declare i32 @dissect_optional_service_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_tcpip_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 5) i32 @dissect_tcpip_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 4
   br i1 %7, label %8, label %10
 
@@ -1483,7 +1483,7 @@ define internal noundef i32 @dissect_tcpip_status(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_tcpip_config_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 5) i32 @dissect_tcpip_config_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 4
   br i1 %7, label %8, label %10
 
@@ -1503,7 +1503,7 @@ define internal noundef i32 @dissect_tcpip_config_cap(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_tcpip_config_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 5) i32 @dissect_tcpip_config_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 4
   br i1 %7, label %8, label %10
 
@@ -1529,7 +1529,7 @@ define internal i32 @dissect_tcpip_physical_link(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_tcpip_interface_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 65558) i32 @dissect_tcpip_interface_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 22
   br i1 %7, label %8, label %10
 
@@ -1579,7 +1579,7 @@ define internal i32 @dissect_tcpip_hostname(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_tcpip_snn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 7) i32 @dissect_tcpip_snn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 6
   br i1 %7, label %8, label %10
 
@@ -1600,7 +1600,7 @@ define internal noundef i32 @dissect_tcpip_snn(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_tcpip_mcast_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 9) i32 @dissect_tcpip_mcast_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 8
   br i1 %7, label %8, label %10
 
@@ -1628,7 +1628,7 @@ define internal noundef i32 @dissect_tcpip_mcast_config(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_tcpip_last_conflict(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 36) i32 @dissect_tcpip_last_conflict(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 35
   br i1 %7, label %8, label %10
 
@@ -1678,7 +1678,7 @@ define internal noundef i32 @dissect_tcpip_port_admin(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_elink_interface_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 5) i32 @dissect_elink_interface_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 4
   br i1 %7, label %8, label %10
 
@@ -1698,7 +1698,7 @@ define internal noundef i32 @dissect_elink_interface_flags(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_elink_physical_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 7) i32 @dissect_elink_physical_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 6
   br i1 %7, label %8, label %10
 
@@ -1717,7 +1717,7 @@ define internal noundef i32 @dissect_elink_physical_address(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_elink_interface_counters(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 45) i32 @dissect_elink_interface_counters(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 44
   br i1 %7, label %8, label %10
 
@@ -1766,7 +1766,7 @@ define internal noundef i32 @dissect_elink_interface_counters(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_elink_media_counters(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 49) i32 @dissect_elink_media_counters(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 48
   br i1 %7, label %8, label %10
 
@@ -1818,7 +1818,7 @@ define internal noundef i32 @dissect_elink_media_counters(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_elink_interface_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 5) i32 @dissect_elink_interface_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 4
   br i1 %7, label %8, label %10
 
@@ -1932,7 +1932,7 @@ define internal noundef i32 @dissect_elink_hc_media_counters(ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dlr_ring_supervisor_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 13) i32 @dissect_dlr_ring_supervisor_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 12
   br i1 %7, label %8, label %10
 
@@ -1963,7 +1963,7 @@ define internal noundef i32 @dissect_dlr_ring_supervisor_config(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dlr_last_active_node_on_port_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 11) i32 @dissect_dlr_last_active_node_on_port_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 10
   br i1 %7, label %8, label %10
 
@@ -1985,7 +1985,7 @@ define internal noundef i32 @dissect_dlr_last_active_node_on_port_1(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dlr_last_active_node_on_port_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 11) i32 @dissect_dlr_last_active_node_on_port_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 10
   br i1 %7, label %8, label %10
 
@@ -2037,7 +2037,7 @@ define internal noundef i32 @dissect_dlr_ring_protocol_participants_list(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dlr_active_supervisor_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 11) i32 @dissect_dlr_active_supervisor_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 10
   br i1 %7, label %8, label %10
 
@@ -2059,7 +2059,7 @@ define internal noundef i32 @dissect_dlr_active_supervisor_address(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dlr_capability_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 5) i32 @dissect_dlr_capability_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 4
   br i1 %7, label %8, label %10
 
@@ -2079,7 +2079,7 @@ define internal noundef i32 @dissect_dlr_capability_flags(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dlr_redundant_gateway_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 12) i32 @dissect_dlr_redundant_gateway_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 11
   br i1 %7, label %8, label %10
 
@@ -2110,7 +2110,7 @@ define internal noundef i32 @dissect_dlr_redundant_gateway_config(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dlr_active_gateway_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 11) i32 @dissect_dlr_active_gateway_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 10
   br i1 %7, label %8, label %10
 
@@ -2140,7 +2140,7 @@ define internal noundef i32 @dissect_cip_security_profiles(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_eip_security_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 5) i32 @dissect_eip_security_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 4
   br i1 %7, label %8, label %10
 
@@ -2409,7 +2409,7 @@ define internal i32 @dissect_eip_security_cert_revocation_list(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_eip_cert_cap_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -2147483648, 5) i32 @dissect_eip_cert_cap_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp slt i32 %5, 4
   br i1 %7, label %8, label %10
 
@@ -2810,7 +2810,7 @@ define internal i32 @enip_request_hash(ptr nocapture noundef readonly %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @enip_request_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @enip_request_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2883,7 +2883,7 @@ define internal i32 @enip_conn_hash(ptr nocapture noundef readonly %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @enip_conn_equal(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @enip_conn_equal(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @cip_connection_triad_match(ptr noundef %0, ptr noundef %1) #11
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %22, label %4
@@ -3092,7 +3092,7 @@ define internal i32 @dissect_dlr(ptr noundef %0, ptr nocapture noundef readonly 
 declare void @register_conversation_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cip_connection_conv_valid(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @cip_connection_conv_valid(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = tail call ptr @wmem_file_scope() #11
   %4 = load i32, ptr @proto_enip, align 4
   %5 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 1) #11
@@ -3447,7 +3447,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @dissect_padded_epath_len_usint(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_certificate_management_object_verify_certificate(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 0, 3) i32 @dissect_certificate_management_object_verify_certificate(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %7
 
@@ -3483,7 +3483,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_enip_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 24, 65560) i32 @get_enip_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %5) #11
   %7 = zext i16 %6 to i32
@@ -4259,7 +4259,7 @@ proto_item_set_generated.exit.i:                  ; preds = %296, %293, %288
   br label %301
 
 301:                                              ; preds = %.sink.split.i, %proto_item_set_generated.exit.i
-  call void @display_fwd_open_connection_path(ptr noundef nonnull %.0180227, ptr noundef %291, ptr noundef %2, ptr noundef %3)
+  call void @display_fwd_open_connection_path(ptr noundef nonnull readonly %.0180227, ptr noundef %291, ptr noundef %2, ptr noundef %3)
   %302 = load i32, ptr @hf_cip_cm_ot_api, align 4
   %303 = getelementptr inbounds i8, ptr %.0180227, i64 164
   %304 = load i32, ptr %303, align 4
@@ -4489,7 +4489,7 @@ display_connection_information.exit:              ; preds = %proto_item_set_gene
   %453 = load ptr, ptr %452, align 8
   %454 = getelementptr inbounds i8, ptr %453, i64 120
   %455 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef %432, i32 noundef 4) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %454, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %454, i8 0, i64 24, i1 false)
   store i32 2, ptr %454, align 8
   %456 = call noalias ptr @wmem_memdup(ptr noundef %450, ptr noundef %455, i64 noundef 4) #11
   %457 = getelementptr inbounds i8, ptr %453, i64 136
@@ -4508,7 +4508,7 @@ display_connection_information.exit:              ; preds = %proto_item_set_gene
   %465 = load ptr, ptr %464, align 8
   %466 = getelementptr inbounds i8, ptr %465, i64 176
   %467 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef %432, i32 noundef 4) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %466, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %466, i8 0, i64 24, i1 false)
   store i32 2, ptr %466, align 8
   %468 = call noalias ptr @wmem_memdup(ptr noundef %462, ptr noundef %467, i64 noundef 4) #11
   %469 = getelementptr inbounds i8, ptr %465, i64 192
@@ -5112,7 +5112,7 @@ define internal fastcc ptr @get_conversation_info_one_direction(ptr nocapture no
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds i8, ptr %2, i64 8
   %35 = load ptr, ptr %34, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   store i32 %31, ptr %16, align 8
   %36 = icmp eq i32 %33, 0
   br i1 %36, label %copy_address_wmem.exit, label %37

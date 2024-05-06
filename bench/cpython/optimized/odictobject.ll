@@ -909,7 +909,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [34 x i8] c"need more than 0 values to unpack\00", align 1
 @.str.9 = private unnamed_addr constant [33 x i8] c"need more than 1 value to unpack\00", align 1
 @.str.10 = private unnamed_addr constant [39 x i8] c"too many values to unpack (expected 2)\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @_Py_FalseStruct = external global %struct._longobject, align 8
 @_Py_TrueStruct = external global %struct._longobject, align 8
 @_Py_NoneStruct = external global %struct._object, align 8
@@ -1318,7 +1318,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end24, %if.then1.i, %if.end.i
-  %call25 = tail call fastcc i32 @_odict_keys_equal(ptr noundef nonnull %v, ptr noundef nonnull %w), !range !8
+  %call25 = tail call fastcc i32 @_odict_keys_equal(ptr noundef nonnull %v, ptr noundef nonnull %w)
   %cmp26 = icmp slt i32 %call25, 0
   br i1 %cmp26, label %return, label %if.end28
 
@@ -1419,7 +1419,7 @@ odictiter_new.exit:                               ; preds = %entry, %_Py_NewRef.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @odict_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal range(i32 -1, 1) i32 @odict_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %call = tail call i64 @PyObject_Size(ptr noundef %args) #7
   %cmp = icmp eq i64 %call, -1
@@ -1630,7 +1630,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @_odict_clear_node(ptr noundef %od, ptr noundef null, ptr noundef %key, i64 noundef %call), !range !9
+  %call1 = tail call fastcc i32 @_odict_clear_node(ptr noundef %od, ptr noundef null, ptr noundef %key, i64 noundef %call)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end4
 
@@ -1644,7 +1644,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_odict_clear_node(ptr noundef %od, ptr noundef %node, ptr noundef %key, i64 noundef %hash) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_odict_clear_node(ptr noundef %od, ptr noundef %node, ptr noundef %key, i64 noundef %hash) unnamed_addr #0 {
 entry:
   %od_first = getelementptr inbounds i8, ptr %od, i64 48
   %0 = load ptr, ptr %od_first, align 8
@@ -2529,7 +2529,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool9.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %call12 = tail call fastcc i32 @mutablemapping_update_arg(ptr noundef nonnull %call8, ptr noundef %right), !range !9
+  %call12 = tail call fastcc i32 @mutablemapping_update_arg(ptr noundef nonnull %call8, ptr noundef %right)
   %cmp = icmp slt i32 %call12, 0
   br i1 %cmp, label %if.then13, label %return
 
@@ -2557,7 +2557,7 @@ return:                                           ; preds = %if.end11, %if.end.i
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @odict_inplace_or(ptr noundef %self, ptr noundef %other) #0 {
 entry:
-  %call = tail call fastcc i32 @mutablemapping_update_arg(ptr noundef %self, ptr noundef %other), !range !9
+  %call = tail call fastcc i32 @mutablemapping_update_arg(ptr noundef %self, ptr noundef %other)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -2579,7 +2579,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mutablemapping_update_arg(ptr noundef %self, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @mutablemapping_update_arg(ptr noundef %self, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %func = alloca ptr, align 8
   %0 = getelementptr i8, ptr %arg, i64 8
@@ -2593,7 +2593,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %call3 = tail call fastcc i32 @mutablemapping_add_pairs(ptr noundef %self, ptr noundef nonnull %call1), !range !9
+  %call3 = tail call fastcc i32 @mutablemapping_add_pairs(ptr noundef %self, ptr noundef nonnull %call1)
   %1 = load i64, ptr %call1, align 8
   %2 = and i64 %1, 2147483648
   %cmp.i111.not = icmp eq i64 %2, 0
@@ -2736,7 +2736,7 @@ if.then1.i71:                                     ; preds = %if.end.i68
 
 Py_DECREF.exit73:                                 ; preds = %if.end26, %if.then1.i71, %if.end.i68
   %cmp19 = icmp eq i32 %res.1, 0
-  br i1 %cmp19, label %land.rhs, label %while.end, !llvm.loop !10
+  br i1 %cmp19, label %land.rhs, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %Py_DECREF.exit73, %land.rhs
   %19 = load i64, ptr %call15, align 8
@@ -2824,7 +2824,7 @@ Py_DECREF.exit55:                                 ; preds = %_PyObject_CallNoArg
   br i1 %cmp41, label %return, label %if.end43
 
 if.end43:                                         ; preds = %Py_DECREF.exit55
-  %call44 = call fastcc i32 @mutablemapping_add_pairs(ptr noundef %self, ptr noundef nonnull %retval.0.i.i54), !range !9
+  %call44 = call fastcc i32 @mutablemapping_add_pairs(ptr noundef %self, ptr noundef nonnull %retval.0.i.i54)
   %31 = load i64, ptr %retval.0.i.i54, align 8
   %32 = and i64 %31, 2147483648
   %cmp.i138.not = icmp eq i64 %32, 0
@@ -2841,7 +2841,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end45:                                         ; preds = %if.end36
-  %call46 = call fastcc i32 @mutablemapping_add_pairs(ptr noundef %self, ptr noundef nonnull %arg), !range !9
+  %call46 = call fastcc i32 @mutablemapping_add_pairs(ptr noundef %self, ptr noundef nonnull %arg)
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %if.end.i, %if.then1.i, %if.end43, %Py_DECREF.exit55, %if.end32, %Py_DECREF.exit64, %Py_DECREF.exit91, %Py_DECREF.exit100, %if.end4, %if.end.i104, %if.then1.i107, %if.end, %if.then, %if.end45
@@ -2854,7 +2854,7 @@ declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyDict_Items(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mutablemapping_add_pairs(ptr noundef %self, ptr noundef %pairs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @mutablemapping_add_pairs(ptr noundef %self, ptr noundef %pairs) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyObject_GetIter(ptr noundef %pairs) #7
   %cmp = icmp eq ptr %call, null
@@ -3021,7 +3021,7 @@ if.then1.i.i36:                                   ; preds = %if.end.i.i33
 Py_XDECREF.exit37:                                ; preds = %Py_XDECREF.exit28, %if.then.i30, %if.end.i.i33, %if.then1.i.i36
   %call31 = tail call ptr @PyErr_Occurred() #7
   %tobool32.not = icmp eq ptr %call31, null
-  br i1 %tobool32.not, label %while.cond, label %while.end, !llvm.loop !11
+  br i1 %tobool32.not, label %while.cond, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %Py_XDECREF.exit37, %while.cond
   %res.2 = phi i32 [ %res.1, %Py_XDECREF.exit37 ], [ %res.0, %while.cond ]
@@ -3093,7 +3093,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %call1.i = tail call fastcc i32 @_odict_clear_node(ptr noundef %od, ptr noundef null, ptr noundef %v, i64 noundef %call.i), !range !9
+  %call1.i = tail call fastcc i32 @_odict_clear_node(ptr noundef %od, ptr noundef null, ptr noundef %v, i64 noundef %call.i)
   %cmp2.i = icmp slt i32 %call1.i, 0
   br i1 %cmp2.i, label %return, label %if.end4.i
 
@@ -3116,7 +3116,7 @@ return:                                           ; preds = %if.end.i6, %if.else
 declare void @PyDict_Clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_odict_keys_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @_odict_keys_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #0 {
 entry:
   %od_first = getelementptr inbounds i8, ptr %a, i64 48
   %od_first1 = getelementptr inbounds i8, ptr %b, i64 48
@@ -3802,7 +3802,7 @@ if.end.i39:                                       ; preds = %if.then3
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %if.then3, %if.end.i39
-  %call4 = tail call fastcc i32 @mutablemapping_update_arg(ptr noundef %self, ptr noundef nonnull %2), !range !9
+  %call4 = tail call fastcc i32 @mutablemapping_update_arg(ptr noundef %self, ptr noundef nonnull %2)
   %4 = load i64, ptr %2, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i32.not = icmp eq i64 %5, 0
@@ -3838,7 +3838,7 @@ if.then12:                                        ; preds = %land.lhs.true
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.then12
-  %call17 = tail call fastcc i32 @mutablemapping_add_pairs(ptr noundef %self, ptr noundef nonnull %call13), !range !9
+  %call17 = tail call fastcc i32 @mutablemapping_add_pairs(ptr noundef %self, ptr noundef nonnull %call13)
   %7 = load i64, ptr %call13, align 8
   %8 = and i64 %7, 2147483648
   %cmp.i35.not = icmp eq i64 %8, 0
@@ -3970,7 +3970,7 @@ for.cond:                                         ; preds = %if.end19
   %next = getelementptr inbounds i8, ptr %node.040, i64 16
   %node.0 = load ptr, ptr %next, align 8
   %cmp9.not = icmp eq ptr %node.0, null
-  br i1 %cmp9.not, label %return, label %for.body, !llvm.loop !12
+  br i1 %cmp9.not, label %return, label %for.body, !llvm.loop !10
 
 for.body:                                         ; preds = %if.then8, %for.cond
   %node.040 = phi ptr [ %node.0, %for.cond ], [ %node.038, %if.then8 ]
@@ -4003,7 +4003,7 @@ for.cond26:                                       ; preds = %Py_DECREF.exit52
   %next41 = getelementptr inbounds i8, ptr %node.137, i64 16
   %node.1 = load ptr, ptr %next41, align 8
   %cmp27.not = icmp eq ptr %node.1, null
-  br i1 %cmp27.not, label %return, label %for.body28, !llvm.loop !13
+  br i1 %cmp27.not, label %return, label %for.body28, !llvm.loop !11
 
 for.body28:                                       ; preds = %if.else24, %for.cond26
   %node.137 = phi ptr [ %node.1, %for.cond26 ], [ %node.038, %if.else24 ]
@@ -4424,7 +4424,7 @@ _odict_find_node_hash.exit:                       ; preds = %if.end.i
   br i1 %cmp.not, label %land.lhs.true, label %if.then
 
 if.then:                                          ; preds = %_odict_find_node_hash.exit
-  %call1 = tail call fastcc i32 @_odict_clear_node(ptr noundef nonnull %od, ptr noundef nonnull %2, ptr noundef %key, i64 noundef %hash), !range !9
+  %call1 = tail call fastcc i32 @_odict_clear_node(ptr noundef nonnull %od, ptr noundef nonnull %2, ptr noundef %key, i64 noundef %hash)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end
 
@@ -4572,7 +4572,7 @@ if.end15.i:                                       ; preds = %_odict_get_index_ra
   %next.i = getelementptr inbounds i8, ptr %node.029.i, i64 16
   %node.0.i = load ptr, ptr %next.i, align 8
   %cmp8.not.i = icmp eq ptr %node.0.i, null
-  br i1 %cmp8.not.i, label %_odict_resize.exit, label %for.body10.i, !llvm.loop !14
+  br i1 %cmp8.not.i, label %_odict_resize.exit, label %for.body10.i, !llvm.loop !12
 
 _odict_resize.exit:                               ; preds = %if.end15.i, %for.end.i
   %od_fast_nodes.i = getelementptr inbounds i8, ptr %od, i64 64
@@ -4957,10 +4957,8 @@ attributes #7 = { nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -2147483648, i32 2}
-!9 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}

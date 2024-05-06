@@ -136,7 +136,7 @@ define internal i32 @delta_encoder_update(ptr noundef %0, ptr noundef %1, ptr no
 declare i32 @lzma_delta_coder_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_delta_props_encode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 12) i32 @lzma_delta_props_encode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call i64 @lzma_delta_coder_memusage(ptr noundef %0) #4
   %4 = icmp eq i64 %3, -1
   br i1 %4, label %10, label %5

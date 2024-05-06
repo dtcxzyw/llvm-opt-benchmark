@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.13 = private unnamed_addr constant [6 x i8] c"unset\00", align 1
 @_ZN8proxygen22connectionCloseStringsE = local_unnamed_addr global [14 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13], align 16
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN8proxygen37getConnectionCloseReasonStringByIndexEj(i32 noundef %index) local_unnamed_addr #0 {
 entry:
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %index, i32 12)
@@ -30,7 +30,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN8proxygen30getConnectionCloseReasonStringENS_21ConnectionCloseReasonE(i32 noundef %r) local_unnamed_addr #1 {
+define noundef ptr @_ZN8proxygen30getConnectionCloseReasonStringENS_21ConnectionCloseReasonE(i32 noundef %r) local_unnamed_addr #0 {
 entry:
   %idxprom = zext i32 %r to i64
   %arrayidx = getelementptr inbounds [14 x ptr], ptr @_ZN8proxygen22connectionCloseStringsE, i64 0, i64 %idxprom
@@ -39,11 +39,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #2
+declare i32 @llvm.umin.i32(i32, i32) #1
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

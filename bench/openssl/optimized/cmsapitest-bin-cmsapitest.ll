@@ -73,7 +73,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -182,39 +182,39 @@ declare ptr @PEM_read_bio_PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_encrypt_decrypt_aes_cbc() #1 {
+define internal range(i32 0, 2) i32 @test_encrypt_decrypt_aes_cbc() #1 {
 entry:
   %call = tail call ptr @EVP_aes_128_cbc() #4
-  %call1 = tail call fastcc i32 @test_encrypt_decrypt(ptr noundef %call), !range !5
+  %call1 = tail call fastcc i32 @test_encrypt_decrypt(ptr noundef %call)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_encrypt_decrypt_aes_128_gcm() #1 {
+define internal range(i32 0, 2) i32 @test_encrypt_decrypt_aes_128_gcm() #1 {
 entry:
   %call = tail call ptr @EVP_aes_128_gcm() #4
-  %call1 = tail call fastcc i32 @test_encrypt_decrypt(ptr noundef %call), !range !5
+  %call1 = tail call fastcc i32 @test_encrypt_decrypt(ptr noundef %call)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_encrypt_decrypt_aes_192_gcm() #1 {
+define internal range(i32 0, 2) i32 @test_encrypt_decrypt_aes_192_gcm() #1 {
 entry:
   %call = tail call ptr @EVP_aes_192_gcm() #4
-  %call1 = tail call fastcc i32 @test_encrypt_decrypt(ptr noundef %call), !range !5
+  %call1 = tail call fastcc i32 @test_encrypt_decrypt(ptr noundef %call)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_encrypt_decrypt_aes_256_gcm() #1 {
+define internal range(i32 0, 2) i32 @test_encrypt_decrypt_aes_256_gcm() #1 {
 entry:
   %call = tail call ptr @EVP_aes_256_gcm() #4
-  %call1 = tail call fastcc i32 @test_encrypt_decrypt(ptr noundef %call), !range !5
+  %call1 = tail call fastcc i32 @test_encrypt_decrypt(ptr noundef %call)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_CMS_add1_cert() #1 {
+define internal range(i32 0, 2) i32 @test_CMS_add1_cert() #1 {
 entry:
   %call = tail call ptr @CMS_ContentInfo_new() #4
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 96, ptr noundef nonnull @.str.44, ptr noundef %call) #4
@@ -246,7 +246,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_d2i_CMS_bio_NULL() #1 {
+define internal range(i32 0, 2) i32 @test_d2i_CMS_bio_NULL() #1 {
 entry:
   %call = tail call ptr @BIO_new_mem_buf(ptr noundef nonnull @test_d2i_CMS_bio_NULL.cms_data, i32 noundef 1481) #4
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 306, ptr noundef nonnull @.str.47, ptr noundef %call) #4
@@ -301,7 +301,7 @@ land.end20:                                       ; preds = %land.end20.critedge
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_d2i_CMS_decode(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_d2i_CMS_decode(i32 noundef %idx) #1 {
 entry:
   %tmp = alloca ptr, align 8
   store ptr null, ptr %tmp, align 8
@@ -395,7 +395,7 @@ entry:
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_encrypt_decrypt(ptr noundef %cipher) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_encrypt_decrypt(ptr noundef %cipher) unnamed_addr #1 {
 entry:
   %buf = alloca [80 x i8], align 16
   %call = tail call ptr @OPENSSL_sk_new_null() #4
@@ -562,4 +562,3 @@ attributes #5 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

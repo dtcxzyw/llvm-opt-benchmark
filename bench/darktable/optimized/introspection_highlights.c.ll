@@ -5757,7 +5757,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 871:                                              ; preds = %944, %859
   %872 = phi i64 [ 0, %859 ], [ %945, %944 ]
-  %873 = mul nsw i64 %872, %857
+  %873 = mul nuw nsw i64 %872, %857
   %874 = tail call i64 @llvm.smin.i64(i64 %872, i64 %862)
   %875 = mul nsw i64 %874, %866
   br label %876

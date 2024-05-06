@@ -2101,7 +2101,7 @@ _ZN7QStringD2Ev.exit21:                           ; preds = %64, %_ZN17QArrayDat
 .noexc:                                           ; preds = %77
   %83 = add i64 %82, 2147483648
   %.not.i.i22 = icmp ult i64 %83, 4294967296
-  %84 = trunc i64 %82 to i32
+  %84 = trunc nsw i64 %82 to i32
   %85 = select i1 %.not.i.i22, i32 %84, i32 0
   invoke void @set_column_custom_occurrence(i32 noundef %73, i32 noundef %85)
           to label %86 unwind label %105

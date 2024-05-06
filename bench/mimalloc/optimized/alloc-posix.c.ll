@@ -47,7 +47,7 @@ declare zeroext i1 @mi_is_in_heap_region(ptr noundef) local_unnamed_addr #1
 declare void @mi_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mi_posix_memalign(ptr noundef writeonly %p, i64 noundef %alignment, i64 noundef %size) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @mi_posix_memalign(ptr noundef writeonly %p, i64 noundef %alignment, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %p, null
   %rem = and i64 %alignment, 7
@@ -55,7 +55,7 @@ entry:
   %or.cond7.not10.not12 = and i1 %cmp, %cmp1.not
   %cmp4 = icmp ne i64 %alignment, 0
   %or.cond8.not11 = and i1 %cmp4, %or.cond7.not10.not12
-  %0 = tail call i64 @llvm.ctpop.i64(i64 %alignment), !range !4
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %cmp.i = icmp ult i64 %0, 2
   %or.cond9 = select i1 %or.cond8.not11, i1 %cmp.i, i1 false
   br i1 %or.cond9, label %if.end6, label %return
@@ -104,7 +104,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %0 = tail call i64 @llvm.ctpop.i64(i64 %call), !range !4
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call)
   %cmp.i = icmp ult i64 %0, 2
   %sub.i = add i64 %size, -1
   %add.i = add i64 %sub.i, %call
@@ -219,7 +219,7 @@ for.cond:                                         ; preds = %entry, %for.cond
   %0 = load i16, ptr %arrayidx, align 2
   %cmp1.not = icmp eq i16 %0, 0
   %inc = add i64 %len.0, 1
-  br i1 %cmp1.not, label %for.end, label %for.cond, !llvm.loop !5
+  br i1 %cmp1.not, label %for.end, label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
   %add = shl i64 %len.0, 1
@@ -229,7 +229,7 @@ for.end:                                          ; preds = %for.cond
   br i1 %cmp3.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %for.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr nonnull align 1 %s, i64 %mul, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %call, ptr nonnull readonly align 1 %s, i64 %mul, i1 false)
   br label %return
 
 return:                                           ; preds = %for.end, %if.then5, %entry
@@ -249,7 +249,7 @@ entry:
 declare noalias ptr @mi_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mi_dupenv_s(ptr noundef writeonly %buf, ptr noundef writeonly %size, ptr noundef readonly %name) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @mi_dupenv_s(ptr noundef writeonly %buf, ptr noundef writeonly %size, ptr noundef readonly %name) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %buf, null
   %cmp1 = icmp eq ptr %name, null
@@ -360,6 +360,5 @@ attributes #8 = { nounwind willreturn memory(none) "no-builtin-malloc" }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 0, i64 65}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

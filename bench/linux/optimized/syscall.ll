@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @pcpu_hot = external dso_local global %struct.pcpu_hot, section ".data..percpu..shared_aligned", align 64
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @task_current_syscall(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -11, 1) i32 @task_current_syscall(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
   %4 = inttoptr i64 %3 to ptr
   %5 = icmp eq ptr %4, %0
@@ -48,7 +48,7 @@ define dso_local i32 @task_current_syscall(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @collect_syscall(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -11, 1) i32 @collect_syscall(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2688
   %4 = load volatile i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0

@@ -74,7 +74,7 @@ for.end:                                          ; preds = %for.inc, %entry
   br label %return
 
 return.loopexit:                                  ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %return.loopexit, %for.end

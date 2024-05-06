@@ -281,7 +281,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   store ptr @additional_functions, ptr getelementptr inbounds (%struct._sapi_module_struct, ptr @cli_sapi_module, i64 0, i32 34), align 8
   %8 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #23
   call void @zend_signal_startup() #23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %.outer
 
 .outer:                                           ; preds = %9, %2

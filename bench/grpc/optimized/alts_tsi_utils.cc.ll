@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @grpc__gcp__HandshakerResp_msg_init = external global %struct.upb_MiniTable, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_Z36alts_tsi_utils_convert_to_tsi_result16grpc_status_code(i32 noundef %code) local_unnamed_addr #0 {
+define noundef range(i32 0, 10) i32 @_Z36alts_tsi_utils_convert_to_tsi_result16grpc_status_code(i32 noundef %code) local_unnamed_addr #0 {
 entry:
   switch i32 %code, label %sw.default [
     i32 0, label %return

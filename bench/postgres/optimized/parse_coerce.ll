@@ -183,7 +183,7 @@ define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr nocaptu
   br i1 %15, label %46, label %16
 
 16:                                               ; preds = %14
-  %17 = call i32 @find_coercion_pathway(i32 noundef %10, i32 noundef %8, i32 noundef %3, ptr noundef nonnull %5), !range !7
+  %17 = call i32 @find_coercion_pathway(i32 noundef %10, i32 noundef %8, i32 noundef %3, ptr noundef nonnull %5)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %46
 
@@ -256,7 +256,7 @@ typeIsOfTypedTable.exit:                          ; preds = %31
   %.1 = phi i1 [ %.06175, %.lr.ph ], [ %.06175, %14 ], [ %.06175, %16 ], [ %.06175, %20 ], [ %.06175, %23 ], [ %.06175, %is_complex_array.exit ], [ %.06175, %is_complex_array.exit.thread ], [ %.06175, %typeIsOfTypedTable.exit ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %46
   br i1 %.1, label %47, label %.critedge
@@ -456,7 +456,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   br label %150
 
 thread-pre-split.thread:                          ; preds = %83, %thread-pre-split
-  %104 = call i32 @find_coercion_pathway(i32 noundef %3, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %9), !range !7
+  %104 = call i32 @find_coercion_pathway(i32 noundef %3, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %9)
   switch i32 %104, label %105 [
     i32 0, label %119
     i32 2, label %113
@@ -771,7 +771,7 @@ coerce_type_typmod.exit:                          ; preds = %17, %48, %find_typm
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @find_coercion_pathway(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @find_coercion_pathway(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -886,7 +886,7 @@ define dso_local i32 @find_coercion_pathway(i32 noundef %0, i32 noundef %1, i32 
   br i1 %.not54, label %.thread62, label %55
 
 55:                                               ; preds = %53
-  %56 = call i32 @find_coercion_pathway(i32 noundef %52, i32 noundef %54, i32 noundef %2, ptr noundef nonnull %9), !range !7
+  %56 = call i32 @find_coercion_pathway(i32 noundef %52, i32 noundef %54, i32 noundef %2, ptr noundef nonnull %9)
   %.not55 = icmp eq i32 %56, 0
   br i1 %.not55, label %.thread62, label %.thread64
 
@@ -1219,7 +1219,7 @@ list_head.exit:                                   ; preds = %33, %37
   %93 = load i32, ptr %36, align 8
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %indvars.iv.next, %94
-  br i1 %95, label %46, label %._crit_edge, !llvm.loop !9
+  br i1 %95, label %46, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %92, %list_head.exit
   %.087.lcssa = phi ptr [ %40, %list_head.exit ], [ %.188, %92 ]
@@ -1548,7 +1548,7 @@ define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocaptur
   %.1 = phi i32 [ %.0127237, %12 ], [ %.0127237, %15 ], [ %.0127237, %19 ], [ %.0127237, %23 ], [ %.0127237, %28 ], [ %.0127237, %30 ], [ %.0127237, %35 ], [ %.0127237, %39 ], [ %.0127237, %42 ], [ %.0127237, %47 ], [ %.0127237, %48 ], [ %10, %14 ], [ %.0127237, %17 ], [ %.0127237, %21 ], [ %.0127237, %25 ], [ %.0127237, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %53
   switch i32 %.1129, label %54 [
@@ -1670,7 +1670,7 @@ define dso_local noundef zeroext i1 @check_generic_type_consistency(ptr nocaptur
 88:                                               ; preds = %.lr.ph252
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %exitcond258.not = icmp eq i64 %indvars.iv.next255, %wide.trip.count257
-  br i1 %exitcond258.not, label %._crit_edge253, label %.lr.ph252, !llvm.loop !11
+  br i1 %exitcond258.not, label %._crit_edge253, label %.lr.ph252, !llvm.loop !10
 
 .lr.ph252:                                        ; preds = %.lr.ph252.preheader, %88
   %indvars.iv254 = phi i64 [ 0, %.lr.ph252.preheader ], [ %indvars.iv.next255, %88 ]
@@ -1927,7 +1927,7 @@ for_each_cell_setup.exit:                         ; preds = %17
   %26 = load i32, ptr %12, align 4
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %.thread64, !llvm.loop !12
+  br i1 %28, label %.lr.ph, label %.thread64, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ %24, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
@@ -2050,7 +2050,7 @@ for_each_cell_setup.exit60:                       ; preds = %.loopexit
   %80 = load i32, ptr %12, align 4
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next90, %81
-  br i1 %82, label %.lr.ph78, label %._crit_edge, !llvm.loop !13
+  br i1 %82, label %.lr.ph78, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %78, %.loopexit, %for_each_cell_setup.exit60
   %83 = phi i32 [ %34, %for_each_cell_setup.exit60 ], [ %34, %.loopexit ], [ %79, %78 ]
@@ -2231,7 +2231,7 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef %0, ptr noc
 14:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %15 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2329,7 +2329,7 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef %0, ptr noc
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %56 = trunc nuw i64 %indvars.iv.next29 to i32
   %57 = icmp slt i32 %56, %0
-  br i1 %57, label %.lr.ph25, label %._crit_edge26.loopexit, !llvm.loop !15
+  br i1 %57, label %.lr.ph25, label %._crit_edge26.loopexit, !llvm.loop !14
 
 ._crit_edge26.loopexit:                           ; preds = %54
   %.pre = load i32, ptr %4, align 4
@@ -2680,7 +2680,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   %.1 = phi i8 [ 1, %80 ], [ 1, %83 ], [ 1, %94 ], [ 1, %99 ], [ 1, %114 ], [ 1, %119 ], [ 1, %127 ], [ %.0339746, %25 ], [ %.0339746, %27 ], [ %.0339746, %29 ], [ %.0339746, %37 ], [ %.0339746, %40 ], [ %.0339746, %42 ], [ %.0339746, %51 ], [ %.0339746, %54 ], [ %.0339746, %56 ], [ %.0339746, %65 ], [ %.0339746, %68 ], [ %.0339746, %70 ], [ %.0339746, %.lr.ph ], [ 1, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %137
   %cond = icmp eq i32 %.1368, 0
@@ -2967,19 +2967,19 @@ define dso_local i32 @enforce_generic_type_consistency(ptr nocapture noundef rea
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %251, ptr %6, align 4
   %252 = zext nneg i32 %.2366 to i64
-  %253 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 0)
+  %253 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef nonnull readonly %7, ptr noundef nonnull %6, i32 noundef 0)
   br i1 %253, label %.lr.ph766, label %.critedge
 
 .lr.ph766:                                        ; preds = %.lr.ph.preheader.i, %.lr.ph.i
   %indvars.iv.i765 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i765, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %252
-  br i1 %exitcond.i, label %verify_common_type_from_oids.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.i, label %verify_common_type_from_oids.exit, label %.lr.ph.i, !llvm.loop !10
 
 .lr.ph.i:                                         ; preds = %.lr.ph766
   %254 = getelementptr i32, ptr %7, i64 %indvars.iv.next.i
-  %255 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef %254, ptr noundef nonnull %6, i32 noundef 0)
-  br i1 %255, label %.lr.ph766, label %verify_common_type_from_oids.exit, !llvm.loop !11
+  %255 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef readonly %254, ptr noundef nonnull %6, i32 noundef 0)
+  br i1 %255, label %.lr.ph766, label %verify_common_type_from_oids.exit, !llvm.loop !10
 
 verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph766
   %.not.le = icmp ult i64 %indvars.iv.next.i, %252
@@ -3160,7 +3160,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
 324:                                              ; preds = %.sink.split1002, %321
   %indvars.iv.next849 = add nuw nsw i64 %indvars.iv848, 1
   %exitcond852.not = icmp eq i64 %indvars.iv.next849, %wide.trip.count851
-  br i1 %exitcond852.not, label %.loopexit536, label %.lr.ph771, !llvm.loop !17
+  br i1 %exitcond852.not, label %.loopexit536, label %.lr.ph771, !llvm.loop !16
 
 .loopexit536:                                     ; preds = %324, %.thread530
   %.1406 = phi i32 [ 0, %.thread530 ], [ %.0405, %324 ]
@@ -3246,7 +3246,7 @@ verify_common_type_from_oids.exit:                ; preds = %.lr.ph.i, %.lr.ph76
   %.6 = phi i32 [ %.4350772, %325 ], [ %.4350772, %329 ], [ %.6.ph, %.sink.split1003 ]
   %indvars.iv.next854 = add nuw nsw i64 %indvars.iv853, 1
   %exitcond857.not = icmp eq i64 %indvars.iv.next854, %wide.trip.count856
-  br i1 %exitcond857.not, label %.loopexit, label %325, !llvm.loop !18
+  br i1 %exitcond857.not, label %.loopexit, label %325, !llvm.loop !17
 
 .loopexit:                                        ; preds = %349, %317, %.loopexit536
   %.4393928 = phi i32 [ %.4393, %.loopexit536 ], [ %.3392, %317 ], [ %.4393, %349 ]
@@ -3414,7 +3414,7 @@ define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noca
 8:                                                ; preds = %.lr.ph101
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
-  br i1 %exitcond119.not, label %.loopexit.sink.split, label %.lr.ph101, !llvm.loop !19
+  br i1 %exitcond119.not, label %.loopexit.sink.split, label %.lr.ph101, !llvm.loop !18
 
 9:                                                ; preds = %3, %3
   %10 = icmp sgt i32 %2, 0
@@ -3436,7 +3436,7 @@ define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noca
 13:                                               ; preds = %.lr.ph97
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
-  br i1 %exitcond114.not, label %.loopexit.sink.split, label %.lr.ph97, !llvm.loop !20
+  br i1 %exitcond114.not, label %.loopexit.sink.split, label %.lr.ph97, !llvm.loop !19
 
 14:                                               ; preds = %3, %3, %3, %3
   %15 = icmp sgt i32 %2, 0
@@ -3462,7 +3462,7 @@ define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noca
 18:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.sink.split, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit.sink.split, label %.lr.ph, !llvm.loop !20
 
 19:                                               ; preds = %3
   %20 = add i32 %0, -5077
@@ -3492,7 +3492,7 @@ define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noca
 24:                                               ; preds = %.lr.ph104
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
-  br i1 %exitcond124.not, label %.loopexit.sink.split, label %.lr.ph104, !llvm.loop !22
+  br i1 %exitcond124.not, label %.loopexit.sink.split, label %.lr.ph104, !llvm.loop !21
 
 .loopexit.sink.split:                             ; preds = %18, %13, %8, %24, %.preheader, %14, %9, %4
   %.str.38.sink = phi ptr [ @.str.35, %4 ], [ @.str.36, %9 ], [ @.str.37, %14 ], [ @.str.38, %.preheader ], [ @.str.38, %24 ], [ @.str.35, %8 ], [ @.str.36, %13 ], [ @.str.37, %18 ]
@@ -3523,7 +3523,7 @@ define dso_local ptr @check_valid_internal_signature(i32 noundef %0, ptr nocaptu
 6:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
@@ -3723,7 +3723,7 @@ declare zeroext i1 @type_is_multirange(i32 noundef) local_unnamed_addr #1
 declare ptr @SearchSysCache2(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @find_typmod_coercion_function(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @find_typmod_coercion_function(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   %3 = tail call ptr @typeidType(i32 noundef %0) #5
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -3826,7 +3826,7 @@ attributes #6 = { cold nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 5}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
@@ -3842,4 +3842,3 @@ attributes #6 = { cold nounwind }
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}

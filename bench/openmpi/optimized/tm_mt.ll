@@ -220,7 +220,7 @@ tm_init_genrand.exit:                             ; preds = %4, %._crit_edge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @tm_genrand_int31() local_unnamed_addr #2 {
+define hidden range(i64 0, -9223372036854775808) i64 @tm_genrand_int31() local_unnamed_addr #2 {
   %1 = load ptr, ptr @p0, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %3, label %._crit_edge.i
@@ -660,8 +660,8 @@ tm_genrand_int32.exit11:                          ; preds = %45, %47
   %67 = lshr i64 %66, 24
   %68 = lshr i64 %66, 6
   %69 = xor i64 %67, %68
-  %70 = uitofp i64 %58 to double
-  %71 = uitofp i64 %69 to double
+  %70 = uitofp nneg i64 %58 to double
+  %71 = uitofp nneg i64 %69 to double
   %72 = tail call double @llvm.fmuladd.f64(double %70, double 0x4190000000000000, double %71)
   %73 = fmul double %72, 0x3CA0000000000000
   ret double %73

@@ -229,9 +229,9 @@ define dso_local void @__blk_trace_note_message(ptr nocapture noundef readonly %
   %18 = load ptr, ptr %17, align 8
   %19 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %18) #22, !srcloc !10
   %20 = inttoptr i64 %19 to ptr
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %21 = call i32 @vscnprintf(ptr noundef %20, i64 noundef 128, ptr noundef %2, ptr noundef nonnull %5) #21
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   %22 = icmp eq ptr %1, null
   br i1 %22, label %33, label %23
 
@@ -279,14 +279,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @vscnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
+declare dso_local i32 @vscnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @trace_note(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 align 16 {
@@ -426,7 +420,7 @@ define internal fastcc void @trace_note(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @blk_trace_remove(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @blk_trace_remove(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 840
   tail call void @mutex_lock(ptr noundef %2) #21
   %3 = getelementptr inbounds i8, ptr %0, i64 600
@@ -471,7 +465,7 @@ __blk_trace_remove.exit:                          ; preds = %1, %17
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #4
+declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @__blk_trace_remove(ptr noundef %0) unnamed_addr #0 align 16 {
@@ -515,7 +509,7 @@ define internal fastcc void @__blk_trace_remove(ptr noundef %0) unnamed_addr #0 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #4
+declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @blk_trace_setup(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
@@ -530,7 +524,7 @@ define dso_local noundef i32 @blk_trace_setup(ptr noundef %0, ptr nocapture noun
   br i1 %10, label %11, label %__blk_trace_remove.exit
 
 11:                                               ; preds = %5
-  %12 = call fastcc i32 @do_blk_trace_setup(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %6), !range !21
+  %12 = call fastcc i32 @do_blk_trace_setup(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %6)
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %__blk_trace_remove.exit
 
@@ -583,7 +577,7 @@ __blk_trace_remove.exit:                          ; preds = %32, %17, %14, %11, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @blk_trace_startstop(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @blk_trace_startstop(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 840
   tail call void @mutex_lock(ptr noundef %3) #21
   %4 = getelementptr i8, ptr %0, i64 600
@@ -594,7 +588,7 @@ define dso_local noundef i32 @blk_trace_startstop(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__blk_trace_startstop(ptr %.600.val, i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__blk_trace_startstop(ptr %.600.val, i32 noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.timespec64, align 8
   %4 = alloca [2 x i32], align 8
@@ -616,7 +610,7 @@ define internal fastcc noundef i32 @__blk_trace_startstop(ptr %.600.val, i32 nou
   %11 = load i32, ptr @blktrace_seq, align 4
   %12 = add i32 %11, 1
   store i32 %12, ptr @blktrace_seq, align 4
-  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !22
+  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !21
   store i32 2, ptr %.600.val, align 8
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @running_trace_lock) #21
   %13 = getelementptr inbounds i8, ptr %.600.val, i64 72
@@ -748,7 +742,7 @@ define dso_local noundef i32 @blk_trace_ioctl(ptr noundef %0, i32 noundef %1, pt
   br i1 %30, label %31, label %38
 
 31:                                               ; preds = %24
-  %32 = call fastcc i32 @do_blk_trace_setup(ptr noundef %9, ptr noundef nonnull %7, i32 noundef %27, ptr noundef %0, ptr noundef nonnull %6), !range !21
+  %32 = call fastcc i32 @do_blk_trace_setup(ptr noundef %9, ptr noundef nonnull %7, i32 noundef %27, ptr noundef %0, ptr noundef nonnull %6)
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %38
 
@@ -805,7 +799,7 @@ define dso_local noundef i32 @blk_trace_ioctl(ptr noundef %0, i32 noundef %1, pt
   store i64 %57, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %4, i64 64
   store i32 %59, ptr %65, align 8
-  %66 = call fastcc i32 @do_blk_trace_setup(ptr noundef %9, ptr noundef nonnull %7, i32 noundef %43, ptr noundef %0, ptr noundef nonnull %4), !range !21
+  %66 = call fastcc i32 @do_blk_trace_setup(ptr noundef %9, ptr noundef nonnull %7, i32 noundef %43, ptr noundef %0, ptr noundef nonnull %4)
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %72
 
@@ -874,7 +868,7 @@ __blk_trace_startstop.exit:                       ; preds = %91, %76, %16, %13, 
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @blk_trace_shutdown(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -1037,7 +1031,7 @@ define internal fastcc void @__blk_add_trace(ptr nocapture noundef readonly %0, 
   br i1 %70, label %71, label %178
 
 71:                                               ; preds = %65
-  %72 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #21, !srcloc !23
+  %72 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #21, !srcloc !22
   br i1 %13, label %73, label %85
 
 73:                                               ; preds = %71
@@ -1262,7 +1256,7 @@ define internal fastcc i64 @blk_trace_request_get_cgid(ptr nocapture noundef rea
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @init_blk_tracer() #6 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @init_blk_tracer() #5 section ".init.text" align 16 {
   %1 = tail call i32 @register_trace_event(ptr noundef nonnull @trace_blk_event) #21
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %5
@@ -1287,7 +1281,7 @@ define internal noundef i32 @init_blk_tracer() #6 section ".init.text" align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @blk_fill_rwbs(ptr nocapture noundef writeonly %0, i32 noundef %1) #7 align 16 {
+define dso_local void @blk_fill_rwbs(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 align 16 {
   %3 = and i32 %1, 262144
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %6, label %5
@@ -1412,37 +1406,37 @@ define dso_local void @blk_fill_rwbs(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @trace_buffer_lock_reserve(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare dso_local ptr @trace_buffer_lock_reserve(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @ring_buffer_event_data(ptr noundef) local_unnamed_addr #4
+declare dso_local ptr @ring_buffer_event_data(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @ktime_get() local_unnamed_addr #4
+declare dso_local i64 @ktime_get() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @tracing_gen_ctx_irq_test(i32 noundef) local_unnamed_addr #4
+declare dso_local i32 @tracing_gen_ctx_irq_test(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @relay_switch_subbuf(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local i64 @relay_switch_subbuf(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare i64 @llvm.read_register.i64(metadata) #9
+declare i64 @llvm.read_register.i64(metadata) #8
 
 ; Function Attrs: nocallback nounwind
-declare void @llvm.write_register.i64(metadata, i64) #10
+declare void @llvm.write_register.i64(metadata, i64) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @trace_buffer_unlock_commit_regs(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local void @trace_buffer_unlock_commit_regs(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @synchronize_rcu() local_unnamed_addr #4
+declare dso_local void @synchronize_rcu() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @blk_trace_free(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
@@ -1513,28 +1507,28 @@ define internal fastcc void @put_probe_ref() unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
+declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
+declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @relay_flush(ptr noundef) local_unnamed_addr #4
+declare dso_local void @relay_flush(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @relay_close(ptr noundef) local_unnamed_addr #4
+declare dso_local void @relay_close(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @debugfs_lookup_and_remove(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local void @debugfs_lookup_and_remove(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @debugfs_remove(ptr noundef) local_unnamed_addr #4
+declare dso_local void @debugfs_remove(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @free_percpu(ptr noundef) local_unnamed_addr #4
+declare dso_local void @free_percpu(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
+declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @blk_add_trace_rq_remap(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
@@ -2262,16 +2256,16 @@ define internal void @blk_add_trace_rq_insert(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @tracepoint_probe_unregister(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @tracepoint_probe_unregister(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #12
+declare i32 @llvm.bswap.i32(i32) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #12
+declare i64 @llvm.bswap.i64(i64) #11
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @blk_status_to_errno(i8 noundef zeroext) local_unnamed_addr #4
+declare dso_local i32 @blk_status_to_errno(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @blk_trace_bio_get_cgid(ptr readnone %.600.val, ptr noundef %0) unnamed_addr #0 align 16 {
@@ -2303,13 +2297,13 @@ define internal fastcc i64 @blk_trace_bio_get_cgid(ptr readnone %.600.val, ptr n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @bio_blkcg_css(ptr noundef) local_unnamed_addr #4
+declare dso_local ptr @bio_blkcg_css(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @synchronize_srcu(ptr noundef) local_unnamed_addr #4
+declare dso_local void @synchronize_srcu(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @do_blk_trace_setup(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @do_blk_trace_setup(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %4, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
@@ -2457,7 +2451,7 @@ define internal fastcc noundef i32 @do_blk_trace_setup(ptr noundef %0, ptr nocap
   %95 = getelementptr inbounds i8, ptr %24, i64 56
   store i32 %94, ptr %95, align 8
   store i32 1, ptr %24, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !23
   store volatile ptr %24, ptr %17, align 8
   tail call fastcc void @get_probe_ref()
   br label %97
@@ -2473,28 +2467,28 @@ define internal fastcc noundef i32 @do_blk_trace_setup(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #13
+declare dso_local ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @strreplace(ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #4
+declare dso_local ptr @strreplace(ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #14
+declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @__alloc_percpu(i64 noundef, i64 noundef) local_unnamed_addr #15
+declare dso_local noalias ptr @__alloc_percpu(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @debugfs_create_dir(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local ptr @debugfs_create_dir(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @debugfs_create_file(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local ptr @debugfs_create_file(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @relay_open(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local ptr @relay_open(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
@@ -2511,9 +2505,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %6, label %8, label %7, !prof !6
 
 7:                                                ; preds = %4
-  tail call void asm sideeffect "809: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 809b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 809) #21, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1096, i32 2305, i64 12) #21, !srcloc !26
-  tail call void asm sideeffect "810: nop\0A\09.pushsection .discard.instr_end\0A\09.long 810b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 810) #21, !srcloc !27
+  tail call void asm sideeffect "809: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 809b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 809) #21, !srcloc !24
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1096, i32 2305, i64 12) #21, !srcloc !25
+  tail call void asm sideeffect "810: nop\0A\09.pushsection .discard.instr_end\0A\09.long 810b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 810) #21, !srcloc !26
   br label %8
 
 8:                                                ; preds = %7, %4
@@ -2522,9 +2516,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %10, label %12, label %11, !prof !6
 
 11:                                               ; preds = %8
-  tail call void asm sideeffect "811: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 811b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 811) #21, !srcloc !28
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1098, i32 2305, i64 12) #21, !srcloc !29
-  tail call void asm sideeffect "812: nop\0A\09.pushsection .discard.instr_end\0A\09.long 812b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 812) #21, !srcloc !30
+  tail call void asm sideeffect "811: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 811b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 811) #21, !srcloc !27
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1098, i32 2305, i64 12) #21, !srcloc !28
+  tail call void asm sideeffect "812: nop\0A\09.pushsection .discard.instr_end\0A\09.long 812b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 812) #21, !srcloc !29
   br label %12
 
 12:                                               ; preds = %11, %8
@@ -2533,9 +2527,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %14, label %16, label %15, !prof !6
 
 15:                                               ; preds = %12
-  tail call void asm sideeffect "813: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 813b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 813) #21, !srcloc !31
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1100, i32 2305, i64 12) #21, !srcloc !32
-  tail call void asm sideeffect "814: nop\0A\09.pushsection .discard.instr_end\0A\09.long 814b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 814) #21, !srcloc !33
+  tail call void asm sideeffect "813: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 813b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 813) #21, !srcloc !30
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1100, i32 2305, i64 12) #21, !srcloc !31
+  tail call void asm sideeffect "814: nop\0A\09.pushsection .discard.instr_end\0A\09.long 814b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 814) #21, !srcloc !32
   br label %16
 
 16:                                               ; preds = %15, %12
@@ -2544,9 +2538,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %18, label %20, label %19, !prof !6
 
 19:                                               ; preds = %16
-  tail call void asm sideeffect "815: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 815b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 815) #21, !srcloc !34
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1102, i32 2305, i64 12) #21, !srcloc !35
-  tail call void asm sideeffect "816: nop\0A\09.pushsection .discard.instr_end\0A\09.long 816b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 816) #21, !srcloc !36
+  tail call void asm sideeffect "815: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 815b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 815) #21, !srcloc !33
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1102, i32 2305, i64 12) #21, !srcloc !34
+  tail call void asm sideeffect "816: nop\0A\09.pushsection .discard.instr_end\0A\09.long 816b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 816) #21, !srcloc !35
   br label %20
 
 20:                                               ; preds = %19, %16
@@ -2555,9 +2549,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %22, label %24, label %23, !prof !6
 
 23:                                               ; preds = %20
-  tail call void asm sideeffect "817: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 817b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 817) #21, !srcloc !37
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1104, i32 2305, i64 12) #21, !srcloc !38
-  tail call void asm sideeffect "818: nop\0A\09.pushsection .discard.instr_end\0A\09.long 818b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 818) #21, !srcloc !39
+  tail call void asm sideeffect "817: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 817b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 817) #21, !srcloc !36
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1104, i32 2305, i64 12) #21, !srcloc !37
+  tail call void asm sideeffect "818: nop\0A\09.pushsection .discard.instr_end\0A\09.long 818b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 818) #21, !srcloc !38
   br label %24
 
 24:                                               ; preds = %23, %20
@@ -2566,9 +2560,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %26, label %28, label %27, !prof !6
 
 27:                                               ; preds = %24
-  tail call void asm sideeffect "819: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 819b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 819) #21, !srcloc !40
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1106, i32 2305, i64 12) #21, !srcloc !41
-  tail call void asm sideeffect "820: nop\0A\09.pushsection .discard.instr_end\0A\09.long 820b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 820) #21, !srcloc !42
+  tail call void asm sideeffect "819: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 819b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 819) #21, !srcloc !39
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1106, i32 2305, i64 12) #21, !srcloc !40
+  tail call void asm sideeffect "820: nop\0A\09.pushsection .discard.instr_end\0A\09.long 820b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 820) #21, !srcloc !41
   br label %28
 
 28:                                               ; preds = %27, %24
@@ -2577,9 +2571,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %30, label %32, label %31, !prof !6
 
 31:                                               ; preds = %28
-  tail call void asm sideeffect "821: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 821b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 821) #21, !srcloc !43
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1108, i32 2305, i64 12) #21, !srcloc !44
-  tail call void asm sideeffect "822: nop\0A\09.pushsection .discard.instr_end\0A\09.long 822b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 822) #21, !srcloc !45
+  tail call void asm sideeffect "821: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 821b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 821) #21, !srcloc !42
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1108, i32 2305, i64 12) #21, !srcloc !43
+  tail call void asm sideeffect "822: nop\0A\09.pushsection .discard.instr_end\0A\09.long 822b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 822) #21, !srcloc !44
   br label %32
 
 32:                                               ; preds = %31, %28
@@ -2588,9 +2582,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %34, label %36, label %35, !prof !6
 
 35:                                               ; preds = %32
-  tail call void asm sideeffect "823: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 823b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 823) #21, !srcloc !46
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1110, i32 2305, i64 12) #21, !srcloc !47
-  tail call void asm sideeffect "824: nop\0A\09.pushsection .discard.instr_end\0A\09.long 824b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 824) #21, !srcloc !48
+  tail call void asm sideeffect "823: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 823b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 823) #21, !srcloc !45
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1110, i32 2305, i64 12) #21, !srcloc !46
+  tail call void asm sideeffect "824: nop\0A\09.pushsection .discard.instr_end\0A\09.long 824b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 824) #21, !srcloc !47
   br label %36
 
 36:                                               ; preds = %35, %32
@@ -2599,9 +2593,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %38, label %40, label %39, !prof !6
 
 39:                                               ; preds = %36
-  tail call void asm sideeffect "825: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 825b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 825) #21, !srcloc !49
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1112, i32 2305, i64 12) #21, !srcloc !50
-  tail call void asm sideeffect "826: nop\0A\09.pushsection .discard.instr_end\0A\09.long 826b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 826) #21, !srcloc !51
+  tail call void asm sideeffect "825: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 825b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 825) #21, !srcloc !48
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1112, i32 2305, i64 12) #21, !srcloc !49
+  tail call void asm sideeffect "826: nop\0A\09.pushsection .discard.instr_end\0A\09.long 826b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 826) #21, !srcloc !50
   br label %40
 
 40:                                               ; preds = %39, %36
@@ -2610,9 +2604,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %42, label %44, label %43, !prof !6
 
 43:                                               ; preds = %40
-  tail call void asm sideeffect "827: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 827b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 827) #21, !srcloc !52
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1114, i32 2305, i64 12) #21, !srcloc !53
-  tail call void asm sideeffect "828: nop\0A\09.pushsection .discard.instr_end\0A\09.long 828b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 828) #21, !srcloc !54
+  tail call void asm sideeffect "827: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 827b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 827) #21, !srcloc !51
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1114, i32 2305, i64 12) #21, !srcloc !52
+  tail call void asm sideeffect "828: nop\0A\09.pushsection .discard.instr_end\0A\09.long 828b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 828) #21, !srcloc !53
   br label %44
 
 44:                                               ; preds = %43, %40
@@ -2621,9 +2615,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %46, label %48, label %47, !prof !6
 
 47:                                               ; preds = %44
-  tail call void asm sideeffect "829: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 829b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 829) #21, !srcloc !55
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1116, i32 2305, i64 12) #21, !srcloc !56
-  tail call void asm sideeffect "830: nop\0A\09.pushsection .discard.instr_end\0A\09.long 830b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 830) #21, !srcloc !57
+  tail call void asm sideeffect "829: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 829b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 829) #21, !srcloc !54
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1116, i32 2305, i64 12) #21, !srcloc !55
+  tail call void asm sideeffect "830: nop\0A\09.pushsection .discard.instr_end\0A\09.long 830b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 830) #21, !srcloc !56
   br label %48
 
 48:                                               ; preds = %47, %44
@@ -2632,9 +2626,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %50, label %52, label %51, !prof !6
 
 51:                                               ; preds = %48
-  tail call void asm sideeffect "831: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 831b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 831) #21, !srcloc !58
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1118, i32 2305, i64 12) #21, !srcloc !59
-  tail call void asm sideeffect "832: nop\0A\09.pushsection .discard.instr_end\0A\09.long 832b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 832) #21, !srcloc !60
+  tail call void asm sideeffect "831: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 831b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 831) #21, !srcloc !57
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1118, i32 2305, i64 12) #21, !srcloc !58
+  tail call void asm sideeffect "832: nop\0A\09.pushsection .discard.instr_end\0A\09.long 832b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 832) #21, !srcloc !59
   br label %52
 
 52:                                               ; preds = %51, %48
@@ -2643,9 +2637,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %54, label %56, label %55, !prof !6
 
 55:                                               ; preds = %52
-  tail call void asm sideeffect "833: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 833b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 833) #21, !srcloc !61
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1120, i32 2305, i64 12) #21, !srcloc !62
-  tail call void asm sideeffect "834: nop\0A\09.pushsection .discard.instr_end\0A\09.long 834b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 834) #21, !srcloc !63
+  tail call void asm sideeffect "833: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 833b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 833) #21, !srcloc !60
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1120, i32 2305, i64 12) #21, !srcloc !61
+  tail call void asm sideeffect "834: nop\0A\09.pushsection .discard.instr_end\0A\09.long 834b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 834) #21, !srcloc !62
   br label %56
 
 56:                                               ; preds = %55, %52
@@ -2654,9 +2648,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %58, label %60, label %59, !prof !6
 
 59:                                               ; preds = %56
-  tail call void asm sideeffect "835: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 835b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 835) #21, !srcloc !64
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1122, i32 2305, i64 12) #21, !srcloc !65
-  tail call void asm sideeffect "836: nop\0A\09.pushsection .discard.instr_end\0A\09.long 836b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 836) #21, !srcloc !66
+  tail call void asm sideeffect "835: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 835b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 835) #21, !srcloc !63
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1122, i32 2305, i64 12) #21, !srcloc !64
+  tail call void asm sideeffect "836: nop\0A\09.pushsection .discard.instr_end\0A\09.long 836b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 836) #21, !srcloc !65
   br label %60
 
 60:                                               ; preds = %59, %56
@@ -2665,9 +2659,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %62, label %64, label %63, !prof !6
 
 63:                                               ; preds = %60
-  tail call void asm sideeffect "837: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 837b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 837) #21, !srcloc !67
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1124, i32 2305, i64 12) #21, !srcloc !68
-  tail call void asm sideeffect "838: nop\0A\09.pushsection .discard.instr_end\0A\09.long 838b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 838) #21, !srcloc !69
+  tail call void asm sideeffect "837: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 837b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 837) #21, !srcloc !66
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1124, i32 2305, i64 12) #21, !srcloc !67
+  tail call void asm sideeffect "838: nop\0A\09.pushsection .discard.instr_end\0A\09.long 838b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 838) #21, !srcloc !68
   br label %64
 
 64:                                               ; preds = %63, %60
@@ -2676,9 +2670,9 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
   br i1 %66, label %68, label %67, !prof !6
 
 67:                                               ; preds = %64
-  tail call void asm sideeffect "839: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 839b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 839) #21, !srcloc !70
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1126, i32 2305, i64 12) #21, !srcloc !71
-  tail call void asm sideeffect "840: nop\0A\09.pushsection .discard.instr_end\0A\09.long 840b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 840) #21, !srcloc !72
+  tail call void asm sideeffect "839: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 839b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 839) #21, !srcloc !69
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1126, i32 2305, i64 12) #21, !srcloc !70
+  tail call void asm sideeffect "840: nop\0A\09.pushsection .discard.instr_end\0A\09.long 840b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 840) #21, !srcloc !71
   br label %68
 
 68:                                               ; preds = %67, %64, %0
@@ -2687,10 +2681,10 @@ define internal fastcc void @get_probe_ref() unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #16
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @default_llseek(ptr noundef, i64 noundef, i32 noundef) #4
+declare dso_local i64 @default_llseek(ptr noundef, i64 noundef, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @blk_dropped_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
@@ -2709,16 +2703,16 @@ define internal i64 @blk_dropped_read(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @simple_open(ptr noundef, ptr noundef) #4
+declare dso_local i32 @simple_open(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @simple_read_from_buffer(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local i64 @simple_read_from_buffer(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @noop_llseek(ptr noundef, i64 noundef, i32 noundef) #4
+declare dso_local i64 @noop_llseek(ptr noundef, i64 noundef, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @blk_msg_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
@@ -2747,10 +2741,10 @@ define internal i64 @blk_msg_write(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @memdup_user_nul(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local ptr @memdup_user_nul(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @blk_subbuf_start_callback(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @blk_subbuf_start_callback(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3) #0 align 16 {
   %5 = tail call i32 @relay_buf_full(ptr noundef %0) #21
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %13, label %7
@@ -2761,7 +2755,7 @@ define internal noundef i32 @blk_subbuf_start_callback(ptr noundef %0, ptr nocap
   %10 = getelementptr inbounds i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 88
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %12, ptr elementtype(i32) %12) #21, !srcloc !73
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %12, ptr elementtype(i32) %12) #21, !srcloc !72
   br label %13
 
 13:                                               ; preds = %7, %4
@@ -2782,25 +2776,25 @@ define internal noundef i32 @blk_remove_buf_file_callback(ptr noundef %0) #0 ali
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @relay_buf_full(ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @relay_buf_full(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @tracepoint_probe_register(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @tracepoint_probe_register(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @ktime_get_real_ts64(ptr noundef) local_unnamed_addr #4
+declare dso_local void @ktime_get_real_ts64(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__rcu_read_lock() local_unnamed_addr #4
+declare dso_local void @__rcu_read_lock() local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__rcu_read_unlock() local_unnamed_addr #4
+declare dso_local void @__rcu_read_unlock() local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @tracing_record_cmdline(ptr noundef) local_unnamed_addr #4
+declare dso_local void @tracing_record_cmdline(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @trace_note_tsk(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
@@ -2824,7 +2818,7 @@ define internal fastcc void @trace_note_tsk(ptr nocapture noundef %0) unnamed_ad
   tail call fastcc void @trace_note(ptr noundef %12, i32 noundef %13, i32 noundef 67108864, ptr noundef %9, i64 noundef 16, i64 noundef 0)
   %14 = load ptr, ptr %11, align 8
   %15 = icmp eq ptr %14, @running_trace_list
-  br i1 %15, label %.loopexit, label %10, !llvm.loop !74
+  br i1 %15, label %.loopexit, label %10, !llvm.loop !73
 
 .loopexit:                                        ; preds = %10, %1
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @running_trace_lock, i64 noundef %4) #21
@@ -2832,19 +2826,19 @@ define internal fastcc void @trace_note_tsk(ptr nocapture noundef %0) unnamed_ad
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
+declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #4 section ".spinlock.text"
+declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @register_trace_event(ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @register_trace_event(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @register_tracer(ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @register_tracer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @unregister_trace_event(ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @unregister_trace_event(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @blk_trace_event_print(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
@@ -2898,7 +2892,7 @@ define internal fastcc i32 @print_one_line(ptr noundef %0, i1 noundef zeroext %1
 17:                                               ; preds = %2
   %18 = icmp eq i32 %11, 0
   %19 = select i1 %18, ptr @.str.18, ptr @.str.17
-  tail call void %12(ptr noundef %0, ptr noundef nonnull %19, i1 noundef zeroext %14) #21, !callees !77
+  tail call void %12(ptr noundef %0, ptr noundef nonnull %19, i1 noundef zeroext %14) #21, !callees !76
   %20 = load ptr, ptr %5, align 8
   %21 = getelementptr i8, ptr %20, i64 48
   %22 = lshr exact i32 %13, 5
@@ -2930,7 +2924,7 @@ define internal fastcc i32 @print_one_line(ptr noundef %0, i1 noundef zeroext %1
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr [2 x ptr], ptr %37, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 8
-  tail call void %12(ptr noundef %0, ptr noundef %41, i1 noundef zeroext %14) #21, !callees !77
+  tail call void %12(ptr noundef %0, ptr noundef %41, i1 noundef zeroext %14) #21, !callees !76
   %42 = getelementptr inbounds i8, ptr %37, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %5, align 8
@@ -3262,19 +3256,19 @@ define internal void @blk_log_action(ptr noundef %0, ptr noundef %1, i1 noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @trace_handle_return(ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @trace_handle_return(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @trace_seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare dso_local void @trace_seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @cgroup_path_from_kernfs_id(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local void @cgroup_path_from_kernfs_id(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @trace_seq_putmem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare dso_local void @trace_seq_putmem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @trace_seq_putc(ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
+declare dso_local void @trace_seq_putc(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @blk_log_generic(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
@@ -3436,7 +3430,7 @@ define internal void @blk_log_remap(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @trace_find_cmdline(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local void @trace_find_cmdline(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @blk_log_dump_pdu(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
@@ -3471,7 +3465,7 @@ define internal fastcc void @blk_log_dump_pdu(ptr noundef %0, ptr nocapture noun
 21:                                               ; preds = %.preheader
   %22 = add nsw i32 %16, -1
   %23 = icmp sgt i32 %16, 0
-  br i1 %23, label %.preheader, label %24, !llvm.loop !78
+  br i1 %23, label %.preheader, label %24, !llvm.loop !77
 
 24:                                               ; preds = %.preheader, %21
   %25 = phi i32 [ -1, %21 ], [ %16, %.preheader ]
@@ -3493,12 +3487,12 @@ define internal fastcc void @blk_log_dump_pdu(ptr noundef %0, ptr nocapture noun
   tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.57, ptr noundef nonnull %32, i32 noundef %35) #21
   %36 = add nuw nsw i64 %30, 1
   %37 = icmp eq i64 %36, %29
-  br i1 %37, label %.loopexit, label %.split.us, !llvm.loop !79
+  br i1 %37, label %.loopexit, label %.split.us, !llvm.loop !78
 
 38:                                               ; preds = %.split
   %39 = add nuw nsw i64 %41, 1
   %40 = icmp eq i64 %39, %29
-  br i1 %40, label %.loopexit, label %.split, !llvm.loop !79
+  br i1 %40, label %.loopexit, label %.split, !llvm.loop !78
 
 .split:                                           ; preds = %24, %38
   %41 = phi i64 [ %39, %38 ], [ 0, %24 ]
@@ -3521,29 +3515,29 @@ define internal fastcc void @blk_log_dump_pdu(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @trace_seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local void @trace_seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @blk_tracer_init(ptr noundef %0) #18 align 16 {
+define internal noundef i32 @blk_tracer_init(ptr noundef %0) #17 align 16 {
   store ptr %0, ptr @blk_tr, align 8
   store i1 true, ptr @blk_tracer_enabled, align 1
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal void @blk_tracer_reset(ptr nocapture readnone %0) #18 align 16 {
+define internal void @blk_tracer_reset(ptr nocapture readnone %0) #17 align 16 {
   store i1 false, ptr @blk_tracer_enabled, align 1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal void @blk_tracer_start(ptr nocapture readnone %0) #18 align 16 {
+define internal void @blk_tracer_start(ptr nocapture readnone %0) #17 align 16 {
   store i1 true, ptr @blk_tracer_enabled, align 1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal void @blk_tracer_stop(ptr nocapture readnone %0) #18 align 16 {
+define internal void @blk_tracer_stop(ptr nocapture readnone %0) #17 align 16 {
   store i1 false, ptr @blk_tracer_enabled, align 1
   ret void
 }
@@ -3587,7 +3581,7 @@ define internal i32 @blk_tracer_print_line(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @blk_tracer_set_flag(ptr nocapture noundef %0, i32 %1, i32 noundef %2, i32 noundef %3) #19 align 16 {
+define internal noundef i32 @blk_tracer_set_flag(ptr nocapture noundef %0, i32 %1, i32 noundef %2, i32 noundef %3) #18 align 16 {
   %5 = icmp eq i32 %2, 1
   br i1 %5, label %6, label %13
 
@@ -3606,7 +3600,7 @@ define internal noundef i32 @blk_tracer_set_flag(ptr nocapture noundef %0, i32 %
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local void @seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @sysfs_blk_trace_attr_show(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr noundef %2) #0 align 16 {
@@ -3667,7 +3661,7 @@ define internal i64 @sysfs_blk_trace_attr_show(ptr nocapture noundef readonly %0
   %40 = phi ptr [ %38, %31 ], [ %26, %24 ]
   %41 = add nuw nsw i64 %25, 1
   %42 = icmp eq i64 %41, 16
-  br i1 %42, label %43, label %24, !llvm.loop !80
+  br i1 %42, label %43, label %24, !llvm.loop !79
 
 43:                                               ; preds = %39
   %44 = getelementptr i8, ptr %40, i64 1
@@ -3772,7 +3766,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly %0,
 29:                                               ; preds = %26
   %30 = load i8, ptr %27, align 1
   %31 = icmp eq i8 %30, 0
-  br i1 %31, label %26, label %.preheader, !llvm.loop !81
+  br i1 %31, label %26, label %.preheader, !llvm.loop !80
 
 .preheader:                                       ; preds = %29, %38
   %32 = phi i64 [ %39, %38 ], [ 0, %29 ]
@@ -3786,14 +3780,14 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly %0,
 38:                                               ; preds = %.preheader
   %39 = add nuw nsw i64 %32, 1
   %40 = icmp eq i64 %39, 16
-  br i1 %40, label %.thread11, label %.preheader, !llvm.loop !82
+  br i1 %40, label %.thread11, label %.preheader, !llvm.loop !81
 
 41:                                               ; preds = %.preheader
   %42 = load i32, ptr %33, align 16
   %43 = or i32 %42, %25
   %44 = and i64 %32, 4294967295
   %45 = icmp eq i64 %44, 16
-  br i1 %45, label %.thread11, label %24, !llvm.loop !81
+  br i1 %45, label %.thread11, label %24, !llvm.loop !80
 
 .thread11:                                        ; preds = %41, %38
   call void @kfree(ptr noundef nonnull %20) #21
@@ -3869,7 +3863,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly %0,
   store i64 %.sink, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %64, i64 48
   store i64 %82, ptr %84, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !83
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !82
   store volatile ptr %64, ptr %53, align 8
   call fastcc void @get_probe_ref()
   br label %.thread15
@@ -3959,7 +3953,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly %0,
   store i64 %.sink35, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %106, i64 48
   store i64 %125, ptr %127, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !83
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !82
   store volatile ptr %106, ptr %101, align 8
   call fastcc void @get_probe_ref()
   %128 = load ptr, ptr %101, align 8
@@ -4027,44 +4021,50 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly %0,
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
-declare dso_local i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare dso_local i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #19
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @strim(ptr noundef) local_unnamed_addr #4
+declare dso_local ptr @strim(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #20
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #20
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #10 = { nocallback nounwind }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #14 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #15 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #16 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #18 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #19 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
+attributes #9 = { nocallback nounwind }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #13 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #14 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #15 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #17 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #18 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #21 = { nounwind }
 attributes #22 = { nounwind memory(read) }
 attributes #23 = { nounwind memory(none) }
@@ -4096,66 +4096,65 @@ attributes #26 = { nounwind allocsize(0) }
 !18 = !{i64 2156151426}
 !19 = !{i64 2148588122, i64 2148588215}
 !20 = !{i64 2156151608}
-!21 = !{i32 -22, i32 1}
-!22 = !{i64 2158843418}
-!23 = !{i64 2158841132}
-!24 = !{i64 2158861331}
-!25 = !{i64 2158908003, i64 2158907812, i64 2158907864, i64 2158907910, i64 2158907938}
-!26 = !{i64 2158908077, i64 2158908106, i64 2158908152, i64 2158908210, i64 2158908264, i64 2158908318, i64 2158908373, i64 2158908404, i64 2158908712, i64 2158908718, i64 2158908765, i64 2158908788, i64 2158908814}
-!27 = !{i64 2158909271, i64 2158909082, i64 2158909132, i64 2158909178, i64 2158909206}
-!28 = !{i64 2158910090, i64 2158909899, i64 2158909951, i64 2158909997, i64 2158910025}
-!29 = !{i64 2158910164, i64 2158910193, i64 2158910239, i64 2158910297, i64 2158910351, i64 2158910405, i64 2158910460, i64 2158910491, i64 2158910799, i64 2158910805, i64 2158910852, i64 2158910875, i64 2158910901}
-!30 = !{i64 2158911358, i64 2158911169, i64 2158911219, i64 2158911265, i64 2158911293}
-!31 = !{i64 2158912177, i64 2158911986, i64 2158912038, i64 2158912084, i64 2158912112}
-!32 = !{i64 2158912251, i64 2158912280, i64 2158912326, i64 2158912384, i64 2158912438, i64 2158912492, i64 2158912547, i64 2158912578, i64 2158912886, i64 2158912892, i64 2158912939, i64 2158912962, i64 2158912988}
-!33 = !{i64 2158913445, i64 2158913256, i64 2158913306, i64 2158913352, i64 2158913380}
-!34 = !{i64 2158914264, i64 2158914073, i64 2158914125, i64 2158914171, i64 2158914199}
-!35 = !{i64 2158914338, i64 2158914367, i64 2158914413, i64 2158914471, i64 2158914525, i64 2158914579, i64 2158914634, i64 2158914665, i64 2158914973, i64 2158914979, i64 2158915026, i64 2158915049, i64 2158915075}
-!36 = !{i64 2158915532, i64 2158915343, i64 2158915393, i64 2158915439, i64 2158915467}
-!37 = !{i64 2158916351, i64 2158916160, i64 2158916212, i64 2158916258, i64 2158916286}
-!38 = !{i64 2158916425, i64 2158916454, i64 2158916500, i64 2158916558, i64 2158916612, i64 2158916666, i64 2158916721, i64 2158916752, i64 2158917060, i64 2158917066, i64 2158917113, i64 2158917136, i64 2158917162}
-!39 = !{i64 2158917619, i64 2158917430, i64 2158917480, i64 2158917526, i64 2158917554}
-!40 = !{i64 2158918438, i64 2158918247, i64 2158918299, i64 2158918345, i64 2158918373}
-!41 = !{i64 2158918512, i64 2158918541, i64 2158918587, i64 2158918645, i64 2158918699, i64 2158918753, i64 2158918808, i64 2158918839, i64 2158919147, i64 2158919153, i64 2158919200, i64 2158919223, i64 2158919249}
-!42 = !{i64 2158919706, i64 2158919517, i64 2158919567, i64 2158919613, i64 2158919641}
-!43 = !{i64 2158920525, i64 2158920334, i64 2158920386, i64 2158920432, i64 2158920460}
-!44 = !{i64 2158920599, i64 2158920628, i64 2158920674, i64 2158920732, i64 2158920786, i64 2158920840, i64 2158920895, i64 2158920926, i64 2158921234, i64 2158921240, i64 2158921287, i64 2158921310, i64 2158921336}
-!45 = !{i64 2158921793, i64 2158921604, i64 2158921654, i64 2158921700, i64 2158921728}
-!46 = !{i64 2158922612, i64 2158922421, i64 2158922473, i64 2158922519, i64 2158922547}
-!47 = !{i64 2158922686, i64 2158922715, i64 2158922761, i64 2158922819, i64 2158922873, i64 2158922927, i64 2158922982, i64 2158923013, i64 2158923321, i64 2158923327, i64 2158923374, i64 2158923397, i64 2158923423}
-!48 = !{i64 2158923880, i64 2158923691, i64 2158923741, i64 2158923787, i64 2158923815}
-!49 = !{i64 2158924699, i64 2158924508, i64 2158924560, i64 2158924606, i64 2158924634}
-!50 = !{i64 2158924773, i64 2158924802, i64 2158924848, i64 2158924906, i64 2158924960, i64 2158925014, i64 2158925069, i64 2158925100, i64 2158925408, i64 2158925414, i64 2158925461, i64 2158925484, i64 2158925510}
-!51 = !{i64 2158925967, i64 2158925778, i64 2158925828, i64 2158925874, i64 2158925902}
-!52 = !{i64 2158926786, i64 2158926595, i64 2158926647, i64 2158926693, i64 2158926721}
-!53 = !{i64 2158926860, i64 2158926889, i64 2158926935, i64 2158926993, i64 2158927047, i64 2158927101, i64 2158927156, i64 2158927187, i64 2158927495, i64 2158927501, i64 2158927548, i64 2158927571, i64 2158927597}
-!54 = !{i64 2158932115, i64 2158931926, i64 2158931976, i64 2158932022, i64 2158932050}
-!55 = !{i64 2158932934, i64 2158932743, i64 2158932795, i64 2158932841, i64 2158932869}
-!56 = !{i64 2158933008, i64 2158933037, i64 2158933083, i64 2158933141, i64 2158933195, i64 2158933249, i64 2158933304, i64 2158933335, i64 2158933643, i64 2158933649, i64 2158933696, i64 2158933719, i64 2158933745}
-!57 = !{i64 2158934202, i64 2158934013, i64 2158934063, i64 2158934109, i64 2158934137}
-!58 = !{i64 2158935021, i64 2158934830, i64 2158934882, i64 2158934928, i64 2158934956}
-!59 = !{i64 2158935095, i64 2158935124, i64 2158935170, i64 2158935228, i64 2158935282, i64 2158935336, i64 2158935391, i64 2158935422, i64 2158935730, i64 2158935736, i64 2158935783, i64 2158935806, i64 2158935832}
-!60 = !{i64 2158936289, i64 2158936100, i64 2158936150, i64 2158936196, i64 2158936224}
-!61 = !{i64 2158937108, i64 2158936917, i64 2158936969, i64 2158937015, i64 2158937043}
-!62 = !{i64 2158937182, i64 2158937211, i64 2158937257, i64 2158937315, i64 2158937369, i64 2158937423, i64 2158937478, i64 2158937509, i64 2158937817, i64 2158937823, i64 2158937870, i64 2158937893, i64 2158937919}
-!63 = !{i64 2158938376, i64 2158938187, i64 2158938237, i64 2158938283, i64 2158938311}
-!64 = !{i64 2158939195, i64 2158939004, i64 2158939056, i64 2158939102, i64 2158939130}
-!65 = !{i64 2158939269, i64 2158939298, i64 2158939344, i64 2158939402, i64 2158939456, i64 2158939510, i64 2158939565, i64 2158939596, i64 2158939904, i64 2158939910, i64 2158939957, i64 2158939980, i64 2158940006}
-!66 = !{i64 2158940463, i64 2158940274, i64 2158940324, i64 2158940370, i64 2158940398}
-!67 = !{i64 2158941282, i64 2158941091, i64 2158941143, i64 2158941189, i64 2158941217}
-!68 = !{i64 2158941356, i64 2158941385, i64 2158941431, i64 2158941489, i64 2158941543, i64 2158941597, i64 2158941652, i64 2158941683, i64 2158941991, i64 2158941997, i64 2158942044, i64 2158942067, i64 2158942093}
-!69 = !{i64 2158942550, i64 2158942361, i64 2158942411, i64 2158942457, i64 2158942485}
-!70 = !{i64 2158943369, i64 2158943178, i64 2158943230, i64 2158943276, i64 2158943304}
-!71 = !{i64 2158943443, i64 2158943472, i64 2158943518, i64 2158943576, i64 2158943630, i64 2158943684, i64 2158943739, i64 2158943770, i64 2158944078, i64 2158944084, i64 2158944131, i64 2158944154, i64 2158944180}
-!72 = !{i64 2158944637, i64 2158944448, i64 2158944498, i64 2158944544, i64 2158944572}
-!73 = !{i64 2149163544, i64 2149163583, i64 2149163604, i64 2149163641, i64 2149163664, i64 2149163534}
-!74 = distinct !{!74, !75, !76}
-!75 = !{!"llvm.loop.mustprogress"}
-!76 = !{!"llvm.loop.unroll.disable"}
-!77 = !{ptr @blk_log_action, ptr @blk_log_action_classic}
-!78 = distinct !{!78, !75, !76}
-!79 = distinct !{!79, !75, !76}
-!80 = distinct !{!80, !75, !76}
-!81 = distinct !{!81, !76}
-!82 = distinct !{!82, !75, !76}
-!83 = !{i64 2158968009}
+!21 = !{i64 2158843418}
+!22 = !{i64 2158841132}
+!23 = !{i64 2158861331}
+!24 = !{i64 2158908003, i64 2158907812, i64 2158907864, i64 2158907910, i64 2158907938}
+!25 = !{i64 2158908077, i64 2158908106, i64 2158908152, i64 2158908210, i64 2158908264, i64 2158908318, i64 2158908373, i64 2158908404, i64 2158908712, i64 2158908718, i64 2158908765, i64 2158908788, i64 2158908814}
+!26 = !{i64 2158909271, i64 2158909082, i64 2158909132, i64 2158909178, i64 2158909206}
+!27 = !{i64 2158910090, i64 2158909899, i64 2158909951, i64 2158909997, i64 2158910025}
+!28 = !{i64 2158910164, i64 2158910193, i64 2158910239, i64 2158910297, i64 2158910351, i64 2158910405, i64 2158910460, i64 2158910491, i64 2158910799, i64 2158910805, i64 2158910852, i64 2158910875, i64 2158910901}
+!29 = !{i64 2158911358, i64 2158911169, i64 2158911219, i64 2158911265, i64 2158911293}
+!30 = !{i64 2158912177, i64 2158911986, i64 2158912038, i64 2158912084, i64 2158912112}
+!31 = !{i64 2158912251, i64 2158912280, i64 2158912326, i64 2158912384, i64 2158912438, i64 2158912492, i64 2158912547, i64 2158912578, i64 2158912886, i64 2158912892, i64 2158912939, i64 2158912962, i64 2158912988}
+!32 = !{i64 2158913445, i64 2158913256, i64 2158913306, i64 2158913352, i64 2158913380}
+!33 = !{i64 2158914264, i64 2158914073, i64 2158914125, i64 2158914171, i64 2158914199}
+!34 = !{i64 2158914338, i64 2158914367, i64 2158914413, i64 2158914471, i64 2158914525, i64 2158914579, i64 2158914634, i64 2158914665, i64 2158914973, i64 2158914979, i64 2158915026, i64 2158915049, i64 2158915075}
+!35 = !{i64 2158915532, i64 2158915343, i64 2158915393, i64 2158915439, i64 2158915467}
+!36 = !{i64 2158916351, i64 2158916160, i64 2158916212, i64 2158916258, i64 2158916286}
+!37 = !{i64 2158916425, i64 2158916454, i64 2158916500, i64 2158916558, i64 2158916612, i64 2158916666, i64 2158916721, i64 2158916752, i64 2158917060, i64 2158917066, i64 2158917113, i64 2158917136, i64 2158917162}
+!38 = !{i64 2158917619, i64 2158917430, i64 2158917480, i64 2158917526, i64 2158917554}
+!39 = !{i64 2158918438, i64 2158918247, i64 2158918299, i64 2158918345, i64 2158918373}
+!40 = !{i64 2158918512, i64 2158918541, i64 2158918587, i64 2158918645, i64 2158918699, i64 2158918753, i64 2158918808, i64 2158918839, i64 2158919147, i64 2158919153, i64 2158919200, i64 2158919223, i64 2158919249}
+!41 = !{i64 2158919706, i64 2158919517, i64 2158919567, i64 2158919613, i64 2158919641}
+!42 = !{i64 2158920525, i64 2158920334, i64 2158920386, i64 2158920432, i64 2158920460}
+!43 = !{i64 2158920599, i64 2158920628, i64 2158920674, i64 2158920732, i64 2158920786, i64 2158920840, i64 2158920895, i64 2158920926, i64 2158921234, i64 2158921240, i64 2158921287, i64 2158921310, i64 2158921336}
+!44 = !{i64 2158921793, i64 2158921604, i64 2158921654, i64 2158921700, i64 2158921728}
+!45 = !{i64 2158922612, i64 2158922421, i64 2158922473, i64 2158922519, i64 2158922547}
+!46 = !{i64 2158922686, i64 2158922715, i64 2158922761, i64 2158922819, i64 2158922873, i64 2158922927, i64 2158922982, i64 2158923013, i64 2158923321, i64 2158923327, i64 2158923374, i64 2158923397, i64 2158923423}
+!47 = !{i64 2158923880, i64 2158923691, i64 2158923741, i64 2158923787, i64 2158923815}
+!48 = !{i64 2158924699, i64 2158924508, i64 2158924560, i64 2158924606, i64 2158924634}
+!49 = !{i64 2158924773, i64 2158924802, i64 2158924848, i64 2158924906, i64 2158924960, i64 2158925014, i64 2158925069, i64 2158925100, i64 2158925408, i64 2158925414, i64 2158925461, i64 2158925484, i64 2158925510}
+!50 = !{i64 2158925967, i64 2158925778, i64 2158925828, i64 2158925874, i64 2158925902}
+!51 = !{i64 2158926786, i64 2158926595, i64 2158926647, i64 2158926693, i64 2158926721}
+!52 = !{i64 2158926860, i64 2158926889, i64 2158926935, i64 2158926993, i64 2158927047, i64 2158927101, i64 2158927156, i64 2158927187, i64 2158927495, i64 2158927501, i64 2158927548, i64 2158927571, i64 2158927597}
+!53 = !{i64 2158932115, i64 2158931926, i64 2158931976, i64 2158932022, i64 2158932050}
+!54 = !{i64 2158932934, i64 2158932743, i64 2158932795, i64 2158932841, i64 2158932869}
+!55 = !{i64 2158933008, i64 2158933037, i64 2158933083, i64 2158933141, i64 2158933195, i64 2158933249, i64 2158933304, i64 2158933335, i64 2158933643, i64 2158933649, i64 2158933696, i64 2158933719, i64 2158933745}
+!56 = !{i64 2158934202, i64 2158934013, i64 2158934063, i64 2158934109, i64 2158934137}
+!57 = !{i64 2158935021, i64 2158934830, i64 2158934882, i64 2158934928, i64 2158934956}
+!58 = !{i64 2158935095, i64 2158935124, i64 2158935170, i64 2158935228, i64 2158935282, i64 2158935336, i64 2158935391, i64 2158935422, i64 2158935730, i64 2158935736, i64 2158935783, i64 2158935806, i64 2158935832}
+!59 = !{i64 2158936289, i64 2158936100, i64 2158936150, i64 2158936196, i64 2158936224}
+!60 = !{i64 2158937108, i64 2158936917, i64 2158936969, i64 2158937015, i64 2158937043}
+!61 = !{i64 2158937182, i64 2158937211, i64 2158937257, i64 2158937315, i64 2158937369, i64 2158937423, i64 2158937478, i64 2158937509, i64 2158937817, i64 2158937823, i64 2158937870, i64 2158937893, i64 2158937919}
+!62 = !{i64 2158938376, i64 2158938187, i64 2158938237, i64 2158938283, i64 2158938311}
+!63 = !{i64 2158939195, i64 2158939004, i64 2158939056, i64 2158939102, i64 2158939130}
+!64 = !{i64 2158939269, i64 2158939298, i64 2158939344, i64 2158939402, i64 2158939456, i64 2158939510, i64 2158939565, i64 2158939596, i64 2158939904, i64 2158939910, i64 2158939957, i64 2158939980, i64 2158940006}
+!65 = !{i64 2158940463, i64 2158940274, i64 2158940324, i64 2158940370, i64 2158940398}
+!66 = !{i64 2158941282, i64 2158941091, i64 2158941143, i64 2158941189, i64 2158941217}
+!67 = !{i64 2158941356, i64 2158941385, i64 2158941431, i64 2158941489, i64 2158941543, i64 2158941597, i64 2158941652, i64 2158941683, i64 2158941991, i64 2158941997, i64 2158942044, i64 2158942067, i64 2158942093}
+!68 = !{i64 2158942550, i64 2158942361, i64 2158942411, i64 2158942457, i64 2158942485}
+!69 = !{i64 2158943369, i64 2158943178, i64 2158943230, i64 2158943276, i64 2158943304}
+!70 = !{i64 2158943443, i64 2158943472, i64 2158943518, i64 2158943576, i64 2158943630, i64 2158943684, i64 2158943739, i64 2158943770, i64 2158944078, i64 2158944084, i64 2158944131, i64 2158944154, i64 2158944180}
+!71 = !{i64 2158944637, i64 2158944448, i64 2158944498, i64 2158944544, i64 2158944572}
+!72 = !{i64 2149163544, i64 2149163583, i64 2149163604, i64 2149163641, i64 2149163664, i64 2149163534}
+!73 = distinct !{!73, !74, !75}
+!74 = !{!"llvm.loop.mustprogress"}
+!75 = !{!"llvm.loop.unroll.disable"}
+!76 = !{ptr @blk_log_action, ptr @blk_log_action_classic}
+!77 = distinct !{!77, !74, !75}
+!78 = distinct !{!78, !74, !75}
+!79 = distinct !{!79, !74, !75}
+!80 = distinct !{!80, !75}
+!81 = distinct !{!81, !74, !75}
+!82 = !{i64 2158968009}

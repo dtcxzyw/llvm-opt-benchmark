@@ -2062,7 +2062,7 @@ trace_usb_uhci_td_load.exit:                      ; preds = %if.end32, %land.lhs
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i93)
   %51 = load i32, ptr %ctrl, align 4
   %52 = load i32, ptr %link, align 4
-  %call36 = call fastcc i32 @uhci_handle_td(ptr noundef nonnull %s, ptr noundef null, i32 noundef %curr_qh.0161, ptr noundef nonnull %td, i32 noundef %52, ptr noundef nonnull %int_mask), !range !15
+  %call36 = call fastcc i32 @uhci_handle_td(ptr noundef nonnull %s, ptr noundef null, i32 noundef %curr_qh.0161, ptr noundef nonnull %td, i32 noundef %52, ptr noundef nonnull %int_mask)
   %53 = load i32, ptr %ctrl, align 4
   %cmp38.not = icmp eq i32 %51, %53
   br i1 %cmp38.not, label %if.end48, label %if.then40
@@ -2251,7 +2251,7 @@ for.inc:                                          ; preds = %if.then75, %if.then
   %tobool = icmp eq i32 %and.i, 0
   %tobool3 = icmp ne i32 %dec, 0
   %87 = select i1 %tobool, i1 %tobool3, i1 false
-  br i1 %87, label %for.body, label %out, !llvm.loop !16
+  br i1 %87, label %for.body, label %out, !llvm.loop !15
 
 out:                                              ; preds = %if.end48, %for.inc, %entry, %trace_usb_uhci_frame_stop_bandwidth.exit, %trace_usb_uhci_frame_loop_stop_idle.exit
   %88 = load i32, ptr %int_mask, align 4
@@ -2263,7 +2263,7 @@ out:                                              ; preds = %if.end48, %for.inc,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @uhci_handle_td(ptr noundef %s, ptr noundef %q, i32 noundef %qh_addr, ptr nocapture noundef %td, i32 noundef %td_addr, ptr nocapture noundef %int_mask) unnamed_addr #0 {
+define internal fastcc range(i32 10, 15) i32 @uhci_handle_td(ptr noundef %s, ptr noundef %q, i32 noundef %qh_addr, ptr nocapture noundef %td, i32 noundef %td_addr, ptr nocapture noundef %int_mask) unnamed_addr #0 {
 entry:
   %_now.i.i24.i = alloca %struct.timeval, align 8
   %_now.i.i.i162 = alloca %struct.timeval, align 8
@@ -2296,13 +2296,13 @@ for.inc.i:                                        ; preds = %for.body3.i
   %next.i = getelementptr inbounds i8, ptr %async.010.i, i64 216
   %async.0.i = load ptr, ptr %next.i, align 8
   %tobool2.not.i = icmp eq ptr %async.0.i, null
-  br i1 %tobool2.not.i, label %for.inc5.i, label %for.body3.i, !llvm.loop !17
+  br i1 %tobool2.not.i, label %for.inc5.i, label %for.body3.i, !llvm.loop !16
 
 for.inc5.i:                                       ; preds = %for.inc.i, %for.body.i
   %next6.i = getelementptr inbounds i8, ptr %queue.013.i, i64 24
   %queue.0.i = load ptr, ptr %next6.i, align 8
   %tobool.not.i = icmp eq ptr %queue.0.i, null
-  br i1 %tobool.not.i, label %if.end14, label %for.body.i, !llvm.loop !18
+  br i1 %tobool.not.i, label %if.end14, label %for.body.i, !llvm.loop !17
 
 if.then:                                          ; preds = %for.body3.i
   %queue = getelementptr inbounds i8, ptr %async.010.i, i64 208
@@ -2394,7 +2394,7 @@ for.inc.i98:                                      ; preds = %for.body.i96
   %next.i99 = getelementptr inbounds i8, ptr %queue.03.i, i64 24
   %queue.0.i100 = load ptr, ptr %next.i99, align 8
   %tobool.not.i101 = icmp eq ptr %queue.0.i100, null
-  br i1 %tobool.not.i101, label %if.end27, label %for.body.i96, !llvm.loop !19
+  br i1 %tobool.not.i101, label %if.end27, label %for.body.i96, !llvm.loop !18
 
 land.lhs.true:                                    ; preds = %for.body.i96
   %asyncs.i102 = getelementptr inbounds i8, ptr %queue.03.i, i64 40
@@ -2568,10 +2568,10 @@ if.end.i:                                         ; preds = %for.body.i137
   br i1 %cmp2.not.i, label %for.inc.i142, label %if.end75
 
 for.inc.i142:                                     ; preds = %if.end.i, %for.body.i137
-  br i1 %cmp.i138, label %for.body.i137, label %if.then73, !llvm.loop !20
+  br i1 %cmp.i138, label %for.body.i137, label %if.then73, !llvm.loop !19
 
 if.then73:                                        ; preds = %for.inc.i142
-  %call74 = tail call fastcc i32 @uhci_handle_td_error(ptr noundef nonnull %s, ptr noundef %td, i32 noundef %td_addr, i32 noundef -1, ptr noundef %int_mask), !range !21
+  %call74 = tail call fastcc i32 @uhci_handle_td_error(ptr noundef nonnull %s, ptr noundef %td, i32 noundef %td_addr, i32 noundef -1, ptr noundef %int_mask)
   br label %return
 
 if.end75:                                         ; preds = %if.end.i
@@ -2787,7 +2787,7 @@ if.end.i169:                                      ; preds = %if.then.i168, %done
 if.then7.i:                                       ; preds = %if.end.i169
   %td_addr.i171 = getelementptr inbounds i8, ptr %async.1, i64 232
   %77 = load i32, ptr %td_addr.i171, align 8
-  %call.i172 = tail call fastcc i32 @uhci_handle_td_error(ptr noundef %s, ptr noundef nonnull %td, i32 noundef %77, i32 noundef %76, ptr noundef %int_mask), !range !21
+  %call.i172 = tail call fastcc i32 @uhci_handle_td_error(ptr noundef %s, ptr noundef nonnull %td, i32 noundef %77, i32 noundef %76, ptr noundef %int_mask)
   br label %uhci_complete_td.exit
 
 if.end10.i:                                       ; preds = %if.end.i169
@@ -3015,7 +3015,7 @@ trace_usb_uhci_td_queue.exit:                     ; preds = %if.end4, %land.lhs.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %10 = load ptr, ptr %uhci, align 8
   %11 = load i32, ptr %q, align 8
-  %call9 = call fastcc i32 @uhci_handle_td(ptr noundef %10, ptr noundef nonnull %q, i32 noundef %11, ptr noundef nonnull %ptd, i32 noundef %plink.0, ptr noundef nonnull %int_mask), !range !15
+  %call9 = call fastcc i32 @uhci_handle_td(ptr noundef %10, ptr noundef nonnull %q, i32 noundef %11, ptr noundef nonnull %ptd, i32 noundef %plink.0, ptr noundef nonnull %int_mask)
   switch i32 %call9, label %if.else [
     i32 14, label %while.end
     i32 13, label %if.end15
@@ -3028,7 +3028,7 @@ if.else:                                          ; preds = %trace_usb_uhci_td_q
 if.end15:                                         ; preds = %trace_usb_uhci_td_queue.exit
   %12 = load i32, ptr %int_mask, align 4
   %cmp16 = icmp eq i32 %12, 0
-  br i1 %cmp16, label %while.cond, label %if.else18, !llvm.loop !22
+  br i1 %cmp16, label %while.cond, label %if.else18, !llvm.loop !20
 
 if.else18:                                        ; preds = %if.end15
   call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.16, i32 noundef 944, ptr noundef nonnull @__PRETTY_FUNCTION__.uhci_queue_fill) #12
@@ -3044,7 +3044,7 @@ while.end:                                        ; preds = %trace_usb_uhci_td_q
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @uhci_handle_td_error(ptr nocapture noundef %s, ptr nocapture noundef %td, i32 noundef %td_addr, i32 noundef %status, ptr nocapture noundef %int_mask) unnamed_addr #0 {
+define internal fastcc range(i32 10, 13) i32 @uhci_handle_td_error(ptr nocapture noundef %s, ptr nocapture noundef %td, i32 noundef %td_addr, i32 noundef %status, ptr nocapture noundef %int_mask) unnamed_addr #0 {
 entry:
   %_now.i.i27 = alloca %struct.timeval, align 8
   %_now.i.i13 = alloca %struct.timeval, align 8
@@ -3398,7 +3398,7 @@ declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @uhci_port_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 65536) i64 @uhci_port_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   switch i64 %addr, label %sw.epilog [
@@ -4035,7 +4035,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %for.inc
   %9 = getelementptr i8, ptr %call.i17, i64 3304
@@ -4207,12 +4207,10 @@ attributes #13 = { nounwind allocsize(0) }
 !12 = distinct !{!12, !6}
 !13 = !{i64 2151884663}
 !14 = distinct !{!14, !6}
-!15 = !{i32 10, i32 15}
+!15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = !{i32 10, i32 13}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
+!21 = distinct !{!21, !6}

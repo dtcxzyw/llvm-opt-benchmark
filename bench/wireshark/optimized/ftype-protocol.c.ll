@@ -699,7 +699,7 @@ define internal noundef i32 @cmp_contains(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmp_matches(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 0, 3) i32 @cmp_matches(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4

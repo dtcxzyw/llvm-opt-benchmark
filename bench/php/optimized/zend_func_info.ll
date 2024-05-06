@@ -741,7 +741,7 @@ zend_get_internal_func_info.exit.thread:          ; preds = %15, %12, %9, %zend_
 declare i32 @zend_get_return_info_from_signature_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zend_func_info_startup() local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zend_func_info_startup() local_unnamed_addr #0 {
   %1 = alloca %struct._zval_struct, align 8
   %2 = alloca %struct._zval_struct, align 8
   %3 = load i32, ptr @zend_func_info_rid, align 4

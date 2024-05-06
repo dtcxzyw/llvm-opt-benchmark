@@ -185,7 +185,7 @@ commonPrefix.exit.thread:                         ; preds = %67
   br i1 %95, label %96, label %100
 
 96:                                               ; preds = %89
-  %97 = trunc i32 %.0.lcssa.i to i8
+  %97 = trunc nuw i32 %.0.lcssa.i to i8
   %98 = shl nuw i8 %97, 1
   %99 = add nuw i8 %98, 3
   store i8 %99, ptr %93, align 1
@@ -199,7 +199,7 @@ commonPrefix.exit.thread:                         ; preds = %67
 formTextDatum.exit:                               ; preds = %100, %96
   %.sink13.i = phi i64 [ 4, %100 ], [ 1, %96 ]
   %102 = getelementptr i8, ptr %93, i64 %.sink13.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %102, ptr nonnull align 1 %49, i64 %94, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %102, ptr nonnull readonly align 1 %49, i64 %94, i1 false)
   %103 = ptrtoint ptr %93 to i64
   %104 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %103, ptr %104, align 8
@@ -241,7 +241,7 @@ formTextDatum.exit:                               ; preds = %100, %96
   br i1 %126, label %127, label %131
 
 127:                                              ; preds = %118
-  %128 = trunc i64 %125 to i8
+  %128 = trunc nuw i64 %125 to i8
   %129 = shl nuw i8 %128, 1
   %130 = or disjoint i8 %129, 1
   store i8 %130, ptr %123, align 1
@@ -255,7 +255,7 @@ formTextDatum.exit:                               ; preds = %100, %96
 formTextDatum.exit120:                            ; preds = %131, %127
   %.sink13.i118 = phi i64 [ 4, %131 ], [ 1, %127 ]
   %133 = getelementptr i8, ptr %123, i64 %.sink13.i118
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %133, ptr align 1 %119, i64 %124, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %133, ptr readonly align 1 %119, i64 %124, i1 false)
   %134 = ptrtoint ptr %123 to i64
   %135 = getelementptr inbounds i8, ptr %7, i64 48
   store i64 %134, ptr %135, align 8
@@ -342,7 +342,7 @@ searchChar.exit:                                  ; preds = %157
   br i1 %181, label %182, label %186
 
 182:                                              ; preds = %172
-  %183 = trunc i32 %170 to i8
+  %183 = trunc nuw i32 %170 to i8
   %184 = shl nuw i8 %183, 1
   %185 = add nuw i8 %184, 3
   store i8 %185, ptr %179, align 1
@@ -356,7 +356,7 @@ searchChar.exit:                                  ; preds = %157
 formTextDatum.exit125:                            ; preds = %186, %182
   %.sink13.i123 = phi i64 [ 4, %186 ], [ 1, %182 ]
   %188 = getelementptr i8, ptr %179, i64 %.sink13.i123
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %188, ptr align 1 %176, i64 %180, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %188, ptr readonly align 1 %176, i64 %180, i1 false)
   %189 = ptrtoint ptr %179 to i64
   %190 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %189, ptr %190, align 8
@@ -613,7 +613,7 @@ commonPrefix.exit:                                ; preds = %.lr.ph.i, %100, %95
   br i1 %121, label %122, label %126
 
 122:                                              ; preds = %112
-  %123 = trunc i64 %120 to i8
+  %123 = trunc nuw i64 %120 to i8
   %124 = shl nuw i8 %123, 1
   %125 = or disjoint i8 %124, 1
   store i8 %125, ptr %118, align 1
@@ -627,7 +627,7 @@ commonPrefix.exit:                                ; preds = %.lr.ph.i, %100, %95
 formTextDatum.exit:                               ; preds = %126, %122
   %.sink13.i = phi i64 [ 4, %126 ], [ 1, %122 ]
   %128 = getelementptr i8, ptr %118, i64 %.sink13.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr nonnull align 1 %115, i64 %119, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr nonnull readonly align 1 %115, i64 %119, i1 false)
   %129 = ptrtoint ptr %118 to i64
   %130 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %129, ptr %130, align 8
@@ -713,7 +713,7 @@ formTextDatum.exit:                               ; preds = %126, %122
   store i16 %.sink, ptr %178, align 4
   %179 = getelementptr %struct.spgNodePtr, ptr %135, i64 %indvars.iv189
   %180 = getelementptr inbounds i8, ptr %179, i64 8
-  %181 = trunc i64 %indvars.iv189 to i32
+  %181 = trunc nuw nsw i64 %indvars.iv189 to i32
   store i32 %181, ptr %180, align 8
   %182 = load ptr, ptr %8, align 8
   %183 = getelementptr i64, ptr %182, i64 %indvars.iv189
@@ -868,7 +868,7 @@ formTextDatum.exit:                               ; preds = %126, %122
   br i1 %279, label %280, label %284
 
 280:                                              ; preds = %270
-  %281 = trunc i64 %278 to i8
+  %281 = trunc nuw i64 %278 to i8
   %282 = shl nuw i8 %281, 1
   %283 = or disjoint i8 %282, 1
   store i8 %283, ptr %276, align 1
@@ -883,7 +883,7 @@ formTextDatum.exit:                               ; preds = %126, %122
 .sink.split.i170:                                 ; preds = %284, %280
   %.sink13.i171 = phi i64 [ 4, %284 ], [ 1, %280 ]
   %286 = getelementptr i8, ptr %276, i64 %.sink13.i171
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %286, ptr align 1 %271, i64 %277, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %286, ptr readonly align 1 %271, i64 %277, i1 false)
   br label %formTextDatum.exit173
 
 287:                                              ; preds = %.thread202, %.thread, %231
@@ -920,7 +920,7 @@ formTextDatum.exit173:                            ; preds = %.sink.split.i170, %
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmpNodePtr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -65535, 65536) i32 @cmpNodePtr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i16, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 12
@@ -1200,7 +1200,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr nocapture noundef re
 
 162:                                              ; preds = %150, %154, %152, %148
   %.1 = phi i8 [ %spec.select, %148 ], [ %spec.select124, %152 ], [ %spec.select125, %154 ], [ %spec.select126, %150 ]
-  %163 = trunc i8 %.1 to i1
+  %163 = trunc nuw i8 %.1 to i1
   br i1 %163, label %._crit_edge139, label %._crit_edge
 
 ._crit_edge139:                                   ; preds = %162
@@ -1217,7 +1217,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr nocapture noundef re
 
 ._crit_edge:                                      ; preds = %164, %162
   %.3 = phi i8 [ %.2, %164 ], [ %.1, %162 ]
-  %168 = trunc i8 %.3 to i1
+  %168 = trunc nuw i8 %.3 to i1
   br i1 %168, label %._crit_edge.thread, label %189
 
 ._crit_edge.thread:                               ; preds = %103, %._crit_edge
@@ -1225,7 +1225,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr nocapture noundef re
   %170 = load i32, ptr %7, align 8
   %171 = sext i32 %170 to i64
   %172 = getelementptr i32, ptr %169, i64 %171
-  %173 = trunc i64 %indvars.iv136 to i32
+  %173 = trunc nuw nsw i64 %indvars.iv136 to i32
   store i32 %173, ptr %172, align 4
   %174 = load i32, ptr %14, align 8
   %175 = sub i32 %.0104, %174
@@ -1277,7 +1277,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @spg_text_leaf_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1548,7 +1548,7 @@ define dso_local i64 @spg_text_leaf_consistent(ptr nocapture noundef readonly %0
 
 154:                                              ; preds = %153
   %.0.lobit = lshr i32 %.0, 31
-  %155 = trunc i32 %.0.lobit to i8
+  %155 = trunc nuw nsw i32 %.0.lobit to i8
   br label %175
 
 156:                                              ; preds = %153
@@ -1584,7 +1584,7 @@ define dso_local i64 @spg_text_leaf_consistent(ptr nocapture noundef readonly %0
 
 175:                                              ; preds = %165, %162, %159, %156, %154
   %.1 = phi i8 [ %167, %165 ], [ %164, %162 ], [ %161, %159 ], [ %158, %156 ], [ %155, %154 ]
-  %176 = trunc i8 %.1 to i1
+  %176 = trunc nuw i8 %.1 to i1
   br i1 %176, label %.thread160, label %._crit_edge.loopexit
 
 .thread160:                                       ; preds = %129, %175, %130

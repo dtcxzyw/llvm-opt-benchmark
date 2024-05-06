@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [55 x i8] c"Abc_NtkConstructExdc(): Converting to SOPs has failed.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -240,7 +240,7 @@ define noundef i32 @Abc_NtkExtractSequentialDcs(ptr noundef %0, i32 noundef %1) 
   %.val127.i = load ptr, ptr %100, align 8
   %107 = getelementptr i8, ptr %.val127.i, i64 4
   %.val127.val.i = load i32, ptr %107, align 4
-  %108 = trunc i64 %indvars.iv191.i to i32
+  %108 = trunc nuw nsw i64 %indvars.iv191.i to i32
   %109 = add nsw i32 %.val127.val.i, %108
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds i32, ptr %94, i64 %110
@@ -565,7 +565,7 @@ define internal fastcc noundef ptr @Abc_NtkTransitionRelation(ptr noundef %0, pt
   %.val54 = load ptr, ptr %4, align 8
   %23 = getelementptr i8, ptr %.val54, i64 4
   %.val54.val = load i32, ptr %23, align 4
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = add nsw i32 %.val54.val, %24
   %26 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %25) #8
   %.val58 = load ptr, ptr %19, align 8
@@ -760,7 +760,7 @@ define internal fastcc ptr @Abc_NtkInitStateAndVarMap(ptr noundef %0, ptr nocapt
   %.val48 = load ptr, ptr %16, align 8
   %27 = getelementptr i8, ptr %.val48, i64 4
   %.val48.val = load i32, ptr %27, align 4
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = add nsw i32 %.val48.val, %28
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds ptr, ptr %26, i64 %30

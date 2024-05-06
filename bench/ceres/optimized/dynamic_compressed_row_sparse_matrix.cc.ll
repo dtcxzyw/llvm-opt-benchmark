@@ -672,7 +672,7 @@ _ZN6google12Check_GEImplB5cxx11EiiPKc.exit.thread: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.7)
   %18 = load ptr, ptr %5, align 8
-  %19 = trunc i64 %16 to i32
+  %19 = trunc nsw i64 %16 to i32
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %19)
           to label %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i unwind label %25
 
@@ -735,7 +735,7 @@ _ZN6google12Check_LTImplB5cxx11EiiPKc.exit.thread: ; preds = %32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.8)
   %37 = load ptr, ptr %4, align 8
-  %38 = trunc i64 %16 to i32
+  %38 = trunc nsw i64 %16 to i32
   %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %37, i32 noundef %38)
           to label %_ZN6google22MakeCheckOpValueStringIiEEvPSoRKT_.exit.i.i.i9 unwind label %44
 

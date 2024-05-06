@@ -2676,8 +2676,8 @@ for.cond24.preheader.for.inc66_crit_edge:         ; preds = %for.cond24.preheade
   br label %for.inc66
 
 for.body28.lr.ph:                                 ; preds = %for.cond24.preheader
-  %27 = trunc i64 %indvars.iv241 to i32
-  %28 = trunc i64 %indvars.iv241 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv241 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv241 to i32
   br label %for.body28
 
 for.body28:                                       ; preds = %for.body28.lr.ph, %for.inc63
@@ -2728,7 +2728,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %exitcond.not.i, label %for.inc.i, label %land.rhs.i, !llvm.loop !20
 
 land.lhs.true.i:                                  ; preds = %land.rhs.i
-  %36 = trunc i64 %indvars.iv.i55 to i32
+  %36 = trunc nsw i64 %indvars.iv.i55 to i32
   %sext.i = shl i64 %indvars.iv.i55, 32
   %idxprom.i21.i = ashr exact i64 %sext.i, 32
   %arrayidx.i22.i = getelementptr inbounds i32, ptr %31, i64 %idxprom.i21.i
@@ -2796,7 +2796,7 @@ while.body.i104:                                  ; preds = %land.rhs.i86
   br i1 %exitcond.not.i107, label %for.inc.i79, label %land.rhs.i86, !llvm.loop !20
 
 land.lhs.true.i90:                                ; preds = %land.rhs.i86
-  %50 = trunc i64 %indvars.iv.i87 to i32
+  %50 = trunc nsw i64 %indvars.iv.i87 to i32
   %sext.i91 = shl i64 %indvars.iv.i87, 32
   %idxprom.i21.i92 = ashr exact i64 %sext.i91, 32
   %arrayidx.i22.i93 = getelementptr inbounds i32, ptr %31, i64 %idxprom.i21.i92
@@ -2881,7 +2881,7 @@ while.body.i155:                                  ; preds = %land.rhs.i137
   br i1 %exitcond.not.i158, label %for.inc.i130, label %land.rhs.i137, !llvm.loop !20
 
 land.lhs.true.i141:                               ; preds = %land.rhs.i137
-  %68 = trunc i64 %indvars.iv.i138 to i32
+  %68 = trunc nsw i64 %indvars.iv.i138 to i32
   %sext.i142 = shl i64 %indvars.iv.i138, 32
   %idxprom.i21.i143 = ashr exact i64 %sext.i142, 32
   %arrayidx.i22.i144 = getelementptr inbounds i32, ptr %61, i64 %idxprom.i21.i143
@@ -2947,7 +2947,7 @@ while.body.i206:                                  ; preds = %land.rhs.i188
   br i1 %exitcond.not.i209, label %for.inc.i181, label %land.rhs.i188, !llvm.loop !20
 
 land.lhs.true.i192:                               ; preds = %land.rhs.i188
-  %82 = trunc i64 %indvars.iv.i189 to i32
+  %82 = trunc nsw i64 %indvars.iv.i189 to i32
   %sext.i193 = shl i64 %indvars.iv.i189, 32
   %idxprom.i21.i194 = ashr exact i64 %sext.i193, 32
   %arrayidx.i22.i195 = getelementptr inbounds i32, ptr %61, i64 %idxprom.i21.i194
@@ -2983,7 +2983,7 @@ for.inc.i181:                                     ; preds = %while.body.i206, %i
 
 _ZNK15btReducedVector3dotERKS_.exit210.loopexit:  ; preds = %for.inc.i181
   %conv59 = fpext float %ret.1.i183 to double
-  %92 = trunc i64 %indvars.iv238 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv238 to i32
   %call60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %27, i32 noundef %92, double noundef %conv59)
   br label %for.inc63
 
@@ -4565,8 +4565,8 @@ if.then16:                                        ; preds = %for.body12
   %16 = load float, ptr %arrayidx6.i.i, align 4, !noalias !40
   %17 = load float, ptr %arrayidx.i.i, align 4, !noalias !40
   %18 = load float, ptr %m_effectiveMass, align 4, !noalias !40
-  %arrayidx5.i20.i = getelementptr inbounds i8, ptr %arrayidx.i104, i64 160
-  %19 = load float, ptr %arrayidx5.i20.i, align 4, !noalias !40
+  %arrayidx5.i25.i = getelementptr inbounds i8, ptr %arrayidx.i104, i64 160
+  %19 = load float, ptr %arrayidx5.i25.i, align 4, !noalias !40
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %arrayidx.i104, i64 164
   %20 = load float, ptr %arrayidx10.i.i, align 4, !noalias !40
   %m_effectiveMass_inv = getelementptr inbounds i8, ptr %arrayidx.i104, i64 204
@@ -4581,8 +4581,8 @@ if.then16:                                        ; preds = %for.body12
   %29 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %28, <2 x float> %22, <2 x float> %26)
   %30 = extractelement <2 x float> %29, i64 0
   %31 = extractelement <2 x float> %25, i64 1
-  %neg.i51.i = fmul float %17, %31
-  %32 = call noundef float @llvm.fmuladd.f32(float %18, float %14, float %neg.i51.i)
+  %neg.i70.i = fmul float %17, %31
+  %32 = call noundef float @llvm.fmuladd.f32(float %18, float %14, float %neg.i70.i)
   %ref.tmp17.sroa.3.0.m_effectiveMass_inv.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i104, i64 212
   %ref.tmp17.sroa.4.0.m_effectiveMass_inv.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i104, i64 216
   store float 0.000000e+00, ptr %ref.tmp17.sroa.4.0.m_effectiveMass_inv.sroa_idx, align 4
@@ -4591,8 +4591,8 @@ if.then16:                                        ; preds = %for.body12
   %34 = insertelement <2 x float> %33, float %20, i64 1
   %35 = fneg <2 x float> %34
   %36 = extractelement <2 x float> %35, i64 1
-  %neg.i33.i = fmul float %14, %36
-  %37 = call noundef float @llvm.fmuladd.f32(float %19, float %15, float %neg.i33.i)
+  %neg.i40.i = fmul float %14, %36
+  %37 = call noundef float @llvm.fmuladd.f32(float %19, float %15, float %neg.i40.i)
   %38 = insertelement <2 x float> %22, float %16, i64 1
   %39 = fmul <2 x float> %38, %35
   %40 = insertelement <2 x float> %23, float %18, i64 1
@@ -4608,8 +4608,8 @@ if.then16:                                        ; preds = %for.body12
   %45 = insertelement <2 x float> %27, float %18, i64 1
   %46 = fneg <2 x float> %45
   %47 = extractelement <2 x float> %46, i64 1
-  %neg.i42.i = fmul float %15, %47
-  %48 = call noundef float @llvm.fmuladd.f32(float %20, float %17, float %neg.i42.i)
+  %neg.i55.i = fmul float %15, %47
+  %48 = call noundef float @llvm.fmuladd.f32(float %20, float %17, float %neg.i55.i)
   %49 = insertelement <2 x float> %22, float %16, i64 0
   %50 = fmul <2 x float> %49, %46
   %51 = insertelement <2 x float> %33, float %19, i64 1
@@ -5696,7 +5696,7 @@ for.body24:                                       ; preds = %for.body24.preheade
   %11 = phi i32 [ %8, %for.body24.preheader ], [ %16, %for.body24 ]
   %12 = load i8, ptr %m_ascendOrder, align 1
   %tobool25 = trunc i8 %12 to i1
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   %14 = xor i32 %13, -1
   %sub31 = add i32 %11, %14
   %cond = select i1 %tobool25, i32 %13, i32 %sub31
@@ -5736,7 +5736,7 @@ for.body42:                                       ; preds = %for.cond35.preheade
   %18 = phi i32 [ %23, %for.body42 ], [ %10, %for.cond35.preheader ]
   %19 = load i8, ptr %m_ascendOrder, align 1
   %tobool44 = trunc i8 %19 to i1
-  %20 = trunc i64 %indvars.iv228 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv228 to i32
   %21 = xor i32 %20, -1
   %sub53 = add i32 %18, %21
   %cond55 = select i1 %tobool44, i32 %20, i32 %sub53
@@ -5768,7 +5768,7 @@ for.cond80.preheader:                             ; preds = %for.body73, %for.co
 for.body73:                                       ; preds = %for.body73.preheader, %for.body73
   %indvars.iv231 = phi i64 [ 0, %for.body73.preheader ], [ %indvars.iv.next232, %for.body73 ]
   %arrayidx.i126 = getelementptr inbounds i32, ptr %.pre246, i64 %indvars.iv231
-  %29 = trunc i64 %indvars.iv231 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv231 to i32
   store i32 %29, ptr %arrayidx.i126, align 4
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %30 = load ptr, ptr %m_data.i40, align 8
@@ -5781,7 +5781,7 @@ for.body73:                                       ; preds = %for.body73.preheade
 for.body87:                                       ; preds = %for.cond80.preheader, %for.body87
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %for.body87 ], [ 0, %for.cond80.preheader ]
   %arrayidx.i133 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv234
-  %33 = trunc i64 %indvars.iv234 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv234 to i32
   store i32 %33, ptr %arrayidx.i133, align 4
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %34 = load ptr, ptr %m_data.i47, align 8

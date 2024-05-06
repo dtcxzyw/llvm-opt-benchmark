@@ -356,7 +356,7 @@ define void @ADIOI_GEN_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %207, label %208, label %216
 
 208:                                              ; preds = %202
-  %209 = trunc i64 %indvars.iv923 to i32
+  %209 = trunc nuw nsw i64 %indvars.iv923 to i32
   %210 = add nuw nsw i32 %209, 1
   %211 = zext nneg i32 %210 to i64
   %212 = getelementptr inbounds i64, ptr %186, i64 %211
@@ -408,7 +408,7 @@ define void @ADIOI_GEN_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %235, label %236, label %245
 
 236:                                              ; preds = %231
-  %237 = trunc i64 %indvars.iv to i32
+  %237 = trunc nuw nsw i64 %indvars.iv to i32
   %238 = sub nsw i64 %234, %225
   %239 = getelementptr inbounds i8, ptr %177, i64 24
   %240 = load ptr, ptr %239, align 8
@@ -524,7 +524,7 @@ define void @ADIOI_GEN_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %296 = add nsw i32 %.1609806, 1
   %297 = sext i32 %296 to i64
   %298 = srem i64 %297, %249
-  %299 = trunc i64 %298 to i32
+  %299 = trunc nsw i64 %298 to i32
   %300 = icmp eq i32 %299, 0
   %301 = zext i1 %300 to i64
   %302 = add nsw i64 %.3626805, %301
@@ -540,7 +540,7 @@ define void @ADIOI_GEN_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %sext881 = add i64 %306, 4294967296
   %307 = ashr exact i64 %sext881, 32
   %308 = srem i64 %307, %249
-  %309 = trunc i64 %308 to i32
+  %309 = trunc nsw i64 %308 to i32
   %310 = icmp eq i32 %309, 0
   %311 = zext i1 %310 to i64
   %312 = add nsw i64 %.4627798, %311
@@ -736,7 +736,7 @@ define void @ADIOI_GEN_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %417 = sext i32 %416 to i64
   %418 = load i64, ptr %350, align 8
   %419 = srem i64 %417, %418
-  %420 = trunc i64 %419 to i32
+  %420 = trunc nsw i64 %419 to i32
   %421 = icmp eq i32 %420, 0
   %422 = zext i1 %421 to i64
   %423 = add nsw i64 %.5628824, %422
@@ -752,7 +752,7 @@ define void @ADIOI_GEN_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %sext882 = add i64 %427, 4294967296
   %428 = ashr exact i64 %sext882, 32
   %429 = srem i64 %428, %418
-  %430 = trunc i64 %429 to i32
+  %430 = trunc nsw i64 %429 to i32
   %431 = icmp eq i32 %430, 0
   %432 = zext i1 %431 to i64
   %433 = add nsw i64 %.6629815, %432
@@ -915,7 +915,7 @@ define void @ADIOI_GEN_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %511 = sext i32 %510 to i64
   %512 = load i64, ptr %454, align 8
   %513 = srem i64 %511, %512
-  %514 = trunc i64 %513 to i32
+  %514 = trunc nsw i64 %513 to i32
   %515 = icmp eq i32 %514, 0
   %516 = zext i1 %515 to i64
   %517 = add nsw i64 %.8631846, %516
@@ -932,7 +932,7 @@ define void @ADIOI_GEN_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %sext883 = add i64 %522, 4294967296
   %523 = ashr exact i64 %sext883, 32
   %524 = srem i64 %523, %512
-  %525 = trunc i64 %524 to i32
+  %525 = trunc nsw i64 %524 to i32
   %526 = icmp eq i32 %525, 0
   %527 = zext i1 %526 to i64
   %528 = add nsw i64 %.9632836, %527
@@ -969,7 +969,7 @@ define void @ADIOI_GEN_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %542 = sext i32 %541 to i64
   %543 = load i64, ptr %457, align 8
   %544 = srem i64 %542, %543
-  %545 = trunc i64 %544 to i32
+  %545 = trunc nsw i64 %544 to i32
   %546 = add nsw i32 %.0591851, 1
   %547 = load i64, ptr %13, align 8
   %548 = sext i32 %546 to i64

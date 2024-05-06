@@ -222,7 +222,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare double @SUNRpowerR(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAInit(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDAInit(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = icmp eq ptr %0, null
@@ -768,7 +768,7 @@ declare i32 @IDASetNonlinearSolver(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAReInit(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -23, 1) i32 @IDAReInit(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -833,7 +833,7 @@ define noundef i32 @IDAReInit(ptr noundef %0, double noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASStolerances(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -23, 1) i32 @IDASStolerances(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -892,7 +892,7 @@ define noundef i32 @IDASStolerances(ptr noundef %0, double noundef %1, double no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAEwtSet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define range(i32 -1, 1) i32 @IDAEwtSet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 32
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %IDAEwtSetSS.exit [
@@ -956,7 +956,7 @@ IDAEwtSetSS.exit:                                 ; preds = %IDAEwtSetSS.exit.si
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASVtolerances(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -23, 1) i32 @IDASVtolerances(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1046,7 +1046,7 @@ declare double @N_VMin(ptr noundef) local_unnamed_addr #3
 declare ptr @N_VClone(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAWFtolerances(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -23, 1) i32 @IDAWFtolerances(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1081,7 +1081,7 @@ define noundef i32 @IDAWFtolerances(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1184,7 +1184,7 @@ define noundef i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %56 = load ptr, ptr %55, align 8
   tail call void @free(ptr noundef %56) #13
   store ptr null, ptr %55, align 8
-  %57 = mul nsw i32 %7, 3
+  %57 = mul nuw nsw i32 %7, 3
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds i8, ptr %0, i64 936
   %60 = load <2 x i64>, ptr %59, align 8
@@ -1337,7 +1337,7 @@ define noundef i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br i1 %exitcond147.not, label %._crit_edge, label %.lr.ph141
 
 ._crit_edge:                                      ; preds = %.lr.ph141
-  %106 = mul nsw i32 %7, 3
+  %106 = mul nuw nsw i32 %7, 3
   %107 = zext nneg i32 %106 to i64
   %108 = getelementptr inbounds i8, ptr %0, i64 936
   %109 = load <2 x i64>, ptr %108, align 8
@@ -1356,7 +1356,7 @@ define noundef i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = icmp eq ptr %0, null
@@ -1437,7 +1437,7 @@ define noundef i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writ
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %39
-  %44 = tail call i32 @IDAInitialSetup(ptr noundef nonnull %0), !range !4
+  %44 = tail call i32 @IDAInitialSetup(ptr noundef nonnull %0)
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %45, label %IDAStopTest2.exit.thread
 
@@ -1599,7 +1599,7 @@ define noundef i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writ
   br i1 %138, label %139, label %144
 
 139:                                              ; preds = %131
-  %140 = tail call fastcc i32 @IDARcheck1(ptr noundef nonnull %0), !range !5
+  %140 = tail call fastcc i32 @IDARcheck1(ptr noundef nonnull %0)
   %141 = icmp eq i32 %140, -10
   br i1 %141, label %142, label %._crit_edge
 
@@ -1650,7 +1650,7 @@ define noundef i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writ
 165:                                              ; preds = %161
   %166 = getelementptr inbounds i8, ptr %0, i64 1172
   %167 = load i32, ptr %166, align 4
-  %168 = tail call fastcc i32 @IDARcheck2(ptr noundef nonnull %0), !range !6
+  %168 = tail call fastcc i32 @IDARcheck2(ptr noundef nonnull %0)
   switch i32 %168, label %179 [
     i32 3, label %169
     i32 -10, label %172
@@ -1697,7 +1697,7 @@ define noundef i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writ
   br i1 %195, label %196, label %210
 
 196:                                              ; preds = %179
-  %197 = tail call fastcc i32 @IDARcheck3(ptr noundef nonnull %0), !range !7
+  %197 = tail call fastcc i32 @IDARcheck3(ptr noundef nonnull %0)
   switch i32 %197, label %210 [
     i32 0, label %198
     i32 1, label %204
@@ -1715,7 +1715,7 @@ define noundef i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writ
   %202 = load double, ptr %183, align 8
   store double %202, ptr %2, align 8
   store double %202, ptr %191, align 8
-  %203 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %202, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !8
+  %203 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %202, ptr noundef nonnull %3, ptr noundef nonnull %4)
   br label %IDAStopTest2.exit.thread
 
 204:                                              ; preds = %196
@@ -1733,7 +1733,7 @@ define noundef i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writ
   br label %IDAStopTest2.exit.thread
 
 210:                                              ; preds = %196, %179, %198, %161
-  %211 = tail call fastcc i32 @IDAStopTest1(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5), !range !9
+  %211 = tail call fastcc i32 @IDAStopTest1(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %5)
   %.not280 = icmp eq i32 %211, 99
   br i1 %.not280, label %212, label %IDAStopTest2.exit.thread
 
@@ -1863,7 +1863,7 @@ IDAStopTest2.exit:                                ; preds = %912, %212
 
 304:                                              ; preds = %303, %302
   %305 = load double, ptr %222, align 8
-  %306 = call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %305, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !8
+  %306 = call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %305, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %307 = load double, ptr %222, align 8
   %308 = getelementptr inbounds i8, ptr %0, i64 688
   store double %307, ptr %308, align 8
@@ -1908,7 +1908,7 @@ IDAWrmsNorm.exit:                                 ; preds = %313, %316
   br i1 %327, label %328, label %IDAStopTest2.exit.thread
 
 328:                                              ; preds = %321
-  %329 = call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %324, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !8
+  %329 = call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %324, ptr noundef nonnull %3, ptr noundef nonnull %4)
   br label %IDAStopTest2.exit.thread
 
 330:                                              ; preds = %IDAWrmsNorm.exit
@@ -2875,12 +2875,12 @@ switch.lookup:                                    ; preds = %630
 
 .loopexit300:                                     ; preds = %685, %630, %switch.lookup, %641
   %.039.i.ph = phi i32 [ %switch.select103.i.i, %641 ], [ %switch.load, %switch.lookup ], [ -17, %630 ], [ -3, %685 ]
-  %829 = call fastcc i32 @IDAHandleFailure(ptr noundef nonnull %0, i32 noundef %.039.i.ph), !range !10
+  %829 = call fastcc i32 @IDAHandleFailure(ptr noundef nonnull %0, i32 noundef %.039.i.ph)
   %830 = load double, ptr %222, align 8
   %831 = getelementptr inbounds i8, ptr %0, i64 688
   store double %830, ptr %831, align 8
   store double %830, ptr %2, align 8
-  %832 = call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %830, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !8
+  %832 = call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %830, ptr noundef nonnull %3, ptr noundef nonnull %4)
   br label %IDAStopTest2.exit.thread
 
 .loopexit:                                        ; preds = %.lr.ph.i76.i, %814
@@ -2917,7 +2917,7 @@ switch.lookup:                                    ; preds = %630
   br i1 %853, label %854, label %.thread
 
 854:                                              ; preds = %851
-  %855 = call fastcc i32 @IDARcheck3(ptr noundef nonnull %0), !range !7
+  %855 = call fastcc i32 @IDARcheck3(ptr noundef nonnull %0)
   switch i32 %855, label %864 [
     i32 1, label %856
     i32 -10, label %861
@@ -3005,7 +3005,7 @@ switch.lookup:                                    ; preds = %630
   br i1 %or.cond.i, label %911, label %898
 
 898:                                              ; preds = %892
-  %899 = call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %888, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !8
+  %899 = call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %888, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %900 = load double, ptr %237, align 8
   %901 = getelementptr inbounds i8, ptr %0, i64 688
   store double %900, ptr %901, align 8
@@ -3042,7 +3042,7 @@ switch.lookup:                                    ; preds = %630
   br i1 %917, label %IDAStopTest2.exit, label %918
 
 918:                                              ; preds = %912
-  %919 = call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !8
+  %919 = call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %920 = getelementptr inbounds i8, ptr %0, i64 688
   store double %1, ptr %920, align 8
   store double %1, ptr %2, align 8
@@ -3061,7 +3061,7 @@ IDAStopTest2.exit.thread:                         ; preds = %911, %918, %921, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 92
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -3215,7 +3215,7 @@ define double @IDAWrmsNorm(ptr nocapture noundef readonly %0, ptr noundef %1, pt
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @IDARcheck1(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -10, 1) i32 @IDARcheck1(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1080
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -3387,7 +3387,7 @@ define internal fastcc noundef i32 @IDARcheck1(ptr nocapture noundef %0) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @IDARcheck2(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1172
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -3400,7 +3400,7 @@ define internal fastcc i32 @IDARcheck2(ptr noundef %0) unnamed_addr #0 {
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 400
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %7, ptr noundef %9, ptr noundef %11), !range !8
+  %12 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %7, ptr noundef %9, ptr noundef %11)
   %13 = getelementptr inbounds i8, ptr %0, i64 1072
   %14 = load ptr, ptr %13, align 8
   %15 = load double, ptr %6, align 8
@@ -3523,7 +3523,7 @@ define internal fastcc i32 @IDARcheck2(ptr noundef %0) unnamed_addr #0 {
 81:                                               ; preds = %._crit_edge.thread108
   %82 = load ptr, ptr %8, align 8
   %83 = load ptr, ptr %10, align 8
-  %84 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %72, ptr noundef %82, ptr noundef %83), !range !8
+  %84 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %72, ptr noundef %82, ptr noundef %83)
   br label %85
 
 85:                                               ; preds = %81, %76
@@ -3605,7 +3605,7 @@ define internal fastcc i32 @IDARcheck2(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @IDARcheck3(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1168
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %._crit_edge119 [
@@ -3647,7 +3647,7 @@ define internal fastcc noundef i32 @IDARcheck3(ptr noundef %0) unnamed_addr #0 {
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 400
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %19, ptr noundef %22, ptr noundef %24), !range !8
+  %25 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %19, ptr noundef %22, ptr noundef %24)
   %26 = getelementptr inbounds i8, ptr %0, i64 1072
   %27 = load ptr, ptr %26, align 8
   %28 = load double, ptr %20, align 8
@@ -3925,7 +3925,7 @@ define internal fastcc noundef i32 @IDARcheck3(ptr noundef %0) unnamed_addr #0 {
   %.1244.i = phi double [ %192, %188 ], [ %.0243.i, %184 ]
   %194 = load ptr, ptr %21, align 8
   %195 = load ptr, ptr %23, align 8
-  %196 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %.1244.i, ptr noundef %194, ptr noundef %195), !range !8
+  %196 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %.1244.i, ptr noundef %194, ptr noundef %195)
   %197 = load ptr, ptr %26, align 8
   %198 = load ptr, ptr %21, align 8
   %199 = load ptr, ptr %23, align 8
@@ -4339,7 +4339,7 @@ IDARootfind.exit:                                 ; preds = %362, %150, %._crit_
   %408 = load double, ptr %407, align 8
   %409 = load ptr, ptr %21, align 8
   %410 = load ptr, ptr %23, align 8
-  %411 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %408, ptr noundef %409, ptr noundef %410), !range !8
+  %411 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %408, ptr noundef %409, ptr noundef %410)
   br label %IDARootfind.exit.thread
 
 IDARootfind.exit.thread:                          ; preds = %193, %._crit_edge.thread.thread, %._crit_edge.thread, %._crit_edge94, %18, %406
@@ -4348,7 +4348,7 @@ IDARootfind.exit.thread:                          ; preds = %193, %._crit_edge.t
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @IDAGetSolution(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -28, 1) i32 @IDAGetSolution(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -4450,7 +4450,7 @@ define i32 @IDAGetSolution(ptr noundef %0, double noundef %1, ptr noundef %2, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @IDAStopTest1(ptr noundef %0, double noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 100) i32 @IDAStopTest1(ptr noundef %0, double noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 600
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
@@ -4494,7 +4494,7 @@ define internal fastcc noundef i32 @IDAStopTest1(ptr noundef %0, double noundef 
   br i1 %or.cond, label %52, label %36
 
 36:                                               ; preds = %30
-  %37 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %13, ptr noundef %3, ptr noundef %4), !range !8
+  %37 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %13, ptr noundef %3, ptr noundef %4)
   %.not71 = icmp eq i32 %37, 0
   %38 = load double, ptr %12, align 8
   br i1 %.not71, label %41, label %39
@@ -4553,7 +4553,7 @@ define internal fastcc noundef i32 @IDAStopTest1(ptr noundef %0, double noundef 
   br i1 %65, label %83, label %66
 
 66:                                               ; preds = %58
-  %67 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %1, ptr noundef %3, ptr noundef %4), !range !8
+  %67 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %1, ptr noundef %3, ptr noundef %4)
   %.not70 = icmp eq i32 %67, 0
   br i1 %.not70, label %69, label %68
 
@@ -4579,7 +4579,7 @@ define internal fastcc noundef i32 @IDAStopTest1(ptr noundef %0, double noundef 
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %70
-  %81 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %72, ptr noundef %3, ptr noundef %4), !range !8
+  %81 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %72, ptr noundef %3, ptr noundef %4)
   %82 = load double, ptr %71, align 8
   store double %82, ptr %73, align 8
   store double %82, ptr %2, align 8
@@ -4591,7 +4591,7 @@ define internal fastcc noundef i32 @IDAStopTest1(ptr noundef %0, double noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @IDAHandleFailure(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -99, -2) i32 @IDAHandleFailure(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   switch i32 %1, label %38 [
     i32 -3, label %3
     i32 -4, label %8
@@ -4684,7 +4684,7 @@ define internal fastcc noundef i32 @IDAHandleFailure(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -28, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [6 x double], align 16
   %6 = alloca [6 x double], align 16
   %7 = icmp eq ptr %0, null
@@ -4862,7 +4862,7 @@ define i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr nou
 declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAComputeY(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAComputeY(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -4884,7 +4884,7 @@ define noundef i32 @IDAComputeY(ptr noundef readonly %0, ptr noundef %1, ptr nou
 declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAComputeYp(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAComputeYp(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -5082,10 +5082,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -22, i32 1}
-!5 = !{i32 -10, i32 1}
-!6 = !{i32 -10, i32 4}
-!7 = !{i32 -10, i32 2}
-!8 = !{i32 -28, i32 1}
-!9 = !{i32 -22, i32 100}
-!10 = !{i32 -99, i32 -2}

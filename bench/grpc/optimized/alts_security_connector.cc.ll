@@ -1049,10 +1049,10 @@ entry:
   %call4 = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args, i64 23, ptr nonnull @.str.26)
   %ref.tmp3.sroa.0.0.extract.trunc = trunc i64 %call4 to i32
   %1 = and i64 %call4, 4294967296
-  %tobool.i.not.i = icmp eq i64 %1, 0
+  %tobool.i.i.not = icmp eq i64 %1, 0
   %2 = tail call i32 @llvm.smax.i32(i32 %ref.tmp3.sroa.0.0.extract.trunc, i32 0)
   %3 = zext nneg i32 %2 to i64
-  %conv = select i1 %tobool.i.not.i, i64 0, i64 %3
+  %conv = select i1 %tobool.i.i.not, i64 0, i64 %3
   %options_.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %options_.i, align 8
   %target_name_ = getelementptr inbounds i8, ptr %this, i64 56
@@ -1487,10 +1487,10 @@ entry:
   %call4 = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args, i64 23, ptr nonnull @.str.26)
   %ref.tmp3.sroa.0.0.extract.trunc = trunc i64 %call4 to i32
   %1 = and i64 %call4, 4294967296
-  %tobool.i.not.i = icmp eq i64 %1, 0
+  %tobool.i.i.not = icmp eq i64 %1, 0
   %2 = tail call i32 @llvm.smax.i32(i32 %ref.tmp3.sroa.0.0.extract.trunc, i32 0)
   %3 = zext nneg i32 %2 to i64
-  %conv = select i1 %tobool.i.not.i, i64 0, i64 %3
+  %conv = select i1 %tobool.i.i.not, i64 0, i64 %3
   %options_.i = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %options_.i, align 8
   %handshaker_service_url_.i = getelementptr inbounds i8, ptr %0, i64 48

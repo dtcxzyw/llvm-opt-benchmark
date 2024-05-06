@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @packet_builder_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @capsa_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @capsa_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
@@ -152,7 +152,7 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @capsa_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @capsa_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
@@ -237,7 +237,7 @@ define internal noundef i32 @capsa_read(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @capsa_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @capsa_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #5
@@ -391,7 +391,7 @@ define internal fastcc i32 @capsa_read_packet(i16 %.96.val.0.val, ptr noundef %0
   %62 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %61, ptr %62, align 8
   %63 = urem i64 %.0, 1000000
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw nsw i64 %63 to i32
   %65 = mul nuw nsw i32 %64, 1000
   %66 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %65, ptr %66, align 8

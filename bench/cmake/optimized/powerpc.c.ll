@@ -65,7 +65,7 @@ define internal i64 @powerpc_code(ptr nocapture readnone %0, i32 noundef %1, i1 
   %36 = add i32 %35, %25
   %.0.us = add i32 %36, %30
   %37 = lshr i32 %.0.us, 24
-  %38 = trunc i32 %37 to i8
+  %38 = trunc nuw i32 %37 to i8
   %39 = and i8 %38, 3
   %40 = or disjoint i8 %39, 72
   store i8 %40, ptr %7, align 1
@@ -126,7 +126,7 @@ define internal i64 @powerpc_code(ptr nocapture readnone %0, i32 noundef %1, i1 
   %80 = add i32 %79, %69
   %.0 = add i32 %80, %74
   %81 = lshr i32 %.0, 24
-  %82 = trunc i32 %81 to i8
+  %82 = trunc nuw i32 %81 to i8
   %83 = and i8 %82, 3
   %84 = or disjoint i8 %83, 72
   store i8 %84, ptr %51, align 1

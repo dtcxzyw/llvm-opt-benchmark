@@ -85,7 +85,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.63 = private unnamed_addr constant [82 x i8] c"tar-based phar \22%s\22 cannot be created, contents of file \22%s\22 could not be written\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @phar_is_tar(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @phar_is_tar(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 148
   br label %.lr.ph.i
 
@@ -296,7 +296,7 @@ declare i32 @phar_create_or_parse_filename(ptr noundef, i64 noundef, ptr noundef
 declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_parse_tarfile(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef writeonly %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #5 {
+define hidden range(i32 -1, 1) i32 @phar_parse_tarfile(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef writeonly %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #5 {
   %10 = alloca [4096 x i8], align 16
   %11 = alloca %struct._zval_struct, align 8
   %12 = alloca %struct._zval_struct, align 8
@@ -480,7 +480,7 @@ phar_tar_checksum.exit:                           ; preds = %.lr.ph.i598
   %.sroa.sel = select i1 %.not544, ptr %.sroa.gep, ptr %30
   br label %.lr.ph.i599
 
-.lr.ph.i599:                                      ; preds = %.lr.ph.i599, %101
+.lr.ph.i599:                                      ; preds = %101, %.lr.ph.i599
   %.010.i600 = phi ptr [ %105, %.lr.ph.i599 ], [ %15, %101 ]
   %.079.i601 = phi i32 [ %104, %.lr.ph.i599 ], [ 0, %101 ]
   %102 = load i8, ptr %.010.i600, align 1
@@ -1385,32 +1385,32 @@ phar_tar_process_metadata.exit:                   ; preds = %430, %447, %449, %.
 493:                                              ; preds = %489
   %494 = getelementptr inbounds [512 x i8], ptr %15, i64 0, i64 %490
   store i8 0, ptr %494, align 1
-  %495 = call ptr @memchr(ptr noundef nonnull %15, i32 noundef 47, i64 noundef %490) #15
+  %495 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 47, i64 noundef %490) #15
   %.not.i653 = icmp eq ptr %495, null
   br i1 %.not.i653, label %496, label %phar_validate_alias.exit.thread
 
 496:                                              ; preds = %493
-  %497 = call ptr @memchr(ptr noundef nonnull %15, i32 noundef 92, i64 noundef %490) #15
+  %497 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 92, i64 noundef %490) #15
   %.not11.i = icmp eq ptr %497, null
   br i1 %.not11.i, label %498, label %phar_validate_alias.exit.thread
 
 498:                                              ; preds = %496
-  %499 = call ptr @memchr(ptr noundef nonnull %15, i32 noundef 58, i64 noundef %490) #15
+  %499 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 58, i64 noundef %490) #15
   %.not12.i = icmp eq ptr %499, null
   br i1 %.not12.i, label %500, label %phar_validate_alias.exit.thread
 
 500:                                              ; preds = %498
-  %501 = call ptr @memchr(ptr noundef nonnull %15, i32 noundef 59, i64 noundef %490) #15
+  %501 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 59, i64 noundef %490) #15
   %.not13.i = icmp eq ptr %501, null
   br i1 %.not13.i, label %502, label %phar_validate_alias.exit.thread
 
 502:                                              ; preds = %500
-  %503 = call ptr @memchr(ptr noundef nonnull %15, i32 noundef 10, i64 noundef %490) #15
+  %503 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 10, i64 noundef %490) #15
   %.not14.i = icmp eq ptr %503, null
   br i1 %.not14.i, label %phar_validate_alias.exit, label %phar_validate_alias.exit.thread
 
 phar_validate_alias.exit:                         ; preds = %502
-  %504 = call ptr @memchr(ptr noundef nonnull %15, i32 noundef 13, i64 noundef %490) #15
+  %504 = call ptr @memchr(ptr noundef nonnull readonly %15, i32 noundef 13, i64 noundef %490) #15
   %.not740 = icmp eq ptr %504, null
   br i1 %.not740, label %513, label %phar_validate_alias.exit.thread
 
@@ -1870,7 +1870,7 @@ declare i32 @phar_free_alias(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare i32 @zend_hash_str_del(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_tar_setmetadata(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define hidden range(i32 -1, 3) i32 @phar_tar_setmetadata(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = getelementptr inbounds i8, ptr %1, i64 154
   %6 = load i16, ptr %5, align 2
@@ -2475,7 +2475,7 @@ define hidden noundef i32 @phar_tar_flush(ptr noundef %0, ptr noundef %1, i64 no
 
 258:                                              ; preds = %255
   %259 = load ptr, ptr %257, align 8, !nonnull !4, !noundef !4
-  %260 = call i32 @phar_tar_setmetadata(ptr noundef nonnull %249, ptr noundef nonnull %259, ptr noundef %4), !range !5
+  %260 = call i32 @phar_tar_setmetadata(ptr noundef nonnull %249, ptr noundef nonnull %259, ptr noundef %4)
   %.not547 = icmp eq i32 %260, 0
   br i1 %.not547, label %290, label %261
 
@@ -2550,7 +2550,7 @@ define hidden noundef i32 @phar_tar_flush(ptr noundef %0, ptr noundef %1, i64 no
   br label %444
 
 284:                                              ; preds = %276
-  %285 = call i32 @phar_tar_setmetadata(ptr noundef nonnull %249, ptr noundef nonnull %278, ptr noundef %4), !range !5
+  %285 = call i32 @phar_tar_setmetadata(ptr noundef nonnull %249, ptr noundef nonnull %278, ptr noundef %4)
   %.not544 = icmp eq i32 %285, 0
   br i1 %.not544, label %290, label %286
 
@@ -2687,7 +2687,7 @@ define hidden noundef i32 @phar_tar_flush(ptr noundef %0, ptr noundef %1, i64 no
   %348 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 %347, ptr %348, align 8
   store i32 %347, ptr %11, align 8
-  %349 = call fastcc i32 @phar_tar_writeheaders_int(ptr noundef nonnull %11, ptr noundef nonnull %13), !range !6
+  %349 = call fastcc i32 @phar_tar_writeheaders_int(ptr noundef nonnull %11, ptr noundef nonnull %13)
   store i32 %349, ptr %318, align 8
   br i1 %.not548, label %357, label %350
 
@@ -2891,7 +2891,7 @@ declare zeroext i1 @phar_metadata_tracker_has_data(ptr noundef, i32 noundef) loc
 declare void @zend_hash_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @phar_tar_setupmetadata(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 3) i32 @phar_tar_setupmetadata(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2922,7 +2922,7 @@ define internal noundef i32 @phar_tar_setupmetadata(ptr nocapture noundef readon
   %18 = getelementptr inbounds i8, ptr %7, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 296
-  %21 = tail call i32 @phar_tar_setmetadata(ptr noundef nonnull %20, ptr noundef nonnull %7, ptr noundef %6), !range !5
+  %21 = tail call i32 @phar_tar_setmetadata(ptr noundef nonnull %20, ptr noundef nonnull %7, ptr noundef %6)
   br label %81
 
 22:                                               ; preds = %14
@@ -2982,7 +2982,7 @@ define internal noundef i32 @phar_tar_setupmetadata(ptr nocapture noundef readon
 
 57:                                               ; preds = %55
   %58 = load ptr, ptr %56, align 8, !nonnull !4, !noundef !4
-  %59 = call i32 @phar_tar_setmetadata(ptr noundef nonnull %41, ptr noundef nonnull %58, ptr noundef %6), !range !5
+  %59 = call i32 @phar_tar_setmetadata(ptr noundef nonnull %41, ptr noundef nonnull %58, ptr noundef %6)
   %60 = load ptr, ptr %4, align 8
   call void @_efree(ptr noundef %60) #16
   br label %81
@@ -3044,7 +3044,7 @@ define internal noundef i32 @phar_tar_setupmetadata(ptr nocapture noundef readon
   store i16 64, ptr %.sroa.697.0..sroa_idx, align 1
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 156
   store i32 0, ptr %.sroa.8.0..sroa_idx, align 1
-  %80 = call i32 @phar_tar_setmetadata(ptr noundef nonnull %41, ptr noundef nonnull %79, ptr noundef %6), !range !5
+  %80 = call i32 @phar_tar_setmetadata(ptr noundef nonnull %41, ptr noundef nonnull %79, ptr noundef %6)
   br label %81
 
 81:                                               ; preds = %32, %24, %78, %.thread115, %57, %52, %.thread, %17
@@ -3053,16 +3053,16 @@ define internal noundef i32 @phar_tar_setupmetadata(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @phar_tar_writeheaders(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #5 {
+define internal range(i32 0, 3) i32 @phar_tar_writeheaders(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #5 {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call fastcc i32 @phar_tar_writeheaders_int(ptr noundef %3, ptr noundef %1), !range !6
+  %4 = tail call fastcc i32 @phar_tar_writeheaders_int(ptr noundef %3, ptr noundef %1)
   ret i32 %4
 }
 
 declare i32 @phar_create_signature(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @phar_tar_writeheaders_int(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #5 {
+define internal fastcc range(i32 0, 3) i32 @phar_tar_writeheaders_int(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #5 {
   %3 = alloca %struct._tar_header, align 1
   %4 = alloca [512 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 154
@@ -3607,5 +3607,3 @@ attributes #18 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -1, i32 3}
-!6 = !{i32 0, i32 3}

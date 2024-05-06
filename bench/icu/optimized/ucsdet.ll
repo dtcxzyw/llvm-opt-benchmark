@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucsdet_open_75(ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @ucsdet_open_75(ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -86,7 +86,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @_ZN6icu_7515CharsetDetector7setTextEPKci(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucsdet_getName_75(ptr noundef %ucsm, ptr nocapture noundef readonly %status) local_unnamed_addr #0 {
+define noundef ptr @ucsdet_getName_75(ptr noundef %ucsm, ptr nocapture noundef readonly %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -104,7 +104,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef ptr @_ZNK6icu_7512CharsetMatch7getNameEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucsdet_getConfidence_75(ptr noundef %ucsm, ptr nocapture noundef readonly %status) local_unnamed_addr #0 {
+define noundef i32 @ucsdet_getConfidence_75(ptr noundef %ucsm, ptr nocapture noundef readonly %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -122,7 +122,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef i32 @_ZNK6icu_7512CharsetMatch13getConfidenceEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucsdet_getLanguage_75(ptr noundef %ucsm, ptr nocapture noundef readonly %status) local_unnamed_addr #0 {
+define noundef ptr @ucsdet_getLanguage_75(ptr noundef %ucsm, ptr nocapture noundef readonly %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -140,7 +140,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef ptr @_ZNK6icu_7512CharsetMatch11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucsdet_detect_75(ptr noundef %ucsd, ptr noundef %status) local_unnamed_addr #0 {
+define noundef ptr @ucsdet_detect_75(ptr noundef %ucsd, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -175,7 +175,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @_ZNK6icu_7515CharsetDetector19setDeclaredEncodingEPKci(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucsdet_detectAll_75(ptr noundef %ucsd, ptr noundef %maxMatchesFound, ptr noundef %status) local_unnamed_addr #0 {
+define noundef ptr @ucsdet_detectAll_75(ptr noundef %ucsd, ptr noundef %maxMatchesFound, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -193,7 +193,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef ptr @_ZN6icu_7515CharsetDetector9detectAllERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ucsdet_isInputFilterEnabled_75(ptr noundef %ucsd) local_unnamed_addr #0 {
+define noundef signext i8 @ucsdet_isInputFilterEnabled_75(ptr noundef %ucsd) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ucsd, null
   br i1 %cmp, label %return, label %if.end
@@ -210,7 +210,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef signext i8 @_ZNK6icu_7515CharsetDetector16getStripTagsFlagEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ucsdet_enableInputFilter_75(ptr noundef %ucsd, i8 noundef signext %filter) local_unnamed_addr #0 {
+define noundef signext i8 @ucsdet_enableInputFilter_75(ptr noundef %ucsd, i8 noundef signext %filter) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ucsd, null
   br i1 %cmp, label %return, label %if.end
@@ -228,7 +228,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef signext i8 @_ZN6icu_7515CharsetDetector16setStripTagsFlagEa(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucsdet_getUChars_75(ptr noundef %ucsm, ptr noundef %buf, i32 noundef %cap, ptr noundef %status) local_unnamed_addr #0 {
+define noundef i32 @ucsdet_getUChars_75(ptr noundef %ucsm, ptr noundef %buf, i32 noundef %cap, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -255,7 +255,7 @@ entry:
 declare void @_ZN6icu_7515CharsetDetector20setDetectableCharsetEPKcaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucsdet_getAllDetectableCharsets_75(ptr nocapture noundef readnone %0, ptr noundef nonnull %status) local_unnamed_addr #0 {
+define noundef ptr @ucsdet_getAllDetectableCharsets_75(ptr nocapture noundef readnone %0, ptr noundef nonnull %status) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_7515CharsetDetector24getAllDetectableCharsetsER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret ptr %call
@@ -264,7 +264,7 @@ entry:
 declare noundef ptr @_ZN6icu_7515CharsetDetector24getAllDetectableCharsetsER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucsdet_getDetectableCharsets_75(ptr noundef nonnull %ucsd, ptr noundef nonnull %status) local_unnamed_addr #0 {
+define noundef ptr @ucsdet_getDetectableCharsets_75(ptr noundef nonnull %ucsd, ptr noundef nonnull %status) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZNK6icu_7515CharsetDetector21getDetectableCharsetsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %ucsd, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret ptr %call

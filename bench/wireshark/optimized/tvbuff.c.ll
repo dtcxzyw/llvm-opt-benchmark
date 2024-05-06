@@ -255,7 +255,7 @@ define hidden void @tvb_add_to_chain(ptr noundef %0, ptr noundef %1) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define hidden void @tvb_check_offset_length(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = tail call fastcc i32 @check_offset_length_no_exception(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  %6 = tail call fastcc i32 @check_offset_length_no_exception(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %check_offset_length.exit, label %7
 
@@ -288,7 +288,7 @@ define ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef %1, i32 noundef %2
 10:                                               ; preds = %6
   %11 = lshr i32 %1, 3
   %12 = and i32 %1, 7
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = sub nuw nsw i8 8, %13
   %15 = icmp eq i32 %2, -1
   br i1 %15, label %16, label %21
@@ -306,7 +306,7 @@ define ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef %1, i32 noundef %2
 21:                                               ; preds = %10
   %22 = ashr i32 %2, 3
   %23 = srem i32 %2, 8
-  %24 = trunc i32 %23 to i8
+  %24 = trunc nsw i32 %23 to i8
   %.not78 = icmp ne i8 %24, 0
   %25 = zext i1 %.not78 to i32
   %spec.select = add nsw i32 %22, %25
@@ -504,7 +504,7 @@ define ptr @tvb_new_octet_right_aligned(ptr noundef %0, i32 noundef %1, i32 noun
 9:                                                ; preds = %5
   %10 = lshr i32 %1, 3
   %11 = and i32 %1, 7
-  %12 = trunc i32 %11 to i8
+  %12 = trunc nuw nsw i32 %11 to i8
   %13 = sub nuw nsw i8 8, %12
   %14 = icmp eq i32 %2, -1
   br i1 %14, label %15, label %20
@@ -522,7 +522,7 @@ define ptr @tvb_new_octet_right_aligned(ptr noundef %0, i32 noundef %1, i32 noun
 20:                                               ; preds = %9
   %21 = sdiv i32 %2, 8
   %22 = srem i32 %2, 8
-  %23 = trunc i32 %22 to i8
+  %23 = trunc nsw i32 %22 to i8
   %.not71 = icmp ne i8 %23, 0
   %24 = zext i1 %.not71 to i32
   %spec.select = add nsw i32 %21, %24
@@ -619,7 +619,7 @@ ensure_contiguous.exit:                           ; preds = %_tvb_captured_lengt
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = lshr i32 %63, %11
-  %65 = trunc i32 %64 to i8
+  %65 = trunc nuw i32 %64 to i8
   %66 = getelementptr i8, ptr %46, i64 %60
   store i8 %65, ptr %66, align 1
   %67 = icmp sgt i32 %.064, %.065
@@ -812,7 +812,7 @@ compute_offset_and_remaining.exit.thread:         ; preds = %12, %9, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_ensure_captured_length_remaining(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @tvb_ensure_captured_length_remaining(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -936,7 +936,7 @@ define i32 @tvb_ensure_captured_length_remaining(ptr noundef readonly %0, i32 no
 declare void @except_throw(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tvb_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 
@@ -1122,7 +1122,7 @@ define void @tvb_ensure_bytes_exist64(ptr noundef %0, i32 noundef %1, i64 nounde
   unreachable
 
 6:                                                ; preds = %3
-  %7 = trunc i64 %2 to i32
+  %7 = trunc nuw nsw i64 %2 to i32
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %1, i32 noundef %7)
   ret void
 }
@@ -1296,7 +1296,7 @@ define void @tvb_ensure_bytes_exist(ptr noundef readonly %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_offset_exists(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tvb_offset_exists(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -1655,7 +1655,7 @@ define ptr @tvb_memcpy(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 nound
   unreachable
 
 12:                                               ; preds = %9
-  %13 = trunc i64 %3 to i32
+  %13 = trunc nuw nsw i64 %3 to i32
   %14 = icmp sgt i32 %2, -1
   br i1 %14, label %15, label %25
 
@@ -2083,7 +2083,7 @@ define signext i16 @tvb_get_ntohis(ptr noundef %0, i32 noundef %1) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 16777216) i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 3)
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
@@ -2101,7 +2101,7 @@ define i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_get_ntohi24(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -16777216, 16777216) i32 @tvb_get_ntohi24(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 3)
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
@@ -2168,7 +2168,7 @@ define i32 @tvb_get_ntohil(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_ntoh40(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 1099511627776) i64 @tvb_get_ntoh40(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 5)
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i64
@@ -2196,7 +2196,7 @@ define i64 @tvb_get_ntoh40(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_ntohi40(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_ntohi40(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 5)
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i64
@@ -2227,7 +2227,7 @@ define i64 @tvb_get_ntohi40(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 281474976710656) i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 6)
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i64
@@ -2260,7 +2260,7 @@ define i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_ntohi48(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_ntohi48(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 6)
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i64
@@ -2296,7 +2296,7 @@ define i64 @tvb_get_ntohi48(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_ntoh56(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 72057594037927936) i64 @tvb_get_ntoh56(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 7)
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i64
@@ -2334,7 +2334,7 @@ define i64 @tvb_get_ntoh56(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_ntohi56(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_ntohi56(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 7)
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i64
@@ -2525,7 +2525,7 @@ define signext i16 @tvb_get_letohis(ptr noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 16777216) i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp sgt i32 %2, -1
   %4 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 3)
   br i1 %.not, label %10, label %5
@@ -2559,7 +2559,7 @@ define i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_get_letoh24(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 16777216) i32 @tvb_get_letoh24(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 3)
   %4 = getelementptr i8, ptr %3, i64 1
   %5 = load i16, ptr %4, align 1
@@ -2572,7 +2572,7 @@ define i32 @tvb_get_letoh24(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_get_gint24(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -16777216, 16777216) i32 @tvb_get_gint24(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp sgt i32 %2, -1
   %4 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 3)
   br i1 %.not, label %14, label %5
@@ -2614,7 +2614,7 @@ define i32 @tvb_get_gint24(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_get_letohi24(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -16777216, 16777216) i32 @tvb_get_letohi24(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 3)
   %4 = getelementptr i8, ptr %3, i64 1
   %5 = load i16, ptr %4, align 1
@@ -2714,7 +2714,7 @@ define i32 @tvb_get_letohil(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_guint40(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i64 0, 1099511627776) i64 @tvb_get_guint40(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp sgt i32 %2, -1
   %4 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 5)
   br i1 %.not, label %10, label %5
@@ -2758,7 +2758,7 @@ define i64 @tvb_get_guint40(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_letoh40(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 1099511627776) i64 @tvb_get_letoh40(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 5)
   %4 = getelementptr i8, ptr %3, i64 1
   %5 = load i32, ptr %4, align 1
@@ -2771,7 +2771,7 @@ define i64 @tvb_get_letoh40(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_gint40(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_gint40(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp sgt i32 %2, -1
   %4 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 5)
   br i1 %.not, label %14, label %5
@@ -2823,7 +2823,7 @@ define i64 @tvb_get_gint40(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_letohi40(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_letohi40(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 5)
   %4 = getelementptr i8, ptr %3, i64 1
   %5 = load i32, ptr %4, align 1
@@ -2839,7 +2839,7 @@ define i64 @tvb_get_letohi40(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_guint48(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i64 0, 281474976710656) i64 @tvb_get_guint48(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp sgt i32 %2, -1
   %4 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 6)
   br i1 %.not, label %15, label %5
@@ -2893,7 +2893,7 @@ define i64 @tvb_get_guint48(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_letoh48(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 281474976710656) i64 @tvb_get_letoh48(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 6)
   %4 = getelementptr i8, ptr %3, i64 2
   %5 = load i32, ptr %4, align 1
@@ -2911,7 +2911,7 @@ define i64 @tvb_get_letoh48(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_gint48(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_gint48(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp sgt i32 %2, -1
   %4 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 6)
   br i1 %.not, label %14, label %5
@@ -2968,7 +2968,7 @@ define i64 @tvb_get_gint48(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_letohi48(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_letohi48(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 6)
   %4 = getelementptr i8, ptr %3, i64 2
   %5 = load i32, ptr %4, align 1
@@ -2984,7 +2984,7 @@ define i64 @tvb_get_letohi48(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_guint56(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i64 0, 72057594037927936) i64 @tvb_get_guint56(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp sgt i32 %2, -1
   %4 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 7)
   br i1 %.not, label %20, label %5
@@ -3048,7 +3048,7 @@ define i64 @tvb_get_guint56(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_letoh56(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 72057594037927936) i64 @tvb_get_letoh56(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 7)
   %4 = getelementptr i8, ptr %3, i64 3
   %5 = load i32, ptr %4, align 1
@@ -3071,7 +3071,7 @@ define i64 @tvb_get_letoh56(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_gint56(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_gint56(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp sgt i32 %2, -1
   %4 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 7)
   br i1 %.not, label %19, label %5
@@ -3138,7 +3138,7 @@ define i64 @tvb_get_gint56(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @tvb_get_letohi56(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_letohi56(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 7)
   %4 = getelementptr i8, ptr %3, i64 3
   %5 = load i32, ptr %4, align 1
@@ -3801,7 +3801,7 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   br i1 %exitcond.not.i, label %parse_month_name.exit.thread, label %114, !llvm.loop !12
 
 117:                                              ; preds = %114
-  %118 = trunc i64 %indvars.iv.i to i32
+  %118 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %118, ptr %113, align 8
   %119 = load i32, ptr %7, align 4
   %120 = sext i32 %119 to i64
@@ -4062,7 +4062,7 @@ ensure_contiguous.exit:                           ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @tvb_get_ipv4_addr_with_prefix_len(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 5) i32 @tvb_get_ipv4_addr_with_prefix_len(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ugt i32 %3, 32
   br i1 %5, label %19, label %6
 
@@ -4092,7 +4092,7 @@ define hidden i32 @tvb_get_ipv4_addr_with_prefix_len(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @tvb_get_ipv6_addr_with_prefix_len(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 17) i32 @tvb_get_ipv6_addr_with_prefix_len(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ugt i32 %3, 128
   br i1 %5, label %20, label %6
 
@@ -4878,7 +4878,7 @@ define i32 @tvb_find_guint16(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16
   %36 = icmp slt i32 %2, 0
   %spec.select = select i1 %36, i32 %34, i32 %35
   %37 = lshr i16 %3, 8
-  %38 = trunc i16 %37 to i8
+  %38 = trunc nuw i16 %37 to i8
   %39 = trunc i16 %3 to i8
   br label %40
 
@@ -5358,7 +5358,7 @@ check_offset_length.exit:                         ; preds = %33
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_strneql(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tvb_strneql(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = trunc i64 %3 to i32
   %6 = tail call fastcc ptr @ensure_contiguous_no_exception(ptr noundef %0, i32 noundef %1, i32 noundef %5, ptr noundef null)
   %.not = icmp eq ptr %6, null
@@ -5511,7 +5511,7 @@ check_offset_length_no_exception.exit:            ; preds = %38
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = trunc i64 %3 to i32
   %6 = tail call fastcc ptr @ensure_contiguous_no_exception(ptr noundef %0, i32 noundef %1, i32 noundef %5, ptr noundef null)
   %.not = icmp eq ptr %6, null
@@ -5529,7 +5529,7 @@ define i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_memeql(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tvb_memeql(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = trunc i64 %3 to i32
   %6 = tail call fastcc ptr @ensure_contiguous_no_exception(ptr noundef %0, i32 noundef %1, i32 noundef %5, ptr noundef null)
   %.not = icmp eq ptr %6, null
@@ -9069,7 +9069,7 @@ _tvb_get_raw_bytes_as_stringz.exit:               ; preds = %60, %43, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_get_raw_bytes_as_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2147483647) i32 @tvb_get_raw_bytes_as_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %5
 
@@ -9128,7 +9128,7 @@ tvb_captured_length_remaining.exit:               ; preds = %16, %23
   br i1 %27, label %tvb_captured_length_remaining.exit.thread, label %28
 
 28:                                               ; preds = %tvb_captured_length_remaining.exit
-  %29 = trunc i64 %3 to i32
+  %29 = trunc nuw i64 %3 to i32
   %.not26 = icmp ult i32 %26, %29
   %30 = add nsw i32 %29, -1
   %spec.select = select i1 %.not26, i32 %26, i32 %30
@@ -9145,7 +9145,7 @@ tvb_captured_length_remaining.exit.thread:        ; preds = %tvb_captured_length
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tvb_ascii_isprint(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tvb_ascii_isprint(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
@@ -9234,7 +9234,7 @@ compute_offset_and_remaining.exit:                ; preds = %26, %tvb_get_ptr.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_utf_8_isprint(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tvb_utf_8_isprint(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
@@ -9300,7 +9300,7 @@ compute_offset_and_remaining.exit:                ; preds = %20, %17, %26, %tvb_
 declare zeroext i1 @isprint_utf8_string(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tvb_ascii_isdigit(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tvb_ascii_isdigit(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
@@ -10010,7 +10010,7 @@ ensure_contiguous_no_exception.exit.ensure_contiguous.exit_crit_edge: ; preds = 
 
 ensure_contiguous.exit:                           ; preds = %ensure_contiguous_no_exception.exit.ensure_contiguous.exit_crit_edge, %15
   %27 = phi i32 [ %.pre, %ensure_contiguous_no_exception.exit.ensure_contiguous.exit_crit_edge ], [ %5, %15 ]
-  %.0.i34 = phi ptr [ %24, %ensure_contiguous_no_exception.exit.ensure_contiguous.exit_crit_edge ], [ %17, %15 ]
+  %.0.i35 = phi ptr [ %24, %ensure_contiguous_no_exception.exit.ensure_contiguous.exit_crit_edge ], [ %17, %15 ]
   %28 = getelementptr inbounds i8, ptr %1, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not17.i21 = icmp eq ptr %29, null
@@ -10038,7 +10038,7 @@ ensure_contiguous_no_exception.exit24:            ; preds = %30
   unreachable
 
 ensure_contiguous.exit20:                         ; preds = %ensure_contiguous.exit, %ensure_contiguous_no_exception.exit24
-  %.0.i2236 = phi ptr [ %36, %ensure_contiguous_no_exception.exit24 ], [ %29, %ensure_contiguous.exit ]
+  %.0.i2237 = phi ptr [ %36, %ensure_contiguous_no_exception.exit24 ], [ %29, %ensure_contiguous.exit ]
   %39 = icmp sgt i32 %2, -1
   br i1 %39, label %40, label %49
 
@@ -10098,23 +10098,23 @@ validate_offset.exit.sink.split.i:                ; preds = %57, %45
   br label %67
 
 67:                                               ; preds = %61, %57, %54, %45, %42, %validate_offset.exit.sink.split.i
-  %.0.i25.ph = phi i64 [ %.30.i.i, %validate_offset.exit.sink.split.i ], [ 1, %42 ], [ 4, %45 ], [ 1, %54 ], [ 4, %57 ], [ 1, %61 ]
-  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i25.ph, ptr noundef null) #16
+  %.0.i26.ph = phi i64 [ %.30.i.i, %validate_offset.exit.sink.split.i ], [ 1, %42 ], [ 4, %45 ], [ 1, %54 ], [ 4, %57 ], [ 1, %61 ]
+  tail call void @except_throw(i64 noundef 1, i64 noundef %.0.i26.ph, ptr noundef null) #16
   unreachable
 
 check_offset_length.exit:                         ; preds = %61
   %68 = sub i32 %62, %63
   %69 = zext i32 %63 to i64
-  %70 = getelementptr i8, ptr %.0.i34, i64 %69
+  %70 = getelementptr i8, ptr %.0.i35, i64 %69
   %71 = zext i32 %68 to i64
   %72 = zext i32 %5 to i64
-  %73 = tail call ptr @ws_memmem(ptr noundef %70, i64 noundef %71, ptr noundef nonnull %.0.i2236, i64 noundef %72) #17
+  %73 = tail call ptr @ws_memmem(ptr noundef %70, i64 noundef %71, ptr noundef nonnull %.0.i2237, i64 noundef %72) #17
   %.not19 = icmp eq ptr %73, null
   br i1 %.not19, label %79, label %74
 
 74:                                               ; preds = %check_offset_length.exit
   %75 = ptrtoint ptr %73 to i64
-  %76 = ptrtoint ptr %.0.i34 to i64
+  %76 = ptrtoint ptr %.0.i35 to i64
   %77 = sub i64 %75, %76
   %78 = trunc i64 %77 to i32
   br label %79
@@ -10172,7 +10172,7 @@ define ptr @tvb_get_ds_tvb(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   store i64 0, ptr %3, align 8
   %6 = and i32 %4, 30
   %7 = add nsw i32 %6, -2
@@ -10223,7 +10223,7 @@ define i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr n
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %.lr.ph85
-  %19 = trunc i64 %indvars.iv96 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv96 to i32
   %20 = add nuw nsw i32 %19, 1
   br label %.loopexit
 
@@ -10249,7 +10249,7 @@ define i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr n
   br i1 %31, label %32, label %39
 
 32:                                               ; preds = %.lr.ph81
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = lshr i64 %30, 1
   %35 = and i64 %30, 1
   %36 = sub nsw i64 0, %35

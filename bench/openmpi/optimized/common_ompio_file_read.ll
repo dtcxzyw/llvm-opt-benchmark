@@ -256,7 +256,7 @@ opal_convertor_get_packed_size.exit.i:            ; preds = %87, %opal_obj_run_c
   store i64 0, ptr %15, align 8
   store i64 0, ptr %12, align 8
   %123 = load i32, ptr %13, align 4
-  %124 = trunc i64 %indvars.iv.i to i32
+  %124 = trunc nuw nsw i64 %indvars.iv.i to i32
   %125 = call i32 @mca_common_ompio_build_io_array(ptr noundef nonnull %109, i32 noundef %124, i32 noundef %101, i64 noundef %54, i64 noundef %122, i32 noundef %123, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %110, ptr noundef nonnull %111) #7
   %126 = load i32, ptr %111, align 8
   %127 = icmp eq i32 %126, 0
@@ -537,7 +537,7 @@ define i32 @mca_common_ompio_file_read_at(ptr noundef %0, i64 noundef %1, ptr no
   %.026.i = phi i64 [ %34, %.lr.ph.i ], [ %30, %11 ]
   store i64 %.026.i, ptr %26, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %31 = trunc i64 %indvars.iv.next.i to i32
+  %31 = trunc nsw i64 %indvars.iv.next.i to i32
   store i32 %31, ptr %25, align 8
   %32 = getelementptr inbounds %struct.iovec, ptr %28, i64 %indvars.iv.next.i, i32 1
   %33 = load i64, ptr %32, align 8
@@ -584,7 +584,7 @@ mca_common_ompio_set_explicit_offset.exit:        ; preds = %.lr.ph.i, %6, %11
   %.026.i13 = phi i64 [ %61, %.lr.ph.i11 ], [ %57, %37 ]
   store i64 %.026.i13, ptr %53, align 8
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i12, 1
-  %58 = trunc i64 %indvars.iv.next.i14 to i32
+  %58 = trunc nsw i64 %indvars.iv.next.i14 to i32
   store i32 %58, ptr %52, align 8
   %59 = getelementptr inbounds %struct.iovec, ptr %55, i64 %indvars.iv.next.i14, i32 1
   %60 = load i64, ptr %59, align 8
@@ -637,7 +637,7 @@ define noundef i32 @mca_common_ompio_set_explicit_offset(ptr nocapture noundef %
   %.026 = phi i64 [ %28, %.lr.ph ], [ %24, %5 ]
   store i64 %.026, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = trunc i64 %indvars.iv.next to i32
+  %25 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %25, ptr %19, align 8
   %26 = getelementptr inbounds %struct.iovec, ptr %22, i64 %indvars.iv.next, i32 1
   %27 = load i64, ptr %26, align 8
@@ -1128,7 +1128,7 @@ define i32 @mca_common_ompio_file_iread_at(ptr noundef %0, i64 noundef %1, ptr n
   %.026.i = phi i64 [ %34, %.lr.ph.i ], [ %30, %11 ]
   store i64 %.026.i, ptr %26, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %31 = trunc i64 %indvars.iv.next.i to i32
+  %31 = trunc nsw i64 %indvars.iv.next.i to i32
   store i32 %31, ptr %25, align 8
   %32 = getelementptr inbounds %struct.iovec, ptr %28, i64 %indvars.iv.next.i, i32 1
   %33 = load i64, ptr %32, align 8
@@ -1175,7 +1175,7 @@ mca_common_ompio_set_explicit_offset.exit:        ; preds = %.lr.ph.i, %6, %11
   %.026.i13 = phi i64 [ %61, %.lr.ph.i11 ], [ %57, %37 ]
   store i64 %.026.i13, ptr %53, align 8
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i12, 1
-  %58 = trunc i64 %indvars.iv.next.i14 to i32
+  %58 = trunc nsw i64 %indvars.iv.next.i14 to i32
   store i32 %58, ptr %52, align 8
   %59 = getelementptr inbounds %struct.iovec, ptr %55, i64 %indvars.iv.next.i14, i32 1
   %60 = load i64, ptr %59, align 8
@@ -1378,7 +1378,7 @@ define i32 @mca_common_ompio_file_read_at_all(ptr noundef %0, i64 noundef %1, pt
   %.026.i = phi i64 [ %34, %.lr.ph.i ], [ %30, %11 ]
   store i64 %.026.i, ptr %26, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %31 = trunc i64 %indvars.iv.next.i to i32
+  %31 = trunc nsw i64 %indvars.iv.next.i to i32
   store i32 %31, ptr %25, align 8
   %32 = getelementptr inbounds %struct.iovec, ptr %28, i64 %indvars.iv.next.i, i32 1
   %33 = load i64, ptr %32, align 8
@@ -1425,7 +1425,7 @@ mca_common_ompio_set_explicit_offset.exit:        ; preds = %.lr.ph.i, %6, %11
   %.026.i13 = phi i64 [ %61, %.lr.ph.i11 ], [ %57, %37 ]
   store i64 %.026.i13, ptr %53, align 8
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i12, 1
-  %58 = trunc i64 %indvars.iv.next.i14 to i32
+  %58 = trunc nsw i64 %indvars.iv.next.i14 to i32
   store i32 %58, ptr %52, align 8
   %59 = getelementptr inbounds %struct.iovec, ptr %55, i64 %indvars.iv.next.i14, i32 1
   %60 = load i64, ptr %59, align 8
@@ -1500,7 +1500,7 @@ define i32 @mca_common_ompio_file_iread_at_all(ptr noundef %0, i64 noundef %1, p
   %.026.i = phi i64 [ %34, %.lr.ph.i ], [ %30, %11 ]
   store i64 %.026.i, ptr %26, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %31 = trunc i64 %indvars.iv.next.i to i32
+  %31 = trunc nsw i64 %indvars.iv.next.i to i32
   store i32 %31, ptr %25, align 8
   %32 = getelementptr inbounds %struct.iovec, ptr %28, i64 %indvars.iv.next.i, i32 1
   %33 = load i64, ptr %32, align 8
@@ -1563,7 +1563,7 @@ mca_common_ompio_file_iread_all.exit:             ; preds = %39, %41
   %.026.i14 = phi i64 [ %68, %.lr.ph.i12 ], [ %64, %44 ]
   store i64 %.026.i14, ptr %60, align 8
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i13, 1
-  %65 = trunc i64 %indvars.iv.next.i15 to i32
+  %65 = trunc nsw i64 %indvars.iv.next.i15 to i32
   store i32 %65, ptr %59, align 8
   %66 = getelementptr inbounds %struct.iovec, ptr %62, i64 %indvars.iv.next.i15, i32 1
   %67 = load i64, ptr %66, align 8

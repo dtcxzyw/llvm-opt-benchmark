@@ -32,7 +32,7 @@ declare void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CRYPTO_refcount_dec_and_test_zero(ptr nocapture noundef %count) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_refcount_dec_and_test_zero(ptr nocapture noundef %count) local_unnamed_addr #0 {
 entry:
   tail call void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef nonnull @g_refcount_lock) #3
   %0 = load i32, ptr %count, align 4

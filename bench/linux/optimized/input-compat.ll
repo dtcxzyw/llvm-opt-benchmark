@@ -19,7 +19,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_input_ff_eff
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_input_event_from_user311, ptr @__UNIQUE_ID___addressable_input_event_to_user312, ptr @__UNIQUE_ID___addressable_input_ff_effect_from_user313], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @input_event_from_user(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @input_event_from_user(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.input_event_compat, align 4
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
   %5 = inttoptr i64 %4 to ptr
@@ -87,7 +87,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @input_event_to_user(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @input_event_to_user(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.input_event_compat, align 4
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
   %5 = inttoptr i64 %4 to ptr

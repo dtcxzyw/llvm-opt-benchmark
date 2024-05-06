@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [38 x i8] c"git update-server-info [-f | --force]\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_update_server_info(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmd_update_server_info(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %force = alloca i32, align 4
   %options = alloca [2 x %struct.option], align 16

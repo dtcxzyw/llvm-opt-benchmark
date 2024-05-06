@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   %count = alloca i32, align 4
   store i32 0, ptr %count, align 4

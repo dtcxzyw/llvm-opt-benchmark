@@ -131,7 +131,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_x509_req_set0_libctx(ptr noundef %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_x509_req_set0_libctx(ptr noundef %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %x, null
   br i1 %cmp.not, label %if.end11, label %if.then
@@ -205,7 +205,7 @@ declare ptr @X509_PUBKEY_it() #2
 declare ptr @X509_ATTRIBUTE_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rinf_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
+define internal range(i32 0, 2) i32 @rinf_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
 entry:
   %cmp = icmp eq i32 %operation, 1
   br i1 %cmp, label %if.then, label %if.end3
@@ -233,7 +233,7 @@ declare ptr @X509_ALGOR_it() #2
 declare ptr @ASN1_BIT_STRING_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @req_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef %exarg) #1 {
+define internal range(i32 0, 2) i32 @req_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef %exarg) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   switch i32 %operation, label %return [

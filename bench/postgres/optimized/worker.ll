@@ -1316,7 +1316,7 @@ FindReplTupleInLocalRel.exit.i.i:                 ; preds = %290
   %320 = load ptr, ptr %319, align 8
   %321 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %320, ptr @CurrentMemoryContext, align 8
-  call fastcc void @slot_modify_data(ptr noundef nonnull %234, ptr noundef %301, ptr noundef %297, ptr noundef nonnull %29)
+  call fastcc void @slot_modify_data(ptr noundef nonnull %234, ptr noundef %301, ptr noundef %297, ptr noundef nonnull readonly %29)
   store ptr %321, ptr @CurrentMemoryContext, align 8
   %322 = getelementptr inbounds i8, ptr %26, i64 56
   store ptr %234, ptr %322, align 8

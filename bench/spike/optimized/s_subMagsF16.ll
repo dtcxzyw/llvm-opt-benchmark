@@ -49,13 +49,13 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %spec.select = tail call i8 @llvm.usub.sat.i8(i8 %5, i8 1)
   %24 = and i64 %0, 32768
   %.lobit = lshr exact i64 %24, 15
-  %25 = trunc i64 %.lobit to i8
+  %25 = trunc nuw nsw i64 %.lobit to i8
   %26 = icmp slt i64 %23, 0
   %.not111 = icmp eq i64 %24, 0
   %27 = zext i1 %.not111 to i8
   %.098 = tail call i64 @llvm.abs.i64(i64 %23, i1 true)
   %.095 = select i1 %26, i8 %27, i8 %25
-  %28 = trunc i64 %.098 to i16
+  %28 = trunc nuw nsw i64 %.098 to i16
   %29 = icmp ugt i16 %28, 255
   %30 = lshr i16 %28, 8
   %spec.select.i = select i1 %29, i16 %30, i16 %28
@@ -76,7 +76,7 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
 41:                                               ; preds = %2
   %42 = and i64 %0, 32768
   %.lobit113 = lshr exact i64 %42, 15
-  %43 = trunc i64 %.lobit113 to i8
+  %43 = trunc nuw nsw i64 %.lobit113 to i8
   %44 = icmp slt i8 %11, 0
   br i1 %44, label %45, label %63
 
@@ -192,7 +192,7 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
 
 104:                                              ; preds = %98, %96
   %.091 = phi i64 [ %97, %96 ], [ %94, %98 ]
-  %105 = trunc i8 %.196 to i1
+  %105 = trunc nuw i8 %.196 to i1
   %106 = sext i8 %93 to i64
   %107 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %105, i64 noundef %106, i64 noundef %.091) #3
   br label %136

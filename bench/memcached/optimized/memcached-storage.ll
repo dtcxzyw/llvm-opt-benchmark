@@ -227,7 +227,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end ]
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %call5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %key_str, i64 noundef 128, ptr noundef nonnull @.str, i32 noundef %4, ptr noundef nonnull @.str.1) #22
   %5 = load ptr, ptr %page_data, align 8
   %arrayidx = getelementptr inbounds %struct.extstore_page_data, ptr %5, i64 %indvars.iv
@@ -362,7 +362,7 @@ declare void @append_stat(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ..
 declare void @STATS_UNLOCK() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @storage_get_item(ptr noundef %c, ptr noundef %it, ptr noundef %resp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @storage_get_item(ptr noundef %c, ptr noundef %it, ptr noundef %resp) local_unnamed_addr #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %it, i64 48
   %nkey = getelementptr inbounds i8, ptr %it, i64 41
@@ -582,7 +582,7 @@ if.end138:                                        ; preds = %while.body
   br i1 %cmp126.not, label %while.end.loopexit, label %while.body, !llvm.loop !7
 
 while.end.loopexit:                               ; preds = %if.end138
-  %39 = trunc i64 %indvars.iv.next to i32
+  %39 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %if.end101
@@ -1211,7 +1211,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @start_storage_write_thread(ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @start_storage_write_thread(ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_mutex_init(ptr noundef nonnull @storage_write_plock, ptr noundef null) #22
   %call1 = tail call i32 @pthread_create(ptr noundef nonnull @storage_write_tid, ptr noundef null, ptr noundef nonnull @storage_write_thread, ptr noundef %arg) #22
@@ -1306,7 +1306,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
 
 if.end22:                                         ; preds = %land.lhs.true, %lor.lhs.false
   store i32 0, ptr %chunks_perpage, align 4
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %call23 = call i32 @slabs_available_chunks(i32 noundef %7, ptr noundef nonnull %mem_limit_reached, ptr noundef nonnull %chunks_perpage) #22
   %8 = load i32, ptr %chunks_perpage, align 4
   %mul = mul i32 %8, %spec.select
@@ -1693,7 +1693,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @start_storage_compact_thread(ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @start_storage_compact_thread(ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_mutex_init(ptr noundef nonnull @storage_compact_plock, ptr noundef null) #22
   %call1 = tail call i32 @pthread_create(ptr noundef nonnull @storage_compact_tid, ptr noundef null, ptr noundef nonnull @storage_compact_thread, ptr noundef %arg) #22
@@ -1793,7 +1793,7 @@ while.body.outer:                                 ; preds = %if.end133, %if.end7
   %compacting.0.ph = phi i8 [ %compacting.2, %if.end133 ], [ 0, %if.end7 ]
   %page_offset.0.ph = phi i32 [ %page_offset.2, %if.end133 ], [ 0, %if.end7 ]
   %to_sleep.0.ph = phi i32 [ 10000, %if.end133 ], [ %0, %if.end7 ]
-  %tobool20 = trunc i8 %compacting.0.ph to i1
+  %tobool20 = trunc nuw i8 %compacting.0.ph to i1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.outer, %if.else136
@@ -1884,7 +1884,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
 if.end35.i:                                       ; preds = %lor.lhs.false.i
   %cmp40.i = icmp ult i64 %18, %lowest_version.031.i
   %spec.select.i = call i64 @llvm.umin.i64(i64 %18, i64 %lowest_version.031.i)
-  %20 = trunc i64 %indvars.iv.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.i to i32
   %spec.select25.i = select i1 %cmp40.i, i32 %20, i32 %lowest_page.033.i
   %bytes_used.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %21 = load i64, ptr %bytes_used.i, align 8
@@ -2135,7 +2135,7 @@ land.lhs.true62.i:                                ; preds = %if.then40.i
 land.lhs.true67.i:                                ; preds = %land.lhs.true62.i
   %offset68.i = getelementptr inbounds i8, ptr %add.ptr57.i, i64 4
   %59 = load i32, ptr %offset68.i, align 4
-  %conv69.i = trunc i64 %offset.0.i to i32
+  %conv69.i = trunc nuw i64 %offset.0.i to i32
   %add70.i = add i32 %page_offset.183, %conv69.i
   %cmp71.i = icmp eq i32 %59, %add70.i
   br i1 %cmp71.i, label %if.then73.i, label %if.end209.i
@@ -2562,7 +2562,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @storage_read_config(ptr noundef %conf, ptr noundef %subopt) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @storage_read_config(ptr noundef %conf, ptr noundef %subopt) local_unnamed_addr #0 {
 entry:
   %subopts_value = alloca ptr, align 8
   %subopts_tokens = alloca [16 x ptr], align 16
@@ -2921,7 +2921,7 @@ declare zeroext i1 @safe_strtoul(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @safe_strtod(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef i32 @storage_check_config(ptr nocapture noundef readonly %conf) local_unnamed_addr #15 {
+define dso_local range(i32 0, 3) i32 @storage_check_config(ptr nocapture noundef readonly %conf) local_unnamed_addr #15 {
 entry:
   %0 = load ptr, ptr %conf, align 8
   %tobool.not = icmp eq ptr %0, null

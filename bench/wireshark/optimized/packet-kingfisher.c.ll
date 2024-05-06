@@ -166,8 +166,8 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_kingfisher_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_kingfisher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0), !range !4
+define internal range(i32 0, 2) i32 @dissect_kingfisher_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call fastcc i32 @dissect_kingfisher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %6
 
@@ -198,13 +198,13 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_kingfisher_conv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_kingfisher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1), !range !4
+define internal range(i32 0, 2) i32 @dissect_kingfisher_conv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call fastcc i32 @dissect_kingfisher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_kingfisher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_kingfisher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %19, label %5
 
@@ -285,12 +285,12 @@ define internal fastcc noundef i32 @dissect_kingfisher(ptr noundef %0, ptr nound
   %.118.i = shl i16 %.01722.i, 1
   %47 = add nuw nsw i32 %.01921.i, 1
   %exitcond.not.i = icmp eq i32 %47, 8
-  br i1 %exitcond.not.i, label %48, label %41, !llvm.loop !5
+  br i1 %exitcond.not.i, label %48, label %41, !llvm.loop !4
 
 48:                                               ; preds = %41
   %49 = add nuw nsw i32 %.02024.i, 1
   %exitcond26.not.i = icmp eq i32 %49, %37
-  br i1 %exitcond26.not.i, label %kingfisher_checksum.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond26.not.i, label %kingfisher_checksum.exit, label %.lr.ph.i, !llvm.loop !6
 
 kingfisher_checksum.exit:                         ; preds = %48, %33
   %.0.lcssa.i = phi i16 [ 0, %33 ], [ %.2.i, %48 ]
@@ -429,7 +429,6 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

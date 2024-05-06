@@ -2241,7 +2241,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 
 171:                                              ; preds = %110
   %172 = load i32, ptr @hf_wsp_parameter_name, align 4
-  %173 = call fastcc i32 @parameter_text(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %172), !range !6
+  %173 = call fastcc i32 @parameter_text(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %172)
   %.not490 = icmp eq i32 %173, 0
   br i1 %.not490, label %174, label %.critedge
 
@@ -2253,7 +2253,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 
 177:                                              ; preds = %110
   %178 = load i32, ptr @hf_wsp_parameter_name, align 4
-  %179 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %178), !range !6
+  %179 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %178)
   %.not489 = icmp eq i32 %179, 0
   br i1 %.not489, label %180, label %.critedge
 
@@ -2265,7 +2265,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 
 183:                                              ; preds = %110
   %184 = load i32, ptr @hf_wsp_parameter_filename, align 4
-  %185 = call fastcc i32 @parameter_text(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %184), !range !6
+  %185 = call fastcc i32 @parameter_text(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %184)
   %.not488 = icmp eq i32 %185, 0
   br i1 %.not488, label %186, label %.critedge
 
@@ -2277,7 +2277,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 
 189:                                              ; preds = %110
   %190 = load i32, ptr @hf_wsp_parameter_filename, align 4
-  %191 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %190), !range !6
+  %191 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %190)
   %.not487 = icmp eq i32 %191, 0
   br i1 %.not487, label %192, label %.critedge
 
@@ -2337,7 +2337,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 
 224:                                              ; preds = %110
   %225 = load i32, ptr @hf_wsp_parameter_start, align 4
-  %226 = call fastcc i32 @parameter_text(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %225), !range !6
+  %226 = call fastcc i32 @parameter_text(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %225)
   %.not482 = icmp eq i32 %226, 0
   br i1 %.not482, label %227, label %.critedge
 
@@ -2349,7 +2349,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 
 230:                                              ; preds = %110
   %231 = load i32, ptr @hf_wsp_parameter_start, align 4
-  %232 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %231), !range !6
+  %232 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %231)
   %.not481 = icmp eq i32 %232, 0
   br i1 %.not481, label %233, label %.critedge
 
@@ -2361,7 +2361,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 
 236:                                              ; preds = %110
   %237 = load i32, ptr @hf_wsp_parameter_start_info, align 4
-  %238 = call fastcc i32 @parameter_text(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %237), !range !6
+  %238 = call fastcc i32 @parameter_text(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %237)
   %.not480 = icmp eq i32 %238, 0
   br i1 %.not480, label %239, label %.critedge
 
@@ -2373,7 +2373,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 
 242:                                              ; preds = %110
   %243 = load i32, ptr @hf_wsp_parameter_start_info, align 4
-  %244 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %243), !range !6
+  %244 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %243)
   %.not479 = icmp eq i32 %244, 0
   br i1 %.not479, label %245, label %.critedge
 
@@ -2385,7 +2385,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 
 248:                                              ; preds = %110
   %249 = load i32, ptr @hf_wsp_parameter_comment, align 4
-  %250 = call fastcc i32 @parameter_text(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %249), !range !6
+  %250 = call fastcc i32 @parameter_text(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %249)
   %.not478 = icmp eq i32 %250, 0
   br i1 %.not478, label %251, label %.critedge
 
@@ -2397,7 +2397,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 
 254:                                              ; preds = %110
   %255 = load i32, ptr @hf_wsp_parameter_comment, align 4
-  %256 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %255), !range !6
+  %256 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %255)
   %.not477 = icmp eq i32 %256, 0
   br i1 %.not477, label %257, label %.critedge
 
@@ -2409,7 +2409,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 
 260:                                              ; preds = %110
   %261 = load i32, ptr @hf_wsp_parameter_domain, align 4
-  %262 = call fastcc i32 @parameter_text(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %261), !range !6
+  %262 = call fastcc i32 @parameter_text(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %261)
   %.not476 = icmp eq i32 %262, 0
   br i1 %.not476, label %263, label %.critedge
 
@@ -2421,7 +2421,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 
 266:                                              ; preds = %110
   %267 = load i32, ptr @hf_wsp_parameter_domain, align 4
-  %268 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %267), !range !6
+  %268 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %267)
   %.not475 = icmp eq i32 %268, 0
   br i1 %.not475, label %269, label %.critedge
 
@@ -2433,7 +2433,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 
 272:                                              ; preds = %110
   %273 = load i32, ptr @hf_wsp_parameter_path, align 4
-  %274 = call fastcc i32 @parameter_text(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %273), !range !6
+  %274 = call fastcc i32 @parameter_text(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %273)
   %.not474 = icmp eq i32 %274, 0
   br i1 %.not474, label %275, label %.critedge
 
@@ -2445,7 +2445,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 
 278:                                              ; preds = %110
   %279 = load i32, ptr @hf_wsp_parameter_path, align 4
-  %280 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %279), !range !6
+  %280 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %279)
   %.not473 = icmp eq i32 %280, 0
   br i1 %.not473, label %281, label %.critedge
 
@@ -2480,7 +2480,7 @@ define internal fastcc i32 @parameter(ptr noundef %0, ptr noundef %1, ptr nounde
 
 297:                                              ; preds = %110
   %298 = load i32, ptr @hf_wsp_parameter_mac, align 4
-  %299 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %298), !range !6
+  %299 = call fastcc i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %298)
   %.not471 = icmp eq i32 %299, 0
   br i1 %.not471, label %300, label %.critedge
 
@@ -2729,7 +2729,7 @@ define hidden void @add_post_data(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.1 = phi i32 [ %.05162, %.lr.ph._crit_edge ], [ %.05162, %23 ], [ %28, %27 ]
   %30 = tail call i32 @tvb_reported_length(ptr noundef %1) #4
   %31 = icmp ult i32 %.pre-phi, %30
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %29
   %.not58 = icmp eq i32 %.155, 0
@@ -2837,7 +2837,7 @@ define hidden void @add_post_data(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %77 = add i32 %66, %45
   %78 = add i32 %.06377.i, 1
   %.not68.i = icmp eq i32 %41, 0
-  br i1 %.not68.i, label %add_multipart_data.exit, label %40, !llvm.loop !8
+  br i1 %.not68.i, label %add_multipart_data.exit, label %40, !llvm.loop !7
 
 add_multipart_data.exit:                          ; preds = %76, %34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -3054,14 +3054,14 @@ define internal void @wsp_stat_init(ptr noundef %0) #1 {
   store ptr %17, ptr %12, align 8
   %18 = load i32, ptr %16, align 16
   store i32 %18, ptr %13, align 16
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   call void @stat_tap_init_table_row(ptr noundef %10, i32 noundef %19, i32 noundef 2, ptr noundef nonnull %2) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = getelementptr [50 x %struct._value_string], ptr @wsp_vals_pdu_type, i64 0, i64 %indvars.iv.next
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 49
-  br i1 %exitcond, label %23, label %14, !llvm.loop !9
+  br i1 %exitcond, label %23, label %14, !llvm.loop !8
 
 23:                                               ; preds = %14
   %24 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.1282) #4
@@ -3105,14 +3105,14 @@ define internal void @wsp_stat_init(ptr noundef %0) #1 {
   store ptr %39, ptr %34, align 8
   %40 = load i32, ptr %38, align 16
   store i32 %40, ptr %35, align 16
-  %41 = trunc i64 %indvars.iv56 to i32
+  %41 = trunc nuw nsw i64 %indvars.iv56 to i32
   call void @stat_tap_init_table_row(ptr noundef %32, i32 noundef %41, i32 noundef 2, ptr noundef nonnull %3) #4
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %42 = getelementptr [41 x %struct._value_string], ptr @wsp_vals_status, i64 0, i64 %indvars.iv.next57
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   %exitcond59 = icmp eq i64 %indvars.iv.next57, 40
-  br i1 %exitcond59, label %45, label %36, !llvm.loop !10
+  br i1 %exitcond59, label %45, label %36, !llvm.loop !9
 
 45:                                               ; preds = %36
   %46 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.1283) #4
@@ -3127,7 +3127,7 @@ define internal void @wsp_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @wsp_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @wsp_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
@@ -3158,7 +3158,7 @@ define internal noundef i32 @wsp_stat_packet(ptr nocapture noundef readonly %0, 
   %24 = add nuw i32 %.03342, 1
   %25 = load i32, ptr %13, align 4
   %.not = icmp ult i32 %24, %25
-  br i1 %.not, label %16, label %._crit_edge.thread, !llvm.loop !11
+  br i1 %.not, label %16, label %._crit_edge.thread, !llvm.loop !10
 
 ._crit_edge.thread:                               ; preds = %23, %5
   %.b = load i1, ptr @unknown_pt_idx, align 4
@@ -3197,7 +3197,7 @@ define internal noundef i32 @wsp_stat_packet(ptr nocapture noundef readonly %0, 
   %41 = add nuw i32 %.23551, 1
   %42 = load i32, ptr %33, align 4
   %.not38 = icmp ult i32 %41, %42
-  br i1 %.not38, label %.lr.ph53, label %._crit_edge54.thread, !llvm.loop !12
+  br i1 %.not38, label %.lr.ph53, label %._crit_edge54.thread, !llvm.loop !11
 
 ._crit_edge54.thread:                             ; preds = %40, %.preheader
   %.b72 = load i1, ptr @unknown_sc_idx, align 4
@@ -3238,7 +3238,7 @@ define internal void @wsp_stat_reset(ptr noundef %0) #1 {
   %6 = add nuw i32 %.08, 1
   %7 = load i32, ptr %2, align 4
   %8 = icmp ult i32 %6, %7
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -3328,7 +3328,7 @@ define internal i32 @dissect_sir(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %56 = add i32 %55, %.0104106
   %57 = add nuw i32 %.0103107, 1
   %exitcond.not = icmp eq i32 %57, %45
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %34
   %.0104.lcssa = phi i32 [ %50, %34 ], [ %56, %.lr.ph ]
@@ -3361,7 +3361,7 @@ define internal i32 @dissect_sir(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %75 = add i32 %.1105108, 4
   %76 = add nuw i32 %.1109, 1
   %exitcond114.not = icmp eq i32 %76, %67
-  br i1 %exitcond114.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !15
+  br i1 %exitcond114.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !14
 
 ._crit_edge112:                                   ; preds = %.lr.ph111, %._crit_edge
   %77 = call i32 @tvb_captured_length(ptr noundef %0) #4
@@ -3394,7 +3394,7 @@ declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef,
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parameter_text(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @parameter_text(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %7) #4
@@ -3434,7 +3434,7 @@ define internal fastcc noundef i32 @parameter_text(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr %3, align 4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %8) #4
@@ -3802,7 +3802,7 @@ proto_item_set_hidden.exit:                       ; preds = %128, %125, %122, %3
   %.4128 = phi ptr [ %.0124150, %23 ], [ %.0124150, %29 ], [ %.0124150, %37 ], [ %.0124150, %133 ], [ %.3127, %122 ], [ %.3127, %125 ], [ %.3127, %128 ]
   %.1123 = phi i8 [ 1, %23 ], [ %.0122151, %29 ], [ %39, %37 ], [ %17, %133 ], [ %.0122151, %122 ], [ %.0122151, %125 ], [ %.0122151, %128 ]
   %138 = icmp slt i32 %.2131, %9
-  br i1 %138, label %16, label %.loopexit, !llvm.loop !16
+  br i1 %138, label %16, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %proto_item_set_hidden.exit, %proto_item_set_hidden.exit.thread, %4, %33, %27
   ret void
@@ -4423,7 +4423,7 @@ define internal i32 @wkh_cache_control(ptr noundef %0, ptr noundef %1, i32 nound
 79:                                               ; preds = %74, %57
   %.1156 = phi i32 [ %60, %57 ], [ %78, %74 ]
   %80 = icmp ult i32 %.1156, %45
-  br i1 %80, label %.lr.ph, label %.thread192.critedge, !llvm.loop !17
+  br i1 %80, label %.lr.ph, label %.thread192.critedge, !llvm.loop !16
 
 81:                                               ; preds = %48, %48, %48, %48
   %82 = load i32, ptr @hf_hdr_cache_control, align 4
@@ -6051,7 +6051,7 @@ switch.lookup:                                    ; preds = %38
   %71 = sub i32 %36, %.185103
   %72 = call fastcc i32 @parameter(ptr noundef %69, ptr noundef %3, ptr noundef %.2, ptr noundef %1, i32 noundef %.185103, i32 noundef %71)
   %73 = icmp ult i32 %72, %36
-  br i1 %73, label %70, label %.loopexit, !llvm.loop !18
+  br i1 %73, label %70, label %.loopexit, !llvm.loop !17
 
 74:                                               ; preds = %15, %19, %64
   %.086.ph = phi i32 [ %36, %64 ], [ %23, %19 ], [ %16, %15 ]
@@ -6543,7 +6543,7 @@ define internal i32 @wkh_profile_warning(ptr noundef %0, ptr noundef %1, i32 nou
   %86 = call ptr @abs_time_secs_to_str_ex(ptr noundef %84, i64 noundef %85, i32 noundef 18, i32 noundef 1) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef nonnull @.str.1144, ptr noundef %86) #4
   %87 = icmp ult i32 %83, %41
-  br i1 %87, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !19
+  br i1 %87, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %88 = add nuw nsw i32 %65, 1
@@ -7144,7 +7144,7 @@ define internal fastcc i32 @wkh_content_type_header(ptr noundef %0, ptr noundef 
   %95 = sub i32 %54, %.1108138
   %96 = call fastcc i32 @parameter(ptr noundef %93, ptr noundef %3, ptr noundef %88, ptr noundef %1, i32 noundef %.1108138, i32 noundef %95)
   %97 = icmp ult i32 %96, %54
-  br i1 %97, label %94, label %.thread134, !llvm.loop !20
+  br i1 %97, label %94, label %.thread134, !llvm.loop !19
 
 .thread126:                                       ; preds = %62, %57, %.thread130
   %98 = load ptr, ptr %7, align 8
@@ -7481,7 +7481,7 @@ define internal fastcc i32 @wkh_credentials_value_header_func(ptr noundef %0, pt
   %101 = sub i32 %43, %.0118140
   %102 = call fastcc i32 @parameter(ptr noundef %96, ptr noundef %3, ptr noundef %94, ptr noundef %1, i32 noundef %.0118140, i32 noundef %101)
   %103 = icmp ult i32 %102, %43
-  br i1 %103, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %103, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 104:                                              ; preds = %22, %26, %.thread, %.thread129, %.thread132
   %.0119.ph = phi i32 [ %43, %.thread132 ], [ %43, %.thread129 ], [ %43, %.thread ], [ %30, %26 ], [ %23, %22 ]
@@ -8027,7 +8027,7 @@ define internal fastcc i32 @wkh_challenge_value_header_func(ptr noundef %0, ptr 
   %100 = sub i32 %42, %.0118140
   %101 = call fastcc i32 @parameter(ptr noundef %80, ptr noundef %3, ptr noundef %78, ptr noundef %1, i32 noundef %.0118140, i32 noundef %100)
   %102 = icmp ult i32 %101, %42
-  br i1 %102, label %.lr.ph, label %.loopexit, !llvm.loop !22
+  br i1 %102, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 103:                                              ; preds = %21, %25, %.thread, %.thread129, %.thread132
   %.0119.ph = phi i32 [ %42, %.thread132 ], [ %42, %.thread129 ], [ %42, %.thread ], [ %29, %25 ], [ %22, %21 ]
@@ -8666,7 +8666,7 @@ define internal fastcc void @dissect_wsp_common(ptr noundef %0, ptr noundef %1, 
 .backedge.i:                                      ; preds = %.lr.ph.i, %227, %.lr.ph205.i, %197, %252, %247, %242, %239, %.preheader192.i, %.preheader194.i, %.preheader.i, %.preheader190.i, %175, %171, %169, %165, %156, %151, %132
   %.0169.be.i = add i32 %91, %.0169209.i
   %135 = icmp ult i32 %.0169.be.i, %78
-  br i1 %135, label %86, label %add_capabilities.exit, !llvm.loop !23
+  br i1 %135, label %86, label %add_capabilities.exit, !llvm.loop !22
 
 .thread.i:                                        ; preds = %129, %126, %123, %120, %117, %114, %111, %108, %105, %100
   %.0.i = phi i8 [ 0, %100 ], [ 1, %105 ], [ 2, %108 ], [ 3, %111 ], [ 4, %114 ], [ 5, %117 ], [ 6, %120 ], [ 7, %123 ], [ 8, %126 ], [ 9, %129 ]
@@ -8800,7 +8800,7 @@ define internal fastcc void @dissect_wsp_common(ptr noundef %0, ptr noundef %1, 
   %202 = load i32, ptr %11, align 4
   %203 = add i32 %202, %186
   %204 = icmp ult i32 %203, %182
-  br i1 %204, label %.lr.ph207.i, label %.backedge.i, !llvm.loop !24
+  br i1 %204, label %.lr.ph207.i, label %.backedge.i, !llvm.loop !23
 
 .lr.ph205.i:                                      ; preds = %.preheader190.i, %.lr.ph205.i
   %.4204.i = phi i32 [ %207, %.lr.ph205.i ], [ %.2171.i, %.preheader190.i ]
@@ -8808,7 +8808,7 @@ define internal fastcc void @dissect_wsp_common(ptr noundef %0, ptr noundef %1, 
   %206 = call ptr @proto_tree_add_item(ptr noundef %181, i32 noundef %205, ptr noundef %77, i32 noundef %.4204.i, i32 noundef 1, i32 noundef 0) #4
   %207 = add nuw i32 %.4204.i, 1
   %208 = icmp ult i32 %207, %182
-  br i1 %208, label %.lr.ph205.i, label %.backedge.i, !llvm.loop !25
+  br i1 %208, label %.lr.ph205.i, label %.backedge.i, !llvm.loop !24
 
 209:                                              ; preds = %147
   %210 = load i32, ptr @ett_capabilities_header_code_pages, align 4
@@ -8857,7 +8857,7 @@ define internal fastcc void @dissect_wsp_common(ptr noundef %0, ptr noundef %1, 
   %232 = load i32, ptr %11, align 4
   %233 = add i32 %232, %216
   %234 = icmp ult i32 %233, %212
-  br i1 %234, label %.lr.ph203.i, label %.backedge.i, !llvm.loop !26
+  br i1 %234, label %.lr.ph203.i, label %.backedge.i, !llvm.loop !25
 
 .lr.ph.i:                                         ; preds = %.preheader194.i, %.lr.ph.i
   %.6201.i = phi i32 [ %237, %.lr.ph.i ], [ %.2171.i, %.preheader194.i ]
@@ -8865,7 +8865,7 @@ define internal fastcc void @dissect_wsp_common(ptr noundef %0, ptr noundef %1, 
   %236 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %235, ptr noundef %77, i32 noundef %.6201.i, i32 noundef 1, i32 noundef 0) #4
   %237 = add nuw i32 %.6201.i, 1
   %238 = icmp ult i32 %237, %212
-  br i1 %238, label %.lr.ph.i, label %.backedge.i, !llvm.loop !27
+  br i1 %238, label %.lr.ph.i, label %.backedge.i, !llvm.loop !26
 
 239:                                              ; preds = %147
   %240 = load i32, ptr @hf_capa_aliases, align 4
@@ -9082,7 +9082,7 @@ add_capabilities.exit:                            ; preds = %86, %90, %.backedge
   %342 = add i32 %.2.i342, %280
   %343 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %342) #4
   %344 = icmp sgt i32 %343, 0
-  br i1 %344, label %276, label %dissect_redirect.exit, !llvm.loop !28
+  br i1 %344, label %276, label %dissect_redirect.exit, !llvm.loop !27
 
 dissect_redirect.exit:                            ; preds = %341, %260
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -9560,7 +9560,7 @@ define internal fastcc void @add_addresses(ptr noundef %0, ptr noundef %1, i32 n
 47:                                               ; preds = %.sink.split, %41, %42, %43
   %48 = add i32 %.2, %14
   %49 = icmp ult i32 %48, %4
-  br i1 %49, label %10, label %.loopexit, !llvm.loop !29
+  br i1 %49, label %10, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %47, %3
   ret void
@@ -9586,7 +9586,7 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -9609,4 +9609,3 @@ attributes #4 = { nounwind }
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}

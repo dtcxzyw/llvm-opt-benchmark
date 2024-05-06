@@ -479,7 +479,7 @@ declare double @log2(double noundef) local_unnamed_addr #6
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7rocksdb19IOTraceRecordParser18ReadIOTraceRecordsEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN7rocksdb19IOTraceRecordParser18ReadIOTraceRecordsEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca %"class.rocksdb::Status", align 8
   %trace_reader = alloca %"class.std::unique_ptr.3", align 8
@@ -886,7 +886,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7rocksdb16io_tracer_parserEiPPc(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN7rocksdb16io_tracer_parserEiPPc(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %argc.addr = alloca i32, align 4
   %argv.addr = alloca ptr, align 8
@@ -907,7 +907,7 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr @_ZN3fLS19FLAGS_io_trace_fileB5cxx11E, align 8
   call void @_ZN7rocksdb19IOTraceRecordParserC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %io_tracer_parser, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %call3 = invoke noundef i32 @_ZN7rocksdb19IOTraceRecordParser18ReadIOTraceRecordsEv(ptr noundef nonnull align 8 dereferenceable(32) %io_tracer_parser)
-          to label %invoke.cont unwind label %lpad, !range !7
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %io_tracer_parser) #14
@@ -1108,4 +1108,3 @@ attributes #19 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}

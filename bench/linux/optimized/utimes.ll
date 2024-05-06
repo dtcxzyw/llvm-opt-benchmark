@@ -195,7 +195,7 @@ declare dso_local void @mnt_drop_write(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @do_utimes(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @do_utimes(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.path, align 8
   %6 = icmp eq ptr %1, null
   %7 = icmp ne i32 %0, -100
@@ -271,7 +271,7 @@ define dso_local i64 @do_utimes(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_utimensat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_utimensat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [2 x %struct.timespec64], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
@@ -324,7 +324,7 @@ define dso_local i64 @__x64_sys_utimensat(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_utimensat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_utimensat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [2 x %struct.timespec64], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -379,7 +379,7 @@ define dso_local i64 @__ia32_sys_utimensat(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_futimesat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futimesat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [2 x %struct.__kernel_old_timeval], align 16
   %3 = alloca [2 x %struct.timespec64], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -441,7 +441,7 @@ define dso_local i64 @__x64_sys_futimesat(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_futimesat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futimesat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [2 x %struct.__kernel_old_timeval], align 16
   %3 = alloca [2 x %struct.timespec64], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -505,7 +505,7 @@ define dso_local i64 @__ia32_sys_futimesat(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_utimes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_utimes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -515,7 +515,7 @@ define dso_local i64 @__x64_sys_utimes(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_utimes(i64 noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_utimes(i64 noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.path, align 8
   %4 = alloca [2 x %struct.__kernel_old_timeval], align 16
   %5 = alloca [2 x %struct.timespec64], align 16
@@ -593,7 +593,7 @@ define internal fastcc i64 @__se_sys_utimes(i64 noundef %0, i64 noundef %1) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_utimes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_utimes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -605,17 +605,17 @@ define dso_local i64 @__ia32_sys_utimes(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_utime(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_utime(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = tail call fastcc i64 @__se_sys_utime(i64 noundef %3, i64 noundef %5), !range !10
+  %6 = tail call fastcc i64 @__se_sys_utime(i64 noundef %3, i64 noundef %5)
   ret i64 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_utime(i64 noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_utime(i64 noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.path, align 8
   %4 = alloca [2 x %struct.timespec64], align 16
   %5 = inttoptr i64 %0 to ptr
@@ -694,29 +694,29 @@ define internal fastcc i64 @__se_sys_utime(i64 noundef %0, i64 noundef %1) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_utime(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_utime(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = tail call fastcc i64 @__se_sys_utime(i64 noundef %4, i64 noundef %7), !range !10
+  %8 = tail call fastcc i64 @__se_sys_utime(i64 noundef %4, i64 noundef %7)
   ret i64 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_utime32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_utime32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = tail call fastcc i64 @__se_sys_utime32(i64 noundef %3, i64 noundef %5), !range !10
+  %6 = tail call fastcc i64 @__se_sys_utime32(i64 noundef %3, i64 noundef %5)
   ret i64 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_utime32(i64 noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_utime32(i64 noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.path, align 8
   %4 = alloca [2 x %struct.timespec64], align 16
   %5 = inttoptr i64 %0 to ptr
@@ -797,19 +797,19 @@ define internal fastcc i64 @__se_sys_utime32(i64 noundef %0, i64 noundef %1) unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_utime32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_utime32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = tail call fastcc i64 @__se_sys_utime32(i64 noundef %4, i64 noundef %7), !range !10
+  %8 = tail call fastcc i64 @__se_sys_utime32(i64 noundef %4, i64 noundef %7)
   ret i64 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_utimensat_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_utimensat_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [2 x %struct.timespec64], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
@@ -862,7 +862,7 @@ define dso_local i64 @__x64_sys_utimensat_time32(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_utimensat_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_utimensat_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [2 x %struct.timespec64], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -917,7 +917,7 @@ define dso_local i64 @__ia32_sys_utimensat_time32(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_futimesat_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futimesat_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -932,7 +932,7 @@ define dso_local i64 @__x64_sys_futimesat_time32(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_futimesat_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futimesat_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -949,7 +949,7 @@ define dso_local i64 @__ia32_sys_futimesat_time32(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_utimes_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_utimes_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -961,7 +961,7 @@ define dso_local i64 @__x64_sys_utimes_time32(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_utimes_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_utimes_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -1014,7 +1014,7 @@ declare void @llvm.write_register.i64(metadata, i64) #6
 declare dso_local i32 @get_old_timespec32(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @do_compat_futimesat(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_compat_futimesat(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca [2 x %struct.timespec64], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !6

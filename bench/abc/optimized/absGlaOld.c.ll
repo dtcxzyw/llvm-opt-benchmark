@@ -5745,10 +5745,10 @@ define ptr @Gia_ManDupMapped(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #27
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #27
   %8 = add i64 %7, 1
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #24
-  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %5) #26
+  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %5) #26
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %6
@@ -5760,10 +5760,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %6
   br i1 %.not.i98, label %Abc_UtilStrsav.exit99, label %14
 
 14:                                               ; preds = %Abc_UtilStrsav.exit
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #27
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #27
   %16 = add i64 %15, 1
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #24
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %13) #26
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %13) #26
   br label %Abc_UtilStrsav.exit99
 
 Abc_UtilStrsav.exit99:                            ; preds = %Abc_UtilStrsav.exit, %14
@@ -10176,7 +10176,7 @@ Gla_ManObj.exit46.i:                              ; preds = %Gla_ManObj.exit46.i
   br i1 %exitcond73.not.i, label %Gia_GlaAbsCount.exit.loopexit, label %Gla_ManObj.exit46.i, !llvm.loop !62
 
 Gia_GlaAbsCount.exit.loopexit:                    ; preds = %Gla_ManObj.exit46.i
-  %26 = mul nsw i32 %25, 100
+  %26 = mul nuw nsw i32 %25, 100
   br label %Gia_GlaAbsCount.exit
 
 Gia_GlaAbsCount.exit:                             ; preds = %Gia_GlaAbsCount.exit.loopexit, %10
@@ -10225,7 +10225,7 @@ Gla_ManObj.exit46.i31:                            ; preds = %Gla_ManObj.exit46.i
 Gia_GlaAbsCount.exit37:                           ; preds = %Gla_ManObj.exit46.i31, %Gia_GlaAbsCount.exit
   %.3.i27 = phi i32 [ 0, %Gia_GlaAbsCount.exit ], [ %48, %Gla_ManObj.exit46.i31 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, i32 noundef %.3.i27)
-  %49 = tail call fastcc ptr @Gla_ManCollectPPis(ptr noundef %0)
+  %49 = tail call fastcc ptr @Gla_ManCollectPPis(ptr noundef readonly %0)
   %50 = getelementptr i8, ptr %49, i64 4
   %.val.i38 = load i32, ptr %50, align 4
   %51 = getelementptr inbounds i8, ptr %49, i64 8
@@ -12202,7 +12202,7 @@ Abc_Clock.exit439:                                ; preds = %749, %756
   br label %772
 
 772:                                              ; preds = %769, %768
-  %773 = call ptr @Gla_ManTranslate(ptr noundef nonnull %128)
+  %773 = call ptr @Gla_ManTranslate(ptr noundef nonnull readonly %128)
   %774 = load ptr, ptr %128, align 8
   %775 = call ptr @Gia_ManDupAbsGates(ptr noundef %774, ptr noundef %773) #26
   %776 = icmp eq ptr %773, null

@@ -218,7 +218,7 @@ if.then:                                          ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end16
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end16 ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %call6 = tail call zeroext i1 @riscv_socket_check_hartids(ptr noundef %machine, i32 noundef %0) #7
   br i1 %call6, label %if.end8, label %if.then7
 
@@ -411,7 +411,7 @@ for.body39.lr.ph.i:                               ; preds = %if.end24.i
 for.body39.i:                                     ; preds = %for.end184.i, %for.body39.lr.ph.i
   %indvars.iv24.i = phi i64 [ %11, %for.body39.lr.ph.i ], [ %indvars.iv.next25.i, %for.end184.i ]
   %phandle.010.i = phi i32 [ 1, %for.body39.lr.ph.i ], [ %phandle.1.lcssa.i, %for.end184.i ]
-  %12 = trunc i64 %indvars.iv24.i to i32
+  %12 = trunc nuw nsw i64 %indvars.iv24.i to i32
   %call40.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.42, i32 noundef %12) #7
   %call41.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call2.i, ptr noundef %call40.i) #7
   %arrayidx43.i = getelementptr [8 x %struct.RISCVHartArrayState], ptr %soc57, i64 0, i64 %indvars.iv24.i
@@ -436,7 +436,7 @@ for.body54.i:                                     ; preds = %for.body54.i, %for.
   %phandle.14.i = phi i32 [ %phandle.010.i, %for.body54.lr.ph.i ], [ %inc85.i, %for.body54.i ]
   %inc55.i = add i32 %phandle.14.i, 1
   %16 = load i32, ptr %hartid_base.i, align 4
-  %17 = trunc i64 %indvars.iv13.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv13.i to i32
   %add.i = add i32 %16, %17
   %call59.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.43, i32 noundef %add.i) #7
   %call60.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call2.i, ptr noundef %call59.i) #7
@@ -496,12 +496,12 @@ for.end114.i:                                     ; preds = %for.body54.i, %for.
   %call120.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.59, i64 noundef %add118.i) #7
   %call121.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call2.i, ptr noundef %call120.i) #7
   %shr.i = lshr i64 %add118.i, 32
-  %conv125.i = trunc i64 %shr.i to i32
+  %conv125.i = trunc nuw i64 %shr.i to i32
   store i32 %conv125.i, ptr %qdt_tmp123.i, align 16
   %conv127.i = trunc i64 %add118.i to i32
   store i32 %conv127.i, ptr %arrayinit.element126.i, align 4
   %shr129.i = lshr i64 %call119.i, 32
-  %conv130.i = trunc i64 %shr129.i to i32
+  %conv130.i = trunc nuw i64 %shr129.i to i32
   store i32 %conv130.i, ptr %arrayinit.element128.i, align 8
   %conv132.i = trunc i64 %call119.i to i32
   store i32 %conv132.i, ptr %arrayinit.element131.i, align 4

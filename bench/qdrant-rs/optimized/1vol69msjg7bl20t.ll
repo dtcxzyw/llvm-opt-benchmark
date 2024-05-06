@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @"_ZN6memory7madvise104_$LT$impl$u20$core..convert..From$LT$memory..madvise..Advice$GT$$u20$for$u20$memmap2..advice..Advice$GT$4from17h754c3dc1c1cd37e7E"(i8 noundef %0) unnamed_addr #0 {
+define noundef range(i32 0, 3) i32 @"_ZN6memory7madvise104_$LT$impl$u20$core..convert..From$LT$memory..madvise..Advice$GT$$u20$for$u20$memmap2..advice..Advice$GT$4from17h754c3dc1c1cd37e7E"(i8 noundef %0) unnamed_addr #0 {
 switch.lookup:
   %switch.idx.cast = zext i8 %0 to i32
   ret i32 %switch.idx.cast

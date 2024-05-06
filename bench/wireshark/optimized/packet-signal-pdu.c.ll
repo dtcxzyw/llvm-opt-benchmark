@@ -3246,7 +3246,7 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   %168 = or i32 %167, %162
   store i32 %168, ptr %164, align 8
   %169 = load ptr, ptr @dynamic_hf_base_raw, align 8
-  %170 = trunc i64 %indvars.iv.i to i32
+  %170 = trunc nuw i64 %indvars.iv.i to i32
   %171 = shl i32 %170, 1
   %172 = load i32, ptr %30, align 8
   %173 = load i32, ptr %57, align 8
@@ -4720,7 +4720,7 @@ declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unname
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_spdu_message_can_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_spdu_message_can_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i64, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %6, label %7
@@ -4829,7 +4829,7 @@ get_flexray_mapping.exit:                         ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_spdu_message_flexray_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_spdu_message_flexray_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i64, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %6, label %7
@@ -5057,7 +5057,7 @@ get_dlt_mapping.exit:                             ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_spdu_message_uds_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_spdu_message_uds_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %6
 
@@ -5911,7 +5911,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
 
 .lr.ph.i.i:                                       ; preds = %.preheader62.i.i
   %139 = lshr i32 255, %.077127
-  %140 = trunc i32 %139 to i8
+  %140 = trunc nuw i32 %139 to i8
   %141 = sub nuw nsw i32 8, %103
   br i1 %.not283.i, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.preheader.i
 
@@ -5930,7 +5930,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
   %145 = icmp eq i32 %.15765.us.i.i, %102
   %146 = zext i8 %.048.us.i.i to i32
   %147 = lshr i32 %146, %141
-  %148 = trunc i32 %147 to i8
+  %148 = trunc nuw nsw i32 %147 to i8
   %.149.us.i.i = select i1 %145, i8 %148, i8 %.048.us.i.i
   %.1.us.i.i = select i1 %145, i32 %103, i32 %.0.us.i.i
   %149 = zext nneg i32 %.1.us.i.i to i64
@@ -5946,7 +5946,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
 .lr.ph70.i.i:                                     ; preds = %.preheader.i.i
   %154 = sub nuw nsw i32 8, %103
   %155 = lshr i32 255, %154
-  %156 = trunc i32 %155 to i8
+  %156 = trunc nuw nsw i32 %155 to i8
   %157 = sub nsw i32 8, %.077127
   br i1 %.not283.i, label %.lr.ph70.split.us.i.i, label %.lr.ph70.split.i.i
 
@@ -5961,7 +5961,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
   %161 = icmp eq i32 %.05668.us.i.i, %.076128
   %162 = zext i8 %.052.us.i.i to i32
   %163 = lshr i32 %162, %.077127
-  %164 = trunc i32 %163 to i8
+  %164 = trunc nuw i32 %163 to i8
   %.153.us.i.i = select i1 %161, i8 %164, i8 %.052.us.i.i
   %.151.us.i.i = select i1 %161, i32 %157, i32 %.050.us.i.i
   %165 = zext nneg i32 %.151.us.i.i to i64
@@ -5983,7 +5983,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
   %172 = icmp eq i32 %.05668.i.i, %.076128
   %173 = zext i8 %171 to i32
   %174 = lshr i32 %173, %.077127
-  %175 = trunc i32 %174 to i8
+  %175 = trunc nuw i32 %174 to i8
   %.153.i.i = select i1 %172, i8 %175, i8 %171
   %.151.i.i = select i1 %172, i32 %157, i32 8
   %176 = zext nneg i32 %.151.i.i to i64
@@ -6334,9 +6334,9 @@ proto_item_set_hidden.exit.i:                     ; preds = %309, %306, %304, %2
   %337 = getelementptr inbounds i8, ptr %336, i64 8
   store i32 0, ptr %337, align 8
   %338 = getelementptr inbounds i8, ptr %336, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %338, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %338, ptr noundef nonnull readonly align 8 dereferenceable(16) %71, i64 16, i1 false)
   %339 = getelementptr inbounds i8, ptr %336, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %339, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %339, ptr noundef nonnull readonly align 8 dereferenceable(16) %71, i64 16, i1 false)
   %340 = getelementptr inbounds i8, ptr %336, i64 56
   store double 0.000000e+00, ptr %340, align 8
   %341 = load ptr, ptr @spdu_aggregation_data, align 8

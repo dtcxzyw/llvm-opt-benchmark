@@ -301,7 +301,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.192 = private unnamed_addr constant [74 x i8] c"We currently only support 16 bit bus identifiers (Bus ID: %i  CAN ID: %i)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @socketcan_set_source_and_destination_columns(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @socketcan_set_source_and_destination_columns(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 12
   %5 = load i16, ptr %4, align 4
@@ -361,7 +361,7 @@ ht_lookup_sender_receiver_config.exit:            ; preds = %9
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @socketcan_call_subdissectors(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @socketcan_call_subdissectors(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %6, -1
   %7 = load ptr, ptr @can_extended_id_dissector_table, align 8
@@ -683,13 +683,13 @@ define internal void @post_update_can_interfaces_cb() #0 {
   %9 = load ptr, ptr @data_can_interfaces_by_id, align 8
   %10 = icmp ne ptr %9, null
   %11 = icmp ne ptr %8, null
-  %or.cond.not = select i1 %10, i1 %11, i1 false
+  %or.cond.not32 = select i1 %10, i1 %11, i1 false
   %12 = load ptr, ptr @interface_configs, align 8
   %13 = icmp ne ptr %12, null
-  %or.cond3 = select i1 %or.cond.not, i1 %13, i1 false
+  %or.cond3.not29 = select i1 %or.cond.not32, i1 %13, i1 false
   %14 = load i32, ptr @interface_config_num, align 4
   %15 = icmp ne i32 %14, 0
-  %or.cond25 = select i1 %or.cond3, i1 %15, i1 false
+  %or.cond25 = select i1 %or.cond3.not29, i1 %15, i1 false
   br i1 %or.cond25, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6, %43
@@ -709,11 +709,11 @@ define internal void @post_update_can_interfaces_cb() #0 {
   store i32 %24, ptr %21, align 4
   %25 = load ptr, ptr @data_can_interfaces_by_id, align 8
   %26 = tail call i32 @g_hash_table_insert(ptr noundef %25, ptr noundef nonnull %21, ptr noundef nonnull %23) #5
-  %.pre30 = load ptr, ptr @interface_configs, align 8
+  %.pre35 = load ptr, ptr @interface_configs, align 8
   br label %27
 
 27:                                               ; preds = %19, %.lr.ph
-  %28 = phi ptr [ %.pre30, %19 ], [ %16, %.lr.ph ]
+  %28 = phi ptr [ %.pre35, %19 ], [ %16, %.lr.ph ]
   %29 = getelementptr %struct._interface_config, ptr %28, i64 %indvars.iv, i32 1
   %30 = load ptr, ptr %29, align 8
   %.not21 = icmp eq ptr %30, null
@@ -935,10 +935,10 @@ define internal void @post_update_sender_receiver_cb() #0 {
   %5 = icmp ne ptr %4, null
   %6 = load ptr, ptr @sender_receiver_configs, align 8
   %7 = icmp ne ptr %6, null
-  %or.cond.not = select i1 %5, i1 %7, i1 false
+  %or.cond.not17 = select i1 %5, i1 %7, i1 false
   %8 = load i32, ptr @sender_receiver_config_num, align 4
   %9 = icmp ne i32 %8, 0
-  %or.cond12 = select i1 %or.cond.not, i1 %9, i1 false
+  %or.cond12 = select i1 %or.cond.not17, i1 %9, i1 false
   br i1 %or.cond12, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -1515,7 +1515,7 @@ socketcan_set_source_and_destination_columns.exit171: ; preds = %ht_lookup_sende
   %274 = load i32, ptr %205, align 4
   %275 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 8, i32 noundef %274) #5
   %276 = load i32, ptr @heuristic_first, align 4
-  %277 = call i32 @socketcan_call_subdissectors(ptr noundef %275, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %8, i32 noundef %276), !range !8
+  %277 = call i32 @socketcan_call_subdissectors(ptr noundef %275, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %8, i32 noundef %276)
   %.not149 = icmp eq i32 %277, 0
   br i1 %.not149, label %278, label %280
 
@@ -1665,4 +1665,3 @@ attributes #6 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}

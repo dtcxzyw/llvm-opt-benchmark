@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @glob_tevent_reg = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_init_thread() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_init_thread() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @CRYPTO_THREAD_init_local(ptr noundef nonnull @destructor_key, ptr noundef nonnull @init_thread_destructor) #2
   %tobool.not = icmp ne i32 %call, 0
@@ -79,14 +79,14 @@ init_thread_stop.exit:                            ; preds = %entry, %if.end.i, %
 ; Function Attrs: nounwind uwtable
 define void @ossl_cleanup_thread() local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @init_thread_deregister(ptr noundef null, i32 noundef 1), !range !6
+  %call = tail call fastcc i32 @init_thread_deregister(ptr noundef null, i32 noundef 1)
   %call1 = tail call i32 @CRYPTO_THREAD_cleanup_local(ptr noundef nonnull @destructor_key) #2
   store i64 -1, ptr @destructor_key, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @init_thread_deregister(ptr noundef readnone %index, i32 noundef %all) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef readnone %index, i32 noundef %all) unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @tevent_register_runonce, ptr noundef nonnull @create_global_tevent_register_ossl_) #2
   %tobool.i = icmp eq i32 %call.i, 0
@@ -162,7 +162,7 @@ if.then23.us.us:                                  ; preds = %while.body.us.us
   store ptr %8, ptr %call.i27, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %curr.031.us.us, ptr noundef nonnull @.str, i32 noundef 455) #2
   %cmp19.not.us.us = icmp eq ptr %8, null
-  br i1 %cmp19.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !7
+  br i1 %cmp19.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !6
 
 while.body.us:                                    ; preds = %while.body.lr.ph.split.us, %while.body.us
   %curr.031.us = phi ptr [ %9, %while.body.us ], [ %curr.0.ph52, %while.body.lr.ph.split.us ]
@@ -171,7 +171,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph.sp
   store ptr %9, ptr %call.i27, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %curr.031.us, ptr noundef nonnull @.str, i32 noundef 455) #2
   %cmp19.not.us = icmp eq ptr %9, null
-  br i1 %cmp19.not.us, label %while.end, label %while.body.us, !llvm.loop !7
+  br i1 %cmp19.not.us, label %while.end, label %while.body.us, !llvm.loop !6
 
 while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
   br i1 %tobool.not, label %while.body.us32, label %while.body
@@ -188,7 +188,7 @@ if.then23.us36:                                   ; preds = %while.body.us32
   store ptr %11, ptr %next26, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %curr.031.us33, ptr noundef nonnull @.str, i32 noundef 455) #2
   %cmp19.not.us38 = icmp eq ptr %11, null
-  br i1 %cmp19.not.us38, label %while.end, label %while.body.us32, !llvm.loop !7
+  br i1 %cmp19.not.us38, label %while.end, label %while.body.us32, !llvm.loop !6
 
 while.body:                                       ; preds = %while.body.lr.ph.split, %while.body
   %curr.031 = phi ptr [ %12, %while.body ], [ %curr.0.ph52, %while.body.lr.ph.split ]
@@ -197,14 +197,14 @@ while.body:                                       ; preds = %while.body.lr.ph.sp
   store ptr %12, ptr %next26, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %curr.031, ptr noundef nonnull @.str, i32 noundef 455) #2
   %cmp19.not = icmp eq ptr %12, null
-  br i1 %cmp19.not, label %while.end, label %while.body, !llvm.loop !7
+  br i1 %cmp19.not, label %while.end, label %while.body, !llvm.loop !6
 
 if.end31:                                         ; preds = %while.body.us32, %while.body.us.us
   %.us-phi = phi ptr [ %curr.031.us.us, %while.body.us.us ], [ %curr.031.us33, %while.body.us32 ]
   %next32 = getelementptr inbounds i8, ptr %.us-phi, i64 24
   %13 = load ptr, ptr %next32, align 8
   %cmp19.not30 = icmp eq ptr %13, null
-  br i1 %cmp19.not30, label %while.end, label %while.body.lr.ph, !llvm.loop !7
+  br i1 %cmp19.not30, label %while.end, label %while.body.lr.ph, !llvm.loop !6
 
 while.end:                                        ; preds = %if.end31, %while.body, %while.body.us, %if.then23.us36, %if.then23.us.us, %if.end18
   br i1 %tobool.not, label %for.inc, label %if.then34
@@ -218,7 +218,7 @@ for.inc:                                          ; preds = %while.end, %if.then
   %14 = load ptr, ptr %1, align 8
   %call.i26 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #2
   %cmp8 = icmp slt i32 %inc, %call.i26
-  br i1 %cmp8, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp8, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end6
   %lock41 = getelementptr inbounds i8, ptr %1, i64 8
@@ -492,7 +492,7 @@ for.inc:                                          ; preds = %for.body
   %6 = load ptr, ptr %1, align 8
   %call.i10 = tail call i32 @OPENSSL_sk_num(ptr noundef %6) #2
   %cmp5 = icmp slt i32 %inc, %call.i10
-  br i1 %cmp5, label %for.body, label %return.sink.split, !llvm.loop !9
+  br i1 %cmp5, label %for.body, label %return.sink.split, !llvm.loop !8
 
 return.sink.split:                                ; preds = %for.inc, %for.cond.preheader, %if.then9
   %7 = load ptr, ptr %lock, align 8
@@ -506,7 +506,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_init_thread_start(ptr noundef %index, ptr noundef %arg, ptr noundef %handfn) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_init_thread_start(ptr noundef %index, ptr noundef %arg, ptr noundef %handfn) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @destructor_key) #2
   %cmp.i = icmp eq ptr %call.i, null
@@ -583,9 +583,9 @@ return:                                           ; preds = %if.then1.i, %if.the
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_init_thread_deregister(ptr noundef %index) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_init_thread_deregister(ptr noundef %index) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @init_thread_deregister(ptr noundef %index, i32 noundef 0), !range !6
+  %call = tail call fastcc i32 @init_thread_deregister(ptr noundef %index, i32 noundef 0)
   ret i32 %call
 }
 
@@ -668,7 +668,6 @@ attributes #2 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

@@ -638,7 +638,7 @@ if.then.i:                                        ; preds = %for.end
 
 if.end.i:                                         ; preds = %for.end.thread, %for.end
   %attrsz.0.lcssa53 = phi i64 [ 1, %for.end.thread ], [ %5, %for.end ]
-  %conv.i = trunc i64 %attrsz.0.lcssa53 to i32
+  %conv.i = trunc nuw nsw i64 %attrsz.0.lcssa53 to i32
   store i32 %conv.i, ptr %isz.i, align 4
   %do_write.i = getelementptr inbounds i8, ptr %ctxt, i64 48
   %7 = load ptr, ptr %do_write.i, align 8
@@ -826,7 +826,7 @@ if.then.i:                                        ; preds = %entry
   br label %save_attr_sz.exit
 
 if.end.i:                                         ; preds = %entry
-  %conv.i = trunc i64 %mul to i32
+  %conv.i = trunc nuw nsw i64 %mul to i32
   store i32 %conv.i, ptr %isz.i, align 4
   %do_write.i = getelementptr inbounds i8, ptr %ctxt, i64 48
   %4 = load ptr, ptr %do_write.i, align 8
@@ -1201,8 +1201,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %a, i64 24
   %1 = load ptr, ptr %0, align 8
   %2 = load i32, ptr %1, align 8
-  %cmp29 = icmp sgt i32 %2, 0
-  br i1 %cmp29, label %for.body.lr.ph, label %for.end.thread
+  %cmp30 = icmp sgt i32 %2, 0
+  br i1 %cmp30, label %for.body.lr.ph, label %for.end.thread
 
 for.end.thread:                                   ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %isz.i)
@@ -1216,8 +1216,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %attrsz.030 = phi i64 [ 0, %for.body.lr.ph ], [ %add1, %for.body ]
-  %add = add i64 %attrsz.030, 4
+  %attrsz.031 = phi i64 [ 0, %for.body.lr.ph ], [ %add1, %for.body ]
+  %add = add i64 %attrsz.031, 4
   %arrayidx = getelementptr inbounds %struct.exr_attr_string_t, ptr %3, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx, align 8
   %conv = sext i32 %4 to i64
@@ -1238,8 +1238,8 @@ if.then.i:                                        ; preds = %for.end
   br label %save_attr_sz.exit
 
 if.end.i:                                         ; preds = %for.end.thread, %for.end
-  %attrsz.0.lcssa43 = phi i64 [ 0, %for.end.thread ], [ %add1, %for.end ]
-  %conv.i = trunc i64 %attrsz.0.lcssa43 to i32
+  %attrsz.0.lcssa44 = phi i64 [ 0, %for.end.thread ], [ %add1, %for.end ]
+  %conv.i = trunc nuw nsw i64 %attrsz.0.lcssa44 to i32
   store i32 %conv.i, ptr %isz.i, align 4
   %do_write.i = getelementptr inbounds i8, ptr %ctxt, i64 48
   %6 = load ptr, ptr %do_write.i, align 8
@@ -1250,62 +1250,62 @@ if.end.i:                                         ; preds = %for.end.thread, %fo
 save_attr_sz.exit:                                ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i32 [ %call.i, %if.then.i ], [ %call1.i, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %isz.i)
-  %cmp432 = icmp eq i32 %retval.0.i, 0
-  br i1 %cmp432, label %land.rhs.lr.ph, label %for.end21
+  %cmp433 = icmp eq i32 %retval.0.i, 0
+  br i1 %cmp433, label %land.rhs.lr.ph, label %for.end21
 
 land.rhs.lr.ph:                                   ; preds = %save_attr_sz.exit
-  %do_write.i21 = getelementptr inbounds i8, ptr %ctxt, i64 48
-  %output_file_offset.i22 = getelementptr inbounds i8, ptr %ctxt, i64 176
-  %standard_error.i26 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %do_write.i22 = getelementptr inbounds i8, ptr %ctxt, i64 48
+  %output_file_offset.i23 = getelementptr inbounds i8, ptr %ctxt, i64 176
+  %standard_error.i27 = getelementptr inbounds i8, ptr %ctxt, i64 56
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc19
-  %indvars.iv38 = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv.next39, %for.inc19 ]
+  %indvars.iv39 = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv.next40, %for.inc19 ]
   %7 = load ptr, ptr %0, align 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %cmp7 = icmp slt i64 %indvars.iv38, %9
+  %cmp7 = icmp slt i64 %indvars.iv39, %9
   br i1 %cmp7, label %for.body9, label %for.end21
 
 for.body9:                                        ; preds = %land.rhs
   %strings10 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load ptr, ptr %strings10, align 8
-  %add.ptr = getelementptr inbounds %struct.exr_attr_string_t, ptr %10, i64 %indvars.iv38
+  %add.ptr = getelementptr inbounds %struct.exr_attr_string_t, ptr %10, i64 %indvars.iv39
   %11 = load i32, ptr %add.ptr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %isz.i18)
   %cmp.i19 = icmp slt i32 %11, 0
-  br i1 %cmp.i19, label %if.then.i25, label %if.end.i20
+  br i1 %cmp.i19, label %if.then.i26, label %if.end.i20
 
-if.then.i25:                                      ; preds = %for.body9
-  %12 = load ptr, ptr %standard_error.i26, align 8
-  %call.i27 = call i32 %12(ptr noundef nonnull %ctxt, i32 noundef 3) #5
-  br label %save_attr_sz.exit28
+if.then.i26:                                      ; preds = %for.body9
+  %12 = load ptr, ptr %standard_error.i27, align 8
+  %call.i28 = call i32 %12(ptr noundef nonnull %ctxt, i32 noundef 3) #5
+  br label %save_attr_sz.exit29
 
 if.end.i20:                                       ; preds = %for.body9
   store i32 %11, ptr %isz.i18, align 4
-  %13 = load ptr, ptr %do_write.i21, align 8
-  %call1.i23 = call i32 %13(ptr noundef nonnull %ctxt, ptr noundef nonnull %isz.i18, i64 noundef 4, ptr noundef nonnull %output_file_offset.i22) #5
-  br label %save_attr_sz.exit28
+  %13 = load ptr, ptr %do_write.i22, align 8
+  %call1.i24 = call i32 %13(ptr noundef nonnull %ctxt, ptr noundef nonnull %isz.i18, i64 noundef 4, ptr noundef nonnull %output_file_offset.i23) #5
+  br label %save_attr_sz.exit29
 
-save_attr_sz.exit28:                              ; preds = %if.then.i25, %if.end.i20
-  %retval.0.i24 = phi i32 [ %call.i27, %if.then.i25 ], [ %call1.i23, %if.end.i20 ]
+save_attr_sz.exit29:                              ; preds = %if.then.i26, %if.end.i20
+  %retval.0.i25 = phi i32 [ %call.i28, %if.then.i26 ], [ %call1.i24, %if.end.i20 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %isz.i18)
-  %cmp14 = icmp eq i32 %retval.0.i24, 0
+  %cmp14 = icmp eq i32 %retval.0.i25, 0
   br i1 %cmp14, label %for.inc19, label %for.end21
 
-for.inc19:                                        ; preds = %save_attr_sz.exit28
-  %14 = load ptr, ptr %do_write.i21, align 8
+for.inc19:                                        ; preds = %save_attr_sz.exit29
+  %14 = load ptr, ptr %do_write.i22, align 8
   %str = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %15 = load ptr, ptr %str, align 8
   %16 = load i32, ptr %add.ptr, align 8
   %conv17 = sext i32 %16 to i64
-  %call18 = call i32 %14(ptr noundef nonnull %ctxt, ptr noundef %15, i64 noundef %conv17, ptr noundef nonnull %output_file_offset.i22) #5
-  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
+  %call18 = call i32 %14(ptr noundef nonnull %ctxt, ptr noundef %15, i64 noundef %conv17, ptr noundef nonnull %output_file_offset.i23) #5
+  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %cmp4 = icmp eq i32 %call18, 0
   br i1 %cmp4, label %land.rhs, label %for.end21, !llvm.loop !11
 
-for.end21:                                        ; preds = %save_attr_sz.exit28, %land.rhs, %for.inc19, %save_attr_sz.exit
-  %rv.0.lcssa = phi i32 [ %retval.0.i, %save_attr_sz.exit ], [ %retval.0.i24, %save_attr_sz.exit28 ], [ %call18, %for.inc19 ], [ 0, %land.rhs ]
+for.end21:                                        ; preds = %save_attr_sz.exit29, %land.rhs, %for.inc19, %save_attr_sz.exit
+  %rv.0.lcssa = phi i32 [ %retval.0.i, %save_attr_sz.exit ], [ %retval.0.i25, %save_attr_sz.exit29 ], [ %call18, %for.inc19 ], [ 0, %land.rhs ]
   ret i32 %rv.0.lcssa
 }
 

@@ -122,7 +122,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ractor_basket_accept.rbimpl_id = internal global i64 0, align 8
 @.str.70 = private unnamed_addr constant [8 x i8] c"@ractor\00", align 1
 @.str.71 = private unnamed_addr constant [36 x i8] c"The incoming-port is already closed\00", align 1
-@ruby_current_ec = external thread_local global ptr, align 8
+@ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 @ruby_current_vm_ptr = external local_unnamed_addr global ptr, align 8
 @ractor_selector_data_type = internal constant %struct.rb_data_type_struct { ptr @.str.75, %struct.anon.12 { ptr @ractor_selector_mark, ptr @ractor_selector_free, ptr @ractor_selector_memsize, ptr null, [1 x ptr] zeroinitializer }, ptr null, ptr null, i64 1 }, align 8
 @.str.75 = private unnamed_addr constant [16 x i8] c"ractor/selector\00", align 1
@@ -639,7 +639,7 @@ rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @ractor_close_outgoing(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i64 0, 21) i64 @ractor_close_outgoing(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @rb_native_mutex_lock(ptr noundef nonnull %2) #20
   %3 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1939,7 +1939,7 @@ define internal noundef i64 @ractor_selector_clear(i64 noundef returned %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @ractor_selector_empty_p(i64 noundef %0) #6 {
+define internal range(i64 0, 21) i64 @ractor_selector_empty_p(i64 noundef %0) #6 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -2459,7 +2459,7 @@ ractor_queue_empty_p.exit:                        ; preds = %ractor_sleep_with_c
 
 ractor_take_will_lock.exit.thread:                ; preds = %181
   %190 = getelementptr i8, ptr %186, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %190, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %190, i64 32, i1 false)
   store i32 0, ptr %190, align 8
   call void @rb_native_mutex_unlock(ptr noundef nonnull %187) #20
   br label %.loopexit
@@ -2824,7 +2824,7 @@ define dso_local noundef i64 @rb_ractor_make_shareable(i64 noundef returned %0) 
   store ptr @null_leave, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %6 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %2), !range !26
+  %6 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %2)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %rb_obj_traverse.exit
 
@@ -2848,7 +2848,7 @@ rb_obj_traverse.exit:                             ; preds = %1, %7, %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @make_shareable_check_shareable(i64 noundef %0) #0 {
+define internal range(i32 0, 2) i32 @make_shareable_check_shareable(i64 noundef %0) #0 {
   %2 = alloca %struct.obj_traverse_data, align 8
   %3 = alloca %struct.rb_obj_traverse_final_data, align 8
   %4 = and i64 %0, 7
@@ -2872,7 +2872,7 @@ define internal noundef i32 @make_shareable_check_shareable(i64 noundef %0) #0 {
   store ptr @null_leave, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %15 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %2), !range !26
+  %15 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %2)
   %.not.i.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i.i, label %16, label %rb_ractor_shareable_p.exit.thread16
 
@@ -2998,7 +2998,7 @@ define dso_local i64 @rb_ractor_make_shareable_copy(i64 noundef %0) local_unname
   store i64 36, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 0, ptr %8, align 8
-  %9 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %0, ptr noundef nonnull %4), !range !26
+  %9 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %0, ptr noundef nonnull %4)
   %.not.i.i = icmp ne i32 %9, 0
   %10 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
@@ -3019,7 +3019,7 @@ ractor_copy.exit:                                 ; preds = %1
   store ptr @null_leave, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  %17 = call fastcc i32 @obj_traverse_i(i64 noundef %10, ptr noundef nonnull %2), !range !26
+  %17 = call fastcc i32 @obj_traverse_i(i64 noundef %10, ptr noundef nonnull %2)
   %.not.i.i2 = icmp eq i32 %17, 0
   br i1 %.not.i.i2, label %18, label %rb_ractor_make_shareable.exit
 
@@ -3067,7 +3067,7 @@ define hidden noundef i64 @rb_ractor_ensure_shareable(i64 noundef returned %0, i
   store ptr @null_leave, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %16 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %3), !range !26
+  %16 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %3)
   %.not.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i, label %17, label %rb_ractor_shareable_p.exit.thread7
 
@@ -3159,7 +3159,7 @@ define dso_local zeroext i1 @rb_ractor_shareable_p_continue(i64 noundef %0) loca
   store ptr @null_leave, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %6 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %2), !range !26
+  %6 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %2)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %rb_obj_traverse.exit
 
@@ -3186,7 +3186,7 @@ rb_obj_traverse.exit:                             ; preds = %1, %7, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @shareable_p_enter(i64 noundef %0) #10 {
+define internal range(i32 0, 3) i32 @shareable_p_enter(i64 noundef %0) #10 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 256
@@ -3612,7 +3612,7 @@ define hidden void @rb_ractor_finish_marking() local_unnamed_addr #0 {
   %6 = load i32, ptr @freed_ractor_local_keys.0, align 8
   %7 = sext i32 %6 to i64
   %8 = icmp slt i64 %indvars.iv.next, %7
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   store i32 0, ptr @freed_ractor_local_keys.0, align 8
@@ -3638,7 +3638,7 @@ define hidden void @Init_builtin_ractor() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @builtin_inline_class_276(ptr nocapture readnone %0, i64 %1) #14 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_276(ptr nocapture readnone %0, i64 %1) #14 {
   %3 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not = icmp eq ptr %3, null
   %4 = select i1 %.not, i64 0, i64 20
@@ -3718,7 +3718,7 @@ ractor_alloc.exit:                                ; preds = %6, %16
   br i1 %.not.i.i13, label %rb_enc_asciicompat.exit.i, label %rb_enc_asciicompat.exit.thread.i
 
 rb_enc_asciicompat.exit.i:                        ; preds = %40
-  %45 = call i32 @rb_enc_dummy_p(ptr noundef nonnull %43) #38
+  %45 = call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %43) #38
   %.not3.i.i = icmp eq i32 %45, 0
   br i1 %.not3.i.i, label %48, label %rb_enc_asciicompat.exit.thread.i
 
@@ -3761,7 +3761,7 @@ ractor_init.exit:                                 ; preds = %ractor_alloc.exit, 
   call void @rb_rjit_before_ractor_spawn() #20
   %66 = call i64 @rb_thread_create_ractor(ptr noundef nonnull %21, i64 noundef %4, i64 noundef %5) #20
   store ptr %8, ptr %9, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %9) #20, !srcloc !28
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %9) #20, !srcloc !27
   %67 = load ptr, ptr %9, align 8
   %68 = load volatile i64, ptr %67, align 8
   %69 = load i64, ptr %8, align 8
@@ -3780,7 +3780,7 @@ rb_ec_ractor_ptr.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @builtin_inline_class_303(ptr nocapture readnone %0, i64 %1) #6 {
+define internal range(i64 1, 8589934592) i64 @builtin_inline_class_303(ptr nocapture readnone %0, i64 %1) #6 {
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i32, ptr %4, align 8
@@ -3966,7 +3966,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %81, %rb_ec_ractor_p
   %87 = load ptr, ptr %48, align 8
   store ptr %87, ptr %46, align 8
   store ptr %8, ptr %11, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %11) #20, !srcloc !29
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %11) #20, !srcloc !28
   %88 = load ptr, ptr %11, align 8
   %89 = load volatile i64, ptr %88, align 8
   ret i64 %86
@@ -4130,7 +4130,7 @@ rb_vm_check_ints.exit:                            ; preds = %rb_vm_check_ints.ex
 41:                                               ; preds = %33
   %42 = add i32 %.03545, 1
   %exitcond.not = icmp eq i32 %42, %28
-  br i1 %exitcond.not, label %.thread, label %33, !llvm.loop !30
+  br i1 %exitcond.not, label %.thread, label %33, !llvm.loop !29
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds i8, ptr %37, i64 16
@@ -4303,12 +4303,12 @@ ractor_check_ints.exit.us.i.i.i.i:                ; preds = %45, %.split.us.i.i.
 ractor_sleep.exit.i.i:                            ; preds = %ractor_check_ints.exit.us.i.i.i.i
   store i32 0, ptr %21, align 8
   store i32 0, ptr %22, align 4
-  br label %24, !llvm.loop !31
+  br label %24, !llvm.loop !30
 
 ractor_wait_yield.exit.i:                         ; preds = %ractor_check_take_basket.exit.i.i
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull %17) #20
   %47 = tail call fastcc zeroext i1 @ractor_try_yield(ptr noundef %0, ptr noundef %.0.i, ptr noundef nonnull %15, i64 noundef %10, i64 noundef %8, i1 noundef zeroext false, i1 noundef zeroext false)
-  br i1 %47, label %ractor_yield.exit, label %23, !llvm.loop !32
+  br i1 %47, label %ractor_yield.exit, label %23, !llvm.loop !31
 
 ractor_yield.exit:                                ; preds = %ractor_wait_yield.exit.i, %rb_ec_ractor_ptr.exit
   ret i64 4
@@ -4533,7 +4533,7 @@ ractor_sleep_with_cleanup.exit.i.i:               ; preds = %ractor_check_ints.e
 ractor_wait_take.exit.i:                          ; preds = %ractor_sleep_with_cleanup.exit.i.i, %31
   call void @rb_native_mutex_unlock(ptr noundef nonnull %15) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %25, !llvm.loop !33
+  br label %25, !llvm.loop !32
 
 ractor_take.exit:                                 ; preds = %ractor_try_take.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -4561,7 +4561,7 @@ define internal i64 @builtin_inline_class_718(ptr nocapture readnone %0, i64 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @builtin_inline_class_719(ptr nocapture readnone %0, i64 noundef %1) #6 {
+define internal range(i64 1, 8589934592) i64 @builtin_inline_class_719(ptr nocapture readnone %0, i64 noundef %1) #6 {
   %3 = inttoptr i64 %1 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -4606,7 +4606,7 @@ define internal i64 @builtin_inline_class_730(ptr nocapture readnone %0, i64 nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @builtin_inline_class_750(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_750(ptr nocapture readnone %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %1 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -4643,7 +4643,7 @@ ractor_close_incoming.exit:                       ; preds = %2, %10, %ractor_sle
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @builtin_inline_class_768(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_768(ptr nocapture readnone %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %1 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -4652,7 +4652,7 @@ define internal noundef i64 @builtin_inline_class_768(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @builtin_inline_class_785(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_785(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = alloca %struct.obj_traverse_data, align 8
   %4 = alloca %struct.rb_obj_traverse_final_data, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4682,7 +4682,7 @@ define internal noundef i64 @builtin_inline_class_785(ptr nocapture noundef read
   store ptr @null_leave, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  %22 = call fastcc i32 @obj_traverse_i(i64 noundef %10, ptr noundef nonnull %3), !range !26
+  %22 = call fastcc i32 @obj_traverse_i(i64 noundef %10, ptr noundef nonnull %3)
   %.not.i.i.i = icmp eq i32 %22, 0
   br i1 %.not.i.i.i, label %23, label %rb_ractor_shareable_p.exit.thread7
 
@@ -4751,7 +4751,7 @@ define internal noundef i64 @builtin_inline_class_831(ptr nocapture noundef read
   store ptr @null_leave, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %13 = call fastcc i32 @obj_traverse_i(i64 noundef %10, ptr noundef nonnull %3), !range !26
+  %13 = call fastcc i32 @obj_traverse_i(i64 noundef %10, ptr noundef nonnull %3)
   %.not.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i, label %14, label %rb_ractor_make_shareable.exit
 
@@ -4896,7 +4896,7 @@ define internal void @ractor_mark(ptr noundef %0) #0 {
   %25 = add nuw nsw i32 %.07.i, 1
   %26 = load i32, ptr %5, align 4
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %10, label %ractor_queue_mark.exit, !llvm.loop !34
+  br i1 %27, label %10, label %ractor_queue_mark.exit, !llvm.loop !33
 
 ractor_queue_mark.exit:                           ; preds = %24, %1
   %28 = getelementptr inbounds i8, ptr %0, i64 120
@@ -4937,7 +4937,7 @@ ractor_queue_mark.exit:                           ; preds = %24, %1
   %49 = add nuw nsw i32 %.07.i19, 1
   %50 = load i32, ptr %29, align 4
   %51 = icmp slt i32 %49, %50
-  br i1 %51, label %34, label %ractor_queue_mark.exit22, !llvm.loop !34
+  br i1 %51, label %34, label %ractor_queue_mark.exit22, !llvm.loop !33
 
 ractor_queue_mark.exit22:                         ; preds = %48, %ractor_queue_mark.exit
   %52 = getelementptr inbounds i8, ptr %0, i64 200
@@ -4978,7 +4978,7 @@ ractor_queue_mark.exit22:                         ; preds = %48, %ractor_queue_m
   tail call void @rb_gc_mark(i64 noundef %69) #20
   %.0 = load ptr, ptr %.026, align 8
   %.not17 = icmp eq ptr %.0, %65
-  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !35
+  br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %ractor_queue_mark.exit22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -5026,7 +5026,7 @@ ractor_queue_mark.exit22:                         ; preds = %48, %ractor_queue_m
   %92 = load i32, ptr @freed_ractor_local_keys.0, align 8
   %93 = sext i32 %92 to i64
   %94 = icmp slt i64 %indvars.iv.next.i, %93
-  br i1 %94, label %.lr.ph.i23, label %.loopexit.i, !llvm.loop !36
+  br i1 %94, label %.lr.ph.i23, label %.loopexit.i, !llvm.loop !35
 
 .loopexit.i:                                      ; preds = %91, %72, %.loopexit
   %95 = getelementptr inbounds i8, ptr %0, i64 456
@@ -5083,7 +5083,7 @@ ractor_local_storage_free.exit:                   ; preds = %10, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @ractor_memsize(ptr nocapture noundef readonly %0) #7 {
+define internal range(i64 -137438952872, 137438954009) i64 @ractor_memsize(ptr nocapture noundef readonly %0) #7 {
   %2 = getelementptr i8, ptr %0, i64 104
   %.val = load i32, ptr %2, align 8
   %3 = sext i32 %.val to i64
@@ -5236,7 +5236,7 @@ define internal fastcc noundef zeroext i1 @ractor_try_yield(ptr noundef %0, ptr 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph.i.i
   %.lcssa44.i = phi i1 [ true, %.lr.ph.i.i ], [ %37, %._crit_edge.loopexit.i ]
   %.lcssa42.i = phi ptr [ %28, %.lr.ph.i.i ], [ %35, %._crit_edge.loopexit.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.lcssa42.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.lcssa42.i, i64 32, i1 false)
   store i32 5, ptr %.lcssa42.i, align 8
   %38 = load i32, ptr %14, align 4
   %39 = icmp sgt i32 %38, 0
@@ -5354,7 +5354,7 @@ ractor_queue_enq.exit.i:                          ; preds = %._crit_edge.i.i, %6
   %99 = srem i32 %98, %93
   %100 = sext i32 %99 to i64
   %101 = getelementptr %struct.rb_ractor_basket, ptr %95, i64 %100
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull readonly align 8 dereferenceable(32) %9, i64 32, i1 false)
   %102 = icmp eq ptr %.054.i, null
   %spec.select.i = select i1 %102, ptr %63, ptr %.054.i
   %103 = load ptr, ptr %2, align 8
@@ -5375,7 +5375,7 @@ ractor_queue_enq.exit.i:                          ; preds = %._crit_edge.i.i, %6
   %.2.i = phi ptr [ %spec.select.i, %108 ], [ %spec.select.i, %ractor_queue_enq.exit.i ], [ %.054.i, %60 ]
   %113 = load i32, ptr %14, align 4
   %114 = icmp sgt i32 %113, 0
-  br i1 %114, label %.lr.ph.i.i, label %ractor_deq_take_basket.exit.thread, !llvm.loop !37
+  br i1 %114, label %.lr.ph.i.i, label %ractor_deq_take_basket.exit.thread, !llvm.loop !36
 
 115:                                              ; preds = %62
   %116 = getelementptr inbounds i8, ptr %9, i64 24
@@ -5449,7 +5449,7 @@ ractor_queue_enq.exit38.i:                        ; preds = %._crit_edge.i31.i, 
   %155 = srem i32 %154, %149
   %156 = sext i32 %155 to i64
   %157 = getelementptr %struct.rb_ractor_basket, ptr %151, i64 %156
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull readonly align 8 dereferenceable(32) %9, i64 32, i1 false)
   br label %158
 
 ractor_deq_take_basket.exit.thread:               ; preds = %112, %ractor_queue_deq.exit.i, %108, %.lr.ph.i, %7
@@ -5676,7 +5676,7 @@ define internal fastcc void @ractor_basket_prepare_contents(i64 noundef %0, i64 
   store ptr @null_leave, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  %20 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %7), !range !26
+  %20 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %7)
   %.not.i.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.i.i, label %21, label %rb_ractor_shareable_p.exit.thread13
 
@@ -5723,7 +5723,7 @@ rb_ractor_shareable_p.exit:                       ; preds = %21
   store i64 36, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %6, i64 40
   store i8 0, ptr %34, align 8
-  %35 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %0, ptr noundef nonnull %6), !range !26
+  %35 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %0, ptr noundef nonnull %6)
   %.not.i.i = icmp ne i32 %35, 0
   %36 = load i64, ptr %33, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
@@ -5747,7 +5747,7 @@ rb_ractor_shareable_p.exit:                       ; preds = %21
   store i64 36, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %5, i64 40
   store i8 1, ptr %45, align 8
-  %46 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %0, ptr noundef nonnull %5), !range !26
+  %46 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %0, ptr noundef nonnull %5)
   %.not.i.i9 = icmp ne i32 %46, 0
   %47 = load i64, ptr %44, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
@@ -5849,7 +5849,7 @@ declare void @llvm.assume(i1 noundef) #23
 declare void @rb_ec_vm_lock_rec_release(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @move_enter(i64 noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 0, 2) i32 @move_enter(i64 noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct.obj_traverse_data, align 8
   %4 = alloca %struct.rb_obj_traverse_final_data, align 8
   %5 = and i64 %0, 7
@@ -5873,7 +5873,7 @@ define internal noundef i32 @move_enter(i64 noundef %0, ptr nocapture noundef wr
   store ptr @null_leave, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %16 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %3), !range !26
+  %16 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %3)
   %.not.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i, label %17, label %rb_ractor_shareable_p.exit.thread11
 
@@ -5969,7 +5969,7 @@ define internal noundef i32 @move_leave(i64 noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @obj_traverse_replace_i(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @obj_traverse_replace_i(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -6100,7 +6100,7 @@ obj_traverse_replace_rec.exit119:                 ; preds = %34, %36
   br i1 %72, label %rb_obj_write.exit, label %73
 
 73:                                               ; preds = %.lr.ph
-  %74 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %71, ptr noundef nonnull %1), !range !26
+  %74 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %71, ptr noundef nonnull %1)
   %.not99 = icmp eq i32 %74, 0
   br i1 %.not99, label %75, label %.loopexit
 
@@ -6130,7 +6130,7 @@ rb_obj_write.exit:                                ; preds = %85, %77, %.lr.ph, %
   %87 = load i32, ptr %86, align 8
   %88 = zext i32 %87 to i64
   %89 = icmp ult i64 %indvars.iv.next, %88
-  br i1 %89, label %.lr.ph, label %.loopexit137, !llvm.loop !38
+  br i1 %89, label %.lr.ph, label %.loopexit137, !llvm.loop !37
 
 .loopexit137:                                     ; preds = %rb_obj_write.exit, %.preheader, %59, %49
   %90 = load i64, ptr %51, align 8
@@ -6201,7 +6201,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %105, %110
   %indvars.iv158 = phi i64 [ 0, %.lr.ph145.preheader ], [ %indvars.iv.next159, %rb_obj_write.exit121 ]
   %112 = getelementptr i64, ptr %.0.i, i64 %indvars.iv158
   %113 = load i64, ptr %112, align 8
-  %114 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %113, ptr noundef nonnull %1), !range !26
+  %114 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %113, ptr noundef nonnull %1)
   %.not116 = icmp eq i32 %114, 0
   br i1 %.not116, label %115, label %.loopexit
 
@@ -6225,7 +6225,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %105, %110
 rb_obj_write.exit121:                             ; preds = %122, %117, %115
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count
-  br i1 %exitcond161.not, label %rb_obj_write.exit128, label %.lr.ph145, !llvm.loop !39
+  br i1 %exitcond161.not, label %rb_obj_write.exit128, label %.lr.ph145, !llvm.loop !38
 
 123:                                              ; preds = %.loopexit137
   call void @rb_ary_cancel_sharing(i64 noundef %50) #20
@@ -6265,7 +6265,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
 
 137:                                              ; preds = %RARRAY_LENINT.exit
   %138 = call i64 @rb_ary_entry(i64 noundef %50, i64 noundef %indvars.iv155) #38
-  %139 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %138, ptr noundef nonnull %1), !range !26
+  %139 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %138, ptr noundef nonnull %1)
   %.not114 = icmp eq i32 %139, 0
   br i1 %.not114, label %140, label %.loopexit
 
@@ -6294,11 +6294,11 @@ RARRAY_ASET.exit:                                 ; preds = %142, %149
 
 150:                                              ; preds = %RARRAY_ASET.exit, %140
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
-  br label %126, !llvm.loop !40
+  br label %126, !llvm.loop !39
 
 151:                                              ; preds = %RARRAY_LENINT.exit
   store ptr %3, ptr %8, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #20, !srcloc !41
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #20, !srcloc !40
   %152 = load ptr, ptr %8, align 8
   %153 = load volatile i64, ptr %152, align 8
   %.pre162 = load i64, ptr %3, align 8
@@ -6319,7 +6319,7 @@ RARRAY_ASET.exit:                                 ; preds = %142, %149
 161:                                              ; preds = %154
   %162 = getelementptr inbounds i8, ptr %51, i64 16
   %163 = load i64, ptr %162, align 8
-  %164 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %163, ptr noundef nonnull %1), !range !26
+  %164 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %163, ptr noundef nonnull %1)
   %.not112 = icmp eq i32 %164, 0
   br i1 %.not112, label %165, label %.loopexit
 
@@ -6360,7 +6360,7 @@ RSTRUCT_CONST_PTR.exit:                           ; preds = %171, %175
   %.088142 = phi i64 [ %192, %rb_obj_write.exit126 ], [ 0, %RSTRUCT_CONST_PTR.exit ]
   %181 = getelementptr i64, ptr %.0.i125, i64 %.088142
   %182 = load i64, ptr %181, align 8
-  %183 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %182, ptr noundef nonnull %1), !range !26
+  %183 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %182, ptr noundef nonnull %1)
   %.not110 = icmp eq i32 %183, 0
   br i1 %.not110, label %184, label %.loopexit
 
@@ -6384,12 +6384,12 @@ RSTRUCT_CONST_PTR.exit:                           ; preds = %171, %175
 rb_obj_write.exit126:                             ; preds = %191, %186, %184
   %192 = add nuw nsw i64 %.088142, 1
   %exitcond.not = icmp eq i64 %192, %.0.i123132
-  br i1 %exitcond.not, label %rb_obj_write.exit128, label %.lr.ph143, !llvm.loop !42
+  br i1 %exitcond.not, label %rb_obj_write.exit128, label %.lr.ph143, !llvm.loop !41
 
 193:                                              ; preds = %.loopexit137
   %194 = getelementptr inbounds i8, ptr %51, i64 16
   %195 = load i64, ptr %194, align 8
-  %196 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %195, ptr noundef nonnull %1), !range !26
+  %196 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %195, ptr noundef nonnull %1)
   %.not106 = icmp eq i32 %196, 0
   br i1 %.not106, label %197, label %.loopexit
 
@@ -6413,7 +6413,7 @@ rb_obj_write.exit126:                             ; preds = %191, %186, %184
 rb_obj_write.exit127:                             ; preds = %204, %199, %197
   %205 = getelementptr inbounds i8, ptr %51, i64 24
   %206 = load i64, ptr %205, align 8
-  %207 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %206, ptr noundef nonnull %1), !range !26
+  %207 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %206, ptr noundef nonnull %1)
   %.not108 = icmp eq i32 %207, 0
   br i1 %.not108, label %208, label %.loopexit
 
@@ -6437,7 +6437,7 @@ rb_obj_write.exit127:                             ; preds = %204, %199, %197
 216:                                              ; preds = %.loopexit137
   %217 = getelementptr inbounds i8, ptr %51, i64 16
   %218 = load i64, ptr %217, align 8
-  %219 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %218, ptr noundef nonnull %1), !range !26
+  %219 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %218, ptr noundef nonnull %1)
   %.not102 = icmp eq i32 %219, 0
   br i1 %.not102, label %220, label %.loopexit
 
@@ -6461,7 +6461,7 @@ rb_obj_write.exit127:                             ; preds = %204, %199, %197
 rb_obj_write.exit129:                             ; preds = %227, %222, %220
   %228 = getelementptr inbounds i8, ptr %51, i64 24
   %229 = load i64, ptr %228, align 8
-  %230 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %229, ptr noundef nonnull %1), !range !26
+  %230 = call fastcc i32 @obj_traverse_replace_i(i64 noundef %229, ptr noundef nonnull %1)
   %.not104 = icmp eq i32 %230, 0
   br i1 %.not104, label %231, label %.loopexit
 
@@ -6488,7 +6488,7 @@ rb_obj_write.exit129:                             ; preds = %227, %222, %220
   br i1 %241, label %245, label %242
 
 242:                                              ; preds = %239
-  %243 = call fastcc i32 @obj_refer_only_shareables_p(i64 noundef %50), !range !26
+  %243 = call fastcc i32 @obj_refer_only_shareables_p(i64 noundef %50)
   %.not101 = icmp eq i32 %243, 0
   br i1 %.not101, label %._crit_edge, label %rb_obj_write.exit128
 
@@ -6542,12 +6542,12 @@ define internal noundef i32 @obj_iv_hash_traverse_replace_foreach_i(i64 %0, i64 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @obj_iv_hash_traverse_replace_i(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 noundef %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @obj_iv_hash_traverse_replace_i(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 noundef %2, i32 %3) #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %1, align 8
-  %9 = tail call fastcc i32 @obj_traverse_replace_i(i64 noundef %8, ptr noundef %7), !range !26
+  %9 = tail call fastcc i32 @obj_traverse_replace_i(i64 noundef %8, ptr noundef %7)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %10
 
@@ -6623,12 +6623,12 @@ define internal noundef i32 @obj_hash_traverse_replace_foreach_i(i64 %0, i64 %1,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @obj_hash_traverse_replace_i(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 %3) #0 {
+define internal range(i32 0, 2) i32 @obj_hash_traverse_replace_i(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 %3) #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %0, align 8
-  %9 = tail call fastcc i32 @obj_traverse_replace_i(i64 noundef %8, ptr noundef %7), !range !26
+  %9 = tail call fastcc i32 @obj_traverse_replace_i(i64 noundef %8, ptr noundef %7)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %10
 
@@ -6659,7 +6659,7 @@ define internal noundef i32 @obj_hash_traverse_replace_i(ptr nocapture noundef %
 
 rb_obj_written.exit:                              ; preds = %20, %15, %11
   %23 = load i64, ptr %1, align 8
-  %24 = tail call fastcc i32 @obj_traverse_replace_i(i64 noundef %23, ptr noundef nonnull %7), !range !26
+  %24 = tail call fastcc i32 @obj_traverse_replace_i(i64 noundef %23, ptr noundef nonnull %7)
   %.not23 = icmp eq i32 %24, 0
   br i1 %.not23, label %26, label %25
 
@@ -6695,7 +6695,7 @@ rb_obj_written.exit25:                            ; preds = %34, %29, %26, %25, 
 declare i64 @rb_hash_set_ifnone(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @obj_refer_only_shareables_p(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @obj_refer_only_shareables_p(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   store i32 0, ptr %2, align 4
@@ -6808,7 +6808,7 @@ define internal void @obj_refer_only_shareables_p_i(i64 noundef %0, ptr nocaptur
   store ptr @null_leave, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %16 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %3), !range !26
+  %16 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %3)
   %.not.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i, label %17, label %rb_ractor_shareable_p.exit.thread5
 
@@ -6934,7 +6934,7 @@ ractor_recursive_receive_if.exit:                 ; preds = %2, %5
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph.i
   %.lcssa3 = phi i1 [ true, %.lr.ph.i ], [ %29, %._crit_edge.loopexit ]
   %.lcssa = phi ptr [ %20, %.lr.ph.i ], [ %27, %._crit_edge.loopexit ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.lcssa, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.lcssa, i64 32, i1 false)
   store i32 5, ptr %.lcssa, align 8
   %30 = load i32, ptr %10, align 4
   %31 = icmp sgt i32 %30, 0
@@ -7127,7 +7127,7 @@ ractor_check_ints.exit.us.i.i:                    ; preds = %48, %.split.us.i.i
 ractor_sleep.exit:                                ; preds = %ractor_check_ints.exit.us.i.i
   store i32 0, ptr %15, align 8
   store i32 0, ptr %16, align 4
-  br label %17, !llvm.loop !43
+  br label %17, !llvm.loop !42
 
 ractor_queue_empty_p.exit:                        ; preds = %.lr.ph.i
   tail call void @rb_native_mutex_unlock(ptr noundef nonnull %9) #20
@@ -7405,7 +7405,7 @@ define internal fastcc zeroext i1 @ractor_deregister_take(ptr noundef %0, ptr no
   %.1 = phi i8 [ 1, %27 ], [ %.021, %23 ], [ %.021, %13 ]
   %30 = add nuw nsw i32 %.01920, 1
   %31 = icmp slt i32 %30, %29
-  br i1 %31, label %13, label %._crit_edge, !llvm.loop !44
+  br i1 %31, label %13, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %28
   %32 = trunc nuw i8 %.1 to i1
@@ -7481,7 +7481,7 @@ define internal fastcc noundef zeroext i1 @ractor_register_take(i64 %.0.val, ptr
   br i1 %8, label %ractor_take_will.exit.thread, label %ractor_take_will.exit
 
 ractor_take_will.exit.thread:                     ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   store i32 0, ptr %7, align 8
   br label %ractor_wakeup.exit.thread
 
@@ -7627,7 +7627,7 @@ declare i32 @rb_get_kwargs(i64 noundef, ptr noundef, i32 noundef, i32 noundef, p
 declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @ractor_selector_wait_i(i64 noundef %0, i64 %1, i64 noundef %2) #0 {
+define internal range(i32 0, 2) i32 @ractor_selector_wait_i(i64 noundef %0, i64 %1, i64 noundef %2) #0 {
   %4 = inttoptr i64 %0 to ptr
   %5 = inttoptr i64 %2 to ptr
   %.val16 = load i32, ptr %5, align 8
@@ -7653,7 +7653,7 @@ define internal noundef i32 @ractor_selector_wait_i(i64 noundef %0, i64 %1, i64 
   br i1 %15, label %16, label %ractor_take_will.exit
 
 16:                                               ; preds = %14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   store i32 0, ptr %9, align 8
   br label %ractor_take_will.exit
 
@@ -7714,7 +7714,7 @@ define internal fastcc void @ractor_selector_wait_cleaup(ptr noundef %0, ptr noc
   tail call void @rb_thread_sleep(i32 noundef 0) #20
   %.val = load i32, ptr %1, align 8
   %5 = icmp eq i32 %.val, 8
-  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !45
+  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   store i32 6, ptr %1, align 8
@@ -7727,7 +7727,7 @@ declare void @rb_thread_sleep(i32 noundef) local_unnamed_addr #1
 declare i64 @rb_ary_new_from_args(i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @obj_traverse_i(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.obj_traverse_callback_data, align 8
   %4 = alloca %struct.obj_traverse_callback_data, align 8
   %5 = alloca %struct.obj_traverse_callback_data, align 8
@@ -7839,15 +7839,15 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
 
 47:                                               ; preds = %RARRAY_LENINT.exit
   %48 = call i64 @rb_ary_entry(i64 noundef %0, i64 noundef %indvars.iv) #38
-  %49 = call fastcc i32 @obj_traverse_i(i64 noundef %48, ptr noundef nonnull %1), !range !26
+  %49 = call fastcc i32 @obj_traverse_i(i64 noundef %48, ptr noundef nonnull %1)
   %.not48 = icmp eq i32 %49, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not48, label %36, label %.loopexit57, !llvm.loop !46
+  br i1 %.not48, label %36, label %.loopexit57, !llvm.loop !45
 
 50:                                               ; preds = %30
   %51 = getelementptr inbounds i8, ptr %31, i64 16
   %52 = load i64, ptr %51, align 8
-  %53 = call fastcc i32 @obj_traverse_i(i64 noundef %52, ptr noundef nonnull %1), !range !26
+  %53 = call fastcc i32 @obj_traverse_i(i64 noundef %52, ptr noundef nonnull %1)
   %.not47 = icmp eq i32 %53, 0
   br i1 %.not47, label %54, label %.loopexit57
 
@@ -7888,41 +7888,41 @@ RSTRUCT_CONST_PTR.exit:                           ; preds = %61, %65
 71:                                               ; preds = %.lr.ph
   %72 = add nuw nsw i64 %.062, 1
   %exitcond.not = icmp eq i64 %72, %.0.i55
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !46
 
 .lr.ph:                                           ; preds = %RSTRUCT_CONST_PTR.exit, %71
   %.062 = phi i64 [ %72, %71 ], [ 0, %RSTRUCT_CONST_PTR.exit ]
   %73 = getelementptr i64, ptr %.0.i51, i64 %.062
   %74 = load i64, ptr %73, align 8
-  %75 = call fastcc i32 @obj_traverse_i(i64 noundef %74, ptr noundef nonnull %1), !range !26
+  %75 = call fastcc i32 @obj_traverse_i(i64 noundef %74, ptr noundef nonnull %1)
   %.not46 = icmp eq i32 %75, 0
   br i1 %.not46, label %71, label %.loopexit57
 
 76:                                               ; preds = %30
   %77 = getelementptr inbounds i8, ptr %31, i64 16
   %78 = load i64, ptr %77, align 8
-  %79 = call fastcc i32 @obj_traverse_i(i64 noundef %78, ptr noundef nonnull %1), !range !26
+  %79 = call fastcc i32 @obj_traverse_i(i64 noundef %78, ptr noundef nonnull %1)
   %.not44 = icmp eq i32 %79, 0
   br i1 %.not44, label %80, label %.loopexit57
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds i8, ptr %31, i64 24
   %82 = load i64, ptr %81, align 8
-  %83 = call fastcc i32 @obj_traverse_i(i64 noundef %82, ptr noundef nonnull %1), !range !26
+  %83 = call fastcc i32 @obj_traverse_i(i64 noundef %82, ptr noundef nonnull %1)
   %.not45 = icmp eq i32 %83, 0
   br i1 %.not45, label %.loopexit, label %.loopexit57
 
 84:                                               ; preds = %30
   %85 = getelementptr inbounds i8, ptr %31, i64 16
   %86 = load i64, ptr %85, align 8
-  %87 = call fastcc i32 @obj_traverse_i(i64 noundef %86, ptr noundef nonnull %1), !range !26
+  %87 = call fastcc i32 @obj_traverse_i(i64 noundef %86, ptr noundef nonnull %1)
   %.not42 = icmp eq i32 %87, 0
   br i1 %.not42, label %88, label %.loopexit57
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds i8, ptr %31, i64 24
   %90 = load i64, ptr %89, align 8
-  %91 = call fastcc i32 @obj_traverse_i(i64 noundef %90, ptr noundef nonnull %1), !range !26
+  %91 = call fastcc i32 @obj_traverse_i(i64 noundef %90, ptr noundef nonnull %1)
   %.not43 = icmp eq i32 %91, 0
   br i1 %.not43, label %.loopexit, label %.loopexit57
 
@@ -7972,7 +7972,7 @@ rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter_nb
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @obj_traverse_final_i(i64 noundef %0, i64 %1, i64 noundef %2) #0 {
+define internal range(i32 0, 2) i32 @obj_traverse_final_i(i64 noundef %0, i64 %1, i64 noundef %2) #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(i64 noundef %0) #20
@@ -7992,11 +7992,11 @@ define internal noundef i32 @obj_traverse_final_i(i64 noundef %0, i64 %1, i64 no
 declare void @rb_ivar_foreach(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @obj_traverse_ivar_foreach_i(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal range(i32 0, 2) i32 @obj_traverse_ivar_foreach_i(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call fastcc i32 @obj_traverse_i(i64 noundef %1, ptr noundef %6), !range !26
+  %7 = tail call fastcc i32 @obj_traverse_i(i64 noundef %1, ptr noundef %6)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
 
@@ -8012,17 +8012,17 @@ define internal noundef i32 @obj_traverse_ivar_foreach_i(i64 %0, i64 noundef %1,
 declare void @rb_hash_foreach(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @obj_hash_traverse_i(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal range(i32 0, 2) i32 @obj_hash_traverse_i(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef %6), !range !26
+  %7 = tail call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef %6)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %.sink.split
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %5, align 8
-  %10 = tail call fastcc i32 @obj_traverse_i(i64 noundef %1, ptr noundef %9), !range !26
+  %10 = tail call fastcc i32 @obj_traverse_i(i64 noundef %1, ptr noundef %9)
   %.not7 = icmp eq i32 %10, 0
   br i1 %.not7, label %11, label %.sink.split
 
@@ -8039,7 +8039,7 @@ define internal noundef i32 @obj_hash_traverse_i(i64 noundef %0, i64 noundef %1,
 define internal void @obj_traverse_reachable_i(i64 noundef %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef %4), !range !26
+  %5 = tail call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6
 
@@ -8058,7 +8058,7 @@ declare i64 @rb_obj_is_proc(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_proc_ractor_make_shareable(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @copy_enter(i64 noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 0, 2) i32 @copy_enter(i64 noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct.obj_traverse_data, align 8
   %4 = alloca %struct.rb_obj_traverse_final_data, align 8
   %5 = and i64 %0, 7
@@ -8082,7 +8082,7 @@ define internal noundef i32 @copy_enter(i64 noundef %0, ptr nocapture noundef wr
   store ptr @null_leave, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %16 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %3), !range !26
+  %16 = call fastcc i32 @obj_traverse_i(i64 noundef %0, ptr noundef nonnull %3)
   %.not.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i, label %17, label %rb_ractor_shareable_p.exit.thread8
 
@@ -8429,10 +8429,10 @@ attributes #39 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite
 !23 = distinct !{ptr @ractor_selector_wait_cleaup, null}
 !24 = distinct !{!24, !8}
 !25 = distinct !{!25, !8}
-!26 = !{i32 0, i32 2}
-!27 = distinct !{!27, !8}
-!28 = !{i64 2155551635}
-!29 = !{i64 2155548489}
+!26 = distinct !{!26, !8}
+!27 = !{i64 2155551635}
+!28 = !{i64 2155548489}
+!29 = distinct !{!29, !8}
 !30 = distinct !{!30, !8}
 !31 = distinct !{!31, !8}
 !32 = distinct !{!32, !8}
@@ -8443,11 +8443,10 @@ attributes #39 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite
 !37 = distinct !{!37, !8}
 !38 = distinct !{!38, !8}
 !39 = distinct !{!39, !8}
-!40 = distinct !{!40, !8}
-!41 = !{i64 2156495590}
+!40 = !{i64 2156495590}
+!41 = distinct !{!41, !8}
 !42 = distinct !{!42, !8}
 !43 = distinct !{!43, !8}
 !44 = distinct !{!44, !8}
 !45 = distinct !{!45, !8}
 !46 = distinct !{!46, !8}
-!47 = distinct !{!47, !8}

@@ -298,7 +298,7 @@ if.then.i.i:                                      ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 5
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i, i1 true), !range !6
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i, i1 true)
   %sub.i.i.i = shl nuw nsw i64 %2, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
   tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_SF_T0_T1_"(ptr %0, ptr %1, i64 noundef %mul.i.i)
@@ -325,7 +325,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %"_Z
   %call.val2.i13.i.i.i.i.i = load i64, ptr %3, align 8
   %cmp.i.i.i14.i.i.i.i.i = icmp ugt i64 %call.val2.i13.i.i.i.i.i, %__val.sroa.3.0.copyload.i.i.i.i.i
   %..i.i.i15.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %__val.sroa.3.0.copyload.i.i.i.i.i, i64 %call.val2.i13.i.i.i.i.i)
-  %call.i.i.i16.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %__val.sroa.0.0.copyload.i.i.i.i.i, ptr noundef %call.val.i12.i.i.i.i.i, i64 noundef %..i.i.i15.i.i.i.i.i) #14
+  %call.i.i.i16.i.i.i.i.i = tail call i32 @memcmp(ptr noundef readonly %__val.sroa.0.0.copyload.i.i.i.i.i, ptr noundef readonly %call.val.i12.i.i.i.i.i, i64 noundef %..i.i.i15.i.i.i.i.i) #14
   %cmp6.not.i.i.i17.i.i.i.i.i = icmp eq i32 %call.i.i.i16.i.i.i.i.i, 0
   %cmp1.i.i18.i.i.i.i.i = icmp slt i32 %call.i.i.i16.i.i.i.i.i, 0
   %cmp.i.i19.i.i.i.i.i = select i1 %cmp6.not.i.i.i17.i.i.i.i.i, i1 %cmp.i.i.i14.i.i.i.i.i, i1 %cmp1.i.i18.i.i.i.i.i
@@ -341,11 +341,11 @@ while.body.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i, %
   %call.val2.i.i.i.i.i.i = load i64, ptr %4, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ugt i64 %call.val2.i.i.i.i.i.i, %__val.sroa.3.0.copyload.i.i.i.i.i
   %..i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %__val.sroa.3.0.copyload.i.i.i.i.i, i64 %call.val2.i.i.i.i.i.i)
-  %call.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %__val.sroa.0.0.copyload.i.i.i.i.i, ptr noundef %call.val.i.i.i.i.i.i, i64 noundef %..i.i.i.i.i.i.i.i) #14
+  %call.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef readonly %__val.sroa.0.0.copyload.i.i.i.i.i, ptr noundef readonly %call.val.i.i.i.i.i.i, i64 noundef %..i.i.i.i.i.i.i.i) #14
   %cmp6.not.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i, 0
   %cmp1.i.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i.i.i, 0
   %cmp.i.i.i.i.i.i.i = select i1 %cmp6.not.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i, i1 %cmp1.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_.exit.i.i.i.i", !llvm.loop !7
+  br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_.exit.i.i.i.i", !llvm.loop !6
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %while.body.i.i.i.i.i, %for.body.i.i.i.i
   %__last.sroa.0.0.lcssa.i.i.i.i.i = phi ptr [ %__i.sroa.0.03.i.i.i.i, %for.body.i.i.i.i ], [ %__next.sroa.0.021.i.i.i.i.i, %while.body.i.i.i.i.i ]
@@ -357,7 +357,7 @@ while.body.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i, %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.sroa.4.i.i.i.i.i)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i.i.i, i64 32
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
-  br i1 %cmp.i.not.i.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEEZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EvT_SC_T0_.exit", label %for.body.i.i.i.i, !llvm.loop !8
+  br i1 %cmp.i.not.i.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEEZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EvT_SC_T0_.exit", label %for.body.i.i.i.i, !llvm.loop !7
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
   tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_SF_T0_"(ptr %0, ptr %1)
@@ -409,7 +409,7 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEET_SF_SF_T0_.exit"
   %cmp2 = icmp eq i64 %dec, 0
-  br i1 %cmp2, label %if.end.i.i.i, label %if.end, !llvm.loop !9
+  br i1 %cmp2, label %if.end.i.i.i, label %if.end, !llvm.loop !8
 
 if.end.i.i.i:                                     ; preds = %while.body, %while.body.lr.ph
   %sub.ptr.div.i21.lcssa = phi i64 [ %sub.ptr.div.i16, %while.body.lr.ph ], [ %sub.ptr.div.i, %while.body ]
@@ -425,7 +425,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_SG_T1_T2_"(ptr %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i21.lcssa, ptr noundef nonnull byval(%"class.rocksdb::WideColumn") align 8 %phi.call.i.i.i)
   %cmp9.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
-  br i1 %cmp9.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_SF_RT0_.exit.i.i", label %while.body.i.i.i, !llvm.loop !10
+  br i1 %cmp9.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_SF_RT0_.exit.i.i", label %while.body.i.i.i, !llvm.loop !9
 
 "_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_SF_RT0_.exit.i.i": ; preds = %while.body.i.i.i
   %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i20.lcssa, 32
@@ -443,7 +443,7 @@ while.body.i.i:                                   ; preds = %"_ZSt11__make_heapI
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_SG_T1_T2_"(ptr %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i5.i, ptr noundef nonnull byval(%"class.rocksdb::WideColumn") align 8 %agg.tmp6.i.i1.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i1.i)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i4.i, 32
-  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !11
+  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !10
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
   %storemerge1837 = phi ptr [ %__first.sroa.0.1.i.i, %while.body ], [ %__last.coerce, %while.body.lr.ph ]
@@ -460,7 +460,7 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   %call3.val2.i.i.i = load i64, ptr %2, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %call.val1.i.i.i, %call3.val2.i.i.i
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %call.val1.i.i.i, i64 %call3.val2.i.i.i)
-  %call.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %call.val.i.i.i, ptr noundef %call3.val.i.i.i, i64 noundef %..i.i.i.i.i) #14
+  %call.i.i.i.i.i = tail call i32 @memcmp(ptr noundef readonly %call.val.i.i.i, ptr noundef readonly %call3.val.i.i.i, i64 noundef %..i.i.i.i.i) #14
   %cmp6.not.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i, 0
   %cmp1.i.i.i.i = icmp slt i32 %call.i.i.i.i.i, 0
   %cmp.i.i.i.i = select i1 %cmp6.not.i.i.i.i.i, i1 %cmp.i.i.i.i.i, i1 %cmp1.i.i.i.i
@@ -472,7 +472,7 @@ if.end:                                           ; preds = %while.body.lr.ph, %
 if.then.i.i:                                      ; preds = %if.end
   %cmp.i.i.i5.i.i = icmp ult i64 %call3.val2.i.i.i, %call3.val2.i4.i.i
   %..i.i.i6.i.i = tail call i64 @llvm.umin.i64(i64 %call3.val2.i.i.i, i64 %call3.val2.i4.i.i)
-  %call.i.i.i7.i.i = tail call i32 @memcmp(ptr noundef %call3.val.i.i.i, ptr noundef %call3.val.i3.i.i, i64 noundef %..i.i.i6.i.i) #14
+  %call.i.i.i7.i.i = tail call i32 @memcmp(ptr noundef readonly %call3.val.i.i.i, ptr noundef readonly %call3.val.i3.i.i, i64 noundef %..i.i.i6.i.i) #14
   %cmp6.not.i.i.i8.i.i = icmp eq i32 %call.i.i.i7.i.i, 0
   %cmp1.i.i9.i.i = icmp slt i32 %call.i.i.i7.i.i, 0
   %cmp.i.i10.i.i = select i1 %cmp6.not.i.i.i8.i.i, i1 %cmp.i.i.i5.i.i, i1 %cmp1.i.i9.i.i
@@ -489,7 +489,7 @@ if.then12.i.i:                                    ; preds = %if.then.i.i
 if.else.i.i:                                      ; preds = %if.then.i.i
   %cmp.i.i.i15.i.i = icmp ult i64 %call.val1.i.i.i, %call3.val2.i4.i.i
   %..i.i.i16.i.i = tail call i64 @llvm.umin.i64(i64 %call.val1.i.i.i, i64 %call3.val2.i4.i.i)
-  %call.i.i.i17.i.i = tail call i32 @memcmp(ptr noundef %call.val.i.i.i, ptr noundef %call3.val.i3.i.i, i64 noundef %..i.i.i16.i.i) #14
+  %call.i.i.i17.i.i = tail call i32 @memcmp(ptr noundef readonly %call.val.i.i.i, ptr noundef readonly %call3.val.i3.i.i, i64 noundef %..i.i.i16.i.i) #14
   %cmp6.not.i.i.i18.i.i = icmp eq i32 %call.i.i.i17.i.i, 0
   %cmp1.i.i19.i.i = icmp slt i32 %call.i.i.i17.i.i, 0
   %cmp.i.i20.i.i = select i1 %cmp6.not.i.i.i18.i.i, i1 %cmp.i.i.i15.i.i, i1 %cmp1.i.i19.i.i
@@ -514,7 +514,7 @@ if.else27.i.i:                                    ; preds = %if.else.i.i
 if.else33.i.i:                                    ; preds = %if.end
   %cmp.i.i.i27.i.i = icmp ult i64 %call.val1.i.i.i, %call3.val2.i4.i.i
   %..i.i.i28.i.i = tail call i64 @llvm.umin.i64(i64 %call.val1.i.i.i, i64 %call3.val2.i4.i.i)
-  %call.i.i.i29.i.i = tail call i32 @memcmp(ptr noundef %call.val.i.i.i, ptr noundef %call3.val.i3.i.i, i64 noundef %..i.i.i28.i.i) #14
+  %call.i.i.i29.i.i = tail call i32 @memcmp(ptr noundef readonly %call.val.i.i.i, ptr noundef readonly %call3.val.i3.i.i, i64 noundef %..i.i.i28.i.i) #14
   %cmp6.not.i.i.i30.i.i = icmp eq i32 %call.i.i.i29.i.i, 0
   %cmp1.i.i31.i.i = icmp slt i32 %call.i.i.i29.i.i, 0
   %cmp.i.i32.i.i = select i1 %cmp6.not.i.i.i30.i.i, i1 %cmp.i.i.i27.i.i, i1 %cmp1.i.i31.i.i
@@ -531,7 +531,7 @@ if.then39.i.i:                                    ; preds = %if.else33.i.i
 if.else44.i.i:                                    ; preds = %if.else33.i.i
   %cmp.i.i.i38.i.i = icmp ult i64 %call3.val2.i.i.i, %call3.val2.i4.i.i
   %..i.i.i39.i.i = tail call i64 @llvm.umin.i64(i64 %call3.val2.i.i.i, i64 %call3.val2.i4.i.i)
-  %call.i.i.i40.i.i = tail call i32 @memcmp(ptr noundef %call3.val.i.i.i, ptr noundef %call3.val.i3.i.i, i64 noundef %..i.i.i39.i.i) #14
+  %call.i.i.i40.i.i = tail call i32 @memcmp(ptr noundef readonly %call3.val.i.i.i, ptr noundef readonly %call3.val.i3.i.i, i64 noundef %..i.i.i39.i.i) #14
   %cmp6.not.i.i.i41.i.i = icmp eq i32 %call.i.i.i40.i.i, 0
   %cmp1.i.i42.i.i = icmp slt i32 %call.i.i.i40.i.i, 0
   %cmp.i.i43.i.i = select i1 %cmp6.not.i.i.i41.i.i, i1 %cmp.i.i.i38.i.i, i1 %cmp1.i.i42.i.i
@@ -570,12 +570,12 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
   %call.val1.i.i9.i = load i64, ptr %4, align 8
   %cmp.i.i.i.i10.i = icmp ult i64 %call.val1.i.i9.i, %call3.val2.i.i7.i
   %..i.i.i.i11.i = tail call i64 @llvm.umin.i64(i64 %call.val1.i.i9.i, i64 %call3.val2.i.i7.i)
-  %call.i.i.i.i12.i = tail call i32 @memcmp(ptr noundef %call.val.i.i8.i, ptr noundef %call3.val.i.i6.i, i64 noundef %..i.i.i.i11.i) #14
+  %call.i.i.i.i12.i = tail call i32 @memcmp(ptr noundef readonly %call.val.i.i8.i, ptr noundef readonly %call3.val.i.i6.i, i64 noundef %..i.i.i.i11.i) #14
   %cmp6.not.i.i.i.i13.i = icmp eq i32 %call.i.i.i.i12.i, 0
   %cmp1.i.i.i14.i = icmp slt i32 %call.i.i.i.i12.i, 0
   %cmp.i.i.i15.i = select i1 %cmp6.not.i.i.i.i13.i, i1 %cmp.i.i.i.i10.i, i1 %cmp1.i.i.i14.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 32
-  br i1 %cmp.i.i.i15.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !12
+  br i1 %cmp.i.i.i15.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !11
 
 while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond3.i.i ]
@@ -585,11 +585,11 @@ while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %w
   %call3.val2.i5.i.i = load i64, ptr %5, align 8
   %cmp.i.i.i6.i.i = icmp ult i64 %call3.val2.i.i7.i, %call3.val2.i5.i.i
   %..i.i.i7.i.i = tail call i64 @llvm.umin.i64(i64 %call3.val2.i.i7.i, i64 %call3.val2.i5.i.i)
-  %call.i.i.i8.i.i = tail call i32 @memcmp(ptr noundef %call3.val.i.i6.i, ptr noundef %call3.val.i4.i.i, i64 noundef %..i.i.i7.i.i) #14
+  %call.i.i.i8.i.i = tail call i32 @memcmp(ptr noundef readonly %call3.val.i.i6.i, ptr noundef readonly %call3.val.i4.i.i, i64 noundef %..i.i.i7.i.i) #14
   %cmp6.not.i.i.i9.i.i = icmp eq i32 %call.i.i.i8.i.i, 0
   %cmp1.i.i10.i.i = icmp slt i32 %call.i.i.i8.i.i, 0
   %cmp.i.i11.i.i = select i1 %cmp6.not.i.i.i9.i.i, i1 %cmp.i.i.i6.i.i, i1 %cmp1.i.i10.i.i
-  br i1 %cmp.i.i11.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !13
+  br i1 %cmp.i.i11.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !12
 
 while.end18.i.i:                                  ; preds = %while.cond10.i.i
   %cmp.i.i.i6 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
@@ -601,7 +601,7 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.1.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i5.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i.i5.i)
-  br label %while.body.i.i5, !llvm.loop !14
+  br label %while.body.i.i5, !llvm.loop !13
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEET_SF_SF_T0_.exit": ; preds = %while.end18.i.i
   tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_SF_T0_T1_"(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge1837, i64 noundef %dec)
@@ -609,7 +609,7 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !9
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEET_SF_SF_T0_.exit", %while.body.i.i, %entry, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_SF_RT0_.exit.i.i"
   ret void
@@ -638,7 +638,7 @@ while.body:                                       ; preds = %entry, %while.body
   %call3.val2.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ult i64 %call.val1.i, %call3.val2.i
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %call.val1.i, i64 %call3.val2.i)
-  %call.i.i.i = tail call i32 @memcmp(ptr noundef %call.val.i, ptr noundef %call3.val.i, i64 noundef %..i.i.i) #14
+  %call.i.i.i = tail call i32 @memcmp(ptr noundef readonly %call.val.i, ptr noundef readonly %call3.val.i, i64 noundef %..i.i.i) #14
   %cmp6.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   %cmp1.i.i = icmp slt i32 %call.i.i.i, 0
   %cmp.i.i = select i1 %cmp6.not.i.i.i, i1 %cmp.i.i.i, i1 %cmp1.i.i
@@ -647,7 +647,7 @@ while.body:                                       ; preds = %entry, %while.body
   %add.ptr.i19 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %__first.coerce, i64 %__holeIndex.addr.032
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i19, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i18, i64 32, i1 false)
   %cmp = icmp slt i64 %spec.select, %div
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !15
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !14
 
 while.end:                                        ; preds = %while.body, %entry
   %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %while.body ]
@@ -687,7 +687,7 @@ land.rhs.i:                                       ; preds = %if.end33, %while.bo
   %call.val1.i.i = load i64, ptr %2, align 8
   %cmp.i.i.i.i = icmp ult i64 %call.val1.i.i, %agg.tmp35.sroa.2.0.copyload
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %call.val1.i.i, i64 %agg.tmp35.sroa.2.0.copyload)
-  %call.i.i.i.i = tail call i32 @memcmp(ptr noundef %call.val.i.i, ptr noundef %agg.tmp35.sroa.0.0.copyload, i64 noundef %..i.i.i.i) #14
+  %call.i.i.i.i = tail call i32 @memcmp(ptr noundef readonly %call.val.i.i, ptr noundef readonly %agg.tmp35.sroa.0.0.copyload, i64 noundef %..i.i.i.i) #14
   %cmp6.not.i.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   %cmp1.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   %cmp.i.i.i23 = select i1 %cmp6.not.i.i.i.i, i1 %cmp.i.i.i.i, i1 %cmp1.i.i.i
@@ -697,7 +697,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %add.ptr.i9.i = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %__first.coerce, i64 %__holeIndex.addr.07.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i9.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 32, i1 false)
   %cmp.i = icmp sgt i64 %__parent.08.i, %__holeIndex
-  br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !16
+  br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !15
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %land.rhs.i, %while.body.i, %if.end33
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.07.i, %land.rhs.i ], [ %__parent.08.i, %while.body.i ]
@@ -745,7 +745,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call3.val2.i = load i64, ptr %0, align 8
   %cmp.i.i.i = icmp ult i64 %call.val1.i, %call3.val2.i
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %call.val1.i, i64 %call3.val2.i)
-  %call.i.i.i = tail call i32 @memcmp(ptr noundef %call.val.i, ptr noundef %call3.val.i, i64 noundef %..i.i.i) #14
+  %call.i.i.i = tail call i32 @memcmp(ptr noundef readonly %call.val.i, ptr noundef readonly %call3.val.i, i64 noundef %..i.i.i) #14
   %cmp6.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   %cmp1.i.i = icmp slt i32 %call.i.i.i, 0
   %cmp.i.i = select i1 %cmp6.not.i.i.i, i1 %cmp.i.i.i, i1 %cmp1.i.i
@@ -772,7 +772,7 @@ if.else:                                          ; preds = %for.body
   %call.val2.i13.i = load i64, ptr %2, align 8
   %cmp.i.i.i14.i = icmp ugt i64 %call.val2.i13.i, %call.val1.i
   %..i.i.i15.i = tail call i64 @llvm.umin.i64(i64 %call.val1.i, i64 %call.val2.i13.i)
-  %call.i.i.i16.i = tail call i32 @memcmp(ptr noundef %call.val.i, ptr noundef %call.val.i12.i, i64 noundef %..i.i.i15.i) #14
+  %call.i.i.i16.i = tail call i32 @memcmp(ptr noundef readonly %call.val.i, ptr noundef readonly %call.val.i12.i, i64 noundef %..i.i.i15.i) #14
   %cmp6.not.i.i.i17.i = icmp eq i32 %call.i.i.i16.i, 0
   %cmp1.i.i18.i = icmp slt i32 %call.i.i.i16.i, 0
   %cmp.i.i19.i = select i1 %cmp6.not.i.i.i17.i, i1 %cmp.i.i.i14.i, i1 %cmp1.i.i18.i
@@ -788,11 +788,11 @@ while.body.i:                                     ; preds = %if.else, %while.bod
   %call.val2.i.i = load i64, ptr %3, align 8
   %cmp.i.i.i.i = icmp ugt i64 %call.val2.i.i, %call.val1.i
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %call.val1.i, i64 %call.val2.i.i)
-  %call.i.i.i.i = tail call i32 @memcmp(ptr noundef %call.val.i, ptr noundef %call.val.i.i, i64 noundef %..i.i.i.i) #14
+  %call.i.i.i.i = tail call i32 @memcmp(ptr noundef readonly %call.val.i, ptr noundef readonly %call.val.i.i, i64 noundef %..i.i.i.i) #14
   %cmp6.not.i.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   %cmp1.i.i.i = icmp slt i32 %call.i.i.i.i, 0
   %cmp.i.i.i3 = select i1 %cmp6.not.i.i.i.i, i1 %cmp.i.i.i.i, i1 %cmp1.i.i.i
-  br i1 %cmp.i.i.i3, label %while.body.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_.exit", !llvm.loop !7
+  br i1 %cmp.i.i.i3, label %while.body.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_.exit", !llvm.loop !6
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_.exit": ; preds = %while.body.i, %if.else
   %__last.sroa.0.0.lcssa.i = phi ptr [ %__i.sroa.0.013, %if.else ], [ %__next.sroa.0.021.i, %while.body.i ]
@@ -807,7 +807,7 @@ while.body.i:                                     ; preds = %if.else, %while.bod
 for.inc:                                          ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_E3$_0EEEvT_T0_.exit"
   %__i.sroa.0.0 = getelementptr inbounds i8, ptr %__i.sroa.0.013, i64 32
   %cmp.i1.not = icmp eq ptr %__i.sroa.0.0, %__last.coerce
-  br i1 %cmp.i1.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %cmp.i1.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader, %entry
   ret void
@@ -852,7 +852,7 @@ attributes #14 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 1}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i64 0, i64 65}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -863,4 +863,3 @@ attributes #14 = { nounwind willreturn memory(read) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}

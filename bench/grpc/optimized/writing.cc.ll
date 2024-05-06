@@ -209,9 +209,9 @@ $_ZTIN9grpc_core9Timestamp12ScopedSourceE = comdat any
 @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = linkonce_odr local_unnamed_addr global i64 0, comdat($_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E), align 8
 @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E = linkonce_odr global %"class.grpc_core::NoDestruct.307" zeroinitializer, comdat, align 8
 @_ZGVN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E = linkonce_odr local_unnamed_addr global i64 0, comdat($_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E), align 8
-@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
+@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local local_unnamed_addr global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
 @.str.7 = private unnamed_addr constant [96 x i8] c"t_->settings_ack_watchdog == grpc_event_engine::experimental::EventEngine::TaskHandle::kInvalid\00", align 1
-@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core4Fork16support_enabled_E = external local_unnamed_addr global %"struct.std::atomic.304", align 1
 @_ZTVN9grpc_core7ExecCtxE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN9grpc_core7ExecCtxE, ptr @_ZN9grpc_core7ExecCtxD2Ev, ptr @_ZN9grpc_core7ExecCtxD0Ev, ptr @_ZN9grpc_core7ExecCtx18CheckReadyToFinishEv] }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
@@ -219,13 +219,13 @@ $_ZTIN9grpc_core9Timestamp12ScopedSourceE = comdat any
 @_ZTIN9grpc_core7ExecCtxE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core7ExecCtxE }, comdat, align 8
 @_ZTVN9grpc_core15ScopedTimeCacheE = external unnamed_addr constant { [4 x ptr] }, align 8
 @_ZTVN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core9Timestamp12ScopedSourceE, ptr @__cxa_pure_virtual, ptr @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv] }, comdat, align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant [37 x i8] c"N9grpc_core9Timestamp12ScopedSourceE\00", comdat, align 1
 @_ZTSN9grpc_core9Timestamp6SourceE = linkonce_odr constant [30 x i8] c"N9grpc_core9Timestamp6SourceE\00", comdat, align 1
 @_ZTIN9grpc_core9Timestamp6SourceE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp6SourceE }, comdat, align 8
 @_ZTIN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp12ScopedSourceE, ptr @_ZTIN9grpc_core9Timestamp6SourceE }, comdat, align 8
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.8 = private unnamed_addr constant [20 x i8] c"t_->qbuf.count == 0\00", align 1
 @grpc_http_trace = external local_unnamed_addr global %"class.grpc_core::TraceFlag", align 8
 @.str.9 = private unnamed_addr constant [35 x i8] c"W:%p %s[%d] im-(sent,send)=(%d,%d)\00", align 1
@@ -1688,7 +1688,7 @@ if.end54.i:                                       ; preds = %if.end34.i, %if.the
   %inc.i.i144 = add nsw i32 %235, 1
   store i32 %inc.i.i144, ptr %trailing_metadata_writes_.i.i, align 8
   call void @_Z28grpc_chttp2_reset_ping_clockP21grpc_chttp2_transport(ptr noundef %write_context.val.i)
-  call fastcc void @_ZN12_GLOBAL__N_118StreamWriteContext13SentLastFrameEv(ptr noundef nonnull align 8 dereferenceable(38) %stream_ctx)
+  call fastcc void @_ZN12_GLOBAL__N_118StreamWriteContext13SentLastFrameEv(ptr noundef nonnull readonly align 8 dereferenceable(38) %stream_ctx)
   store i8 1, ptr %early_results_scheduled.i.i, align 2
   %send_trailing_metadata_finished.i = getelementptr inbounds i8, ptr %69, i64 184
   store i64 0, ptr %agg.tmp60.i, align 8, !alias.scope !28
@@ -2239,7 +2239,7 @@ ehcleanup17.i.i.i.i.i.i.i.i:                      ; preds = %ehcleanup.i.i.i.i29
 
 sw.bb3.i.i.i.i:                                   ; preds = %_ZL23NextAllowedPingIntervalP21grpc_chttp2_transport.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i172, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp.i172, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i32.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp9.i.i.i.i33.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11.i.i.i.i34.i.i.i.i)
@@ -5640,7 +5640,7 @@ if.then.i.i.i39:                                  ; preds = %_ZN9grpc_core5Slice
 
 _ZNK9grpc_core5Slice3RefEv.exit.i:                ; preds = %if.then.i.i.i39, %_ZN9grpc_core5SliceD2Ev.exit37
   %ref.tmp.sroa.0.0.copyload.i = phi ptr [ %27, %_ZN9grpc_core5SliceD2Ev.exit37 ], [ %ref.tmp.sroa.0.0.copyload.pre.i, %if.then.i.i.i39 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(24) %data.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.4.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %data.i, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i.i.i.sroa.4.i)
   %__tmp.i.i.i.sroa.0.0.copyload.i = load ptr, ptr %this, align 8
   %__tmp.i.i.i.sroa.4.0.copy.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -6395,7 +6395,7 @@ if.then.i.i.i39:                                  ; preds = %_ZN9grpc_core5Slice
 
 _ZNK9grpc_core5Slice3RefEv.exit.i:                ; preds = %if.then.i.i.i39, %_ZN9grpc_core5SliceD2Ev.exit37
   %ref.tmp.sroa.0.0.copyload.i = phi ptr [ %27, %_ZN9grpc_core5SliceD2Ev.exit37 ], [ %ref.tmp.sroa.0.0.copyload.pre.i, %if.then.i.i.i39 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(24) %data.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.4.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %data.i, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i.i.i.sroa.4.i)
   %__tmp.i.i.i.sroa.0.0.copyload.i = load ptr, ptr %this, align 8
   %__tmp.i.i.i.sroa.4.0.copy.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 8

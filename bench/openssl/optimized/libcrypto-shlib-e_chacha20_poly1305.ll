@@ -109,7 +109,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %6, label %while.body, label %while.end.loopexit, !llvm.loop !7
 
 while.end.loopexit:                               ; preds = %while.body
-  %7 = trunc i64 %indvars.iv.next to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
@@ -164,7 +164,7 @@ while.body34:                                     ; preds = %while.body34.lr.ph,
   %inp.addr.269 = phi ptr [ %inp.addr.1, %while.body34.lr.ph ], [ %add.ptr, %if.end60 ]
   %div56 = lshr exact i64 %len.addr.270, 6
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %div56, i64 268435456)
-  %conv39 = trunc i64 %spec.store.select to i32
+  %conv39 = trunc nuw nsw i64 %spec.store.select to i32
   %add = add i32 %ctr32.072, %conv39
   %conv40 = zext i32 %add to i64
   %cmp41 = icmp ugt i64 %spec.store.select, %conv40
@@ -695,7 +695,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @chacha20_poly1305_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr noundef %ptr) #2 {
+define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr noundef %ptr) #2 {
 entry:
   %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data, align 8
@@ -892,7 +892,7 @@ if.then136:                                       ; preds = %if.end121
 if.end140:                                        ; preds = %if.then136
   %sub = add nsw i32 %or131, -16
   %shr = lshr i32 %sub, 8
-  %conv141 = trunc i32 %shr to i8
+  %conv141 = trunc nuw i32 %shr to i8
   %arrayidx142 = getelementptr inbounds i8, ptr %0, i64 159
   store i8 %conv141, ptr %arrayidx142, align 1
   %conv143 = trunc i32 %sub to i8

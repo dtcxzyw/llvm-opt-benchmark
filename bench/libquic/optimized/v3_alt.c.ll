@@ -112,7 +112,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true
   br i1 %tobool9.not, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %land.lhs.true6
-  %call11 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef nonnull %call, i32 noundef 0), !range !9
+  %call11 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef nonnull %call, i32 noundef 0)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %err, label %for.inc
 
@@ -134,12 +134,12 @@ land.lhs.true21:                                  ; preds = %land.lhs.true18
   br i1 %tobool24.not, label %if.then25, label %if.else30
 
 if.then25:                                        ; preds = %land.lhs.true21
-  %call26 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef nonnull %call, i32 noundef 1), !range !9
+  %call26 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef nonnull %call, i32 noundef 1)
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %err, label %for.inc
 
 if.else30:                                        ; preds = %land.lhs.true21, %land.lhs.true18, %if.else
-  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef %ctx, ptr noundef nonnull %call2, i32 noundef 0)
+  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef %ctx, ptr noundef nonnull readonly %call2, i32 noundef 0)
   %tobool32.not = icmp eq ptr %call.i, null
   br i1 %tobool32.not, label %err, label %if.end34
 
@@ -151,7 +151,7 @@ for.inc:                                          ; preds = %if.then10, %if.then
   %inc = add nuw i64 %i.019, 1
   %call1 = tail call i64 @sk_num(ptr noundef %nval) #6
   %cmp = icmp ult i64 %inc, %call1
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !10
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !9
 
 err:                                              ; preds = %if.else30, %if.then25, %if.then10
   tail call void @sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @GENERAL_NAME_free) #6
@@ -200,7 +200,7 @@ land.lhs.true6.us:                                ; preds = %land.lhs.true.us
   br i1 %tobool9.not.us, label %if.then3.i, label %if.else.us
 
 if.else.us:                                       ; preds = %land.lhs.true6.us, %land.lhs.true.us, %for.body.us
-  %call.i11.us = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef null, ptr noundef nonnull %call2.us, i32 noundef 0)
+  %call.i11.us = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef null, ptr noundef nonnull readonly %call2.us, i32 noundef 0)
   %tobool16.not.us = icmp eq ptr %call.i11.us, null
   br i1 %tobool16.not.us, label %err, label %if.end18.us
 
@@ -209,7 +209,7 @@ if.end18.us:                                      ; preds = %if.else.us
   %inc.us = add nuw i64 %i.016.us, 1
   %call1.us = tail call i64 @sk_num(ptr noundef %nval) #6
   %cmp.us = icmp ult i64 %inc.us, %call1.us
-  br i1 %cmp.us, label %for.body.us, label %return, !llvm.loop !11
+  br i1 %cmp.us, label %for.body.us, label %return, !llvm.loop !10
 
 if.then:                                          ; preds = %entry
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.25, i32 noundef 249) #6
@@ -278,7 +278,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i64 %j.013.i, 1
   %call17.i = tail call i64 @sk_num(ptr noundef nonnull %call13.i) #6
   %cmp18.i = icmp ult i64 %inc.i, %call17.i
-  br i1 %cmp18.i, label %for.body.i, label %for.end.i, !llvm.loop !12
+  br i1 %cmp18.i, label %for.body.i, label %for.end.i, !llvm.loop !11
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.cond.i
   %j.013.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
@@ -296,7 +296,7 @@ for.end.i:                                        ; preds = %for.cond.i, %for.co
   br label %for.inc
 
 if.else:                                          ; preds = %land.lhs.true6, %land.lhs.true, %for.body
-  %call.i11 = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef nonnull %ctx, ptr noundef nonnull %call2, i32 noundef 0)
+  %call.i11 = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef nonnull %ctx, ptr noundef nonnull readonly %call2, i32 noundef 0)
   %tobool16.not = icmp eq ptr %call.i11, null
   br i1 %tobool16.not, label %err, label %if.end18
 
@@ -308,7 +308,7 @@ for.inc:                                          ; preds = %for.end.i, %if.end4
   %inc = add nuw i64 %i.016, 1
   %call1 = tail call i64 @sk_num(ptr noundef %nval) #6
   %cmp = icmp ult i64 %inc, %call1
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !11
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !10
 
 err:                                              ; preds = %if.else, %if.else.us, %if.then3.i, %if.then15.i, %if.then22.i
   tail call void @sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @GENERAL_NAME_free) #6
@@ -583,7 +583,7 @@ for.body:                                         ; preds = %if.then34, %for.bod
   %add.ptr = getelementptr inbounds i8, ptr %p.030, i64 2
   %inc = add nuw nsw i32 %i.031, 1
   %exitcond.not = icmp eq i32 %inc, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body
   %call43 = tail call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.23) #6
@@ -631,7 +631,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %if.end6
   %i.08 = phi i64 [ %inc, %if.end6 ], [ 0, %for.cond.preheader ]
   %call2 = tail call ptr @sk_value(ptr noundef %nval, i64 noundef %i.08) #6
-  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef %ctx, ptr noundef %call2, i32 noundef 0)
+  %call.i = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef readnone %method, ptr noundef %ctx, ptr noundef readonly %call2, i32 noundef 0)
   %tobool4.not = icmp eq ptr %call.i, null
   br i1 %tobool4.not, label %err, label %if.end6
 
@@ -640,7 +640,7 @@ if.end6:                                          ; preds = %for.body
   %inc = add nuw i64 %i.08, 1
   %call1 = tail call i64 @sk_num(ptr noundef %nval) #6
   %cmp = icmp ult i64 %inc, %call1
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !13
 
 err:                                              ; preds = %for.body
   tail call void @sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @GENERAL_NAME_free) #6
@@ -959,7 +959,7 @@ declare ptr @X509V3_EXT_d2i(ptr noundef) local_unnamed_addr #1
 declare void @sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @copy_email(ptr noundef readonly %ctx, ptr noundef %gens, i32 noundef %move_p) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @copy_email(ptr noundef readonly %ctx, ptr noundef %gens, i32 noundef %move_p) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then5, label %land.lhs.true
@@ -1024,7 +1024,7 @@ if.end27.us:                                      ; preds = %lor.lhs.false23.us
   store i32 1, ptr %call24.us, align 8
   %call28.us = tail call i64 @sk_push(ptr noundef %gens, ptr noundef nonnull %call24.us) #6
   %tobool29.not.us = icmp eq i64 %call28.us, 0
-  br i1 %tobool29.not.us, label %if.then30, label %while.cond.us, !llvm.loop !15
+  br i1 %tobool29.not.us, label %if.then30, label %while.cond.us, !llvm.loop !14
 
 while.cond:                                       ; preds = %if.end12, %if.end27
   %i.0 = phi i32 [ %dec, %if.end27 ], [ -1, %if.end12 ]
@@ -1058,7 +1058,7 @@ if.end27:                                         ; preds = %lor.lhs.false23
   store i32 1, ptr %call24, align 8
   %call28 = tail call i64 @sk_push(ptr noundef %gens, ptr noundef nonnull %call24) #6
   %tobool29.not = icmp eq i64 %call28, 0
-  br i1 %tobool29.not, label %if.then30, label %while.cond, !llvm.loop !15
+  br i1 %tobool29.not, label %if.then30, label %while.cond, !llvm.loop !14
 
 if.then30:                                        ; preds = %if.end27, %if.end27.us
   %.us-phi20 = phi ptr [ %call24.us, %if.end27.us ], [ %call24, %if.end27 ]
@@ -1142,10 +1142,9 @@ attributes #8 = { nounwind allocsize(0) }
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}

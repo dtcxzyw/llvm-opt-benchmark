@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @policy_cache_set_mapping(ptr nocapture noundef %x, ptr noundef %maps) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @policy_cache_set_mapping(ptr nocapture noundef %x, ptr noundef %maps) local_unnamed_addr #0 {
 entry:
   %policy_cache = getelementptr inbounds i8, ptr %x, i64 112
   %0 = load ptr, ptr %policy_cache, align 8

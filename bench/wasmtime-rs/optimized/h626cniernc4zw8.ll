@@ -21,7 +21,7 @@ define hidden noundef i64 @_ZN4core3ptr12align_offset17ha4046a737d5a61f7E(ptr no
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
-define hidden noundef i64 @_ZN4core3ptr12align_offset7mod_inv17h013d61a74e4005d4E.llvm.9362590479358542349(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset7mod_inv17h013d61a74e4005d4E.llvm.9362590479358542349(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
   %3 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store <8 x i8> <i8 1, i8 11, i8 13, i8 7, i8 9, i8 3, i8 5, i8 15>, ptr %3, align 8

@@ -4686,8 +4686,8 @@ if.end.i:                                         ; preds = %if.end
   %2 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i.i = zext i32 %2 to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 3
-  %3 = getelementptr i8, ptr %candidate, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %3, i64 32
+  %3 = getelementptr inbounds i8, ptr %candidate, i64 %add.ptr.i.idx.i
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %3, i64 32
   %cmp.not1.i = icmp eq i32 %2, 0
   br i1 %cmp.not1.i, label %if.end6, label %for.body.preheader.i
 
@@ -4725,8 +4725,8 @@ if.end6:                                          ; preds = %for.cond.i, %if.end
   %6 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %6 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %7 = getelementptr i8, ptr %candidate, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %7, i64 32
+  %7 = getelementptr inbounds i8, ptr %candidate, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %7, i64 32
   %cmp.not115 = icmp eq i32 %6, 0
   br i1 %cmp.not115, label %for.end53, label %for.body.lr.ph
 
@@ -4844,8 +4844,8 @@ if.end.i36:                                       ; preds = %for.body20
   %20 = load i32, ptr %m_num_args.i.i37, align 8
   %idx.ext.i.i38 = zext i32 %20 to i64
   %add.ptr.i.idx.i39 = shl nuw nsw i64 %idx.ext.i.i38, 3
-  %21 = getelementptr i8, ptr %19, i64 %add.ptr.i.idx.i39
-  %add.ptr.i.ptr.i40 = getelementptr i8, ptr %21, i64 32
+  %21 = getelementptr inbounds i8, ptr %19, i64 %add.ptr.i.idx.i39
+  %add.ptr.i.ptr.i40 = getelementptr inbounds i8, ptr %21, i64 32
   %cmp.not1.i41 = icmp eq i32 %20, 0
   br i1 %cmp.not1.i41, label %if.end26, label %for.body.preheader.i42
 
@@ -4902,8 +4902,8 @@ _Z9is_groundPK4expr.exit:                         ; preds = %if.end26
 if.end34:                                         ; preds = %if.end26.if.end34_crit_edge, %_Z9is_groundPK4expr.exit
   %idx.ext.i68.pre-phi = phi i64 [ %.pre123, %if.end26.if.end34_crit_edge ], [ %idx.ext.i.i.i, %_Z9is_groundPK4expr.exit ]
   %add.ptr.i69.idx = shl nuw nsw i64 %idx.ext.i68.pre-phi, 3
-  %27 = getelementptr i8, ptr %19, i64 %add.ptr.i69.idx
-  %add.ptr.i69.ptr = getelementptr i8, ptr %27, i64 32
+  %27 = getelementptr inbounds i8, ptr %19, i64 %add.ptr.i69.idx
+  %add.ptr.i69.ptr = getelementptr inbounds i8, ptr %27, i64 32
   %cmp39.not117 = icmp eq i32 %25, 0
   br i1 %cmp39.not117, label %for.inc52, label %for.body40.preheader
 

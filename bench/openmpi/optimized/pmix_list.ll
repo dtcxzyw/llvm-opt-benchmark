@@ -227,7 +227,7 @@ pmix_list_transfer.exit:                          ; preds = %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_list_sort(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define range(i32 -29, 1) i32 @pmix_list_sort(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   %4 = load volatile i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0

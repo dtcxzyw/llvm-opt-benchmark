@@ -1064,7 +1064,7 @@ dissect_mongo_op_compressed.exit:                 ; preds = %277, %309, %318, %3
   %.not.not.i = icmp eq i64 %342, 0
   %343 = add i32 %2, 4
   %344 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %343) #4
-  %345 = trunc i64 %342 to i32
+  %345 = trunc nuw nsw i64 %342 to i32
   %346 = shl nuw nsw i32 %345, 2
   %347 = icmp sgt i32 %344, %346
   br i1 %347, label %.lr.ph.i65, label %._crit_edge.i

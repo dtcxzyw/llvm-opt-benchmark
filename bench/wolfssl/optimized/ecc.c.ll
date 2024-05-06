@@ -117,7 +117,7 @@ for.end:                                          ; preds = %for.inc, %for.end.s
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @wc_ecc_set_curve(ptr noundef %key, i32 noundef %keysize, i32 noundef %curve_id) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_ecc_set_curve(ptr noundef %key, i32 noundef %keysize, i32 noundef %curve_id) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1887,7 +1887,7 @@ return:                                           ; preds = %if.end13, %if.end6,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @wc_ecc_is_valid_idx(i32 noundef %n) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @wc_ecc_is_valid_idx(i32 noundef %n) local_unnamed_addr #5 {
 entry:
   %0 = add i32 %n, 1
   %narrow = icmp ult i32 %0, 6
@@ -2001,7 +2001,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %tobool.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull %curveName) #20
+  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull readonly %curveName) #20
   %cmp7.i = icmp eq i32 %call.i, 0
   br i1 %cmp7.i, label %wc_ecc_get_curve_idx_from_name.exit, label %for.inc.i
 
@@ -2042,7 +2042,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %tobool.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull %curveName) #20
+  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull readonly %curveName) #20
   %cmp7.i = icmp eq i32 %call.i, 0
   br i1 %cmp7.i, label %wc_ecc_get_curve_idx_from_name.exit, label %for.inc.i
 
@@ -2431,7 +2431,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_shared_secret(ptr noundef %private_key, ptr noundef %public_key, ptr noundef %out, ptr noundef %outlen) local_unnamed_addr #2 {
+define range(i32 -2147483648, 1) i32 @wc_ecc_shared_secret(ptr noundef %private_key, ptr noundef %public_key, ptr noundef %out, ptr noundef %outlen) local_unnamed_addr #2 {
 entry:
   %0 = insertelement <4 x ptr> poison, ptr %public_key, i64 0
   %1 = insertelement <4 x ptr> %0, ptr %private_key, i64 1
@@ -2484,7 +2484,7 @@ if.end22:                                         ; preds = %lor.lhs.false18
 
 if.end28:                                         ; preds = %if.end22
   %pubkey = getelementptr inbounds i8, ptr %public_key, i64 32
-  %call29 = tail call i32 @wc_ecc_shared_secret_ex(ptr noundef nonnull %private_key, ptr noundef nonnull %pubkey, ptr noundef nonnull %out, ptr noundef nonnull %outlen), !range !16
+  %call29 = tail call i32 @wc_ecc_shared_secret_ex(ptr noundef nonnull %private_key, ptr noundef nonnull %pubkey, ptr noundef nonnull %out, ptr noundef nonnull %outlen)
   br label %return
 
 return:                                           ; preds = %if.end, %if.end22, %if.end10, %lor.lhs.false12, %lor.lhs.false14, %lor.lhs.false18, %entry, %if.end28
@@ -2493,7 +2493,7 @@ return:                                           ; preds = %if.end, %if.end22, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_shared_secret_ex(ptr noundef %private_key, ptr noundef %point, ptr noundef %out, ptr noundef %outlen) local_unnamed_addr #2 {
+define range(i32 -2147483648, 1) i32 @wc_ecc_shared_secret_ex(ptr noundef %private_key, ptr noundef %point, ptr noundef %out, ptr noundef %outlen) local_unnamed_addr #2 {
 entry:
   %0 = insertelement <4 x ptr> poison, ptr %point, i64 0
   %1 = insertelement <4 x ptr> %0, ptr %private_key, i64 1
@@ -2572,7 +2572,7 @@ entry:
   store i32 3, ptr %spec_count, align 8
   %dp = getelementptr inbounds i8, ptr %private_key, i64 16
   %0 = load ptr, ptr %dp, align 8
-  %call = call fastcc i32 @wc_ecc_curve_load(ptr noundef %0, ptr noundef nonnull %curve, i8 noundef zeroext 11), !range !17
+  %call = call fastcc i32 @wc_ecc_curve_load(ptr noundef %0, ptr noundef nonnull %curve, i8 noundef zeroext 11)
   %cmp4.not = icmp eq i32 %call, 0
   br i1 %cmp4.not, label %if.end3.i, label %errout
 
@@ -2676,7 +2676,7 @@ errout:                                           ; preds = %errout.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @wc_ecc_curve_load(ptr noundef %dp, ptr noundef readonly %pCurve, i8 noundef zeroext %load_mask) unnamed_addr #2 {
+define internal fastcc range(i32 -173, 1) i32 @wc_ecc_curve_load(ptr noundef %dp, ptr noundef readonly %pCurve, i8 noundef zeroext %load_mask) unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %dp, null
   %cmp1 = icmp eq ptr %pCurve, null
@@ -3053,7 +3053,7 @@ declare i32 @sp_unsigned_bin_size(ptr noundef) local_unnamed_addr #3
 declare i32 @sp_to_unsigned_bin(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @wc_ecc_point_is_at_infinity(ptr noundef readonly %p) local_unnamed_addr #10 {
+define range(i32 -173, 2) i32 @wc_ecc_point_is_at_infinity(ptr noundef readonly %p) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %p, null
   br i1 %cmp, label %return, label %if.end
@@ -3132,7 +3132,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
-  br i1 %cmp5.i, label %for.body.i, label %while.body12.i, !llvm.loop !18
+  br i1 %cmp5.i, label %for.body.i, label %while.body12.i, !llvm.loop !16
 
 while.body12.i:                                   ; preds = %for.body.i, %while.body12.i
   %z.122.i = phi ptr [ %incdec.ptr13.i, %while.body12.i ], [ %incdec.ptr7.i, %for.body.i ]
@@ -3141,7 +3141,7 @@ while.body12.i:                                   ; preds = %for.body.i, %while.
   %incdec.ptr13.i = getelementptr inbounds i8, ptr %z.122.i, i64 1
   store volatile i8 0, ptr %z.122.i, align 1
   %tobool11.not.i = icmp eq i32 %dec10.i, 0
-  br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !19
+  br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !17
 
 return:                                           ; preds = %while.body12.i, %entry, %lor.lhs.false2
   %retval.0 = phi i32 [ -173, %lor.lhs.false2 ], [ -173, %entry ], [ %err.2, %while.body12.i ]
@@ -3173,7 +3173,7 @@ entry:
 if.then5.i:                                       ; preds = %entry
   %dp.i = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %dp.i, align 8
-  %call.i = call fastcc i32 @wc_ecc_curve_load(ptr noundef %0, ptr noundef nonnull %curve.i, i8 noundef zeroext 59), !range !17
+  %call.i = call fastcc i32 @wc_ecc_curve_load(ptr noundef %0, ptr noundef nonnull %curve.i, i8 noundef zeroext 59)
   %cmp7.i = icmp eq i32 %call.i, 0
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
 
@@ -3214,7 +3214,7 @@ entry:
 if.then5:                                         ; preds = %entry
   %dp = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %dp, align 8
-  %call = call fastcc i32 @wc_ecc_curve_load(ptr noundef %0, ptr noundef nonnull %curve, i8 noundef zeroext 59), !range !17
+  %call = call fastcc i32 @wc_ecc_curve_load(ptr noundef %0, ptr noundef nonnull %curve, i8 noundef zeroext 59)
   %cmp7 = icmp eq i32 %call, 0
   br i1 %cmp7, label %if.then8, label %if.end10
 
@@ -3475,7 +3475,7 @@ if.end4:                                          ; preds = %if.end29.i, %if.end
 if.end18:                                         ; preds = %if.end4
   %dp = getelementptr inbounds i8, ptr %key, i64 16
   %5 = load ptr, ptr %dp, align 8
-  %call17 = call fastcc i32 @wc_ecc_curve_load(ptr noundef %5, ptr noundef nonnull %curve, i8 noundef zeroext 59), !range !17
+  %call17 = call fastcc i32 @wc_ecc_curve_load(ptr noundef %5, ptr noundef nonnull %curve, i8 noundef zeroext 59)
   %cmp19 = icmp eq i32 %call17, 0
   br i1 %cmp19, label %if.end26, label %if.else
 
@@ -3555,7 +3555,7 @@ if.end6:                                          ; preds = %wc_ecc_init_ex.exit
 declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wc_ecc_init_ex(ptr noundef %key, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_ecc_init_ex(ptr noundef %key, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %if.end
@@ -3616,7 +3616,7 @@ while.body.i:                                     ; preds = %wc_ecc_free.exit, %
   %incdec.ptr.i = getelementptr inbounds i8, ptr %z.013.i, i64 1
   store volatile i8 0, ptr %z.013.i, align 1
   %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !20
+  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !18
 
 while.cond9.preheader.i:                          ; preds = %for.body.i
   %tobool11.not20.i = icmp eq i32 %sub8.i, 0
@@ -3629,7 +3629,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
-  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !18
+  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !16
 
 while.body12.i:                                   ; preds = %while.cond9.preheader.i, %while.body12.i
   %z.122.i = phi ptr [ %incdec.ptr13.i, %while.body12.i ], [ %incdec.ptr7.i, %while.cond9.preheader.i ]
@@ -3638,7 +3638,7 @@ while.body12.i:                                   ; preds = %while.cond9.prehead
   %incdec.ptr13.i = getelementptr inbounds i8, ptr %z.122.i, i64 1
   store volatile i8 0, ptr %z.122.i, align 1
   %tobool11.not.i = icmp eq i32 %dec10.i, 0
-  br i1 %tobool11.not.i, label %ForceZero.exit, label %while.body12.i, !llvm.loop !19
+  br i1 %tobool11.not.i, label %ForceZero.exit, label %while.body12.i, !llvm.loop !17
 
 ForceZero.exit:                                   ; preds = %while.body12.i, %while.cond9.preheader.i
   tail call void @wolfSSL_Free(ptr noundef nonnull %key) #19
@@ -3679,7 +3679,7 @@ entry:
 declare i32 @sp_init_multi(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wc_ecc_init(ptr noundef %key) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_ecc_init(ptr noundef %key) local_unnamed_addr #2 {
 entry:
   %cmp.i = icmp eq ptr %key, null
   br i1 %cmp.i, label %wc_ecc_init_ex.exit, label %if.end.i
@@ -3705,7 +3705,7 @@ wc_ecc_init_ex.exit:                              ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_ecc_set_flags(ptr noundef %key, i32 noundef %flags) local_unnamed_addr #11 {
+define range(i32 -173, 1) i32 @wc_ecc_set_flags(ptr noundef %key, i32 noundef %flags) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %if.end
@@ -3967,7 +3967,7 @@ cond.end67:                                       ; preds = %lor.lhs.false53
 
 if.then124:                                       ; preds = %cond.end67
   %25 = load ptr, ptr %dp54, align 8
-  %call126 = call fastcc i32 @wc_ecc_curve_load(ptr noundef %25, ptr noundef nonnull %curve, i8 noundef zeroext 8), !range !17
+  %call126 = call fastcc i32 @wc_ecc_curve_load(ptr noundef %25, ptr noundef nonnull %curve, i8 noundef zeroext 8)
   %cmp128 = icmp eq i32 %call126, 0
   br i1 %cmp128, label %if.then130, label %if.end165
 
@@ -4098,7 +4098,7 @@ if.end89:                                         ; preds = %do.body
   %11 = load ptr, ptr %order, align 8
   %call92 = call i32 @wc_ecc_gen_k(ptr noundef %rng, i32 noundef %10, ptr noundef nonnull %vla7892, ptr noundef %11)
   %cmp93 = icmp eq i32 %call92, -121
-  br i1 %cmp93, label %do.body, label %if.end95, !llvm.loop !21
+  br i1 %cmp93, label %do.body, label %if.end95, !llvm.loop !19
 
 if.end95:                                         ; preds = %if.end89
   %pubkey111 = getelementptr inbounds i8, ptr %pubkey, i64 32
@@ -4543,7 +4543,7 @@ for.inc:                                          ; preds = %if.end6.i
   store ptr %p.03.i, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %if.end49, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %if.end49, label %for.body, !llvm.loop !20
 
 if.end49:                                         ; preds = %for.inc
   %call48 = call i32 @sp_mont_setup(ptr noundef %modulus, ptr noundef nonnull %mp) #19
@@ -4619,12 +4619,12 @@ for.inc101:                                       ; preds = %for.body89, %if.the
   %err.12 = phi i32 [ %call99, %if.then91 ], [ %err.11186, %for.body89 ]
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next207, 4
-  br i1 %exitcond211.not, label %for.inc104, label %for.body89, !llvm.loop !23
+  br i1 %exitcond211.not, label %for.inc104, label %for.body89, !llvm.loop !21
 
 for.inc104:                                       ; preds = %for.inc101
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next213, 4
-  br i1 %exitcond215.not, label %if.end107, label %for.cond87.preheader, !llvm.loop !24
+  br i1 %exitcond215.not, label %if.end107, label %for.cond87.preheader, !llvm.loop !22
 
 if.end107:                                        ; preds = %for.inc104
   %cmp108 = icmp eq i32 %err.12, 0
@@ -4738,7 +4738,7 @@ if.end134:                                        ; preds = %if.end126, %for.bod
   %cmp141 = icmp eq i32 %and, 0
   %cmp143 = icmp eq i32 %and136, 0
   %or.cond6 = select i1 %cmp141, i1 %cmp143, i1 false
-  br i1 %or.cond6, label %for.cond113, label %if.end149, !llvm.loop !25
+  br i1 %or.cond6, label %for.cond113, label %if.end149, !llvm.loop !23
 
 if.end149:                                        ; preds = %if.end134, %if.end134.us
   %.us-phi190 = phi i32 [ %x.3.us, %if.end134.us ], [ %x.3, %if.end134 ]
@@ -4819,7 +4819,7 @@ if.end215:                                        ; preds = %if.else208
 if.end221:                                        ; preds = %if.then199, %if.end215, %if.end163
   %err.20 = phi i32 [ %call205, %if.then199 ], [ 0, %if.end215 ], [ %err.16, %if.end163 ]
   %.pre = load i32, ptr %first, align 4
-  br label %for.cond113.outer, !llvm.loop !25
+  br label %for.cond113.outer, !llvm.loop !23
 
 if.end223:                                        ; preds = %for.cond113.outer.split.us, %if.then122.us, %if.then122, %for.cond113
   %cmp224 = icmp eq i32 %err.14.ph, 0
@@ -4853,7 +4853,7 @@ if.then.i:                                        ; preds = %for.body232
 wc_ecc_del_point_ex.exit:                         ; preds = %for.body232, %if.then.i
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next217, 16
-  br i1 %exitcond219.not, label %for.end237, label %for.body232, !llvm.loop !26
+  br i1 %exitcond219.not, label %for.end237, label %for.body232, !llvm.loop !24
 
 for.end237:                                       ; preds = %wc_ecc_del_point_ex.exit
   %41 = ptrtoint ptr %call to i64
@@ -4875,7 +4875,7 @@ while.body.i:                                     ; preds = %for.end237, %while.
   %incdec.ptr.i = getelementptr inbounds i8, ptr %z.013.i, i64 1
   store volatile i8 0, ptr %z.013.i, align 1
   %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !20
+  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !18
 
 while.cond9.preheader.i:                          ; preds = %for.body.i
   %tobool11.not20.i = icmp eq i32 %sub8.i, 0
@@ -4888,7 +4888,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
-  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !18
+  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !16
 
 while.body12.i:                                   ; preds = %while.cond9.preheader.i, %while.body12.i
   %z.122.i = phi ptr [ %incdec.ptr13.i, %while.body12.i ], [ %incdec.ptr7.i, %while.cond9.preheader.i ]
@@ -4897,7 +4897,7 @@ while.body12.i:                                   ; preds = %while.cond9.prehead
   %incdec.ptr13.i = getelementptr inbounds i8, ptr %z.122.i, i64 1
   store volatile i8 0, ptr %z.122.i, align 1
   %tobool11.not.i = icmp eq i32 %dec10.i, 0
-  br i1 %tobool11.not.i, label %ForceZero.exit, label %while.body12.i, !llvm.loop !19
+  br i1 %tobool11.not.i, label %ForceZero.exit, label %while.body12.i, !llvm.loop !17
 
 ForceZero.exit:                                   ; preds = %while.body12.i, %while.cond9.preheader.i
   %44 = ptrtoint ptr %call13 to i64
@@ -4919,7 +4919,7 @@ while.body.i124:                                  ; preds = %ForceZero.exit, %wh
   %incdec.ptr.i128 = getelementptr inbounds i8, ptr %z.013.i126, i64 1
   store volatile i8 0, ptr %z.013.i126, align 1
   %tobool.not.i129 = icmp eq i32 %dec.i127, 0
-  br i1 %tobool.not.i129, label %for.body.i143.preheader, label %while.body.i124, !llvm.loop !20
+  br i1 %tobool.not.i129, label %for.body.i143.preheader, label %while.body.i124, !llvm.loop !18
 
 while.cond9.preheader.i133:                       ; preds = %for.body.i143
   %tobool11.not20.i136 = icmp eq i32 %sub8.i147, 0
@@ -4932,7 +4932,7 @@ for.body.i143:                                    ; preds = %for.body.i143.prehe
   store volatile i64 0, ptr %w.017.i144, align 8
   %sub8.i147 = add nsw i32 %len.addr.016.i145, -8
   %cmp5.i148 = icmp ugt i32 %sub8.i147, 7
-  br i1 %cmp5.i148, label %for.body.i143, label %while.cond9.preheader.i133, !llvm.loop !18
+  br i1 %cmp5.i148, label %for.body.i143, label %while.cond9.preheader.i133, !llvm.loop !16
 
 while.body12.i137:                                ; preds = %while.cond9.preheader.i133, %while.body12.i137
   %z.122.i138 = phi ptr [ %incdec.ptr13.i141, %while.body12.i137 ], [ %incdec.ptr7.i146, %while.cond9.preheader.i133 ]
@@ -4941,7 +4941,7 @@ while.body12.i137:                                ; preds = %while.cond9.prehead
   %incdec.ptr13.i141 = getelementptr inbounds i8, ptr %z.122.i138, i64 1
   store volatile i8 0, ptr %z.122.i138, align 1
   %tobool11.not.i142 = icmp eq i32 %dec10.i140, 0
-  br i1 %tobool11.not.i142, label %ForceZero.exit149, label %while.body12.i137, !llvm.loop !19
+  br i1 %tobool11.not.i142, label %ForceZero.exit149, label %while.body12.i137, !llvm.loop !17
 
 ForceZero.exit149:                                ; preds = %while.body12.i137, %while.cond9.preheader.i133
   call void @wolfSSL_Free(ptr noundef nonnull %call13) #19
@@ -5244,7 +5244,7 @@ if.end13:                                         ; preds = %lor.lhs.false10
   store ptr %spec_ints.i, ptr %spec_ints1.i, align 8
   %spec_count.i = getelementptr inbounds i8, ptr %curve_lcl.i, i64 56
   store i32 1, ptr %spec_count.i, align 8
-  %call.i = call fastcc i32 @wc_ecc_curve_load(ptr noundef nonnull %9, ptr noundef nonnull %curve.i, i8 noundef zeroext 8), !range !17
+  %call.i = call fastcc i32 @wc_ecc_curve_load(ptr noundef nonnull %9, ptr noundef nonnull %curve.i, i8 noundef zeroext 8)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end6.i, label %wc_ecc_check_r_s_range.exit.thread
 
@@ -5297,7 +5297,7 @@ if.end17:                                         ; preds = %land.lhs.true18.i
   %14 = load i32, ptr %key, align 8
   %cmp19.not = icmp eq i32 %14, 3
   %15 = load ptr, ptr %dp, align 8
-  %call27 = call fastcc i32 @wc_ecc_curve_load(ptr noundef %15, ptr noundef nonnull %curve, i8 noundef zeroext 59), !range !17
+  %call27 = call fastcc i32 @wc_ecc_curve_load(ptr noundef %15, ptr noundef nonnull %curve, i8 noundef zeroext 59)
   %cmp28.not = icmp eq i32 %call27, 0
   br i1 %cmp19.not, label %if.end25, label %if.end56
 
@@ -6009,7 +6009,7 @@ land.rhs71:                                       ; preds = %if.end64, %while.bo
 while.body76:                                     ; preds = %land.rhs71
   %call79 = call i32 @sp_sub(ptr noundef nonnull %t1, ptr noundef %prime, ptr noundef nonnull %t1) #19
   %cmp70 = icmp eq i32 %call79, 0
-  br i1 %cmp70, label %land.rhs71, label %if.end88, !llvm.loop !27
+  br i1 %cmp70, label %land.rhs71, label %if.end88, !llvm.loop !25
 
 if.then82:                                        ; preds = %land.rhs71
   %call84 = call i32 @sp_cmp(ptr noundef nonnull %t1, ptr noundef %b) #19
@@ -6064,7 +6064,7 @@ land.lhs.true.i.i:                                ; preds = %do.end3.i
 if.then9.i:                                       ; preds = %land.lhs.true.i.i, %do.end3.i
   %dp.i = getelementptr inbounds i8, ptr %key, i64 16
   %2 = load ptr, ptr %dp.i, align 8
-  %call10.i = call fastcc i32 @wc_ecc_curve_load(ptr noundef %2, ptr noundef nonnull %curve.i, i8 noundef zeroext 11), !range !17
+  %call10.i = call fastcc i32 @wc_ecc_curve_load(ptr noundef %2, ptr noundef nonnull %curve.i, i8 noundef zeroext 11)
   %cmp12.i = icmp eq i32 %call10.i, 0
   br i1 %cmp12.i, label %if.end15.i, label %if.end70.i
 
@@ -6150,7 +6150,7 @@ if.end55.thread43.i:                              ; preds = %if.end6.i.i.i
   br label %if.end70.i
 
 if.then16.i.i:                                    ; preds = %if.end6.i.i.i
-  %call18.i.i = call i32 @wc_ecc_mulmod_ex(ptr noundef %14, ptr noundef nonnull %pubkey.i, ptr noundef nonnull %call.i.i.i, ptr noundef %12, ptr noundef %13, i32 noundef 1, ptr poison)
+  %call18.i.i = call i32 @wc_ecc_mulmod_ex(ptr noundef %14, ptr noundef nonnull %pubkey.i, ptr noundef nonnull %call.i.i.i, ptr noundef readnone %12, ptr noundef %13, i32 noundef 1, ptr poison)
   %cmp19.i.i = icmp eq i32 %call18.i.i, 0
   br i1 %cmp19.i.i, label %if.end.i.i.i, label %if.end55.i
 
@@ -6987,7 +6987,7 @@ for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %indvars.iv.next
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %return, label %for.body, !llvm.loop !28
+  br i1 %exitcond, label %return, label %for.body, !llvm.loop !26
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.cond ]
@@ -7034,7 +7034,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @wc_ecc_sig_size_calc(i32 noundef %sz) local_unnamed_addr #5 {
+define range(i32 -2147483640, -2147483648) i32 @wc_ecc_sig_size_calc(i32 noundef %sz) local_unnamed_addr #5 {
 entry:
   %mul = shl nsw i32 %sz, 1
   %cmp = icmp slt i32 %sz, 61
@@ -7044,7 +7044,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ecc_sig_size(ptr noundef readonly %key) local_unnamed_addr #2 {
+define range(i32 -2147483642, -2147483648) i32 @wc_ecc_sig_size(ptr noundef readonly %key) local_unnamed_addr #2 {
 entry:
   %spec_ints.i = alloca [160 x i8], align 16
   %curve_lcl.i = alloca %struct.ecc_curve_spec, align 8
@@ -7069,7 +7069,7 @@ if.end:                                           ; preds = %lor.lhs.false
   store ptr %spec_ints.i, ptr %spec_ints1.i, align 8
   %spec_count.i = getelementptr inbounds i8, ptr %curve_lcl.i, i64 56
   store i32 1, ptr %spec_count.i, align 8
-  %call.i = call fastcc i32 @wc_ecc_curve_load(ptr noundef nonnull %0, ptr noundef nonnull %curve.i, i8 noundef zeroext 8), !range !17
+  %call.i = call fastcc i32 @wc_ecc_curve_load(ptr noundef nonnull %0, ptr noundef nonnull %curve.i, i8 noundef zeroext 8)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end6.i, label %wc_ecc_get_curve_order_bit_count.exit
 
@@ -7113,7 +7113,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_ecc_set_rng(ptr noundef writeonly %key, ptr noundef %rng) local_unnamed_addr #14 {
+define range(i32 -173, 1) i32 @wc_ecc_set_rng(ptr noundef writeonly %key, ptr noundef %rng) local_unnamed_addr #14 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %if.end, label %if.else
@@ -7138,7 +7138,7 @@ for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %indvars.iv.next
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %return, label %for.body, !llvm.loop !29
+  br i1 %exitcond, label %return, label %for.body, !llvm.loop !27
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %entry ]
@@ -7331,8 +7331,8 @@ attributes #20 = { nounwind willreturn memory(read) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i32 -2147483648, i32 1}
-!17 = !{i32 -173, i32 1}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
@@ -7343,5 +7343,3 @@ attributes #20 = { nounwind willreturn memory(read) }
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}

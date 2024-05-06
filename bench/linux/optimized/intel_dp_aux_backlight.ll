@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [66 x i8] c"[CONNECTOR:%d:%s] Using AUX VESA interface for backlight control\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_dp_aux_init_backlight_funcs(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @intel_dp_aux_init_backlight_funcs(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [4 x i8], align 4
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1976
@@ -288,7 +288,7 @@ declare dso_local i64 @drm_dp_dpcd_read(ptr noundef, i32 noundef, ptr noundef, i
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_dp_aux_hdr_setup_backlight(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @intel_dp_aux_hdr_setup_backlight(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 360
   %5 = icmp eq ptr %3, null
@@ -784,7 +784,7 @@ declare dso_local i64 @drm_dp_dpcd_write(ptr noundef, i32 noundef, ptr noundef, 
 declare dso_local i32 @intel_backlight_invert_pwm_level(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_dp_aux_vesa_setup_backlight(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @intel_dp_aux_vesa_setup_backlight(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 1976

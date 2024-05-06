@@ -2234,7 +2234,7 @@ define internal i32 @dissect_gprscdr_ChargingID(i1 noundef zeroext %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gprscdr_PDPType(i1 zeroext %0, ptr noundef %1, i32 %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
+define internal range(i32 0, 65536) i32 @dissect_gprscdr_PDPType(i1 zeroext %0, ptr noundef %1, i32 %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
   %7 = tail call i32 @tvb_reported_length(ptr noundef %1) #2
   %8 = icmp eq i32 %7, 1
   %9 = load i32, ptr @ett_gprscdr_pdp_pdn_type, align 4

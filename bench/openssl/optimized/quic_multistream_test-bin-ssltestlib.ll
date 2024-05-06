@@ -646,7 +646,7 @@ if.end19.if.end29_crit_edge:                      ; preds = %if.end19
   br label %do.body.preheader
 
 if.then26:                                        ; preds = %if.end19
-  %conv27 = trunc i32 %or to i16
+  %conv27 = trunc nuw i32 %or to i16
   store i16 %conv27, ptr %epoch22, align 8
   store i32 0, ptr %currrec, align 4
   br label %do.body.preheader
@@ -756,7 +756,7 @@ define internal noundef i32 @mempacket_test_puts(ptr noundef %bio, ptr nocapture
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #14
   %conv = trunc i64 %call to i32
-  %call.i = tail call noundef i32 @mempacket_test_inject(ptr noundef %bio, ptr noundef %str, i32 noundef %conv, i32 noundef -1, i32 noundef 0)
+  %call.i = tail call noundef i32 @mempacket_test_inject(ptr noundef %bio, ptr noundef readonly %str, i32 noundef %conv, i32 noundef -1, i32 noundef 0)
   ret i32 %call.i
 }
 
@@ -767,7 +767,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @mempacket_test_ctrl(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr nocapture readnone %ptr) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @mempacket_test_ctrl(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr nocapture readnone %ptr) #0 {
 entry:
   %call = tail call ptr @BIO_get_data(ptr noundef %bio) #13
   switch i32 %cmd, label %sw.epilog [
@@ -844,7 +844,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb9, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mempacket_test_new(ptr noundef %bio) #0 {
+define internal range(i32 0, 2) i32 @mempacket_test_new(ptr noundef %bio) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 48, ptr noundef nonnull @.str.1, i32 noundef 308) #13
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 308, ptr noundef nonnull @.str.106, ptr noundef %call) #13
@@ -897,7 +897,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @mempacket_swap_epoch(ptr noundef %bio) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @mempacket_swap_epoch(ptr noundef %bio) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_get_data(ptr noundef %bio) #13
   %0 = load ptr, ptr %call, align 8
@@ -1025,7 +1025,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @mempacket_move_packet(ptr noundef %bio, i32 noundef %d, i32 noundef %s) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @mempacket_move_packet(ptr noundef %bio, i32 noundef %d, i32 noundef %s) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_get_data(ptr noundef %bio) #13
   %0 = load ptr, ptr %call, align 8
@@ -1186,7 +1186,7 @@ if.end63:                                         ; preds = %if.else59, %if.then
 
 cond.false:                                       ; preds = %if.end63
   %7 = load i32, ptr %lastpkt, align 4
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %add66 = add i32 %7, %8
   br label %cond.end
 
@@ -1639,7 +1639,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @maybe_retry_new(ptr noundef %bio) #0 {
+define internal range(i32 0, 2) i32 @maybe_retry_new(ptr noundef %bio) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 4, ptr noundef nonnull @.str.1, i32 noundef 843) #13
   %cmp = icmp eq ptr %call, null
@@ -1674,7 +1674,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @create_ssl_ctx_pair(ptr noundef %libctx, ptr noundef %sm, ptr noundef %cm, i32 noundef %min_proto_version, i32 noundef %max_proto_version, ptr noundef %sctx, ptr noundef %cctx, ptr noundef %certfile, ptr noundef %privkeyfile) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @create_ssl_ctx_pair(ptr noundef %libctx, ptr noundef %sm, ptr noundef %cm, i32 noundef %min_proto_version, i32 noundef %max_proto_version, ptr noundef %sctx, ptr noundef %cctx, ptr noundef %certfile, ptr noundef %privkeyfile) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %sctx, null
   br i1 %cmp.not, label %if.end10, label %if.then
@@ -1865,7 +1865,7 @@ declare i32 @SSL_CTX_check_private_key(ptr noundef) local_unnamed_addr #1
 declare void @SSL_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @wait_until_sock_readable(i32 noundef %sock) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @wait_until_sock_readable(i32 noundef %sock) local_unnamed_addr #0 {
 entry:
   %readfds = alloca %struct.fd_set, align 8
   %timeout = alloca %struct.timeval, align 8
@@ -1894,7 +1894,7 @@ entry:
 declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @create_test_sockets(ptr nocapture noundef writeonly %cfdp, ptr nocapture noundef writeonly %sfdp, i32 noundef %socktype, ptr noundef %saddr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @create_test_sockets(ptr nocapture noundef writeonly %cfdp, ptr nocapture noundef writeonly %sfdp, i32 noundef %socktype, ptr noundef %saddr) local_unnamed_addr #0 {
 entry:
   %sin = alloca %struct.sockaddr_in, align 4
   %slen = alloca i32, align 4
@@ -2062,7 +2062,7 @@ declare i32 @connect(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @create_ssl_objects2(ptr noundef %serverctx, ptr noundef %clientctx, ptr nocapture noundef %sssl, ptr nocapture noundef %cssl, i32 noundef %sfd, i32 noundef %cfd) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @create_ssl_objects2(ptr noundef %serverctx, ptr noundef %clientctx, ptr nocapture noundef %sssl, ptr nocapture noundef %cssl, i32 noundef %sfd, i32 noundef %cfd) local_unnamed_addr #0 {
 entry:
   %rdesc = alloca %struct.bio_poll_descriptor_st, align 8
   %wdesc = alloca %struct.bio_poll_descriptor_st, align 8
@@ -2245,7 +2245,7 @@ declare void @SSL_free(ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @create_ssl_objects(ptr noundef %serverctx, ptr noundef %clientctx, ptr nocapture noundef %sssl, ptr nocapture noundef %cssl, ptr noundef %s_to_c_fbio, ptr noundef %c_to_s_fbio) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @create_ssl_objects(ptr noundef %serverctx, ptr noundef %clientctx, ptr nocapture noundef %sssl, ptr nocapture noundef %cssl, ptr noundef %s_to_c_fbio, ptr noundef %c_to_s_fbio) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sssl, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -2369,7 +2369,7 @@ declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_
 declare i32 @BIO_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @create_bare_ssl_connection(ptr noundef %serverssl, ptr noundef %clientssl, i32 noundef %want, i32 noundef %read, i32 noundef %listen) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @create_bare_ssl_connection(ptr noundef %serverssl, ptr noundef %clientssl, i32 noundef %want, i32 noundef %read, i32 noundef %listen) local_unnamed_addr #0 {
 entry:
   %buf = alloca [20 x i8], align 16
   %call = tail call i32 @SSL_is_dtls(ptr noundef %serverssl) #13
@@ -2597,16 +2597,16 @@ declare void @OSSL_sleep(i64 noundef) local_unnamed_addr #1
 declare void @BIO_ADDR_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @create_ssl_connection(ptr noundef %serverssl, ptr noundef %clientssl, i32 noundef %want) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @create_ssl_connection(ptr noundef %serverssl, ptr noundef %clientssl, i32 noundef %want) local_unnamed_addr #0 {
 entry:
   %buf = alloca i8, align 1
   %readbytes = alloca i64, align 8
-  %call = tail call i32 @create_bare_ssl_connection(ptr noundef %serverssl, ptr noundef %clientssl, i32 noundef %want, i32 noundef 1, i32 noundef 0), !range !18
+  %call = tail call i32 @create_bare_ssl_connection(ptr noundef %serverssl, ptr noundef %clientssl, i32 noundef %want, i32 noundef 1, i32 noundef 0)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body.backedge
-  %cmp = phi i1 [ true, %for.body.backedge ], [ false, %entry ]
+  %cmp.not = phi i1 [ true, %for.body.backedge ], [ false, %entry ]
   %call1 = call i32 @SSL_read_ex(ptr noundef %clientssl, ptr noundef nonnull %buf, i64 noundef 1, ptr noundef nonnull %readbytes) #13
   %cmp2 = icmp sgt i32 %call1, 0
   br i1 %cmp2, label %if.then3, label %if.else
@@ -2615,7 +2615,7 @@ if.then3:                                         ; preds = %for.body
   %0 = load i64, ptr %readbytes, align 8
   %call4 = call i32 @test_ulong_eq(ptr noundef nonnull @.str.1, i32 noundef 1350, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, i64 noundef %0, i64 noundef 0) #13
   %tobool5.not = icmp eq i32 %call4, 0
-  %brmerge = or i1 %tobool5.not, %cmp
+  %brmerge = or i1 %tobool5.not, %cmp.not
   br i1 %brmerge, label %return.loopexit, label %for.body.backedge
 
 for.body.backedge:                                ; preds = %if.then3, %if.else
@@ -2625,7 +2625,7 @@ if.else:                                          ; preds = %for.body
   %call8 = call i32 @SSL_get_error(ptr noundef %clientssl, i32 noundef 0) #13
   %call9 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 1353, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef %call8, i32 noundef 2) #13
   %tobool10.not = icmp eq i32 %call9, 0
-  %brmerge6 = or i1 %tobool10.not, %cmp
+  %brmerge6 = or i1 %tobool10.not, %cmp.not
   br i1 %brmerge6, label %return.loopexit, label %for.body.backedge
 
 return.loopexit:                                  ; preds = %if.else, %if.then3
@@ -2727,7 +2727,7 @@ declare i32 @SSL_SESSION_set_protocol_version(ptr noundef, i32 noundef) local_un
 declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ssl_ctx_add_large_cert_chain(ptr noundef %libctx, ptr noundef %sctx, ptr noundef %cert_file) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ssl_ctx_add_large_cert_chain(ptr noundef %libctx, ptr noundef %sctx, ptr noundef %cert_file) local_unnamed_addr #0 {
 entry:
   %chaincert = alloca ptr, align 8
   store ptr null, ptr %chaincert, align 8
@@ -2762,7 +2762,7 @@ cond.false:                                       ; preds = %if.end9
 for.cond:                                         ; preds = %if.end17
   %inc = add nuw nsw i32 %i.04, 1
   %exitcond.not = icmp eq i32 %inc, 40
-  br i1 %exitcond.not, label %end, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %end, label %for.body, !llvm.loop !18
 
 for.body:                                         ; preds = %if.end9, %for.cond
   %i.04 = phi i32 [ %inc, %for.cond ], [ 0, %if.end9 ]
@@ -2897,5 +2897,4 @@ attributes #16 = { noreturn nounwind }
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = !{i32 0, i32 2}
-!19 = distinct !{!19, !6}
+!18 = distinct !{!18, !6}

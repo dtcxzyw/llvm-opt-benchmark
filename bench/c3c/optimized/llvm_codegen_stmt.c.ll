@@ -3652,7 +3652,7 @@ codegen_append_constraints.exit203:               ; preds = %._crit_edge.loopexi
 
 .preheader306:                                    ; preds = %176
   %180 = shl nuw nsw i64 %indvars.iv367, 6
-  %invariant.gep = getelementptr ptr, ptr %109, i64 %180
+  %invariant.gep = getelementptr inbounds ptr, ptr %109, i64 %180
   br label %181
 
 181:                                              ; preds = %.preheader306, %209
@@ -3710,7 +3710,7 @@ codegen_new_constraint.exit233:                   ; preds = %184, %codegen_appen
 
 codegen_append_constraints.exit245:               ; preds = %192
   %195 = trunc nuw i64 %indvars.iv.next.i241 to i32
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv363
+  %gep = getelementptr inbounds ptr, ptr %invariant.gep, i64 %indvars.iv363
   %196 = load ptr, ptr %gep, align 8
   %197 = load i8, ptr %196, align 1
   %.not11.i246 = icmp eq i8 %197, 0

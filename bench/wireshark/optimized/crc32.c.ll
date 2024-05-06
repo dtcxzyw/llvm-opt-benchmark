@@ -205,7 +205,7 @@ define i32 @crc32_0x0AA725CF_seed(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @crc32_0x5D6DCB_seed(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 16777216) i32 @crc32_0x5D6DCB_seed(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.loopexit, label %.preheader
 

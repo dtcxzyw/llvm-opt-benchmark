@@ -553,7 +553,7 @@ define internal ptr @handle_need(ptr nocapture noundef %0, i64 noundef %1, i64 n
   %21 = sub i64 %20, %18
   %22 = add i64 %21, 1
   %23 = select i1 %.not47, i64 0, i64 %22
-  %24 = tail call fastcc i32 @fmap_readpage(ptr noundef nonnull %0, i64 noundef %18, i64 noundef %22, i64 noundef %23), !range !4
+  %24 = tail call fastcc i32 @fmap_readpage(ptr noundef nonnull %0, i64 noundef %18, i64 noundef %22, i64 noundef %23)
   %.not48 = icmp eq i32 %24, 0
   br i1 %.not48, label %25, label %29
 
@@ -620,7 +620,7 @@ define internal ptr @handle_need_offstr(ptr nocapture noundef %0, i64 noundef %1
   %25 = load ptr, ptr %6, align 8
   %26 = mul i64 %24, %.073106
   %27 = getelementptr inbounds i8, ptr %25, i64 %26
-  %28 = tail call fastcc i32 @fmap_readpage(ptr noundef nonnull %0, i64 noundef %.073106, i64 noundef 1, i64 noundef 1), !range !4
+  %28 = tail call fastcc i32 @fmap_readpage(ptr noundef nonnull %0, i64 noundef %.073106, i64 noundef 1, i64 noundef 1)
   %.not88 = icmp eq i32 %28, 0
   br i1 %.not88, label %31, label %29
 
@@ -752,7 +752,7 @@ define internal noundef ptr @handle_gets(ptr nocapture noundef %0, ptr noundef w
   %29 = load ptr, ptr %5, align 8
   %30 = mul i64 %28, %.080105
   %31 = getelementptr inbounds i8, ptr %29, i64 %30
-  %32 = tail call fastcc i32 @fmap_readpage(ptr noundef nonnull %0, i64 noundef %.080105, i64 noundef 1, i64 noundef 0), !range !4
+  %32 = tail call fastcc i32 @fmap_readpage(ptr noundef nonnull %0, i64 noundef %.080105, i64 noundef 1, i64 noundef 0)
   %.not95 = icmp eq i32 %32, 0
   br i1 %.not95, label %33, label %.loopexit
 
@@ -1394,7 +1394,7 @@ define void @cl_fmap_close(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fmap_set_hash(ptr noundef writeonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @fmap_set_hash(ptr noundef writeonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1448,7 +1448,7 @@ define noundef i32 @fmap_set_hash(ptr noundef writeonly %0, ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fmap_get_hash(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 35) i32 @fmap_get_hash(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
   switch i32 %2, label %18 [
@@ -1795,7 +1795,7 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @fmap_readpage(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca [256 x i8], align 16
   %6 = alloca i8, align 1
   %7 = alloca %struct.stat, align 8
@@ -2100,4 +2100,3 @@ attributes #22 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

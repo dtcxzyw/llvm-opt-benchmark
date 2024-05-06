@@ -53,7 +53,7 @@ declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
 declare i64 @BIO_int_ctrl(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @BIO_dgram_non_fatal_error(i32 noundef %err) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_dgram_non_fatal_error(i32 noundef %err) local_unnamed_addr #0 {
 entry:
   switch i32 %err, label %sw.epilog [
     i32 11, label %return
@@ -433,7 +433,7 @@ dgram_update_local_addr.exit:                     ; preds = %dgram_clear.exit, %
   br i1 %tobool.not, label %sw.epilog333, label %if.then
 
 if.then:                                          ; preds = %dgram_update_local_addr.exit
-  %call5 = call fastcc i32 @enable_local_addr(ptr noundef nonnull %b, i32 noundef 1), !range !4
+  %call5 = call fastcc i32 @enable_local_addr(ptr noundef nonnull %b, i32 noundef 1)
   %cmp.not.not = icmp eq i32 %call5, 0
   br i1 %cmp.not.not, label %if.then7, label %sw.epilog333
 
@@ -965,7 +965,7 @@ sw.bb308:                                         ; preds = %entry
 
 if.then316:                                       ; preds = %sw.bb308
   %conv310 = zext i1 %cmp309 to i32
-  %call318 = tail call fastcc i32 @enable_local_addr(ptr noundef nonnull %b, i32 noundef %conv310), !range !4
+  %call318 = tail call fastcc i32 @enable_local_addr(ptr noundef nonnull %b, i32 noundef %conv310)
   %cmp319.not.not = icmp eq i32 %call318, 0
   br i1 %cmp319.not.not, label %sw.epilog333, label %if.end322
 
@@ -1003,7 +1003,7 @@ return:                                           ; preds = %sw.epilog333, %sw.b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dgram_new(ptr nocapture noundef writeonly %bi) #1 {
+define internal range(i32 0, 2) i32 @dgram_new(ptr nocapture noundef writeonly %bi) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 264, ptr noundef nonnull @.str.1, i32 noundef 257) #11
   %cmp = icmp eq ptr %call, null
@@ -1020,7 +1020,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dgram_free(ptr noundef %a) #1 {
+define internal range(i32 0, 2) i32 @dgram_free(ptr noundef %a) #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end.i
@@ -1061,7 +1061,7 @@ return:                                           ; preds = %entry, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dgram_sendmmsg(ptr nocapture noundef readonly %b, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
+define internal range(i32 0, 2) i32 @dgram_sendmmsg(ptr nocapture noundef readonly %b, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
 entry:
   %mh = alloca [64 x %struct.mmsghdr], align 16
   %iov = alloca [64 x %struct.iovec], align 16
@@ -1138,7 +1138,7 @@ translate_msg.exit.us:                            ; preds = %land.lhs.true.i.us,
 for.inc.us:                                       ; preds = %translate_msg.exit.us
   %inc.us = add nuw nsw i64 %i.042.us, 1
   %exitcond46.not = icmp eq i64 %inc.us, %spec.store.select1
-  br i1 %exitcond46.not, label %for.end, label %for.body.us, !llvm.loop !5
+  br i1 %exitcond46.not, label %for.end, label %for.body.us, !llvm.loop !4
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %i.042 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
@@ -1233,7 +1233,7 @@ if.then12.i:                                      ; preds = %if.then18
   store i32 50, ptr %cmsg_type17.i, align 4
   %__cmsg_data18.i = getelementptr inbounds i8, ptr %arrayidx13, i64 16
   %sin6_addr.i = getelementptr inbounds i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cmsg_data18.i, ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cmsg_data18.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %sin6_addr.i, i64 16, i1 false)
   %ipi6_ifindex.i = getelementptr inbounds i8, ptr %arrayidx13, i64 32
   store i32 0, ptr %ipi6_ifindex.i, align 8
   %sin6_port.i = getelementptr inbounds i8, ptr %11, i64 2
@@ -1278,7 +1278,7 @@ for.inc.sink.split:                               ; preds = %if.end32.i, %land.l
 for.inc:                                          ; preds = %for.inc.sink.split, %translate_msg.exit
   %inc = add nuw nsw i64 %i.042, 1
   %exitcond.not = icmp eq i64 %inc, %spec.store.select1
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %for.inc.us
   %num = getelementptr inbounds i8, ptr %b, i64 56
@@ -1314,7 +1314,7 @@ for.body44:                                       ; preds = %for.cond40.preheade
   store i64 0, ptr %flags51, align 8
   %inc53 = add nuw nsw i64 %i.144, 1
   %exitcond47.not = icmp eq i64 %inc53, %conv41
-  br i1 %exitcond47.not, label %return, label %for.body44, !llvm.loop !7
+  br i1 %exitcond47.not, label %return, label %for.body44, !llvm.loop !6
 
 return:                                           ; preds = %for.body44, %for.cond40.preheader, %entry, %if.then37, %if.then29, %if.then19
   %conv41.sink = phi i64 [ 0, %if.then37 ], [ 0, %if.then29 ], [ 0, %if.then19 ], [ 0, %entry ], [ %conv41, %for.cond40.preheader ], [ %conv41, %for.body44 ]
@@ -1324,7 +1324,7 @@ return:                                           ; preds = %for.body44, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dgram_recvmmsg(ptr nocapture noundef readonly %b, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
+define internal range(i32 0, 2) i32 @dgram_recvmmsg(ptr nocapture noundef readonly %b, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
 entry:
   %mh = alloca [64 x %struct.mmsghdr], align 16
   %iov = alloca [64 x %struct.iovec], align 16
@@ -1391,12 +1391,12 @@ translate_msg.exit.us:                            ; preds = %land.lhs.true.i.us,
   store i32 0, ptr %msg_flags.i.us, align 16
   %inc.us = add nuw nsw i64 %i.047.us, 1
   %exitcond.not = icmp eq i64 %inc.us, %spec.store.select1
-  br i1 %exitcond.not, label %for.end, label %for.body.us, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body.us, !llvm.loop !7
 
 for.cond:                                         ; preds = %translate_msg.exit
   %inc = add nuw nsw i64 %i.047, 1
   %exitcond55.not = icmp eq i64 %inc, %spec.store.select1
-  br i1 %exitcond55.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond55.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.body:                                         ; preds = %if.end, %for.cond
   %i.047 = phi i64 [ %inc, %for.cond ], [ 0, %if.end ]
@@ -1531,7 +1531,7 @@ if.end.us.i:                                      ; preds = %for.body.us.i
 for.inc.us.i:                                     ; preds = %if.end.us.i, %for.body.us.i
   %call29.us.i = call ptr @__cmsg_nxthdr(ptr noundef nonnull %arrayidx33, ptr noundef nonnull %cmsg.024.us.i) #11
   %cmp1.not.us.i = icmp eq ptr %call29.us.i, null
-  br i1 %cmp1.not.us.i, label %if.then54, label %for.body.us.i, !llvm.loop !9
+  br i1 %cmp1.not.us.i, label %if.then54, label %for.body.us.i, !llvm.loop !8
 
 for.body.us26.i:                                  ; preds = %for.body.lr.ph.i, %for.inc.us28.i
   %cmsg.024.us27.i = phi ptr [ %call29.us29.i, %for.inc.us28.i ], [ %17, %for.body.lr.ph.i ]
@@ -1549,13 +1549,13 @@ if.end14.us.i:                                    ; preds = %for.body.us26.i
 for.inc.us28.i:                                   ; preds = %if.end14.us.i, %for.body.us26.i
   %call29.us29.i = call ptr @__cmsg_nxthdr(ptr noundef nonnull %arrayidx33, ptr noundef nonnull %cmsg.024.us27.i) #11
   %cmp1.not.us30.i = icmp eq ptr %call29.us29.i, null
-  br i1 %cmp1.not.us30.i, label %if.then54, label %for.body.us26.i, !llvm.loop !9
+  br i1 %cmp1.not.us30.i, label %if.then54, label %for.body.us26.i, !llvm.loop !8
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
   %cmsg.024.i = phi ptr [ %call29.i, %for.body.i ], [ %17, %for.body.lr.ph.i ]
   %call29.i = call ptr @__cmsg_nxthdr(ptr noundef nonnull %arrayidx33, ptr noundef nonnull %cmsg.024.i) #11
   %cmp1.not.i = icmp eq ptr %call29.i, null
-  br i1 %cmp1.not.i, label %if.then54, label %for.body.i, !llvm.loop !9
+  br i1 %cmp1.not.i, label %if.then54, label %for.body.i, !llvm.loop !8
 
 if.end7.i:                                        ; preds = %if.end.us.i
   %sin_addr.i = getelementptr inbounds i8, ptr %14, i64 4
@@ -1574,7 +1574,7 @@ if.end18.i:                                       ; preds = %if.end14.us.i
   %25 = load ptr, ptr %ptr, align 8
   %sin6_addr.i = getelementptr inbounds i8, ptr %14, i64 8
   %__cmsg_data21.i = getelementptr inbounds i8, ptr %cmsg.024.us27.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr.i, ptr noundef nonnull align 8 dereferenceable(16) %__cmsg_data21.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %sin6_addr.i, ptr noundef nonnull align 8 dereferenceable(16) %__cmsg_data21.i, i64 16, i1 false)
   store i16 10, ptr %14, align 4
   %sin6_port.i = getelementptr inbounds i8, ptr %25, i64 114
   %26 = load i16, ptr %sin6_port.i, align 2
@@ -1596,7 +1596,7 @@ if.then54:                                        ; preds = %for.inc.us28.i, %fo
 for.inc58:                                        ; preds = %if.end18.i, %if.end7.i, %for.body32, %if.then54
   %inc59 = add nuw nsw i64 %i.149, 1
   %exitcond56.not = icmp eq i64 %inc59, %conv29
-  br i1 %exitcond56.not, label %return, label %for.body32, !llvm.loop !10
+  br i1 %exitcond56.not, label %return, label %for.body32, !llvm.loop !9
 
 return:                                           ; preds = %for.inc58, %for.cond28.preheader, %entry, %if.then25, %if.then18
   %conv29.sink = phi i64 [ 0, %if.then25 ], [ 0, %if.then18 ], [ 0, %entry ], [ %conv29, %for.cond28.preheader ], [ %conv29, %for.inc58 ]
@@ -1650,7 +1650,7 @@ declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @enable_local_addr(ptr nocapture noundef readonly %b, i32 noundef %enable) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @enable_local_addr(ptr nocapture noundef readonly %b, i32 noundef %enable) unnamed_addr #1 {
 entry:
   %enable.addr = alloca i32, align 4
   store i32 %enable, ptr %enable.addr, align 4
@@ -1762,10 +1762,9 @@ attributes #14 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

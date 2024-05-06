@@ -129,7 +129,7 @@ declare dso_local void @destroy_workqueue(ptr noundef) local_unnamed_addr #1
 declare dso_local void @dm_unregister_target(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @dm_mirror_init() #0 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @dm_mirror_init() #0 section ".init.text" align 16 {
   %1 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.55, i32 noundef 0, i32 noundef 0) #12
   store ptr %1, ptr @dm_raid1_wq, align 8
   %2 = icmp eq ptr %1, null
@@ -572,7 +572,7 @@ define internal void @mirror_dtr(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mirror_map(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 0, 5) i32 @mirror_map(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -767,7 +767,7 @@ define internal noundef i32 @mirror_map(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mirror_end_io(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @mirror_end_io(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -2458,7 +2458,7 @@ define internal void @trigger_event(ptr nocapture noundef readonly %0) #2 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @parse_features(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #7 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @parse_features(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #7 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
@@ -2558,7 +2558,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 declare dso_local ptr @dm_dirty_log_create(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mirror_flush(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca [9 x %struct.dm_io_region], align 16
   %4 = alloca %struct.dm_io_request, align 8
@@ -3088,7 +3088,7 @@ define internal void @read_callback(i64 noundef %0, ptr noundef %1) #2 align 16 
 declare dso_local void @bio_endio(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @mirror_available(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 2) i32 @mirror_available(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dm_rh_dirty_log(ptr noundef %4) #12

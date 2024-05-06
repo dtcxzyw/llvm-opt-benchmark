@@ -213,7 +213,7 @@ define dso_local void @snd_seq_timer_delete(ptr nocapture noundef %0) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_timer_stop(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_stop(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #10
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -246,7 +246,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_timer_set_tempo(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_tempo(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 1
   %5 = or i1 %3, %4
@@ -313,7 +313,7 @@ define dso_local noundef i32 @snd_seq_timer_set_tempo(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_timer_set_tempo_ppq(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_tempo_ppq(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %56, label %5
 
@@ -405,7 +405,7 @@ define dso_local noundef i32 @snd_seq_timer_set_tempo_ppq(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_timer_set_position_tick(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_position_tick(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -425,10 +425,10 @@ define dso_local noundef i32 @snd_seq_timer_set_position_tick(ptr noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_timer_set_position_time(ptr noundef %0, i64 %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_position_time(ptr noundef %0, i64 %1) local_unnamed_addr #0 align 16 {
   %3 = trunc i64 %1 to i32
   %4 = lshr i64 %1, 32
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw i64 %4 to i32
   %6 = icmp eq ptr %0, null
   br i1 %6, label %26, label %7
 
@@ -465,7 +465,7 @@ define dso_local noundef i32 @snd_seq_timer_set_position_time(ptr noundef %0, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_timer_set_skew(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_skew(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp ne ptr %0, null
   %5 = icmp eq i32 %2, 65536
   %6 = and i1 %4, %5
@@ -485,7 +485,7 @@ define dso_local noundef i32 @snd_seq_timer_set_skew(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_timer_open(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_seq_timer_open(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [32 x i8], align 16
   %3 = alloca %struct.snd_timer_id, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #10
@@ -722,7 +722,7 @@ declare dso_local void @snd_timer_instance_free(ptr noundef) local_unnamed_addr 
 declare dso_local void @snd_timer_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_timer_close(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_close(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -749,7 +749,7 @@ define dso_local noundef i32 @snd_seq_timer_close(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_timer_start(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_start(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #10
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -820,7 +820,7 @@ define dso_local noundef i32 @snd_seq_timer_start(ptr noundef %0) local_unnamed_
 40:                                               ; preds = %37
   %41 = mul i64 %38, %31
   %42 = udiv i64 1000000000, %41
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw nsw i64 %42 to i32
   %44 = tail call i32 @llvm.umax.i32(i32 %43, i32 1)
   store i32 %44, ptr %32, align 8
   br label %45
@@ -846,7 +846,7 @@ define dso_local noundef i32 @snd_seq_timer_start(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_timer_continue(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_continue(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #10
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -910,7 +910,7 @@ define dso_local noundef i32 @snd_seq_timer_continue(ptr noundef %0) local_unnam
 39:                                               ; preds = %36
   %40 = mul i64 %37, %30
   %41 = udiv i64 1000000000, %40
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw nsw i64 %41 to i32
   %43 = tail call i32 @llvm.umax.i32(i32 %42, i32 1)
   store i32 %43, ptr %31, align 8
   br label %44
@@ -950,7 +950,7 @@ define dso_local i64 @snd_seq_timer_get_cur_time(ptr noundef %0, i1 noundef zero
   %8 = load i64, ptr %7, align 4
   %9 = trunc i64 %8 to i32
   %10 = lshr i64 %8, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   br i1 %1, label %12, label %44
 
 12:                                               ; preds = %2

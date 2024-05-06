@@ -53,19 +53,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @failure_alert_box(ptr noundef %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   call void @vsimple_error_message_box(ptr noundef %0, ptr noundef nonnull %2) #4
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #1
-
-declare void @vsimple_error_message_box(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #1
+declare void @vsimple_error_message_box(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @vfailure_alert_box(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -79,7 +73,7 @@ define hidden void @vwarning_alert_box(ptr noundef %0, ptr noundef %1) local_unn
   ret void
 }
 
-declare void @vsimple_warning_message_box(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @vsimple_warning_message_box(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @cfile_open_failure_alert_box(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -176,13 +170,13 @@ define hidden void @cfile_open_failure_alert_box(ptr noundef %0, i32 noundef %1,
   ret void
 }
 
-declare noalias ptr @g_filename_display_basename(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_filename_display_basename(ptr noundef) local_unnamed_addr #1
 
-declare void @simple_error_message_box(ptr noundef, ...) local_unnamed_addr #2
+declare void @simple_error_message_box(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @g_free(ptr noundef) local_unnamed_addr #2
+declare void @g_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @wtap_strerror(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @open_failure_alert_box(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -268,7 +262,7 @@ define hidden void @cfile_dump_open_failure_alert_box(ptr noundef %0, i32 nounde
   ret void
 }
 
-declare ptr @wtap_file_type_subtype_description(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_file_type_subtype_description(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @cfile_read_failure_alert_box(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -345,9 +339,9 @@ define hidden void @cfile_read_failure_alert_box(ptr noundef %0, i32 noundef %1,
   ret void
 }
 
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @cfile_write_failure_alert_box(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
@@ -492,9 +486,9 @@ define hidden void @cfile_close_failure_alert_box(ptr noundef %0, i32 noundef %1
   ret void
 }
 
-declare void @simple_message_box(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @simple_message_box(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @file_open_error_message(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @file_open_error_message(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @read_failure_alert_box(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -506,14 +500,20 @@ define hidden void @read_failure_alert_box(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @g_strerror(i32 noundef) local_unnamed_addr #3
+declare ptr @g_strerror(i32 noundef) local_unnamed_addr #2
 
-declare ptr @file_write_error_message(i32 noundef) local_unnamed_addr #2
+declare ptr @file_write_error_message(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #4 = { nounwind }
 attributes #5 = { nounwind willreturn memory(none) }
 

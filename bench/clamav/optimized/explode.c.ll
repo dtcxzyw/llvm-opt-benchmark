@@ -38,7 +38,7 @@ define noundef i32 @explode_init(ptr nocapture noundef writeonly %0, i16 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 9776
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %512 [
@@ -134,7 +134,7 @@ define noundef i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
   %28 = getelementptr inbounds i8, ptr %27, i64 %24
   store ptr %28, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 32
-  %30 = tail call fastcc i32 @unpack_tree(ptr noundef nonnull %0, ptr noundef nonnull %29, i32 noundef 256), !range !4
+  %30 = tail call fastcc i32 @unpack_tree(ptr noundef nonnull %0, ptr noundef nonnull %29, i32 noundef 256)
   %.not401 = icmp eq i32 %30, 0
   br i1 %.not401, label %31, label %512
 
@@ -197,7 +197,7 @@ define noundef i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
   %61 = getelementptr inbounds i8, ptr %60, i64 %57
   store ptr %61, ptr %0, align 8
   %62 = getelementptr inbounds i8, ptr %0, i64 1056
-  %63 = tail call fastcc i32 @unpack_tree(ptr noundef nonnull %0, ptr noundef nonnull %62, i32 noundef 64), !range !4
+  %63 = tail call fastcc i32 @unpack_tree(ptr noundef nonnull %0, ptr noundef nonnull %62, i32 noundef 64)
   %.not404 = icmp eq i32 %63, 0
   br i1 %.not404, label %64, label %512
 
@@ -260,7 +260,7 @@ define noundef i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
   %94 = getelementptr inbounds i8, ptr %93, i64 %90
   store ptr %94, ptr %0, align 8
   %95 = getelementptr inbounds i8, ptr %0, i64 1312
-  %96 = tail call fastcc i32 @unpack_tree(ptr noundef nonnull %0, ptr noundef nonnull %95, i32 noundef 64), !range !4
+  %96 = tail call fastcc i32 @unpack_tree(ptr noundef nonnull %0, ptr noundef nonnull %95, i32 noundef 64)
   %.not408 = icmp eq i32 %96, 0
   br i1 %.not408, label %97, label %512
 
@@ -1059,7 +1059,7 @@ lookup_tree.exit453.thread:                       ; preds = %412, %lookup_tree.e
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @unpack_tree(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @unpack_tree(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [256 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 1584
@@ -1296,4 +1296,3 @@ attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

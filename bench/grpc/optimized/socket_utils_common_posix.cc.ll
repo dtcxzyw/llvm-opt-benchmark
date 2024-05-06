@@ -1485,7 +1485,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z28grpc_ipv6_loopback_availablev() local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_Z28grpc_ipv6_loopback_availablev() local_unnamed_addr #3 {
 entry:
   tail call void @gpr_once_init(ptr noundef nonnull @_ZL17g_probe_ipv6_once, ptr noundef nonnull @_ZL15probe_ipv6_oncev)
   %.b = load i1, ptr @_ZL25g_ipv6_loopback_available, align 4

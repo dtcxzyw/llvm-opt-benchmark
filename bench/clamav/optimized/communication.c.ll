@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [21 x i8] c"Communication error\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @onas_sendln(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @onas_sendln(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timeval, align 8
   %6 = alloca %struct.fd_set, align 8
   %7 = alloca %struct.fd_set, align 8

@@ -357,7 +357,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNK8facebook5velox9Timestamp8toMillisEv.exit:    ; preds = %entry
-  %conv7.i = trunc i128 %add.i to i64
+  %conv7.i = trunc nsw i128 %add.i to i64
   %3 = add i64 %conv7.i, -971890876800001
   %or.cond.i1 = icmp ult i64 %3, -2068084656000001
   br i1 %or.cond.i1, label %if.then.i2, label %_ZN8facebook5velox12_GLOBAL__N_117validateTimePointERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000EEEEEE.exit
@@ -391,7 +391,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNK8facebook5velox9Timestamp8toMillisEv.exit.i:  ; preds = %entry
-  %conv7.i.i = trunc i128 %add.i.i to i64
+  %conv7.i.i = trunc nsw i128 %add.i.i to i64
   %3 = add i64 %conv7.i.i, -971890876800001
   %or.cond.i1.i = icmp ult i64 %3, -2068084656000001
   br i1 %or.cond.i1.i, label %if.then.i2.i, label %_ZNK8facebook5velox9Timestamp11toTimePointEv.exit
@@ -474,7 +474,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   unreachable
 
 _ZNK8facebook5velox9Timestamp8toMillisEv.exit.i.i: ; preds = %invoke.cont
-  %conv7.i.i.i = trunc i128 %add.i.i.i to i64
+  %conv7.i.i.i = trunc nsw i128 %add.i.i.i to i64
   %6 = add i64 %conv7.i.i.i, -971890876800001
   %or.cond.i1.i.i = icmp ult i64 %6, -2068084656000001
   br i1 %or.cond.i1.i.i, label %if.then.i2.i.i, label %_ZNK8facebook5velox9Timestamp11toTimePointEv.exit.i
@@ -530,13 +530,13 @@ entry:
   %rem.0.lcssa = select i1 %cmp55, i64 %0, i64 %rem1
   %rem1.lobit = ashr i64 %rem1, 63
   %days.0.lcssa = add nsw i64 %div, %rem1.lobit
-  %div2.lhs.trunc = trunc i64 %rem.0.lcssa to i32
+  %div2.lhs.trunc = trunc nsw i64 %rem.0.lcssa to i32
   %div267 = udiv i32 %div2.lhs.trunc, 3600
   %tm_hour = getelementptr inbounds i8, ptr %tm, i64 8
   store i32 %div267, ptr %tm_hour, align 8
-  %rem3.lhs.trunc = trunc i64 %rem.0.lcssa to i32
+  %rem3.lhs.trunc = trunc nsw i64 %rem.0.lcssa to i32
   %rem368 = urem i32 %rem3.lhs.trunc, 3600
-  %div4.lhs.trunc = trunc i32 %rem368 to i16
+  %div4.lhs.trunc = trunc nuw nsw i32 %rem368 to i16
   %div452 = udiv i16 %div4.lhs.trunc, 60
   %conv5 = zext nneg i16 %div452 to i32
   %tm_min = getelementptr inbounds i8, ptr %tm, i64 4
@@ -546,7 +546,7 @@ entry:
   store i32 %conv7, ptr %tm, align 8
   %add8 = add nsw i64 %days.0.lcssa, 4
   %rem9 = srem i64 %add8, 7
-  %conv10 = trunc i64 %rem9 to i32
+  %conv10 = trunc nsw i64 %rem9 to i32
   %tm_wday = getelementptr inbounds i8, ptr %tm, i64 24
   %cmp12 = icmp slt i32 %conv10, 0
   %add14 = add nsw i32 %conv10, 7
@@ -642,7 +642,7 @@ for.body:                                         ; preds = %if.end48, %for.body
   br i1 %cmp55.not, label %for.end.loopexit, label %for.body, !llvm.loop !6
 
 for.end.loopexit:                                 ; preds = %for.body
-  %8 = trunc i64 %indvars.iv.next to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.next to i32
   %.pre = trunc i64 %sub60 to i32
   br label %for.end
 
@@ -757,7 +757,7 @@ while.body:                                       ; preds = %while.body.preheade
   %n.166 = phi i32 [ %div, %invoke.cont8 ], [ %n.166.ph, %while.body.preheader ]
   %rem = urem i32 %n.166, 10
   %div = udiv i32 %n.166, 10
-  %4 = trunc i32 %rem to i8
+  %4 = trunc nuw nsw i32 %rem to i8
   %conv = or disjoint i8 %4, 48
   %call9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %conv)
           to label %invoke.cont8 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -900,7 +900,7 @@ while.body70:                                     ; preds = %invoke.cont59, %inv
   %nanos.addr.168 = phi i64 [ %div76, %invoke.cont74 ], [ %nanos.addr.0, %invoke.cont59 ]
   %rem71 = urem i64 %nanos.addr.168, 10
   %div76 = udiv i64 %nanos.addr.168, 10
-  %16 = trunc i64 %rem71 to i8
+  %16 = trunc nuw nsw i64 %rem71 to i8
   %conv73 = or disjoint i8 %16, 48
   %call75 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %conv73)
           to label %invoke.cont74 unwind label %lpad.loopexit.split-lp.loopexit
@@ -1259,7 +1259,7 @@ entry:
   %0 = add nuw nsw i32 %div7.i.i, %div3.i.i
   %sub8.i.i = sub i32 %.neg, %0
   %div9.i.i = udiv i32 %sub8.i.i, 365
-  %1 = trunc i64 %div.i.i to i32
+  %1 = trunc nsw i64 %div.i.i to i32
   %2 = mul nsw i32 %1, 400
   %conv13.i.i = add nsw i32 %div9.i.i, %2
   %div15.i.i = udiv i32 %sub8.i.i, 1460
@@ -1291,7 +1291,7 @@ entry:
   %retval.sroa.2.0.insert.insert.i.i = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i, %retval.sroa.2.0.insert.shift.i.i
   %retval.sroa.0.0.insert.ext.i.i = zext i32 %add37.i.i to i64
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.sroa.2.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
-  %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %retval.sroa.0.0.insert.insert.i.i to i48
+  %ref.tmp.sroa.0.0.extract.trunc.i = trunc nuw i64 %retval.sroa.0.0.insert.insert.i.i to i48
   store i48 %ref.tmp.sroa.0.0.extract.trunc.i, ptr %ref.tmp, align 8
   %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4datelsIcSt11char_traitsIcEEERSt13basic_ostreamIT_T0_ES7_RKNS_14year_month_dayE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 4 dereferenceable(6) %ref.tmp)
   %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call4, i8 noundef signext 32)
@@ -1316,7 +1316,7 @@ entry:
   store i64 0, ptr %sub_s_.i.i.i, align 8, !alias.scope !15
   %neg_.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 32
   %d.coerce.lobit.i.i = lshr i64 %sub.i.i3, 63
-  %frombool.i.i = trunc i64 %d.coerce.lobit.i.i to i8
+  %frombool.i.i = trunc nuw nsw i64 %d.coerce.lobit.i.i to i8
   store i8 %frombool.i.i, ptr %neg_.i.i, align 8, !alias.scope !15
   %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4datelsIcSt11char_traitsIcEEERSt13basic_ostreamIT_T0_ES7_RKNS_8hh_mm_ssINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEE(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull align 8 dereferenceable(33) %ref.tmp6)
   ret ptr %call10

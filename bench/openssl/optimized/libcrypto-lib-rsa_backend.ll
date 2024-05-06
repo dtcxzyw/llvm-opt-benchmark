@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_rsa_key_from_pkcs8 = private unnamed_addr constant [24 x i8] c"ossl_rsa_key_from_pkcs8\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_fromdata(ptr noundef %rsa, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_fromdata(ptr noundef %rsa, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
 entry:
   %tmp.i42 = alloca ptr, align 8
   %tmp.i20 = alloca ptr, align 8
@@ -280,7 +280,7 @@ declare i32 @ossl_rsa_set0_all_params(ptr noundef, ptr noundef, ptr noundef, ptr
 declare void @BN_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_todata(ptr noundef %rsa, ptr noundef %bld, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_todata(ptr noundef %rsa, ptr noundef %bld, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
 entry:
   %rsa_d = alloca ptr, align 8
   %rsa_n = alloca ptr, align 8
@@ -362,7 +362,7 @@ declare i32 @ossl_param_build_set_bn(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @ossl_param_build_set_multi_key_bn(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_pss_params_30_todata(ptr noundef %pss, ptr noundef %bld, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_todata(ptr noundef %pss, ptr noundef %bld, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_rsa_pss_params_30_is_unrestricted(ptr noundef %pss) #4
   %tobool.not = icmp eq i32 %call, 0
@@ -459,7 +459,7 @@ declare i32 @ossl_param_build_set_utf8_string(ptr noundef, ptr noundef, ptr noun
 declare i32 @ossl_param_build_set_int(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %pss_params, ptr nocapture noundef %defaults_set, ptr noundef %params, ptr noundef %libctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef %pss_params, ptr nocapture noundef %defaults_set, ptr noundef %params, ptr noundef %libctx) local_unnamed_addr #0 {
 entry:
   %saltlen = alloca i32, align 4
   %mgfname = alloca ptr, align 8
@@ -679,7 +679,7 @@ declare i32 @ossl_rsa_pss_params_30_set_saltlen(ptr noundef, i32 noundef) local_
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_is_foreign(ptr noundef %rsa) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_is_foreign(ptr noundef %rsa) local_unnamed_addr #0 {
 entry:
   %engine = getelementptr inbounds i8, ptr %rsa, i64 32
   %0 = load ptr, ptr %engine, align 8
@@ -1038,7 +1038,7 @@ declare ptr @RSA_PSS_PARAMS_it() local_unnamed_addr #1
 declare void @RSA_PSS_PARAMS_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_pss_get_param_unverified(ptr noundef readonly %pss, ptr nocapture noundef writeonly %pmd, ptr nocapture noundef writeonly %pmgf1md, ptr nocapture noundef writeonly %psaltlen, ptr nocapture noundef writeonly %ptrailerField) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_pss_get_param_unverified(ptr noundef readonly %pss, ptr nocapture noundef writeonly %pmd, ptr nocapture noundef writeonly %pmgf1md, ptr nocapture noundef writeonly %psaltlen, ptr nocapture noundef writeonly %ptrailerField) local_unnamed_addr #0 {
 entry:
   %pss_params = alloca %struct.rsa_pss_params_30_st, align 4
   %call = call i32 @ossl_rsa_pss_params_30_set_defaults(ptr noundef nonnull %pss_params) #4
@@ -1109,7 +1109,7 @@ declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_rsa_pss_params_30_trailerfield(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_param_decode(ptr noundef %rsa, ptr noundef %alg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_param_decode(ptr noundef %rsa, ptr noundef %alg) local_unnamed_addr #0 {
 entry:
   %md.i = alloca ptr, align 8
   %mgf1md.i = alloca ptr, align 8
@@ -1195,7 +1195,7 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
 if.then.i:                                        ; preds = %land.lhs.true2.i
   store ptr null, ptr %md.i, align 8
   store ptr null, ptr %mgf1md.i, align 8
-  %call5.i5 = call i32 @ossl_rsa_pss_get_param_unverified(ptr noundef nonnull %call.i4, ptr noundef nonnull %md.i, ptr noundef nonnull %mgf1md.i, ptr noundef nonnull %saltlen.i, ptr noundef nonnull %trailerField.i), !range !7
+  %call5.i5 = call i32 @ossl_rsa_pss_get_param_unverified(ptr noundef nonnull %call.i4, ptr noundef nonnull %md.i, ptr noundef nonnull %mgf1md.i, ptr noundef nonnull %saltlen.i, ptr noundef nonnull %trailerField.i)
   %tobool.not.i = icmp eq i32 %call5.i5, 0
   br i1 %tobool.not.i, label %8, label %if.end.i6
 
@@ -1292,7 +1292,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %1 = load ptr, ptr %alg, align 8
-  %call5 = call i32 @ossl_rsa_param_decode(ptr noundef nonnull %call1, ptr noundef %1), !range !7
+  %call5 = call i32 @ossl_rsa_param_decode(ptr noundef nonnull %call1, ptr noundef %1)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.then7, label %if.end8
 
@@ -1378,4 +1378,3 @@ attributes #4 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}

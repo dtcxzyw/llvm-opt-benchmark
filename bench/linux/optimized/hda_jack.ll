@@ -611,7 +611,7 @@ define internal fastcc void @jack_detect_update(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hda_jack_detect_state_mst(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 0, 3) i32 @snd_hda_jack_detect_state_mst(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1496
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne i16 %1, 0
@@ -919,7 +919,7 @@ define dso_local i32 @snd_hda_jack_detect_enable(ptr noundef %0, i16 noundef zer
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hda_jack_set_gating_jack(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_set_gating_jack(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1496
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne i16 %1, 0
@@ -1136,7 +1136,7 @@ snd_hda_jack_tbl_new.exit7:                       ; preds = %.thread8.i2, %.thre
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hda_jack_bind_keymap(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr noundef readonly %2, i16 noundef zeroext %3) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr noundef readonly %2, i16 noundef zeroext %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 1496
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne i16 %1, 0
@@ -1441,7 +1441,7 @@ define dso_local void @snd_hda_jack_report_sync(ptr noundef %0) #0 align 16 {
 declare dso_local void @snd_jack_report(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hda_jack_add_kctl_mst(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef readonly %6) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctl_mst(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef readonly %6) #0 align 16 {
   %8 = tail call fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %105, label %10
@@ -1630,7 +1630,7 @@ define internal void @hda_free_jack_priv(ptr nocapture noundef readonly %0) #5 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hda_jack_add_kctls(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 52
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0

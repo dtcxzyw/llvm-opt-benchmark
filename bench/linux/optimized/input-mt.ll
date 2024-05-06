@@ -28,7 +28,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_input_mt_get
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_input_mt_assign_slots318, ptr @__UNIQUE_ID___addressable_input_mt_destroy_slots312, ptr @__UNIQUE_ID___addressable_input_mt_drop_unused316, ptr @__UNIQUE_ID___addressable_input_mt_get_slot_by_key319, ptr @__UNIQUE_ID___addressable_input_mt_init_slots311, ptr @__UNIQUE_ID___addressable_input_mt_report_finger_count314, ptr @__UNIQUE_ID___addressable_input_mt_report_pointer_emulation315, ptr @__UNIQUE_ID___addressable_input_mt_report_slot_state313, ptr @__UNIQUE_ID___addressable_input_mt_sync_frame317], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @input_mt_init_slots(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @input_mt_init_slots(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 320
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i32 %1, 0
@@ -679,7 +679,7 @@ define dso_local void @input_mt_sync_frame(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @input_mt_assign_slots(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @input_mt_assign_slots(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) #2 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 320
   %7 = load ptr, ptr %6, align 8
   %8 = shl i32 %4, 1

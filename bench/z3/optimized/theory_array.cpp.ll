@@ -2455,8 +2455,8 @@ entry:
   %0 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %1 = getelementptr i8, ptr %n, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 32
+  %1 = getelementptr inbounds i8, ptr %n, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 32
   %cmp.not25 = icmp eq i32 %0, 0
   br i1 %cmp.not25, label %for.end16, label %for.body.lr.ph
 
@@ -2477,8 +2477,8 @@ for.end:                                          ; preds = %for.body
   %.pre = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i19 = zext i32 %.pre to i64
   %add.ptr.i20.idx = shl nuw nsw i64 %idx.ext.i19, 3
-  %4 = getelementptr i8, ptr %n, i64 %add.ptr.i20.idx
-  %add.ptr.i20.ptr = getelementptr i8, ptr %4, i64 32
+  %4 = getelementptr inbounds i8, ptr %n, i64 %add.ptr.i20.idx
+  %add.ptr.i20.ptr = getelementptr inbounds i8, ptr %4, i64 32
   %cmp9.not27 = icmp eq i32 %.pre, 0
   br i1 %cmp9.not27, label %for.end16, label %for.body10.lr.ph
 
@@ -3470,7 +3470,7 @@ if.end44:                                         ; preds = %land.lhs.true40, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3smt12theory_array31mk_interface_eqs_at_final_checkEv(ptr noundef nonnull align 8 dereferenceable(444) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN3smt12theory_array31mk_interface_eqs_at_final_checkEv(ptr noundef nonnull align 8 dereferenceable(444) %this) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN3smt17theory_array_base16mk_interface_eqsEv(ptr noundef nonnull align 8 dereferenceable(249) %this)
   %m_num_eq_splits = getelementptr inbounds i8, ptr %this, i64 288
@@ -3483,7 +3483,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3smt12theory_array21assert_delayed_axiomsEv(ptr noundef nonnull align 8 dereferenceable(444) %this) unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN3smt12theory_array21assert_delayed_axiomsEv(ptr noundef nonnull align 8 dereferenceable(444) %this) unnamed_addr #3 align 2 {
 entry:
   %m_params = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load ptr, ptr %m_params, align 8

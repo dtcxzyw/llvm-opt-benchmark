@@ -101,7 +101,7 @@ for.cond.i.i:                                     ; preds = %if.end.i, %for.body
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %name.i.i = getelementptr inbounds i8, ptr %r.0.i.i, i64 16
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull dereferenceable(1) %6) #10
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull readonly dereferenceable(1) %6) #10
   %tobool1.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool1.not.i.i, label %if.then7.i, label %for.cond.i.i, !llvm.loop !7
 
@@ -156,7 +156,7 @@ for.cond.i.i:                                     ; preds = %if.end.i, %for.body
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %name.i.i = getelementptr inbounds i8, ptr %r.0.i.i, i64 16
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull dereferenceable(1) %1) #10
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull readonly dereferenceable(1) %1) #10
   %tobool1.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool1.not.i.i, label %if.then7.i, label %for.cond.i.i, !llvm.loop !7
 
@@ -196,7 +196,7 @@ for.cond.i:                                       ; preds = %promisor_remote_ini
 
 for.body.i:                                       ; preds = %for.cond.i
   %name.i = getelementptr inbounds i8, ptr %r.0.i, i64 16
-  %call.i5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %remote_name) #10
+  %call.i5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull readonly dereferenceable(1) %remote_name) #10
   %tobool1.not.i = icmp eq i32 %call.i5, 0
   br i1 %tobool1.not.i, label %return, label %for.cond.i, !llvm.loop !7
 
@@ -206,7 +206,7 @@ return:                                           ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @repo_has_promisor_remote(ptr noundef %r) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @repo_has_promisor_remote(ptr noundef %r) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @repo_promisor_remote_find(ptr noundef %r, ptr noundef null)
   %tobool = icmp ne ptr %call, null
@@ -247,7 +247,7 @@ for.cond.i.i:                                     ; preds = %if.end.i, %for.body
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %name.i.i = getelementptr inbounds i8, ptr %r.0.i.i, i64 16
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull dereferenceable(1) %1) #10
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull readonly dereferenceable(1) %1) #10
   %tobool1.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool1.not.i.i, label %if.then7.i, label %for.cond.i.i, !llvm.loop !7
 
@@ -433,7 +433,7 @@ if.then17.i:                                      ; preds = %for.body13.i
   %idxprom19.i = sext i32 %j.024.i to i64
   %arrayidx20.i = getelementptr inbounds %struct.object_id, ptr %call9.i33, i64 %idxprom19.i
   %arrayidx22.i = getelementptr inbounds %struct.object_id, ptr %remaining_oids.066, i64 %indvars.iv26.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %arrayidx20.i, ptr noundef nonnull align 4 dereferenceable(32) %arrayidx22.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %arrayidx20.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %arrayidx22.i, i64 32, i1 false)
   %algo.i.i = getelementptr inbounds i8, ptr %arrayidx22.i, i64 32
   %9 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %arrayidx20.i, i64 32
@@ -569,7 +569,7 @@ for.cond.i:                                       ; preds = %for.body.i, %if.end
 
 for.body.i:                                       ; preds = %for.cond.i
   %name.i = getelementptr inbounds i8, ptr %r.0.i, i64 16
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %call7) #10
+  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull readonly dereferenceable(1) %call7) #10
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.end12, label %for.cond.i, !llvm.loop !7
 
@@ -600,7 +600,7 @@ for.cond.i13:                                     ; preds = %for.body.i18, %if.t
 
 for.body.i18:                                     ; preds = %for.cond.i13
   %name.i19 = getelementptr inbounds i8, ptr %r.0.i16, i64 16
-  %call.i20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i19, ptr noundef nonnull dereferenceable(1) %call18) #10
+  %call.i20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i19, ptr noundef nonnull readonly dereferenceable(1) %call18) #10
   %tobool1.not.i21 = icmp eq i32 %call.i20, 0
   br i1 %tobool1.not.i21, label %if.end23.thread, label %for.cond.i13, !llvm.loop !7
 

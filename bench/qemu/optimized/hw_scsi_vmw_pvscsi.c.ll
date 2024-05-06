@@ -438,8 +438,8 @@ if.end15:                                         ; preds = %if.then13, %land.lh
   store i64 0, ptr %reg_interrupt_status.i, align 8
   %rings.i = getelementptr inbounds i8, ptr %call.i, i64 3632
   %req_ring_pages_pa.i.i = getelementptr inbounds i8, ptr %call.i, i64 3656
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %rings.i, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(664) %req_ring_pages_pa.i.i, i8 0, i64 664, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %rings.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(664) %req_ring_pages_pa.i.i, i8 0, i64 664, i1 false)
   %rings_info_valid.i = getelementptr inbounds i8, ptr %call.i, i64 3628
   store i8 0, ptr %rings_info_valid.i, align 4
   %msg_ring_info_valid.i = getelementptr inbounds i8, ptr %call.i, i64 3629
@@ -598,8 +598,8 @@ pvscsi_reset_adapter.exit:                        ; preds = %trace_pvscsi_state.
   store i64 0, ptr %reg_interrupt_status.i.i, align 8
   %rings.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3632
   %req_ring_pages_pa.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3656
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %rings.i.i, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(664) %req_ring_pages_pa.i.i.i, i8 0, i64 664, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %rings.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(664) %req_ring_pages_pa.i.i.i, i8 0, i64 664, i1 false)
   %rings_info_valid.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3628
   store i8 0, ptr %rings_info_valid.i.i, align 4
   %msg_ring_info_valid.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3629
@@ -1605,7 +1605,7 @@ trace_pvscsi_process_io.exit:                     ; preds = %while.body, %land.l
   %dev.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %s, ptr %dev.i.i, align 8
   %req.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %req.i.i, ptr noundef nonnull align 8 dereferenceable(128) %descr, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %req.i.i, ptr noundef nonnull readonly align 8 dereferenceable(128) %descr, i64 128, i1 false)
   %15 = load i64, ptr %req.i.i, align 8
   %cmp.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 216
   store i64 %15, ptr %cmp.i.i, align 8
@@ -1993,7 +1993,7 @@ while.end.i.i.i:                                  ; preds = %trace_pvscsi_conver
   %elmcnt.2.i.i.i = phi i32 [ %elmcnt.036.i.i.i, %while.cond2.preheader.i.i.i ], [ 2049, %land.rhs4.i.i.i ], [ %inc.i9.i.i, %trace_pvscsi_convert_sglist.exit.i.i.i ]
   %conv.i.i.i = zext i32 %sg.sroa.8.1.lcssa.i.i.i to i64
   %cond.i.i.i = call i64 @llvm.umin.i64(i64 %data_length.035.i.i.i, i64 %conv.i.i.i)
-  %conv15.i.i.i = trunc i64 %cond.i.i.i to i32
+  %conv15.i.i.i = trunc nuw i64 %cond.i.i.i to i32
   %tobool16.not.i.i.i = icmp eq i32 %conv15.i.i.i, 0
   br i1 %tobool16.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i73.i
 
@@ -2156,8 +2156,8 @@ pvscsi_reset_adapter.exit:                        ; preds = %trace_pvscsi_on_cmd
   store i64 0, ptr %reg_interrupt_status.i.i, align 8
   %rings.i.i = getelementptr inbounds i8, ptr %s, i64 3632
   %req_ring_pages_pa.i.i.i = getelementptr inbounds i8, ptr %s, i64 3656
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %rings.i.i, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(664) %req_ring_pages_pa.i.i.i, i8 0, i64 664, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %rings.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(664) %req_ring_pages_pa.i.i.i, i8 0, i64 664, i1 false)
   %rings_info_valid.i.i = getelementptr inbounds i8, ptr %s, i64 3628
   store i8 0, ptr %rings_info_valid.i.i, align 4
   %msg_ring_info_valid.i.i = getelementptr inbounds i8, ptr %s, i64 3629
@@ -2214,7 +2214,7 @@ trace_pvscsi_on_cmd_noimpl.exit:                  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @pvscsi_on_cmd_setup_rings(ptr noundef %s) #0 {
+define internal range(i64 -1, 1) i64 @pvscsi_on_cmd_setup_rings(ptr noundef %s) #0 {
 entry:
   %_now.i.i.i10 = alloca %struct.timeval, align 8
   %val.addr.i.i115.i = alloca i32, align 4
@@ -2723,7 +2723,7 @@ trace_pvscsi_on_cmd_arrived.exit:                 ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @pvscsi_on_cmd_reset_device(ptr noundef %s) #0 {
+define internal range(i64 -1, 1) i64 @pvscsi_on_cmd_reset_device(ptr noundef %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %curr_cmd_data = getelementptr inbounds i8, ptr %s, i64 3100
@@ -2964,7 +2964,7 @@ trace_pvscsi_on_cmd_noimpl.exit:                  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @pvscsi_on_cmd_setup_msg_ring(ptr noundef %s) #0 {
+define internal range(i64 -1, 35) i64 @pvscsi_on_cmd_setup_msg_ring(ptr noundef %s) #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %val.addr.i.i51.i = alloca i32, align 4

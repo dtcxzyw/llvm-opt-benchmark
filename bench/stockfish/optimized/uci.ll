@@ -430,7 +430,7 @@ define dso_local void @_ZN9Stockfish3UCIC2EiPPc(ptr noundef nonnull align 8 dere
   %142 = call noundef nonnull align 8 dereferenceable(144) ptr @_ZN9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   %143 = getelementptr inbounds i8, ptr %18, i64 16
   %144 = getelementptr inbounds i8, ptr %18, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %144, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %143, align 8
   call void @_ZN9Stockfish6OptionC1EPKcSt8functionIFvRKS0_EE(ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef nonnull @.str.3, ptr noundef nonnull %18) #21
@@ -917,7 +917,7 @@ _ZNSt8functionIFvRKN9Stockfish6OptionEEED2Ev.exit51: ; preds = %_ZN9Stockfish6Op
   %319 = call noundef nonnull align 8 dereferenceable(144) ptr @_ZN9Stockfish10OptionsMapixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %67) #21
   %320 = getelementptr inbounds i8, ptr %70, i64 16
   %321 = getelementptr inbounds i8, ptr %70, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_4E9_M_invokeERKSt9_Any_dataS3_", ptr %321, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN9Stockfish6OptionEEZNS0_3UCIC1EiPPcE3$_4E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %320, align 8
   call void @_ZN9Stockfish6OptionC1EPKcSt8functionIFvRKS0_EE(ptr noundef nonnull align 8 dereferenceable(144) %69, ptr noundef nonnull @.str.20, ptr noundef nonnull %70) #21
@@ -2791,7 +2791,7 @@ declare void @_ZN9Stockfish10OptionsMap9setoptionERNSt7__cxx1119basic_istringstr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9Stockfish3UCI5to_cpEi(i32 noundef %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i32 -6032257, 6032258) i32 @_ZN9Stockfish3UCI5to_cpEi(i32 noundef %0) local_unnamed_addr #6 align 2 {
   %2 = mul nsw i32 %0, 100
   %3 = sdiv i32 %2, 356
   ret i32 %3

@@ -420,7 +420,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @POOL_resize(ptr noundef %ctx, i64 noundef %numThreads) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @POOL_resize(ptr noundef %ctx, i64 noundef %numThreads) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -609,7 +609,7 @@ POOL_add_internal.exit:                           ; preds = %land.rhs, %while.en
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @POOL_tryAdd(ptr noundef %ctx, ptr noundef %function, ptr noundef %opaque) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @POOL_tryAdd(ptr noundef %ctx, ptr noundef %function, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %queueMutex = getelementptr inbounds i8, ptr %ctx, i64 96
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %queueMutex) #9

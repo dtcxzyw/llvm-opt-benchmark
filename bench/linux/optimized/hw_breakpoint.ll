@@ -61,7 +61,7 @@ define dso_local i64 @encode_dr7(i32 noundef %0, i32 noundef %1, i32 noundef %2)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local i32 @decode_dr7(i64 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 4) i32 @decode_dr7(i64 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 align 16 {
   %5 = shl i32 %1, 2
   %6 = add i32 %5, 16
   %7 = zext nneg i32 %6 to i64
@@ -82,7 +82,7 @@ define dso_local i32 @decode_dr7(i64 noundef %0, i32 noundef %1, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @arch_install_hw_breakpoint(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @arch_install_hw_breakpoint(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 360
   br label %3
 
@@ -296,7 +296,7 @@ define dso_local void @arch_uninstall_hw_breakpoint(ptr noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @arch_bp_generic_fields(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @arch_bp_generic_fields(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 align 16 {
   switch i32 %1, label %17 [
     i32 128, label %5
     i32 129, label %9
@@ -346,7 +346,7 @@ define dso_local noundef i32 @arch_bp_generic_fields(i32 noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @arch_check_bp_in_kernelspace(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 2) i32 @arch_check_bp_in_kernelspace(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8
@@ -395,7 +395,7 @@ define dso_local i32 @arch_check_bp_in_kernelspace(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @hw_breakpoint_arch_parse(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -95, 1) i32 @hw_breakpoint_arch_parse(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 64
@@ -623,7 +623,7 @@ define dso_local void @hw_breakpoint_restore() #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @hw_breakpoint_exceptions_notify(ptr nocapture noundef readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 32770) i32 @hw_breakpoint_exceptions_notify(ptr nocapture noundef readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 16 {
   %4 = icmp eq i64 %1, 3
   br i1 %4, label %5, label %74
 

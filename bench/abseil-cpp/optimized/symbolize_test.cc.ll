@@ -9094,7 +9094,7 @@ lpad.i.i:                                         ; preds = %_ZNSt12_Vector_base
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = call ptr @__cxa_begin_catch(ptr %9) #27
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i29
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
@@ -9156,11 +9156,11 @@ lpad17:                                           ; preds = %invoke.cont19
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i29:                                      ; preds = %lpad.i.i
+if.then.i32:                                      ; preds = %lpad.i.i
   call void @_ZdlPv(ptr noundef nonnull %cond.i17) #30
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i29, %if.end.thread
+invoke.cont19:                                    ; preds = %if.then.i32, %if.end.thread
   invoke void @__cxa_rethrow() #35
           to label %unreachable unwind label %lpad17
 

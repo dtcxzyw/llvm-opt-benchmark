@@ -2153,7 +2153,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = load i32, ptr @_ZL13introspection, align 8, !tbaa !120
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

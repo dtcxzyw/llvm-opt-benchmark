@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv32i_vror_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vror_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2024
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %5, i64 noundef 1536)
@@ -498,7 +498,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %219 = add i64 %207, -8
   %220 = tail call i64 @llvm.fshl.i64(i64 %219, i64 %219, i64 61)
   %221 = trunc i64 %92 to i32
-  %222 = trunc i64 %90 to i32
+  %222 = trunc nuw nsw i64 %90 to i32
   br label %223
 
 223:                                              ; preds = %.lr.ph, %266
@@ -1034,7 +1034,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %219 = add i64 %207, -8
   %220 = tail call i64 @llvm.fshl.i64(i64 %219, i64 %219, i64 61)
   %221 = trunc i64 %92 to i32
-  %222 = trunc i64 %90 to i32
+  %222 = trunc nuw nsw i64 %90 to i32
   br label %223
 
 223:                                              ; preds = %.lr.ph, %266
@@ -1117,7 +1117,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv32i_vror_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vror_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2024
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %5, i64 noundef 1536)
@@ -1539,7 +1539,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %219 = add i64 %207, -8
   %220 = tail call i64 @llvm.fshl.i64(i64 %219, i64 %219, i64 61)
   %221 = trunc i64 %92 to i32
-  %222 = trunc i64 %90 to i32
+  %222 = trunc nuw nsw i64 %90 to i32
   br label %223
 
 223:                                              ; preds = %.lr.ph, %266
@@ -2046,7 +2046,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %219 = add i64 %207, -8
   %220 = tail call i64 @llvm.fshl.i64(i64 %219, i64 %219, i64 61)
   %221 = trunc i64 %92 to i32
-  %222 = trunc i64 %90 to i32
+  %222 = trunc nuw nsw i64 %90 to i32
   br label %223
 
 223:                                              ; preds = %.lr.ph, %266
@@ -2129,7 +2129,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv32e_vror_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vror_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2024
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %5, i64 noundef 1536)
@@ -2551,7 +2551,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %219 = add i64 %207, -8
   %220 = tail call i64 @llvm.fshl.i64(i64 %219, i64 %219, i64 61)
   %221 = trunc i64 %92 to i32
-  %222 = trunc i64 %90 to i32
+  %222 = trunc nuw nsw i64 %90 to i32
   br label %223
 
 223:                                              ; preds = %.lr.ph, %266
@@ -3058,7 +3058,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %219 = add i64 %207, -8
   %220 = tail call i64 @llvm.fshl.i64(i64 %219, i64 %219, i64 61)
   %221 = trunc i64 %92 to i32
-  %222 = trunc i64 %90 to i32
+  %222 = trunc nuw nsw i64 %90 to i32
   br label %223
 
 223:                                              ; preds = %.lr.ph, %266
@@ -3141,7 +3141,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv32e_vror_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vror_viP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2024
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %5, i64 noundef 1536)
@@ -3563,7 +3563,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %219 = add i64 %207, -8
   %220 = tail call i64 @llvm.fshl.i64(i64 %219, i64 %219, i64 61)
   %221 = trunc i64 %92 to i32
-  %222 = trunc i64 %90 to i32
+  %222 = trunc nuw nsw i64 %90 to i32
   br label %223
 
 223:                                              ; preds = %.lr.ph, %266
@@ -4070,7 +4070,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %219 = add i64 %207, -8
   %220 = tail call i64 @llvm.fshl.i64(i64 %219, i64 %219, i64 61)
   %221 = trunc i64 %92 to i32
-  %222 = trunc i64 %90 to i32
+  %222 = trunc nuw nsw i64 %90 to i32
   br label %223
 
 223:                                              ; preds = %.lr.ph, %266

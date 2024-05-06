@@ -171,7 +171,7 @@ define internal i32 @linkstate_prepare_data(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @linkstate_reply_size(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal range(i32 8, 49) i32 @linkstate_reply_size(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, -95
@@ -200,7 +200,7 @@ define internal i32 @linkstate_reply_size(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @linkstate_fill_reply(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -90, 1) i32 @linkstate_fill_reply(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1

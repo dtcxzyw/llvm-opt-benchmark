@@ -3870,8 +3870,8 @@ define linkonce_odr dso_local noundef ptr @_ZN12ClockVisitor16createSampledVarEP
   %15 = getelementptr inbounds i8, ptr %1, i64 104
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
-  %.not80 = icmp eq i64 %16, 0
-  %.not = select i1 %14, i1 true, i1 %.not80
+  %.not82 = icmp eq i64 %16, 0
+  %.not = select i1 %14, i1 true, i1 %.not82
   br i1 %.not, label %29, label %18
 
 18:                                               ; preds = %2
@@ -4201,18 +4201,18 @@ _ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i68:    ; preds = %146, %143, %.noexc7
   %157 = getelementptr inbounds i8, ptr %132, i64 160
   store ptr %1, ptr %157, align 8
   invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %103, i16 391, ptr noundef %66)
-          to label %.noexc73 unwind label %206
-
-.noexc73:                                         ; preds = %156
-  store ptr getelementptr inbounds inrange(-16, 320) ({ [42 x ptr] }, ptr @_ZTV13AstNodeAssign, i64 0, i32 0, i64 2), ptr %103, align 8
-  invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %103, ptr noundef nonnull %132)
           to label %.noexc74 unwind label %206
 
-.noexc74:                                         ; preds = %.noexc73
-  invoke void @_ZN7AstNode7setOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %103, ptr noundef nonnull %105)
+.noexc74:                                         ; preds = %156
+  store ptr getelementptr inbounds inrange(-16, 320) ({ [42 x ptr] }, ptr @_ZTV13AstNodeAssign, i64 0, i32 0, i64 2), ptr %103, align 8
+  invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %103, ptr noundef nonnull %132)
           to label %.noexc75 unwind label %206
 
 .noexc75:                                         ; preds = %.noexc74
+  invoke void @_ZN7AstNode7setOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %103, ptr noundef nonnull %105)
+          to label %.noexc76 unwind label %206
+
+.noexc76:                                         ; preds = %.noexc75
   %158 = getelementptr inbounds i8, ptr %105, i64 72
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds i8, ptr %103, i64 72
@@ -4220,14 +4220,14 @@ _ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i68:    ; preds = %146, %143, %.noexc7
   %.not.i.i8.i.i = icmp eq ptr %161, %159
   br i1 %.not.i.i8.i.i, label %165, label %162
 
-162:                                              ; preds = %.noexc75
+162:                                              ; preds = %.noexc76
   store ptr %159, ptr %160, align 8
   %163 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
   %164 = add i64 %163, 1
   store i64 %164, ptr @_ZN7AstNode12s_editCntGblE, align 8
   br label %165
 
-165:                                              ; preds = %162, %.noexc75
+165:                                              ; preds = %162, %.noexc76
   store ptr getelementptr inbounds inrange(-16, 320) ({ [42 x ptr] }, ptr @_ZTV9AstAssign, i64 0, i32 0, i64 2), ptr %103, align 8
   %166 = getelementptr inbounds i8, ptr %0, i64 40
   %167 = load ptr, ptr %166, align 8
@@ -4346,7 +4346,7 @@ _ZlsRSoPK7AstNode.exit:                           ; preds = %178
   call void @_ZdlPv(ptr noundef nonnull %79) #19
   br label %216
 
-206:                                              ; preds = %.noexc74, %.noexc73, %156, %130, %104
+206:                                              ; preds = %.noexc75, %.noexc74, %156, %130, %104
   %207 = landingpad { ptr, i32 }
           cleanup
   br label %212

@@ -673,7 +673,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @tcpcl_frame_loc_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @tcpcl_frame_loc_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -751,7 +751,7 @@ define internal i32 @dissect_tcpcl(ptr noundef %0, ptr noundef %1, ptr noundef %
   %10 = tail call noalias ptr @wmem_alloc0(ptr noundef %9, i64 noundef 48) #10
   %11 = tail call ptr @wmem_file_scope() #10
   %12 = tail call noalias ptr @wmem_alloc0(ptr noundef %11, i64 noundef 112) #10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = tail call ptr @wmem_file_scope() #10
   %14 = tail call noalias ptr @wmem_map_new(ptr noundef %13, ptr noundef nonnull @tcpcl_frame_loc_hash, ptr noundef nonnull @tcpcl_frame_loc_equal) #10
   %15 = getelementptr inbounds i8, ptr %12, i64 96
@@ -763,7 +763,7 @@ define internal i32 @dissect_tcpcl(ptr noundef %0, ptr noundef %1, ptr noundef %
   store ptr %12, ptr %10, align 8
   %19 = tail call ptr @wmem_file_scope() #10
   %20 = tail call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 112) #10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   %21 = tail call ptr @wmem_file_scope() #10
   %22 = tail call noalias ptr @wmem_map_new(ptr noundef %21, ptr noundef nonnull @tcpcl_frame_loc_hash, ptr noundef nonnull @tcpcl_frame_loc_equal) #10
   %23 = getelementptr inbounds i8, ptr %20, i64 96
@@ -784,7 +784,7 @@ define internal i32 @dissect_tcpcl(ptr noundef %0, ptr noundef %1, ptr noundef %
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %1, i64 216
   %36 = load ptr, ptr %35, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   store i32 %32, ptr %30, align 8
   %37 = icmp eq i32 %34, 0
   br i1 %37, label %copy_address_wmem.exit, label %38
@@ -814,7 +814,7 @@ copy_address_wmem.exit:                           ; preds = %8, %38
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds i8, ptr %1, i64 240
   %55 = load ptr, ptr %54, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   store i32 %51, ptr %49, align 8
   %56 = icmp eq i32 %53, 0
   br i1 %56, label %copy_address_wmem.exit17, label %57
@@ -889,7 +889,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_tcpcl_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_tcpcl_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
   %6 = icmp ult i32 %5, 6
   br i1 %6, label %13, label %7
@@ -914,7 +914,7 @@ define internal noundef i32 @dissect_tcpcl_heur(ptr noundef %0, ptr noundef %1, 
 declare ptr @create_dissector_handle_with_name(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_xferext_transferlen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 9) i32 @dissect_xferext_transferlen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call ptr @tcpcl_dissect_ctx_get(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %35, label %6
@@ -1057,7 +1057,7 @@ get_clamped_length.exit:                          ; preds = %26
   %30 = call i32 @tvb_get_varint(ptr noundef %1, i32 noundef %29, i32 noundef 10, ptr noundef nonnull %5, i32 noundef 16) #10
   %31 = load i64, ptr %5, align 8
   %spec.select72 = call i64 @llvm.umin.i64(i64 %31, i64 2147483647)
-  %spec.select = trunc i64 %spec.select72 to i32
+  %spec.select = trunc nuw nsw i64 %spec.select72 to i32
   %32 = add i32 %30, %29
   %33 = add i32 %32, %spec.select
   br label %51
@@ -1279,7 +1279,7 @@ thread-pre-split:                                 ; preds = %74, %67, %71
   br label %get_clamped_length.exit
 
 101:                                              ; preds = %94
-  %102 = trunc i64 %96 to i32
+  %102 = trunc nuw nsw i64 %96 to i32
   br label %get_clamped_length.exit
 
 get_clamped_length.exit:                          ; preds = %98, %99, %101
@@ -1340,7 +1340,7 @@ tcpcl_frame_loc_equal.exit.thread:                ; preds = %120, %tcpcl_frame_l
   %133 = getelementptr inbounds i8, ptr %10, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = call noalias noundef ptr @wmem_alloc(ptr noundef %132, i64 noundef 12) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %135, ptr noundef nonnull align 4 dereferenceable(12) %134, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %135, ptr noundef nonnull readonly align 4 dereferenceable(12) %134, i64 12, i1 false)
   store ptr %135, ptr %116, align 8
   br label %136
 
@@ -1479,7 +1479,7 @@ proto_item_set_generated.exit:                    ; preds = %151, %148, %144, %1
   br label %get_clamped_length.exit.i
 
 209:                                              ; preds = %202
-  %210 = trunc i64 %204 to i32
+  %210 = trunc nuw nsw i64 %204 to i32
   br label %get_clamped_length.exit.i
 
 get_clamped_length.exit.i:                        ; preds = %209, %207, %206
@@ -1525,7 +1525,7 @@ get_clamped_length.exit.tcpcl_peer_associate_transfer.exit_crit_edge.i: ; preds 
 232:                                              ; preds = %228
   %233 = call ptr @wmem_file_scope() #10
   %234 = call noalias noundef ptr @wmem_alloc(ptr noundef %233, i64 noundef 12) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %234, ptr noundef nonnull align 4 dereferenceable(12) %214, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %234, ptr noundef nonnull readonly align 4 dereferenceable(12) %214, i64 12, i1 false)
   %235 = call ptr @wmem_file_scope() #10
   %236 = call noalias ptr @wmem_alloc(ptr noundef %235, i64 noundef 8) #10
   store i64 %229, ptr %236, align 8
@@ -1634,7 +1634,7 @@ proto_item_set_generated.exit.i:                  ; preds = %245, %242, %tcpcl_p
 293:                                              ; preds = %284
   %294 = call ptr @wmem_file_scope() #10
   %295 = call noalias noundef ptr @wmem_alloc(ptr noundef %294, i64 noundef 12) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %295, ptr noundef nonnull align 4 dereferenceable(12) %282, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %295, ptr noundef nonnull readonly align 4 dereferenceable(12) %282, i64 12, i1 false)
   %296 = call ptr @wmem_file_scope() #10
   %297 = call noalias ptr @wmem_alloc(ptr noundef %296, i64 noundef 8) #10
   store i64 %290, ptr %297, align 8
@@ -1743,7 +1743,7 @@ proto_item_set_generated.exit173.i:               ; preds = %306, %303, %tcpcl_p
 357:                                              ; preds = %348
   %358 = tail call ptr @wmem_file_scope() #10
   %359 = tail call noalias noundef ptr @wmem_alloc(ptr noundef %358, i64 noundef 12) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %359, ptr noundef nonnull align 4 dereferenceable(12) %346, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %359, ptr noundef nonnull readonly align 4 dereferenceable(12) %346, i64 12, i1 false)
   %360 = tail call ptr @wmem_file_scope() #10
   %361 = tail call noalias ptr @wmem_alloc(ptr noundef %360, i64 noundef 8) #10
   store i64 %354, ptr %361, align 8
@@ -1969,7 +1969,7 @@ tcpcl_frame_loc_equal.exit.thread.i:              ; preds = %tcpcl_frame_loc_equ
   %485 = getelementptr inbounds i8, ptr %10, i64 8
   %486 = load ptr, ptr %485, align 8
   %487 = tail call noalias noundef ptr @wmem_alloc(ptr noundef %484, i64 noundef 12) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %487, ptr noundef nonnull align 4 dereferenceable(12) %486, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %487, ptr noundef nonnull readonly align 4 dereferenceable(12) %486, i64 12, i1 false)
   store ptr %487, ptr %468, align 8
   %488 = getelementptr inbounds i8, ptr %39, i64 56
   store i16 %394, ptr %488, align 8
@@ -2023,7 +2023,7 @@ tcpcl_frame_loc_equal.exit509.thread.i:           ; preds = %tcpcl_frame_loc_equ
   %517 = getelementptr inbounds i8, ptr %10, i64 8
   %518 = load ptr, ptr %517, align 8
   %519 = tail call noalias noundef ptr @wmem_alloc(ptr noundef %516, i64 noundef 12) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %519, ptr noundef nonnull align 4 dereferenceable(12) %518, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %519, ptr noundef nonnull readonly align 4 dereferenceable(12) %518, i64 12, i1 false)
   store ptr %519, ptr %500, align 8
   %520 = getelementptr inbounds i8, ptr %39, i64 88
   store i8 %496, ptr %520, align 8
@@ -2220,7 +2220,7 @@ tcpcl_frame_loc_new.exit.i:                       ; preds = %tcpcl_frame_loc_ini
 630:                                              ; preds = %tcpcl_frame_loc_new.exit.i
   %631 = tail call ptr @wmem_file_scope() #10
   %632 = tail call noalias noundef ptr @wmem_alloc(ptr noundef %631, i64 noundef 12) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %632, ptr noundef nonnull align 4 dereferenceable(12) %611, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %632, ptr noundef nonnull readonly align 4 dereferenceable(12) %611, i64 12, i1 false)
   %633 = tail call ptr @wmem_file_scope() #10
   %634 = tail call noalias ptr @wmem_alloc(ptr noundef %633, i64 noundef 8) #10
   store i64 %561, ptr %634, align 8
@@ -2302,7 +2302,7 @@ tcpcl_peer_associate_transfer.exit.i179:          ; preds = %630, %tcpcl_frame_l
   br label %get_clamped_length.exit.i178
 
 670:                                              ; preds = %663
-  %671 = trunc i64 %652 to i32
+  %671 = trunc nuw nsw i64 %652 to i32
   br label %get_clamped_length.exit.i178
 
 get_clamped_length.exit.i178:                     ; preds = %670, %668, %665
@@ -2677,7 +2677,7 @@ define internal fastcc i32 @get_v3_msg_len(ptr noundef %0, i32 noundef %1) unnam
 get_clamped_length.exit:                          ; preds = %9
   %12 = load i64, ptr %3, align 8
   %spec.select12 = call i64 @llvm.umin.i64(i64 %12, i64 2147483647)
-  %spec.select1 = trunc i64 %spec.select12 to i32
+  %spec.select1 = trunc nuw nsw i64 %spec.select12 to i32
   %13 = add i32 %10, %5
   %14 = add i32 %13, %spec.select1
   br label %30
@@ -2790,7 +2790,7 @@ define internal fastcc i32 @get_v4_msg_len(ptr noundef %0, i32 noundef %1) unnam
 get_clamped_length.exit:                          ; preds = %35
   %38 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %.050, i32 noundef 0) #10
   %spec.select1 = tail call i64 @llvm.umin.i64(i64 %38, i64 2147483647)
-  %spec.select = trunc i64 %spec.select1 to i32
+  %spec.select = trunc nuw nsw i64 %spec.select1 to i32
   %39 = add i32 %36, %spec.select
   br label %46
 
@@ -2853,7 +2853,7 @@ define internal i32 @chdr_missing_tls(ptr noundef %0, ptr noundef %1, i32 nounde
   %24 = getelementptr inbounds i8, ptr %3, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias noundef ptr @wmem_alloc(ptr noundef %23, i64 noundef 12) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %26, ptr noundef nonnull align 4 dereferenceable(12) %25, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %26, ptr noundef nonnull readonly align 4 dereferenceable(12) %25, i64 12, i1 false)
   %27 = load ptr, ptr %3, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 32
   store ptr %26, ptr %28, align 8
@@ -2882,7 +2882,7 @@ define internal i32 @chdr_missing_v3(ptr nocapture readnone %0, ptr noundef %1, 
   %10 = getelementptr inbounds i8, ptr %8, i64 40
   store i8 3, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %11, i8 -1, i64 16, i1 false)
   br label %12
 
 12:                                               ; preds = %6, %4
@@ -2903,7 +2903,7 @@ define internal i32 @chdr_missing_v4(ptr nocapture readnone %0, ptr noundef %1, 
   %10 = getelementptr inbounds i8, ptr %8, i64 40
   store i8 4, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %11, i8 -1, i64 16, i1 false)
   br label %12
 
 12:                                               ; preds = %6, %4
@@ -3005,7 +3005,7 @@ define internal fastcc void @try_negotiate(ptr nocapture noundef readonly %0, pt
   %34 = getelementptr inbounds i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noalias noundef ptr @wmem_alloc(ptr noundef %33, i64 noundef 12) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %36, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %36, ptr noundef nonnull readonly align 4 dereferenceable(12) %35, i64 12, i1 false)
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 32
   store ptr %36, ptr %38, align 8
@@ -3121,10 +3121,10 @@ define internal fastcc void @transfer_add_segment(ptr nocapture noundef readonly
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @wmem_file_scope() #10
   %20 = tail call noalias ptr @wmem_alloc(ptr noundef %19, i64 noundef 64) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %18, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull readonly align 4 dereferenceable(12) %18, i64 12, i1 false)
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = getelementptr inbounds i8, ptr %4, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull readonly align 8 dereferenceable(16) %22, i64 16, i1 false)
   %23 = getelementptr inbounds i8, ptr %20, i64 32
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %20, i64 40
@@ -3432,10 +3432,10 @@ define internal fastcc void @transfer_add_ack(ptr nocapture noundef readonly %0,
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @wmem_file_scope() #10
   %20 = tail call noalias ptr @wmem_alloc(ptr noundef %19, i64 noundef 64) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %18, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull readonly align 4 dereferenceable(12) %18, i64 12, i1 false)
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = getelementptr inbounds i8, ptr %4, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull readonly align 8 dereferenceable(16) %22, i64 16, i1 false)
   %23 = getelementptr inbounds i8, ptr %20, i64 32
   store i8 0, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %20, i64 40
@@ -3734,7 +3734,7 @@ declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #1
 declare ptr @wmem_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @tcpcl_seg_meta_compare_loc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @tcpcl_seg_meta_compare_loc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ult i32 %3, %4
@@ -3779,7 +3779,7 @@ declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @tcpcl_ack_meta_compare_loc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @tcpcl_ack_meta_compare_loc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ult i32 %3, %4
@@ -3847,7 +3847,7 @@ define internal i32 @fragment_key_hash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fragment_key_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @fragment_key_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds (%struct.reassembly_table_functions, ptr @addresses_ports_reassembly_table_functions, i64 0, i32 1), align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8

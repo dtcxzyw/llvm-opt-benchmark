@@ -71,7 +71,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_RECP_CTX_set(ptr noundef %recp, ptr noundef %d, ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_RECP_CTX_set(ptr noundef %recp, ptr noundef %d, ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_is_zero(ptr noundef %d) #4
   %tobool.not = icmp eq i32 %call, 0
@@ -106,7 +106,7 @@ declare void @BN_zero_ex(ptr noundef) local_unnamed_addr #2
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_mod_mul_reciprocal(ptr noundef %r, ptr noundef %x, ptr noundef %y, ptr noundef %recp, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_mod_mul_reciprocal(ptr noundef %r, ptr noundef %x, ptr noundef %y, ptr noundef %recp, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -133,7 +133,7 @@ if.else:                                          ; preds = %if.then2
 
 if.end14:                                         ; preds = %if.end, %if.then4, %if.else
   %ca.0 = phi ptr [ %call, %if.else ], [ %call, %if.then4 ], [ %x, %if.end ]
-  %call15 = tail call i32 @BN_div_recp(ptr noundef null, ptr noundef %r, ptr noundef %ca.0, ptr noundef %recp, ptr noundef %ctx), !range !4
+  %call15 = tail call i32 @BN_div_recp(ptr noundef null, ptr noundef %r, ptr noundef %ca.0, ptr noundef %recp, ptr noundef %ctx)
   br label %err
 
 err:                                              ; preds = %if.else, %if.then4, %entry, %if.end14
@@ -151,7 +151,7 @@ declare i32 @BN_sqr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_div_recp(ptr noundef %dv, ptr noundef %rem, ptr noundef %m, ptr noundef %recp, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_div_recp(ptr noundef %dv, ptr noundef %rem, ptr noundef %m, ptr noundef %recp, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %cmp.not = icmp eq ptr %dv, null
@@ -291,7 +291,7 @@ if.end61:                                         ; preds = %while.body
 if.end66:                                         ; preds = %if.end61
   %call67 = tail call i32 @BN_add_word(ptr noundef %cond, i64 noundef 1) #4
   %tobool68.not = icmp eq i32 %call67, 0
-  br i1 %tobool68.not, label %err, label %while.cond, !llvm.loop !5
+  br i1 %tobool68.not, label %err, label %while.cond, !llvm.loop !4
 
 while.end:                                        ; preds = %while.cond
   %call71 = tail call i32 @BN_is_zero(ptr noundef %cond6) #4
@@ -384,6 +384,5 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

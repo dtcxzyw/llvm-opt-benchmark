@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.helper_set_rounding_mode_chkfrm = private unnamed_addr constant [9 x i8] c"\00\03\01\02\04\00\00\00\05", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @riscv_cpu_get_fflags(ptr nocapture noundef readonly %env) local_unnamed_addr #0 {
+define dso_local range(i64 0, 32) i64 @riscv_cpu_get_fflags(ptr nocapture noundef readonly %env) local_unnamed_addr #0 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %fp_status.val = load i16, ptr %fp_status, align 2
@@ -84,7 +84,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %cmp2 = icmp eq i32 %rm, 7
-  %conv6 = trunc i64 %0 to i32
+  %conv6 = trunc nuw nsw i64 %0 to i32
   %spec.select = select i1 %cmp2, i32 %conv6, i32 %rm
   %3 = icmp ult i32 %spec.select, 9
   br i1 %3, label %switch.hole_check, label %do.body
@@ -94,7 +94,7 @@ do.body:                                          ; preds = %switch.hole_check, 
   unreachable
 
 switch.hole_check:                                ; preds = %if.end
-  %switch.maskindex = trunc i32 %spec.select to i16
+  %switch.maskindex = trunc nuw i32 %spec.select to i16
   %switch.shifted = lshr i16 287, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %do.body
@@ -112,7 +112,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fmadd_s(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fmadd_s(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
@@ -151,7 +151,7 @@ entry:
 declare i64 @float64_muladd(i64 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fmadd_h(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fmadd_h(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
@@ -180,7 +180,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fmsub_s(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fmsub_s(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
@@ -217,7 +217,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fmsub_h(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fmsub_h(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
@@ -246,7 +246,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fnmsub_s(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fnmsub_s(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
@@ -283,7 +283,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fnmsub_h(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fnmsub_h(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
@@ -312,7 +312,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fnmadd_s(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fnmadd_s(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
@@ -349,7 +349,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fnmadd_h(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fnmadd_h(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val.i = load i8, ptr %0, align 1
@@ -378,7 +378,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fadd_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fadd_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -405,7 +405,7 @@ entry:
 declare i32 @float32_add(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fsub_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fsub_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
@@ -432,7 +432,7 @@ entry:
 declare i32 @float32_sub(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fmul_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fmul_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
@@ -459,7 +459,7 @@ entry:
 declare i32 @float32_mul(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fdiv_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fdiv_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
@@ -486,7 +486,7 @@ entry:
 declare i32 @float32_div(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fmin_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fmin_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val8 = load i8, ptr %0, align 1
@@ -529,7 +529,7 @@ declare i32 @float32_minnum(i32 noundef, i32 noundef, ptr noundef) local_unnamed
 declare i32 @float32_minimum_number(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fminm_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fminm_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
@@ -556,7 +556,7 @@ entry:
 declare i32 @float32_min(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fmax_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fmax_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val8 = load i8, ptr %0, align 1
@@ -599,7 +599,7 @@ declare i32 @float32_maxnum(i32 noundef, i32 noundef, ptr noundef) local_unnamed
 declare i32 @float32_maximum_number(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fmaxm_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fmaxm_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
@@ -626,7 +626,7 @@ entry:
 declare i32 @float32_max(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fsqrt_s(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fsqrt_s(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -649,7 +649,7 @@ entry:
 declare i32 @float32_sqrt(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fle_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @helper_fle_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
@@ -670,7 +670,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fleq_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @helper_fleq_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
@@ -691,7 +691,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_flt_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @helper_flt_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
@@ -712,7 +712,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fltq_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @helper_fltq_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
@@ -733,7 +733,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_feq_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @helper_feq_s(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
@@ -754,7 +754,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_w_s(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @helper_fcvt_w_s(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -772,7 +772,7 @@ entry:
 declare i32 @float32_to_int32(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_wu_s(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @helper_fcvt_wu_s(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -824,7 +824,7 @@ entry:
 declare i64 @float32_to_uint64(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_s_w(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fcvt_s_w(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %conv = trunc i64 %rs1 to i32
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
@@ -842,7 +842,7 @@ entry:
 declare i32 @int32_to_float32(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_s_wu(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fcvt_s_wu(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %conv = trunc i64 %rs1 to i32
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
@@ -860,7 +860,7 @@ entry:
 declare i32 @uint32_to_float32(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_s_l(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fcvt_s_l(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i32 @int64_to_float32(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
@@ -877,7 +877,7 @@ entry:
 declare i32 @int64_to_float32(i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_s_lu(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fcvt_s_lu(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i32 @uint64_to_float32(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
@@ -910,7 +910,7 @@ entry:
 declare i64 @fclass_s(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fround_s(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fround_s(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %fp_status.val9 = load i16, ptr %fp_status, align 2
@@ -939,7 +939,7 @@ entry:
 declare i32 @float32_round_to_int(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_froundnx_s(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_froundnx_s(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -1072,7 +1072,7 @@ entry:
 declare i64 @float64_max(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_s_d(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fcvt_s_d(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i32 @float64_to_float32(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
@@ -1116,7 +1116,7 @@ entry:
 declare i64 @float64_sqrt(i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fle_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @helper_fle_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float64_compare(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
@@ -1126,7 +1126,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fleq_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @helper_fleq_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float64_compare_quiet(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
@@ -1136,7 +1136,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_flt_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @helper_flt_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float64_compare(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
@@ -1146,7 +1146,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fltq_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @helper_fltq_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float64_compare_quiet(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
@@ -1156,7 +1156,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_feq_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @helper_feq_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float64_compare_quiet(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
@@ -1166,7 +1166,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_w_d(ptr noundef %env, i64 noundef %frs1) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @helper_fcvt_w_d(ptr noundef %env, i64 noundef %frs1) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i32 @float64_to_int32(i64 noundef %frs1, ptr noundef nonnull %fp_status) #8
@@ -1177,7 +1177,7 @@ entry:
 declare i32 @float64_to_int32(i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvtmod_w_d(ptr noundef %env, i64 noundef %value) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @helper_fcvtmod_w_d(ptr noundef %env, i64 noundef %value) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i32 @float64_to_int32_modulo(i64 noundef %value, i8 noundef zeroext 3, ptr noundef nonnull %fp_status) #8
@@ -1188,7 +1188,7 @@ entry:
 declare i32 @float64_to_int32_modulo(i64 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_wu_d(ptr noundef %env, i64 noundef %frs1) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @helper_fcvt_wu_d(ptr noundef %env, i64 noundef %frs1) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i32 @float64_to_uint32(i64 noundef %frs1, ptr noundef nonnull %fp_status) #8
@@ -1294,7 +1294,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fadd_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fadd_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -1321,7 +1321,7 @@ entry:
 declare zeroext i16 @float16_add(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fsub_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fsub_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
@@ -1348,7 +1348,7 @@ entry:
 declare zeroext i16 @float16_sub(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fmul_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fmul_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
@@ -1375,7 +1375,7 @@ entry:
 declare zeroext i16 @float16_mul(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fdiv_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fdiv_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
@@ -1402,7 +1402,7 @@ entry:
 declare zeroext i16 @float16_div(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fmin_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fmin_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val8 = load i8, ptr %0, align 1
@@ -1445,7 +1445,7 @@ declare zeroext i16 @float16_minnum(i16 noundef zeroext, i16 noundef zeroext, pt
 declare zeroext i16 @float16_minimum_number(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fminm_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fminm_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
@@ -1472,7 +1472,7 @@ entry:
 declare zeroext i16 @float16_min(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fmax_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fmax_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val8 = load i8, ptr %0, align 1
@@ -1515,7 +1515,7 @@ declare zeroext i16 @float16_maxnum(i16 noundef zeroext, i16 noundef zeroext, pt
 declare zeroext i16 @float16_maximum_number(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fmaxm_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fmaxm_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val4 = load i8, ptr %0, align 1
@@ -1542,7 +1542,7 @@ entry:
 declare zeroext i16 @float16_max(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fsqrt_h(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fsqrt_h(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -1565,7 +1565,7 @@ entry:
 declare zeroext i16 @float16_sqrt(i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fle_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @helper_fle_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
@@ -1586,7 +1586,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fleq_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @helper_fleq_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
@@ -1607,7 +1607,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_flt_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @helper_flt_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
@@ -1628,7 +1628,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fltq_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @helper_fltq_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
@@ -1649,7 +1649,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_feq_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @helper_feq_h(ptr noundef %env, i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
@@ -1686,7 +1686,7 @@ entry:
 declare i64 @fclass_h(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fround_h(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fround_h(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %fp_status.val9 = load i16, ptr %fp_status, align 2
@@ -1715,7 +1715,7 @@ entry:
 declare zeroext i16 @float16_round_to_int(i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_froundnx_h(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_froundnx_h(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -1736,7 +1736,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_w_h(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @helper_fcvt_w_h(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -1754,7 +1754,7 @@ entry:
 declare i32 @float16_to_int32(i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_wu_h(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @helper_fcvt_wu_h(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -1806,7 +1806,7 @@ entry:
 declare i64 @float16_to_uint64(i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_h_w(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fcvt_h_w(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %conv = trunc i64 %rs1 to i32
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
@@ -1824,7 +1824,7 @@ entry:
 declare zeroext i16 @int32_to_float16(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_h_wu(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fcvt_h_wu(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %conv = trunc i64 %rs1 to i32
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
@@ -1842,7 +1842,7 @@ entry:
 declare zeroext i16 @uint32_to_float16(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_h_l(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fcvt_h_l(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call zeroext i16 @int64_to_float16(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
@@ -1859,7 +1859,7 @@ entry:
 declare zeroext i16 @int64_to_float16(i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_h_lu(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fcvt_h_lu(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call zeroext i16 @uint64_to_float16(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
@@ -1876,7 +1876,7 @@ entry:
 declare zeroext i16 @uint64_to_float16(i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_h_s(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fcvt_h_s(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -1899,7 +1899,7 @@ entry:
 declare zeroext i16 @float32_to_float16(i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_s_h(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fcvt_s_h(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1
@@ -1922,7 +1922,7 @@ entry:
 declare i32 @float16_to_float32(i16 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_h_d(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fcvt_h_d(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call zeroext i16 @float64_to_float16(i64 noundef %rs1, i1 noundef zeroext true, ptr noundef nonnull %fp_status) #8
@@ -1956,7 +1956,7 @@ entry:
 declare i64 @float16_to_float64(i16 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_bf16_s(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -65536, 32768) i64 @helper_fcvt_bf16_s(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -1979,7 +1979,7 @@ entry:
 declare zeroext i16 @float32_to_bfloat16(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @helper_fcvt_s_bf16(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
+define dso_local range(i64 -4294967296, 2147483648) i64 @helper_fcvt_s_bf16(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val3 = load i8, ptr %0, align 1

@@ -78,10 +78,10 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %actual_value.sroa.0.0.extract.trunc.i = trunc i64 %call to i32
   %1 = and i64 %call, 4294967296
-  %tobool.i.i.i = icmp eq i64 %1, 0
+  %tobool.i.i.not4.i = icmp eq i64 %1, 0
   %2 = add i32 %actual_value.sroa.0.0.extract.trunc.i, -33554433
   %3 = icmp ult i32 %2, -33554432
-  %or.cond3.i = or i1 %tobool.i.i.i, %3
+  %or.cond3.i = or i1 %tobool.i.i.not4.i, %3
   %retval.0.i = select i1 %or.cond3.i, i32 8192, i32 %actual_value.sroa.0.0.extract.trunc.i
   store i32 %retval.0.i, ptr %agg.result, align 8
   %vtable9 = load ptr, ptr %config, align 8
@@ -93,10 +93,10 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont11:                                    ; preds = %invoke.cont
   %actual_value.sroa.0.0.extract.trunc.i19 = trunc i64 %call12 to i32
   %5 = and i64 %call12, 4294967296
-  %tobool.i.i.i20 = icmp eq i64 %5, 0
+  %tobool.i.i.not4.i20 = icmp eq i64 %5, 0
   %6 = add i32 %actual_value.sroa.0.0.extract.trunc.i19, -33554433
   %7 = icmp ult i32 %6, -33554432
-  %or.cond3.i24 = or i1 %tobool.i.i.i20, %7
+  %or.cond3.i24 = or i1 %tobool.i.i.not4.i20, %7
   %retval.0.i25 = select i1 %or.cond3.i24, i32 256, i32 %actual_value.sroa.0.0.extract.trunc.i19
   store i32 %retval.0.i25, ptr %tcp_min_read_chunk_size.i, align 4
   %vtable21 = load ptr, ptr %config, align 8
@@ -108,10 +108,10 @@ invoke.cont11:                                    ; preds = %invoke.cont
 invoke.cont23:                                    ; preds = %invoke.cont11
   %actual_value.sroa.0.0.extract.trunc.i28 = trunc i64 %call24 to i32
   %9 = and i64 %call24, 4294967296
-  %tobool.i.i.i29 = icmp eq i64 %9, 0
+  %tobool.i.i.not4.i29 = icmp eq i64 %9, 0
   %10 = add i32 %actual_value.sroa.0.0.extract.trunc.i28, -33554433
   %11 = icmp ult i32 %10, -33554432
-  %or.cond3.i33 = or i1 %tobool.i.i.i29, %11
+  %or.cond3.i33 = or i1 %tobool.i.i.not4.i29, %11
   %retval.0.i34 = select i1 %or.cond3.i33, i32 4194304, i32 %actual_value.sroa.0.0.extract.trunc.i28
   store i32 %retval.0.i34, ptr %tcp_max_read_chunk_size.i, align 8
   %vtable33 = load ptr, ptr %config, align 8
@@ -124,8 +124,8 @@ invoke.cont35:                                    ; preds = %invoke.cont23
   %actual_value.sroa.0.0.extract.trunc.i37 = trunc i64 %call36 to i32
   %13 = and i64 %call36, 6442450944
   %or.cond.i40.not = icmp eq i64 %13, 4294967296
-  %retval.0.i41 = select i1 %or.cond.i40.not, i32 %actual_value.sroa.0.0.extract.trunc.i37, i32 16384
-  store i32 %retval.0.i41, ptr %tcp_tx_zerocopy_send_bytes_threshold.i, align 4
+  %retval.0.i43 = select i1 %or.cond.i40.not, i32 %actual_value.sroa.0.0.extract.trunc.i37, i32 16384
+  store i32 %retval.0.i43, ptr %tcp_tx_zerocopy_send_bytes_threshold.i, align 4
   %vtable45 = load ptr, ptr %config, align 8
   %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 16
   %14 = load ptr, ptr %vfn46, align 8
@@ -133,11 +133,11 @@ invoke.cont35:                                    ; preds = %invoke.cont23
           to label %invoke.cont47 unwind label %lpad
 
 invoke.cont47:                                    ; preds = %invoke.cont35
-  %actual_value.sroa.0.0.extract.trunc.i44 = trunc i64 %call48 to i32
+  %actual_value.sroa.0.0.extract.trunc.i46 = trunc i64 %call48 to i32
   %15 = and i64 %call48, 6442450944
-  %or.cond.i47.not = icmp eq i64 %15, 4294967296
-  %retval.0.i48 = select i1 %or.cond.i47.not, i32 %actual_value.sroa.0.0.extract.trunc.i44, i32 4
-  store i32 %retval.0.i48, ptr %tcp_tx_zerocopy_max_simultaneous_sends.i, align 8
+  %or.cond.i49.not = icmp eq i64 %15, 4294967296
+  %retval.0.i52 = select i1 %or.cond.i49.not, i32 %actual_value.sroa.0.0.extract.trunc.i46, i32 4
+  store i32 %retval.0.i52, ptr %tcp_tx_zerocopy_max_simultaneous_sends.i, align 8
   %vtable57 = load ptr, ptr %config, align 8
   %vfn58 = getelementptr inbounds i8, ptr %vtable57, i64 16
   %16 = load ptr, ptr %vfn58, align 8
@@ -145,11 +145,11 @@ invoke.cont47:                                    ; preds = %invoke.cont35
           to label %invoke.cont59 unwind label %lpad
 
 invoke.cont59:                                    ; preds = %invoke.cont47
-  %actual_value.sroa.0.0.extract.trunc.i51 = trunc i64 %call60 to i32
+  %actual_value.sroa.0.0.extract.trunc.i55 = trunc i64 %call60 to i32
   %17 = and i64 %call60, 6442450944
-  %or.cond.i54.not = icmp eq i64 %17, 4294967296
-  %retval.0.i55 = select i1 %or.cond.i54.not, i32 %actual_value.sroa.0.0.extract.trunc.i51, i32 -1
-  store i32 %retval.0.i55, ptr %tcp_receive_buffer_size.i, align 4
+  %or.cond.i58.not = icmp eq i64 %17, 4294967296
+  %retval.0.i61 = select i1 %or.cond.i58.not, i32 %actual_value.sroa.0.0.extract.trunc.i55, i32 -1
+  store i32 %retval.0.i61, ptr %tcp_receive_buffer_size.i, align 4
   %vtable69 = load ptr, ptr %config, align 8
   %vfn70 = getelementptr inbounds i8, ptr %vtable69, i64 16
   %18 = load ptr, ptr %vfn70, align 8
@@ -157,13 +157,13 @@ invoke.cont59:                                    ; preds = %invoke.cont47
           to label %invoke.cont71 unwind label %lpad
 
 invoke.cont71:                                    ; preds = %invoke.cont59
-  %actual_value.sroa.0.0.extract.trunc.i58 = trunc i64 %call72 to i32
+  %actual_value.sroa.0.0.extract.trunc.i64 = trunc i64 %call72 to i32
   %19 = and i64 %call72, 6442450944
-  %or.cond.i61 = icmp eq i64 %19, 4294967296
-  %cmp5.i62 = icmp slt i32 %actual_value.sroa.0.0.extract.trunc.i58, 2
-  %or.cond3.i63.not = and i1 %cmp5.i62, %or.cond.i61
-  %cmp111 = icmp ne i32 %actual_value.sroa.0.0.extract.trunc.i58, 0
-  %cmp = and i1 %cmp111, %or.cond3.i63.not
+  %or.cond.i67 = icmp eq i64 %19, 4294967296
+  %cmp5.i68 = icmp slt i32 %actual_value.sroa.0.0.extract.trunc.i64, 2
+  %or.cond3.i69.not = and i1 %cmp5.i68, %or.cond.i67
+  %cmp125 = icmp ne i32 %actual_value.sroa.0.0.extract.trunc.i64, 0
+  %cmp = and i1 %cmp125, %or.cond3.i69.not
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %tcp_tx_zero_copy_enabled.i, align 8
   %vtable81 = load ptr, ptr %config, align 8
@@ -173,13 +173,13 @@ invoke.cont71:                                    ; preds = %invoke.cont59
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %invoke.cont71
-  %actual_value.sroa.0.0.extract.trunc.i67 = trunc i64 %call84 to i32
+  %actual_value.sroa.0.0.extract.trunc.i73 = trunc i64 %call84 to i32
   %21 = and i64 %call84, 4294967296
-  %tobool.i.i.i68 = icmp eq i64 %21, 0
-  %cmp.i69 = icmp slt i32 %actual_value.sroa.0.0.extract.trunc.i67, 1
-  %or.cond.i70 = or i1 %tobool.i.i.i68, %cmp.i69
-  %retval.0.i71 = select i1 %or.cond.i70, i32 0, i32 %actual_value.sroa.0.0.extract.trunc.i67
-  store i32 %retval.0.i71, ptr %keep_alive_time_ms.i, align 4
+  %tobool.i.i.not4.i74 = icmp eq i64 %21, 0
+  %cmp.i75 = icmp slt i32 %actual_value.sroa.0.0.extract.trunc.i73, 1
+  %or.cond.i76 = or i1 %tobool.i.i.not4.i74, %cmp.i75
+  %retval.0.i79 = select i1 %or.cond.i76, i32 0, i32 %actual_value.sroa.0.0.extract.trunc.i73
+  store i32 %retval.0.i79, ptr %keep_alive_time_ms.i, align 4
   %vtable93 = load ptr, ptr %config, align 8
   %vfn94 = getelementptr inbounds i8, ptr %vtable93, i64 16
   %22 = load ptr, ptr %vfn94, align 8
@@ -187,13 +187,13 @@ invoke.cont83:                                    ; preds = %invoke.cont71
           to label %invoke.cont95 unwind label %lpad
 
 invoke.cont95:                                    ; preds = %invoke.cont83
-  %actual_value.sroa.0.0.extract.trunc.i74 = trunc i64 %call96 to i32
+  %actual_value.sroa.0.0.extract.trunc.i82 = trunc i64 %call96 to i32
   %23 = and i64 %call96, 4294967296
-  %tobool.i.i.i75 = icmp eq i64 %23, 0
-  %cmp.i76 = icmp slt i32 %actual_value.sroa.0.0.extract.trunc.i74, 1
-  %or.cond.i77 = or i1 %tobool.i.i.i75, %cmp.i76
-  %retval.0.i78 = select i1 %or.cond.i77, i32 0, i32 %actual_value.sroa.0.0.extract.trunc.i74
-  store i32 %retval.0.i78, ptr %keep_alive_timeout_ms.i, align 8
+  %tobool.i.i.not4.i83 = icmp eq i64 %23, 0
+  %cmp.i84 = icmp slt i32 %actual_value.sroa.0.0.extract.trunc.i82, 1
+  %or.cond.i85 = or i1 %tobool.i.i.not4.i83, %cmp.i84
+  %retval.0.i88 = select i1 %or.cond.i85, i32 0, i32 %actual_value.sroa.0.0.extract.trunc.i82
+  store i32 %retval.0.i88, ptr %keep_alive_timeout_ms.i, align 8
   %vtable105 = load ptr, ptr %config, align 8
   %vfn106 = getelementptr inbounds i8, ptr %vtable105, i64 16
   %24 = load ptr, ptr %vfn106, align 8
@@ -201,12 +201,12 @@ invoke.cont95:                                    ; preds = %invoke.cont83
           to label %invoke.cont107 unwind label %lpad
 
 invoke.cont107:                                   ; preds = %invoke.cont95
-  %actual_value.sroa.0.0.extract.trunc.i81 = trunc i64 %call108 to i32
+  %actual_value.sroa.0.0.extract.trunc.i91 = trunc i64 %call108 to i32
   %25 = and i64 %call108, 4294967296
-  %tobool.i.i.i82 = icmp ne i64 %25, 0
-  %cmp.i83 = icmp sgt i32 %actual_value.sroa.0.0.extract.trunc.i81, 0
-  %or.cond.i84.not = and i1 %tobool.i.i.i82, %cmp.i83
-  %frombool116 = zext i1 %or.cond.i84.not to i8
+  %tobool.i.i.not4.i92 = icmp ne i64 %25, 0
+  %cmp.i93 = icmp sgt i32 %actual_value.sroa.0.0.extract.trunc.i91, 0
+  %or.cond.i94.not = and i1 %tobool.i.i.not4.i92, %cmp.i93
+  %frombool116 = zext i1 %or.cond.i94.not to i8
   store i8 %frombool116, ptr %expand_wildcard_addrs.i, align 8
   %vtable119 = load ptr, ptr %config, align 8
   %vfn120 = getelementptr inbounds i8, ptr %vtable119, i64 16
@@ -215,12 +215,12 @@ invoke.cont107:                                   ; preds = %invoke.cont95
           to label %invoke.cont121 unwind label %lpad
 
 invoke.cont121:                                   ; preds = %invoke.cont107
-  %actual_value.sroa.0.0.extract.trunc.i88 = trunc i64 %call122 to i32
+  %actual_value.sroa.0.0.extract.trunc.i100 = trunc i64 %call122 to i32
   %27 = and i64 %call122, 4294967296
-  %tobool.i.i.i89 = icmp ne i64 %27, 0
-  %cmp.i90 = icmp sgt i32 %actual_value.sroa.0.0.extract.trunc.i88, 0
-  %or.cond.i91.not = and i1 %tobool.i.i.i89, %cmp.i90
-  %frombool130 = zext i1 %or.cond.i91.not to i8
+  %tobool.i.i.not4.i101 = icmp ne i64 %27, 0
+  %cmp.i102 = icmp sgt i32 %actual_value.sroa.0.0.extract.trunc.i100, 0
+  %or.cond.i103.not = and i1 %tobool.i.i.not4.i101, %cmp.i102
+  %frombool130 = zext i1 %or.cond.i103.not to i8
   store i8 %frombool130, ptr %allow_reuse_port.i, align 1
   %vtable133 = load ptr, ptr %config, align 8
   %vfn134 = getelementptr inbounds i8, ptr %vtable133, i64 16
@@ -229,13 +229,13 @@ invoke.cont121:                                   ; preds = %invoke.cont107
           to label %invoke.cont135 unwind label %lpad
 
 invoke.cont135:                                   ; preds = %invoke.cont121
-  %actual_value.sroa.0.0.extract.trunc.i95 = trunc i64 %call136 to i32
+  %actual_value.sroa.0.0.extract.trunc.i109 = trunc i64 %call136 to i32
   %29 = and i64 %call136, 6442450944
-  %or.cond.i98 = icmp ne i64 %29, 4294967296
-  %cmp5.i99 = icmp sgt i32 %actual_value.sroa.0.0.extract.trunc.i95, 63
-  %or.cond3.i100 = or i1 %cmp5.i99, %or.cond.i98
-  %retval.0.i101 = select i1 %or.cond3.i100, i32 -1, i32 %actual_value.sroa.0.0.extract.trunc.i95
-  store i32 %retval.0.i101, ptr %dscp.i, align 4
+  %or.cond.i112 = icmp ne i64 %29, 4294967296
+  %cmp5.i113 = icmp sgt i32 %actual_value.sroa.0.0.extract.trunc.i109, 63
+  %or.cond3.i114 = or i1 %cmp5.i113, %or.cond.i112
+  %retval.0.i115 = select i1 %or.cond3.i114, i32 -1, i32 %actual_value.sroa.0.0.extract.trunc.i109
+  store i32 %retval.0.i115, ptr %dscp.i, align 4
   %cmp145 = icmp sgt i32 %retval.0.i25, %retval.0.i34
   br i1 %cmp145, label %if.then, label %if.end
 
@@ -251,10 +251,10 @@ lpad:                                             ; preds = %if.then170, %if.end
 
 if.end:                                           ; preds = %if.then, %invoke.cont135
   %31 = phi i32 [ %retval.0.i34, %if.then ], [ %retval.0.i25, %invoke.cont135 ]
-  %cmp.i102 = icmp slt i32 %retval.0.i, %31
+  %cmp.i116 = icmp slt i32 %retval.0.i, %31
   %max.val.i = tail call i32 @llvm.smin.i32(i32 %retval.0.i34, i32 %retval.0.i)
-  %retval.0.i103 = select i1 %cmp.i102, i32 %31, i32 %max.val.i
-  store i32 %retval.0.i103, ptr %agg.result, align 8
+  %retval.0.i117 = select i1 %cmp.i116, i32 %31, i32 %max.val.i
+  store i32 %retval.0.i117, ptr %agg.result, align 8
   %vtable155 = load ptr, ptr %config, align 8
   %vfn156 = getelementptr inbounds i8, ptr %vtable155, i64 32
   %32 = load ptr, ptr %vfn156, align 8

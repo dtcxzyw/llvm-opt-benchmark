@@ -150,7 +150,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ssl_cmd_switches = internal unnamed_addr constant [30 x %struct.ssl_switch_tbl] [%struct.ssl_switch_tbl { i64 33554432, i32 0 }, %struct.ssl_switch_tbl { i64 67108864, i32 0 }, %struct.ssl_switch_tbl { i64 268435456, i32 0 }, %struct.ssl_switch_tbl { i64 134217728, i32 0 }, %struct.ssl_switch_tbl { i64 536870912, i32 0 }, %struct.ssl_switch_tbl { i64 2147485776, i32 0 }, %struct.ssl_switch_tbl { i64 131072, i32 0 }, %struct.ssl_switch_tbl { i64 131072, i32 1 }, %struct.ssl_switch_tbl { i64 4294967296, i32 0 }, %struct.ssl_switch_tbl { i64 4294967296, i32 1 }, %struct.ssl_switch_tbl { i64 8589934592, i32 0 }, %struct.ssl_switch_tbl { i64 8589934592, i32 1 }, %struct.ssl_switch_tbl zeroinitializer, %struct.ssl_switch_tbl { i64 16384, i32 0 }, %struct.ssl_switch_tbl { i64 4194304, i32 0 }, %struct.ssl_switch_tbl { i64 262144, i32 0 }, %struct.ssl_switch_tbl { i64 256, i32 0 }, %struct.ssl_switch_tbl { i64 4, i32 0 }, %struct.ssl_switch_tbl { i64 1073741824, i32 0 }, %struct.ssl_switch_tbl { i64 65536, i32 0 }, %struct.ssl_switch_tbl { i64 4, i32 1 }, %struct.ssl_switch_tbl { i64 1024, i32 0 }, %struct.ssl_switch_tbl { i64 34359738368, i32 0 }, %struct.ssl_switch_tbl { i64 2097152, i32 0 }, %struct.ssl_switch_tbl { i64 1, i32 256 }, %struct.ssl_switch_tbl { i64 1048576, i32 1 }, %struct.ssl_switch_tbl { i64 16777216, i32 1 }, %struct.ssl_switch_tbl { i64 16777216, i32 0 }, %struct.ssl_switch_tbl { i64 524288, i32 0 }, %struct.ssl_switch_tbl { i64 1, i32 0 }], align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SSL_CONF_cmd(ptr noundef %cctx, ptr noundef %cmd, ptr noundef %value) local_unnamed_addr #0 {
+define range(i32 -3, 3) i32 @SSL_CONF_cmd(ptr noundef %cctx, ptr noundef %cmd, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %cmd, null
   br i1 %cmp, label %if.then, label %if.end.i
@@ -416,7 +416,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SSL_CONF_cmd_argv(ptr noundef %cctx, ptr noundef %pargc, ptr nocapture noundef %pargv) local_unnamed_addr #0 {
+define range(i32 -3, 3) i32 @SSL_CONF_cmd_argv(ptr noundef %cctx, ptr noundef %pargc, ptr nocapture noundef %pargv) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %pargc, null
   br i1 %cmp.not, label %if.end5, label %land.lhs.true
@@ -456,7 +456,7 @@ if.end13:                                         ; preds = %lor.lhs.false10, %i
   %and = and i32 %9, -4
   %or = or disjoint i32 %and, 1
   store i32 %or, ptr %cctx, align 8
-  %call = tail call i32 @SSL_CONF_cmd(ptr noundef nonnull %cctx, ptr noundef nonnull %8, ptr noundef %argn.0), !range !6
+  %call = tail call i32 @SSL_CONF_cmd(ptr noundef nonnull %cctx, ptr noundef nonnull %8, ptr noundef %argn.0)
   %cmp15 = icmp sgt i32 %call, 0
   br i1 %cmp15, label %if.then16, label %if.end19
 
@@ -491,7 +491,7 @@ return:                                           ; preds = %if.end5.thread21, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SSL_CONF_cmd_value_type(ptr nocapture noundef readonly %cctx, ptr noundef %cmd) local_unnamed_addr #0 {
+define range(i32 0, 65536) i32 @SSL_CONF_cmd_value_type(ptr nocapture noundef readonly %cctx, ptr noundef %cmd) local_unnamed_addr #0 {
 entry:
   %cmp1.i = icmp eq ptr %cmd, null
   br i1 %cmp1.i, label %return, label %if.end.i
@@ -649,7 +649,7 @@ entry:
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SSL_CONF_CTX_finish(ptr nocapture noundef %cctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_CONF_CTX_finish(ptr nocapture noundef %cctx) local_unnamed_addr #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx, align 8
@@ -749,7 +749,7 @@ cmd_PrivateKey.exit:                              ; preds = %if.end4.i, %if.then
 for.inc:                                          ; preds = %if.then33, %for.body, %land.lhs.true30, %cmd_PrivateKey.exit
   %inc = add nuw nsw i64 %i.042, 1
   %exitcond.not = icmp eq i64 %inc, 9
-  br i1 %exitcond.not, label %if.end38, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %if.end38, label %for.body, !llvm.loop !6
 
 if.end38:                                         ; preds = %for.inc, %cond.false, %if.else, %cond.end19, %land.lhs.true, %if.end25
   %canames = getelementptr inbounds i8, ptr %cctx, i64 168
@@ -790,7 +790,7 @@ return:                                           ; preds = %cmd_PrivateKey.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmd_PrivateKey(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 -2, 2) i32 @cmd_PrivateKey(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %0 = load i32, ptr %cctx, align 8
   %and = and i32 %0, 32
@@ -854,7 +854,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 1046) #8
   %inc = add nuw nsw i64 %i.07, 1
   %exitcond.not = icmp eq i64 %inc, 9
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
   %prefix = getelementptr inbounds i8, ptr %cctx, i64 8
@@ -892,7 +892,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SSL_CONF_CTX_set1_prefix(ptr nocapture noundef %cctx, ptr noundef %pre) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_CONF_CTX_set1_prefix(ptr nocapture noundef %cctx, ptr noundef %pre) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pre, null
   br i1 %tobool.not, label %if.end2, label %if.then
@@ -1040,7 +1040,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmd_SignatureAlgorithms(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_SignatureAlgorithms(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ssl = getelementptr inbounds i8, ptr %cctx, i64 32
   %0 = load ptr, ptr %ssl, align 8
@@ -1066,7 +1066,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmd_ClientSignatureAlgorithms(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_ClientSignatureAlgorithms(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ssl = getelementptr inbounds i8, ptr %cctx, i64 32
   %0 = load ptr, ptr %ssl, align 8
@@ -1092,7 +1092,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmd_Curves(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_Curves(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ssl.i = getelementptr inbounds i8, ptr %cctx, i64 32
   %0 = load ptr, ptr %ssl.i, align 8
@@ -1118,7 +1118,7 @@ cmd_Groups.exit:                                  ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmd_Groups(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_Groups(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ssl = getelementptr inbounds i8, ptr %cctx, i64 32
   %0 = load ptr, ptr %ssl, align 8
@@ -1144,7 +1144,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmd_ECDHParameters(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_ECDHParameters(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %0 = load i32, ptr %cctx, align 8
   %and = and i32 %0, 2
@@ -1215,7 +1215,7 @@ return:                                           ; preds = %if.end10, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmd_CipherString(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_CipherString(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx, align 8
@@ -1245,7 +1245,7 @@ if.end6:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmd_Ciphersuites(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_Ciphersuites(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx, align 8
@@ -1318,13 +1318,13 @@ if.end7.i:                                        ; preds = %if.then3.i, %if.the
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %inc.i.i = add nuw nsw i64 %i.04.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 8
-  br i1 %exitcond.not.i.i, label %min_max_proto.exit, label %for.body.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %min_max_proto.exit, label %for.body.i.i, !llvm.loop !8
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %if.end7.i
   %i.04.i.i = phi i64 [ 0, %if.end7.i ], [ %inc.i.i, %for.cond.i.i ]
   %arrayidx.i.i = getelementptr inbounds [8 x %struct.protocol_versions], ptr @protocol_from_string.versions, i64 0, i64 %i.04.i.i
   %3 = load ptr, ptr %arrayidx.i.i, align 16
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %value) #9
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %value) #9
   %cmp1.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp1.i.i, label %protocol_from_string.exit.i, label %for.cond.i.i
 
@@ -1376,13 +1376,13 @@ if.end7.i:                                        ; preds = %if.then3.i, %if.the
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %inc.i.i = add nuw nsw i64 %i.04.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 8
-  br i1 %exitcond.not.i.i, label %min_max_proto.exit, label %for.body.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %min_max_proto.exit, label %for.body.i.i, !llvm.loop !8
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %if.end7.i
   %i.04.i.i = phi i64 [ 0, %if.end7.i ], [ %inc.i.i, %for.cond.i.i ]
   %arrayidx.i.i = getelementptr inbounds [8 x %struct.protocol_versions], ptr @protocol_from_string.versions, i64 0, i64 %i.04.i.i
   %3 = load ptr, ptr %arrayidx.i.i, align 16
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %value) #9
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %value) #9
   %cmp1.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp1.i.i, label %protocol_from_string.exit.i, label %for.cond.i.i
 
@@ -1440,7 +1440,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmd_Certificate(ptr nocapture noundef %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_Certificate(ptr nocapture noundef %cctx, ptr noundef %value) #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx, align 8
@@ -1522,7 +1522,7 @@ if.end37:                                         ; preds = %cond.false, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmd_ServerInfoFile(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_ServerInfoFile(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx, align 8
@@ -1541,7 +1541,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmd_ChainCAPath(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_ChainCAPath(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ctx1.i = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx1.i, align 8
@@ -1609,7 +1609,7 @@ do_store.exit:                                    ; preds = %if.else.i, %cond.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmd_ChainCAFile(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_ChainCAFile(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ctx1.i = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx1.i, align 8
@@ -1691,7 +1691,7 @@ do_store.exit:                                    ; preds = %if.else.i, %cond.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmd_ChainCAStore(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_ChainCAStore(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ctx1.i = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx1.i, align 8
@@ -1773,7 +1773,7 @@ do_store.exit:                                    ; preds = %if.else.i, %cond.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmd_VerifyCAPath(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_VerifyCAPath(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ctx1.i = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx1.i, align 8
@@ -1841,7 +1841,7 @@ do_store.exit:                                    ; preds = %if.else.i, %cond.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmd_VerifyCAFile(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_VerifyCAFile(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ctx1.i = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx1.i, align 8
@@ -1923,7 +1923,7 @@ do_store.exit:                                    ; preds = %if.else.i, %cond.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmd_VerifyCAStore(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_VerifyCAStore(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %ctx1.i = getelementptr inbounds i8, ptr %cctx, i64 24
   %0 = load ptr, ptr %ctx1.i, align 8
@@ -2149,7 +2149,7 @@ cmd_RequestCAStore.exit:                          ; preds = %if.end.i, %if.end5.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmd_DHParameters(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
+define internal range(i32 0, 2) i32 @cmd_DHParameters(ptr nocapture noundef readonly %cctx, ptr noundef %value) #0 {
 entry:
   %dhpkey = alloca ptr, align 8
   store ptr null, ptr %dhpkey, align 8
@@ -2201,7 +2201,7 @@ land.rhs:                                         ; preds = %while.cond
   %call24 = call i64 @BIO_ctrl(ptr noundef nonnull %call7, i32 noundef 2, i64 noundef 0, ptr noundef null) #8
   %5 = and i64 %call24, 4294967295
   %tobool26.not = icmp eq i64 %5, 0
-  br i1 %tobool26.not, label %while.cond, label %while.end, !llvm.loop !10
+  br i1 %tobool26.not, label %while.cond, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %while.cond, %land.rhs
   call void @OSSL_DECODER_CTX_free(ptr noundef nonnull %call15) #8
@@ -2344,7 +2344,7 @@ declare i32 @SSL_set_ciphersuites(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @CONF_parse_list(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssl_set_option_list(ptr noundef %elem, i32 noundef %len, ptr nocapture noundef readonly %usr) #0 {
+define internal range(i32 0, 2) i32 @ssl_set_option_list(ptr noundef %elem, i32 noundef %len, ptr nocapture noundef readonly %usr) #0 {
 entry:
   %cmp = icmp eq ptr %elem, null
   br i1 %cmp, label %return, label %if.end
@@ -2411,7 +2411,7 @@ for.inc.us:                                       ; preds = %if.end.i.us, %for.b
   %inc.us = add nuw i64 %i.017.us, 1
   %incdec.ptr20.us = getelementptr inbounds i8, ptr %tbl.018.us, i64 24
   %cmp16.us = icmp ult i64 %inc.us, %2
-  br i1 %cmp16.us, label %for.body.us, label %return, !llvm.loop !11
+  br i1 %cmp16.us, label %for.body.us, label %return, !llvm.loop !10
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %6 = phi i64 [ %19, %for.inc ], [ %2, %for.body.lr.ph ]
@@ -2507,7 +2507,7 @@ for.inc:                                          ; preds = %lor.lhs.false.i.for
   %inc = add nuw i64 %i.017, 1
   %incdec.ptr20 = getelementptr inbounds i8, ptr %tbl.018, i64 24
   %cmp16 = icmp ult i64 %inc, %19
-  br i1 %cmp16, label %for.body, label %return, !llvm.loop !11
+  br i1 %cmp16, label %for.body, label %return, !llvm.loop !10
 
 return:                                           ; preds = %for.inc, %for.inc.us, %if.end14, %if.else16.i.i, %if.then13.i.i, %if.else.i.i, %if.then7.i.i, %if.end.i.i, %if.end14.i, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end14.i ], [ 1, %if.end.i.i ], [ 1, %if.then7.i.i ], [ 1, %if.else.i.i ], [ 1, %if.then13.i.i ], [ 1, %if.else16.i.i ], [ 0, %if.end14 ], [ 0, %for.inc.us ], [ 0, %for.inc ]
@@ -2604,9 +2604,8 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -3, i32 3}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

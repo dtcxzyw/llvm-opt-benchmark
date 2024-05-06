@@ -148,7 +148,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal14RtfTermContext8getValueEbb(i1 noundef zeroext %inQuant, i1 noundef zeroext %inTerm) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4cvc58internal14RtfTermContext8getValueEbb(i1 noundef zeroext %inQuant, i1 noundef zeroext %inTerm) local_unnamed_addr #3 align 2 {
 entry:
   %cond = zext i1 %inQuant to i32
   %mul = select i1 %inTerm, i32 2, i32 0
@@ -201,7 +201,7 @@ _ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit: ; preds = %entry, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal18InQuantTermContext8getValueEb(i1 noundef zeroext %inQuant) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal18InQuantTermContext8getValueEb(i1 noundef zeroext %inQuant) local_unnamed_addr #3 align 2 {
 entry:
   %cond = zext i1 %inQuant to i32
   ret i32 %cond
@@ -270,7 +270,7 @@ return:                                           ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal19PolarityTermContext8getValueEbb(i1 noundef zeroext %hasPol, i1 noundef zeroext %pol) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN4cvc58internal19PolarityTermContext8getValueEbb(i1 noundef zeroext %hasPol, i1 noundef zeroext %pol) local_unnamed_addr #3 align 2 {
 entry:
   %cond = select i1 %pol, i32 2, i32 1
   %cond3 = select i1 %hasPol, i32 %cond, i32 0

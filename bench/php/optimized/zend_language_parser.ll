@@ -5031,7 +5031,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   %20 = sext i32 %16 to i64
   br label %.lr.ph.split.i.i
 
-.lr.ph.split.i.i:                                 ; preds = %38, %.lr.ph.i.i
+.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %38
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %38 ], [ %18, %.lr.ph.i.i ]
   %.0353.i.i = phi i32 [ %.2.i.fr.i, %38 ], [ 0, %.lr.ph.i.i ]
   %21 = add nsw i64 %indvars.iv.i.i, %19

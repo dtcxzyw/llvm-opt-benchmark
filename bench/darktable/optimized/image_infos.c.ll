@@ -58,7 +58,7 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define range(i32 0, 3) i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
   %2 = tail call i32 @dt_conf_is_equal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #8
   %3 = icmp eq i32 %2, 0
   %4 = select i1 %3, i32 2, i32 0
@@ -74,7 +74,7 @@ declare i32 @dt_conf_is_equal(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define range(i32 0, 14) i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.1) #8
   %3 = tail call i32 @g_strcmp0(ptr noundef %2, ptr noundef nonnull @.str.3) #8
   %4 = icmp eq i32 %3, 0

@@ -130,7 +130,7 @@ define internal noundef i64 @pjob_register_one_same(i64 %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @pjob_register_in_c_thread(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @pjob_register_in_c_thread(i64 %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = inttoptr i64 %1 to ptr
   %5 = call i32 @pthread_create(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @pjob_register_in_c_thread_i, ptr noundef %4) #5

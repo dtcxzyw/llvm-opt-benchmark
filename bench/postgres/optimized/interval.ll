@@ -40,7 +40,7 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store i32 17, ptr %3, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 0, ptr %5, align 4
   %.0158201 = add i32 %2, -1
   %10 = icmp sgt i32 %.0158201, -1
@@ -508,7 +508,7 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %203, %
 283:                                              ; preds = %17, %17
   %284 = getelementptr ptr, ptr %0, i64 %indvars.iv
   %285 = load ptr, ptr %284, align 8
-  %286 = trunc i64 %indvars.iv to i32
+  %286 = trunc nuw nsw i64 %indvars.iv to i32
   %287 = call i32 @DecodeUnits(i32 noundef %286, ptr noundef %285, ptr noundef nonnull %9) #13
   %288 = icmp eq i32 %287, 8
   br i1 %288, label %301, label %289
@@ -883,7 +883,7 @@ AppendSeconds.exit268:                            ; preds = %126, %128
   %137 = select i1 %.not.i, ptr @.str.10, ptr @.str.18
   %138 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.10, i32 noundef %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %137) #13
   %.lobit.i = lshr i32 %6, 31
-  %139 = trunc i32 %.lobit.i to i8
+  %139 = trunc nuw nsw i32 %.lobit.i to i8
   %140 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
   %141 = getelementptr i8, ptr %3, i64 %140
   br label %AddPostgresIntPart.exit
@@ -896,9 +896,9 @@ AddPostgresIntPart.exit:                          ; preds = %134, %136
   br i1 %142, label %AddPostgresIntPart.exit273, label %143
 
 143:                                              ; preds = %AddPostgresIntPart.exit
-  %144 = trunc i8 %.0325 to i1
+  %144 = trunc nuw i8 %.0325 to i1
   %145 = select i1 %144, ptr @.str.10, ptr @.str.11
-  %146 = trunc i8 %.0330 to i1
+  %146 = trunc nuw i8 %.0330 to i1
   %147 = icmp sgt i32 %8, 0
   %148 = and i1 %147, %146
   %149 = select i1 %148, ptr @.str.13, ptr @.str.10
@@ -906,7 +906,7 @@ AddPostgresIntPart.exit:                          ; preds = %134, %136
   %150 = select i1 %.not.i270, ptr @.str.10, ptr @.str.18
   %151 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i269, ptr noundef nonnull @.str.26, ptr noundef nonnull %145, ptr noundef nonnull %149, i32 noundef %8, ptr noundef nonnull @.str.7, ptr noundef nonnull %150) #13
   %.lobit.i271 = lshr i32 %8, 31
-  %152 = trunc i32 %.lobit.i271 to i8
+  %152 = trunc nuw nsw i32 %.lobit.i271 to i8
   %153 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i269) #14
   %154 = getelementptr i8, ptr %.0.i269, i64 %153
   br label %AddPostgresIntPart.exit273
@@ -919,9 +919,9 @@ AddPostgresIntPart.exit273:                       ; preds = %AddPostgresIntPart.
   br i1 %155, label %AddPostgresIntPart.exit277, label %156
 
 156:                                              ; preds = %AddPostgresIntPart.exit273
-  %157 = trunc i8 %.1326 to i1
+  %157 = trunc nuw i8 %.1326 to i1
   %158 = select i1 %157, ptr @.str.10, ptr @.str.11
-  %159 = trunc i8 %.1331 to i1
+  %159 = trunc nuw i8 %.1331 to i1
   %160 = icmp sgt i32 %10, 0
   %161 = and i1 %160, %159
   %162 = select i1 %161, ptr @.str.13, ptr @.str.10
@@ -929,7 +929,7 @@ AddPostgresIntPart.exit273:                       ; preds = %AddPostgresIntPart.
   %163 = select i1 %.not.i274, ptr @.str.10, ptr @.str.18
   %164 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i272, ptr noundef nonnull @.str.26, ptr noundef nonnull %158, ptr noundef nonnull %162, i32 noundef %10, ptr noundef nonnull @.str.8, ptr noundef nonnull %163) #13
   %.lobit.i275 = lshr i32 %10, 31
-  %165 = trunc i32 %.lobit.i275 to i8
+  %165 = trunc nuw nsw i32 %.lobit.i275 to i8
   %166 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i272) #14
   %167 = getelementptr i8, ptr %.0.i272, i64 %166
   br label %AddPostgresIntPart.exit277
@@ -938,7 +938,7 @@ AddPostgresIntPart.exit277:                       ; preds = %AddPostgresIntPart.
   %.2332 = phi i8 [ %.1331, %AddPostgresIntPart.exit273 ], [ %165, %156 ]
   %.2327 = phi i8 [ %.1326, %AddPostgresIntPart.exit273 ], [ 0, %156 ]
   %.0.i276 = phi ptr [ %.0.i272, %AddPostgresIntPart.exit273 ], [ %167, %156 ]
-  %168 = trunc i8 %.2327 to i1
+  %168 = trunc nuw i8 %.2327 to i1
   %169 = icmp ne i32 %12, 0
   %or.cond53 = select i1 %168, i1 true, i1 %169
   %170 = icmp ne i32 %14, 0
@@ -955,7 +955,7 @@ AddPostgresIntPart.exit277:                       ; preds = %AddPostgresIntPart.
   %176 = icmp slt i32 %171, 0
   %spec.select258 = select i1 %or.cond61, i1 true, i1 %176
   %177 = select i1 %168, ptr @.str.10, ptr @.str.11
-  %178 = trunc i8 %.2332 to i1
+  %178 = trunc nuw i8 %.2332 to i1
   %179 = select i1 %178, ptr @.str.13, ptr @.str.10
   %180 = select i1 %spec.select258, ptr @.str.12, ptr %179
   %181 = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
@@ -985,7 +985,7 @@ AddPostgresIntPart.exit277:                       ; preds = %AddPostgresIntPart.
 
 196:                                              ; preds = %193
   %.lobit.i280 = lshr i32 %6, 31
-  %197 = trunc i32 %.lobit.i280 to i8
+  %197 = trunc nuw nsw i32 %.lobit.i280 to i8
   %198 = tail call i32 @llvm.abs.i32(i32 %6, i1 false)
   %199 = icmp eq i32 %198, 1
   %200 = select i1 %199, ptr @.str.10, ptr @.str.18
@@ -1002,17 +1002,17 @@ AddVerboseIntPart.exit:                           ; preds = %193, %196
   br i1 %204, label %AddVerboseIntPart.exit285, label %205
 
 205:                                              ; preds = %AddVerboseIntPart.exit
-  %206 = trunc i8 %.3328 to i1
+  %206 = trunc nuw i8 %.3328 to i1
   br i1 %206, label %207, label %210
 
 207:                                              ; preds = %205
   %.lobit.i284 = lshr i32 %8, 31
-  %208 = trunc i32 %.lobit.i284 to i8
+  %208 = trunc nuw nsw i32 %.lobit.i284 to i8
   %209 = tail call i32 @llvm.abs.i32(i32 %8, i1 false)
   br label %213
 
 210:                                              ; preds = %205
-  %211 = trunc i8 %.4334 to i1
+  %211 = trunc nuw i8 %.4334 to i1
   %212 = sub i32 0, %8
   %spec.select.i281 = select i1 %211, i32 %212, i32 %8
   br label %213
@@ -1035,17 +1035,17 @@ AddVerboseIntPart.exit285:                        ; preds = %AddVerboseIntPart.e
   br i1 %219, label %AddVerboseIntPart.exit290, label %220
 
 220:                                              ; preds = %AddVerboseIntPart.exit285
-  %221 = trunc i8 %.4329 to i1
+  %221 = trunc nuw i8 %.4329 to i1
   br i1 %221, label %222, label %225
 
 222:                                              ; preds = %220
   %.lobit.i289 = lshr i32 %10, 31
-  %223 = trunc i32 %.lobit.i289 to i8
+  %223 = trunc nuw nsw i32 %.lobit.i289 to i8
   %224 = tail call i32 @llvm.abs.i32(i32 %10, i1 false)
   br label %228
 
 225:                                              ; preds = %220
-  %226 = trunc i8 %.6336 to i1
+  %226 = trunc nuw i8 %.6336 to i1
   %227 = sub i32 0, %10
   %spec.select.i286 = select i1 %226, i32 %227, i32 %10
   br label %228
@@ -1068,17 +1068,17 @@ AddVerboseIntPart.exit290:                        ; preds = %AddVerboseIntPart.e
   br i1 %234, label %AddVerboseIntPart.exit295, label %235
 
 235:                                              ; preds = %AddVerboseIntPart.exit290
-  %236 = trunc i8 %.5 to i1
+  %236 = trunc nuw i8 %.5 to i1
   br i1 %236, label %237, label %240
 
 237:                                              ; preds = %235
   %.lobit.i294 = lshr i32 %12, 31
-  %238 = trunc i32 %.lobit.i294 to i8
+  %238 = trunc nuw nsw i32 %.lobit.i294 to i8
   %239 = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
   br label %243
 
 240:                                              ; preds = %235
-  %241 = trunc i8 %.8338 to i1
+  %241 = trunc nuw i8 %.8338 to i1
   %242 = sub i32 0, %12
   %spec.select.i291 = select i1 %241, i32 %242, i32 %12
   br label %243
@@ -1101,17 +1101,17 @@ AddVerboseIntPart.exit295:                        ; preds = %AddVerboseIntPart.e
   br i1 %249, label %AddVerboseIntPart.exit300, label %250
 
 250:                                              ; preds = %AddVerboseIntPart.exit295
-  %251 = trunc i8 %.6 to i1
+  %251 = trunc nuw i8 %.6 to i1
   br i1 %251, label %252, label %255
 
 252:                                              ; preds = %250
   %.lobit.i299 = lshr i32 %14, 31
-  %253 = trunc i32 %.lobit.i299 to i8
+  %253 = trunc nuw nsw i32 %.lobit.i299 to i8
   %254 = tail call i32 @llvm.abs.i32(i32 %14, i1 false)
   br label %258
 
 255:                                              ; preds = %250
-  %256 = trunc i8 %.10 to i1
+  %256 = trunc nuw i8 %.10 to i1
   %257 = sub i32 0, %14
   %spec.select.i296 = select i1 %256, i32 %257, i32 %14
   br label %258
@@ -1148,15 +1148,15 @@ AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.e
   br i1 %or.cond67, label %272, label %276
 
 272:                                              ; preds = %269, %266
-  %273 = trunc i8 %.7 to i1
+  %273 = trunc nuw i8 %.7 to i1
   br i1 %273, label %279, label %274
 
 274:                                              ; preds = %272
-  %275 = trunc i8 %.12 to i1
+  %275 = trunc nuw i8 %.12 to i1
   br i1 %275, label %279, label %.sink.split
 
 276:                                              ; preds = %269
-  %277 = trunc i8 %.12 to i1
+  %277 = trunc nuw i8 %.12 to i1
   br i1 %277, label %.sink.split, label %279
 
 .sink.split:                                      ; preds = %276, %274
@@ -1191,7 +1191,7 @@ AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.e
   br label %296
 
 293:                                              ; preds = %AddVerboseIntPart.exit300
-  %294 = trunc i8 %.7 to i1
+  %294 = trunc nuw i8 %.7 to i1
   br i1 %294, label %295, label %296
 
 295:                                              ; preds = %293
@@ -1203,7 +1203,7 @@ AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.e
 296:                                              ; preds = %.thread360, %295, %293
   %.4365 = phi ptr [ %288, %.thread360 ], [ %.0.i298, %295 ], [ %.0.i298, %293 ]
   %.14364 = phi i8 [ %.13, %.thread360 ], [ %.12, %295 ], [ %.12, %293 ]
-  %297 = trunc i8 %.14364 to i1
+  %297 = trunc nuw i8 %.14364 to i1
   br i1 %297, label %298, label %AppendSeconds.exit
 
 298:                                              ; preds = %296
@@ -1316,7 +1316,7 @@ define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnam
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i32 17, ptr %8, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 0, ptr %6, align 4
   %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %31 = icmp ult i64 %30, 2
@@ -1539,7 +1539,7 @@ AdjustFractDays.exit.i:                           ; preds = %AdjustFractDays.exi
   %151 = icmp eq i8 %150, 45
   %spec.select.idx.i.i = zext i1 %151 to i64
   %spec.select.i.i = getelementptr i8, ptr %37, i64 %spec.select.idx.i.i
-  %152 = call i64 @strspn(ptr noundef %spec.select.i.i, ptr noundef nonnull @.str.28) #14
+  %152 = call i64 @strspn(ptr noundef readonly %spec.select.i.i, ptr noundef nonnull @.str.28) #14
   %153 = and i64 %152, 4294967295
   %154 = icmp ne i64 %153, 8
   %brmerge.i = or i1 %.074.i, %154
@@ -1882,7 +1882,7 @@ AdjustFractDays.exit.i.backedge:                  ; preds = %327, %323, %310, %3
   %340 = icmp eq i8 %339, 45
   %spec.select.idx.i125.i = zext i1 %340 to i64
   %spec.select.i126.i = getelementptr i8, ptr %37, i64 %spec.select.idx.i125.i
-  %341 = call i64 @strspn(ptr noundef %spec.select.i126.i, ptr noundef nonnull @.str.28) #14
+  %341 = call i64 @strspn(ptr noundef readonly %spec.select.i126.i, ptr noundef nonnull @.str.28) #14
   %342 = and i64 %341, 4294967295
   %343 = icmp ne i64 %342, 6
   %brmerge95.i = or i1 %.074.i, %343
@@ -1957,7 +1957,7 @@ AdjustFractSeconds.exit128.i:                     ; preds = %372, %368
   br i1 %385, label %DecodeISO8601Interval.exit.thread32, label %386
 
 386:                                              ; preds = %AdjustFractSeconds.exit128.i
-  %387 = call fastcc i32 @ParseISO8601Number(ptr noundef %70, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !7
+  %387 = call fastcc i32 @ParseISO8601Number(ptr noundef %70, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not87.i = icmp eq i32 %387, 0
   br i1 %.not87.i, label %388, label %DecodeISO8601Interval.exit.thread
 
@@ -1998,7 +1998,7 @@ AdjustFractSeconds.exit129.i:                     ; preds = %394, %388
 409:                                              ; preds = %AdjustFractSeconds.exit129.i
   %410 = getelementptr i8, ptr %407, i64 1
   store ptr %410, ptr %3, align 8
-  %411 = call fastcc i32 @ParseISO8601Number(ptr noundef %410, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !7
+  %411 = call fastcc i32 @ParseISO8601Number(ptr noundef %410, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not89.i = icmp eq i32 %411, 0
   br i1 %.not89.i, label %412, label %DecodeISO8601Interval.exit.thread
 
@@ -2147,7 +2147,7 @@ define ptr @PGTYPESinterval_to_asc(ptr nocapture noundef readonly %0) local_unna
   %8 = sdiv i64 %6, 12
   %9 = trunc i64 %8 to i32
   %10 = srem i64 %6, 12
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nsw i64 %10 to i32
   br label %interval2tm.exit
 
 interval2tm.exit:                                 ; preds = %1, %7
@@ -2158,7 +2158,7 @@ interval2tm.exit:                                 ; preds = %1, %7
   %13 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 %.sink.i, ptr %13, align 8
   %14 = sdiv i64 %4, 86400000000
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nsw i64 %14 to i32
   %16 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 %15, ptr %16, align 4
   %.neg.i = mul nsw i64 %14, -86400000000
@@ -2206,7 +2206,7 @@ define noundef i32 @PGTYPESinterval_copy(ptr nocapture noundef readonly %0, ptr 
 declare void @TrimTrailingZeros(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc noundef i32 @ParseISO8601Number(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #9 {
+define internal fastcc range(i32 -2, 1) i32 @ParseISO8601Number(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #9 {
   %5 = tail call ptr @__ctype_b_loc() #15
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %0, align 1
@@ -2318,4 +2318,3 @@ attributes #15 = { nounwind willreturn memory(none) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -2, i32 1}

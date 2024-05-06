@@ -243,7 +243,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_14FileEED2Ev.exit:
   %10 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 %3, ptr %10, align 8, !noalias !11
   %11 = getelementptr inbounds i8, ptr %4, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %11, i8 0, i64 81, i1 false), !noalias !11
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(81) %11, i8 0, i64 81, i1 false), !noalias !11
   store ptr %7, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %12, align 8
@@ -272,7 +272,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_14FileEED2Ev.exit: ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 40
   store i8 1, ptr %10, align 8, !noalias !14
   %11 = getelementptr inbounds i8, ptr %4, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %11, i8 0, i64 81, i1 false), !noalias !14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(81) %11, i8 0, i64 81, i1 false), !noalias !14
   store ptr %7, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %12, align 8

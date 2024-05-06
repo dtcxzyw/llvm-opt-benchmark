@@ -90,7 +90,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @scsi_proc_hostdir_add(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @scsi_proc_hostdir_add(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -368,7 +368,7 @@ define dso_local void @scsi_proc_host_rm(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @scsi_init_procfs() local_unnamed_addr #6 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @scsi_init_procfs() local_unnamed_addr #6 section ".init.text" align 16 {
   %1 = tail call ptr @proc_mkdir(ptr noundef nonnull @.str.6, ptr noundef null) #10
   store ptr %1, ptr @proc_scsi, align 8
   %2 = icmp eq ptr %1, null
@@ -413,7 +413,7 @@ define internal i32 @proc_scsi_host_open(ptr nocapture noundef readonly %0, ptr 
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @proc_scsi_host_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @proc_scsi_host_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 592
@@ -444,7 +444,7 @@ define internal i64 @proc_scsi_host_write(ptr nocapture noundef readonly %0, ptr
   %24 = load ptr, ptr %11, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 232
   %26 = load ptr, ptr %25, align 8
-  %27 = trunc i64 %2 to i32
+  %27 = trunc nuw nsw i64 %2 to i32
   %28 = tail call i32 %26(ptr noundef %8, ptr noundef nonnull %18, i32 noundef %27) #10
   %29 = sext i32 %28 to i64
   br label %30
@@ -496,7 +496,7 @@ define internal i32 @proc_scsi_open(ptr nocapture readnone %0, ptr noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @proc_scsi_write(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @proc_scsi_write(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   %6 = icmp eq ptr %1, null
@@ -678,7 +678,7 @@ define internal i64 @proc_scsi_write(ptr nocapture readnone %0, ptr noundef %1, 
 111:                                              ; preds = %108, %72
   %.fr = phi i32 [ %110, %108 ], [ %74, %72 ]
   %112 = icmp eq i32 %.fr, 0
-  %113 = trunc i64 %2 to i32
+  %113 = trunc nuw nsw i64 %2 to i32
   %spec.select = select i1 %112, i32 %113, i32 %.fr
   %114 = sext i32 %spec.select to i64
   br label %.thread
@@ -888,7 +888,7 @@ declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64
 declare dso_local i64 @simple_strtoul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @scsi_remove_single_device(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -6, 1) i32 @scsi_remove_single_device(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = tail call ptr @scsi_host_lookup(i32 noundef %0) #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7

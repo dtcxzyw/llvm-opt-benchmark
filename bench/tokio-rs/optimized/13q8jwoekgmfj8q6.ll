@@ -396,7 +396,7 @@ common.ret:                                       ; preds = %33, %"_ZN4core3ptr7
   ret void
 
 57:                                               ; preds = %50, %46
-  %58 = trunc i8 %30 to i1
+  %58 = trunc nuw i8 %30 to i1
   %59 = getelementptr inbounds i8, ptr %1, i64 8
   br i1 %58, label %66, label %60
 

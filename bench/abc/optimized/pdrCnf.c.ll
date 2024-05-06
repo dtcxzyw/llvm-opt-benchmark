@@ -809,7 +809,7 @@ Vec_IntStartFull.exit.i:                          ; preds = %36, %Vec_IntAlloc.e
   br label %Pdr_ObjSatVar.exit.i
 
 62:                                               ; preds = %.lr.ph.i
-  %63 = tail call i32 @Pdr_ObjSatVar2(ptr noundef nonnull %1, i32 noundef %2, ptr noundef %51, i32 noundef 0, i32 noundef 3)
+  %63 = tail call i32 @Pdr_ObjSatVar2(ptr noundef nonnull readonly %1, i32 noundef %2, ptr noundef readonly %51, i32 noundef 0, i32 noundef 3)
   br label %Pdr_ObjSatVar.exit.i
 
 Pdr_ObjSatVar.exit.i:                             ; preds = %62, %56

@@ -509,7 +509,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %for.body.us ], [ 0, %for.body.lr.ph ]
-  %2 = trunc i64 %indvars.iv37 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv37 to i32
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.7, i32 noundef %2) #7
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.9) #7
   %arrayidx.us = getelementptr %struct.NumaNodeMem, ptr %call6, i64 %indvars.iv37
@@ -526,7 +526,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond8.for.end_crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond8.for.end_crit_edge ], [ 0, %for.body.lr.ph ]
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.7, i32 noundef %5) #7
   br label %for.body10
 
@@ -834,7 +834,7 @@ for.body:                                         ; preds = %if.then7, %for.inc
   br i1 %cmp10.not, label %for.inc, label %if.then11
 
 if.then11:                                        ; preds = %for.body
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %opaque, ptr noundef nonnull @.str.33, i32 noundef %6, i64 noundef %5) #7
   %.pre = load i32, ptr %nb_irqs, align 4
   br label %for.inc

@@ -150,7 +150,7 @@ Curl_sock_assign_addr.exit:                       ; preds = %entry, %sw.bb1.i, %
   %ai_addr.i = getelementptr inbounds i8, ptr %ai, i64 32
   %2 = load ptr, ptr %ai_addr.i, align 8
   %conv10.i = zext nneg i32 %spec.select.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %spec.select.sroa.sel11.v.sroa.sel.v.sroa.sel, ptr align 2 %2, i64 %conv10.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %spec.select.sroa.sel11.v.sroa.sel.v.sroa.sel, ptr align 2 %2, i64 %conv10.i, i1 false)
   %fopensocket.i = getelementptr inbounds i8, ptr %data, i64 608
   %3 = load ptr, ptr %fopensocket.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
@@ -1115,7 +1115,7 @@ if.then.i:                                        ; preds = %sw.bb
   %cf.val17.i = load ptr, ptr %conn.i, align 8
   %primary_ip.i.i = getelementptr inbounds i8, ptr %cf.val17.i, i64 256
   %r_ip.i.i = getelementptr inbounds i8, ptr %cf.val.i, i64 224
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(46) %primary_ip.i.i, ptr noundef nonnull align 8 dereferenceable(46) %r_ip.i.i, i64 46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(46) %primary_ip.i.i, ptr noundef nonnull readonly align 8 dereferenceable(46) %r_ip.i.i, i64 46, i1 false)
   %cf.val18.i = load ptr, ptr %ctx1, align 8
   tail call fastcc void @set_local_ip(ptr %cf.val18.i, ptr noundef %data)
   %8 = load ptr, ptr %conn.i, align 8
@@ -1418,7 +1418,7 @@ out:                                              ; preds = %sw.default.i.i, %sw
   %ai_addr.i.i = getelementptr inbounds i8, ptr %ai, i64 32
   %4 = load ptr, ptr %ai_addr.i.i, align 8
   %conv10.i.i = zext nneg i32 %spec.select.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_sa_ex_u.i.i, ptr align 2 %4, i64 %conv10.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %_sa_ex_u.i.i, ptr align 2 %4, i64 %conv10.i.i, i1 false)
   %recvbuf.i = getelementptr inbounds i8, ptr %call, i64 160
   tail call void @Curl_bufq_init(ptr noundef nonnull %recvbuf.i, i64 noundef 65536, i64 noundef 1) #13
   %call1 = call i32 @Curl_cf_create(ptr noundef nonnull %cf, ptr noundef nonnull @Curl_cft_tcp, ptr noundef nonnull %call) #13
@@ -1728,7 +1728,7 @@ out:                                              ; preds = %sw.default.i.i, %sw
   %ai_addr.i.i = getelementptr inbounds i8, ptr %ai, i64 32
   %4 = load ptr, ptr %ai_addr.i.i, align 8
   %conv10.i.i = zext nneg i32 %spec.select.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_sa_ex_u.i.i, ptr align 2 %4, i64 %conv10.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %_sa_ex_u.i.i, ptr align 2 %4, i64 %conv10.i.i, i1 false)
   %recvbuf.i = getelementptr inbounds i8, ptr %call, i64 160
   tail call void @Curl_bufq_init(ptr noundef nonnull %recvbuf.i, i64 noundef 65536, i64 noundef 1) #13
   %call1 = call i32 @Curl_cf_create(ptr noundef nonnull %cf, ptr noundef nonnull @Curl_cft_udp, ptr noundef nonnull %call) #13
@@ -1800,7 +1800,7 @@ out:                                              ; preds = %sw.default.i.i, %sw
   %ai_addr.i.i = getelementptr inbounds i8, ptr %ai, i64 32
   %4 = load ptr, ptr %ai_addr.i.i, align 8
   %conv10.i.i = zext nneg i32 %spec.select.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %_sa_ex_u.i.i, ptr align 2 %4, i64 %conv10.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %_sa_ex_u.i.i, ptr align 2 %4, i64 %conv10.i.i, i1 false)
   %recvbuf.i = getelementptr inbounds i8, ptr %call, i64 160
   tail call void @Curl_bufq_init(ptr noundef nonnull %recvbuf.i, i64 noundef 65536, i64 noundef 1) #13
   %call1 = call i32 @Curl_cf_create(ptr noundef nonnull %cf, ptr noundef nonnull @Curl_cft_unix, ptr noundef nonnull %call) #13

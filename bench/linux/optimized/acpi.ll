@@ -324,7 +324,7 @@ define dso_local noundef i32 @pcibios_root_bridge_prepare(ptr noundef %0) local_
 declare dso_local void @set_primary_fwnode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @pci_acpi_init() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = load i32, ptr @acpi_noirq, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %.loopexit
@@ -418,7 +418,7 @@ declare void @llvm.assume(i1 noundef) #5
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_acpi_root_init_info(ptr nocapture noundef %0) #3 align 16 {
+define internal noundef range(i32 -5, 1) i32 @pci_acpi_root_init_info(ptr nocapture noundef %0) #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8

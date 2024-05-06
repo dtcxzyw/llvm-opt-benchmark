@@ -55,7 +55,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
-define noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.htif_hexwriter_t, align 8
   %4 = alloca %class.memif_t, align 8
   %5 = alloca i64, align 8
@@ -80,7 +80,7 @@ define noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) loca
 
 18:                                               ; preds = %13
   %19 = add i32 %16, -1
-  %20 = tail call i32 @llvm.ctpop.i32(i32 %16), !range !4
+  %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
   %.not = icmp ult i32 %20, 2
   br i1 %.not, label %23, label %21
 
@@ -110,7 +110,7 @@ define noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) loca
   %34 = getelementptr inbounds i8, ptr %1, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @atoi(ptr nocapture noundef %35) #12
-  %37 = tail call i32 @llvm.ctpop.i32(i32 %36), !range !4
+  %37 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %36)
   %or.cond28 = icmp eq i32 %37, 1
   br i1 %or.cond28, label %40, label %38
 
@@ -251,7 +251,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_m
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #15
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, %2
   ret void
@@ -299,7 +299,7 @@ _ZNSt8_Rb_treeImSt4pairIKmSt6vectorIcSaIcEEESt10_Select1stIS5_ESt4lessImESaIS5_E
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #15
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIcSaIcEEESt10_Select1stIS5_ESt4lessImESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit, %2
   ret void
@@ -342,7 +342,6 @@ attributes #15 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

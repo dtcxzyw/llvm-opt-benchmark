@@ -298,7 +298,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.200 = private unnamed_addr constant [10 x i8] c"fragments\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @process_netbios_name(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 256) i32 @process_netbios_name(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 15
   %5 = load i8, ptr %4, align 1
   br label %6
@@ -406,7 +406,7 @@ define hidden i32 @process_netbios_name(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @get_netbios_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 0, 256) i32 @get_netbios_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1, i32 noundef 16) #6
   %6 = getelementptr i8, ptr %5, i64 15
   %7 = load i8, ptr %6, align 1
@@ -1449,7 +1449,7 @@ define internal noundef i32 @dissect_netb_data_ack(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_netb_data_first_middle(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal range(i32 0, 65536) i32 @dissect_netb_data_first_middle(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = add i32 %2, 5
   %6 = load i32, ptr @hf_netb_flags, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648) #6
@@ -1504,7 +1504,7 @@ nb_resync_indicator.exit:                         ; preds = %19, %21, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_netb_data_only_last(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal range(i32 0, 65536) i32 @dissect_netb_data_only_last(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = add i32 %2, 5
   %6 = load i32, ptr @hf_netb_flags, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648) #6

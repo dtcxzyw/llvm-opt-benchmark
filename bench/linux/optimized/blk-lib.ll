@@ -43,7 +43,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_blkdev_issue
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable___blkdev_issue_discard426, ptr @__UNIQUE_ID___addressable___blkdev_issue_zeroout432, ptr @__UNIQUE_ID___addressable_blkdev_issue_discard427, ptr @__UNIQUE_ID___addressable_blkdev_issue_secure_erase436, ptr @__UNIQUE_ID___addressable_blkdev_issue_zeroout433, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched203], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__blkdev_issue_discard(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @__blkdev_issue_discard(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef %4) #0 align 16 {
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load i8, ptr %7, align 8, !range !5, !noundef !6
@@ -235,7 +235,7 @@ declare dso_local void @bio_put(ptr noundef) local_unnamed_addr #2
 declare dso_local void @blk_finish_plug(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @__blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -338,7 +338,7 @@ define dso_local noundef i32 @__blkdev_issue_zeroout(ptr noundef %0, i64 noundef
 .thread6.i:                                       ; preds = %.split.i, %.split.us.i
   %.us-phi.i = phi i64 [ %55, %.split.us.i ], [ %67, %.split.i ]
   %.us-phi10.i = phi ptr [ %56, %.split.us.i ], [ %68, %.split.i ]
-  %74 = trunc i64 %.us-phi.i to i32
+  %74 = trunc nuw i64 %.us-phi.i to i32
   %75 = shl i32 %74, 9
   %76 = getelementptr inbounds i8, ptr %.us-phi10.i, i64 40
   store i32 %75, ptr %76, align 8
@@ -374,7 +374,7 @@ __blkdev_issue_write_zeroes.exit.thread:          ; preds = %23, %28, %36, %.loo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__blkdev_issue_zero_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @__blkdev_issue_zero_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load i8, ptr %7, align 8, !range !5, !noundef !6
@@ -409,7 +409,7 @@ define internal fastcc noundef i32 @__blkdev_issue_zero_pages(ptr noundef %0, i6
   %28 = add i64 %26, 7
   %29 = lshr i64 %28, 3
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 256)
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw nsw i64 %30 to i32
   %32 = tail call ptr @blk_next_bio(ptr noundef %27, ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef %3) #6
   %33 = getelementptr inbounds i8, ptr %32, i64 32
   store i64 %25, ptr %33, align 8
@@ -420,7 +420,7 @@ define internal fastcc noundef i32 @__blkdev_issue_zero_pages(ptr noundef %0, i6
   %36 = phi i64 [ %25, %.preheader ], [ %53, %34 ]
   %37 = shl i64 %35, 9
   %38 = tail call i64 @llvm.umin.i64(i64 %37, i64 4096)
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw nsw i64 %38 to i32
   %40 = load i64, ptr @vmemmap_base, align 8
   %41 = inttoptr i64 %40 to ptr
   %42 = load i64, ptr @phys_base, align 8
@@ -690,7 +690,7 @@ define dso_local i32 @blkdev_issue_zeroout(ptr noundef %0, i64 noundef %1, i64 n
 .thread12:                                        ; preds = %.split, %.split.us
   %.us-phi = phi i64 [ %116, %.split.us ], [ %128, %.split ]
   %.us-phi20 = phi ptr [ %117, %.split.us ], [ %129, %.split ]
-  %135 = trunc i64 %.us-phi to i32
+  %135 = trunc nuw i64 %.us-phi to i32
   %136 = shl i32 %135, 9
   %137 = getelementptr inbounds i8, ptr %.us-phi20, i64 40
   store i32 %136, ptr %137, align 8
@@ -833,7 +833,7 @@ define dso_local i32 @blkdev_issue_secure_erase(ptr noundef %0, i64 noundef %1, 
   call void @blk_start_plug(ptr noundef nonnull %5) #6
   %47 = zext nneg i32 %21 to i64
   %48 = call i64 @llvm.umin.i64(i64 %2, i64 %47)
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw nsw i64 %48 to i32
   %50 = call ptr @blk_next_bio(ptr noundef null, ptr noundef %0, i32 noundef 0, i32 noundef 5, i32 noundef %3) #6
   %51 = getelementptr inbounds i8, ptr %50, i64 32
   store i64 %1, ptr %51, align 8
@@ -852,7 +852,7 @@ define dso_local i32 @blkdev_issue_secure_erase(ptr noundef %0, i64 noundef %1, 
   %60 = add i64 %59, %58
   %61 = call i32 @__SCT__cond_resched() #6
   %62 = call i64 @llvm.umin.i64(i64 %56, i64 %47)
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw nsw i64 %62 to i32
   %64 = call ptr @blk_next_bio(ptr noundef %57, ptr noundef %0, i32 noundef 0, i32 noundef 5, i32 noundef %3) #6
   %65 = getelementptr inbounds i8, ptr %64, i64 32
   store i64 %60, ptr %65, align 8

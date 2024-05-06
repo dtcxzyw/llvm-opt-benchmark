@@ -33,10 +33,10 @@ define ptr @Gia_ManTisDupMuxes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #14
+  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #14
   %12 = add i64 %11, 1
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #15
-  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %9) #13
+  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %9) #13
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %7, %10
@@ -48,10 +48,10 @@ Abc_UtilStrsav.exit:                              ; preds = %7, %10
   br i1 %.not.i101, label %Abc_UtilStrsav.exit102, label %18
 
 18:                                               ; preds = %Abc_UtilStrsav.exit
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #14
+  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #14
   %20 = add i64 %19, 1
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #15
-  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %17) #13
+  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %17) #13
   br label %Abc_UtilStrsav.exit102
 
 Abc_UtilStrsav.exit102:                           ; preds = %Abc_UtilStrsav.exit, %18
@@ -273,7 +273,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %141 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %105, i64 %.pre-phi143, i32 1
   %142 = load i32, ptr %141, align 4
   %143 = lshr i64 %.pre, 61
-  %144 = trunc i64 %143 to i32
+  %144 = trunc nuw nsw i64 %143 to i32
   %145 = and i32 %144, 1
   %146 = xor i32 %145, %142
   %147 = call i32 @Gia_ManHashAnd(ptr noundef nonnull %8, i32 noundef %140, i32 noundef %146) #13
@@ -732,7 +732,7 @@ Vec_IntGrow.exit.i48:                             ; preds = %58, %56
   tail call void @Gia_ManTisCollectMffc_rec(ptr noundef nonnull %0, i32 noundef %76, ptr noundef %2, ptr noundef %3)
   %.val40 = load i64, ptr %44, align 4
   %77 = lshr i64 %.val40, 32
-  %78 = trunc i64 %77 to i32
+  %78 = trunc nuw i64 %77 to i32
   %79 = and i32 %78, 536870911
   %80 = sub nsw i32 %1, %79
   tail call void @Gia_ManTisCollectMffc_rec(ptr noundef nonnull %0, i32 noundef %80, ptr noundef %2, ptr noundef %3)
@@ -844,7 +844,7 @@ define void @Gia_ManTisCollectMffc(ptr noundef %0, i32 noundef %1, ptr noundef %
   tail call void @Gia_ManTisCollectMffc_rec(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3)
   %.val24 = load i64, ptr %7, align 4
   %13 = lshr i64 %.val24, 32
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw i64 %13 to i32
   %15 = and i32 %14, 536870911
   %16 = sub nsw i32 %1, %15
   tail call void @Gia_ManTisCollectMffc_rec(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3)
@@ -966,7 +966,7 @@ define void @Gia_ManTisPrintMffc(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val33, i64 %16
   %.val26 = load i32, ptr %5, align 4
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = sub i32 %.val26, %18
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %19)
   tail call void @Gia_ObjPrint(ptr noundef nonnull %0, ptr noundef nonnull %17) #13
@@ -994,7 +994,7 @@ define void @Gia_ManTisPrintMffc(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val32, i64 %28
-  %30 = trunc i64 %indvars.iv43 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv43 to i32
   %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %30)
   tail call void @Gia_ObjPrint(ptr noundef nonnull %0, ptr noundef nonnull %29) #13
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
@@ -1066,7 +1066,7 @@ define void @Gia_ManTisTest(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %23
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @Gia_ManTisCollectMffc(ptr noundef nonnull %10, i32 noundef %28, ptr noundef nonnull %2, ptr noundef nonnull %6)
   tail call void @Gia_ManTisPrintMffc(ptr noundef nonnull %10, i32 noundef %28, ptr noundef nonnull %2, ptr noundef nonnull %6)
   %.pre = load i32, ptr %12, align 8

@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @OCSP_id_get0_info(ptr noundef writeonly %piNameHash, ptr noundef writeonly %pmd, ptr noundef writeonly %pikeyHash, ptr noundef writeonly %pserial, ptr noundef %cid) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @OCSP_id_get0_info(ptr noundef writeonly %piNameHash, ptr noundef writeonly %pmd, ptr noundef writeonly %pikeyHash, ptr noundef writeonly %pserial, ptr noundef %cid) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %cid, null
   br i1 %tobool.not, label %return, label %if.end
@@ -85,7 +85,7 @@ return:                                           ; preds = %if.end9, %if.then11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @OCSP_request_is_signed(ptr nocapture noundef readonly %req) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @OCSP_request_is_signed(ptr nocapture noundef readonly %req) local_unnamed_addr #2 {
 entry:
   %optionalSignature = getelementptr inbounds i8, ptr %req, i64 32
   %0 = load ptr, ptr %optionalSignature, align 8
@@ -312,7 +312,7 @@ entry:
 declare i32 @ossl_x509_add_cert_new(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OCSP_basic_sign_ctx(ptr noundef %brsp, ptr noundef %signer, ptr noundef %ctx, ptr noundef %certs, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_basic_sign_ctx(ptr noundef %brsp, ptr noundef %signer, ptr noundef %ctx, ptr noundef %certs, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %err.sink.split, label %lor.lhs.false
@@ -357,7 +357,7 @@ if.end19:                                         ; preds = %lor.lhs.false13, %i
   br i1 %tobool21.not, label %if.else, label %if.then22
 
 if.then22:                                        ; preds = %if.end19
-  %call23 = tail call i32 @OCSP_RESPID_set_by_key(ptr noundef nonnull %responderId, ptr noundef %signer), !range !4
+  %call23 = tail call i32 @OCSP_RESPID_set_by_key(ptr noundef nonnull %responderId, ptr noundef %signer)
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %err, label %if.end31
 
@@ -418,7 +418,7 @@ declare i32 @X509_check_private_key(ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @X509_add_certs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OCSP_RESPID_set_by_key(ptr nocapture noundef writeonly %respid, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_RESPID_set_by_key(ptr nocapture noundef writeonly %respid, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %md.i = alloca [20 x i8], align 16
   %cmp = icmp eq ptr %cert, null
@@ -475,7 +475,7 @@ return:                                           ; preds = %entry, %OCSP_RESPID
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OCSP_RESPID_set_by_name(ptr noundef %respid, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_RESPID_set_by_name(ptr noundef %respid, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %respid, i64 8
   %call = tail call ptr @X509_get_subject_name(ptr noundef %cert) #6
@@ -499,7 +499,7 @@ declare i32 @ASN1_item_sign_ctx(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare ptr @OCSP_RESPDATA_it() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OCSP_basic_sign(ptr noundef %brsp, ptr noundef %signer, ptr noundef %key, ptr noundef %dgst, ptr noundef %certs, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_basic_sign(ptr noundef %brsp, ptr noundef %signer, ptr noundef %key, ptr noundef %dgst, ptr noundef %certs, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %pkctx = alloca ptr, align 8
   %call = tail call ptr @EVP_MD_CTX_new() #6
@@ -518,7 +518,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return.sink.split, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call5 = call i32 @OCSP_basic_sign_ctx(ptr noundef %brsp, ptr noundef nonnull %signer, ptr noundef nonnull %call, ptr noundef %certs, i64 noundef %flags), !range !4
+  %call5 = call i32 @OCSP_basic_sign_ctx(ptr noundef %brsp, ptr noundef nonnull %signer, ptr noundef nonnull %call, ptr noundef %certs, i64 noundef %flags)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.end4
@@ -544,7 +544,7 @@ declare i32 @X509_NAME_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OCSP_RESPID_set_by_key_ex(ptr nocapture noundef writeonly %respid, ptr noundef %cert, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_RESPID_set_by_key_ex(ptr nocapture noundef writeonly %respid, ptr noundef %cert, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %md = alloca [20 x i8], align 16
   %call = tail call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef nonnull @.str.1, ptr noundef %propq) #6
@@ -599,7 +599,7 @@ declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #1
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_RESPID_match_ex(ptr nocapture noundef readonly %respid, ptr noundef %cert, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_RESPID_match_ex(ptr nocapture noundef readonly %respid, ptr noundef %cert, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %md = alloca [20 x i8], align 16
   %0 = load i32, ptr %respid, align 8
@@ -669,7 +669,7 @@ declare ptr @ASN1_STRING_get0_data(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_RESPID_match(ptr nocapture noundef readonly %respid, ptr noundef %cert) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_RESPID_match(ptr nocapture noundef readonly %respid, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %cert, null
   br i1 %cmp, label %return, label %if.end
@@ -679,7 +679,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %libctx, align 8
   %propq = getelementptr inbounds i8, ptr %cert, i64 376
   %1 = load ptr, ptr %propq, align 8
-  %call = tail call i32 @OCSP_RESPID_match_ex(ptr noundef %respid, ptr noundef nonnull %cert, ptr noundef %0, ptr noundef %1), !range !4
+  %call = tail call i32 @OCSP_RESPID_match_ex(ptr noundef %respid, ptr noundef nonnull %cert, ptr noundef %0, ptr noundef %1)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -710,4 +710,3 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

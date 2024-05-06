@@ -1242,7 +1242,7 @@ define void @ARKodeSPRKTable_Write(ptr nocapture noundef readonly %0, ptr nounde
   %4 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
-  %5 = call i32 @ARKodeSPRKTable_ToButcher(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !4
+  %5 = call i32 @ARKodeSPRKTable_ToButcher(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %6 = load ptr, ptr %3, align 8
   tail call void @ARKodeButcherTable_Write(ptr noundef %6, ptr noundef %1) #14
   %7 = load ptr, ptr %4, align 8
@@ -1253,7 +1253,7 @@ define void @ARKodeSPRKTable_Write(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ARKodeSPRKTable_ToButcher(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = tail call ptr @ARKodeButcherTable_Alloc(i32 noundef %5, i32 noundef 0) #14
@@ -1478,4 +1478,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -20, i32 1}

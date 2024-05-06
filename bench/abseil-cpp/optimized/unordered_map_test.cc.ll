@@ -33682,7 +33682,7 @@ lpad.body:                                        ; preds = %lpad.i.i.i, %lpad
   %5 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #24
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i35
 
 if.end.thread:                                    ; preds = %lpad.body
   %second.i.i.i30 = getelementptr inbounds i8, ptr %add.ptr, i64 32
@@ -33696,11 +33696,11 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i32:                                      ; preds = %lpad.body
+if.then.i35:                                      ; preds = %lpad.body
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #28
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %if.then.i32, %if.end.thread
+invoke.cont21:                                    ; preds = %if.then.i35, %if.end.thread
   invoke void @__cxa_rethrow() #26
           to label %unreachable unwind label %lpad19
 

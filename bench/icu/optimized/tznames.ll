@@ -494,7 +494,7 @@ return:                                           ; preds = %dynamic_cast.notnul
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
@@ -1300,7 +1300,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection15getTimeZoneIDAtEiRNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %idx, ptr noundef nonnull align 8 dereferenceable(64) %tzID) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection15getTimeZoneIDAtEiRNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %idx, ptr noundef nonnull align 8 dereferenceable(64) %tzID) local_unnamed_addr #1 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds i8, ptr %tzID, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
@@ -1332,7 +1332,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection15getMetaZoneIDAtEiRNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %idx, ptr noundef nonnull align 8 dereferenceable(64) %mzID) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection15getMetaZoneIDAtEiRNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %idx, ptr noundef nonnull align 8 dereferenceable(64) %mzID) local_unnamed_addr #1 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds i8, ptr %mzID, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
@@ -1423,7 +1423,7 @@ attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwri
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind memory(read) }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #11 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

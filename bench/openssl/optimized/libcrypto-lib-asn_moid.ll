@@ -17,7 +17,7 @@ entry:
 declare i32 @CONF_module_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @oid_module_init(ptr noundef %md, ptr noundef %cnf) #0 {
+define internal range(i32 0, 2) i32 @oid_module_init(ptr noundef %md, ptr noundef %cnf) #0 {
 entry:
   %call = tail call ptr @CONF_imodule_get_value(ptr noundef %md) #5
   %call1 = tail call ptr @NCONF_get_section(ptr noundef %cnf, ptr noundef %call) #5

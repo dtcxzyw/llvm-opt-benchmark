@@ -421,7 +421,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @spanhash_cmp(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #4 {
+define internal range(i32 -1, 2) i32 @spanhash_cmp(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #4 {
 entry:
   %cnt = getelementptr inbounds i8, ptr %a_, i64 4
   %0 = load i32, ptr %cnt, align 4

@@ -335,7 +335,7 @@ declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #1
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @git_inflate(ptr noundef %strm, i32 noundef %flush) local_unnamed_addr #0 {
+define dso_local range(i32 -3, -4) i32 @git_inflate(ptr noundef %strm, i32 noundef %flush) local_unnamed_addr #0 {
 entry:
   %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
   %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152
@@ -843,7 +843,7 @@ zlib_post_call.exit:                              ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @git_deflate(ptr noundef %strm, i32 noundef %flush) local_unnamed_addr #0 {
+define dso_local range(i32 -3, -4) i32 @git_deflate(ptr noundef %strm, i32 noundef %flush) local_unnamed_addr #0 {
 entry:
   %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
   %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152

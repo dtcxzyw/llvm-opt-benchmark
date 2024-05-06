@@ -83,7 +83,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
   br i1 %.not, label %6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha3fb72a66dd3ffebE.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha3fb72a66dd3ffebE.exit": ; preds = %4
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %2, ptr nonnull %0, i64 %3), !alias.scope !10
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %2, ptr nonnull readonly %0, i64 %3), !alias.scope !10
   %5 = icmp eq i32 %bcmp.i, 0
   br label %6
 
@@ -329,7 +329,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i.i: ; preds
   %62 = phi i64 [ %54, %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i.i ], [ %.pre.i.i.i.i.i.i, %58 ]
   %63 = load ptr, ptr %12, align 8, !alias.scope !28, !noalias !33, !nonnull !9, !noundef !9
   %64 = getelementptr inbounds i8, ptr %63, i64 %62
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i.i.i.i, i64 %53, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i.i.i.i, i64 %53, i1 false)
   %65 = load i64, ptr %11, align 8, !alias.scope !28, !noalias !33, !noundef !9
   %66 = add i64 %65, %53
   store i64 %66, ptr %11, align 8, !alias.scope !28, !noalias !33

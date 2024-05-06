@@ -241,7 +241,7 @@ declare dso_local i32 @match_string(ptr noundef, i64 noundef, ptr noundef) local
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pkcs7_verify(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @pkcs7_verify(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   switch i32 %1, label %.loopexit30 [
     i32 0, label %3
     i32 1, label %11
@@ -566,7 +566,7 @@ define dso_local i32 @pkcs7_verify(ptr nocapture noundef readonly %0, i32 nounde
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pkcs7_supply_detached_data(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pkcs7_supply_detached_data(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

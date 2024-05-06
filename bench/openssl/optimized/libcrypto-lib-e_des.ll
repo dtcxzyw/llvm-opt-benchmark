@@ -118,7 +118,7 @@ declare i32 @EVP_CIPHER_set_asn1_iv(ptr noundef, ptr noundef) #2
 declare i32 @EVP_CIPHER_get_asn1_iv(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @des_ctrl(ptr nocapture readnone %c, i32 noundef %type, i32 %arg, ptr noundef %ptr) #1 {
+define internal range(i32 -1, 2) i32 @des_ctrl(ptr nocapture readnone %c, i32 noundef %type, i32 %arg, ptr noundef %ptr) #1 {
 entry:
   %cond = icmp eq i32 %type, 6
   br i1 %cond, label %sw.bb, label %return
@@ -344,7 +344,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %and17 = zext i8 %5 to i32
   %shr20 = lshr exact i32 %and17, %2
   %or = or i32 %shr20, %and14
-  %conv21 = trunc i32 %or to i8
+  %conv21 = trunc nuw i32 %or to i8
   store i8 %conv21, ptr %arrayidx10, align 1
   %inc = add nuw i64 %n.028, 1
   %exitcond.not = icmp eq i64 %inc, %umax

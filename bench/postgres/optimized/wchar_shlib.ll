@@ -89,7 +89,7 @@ define noundef ptr @unicode_to_utf8(i32 noundef %0, ptr noundef returned writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @pg_utf_mblen(ptr nocapture noundef readonly %0) #1 {
+define range(i32 1, 5) i32 @pg_utf_mblen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = icmp sgt i8 %2, -1
@@ -117,7 +117,7 @@ define i32 @pg_utf_mblen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @utf8_to_unicode(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 -1, 2097152) i32 @utf8_to_unicode(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = icmp sgt i8 %2, -1
@@ -187,7 +187,7 @@ define i32 @utf8_to_unicode(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @pg_mule_mblen(ptr nocapture noundef readonly %0) #1 {
+define range(i32 1, 5) i32 @pg_mule_mblen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %3 = add i8 %2, 127
   %or.cond = icmp ult i8 %3, 13
@@ -348,7 +348,7 @@ define internal noundef i32 @pg_ascii_mblen(ptr nocapture readnone %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_ascii_dsplen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 -1, 2) i32 @pg_ascii_dsplen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 0
   %4 = icmp ult i8 %2, 32
@@ -555,7 +555,7 @@ define internal i32 @pg_wchar2euc_with_len(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @pg_eucjp_mblen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 1, 4) i32 @pg_eucjp_mblen(ptr nocapture noundef readonly %0) #1 {
   %.val = load i8, ptr %0, align 1
   switch i8 %.val, label %3 [
     i8 -114, label %pg_euc_mblen.exit
@@ -576,7 +576,7 @@ pg_euc_mblen.exit:                                ; preds = %1, %2, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @pg_eucjp_dsplen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 -1, 3) i32 @pg_eucjp_dsplen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %4 [
     i8 -114, label %9
@@ -605,7 +605,7 @@ define internal noundef i32 @pg_eucjp_dsplen(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @pg_eucjp_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
+define internal range(i32 -1, 4) i32 @pg_eucjp_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
   %3 = getelementptr i8, ptr %0, i64 1
   %4 = load i8, ptr %0, align 1
   switch i8 %4, label %19 [
@@ -832,7 +832,7 @@ define internal i32 @pg_euccn2wchar_with_len(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_euccn_mblen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 1, 3) i32 @pg_euccn_mblen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp sgt i8 %2, -1
   %. = select i1 %.not, i32 1, i32 2
@@ -840,7 +840,7 @@ define internal i32 @pg_euccn_mblen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_euccn_dsplen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 -1, 3) i32 @pg_euccn_dsplen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp sgt i8 %2, -1
   br i1 %.not, label %3, label %7
@@ -860,7 +860,7 @@ define internal i32 @pg_euccn_dsplen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_euckr_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
+define internal range(i32 -1, 3) i32 @pg_euckr_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
   %3 = getelementptr i8, ptr %0, i64 1
   %4 = load i8, ptr %0, align 1
   %.not = icmp sgt i8 %4, -1
@@ -1020,7 +1020,7 @@ pg_euc2wchar_with_len.exit:                       ; preds = %.lr.ph.i, %37, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @pg_euckr_mblen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 1, 4) i32 @pg_euckr_mblen(ptr nocapture noundef readonly %0) #1 {
   %.val = load i8, ptr %0, align 1
   switch i8 %.val, label %3 [
     i8 -114, label %pg_euc_mblen.exit
@@ -1041,7 +1041,7 @@ pg_euc_mblen.exit:                                ; preds = %1, %2, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_euckr_dsplen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 -1, 3) i32 @pg_euckr_dsplen(ptr nocapture noundef readonly %0) #1 {
   %.val = load i8, ptr %0, align 1
   %or.cond.not.not.i = icmp sgt i8 %.val, -1
   br i1 %or.cond.not.not.i, label %2, label %pg_euc_dsplen.exit
@@ -1153,7 +1153,7 @@ define internal i32 @pg_euctw2wchar_with_len(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @pg_euctw_mblen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 1, 5) i32 @pg_euctw_mblen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %4 [
     i8 -114, label %5
@@ -1174,7 +1174,7 @@ define internal noundef i32 @pg_euctw_mblen(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_euctw_dsplen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 -1, 3) i32 @pg_euctw_dsplen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %or.cond.not.not = icmp sgt i8 %2, -1
   br i1 %or.cond.not.not, label %3, label %7
@@ -1194,7 +1194,7 @@ define internal i32 @pg_euctw_dsplen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @pg_euctw_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
+define internal range(i32 -1, 5) i32 @pg_euctw_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
   %3 = getelementptr i8, ptr %0, i64 1
   %4 = load i8, ptr %0, align 1
   switch i8 %4, label %18 [
@@ -1559,7 +1559,7 @@ pg_utf_mblen.exit:                                ; preds = %unicode_to_utf8.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal noundef i32 @pg_utf_dsplen(ptr nocapture noundef readonly %0) #6 {
+define internal range(i32 -1, 3) i32 @pg_utf_dsplen(ptr nocapture noundef readonly %0) #6 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = icmp sgt i8 %2, -1
@@ -1717,7 +1717,7 @@ ucs_wcwidth.exit:                                 ; preds = %63, %79, %84, %23, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_utf8_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
+define internal range(i32 -1, 5) i32 @pg_utf8_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i32
   %5 = icmp sgt i8 %3, -1
@@ -1899,7 +1899,7 @@ pg_utf_mblen.exit.thread:                         ; preds = %39, %34, %.fold.spl
   br i1 %62, label %pg_utf8_verifychar.exit.thread, label %63
 
 63:                                               ; preds = %61
-  %64 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull %.355, i32 noundef %.0.i34)
+  %64 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull readonly %.355, i32 noundef %.0.i34)
   br i1 %64, label %pg_utf8_verifychar.exit, label %pg_utf8_verifychar.exit.thread
 
 pg_utf8_verifychar.exit:                          ; preds = %63, %49
@@ -2191,7 +2191,7 @@ define internal i32 @pg_wchar2mule_with_len(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_mule_dsplen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 1, 3) i32 @pg_mule_dsplen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %3 = add i8 %2, 127
   %or.cond = icmp ult i8 %3, 13
@@ -2216,7 +2216,7 @@ define internal i32 @pg_mule_dsplen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @pg_mule_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
+define internal range(i32 -1, 5) i32 @pg_mule_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
   %3 = load i8, ptr %0, align 1
   %4 = add i8 %3, 127
   %or.cond.i = icmp ult i8 %4, 13
@@ -2362,7 +2362,7 @@ define internal noundef i32 @pg_latin1_mblen(ptr nocapture readnone %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_latin1_dsplen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 -1, 2) i32 @pg_latin1_dsplen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 0
   %4 = icmp ult i8 %2, 32
@@ -2392,7 +2392,7 @@ define internal i32 @pg_latin1_verifystr(ptr noundef %0, i32 noundef %1) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_sjis_mblen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 1, 3) i32 @pg_sjis_mblen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %3 = add i8 %2, 95
   %or.cond = icmp ult i8 %3, 63
@@ -2403,7 +2403,7 @@ define internal i32 @pg_sjis_mblen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_sjis_dsplen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 -1, 3) i32 @pg_sjis_dsplen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %3 = add i8 %2, 95
   %or.cond = icmp ult i8 %3, 63
@@ -2428,7 +2428,7 @@ define internal i32 @pg_sjis_dsplen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_sjis_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
+define internal range(i32 -1, 3) i32 @pg_sjis_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1
   %4 = add i8 %3, 95
   %or.cond.i = icmp ult i8 %4, 63
@@ -2525,7 +2525,7 @@ pg_sjis_verifychar.exit.thread:                   ; preds = %pg_sjis_verifychar.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_big5_mblen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 1, 3) i32 @pg_big5_mblen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp sgt i8 %2, -1
   %. = select i1 %.not, i32 1, i32 2
@@ -2533,7 +2533,7 @@ define internal i32 @pg_big5_mblen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_big5_dsplen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 -1, 3) i32 @pg_big5_dsplen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp sgt i8 %2, -1
   br i1 %.not, label %3, label %7
@@ -2553,7 +2553,7 @@ define internal i32 @pg_big5_dsplen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @pg_big5_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
+define internal range(i32 -1, 3) i32 @pg_big5_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
   %3 = load i8, ptr %0, align 1
   %.not.i = icmp slt i8 %3, 0
   %..i = select i1 %.not.i, i32 2, i32 1
@@ -2625,7 +2625,7 @@ pg_big5_verifychar.exit.thread:                   ; preds = %pg_big5_verifychar.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_gbk_mblen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 1, 3) i32 @pg_gbk_mblen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp sgt i8 %2, -1
   %. = select i1 %.not, i32 1, i32 2
@@ -2633,7 +2633,7 @@ define internal i32 @pg_gbk_mblen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_gbk_dsplen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 -1, 3) i32 @pg_gbk_dsplen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp sgt i8 %2, -1
   br i1 %.not, label %3, label %7
@@ -2653,7 +2653,7 @@ define internal i32 @pg_gbk_dsplen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @pg_gbk_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
+define internal range(i32 -1, 3) i32 @pg_gbk_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
   %3 = load i8, ptr %0, align 1
   %.not.i = icmp slt i8 %3, 0
   %..i = select i1 %.not.i, i32 2, i32 1
@@ -2725,7 +2725,7 @@ pg_gbk_verifychar.exit.thread:                    ; preds = %pg_gbk_verifychar.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_uhc_mblen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 1, 3) i32 @pg_uhc_mblen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp sgt i8 %2, -1
   %. = select i1 %.not, i32 1, i32 2
@@ -2733,7 +2733,7 @@ define internal i32 @pg_uhc_mblen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_uhc_dsplen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 -1, 3) i32 @pg_uhc_dsplen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp sgt i8 %2, -1
   br i1 %.not, label %3, label %7
@@ -2753,7 +2753,7 @@ define internal i32 @pg_uhc_dsplen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @pg_uhc_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
+define internal range(i32 -1, 3) i32 @pg_uhc_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
   %3 = load i8, ptr %0, align 1
   %.not.i = icmp slt i8 %3, 0
   %..i = select i1 %.not.i, i32 2, i32 1
@@ -2825,7 +2825,7 @@ pg_uhc_verifychar.exit.thread:                    ; preds = %pg_uhc_verifychar.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_gb18030_mblen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 1, 5) i32 @pg_gb18030_mblen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp sgt i8 %2, -1
   br i1 %.not, label %7, label %3
@@ -2844,7 +2844,7 @@ define internal i32 @pg_gb18030_mblen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_gb18030_dsplen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 -1, 3) i32 @pg_gb18030_dsplen(ptr nocapture noundef readonly %0) #1 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp sgt i8 %2, -1
   br i1 %.not, label %3, label %7
@@ -2864,7 +2864,7 @@ define internal i32 @pg_gb18030_dsplen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_gb18030_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
+define internal range(i32 -1, 5) i32 @pg_gb18030_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1
   %.not = icmp sgt i8 %3, -1
   br i1 %.not, label %27, label %4
@@ -3014,7 +3014,7 @@ pg_gb18030_verifychar.exit.thread:                ; preds = %pg_gb18030_verifych
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @pg_johab_mblen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 1, 4) i32 @pg_johab_mblen(ptr nocapture noundef readonly %0) #1 {
   %.val = load i8, ptr %0, align 1
   switch i8 %.val, label %3 [
     i8 -114, label %pg_euc_mblen.exit
@@ -3035,7 +3035,7 @@ pg_euc_mblen.exit:                                ; preds = %1, %2, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pg_johab_dsplen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 -1, 3) i32 @pg_johab_dsplen(ptr nocapture noundef readonly %0) #1 {
   %.val = load i8, ptr %0, align 1
   %or.cond.not.not.i = icmp sgt i8 %.val, -1
   br i1 %or.cond.not.not.i, label %2, label %pg_euc_dsplen.exit
@@ -3055,7 +3055,7 @@ pg_euc_dsplen.exit:                               ; preds = %1, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @pg_johab_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
+define internal range(i32 -1, 4) i32 @pg_johab_verifychar(ptr nocapture noundef readonly %0, i32 noundef %1) #5 {
   %.val.i = load i8, ptr %0, align 1
   switch i8 %.val.i, label %4 [
     i8 -114, label %pg_johab_mblen.exit

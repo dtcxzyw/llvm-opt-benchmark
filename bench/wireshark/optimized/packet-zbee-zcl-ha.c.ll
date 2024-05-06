@@ -503,7 +503,7 @@ define internal i32 @dissect_zbee_zcl_appl_evtalt(ptr noundef %0, ptr nocapture 
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %45 = getelementptr [15 x i32], ptr @ett_zbee_zcl_appl_evtalt_alerts_struct, i64 0, i64 %indvars.iv.i
   %46 = load i32, ptr %45, align 4
-  %47 = trunc i64 %indvars.iv.i to i32
+  %47 = trunc nuw nsw i64 %indvars.iv.i to i32
   %48 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %37, ptr noundef %0, i32 noundef %.051, i32 noundef 1, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.121, i32 noundef %47) #4
   %49 = load i32, ptr @hf_zbee_zcl_appl_evtalt_alert_id, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %0, i32 noundef %.051, i32 noundef 3, i32 noundef 0) #4

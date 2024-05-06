@@ -614,7 +614,7 @@ entry._ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit_crit_edge: ;
 
 if.then.i:                                        ; preds = %entry
   %call.i12 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call.i12, i8 0, i64 24, i1 false)
   store ptr %call.i12, ptr @_ZN4absl12log_internal12_GLOBAL__N_112vmodule_infoE, align 8
   br label %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit
 
@@ -1262,7 +1262,7 @@ if.then.i48:                                      ; preds = %invoke.cont22
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %if.then.i48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i49, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call.i49, i8 0, i64 24, i1 false)
   store ptr %call.i49, ptr @_ZN4absl12log_internal12_GLOBAL__N_112vmodule_infoE, align 8
   br label %invoke.cont23
 
@@ -1318,7 +1318,7 @@ if.then.i.i67:                                    ; preds = %for.body33
           to label %call.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i.i.noexc:                                   ; preds = %if.then.i.i67
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i68, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call.i.i68, i8 0, i64 24, i1 false)
   store ptr %call.i.i68, ptr @_ZN4absl12log_internal12_GLOBAL__N_112vmodule_infoE, align 8
   br label %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit.i
 
@@ -1375,7 +1375,7 @@ if.then.i7.i:                                     ; preds = %_ZN4absl12log_inter
           to label %call.i8.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i8.i.noexc:                                  ; preds = %if.then.i7.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i8.i70, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call.i8.i70, i8 0, i64 24, i1 false)
   store ptr %call.i8.i70, ptr @_ZN4absl12log_internal12_GLOBAL__N_112vmodule_infoE, align 8
   br label %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit9.i
 
@@ -1402,7 +1402,7 @@ invoke.cont.i:                                    ; preds = %_ZN4absl12log_inter
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i11.i
 
 if.then.i11.i:                                    ; preds = %invoke.cont.i
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull align 4 dereferenceable(4) %log_level.addr.i)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
           to label %.noexc.i unwind label %lpad15.i
 
 .noexc.i:                                         ; preds = %if.then.i11.i
@@ -1412,7 +1412,7 @@ if.then.i11.i:                                    ; preds = %invoke.cont.i
   br label %invoke.cont16.i
 
 if.else.i.i:                                      ; preds = %invoke.cont.i
-  invoke fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr %38, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull align 4 dereferenceable(4) %log_level.addr.i)
+  invoke fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr %38, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
           to label %invoke.cont16.i unwind label %lpad15.i
 
 invoke.cont16.i:                                  ; preds = %if.else.i.i, %.noexc.i
@@ -1548,7 +1548,7 @@ entry._ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit_crit_edge.i:
 
 if.then.i.i:                                      ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit
   %call.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call.i.i, i8 0, i64 24, i1 false)
   store ptr %call.i.i, ptr @_ZN4absl12log_internal12_GLOBAL__N_112vmodule_infoE, align 8
   br label %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit.i
 
@@ -1610,7 +1610,7 @@ _ZN4absl12log_internal12_GLOBAL__N_112ModuleIsPathESt17basic_string_viewIcSt11ch
 
 if.then.i8.i:                                     ; preds = %_ZN4absl12log_internal12_GLOBAL__N_112ModuleIsPathESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
   %call.i9.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i9.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call.i9.i, i8 0, i64 24, i1 false)
   store ptr %call.i9.i, ptr @_ZN4absl12log_internal12_GLOBAL__N_112vmodule_infoE, align 8
   br label %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit14.i
 
@@ -1648,7 +1648,7 @@ if.then.i.i16.i:                                  ; preds = %invoke.cont.i
   br i1 %cmp.i.i.i.i, label %if.then13.i.i.i, label %if.else.i.i.i
 
 if.then13.i.i.i:                                  ; preds = %if.then.i.i16.i
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull align 4 dereferenceable(4) %log_level.addr.i)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
           to label %.noexc.i unwind label %lpad21.i
 
 .noexc.i:                                         ; preds = %if.then13.i.i.i
@@ -1661,7 +1661,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i16.i
   store ptr %12, ptr %__tmp.i.i.i, align 8
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i, i64 8
   store i8 0, ptr %_M_storage.i.i.i.i, align 8
-  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef nonnull %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull align 4 dereferenceable(4) %log_level.addr.i)
+  invoke fastcc void @_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE9constructIS3_JNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvRS4_PT_DpOT0_(ptr noundef nonnull %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
           to label %.noexc17.i unwind label %lpad21.i
 
 .noexc17.i:                                       ; preds = %if.else.i.i.i
@@ -1714,7 +1714,7 @@ invoke.cont.i.i.i:                                ; preds = %for.body.i.i.i.i.i.
 
 if.else26.i.i.i:                                  ; preds = %invoke.cont.i
   %add.ptr.i16.i.i.i = getelementptr inbounds i8, ptr %this.val10.i.i.i, i64 %sub.ptr.sub.i.i.i.i
-  invoke fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %add.ptr.i16.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull align 4 dereferenceable(4) %log_level.addr.i)
+  invoke fastcc void @_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %add.ptr.i16.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %module_is_path.i, ptr noundef nonnull readonly align 4 dereferenceable(4) %log_level.addr.i)
           to label %invoke.cont22.i unwind label %lpad21.i
 
 invoke.cont22.i:                                  ; preds = %if.else26.i.i.i, %invoke.cont.i.i.i, %.noexc.i
@@ -1729,7 +1729,7 @@ invoke.cont22.i:                                  ; preds = %if.else26.i.i.i, %i
 
 if.then.i20.i:                                    ; preds = %invoke.cont22.i
   %call.i21.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i21.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call.i21.i, i8 0, i64 24, i1 false)
   store ptr %call.i21.i, ptr @_ZN4absl12log_internal12_GLOBAL__N_112vmodule_infoE, align 8
   br label %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit27.i
 
@@ -1873,7 +1873,7 @@ for.inc.i.i.i:                                    ; preds = %if.then13.i.i30.i, 
 
 if.then.i33.i:                                    ; preds = %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN4absl12log_internal12_GLOBAL__N_111VModuleInfoESt6vectorIS5_SaIS5_EEEEZNS4_20PrependVModuleLockedESt17basic_string_viewIcSt11char_traitsIcEEiE3$_0ET_SG_SG_T0_.exit.i"
   %call.i34.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i34.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call.i34.i, i8 0, i64 24, i1 false)
   store ptr %call.i34.i, ptr @_ZN4absl12log_internal12_GLOBAL__N_112vmodule_infoE, align 8
   br label %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit35.i
 

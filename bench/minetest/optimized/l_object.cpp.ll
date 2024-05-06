@@ -332,16 +332,16 @@ $_ZTV13BaseException = comdat any
 @.str.11 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.12 = private unnamed_addr constant [21 x i8] c"Server shutting down\00", align 1
 @.str.13 = private unnamed_addr constant [77 x i8] c"The server has experienced an internal error.  You will now be disconnected.\00", align 1
-@verbosestream = external thread_local global %class.LogStream, align 8
+@verbosestream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.14 = private unnamed_addr constant [27 x i8] c"ObjectRef::l_remove(): id=\00", align 1
 @.str.15 = private unnamed_addr constant [5 x i8] c"type\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.16 = private unnamed_addr constant [16 x i8] c"Bad type given!\00", align 1
 @g_settings = external local_unnamed_addr global ptr, align 8
 @.str.17 = private unnamed_addr constant [14 x i8] c"enable_damage\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.19 = private unnamed_addr constant [79 x i8] c"Mod tried to enable damage for a player, but it's disabled globally. Ignoring.\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.20 = private unnamed_addr constant [68 x i8] c"Deprecated call to set_bone_position, use set_bone_override instead\00", align 1
 @.str.21 = private unnamed_addr constant [68 x i8] c"Deprecated call to get_bone_position, use get_bone_override instead\00", align 1
 @.str.22 = private unnamed_addr constant [9 x i8] c"position\00", align 1
@@ -1142,7 +1142,7 @@ declare noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef) local_unnam
 declare void @_ZN18ServerActiveObject14markForRemovalEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef9l_get_posEP9lua_State(ptr noundef %L) #9 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef9l_get_posEP9lua_State(ptr noundef %L) #9 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -1297,7 +1297,7 @@ cleanup:                                          ; preds = %if.end, %land.lhs.t
 declare noundef zeroext i1 @_ZN9LuaHelper9readParamIbEET_P9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef7l_punchEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef7l_punchEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %toolcap = alloca %struct.ToolCapabilities, align 8
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
@@ -1980,7 +1980,7 @@ cleanup:                                          ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef15l_get_inventoryEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef15l_get_inventoryEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %loc = alloca %struct.InventoryLocation, align 8
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
@@ -2085,7 +2085,7 @@ declare void @_ZN6InvRef6createEP9lua_StateRK17InventoryLocation(ptr noundef, pt
 declare void @lua_pushnil(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef16l_get_wield_listEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef16l_get_wield_listEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
@@ -2166,7 +2166,7 @@ cleanup:                                          ; preds = %_ZNSt7__cxx1112basi
 declare void @lua_pushstring(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef17l_get_wield_indexEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef17l_get_wield_indexEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -2410,7 +2410,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef18l_set_wielded_itemEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef18l_set_wielded_itemEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %item = alloca %struct.ItemStack, align 8
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
@@ -3083,7 +3083,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef18l_get_armor_groupsEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef18l_get_armor_groupsEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -3187,7 +3187,7 @@ cleanup:                                          ; preds = %_ZN9LuaHelper9readP
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef15l_get_animationEP9lua_State(ptr noundef %L) #9 align 2 {
+define dso_local noundef range(i32 0, 5) i32 @_ZN9ObjectRef15l_get_animationEP9lua_State(ptr noundef %L) #9 align 2 {
 entry:
   %frames = alloca %"class.irr::core::vector2d.50", align 8
   %frame_speed = alloca float, align 4
@@ -3349,7 +3349,7 @@ declare i64 @_Z10read_v2s32P9lua_Statei(ptr noundef, i32 noundef) local_unnamed_
 declare void @_ZN6Server24setLocalPlayerAnimationsEP12RemotePlayerPN3irr4core8vector2dIiEEf(ptr noundef nonnull align 8 dereferenceable(1640), ptr noundef, ptr noundef, float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef21l_get_local_animationEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 6) i32 @_ZN9ObjectRef21l_get_local_animationEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -3569,7 +3569,7 @@ cleanup:                                          ; preds = %"_ZZN9ObjectRef16l_
 declare void @_ZN6Server18setPlayerEyeOffsetEP12RemotePlayerN3irr4core8vector3dIfEES5_S5_(ptr noundef nonnull align 8 dereferenceable(1640), ptr noundef, <2 x float>, float, <2 x float>, float, <2 x float>, float) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef16l_get_eye_offsetEP9lua_State(ptr noundef %L) #9 align 2 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN9ObjectRef16l_get_eye_offsetEP9lua_State(ptr noundef %L) #9 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -3624,7 +3624,7 @@ cleanup:                                          ; preds = %if.end, %_ZN9Object
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef15l_send_mapblockEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef15l_send_mapblockEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %pos = alloca %"class.irr::core::vector3d", align 8
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
@@ -3679,7 +3679,7 @@ declare i48 @_Z10read_v3s16P9lua_Statei(ptr noundef, i32 noundef) local_unnamed_
 declare noundef zeroext i1 @_ZN6Server9SendBlockEtRKN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(1640), i16 noundef zeroext, ptr noundef nonnull align 2 dereferenceable(6)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef27l_set_animation_frame_speedEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef27l_set_animation_frame_speedEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -4117,7 +4117,7 @@ declare void @_Z14log_deprecatedP9lua_StateNSt7__cxx1112basic_stringIcSt11char_t
 declare { <2 x float>, float } @_Z9check_v3fP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef19l_get_bone_positionEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN9ObjectRef19l_get_bone_positionEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -4932,7 +4932,7 @@ cleanup80:                                        ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef19l_get_bone_overrideEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef19l_get_bone_overrideEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bone = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %struct.BoneOverride, align 4
@@ -5085,7 +5085,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef20l_get_bone_overridesEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef20l_get_bone_overridesEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -5817,7 +5817,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef12l_get_attachEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 6) i32 @_ZN9ObjectRef12l_get_attachEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parent_id = alloca i32, align 4
   %bone = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6050,7 +6050,7 @@ declare void @_ZN13ScriptApiBase20objectrefGetOrCreateEP9lua_StateP18ServerActiv
 declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef14l_get_childrenEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef14l_get_childrenEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__alloc_node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.544", align 8
   %child_ids = alloca %"class.std::unordered_set.51", align 8
@@ -7383,7 +7383,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef16l_get_propertiesEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef16l_get_propertiesEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -7682,7 +7682,7 @@ declare i32 @lua_toboolean(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare void @_Z22getstringfield_defaultP9lua_StateiPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef24l_get_nametag_attributesEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef24l_get_nametag_attributesEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -7862,7 +7862,7 @@ declare void @_ZN6Server15SendPlayerSpeedEtRKN3irr4core8vector3dIfEE(ptr noundef
 declare noundef zeroext i16 @_ZNK9PlayerSAO9getPeerIDEv(ptr noundef nonnull align 8 dereferenceable(1089)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef14l_get_velocityEP9lua_State(ptr noundef %L) #9 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef14l_get_velocityEP9lua_State(ptr noundef %L) #9 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -7968,7 +7968,7 @@ cleanup:                                          ; preds = %if.end, %if.end.i, 
 declare void @_ZN12LuaEntitySAO15setAccelerationEN3irr4core8vector3dIfEE(ptr noundef nonnull align 8 dereferenceable(1025), <2 x float>, float) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef18l_get_accelerationEP9lua_State(ptr noundef %L) #9 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef18l_get_accelerationEP9lua_State(ptr noundef %L) #9 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -8050,7 +8050,7 @@ cleanup:                                          ; preds = %if.end, %if.end.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef14l_get_rotationEP9lua_State(ptr noundef %L) #9 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef14l_get_rotationEP9lua_State(ptr noundef %L) #9 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -8132,7 +8132,7 @@ cleanup:                                          ; preds = %if.end, %if.end.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef9l_get_yawEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef9l_get_yawEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -8254,7 +8254,7 @@ cleanup:                                          ; preds = %_ZNSt7__cxx1112basi
 declare void @_ZN12LuaEntitySAO13setTextureModERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1025), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef17l_get_texture_modEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef17l_get_texture_modEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mod = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
@@ -8415,7 +8415,7 @@ cleanup:                                          ; preds = %_ZN9LuaHelper9readP
 declare void @_ZN12LuaEntitySAO9setSpriteEN3irr4core8vector2dIsEEifb(ptr noundef nonnull align 8 dereferenceable(1025), i32, i32 noundef, float noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef17l_get_entity_nameEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef17l_get_entity_nameEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8562,7 +8562,7 @@ ehcleanup10:                                      ; preds = %_ZNSt7__cxx1112basi
 declare void @_ZN12LuaEntitySAO7getNameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(1025)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef15l_get_luaentityEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef15l_get_luaentityEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -8646,7 +8646,7 @@ cleanup:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef14l_get_look_dirEP9lua_State(ptr noundef %L) #9 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef14l_get_look_dirEP9lua_State(ptr noundef %L) #9 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -8698,7 +8698,7 @@ cleanup:                                          ; preds = %if.end, %if.end.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef16l_get_look_pitchEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef16l_get_look_pitchEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8792,7 +8792,7 @@ cleanup:                                          ; preds = %if.end, %if.end.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef14l_get_look_yawEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef14l_get_look_yawEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8889,7 +8889,7 @@ cleanup:                                          ; preds = %if.end, %if.end.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef19l_get_look_verticalEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef19l_get_look_verticalEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -8928,7 +8928,7 @@ cleanup:                                          ; preds = %if.end, %if.end.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef21l_get_look_horizontalEP9lua_State(ptr noundef %L) #9 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef21l_get_look_horizontalEP9lua_State(ptr noundef %L) #9 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -9317,7 +9317,7 @@ declare i32 @lua_isnumber(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare void @_ZN6Server13SendPlayerFovEt(ptr noundef nonnull align 8 dereferenceable(1640), i16 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef9l_get_fovEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN9ObjectRef9l_get_fovEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -9409,7 +9409,7 @@ declare double @luaL_checknumber(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare void @_ZN9PlayerSAO9setBreathEtb(ptr noundef nonnull align 8 dereferenceable(1089), i16 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef12l_get_breathEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef12l_get_breathEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -9447,7 +9447,7 @@ cleanup:                                          ; preds = %if.end, %if.end.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef15l_set_attributeEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef15l_set_attributeEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i82 = alloca i64, align 8
   %__dnew.i.i66 = alloca i64, align 8
@@ -9784,7 +9784,7 @@ eh.resume:                                        ; preds = %ehcleanup40, %if.th
 declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef15l_get_attributeEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef15l_get_attributeEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i48 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -10033,7 +10033,7 @@ eh.resume:                                        ; preds = %ehcleanup26, %if.th
 declare noundef zeroext i1 @_ZNK9IMetadata14getStringToRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_t(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i16 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef10l_get_metaEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef10l_get_metaEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -10224,7 +10224,7 @@ declare { i64, ptr } @_ZN9LuaHelper9readParamISt17basic_string_viewIcSt11char_tr
 declare void @_ZN6Server31reportInventoryFormspecModifiedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1640), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef24l_get_inventory_formspecEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef24l_get_inventory_formspecEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -10416,7 +10416,7 @@ cleanup:                                          ; preds = %_ZNSt7__cxx1112basi
 declare void @_ZN6Server29reportFormspecPrependModifiedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1640), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef22l_get_formspec_prependEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef22l_get_formspec_prependEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -10782,7 +10782,7 @@ declare noundef zeroext i1 @_Z13getfloatfieldP9lua_StateiPKcRf(ptr noundef, i32 
 declare noundef zeroext i1 @_Z12getboolfieldP9lua_StateiPKcRb(ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef22l_get_physics_overrideEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef22l_get_physics_overrideEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -10888,7 +10888,7 @@ cleanup:                                          ; preds = %if.end, %_ZN9Object
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef9l_hud_addEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef9l_hud_addEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -11018,7 +11018,7 @@ declare void @_Z16read_hud_elementP9lua_StateP10HudElement(ptr noundef, ptr noun
 declare noundef i32 @_ZN6Server6hudAddEP12RemotePlayerP10HudElement(ptr noundef nonnull align 8 dereferenceable(1640), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef12l_hud_removeEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef12l_hud_removeEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -11070,7 +11070,7 @@ declare i64 @luaL_checkinteger(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare noundef zeroext i1 @_ZN6Server9hudRemoveEP12RemotePlayerj(ptr noundef nonnull align 8 dereferenceable(1640), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef12l_hud_changeEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef12l_hud_changeEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %stat = alloca i8, align 1
   %value = alloca ptr, align 8
@@ -11143,7 +11143,7 @@ declare noundef zeroext i1 @_Z15read_hud_changeP9lua_StateR14HudElementStatP10Hu
 declare noundef zeroext i1 @_ZN6Server9hudChangeEP12RemotePlayerj14HudElementStatPv(ptr noundef nonnull align 8 dereferenceable(1640), ptr noundef, i32 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef9l_hud_getEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef9l_hud_getEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -11193,7 +11193,7 @@ cleanup8:                                         ; preds = %if.end6, %if.end, %
 declare void @_Z16push_hud_elementP9lua_StateP10HudElement(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef13l_hud_get_allEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef13l_hud_get_allEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %L.addr = alloca ptr, align 8
   %agg.tmp = alloca %"class.std::function.463", align 8
@@ -11365,7 +11365,7 @@ cleanup22:                                        ; preds = %for.cond.cleanup, %
 declare noundef zeroext i1 @_ZN6Server11hudSetFlagsEP12RemotePlayerjj(ptr noundef nonnull align 8 dereferenceable(1640), ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef15l_hud_get_flagsEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef15l_hud_get_flagsEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -11430,7 +11430,7 @@ cleanup:                                          ; preds = %for.body, %if.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef26l_hud_set_hotbar_itemcountEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef26l_hud_set_hotbar_itemcountEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -11480,7 +11480,7 @@ cleanup7:                                         ; preds = %if.end6, %if.end, %
 declare noundef zeroext i1 @_ZN6Server21hudSetHotbarItemcountEP12RemotePlayeri(ptr noundef nonnull align 8 dereferenceable(1640), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef26l_hud_get_hotbar_itemcountEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef26l_hud_get_hotbar_itemcountEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -11524,7 +11524,7 @@ cleanup:                                          ; preds = %if.end, %_ZN9Object
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef22l_hud_set_hotbar_imageEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef22l_hud_set_hotbar_imageEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
@@ -11618,7 +11618,7 @@ cleanup:                                          ; preds = %_ZNSt7__cxx1112basi
 declare void @_ZN6Server17hudSetHotbarImageEP12RemotePlayerRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1640), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef22l_hud_get_hotbar_imageEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef22l_hud_get_hotbar_imageEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -11663,7 +11663,7 @@ cleanup:                                          ; preds = %if.end, %_ZN9Object
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef31l_hud_set_hotbar_selected_imageEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef31l_hud_set_hotbar_selected_imageEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
@@ -11757,7 +11757,7 @@ cleanup:                                          ; preds = %_ZNSt7__cxx1112basi
 declare void @_ZN6Server25hudSetHotbarSelectedImageEP12RemotePlayerRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1640), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef31l_hud_get_hotbar_selected_imageEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef31l_hud_get_hotbar_selected_imageEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -13898,7 +13898,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %if.
 declare void @_ZN6Server6setSkyEP12RemotePlayerRK12SkyboxParams(ptr noundef nonnull align 8 dereferenceable(1640), ptr noundef, ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef9l_get_skyEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 5) i32 @_ZN9ObjectRef9l_get_skyEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14165,7 +14165,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef15l_get_sky_colorEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef15l_get_sky_colorEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14887,7 +14887,7 @@ cleanup:                                          ; preds = %_ZN9SunParamsD2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef9l_get_sunEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef9l_get_sunEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -15405,7 +15405,7 @@ cleanup:                                          ; preds = %_ZN10MoonParamsD2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef10l_get_moonEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef10l_get_moonEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -15558,7 +15558,7 @@ cleanup:                                          ; preds = %if.end19, %_ZN9Obje
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef11l_get_starsEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef11l_get_starsEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -15745,7 +15745,7 @@ cleanup:                                          ; preds = %if.end28, %_ZN9Obje
 declare void @_ZN6Server9setCloudsEP12RemotePlayerRK11CloudParams(ptr noundef nonnull align 8 dereferenceable(1640), ptr noundef, ptr noundef nonnull align 4 dereferenceable(28)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef12l_get_cloudsEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef12l_get_cloudsEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -15883,7 +15883,7 @@ declare i32 @luaL_argerror(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare void @_ZN6Server21overrideDayNightRatioEP12RemotePlayerbf(ptr noundef nonnull align 8 dereferenceable(1640), ptr noundef, i1 noundef zeroext, float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef21l_get_day_night_ratioEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef21l_get_day_night_ratioEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -16983,7 +16983,7 @@ cleanup:                                          ; preds = %if.end54, %_ZN9Obje
 declare void @_ZN6Server11setLightingEP12RemotePlayerRK8Lighting(ptr noundef nonnull align 8 dereferenceable(1640), ptr noundef, ptr noundef nonnull align 4 dereferenceable(36)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef14l_get_lightingEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef14l_get_lightingEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80
@@ -17075,7 +17075,7 @@ cleanup:                                          ; preds = %if.end, %_ZN9Object
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9ObjectRef9l_respawnEP9lua_State(ptr noundef %L) #4 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9ObjectRef9l_respawnEP9lua_State(ptr noundef %L) #4 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN9ObjectRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !80

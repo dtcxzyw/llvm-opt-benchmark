@@ -235,7 +235,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7518UnicodeSetIterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7518UnicodeSetIterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #1 align 2 {
 entry:
   %nextElement = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %nextElement, align 4
@@ -329,7 +329,7 @@ entry:
 declare noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7518UnicodeSetIterator9nextRangeEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7518UnicodeSetIterator9nextRangeEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #1 align 2 {
 entry:
   %string = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %string, align 8

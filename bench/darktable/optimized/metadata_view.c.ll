@@ -796,7 +796,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   br label %337
 
 331:                                              ; preds = %324
-  %332 = trunc i32 %327 to i8
+  %332 = trunc nuw nsw i32 %327 to i8
   %333 = or disjoint i8 %332, 48
   store i8 %333, ptr %325, align 1, !tbaa !64
   %334 = zext nneg i32 %327 to i64
@@ -2378,7 +2378,7 @@ define internal fastcc ptr @_get_current_configuration(ptr nocapture %0) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_params(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @set_params(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %9, label %5
 
@@ -2970,7 +2970,7 @@ declare i32 @g_type_check_instance_is_a(ptr noundef, i64 noundef) local_unnamed_
 declare i32 @g_signal_handlers_disconnect_matched(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_filmroll_clicked(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_filmroll_clicked(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
   %4 = load i32, ptr %1, align 8, !tbaa !111
   %5 = icmp eq i32 %4, 5
   br i1 %5, label %6, label %7

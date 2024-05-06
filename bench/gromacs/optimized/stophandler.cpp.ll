@@ -156,7 +156,7 @@ define void @_ZN3gmx19StopConditionSignalC2Eibi(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3gmx19StopConditionSignal9getSignalEP8_IO_FILE(ptr nocapture noundef nonnull align 4 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN3gmx19StopConditionSignal9getSignalEP8_IO_FILE(ptr nocapture noundef nonnull align 4 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef i32 @_Z22gmx_get_stop_conditionv()
   %4 = load i32, ptr %0, align 4
   %5 = icmp sgt i32 %3, %4
@@ -252,7 +252,7 @@ define void @_ZN3gmx17StopConditionTimeC2Eifi(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3gmx17StopConditionTime9getSignalEblP8_IO_FILEP23gmx_walltime_accounting(ptr nocapture noundef nonnull align 4 dereferenceable(20) %0, i1 noundef zeroext %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN3gmx17StopConditionTime9getSignalEblP8_IO_FILEP23gmx_walltime_accounting(ptr nocapture noundef nonnull align 4 dereferenceable(20) %0, i1 noundef zeroext %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
   %6 = alloca [22 x i8], align 16
   %7 = load i8, ptr %0, align 4
   %8 = trunc i8 %7 to i1
@@ -583,7 +583,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx19StopConditionSignal
 
 _ZNSt10shared_ptrIN3gmx19StopConditionSignalEEC2ERKS2_.exit: ; preds = %33, %36
   %38 = getelementptr inbounds i8, ptr %19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   %39 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
           to label %40 unwind label %94
 
@@ -783,7 +783,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3gmx17StopConditionTimeES
 
 _ZNSt10shared_ptrIN3gmx17StopConditionTimeEEC2ERKS2_.exit: ; preds = %114, %117
   %119 = getelementptr inbounds i8, ptr %21, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
   %120 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
           to label %121 unwind label %172
 
@@ -1442,12 +1442,12 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZNS0_18StopHandlerBuilder16getStopHandlerMDENS0_6compat8not_nullIPNS0_16SimulationSignalEEEbbibifbP8_IO_FILERKlRKbP23gmx_walltime_accountingE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) #2 align 2 {
+define internal noundef range(i32 -1, 2) i32 @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZNS0_18StopHandlerBuilder16getStopHandlerMDENS0_6compat8not_nullIPNS0_16SimulationSignalEEEbbibifbP8_IO_FILERKlRKbP23gmx_walltime_accountingE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) #2 align 2 {
   %.val = load ptr, ptr %0, align 8
   %.val1 = load ptr, ptr %.val, align 8
   %2 = getelementptr i8, ptr %.val, i64 16
   %.val2 = load ptr, ptr %2, align 8
-  %3 = tail call noundef i32 @_ZN3gmx19StopConditionSignal9getSignalEP8_IO_FILE(ptr noundef nonnull align 4 dereferenceable(16) %.val1, ptr noundef %.val2), !range !26
+  %3 = tail call noundef i32 @_ZN3gmx19StopConditionSignal9getSignalEP8_IO_FILE(ptr noundef nonnull align 4 dereferenceable(16) %.val1, ptr noundef %.val2)
   ret i32 %3
 }
 
@@ -1651,7 +1651,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZNS0_18StopHandlerBuilder16getStopHandlerMDENS0_6compat8not_nullIPNS0_16SimulationSignalEEEbbibifbP8_IO_FILERKlRKbP23gmx_walltime_accountingE3$_1E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) #2 align 2 {
+define internal noundef range(i32 0, 2) i32 @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZNS0_18StopHandlerBuilder16getStopHandlerMDENS0_6compat8not_nullIPNS0_16SimulationSignalEEEbbibifbP8_IO_FILERKlRKbP23gmx_walltime_accountingE3$_1E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) #2 align 2 {
   %.val = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %.val, align 8
   %3 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -1665,7 +1665,7 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFN3gmx10StopSignalEvEZNS0
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %.val, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef i32 @_ZN3gmx17StopConditionTime9getSignalEblP8_IO_FILEP23gmx_walltime_accounting(ptr noundef nonnull align 4 dereferenceable(20) %2, i1 noundef zeroext %6, i64 noundef %9, ptr noundef %11, ptr noundef %13), !range !27
+  %14 = tail call noundef i32 @_ZN3gmx17StopConditionTime9getSignalEblP8_IO_FILEP23gmx_walltime_accounting(ptr noundef nonnull align 4 dereferenceable(20) %2, i1 noundef zeroext %6, i64 noundef %9, ptr noundef %11, ptr noundef %13)
   ret i32 %14
 }
 
@@ -1722,7 +1722,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3gmx10StopSignal
 "_ZNSt14_Function_base13_Base_managerIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS1_6compat8not_nullIPNS1_16SimulationSignalEEEbbibifbP8_IO_FILERKlRKbP23gmx_walltime_accountingE3$_1E15_M_init_functorIRKSG_EEvRSt9_Any_dataOT_.exit.i": ; preds = %19, %16, %7
   %21 = getelementptr inbounds i8, ptr %8, i64 16
   %22 = getelementptr inbounds i8, ptr %.val6, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %21, ptr noundef nonnull readonly align 8 dereferenceable(32) %22, i64 32, i1 false)
   store ptr %8, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx18StopHandlerBuilder16getStopHandlerMDENS1_6compat8not_nullIPNS1_16SimulationSignalEEEbbibifbP8_IO_FILERKlRKbP23gmx_walltime_accountingE3$_1E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
@@ -1911,7 +1911,7 @@ _ZSt10_ConstructISt8functionIFN3gmx10StopSignalEvEEJRKS4_EEvPT_DpOT0_.exit: ; pr
   %22 = getelementptr inbounds i8, ptr %.sroa.08.013, i64 32
   %23 = getelementptr inbounds i8, ptr %.014, i64 32
   %.not = icmp eq ptr %22, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 .body:                                            ; preds = %14, %17
   %24 = extractvalue { ptr, i32 } %15, 0
@@ -2045,6 +2045,4 @@ attributes #20 = { noreturn nounwind }
 !23 = distinct !{!23, !24, !"_ZSt11make_sharedIN3gmx17StopConditionTimeEJRiRfS2_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: argument 0"}
 !24 = distinct !{!24, !"_ZSt11make_sharedIN3gmx17StopConditionTimeEJRiRfS2_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
 !25 = distinct !{!25, !12}
-!26 = !{i32 -1, i32 2}
-!27 = !{i32 0, i32 2}
-!28 = distinct !{!28, !12}
+!26 = distinct !{!26, !12}

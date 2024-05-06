@@ -112,7 +112,7 @@ _ZL12pj_get_paramP8ARG_listPKc.exit:              ; preds = %16, %16
 21:                                               ; preds = %_ZL12pj_get_paramP8ARG_listPKc.exit
   %22 = getelementptr inbounds i8, ptr %0, i64 168
   %23 = load double, ptr %22, align 8
-  %24 = tail call noundef i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef %0, double noundef %23, double noundef 0.000000e+00), !range !6
+  %24 = tail call noundef i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef %0, double noundef %23, double noundef 0.000000e+00)
   %25 = tail call i32 @proj_errno(ptr noundef %0)
   %.not59 = icmp eq i32 %25, 0
   br i1 %.not59, label %26, label %139
@@ -128,7 +128,7 @@ _ZL12pj_get_paramP8ARG_listPKc.exit:              ; preds = %16, %16
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.critedge12.i.i
   %.014.i.i = phi ptr [ %34, %.critedge12.i.i ], [ %13, %.lr.ph.i.i.preheader ]
   %28 = getelementptr inbounds i8, ptr %.014.i.i, i64 9
-  %29 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(6) @.str.5, i64 noundef 5) #14
+  %29 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull readonly dereferenceable(6) @.str.5, i64 noundef 5) #14
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %.critedge12.i.i
 
@@ -167,12 +167,12 @@ _ZL12pj_get_paramP8ARG_listPKc.exit.i:            ; preds = %31, %31
   %44 = getelementptr inbounds %struct.PJ_ELLPS, ptr %41, i64 %indvars.iv.next.i.i
   %45 = load ptr, ptr %44, align 8
   %cond.i.i = icmp eq ptr %45, null
-  br i1 %cond.i.i, label %_ZL13pj_find_ellpsPKc.exit.thread.i, label %.lr.ph.i39.i, !llvm.loop !7
+  br i1 %cond.i.i, label %_ZL13pj_find_ellpsPKc.exit.thread.i, label %.lr.ph.i39.i, !llvm.loop !6
 
 .lr.ph.i39.i:                                     ; preds = %39, %43
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %43 ], [ 0, %39 ]
   %46 = phi ptr [ %45, %43 ], [ %42, %39 ]
-  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %46) #14
+  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %46) #14
   %.not12.i.i = icmp eq i32 %47, 0
   br i1 %.not12.i.i, label %_ZL13pj_find_ellpsPKc.exit.i, label %43
 
@@ -303,7 +303,7 @@ _ZL11ellps_ellpsP8PJconsts.exit:                  ; preds = %37, %_ZL13pj_find_e
   %115 = load double, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %0, i64 216
   %117 = load double, ptr %116, align 8
-  %118 = call noundef i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef %0, double noundef %115, double noundef %117), !range !6
+  %118 = call noundef i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef %0, double noundef %115, double noundef %117)
   %119 = call fastcc noundef i32 @_ZL20ellps_spherificationP8PJconsts(ptr noundef %0)
   %.not52 = icmp eq i32 %119, 0
   br i1 %.not52, label %120, label %139
@@ -426,7 +426,7 @@ _ZL14pj_param_valueP8ARG_list.exit:               ; preds = %11, %11, %17, %17
   store ptr %28, ptr %2, align 8
   %29 = getelementptr inbounds i8, ptr %.029, i64 8
   store i8 1, ptr %29, align 8
-  %30 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 61) #14
+  %30 = tail call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %27, i32 noundef 61) #14
   %.not.i40 = icmp eq ptr %30, null
   %31 = getelementptr inbounds i8, ptr %30, i64 1
   %32 = select i1 %.not.i40, ptr %27, ptr %31
@@ -471,7 +471,7 @@ _ZL14pj_param_valueP8ARG_list.exit:               ; preds = %11, %11, %17, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 1028) i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   store double %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 216
@@ -644,13 +644,13 @@ define internal fastcc noundef i32 @_ZL11ellps_shapeP8PJconsts(ptr noundef %0) u
   %.086123 = phi i64 [ %16, %.loopexit ], [ 0, %1 ]
   %6 = getelementptr inbounds [5 x ptr], ptr @__const._ZL11ellps_shapeP8PJconsts.keys, i64 0, i64 %.086123
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #14
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #14
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge12.i
   %.014.i = phi ptr [ %15, %.critedge12.i ], [ %5, %.lr.ph.i.preheader ]
   %9 = getelementptr inbounds i8, ptr %.014.i, i64 9
-  %10 = tail call i32 @strncmp(ptr noundef nonnull %9, ptr noundef %7, i64 noundef %8) #14
+  %10 = tail call i32 @strncmp(ptr noundef nonnull %9, ptr noundef readonly %7, i64 noundef %8) #14
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %.critedge12.i
 
@@ -670,7 +670,7 @@ define internal fastcc noundef i32 @_ZL11ellps_shapeP8PJconsts(ptr noundef %0) u
 .loopexit:                                        ; preds = %.critedge12.i
   %16 = add nuw nsw i64 %.086123, 1
   %exitcond.not = icmp eq i64 %16, 5
-  br i1 %exitcond.not, label %.split125.us, label %.lr.ph.i.preheader, !llvm.loop !8
+  br i1 %exitcond.not, label %.split125.us, label %.lr.ph.i.preheader, !llvm.loop !7
 
 .split125.us:                                     ; preds = %.loopexit, %1
   %17 = getelementptr inbounds i8, ptr %0, i64 216
@@ -711,7 +711,7 @@ define internal fastcc noundef i32 @_ZL11ellps_shapeP8PJconsts(ptr noundef %0) u
   ]
 
 _ZL14pj_param_valueP8ARG_list.exit:               ; preds = %.critedge
-  %32 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 61) #14
+  %32 = tail call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %9, i32 noundef 61) #14
   %.not.i102 = icmp eq ptr %32, null
   %33 = getelementptr inbounds i8, ptr %32, i64 1
   %34 = select i1 %.not.i102, ptr %9, ptr %33
@@ -735,7 +735,7 @@ _ZL14pj_param_valueP8ARG_list.exit:               ; preds = %.critedge
   br label %thread-pre-split
 
 _ZL14pj_param_valueP8ARG_list.exit105:            ; preds = %.critedge
-  %43 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 61) #14
+  %43 = tail call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %9, i32 noundef 61) #14
   %.not.i103 = icmp eq ptr %43, null
   %44 = getelementptr inbounds i8, ptr %43, i64 1
   %45 = select i1 %.not.i103, ptr %9, ptr %44
@@ -761,7 +761,7 @@ _ZL14pj_param_valueP8ARG_list.exit105:            ; preds = %.critedge
   br label %thread-pre-split
 
 _ZL14pj_param_valueP8ARG_list.exit108:            ; preds = %.critedge
-  %56 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 61) #14
+  %56 = tail call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %9, i32 noundef 61) #14
   %.not.i106 = icmp eq ptr %56, null
   %57 = getelementptr inbounds i8, ptr %56, i64 1
   %58 = select i1 %.not.i106, ptr %9, ptr %57
@@ -778,7 +778,7 @@ _ZL14pj_param_valueP8ARG_list.exit108:            ; preds = %.critedge
   br label %92
 
 _ZL14pj_param_valueP8ARG_list.exit111:            ; preds = %.critedge
-  %63 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 61) #14
+  %63 = tail call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %9, i32 noundef 61) #14
   %.not.i109 = icmp eq ptr %63, null
   %64 = getelementptr inbounds i8, ptr %63, i64 1
   %65 = select i1 %.not.i109, ptr %9, ptr %64
@@ -800,7 +800,7 @@ _ZL14pj_param_valueP8ARG_list.exit111:            ; preds = %.critedge
   br label %thread-pre-split
 
 _ZL14pj_param_valueP8ARG_list.exit114:            ; preds = %.critedge
-  %72 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 61) #14
+  %72 = tail call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %9, i32 noundef 61) #14
   %.not.i112 = icmp eq ptr %72, null
   %73 = getelementptr inbounds i8, ptr %72, i64 1
   %74 = select i1 %.not.i112, ptr %9, ptr %73
@@ -861,13 +861,13 @@ define internal fastcc noundef i32 @_ZL20ellps_spherificationP8PJconsts(ptr noun
   %.07790 = phi i64 [ %15, %.loopexit ], [ 0, %1 ]
   %5 = getelementptr inbounds [8 x ptr], ptr @__const._ZL20ellps_spherificationP8PJconsts.keys, i64 0, i64 %.07790
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #14
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #14
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge12.i
   %.014.i = phi ptr [ %14, %.critedge12.i ], [ %4, %.lr.ph.i.preheader ]
   %8 = getelementptr inbounds i8, ptr %.014.i, i64 9
-  %9 = tail call i32 @strncmp(ptr noundef nonnull %8, ptr noundef %6, i64 noundef %7) #14
+  %9 = tail call i32 @strncmp(ptr noundef nonnull %8, ptr noundef readonly %6, i64 noundef %7) #14
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %.critedge12.i
 
@@ -887,7 +887,7 @@ define internal fastcc noundef i32 @_ZL20ellps_spherificationP8PJconsts(ptr noun
 .loopexit:                                        ; preds = %.critedge12.i
   %15 = add nuw nsw i64 %.07790, 1
   %exitcond.not = icmp eq i64 %15, 8
-  br i1 %exitcond.not, label %_ZL12pj_get_paramP8ARG_listPKc.exit.thread, label %.lr.ph.i.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %_ZL12pj_get_paramP8ARG_listPKc.exit.thread, label %.lr.ph.i.preheader, !llvm.loop !8
 
 _ZL12pj_get_paramP8ARG_listPKc.exit:              ; preds = %11, %11
   %16 = icmp eq i64 %.07790, 8
@@ -983,7 +983,7 @@ _ZL12pj_get_paramP8ARG_listPKc.exit:              ; preds = %11, %11
   br label %124
 
 _ZL14pj_param_valueP8ARG_list.exit:               ; preds = %17, %17
-  %69 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 61) #14
+  %69 = tail call noundef ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %18, i32 noundef 61) #14
   %.not.i83 = icmp eq ptr %69, null
   %70 = getelementptr inbounds i8, ptr %69, i64 1
   %71 = select i1 %.not.i83, ptr %18, ptr %70
@@ -1084,7 +1084,7 @@ _ZL14pj_param_valueP8ARG_list.exit:               ; preds = %17, %17
   store double 0x7FF0000000000000, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %0, i64 176
   store double %125, ptr %133, align 8
-  %134 = call noundef i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef nonnull %0, double noundef %125, double noundef 0.000000e+00), !range !6
+  %134 = call noundef i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef nonnull %0, double noundef %125, double noundef 0.000000e+00)
   br label %_ZL12pj_get_paramP8ARG_listPKc.exit.thread
 
 _ZL12pj_get_paramP8ARG_listPKc.exit.thread:       ; preds = %.loopexit, %1, %_ZL12pj_get_paramP8ARG_listPKc.exit, %129, %127, %115, %85, %75, %63
@@ -1261,7 +1261,7 @@ define linkonce_odr hidden void @_ZN8PJconstsD2Ev(ptr noundef nonnull align 8 de
   tail call void @_ZN16PJCoordOperationD1Ev(ptr noundef nonnull align 8 dereferenceable(188) %.05.i.i.i.i) #13
   %6 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 192
   %.not.i.i.i.i = icmp eq ptr %6, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 _ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %2, align 8
@@ -1289,7 +1289,7 @@ _ZNSt6vectorI16PJCoordOperationSaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP16PJ
   tail call void @_ZN5osgeo4proj9operation15GridDescriptionD1Ev(ptr noundef nonnull align 8 dereferenceable(131) %.05.i.i.i.i3) #13
   %13 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 136
   %.not.i.i.i.i4 = icmp eq ptr %13, %12
-  br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !11
+  br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !10
 
 _ZSt8_DestroyIPN5osgeo4proj9operation15GridDescriptionES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i2
   %.pr.i5 = load ptr, ptr %9, align 8
@@ -1462,9 +1462,8 @@ attributes #15 = { builtin nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 1028}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

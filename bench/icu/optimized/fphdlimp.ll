@@ -159,7 +159,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7524FieldPositionOnlyHandler11isRecordingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %this) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7524FieldPositionOnlyHandler11isRecordingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %this) unnamed_addr #7 align 2 {
 entry:
   %pos = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos, align 8
@@ -523,7 +523,7 @@ if.end13:                                         ; preds = %if.then, %_ZNK6icu_
 declare void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_7528FieldPositionIteratorHandler11isRecordingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #12 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7528FieldPositionIteratorHandler11isRecordingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #12 align 2 {
 entry:
   %status = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %status, align 8

@@ -1083,7 +1083,7 @@ define internal noundef i32 @dissect_systemd_journal_line_entry(ptr noundef %0, 
   %47 = udiv i64 %46, 1000000
   store i64 %47, ptr %6, align 8
   %48 = urem i64 %46, 1000000
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw nsw i64 %48 to i32
   %50 = mul nuw nsw i32 %49, 1000
   store i32 %50, ptr %17, align 8
   %51 = call ptr @proto_tree_add_time(ptr noundef %15, i32 noundef %39, ptr noundef %0, i32 noundef %25, i32 noundef %27, ptr noundef nonnull %6) #6

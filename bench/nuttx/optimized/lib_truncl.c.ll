@@ -8,7 +8,7 @@ define x86_fp80 @truncl(x86_fp80 noundef %0) local_unnamed_addr #0 {
   %2 = alloca x86_fp80, align 16
   %3 = bitcast x86_fp80 %0 to i80
   %.sroa.0.8.extract.shift = lshr i80 %3, 64
-  %.sroa.0.8.extract.trunc = trunc i80 %.sroa.0.8.extract.shift to i32
+  %.sroa.0.8.extract.trunc = trunc nuw nsw i80 %.sroa.0.8.extract.shift to i32
   %4 = and i32 %.sroa.0.8.extract.trunc, 32767
   %5 = icmp ugt i32 %4, 16434
   br i1 %5, label %21, label %6

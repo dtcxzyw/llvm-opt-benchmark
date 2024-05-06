@@ -114,7 +114,7 @@ declare void @php_libxml_node_decrement_resource(ptr noundef) local_unnamed_addr
 declare i32 @php_libxml_increment_node_ptr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_attr_name_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_attr_name_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #7
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -162,7 +162,7 @@ define hidden noundef i32 @dom_attr_specified_read(ptr nocapture noundef readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_attr_value_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_attr_value_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #7
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -214,7 +214,7 @@ define hidden noundef i32 @dom_attr_value_read(ptr noundef %0, ptr nocapture nou
 declare ptr @xmlNodeGetContent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_attr_value_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_attr_value_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #7
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -243,7 +243,7 @@ declare void @dom_remove_all_children(ptr noundef) local_unnamed_addr #1
 declare void @xmlNodeSetContentLen(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_attr_owner_element_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_attr_owner_element_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #7
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6

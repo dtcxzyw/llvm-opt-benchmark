@@ -127,7 +127,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %2 = load i64, ptr %add.ptr, align 8
   %shr = ashr i64 %2, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp3 = icmp eq i32 %conv, -5
   %cmp9 = icmp ult i32 %conv, -13
   %or.cond = or i1 %cmp3, %cmp9
@@ -153,13 +153,13 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_ffh_pairs(ptr noundef %L) #2 {
+define internal range(i32 -1, 5) i32 @lj_ffh_pairs(ptr noundef %L) #2 {
 entry:
   %call.i = tail call ptr @lj_lib_checkany(ptr noundef %L, i32 noundef 1) #10
   %call1.i = tail call ptr @lj_meta_lookup(ptr noundef %L, ptr noundef %call.i, i32 noundef 20) #10
   %0 = load i64, ptr %call.i, align 8
   %shr.i = ashr i64 %0, 47
-  %trunc.i = trunc i64 %shr.i to i32
+  %trunc.i = trunc nsw i64 %shr.i to i32
   switch i32 %trunc.i, label %if.then11.i [
     i32 -11, label %land.lhs.true.i
     i32 -12, label %if.end.i
@@ -217,13 +217,13 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_ffh_ipairs(ptr noundef %L) #2 {
+define internal range(i32 -1, 5) i32 @lj_ffh_ipairs(ptr noundef %L) #2 {
 entry:
   %call.i = tail call ptr @lj_lib_checkany(ptr noundef %L, i32 noundef 1) #10
   %call1.i = tail call ptr @lj_meta_lookup(ptr noundef %L, ptr noundef %call.i, i32 noundef 21) #10
   %0 = load i64, ptr %call.i, align 8
   %shr.i = ashr i64 %0, 47
-  %trunc.i = trunc i64 %shr.i to i32
+  %trunc.i = trunc nsw i64 %shr.i to i32
   switch i32 %trunc.i, label %if.then11.i [
     i32 -11, label %land.lhs.true.i
     i32 -12, label %if.end.i
@@ -387,7 +387,7 @@ if.end7:                                          ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_setfenv(ptr noundef %L) #2 {
+define internal range(i32 0, 2) i32 @lj_cf_setfenv(ptr noundef %L) #2 {
 entry:
   %level = alloca i32, align 4
   %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 2) #10
@@ -575,7 +575,7 @@ if.then12:                                        ; preds = %lor.lhs.false, %if.
 do.body:                                          ; preds = %do.body.preheader, %do.cond
   %indvars.iv = phi i64 [ %3, %do.body.preheader ], [ %indvars.iv.next, %do.cond ]
   %5 = load i32, ptr %asize, align 8
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nsw i64 %indvars.iv to i32
   %cmp14 = icmp ugt i32 %5, %6
   br i1 %cmp14, label %cond.true15, label %cond.false16
 
@@ -615,7 +615,7 @@ return:                                           ; preds = %do.cond, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_select(ptr noundef %L) #2 {
+define internal range(i32 -2147483648, 2147483647) i32 @lj_cf_select(ptr noundef %L) #2 {
 entry:
   %top = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
@@ -685,7 +685,7 @@ if.then:                                          ; preds = %entry
   %call1 = tail call ptr @lj_lib_checkany(ptr noundef %L, i32 noundef 1) #10
   %0 = load i64, ptr %call1, align 8
   %shr.i = ashr i64 %0, 47
-  %conv.i = trunc i64 %shr.i to i32
+  %conv.i = trunc nsw i64 %shr.i to i32
   %cmp.i = icmp ult i32 %conv.i, -13
   br i1 %cmp.i, label %if.then3, label %lor.rhs.i
 
@@ -847,7 +847,7 @@ return:                                           ; preds = %if.end91, %if.then8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_ffh_tostring(ptr noundef %L) #2 {
+define internal range(i32 -1, 3) i32 @lj_ffh_tostring(ptr noundef %L) #2 {
 entry:
   %call = tail call ptr @lj_lib_checkany(ptr noundef %L, i32 noundef 1) #10
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 8
@@ -926,7 +926,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_loadfile(ptr noundef %L) #2 {
+define internal range(i32 1, 3) i32 @lj_cf_loadfile(ptr noundef %L) #2 {
 entry:
   %call = tail call ptr @lj_lib_optstr(ptr noundef %L, i32 noundef 1) #10
   %call1 = tail call ptr @lj_lib_optstr(ptr noundef %L, i32 noundef 2) #10
@@ -995,7 +995,7 @@ load_aux.exit:                                    ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_load(ptr noundef %L) #2 {
+define internal range(i32 1, 3) i32 @lj_cf_load(ptr noundef %L) #2 {
 entry:
   %call = tail call ptr @lj_lib_optstr(ptr noundef %L, i32 noundef 2) #10
   %call1 = tail call ptr @lj_lib_optstr(ptr noundef %L, i32 noundef 3) #10
@@ -1009,7 +1009,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %2 = load i64, ptr %0, align 8
   %shr = ashr i64 %2, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp3 = icmp eq i32 %conv, -5
   %cmp8 = icmp ult i32 %conv, -13
   %or.cond = or i1 %cmp3, %cmp8
@@ -1149,14 +1149,14 @@ load_aux.exit:                                    ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_loadstring(ptr noundef %L) #2 {
+define internal range(i32 1, 3) i32 @lj_cf_loadstring(ptr noundef %L) #2 {
 entry:
-  %call = tail call i32 @lj_cf_load(ptr noundef %L), !range !8
+  %call = tail call i32 @lj_cf_load(ptr noundef %L)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_dofile(ptr noundef %L) #2 {
+define internal range(i32 -2147483648, 2147483647) i32 @lj_cf_dofile(ptr noundef %L) #2 {
 entry:
   %call = tail call ptr @lj_lib_optstr(ptr noundef %L, i32 noundef 1) #10
   %top = getelementptr inbounds i8, ptr %L, i64 40
@@ -1456,7 +1456,7 @@ if.end58.us:                                      ; preds = %if.then56.us, %if.e
   %call59.us = call i64 @fwrite(ptr noundef nonnull %str.0.us, i64 noundef 1, i64 noundef %33, ptr noundef %34)
   %inc.us = add nuw nsw i64 %i.038.us, 1
   %exitcond41.not = icmp eq i64 %inc.us, %sub.ptr.div
-  br i1 %exitcond41.not, label %for.end, label %for.body.us, !llvm.loop !9
+  br i1 %exitcond41.not, label %for.end, label %for.body.us, !llvm.loop !8
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end58
   %i.038 = phi i64 [ %inc, %if.end58 ], [ 0, %for.body.lr.ph ]
@@ -1499,7 +1499,7 @@ if.end58:                                         ; preds = %if.then56, %if.end5
   %call59 = call i64 @fwrite(ptr noundef nonnull %call48, i64 noundef 1, i64 noundef %42, ptr noundef %43)
   %inc = add nuw nsw i64 %i.038, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end58, %if.end58.us, %land.end
   %call60 = call i32 @putchar(i32 noundef 10)
@@ -1607,7 +1607,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %shr = ashr i64 %4, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp5 = icmp eq i32 %conv, -5
   %cmp10 = icmp ult i32 %conv, -13
   %or.cond = or i1 %cmp5, %cmp10
@@ -1809,7 +1809,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_ffh_coroutine_resume(ptr noundef %L) #2 {
+define internal range(i32 0, 4) i32 @lj_ffh_coroutine_resume(ptr noundef %L) #2 {
 entry:
   %top = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
@@ -1950,7 +1950,7 @@ declare hidden i32 @lj_state_cpgrowstack(ptr noundef, i32 noundef) local_unnamed
 declare hidden ptr @lj_lib_pushcc(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_ffh_coroutine_wrap_aux(ptr noundef %L) #2 {
+define internal noundef range(i32 0, 4) i32 @lj_ffh_coroutine_wrap_aux(ptr noundef %L) #2 {
 entry:
   %base = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8
@@ -2043,5 +2043,4 @@ attributes #10 = { nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 1, i32 3}
-!9 = distinct !{!9, !5}
+!8 = distinct !{!8, !5}

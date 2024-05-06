@@ -65,7 +65,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_client_m
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_drm_client_modeset_check377, ptr @__UNIQUE_ID___addressable_drm_client_modeset_commit379, ptr @__UNIQUE_ID___addressable_drm_client_modeset_commit_locked378, ptr @__UNIQUE_ID___addressable_drm_client_modeset_dpms380, ptr @__UNIQUE_ID___addressable_drm_client_modeset_probe375, ptr @__UNIQUE_ID___addressable_drm_client_rotation376], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_client_modeset_create(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_client_modeset_create(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 728
   %4 = load i32, ptr %3, align 8
@@ -232,7 +232,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_client_modeset_probe(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @drm_client_modeset_probe(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.drm_modeset_acquire_ctx, align 8
   %5 = alloca %struct.drm_connector_list_iter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11

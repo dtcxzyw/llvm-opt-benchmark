@@ -226,7 +226,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @slurmdb_connection_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @data_parser_p_assign(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @data_parser_p_assign(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   switch i32 %1, label %34 [
     i32 3, label %4
     i32 1, label %14

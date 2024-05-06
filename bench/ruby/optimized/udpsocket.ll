@@ -240,7 +240,7 @@ declare i32 @rsock_fd_family(i32 noundef) local_unnamed_addr #1
 declare i64 @rb_ensure(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @udp_connect_internal(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @udp_connect_internal(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -281,7 +281,7 @@ declare void @rsock_sys_fail_host_port(ptr noundef, i64 noundef, i64 noundef) lo
 declare i32 @rsock_connect(i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @udp_bind_internal(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @udp_bind_internal(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @jent_apt_cutoff_permanent_lookup = internal unnamed_addr constant [15 x i32] [i32 355, i32 447, i32 479, i32 494, i32 502, i32 507, i32 510, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jent_read_entropy(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -3, 1) i32 @jent_read_entropy(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -24,7 +24,7 @@ define dso_local noundef i32 @jent_read_entropy(ptr noundef %0, ptr noundef %1, 
 5:                                                ; preds = %.lr.ph, %15
   %.01826 = phi ptr [ %1, %.lr.ph ], [ %18, %15 ]
   %.01925 = phi i32 [ %2, %.lr.ph ], [ %16, %15 ]
-  %6 = tail call fastcc i32 @jent_measure_jitter(ptr noundef nonnull %0, ptr noundef null), !range !5
+  %6 = tail call fastcc i32 @jent_measure_jitter(ptr noundef nonnull %0, ptr noundef null)
   br label %.outer.i
 
 .outer.i:                                         ; preds = %9, %5
@@ -32,16 +32,16 @@ define dso_local noundef i32 @jent_read_entropy(ptr noundef %0, ptr noundef %1, 
   br label %7
 
 7:                                                ; preds = %7, %.outer.i
-  %8 = tail call fastcc i32 @jent_measure_jitter(ptr noundef nonnull %0, ptr noundef null), !range !5
+  %8 = tail call fastcc i32 @jent_measure_jitter(ptr noundef nonnull %0, ptr noundef null)
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %9, label %7, !llvm.loop !6
+  br i1 %.not.i, label %9, label %7, !llvm.loop !5
 
 9:                                                ; preds = %7
   %10 = add nuw i32 %.0.ph.i, 1
   %11 = load i32, ptr %4, align 4
   %12 = shl i32 %11, 8
   %.not6.i = icmp ult i32 %10, %12
-  br i1 %.not6.i, label %.outer.i, label %jent_gen_entropy.exit, !llvm.loop !6
+  br i1 %.not6.i, label %.outer.i, label %jent_gen_entropy.exit, !llvm.loop !5
 
 jent_gen_entropy.exit:                            ; preds = %9
   %.0 = tail call i32 @llvm.umin.i32(i32 %.01925, i32 32)
@@ -55,7 +55,7 @@ jent_gen_entropy.exit:                            ; preds = %9
   %17 = zext nneg i32 %.0 to i64
   %18 = getelementptr i8, ptr %.01826, i64 %17
   %.not22 = icmp eq i32 %16, 0
-  br i1 %.not22, label %.loopexit, label %5, !llvm.loop !8
+  br i1 %.not22, label %.loopexit, label %5, !llvm.loop !7
 
 .loopexit:                                        ; preds = %jent_gen_entropy.exit, %15, %.preheader, %3
   %.020 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ -1, %jent_gen_entropy.exit ], [ 0, %15 ]
@@ -63,7 +63,7 @@ jent_gen_entropy.exit:                            ; preds = %9
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @jent_entropy_init(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 13) i32 @jent_entropy_init(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %.not.not = icmp eq ptr %3, null
   br i1 %.not.not, label %6, label %8
@@ -101,7 +101,7 @@ define dso_local i32 @jent_entropy_init(i32 noundef %0, i32 noundef %1, ptr noun
   %.03349 = phi i32 [ 0, %19 ], [ %.1, %28 ]
   %.03448 = phi i32 [ 0, %19 ], [ %31, %28 ]
   store i64 0, ptr %5, align 8
-  %22 = call fastcc i32 @jent_measure_jitter(ptr noundef nonnull %.035, ptr noundef nonnull %5), !range !5
+  %22 = call fastcc i32 @jent_measure_jitter(ptr noundef nonnull %.035, ptr noundef nonnull %5)
   %23 = load i64, ptr %20, align 8
   %24 = load i64, ptr %5, align 8
   %25 = icmp ne i64 %23, %24
@@ -121,7 +121,7 @@ define dso_local i32 @jent_entropy_init(i32 noundef %0, i32 noundef %1, ptr noun
   %.1 = add i32 %.03349, %30
   %31 = add nuw nsw i32 %.03448, 1
   %exitcond.not = icmp eq i32 %31, 1124
-  br i1 %exitcond.not, label %32, label %21, !llvm.loop !9
+  br i1 %exitcond.not, label %32, label %21, !llvm.loop !8
 
 32:                                               ; preds = %28
   %33 = icmp sgt i32 %.1, 3
@@ -205,7 +205,7 @@ jent_apt_init.exit:                               ; preds = %15, %19
   store i32 %.sink6.i, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %4, i64 72
   store i32 %.sink.i, ptr %27, align 8
-  %28 = tail call fastcc i32 @jent_measure_jitter(ptr noundef nonnull %4, ptr noundef null), !range !5
+  %28 = tail call fastcc i32 @jent_measure_jitter(ptr noundef nonnull %4, ptr noundef null)
   br label %.outer.i
 
 .outer.i:                                         ; preds = %31, %jent_apt_init.exit
@@ -213,16 +213,16 @@ jent_apt_init.exit:                               ; preds = %15, %19
   br label %29
 
 29:                                               ; preds = %29, %.outer.i
-  %30 = tail call fastcc i32 @jent_measure_jitter(ptr noundef nonnull %4, ptr noundef null), !range !5
+  %30 = tail call fastcc i32 @jent_measure_jitter(ptr noundef nonnull %4, ptr noundef null)
   %.not.i = icmp eq i32 %30, 0
-  br i1 %.not.i, label %31, label %29, !llvm.loop !6
+  br i1 %.not.i, label %31, label %29, !llvm.loop !5
 
 31:                                               ; preds = %29
   %32 = add nuw i32 %.0.ph.i, 1
   %33 = load i32, ptr %16, align 4
   %34 = shl i32 %33, 8
   %.not6.i = icmp ult i32 %32, %34
-  br i1 %.not6.i, label %.outer.i, label %jent_gen_entropy.exit, !llvm.loop !6
+  br i1 %.not6.i, label %.outer.i, label %jent_gen_entropy.exit, !llvm.loop !5
 
 jent_gen_entropy.exit:                            ; preds = %31, %3, %10
   %.0 = phi ptr [ null, %10 ], [ null, %3 ], [ %4, %31 ]
@@ -252,7 +252,7 @@ define dso_local void @jent_entropy_collector_free(ptr noundef %0) local_unnamed
 declare dso_local void @jent_kvzfree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @jent_measure_jitter(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 2) i32 @jent_measure_jitter(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.anon, align 4
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -272,7 +272,7 @@ define internal fastcc i32 @jent_measure_jitter(ptr noundef %0, ptr noundef writ
   %10 = lshr i64 %7, 7
   %11 = add nuw nsw i32 %.012.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %11, 37
-  br i1 %exitcond.not.i.i, label %jent_loop_shuffle.exit.i, label %6, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %jent_loop_shuffle.exit.i, label %6, !llvm.loop !9
 
 jent_loop_shuffle.exit.i:                         ; preds = %6
   %12 = add nuw nsw i64 %9, 1
@@ -317,7 +317,7 @@ jent_loop_shuffle.exit.i:                         ; preds = %6
   %40 = zext i32 %39 to i64
   %41 = add nuw nsw i64 %12, %40
   %42 = icmp ult i64 %38, %41
-  br i1 %42, label %26, label %jent_memaccess.exit, !llvm.loop !11
+  br i1 %42, label %26, label %jent_memaccess.exit, !llvm.loop !10
 
 jent_memaccess.exit:                              ; preds = %26, %jent_loop_shuffle.exit.i, %14
   call void @jent_get_nstime(ptr noundef nonnull %5) #4
@@ -498,10 +498,9 @@ attributes #4 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

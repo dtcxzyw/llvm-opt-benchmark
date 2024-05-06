@@ -65,7 +65,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %tobool.not, label %while.end.loopexit, label %while.body, !llvm.loop !4
 
 while.end.loopexit:                               ; preds = %while.body
-  %10 = trunc i64 %indvars.iv.next to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %entry
@@ -114,7 +114,7 @@ while.body38:                                     ; preds = %while.body38.prehea
   br i1 %exitcond.not, label %while.end45.loopexit, label %while.body38, !llvm.loop !6
 
 while.end45.loopexit:                             ; preds = %while.body38
-  %14 = trunc i64 %indvars.iv.next94 to i32
+  %14 = trunc nuw i64 %indvars.iv.next94 to i32
   br label %while.end45
 
 while.end45:                                      ; preds = %while.end45.loopexit, %if.end34
@@ -292,7 +292,7 @@ while.body129:                                    ; preds = %while.body129.prehe
   br i1 %tobool128.not, label %while.end134.loopexit, label %while.body129, !llvm.loop !9
 
 while.end134.loopexit:                            ; preds = %while.body129
-  %38 = trunc i64 %indvars.iv.next102 to i32
+  %38 = trunc nuw i64 %indvars.iv.next102 to i32
   br label %while.end134
 
 while.end134:                                     ; preds = %while.end134.loopexit, %if.end123
@@ -424,7 +424,7 @@ if.end96:                                         ; preds = %if.then92
   %or109 = add nuw nsw i32 %or104, %shl103
   %add115 = add nuw nsw i32 %or109, %shl108
   %shr116 = lshr i32 %add115, 18
-  %28 = trunc i32 %shr116 to i8
+  %28 = trunc nuw nsw i32 %shr116 to i8
   %29 = and i8 %28, 7
   %conv119 = or disjoint i8 %29, -16
   store i8 %conv119, ptr %word, align 1

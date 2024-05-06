@@ -76,16 +76,16 @@ return:                                           ; preds = %entry, %free_all_pa
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_int(ptr nocapture noundef %bld, ptr noundef %key, i32 noundef %num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_int(ptr nocapture noundef %bld, ptr noundef %key, i32 noundef %num) local_unnamed_addr #0 {
 entry:
   %num.addr = alloca i32, align 4
   store i32 %num, ptr %num.addr, align 4
-  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 4, i32 noundef 1), !range !6
+  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 4, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @param_push_num(ptr nocapture noundef %bld, ptr noundef %key, ptr nocapture noundef readonly %num, i64 noundef %size, i32 noundef %type) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @param_push_num(ptr nocapture noundef %bld, ptr noundef %key, ptr nocapture noundef readonly %num, i64 noundef %size, i32 noundef %type) unnamed_addr #0 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 56, ptr noundef nonnull @.str, i32 noundef 55) #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -134,97 +134,97 @@ return:                                           ; preds = %if.end5, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_uint(ptr nocapture noundef %bld, ptr noundef %key, i32 noundef %num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_uint(ptr nocapture noundef %bld, ptr noundef %key, i32 noundef %num) local_unnamed_addr #0 {
 entry:
   %num.addr = alloca i32, align 4
   store i32 %num, ptr %num.addr, align 4
-  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 4, i32 noundef 2), !range !6
+  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 4, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_long(ptr nocapture noundef %bld, ptr noundef %key, i64 noundef %num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_long(ptr nocapture noundef %bld, ptr noundef %key, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %num.addr = alloca i64, align 8
   store i64 %num, ptr %num.addr, align 8
-  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 8, i32 noundef 1), !range !6
+  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 8, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_ulong(ptr nocapture noundef %bld, ptr noundef %key, i64 noundef %num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_ulong(ptr nocapture noundef %bld, ptr noundef %key, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %num.addr = alloca i64, align 8
   store i64 %num, ptr %num.addr, align 8
-  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 8, i32 noundef 2), !range !6
+  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 8, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_int32(ptr nocapture noundef %bld, ptr noundef %key, i32 noundef %num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_int32(ptr nocapture noundef %bld, ptr noundef %key, i32 noundef %num) local_unnamed_addr #0 {
 entry:
   %num.addr = alloca i32, align 4
   store i32 %num, ptr %num.addr, align 4
-  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 4, i32 noundef 1), !range !6
+  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 4, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_uint32(ptr nocapture noundef %bld, ptr noundef %key, i32 noundef %num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_uint32(ptr nocapture noundef %bld, ptr noundef %key, i32 noundef %num) local_unnamed_addr #0 {
 entry:
   %num.addr = alloca i32, align 4
   store i32 %num, ptr %num.addr, align 4
-  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 4, i32 noundef 2), !range !6
+  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 4, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_int64(ptr nocapture noundef %bld, ptr noundef %key, i64 noundef %num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_int64(ptr nocapture noundef %bld, ptr noundef %key, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %num.addr = alloca i64, align 8
   store i64 %num, ptr %num.addr, align 8
-  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 8, i32 noundef 1), !range !6
+  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 8, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_uint64(ptr nocapture noundef %bld, ptr noundef %key, i64 noundef %num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_uint64(ptr nocapture noundef %bld, ptr noundef %key, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %num.addr = alloca i64, align 8
   store i64 %num, ptr %num.addr, align 8
-  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 8, i32 noundef 2), !range !6
+  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 8, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_size_t(ptr nocapture noundef %bld, ptr noundef %key, i64 noundef %num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_size_t(ptr nocapture noundef %bld, ptr noundef %key, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %num.addr = alloca i64, align 8
   store i64 %num, ptr %num.addr, align 8
-  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 8, i32 noundef 2), !range !6
+  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 8, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_time_t(ptr nocapture noundef %bld, ptr noundef %key, i64 noundef %num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_time_t(ptr nocapture noundef %bld, ptr noundef %key, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %num.addr = alloca i64, align 8
   store i64 %num, ptr %num.addr, align 8
-  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 8, i32 noundef 1), !range !6
+  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 8, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_double(ptr nocapture noundef %bld, ptr noundef %key, double noundef %num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_double(ptr nocapture noundef %bld, ptr noundef %key, double noundef %num) local_unnamed_addr #0 {
 entry:
   %num.addr = alloca double, align 8
   store double %num, ptr %num.addr, align 8
-  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 8, i32 noundef 3), !range !6
+  %call = call fastcc i32 @param_push_num(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %num.addr, i64 noundef 8, i32 noundef 3)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_BN(ptr nocapture noundef %bld, ptr noundef %key, ptr noundef %bn) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_BN(ptr nocapture noundef %bld, ptr noundef %key, ptr noundef %bn) local_unnamed_addr #0 {
 entry:
   %cond = icmp eq ptr %bn, null
   br i1 %cond, label %if.end.split, label %land.lhs.true
@@ -240,7 +240,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %add2 = add nsw i32 %div8, 1
   %conv = sext i32 %add2 to i64
-  %call3 = tail call fastcc i32 @push_BN(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %bn, i64 noundef %conv, i32 noundef 1), !range !6
+  %call3 = tail call fastcc i32 @push_BN(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %bn, i64 noundef %conv, i32 noundef 1)
   br label %return
 
 if.end.split:                                     ; preds = %entry
@@ -279,7 +279,7 @@ if.end37.i:                                       ; preds = %if.end.i.i
 
 cond.false:                                       ; preds = %land.lhs.true
   %conv99 = sext i32 %div8 to i64
-  %call1010 = tail call fastcc i32 @push_BN(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %bn, i64 noundef %conv99, i32 noundef 2), !range !6
+  %call1010 = tail call fastcc i32 @push_BN(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %bn, i64 noundef %conv99, i32 noundef 2)
   br label %return
 
 return:                                           ; preds = %if.end37.i, %if.then16.i.i, %if.end.split, %cond.false, %if.then
@@ -290,7 +290,7 @@ return:                                           ; preds = %if.end37.i, %if.the
 declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @push_BN(ptr nocapture noundef %bld, ptr noundef %key, ptr noundef %bn, i64 noundef %sz, i32 noundef %type) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @push_BN(ptr nocapture noundef %bld, ptr noundef %key, ptr noundef %bn, i64 noundef %sz, i32 noundef %type) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %type, 2
   %0 = add i32 %type, -1
@@ -395,7 +395,7 @@ return:                                           ; preds = %if.then16.i, %if.en
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_BN_pad(ptr nocapture noundef %bld, ptr noundef %key, ptr noundef %bn, i64 noundef %sz) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_BN_pad(ptr nocapture noundef %bld, ptr noundef %key, ptr noundef %bn, i64 noundef %sz) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %bn, null
   br i1 %cmp.not, label %entry.split, label %land.lhs.true
@@ -442,7 +442,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %land.lhs.true.split, label %if.then
 
 land.lhs.true.split:                              ; preds = %land.lhs.true
-  %call38 = tail call fastcc i32 @push_BN(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %bn, i64 noundef %sz, i32 noundef 2), !range !6
+  %call38 = tail call fastcc i32 @push_BN(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %bn, i64 noundef %sz, i32 noundef 2)
   br label %return
 
 if.then:                                          ; preds = %land.lhs.true
@@ -450,7 +450,7 @@ if.then:                                          ; preds = %land.lhs.true
   %add = add nsw i32 %call1, 7
   %div = sdiv i32 %add, 8
   %conv = sext i32 %div to i64
-  %call2 = tail call fastcc i32 @push_BN(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %bn, i64 noundef %conv, i32 noundef 1), !range !6
+  %call2 = tail call fastcc i32 @push_BN(ptr noundef %bld, ptr noundef %key, ptr noundef nonnull %bn, i64 noundef %conv, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %if.end37.i, %if.then16.i.i, %entry.split, %land.lhs.true.split, %if.then
@@ -459,7 +459,7 @@ return:                                           ; preds = %if.end37.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_utf8_string(ptr nocapture noundef %bld, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_utf8_string(ptr nocapture noundef %bld, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %bsize, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -535,7 +535,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @CRYPTO_secure_allocated(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_utf8_ptr(ptr nocapture noundef %bld, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_utf8_ptr(ptr nocapture noundef %bld, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %bsize, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -595,7 +595,7 @@ return:                                           ; preds = %if.then16.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_octet_string(ptr nocapture noundef %bld, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_octet_string(ptr nocapture noundef %bld, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %bsize, 2147483647
   br i1 %cmp, label %if.then, label %if.end
@@ -650,7 +650,7 @@ return:                                           ; preds = %if.then16.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_PARAM_BLD_push_octet_ptr(ptr nocapture noundef %bld, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_octet_ptr(ptr nocapture noundef %bld, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %bsize, 2147483647
   br i1 %cmp, label %if.then, label %if.end
@@ -758,7 +758,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %blk.addr.061.i = phi ptr [ %add.ptr, %for.body.preheader.i ], [ %blk.addr.1.i, %for.inc.i ]
   %secure.addr.060.i = phi ptr [ %s.0, %for.body.preheader.i ], [ %secure.addr.1.i, %for.inc.i ]
   %4 = load ptr, ptr %params1, align 8
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call.i57.i = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %5) #7
   %6 = load ptr, ptr %call.i57.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.ossl_param_st, ptr %call12, i64 %indvars.iv.i
@@ -866,13 +866,13 @@ if.then72.i:                                      ; preds = %if.else68.i
 for.inc.i:                                        ; preds = %if.then72.i, %if.else68.i, %if.then66.i, %if.then58.i, %if.end54.i, %if.then36.i, %if.else23.i, %if.then19.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %param_bld_convert.exit, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %param_bld_convert.exit, label %for.body.i, !llvm.loop !6
 
 param_bld_convert.exit:                           ; preds = %for.inc.i, %if.end16
   %i.0.lcssa.i = phi i64 [ 0, %if.end16 ], [ %wide.trip.count.i, %for.inc.i ]
   %arrayidx81.i = getelementptr inbounds %struct.ossl_param_st, ptr %call12, i64 %i.0.lcssa.i
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx81.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %arrayidx81.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
   call void @ossl_param_set_secure_block(ptr noundef nonnull %arrayidx81.i, ptr noundef %s.0, i64 noundef %mul5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bld, i8 0, i64 16, i1 false)
@@ -958,5 +958,4 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

@@ -649,7 +649,7 @@ define hidden void @proto_reg_handoff_dplay() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @heur_dissect_dplay(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @heur_dissect_dplay(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %6 = icmp ult i32 %5, 25
   br i1 %6, label %dissect_dplay.exit, label %7
@@ -910,7 +910,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_type01_message(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
-  %4 = tail call fastcc i32 @dissect_session_desc(ptr noundef %0, ptr noundef %1, i32 noundef 28), !range !6
+  %4 = tail call fastcc i32 @dissect_session_desc(ptr noundef %0, ptr noundef %1, i32 noundef 28)
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %4) #3
   %6 = load i32, ptr @hf_dplay_type_01_name_offset, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %4, i32 noundef 4, i32 noundef -2147483648) #3
@@ -1228,7 +1228,7 @@ define internal fastcc i32 @dissect_type1a_message(ptr noundef %0, ptr noundef %
   %14 = load i32, ptr @hf_dplay_type_1a_password_ofs, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %12, i32 noundef 4, i32 noundef -2147483648) #3
   %16 = add nuw nsw i32 %2, 12
-  %17 = tail call fastcc i32 @dissect_session_desc(ptr noundef %0, ptr noundef %1, i32 noundef %16), !range !6
+  %17 = tail call fastcc i32 @dissect_session_desc(ptr noundef %0, ptr noundef %1, i32 noundef %16)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %26, label %18
 
@@ -1288,7 +1288,7 @@ define internal fastcc void @dissect_type29_message(ptr noundef %0, ptr noundef 
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef 48, i32 noundef 4, i32 noundef -2147483648) #3
   %21 = load i32, ptr @hf_dplay_type_29_password_offset, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %21, ptr noundef %1, i32 noundef 52, i32 noundef 4, i32 noundef -2147483648) #3
-  %23 = tail call fastcc i32 @dissect_session_desc(ptr noundef %0, ptr noundef %1, i32 noundef 56), !range !6
+  %23 = tail call fastcc i32 @dissect_session_desc(ptr noundef %0, ptr noundef %1, i32 noundef 56)
   %24 = load i32, ptr @hf_dplay_type_29_game_name, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %25 = tail call ptr @wmem_packet_scope() #3
@@ -1331,7 +1331,7 @@ define internal fastcc void @dissect_type29_message(ptr noundef %0, ptr noundef 
   %44 = call fastcc i32 @dissect_dplay_super_packed_player(ptr noundef %43, ptr noundef %1, i32 noundef %.181)
   %45 = add nuw nsw i32 %.07680, 1
   %exitcond.not = icmp eq i32 %45, %6
-  br i1 %exitcond.not, label %.preheader79, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %.preheader79, label %.lr.ph, !llvm.loop !6
 
 .preheader:                                       ; preds = %.lr.ph84, %.preheader79
   %.2.lcssa = phi i32 [ %.1.lcssa, %.preheader79 ], [ %49, %.lr.ph84 ]
@@ -1346,7 +1346,7 @@ define internal fastcc void @dissect_type29_message(ptr noundef %0, ptr noundef 
   %49 = call fastcc i32 @dissect_dplay_super_packed_player(ptr noundef %48, ptr noundef %1, i32 noundef %.283)
   %50 = add nuw nsw i32 %.17782, 1
   %exitcond92.not = icmp eq i32 %50, %9
-  br i1 %exitcond92.not, label %.preheader, label %.lr.ph84, !llvm.loop !8
+  br i1 %exitcond92.not, label %.preheader, label %.lr.ph84, !llvm.loop !7
 
 .lr.ph88:                                         ; preds = %.preheader, %.lr.ph88
   %.387 = phi i32 [ %53, %.lr.ph88 ], [ %.2.lcssa, %.preheader ]
@@ -1356,7 +1356,7 @@ define internal fastcc void @dissect_type29_message(ptr noundef %0, ptr noundef 
   %53 = call fastcc i32 @dissect_dplay_super_packed_player(ptr noundef %52, ptr noundef %1, i32 noundef %.387)
   %54 = add nuw nsw i32 %.27886, 1
   %exitcond93.not = icmp eq i32 %54, %14
-  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph88, !llvm.loop !9
+  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph88, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph88, %.preheader
   ret void
@@ -1365,7 +1365,7 @@ define internal fastcc void @dissect_type29_message(ptr noundef %0, ptr noundef 
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_session_desc(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 108, 169) i32 @dissect_session_desc(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_dplay_sess_desc_length, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #3
   %6 = add nuw nsw i32 %2, 4
@@ -1526,7 +1526,7 @@ define internal fastcc i32 @dissect_packed_player(ptr noundef %0, ptr noundef %1
   %77 = add i32 %.399, 4
   %78 = add nuw i32 %.09498, 1
   %exitcond.not = icmp eq i32 %78, %33
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %74
   %.3.lcssa = phi i32 [ %.2, %74 ], [ %77, %.lr.ph ]
@@ -1748,7 +1748,7 @@ spp_get_value.exit158:                            ; preds = %102, %105, %108
   %115 = add i32 %.4169, 4
   %116 = add nuw i32 %.0138170, 1
   %exitcond.not = icmp eq i32 %116, %.sink.i155
-  br i1 %exitcond.not, label %.loopexit168, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit168, label %.lr.ph, !llvm.loop !10
 
 .loopexit168:                                     ; preds = %.lr.ph, %spp_get_value.exit158, %101
   %.5 = phi i32 [ %.3, %101 ], [ %112, %spp_get_value.exit158 ], [ %115, %.lr.ph ]
@@ -1801,7 +1801,7 @@ spp_get_value.exit162:                            ; preds = %122, %125, %128
   %135 = add i32 %.7171, 4
   %136 = add nuw i32 %.0172, 1
   %exitcond178.not = icmp eq i32 %136, %.sink.i159
-  br i1 %exitcond178.not, label %.loopexit, label %.lr.ph173, !llvm.loop !12
+  br i1 %exitcond178.not, label %.loopexit, label %.lr.ph173, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph173, %spp_get_value.exit162, %121
   %.8 = phi i32 [ %.6, %121 ], [ %132, %spp_get_value.exit162 ], [ %135, %.lr.ph173 ]
@@ -1827,10 +1827,9 @@ attributes #3 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 108, i32 169}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

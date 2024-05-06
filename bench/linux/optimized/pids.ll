@@ -222,7 +222,7 @@ define internal void @pids_cancel_attach(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pids_can_fork(ptr nocapture readnone %0, ptr noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -11, 1) i32 @pids_can_fork(ptr nocapture readnone %0, ptr noundef readonly %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %9
 

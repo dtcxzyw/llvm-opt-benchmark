@@ -146,7 +146,7 @@ define dso_local noundef i32 @dm_target_iterate(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dm_register_target(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @dm_register_target(ptr noundef %0) #0 align 16 {
   tail call void @down_write(ptr noundef nonnull @_lock) #10
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -246,7 +246,7 @@ define dso_local void @dm_unregister_target(ptr nocapture noundef %0) #0 align 1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @dm_target_init() local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @dm_target_init() local_unnamed_addr #4 section ".init.text" align 16 {
   %1 = tail call i32 @dm_register_target(ptr noundef nonnull @error_target), !range !11
   ret i32 %1
 }

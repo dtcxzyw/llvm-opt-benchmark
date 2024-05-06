@@ -20,7 +20,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @ossl_siv128_init(ptr noundef nonnull %call, ptr noundef %key, i32 noundef %klen, ptr noundef %cbc, ptr noundef %ctr, ptr noundef %libctx, ptr noundef %propq), !range !4
+  %call1 = tail call i32 @ossl_siv128_init(ptr noundef nonnull %call, ptr noundef %key, i32 noundef %klen, ptr noundef %cbc, ptr noundef %ctr, ptr noundef %libctx, ptr noundef %propq)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -36,7 +36,7 @@ return:                                           ; preds = %entry, %if.end, %if
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_siv128_init(ptr noundef %ctx, ptr noundef %key, i32 noundef %klen, ptr noundef %cbc, ptr noundef %ctr, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_siv128_init(ptr noundef %ctx, ptr noundef %key, i32 noundef %klen, ptr noundef %cbc, ptr noundef %ctr, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %out_len = alloca i64, align 8
   %params = alloca [3 x %struct.ossl_param_st], align 16
@@ -185,7 +185,7 @@ declare i32 @EVP_MAC_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @EVP_MAC_final(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_siv128_copy_ctx(ptr nocapture noundef %dest, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_siv128_copy_ctx(ptr nocapture noundef %dest, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dest, ptr noundef nonnull align 8 dereferenceable(16) %src, i64 16, i1 false)
   %cipher_ctx = getelementptr inbounds i8, ptr %dest, i64 32
@@ -240,7 +240,7 @@ declare i32 @EVP_CIPHER_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_MAC_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_siv128_aad(ptr nocapture noundef %ctx, ptr noundef %aad, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_siv128_aad(ptr nocapture noundef %ctx, ptr noundef %aad, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %mac_out = alloca %union.siv_block_u, align 16
   %out_len = alloca i64, align 8
@@ -257,8 +257,8 @@ entry:
   %xor.i = xor i64 %shl5.i, %and3.i
   %or11.i.i9.i = tail call noundef i64 @llvm.bswap.i64(i64 %or.i)
   store i64 %or11.i.i9.i, ptr %ctx, align 8
-  %or11.i.i10.i = tail call noundef i64 @llvm.bswap.i64(i64 %xor.i)
-  store i64 %or11.i.i10.i, ptr %arrayidx.i.i, align 8
+  %or11.i.i11.i = tail call noundef i64 @llvm.bswap.i64(i64 %xor.i)
+  store i64 %or11.i.i11.i, ptr %arrayidx.i.i, align 8
   %mac_ctx_init = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load ptr, ptr %mac_ctx_init, align 8
   %call = tail call ptr @EVP_MAC_CTX_dup(ptr noundef %2) #9
@@ -308,7 +308,7 @@ entry:
 if.end:                                           ; preds = %entry
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr %crypto_ok, align 4
-  %call = call fastcc i32 @siv128_do_s2v_p(ptr noundef nonnull %ctx, ptr noundef nonnull %q, ptr noundef %in, i64 noundef %len), !range !4
+  %call = call fastcc i32 @siv128_do_s2v_p(ptr noundef nonnull %ctx, ptr noundef nonnull %q, ptr noundef %in, i64 noundef %len)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end3
 
@@ -353,7 +353,7 @@ return:                                           ; preds = %siv128_do_encrypt.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @siv128_do_s2v_p(ptr nocapture noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @siv128_do_s2v_p(ptr nocapture noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) unnamed_addr #0 {
 entry:
   %t = alloca %union.siv_block_u, align 16
   %out_len = alloca i64, align 8
@@ -404,14 +404,14 @@ if.else:                                          ; preds = %if.end
   %xor.i15 = xor i64 %shl5.i, %and3.i
   %or11.i.i9.i = tail call noundef i64 @llvm.bswap.i64(i64 %or.i)
   store i64 %or11.i.i9.i, ptr %ctx, align 8
-  %or11.i.i10.i = tail call noundef i64 @llvm.bswap.i64(i64 %xor.i15)
-  store i64 %or11.i.i10.i, ptr %arrayidx.i.i, align 8
+  %or11.i.i11.i = tail call noundef i64 @llvm.bswap.i64(i64 %xor.i15)
+  store i64 %or11.i.i11.i, ptr %arrayidx.i.i, align 8
   %8 = load i64, ptr %t, align 16
   %xor.i16 = xor i64 %8, %or11.i.i9.i
   store i64 %xor.i16, ptr %t, align 16
   %arrayidx3.i18 = getelementptr inbounds i8, ptr %t, i64 8
   %9 = load i64, ptr %arrayidx3.i18, align 8
-  %xor4.i19 = xor i64 %9, %or11.i.i10.i
+  %xor4.i19 = xor i64 %9, %or11.i.i11.i
   store i64 %xor4.i19, ptr %arrayidx3.i18, align 8
   %call14 = call i32 @EVP_MAC_update(ptr noundef nonnull %call, ptr noundef nonnull %t, i64 noundef 16) #9
   %tobool15.not = icmp eq i32 %call14, 0
@@ -480,7 +480,7 @@ siv128_do_encrypt.exit:                           ; preds = %if.end
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %siv128_do_encrypt.exit
-  %call7 = call fastcc i32 @siv128_do_s2v_p(ptr noundef nonnull %ctx, ptr noundef nonnull %t, ptr noundef %out, i64 noundef %len), !range !4
+  %call7 = call fastcc i32 @siv128_do_s2v_p(ptr noundef nonnull %ctx, ptr noundef nonnull %t, ptr noundef %out, i64 noundef %len)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %for.body
 
@@ -494,7 +494,7 @@ for.body:                                         ; preds = %lor.lhs.false, %for
   store i8 %xor15, ptr %arrayidx18, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
   %8 = load i64, ptr %t, align 8
@@ -529,7 +529,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ossl_siv128_set_tag(ptr nocapture noundef writeonly %ctx, ptr nocapture noundef readonly %tag, i64 noundef %len) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_siv128_set_tag(ptr nocapture noundef writeonly %ctx, ptr nocapture noundef readonly %tag, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq i64 %len, 16
   br i1 %cmp.not, label %if.end, label %return
@@ -545,7 +545,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ossl_siv128_get_tag(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %tag, i64 noundef %len) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_siv128_get_tag(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %tag, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq i64 %len, 16
   br i1 %cmp.not, label %if.end, label %return
@@ -635,6 +635,5 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

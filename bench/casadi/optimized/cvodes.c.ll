@@ -535,7 +535,7 @@ select.unfold:                                    ; preds = %57, %44
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeInit(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeInit(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = icmp eq ptr %0, null
@@ -860,7 +860,7 @@ declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeReInit(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -23, 1) i32 @CVodeReInit(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -952,7 +952,7 @@ define noundef i32 @CVodeReInit(ptr noundef %0, double noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSStolerances(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -23, 1) i32 @CVodeSStolerances(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1007,7 +1007,7 @@ define noundef i32 @CVodeSStolerances(ptr noundef %0, double noundef %1, double 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cvEwtSet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define range(i32 -1, 1) i32 @cvEwtSet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 32
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %cvEwtSetSS.exit [
@@ -1059,7 +1059,7 @@ cvEwtSetSS.exit:                                  ; preds = %cvEwtSetSS.exit.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSVtolerances(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -23, 1) i32 @CVodeSVtolerances(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1145,7 +1145,7 @@ declare double @N_VMin(ptr noundef) local_unnamed_addr #4
 declare ptr @N_VClone(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeWFtolerances(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -23, 1) i32 @CVodeWFtolerances(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1180,7 +1180,7 @@ define noundef i32 @CVodeWFtolerances(ptr noundef %0, ptr noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeQuadInit(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeQuadInit(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = icmp eq ptr %0, null
@@ -1337,7 +1337,7 @@ define noundef i32 @CVodeQuadInit(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeQuadReInit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @CVodeQuadReInit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1373,7 +1373,7 @@ define noundef i32 @CVodeQuadReInit(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeQuadSStolerances(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @CVodeQuadSStolerances(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1422,7 +1422,7 @@ define noundef i32 @CVodeQuadSStolerances(ptr noundef %0, double noundef %1, dou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeQuadSVtolerances(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @CVodeQuadSVtolerances(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1506,7 +1506,7 @@ define noundef i32 @CVodeQuadSVtolerances(ptr noundef %0, double noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSensInit(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeSensInit(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -1587,7 +1587,7 @@ define noundef i32 @CVodeSensInit(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %37 = getelementptr inbounds i8, ptr %0, i64 744
   store i32 0, ptr %37, align 8
   %38 = load ptr, ptr %4, align 8
-  %39 = tail call fastcc i32 @cvSensAllocVectors(ptr noundef nonnull %0, ptr noundef %38), !range !12
+  %39 = tail call fastcc i32 @cvSensAllocVectors(ptr noundef nonnull %0, ptr noundef %38)
   %.not64 = icmp eq i32 %39, 0
   br i1 %.not64, label %41, label %.lr.ph
 
@@ -1610,7 +1610,7 @@ define noundef i32 @CVodeSensInit(ptr noundef %0, i32 noundef %1, i32 noundef %2
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %44, ptr noundef %47) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph68, label %42, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph68, label %42, !llvm.loop !12
 
 .lr.ph68:                                         ; preds = %42
   %48 = getelementptr inbounds i8, ptr %0, i64 1456
@@ -1640,7 +1640,7 @@ define noundef i32 @CVodeSensInit(ptr noundef %0, i32 noundef %1, i32 noundef %2
   store double 1.000000e+00, ptr %60, align 8
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count75
-  br i1 %exitcond76.not, label %._crit_edge69, label %55, !llvm.loop !14
+  br i1 %exitcond76.not, label %._crit_edge69, label %55, !llvm.loop !13
 
 ._crit_edge69:                                    ; preds = %55
   %61 = getelementptr inbounds i8, ptr %0, i64 136
@@ -1654,7 +1654,7 @@ define noundef i32 @CVodeSensInit(ptr noundef %0, i32 noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cvSensAllocVectors(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cvSensAllocVectors(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 140
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr @N_VCloneVectorArray(i32 noundef %4, ptr noundef %1) #13
@@ -1789,7 +1789,7 @@ define internal fastcc noundef i32 @cvSensAllocVectors(ptr noundef %0, ptr nound
   tail call void @N_VDestroyVectorArray(ptr noundef %73, i32 noundef %74) #13
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph133, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph133, !llvm.loop !14
 
 75:                                               ; preds = %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1797,7 +1797,7 @@ define internal fastcc noundef i32 @cvSensAllocVectors(ptr noundef %0, ptr nound
   %77 = sext i32 %76 to i64
   %.not.not = icmp slt i64 %indvars.iv, %77
   %indvars.iv.next151 = add nuw i32 %indvars.iv150, 1
-  br i1 %.not.not, label %55, label %._crit_edge, !llvm.loop !16
+  br i1 %.not.not, label %55, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %75, %.preheader
   %.lcssa = phi i32 [ %44, %.preheader ], [ %76, %75 ]
@@ -1843,7 +1843,7 @@ define internal fastcc noundef i32 @cvSensAllocVectors(ptr noundef %0, ptr nound
   %100 = load i32, ptr %43, align 8
   %101 = sext i32 %100 to i64
   %.not122.not = icmp slt i64 %indvars.iv156, %101
-  br i1 %.not122.not, label %96, label %.loopexit, !llvm.loop !17
+  br i1 %.not122.not, label %96, label %.loopexit, !llvm.loop !16
 
 102:                                              ; preds = %._crit_edge
   %103 = getelementptr inbounds i8, ptr %0, i64 200
@@ -1886,7 +1886,7 @@ define internal fastcc noundef i32 @cvSensAllocVectors(ptr noundef %0, ptr nound
   %123 = load i32, ptr %43, align 8
   %124 = sext i32 %123 to i64
   %.not121.not = icmp slt i64 %indvars.iv153, %124
-  br i1 %.not121.not, label %119, label %._crit_edge138, !llvm.loop !18
+  br i1 %.not121.not, label %119, label %._crit_edge138, !llvm.loop !17
 
 ._crit_edge138:                                   ; preds = %119, %107
   %125 = load ptr, ptr %78, align 8
@@ -1924,7 +1924,7 @@ define internal fastcc noundef i32 @cvSensAllocVectors(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSensInit1(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeSensInit1(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -2031,7 +2031,7 @@ define noundef i32 @CVodeSensInit1(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 52:                                               ; preds = %47, %51
   %53 = load ptr, ptr %4, align 8
-  %54 = tail call fastcc i32 @cvSensAllocVectors(ptr noundef nonnull %0, ptr noundef %53), !range !12
+  %54 = tail call fastcc i32 @cvSensAllocVectors(ptr noundef nonnull %0, ptr noundef %53)
   %.not94 = icmp eq i32 %54, 0
   br i1 %.not94, label %56, label %.lr.ph
 
@@ -2075,7 +2075,7 @@ define noundef i32 @CVodeSensInit1(ptr noundef %0, i32 noundef %1, i32 noundef %
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %69, ptr noundef %72) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %67
   %73 = getelementptr inbounds i8, ptr %0, i64 1456
@@ -2107,7 +2107,7 @@ define noundef i32 @CVodeSensInit1(ptr noundef %0, i32 noundef %1, i32 noundef %
   store i64 0, ptr %84, align 8
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count110
-  br i1 %exitcond111.not, label %.lr.ph102, label %80, !llvm.loop !20
+  br i1 %exitcond111.not, label %.lr.ph102, label %80, !llvm.loop !19
 
 .lr.ph102:                                        ; preds = %80, %._crit_edge
   %85 = getelementptr inbounds i8, ptr %0, i64 200
@@ -2127,7 +2127,7 @@ define noundef i32 @CVodeSensInit1(ptr noundef %0, i32 noundef %1, i32 noundef %
   store double 1.000000e+00, ptr %92, align 8
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count116
-  br i1 %exitcond117.not, label %._crit_edge103, label %87, !llvm.loop !21
+  br i1 %exitcond117.not, label %._crit_edge103, label %87, !llvm.loop !20
 
 ._crit_edge103:                                   ; preds = %87
   %93 = getelementptr inbounds i8, ptr %0, i64 136
@@ -2144,7 +2144,7 @@ define noundef i32 @CVodeSensInit1(ptr noundef %0, i32 noundef %1, i32 noundef %
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSensReInit(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeSensReInit(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -2253,7 +2253,7 @@ define noundef i32 @CVodeSensReInit(ptr noundef %0, i32 noundef %1, ptr noundef 
   %57 = load i32, ptr %47, align 4
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %51, label %._crit_edge, !llvm.loop !22
+  br i1 %59, label %51, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %51
   %60 = icmp sgt i32 %57, 0
@@ -2300,7 +2300,7 @@ define noundef i32 @CVodeSensReInit(ptr noundef %0, i32 noundef %1, ptr noundef 
   %78 = load i32, ptr %47, align 4
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next67, %79
-  br i1 %80, label %73, label %.loopexit, !llvm.loop !23
+  br i1 %80, label %73, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %73, %._crit_edge, %._crit_edge.thread
   %81 = getelementptr inbounds i8, ptr %0, i64 136
@@ -2313,7 +2313,7 @@ define noundef i32 @CVodeSensReInit(ptr noundef %0, i32 noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSensSStolerances(ptr noundef %0, double noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeSensSStolerances(ptr noundef %0, double noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -2360,7 +2360,7 @@ define noundef i32 @CVodeSensSStolerances(ptr noundef %0, double noundef %1, ptr
 20:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
@@ -2414,7 +2414,7 @@ define noundef i32 @CVodeSensSStolerances(ptr noundef %0, double noundef %1, ptr
   %44 = load i32, ptr %16, align 4
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next44, %45
-  br i1 %46, label %39, label %.loopexit, !llvm.loop !25
+  br i1 %46, label %39, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %39, %37, %24, %19, %13, %10, %5
   %.031 = phi i32 [ -21, %5 ], [ -40, %10 ], [ -22, %13 ], [ -22, %19 ], [ -22, %24 ], [ 0, %37 ], [ 0, %39 ]
@@ -2422,7 +2422,7 @@ define noundef i32 @CVodeSensSStolerances(ptr noundef %0, double noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSensSVtolerances(ptr noundef %0, double noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeSensSVtolerances(ptr noundef %0, double noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -2467,7 +2467,7 @@ define noundef i32 @CVodeSensSVtolerances(ptr noundef %0, double noundef %1, ptr
   %21 = load i32, ptr %12, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.preheader ]
@@ -2538,7 +2538,7 @@ define noundef i32 @CVodeSensSVtolerances(ptr noundef %0, double noundef %1, ptr
   %62 = load i32, ptr %12, align 4
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next49, %63
-  br i1 %64, label %56, label %.loopexit, !llvm.loop !27
+  br i1 %64, label %56, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %56, %52, %28, %19, %14, %10, %5
   %.037 = phi i32 [ -21, %5 ], [ -40, %10 ], [ -22, %14 ], [ -22, %19 ], [ -22, %28 ], [ 0, %52 ], [ 0, %56 ]
@@ -2548,7 +2548,7 @@ define noundef i32 @CVodeSensSVtolerances(ptr noundef %0, double noundef %1, ptr
 declare ptr @N_VCloneVectorArray(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSensEEtolerances(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeSensEEtolerances(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -2577,7 +2577,7 @@ define noundef i32 @CVodeSensEEtolerances(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeQuadSensInit(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeQuadSensInit(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -2732,14 +2732,14 @@ define noundef i32 @CVodeQuadSensInit(ptr noundef %0, ptr noundef %1, ptr nounde
   tail call void @N_VDestroyVectorArray(ptr noundef %79, i32 noundef %80) #13
   %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next84.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph79.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph79.i, !llvm.loop !27
 
 81:                                               ; preds = %62
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %82 = load i32, ptr %51, align 8
   %83 = sext i32 %82 to i64
   %.not.not.i = icmp slt i64 %indvars.iv.i, %83
-  br i1 %.not.not.i, label %62, label %.loopexit39, !llvm.loop !29
+  br i1 %.not.not.i, label %62, label %.loopexit39, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph79.i, %24, %31, %40, %54, %13, %67
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -20, ptr noundef nonnull @.str, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.10)
@@ -2804,7 +2804,7 @@ define noundef i32 @CVodeQuadSensInit(ptr noundef %0, ptr noundef %1, ptr nounde
   %117 = load i32, ptr %19, align 4
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next, %118
-  br i1 %119, label %111, label %._crit_edge, !llvm.loop !30
+  br i1 %119, label %111, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %111, %105
   %120 = getelementptr inbounds i8, ptr %0, i64 1472
@@ -2935,7 +2935,7 @@ define internal i32 @cvQuadSensRhsInternalDQ(i32 noundef %0, double noundef %1, 
   store i64 %84, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %cvQuadSensRhs1InternalDQ.exit.thread, label %20, !llvm.loop !31
+  br i1 %exitcond.not, label %cvQuadSensRhs1InternalDQ.exit.thread, label %20, !llvm.loop !30
 
 cvQuadSensRhs1InternalDQ.exit.thread:             ; preds = %80, %52, %60, %70, %9
   %.0 = phi i32 [ 0, %9 ], [ %76, %70 ], [ %67, %60 ], [ %59, %52 ], [ 0, %80 ]
@@ -2943,7 +2943,7 @@ cvQuadSensRhs1InternalDQ.exit.thread:             ; preds = %80, %52, %60, %70, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeQuadSensReInit(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @CVodeQuadSensReInit(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3001,7 +3001,7 @@ define noundef i32 @CVodeQuadSensReInit(ptr noundef %0, ptr noundef readonly %1)
   %27 = load i32, ptr %16, align 4
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %21, label %._crit_edge, !llvm.loop !32
+  br i1 %29, label %21, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %21, %.preheader
   %30 = getelementptr inbounds i8, ptr %0, i64 1472
@@ -3018,7 +3018,7 @@ define noundef i32 @CVodeQuadSensReInit(ptr noundef %0, ptr noundef readonly %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeQuadSensSStolerances(ptr noundef %0, double noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeQuadSensSStolerances(ptr noundef %0, double noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -3075,7 +3075,7 @@ define noundef i32 @CVodeQuadSensSStolerances(ptr noundef %0, double noundef %1,
 25:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
@@ -3129,7 +3129,7 @@ define noundef i32 @CVodeQuadSensSStolerances(ptr noundef %0, double noundef %1,
   %49 = load i32, ptr %21, align 4
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next46, %50
-  br i1 %51, label %44, label %.loopexit, !llvm.loop !34
+  br i1 %51, label %44, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %44, %42, %29, %24, %18, %15, %10, %5
   %.033 = phi i32 [ -21, %5 ], [ -40, %10 ], [ -30, %15 ], [ -22, %18 ], [ -22, %24 ], [ -22, %29 ], [ 0, %42 ], [ 0, %44 ]
@@ -3137,7 +3137,7 @@ define noundef i32 @CVodeQuadSensSStolerances(ptr noundef %0, double noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeQuadSensSVtolerances(ptr noundef %0, double noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeQuadSensSVtolerances(ptr noundef %0, double noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -3192,7 +3192,7 @@ define noundef i32 @CVodeQuadSensSVtolerances(ptr noundef %0, double noundef %1,
   %26 = load i32, ptr %17, align 4
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %.preheader, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader ]
@@ -3263,7 +3263,7 @@ define noundef i32 @CVodeQuadSensSVtolerances(ptr noundef %0, double noundef %1,
   %67 = load i32, ptr %17, align 4
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next51, %68
-  br i1 %69, label %61, label %.loopexit, !llvm.loop !36
+  br i1 %69, label %61, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %61, %57, %33, %24, %19, %15, %10, %5
   %.039 = phi i32 [ -21, %5 ], [ -40, %10 ], [ -30, %15 ], [ -22, %19 ], [ -22, %24 ], [ -22, %33 ], [ 0, %57 ], [ 0, %61 ]
@@ -3271,7 +3271,7 @@ define noundef i32 @CVodeQuadSensSVtolerances(ptr noundef %0, double noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeQuadSensEEtolerances(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeQuadSensEEtolerances(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -3310,7 +3310,7 @@ define noundef i32 @CVodeQuadSensEEtolerances(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSensToggleOff(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSensToggleOff(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -3331,7 +3331,7 @@ define noundef i32 @CVodeSensToggleOff(ptr noundef writeonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -3434,7 +3434,7 @@ define noundef i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %56 = load ptr, ptr %55, align 8
   tail call void @free(ptr noundef %56) #13
   store ptr null, ptr %55, align 8
-  %57 = mul nsw i32 %7, 3
+  %57 = mul nuw nsw i32 %7, 3
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds i8, ptr %0, i64 1624
   %60 = load <2 x i64>, ptr %59, align 8
@@ -3575,7 +3575,7 @@ define noundef i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2
   store i32 0, ptr %103, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph141.preheader, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %.lr.ph141.preheader, label %.lr.ph, !llvm.loop !36
 
 .lr.ph141:                                        ; preds = %.lr.ph141.preheader, %.lr.ph141
   %indvars.iv143 = phi i64 [ 0, %.lr.ph141.preheader ], [ %indvars.iv.next144, %.lr.ph141 ]
@@ -3584,10 +3584,10 @@ define noundef i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2
   store i32 1, ptr %105, align 4
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %._crit_edge, label %.lr.ph141, !llvm.loop !38
+  br i1 %exitcond147.not, label %._crit_edge, label %.lr.ph141, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph141
-  %106 = mul nsw i32 %7, 3
+  %106 = mul nuw nsw i32 %7, 3
   %107 = zext nneg i32 %106 to i64
   %108 = getelementptr inbounds i8, ptr %0, i64 1624
   %109 = load <2 x i64>, ptr %108, align 8
@@ -3745,7 +3745,7 @@ define noundef i32 @CVode(ptr noundef %0, double noundef %1, ptr noundef %2, ptr
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %0, i64 568
   %75 = load ptr, ptr %74, align 8
-  %76 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull %0, ptr noundef %73, ptr noundef %75), !range !39
+  %76 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull %0, ptr noundef %73, ptr noundef %75)
   %.not68.i = icmp eq i32 %76, 0
   br i1 %.not68.i, label %78, label %77
 
@@ -3800,7 +3800,7 @@ define noundef i32 @CVode(ptr noundef %0, double noundef %1, ptr noundef %2, ptr
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %0, i64 704
   %100 = load ptr, ptr %99, align 8
-  %101 = tail call fastcc i32 @cvSensEwtSet(ptr noundef nonnull %0, ptr noundef %98, ptr noundef %100), !range !39
+  %101 = tail call fastcc i32 @cvSensEwtSet(ptr noundef nonnull %0, ptr noundef %98, ptr noundef %100)
   %.not72.i = icmp eq i32 %101, 0
   br i1 %.not72.i, label %103, label %102
 
@@ -3872,7 +3872,7 @@ define noundef i32 @CVode(ptr noundef %0, double noundef %1, ptr noundef %2, ptr
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %0, i64 856
   %133 = load ptr, ptr %132, align 8
-  %134 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef nonnull %0, ptr noundef %131, ptr noundef %133), !range !39
+  %134 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef nonnull %0, ptr noundef %131, ptr noundef %133)
   %.not77.i = icmp eq i32 %134, 0
   br i1 %.not77.i, label %138, label %135
 
@@ -4120,7 +4120,7 @@ cvInitialSetup.exit:                              ; preds = %150, %147, %138
 
 274:                                              ; preds = %273, %265, %264
   %.0469 = phi double [ %269, %273 ], [ %1, %265 ], [ %1, %264 ]
-  %275 = tail call fastcc i32 @cvHin(ptr noundef nonnull %0, double noundef %.0469), !range !40
+  %275 = tail call fastcc i32 @cvHin(ptr noundef nonnull %0, double noundef %.0469)
   %.not502 = icmp eq i32 %275, 0
   br i1 %.not502, label %._crit_edge, label %276
 
@@ -4235,7 +4235,7 @@ cvInitialSetup.exit:                              ; preds = %150, %147, %138
   %335 = load i32, ptr %326, align 4
   %336 = sext i32 %335 to i64
   %337 = icmp slt i64 %indvars.iv.next, %336
-  br i1 %337, label %330, label %.loopexit547, !llvm.loop !41
+  br i1 %337, label %330, label %.loopexit547, !llvm.loop !38
 
 .loopexit547:                                     ; preds = %330, %.preheader546, %324
   %338 = load i32, ptr %104, align 8
@@ -4263,7 +4263,7 @@ cvInitialSetup.exit:                              ; preds = %150, %147, %138
   %348 = load i32, ptr %339, align 4
   %349 = sext i32 %348 to i64
   %350 = icmp slt i64 %indvars.iv.next622, %349
-  br i1 %350, label %343, label %.loopexit, !llvm.loop !42
+  br i1 %350, label %343, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %343, %.preheader545, %.loopexit547
   %351 = getelementptr inbounds i8, ptr %0, i64 2072
@@ -4272,7 +4272,7 @@ cvInitialSetup.exit:                              ; preds = %150, %147, %138
   br i1 %353, label %354, label %thread-pre-split
 
 354:                                              ; preds = %.loopexit
-  %355 = tail call fastcc i32 @cvRcheck1(ptr noundef nonnull %0), !range !43
+  %355 = tail call fastcc i32 @cvRcheck1(ptr noundef nonnull %0)
   %356 = icmp eq i32 %355, -12
   br i1 %356, label %357, label %thread-pre-split
 
@@ -4309,7 +4309,7 @@ thread-pre-split:                                 ; preds = %354, %.loopexit
 376:                                              ; preds = %362
   %377 = getelementptr inbounds i8, ptr %0, i64 2164
   %378 = load i32, ptr %377, align 4
-  %379 = tail call fastcc i32 @cvRcheck2(ptr noundef nonnull %0), !range !44
+  %379 = tail call fastcc i32 @cvRcheck2(ptr noundef nonnull %0)
   switch i32 %379, label %390 [
     i32 3, label %380
     i32 -12, label %383
@@ -4346,7 +4346,7 @@ thread-pre-split:                                 ; preds = %354, %.loopexit
   br i1 %396, label %397, label %412
 
 397:                                              ; preds = %390
-  %398 = tail call fastcc i32 @cvRcheck3(ptr noundef nonnull %0), !range !45
+  %398 = tail call fastcc i32 @cvRcheck3(ptr noundef nonnull %0)
   switch i32 %398, label %412 [
     i32 0, label %399
     i32 1, label %406
@@ -4398,7 +4398,7 @@ thread-pre-split:                                 ; preds = %354, %.loopexit
   store double %1, ptr %3, align 8
   %420 = getelementptr inbounds i8, ptr %0, i64 992
   store double %1, ptr %420, align 8
-  %421 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %1, i32 noundef 0, ptr noundef nonnull %2), !range !46
+  %421 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %1, i32 noundef 0, ptr noundef nonnull %2)
   %.not531 = icmp eq i32 %421, 0
   br i1 %.not531, label %cvInitialSetup.exit.thread, label %422
 
@@ -4445,7 +4445,7 @@ thread-pre-split:                                 ; preds = %354, %.loopexit
 
 445:                                              ; preds = %438
   %446 = load double, ptr %440, align 8
-  %447 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %446, i32 noundef 0, ptr noundef nonnull %2), !range !46
+  %447 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %446, i32 noundef 0, ptr noundef nonnull %2)
   %.not530 = icmp eq i32 %447, 0
   %448 = load double, ptr %440, align 8
   br i1 %.not530, label %451, label %449
@@ -4569,7 +4569,7 @@ thread-pre-split:                                 ; preds = %354, %.loopexit
 528:                                              ; preds = %526
   %529 = load ptr, ptr %481, align 8
   %530 = load ptr, ptr %482, align 8
-  %531 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull %0, ptr noundef %529, ptr noundef %530), !range !39
+  %531 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull %0, ptr noundef %529, ptr noundef %530)
   %.not511 = icmp eq i32 %531, 0
   br i1 %.not511, label %537, label %532
 
@@ -4592,7 +4592,7 @@ thread-pre-split:                                 ; preds = %354, %.loopexit
 539:                                              ; preds = %537
   %540 = load ptr, ptr %484, align 8
   %541 = load ptr, ptr %485, align 8
-  %542 = tail call fastcc i32 @cvSensEwtSet(ptr noundef nonnull %0, ptr noundef %540, ptr noundef %541), !range !39
+  %542 = tail call fastcc i32 @cvSensEwtSet(ptr noundef nonnull %0, ptr noundef %540, ptr noundef %541)
   %.not513 = icmp eq i32 %542, 0
   br i1 %.not513, label %548, label %543
 
@@ -4620,7 +4620,7 @@ thread-pre-split:                                 ; preds = %354, %.loopexit
 552:                                              ; preds = %550
   %553 = load ptr, ptr %488, align 8
   %554 = load ptr, ptr %489, align 8
-  %555 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef nonnull %0, ptr noundef %553, ptr noundef %554), !range !39
+  %555 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef nonnull %0, ptr noundef %553, ptr noundef %554)
   %.not516 = icmp eq i32 %555, 0
   br i1 %.not516, label %561, label %556
 
@@ -4709,7 +4709,7 @@ thread-pre-split:                                 ; preds = %354, %.loopexit
   %599 = load i32, ptr %492, align 4
   %600 = sext i32 %599 to i64
   %601 = icmp slt i64 %indvars.iv.next.i.i, %600
-  br i1 %601, label %.lr.ph.i.i, label %cvSensUpdateNorm.exit, !llvm.loop !47
+  br i1 %601, label %.lr.ph.i.i, label %cvSensUpdateNorm.exit, !llvm.loop !40
 
 cvSensUpdateNorm.exit:                            ; preds = %.lr.ph.i.i, %585
   %.012.lcssa.i.i = phi double [ %590, %585 ], [ %.1.i.i, %.lr.ph.i.i ]
@@ -4752,7 +4752,7 @@ cvSensUpdateNorm.exit:                            ; preds = %.lr.ph.i.i, %585
   %621 = load i32, ptr %492, align 4
   %622 = sext i32 %621 to i64
   %623 = icmp slt i64 %indvars.iv.next.i.i540, %622
-  br i1 %623, label %.lr.ph.i.i536, label %cvQuadSensUpdateNorm.exit, !llvm.loop !48
+  br i1 %623, label %.lr.ph.i.i536, label %cvQuadSensUpdateNorm.exit, !llvm.loop !41
 
 cvQuadSensUpdateNorm.exit:                        ; preds = %.lr.ph.i.i536, %607
   %.012.lcssa.i.i534 = phi double [ %612, %607 ], [ %.1.i.i539, %.lr.ph.i.i536 ]
@@ -4862,7 +4862,7 @@ cvQuadSensUpdateNorm.exit:                        ; preds = %.lr.ph.i.i536, %607
   br i1 %679, label %680, label %.thread543
 
 680:                                              ; preds = %677
-  %681 = tail call fastcc i32 @cvRcheck3(ptr noundef nonnull %0), !range !45
+  %681 = tail call fastcc i32 @cvRcheck3(ptr noundef nonnull %0)
   switch i32 %681, label %690 [
     i32 1, label %682
     i32 -12, label %687
@@ -4902,7 +4902,7 @@ cvQuadSensUpdateNorm.exit:                        ; preds = %.lr.ph.i.i536, %607
 696:                                              ; preds = %697
   %indvars.iv.next625 = add nuw nsw i64 %indvars.iv624, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next625, %wide.trip.count
-  br i1 %exitcond.not, label %.thread543, label %697, !llvm.loop !49
+  br i1 %exitcond.not, label %.thread543, label %697, !llvm.loop !42
 
 697:                                              ; preds = %.lr.ph611, %696
   %indvars.iv624 = phi i64 [ 0, %.lr.ph611 ], [ %indvars.iv.next625, %696 ]
@@ -4935,7 +4935,7 @@ cvQuadSensUpdateNorm.exit:                        ; preds = %.lr.ph.i.i536, %607
   store double %1, ptr %3, align 8
   %711 = getelementptr inbounds i8, ptr %0, i64 992
   store double %1, ptr %711, align 8
-  %712 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %1, i32 noundef 0, ptr noundef nonnull %2), !range !46
+  %712 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %1, i32 noundef 0, ptr noundef nonnull %2)
   %713 = getelementptr inbounds i8, ptr %0, i64 916
   %714 = load i32, ptr %713, align 4
   store i32 %714, ptr %474, align 8
@@ -4966,7 +4966,7 @@ cvQuadSensUpdateNorm.exit:                        ; preds = %.lr.ph.i.i536, %607
 
 732:                                              ; preds = %718
   %733 = load double, ptr %498, align 8
-  %734 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %733, i32 noundef 0, ptr noundef nonnull %2), !range !46
+  %734 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %733, i32 noundef 0, ptr noundef nonnull %2)
   %735 = load double, ptr %498, align 8
   store double %735, ptr %3, align 8
   %736 = getelementptr inbounds i8, ptr %0, i64 992
@@ -5055,7 +5055,7 @@ cvQuadSensUpdateNorm.exit:                        ; preds = %.lr.ph.i.i536, %607
   store i64 %783, ptr %768, align 8
   %indvars.iv.next628 = add nuw nsw i64 %indvars.iv627, 1
   %exitcond631.not = icmp eq i64 %indvars.iv.next628, %wide.trip.count630
-  br i1 %exitcond631.not, label %cvInitialSetup.exit.thread, label %775, !llvm.loop !50
+  br i1 %exitcond631.not, label %cvInitialSetup.exit.thread, label %775, !llvm.loop !43
 
 cvInitialSetup.exit.thread:                       ; preds = %775, %766, %58, %59, %111, %152, %146, %135, %128, %123, %116, %102, %95, %87, %77, %70, %39, %760, %762, %419, %451, %449, %432, %422, %409, %406, %402, %386, %383, %380, %357, %276, %261, %250, %238, %235, %208, %205, %188, %185, %169, %166, %22, %19, %16, %12, %7
   %.0468 = phi i32 [ -21, %7 ], [ -23, %12 ], [ -22, %16 ], [ -22, %19 ], [ -22, %22 ], [ -8, %166 ], [ -9, %169 ], [ -31, %185 ], [ -32, %188 ], [ -41, %205 ], [ -42, %208 ], [ -51, %235 ], [ -52, %238 ], [ -22, %250 ], [ -22, %261 ], [ %277, %276 ], [ -12, %357 ], [ -22, %380 ], [ -12, %383 ], [ 2, %386 ], [ 0, %402 ], [ -22, %422 ], [ 0, %432 ], [ -22, %449 ], [ 1, %451 ], [ 2, %406 ], [ -12, %409 ], [ 0, %419 ], [ %.0475, %762 ], [ %.0475, %760 ], [ -22, %58 ], [ -22, %59 ], [ -22, %111 ], [ -5, %152 ], [ -22, %146 ], [ -22, %135 ], [ -22, %128 ], [ -22, %123 ], [ -22, %116 ], [ -22, %102 ], [ -22, %95 ], [ -22, %87 ], [ -22, %77 ], [ -22, %70 ], [ -22, %39 ], [ %.0475, %766 ], [ %.0475, %775 ]
@@ -5100,7 +5100,7 @@ define i32 @cvSensRhsWrapper(ptr nocapture noundef %0, double noundef %1, ptr no
   %30 = load i32, ptr %13, align 4
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %33, label %.loopexit, !llvm.loop !51
+  br i1 %32, label %33, label %.loopexit, !llvm.loop !44
 
 33:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
@@ -5125,7 +5125,7 @@ define i32 @cvSensRhsWrapper(ptr nocapture noundef %0, double noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cvHin(ptr noundef %0, double noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @cvHin(ptr noundef %0, double noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 984
   %4 = load double, ptr %3, align 8
   %5 = fsub double %1, %4
@@ -5196,7 +5196,7 @@ define internal fastcc noundef i32 @cvHin(ptr noundef %0, double noundef %1) unn
   %50 = load ptr, ptr %49, align 8
   tail call void @N_VAbs(ptr noundef %50, ptr noundef %48) #13
   %51 = load ptr, ptr %49, align 8
-  %52 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull %0, ptr noundef %51, ptr noundef %46), !range !39
+  %52 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull readonly %0, ptr noundef %51, ptr noundef %46)
   tail call void @N_VInv(ptr noundef %46, ptr noundef %46) #13
   tail call void @N_VLinearSum(double noundef 1.000000e-01, ptr noundef %48, double noundef 1.000000e+00, ptr noundef %46, ptr noundef %46) #13
   %53 = getelementptr inbounds i8, ptr %0, i64 472
@@ -5228,7 +5228,7 @@ define internal fastcc noundef i32 @cvHin(ptr noundef %0, double noundef %1) unn
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %0, i64 600
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call fastcc i32 @cvSensEwtSet(ptr noundef nonnull %0, ptr noundef %68, ptr noundef %66), !range !39
+  %69 = tail call fastcc i32 @cvSensEwtSet(ptr noundef nonnull readonly %0, ptr noundef %68, ptr noundef %66)
   %70 = getelementptr inbounds i8, ptr %0, i64 140
   %71 = load i32, ptr %70, align 4
   %72 = icmp sgt i32 %71, 0
@@ -5261,7 +5261,7 @@ define internal fastcc noundef i32 @cvHin(ptr noundef %0, double noundef %1) unn
   %85 = load i32, ptr %70, align 4
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next.i, %86
-  br i1 %87, label %74, label %.loopexit116.i, !llvm.loop !52
+  br i1 %87, label %74, label %.loopexit116.i, !llvm.loop !45
 
 .loopexit116.i:                                   ; preds = %74, %64, %61, %58
   %.3.i = phi double [ %.0104.i, %61 ], [ %.0104.i, %58 ], [ %.0104.i, %64 ], [ %.2.i, %74 ]
@@ -5285,7 +5285,7 @@ define internal fastcc noundef i32 @cvHin(ptr noundef %0, double noundef %1) unn
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %0, i64 752
   %101 = load ptr, ptr %100, align 8
-  %102 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef nonnull %0, ptr noundef %101, ptr noundef %99), !range !39
+  %102 = tail call fastcc i32 @cvQuadSensEwtSet(ptr noundef nonnull readonly %0, ptr noundef %101, ptr noundef %99)
   %103 = getelementptr inbounds i8, ptr %0, i64 140
   %104 = load i32, ptr %103, align 4
   %105 = icmp sgt i32 %104, 0
@@ -5318,7 +5318,7 @@ define internal fastcc noundef i32 @cvHin(ptr noundef %0, double noundef %1) unn
   %118 = load i32, ptr %103, align 4
   %119 = sext i32 %118 to i64
   %120 = icmp slt i64 %indvars.iv.next125.i, %119
-  br i1 %120, label %107, label %cvUpperBoundH0.exit, !llvm.loop !53
+  br i1 %120, label %107, label %cvUpperBoundH0.exit, !llvm.loop !46
 
 cvUpperBoundH0.exit:                              ; preds = %107, %.loopexit116.i, %90, %93
   %.6.i = phi double [ %.3.i, %90 ], [ %.3.i, %.loopexit116.i ], [ %.3.i, %93 ], [ %.5.i, %107 ]
@@ -5427,7 +5427,7 @@ cvUpperBoundH0.exit:                              ; preds = %107, %.loopexit116.
   %186 = load i32, ptr %130, align 4
   %187 = sext i32 %186 to i64
   %188 = icmp slt i64 %indvars.iv.next.i102, %187
-  br i1 %188, label %.lr.ph.i100, label %.loopexit.i, !llvm.loop !54
+  br i1 %188, label %.lr.ph.i100, label %.loopexit.i, !llvm.loop !47
 
 .loopexit.i:                                      ; preds = %.lr.ph.i100, %.preheader168.i, %173, %166
   %189 = load ptr, ptr %134, align 8
@@ -5518,7 +5518,7 @@ cvUpperBoundH0.exit:                              ; preds = %107, %.loopexit116.
   %241 = load i32, ptr %130, align 4
   %242 = sext i32 %241 to i64
   %243 = icmp slt i64 %indvars.iv.next.i.i, %242
-  br i1 %243, label %.lr.ph.i.i, label %.thread.i, !llvm.loop !51
+  br i1 %243, label %.lr.ph.i.i, label %.thread.i, !llvm.loop !44
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %240
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %240 ], [ 0, %.preheader.i.i ]
@@ -5644,7 +5644,7 @@ cvSensRhsWrapper.exit.i:                          ; preds = %.lr.ph.i.i, %233
   %311 = load i32, ptr %130, align 4
   %312 = sext i32 %311 to i64
   %313 = icmp slt i64 %indvars.iv.next181.i, %312
-  br i1 %313, label %.lr.ph174.i, label %._crit_edge.i, !llvm.loop !55
+  br i1 %313, label %.lr.ph174.i, label %._crit_edge.i, !llvm.loop !48
 
 ._crit_edge.i:                                    ; preds = %.lr.ph174.i, %.preheader167.i
   %314 = load ptr, ptr %142, align 8
@@ -5670,7 +5670,7 @@ cvSensRhsWrapper.exit.i:                          ; preds = %.lr.ph.i.i, %233
   %327 = load i32, ptr %130, align 4
   %328 = sext i32 %327 to i64
   %329 = icmp slt i64 %indvars.iv.next.i.i.i, %328
-  br i1 %329, label %.lr.ph.i.i.i, label %cvSensUpdateNorm.exit.i, !llvm.loop !47
+  br i1 %329, label %.lr.ph.i.i.i, label %cvSensUpdateNorm.exit.i, !llvm.loop !40
 
 cvSensUpdateNorm.exit.i:                          ; preds = %.lr.ph.i.i.i, %._crit_edge.i
   %.012.lcssa.i.i.i = phi double [ %318, %._crit_edge.i ], [ %.1.i.i.i, %.lr.ph.i.i.i ]
@@ -5711,7 +5711,7 @@ cvSensUpdateNorm.exit.i:                          ; preds = %.lr.ph.i.i.i, %._cr
   %346 = load i32, ptr %130, align 4
   %347 = sext i32 %346 to i64
   %348 = icmp slt i64 %indvars.iv.next184.i, %347
-  br i1 %348, label %.lr.ph176.i, label %._crit_edge177.i, !llvm.loop !56
+  br i1 %348, label %.lr.ph176.i, label %._crit_edge177.i, !llvm.loop !49
 
 ._crit_edge177.i:                                 ; preds = %.lr.ph176.i, %.preheader.i
   %349 = load ptr, ptr %151, align 8
@@ -5737,7 +5737,7 @@ cvSensUpdateNorm.exit.i:                          ; preds = %.lr.ph.i.i.i, %._cr
   %362 = load i32, ptr %130, align 4
   %363 = sext i32 %362 to i64
   %364 = icmp slt i64 %indvars.iv.next.i.i162.i, %363
-  br i1 %364, label %.lr.ph.i.i158.i, label %cvQuadSensUpdateNorm.exit.i, !llvm.loop !48
+  br i1 %364, label %.lr.ph.i.i158.i, label %cvQuadSensUpdateNorm.exit.i, !llvm.loop !41
 
 cvQuadSensUpdateNorm.exit.i:                      ; preds = %.lr.ph.i.i158.i, %._crit_edge177.i
   %.012.lcssa.i.i156.i = phi double [ %353, %._crit_edge177.i ], [ %.1.i.i161.i, %.lr.ph.i.i158.i ]
@@ -5750,7 +5750,7 @@ cvQuadSensUpdateNorm.exit.i:                      ; preds = %.lr.ph.i.i158.i, %.
   %367 = fmul double %.189137, 2.000000e-01
   %368 = add nuw nsw i32 %.091136, 1
   %exitcond = icmp eq i32 %368, 5
-  br i1 %exitcond, label %369, label %166, !llvm.loop !57
+  br i1 %exitcond, label %369, label %166, !llvm.loop !50
 
 369:                                              ; preds = %366
   %370 = icmp ult i32 %.090138, 3
@@ -5954,7 +5954,7 @@ declare double @SUNRabs(double noundef) local_unnamed_addr #4
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cvRcheck1(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -12, 1) i32 @cvRcheck1(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2072
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -5973,7 +5973,7 @@ define internal fastcc noundef i32 @cvRcheck1(ptr nocapture noundef %0) unnamed_
   %9 = load i32, ptr %2, align 8
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv.next, %10
-  br i1 %11, label %6, label %._crit_edge, !llvm.loop !58
+  br i1 %11, label %6, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %6, %1
   %12 = getelementptr inbounds i8, ptr %0, i64 984
@@ -6033,7 +6033,7 @@ define internal fastcc noundef i32 @cvRcheck1(ptr nocapture noundef %0) unnamed_
   %46 = load i32, ptr %2, align 8
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next74, %47
-  br i1 %48, label %39, label %._crit_edge69, !llvm.loop !59
+  br i1 %48, label %39, label %._crit_edge69, !llvm.loop !52
 
 .thread:                                          ; preds = %39
   %49 = load ptr, ptr %37, align 8
@@ -6043,7 +6043,7 @@ define internal fastcc noundef i32 @cvRcheck1(ptr nocapture noundef %0) unnamed_
   %51 = load i32, ptr %2, align 8
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next7481, %52
-  br i1 %53, label %.outer, label %._crit_edge69.thread83, !llvm.loop !59
+  br i1 %53, label %.outer, label %._crit_edge69.thread83, !llvm.loop !52
 
 ._crit_edge69:                                    ; preds = %45
   br i1 %38, label %.loopexit, label %._crit_edge69.thread83
@@ -6129,7 +6129,7 @@ define internal fastcc noundef i32 @cvRcheck1(ptr nocapture noundef %0) unnamed_
   %105 = load i32, ptr %2, align 8
   %106 = sext i32 %105 to i64
   %107 = icmp slt i64 %indvars.iv.next77, %106
-  br i1 %107, label %86, label %.loopexit, !llvm.loop !60
+  br i1 %107, label %86, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %104, %.preheader64, %.preheader, %64, %._crit_edge69, %._crit_edge
   %.058 = phi i32 [ -12, %._crit_edge ], [ 0, %._crit_edge69 ], [ -12, %64 ], [ 0, %.preheader ], [ 0, %.preheader64 ], [ 0, %104 ]
@@ -6137,7 +6137,7 @@ define internal fastcc noundef i32 @cvRcheck1(ptr nocapture noundef %0) unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cvRcheck2(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -12, 4) i32 @cvRcheck2(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2164
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -6148,7 +6148,7 @@ define internal fastcc i32 @cvRcheck2(ptr noundef %0) unnamed_addr #0 {
   %7 = load double, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 432
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %7, i32 noundef 0, ptr noundef %9), !range !46
+  %10 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %7, i32 noundef 0, ptr noundef %9)
   %11 = getelementptr inbounds i8, ptr %0, i64 2064
   %12 = load ptr, ptr %11, align 8
   %13 = load double, ptr %6, align 8
@@ -6198,7 +6198,7 @@ define internal fastcc i32 @cvRcheck2(ptr noundef %0) unnamed_addr #0 {
   %34 = load i32, ptr %23, align 8
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %31, label %.preheader81, !llvm.loop !61
+  br i1 %36, label %31, label %.preheader81, !llvm.loop !54
 
 37:                                               ; preds = %.outer, %47
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %47 ], [ %indvars.iv94.ph, %.outer ]
@@ -6221,7 +6221,7 @@ define internal fastcc i32 @cvRcheck2(ptr noundef %0) unnamed_addr #0 {
   %48 = load i32, ptr %23, align 8
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next95, %49
-  br i1 %50, label %37, label %._crit_edge, !llvm.loop !62
+  br i1 %50, label %37, label %._crit_edge, !llvm.loop !55
 
 .thread:                                          ; preds = %41
   %51 = load ptr, ptr %29, align 8
@@ -6231,7 +6231,7 @@ define internal fastcc i32 @cvRcheck2(ptr noundef %0) unnamed_addr #0 {
   %53 = load i32, ptr %23, align 8
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next95102, %54
-  br i1 %55, label %.outer, label %._crit_edge.thread104, !llvm.loop !62
+  br i1 %55, label %.outer, label %._crit_edge.thread104, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %47
   br i1 %30, label %.loopexit, label %._crit_edge.thread104
@@ -6271,7 +6271,7 @@ define internal fastcc i32 @cvRcheck2(ptr noundef %0) unnamed_addr #0 {
 
 82:                                               ; preds = %._crit_edge.thread104
   %83 = load ptr, ptr %8, align 8
-  %84 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %72, i32 noundef 0, ptr noundef %83), !range !46
+  %84 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %72, i32 noundef 0, ptr noundef %83)
   br label %85
 
 85:                                               ; preds = %82, %77
@@ -6343,7 +6343,7 @@ define internal fastcc i32 @cvRcheck2(ptr noundef %0) unnamed_addr #0 {
   %122 = load i32, ptr %23, align 8
   %123 = sext i32 %122 to i64
   %124 = icmp slt i64 %indvars.iv.next98, %123
-  br i1 %124, label %98, label %._crit_edge91.loopexit, !llvm.loop !63
+  br i1 %124, label %98, label %._crit_edge91.loopexit, !llvm.loop !56
 
 ._crit_edge91.loopexit:                           ; preds = %121
   %125 = icmp ne i32 %.3, 0
@@ -6356,7 +6356,7 @@ define internal fastcc i32 @cvRcheck2(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2160
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 2
@@ -6406,7 +6406,7 @@ define internal fastcc noundef i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
   store double %18, ptr %26, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 432
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %18, i32 noundef 0, ptr noundef %34), !range !46
+  %35 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %18, i32 noundef 0, ptr noundef %34)
   br label %36
 
 36:                                               ; preds = %27, %32, %13
@@ -6533,7 +6533,7 @@ define internal fastcc noundef i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
   %116 = load i32, ptr %63, align 8
   %117 = sext i32 %116 to i64
   %118 = icmp slt i64 %indvars.iv.next.i, %117
-  br i1 %118, label %73, label %._crit_edge.i, !llvm.loop !64
+  br i1 %118, label %73, label %._crit_edge.i, !llvm.loop !57
 
 .thread.i:                                        ; preds = %110
   %119 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -6541,7 +6541,7 @@ define internal fastcc noundef i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
   %120 = load i32, ptr %63, align 8
   %121 = sext i32 %120 to i64
   %122 = icmp slt i64 %indvars.iv.next343.i, %121
-  br i1 %122, label %.outer.i, label %.preheader246.i, !llvm.loop !64
+  br i1 %122, label %.outer.i, label %.preheader246.i, !llvm.loop !57
 
 ._crit_edge.i:                                    ; preds = %115
   %123 = icmp eq i32 %.1210.i, 0
@@ -6585,7 +6585,7 @@ define internal fastcc noundef i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
   %143 = load i32, ptr %63, align 8
   %144 = sext i32 %143 to i64
   %145 = icmp slt i64 %indvars.iv.next326.i, %144
-  br i1 %145, label %137, label %._crit_edge301.loopexit.i, !llvm.loop !65
+  br i1 %145, label %137, label %._crit_edge301.loopexit.i, !llvm.loop !58
 
 ._crit_edge301.loopexit.i:                        ; preds = %137
   %146 = icmp slt i32 %143, 1
@@ -6640,7 +6640,7 @@ define internal fastcc noundef i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
   %176 = load i32, ptr %63, align 8
   %177 = sext i32 %176 to i64
   %178 = icmp slt i64 %indvars.iv.next329.i, %177
-  br i1 %178, label %148, label %cvRootfind.exit, !llvm.loop !66
+  br i1 %178, label %148, label %cvRootfind.exit, !llvm.loop !59
 
 179:                                              ; preds = %.backedge.i, %.lr.ph286.i
   %.0213285.i = phi i32 [ -1, %.lr.ph286.i ], [ %.0214284.i, %.backedge.i ]
@@ -6718,7 +6718,7 @@ define internal fastcc noundef i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
 235:                                              ; preds = %222, %215
   %.1230.i = phi double [ %234, %222 ], [ %.0229.i, %215 ]
   %236 = load ptr, ptr %41, align 8
-  %237 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %.1230.i, i32 noundef 0, ptr noundef %236), !range !46
+  %237 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %.1230.i, i32 noundef 0, ptr noundef %236)
   %238 = load ptr, ptr %37, align 8
   %239 = load ptr, ptr %41, align 8
   %240 = load ptr, ptr %131, align 8
@@ -6804,7 +6804,7 @@ define internal fastcc noundef i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
   %289 = load i32, ptr %63, align 8
   %290 = sext i32 %289 to i64
   %291 = icmp slt i64 %indvars.iv.next311.i, %290
-  br i1 %291, label %.lr.ph268.i, label %._crit_edge269.i, !llvm.loop !67
+  br i1 %291, label %.lr.ph268.i, label %._crit_edge269.i, !llvm.loop !60
 
 .thread:                                          ; preds = %283
   %292 = trunc nuw nsw i64 %indvars.iv310.i to i32
@@ -6812,7 +6812,7 @@ define internal fastcc noundef i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
   %293 = load i32, ptr %63, align 8
   %294 = sext i32 %293 to i64
   %295 = icmp slt i64 %indvars.iv.next311.i60, %294
-  br i1 %295, label %.lr.ph268.i.outer, label %._crit_edge269.i.thread, !llvm.loop !67
+  br i1 %295, label %.lr.ph268.i.outer, label %._crit_edge269.i.thread, !llvm.loop !60
 
 .lr.ph268.i.outer:                                ; preds = %.preheader245.i, %.thread
   %indvars.iv310.i.ph = phi i64 [ %indvars.iv.next311.i60, %.thread ], [ 0, %.preheader245.i ]
@@ -6844,7 +6844,7 @@ define internal fastcc noundef i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
   %303 = load i32, ptr %63, align 8
   %304 = sext i32 %303 to i64
   %305 = icmp slt i64 %indvars.iv.next314.i, %304
-  br i1 %305, label %.lr.ph275.i, label %._crit_edge276.loopexit.i, !llvm.loop !68
+  br i1 %305, label %.lr.ph275.i, label %._crit_edge276.loopexit.i, !llvm.loop !61
 
 ._crit_edge276.loopexit.i:                        ; preds = %.lr.ph275.i
   %.pre331.i = load double, ptr %39, align 8
@@ -6892,7 +6892,7 @@ define internal fastcc noundef i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
   %326 = load i32, ptr %63, align 8
   %327 = sext i32 %326 to i64
   %328 = icmp slt i64 %indvars.iv.next320.i, %327
-  br i1 %328, label %.lr.ph294.i, label %.loopexit244.i, !llvm.loop !69
+  br i1 %328, label %.lr.ph294.i, label %.loopexit244.i, !llvm.loop !62
 
 329:                                              ; preds = %318
   store double %.1230.i, ptr %124, align 8
@@ -6910,7 +6910,7 @@ define internal fastcc noundef i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
   %335 = load i32, ptr %63, align 8
   %336 = sext i32 %335 to i64
   %337 = icmp slt i64 %indvars.iv.next317.i, %336
-  br i1 %337, label %.lr.ph279.i, label %._crit_edge280.loopexit.i, !llvm.loop !70
+  br i1 %337, label %.lr.ph279.i, label %._crit_edge280.loopexit.i, !llvm.loop !63
 
 ._crit_edge280.loopexit.i:                        ; preds = %.lr.ph279.i
   %.pre332.i = load double, ptr %124, align 8
@@ -7029,7 +7029,7 @@ define internal fastcc noundef i32 @cvRcheck3(ptr noundef %0) unnamed_addr #0 {
   %406 = load i32, ptr %63, align 8
   %407 = sext i32 %406 to i64
   %408 = icmp slt i64 %indvars.iv.next323.i, %407
-  br i1 %408, label %353, label %cvRootfind.exit, !llvm.loop !71
+  br i1 %408, label %353, label %cvRootfind.exit, !llvm.loop !64
 
 cvRootfind.exit:                                  ; preds = %405, %175, %._crit_edge301.loopexit.i
   %409 = phi i32 [ %143, %._crit_edge301.loopexit.i ], [ %176, %175 ], [ %406, %405 ]
@@ -7068,7 +7068,7 @@ cvRootfind.exit:                                  ; preds = %405, %175, %._crit_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %427 = sext i32 %426 to i64
   %428 = icmp slt i64 %indvars.iv.next, %427
-  br i1 %428, label %414, label %._crit_edge, !llvm.loop !72
+  br i1 %428, label %414, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge.thread:                               ; preds = %cvRootfind.exit, %132
   %.ph = phi i1 [ %410, %cvRootfind.exit ], [ %123, %132 ]
@@ -7103,7 +7103,7 @@ cvRootfind.exit:                                  ; preds = %405, %175, %._crit_
   %444 = load i32, ptr %63, align 8
   %445 = sext i32 %444 to i64
   %446 = icmp slt i64 %indvars.iv.next117, %445
-  br i1 %446, label %438, label %._crit_edge94, !llvm.loop !73
+  br i1 %446, label %438, label %._crit_edge94, !llvm.loop !66
 
 ._crit_edge94:                                    ; preds = %438, %._crit_edge
   br i1 %410, label %cvRootfind.exit.thread, label %447
@@ -7112,7 +7112,7 @@ cvRootfind.exit:                                  ; preds = %405, %175, %._crit_
   %448 = phi ptr [ %429, %._crit_edge.thread ], [ %433, %._crit_edge94 ], [ %348, %._crit_edge.thread.thread122 ]
   %449 = load double, ptr %448, align 8
   %450 = load ptr, ptr %41, align 8
-  %451 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %449, i32 noundef 0, ptr noundef %450), !range !46
+  %451 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %449, i32 noundef 0, ptr noundef %450)
   br label %cvRootfind.exit.thread
 
 cvRootfind.exit.thread:                           ; preds = %235, %._crit_edge.thread.thread, %._crit_edge.thread, %._crit_edge94, %36, %447
@@ -7121,7 +7121,7 @@ cvRootfind.exit.thread:                           ; preds = %235, %._crit_edge.t
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -26, 1) i32 @CVodeGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -7206,7 +7206,7 @@ define noundef i32 @CVodeGetDky(ptr noundef %0, double noundef %1, i32 noundef %
   %49 = fmul double %.06169, %48
   %50 = add nsw i32 %.06070, -1
   %.not67.not = icmp sgt i32 %50, %47
-  br i1 %.not67.not, label %.lr.ph, label %._crit_edge, !llvm.loop !74
+  br i1 %.not67.not, label %.lr.ph, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.061.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %49, %.lr.ph ]
@@ -7228,7 +7228,7 @@ define noundef i32 @CVodeGetDky(ptr noundef %0, double noundef %1, i32 noundef %
 58:                                               ; preds = %56, %57
   %59 = add nsw i32 %.05972, -1
   %.not.not = icmp sgt i32 %.05972, %2
-  br i1 %.not.not, label %.preheader, label %._crit_edge73, !llvm.loop !75
+  br i1 %.not.not, label %.preheader, label %._crit_edge73, !llvm.loop !68
 
 ._crit_edge73:                                    ; preds = %58, %40
   %60 = icmp eq i32 %2, 0
@@ -7247,7 +7247,7 @@ define noundef i32 @CVodeGetDky(ptr noundef %0, double noundef %1, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cvQuadEwtSet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @cvQuadEwtSet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 108
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %cvQuadEwtSetSS.exit [
@@ -7299,7 +7299,7 @@ cvQuadEwtSetSS.exit:                              ; preds = %cvQuadEwtSetSS.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cvSensEwtSet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @cvSensEwtSet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 228
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %cvSensEwtSetEE.exit [
@@ -7349,7 +7349,7 @@ define internal fastcc noundef i32 @cvSensEwtSet(ptr nocapture noundef readonly 
   %32 = load i32, ptr %11, align 4
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next.i, %33
-  br i1 %34, label %16, label %cvSensEwtSetEE.exit, !llvm.loop !76
+  br i1 %34, label %16, label %cvSensEwtSetEE.exit, !llvm.loop !69
 
 35:                                               ; preds = %3
   %36 = getelementptr inbounds i8, ptr %0, i64 140
@@ -7391,7 +7391,7 @@ define internal fastcc noundef i32 @cvSensEwtSet(ptr nocapture noundef readonly 
   %59 = load i32, ptr %36, align 4
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next.i12, %60
-  br i1 %61, label %42, label %cvSensEwtSetEE.exit, !llvm.loop !77
+  br i1 %61, label %42, label %cvSensEwtSetEE.exit, !llvm.loop !70
 
 62:                                               ; preds = %3
   %63 = getelementptr inbounds i8, ptr %0, i64 140
@@ -7431,7 +7431,7 @@ define internal fastcc noundef i32 @cvSensEwtSet(ptr nocapture noundef readonly 
   %85 = load i32, ptr %63, align 4
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next.i15, %86
-  br i1 %87, label %69, label %cvSensEwtSetEE.exit, !llvm.loop !78
+  br i1 %87, label %69, label %cvSensEwtSetEE.exit, !llvm.loop !71
 
 cvSensEwtSetEE.exit:                              ; preds = %81, %69, %55, %42, %27, %16, %62, %35, %6, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %35 ], [ 0, %62 ], [ -1, %16 ], [ 0, %27 ], [ -1, %42 ], [ 0, %55 ], [ -1, %69 ], [ 0, %81 ]
@@ -7439,7 +7439,7 @@ cvSensEwtSetEE.exit:                              ; preds = %81, %69, %55, %42, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cvQuadSensEwtSet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @cvQuadSensEwtSet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 288
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %cvQuadSensEwtSetEE.exit [
@@ -7468,7 +7468,7 @@ define internal fastcc noundef i32 @cvQuadSensEwtSet(ptr nocapture noundef reado
   tail call void @N_VScale(double noundef %16, ptr noundef %18, ptr noundef %9) #13
   %19 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %20), !range !39
+  %21 = tail call fastcc i32 @cvQuadEwtSet(ptr noundef nonnull readonly %0, ptr noundef %9, ptr noundef %20)
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %22, label %cvQuadSensEwtSetEE.exit
 
@@ -7482,7 +7482,7 @@ define internal fastcc noundef i32 @cvQuadSensEwtSet(ptr nocapture noundef reado
   %27 = load i32, ptr %11, align 4
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next.i, %28
-  br i1 %29, label %.lr.ph.i, label %cvQuadSensEwtSetEE.exit, !llvm.loop !79
+  br i1 %29, label %.lr.ph.i, label %cvQuadSensEwtSetEE.exit, !llvm.loop !72
 
 30:                                               ; preds = %3
   %31 = getelementptr inbounds i8, ptr %0, i64 140
@@ -7524,7 +7524,7 @@ define internal fastcc noundef i32 @cvQuadSensEwtSet(ptr nocapture noundef reado
   %54 = load i32, ptr %31, align 4
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next.i12, %55
-  br i1 %56, label %37, label %cvQuadSensEwtSetEE.exit, !llvm.loop !80
+  br i1 %56, label %37, label %cvQuadSensEwtSetEE.exit, !llvm.loop !73
 
 57:                                               ; preds = %3
   %58 = getelementptr inbounds i8, ptr %0, i64 140
@@ -7564,7 +7564,7 @@ define internal fastcc noundef i32 @cvQuadSensEwtSet(ptr nocapture noundef reado
   %80 = load i32, ptr %58, align 4
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next.i15, %81
-  br i1 %82, label %64, label %cvQuadSensEwtSetEE.exit, !llvm.loop !81
+  br i1 %82, label %64, label %cvQuadSensEwtSetEE.exit, !llvm.loop !74
 
 cvQuadSensEwtSetEE.exit:                          ; preds = %76, %64, %50, %37, %22, %.lr.ph.i, %57, %30, %6, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %30 ], [ 0, %57 ], [ -1, %.lr.ph.i ], [ 0, %22 ], [ -1, %37 ], [ 0, %50 ], [ -1, %64 ], [ 0, %76 ]
@@ -7644,7 +7644,7 @@ define internal fastcc noundef i32 @cvStep(ptr noundef %0) unnamed_addr #0 {
   %39 = load i32, ptr %32, align 4
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %36, label %.loopexit340, !llvm.loop !82
+  br i1 %41, label %36, label %.loopexit340, !llvm.loop !75
 
 .loopexit340:                                     ; preds = %36, %.preheader339, %.thread309, %27
   %42 = phi i1 [ false, %.thread309 ], [ false, %27 ], [ true, %.preheader339 ], [ true, %36 ]
@@ -7830,14 +7830,14 @@ cvAdjustParams.exit:                              ; preds = %53, %58
   %178 = load ptr, ptr %177, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %176, double noundef 1.000000e+00, ptr noundef %178, ptr noundef %176) #13
   %.not94.not.i = icmp sgt i64 %indvars.iv.i, %indvars.iv124.i
-  br i1 %.not94.not.i, label %174, label %179, !llvm.loop !83
+  br i1 %.not94.not.i, label %174, label %179, !llvm.loop !76
 
 179:                                              ; preds = %174
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
   %180 = load i32, ptr %69, align 8
   %181 = sext i32 %180 to i64
   %.not84.not.i = icmp slt i64 %indvars.iv124.i, %181
-  br i1 %.not84.not.i, label %.preheader104.i, label %._crit_edge.i, !llvm.loop !84
+  br i1 %.not84.not.i, label %.preheader104.i, label %._crit_edge.i, !llvm.loop !77
 
 ._crit_edge.i:                                    ; preds = %179
   %182 = load i32, ptr %72, align 8
@@ -7861,14 +7861,14 @@ cvAdjustParams.exit:                              ; preds = %53, %58
   %189 = load ptr, ptr %188, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %187, double noundef 1.000000e+00, ptr noundef %189, ptr noundef %187) #13
   %.not93.not.i = icmp sgt i64 %indvars.iv127.i, %indvars.iv130.i
-  br i1 %.not93.not.i, label %185, label %190, !llvm.loop !85
+  br i1 %.not93.not.i, label %185, label %190, !llvm.loop !78
 
 190:                                              ; preds = %185
   %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
   %191 = load i32, ptr %69, align 8
   %192 = sext i32 %191 to i64
   %.not86.not.i = icmp slt i64 %indvars.iv130.i, %192
-  br i1 %.not86.not.i, label %.preheader101.i, label %.loopexit103.i, !llvm.loop !86
+  br i1 %.not86.not.i, label %.preheader101.i, label %.loopexit103.i, !llvm.loop !79
 
 .loopexit103.i:                                   ; preds = %190, %170, %._crit_edge.i
   %193 = phi i32 [ %180, %._crit_edge.i ], [ %171, %170 ], [ %191, %190 ]
@@ -7909,14 +7909,14 @@ cvAdjustParams.exit:                              ; preds = %53, %58
   %210 = load ptr, ptr %209, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %206, double noundef 1.000000e+00, ptr noundef %210, ptr noundef %206) #13
   %.not92.not.i = icmp sgt i64 %indvars.iv133.i, %indvars.iv136.i
-  br i1 %.not92.not.i, label %202, label %211, !llvm.loop !87
+  br i1 %.not92.not.i, label %202, label %211, !llvm.loop !80
 
 211:                                              ; preds = %202
   %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 1
   %212 = load i32, ptr %69, align 8
   %213 = sext i32 %212 to i64
   %.not91.not.i = icmp slt i64 %indvars.iv136.i, %213
-  br i1 %.not91.not.i, label %.preheader97.i, label %._crit_edge114.loopexit.i, !llvm.loop !88
+  br i1 %.not91.not.i, label %.preheader97.i, label %._crit_edge114.loopexit.i, !llvm.loop !81
 
 ._crit_edge114.loopexit.i:                        ; preds = %211
   %.pre.i = load i32, ptr %74, align 4
@@ -7928,7 +7928,7 @@ cvAdjustParams.exit:                              ; preds = %53, %58
   %indvars.iv.next140.i = add nuw nsw i64 %indvars.iv139.i, 1
   %216 = sext i32 %214 to i64
   %217 = icmp slt i64 %indvars.iv.next140.i, %216
-  br i1 %217, label %.preheader98.i, label %.loopexit100.i, !llvm.loop !89
+  br i1 %217, label %.preheader98.i, label %.loopexit100.i, !llvm.loop !82
 
 .loopexit100.i:                                   ; preds = %._crit_edge114.i, %.preheader99.i, %.loopexit103.i
   %218 = phi i32 [ %193, %.preheader99.i ], [ %193, %.loopexit103.i ], [ %215, %._crit_edge114.i ]
@@ -7969,14 +7969,14 @@ cvAdjustParams.exit:                              ; preds = %53, %58
   %235 = load ptr, ptr %234, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %231, double noundef 1.000000e+00, ptr noundef %235, ptr noundef %231) #13
   %.not90.not.i = icmp sgt i64 %indvars.iv142.i, %indvars.iv145.i
-  br i1 %.not90.not.i, label %227, label %236, !llvm.loop !91
+  br i1 %.not90.not.i, label %227, label %236, !llvm.loop !84
 
 236:                                              ; preds = %227
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %237 = load i32, ptr %69, align 8
   %238 = sext i32 %237 to i64
   %.not89.not.i = icmp slt i64 %indvars.iv145.i, %238
-  br i1 %.not89.not.i, label %.preheader.i, label %._crit_edge119.loopexit.i, !llvm.loop !92
+  br i1 %.not89.not.i, label %.preheader.i, label %._crit_edge119.loopexit.i, !llvm.loop !85
 
 ._crit_edge119.loopexit.i:                        ; preds = %236
   %.pre151.i = load i32, ptr %74, align 4
@@ -7988,7 +7988,7 @@ cvAdjustParams.exit:                              ; preds = %53, %58
   %indvars.iv.next149.i = add nuw nsw i64 %indvars.iv148.i, 1
   %241 = sext i32 %239 to i64
   %242 = icmp slt i64 %indvars.iv.next149.i, %241
-  br i1 %242, label %.preheader95.i, label %cvPredict.exit, !llvm.loop !93
+  br i1 %242, label %.preheader95.i, label %cvPredict.exit, !llvm.loop !86
 
 cvPredict.exit:                                   ; preds = %._crit_edge119.i, %.loopexit100.i, %.preheader96.i
   %243 = phi i32 [ %218, %.loopexit100.i ], [ %218, %.preheader96.i ], [ %240, %._crit_edge119.i ]
@@ -8054,7 +8054,7 @@ cvPredict.exit:                                   ; preds = %._crit_edge119.i, %
   %270 = sub nsw i32 0, %.01217.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %255
-  br i1 %exitcond.not.i.i.i.i, label %cvAltSum.exit.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !94
+  br i1 %exitcond.not.i.i.i.i, label %cvAltSum.exit.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !87
 
 cvAltSum.exit.i.i.i:                              ; preds = %.preheader.i.i.i.i
   %271 = fmul double %269, %256
@@ -8077,7 +8077,7 @@ cvAltSum.exit.i.i.i:                              ; preds = %.preheader.i.i.i.i
   store double %281, ptr %277, align 8
   %indvars.iv.next48.i.i.i = add nsw i64 %indvars.iv47.i.i.i, -1
   %282 = icmp sgt i64 %indvars.iv47.i.i.i, 1
-  br i1 %282, label %276, label %283, !llvm.loop !95
+  br i1 %282, label %276, label %283, !llvm.loop !88
 
 283:                                              ; preds = %276
   %284 = getelementptr inbounds [14 x double], ptr %81, i64 0, i64 %indvars.iv45.i.i.i
@@ -8085,7 +8085,7 @@ cvAltSum.exit.i.i.i:                              ; preds = %.preheader.i.i.i.i
   %286 = fadd double %.03440.i.i.i, %285
   %indvars.iv.next46.i.i.i = add nuw nsw i64 %indvars.iv45.i.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next46.i.i.i, %252
-  br i1 %exitcond.not.i.i, label %.preheader.i15.i.i, label %257, !llvm.loop !96
+  br i1 %exitcond.not.i.i, label %.preheader.i15.i.i, label %257, !llvm.loop !89
 
 .preheader.i15.i.i:                               ; preds = %283, %.preheader.i15.i.i
   %indvars.iv.i16.i.i = phi i64 [ %indvars.iv.next.i17.i.i, %.preheader.i15.i.i ], [ 0, %283 ]
@@ -8102,7 +8102,7 @@ cvAltSum.exit.i.i.i:                              ; preds = %.preheader.i.i.i.i
   %295 = sub nsw i32 0, %.01217.i.i.i
   %indvars.iv.next.i17.i.i = add nuw nsw i64 %indvars.iv.i16.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i17.i.i, %252
-  br i1 %exitcond.not.i.i.i, label %.preheader.i20.i.i, label %.preheader.i15.i.i, !llvm.loop !94
+  br i1 %exitcond.not.i.i.i, label %.preheader.i20.i.i, label %.preheader.i15.i.i, !llvm.loop !87
 
 .preheader.i20.i.i:                               ; preds = %.preheader.i15.i.i, %.preheader.i20.i.i
   %indvars.iv.i21.i.i = phi i64 [ %indvars.iv.next.i24.i.i, %.preheader.i20.i.i ], [ 0, %.preheader.i15.i.i ]
@@ -8119,7 +8119,7 @@ cvAltSum.exit.i.i.i:                              ; preds = %.preheader.i.i.i.i
   %304 = sub nsw i32 0, %.01217.i23.i.i
   %indvars.iv.next.i24.i.i = add nuw nsw i64 %indvars.iv.i21.i.i, 1
   %exitcond.not.i25.i.i = icmp eq i64 %indvars.iv.next.i24.i.i, %252
-  br i1 %exitcond.not.i25.i.i, label %cvAltSum.exit27.i.i, label %.preheader.i20.i.i, !llvm.loop !94
+  br i1 %exitcond.not.i25.i.i, label %cvAltSum.exit27.i.i, label %.preheader.i20.i.i, !llvm.loop !87
 
 cvAltSum.exit27.thread.i.i:                       ; preds = %250
   store double 1.000000e+00, ptr %79, align 8
@@ -8144,7 +8144,7 @@ cvAltSum.exit27.i.i:                              ; preds = %.preheader.i20.i.i
   store double %311, ptr %312, align 8
   %indvars.iv.next.i33.i.i = add nuw nsw i64 %indvars.iv.i31.i.i, 1
   %exitcond.not.i34.i.i = icmp eq i64 %indvars.iv.next.i33.i.i, %wide.trip.count.i29.i.i
-  br i1 %exitcond.not.i34.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i30.i.i, !llvm.loop !97
+  br i1 %exitcond.not.i34.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i30.i.i, !llvm.loop !90
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i30.i.i, %cvAltSum.exit27.thread.i.i
   %.034.lcssa.i60.i.i = phi double [ %251, %cvAltSum.exit27.thread.i.i ], [ %286, %.lr.ph.i30.i.i ]
@@ -8182,7 +8182,7 @@ cvAltSum.exit27.i.i:                              ; preds = %.preheader.i20.i.i
   store double %330, ptr %326, align 8
   %indvars.iv.next49.i.i.i = add nsw i64 %indvars.iv48.i.i.i, -1
   %331 = icmp ugt i64 %indvars.iv48.i.i.i, 1
-  br i1 %331, label %.lr.ph45.i.i.i, label %._crit_edge46.i.i.i, !llvm.loop !98
+  br i1 %331, label %.lr.ph45.i.i.i, label %._crit_edge46.i.i.i, !llvm.loop !91
 
 ._crit_edge46.i.i.i:                              ; preds = %.lr.ph45.i.i.i, %.preheader.i35.i.i
   %332 = icmp slt i32 %243, 0
@@ -8208,7 +8208,7 @@ cvAltSum.exit27.i.i:                              ; preds = %.preheader.i20.i.i
   %342 = sub nsw i32 0, %.01217.i.i39.i.i
   %indvars.iv.next.i.i40.i.i = add nuw nsw i64 %indvars.iv.i.i37.i.i, 1
   %exitcond.not.i.i41.i.i = icmp eq i64 %indvars.iv.next.i.i40.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i41.i.i, label %cvAltSum.exit.i42.i.i, label %.preheader.i.i36.i.i, !llvm.loop !94
+  br i1 %exitcond.not.i.i41.i.i, label %cvAltSum.exit.i42.i.i, label %.preheader.i.i36.i.i, !llvm.loop !87
 
 cvAltSum.exit.i42.i.i:                            ; preds = %.preheader.i.i36.i.i, %._crit_edge46.i.i.i
   %.014.i.i43.i.i = phi double [ 0.000000e+00, %._crit_edge46.i.i.i ], [ %341, %.preheader.i.i36.i.i ]
@@ -8276,7 +8276,7 @@ cvSetAdams.exit.i:                                ; preds = %cvAdamsFinish.exit.
   %368 = tail call double @llvm.fmuladd.f64(double %365, double %360, double %367)
   store double %368, ptr %366, align 8
   %369 = icmp sgt i64 %indvars.iv77.i.i, 1
-  br i1 %369, label %362, label %370, !llvm.loop !99
+  br i1 %369, label %362, label %370, !llvm.loop !92
 
 370:                                              ; preds = %362
   %371 = uitofp nneg i32 %361 to double
@@ -8284,7 +8284,7 @@ cvSetAdams.exit.i:                                ; preds = %cvAdamsFinish.exit.
   %373 = fsub double %.05765.i.i, %372
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i16.i, label %._crit_edge69.loopexit.i.i, label %355, !llvm.loop !100
+  br i1 %exitcond.not.i16.i, label %._crit_edge69.loopexit.i.i, label %355, !llvm.loop !93
 
 ._crit_edge69.loopexit.i.i:                       ; preds = %370
   %.pre.i.i = load double, ptr %80, align 8
@@ -8317,7 +8317,7 @@ cvSetAdams.exit.i:                                ; preds = %cvAdamsFinish.exit.
   %389 = tail call double @llvm.fmuladd.f64(double %386, double %379, double %388)
   store double %389, ptr %387, align 8
   %390 = icmp sgt i64 %indvars.iv82.i.i, 1
-  br i1 %390, label %.lr.ph74.i.i, label %.loopexit.i.loopexit.i, !llvm.loop !101
+  br i1 %390, label %.lr.ph74.i.i, label %.loopexit.i.loopexit.i, !llvm.loop !94
 
 .loopexit.i.loopexit.i:                           ; preds = %.lr.ph74.i.i
   %391 = fdiv double %354, %383
@@ -8511,7 +8511,7 @@ cvSet.exit:                                       ; preds = %.thread.i, %458, %4
   %506 = load i32, ptr %74, align 4
   %507 = sext i32 %506 to i64
   %508 = icmp slt i64 %indvars.iv.next.i.i.i, %507
-  br i1 %508, label %.lr.ph.i.i.i, label %.preheader204.i.i, !llvm.loop !51
+  br i1 %508, label %.lr.ph.i.i.i, label %.preheader204.i.i, !llvm.loop !44
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %505
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %505 ], [ 0, %.preheader.i.i.i ]
@@ -8556,7 +8556,7 @@ cvSensRhsWrapper.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %498
   %528 = load i32, ptr %74, align 4
   %529 = sext i32 %528 to i64
   %530 = icmp slt i64 %indvars.iv.next.i.i204, %529
-  br i1 %530, label %.lr.ph.i.i, label %.loopexit205.i.i.preheader, !llvm.loop !102
+  br i1 %530, label %.lr.ph.i.i, label %.loopexit205.i.i.preheader, !llvm.loop !95
 
 .loopexit205.i.i.preheader:                       ; preds = %.lr.ph.i.i, %.preheader204.i.i, %.thread188.i.i
   br label %.loopexit205.i.i
@@ -8615,7 +8615,7 @@ cvSensRhsWrapper.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %498
   %563 = load i32, ptr %74, align 4
   %564 = sext i32 %563 to i64
   %565 = icmp slt i64 %indvars.iv.next235.i.i, %564
-  br i1 %565, label %.lr.ph218.i.i, label %.preheader201.i.i, !llvm.loop !103
+  br i1 %565, label %.lr.ph218.i.i, label %.preheader201.i.i, !llvm.loop !96
 
 .preheader201.i.i:                                ; preds = %.lr.ph218.i.i, %.preheader202.i.i
   %566 = load ptr, ptr %98, align 8
@@ -8638,7 +8638,7 @@ cvSensRhsWrapper.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %498
   %576 = load i32, ptr %74, align 4
   %577 = sext i32 %576 to i64
   %578 = icmp slt i64 %indvars.iv.next238.i.i, %577
-  br i1 %578, label %.lr.ph220.i.i, label %.loopexit245.i.i, !llvm.loop !104
+  br i1 %578, label %.lr.ph220.i.i, label %.loopexit245.i.i, !llvm.loop !97
 
 .loopexit245.i.i:                                 ; preds = %.lr.ph220.i.i, %.preheader201.i.i
   %579 = load ptr, ptr %96, align 8
@@ -8667,7 +8667,7 @@ cvSensRhsWrapper.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %498
   %595 = load i32, ptr %74, align 4
   %596 = sext i32 %595 to i64
   %597 = icmp slt i64 %indvars.iv.next.i.i.i.i202, %596
-  br i1 %597, label %.lr.ph.i.i.i.i, label %.preheader.i.i200, !llvm.loop !47
+  br i1 %597, label %.lr.ph.i.i.i.i, label %.preheader.i.i200, !llvm.loop !40
 
 .thread192.i.i:                                   ; preds = %.loopexit205.i.i
   %598 = load ptr, ptr %98, align 8
@@ -8705,7 +8705,7 @@ cvSensRhsWrapper.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %498
   %616 = load i32, ptr %74, align 4
   %617 = sext i32 %616 to i64
   %618 = icmp slt i64 %indvars.iv.next241.i.i, %617
-  br i1 %618, label %.lr.ph223.i.i, label %.loopexit.i.i198, !llvm.loop !105
+  br i1 %618, label %.lr.ph223.i.i, label %.loopexit.i.i198, !llvm.loop !98
 
 .loopexit.i.i198:                                 ; preds = %.lr.ph223.i.i, %.preheader.i.i200, %.thread192.i.i
   %.1159194.i.i = phi double [ %.0158.i.i, %.thread192.i.i ], [ %..i.i.i, %.preheader.i.i200 ], [ %..i.i.i, %.lr.ph223.i.i ]
@@ -8790,7 +8790,7 @@ cvSensRhsWrapper.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %498
   %662 = load i32, ptr %74, align 4
   %663 = sext i32 %662 to i64
   %664 = icmp slt i64 %indvars.iv.next.i.i308, %663
-  br i1 %664, label %.lr.ph.i.i305, label %cvSensUpdateNorm.exit, !llvm.loop !47
+  br i1 %664, label %.lr.ph.i.i305, label %cvSensUpdateNorm.exit, !llvm.loop !40
 
 cvSensUpdateNorm.exit:                            ; preds = %.lr.ph.i.i305, %648
   %.012.lcssa.i.i = phi double [ %653, %648 ], [ %.1.i.i307, %.lr.ph.i.i305 ]
@@ -8865,7 +8865,7 @@ cvSensUpdateNorm.exit:                            ; preds = %.lr.ph.i.i305, %648
   %706 = load i32, ptr %74, align 4
   %707 = sext i32 %706 to i64
   %708 = icmp slt i64 %indvars.iv.next.i182.i.i, %707
-  br i1 %708, label %.lr.ph.i179.i.i, label %.loopexit205.i.i.backedge, !llvm.loop !51
+  br i1 %708, label %.lr.ph.i179.i.i, label %.loopexit205.i.i.backedge, !llvm.loop !44
 
 .lr.ph.i179.i.i:                                  ; preds = %.preheader.i177.i.i, %705
   %indvars.iv.i180.i.i = phi i64 [ %indvars.iv.next.i182.i.i, %705 ], [ 0, %.preheader.i177.i.i ]
@@ -9007,7 +9007,7 @@ cvSensRhsWrapper.exit183.i.i:                     ; preds = %.lr.ph.i179.i.i, %6
   %784 = load i32, ptr %74, align 4
   %785 = sext i32 %784 to i64
   %786 = icmp slt i64 %indvars.iv.next.i.i24.i, %785
-  br i1 %786, label %.lr.ph.i.i19.i, label %.thread.i.i, !llvm.loop !51
+  br i1 %786, label %.lr.ph.i.i19.i, label %.thread.i.i, !llvm.loop !44
 
 .lr.ph.i.i19.i:                                   ; preds = %.preheader.i.i18.i, %783
   %indvars.iv.i.i20.i = phi i64 [ %indvars.iv.next.i.i24.i, %783 ], [ 0, %.preheader.i.i18.i ]
@@ -9090,7 +9090,7 @@ cvSensRhsWrapper.exit.i22.i:                      ; preds = %.lr.ph.i.i19.i, %77
   %826 = load i32, ptr %74, align 4
   %827 = sext i32 %826 to i64
   %828 = icmp slt i64 %indvars.iv.next.i17.i, %827
-  br i1 %828, label %.lr.ph.i15.i, label %.loopexit.i6.i, !llvm.loop !106
+  br i1 %828, label %.lr.ph.i15.i, label %.loopexit.i6.i, !llvm.loop !99
 
 .loopexit.i6.i:                                   ; preds = %.lr.ph.i15.i, %.preheader.i14.i, %811
   %829 = load i32, ptr %25, align 8
@@ -9184,7 +9184,7 @@ cvSensRhsWrapper.exit.i22.i:                      ; preds = %.lr.ph.i.i19.i, %77
   %877 = load i32, ptr %74, align 4
   %878 = sext i32 %877 to i64
   %879 = icmp slt i64 %indvars.iv.next.i98.i.i, %878
-  br i1 %879, label %.lr.ph.i96.i.i, label %._crit_edge.i.i.i196, !llvm.loop !107
+  br i1 %879, label %.lr.ph.i96.i.i, label %._crit_edge.i.i.i196, !llvm.loop !100
 
 ._crit_edge.i.i.i196:                             ; preds = %.lr.ph.i96.i.i
   %880 = load ptr, ptr %108, align 8
@@ -9196,7 +9196,7 @@ cvSensRhsWrapper.exit.i22.i:                      ; preds = %.lr.ph.i.i19.i, %77
   %883 = load i32, ptr %74, align 4
   %884 = sext i32 %883 to i64
   %885 = icmp slt i64 %indvars.iv.next243.i.i.i, %884
-  br i1 %885, label %.lr.ph226.i.i.i, label %.loopexit192.i.i.i, !llvm.loop !108
+  br i1 %885, label %.lr.ph226.i.i.i, label %.loopexit192.i.i.i, !llvm.loop !101
 
 .lr.ph226.i.i.i:                                  ; preds = %._crit_edge.i.i.i196, %882
   %indvars.iv242.i.i.i = phi i64 [ %indvars.iv.next243.i.i.i, %882 ], [ 0, %._crit_edge.i.i.i196 ]
@@ -9261,7 +9261,7 @@ cvSensRhsWrapper.exit.i22.i:                      ; preds = %.lr.ph.i.i19.i, %77
   %920 = load i32, ptr %74, align 4
   %921 = sext i32 %920 to i64
   %922 = icmp slt i64 %indvars.iv.next.i.i.i.i.i, %921
-  br i1 %922, label %.lr.ph.i.i.i.i.i, label %cvSensUpdateNorm.exit.i.i.i, !llvm.loop !47
+  br i1 %922, label %.lr.ph.i.i.i.i.i, label %cvSensUpdateNorm.exit.i.i.i, !llvm.loop !40
 
 cvSensUpdateNorm.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %907
   %923 = phi i32 [ %912, %907 ], [ %920, %.lr.ph.i.i.i.i.i ]
@@ -9293,7 +9293,7 @@ cvSensUpdateNorm.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %
   %940 = load i32, ptr %74, align 4
   %941 = sext i32 %940 to i64
   %942 = icmp slt i64 %indvars.iv.next246.i.i.i, %941
-  br i1 %942, label %.lr.ph228.i.i.i, label %.loopexit.i.i.i, !llvm.loop !109
+  br i1 %942, label %.lr.ph228.i.i.i, label %.loopexit.i.i.i, !llvm.loop !102
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph228.i.i.i, %cvSensUpdateNorm.exit.i.i.i, %.loopexit192.i.i.i
   %943 = phi double [ %902, %.loopexit192.i.i.i ], [ %..i.i.i.i, %cvSensUpdateNorm.exit.i.i.i ], [ %..i.i.i.i, %.lr.ph228.i.i.i ]
@@ -9372,7 +9372,7 @@ cvSensUpdateNorm.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %
   %984 = load i32, ptr %74, align 4
   %985 = sext i32 %984 to i64
   %986 = icmp slt i64 %indvars.iv.next.i.i103.i.i, %985
-  br i1 %986, label %.lr.ph.i.i100.i.i, label %cvSensUpdateNorm.exit.i.i, !llvm.loop !47
+  br i1 %986, label %.lr.ph.i.i100.i.i, label %cvSensUpdateNorm.exit.i.i, !llvm.loop !40
 
 cvSensUpdateNorm.exit.i.i:                        ; preds = %.lr.ph.i.i100.i.i, %970
   %.012.lcssa.i.i.i8.i = phi double [ %975, %970 ], [ %.1.i.i102.i.i, %.lr.ph.i.i100.i.i ]
@@ -9476,7 +9476,7 @@ cvSensUpdateNorm.exit.i.i:                        ; preds = %.lr.ph.i.i100.i.i, 
   %1037 = load i32, ptr %74, align 4
   %1038 = sext i32 %1037 to i64
   %1039 = icmp slt i64 %indvars.iv.next.i.i.i13.i, %1038
-  br i1 %1039, label %.lr.ph.i.i.i10.i, label %.thread.i.i.i.backedge, !llvm.loop !51
+  br i1 %1039, label %.lr.ph.i.i.i10.i, label %.thread.i.i.i.backedge, !llvm.loop !44
 
 .lr.ph.i.i.i10.i:                                 ; preds = %.preheader.i.i.i.i195, %1036
   %indvars.iv.i.i.i11.i = phi i64 [ %indvars.iv.next.i.i.i13.i, %1036 ], [ 0, %.preheader.i.i.i.i195 ]
@@ -9533,7 +9533,7 @@ cvNewtonIteration.exit.i.i:                       ; preds = %1055, %1013, %998, 
 cvNls.exit:                                       ; preds = %.lr.ph150.i.i, %cvSensRhsWrapper.exit.i22.i, %799, %800, %810, %852, %854, %897, %899, %996, %998, %1011, %1013, %1053, %1055, %cvNewtonIteration.exit.i.i, %666, %670, %673, %683, %cvSensRhsWrapper.exit183.i.i, %721, %.thread.i.i.i, %1000, %cvSensRhsWrapper.exit.i.i.i, %.lr.ph226.i.i.i, %cvSet.exit, %471, %482, %cvSensRhsWrapper.exit.i.i, %521, %640, %641, %642, %646, %cvSensUpdateNorm.exit, %751, %988
   %.0.i = phi i32 [ 0, %cvSet.exit ], [ -8, %471 ], [ 9, %482 ], [ -41, %cvSensRhsWrapper.exit.i.i ], [ 12, %521 ], [ 0, %642 ], [ 0, %646 ], [ 0, %cvSensUpdateNorm.exit ], [ 0, %640 ], [ 0, %641 ], [ 0, %988 ], [ -8, %751 ], [ -7, %.lr.ph226.i.i.i ], [ -41, %cvSensRhsWrapper.exit.i.i.i ], [ -8, %1000 ], [ -7, %.thread.i.i.i ], [ 12, %721 ], [ -41, %cvSensRhsWrapper.exit183.i.i ], [ 9, %683 ], [ -8, %673 ], [ 4, %666 ], [ 4, %670 ], [ -8, %cvNewtonIteration.exit.i.i ], [ 9, %.lr.ph150.i.i ], [ -41, %cvSensRhsWrapper.exit.i22.i ], [ 12, %799 ], [ -6, %800 ], [ 4, %810 ], [ 4, %854 ], [ 4, %852 ], [ 4, %899 ], [ 4, %897 ], [ 4, %998 ], [ 4, %996 ], [ 9, %1013 ], [ 9, %1011 ], [ 12, %1055 ], [ 12, %1053 ]
   store i32 %.0.i, ptr %24, align 4
-  %1066 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, ptr noundef nonnull %18, ptr noundef nonnull %130), !range !110
+  %1066 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, ptr noundef nonnull %18, ptr noundef nonnull %130)
   switch i32 %1066, label %.loopexit [
     i32 3, label %.backedge.backedge
     i32 2, label %1067
@@ -9541,7 +9541,7 @@ cvNls.exit:                                       ; preds = %.lr.ph150.i.i, %cvS
 
 1067:                                             ; preds = %cvNls.exit
   %1068 = load double, ptr %128, align 8
-  %1069 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, double noundef %1068, ptr noundef nonnull %20, ptr noundef nonnull %131, ptr noundef nonnull %14), !range !111
+  %1069 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, double noundef %1068, ptr noundef nonnull %20, ptr noundef nonnull %131, ptr noundef nonnull %14)
   switch i32 %1069, label %.loopexit [
     i32 5, label %.backedge.backedge
     i32 0, label %1070
@@ -9599,7 +9599,7 @@ cvNls.exit:                                       ; preds = %.lr.ph150.i.i, %cvS
 cvQuadNls.exit:                                   ; preds = %1072, %1082, %1088
   %.0.i206 = phi i32 [ 0, %1088 ], [ -31, %1072 ], [ 11, %1082 ]
   store i32 %.0.i206, ptr %24, align 4
-  %1097 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, ptr noundef nonnull %18, ptr noundef nonnull %130), !range !110
+  %1097 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, ptr noundef nonnull %18, ptr noundef nonnull %130)
   switch i32 %1097, label %.loopexit [
     i32 3, label %.backedge.backedge
     i32 2, label %1098
@@ -9615,7 +9615,7 @@ cvQuadNls.exit:                                   ; preds = %1072, %1082, %1088
   %1102 = load ptr, ptr %139, align 8
   %1103 = tail call double @N_VWrmsNorm(ptr noundef %1101, ptr noundef %1102) #13
   store double %1103, ptr %140, align 8
-  %1104 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, double noundef %1103, ptr noundef nonnull %21, ptr noundef nonnull %141, ptr noundef nonnull %15), !range !111
+  %1104 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, double noundef %1103, ptr noundef nonnull %21, ptr noundef nonnull %141, ptr noundef nonnull %15)
   switch i32 %1104, label %.loopexit [
     i32 5, label %.backedge.backedge
     i32 0, label %1105
@@ -9718,7 +9718,7 @@ cvQuadNls.exit:                                   ; preds = %1072, %1082, %1088
   %1152 = load i32, ptr %74, align 4
   %1153 = sext i32 %1152 to i64
   %1154 = icmp slt i64 %indvars.iv.next.i.i.i238, %1153
-  br i1 %1154, label %.lr.ph.i.i.i228, label %.preheader128.i.i, !llvm.loop !51
+  br i1 %1154, label %.lr.ph.i.i.i228, label %.preheader128.i.i, !llvm.loop !44
 
 .lr.ph.i.i.i228:                                  ; preds = %.preheader.i.i.i223, %1151
   %indvars.iv.i.i.i229 = phi i64 [ %indvars.iv.next.i.i.i238, %1151 ], [ 0, %.preheader.i.i.i223 ]
@@ -9765,7 +9765,7 @@ cvSensRhsWrapper.exit.thread.i..preheader128.i_crit_edge.i: ; preds = %cvSensRhs
   %1172 = load i32, ptr %74, align 4
   %1173 = sext i32 %1172 to i64
   %1174 = icmp slt i64 %indvars.iv.next.i.i237, %1173
-  br i1 %1174, label %.lr.ph.i.i235, label %.preheader127.i.i.preheader, !llvm.loop !112
+  br i1 %1174, label %.lr.ph.i.i235, label %.preheader127.i.i.preheader, !llvm.loop !103
 
 .preheader127.i.i.preheader:                      ; preds = %.lr.ph.i.i235, %.preheader.i.i.i223, %.preheader128.i.i
   br label %.preheader127.i.i
@@ -9813,7 +9813,7 @@ cvSensRhsWrapper.exit.thread.i..preheader128.i_crit_edge.i: ; preds = %cvSensRhs
   %1200 = load i32, ptr %74, align 4
   %1201 = sext i32 %1200 to i64
   %1202 = icmp slt i64 %indvars.iv.next157.i.i, %1201
-  br i1 %1202, label %.lr.ph142.i.i, label %.preheader.i.i227, !llvm.loop !113
+  br i1 %1202, label %.lr.ph142.i.i, label %.preheader.i.i227, !llvm.loop !104
 
 .lr.ph144.i.i:                                    ; preds = %.preheader.i.i227, %.lr.ph144.i.i
   %indvars.iv159.i.i = phi i64 [ %indvars.iv.next160.i.i, %.lr.ph144.i.i ], [ 0, %.preheader.i.i227 ]
@@ -9828,7 +9828,7 @@ cvSensRhsWrapper.exit.thread.i..preheader128.i_crit_edge.i: ; preds = %cvSensRhs
   %1209 = load i32, ptr %74, align 4
   %1210 = sext i32 %1209 to i64
   %1211 = icmp slt i64 %indvars.iv.next160.i.i, %1210
-  br i1 %1211, label %.lr.ph144.i.i, label %._crit_edge.i.i, !llvm.loop !114
+  br i1 %1211, label %.lr.ph144.i.i, label %._crit_edge.i.i, !llvm.loop !105
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph144.i.i, %.preheader.i.i227, %.preheader127.i.i
   %1212 = load ptr, ptr %118, align 8
@@ -9854,7 +9854,7 @@ cvSensRhsWrapper.exit.thread.i..preheader128.i_crit_edge.i: ; preds = %cvSensRhs
   %1225 = load i32, ptr %74, align 4
   %1226 = sext i32 %1225 to i64
   %1227 = icmp slt i64 %indvars.iv.next.i115.i.i, %1226
-  br i1 %1227, label %.lr.ph.i112.i.i, label %cvSensNorm.exit.i.i, !llvm.loop !47
+  br i1 %1227, label %.lr.ph.i112.i.i, label %cvSensNorm.exit.i.i, !llvm.loop !40
 
 cvSensNorm.exit.i.i:                              ; preds = %.lr.ph.i112.i.i, %._crit_edge.i.i
   %1228 = phi i32 [ %1217, %._crit_edge.i.i ], [ %1225, %.lr.ph.i112.i.i ]
@@ -9875,7 +9875,7 @@ cvSensNorm.exit.i.i:                              ; preds = %.lr.ph.i112.i.i, %.
   %1236 = load i32, ptr %74, align 4
   %1237 = sext i32 %1236 to i64
   %1238 = icmp slt i64 %indvars.iv.next163.i.i, %1237
-  br i1 %1238, label %.lr.ph146.i.i, label %._crit_edge147.i.i, !llvm.loop !115
+  br i1 %1238, label %.lr.ph146.i.i, label %._crit_edge147.i.i, !llvm.loop !106
 
 ._crit_edge147.i.i:                               ; preds = %.lr.ph146.i.i, %cvSensNorm.exit.i.i
   %.lcssa.i.i = phi i32 [ %1228, %cvSensNorm.exit.i.i ], [ %1236, %.lr.ph146.i.i ]
@@ -9964,7 +9964,7 @@ cvSensNorm.exit.i.i:                              ; preds = %.lr.ph.i112.i.i, %.
   %1286 = load i32, ptr %74, align 4
   %1287 = sext i32 %1286 to i64
   %1288 = icmp slt i64 %indvars.iv.next.i121.i.i, %1287
-  br i1 %1288, label %.lr.ph.i118.i.i, label %cvSensRhsWrapper.exit122.thread.i.i, !llvm.loop !51
+  br i1 %1288, label %.lr.ph.i118.i.i, label %cvSensRhsWrapper.exit122.thread.i.i, !llvm.loop !44
 
 .lr.ph.i118.i.i:                                  ; preds = %.preheader.i116.i.i, %1285
   %indvars.iv.i119.i.i = phi i64 [ %indvars.iv.next.i121.i.i, %1285 ], [ 0, %.preheader.i116.i.i ]
@@ -10015,7 +10015,7 @@ cvSensRhsWrapper.exit122.thread.i.i:              ; preds = %1285, %cvSensRhsWra
   %1312 = load i32, ptr %74, align 4
   %1313 = sext i32 %1312 to i64
   %1314 = icmp slt i64 %indvars.iv.next.i18.i, %1313
-  br i1 %1314, label %.lr.ph.i16.i, label %._crit_edge.i3.i, !llvm.loop !116
+  br i1 %1314, label %.lr.ph.i16.i, label %._crit_edge.i3.i, !llvm.loop !107
 
 ._crit_edge.i3.i:                                 ; preds = %.lr.ph.i16.i, %.preheader453
   %.lcssa.i4.i = phi i32 [ %1301, %.preheader453 ], [ %1312, %.lr.ph.i16.i ]
@@ -10049,7 +10049,7 @@ cvSensRhsWrapper.exit122.thread.i.i:              ; preds = %1285, %cvSensRhsWra
   %1333 = load i32, ptr %74, align 4
   %1334 = sext i32 %1333 to i64
   %1335 = icmp slt i64 %indvars.iv.next.i.i15.i, %1334
-  br i1 %1335, label %.lr.ph.i.i9.i, label %.thread.i.i207.preheader, !llvm.loop !51
+  br i1 %1335, label %.lr.ph.i.i9.i, label %.thread.i.i207.preheader, !llvm.loop !44
 
 .lr.ph.i.i9.i:                                    ; preds = %.preheader.i.i5.i, %1332
   %indvars.iv.i.i10.i = phi i64 [ %indvars.iv.next.i.i15.i, %1332 ], [ 0, %.preheader.i.i5.i ]
@@ -10119,7 +10119,7 @@ cvSensRhsWrapper.exit.i12.i:                      ; preds = %.lr.ph.i.i9.i, %132
   %1371 = load i32, ptr %74, align 4
   %1372 = sext i32 %1371 to i64
   %1373 = icmp slt i64 %indvars.iv.next.i56.i.i, %1372
-  br i1 %1373, label %.lr.ph.i54.i.i, label %._crit_edge.i.i.i222, !llvm.loop !117
+  br i1 %1373, label %.lr.ph.i54.i.i, label %._crit_edge.i.i.i222, !llvm.loop !108
 
 ._crit_edge.i.i.i222:                             ; preds = %.lr.ph.i54.i.i
   %1374 = load ptr, ptr %108, align 8
@@ -10134,7 +10134,7 @@ cvSensRhsWrapper.exit.i12.i:                      ; preds = %.lr.ph.i.i9.i, %132
   %1379 = load i32, ptr %74, align 4
   %1380 = sext i32 %1379 to i64
   %1381 = icmp slt i64 %indvars.iv.next155.i.i.i, %1380
-  br i1 %1381, label %.lr.ph139.i.i.i, label %._crit_edge140.i.i.i, !llvm.loop !118
+  br i1 %1381, label %.lr.ph139.i.i.i, label %._crit_edge140.i.i.i, !llvm.loop !109
 
 .lr.ph139.i.i.i:                                  ; preds = %._crit_edge.i.i.i222, %1378
   %indvars.iv154.i.i.i = phi i64 [ %indvars.iv.next155.i.i.i, %1378 ], [ 0, %._crit_edge.i.i.i222 ]
@@ -10188,7 +10188,7 @@ cvSensRhsWrapper.exit.i12.i:                      ; preds = %.lr.ph.i.i9.i, %132
   %1410 = load i32, ptr %74, align 4
   %1411 = sext i32 %1410 to i64
   %1412 = icmp slt i64 %indvars.iv.next.i.i.i.i221, %1411
-  br i1 %1412, label %.lr.ph.i.i.i.i217, label %cvSensNorm.exit.i.i.i, !llvm.loop !47
+  br i1 %1412, label %.lr.ph.i.i.i.i217, label %cvSensNorm.exit.i.i.i, !llvm.loop !40
 
 cvSensNorm.exit.i.i.i:                            ; preds = %.lr.ph.i.i.i.i217, %._crit_edge140.i.i.i
   %1413 = phi i32 [ %1402, %._crit_edge140.i.i.i ], [ %1410, %.lr.ph.i.i.i.i217 ]
@@ -10218,7 +10218,7 @@ cvSensNorm.exit.i.i.i:                            ; preds = %.lr.ph.i.i.i.i217, 
   %1429 = load i32, ptr %74, align 4
   %1430 = sext i32 %1429 to i64
   %1431 = icmp slt i64 %indvars.iv.next158.i.i.i, %1430
-  br i1 %1431, label %.lr.ph142.i.i.i, label %._crit_edge143.i.i.i, !llvm.loop !119
+  br i1 %1431, label %.lr.ph142.i.i.i, label %._crit_edge143.i.i.i, !llvm.loop !110
 
 ._crit_edge143.i.i.i:                             ; preds = %.lr.ph142.i.i.i, %cvSensNorm.exit.i.i.i
   %.lcssa123.i.i.i = phi i32 [ %1413, %cvSensNorm.exit.i.i.i ], [ %1429, %.lr.ph142.i.i.i ]
@@ -10276,7 +10276,7 @@ cvSensNorm.exit.i.i.i:                            ; preds = %.lr.ph.i.i.i.i217, 
   %1461 = load i32, ptr %74, align 4
   %1462 = sext i32 %1461 to i64
   %1463 = icmp slt i64 %indvars.iv.next.i61.i.i, %1462
-  br i1 %1463, label %.lr.ph.i58.i.i, label %cvSensNorm.exit.i6.i, !llvm.loop !47
+  br i1 %1463, label %.lr.ph.i58.i.i, label %cvSensNorm.exit.i6.i, !llvm.loop !40
 
 cvSensNorm.exit.i6.i:                             ; preds = %.lr.ph.i58.i.i, %1447, %1446
   %1464 = phi double [ %.012.lcssa.i.i.i.i209, %1446 ], [ %1452, %1447 ], [ %.1.i60.i.i, %.lr.ph.i58.i.i ]
@@ -10341,7 +10341,7 @@ cvSensNorm.exit.i6.i:                             ; preds = %.lr.ph.i58.i.i, %14
   %1496 = load i32, ptr %74, align 4
   %1497 = sext i32 %1496 to i64
   %1498 = icmp slt i64 %indvars.iv.next.i119.i.i.i, %1497
-  br i1 %1498, label %.lr.ph.i117.i.i.i, label %cvSensRhsWrapper.exit.thread.i.i.i, !llvm.loop !51
+  br i1 %1498, label %.lr.ph.i117.i.i.i, label %cvSensRhsWrapper.exit.thread.i.i.i, !llvm.loop !44
 
 .lr.ph.i117.i.i.i:                                ; preds = %.preheader.i.i.i.i214, %1495
   %indvars.iv.i118.i.i.i = phi i64 [ %indvars.iv.next.i119.i.i.i, %1495 ], [ 0, %.preheader.i.i.i.i214 ]
@@ -10409,7 +10409,7 @@ cvStgrNewtonIteration.exit.i.i:                   ; preds = %1513, %1475, %1395
 cvStgrNls.exit:                                   ; preds = %cvSensRhsWrapper.exit.i12.i, %1348, %1393, %1395, %1473, %1475, %1511, %1513, %cvStgrNewtonIteration.exit.i.i, %1529, %1260, %1264, %cvSensRhsWrapper.exit122.i.i, %cvSensRhsWrapper.exit122.thread.i.i, %cvSensRhsWrapper.exit.i.i.i216, %.lr.ph139.i.i.i, %1129, %cvSensRhsWrapper.exit.i.i231, %cvSensRhsWrapper.exit.thread.i.i, %1251, %1258, %1465
   %.0.i212 = phi i32 [ 0, %1129 ], [ -41, %cvSensRhsWrapper.exit.i.i231 ], [ 12, %cvSensRhsWrapper.exit.thread.i.i ], [ 0, %1258 ], [ 0, %1251 ], [ 0, %1465 ], [ -7, %.lr.ph139.i.i.i ], [ -41, %cvSensRhsWrapper.exit.i.i.i216 ], [ 12, %cvSensRhsWrapper.exit122.thread.i.i ], [ -41, %cvSensRhsWrapper.exit122.i.i ], [ 4, %1260 ], [ 4, %1264 ], [ 12, %1511 ], [ 12, %1513 ], [ 4, %1473 ], [ 4, %1475 ], [ 4, %1393 ], [ 4, %1395 ], [ 4, %1529 ], [ -6, %cvStgrNewtonIteration.exit.i.i ], [ 12, %1348 ], [ -41, %cvSensRhsWrapper.exit.i12.i ]
   store i32 %.0.i212, ptr %24, align 4
-  %1530 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef nonnull %24, double noundef %66, ptr noundef nonnull %19, ptr noundef nonnull %148), !range !110
+  %1530 = call fastcc i32 @cvHandleNFlag(ptr noundef %0, ptr noundef nonnull %24, double noundef %66, ptr noundef nonnull %19, ptr noundef nonnull %148)
   br label %.loopexit332
 
 1531:                                             ; preds = %cvStgr1Nls.exit
@@ -10417,7 +10417,7 @@ cvStgrNls.exit:                                   ; preds = %cvSensRhsWrapper.ex
   %1532 = load i32, ptr %74, align 4
   %1533 = sext i32 %1532 to i64
   %1534 = icmp slt i64 %indvars.iv.next542, %1533
-  br i1 %1534, label %.lr.ph436, label %.thread313, !llvm.loop !120
+  br i1 %1534, label %.lr.ph436, label %.thread313, !llvm.loop !111
 
 .lr.ph436:                                        ; preds = %.preheader331, %1531
   %indvars.iv541 = phi i64 [ %indvars.iv.next542, %1531 ], [ 0, %.preheader331 ]
@@ -10813,7 +10813,7 @@ cvStgr1Nls.exit:                                  ; preds = %1648, %1677, %1711,
   %1799 = getelementptr inbounds i32, ptr %1798, i64 %indvars.iv541
   %1800 = load ptr, ptr %145, align 8
   %1801 = getelementptr inbounds i64, ptr %1800, i64 %indvars.iv541
-  %1802 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, ptr noundef %1799, ptr noundef %1801), !range !110
+  %1802 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, ptr noundef %1799, ptr noundef %1801)
   %.not180 = icmp eq i32 %1802, 2
   br i1 %.not180, label %1531, label %.loopexit332
 
@@ -10860,7 +10860,7 @@ cvStgr1Nls.exit:                                  ; preds = %1648, %1677, %1711,
   %1819 = load i32, ptr %74, align 4
   %1820 = sext i32 %1819 to i64
   %1821 = icmp slt i64 %indvars.iv.next.i252, %1820
-  br i1 %1821, label %.lr.ph.i, label %cvSensNorm.exit, !llvm.loop !47
+  br i1 %1821, label %.lr.ph.i, label %cvSensNorm.exit, !llvm.loop !40
 
 cvSensNorm.exit:                                  ; preds = %.lr.ph.i, %1805
   %.012.lcssa.i = phi double [ %1810, %1805 ], [ %.1.i, %.lr.ph.i ]
@@ -10869,7 +10869,7 @@ cvSensNorm.exit:                                  ; preds = %.lr.ph.i, %1805
 
 1822:                                             ; preds = %._crit_edge554, %cvSensNorm.exit
   %1823 = phi double [ %.pre, %._crit_edge554 ], [ %.012.lcssa.i, %cvSensNorm.exit ]
-  %1824 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, double noundef %1823, ptr noundef nonnull %22, ptr noundef nonnull %149, ptr noundef nonnull %16), !range !111
+  %1824 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, double noundef %1823, ptr noundef nonnull %22, ptr noundef nonnull %149, ptr noundef nonnull %16)
   switch i32 %1824, label %.loopexit [
     i32 5, label %.backedge.backedge
     i32 0, label %1825
@@ -10926,7 +10926,7 @@ cvSensNorm.exit:                                  ; preds = %.lr.ph.i, %1805
   %1841 = load i32, ptr %74, align 4
   %1842 = sext i32 %1841 to i64
   %1843 = icmp slt i64 %indvars.iv.next545, %1842
-  br i1 %1843, label %.lr.ph438, label %._crit_edge, !llvm.loop !121
+  br i1 %1843, label %.lr.ph438, label %._crit_edge, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %.lr.ph438, %.preheader327
   %1844 = phi i32 [ %.pre555, %.preheader327 ], [ %1841, %.lr.ph438 ]
@@ -10989,12 +10989,12 @@ cvSensNorm.exit:                                  ; preds = %.lr.ph.i, %1805
   %1883 = load i32, ptr %74, align 4
   %1884 = sext i32 %1883 to i64
   %1885 = icmp slt i64 %indvars.iv.next.i258, %1884
-  br i1 %1885, label %.lr.ph.i256, label %cvQuadSensNls.exit, !llvm.loop !122
+  br i1 %1885, label %.lr.ph.i256, label %cvQuadSensNls.exit, !llvm.loop !113
 
 cvQuadSensNls.exit:                               ; preds = %.lr.ph.i256, %1845, %1860, %.preheader.i255
   %.0.i254 = phi i32 [ -51, %1845 ], [ 13, %1860 ], [ 0, %.preheader.i255 ], [ 0, %.lr.ph.i256 ]
   store i32 %.0.i254, ptr %24, align 4
-  %1886 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, ptr noundef nonnull %18, ptr noundef nonnull %130), !range !110
+  %1886 = call fastcc i32 @cvHandleNFlag(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, ptr noundef nonnull %18, ptr noundef nonnull %130)
   switch i32 %1886, label %.loopexit [
     i32 3, label %.backedge.backedge
     i32 2, label %1887
@@ -11029,12 +11029,12 @@ cvQuadSensNls.exit:                               ; preds = %.lr.ph.i256, %1845,
   %1903 = load i32, ptr %74, align 4
   %1904 = sext i32 %1903 to i64
   %1905 = icmp slt i64 %indvars.iv.next.i265, %1904
-  br i1 %1905, label %.lr.ph.i261, label %cvQuadSensNorm.exit, !llvm.loop !48
+  br i1 %1905, label %.lr.ph.i261, label %cvQuadSensNorm.exit, !llvm.loop !41
 
 cvQuadSensNorm.exit:                              ; preds = %.lr.ph.i261, %1889
   %.012.lcssa.i260 = phi double [ %1894, %1889 ], [ %.1.i264, %.lr.ph.i261 ]
   store double %.012.lcssa.i260, ptr %158, align 8
-  %1906 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, double noundef %.012.lcssa.i260, ptr noundef nonnull %23, ptr noundef nonnull %159, ptr noundef nonnull %17), !range !111
+  %1906 = call fastcc i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr noundef nonnull %24, double noundef %66, double noundef %.012.lcssa.i260, ptr noundef nonnull %23, ptr noundef nonnull %159, ptr noundef nonnull %17)
   switch i32 %1906, label %.loopexit [
     i32 5, label %.backedge.backedge
     i32 0, label %1907
@@ -11079,7 +11079,7 @@ cvQuadSensNorm.exit:                              ; preds = %.lr.ph.i261, %1889
   %1926 = getelementptr inbounds [14 x double], ptr %81, i64 0, i64 %indvars.iv.i271
   store double %1925, ptr %1926, align 8
   %1927 = icmp ugt i64 %indvars.iv.i271, 2
-  br i1 %1927, label %1923, label %._crit_edge.i266, !llvm.loop !123
+  br i1 %1927, label %1923, label %._crit_edge.i266, !llvm.loop !114
 
 ._crit_edge.i266:                                 ; preds = %1923, %.loopexit338
   %1928 = icmp eq i32 %1919, 1
@@ -11116,7 +11116,7 @@ cvQuadSensNorm.exit:                              ; preds = %.lr.ph.i261, %1889
   %1944 = load i32, ptr %69, align 8
   %1945 = sext i32 %1944 to i64
   %.not.not.i = icmp slt i64 %indvars.iv159.i, %1945
-  br i1 %.not.not.i, label %.lr.ph136.i, label %._crit_edge137.i, !llvm.loop !124
+  br i1 %.not.not.i, label %.lr.ph136.i, label %._crit_edge137.i, !llvm.loop !115
 
 ._crit_edge137.i:                                 ; preds = %.lr.ph136.i
   %1946 = load i32, ptr %72, align 8
@@ -11137,7 +11137,7 @@ cvQuadSensNorm.exit:                              ; preds = %.lr.ph.i261, %1889
   %1952 = load i32, ptr %69, align 8
   %1953 = sext i32 %1952 to i64
   %.not113.not.i = icmp slt i64 %indvars.iv162.i, %1953
-  br i1 %.not113.not.i, label %.lr.ph140.i, label %.loopexit131.i, !llvm.loop !125
+  br i1 %.not113.not.i, label %.lr.ph140.i, label %.loopexit131.i, !llvm.loop !116
 
 .loopexit131.i:                                   ; preds = %.lr.ph140.i, %1936, %._crit_edge137.i
   %1954 = phi i32 [ %1944, %._crit_edge137.i ], [ %1938, %1936 ], [ %1952, %.lr.ph140.i ]
@@ -11175,7 +11175,7 @@ cvQuadSensNorm.exit:                              ; preds = %.lr.ph.i261, %1889
   %1970 = load i32, ptr %69, align 8
   %1971 = sext i32 %1970 to i64
   %.not121.not.i = icmp slt i64 %indvars.iv165.i, %1971
-  br i1 %.not121.not.i, label %.lr.ph143.i, label %._crit_edge144.loopexit.i, !llvm.loop !126
+  br i1 %.not121.not.i, label %.lr.ph143.i, label %._crit_edge144.loopexit.i, !llvm.loop !117
 
 ._crit_edge144.loopexit.i:                        ; preds = %.lr.ph143.i
   %.pre.i269 = load i32, ptr %74, align 4
@@ -11187,7 +11187,7 @@ cvQuadSensNorm.exit:                              ; preds = %.lr.ph.i261, %1889
   %indvars.iv.next169.i = add nuw nsw i64 %indvars.iv168.i, 1
   %1974 = sext i32 %1972 to i64
   %1975 = icmp slt i64 %indvars.iv.next169.i, %1974
-  br i1 %1975, label %.preheader127.i, label %.loopexit129.i, !llvm.loop !127
+  br i1 %1975, label %.preheader127.i, label %.loopexit129.i, !llvm.loop !118
 
 .loopexit129.i:                                   ; preds = %._crit_edge144.i, %.preheader128.i, %.loopexit131.i
   %1976 = phi i32 [ %1954, %.preheader128.i ], [ %1954, %.loopexit131.i ], [ %1973, %._crit_edge144.i ]
@@ -11225,7 +11225,7 @@ cvQuadSensNorm.exit:                              ; preds = %.lr.ph.i261, %1889
   %1992 = load i32, ptr %69, align 8
   %1993 = sext i32 %1992 to i64
   %.not120.not.i = icmp slt i64 %indvars.iv171.i, %1993
-  br i1 %.not120.not.i, label %.lr.ph148.i, label %._crit_edge149.loopexit.i, !llvm.loop !128
+  br i1 %.not120.not.i, label %.lr.ph148.i, label %._crit_edge149.loopexit.i, !llvm.loop !119
 
 ._crit_edge149.loopexit.i:                        ; preds = %.lr.ph148.i
   %.pre183.i = load i32, ptr %74, align 4
@@ -11237,7 +11237,7 @@ cvQuadSensNorm.exit:                              ; preds = %.lr.ph.i261, %1889
   %indvars.iv.next175.i = add nuw nsw i64 %indvars.iv174.i, 1
   %1996 = sext i32 %1994 to i64
   %1997 = icmp slt i64 %indvars.iv.next175.i, %1996
-  br i1 %1997, label %.preheader124.i, label %.loopexit126.i, !llvm.loop !129
+  br i1 %1997, label %.preheader124.i, label %.loopexit126.i, !llvm.loop !120
 
 .loopexit126.i:                                   ; preds = %._crit_edge149.i, %.preheader125.i, %.loopexit129.i
   %1998 = phi i32 [ %1976, %.preheader125.i ], [ %1976, %.loopexit129.i ], [ %1995, %._crit_edge149.i ]
@@ -11298,7 +11298,7 @@ cvQuadSensNorm.exit:                              ; preds = %.lr.ph.i261, %1889
   %2030 = load i32, ptr %74, align 4
   %2031 = sext i32 %2030 to i64
   %2032 = icmp slt i64 %indvars.iv.next178.i, %2031
-  br i1 %2032, label %.lr.ph152.i, label %.loopexit123.i, !llvm.loop !130
+  br i1 %2032, label %.lr.ph152.i, label %.loopexit123.i, !llvm.loop !121
 
 .loopexit123.i:                                   ; preds = %.lr.ph152.i, %.preheader122.i, %2017
   %2033 = load i32, ptr %76, align 8
@@ -11326,7 +11326,7 @@ cvQuadSensNorm.exit:                              ; preds = %.lr.ph.i261, %1889
   %2045 = load i32, ptr %74, align 4
   %2046 = sext i32 %2045 to i64
   %2047 = icmp slt i64 %indvars.iv.next181.i, %2046
-  br i1 %2047, label %.lr.ph154.i, label %.loopexit.i, !llvm.loop !131
+  br i1 %2047, label %.lr.ph154.i, label %.loopexit.i, !llvm.loop !122
 
 .loopexit.i:                                      ; preds = %.lr.ph154.i, %.preheader.i268, %.loopexit123.i
   %2048 = load double, ptr %83, align 8
@@ -11502,7 +11502,7 @@ cvCompleteStep.exit:                              ; preds = %.loopexit126.i, %20
   %2152 = load i32, ptr %74, align 4
   %2153 = sext i32 %2152 to i64
   %2154 = icmp slt i64 %indvars.iv.next.i.i.i.i291, %2153
-  br i1 %2154, label %.lr.ph.i.i.i.i287, label %cvSensUpdateNorm.exit.i.i284, !llvm.loop !47
+  br i1 %2154, label %.lr.ph.i.i.i.i287, label %cvSensUpdateNorm.exit.i.i284, !llvm.loop !40
 
 cvSensUpdateNorm.exit.i.i284:                     ; preds = %.lr.ph.i.i.i.i287, %2135
   %.012.lcssa.i.i.i.i285 = phi double [ %2143, %2135 ], [ %.1.i.i.i.i290, %.lr.ph.i.i.i.i287 ]
@@ -11548,7 +11548,7 @@ cvSensUpdateNorm.exit.i.i284:                     ; preds = %.lr.ph.i.i.i.i287, 
   %2177 = load i32, ptr %74, align 4
   %2178 = sext i32 %2177 to i64
   %2179 = icmp slt i64 %indvars.iv.next.i.i45.i.i, %2178
-  br i1 %2179, label %.lr.ph.i.i41.i.i, label %cvQuadSensUpdateNorm.exit.i.i, !llvm.loop !48
+  br i1 %2179, label %.lr.ph.i.i41.i.i, label %cvQuadSensUpdateNorm.exit.i.i, !llvm.loop !41
 
 cvQuadSensUpdateNorm.exit.i.i:                    ; preds = %.lr.ph.i.i41.i.i, %2160
   %.012.lcssa.i.i39.i.i = phi double [ %2168, %2160 ], [ %.1.i.i44.i.i, %.lr.ph.i.i41.i.i ]
@@ -11667,7 +11667,7 @@ cvComputeEtaqm1.exit.i:                           ; preds = %2181, %2110
   %2252 = load i32, ptr %74, align 4
   %2253 = sext i32 %2252 to i64
   %2254 = icmp slt i64 %indvars.iv.next.i.i281, %2253
-  br i1 %2254, label %.lr.ph.i.i279, label %._crit_edge.i.i275, !llvm.loop !132
+  br i1 %2254, label %.lr.ph.i.i279, label %._crit_edge.i.i275, !llvm.loop !123
 
 ._crit_edge.i.i275:                               ; preds = %.lr.ph.i.i279, %.preheader87.i.i
   %2255 = load ptr, ptr %108, align 8
@@ -11693,7 +11693,7 @@ cvComputeEtaqm1.exit.i:                           ; preds = %2181, %2110
   %2268 = load i32, ptr %74, align 4
   %2269 = sext i32 %2268 to i64
   %2270 = icmp slt i64 %indvars.iv.next.i.i.i34.i, %2269
-  br i1 %2270, label %.lr.ph.i.i.i30.i, label %cvSensUpdateNorm.exit.i27.i, !llvm.loop !47
+  br i1 %2270, label %.lr.ph.i.i.i30.i, label %cvSensUpdateNorm.exit.i27.i, !llvm.loop !40
 
 cvSensUpdateNorm.exit.i27.i:                      ; preds = %.lr.ph.i.i.i30.i, %._crit_edge.i.i275
   %.012.lcssa.i.i.i28.i = phi double [ %2259, %._crit_edge.i.i275 ], [ %.1.i.i.i33.i, %.lr.ph.i.i.i30.i ]
@@ -11740,7 +11740,7 @@ cvSensUpdateNorm.exit.i27.i:                      ; preds = %.lr.ph.i.i.i30.i, %
   %2292 = load i32, ptr %74, align 4
   %2293 = sext i32 %2292 to i64
   %2294 = icmp slt i64 %indvars.iv.next95.i.i, %2293
-  br i1 %2294, label %2279, label %._crit_edge92.i.i, !llvm.loop !133
+  br i1 %2294, label %2279, label %._crit_edge92.i.i, !llvm.loop !124
 
 ._crit_edge92.i.i:                                ; preds = %2279, %.preheader.i.i276
   %2295 = getelementptr inbounds i8, ptr %0, i64 880
@@ -11767,7 +11767,7 @@ cvSensUpdateNorm.exit.i27.i:                      ; preds = %.lr.ph.i.i.i30.i, %
   %2309 = load i32, ptr %74, align 4
   %2310 = sext i32 %2309 to i64
   %2311 = icmp slt i64 %indvars.iv.next.i.i85.i.i, %2310
-  br i1 %2311, label %.lr.ph.i.i81.i.i, label %cvSensUpdateNorm.exit86.i.i, !llvm.loop !47
+  br i1 %2311, label %.lr.ph.i.i81.i.i, label %cvSensUpdateNorm.exit86.i.i, !llvm.loop !40
 
 cvSensUpdateNorm.exit86.i.i:                      ; preds = %.lr.ph.i.i81.i.i, %._crit_edge92.i.i
   %.012.lcssa.i.i79.i.i = phi double [ %2300, %._crit_edge92.i.i ], [ %.1.i.i84.i.i, %.lr.ph.i.i81.i.i ]
@@ -11900,7 +11900,7 @@ cvComputeEtaqp1.exit.i:                           ; preds = %2313, %2196, %cvCom
   %2382 = load i32, ptr %74, align 4
   %2383 = sext i32 %2382 to i64
   %2384 = icmp slt i64 %indvars.iv.next.i40.i, %2383
-  br i1 %2384, label %.lr.ph.i38.i, label %.loopexit72.i.i, !llvm.loop !134
+  br i1 %2384, label %.lr.ph.i38.i, label %.loopexit72.i.i, !llvm.loop !125
 
 .loopexit72.i.i:                                  ; preds = %.lr.ph.i38.i, %.preheader71.i.i, %2369, %2367
   %2385 = load i32, ptr %76, align 8
@@ -11933,7 +11933,7 @@ cvComputeEtaqp1.exit.i:                           ; preds = %2313, %2196, %cvCom
   %2399 = load i32, ptr %74, align 4
   %2400 = sext i32 %2399 to i64
   %2401 = icmp slt i64 %indvars.iv.next78.i.i278, %2400
-  br i1 %2401, label %.lr.ph75.i.i, label %cvChooseEta.exit.i, !llvm.loop !135
+  br i1 %2401, label %.lr.ph75.i.i, label %cvChooseEta.exit.i, !llvm.loop !126
 
 cvChooseEta.exit.i:                               ; preds = %.lr.ph75.i.i, %.preheader.i37.i, %2386, %.loopexit72.i.i, %2347, %2344, %2336, %2330
   %2402 = getelementptr inbounds i8, ptr %0, i64 968
@@ -12018,25 +12018,25 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   %2447 = getelementptr inbounds [6 x [4 x double]], ptr %2443, i64 0, i64 %indvars.iv.i300, i64 %indvars.iv96.i
   store double %2446, ptr %2447, align 8
   %2448 = icmp ugt i64 %indvars.iv.i300, 2
-  br i1 %2448, label %2444, label %2449, !llvm.loop !136
+  br i1 %2448, label %2444, label %2449, !llvm.loop !127
 
 2449:                                             ; preds = %2444
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next97.i, 4
-  br i1 %exitcond.not.i, label %.lr.ph.i302, label %.preheader80.i, !llvm.loop !137
+  br i1 %exitcond.not.i, label %.lr.ph.i302, label %.preheader80.i, !llvm.loop !128
 
 .lr.ph.i302:                                      ; preds = %2449, %.lr.ph.i302
   %.189.i = phi i32 [ %2451, %.lr.ph.i302 ], [ 1, %2449 ]
   %.07088.i = phi i32 [ %2450, %.lr.ph.i302 ], [ 1, %2449 ]
-  %2450 = mul nsw i32 %.07088.i, %.189.i
+  %2450 = mul nuw nsw i32 %.07088.i, %.189.i
   %2451 = add nuw nsw i32 %.189.i, 1
   %exitcond99.not.i = icmp eq i32 %2451, %2441
-  br i1 %exitcond99.not.i, label %._crit_edge.i303, label %.lr.ph.i302, !llvm.loop !138
+  br i1 %exitcond99.not.i, label %._crit_edge.i303, label %.lr.ph.i302, !llvm.loop !129
 
 ._crit_edge.i303:                                 ; preds = %.lr.ph.i302
-  %2452 = mul nsw i32 %2450, %2441
+  %2452 = mul nuw nsw i32 %2450, %2441
   %2453 = add nuw nsw i32 %2441, 1
-  %2454 = mul nsw i32 %2452, %2453
+  %2454 = mul nuw nsw i32 %2452, %2453
   %2455 = sitofp i32 %2454 to double
   %2456 = load double, ptr %128, align 8
   %2457 = fmul double %2456, %2455
@@ -12132,7 +12132,7 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   %2514 = select i1 %2513, double %.0309340.i.i, double %2511
   %indvars.iv.next.i.i294 = add nuw nsw i64 %indvars.iv.i.i293, 1
   %exitcond.not.i.i295 = icmp eq i64 %indvars.iv.next.i.i294, 6
-  br i1 %exitcond.not.i.i295, label %2515, label %2509, !llvm.loop !139
+  br i1 %exitcond.not.i.i295, label %2515, label %2509, !llvm.loop !130
 
 2515:                                             ; preds = %2509
   %2516 = fmul double %2514, 1.000000e-10
@@ -12159,7 +12159,7 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   %2527 = fadd double %.0310344.i.i, %2526
   %2528 = tail call double @llvm.fmuladd.f64(double %2526, double %2526, double %.0311343.i.i)
   %exitcond376.not.i.i = icmp eq i64 %indvars.iv.next374.i.i, 5
-  br i1 %exitcond376.not.i.i, label %2529, label %2522, !llvm.loop !140
+  br i1 %exitcond376.not.i.i, label %2529, label %2522, !llvm.loop !131
 
 2529:                                             ; preds = %2522
   %2530 = fmul double %2527, 2.500000e-01
@@ -12211,12 +12211,12 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   store double %2564, ptr %2565, align 8
   %indvars.iv.next378.i.i = add nuw nsw i64 %indvars.iv377.i.i, 1
   %exitcond380.not.i.i = icmp eq i64 %indvars.iv.next378.i.i, 6
-  br i1 %exitcond380.not.i.i, label %2566, label %2562, !llvm.loop !141
+  br i1 %exitcond380.not.i.i, label %2566, label %2562, !llvm.loop !132
 
 2566:                                             ; preds = %2562
   %indvars.iv.next382.i.i = add nuw nsw i64 %indvars.iv381.i.i, 1
   %exitcond384.not.i.i = icmp eq i64 %indvars.iv.next382.i.i, 4
-  br i1 %exitcond384.not.i.i, label %2567, label %2506, !llvm.loop !142
+  br i1 %exitcond384.not.i.i, label %2567, label %2506, !llvm.loop !133
 
 2567:                                             ; preds = %2566
   %2568 = getelementptr inbounds i8, ptr %10, i64 8
@@ -12260,7 +12260,7 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   %2598 = tail call double @SUNRabs(double noundef %2597) #13
   %indvars.iv.next427.i.i = add nuw nsw i64 %indvars.iv426.i.i, 1
   %exitcond429.not.i.i = icmp eq i64 %indvars.iv.next427.i.i, 4
-  br i1 %exitcond429.not.i.i, label %.loopexit333.i.i, label %2594, !llvm.loop !143
+  br i1 %exitcond429.not.i.i, label %.loopexit333.i.i, label %2594, !llvm.loop !134
 
 2599:                                             ; preds = %2567
   %2600 = getelementptr inbounds i8, ptr %12, i64 40
@@ -12290,7 +12290,7 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   store double %2618, ptr %2614, align 16
   %indvars.iv.next386.i.i = add nuw nsw i64 %indvars.iv385.i.i, 1
   %exitcond388.not.i.i = icmp eq i64 %indvars.iv.next386.i.i, 6
-  br i1 %exitcond388.not.i.i, label %2619, label %2612, !llvm.loop !144
+  br i1 %exitcond388.not.i.i, label %2619, label %2612, !llvm.loop !135
 
 2619:                                             ; preds = %2612
   store double 0.000000e+00, ptr %2608, align 16
@@ -12311,7 +12311,7 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   store double %2630, ptr %2626, align 8
   %indvars.iv.next390.i.i = add nuw nsw i64 %indvars.iv389.i.i, 1
   %exitcond392.not.i.i = icmp eq i64 %indvars.iv.next390.i.i, 6
-  br i1 %exitcond392.not.i.i, label %2631, label %2624, !llvm.loop !145
+  br i1 %exitcond392.not.i.i, label %2631, label %2624, !llvm.loop !136
 
 2631:                                             ; preds = %2624
   store double 0.000000e+00, ptr %2620, align 8
@@ -12342,7 +12342,7 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   store double %2650, ptr %2646, align 8
   %indvars.iv.next394.i.i = add nuw nsw i64 %indvars.iv393.i.i, 1
   %exitcond396.not.i.i = icmp eq i64 %indvars.iv.next394.i.i, 6
-  br i1 %exitcond396.not.i.i, label %2651, label %2644, !llvm.loop !146
+  br i1 %exitcond396.not.i.i, label %2651, label %2644, !llvm.loop !137
 
 2651:                                             ; preds = %2644
   %2652 = getelementptr inbounds i8, ptr %12, i64 152
@@ -12385,7 +12385,7 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   store double %2678, ptr %2679, align 8
   %indvars.iv.next398.i.i = add nuw nsw i64 %indvars.iv397.i.i, 1
   %exitcond400.not.i.i = icmp eq i64 %indvars.iv.next398.i.i, 4
-  br i1 %exitcond400.not.i.i, label %.preheader337.i.i, label %2667, !llvm.loop !147
+  br i1 %exitcond400.not.i.i, label %.preheader337.i.i, label %2667, !llvm.loop !138
 
 .preheader337.i.i:                                ; preds = %2667, %.preheader337.i.i
   %indvars.iv401.i.i = phi i64 [ %indvars.iv.next402.i.i, %.preheader337.i.i ], [ 1, %2667 ]
@@ -12400,7 +12400,7 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   %.1314.i.i = select i1 %2686, double %2685, double %.0313352.i.i
   %indvars.iv.next402.i.i = add nuw nsw i64 %indvars.iv401.i.i, 1
   %exitcond404.not.i.i = icmp eq i64 %indvars.iv.next402.i.i, 4
-  br i1 %exitcond404.not.i.i, label %2687, label %.preheader337.i.i, !llvm.loop !148
+  br i1 %exitcond404.not.i.i, label %2687, label %.preheader337.i.i, !llvm.loop !139
 
 2687:                                             ; preds = %.preheader337.i.i
   %2688 = fcmp olt double %.1314.i.i, 1.000000e-03
@@ -12450,7 +12450,7 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   store double %2714, ptr %2715, align 8
   %indvars.iv.next406.i.i = add nuw nsw i64 %indvars.iv405.i.i, 1
   %exitcond408.not.i.i = icmp eq i64 %indvars.iv.next406.i.i, 4
-  br i1 %exitcond408.not.i.i, label %.preheader334.i.i, label %2692, !llvm.loop !149
+  br i1 %exitcond408.not.i.i, label %.preheader334.i.i, label %2692, !llvm.loop !140
 
 .preheader334.i.i:                                ; preds = %2712, %2737
   %indvars.iv413.i.i = phi i64 [ %indvars.iv.next414.i.i, %2737 ], [ 1, %2712 ]
@@ -12483,14 +12483,14 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   %.1316.i.i = select i1 %2736, double %2735, double %.0315355.i.i
   %indvars.iv.next410.i.i = add nuw nsw i64 %indvars.iv409.i.i, 1
   %exitcond412.not.i.i = icmp eq i64 %indvars.iv.next410.i.i, 4
-  br i1 %exitcond412.not.i.i, label %2737, label %2719, !llvm.loop !150
+  br i1 %exitcond412.not.i.i, label %2737, label %2719, !llvm.loop !141
 
 2737:                                             ; preds = %2719
   %2738 = getelementptr inbounds [4 x double], ptr %8, i64 0, i64 %indvars.iv413.i.i
   store double %.1316.i.i, ptr %2738, align 8
   %indvars.iv.next414.i.i = add nuw nsw i64 %indvars.iv413.i.i, 1
   %exitcond416.not.i.i = icmp eq i64 %indvars.iv.next414.i.i, 4
-  br i1 %exitcond416.not.i.i, label %2739, label %.preheader334.i.i, !llvm.loop !151
+  br i1 %exitcond416.not.i.i, label %2739, label %.preheader334.i.i, !llvm.loop !142
 
 2739:                                             ; preds = %2737
   %2740 = load double, ptr %2689, align 8
@@ -12509,7 +12509,7 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   %.2301.i.i = select i1 %2745, i32 %2746, i32 %.1300359.i.i
   %indvars.iv.next418.i.i = add nuw nsw i64 %indvars.iv417.i.i, 1
   %exitcond420.not.i.i = icmp eq i64 %indvars.iv.next418.i.i, 4
-  br i1 %exitcond420.not.i.i, label %2747, label %2742, !llvm.loop !152
+  br i1 %exitcond420.not.i.i, label %2747, label %2742, !llvm.loop !143
 
 2747:                                             ; preds = %2742
   %2748 = sext i32 %.2301.i.i to i64
@@ -12526,12 +12526,12 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   store double %2753, ptr %2754, align 8
   %indvars.iv.next422.i.i = add nuw nsw i64 %indvars.iv421.i.i, 1
   %exitcond424.not.i.i = icmp eq i64 %indvars.iv.next422.i.i, 4
-  br i1 %exitcond424.not.i.i, label %2755, label %.preheader.i.i298, !llvm.loop !153
+  br i1 %exitcond424.not.i.i, label %2755, label %.preheader.i.i298, !llvm.loop !144
 
 2755:                                             ; preds = %.preheader.i.i298
   %2756 = add nuw nsw i32 %.0298364.i.i, 1
   %exitcond425.not.i.i = icmp eq i32 %2756, 4
-  br i1 %exitcond425.not.i.i, label %2757, label %.preheader335.i.i, !llvm.loop !154
+  br i1 %exitcond425.not.i.i, label %2757, label %.preheader335.i.i, !llvm.loop !145
 
 2757:                                             ; preds = %2755, %2747
   %.0302.i.i = phi i32 [ 0, %2755 ], [ 3, %2747 ]
@@ -12590,7 +12590,7 @@ cvPrepareNextStep.exit:                           ; preds = %2055, %2078, %2099,
   store double %2795, ptr %2796, align 8
   %indvars.iv.next431.i.i = add nuw nsw i64 %indvars.iv430.i.i, 1
   %exitcond433.not.i.i = icmp eq i64 %indvars.iv.next431.i.i, 4
-  br i1 %exitcond433.not.i.i, label %2797, label %2760, !llvm.loop !155
+  br i1 %exitcond433.not.i.i, label %2797, label %2760, !llvm.loop !146
 
 2797:                                             ; preds = %2791
   %2798 = getelementptr inbounds i8, ptr %4, i64 16
@@ -12763,7 +12763,7 @@ cvBDFStab.exit:                                   ; preds = %2864, %2855, %cvSLd
   %2879 = load i32, ptr %74, align 4
   %2880 = sext i32 %2879 to i64
   %2881 = icmp slt i64 %indvars.iv.next549, %2880
-  br i1 %2881, label %.lr.ph440, label %.loopexit319, !llvm.loop !156
+  br i1 %2881, label %.lr.ph440, label %.loopexit319, !llvm.loop !147
 
 .loopexit319:                                     ; preds = %.lr.ph440, %.preheader318, %2871
   %2882 = load i32, ptr %76, align 8
@@ -12786,7 +12786,7 @@ cvBDFStab.exit:                                   ; preds = %2864, %2855, %cvSLd
   %2889 = load i32, ptr %74, align 4
   %2890 = sext i32 %2889 to i64
   %2891 = icmp slt i64 %indvars.iv.next552, %2890
-  br i1 %2891, label %.lr.ph442, label %.loopexit, !llvm.loop !157
+  br i1 %2891, label %.lr.ph442, label %.loopexit, !llvm.loop !148
 
 .loopexit:                                        ; preds = %cvQuadSensNorm.exit, %cvQuadSensNls.exit, %1822, %.loopexit332, %1114, %1100, %cvQuadNls.exit, %1067, %cvNls.exit, %.lr.ph442, %.preheader, %.loopexit319
   %.0154 = phi i32 [ 0, %.loopexit319 ], [ 0, %.preheader ], [ 0, %.lr.ph442 ], [ %1906, %cvQuadSensNorm.exit ], [ %1886, %cvQuadSensNls.exit ], [ %1824, %1822 ], [ %.2157, %.loopexit332 ], [ -8, %1114 ], [ %1104, %1100 ], [ %1097, %cvQuadNls.exit ], [ %1069, %1067 ], [ %1066, %cvNls.exit ]
@@ -12798,7 +12798,7 @@ declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noun
 declare double @SUNRpowerI(double noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetQuad(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @CVodeGetQuad(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -12810,7 +12810,7 @@ define noundef i32 @CVodeGetQuad(ptr noundef %0, ptr nocapture noundef writeonly
   %7 = getelementptr inbounds i8, ptr %0, i64 992
   %8 = load double, ptr %7, align 8
   store double %8, ptr %1, align 8
-  %9 = tail call i32 @CVodeGetQuadDky(ptr noundef nonnull %0, double noundef %8, i32 noundef 0, ptr noundef %2), !range !158
+  %9 = tail call i32 @CVodeGetQuadDky(ptr noundef nonnull %0, double noundef %8, i32 noundef 0, ptr noundef %2)
   br label %10
 
 10:                                               ; preds = %6, %5
@@ -12819,7 +12819,7 @@ define noundef i32 @CVodeGetQuad(ptr noundef %0, ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetQuadDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @CVodeGetQuadDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -12914,7 +12914,7 @@ define noundef i32 @CVodeGetQuadDky(ptr noundef %0, double noundef %1, i32 nound
   %53 = fmul double %.05968, %52
   %54 = add nsw i32 %.05869, -1
   %.not66.not = icmp sgt i32 %54, %51
-  br i1 %.not66.not, label %.lr.ph, label %._crit_edge, !llvm.loop !159
+  br i1 %.not66.not, label %.lr.ph, label %._crit_edge, !llvm.loop !149
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.059.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %53, %.lr.ph ]
@@ -12936,7 +12936,7 @@ define noundef i32 @CVodeGetQuadDky(ptr noundef %0, double noundef %1, i32 nound
 62:                                               ; preds = %60, %61
   %63 = add nsw i32 %.05771, -1
   %.not65.not = icmp sgt i32 %.05771, %2
-  br i1 %.not65.not, label %.preheader, label %._crit_edge72, !llvm.loop !160
+  br i1 %.not65.not, label %.preheader, label %._crit_edge72, !llvm.loop !150
 
 ._crit_edge72:                                    ; preds = %62, %44
   %64 = icmp eq i32 %2, 0
@@ -12955,7 +12955,7 @@ define noundef i32 @CVodeGetQuadDky(ptr noundef %0, double noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetSens(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define i32 @CVodeGetSens(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -12985,14 +12985,14 @@ define noundef i32 @CVodeGetSens(ptr noundef %0, ptr nocapture noundef writeonly
   %15 = load i32, ptr %10, align 4
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next.i, %16
-  br i1 %17, label %.lr.ph.i, label %CVodeGetSensDky.exit, !llvm.loop !161
+  br i1 %17, label %.lr.ph.i, label %CVodeGetSensDky.exit, !llvm.loop !151
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %.preheader.i ]
   %18 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %21 = tail call i32 @CVodeGetSensDky1(ptr noundef nonnull %0, double noundef %8, i32 noundef 0, i32 noundef %20, ptr noundef %19), !range !162
+  %21 = tail call i32 @CVodeGetSensDky1(ptr noundef nonnull %0, double noundef %8, i32 noundef 0, i32 noundef %20, ptr noundef %19)
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %14, label %CVodeGetSensDky.exit
 
@@ -13002,7 +13002,7 @@ CVodeGetSensDky.exit:                             ; preds = %.lr.ph.i, %14, %13,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetSensDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define i32 @CVodeGetSensDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -13029,14 +13029,14 @@ define noundef i32 @CVodeGetSensDky(ptr noundef %0, double noundef %1, i32 nound
   %14 = load i32, ptr %9, align 4
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !161
+  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !151
 
 .lr.ph:                                           ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader ]
   %17 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = trunc nuw nsw i64 %indvars.iv to i32
-  %20 = tail call i32 @CVodeGetSensDky1(ptr noundef nonnull %0, double noundef %1, i32 noundef %2, i32 noundef %19, ptr noundef %18), !range !162
+  %20 = tail call i32 @CVodeGetSensDky1(ptr noundef nonnull %0, double noundef %1, i32 noundef %2, i32 noundef %19, ptr noundef %18)
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %13, label %.loopexit
 
@@ -13046,7 +13046,7 @@ define noundef i32 @CVodeGetSensDky(ptr noundef %0, double noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetSens1(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @CVodeGetSens1(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -13058,7 +13058,7 @@ define noundef i32 @CVodeGetSens1(ptr noundef %0, ptr nocapture noundef writeonl
   %8 = getelementptr inbounds i8, ptr %0, i64 992
   %9 = load double, ptr %8, align 8
   store double %9, ptr %1, align 8
-  %10 = tail call i32 @CVodeGetSensDky1(ptr noundef nonnull %0, double noundef %9, i32 noundef 0, i32 noundef %2, ptr noundef %3), !range !162
+  %10 = tail call i32 @CVodeGetSensDky1(ptr noundef nonnull %0, double noundef %9, i32 noundef 0, i32 noundef %2, ptr noundef %3)
   br label %11
 
 11:                                               ; preds = %7, %6
@@ -13067,7 +13067,7 @@ define noundef i32 @CVodeGetSens1(ptr noundef %0, ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetSensDky1(ptr noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -45, 1) i32 @CVodeGetSensDky1(ptr noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -13177,7 +13177,7 @@ define noundef i32 @CVodeGetSensDky1(ptr noundef %0, double noundef %1, i32 noun
   %61 = fmul double %.06576, %60
   %62 = add nsw i32 %.06477, -1
   %.not74.not = icmp sgt i32 %62, %59
-  br i1 %.not74.not, label %.lr.ph, label %._crit_edge, !llvm.loop !163
+  br i1 %.not74.not, label %.lr.ph, label %._crit_edge, !llvm.loop !152
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.065.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %61, %.lr.ph ]
@@ -13201,7 +13201,7 @@ define noundef i32 @CVodeGetSensDky1(ptr noundef %0, double noundef %1, i32 noun
 72:                                               ; preds = %70, %71
   %73 = add nsw i32 %.06379, -1
   %.not73.not = icmp sgt i32 %.06379, %2
-  br i1 %.not73.not, label %.preheader, label %._crit_edge80, !llvm.loop !164
+  br i1 %.not73.not, label %.preheader, label %._crit_edge80, !llvm.loop !153
 
 ._crit_edge80:                                    ; preds = %72, %51
   %74 = icmp eq i32 %2, 0
@@ -13220,7 +13220,7 @@ define noundef i32 @CVodeGetSensDky1(ptr noundef %0, double noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetQuadSens(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define i32 @CVodeGetQuadSens(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -13250,14 +13250,14 @@ define noundef i32 @CVodeGetQuadSens(ptr noundef %0, ptr nocapture noundef write
   %15 = load i32, ptr %10, align 4
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next.i, %16
-  br i1 %17, label %.lr.ph.i, label %CVodeGetQuadSensDky.exit, !llvm.loop !165
+  br i1 %17, label %.lr.ph.i, label %CVodeGetQuadSensDky.exit, !llvm.loop !154
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %.preheader.i ]
   %18 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %21 = tail call i32 @CVodeGetQuadSensDky1(ptr noundef nonnull %0, double noundef %8, i32 noundef 0, i32 noundef %20, ptr noundef %19), !range !166
+  %21 = tail call i32 @CVodeGetQuadSensDky1(ptr noundef nonnull %0, double noundef %8, i32 noundef 0, i32 noundef %20, ptr noundef %19)
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %14, label %CVodeGetQuadSensDky.exit
 
@@ -13267,7 +13267,7 @@ CVodeGetQuadSensDky.exit:                         ; preds = %.lr.ph.i, %14, %13,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetQuadSensDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define i32 @CVodeGetQuadSensDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -13294,14 +13294,14 @@ define noundef i32 @CVodeGetQuadSensDky(ptr noundef %0, double noundef %1, i32 n
   %14 = load i32, ptr %9, align 4
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !165
+  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !154
 
 .lr.ph:                                           ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader ]
   %17 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = trunc nuw nsw i64 %indvars.iv to i32
-  %20 = tail call i32 @CVodeGetQuadSensDky1(ptr noundef nonnull %0, double noundef %1, i32 noundef %2, i32 noundef %19, ptr noundef %18), !range !166
+  %20 = tail call i32 @CVodeGetQuadSensDky1(ptr noundef nonnull %0, double noundef %1, i32 noundef %2, i32 noundef %19, ptr noundef %18)
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %13, label %.loopexit
 
@@ -13311,7 +13311,7 @@ define noundef i32 @CVodeGetQuadSensDky(ptr noundef %0, double noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetQuadSens1(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @CVodeGetQuadSens1(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -13323,7 +13323,7 @@ define noundef i32 @CVodeGetQuadSens1(ptr noundef %0, ptr nocapture noundef writ
   %8 = getelementptr inbounds i8, ptr %0, i64 992
   %9 = load double, ptr %8, align 8
   store double %9, ptr %1, align 8
-  %10 = tail call i32 @CVodeGetQuadSensDky1(ptr noundef nonnull %0, double noundef %9, i32 noundef 0, i32 noundef %2, ptr noundef %3), !range !166
+  %10 = tail call i32 @CVodeGetQuadSensDky1(ptr noundef nonnull %0, double noundef %9, i32 noundef 0, i32 noundef %2, ptr noundef %3)
   br label %11
 
 11:                                               ; preds = %7, %6
@@ -13332,7 +13332,7 @@ define noundef i32 @CVodeGetQuadSens1(ptr noundef %0, ptr nocapture noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetQuadSensDky1(ptr noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @CVodeGetQuadSensDky1(ptr noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -13442,7 +13442,7 @@ define noundef i32 @CVodeGetQuadSensDky1(ptr noundef %0, double noundef %1, i32 
   %61 = fmul double %.06576, %60
   %62 = add nsw i32 %.06477, -1
   %.not74.not = icmp sgt i32 %62, %59
-  br i1 %.not74.not, label %.lr.ph, label %._crit_edge, !llvm.loop !167
+  br i1 %.not74.not, label %.lr.ph, label %._crit_edge, !llvm.loop !155
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.065.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %61, %.lr.ph ]
@@ -13466,7 +13466,7 @@ define noundef i32 @CVodeGetQuadSensDky1(ptr noundef %0, double noundef %1, i32 
 72:                                               ; preds = %70, %71
   %73 = add nsw i32 %.06379, -1
   %.not73.not = icmp sgt i32 %.06379, %2
-  br i1 %.not73.not, label %.preheader, label %._crit_edge80, !llvm.loop !168
+  br i1 %.not73.not, label %.preheader, label %._crit_edge80, !llvm.loop !156
 
 ._crit_edge80:                                    ; preds = %72, %51
   %74 = icmp eq i32 %2, 0
@@ -13521,7 +13521,7 @@ define void @CVodeFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   tail call void @N_VDestroy(ptr noundef %19) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %17, !llvm.loop !169
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %17, !llvm.loop !157
 
 ._crit_edge.i:                                    ; preds = %17, %4
   %20 = add nsw i32 %6, 5
@@ -13660,7 +13660,7 @@ define void @CVodeQuadFree(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @N_VDestroy(ptr noundef %21) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %19, !llvm.loop !170
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %19, !llvm.loop !158
 
 ._crit_edge.i:                                    ; preds = %19, %6
   %22 = add nsw i32 %8, 5
@@ -13779,7 +13779,7 @@ define void @CVodeSensFree(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @N_VDestroyVectorArray(ptr noundef %39, i32 noundef %40) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %37, !llvm.loop !171
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %37, !llvm.loop !159
 
 ._crit_edge.i:                                    ; preds = %37, %16
   %41 = getelementptr inbounds i8, ptr %0, i64 192
@@ -13915,7 +13915,7 @@ define void @CVodeQuadSensFree(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @N_VDestroyVectorArray(ptr noundef %28, i32 noundef %29) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %26, !llvm.loop !172
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %26, !llvm.loop !160
 
 ._crit_edge.i:                                    ; preds = %26, %6
   %30 = add nsw i32 %8, 5
@@ -14030,7 +14030,7 @@ declare double @N_VMaxNorm(ptr noundef) local_unnamed_addr #4
 declare void @N_VAddConst(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cvHandleNFlag(ptr nocapture noundef %0, ptr nocapture noundef %1, double noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -53, 4) i32 @cvHandleNFlag(ptr nocapture noundef %0, ptr nocapture noundef %1, double noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr %1, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %43, label %8
@@ -14116,7 +14116,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cvDoErrorTest(ptr noundef %0, ptr nocapture noundef writeonly %1, double noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 -54, 6) i32 @cvDoErrorTest(ptr noundef %0, ptr nocapture noundef writeonly %1, double noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 1128
   %9 = load double, ptr %8, align 8
   %10 = fmul double %9, %3
@@ -14394,7 +14394,7 @@ define internal fastcc noundef i32 @cvDoErrorTest(ptr noundef %0, ptr nocapture 
   %188 = load i32, ptr %176, align 4
   %189 = sext i32 %188 to i64
   %190 = icmp slt i64 %indvars.iv.next, %189
-  br i1 %190, label %180, label %.loopexit145, !llvm.loop !173
+  br i1 %190, label %180, label %.loopexit145, !llvm.loop !161
 
 .loopexit145:                                     ; preds = %180, %.preheader144, %157
   %191 = getelementptr inbounds i8, ptr %0, i64 256
@@ -14456,7 +14456,7 @@ define internal fastcc noundef i32 @cvDoErrorTest(ptr noundef %0, ptr nocapture 
   %229 = load i32, ptr %200, align 4
   %230 = sext i32 %229 to i64
   %231 = icmp slt i64 %indvars.iv.next151, %230
-  br i1 %231, label %221, label %.loopexit, !llvm.loop !174
+  br i1 %231, label %221, label %.loopexit, !llvm.loop !162
 
 .loopexit.sink.split:                             ; preds = %72, %76, %93
   tail call fastcc void @cvRescale(ptr noundef nonnull %0)
@@ -14491,7 +14491,7 @@ define internal fastcc double @cvSensNorm(ptr nocapture noundef readonly %0, ptr
   %16 = load i32, ptr %7, align 4
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !47
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.012.lcssa = phi double [ %6, %3 ], [ %.1, %.lr.ph ]
@@ -14580,7 +14580,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %44 = load i32, ptr %33, align 4
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next169.i, %45
-  br i1 %46, label %37, label %cvAdjustAdams.exit, !llvm.loop !175
+  br i1 %46, label %37, label %cvAdjustAdams.exit, !llvm.loop !163
 
 47:                                               ; preds = %47, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %47 ]
@@ -14590,7 +14590,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %49 = load i32, ptr %12, align 8
   %50 = sext i32 %49 to i64
   %.not.not.i = icmp slt i64 %indvars.iv.i, %50
-  br i1 %.not.not.i, label %47, label %._crit_edge.i, !llvm.loop !176
+  br i1 %.not.not.i, label %47, label %._crit_edge.i, !llvm.loop !164
 
 ._crit_edge.i:                                    ; preds = %47, %.preheader108.i
   %51 = getelementptr inbounds i8, ptr %0, i64 1160
@@ -14611,7 +14611,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %indvars.iv.next143.i = add nuw nsw i64 %indvars.iv142.i, 1
   %indvars.iv.next138.i = add nuw nsw i64 %indvars.iv137.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next143.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph122.i, label %58, !llvm.loop !177
+  br i1 %exitcond.not.i, label %.lr.ph122.i, label %58, !llvm.loop !165
 
 .lr.ph122.i:                                      ; preds = %.loopexit107.i
   %57 = sitofp i32 %4 to double
@@ -14639,7 +14639,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %69 = tail call double @llvm.fmuladd.f64(double %65, double %62, double %68)
   store double %69, ptr %64, align 8
   %70 = icmp sgt i64 %indvars.iv139.i, 1
-  br i1 %70, label %63, label %.loopexit107.i, !llvm.loop !178
+  br i1 %70, label %63, label %.loopexit107.i, !llvm.loop !166
 
 .preheader105.i:                                  ; preds = %73
   %.pr.i = load i32, ptr %3, align 8
@@ -14661,7 +14661,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %79 = getelementptr inbounds [13 x double], ptr %51, i64 0, i64 %indvars.iv.next147.i
   store double %78, ptr %79, align 8
   %exitcond151.not.i = icmp eq i64 %indvars.iv.next147.i, %wide.trip.count.i
-  br i1 %exitcond151.not.i, label %.preheader105.i, label %73, !llvm.loop !179
+  br i1 %exitcond151.not.i, label %.preheader105.i, label %73, !llvm.loop !167
 
 80:                                               ; preds = %80, %.lr.ph124.i
   %indvars.iv152.i = phi i64 [ 2, %.lr.ph124.i ], [ %indvars.iv.next153.i, %80 ]
@@ -14679,7 +14679,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %90 = load i32, ptr %3, align 8
   %91 = sext i32 %90 to i64
   %92 = icmp slt i64 %indvars.iv.next153.i, %91
-  br i1 %92, label %80, label %._crit_edge125.i, !llvm.loop !180
+  br i1 %92, label %80, label %._crit_edge125.i, !llvm.loop !168
 
 ._crit_edge125.i:                                 ; preds = %80
   %93 = getelementptr inbounds i8, ptr %0, i64 88
@@ -14709,7 +14709,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %107 = load i32, ptr %3, align 8
   %108 = sext i32 %107 to i64
   %109 = icmp slt i64 %indvars.iv.next157.i, %108
-  br i1 %109, label %97, label %.loopexit104.i, !llvm.loop !181
+  br i1 %109, label %97, label %.loopexit104.i, !llvm.loop !169
 
 .loopexit104.i:                                   ; preds = %97, %._crit_edge.i, %.preheader105.i, %._crit_edge125.i
   %110 = phi i32 [ %90, %._crit_edge125.i ], [ %4, %._crit_edge.i ], [ %.pr.i, %.preheader105.i ], [ %107, %97 ]
@@ -14756,7 +14756,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %134 = load i32, ptr %3, align 8
   %135 = sext i32 %134 to i64
   %136 = icmp slt i64 %indvars.iv.next161.i, %135
-  br i1 %136, label %.lr.ph129.i, label %._crit_edge130.loopexit.i, !llvm.loop !182
+  br i1 %136, label %.lr.ph129.i, label %._crit_edge130.loopexit.i, !llvm.loop !170
 
 ._crit_edge130.loopexit.i:                        ; preds = %.lr.ph129.i
   %.pre172.i = load i32, ptr %113, align 4
@@ -14768,7 +14768,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 1
   %139 = sext i32 %137 to i64
   %140 = icmp slt i64 %indvars.iv.next165.i, %139
-  br i1 %140, label %.preheader100.i, label %cvAdjustAdams.exit, !llvm.loop !183
+  br i1 %140, label %.preheader100.i, label %cvAdjustAdams.exit, !llvm.loop !171
 
 141:                                              ; preds = %7
   switch i32 %1, label %cvAdjustAdams.exit [
@@ -14794,7 +14794,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %148 = load i32, ptr %143, align 8
   %149 = sext i32 %148 to i64
   %.not.not.i.i = icmp slt i64 %indvars.iv.i.i, %149
-  br i1 %.not.not.i.i, label %146, label %._crit_edge.i.i, !llvm.loop !184
+  br i1 %.not.not.i.i, label %146, label %._crit_edge.i.i, !llvm.loop !172
 
 ._crit_edge.i.i:                                  ; preds = %146, %142
   %150 = getelementptr inbounds i8, ptr %0, i64 1160
@@ -14818,7 +14818,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %161 = fadd double %.0126148.i.i, %158
   %indvars.iv.next180.i.i = add nuw nsw i64 %indvars.iv179.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next185.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit141.i.i, label %.lr.ph146.preheader.i.i, !llvm.loop !185
+  br i1 %exitcond.not.i.i, label %.loopexit141.i.i, label %.lr.ph146.preheader.i.i, !llvm.loop !173
 
 .lr.ph146.preheader.i.i:                          ; preds = %.loopexit140.i.i, %153
   %indvars.iv184.i.i = phi i64 [ 1, %153 ], [ %indvars.iv.next185.i.i, %.loopexit140.i.i ]
@@ -14849,7 +14849,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   store double %173, ptr %168, align 8
   %174 = trunc nuw i64 %indvars.iv181.i.i to i32
   %175 = icmp sgt i32 %174, 2
-  br i1 %175, label %.lr.ph146.i.i, label %.loopexit140.i.i, !llvm.loop !186
+  br i1 %175, label %.lr.ph146.i.i, label %.loopexit140.i.i, !llvm.loop !174
 
 .loopexit141.i.i:                                 ; preds = %.loopexit140.i.i, %._crit_edge.i.i
   %.1129.i.i = phi double [ 1.000000e+00, %._crit_edge.i.i ], [ %159, %.loopexit140.i.i ]
@@ -14889,7 +14889,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %199 = load i32, ptr %3, align 8
   %200 = sext i32 %199 to i64
   %.not130.not.i.i = icmp slt i64 %indvars.iv188.i.i, %200
-  br i1 %.not130.not.i.i, label %.lr.ph156.i.i, label %._crit_edge157.i.i, !llvm.loop !187
+  br i1 %.not130.not.i.i, label %.lr.ph156.i.i, label %._crit_edge157.i.i, !llvm.loop !175
 
 ._crit_edge157.i.i:                               ; preds = %.lr.ph156.i.i, %.loopexit141.i.i
   %201 = getelementptr inbounds i8, ptr %0, i64 88
@@ -14927,7 +14927,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %222 = load i32, ptr %3, align 8
   %223 = sext i32 %222 to i64
   %.not132.not.i.i = icmp slt i64 %indvars.iv192.i.i, %223
-  br i1 %.not132.not.i.i, label %.lr.ph161.i.i, label %.loopexit139.i.i, !llvm.loop !188
+  br i1 %.not132.not.i.i, label %.lr.ph161.i.i, label %.loopexit139.i.i, !llvm.loop !176
 
 .loopexit139.i.i:                                 ; preds = %.lr.ph161.i.i, %203, %._crit_edge157.i.i
   %224 = getelementptr inbounds i8, ptr %0, i64 136
@@ -14983,14 +14983,14 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %256 = load i32, ptr %3, align 8
   %257 = sext i32 %256 to i64
   %.not136.not.i.i = icmp slt i64 %indvars.iv196.i.i, %257
-  br i1 %.not136.not.i.i, label %.lr.ph165.i.i, label %._crit_edge166.i.i, !llvm.loop !189
+  br i1 %.not136.not.i.i, label %.lr.ph165.i.i, label %._crit_edge166.i.i, !llvm.loop !177
 
 ._crit_edge166.i.i:                               ; preds = %.lr.ph165.i.i, %230
   %indvars.iv.next201.i.i = add nuw nsw i64 %indvars.iv200.i.i, 1
   %258 = load i32, ptr %226, align 4
   %259 = sext i32 %258 to i64
   %260 = icmp slt i64 %indvars.iv.next201.i.i, %259
-  br i1 %260, label %230, label %.loopexit138.i.i, !llvm.loop !190
+  br i1 %260, label %230, label %.loopexit138.i.i, !llvm.loop !178
 
 .loopexit138.i.i:                                 ; preds = %._crit_edge166.i.i, %.preheader137.i.i, %.loopexit139.i.i
   %261 = getelementptr inbounds i8, ptr %0, i64 256
@@ -15046,14 +15046,14 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %293 = load i32, ptr %3, align 8
   %294 = sext i32 %293 to i64
   %.not135.not.i.i = icmp slt i64 %indvars.iv204.i.i, %294
-  br i1 %.not135.not.i.i, label %.lr.ph172.i.i, label %._crit_edge173.i.i, !llvm.loop !191
+  br i1 %.not135.not.i.i, label %.lr.ph172.i.i, label %._crit_edge173.i.i, !llvm.loop !179
 
 ._crit_edge173.i.i:                               ; preds = %.lr.ph172.i.i, %267
   %indvars.iv.next209.i.i = add nuw nsw i64 %indvars.iv208.i.i, 1
   %295 = load i32, ptr %263, align 4
   %296 = sext i32 %295 to i64
   %297 = icmp slt i64 %indvars.iv.next209.i.i, %296
-  br i1 %297, label %267, label %cvAdjustAdams.exit, !llvm.loop !192
+  br i1 %297, label %267, label %cvAdjustAdams.exit, !llvm.loop !180
 
 298:                                              ; preds = %141
   %299 = getelementptr inbounds i8, ptr %0, i64 1368
@@ -15073,7 +15073,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %304 = load i32, ptr %299, align 8
   %305 = sext i32 %304 to i64
   %.not.not.i5.i = icmp slt i64 %indvars.iv.i3.i, %305
-  br i1 %.not.not.i5.i, label %302, label %._crit_edge.i6.i, !llvm.loop !193
+  br i1 %.not.not.i5.i, label %302, label %._crit_edge.i6.i, !llvm.loop !181
 
 ._crit_edge.i6.i:                                 ; preds = %302, %298
   %306 = getelementptr inbounds i8, ptr %0, i64 1160
@@ -15120,13 +15120,13 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %323 = tail call double @llvm.fmuladd.f64(double %319, double %317, double %322)
   store double %323, ptr %318, align 8
   %324 = icmp sgt i64 %indvars.iv131.i.i, 2
-  br i1 %324, label %.lr.ph106.i.i, label %._crit_edge107.i.i, !llvm.loop !194
+  br i1 %324, label %.lr.ph106.i.i, label %._crit_edge107.i.i, !llvm.loop !182
 
 ._crit_edge107.i.i:                               ; preds = %.lr.ph106.i.i
   %indvars.iv.next135.i.i = add nuw nsw i64 %indvars.iv134.i.i, 1
   %indvars.iv.next130.i.i = add nuw nsw i64 %indvars.iv129.i.i, 1
   %exitcond.not.i8.i = icmp eq i64 %indvars.iv.next135.i.i, %wide.trip.count.i7.i
-  br i1 %exitcond.not.i8.i, label %.preheader101.i.i, label %.lr.ph106.preheader.i.i, !llvm.loop !195
+  br i1 %exitcond.not.i8.i, label %.preheader101.i.i, label %.lr.ph106.preheader.i.i, !llvm.loop !183
 
 325:                                              ; preds = %325, %.lr.ph114.i.i
   %indvars.iv138.i.i = phi i64 [ 2, %.lr.ph114.i.i ], [ %indvars.iv.next139.i.i, %325 ]
@@ -15144,7 +15144,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %335 = load i32, ptr %3, align 8
   %336 = sext i32 %335 to i64
   %337 = icmp slt i64 %indvars.iv.next139.i.i, %336
-  br i1 %337, label %325, label %._crit_edge115.i.i, !llvm.loop !196
+  br i1 %337, label %325, label %._crit_edge115.i.i, !llvm.loop !184
 
 ._crit_edge115.i.i:                               ; preds = %325
   %338 = getelementptr inbounds i8, ptr %0, i64 88
@@ -15174,7 +15174,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %352 = load i32, ptr %3, align 8
   %353 = sext i32 %352 to i64
   %354 = icmp slt i64 %indvars.iv.next143.i.i, %353
-  br i1 %354, label %342, label %.loopexit100.i.i, !llvm.loop !197
+  br i1 %354, label %342, label %.loopexit100.i.i, !llvm.loop !185
 
 .loopexit100.i.i:                                 ; preds = %342, %._crit_edge115.i.i, %.preheader101.i.i, %._crit_edge.i6.i
   %355 = phi i32 [ %335, %._crit_edge115.i.i ], [ %4, %._crit_edge.i6.i ], [ %.pre.i.i, %.preheader101.i.i ], [ %352, %342 ]
@@ -15221,7 +15221,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %379 = load i32, ptr %3, align 8
   %380 = sext i32 %379 to i64
   %381 = icmp slt i64 %indvars.iv.next147.i.i, %380
-  br i1 %381, label %.lr.ph119.i.i, label %._crit_edge120.loopexit.i.i, !llvm.loop !198
+  br i1 %381, label %.lr.ph119.i.i, label %._crit_edge120.loopexit.i.i, !llvm.loop !186
 
 ._crit_edge120.loopexit.i.i:                      ; preds = %.lr.ph119.i.i
   %.pre162.i.i = load i32, ptr %358, align 4
@@ -15233,7 +15233,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %indvars.iv.next151.i.i = add nuw nsw i64 %indvars.iv150.i.i, 1
   %384 = sext i32 %382 to i64
   %385 = icmp slt i64 %indvars.iv.next151.i.i, %384
-  br i1 %385, label %.preheader96.i.i, label %.loopexit98.i.i, !llvm.loop !199
+  br i1 %385, label %.preheader96.i.i, label %.loopexit98.i.i, !llvm.loop !187
 
 .loopexit98.i.i:                                  ; preds = %._crit_edge120.i.i, %.preheader96.lr.ph.i.i, %.preheader97.i.i, %.loopexit100.i.i
   %386 = phi i32 [ %355, %.preheader97.i.i ], [ %355, %.loopexit100.i.i ], [ %355, %.preheader96.lr.ph.i.i ], [ %383, %._crit_edge120.i.i ]
@@ -15280,7 +15280,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %410 = load i32, ptr %3, align 8
   %411 = sext i32 %410 to i64
   %412 = icmp slt i64 %indvars.iv.next155.i.i, %411
-  br i1 %412, label %.lr.ph123.i.i, label %._crit_edge124.loopexit.i.i, !llvm.loop !200
+  br i1 %412, label %.lr.ph123.i.i, label %._crit_edge124.loopexit.i.i, !llvm.loop !188
 
 ._crit_edge124.loopexit.i.i:                      ; preds = %.lr.ph123.i.i
   %.pre163.i.i = load i32, ptr %389, align 4
@@ -15292,7 +15292,7 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %indvars.iv.next159.i.i = add nuw nsw i64 %indvars.iv158.i.i, 1
   %415 = sext i32 %413 to i64
   %416 = icmp slt i64 %indvars.iv.next159.i.i, %415
-  br i1 %416, label %.preheader.i9.i, label %cvAdjustAdams.exit, !llvm.loop !201
+  br i1 %416, label %.preheader.i9.i, label %cvAdjustAdams.exit, !llvm.loop !189
 
 cvAdjustAdams.exit:                               ; preds = %._crit_edge124.i.i, %._crit_edge173.i.i, %._crit_edge130.i, %37, %.preheader.lr.ph.i.i, %.preheader95.i.i, %.loopexit98.i.i, %.preheader.i.i, %.loopexit138.i.i, %141, %.preheader100.lr.ph.i, %.preheader101.i, %.loopexit104.i, %.preheader.i, %30, %2, %7
   ret void
@@ -15358,7 +15358,7 @@ define internal fastcc void @cvRescale(ptr nocapture noundef %0) unnamed_addr #0
   %29 = load i32, ptr %9, align 4
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %25, label %.loopexit52, !llvm.loop !202
+  br i1 %31, label %25, label %.loopexit52, !llvm.loop !190
 
 .loopexit52:                                      ; preds = %25, %.preheader51, %20
   %32 = load i32, ptr %11, align 8
@@ -15384,7 +15384,7 @@ define internal fastcc void @cvRescale(ptr nocapture noundef %0) unnamed_addr #0
   %40 = load i32, ptr %9, align 4
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next62, %41
-  br i1 %42, label %36, label %.loopexit, !llvm.loop !203
+  br i1 %42, label %36, label %.loopexit, !llvm.loop !191
 
 .loopexit:                                        ; preds = %36, %.preheader, %.loopexit52
   %43 = load double, ptr %2, align 8
@@ -15393,7 +15393,7 @@ define internal fastcc void @cvRescale(ptr nocapture noundef %0) unnamed_addr #0
   %45 = load i32, ptr %3, align 8
   %46 = sext i32 %45 to i64
   %.not.not = icmp slt i64 %indvars.iv64, %46
-  br i1 %.not.not, label %13, label %._crit_edge, !llvm.loop !204
+  br i1 %.not.not, label %13, label %._crit_edge, !llvm.loop !192
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   %47 = phi double [ %.pre, %1 ], [ %43, %.loopexit ]
@@ -15440,14 +15440,14 @@ define internal fastcc void @cvRestore(ptr nocapture noundef %0, double noundef 
   %13 = load ptr, ptr %12, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %11, double noundef -1.000000e+00, ptr noundef %13, ptr noundef %11) #13
   %.not87.not = icmp sgt i64 %indvars.iv, %indvars.iv117
-  br i1 %.not87.not, label %9, label %14, !llvm.loop !205
+  br i1 %.not87.not, label %9, label %14, !llvm.loop !193
 
 14:                                               ; preds = %9
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %15 = load i32, ptr %4, align 8
   %16 = sext i32 %15 to i64
   %.not.not = icmp slt i64 %indvars.iv117, %16
-  br i1 %.not.not, label %.preheader97, label %._crit_edge, !llvm.loop !206
+  br i1 %.not.not, label %.preheader97, label %._crit_edge, !llvm.loop !194
 
 ._crit_edge:                                      ; preds = %14, %2
   %17 = phi i32 [ %5, %2 ], [ %15, %14 ]
@@ -15477,14 +15477,14 @@ define internal fastcc void @cvRestore(ptr nocapture noundef %0, double noundef 
   %27 = load ptr, ptr %26, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %25, double noundef -1.000000e+00, ptr noundef %27, ptr noundef %25) #13
   %.not86.not = icmp sgt i64 %indvars.iv120, %indvars.iv123
-  br i1 %.not86.not, label %23, label %28, !llvm.loop !207
+  br i1 %.not86.not, label %23, label %28, !llvm.loop !195
 
 28:                                               ; preds = %23
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %29 = load i32, ptr %4, align 8
   %30 = sext i32 %29 to i64
   %.not79.not = icmp slt i64 %indvars.iv123, %30
-  br i1 %.not79.not, label %.preheader94, label %.loopexit96, !llvm.loop !208
+  br i1 %.not79.not, label %.preheader94, label %.loopexit96, !llvm.loop !196
 
 .loopexit96:                                      ; preds = %28, %._crit_edge
   %31 = phi i32 [ %17, %._crit_edge ], [ %29, %28 ]
@@ -15530,14 +15530,14 @@ define internal fastcc void @cvRestore(ptr nocapture noundef %0, double noundef 
   %51 = load ptr, ptr %50, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %47, double noundef -1.000000e+00, ptr noundef %51, ptr noundef %47) #13
   %.not85.not = icmp sgt i64 %indvars.iv126, %indvars.iv129
-  br i1 %.not85.not, label %43, label %52, !llvm.loop !209
+  br i1 %.not85.not, label %43, label %52, !llvm.loop !197
 
 52:                                               ; preds = %43
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %53 = load i32, ptr %4, align 8
   %54 = sext i32 %53 to i64
   %.not84.not = icmp slt i64 %indvars.iv129, %54
-  br i1 %.not84.not, label %.preheader90, label %._crit_edge107.loopexit, !llvm.loop !210
+  br i1 %.not84.not, label %.preheader90, label %._crit_edge107.loopexit, !llvm.loop !198
 
 ._crit_edge107.loopexit:                          ; preds = %52
   %.pre = load i32, ptr %34, align 4
@@ -15549,7 +15549,7 @@ define internal fastcc void @cvRestore(ptr nocapture noundef %0, double noundef 
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %57 = sext i32 %55 to i64
   %58 = icmp slt i64 %indvars.iv.next133, %57
-  br i1 %58, label %.preheader91, label %.loopexit93, !llvm.loop !211
+  br i1 %58, label %.preheader91, label %.loopexit93, !llvm.loop !199
 
 .loopexit93:                                      ; preds = %._crit_edge107, %.preheader91.lr.ph, %.preheader92, %.loopexit96
   %59 = phi i32 [ %31, %.preheader92 ], [ %31, %.loopexit96 ], [ %31, %.preheader91.lr.ph ], [ %56, %._crit_edge107 ]
@@ -15595,14 +15595,14 @@ define internal fastcc void @cvRestore(ptr nocapture noundef %0, double noundef 
   %79 = load ptr, ptr %78, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %75, double noundef -1.000000e+00, ptr noundef %79, ptr noundef %75) #13
   %.not83.not = icmp sgt i64 %indvars.iv135, %indvars.iv138
-  br i1 %.not83.not, label %71, label %80, !llvm.loop !212
+  br i1 %.not83.not, label %71, label %80, !llvm.loop !200
 
 80:                                               ; preds = %71
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %81 = load i32, ptr %4, align 8
   %82 = sext i32 %81 to i64
   %.not82.not = icmp slt i64 %indvars.iv138, %82
-  br i1 %.not82.not, label %.preheader, label %._crit_edge112.loopexit, !llvm.loop !213
+  br i1 %.not82.not, label %.preheader, label %._crit_edge112.loopexit, !llvm.loop !201
 
 ._crit_edge112.loopexit:                          ; preds = %80
   %.pre144 = load i32, ptr %62, align 4
@@ -15614,7 +15614,7 @@ define internal fastcc void @cvRestore(ptr nocapture noundef %0, double noundef 
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %85 = sext i32 %83 to i64
   %86 = icmp slt i64 %indvars.iv.next142, %85
-  br i1 %86, label %.preheader88, label %.loopexit, !llvm.loop !214
+  br i1 %86, label %.preheader88, label %.loopexit, !llvm.loop !202
 
 .loopexit:                                        ; preds = %._crit_edge112, %.preheader88.lr.ph, %.preheader89, %.loopexit93
   ret void
@@ -15674,7 +15674,7 @@ attributes #15 = { nounwind allocsize(0) }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 0, i32 2}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
@@ -15701,14 +15701,14 @@ attributes #15 = { nounwind allocsize(0) }
 !36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
-!39 = !{i32 -1, i32 1}
-!40 = !{i32 -2147483648, i32 1}
+!39 = distinct !{!39, !5}
+!40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
-!43 = !{i32 -12, i32 1}
-!44 = !{i32 -12, i32 4}
-!45 = !{i32 -12, i32 2}
-!46 = !{i32 -26, i32 1}
+!43 = distinct !{!43, !5}
+!44 = distinct !{!44, !5}
+!45 = distinct !{!45, !5}
+!46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
 !48 = distinct !{!48, !5}
 !49 = distinct !{!49, !5}
@@ -15744,18 +15744,18 @@ attributes #15 = { nounwind allocsize(0) }
 !79 = distinct !{!79, !5}
 !80 = distinct !{!80, !5}
 !81 = distinct !{!81, !5}
-!82 = distinct !{!82, !5}
-!83 = distinct !{!83, !5}
+!82 = distinct !{!82, !5, !83}
+!83 = !{!"llvm.loop.unswitch.partial.disable"}
 !84 = distinct !{!84, !5}
 !85 = distinct !{!85, !5}
-!86 = distinct !{!86, !5}
+!86 = distinct !{!86, !5, !83}
 !87 = distinct !{!87, !5}
 !88 = distinct !{!88, !5}
-!89 = distinct !{!89, !5, !90}
-!90 = !{!"llvm.loop.unswitch.partial.disable"}
+!89 = distinct !{!89, !5}
+!90 = distinct !{!90, !5}
 !91 = distinct !{!91, !5}
 !92 = distinct !{!92, !5}
-!93 = distinct !{!93, !5, !90}
+!93 = distinct !{!93, !5}
 !94 = distinct !{!94, !5}
 !95 = distinct !{!95, !5}
 !96 = distinct !{!96, !5}
@@ -15772,26 +15772,26 @@ attributes #15 = { nounwind allocsize(0) }
 !107 = distinct !{!107, !5}
 !108 = distinct !{!108, !5}
 !109 = distinct !{!109, !5}
-!110 = !{i32 -53, i32 4}
-!111 = !{i32 -54, i32 6}
+!110 = distinct !{!110, !5}
+!111 = distinct !{!111, !5}
 !112 = distinct !{!112, !5}
 !113 = distinct !{!113, !5}
 !114 = distinct !{!114, !5}
 !115 = distinct !{!115, !5}
 !116 = distinct !{!116, !5}
 !117 = distinct !{!117, !5}
-!118 = distinct !{!118, !5}
+!118 = distinct !{!118, !5, !83}
 !119 = distinct !{!119, !5}
-!120 = distinct !{!120, !5}
+!120 = distinct !{!120, !5, !83}
 !121 = distinct !{!121, !5}
 !122 = distinct !{!122, !5}
 !123 = distinct !{!123, !5}
 !124 = distinct !{!124, !5}
 !125 = distinct !{!125, !5}
 !126 = distinct !{!126, !5}
-!127 = distinct !{!127, !5, !90}
+!127 = distinct !{!127, !5}
 !128 = distinct !{!128, !5}
-!129 = distinct !{!129, !5, !90}
+!129 = distinct !{!129, !5}
 !130 = distinct !{!130, !5}
 !131 = distinct !{!131, !5}
 !132 = distinct !{!132, !5}
@@ -15820,20 +15820,20 @@ attributes #15 = { nounwind allocsize(0) }
 !155 = distinct !{!155, !5}
 !156 = distinct !{!156, !5}
 !157 = distinct !{!157, !5}
-!158 = !{i32 -30, i32 1}
+!158 = distinct !{!158, !5}
 !159 = distinct !{!159, !5}
 !160 = distinct !{!160, !5}
 !161 = distinct !{!161, !5}
-!162 = !{i32 -45, i32 1}
+!162 = distinct !{!162, !5}
 !163 = distinct !{!163, !5}
 !164 = distinct !{!164, !5}
 !165 = distinct !{!165, !5}
-!166 = !{i32 -50, i32 1}
+!166 = distinct !{!166, !5}
 !167 = distinct !{!167, !5}
 !168 = distinct !{!168, !5}
 !169 = distinct !{!169, !5}
 !170 = distinct !{!170, !5}
-!171 = distinct !{!171, !5}
+!171 = distinct !{!171, !5, !83}
 !172 = distinct !{!172, !5}
 !173 = distinct !{!173, !5}
 !174 = distinct !{!174, !5}
@@ -15845,13 +15845,13 @@ attributes #15 = { nounwind allocsize(0) }
 !180 = distinct !{!180, !5}
 !181 = distinct !{!181, !5}
 !182 = distinct !{!182, !5}
-!183 = distinct !{!183, !5, !90}
+!183 = distinct !{!183, !5}
 !184 = distinct !{!184, !5}
 !185 = distinct !{!185, !5}
 !186 = distinct !{!186, !5}
-!187 = distinct !{!187, !5}
+!187 = distinct !{!187, !5, !83}
 !188 = distinct !{!188, !5}
-!189 = distinct !{!189, !5}
+!189 = distinct !{!189, !5, !83}
 !190 = distinct !{!190, !5}
 !191 = distinct !{!191, !5}
 !192 = distinct !{!192, !5}
@@ -15861,19 +15861,7 @@ attributes #15 = { nounwind allocsize(0) }
 !196 = distinct !{!196, !5}
 !197 = distinct !{!197, !5}
 !198 = distinct !{!198, !5}
-!199 = distinct !{!199, !5, !90}
+!199 = distinct !{!199, !5, !83}
 !200 = distinct !{!200, !5}
-!201 = distinct !{!201, !5, !90}
-!202 = distinct !{!202, !5}
-!203 = distinct !{!203, !5}
-!204 = distinct !{!204, !5}
-!205 = distinct !{!205, !5}
-!206 = distinct !{!206, !5}
-!207 = distinct !{!207, !5}
-!208 = distinct !{!208, !5}
-!209 = distinct !{!209, !5}
-!210 = distinct !{!210, !5}
-!211 = distinct !{!211, !5, !90}
-!212 = distinct !{!212, !5}
-!213 = distinct !{!213, !5}
-!214 = distinct !{!214, !5, !90}
+!201 = distinct !{!201, !5}
+!202 = distinct !{!202, !5, !83}

@@ -614,14 +614,14 @@ define hidden void @proto_reg_handoff_udt() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_udt_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_udt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 0), !range !7
+define internal range(i32 0, 2) i32 @dissect_udt_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+  %5 = tail call fastcc i32 @dissect_udt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 0)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_udt_heur_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
-  %5 = tail call fastcc i32 @dissect_udt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1), !range !7
+define internal range(i32 0, 2) i32 @dissect_udt_heur_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+  %5 = tail call fastcc i32 @dissect_udt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1)
   ret i32 %5
 }
 
@@ -670,7 +670,7 @@ declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_udt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_udt_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #3
   %7 = load i32, ptr @proto_udt, align 4
   %8 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %6, i32 noundef %7) #3
@@ -768,4 +768,3 @@ attributes #3 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}

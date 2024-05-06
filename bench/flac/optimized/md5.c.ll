@@ -23,7 +23,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %ctx, i64 %idx.ext
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 -128, ptr %add.ptr, align 1
-  %sub = sub nsw i32 55, %and
+  %sub = sub nuw nsw i32 55, %and
   %cmp = icmp ugt i32 %and, 55
   br i1 %cmp, label %if.then, label %if.end
 
@@ -623,7 +623,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__MD5Accumulate(ptr nocapture noundef %ctx, ptr noundef readonly %signal, i32 noundef %channels, i32 noundef %samples, i32 noundef %bytes_per_sample) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @FLAC__MD5Accumulate(ptr nocapture noundef %ctx, ptr noundef readonly %signal, i32 noundef %channels, i32 noundef %samples, i32 noundef %bytes_per_sample) local_unnamed_addr #6 {
 entry:
   %conv = zext i32 %channels to i64
   %conv1 = zext i32 %samples to i64
@@ -1530,11 +1530,11 @@ if.end.i:                                         ; preds = %if.then.i27, %forma
 
 if.then6.i:                                       ; preds = %if.end.i
   %conv.i26 = and i64 %mul3, 4294967295
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr7.i, ptr align 1 %142, i64 %conv.i26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr7.i, ptr readonly align 1 %142, i64 %conv.i26, i1 false)
   br label %return
 
 if.end8.i:                                        ; preds = %if.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr7.i, ptr noundef nonnull align 1 dereferenceable(1) %142, i64 %idx.ext.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr7.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %142, i64 %idx.ext.i, i1 false)
   tail call fastcc void @FLAC__MD5Transform(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %ctx)
   %add.ptr21.i = getelementptr inbounds i8, ptr %142, i64 %idx.ext.i
   %sub22.i = sub i32 %conv35, %sub.i

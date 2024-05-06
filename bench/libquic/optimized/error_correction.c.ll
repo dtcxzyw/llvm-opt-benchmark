@@ -12,7 +12,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %shr = lshr i64 %indvars.iv, 3
   %idxprom = and i64 %shr, 536870911
   %arrayidx = getelementptr inbounds [32 x i8], ptr %rand, i64 0, i64 %idxprom
@@ -104,7 +104,7 @@ for.body:                                         ; preds = %entry, %for.body
   %mul115 = shl nsw i32 %xor84, 1
   %mul115.masked = and i32 %mul115, 2
   %and117 = or disjoint i32 %mul115.masked, %shr59.neg
-  %conv118 = trunc i32 %and117 to i16
+  %conv118 = trunc nuw nsw i32 %and117 to i16
   %arrayidx122 = getelementptr inbounds [1024 x i16], ptr %c, i64 0, i64 %7
   store i16 %conv118, ptr %arrayidx122, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -231,14 +231,14 @@ for.body:                                         ; preds = %entry, %for.body
   %add5.i = add i32 %add3.i, %sub.i.i30.i
   %sub.i = add i32 %add5.i, %sub.i.i42.i
   %shr6.i = lshr i32 %sub.i, 31
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %and = and i32 %15, 7
   %shl = shl nuw nsw i32 %shr6.i, %and
   %shr = lshr i64 %indvars.iv, 3
   %idxprom80 = and i64 %shr, 536870911
   %arrayidx81 = getelementptr inbounds i8, ptr %key, i64 %idxprom80
   %16 = load i8, ptr %arrayidx81, align 1
-  %17 = trunc i32 %shl to i8
+  %17 = trunc nuw i32 %shl to i8
   %conv83 = or i8 %16, %17
   store i8 %conv83, ptr %arrayidx81, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -98,7 +98,7 @@ declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @sysbus_init_mmio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @mchp_pfsoc_ddr_sgmii_phy_read(ptr nocapture readnone %opaque, i64 noundef %offset, i32 noundef %size) #0 {
+define internal range(i64 0, 16449) i64 @mchp_pfsoc_ddr_sgmii_phy_read(ptr nocapture readnone %opaque, i64 noundef %offset, i32 noundef %size) #0 {
 entry:
   switch i64 %offset, label %do.body [
     i64 520, label %sw.epilog
@@ -182,7 +182,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @mchp_pfsoc_ddr_cfg_read(ptr nocapture readnone %opaque, i64 noundef %offset, i32 noundef %size) #0 {
+define internal range(i64 0, 2) i64 @mchp_pfsoc_ddr_cfg_read(ptr nocapture readnone %opaque, i64 noundef %offset, i32 noundef %size) #0 {
 entry:
   switch i64 %offset, label %do.body [
     i64 17448, label %sw.epilog

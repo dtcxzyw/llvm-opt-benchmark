@@ -895,7 +895,7 @@ define internal i32 @dissect_usb_vid_control(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_usb_vid_descriptor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 256) i32 @dissect_usb_vid_descriptor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
@@ -1670,7 +1670,7 @@ define internal i32 @dissect_usb_vid_get_set(ptr nocapture noundef readonly %0, 
   %8 = getelementptr inbounds i8, ptr %5, i64 32
   %9 = load i16, ptr %8, align 4
   %10 = lshr i16 %9, 8
-  %11 = trunc i16 %10 to i8
+  %11 = trunc nuw i16 %10 to i8
   %12 = getelementptr inbounds i8, ptr %5, i64 30
   %13 = load i16, ptr %12, align 2
   %14 = lshr i16 %13, 8

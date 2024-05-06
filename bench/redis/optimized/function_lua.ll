@@ -426,7 +426,7 @@ declare i32 @lua_setmetatable(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @lua_replace(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @luaEngineCreate(ptr nocapture noundef readonly %engine_ctx, ptr noundef %li, ptr noundef %blob, i64 noundef %timeout, ptr nocapture noundef writeonly %err) #0 {
+define internal range(i32 -1, 1) i32 @luaEngineCreate(ptr nocapture noundef readonly %engine_ctx, ptr noundef %li, ptr noundef %blob, i64 noundef %timeout, ptr nocapture noundef writeonly %err) #0 {
 entry:
   %load_ctx = alloca %struct.loadCtx, align 8
   %err_info = alloca %struct.errorInfo, align 8

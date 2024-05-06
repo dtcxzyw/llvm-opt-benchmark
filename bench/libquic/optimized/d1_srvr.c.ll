@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [117 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/d1_srvr.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dtls1_accept(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @dtls1_accept(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   tail call void @ERR_clear_system_error() #2
   %info_callback = getelementptr inbounds i8, ptr %ssl, i64 200

@@ -427,7 +427,7 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbu
   %10 = load i64, ptr %len.i.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %9, i64 %10
   store i8 0, ptr %arrayidx3.i.i, align 1
-  %call2.i = call fastcc i32 @strbuf_set_helper_option(ptr noundef %0, ptr noundef nonnull %buf.i)
+  %call2.i = call fastcc i32 @strbuf_set_helper_option(ptr noundef readonly %0, ptr noundef nonnull %buf.i)
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %string_list_set_helper_option.exit
 
@@ -1025,8 +1025,8 @@ if.then83:                                        ; preds = %if.end77
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i39)
   %55 = load ptr, ptr %data1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i39, ptr noundef nonnull align 8 dereferenceable(24) @__const.push_refs_with_export.buf, i64 24, i1 false)
-  %call.i41 = tail call fastcc ptr @get_helper(ptr noundef nonnull %transport)
-  %call.i.i42 = tail call fastcc ptr @get_helper(ptr noundef nonnull %transport)
+  %call.i41 = tail call fastcc ptr @get_helper(ptr noundef nonnull readonly %transport)
+  %call.i.i42 = tail call fastcc ptr @get_helper(ptr noundef nonnull readonly %transport)
   %56 = load ptr, ptr %data1, align 8
   call void @child_process_init(ptr noundef nonnull %fastimport.i) #18
   %out.i.i = getelementptr inbounds i8, ptr %call.i.i42, i64 84
@@ -1308,7 +1308,7 @@ if.then9:                                         ; preds = %if.end7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %cas_options.i, i8 0, i64 40, i1 false)
   %10 = getelementptr inbounds i8, ptr %cas_options.i, i64 24
   store i8 1, ptr %10, align 8
-  %call.i16 = tail call fastcc ptr @get_helper(ptr noundef nonnull %transport)
+  %call.i16 = tail call fastcc ptr @get_helper(ptr noundef nonnull readonly %transport)
   %push.i = getelementptr inbounds i8, ptr %9, i64 24
   %bf.load.i = load i16, ptr %push.i, align 8
   %11 = and i16 %bf.load.i, 32
@@ -1570,7 +1570,7 @@ land.rhs.lr.ph.i:                                 ; preds = %if.end53.i
 for.body58.i:                                     ; preds = %land.rhs.lr.ph.i, %for.body58.i
   %cas_option.092.i48 = phi ptr [ %incdec.ptr.i, %for.body58.i ], [ %42, %land.rhs.lr.ph.i ]
   %44 = load ptr, ptr %cas_option.092.i48, align 8
-  %call59.i = call i32 @set_helper_option(ptr noundef %transport, ptr noundef nonnull @.str.102, ptr noundef %44)
+  %call59.i = call i32 @set_helper_option(ptr noundef readonly %transport, ptr noundef nonnull @.str.102, ptr noundef %44)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %cas_option.092.i48, i64 16
   %45 = load ptr, ptr %cas_options.i, align 8
   %46 = load i64, ptr %nr.i, align 8
@@ -1580,7 +1580,7 @@ for.body58.i:                                     ; preds = %land.rhs.lr.ph.i, %
 
 for.end61.i:                                      ; preds = %for.body58.i, %land.rhs.lr.ph.i, %if.end53.i
   %47 = load ptr, ptr %9, align 8
-  call fastcc void @set_common_push_options(ptr noundef %transport, ptr noundef %47, i32 noundef %flags)
+  call fastcc void @set_common_push_options(ptr noundef readonly %transport, ptr noundef %47, i32 noundef %flags)
   %48 = load i64, ptr %buf.i, align 8
   %tobool.not.i.i67.i = icmp eq i64 %48, 0
   br i1 %tobool.not.i.i67.i, label %if.then.i78.i, label %strbuf_avail.exit.i68.i
@@ -1675,13 +1675,13 @@ if.then.i:                                        ; preds = %if.then17
 
 if.end.i:                                         ; preds = %if.then17
   %64 = load ptr, ptr %61, align 8
-  tail call fastcc void @set_common_push_options(ptr noundef nonnull %transport, ptr noundef %64, i32 noundef %flags)
+  tail call fastcc void @set_common_push_options(ptr noundef nonnull readonly %transport, ptr noundef %64, i32 noundef %flags)
   %and.i22 = and i32 %flags, 2
   %tobool2.not.i = icmp eq i32 %and.i22, 0
   br i1 %tobool2.not.i, label %if.end9.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %call4.i = tail call i32 @set_helper_option(ptr noundef nonnull %transport, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.7)
+  %call4.i = tail call i32 @set_helper_option(ptr noundef nonnull readonly %transport, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.7)
   %cmp.not.i = icmp eq i32 %call4.i, 0
   br i1 %cmp.not.i, label %if.end9.i, label %if.then5.i
 
@@ -1701,7 +1701,7 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %if.th
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %_.exit.i, %if.then3.i, %if.end.i
-  %call10.i = tail call fastcc ptr @get_helper(ptr noundef nonnull %transport)
+  %call10.i = tail call fastcc ptr @get_helper(ptr noundef nonnull readonly %transport)
   %in.i = getelementptr inbounds i8, ptr %call10.i, i64 80
   %67 = load i32, ptr %in.i, align 8
   %.b.i.i24 = load i1, ptr @debug, align 4
@@ -1745,7 +1745,7 @@ if.then18.i:                                      ; preds = %land.lhs.true.i
   %call19.i = call ptr @strbuf_detach(ptr noundef nonnull %buf.i18, ptr noundef null) #18
   %call20.i = call ptr @string_list_append_nodup(ptr noundef nonnull %revlist_args.i, ptr noundef %call19.i) #18
   %old_oid.i = getelementptr inbounds i8, ptr %ref.040.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %old_oid.i, ptr noundef nonnull align 4 dereferenceable(32) %oid.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %old_oid.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i, i64 32, i1 false)
   %70 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %ref.040.i, i64 40
   store i32 %70, ptr %algo3.i.i, align 4
@@ -1823,7 +1823,7 @@ for.inc.i33:                                      ; preds = %if.then62.i, %if.en
 
 for.end.i34:                                      ; preds = %for.inc.i33
   %79 = load ptr, ptr %data1, align 8
-  %call.i34.i = call fastcc ptr @get_helper(ptr noundef %transport)
+  %call.i34.i = call fastcc ptr @get_helper(ptr noundef readonly %transport)
   call void @child_process_init(ptr noundef nonnull %exporter.i) #18
   %in.i.i35 = getelementptr inbounds i8, ptr %call.i34.i, i64 80
   %80 = load i32, ptr %in.i.i35, align 8
@@ -2076,7 +2076,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %remove_ext_force.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 58) #20
+  %call.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %5, i32 noundef 58) #20
   %tobool1.not.i = icmp eq ptr %call.i, null
   br i1 %tobool1.not.i, label %remove_ext_force.exit, label %land.lhs.true.i
 
@@ -3674,7 +3674,7 @@ land.lhs.true52.if.else59_crit_edge.i:            ; preds = %land.lhs.true52.i
 
 if.then55.i:                                      ; preds = %land.lhs.true52.i
   %call.i83.i = call ptr @xmalloc(i64 noundef 36) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call.i83.i, ptr noundef nonnull align 4 dereferenceable(32) %old_oid.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %call.i83.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %old_oid.i, i64 32, i1 false)
   %14 = load i32, ptr %algo.i.i.i, align 4
   %algo3.i.i.i = getelementptr inbounds i8, ptr %call.i83.i, i64 32
   store i32 %14, ptr %algo3.i.i.i, align 4
@@ -3697,7 +3697,7 @@ land.lhs.true64.i:                                ; preds = %if.else59.i
 
 if.then67.i:                                      ; preds = %land.lhs.true64.i
   %call.i84.i = call ptr @xmalloc(i64 noundef 36) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call.i84.i, ptr noundef nonnull align 4 dereferenceable(32) %new_oid.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %call.i84.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %new_oid.i, i64 32, i1 false)
   %16 = load i32, ptr %algo.i.i85.i, align 4
   %algo3.i.i86.i = getelementptr inbounds i8, ptr %call.i84.i, i64 32
   store i32 %16, ptr %algo3.i.i86.i, align 4

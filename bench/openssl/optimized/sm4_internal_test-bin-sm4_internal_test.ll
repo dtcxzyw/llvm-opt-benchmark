@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [6 x i8] c"input\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_sm4_ecb) #3
   ret i32 1
@@ -26,7 +26,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sm4_ecb() #0 {
+define internal range(i32 0, 2) i32 @test_sm4_ecb() #0 {
 entry:
   %key = alloca %struct.SM4_KEY_st, align 4
   %block = alloca [16 x i8], align 16

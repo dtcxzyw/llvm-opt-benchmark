@@ -80,7 +80,7 @@ if.end4:                                          ; preds = %if.then, %if.then3,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @def_init_default(ptr noundef writeonly %conf) #2 {
+define internal range(i32 0, 2) i32 @def_init_default(ptr noundef writeonly %conf) #2 {
 entry:
   %cmp = icmp eq ptr %conf, null
   br i1 %cmp, label %return, label %if.end
@@ -99,7 +99,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @def_destroy(ptr noundef %conf) #1 {
+define internal range(i32 0, 2) i32 @def_destroy(ptr noundef %conf) #1 {
 entry:
   %cmp.i = icmp eq ptr %conf, null
   br i1 %cmp.i, label %return, label %if.then
@@ -115,7 +115,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @def_destroy_data(ptr noundef %conf) #1 {
+define internal range(i32 0, 2) i32 @def_destroy_data(ptr noundef %conf) #1 {
 entry:
   %cmp = icmp eq ptr %conf, null
   br i1 %cmp, label %return, label %if.end
@@ -130,7 +130,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @def_load_bio(ptr noundef %conf, ptr noundef %in, ptr noundef writeonly %line) #1 {
+define internal range(i32 0, 2) i32 @def_load_bio(ptr noundef %conf, ptr noundef %in, ptr noundef writeonly %line) #1 {
 entry:
   %btmp = alloca [24 x i8], align 16
   %section = alloca ptr, align 8
@@ -771,7 +771,7 @@ if.end141:                                        ; preds = %eat_ws.exit251, %la
 
 if.end142:                                        ; preds = %eat_ws.exit251
   store i8 0, ptr %p.addr.0.lcssa.i236342, align 1
-  %call143 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef null, ptr noundef nonnull %section, ptr noundef nonnull %p.addr.0.lcssa.i221), !range !9
+  %call143 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef null, ptr noundef nonnull %section, ptr noundef nonnull %p.addr.0.lcssa.i221)
   %tobool144.not = icmp eq i32 %call143, 0
   br i1 %tobool144.not, label %err, label %if.end146
 
@@ -958,7 +958,7 @@ eat_ws.exit290:                                   ; preds = %is_keytype.exit.i28
   br i1 %cmp209, label %if.then211, label %if.else216
 
 if.then211:                                       ; preds = %eat_ws.exit290
-  %call212 = call fastcc i32 @parsebool(ptr noundef nonnull %p.addr.0.lcssa.i286, ptr noundef nonnull %flag_dollarid), !range !9
+  %call212 = call fastcc i32 @parsebool(ptr noundef nonnull %p.addr.0.lcssa.i286, ptr noundef nonnull %flag_dollarid)
   %tobool213.not = icmp eq i32 %call212, 0
   br i1 %tobool213.not, label %err, label %for.cond.backedge
 
@@ -968,7 +968,7 @@ if.else216:                                       ; preds = %eat_ws.exit290
   br i1 %cmp218, label %if.then220, label %if.else225
 
 if.then220:                                       ; preds = %if.else216
-  %call221 = call fastcc i32 @parsebool(ptr noundef nonnull %p.addr.0.lcssa.i286, ptr noundef nonnull %flag_abspath), !range !9
+  %call221 = call fastcc i32 @parsebool(ptr noundef nonnull %p.addr.0.lcssa.i286, ptr noundef nonnull %flag_abspath)
   %tobool222.not = icmp eq i32 %call221, 0
   br i1 %tobool222.not, label %err, label %for.cond.backedge
 
@@ -1052,7 +1052,7 @@ while.body.i300:                                  ; preds = %is_keytype.exit.i29
 if.end267:                                        ; preds = %while.body.i300, %is_keytype.exit.i294, %if.then264, %if.end260
   %p.1 = phi ptr [ %p.addr.0.lcssa.i260, %if.end260 ], [ %incdec.ptr265, %if.then264 ], [ %p.addr.018.i295, %is_keytype.exit.i294 ], [ %incdec.ptr.i301, %while.body.i300 ]
   call fastcc void @trim_ws(ptr noundef %conf, ptr noundef nonnull %p.1)
-  %call268 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef %psection.0, ptr noundef nonnull %include, ptr noundef nonnull %p.1), !range !9
+  %call268 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef %psection.0, ptr noundef nonnull %include, ptr noundef nonnull %p.1)
   %tobool269.not = icmp eq i32 %call268, 0
   br i1 %tobool269.not, label %err, label %if.end271
 
@@ -1086,7 +1086,7 @@ if.end286:                                        ; preds = %if.then277
   br i1 %cmp.not.i, label %if.then290, label %ossl_ends_with_dirsep.exit
 
 ossl_ends_with_dirsep.exit:                       ; preds = %if.end286
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call282) #14
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call282) #14
   %105 = getelementptr i8, ptr %call282, i64 %call.i
   %add.ptr.i = getelementptr i8, ptr %105, i64 -1
   %.pre.i306 = load i8, ptr %add.ptr.i, align 1
@@ -1231,7 +1231,7 @@ if.end343:                                        ; preds = %eat_ws.exit322
   br i1 %cmp346, label %err, label %if.end349
 
 if.end349:                                        ; preds = %if.end343
-  %call351 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef %psection.0, ptr noundef nonnull %value, ptr noundef nonnull %p.addr.0.lcssa.i318), !range !9
+  %call351 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef %psection.0, ptr noundef nonnull %value, ptr noundef nonnull %p.addr.0.lcssa.i318)
   %tobool352.not = icmp eq i32 %call351, 0
   br i1 %tobool352.not, label %err, label %if.end354
 
@@ -1294,7 +1294,7 @@ while.body383:                                    ; preds = %err, %while.body383
   call void @BIO_vfree(ptr noundef %in.addr.4523) #13
   %call380 = call i32 @OPENSSL_sk_num(ptr noundef %biosk.3) #13
   %cmp381 = icmp sgt i32 %call380, 0
-  br i1 %cmp381, label %while.body383, label %while.end386, !llvm.loop !10
+  br i1 %cmp381, label %while.body383, label %while.end386, !llvm.loop !9
 
 while.end386:                                     ; preds = %while.body383, %err
   call void @OPENSSL_sk_free(ptr noundef %biosk.3) #13
@@ -1357,7 +1357,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @def_is_number(ptr nocapture noundef readonly %conf, i8 noundef signext %c) #3 {
+define internal range(i32 0, 2) i32 @def_is_number(ptr nocapture noundef readonly %conf, i8 noundef signext %c) #3 {
 entry:
   %cmp.i = icmp slt i8 %c, 0
   br i1 %cmp.i, label %is_keytype.exit, label %if.end.i
@@ -1378,7 +1378,7 @@ is_keytype.exit:                                  ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @def_to_int(ptr nocapture readnone %conf, i8 noundef signext %c) #0 {
+define internal range(i32 -176, 80) i32 @def_to_int(ptr nocapture readnone %conf, i8 noundef signext %c) #0 {
 entry:
   %conv = sext i8 %c to i32
   %sub = add nsw i32 %conv, -48
@@ -1386,7 +1386,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @def_load(ptr noundef %conf, ptr noundef %name, ptr noundef %line) #1 {
+define internal range(i32 0, 2) i32 @def_load(ptr noundef %conf, ptr noundef %name, ptr noundef %line) #1 {
 entry:
   %call = tail call ptr @BIO_new_file(ptr noundef %name, ptr noundef nonnull @.str.24) #13
   %cmp = icmp eq ptr %call, null
@@ -1414,7 +1414,7 @@ if.else:                                          ; preds = %if.then
   br label %return
 
 if.end5:                                          ; preds = %entry
-  %call6 = tail call i32 @def_load_bio(ptr noundef %conf, ptr noundef nonnull %call, ptr noundef %line), !range !9
+  %call6 = tail call i32 @def_load_bio(ptr noundef %conf, ptr noundef nonnull %call, ptr noundef %line)
   %call7 = tail call i32 @BIO_free(ptr noundef nonnull %call) #13
   br label %return
 
@@ -1518,7 +1518,7 @@ if.end22:                                         ; preds = %if.then19, %if.end
 if.end29:                                         ; preds = %if.end22, %land.lhs.true8, %lor.lhs.false
   %call1 = tail call ptr @OPENSSL_DIR_read(ptr noundef %dirctx, ptr noundef %path) #13
   %cmp.not = icmp eq ptr %call1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !11
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end29, %if.then, %entry
   %call30 = tail call i32 @OPENSSL_DIR_end(ptr noundef %dirctx) #13
@@ -1609,7 +1609,7 @@ if.end10:                                         ; preds = %lor.lhs.false.threa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @str_copy(ptr noundef %conf, ptr noundef %section, ptr nocapture noundef %pto, ptr noundef %from) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @str_copy(ptr noundef %conf, ptr noundef %section, ptr nocapture noundef %pto, ptr noundef %from) unnamed_addr #1 {
 entry:
   %call = tail call ptr @BUF_MEM_new() #13
   %cmp = icmp eq ptr %call, null
@@ -1705,7 +1705,7 @@ if.end23:                                         ; preds = %if.then17, %land.rh
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds i8, ptr %14, i64 %indvars.iv
   store i8 %13, ptr %arrayidx, align 1
-  br label %while.cond, !llvm.loop !12
+  br label %while.cond, !llvm.loop !11
 
 while.end:                                        ; preds = %is_keytype.exit122, %is_keytype.exit142, %land.rhs
   %15 = phi i8 [ %5, %is_keytype.exit122 ], [ %10, %is_keytype.exit142 ], [ %0, %land.rhs ]
@@ -1760,7 +1760,7 @@ if.end51:                                         ; preds = %if.then43, %while.b
   %indvars.iv.next308 = add nsw i64 %indvars.iv307, 1
   %arrayidx56 = getelementptr inbounds i8, ptr %27, i64 %indvars.iv307
   store i8 %26, ptr %arrayidx56, align 1
-  br label %while.cond36, !llvm.loop !13
+  br label %while.cond36, !llvm.loop !12
 
 while.end57:                                      ; preds = %if.then43, %is_keytype.exit162
   %.lcssa = phi i8 [ %0, %if.then43 ], [ %21, %is_keytype.exit162 ]
@@ -1885,7 +1885,7 @@ while.body147.us:                                 ; preds = %is_keytype.exit202.
   %incdec.ptr148.us = getelementptr inbounds i8, ptr %e.0278.us, i64 1
   %41 = load i8, ptr %incdec.ptr148.us, align 1
   %cmp.i193.us = icmp slt i8 %41, 0
-  br i1 %cmp.i193.us, label %if.end176, label %is_keytype.exit202.us, !llvm.loop !14
+  br i1 %cmp.i193.us, label %if.end176, label %is_keytype.exit202.us, !llvm.loop !13
 
 is_keytype.exit202:                               ; preds = %is_keytype.exit202.lr.ph, %while.body147
   %42 = phi i8 [ %45, %while.body147 ], [ %37, %is_keytype.exit202.lr.ph ]
@@ -1901,7 +1901,7 @@ while.body147:                                    ; preds = %is_keytype.exit202
   %incdec.ptr148 = getelementptr inbounds i8, ptr %e.0278, i64 1
   %45 = load i8, ptr %incdec.ptr148, align 1
   %cmp.i193 = icmp slt i8 %45, 0
-  br i1 %cmp.i193, label %if.end176, label %is_keytype.exit202, !llvm.loop !14
+  br i1 %cmp.i193, label %if.end176, label %is_keytype.exit202, !llvm.loop !13
 
 while.end149:                                     ; preds = %is_keytype.exit202, %is_keytype.exit202.us
   %.us-phi = phi ptr [ %e.0278.us, %is_keytype.exit202.us ], [ %e.0278, %is_keytype.exit202 ]
@@ -1948,7 +1948,7 @@ while.body173:                                    ; preds = %lor.rhs165.thread, 
   %incdec.ptr174 = getelementptr inbounds i8, ptr %e.1285, i64 1
   %53 = load i8, ptr %incdec.ptr174, align 1
   %cmp.i213 = icmp slt i8 %53, 0
-  br i1 %cmp.i213, label %if.end176, label %is_keytype.exit222, !llvm.loop !15
+  br i1 %cmp.i213, label %if.end176, label %is_keytype.exit222, !llvm.loop !14
 
 if.end176:                                        ; preds = %while.body147, %while.body147.us, %lor.rhs165.thread, %while.body173, %36, %if.then159, %land.lhs.true154, %while.end149
   %54 = phi i8 [ 58, %land.lhs.true154 ], [ %.us-phi279, %while.end149 ], [ %47, %if.then159 ], [ %37, %36 ], [ %53, %while.body173 ], [ %49, %lor.rhs165.thread ], [ %41, %while.body147.us ], [ %45, %while.body147 ]
@@ -2020,7 +2020,7 @@ while.body209:                                    ; preds = %while.body209.prehe
   store i8 %58, ptr %arrayidx214, align 1
   %60 = load i8, ptr %incdec.ptr210, align 1
   %tobool208.not = icmp eq i8 %60, 0
-  br i1 %tobool208.not, label %while.end215.loopexit, label %while.body209, !llvm.loop !16
+  br i1 %tobool208.not, label %while.end215.loopexit, label %while.body209, !llvm.loop !15
 
 while.end215.loopexit:                            ; preds = %while.body209
   %61 = trunc nsw i64 %indvars.iv.next311 to i32
@@ -2097,7 +2097,7 @@ is_keytype.exit:                                  ; preds = %while.cond
 
 while.body:                                       ; preds = %while.cond, %is_keytype.exit
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
-  br label %while.cond, !llvm.loop !17
+  br label %while.cond, !llvm.loop !16
 
 while.cond2:                                      ; preds = %is_keytype.exit, %is_keytype.exit19
   %p.0.pn = phi ptr [ %p.1, %is_keytype.exit19 ], [ %p.0, %is_keytype.exit ]
@@ -2116,7 +2116,7 @@ is_keytype.exit19:                                ; preds = %land.rhs
   %5 = load i16, ptr %arrayidx.i14, align 2
   %6 = and i16 %5, 16
   %tobool4.not = icmp eq i16 %6, 0
-  br i1 %tobool4.not, label %while.end7, label %while.cond2, !llvm.loop !18
+  br i1 %tobool4.not, label %while.end7, label %while.cond2, !llvm.loop !17
 
 while.end7:                                       ; preds = %land.rhs, %while.cond2, %is_keytype.exit19
   store i8 0, ptr %p.0.pn, align 1
@@ -2130,7 +2130,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parsebool(ptr noundef %pval, ptr nocapture noundef writeonly %flag) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @parsebool(ptr noundef %pval, ptr nocapture noundef writeonly %flag) unnamed_addr #1 {
 entry:
   %call = tail call i32 @OPENSSL_strcasecmp(ptr noundef %pval, ptr noundef nonnull @.str.16) #13
   %cmp = icmp eq i32 %call, 0
@@ -2295,7 +2295,7 @@ declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 declare i64 @ERR_peek_last_error() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @def_init_WIN32(ptr noundef writeonly %conf) #2 {
+define internal range(i32 0, 2) i32 @def_init_WIN32(ptr noundef writeonly %conf) #2 {
 entry:
   %cmp = icmp eq ptr %conf, null
   br i1 %cmp, label %return, label %if.end
@@ -2344,7 +2344,7 @@ attributes #15 = { nounwind willreturn memory(none) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
@@ -2353,4 +2353,3 @@ attributes #15 = { nounwind willreturn memory(none) }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}

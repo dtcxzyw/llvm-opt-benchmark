@@ -49,7 +49,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @msblob2key_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @msblob2key_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp = icmp eq i32 %selection, 0
   %and = and i32 %selection, 3

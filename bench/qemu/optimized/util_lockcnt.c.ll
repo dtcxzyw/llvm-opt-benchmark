@@ -712,7 +712,7 @@ if.end:                                           ; preds = %if.then, %trace_loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @qemu_lockcnt_count(ptr nocapture noundef readonly %lockcnt) local_unnamed_addr #3 {
+define dso_local range(i32 0, 1073741824) i32 @qemu_lockcnt_count(ptr nocapture noundef readonly %lockcnt) local_unnamed_addr #3 {
 entry:
   %0 = load atomic i32, ptr %lockcnt monotonic, align 4
   %shr = lshr i32 %0, 2

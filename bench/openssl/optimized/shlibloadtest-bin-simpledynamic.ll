@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sd_load(ptr noundef %filename, ptr nocapture noundef writeonly %lib, i32 noundef %type) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @sd_load(ptr noundef %filename, ptr nocapture noundef writeonly %lib, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dlopen(ptr noundef %filename, i32 noundef %type) #2
   store ptr %call, ptr %lib, align 8
@@ -17,7 +17,7 @@ entry:
 declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sd_sym(ptr noundef %lib, ptr noundef %symname, ptr nocapture noundef writeonly %sym) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @sd_sym(ptr noundef %lib, ptr noundef %symname, ptr nocapture noundef writeonly %sym) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dlsym(ptr noundef %lib, ptr noundef %symname) #2
   store ptr %call, ptr %sym, align 8
@@ -30,7 +30,7 @@ entry:
 declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sd_close(ptr noundef %lib) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @sd_close(ptr noundef %lib) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @dlclose(ptr noundef %lib) #2
   %cmp.not = icmp eq i32 %call, 0

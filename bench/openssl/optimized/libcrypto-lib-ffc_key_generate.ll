@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_generate_private_key(ptr noundef %ctx, ptr nocapture noundef readonly %params, i32 noundef %N, i32 noundef %s, ptr noundef %priv) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ffc_generate_private_key(ptr noundef %ctx, ptr nocapture noundef readonly %params, i32 noundef %N, i32 noundef %s, ptr noundef %priv) local_unnamed_addr #0 {
 entry:
   %q = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load ptr, ptr %q, align 8

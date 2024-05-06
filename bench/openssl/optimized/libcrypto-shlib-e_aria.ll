@@ -201,7 +201,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aria_init_key(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 noundef %enc) #1 {
+define internal range(i32 0, 2) i32 @aria_init_key(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 noundef %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %ctx) #6
   %call1 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %call) #6
@@ -1024,7 +1024,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aria_ctr_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
+define internal range(i32 0, 2) i32 @aria_ctr_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %num = alloca i32, align 4
   %call = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #6
@@ -1051,7 +1051,7 @@ declare void @CRYPTO_ctr128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr n
 declare ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aria_gcm_init_key(ptr noundef %ctx, ptr noundef %key, ptr noundef %iv, i32 %enc) #1 {
+define internal range(i32 0, 2) i32 @aria_gcm_init_key(ptr noundef %ctx, ptr noundef %key, ptr noundef %iv, i32 %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %tobool = icmp ne ptr %iv, null
@@ -1329,7 +1329,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aria_gcm_ctrl(ptr noundef %c, i32 noundef %type, i32 noundef %arg, ptr noundef %ptr) #1 {
+define internal range(i32 -1, 17) i32 @aria_gcm_ctrl(ptr noundef %c, i32 noundef %type, i32 noundef %arg, ptr noundef %ptr) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %c) #6
   switch i32 %type, label %return [
@@ -1721,7 +1721,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @RAND_bytes(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aria_ccm_init_key(ptr noundef %ctx, ptr noundef %key, ptr noundef readonly %iv, i32 %enc) #1 {
+define internal range(i32 0, 2) i32 @aria_ccm_init_key(ptr noundef %ctx, ptr noundef %key, ptr noundef readonly %iv, i32 %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %tobool = icmp ne ptr %iv, null

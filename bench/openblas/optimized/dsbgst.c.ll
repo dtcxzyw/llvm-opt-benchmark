@@ -300,7 +300,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   br i1 %191, label %.loopexit305, label %192
 
 192:                                              ; preds = %188
-  %193 = trunc i64 %189 to i32
+  %193 = trunc nsw i64 %189 to i32
   %194 = mul i32 %100, %193
   %195 = sub i32 %193, %111
   %196 = add i32 %195, %173
@@ -347,7 +347,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   br i1 %178, label %.loopexit304, label %231
 
 231:                                              ; preds = %.loopexit305
-  %232 = trunc i64 %189 to i32
+  %232 = trunc nsw i64 %189 to i32
   %233 = add i32 %180, %232
   %234 = sext i32 %233 to i64
   %235 = getelementptr inbounds double, ptr %34, i64 %234
@@ -1535,7 +1535,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 
 1069:                                             ; preds = %.loopexit302
   %1070 = mul nsw i64 %1026, %99
-  %1071 = trunc i64 %1026 to i32
+  %1071 = trunc nsw i64 %1026 to i32
   %1072 = sub i32 %104, %1071
   %1073 = sext i32 %1072 to i64
   %1074 = getelementptr double, ptr %34, i64 %1070
@@ -2953,7 +2953,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 
 2056:                                             ; preds = %2050
   %2057 = add i32 %.pre375, %2048
-  %2058 = trunc i64 %2051 to i32
+  %2058 = trunc nsw i64 %2051 to i32
   %2059 = sub nsw i32 %2058, %.pre378
   %2060 = mul nsw i32 %2059, %27
   %2061 = add nsw i32 %2057, %2060

@@ -78,10 +78,10 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z24fast_rv32i_vfslide1up_vfP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z24fast_rv32i_vfslide1up_vfP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 20
   %5 = and i64 %4, 31
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 659640
   %8 = getelementptr inbounds i8, ptr %0, i64 659816
   %9 = load float, ptr %8, align 8
@@ -108,7 +108,7 @@ define noundef i64 @_Z24fast_rv32i_vfslide1up_vfP11processor_t6insn_tm(ptr nound
 20:                                               ; preds = %3
   %21 = lshr i64 %1, 7
   %22 = and i64 %21, 31
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = and i32 %11, %23
   %25 = icmp eq i32 %24, 0
   %26 = or i1 %.not.i, %25
@@ -620,7 +620,7 @@ declare void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37),
 define noundef i64 @_Z24fast_rv64i_vfslide1up_vfP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 20
   %5 = and i64 %4, 31
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 659640
   %8 = getelementptr inbounds i8, ptr %0, i64 659816
   %9 = load float, ptr %8, align 8
@@ -647,7 +647,7 @@ define noundef i64 @_Z24fast_rv64i_vfslide1up_vfP11processor_t6insn_tm(ptr nound
 20:                                               ; preds = %3
   %21 = lshr i64 %1, 7
   %22 = and i64 %21, 31
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = and i32 %11, %23
   %25 = icmp eq i32 %24, 0
   %26 = or i1 %.not.i, %25
@@ -1090,10 +1090,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z26logged_rv32i_vfslide1up_vfP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z26logged_rv32i_vfslide1up_vfP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 20
   %5 = and i64 %4, 31
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 659640
   %8 = getelementptr inbounds i8, ptr %0, i64 659816
   %9 = load float, ptr %8, align 8
@@ -1120,7 +1120,7 @@ define noundef i64 @_Z26logged_rv32i_vfslide1up_vfP11processor_t6insn_tm(ptr nou
 20:                                               ; preds = %3
   %21 = lshr i64 %1, 7
   %22 = and i64 %21, 31
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = and i32 %11, %23
   %25 = icmp eq i32 %24, 0
   %26 = or i1 %.not.i, %25
@@ -1595,7 +1595,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 define noundef i64 @_Z26logged_rv64i_vfslide1up_vfP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 20
   %5 = and i64 %4, 31
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 659640
   %8 = getelementptr inbounds i8, ptr %0, i64 659816
   %9 = load float, ptr %8, align 8
@@ -1622,7 +1622,7 @@ define noundef i64 @_Z26logged_rv64i_vfslide1up_vfP11processor_t6insn_tm(ptr nou
 20:                                               ; preds = %3
   %21 = lshr i64 %1, 7
   %22 = and i64 %21, 31
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = and i32 %11, %23
   %25 = icmp eq i32 %24, 0
   %26 = or i1 %.not.i, %25
@@ -2065,10 +2065,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z24fast_rv32e_vfslide1up_vfP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z24fast_rv32e_vfslide1up_vfP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 20
   %5 = and i64 %4, 31
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 659640
   %8 = getelementptr inbounds i8, ptr %0, i64 659816
   %9 = load float, ptr %8, align 8
@@ -2095,7 +2095,7 @@ define noundef i64 @_Z24fast_rv32e_vfslide1up_vfP11processor_t6insn_tm(ptr nound
 20:                                               ; preds = %3
   %21 = lshr i64 %1, 7
   %22 = and i64 %21, 31
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = and i32 %11, %23
   %25 = icmp eq i32 %24, 0
   %26 = or i1 %.not.i, %25
@@ -2587,7 +2587,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 define noundef i64 @_Z24fast_rv64e_vfslide1up_vfP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 20
   %5 = and i64 %4, 31
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 659640
   %8 = getelementptr inbounds i8, ptr %0, i64 659816
   %9 = load float, ptr %8, align 8
@@ -2614,7 +2614,7 @@ define noundef i64 @_Z24fast_rv64e_vfslide1up_vfP11processor_t6insn_tm(ptr nound
 20:                                               ; preds = %3
   %21 = lshr i64 %1, 7
   %22 = and i64 %21, 31
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = and i32 %11, %23
   %25 = icmp eq i32 %24, 0
   %26 = or i1 %.not.i, %25
@@ -3057,10 +3057,10 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z26logged_rv32e_vfslide1up_vfP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z26logged_rv32e_vfslide1up_vfP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 20
   %5 = and i64 %4, 31
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 659640
   %8 = getelementptr inbounds i8, ptr %0, i64 659816
   %9 = load float, ptr %8, align 8
@@ -3087,7 +3087,7 @@ define noundef i64 @_Z26logged_rv32e_vfslide1up_vfP11processor_t6insn_tm(ptr nou
 20:                                               ; preds = %3
   %21 = lshr i64 %1, 7
   %22 = and i64 %21, 31
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = and i32 %11, %23
   %25 = icmp eq i32 %24, 0
   %26 = or i1 %.not.i, %25
@@ -3579,7 +3579,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 define noundef i64 @_Z26logged_rv64e_vfslide1up_vfP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %1, 20
   %5 = and i64 %4, 31
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 659640
   %8 = getelementptr inbounds i8, ptr %0, i64 659816
   %9 = load float, ptr %8, align 8
@@ -3606,7 +3606,7 @@ define noundef i64 @_Z26logged_rv64e_vfslide1up_vfP11processor_t6insn_tm(ptr nou
 20:                                               ; preds = %3
   %21 = lshr i64 %1, 7
   %22 = and i64 %21, 31
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = and i32 %11, %23
   %25 = icmp eq i32 %24, 0
   %26 = or i1 %.not.i, %25

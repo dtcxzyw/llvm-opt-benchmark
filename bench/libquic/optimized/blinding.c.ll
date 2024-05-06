@@ -76,7 +76,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BN_BLINDING_convert(ptr noundef %n, ptr nocapture noundef %b, ptr noundef %e, ptr noundef %mont, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_BLINDING_convert(ptr noundef %n, ptr nocapture noundef %b, ptr noundef %e, ptr noundef %mont, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %mont_N_consttime.i.i = alloca %struct.bignum_st, align 8
   %no_inverse.i.i = alloca i32, align 4

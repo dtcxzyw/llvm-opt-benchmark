@@ -89,7 +89,7 @@ declare dso_local i32 @single_release(ptr noundef, ptr noundef) #2
 declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @guc_info_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @guc_info_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = alloca %struct.drm_printer, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -173,7 +173,7 @@ define internal i32 @guc_registered_contexts_open(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @guc_registered_contexts_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @guc_registered_contexts_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = alloca %struct.drm_printer, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -283,7 +283,7 @@ declare dso_local i32 @simple_attr_release(ptr noundef, ptr noundef) #2
 declare dso_local i32 @simple_attr_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @guc_sched_disable_delay_ms_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 align 16 {
+define internal noundef range(i32 -19, 1) i32 @guc_sched_disable_delay_ms_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 4
@@ -308,7 +308,7 @@ define internal noundef i32 @guc_sched_disable_delay_ms_get(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @guc_sched_disable_delay_ms_set(ptr nocapture noundef %0, i64 noundef %1) #4 align 16 {
+define internal noundef range(i32 -19, 1) i32 @guc_sched_disable_delay_ms_set(ptr nocapture noundef %0, i64 noundef %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 4
@@ -322,7 +322,7 @@ define internal noundef i32 @guc_sched_disable_delay_ms_set(ptr nocapture nounde
 
 10:                                               ; preds = %6
   %11 = tail call i64 @llvm.umin.i64(i64 %1, i64 60000)
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %13 = getelementptr inbounds i8, ptr %0, i64 1252
   store i32 %12, ptr %13, align 4
   br label %14
@@ -339,7 +339,7 @@ define internal i32 @guc_sched_disable_gucid_threshold_fops_open(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @guc_sched_disable_gucid_threshold_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 align 16 {
+define internal noundef range(i32 -19, 1) i32 @guc_sched_disable_gucid_threshold_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 4
@@ -364,7 +364,7 @@ define internal noundef i32 @guc_sched_disable_gucid_threshold_get(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @guc_sched_disable_gucid_threshold_set(ptr noundef %0, i64 noundef %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @guc_sched_disable_gucid_threshold_set(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 4

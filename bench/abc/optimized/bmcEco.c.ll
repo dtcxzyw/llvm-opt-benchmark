@@ -53,10 +53,10 @@ define ptr @Bmc_EcoMiter(ptr nocapture noundef readonly %0, ptr nocapture nounde
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %24
 
 24:                                               ; preds = %3
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #13
+  %25 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %23) #13
   %26 = add i64 %25, 1
   %27 = tail call noalias ptr @malloc(i64 noundef %26) #14
-  %28 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %23) #12
+  %28 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %23) #12
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %3, %24
@@ -87,7 +87,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %24
   %39 = getelementptr inbounds i32, ptr %.val195.val, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
-  %42 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %22), !range !4
+  %42 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %22)
   %43 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val194, i64 %41, i32 1
   store i32 %42, ptr %43, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -96,10 +96,10 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %24
   %.val = load i32, ptr %45, align 4
   %46 = sext i32 %.val to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph, label %.critedge, !llvm.loop !5
+  br i1 %47, label %.lr.ph, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %.lr.ph, %37, %Abc_UtilStrsav.exit
-  %48 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %22), !range !4
+  %48 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %22)
   %49 = load i32, ptr %20, align 8
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %.lr.ph217, label %.critedge2
@@ -149,7 +149,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %24
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next257, %78
-  br i1 %79, label %.lr.ph217, label %.critedge2, !llvm.loop !7
+  br i1 %79, label %.lr.ph217, label %.critedge2, !llvm.loop !6
 
 .critedge2:                                       ; preds = %.lr.ph217, %76, %.critedge
   %80 = getelementptr inbounds i8, ptr %0, i64 72
@@ -190,7 +190,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %24
   %.val161 = load i32, ptr %102, align 4
   %103 = sext i32 %.val161 to i64
   %104 = icmp slt i64 %indvars.iv.next260, %103
-  br i1 %104, label %.lr.ph221, label %.critedge4, !llvm.loop !8
+  br i1 %104, label %.lr.ph221, label %.critedge4, !llvm.loop !7
 
 .critedge4:                                       ; preds = %.lr.ph221, %85, %.critedge2
   %.val193 = load ptr, ptr %9, align 8
@@ -233,7 +233,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %24
   %.val162 = load i32, ptr %124, align 4
   %125 = sext i32 %.val162 to i64
   %126 = icmp slt i64 %indvars.iv.next263, %125
-  br i1 %126, label %.lr.ph225, label %.critedge6, !llvm.loop !9
+  br i1 %126, label %.lr.ph225, label %.critedge6, !llvm.loop !8
 
 .critedge6:                                       ; preds = %.lr.ph225, %111, %.critedge4
   %127 = getelementptr inbounds i8, ptr %1, i64 24
@@ -292,7 +292,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %24
   %157 = load i32, ptr %127, align 8
   %158 = sext i32 %157 to i64
   %159 = icmp slt i64 %indvars.iv.next266, %158
-  br i1 %159, label %.lr.ph228, label %.critedge8, !llvm.loop !10
+  br i1 %159, label %.lr.ph228, label %.critedge8, !llvm.loop !9
 
 .critedge8:                                       ; preds = %.lr.ph228, %156, %.critedge6
   %160 = load ptr, ptr %5, align 8
@@ -332,7 +332,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %24
   %.val163 = load i32, ptr %181, align 4
   %182 = sext i32 %.val163 to i64
   %183 = icmp slt i64 %indvars.iv.next269, %182
-  br i1 %183, label %.lr.ph232, label %.critedge10, !llvm.loop !11
+  br i1 %183, label %.lr.ph232, label %.critedge10, !llvm.loop !10
 
 .critedge10:                                      ; preds = %.lr.ph232, %164, %.critedge8
   %184 = load ptr, ptr %80, align 8
@@ -373,7 +373,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %24
   %.val164 = load i32, ptr %203, align 4
   %204 = sext i32 %.val164 to i64
   %205 = icmp slt i64 %indvars.iv.next272, %204
-  br i1 %205, label %.lr.ph236, label %.critedge12, !llvm.loop !12
+  br i1 %205, label %.lr.ph236, label %.critedge12, !llvm.loop !11
 
 .critedge12:                                      ; preds = %.lr.ph236, %188, %.critedge10
   %206 = load i32, ptr %127, align 8
@@ -435,7 +435,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %24
   %237 = load i32, ptr %127, align 8
   %238 = sext i32 %237 to i64
   %239 = icmp slt i64 %indvars.iv.next275, %238
-  br i1 %239, label %209, label %.critedge14, !llvm.loop !13
+  br i1 %239, label %209, label %.critedge14, !llvm.loop !12
 
 .critedge14:                                      ; preds = %209, %236, %.critedge12
   %240 = load ptr, ptr %5, align 8
@@ -475,7 +475,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %24
   %.val165 = load i32, ptr %261, align 4
   %262 = sext i32 %.val165 to i64
   %263 = icmp slt i64 %indvars.iv.next278, %262
-  br i1 %263, label %.lr.ph243, label %.critedge16, !llvm.loop !14
+  br i1 %263, label %.lr.ph243, label %.critedge16, !llvm.loop !13
 
 .critedge16:                                      ; preds = %.lr.ph243, %244, %.critedge14
   %264 = load ptr, ptr %80, align 8
@@ -517,7 +517,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %24
   %.val166 = load i32, ptr %284, align 4
   %285 = sext i32 %.val166 to i64
   %286 = icmp slt i64 %indvars.iv.next281, %285
-  br i1 %286, label %.lr.ph248, label %.critedge18, !llvm.loop !15
+  br i1 %286, label %.lr.ph248, label %.critedge18, !llvm.loop !14
 
 .critedge18:                                      ; preds = %.lr.ph248, %268, %.critedge16
   %.0.lcssa = phi i32 [ 0, %.critedge16 ], [ %282, %268 ], [ %.0247, %.lr.ph248 ]
@@ -549,7 +549,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %24
   %.val167 = load i32, ptr %287, align 4
   %297 = sext i32 %.val167 to i64
   %298 = icmp slt i64 %indvars.iv.next284, %297
-  br i1 %298, label %290, label %.critedge20, !llvm.loop !16
+  br i1 %298, label %290, label %.critedge20, !llvm.loop !15
 
 .critedge20:                                      ; preds = %290, %291, %.critedge18
   %299 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %22) #12
@@ -562,7 +562,7 @@ declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #1
 declare void @Gia_ManHashAlloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 2684354559
@@ -794,7 +794,7 @@ declare ptr @Gia_ManCleanup(ptr noundef) local_unnamed_addr #1
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Bmc_EcoSolve(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Bmc_EcoSolve(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i32], align 4
   %5 = getelementptr i8, ptr %2, i64 4
   %.val54 = load i32, ptr %5, align 4
@@ -954,7 +954,7 @@ Vec_IntPush.exit67:                               ; preds = %.Vec_IntGrow.exit10
   %.val53 = load i32, ptr %5, align 4
   %77 = sext i32 %.val53 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph, label %.critedge, !llvm.loop !17
+  br i1 %78, label %.lr.ph, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %Vec_IntPush.exit67, %Vec_IntPush.exit
   %.val57 = load ptr, ptr %14, align 8
@@ -1097,7 +1097,7 @@ Vec_IntPush.exit81:                               ; preds = %.Vec_IntGrow.exit10
 139:                                              ; preds = %135
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntFind.exit, label %135, !llvm.loop !18
+  br i1 %exitcond.not.i, label %Vec_IntFind.exit, label %135, !llvm.loop !17
 
 ._crit_edge.loopexit.split.loop.exit12.i:         ; preds = %135
   %140 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1114,7 +1114,7 @@ Vec_IntFind.exit:                                 ; preds = %139, %Vec_IntPush.e
 144:                                              ; preds = %.lr.ph89, %Vec_IntFind.exit
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph89, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph89, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %144, %Vec_IntPush.exit74
   %putchar = call i32 @putchar(i32 10)
@@ -1158,7 +1158,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Bmc_EcoPatch(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Bmc_EcoPatch(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @Gia_ManToAigSimple(ptr noundef %0) #12
   %6 = getelementptr inbounds i8, ptr %5, i64 104
@@ -1209,7 +1209,7 @@ define noundef i32 @Bmc_EcoPatch(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %31 = load i32, ptr %12, align 8
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %24, label %.preheader, !llvm.loop !20
+  br i1 %33, label %24, label %.preheader, !llvm.loop !19
 
 34:                                               ; preds = %.lr.ph81, %36
   %indvars.iv95 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next96, %36 ]
@@ -1241,7 +1241,7 @@ define noundef i32 @Bmc_EcoPatch(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %48 = sub nsw i32 %.val58.val, %.val57
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next96, %49
-  br i1 %50, label %34, label %.critedge, !llvm.loop !21
+  br i1 %50, label %34, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %34, %36, %.preheader
   %.val58.lcssa = phi ptr [ %.val5877, %.preheader ], [ %.val58, %36 ], [ %.val5880, %34 ]
@@ -1383,7 +1383,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %114 = sub nsw i32 %.val56.val, %.val
   %115 = sext i32 %114 to i64
   %116 = icmp slt i64 %indvars.iv.next99, %115
-  br i1 %116, label %.lr.ph90, label %.critedge2, !llvm.loop !22
+  br i1 %116, label %.lr.ph90, label %.critedge2, !llvm.loop !21
 
 .critedge2:                                       ; preds = %.lr.ph90, %112, %Vec_IntAlloc.exit
   %.val.lcssa = phi i32 [ %.val84, %Vec_IntAlloc.exit ], [ %.val, %112 ], [ %.val101, %.lr.ph90 ]
@@ -1402,7 +1402,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %126 = sext i32 %124 to i64
   %127 = getelementptr inbounds i32, ptr %125, i64 %126
   %128 = load i32, ptr %127, align 4
-  %129 = call i32 @Bmc_EcoSolve(ptr noundef %9, i32 noundef %128, ptr noundef nonnull %65), !range !23
+  %129 = call i32 @Bmc_EcoSolve(ptr noundef %9, i32 noundef %128, ptr noundef nonnull %65)
   %130 = load ptr, ptr %73, align 8
   %.not.i73 = icmp eq ptr %130, null
   br i1 %.not.i73, label %Vec_IntFree.exit, label %131
@@ -1551,7 +1551,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val = load i32, ptr %61, align 4
   %62 = sext i32 %.val to i64
   %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %.lr.ph, label %.critedge, !llvm.loop !24
+  br i1 %63, label %.lr.ph, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %.lr.ph, %Vec_IntPush.exit, %Vec_IntAlloc.exit
   %64 = tail call ptr @Bmc_EcoMiter(ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %17)
@@ -1574,7 +1574,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %66
   %.val40 = load ptr, ptr %69, align 8
   %70 = getelementptr i8, ptr %.val40, i64 4
   %.val40.val = load i32, ptr %70, align 4
-  %71 = tail call i32 @Bmc_EcoPatch(ptr noundef %64, i32 noundef %.val39.val, i32 noundef %.val40.val), !range !23
+  %71 = tail call i32 @Bmc_EcoPatch(ptr noundef %64, i32 noundef %.val39.val, i32 noundef %.val40.val)
   %switch.tableidx = add nsw i32 %71, 1
   %72 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.Bmc_EcoMiterTest, i64 0, i64 %72
@@ -1825,24 +1825,22 @@ attributes #16 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 -1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = !{i32 -1, i32 2}
-!24 = distinct !{!24, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}

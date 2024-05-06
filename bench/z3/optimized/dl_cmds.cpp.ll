@@ -820,15 +820,15 @@ entry:
   %m_context.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %m_context.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i, label %_ZN10dl_context5resetEv.exit, label %_Z7deallocIN7datalog7contextEEvPT_.exit.i.i
+  br i1 %cmp.not.i.i, label %_ZN10dl_context5resetEv.exit, label %if.then.i.i
 
-_Z7deallocIN7datalog7contextEEvPT_.exit.i.i:      ; preds = %entry
+if.then.i.i:                                      ; preds = %entry
   tail call void @_ZN7datalog7contextD1Ev(ptr noundef nonnull align 8 dereferenceable(3556) %1) #14
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %1)
   store ptr null, ptr %m_context.i, align 8
   br label %_ZN10dl_context5resetEv.exit
 
-_ZN10dl_context5resetEv.exit:                     ; preds = %entry, %_Z7deallocIN7datalog7contextEEvPT_.exit.i.i
+_ZN10dl_context5resetEv.exit:                     ; preds = %entry, %if.then.i.i
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %2 = load ptr, ptr %vfn, align 8
@@ -3929,7 +3929,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_domain.i, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx.i, align 8
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   %call8 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %2, i32 noundef %6, ptr noundef %5)
           to label %invoke.cont7 unwind label %lpad2.loopexit
 

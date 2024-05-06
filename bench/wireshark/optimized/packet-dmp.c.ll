@@ -3198,7 +3198,7 @@ define internal i32 @dmp_id_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @dmp_id_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @dmp_id_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %3, %4
@@ -4490,7 +4490,7 @@ dmp_dec_xbyte_sic.exit260.us.i:                   ; preds = %595
   %609 = lshr i32 %608, 8
   %610 = and i32 %609, 4784127
   %611 = zext nneg i32 %610 to i64
-  %612 = tail call fastcc i32 @dmp_dec_xbyte_sic(i64 noundef %611, ptr noundef %463, i8 noundef zeroext 3, i32 noundef %573), !range !16
+  %612 = tail call fastcc i32 @dmp_dec_xbyte_sic(i64 noundef %611, ptr noundef %463, i8 noundef zeroext 3, i32 noundef %573)
   %613 = load i32, ptr @hf_message_sic, align 4
   %614 = add nuw nsw i32 %indvars.iv275.i, 1
   %.not242.i = icmp eq i32 %612, 0
@@ -4700,7 +4700,7 @@ dmp_dec_xbyte_sic.exit260.us.i:                   ; preds = %595
   %.1219.i = phi i64 [ %665, %662 ], [ %676, %669 ], [ %686, %678 ], [ %696, %687 ], [ %699, %697 ], [ %707, %703 ], [ %714, %711 ], [ %724, %717 ], [ %735, %727 ], [ %738, %736 ], [ %744, %740 ], [ %747, %745 ]
   %.0215.i = phi i8 [ 4, %662 ], [ 6, %669 ], [ 7, %678 ], [ 8, %687 ], [ 5, %697 ], [ 4, %703 ], [ 5, %711 ], [ 7, %717 ], [ 8, %727 ], [ 6, %736 ], [ 3, %740 ], [ 3, %745 ]
   %.1213.i = phi i32 [ 4, %662 ], [ 5, %669 ], [ 6, %678 ], [ 7, %687 ], [ 4, %697 ], [ 3, %703 ], [ 4, %711 ], [ 5, %717 ], [ 6, %727 ], [ 4, %736 ], [ 3, %740 ], [ 2, %745 ]
-  %749 = tail call fastcc i32 @dmp_dec_xbyte_sic(i64 noundef %.1219.i, ptr noundef %463, i8 noundef zeroext %.0215.i, i32 noundef %648), !range !16
+  %749 = tail call fastcc i32 @dmp_dec_xbyte_sic(i64 noundef %.1219.i, ptr noundef %463, i8 noundef zeroext %.0215.i, i32 noundef %648)
   %750 = load i32, ptr @hf_message_sic, align 4
   %751 = add nuw nsw i32 %indvars.iv.i428, 1
   %.not237.i = icmp eq i32 %749, 0
@@ -4727,7 +4727,7 @@ dmp_dec_xbyte_sic.exit260.us.i:                   ; preds = %595
 761:                                              ; preds = %759, %758
   %762 = add i32 %.1213.i, %.1265.i
   %exitcond.i = icmp eq i32 %751, %wide.trip.count.i427
-  br i1 %exitcond.i, label %763, label %652, !llvm.loop !17
+  br i1 %exitcond.i, label %763, label %652, !llvm.loop !16
 
 763:                                              ; preds = %761
   %764 = select i1 %.not236.i, ptr @.str.704, ptr @.str.703
@@ -5307,7 +5307,7 @@ dissect_dmp_report.exit:                          ; preds = %1063, %1083
   %1085 = sub i32 %.1.i445, %.8509
   tail call void @proto_item_set_len(ptr noundef %943, i32 noundef %1085) #13
   %1086 = icmp slt i32 %.1.i445, %spec.select
-  br i1 %1086, label %.lr.ph, label %dissect_dmp_notification.exit, !llvm.loop !18
+  br i1 %1086, label %.lr.ph, label %dissect_dmp_notification.exit, !llvm.loop !17
 
 1087:                                             ; preds = %932
   %1088 = load i32, ptr getelementptr inbounds (%struct.dmp_data, ptr @dmp, i64 0, i32 8), align 8
@@ -5735,7 +5735,7 @@ define internal fastcc i32 @dissect_mts_identifier(ptr noundef %0, ptr noundef %
   %.1.i = phi i32 [ %40, %39 ], [ %31, %43 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %15
-  br i1 %exitcond.not.i, label %dissect_7bit_string.exit, label %23, !llvm.loop !19
+  br i1 %exitcond.not.i, label %dissect_7bit_string.exit, label %23, !llvm.loop !18
 
 46:                                               ; preds = %5
   %47 = icmp eq i32 %8, 2
@@ -5802,9 +5802,9 @@ define internal fastcc i32 @dissect_mts_identifier(ptr noundef %0, ptr noundef %
   %.1.i45 = phi i32 [ %81, %80 ], [ %72, %84 ]
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, %56
-  br i1 %exitcond.not.i47, label %dissect_7bit_string.exit50, label %64, !llvm.loop !19
+  br i1 %exitcond.not.i47, label %dissect_7bit_string.exit51, label %64, !llvm.loop !18
 
-dissect_7bit_string.exit50:                       ; preds = %86
+dissect_7bit_string.exit51:                       ; preds = %86
   %87 = add i32 %50, %3
   %88 = add i32 %87, -6
   %89 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %88) #13
@@ -5822,9 +5822,9 @@ dissect_7bit_string.exit50:                       ; preds = %86
   %99 = tail call ptr @tvb_bytes_to_str(ptr noundef %96, ptr noundef %0, i32 noundef %3, i32 noundef %98) #13
   br label %dissect_7bit_string.exit
 
-dissect_7bit_string.exit:                         ; preds = %45, %dissect_7bit_string.exit50, %48, %10, %94
-  %.1 = phi i8 [ 0, %94 ], [ 0, %10 ], [ %.132.i43, %dissect_7bit_string.exit50 ], [ 0, %48 ], [ %.132.i, %45 ]
-  %.0 = phi ptr [ %99, %94 ], [ @.str.550, %10 ], [ %93, %dissect_7bit_string.exit50 ], [ @.str.597, %48 ], [ %22, %45 ]
+dissect_7bit_string.exit:                         ; preds = %45, %dissect_7bit_string.exit51, %48, %10, %94
+  %.1 = phi i8 [ 0, %94 ], [ 0, %10 ], [ %.132.i43, %dissect_7bit_string.exit51 ], [ 0, %48 ], [ %.132.i, %45 ]
+  %.0 = phi ptr [ %99, %94 ], [ @.str.550, %10 ], [ %93, %dissect_7bit_string.exit51 ], [ @.str.597, %48 ], [ %22, %45 ]
   %100 = load ptr, ptr getelementptr inbounds (%struct.dmp_data, ptr @dmp, i64 0, i32 12), align 8
   %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #14
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef nonnull @.str.595, i64 noundef %101) #13
@@ -6413,7 +6413,7 @@ define internal fastcc noundef i32 @dissect_ipm_identifier(ptr noundef %0, ptr n
   %.1.i = phi i32 [ %57, %56 ], [ %48, %60 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %32
-  br i1 %exitcond.not.i, label %dissect_7bit_string.exit, label %40, !llvm.loop !19
+  br i1 %exitcond.not.i, label %dissect_7bit_string.exit, label %40, !llvm.loop !18
 
 63:                                               ; preds = %5
   %64 = icmp eq i32 %26, 2
@@ -6449,7 +6449,7 @@ define internal fastcc noundef i32 @dissect_ipm_identifier(ptr noundef %0, ptr n
   %spec.select.i = select i1 %or.cond7.i, i32 %82, i32 %78
   %83 = call ptr @wmem_packet_scope() #13
   %84 = icmp eq i32 %10, 6
-  br i1 %84, label %dissect_7bit_string.exit87, label %85
+  br i1 %84, label %dissect_7bit_string.exit88, label %85
 
 85:                                               ; preds = %77
   %86 = call ptr @wmem_packet_scope() #13
@@ -6503,10 +6503,10 @@ define internal fastcc noundef i32 @dissect_ipm_identifier(ptr noundef %0, ptr n
   %.1.i82 = phi i32 [ %112, %111 ], [ %103, %115 ]
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, %87
-  br i1 %exitcond.not.i84, label %dissect_7bit_string.exit87, label %95, !llvm.loop !19
+  br i1 %exitcond.not.i84, label %dissect_7bit_string.exit88, label %95, !llvm.loop !18
 
-dissect_7bit_string.exit87:                       ; preds = %117, %77
-  %.088 = phi i8 [ 0, %77 ], [ %.132.i80, %117 ]
+dissect_7bit_string.exit88:                       ; preds = %117, %77
+  %.089 = phi i8 [ 0, %77 ], [ %.132.i80, %117 ]
   %118 = phi ptr [ @.str.550, %77 ], [ %94, %117 ]
   %119 = select i1 %or.cond7.i, i32 5, i32 %79
   %120 = getelementptr inbounds i8, ptr %75, i64 20
@@ -6525,9 +6525,9 @@ dissect_7bit_string.exit87:                       ; preds = %117, %77
   %133 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %83, ptr noundef nonnull @.str.649, ptr noundef nonnull %118, i32 noundef %119, i32 noundef %spec.select.i, i32 noundef %122, i32 noundef %125, i32 noundef %127, i32 noundef %129, i32 noundef %131, i32 noundef %132) #13
   br label %dissect_thales_ipm_id.exit
 
-dissect_thales_ipm_id.exit:                       ; preds = %65, %68, %dissect_7bit_string.exit87
-  %.1 = phi i8 [ 0, %68 ], [ %.088, %dissect_7bit_string.exit87 ], [ 0, %65 ]
-  %.0.i = phi ptr [ @.str.648, %68 ], [ %133, %dissect_7bit_string.exit87 ], [ @.str.597, %65 ]
+dissect_thales_ipm_id.exit:                       ; preds = %65, %68, %dissect_7bit_string.exit88
+  %.1 = phi i8 [ 0, %68 ], [ %.089, %dissect_7bit_string.exit88 ], [ 0, %65 ]
+  %.0.i = phi ptr [ @.str.648, %68 ], [ %133, %dissect_7bit_string.exit88 ], [ @.str.597, %65 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %dissect_7bit_string.exit
 
@@ -7011,7 +7011,7 @@ define internal fastcc void @register_dmp_id(ptr noundef %0, i8 noundef zeroext 
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 240
   %28 = load ptr, ptr %27, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store i32 %24, ptr %22, align 8
   %29 = icmp eq i32 %26, 0
   br i1 %29, label %copy_address_wmem.exit, label %30
@@ -7036,7 +7036,7 @@ copy_address_wmem.exit:                           ; preds = %18, %30
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds i8, ptr %0, i64 216
   %43 = load ptr, ptr %42, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   store i32 %39, ptr %37, align 8
   %44 = icmp eq i32 %41, 0
   br i1 %44, label %copy_address_wmem.exit89, label %45
@@ -7098,7 +7098,7 @@ thread-pre-split:                                 ; preds = %7, %59, %copy_addre
   %72 = load i32, ptr %71, align 4
   %73 = getelementptr inbounds i8, ptr %0, i64 240
   %74 = load ptr, ptr %73, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   store i32 %70, ptr %64, align 8
   %75 = icmp eq i32 %72, 0
   br i1 %75, label %copy_address_wmem.exit90, label %76
@@ -7123,7 +7123,7 @@ copy_address_wmem.exit90:                         ; preds = %65, %76
   %87 = load i32, ptr %86, align 4
   %88 = getelementptr inbounds i8, ptr %0, i64 216
   %89 = load ptr, ptr %88, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
   store i32 %85, ptr %83, align 8
   %90 = icmp eq i32 %87, 0
   br i1 %90, label %copy_address_wmem.exit91, label %91
@@ -7144,7 +7144,7 @@ copy_address_wmem.exit90:                         ; preds = %65, %76
   %101 = load i32, ptr %100, align 4
   %102 = getelementptr inbounds i8, ptr %0, i64 216
   %103 = load ptr, ptr %102, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   store i32 %99, ptr %64, align 8
   %104 = icmp eq i32 %101, 0
   br i1 %104, label %copy_address_wmem.exit92, label %105
@@ -7169,7 +7169,7 @@ copy_address_wmem.exit92:                         ; preds = %94, %105
   %116 = load i32, ptr %115, align 4
   %117 = getelementptr inbounds i8, ptr %0, i64 240
   %118 = load ptr, ptr %117, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %112, i8 0, i64 24, i1 false)
   store i32 %114, ptr %112, align 8
   %119 = icmp eq i32 %116, 0
   br i1 %119, label %copy_address_wmem.exit91, label %120
@@ -7360,7 +7360,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc i32 @dmp_dec_xbyte_sic(i64 noundef %0, ptr nocapture noundef writeonly %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @dmp_dec_xbyte_sic(i64 noundef %0, ptr nocapture noundef writeonly %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #7 {
   %5 = zext nneg i8 %2 to i32
   %.not = icmp eq i32 %3, 0
   %.092 = select i1 %.not, double 3.600000e+01, double 7.400000e+01
@@ -7614,7 +7614,6 @@ attributes #15 = { noreturn nounwind }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i32 0, i32 2}
+!16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}

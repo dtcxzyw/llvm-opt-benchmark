@@ -1163,7 +1163,7 @@ define dso_local void @rhash_sha1_final(ptr noundef %0, ptr noundef %1) local_un
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %11, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = trunc i64 %indvars.iv.next to i32
+  %15 = trunc nuw nsw i64 %indvars.iv.next to i32
   %16 = and i32 %15, 3
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7

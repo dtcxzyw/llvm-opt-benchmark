@@ -1102,9 +1102,9 @@ if.else:                                          ; preds = %land.lhs.true, %inv
   %size_.i26 = getelementptr inbounds i8, ptr %formatted, i64 16
   %22 = load i64, ptr %size_.i26, align 8
   %23 = load ptr, ptr %ptr_.i.i, align 8
-  %target_file_.i28 = getelementptr inbounds i8, ptr %this, i64 448
-  %24 = load ptr, ptr %target_file_.i28, align 8
-  %call2.i29 = call i64 @fwrite(ptr noundef %23, i64 noundef 1, i64 noundef %22, ptr noundef %24)
+  %target_file_.i30 = getelementptr inbounds i8, ptr %this, i64 448
+  %24 = load ptr, ptr %target_file_.i30, align 8
+  %call2.i31 = call i64 @fwrite(ptr noundef %23, i64 noundef 1, i64 noundef %22, ptr noundef %24)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %invoke.cont15
@@ -1113,15 +1113,15 @@ if.end:                                           ; preds = %if.else, %invoke.co
   %call22 = call i32 @fflush(ptr noundef %25)
   %26 = load ptr, ptr %ptr_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %26, %store_.i
-  br i1 %cmp.not.i.i, label %_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev.exit, label %if.then.i.i30
+  br i1 %cmp.not.i.i, label %_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev.exit, label %if.then.i.i32
 
-if.then.i.i30:                                    ; preds = %if.end
+if.then.i.i32:                                    ; preds = %if.end
   call void @_ZdlPv(ptr noundef %26) #17
   br label %_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev.exit
 
-_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev.exit: ; preds = %if.end, %if.then.i.i30
+_ZN3fmt2v919basic_memory_bufferIcLm250ESaIcEED2Ev.exit: ; preds = %if.end, %if.then.i.i32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i) #15
-  %call1.i.i.i32 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
+  %call1.i.i.i34 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   ret void
 }
 
@@ -1989,9 +1989,9 @@ if.else:                                          ; preds = %land.lhs.true, %inv
   %size_.i25 = getelementptr inbounds i8, ptr %formatted, i64 16
   %21 = load i64, ptr %size_.i25, align 8
   %22 = load ptr, ptr %ptr_.i.i, align 8
-  %target_file_.i27 = getelementptr inbounds i8, ptr %this, i64 448
-  %23 = load ptr, ptr %target_file_.i27, align 8
-  %call2.i28 = call i64 @fwrite(ptr noundef %22, i64 noundef 1, i64 noundef %21, ptr noundef %23)
+  %target_file_.i29 = getelementptr inbounds i8, ptr %this, i64 448
+  %23 = load ptr, ptr %target_file_.i29, align 8
+  %call2.i30 = call i64 @fwrite(ptr noundef %22, i64 noundef 1, i64 noundef %21, ptr noundef %23)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %invoke.cont15

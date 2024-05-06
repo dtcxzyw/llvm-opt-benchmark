@@ -410,7 +410,7 @@ invoke.cont.i.i:                                  ; preds = %cond.end
   br label %_ZNSt6vectorIcSaIcEE5clearEv.exit
 
 _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %cond.end, %invoke.cont.i.i
-  %call5 = tail call noundef i32 @_ZN4cvc56parser9Smt2Lexer16computeNextTokenEv(ptr noundef nonnull align 8 dereferenceable(33178) %this), !range !10
+  %call5 = tail call noundef i32 @_ZN4cvc56parser9Smt2Lexer16computeNextTokenEv(ptr noundef nonnull align 8 dereferenceable(33178) %this)
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 32912
   %3 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -481,7 +481,7 @@ cond.end22:                                       ; preds = %if.then.i.i, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc56parser9Smt2Lexer16computeNextTokenEv(ptr noundef nonnull align 8 dereferenceable(33178) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 85) i32 @_ZN4cvc56parser9Smt2Lexer16computeNextTokenEv(ptr noundef nonnull align 8 dereferenceable(33178) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp27 = alloca %"class.std::allocator", align 1
@@ -525,7 +525,7 @@ do.cond:                                          ; preds = %do.body
   br i1 %tobool.i.not, label %do.end, label %do.body.backedge
 
 do.body.backedge:                                 ; preds = %while.cond, %do.cond
-  br label %do.body, !llvm.loop !11
+  br label %do.body, !llvm.loop !10
 
 do.end:                                           ; preds = %do.cond
   %cmp3.not = icmp eq i32 %call, 59
@@ -705,7 +705,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 
 _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit80:  ; preds = %if.then.i.i.i53, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i76
   %cmp20.not = icmp eq i32 %call15, 124
-  br i1 %cmp20.not, label %return, label %do.body14, !llvm.loop !12
+  br i1 %cmp20.not, label %return, label %do.body14, !llvm.loop !11
 
 sw.bb22:                                          ; preds = %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit
   %call23 = tail call noundef i32 @_ZN4cvc56parser5Lexer8nextCharEv(ptr noundef nonnull align 8 dereferenceable(32892) %this)
@@ -1023,7 +1023,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit120: ; preds = %if.then.i.i.i93, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i116
   %call87 = call noundef i32 @_ZN4cvc56parser5Lexer8nextCharEv(ptr noundef nonnull align 8 dereferenceable(32892) %this)
   %cmp88 = icmp eq i32 %call87, -1
-  br i1 %cmp88, label %return, label %if.else, !llvm.loop !13
+  br i1 %cmp88, label %return, label %if.else, !llvm.loop !12
 
 sw.bb110:                                         ; preds = %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit
   %call111 = tail call noundef zeroext i1 @_ZN4cvc56parser9Smt2Lexer9parseCharENS1_14CharacterClassE(ptr noundef nonnull align 8 dereferenceable(33178) %this, i32 noundef 16)
@@ -1115,7 +1115,7 @@ if.else142:                                       ; preds = %sw.default123
 
 if.then144:                                       ; preds = %if.else142
   tail call void @_ZN4cvc56parser9Smt2Lexer13parseCharListENS1_14CharacterClassE(ptr noundef nonnull align 8 dereferenceable(33178) %this, i32 noundef 32)
-  %call145 = tail call noundef i32 @_ZNK4cvc56parser9Smt2Lexer21tokenizeCurrentSymbolEv(ptr noundef nonnull align 8 dereferenceable(33178) %this), !range !14
+  %call145 = tail call noundef i32 @_ZNK4cvc56parser9Smt2Lexer21tokenizeCurrentSymbolEv(ptr noundef nonnull align 8 dereferenceable(33178) %this)
   br label %return
 
 sw.epilog148:                                     ; preds = %if.else142, %invoke.cont82
@@ -1690,11 +1690,11 @@ _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit:    ; preds = %if.then.i.i.i, %_ZN
   %conv3.i = zext i8 %8 to i32
   %and.i = and i32 %conv3.i, %cc
   %tobool.i.not = icmp eq i32 %and.i, 0
-  br i1 %tobool.i.not, label %if.then, label %if.end, !llvm.loop !15
+  br i1 %tobool.i.not, label %if.then, label %if.end, !llvm.loop !13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4cvc56parser9Smt2Lexer21tokenizeCurrentSymbolEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33178) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i32 4, 80) i32 @_ZNK4cvc56parser9Smt2Lexer21tokenizeCurrentSymbolEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33178) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_token = getelementptr inbounds i8, ptr %this, i64 32896
   %0 = load ptr, ptr %d_token, align 8
@@ -2061,9 +2061,7 @@ attributes #20 = { noreturn nounwind }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 85}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 4, i32 80}
-!15 = distinct !{!15, !5}

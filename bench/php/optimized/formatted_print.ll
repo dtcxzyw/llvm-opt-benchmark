@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [4 x i8] c"INF\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @php_sprintf_get_argnum(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -2, 2147483647) i32 @php_sprintf_get_argnum(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @__ctype_b_loc() #14
@@ -334,7 +334,7 @@ php_sprintf_appendchars.exit:                     ; preds = %35, %76
   %77 = phi ptr [ %.091.i, %76 ], [ %38, %35 ]
   %78 = getelementptr inbounds i8, ptr %77, i64 24
   %79 = getelementptr inbounds i8, ptr %78, i64 %36
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr align 1 %.0407527, i64 %.0401528, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr readonly align 1 %.0407527, i64 %.0401528, i1 false)
   %80 = load i64, ptr %20, align 8
   %81 = add i64 %80, %.0401528
   store i64 %81, ptr %20, align 8
@@ -428,7 +428,7 @@ php_sprintf_appendchars.exit279:                  ; preds = %83, %127
   %128 = phi ptr [ %.091.i277, %127 ], [ %89, %83 ]
   %129 = getelementptr inbounds i8, ptr %128, i64 24
   %130 = getelementptr inbounds i8, ptr %129, i64 %87
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr align 1 %.0407527, i64 %86, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr readonly align 1 %.0407527, i64 %86, i1 false)
   %131 = load i64, ptr %20, align 8
   %132 = add i64 %131, %86
   store i64 %132, ptr %20, align 8
@@ -1086,8 +1086,8 @@ thread-pre-split:                                 ; preds = %359, %362, %362, %3
 411:                                              ; preds = %402
   %412 = zext nneg i32 %.2234 to i64
   %413 = icmp slt i64 %400, 0
-  %414 = trunc i64 %indvars.iv.i to i32
-  %415 = trunc i64 %indvars.iv.next.i to i32
+  %414 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %415 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br i1 %413, label %416, label %420
 
 416:                                              ; preds = %411

@@ -130,7 +130,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h0cdbf60c6bc4
 58:                                               ; preds = %.lr.ph.us, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %96 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = trunc i64 %indvars.iv to i32
+  %59 = trunc nuw i64 %indvars.iv to i32
   %60 = mul i32 %16, %59
   %61 = add i32 %60, %.sroa.010.0151.us
   %62 = zext i32 %61 to i64
@@ -150,19 +150,19 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h0cdbf60c6bc4
   %71 = lshr i32 %70, 8
   %72 = add nuw nsw i32 %71, %70
   %73 = lshr i32 %72, 8
-  %74 = trunc i32 %73 to i8
+  %74 = trunc nuw i32 %73 to i8
   %75 = mul nuw nsw i32 %68, %54
   %76 = add nuw nsw i32 %75, 128
   %77 = lshr i32 %76, 8
   %78 = add nuw nsw i32 %77, %76
   %79 = lshr i32 %78, 8
-  %80 = trunc i32 %79 to i8
+  %80 = trunc nuw i32 %79 to i8
   %81 = mul nuw nsw i32 %68, %55
   %82 = add nuw nsw i32 %81, 128
   %83 = lshr i32 %82, 8
   %84 = add nuw nsw i32 %83, %82
   %85 = lshr i32 %84, 8
-  %86 = trunc i32 %85 to i8
+  %86 = trunc nuw i32 %85 to i8
   %.sroa.01.0.vec.insert.i.us = insertelement <4 x i8> poison, i8 %74, i64 0
   %.sroa.01.1.vec.insert.i.us = insertelement <4 x i8> %.sroa.01.0.vec.insert.i.us, i8 %80, i64 1
   %.sroa.01.2.vec.insert.i.us = insertelement <4 x i8> %.sroa.01.1.vec.insert.i.us, i8 %86, i64 2
@@ -176,7 +176,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h0cdbf60c6bc4
 
 89:                                               ; preds = %87
   %90 = extractvalue { ptr, i64 } %88, 1
-  %91 = trunc i64 %indvars.iv.next to i32
+  %91 = trunc nuw i64 %indvars.iv.next to i32
   %92 = mul i32 %19, %91
   %93 = add i32 %57, %92
   %94 = zext i32 %93 to i64
@@ -618,7 +618,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h3c7c22b86ba8
 68:                                               ; preds = %.lr.ph.us, %125
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %125 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %69 = trunc i64 %indvars.iv to i32
+  %69 = trunc nuw i64 %indvars.iv to i32
   %70 = mul i32 %26, %69
   %71 = add i32 %70, %.sroa.06.0163.us
   %72 = zext i32 %71 to i64
@@ -675,7 +675,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h3c7c22b86ba8
   %.sroa.56.0.extract.shift.i.i.us = lshr i32 %87, 16
   %.sroa.56.0.extract.trunc.i.i.us = trunc i32 %.sroa.56.0.extract.shift.i.i.us to i8
   %.sroa.67.0.extract.shift.i.i.us = lshr i32 %87, 24
-  %.sroa.67.0.extract.trunc.i.i.us = trunc i32 %.sroa.67.0.extract.shift.i.i.us to i8
+  %.sroa.67.0.extract.trunc.i.i.us = trunc nuw i32 %.sroa.67.0.extract.shift.i.i.us to i8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9), !noalias !33
   %.sroa.02.0.vec.insert.i.i.us = insertelement <4 x i8> poison, i8 %.sroa.04.0.extract.trunc.i.i.us, i64 0
   %.sroa.02.1.vec.insert.i.i.us = insertelement <4 x i8> %.sroa.02.0.vec.insert.i.i.us, i8 %.sroa.45.0.extract.trunc.i.i.us, i64 1
@@ -704,21 +704,21 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h3c7c22b86ba8
   %96 = lshr i32 %95, 8
   %97 = add nuw nsw i32 %96, %95
   %98 = lshr i32 %97, 8
-  %99 = trunc i32 %98 to i8
+  %99 = trunc nuw i32 %98 to i8
   %100 = zext i8 %.sroa.060.1.vec.extract.us to i32
   %101 = mul nuw nsw i32 %100, %93
   %102 = add nuw nsw i32 %101, 128
   %103 = lshr i32 %102, 8
   %104 = add nuw nsw i32 %103, %102
   %105 = lshr i32 %104, 8
-  %106 = trunc i32 %105 to i8
+  %106 = trunc nuw i32 %105 to i8
   %107 = zext i8 %.sroa.060.2.vec.extract.us to i32
   %108 = mul nuw nsw i32 %107, %93
   %109 = add nuw nsw i32 %108, 128
   %110 = lshr i32 %109, 8
   %111 = add nuw nsw i32 %110, %109
   %112 = lshr i32 %111, 8
-  %113 = trunc i32 %112 to i8
+  %113 = trunc nuw i32 %112 to i8
   %.sroa.01.0.vec.insert.i.us = insertelement <4 x i8> poison, i8 %99, i64 0
   %.sroa.01.1.vec.insert.i.us = insertelement <4 x i8> %.sroa.01.0.vec.insert.i.us, i8 %106, i64 1
   %.sroa.01.2.vec.insert.i.us = insertelement <4 x i8> %.sroa.01.1.vec.insert.i.us, i8 %113, i64 2
@@ -738,7 +738,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h3c7c22b86ba8
 
 118:                                              ; preds = %116
   %119 = extractvalue { ptr, i64 } %117, 1
-  %120 = trunc i64 %indvars.iv.next to i32
+  %120 = trunc nuw i64 %indvars.iv.next to i32
   %121 = mul i32 %29, %120
   %122 = add i32 %66, %121
   %123 = zext i32 %122 to i64
@@ -919,7 +919,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit109.us: ; preds = %_ZN4core3cmp3O
   %.sroa.024.0172.us = phi i32 [ %190, %..loopexit_crit_edge.us ], [ %.0.in.sroa.speculated.i, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit109.us.preheader ]
   %190 = add nuw nsw i32 %.sroa.024.0172.us, 1
   %191 = sub i32 %.sroa.024.0172.us, %43
-  %192 = uitofp i32 %.sroa.024.0172.us to float
+  %192 = uitofp nneg i32 %.sroa.024.0172.us to float
   br label %193
 
 193:                                              ; preds = %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit109.us, %.backedge.us
@@ -944,7 +944,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit109.us: ; preds = %_ZN4core3cmp3O
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !54
-  %205 = uitofp i32 %194 to float
+  %205 = uitofp nneg i32 %194 to float
   store float %192, ptr %8, align 4, !noalias !54
   store float %205, ptr %184, align 4, !noalias !54
   call void @_ZN14tiny_skia_path9transform9Transform9map_point17hbe71983e2cc0d2e1E(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %185, ptr noalias noundef nonnull align 4 dereferenceable(8) %8)
@@ -969,7 +969,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit109.us: ; preds = %_ZN4core3cmp3O
   %.sroa.56.0.extract.shift.i.i113.us = lshr i32 %215, 16
   %.sroa.56.0.extract.trunc.i.i114.us = trunc i32 %.sroa.56.0.extract.shift.i.i113.us to i8
   %.sroa.67.0.extract.shift.i.i115.us = lshr i32 %215, 24
-  %.sroa.67.0.extract.trunc.i.i116.us = trunc i32 %.sroa.67.0.extract.shift.i.i115.us to i8
+  %.sroa.67.0.extract.trunc.i.i116.us = trunc nuw i32 %.sroa.67.0.extract.shift.i.i115.us to i8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5), !noalias !57
   %.sroa.02.0.vec.insert.i.i117.us = insertelement <4 x i8> poison, i8 %.sroa.04.0.extract.trunc.i.i110.us, i64 0
   %.sroa.02.1.vec.insert.i.i118.us = insertelement <4 x i8> %.sroa.02.0.vec.insert.i.i117.us, i8 %.sroa.45.0.extract.trunc.i.i112.us, i64 1
@@ -1156,7 +1156,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h709fa1febefc
 63:                                               ; preds = %.lr.ph.us, %135
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %135 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %64 = trunc i64 %indvars.iv to i32
+  %64 = trunc nuw i64 %indvars.iv to i32
   %65 = mul i32 %20, %64
   %66 = add i32 %65, %.sroa.06.0160.us
   %67 = zext i32 %66 to i64
@@ -1219,7 +1219,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h709fa1febefc
 
 99:                                               ; preds = %.noexc93.us
   %.sroa.48.0.extract.shift.i.us = lshr i40 %98, 8
-  %.sroa.48.0.extract.trunc.i.us = trunc i40 %.sroa.48.0.extract.shift.i.us to i32
+  %.sroa.48.0.extract.trunc.i.us = trunc nuw i40 %.sroa.48.0.extract.shift.i.us to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !61
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   %100 = bitcast i32 %.sroa.48.0.extract.trunc.i.us to <4 x i8>
@@ -1236,21 +1236,21 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h709fa1febefc
   %106 = lshr i32 %105, 8
   %107 = add nuw nsw i32 %106, %105
   %108 = lshr i32 %107, 8
-  %109 = trunc i32 %108 to i8
+  %109 = trunc nuw i32 %108 to i8
   %110 = zext i8 %.sroa.060.1.vec.extract.us to i32
   %111 = mul nuw nsw i32 %110, %103
   %112 = add nuw nsw i32 %111, 128
   %113 = lshr i32 %112, 8
   %114 = add nuw nsw i32 %113, %112
   %115 = lshr i32 %114, 8
-  %116 = trunc i32 %115 to i8
+  %116 = trunc nuw i32 %115 to i8
   %117 = zext i8 %.sroa.060.2.vec.extract.us to i32
   %118 = mul nuw nsw i32 %117, %103
   %119 = add nuw nsw i32 %118, 128
   %120 = lshr i32 %119, 8
   %121 = add nuw nsw i32 %120, %119
   %122 = lshr i32 %121, 8
-  %123 = trunc i32 %122 to i8
+  %123 = trunc nuw i32 %122 to i8
   %.sroa.01.0.vec.insert.i.us = insertelement <4 x i8> poison, i8 %109, i64 0
   %.sroa.01.1.vec.insert.i.us = insertelement <4 x i8> %.sroa.01.0.vec.insert.i.us, i8 %116, i64 1
   %.sroa.01.2.vec.insert.i.us = insertelement <4 x i8> %.sroa.01.1.vec.insert.i.us, i8 %123, i64 2
@@ -1270,7 +1270,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h709fa1febefc
 
 128:                                              ; preds = %126
   %129 = extractvalue { ptr, i64 } %127, 1
-  %130 = trunc i64 %indvars.iv.next to i32
+  %130 = trunc nuw i64 %indvars.iv.next to i32
   %131 = mul i32 %23, %130
   %132 = add i32 %61, %131
   %133 = zext i32 %132 to i64
@@ -1459,7 +1459,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit107.us: ; preds = %_ZN4core3cmp3O
   %.sroa.024.0171.us = phi i32 [ %201, %..loopexit_crit_edge.us ], [ %.0.in.sroa.speculated.i, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit107.us.preheader ]
   %201 = add nuw nsw i32 %.sroa.024.0171.us, 1
   %202 = sub i32 %.sroa.024.0171.us, %37
-  %203 = uitofp i32 %.sroa.024.0171.us to float
+  %203 = uitofp nneg i32 %.sroa.024.0171.us to float
   br label %204
 
 204:                                              ; preds = %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit107.us, %.backedge.us
@@ -1484,7 +1484,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit107.us: ; preds = %_ZN4core3cmp3O
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !82)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !82
-  %216 = uitofp i32 %205 to float
+  %216 = uitofp nneg i32 %205 to float
   store float %203, ptr %5, align 4, !noalias !82
   store float %216, ptr %194, align 4, !noalias !82
   call void @_ZN14tiny_skia_path9transform9Transform9map_point17hbe71983e2cc0d2e1E(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %195, ptr noalias noundef nonnull align 4 dereferenceable(8) %5)
@@ -1521,7 +1521,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit107.us: ; preds = %_ZN4core3cmp3O
 
 "_ZN75_$LT$typst_render..PatternSampler$u20$as$u20$typst_render..PaintSampler$GT$6sample17hea7d4f7fc7d1d427E.exit113.us": ; preds = %215
   %.sroa.48.0.extract.shift.i111.us = lshr i40 %242, 8
-  %.sroa.48.0.extract.trunc.i112.us = trunc i40 %.sroa.48.0.extract.shift.i111.us to i32
+  %.sroa.48.0.extract.trunc.i112.us = trunc nuw i40 %.sroa.48.0.extract.shift.i111.us to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !82
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   %243 = mul i32 %29, %205

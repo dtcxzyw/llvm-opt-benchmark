@@ -163,7 +163,7 @@ if.then.i:                                        ; preds = %entry
 set_number_format.exit:                           ; preds = %if.then.i, %entry
   %i.0.i.sroa.phi = phi ptr [ %i.0.i.sroa.gep, %if.then.i ], [ %i.0.i.sroa.gep21, %entry ]
   %rem.i = srem i32 %precision, 10
-  %1 = trunc i32 %rem.i to i8
+  %1 = trunc nsw i32 %rem.i to i8
   %conv4.i = add nsw i8 %1, 48
   store i8 %conv4.i, ptr %i.0.i.sroa.phi, align 1, !tbaa !4
   %arrayidx10.i = getelementptr i8, ptr %i.0.i.sroa.phi, i64 1

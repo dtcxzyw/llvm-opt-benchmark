@@ -121,7 +121,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$smallvec..IntoIter$LT$$u5b$
   %21 = add i64 %20, 1
   store i64 %21, ptr %3, align 8, !alias.scope !9, !noalias !12
   %22 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %15, i64 %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !noalias !6
   %.pre4.i = load i8, ptr %6, align 8, !range !15, !noalias !6
   %23 = icmp eq i8 %.pre4.i, 2
   br i1 %23, label %.loopexit, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h21fd455b1ca8aadaE.llvm.1711877461099840233.exit1.us.i"
@@ -150,7 +150,7 @@ define hidden void @"_ZN4core3ptr100drop_in_place$LT$smallvec..IntoIter$LT$$u5b$
   %31 = add i64 %30, 1
   store i64 %31, ptr %3, align 8, !alias.scope !9, !noalias !12
   %32 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %12, i64 %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false)
   %.pre.i = load i8, ptr %6, align 8, !range !15, !noalias !6
   %33 = icmp eq i8 %.pre.i, 2
   br i1 %33, label %.loopexit, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h21fd455b1ca8aadaE.llvm.1711877461099840233.exit1.i"
@@ -329,7 +329,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$actix_http..responses..resp
   br i1 %6, label %.body, label %7
 
 7:                                                ; preds = %3
-  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h0049d9805b9d63f1E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h0049d9805b9d63f1E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
           to label %.body unwind label %12
 
 8:                                                ; preds = %1
@@ -338,7 +338,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$actix_http..responses..resp
   br i1 %10, label %"_ZN4core3ptr67drop_in_place$LT$actix_http..responses..head..BoxedResponseHead$GT$17h624708384c2846a4E.exit", label %11
 
 11:                                               ; preds = %8
-  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h0049d9805b9d63f1E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h0049d9805b9d63f1E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
           to label %"_ZN4core3ptr67drop_in_place$LT$actix_http..responses..head..BoxedResponseHead$GT$17h624708384c2846a4E.exit" unwind label %14
 
 12:                                               ; preds = %7
@@ -491,7 +491,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$alloc..vec..Vec$LT$actix_we
   %.07.i.i = phi i64 [ %8, %.lr.ph.i.i ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { i64, [18 x i64] }], ptr %3, i64 0, i64 %.07.i.i
   %8 = add nuw i64 %.07.i.i, 1
-  tail call fastcc void @"_ZN4core3ptr83drop_in_place$LT$actix_web..http..header..content_disposition..DispositionParam$GT$17h329683974fbbd28dE"(ptr noalias noundef nonnull align 8 dereferenceable(152) %7), !noalias !100
+  tail call fastcc void @"_ZN4core3ptr83drop_in_place$LT$actix_web..http..header..content_disposition..DispositionParam$GT$17h329683974fbbd28dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %7), !noalias !100
   %9 = icmp eq i64 %8, %5
   br i1 %9, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8037519596ddcde5E.llvm.1711877461099840233.exit", label %.lr.ph.i.i
 
@@ -528,7 +528,7 @@ define hidden void @"_ZN4core3ptr107drop_in_place$LT$alloc..rc..RcBox$LT$core..c
   br i1 %4, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$actix_multipart..server..PayloadRef$GT$$GT$17ha2b789edc12e3fd9E.llvm.1711877461099840233.exit.i.i.i", label %5
 
 5:                                                ; preds = %1
-  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc597bda850a38248E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc597bda850a38248E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
           to label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$actix_multipart..server..PayloadRef$GT$$GT$17ha2b789edc12e3fd9E.llvm.1711877461099840233.exit.i.i.i" unwind label %6
 
 6:                                                ; preds = %5
@@ -1916,7 +1916,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$core..cell..BorrowRefMut$GT$
 define hidden void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hd26a470702b2e3aaE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !688)
   %2 = load ptr, ptr %0, align 8, !alias.scope !688, !noundef !5
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h0426aa1ed289f165E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h0426aa1ed289f165E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
           to label %"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h0339e73ee6d08300E.llvm.1711877461099840233.exit" unwind label %3, !noalias !688
 
 3:                                                ; preds = %1
@@ -2464,7 +2464,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$actix_multipart..server..Fie
   %.07.i.i.i.i = phi i64 [ %38, %.lr.ph.i.i.i.i ], [ 0, %"_ZN4core3ptr82drop_in_place$LT$actix_web..http..header..content_disposition..DispositionType$GT$17h9f73d4b064c3c6c4E.llvm.1711877461099840233.exit.i" ]
   %37 = getelementptr inbounds [0 x { i64, [18 x i64] }], ptr %33, i64 0, i64 %.07.i.i.i.i
   %38 = add nuw i64 %.07.i.i.i.i, 1
-  tail call fastcc void @"_ZN4core3ptr83drop_in_place$LT$actix_web..http..header..content_disposition..DispositionParam$GT$17h329683974fbbd28dE"(ptr noalias noundef nonnull align 8 dereferenceable(152) %37), !noalias !1014
+  tail call fastcc void @"_ZN4core3ptr83drop_in_place$LT$actix_web..http..header..content_disposition..DispositionParam$GT$17h329683974fbbd28dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %37), !noalias !1014
   %39 = icmp eq i64 %38, %35
   br i1 %39, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8037519596ddcde5E.llvm.1711877461099840233.exit.i.i", label %.lr.ph.i.i.i.i
 
@@ -2529,12 +2529,12 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$actix_multipart..server..Fie
   %63 = landingpad { ptr, i32 }
           cleanup
   %64 = getelementptr inbounds i8, ptr %0, i64 200
-  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5ec704efc0befe2E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(8) %64)
+  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5ec704efc0befe2E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %64)
           to label %"_ZN4core3ptr104drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$actix_multipart..server..InnerField$GT$$GT$$GT$17h30b36bd00bd2d2d9E.exit" unwind label %70
 
 "_ZN4core3ptr55drop_in_place$LT$actix_http..header..map..HeaderMap$GT$17hac4ef59b877dd2f5E.exit": ; preds = %58, %.noexc6, %"_ZN4core3ptr85drop_in_place$LT$actix_web..http..header..content_disposition..ContentDisposition$GT$17h8c9cb11ec493e24bE.exit"
   %65 = getelementptr inbounds i8, ptr %0, i64 200
-  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5ec704efc0befe2E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(8) %65)
+  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5ec704efc0befe2E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %65)
           to label %"_ZN4core3ptr104drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$actix_multipart..server..InnerField$GT$$GT$$GT$17h30b36bd00bd2d2d9E.exit9" unwind label %67
 
 "_ZN4core3ptr104drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$actix_multipart..server..InnerField$GT$$GT$$GT$17h30b36bd00bd2d2d9E.exit": ; preds = %62, %67
@@ -2908,7 +2908,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$actix_multipart..server..Inn
   br i1 %4, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$actix_multipart..server..PayloadRef$GT$$GT$17ha2b789edc12e3fd9E.llvm.1711877461099840233.exit", label %5
 
 5:                                                ; preds = %1
-  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc597bda850a38248E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc597bda850a38248E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
           to label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$actix_multipart..server..PayloadRef$GT$$GT$17ha2b789edc12e3fd9E.llvm.1711877461099840233.exit" unwind label %6
 
 6:                                                ; preds = %5
@@ -2954,7 +2954,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$actix_multipart..server..Inn
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr56drop_in_place$LT$actix_multipart..server..PayloadRef$GT$17hbe197dd66630070cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
-  tail call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc597bda850a38248E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc597bda850a38248E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   ret void
 }
 
@@ -3396,7 +3396,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$actix_http..responses..head.
   br i1 %5, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$$GT$17hb052d993467d4f8fE.llvm.1711877461099840233.exit", label %6
 
 6:                                                ; preds = %2
-  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h0049d9805b9d63f1E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h0049d9805b9d63f1E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
           to label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$$GT$17hb052d993467d4f8fE.llvm.1711877461099840233.exit" unwind label %11
 
 7:                                                ; preds = %1
@@ -3405,7 +3405,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$actix_http..responses..head.
   br i1 %9, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$$GT$17hb052d993467d4f8fE.llvm.1711877461099840233.exit1", label %10
 
 10:                                               ; preds = %7
-  tail call void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h0049d9805b9d63f1E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$17h0049d9805b9d63f1E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   br label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$$GT$17hb052d993467d4f8fE.llvm.1711877461099840233.exit1"
 
 "_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$actix_http..responses..head..ResponseHead$GT$$GT$$GT$17hb052d993467d4f8fE.llvm.1711877461099840233.exit1": ; preds = %7, %10
@@ -3586,7 +3586,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$toki
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h0339e73ee6d08300E.llvm.1711877461099840233"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h0426aa1ed289f165E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorCode$GT$17h0426aa1ed289f165E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
           to label %"_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h0bbb433440e22f9cE.llvm.1711877461099840233.exit" unwind label %3
 
 "_ZN4core3ptr49drop_in_place$LT$serde_json..error..ErrorImpl$GT$17h0bbb433440e22f9cE.llvm.1711877461099840233.exit": ; preds = %1
@@ -4074,7 +4074,7 @@ define hidden void @"_ZN4core3ptr83drop_in_place$LT$core..cell..RefCell$LT$actix
   br i1 %4, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$actix_multipart..server..PayloadRef$GT$$GT$17ha2b789edc12e3fd9E.llvm.1711877461099840233.exit.i.i", label %5
 
 5:                                                ; preds = %1
-  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc597bda850a38248E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc597bda850a38248E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
           to label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$actix_multipart..server..PayloadRef$GT$$GT$17ha2b789edc12e3fd9E.llvm.1711877461099840233.exit.i.i" unwind label %6
 
 6:                                                ; preds = %5
@@ -4128,7 +4128,7 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$acti
   ret void
 
 5:                                                ; preds = %1
-  tail call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc597bda850a38248E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
+  tail call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc597bda850a38248E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   br label %4
 }
 
@@ -4168,7 +4168,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$actix_web..http..header..con
   %.07.i.i.i = phi i64 [ %14, %.lr.ph.i.i.i ], [ 0, %"_ZN4core3ptr82drop_in_place$LT$actix_web..http..header..content_disposition..DispositionType$GT$17h9f73d4b064c3c6c4E.llvm.1711877461099840233.exit" ]
   %13 = getelementptr inbounds [0 x { i64, [18 x i64] }], ptr %9, i64 0, i64 %.07.i.i.i
   %14 = add nuw i64 %.07.i.i.i, 1
-  tail call fastcc void @"_ZN4core3ptr83drop_in_place$LT$actix_web..http..header..content_disposition..DispositionParam$GT$17h329683974fbbd28dE"(ptr noalias noundef nonnull align 8 dereferenceable(152) %13), !noalias !1796
+  tail call fastcc void @"_ZN4core3ptr83drop_in_place$LT$actix_web..http..header..content_disposition..DispositionParam$GT$17h329683974fbbd28dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %13), !noalias !1796
   %15 = icmp eq i64 %14, %11
   br i1 %15, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8037519596ddcde5E.llvm.1711877461099840233.exit.i", label %.lr.ph.i.i.i
 
@@ -4306,7 +4306,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$core..cell..UnsafeCell$LT$ac
   br i1 %4, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$actix_multipart..server..PayloadRef$GT$$GT$17ha2b789edc12e3fd9E.llvm.1711877461099840233.exit.i", label %5
 
 5:                                                ; preds = %1
-  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc597bda850a38248E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc597bda850a38248E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
           to label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$actix_multipart..server..PayloadRef$GT$$GT$17ha2b789edc12e3fd9E.llvm.1711877461099840233.exit.i" unwind label %6
 
 6:                                                ; preds = %5
@@ -4935,7 +4935,7 @@ define hidden void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..
   br i1 %9, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$actix_multipart..server..PayloadRef$GT$$GT$17ha2b789edc12e3fd9E.llvm.1711877461099840233.exit.i.i.i", label %10
 
 10:                                               ; preds = %6
-  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc597bda850a38248E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
+  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc597bda850a38248E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
           to label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$actix_multipart..server..PayloadRef$GT$$GT$17ha2b789edc12e3fd9E.llvm.1711877461099840233.exit.i.i.i" unwind label %11
 
 11:                                               ; preds = %10
@@ -5035,7 +5035,7 @@ define hidden void @"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops.
   %21 = add i64 %20, 1
   store i64 %21, ptr %3, align 8, !alias.scope !2002, !noalias !2005
   %22 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %15, i64 %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false)
   %.pre4 = load i8, ptr %6, align 8, !range !15
   %23 = icmp eq i8 %.pre4, 2
   br i1 %23, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h21fd455b1ca8aadaE.llvm.1711877461099840233.exit", label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h21fd455b1ca8aadaE.llvm.1711877461099840233.exit1.us"
@@ -5061,7 +5061,7 @@ define hidden void @"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops.
   %31 = add i64 %30, 1
   store i64 %31, ptr %3, align 8, !alias.scope !2002, !noalias !2005
   %32 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %12, i64 %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false)
   %.pre = load i8, ptr %6, align 8, !range !15
   %33 = icmp eq i8 %.pre, 2
   br i1 %33, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h21fd455b1ca8aadaE.llvm.1711877461099840233.exit", label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h21fd455b1ca8aadaE.llvm.1711877461099840233.exit1"
@@ -5263,7 +5263,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %.07.i = phi i64 [ %8, %.lr.ph.i ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { i64, [18 x i64] }], ptr %3, i64 0, i64 %.07.i
   %8 = add nuw i64 %.07.i, 1
-  tail call fastcc void @"_ZN4core3ptr83drop_in_place$LT$actix_web..http..header..content_disposition..DispositionParam$GT$17h329683974fbbd28dE"(ptr noalias noundef nonnull align 8 dereferenceable(152) %7)
+  tail call fastcc void @"_ZN4core3ptr83drop_in_place$LT$actix_web..http..header..content_disposition..DispositionParam$GT$17h329683974fbbd28dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %7)
   %9 = icmp eq i64 %8, %5
   br i1 %9, label %"_ZN4core3ptr93drop_in_place$LT$$u5b$actix_web..http..header..content_disposition..DispositionParam$u5d$$GT$17hd5c1861ed1c28cc4E.llvm.1711877461099840233.exit", label %.lr.ph.i
 
@@ -5665,7 +5665,7 @@ define void @"_ZN81_$LT$actix_multipart..server..InnerMultipart$u20$as$u20$core.
   br i1 %4, label %"_ZN4core3ptr64drop_in_place$LT$actix_multipart..server..InnerMultipartItem$GT$17hc08621cc93bb0d2dE.exit", label %5
 
 5:                                                ; preds = %1
-  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5ec704efc0befe2E.llvm.1711877461099840233"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he5ec704efc0befe2E.llvm.1711877461099840233"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
           to label %"_ZN4core3ptr64drop_in_place$LT$actix_multipart..server..InnerMultipartItem$GT$17hc08621cc93bb0d2dE.exit" unwind label %6
 
 6:                                                ; preds = %5

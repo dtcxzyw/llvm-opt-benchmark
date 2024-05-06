@@ -60,7 +60,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -174,7 +174,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_bad_asn1() #1 {
+define internal range(i32 0, 2) i32 @test_bad_asn1() #1 {
 entry:
   %buf = alloca [2048 x i8], align 16
   %buf_ptr = alloca ptr, align 8

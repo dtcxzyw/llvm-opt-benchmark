@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @bf16_to_f32(i16 %0) local_unnamed_addr #0 {
+define range(i32 0, -8388607) i32 @bf16_to_f32(i16 %0) local_unnamed_addr #0 {
   %2 = zext i16 %0 to i64
   %3 = lshr i64 %2, 7
   %4 = and i64 %3, 255
@@ -44,7 +44,7 @@ define i32 @bf16_to_f32(i16 %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %8, %10, %11, %15
   %.0 = phi i64 [ %14, %11 ], [ %21, %15 ], [ 2143289344, %10 ], [ 2143289344, %8 ]
-  %23 = trunc i64 %.0 to i32
+  %23 = trunc nuw i64 %.0 to i32
   ret i32 %23
 }
 

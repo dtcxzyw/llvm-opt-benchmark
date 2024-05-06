@@ -1869,7 +1869,7 @@ define hidden void @rdp_transport_set_udp_conversation(ptr nocapture noundef rea
   %24 = load i32, ptr %0, align 8
   %25 = load i32, ptr %20, align 4
   %26 = load ptr, ptr %11, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 %24, ptr %7, align 8
   %27 = icmp eq i32 %25, 0
   br i1 %27, label %copy_address_wmem.exit, label %28
@@ -2175,7 +2175,7 @@ dissect_rdpNegReq.exit:                           ; preds = %70, %72, %dissect_r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rdp_cc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 9) i32 @dissect_rdp_cc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2308,7 +2308,7 @@ dissect_rdpNegFailure.exit:                       ; preds = %62, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rdp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_rdp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
@@ -2974,7 +2974,7 @@ rdp_get_conversation_data.exit:                   ; preds = %4, %40
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds i8, ptr %1, i64 240
   %54 = load ptr, ptr %53, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   store i32 %50, ptr %48, align 8
   %55 = icmp eq i32 %52, 0
   br i1 %55, label %copy_address_wmem.exit, label %56
@@ -3717,7 +3717,7 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @rdp_udp_conversation_equal_matched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 0, 2) i32 @rdp_udp_conversation_equal_matched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -5041,7 +5041,7 @@ define internal i32 @dissect_rdp_MessageChannelData(ptr noundef %0, ptr noundef 
   %62 = load i32, ptr %41, align 8
   %63 = load i32, ptr %58, align 4
   %64 = load ptr, ptr %42, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 %62, ptr %7, align 8
   %65 = icmp eq i32 %63, 0
   br i1 %65, label %copy_address_wmem.exit, label %66

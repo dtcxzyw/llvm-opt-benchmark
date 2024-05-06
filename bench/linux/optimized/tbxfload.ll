@@ -351,7 +351,7 @@ define dso_local i32 @acpi_unload_parent_table(ptr noundef readonly %0) #3 align
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %21
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw i64 %indvars.iv to i32
   %27 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #5
   %28 = tail call i32 @acpi_tb_unload_table(i32 noundef %26) #5
   %29 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #5

@@ -69,7 +69,7 @@ declare i32 @pthread_sem_take(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @sched_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @pthread_mutex_trytake(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @pthread_mutex_trytake(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %3

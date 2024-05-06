@@ -126,7 +126,7 @@ declare void @memory_global_dirty_log_stop(i32 noundef) local_unnamed_addr #1
 declare void @qemu_mutex_unlock_iothread() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @vcpu_calculate_dirtyrate(i64 noundef %calc_time_ms, ptr nocapture noundef %stat, i32 noundef %flag, i1 noundef zeroext %one_shot) local_unnamed_addr #0 {
+define dso_local range(i64 -18446744073708, 18446744073709) i64 @vcpu_calculate_dirtyrate(i64 noundef %calc_time_ms, ptr nocapture noundef %stat, i32 noundef %flag, i1 noundef zeroext %one_shot) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %rates.i = getelementptr inbounds i8, ptr %stat, i64 8
@@ -300,12 +300,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %25 = load i64, ptr %_now.i.i, align 8
   %26 = load i64, ptr %tv_usec.i.i, align 8
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %25, i64 noundef %26, i32 noundef %27, i64 noundef %div.i47) #12
   br label %trace_dirtyrate_do_calculate_vcpu.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %28, i64 noundef %div.i47) #12
   br label %trace_dirtyrate_do_calculate_vcpu.exit
 
@@ -479,7 +479,7 @@ if.then3.i:                                       ; preds = %if.end
   %call.i.i2.i = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #12
   %div.i3.i = sdiv i64 %call.i.i2.i, 1000000000
   store i64 %div.i3.i, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i64 0, i32 1), align 8
-  %call1.i.i = tail call i64 @vcpu_calculate_dirtyrate(i64 noundef %config.sroa.2.0.copyload, ptr noundef nonnull getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i64 0, i32 4), i32 noundef 2, i1 noundef zeroext true), !range !18
+  %call1.i.i = tail call i64 @vcpu_calculate_dirtyrate(i64 noundef %config.sroa.2.0.copyload, ptr noundef nonnull getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i64 0, i32 4), i32 noundef 2, i1 noundef zeroext true)
   store i64 %call1.i.i, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i64 0, i32 2), align 8
   %11 = load i32, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i64 0, i32 4), align 8
   %cmp1.i.i = icmp sgt i32 %11, 0
@@ -498,7 +498,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %add.i.i = add i64 %13, %dirtyrate_sum.02.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %calculate_dirtyrate_dirty_ring.exit.i, label %for.body.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %calculate_dirtyrate_dirty_ring.exit.i, label %for.body.i.i, !llvm.loop !18
 
 calculate_dirtyrate_dirty_ring.exit.i:            ; preds = %for.body.i.i, %if.then3.i
   %dirtyrate_sum.0.lcssa.i.i = phi i64 [ 0, %if.then3.i ], [ %add.i.i, %for.body.i.i ]
@@ -529,7 +529,7 @@ rcu_read_lock.exit.i.i:                           ; preds = %while.end.i.i.i, %i
   %div.i9.i = sdiv i64 %call.i2.i.i, 1000000000
   store i64 %div.i9.i, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i64 0, i32 1), align 8
   %16 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !19
   %tobool.not22.i.i.i = icmp eq i64 %16, 0
   br i1 %tobool.not22.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
@@ -551,9 +551,9 @@ while.end8.i.i.i:                                 ; preds = %if.else.i.i21.i, %f
   %total_count.1.i.i.i = phi i32 [ %total_count.023.i.i.i, %for.body.i.i.i ], [ %spec.select.i.i.i, %if.else.i.i21.i ]
   %next.i.i10.i = getelementptr inbounds i8, ptr %block.024.i.i.i, i64 336
   %17 = load atomic i64, ptr %next.i.i10.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !20
   %tobool.not.i.i.i = icmp eq i64 %17, 0
-  br i1 %tobool.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !22
+  br i1 %tobool.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !21
 
 for.end.i.i.i:                                    ; preds = %while.end8.i.i.i, %rcu_read_lock.exit.i.i
   %total_count.0.lcssa.i.i.i = phi i32 [ 0, %rcu_read_lock.exit.i.i ], [ %total_count.1.i.i.i, %while.end8.i.i.i ]
@@ -564,7 +564,7 @@ for.end.i.i.i:                                    ; preds = %while.end8.i.i.i, %
 
 while.end18.i.i.i:                                ; preds = %for.end.i.i.i
   %18 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !22
   %tobool21.not26.i.i.i = icmp eq i64 %18, 0
   br i1 %tobool21.not26.i.i.i, label %if.end.i.i, label %for.body22.i.i.i
 
@@ -654,7 +654,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   store i32 %call30.i.i.i.i, ptr %arrayidx33.i.i.i.i, align 4
   %inc.i.i.i.i = add nuw i32 %i.021.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i32 %inc.i.i.i.i, %conv.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !23
 
 for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   tail call void @g_rand_free(ptr noundef %call19.i.i.i.i) #12
@@ -668,9 +668,9 @@ while.end43.i.i.i:                                ; preds = %if.end35.i.i.i, %if
   %index.1.i.i.i = phi i32 [ %index.027.i.i.i, %if.else25.i.i.i ], [ %inc36.i.i.i, %if.end35.i.i.i ], [ %index.027.i.i.i, %for.body22.i.i.i ]
   %next44.i.i.i = getelementptr inbounds i8, ptr %block.128.i.i.i, i64 336
   %29 = load atomic i64, ptr %next44.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !24
   %tobool21.not.i.i.i = icmp eq i64 %29, 0
-  br i1 %tobool21.not.i.i.i, label %if.end.i.i, label %for.body22.i.i.i, !llvm.loop !26
+  br i1 %tobool21.not.i.i.i, label %if.end.i.i, label %for.body22.i.i.i, !llvm.loop !25
 
 if.end.i.i:                                       ; preds = %while.end43.i.i.i, %if.end28.i.i.i, %while.end18.i.i.i
   %index.2.i.ph.i.i = phi i32 [ 0, %while.end18.i.i.i ], [ %index.027.i.i.i, %if.end28.i.i.i ], [ %index.1.i.i.i, %while.end43.i.i.i ]
@@ -742,7 +742,7 @@ while.end.i20.i.i:                                ; preds = %dirty_stat_wait.exi
 
 rcu_read_lock.exit22.i.i:                         ; preds = %while.end.i20.i.i, %dirty_stat_wait.exit.i.i
   %34 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !27
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !26
   %tobool.not34.i.i.i = icmp eq i64 %34, 0
   br i1 %tobool.not34.i.i.i, label %compare_page_hash_info.exit.i.i, label %for.body.lr.ph.i.i.i
 
@@ -770,17 +770,17 @@ for.body.i.i44.i.i:                               ; preds = %if.end.i30.i.i, %fo
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %if.end.i30.i.i ]
   %arrayidx.i.i45.i.i = getelementptr %struct.RamblockDirtyInfo, ptr %call10.i.i.i, i64 %indvars.iv.i.i.i.i
   %call.i.i46.i.i = tail call ptr @qemu_ram_get_idstr(ptr noundef nonnull %block.035.i.i.i) #12
-  %call1.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arrayidx.i.i45.i.i, ptr noundef nonnull dereferenceable(1) %call.i.i46.i.i) #15
+  %call1.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %arrayidx.i.i45.i.i, ptr noundef nonnull dereferenceable(1) %call.i.i46.i.i) #15
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %for.end.loopexit.i.i.i.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i44.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i47.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i47.i.i, label %while.end11.i.i.i, label %for.body.i.i44.i.i, !llvm.loop !28
+  br i1 %exitcond.not.i.i47.i.i, label %while.end11.i.i.i, label %for.body.i.i44.i.i, !llvm.loop !27
 
 for.end.loopexit.i.i.i.i:                         ; preds = %for.body.i.i44.i.i
-  %35 = trunc i64 %indvars.iv.i.i.i.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   br label %for.end.i.i31.i.i
 
 for.end.i.i31.i.i:                                ; preds = %for.end.loopexit.i.i.i.i, %if.end.i30.i.i
@@ -917,7 +917,7 @@ for.inc.i15.i.i.i:                                ; preds = %trace_calc_page_dir
   %conv.i.i42.i.i = sext i32 %inc9.i.i.i.i to i64
   %56 = load i64, ptr %sample_pages_count.i.i38.i.i, align 8
   %cmp.i.i43.i.i = icmp ugt i64 %56, %conv.i.i42.i.i
-  br i1 %cmp.i.i43.i.i, label %for.body.i9.i.i.i, label %calc_page_dirty_rate.exit.i.i.i, !llvm.loop !29
+  br i1 %cmp.i.i43.i.i, label %for.body.i9.i.i.i, label %calc_page_dirty_rate.exit.i.i.i, !llvm.loop !28
 
 calc_page_dirty_rate.exit.i.i.i:                  ; preds = %for.inc.i15.i.i.i, %if.end5.i.i.i
   %57 = phi i64 [ 0, %if.end5.i.i.i ], [ %56, %for.inc.i15.i.i.i ]
@@ -939,9 +939,9 @@ calc_page_dirty_rate.exit.i.i.i:                  ; preds = %for.inc.i15.i.i.i, 
 while.end11.i.i.i:                                ; preds = %for.inc.i.i.i.i, %calc_page_dirty_rate.exit.i.i.i, %find_block_matched.exit.i.i.i, %trace_find_page_matched.exit.i.i.i.i, %for.end.i.i31.i.i, %if.else.i28.i.i, %for.body.i23.i.i
   %next.i25.i.i = getelementptr inbounds i8, ptr %block.035.i.i.i, i64 336
   %63 = load atomic i64, ptr %next.i25.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !30
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !29
   %tobool.not.i26.i.i = icmp eq i64 %63, 0
-  br i1 %tobool.not.i26.i.i, label %compare_page_hash_info.exit.i.i, label %for.body.i23.i.i, !llvm.loop !31
+  br i1 %tobool.not.i26.i.i, label %compare_page_hash_info.exit.i.i, label %for.body.i23.i.i, !llvm.loop !30
 
 compare_page_hash_info.exit.i.i:                  ; preds = %while.end11.i.i.i, %rcu_read_lock.exit22.i.i
   %64 = load i64, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i64 0, i32 4, i32 0, i32 1), align 8
@@ -1013,7 +1013,7 @@ for.body.i64.i.i:                                 ; preds = %for.body.i64.i.i, %
   tail call void @g_free(ptr noundef %71) #12
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %for.end.i63.i.i, label %for.body.i64.i.i, !llvm.loop !32
+  br i1 %exitcond.not.i.i.i, label %for.end.i63.i.i, label %for.body.i64.i.i, !llvm.loop !31
 
 for.end.i63.i.i:                                  ; preds = %for.body.i64.i.i, %for.cond.preheader.i.i.i
   tail call void @g_free(ptr noundef nonnull %call10.i.i.i) #12
@@ -1074,7 +1074,7 @@ return:                                           ; preds = %if.end4, %if.then
 declare void @rcu_register_thread() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @dirtyrate_set_state(i32 noundef %old_state, i32 noundef %new_state) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dirtyrate_set_state(i32 noundef %old_state, i32 noundef %new_state) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @DirtyRateStatus_lookup, i32 noundef %new_state) #12
@@ -1152,7 +1152,7 @@ while.body4.i:                                    ; preds = %if.end, %while.body
   %mul.i = mul i64 %value.addr.115.i, 10
   %sub5.i = add nsw i32 %power.116.i, -1
   %cmp3.i = icmp ugt i32 %power.116.i, 1
-  br i1 %cmp3.i, label %while.body4.i, label %convert_time_unit.exit, !llvm.loop !33
+  br i1 %cmp3.i, label %while.body4.i, label %convert_time_unit.exit, !llvm.loop !32
 
 convert_time_unit.exit:                           ; preds = %while.body4.i, %if.end
   %value.addr.1.lcssa.i = phi i64 [ %calc_time, %if.end ], [ %mul.i, %while.body4.i ]
@@ -1312,7 +1312,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %div.i = sdiv i64 %value.addr.011.i, 10
   %add.i = add nsw i32 %power.012.i, 1
   %exitcond.not.i = icmp eq i32 %add.i, 0
-  br i1 %exitcond.not.i, label %convert_time_unit.exit, label %while.body.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %convert_time_unit.exit, label %while.body.i, !llvm.loop !33
 
 convert_time_unit.exit:                           ; preds = %while.body.i, %entry
   %value.addr.1.lcssa.i = phi i64 [ %3, %entry ], [ %div.i, %while.body.i ]
@@ -1366,7 +1366,7 @@ for.body:                                         ; preds = %if.then5, %for.body
   %12 = load i32, ptr getelementptr inbounds (%struct.DirtyRateStat, ptr @DirtyStat, i64 0, i32 4), align 8
   %13 = sext i32 %12 to i64
   %cmp7 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %cmp7, label %for.body, label %for.end.loopexit, !llvm.loop !35
+  br i1 %cmp7, label %for.body, label %for.end.loopexit, !llvm.loop !34
 
 for.end.loopexit:                                 ; preds = %for.body
   %head.0.head.0.head.0.head.0..pre = load ptr, ptr %head, align 8
@@ -1487,7 +1487,7 @@ for.body:                                         ; preds = %if.then13, %for.bod
   %call17 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.16, i64 noundef %9, i64 noundef %10) #12
   %rate.0 = load ptr, ptr %rate.025, align 8
   %cmp14.not = icmp eq ptr %rate.0, null
-  br i1 %cmp14.not, label %if.end20, label %for.body, !llvm.loop !36
+  br i1 %cmp14.not, label %if.end20, label %for.body, !llvm.loop !35
 
 if.else:                                          ; preds = %if.end
   %call19 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.17) #12
@@ -1711,7 +1711,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %add15.i = add i32 %i.037.i, 4
   %conv.i = zext i32 %add15.i to i64
   %cmp.i = icmp ugt i64 %div16.i, %conv.i
-  br i1 %cmp.i, label %for.body.i, label %compute_page_hash.exit, !llvm.loop !37
+  br i1 %cmp.i, label %for.body.i, label %compute_page_hash.exit, !llvm.loop !36
 
 compute_page_hash.exit:                           ; preds = %for.body.i, %entry
   %v2.0.lcssa.i = phi i64 [ -4417276706812531888, %entry ], [ %mul1.i20.i, %for.body.i ]
@@ -1859,23 +1859,22 @@ attributes #16 = { nounwind allocsize(0) }
 !15 = !{i64 2152973760}
 !16 = distinct !{!16, !8}
 !17 = !{i64 2150191657}
-!18 = !{i64 -18446744073708, i64 18446744073709}
-!19 = distinct !{!19, !8}
-!20 = !{i64 2152940328}
-!21 = !{i64 2152944772}
-!22 = distinct !{!22, !8}
-!23 = !{i64 2152949761}
-!24 = distinct !{!24, !8}
-!25 = !{i64 2152954205}
-!26 = distinct !{!26, !8}
-!27 = !{i64 2152959235}
+!18 = distinct !{!18, !8}
+!19 = !{i64 2152940328}
+!20 = !{i64 2152944772}
+!21 = distinct !{!21, !8}
+!22 = !{i64 2152949761}
+!23 = distinct !{!23, !8}
+!24 = !{i64 2152954205}
+!25 = distinct !{!25, !8}
+!26 = !{i64 2152959235}
+!27 = distinct !{!27, !8}
 !28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = !{i64 2152963679}
+!29 = !{i64 2152963679}
+!30 = distinct !{!30, !8}
 !31 = distinct !{!31, !8}
 !32 = distinct !{!32, !8}
 !33 = distinct !{!33, !8}
 !34 = distinct !{!34, !8}
 !35 = distinct !{!35, !8}
 !36 = distinct !{!36, !8}
-!37 = distinct !{!37, !8}

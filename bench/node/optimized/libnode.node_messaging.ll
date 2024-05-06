@@ -1720,7 +1720,7 @@ do.end18:                                         ; preds = %entry
   store ptr %this, ptr %msg_.i, align 8
   %seen_shared_array_buffers_.i = getelementptr inbounds i8, ptr %delegate, i64 40
   %first_cloned_object_index_.i = getelementptr inbounds i8, ptr %delegate, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %seen_shared_array_buffers_.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %seen_shared_array_buffers_.i, i8 0, i64 48, i1 false)
   store i64 -1, ptr %first_cloned_object_index_.i, align 8
   %2 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v815ValueSerializerC1EPNS_7IsolateEPNS0_8DelegateE(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %2, ptr noundef nonnull %delegate) #26
@@ -6485,7 +6485,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4node6worker11MessagePort15GetTransferModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZNK4node6worker11MessagePort15GetTransferModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #5 align 2 {
 entry:
   %data_.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %data_.i, align 8

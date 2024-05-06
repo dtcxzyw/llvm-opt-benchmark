@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_ecx_key_op = private unnamed_addr constant [16 x i8] c"ossl_ecx_key_op\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ecx_public_from_private(ptr noundef %key) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ecx_public_from_private(ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %key, i64 96
   %0 = load i32, ptr %type, align 8
@@ -90,7 +90,7 @@ declare void @ossl_x448_public_from_private(ptr noundef, ptr noundef) local_unna
 declare i32 @ossl_ed448_public_from_private(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ecx_key_fromdata(ptr noundef %ecx, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ecx_key_fromdata(ptr noundef %ecx, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
 entry:
   %privkeylen = alloca i64, align 8
   %pubkeylen = alloca i64, align 8
@@ -157,7 +157,7 @@ land.lhs.true29:                                  ; preds = %land.lhs.true23
   br i1 %cmp31.not, label %if.end39, label %return
 
 land.lhs.true35:                                  ; preds = %if.end20
-  %call36 = call i32 @ossl_ecx_public_from_private(ptr noundef nonnull %ecx), !range !4
+  %call36 = call i32 @ossl_ecx_public_from_private(ptr noundef nonnull %ecx)
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %return, label %if.end39
 
@@ -438,7 +438,7 @@ if.else101:                                       ; preds = %if.end49
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then52, %if.else86, %if.then89, %if.then76, %if.else101
-  %call116 = call i32 @ossl_ecx_public_from_private(ptr noundef nonnull %call37), !range !4
+  %call116 = call i32 @ossl_ecx_public_from_private(ptr noundef nonnull %call37)
   %tobool.not = icmp eq i32 %call116, 0
   br i1 %tobool.not, label %err.sink.split, label %return
 
@@ -530,4 +530,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

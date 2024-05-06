@@ -437,7 +437,7 @@ define void @_Z18write_eigenvectorsPKciPKfbiiiPA3_S1_bS4_bS2_(ptr noundef %0, i3
   %15 = alloca %"class.std::filesystem::__cxx11::path", align 8
   store ptr %0, ptr %13, align 8
   %16 = mul nsw i32 %1, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %14, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %14, i8 0, i64 36, i1 false)
   %17 = sext i32 %1 to i64
   %18 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 173, i64 noundef %17, i64 noundef 12)
   %19 = load ptr, ptr @stderr, align 8
@@ -555,7 +555,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %24, %27
   %57 = trunc i64 %indvars.iv80 to i32
   %58 = mul i32 %16, %57
   %59 = zext i32 %58 to i64
-  %invariant.gep = getelementptr float, ptr %2, i64 %59
+  %invariant.gep = getelementptr inbounds float, ptr %2, i64 %59
   br label %.preheader.us
 
 60:                                               ; preds = %61
@@ -565,7 +565,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %24, %27
 
 61:                                               ; preds = %.preheader.us, %61
   %indvars.iv71 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next72, %61 ]
-  %62 = getelementptr float, ptr %gep, i64 %indvars.iv71
+  %62 = getelementptr inbounds float, ptr %gep, i64 %indvars.iv71
   %63 = load float, ptr %62, align 4
   %64 = getelementptr inbounds [3 x float], ptr %18, i64 %indvars.iv75, i64 %indvars.iv71
   store float %63, ptr %64, align 4
@@ -576,7 +576,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %24, %27
 .preheader.us:                                    ; preds = %.preheader.lr.ph.us, %60
   %indvars.iv75 = phi i64 [ 0, %.preheader.lr.ph.us ], [ %indvars.iv.next76, %60 ]
   %65 = mul nuw nsw i64 %indvars.iv75, 3
-  %gep = getelementptr float, ptr %invariant.gep, i64 %65
+  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %65
   br label %61
 
 ._crit_edge.us:                                   ; preds = %60

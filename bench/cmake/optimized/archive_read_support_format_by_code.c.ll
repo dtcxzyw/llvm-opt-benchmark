@@ -16,7 +16,7 @@ define dso_local i32 @archive_read_support_format_by_code(ptr noundef %0, i32 no
   %6 = and i32 %1, 16711680
   %7 = add nsw i32 %6, -65536
   %8 = lshr exact i32 %7, 16
-  %trunc = trunc i32 %8 to i16
+  %trunc = trunc nuw i32 %8 to i16
   switch i16 %trunc, label %39 [
     i16 13, label %9
     i16 6, label %11

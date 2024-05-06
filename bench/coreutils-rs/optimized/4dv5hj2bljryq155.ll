@@ -43,7 +43,7 @@ define hidden void @"_ZN118_$LT$clap_builder..builder..value_parser..ValueParser
   %3 = alloca { { [12 x { [2 x i64] }], { i64, i64 } }, {} }, align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %3, ptr noundef nonnull align 8 dereferenceable(192) %1, i64 192, i1 false), !alias.scope !8, !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %3, ptr noundef nonnull readonly align 8 dereferenceable(192) %1, i64 192, i1 false), !alias.scope !8, !noalias !12
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 192
   store i64 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !8, !noalias !15
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 200

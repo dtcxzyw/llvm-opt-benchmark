@@ -115,7 +115,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_AEI = internal constant [17 x i8] c"\11\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\08", align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @finnish_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @finnish_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -975,7 +975,7 @@ declare i32 @eq_s_b(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @slice_from_s(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @r_LONG(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @r_LONG(ptr noundef %0) #0 {
   %2 = tail call i32 @find_among_b(ptr noundef %0, ptr noundef nonnull @a_5, i32 noundef 7) #2
   %.not = icmp ne i32 %2, 0
   %. = zext i1 %.not to i32
@@ -983,7 +983,7 @@ define internal i32 @r_LONG(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @r_VI(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @r_VI(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

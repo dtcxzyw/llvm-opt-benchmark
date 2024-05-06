@@ -65,7 +65,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @overflowgid = external dso_local local_unnamed_addr global i32, align 4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @ksys_msgget(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @ksys_msgget(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.ipc_params, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -179,7 +179,7 @@ declare dso_local i32 @ipcget(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_msgget(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_msgget(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.ipc_params, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
@@ -207,7 +207,7 @@ define dso_local i64 @__x64_sys_msgget(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_msgget(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_msgget(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.ipc_params, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -235,7 +235,7 @@ define dso_local i64 @__ia32_sys_msgget(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_msgctl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_msgctl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -247,7 +247,7 @@ define dso_local i64 @__x64_sys_msgctl(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_msgctl(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msgctl(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.msqid64_ds, align 8
   %5 = alloca %struct.msginfo, align 4
   %6 = trunc i64 %0 to i32
@@ -284,7 +284,7 @@ define internal fastcc i64 @__se_sys_msgctl(i64 noundef %0, i64 noundef %1, i64 
   br i1 %20, label %21, label %msgctl_info.exit
 
 21:                                               ; preds = %18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %22 = getelementptr inbounds i8, ptr %17, i64 676
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds i8, ptr %5, i64 16
@@ -416,7 +416,7 @@ msgctl_info.exit:                                 ; preds = %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_msgctl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_msgctl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -431,7 +431,7 @@ define dso_local i64 @__ia32_sys_msgctl(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_msgctl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_msgctl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -447,7 +447,7 @@ define dso_local i64 @__ia32_compat_sys_msgctl(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @compat_ksys_old_msgctl(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @compat_ksys_old_msgctl(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = and i32 %1, 256
   %5 = and i32 %1, -257
   %6 = tail call fastcc i64 @compat_ksys_msgctl(i32 noundef %0, i32 noundef %5, ptr noundef %2, i32 noundef %4), !range !9
@@ -455,7 +455,7 @@ define dso_local i64 @compat_ksys_old_msgctl(i32 noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @compat_ksys_msgctl(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_msgctl(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.compat_msqid64_ds, align 4
   %6 = alloca %struct.compat_msqid_ds, align 4
   %7 = alloca %struct.msqid64_ds, align 8
@@ -492,7 +492,7 @@ define internal fastcc i64 @compat_ksys_msgctl(i32 noundef %0, i32 noundef %1, p
   br i1 %21, label %22, label %msgctl_info.exit
 
 22:                                               ; preds = %19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %8, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %23 = getelementptr inbounds i8, ptr %14, i64 676
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds i8, ptr %8, i64 16
@@ -606,7 +606,7 @@ msgctl_info.exit:                                 ; preds = %19
   %82 = getelementptr inbounds i8, ptr %5, i64 36
   store i32 %81, ptr %82, align 4
   %83 = lshr i64 %80, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   %85 = getelementptr inbounds i8, ptr %5, i64 40
   store i32 %84, ptr %85, align 4
   %86 = getelementptr inbounds i8, ptr %7, i64 56
@@ -615,7 +615,7 @@ msgctl_info.exit:                                 ; preds = %19
   %89 = getelementptr inbounds i8, ptr %5, i64 44
   store i32 %88, ptr %89, align 4
   %90 = lshr i64 %87, 32
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw i64 %90 to i32
   %92 = getelementptr inbounds i8, ptr %5, i64 48
   store i32 %91, ptr %92, align 4
   %93 = getelementptr inbounds i8, ptr %7, i64 64
@@ -624,7 +624,7 @@ msgctl_info.exit:                                 ; preds = %19
   %96 = getelementptr inbounds i8, ptr %5, i64 52
   store i32 %95, ptr %96, align 4
   %97 = lshr i64 %94, 32
-  %98 = trunc i64 %97 to i32
+  %98 = trunc nuw i64 %97 to i32
   %99 = getelementptr inbounds i8, ptr %5, i64 56
   store i32 %98, ptr %99, align 4
   %100 = getelementptr inbounds i8, ptr %7, i64 72
@@ -757,7 +757,7 @@ msgctl_info.exit:                                 ; preds = %19
 
 190:                                              ; preds = %178, %163
   %191 = phi i64 [ %186, %178 ], [ %171, %163 ]
-  %192 = trunc i64 %191 to i32
+  %192 = trunc nuw i64 %191 to i32
   %193 = call fastcc i32 @msgctl_down(ptr noundef %14, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %7, i32 noundef %192)
   %194 = sext i32 %193 to i64
   br label %198
@@ -774,7 +774,7 @@ msgctl_info.exit:                                 ; preds = %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_old_msgctl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_old_msgctl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88

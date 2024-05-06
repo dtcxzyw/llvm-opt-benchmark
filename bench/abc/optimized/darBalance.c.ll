@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [24 x i8] c"There is no EXOR gates.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Dar_ObjCompareLits(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define range(i32 -1, 2) i32 @Dar_ObjCompareLits(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
@@ -541,7 +541,7 @@ Dar_BalanceUniqify.exit:                          ; preds = %96, %108, %87, %Vec
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Dar_BalanceFindLeft(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 -2147483647, 2147483646) i32 @Dar_BalanceFindLeft(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val16 = load i32, ptr %2, align 4
   %3 = icmp slt i32 %.val16, 3
@@ -583,7 +583,7 @@ define i32 @Dar_BalanceFindLeft(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %25, label %15, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge.split.loop.exit26:                    ; preds = %15
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = add nsw i32 %26, 1
   br label %._crit_edge
 
@@ -721,7 +721,7 @@ Aig_ObjCreateGhost.exit:                          ; preds = %53, %58
 declare ptr @Aig_TableLookup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Aig_NodeCompareLevelsDecrease(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define range(i32 -1, 2) i32 @Aig_NodeCompareLevelsDecrease(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
@@ -729,7 +729,7 @@ define i32 @Aig_NodeCompareLevelsDecrease(ptr nocapture noundef readonly %0, ptr
   %7 = getelementptr i8, ptr %6, i64 24
   %.val12 = load i64, ptr %7, align 8
   %8 = lshr i64 %.val12, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   %10 = and i32 %9, 16777215
   %11 = load ptr, ptr %1, align 8
   %12 = ptrtoint ptr %11 to i64
@@ -738,7 +738,7 @@ define i32 @Aig_NodeCompareLevelsDecrease(ptr nocapture noundef readonly %0, ptr
   %15 = getelementptr i8, ptr %14, i64 24
   %.val11 = load i64, ptr %15, align 8
   %16 = lshr i64 %.val11, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   %18 = and i32 %17, 16777215
   %19 = sub nsw i32 %10, %18
   %20 = icmp sgt i32 %19, 0
@@ -854,7 +854,7 @@ Vec_PtrPushUnique.exit:                           ; preds = %10
 
 .preheader:                                       ; preds = %Vec_PtrPushUnique.exit, %40
   %indvars.iv.i22 = phi i64 [ %41, %40 ], [ %wide.trip.count.i, %Vec_PtrPushUnique.exit ]
-  %38 = trunc i64 %indvars.iv.i22 to i32
+  %38 = trunc nuw i64 %indvars.iv.i22 to i32
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %40, label %45
 
@@ -925,7 +925,7 @@ Vec_PtrRemove.exit:                               ; preds = %48, %45
   %76 = getelementptr i8, ptr %75, i64 24
   %.val21 = load i64, ptr %76, align 8
   %77 = lshr i64 %.val21, 32
-  %78 = trunc i64 %77 to i32
+  %78 = trunc nuw i64 %77 to i32
   %79 = and i32 %78, 16777215
   %80 = ptrtoint ptr %72 to i64
   %81 = and i64 %80, -2
@@ -933,7 +933,7 @@ Vec_PtrRemove.exit:                               ; preds = %48, %45
   %83 = getelementptr i8, ptr %82, i64 24
   %.val = load i64, ptr %83, align 8
   %84 = lshr i64 %.val, 32
-  %85 = trunc i64 %84 to i32
+  %85 = trunc nuw i64 %84 to i32
   %86 = and i32 %85, 16777215
   %.not19 = icmp ugt i32 %79, %86
   br i1 %.not19, label %87, label %.loopexit
@@ -1033,7 +1033,7 @@ Dar_BalanceFindLeft.exit.us:                      ; preds = %.lr.ph, %Dar_Balanc
   br i1 %50, label %40, label %Dar_BalanceFindLeft.exit, !llvm.loop !7
 
 ._crit_edge.split.loop.exit26.i:                  ; preds = %40
-  %51 = trunc i64 %indvars.iv.i to i32
+  %51 = trunc nuw nsw i64 %indvars.iv.i to i32
   %52 = add nsw i32 %51, 1
   br label %Dar_BalanceFindLeft.exit
 
@@ -1085,7 +1085,7 @@ Dar_BalanceFindLeft.exit:                         ; preds = %49, %._crit_edge.sp
 declare ptr @Aig_Oper(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Aig_BaseSize(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 -2147483648, 2147483647) i32 @Aig_BaseSize(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
@@ -1097,7 +1097,7 @@ define i32 @Aig_BaseSize(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
 
 9:                                                ; preds = %3
   %10 = lshr i64 %.val13, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   %12 = and i32 %11, 16777215
   %.not11 = icmp slt i32 %12, %2
   br i1 %.not11, label %13, label %15
@@ -1181,7 +1181,7 @@ Vec_PtrSort.exit:                                 ; preds = %5
 
 35:                                               ; preds = %.lr.ph
   %36 = lshr i64 %.val13.i, 32
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw i64 %36 to i32
   %38 = and i32 %37, 16777215
   %.not11.i = icmp slt i32 %38, %4
   br i1 %.not11.i, label %39, label %Aig_BaseSize.exit
@@ -1262,7 +1262,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %68 = sext i32 %.val32 to i64
   %69 = getelementptr inbounds ptr, ptr %66, i64 %68
   store ptr %29, ptr %69, align 8
-  %70 = trunc i64 %indvars.iv to i32
+  %70 = trunc nuw i64 %indvars.iv to i32
   %71 = icmp sgt i32 %70, 1
   br i1 %71, label %.lr.ph, label %Vec_PtrPush.exit..critedge.loopexit_crit_edge, !llvm.loop !14
 
@@ -1416,10 +1416,10 @@ define ptr @Dar_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #20
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #20
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #19
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %6) #17
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %6) #17
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %7
@@ -1431,10 +1431,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %7
   br i1 %.not.i187, label %Abc_UtilStrsav.exit188, label %15
 
 15:                                               ; preds = %Abc_UtilStrsav.exit
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #20
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #20
   %17 = add i64 %16, 1
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #19
-  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %14) #17
+  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %14) #17
   br label %Abc_UtilStrsav.exit188
 
 Abc_UtilStrsav.exit188:                           ; preds = %Abc_UtilStrsav.exit, %15
@@ -1597,9 +1597,9 @@ Vec_IntDup.exit:                                  ; preds = %36, %41
   %109 = getelementptr inbounds i8, ptr %108, i64 24
   %110 = load i64, ptr %109, align 8
   %111 = lshr i64 %110, 32
-  %112 = trunc i64 %111 to i32
+  %112 = trunc nuw i64 %111 to i32
   %113 = and i32 %112, 16777215
-  %114 = uitofp i32 %113 to float
+  %114 = uitofp nneg i32 %113 to float
   %115 = load ptr, ptr %58, align 8
   %.val179 = load i32, ptr %71, align 8
   tail call void @Tim_ManSetCoArrival(ptr noundef %115, i32 noundef %.val179, float noundef %114) #17
@@ -2246,7 +2246,7 @@ define void @Dar_BalancePrintStats(ptr nocapture noundef readonly %0) local_unna
   %67 = getelementptr inbounds i8, ptr %66, i64 24
   %68 = load i64, ptr %67, align 8
   %69 = lshr i64 %68, 32
-  %70 = trunc i64 %69 to i32
+  %70 = trunc nuw i64 %69 to i32
   %71 = and i32 %70, 16777215
   %72 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %71)
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1

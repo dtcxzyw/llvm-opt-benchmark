@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [47 x i8] c"Clamd successfully notified about the update.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @clamd_connect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -11, -2147483648) i32 @clamd_connect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.sockaddr_un, align 2
   %4 = alloca %struct.addrinfo, align 8
   %5 = alloca ptr, align 8
@@ -262,9 +262,9 @@ declare ptr @gai_strerror(i32 noundef) local_unnamed_addr #4
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @notify(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @notify(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [20 x i8], align 16
-  %3 = tail call i32 @clamd_connect(ptr noundef %0, ptr noundef nonnull @.str.13), !range !5
+  %3 = tail call i32 @clamd_connect(ptr noundef %0, ptr noundef nonnull @.str.13)
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %26, label %5
 
@@ -334,4 +334,3 @@ attributes #10 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -11, i32 -2147483648}

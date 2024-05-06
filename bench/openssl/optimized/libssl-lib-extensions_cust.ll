@@ -101,7 +101,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @custom_ext_parse(ptr noundef %s, i32 noundef %context, i32 noundef %ext_type, ptr noundef %ext_data, i64 noundef %ext_size, ptr noundef %x, i64 noundef %chainidx) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @custom_ext_parse(ptr noundef %s, i32 noundef %context, i32 noundef %ext_type, ptr noundef %ext_data, i64 noundef %ext_size, ptr noundef %x, i64 noundef %chainidx) local_unnamed_addr #2 {
 entry:
   %al = alloca i32, align 4
   store i32 0, ptr %al, align 4
@@ -244,7 +244,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ossl_statem_fatal(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @custom_ext_add(ptr noundef %s, i32 noundef %context, ptr noundef %pkt, ptr noundef %x, i64 noundef %chainidx, i32 noundef %maxversion) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %s, i32 noundef %context, ptr noundef %pkt, ptr noundef %x, i64 noundef %chainidx, i32 noundef %maxversion) local_unnamed_addr #2 {
 entry:
   %al = alloca i32, align 4
   %out = alloca ptr, align 8
@@ -543,7 +543,7 @@ for.end:                                          ; preds = %for.inc, %for.body.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @custom_exts_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @custom_exts_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #2 {
 entry:
   %meths_count = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load i64, ptr %meths_count, align 8
@@ -741,7 +741,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @SSL_CTX_has_client_custom_ext(ptr nocapture noundef readonly %ctx, i32 noundef %ext_type) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @SSL_CTX_has_client_custom_ext(ptr nocapture noundef readonly %ctx, i32 noundef %ext_type) local_unnamed_addr #5 {
 entry:
   %cert = getelementptr inbounds i8, ptr %ctx, i64 344
   %0 = load ptr, ptr %cert, align 8
@@ -783,7 +783,7 @@ custom_ext_find.exit:                             ; preds = %land.lhs.true.i, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_tls_add_custom_ext_intern(ptr noundef %ctx, ptr noundef %exts, i32 noundef %role, i32 noundef %ext_type, i32 noundef %context, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_tls_add_custom_ext_intern(ptr noundef %ctx, ptr noundef %exts, i32 noundef %role, i32 noundef %ext_type, i32 noundef %context, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %add_cb, null
   %cmp1 = icmp ne ptr %free_cb, null
@@ -818,7 +818,7 @@ land.lhs.true10:                                  ; preds = %land.lhs.true6
   br i1 %tobool.not, label %if.end12, label %return
 
 if.end12:                                         ; preds = %land.lhs.true10, %land.lhs.true6, %if.end4
-  %call13 = tail call i32 @SSL_extension_supported(i32 noundef %ext_type), !range !12
+  %call13 = tail call i32 @SSL_extension_supported(i32 noundef %ext_type)
   %tobool14 = icmp ne i32 %call13, 0
   %cmp16 = icmp ne i32 %ext_type, 18
   %or.cond2 = and i1 %cmp16, %tobool14
@@ -895,7 +895,7 @@ if.end29:                                         ; preds = %if.end25
   store ptr %add_cb, ptr %add_cb36, align 8
   %free_cb37 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   store ptr %free_cb, ptr %free_cb37, align 8
-  %conv = trunc i32 %ext_type to i16
+  %conv = trunc nuw i32 %ext_type to i16
   store i16 %conv, ptr %add.ptr, align 8
   %add_arg39 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   store ptr %add_arg, ptr %add_arg39, align 8
@@ -914,7 +914,7 @@ return:                                           ; preds = %land.lhs.true.i, %f
 declare i32 @SSL_CTX_ct_is_enabled(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @SSL_extension_supported(i32 noundef %ext_type) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @SSL_extension_supported(i32 noundef %ext_type) local_unnamed_addr #6 {
 entry:
   switch i32 %ext_type, label %sw.default [
     i32 16, label %return
@@ -960,14 +960,14 @@ declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SSL_CTX_add_client_custom_ext(ptr noundef %ctx, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @SSL_CTX_add_client_custom_ext(ptr noundef %ctx, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc i32 @add_old_custom_ext(ptr noundef %ctx, i32 noundef 0, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @add_old_custom_ext(ptr noundef %ctx, i32 noundef %role, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @add_old_custom_ext(ptr noundef %ctx, i32 noundef %role, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) unnamed_addr #2 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 433) #8
   %call1 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 435) #8
@@ -990,7 +990,7 @@ if.end:                                           ; preds = %entry
   store ptr %parse_arg, ptr %call1, align 8
   %parse_cb7 = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %parse_cb, ptr %parse_cb7, align 8
-  %call8 = tail call i32 @ossl_tls_add_custom_ext_intern(ptr noundef %ctx, ptr noundef null, i32 noundef %role, i32 noundef %ext_type, i32 noundef 464, ptr noundef nonnull @custom_ext_add_old_cb_wrap, ptr noundef nonnull @custom_ext_free_old_cb_wrap, ptr noundef nonnull %call, ptr noundef nonnull @custom_ext_parse_old_cb_wrap, ptr noundef nonnull %call1), !range !12
+  %call8 = tail call i32 @ossl_tls_add_custom_ext_intern(ptr noundef %ctx, ptr noundef null, i32 noundef %role, i32 noundef %ext_type, i32 noundef 464, ptr noundef nonnull @custom_ext_add_old_cb_wrap, ptr noundef nonnull @custom_ext_free_old_cb_wrap, ptr noundef nonnull %call, ptr noundef nonnull @custom_ext_parse_old_cb_wrap, ptr noundef nonnull %call1)
   %tobool.not = icmp eq i32 %call8, 0
   br i1 %tobool.not, label %if.then9, label %return
 
@@ -1005,16 +1005,16 @@ return:                                           ; preds = %if.end, %if.then9, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SSL_CTX_add_server_custom_ext(ptr noundef %ctx, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @SSL_CTX_add_server_custom_ext(ptr noundef %ctx, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc i32 @add_old_custom_ext(ptr noundef %ctx, i32 noundef 1, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SSL_CTX_add_custom_ext(ptr noundef %ctx, i32 noundef %ext_type, i32 noundef %context, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @SSL_CTX_add_custom_ext(ptr noundef %ctx, i32 noundef %ext_type, i32 noundef %context, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
 entry:
-  %call = tail call i32 @ossl_tls_add_custom_ext_intern(ptr noundef %ctx, ptr noundef null, i32 noundef 2, i32 noundef %ext_type, i32 noundef %context, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg), !range !12
+  %call = tail call i32 @ossl_tls_add_custom_ext_intern(ptr noundef %ctx, ptr noundef null, i32 noundef 2, i32 noundef %ext_type, i32 noundef %context, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg)
   ret i32 %call
 }
 
@@ -1079,4 +1079,3 @@ attributes #8 = { nounwind }
 !9 = !{!"llvm.loop.unswitch.partial.disable"}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 0, i32 2}

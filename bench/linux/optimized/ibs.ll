@@ -111,7 +111,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_amd_ibs_init419, ptr @__UNIQUE_ID___addressable_get_ibs_caps414, ptr @_kbl_addr_perf_ibs_nmi_handler, ptr @force_ibs_eilvt_setup.__UNIQUE_ID___addressable___SCK__preempt_schedule416, ptr @force_ibs_eilvt_setup.__UNIQUE_ID___addressable___SCK__preempt_schedule417, ptr @ibs_eilvt_valid.__UNIQUE_ID___addressable___SCK__preempt_schedule415], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @forward_event_to_ibs(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, -1) i32 @forward_event_to_ibs(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load i64, ptr %3, align 8
@@ -166,7 +166,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @perf_ibs_nmi_handler(i32 %0, ptr noundef %1) #2 align 16 {
+define internal range(i32 0, 3) i32 @perf_ibs_nmi_handler(i32 %0, ptr noundef %1) #2 align 16 {
   %3 = tail call i64 @sched_clock() #19
   %4 = tail call fastcc i32 @perf_ibs_handle_irq(ptr noundef nonnull @perf_ibs_fetch, ptr noundef %1), !range !6
   %5 = tail call fastcc i32 @perf_ibs_handle_irq(ptr noundef nonnull @perf_ibs_op, ptr noundef %1), !range !6
@@ -217,7 +217,7 @@ define internal i32 @amd_ibs_init() #4 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define internal noundef i32 @perf_ibs_init(ptr noundef %0) #5 align 16 {
+define internal noundef range(i32 -95, 1) i32 @perf_ibs_init(ptr noundef %0) #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 360
   %3 = getelementptr inbounds i8, ptr %0, i64 216
   %4 = load i32, ptr %3, align 8
@@ -347,7 +347,7 @@ define internal noundef i32 @perf_ibs_init(ptr noundef %0) #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @perf_ibs_add(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define internal noundef range(i32 -28, 1) i32 @perf_ibs_add(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 368
@@ -755,7 +755,7 @@ define internal void @perf_ibs_read(ptr nocapture readnone %0) #6 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define internal i64 @get_ibs_op_count(i64 noundef %0) #3 align 16 {
+define internal range(i64 0, 134217728) i64 @get_ibs_op_count(i64 noundef %0) #3 align 16 {
   %2 = and i64 %0, 262144
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %13, label %4
@@ -790,7 +790,7 @@ define internal i64 @get_ibs_op_count(i64 noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @get_ibs_fetch_count(i64 noundef %0) #6 align 16 {
+define internal noundef range(i64 0, 1048561) i64 @get_ibs_fetch_count(i64 noundef %0) #6 align 16 {
   %2 = lshr i64 %0, 12
   %3 = and i64 %2, 1048560
   ret i64 %3
@@ -815,7 +815,7 @@ declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef)
 declare dso_local i64 @sched_clock() local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @perf_ibs_handle_irq(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 2) i32 @perf_ibs_handle_irq(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = alloca %struct.perf_sample_data, align 64
   %4 = alloca %struct.perf_raw_record, align 8
   %5 = alloca %struct.pt_regs, align 8
@@ -1788,7 +1788,7 @@ define internal fastcc void @ibs_eilvt_setup() unnamed_addr #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ibs_eilvt_valid() unnamed_addr #11 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ibs_eilvt_valid() unnamed_addr #11 align 16 {
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #19, !srcloc !47
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !57
   %1 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 -1073672134) #19, !srcloc !30

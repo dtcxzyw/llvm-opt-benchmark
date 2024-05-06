@@ -92,12 +92,12 @@ $_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
 @.str.6 = private unnamed_addr constant [34 x i8] c"Wavefront integrator statistics:\0A\00", align 1
 @.str.7 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 @.str.8 = private unnamed_addr constant [18 x i8] c"Memory/Primitives\00", align 1
-@_ZN4pbrtL15primitiveMemoryE = internal thread_local global i64 0, align 8
+@_ZN4pbrtL15primitiveMemoryE = internal thread_local unnamed_addr global i64 0, align 8
 @.str.9 = private unnamed_addr constant [42 x i8] c"Memory/Redundant vertex and index buffers\00", align 1
-@_ZN4pbrtL20redundantBufferBytesE = internal thread_local global i64 0, align 8
+@_ZN4pbrtL20redundantBufferBytesE = internal thread_local unnamed_addr global i64 0, align 8
 @.str.10 = private unnamed_addr constant [27 x i8] c"Geometry/Buffer cache hits\00", align 1
-@_ZN4pbrtL16nBufferCacheHitsE = internal thread_local global i64 0, align 8
-@_ZN4pbrtL19nBufferCacheLookupsE = internal thread_local global i64 0, align 8
+@_ZN4pbrtL16nBufferCacheHitsE = internal thread_local unnamed_addr global i64 0, align 8
+@_ZN4pbrtL19nBufferCacheLookupsE = internal thread_local unnamed_addr global i64 0, align 8
 @.str.14 = private unnamed_addr constant [115 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/pbrt-v4/pbrt-v4/src/pbrt/util/print.h\00", align 1
 @.str.15 = private unnamed_addr constant [42 x i8] c"Non-integral type provided for %* format.\00", align 1
 @.str.16 = private unnamed_addr constant [39 x i8] c"Non-integral type passed to %d format.\00", align 1
@@ -273,7 +273,7 @@ invoke.cont6:                                     ; preds = %if.end
   %and.i.i.i = and i64 %14, 144115188075855871
   %15 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %14, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i.i.i [
     i32 1, label %sw.bb.i.i.i
     i32 2, label %sw.bb1.i.i.i

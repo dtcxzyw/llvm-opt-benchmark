@@ -9,7 +9,7 @@ entry:
   %div = udiv i64 %millis, 1000
   %conv = trunc i64 %div to i32
   %rem = urem i64 %millis, 1000
-  %0 = trunc i64 %rem to i32
+  %0 = trunc nuw nsw i64 %rem to i32
   %conv1 = mul nuw nsw i32 %0, 1000
   %call = tail call i32 @sleep(i32 noundef %conv) #2
   %call2 = tail call i32 @usleep(i32 noundef %conv1) #2

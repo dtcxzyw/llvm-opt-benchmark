@@ -109,7 +109,7 @@ define dso_local i32 @pg_regexec(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %scevgep.i = getelementptr i8, ptr %.sink223227, i64 16
   %54 = shl i64 %44, 4
   %55 = add i64 %54, -16
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 -1, i64 %55, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i, i8 -1, i64 %55, i1 false)
   %.pre = load ptr, ptr %26, align 8
   br label %zapallsubs.exit
 
@@ -123,7 +123,7 @@ define dso_local i32 @pg_regexec(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %scevgep.i187 = getelementptr i8, ptr %6, i64 16
   %58 = shl i64 %5, 4
   %59 = add i64 %58, -16
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i187, i8 -1, i64 %59, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i187, i8 -1, i64 %59, i1 false)
   br label %zapallsubs.exit188
 
 zapallsubs.exit188:                               ; preds = %56, %.lr.ph.preheader.i186, %.thread
@@ -280,7 +280,7 @@ zapallsubs.exit:                                  ; preds = %.lr.ph.preheader.i,
   %scevgep.i191 = getelementptr i8, ptr %6, i64 16
   %132 = shl i64 %.1144, 4
   %133 = add i64 %132, -16
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i191, i8 -1, i64 %133, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %scevgep.i191, i8 -1, i64 %133, i1 false)
   br label %zapallsubs.exit192
 
 zapallsubs.exit192:                               ; preds = %.lr.ph.preheader.i190, %99, %92, %80, %119, %127
@@ -3101,7 +3101,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
   br label %.backedge
 
 .backedge.loopexit:                               ; preds = %398, %403
-  %375 = trunc i64 %indvars.iv to i32
+  %375 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.loopexit, %373
@@ -3438,7 +3438,7 @@ define internal fastcc ptr @miss(ptr nocapture noundef %0, ptr nocapture noundef
   %44 = lshr i64 %indvars.iv289, 5
   %45 = getelementptr i32, ptr %43, i64 %44
   %46 = load i32, ptr %45, align 4
-  %47 = trunc i64 %indvars.iv289 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv289 to i32
   %48 = and i32 %47, 31
   %49 = shl nuw i32 1, %48
   %50 = and i32 %46, %49
@@ -3606,7 +3606,7 @@ define internal fastcc ptr @miss(ptr nocapture noundef %0, ptr nocapture noundef
   %131 = lshr i64 %indvars.iv292, 5
   %132 = getelementptr i32, ptr %130, i64 %131
   %133 = load i32, ptr %132, align 4
-  %134 = trunc i64 %indvars.iv292 to i32
+  %134 = trunc nuw nsw i64 %indvars.iv292 to i32
   %135 = and i32 %134, 31
   %136 = shl nuw i32 1, %135
   %137 = and i32 %133, %136

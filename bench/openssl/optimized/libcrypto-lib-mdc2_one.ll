@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @MDC2.m = internal global [16 x i8] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define ptr @MDC2(ptr noundef %d, i64 noundef %n, ptr noundef %md) local_unnamed_addr #0 {
+define noundef ptr @MDC2(ptr noundef %d, i64 noundef %n, ptr noundef %md) local_unnamed_addr #0 {
 entry:
   %c = alloca %struct.mdc2_ctx_st, align 4
   %call = call i32 @MDC2_Init(ptr noundef nonnull %c) #2

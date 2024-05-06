@@ -42,7 +42,7 @@ entry:
 declare void @read_very_early_config(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tr2_sysenv_cb(ptr noundef %key, ptr noundef %value, ptr nocapture readnone %ctx, ptr nocapture readnone %d) #0 {
+define internal range(i32 -1, 1) i32 @tr2_sysenv_cb(ptr noundef %key, ptr noundef %value, ptr nocapture readnone %ctx, ptr nocapture readnone %d) #0 {
 entry:
   %call = tail call i32 @starts_with(ptr noundef %key, ptr noundef nonnull @.str.2) #6
   %tobool.not = icmp eq i32 %call, 0

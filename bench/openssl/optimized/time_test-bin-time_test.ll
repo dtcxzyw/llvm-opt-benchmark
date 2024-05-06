@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [4 x i8] c"999\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_time_to_timeval) #2
   ret i32 1
@@ -23,7 +23,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_time_to_timeval() #0 {
+define internal range(i32 0, 2) i32 @test_time_to_timeval() #0 {
 entry:
   %call4 = tail call i32 @test_long_eq(ptr noundef nonnull @.str.1, i32 noundef 21, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 0) #2
   %tobool.not = icmp eq i32 %call4, 0

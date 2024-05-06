@@ -198,7 +198,7 @@ $_ZTIN9grpc_core26DelegatingServerCallTracerE = comdat any
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @.str.3 = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/promise/context.h\00", align 1
 @.str.4 = private unnamed_addr constant [13 x i8] c"p != nullptr\00", align 1
-@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @_ZTVN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE, ptr @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEED2Ev, ptr @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEED0Ev] }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE = linkonce_odr constant [69 x i8] c"N9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracerEEE\00", comdat, align 1

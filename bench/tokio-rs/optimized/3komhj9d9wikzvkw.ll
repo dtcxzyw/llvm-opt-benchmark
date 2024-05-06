@@ -1630,7 +1630,7 @@ define internal fastcc void @"_ZN4core3ptr166drop_in_place$LT$tokio..loom..std..
 7:                                                ; preds = %5
   %8 = getelementptr inbounds [0 x ptr], ptr %.val.i.i.i, i64 0, i64 %.0.i.i.i.i.i
   %9 = add i64 %.0.i.i.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$17h7b829af774b9145eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
+  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$17h7b829af774b9145eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
           to label %5 unwind label %12, !noalias !462
 
 10:                                               ; preds = %14, %12
@@ -1646,7 +1646,7 @@ define internal fastcc void @"_ZN4core3ptr166drop_in_place$LT$tokio..loom..std..
 14:                                               ; preds = %10
   %15 = getelementptr inbounds [0 x ptr], ptr %.val.i.i.i, i64 0, i64 %.1.i.i.i.i.i
   %16 = add i64 %.1.i.i.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$17h7b829af774b9145eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15) #20
+  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$17h7b829af774b9145eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15) #20
           to label %10 unwind label %17, !noalias !462
 
 17:                                               ; preds = %14

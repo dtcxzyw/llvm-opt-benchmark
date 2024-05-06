@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [10 x i8] c"timestamp\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_event_build_dict(ptr noundef %event_name) local_unnamed_addr #0 {
+define dso_local noundef ptr @qmp_event_build_dict(ptr noundef %event_name) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qdict_new() #2
   tail call void @qdict_put_str(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef %event_name) #2

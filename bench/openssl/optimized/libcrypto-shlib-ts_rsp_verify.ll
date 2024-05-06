@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [14 x i8] c"systemFailure\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_RESP_verify_signature(ptr noundef %token, ptr noundef %certs, ptr noundef %store, ptr noundef writeonly %signer_out) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_verify_signature(ptr noundef %token, ptr noundef %certs, ptr noundef %store, ptr noundef writeonly %signer_out) local_unnamed_addr #0 {
 entry:
   %chain = alloca ptr, align 8
   %buf = alloca [4096 x i8], align 16
@@ -129,13 +129,13 @@ lor.lhs.false36:                                  ; preds = %lor.lhs.false33
   br i1 %tobool40.not, label %err, label %if.end42
 
 if.end42:                                         ; preds = %lor.lhs.false36
-  %call43 = call fastcc i32 @ts_verify_cert(ptr noundef %store, ptr noundef nonnull %call31, ptr noundef %call25, ptr noundef nonnull %chain), !range !4
+  %call43 = call fastcc i32 @ts_verify_cert(ptr noundef %store, ptr noundef nonnull %call31, ptr noundef %call25, ptr noundef nonnull %chain)
   %tobool44.not = icmp eq i32 %call43, 0
   %.pre = load ptr, ptr %chain, align 8
   br i1 %tobool44.not, label %err, label %if.end46
 
 if.end46:                                         ; preds = %if.end42
-  %call47 = tail call fastcc i32 @ts_check_signing_certs(ptr noundef %call11, ptr noundef %.pre), !range !4
+  %call47 = tail call fastcc i32 @ts_check_signing_certs(ptr noundef %call11, ptr noundef %.pre)
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %err, label %if.end50
 
@@ -146,7 +146,7 @@ if.end50:                                         ; preds = %if.end46
 while.cond:                                       ; preds = %while.cond, %if.end50
   %call52 = call i32 @BIO_read(ptr noundef %call51, ptr noundef nonnull %buf, i32 noundef 4096) #7
   %cmp53 = icmp sgt i32 %call52, 0
-  br i1 %cmp53, label %while.cond, label %while.end, !llvm.loop !5
+  br i1 %cmp53, label %while.cond, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %while.cond
   %call54 = call i32 @PKCS7_signatureVerify(ptr noundef %call51, ptr noundef nonnull %token, ptr noundef %call11, ptr noundef %call25) #7
@@ -204,7 +204,7 @@ declare ptr @OPENSSL_sk_new_reserve(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @X509_add_certs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ts_verify_cert(ptr noundef %store, ptr noundef %untrusted, ptr noundef %signer, ptr nocapture noundef writeonly %chain) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ts_verify_cert(ptr noundef %store, ptr noundef %untrusted, ptr noundef %signer, ptr nocapture noundef writeonly %chain) unnamed_addr #0 {
 entry:
   store ptr null, ptr %chain, align 8
   %call = tail call ptr @X509_STORE_CTX_new() #7
@@ -249,7 +249,7 @@ end:                                              ; preds = %if.then, %if.then7,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ts_check_signing_certs(ptr noundef %si, ptr noundef %chain) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ts_check_signing_certs(ptr noundef %si, ptr noundef %chain) unnamed_addr #0 {
 entry:
   %p.i4 = alloca ptr, align 8
   %p.i = alloca ptr, align 8
@@ -314,7 +314,7 @@ declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_RESP_verify_response(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %response) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_verify_response(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %response) local_unnamed_addr #0 {
 entry:
   %failure_text.i = alloca [256 x i8], align 16
   %token1 = getelementptr inbounds i8, ptr %response, i64 8
@@ -389,7 +389,7 @@ for.inc.i:                                        ; preds = %if.end27.i, %for.bo
   %first.2.i = phi i32 [ 0, %if.end27.i ], [ %first.02.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %if.end34.i, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %if.end34.i, label %for.body.i, !llvm.loop !6
 
 if.end34.i:                                       ; preds = %for.inc.i
   %.pre.i = load i8, ptr %failure_text.i, align 16
@@ -415,7 +415,7 @@ ts_check_status_info.exit.thread:                 ; preds = %if.end41.i, %land.l
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %failure_text.i)
-  %call3 = tail call fastcc i32 @int_ts_RESP_verify_token(ptr noundef %ctx, ptr noundef %0, ptr noundef %1), !range !4
+  %call3 = tail call fastcc i32 @int_ts_RESP_verify_token(ptr noundef %ctx, ptr noundef %0, ptr noundef %1)
   br label %err
 
 err:                                              ; preds = %ts_check_status_info.exit.thread, %if.end
@@ -424,7 +424,7 @@ err:                                              ; preds = %ts_check_status_inf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @int_ts_RESP_verify_token(ptr nocapture noundef readonly %ctx, ptr noundef %token, ptr noundef %tst_info) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @int_ts_RESP_verify_token(ptr nocapture noundef readonly %ctx, ptr noundef %token, ptr noundef %tst_info) unnamed_addr #0 {
 entry:
   %buffer.i = alloca [4096 x i8], align 16
   %name.i = alloca [50 x i8], align 16
@@ -449,7 +449,7 @@ land.lhs.true6:                                   ; preds = %entry
   %3 = load ptr, ptr %certs, align 8
   %store = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %store, align 8
-  %call = call i32 @TS_RESP_verify_signature(ptr noundef %token, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %signer), !range !4
+  %call = call i32 @TS_RESP_verify_signature(ptr noundef %token, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %signer)
   %tobool7.not = icmp eq i32 %call, 0
   br i1 %tobool7.not, label %err, label %if.end9
 
@@ -583,7 +583,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %conv38.i = zext nneg i32 %call34.i to i64
   %call39.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call25.i, ptr noundef nonnull %buffer.i, i64 noundef %conv38.i) #7
   %tobool40.not.i = icmp eq i32 %call39.i, 0
-  br i1 %tobool40.not.i, label %ts_compute_imprint.exit.thread, label %while.cond.i, !llvm.loop !8
+  br i1 %tobool40.not.i, label %ts_compute_imprint.exit.thread, label %while.cond.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.cond.i
   %call43.i = call i32 @EVP_DigestFinal(ptr noundef nonnull %call25.i, ptr noundef nonnull %call20.i, ptr noundef null) #7
@@ -644,7 +644,7 @@ if.end50:                                         ; preds = %if.end.i37, %if.end
 
 land.lhs.true55:                                  ; preds = %if.end50
   %16 = load ptr, ptr %signer, align 8
-  %call56 = call fastcc i32 @ts_check_signer_name(ptr noundef nonnull %0, ptr noundef %16), !range !4
+  %call56 = call fastcc i32 @ts_check_signer_name(ptr noundef nonnull %0, ptr noundef %16)
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %if.then58, label %if.end59
 
@@ -662,7 +662,7 @@ land.lhs.true62:                                  ; preds = %if.end59
   %tsa_name63 = getelementptr inbounds i8, ptr %ctx, i64 72
   %17 = load ptr, ptr %tsa_name63, align 8
   %18 = load ptr, ptr %signer, align 8
-  %call64 = call fastcc i32 @ts_check_signer_name(ptr noundef %17, ptr noundef %18), !range !4
+  %call64 = call fastcc i32 @ts_check_signer_name(ptr noundef %17, ptr noundef %18)
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %if.then66, label %err
 
@@ -684,14 +684,14 @@ err:                                              ; preds = %ts_check_nonces.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_RESP_verify_token(ptr nocapture noundef readonly %ctx, ptr noundef %token) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_verify_token(ptr nocapture noundef readonly %ctx, ptr noundef %token) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PKCS7_to_TS_TST_INFO(ptr noundef %token) #7
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call fastcc i32 @int_ts_RESP_verify_token(ptr noundef %ctx, ptr noundef %token, ptr noundef nonnull %call), !range !4
+  %call1 = tail call fastcc i32 @int_ts_RESP_verify_token(ptr noundef %ctx, ptr noundef %token, ptr noundef nonnull %call)
   tail call void @TS_TST_INFO_free(ptr noundef nonnull %call) #7
   br label %if.end
 
@@ -735,7 +735,7 @@ declare ptr @d2i_ESS_SIGNING_CERT_V2(ptr noundef, ptr noundef, i64 noundef) loca
 declare i64 @TS_TST_INFO_get_version(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ts_check_imprints(ptr noundef readonly %algor_a, ptr nocapture noundef readonly %imprint_a, i32 noundef %len_a, ptr nocapture readonly %tst_info.16.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ts_check_imprints(ptr noundef readonly %algor_a, ptr nocapture noundef readonly %imprint_a, i32 noundef %len_a, ptr nocapture readonly %tst_info.16.val) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %tst_info.16.val, align 8
   %tobool.not = icmp eq ptr %algor_a, null
@@ -797,7 +797,7 @@ if.end25:                                         ; preds = %if.then24, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ts_check_signer_name(ptr noundef %tsa_name, ptr noundef %signer) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ts_check_signer_name(ptr noundef %tsa_name, ptr noundef %signer) unnamed_addr #0 {
 entry:
   %idx = alloca i32, align 4
   store i32 -1, ptr %idx, align 4
@@ -833,13 +833,13 @@ for.body.i:                                       ; preds = %land.rhs.i
   %call4.i = call i32 @GENERAL_NAME_cmp(ptr noundef %call3.i, ptr noundef nonnull %tsa_name) #7
   %cmp5.not.i = icmp eq i32 %call4.i, 0
   %inc.i = add nuw nsw i32 %i.06.i, 1
-  br i1 %cmp5.not.i, label %while.end, label %land.rhs.i, !llvm.loop !9
+  br i1 %cmp5.not.i, label %while.end, label %land.rhs.i, !llvm.loop !8
 
 if.end8:                                          ; preds = %land.rhs.i
   call void @GENERAL_NAMES_free(ptr noundef nonnull %gen_names.019) #7
   %call9 = call ptr @X509_get_ext_d2i(ptr noundef %signer, i32 noundef 85, ptr noundef null, ptr noundef nonnull %idx) #7
   %cmp4.not = icmp eq ptr %call9, null
-  br i1 %cmp4.not, label %while.end, label %land.rhs.i.preheader, !llvm.loop !10
+  br i1 %cmp4.not, label %while.end, label %land.rhs.i.preheader, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end8, %for.body.i, %if.end
   %gen_names.017 = phi ptr [ null, %if.end ], [ %gen_names.019, %for.body.i ], [ null, %if.end8 ]
@@ -950,10 +950,9 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

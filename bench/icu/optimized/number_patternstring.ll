@@ -4348,7 +4348,7 @@ entry:
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i, %entry
   %arraydestroy.elementPast.idx.i = phi i64 [ 2184, %entry ], [ %arraydestroy.elementPast.add.i, %arraydestroy.body.i ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -272
-  %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %this, i64 %arraydestroy.elementPast.idx.i
+  %arraydestroy.element.ptr.i = getelementptr i8, ptr %this, i64 %arraydestroy.elementPast.idx.i
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl30PropertiesAffixPatternProviderE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.ptr.i, align 8
   %negSuffix.i.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr.i, i64 200
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %negSuffix.i.i) #13
@@ -5435,7 +5435,7 @@ for.end:                                          ; preds = %for.inc.us67, %if.e
 declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %signDisplay, i32 noundef %signum) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 3) i32 @_ZN6icu_756number4impl18PatternStringUtils18resolveSignDisplayE18UNumberSignDisplayNS1_6SignumE(i32 noundef %signDisplay, i32 noundef %signum) local_unnamed_addr #0 align 2 {
 entry:
   switch i32 %signDisplay, label %sw.epilog21 [
     i32 0, label %sw.bb

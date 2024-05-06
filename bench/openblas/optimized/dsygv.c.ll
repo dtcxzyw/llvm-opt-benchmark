@@ -73,7 +73,7 @@ define void @dsygv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %44, label %45, label %.thread8
 
 45:                                               ; preds = %43
-  %46 = mul nsw i32 %34, 3
+  %46 = mul nuw nsw i32 %34, 3
   %47 = add nsw i32 %46, -1
   %48 = icmp eq i32 %34, 0
   %49 = select i1 %48, i32 1, i32 %47

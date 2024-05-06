@@ -434,7 +434,7 @@ BufferGetPage.exit:                               ; preds = %26, %32
 BufferGetPage.exit40:                             ; preds = %79, %85
   %.0.i.i39 = phi ptr [ %84, %79 ], [ %90, %85 ]
   %91 = lshr i64 %72, 32
-  %92 = trunc i64 %91 to i32
+  %92 = trunc nuw i64 %91 to i32
   store i32 %92, ptr %.0.i.i39, align 4
   %93 = trunc i64 %72 to i32
   %94 = getelementptr inbounds i8, ptr %.0.i.i39, i64 4
@@ -444,7 +444,7 @@ BufferGetPage.exit40:                             ; preds = %79, %85
 95:                                               ; preds = %74, %BufferGetPage.exit40, %69
   %.0 = phi i64 [ %72, %BufferGetPage.exit40 ], [ %72, %74 ], [ %3, %69 ]
   %96 = lshr i64 %.0, 32
-  %97 = trunc i64 %96 to i32
+  %97 = trunc nuw i64 %96 to i32
   store i32 %97, ptr %.0.i.i, align 4
   %98 = trunc i64 %.0 to i32
   %99 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
@@ -467,7 +467,7 @@ declare i64 @log_heap_visible(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 declare zeroext i1 @DataChecksumsEnabled() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i8 @visibilitymap_get_status(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext range(i8 0, 4) i8 @visibilitymap_get_status(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = udiv i32 %1, 32672
   %5 = urem i32 %1, 32672
   %6 = lshr i32 %5, 2
@@ -527,7 +527,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %33 = load i8, ptr %32, align 1
   %34 = sext i8 %33 to i32
   %35 = ashr i32 %34, %8
-  %36 = trunc i32 %35 to i8
+  %36 = trunc nsw i32 %35 to i8
   %37 = and i8 %36, 3
   br label %38
 
@@ -665,7 +665,7 @@ BufferGetPage.exit:                               ; preds = %32, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @visibilitymap_prepare_truncate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 131459) i32 @visibilitymap_prepare_truncate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = udiv i32 %1, 32672
   %4 = urem i32 %1, 32672
   %5 = urem i32 %1, 32672
@@ -779,7 +779,7 @@ BufferGetPage.exit:                               ; preds = %26, %32
   %66 = zext nneg i32 %6 to i64
   %67 = getelementptr i8, ptr %38, i64 %66
   %68 = load i8, ptr %67, align 1
-  %69 = trunc i32 %notmask to i8
+  %69 = trunc nsw i32 %notmask to i8
   %70 = xor i8 %69, -1
   %71 = and i8 %68, %70
   store i8 %71, ptr %67, align 1

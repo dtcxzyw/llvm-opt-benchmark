@@ -356,7 +356,7 @@ return:                                           ; preds = %if.end43, %treatsta
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_debug_getlocal(ptr noundef %L) #0 {
+define internal range(i32 1, 3) i32 @lj_cf_debug_getlocal(ptr noundef %L) #0 {
 entry:
   %ar = alloca %struct.lua_Debug, align 8
   %base.i = getelementptr inbounds i8, ptr %L, i64 32
@@ -485,7 +485,7 @@ if.end:                                           ; preds = %getthread.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_debug_getupvalue(ptr noundef %L) #0 {
+define internal range(i32 0, 3) i32 @lj_cf_debug_getupvalue(ptr noundef %L) #0 {
 entry:
   %call.i = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 2) #8
   %call1.i = tail call ptr @lj_lib_checkfunc(ptr noundef %L, i32 noundef 1) #8
@@ -511,7 +511,7 @@ debug_getupvalue.exit:                            ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_debug_setupvalue(ptr noundef %L) #0 {
+define internal range(i32 0, 3) i32 @lj_cf_debug_setupvalue(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checkany(ptr noundef %L, i32 noundef 3) #8
   %call.i = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 2) #8
@@ -684,14 +684,14 @@ if.else:                                          ; preds = %getthread.exit
   %add6 = add nuw nsw i32 %arg.0, 3
   %call7 = tail call i64 @luaL_optinteger(ptr noundef nonnull %L, i32 noundef %add6, i64 noundef 0) #8
   %conv = trunc i64 %call7 to i32
-  %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call4, i32 noundef 99) #10
+  %call.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %call4, i32 noundef 99) #10
   %tobool.not.i = icmp ne ptr %call.i, null
   %spec.select.i = zext i1 %tobool.not.i to i32
-  %call1.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call4, i32 noundef 114) #10
+  %call1.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %call4, i32 noundef 114) #10
   %tobool2.not.i = icmp eq ptr %call1.i, null
   %or4.i = or disjoint i32 %spec.select.i, 2
   %mask.1.i = select i1 %tobool2.not.i, i32 %spec.select.i, i32 %or4.i
-  %call6.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call4, i32 noundef 108) #10
+  %call6.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %call4, i32 noundef 108) #10
   %tobool7.not.i = icmp eq ptr %call6.i, null
   %or9.i = or disjoint i32 %mask.1.i, 4
   %mask.2.i = select i1 %tobool7.not.i, i32 %mask.1.i, i32 %or9.i

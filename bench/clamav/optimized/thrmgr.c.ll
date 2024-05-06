@@ -902,13 +902,13 @@ define dso_local void @thrmgr_setactiveengine(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @thrmgr_dispatch(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call fastcc i32 @thrmgr_dispatch_internal(ptr noundef %0, ptr noundef %1, i32 noundef 0), !range !5
+define dso_local range(i32 0, 2) i32 @thrmgr_dispatch(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call fastcc i32 @thrmgr_dispatch_internal(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @thrmgr_dispatch_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @thrmgr_dispatch_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %92, label %5
@@ -1096,12 +1096,12 @@ work_queue_add.exit.thread:                       ; preds = %48, %.split45.us, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @thrmgr_group_dispatch(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @thrmgr_group_dispatch(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %6
 
 .thread:                                          ; preds = %4
-  %5 = tail call fastcc i32 @thrmgr_dispatch_internal(ptr noundef %0, ptr noundef %2, i32 noundef %3), !range !5
+  %5 = tail call fastcc i32 @thrmgr_dispatch_internal(ptr noundef %0, ptr noundef %2, i32 noundef %3)
   br label %21
 
 6:                                                ; preds = %4
@@ -1112,7 +1112,7 @@ define dso_local noundef i32 @thrmgr_group_dispatch(ptr noundef %0, ptr noundef 
   store i32 %10, ptr %8, align 8
   %11 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef nonnull @.str.20, ptr noundef nonnull %1, i32 noundef %10) #12
   %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %1) #12
-  %13 = tail call fastcc i32 @thrmgr_dispatch_internal(ptr noundef %0, ptr noundef %2, i32 noundef %3), !range !5
+  %13 = tail call fastcc i32 @thrmgr_dispatch_internal(ptr noundef %0, ptr noundef %2, i32 noundef %3)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %21
 
@@ -1131,7 +1131,7 @@ define dso_local noundef i32 @thrmgr_group_dispatch(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @thrmgr_group_finished(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @thrmgr_group_finished(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %36, label %3
 
@@ -1785,4 +1785,3 @@ attributes #16 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

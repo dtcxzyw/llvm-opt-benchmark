@@ -455,7 +455,7 @@ define hidden noundef i32 @http2_get_stream_id(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @http2_get_stream_id_le(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @http2_get_stream_id_le(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr @streamid_hash, align 8
   %5 = zext i32 %0 to i64
   %6 = inttoptr i64 %5 to ptr
@@ -510,13 +510,13 @@ is_http2_stream_contains.exit:                    ; preds = %.lr.ph
   br i1 %.not.i14.not, label %is_http2_stream_contains.exit.thread, label %25
 
 25:                                               ; preds = %is_http2_stream_contains.exit
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw i64 %indvars.iv to i32
   store i32 %26, ptr %2, align 4
   br label %.loopexit
 
 is_http2_stream_contains.exit.thread:             ; preds = %.lr.ph, %is_http2_stream_contains.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw i64 %indvars.iv to i32
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
@@ -526,7 +526,7 @@ is_http2_stream_contains.exit.thread:             ; preds = %.lr.ph, %is_http2_s
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @http2_get_stream_id_ge(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @http2_get_stream_id_ge(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr @streamid_hash, align 8
   %5 = zext i32 %0 to i64
   %6 = inttoptr i64 %5 to ptr
@@ -958,7 +958,7 @@ dissect_http2_data.exit:                          ; preds = %dissect_frame_paddi
   br label %dissect_frame_padding.exit.i177
 
 dissect_frame_padding.exit.i177:                  ; preds = %143, %140, %135
-  %147 = call fastcc i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %32, i32 noundef %.017.i.i173, i8 noundef zeroext %60), !range !9
+  %147 = call fastcc i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %32, i32 noundef %.017.i.i173, i8 noundef zeroext %60)
   %148 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %147) #6
   %149 = zext nneg i16 %.04.i to i32
   %150 = icmp slt i32 %148, %149
@@ -984,7 +984,7 @@ dissect_frame_padding.exit.i177:                  ; preds = %143, %140, %135
 
 161:                                              ; preds = %92
   %162 = or i8 %60, 32
-  %163 = call fastcc i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %32, i32 noundef 9, i8 noundef zeroext %162), !range !9
+  %163 = call fastcc i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %32, i32 noundef 9, i8 noundef zeroext %162)
   br label %dissect_http2_headers.exit
 
 164:                                              ; preds = %92
@@ -1209,7 +1209,7 @@ dissect_http2_altsvc.exit:                        ; preds = %261, %269
   %288 = add i32 %287, %283
   %289 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %288) #6
   %290 = icmp sgt i32 %289, 0
-  br i1 %290, label %.lr.ph.i, label %dissect_http2_origin.exit, !llvm.loop !10
+  br i1 %290, label %.lr.ph.i, label %dissect_http2_origin.exit, !llvm.loop !9
 
 dissect_http2_origin.exit:                        ; preds = %.lr.ph.i, %274
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -1528,16 +1528,16 @@ define internal i32 @follow_http2_tap_listener(ptr noundef %0, ptr noundef %1, p
 declare i32 @get_tcp_stream_count() #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @http2_get_sub_stream_id(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal range(i32 0, 2) i32 @http2_get_sub_stream_id(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @http2_get_stream_id_le(i32 noundef %0, i32 noundef %1, ptr noundef %3), !range !11
+  %6 = tail call i32 @http2_get_stream_id_le(i32 noundef %0, i32 noundef %1, ptr noundef %3)
   br label %9
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @http2_get_stream_id_ge(i32 noundef %0, i32 noundef %1, ptr noundef %3), !range !11
+  %8 = tail call i32 @http2_get_stream_id_ge(i32 noundef %0, i32 noundef %1, ptr noundef %3)
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -1580,8 +1580,8 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_http2_heur_ssl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
-  %5 = tail call i32 @dissect_http2_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null), !range !11
+define internal range(i32 0, 2) i32 @dissect_http2_heur_ssl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+  %5 = tail call i32 @dissect_http2_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
 
@@ -1598,7 +1598,7 @@ define internal noundef i32 @dissect_http2_heur_ssl(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_http2_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+define internal range(i32 0, 2) i32 @dissect_http2_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #6
   %6 = load i32, ptr @proto_http2, align 4
   %7 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %5, i32 noundef %6) #6
@@ -1761,7 +1761,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 9, 16) i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %5 = and i8 %3, 32
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %27, label %6
@@ -1877,6 +1877,4 @@ attributes #7 = { noreturn nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 9, i32 16}
-!10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}
+!9 = distinct !{!9, !5}

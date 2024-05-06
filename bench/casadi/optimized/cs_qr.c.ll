@@ -126,7 +126,7 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   %75 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv289
   store i32 %.0196255, ptr %75, align 4
   %76 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv289
-  %77 = trunc i64 %indvars.iv289 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv289 to i32
   store i32 %77, ptr %76, align 4
   %78 = add nsw i32 %.0196255, 1
   %79 = sext i32 %.0196255 to i64
@@ -179,7 +179,7 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   br i1 %.not219228, label %._crit_edge236, label %.lr.ph232
 
 .preheader:                                       ; preds = %.lr.ph232
-  %104 = trunc i64 %indvars.iv.next to i32
+  %104 = trunc nuw i64 %indvars.iv.next to i32
   %105 = icmp sgt i32 %104, 0
   br i1 %105, label %.lr.ph235.preheader, label %._crit_edge236
 
@@ -219,7 +219,7 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   br i1 %119, label %.lr.ph235, label %._crit_edge236.loopexit, !llvm.loop !6
 
 ._crit_edge236.loopexit:                          ; preds = %.lr.ph235
-  %120 = trunc i64 %indvars.iv.next269 to i32
+  %120 = trunc nsw i64 %indvars.iv.next269 to i32
   br label %._crit_edge236
 
 ._crit_edge236:                                   ; preds = %.lr.ph242, %._crit_edge236.loopexit, %.preheader
@@ -260,7 +260,7 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   br i1 %142, label %.lr.ph242, label %.preheader221, !llvm.loop !7
 
 .preheader220.loopexit:                           ; preds = %161
-  %143 = trunc i64 %indvars.iv.next281 to i32
+  %143 = trunc nsw i64 %indvars.iv.next281 to i32
   br label %.preheader220
 
 .preheader220:                                    ; preds = %84, %.preheader220.loopexit, %.preheader221

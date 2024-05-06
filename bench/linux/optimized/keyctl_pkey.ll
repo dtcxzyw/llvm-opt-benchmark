@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [8 x i8] c"hash=%s\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @keyctl_pkey_query(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @keyctl_pkey_query(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.kernel_pkey_params, align 8
   %5 = alloca %struct.kernel_pkey_query, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8

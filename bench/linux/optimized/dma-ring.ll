@@ -39,7 +39,7 @@ define dso_local void @mei_dmam_ring_free(ptr nocapture noundef %0) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mei_dmam_ring_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @mei_dmam_ring_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3248
   br label %6
 
@@ -165,7 +165,7 @@ define dso_local void @mei_dma_ring_read(ptr nocapture noundef readonly %0, ptr 
   %19 = zext i32 %2 to i64
   %20 = add nuw nsw i64 %19, 3
   %21 = lshr i64 %20, 2
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw nsw i64 %21 to i32
   %23 = icmp eq ptr %1, null
   br i1 %23, label %49, label %24
 
@@ -275,7 +275,7 @@ define dso_local void @mei_dma_ring_write(ptr nocapture noundef readonly %0, ptr
   %16 = zext i32 %2 to i64
   %17 = add nuw nsw i64 %16, 3
   %18 = lshr i64 %17, 2
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = add i32 %15, %19
   %21 = icmp ugt i32 %20, %12
   br i1 %21, label %22, label %33

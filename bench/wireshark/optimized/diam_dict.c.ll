@@ -770,7 +770,7 @@ append_to_buffer.exit432:                         ; preds = %290, %297
   %305 = getelementptr i8, ptr %303, i64 %304
   %306 = getelementptr inbounds i8, ptr %279, i64 8
   store ptr %305, ptr %306, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %305, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %305, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
   %307 = load i32, ptr %292, align 4
   %308 = add i32 %307, 2
   store i32 %308, ptr %292, align 4
@@ -823,7 +823,7 @@ append_to_buffer.exit435:                         ; preds = %321, %328
   %336 = getelementptr i8, ptr %334, i64 %335
   %337 = getelementptr inbounds i8, ptr %310, i64 8
   store ptr %336, ptr %337, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %336, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %336, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.3, i64 3, i1 false)
   %338 = load i32, ptr %323, align 4
   %339 = add i32 %338, 2
   store i32 %339, ptr %323, align 4
@@ -933,7 +933,7 @@ append_to_buffer.exit441:                         ; preds = %385, %392
   store ptr %400, ptr %401, align 8
   %402 = add i32 %373, 1
   %403 = zext i32 %402 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %400, ptr align 1 %372, i64 %403, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %400, ptr readonly align 1 %372, i64 %403, i1 false)
   %404 = load i32, ptr %387, align 4
   %405 = add i32 %404, %373
   store i32 %405, ptr %387, align 4
@@ -1043,7 +1043,7 @@ append_to_buffer.exit447:                         ; preds = %451, %458
   store ptr %466, ptr %467, align 8
   %468 = add i32 %439, 1
   %469 = zext i32 %468 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %466, ptr align 1 %438, i64 %469, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %466, ptr readonly align 1 %438, i64 %469, i1 false)
   %470 = load i32, ptr %453, align 4
   %471 = add i32 %470, %439
   store i32 %471, ptr %453, align 4
@@ -3720,7 +3720,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind uwtable
 define internal void @ddict_debug(ptr nocapture noundef readonly %0, ...) unnamed_addr #4 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load i32, ptr @debugging, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %7, label %4
@@ -3731,7 +3731,7 @@ define internal void @ddict_debug(ptr nocapture noundef readonly %0, ...) unname
   br label %7
 
 7:                                                ; preds = %4, %1
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   %8 = load ptr, ptr @stderr, align 8
   %9 = call i32 @fflush(ptr noundef %8)
   ret void
@@ -4752,7 +4752,7 @@ define hidden void @DiamDict_set_debug(i32 noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @DiamDict_lex_init(ptr noundef writeonly %0) local_unnamed_addr #16 {
+define hidden range(i32 0, 2) i32 @DiamDict_lex_init(ptr noundef writeonly %0) local_unnamed_addr #16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -4777,7 +4777,7 @@ define hidden noundef i32 @DiamDict_lex_init(ptr noundef writeonly %0) local_unn
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @DiamDict_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 0, 2) i32 @DiamDict_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -5425,25 +5425,19 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 ; Function Attrs: noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #20
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #21
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #21
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #22
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #21
 
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #23
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #22
 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -5452,6 +5446,12 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #23
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #23
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #24
@@ -5483,9 +5483,9 @@ attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #22 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #24 = { nofree nounwind }
 attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #26 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }

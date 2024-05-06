@@ -539,7 +539,7 @@ proto_item_set_hidden.exit311:                    ; preds = %proto_item_set_hidd
   unreachable
 
 switch.hole_check:                                ; preds = %151
-  %switch.maskindex = trunc i32 %152 to i16
+  %switch.maskindex = trunc nuw i32 %152 to i16
   %switch.shifted = lshr i16 -2753, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %154

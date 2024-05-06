@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local zeroext i8 @softfloat_countLeadingZeros64(i64 noundef %a) local_unnamed_addr #0 {
 entry:
   %shr = lshr i64 %a, 32
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw i64 %shr to i32
   %tobool.not = icmp eq i32 %conv, 0
   %conv1 = trunc i64 %a to i32
   %spec.select = select i1 %tobool.not, i8 32, i8 0

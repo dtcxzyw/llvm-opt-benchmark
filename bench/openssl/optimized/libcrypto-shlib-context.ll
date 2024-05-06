@@ -146,7 +146,7 @@ ossl_lib_ctx_get_concrete.exit:                   ; preds = %entry, %get_default
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_lib_ctx_is_child(ptr noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_lib_ctx_is_child(ptr noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %ctx, null
   br i1 %cmp.i, label %if.then.i, label %return
@@ -211,7 +211,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call1 = tail call fastcc i32 @context_init(ptr noundef nonnull %call), !range !4
+  %call1 = tail call fastcc i32 @context_init(ptr noundef nonnull %call)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -227,7 +227,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @context_init(ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @context_init(ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %call = tail call ptr @CRYPTO_THREAD_lock_new() #3
   store ptr %call, ptr %ctx, align 8
@@ -402,7 +402,7 @@ entry:
   br i1 %cmp.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call1.i = tail call fastcc i32 @context_init(ptr noundef nonnull %call.i), !range !4
+  %call1.i = tail call fastcc i32 @context_init(ptr noundef nonnull %call.i)
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end
 
@@ -487,7 +487,7 @@ entry:
   br i1 %cmp.not.i.i, label %return, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %call1.i.i = tail call fastcc i32 @context_init(ptr noundef nonnull %call.i.i), !range !4
+  %call1.i.i = tail call fastcc i32 @context_init(ptr noundef nonnull %call.i.i)
   %tobool.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i
 
@@ -528,7 +528,7 @@ return:                                           ; preds = %entry, %if.then.i.i
 declare i32 @ossl_provider_init_as_child(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_LIB_CTX_load_config(ptr noundef %ctx, ptr noundef %config_file) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_LIB_CTX_load_config(ptr noundef %ctx, ptr noundef %config_file) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @CONF_modules_load_file_ex(ptr noundef %ctx, ptr noundef %config_file, ptr noundef null, i64 noundef 0) #3
   %cmp = icmp sgt i32 %call, 0
@@ -539,7 +539,7 @@ entry:
 declare i32 @CONF_modules_load_file_ex(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_lib_ctx_is_default(ptr noundef readnone %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_lib_ctx_is_default(ptr noundef readnone %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -593,7 +593,7 @@ entry:
   br i1 %tobool.not.i, label %default_context_do_init.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call fastcc i32 @context_init(ptr noundef nonnull @default_context_int), !range !4
+  %call1.i = tail call fastcc i32 @context_init(ptr noundef nonnull @default_context_int)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %deinit_thread.i, label %if.end4.i
 
@@ -661,7 +661,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @ossl_rand_ctx_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_lib_ctx_is_global_default(ptr noundef readnone %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_lib_ctx_is_global_default(ptr noundef readnone %ctx) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %ctx, null
   br i1 %cmp.i, label %if.then.i, label %ossl_lib_ctx_get_concrete.exit
@@ -1245,4 +1245,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

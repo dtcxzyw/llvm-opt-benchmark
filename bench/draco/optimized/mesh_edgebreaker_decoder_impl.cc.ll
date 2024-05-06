@@ -24318,7 +24318,7 @@ _ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exi
 
 .lr.ph:                                           ; preds = %76, %.lr.ph
   %.016 = phi i32 [ %90, %.lr.ph ], [ 0, %76 ]
-  %88 = mul nsw i32 %.016, 3
+  %88 = mul nuw nsw i32 %.016, 3
   %89 = call noundef zeroext i1 @_ZN5draco28MaxPredictionDegreeTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEE18TraverseFromCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE(ptr noundef nonnull align 8 dereferenceable(232) %5, i32 %88)
   %90 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp ne i32 %90, %86
@@ -26338,7 +26338,7 @@ _ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exi
 
 .lr.ph:                                           ; preds = %59, %.lr.ph
   %.015 = phi i32 [ %73, %.lr.ph ], [ 0, %59 ]
-  %71 = mul nsw i32 %.015, 3
+  %71 = mul nuw nsw i32 %.015, 3
   %72 = tail call noundef zeroext i1 @_ZN5draco19DepthFirstTraverserINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEE18TraverseFromCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE(ptr noundef nonnull align 8 dereferenceable(152) %4, i32 %71)
   %73 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp ne i32 %73, %69
@@ -27325,7 +27325,7 @@ _ZNKSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE2atEm.exi
 
 .lr.ph:                                           ; preds = %59, %.lr.ph
   %.015 = phi i32 [ %75, %.lr.ph ], [ 0, %59 ]
-  %73 = mul nsw i32 %.015, 3
+  %73 = mul nuw nsw i32 %.015, 3
   %74 = tail call noundef zeroext i1 @_ZN5draco19DepthFirstTraverserINS_24MeshAttributeCornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEE18TraverseFromCornerENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE(ptr noundef nonnull align 8 dereferenceable(152) %4, i32 %73)
   %75 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp ne i32 %75, %71

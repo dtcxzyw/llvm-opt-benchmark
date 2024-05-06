@@ -158,7 +158,7 @@ define i32 @mca_common_ompio_file_open(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %53, label %110, label %54
 
 54:                                               ; preds = %50, %45
-  %55 = call i32 @mca_common_ompio_set_file_defaults(ptr noundef nonnull %4), !range !4
+  %55 = call i32 @mca_common_ompio_set_file_defaults(ptr noundef nonnull %4)
   %56 = getelementptr inbounds i8, ptr %4, i64 152
   store ptr null, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %4, i64 160
@@ -287,7 +287,7 @@ declare i32 @opal_getcwd(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare noalias ptr @opal_os_path(i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_common_ompio_set_file_defaults(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mca_common_ompio_set_file_defaults(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [2 x ptr], align 16
   %4 = alloca [2 x i32], align 8
@@ -380,7 +380,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %36, %39
   %50 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not.i = icmp eq ptr %51, null
-  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %2, align 8
@@ -968,7 +968,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 declare i32 @ompi_datatype_create_struct(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_common_ompio_create_incomplete_file_handle(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_common_ompio_create_incomplete_file_handle(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1002,7 +1002,7 @@ define noundef i32 @mca_common_ompio_create_incomplete_file_handle(ptr noundef %
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_common_ompio_decode_datatype(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_common_ompio_decode_datatype(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.opal_convertor_t, align 8
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
@@ -1083,7 +1083,7 @@ define noundef i32 @mca_common_ompio_decode_datatype(ptr nocapture noundef readn
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %6, align 8
   %45 = load i32, ptr %7, align 4
-  %46 = trunc i64 %indvars.iv to i32
+  %46 = trunc nuw i64 %indvars.iv to i32
   %47 = sub i32 %46, %40
   %48 = add i32 %47, %45
   %49 = zext i32 %48 to i64
@@ -1099,7 +1099,7 @@ define noundef i32 @mca_common_ompio_decode_datatype(ptr nocapture noundef readn
   store i64 %52, ptr %57, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %58 = load i64, ptr %11, align 8
@@ -1107,7 +1107,7 @@ define noundef i32 @mca_common_ompio_decode_datatype(ptr nocapture noundef readn
   store i32 100, ptr %10, align 4
   %60 = call i32 @opal_convertor_raw(ptr noundef nonnull %9, ptr noundef nonnull %22, ptr noundef nonnull %10, ptr noundef nonnull %11) #12
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %.lr.ph72, label %._crit_edge73, !llvm.loop !8
+  br i1 %61, label %.lr.ph72, label %._crit_edge73, !llvm.loop !7
 
 ._crit_edge73:                                    ; preds = %._crit_edge, %.preheader68
   %.059.lcssa = phi i64 [ %24, %.preheader68 ], [ %59, %._crit_edge ]
@@ -1152,7 +1152,7 @@ define noundef i32 @mca_common_ompio_decode_datatype(ptr nocapture noundef readn
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %6, align 8
   %80 = load i32, ptr %7, align 4
-  %81 = trunc i64 %indvars.iv81 to i32
+  %81 = trunc nuw i64 %indvars.iv81 to i32
   %82 = sub i32 %81, %.pre
   %83 = add i32 %82, %80
   %84 = zext i32 %83 to i64
@@ -1168,7 +1168,7 @@ define noundef i32 @mca_common_ompio_decode_datatype(ptr nocapture noundef readn
   store i64 %87, ptr %92, align 8
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %._crit_edge77, label %.lr.ph76, !llvm.loop !9
+  br i1 %exitcond85.not, label %._crit_edge77, label %.lr.ph76, !llvm.loop !8
 
 ._crit_edge77:                                    ; preds = %.lr.ph76, %._crit_edge73, %76
   %93 = load i64, ptr %11, align 8
@@ -1245,9 +1245,8 @@ attributes #15 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

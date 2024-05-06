@@ -199,7 +199,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Aig_ManHasNoGaps(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Aig_ManHasNoGaps(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 156
@@ -252,7 +252,7 @@ define noundef i32 @Aig_ManLevels(ptr nocapture noundef readonly %0) local_unnam
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = lshr i64 %15, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   %18 = and i32 %17, 16777215
   %19 = tail call noundef i32 @llvm.smax.i32(i32 %.011, i32 %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -693,7 +693,7 @@ define void @Aig_ObjCollectMulti(ptr noundef %0, ptr nocapture noundef %1) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Aig_ObjIsMuxType(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Aig_ObjIsMuxType(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val41 = load i64, ptr %2, align 8
   %3 = and i64 %.val41, 7
@@ -800,7 +800,7 @@ define i32 @Aig_ObjIsMuxType(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Aig_ObjRecognizeExor(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Aig_ObjRecognizeExor(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
   %4 = getelementptr i8, ptr %0, i64 24
   %.val48 = load i64, ptr %4, align 8
   %5 = trunc i64 %.val48 to i32
@@ -1102,7 +1102,7 @@ common.ret8:                                      ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Aig_ObjCompareIdIncrease(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define range(i32 -1, 2) i32 @Aig_ObjCompareIdIncrease(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 36
   %.val = load i32, ptr %4, align 4
@@ -2053,7 +2053,7 @@ define void @Aig_ManDump(ptr noundef %0) local_unnamed_addr #1 {
 
 Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %.critedge6.i
   %.09.i.i = phi i32 [ 1, %.critedge6.i ], [ %68, %.lr.ph.i.i ]
-  %69 = call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.32)
+  %69 = call noalias ptr @fopen(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.32)
   %70 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 51, i64 1, ptr %69)
   %71 = load ptr, ptr %0, align 8
   %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.34, ptr noundef %71) #24
@@ -2189,7 +2189,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %.crite
   %.val17.i.i = load ptr, ptr %137, align 8
   %138 = getelementptr inbounds ptr, ptr %.val17.i.i, i64 %indvars.iv.i.i
   %139 = load ptr, ptr %138, align 8
-  %140 = trunc i64 %indvars.iv.i.i to i32
+  %140 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %140, ptr %139, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %141 = load ptr, ptr %29, align 8
@@ -2206,7 +2206,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %.crite
   %.val16.i.i = load ptr, ptr %146, align 8
   %147 = getelementptr inbounds ptr, ptr %.val16.i.i, i64 %indvars.iv25.i.i
   %148 = load ptr, ptr %147, align 8
-  %149 = trunc i64 %indvars.iv25.i.i to i32
+  %149 = trunc nuw nsw i64 %indvars.iv25.i.i to i32
   store i32 %149, ptr %148, align 8
   %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
   %150 = load ptr, ptr %8, align 8
@@ -2766,7 +2766,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
   %.val17.i = load ptr, ptr %171, align 8
   %172 = getelementptr inbounds ptr, ptr %.val17.i, i64 %indvars.iv.i
   %173 = load ptr, ptr %172, align 8
-  %174 = trunc i64 %indvars.iv.i to i32
+  %174 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %174, ptr %173, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %175 = load ptr, ptr %28, align 8
@@ -2783,7 +2783,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
   %.val16.i = load ptr, ptr %180, align 8
   %181 = getelementptr inbounds ptr, ptr %.val16.i, i64 %indvars.iv25.i
   %182 = load ptr, ptr %181, align 8
-  %183 = trunc i64 %indvars.iv25.i to i32
+  %183 = trunc nuw nsw i64 %indvars.iv25.i to i32
   store i32 %183, ptr %182, align 8
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %184 = load ptr, ptr %7, align 8
@@ -3089,7 +3089,7 @@ define void @Aig_ManSetCioIds(ptr nocapture noundef readonly %0) local_unnamed_a
   %.val17 = load ptr, ptr %11, align 8
   %12 = getelementptr inbounds ptr, ptr %.val17, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load ptr, ptr %2, align 8
@@ -3106,7 +3106,7 @@ define void @Aig_ManSetCioIds(ptr nocapture noundef readonly %0) local_unnamed_a
   %.val16 = load ptr, ptr %20, align 8
   %21 = getelementptr inbounds ptr, ptr %.val16, i64 %indvars.iv25
   %22 = load ptr, ptr %21, align 8
-  %23 = trunc i64 %indvars.iv25 to i32
+  %23 = trunc nuw nsw i64 %indvars.iv25 to i32
   store i32 %23, ptr %22, align 8
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %24 = load ptr, ptr %6, align 8
@@ -3363,7 +3363,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
   %.val248 = load ptr, ptr %75, align 8
   %76 = getelementptr inbounds ptr, ptr %.val248, i64 %indvars.iv416
   %77 = load ptr, ptr %76, align 8
-  %78 = trunc i64 %indvars.iv416 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv416 to i32
   %79 = or i32 %.val285346, %78
   %.not317 = icmp eq i32 %79, 0
   %80 = select i1 %.not317, ptr @.str.3, ptr @.str.53
@@ -4718,7 +4718,7 @@ define void @Aig_ManCounterExampleValueStop(ptr nocapture noundef %0) local_unna
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Aig_ManCounterExampleValueLookup(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Aig_ManCounterExampleValueLookup(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 304
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %0, i64 32

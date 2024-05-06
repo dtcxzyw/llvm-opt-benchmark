@@ -131,19 +131,19 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CTLOG_STORE_load_default_file(ptr noundef %store) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CTLOG_STORE_load_default_file(ptr noundef %store) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_safe_getenv(ptr noundef nonnull @.str.1) #6
   %cmp = icmp eq ptr %call, null
   %spec.store.select = select i1 %cmp, ptr @.str.2, ptr %call
-  %call1 = tail call i32 @CTLOG_STORE_load_file(ptr noundef %store, ptr noundef nonnull %spec.store.select), !range !4
+  %call1 = tail call i32 @CTLOG_STORE_load_file(ptr noundef %store, ptr noundef nonnull %spec.store.select)
   ret i32 %call1
 }
 
 declare ptr @ossl_safe_getenv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CTLOG_STORE_load_file(ptr noundef %store, ptr noundef %file) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CTLOG_STORE_load_file(ptr noundef %store, ptr noundef %file) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 63) #6
   %cmp = icmp eq ptr %call.i, null
@@ -207,7 +207,7 @@ declare ptr @NCONF_get_string(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @CONF_parse_list(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ctlog_store_load_log(ptr noundef %log_name, i32 noundef %log_name_len, ptr nocapture noundef %arg) #0 {
+define internal range(i32 -2147483648, 2) i32 @ctlog_store_load_log(ptr noundef %log_name, i32 noundef %log_name_len, ptr nocapture noundef %arg) #0 {
 entry:
   %ct_log = alloca ptr, align 8
   store ptr null, ptr %ct_log, align 8
@@ -443,7 +443,7 @@ for.cond:                                         ; preds = %for.body
   %1 = load ptr, ptr %logs, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #6
   %cmp = icmp slt i32 %inc, %call1
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !5
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !4
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.07 = phi i32 [ %inc, %for.cond ], [ 0, %entry ]
@@ -500,6 +500,5 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

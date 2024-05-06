@@ -1003,7 +1003,7 @@ entry:
   store i32 0, ptr %bulk_out_pos, align 8
   %abProtocolDataStructure.i = getelementptr inbounds i8, ptr %call.i, i64 74991
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %pending_answers_num, i8 0, i64 7, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %abProtocolDataStructure.i, ptr noundef nonnull align 1 dereferenceable(7) @defaultProtocolDataStructure, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %abProtocolDataStructure.i, ptr noundef nonnull align 1 dereferenceable(7) @defaultProtocolDataStructure, i64 7, i1 false)
   store i32 0, ptr %bulk_in_pending_start, align 8
   store i32 0, ptr %bulk_in_pending_end, align 4
   %bulk_in_pending_num.i.i = getelementptr inbounds i8, ptr %call.i, i64 9152
@@ -1352,7 +1352,7 @@ if.end.i.i:                                       ; preds = %sw.bb96.i
   store i8 %20, ptr %bProtocolNum5.i.i, align 2
   %abProtocolDataStructure.i.i = getelementptr inbounds i8, ptr %call.i, i64 74991
   %abProtocolDataStructure6.i.i = getelementptr inbounds i8, ptr %call.i, i64 9178
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %abProtocolDataStructure.i.i, ptr noundef nonnull align 1 dereferenceable(7) %abProtocolDataStructure6.i.i, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %abProtocolDataStructure.i.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %abProtocolDataStructure6.i.i, i64 7, i1 false)
   br label %ccid_set_parameters.exit.i
 
 ccid_set_parameters.exit.i:                       ; preds = %if.end.i.i, %if.then.i.i
@@ -1367,7 +1367,7 @@ sw.bb97.i:                                        ; preds = %do.end74.i
   %bProtocolNum.i69.i = getelementptr inbounds i8, ptr %call.i, i64 74990
   store i8 0, ptr %bProtocolNum.i69.i, align 2
   %abProtocolDataStructure.i70.i = getelementptr inbounds i8, ptr %call.i, i64 74991
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %abProtocolDataStructure.i70.i, ptr noundef nonnull align 1 dereferenceable(7) @defaultProtocolDataStructure, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %abProtocolDataStructure.i70.i, ptr noundef nonnull align 1 dereferenceable(7) @defaultProtocolDataStructure, i64 7, i1 false)
   tail call fastcc void @ccid_write_parameters(ptr noundef nonnull %call.i, ptr noundef nonnull %bulk_out_data.i)
   br label %sw.epilog.i
 
@@ -1463,7 +1463,7 @@ if.then.i:                                        ; preds = %ccid_bulk_in_get.ex
   %size.i23 = getelementptr inbounds i8, ptr %p, i64 64
   %31 = load i64, ptr %size.i23, align 8
   %cond.i = tail call i64 @llvm.umin.i64(i64 %31, i64 %conv.i22)
-  %conv6.i = trunc i64 %cond.i to i32
+  %conv6.i = trunc nuw i64 %cond.i to i32
   %tobool.not.i = icmp eq i32 %conv6.i, 0
   br i1 %tobool.not.i, label %if.end.i25, label %if.then7.i
 

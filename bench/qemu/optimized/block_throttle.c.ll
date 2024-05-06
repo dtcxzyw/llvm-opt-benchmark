@@ -55,7 +55,7 @@ entry:
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @throttle_reopen_prepare(ptr noundef %reopen_state, ptr nocapture readnone %queue, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @throttle_reopen_prepare(ptr noundef %reopen_state, ptr nocapture readnone %queue, ptr noundef %errp) #0 {
 entry:
   %group = alloca ptr, align 8
   store ptr null, ptr %group, align 8
@@ -78,7 +78,7 @@ if.else3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   %options = getelementptr inbounds i8, ptr %reopen_state, i64 40
   %1 = load ptr, ptr %options, align 8
-  %call = call fastcc i32 @throttle_parse_options(ptr noundef %1, ptr noundef nonnull %group, ptr noundef %errp), !range !5
+  %call = call fastcc i32 @throttle_parse_options(ptr noundef %1, ptr noundef nonnull %group, ptr noundef %errp)
   %2 = load ptr, ptr %group, align 8
   %opaque = getelementptr inbounds i8, ptr %reopen_state, i64 56
   store ptr %2, ptr %opaque, align 8
@@ -130,7 +130,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @throttle_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @throttle_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %group = alloca ptr, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -155,7 +155,7 @@ if.end:                                           ; preds = %entry
   %or6 = or i32 %5, 64
   %supported_zero_flags7 = getelementptr inbounds i8, ptr %bs, i64 16592
   store i32 %or6, ptr %supported_zero_flags7, align 8
-  %call8 = call fastcc i32 @throttle_parse_options(ptr noundef %options, ptr noundef nonnull %group, ptr noundef %errp), !range !5
+  %call8 = call fastcc i32 @throttle_parse_options(ptr noundef %options, ptr noundef nonnull %group, ptr noundef %errp)
   %cmp9 = icmp eq i32 %call8, 0
   br i1 %cmp9, label %if.then10, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
@@ -325,7 +325,7 @@ entry:
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @throttle_parse_options(ptr noundef %options, ptr nocapture noundef writeonly %group, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @throttle_parse_options(ptr noundef %options, ptr nocapture noundef writeonly %group, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_opts_create(ptr noundef nonnull @throttle_opts, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #4
   %call1 = tail call zeroext i1 @qemu_opts_absorb_qdict(ptr noundef %call, ptr noundef %options, ptr noundef %errp) #4
@@ -427,4 +427,3 @@ attributes #6 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -22, i32 1}

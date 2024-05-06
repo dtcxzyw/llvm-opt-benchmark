@@ -131,7 +131,7 @@ define void @decode_as_default_populate_list(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @decode_as_default_reset(ptr noundef %0, ptr noundef %1) #0 {
+define range(i32 0, 2) i32 @decode_as_default_reset(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @get_dissector_table_selector_type(ptr noundef %0) #14
   switch i32 %3, label %10 [
     i32 4, label %4
@@ -168,7 +168,7 @@ define noundef i32 @decode_as_default_reset(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @decode_as_default_change(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define range(i32 0, 2) i32 @decode_as_default_change(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @get_dissector_table_selector_type(ptr noundef %0) #14
   switch i32 %5, label %12 [
     i32 4, label %6
@@ -349,7 +349,7 @@ declare i32 @g_str_equal(ptr noundef, ptr noundef) #1
 declare i32 @read_prefs_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @read_set_decode_as_entries(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = alloca [4 x ptr], align 16
   %6 = alloca ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -449,7 +449,7 @@ define internal noundef i32 @read_set_decode_as_entries(ptr nocapture noundef re
   br i1 %or.cond11, label %49, label %47
 
 47:                                               ; preds = %43
-  %48 = trunc i64 %40 to i32
+  %48 = trunc nuw i64 %40 to i32
   tail call void @dissector_change_uint(ptr noundef %25, i32 noundef %48, ptr noundef %31) #14
   br label %49
 
@@ -564,7 +564,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @save_decode_as_entries(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @save_decode_as_entries(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8

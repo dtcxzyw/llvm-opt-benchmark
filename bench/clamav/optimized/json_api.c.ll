@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [51 x i8] c"json: owner array does not have content at idx %d\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_json_timeout_cycle_check(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 22) i32 @cli_json_timeout_cycle_check(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
@@ -81,7 +81,7 @@ declare i32 @cli_checktimelimit(ptr noundef) local_unnamed_addr #1
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_json_parse_error(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_json_parse_error(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
 
@@ -91,7 +91,7 @@ define noundef i32 @cli_json_parse_error(ptr noundef %0, ptr noundef %1) local_u
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @cli_jsonstr(ptr noundef nonnull %4, ptr noundef null, ptr noundef %1), !range !4
+  %7 = tail call i32 @cli_jsonstr(ptr noundef nonnull %4, ptr noundef null, ptr noundef %1)
   br label %8
 
 8:                                                ; preds = %3, %2, %6
@@ -161,7 +161,7 @@ define ptr @cli_jsonarray(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_jsonstr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_jsonstr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -220,7 +220,7 @@ define noundef i32 @cli_jsonstr(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_jsonnull(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @cli_jsonnull(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -267,7 +267,7 @@ declare ptr @json_object_new_string(ptr noundef) local_unnamed_addr #1
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_jsonstrlen(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_jsonstrlen(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -328,7 +328,7 @@ define noundef i32 @cli_jsonstrlen(ptr noundef %0, ptr noundef %1, ptr noundef %
 declare ptr @json_object_new_string_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_jsonint(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_jsonint(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -381,7 +381,7 @@ define noundef i32 @cli_jsonint(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
 declare ptr @json_object_new_int(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_jsonint64(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_jsonint64(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -434,7 +434,7 @@ define noundef i32 @cli_jsonint64(ptr noundef %0, ptr noundef %1, i64 noundef %2
 declare ptr @json_object_new_int64(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_jsonbool(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_jsonbool(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -487,7 +487,7 @@ define noundef i32 @cli_jsonbool(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 declare ptr @json_object_new_boolean(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_jsondouble(ptr noundef %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_jsondouble(ptr noundef %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -546,7 +546,7 @@ declare i32 @json_object_is_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @json_object_new_array() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_jsonint_array(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_jsonint_array(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -647,7 +647,7 @@ define ptr @cli_jsonobj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 declare ptr @json_object_new_object() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_json_addowner(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @cli_json_addowner(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -725,7 +725,7 @@ declare i32 @json_object_array_put_idx(ptr noundef, i64 noundef, ptr noundef) lo
 declare ptr @json_object_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_json_delowner(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @cli_json_delowner(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
@@ -807,4 +807,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 21}

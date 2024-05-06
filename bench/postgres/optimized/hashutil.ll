@@ -92,10 +92,10 @@ define dso_local noundef i32 @_hash_hashkey2bucket(i32 noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_hash_spareindex(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 102) i32 @_hash_spareindex(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i32 %0, 2
   %3 = add i32 %0, -1
-  %4 = tail call i32 @llvm.ctlz.i32(i32 %3, i1 true), !range !5
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %3, i1 true)
   %5 = sub nuw nsw i32 32, %4
   %.0.i = select i1 %2, i32 0, i32 %5
   %6 = icmp ult i32 %.0.i, 10
@@ -349,7 +349,7 @@ define dso_local zeroext i16 @_hash_binsearch(ptr nocapture noundef readonly %0,
   %14 = zext nneg i16 %.019 to i32
   %15 = add nuw nsw i32 %14, %13
   %16 = lshr i32 %15, 1
-  %17 = trunc i32 %16 to i16
+  %17 = trunc nuw i32 %16 to i16
   %18 = zext nneg i32 %16 to i64
   %19 = add nsw i64 %18, -1
   %20 = getelementptr [0 x %struct.ItemIdData], ptr %11, i64 0, i64 %19
@@ -368,7 +368,7 @@ define dso_local zeroext i16 @_hash_binsearch(ptr nocapture noundef readonly %0,
   %.114 = select i1 %28, i16 %29, i16 %.01318
   %.1 = select i1 %28, i16 %.019, i16 %17
   %30 = icmp ugt i16 %.1, %.114
-  br i1 %30, label %12, label %._crit_edge, !llvm.loop !6
+  br i1 %30, label %12, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %12, %2
   %.013.lcssa = phi i16 [ 1, %2 ], [ %.114, %12 ]
@@ -400,7 +400,7 @@ define dso_local zeroext i16 @_hash_binsearch_last(ptr nocapture noundef readonl
   %13 = add nuw nsw i32 %11, 1
   %14 = add nuw nsw i32 %13, %12
   %15 = lshr i32 %14, 1
-  %16 = trunc i32 %15 to i16
+  %16 = trunc nuw i32 %15 to i16
   %17 = zext nneg i32 %15 to i64
   %18 = add nsw i64 %17, -1
   %19 = getelementptr [0 x %struct.ItemIdData], ptr %9, i64 0, i64 %18
@@ -419,7 +419,7 @@ define dso_local zeroext i16 @_hash_binsearch_last(ptr nocapture noundef readonl
   %.114 = select i1 %27, i16 %.01318, i16 %16
   %.1 = select i1 %27, i16 %28, i16 %.019
   %29 = icmp ugt i16 %.1, %.114
-  br i1 %29, label %10, label %._crit_edge, !llvm.loop !8
+  br i1 %29, label %10, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %10, %2
   %.013.lcssa = phi i16 [ 0, %2 ], [ %.114, %10 ]
@@ -428,7 +428,7 @@ define dso_local zeroext i16 @_hash_binsearch_last(ptr nocapture noundef readonl
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @_hash_get_oldblock_from_newbucket(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = tail call i32 @llvm.ctlz.i32(i32 %1, i1 true), !range !5
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)
   %4 = xor i32 %3, 31
   %notmask = shl nsw i32 -1, %4
   %5 = xor i32 %notmask, -1
@@ -460,7 +460,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
 
 21:                                               ; preds = %BufferGetPage.exit
   %22 = getelementptr i8, ptr %.0.i.i, i64 76
-  %23 = tail call i32 @llvm.ctlz.i32(i32 %6, i1 true), !range !5
+  %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 true)
   %24 = sub nuw nsw i32 32, %23
   %25 = icmp ult i32 %6, 512
   br i1 %25, label %_hash_spareindex.exit, label %26
@@ -536,7 +536,7 @@ BufferGetPage.exit:                               ; preds = %5, %11
   %28 = getelementptr i8, ptr %.0.i.i, i64 76
   %29 = add i32 %.0.i, 1
   %30 = icmp ult i32 %29, 2
-  %31 = tail call i32 @llvm.ctlz.i32(i32 %.0.i, i1 true), !range !5
+  %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i, i1 true)
   %32 = sub nuw nsw i32 32, %31
   %.0.i.i12 = select i1 %30, i32 0, i32 %32
   %33 = icmp ult i32 %.0.i.i12, 10
@@ -667,7 +667,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
 52:                                               ; preds = %.lr.ph
   %53 = add i16 %.03948, 1
   %.not = icmp ugt i16 %53, %.0.i
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %44, %52
   %.03948 = phi i16 [ %53, %52 ], [ %51, %44 ]
@@ -684,7 +684,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
 .loopexit:                                        ; preds = %52, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !9
 
 .loopexit.thread:                                 ; preds = %.lr.ph
   %61 = getelementptr [0 x %struct.ItemIdData], ptr %43, i64 0, i64 %55
@@ -693,7 +693,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
   store i32 %63, ptr %61, align 4
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not55 = icmp eq i64 %indvars.iv.next54, %wide.trip.count
-  br i1 %exitcond.not55, label %._crit_edge.thread, label %.outer, !llvm.loop !10
+  br i1 %exitcond.not55, label %._crit_edge.thread, label %.outer, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit
   br i1 %.04149.ph, label %._crit_edge.thread, label %.critedge
@@ -756,9 +756,8 @@ attributes #9 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

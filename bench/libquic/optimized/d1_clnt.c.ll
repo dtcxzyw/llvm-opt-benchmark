@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [117 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/d1_clnt.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dtls1_connect(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @dtls1_connect(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %ok.i = alloca i32, align 4
   %hello_verify_request.i = alloca %struct.cbs_st, align 8

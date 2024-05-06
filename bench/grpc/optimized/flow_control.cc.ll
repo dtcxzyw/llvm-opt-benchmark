@@ -86,7 +86,7 @@ $_ZN4absl12lts_2023080216strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_i
 @.str.32 = private unnamed_addr constant [26 x i8] c" announced_window_delta: \00", align 1
 @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = linkonce_odr global %"class.grpc_core::NoDestruct" zeroinitializer, comdat, align 8
 @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = linkonce_odr local_unnamed_addr global i64 0, comdat($_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E), align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.34 = private unnamed_addr constant [142 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/ext/transport/chttp2/transport/flow_control.h\00", align 1
 @.str.35 = private unnamed_addr constant [16 x i8] c"tfc_ == nullptr\00", align 1
 @_ZN9grpc_core6chttp2L15kMaxWindowDeltaE = internal unnamed_addr constant i64 1048576, align 8
@@ -783,7 +783,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK9grpc_core6chttp220TransportFlowControl13target_windowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) local_unnamed_addr #9 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK9grpc_core6chttp220TransportFlowControl13target_windowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) local_unnamed_addr #9 align 2 {
 entry:
   %announced_stream_total_over_incoming_window_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %announced_stream_total_over_incoming_window_, align 8

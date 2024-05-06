@@ -754,7 +754,7 @@ $_ZTIZN18OpenImageIO_v2_6_011thread_pool4pushIRSt8functionIFvillllEEJRlS6_S6_S6_
 @.str.5 = private unnamed_addr constant [48 x i8] c"get_next_capacity, allocator's max size reached\00", align 1
 @_ZTISt12length_error = external constant ptr
 @_ZN18OpenImageIO_v2_6_0L27default_thread_pool_createdE.0 = internal unnamed_addr global i32 0, align 4
-@_ZZN18OpenImageIO_v2_6_0L24parallel_recursive_depthEiE5depth = internal thread_local global i32 0, align 4
+@_ZZN18OpenImageIO_v2_6_0L24parallel_recursive_depthEiE5depth = internal thread_local unnamed_addr global i32 0, align 4
 @_ZTVSt23_Sp_counted_ptr_inplaceISt13packaged_taskIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt23_Sp_counted_ptr_inplaceISt13packaged_taskIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt23_Sp_counted_ptr_inplaceISt13packaged_taskIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceISt13packaged_taskIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceISt13packaged_taskIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceISt13packaged_taskIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceISt13packaged_taskIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTSSt23_Sp_counted_ptr_inplaceISt13packaged_taskIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [87 x i8] c"St23_Sp_counted_ptr_inplaceISt13packaged_taskIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTISt23_Sp_counted_ptr_inplaceISt13packaged_taskIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceISt13packaged_taskIFviEESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
@@ -774,8 +774,8 @@ $_ZTIZN18OpenImageIO_v2_6_011thread_pool4pushIRSt8functionIFvillllEEJRlS6_S6_S6_
 @_ZTSNSt13__future_base7_ResultIvEE = linkonce_odr constant [31 x i8] c"NSt13__future_base7_ResultIvEE\00", comdat, align 1
 @_ZTINSt13__future_base12_Result_baseE = external constant ptr
 @_ZTINSt13__future_base7_ResultIvEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSNSt13__future_base7_ResultIvEE, ptr @_ZTINSt13__future_base12_Result_baseE }, comdat, align 8
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTIN10__cxxabiv115__forced_unwindE = external constant ptr
 @_ZTSNSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIvEENS_12_Result_base8_DeleterEEZNS_11_Task_stateISt5_BindIFSt8functionIFvillEESt12_PlaceholderILi1EEllEESaIiEFviEE6_M_runEOiEUlvE_vEE = linkonce_odr constant [194 x i8] c"NSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIvEENS_12_Result_base8_DeleterEEZNS_11_Task_stateISt5_BindIFSt8functionIFvillEESt12_PlaceholderILi1EEllEESaIiEFviEE6_M_runEOiEUlvE_vEE\00", comdat, align 1
 @_ZTINSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIvEENS_12_Result_base8_DeleterEEZNS_11_Task_stateISt5_BindIFSt8functionIFvillEESt12_PlaceholderILi1EEllEESaIiEFviEE6_M_runEOiEUlvE_vEE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSNSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIvEENS_12_Result_base8_DeleterEEZNS_11_Task_stateISt5_BindIFSt8functionIFvillEESt12_PlaceholderILi1EEllEESaIiEFviEE6_M_runEOiEUlvE_vEE }, comdat, align 8
@@ -4807,7 +4807,7 @@ if.end:                                           ; preds = %entry
   store i64 %6, ptr %ref.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %conv, i64 noundef %conv1, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
+  invoke void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %conv, i64 noundef %conv1, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end
@@ -4944,7 +4944,7 @@ if.end:                                           ; preds = %entry
   store i64 %6, ptr %ref.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %conv, i64 noundef %conv1, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
+  invoke void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %conv, i64 noundef %conv1, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end
@@ -5079,7 +5079,7 @@ if.end:                                           ; preds = %entry
   store i64 %6, ptr %ref.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %begin, i64 noundef %end, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
+  invoke void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %begin, i64 noundef %end, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end
@@ -5214,7 +5214,7 @@ if.end:                                           ; preds = %entry
   store i64 %6, ptr %ref.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
-  invoke void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %begin, i64 noundef %end, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
+  invoke void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %begin, i64 noundef %end, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end

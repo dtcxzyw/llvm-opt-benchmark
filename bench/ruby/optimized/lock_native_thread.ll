@@ -49,7 +49,7 @@ declare i32 @pthread_setspecific(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @lock_native_thread(i64 %0) #0 {
+define internal range(i64 0, 21) i64 @lock_native_thread(i64 %0) #0 {
   %2 = tail call zeroext i1 @rb_thread_lock_native_thread() #4
   %3 = select i1 %2, i64 20, i64 0
   ret i64 %3

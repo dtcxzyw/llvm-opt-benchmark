@@ -356,7 +356,7 @@ define hidden void @_ZN6uucore8features3sum6Digest10result_str17hb7054df72329a65
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h16c4babbd84fd55aE(ptr noalias noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN6uucore8features3sum6Digest12output_bytes17h16c4babbd84fd55aE(ptr noalias noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #0 {
   %2 = tail call noundef i64 @"_ZN79_$LT$uucore..features..sum..Sha256$u20$as$u20$uucore..features..sum..Digest$GT$11output_bits17h289a6698a198ad32E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %0)
   %3 = add i64 %2, 7
   %4 = lshr i64 %3, 3
@@ -364,7 +364,7 @@ define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h16c4ba
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h1de0eff471cfe20dE(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN6uucore8features3sum6Digest12output_bytes17h1de0eff471cfe20dE(ptr noalias noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #0 {
   %2 = tail call noundef i64 @"_ZN77_$LT$uucore..features..sum..SYSV$u20$as$u20$uucore..features..sum..Digest$GT$11output_bits17he692de4ae83a62b6E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %0)
   %3 = add i64 %2, 7
   %4 = lshr i64 %3, 3
@@ -372,7 +372,7 @@ define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h1de0ef
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h2c19f4c30c136328E(ptr noalias noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN6uucore8features3sum6Digest12output_bytes17h2c19f4c30c136328E(ptr noalias noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #0 {
   %2 = tail call noundef i64 @"_ZN76_$LT$uucore..features..sum..Sm3$u20$as$u20$uucore..features..sum..Digest$GT$11output_bits17h7f9f8223ba517f38E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %0)
   %3 = add i64 %2, 7
   %4 = lshr i64 %3, 3
@@ -380,7 +380,7 @@ define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h2c19f4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h6f96405b48c4e09bE(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN6uucore8features3sum6Digest12output_bytes17h6f96405b48c4e09bE(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #0 {
   %2 = tail call noundef i64 @"_ZN76_$LT$uucore..features..sum..Md5$u20$as$u20$uucore..features..sum..Digest$GT$11output_bits17h143b04539135a1cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
   %3 = add i64 %2, 7
   %4 = lshr i64 %3, 3
@@ -388,7 +388,7 @@ define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h6f9640
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h82b60057cd830b90E(ptr noalias noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN6uucore8features3sum6Digest12output_bytes17h82b60057cd830b90E(ptr noalias noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #0 {
   %2 = tail call noundef i64 @"_ZN76_$LT$uucore..features..sum..BSD$u20$as$u20$uucore..features..sum..Digest$GT$11output_bits17hbde031eb96915009E"(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %0)
   %3 = add i64 %2, 7
   %4 = lshr i64 %3, 3
@@ -396,7 +396,7 @@ define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h82b600
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h8a11449b52c67aeeE(ptr noalias noundef readonly align 16 dereferenceable(224) %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN6uucore8features3sum6Digest12output_bytes17h8a11449b52c67aeeE(ptr noalias noundef readonly align 16 dereferenceable(224) %0) unnamed_addr #0 {
   %2 = tail call noundef i64 @"_ZN79_$LT$uucore..features..sum..Sha384$u20$as$u20$uucore..features..sum..Digest$GT$11output_bits17hfe0e2854bba9f66cE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(224) %0)
   %3 = add i64 %2, 7
   %4 = lshr i64 %3, 3
@@ -404,7 +404,7 @@ define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h8a1144
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h91818af3f887ededE(ptr noalias noundef readonly align 16 dereferenceable(240) %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN6uucore8features3sum6Digest12output_bytes17h91818af3f887ededE(ptr noalias noundef readonly align 16 dereferenceable(240) %0) unnamed_addr #0 {
   %2 = tail call noundef i64 @"_ZN80_$LT$uucore..features..sum..Blake2b$u20$as$u20$uucore..features..sum..Digest$GT$11output_bits17ha25634adb4f4a592E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(240) %0)
   %3 = add i64 %2, 7
   %4 = lshr i64 %3, 3
@@ -412,7 +412,7 @@ define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h91818a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h92f2ec1c58856164E(ptr noalias noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN6uucore8features3sum6Digest12output_bytes17h92f2ec1c58856164E(ptr noalias noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #0 {
   %2 = tail call noundef i64 @"_ZN77_$LT$uucore..features..sum..Sha1$u20$as$u20$uucore..features..sum..Digest$GT$11output_bits17hff5cf876f72a7b27E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %0)
   %3 = add i64 %2, 7
   %4 = lshr i64 %3, 3
@@ -420,7 +420,7 @@ define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17h92f2ec
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17hd7a4059790e2c38fE(ptr noalias noundef readonly align 16 dereferenceable(224) %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN6uucore8features3sum6Digest12output_bytes17hd7a4059790e2c38fE(ptr noalias noundef readonly align 16 dereferenceable(224) %0) unnamed_addr #0 {
   %2 = tail call noundef i64 @"_ZN79_$LT$uucore..features..sum..Sha512$u20$as$u20$uucore..features..sum..Digest$GT$11output_bits17hbbf95bca638271bcE"(ptr noalias noundef nonnull readonly align 16 dereferenceable(224) %0)
   %3 = add i64 %2, 7
   %4 = lshr i64 %3, 3
@@ -428,7 +428,7 @@ define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17hd7a405
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17hdd43ac9d76b46116E(ptr noalias noundef readonly align 8 dereferenceable(1040) %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN6uucore8features3sum6Digest12output_bytes17hdd43ac9d76b46116E(ptr noalias noundef readonly align 8 dereferenceable(1040) %0) unnamed_addr #0 {
   %2 = tail call noundef i64 @"_ZN76_$LT$uucore..features..sum..CRC$u20$as$u20$uucore..features..sum..Digest$GT$11output_bits17ha032f365f2e7b67fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(1040) %0)
   %3 = add i64 %2, 7
   %4 = lshr i64 %3, 3
@@ -436,7 +436,7 @@ define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17hdd43ac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN6uucore8features3sum6Digest12output_bytes17hf09b480f7c89c9abE(ptr noalias noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN6uucore8features3sum6Digest12output_bytes17hf09b480f7c89c9abE(ptr noalias noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #0 {
   %2 = tail call noundef i64 @"_ZN79_$LT$uucore..features..sum..Sha224$u20$as$u20$uucore..features..sum..Digest$GT$11output_bits17h6ebfbc59d96fcafcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %0)
   %3 = add i64 %2, 7
   %4 = lshr i64 %3, 3

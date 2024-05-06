@@ -629,7 +629,7 @@ proxy_v1_get_token_length.exit148.thread216.i:    ; preds = %175, %proxy_v1_get_
   %234 = load i32, ptr %233, align 4
   %235 = getelementptr inbounds i8, ptr %13, i64 8
   %236 = load ptr, ptr %235, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %230, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %230, i8 0, i64 24, i1 false)
   store i32 %232, ptr %230, align 8
   %237 = icmp eq i32 %234, 0
   br i1 %237, label %copy_address_wmem.exit.i, label %238
@@ -651,7 +651,7 @@ copy_address_wmem.exit.i:                         ; preds = %238, %228
   %246 = load i32, ptr %14, align 8
   %247 = load i32, ptr %168, align 4
   %248 = load ptr, ptr %169, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %245, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %245, i8 0, i64 24, i1 false)
   store i32 %246, ptr %245, align 8
   %249 = icmp eq i32 %247, 0
   br i1 %249, label %copy_address_wmem.exit149.i, label %250
@@ -945,7 +945,7 @@ proto_item_set_generated.exit.i:                  ; preds = %34, %31, %16
   %138 = load i32, ptr %137, align 4
   %139 = getelementptr inbounds i8, ptr %8, i64 8
   %140 = load ptr, ptr %139, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %134, i8 0, i64 24, i1 false)
   store i32 %136, ptr %134, align 8
   %141 = icmp eq i32 %138, 0
   br i1 %141, label %copy_address_wmem.exit.i, label %142
@@ -969,7 +969,7 @@ copy_address_wmem.exit.i:                         ; preds = %142, %132
   %152 = load i32, ptr %151, align 4
   %153 = getelementptr inbounds i8, ptr %9, i64 8
   %154 = load ptr, ptr %153, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %149, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %149, i8 0, i64 24, i1 false)
   store i32 %150, ptr %149, align 8
   %155 = icmp eq i32 %152, 0
   br i1 %155, label %copy_address_wmem.exit131.i, label %156
@@ -1053,7 +1053,7 @@ define hidden void @proto_reg_handoff_proxy() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_proxy_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_proxy_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #7
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
@@ -1112,7 +1112,7 @@ is_proxy_v1.exit.thread:                          ; preds = %is_proxy_v2.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_proxy_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_proxy_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
   %6 = icmp slt i32 %5, 16
   br i1 %6, label %is_proxy_v2.exit.thread, label %is_proxy_v2.exit

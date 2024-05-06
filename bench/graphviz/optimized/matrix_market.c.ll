@@ -625,17 +625,17 @@ mm_get_type.exit._crit_edge:                      ; preds = %mm_get_type.exit, %
   br i1 %exitcond389.not, label %.loopexit, label %.lr.ph322
 
 ..loopexit274_crit_edge:                          ; preds = %.lr.ph326
-  %363 = trunc i64 %indvars.iv.next393 to i32
+  %363 = trunc nsw i64 %indvars.iv.next393 to i32
   store i32 %363, ptr %5, align 4
   br label %.loopexit
 
 ..loopexit277_crit_edge:                          ; preds = %.lr.ph307
-  %364 = trunc i64 %indvars.iv.next371 to i32
+  %364 = trunc nsw i64 %indvars.iv.next371 to i32
   store i32 %364, ptr %5, align 4
   br label %.loopexit
 
 ..loopexit279_crit_edge:                          ; preds = %.lr.ph293
-  %365 = trunc i64 %indvars.iv.next354 to i32
+  %365 = trunc nsw i64 %indvars.iv.next354 to i32
   store i32 %365, ptr %5, align 4
   br label %.loopexit
 

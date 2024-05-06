@@ -138,7 +138,7 @@ define noundef ptr @opal_datatype_create(i32 noundef %0) local_unnamed_addr #2 {
 
 opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %7, %8
   %15 = icmp eq i32 %0, -1
-  %16 = add nsw i32 %0, 1
+  %16 = add nuw nsw i32 %0, 1
   %17 = select i1 %15, i32 9, i32 %16
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %3, i64 144
@@ -160,9 +160,9 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @opal_datatype_create_desc(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define noundef range(i32 -2, 1) i32 @opal_datatype_create_desc(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq i32 %1, -1
-  %4 = add nsw i32 %1, 1
+  %4 = add nuw nsw i32 %1, 1
   %5 = select i1 %3, i32 9, i32 %4
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %0, i64 144

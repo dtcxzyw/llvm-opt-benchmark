@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [26 x i8] c"%04d%02d%02d%02d%02d%02dZ\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @asn1_generalizedtime_to_tm(ptr noundef %tm, ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @asn1_generalizedtime_to_tm(ptr noundef %tm, ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %d, i64 4
   %0 = load i32, ptr %type, align 4
@@ -354,14 +354,14 @@ return:                                           ; preds = %if.end65, %lor.lhs.
 declare i32 @OPENSSL_gmtime_adj(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ASN1_GENERALIZEDTIME_check(ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_GENERALIZEDTIME_check(ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @asn1_generalizedtime_to_tm(ptr noundef null, ptr noundef %d), !range !11
+  %call = tail call i32 @asn1_generalizedtime_to_tm(ptr noundef null, ptr noundef %d)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_GENERALIZEDTIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_GENERALIZEDTIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %t = alloca %struct.asn1_string_st, align 8
   %type = getelementptr inbounds i8, ptr %t, i64 4
@@ -371,7 +371,7 @@ entry:
   store i32 %conv, ptr %t, align 8
   %data = getelementptr inbounds i8, ptr %t, i64 8
   store ptr %str, ptr %data, align 8
-  %call.i = call i32 @asn1_generalizedtime_to_tm(ptr noundef null, ptr noundef nonnull %t), !range !11
+  %call.i = call i32 @asn1_generalizedtime_to_tm(ptr noundef null, ptr noundef nonnull readonly %t)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %if.then
 
@@ -535,4 +535,3 @@ attributes #7 = { nounwind allocsize(0) }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
-!11 = !{i32 0, i32 2}

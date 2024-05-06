@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_sm2_key_private_check = private unnamed_addr constant [27 x i8] c"ossl_sm2_key_private_check\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_sm2_key_private_check(ptr noundef %eckey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_sm2_key_private_check(ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %if.then, label %lor.lhs.false

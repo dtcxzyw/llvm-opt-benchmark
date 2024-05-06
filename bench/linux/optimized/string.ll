@@ -65,7 +65,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_memchr_inv: 
 @llvm.compiler.used = appending global [28 x ptr] [ptr @__UNIQUE_ID___addressable_bcmp169, ptr @__UNIQUE_ID___addressable_memchr173, ptr @__UNIQUE_ID___addressable_memchr_inv174, ptr @__UNIQUE_ID___addressable_memcmp168, ptr @__UNIQUE_ID___addressable_memscan170, ptr @__UNIQUE_ID___addressable_stpcpy151, ptr @__UNIQUE_ID___addressable_strcasecmp145, ptr @__UNIQUE_ID___addressable_strcat152, ptr @__UNIQUE_ID___addressable_strchr158, ptr @__UNIQUE_ID___addressable_strchrnul159, ptr @__UNIQUE_ID___addressable_strcmp156, ptr @__UNIQUE_ID___addressable_strcpy146, ptr @__UNIQUE_ID___addressable_strcspn165, ptr @__UNIQUE_ID___addressable_strlcat155, ptr @__UNIQUE_ID___addressable_strlen162, ptr @__UNIQUE_ID___addressable_strncasecmp144, ptr @__UNIQUE_ID___addressable_strncat153, ptr @__UNIQUE_ID___addressable_strnchr161, ptr @__UNIQUE_ID___addressable_strncmp157, ptr @__UNIQUE_ID___addressable_strncpy147, ptr @__UNIQUE_ID___addressable_strnlen163, ptr @__UNIQUE_ID___addressable_strnstr172, ptr @__UNIQUE_ID___addressable_strpbrk166, ptr @__UNIQUE_ID___addressable_strrchr160, ptr @__UNIQUE_ID___addressable_strscpy150, ptr @__UNIQUE_ID___addressable_strsep167, ptr @__UNIQUE_ID___addressable_strspn164, ptr @__UNIQUE_ID___addressable_strstr171], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @strncasecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local range(i32 -255, 256) i32 @strncasecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %41, label %.preheader
 
@@ -122,7 +122,7 @@ define dso_local i32 @strncasecmp(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @strcasecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local range(i32 -255, 256) i32 @strcasecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -443,7 +443,7 @@ define dso_local noundef i64 @strlen(ptr noundef %0) #0 align 16 {
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @strcmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local range(i32 -1, 2) i32 @strcmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   br label %3
 
 3:                                                ; preds = %12, %2
@@ -471,7 +471,7 @@ define dso_local i32 @strcmp(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @strncmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local range(i32 -1, 2) i32 @strncmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -852,7 +852,7 @@ define dso_local ptr @strsep(ptr nocapture noundef %0, ptr noundef readonly %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @memcmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local range(i32 -255, 256) i32 @memcmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
   %4 = icmp ugt i64 %2, 7
   br i1 %4, label %.preheader6, label %.loopexit7
 
@@ -910,7 +910,7 @@ define dso_local i32 @memcmp(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @bcmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local range(i32 -255, 256) i32 @bcmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
   %4 = icmp ugt i64 %2, 7
   br i1 %4, label %.preheader6, label %.loopexit7
 
@@ -1251,7 +1251,7 @@ define dso_local noundef ptr @memchr_inv(ptr noundef %0, i32 noundef %1, i64 nou
   br i1 %5, label %6, label %17
 
 6:                                                ; preds = %3
-  %7 = trunc i64 %2 to i32
+  %7 = trunc nuw nsw i64 %2 to i32
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit, label %.preheader
 

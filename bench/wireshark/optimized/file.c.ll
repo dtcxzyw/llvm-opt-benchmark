@@ -826,7 +826,7 @@ calc_progbar_val.exit:                            ; preds = %progress_is_slow.ex
   %.1.i = phi float [ 1.000000e+00, %153 ], [ %.0.i131, %146 ], [ %144, %progress_is_slow.exit ]
   %154 = sdiv i64 %133, 1024
   %155 = sdiv i64 %.012.i, 1024
-  %156 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %23, i64 noundef 100, ptr noundef nonnull @.str.46, i64 noundef %154, i64 noundef %155) #21
+  %156 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %23, i64 noundef 100, ptr noundef nonnull @.str.46, i64 noundef %154, i64 noundef %155) #21
   %157 = load ptr, ptr %106, align 8
   %158 = call ptr @delayed_create_progress_dlg(ptr noundef %157, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef nonnull %69, float noundef %.1.i) #21
   store volatile ptr %158, ptr %9, align 8
@@ -866,7 +866,7 @@ calc_progbar_val.exit135:                         ; preds = %162, %166, %173
   %.1.i133 = phi float [ 1.000000e+00, %173 ], [ %.0.i134, %166 ], [ %164, %162 ]
   %174 = sdiv i64 %133, 1024
   %175 = sdiv i64 %.012.i132, 1024
-  %176 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %23, i64 noundef 100, ptr noundef nonnull @.str.46, i64 noundef %174, i64 noundef %175) #21
+  %176 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %23, i64 noundef 100, ptr noundef nonnull @.str.46, i64 noundef %174, i64 noundef %175) #21
   %.0..0..0..0.37 = load volatile ptr, ptr %9, align 8
   call void @update_progress_dlg(ptr noundef %.0..0..0..0.37, float noundef %.1.i133, ptr noundef nonnull %23) #21
   %177 = call i64 @g_get_monotonic_time() #21
@@ -8424,7 +8424,7 @@ progress_is_slow.exit.thread:                     ; preds = %93, %86, %progress_
   %.1.i = phi float [ 1.000000e+00, %93 ], [ %.0.i88, %86 ], [ %84, %progress_is_slow.exit ]
   %94 = sdiv i64 %82, 1024
   %95 = sdiv i64 %.012.i, 1024
-  %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 100, ptr noundef nonnull @.str.46, i64 noundef %94, i64 noundef %95) #21
+  %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %9, i64 noundef 100, ptr noundef nonnull @.str.46, i64 noundef %94, i64 noundef %95) #21
   %97 = load ptr, ptr %59, align 8
   %98 = call ptr @delayed_create_progress_dlg(ptr noundef %97, ptr noundef null, ptr noundef null, i32 noundef 1, ptr noundef nonnull %52, float noundef %.1.i) #21
   %.not81 = icmp eq ptr %98, null
@@ -8461,7 +8461,7 @@ calc_progbar_val.exit92:                          ; preds = %101, %106, %113
   %.1.i90 = phi float [ 1.000000e+00, %113 ], [ %.0.i91, %106 ], [ %104, %101 ]
   %114 = sdiv i64 %102, 1024
   %115 = sdiv i64 %.012.i89, 1024
-  %116 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 100, ptr noundef nonnull @.str.46, i64 noundef %114, i64 noundef %115) #21
+  %116 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %9, i64 noundef 100, ptr noundef nonnull @.str.46, i64 noundef %114, i64 noundef %115) #21
   call void @update_progress_dlg(ptr noundef nonnull %.1110, float noundef %.1.i90, ptr noundef nonnull %9) #21
   %117 = call i64 @g_get_monotonic_time() #21
   %118 = sub i64 %117, %53

@@ -484,10 +484,10 @@ get_mandatory_string.exit.i:                      ; preds = %get_mandatory.exit.
   br i1 %.not.i203, label %get_optional_string_array_as_array.exit212, label %.lr.ph.i204
 
 .lr.ph.i204:                                      ; preds = %189, %213
-  %.02030.i205 = phi i64 [ %224, %213 ], [ 0, %189 ]
-  %.02129.i206 = phi ptr [ %216, %213 ], [ %195, %189 ]
-  %197 = getelementptr inbounds i8, ptr %.02129.i206, i64 -8
-  %.phi.trans.insert.i.i207 = getelementptr inbounds i8, ptr %.02129.i206, i64 -4
+  %.02031.i205 = phi i64 [ %224, %213 ], [ 0, %189 ]
+  %.02130.i206 = phi ptr [ %216, %213 ], [ %195, %189 ]
+  %197 = getelementptr inbounds i8, ptr %.02130.i206, i64 -8
+  %.phi.trans.insert.i.i207 = getelementptr inbounds i8, ptr %.02130.i206, i64 -4
   %.pre.i.i208 = load i32, ptr %.phi.trans.insert.i.i207, align 4
   %198 = load i32, ptr %197, align 4
   %199 = icmp eq i32 %198, %.pre.i.i208
@@ -519,14 +519,14 @@ get_mandatory_string.exit.i:                      ; preds = %get_mandatory.exit.
   store i32 %215, ptr %.1.i.i209, align 4
   %216 = getelementptr inbounds i8, ptr %.1.i.i209, i64 8
   %217 = load ptr, ptr %178, align 8
-  %218 = getelementptr inbounds ptr, ptr %217, i64 %.02030.i205
+  %218 = getelementptr inbounds ptr, ptr %217, i64 %.02031.i205
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds i8, ptr %219, i64 8
   %221 = load ptr, ptr %220, align 8
   %222 = zext i32 %214 to i64
   %223 = getelementptr inbounds ptr, ptr %216, i64 %222
   store ptr %221, ptr %223, align 8
-  %224 = add nuw i64 %.02030.i205, 1
+  %224 = add nuw i64 %.02031.i205, 1
   %225 = load i64, ptr %176, align 8
   %226 = icmp ult i64 %224, %225
   br i1 %226, label %.lr.ph.i204, label %get_optional_string_array_as_array.exit212, !llvm.loop !11
@@ -591,10 +591,10 @@ get_optional_string_array_as_array.exit212:       ; preds = %213, %165, %.prehea
   br i1 %.not.i184, label %get_optional_string_array_as_array.exit193, label %.lr.ph.i185
 
 .lr.ph.i185:                                      ; preds = %244, %268
-  %.02030.i186 = phi i64 [ %279, %268 ], [ 0, %244 ]
-  %.02129.i187 = phi ptr [ %271, %268 ], [ %250, %244 ]
-  %252 = getelementptr inbounds i8, ptr %.02129.i187, i64 -8
-  %.phi.trans.insert.i.i188 = getelementptr inbounds i8, ptr %.02129.i187, i64 -4
+  %.02031.i186 = phi i64 [ %279, %268 ], [ 0, %244 ]
+  %.02130.i187 = phi ptr [ %271, %268 ], [ %250, %244 ]
+  %252 = getelementptr inbounds i8, ptr %.02130.i187, i64 -8
+  %.phi.trans.insert.i.i188 = getelementptr inbounds i8, ptr %.02130.i187, i64 -4
   %.pre.i.i189 = load i32, ptr %.phi.trans.insert.i.i188, align 4
   %253 = load i32, ptr %252, align 4
   %254 = icmp eq i32 %253, %.pre.i.i189
@@ -626,14 +626,14 @@ get_optional_string_array_as_array.exit212:       ; preds = %213, %165, %.prehea
   store i32 %270, ptr %.1.i.i190, align 4
   %271 = getelementptr inbounds i8, ptr %.1.i.i190, i64 8
   %272 = load ptr, ptr %233, align 8
-  %273 = getelementptr inbounds ptr, ptr %272, i64 %.02030.i186
+  %273 = getelementptr inbounds ptr, ptr %272, i64 %.02031.i186
   %274 = load ptr, ptr %273, align 8
   %275 = getelementptr inbounds i8, ptr %274, i64 8
   %276 = load ptr, ptr %275, align 8
   %277 = zext i32 %269 to i64
   %278 = getelementptr inbounds ptr, ptr %271, i64 %277
   store ptr %276, ptr %278, align 8
-  %279 = add nuw i64 %.02030.i186, 1
+  %279 = add nuw i64 %.02031.i186, 1
   %280 = load i64, ptr %231, align 8
   %281 = icmp ult i64 %279, %280
   br i1 %281, label %.lr.ph.i185, label %get_optional_string_array_as_array.exit193, !llvm.loop !11
@@ -698,10 +698,10 @@ get_optional_string_array_as_array.exit193:       ; preds = %268, %get_optional_
   br i1 %.not.i165, label %get_optional_string_array_as_array.exit174, label %.lr.ph.i166
 
 .lr.ph.i166:                                      ; preds = %299, %323
-  %.02030.i167 = phi i64 [ %334, %323 ], [ 0, %299 ]
-  %.02129.i168 = phi ptr [ %326, %323 ], [ %305, %299 ]
-  %307 = getelementptr inbounds i8, ptr %.02129.i168, i64 -8
-  %.phi.trans.insert.i.i169 = getelementptr inbounds i8, ptr %.02129.i168, i64 -4
+  %.02031.i167 = phi i64 [ %334, %323 ], [ 0, %299 ]
+  %.02130.i168 = phi ptr [ %326, %323 ], [ %305, %299 ]
+  %307 = getelementptr inbounds i8, ptr %.02130.i168, i64 -8
+  %.phi.trans.insert.i.i169 = getelementptr inbounds i8, ptr %.02130.i168, i64 -4
   %.pre.i.i170 = load i32, ptr %.phi.trans.insert.i.i169, align 4
   %308 = load i32, ptr %307, align 4
   %309 = icmp eq i32 %308, %.pre.i.i170
@@ -733,14 +733,14 @@ get_optional_string_array_as_array.exit193:       ; preds = %268, %get_optional_
   store i32 %325, ptr %.1.i.i171, align 4
   %326 = getelementptr inbounds i8, ptr %.1.i.i171, i64 8
   %327 = load ptr, ptr %288, align 8
-  %328 = getelementptr inbounds ptr, ptr %327, i64 %.02030.i167
+  %328 = getelementptr inbounds ptr, ptr %327, i64 %.02031.i167
   %329 = load ptr, ptr %328, align 8
   %330 = getelementptr inbounds i8, ptr %329, i64 8
   %331 = load ptr, ptr %330, align 8
   %332 = zext i32 %324 to i64
   %333 = getelementptr inbounds ptr, ptr %326, i64 %332
   store ptr %331, ptr %333, align 8
-  %334 = add nuw i64 %.02030.i167, 1
+  %334 = add nuw i64 %.02031.i167, 1
   %335 = load i64, ptr %286, align 8
   %336 = icmp ult i64 %334, %335
   br i1 %336, label %.lr.ph.i166, label %get_optional_string_array_as_array.exit174, !llvm.loop !11
@@ -805,10 +805,10 @@ get_optional_string_array_as_array.exit174:       ; preds = %323, %get_optional_
   br i1 %.not.i154, label %get_optional_string_array_as_array.exit, label %.lr.ph.i155
 
 .lr.ph.i155:                                      ; preds = %354, %378
-  %.02030.i = phi i64 [ %389, %378 ], [ 0, %354 ]
-  %.02129.i = phi ptr [ %381, %378 ], [ %360, %354 ]
-  %362 = getelementptr inbounds i8, ptr %.02129.i, i64 -8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.02129.i, i64 -4
+  %.02031.i = phi i64 [ %389, %378 ], [ 0, %354 ]
+  %.02130.i = phi ptr [ %381, %378 ], [ %360, %354 ]
+  %362 = getelementptr inbounds i8, ptr %.02130.i, i64 -8
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.02130.i, i64 -4
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   %363 = load i32, ptr %362, align 4
   %364 = icmp eq i32 %363, %.pre.i.i
@@ -840,14 +840,14 @@ get_optional_string_array_as_array.exit174:       ; preds = %323, %get_optional_
   store i32 %380, ptr %.1.i.i, align 4
   %381 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
   %382 = load ptr, ptr %343, align 8
-  %383 = getelementptr inbounds ptr, ptr %382, i64 %.02030.i
+  %383 = getelementptr inbounds ptr, ptr %382, i64 %.02031.i
   %384 = load ptr, ptr %383, align 8
   %385 = getelementptr inbounds i8, ptr %384, i64 8
   %386 = load ptr, ptr %385, align 8
   %387 = zext i32 %379 to i64
   %388 = getelementptr inbounds ptr, ptr %381, i64 %387
   store ptr %386, ptr %388, align 8
-  %389 = add nuw i64 %.02030.i, 1
+  %389 = add nuw i64 %.02031.i, 1
   %390 = load i64, ptr %341, align 8
   %391 = icmp ult i64 %389, %390
   br i1 %391, label %.lr.ph.i155, label %get_optional_string_array_as_array.exit, !llvm.loop !11
@@ -1466,10 +1466,10 @@ define internal fastcc ptr @get_optional_string_array_as_array(ptr nocapture nou
   br i1 %.not, label %get_optional_string_array.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %45
-  %.02030 = phi i64 [ %56, %45 ], [ 0, %20 ]
-  %.02129 = phi ptr [ %48, %45 ], [ %27, %20 ]
-  %29 = getelementptr inbounds i8, ptr %.02129, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.02129, i64 -4
+  %.02031 = phi i64 [ %56, %45 ], [ 0, %20 ]
+  %.02130 = phi ptr [ %48, %45 ], [ %27, %20 ]
+  %29 = getelementptr inbounds i8, ptr %.02130, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.02130, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, %.pre.i
@@ -1501,14 +1501,14 @@ define internal fastcc ptr @get_optional_string_array_as_array(ptr nocapture nou
   store i32 %47, ptr %.1.i, align 4
   %48 = getelementptr inbounds i8, ptr %.1.i, i64 8
   %49 = load ptr, ptr %21, align 8
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %.02030
+  %50 = getelementptr inbounds ptr, ptr %49, i64 %.02031
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = zext i32 %46 to i64
   %55 = getelementptr inbounds ptr, ptr %48, i64 %54
   store ptr %53, ptr %55, align 8
-  %56 = add nuw i64 %.02030, 1
+  %56 = add nuw i64 %.02031, 1
   %57 = load i64, ptr %7, align 8
   %58 = icmp ult i64 %56, %57
   br i1 %58, label %.lr.ph, label %get_optional_string_array.exit.thread, !llvm.loop !11

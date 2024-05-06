@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @prte_event_list_item_t_class = local_unnamed_addr global %struct.pmix_class_t { ptr @.str, ptr @pmix_list_item_t_class, ptr null, ptr null, i32 0, i32 0, ptr null, ptr null, i64 272 }, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_event_base_open() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @prte_event_base_open() local_unnamed_addr #0 {
   %.b2 = load i1, ptr @initialized, align 1
   br i1 %.b2, label %6, label %1
 

@@ -870,7 +870,7 @@ define void @pmix_output(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr
   br i1 %113, label %114, label %.thread.i
 
 114:                                              ; preds = %110
-  %115 = call fastcc i32 @open_file(i32 noundef %0), !range !8
+  %115 = call fastcc i32 @open_file(i32 noundef %0)
   %.not30.i = icmp eq i32 %115, 0
   %116 = getelementptr inbounds i8, ptr %11, i64 68
   %117 = load i32, ptr %116, align 4
@@ -1075,7 +1075,7 @@ define void @pmix_output_hexdump(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   %27 = add nuw nsw i32 %.06678, %.06481
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !8
 
 28:                                               ; preds = %26
   %29 = zext nneg i32 %27 to i64
@@ -1114,7 +1114,7 @@ define void @pmix_output_hexdump(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   %.2 = phi i32 [ %46, %35 ], [ %.16583, %32 ]
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, 16
-  br i1 %exitcond92.not, label %48, label %32, !llvm.loop !10
+  br i1 %exitcond92.not, label %48, label %32, !llvm.loop !9
 
 48:                                               ; preds = %47
   %49 = zext nneg i32 %.2 to i64
@@ -1132,7 +1132,7 @@ define void @pmix_output_hexdump(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 16
   %54 = trunc nuw i64 %indvars.iv.next94 to i32
   %55 = icmp slt i32 %54, %3
-  br i1 %55, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %55, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %53, %20, %10, %6, %4
   ret void
@@ -1193,7 +1193,7 @@ pmix_output_close.exit:                           ; preds = %.loopexit.loopexit.
   %21 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !11
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %pmix_output_close.exit
   store i1 false, ptr @initialized, align 1
@@ -1240,7 +1240,7 @@ declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #11
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @open_file(i32 noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 -29, 1) i32 @open_file(i32 noundef %0) unnamed_addr #2 {
   %2 = zext i32 %0 to i64
   br label %3
 
@@ -1296,7 +1296,7 @@ define internal fastcc noundef i32 @open_file(i32 noundef %0) unnamed_addr #2 {
 28:                                               ; preds = %9, %5, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !12
 
 .loopexit:                                        ; preds = %28, %19, %.thread54, %22, %20
   %29 = load ptr, ptr @output_dir, align 8
@@ -1322,7 +1322,7 @@ define internal fastcc noundef i32 @open_file(i32 noundef %0) unnamed_addr #2 {
   %37 = getelementptr inbounds i8, ptr %.0910.i, i64 1
   %38 = getelementptr inbounds i8, ptr %.0811.i, i64 1
   %exitcond.not.i = icmp eq i64 %36, 4096
-  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %.preheader, !llvm.loop !14
+  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %.preheader, !llvm.loop !13
 
 pmix_strncpy.exit:                                ; preds = %.preheader, %35
   %.08.lcssa.i = phi ptr [ %.0811.i, %.preheader ], [ %38, %35 ]
@@ -1454,10 +1454,9 @@ attributes #24 = { nounwind willreturn memory(none) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -29, i32 1}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}

@@ -1620,7 +1620,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i301, %846
   %953 = load ptr, ptr %940, align 8
   %954 = load ptr, ptr %953, align 8
   %955 = getelementptr i8, ptr %954, i64 %947
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %944, ptr noundef nonnull align 1 dereferenceable(1) %955, i64 %945, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %944, ptr noundef nonnull align 1 dereferenceable(1) %955, i64 %945, i1 false)
   %956 = load i64, ptr %946, align 8
   %957 = add i64 %956, %945
   br label %.sink.split.i.i
@@ -1630,7 +1630,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i301, %846
   %960 = load ptr, ptr %940, align 8
   %961 = load ptr, ptr %960, align 8
   %962 = getelementptr i8, ptr %961, i64 %947
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %944, ptr align 1 %962, i64 %959, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %944, ptr align 1 %962, i64 %959, i1 false)
   %963 = load i64, ptr %948, align 8
   %964 = trunc i64 %959 to i32
   br label %.sink.split.i.i
@@ -3170,7 +3170,7 @@ define hidden void @Dtd_Parse_set_debug(i32 noundef %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @Dtd_Parse_lex_init(ptr noundef writeonly %0) local_unnamed_addr #12 {
+define hidden range(i32 0, 2) i32 @Dtd_Parse_lex_init(ptr noundef writeonly %0) local_unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -3198,7 +3198,7 @@ declare ptr @__errno_location() local_unnamed_addr #13
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @Dtd_Parse_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
+define hidden range(i32 0, 2) i32 @Dtd_Parse_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

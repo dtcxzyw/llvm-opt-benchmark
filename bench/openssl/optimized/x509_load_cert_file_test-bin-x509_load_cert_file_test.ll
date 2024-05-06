@@ -33,13 +33,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.22 = private unnamed_addr constant [2 x i8] c"4\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -73,7 +73,7 @@ declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_load_cert_file() #1 {
+define internal range(i32 0, 2) i32 @test_load_cert_file() #1 {
 entry:
   %call = tail call ptr @X509_STORE_new() #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 23, ptr noundef nonnull @.str.17, ptr noundef %call) #3

@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.null_ctrl = private unnamed_addr constant [12 x i64] [i64 1, i64 1, i64 0, i64 1, i64 0, i64 0, i64 0, i64 0, i64 1, i64 0, i64 1, i64 1], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @BIO_s_null() local_unnamed_addr #0 {
+define noundef nonnull ptr @BIO_s_null() local_unnamed_addr #0 {
 entry:
   ret ptr @null_method
 }
@@ -18,7 +18,7 @@ entry:
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @null_write(ptr nocapture readnone %b, ptr nocapture readnone %in, i32 noundef returned %inl) #0 {
+define internal noundef i32 @null_write(ptr nocapture readnone %b, ptr nocapture readnone %in, i32 noundef returned %inl) #0 {
 entry:
   ret i32 %inl
 }
@@ -26,7 +26,7 @@ entry:
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @null_read(ptr nocapture readnone %b, ptr nocapture readnone %out, i32 %outl) #0 {
+define internal noundef i32 @null_read(ptr nocapture readnone %b, ptr nocapture readnone %out, i32 %outl) #0 {
 entry:
   ret i32 0
 }
@@ -48,13 +48,13 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @null_gets(ptr nocapture readnone %bp, ptr nocapture readnone %buf, i32 %size) #0 {
+define internal noundef i32 @null_gets(ptr nocapture readnone %bp, ptr nocapture readnone %buf, i32 %size) #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i64 @null_ctrl(ptr nocapture readnone %b, i32 noundef %cmd, i64 %num, ptr nocapture readnone %ptr) #0 {
+define internal range(i64 0, 2) i64 @null_ctrl(ptr nocapture readnone %b, i32 noundef %cmd, i64 %num, ptr nocapture readnone %ptr) #0 {
 entry:
   %switch.tableidx = add i32 %cmd, -1
   %0 = icmp ult i32 %switch.tableidx, 12

@@ -479,7 +479,7 @@ thread-pre-split142:                              ; preds = %152, %156
 242:                                              ; preds = %239
   %243 = select i1 %.not136, ptr @.str.15, ptr @.str.14
   %244 = select i1 %.not136, i32 %240, i32 %216
-  %245 = trunc i64 %indvars.iv158 to i32
+  %245 = trunc nuw nsw i64 %indvars.iv158 to i32
   %246 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %243, i32 noundef %245, i32 noundef %236, i32 noundef %244)
   %247 = call i32 @MPI_Abort(ptr noundef nonnull @ompi_mpi_comm_world, i32 noundef -1) #7
   br label %248
@@ -517,7 +517,7 @@ thread-pre-split142:                              ; preds = %152, %156
   br i1 %.not134, label %271, label %267
 
 267:                                              ; preds = %264
-  %268 = trunc i64 %indvars.iv162 to i32
+  %268 = trunc nuw nsw i64 %indvars.iv162 to i32
   %269 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %268, i32 noundef %266, i32 noundef %216)
   %270 = call i32 @MPI_Abort(ptr noundef nonnull @ompi_mpi_comm_world, i32 noundef -1) #7
   br label %271
@@ -569,7 +569,7 @@ thread-pre-split142:                              ; preds = %152, %156
   br i1 %.not133, label %300, label %296
 
 296:                                              ; preds = %293
-  %297 = trunc i64 %indvars.iv170 to i32
+  %297 = trunc nuw nsw i64 %indvars.iv170 to i32
   %298 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %297, i32 noundef %295, i32 noundef %216)
   %299 = call i32 @MPI_Abort(ptr noundef nonnull @ompi_mpi_comm_world, i32 noundef -1) #7
   br label %300

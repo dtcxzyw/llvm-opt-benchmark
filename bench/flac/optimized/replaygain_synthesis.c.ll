@@ -61,7 +61,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local noundef i64 @FLAC__replaygain_synthesis__apply_gain(ptr nocapture noundef writeonly %data_out, i32 noundef %little_endian_data_out, i32 noundef %uint32_t_data_out, ptr nocapture noundef readonly %input, i32 noundef %wide_samples, i32 noundef %channels, i32 noundef %source_bps, i32 noundef %target_bps, double noundef %scale, i32 noundef %hard_limit, i32 noundef %do_dithering, ptr nocapture noundef %dither_context) local_unnamed_addr #2 {
+define dso_local range(i64 0, 4294967296) i64 @FLAC__replaygain_synthesis__apply_gain(ptr nocapture noundef writeonly %data_out, i32 noundef %little_endian_data_out, i32 noundef %uint32_t_data_out, ptr nocapture noundef readonly %input, i32 noundef %wide_samples, i32 noundef %channels, i32 noundef %source_bps, i32 noundef %target_bps, double noundef %scale, i32 noundef %hard_limit, i32 noundef %do_dithering, ptr nocapture noundef %dither_context) local_unnamed_addr #2 {
 entry:
   %idxprom = zext i32 %target_bps to i64
   %arrayidx = getelementptr inbounds [33 x i64], ptr @FLAC__replaygain_synthesis__apply_gain.hard_clip_factors_, i64 0, i64 %idxprom

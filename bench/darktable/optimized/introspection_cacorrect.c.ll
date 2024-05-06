@@ -105,7 +105,7 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
   %7 = icmp eq i32 %2, 1
   br i1 %7, label %8, label %11
 
@@ -359,7 +359,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   br i1 %163, label %.loopexit349, label %164
 
 164:                                              ; preds = %.loopexit352
-  %165 = trunc i64 %162 to i32
+  %165 = trunc nsw i64 %162 to i32
   %166 = shl i32 %165, 2
   %167 = and i32 %166, 24
   %168 = lshr i32 %27, %167
@@ -4252,16 +4252,16 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %3344 = and i64 %3343, 1
   %3345 = and i64 %3343, 2147483646
   %3346 = icmp eq i64 %3344, 0
-  %3347 = trunc i64 %3345 to i32
+  %3347 = trunc nuw nsw i64 %3345 to i32
   br label %3348
 
 3348:                                             ; preds = %3694, %3342
   %3349 = phi i64 [ 1, %3342 ], [ %3353, %3694 ]
   %3350 = add nsw i64 %3349, -1
   %3351 = mul nsw i64 %3350, %255
-  %3352 = mul nsw i64 %3349, %255
+  %3352 = mul nuw nsw i64 %3349, %255
   %3353 = add nuw nsw i64 %3349, 1
-  %3354 = mul nsw i64 %3353, %255
+  %3354 = mul nuw nsw i64 %3353, %255
   %3355 = trunc i64 %3349 to i32
   %3356 = sitofp i32 %3355 to double
   br label %3533
@@ -5216,7 +5216,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   br i1 %4082, label %.loopexit337, label %4083
 
 4083:                                             ; preds = %4079
-  %4084 = trunc i64 %3735 to i32
+  %4084 = trunc nuw nsw i64 %3735 to i32
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.8, i32 noundef %4084, i32 noundef 0) #23
   br label %.loopexit337
 
@@ -5708,7 +5708,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   br i1 %4434, label %.loopexit335, label %4435
 
 4435:                                             ; preds = %4431
-  %4436 = trunc i64 %3735 to i32
+  %4436 = trunc nuw nsw i64 %3735 to i32
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.8, i32 noundef %4436, i32 noundef 1) #23
   br label %.loopexit335
 
@@ -9705,7 +9705,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #15 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !167
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

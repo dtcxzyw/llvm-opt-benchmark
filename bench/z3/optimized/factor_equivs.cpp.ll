@@ -674,7 +674,7 @@ _ZNK16basic_union_find7is_rootEj.exit.i.i:        ; preds = %land.rhs.i.i
 
 _ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorC2ERKS2_j.exit.loopexit9.i: ; preds = %_ZNK16basic_union_find7is_rootEj.exit.i.i, %land.rhs.i.i, %while.cond.i.i
   %indvars.iv.i.lcssa.i = phi i64 [ %indvars.iv.i.i, %_ZNK16basic_union_find7is_rootEj.exit.i.i ], [ %indvars.iv.i.i, %land.rhs.i.i ], [ %5, %while.cond.i.i ]
-  %10 = trunc i64 %indvars.iv.i.lcssa.i to i32
+  %10 = trunc nuw i64 %indvars.iv.i.lcssa.i to i32
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorC2ERKS2_j.exit.loopexit9.i, %entry
@@ -1237,7 +1237,7 @@ _ZNK16basic_union_find7is_rootEj.exit.i.i:        ; preds = %land.rhs.i.i
 
 _ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorC2ERKS2_j.exit.loopexit9.i: ; preds = %_ZNK16basic_union_find7is_rootEj.exit.i.i, %land.rhs.i.i, %while.cond.i.i
   %indvars.iv.i.lcssa.i = phi i64 [ %indvars.iv.i.i, %_ZNK16basic_union_find7is_rootEj.exit.i.i ], [ %indvars.iv.i.i, %land.rhs.i.i ], [ %4, %while.cond.i.i ]
-  %9 = trunc i64 %indvars.iv.i.lcssa.i to i32
+  %9 = trunc nuw i64 %indvars.iv.i.lcssa.i to i32
   br label %_ZN15obj_equiv_classI4expr11ast_managerE5beginEv.exit
 
 _ZN15obj_equiv_classI4expr11ast_managerE5beginEv.exit: ; preds = %entry, %_ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorC2ERKS2_j.exit.loopexit9.i
@@ -1555,7 +1555,7 @@ _ZNK16basic_union_find7is_rootEj.exit.i.i:        ; preds = %land.rhs.i.i
 
 _ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorC2ERKS2_j.exit.loopexit9.i: ; preds = %_ZNK16basic_union_find7is_rootEj.exit.i.i, %land.rhs.i.i, %while.cond.i.i
   %indvars.iv.i.lcssa.i = phi i64 [ %indvars.iv.i.i, %_ZNK16basic_union_find7is_rootEj.exit.i.i ], [ %indvars.iv.i.i, %land.rhs.i.i ], [ %4, %while.cond.i.i ]
-  %9 = trunc i64 %indvars.iv.i.lcssa.i to i32
+  %9 = trunc nuw i64 %indvars.iv.i.lcssa.i to i32
   br label %_ZN15obj_equiv_classI4expr11ast_managerE5beginEv.exit
 
 _ZN15obj_equiv_classI4expr11ast_managerE5beginEv.exit: ; preds = %entry, %_ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorC2ERKS2_j.exit.loopexit9.i

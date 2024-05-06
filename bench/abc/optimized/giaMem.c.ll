@@ -615,7 +615,7 @@ define noalias noundef ptr @Gia_MmStepStart(i32 noundef %0) local_unnamed_addr #
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = shl i32 8, %7
   %calloc.i = tail call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
   store i32 %8, ptr %calloc.i, align 8
@@ -667,7 +667,7 @@ define noalias noundef ptr @Gia_MmStepStart(i32 noundef %0) local_unnamed_addr #
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %._crit_edge45
   %indvars.iv58 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next59, %._crit_edge45 ]
-  %24 = trunc i64 %indvars.iv58 to i32
+  %24 = trunc nuw nsw i64 %indvars.iv58 to i32
   %25 = shl i32 4, %24
   %26 = shl i32 8, %24
   %.not41.not = icmp slt i32 %25, %26

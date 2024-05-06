@@ -288,7 +288,7 @@ _ZN6icu_7513UnicodeString8truncateEi.exit:        ; preds = %if.then.i, %if.else
 declare void @_ZN6icu_759UVector327setSizeEi(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7510UCharsTrie8Iterator7hasNextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510UCharsTrie8Iterator7hasNextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #4 align 2 {
 entry:
   %pos_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %pos_, align 8

@@ -743,7 +743,7 @@ define internal fastcc void @phpdbg_print_function_helper(ptr noundef %0) unname
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds i8, ptr %13, i64 24
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw i64 %indvars.iv to i32
   %19 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %11, ptr noundef nonnull @.str.39, i32 noundef %18, i32 noundef %16, ptr noundef nonnull %17) #10
   tail call void @zend_dump_op_array(ptr noundef %10, i32 noundef 32, ptr noundef null, ptr noundef null) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -951,7 +951,7 @@ define internal fastcc void @phpdbg_print_opcodes_ce(ptr nocapture noundef reado
 
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr %.03543, align 8
-  %36 = trunc i8 %.044 to i1
+  %36 = trunc nuw i8 %.044 to i1
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %34
@@ -975,7 +975,7 @@ define internal fastcc void @phpdbg_print_opcodes_ce(ptr nocapture noundef reado
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %46
-  %48 = trunc i8 %.2 to i1
+  %48 = trunc nuw i8 %.2 to i1
   br i1 %48, label %._crit_edge.thread, label %51
 
 ._crit_edge.thread:                               ; preds = %17, %._crit_edge

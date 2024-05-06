@@ -180,7 +180,7 @@ sw.bb7:                                           ; preds = %if.then
   br i1 %or.cond, label %if.end15.thread, label %if.else
 
 if.end15.thread:                                  ; preds = %sw.bb7
-  %conv11 = trunc i32 %value to i16
+  %conv11 = trunc nuw i32 %value to i16
   %m_search_12 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_search_12, align 8
   %elementComparisonType = getelementptr inbounds i8, ptr %4, i64 14
@@ -211,7 +211,7 @@ if.end18:                                         ; preds = %if.end15.thread, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7514SearchIterator12getAttributeE16USearchAttribute(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i32 noundef %attribute) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -32768, 32768) i32 @_ZNK6icu_7514SearchIterator12getAttributeE16USearchAttribute(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i32 noundef %attribute) local_unnamed_addr #9 align 2 {
 entry:
   switch i32 %attribute, label %return [
     i32 0, label %sw.bb

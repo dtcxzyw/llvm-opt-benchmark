@@ -642,7 +642,7 @@ define internal i32 @dissect_bt_utp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  %17 = tail call fastcc i32 @get_utp_version(ptr noundef %0), !range !7
+  %17 = tail call fastcc i32 @get_utp_version(ptr noundef %0)
   %18 = icmp sgt i32 %17, -1
   br i1 %18, label %19, label %243
 
@@ -931,7 +931,7 @@ dissect_utp_header_v1.exit:                       ; preds = %94, %150, %153
   %197 = load i32, ptr %5, align 4
   %198 = trunc i32 %197 to i8
   %.not.i = icmp eq i8 %198, 0
-  br i1 %.not.i, label %dissect_utp_extension.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %dissect_utp_extension.exit, label %.lr.ph.i, !llvm.loop !7
 
 dissect_utp_extension.exit:                       ; preds = %.lr.ph.i, %193, %157
   %.0.lcssa.i = phi i32 [ %.0, %157 ], [ %.037.i, %.lr.ph.i ], [ %195, %193 ]
@@ -1041,8 +1041,8 @@ define hidden void @proto_reg_handoff_bt_utp() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bt_utp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @get_utp_version(ptr noundef %0), !range !7
+define internal range(i32 0, 2) i32 @dissect_bt_utp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call fastcc i32 @get_utp_version(ptr noundef %0)
   %6 = icmp sgt i32 %5, -1
   br i1 %6, label %7, label %13
 
@@ -1065,7 +1065,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_utp_version(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @get_utp_version(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   %3 = icmp ult i32 %2, 20
   br i1 %3, label %.thread, label %4
@@ -1735,5 +1735,4 @@ attributes #11 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -1, i32 2}
-!8 = distinct !{!8, !5}
+!7 = distinct !{!7, !5}

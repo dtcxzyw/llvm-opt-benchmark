@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [40 x i8] c"MEW: retf %p %p+%08x=%p, %p %p+%08x=%p\0A\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @cli_unfsg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cli_unfsg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = icmp slt i32 %2, 1
   %8 = icmp slt i32 %3, 1
   %or.cond = or i1 %7, %8
@@ -479,7 +479,7 @@ doubledl.exit.thread:                             ; preds = %183, %185, %.loopex
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unmew(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @unmew(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds i8, ptr %0, i64 1
   %8 = load i8, ptr %0, align 1
   %9 = getelementptr inbounds i8, ptr %1, i64 1

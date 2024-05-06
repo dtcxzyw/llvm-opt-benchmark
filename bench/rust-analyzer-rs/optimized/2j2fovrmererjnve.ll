@@ -2194,7 +2194,7 @@ define hidden void @"_ZN92_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$sa
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
   store i64 0, ptr %.sroa.54.0..sroa_idx.i, align 8, !alias.scope !141
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.6da18d8ff48225ee1ffe65263762e0cd.59, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.6da18d8ff48225ee1ffe65263762e0cd.59, i64 32, i1 false)
   %3 = cmpxchg weak ptr %0, i64 0, i64 8 acquire monotonic, align 8
   %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %3, 1
   br i1 %.sroa.18.0.in.i.i, label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit", label %4
@@ -2261,7 +2261,7 @@ define hidden void @"_ZN92_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$sa
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
   store i64 0, ptr %.sroa.54.0..sroa_idx.i, align 8, !alias.scope !144
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.6da18d8ff48225ee1ffe65263762e0cd.59, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.6da18d8ff48225ee1ffe65263762e0cd.59, i64 32, i1 false)
   %3 = cmpxchg weak ptr %0, i64 0, i64 8 acquire monotonic, align 8
   %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %3, 1
   br i1 %.sroa.18.0.in.i.i, label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit", label %4
@@ -2328,7 +2328,7 @@ define hidden void @"_ZN92_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$sa
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
   store i64 0, ptr %.sroa.54.0..sroa_idx.i, align 8, !alias.scope !147
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.6da18d8ff48225ee1ffe65263762e0cd.59, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.6da18d8ff48225ee1ffe65263762e0cd.59, i64 32, i1 false)
   %3 = cmpxchg weak ptr %0, i64 0, i64 8 acquire monotonic, align 8
   %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %3, 1
   br i1 %.sroa.18.0.in.i.i, label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit", label %4
@@ -2395,7 +2395,7 @@ define hidden void @"_ZN92_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$sa
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
   store i64 0, ptr %.sroa.54.0..sroa_idx.i, align 8, !alias.scope !150
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.6da18d8ff48225ee1ffe65263762e0cd.59, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.6da18d8ff48225ee1ffe65263762e0cd.59, i64 32, i1 false)
   %3 = cmpxchg weak ptr %0, i64 0, i64 8 acquire monotonic, align 8
   %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %3, 1
   br i1 %.sroa.18.0.in.i.i, label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit", label %4
@@ -2462,7 +2462,7 @@ define hidden void @"_ZN92_$LT$salsa..input..InputStorage$LT$Q$GT$$u20$as$u20$sa
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
   store i64 0, ptr %.sroa.54.0..sroa_idx.i, align 8, !alias.scope !153
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.6da18d8ff48225ee1ffe65263762e0cd.59, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.6da18d8ff48225ee1ffe65263762e0cd.59, i64 32, i1 false)
   %3 = cmpxchg weak ptr %0, i64 0, i64 8 acquire monotonic, align 8
   %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %3, 1
   br i1 %.sroa.18.0.in.i.i, label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit", label %4

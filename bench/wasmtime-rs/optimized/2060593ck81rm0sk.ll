@@ -59,7 +59,7 @@ define i64 @_ZN4core3cmp6max_by17hac55e3f40a8c04acE(i64 %0, i64 %1) unnamed_addr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @_ZN4core3cmp6min_by17h0a2bed356ccdbb40E(i8 %0, i8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define range(i8 0, 4) i8 @_ZN4core3cmp6min_by17h0a2bed356ccdbb40E(i8 %0, i8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   store i8 %0, ptr %4, align 1
@@ -98,7 +98,7 @@ define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..functi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h38ff58589ec8e0d3E"(ptr align 1 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 {
+define range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h38ff58589ec8e0d3E"(ptr align 1 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp ne ptr %2, null
@@ -108,7 +108,7 @@ define i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOn
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9c9b58b1738f1c70E"(ptr align 1 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 {
+define range(i8 -1, 2) i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9c9b58b1738f1c70E"(ptr align 1 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp ne ptr %2, null
@@ -141,7 +141,7 @@ define zeroext i1 @"_ZN4core5tuple65_$LT$impl$u20$core..cmp..PartialOrd$u20$for$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @"_ZN69_$LT$core..cmp..Reverse$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he37ed8dd70280cc1E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define range(i8 -1, 3) i8 @"_ZN69_$LT$core..cmp..Reverse$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he37ed8dd70280cc1E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call i8 @"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$i64$GT$11partial_cmp17hbb613d61f1e38b55E"(ptr align 8 %1, ptr align 8 %0), !range !6
   ret i8 %3
 }

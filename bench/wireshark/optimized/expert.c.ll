@@ -506,7 +506,7 @@ declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @expert_get_highest_severity() local_unnamed_addr #3 {
+define range(i32 0, -2147483648) i32 @expert_get_highest_severity() local_unnamed_addr #3 {
   %1 = load i32, ptr @highest_severity, align 4
   ret i32 %1
 }

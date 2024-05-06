@@ -124,13 +124,13 @@ $_ZTV12UpdateThread = comdat any
 @g_profiler = external local_unnamed_addr global ptr, align 8
 @.str.19 = private unnamed_addr constant [26 x i8] c"Client: Mesh making (sum)\00", align 1
 @.str.20 = private unnamed_addr constant [24 x i8] c"mesh_generation_threads\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.21 = private unnamed_addr constant [26 x i8] c"MeshUpdateManager: using \00", align 1
 @.str.22 = private unnamed_addr constant [9 x i8] c" threads\00", align 1
 @_ZZN17MeshUpdateManager11updateBlockEP3MapN3irr4core8vector3dIsEEbbbE14many_neighbors = internal thread_local global i8 0, align 1
 @_ZGVZN17MeshUpdateManager11updateBlockEP3MapN3irr4core8vector3dIsEEbbbE14many_neighbors = internal thread_local unnamed_addr global i1 false, align 1
 @.str.23 = private unnamed_addr constant [22 x i8] c"performance_tradeoffs\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.24 = private unnamed_addr constant [45 x i8] c"Update requested for non-existent block at (\00", align 1
 @.str.25 = private unnamed_addr constant [3 x i8] c", \00", align 1
 @.str.26 = private unnamed_addr constant [2 x i8] c")\00", align 1
@@ -881,7 +881,7 @@ invoke.cont6:                                     ; preds = %if.end
   %p.sroa.2.0.extract.shift.i = lshr i48 %p.coerce, 16
   %p.sroa.2.0.extract.trunc.i = trunc i48 %p.sroa.2.0.extract.shift.i to i16
   %p.sroa.3.0.extract.shift.i = lshr i48 %p.coerce, 32
-  %p.sroa.3.0.extract.trunc.i = trunc i48 %p.sroa.3.0.extract.shift.i to i16
+  %p.sroa.3.0.extract.trunc.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i to i16
   %conv.i.i.i = sext i16 %p.sroa.0.0.extract.trunc.i to i32
   %p.lobit.i.i.i = lshr i16 %p.sroa.0.0.extract.trunc.i, 15
   %conv3.i.i.i = zext nneg i16 %p.lobit.i.i.i to i32
@@ -1221,8 +1221,8 @@ for.inc117:                                       ; preds = %_ZNK3irr4core8vecto
 
 _ZNSt12_Vector_baseIP8MapBlockSaIS1_EE11_M_allocateEm.exit.i: ; preds = %for.inc117, %if.end13
   %add130 = add nuw nsw i32 %conv4.i.i.i, 2
-  %mul = mul nsw i32 %add130, %add130
-  %mul137 = mul nsw i32 %mul, %add130
+  %mul = mul nuw nsw i32 %add130, %add130
+  %mul137 = mul nuw nsw i32 %mul, %add130
   %conv138 = zext nneg i32 %mul137 to i64
   %mul.i.i.i.i = shl nuw nsw i64 %conv138, 3
   %call5.i.i.i.i310 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #29
@@ -3678,7 +3678,7 @@ entry:
   %p.sroa.5.0.extract.shift = lshr i48 %p.coerce, 16
   %p.sroa.5.0.extract.trunc = trunc i48 %p.sroa.5.0.extract.shift to i16
   %p.sroa.8.0.extract.shift = lshr i48 %p.coerce, 32
-  %p.sroa.8.0.extract.trunc = trunc i48 %p.sroa.8.0.extract.shift to i16
+  %p.sroa.8.0.extract.trunc = trunc nuw i48 %p.sroa.8.0.extract.shift to i16
   %.b = load i1, ptr @_ZGVZN17MeshUpdateManager11updateBlockEP3MapN3irr4core8vector3dIsEEbbbE14many_neighbors, align 1
   br i1 %.b, label %init.end, label %init.check, !prof !193
 

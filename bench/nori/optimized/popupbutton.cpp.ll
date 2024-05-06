@@ -358,7 +358,7 @@ define hidden void @_ZN7nanogui11PopupButton14perform_layoutEP10NVGcontext(ptr n
 
 12:                                               ; preds = %2
   %.sroa.1.0.extract.shift = lshr i64 %9, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %13 = getelementptr inbounds i8, ptr %3, i64 44
   %14 = load i32, ptr %13, align 4
   %15 = sub nsw i32 %.sroa.1.0.extract.trunc, %14
@@ -382,7 +382,7 @@ define hidden void @_ZN7nanogui11PopupButton14perform_layoutEP10NVGcontext(ptr n
 _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %2
   %.sroa.013.0.extract.trunc = trunc i64 %9 to i32
   %.sroa.214.0.extract.shift = lshr i64 %9, 32
-  %.sroa.214.0.extract.trunc = trunc i64 %.sroa.214.0.extract.shift to i32
+  %.sroa.214.0.extract.trunc = trunc nuw i64 %.sroa.214.0.extract.shift to i32
   %27 = getelementptr inbounds i8, ptr %0, i64 48
   %28 = load i32, ptr %27, align 8
   %29 = add i32 %7, 1
@@ -423,7 +423,7 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %1
   %4 = tail call i64 @_ZNK7nanogui6Widget17absolute_positionEv(ptr noundef nonnull align 8 dereferenceable(140) %3)
   %.sroa.0.0.extract.trunc = trunc i64 %4 to i32
   %.sroa.2.0.extract.shift = lshr i64 %4, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, %.sroa.0.0.extract.trunc

@@ -1002,7 +1002,7 @@ define dso_local noundef i32 @flow_block_cb_setup_simple(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @flow_indr_dev_register(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @flow_indr_dev_register(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.flow_block_offload, align 8
   tail call void @mutex_lock(ptr noundef nonnull @flow_indr_block_lock) #13
   %4 = load ptr, ptr @flow_block_indr_dev_list, align 8

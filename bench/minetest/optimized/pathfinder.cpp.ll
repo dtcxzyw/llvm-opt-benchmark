@@ -4702,7 +4702,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN10Pathfinder18getXZManhattanDistEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i48 %pos.coerce) local_unnamed_addr #8 align 2 {
+define dso_local noundef range(i32 -131070, 131071) i32 @_ZN10Pathfinder18getXZManhattanDistEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i48 %pos.coerce) local_unnamed_addr #8 align 2 {
 entry:
   %pos.sroa.0.0.extract.trunc = trunc i48 %pos.coerce to i16
   %pos.sroa.553.0.extract.shift = lshr i48 %pos.coerce, 32

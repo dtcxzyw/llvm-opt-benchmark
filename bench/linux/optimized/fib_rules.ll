@@ -177,7 +177,7 @@ define dso_local zeroext i1 @fib_rule_matchall(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @fib_default_rule_add(ptr noundef %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @fib_default_rule_add(ptr noundef %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -1319,7 +1319,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @fib_nl2rule(ptr %.24.val.48.val, ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @fib_nl2rule(ptr %.24.val.48.val, ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #1 align 16 {
   %7 = alloca i64, align 8
   %8 = getelementptr i8, ptr %0, i64 18
   %9 = load i8, ptr %8, align 2
@@ -2483,7 +2483,7 @@ define internal fastcc void @fib_rule_put(ptr noundef %0) unnamed_addr #6 align 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @fib_rules_init() #7 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @fib_rules_init() #7 section ".init.text" align 16 {
   tail call void @rtnl_register(i32 noundef 0, i32 noundef 32, ptr noundef nonnull @fib_nl_newrule, ptr noundef null, i32 noundef 0) #16
   tail call void @rtnl_register(i32 noundef 0, i32 noundef 33, ptr noundef nonnull @fib_nl_delrule, ptr noundef null, i32 noundef 0) #16
   tail call void @rtnl_register(i32 noundef 0, i32 noundef 34, ptr noundef null, ptr noundef nonnull @fib_nl_dumprule, i32 noundef 0) #16
@@ -2561,7 +2561,7 @@ declare dso_local i32 @nla_memcpy(ptr noundef, ptr noundef, i32 noundef) local_u
 declare dso_local i32 @call_fib_notifiers(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @fib_nl_fill_rule(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @fib_nl_fill_rule(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #1 align 16 {
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1

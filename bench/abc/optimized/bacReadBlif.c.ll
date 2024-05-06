@@ -68,7 +68,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Psr_ManReadBlif(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.6)
+  %2 = tail call noalias ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str.6)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %Psr_ManAlloc.exit.thread, label %4
 
@@ -326,7 +326,7 @@ Psr_ManSkipSpaces.exit.thread.i.i.i:              ; preds = %.preheader.i.i.i, %
 
 92:                                               ; preds = %Psr_ManSkipSpaces.exit.thread.i.i.i
   %93 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %93, ptr noundef nonnull align 1 dereferenceable(18) @.str.19, i64 18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %93, ptr noundef nonnull readonly align 1 dereferenceable(18) @.str.19, i64 18, i1 false)
   br label %Psr_ManReadLines.exit
 
 94:                                               ; preds = %Psr_ManSkipSpaces.exit.thread.i.i.i
@@ -418,7 +418,7 @@ Vec_StrPush.exit43.i.i.i:                         ; preds = %123, %Vec_StrGrow.e
 
 130:                                              ; preds = %.preheader.i.i.i
   %131 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %131, ptr noundef nonnull align 1 dereferenceable(28) @.str.20, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %131, ptr noundef nonnull readonly align 1 dereferenceable(28) @.str.20, i64 28, i1 false)
   br label %Psr_ManReadLines.exit
 
 132:                                              ; preds = %.preheader.i.i.i, %.preheader.i.i.i, %.preheader.i.i.i
@@ -655,7 +655,7 @@ Psr_ManSkipToChar.exit.i76.i.i.i:                 ; preds = %.lr.ph.i.i73.i.i.i
 
 225:                                              ; preds = %217
   %226 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %226, ptr noundef nonnull align 1 dereferenceable(25) @.str.21, i64 25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %226, ptr noundef nonnull readonly align 1 dereferenceable(25) @.str.21, i64 25, i1 false)
   br label %Psr_ManReadLines.exit
 
 227:                                              ; preds = %.preheader.i
@@ -757,77 +757,77 @@ Vec_StrPush.exit.i32.i.i:                         ; preds = %257, %Vec_StrGrow.e
   %263 = getelementptr inbounds i8, ptr %259, i64 %262
   store i8 0, ptr %263, align 1
   %.val17.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i, align 8
-  %264 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.23) #19
+  %264 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.23) #19
   %.not.i.i.i.i = icmp eq i32 %264, 0
   br i1 %.not.i.i.i.i, label %Psr_ManSaveCover.exit.i.i, label %265
 
 265:                                              ; preds = %Vec_StrPush.exit.i32.i.i
-  %266 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.24) #19
+  %266 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.24) #19
   %.not15.i.i.i.i = icmp eq i32 %266, 0
   br i1 %.not15.i.i.i.i, label %Psr_ManSaveCover.exit.i.i, label %267
 
 267:                                              ; preds = %265
-  %268 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.25) #19
+  %268 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.25) #19
   %.not16.i.i.i.i = icmp eq i32 %268, 0
   br i1 %.not16.i.i.i.i, label %Psr_ManSaveCover.exit.i.i, label %269
 
 269:                                              ; preds = %267
-  %270 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.26) #19
+  %270 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.26) #19
   %.not17.i.i.i.i = icmp eq i32 %270, 0
   br i1 %.not17.i.i.i.i, label %Psr_ManSaveCover.exit.i.i, label %271
 
 271:                                              ; preds = %269
-  %272 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.27) #19
+  %272 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.27) #19
   %.not18.i.i.i.i = icmp eq i32 %272, 0
   br i1 %.not18.i.i.i.i, label %Psr_ManSaveCover.exit.i.i, label %273
 
 273:                                              ; preds = %271
-  %274 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.28) #19
+  %274 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.28) #19
   %.not19.i.i.i.i = icmp eq i32 %274, 0
   br i1 %.not19.i.i.i.i, label %Psr_ManSaveCover.exit.i.i, label %275
 
 275:                                              ; preds = %273
-  %276 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.29) #19
+  %276 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.29) #19
   %.not20.i.i.i.i = icmp eq i32 %276, 0
   br i1 %.not20.i.i.i.i, label %Psr_ManSaveCover.exit.i.i, label %277
 
 277:                                              ; preds = %275
-  %278 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.30) #19
+  %278 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.30) #19
   %.not21.i.i.i.i = icmp eq i32 %278, 0
   br i1 %.not21.i.i.i.i, label %Psr_ManSaveCover.exit.i.i, label %279
 
 279:                                              ; preds = %277
-  %280 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.31) #19
+  %280 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.31) #19
   %.not22.i.i.i.i = icmp eq i32 %280, 0
   br i1 %.not22.i.i.i.i, label %Psr_ManSaveCover.exit.i.i, label %281
 
 281:                                              ; preds = %279
-  %282 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.32) #19
+  %282 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.32) #19
   %.not23.i.i.i.i = icmp eq i32 %282, 0
   br i1 %.not23.i.i.i.i, label %Psr_ManSaveCover.exit.i.i, label %283
 
 283:                                              ; preds = %281
-  %284 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.33) #19
+  %284 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.33) #19
   %.not24.i.i.i.i = icmp eq i32 %284, 0
   br i1 %.not24.i.i.i.i, label %Psr_ManSaveCover.exit.i.i, label %285
 
 285:                                              ; preds = %283
-  %286 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.34) #19
+  %286 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.34) #19
   %.not25.i.i.i.i = icmp eq i32 %286, 0
   br i1 %.not25.i.i.i.i, label %Psr_ManSaveCover.exit.i.i, label %287
 
 287:                                              ; preds = %285
-  %288 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.35) #19
+  %288 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.35) #19
   %.not26.i.i.i.i = icmp eq i32 %288, 0
   br i1 %.not26.i.i.i.i, label %Psr_ManSaveCover.exit.i.i, label %289
 
 289:                                              ; preds = %287
-  %290 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.36) #19
+  %290 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.36) #19
   %.not27.i.i.i.i = icmp eq i32 %290, 0
   br i1 %.not27.i.i.i.i, label %Psr_ManSaveCover.exit.i.i, label %291
 
 291:                                              ; preds = %289
-  %292 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.37) #19
+  %292 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val17.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.37) #19
   %.not28.i.i.i.i = icmp eq i32 %292, 0
   %..i.i.i.i = select i1 %.not28.i.i.i.i, i32 19, i32 0
   br label %Psr_ManSaveCover.exit.i.i
@@ -874,7 +874,7 @@ Psr_ManSaveCover.exit.i.i:                        ; preds = %291, %289, %287, %2
 
 308:                                              ; preds = %306
   %309 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(38) %309, ptr noundef nonnull align 1 dereferenceable(38) @.str.38, i64 38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(38) %309, ptr noundef nonnull readonly align 1 dereferenceable(38) @.str.38, i64 38, i1 false)
   br label %Psr_ManReadLines.exit
 
 310:                                              ; preds = %306
@@ -884,7 +884,7 @@ Psr_ManSaveCover.exit.i.i:                        ; preds = %291, %289, %287, %2
 
 313:                                              ; preds = %310
   %314 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %314, ptr noundef nonnull align 1 dereferenceable(24) @.str.39, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %314, ptr noundef nonnull readonly align 1 dereferenceable(24) @.str.39, i64 24, i1 false)
   br label %Psr_ManReadLines.exit
 
 315:                                              ; preds = %310
@@ -1010,13 +1010,13 @@ Psr_ManSkipToChar.exit.i.i45.i.i:                 ; preds = %.lr.ph.i.i.i42.i.i
 
 362:                                              ; preds = %354
   %363 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %363, ptr noundef nonnull align 1 dereferenceable(33) @.str.40, i64 33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %363, ptr noundef nonnull readonly align 1 dereferenceable(33) @.str.40, i64 33, i1 false)
   br label %Psr_ManReadLines.exit
 
 364:                                              ; preds = %304
   %365 = load ptr, ptr %42, align 8
   %366 = getelementptr inbounds i8, ptr %365, i64 16
-  %367 = tail call fastcc i32 @Psr_ManReadList(ptr noundef nonnull %20, ptr noundef nonnull %366, i32 noundef 3), !range !10
+  %367 = tail call fastcc i32 @Psr_ManReadList(ptr noundef nonnull %20, ptr noundef nonnull %366, i32 noundef 3)
   %.not.i48.i.i = icmp eq i32 %367, 0
   br i1 %.not.i48.i.i, label %368, label %Psr_ManReadLines.exit
 
@@ -1029,7 +1029,7 @@ Psr_ManSkipToChar.exit.i.i45.i.i:                 ; preds = %.lr.ph.i.i.i42.i.i
 371:                                              ; preds = %304
   %372 = load ptr, ptr %42, align 8
   %373 = getelementptr inbounds i8, ptr %372, i64 16
-  %374 = tail call fastcc i32 @Psr_ManReadList(ptr noundef nonnull %20, ptr noundef nonnull %373, i32 noundef 1), !range !10
+  %374 = tail call fastcc i32 @Psr_ManReadList(ptr noundef nonnull %20, ptr noundef nonnull %373, i32 noundef 1)
   %.not.i50.i.i = icmp eq i32 %374, 0
   br i1 %.not.i50.i.i, label %375, label %Psr_ManReadLines.exit
 
@@ -1042,7 +1042,7 @@ Psr_ManSkipToChar.exit.i.i45.i.i:                 ; preds = %.lr.ph.i.i.i42.i.i
 378:                                              ; preds = %304
   %379 = load ptr, ptr %42, align 8
   %380 = getelementptr inbounds i8, ptr %379, i64 16
-  %381 = tail call fastcc i32 @Psr_ManReadList(ptr noundef nonnull %20, ptr noundef nonnull %380, i32 noundef 2), !range !10
+  %381 = tail call fastcc i32 @Psr_ManReadList(ptr noundef nonnull %20, ptr noundef nonnull %380, i32 noundef 2)
   %.not.i52.i.i = icmp eq i32 %381, 0
   br i1 %.not.i52.i.i, label %382, label %Psr_ManReadLines.exit
 
@@ -1186,7 +1186,7 @@ Vec_IntPushTwo.exit.i.i.i.i:                      ; preds = %437, %Vec_IntGrow.e
   store i32 %387, ptr %443, align 4
   %444 = tail call fastcc i32 @Psr_ManReadName(ptr noundef nonnull %20)
   %.not.i.i54.i.i = icmp eq i32 %444, 0
-  br i1 %.not.i.i54.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i54.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
 ._crit_edge.i.i.i.i:                              ; preds = %Vec_IntPushTwo.exit.i.i.i.i, %385
   %.val.i.i.i.i = load i32, ptr %44, align 4
@@ -1195,7 +1195,7 @@ Vec_IntPushTwo.exit.i.i.i.i:                      ; preds = %437, %Vec_IntGrow.e
 
 Psr_ManReadList2.exit.i.i.i:                      ; preds = %._crit_edge.i.i.i.i
   %446 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %446, ptr noundef nonnull align 1 dereferenceable(22) @.str.41, i64 22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %446, ptr noundef nonnull readonly align 1 dereferenceable(22) @.str.41, i64 22, i1 false)
   br label %Psr_ManReadLines.exit
 
 447:                                              ; preds = %._crit_edge.i.i.i.i
@@ -1214,7 +1214,7 @@ Psr_ManReadList2.exit.i.i.i:                      ; preds = %._crit_edge.i.i.i.i
 
 453:                                              ; preds = %450
   %454 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %454, ptr noundef nonnull align 1 dereferenceable(25) @.str.47, i64 25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %454, ptr noundef nonnull readonly align 1 dereferenceable(25) @.str.47, i64 25, i1 false)
   br label %Psr_ManReadLines.exit
 
 455:                                              ; preds = %450
@@ -1227,7 +1227,7 @@ Psr_ManReadList2.exit.i.i.i:                      ; preds = %._crit_edge.i.i.i.i
 
 459:                                              ; preds = %455
   %460 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %460, ptr noundef nonnull align 1 dereferenceable(26) @.str.48, i64 26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %460, ptr noundef nonnull readonly align 1 dereferenceable(26) @.str.48, i64 26, i1 false)
   br label %Psr_ManReadLines.exit
 
 461:                                              ; preds = %455
@@ -1311,7 +1311,7 @@ Psr_ManSkipToChar.exit.i.i.i:                     ; preds = %462, %.lr.ph.i14.i.
 
 478:                                              ; preds = %475
   %479 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %479, ptr noundef nonnull align 1 dereferenceable(26) @.str.49, i64 26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %479, ptr noundef nonnull readonly align 1 dereferenceable(26) @.str.49, i64 26, i1 false)
   br label %Psr_ManReadLines.exit
 
 480:                                              ; preds = %475
@@ -1324,7 +1324,7 @@ Psr_ManSkipToChar.exit.i.i.i:                     ; preds = %462, %.lr.ph.i14.i.
 
 484:                                              ; preds = %480
   %485 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %485, ptr noundef nonnull align 1 dereferenceable(27) @.str.50, i64 27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %485, ptr noundef nonnull readonly align 1 dereferenceable(27) @.str.50, i64 27, i1 false)
   br label %Psr_ManReadLines.exit
 
 486:                                              ; preds = %480
@@ -1376,7 +1376,7 @@ Psr_ManSkipToChar.exit.i.i80.i.i:                 ; preds = %.lr.ph.i.i.i77.i.i
 
 495:                                              ; preds = %487
   %496 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %496, ptr noundef nonnull align 1 dereferenceable(33) @.str.51, i64 33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %496, ptr noundef nonnull readonly align 1 dereferenceable(33) @.str.51, i64 33, i1 false)
   br label %Psr_ManReadLines.exit
 
 Psr_ManSkipSpaces.exit.thread.i75.i.i:            ; preds = %487, %.lr.ph.i14.i.i72.i.i
@@ -1393,7 +1393,7 @@ Psr_ManSkipSpaces.exit.thread.i75.i.i:            ; preds = %487, %.lr.ph.i14.i.
 
 503:                                              ; preds = %500
   %504 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %504, ptr noundef nonnull align 1 dereferenceable(31) @.str.52, i64 31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %504, ptr noundef nonnull readonly align 1 dereferenceable(31) @.str.52, i64 31, i1 false)
   br label %Psr_ManReadLines.exit
 
 505:                                              ; preds = %500
@@ -1444,7 +1444,7 @@ Psr_ManSkipToChar.exit.i.i93.i.i:                 ; preds = %.lr.ph.i.i.i90.i.i
 
 514:                                              ; preds = %506
   %515 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %515, ptr noundef nonnull align 1 dereferenceable(31) @.str.53, i64 31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %515, ptr noundef nonnull readonly align 1 dereferenceable(31) @.str.53, i64 31, i1 false)
   br label %Psr_ManReadLines.exit
 
 516:                                              ; preds = %304
@@ -1461,7 +1461,7 @@ Psr_ManReadDirective.exit.i:                      ; preds = %449, %304
 
 522:                                              ; preds = %Psr_ManReadDirective.exit.i
   %523 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %523, ptr noundef nonnull align 1 dereferenceable(24) @.str.39, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %523, ptr noundef nonnull readonly align 1 dereferenceable(24) @.str.39, i64 24, i1 false)
   br label %Psr_ManReadLines.exit
 
 524:                                              ; preds = %Psr_ManReadDirective.exit.i
@@ -1483,7 +1483,7 @@ Psr_ManReadDirective.exit.i:                      ; preds = %449, %304
 
 ._crit_edge.i21:                                  ; preds = %.lr.ph.i.i, %.loopexit.i
   %529 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %529, ptr noundef nonnull align 1 dereferenceable(25) @.str.42, i64 25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %529, ptr noundef nonnull readonly align 1 dereferenceable(25) @.str.42, i64 25, i1 false)
   br label %Psr_ManReadLines.exit
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i.i, %.loopexit.i
@@ -1603,7 +1603,7 @@ Psr_ManSkipSpaces.exit.i.i:                       ; preds = %559, %.lr.ph.i14.i.
 
 570:                                              ; preds = %Psr_ManSkipSpaces.exit.i.i
   %571 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %571, ptr noundef nonnull align 1 dereferenceable(24) @.str.43, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %571, ptr noundef nonnull readonly align 1 dereferenceable(24) @.str.43, i64 24, i1 false)
   br label %Psr_ManReadLines.exit
 
 572:                                              ; preds = %Psr_ManSkipSpaces.exit.i.i
@@ -1613,7 +1613,7 @@ Psr_ManSkipSpaces.exit.i.i:                       ; preds = %559, %.lr.ph.i14.i.
 
 575:                                              ; preds = %572
   %576 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %576, ptr noundef nonnull align 1 dereferenceable(25) @.str.44, i64 25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %576, ptr noundef nonnull readonly align 1 dereferenceable(25) @.str.44, i64 25, i1 false)
   br label %Psr_ManReadLines.exit
 
 577:                                              ; preds = %572
@@ -1730,7 +1730,7 @@ Psr_ManSkipToChar.exit.i43.i.i:                   ; preds = %.lr.ph.i.i40.i.i
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %524
   %615 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(43) %615, ptr noundef nonnull align 1 dereferenceable(43) @.str.45, i64 43, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(43) %615, ptr noundef nonnull readonly align 1 dereferenceable(43) @.str.45, i64 43, i1 false)
   br label %Psr_ManReadLines.exit
 
 616:                                              ; preds = %._crit_edge.i.i
@@ -1740,7 +1740,7 @@ Psr_ManSkipToChar.exit.i43.i.i:                   ; preds = %.lr.ph.i.i40.i.i
 
 618:                                              ; preds = %616
   %619 = getelementptr inbounds i8, ptr %20, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %619, ptr noundef nonnull align 1 dereferenceable(47) @.str.46, i64 47, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %619, ptr noundef nonnull readonly align 1 dereferenceable(47) @.str.46, i64 47, i1 false)
   br label %Psr_ManReadLines.exit
 
 Psr_ManReadList3.exit.i:                          ; preds = %616
@@ -1781,7 +1781,7 @@ Psr_ManReadLines.exit:                            ; preds = %.backedge.i, %364, 
   %635 = add nuw nsw i32 %.012.i, %634
   %636 = getelementptr inbounds i8, ptr %.0911.i, i64 1
   %exitcond.not.i = icmp eq ptr %636, %630
-  br i1 %exitcond.not.i, label %Psr_ManErrorPrint.exit.thread, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %Psr_ManErrorPrint.exit.thread, label %.lr.ph.i, !llvm.loop !11
 
 Psr_ManErrorPrint.exit.thread:                    ; preds = %.lr.ph.i, %628
   %.0.lcssa.i = phi i32 [ 0, %628 ], [ %635, %.lr.ph.i ]
@@ -2076,7 +2076,7 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   %123 = add nsw i32 %.014.i, %122
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Psr_ManMemory.exit, label %25, !llvm.loop !13
+  br i1 %exitcond.not.i, label %Psr_ManMemory.exit, label %25, !llvm.loop !12
 
 Psr_ManMemory.exit:                               ; preds = %25, %10
   %.0.lcssa.i = phi i32 [ %23, %10 ], [ %123, %25 ]
@@ -2348,7 +2348,7 @@ Psr_NtkFree.exit:                                 ; preds = %Vec_IntErase.exit40
   %.val = load i32, ptr %2, align 4
   %75 = sext i32 %.val to i64
   %76 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %76, label %5, label %.critedge, !llvm.loop !14
+  br i1 %76, label %5, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %Psr_NtkFree.exit, %1
   %77 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2457,7 +2457,7 @@ Psr_ManSkipToChar.exit.i:                         ; preds = %.lr.ph.i.i
   %13 = getelementptr inbounds i8, ptr %11, i64 1
   store ptr %13, ptr %2, align 8
   %.val.val.pre = load i8, ptr %13, align 1
-  br label %.preheader, !llvm.loop !15
+  br label %.preheader, !llvm.loop !14
 
 .critedge:                                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
   %14 = icmp eq ptr %4, %11
@@ -2487,7 +2487,7 @@ declare i32 @Abc_NamStrFindOrAddLim(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare ptr @Abc_NamRef(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Psr_ManReadList(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Psr_ManReadList(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 0, ptr %5, align 4
@@ -2631,7 +2631,7 @@ Vec_IntPush.exit16:                               ; preds = %.Vec_IntGrow.exit10
   store i32 %39, ptr %67, align 4
   %68 = tail call fastcc i32 @Psr_ManReadName(ptr noundef nonnull %0)
   %.not = icmp eq i32 %68, 0
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit16, %3
   %.val = load i32, ptr %5, align 4
@@ -2640,7 +2640,7 @@ Vec_IntPush.exit16:                               ; preds = %.Vec_IntGrow.exit10
 
 70:                                               ; preds = %._crit_edge
   %71 = getelementptr inbounds i8, ptr %0, i64 156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %71, ptr noundef nonnull align 1 dereferenceable(22) @.str.41, i64 22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %71, ptr noundef nonnull readonly align 1 dereferenceable(22) @.str.41, i64 22, i1 false)
   br label %72
 
 72:                                               ; preds = %._crit_edge, %70
@@ -2732,7 +2732,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val = load i32, ptr %3, align 4
   %38 = sext i32 %.val to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %7, label %.critedge, !llvm.loop !17
+  br i1 %39, label %7, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %Vec_IntPush.exit, %2
   ret void
@@ -3108,7 +3108,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #17
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #17
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -3127,7 +3127,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -3138,9 +3138,6 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -3150,7 +3147,10 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
@@ -3200,11 +3200,10 @@ attributes #19 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}

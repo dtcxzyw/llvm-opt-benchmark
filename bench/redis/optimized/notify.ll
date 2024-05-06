@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.17 = private unnamed_addr constant [12 x i8] c"__keyevent@\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @keyspaceEventsStringToFlags(ptr nocapture noundef readonly %classes) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 32768) i32 @keyspaceEventsStringToFlags(ptr nocapture noundef readonly %classes) local_unnamed_addr #0 {
 entry:
   br label %while.cond
 

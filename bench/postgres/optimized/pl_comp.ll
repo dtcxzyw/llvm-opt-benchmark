@@ -794,11 +794,11 @@ plpgsql_build_datatype.exit.i:                    ; preds = %152
   %223 = call ptr @palloc(i64 noundef %222) #10
   %224 = getelementptr inbounds i8, ptr %212, i64 56
   store ptr %223, ptr %224, align 8
-  br label %.lr.ph.i40
+  br label %.lr.ph.i41
 
-.lr.ph.i40:                                       ; preds = %242, %.split.i
-  %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i43, %242 ], [ 0, %.split.i ]
-  %225 = getelementptr ptr, ptr %143, i64 %indvars.iv.i41
+.lr.ph.i41:                                       ; preds = %.split.i, %242
+  %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i44, %242 ], [ 0, %.split.i ]
+  %225 = getelementptr ptr, ptr %143, i64 %indvars.iv.i42
   %226 = load ptr, ptr %225, align 8
   %227 = load i32, ptr %226, align 8
   switch i32 %227, label %238 [
@@ -807,7 +807,7 @@ plpgsql_build_datatype.exit.i:                    ; preds = %152
     i32 2, label %236
   ]
 
-228:                                              ; preds = %.lr.ph.i40, %.lr.ph.i40
+228:                                              ; preds = %.lr.ph.i41, %.lr.ph.i41
   %229 = getelementptr inbounds i8, ptr %226, i64 32
   %230 = load ptr, ptr %229, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 8
@@ -817,11 +817,11 @@ plpgsql_build_datatype.exit.i:                    ; preds = %152
   %235 = load i32, ptr %234, align 4
   br label %242
 
-236:                                              ; preds = %.lr.ph.i40
+236:                                              ; preds = %.lr.ph.i41
   %237 = getelementptr inbounds i8, ptr %226, i64 40
   br label %242
 
-238:                                              ; preds = %.lr.ph.i40
+238:                                              ; preds = %.lr.ph.i41
   %239 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
   call void @llvm.assume(i1 %239)
   %240 = load i32, ptr %226, align 8
@@ -832,27 +832,27 @@ plpgsql_build_datatype.exit.i:                    ; preds = %152
 242:                                              ; preds = %236, %228
   %.037.in.i = phi ptr [ %237, %236 ], [ %231, %228 ]
   %.036.i = phi i32 [ -1, %236 ], [ %233, %228 ]
-  %.0.i42 = phi i32 [ 0, %236 ], [ %235, %228 ]
+  %.0.i43 = phi i32 [ 0, %236 ], [ %235, %228 ]
   %.037.i = load i32, ptr %.037.in.i, align 8
   %243 = getelementptr inbounds i8, ptr %226, i64 8
   %244 = load ptr, ptr %243, align 8
   %245 = load ptr, ptr %221, align 8
-  %246 = getelementptr ptr, ptr %245, i64 %indvars.iv.i41
+  %246 = getelementptr ptr, ptr %245, i64 %indvars.iv.i42
   store ptr %244, ptr %246, align 8
   %247 = getelementptr inbounds i8, ptr %226, i64 4
   %248 = load i32, ptr %247, align 4
   %249 = load ptr, ptr %224, align 8
-  %250 = getelementptr i32, ptr %249, i64 %indvars.iv.i41
+  %250 = getelementptr i32, ptr %249, i64 %indvars.iv.i42
   store i32 %248, ptr %250, align 4
   %251 = load ptr, ptr %216, align 8
-  %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i41, 1
-  %252 = trunc i64 %indvars.iv.next.i43 to i16
+  %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i42, 1
+  %252 = trunc i64 %indvars.iv.next.i44 to i16
   %253 = load ptr, ptr %243, align 8
   call void @TupleDescInitEntry(ptr noundef %251, i16 noundef signext %252, ptr noundef %253, i32 noundef %.037.i, i32 noundef %.036.i, i32 noundef 0) #10
   %254 = load ptr, ptr %216, align 8
-  call void @TupleDescInitEntryCollation(ptr noundef %254, i16 noundef signext %252, i32 noundef %.0.i42) #10
-  %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %218
-  br i1 %exitcond.not.i44, label %build_row_from_vars.exit, label %.lr.ph.i40, !llvm.loop !6
+  call void @TupleDescInitEntryCollation(ptr noundef %254, i16 noundef signext %252, i32 noundef %.0.i43) #10
+  %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, %218
+  br i1 %exitcond.not.i45, label %build_row_from_vars.exit, label %.lr.ph.i41, !llvm.loop !6
 
 build_row_from_vars.exit:                         ; preds = %242
   %255 = load i32, ptr @plpgsql_nDatums, align 4

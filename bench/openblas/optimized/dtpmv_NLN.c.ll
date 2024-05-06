@@ -19,7 +19,7 @@ define noundef i32 @dtpmv_NLN(i64 noundef %0, ptr noundef %1, ptr noundef %2, i6
 
 12:                                               ; preds = %9
   %13 = add nuw nsw i64 %0, 1
-  %14 = mul nsw i64 %13, %0
+  %14 = mul nuw nsw i64 %13, %0
   %15 = lshr i64 %14, 1
   %16 = getelementptr double, ptr %1, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -8

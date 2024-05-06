@@ -349,7 +349,7 @@ define dso_local void @intel_cx0_phy_set_signal_levels(ptr noundef %0, ptr nound
 98:                                               ; preds = %110, %95
   %99 = phi i1 [ true, %95 ], [ false, %110 ]
   %100 = phi i64 [ 0, %95 ], [ 1, %110 ]
-  %101 = trunc i64 %100 to i32
+  %101 = trunc nuw nsw i64 %100 to i32
   %102 = shl nuw nsw i64 1, %100
   %103 = and i64 %102, %97
   %104 = icmp eq i64 %103, 0
@@ -397,7 +397,7 @@ define dso_local void @intel_cx0_phy_set_signal_levels(ptr noundef %0, ptr nound
 129:                                              ; preds = %142, %127
   %130 = phi i1 [ true, %127 ], [ false, %142 ]
   %131 = phi i64 [ 0, %127 ], [ 1, %142 ]
-  %132 = trunc i64 %131 to i32
+  %132 = trunc nuw nsw i64 %131 to i32
   %133 = shl nuw nsw i64 1, %131
   %134 = and i64 %133, %97
   %135 = icmp eq i64 %134, 0
@@ -445,7 +445,7 @@ define dso_local void @intel_cx0_phy_set_signal_levels(ptr noundef %0, ptr nound
 160:                                              ; preds = %173, %158
   %161 = phi i1 [ true, %158 ], [ false, %173 ]
   %162 = phi i64 [ 0, %158 ], [ 1, %173 ]
-  %163 = trunc i64 %162 to i32
+  %163 = trunc nuw nsw i64 %162 to i32
   %164 = shl nuw nsw i64 1, %162
   %165 = and i64 %164, %97
   %166 = icmp eq i64 %165, 0
@@ -500,7 +500,7 @@ define dso_local void @intel_cx0_phy_set_signal_levels(ptr noundef %0, ptr nound
 198:                                              ; preds = %211, %183
   %199 = phi i1 [ true, %183 ], [ false, %211 ]
   %200 = phi i64 [ 0, %183 ], [ 1, %211 ]
-  %201 = trunc i64 %200 to i32
+  %201 = trunc nuw nsw i64 %200 to i32
   %202 = shl nuw nsw i64 1, %200
   %203 = and i64 %202, %197
   %204 = icmp eq i64 %203, 0
@@ -532,7 +532,7 @@ define dso_local void @intel_cx0_phy_set_signal_levels(ptr noundef %0, ptr nound
 219:                                              ; preds = %232, %212
   %220 = phi i1 [ true, %212 ], [ false, %232 ]
   %221 = phi i64 [ 0, %212 ], [ 1, %232 ]
-  %222 = trunc i64 %221 to i32
+  %222 = trunc nuw nsw i64 %221 to i32
   %223 = shl nuw nsw i64 1, %221
   %224 = and i64 %223, %197
   %225 = icmp eq i64 %224, 0
@@ -565,7 +565,7 @@ define dso_local void @intel_cx0_phy_set_signal_levels(ptr noundef %0, ptr nound
 241:                                              ; preds = %254, %233
   %242 = phi i1 [ true, %233 ], [ false, %254 ]
   %243 = phi i64 [ 0, %233 ], [ 1, %254 ]
-  %244 = trunc i64 %243 to i32
+  %244 = trunc nuw nsw i64 %243 to i32
   %245 = shl nuw nsw i64 1, %243
   %246 = and i64 %245, %197
   %247 = icmp eq i64 %246, 0
@@ -600,7 +600,7 @@ define dso_local void @intel_cx0_phy_set_signal_levels(ptr noundef %0, ptr nound
 261:                                              ; preds = %273, %.loopexit12
   %262 = phi i1 [ true, %.loopexit12 ], [ false, %273 ]
   %263 = phi i64 [ 0, %.loopexit12 ], [ 1, %273 ]
-  %264 = trunc i64 %263 to i32
+  %264 = trunc nuw nsw i64 %263 to i32
   %265 = shl nuw nsw i64 1, %263
   %266 = and i64 %265, %260
   %267 = icmp eq i64 %266, 0
@@ -633,7 +633,7 @@ define dso_local void @intel_cx0_phy_set_signal_levels(ptr noundef %0, ptr nound
 281:                                              ; preds = %293, %279
   %282 = phi i1 [ true, %279 ], [ false, %293 ]
   %283 = phi i64 [ 0, %279 ], [ 1, %293 ]
-  %284 = trunc i64 %283 to i32
+  %284 = trunc nuw nsw i64 %283 to i32
   %285 = shl nuw nsw i64 1, %283
   %286 = and i64 %285, %260
   %287 = icmp eq i64 %286, 0
@@ -855,7 +855,7 @@ define dso_local void @intel_c10pll_dump_hw_state(ptr noundef readonly %0, ptr n
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_cx0_phy_check_hdmi_link_rate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 18) i32 @intel_cx0_phy_check_hdmi_link_rate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = tail call ptr @intel_hdmi_to_i915(ptr noundef %0) #7
   %4 = getelementptr i8, ptr %0, i64 -3716
   %5 = load i32, ptr %4, align 4
@@ -911,7 +911,7 @@ define dso_local noundef i32 @intel_cx0_phy_check_hdmi_link_rate(ptr noundef %0,
 declare dso_local ptr @intel_hdmi_to_i915(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_cx0pll_calc_state(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_cx0pll_calc_state(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 132
   %5 = load i32, ptr %4, align 4
@@ -1091,7 +1091,7 @@ define dso_local noundef i32 @intel_cx0pll_calc_state(ptr nocapture noundef %0, 
   %112 = getelementptr i8, ptr %0, i64 944
   store i16 0, ptr %112, align 2
   %113 = shl i32 %83, 13
-  %114 = trunc i64 %91 to i32
+  %114 = trunc nuw nsw i64 %91 to i32
   %115 = and i32 %114, 4094
   %116 = or disjoint i32 %115, %113
   %117 = trunc i32 %116 to i16
@@ -1295,7 +1295,7 @@ define dso_local void @intel_c20pll_dump_hw_state(ptr noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_mtl_tbt_calc_port_clock(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 162000, 810001) i32 @intel_mtl_tbt_calc_port_clock(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4
@@ -1820,7 +1820,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
   %242 = shl nuw nsw i64 %237, 2
   %243 = sub nuw nsw i64 29, %242
   %244 = shl nuw nsw i64 1, %243
-  %245 = trunc i64 %244 to i32
+  %245 = trunc nuw nsw i64 %244 to i32
   %246 = select i1 %241, i32 0, i32 %245
   %247 = or i32 %246, %238
   br i1 %236, label %235, label %248, !llvm.loop !63
@@ -1839,7 +1839,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
   %257 = shl nuw nsw i64 %252, 2
   %258 = sub nuw nsw i64 29, %257
   %259 = shl nuw nsw i64 1, %258
-  %260 = trunc i64 %259 to i32
+  %260 = trunc nuw nsw i64 %259 to i32
   %261 = select i1 %256, i32 0, i32 %260
   %262 = or i32 %261, %253
   br i1 %251, label %250, label %263, !llvm.loop !63
@@ -1867,7 +1867,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
   %280 = shl nuw nsw i64 %275, 2
   %281 = sub nuw nsw i64 28, %280
   %282 = shl nuw nsw i64 1, %281
-  %283 = trunc i64 %282 to i32
+  %283 = trunc nuw nsw i64 %282 to i32
   %284 = select i1 %279, i32 0, i32 %283
   %285 = or i32 %284, %276
   br i1 %274, label %273, label %.preheader30, !llvm.loop !64
@@ -1882,7 +1882,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
   %292 = shl nuw nsw i64 %287, 2
   %293 = sub nuw nsw i64 28, %292
   %294 = shl nuw nsw i64 1, %293
-  %295 = trunc i64 %294 to i32
+  %295 = trunc nuw nsw i64 %294 to i32
   %296 = select i1 %291, i32 0, i32 %295
   %297 = or i32 %296, %288
   br i1 %286, label %.preheader30, label %298, !llvm.loop !64
@@ -2210,7 +2210,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
 479:                                              ; preds = %492, %477
   %480 = phi i1 [ true, %477 ], [ false, %492 ]
   %481 = phi i64 [ 0, %477 ], [ 1, %492 ]
-  %482 = trunc i64 %481 to i32
+  %482 = trunc nuw nsw i64 %481 to i32
   %483 = shl nuw nsw i64 1, %481
   %484 = and i64 %483, %472
   %485 = icmp eq i64 %484, 0
@@ -2304,7 +2304,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
 512:                                              ; preds = %525, %510
   %513 = phi i1 [ true, %510 ], [ false, %525 ]
   %514 = phi i64 [ 0, %510 ], [ 1, %525 ]
-  %515 = trunc i64 %514 to i32
+  %515 = trunc nuw nsw i64 %514 to i32
   %516 = shl nuw nsw i64 1, %514
   %517 = and i64 %516, %472
   %518 = icmp eq i64 %517, 0
@@ -2343,7 +2343,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
 530:                                              ; preds = %543, %528
   %531 = phi i1 [ true, %528 ], [ false, %543 ]
   %532 = phi i64 [ 0, %528 ], [ 1, %543 ]
-  %533 = trunc i64 %532 to i32
+  %533 = trunc nuw nsw i64 %532 to i32
   %534 = shl nuw nsw i64 1, %532
   %535 = and i64 %534, %472
   %536 = icmp eq i64 %535, 0
@@ -2405,7 +2405,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
 555:                                              ; preds = %569, %.loopexit27
   %556 = phi i1 [ true, %.loopexit27 ], [ false, %569 ]
   %557 = phi i64 [ 0, %.loopexit27 ], [ 1, %569 ]
-  %558 = trunc i64 %557 to i32
+  %558 = trunc nuw nsw i64 %557 to i32
   %559 = shl nuw nsw i64 1, %557
   %560 = and i64 %559, %472
   %561 = icmp eq i64 %560, 0
@@ -2496,7 +2496,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
 604:                                              ; preds = %616, %602
   %605 = phi i1 [ true, %602 ], [ false, %616 ]
   %606 = phi i64 [ 0, %602 ], [ 1, %616 ]
-  %607 = trunc i64 %606 to i32
+  %607 = trunc nuw nsw i64 %606 to i32
   %608 = shl nuw nsw i64 1, %606
   %609 = and i64 %608, %603
   %610 = icmp eq i64 %609, 0
@@ -2550,7 +2550,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
 642:                                              ; preds = %655, %633
   %643 = phi i1 [ true, %633 ], [ false, %655 ]
   %644 = phi i64 [ 0, %633 ], [ 1, %655 ]
-  %645 = trunc i64 %644 to i32
+  %645 = trunc nuw nsw i64 %644 to i32
   %646 = shl nuw nsw i64 1, %644
   %647 = and i64 %646, %641
   %648 = icmp eq i64 %647, 0
@@ -2591,7 +2591,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
 667:                                              ; preds = %679, %665
   %668 = phi i1 [ true, %665 ], [ false, %679 ]
   %669 = phi i64 [ 0, %665 ], [ 1, %679 ]
-  %670 = trunc i64 %669 to i32
+  %670 = trunc nuw nsw i64 %669 to i32
   %671 = shl nuw nsw i64 1, %669
   %672 = and i64 %671, %666
   %673 = icmp eq i64 %672, 0
@@ -2631,7 +2631,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
   %694 = shl nuw nsw i64 %689, 2
   %695 = xor i64 %694, 31
   %696 = shl nuw nsw i64 1, %695
-  %697 = trunc i64 %696 to i32
+  %697 = trunc nuw i64 %696 to i32
   %698 = select i1 %693, i32 0, i32 %697
   %699 = or i32 %698, %690
   br i1 %688, label %687, label %700, !llvm.loop !82
@@ -2662,7 +2662,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
   %720 = shl nuw nsw i64 %715, 2
   %721 = sub nuw nsw i64 30, %720
   %722 = shl nuw nsw i64 1, %721
-  %723 = trunc i64 %722 to i32
+  %723 = trunc nuw nsw i64 %722 to i32
   %724 = select i1 %719, i32 0, i32 %723
   %725 = or i32 %724, %716
   br i1 %714, label %713, label %726, !llvm.loop !83
@@ -2977,7 +2977,7 @@ define dso_local void @intel_mtl_pll_disable(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_mtl_port_pll_type(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 2) i32 @intel_mtl_port_pll_type(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 132
   %5 = load i32, ptr %4, align 4
@@ -3268,7 +3268,7 @@ define dso_local void @intel_cx0pll_readout_hw_state(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_cx0pll_calc_port_clock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 107478629) i32 @intel_cx0pll_calc_port_clock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 132
   %5 = load i32, ptr %4, align 4
@@ -3329,7 +3329,7 @@ define dso_local i32 @intel_cx0pll_calc_port_clock(ptr nocapture noundef readonl
   %54 = add nuw nsw i64 %53, %52
   %55 = zext nneg i32 %43 to i64
   %56 = udiv i64 %54, %55
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw nsw i64 %56 to i32
   %58 = and i8 %39, 56
   %59 = icmp ne i8 %58, 0
   %60 = zext i1 %59 to i32
@@ -3409,7 +3409,7 @@ define dso_local i32 @intel_cx0pll_calc_port_clock(ptr nocapture noundef readonl
   %122 = zext nneg i32 %120 to i64
   %123 = mul nuw nsw i64 %122, %121
   %124 = lshr i64 %123, 17
-  %125 = trunc i64 %124 to i32
+  %125 = trunc nuw nsw i64 %124 to i32
   %.lhs.trunc = add nuw nsw i32 %125, 5
   %126 = udiv i32 %.lhs.trunc, 10
   %127 = shl nuw nsw i32 %126, %88
@@ -3936,7 +3936,7 @@ define dso_local void @intel_cx0pll_state_verify(ptr noundef %0, ptr nocapture n
   %320 = load i16, ptr %301, align 2
   %321 = zext i16 %320 to i32
   %322 = zext i16 %300 to i32
-  %323 = trunc i64 %298 to i32
+  %323 = trunc nuw nsw i64 %298 to i32
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.60, ptr noundef %309, ptr noundef %317, i32 noundef %318, ptr noundef %319, i32 noundef %323, i32 noundef %321, i32 noundef %322) #7
   tail call void asm sideeffect "1070: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1070b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1070) #7, !srcloc !123
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 3099, i32 2313, i64 12) #7, !srcloc !124
@@ -3957,7 +3957,7 @@ define dso_local void @intel_cx0pll_state_verify(ptr noundef %0, ptr nocapture n
   %330 = load ptr, ptr %215, align 8
   %331 = zext i16 %302 to i32
   %332 = zext i16 %300 to i32
-  %333 = trunc i64 %298 to i32
+  %333 = trunc nuw nsw i64 %298 to i32
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %328, ptr noundef nonnull @.str.61, i32 noundef %329, ptr noundef %330, i32 noundef %333, i32 noundef %331, i32 noundef %332) #9
   br label %334
 
@@ -4433,7 +4433,7 @@ define internal fastcc void @intel_cx0_bus_reset(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @intel_cx0_wait_for_ack(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -110, 1) i32 @intel_cx0_wait_for_ack(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 align 16 {
   %6 = tail call i32 @intel_port_to_phy(ptr noundef %0, i32 noundef %1) #7
   %7 = icmp slt i32 %1, 3
   %8 = shl i32 %1, 8
@@ -4766,12 +4766,12 @@ define internal fastcc void @intel_c20_sram_write(ptr noundef %0, i32 noundef %1
 
 .critedge:                                        ; preds = %16, %4
   %18 = lshr i16 %2, 8
-  %19 = trunc i16 %18 to i8
+  %19 = trunc nuw i16 %18 to i8
   tail call fastcc void @__intel_cx0_write(ptr noundef %0, i32 noundef %1, i32 noundef 0, i16 noundef zeroext 3075, i8 noundef zeroext %19, i1 noundef zeroext false)
   %20 = trunc i16 %2 to i8
   tail call fastcc void @__intel_cx0_write(ptr noundef %0, i32 noundef %1, i32 noundef 0, i16 noundef zeroext 3074, i8 noundef zeroext %20, i1 noundef zeroext false)
   %21 = lshr i16 %3, 8
-  %22 = trunc i16 %21 to i8
+  %22 = trunc nuw i16 %21 to i8
   tail call fastcc void @__intel_cx0_write(ptr noundef %0, i32 noundef %1, i32 noundef 0, i16 noundef zeroext 3077, i8 noundef zeroext %22, i1 noundef zeroext false)
   %23 = trunc i16 %3 to i8
   tail call fastcc void @__intel_cx0_write(ptr noundef %0, i32 noundef %1, i32 noundef 0, i16 noundef zeroext 3076, i8 noundef zeroext %23, i1 noundef zeroext true)
@@ -4815,7 +4815,7 @@ define internal fastcc zeroext i16 @intel_c20_sram_read(ptr noundef %0, i32 noun
 
 .critedge:                                        ; preds = %15, %3
   %17 = lshr i16 %2, 8
-  %18 = trunc i16 %17 to i8
+  %18 = trunc nuw i16 %17 to i8
   tail call fastcc void @__intel_cx0_write(ptr noundef %0, i32 noundef %1, i32 noundef 0, i16 noundef zeroext 3079, i8 noundef zeroext %18, i1 noundef zeroext false)
   %19 = trunc i16 %2 to i8
   tail call fastcc void @__intel_cx0_write(ptr noundef %0, i32 noundef %1, i32 noundef 0, i16 noundef zeroext 3078, i8 noundef zeroext %19, i1 noundef zeroext true)

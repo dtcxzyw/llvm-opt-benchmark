@@ -81,7 +81,7 @@ opal_obj_new.exit.thread72.i:                     ; preds = %.lr.ph.i.i.i, %20
   br i1 %43, label %78, label %44
 
 44:                                               ; preds = %39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %42, ptr align 4 %3, i64 %41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %42, ptr readonly align 4 %3, i64 %41, i1 false)
   %.not.i = icmp eq ptr %4, inttoptr (i64 2 to ptr)
   br i1 %.not.i, label %49, label %45
 
@@ -92,7 +92,7 @@ opal_obj_new.exit.thread72.i:                     ; preds = %.lr.ph.i.i.i, %20
   br i1 %47, label %78, label %48
 
 48:                                               ; preds = %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %46, ptr align 4 %4, i64 %41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %46, ptr readonly align 4 %4, i64 %41, i1 false)
   br label %49
 
 49:                                               ; preds = %48, %44, %opal_obj_new.exit.thread72.i
@@ -108,7 +108,7 @@ opal_obj_new.exit.thread72.i:                     ; preds = %.lr.ph.i.i.i, %20
   br i1 %55, label %78, label %56
 
 56:                                               ; preds = %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %54, ptr align 4 %6, i64 %53, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %54, ptr readonly align 4 %6, i64 %53, i1 false)
   store ptr null, ptr %30, align 8
   %.not70.i = icmp eq ptr %7, inttoptr (i64 2 to ptr)
   br i1 %.not70.i, label %61, label %57
@@ -120,7 +120,7 @@ opal_obj_new.exit.thread72.i:                     ; preds = %.lr.ph.i.i.i, %20
   br i1 %59, label %78, label %60
 
 60:                                               ; preds = %57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %58, ptr align 4 %7, i64 %53, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %58, ptr readonly align 4 %7, i64 %53, i1 false)
   br label %61
 
 61:                                               ; preds = %60, %56, %49

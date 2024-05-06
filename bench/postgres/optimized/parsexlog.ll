@@ -95,7 +95,7 @@ define dso_local void @extractPageMap(ptr noundef %0, i64 noundef %1, i32 nounde
   %26 = load ptr, ptr %9, align 8
   %.not27 = icmp eq ptr %26, null
   %27 = lshr i64 %25, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   %29 = trunc i64 %25 to i32
   br i1 %.not27, label %31, label %30
 
@@ -189,7 +189,7 @@ define dso_local void @extractPageMap(ptr noundef %0, i64 noundef %1, i32 nounde
   %71 = zext i8 %35 to i32
   %72 = trunc i64 %69 to i32
   %73 = lshr i64 %69, 32
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nuw i64 %73 to i32
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13, i32 noundef %74, i32 noundef %72, i32 noundef %71, ptr noundef %70, i32 noundef %38) #7
   call void @exit(i32 noundef 1) #8
   unreachable
@@ -238,10 +238,10 @@ extractPageInfo.exit:                             ; preds = %84, %75
 
 92:                                               ; preds = %91
   %93 = lshr i64 %3, 32
-  %94 = trunc i64 %93 to i32
+  %94 = trunc nuw i64 %93 to i32
   %95 = trunc i64 %3 to i32
   %96 = lshr i64 %89, 32
-  %97 = trunc i64 %96 to i32
+  %97 = trunc nuw i64 %96 to i32
   %98 = trunc i64 %89 to i32
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.3, i32 noundef %94, i32 noundef %95, i32 noundef %97, i32 noundef %98) #7
   call void @exit(i32 noundef 1) #8
@@ -265,7 +265,7 @@ extractPageInfo.exit:                             ; preds = %84, %75
 declare ptr @XLogReaderAllocate(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @SimpleXLogPageRead(ptr noundef %0, i64 noundef %1, i32 %2, i64 %3, ptr nocapture noundef %4) #0 {
+define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 noundef %1, i32 %2, i64 %3, ptr nocapture noundef %4) #0 {
   %6 = alloca [64 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -326,7 +326,7 @@ define internal noundef i32 @SimpleXLogPageRead(ptr noundef %0, i64 noundef %1, 
 .lr.ph57:                                         ; preds = %.lr.ph, %32
   %indvars.iv56 = phi i64 [ %indvars.iv.next, %32 ], [ %28, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv56, 1
-  %36 = trunc i64 %indvars.iv.next to i32
+  %36 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %36, ptr %24, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %32, !llvm.loop !8
@@ -359,7 +359,7 @@ define internal noundef i32 @SimpleXLogPageRead(ptr noundef %0, i64 noundef %1, 
   %49 = udiv i64 %.pre-phi5154, %48
   %50 = trunc i64 %49 to i32
   %51 = urem i64 %.pre-phi5154, %48
-  %52 = trunc i64 %51 to i32
+  %52 = trunc nuw i64 %51 to i32
   %53 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.12, i32 noundef %47, i32 noundef %50, i32 noundef %52) #7
   %54 = getelementptr inbounds i8, ptr %0, i64 180
   %55 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @xlogfpath, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %54, ptr noundef nonnull %6) #7
@@ -485,7 +485,7 @@ define dso_local i64 @readOneRecord(ptr noundef %0, i64 noundef %1, i32 noundef 
   %18 = load ptr, ptr %5, align 8
   %.not16 = icmp eq ptr %18, null
   %19 = lshr i64 %1, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   %21 = trunc i64 %1 to i32
   br i1 %.not16, label %23, label %22
 
@@ -573,7 +573,7 @@ define dso_local void @findLastCheckpoint(ptr noundef %0, i64 noundef %1, i32 no
   %31 = load ptr, ptr %8, align 8
   %.not36 = icmp eq ptr %31, null
   %32 = lshr i64 %.031.lcssa, 32
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   %34 = trunc i64 %.031.lcssa to i32
   br i1 %.not36, label %36, label %35
 

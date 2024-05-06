@@ -84,13 +84,13 @@ define hidden void @"_ZN74_$LT$regex_automata..meta..regex..Config$u20$as$u20$co
   %42 = getelementptr inbounds i8, ptr %1, i64 72
   %.val39 = load i64, ptr %42, align 8
   %.sroa.513.0 = select i1 %41, i64 undef, i64 %.val39
-  %trunc = trunc i64 %31 to i1
+  %trunc = trunc nuw i64 %31 to i1
   %.sroa.57.0 = select i1 %trunc, i64 %33, i64 undef
   %43 = getelementptr inbounds i8, ptr %1, i64 113
   %44 = load i8, ptr %43, align 1, !range !4, !noundef !5
   %45 = getelementptr inbounds i8, ptr %1, i64 104
   %46 = load i8, ptr %45, align 8, !range !20, !noundef !5
-  %trunc37 = trunc i8 %46 to i1
+  %trunc37 = trunc nuw i8 %46 to i1
   %47 = getelementptr inbounds i8, ptr %1, i64 105
   %48 = load i8, ptr %47, align 1
   %.sroa.518.0 = select i1 %trunc37, i8 %48, i8 undef
@@ -296,13 +296,13 @@ define hidden void @_ZN5regex8builders7Builder16build_one_string17hf82c4a9885309
   %62 = getelementptr inbounds i8, ptr %1, i64 72
   %.val39.i = load i64, ptr %62, align 8, !alias.scope !24, !noalias !21
   %.sroa.513.0.i = select i1 %61, i64 undef, i64 %.val39.i
-  %trunc.i = trunc i64 %51 to i1
+  %trunc.i = trunc nuw i64 %51 to i1
   %.sroa.57.0.i = select i1 %trunc.i, i64 %53, i64 undef
   %63 = getelementptr inbounds i8, ptr %1, i64 113
   %64 = load i8, ptr %63, align 1, !range !4, !alias.scope !24, !noalias !21, !noundef !5
   %65 = getelementptr inbounds i8, ptr %1, i64 104
   %66 = load i8, ptr %65, align 8, !range !20, !alias.scope !24, !noalias !21, !noundef !5
-  %trunc37.i = trunc i8 %66 to i1
+  %trunc37.i = trunc nuw i8 %66 to i1
   %67 = getelementptr inbounds i8, ptr %1, i64 105
   %68 = load i8, ptr %67, align 1, !alias.scope !24, !noalias !21
   %.sroa.518.0.i = select i1 %trunc37.i, i8 %68, i8 undef
@@ -423,7 +423,7 @@ define hidden void @_ZN5regex8builders7Builder16build_one_string17hf82c4a9885309
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !38
   %106 = extractvalue { ptr, i64 } %104, 0
   %107 = getelementptr inbounds i8, ptr %106, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull align 1 %96, i64 %98, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull readonly align 1 %96, i64 %98, i1 false)
   %108 = icmp ne ptr %106, null
   call void @llvm.assume(i1 %108)
   %109 = extractvalue { ptr, i64 } %104, 1
@@ -540,7 +540,7 @@ define hidden void @_ZN5regex8builders7Builder16build_one_string17hf82c4a9885309
 .noexc17:                                         ; preds = %138
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4), !noalias !66
   %139 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !64
   store ptr null, ptr %0, align 8, !alias.scope !61, !noalias !64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !66
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8adfb7ce54ec849eE.exit"
@@ -713,13 +713,13 @@ define hidden void @_ZN5regex8builders7Builder15build_one_bytes17hfc277fc41c11dd
   %62 = getelementptr inbounds i8, ptr %1, i64 72
   %.val39.i = load i64, ptr %62, align 8, !alias.scope !103, !noalias !100
   %.sroa.513.0.i = select i1 %61, i64 undef, i64 %.val39.i
-  %trunc.i = trunc i64 %51 to i1
+  %trunc.i = trunc nuw i64 %51 to i1
   %.sroa.57.0.i = select i1 %trunc.i, i64 %53, i64 undef
   %63 = getelementptr inbounds i8, ptr %1, i64 113
   %64 = load i8, ptr %63, align 1, !range !4, !alias.scope !103, !noalias !100, !noundef !5
   %65 = getelementptr inbounds i8, ptr %1, i64 104
   %66 = load i8, ptr %65, align 8, !range !20, !alias.scope !103, !noalias !100, !noundef !5
-  %trunc37.i = trunc i8 %66 to i1
+  %trunc37.i = trunc nuw i8 %66 to i1
   %67 = getelementptr inbounds i8, ptr %1, i64 105
   %68 = load i8, ptr %67, align 1, !alias.scope !103, !noalias !100
   %.sroa.518.0.i = select i1 %trunc37.i, i8 %68, i8 undef
@@ -840,7 +840,7 @@ define hidden void @_ZN5regex8builders7Builder15build_one_bytes17hfc277fc41c11dd
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !116
   %106 = extractvalue { ptr, i64 } %104, 0
   %107 = getelementptr inbounds i8, ptr %106, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull align 1 %96, i64 %98, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull readonly align 1 %96, i64 %98, i1 false)
   %108 = icmp ne ptr %106, null
   call void @llvm.assume(i1 %108)
   %109 = extractvalue { ptr, i64 } %104, 1
@@ -957,7 +957,7 @@ define hidden void @_ZN5regex8builders7Builder15build_one_bytes17hfc277fc41c11dd
 .noexc17:                                         ; preds = %138
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4), !noalias !143
   %139 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !141
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !141
   store ptr null, ptr %0, align 8, !alias.scope !138, !noalias !141
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !143
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h645632aa8b308017E.exit"
@@ -1119,13 +1119,13 @@ define hidden void @_ZN5regex8builders7Builder17build_many_string17hec7233caad9e
   %55 = getelementptr inbounds i8, ptr %1, i64 72
   %.val39.i = load i64, ptr %55, align 8, !alias.scope !180, !noalias !177
   %.sroa.513.0.i = select i1 %54, i64 undef, i64 %.val39.i
-  %trunc.i = trunc i64 %44 to i1
+  %trunc.i = trunc nuw i64 %44 to i1
   %.sroa.57.0.i = select i1 %trunc.i, i64 %46, i64 undef
   %56 = getelementptr inbounds i8, ptr %1, i64 113
   %57 = load i8, ptr %56, align 1, !range !4, !alias.scope !180, !noalias !177, !noundef !5
   %58 = getelementptr inbounds i8, ptr %1, i64 104
   %59 = load i8, ptr %58, align 8, !range !20, !alias.scope !180, !noalias !177, !noundef !5
-  %trunc37.i = trunc i8 %59 to i1
+  %trunc37.i = trunc nuw i8 %59 to i1
   %60 = getelementptr inbounds i8, ptr %1, i64 105
   %61 = load i8, ptr %60, align 1, !alias.scope !180, !noalias !177
   %.sroa.518.0.i = select i1 %trunc37.i, i8 %61, i8 undef
@@ -1201,7 +1201,7 @@ define hidden void @_ZN5regex8builders7Builder17build_many_string17hec7233caad9e
   %87 = getelementptr inbounds i8, ptr %1, i64 136
   %88 = load i64, ptr %87, align 8, !noundef !5
   %89 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %86, i64 %88
-  %90 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17hfa503ac2d3d8514aE"(ptr noundef nonnull %86, ptr noundef nonnull %89, i64 noundef %88)
+  %90 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17hfa503ac2d3d8514aE"(ptr noundef nonnull readonly %86, ptr noundef nonnull readonly %89, i64 noundef %88)
           to label %"_ZN90_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..sync..ArcFromSlice$LT$T$GT$$GT$10from_slice17h7b500a35d6ad5134E.exit" unwind label %82
 
 "_ZN90_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..sync..ArcFromSlice$LT$T$GT$$GT$10from_slice17h7b500a35d6ad5134E.exit": ; preds = %84
@@ -1320,7 +1320,7 @@ define hidden void @_ZN5regex8builders7Builder17build_many_string17hec7233caad9e
 .noexc10:                                         ; preds = %119
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3), !noalias !217
   %120 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !215
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !215
   store ptr null, ptr %0, align 8, !alias.scope !212, !noalias !215
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !217
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf5c9ca974664bb8eE.exit"
@@ -1482,13 +1482,13 @@ define hidden void @_ZN5regex8builders7Builder16build_many_bytes17ha4436740a89e8
   %55 = getelementptr inbounds i8, ptr %1, i64 72
   %.val39.i = load i64, ptr %55, align 8, !alias.scope !254, !noalias !251
   %.sroa.513.0.i = select i1 %54, i64 undef, i64 %.val39.i
-  %trunc.i = trunc i64 %44 to i1
+  %trunc.i = trunc nuw i64 %44 to i1
   %.sroa.57.0.i = select i1 %trunc.i, i64 %46, i64 undef
   %56 = getelementptr inbounds i8, ptr %1, i64 113
   %57 = load i8, ptr %56, align 1, !range !4, !alias.scope !254, !noalias !251, !noundef !5
   %58 = getelementptr inbounds i8, ptr %1, i64 104
   %59 = load i8, ptr %58, align 8, !range !20, !alias.scope !254, !noalias !251, !noundef !5
-  %trunc37.i = trunc i8 %59 to i1
+  %trunc37.i = trunc nuw i8 %59 to i1
   %60 = getelementptr inbounds i8, ptr %1, i64 105
   %61 = load i8, ptr %60, align 1, !alias.scope !254, !noalias !251
   %.sroa.518.0.i = select i1 %trunc37.i, i8 %61, i8 undef
@@ -1564,7 +1564,7 @@ define hidden void @_ZN5regex8builders7Builder16build_many_bytes17ha4436740a89e8
   %87 = getelementptr inbounds i8, ptr %1, i64 136
   %88 = load i64, ptr %87, align 8, !noundef !5
   %89 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %86, i64 %88
-  %90 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17hfa503ac2d3d8514aE"(ptr noundef nonnull %86, ptr noundef nonnull %89, i64 noundef %88)
+  %90 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17hfa503ac2d3d8514aE"(ptr noundef nonnull readonly %86, ptr noundef nonnull readonly %89, i64 noundef %88)
           to label %"_ZN90_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..sync..ArcFromSlice$LT$T$GT$$GT$10from_slice17h7b500a35d6ad5134E.exit" unwind label %82
 
 "_ZN90_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$GT$$u20$as$u20$alloc..sync..ArcFromSlice$LT$T$GT$$GT$10from_slice17h7b500a35d6ad5134E.exit": ; preds = %84
@@ -1683,7 +1683,7 @@ define hidden void @_ZN5regex8builders7Builder16build_many_bytes17ha4436740a89e8
 .noexc10:                                         ; preds = %119
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3), !noalias !291
   %120 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !289
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !289
   store ptr null, ptr %0, align 8, !alias.scope !286, !noalias !289
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !291
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0aed0c9145250ee3E.exit"
@@ -1893,13 +1893,13 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builde
   %46 = getelementptr inbounds i8, ptr %0, i64 72
   %.val39.i = load i64, ptr %46, align 8, !alias.scope !328, !noalias !325
   %.sroa.513.0.i = select i1 %45, i64 undef, i64 %.val39.i
-  %trunc.i = trunc i64 %35 to i1
+  %trunc.i = trunc nuw i64 %35 to i1
   %.sroa.57.0.i = select i1 %trunc.i, i64 %37, i64 undef
   %47 = getelementptr inbounds i8, ptr %0, i64 113
   %48 = load i8, ptr %47, align 1, !range !4, !alias.scope !328, !noalias !325, !noundef !5
   %49 = getelementptr inbounds i8, ptr %0, i64 104
   %50 = load i8, ptr %49, align 8, !range !20, !alias.scope !328, !noalias !325, !noundef !5
-  %trunc37.i = trunc i8 %50 to i1
+  %trunc37.i = trunc nuw i8 %50 to i1
   %51 = getelementptr inbounds i8, ptr %0, i64 105
   %52 = load i8, ptr %51, align 1, !alias.scope !328, !noalias !325
   %.sroa.518.0.i = select i1 %trunc37.i, i8 %52, i8 undef
@@ -2129,13 +2129,13 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builde
   %44 = getelementptr inbounds i8, ptr %0, i64 72
   %.val39.i = load i64, ptr %44, align 8, !alias.scope !364, !noalias !361
   %.sroa.513.0.i = select i1 %43, i64 undef, i64 %.val39.i
-  %trunc.i = trunc i64 %33 to i1
+  %trunc.i = trunc nuw i64 %33 to i1
   %.sroa.57.0.i = select i1 %trunc.i, i64 %35, i64 undef
   %45 = getelementptr inbounds i8, ptr %0, i64 113
   %46 = load i8, ptr %45, align 1, !range !4, !alias.scope !364, !noalias !361, !noundef !5
   %47 = getelementptr inbounds i8, ptr %0, i64 104
   %48 = load i8, ptr %47, align 8, !range !20, !alias.scope !364, !noalias !361, !noundef !5
-  %trunc37.i = trunc i8 %48 to i1
+  %trunc37.i = trunc nuw i8 %48 to i1
   %49 = getelementptr inbounds i8, ptr %0, i64 105
   %50 = load i8, ptr %49, align 1, !alias.scope !364, !noalias !361
   %.sroa.518.0.i = select i1 %trunc37.i, i8 %50, i8 undef
@@ -2297,13 +2297,13 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builde
   %44 = getelementptr inbounds i8, ptr %0, i64 72
   %.val39.i = load i64, ptr %44, align 8, !alias.scope !400, !noalias !397
   %.sroa.513.0.i = select i1 %43, i64 undef, i64 %.val39.i
-  %trunc.i = trunc i64 %33 to i1
+  %trunc.i = trunc nuw i64 %33 to i1
   %.sroa.57.0.i = select i1 %trunc.i, i64 %35, i64 undef
   %45 = getelementptr inbounds i8, ptr %0, i64 113
   %46 = load i8, ptr %45, align 1, !range !4, !alias.scope !400, !noalias !397, !noundef !5
   %47 = getelementptr inbounds i8, ptr %0, i64 104
   %48 = load i8, ptr %47, align 8, !range !20, !alias.scope !400, !noalias !397, !noundef !5
-  %trunc37.i = trunc i8 %48 to i1
+  %trunc37.i = trunc nuw i8 %48 to i1
   %49 = getelementptr inbounds i8, ptr %0, i64 105
   %50 = load i8, ptr %49, align 1, !alias.scope !400, !noalias !397
   %.sroa.518.0.i = select i1 %trunc37.i, i8 %50, i8 undef

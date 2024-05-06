@@ -106,7 +106,7 @@ BufferGetPage.exit.i:                             ; preds = %34, %28
   %51 = tail call ptr @palloc(i64 noundef %50) #9
   %52 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %51, ptr %52, align 8
-  %53 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef nonnull %0, ptr noundef nonnull %12)
+  %53 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef nonnull readonly %0, ptr noundef nonnull %12)
   br i1 %53, label %.lr.ph61.i, label %._crit_edge62.i
 
 .lr.ph61.i:                                       ; preds = %44
@@ -777,7 +777,7 @@ collectMatchesForHeapRow.exit.i:                  ; preds = %387, %382
 
 .backedge.i:                                      ; preds = %._crit_edge.i, %409, %collectMatchesForHeapRow.exit.i
   %.158 = phi i64 [ %412, %._crit_edge.i ], [ %.057, %409 ], [ %.057, %collectMatchesForHeapRow.exit.i ]
-  %413 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef %0, ptr noundef nonnull %12)
+  %413 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef readonly %0, ptr noundef nonnull %12)
   br i1 %413, label %59, label %._crit_edge62.i, !llvm.loop !14
 
 ._crit_edge62.i:                                  ; preds = %.backedge.i, %44
@@ -1744,7 +1744,7 @@ split.i.i:                                        ; preds = %._crit_edge7.i.i, %
   br label %960
 
 .preheader.loopexit.i.i:                          ; preds = %960
-  %956 = trunc i64 %indvars.iv.next27.i.i to i32
+  %956 = trunc nuw nsw i64 %indvars.iv.next27.i.i to i32
   br label %.preheader.i.i27
 
 .preheader.i.i27:                                 ; preds = %.preheader.loopexit.i.i, %split.i.i
@@ -1848,7 +1848,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   %.sroa.6.0.extract.shift.i = lshr i48 %.0.copyload, 16
   %.sroa.6.0.extract.trunc.i = trunc i48 %.sroa.6.0.extract.shift.i to i16
   %.sroa.9.0.extract.shift.i = lshr i48 %.0.copyload, 32
-  %.sroa.9.0.extract.trunc.i = trunc i48 %.sroa.9.0.extract.shift.i to i16
+  %.sroa.9.0.extract.trunc.i = trunc nuw i48 %.sroa.9.0.extract.shift.i to i16
   %1005 = getelementptr inbounds i8, ptr %.val14, i64 9672
   %1006 = getelementptr inbounds i8, ptr %.val14, i64 9664
   %1007 = getelementptr inbounds i8, ptr %.val14, i64 8
@@ -1969,7 +1969,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   br i1 %.not190.i.i, label %1066, label %1063
 
 1063:                                             ; preds = %1052
-  call fastcc void @entryGetItem(ptr noundef nonnull %1007, ptr noundef nonnull %1048, i48 %.sroa.0.0.insert.insert.i)
+  call fastcc void @entryGetItem(ptr noundef nonnull readonly %1007, ptr noundef nonnull %1048, i48 %.sroa.0.0.insert.insert.i)
   %1064 = load i8, ptr %1049, align 2
   %1065 = trunc i8 %1064 to i1
   br i1 %1065, label %1076, label %._crit_edge231.i.i
@@ -2061,7 +2061,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
 1095:                                             ; preds = %1090
   %1096 = zext i16 %.sroa.0.124.i to i32
   %1097 = shl nuw i32 %1096, 16
-  %1098 = trunc i48 %.sroa.10.0.extract.shift.i.i to i32
+  %1098 = trunc nuw i48 %.sroa.10.0.extract.shift.i.i to i32
   %1099 = and i32 %1098, 65535
   %1100 = or disjoint i32 %1099, %1097
   %1101 = icmp ult i32 %1100, %1094
@@ -2139,7 +2139,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   br i1 %.not189.i.i, label %1139, label %1136
 
 1136:                                             ; preds = %1125
-  call fastcc void @entryGetItem(ptr noundef nonnull %1007, ptr noundef nonnull %1121, i48 %.sroa.0174.0.insert.insert.i.i)
+  call fastcc void @entryGetItem(ptr noundef nonnull readonly %1007, ptr noundef nonnull %1121, i48 %.sroa.0174.0.insert.insert.i.i)
   %1137 = load i8, ptr %1122, align 2
   %1138 = trunc i8 %1137 to i1
   br i1 %1138, label %1149, label %._crit_edge235.i.i
@@ -2554,7 +2554,7 @@ keyGetItem.exit.i:                                ; preds = %1264, %1204, %1083,
   %1325 = load i32, ptr %1005, align 8
   %1326 = zext i32 %1325 to i64
   %1327 = icmp ult i64 %indvars.iv.next.i47, %1326
-  %1328 = trunc i8 %.147.i to i1
+  %1328 = trunc nuw i8 %.147.i to i1
   %1329 = select i1 %1327, i1 %1328, i1 false
   br i1 %1329, label %.lr.ph.i36, label %.loopexit3.i, !llvm.loop !30
 
@@ -2563,7 +2563,7 @@ keyGetItem.exit.i:                                ; preds = %1264, %1204, %1083,
   %.sroa.6.4.i = phi i16 [ %.sroa.6.0.copyload.i, %1272 ], [ %.sroa.6.3.i, %1324 ]
   %.sroa.0.4.i = phi i16 [ %.sroa.0.0.copyload.i, %1272 ], [ %.sroa.0.3.i, %1324 ]
   %.2.i = phi i8 [ 0, %1272 ], [ %.147.i, %1324 ]
-  %1330 = trunc i8 %.2.i to i1
+  %1330 = trunc nuw i8 %.2.i to i1
   br i1 %1330, label %.loopexit3.thread.i, label %1008, !llvm.loop !31
 
 .loopexit3.thread.i:                              ; preds = %.loopexit3.i
@@ -2833,7 +2833,7 @@ declare i32 @GinDataLeafPageGetItemsToTbm(ptr noundef, ptr noundef) local_unname
 declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @entryIndexByFrequencyCmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 {
+define internal range(i32 -1, 2) i32 @entryIndexByFrequencyCmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 {
   %4 = load i32, ptr %0, align 4
   %5 = load i32, ptr %1, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2860,7 +2860,7 @@ define internal fastcc void @entryGetItem(ptr nocapture noundef readonly %0, ptr
   %.fr = freeze i48 %2
   %.sroa.7.0.extract.shift = lshr i48 %.fr, 16
   %.sroa.11.0.extract.shift = lshr i48 %.fr, 32
-  %.sroa.11.0.extract.trunc = trunc i48 %.sroa.11.0.extract.shift to i16
+  %.sroa.11.0.extract.trunc = trunc nuw i48 %.sroa.11.0.extract.shift to i16
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -2869,7 +2869,7 @@ define internal fastcc void @entryGetItem(ptr nocapture noundef readonly %0, ptr
 6:                                                ; preds = %3
   %7 = trunc i48 %.fr to i32
   %8 = shl i32 %7, 16
-  %9 = trunc i48 %.sroa.7.0.extract.shift to i32
+  %9 = trunc nuw i48 %.sroa.7.0.extract.shift to i32
   %10 = and i32 %9, 65535
   %11 = or disjoint i32 %10, %8
   %12 = getelementptr inbounds i8, ptr %1, i64 64
@@ -2887,11 +2887,11 @@ define internal fastcc void @entryGetItem(ptr nocapture noundef readonly %0, ptr
   br label %.backedge98
 
 .backedge98:                                      ; preds = %.backedge98.backedge, %6
-  %.pre129 = load ptr, ptr %12, align 8
+  %.pre131 = load ptr, ptr %12, align 8
   br i1 %16, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %.backedge98, %38
-  %23 = phi ptr [ %36, %38 ], [ %.pre129, %.backedge98 ]
+  %23 = phi ptr [ %36, %38 ], [ %.pre131, %.backedge98 ]
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.critedge.us, label %25
 
@@ -2924,7 +2924,7 @@ define internal fastcc void @entryGetItem(ptr nocapture noundef readonly %0, ptr
   br label %.split.us, !llvm.loop !33
 
 .split:                                           ; preds = %.backedge98, %54
-  %39 = phi ptr [ %51, %54 ], [ %.pre129, %.backedge98 ]
+  %39 = phi ptr [ %51, %54 ], [ %.pre131, %.backedge98 ]
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.critedge, label %41
 
@@ -2981,7 +2981,7 @@ define internal fastcc void @entryGetItem(ptr nocapture noundef readonly %0, ptr
 
 63:                                               ; preds = %57
   %64 = lshr i32 %62, 16
-  %65 = trunc i32 %64 to i16
+  %65 = trunc nuw i32 %64 to i16
   store i16 %65, ptr %17, align 2
   %66 = trunc i32 %62 to i16
   store i16 %66, ptr %18, align 2
@@ -2993,8 +2993,8 @@ define internal fastcc void @entryGetItem(ptr nocapture noundef readonly %0, ptr
   br i1 %68, label %69, label %..loopexit96_crit_edge
 
 ..loopexit96_crit_edge:                           ; preds = %67
-  %.pre131 = load i16, ptr %13, align 4
-  %.pre134 = zext i16 %.pre131 to i64
+  %.pre133 = load i16, ptr %13, align 4
+  %.pre136 = zext i16 %.pre133 to i64
   br label %.loopexit96
 
 69:                                               ; preds = %67
@@ -3033,18 +3033,18 @@ define internal fastcc void @entryGetItem(ptr nocapture noundef readonly %0, ptr
   br i1 %.not74, label %.loopexit96.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit96.loopexit:                             ; preds = %.lr.ph
-  %.pre130 = load i32, ptr %58, align 4
+  %.pre132 = load i32, ptr %58, align 4
   br label %.loopexit96
 
 .loopexit96:                                      ; preds = %..loopexit96_crit_edge, %.loopexit96.loopexit, %.preheader95
-  %.pre-phi = phi i64 [ %.pre134, %..loopexit96_crit_edge ], [ %82, %.loopexit96.loopexit ], [ %75, %.preheader95 ]
-  %85 = phi i16 [ %.pre131, %..loopexit96_crit_edge ], [ %81, %.loopexit96.loopexit ], [ %.promoted, %.preheader95 ]
-  %86 = phi i32 [ %62, %..loopexit96_crit_edge ], [ %.pre130, %.loopexit96.loopexit ], [ %11, %.preheader95 ]
+  %.pre-phi = phi i64 [ %.pre136, %..loopexit96_crit_edge ], [ %82, %.loopexit96.loopexit ], [ %75, %.preheader95 ]
+  %85 = phi i16 [ %.pre133, %..loopexit96_crit_edge ], [ %81, %.loopexit96.loopexit ], [ %.promoted, %.preheader95 ]
+  %86 = phi i32 [ %62, %..loopexit96_crit_edge ], [ %.pre132, %.loopexit96.loopexit ], [ %11, %.preheader95 ]
   %87 = getelementptr inbounds i8, ptr %58, i64 10
   %88 = getelementptr [0 x i16], ptr %87, i64 0, i64 %.pre-phi
   %89 = load i16, ptr %88, align 2
   %90 = lshr i32 %86, 16
-  %91 = trunc i32 %90 to i16
+  %91 = trunc nuw i32 %90 to i16
   store i16 %91, ptr %17, align 2
   %92 = trunc i32 %86 to i16
   store i16 %92, ptr %18, align 2
@@ -3150,8 +3150,8 @@ define internal fastcc void @entryGetItem(ptr nocapture noundef readonly %0, ptr
   br i1 %.not91, label %160, label %.backedge
 
 .backedge:                                        ; preds = %..backedge_crit_edge, %143
-  %157 = phi i32 [ %.pre133, %..backedge_crit_edge ], [ %144, %143 ]
-  %158 = phi i16 [ %.pre132, %..backedge_crit_edge ], [ %147, %143 ]
+  %157 = phi i32 [ %.pre135, %..backedge_crit_edge ], [ %144, %143 ]
+  %158 = phi i16 [ %.pre134, %..backedge_crit_edge ], [ %147, %143 ]
   %159 = zext i16 %158 to i32
   %.not69 = icmp sgt i32 %157, %159
   br i1 %.not69, label %143, label %._crit_edge
@@ -3172,11 +3172,11 @@ define internal fastcc void @entryGetItem(ptr nocapture noundef readonly %0, ptr
   br i1 %170, label %..backedge_crit_edge, label %.loopexit
 
 ..backedge_crit_edge:                             ; preds = %163
-  %.pre132 = load i16, ptr %121, align 4
-  %.pre133 = load i32, ptr %122, align 8
+  %.pre134 = load i16, ptr %121, align 4
+  %.pre135 = load i32, ptr %122, align 8
   br label %.backedge
 
-171:                                              ; preds = %.backedge157, %.outer
+171:                                              ; preds = %.backedge159, %.outer
   %172 = load i16, ptr %107, align 4
   %173 = zext i16 %172 to i32
   %174 = load i32, ptr %108, align 8
@@ -3259,7 +3259,7 @@ define internal fastcc void @entryGetItem(ptr nocapture noundef readonly %0, ptr
 
 BufferGetPage.exit.i:                             ; preds = %206, %200
   %.0.i.i.i = phi ptr [ %205, %200 ], [ %211, %206 ]
-  %212 = trunc i8 %.048.i to i1
+  %212 = trunc nuw i8 %.048.i to i1
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %BufferGetPage.exit.i
@@ -3413,9 +3413,9 @@ BufferGetPage.exit64.i:                           ; preds = %235, %229, %215
 entryLoadMoreItems.exit:                          ; preds = %177, %224, %286, %287
   %289 = load i8, ptr %118, align 2
   %290 = trunc i8 %289 to i1
-  br i1 %290, label %291, label %.backedge157
+  br i1 %290, label %291, label %.backedge159
 
-.backedge157:                                     ; preds = %entryLoadMoreItems.exit, %292
+.backedge159:                                     ; preds = %entryLoadMoreItems.exit, %292
   br label %171, !llvm.loop !36
 
 291:                                              ; preds = %entryLoadMoreItems.exit
@@ -3442,7 +3442,7 @@ entryLoadMoreItems.exit:                          ; preds = %177, %224, %286, %2
   %302 = zext i16 %.val5.i82 to i64
   %303 = or disjoint i64 %301, %302
   %.not92 = icmp ugt i64 %303, %339
-  br i1 %.not92, label %304, label %.backedge157
+  br i1 %.not92, label %304, label %.backedge159
 
 304:                                              ; preds = %292
   %305 = load i8, ptr %119, align 1
@@ -3487,13 +3487,13 @@ entryLoadMoreItems.exit:                          ; preds = %177, %224, %286, %2
   %323 = icmp ne i16 %.sroa.11.0.ph, -1
   %324 = zext i16 %.sroa.0.0.ph to i32
   %325 = shl nuw i32 %324, 16
-  %326 = trunc i48 %.sroa.9.0.extract.shift.i to i32
+  %326 = trunc nuw i48 %.sroa.9.0.extract.shift.i to i32
   %327 = and i32 %326, 65535
   %328 = or disjoint i32 %327, %325
   %.not.i = icmp eq i32 %328, -1
   %329 = add nuw i32 %328, 1
   %330 = lshr i32 %329, 16
-  %331 = trunc i32 %330 to i16
+  %331 = trunc nuw i32 %330 to i16
   %332 = trunc i32 %329 to i16
   %333 = add i16 %.sroa.11.0.ph, 1
   %334 = trunc i48 %.sroa.9.0.extract.shift.i to i16

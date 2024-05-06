@@ -286,7 +286,7 @@ define dso_local void @makeTorus(i32 noundef %0, i32 noundef %1, ptr nocapture n
   %19 = add nsw i32 %.147.us, -1
   %20 = mul nsw i32 %19, %1
   %21 = add nsw i32 %20, %.13649.us
-  %22 = mul nsw i32 %.147.us, %1
+  %22 = mul nuw nsw i32 %.147.us, %1
   %23 = add nuw nsw i32 %22, %.13649.us
   tail call void %2(i32 noundef %21, i32 noundef %23) #13
   %24 = add nuw nsw i32 %.147.us, 1
@@ -335,9 +335,9 @@ define dso_local void @makeTwistedTorus(i32 noundef %0, i32 noundef %1, i32 noun
   %16 = add nuw nsw i32 %.02932.us, 1
   %17 = icmp eq i32 %16, %1
   %iv.rem = select i1 %17, i32 0, i32 %16
-  %18 = mul nsw i32 %.02932.us, %0
+  %18 = mul nuw nsw i32 %.02932.us, %0
   %19 = add nuw i32 %10, %18
-  %20 = mul nsw i32 %iv.rem, %0
+  %20 = mul nuw nsw i32 %iv.rem, %0
   %21 = add i32 %11, %20
   tail call void %4(i32 noundef %19, i32 noundef %21) #13
   %22 = add nsw i32 %.02932.us, %3
@@ -412,7 +412,7 @@ define dso_local void @makeCylinder(i32 noundef %0, i32 noundef %1, ptr nocaptur
   %17 = add nsw i32 %.142.us, -1
   %18 = mul nsw i32 %17, %1
   %19 = add nsw i32 %18, %.13144.us
-  %20 = mul nsw i32 %.142.us, %1
+  %20 = mul nuw nsw i32 %.142.us, %1
   %21 = add nuw nsw i32 %20, %.13144.us
   tail call void %2(i32 noundef %19, i32 noundef %21) #13
   %22 = add nuw nsw i32 %.142.us, 1
@@ -451,12 +451,12 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
   %.0131.us = phi i32 [ %22, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %19 = mul nsw i32 %.0131.us, %1
+  %19 = mul nuw nsw i32 %.0131.us, %1
   %.not120.us = icmp ule i32 %.0131.us, %12
   %20 = icmp ugt i32 %.0131.us, %14
   %21 = icmp slt i32 %.0131.us, %15
   %22 = add nuw nsw i32 %.0131.us, 1
-  %23 = mul nsw i32 %22, %1
+  %23 = mul nuw nsw i32 %22, %1
   %24 = add nuw i32 %23, 1
   %25 = icmp ne i32 %.0131.us, 0
   %26 = icmp eq i32 %.0131.us, %15
@@ -698,7 +698,7 @@ define dso_local void @makeSierpinski(i32 noundef %0, ptr nocapture noundef read
 
 .lr.ph40:                                         ; preds = %.preheader
   %24 = getelementptr inbounds i8, ptr %21, i64 8
-  %25 = trunc i64 %indvars.iv49 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv49 to i32
   br label %26
 
 26:                                               ; preds = %.lr.ph40, %34
@@ -905,7 +905,7 @@ define dso_local void @makeTetrix(i32 noundef %0, ptr nocapture noundef readonly
 
 .lr.ph40:                                         ; preds = %.preheader
   %21 = getelementptr inbounds i8, ptr %18, i64 8
-  %22 = trunc i64 %indvars.iv49 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv49 to i32
   br label %23
 
 23:                                               ; preds = %.lr.ph40, %31
@@ -1211,7 +1211,7 @@ define dso_local void @makeBall(i32 noundef %0, i32 noundef %1, ptr nocapture no
   %17 = add nsw i32 %.142.us.i, -1
   %18 = mul nsw i32 %17, %1
   %19 = add nsw i32 %18, %.13144.us.i
-  %20 = mul nsw i32 %.142.us.i, %1
+  %20 = mul nuw nsw i32 %.142.us.i, %1
   %21 = add nuw nsw i32 %20, %.13144.us.i
   tail call void %2(i32 noundef %19, i32 noundef %21) #13
   %22 = add nuw nsw i32 %.142.us.i, 1
@@ -1322,7 +1322,7 @@ makeBinaryTree.exit:                              ; preds = %.lr.ph.i, %.lr.ph.i
   br i1 %.not4359, label %._crit_edge62, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %makeBinaryTree.exit
-  %23 = mul nsw i32 %11, %11
+  %23 = mul nuw nsw i32 %11, %11
   %24 = mul nsw i32 %1, %1
   %25 = add nsw i32 %0, -4
   %invariant.smax = tail call i32 @llvm.smax.i32(i32 %24, i32 %1)
@@ -1437,9 +1437,9 @@ define dso_local void @makeMobius(i32 noundef %0, i32 noundef %1, ptr nocapture 
 
 .preheader66.us:                                  ; preds = %.preheader66.lr.ph, %._crit_edge.us
   %.05469.us = phi i32 [ %17, %._crit_edge.us ], [ 0, %.preheader66.lr.ph ]
-  %16 = mul nsw i32 %.05469.us, %1
+  %16 = mul nuw nsw i32 %.05469.us, %1
   %17 = add nuw nsw i32 %.05469.us, 1
-  %18 = mul nsw i32 %17, %1
+  %18 = mul nuw nsw i32 %17, %1
   br label %19
 
 19:                                               ; preds = %.preheader66.us, %19
@@ -1550,8 +1550,8 @@ gv_alloc.exit:                                    ; preds = %1
   %indvars.iv45.i = phi i64 [ 1, %.preheader.preheader.i ], [ %indvars.iv.next46.i, %31 ]
   %indvars.iv43.i = phi i64 [ 2, %.preheader.preheader.i ], [ %indvars.iv.next44.i, %31 ]
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
-  %12 = trunc i64 %indvars.iv.next46.i to i32
-  %13 = trunc i64 %indvars.iv45.i to i32
+  %12 = trunc nuw nsw i64 %indvars.iv.next46.i to i32
+  %13 = trunc nuw nsw i64 %indvars.iv45.i to i32
   br label %14
 
 14:                                               ; preds = %30, %.preheader.i
@@ -1559,7 +1559,7 @@ gv_alloc.exit:                                    ; preds = %1
   %.02636.i = phi i32 [ 0, %.preheader.i ], [ %.1.lcssa.i, %30 ]
   %15 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv39.i
   %16 = load i32, ptr %15, align 4
-  %17 = trunc i64 %indvars.iv39.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv39.i to i32
   %18 = mul nsw i32 %16, %17
   %19 = udiv i32 %13, %17
   %20 = add nuw nsw i32 %19, 1
@@ -1671,7 +1671,7 @@ define dso_local void @makeRandomTree(ptr nocapture noundef %0, ptr nocapture no
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %29 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.next.i
   %30 = load i32, ptr %29, align 4
-  %31 = trunc i64 %indvars.iv.next.i to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %32 = mul nsw i32 %30, %31
   br label %33
 
@@ -1951,7 +1951,7 @@ genTree.exit:                                     ; preds = %150
   %170 = load ptr, ptr %168, align 8
   %171 = getelementptr inbounds i32, ptr %170, i64 %indvars.iv.i9
   %172 = load i32, ptr %171, align 4
-  %173 = trunc i64 %indvars.iv.i9 to i32
+  %173 = trunc nuw nsw i64 %indvars.iv.i9 to i32
   tail call void %1(i32 noundef %172, i32 noundef %173) #13
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i9, 1
   %174 = load i32, ptr %166, align 8

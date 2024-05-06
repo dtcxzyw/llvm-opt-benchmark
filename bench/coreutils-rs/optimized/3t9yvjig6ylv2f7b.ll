@@ -532,7 +532,7 @@ define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalia
 11:                                               ; preds = %2, %17, %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !54
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !60
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !60
   call void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !61
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !54
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hfb42198b6a362d83E.exit"
@@ -547,7 +547,7 @@ define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalia
   %15 = extractvalue { i64, ptr } %13, 1
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %.sroa.0.0.ph, i64 %.sroa.6.0.ph, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %.sroa.0.0.ph, i64 %.sroa.6.0.ph, i1 false)
   store i64 %14, ptr %0, align 8, !alias.scope !71, !noalias !72
   %.sroa.42.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %15, ptr %.sroa.42.0..sroa_idx.i.i.i, align 8, !alias.scope !71, !noalias !72
@@ -708,7 +708,7 @@ define hidden void @_ZN8uu_split12custom_write17h934ebbfa2cf8753cE(ptr noalias n
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !79, !noalias !81, !nonnull !5, !noundef !5
   %16 = getelementptr inbounds i8, ptr %15, i64 %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !83
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !83
   %17 = add i64 %11, %2
   store i64 %17, ptr %10, align 8, !alias.scope !79, !noalias !81
   %18 = getelementptr inbounds i8, ptr %8, i64 8
@@ -850,7 +850,7 @@ define internal fastcc void @_ZN8uu_split16custom_write_all17h1e5cd865edebd003E(
   %13 = getelementptr inbounds i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !104, !noalias !107, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds i8, ptr %14, i64 %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !104
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !104
   %16 = add i64 %10, %2
   store i64 %16, ptr %9, align 8, !alias.scope !104, !noalias !107
   br label %19
@@ -1488,7 +1488,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
   %122 = getelementptr inbounds i8, ptr %112, i64 8
   %123 = load ptr, ptr %122, align 8, !alias.scope !226, !noalias !229, !nonnull !5, !noundef !5
   %124 = getelementptr inbounds i8, ptr %123, i64 %116
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %124, ptr nonnull align 1 %113, i64 %114, i1 false), !noalias !226
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %124, ptr nonnull readonly align 1 %113, i64 %114, i1 false), !noalias !226
   %125 = add i64 %116, %114
   store i64 %125, ptr %115, align 8, !alias.scope !226, !noalias !229
   br label %126

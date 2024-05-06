@@ -256,7 +256,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
 declare void @hashmap_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @subprocess_handshake(ptr nocapture noundef readonly %entry1, ptr noundef %welcome_prefix, ptr nocapture noundef readonly %versions, ptr noundef %chosen_version, ptr nocapture noundef readonly %capabilities, ptr noundef %supported_capabilities) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @subprocess_handshake(ptr nocapture noundef readonly %entry1, ptr noundef %welcome_prefix, ptr nocapture noundef readonly %versions, ptr noundef %chosen_version, ptr nocapture noundef readonly %capabilities, ptr noundef %supported_capabilities) local_unnamed_addr #2 {
 entry:
   %version_scratch.i = alloca i32, align 4
   %call = tail call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #12
@@ -598,7 +598,7 @@ declare i32 @packet_flush_gently(i32 noundef) local_unnamed_addr #3
 declare ptr @packet_read_line(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc noundef i32 @strtol_i(ptr noundef %s, ptr nocapture noundef writeonly %result) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @strtol_i(ptr noundef %s, ptr nocapture noundef writeonly %result) unnamed_addr #5 {
 entry:
   %p = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #14

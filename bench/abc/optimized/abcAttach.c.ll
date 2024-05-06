@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.3 = private unnamed_addr constant [38 x i8] c"The current library is not available.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkAttach(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkAttach(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [2 x i32], align 4
   %3 = alloca [10 x i32], align 16
   %4 = alloca [10 x i32], align 16
@@ -43,7 +43,7 @@ define noundef i32 @Abc_NtkAttach(ptr noundef %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %21, %.preheader21.i
   %indvars.iv28.i = phi i64 [ 0, %.preheader21.i ], [ %indvars.iv.next29.i, %21 ]
-  %14 = trunc i64 %indvars.iv28.i to i32
+  %14 = trunc nuw nsw i64 %indvars.iv28.i to i32
   %15 = shl nuw nsw i32 1, %14
   %16 = and i32 %15, %.02025.i
   %.not.i = icmp eq i32 %16, 0
@@ -347,7 +347,7 @@ Abc_AttachCompare.exit.i.i:                       ; preds = %138
 .preheader.i30.i:                                 ; preds = %Abc_AttachCompare.exit.i.i, %.preheader.i30.i
   %indvars.iv57.i.i = phi i64 [ %indvars.iv.next58.i.i, %.preheader.i30.i ], [ 0, %Abc_AttachCompare.exit.i.i ]
   %145 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv57.i.i
-  %146 = trunc i64 %indvars.iv57.i.i to i32
+  %146 = trunc nuw nsw i64 %indvars.iv57.i.i to i32
   store i32 %146, ptr %145, align 4
   %indvars.iv.next58.i.i = add nuw nsw i64 %indvars.iv57.i.i, 1
   %exitcond60.not.i.i = icmp eq i64 %indvars.iv.next58.i.i, 6
@@ -403,7 +403,7 @@ Abc_AttachCompare.exit.thread._crit_edge.i.i:     ; preds = %Abc_AttachCompare.e
 .preheader.i.i.i:                                 ; preds = %159, %177
   %indvars.iv.i28.i.i = phi i64 [ %indvars.iv.next.i29.i.i, %177 ], [ 0, %159 ]
   %.02021.i.i.i = phi i32 [ %.1.i.i.i, %177 ], [ 0, %159 ]
-  %168 = trunc i64 %indvars.iv.i28.i.i to i32
+  %168 = trunc nuw nsw i64 %indvars.iv.i28.i.i to i32
   %169 = shl nuw nsw i32 1, %168
   %170 = and i32 %169, %.01923.i.i.i
   %.not.i.i.i = icmp eq i32 %170, 0

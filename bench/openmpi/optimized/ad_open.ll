@@ -336,7 +336,7 @@ build_cb_config_list.exit..preheader.i_crit_edge: ; preds = %build_cb_config_lis
   br i1 %186, label %187, label %189
 
 187:                                              ; preds = %183
-  %188 = trunc i64 %indvars.iv.i to i32
+  %188 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %is_aggregator.exit
 
 189:                                              ; preds = %183

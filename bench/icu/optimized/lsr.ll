@@ -645,7 +645,7 @@ if.end29:                                         ; preds = %if.end, %_ZN6icu_75
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr nocapture noundef readonly %region) local_unnamed_addr #6 align 2 {
+define noundef range(i32 0, 1677) i32 @_ZN6icu_753LSR14indexForRegionEPKc(ptr nocapture noundef readonly %region) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i8, ptr %region, align 1
   %conv = sext i8 %0 to i32
@@ -976,7 +976,7 @@ if.end:                                           ; preds = %if.then, %_ZN6icu_7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_753LSR14isEquivalentToERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) local_unnamed_addr #8 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_753LSR14isEquivalentToERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %other, align 8

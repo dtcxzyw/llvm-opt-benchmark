@@ -899,7 +899,7 @@ declare i32 @dissect_netlink_header(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netlink_route_ifla_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -1143,7 +1143,7 @@ define internal noundef i32 @dissect_netlink_route_ifla_attrs(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netlink_route_ifa_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_netlink_route_ifa_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = alloca ptr, align 8
   switch i32 %4, label %30 [
     i32 3, label %9
@@ -1193,7 +1193,7 @@ define internal noundef i32 @dissect_netlink_route_ifa_attrs(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netlink_route_route_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_netlink_route_route_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = alloca i32, align 4
   switch i32 %4, label %17 [
     i32 3, label %9

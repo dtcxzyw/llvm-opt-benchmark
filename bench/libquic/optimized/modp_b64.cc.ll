@@ -136,7 +136,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @modp_b64_decode(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, i64 noundef %len) local_unnamed_addr #1 {
+define dso_local range(i64 -3, -4611686018427387903) i64 @modp_b64_decode(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end

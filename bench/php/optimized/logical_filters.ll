@@ -235,7 +235,7 @@ define hidden void @php_filter_int(ptr noundef %0, i64 noundef %1, ptr noundef r
 
 74:                                               ; preds = %64
   %75 = getelementptr inbounds i8, ptr %.0178, i64 2
-  %76 = call fastcc i32 @php_filter_parse_hex(ptr noundef nonnull %75, i64 noundef %65, ptr noundef nonnull %5), !range !4
+  %76 = call fastcc i32 @php_filter_parse_hex(ptr noundef nonnull %75, i64 noundef %65, ptr noundef nonnull %5)
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %.thread164, label %._crit_edge
 
@@ -454,7 +454,7 @@ declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @php_filter_parse_hex(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 2) i32 @php_filter_parse_hex(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   %5 = icmp sgt i64 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -1372,7 +1372,7 @@ define hidden void @php_filter_validate_domain(ptr noundef %0, i64 noundef %1, p
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = tail call fastcc i32 @_php_filter_validate_domain(ptr noundef nonnull %6, i64 noundef %8, i64 noundef %1), !range !5
+  %9 = tail call fastcc i32 @_php_filter_validate_domain(ptr noundef nonnull %6, i64 noundef %8, i64 noundef %1)
   %10 = icmp ne i32 %9, 0
   %11 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %12 = icmp ne ptr %11, null
@@ -1393,7 +1393,7 @@ define hidden void @php_filter_validate_domain(ptr noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_php_filter_validate_domain(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_domain(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %.thread, label %5
@@ -1651,7 +1651,7 @@ define hidden void @php_filter_validate_url(ptr noundef %0, i64 noundef %1, ptr 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds i8, ptr %48, i64 25
   %63 = add i64 %53, -2
-  %64 = tail call fastcc i32 @_php_filter_validate_ipv6(ptr noundef nonnull %62, i64 noundef %63, ptr noundef null), !range !5
+  %64 = tail call fastcc i32 @_php_filter_validate_ipv6(ptr noundef nonnull %62, i64 noundef %63, ptr noundef null)
   %.not104 = icmp eq i32 %64, 0
   br i1 %.not104, label %._crit_edge149, label %65
 
@@ -1666,7 +1666,7 @@ define hidden void @php_filter_validate_url(ptr noundef %0, i64 noundef %1, ptr 
 66:                                               ; preds = %._crit_edge149, %56, %50
   %67 = phi ptr [ %.pre150, %._crit_edge149 ], [ %48, %56 ], [ %48, %50 ]
   %68 = getelementptr inbounds i8, ptr %67, i64 24
-  %69 = tail call fastcc i32 @_php_filter_validate_domain(ptr noundef nonnull %68, i64 noundef %53, i64 noundef 1048576), !range !5
+  %69 = tail call fastcc i32 @_php_filter_validate_domain(ptr noundef nonnull %68, i64 noundef %53, i64 noundef 1048576)
   %.not105 = icmp eq i32 %69, 0
   br i1 %.not105, label %70, label %76
 
@@ -1946,7 +1946,7 @@ declare ptr @php_url_parse_ex(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @_php_filter_validate_ipv6(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @_php_filter_validate_ipv6(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #7 {
   %4 = alloca [4 x i32], align 16
   %5 = tail call ptr @memchr(ptr noundef %0, i32 noundef 58, i64 noundef %1) #15
   %.not = icmp eq ptr %5, null
@@ -2205,7 +2205,7 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
   %118 = getelementptr inbounds i8, ptr %4, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = add nsw i32 %117, %119
-  %121 = getelementptr i8, ptr %2, i64 24
+  %121 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %120, ptr %121, align 4
   %122 = getelementptr inbounds i8, ptr %4, i64 8
   %123 = load i32, ptr %122, align 8
@@ -2213,7 +2213,7 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
   %125 = getelementptr inbounds i8, ptr %4, i64 12
   %126 = load i32, ptr %125, align 4
   %127 = add nsw i32 %124, %126
-  %128 = getelementptr i8, ptr %2, i64 28
+  %128 = getelementptr inbounds i8, ptr %2, i64 28
   store i32 %127, ptr %128, align 4
   br label %.loopexit
 
@@ -2779,7 +2779,7 @@ switch.early.test:                                ; preds = %103
   br label %.thread
 
 148:                                              ; preds = %40
-  %149 = call fastcc i32 @_php_filter_validate_ipv6(ptr noundef nonnull %7, i64 noundef %9, ptr noundef nonnull %5), !range !5
+  %149 = call fastcc i32 @_php_filter_validate_ipv6(ptr noundef nonnull %7, i64 noundef %9, ptr noundef nonnull %5)
   %.not244.not = icmp eq i32 %149, 0
   br i1 %.not244.not, label %150, label %157
 
@@ -3120,7 +3120,7 @@ define hidden void @php_filter_validate_mac(ptr noundef %0, i64 noundef %1, ptr 
   %60 = zext nneg i32 %58 to i64
   %61 = zext nneg i32 %57 to i64
   %wide.trip.count = zext nneg i32 %.069 to i64
-  %invariant.gep = getelementptr i8, ptr %6, i64 %59
+  %invariant.gep = getelementptr inbounds i8, ptr %6, i64 %59
   br label %62
 
 62:                                               ; preds = %56, %php_filter_parse_hex.exit
@@ -3130,7 +3130,7 @@ define hidden void @php_filter_validate_mac(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %64, label %65, label %75
 
 65:                                               ; preds = %62
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %63
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %63
   %66 = load i8, ptr %gep, align 1
   %67 = sext i8 %66 to i32
   %.not80 = icmp eq i32 %.066, %67
@@ -3275,5 +3275,3 @@ attributes #17 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}
-!5 = !{i32 0, i32 2}

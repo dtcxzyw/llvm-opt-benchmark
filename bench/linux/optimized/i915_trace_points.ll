@@ -3643,7 +3643,7 @@ define internal i32 @trace_raw_output_i915_reg_rw(ptr noundef %0, i32 %1, ptr no
   %20 = load i64, ptr %19, align 8
   %21 = trunc i64 %20 to i32
   %22 = lshr i64 %20, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.48, ptr noundef nonnull %13, i32 noundef %15, i32 noundef %18, i32 noundef %21, i32 noundef %23) #6
   %24 = tail call i32 @trace_handle_return(ptr noundef %9) #6
   br label %25

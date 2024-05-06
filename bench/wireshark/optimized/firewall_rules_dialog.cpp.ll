@@ -209,7 +209,7 @@ _ZN7QStringD2Ev.exit35:                           ; preds = %35, %_ZN17QArrayDat
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds i8, ptr %46, i64 120
   %54 = load ptr, ptr %53, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
   store i32 %50, ptr %48, align 8
   %55 = icmp eq i32 %52, 0
   br i1 %55, label %_ZL12copy_addressP8_addressPKS_.exit, label %56
@@ -236,7 +236,7 @@ _ZL12copy_addressP8_addressPKS_.exit:             ; preds = %.noexc, %47
   %66 = load i32, ptr %65, align 4
   %67 = getelementptr inbounds i8, ptr %46, i64 144
   %68 = load ptr, ptr %67, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
   store i32 %64, ptr %62, align 8
   %69 = icmp eq i32 %66, 0
   br i1 %69, label %_ZL12copy_addressP8_addressPKS_.exit37, label %70
@@ -263,7 +263,7 @@ _ZL12copy_addressP8_addressPKS_.exit37:           ; preds = %.noexc36, %_ZL12cop
   %80 = load i32, ptr %79, align 4
   %81 = getelementptr inbounds i8, ptr %46, i64 168
   %82 = load ptr, ptr %81, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %76, i8 0, i64 24, i1 false)
   store i32 %78, ptr %76, align 8
   %83 = icmp eq i32 %80, 0
   br i1 %83, label %_ZL12copy_addressP8_addressPKS_.exit39, label %84
@@ -290,7 +290,7 @@ _ZL12copy_addressP8_addressPKS_.exit39:           ; preds = %.noexc38, %_ZL12cop
   %94 = load i32, ptr %93, align 4
   %95 = getelementptr inbounds i8, ptr %46, i64 192
   %96 = load ptr, ptr %95, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %90, i8 0, i64 24, i1 false)
   store i32 %92, ptr %90, align 8
   %97 = icmp eq i32 %94, 0
   br i1 %97, label %_ZL12copy_addressP8_addressPKS_.exit41, label %98

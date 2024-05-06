@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nxsig_nanosleep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -10, -11) i32 @nxsig_nanosleep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.sigset_s, align 4
   %5 = alloca i64, align 8
@@ -91,7 +91,7 @@ declare i32 @clock_time2ticks(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @clock_ticks2time(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @clock_nanosleep(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @clock_nanosleep(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
@@ -128,7 +128,7 @@ up_irq_restore.exit:                              ; preds = %14, %16
 
 18:                                               ; preds = %10
   call void @clock_timespec_subtract(ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %6) #4
-  %19 = call i32 @nxsig_nanosleep(ptr noundef nonnull %6, ptr noundef %3), !range !9
+  %19 = call i32 @nxsig_nanosleep(ptr noundef nonnull %6, ptr noundef %3)
   %20 = and i64 %11, 512
   %.not.i19 = icmp eq i64 %20, 0
   br i1 %.not.i19, label %up_irq_restore.exit20, label %21
@@ -138,7 +138,7 @@ up_irq_restore.exit:                              ; preds = %14, %16
   br label %up_irq_restore.exit20
 
 22:                                               ; preds = %8
-  %23 = tail call i32 @nxsig_nanosleep(ptr noundef %2, ptr noundef %3), !range !9
+  %23 = tail call i32 @nxsig_nanosleep(ptr noundef %2, ptr noundef %3)
   br label %up_irq_restore.exit20
 
 up_irq_restore.exit20:                            ; preds = %21, %18, %22
@@ -184,4 +184,3 @@ attributes #4 = { nounwind }
 !6 = !{i64 217505, i64 217523}
 !7 = !{i64 218124}
 !8 = !{i64 218245}
-!9 = !{i32 -10, i32 -11}

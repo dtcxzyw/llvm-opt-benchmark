@@ -340,7 +340,7 @@ define ptr @opal_net_get_hostname(ptr nocapture noundef readonly %0) local_unnam
 declare ptr @inet_ntoa(i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @opal_net_get_port(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define range(i32 -1, 65536) i32 @opal_net_get_port(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = load i16, ptr %0, align 2
   %cond = icmp eq i16 %2, 2
   br i1 %cond, label %3, label %8

@@ -219,7 +219,7 @@ define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 76:                                               ; preds = %73
   %77 = load i32, ptr @ett_tdmop_channel, align 4
-  %78 = trunc i64 %indvars.iv133 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv133 to i32
   %79 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %62, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %77, ptr noundef null, ptr noundef nonnull @.str.46, i32 noundef %78) #3
   %80 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.2114127, i32 noundef 4) #3
   %81 = load i32, ptr @pref_tdmop_d_channel, align 4
@@ -234,7 +234,7 @@ define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .preheader:                                       ; preds = %84, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %84 ]
-  %87 = trunc i64 %indvars.iv to i32
+  %87 = trunc nuw nsw i64 %indvars.iv to i32
   %88 = call zeroext i8 @tvb_get_guint8(ptr noundef %80, i32 noundef %87) #3
   %89 = zext i8 %88 to i64
   %90 = getelementptr [256 x i8], ptr @reverse_map, i64 0, i64 %89

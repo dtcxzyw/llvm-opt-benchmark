@@ -645,7 +645,7 @@ declare dso_local i32 @pci_read_config_dword(ptr noundef, i32 noundef, ptr nound
 declare dso_local void @agp_put_bridge(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @nforce3_agp_init(ptr noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr noundef %0) unnamed_addr #4 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -835,7 +835,7 @@ define internal i32 @amd64_fetch_size() #4 align 16 {
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %.preheader
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = getelementptr inbounds i8, ptr %10, i64 32
   store ptr %17, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %10, i64 24
@@ -983,7 +983,7 @@ declare dso_local i32 @agp_generic_create_gatt_table(ptr noundef) #2
 declare dso_local i32 @agp_generic_free_gatt_table(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @amd64_insert_memory(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #4 align 16 {
+define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @agp_num_entries() #6
@@ -1175,7 +1175,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare dso_local i32 @pci_read_config_word(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @agp_aperture_valid(i64 noundef %0, i32 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @agp_aperture_valid(i64 noundef %0, i32 noundef %1) unnamed_addr #4 align 16 {
   %3 = icmp eq i64 %0, 0
   br i1 %3, label %27, label %4
 

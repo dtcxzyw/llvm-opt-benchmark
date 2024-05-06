@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [94 x i8] c"Bridge chassis not specified. Each bridge is required to be assigned a unique chassis id > 0.\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @slotid_cap_init(ptr noundef %d, i32 noundef %nslots, i8 noundef zeroext %chassis, i32 noundef %offset, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @slotid_cap_init(ptr noundef %d, i32 noundef %nslots, i8 noundef zeroext %chassis, i32 noundef %offset, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i8 %chassis, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -28,7 +28,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end3
-  %0 = trunc i32 %nslots to i8
+  %0 = trunc nuw i32 %nslots to i8
   %conv10 = or disjoint i8 %0, 32
   %config = getelementptr inbounds i8, ptr %d, i64 168
   %1 = load ptr, ptr %config, align 8

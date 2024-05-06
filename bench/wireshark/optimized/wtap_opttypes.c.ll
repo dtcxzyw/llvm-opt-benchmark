@@ -875,7 +875,7 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %311 = getelementptr %struct.wtap_option_t, ptr %309, i64 %310
   store i32 %279, ptr %311, align 8
   %312 = getelementptr inbounds i8, ptr %311, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %312, ptr noundef nonnull align 1 dereferenceable(16) %280, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %312, ptr noundef nonnull readonly align 1 dereferenceable(16) %280, i64 16, i1 false)
   br label %wtap_block_add_uint8_option.exit
 
 313:                                              ; preds = %13
@@ -1020,7 +1020,7 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %395 = load ptr, ptr %394, align 8
   %396 = getelementptr inbounds i8, ptr %16, i64 24
   %397 = load i64, ptr %396, align 8
-  %398 = tail call i32 @wtap_block_add_nflx_custom_option(ptr noundef nonnull %0, i32 noundef %393, ptr noundef %395, i64 noundef %397), !range !8
+  %398 = tail call i32 @wtap_block_add_nflx_custom_option(ptr noundef nonnull %0, i32 noundef %393, ptr noundef %395, i64 noundef %397)
   br label %wtap_block_add_uint8_option.exit
 
 399:                                              ; preds = %388
@@ -1096,19 +1096,19 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 440:                                              ; preds = %13
   %441 = load i32, ptr %16, align 8
   %442 = getelementptr inbounds i8, ptr %16, i64 8
-  %443 = tail call i32 @wtap_block_add_if_filter_option(ptr noundef nonnull %0, i32 noundef %441, ptr noundef nonnull %442), !range !8
+  %443 = tail call i32 @wtap_block_add_if_filter_option(ptr noundef nonnull %0, i32 noundef %441, ptr noundef nonnull %442)
   br label %wtap_block_add_uint8_option.exit
 
 444:                                              ; preds = %13
   %445 = load i32, ptr %16, align 8
   %446 = getelementptr inbounds i8, ptr %16, i64 8
-  %447 = tail call i32 @wtap_block_add_packet_verdict_option(ptr noundef nonnull %0, i32 noundef %445, ptr noundef nonnull %446), !range !8
+  %447 = tail call i32 @wtap_block_add_packet_verdict_option(ptr noundef nonnull %0, i32 noundef %445, ptr noundef nonnull %446)
   br label %wtap_block_add_uint8_option.exit
 
 448:                                              ; preds = %13
   %449 = load i32, ptr %16, align 8
   %450 = getelementptr inbounds i8, ptr %16, i64 8
-  %451 = tail call i32 @wtap_block_add_packet_hash_option(ptr noundef nonnull %0, i32 noundef %449, ptr noundef nonnull %450), !range !8
+  %451 = tail call i32 @wtap_block_add_packet_hash_option(ptr noundef nonnull %0, i32 noundef %449, ptr noundef nonnull %450)
   br label %wtap_block_add_uint8_option.exit
 
 wtap_block_add_uint8_option.exit:                 ; preds = %425, %375, %338, %301, %266, %230, %194, %158, %122, %86, %50, %.loopexit.i156, %412, %399, %.loopexit.i146, %362, %351, %.loopexit.i136, %325, %313, %.loopexit.i126, %288, %278, %.loopexit.i116, %253, %242, %.loopexit.i106, %217, %206, %.loopexit.i96, %181, %170, %.loopexit.i86, %145, %134, %.loopexit.i76, %109, %98, %.loopexit.i66, %73, %62, %.loopexit.i, %37, %26, %13, %440, %444, %448, %391
@@ -1118,7 +1118,7 @@ wtap_block_add_uint8_option.exit:                 ; preds = %425, %375, %338, %3
   %454 = load i32, ptr %453, align 8
   %455 = zext i32 %454 to i64
   %456 = icmp ult i64 %indvars.iv.next, %455
-  br i1 %456, label %13, label %._crit_edge, !llvm.loop !9
+  br i1 %456, label %13, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %wtap_block_add_uint8_option.exit, %7
   ret void
@@ -1127,7 +1127,7 @@ wtap_block_add_uint8_option.exit:                 ; preds = %425, %375, %338, %3
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_uint8_option(ptr noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_uint8_option(ptr noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1198,7 +1198,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_uint32_option(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_uint32_option(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1269,7 +1269,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_uint64_option(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_uint64_option(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1340,7 +1340,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_int8_option(ptr noundef readonly %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_int8_option(ptr noundef readonly %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1411,7 +1411,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_int32_option(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_int32_option(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1482,7 +1482,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_int64_option(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_int64_option(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1553,7 +1553,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_ipv4_option(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_ipv4_option(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1624,7 +1624,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_ipv6_option(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_ipv6_option(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1695,7 +1695,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_string_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_string_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_option_common.exit.thread, label %6
 
@@ -1770,7 +1770,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %28, %14, %6, %4, %.
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_bytes_option_borrow(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_bytes_option_borrow(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -1842,7 +1842,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_nflx_custom_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_nflx_custom_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_option_common.exit.thread, label %6
 
@@ -1924,7 +1924,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %26, %12, %6, %4, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_custom_option(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_custom_option(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %wtap_block_add_option_common.exit.thread, label %7
 
@@ -2000,7 +2000,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %29, %15, %7, %5, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_if_filter_option(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %.sroa.37 = alloca i64, align 8
   %.sroa.5 = alloca ptr, align 8
   %4 = icmp eq ptr %0, null
@@ -2064,10 +2064,10 @@ define noundef i32 @wtap_block_add_if_filter_option(ptr noundef readonly %0, i32
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  store i64 0, ptr %.sroa.37, align 8, !alias.scope !10
-  store ptr null, ptr %.sroa.5, align 8, !alias.scope !10
-  %39 = load i32, ptr %2, align 8, !noalias !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
+  store i64 0, ptr %.sroa.37, align 8, !alias.scope !9
+  store ptr null, ptr %.sroa.5, align 8, !alias.scope !9
+  %39 = load i32, ptr %2, align 8, !noalias !9
   switch i32 %39, label %if_filter_dup.exit [
     i32 0, label %40
     i32 1, label %44
@@ -2075,25 +2075,25 @@ define noundef i32 @wtap_block_add_if_filter_option(ptr noundef readonly %0, i32
 
 40:                                               ; preds = %.loopexit
   %41 = getelementptr inbounds i8, ptr %2, i64 8
-  %42 = load ptr, ptr %41, align 8, !noalias !10
-  %43 = tail call noalias ptr @g_strdup(ptr noundef %42) #15, !noalias !10
+  %42 = load ptr, ptr %41, align 8, !noalias !9
+  %43 = tail call noalias ptr @g_strdup(ptr noundef %42) #15, !noalias !9
   br label %.sink.split.i
 
 44:                                               ; preds = %.loopexit
   %45 = getelementptr inbounds i8, ptr %2, i64 8
-  %46 = load i32, ptr %45, align 8, !noalias !10
-  store i32 %46, ptr %.sroa.37, align 8, !alias.scope !10
+  %46 = load i32, ptr %45, align 8, !noalias !9
+  store i32 %46, ptr %.sroa.37, align 8, !alias.scope !9
   %47 = getelementptr inbounds i8, ptr %2, i64 16
-  %48 = load ptr, ptr %47, align 8, !noalias !10
+  %48 = load ptr, ptr %47, align 8, !noalias !9
   %49 = zext i32 %46 to i64
   %50 = shl nuw nsw i64 %49, 3
-  %51 = tail call ptr @g_memdup2(ptr noundef %48, i64 noundef %50) #18, !noalias !10
+  %51 = tail call ptr @g_memdup2(ptr noundef %48, i64 noundef %50) #18, !noalias !9
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %44, %40
   %.sink7.i.sroa.phi = phi ptr [ %.sroa.5, %44 ], [ %.sroa.37, %40 ]
   %.sink.i = phi ptr [ %51, %44 ], [ %43, %40 ]
-  store ptr %.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !10
+  store ptr %.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !9
   %.sroa.37.0..sroa.37.0..sroa.37.0..sroa.37.0.copyload.pre = load i64, ptr %.sroa.37, align 8
   %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload.pre = load ptr, ptr %.sroa.5, align 8
   br label %if_filter_dup.exit
@@ -2116,7 +2116,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_packet_verdict_option(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -2225,7 +2225,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_packet_hash_option(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_packet_hash_option(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -2367,7 +2367,7 @@ define i32 @wtap_block_count_option(ptr noundef readonly %0, i32 noundef %1) loc
   %spec.select = add i32 %.01014, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !12
 
 .loopexit:                                        ; preds = %9, %.preheader, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ %spec.select, %9 ]
@@ -2375,7 +2375,7 @@ define i32 @wtap_block_count_option(ptr noundef readonly %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_foreach_option(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wtap_block_foreach_option(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -2394,7 +2394,7 @@ define noundef i32 @wtap_block_foreach_option(ptr noundef %0, ptr nocapture noun
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = icmp ult i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %.preheader ]
@@ -2422,7 +2422,7 @@ define noundef i32 @wtap_block_foreach_option(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_uint8_option_value(ptr noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_uint8_option_value(ptr noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2485,7 +2485,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_get_uint8_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_uint8_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2549,7 +2549,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_uint32_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_uint32_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2612,7 +2612,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_get_uint32_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_uint32_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2676,7 +2676,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_uint64_option_value(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_uint64_option_value(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2739,7 +2739,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_get_uint64_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_uint64_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2803,7 +2803,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_int8_option_value(ptr noundef readonly %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_int8_option_value(ptr noundef readonly %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2866,7 +2866,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_get_int8_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_int8_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2930,7 +2930,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_int32_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_int32_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -2993,7 +2993,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_get_int32_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_int32_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -3057,7 +3057,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_int64_option_value(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_int64_option_value(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -3120,7 +3120,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_get_int64_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_int64_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -3184,7 +3184,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_ipv4_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_ipv4_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -3247,7 +3247,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_get_ipv4_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_ipv4_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -3314,7 +3314,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_ipv6_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_ipv6_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -3377,7 +3377,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_get_ipv6_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_ipv6_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -3442,7 +3442,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_string_option_owned(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_string_option_owned(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -3513,7 +3513,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_string_option_format(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_string_option_format(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_option_common.exit.thread, label %6
@@ -3575,11 +3575,11 @@ define noundef i32 @wtap_block_add_string_option_format(ptr noundef readonly %0,
   %37 = zext i32 %32 to i64
   %38 = getelementptr %struct.wtap_option_t, ptr %36, i64 %37
   store i32 %1, ptr %38, align 8
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %39 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %2, ptr noundef nonnull %4) #15
   %40 = getelementptr inbounds i8, ptr %38, i64 8
   store ptr %39, ptr %40, align 8
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %28, %14, %6, %3, %.loopexit
@@ -3587,16 +3587,10 @@ wtap_block_add_option_common.exit.thread:         ; preds = %28, %14, %6, %3, %.
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 declare noalias ptr @wmem_strdup_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
-
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_string_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_string_option.exit, label %6
 
@@ -3721,7 +3715,7 @@ wtap_block_add_string_option.exit:                ; preds = %50, %17, %14, %6, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_nth_string_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %wtap_block_get_nth_option_common.exit.thread, label %7
 
@@ -3781,7 +3775,7 @@ define noundef i32 @wtap_block_set_nth_string_option_value(ptr noundef readonly 
   %.1.i.i = phi i32 [ %35, %34 ], [ %.016.i.i, %28 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %28, !llvm.loop !14
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds i8, ptr %29, i64 8
@@ -3797,7 +3791,7 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %36, %22, %18, %15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_string_option_value_format(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_get_option_common.exit.thread, label %6
@@ -3851,7 +3845,7 @@ define noundef i32 @wtap_block_set_string_option_value_format(ptr noundef readon
   br i1 %31, label %63, label %27
 
 .thread:                                          ; preds = %27, %21
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8
@@ -3914,14 +3908,14 @@ define noundef i32 @wtap_block_set_string_option_value_format(ptr noundef readon
   %64 = getelementptr inbounds i8, ptr %29, i64 8
   %65 = load ptr, ptr %64, align 8
   tail call void @g_free(ptr noundef %65) #15
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %66 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %2, ptr noundef nonnull %4) #15
   store ptr %66, ptr %64, align 8
   br label %wtap_block_get_option_common.exit.thread.sink.split
 
 wtap_block_get_option_common.exit.thread.sink.split: ; preds = %50, %.loopexit.i, %37, %.thread, %63
   %.0.ph = phi i32 [ 0, %63 ], [ 0, %.loopexit.i ], [ -3, %37 ], [ -1, %.thread ], [ -5, %50 ]
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %wtap_block_get_option_common.exit.thread.sink.split, %17, %14, %6, %3
@@ -3930,7 +3924,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %wtap_block_get_opti
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_nth_string_option_value_format(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ...) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value_format(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ...) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = icmp eq ptr %0, null
   br i1 %6, label %wtap_block_get_nth_option_common.exit.thread, label %7
@@ -3991,16 +3985,16 @@ define noundef i32 @wtap_block_set_nth_string_option_value_format(ptr noundef re
   %.1.i.i = phi i32 [ %35, %34 ], [ %.016.i.i, %28 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %28, !llvm.loop !14
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds i8, ptr %29, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void @g_free(ptr noundef %39) #15
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %40 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %3, ptr noundef nonnull %5) #15
   store ptr %40, ptr %38, align 8
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   br label %wtap_block_get_nth_option_common.exit.thread
 
 wtap_block_get_nth_option_common.exit.thread:     ; preds = %36, %22, %18, %15, %7, %4, %37
@@ -4009,7 +4003,7 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %36, %22, %18, %15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_get_string_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_string_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -4073,7 +4067,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_get_nth_string_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_nth_string_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_get_nth_option_common.exit.thread, label %6
 
@@ -4133,7 +4127,7 @@ define noundef i32 @wtap_block_get_nth_string_option_value(ptr noundef readonly 
   %.1.i.i = phi i32 [ %34, %33 ], [ %.016.i.i, %27 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !14
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds i8, ptr %28, i64 8
@@ -4147,7 +4141,7 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %14, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_add_bytes_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_add_bytes_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_option_common.exit.thread, label %6
 
@@ -4223,7 +4217,7 @@ declare ptr @g_bytes_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @g_bytes_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_bytes_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_bytes_option.exit, label %6
 
@@ -4350,7 +4344,7 @@ wtap_block_add_bytes_option.exit:                 ; preds = %50, %17, %14, %6, %
 declare void @g_bytes_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_nth_bytes_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_nth_bytes_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_get_nth_option_common.exit.thread, label %6
 
@@ -4410,7 +4404,7 @@ define noundef i32 @wtap_block_set_nth_bytes_option_value(ptr noundef readonly %
   %.1.i.i = phi i32 [ %34, %33 ], [ %.016.i.i, %27 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !14
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds i8, ptr %28, i64 8
@@ -4426,7 +4420,7 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %14, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_get_bytes_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_bytes_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -4490,7 +4484,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_get_nth_bytes_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_nth_bytes_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_get_nth_option_common.exit.thread, label %6
 
@@ -4550,7 +4544,7 @@ define noundef i32 @wtap_block_get_nth_bytes_option_value(ptr noundef readonly %
   %.1.i.i = phi i32 [ %34, %33 ], [ %.016.i.i, %27 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !14
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds i8, ptr %28, i64 8
@@ -4564,10 +4558,10 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %14, 
 }
 
 ; Function Attrs: allocsize(1)
-declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_get_nflx_custom_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %._crit_edge.thread, label %6
 
@@ -4620,10 +4614,10 @@ define noundef i32 @wtap_block_get_nflx_custom_option(ptr noundef readonly %0, i
 32:                                               ; preds = %20, %24, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %20, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge.thread, label %20, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %28
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -4835,7 +4829,7 @@ define noundef i32 @wtap_block_get_nflx_custom_option(ptr noundef readonly %0, i
   store i8 %176, ptr %177, align 1
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next237, 3
-  br i1 %exitcond239.not, label %178, label %174, !llvm.loop !17
+  br i1 %exitcond239.not, label %178, label %174, !llvm.loop !16
 
 178:                                              ; preds = %174
   %179 = getelementptr inbounds i8, ptr %46, i64 160
@@ -4994,7 +4988,7 @@ define noundef i32 @wtap_block_get_nflx_custom_option(ptr noundef readonly %0, i
   store i32 %290, ptr %291, align 4
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next233, 4
-  br i1 %exitcond235.not, label %292, label %285, !llvm.loop !18
+  br i1 %exitcond235.not, label %292, label %285, !llvm.loop !17
 
 292:                                              ; preds = %285
   %293 = getelementptr inbounds i8, ptr %267, i64 52
@@ -5046,7 +5040,7 @@ define noundef i32 @wtap_block_get_nflx_custom_option(ptr noundef readonly %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_if_filter_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %.sroa.39 = alloca i64, align 8
   %.sroa.5 = alloca ptr, align 8
   %4 = icmp eq ptr %0, null
@@ -5108,10 +5102,10 @@ define noundef i32 @wtap_block_set_if_filter_option_value(ptr noundef readonly %
   %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8
   %.sroa.313.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 24
   %.sroa.313.0.copyload = load ptr, ptr %.sroa.313.0..sroa_idx, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  store i64 0, ptr %.sroa.39, align 8, !alias.scope !19
-  store ptr null, ptr %.sroa.5, align 8, !alias.scope !19
-  %33 = load i32, ptr %2, align 8, !noalias !19
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  store i64 0, ptr %.sroa.39, align 8, !alias.scope !18
+  store ptr null, ptr %.sroa.5, align 8, !alias.scope !18
+  %33 = load i32, ptr %2, align 8, !noalias !18
   switch i32 %33, label %if_filter_dup.exit [
     i32 0, label %34
     i32 1, label %38
@@ -5119,25 +5113,25 @@ define noundef i32 @wtap_block_set_if_filter_option_value(ptr noundef readonly %
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %2, i64 8
-  %36 = load ptr, ptr %35, align 8, !noalias !19
-  %37 = tail call noalias ptr @g_strdup(ptr noundef %36) #15, !noalias !19
+  %36 = load ptr, ptr %35, align 8, !noalias !18
+  %37 = tail call noalias ptr @g_strdup(ptr noundef %36) #15, !noalias !18
   br label %.sink.split.i
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds i8, ptr %2, i64 8
-  %40 = load i32, ptr %39, align 8, !noalias !19
-  store i32 %40, ptr %.sroa.39, align 8, !alias.scope !19
+  %40 = load i32, ptr %39, align 8, !noalias !18
+  store i32 %40, ptr %.sroa.39, align 8, !alias.scope !18
   %41 = getelementptr inbounds i8, ptr %2, i64 16
-  %42 = load ptr, ptr %41, align 8, !noalias !19
+  %42 = load ptr, ptr %41, align 8, !noalias !18
   %43 = zext i32 %40 to i64
   %44 = shl nuw nsw i64 %43, 3
-  %45 = tail call ptr @g_memdup2(ptr noundef %42, i64 noundef %44) #18, !noalias !19
+  %45 = tail call ptr @g_memdup2(ptr noundef %42, i64 noundef %44) #18, !noalias !18
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %38, %34
   %.sink7.i.sroa.phi = phi ptr [ %.sroa.5, %38 ], [ %.sroa.39, %34 ]
   %.sink.i = phi ptr [ %45, %38 ], [ %37, %34 ]
-  store ptr %.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !19
+  store ptr %.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !18
   %.sroa.39.0..sroa.39.0..sroa.39.0..sroa.39.0.copyload.pre = load i64, ptr %.sroa.39, align 8
   %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload.pre = load ptr, ptr %.sroa.5, align 8
   br label %if_filter_dup.exit
@@ -5169,7 +5163,7 @@ if_filter_free.exit:                              ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_get_if_filter_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_if_filter_option_value(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
 
@@ -5232,7 +5226,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_set_nth_packet_verdict_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_set_nth_packet_verdict_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_packet_verdict_free.exit, label %6
 
@@ -5292,7 +5286,7 @@ define noundef i32 @wtap_block_set_nth_packet_verdict_option_value(ptr noundef r
   %.1.i.i = phi i32 [ %34, %33 ], [ %.016.i.i, %27 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_packet_verdict_free.exit, label %27, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %wtap_packet_verdict_free.exit, label %27, !llvm.loop !14
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds i8, ptr %28, i64 8
@@ -5350,7 +5344,7 @@ wtap_packet_verdict_free.exit:                    ; preds = %35, %21, %17, %14, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_get_nth_packet_verdict_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_get_nth_packet_verdict_option_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_get_nth_option_common.exit.thread, label %6
 
@@ -5410,7 +5404,7 @@ define noundef i32 @wtap_block_get_nth_packet_verdict_option_value(ptr noundef r
   %.1.i.i = phi i32 [ %34, %33 ], [ %.016.i.i, %27 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !14
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds i8, ptr %28, i64 8
@@ -5423,7 +5417,7 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %14, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_remove_option(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_remove_option(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -5465,7 +5459,7 @@ define noundef i32 @wtap_block_remove_option(ptr noundef readonly %0, i32 nounde
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %21
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw i64 %indvars.iv to i32
   %.val = load ptr, ptr %0, align 8
   %27 = getelementptr i8, ptr %.val, i64 48
   %.val.val = load ptr, ptr %27, align 8
@@ -5477,7 +5471,7 @@ define noundef i32 @wtap_block_remove_option(ptr noundef readonly %0, i32 nounde
 30:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !21
 
 .loopexit:                                        ; preds = %30, %.preheader, %12, %4, %2, %25
   %.0 = phi i32 [ 0, %25 ], [ -6, %2 ], [ -1, %4 ], [ -4, %12 ], [ -2, %.preheader ], [ -2, %30 ]
@@ -5574,7 +5568,7 @@ if_filter_free.exit:                              ; preds = %32, %29, %.sink.spl
 declare ptr @g_array_remove_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wtap_block_remove_nth_option_instance(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @wtap_block_remove_nth_option_instance(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 
@@ -5621,7 +5615,7 @@ define noundef i32 @wtap_block_remove_nth_option_instance(ptr noundef readonly %
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %26
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw i64 %indvars.iv to i32
   %.val = load ptr, ptr %0, align 8
   %30 = getelementptr i8, ptr %.val, i64 48
   %.val.val = load ptr, ptr %30, align 8
@@ -5638,7 +5632,7 @@ define noundef i32 @wtap_block_remove_nth_option_instance(ptr noundef readonly %
   %.1 = phi i32 [ %34, %33 ], [ %.027, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !22
 
 .loopexit:                                        ; preds = %35, %.preheader, %13, %5, %3, %28
   %.019 = phi i32 [ 0, %28 ], [ -6, %3 ], [ -1, %5 ], [ -4, %13 ], [ -2, %.preheader ], [ -2, %35 ]
@@ -5851,7 +5845,7 @@ define internal void @shb_create(ptr nocapture noundef writeonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @shb_copy_mand(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @shb_copy_mand(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5893,7 +5887,7 @@ define internal void @idb_free_mand(ptr nocapture noundef readonly %0) #0 {
   %12 = load i8, ptr %4, align 8
   %13 = zext i8 %12 to i64
   %14 = icmp ult i64 %indvars.iv.next, %13
-  br i1 %14, label %7, label %._crit_edge, !llvm.loop !24
+  br i1 %14, label %7, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %7, %1
   %15 = getelementptr inbounds i8, ptr %3, i64 32
@@ -5984,7 +5978,7 @@ wtap_block_make_copy.exit:                        ; preds = %22, %30
   %42 = load i8, ptr %15, align 8
   %43 = zext i8 %42 to i64
   %44 = icmp ult i64 %indvars.iv.next, %43
-  br i1 %44, label %22, label %.loopexit, !llvm.loop !25
+  br i1 %44, label %22, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %wtap_block_make_copy.exit, %17, %14
   ret void
@@ -6061,7 +6055,7 @@ define internal void @isb_create(ptr nocapture noundef writeonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @isb_copy_mand(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @isb_copy_mand(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6113,21 +6107,21 @@ define internal void @mev_copy_mand(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pkt_create(ptr nocapture noundef writeonly %0) #12 {
+define internal void @pkt_create(ptr nocapture noundef writeonly %0) #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @sjeb_create(ptr nocapture noundef writeonly %0) #12 {
+define internal void @sjeb_create(ptr nocapture noundef writeonly %0) #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cb_create(ptr nocapture noundef writeonly %0) #12 {
+define internal void @cb_create(ptr nocapture noundef writeonly %0) #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
@@ -6161,7 +6155,7 @@ define void @wtap_opttypes_cleanup() local_unnamed_addr #0 {
 9:                                                ; preds = %1, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %10, label %1, !llvm.loop !26
+  br i1 %exitcond.not, label %10, label %1, !llvm.loop !25
 
 10:                                               ; preds = %9
   ret void
@@ -6187,12 +6181,18 @@ declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) #13
+declare i32 @g_direct_hash(ptr noundef) #12
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #13
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #12
 
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
@@ -6206,11 +6206,11 @@ attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(argme
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind allocsize(0,1) }
@@ -6227,22 +6227,21 @@ attributes #18 = { nounwind allocsize(1) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -6, i32 1}
-!9 = distinct !{!9, !5}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"if_filter_dup: argument 0"}
-!12 = distinct !{!12, !"if_filter_dup"}
+!8 = distinct !{!8, !5}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"if_filter_dup: argument 0"}
+!11 = distinct !{!11, !"if_filter_dup"}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"if_filter_dup: argument 0"}
-!21 = distinct !{!21, !"if_filter_dup"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"if_filter_dup: argument 0"}
+!20 = distinct !{!20, !"if_filter_dup"}
+!21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}

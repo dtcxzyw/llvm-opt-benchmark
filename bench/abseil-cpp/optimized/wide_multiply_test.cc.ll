@@ -1694,11 +1694,11 @@ if.then2.i:                                       ; preds = %if.else.i
   %shr.i.i = lshr i128 -1, %sh_prom.i10.i
   %coerce3.sroa.0.0.extract.trunc.i.i = trunc i128 %shr.i.i to i64
   %coerce3.sroa.2.0.extract.shift.i.i311 = lshr i128 18446744073709551615, %sh_prom.i10.i
-  %coerce3.sroa.2.0.extract.trunc.i.i = trunc i128 %coerce3.sroa.2.0.extract.shift.i.i311 to i64
+  %coerce3.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i311 to i64
   %shl.i27.i = shl nsw i128 -1, %sh_prom.i.i
   %coerce1.sroa.0.0.extract.trunc.i28.i = trunc i128 %shl.i27.i to i64
   %coerce1.sroa.2.0.extract.shift.i29.i = lshr i128 %shl.i27.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i30.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i29.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i30.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i29.i to i64
   br label %invoke.cont108
 
 if.else13.i:                                      ; preds = %if.else.i
@@ -1707,7 +1707,7 @@ if.else13.i:                                      ; preds = %if.else.i
   %shl.i38.i = shl nsw i128 -1, %sh_prom.i37.i
   %coerce1.sroa.0.0.extract.trunc.i39.i = trunc i128 %shl.i38.i to i64
   %coerce1.sroa.2.0.extract.shift.i40.i = lshr i128 %shl.i38.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i41.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i40.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i41.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i40.i to i64
   br label %invoke.cont108
 
 invoke.cont108:                                   ; preds = %if.else13.i, %if.then2.i, %for.body
@@ -1737,11 +1737,11 @@ invoke.cont108:                                   ; preds = %if.else13.i, %if.th
   %coerce.sroa.0.0.insert.insert.i146.i330 = add nuw i128 %coerce.sroa.0.0.insert.insert.i134.i329, %108
   %coerce3.sroa.0.0.extract.trunc.i147.i331 = trunc i128 %coerce.sroa.0.0.insert.insert.i146.i330 to i64
   %109 = lshr i128 %coerce.sroa.0.0.insert.insert.i146.i330, 64
-  %.tr.i148.i332 = trunc i128 %109 to i64
+  %.tr.i148.i332 = trunc nuw i128 %109 to i64
   store i64 %coerce3.sroa.0.0.extract.trunc.i147.i331, ptr %ref.tmp102, align 16, !alias.scope !54
   store i64 %.tr.i148.i332, ptr %102, align 8, !alias.scope !54
   %coerce1.sroa.2.0.extract.trunc.i157.i334 = trunc i128 %mul.i30.i319 to i64
-  %.tr.i167.i335 = trunc i128 %coerce3.sroa.2.0.extract.shift.i.i318 to i64
+  %.tr.i167.i335 = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i318 to i64
   %coerce1.sroa.2.0.extract.trunc.i178.i336 = trunc i128 %mul.i.i317 to i64
   %.narrow.i168.i338 = add i64 %coerce1.sroa.2.0.extract.trunc.i157.i334, %coerce1.sroa.2.0.extract.trunc.i178.i336
   %.narrow.i189.i339 = add i64 %.narrow.i168.i338, %.tr.i167.i335
@@ -1864,11 +1864,11 @@ if.then2.i382:                                    ; preds = %if.else.i364
   %shr.i.i402 = lshr i128 -1, %sh_prom.i10.i401
   %coerce3.sroa.0.0.extract.trunc.i.i404 = trunc i128 %shr.i.i402 to i64
   %coerce3.sroa.2.0.extract.shift.i.i405 = lshr i128 18446744073709551615, %sh_prom.i10.i401
-  %coerce3.sroa.2.0.extract.trunc.i.i406 = trunc i128 %coerce3.sroa.2.0.extract.shift.i.i405 to i64
+  %coerce3.sroa.2.0.extract.trunc.i.i406 = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i405 to i64
   %shl.i27.i408 = shl nsw i128 -1, %sh_prom.i.i390
   %coerce1.sroa.0.0.extract.trunc.i28.i409 = trunc i128 %shl.i27.i408 to i64
   %coerce1.sroa.2.0.extract.shift.i29.i410 = lshr i128 %shl.i27.i408, 64
-  %coerce1.sroa.2.0.extract.trunc.i30.i411 = trunc i128 %coerce1.sroa.2.0.extract.shift.i29.i410 to i64
+  %coerce1.sroa.2.0.extract.trunc.i30.i411 = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i29.i410 to i64
   br label %invoke.cont145
 
 if.else13.i366:                                   ; preds = %if.else.i364
@@ -1877,7 +1877,7 @@ if.else13.i366:                                   ; preds = %if.else.i364
   %shl.i38.i377 = shl nsw i128 -1, %sh_prom.i37.i376
   %coerce1.sroa.0.0.extract.trunc.i39.i378 = trunc i128 %shl.i38.i377 to i64
   %coerce1.sroa.2.0.extract.shift.i40.i379 = lshr i128 %shl.i38.i377, 64
-  %coerce1.sroa.2.0.extract.trunc.i41.i380 = trunc i128 %coerce1.sroa.2.0.extract.shift.i40.i379 to i64
+  %coerce1.sroa.2.0.extract.trunc.i41.i380 = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i40.i379 to i64
   br label %invoke.cont145
 
 invoke.cont145:                                   ; preds = %if.else13.i366, %if.then2.i382, %_ZN7testing15AssertionResultD2Ev.exit360
@@ -1907,11 +1907,11 @@ invoke.cont145:                                   ; preds = %if.else13.i366, %if
   %coerce.sroa.0.0.insert.insert.i146.i438 = add nuw i128 %coerce.sroa.0.0.insert.insert.i134.i437, %122
   %coerce3.sroa.0.0.extract.trunc.i147.i439 = trunc i128 %coerce.sroa.0.0.insert.insert.i146.i438 to i64
   %123 = lshr i128 %coerce.sroa.0.0.insert.insert.i146.i438, 64
-  %.tr.i148.i440 = trunc i128 %123 to i64
+  %.tr.i148.i440 = trunc nuw i128 %123 to i64
   store i64 %coerce3.sroa.0.0.extract.trunc.i147.i439, ptr %ref.tmp139, align 16, !alias.scope !57
   store i64 %.tr.i148.i440, ptr %104, align 8, !alias.scope !57
   %coerce1.sroa.2.0.extract.trunc.i157.i442 = trunc i128 %mul.i.i425 to i64
-  %.tr.i167.i443 = trunc i128 %coerce3.sroa.2.0.extract.shift.i.i426 to i64
+  %.tr.i167.i443 = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i426 to i64
   %coerce1.sroa.2.0.extract.trunc.i178.i444 = trunc i128 %mul.i44.i429 to i64
   %.narrow.i168.i446 = add i64 %coerce1.sroa.2.0.extract.trunc.i157.i442, %coerce1.sroa.2.0.extract.trunc.i178.i444
   %.narrow.i189.i447 = add i64 %.narrow.i168.i446, %.tr.i167.i443
@@ -2044,7 +2044,7 @@ for.body172:                                      ; preds = %for.cond170.prehead
   %shl.i27.i517 = shl nuw i128 1, %sh_prom.i.i499
   %coerce1.sroa.0.0.extract.trunc.i28.i518 = trunc i128 %shl.i27.i517 to i64
   %coerce1.sroa.2.0.extract.shift.i29.i519 = lshr i128 %shl.i27.i517, 64
-  %coerce1.sroa.2.0.extract.trunc.i30.i520 = trunc i128 %coerce1.sroa.2.0.extract.shift.i29.i519 to i64
+  %coerce1.sroa.2.0.extract.trunc.i30.i520 = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i29.i519 to i64
   %agg.tmp176.sroa.8.2 = select i1 %cmp.i472, i64 0, i64 %coerce1.sroa.2.0.extract.trunc.i30.i520
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp174, i8 0, i64 16, i1 false)
   store i64 %coerce1.sroa.0.0.extract.trunc.i28.i518, ptr %agg.tmp175524.sroa.5.0.ref.tmp174.sroa_idx, align 16
@@ -2053,7 +2053,7 @@ for.body172:                                      ; preds = %for.cond170.prehead
   %shl.i533 = shl nuw nsw i128 1, %sh_prom.i532
   %mul.i.i5431128 = shl nuw nsw i128 %shl.i533, %sh_prom.i525
   %coerce3.sroa.2.0.extract.shift.i.i544 = lshr i128 %mul.i.i5431128, 64
-  %.tr.i167.i561 = trunc i128 %coerce3.sroa.2.0.extract.shift.i.i544 to i64
+  %.tr.i167.i561 = trunc nuw nsw i128 %coerce3.sroa.2.0.extract.shift.i.i544 to i64
   %coerce3.sroa.0.0.extract.trunc.i187.i563 = trunc i128 %mul.i.i5431128 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp180, i8 0, i64 16, i1 false)
   store i64 %coerce3.sroa.0.0.extract.trunc.i187.i563, ptr %lo.i559, align 16, !alias.scope !62
@@ -3727,7 +3727,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
   %call.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21, !noalias !134
   %v.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %v.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %this, i64 32, i1 false), !noalias !134
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %v.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 16 dereferenceable(32) %this, i64 32, i1 false), !noalias !134
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113Eq256MatcherPIN4absl15random_internal4U256EE10gmock_ImplIRKS3_EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.i.i, align 16, !noalias !134
   %vtable_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matcher, i64 8
   %buffer_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matcher, i64 16

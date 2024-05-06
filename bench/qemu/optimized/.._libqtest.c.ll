@@ -621,7 +621,7 @@ entry:
   br i1 %tobool.not.i, label %if.end3.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call ptr @getenv(ptr noundef nonnull %var) #20
+  %call.i = tail call ptr @getenv(ptr noundef nonnull readonly %var) #20
   %tobool1.not.i = icmp eq ptr %call.i, null
   br i1 %tobool1.not.i, label %if.end3.i, label %qtest_qemu_binary.exit
 
@@ -646,8 +646,8 @@ qtest_qemu_binary.exit:                           ; preds = %if.then.i, %if.end3
 lor.lhs.false.i:                                  ; preds = %qtest_qemu_binary.exit
   %refcnt.i = getelementptr inbounds i8, ptr %call2, i64 8
   %2 = load i64, ptr %refcnt.i, align 8
-  %tobool1.not.i5 = icmp eq i64 %2, 0
-  br i1 %tobool1.not.i5, label %if.else.i, label %land.lhs.true.i
+  %tobool1.not.i6 = icmp eq i64 %2, 0
+  br i1 %tobool1.not.i6, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
@@ -666,29 +666,29 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
 qobject_unref_impl.exit:                          ; preds = %qtest_qemu_binary.exit, %land.lhs.true.i, %if.then5.i
   %call4 = tail call ptr (ptr, ptr, ...) @qtest_qmp(ptr noundef %call1, ptr noundef nonnull @.str.2)
   %tobool6.not = icmp eq ptr %call4, null
-  br i1 %tobool6.not, label %qobject_unref_impl.exit14, label %lor.lhs.false.i6
+  br i1 %tobool6.not, label %qobject_unref_impl.exit16, label %lor.lhs.false.i8
 
-lor.lhs.false.i6:                                 ; preds = %qobject_unref_impl.exit
-  %refcnt.i7 = getelementptr inbounds i8, ptr %call4, i64 8
-  %3 = load i64, ptr %refcnt.i7, align 8
-  %tobool1.not.i8 = icmp eq i64 %3, 0
-  br i1 %tobool1.not.i8, label %if.else.i13, label %land.lhs.true.i9
+lor.lhs.false.i8:                                 ; preds = %qobject_unref_impl.exit
+  %refcnt.i9 = getelementptr inbounds i8, ptr %call4, i64 8
+  %3 = load i64, ptr %refcnt.i9, align 8
+  %tobool1.not.i10 = icmp eq i64 %3, 0
+  br i1 %tobool1.not.i10, label %if.else.i15, label %land.lhs.true.i11
 
-if.else.i13:                                      ; preds = %lor.lhs.false.i6
+if.else.i15:                                      ; preds = %lor.lhs.false.i8
   tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
   unreachable
 
-land.lhs.true.i9:                                 ; preds = %lor.lhs.false.i6
-  %dec.i10 = add i64 %3, -1
-  store i64 %dec.i10, ptr %refcnt.i7, align 8
-  %cmp.i11 = icmp eq i64 %dec.i10, 0
-  br i1 %cmp.i11, label %if.then5.i12, label %qobject_unref_impl.exit14
+land.lhs.true.i11:                                ; preds = %lor.lhs.false.i8
+  %dec.i12 = add i64 %3, -1
+  store i64 %dec.i12, ptr %refcnt.i9, align 8
+  %cmp.i13 = icmp eq i64 %dec.i12, 0
+  br i1 %cmp.i13, label %if.then5.i14, label %qobject_unref_impl.exit16
 
-if.then5.i12:                                     ; preds = %land.lhs.true.i9
+if.then5.i14:                                     ; preds = %land.lhs.true.i11
   tail call void @qobject_destroy(ptr noundef nonnull %call4) #20
-  br label %qobject_unref_impl.exit14
+  br label %qobject_unref_impl.exit16
 
-qobject_unref_impl.exit14:                        ; preds = %qobject_unref_impl.exit, %land.lhs.true.i9, %if.then5.i12
+qobject_unref_impl.exit16:                        ; preds = %qobject_unref_impl.exit, %land.lhs.true.i11, %if.then5.i14
   ret ptr %call1
 }
 
@@ -922,13 +922,13 @@ qtest_kill_qemu.exit:                             ; preds = %if.then.i, %if.end.
   %4 = load ptr, ptr %rx, align 8
   %call2 = tail call ptr @g_string_free(ptr noundef %4, i32 noundef 1) #20
   %pending_events = getelementptr inbounds i8, ptr %s, i64 312
-  %it.013 = load ptr, ptr %pending_events, align 8
-  %cmp.not14 = icmp eq ptr %it.013, null
-  br i1 %cmp.not14, label %for.end, label %for.body
+  %it.014 = load ptr, ptr %pending_events, align 8
+  %cmp.not15 = icmp eq ptr %it.014, null
+  br i1 %cmp.not15, label %for.end, label %for.body
 
 for.body:                                         ; preds = %qtest_kill_qemu.exit, %qobject_unref_impl.exit
-  %it.015 = phi ptr [ %it.0, %qobject_unref_impl.exit ], [ %it.013, %qtest_kill_qemu.exit ]
-  %5 = load ptr, ptr %it.015, align 8
+  %it.016 = phi ptr [ %it.0, %qobject_unref_impl.exit ], [ %it.014, %qtest_kill_qemu.exit ]
+  %5 = load ptr, ptr %it.016, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
@@ -953,7 +953,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %for.body, %land.lhs.true.i, %if.then5.i
-  %next = getelementptr inbounds i8, ptr %it.015, i64 8
+  %next = getelementptr inbounds i8, ptr %it.016, i64 8
   %it.0 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %it.0, null
   br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !9
@@ -3522,7 +3522,7 @@ qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %i
 define dso_local void @qtest_qmp_device_del(ptr noundef %qts, ptr noundef %id) local_unnamed_addr #1 {
 entry:
   tail call void @qtest_qmp_device_del_send(ptr noundef %qts, ptr noundef %id)
-  %call.i = tail call ptr @qtest_qmp_eventwait_ref(ptr noundef %qts, ptr noundef nonnull @.str.91)
+  %call.i = tail call ptr @qtest_qmp_eventwait_ref(ptr noundef %qts, ptr noundef nonnull readonly @.str.91)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %qtest_qmp_eventwait.exit, label %lor.lhs.false.i.i
 
@@ -3897,7 +3897,7 @@ qtest_add_abrt_handler.exit:                      ; preds = %hook_list_is_empty.
   store ptr %call, ptr %call3.i, align 8
   call void @g_hook_prepend(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call3.i) #20
   %1 = load i8, ptr @silence_spawn_log, align 1
-  %tobool7 = trunc i8 %1 to i1
+  %tobool7 = trunc nuw i8 %1 to i1
   br i1 %tobool7, label %if.end, label %if.then
 
 if.then:                                          ; preds = %qtest_add_abrt_handler.exit

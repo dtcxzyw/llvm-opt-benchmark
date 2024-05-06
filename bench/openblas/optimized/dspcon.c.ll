@@ -76,7 +76,7 @@ define void @dspcon_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %17, label %62, label %42
 
 42:                                               ; preds = %40
-  %43 = mul nsw i32 %41, %22
+  %43 = mul nuw nsw i32 %41, %22
   %44 = lshr i32 %43, 1
   %45 = zext nneg i32 %22 to i64
   br label %46

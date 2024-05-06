@@ -35363,7 +35363,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb16PhysicalOperator18GetMaxThreadMemoryERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4611686018427387904) i64 @_ZN6duckdb16PhysicalOperator18GetMaxThreadMemoryERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb13BufferManager16GetBufferManagerERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %vtable = load ptr, ptr %call, align 8, !tbaa !67
@@ -42313,7 +42313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb13RadixHTConfig20InitialSinkRadixBitsERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4) i64 @_ZN6duckdb13RadixHTConfig20InitialSinkRadixBitsERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN6duckdb13TaskScheduler12GetSchedulerERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %call1 = tail call noundef i32 @_ZN6duckdb13TaskScheduler15NumberOfThreadsEv(ptr noundef nonnull align 8 dereferenceable(112) %call)
@@ -42325,7 +42325,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb13RadixHTConfig20MaximumSinkRadixBitsERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 8) i64 @_ZN6duckdb13RadixHTConfig20MaximumSinkRadixBitsERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN6duckdb13TaskScheduler12GetSchedulerERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %call1 = tail call noundef i32 @_ZN6duckdb13TaskScheduler15NumberOfThreadsEv(ptr noundef nonnull align 8 dereferenceable(112) %call)
@@ -42337,7 +42337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6duckdb13RadixHTConfig17ExternalRadixBitsERKm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %maximum_sink_radix_bits_p) local_unnamed_addr #12 align 2 {
+define noundef range(i64 0, 8) i64 @_ZN6duckdb13RadixHTConfig17ExternalRadixBitsERKm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %maximum_sink_radix_bits_p) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load i64, ptr %maximum_sink_radix_bits_p, align 8, !tbaa !26
   %add = add i64 %0, 3
@@ -42346,7 +42346,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6duckdb13RadixHTConfig12SinkCapacityERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context) local_unnamed_addr #0 align 2 {
+define noundef range(i64 4096, 0) i64 @_ZN6duckdb13RadixHTConfig12SinkCapacityERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN6duckdb13TaskScheduler12GetSchedulerERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %call1 = tail call noundef i32 @_ZN6duckdb13TaskScheduler15NumberOfThreadsEv(ptr noundef nonnull align 8 dereferenceable(112) %call)
@@ -43995,7 +43995,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK6duckdb25RadixPartitionedHashTable18NumberOfPartitionsERNS_15GlobalSinkStateE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %sink_p) local_unnamed_addr #12 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK6duckdb25RadixPartitionedHashTable18NumberOfPartitionsERNS_15GlobalSinkStateE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %sink_p) local_unnamed_addr #12 align 2 {
 entry:
   %partitions = getelementptr inbounds i8, ptr %sink_p, i64 160
   %_M_finish.i = getelementptr inbounds i8, ptr %sink_p, i64 168
@@ -45532,7 +45532,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb25RadixPartitionedHashTable7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_15GlobalSinkStateERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr noundef nonnull align 8 dereferenceable(9) %sink_p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb25RadixPartitionedHashTable7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_15GlobalSinkStateERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr noundef nonnull align 8 dereferenceable(9) %sink_p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %"class.duckdb::ArenaAllocator", align 8
   %aggr_input_data = alloca %"struct.duckdb::AggregateInputData", align 8

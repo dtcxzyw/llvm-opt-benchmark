@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @aes_zero = internal constant { [16 x i8] } zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i64 @helper_aes32esmi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @helper_aes32esmi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %rs2, %shamt
   %idxprom.i = and i64 %shr.i, 255
@@ -31,7 +31,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i64 @helper_aes32esi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @helper_aes32esi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %rs2, %shamt
   %idxprom.i = and i64 %shr.i, 255
@@ -47,7 +47,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i64 @helper_aes32dsmi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @helper_aes32dsmi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %rs2, %shamt
   %idxprom.i = and i64 %shr.i, 255
@@ -63,7 +63,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i64 @helper_aes32dsi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @helper_aes32dsi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %rs2, %shamt
   %idxprom.i = and i64 %shr.i, 255
@@ -203,7 +203,7 @@ entry:
   %t = alloca %union.AESState, align 16
   %rc = alloca %union.AESState, align 16
   %shr = lshr i64 %rs1, 32
-  %conv1 = trunc i64 %shr to i32
+  %conv1 = trunc nuw i64 %shr to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rc, i8 0, i64 16, i1 false)
   %conv23 = and i64 %rnum, 255
   %cmp.not = icmp eq i64 %conv23, 10
@@ -268,7 +268,7 @@ aesdec_IMC.exit:                                  ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i64 @helper_sm4ed(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @helper_sm4ed(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
 entry:
   %shr = lshr i64 %rs2, %shamt
   %conv1 = and i64 %shr, 255
@@ -295,7 +295,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i64 @helper_sm4ks(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @helper_sm4ks(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
 entry:
   %shr = lshr i64 %rs2, %shamt
   %conv1 = and i64 %shr, 255

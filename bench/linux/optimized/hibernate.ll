@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ptrs_per_p4d = external dso_local local_unnamed_addr global i32, align 4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @pfn_is_nosave(i64 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @pfn_is_nosave(i64 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load i64, ptr @phys_base, align 8
   %3 = add i64 %2, sub (i64 ptrtoint (ptr @__nosave_begin to i64), i64 -2147483648)
   %4 = lshr i64 %3, 12
@@ -46,7 +46,7 @@ define dso_local i32 @pfn_is_nosave(i64 noundef %0) local_unnamed_addr #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite)
-define dso_local noundef i32 @arch_hibernation_header_save(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -75, 1) i32 @arch_hibernation_header_save(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = icmp ult i32 %1, 40
   br i1 %3, label %21, label %4
 
@@ -80,7 +80,7 @@ define dso_local noundef i32 @arch_hibernation_header_save(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @arch_hibernation_header_restore(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @arch_hibernation_header_restore(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 2541551405711093506
@@ -123,7 +123,7 @@ define dso_local noundef i32 @arch_hibernation_header_restore(ptr nocapture noun
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @relocate_restore_code() local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @relocate_restore_code() local_unnamed_addr #2 align 16 {
   %1 = alloca i64, align 8
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8

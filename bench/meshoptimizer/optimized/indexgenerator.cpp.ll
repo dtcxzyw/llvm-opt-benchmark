@@ -20,7 +20,7 @@ $_ZN17meshopt_Allocator8StorageTIvE8allocateE = comdat any
 @_ZN17meshopt_Allocator8StorageTIvE8allocateE = linkonce_odr dso_local local_unnamed_addr global ptr @_Znwm, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @meshopt_generateVertexRemap(ptr nocapture noundef %destination, ptr noundef readonly %indices, i64 noundef %index_count, ptr nocapture noundef readonly %vertices, i64 noundef %vertex_count, i64 noundef %vertex_size) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 4294967296) i64 @meshopt_generateVertexRemap(ptr nocapture noundef %destination, ptr noundef readonly %indices, i64 noundef %index_count, ptr nocapture noundef readonly %vertices, i64 noundef %vertex_count, i64 noundef %vertex_size) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
@@ -327,7 +327,7 @@ terminate.lpad:                                   ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @meshopt_generateVertexRemapMulti(ptr nocapture noundef %destination, ptr noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count, ptr nocapture noundef readonly %streams, i64 noundef %stream_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 4294967296) i64 @meshopt_generateVertexRemapMulti(ptr nocapture noundef %destination, ptr noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count, ptr nocapture noundef readonly %streams, i64 noundef %stream_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
@@ -682,7 +682,7 @@ if.then.i52:                                      ; preds = %for.body.i48
   %add.ptr.i55 = getelementptr inbounds i8, ptr %destination, i64 %mul.i54
   %mul3.i56 = mul i64 %i.09.i49, 12
   %add.ptr4.i57 = getelementptr inbounds i8, ptr %vertices.addr.0, i64 %mul3.i56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i55, ptr noundef nonnull align 1 dereferenceable(12) %add.ptr4.i57, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(12) %add.ptr.i55, ptr noundef nonnull readonly align 1 dereferenceable(12) %add.ptr4.i57, i64 12, i1 false)
   br label %for.inc.i58
 
 for.inc.i58:                                      ; preds = %if.then.i52, %for.body.i48
@@ -706,7 +706,7 @@ if.then.i66:                                      ; preds = %for.body.i62
   %add.ptr.i69 = getelementptr inbounds i8, ptr %destination, i64 %mul.i68
   %mul3.i70 = shl i64 %i.09.i63, 4
   %add.ptr4.i71 = getelementptr inbounds i8, ptr %vertices.addr.0, i64 %mul3.i70
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i69, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr4.i71, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %add.ptr.i69, ptr noundef nonnull readonly align 1 dereferenceable(16) %add.ptr4.i71, i64 16, i1 false)
   br label %for.inc.i72
 
 for.inc.i72:                                      ; preds = %if.then.i66, %for.body.i62
@@ -730,7 +730,7 @@ if.then.i80:                                      ; preds = %for.body.i76
   %add.ptr.i83 = getelementptr inbounds i8, ptr %destination, i64 %mul.i82
   %mul3.i84 = mul i64 %i.09.i77, %vertex_size
   %add.ptr4.i85 = getelementptr inbounds i8, ptr %vertices.addr.0, i64 %mul3.i84
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i83, ptr align 1 %add.ptr4.i85, i64 %vertex_size, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i83, ptr readonly align 1 %add.ptr4.i85, i64 %vertex_size, i1 false)
   br label %for.inc.i86
 
 for.inc.i86:                                      ; preds = %if.then.i80, %for.body.i76

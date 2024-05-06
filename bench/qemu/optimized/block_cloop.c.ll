@@ -61,7 +61,7 @@ entry:
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @cloop_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @cloop_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -194,7 +194,7 @@ if.end77:                                         ; preds = %for.body
   br i1 %cmp84, label %if.then86, label %if.end87
 
 if.then86:                                        ; preds = %if.end77
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 159, ptr noundef nonnull @__func__.cloop_open, ptr noundef nonnull @.str.10, i32 noundef %16) #10
   br label %fail
 
@@ -204,14 +204,14 @@ if.end87:                                         ; preds = %if.end77
   br i1 %cmp96, label %if.then98, label %if.end99
 
 if.then98:                                        ; preds = %if.end87
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 173, ptr noundef nonnull @__func__.cloop_open, ptr noundef nonnull @.str.11, i32 noundef %17) #10
   br label %fail
 
 if.end99:                                         ; preds = %if.end87
   %conv100 = zext nneg i32 %max_compressed_block_size.089 to i64
   %cmp101 = icmp ugt i64 %sub95, %conv100
-  %conv104 = trunc i64 %sub95 to i32
+  %conv104 = trunc nuw nsw i64 %sub95 to i32
   %spec.select = select i1 %cmp101, i32 %conv104, i32 %max_compressed_block_size.089
   br label %for.inc
 
@@ -327,7 +327,7 @@ entry:
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @cloop_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #3 {
+define internal range(i32 0, 3) i32 @cloop_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #3 {
 entry:
   %narrow = tail call i32 @llvm.smin.i32(i32 %buf_size, i32 83)
   %spec.select = sext i32 %narrow to i64
@@ -338,7 +338,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @cloop_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
+define internal range(i32 -5, 1) i32 @cloop_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -381,7 +381,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %div = udiv i64 %add, %conv12
   %rem13 = urem i64 %add, %conv12
   %conv19 = trunc i64 %div to i32
-  %call = tail call i32 @cloop_read_block(ptr noundef %bs, i32 noundef %conv19), !range !7
+  %call = tail call i32 @cloop_read_block(ptr noundef %bs, i32 noundef %conv19)
   %cmp20.not = icmp eq i32 %call, 0
   br i1 %cmp20.not, label %if.end23, label %fail
 
@@ -390,13 +390,13 @@ if.end23:                                         ; preds = %for.body
   %mul = shl nuw nsw i64 %rem13, 9
   %idx.ext = and i64 %mul, 4294966784
   %add.ptr = getelementptr i8, ptr %2, i64 %idx.ext
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %mul24 = shl i32 %3, 9
   %conv25 = sext i32 %mul24 to i64
   %call26 = tail call i64 @qemu_iovec_from_buf(ptr noundef %qiov, i64 noundef %conv25, ptr noundef %add.ptr, i64 noundef 512) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %fail, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %fail, label %for.body, !llvm.loop !7
 
 fail:                                             ; preds = %for.body, %if.end23, %if.end8
   %ret.0 = phi i32 [ 0, %if.end8 ], [ 0, %if.end23 ], [ -5, %for.body ]
@@ -441,7 +441,7 @@ declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #1
 declare void @qemu_co_mutex_lock(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @cloop_read_block(ptr nocapture noundef readonly %bs, i32 noundef %block_num) #0 {
+define internal range(i32 -1, 1) i32 @cloop_read_block(ptr nocapture noundef readonly %bs, i32 noundef %block_num) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -589,5 +589,4 @@ attributes #12 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 1}
-!8 = distinct !{!8, !6}
+!7 = distinct !{!7, !6}

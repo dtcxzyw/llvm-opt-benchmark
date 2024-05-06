@@ -227,7 +227,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @gzbuffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @gzbuffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %12, label %4
 
@@ -257,7 +257,7 @@ define noundef i32 @gzbuffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @gzrewind(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @gzrewind(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %33, label %3
 
@@ -517,7 +517,7 @@ gz_error.exit:                                    ; preds = %45, %52
   %89 = load i32, ptr %88, align 8
   %90 = zext i32 %89 to i64
   %91 = icmp ult i64 %.175, %90
-  %92 = trunc i64 %.175 to i32
+  %92 = trunc nuw i64 %.175 to i32
   %93 = select i1 %91, i32 %92, i32 %89
   %94 = sub i32 %89, %93
   store i32 %94, ptr %88, align 8
@@ -768,7 +768,7 @@ gzoffset64.exit:                                  ; preds = %1, %3, %5, %10, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @gzeof(ptr noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @gzeof(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %17, label %3
 

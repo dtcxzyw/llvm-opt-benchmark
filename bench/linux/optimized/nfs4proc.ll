@@ -674,7 +674,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 declare dso_local i32 @nfs4_wait_clnt_recover(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfs4_async_handle_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -11, 1) i32 @nfs4_async_handle_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.nfs4_exception, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #22
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -866,7 +866,7 @@ define dso_local noundef i32 @nfs4_sequence_done(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs4_setup_sequence(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -11, 1) i32 @nfs4_setup_sequence(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 696
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
@@ -6302,7 +6302,7 @@ define internal void @nfs4_proc_unlink_rpc_prepare(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nfs4_proc_unlink_done(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @nfs4_proc_unlink_done(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.nfs4_exception, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -6458,7 +6458,7 @@ define internal void @nfs4_proc_rename_rpc_prepare(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nfs4_proc_rename_done(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @nfs4_proc_rename_done(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.nfs4_exception, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
@@ -7928,7 +7928,7 @@ define internal i32 @nfs4_proc_pathconf(ptr noundef %0, ptr noundef %1, ptr noun
 declare dso_local i32 @nfs4_decode_dirent(ptr noundef, ptr noundef, i1 noundef zeroext) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs4_proc_pgio_rpc_prepare(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -5, 1) i32 @nfs4_proc_pgio_rpc_prepare(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -14063,7 +14063,7 @@ define internal i32 @nfs4_proc_async_renew(ptr noundef %0, ptr noundef %1, i32 n
 declare dso_local ptr @nfs4_get_renew_cred(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfs4_proc_renew(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @nfs4_proc_renew(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22
   store ptr getelementptr ([0 x %struct.rpc_procinfo], ptr @nfs4_procedures, i64 0, i64 11), ptr %3, align 8
@@ -16070,7 +16070,7 @@ declare dso_local i32 @__SCT__tp_func_nfs4_readdir(ptr noundef, ptr noundef, i32
 declare dso_local i32 @__SCT__tp_func_nfs4_mknod(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nfs4_read_done_cb(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -11, 1) i32 @nfs4_read_done_cb(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.nfs4_exception, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 40
@@ -16191,7 +16191,7 @@ define internal noundef i32 @nfs4_read_done_cb(ptr noundef %0, ptr noundef %1) #
 declare dso_local i32 @__SCT__tp_func_nfs4_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nfs4_write_done_cb(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -11, 1) i32 @nfs4_write_done_cb(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.nfs4_exception, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -16316,7 +16316,7 @@ declare dso_local void @nfs_writeback_update_inode(ptr noundef) local_unnamed_ad
 declare dso_local i32 @__SCT__tp_func_nfs4_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nfs4_commit_done_cb(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -11, 1) i32 @nfs4_commit_done_cb(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.nfs4_exception, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 224
   %5 = load ptr, ptr %4, align 8

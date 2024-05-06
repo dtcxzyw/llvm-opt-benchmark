@@ -290,7 +290,7 @@ define internal void @psmouse_smbus_disconnect(ptr nocapture noundef %0) #0 alig
 declare dso_local i32 @i2c_for_each_dev(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @psmouse_smbus_create_companion(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @psmouse_smbus_create_companion(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [2 x i16], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   %4 = getelementptr inbounds i8, ptr %1, i64 22

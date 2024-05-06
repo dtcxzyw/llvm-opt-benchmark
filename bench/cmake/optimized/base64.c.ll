@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @base64url = internal constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_base64_decode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
   store ptr null, ptr %1, align 8
   store i64 0, ptr %2, align 8
@@ -188,13 +188,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_base64_encode(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = tail call fastcc i32 @base64_encode(ptr noundef nonnull @base64encdec, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3), !range !10
+define dso_local range(i32 0, 28) i32 @Curl_base64_encode(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+  %5 = tail call fastcc i32 @base64_encode(ptr noundef nonnull @base64encdec, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @base64_encode(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @base64_encode(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %3, align 8
   store i64 0, ptr %4, align 8
@@ -265,7 +265,7 @@ define internal fastcc noundef i32 @base64_encode(ptr nocapture noundef readonly
   %51 = add i64 %.167, -3
   %52 = getelementptr inbounds i8, ptr %.05468, i64 3
   %53 = icmp ugt i64 %51, 2
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.056.lcssa = phi ptr [ %15, %.preheader ], [ %50, %.lr.ph ]
@@ -349,8 +349,8 @@ define internal fastcc noundef i32 @base64_encode(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_base64url_encode(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = tail call fastcc i32 @base64_encode(ptr noundef nonnull @base64url, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3), !range !10
+define dso_local range(i32 0, 28) i32 @Curl_base64url_encode(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+  %5 = tail call fastcc i32 @base64_encode(ptr noundef nonnull @base64url, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
@@ -373,5 +373,4 @@ attributes #5 = { nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 0, i32 28}
-!11 = distinct !{!11, !6}
+!10 = distinct !{!10, !6}

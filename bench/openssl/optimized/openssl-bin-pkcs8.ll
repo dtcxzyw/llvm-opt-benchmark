@@ -85,7 +85,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.73 = private unnamed_addr constant [24 x i8] c"../openssl/apps/pkcs8.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pkcs8_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pkcs8_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %cipher = alloca ptr, align 8
   %pass = alloca [1024 x i8], align 16

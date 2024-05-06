@@ -68,7 +68,7 @@ define dso_local void @initgmlscan(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @gmllex() local_unnamed_addr #1 {
+define dso_local range(i32 -128, 289) i32 @gmllex() local_unnamed_addr #1 {
   %.b = load i1, ptr @yy_init, align 4
   br i1 %.b, label %._crit_edge304, label %1
 
@@ -1083,13 +1083,13 @@ gml_create_buffer.exit:                           ; preds = %36
   br label %647
 
 647:                                              ; preds = %635, %632
-  %648 = tail call noalias ptr @strdup(ptr noundef %.pre303) #27
+  %648 = tail call noalias ptr @strdup(ptr noundef readonly %.pre303) #27
   %649 = icmp eq ptr %648, null
   br i1 %649, label %650, label %gv_strdup.exit
 
 650:                                              ; preds = %647
   %651 = load ptr, ptr @stderr, align 8
-  %652 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre303) #28
+  %652 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre303) #28
   %653 = add i64 %652, 1
   %654 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %651, ptr noundef nonnull @.str.6, i64 noundef %653) #29
   tail call fastcc void @graphviz_exit() #25
@@ -1121,13 +1121,13 @@ gv_strdup.exit:                                   ; preds = %647
   br label %670
 
 670:                                              ; preds = %658, %655
-  %671 = tail call noalias ptr @strdup(ptr noundef %.pre302) #27
+  %671 = tail call noalias ptr @strdup(ptr noundef readonly %.pre302) #27
   %672 = icmp eq ptr %671, null
   br i1 %672, label %673, label %gv_strdup.exit99
 
 673:                                              ; preds = %670
   %674 = load ptr, ptr @stderr, align 8
-  %675 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre302) #28
+  %675 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre302) #28
   %676 = add i64 %675, 1
   %677 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %674, ptr noundef nonnull @.str.6, i64 noundef %676) #29
   tail call fastcc void @graphviz_exit() #25
@@ -1159,13 +1159,13 @@ gv_strdup.exit99:                                 ; preds = %670
   br label %693
 
 693:                                              ; preds = %681, %678
-  %694 = tail call noalias ptr @strdup(ptr noundef %.pre301) #27
+  %694 = tail call noalias ptr @strdup(ptr noundef readonly %.pre301) #27
   %695 = icmp eq ptr %694, null
   br i1 %695, label %696, label %gv_strdup.exit100
 
 696:                                              ; preds = %693
   %697 = load ptr, ptr @stderr, align 8
-  %698 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre301) #28
+  %698 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre301) #28
   %699 = add i64 %698, 1
   %700 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %697, ptr noundef nonnull @.str.6, i64 noundef %699) #29
   tail call fastcc void @graphviz_exit() #25
@@ -1198,7 +1198,7 @@ gv_strdup.exit100:                                ; preds = %693
 
 717:                                              ; preds = %704, %701
   store i32 3, ptr @yy_start, align 4
-  %718 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str.7) #27
+  %718 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull readonly @.str.7) #27
   %719 = icmp eq ptr %718, null
   br i1 %719, label %720, label %beginstr.exit
 
@@ -1265,7 +1265,7 @@ beginstr.exit:                                    ; preds = %717
   %757 = load ptr, ptr @Sbuf, align 8
   %758 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %757) #28
   %759 = add i64 %758, 1
-  %760 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre300) #28
+  %760 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre300) #28
   %761 = add i64 %759, %760
   %762 = icmp ne i64 %761, 0
   tail call void @llvm.assume(i1 %762)
@@ -1290,7 +1290,7 @@ beginstr.exit:                                    ; preds = %717
 
 addstr.exit:                                      ; preds = %768, %770
   store ptr %763, ptr @Sbuf, align 8
-  %772 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %763, ptr noundef nonnull dereferenceable(1) %.pre300) #27
+  %772 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %763, ptr noundef nonnull readonly dereferenceable(1) %.pre300) #27
   br label %.backedge654
 
 773:                                              ; preds = %127
@@ -2905,7 +2905,7 @@ define dso_local void @gmlerror(ptr noundef %0) local_unnamed_addr #1 {
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @gmlerrors() local_unnamed_addr #10 {
+define dso_local range(i32 0, 2) i32 @gmlerrors() local_unnamed_addr #10 {
   %.b = load i1, ptr @errors, align 4
   %1 = zext i1 %.b to i32
   ret i32 %1

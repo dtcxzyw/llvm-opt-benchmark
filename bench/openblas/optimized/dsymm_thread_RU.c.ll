@@ -281,7 +281,7 @@ define noundef i32 @dsymm_thread_RU(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %169, label %170, label %.loopexit22
 
 170:                                              ; preds = %165
-  %171 = mul nsw i64 %71, 8640
+  %171 = mul nuw nsw i64 %71, 8640
   br label %172
 
 172:                                              ; preds = %233, %170

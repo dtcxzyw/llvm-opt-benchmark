@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.cpu_list_add = private unnamed_addr constant [30 x i8] c"void cpu_list_add(CPUState *)\00", align 1
 @cpu_index_auto_assigned = internal unnamed_addr global i1 false, align 1
 @.str.2 = private unnamed_addr constant [25 x i8] c"!cpu_index_auto_assigned\00", align 1
-@current_cpu = dso_local thread_local global ptr null, align 8
+@current_cpu = dso_local thread_local local_unnamed_addr global ptr null, align 8
 @qemu_cond_wait_func = external local_unnamed_addr global ptr, align 8
 @.str.3 = private unnamed_addr constant [100 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/qemu/thread.h\00", align 1
 @.str.4 = private unnamed_addr constant [4 x i8] c"cpu\00", align 1
@@ -780,7 +780,7 @@ trace_breakpoint_insert.exit:                     ; preds = %if.end37, %land.lhs
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @cpu_breakpoint_remove(ptr noundef %cpu, i64 noundef %pc, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cpu_breakpoint_remove(ptr noundef %cpu, i64 noundef %pc, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #10
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #10

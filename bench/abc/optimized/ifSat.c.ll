@@ -197,21 +197,21 @@ declare void @sat_solver_delete(ptr noundef) local_unnamed_addr #1
 define i64 @If_ManSat6Truth(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef readonly %6, i32 noundef %7) local_unnamed_addr #2 {
   %9 = alloca [4 x i64], align 16
   %10 = icmp sgt i32 %5, 0
-  br i1 %10, label %.lr.ph.preheader, label %.preheader56
+  br i1 %10, label %.lr.ph.preheader, label %.preheader62
 
 .lr.ph.preheader:                                 ; preds = %8
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %.lr.ph
 
-.preheader56:                                     ; preds = %.lr.ph, %8
+.preheader62:                                     ; preds = %.lr.ph, %8
   %.0.lcssa = phi i32 [ 0, %8 ], [ %5, %.lr.ph ]
   %11 = icmp sgt i32 %3, 0
-  br i1 %11, label %.lr.ph62.preheader, label %._crit_edge
+  br i1 %11, label %.lr.ph68.preheader, label %._crit_edge
 
-.lr.ph62.preheader:                               ; preds = %.preheader56
+.lr.ph68.preheader:                               ; preds = %.preheader62
   %12 = zext nneg i32 %.0.lcssa to i64
-  %wide.trip.count89 = zext nneg i32 %3 to i64
-  br label %.lr.ph62
+  %wide.trip.count95 = zext nneg i32 %3 to i64
+  br label %.lr.ph68
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -224,29 +224,29 @@ define i64 @If_ManSat6Truth(i64 noundef %0, i64 noundef %1, ptr nocapture nounde
   %18 = getelementptr inbounds [4 x i64], ptr %9, i64 0, i64 %indvars.iv
   store i64 %17, ptr %18, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader56, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %.preheader62, label %.lr.ph, !llvm.loop !7
 
-.lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.lr.ph62
-  %indvars.iv84 = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next85, %.lr.ph62 ]
-  %indvars.iv82 = phi i64 [ %12, %.lr.ph62.preheader ], [ %indvars.iv.next83, %.lr.ph62 ]
-  %19 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv84
+.lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
+  %indvars.iv90 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next91, %.lr.ph68 ]
+  %indvars.iv88 = phi i64 [ %12, %.lr.ph68.preheader ], [ %indvars.iv.next89, %.lr.ph68 ]
+  %19 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv90
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %21
   %23 = load i64, ptr %22, align 8
-  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %24 = getelementptr inbounds [4 x i64], ptr %9, i64 0, i64 %indvars.iv82
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %24 = getelementptr inbounds [4 x i64], ptr %9, i64 0, i64 %indvars.iv88
   store i64 %23, ptr %24, align 8
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %exitcond90.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count89
-  br i1 %exitcond90.not, label %._crit_edge.loopexit, label %.lr.ph62, !llvm.loop !8
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
+  %exitcond96.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count95
+  br i1 %exitcond96.not, label %._crit_edge.loopexit, label %.lr.ph68, !llvm.loop !8
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph62
-  %25 = trunc i64 %indvars.iv.next83 to i32
+._crit_edge.loopexit:                             ; preds = %.lr.ph68
+  %25 = trunc nuw i64 %indvars.iv.next89 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader56
-  %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader56 ], [ %25, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader62
+  %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader62 ], [ %25, %._crit_edge.loopexit ]
   %26 = trunc i64 %0 to i32
   %27 = and i32 %26, 65535
   %.not31.i = icmp eq i32 %.1.lcssa, 31
@@ -272,7 +272,7 @@ define i64 @If_ManSat6Truth(i64 noundef %0, i64 noundef %1, ptr nocapture nounde
 .preheader.us.i:                                  ; preds = %.lr.ph28.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph28.split.us.i ]
   %.01823.us.i = phi i64 [ %38, %.preheader.us.i ], [ -1, %.lr.ph28.split.us.i ]
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   %32 = shl nuw i32 1, %31
   %33 = and i32 %32, %.01924.us.i
   %.not21.us.i = icmp eq i32 %33, 0
@@ -309,113 +309,113 @@ define i64 @If_ManSat6Truth(i64 noundef %0, i64 noundef %1, ptr nocapture nounde
 If_ManSat6ComposeLut4.exit:                       ; preds = %39, %.lr.ph28.split.i, %._crit_edge
   %.0.lcssa.i = phi i64 [ 0, %._crit_edge ], [ %spec.select.i, %.lr.ph28.split.i ], [ %.1.us.i, %39 ]
   store i64 %.0.lcssa.i, ptr %9, align 16
-  br i1 %10, label %.lr.ph66.preheader, label %.preheader
+  br i1 %10, label %.lr.ph72.preheader, label %.preheader
 
-.lr.ph66.preheader:                               ; preds = %If_ManSat6ComposeLut4.exit
-  %wide.trip.count98 = zext nneg i32 %5 to i64
-  br label %.lr.ph66
+.lr.ph72.preheader:                               ; preds = %If_ManSat6ComposeLut4.exit
+  %wide.trip.count104 = zext nneg i32 %5 to i64
+  br label %.lr.ph72
 
-.preheader.loopexit:                              ; preds = %.lr.ph66
-  %45 = trunc i64 %indvars.iv.next92 to i32
+.preheader.loopexit:                              ; preds = %.lr.ph72
+  %45 = trunc nuw i64 %indvars.iv.next98 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %If_ManSat6ComposeLut4.exit
   %.2.lcssa = phi i32 [ 1, %If_ManSat6ComposeLut4.exit ], [ %45, %.preheader.loopexit ]
   %46 = icmp sgt i32 %7, 0
-  br i1 %46, label %.lr.ph70.preheader, label %._crit_edge71
+  br i1 %46, label %.lr.ph76.preheader, label %._crit_edge77
 
-.lr.ph70.preheader:                               ; preds = %.preheader
+.lr.ph76.preheader:                               ; preds = %.preheader
   %47 = zext i32 %.2.lcssa to i64
-  %wide.trip.count107 = zext nneg i32 %7 to i64
-  br label %.lr.ph70
+  %wide.trip.count113 = zext nneg i32 %7 to i64
+  br label %.lr.ph76
 
-.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
-  %indvars.iv93 = phi i64 [ 0, %.lr.ph66.preheader ], [ %indvars.iv.next94, %.lr.ph66 ]
-  %indvars.iv91 = phi i64 [ 1, %.lr.ph66.preheader ], [ %indvars.iv.next92, %.lr.ph66 ]
-  %48 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv93
+.lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
+  %indvars.iv99 = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next100, %.lr.ph72 ]
+  %indvars.iv97 = phi i64 [ 1, %.lr.ph72.preheader ], [ %indvars.iv.next98, %.lr.ph72 ]
+  %48 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv99
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %50
   %52 = load i64, ptr %51, align 8
-  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %53 = getelementptr inbounds [4 x i64], ptr %9, i64 0, i64 %indvars.iv91
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %53 = getelementptr inbounds [4 x i64], ptr %9, i64 0, i64 %indvars.iv97
   store i64 %52, ptr %53, align 8
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %exitcond99.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count98
-  br i1 %exitcond99.not, label %.preheader.loopexit, label %.lr.ph66, !llvm.loop !11
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %exitcond105.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count104
+  br i1 %exitcond105.not, label %.preheader.loopexit, label %.lr.ph72, !llvm.loop !11
 
-.lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.lr.ph70
-  %indvars.iv102 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next103, %.lr.ph70 ]
-  %indvars.iv100 = phi i64 [ %47, %.lr.ph70.preheader ], [ %indvars.iv.next101, %.lr.ph70 ]
-  %54 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv102
+.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
+  %indvars.iv108 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next109, %.lr.ph76 ]
+  %indvars.iv106 = phi i64 [ %47, %.lr.ph76.preheader ], [ %indvars.iv.next107, %.lr.ph76 ]
+  %54 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv108
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %56
   %58 = load i64, ptr %57, align 8
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %59 = getelementptr inbounds [4 x i64], ptr %9, i64 0, i64 %indvars.iv100
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %59 = getelementptr inbounds [4 x i64], ptr %9, i64 0, i64 %indvars.iv106
   store i64 %58, ptr %59, align 8
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %exitcond108.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count107
-  br i1 %exitcond108.not, label %._crit_edge71.loopexit, label %.lr.ph70, !llvm.loop !12
+  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
+  %exitcond114.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count113
+  br i1 %exitcond114.not, label %._crit_edge77.loopexit, label %.lr.ph76, !llvm.loop !12
 
-._crit_edge71.loopexit:                           ; preds = %.lr.ph70
-  %60 = trunc i64 %indvars.iv.next101 to i32
-  br label %._crit_edge71
+._crit_edge77.loopexit:                           ; preds = %.lr.ph76
+  %60 = trunc nuw i64 %indvars.iv.next107 to i32
+  br label %._crit_edge77
 
-._crit_edge71:                                    ; preds = %._crit_edge71.loopexit, %.preheader
-  %.3.lcssa = phi i32 [ %.2.lcssa, %.preheader ], [ %60, %._crit_edge71.loopexit ]
+._crit_edge77:                                    ; preds = %._crit_edge77.loopexit, %.preheader
+  %.3.lcssa = phi i32 [ %.2.lcssa, %.preheader ], [ %60, %._crit_edge77.loopexit ]
   %61 = trunc i64 %1 to i32
   %62 = and i32 %61, 65535
   %.not31.i35 = icmp eq i32 %.3.lcssa, 31
-  br i1 %.not31.i35, label %If_ManSat6ComposeLut4.exit54, label %.lr.ph28.i36
+  br i1 %.not31.i35, label %If_ManSat6ComposeLut4.exit60, label %.lr.ph28.i36
 
-.lr.ph28.i36:                                     ; preds = %._crit_edge71
+.lr.ph28.i36:                                     ; preds = %._crit_edge77
   %63 = shl nuw nsw i32 1, %.3.lcssa
-  %wide.trip.count.i39 = zext nneg i32 %.3.lcssa to i64
-  br label %.lr.ph28.split.us.i40
+  %wide.trip.count.i46 = zext nneg i32 %.3.lcssa to i64
+  br label %.lr.ph28.split.us.i47
 
-.lr.ph28.split.us.i40:                            ; preds = %74, %.lr.ph28.i36
-  %.026.us.i41 = phi i64 [ %.1.us.i51, %74 ], [ 0, %.lr.ph28.i36 ]
-  %.01924.us.i42 = phi i32 [ %75, %74 ], [ 0, %.lr.ph28.i36 ]
-  %64 = shl nuw i32 1, %.01924.us.i42
+.lr.ph28.split.us.i47:                            ; preds = %74, %.lr.ph28.i36
+  %.026.us.i48 = phi i64 [ %.1.us.i58, %74 ], [ 0, %.lr.ph28.i36 ]
+  %.01924.us.i49 = phi i32 [ %75, %74 ], [ 0, %.lr.ph28.i36 ]
+  %64 = shl nuw i32 1, %.01924.us.i49
   %65 = and i32 %62, %64
-  %.not.us.i43 = icmp eq i32 %65, 0
-  br i1 %.not.us.i43, label %74, label %.preheader.us.i44
+  %.not.us.i50 = icmp eq i32 %65, 0
+  br i1 %.not.us.i50, label %74, label %.preheader.us.i51
 
-.preheader.us.i44:                                ; preds = %.lr.ph28.split.us.i40, %.preheader.us.i44
-  %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i48, %.preheader.us.i44 ], [ 0, %.lr.ph28.split.us.i40 ]
-  %.01823.us.i46 = phi i64 [ %73, %.preheader.us.i44 ], [ -1, %.lr.ph28.split.us.i40 ]
-  %66 = trunc i64 %indvars.iv.i45 to i32
+.preheader.us.i51:                                ; preds = %.lr.ph28.split.us.i47, %.preheader.us.i51
+  %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i55, %.preheader.us.i51 ], [ 0, %.lr.ph28.split.us.i47 ]
+  %.01823.us.i53 = phi i64 [ %73, %.preheader.us.i51 ], [ -1, %.lr.ph28.split.us.i47 ]
+  %66 = trunc nuw nsw i64 %indvars.iv.i52 to i32
   %67 = shl nuw i32 1, %66
-  %68 = and i32 %67, %.01924.us.i42
-  %.not21.us.i47 = icmp eq i32 %68, 0
-  %69 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv.i45
+  %68 = and i32 %67, %.01924.us.i49
+  %.not21.us.i54 = icmp eq i32 %68, 0
+  %69 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv.i52
   %70 = load i64, ptr %69, align 8
-  %71 = sext i1 %.not21.us.i47 to i64
+  %71 = sext i1 %.not21.us.i54 to i64
   %72 = xor i64 %70, %71
-  %73 = and i64 %72, %.01823.us.i46
-  %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i45, 1
-  %exitcond34.not.i49 = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i39
-  br i1 %exitcond34.not.i49, label %._crit_edge.us.i50, label %.preheader.us.i44, !llvm.loop !9
+  %73 = and i64 %72, %.01823.us.i53
+  %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i52, 1
+  %exitcond34.not.i56 = icmp eq i64 %indvars.iv.next.i55, %wide.trip.count.i46
+  br i1 %exitcond34.not.i56, label %._crit_edge.us.i57, label %.preheader.us.i51, !llvm.loop !9
 
-74:                                               ; preds = %._crit_edge.us.i50, %.lr.ph28.split.us.i40
-  %.1.us.i51 = phi i64 [ %76, %._crit_edge.us.i50 ], [ %.026.us.i41, %.lr.ph28.split.us.i40 ]
-  %75 = add nuw nsw i32 %.01924.us.i42, 1
-  %exitcond36.not.i52 = icmp eq i32 %75, %63
-  br i1 %exitcond36.not.i52, label %If_ManSat6ComposeLut4.exit54, label %.lr.ph28.split.us.i40, !llvm.loop !10
+74:                                               ; preds = %._crit_edge.us.i57, %.lr.ph28.split.us.i47
+  %.1.us.i58 = phi i64 [ %76, %._crit_edge.us.i57 ], [ %.026.us.i48, %.lr.ph28.split.us.i47 ]
+  %75 = add nuw nsw i32 %.01924.us.i49, 1
+  %exitcond36.not.i59 = icmp eq i32 %75, %63
+  br i1 %exitcond36.not.i59, label %If_ManSat6ComposeLut4.exit60, label %.lr.ph28.split.us.i47, !llvm.loop !10
 
-._crit_edge.us.i50:                               ; preds = %.preheader.us.i44
-  %76 = or i64 %73, %.026.us.i41
+._crit_edge.us.i57:                               ; preds = %.preheader.us.i51
+  %76 = or i64 %73, %.026.us.i48
   br label %74
 
-If_ManSat6ComposeLut4.exit54:                     ; preds = %74, %._crit_edge71
-  %.0.lcssa.i53 = phi i64 [ 0, %._crit_edge71 ], [ %.1.us.i51, %74 ]
-  ret i64 %.0.lcssa.i53
+If_ManSat6ComposeLut4.exit60:                     ; preds = %74, %._crit_edge77
+  %.0.lcssa.i44 = phi i64 [ 0, %._crit_edge77 ], [ %.1.us.i58, %74 ]
+  ret i64 %.0.lcssa.i44
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca [15 x i32], align 16
   %11 = alloca i32, align 4
@@ -945,13 +945,13 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %34 = shl nuw nsw i32 %storemerge454942, 1
   %35 = shl nuw i32 1, %34
   %36 = or i32 %31, %35
-  %37 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 2, ptr noundef %2, i32 noundef %3, i32 noundef %36, ptr noundef null, ptr noundef null, ptr noundef %4), !range !20
+  %37 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 2, ptr noundef %2, i32 noundef %3, i32 noundef %36, ptr noundef null, ptr noundef null, ptr noundef %4)
   %.not455 = icmp eq i32 %37, 0
   br i1 %.not455, label %32, label %.loopexit458
 
 ._crit_edge945:                                   ; preds = %32, %.lr.ph949
   %exitcond1180.not = icmp eq i32 %storemerge454941, %3
-  br i1 %exitcond1180.not, label %.loopexit458, label %.lr.ph949, !llvm.loop !21
+  br i1 %exitcond1180.not, label %.loopexit458, label %.lr.ph949, !llvm.loop !20
 
 38:                                               ; preds = %.lr.ph922, %._crit_edge918
   %storemerge445921 = phi i32 [ 0, %.lr.ph922 ], [ %storemerge450913, %._crit_edge918 ]
@@ -982,27 +982,27 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %49 = shl nuw i32 1, %48
   %50 = or i32 %41, %49
   %51 = or i32 %50, %46
-  %52 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 3, ptr noundef %2, i32 noundef %3, i32 noundef %51, ptr noundef null, ptr noundef null, ptr noundef %4), !range !20
+  %52 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 3, ptr noundef %2, i32 noundef %3, i32 noundef %51, ptr noundef null, ptr noundef null, ptr noundef %4)
   %.not452 = icmp eq i32 %52, 0
   br i1 %.not452, label %53, label %.loopexit458
 
 53:                                               ; preds = %47
   %54 = add nsw i32 %storemerge451906, 1
   %55 = icmp slt i32 %54, %3
-  br i1 %55, label %47, label %._crit_edge909, !llvm.loop !22
+  br i1 %55, label %47, label %._crit_edge909, !llvm.loop !21
 
 ._crit_edge909:                                   ; preds = %53, %42
   %storemerge451.lcssa = phi i32 [ %43, %42 ], [ %3, %53 ]
   store i32 %storemerge451.lcssa, ptr %27, align 8
   %storemerge450 = add nuw nsw i32 %storemerge450915, 1
   %exitcond1171.not = icmp eq i32 %storemerge450, %3
-  br i1 %exitcond1171.not, label %._crit_edge918, label %42, !llvm.loop !23
+  br i1 %exitcond1171.not, label %._crit_edge918, label %42, !llvm.loop !22
 
 ._crit_edge918:                                   ; preds = %._crit_edge909, %38
   %storemerge450.lcssa = phi i32 [ %storemerge450913, %38 ], [ %3, %._crit_edge909 ]
   store i32 %storemerge450.lcssa, ptr %26, align 4
   %exitcond1172.not = icmp eq i32 %storemerge450913, %3
-  br i1 %exitcond1172.not, label %._crit_edge923, label %38, !llvm.loop !24
+  br i1 %exitcond1172.not, label %._crit_edge923, label %38, !llvm.loop !23
 
 ._crit_edge923:                                   ; preds = %._crit_edge918
   %56 = icmp slt i32 %9, 1
@@ -1053,7 +1053,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 73:                                               ; preds = %74
   %indvars.iv.next1174 = add nuw nsw i64 %indvars.iv1173, 1
   %exitcond1176.not = icmp eq i64 %indvars.iv.next1174, 3
-  br i1 %exitcond1176.not, label %81, label %74, !llvm.loop !25
+  br i1 %exitcond1176.not, label %81, label %74, !llvm.loop !24
 
 74:                                               ; preds = %68, %73
   %indvars.iv1173 = phi i64 [ 0, %68 ], [ %indvars.iv.next1174, %73 ]
@@ -1062,7 +1062,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %77 = shl nsw i32 %76, 1
   %78 = shl i32 3, %77
   %79 = or i32 %78, %72
-  %80 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 3, ptr noundef %2, i32 noundef %3, i32 noundef %79, ptr noundef null, ptr noundef null, ptr noundef %4), !range !20
+  %80 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 3, ptr noundef %2, i32 noundef %3, i32 noundef %79, ptr noundef null, ptr noundef null, ptr noundef %4)
   %.not449 = icmp eq i32 %80, 0
   br i1 %.not449, label %73, label %.loopexit458
 
@@ -1070,18 +1070,18 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %82 = add nsw i32 %storemerge448927, 1
   store i32 %82, ptr %58, align 8
   %83 = icmp slt i32 %82, %3
-  br i1 %83, label %68, label %._crit_edge930, !llvm.loop !26
+  br i1 %83, label %68, label %._crit_edge930, !llvm.loop !25
 
 ._crit_edge930:                                   ; preds = %81, %63
   %storemerge447 = add nuw nsw i32 %storemerge447933, 1
   store i32 %storemerge447, ptr %57, align 4
   %exitcond1177.not = icmp eq i32 %storemerge447, %3
-  br i1 %exitcond1177.not, label %._crit_edge936, label %63, !llvm.loop !27
+  br i1 %exitcond1177.not, label %._crit_edge936, label %63, !llvm.loop !26
 
 ._crit_edge936:                                   ; preds = %._crit_edge930, %59
   store i32 %storemerge447931, ptr %6, align 16
   %exitcond1178.not = icmp eq i32 %storemerge447931, %3
-  br i1 %exitcond1178.not, label %.loopexit458, label %59, !llvm.loop !28
+  br i1 %exitcond1178.not, label %.loopexit458, label %59, !llvm.loop !27
 
 84:                                               ; preds = %.lr.ph858, %._crit_edge854
   %storemerge430857 = phi i32 [ 0, %.lr.ph858 ], [ %storemerge441849, %._crit_edge854 ]
@@ -1120,7 +1120,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 97:                                               ; preds = %99
   %storemerge443 = add nsw i32 %storemerge443835, 1
   %98 = icmp slt i32 %storemerge443, %3
-  br i1 %98, label %99, label %._crit_edge838, !llvm.loop !29
+  br i1 %98, label %99, label %._crit_edge838, !llvm.loop !28
 
 99:                                               ; preds = %.lr.ph837, %97
   %storemerge443835 = phi i32 [ %storemerge443834, %.lr.ph837 ], [ %storemerge443, %97 ]
@@ -1129,26 +1129,26 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %102 = or i32 %87, %101
   %103 = or i32 %102, %92
   %104 = or i32 %103, %96
-  %105 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 4, ptr noundef %2, i32 noundef %3, i32 noundef %104, ptr noundef null, ptr noundef null, ptr noundef %4), !range !20
+  %105 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 4, ptr noundef %2, i32 noundef %3, i32 noundef %104, ptr noundef null, ptr noundef null, ptr noundef %4)
   %.not444 = icmp eq i32 %105, 0
   br i1 %.not444, label %97, label %.loopexit458
 
 ._crit_edge838:                                   ; preds = %97
   store i32 %3, ptr %24, align 4
-  br i1 %94, label %93, label %._crit_edge845, !llvm.loop !30
+  br i1 %94, label %93, label %._crit_edge845, !llvm.loop !29
 
 ._crit_edge845:                                   ; preds = %._crit_edge838, %93, %88
   %storemerge442.lcssa = phi i32 [ %89, %88 ], [ %3, %93 ], [ %3, %._crit_edge838 ]
   store i32 %storemerge442.lcssa, ptr %23, align 8
   %storemerge441 = add nuw nsw i32 %storemerge441851, 1
   %exitcond1151.not = icmp eq i32 %storemerge441, %3
-  br i1 %exitcond1151.not, label %._crit_edge854, label %88, !llvm.loop !31
+  br i1 %exitcond1151.not, label %._crit_edge854, label %88, !llvm.loop !30
 
 ._crit_edge854:                                   ; preds = %._crit_edge845, %84
   %storemerge441.lcssa = phi i32 [ %storemerge441849, %84 ], [ %3, %._crit_edge845 ]
   store i32 %storemerge441.lcssa, ptr %22, align 4
   %exitcond1152.not = icmp eq i32 %storemerge441849, %3
-  br i1 %exitcond1152.not, label %._crit_edge859, label %84, !llvm.loop !32
+  br i1 %exitcond1152.not, label %._crit_edge859, label %84, !llvm.loop !31
 
 ._crit_edge859:                                   ; preds = %._crit_edge854
   %106 = icmp slt i32 %9, 1
@@ -1221,7 +1221,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 129:                                              ; preds = %130
   %indvars.iv.next1154 = add nuw nsw i64 %indvars.iv1153, 1
   %exitcond1156.not = icmp eq i64 %indvars.iv.next1154, 4
-  br i1 %exitcond1156.not, label %137, label %130, !llvm.loop !33
+  br i1 %exitcond1156.not, label %137, label %130, !llvm.loop !32
 
 130:                                              ; preds = %123, %129
   %indvars.iv1153 = phi i64 [ 0, %123 ], [ %indvars.iv.next1154, %129 ]
@@ -1230,7 +1230,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %133 = shl nsw i32 %132, 1
   %134 = shl i32 3, %133
   %135 = or i32 %134, %128
-  %136 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 4, ptr noundef %2, i32 noundef %3, i32 noundef %135, ptr noundef null, ptr noundef null, ptr noundef %4), !range !20
+  %136 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 4, ptr noundef %2, i32 noundef %3, i32 noundef %135, ptr noundef null, ptr noundef null, ptr noundef %4)
   %.not440 = icmp eq i32 %136, 0
   br i1 %.not440, label %129, label %.loopexit458
 
@@ -1238,22 +1238,22 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %storemerge439 = add nsw i32 %storemerge439864, 1
   store i32 %storemerge439, ptr %109, align 4
   %138 = icmp slt i32 %storemerge439, %3
-  br i1 %138, label %123, label %._crit_edge867, !llvm.loop !34
+  br i1 %138, label %123, label %._crit_edge867, !llvm.loop !33
 
 ._crit_edge867:                                   ; preds = %137
   store i32 %storemerge439863, ptr %108, align 8
-  br i1 %120, label %119, label %._crit_edge871, !llvm.loop !35
+  br i1 %120, label %119, label %._crit_edge871, !llvm.loop !34
 
 ._crit_edge871:                                   ; preds = %._crit_edge867, %._crit_edge867.thread, %114
   %storemerge437 = add nuw nsw i32 %storemerge437874, 1
   store i32 %storemerge437, ptr %107, align 4
   %exitcond1157.not = icmp eq i32 %storemerge437, %3
-  br i1 %exitcond1157.not, label %._crit_edge877, label %114, !llvm.loop !36
+  br i1 %exitcond1157.not, label %._crit_edge877, label %114, !llvm.loop !35
 
 ._crit_edge877:                                   ; preds = %._crit_edge871, %110
   store i32 %storemerge437872, ptr %6, align 16
   %exitcond1158.not = icmp eq i32 %storemerge437872, %3
-  br i1 %exitcond1158.not, label %._crit_edge880, label %110, !llvm.loop !37
+  br i1 %exitcond1158.not, label %._crit_edge880, label %110, !llvm.loop !36
 
 ._crit_edge880:                                   ; preds = %._crit_edge877, %.preheader464
   %.old = icmp eq i32 %9, 1
@@ -1322,7 +1322,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 .loopexit461:                                     ; preds = %167, %161
   %indvars.iv.next1160 = add nuw nsw i64 %indvars.iv1159, 1
   %exitcond1168.not = icmp eq i64 %indvars.iv.next1166, 4
-  br i1 %exitcond1168.not, label %176, label %161, !llvm.loop !38
+  br i1 %exitcond1168.not, label %176, label %161, !llvm.loop !37
 
 161:                                              ; preds = %155, %.loopexit461
   %indvars.iv1165 = phi i64 [ 0, %155 ], [ %indvars.iv.next1166, %.loopexit461 ]
@@ -1341,7 +1341,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 167:                                              ; preds = %168
   %indvars.iv.next1162 = add nuw nsw i64 %indvars.iv1161, 1
   %exitcond1164.not = icmp eq i64 %indvars.iv.next1162, 4
-  br i1 %exitcond1164.not, label %.loopexit461, label %168, !llvm.loop !39
+  br i1 %exitcond1164.not, label %.loopexit461, label %168, !llvm.loop !38
 
 168:                                              ; preds = %.lr.ph885, %167
   %indvars.iv1161 = phi i64 [ %indvars.iv1159, %.lr.ph885 ], [ %indvars.iv.next1162, %167 ]
@@ -1351,7 +1351,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %172 = shl i32 3, %171
   %173 = or i32 %166, %172
   %174 = or i32 %173, %160
-  %175 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 4, ptr noundef %2, i32 noundef %3, i32 noundef %174, ptr noundef null, ptr noundef null, ptr noundef %4), !range !20
+  %175 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 4, ptr noundef %2, i32 noundef %3, i32 noundef %174, ptr noundef null, ptr noundef null, ptr noundef %4)
   %.not436 = icmp eq i32 %175, 0
   br i1 %.not436, label %167, label %.loopexit458
 
@@ -1359,22 +1359,22 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %storemerge435 = add nsw i32 %storemerge435888, 1
   store i32 %storemerge435, ptr %141, align 4
   %177 = icmp slt i32 %storemerge435, %3
-  br i1 %177, label %155, label %._crit_edge891, !llvm.loop !40
+  br i1 %177, label %155, label %._crit_edge891, !llvm.loop !39
 
 ._crit_edge891:                                   ; preds = %176
   store i32 %storemerge435887, ptr %140, align 8
-  br i1 %152, label %151, label %._crit_edge895, !llvm.loop !41
+  br i1 %152, label %151, label %._crit_edge895, !llvm.loop !40
 
 ._crit_edge895:                                   ; preds = %._crit_edge891, %._crit_edge891.thread, %146
   %storemerge433 = add nuw nsw i32 %storemerge433898, 1
   store i32 %storemerge433, ptr %139, align 4
   %exitcond1169.not = icmp eq i32 %storemerge433, %3
-  br i1 %exitcond1169.not, label %._crit_edge901, label %146, !llvm.loop !42
+  br i1 %exitcond1169.not, label %._crit_edge901, label %146, !llvm.loop !41
 
 ._crit_edge901:                                   ; preds = %._crit_edge895, %142
   store i32 %storemerge433896, ptr %6, align 16
   %exitcond1170.not = icmp eq i32 %storemerge433896, %3
-  br i1 %exitcond1170.not, label %.loopexit458, label %142, !llvm.loop !43
+  br i1 %exitcond1170.not, label %.loopexit458, label %142, !llvm.loop !42
 
 178:                                              ; preds = %.lr.ph743, %._crit_edge739
   %storemerge406742 = phi i32 [ 0, %.lr.ph743 ], [ %storemerge425734, %._crit_edge739 ]
@@ -1430,38 +1430,38 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %200 = or i32 %199, %186
   %201 = or i32 %200, %190
   %202 = or i32 %201, %195
-  %203 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %202, ptr noundef null, ptr noundef null, ptr noundef %4), !range !20
+  %203 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %202, ptr noundef null, ptr noundef null, ptr noundef %4)
   %.not429 = icmp eq i32 %203, 0
   br i1 %.not429, label %204, label %.loopexit458
 
 204:                                              ; preds = %196
   %205 = add nsw i32 %storemerge428711, 1
   %206 = icmp slt i32 %205, %3
-  br i1 %206, label %196, label %._crit_edge714, !llvm.loop !44
+  br i1 %206, label %196, label %._crit_edge714, !llvm.loop !43
 
 ._crit_edge714:                                   ; preds = %204, %191
   %storemerge428.lcssa = phi i32 [ %192, %191 ], [ %3, %204 ]
   store i32 %storemerge428.lcssa, ptr %20, align 16
   %storemerge427 = add nsw i32 %storemerge427720, 1
   %207 = icmp slt i32 %storemerge427, %3
-  br i1 %207, label %191, label %._crit_edge723, !llvm.loop !45
+  br i1 %207, label %191, label %._crit_edge723, !llvm.loop !44
 
 ._crit_edge723:                                   ; preds = %._crit_edge714
   store i32 %3, ptr %19, align 4
-  br i1 %188, label %187, label %._crit_edge730, !llvm.loop !46
+  br i1 %188, label %187, label %._crit_edge730, !llvm.loop !45
 
 ._crit_edge730:                                   ; preds = %._crit_edge723, %187, %182
   %storemerge426.lcssa = phi i32 [ %183, %182 ], [ %3, %187 ], [ %3, %._crit_edge723 ]
   store i32 %storemerge426.lcssa, ptr %18, align 8
   %storemerge425 = add nuw nsw i32 %storemerge425736, 1
   %exitcond1112.not = icmp eq i32 %storemerge425, %3
-  br i1 %exitcond1112.not, label %._crit_edge739, label %182, !llvm.loop !47
+  br i1 %exitcond1112.not, label %._crit_edge739, label %182, !llvm.loop !46
 
 ._crit_edge739:                                   ; preds = %._crit_edge730, %178
   %storemerge425.lcssa = phi i32 [ %storemerge425734, %178 ], [ %3, %._crit_edge730 ]
   store i32 %storemerge425.lcssa, ptr %17, align 4
   %exitcond1113.not = icmp eq i32 %storemerge425734, %3
-  br i1 %exitcond1113.not, label %._crit_edge744, label %178, !llvm.loop !48
+  br i1 %exitcond1113.not, label %._crit_edge744, label %178, !llvm.loop !47
 
 ._crit_edge744:                                   ; preds = %._crit_edge739
   %208 = icmp slt i32 %9, 1
@@ -1549,7 +1549,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 238:                                              ; preds = %239
   %indvars.iv.next1115 = add nuw nsw i64 %indvars.iv1114, 1
   %exitcond1117.not = icmp eq i64 %indvars.iv.next1115, 5
-  br i1 %exitcond1117.not, label %246, label %239, !llvm.loop !49
+  br i1 %exitcond1117.not, label %246, label %239, !llvm.loop !48
 
 239:                                              ; preds = %231, %238
   %indvars.iv1114 = phi i64 [ 0, %231 ], [ %indvars.iv.next1115, %238 ]
@@ -1558,7 +1558,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %242 = shl nsw i32 %241, 1
   %243 = shl i32 3, %242
   %244 = or i32 %243, %237
-  %245 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %244, ptr noundef null, ptr noundef null, ptr noundef %4), !range !20
+  %245 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %244, ptr noundef null, ptr noundef null, ptr noundef %4)
   %.not424 = icmp eq i32 %245, 0
   br i1 %.not424, label %238, label %.loopexit458
 
@@ -1566,28 +1566,28 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %247 = add nsw i32 %storemerge423748, 1
   store i32 %247, ptr %212, align 16
   %248 = icmp slt i32 %247, %3
-  br i1 %248, label %231, label %._crit_edge751, !llvm.loop !50
+  br i1 %248, label %231, label %._crit_edge751, !llvm.loop !49
 
 ._crit_edge751:                                   ; preds = %246, %226
   %storemerge422 = add nsw i32 %storemerge422754, 1
   store i32 %storemerge422, ptr %211, align 4
   %249 = icmp slt i32 %storemerge422, %3
-  br i1 %249, label %226, label %._crit_edge757, !llvm.loop !51
+  br i1 %249, label %226, label %._crit_edge757, !llvm.loop !50
 
 ._crit_edge757:                                   ; preds = %._crit_edge751
   store i32 %storemerge422752, ptr %210, align 8
-  br i1 %223, label %222, label %._crit_edge761, !llvm.loop !52
+  br i1 %223, label %222, label %._crit_edge761, !llvm.loop !51
 
 ._crit_edge761:                                   ; preds = %._crit_edge757, %._crit_edge757.thread, %217
   %storemerge420 = add nuw nsw i32 %storemerge420764, 1
   store i32 %storemerge420, ptr %209, align 4
   %exitcond1118.not = icmp eq i32 %storemerge420, %3
-  br i1 %exitcond1118.not, label %._crit_edge767, label %217, !llvm.loop !53
+  br i1 %exitcond1118.not, label %._crit_edge767, label %217, !llvm.loop !52
 
 ._crit_edge767:                                   ; preds = %._crit_edge761, %213
   store i32 %storemerge420762, ptr %6, align 16
   %exitcond1119.not = icmp eq i32 %storemerge420762, %3
-  br i1 %exitcond1119.not, label %._crit_edge770, label %213, !llvm.loop !54
+  br i1 %exitcond1119.not, label %._crit_edge770, label %213, !llvm.loop !53
 
 ._crit_edge770:                                   ; preds = %._crit_edge767, %.preheader473
   %.old1259 = icmp eq i32 %9, 1
@@ -1671,7 +1671,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 .loopexit471:                                     ; preds = %285, %279
   %indvars.iv.next1121 = add nuw nsw i64 %indvars.iv1120, 1
   %exitcond1129.not = icmp eq i64 %indvars.iv.next1127, 5
-  br i1 %exitcond1129.not, label %294, label %279, !llvm.loop !55
+  br i1 %exitcond1129.not, label %294, label %279, !llvm.loop !54
 
 279:                                              ; preds = %272, %.loopexit471
   %indvars.iv1126 = phi i64 [ 0, %272 ], [ %indvars.iv.next1127, %.loopexit471 ]
@@ -1690,7 +1690,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 285:                                              ; preds = %286
   %indvars.iv.next1123 = add nuw nsw i64 %indvars.iv1122, 1
   %exitcond1125.not = icmp eq i64 %indvars.iv.next1123, 5
-  br i1 %exitcond1125.not, label %.loopexit471, label %286, !llvm.loop !56
+  br i1 %exitcond1125.not, label %.loopexit471, label %286, !llvm.loop !55
 
 286:                                              ; preds = %.lr.ph775, %285
   %indvars.iv1122 = phi i64 [ %indvars.iv1120, %.lr.ph775 ], [ %indvars.iv.next1123, %285 ]
@@ -1700,7 +1700,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %290 = shl i32 3, %289
   %291 = or i32 %284, %290
   %292 = or i32 %291, %278
-  %293 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %292, ptr noundef null, ptr noundef null, ptr noundef %4), !range !20
+  %293 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %292, ptr noundef null, ptr noundef null, ptr noundef %4)
   %.not419 = icmp eq i32 %293, 0
   br i1 %.not419, label %285, label %.loopexit458
 
@@ -1708,28 +1708,28 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %295 = add nsw i32 %storemerge418777, 1
   store i32 %295, ptr %253, align 16
   %296 = icmp slt i32 %295, %3
-  br i1 %296, label %272, label %._crit_edge780, !llvm.loop !57
+  br i1 %296, label %272, label %._crit_edge780, !llvm.loop !56
 
 ._crit_edge780:                                   ; preds = %294, %267
   %storemerge417 = add nsw i32 %storemerge417783, 1
   store i32 %storemerge417, ptr %252, align 4
   %297 = icmp slt i32 %storemerge417, %3
-  br i1 %297, label %267, label %._crit_edge786, !llvm.loop !58
+  br i1 %297, label %267, label %._crit_edge786, !llvm.loop !57
 
 ._crit_edge786:                                   ; preds = %._crit_edge780
   store i32 %storemerge417781, ptr %251, align 8
-  br i1 %264, label %263, label %._crit_edge790, !llvm.loop !59
+  br i1 %264, label %263, label %._crit_edge790, !llvm.loop !58
 
 ._crit_edge790:                                   ; preds = %._crit_edge786, %._crit_edge786.thread, %258
   %storemerge415 = add nuw nsw i32 %storemerge415793, 1
   store i32 %storemerge415, ptr %250, align 4
   %exitcond1130.not = icmp eq i32 %storemerge415, %3
-  br i1 %exitcond1130.not, label %._crit_edge796, label %258, !llvm.loop !60
+  br i1 %exitcond1130.not, label %._crit_edge796, label %258, !llvm.loop !59
 
 ._crit_edge796:                                   ; preds = %._crit_edge790, %254
   store i32 %storemerge415791, ptr %6, align 16
   %exitcond1131.not = icmp eq i32 %storemerge415791, %3
-  br i1 %exitcond1131.not, label %._crit_edge799, label %254, !llvm.loop !61
+  br i1 %exitcond1131.not, label %._crit_edge799, label %254, !llvm.loop !60
 
 ._crit_edge799:                                   ; preds = %._crit_edge796
   %298 = icmp slt i32 %9, 3
@@ -1814,7 +1814,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %indvars.iv.next1133 = add nuw nsw i64 %indvars.iv1132, 1
   %indvars.iv.next1140 = add nuw nsw i64 %indvars.iv1139, 1
   %exitcond1148.not = icmp eq i64 %indvars.iv.next1146, 5
-  br i1 %exitcond1148.not, label %351, label %328, !llvm.loop !62
+  br i1 %exitcond1148.not, label %351, label %328, !llvm.loop !61
 
 328:                                              ; preds = %321, %.loopexit468
   %indvars.iv1145 = phi i64 [ 0, %321 ], [ %indvars.iv.next1146, %.loopexit468 ]
@@ -1831,7 +1831,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 .loopexit467:                                     ; preds = %341, %331
   %indvars.iv.next1135 = add nuw nsw i64 %indvars.iv1134, 1
   %exitcond1144.not = icmp eq i64 %indvars.iv.next1142, 5
-  br i1 %exitcond1144.not, label %.loopexit468, label %331, !llvm.loop !63
+  br i1 %exitcond1144.not, label %.loopexit468, label %331, !llvm.loop !62
 
 331:                                              ; preds = %.lr.ph808, %.loopexit467
   %indvars.iv1141 = phi i64 [ %indvars.iv1139, %.lr.ph808 ], [ %indvars.iv.next1142, %.loopexit467 ]
@@ -1854,7 +1854,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 341:                                              ; preds = %343
   %indvars.iv.next1137 = add nuw nsw i64 %indvars.iv1136, 1
   %342 = icmp ult i64 %indvars.iv1136, 4
-  br i1 %342, label %343, label %.loopexit467, !llvm.loop !64
+  br i1 %342, label %343, label %.loopexit467, !llvm.loop !63
 
 343:                                              ; preds = %.lr.ph805, %341
   %indvars.iv1136 = phi i64 [ %indvars.iv1134, %.lr.ph805 ], [ %indvars.iv.next1137, %341 ]
@@ -1864,7 +1864,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %347 = shl i32 3, %346
   %348 = or i32 %340, %347
   %349 = or i32 %348, %327
-  %350 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %349, ptr noundef null, ptr noundef null, ptr noundef %4), !range !20
+  %350 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 5, ptr noundef %2, i32 noundef %3, i32 noundef %349, ptr noundef null, ptr noundef null, ptr noundef %4)
   %.not414 = icmp eq i32 %350, 0
   br i1 %.not414, label %341, label %.loopexit458
 
@@ -1872,28 +1872,28 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %352 = add nsw i32 %storemerge413810, 1
   store i32 %352, ptr %302, align 16
   %353 = icmp slt i32 %352, %3
-  br i1 %353, label %321, label %._crit_edge813, !llvm.loop !65
+  br i1 %353, label %321, label %._crit_edge813, !llvm.loop !64
 
 ._crit_edge813:                                   ; preds = %351, %316
   %storemerge412 = add nsw i32 %storemerge412816, 1
   store i32 %storemerge412, ptr %301, align 4
   %354 = icmp slt i32 %storemerge412, %3
-  br i1 %354, label %316, label %._crit_edge819, !llvm.loop !66
+  br i1 %354, label %316, label %._crit_edge819, !llvm.loop !65
 
 ._crit_edge819:                                   ; preds = %._crit_edge813
   store i32 %storemerge412814, ptr %300, align 8
-  br i1 %313, label %312, label %._crit_edge823, !llvm.loop !67
+  br i1 %313, label %312, label %._crit_edge823, !llvm.loop !66
 
 ._crit_edge823:                                   ; preds = %._crit_edge819, %._crit_edge819.thread, %307
   %storemerge410 = add nuw nsw i32 %storemerge410826, 1
   store i32 %storemerge410, ptr %299, align 4
   %exitcond1149.not = icmp eq i32 %storemerge410, %3
-  br i1 %exitcond1149.not, label %._crit_edge829, label %307, !llvm.loop !68
+  br i1 %exitcond1149.not, label %._crit_edge829, label %307, !llvm.loop !67
 
 ._crit_edge829:                                   ; preds = %._crit_edge823, %303
   store i32 %storemerge410824, ptr %6, align 16
   %exitcond1150.not = icmp eq i32 %storemerge410824, %3
-  br i1 %exitcond1150.not, label %.loopexit458, label %303, !llvm.loop !69
+  br i1 %exitcond1150.not, label %.loopexit458, label %303, !llvm.loop !68
 
 355:                                              ; preds = %.lr.ph561, %._crit_edge557
   %storemerge560 = phi i32 [ 0, %.lr.ph561 ], [ %storemerge400552, %._crit_edge557 ]
@@ -1959,7 +1959,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 377:                                              ; preds = %379
   %storemerge404 = add nsw i32 %storemerge404526, 1
   %378 = icmp slt i32 %storemerge404, %3
-  br i1 %378, label %379, label %._crit_edge, !llvm.loop !70
+  br i1 %378, label %379, label %._crit_edge, !llvm.loop !69
 
 379:                                              ; preds = %.lr.ph, %377
   %storemerge404526 = phi i32 [ %storemerge404525, %.lr.ph ], [ %storemerge404, %377 ]
@@ -1970,37 +1970,37 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %384 = or i32 %383, %367
   %385 = or i32 %384, %372
   %386 = or i32 %385, %376
-  %387 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %386, ptr noundef null, ptr noundef null, ptr noundef %4), !range !20
+  %387 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %386, ptr noundef null, ptr noundef null, ptr noundef %4)
   %.not405 = icmp eq i32 %387, 0
   br i1 %.not405, label %377, label %.loopexit458
 
 ._crit_edge:                                      ; preds = %377
   store i32 %3, ptr %15, align 4
-  br i1 %374, label %373, label %._crit_edge532, !llvm.loop !71
+  br i1 %374, label %373, label %._crit_edge532, !llvm.loop !70
 
 ._crit_edge532:                                   ; preds = %._crit_edge, %._crit_edge.thread, %368
   %storemerge403.lcssa = phi i32 [ %369, %368 ], [ %3, %._crit_edge.thread ], [ %3, %._crit_edge ]
   store i32 %storemerge403.lcssa, ptr %14, align 16
   %storemerge402 = add nsw i32 %storemerge402538, 1
   %388 = icmp slt i32 %storemerge402, %3
-  br i1 %388, label %368, label %._crit_edge541, !llvm.loop !72
+  br i1 %388, label %368, label %._crit_edge541, !llvm.loop !71
 
 ._crit_edge541:                                   ; preds = %._crit_edge532
   store i32 %3, ptr %13, align 4
-  br i1 %365, label %364, label %._crit_edge548, !llvm.loop !73
+  br i1 %365, label %364, label %._crit_edge548, !llvm.loop !72
 
 ._crit_edge548:                                   ; preds = %._crit_edge541, %364, %359
   %storemerge401.lcssa = phi i32 [ %360, %359 ], [ %3, %364 ], [ %3, %._crit_edge541 ]
   store i32 %storemerge401.lcssa, ptr %12, align 8
   %storemerge400 = add nuw nsw i32 %storemerge400554, 1
   %exitcond.not = icmp eq i32 %storemerge400, %3
-  br i1 %exitcond.not, label %._crit_edge557, label %359, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge557, label %359, !llvm.loop !73
 
 ._crit_edge557:                                   ; preds = %._crit_edge548, %355
   %storemerge400.lcssa = phi i32 [ %storemerge400552, %355 ], [ %3, %._crit_edge548 ]
   store i32 %storemerge400.lcssa, ptr %11, align 4
   %exitcond1054.not = icmp eq i32 %storemerge400552, %3
-  br i1 %exitcond1054.not, label %._crit_edge562, label %355, !llvm.loop !75
+  br i1 %exitcond1054.not, label %._crit_edge562, label %355, !llvm.loop !74
 
 ._crit_edge562:                                   ; preds = %._crit_edge557
   %389 = icmp slt i32 %9, 1
@@ -2106,7 +2106,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 425:                                              ; preds = %426
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond1056.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond1056.not, label %433, label %426, !llvm.loop !76
+  br i1 %exitcond1056.not, label %433, label %426, !llvm.loop !75
 
 426:                                              ; preds = %417, %425
   %indvars.iv = phi i64 [ 0, %417 ], [ %indvars.iv.next, %425 ]
@@ -2115,7 +2115,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %429 = shl nsw i32 %428, 1
   %430 = shl i32 3, %429
   %431 = or i32 %430, %424
-  %432 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %431, ptr noundef null, ptr noundef null, ptr noundef %4), !range !20
+  %432 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %431, ptr noundef null, ptr noundef null, ptr noundef %4)
   %.not399 = icmp eq i32 %432, 0
   br i1 %.not399, label %425, label %.loopexit458
 
@@ -2123,32 +2123,32 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %storemerge398 = add nsw i32 %storemerge398567, 1
   store i32 %storemerge398, ptr %394, align 4
   %434 = icmp slt i32 %storemerge398, %3
-  br i1 %434, label %417, label %._crit_edge570, !llvm.loop !77
+  br i1 %434, label %417, label %._crit_edge570, !llvm.loop !76
 
 ._crit_edge570:                                   ; preds = %433
   store i32 %storemerge398566, ptr %393, align 16
-  br i1 %414, label %413, label %._crit_edge574, !llvm.loop !78
+  br i1 %414, label %413, label %._crit_edge574, !llvm.loop !77
 
 ._crit_edge574:                                   ; preds = %._crit_edge570, %._crit_edge570.thread, %408
   %storemerge396 = add nsw i32 %storemerge396577, 1
   store i32 %storemerge396, ptr %392, align 4
   %435 = icmp slt i32 %storemerge396, %3
-  br i1 %435, label %408, label %._crit_edge580, !llvm.loop !79
+  br i1 %435, label %408, label %._crit_edge580, !llvm.loop !78
 
 ._crit_edge580:                                   ; preds = %._crit_edge574
   store i32 %storemerge396575, ptr %391, align 8
-  br i1 %405, label %404, label %._crit_edge584, !llvm.loop !80
+  br i1 %405, label %404, label %._crit_edge584, !llvm.loop !79
 
 ._crit_edge584:                                   ; preds = %._crit_edge580, %._crit_edge580.thread, %399
   %storemerge394 = add nuw nsw i32 %storemerge394587, 1
   store i32 %storemerge394, ptr %390, align 4
   %exitcond1057.not = icmp eq i32 %storemerge394, %3
-  br i1 %exitcond1057.not, label %._crit_edge590, label %399, !llvm.loop !81
+  br i1 %exitcond1057.not, label %._crit_edge590, label %399, !llvm.loop !80
 
 ._crit_edge590:                                   ; preds = %._crit_edge584, %395
   store i32 %storemerge394585, ptr %6, align 16
   %exitcond1058.not = icmp eq i32 %storemerge394585, %3
-  br i1 %exitcond1058.not, label %._crit_edge593, label %395, !llvm.loop !82
+  br i1 %exitcond1058.not, label %._crit_edge593, label %395, !llvm.loop !81
 
 ._crit_edge593:                                   ; preds = %._crit_edge590, %.preheader486
   %.old1261 = icmp eq i32 %9, 1
@@ -2250,7 +2250,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 .loopexit484:                                     ; preds = %477, %471
   %indvars.iv.next1060 = add nuw nsw i64 %indvars.iv1059, 1
   %exitcond1068.not = icmp eq i64 %indvars.iv.next1066, 6
-  br i1 %exitcond1068.not, label %486, label %471, !llvm.loop !83
+  br i1 %exitcond1068.not, label %486, label %471, !llvm.loop !82
 
 471:                                              ; preds = %463, %.loopexit484
   %indvars.iv1065 = phi i64 [ 0, %463 ], [ %indvars.iv.next1066, %.loopexit484 ]
@@ -2269,7 +2269,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 477:                                              ; preds = %478
   %indvars.iv.next1062 = add nuw nsw i64 %indvars.iv1061, 1
   %exitcond1064.not = icmp eq i64 %indvars.iv.next1062, 6
-  br i1 %exitcond1064.not, label %.loopexit484, label %478, !llvm.loop !84
+  br i1 %exitcond1064.not, label %.loopexit484, label %478, !llvm.loop !83
 
 478:                                              ; preds = %.lr.ph598, %477
   %indvars.iv1061 = phi i64 [ %indvars.iv1059, %.lr.ph598 ], [ %indvars.iv.next1062, %477 ]
@@ -2279,7 +2279,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %482 = shl i32 3, %481
   %483 = or i32 %476, %482
   %484 = or i32 %483, %470
-  %485 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %484, ptr noundef null, ptr noundef null, ptr noundef %4), !range !20
+  %485 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %484, ptr noundef null, ptr noundef null, ptr noundef %4)
   %.not393 = icmp eq i32 %485, 0
   br i1 %.not393, label %477, label %.loopexit458
 
@@ -2287,32 +2287,32 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %storemerge392 = add nsw i32 %storemerge392601, 1
   store i32 %storemerge392, ptr %440, align 4
   %487 = icmp slt i32 %storemerge392, %3
-  br i1 %487, label %463, label %._crit_edge604, !llvm.loop !85
+  br i1 %487, label %463, label %._crit_edge604, !llvm.loop !84
 
 ._crit_edge604:                                   ; preds = %486
   store i32 %storemerge392600, ptr %439, align 16
-  br i1 %460, label %459, label %._crit_edge608, !llvm.loop !86
+  br i1 %460, label %459, label %._crit_edge608, !llvm.loop !85
 
 ._crit_edge608:                                   ; preds = %._crit_edge604, %._crit_edge604.thread, %454
   %storemerge390 = add nsw i32 %storemerge390611, 1
   store i32 %storemerge390, ptr %438, align 4
   %488 = icmp slt i32 %storemerge390, %3
-  br i1 %488, label %454, label %._crit_edge614, !llvm.loop !87
+  br i1 %488, label %454, label %._crit_edge614, !llvm.loop !86
 
 ._crit_edge614:                                   ; preds = %._crit_edge608
   store i32 %storemerge390609, ptr %437, align 8
-  br i1 %451, label %450, label %._crit_edge618, !llvm.loop !88
+  br i1 %451, label %450, label %._crit_edge618, !llvm.loop !87
 
 ._crit_edge618:                                   ; preds = %._crit_edge614, %._crit_edge614.thread, %445
   %storemerge388 = add nuw nsw i32 %storemerge388621, 1
   store i32 %storemerge388, ptr %436, align 4
   %exitcond1069.not = icmp eq i32 %storemerge388, %3
-  br i1 %exitcond1069.not, label %._crit_edge624, label %445, !llvm.loop !89
+  br i1 %exitcond1069.not, label %._crit_edge624, label %445, !llvm.loop !88
 
 ._crit_edge624:                                   ; preds = %._crit_edge618, %441
   store i32 %storemerge388619, ptr %6, align 16
   %exitcond1070.not = icmp eq i32 %storemerge388619, %3
-  br i1 %exitcond1070.not, label %._crit_edge627, label %441, !llvm.loop !90
+  br i1 %exitcond1070.not, label %._crit_edge627, label %441, !llvm.loop !89
 
 ._crit_edge627:                                   ; preds = %._crit_edge624
   %489 = icmp slt i32 %9, 3
@@ -2419,7 +2419,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %indvars.iv.next1072 = add nuw nsw i64 %indvars.iv1071, 1
   %indvars.iv.next1079 = add nuw nsw i64 %indvars.iv1078, 1
   %exitcond1087.not = icmp eq i64 %indvars.iv.next1085, 6
-  br i1 %exitcond1087.not, label %548, label %525, !llvm.loop !91
+  br i1 %exitcond1087.not, label %548, label %525, !llvm.loop !90
 
 525:                                              ; preds = %517, %.loopexit482
   %indvars.iv1084 = phi i64 [ 0, %517 ], [ %indvars.iv.next1085, %.loopexit482 ]
@@ -2436,7 +2436,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 .loopexit481:                                     ; preds = %538, %528
   %indvars.iv.next1074 = add nuw nsw i64 %indvars.iv1073, 1
   %exitcond1083.not = icmp eq i64 %indvars.iv.next1081, 6
-  br i1 %exitcond1083.not, label %.loopexit482, label %528, !llvm.loop !92
+  br i1 %exitcond1083.not, label %.loopexit482, label %528, !llvm.loop !91
 
 528:                                              ; preds = %.lr.ph636, %.loopexit481
   %indvars.iv1080 = phi i64 [ %indvars.iv1078, %.lr.ph636 ], [ %indvars.iv.next1081, %.loopexit481 ]
@@ -2459,7 +2459,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 538:                                              ; preds = %540
   %indvars.iv.next1076 = add nuw nsw i64 %indvars.iv1075, 1
   %539 = icmp ult i64 %indvars.iv1075, 5
-  br i1 %539, label %540, label %.loopexit481, !llvm.loop !93
+  br i1 %539, label %540, label %.loopexit481, !llvm.loop !92
 
 540:                                              ; preds = %.lr.ph633, %538
   %indvars.iv1075 = phi i64 [ %indvars.iv1073, %.lr.ph633 ], [ %indvars.iv.next1076, %538 ]
@@ -2469,7 +2469,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %544 = shl i32 3, %543
   %545 = or i32 %537, %544
   %546 = or i32 %545, %524
-  %547 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %546, ptr noundef null, ptr noundef null, ptr noundef %4), !range !20
+  %547 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %546, ptr noundef null, ptr noundef null, ptr noundef %4)
   %.not387 = icmp eq i32 %547, 0
   br i1 %.not387, label %538, label %.loopexit458
 
@@ -2477,32 +2477,32 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %storemerge386 = add nsw i32 %storemerge386639, 1
   store i32 %storemerge386, ptr %494, align 4
   %549 = icmp slt i32 %storemerge386, %3
-  br i1 %549, label %517, label %._crit_edge642, !llvm.loop !94
+  br i1 %549, label %517, label %._crit_edge642, !llvm.loop !93
 
 ._crit_edge642:                                   ; preds = %548
   store i32 %storemerge386638, ptr %493, align 16
-  br i1 %514, label %513, label %._crit_edge646, !llvm.loop !95
+  br i1 %514, label %513, label %._crit_edge646, !llvm.loop !94
 
 ._crit_edge646:                                   ; preds = %._crit_edge642, %._crit_edge642.thread, %508
   %storemerge384 = add nsw i32 %storemerge384649, 1
   store i32 %storemerge384, ptr %492, align 4
   %550 = icmp slt i32 %storemerge384, %3
-  br i1 %550, label %508, label %._crit_edge652, !llvm.loop !96
+  br i1 %550, label %508, label %._crit_edge652, !llvm.loop !95
 
 ._crit_edge652:                                   ; preds = %._crit_edge646
   store i32 %storemerge384647, ptr %491, align 8
-  br i1 %505, label %504, label %._crit_edge656, !llvm.loop !97
+  br i1 %505, label %504, label %._crit_edge656, !llvm.loop !96
 
 ._crit_edge656:                                   ; preds = %._crit_edge652, %._crit_edge652.thread, %499
   %storemerge382 = add nuw nsw i32 %storemerge382659, 1
   store i32 %storemerge382, ptr %490, align 4
   %exitcond1088.not = icmp eq i32 %storemerge382, %3
-  br i1 %exitcond1088.not, label %._crit_edge662, label %499, !llvm.loop !98
+  br i1 %exitcond1088.not, label %._crit_edge662, label %499, !llvm.loop !97
 
 ._crit_edge662:                                   ; preds = %._crit_edge656, %495
   store i32 %storemerge382657, ptr %6, align 16
   %exitcond1089.not = icmp eq i32 %storemerge382657, %3
-  br i1 %exitcond1089.not, label %._crit_edge665, label %495, !llvm.loop !99
+  br i1 %exitcond1089.not, label %._crit_edge665, label %495, !llvm.loop !98
 
 ._crit_edge665:                                   ; preds = %._crit_edge662, %.preheader483
   %.old1263 = icmp eq i32 %9, 3
@@ -2605,7 +2605,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %indvars.iv.next1091 = add nuw nsw i64 %indvars.iv1090, 1
   %indvars.iv.next1101 = add nuw nsw i64 %indvars.iv1100, 1
   %exitcond1109.not = icmp eq i64 %indvars.iv.next1107, 6
-  br i1 %exitcond1109.not, label %615, label %586, !llvm.loop !100
+  br i1 %exitcond1109.not, label %615, label %586, !llvm.loop !99
 
 586:                                              ; preds = %578, %.loopexit478
   %indvars.iv1106 = phi i64 [ 0, %578 ], [ %indvars.iv.next1107, %.loopexit478 ]
@@ -2622,7 +2622,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 .loopexit477:                                     ; preds = %._crit_edge672.us, %589
   %indvars.iv.next1093 = add nuw nsw i64 %indvars.iv1092, 1
   %exitcond1105.not = icmp eq i64 %indvars.iv.next1103, 6
-  br i1 %exitcond1105.not, label %.loopexit478, label %589, !llvm.loop !101
+  br i1 %exitcond1105.not, label %.loopexit478, label %589, !llvm.loop !100
 
 589:                                              ; preds = %.lr.ph680, %.loopexit477
   %indvars.iv1102 = phi i64 [ %indvars.iv1100, %.lr.ph680 ], [ %indvars.iv.next1103, %.loopexit477 ]
@@ -2654,7 +2654,7 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
 604:                                              ; preds = %606
   %indvars.iv.next1095 = add nuw nsw i64 %indvars.iv1094, 1
   %605 = icmp ult i64 %indvars.iv1094, 5
-  br i1 %605, label %606, label %._crit_edge672.us, !llvm.loop !102
+  br i1 %605, label %606, label %._crit_edge672.us, !llvm.loop !101
 
 606:                                              ; preds = %.preheader476.us, %604
   %indvars.iv1094 = phi i64 [ %indvars.iv1092, %.preheader476.us ], [ %indvars.iv.next1095, %604 ]
@@ -2664,45 +2664,45 @@ define noundef i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr 
   %610 = shl i32 3, %609
   %611 = or i32 %603, %610
   %612 = or i32 %611, %585
-  %613 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %612, ptr noundef null, ptr noundef null, ptr noundef %4), !range !20
+  %613 = tail call i32 @If_ManSatCheckXY(ptr noundef %0, i32 noundef 6, ptr noundef %2, i32 noundef %3, i32 noundef %612, ptr noundef null, ptr noundef null, ptr noundef %4)
   %.not.us = icmp eq i32 %613, 0
   br i1 %.not.us, label %604, label %.loopexit458
 
 ._crit_edge672.us:                                ; preds = %604
   %indvars.iv.next1098 = add nuw nsw i64 %indvars.iv1097, 1
   %614 = icmp ult i64 %indvars.iv1097, 5
-  br i1 %614, label %.preheader476.us, label %.loopexit477, !llvm.loop !103
+  br i1 %614, label %.preheader476.us, label %.loopexit477, !llvm.loop !102
 
 615:                                              ; preds = %.loopexit478
   %storemerge381 = add nsw i32 %storemerge381683, 1
   store i32 %storemerge381, ptr %555, align 4
   %616 = icmp slt i32 %storemerge381, %3
-  br i1 %616, label %578, label %._crit_edge686, !llvm.loop !104
+  br i1 %616, label %578, label %._crit_edge686, !llvm.loop !103
 
 ._crit_edge686:                                   ; preds = %615
   store i32 %storemerge381682, ptr %554, align 16
-  br i1 %575, label %574, label %._crit_edge690, !llvm.loop !105
+  br i1 %575, label %574, label %._crit_edge690, !llvm.loop !104
 
 ._crit_edge690:                                   ; preds = %._crit_edge686, %._crit_edge686.thread, %569
   %storemerge379 = add nsw i32 %storemerge379693, 1
   store i32 %storemerge379, ptr %553, align 4
   %617 = icmp slt i32 %storemerge379, %3
-  br i1 %617, label %569, label %._crit_edge696, !llvm.loop !106
+  br i1 %617, label %569, label %._crit_edge696, !llvm.loop !105
 
 ._crit_edge696:                                   ; preds = %._crit_edge690
   store i32 %storemerge379691, ptr %552, align 8
-  br i1 %566, label %565, label %._crit_edge700, !llvm.loop !107
+  br i1 %566, label %565, label %._crit_edge700, !llvm.loop !106
 
 ._crit_edge700:                                   ; preds = %._crit_edge696, %._crit_edge696.thread, %560
   %storemerge377 = add nuw nsw i32 %storemerge377703, 1
   store i32 %storemerge377, ptr %551, align 4
   %exitcond1110.not = icmp eq i32 %storemerge377, %3
-  br i1 %exitcond1110.not, label %._crit_edge706, label %560, !llvm.loop !108
+  br i1 %exitcond1110.not, label %._crit_edge706, label %560, !llvm.loop !107
 
 ._crit_edge706:                                   ; preds = %._crit_edge700, %556
   store i32 %storemerge377701, ptr %6, align 16
   %exitcond1111.not = icmp eq i32 %storemerge377701, %3
-  br i1 %exitcond1111.not, label %.loopexit458, label %556, !llvm.loop !109
+  br i1 %exitcond1111.not, label %.loopexit458, label %556, !llvm.loop !108
 
 .loopexit458:                                     ; preds = %379, %426, %478, %540, %._crit_edge706, %606, %196, %239, %286, %._crit_edge829, %343, %99, %130, %._crit_edge901, %168, %47, %._crit_edge936, %74, %._crit_edge945, %33, %.preheader472, %.preheader460, %.preheader, %._crit_edge627.thread, %._crit_edge562.thread, %._crit_edge744.thread, %._crit_edge859.thread, %.preheader479, %.preheader469, %.preheader462, %.preheader457, %5, %._crit_edge665, %._crit_edge627, %._crit_edge593, %._crit_edge562, %._crit_edge799, %._crit_edge770, %._crit_edge744, %._crit_edge880, %._crit_edge859, %._crit_edge923
   %.0 = phi i32 [ 0, %._crit_edge923 ], [ 0, %._crit_edge859 ], [ 0, %._crit_edge880 ], [ 0, %._crit_edge744 ], [ 0, %._crit_edge770 ], [ 0, %._crit_edge799 ], [ 0, %._crit_edge562 ], [ 0, %._crit_edge593 ], [ 0, %._crit_edge627 ], [ 0, %._crit_edge665 ], [ 0, %5 ], [ 0, %.preheader457 ], [ 0, %.preheader462 ], [ 0, %.preheader469 ], [ 0, %.preheader479 ], [ 0, %._crit_edge859.thread ], [ 0, %._crit_edge744.thread ], [ 0, %._crit_edge562.thread ], [ 0, %._crit_edge627.thread ], [ 0, %.preheader ], [ 0, %.preheader460 ], [ 0, %.preheader472 ], [ %36, %33 ], [ 0, %._crit_edge945 ], [ %79, %74 ], [ 0, %._crit_edge936 ], [ %51, %47 ], [ %174, %168 ], [ 0, %._crit_edge901 ], [ %135, %130 ], [ %104, %99 ], [ %349, %343 ], [ 0, %._crit_edge829 ], [ %292, %286 ], [ %244, %239 ], [ %202, %196 ], [ %612, %606 ], [ 0, %._crit_edge706 ], [ %546, %540 ], [ %484, %478 ], [ %431, %426 ], [ %386, %379 ]
@@ -2728,7 +2728,7 @@ define void @If_ManSatTest2() local_unnamed_addr #0 {
   %7 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #11
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = call i32 @If_ManSatCheckXY(ptr noundef %3, i32 noundef 4, ptr noundef %4, i32 noundef 6, i32 noundef 93, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %5), !range !20
+  %9 = call i32 @If_ManSatCheckXY(ptr noundef %3, i32 noundef 4, ptr noundef %4, i32 noundef 6, i32 noundef 93, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %5)
   call void @Dau_DsdPrintFromTruth(ptr noundef %4, i32 noundef 6) #9
   call void @Dau_DsdPrintFromTruth(ptr noundef nonnull %1, i32 noundef 4) #9
   call void @Dau_DsdPrintFromTruth(ptr noundef nonnull %2, i32 noundef 4) #9
@@ -2838,7 +2838,7 @@ attributes #11 = { nounwind allocsize(0) }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = !{i32 0, i32 2}
+!20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
@@ -2927,4 +2927,3 @@ attributes #11 = { nounwind allocsize(0) }
 !106 = distinct !{!106, !5}
 !107 = distinct !{!107, !5}
 !108 = distinct !{!108, !5}
-!109 = distinct !{!109, !5}

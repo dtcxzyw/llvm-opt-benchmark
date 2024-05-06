@@ -87,7 +87,7 @@ define hidden void @_ZN3std2fs8metadata17h0667e1372d422afaE(ptr noalias nocaptur
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %4, i64 176, i1 false), !alias.scope !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(176) %0, ptr noundef nonnull readonly align 8 dereferenceable(176) %4, i64 176, i1 false), !alias.scope !37
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h232e49fdf927194eE.llvm.17418335351052639286.exit"
 
 8:                                                ; preds = %3
@@ -330,7 +330,7 @@ define void @_ZN8grep_cli5human25parse_human_readable_size17h23efe6fa0c78bef0E(p
   %23 = extractvalue { i64, ptr } %21, 1
   %24 = icmp ne ptr %23, null
   tail call void @llvm.assume(i1 %24)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store i64 %22, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %23, ptr %.sroa.4.0..sroa_idx, align 8
@@ -345,7 +345,7 @@ define void @_ZN8grep_cli5human25parse_human_readable_size17h23efe6fa0c78bef0E(p
   call void @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u64$GT$8from_str17h4d3b9914b530e684E"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %.1.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %26 = load i8, ptr %4, align 8, !range !85, !alias.scope !82, !noalias !86, !noundef !18
-  %trunc.i = trunc i8 %26 to i1
+  %trunc.i = trunc nuw i8 %26 to i1
   br i1 %trunc.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdf22785db338ccfaE.exit", label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdf22785db338ccfaE.exit.thread"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdf22785db338ccfaE.exit.thread": ; preds = %25
@@ -362,7 +362,7 @@ define void @_ZN8grep_cli5human25parse_human_readable_size17h23efe6fa0c78bef0E(p
   %33 = extractvalue { i64, ptr } %31, 1
   %34 = icmp ne ptr %33, null
   tail call void @llvm.assume(i1 %34)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %35 = ptrtoint ptr %33 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %36 = icmp eq i64 %32, -9223372036854775808
@@ -427,7 +427,7 @@ define void @_ZN8grep_cli5human25parse_human_readable_size17h23efe6fa0c78bef0E(p
 
 55:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4b4e292cf097e46E.exit"
   %56 = icmp ugt i64 %.sink.i91.ph, 18014398509481983
-  %57 = shl i64 %.sink.i91.ph, 10
+  %57 = shl nuw i64 %.sink.i91.ph, 10
   br i1 %56, label %select.unfold, label %73
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4b4e292cf097e46E.exit58": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4b4e292cf097e46E.exit54"
@@ -437,7 +437,7 @@ define void @_ZN8grep_cli5human25parse_human_readable_size17h23efe6fa0c78bef0E(p
 
 59:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4b4e292cf097e46E.exit54"
   %60 = icmp ugt i64 %.sink.i91.ph, 17592186044415
-  %61 = shl i64 %.sink.i91.ph, 20
+  %61 = shl nuw i64 %.sink.i91.ph, 20
   br i1 %60, label %select.unfold, label %73
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4b4e292cf097e46E.exit58.thread": ; preds = %51, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4b4e292cf097e46E.exit58"
@@ -446,7 +446,7 @@ define void @_ZN8grep_cli5human25parse_human_readable_size17h23efe6fa0c78bef0E(p
   %64 = extractvalue { i64, ptr } %62, 1
   %65 = icmp ne ptr %64, null
   tail call void @llvm.assume(i1 %65)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store i64 %63, ptr %0, align 8
   %.sroa.471.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %64, ptr %.sroa.471.0..sroa_idx, align 8
@@ -458,7 +458,7 @@ define void @_ZN8grep_cli5human25parse_human_readable_size17h23efe6fa0c78bef0E(p
 
 66:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb4b4e292cf097e46E.exit58"
   %67 = icmp ugt i64 %.sink.i91.ph, 17179869183
-  %68 = shl i64 %.sink.i91.ph, 30
+  %68 = shl nuw i64 %.sink.i91.ph, 30
   br i1 %67, label %select.unfold, label %73
 
 select.unfold:                                    ; preds = %55, %59, %66
@@ -467,7 +467,7 @@ select.unfold:                                    ; preds = %55, %59, %66
   %71 = extractvalue { i64, ptr } %69, 1
   %72 = icmp ne ptr %71, null
   tail call void @llvm.assume(i1 %72)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store i64 %70, ptr %0, align 8
   %.sroa.476.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %71, ptr %.sroa.476.0..sroa_idx, align 8

@@ -223,30 +223,24 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 ; Function Attrs: nounwind uwtable
 define hidden void @extcap_base_set_compiled_with(ptr nocapture noundef writeonly %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %1, ptr noundef nonnull %3) #12
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %4, ptr %5, align 8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare noalias ptr @wmem_strdup_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @extcap_base_set_running_with(ptr nocapture noundef writeonly %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %1, ptr noundef nonnull %3) #12
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %4, ptr %5, align 8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -262,7 +256,7 @@ declare void @ws_log_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @ws_log_console_writer_set_use_stdout(i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i8 @extcap_base_parse_options(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @extcap_base_parse_options(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   switch i32 %1, label %39 [
     i32 8, label %4
     i32 9, label %8
@@ -368,7 +362,7 @@ extcap_init_log_file.exit:                        ; preds = %12
 declare i32 @ws_log_set_level_str(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i8 @extcap_base_handle_interface(ptr noundef %0) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @extcap_base_handle_interface(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8
   %.not = icmp eq i8 %3, 0
@@ -502,7 +496,7 @@ extcap_iface_listall.exit:                        ; preds = %66, %62, %41, %extc
 }
 
 ; Function Attrs: noreturn
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @extcap_base_cleanup(ptr nocapture noundef %0) local_unnamed_addr #0 {
@@ -588,7 +582,7 @@ define internal void @extcap_help_option_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @extcap_version_print(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden void @extcap_version_print(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -617,7 +611,7 @@ define hidden void @extcap_version_print(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define hidden void @extcap_help_print(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
@@ -641,7 +635,7 @@ define hidden void @extcap_help_print(ptr nocapture noundef readonly %0) local_u
 declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @extcap_print_option(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 {
+define internal void @extcap_print_option(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -764,7 +758,7 @@ define hidden void @extcap_help_add_header(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @extcap_config_debug(ptr nocapture noundef %0) local_unnamed_addr #7 {
+define hidden void @extcap_config_debug(ptr nocapture noundef %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 4
   %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %2)
   %4 = load i32, ptr %0, align 4
@@ -816,7 +810,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @g_list_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @extcap_iface_print(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 {
+define internal void @extcap_iface_print(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, ptr noundef %3)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -848,15 +842,21 @@ define internal i32 @extcap_iface_compare(ptr nocapture noundef readonly %0, ptr
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
 declare void @ws_log_add_custom_file(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
@@ -869,11 +869,11 @@ attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true"
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nofree nounwind }
 attributes #11 = { nounwind allocsize(0,1) }
 attributes #12 = { nounwind }

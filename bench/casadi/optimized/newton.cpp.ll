@@ -2764,7 +2764,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt5fixed
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi6Newton8init_memEPv(ptr noundef nonnull align 8 dereferenceable(1633) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi6Newton8init_memEPv(ptr noundef nonnull align 8 dereferenceable(1633) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef i32 @_ZNK6casadi10Rootfinder8init_memEPv(ptr noundef nonnull align 8 dereferenceable(1592) %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7

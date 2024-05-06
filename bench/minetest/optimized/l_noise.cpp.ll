@@ -379,7 +379,7 @@ invoke.cont:                                      ; preds = %entry
   %conv = ashr exact i32 %sext, 16
   %conv2 = ashr i32 %0, 16
   %sh.diff = lshr i48 %size.coerce, 16
-  %tr.sh.diff = trunc i48 %sh.diff to i32
+  %tr.sh.diff = trunc nuw i48 %sh.diff to i32
   %conv3 = ashr i32 %tr.sh.diff, 16
   invoke void @_ZN5NoiseC1EPK11NoiseParamsijjj(ptr noundef nonnull align 8 dereferenceable(88) %call, ptr noundef %np, i32 noundef %seed, i32 noundef %conv, i32 noundef %conv2, i32 noundef %conv3)
           to label %invoke.cont5 unwind label %lpad4
@@ -762,7 +762,7 @@ for.body:                                         ; preds = %for.body, %for.body
 declare void @lua_pushvalue(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN17LuaPerlinNoiseMap12l_get_3d_mapEP9lua_State(ptr noundef %L) #5 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN17LuaPerlinNoiseMap12l_get_3d_mapEP9lua_State(ptr noundef %L) #5 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN17LuaPerlinNoiseMap9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !13
@@ -848,7 +848,7 @@ cleanup:                                          ; preds = %for.cond.cleanup8, 
 declare noundef ptr @_ZN5Noise11perlinMap3DEfffPf(ptr noundef nonnull align 8 dereferenceable(88), float noundef, float noundef, float noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN17LuaPerlinNoiseMap17l_get_3d_map_flatEP9lua_State(ptr noundef %L) #5 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN17LuaPerlinNoiseMap17l_get_3d_map_flatEP9lua_State(ptr noundef %L) #5 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN17LuaPerlinNoiseMap9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !13
@@ -998,7 +998,7 @@ declare noundef i64 @_Z23write_array_slice_floatP9lua_StateiPfN3irr4core8vector3
 declare i32 @lua_gettop(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN17LuaPerlinNoiseMap13create_objectEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN17LuaPerlinNoiseMap13create_objectEP9lua_State(ptr noundef %L) #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %np = alloca %struct.NoiseParams, align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %np) #22
@@ -1446,9 +1446,9 @@ if.end26:                                         ; preds = %if.end
   %add.i = add i32 %mul.i, 12345
   store i32 %add.i, ptr %this, align 4, !tbaa !53
   %div.i = sdiv i32 %add.i, 65536
-  %11 = trunc i32 %div.i to i16
+  %11 = trunc nsw i32 %div.i to i16
   %rem.lhs.trunc = and i16 %11, 32767
-  %12 = trunc i32 %sub to i16
+  %12 = trunc nuw nsw i32 %sub to i16
   %rem.rhs.trunc = add nuw nsw i16 %12, 1
   %rem49 = urem i16 %rem.lhs.trunc, %rem.rhs.trunc
   %rem.zext = zext nneg i16 %rem49 to i32
@@ -2375,7 +2375,7 @@ cond.end:                                         ; preds = %cond.true, %entry
   br i1 %cmp12.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cond.end
-  %conv9 = trunc i64 %cond8 to i32
+  %conv9 = trunc nuw nsw i64 %cond8 to i32
   tail call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull %add.ptr21, i64 noundef %cond8)
   %3 = load i32, ptr %0, align 4, !tbaa !90
   %add = add i32 %3, %conv9
@@ -2389,7 +2389,7 @@ if.else:                                          ; preds = %cond.end
   %add.ptr24 = getelementptr inbounds i8, ptr %output_buf, i64 %sub
   %sub28 = sub nsw i64 %cond8, %sub
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr24, ptr nonnull align 4 %m_rand_buf17, i64 %sub28, i1 false)
-  %conv31 = trunc i64 %sub28 to i32
+  %conv31 = trunc nsw i64 %sub28 to i32
   store i32 %conv31, ptr %0, align 4, !tbaa !90
   call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull %output_buf, i64 noundef %cond8)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %output_buf) #22
@@ -2402,7 +2402,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN15LuaSecureRandom13create_objectEP9lua_State(ptr noundef %L) #9 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN15LuaSecureRandom13create_objectEP9lua_State(ptr noundef %L) #9 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(2052) ptr @_Znwm(i64 noundef 2052) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2052) %call, i8 0, i64 2052, i1 false)

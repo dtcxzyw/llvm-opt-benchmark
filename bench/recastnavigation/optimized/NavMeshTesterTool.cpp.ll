@@ -540,7 +540,7 @@ _Z7inRangePKfS0_ff.exit83:                        ; preds = %222
   br label %.lr.ph
 
 .preheader.loopexit:                              ; preds = %.lr.ph
-  %235 = trunc i64 %indvars.iv.next to i32
+  %235 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader113
@@ -1974,7 +1974,7 @@ _Z7inRangePKfS0_ff.exit42:                        ; preds = %161
   br label %.lr.ph
 
 .preheader.loopexit:                              ; preds = %.lr.ph
-  %178 = trunc i64 %indvars.iv.next to i32
+  %178 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader51
@@ -2300,7 +2300,7 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
   %indvars.iv68 = phi i64 [ %32, %.preheader.us.preheader ], [ %indvars.iv.next69, %._crit_edge55.us ]
   %33 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv68
   %34 = load i32, ptr %33, align 4
-  %35 = trunc i64 %indvars.iv68 to i32
+  %35 = trunc nuw i64 %indvars.iv68 to i32
   br label %37
 
 36:                                               ; preds = %37

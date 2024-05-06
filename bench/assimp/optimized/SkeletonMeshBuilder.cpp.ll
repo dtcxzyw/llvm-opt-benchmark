@@ -4403,7 +4403,7 @@ for.end292:                                       ; preds = %for.body283, %_ZN8a
 
 for.body298:                                      ; preds = %for.end292, %for.body298
   %indvars.iv2582 = phi i64 [ 0, %for.end292 ], [ %indvars.iv.next2583, %for.body298 ]
-  %365 = trunc i64 %indvars.iv2582 to i32
+  %365 = trunc nuw i64 %indvars.iv2582 to i32
   %add300 = add i32 %365, %conv
   %366 = load ptr, ptr %mWeights, align 8
   %arrayidx303 = getelementptr inbounds %struct.aiVertexWeight, ptr %366, i64 %indvars.iv2582

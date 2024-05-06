@@ -184,7 +184,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #4
 declare i32 @slurm_unpack_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_unpack_node(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @_unpack_node(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -381,7 +381,7 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #4
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_find_sackd_node(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_find_sackd_node(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @xstrcmp(ptr noundef %3, ptr noundef %1) #7
   %.not = icmp eq i32 %4, 0

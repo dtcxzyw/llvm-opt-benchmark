@@ -3411,7 +3411,7 @@ define dso_local ptr @tuplesort_readtup_alloc(ptr nocapture noundef %0, i64 noun
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tuplesort_estimate_shared(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, -7) i64 @tuplesort_estimate_shared(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
   %3 = tail call i64 @mul_size(i64 noundef 8, i64 noundef %2) #12
   %4 = tail call i64 @add_size(i64 noundef %3, i64 noundef 72) #12
@@ -3462,7 +3462,7 @@ define dso_local void @tuplesort_attach_shared(ptr noundef %0, ptr noundef %1) l
 declare void @SharedFileSetAttach(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @ssup_datum_unsigned_cmp(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #6 {
+define dso_local range(i32 -1, 2) i32 @ssup_datum_unsigned_cmp(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #6 {
   %4 = icmp ult i64 %0, %1
   %5 = icmp ugt i64 %0, %1
   %. = zext i1 %5 to i32
@@ -3471,7 +3471,7 @@ define dso_local noundef i32 @ssup_datum_unsigned_cmp(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @ssup_datum_signed_cmp(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #6 {
+define dso_local range(i32 -1, 2) i32 @ssup_datum_signed_cmp(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #6 {
   %4 = icmp slt i64 %0, %1
   %5 = icmp sgt i64 %0, %1
   %. = zext i1 %5 to i32
@@ -3480,7 +3480,7 @@ define dso_local noundef i32 @ssup_datum_signed_cmp(i64 noundef %0, i64 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @ssup_datum_int32_cmp(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #6 {
+define dso_local range(i32 -1, 2) i32 @ssup_datum_int32_cmp(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #6 {
   %4 = trunc i64 %0 to i32
   %5 = trunc i64 %1 to i32
   %6 = icmp slt i32 %4, %5

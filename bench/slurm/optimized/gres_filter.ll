@@ -1656,7 +1656,7 @@ declare zeroext i1 @gres_id_shared(i32 noundef) local_unnamed_addr #1
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_sockets_by_avail_cores(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @_sort_sockets_by_avail_cores(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load ptr, ptr @avail_cores_per_sock, align 8
   %4 = load i32, ptr %0, align 4
   %5 = sext i32 %4 to i64

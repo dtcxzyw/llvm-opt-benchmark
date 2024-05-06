@@ -36,7 +36,7 @@ asn1_generalizedtime_to_tm.exit:                  ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_GENERALIZEDTIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_GENERALIZEDTIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
 ASN1_GENERALIZEDTIME_check.exit:
   %t = alloca %struct.asn1_string_st, align 8
   %type = getelementptr inbounds i8, ptr %t, i64 4

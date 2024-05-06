@@ -38,7 +38,7 @@ _ZN4absl19GetCurrentTimeNanosEv.exit:             ; preds = %entry
 if.then:                                          ; preds = %_ZN4absl19GetCurrentTimeNanosEv.exit
   %div = udiv i64 %add.i.i, 1000000000
   %rem = urem i64 %add.i.i, 1000000000
-  %rem.tr = trunc i64 %rem to i32
+  %rem.tr = trunc nuw nsw i64 %rem to i32
   %conv.i = shl nuw i32 %rem.tr, 2
   br label %return
 
@@ -48,7 +48,7 @@ if.end:                                           ; preds = %_ZN4absl19GetCurren
   %rem.i.i7 = urem i64 %add.i.i.nonneg, 1000000000
   %rem.i.i7.neg = sub nsw i64 0, %rem.i.i7
   %cmp.i.i.i.not = icmp eq i64 %rem.i.i7, 0
-  %rem.tr.i.i = trunc i64 %rem.i.i7.neg to i32
+  %rem.tr.i.i = trunc nsw i64 %rem.i.i7.neg to i32
   %2 = shl i32 %rem.tr.i.i, 2
   %conv.i.i.i.i = add i32 %2, -294967296
   %ticks.lobit.i.i.i = ashr i64 %rem.i.i7.neg, 61

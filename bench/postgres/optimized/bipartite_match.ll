@@ -188,7 +188,7 @@ hk_breadth_search.exit:                           ; preds = %.loopexit.i, %.preh
   br i1 %88, label %89, label %95
 
 89:                                               ; preds = %.lr.ph
-  %90 = trunc i64 %indvars.iv to i32
+  %90 = trunc nuw nsw i64 %indvars.iv to i32
   %91 = tail call fastcc zeroext i1 @hk_depth_search(ptr noundef nonnull %4, i32 noundef %90)
   br i1 %91, label %92, label %95
 

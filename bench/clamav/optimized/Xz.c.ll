@@ -51,7 +51,7 @@ define void @Xz_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @XzFlags_GetCheckSize(i16 noundef zeroext %0) local_unnamed_addr #3 {
+define range(i32 0, 65) i32 @XzFlags_GetCheckSize(i16 noundef zeroext %0) local_unnamed_addr #3 {
   %2 = and i16 %0, 15
   %3 = icmp eq i16 %2, 0
   br i1 %3, label %8, label %4
@@ -144,7 +144,7 @@ declare i64 @Crc64Update(i64 noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i32 @cl_update_hash(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @XzCheck_Final(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @XzCheck_Final(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %.loopexit [
     i32 1, label %4

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [4 x i8] c"PWD\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_getcwd(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -11, 1) i32 @opal_getcwd(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4097 x i8], align 16
   %4 = alloca %struct.stat, align 8
   %5 = alloca %struct.stat, align 8

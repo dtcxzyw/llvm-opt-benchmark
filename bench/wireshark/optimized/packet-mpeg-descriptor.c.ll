@@ -2219,7 +2219,7 @@ target triple = "x86_64-pc-linux-gnu"
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @proto_mpeg_descriptor_dissect(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 2, 258) i32 @proto_mpeg_descriptor_dissect(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %5 = zext i8 %4 to i32
   %6 = add i32 %1, 1
@@ -5412,7 +5412,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_rcs_content(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @proto_mpeg_descriptor_loop_dissect(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden i32 @proto_mpeg_descriptor_loop_dissect(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %.not34 = icmp eq i32 %2, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
@@ -5562,7 +5562,7 @@ define hidden noundef i32 @proto_mpeg_descriptor_loop_dissect(ptr noundef %0, i3
   br i1 %94, label %.sink.split, label %96
 
 .sink.split:                                      ; preds = %91, %.thread29, %12
-  %95 = call i32 @proto_mpeg_descriptor_dissect(ptr noundef %0, i32 noundef %.033, ptr noundef %3), !range !33
+  %95 = call i32 @proto_mpeg_descriptor_dissect(ptr noundef %0, i32 noundef %.033, ptr noundef %3)
   br label %96
 
 96:                                               ; preds = %.sink.split, %91
@@ -5570,7 +5570,7 @@ define hidden noundef i32 @proto_mpeg_descriptor_loop_dissect(ptr noundef %0, i3
   %97 = add i32 %.1, %.033
   %98 = sub i32 %97, %1
   %99 = icmp ult i32 %98, %2
-  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %96, %4
   %.lcssa31 = phi i32 [ 0, %4 ], [ %98, %96 ]
@@ -5708,5 +5708,4 @@ attributes #5 = { nounwind }
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = !{i32 2, i32 258}
-!34 = distinct !{!34, !5}
+!33 = distinct !{!33, !5}

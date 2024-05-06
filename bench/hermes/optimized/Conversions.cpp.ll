@@ -56,7 +56,7 @@ return:                                           ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %m, ptr noundef %dest, i64 %destSize) local_unnamed_addr #1 {
+define hidden noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZN6hermes14numberToStringEdPcm(double noundef %m, ptr noundef %dest, i64 %destSize) local_unnamed_addr #1 {
 entry:
   %dalloc = alloca %class.DtoaAllocator, align 8
   %n = alloca i32, align 4
@@ -353,9 +353,9 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 declare void @g_freedtoa(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @hermes_numberToString(double noundef %m, ptr noundef %dest, i64 noundef %destSize) local_unnamed_addr #1 {
+define hidden noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @hermes_numberToString(double noundef %m, ptr noundef %dest, i64 noundef %destSize) local_unnamed_addr #1 {
 entry:
-  %call = tail call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %m, ptr noundef %dest, i64 poison), !range !12
+  %call = tail call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %m, ptr noundef %dest, i64 poison)
   ret i64 %call
 }
 
@@ -392,4 +392,3 @@ attributes #7 = { nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i64 -9223372036854775808, i64 9223372036854775807}

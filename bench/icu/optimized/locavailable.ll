@@ -635,8 +635,8 @@ for.body32:                                       ; preds = %for.cond29.preheade
   %8 = load ptr, ptr %arrayidx23, align 8
   %arrayidx36 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   store ptr %7, ptr %arrayidx36, align 8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %9 = trunc i64 %indvars.iv.next to i32
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %9 = trunc nuw nsw i64 %indvars.iv.next to i32
   %call30 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %availableLocalesTable, i32 noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool31.not = icmp eq i8 %call30, 0
   br i1 %tobool31.not, label %for.inc37, label %for.body32, !llvm.loop !6

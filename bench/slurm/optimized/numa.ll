@@ -160,7 +160,7 @@ _memset_to_str.exit:                              ; preds = %nodemask_isset_comp
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @get_memset(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.bitmask, align 8
   %4 = alloca %struct.bitmask, align 8
   %5 = alloca %struct.bitmask, align 8
@@ -697,7 +697,7 @@ define zeroext i16 @slurm_get_numa_node(i16 noundef zeroext %0) local_unnamed_ad
 
 40:                                               ; preds = %.preheader, %46
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %46 ]
-  %41 = trunc i64 %indvars.iv to i32
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
   %42 = call i32 @numa_bitmask_isbitset(ptr noundef nonnull %24, i32 noundef %41) #7
   %.not33 = icmp eq i32 %42, 0
   br i1 %.not33, label %46, label %43

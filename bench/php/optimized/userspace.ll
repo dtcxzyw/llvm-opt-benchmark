@@ -139,7 +139,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.97 = private unnamed_addr constant [14 x i8] c"dir_rewinddir\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zm_startup_user_streams(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zm_startup_user_streams(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @zend_register_list_destructors_ex(ptr noundef nonnull @stream_wrapper_dtor, ptr noundef null, ptr noundef nonnull @.str, i32 noundef 0) #11
   store i32 %3, ptr @le_protocols, align 4
   %4 = icmp eq i32 %3, -1
@@ -743,7 +743,7 @@ define internal noundef i32 @php_userstreamop_close(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_userstreamop_flush(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @php_userstreamop_flush(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -789,7 +789,7 @@ define internal noundef i32 @php_userstreamop_flush(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_userstreamop_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -1, 1) i32 @php_userstreamop_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca [2 x %struct._zval_struct], align 16
@@ -1005,7 +1005,7 @@ define internal i32 @php_userstreamop_cast(ptr noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_userstreamop_stat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1, 1) i32 @php_userstreamop_stat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1061,7 +1061,7 @@ define internal noundef i32 @php_userstreamop_stat(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_userstreamop_set_option(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca [3 x %struct._zval_struct], align 16
@@ -1414,7 +1414,7 @@ define internal i32 @php_userstreamop_set_option(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @php_userstreamop_readdir(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 {
+define internal range(i64 -1, 258) i64 @php_userstreamop_readdir(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1820,7 +1820,7 @@ define internal noundef i32 @user_wrapper_close(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @user_wrapper_stat_url(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
+define internal range(i32 -1, 1) i32 @user_wrapper_stat_url(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca [2 x %struct._zval_struct], align 16
@@ -2056,7 +2056,7 @@ define internal ptr @user_wrapper_opendir(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @user_wrapper_unlink(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @user_wrapper_unlink(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2, ptr noundef %3) #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca [1 x %struct._zval_struct], align 16
@@ -2145,7 +2145,7 @@ define internal i32 @user_wrapper_unlink(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @user_wrapper_rename(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 %3, ptr noundef %4) #0 {
+define internal range(i32 0, 2) i32 @user_wrapper_rename(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 %3, ptr noundef %4) #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca [2 x %struct._zval_struct], align 16
@@ -2254,7 +2254,7 @@ define internal i32 @user_wrapper_rename(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @user_wrapper_mkdir(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal range(i32 0, 2) i32 @user_wrapper_mkdir(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca [3 x %struct._zval_struct], align 16
@@ -2355,7 +2355,7 @@ define internal i32 @user_wrapper_mkdir(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @user_wrapper_rmdir(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @user_wrapper_rmdir(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca [2 x %struct._zval_struct], align 16
@@ -2450,7 +2450,7 @@ define internal i32 @user_wrapper_rmdir(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @user_wrapper_metadata(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) #0 {
+define internal range(i32 0, 2) i32 @user_wrapper_metadata(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca [3 x %struct._zval_struct], align 16

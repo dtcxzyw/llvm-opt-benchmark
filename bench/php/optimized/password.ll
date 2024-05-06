@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [8 x i8] c"argon2i\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @php_password_algo_register(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @php_password_algo_register(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = load ptr, ptr @zend_string_init_interned, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
@@ -550,7 +550,7 @@ php_password_bcrypt_valid.exit.thread:            ; preds = %2, %7, %11, %php_pa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_password_bcrypt_get_info(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @php_password_bcrypt_get_info(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca i64, align 8
   store i64 12, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
@@ -618,7 +618,7 @@ define internal zeroext i1 @php_password_bcrypt_valid(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zm_startup_password(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zm_startup_password(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   tail call void @_zend_hash_init(ptr noundef nonnull @php_password_algos, i32 noundef 4, ptr noundef nonnull @zval_ptr_dtor, i1 noundef zeroext true) #12
   tail call void @zend_register_string_constant(ptr noundef nonnull @.str.18, i64 noundef 16, ptr noundef nonnull @.str.1, i32 noundef 1, i32 noundef %1) #12

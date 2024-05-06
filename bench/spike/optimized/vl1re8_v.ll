@@ -89,7 +89,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19fast_rv32i_vl1re8_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vl1re8_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 1
   %5 = alloca %"class.std::tuple.141", align 8
   %6 = alloca %class.target_endian, align 1
@@ -218,8 +218,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %69 = lshr i64 %1, 29
   %70 = and i64 %69, 7
   %71 = add nuw nsw i64 %70, 1
-  %72 = trunc i64 %68 to i32
-  %73 = trunc i64 %71 to i32
+  %72 = trunc nuw nsw i64 %68 to i32
+  %73 = trunc nuw nsw i64 %71 to i32
   %74 = add nuw nsw i32 %73, 31
   %75 = and i32 %74, %72
   %76 = icmp eq i32 %75, 0
@@ -635,8 +635,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %69 = lshr i64 %1, 29
   %70 = and i64 %69, 7
   %71 = add nuw nsw i64 %70, 1
-  %72 = trunc i64 %68 to i32
-  %73 = trunc i64 %71 to i32
+  %72 = trunc nuw nsw i64 %68 to i32
+  %73 = trunc nuw nsw i64 %71 to i32
   %74 = add nuw nsw i32 %73, 31
   %75 = and i32 %74, %72
   %76 = icmp eq i32 %75, 0
@@ -898,7 +898,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21logged_rv32i_vl1re8_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vl1re8_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 1
   %5 = alloca %"class.std::tuple.141", align 8
   %6 = alloca %class.target_endian, align 1
@@ -1027,8 +1027,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %69 = lshr i64 %1, 29
   %70 = and i64 %69, 7
   %71 = add nuw nsw i64 %70, 1
-  %72 = trunc i64 %68 to i32
-  %73 = trunc i64 %71 to i32
+  %72 = trunc nuw nsw i64 %68 to i32
+  %73 = trunc nuw nsw i64 %71 to i32
   %74 = add nuw nsw i32 %73, 31
   %75 = and i32 %74, %72
   %76 = icmp eq i32 %75, 0
@@ -1421,8 +1421,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %69 = lshr i64 %1, 29
   %70 = and i64 %69, 7
   %71 = add nuw nsw i64 %70, 1
-  %72 = trunc i64 %68 to i32
-  %73 = trunc i64 %71 to i32
+  %72 = trunc nuw nsw i64 %68 to i32
+  %73 = trunc nuw nsw i64 %71 to i32
   %74 = add nuw nsw i32 %73, 31
   %75 = and i32 %74, %72
   %76 = icmp eq i32 %75, 0
@@ -1684,7 +1684,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader145, %.cr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19fast_rv32e_vl1re8_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vl1re8_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 1
   %5 = alloca %"class.std::tuple.141", align 8
   %6 = alloca %class.target_endian, align 1
@@ -1829,8 +1829,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %76 = lshr i64 %1, 29
   %77 = and i64 %76, 7
   %78 = add nuw nsw i64 %77, 1
-  %79 = trunc i64 %75 to i32
-  %80 = trunc i64 %78 to i32
+  %79 = trunc nuw nsw i64 %75 to i32
+  %80 = trunc nuw nsw i64 %78 to i32
   %81 = add nuw nsw i32 %80, 31
   %82 = and i32 %81, %79
   %83 = icmp eq i32 %82, 0
@@ -2239,8 +2239,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %76 = lshr i64 %1, 29
   %77 = and i64 %76, 7
   %78 = add nuw nsw i64 %77, 1
-  %79 = trunc i64 %75 to i32
-  %80 = trunc i64 %78 to i32
+  %79 = trunc nuw nsw i64 %75 to i32
+  %80 = trunc nuw nsw i64 %78 to i32
   %81 = add nuw nsw i32 %80, 31
   %82 = and i32 %81, %79
   %83 = icmp eq i32 %82, 0
@@ -2502,7 +2502,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %.preheader149, %.cr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z21logged_rv32e_vl1re8_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vl1re8_vP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.target_endian, align 1
   %5 = alloca %"class.std::tuple.141", align 8
   %6 = alloca %class.target_endian, align 1
@@ -2647,8 +2647,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %76 = lshr i64 %1, 29
   %77 = and i64 %76, 7
   %78 = add nuw nsw i64 %77, 1
-  %79 = trunc i64 %75 to i32
-  %80 = trunc i64 %78 to i32
+  %79 = trunc nuw nsw i64 %75 to i32
+  %80 = trunc nuw nsw i64 %78 to i32
   %81 = add nuw nsw i32 %80, 31
   %82 = and i32 %81, %79
   %83 = icmp eq i32 %82, 0
@@ -3057,8 +3057,8 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %76 = lshr i64 %1, 29
   %77 = and i64 %76, 7
   %78 = add nuw nsw i64 %77, 1
-  %79 = trunc i64 %75 to i32
-  %80 = trunc i64 %78 to i32
+  %79 = trunc nuw nsw i64 %75 to i32
+  %80 = trunc nuw nsw i64 %78 to i32
   %81 = add nuw nsw i32 %80, 31
   %82 = and i32 %81, %79
   %83 = icmp eq i32 %82, 0

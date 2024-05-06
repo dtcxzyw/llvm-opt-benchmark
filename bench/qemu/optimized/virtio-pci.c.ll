@@ -85,7 +85,7 @@ do.body24:                                        ; preds = %entry, %if.else
   br i1 %cmp33, label %do.end40, label %if.else36
 
 if.else36:                                        ; preds = %do.body24
-  %conv37 = uitofp i32 %and30 to x86_fp80
+  %conv37 = uitofp nneg i32 %and30 to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 233, ptr noundef nonnull @__func__.qvirtio_pci_virtqueue_setup_common, ptr noundef nonnull @.str.3, x86_fp80 noundef %conv37, ptr noundef nonnull @.str.4, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 105) #7
   br label %do.end40
 
@@ -220,7 +220,7 @@ do.end26:                                         ; preds = %if.else22, %do.end
   %add36 = add i64 %add, 4
   %8 = load i64, ptr %msix_addr, align 8
   %shr = lshr i64 %8, 32
-  %conv39 = trunc i64 %shr to i32
+  %conv39 = trunc nuw i64 %shr to i32
   %9 = load i64, ptr %msix_table_bar35, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load i8, ptr %10, align 8
@@ -317,7 +317,7 @@ do.end26:                                         ; preds = %if.else22, %do.end
   %add36 = add i64 %add, 4
   %8 = load i64, ptr %config_msix_addr, align 8
   %shr = lshr i64 %8, 32
-  %conv39 = trunc i64 %shr to i32
+  %conv39 = trunc nuw i64 %shr to i32
   %9 = load i64, ptr %msix_table_bar35, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load i8, ptr %10, align 8
@@ -593,7 +593,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qvirtio_pci_get_features(ptr nocapture noundef readonly %d) #0 {
+define internal range(i64 0, 4294967296) i64 @qvirtio_pci_get_features(ptr nocapture noundef readonly %d) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -621,7 +621,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qvirtio_pci_get_guest_features(ptr nocapture noundef readonly %d) #0 {
+define internal range(i64 0, 4294967296) i64 @qvirtio_pci_get_guest_features(ptr nocapture noundef readonly %d) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8

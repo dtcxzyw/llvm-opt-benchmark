@@ -95,14 +95,14 @@ $_ZTV13BaseException = comdat any
 @_ZTI8LuaError = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS8LuaError, ptr @_ZTI8ModError }, comdat, align 8
 @_ZZ17script_log_uniqueP9lua_StateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoiE15logged_messages = internal thread_local global %"class.std::vector" zeroinitializer, align 8
 @_ZGVZ17script_log_uniqueP9lua_StateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoiE15logged_messages = internal thread_local unnamed_addr global i1 false, align 1
-@_ZZ28get_deprecated_handling_modevE10configured = internal thread_local global i8 0, align 1
-@_ZZ28get_deprecated_handling_modevE3ret = internal thread_local global i32 0, align 4
+@_ZZ28get_deprecated_handling_modevE10configured = internal thread_local unnamed_addr global i8 0, align 1
+@_ZZ28get_deprecated_handling_modevE3ret = internal thread_local unnamed_addr global i32 0, align 4
 @g_settings = external local_unnamed_addr global ptr, align 8
 @.str.14 = private unnamed_addr constant [28 x i8] c"deprecated_lua_api_handling\00", align 1
 @.str.15 = private unnamed_addr constant [4 x i8] c"log\00", align 1
 @.str.16 = private unnamed_addr constant [6 x i8] c"error\00", align 1
 @warningstream = external thread_local global %class.LogStream, align 8
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.17 = private unnamed_addr constant [7 x i8] c"string\00", align 1
 @.str.18 = private unnamed_addr constant [5 x i8] c"dump\00", align 1
 @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = linkonce_odr dso_local local_unnamed_addr constant [201 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00", comdat, align 16
@@ -912,7 +912,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %7 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %7 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %7, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -1543,7 +1543,7 @@ if.then.i.i64:                                    ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i63:                                    ; preds = %while.end.i.i
-  %27 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %27 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %27, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 

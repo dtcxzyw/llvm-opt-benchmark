@@ -1209,7 +1209,7 @@ _ZN17crossbeam_channel5waker5Waker10try_select17hb3b14812dad24739E.exit: ; preds
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %93, ptr nonnull align 8 %94, i64 %97, i1 false), !noalias !187
   %98 = add i64 %90, -1
   store i64 %98, ptr %37, align 8, !alias.scope !182, !noalias !183
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !155
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !155
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %.pr = load ptr, ptr %5, align 8, !alias.scope !188
   call void @llvm.experimental.noalias.scope.decl(metadata !188)

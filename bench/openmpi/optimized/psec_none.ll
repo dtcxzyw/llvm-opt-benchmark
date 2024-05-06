@@ -85,7 +85,7 @@ define internal noundef i32 @create_cred(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @validate_cred(ptr nocapture readnone %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #0 {
+define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture readnone %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #0 {
   %7 = load i32, ptr getelementptr inbounds (%struct.pmix_globals_t, ptr @pmix_globals, i64 0, i32 15), align 8
   %or.cond = icmp ult i32 %7, 64
   br i1 %or.cond, label %8, label %14

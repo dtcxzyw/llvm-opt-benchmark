@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.test_kdf_scrypt.expected = private unnamed_addr constant [64 x i8] c"\FD\BA\BE\1C\9D4r\00xV\E7\19\0D\01\E9\FE|j\D7\CB\C8#x0\E7svcK71b.\AF0\D9.\22\A3\88o\F1\09'\9D\980\DA\C7'\AF\B9J\83\EEm\83`\CB\DF\A2\CC\06@", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_kdf_tls1_prf) #3
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_kdf_hkdf) #3
@@ -50,7 +50,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_tls1_prf() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_tls1_prf() #0 {
 entry:
   %out = alloca [16 x i8], align 16
   %outlen = alloca i64, align 8
@@ -124,7 +124,7 @@ err:                                              ; preds = %if.end21, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_hkdf() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_hkdf() #0 {
 entry:
   %out = alloca [10 x i8], align 1
   %outlen = alloca i64, align 8
@@ -207,7 +207,7 @@ err:                                              ; preds = %if.end25, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_kdf_scrypt() #0 {
+define internal range(i32 0, 2) i32 @test_kdf_scrypt() #0 {
 entry:
   %out = alloca [64 x i8], align 16
   %outlen = alloca i64, align 8

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [2 x i8] c"/\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @fnmatch(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @fnmatch(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 124) #2
   %5 = icmp eq ptr %4, null
   br i1 %5, label %._crit_edge, label %.lr.ph
@@ -44,7 +44,7 @@ define i32 @fnmatch(ptr noundef %0, ptr nocapture noundef readonly %1, i32 nound
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @fnmatch_one(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = sext i32 %1 to i64
   %6 = icmp sgt i32 %1, 0

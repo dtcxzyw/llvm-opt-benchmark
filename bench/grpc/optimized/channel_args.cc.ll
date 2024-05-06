@@ -249,7 +249,7 @@ entry:
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %entry
   %payload_.i1.i = getelementptr inbounds i8, ptr %p2, i64 16
   %payload_.i.i = getelementptr inbounds i8, ptr %p1, i64 16
-  %call.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %payload_.i.i, ptr noundef nonnull %payload_.i1.i, i64 noundef %.sroa.speculated.i.i.i) #28
+  %call.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly %payload_.i.i, ptr noundef nonnull readonly %payload_.i1.i, i64 noundef %.sroa.speculated.i.i.i) #28
   %cmp.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %"_ZNK9grpc_core11ChannelArgs5Value3$_5clEPvS3_.exit"
 
@@ -1235,7 +1235,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %c_args, i8 0, i64 24, i1 false)
   store ptr %c_args, ptr %ref.tmp, align 8
   %this.val = load ptr, ptr %this, align 8
-  invoke fastcc void @"_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE11ForEachImplIZNKS2_3ToCEvE3$_0EEvPKNS4_4NodeEOT_"(ptr noundef %this.val, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
+  invoke fastcc void @"_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE11ForEachImplIZNKS2_3ToCEvE3$_0EEvPKNS4_4NodeEOT_"(ptr noundef %this.val, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1246,7 +1246,7 @@ invoke.cont:                                      ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
-  %call.i1 = invoke noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef %0, i64 noundef %sub.ptr.div.i)
+  %call.i1 = invoke noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef readonly %0, i64 noundef %sub.ptr.div.i)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -2325,7 +2325,7 @@ invoke.cont:                                      ; preds = %cond.true.i.i.i.i
   %1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store ptr %backing_strings, ptr %1, align 8
   %this.val = load ptr, ptr %this, align 8
-  invoke fastcc void @"_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE11ForEachImplIZNKS2_8ToStringB5cxx11EvE3$_0EEvPKNS4_4NodeEOT_"(ptr noundef %this.val, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2)
+  invoke fastcc void @"_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE11ForEachImplIZNKS2_8ToStringB5cxx11EvE3$_0EEvPKNS4_4NodeEOT_"(ptr noundef %this.val, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp2)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -2904,7 +2904,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z22grpc_channel_args_copyPK17grpc_channel_args(ptr noundef %src) local_unnamed_addr #5 {
 entry:
-  %call.i = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef %src, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %call.i = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef %src, ptr noundef null, i64 noundef 0, ptr noundef readonly null, i64 noundef 0)
   ret ptr %call.i
 }
 
@@ -2915,7 +2915,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i.i = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef %b, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %call.i.i = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef %b, ptr noundef null, i64 noundef 0, ptr noundef readonly null, i64 noundef 0)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2923,7 +2923,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %call.i.i22 = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef nonnull %a, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %call.i.i22 = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef nonnull %a, ptr noundef null, i64 noundef 0, ptr noundef readonly null, i64 noundef 0)
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -2986,7 +2986,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
   %key.i = getelementptr inbounds %struct.grpc_arg, ptr %10, i64 %i.08.i, i32 1
   %11 = load ptr, ptr %key.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %8) #33
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %8) #33
   %cmp3.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.i, label %for.inc26, label %for.cond.i
 
@@ -3007,7 +3007,7 @@ for.inc26:                                        ; preds = %for.body.i, %if.the
 
 for.end28:                                        ; preds = %for.inc26, %for.cond12.preheader
   %uniques_idx.0.lcssa = phi i64 [ %.lcssa, %for.cond12.preheader ], [ %uniques_idx.1, %for.inc26 ]
-  %call.i23 = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef %call6, i64 noundef %uniques_idx.0.lcssa)
+  %call.i23 = tail call noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef readonly %call6, i64 noundef %uniques_idx.0.lcssa)
   tail call void @gpr_free(ptr noundef %call6)
   br label %return
 
@@ -3456,7 +3456,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %arrayidx.i = getelementptr inbounds %struct.grpc_arg, ptr %1, i64 %i.08.i
   %key.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %2 = load ptr, ptr %key.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %name) #33
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %name) #33
   %cmp3.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.i, label %if.end.i, label %for.cond.i
 
@@ -3552,7 +3552,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %arrayidx.i = getelementptr inbounds %struct.grpc_arg, ptr %1, i64 %i.08.i
   %key.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %2 = load ptr, ptr %key.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %name) #33
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %name) #33
   %cmp3.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.i, label %if.end.i, label %for.cond.i
 
@@ -3640,7 +3640,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %arrayidx.i = getelementptr inbounds %struct.grpc_arg, ptr %1, i64 %i.08.i
   %key.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %2 = load ptr, ptr %key.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %name) #33
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %name) #33
   %cmp3.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.i, label %if.end.i, label %for.cond.i
 
@@ -3699,7 +3699,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %arrayidx.i = getelementptr inbounds %struct.grpc_arg, ptr %1, i64 %i.08.i
   %key.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %2 = load ptr, ptr %key.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(19) @.str) #33
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(19) @.str) #33
   %cmp3.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.i, label %if.end.i, label %for.cond.i
 
@@ -9536,7 +9536,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_inse
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit80.i: ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i77.i, %if.then.i.i45.i
   %26 = load ptr, ptr %f, align 8
   %27 = load ptr, ptr %1, align 8
-  %call5.i = tail call { i64, ptr } @_ZNK9grpc_core11ChannelArgs5Value8ToStringERNSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE(ptr noundef nonnull align 8 dereferenceable(16) %second, ptr noundef nonnull align 8 dereferenceable(24) %27)
+  %call5.i = tail call { i64, ptr } @_ZNK9grpc_core11ChannelArgs5Value8ToStringERNSt7__cxx114listINS2_12basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE(ptr noundef nonnull readonly align 8 dereferenceable(16) %second, ptr noundef nonnull align 8 dereferenceable(24) %27)
   %28 = extractvalue { i64, ptr } %call5.i, 0
   %29 = extractvalue { i64, ptr } %call5.i, 1
   %_M_finish.i.i81.i = getelementptr inbounds i8, ptr %26, i64 8

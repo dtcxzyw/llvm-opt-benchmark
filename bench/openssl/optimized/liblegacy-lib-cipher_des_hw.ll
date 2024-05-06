@@ -317,7 +317,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %and16 = zext i8 %5 to i32
   %shr19 = lshr exact i32 %and16, %2
   %or = or i32 %shr19, %and13
-  %conv20 = trunc i32 %or to i8
+  %conv20 = trunc nuw i32 %or to i8
   store i8 %conv20, ptr %arrayidx9, align 1
   %inc = add nuw i64 %n.028, 1
   %exitcond.not = icmp eq i64 %inc, %umax

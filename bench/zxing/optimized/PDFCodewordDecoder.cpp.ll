@@ -288,7 +288,7 @@ _ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit: ; preds = %105
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi(i32 noundef %0) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, 929) i32 @_ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = and i32 %0, -65536
   %.not = icmp eq i32 %2, 65536
   br i1 %.not, label %3, label %27

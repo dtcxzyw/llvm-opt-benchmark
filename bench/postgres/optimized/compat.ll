@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [11 x i8] c"%s.%06d %s\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @timestamptz_to_time_t(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 -9222425352054, 9224318721655) i64 @timestamptz_to_time_t(i64 noundef %0) local_unnamed_addr #0 {
   %2 = sdiv i64 %0, 1000000
   %3 = add nsw i64 %2, 946684800
   ret i64 %3
@@ -27,7 +27,7 @@ define dso_local noundef nonnull ptr @timestamptz_to_str(i64 noundef %0) local_u
   %8 = call i64 @strftime(ptr noundef nonnull %2, i64 noundef 129, ptr noundef nonnull @.str, ptr noundef %7) #4
   %9 = call i64 @strftime(ptr noundef nonnull %3, i64 noundef 129, ptr noundef nonnull @.str.1, ptr noundef %7) #4
   %10 = srem i64 %0, 1000000
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nsw i64 %10 to i32
   %12 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @timestamptz_to_str.buf, i64 noundef 129, ptr noundef nonnull @.str.2, ptr noundef nonnull %2, i32 noundef %11, ptr noundef nonnull %3) #4
   ret ptr @timestamptz_to_str.buf
 }

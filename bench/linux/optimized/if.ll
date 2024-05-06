@@ -52,7 +52,7 @@ define dso_local ptr @mtrr_attrib_to_str(i32 noundef %0) local_unnamed_addr #0 a
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @mtrr_if_init() #1 section ".init.text" align 16 {
+define internal noundef range(i32 -19, 1) i32 @mtrr_if_init() #1 section ".init.text" align 16 {
   %1 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11), align 8
   %2 = and i64 %1, 4096
   %3 = icmp eq i64 %2, 0
@@ -123,7 +123,7 @@ define internal i32 @mtrr_open(ptr nocapture readnone %0, ptr noundef %1) #4 ali
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @mtrr_write(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #4 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @mtrr_write(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #4 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca [80 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
@@ -591,7 +591,7 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
 183:                                              ; preds = %169
   %184 = shl i64 %173, 12
   store i64 %184, ptr %8, align 8
-  %185 = trunc i64 %174 to i32
+  %185 = trunc nuw nsw i64 %174 to i32
   %186 = shl nuw i32 %185, 12
   %187 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %186, ptr %187, align 8
@@ -719,7 +719,7 @@ define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %
 271:                                              ; preds = %262
   %272 = load i64, ptr %5, align 8
   store i64 %272, ptr %8, align 8
-  %273 = trunc i64 %266 to i32
+  %273 = trunc nuw i64 %266 to i32
   %274 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %273, ptr %274, align 8
   %275 = load i8, ptr %4, align 1

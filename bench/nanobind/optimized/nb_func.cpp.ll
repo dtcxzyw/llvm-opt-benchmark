@@ -718,7 +718,7 @@ define noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr nocapture noundef %
 
 33:                                               ; preds = %29, %30
   %34 = phi ptr [ %32, %30 ], [ @.str.4, %29 ]
-  %35 = tail call noalias ptr @strdup(ptr noundef %34) #21
+  %35 = tail call noalias ptr @strdup(ptr noundef readonly %34) #21
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %36, label %_ZN8nanobind6detail12strdup_checkEPKc.exit
 
@@ -1134,7 +1134,7 @@ _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_
 
 240:                                              ; preds = %238, %233
   %241 = phi ptr [ %239, %238 ], [ %235, %233 ]
-  %242 = call noalias ptr @strdup(ptr noundef nonnull %241) #21
+  %242 = call noalias ptr @strdup(ptr noundef nonnull readonly %241) #21
   %.not.i213 = icmp eq ptr %242, null
   br i1 %.not.i213, label %243, label %_ZN8nanobind6detail12strdup_checkEPKc.exit214
 
@@ -1174,7 +1174,7 @@ _ZN8nanobind6detail12strdup_checkEPKc.exit214:    ; preds = %240
 256:                                              ; preds = %254
   %257 = getelementptr inbounds i8, ptr %0, i64 64
   %258 = load ptr, ptr %257, align 8
-  %259 = call noalias ptr @strdup(ptr noundef %258) #21
+  %259 = call noalias ptr @strdup(ptr noundef readonly %258) #21
   %.not.i215 = icmp eq ptr %259, null
   br i1 %.not.i215, label %260, label %_ZN8nanobind6detail12strdup_checkEPKc.exit216
 
@@ -1369,7 +1369,7 @@ _ZN8nanobind6detail12malloc_checkEm.exit221:      ; preds = %303
   br i1 %.not206, label %_ZN8nanobind6detail12strdup_checkEPKc.exit223, label %348
 
 348:                                              ; preds = %337
-  %349 = call noalias ptr @strdup(ptr noundef nonnull %347) #21
+  %349 = call noalias ptr @strdup(ptr noundef nonnull readonly %347) #21
   %.not.i222 = icmp eq ptr %349, null
   br i1 %.not.i222, label %350, label %_ZN8nanobind6detail12strdup_checkEPKc.exit223
 
@@ -6641,7 +6641,7 @@ _ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE
   br label %37
 
 _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %13
-  %15 = tail call i64 @llvm.ctpop.i64(i64 %1), !range !64
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %16 = icmp ult i64 %15, 2
   br i1 %16, label %_ZN3tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %17
 
@@ -6656,7 +6656,7 @@ _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; pred
   %21 = or i64 %20, %.01114.i.i
   %22 = shl nuw nsw i64 %.015.i.i, 1
   %23 = icmp ult i64 %.015.i.i, 32
-  br i1 %23, label %19, label %24, !llvm.loop !65
+  br i1 %23, label %19, label %24, !llvm.loop !64
 
 24:                                               ; preds = %19
   %25 = add i64 %21, 1
@@ -6699,7 +6699,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES
   %35 = add i64 %.057.i.i.i.i.i, -1
   %36 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i.i.i.i, label %49, label %.lr.ph.i.i.i.i.i, !llvm.loop !66
+  br i1 %.not.i.i.i.i.i, label %49, label %.lr.ph.i.i.i.i.i, !llvm.loop !65
 
 37:                                               ; preds = %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i, %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i.thread
   %38 = phi ptr [ %14, %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i.thread ], [ %27, %_ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i ]
@@ -6707,7 +6707,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   %40 = load atomic i8, ptr @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket acquire, align 8
   %41 = icmp eq i8 %40, 0
-  br i1 %41, label %42, label %.thread, !prof !67
+  br i1 %41, label %42, label %.thread, !prof !66
 
 42:                                               ; preds = %37
   %43 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #21
@@ -6933,7 +6933,6 @@ attributes #27 = { builtin allocsize(0) }
 !61 = distinct !{!61, !5}
 !62 = distinct !{!62, !5}
 !63 = distinct !{!63, !5}
-!64 = !{i64 0, i64 65}
+!64 = distinct !{!64, !5}
 !65 = distinct !{!65, !5}
-!66 = distinct !{!66, !5}
-!67 = !{!"branch_weights", i32 1, i32 1048575}
+!66 = !{!"branch_weights", i32 1, i32 1048575}

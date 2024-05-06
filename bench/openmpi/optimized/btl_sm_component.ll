@@ -687,7 +687,7 @@ define internal i32 @mca_btl_sm_component_progress() #0 {
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 2147483647
   %.lobit.i = lshr i32 %25, 31
-  %27 = trunc i32 %.lobit.i to i8
+  %27 = trunc nuw nsw i32 %.lobit.i to i8
   %28 = getelementptr inbounds i8, ptr %22, i64 60
   br label %29
 
@@ -905,7 +905,7 @@ mca_btl_sm_check_fboxes.exit:                     ; preds = %81
   %140 = load i32, ptr %110, align 4
   %141 = icmp sgt i32 %140, -1
   %.lobit.i.i.i.i = lshr i32 %140, 31
-  %142 = trunc i32 %.lobit.i.i.i.i to i8
+  %142 = trunc nuw nsw i32 %.lobit.i.i.i.i to i8
   %143 = load i32, ptr %111, align 8
   %.lobit102.i.i.i.i = lshr i32 %143, 31
   %144 = icmp ne i32 %.lobit102.i.i.i.i, %.lobit.i.i.i.i
@@ -1122,7 +1122,7 @@ opal_update_counted_pointer.exit.i.i.i.i.i.i.i:   ; preds = %.lr.ph.i.i.i.i.i.i.
   %241 = extractvalue { i128, i1 } %239, 0
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %241 to i64
   %.sroa.4.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %241, 64
-  %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i.i.i.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i.i.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i, ptr %.sroa.4.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i.i.i.i.i)

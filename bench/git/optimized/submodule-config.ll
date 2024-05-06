@@ -124,7 +124,7 @@ return:                                           ; preds = %entry, %for.end
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @check_submodule_name(ptr nocapture noundef readonly %name) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @check_submodule_name(ptr nocapture noundef readonly %name) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %name, align 1
   %tobool.not = icmp eq i8 %0, 0
@@ -230,7 +230,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @online_cpus() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @parse_fetch_recurse_submodules_arg(ptr noundef %opt, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 3) i32 @parse_fetch_recurse_submodules_arg(ptr noundef %opt, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @git_parse_maybe_bool(ptr noundef %arg) #14
   switch i32 %call.i, label %sw.default.i [
@@ -256,7 +256,7 @@ parse_fetch_recurse.exit:                         ; preds = %entry, %sw.bb1.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @option_fetch_parse_recurse_submodules(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @option_fetch_parse_recurse_submodules(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
 entry:
   %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -303,7 +303,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @parse_update_recurse_submodules_arg(ptr noundef %opt, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @parse_update_recurse_submodules_arg(ptr noundef %opt, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @git_parse_maybe_bool(ptr noundef %arg) #14
   switch i32 %call.i, label %if.then.i [
@@ -324,7 +324,7 @@ parse_update_recurse.exit:                        ; preds = %entry, %sw.bb1.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @parse_push_recurse_submodules_arg(ptr noundef %opt, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local range(i32 -5, 1) i32 @parse_push_recurse_submodules_arg(ptr noundef %opt, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @git_parse_maybe_bool(ptr noundef %arg) #14
   switch i32 %call.i, label %sw.default.i [
@@ -502,7 +502,7 @@ if.end17:                                         ; preds = %out, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gitmodules_cb(ptr noundef %var, ptr noundef %value, ptr nocapture noundef readnone %ctx, ptr nocapture noundef readonly %data) #0 {
+define internal range(i32 -1, 1) i32 @gitmodules_cb(ptr noundef %var, ptr noundef %value, ptr nocapture noundef readnone %ctx, ptr nocapture noundef readonly %data) #0 {
 entry:
   %parameter = alloca %struct.parse_config_parameter, align 8
   %submodule_cache = getelementptr inbounds i8, ptr %data, i64 232
@@ -515,7 +515,7 @@ entry:
   store ptr %call, ptr %gitmodules_oid, align 8
   %overwrite = getelementptr inbounds i8, ptr %parameter, i64 24
   store i32 1, ptr %overwrite, align 8
-  %call1 = call i32 @parse_config(ptr noundef %var, ptr noundef %value, ptr poison, ptr noundef nonnull %parameter), !range !7
+  %call1 = call i32 @parse_config(ptr noundef %var, ptr noundef %value, ptr poison, ptr noundef nonnull %parameter)
   ret i32 %call1
 }
 
@@ -555,7 +555,7 @@ if.end7.i:                                        ; preds = %if.then5.i, %land.l
   br label %submodule_cache_check_init.exit
 
 submodule_cache_check_init.exit:                  ; preds = %land.lhs.true.i, %if.end7.i
-  %call = call fastcc i32 @gitmodule_oid_from_commit(ptr noundef %commit_oid, ptr noundef nonnull %oid, ptr noundef nonnull %rev), !range !8
+  %call = call fastcc i32 @gitmodule_oid_from_commit(ptr noundef %commit_oid, ptr noundef nonnull %oid, ptr noundef nonnull %rev)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -582,7 +582,7 @@ if.end:                                           ; preds = %if.then, %submodule
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @gitmodule_oid_from_commit(ptr noundef %treeish_name, ptr noundef %gitmodules_oid, ptr noundef %rev) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @gitmodule_oid_from_commit(ptr noundef %treeish_name, ptr noundef %gitmodules_oid, ptr noundef %rev) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @null_oid() #14
   %algo.i.i = getelementptr inbounds i8, ptr %treeish_name, i64 32
@@ -609,11 +609,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %treeish_name, ptr noundef nonnull dereferenceable(32) %call.i, i64 32)
+  %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %treeish_name, ptr noundef nonnull readonly dereferenceable(32) %call.i, i64 32)
   br label %is_null_oid.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %treeish_name, ptr noundef nonnull dereferenceable(20) %call.i, i64 20)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %treeish_name, ptr noundef nonnull readonly dereferenceable(20) %call.i, i64 20)
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i
@@ -622,7 +622,7 @@ is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.
   br i1 %retval.0.in.i.i.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %is_null_oid.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %gitmodules_oid, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %gitmodules_oid, i8 0, i64 32, i1 false)
   %4 = load ptr, ptr @the_repository, align 8
   %hash_algo.i = getelementptr inbounds i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo.i, align 8
@@ -700,7 +700,7 @@ if.end:                                           ; preds = %if.then
   br label %return
 
 if.end7:                                          ; preds = %entry
-  %call8 = call fastcc i32 @gitmodule_oid_from_commit(ptr noundef nonnull %treeish_name, ptr noundef nonnull %oid, ptr noundef nonnull %rev), !range !8
+  %call8 = call fastcc i32 @gitmodule_oid_from_commit(ptr noundef nonnull %treeish_name, ptr noundef nonnull %oid, ptr noundef nonnull %rev)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %out, label %if.end11
 
@@ -721,7 +721,7 @@ sw.bb:                                            ; preds = %if.end11
   %call1.i.i = call i32 @strhash(ptr noundef nonnull %key) #14
   %add.i.i = add i32 %call1.i.i, %call.i.i
   %gitmodules_oid2.i = getelementptr inbounds i8, ptr %key_config.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %gitmodules_oid2.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %4 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %key_config.i, i64 96
   store i32 %4, ptr %algo3.i.i, align 8
@@ -760,7 +760,7 @@ sw.bb13:                                          ; preds = %if.end11
   %call1.i.i25 = call i32 @strhash(ptr noundef nonnull %key) #14
   %add.i.i26 = add i32 %call1.i.i25, %call.i.i24
   %gitmodules_oid2.i27 = getelementptr inbounds i8, ptr %key_config.i21, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i27, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %gitmodules_oid2.i27, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %9 = load i32, ptr %algo.i.i, align 4
   %algo3.i.i29 = getelementptr inbounds i8, ptr %key_config.i21, i64 96
   store i32 %9, ptr %algo3.i.i29, align 8
@@ -828,7 +828,7 @@ sw.bb26:                                          ; preds = %if.end22
   %call1.i.i42 = call i32 @strhash(ptr noundef nonnull %key) #14
   %add.i.i43 = add i32 %call1.i.i42, %call.i.i41
   %gitmodules_oid2.i44 = getelementptr inbounds i8, ptr %key_config.i38, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i44, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %gitmodules_oid2.i44, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %18 = load i32, ptr %algo.i.i45, align 4
   %algo3.i.i46 = getelementptr inbounds i8, ptr %key_config.i38, i64 96
   store i32 %18, ptr %algo3.i.i46, align 8
@@ -867,7 +867,7 @@ sw.bb28:                                          ; preds = %if.end22
   %call1.i.i62 = call i32 @strhash(ptr noundef nonnull %key) #14
   %add.i.i63 = add i32 %call1.i.i62, %call.i.i61
   %gitmodules_oid2.i64 = getelementptr inbounds i8, ptr %key_config.i58, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i64, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %gitmodules_oid2.i64, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %23 = load i32, ptr %algo.i.i45, align 4
   %algo3.i.i66 = getelementptr inbounds i8, ptr %key_config.i58, i64 96
   store i32 %23, ptr %algo3.i.i66, align 8
@@ -1052,7 +1052,7 @@ if.end56:                                         ; preds = %if.else49, %if.then
   call void @free(ptr noundef %tree_path.0) #14
   %call2 = call i32 @tree_entry(ptr noundef nonnull %tree, ptr noundef nonnull %call) #14
   %tobool.not = icmp eq i32 %call2, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !9
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end56, %entry
   ret void
@@ -1075,7 +1075,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @print_config_from_gitmodules(ptr noundef %repo, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @print_config_from_gitmodules(ptr noundef %repo, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %store_key = alloca ptr, align 8
   %call = call i32 @git_config_parse_key(ptr noundef %key, ptr noundef nonnull %store_key, ptr noundef null) #14
@@ -1286,7 +1286,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @config_path_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture readnone %keydata) #9 {
+define internal range(i32 0, 2) i32 @config_path_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture readnone %keydata) #9 {
 entry:
   %config = getelementptr inbounds i8, ptr %eptr, i64 16
   %0 = load ptr, ptr %config, align 8
@@ -1325,11 +1325,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %gitmodules_oid, ptr noundef nonnull dereferenceable(32) %gitmodules_oid6, i64 32)
+  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %gitmodules_oid, ptr noundef nonnull readonly dereferenceable(32) %gitmodules_oid6, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %gitmodules_oid, ptr noundef nonnull dereferenceable(20) %gitmodules_oid6, i64 20)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %gitmodules_oid, ptr noundef nonnull readonly dereferenceable(20) %gitmodules_oid6, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
@@ -1344,7 +1344,7 @@ lor.end:                                          ; preds = %oideq.exit, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @config_name_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture readnone %keydata) #9 {
+define internal range(i32 0, 2) i32 @config_name_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr nocapture readnone %keydata) #9 {
 entry:
   %config = getelementptr inbounds i8, ptr %eptr, i64 16
   %0 = load ptr, ptr %config, align 8
@@ -1385,11 +1385,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %gitmodules_oid, ptr noundef nonnull dereferenceable(32) %gitmodules_oid6, i64 32)
+  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %gitmodules_oid, ptr noundef nonnull readonly dereferenceable(32) %gitmodules_oid6, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %gitmodules_oid, ptr noundef nonnull dereferenceable(20) %gitmodules_oid6, i64 20)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %gitmodules_oid, ptr noundef nonnull readonly dereferenceable(20) %gitmodules_oid6, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
@@ -1423,7 +1423,7 @@ declare i32 @config_with_options(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @null_oid() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_config(ptr noundef %var, ptr noundef %value, ptr nocapture readnone %ctx, ptr nocapture noundef readonly %data) #0 {
+define internal range(i32 -1, 1) i32 @parse_config(ptr noundef %var, ptr noundef %value, ptr nocapture readnone %ctx, ptr nocapture noundef readonly %data) #0 {
 entry:
   %e.i = alloca %struct.submodule_entry, align 8
   %key.i.i = alloca %struct.submodule_entry, align 8
@@ -1543,7 +1543,7 @@ if.end:                                           ; preds = %if.end19.i.i
   %call1.i.i.i = call i32 @strhash(ptr noundef %13) #14
   %add.i.i.i = add i32 %call1.i.i.i, %call.i.i.i
   %gitmodules_oid2.i.i = getelementptr inbounds i8, ptr %key_config.i.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gitmodules_oid2.i.i, ptr noundef nonnull align 4 dereferenceable(32) %12, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %gitmodules_oid2.i.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %12, i64 32, i1 false)
   %algo.i.i.i = getelementptr inbounds i8, ptr %12, i64 32
   %17 = load i32, ptr %algo.i.i.i, align 4
   %algo3.i.i.i = getelementptr inbounds i8, ptr %key_config.i.i, i64 96
@@ -1594,7 +1594,7 @@ if.end.i79:                                       ; preds = %cache_lookup_name.e
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ignore.i, i8 0, i64 16, i1 false)
   store i32 -1, ptr %recommend_shallow.i, align 4
   %gitmodules_oid5.i = getelementptr inbounds i8, ptr %call1.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %gitmodules_oid5.i, ptr noundef nonnull align 4 dereferenceable(32) %12, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %gitmodules_oid5.i, ptr noundef nonnull readonly align 4 dereferenceable(32) %12, i64 32, i1 false)
   %19 = load i32, ptr %algo.i.i.i, align 4
   %algo3.i.i = getelementptr inbounds i8, ptr %call1.i, i64 96
   store i32 %19, ptr %algo3.i.i, align 4
@@ -1752,11 +1752,11 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %38, ptr noundef nonnull dereferenceable(32) %call.i97, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %38, ptr noundef nonnull readonly dereferenceable(32) %call.i97, i64 32)
   br label %is_null_oid.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %38, ptr noundef nonnull dereferenceable(20) %call.i97, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %38, ptr noundef nonnull readonly dereferenceable(20) %call.i97, i64 20)
   br label %is_null_oid.exit
 
 is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i
@@ -2179,6 +2179,4 @@ attributes #16 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 1}
-!8 = !{i32 0, i32 2}
-!9 = distinct !{!9, !6}
+!7 = distinct !{!7, !6}

@@ -90,7 +90,7 @@ declare i32 @tcsetattr(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare void @sigchain_pop_common() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @save_term(i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @save_term(i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %sa = alloca %struct.sigaction, align 8
   %0 = load i32, ptr @term_fd, align 4
@@ -318,7 +318,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool6.not, label %land.lhs.true, label %if.end12
 
 land.lhs.true:                                    ; preds = %if.end5
-  %call.i = tail call fastcc noundef i32 @disable_bits(i32 noundef 0, i32 noundef 8), !range !5
+  %call.i = tail call fastcc i32 @disable_bits(i32 noundef 0, i32 noundef 8)
   %tobool8.not = icmp eq i32 %call.i, 0
   br i1 %tobool8.not, label %if.end12, label %if.then9
 
@@ -380,7 +380,7 @@ entry:
   br i1 %.b11, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call.i = tail call fastcc noundef i32 @disable_bits(i32 noundef 2, i32 noundef 10), !range !5
+  %call.i = tail call fastcc i32 @disable_bits(i32 noundef 2, i32 noundef 10)
   %cmp = icmp slt i32 %call.i, 0
   br i1 %cmp, label %if.then, label %if.end4
 
@@ -499,7 +499,7 @@ for.cond.i:                                       ; preds = %if.end27.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call9.i, i64 1
   %13 = load i8, ptr %add.ptr.i, align 1
   %tobool4.not.i = icmp eq i8 %13, 0
-  br i1 %tobool4.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
+  br i1 %tobool4.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %if.end.i, %for.cond.i
   %p.025.i = phi ptr [ %add.ptr.i, %for.cond.i ], [ %11, %if.end.i ]
@@ -637,7 +637,7 @@ strbuf_addch.exit35:                              ; preds = %strbuf_avail.exit.i
   %21 = load i64, ptr %len2.i, align 8
   %arrayidx3.i30 = getelementptr inbounds i8, ptr %20, i64 %21
   store i8 0, ptr %arrayidx3.i30, align 1
-  br label %while.cond, !llvm.loop !8
+  br label %while.cond, !llvm.loop !7
 
 if.end18:                                         ; preds = %is_known_escape_sequence.exit, %getchar_with_timeout.exit, %getchar_with_timeout.exit.thread, %strbuf_addch.exit
   call void @restore_term()
@@ -712,10 +712,10 @@ declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @disable_bits(i32 noundef %flags, i32 noundef %bits) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @disable_bits(i32 noundef %flags, i32 noundef %bits) unnamed_addr #0 {
 entry:
   %t = alloca %struct.termios, align 4
-  %call = tail call i32 @save_term(i32 noundef %flags), !range !5
+  %call = tail call i32 @save_term(i32 noundef %flags)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -854,7 +854,6 @@ attributes #16 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

@@ -1600,7 +1600,7 @@ declare dso_local void @intel_runtime_pm_put_unchecked(ptr noundef) local_unname
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @bxt_setup_backlight(ptr noundef %0, i32 %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @bxt_setup_backlight(ptr noundef %0, i32 %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2233
   %5 = load i8, ptr %4, align 1
@@ -1632,7 +1632,7 @@ define internal noundef i32 @bxt_setup_backlight(ptr noundef %0, i32 %1) #0 alig
   %24 = phi i8 [ %.pre, %16 ], [ %14, %2 ]
   %25 = getelementptr inbounds i8, ptr %0, i64 2042
   %26 = lshr i32 %13, 29
-  %27 = trunc i32 %26 to i8
+  %27 = trunc nuw nsw i32 %26 to i8
   %28 = and i8 %27, 1
   store i8 %28, ptr %25, align 2
   %29 = zext i8 %24 to i32
@@ -1657,7 +1657,7 @@ define internal noundef i32 @bxt_setup_backlight(ptr noundef %0, i32 %1) #0 alig
   store i32 %39, ptr %40, align 4
   %41 = getelementptr inbounds i8, ptr %0, i64 2052
   %42 = lshr i32 %13, 31
-  %43 = trunc i32 %42 to i8
+  %43 = trunc nuw nsw i32 %42 to i8
   store i8 %43, ptr %41, align 4
   %44 = icmp eq ptr %3, null
   br i1 %44, label %48, label %45
@@ -1920,7 +1920,7 @@ define internal void @bxt_enable_backlight(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal i32 @bxt_hz_to_pwm(ptr nocapture readnone %0, i32 noundef %1) #5 align 16 {
+define internal range(i32 0, -2128283648) i32 @bxt_hz_to_pwm(ptr nocapture readnone %0, i32 noundef %1) #5 align 16 {
   %3 = lshr i32 %1, 1
   %4 = add nuw i32 %3, 19200000
   %5 = udiv i32 %4, %1
@@ -2070,12 +2070,12 @@ define internal fastcc i32 @get_backlight_min_vbt(ptr nocapture noundef readonly
   %36 = mul nuw nsw i64 %35, %34
   %37 = add nuw nsw i64 %36, 127
   %38 = udiv i64 %37, 255
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cnp_setup_backlight(ptr noundef %0, i32 %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @cnp_setup_backlight(ptr noundef %0, i32 %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2233
   %5 = load i8, ptr %4, align 1
@@ -2143,7 +2143,7 @@ define internal noundef i32 @cnp_setup_backlight(ptr noundef %0, i32 %1) #0 alig
   %48 = tail call i32 %47(ptr noundef %45, i32 %44, i1 noundef zeroext true) #9
   %49 = getelementptr inbounds i8, ptr %0, i64 2042
   %50 = lshr i32 %48, 29
-  %51 = trunc i32 %50 to i8
+  %51 = trunc nuw nsw i32 %50 to i8
   %52 = and i8 %51, 1
   store i8 %52, ptr %49, align 2
   %53 = load i8, ptr %6, align 2
@@ -2169,7 +2169,7 @@ define internal noundef i32 @cnp_setup_backlight(ptr noundef %0, i32 %1) #0 alig
   store i32 %64, ptr %65, align 4
   %66 = getelementptr inbounds i8, ptr %0, i64 2052
   %67 = lshr i32 %48, 31
-  %68 = trunc i32 %67 to i8
+  %68 = trunc nuw nsw i32 %67 to i8
   store i8 %68, ptr %66, align 4
   %69 = icmp eq ptr %3, null
   br i1 %69, label %73, label %70
@@ -2344,7 +2344,7 @@ define internal i32 @cnp_hz_to_pwm(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @lpt_setup_backlight(ptr noundef %0, i32 %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @lpt_setup_backlight(ptr noundef %0, i32 %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8112
   %5 = load i32, ptr %4, align 8
@@ -2374,7 +2374,7 @@ define internal noundef i32 @lpt_setup_backlight(ptr noundef %0, i32 %1) #0 alig
   %22 = tail call i32 %21(ptr noundef %7, i32 819792, i1 noundef zeroext true) #9
   %23 = getelementptr inbounds i8, ptr %0, i64 2042
   %24 = lshr i32 %22, 29
-  %25 = trunc i32 %24 to i8
+  %25 = trunc nuw nsw i32 %24 to i8
   %26 = and i8 %25, 1
   store i8 %26, ptr %23, align 2
   %27 = load ptr, ptr %8, align 8
@@ -2401,7 +2401,7 @@ define internal noundef i32 @lpt_setup_backlight(ptr noundef %0, i32 %1) #0 alig
   %40 = icmp slt i32 %22, 0
   %41 = getelementptr inbounds i8, ptr %0, i64 2052
   %42 = lshr i32 %22, 31
-  %43 = trunc i32 %42 to i8
+  %43 = trunc nuw nsw i32 %42 to i8
   store i8 %43, ptr %41, align 4
   br i1 %40, label %44, label %82
 
@@ -2479,7 +2479,7 @@ define internal noundef i32 @lpt_setup_backlight(ptr noundef %0, i32 %1) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @lpt_get_backlight(ptr nocapture noundef readonly %0, i32 %1) #0 align 16 {
+define internal range(i32 0, 65536) i32 @lpt_get_backlight(ptr nocapture noundef readonly %0, i32 %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 7368
   %5 = getelementptr inbounds i8, ptr %3, i64 7512
@@ -2663,7 +2663,7 @@ define internal void @lpt_enable_backlight(ptr nocapture readnone %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @lpt_hz_to_pwm(ptr nocapture noundef readonly %0, i32 noundef %1) #6 align 16 {
+define internal range(i32 0, -2012483648) i32 @lpt_hz_to_pwm(ptr nocapture noundef readonly %0, i32 noundef %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2043
   %5 = load i8, ptr %4, align 1, !range !28, !noundef !29
@@ -2682,7 +2682,7 @@ define internal i32 @lpt_hz_to_pwm(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pch_get_backlight(ptr nocapture noundef readonly %0, i32 %1) #0 align 16 {
+define internal range(i32 0, 65536) i32 @pch_get_backlight(ptr nocapture noundef readonly %0, i32 %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 7368
   %5 = getelementptr inbounds i8, ptr %3, i64 7512
@@ -2693,7 +2693,7 @@ define internal i32 @pch_get_backlight(ptr nocapture noundef readonly %0, i32 %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @spt_hz_to_pwm(ptr nocapture noundef readonly %0, i32 noundef %1) #7 align 16 {
+define internal range(i32 0, -2123483648) i32 @spt_hz_to_pwm(ptr nocapture noundef readonly %0, i32 noundef %1) #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2043
   %4 = load i8, ptr %3, align 1, !range !28, !noundef !29
   %5 = icmp eq i8 %4, 0
@@ -2706,7 +2706,7 @@ define internal i32 @spt_hz_to_pwm(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pch_setup_backlight(ptr noundef %0, i32 %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @pch_setup_backlight(ptr noundef %0, i32 %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 7368
   %5 = getelementptr inbounds i8, ptr %3, i64 7512
@@ -2714,7 +2714,7 @@ define internal noundef i32 @pch_setup_backlight(ptr noundef %0, i32 %1) #0 alig
   %7 = tail call i32 %6(ptr noundef %4, i32 819792, i1 noundef zeroext true) #9
   %8 = getelementptr inbounds i8, ptr %0, i64 2042
   %9 = lshr i32 %7, 29
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = and i8 %10, 1
   store i8 %11, ptr %8, align 2
   %12 = load ptr, ptr %5, align 8
@@ -3088,7 +3088,7 @@ define internal void @ext_pwm_enable_backlight(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vlv_setup_backlight(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @vlv_setup_backlight(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp ugt i32 %1, 1
   br i1 %4, label %5, label %17, !prof !5
@@ -3126,7 +3126,7 @@ define internal noundef i32 @vlv_setup_backlight(ptr noundef %0, i32 noundef %1)
   %23 = tail call i32 %22(ptr noundef %20, i32 %19, i1 noundef zeroext true) #9
   %24 = getelementptr inbounds i8, ptr %0, i64 2042
   %25 = lshr i32 %23, 28
-  %26 = trunc i32 %25 to i8
+  %26 = trunc nuw nsw i32 %25 to i8
   %27 = and i8 %26, 1
   store i8 %27, ptr %24, align 2
   %28 = or disjoint i32 %18, 1970772
@@ -3154,7 +3154,7 @@ define internal noundef i32 @vlv_setup_backlight(ptr noundef %0, i32 noundef %1)
   store i32 %40, ptr %41, align 4
   %42 = getelementptr inbounds i8, ptr %0, i64 2052
   %43 = lshr i32 %23, 31
-  %44 = trunc i32 %43 to i8
+  %44 = trunc nuw nsw i32 %43 to i8
   store i8 %44, ptr %42, align 4
   %45 = icmp eq ptr %3, null
   br i1 %45, label %49, label %46
@@ -3180,7 +3180,7 @@ define internal noundef i32 @vlv_setup_backlight(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @vlv_get_backlight(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal range(i32 0, 65536) i32 @vlv_get_backlight(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp ugt i32 %1, 1
   br i1 %4, label %5, label %17, !prof !5
@@ -3405,7 +3405,7 @@ define internal i32 @vlv_hz_to_pwm(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i965_setup_backlight(ptr noundef %0, i32 %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @i965_setup_backlight(ptr noundef %0, i32 %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 7368
   %5 = getelementptr inbounds i8, ptr %3, i64 7512
@@ -3413,12 +3413,12 @@ define internal noundef i32 @i965_setup_backlight(ptr noundef %0, i32 %1) #0 ali
   %7 = tail call i32 %6(ptr noundef %4, i32 397904, i1 noundef zeroext true) #9
   %8 = getelementptr inbounds i8, ptr %0, i64 2041
   %9 = lshr i32 %7, 30
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = and i8 %10, 1
   store i8 %11, ptr %8, align 1
   %12 = getelementptr inbounds i8, ptr %0, i64 2042
   %13 = lshr i32 %7, 28
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = and i8 %14, 1
   store i8 %15, ptr %12, align 2
   %16 = load ptr, ptr %5, align 8
@@ -3455,7 +3455,7 @@ define internal noundef i32 @i965_setup_backlight(ptr noundef %0, i32 %1) #0 ali
   store i32 %32, ptr %33, align 4
   %34 = getelementptr inbounds i8, ptr %0, i64 2052
   %35 = lshr i32 %7, 31
-  %36 = trunc i32 %35 to i8
+  %36 = trunc nuw nsw i32 %35 to i8
   store i8 %36, ptr %34, align 4
   %37 = icmp eq ptr %3, null
   br i1 %37, label %41, label %38
@@ -3480,7 +3480,7 @@ define internal noundef i32 @i965_setup_backlight(ptr noundef %0, i32 %1) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i9xx_get_backlight(ptr nocapture noundef readonly %0, i32 %1) #0 align 16 {
+define internal range(i32 0, 16711426) i32 @i9xx_get_backlight(ptr nocapture noundef readonly %0, i32 %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 7368
@@ -3740,7 +3740,7 @@ declare dso_local i32 @pci_read_config_byte(ptr noundef, i32 noundef, ptr nounde
 declare dso_local i32 @pci_write_config_byte(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i9xx_setup_backlight(ptr noundef %0, i32 %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @i9xx_setup_backlight(ptr noundef %0, i32 %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 7368
@@ -4029,7 +4029,7 @@ define internal i32 @i9xx_hz_to_pwm(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_pwm_setup_backlight(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @intel_pwm_setup_backlight(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2112
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8

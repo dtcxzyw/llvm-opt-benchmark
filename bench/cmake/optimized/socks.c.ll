@@ -384,7 +384,7 @@ socksstate.exit:                                  ; preds = %45
 
 134:                                              ; preds = %132, %131, %.thread.i.i
   %.1.i.i = phi i64 [ 4, %132 ], [ 3, %131 ], [ 3, %.thread.i.i ]
-  %135 = trunc i64 %.1.i.i to i8
+  %135 = trunc nuw nsw i64 %.1.i.i to i8
   %136 = add nsw i8 %135, -2
   %137 = getelementptr inbounds i8, ptr %.0, i64 17
   store i8 %136, ptr %137, align 1

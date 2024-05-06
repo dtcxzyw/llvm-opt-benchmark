@@ -690,7 +690,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %a = getelementptr inbounds %struct.aiTexel, ptr %8, i64 %indvars.iv, i32 3
   store i8 -1, ptr %a, align 1
   %9 = lshr i16 %val.sroa.0.0.copyload, 8
-  %10 = trunc i16 %9 to i8
+  %10 = trunc nuw i16 %9 to i8
   %conv28 = and i8 %10, -8
   %11 = load ptr, ptr %pcData, align 8
   %r = getelementptr inbounds %struct.aiTexel, ptr %11, i64 %indvars.iv, i32 2
@@ -715,7 +715,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp22, label %for.body, label %if.end53.loopexit, !llvm.loop !9
 
 if.end53.loopexit:                                ; preds = %for.body
-  %19 = trunc i64 %indvars.iv.next to i32
+  %19 = trunc nuw i64 %indvars.iv.next to i32
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then12, %if.end53.loopexit, %for.cond.preheader
@@ -783,7 +783,7 @@ for.body84:                                       ; preds = %for.cond79.preheade
   %g119 = getelementptr inbounds %struct.aiTexel, ptr %28, i64 %indvars.iv185, i32 1
   store i8 %conv115, ptr %g119, align 1
   %29 = lshr i16 %val85.sroa.0.0.copyload, 8
-  %30 = trunc i16 %29 to i8
+  %30 = trunc nuw i16 %29 to i8
   %conv125 = and i8 %30, -16
   %31 = load ptr, ptr %pcData, align 8
   %arrayidx128 = getelementptr inbounds %struct.aiTexel, ptr %31, i64 %indvars.iv185
@@ -797,7 +797,7 @@ for.body84:                                       ; preds = %for.cond79.preheade
   br i1 %cmp83, label %for.body84, label %if.end137.loopexit, !llvm.loop !10
 
 if.end137.loopexit:                               ; preds = %for.body84
-  %35 = trunc i64 %indvars.iv.next186 to i32
+  %35 = trunc nuw i64 %indvars.iv.next186 to i32
   br label %if.end137
 
 if.end137:                                        ; preds = %if.then69, %if.end137.loopexit, %for.cond79.preheader
@@ -876,7 +876,7 @@ for.body170:                                      ; preds = %for.cond165.prehead
   br i1 %cmp169, label %for.body170, label %if.end198.loopexit, !llvm.loop !11
 
 if.end198.loopexit:                               ; preds = %for.body170
-  %50 = trunc i64 %indvars.iv.next189 to i32
+  %50 = trunc nuw i64 %indvars.iv.next189 to i32
   br label %if.end198
 
 if.end198:                                        ; preds = %if.then155, %if.end198.loopexit, %for.cond165.preheader
@@ -958,7 +958,7 @@ for.body231:                                      ; preds = %for.cond226.prehead
   br i1 %cmp230, label %for.body231, label %if.end262.loopexit, !llvm.loop !12
 
 if.end262.loopexit:                               ; preds = %for.body231
-  %66 = trunc i64 %indvars.iv.next195 to i32
+  %66 = trunc nuw i64 %indvars.iv.next195 to i32
   br label %if.end262
 
 if.end262:                                        ; preds = %if.then216, %if.end262.loopexit, %for.cond226.preheader
@@ -1030,7 +1030,7 @@ for.body290:                                      ; preds = %if.then284, %for.bo
   br i1 %cmp289, label %for.body290, label %for.end318.loopexit, !llvm.loop !13
 
 for.end318.loopexit:                              ; preds = %for.body290
-  %82 = trunc i64 %indvars.iv.next192 to i32
+  %82 = trunc nuw i64 %indvars.iv.next192 to i32
   br label %for.end318
 
 for.end318:                                       ; preds = %for.end318.loopexit, %if.then284
@@ -1332,10 +1332,10 @@ if.end55:                                         ; preds = %invoke.cont52, %if.
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr nonnull align 1 %szCurrent, i64 %cond, i1 false)
   %arrayidx59 = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %cond
   store i8 0, ptr %arrayidx59, align 1
-  %conv60 = trunc i64 %cond to i32
+  %conv60 = trunc nuw nsw i64 %cond to i32
   store i32 %conv60, ptr %szFile, align 4
-  %3 = getelementptr i8, ptr %szCurrent, i64 %cond
-  %add.ptr61 = getelementptr i8, ptr %3, i64 1
+  %3 = getelementptr inbounds i8, ptr %szCurrent, i64 %cond
+  %add.ptr61 = getelementptr inbounds i8, ptr %3, i64 1
   %call63 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %pcMatOut, ptr noundef nonnull %szFile, ptr noundef nonnull @.str.8, i32 noundef 1, i32 noundef 0)
           to label %if.else130 unwind label %lpad
 
@@ -1401,8 +1401,8 @@ for.body92:                                       ; preds = %for.cond90.preheade
   %spec.select = xor i1 %cmp93, %4
   %5 = load ptr, ptr %pcData.i88, align 8
   %6 = shl nuw nsw i64 %indvars.iv, 3
-  %7 = getelementptr %struct.aiTexel, ptr %5, i64 %6
-  %arrayidx104 = getelementptr %struct.aiTexel, ptr %7, i64 %indvars.iv159
+  %7 = getelementptr inbounds %struct.aiTexel, ptr %5, i64 %6
+  %arrayidx104 = getelementptr inbounds %struct.aiTexel, ptr %7, i64 %indvars.iv159
   %conv107 = sext i1 %spec.select to i8
   %g = getelementptr inbounds i8, ptr %arrayidx104, i64 1
   store i8 %conv107, ptr %g, align 1

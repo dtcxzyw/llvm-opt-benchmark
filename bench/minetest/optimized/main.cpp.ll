@@ -660,7 +660,7 @@ $_ZTI11ServerError = comdat any
 @.str.199 = private unnamed_addr constant [21 x i8] c"Using world gameid [\00", align 1
 @.str.200 = private unnamed_addr constant [7 x i8] c"Game [\00", align 1
 @.str.201 = private unnamed_addr constant [22 x i8] c"] could not be found.\00", align 1
-@verbosestream = external thread_local global %class.LogStream, align 8
+@verbosestream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.202 = private unnamed_addr constant [17 x i8] c"Using world path\00", align 1
 @.str.203 = private unnamed_addr constant [13 x i8] c"Using gameid\00", align 1
 @.str.204 = private unnamed_addr constant [13 x i8] c"bind_address\00", align 1
@@ -702,7 +702,7 @@ $_ZTI11ServerError = comdat any
 @.str.231 = private unnamed_addr constant [11 x i8] c" Migrated \00", align 1
 @.str.232 = private unnamed_addr constant [10 x i8] c" blocks, \00", align 1
 @.str.233 = private unnamed_addr constant [14 x i8] c"% completed.\0D\00", align 1
-@actionstream = external thread_local global %class.LogStream, align 8
+@actionstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.234 = private unnamed_addr constant [23 x i8] c"Successfully migrated \00", align 1
 @.str.235 = private unnamed_addr constant [8 x i8] c" blocks\00", align 1
 @.str.236 = private unnamed_addr constant [27 x i8] c"Failed to update world.mt!\00", align 1
@@ -1017,7 +1017,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_9
 }
 
 ; Function Attrs: norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %gameids.i = alloca %"class.std::set", align 8
   %__dnew.i.i47.i.i = alloca i64, align 8
@@ -22690,8 +22690,8 @@ declare void @_Z12sockets_initv() local_unnamed_addr #0
 
 declare noundef ptr @_ZN8Settings11createLayerE13SettingsLayerSt17basic_string_viewIcSt11char_traitsIcEE(i32 noundef, i64, ptr) local_unnamed_addr #0
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #1
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL13uninit_commonv() #4 {

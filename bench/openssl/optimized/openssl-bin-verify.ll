@@ -142,7 +142,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.126 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @verify_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 3) i32 @verify_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %untrusted = alloca ptr, align 8
   %trusted = alloca ptr, align 8
@@ -429,7 +429,7 @@ if.then114:                                       ; preds = %if.end112
   %7 = load ptr, ptr %untrusted, align 8
   %8 = load ptr, ptr %trusted, align 8
   %9 = load ptr, ptr %crls, align 8
-  %call115 = call fastcc i32 @check(ptr noundef nonnull %call102, ptr noundef null, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %show_chain.0, ptr noundef %vfyopts.0), !range !9
+  %call115 = call fastcc i32 @check(ptr noundef nonnull %call102, ptr noundef null, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %show_chain.0, ptr noundef %vfyopts.0)
   %sext = add nsw i32 %call115, -1
   br label %end
 
@@ -441,12 +441,12 @@ for.body121:                                      ; preds = %for.body121.prehead
   %11 = load ptr, ptr %untrusted, align 8
   %12 = load ptr, ptr %trusted, align 8
   %13 = load ptr, ptr %crls, align 8
-  %call122 = call fastcc i32 @check(ptr noundef nonnull %call102, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %show_chain.0, ptr noundef %vfyopts.0), !range !9
+  %call122 = call fastcc i32 @check(ptr noundef nonnull %call102, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %show_chain.0, ptr noundef %vfyopts.0)
   %cmp123.not.not = icmp eq i32 %call122, 0
   %spec.select35 = select i1 %cmp123.not.not, i32 -1, i32 %ret.082
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %end, label %for.body121, !llvm.loop !10
+  br i1 %exitcond.not, label %end, label %for.body121, !llvm.loop !9
 
 end:                                              ; preds = %sw.bb86, %sw.bb65, %sw.bb58, %sw.bb51, %sw.bb45, %sw.bb39, %sw.bb25, %for.body17, %for.body121, %for.end, %if.then114, %if.end101, %entry, %if.then99, %opthelp
   %store.0 = phi ptr [ null, %entry ], [ null, %opthelp ], [ null, %if.then99 ], [ null, %if.end101 ], [ %call102, %if.then114 ], [ null, %for.end ], [ %call102, %for.body121 ], [ null, %for.body17 ], [ null, %sw.bb25 ], [ null, %sw.bb39 ], [ null, %sw.bb45 ], [ null, %sw.bb51 ], [ null, %sw.bb58 ], [ null, %sw.bb65 ], [ null, %sw.bb86 ]
@@ -614,7 +614,7 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 declare void @store_setup_crl_download(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check(ptr noundef %ctx, ptr noundef %file, ptr noundef %uchain, ptr noundef %tchain, ptr noundef %crls, i32 noundef %show_chain, ptr noundef %opts) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check(ptr noundef %ctx, ptr noundef %file, ptr noundef %uchain, ptr noundef %tchain, ptr noundef %crls, i32 noundef %show_chain, ptr noundef %opts) unnamed_addr #0 {
 entry:
   %call = tail call ptr @load_cert_pass(ptr noundef %file, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.113) #2
   %cmp = icmp eq ptr %call, null
@@ -648,7 +648,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.046, 1
   %call4 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %opts) #2
   %cmp5 = icmp slt i32 %inc, %call4
-  br i1 %cmp5, label %for.body, label %if.end13, !llvm.loop !11
+  br i1 %cmp5, label %for.body, label %if.end13, !llvm.loop !10
 
 if.end13:                                         ; preds = %for.inc, %for.cond.preheader, %if.end
   %i.1 = phi i32 [ 0, %if.end ], [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
@@ -743,7 +743,7 @@ if.end74:                                         ; preds = %if.then72, %for.bod
   %inc77 = add nuw nsw i32 %j.049, 1
   %call60 = tail call i32 @OPENSSL_sk_num(ptr noundef %call55) #2
   %cmp61 = icmp slt i32 %inc77, %call60
-  br i1 %cmp61, label %for.body63, label %for.end78, !llvm.loop !12
+  br i1 %cmp61, label %for.body63, label %for.end78, !llvm.loop !11
 
 for.end78:                                        ; preds = %if.end74, %if.then54
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %call55) #2
@@ -862,7 +862,6 @@ attributes #2 = { nounwind }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}

@@ -85,7 +85,7 @@ define void @_ZN9uu_basenc6uu_app17h6299e21a26f3c87eE(ptr noalias nocapture noun
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
   store ptr %24, ptr %10, align 8, !alias.scope !9, !noalias !11
   store i64 %26, ptr %11, align 8, !alias.scope !9, !noalias !11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %8, ptr noundef nonnull align 8 dereferenceable(592) %7, i64 592, i1 false), !alias.scope !13, !noalias !14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(592) %8, ptr noundef nonnull align 8 dereferenceable(592) %7, i64 592, i1 false), !alias.scope !13, !noalias !14
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %7)
   %28 = getelementptr inbounds i8, ptr %.sroa.0.0.ptr42, i64 24
   %29 = load ptr, ptr %28, align 8, !nonnull !4, !align !5, !noundef !4

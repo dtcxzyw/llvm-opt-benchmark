@@ -3278,7 +3278,7 @@ map_token.exit479:                                ; preds = %.lr.ph.i470, %val_t
   br label %map_token.exit492
 
 275:                                              ; preds = %267
-  %276 = trunc i32 %42 to i8
+  %276 = trunc nuw nsw i32 %42 to i8
   br i1 %.not, label %294, label %277
 
 277:                                              ; preds = %275

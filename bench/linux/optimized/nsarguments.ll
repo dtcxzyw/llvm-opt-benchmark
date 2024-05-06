@@ -72,7 +72,7 @@ define dso_local void @acpi_ns_check_argument_types(ptr nocapture noundef readon
   %42 = load ptr, ptr %20, align 8
   %43 = tail call ptr @acpi_ut_get_type_name(i32 noundef %37) #2
   %44 = tail call ptr @acpi_ut_get_type_name(i32 noundef %31) #2
-  %45 = trunc i64 %23 to i32
+  %45 = trunc nuw nsw i64 %23 to i32
   %46 = add nuw nsw i32 %45, 1
   tail call void (ptr, i32, ptr, i16, ptr, ...) @acpi_ut_predefined_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 61, ptr noundef %42, i16 noundef zeroext 0, ptr noundef nonnull @.str, i32 noundef %46, ptr noundef %43, ptr noundef %44) #2
   %47 = load ptr, ptr %6, align 8

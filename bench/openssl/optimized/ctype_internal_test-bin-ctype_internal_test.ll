@@ -57,7 +57,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ctype_chars(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_ctype_chars(i32 noundef %n) #0 {
 entry:
   %and = lshr i32 %n, 7
   %and.lobit = and i32 %and, 1
@@ -244,7 +244,7 @@ return:                                           ; preds = %entry, %if.end14, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ctype_toupper(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_ctype_toupper(i32 noundef %n) #0 {
 entry:
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr inbounds [8 x %struct.anon], ptr @case_change, i64 0, i64 %idxprom
@@ -269,7 +269,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ctype_tolower(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_ctype_tolower(i32 noundef %n) #0 {
 entry:
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr inbounds [8 x %struct.anon], ptr @case_change, i64 0, i64 %idxprom
@@ -296,7 +296,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ctype_eof() #0 {
+define internal range(i32 0, 2) i32 @test_ctype_eof() #0 {
 entry:
   %call.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 0, i32 noundef 0) #3
   %tobool.not.i = icmp ne i32 %call.i, 0

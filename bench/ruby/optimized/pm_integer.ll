@@ -120,7 +120,7 @@ define hidden void @pm_integer_parse(ptr nocapture noundef %0, i32 noundef %1, p
 
 44:                                               ; preds = %43
   %45 = load i8, ptr %.2, align 1
-  %46 = tail call fastcc i32 @pm_integer_parse_digit(i8 noundef zeroext %45), !range !7
+  %46 = tail call fastcc i32 @pm_integer_parse_digit(i8 noundef zeroext %45)
   %.not17.i = icmp eq i32 %46, 0
   br i1 %.not17.i, label %pm_integer_add.exit, label %.lr.ph.preheader.i
 
@@ -187,7 +187,7 @@ pm_integer_add.exit:                              ; preds = %.lr.ph.i, %44, %pm_
   %68 = mul nuw nsw i64 %.0, %67
   %69 = add nuw nsw i64 %68, %.018.i
   %70 = lshr i64 %69, 32
-  %71 = trunc i64 %70 to i32
+  %71 = trunc nuw nsw i64 %70 to i32
   %72 = trunc i64 %69 to i32
   store i32 %72, ptr %65, align 8
   %.not15.i = icmp ne i32 %71, 0
@@ -215,11 +215,11 @@ pm_integer_node_create.exit.i47:                  ; preds = %79, %74
   br label %pm_integer_multiply.exit
 
 80:                                               ; preds = %.preheader
-  br i1 %73, label %pm_integer_multiply.exit, label %.preheader, !llvm.loop !8
+  br i1 %73, label %pm_integer_multiply.exit, label %.preheader, !llvm.loop !7
 
 pm_integer_multiply.exit:                         ; preds = %80, %pm_integer_node_create.exit.i47
   %81 = load i8, ptr %.363, align 1
-  %82 = tail call fastcc i32 @pm_integer_parse_digit(i8 noundef zeroext %81), !range !7
+  %82 = tail call fastcc i32 @pm_integer_parse_digit(i8 noundef zeroext %81)
   %.not17.i48 = icmp eq i32 %82, 0
   br i1 %.not17.i48, label %pm_integer_add.exit57, label %.lr.ph.i50
 
@@ -259,14 +259,14 @@ pm_integer_node_create.exit.i56:                  ; preds = %93, %88
 pm_integer_add.exit57:                            ; preds = %.lr.ph.i50, %pm_integer_node_create.exit.i56, %pm_integer_multiply.exit, %62
   %.3 = getelementptr i8, ptr %.363, i64 1
   %exitcond.not = icmp eq ptr %.3, %scevgep
-  br i1 %exitcond.not, label %.loopexit, label %62, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %62, !llvm.loop !9
 
 .loopexit:                                        ; preds = %pm_integer_add.exit57, %pm_integer_add.exit, %43
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal fastcc noundef i32 @pm_integer_parse_digit(i8 noundef zeroext %0) unnamed_addr #1 {
+define internal fastcc range(i32 0, 16) i32 @pm_integer_parse_digit(i8 noundef zeroext %0) unnamed_addr #1 {
   switch i8 %0, label %17 [
     i8 70, label %16
     i8 49, label %2
@@ -350,7 +350,7 @@ define hidden i64 @pm_integer_memsize(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @pm_integer_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define hidden range(i32 -1, 2) i32 @pm_integer_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -402,7 +402,7 @@ define hidden i32 @pm_integer_compare(ptr nocapture noundef readonly %0, ptr noc
   %33 = icmp ne ptr %31, null
   %34 = icmp ne ptr %32, null
   %35 = select i1 %33, i1 %34, i1 false
-  br i1 %35, label %22, label %.loopexit, !llvm.loop !11
+  br i1 %35, label %22, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %30, %28, %22, %12, %17, %10
   %.023 = phi i32 [ %11, %10 ], [ %13, %17 ], [ %.neg, %12 ], [ 0, %30 ], [ %13, %28 ], [ %.neg, %22 ]
@@ -490,7 +490,7 @@ pm_integer_node_create.exit.i:                    ; preds = %.lr.ph.i
   store ptr %42, ptr %.01620.i, align 8
   %.0.i = load ptr, ptr %.021.i, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %pm_integer_copy.exit.loopexit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %pm_integer_copy.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
 
 pm_integer_copy.exit.loopexit:                    ; preds = %pm_integer_node_create.exit.i, %.lr.ph.i
   %.016.lcssa.i.ph = phi ptr [ %.01620.i, %.lr.ph.i ], [ %42, %pm_integer_node_create.exit.i ]
@@ -512,7 +512,7 @@ pm_integer_copy.exit:                             ; preds = %pm_integer_copy.exi
 .lr.ph:                                           ; preds = %pm_integer_copy.exit, %.lr.ph
   %.024 = phi ptr [ %54, %.lr.ph ], [ %45, %pm_integer_copy.exit ]
   %51 = call fastcc i32 @pm_integer_divide_word(ptr noundef nonnull %3, ptr noundef nonnull %36)
-  %52 = trunc i32 %51 to i8
+  %52 = trunc nuw nsw i32 %51 to i8
   %53 = or disjoint i8 %52, 48
   %54 = getelementptr i8, ptr %.024, i64 -1
   store i8 %53, ptr %.024, align 1
@@ -521,7 +521,7 @@ pm_integer_copy.exit:                             ; preds = %pm_integer_copy.exi
   %57 = load i32, ptr %37, align 8
   %58 = icmp ne i32 %57, 0
   %59 = select i1 %56, i1 true, i1 %58
-  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %pm_integer_copy.exit
   %.0.lcssa = phi ptr [ %45, %pm_integer_copy.exit ], [ %54, %.lr.ph ]
@@ -583,7 +583,7 @@ define internal fastcc void @pm_integer_word_destroy(ptr nocapture noundef %0) u
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @pm_integer_divide_word(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 10) i32 @pm_integer_divide_word(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %4
@@ -621,7 +621,7 @@ define internal fastcc i32 @pm_integer_divide_word(ptr nocapture noundef %0, ptr
   %23 = trunc i64 %22 to i32
   store i32 %23, ptr %18, align 8
   %24 = urem i64 %21, 10
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   ret i32 %25
 }
 
@@ -647,10 +647,9 @@ attributes #11 = { nounwind allocsize(0,1) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 16}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}

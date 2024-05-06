@@ -203,7 +203,7 @@ define dso_local noundef i64 @__startup_64(i64 noundef %0, ptr nocapture noundef
   %85 = getelementptr i8, ptr %84, i64 8
   store i64 %83, ptr %85, align 8
   %86 = lshr i64 %0, 39
-  %87 = trunc i64 %86 to i32
+  %87 = trunc nuw nsw i64 %86 to i32
   %88 = ptrtoint ptr %64 to i64
   %89 = add i64 %88, 99
   %90 = load i32, ptr @ptrs_per_p4d, align 4

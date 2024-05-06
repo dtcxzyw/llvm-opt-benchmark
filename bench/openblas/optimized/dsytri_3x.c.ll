@@ -404,7 +404,7 @@ thread-pre-split82:                               ; preds = %185, %201, %204, %1
   br i1 %255, label %256, label %.loopexit114
 
 256:                                              ; preds = %.loopexit116
-  %257 = trunc i64 %246 to i32
+  %257 = trunc nuw nsw i64 %246 to i32
   %258 = add nsw i32 %207, %257
   br label %259
 

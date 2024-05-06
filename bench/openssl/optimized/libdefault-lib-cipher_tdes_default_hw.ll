@@ -228,7 +228,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %and22 = zext i8 %5 to i32
   %shr25 = lshr exact i32 %and22, %2
   %or = or i32 %shr25, %and19
-  %conv26 = trunc i32 %or to i8
+  %conv26 = trunc nuw i32 %or to i8
   store i8 %conv26, ptr %arrayidx15, align 1
   %inc = add nuw i64 %n.018, 1
   %exitcond.not = icmp eq i64 %inc, %spec.select

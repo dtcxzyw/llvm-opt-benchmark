@@ -381,7 +381,7 @@ define void @funnel_register_all_packet_menus(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @funnel_packet_menus_modified() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @funnel_packet_menus_modified() local_unnamed_addr #0 {
   %.b = load i1, ptr @packet_menus_modified, align 4
   %1 = zext i1 %.b to i32
   ret i32 %1

@@ -624,7 +624,7 @@ declare dso_local void @ata_scsi_error(ptr noundef) #2
 declare dso_local i32 @ata_scsi_user_scan(ptr noundef, i32 noundef, i32 noundef, i64 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ata_tport_match(ptr noundef readnone %0, ptr nocapture noundef readonly %1) #5 align 16 {
+define internal range(i32 0, 2) i32 @ata_tport_match(ptr noundef readnone %0, ptr nocapture noundef readonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 688
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @ata_tport_release
@@ -636,7 +636,7 @@ define internal i32 @ata_tport_match(ptr noundef readnone %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ata_tlink_match(ptr noundef readnone %0, ptr nocapture noundef readonly %1) #5 align 16 {
+define internal range(i32 0, 2) i32 @ata_tlink_match(ptr noundef readnone %0, ptr nocapture noundef readonly %1) #5 align 16 {
   %3 = load ptr, ptr @ata_scsi_transport_template, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 688
   %5 = load ptr, ptr %4, align 8
@@ -649,7 +649,7 @@ define internal i32 @ata_tlink_match(ptr noundef readnone %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ata_tdev_match(ptr noundef readnone %0, ptr nocapture noundef readonly %1) #5 align 16 {
+define internal range(i32 0, 2) i32 @ata_tdev_match(ptr noundef readnone %0, ptr nocapture noundef readonly %1) #5 align 16 {
   %3 = load ptr, ptr @ata_scsi_transport_template, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 688
   %5 = load ptr, ptr %4, align 8
@@ -770,7 +770,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local i32 @attribute_container_register(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_ata_port_nr_pmp_links(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_ata_port_nr_pmp_links(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -64
@@ -784,7 +784,7 @@ define internal i64 @show_ata_port_nr_pmp_links(ptr nocapture noundef readonly %
 declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_ata_port_idle_irq(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_ata_port_idle_irq(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -32
@@ -795,7 +795,7 @@ define internal i64 @show_ata_port_idle_irq(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_ata_port_port_no(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_ata_port_port_no(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -14752
@@ -806,7 +806,7 @@ define internal i64 @show_ata_port_port_no(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_ata_link_hw_sata_spd_limit(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_ata_link_hw_sata_spd_limit(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 744
@@ -826,7 +826,7 @@ declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, 
 declare dso_local ptr @sata_spd_string(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_ata_link_sata_spd_limit(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_ata_link_sata_spd_limit(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 748
@@ -840,7 +840,7 @@ define internal noundef i64 @show_ata_link_sata_spd_limit(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @show_ata_link_sata_spd(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_ata_link_sata_spd(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 752
@@ -852,7 +852,7 @@ define internal noundef i64 @show_ata_link_sata_spd(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal i64 @show_ata_dev_class(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #10 align 16 {
+define internal range(i64 -2147483647, 2147483649) i64 @show_ata_dev_class(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 744
@@ -891,7 +891,7 @@ define internal i64 @show_ata_dev_class(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal i64 @show_ata_dev_pio_mode(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #10 align 16 {
+define internal range(i64 -2147483647, 2147483649) i64 @show_ata_dev_pio_mode(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 760
@@ -931,7 +931,7 @@ define internal i64 @show_ata_dev_pio_mode(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal i64 @show_ata_dev_dma_mode(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #10 align 16 {
+define internal range(i64 -2147483647, 2147483649) i64 @show_ata_dev_dma_mode(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 761
@@ -971,7 +971,7 @@ define internal i64 @show_ata_dev_dma_mode(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal i64 @show_ata_dev_xfer_mode(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #10 align 16 {
+define internal range(i64 -2147483647, 2147483649) i64 @show_ata_dev_xfer_mode(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 762
@@ -1011,7 +1011,7 @@ define internal i64 @show_ata_dev_xfer_mode(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_ata_dev_spdn_cnt(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_ata_dev_spdn_cnt(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 1984
@@ -1022,7 +1022,7 @@ define internal i64 @show_ata_dev_spdn_cnt(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_ata_dev_ering(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_ata_dev_ering(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.ata_show_ering_arg, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
@@ -1103,7 +1103,7 @@ define internal noundef i32 @ata_show_ering(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_ata_dev_id(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_ata_dev_id(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 744
@@ -1142,7 +1142,7 @@ define internal i64 @show_ata_dev_id(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_ata_dev_gscr(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_ata_dev_gscr(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 744
@@ -1180,7 +1180,7 @@ define internal i64 @show_ata_dev_gscr(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_ata_dev_trim(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_ata_dev_trim(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 1000

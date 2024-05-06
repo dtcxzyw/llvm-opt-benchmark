@@ -119,7 +119,7 @@ define void @zif_dl(ptr noundef %0, ptr nocapture noundef writeonly %1) local_un
   br label %32
 
 28:                                               ; preds = %22
-  %29 = call i32 @php_load_extension(ptr noundef nonnull %17, i32 noundef 2, i32 noundef 0), !range !4
+  %29 = call i32 @php_load_extension(ptr noundef nonnull %17, i32 noundef 2, i32 noundef 0)
   %.not = icmp eq i32 %29, -1
   %spec.select.i = select i1 %.not, i32 2, i32 3
   %30 = getelementptr inbounds i8, ptr %1, i64 8
@@ -142,7 +142,7 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 
 ; Function Attrs: nounwind uwtable
 define void @php_dl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @php_load_extension(ptr noundef %0, i32 noundef %1, i32 noundef %3), !range !4
+  %5 = tail call i32 @php_load_extension(ptr noundef %0, i32 noundef %1, i32 noundef %3)
   %6 = icmp eq i32 %5, -1
   %spec.select = select i1 %6, i32 2, i32 3
   %7 = getelementptr inbounds i8, ptr %2, i64 8
@@ -176,7 +176,7 @@ declare ptr @dlerror() local_unnamed_addr #2
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_load_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_load_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq i32 %1, 1
   br i1 %5, label %6, label %8
@@ -456,4 +456,3 @@ attributes #5 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

@@ -1202,7 +1202,7 @@ define internal void @platform_device_release(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @platform_device_add_resources(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @platform_device_add_resources(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %10, label %5
 
@@ -1232,7 +1232,7 @@ define dso_local noundef i32 @platform_device_add_resources(ptr nocapture nounde
 declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @platform_device_add_data(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @platform_device_add_data(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5
 
@@ -1738,7 +1738,7 @@ define internal noundef i32 @platform_probe_fail(ptr nocapture readnone %0) #8 a
 declare dso_local i32 @bus_for_each_dev(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @is_bound_to_driver(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #9 align 16 {
+define internal range(i32 0, 2) i32 @is_bound_to_driver(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #9 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
@@ -1932,7 +1932,7 @@ define dso_local ptr @__platform_create_bundle(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__platform_register_drivers(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @__platform_register_drivers(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %.loopexit, label %5
 
@@ -2239,7 +2239,7 @@ define dso_local i32 @platform_pm_restore(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @platform_match(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define internal range(i32 0, 2) i32 @platform_match(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -16
   %4 = getelementptr i8, ptr %0, i64 776
   %5 = load ptr, ptr %4, align 8
@@ -2303,7 +2303,7 @@ define internal i32 @platform_match(ptr noundef %0, ptr noundef %1) #1 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @platform_uevent(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define internal range(i32 -18, -19) i32 @platform_uevent(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call i32 @acpi_device_uevent_modalias(ptr noundef %0, ptr noundef %1) #15
   %4 = icmp eq i32 %3, -19
   br i1 %4, label %5, label %9
@@ -2481,7 +2481,7 @@ define dso_local ptr @platform_find_device_by_driver(ptr noundef %0, ptr noundef
 declare dso_local ptr @bus_find_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal i32 @__platform_match(ptr noundef %0, ptr noundef %1) #10 align 16 {
+define internal range(i32 0, 2) i32 @__platform_match(ptr noundef %0, ptr noundef %1) #10 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -16
   %4 = getelementptr i8, ptr %0, i64 776
   %5 = load ptr, ptr %4, align 8
@@ -2617,7 +2617,7 @@ define internal zeroext i16 @platform_dev_attrs_visible(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @numa_node_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @numa_node_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 640
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.15, i32 noundef %5) #15
@@ -2629,7 +2629,7 @@ define internal i64 @numa_node_show(ptr nocapture noundef readonly %0, ptr nocap
 declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @modalias_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   %4 = tail call i32 @acpi_device_modalias(ptr noundef %0, ptr noundef %2, i32 noundef 4095) #15
   %5 = icmp eq i32 %4, -19
   br i1 %5, label %6, label %10
@@ -2650,7 +2650,7 @@ define internal i64 @modalias_show(ptr noundef %0, ptr nocapture readnone %1, pt
 declare dso_local i32 @acpi_device_modalias(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @driver_override_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @driver_override_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @mutex_lock(ptr noundef %4) #15
   %5 = getelementptr i8, ptr %0, i64 776

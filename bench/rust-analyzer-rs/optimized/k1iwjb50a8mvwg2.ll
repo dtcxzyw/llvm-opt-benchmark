@@ -1208,7 +1208,7 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$6insert17hcbfa93ebd296c7
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %20)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %.val, i64 %.val15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %.val, i64 %.val15, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
   %21 = load i64, ptr %14, align 8, !range !61, !alias.scope !245, !noalias !240, !noundef !9
   %22 = icmp eq i64 %21, -9223372036854775808
@@ -1249,14 +1249,14 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$6insert17hcbfa93ebd296c7
   br i1 %.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit.thread.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit.i": ; preds = %32
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %.val, ptr nonnull %34, i64 %.val15), !alias.scope !253, !noalias !257
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val, ptr nonnull readonly %34, i64 %.val15), !alias.scope !253, !noalias !257
   %37 = icmp eq i32 %bcmp.i.i, 0
   br i1 %37, label %43, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit.thread.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit.thread.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit.i", %32
   %38 = sub i64 %.val15, %36
   %..i.i = tail call i64 @llvm.umin.i64(i64 %.val15, i64 %36)
-  %39 = tail call i32 @memcmp(ptr nonnull %.val, ptr nonnull %34, i64 %..i.i), !alias.scope !258, !noalias !257
+  %39 = tail call i32 @memcmp(ptr nonnull readonly %.val, ptr nonnull readonly %34, i64 %..i.i), !alias.scope !258, !noalias !257
   %40 = sext i32 %39 to i64
   %41 = icmp eq i32 %39, 0
   %spec.store.select.i.i = select i1 %41, i64 %38, i64 %40
@@ -1272,7 +1272,7 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$6insert17hcbfa93ebd296c7
   %46 = extractvalue { i64, ptr } %44, 1
   %47 = icmp ne ptr %46, null
   tail call void @llvm.assume(i1 %47)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull align 1 %.val, i64 %.val15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull readonly align 1 %.val, i64 %.val15, i1 false)
   br label %132
 
 48:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit.thread.i"
@@ -1339,7 +1339,7 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$6insert17hcbfa93ebd296c7
   %73 = extractvalue { i64, ptr } %56, 1
   %74 = icmp ne ptr %73, null
   tail call void @llvm.assume(i1 %74)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %.val, i64 %.val15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %.val, i64 %.val15, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !262
   br label %132
 
@@ -1461,7 +1461,7 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$6insert17hcbfa93ebd296c7
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8), !noalias !284
   store i32 %110, ptr %0, align 8, !alias.scope !267, !noalias !276
   %.sroa.218.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.218.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.218.i, i64 52, i1 false), !noalias !276
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(52) %.sroa.218.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.218.i, i64 52, i1 false), !noalias !276
   br label %.noexc19
 
 115:                                              ; preds = %112
@@ -1749,7 +1749,7 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$8new_type17h398df6f56a41
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN49_$LT$u8$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17h11602a3d16f1bdf6E.llvm.2146295762748587177"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #5 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN49_$LT$u8$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17h11602a3d16f1bdf6E.llvm.2146295762748587177"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #5 {
   %5 = sub i64 %1, %3
   %. = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
   %6 = tail call i32 @memcmp(ptr nonnull %0, ptr nonnull %2, i64 %.)
@@ -1837,10 +1837,10 @@ define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3l
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17h19b8a6188bf1b8a6E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #7 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17h19b8a6188bf1b8a6E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #7 {
   %5 = sub i64 %1, %3
   %..i = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
-  %6 = tail call i32 @memcmp(ptr nonnull %0, ptr nonnull %2, i64 %..i), !alias.scope !342
+  %6 = tail call i32 @memcmp(ptr nonnull readonly %0, ptr nonnull readonly %2, i64 %..i), !alias.scope !342
   %7 = sext i32 %6 to i64
   %8 = icmp eq i32 %6, 0
   %spec.store.select.i = select i1 %8, i64 %5, i64 %7

@@ -1868,7 +1868,7 @@ define void @_ZN5Nbnxm4Grid8fillCellEPNS_11GridSetDataEP16nbnxn_atomdata_tiiN3gm
   br i1 %56, label %57, label %74
 
 57:                                               ; preds = %._crit_edge.i
-  %58 = mul nsw i32 %.05321.i, 3
+  %58 = mul nuw nsw i32 %.05321.i, 3
   %59 = shl nuw i32 128, %58
   %60 = or i32 %59, %38
   store i32 %60, ptr %33, align 4
@@ -1910,7 +1910,7 @@ define void @_ZN5Nbnxm4Grid8fillCellEPNS_11GridSetDataEP16nbnxn_atomdata_tiiN3gm
   br i1 %43, label %._crit_edge208, label %.thread.i
 
 ._crit_edge208:                                   ; preds = %74
-  %.pre = mul nsw i32 %.05321.i, 3
+  %.pre = mul nuw nsw i32 %.05321.i, 3
   br label %76
 
 76:                                               ; preds = %._crit_edge208, %.loopexit.i
@@ -2094,13 +2094,13 @@ _ZN5NbnxmL22calcBoundingBoxXPackedILi4EEEviPKfPNS_11BoundingBoxE.exit.i: ; preds
   %.sroa.speculated54.i.i = select i1 %183, float %182, float %170
   %184 = fcmp olt float %170, %182
   %.sroa.speculated49.i.i = select i1 %184, float %182, float %170
-  %185 = getelementptr i8, ptr %164, i64 20
+  %185 = getelementptr inbounds i8, ptr %164, i64 20
   %186 = load float, ptr %185, align 4
   %187 = fcmp olt float %186, %172
   %.sroa.speculated44.i.i = select i1 %187, float %186, float %172
   %188 = fcmp olt float %172, %186
   %.sroa.speculated39.i.i = select i1 %188, float %186, float %172
-  %189 = getelementptr i8, ptr %164, i64 36
+  %189 = getelementptr inbounds i8, ptr %164, i64 36
   %190 = load float, ptr %189, align 4
   %191 = fcmp olt float %190, %174
   %.sroa.speculated34.i.i = select i1 %191, float %190, float %174
@@ -2138,13 +2138,13 @@ _ZN5NbnxmL22calcBoundingBoxXPackedILi4EEEviPKfPNS_11BoundingBoxE.exit.i: ; preds
   %.sroa.speculated54.i43.i = select i1 %209, float %208, float %201
   %210 = fcmp olt float %201, %208
   %.sroa.speculated49.i44.i = select i1 %210, float %208, float %201
-  %211 = getelementptr i8, ptr %164, i64 28
+  %211 = getelementptr inbounds i8, ptr %164, i64 28
   %212 = load float, ptr %211, align 4
   %213 = fcmp olt float %212, %203
   %.sroa.speculated44.i45.i = select i1 %213, float %212, float %203
   %214 = fcmp olt float %203, %212
   %.sroa.speculated39.i46.i = select i1 %214, float %212, float %203
-  %215 = getelementptr i8, ptr %164, i64 44
+  %215 = getelementptr inbounds i8, ptr %164, i64 44
   %216 = load float, ptr %215, align 4
   %217 = fcmp olt float %216, %205
   %.sroa.speculated34.i47.i = select i1 %217, float %216, float %205
@@ -2225,13 +2225,13 @@ _ZN5NbnxmL21calcBoundingBoxHalvesILi4EEEviPKfPNS_11BoundingBoxES4_.exit: ; preds
   %.sroa.speculated54.i = select i1 %242, float %241, float %.06263.i
   %243 = fcmp olt float %.06164.i, %241
   %.sroa.speculated49.i = select i1 %243, float %241, float %.06164.i
-  %244 = getelementptr i8, ptr %240, i64 16
+  %244 = getelementptr inbounds i8, ptr %240, i64 16
   %245 = load float, ptr %244, align 4
   %246 = fcmp olt float %245, %.06065.i
   %.sroa.speculated44.i = select i1 %246, float %245, float %.06065.i
   %247 = fcmp olt float %.05966.i, %245
   %.sroa.speculated39.i = select i1 %247, float %245, float %.05966.i
-  %248 = getelementptr i8, ptr %240, i64 32
+  %248 = getelementptr inbounds i8, ptr %240, i64 32
   %249 = load float, ptr %248, align 4
   %250 = fcmp olt float %249, %.05867.i
   %.sroa.speculated34.i = select i1 %250, float %249, float %.05867.i
@@ -2307,13 +2307,13 @@ _ZN5NbnxmL22calcBoundingBoxXPackedILi4EEEviPKfPNS_11BoundingBoxE.exit: ; preds =
   %.sroa.speculated54.i126 = select i1 %285, float %284, float %.06263.i125
   %286 = fcmp olt float %.06164.i124, %284
   %.sroa.speculated49.i127 = select i1 %286, float %284, float %.06164.i124
-  %287 = getelementptr i8, ptr %283, i64 32
+  %287 = getelementptr inbounds i8, ptr %283, i64 32
   %288 = load float, ptr %287, align 4
   %289 = fcmp olt float %288, %.06065.i123
   %.sroa.speculated44.i128 = select i1 %289, float %288, float %.06065.i123
   %290 = fcmp olt float %.05966.i122, %288
   %.sroa.speculated39.i129 = select i1 %290, float %288, float %.05966.i122
-  %291 = getelementptr i8, ptr %283, i64 64
+  %291 = getelementptr inbounds i8, ptr %283, i64 64
   %292 = load float, ptr %291, align 4
   %293 = fcmp olt float %292, %.05867.i121
   %.sroa.speculated34.i130 = select i1 %293, float %292, float %.05867.i121
@@ -4141,10 +4141,10 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %160, %162, %164, %1
   %265 = getelementptr inbounds %"struct.Nbnxm::BoundingBox", ptr %228, i64 %264
   %266 = sext i32 %246 to i64
   %267 = getelementptr inbounds %"struct.Nbnxm::BoundingBox", ptr %230, i64 %266
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %267, ptr noundef nonnull align 4 dereferenceable(16) %265, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %267, ptr noundef nonnull readonly align 4 dereferenceable(16) %265, i64 16, i1 false)
   %268 = getelementptr inbounds i8, ptr %265, i64 16
   %269 = getelementptr inbounds i8, ptr %267, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %269, ptr noundef nonnull align 4 dereferenceable(16) %268, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %269, ptr noundef nonnull readonly align 4 dereferenceable(16) %268, i64 16, i1 false)
   br label %270
 
 270:                                              ; preds = %262, %._crit_edge.i
@@ -4300,7 +4300,7 @@ _ZN5NbnxmL20print_bbsizes_simpleEP8_IO_FILERKNS_4GridE.exit: ; preds = %._crit_e
   %355 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %290, ptr noundef nonnull @.str.12, i32 noundef %289, double noundef %354) #19
   %356 = load ptr, ptr @debug, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %357 = load i32, ptr %76, align 8
   %358 = icmp sgt i32 %357, 0
   br i1 %358, label %.preheader53.lr.ph.i, label %._crit_edge59.i
@@ -4333,18 +4333,18 @@ _ZN5NbnxmL20print_bbsizes_simpleEP8_IO_FILERKNS_4GridE.exit: ; preds = %._crit_e
   %371 = lshr exact i64 %370, 2
   %372 = mul nuw nsw i64 %371, 24
   %373 = getelementptr inbounds float, ptr %362, i64 %372
-  %invariant.gep.i = getelementptr i8, ptr %373, i64 48
+  %invariant.gep.i = getelementptr inbounds i8, ptr %373, i64 48
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %385, %369
   %indvars.iv61.i = phi i64 [ 0, %369 ], [ %indvars.iv.next62.i, %385 ]
-  %invariant.gep79.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv61.i
+  %invariant.gep79.i = getelementptr inbounds float, ptr %invariant.gep.i, i64 %indvars.iv61.i
   br label %374
 
 374:                                              ; preds = %374, %.preheader.i
   %indvars.iv.i90 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i91, %374 ]
   %375 = shl nuw nsw i64 %indvars.iv.i90, 2
-  %gep80.i = getelementptr float, ptr %invariant.gep79.i, i64 %375
+  %gep80.i = getelementptr inbounds float, ptr %invariant.gep79.i, i64 %375
   %376 = load float, ptr %gep80.i, align 4
   %377 = or disjoint i64 %375, %indvars.iv61.i
   %378 = getelementptr inbounds float, ptr %373, i64 %377

@@ -1335,7 +1335,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
   %50 = getelementptr inbounds [33 x [33 x float]], ptr %20, i64 0, i64 %49
   %51 = load float, ptr %50, align 4
   %52 = fadd float %.0.lcssa.i, %51
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = call float @Gia_IffObjTimeTwo(ptr noundef nonnull %9, i32 noundef %53, ptr noundef nonnull %6, float noundef %52)
   switch i32 %4, label %114 [
     i32 2, label %55
@@ -1400,7 +1400,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
 
 85:                                               ; preds = %83
   %86 = lshr i64 %.val101, 32
-  %87 = trunc i64 %86 to i32
+  %87 = trunc nuw i64 %86 to i32
   %88 = and i32 %87, 536870911
   %89 = tail call float @Tim_ManGetCiArrival(ptr noundef %2, i32 noundef %88) #14
   %.val105.val = load ptr, ptr %18, align 8
@@ -1430,7 +1430,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
   %102 = getelementptr inbounds float, ptr %.val95.val, i64 %101
   %103 = load float, ptr %102, align 4
   %104 = lshr i64 %.val101, 32
-  %105 = trunc i64 %104 to i32
+  %105 = trunc nuw i64 %104 to i32
   %106 = and i32 %105, 536870911
   tail call void @Tim_ManSetCoArrival(ptr noundef %2, i32 noundef %106, float noundef %103) #14
   %.val107.val = load ptr, ptr %18, align 8

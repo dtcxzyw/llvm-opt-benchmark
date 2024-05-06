@@ -180,7 +180,7 @@ define noundef i32 @"_ZN4span76_$LT$impl$u20$core..convert..From$LT$span..HirFil
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @"_ZN80_$LT$span..HirFileId$u20$as$u20$core..convert..From$LT$span..MacroCallId$GT$$GT$4from17h877074c99a36d51aE"(i32 noundef %0) unnamed_addr #2 {
+define noundef range(i32 -2147483648, 0) i32 @"_ZN80_$LT$span..HirFileId$u20$as$u20$core..convert..From$LT$span..MacroCallId$GT$$GT$4from17h877074c99a36d51aE"(i32 noundef %0) unnamed_addr #2 {
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca i32, align 4
@@ -244,13 +244,13 @@ define noundef i32 @"_ZN64_$LT$span..MacroCallId$u20$as$u20$salsa..interned..Int
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN64_$LT$span..MacroCallId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17h6fd0bfbe849cf211E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #4 {
+define noundef range(i32 1, 0) i32 @"_ZN64_$LT$span..MacroCallId$u20$as$u20$salsa..interned..InternKey$GT$12as_intern_id17h6fd0bfbe849cf211E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #4 {
   %2 = load i32, ptr %0, align 4, !range !16, !noundef !4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @_ZN4span11MacroCallId7as_file17h996d8c37a1dd9d36E(i32 noundef %0) unnamed_addr #2 {
+define noundef range(i32 -2147483648, 0) i32 @_ZN4span11MacroCallId7as_file17h996d8c37a1dd9d36E(i32 noundef %0) unnamed_addr #2 {
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca i32, align 4
@@ -326,7 +326,7 @@ define noundef zeroext i1 @"_ZN56_$LT$span..HirFileIdRepr$u20$as$u20$core..fmt..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @"_ZN74_$LT$span..HirFileId$u20$as$u20$core..convert..From$LT$vfs..FileId$GT$$GT$4from17h3b1d757002614e88E"(i32 noundef returned %0) unnamed_addr #2 {
+define noundef range(i32 0, -2147483648) i32 @"_ZN74_$LT$span..HirFileId$u20$as$u20$core..convert..From$LT$vfs..FileId$GT$$GT$4from17h3b1d757002614e88E"(i32 noundef returned %0) unnamed_addr #2 {
   %2 = alloca i32, align 4
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -358,7 +358,7 @@ define noundef i32 @"_ZN74_$LT$span..HirFileId$u20$as$u20$core..convert..From$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @"_ZN80_$LT$span..HirFileId$u20$as$u20$core..convert..From$LT$span..MacroFileId$GT$$GT$4from17h27379bc37f99203aE"(i32 noundef %0) unnamed_addr #2 {
+define noundef range(i32 -2147483648, 0) i32 @"_ZN80_$LT$span..HirFileId$u20$as$u20$core..convert..From$LT$span..MacroFileId$GT$$GT$4from17h27379bc37f99203aE"(i32 noundef %0) unnamed_addr #2 {
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca i32, align 4

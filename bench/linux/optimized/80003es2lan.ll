@@ -98,7 +98,7 @@ define internal i32 @e1000_get_variants_80003es2lan(ptr noundef %0) #0 align 16 
   %54 = add nuw nsw i16 %53, 6
   %55 = zext nneg i16 %54 to i32
   %56 = shl nuw nsw i32 1, %55
-  %57 = trunc i32 %56 to i16
+  %57 = trunc nuw nsw i32 %56 to i16
   %58 = getelementptr inbounds i8, ptr %0, i64 2600
   store i16 %57, ptr %58, align 8
   %59 = load i32, ptr %9, align 4
@@ -209,7 +209,7 @@ define internal i32 @e1000_setup_copper_link_80003es2lan(ptr noundef %0) #0 alig
 declare dso_local void @__ew32(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_write_kmrn_reg_80003es2lan(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -13, 1) i32 @e1000_write_kmrn_reg_80003es2lan(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br label %5
 
@@ -273,7 +273,7 @@ define internal fastcc noundef i32 @e1000_write_kmrn_reg_80003es2lan(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_read_kmrn_reg_80003es2lan(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -13, 1) i32 @e1000_read_kmrn_reg_80003es2lan(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br label %5
 
@@ -1002,7 +1002,7 @@ declare dso_local i32 @e1000e_get_speed_and_duplex_fiber_serdes(ptr noundef, ptr
 declare dso_local i32 @e1000e_disable_pcie_master(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_acquire_phy_80003es2lan(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -13, 1) i32 @e1000_acquire_phy_80003es2lan(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1156
   %3 = load i16, ptr %2, align 4
   %4 = icmp eq i16 %3, 0
@@ -1341,7 +1341,7 @@ define internal i32 @e1000_phy_force_speed_duplex_80003es2lan(ptr noundef %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_get_cfg_done_80003es2lan(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -9, 1) i32 @e1000_get_cfg_done_80003es2lan(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1156
   %3 = load i16, ptr %2, align 4
   %4 = icmp eq i16 %3, 1
@@ -1402,7 +1402,7 @@ define internal i32 @e1000_get_cable_length_80003es2lan(ptr noundef %0) #0 align
   %22 = zext i16 %19 to i32
   %23 = add nuw nsw i32 %22, %21
   %24 = lshr i32 %23, 1
-  %25 = trunc i32 %24 to i16
+  %25 = trunc nuw i32 %24 to i16
   %26 = getelementptr inbounds i8, ptr %0, i64 1044
   store i16 %25, ptr %26, align 4
   br label %27
@@ -1462,7 +1462,7 @@ define internal i32 @e1000_read_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32 
   %30 = select i1 %29, i32 29, i32 22
   %31 = lshr i32 %1, 5
   %32 = and i32 %31, 2047
-  %33 = trunc i32 %32 to i16
+  %33 = trunc nuw nsw i32 %32 to i16
   store i16 %33, ptr %4, align 2
   %34 = tail call i32 @e1000e_write_phy_reg_mdic(ptr noundef %0, i32 noundef %30, i16 noundef zeroext %33) #4
   %35 = icmp eq i32 %34, 0
@@ -1607,7 +1607,7 @@ define internal i32 @e1000_write_phy_reg_gg82563_80003es2lan(ptr noundef %0, i32
   %30 = select i1 %29, i32 29, i32 22
   %31 = lshr i32 %1, 5
   %32 = and i32 %31, 2047
-  %33 = trunc i32 %32 to i16
+  %33 = trunc nuw nsw i32 %32 to i16
   store i16 %33, ptr %4, align 2
   %34 = tail call i32 @e1000e_write_phy_reg_mdic(ptr noundef %0, i32 noundef %30, i16 noundef zeroext %33) #4
   %35 = icmp eq i32 %34, 0

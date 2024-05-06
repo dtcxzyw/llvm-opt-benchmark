@@ -2801,7 +2801,7 @@ _ZNSt12_Vector_baseIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE1
   br i1 %cmp.i.i.i.i.i122, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i, ptr align 8 %possibleImporters.sroa.0.0497, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %cond.i12.i.i, ptr align 8 %possibleImporters.sroa.0.0497, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
 
 _ZNSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE11_M_allocateEm.exit.i.i
@@ -6066,7 +6066,7 @@ return:                                           ; preds = %invoke.cont11, %if.
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6Assimp8Importer20IsExtensionSupportedEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %szExtension) local_unnamed_addr #2 align 2 {
 entry:
-  %call.i = tail call noundef i64 @_ZNK6Assimp8Importer16GetImporterIndexEPKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %szExtension)
+  %call.i = tail call noundef i64 @_ZNK6Assimp8Importer16GetImporterIndexEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %szExtension)
   %0 = load ptr, ptr %this, align 8
   %mImporter.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %0, i64 40

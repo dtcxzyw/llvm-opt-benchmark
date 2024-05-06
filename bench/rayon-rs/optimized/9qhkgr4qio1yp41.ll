@@ -431,7 +431,7 @@ define { i64, i64 } @"_ZN80_$LT$rayon..range..Iter$LT$char$GT$$u20$as$u20$rayon.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @"_ZN87_$LT$rayon..range..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h8b13b2fb3e12cd6eE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #3 {
+define noundef range(i64 0, 4294967296) i64 @"_ZN87_$LT$rayon..range..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h8b13b2fb3e12cd6eE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4, !range !45, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !range !45, !noundef !4

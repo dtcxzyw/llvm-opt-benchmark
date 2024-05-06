@@ -17,7 +17,7 @@ entry:
   br i1 %cmp, label %fail, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %outlen to i32
+  %conv = trunc nuw i64 %outlen to i32
   store i32 %conv, ptr %outlen_bytes, align 4
   %cmp1 = icmp ult i64 %outlen, 65
   br i1 %cmp1, label %do.body, label %do.body30

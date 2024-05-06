@@ -153,7 +153,7 @@ do.body.i:                                        ; preds = %if.then8
   unreachable
 
 if.else:                                          ; preds = %if.end
-  %0 = trunc i64 %addr to i8
+  %0 = trunc nuw i64 %addr to i8
   %trunc = and i8 %0, -4
   switch i8 %trunc, label %sw.epilog [
     i8 4, label %sw.bb
@@ -643,7 +643,7 @@ if.then51.i:                                      ; preds = %if.then42.i
 
 if.end57.i:                                       ; preds = %if.then51.i, %if.then42.i, %if.end37.i
   %add.ptr58.i = getelementptr i8, ptr %arrayidx, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %data.i, ptr noundef nonnull align 1 dereferenceable(64) %add.ptr58.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %data.i, ptr noundef nonnull readonly align 1 dereferenceable(64) %add.ptr58.i, i64 64, i1 false)
   br label %ctucan_buff2frame.exit
 
 ctucan_buff2frame.exit:                           ; preds = %if.end10, %if.end57.i
@@ -688,7 +688,7 @@ do.end:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local i64 @ctucan_mem_read(ptr nocapture noundef %s, i64 noundef %addr, i32 noundef %size) local_unnamed_addr #1 {
+define dso_local range(i64 0, 4294967296) i64 @ctucan_mem_read(ptr nocapture noundef %s, i64 noundef %addr, i32 noundef %size) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %addr, 1280
   br i1 %cmp, label %return, label %if.end
@@ -867,7 +867,7 @@ sw.bb126:                                         ; preds = %if.end
 
 sw.epilog:                                        ; preds = %sw.bb65, %if.end113, %sw.bb126, %sw.bb124, %sw.bb122, %sw.bb121, %sw.bb120, %sw.bb36, %sw.bb22, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb, %if.end
   %val.0 = phi i32 [ 0, %if.end ], [ %bf.load125, %sw.bb124 ], [ %bf.load123, %sw.bb122 ], [ %19, %sw.bb121 ], [ %18, %sw.bb120 ], [ %val.0.copyload, %if.end113 ], [ %bf.load127, %sw.bb126 ], [ %storemerge54, %sw.bb36 ], [ %bf.set34, %sw.bb22 ], [ %bf.set20, %sw.bb12 ], [ %5, %sw.bb11 ], [ %4, %sw.bb10 ], [ %3, %sw.bb9 ], [ %2, %sw.bb8 ], [ %1, %sw.bb7 ], [ 33737469, %sw.bb ], [ 0, %sw.bb65 ]
-  %addr.tr = trunc i64 %addr to i32
+  %addr.tr = trunc nuw i64 %addr to i32
   %20 = shl nuw nsw i32 %addr.tr, 3
   %sh_prom = and i32 %20, 24
   %shr129 = lshr i32 %val.0, %sh_prom
@@ -901,7 +901,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @ctucan_receive(ptr nocapture noundef %client, ptr noundef readonly %frames, i64 noundef %frames_cnt) #0 {
+define dso_local range(i64 -1, 275) i64 @ctucan_receive(ptr nocapture noundef %client, ptr noundef readonly %frames, i64 noundef %frames_cnt) #0 {
 entry:
   %cmp = icmp eq i64 %frames_cnt, 0
   br i1 %cmp, label %return, label %if.end
@@ -953,7 +953,7 @@ if.end.i:                                         ; preds = %if.end
   store i32 %frame_form_w.sroa.0.3.i, ptr @ctucan_receive.rcv, align 16
   store i32 %identifier_w.sroa.0.0.i, ptr getelementptr inbounds ([80 x i8], ptr @ctucan_receive.rcv, i64 0, i64 4), align 4
   %data.i = getelementptr inbounds i8, ptr %frames, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) getelementptr inbounds ([80 x i8], ptr @ctucan_receive.rcv, i64 0, i64 16), ptr noundef nonnull align 8 dereferenceable(64) %data.i, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) getelementptr inbounds ([80 x i8], ptr @ctucan_receive.rcv, i64 0, i64 16), ptr noundef nonnull readonly align 8 dereferenceable(64) %data.i, i64 64, i1 false)
   br label %ctucan_frame2buff.exit
 
 ctucan_frame2buff.exit:                           ; preds = %if.end, %if.end.i
@@ -1076,7 +1076,7 @@ return:                                           ; preds = %entry, %for.end, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @ctucan_connect_to_bus(ptr noundef %s, ptr noundef %bus) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @ctucan_connect_to_bus(ptr noundef %s, ptr noundef %bus) local_unnamed_addr #0 {
 entry:
   %bus_client = getelementptr inbounds i8, ptr %s, i64 8664
   store ptr @ctucan_bus_client_info, ptr %bus_client, align 8

@@ -164,7 +164,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %if.end
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %if.end ]
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %call2 = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef %3) #7
   %cmp5 = icmp ult i32 %call2, 256
   br i1 %cmp5, label %if.end, label %if.then
@@ -174,7 +174,7 @@ if.then:                                          ; preds = %for.body
   unreachable
 
 if.end:                                           ; preds = %for.body
-  %conv3 = trunc i32 %call2 to i8
+  %conv3 = trunc nuw i32 %call2 to i8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   store i8 %conv3, ptr %gep, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -540,7 +540,7 @@ if.then32.i.i:                                    ; preds = %if.else27.i.i
 if.else33.i.i:                                    ; preds = %if.else27.i.i
   %conv29.i.i = sext i8 %11 to i32
   %sub.i.i = add nsw i32 %conv29.i.i, -49
-  call fastcc void @push_onecapture(ptr noundef nonnull %ms, i32 noundef %sub.i.i, ptr noundef %src.0, ptr noundef nonnull %call21)
+  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %sub.i.i, ptr noundef %src.0, ptr noundef nonnull %call21)
   call void @luaL_addvalue(ptr noundef nonnull %b) #7
   br label %for.inc.i.i
 
@@ -569,7 +569,7 @@ sw.bb2.i:                                         ; preds = %if.then22
 
 for.body.i24.i:                                   ; preds = %sw.bb2.i, %for.body.i24.i
   %i.010.i.i = phi i32 [ %inc.i25.i, %for.body.i24.i ], [ 0, %sw.bb2.i ]
-  call fastcc void @push_onecapture(ptr noundef nonnull %ms, i32 noundef %i.010.i.i, ptr noundef %src.0, ptr noundef nonnull %call21)
+  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %i.010.i.i, ptr noundef %src.0, ptr noundef nonnull %call21)
   %inc.i25.i = add nuw nsw i32 %i.010.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i25.i, %spec.select.i.i
   br i1 %exitcond.not.i.i, label %push_captures.exit.i, label %for.body.i24.i, !llvm.loop !7
@@ -936,7 +936,7 @@ if.then64:                                        ; preds = %if.then62
 
 for.body.i:                                       ; preds = %if.then64, %for.body.i
   %i.010.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.then64 ]
-  call fastcc void @push_onecapture(ptr noundef nonnull %ms, i32 noundef %i.010.i, ptr noundef null, ptr noundef null)
+  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %i.010.i, ptr noundef null, ptr noundef null)
   %inc.i = add nuw nsw i32 %i.010.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %14
   br i1 %exitcond.not.i, label %push_captures.exit, label %for.body.i, !llvm.loop !7
@@ -955,7 +955,7 @@ if.else82:                                        ; preds = %if.then62
 
 for.body.i50:                                     ; preds = %if.else82, %for.body.i50
   %i.010.i51 = phi i32 [ %inc.i52, %for.body.i50 ], [ 0, %if.else82 ]
-  call fastcc void @push_onecapture(ptr noundef nonnull %ms, i32 noundef %i.010.i51, ptr noundef %.us-phi, ptr noundef nonnull %.us-phi58)
+  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %i.010.i51, ptr noundef %.us-phi, ptr noundef nonnull %.us-phi58)
   %inc.i52 = add nuw nsw i32 %i.010.i51, 1
   %exitcond.not.i53 = icmp eq i32 %inc.i52, %spec.select.i
   br i1 %exitcond.not.i53, label %return, label %for.body.i50, !llvm.loop !7
@@ -1093,7 +1093,7 @@ sw.bb9:                                           ; preds = %init
 
 for.cond.i271:                                    ; preds = %for.body.i, %sw.bb9
   %indvars.iv.i = phi i64 [ %12, %for.body.i ], [ %10, %sw.bb9 ]
-  %11 = trunc i64 %indvars.iv.i to i32
+  %11 = trunc nuw i64 %indvars.iv.i to i32
   %cmp.i272 = icmp sgt i32 %11, 0
   br i1 %cmp.i272, label %for.body.i, label %for.end.i
 
@@ -1598,7 +1598,7 @@ classend.exit223:                                 ; preds = %sw.bb60, %dflt, %if
 land.rhs:                                         ; preds = %classend.exit223
   %63 = load i8, ptr %s.addr.0, align 1
   %conv77 = zext i8 %63 to i32
-  %call78 = tail call fastcc i32 @singlematch(i32 noundef %conv77, ptr noundef nonnull %p.addr.0, ptr noundef nonnull %retval.0.i210), !range !15
+  %call78 = tail call fastcc i32 @singlematch(i32 noundef %conv77, ptr noundef nonnull %p.addr.0, ptr noundef nonnull %retval.0.i210)
   %tobool79 = icmp ne i32 %call78, 0
   br label %land.end
 
@@ -1640,7 +1640,7 @@ land.rhs.i:                                       ; preds = %while.cond.i.prehea
   %add.ptr.i224357 = getelementptr inbounds i8, ptr %s.addr.0, i64 %i.0.i356
   %66 = load i8, ptr %add.ptr.i224357, align 1
   %conv.i = zext i8 %66 to i32
-  %call.i231 = tail call fastcc i32 @singlematch(i32 noundef %conv.i, ptr noundef nonnull %p.addr.0, ptr noundef nonnull %retval.0.i210), !range !15
+  %call.i231 = tail call fastcc i32 @singlematch(i32 noundef %conv.i, ptr noundef nonnull %p.addr.0, ptr noundef nonnull %retval.0.i210)
   %tobool.not.i232 = icmp eq i32 %call.i231, 0
   br i1 %tobool.not.i232, label %while.end.i, label %while.body.i233
 
@@ -1648,7 +1648,7 @@ while.body.i233:                                  ; preds = %land.rhs.i
   %inc.i234 = add nuw nsw i64 %i.0.i356, 1
   %add.ptr.i224 = getelementptr inbounds i8, ptr %s.addr.0, i64 %inc.i234
   %cmp.i226 = icmp ult ptr %add.ptr.i224, %62
-  br i1 %cmp.i226, label %land.rhs.i, label %while.end.i, !llvm.loop !16
+  br i1 %cmp.i226, label %land.rhs.i, label %while.end.i, !llvm.loop !15
 
 while.end.i:                                      ; preds = %while.body.i233, %land.rhs.i
   %i.0.i.lcssa = phi i64 [ %inc.i234, %while.body.i233 ], [ %i.0.i356, %land.rhs.i ]
@@ -1663,7 +1663,7 @@ while.body5.i.lr.ph:                              ; preds = %while.cond.i.prehea
 while.cond2.i:                                    ; preds = %while.body5.i
   %dec.i230 = add nsw i64 %i.1.i361, -1
   %cmp3.i227 = icmp sgt i64 %i.1.i361, 0
-  br i1 %cmp3.i227, label %while.body5.i, label %sw.epilog108, !llvm.loop !17
+  br i1 %cmp3.i227, label %while.body5.i, label %sw.epilog108, !llvm.loop !16
 
 while.body5.i:                                    ; preds = %while.body5.i.lr.ph, %while.cond2.i
   %i.1.i361 = phi i64 [ %i.0.i.lcssa419, %while.body5.i.lr.ph ], [ %dec.i230, %while.cond2.i ]
@@ -1685,7 +1685,7 @@ land.rhs.i252:                                    ; preds = %cond.true95, %while
   %add.ptr.i237348 = getelementptr inbounds i8, ptr %add.ptr96, i64 %i.0.i236347
   %67 = load i8, ptr %add.ptr.i237348, align 1
   %conv.i253 = zext i8 %67 to i32
-  %call.i254 = tail call fastcc i32 @singlematch(i32 noundef %conv.i253, ptr noundef nonnull %p.addr.0, ptr noundef nonnull %retval.0.i210), !range !15
+  %call.i254 = tail call fastcc i32 @singlematch(i32 noundef %conv.i253, ptr noundef nonnull %p.addr.0, ptr noundef nonnull %retval.0.i210)
   %tobool.not.i255 = icmp eq i32 %call.i254, 0
   br i1 %tobool.not.i255, label %while.end.i240, label %while.body.i256
 
@@ -1693,7 +1693,7 @@ while.body.i256:                                  ; preds = %land.rhs.i252
   %inc.i257 = add nuw nsw i64 %i.0.i236347, 1
   %add.ptr.i237 = getelementptr inbounds i8, ptr %add.ptr96, i64 %inc.i257
   %cmp.i239 = icmp ult ptr %add.ptr.i237, %62
-  br i1 %cmp.i239, label %land.rhs.i252, label %while.end.i240, !llvm.loop !16
+  br i1 %cmp.i239, label %land.rhs.i252, label %while.end.i240, !llvm.loop !15
 
 while.end.i240:                                   ; preds = %while.body.i256, %land.rhs.i252
   %i.0.i236.lcssa = phi i64 [ %inc.i257, %while.body.i256 ], [ %i.0.i236347, %land.rhs.i252 ]
@@ -1708,7 +1708,7 @@ while.body5.i245.lr.ph:                           ; preds = %cond.true95, %while
 while.cond2.i241:                                 ; preds = %while.body5.i245
   %dec.i251 = add nsw i64 %i.1.i242352, -1
   %cmp3.i243 = icmp sgt i64 %i.1.i242352, 0
-  br i1 %cmp3.i243, label %while.body5.i245, label %sw.epilog108, !llvm.loop !17
+  br i1 %cmp3.i243, label %while.body5.i245, label %sw.epilog108, !llvm.loop !16
 
 while.body5.i245:                                 ; preds = %while.body5.i245.lr.ph, %while.cond2.i241
   %i.1.i242352 = phi i64 [ %i.0.i236.lcssa422, %while.body5.i245.lr.ph ], [ %dec.i251, %while.cond2.i241 ]
@@ -1732,7 +1732,7 @@ if.else.i263:                                     ; preds = %for.cond.i.preheade
 land.lhs.true.i265:                               ; preds = %if.else.i263
   %69 = load i8, ptr %s.addr.0.i343, align 1
   %conv.i266 = zext i8 %69 to i32
-  %call2.i = tail call fastcc i32 @singlematch(i32 noundef %conv.i266, ptr noundef nonnull %p.addr.0, ptr noundef nonnull %retval.0.i210), !range !15
+  %call2.i = tail call fastcc i32 @singlematch(i32 noundef %conv.i266, ptr noundef nonnull %p.addr.0, ptr noundef nonnull %retval.0.i210)
   %tobool.not.i267 = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i267, label %sw.epilog108, label %for.cond.i
 
@@ -1752,7 +1752,7 @@ sw.epilog108:                                     ; preds = %land.lhs.true.i187,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @singlematch(i32 noundef %c, ptr noundef readonly %p, ptr noundef readnone %ep) unnamed_addr #3 {
+define internal fastcc range(i32 0, 256) i32 @singlematch(i32 noundef %c, ptr noundef readonly %p, ptr noundef readnone %ep) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %p, align 1
   switch i8 %0, label %sw.default [
@@ -2071,7 +2071,7 @@ if.then:                                          ; preds = %for.body
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %i.010.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.then ]
-  call fastcc void @push_onecapture(ptr noundef nonnull %ms, i32 noundef %i.010.i, ptr noundef %src.019, ptr noundef nonnull %call)
+  call fastcc void @push_onecapture(ptr noundef nonnull readonly %ms, i32 noundef %i.010.i, ptr noundef %src.019, ptr noundef nonnull %call)
   %inc.i = add nuw nsw i32 %i.010.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %spec.select.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !7
@@ -2080,7 +2080,7 @@ for.inc:                                          ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %src.019, i64 1
   %11 = load ptr, ptr %src_end, align 8
   %cmp.not = icmp ugt ptr %incdec.ptr, %11
-  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !18
+  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !17
 
 return:                                           ; preds = %for.inc, %for.body.i, %entry, %if.then
   %retval.0 = phi i32 [ %9, %if.then ], [ 0, %entry ], [ %spec.select.i, %for.body.i ], [ 0, %for.inc ]
@@ -2172,7 +2172,6 @@ attributes #8 = { noreturn nounwind }
 !12 = distinct !{!12, !4}
 !13 = distinct !{!13, !4}
 !14 = distinct !{!14, !4}
-!15 = !{i32 0, i32 256}
+!15 = distinct !{!15, !4}
 !16 = distinct !{!16, !4}
 !17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}

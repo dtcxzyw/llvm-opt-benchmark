@@ -441,7 +441,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %138 = and i32 %128, 1
   %.not.i.i = icmp eq i32 %138, 0
   %139 = select i1 %.not.i.i, i32 0, i32 5
-  %140 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %136, i64 noundef 240, ptr noundef nonnull @.str.68, i32 noundef %137, i32 noundef %139) #6
+  %140 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %136, i64 noundef 240, ptr noundef nonnull @.str.68, i32 noundef %137, i32 noundef %139) #6
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.1302, ptr noundef nonnull @.str.79, ptr noundef nonnull %136) #6
   br label %141
 
@@ -454,7 +454,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   store i8 0, ptr %144, align 1
   %.not.i.i315 = icmp eq i32 %.pre-phi323, 0
   %145 = select i1 %.not.i.i315, i32 0, i32 5
-  %146 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %144, i64 noundef 240, ptr noundef nonnull @.str.68, i32 noundef %.pre-phi, i32 noundef %145) #6
+  %146 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %144, i64 noundef 240, ptr noundef nonnull @.str.68, i32 noundef %.pre-phi, i32 noundef %145) #6
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %142, i32 noundef 23, ptr noundef nonnull @.str.80, ptr noundef nonnull %144) #6
   br label %383
 
@@ -516,7 +516,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %177 = load i16, ptr %53, align 4
   %178 = or i16 %177, 4
   store i16 %178, ptr %53, align 4
-  %.tr.i = trunc i32 %176 to i16
+  %.tr.i = trunc nuw nsw i32 %176 to i16
   %179 = shl nuw nsw i16 %.tr.i, 1
   store i16 %179, ptr %54, align 4
   %180 = and i32 %.0309316, 4096
@@ -559,7 +559,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %203 = lshr i32 %.0309316, 4
   %204 = and i32 %203, 127
   %205 = load i8, ptr %44, align 4
-  %206 = trunc i32 %204 to i16
+  %206 = trunc nuw nsw i32 %204 to i16
   store i16 %206, ptr %45, align 2
   %207 = lshr i32 %.0309316, 11
   %208 = and i32 %207, 1
@@ -663,7 +663,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   store i8 %273, ptr %45, align 2
   %274 = lshr i32 %.0307317, 2
   %275 = and i32 %274, 1
-  %276 = trunc i32 %275 to i8
+  %276 = trunc nuw nsw i32 %275 to i8
   store i8 %276, ptr %46, align 1
   %277 = lshr i32 %.0309316, 8
   %278 = and i32 %277, 63
@@ -671,7 +671,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %280 = or disjoint i16 %279, %263
   %281 = or disjoint i16 %280, 453
   store i16 %281, ptr %44, align 4
-  %282 = trunc i32 %278 to i8
+  %282 = trunc nuw nsw i32 %278 to i8
   store i8 %282, ptr %47, align 8
   switch i32 %278, label %357 [
     i32 63, label %283
@@ -687,9 +687,9 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %287 = add nuw nsw i32 %.0192.i, 1
   %288 = lshr i32 %.0307317, 4
   %289 = and i32 %288, 15
-  %290 = trunc i32 %289 to i8
+  %290 = trunc nuw nsw i32 %289 to i8
   store i8 %290, ptr %48, align 1
-  %291 = trunc i32 %287 to i8
+  %291 = trunc nuw nsw i32 %287 to i8
   store i8 %291, ptr %49, align 1
   %292 = shl i16 %265, 7
   %293 = and i16 %292, -32768
@@ -699,7 +699,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %297 = or disjoint i16 %293, %294
   %298 = or disjoint i16 %297, 544
   store i16 %298, ptr %44, align 4
-  %299 = trunc i32 %296 to i16
+  %299 = trunc nuw nsw i32 %296 to i16
   store i16 %299, ptr %50, align 2
   %300 = icmp ult i32 %.0192.i, 4
   %301 = icmp ult i32 %289, 10
@@ -707,7 +707,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %or.cond7.i, label %302, label %348
 
 302:                                              ; preds = %283
-  %trunc.i = trunc i32 %269 to i8
+  %trunc.i = trunc nuw i32 %269 to i8
   switch i8 %trunc.i, label %348 [
     i8 20, label %303
     i8 40, label %314

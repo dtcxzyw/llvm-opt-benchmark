@@ -99,7 +99,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @stb__clex_iswhite(i32 noundef %x) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stb__clex_iswhite(i32 noundef %x) local_unnamed_addr #2 {
 entry:
   switch i32 %x, label %lor.rhs [
     i32 32, label %lor.end
@@ -161,7 +161,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @stb__clex_parse_char(ptr noundef %p, ptr nocapture noundef writeonly %q) local_unnamed_addr #4 {
+define range(i32 -1, 256) i32 @stb__clex_parse_char(ptr noundef %p, ptr nocapture noundef writeonly %q) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %p, align 1
   %cmp = icmp eq i8 %0, 92
@@ -249,7 +249,7 @@ while.body:                                       ; preds = %entry, %if.end19
   br i1 %cmp5, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  %call = call i32 @stb__clex_parse_char(ptr noundef nonnull %p.addr.038, ptr noundef nonnull %q), !range !7
+  %call = call i32 @stb__clex_parse_char(ptr noundef nonnull %p.addr.038, ptr noundef nonnull %q)
   %cmp7 = icmp slt i32 %call, 0
   %5 = load ptr, ptr %q, align 8
   br i1 %cmp7, label %return, label %if.end13
@@ -271,7 +271,7 @@ if.end19:                                         ; preds = %if.end13
   store i8 %conv20, ptr %out.039, align 1
   %6 = load i8, ptr %p.addr.1, align 1
   %cmp.not = icmp eq i8 %6, %0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !8
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end19, %entry
   %p.addr.0.lcssa = phi ptr [ %incdec.ptr, %entry ], [ %p.addr.1, %if.end19 ]
@@ -305,7 +305,7 @@ return:                                           ; preds = %if.end13, %if.then,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @stb_c_lexer_get_token(ptr noundef %lexer) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @stb_c_lexer_get_token(ptr noundef %lexer) local_unnamed_addr #6 {
 entry:
   %q.i = alloca ptr, align 8
   %p = alloca ptr, align 8
@@ -344,7 +344,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
 while.body:                                       ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %1
-  br i1 %cmp.not, label %if.then97, label %land.rhs, !llvm.loop !9
+  br i1 %cmp.not, label %if.then97, label %land.rhs, !llvm.loop !8
 
 land.lhs.true:                                    ; preds = %land.rhs
   store ptr %incdec.ptr290293, ptr %p, align 8
@@ -400,7 +400,7 @@ land.lhs.true16:                                  ; preds = %while.cond12.prehea
 while.body25:                                     ; preds = %land.lhs.true16
   %incdec.ptr26 = getelementptr inbounds i8, ptr %incdec.ptr26310312, i64 1
   %cmp14.not = icmp eq ptr %incdec.ptr26, %1
-  br i1 %cmp14.not, label %while.end27, label %land.lhs.true16, !llvm.loop !10
+  br i1 %cmp14.not, label %while.end27, label %land.lhs.true16, !llvm.loop !9
 
 while.end27:                                      ; preds = %while.body25, %land.lhs.true16, %land.lhs.true16, %while.cond12.preheader
   %incdec.ptr26310.lcssa = phi ptr [ %incdec.ptr290293, %while.cond12.preheader ], [ %incdec.ptr26310312, %land.lhs.true16 ], [ %incdec.ptr26310312, %land.lhs.true16 ], [ %scevgep345, %while.body25 ]
@@ -434,7 +434,7 @@ while.body56:                                     ; preds = %land.rhs46, %lor.rh
   %incdec.ptr57 = getelementptr inbounds i8, ptr %storemerge107304, i64 1
   store ptr %incdec.ptr57, ptr %p, align 8
   %cmp44.not = icmp eq ptr %incdec.ptr57, %1
-  br i1 %cmp44.not, label %if.then62, label %land.rhs46, !llvm.loop !11
+  br i1 %cmp44.not, label %if.then62, label %land.rhs46, !llvm.loop !10
 
 if.then62:                                        ; preds = %if.then41, %while.body56
   %storemerge107.lcssa = phi ptr [ %incdec.ptr57, %while.body56 ], [ %add.ptr, %if.then41 ]
@@ -468,7 +468,7 @@ land.lhs.true81:                                  ; preds = %while.cond77.prehea
 while.body90:                                     ; preds = %land.lhs.true81
   %incdec.ptr91 = getelementptr inbounds i8, ptr %incdec.ptr91296298, i64 1
   %cmp79.not = icmp eq ptr %incdec.ptr91, %1
-  br i1 %cmp79.not, label %while.end92, label %land.lhs.true81, !llvm.loop !12
+  br i1 %cmp79.not, label %while.end92, label %land.lhs.true81, !llvm.loop !11
 
 while.end92:                                      ; preds = %while.body90, %land.lhs.true81, %land.lhs.true81, %while.cond77.preheader
   %incdec.ptr91296.lcssa = phi ptr [ %incdec.ptr290293, %while.cond77.preheader ], [ %incdec.ptr91296298, %land.lhs.true81 ], [ %incdec.ptr91296298, %land.lhs.true81 ], [ %scevgep345, %while.body90 ]
@@ -560,7 +560,7 @@ do.body.backedge:                                 ; preds = %switch.early.test33
   %23 = sext i32 %22 to i64
   %cmp128.not = icmp slt i64 %indvars.iv.next, %23
   %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
-  br i1 %cmp128.not, label %if.end133, label %if.then130.loopexit, !llvm.loop !13
+  br i1 %cmp128.not, label %if.end133, label %if.then130.loopexit, !llvm.loop !12
 
 do.end:                                           ; preds = %switch.early.test331
   %arrayidx139.le = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 %indvars.iv
@@ -992,7 +992,7 @@ while.body.i:                                     ; preds = %sw.bb458, %if.end19
   br i1 %cmp5.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %call.i = call i32 @stb__clex_parse_char(ptr noundef nonnull %p.addr.038.i, ptr noundef nonnull %q.i), !range !7
+  %call.i = call i32 @stb__clex_parse_char(ptr noundef nonnull %p.addr.038.i, ptr noundef nonnull %q.i)
   %cmp7.i = icmp slt i32 %call.i, 0
   %43 = load ptr, ptr %q.i, align 8
   br i1 %cmp7.i, label %stb__clex_parse_string.exit, label %if.end13.i
@@ -1014,7 +1014,7 @@ if.end19.i:                                       ; preds = %if.end13.i
   store i8 %conv20.i, ptr %out.039.i, align 1
   %44 = load i8, ptr %p.addr.1.i, align 1
   %cmp.not.i = icmp eq i8 %44, 34
-  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %if.end19.i, %sw.bb458
   %p.addr.0.lcssa.i = phi ptr [ %incdec.ptr.i, %sw.bb458 ], [ %p.addr.1.i, %if.end19.i ]
@@ -1047,7 +1047,7 @@ stb__clex_parse_string.exit:                      ; preds = %if.then.i, %if.end1
 
 sw.bb460:                                         ; preds = %land.lhs.true
   %add.ptr462 = getelementptr inbounds i8, ptr %incdec.ptr290293, i64 1
-  %call463 = call i32 @stb__clex_parse_char(ptr noundef nonnull %add.ptr462, ptr noundef nonnull %p), !range !7
+  %call463 = call i32 @stb__clex_parse_char(ptr noundef nonnull %add.ptr462, ptr noundef nonnull %p)
   %conv464 = sext i32 %call463 to i64
   %int_number = getelementptr inbounds i8, ptr %lexer, i64 72
   store i64 %conv464, ptr %int_number, align 8
@@ -1158,7 +1158,7 @@ while.body528:                                    ; preds = %land.rhs518
   %incdec.ptr529 = getelementptr inbounds i8, ptr %storemerge324, i64 1
   store ptr %incdec.ptr529, ptr %q513, align 8
   %cmp516.not = icmp eq ptr %incdec.ptr529, %1
-  br i1 %cmp516.not, label %if.end550, label %land.rhs518, !llvm.loop !14
+  br i1 %cmp516.not, label %if.end550, label %land.rhs518, !llvm.loop !13
 
 if.then534:                                       ; preds = %land.rhs518
   switch i8 %51, label %if.end550 [
@@ -1251,11 +1251,10 @@ attributes #9 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -1, i32 256}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}

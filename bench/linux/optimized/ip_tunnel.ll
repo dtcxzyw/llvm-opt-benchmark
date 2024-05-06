@@ -1412,7 +1412,7 @@ declare dso_local i32 @gro_cells_receive(ptr noundef, ptr noundef) local_unnamed
 declare dso_local void @dst_release(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ip_tunnel_encap_add_ops(ptr noundef %0, i32 noundef %1) #3 align 16 {
+define dso_local range(i32 -34, 1) i32 @ip_tunnel_encap_add_ops(ptr noundef %0, i32 noundef %1) #3 align 16 {
   %3 = icmp ugt i32 %1, 7
   br i1 %3, label %10, label %4
 
@@ -1430,7 +1430,7 @@ define dso_local i32 @ip_tunnel_encap_add_ops(ptr noundef %0, i32 noundef %1) #3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ip_tunnel_encap_del_ops(ptr noundef %0, i32 noundef %1) #3 align 16 {
+define dso_local range(i32 -34, 1) i32 @ip_tunnel_encap_del_ops(ptr noundef %0, i32 noundef %1) #3 align 16 {
   %3 = icmp ugt i32 %1, 7
   br i1 %3, label %10, label %4
 
@@ -1452,7 +1452,7 @@ define dso_local i32 @ip_tunnel_encap_del_ops(ptr noundef %0, i32 noundef %1) #3
 declare dso_local void @synchronize_net() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ip_tunnel_encap_setup(ptr nocapture noundef %0, ptr noundef %1) #3 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ip_tunnel_encap_setup(ptr nocapture noundef %0, ptr noundef %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   store i64 0, ptr %3, align 8
   %4 = load i16, ptr %1, align 2
@@ -1970,7 +1970,7 @@ declare dso_local ptr @dst_cache_get_ip4(ptr noundef, ptr noundef) local_unnamed
 declare dso_local void @dst_cache_set_ip4(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tnl_update_pmtu(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -7, 1) i32 @tnl_update_pmtu(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) unnamed_addr #3 align 16 {
   br i1 %7, label %12, label %9
 
 9:                                                ; preds = %8
@@ -3648,7 +3648,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %255, label %308, label %256
 
 256:                                              ; preds = %251
-  %257 = tail call fastcc i32 @ip_tunnel_bind_dev(ptr noundef %254), !range !37
+  %257 = tail call fastcc i32 @ip_tunnel_bind_dev(ptr noundef %254)
   %258 = tail call i32 @dev_set_mtu(ptr noundef %254, i32 noundef %257) #16
   %259 = icmp eq i32 %258, 0
   br i1 %259, label %260, label %305
@@ -3699,7 +3699,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %295, label %298, label %296
 
 296:                                              ; preds = %275
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !38
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !37
   %297 = getelementptr inbounds i8, ptr %13, i64 1040
   store volatile ptr %261, ptr %297, align 8
   br label %298
@@ -3710,7 +3710,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   store ptr %300, ptr %299, align 8
   %301 = getelementptr i8, ptr %254, i64 2320
   store volatile ptr %292, ptr %301, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !39
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !38
   store volatile ptr %299, ptr %292, align 8
   %302 = icmp eq ptr %300, null
   br i1 %302, label %308, label %303
@@ -4022,7 +4022,7 @@ define internal fastcc void @ip_tunnel_update(ptr noundef %0, ptr noundef %1, pt
   br i1 %60, label %63, label %61
 
 61:                                               ; preds = %42
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !38
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !37
   %62 = getelementptr inbounds i8, ptr %0, i64 1040
   store volatile ptr %1, ptr %62, align 8
   br label %63
@@ -4032,7 +4032,7 @@ define internal fastcc void @ip_tunnel_update(ptr noundef %0, ptr noundef %1, pt
   %65 = load ptr, ptr %58, align 8
   store ptr %65, ptr %64, align 8
   store volatile ptr %58, ptr %13, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !39
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !38
   store volatile ptr %64, ptr %58, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %69, label %67
@@ -4072,7 +4072,7 @@ define internal fastcc void @ip_tunnel_update(ptr noundef %0, ptr noundef %1, pt
   store i32 %82, ptr %79, align 8
   %89 = getelementptr inbounds i8, ptr %1, i64 184
   store i32 %5, ptr %89, align 8
-  %90 = tail call fastcc i32 @ip_tunnel_bind_dev(ptr noundef %2), !range !37
+  %90 = tail call fastcc i32 @ip_tunnel_bind_dev(ptr noundef %2)
   br i1 %4, label %91, label %93
 
 91:                                               ; preds = %88
@@ -4121,7 +4121,7 @@ define dso_local i32 @ip_tunnel_siocdevprivate(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @__ip_tunnel_change_mtu(ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2) #10 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__ip_tunnel_change_mtu(ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2) #10 align 16 {
   %4 = getelementptr i8, ptr %0, i64 2452
   %5 = load i32, ptr %4, align 4
   %6 = sub i32 65515, %5
@@ -4157,7 +4157,7 @@ define dso_local noundef i32 @__ip_tunnel_change_mtu(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @ip_tunnel_change_mtu(ptr nocapture noundef %0, i32 noundef %1) #10 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ip_tunnel_change_mtu(ptr nocapture noundef %0, i32 noundef %1) #10 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2452
   %4 = load i32, ptr %3, align 4
   %5 = sub i32 65515, %4
@@ -4329,7 +4329,7 @@ define dso_local i32 @ip_tunnel_init_net(ptr noundef %0, i32 noundef %1, ptr nou
   %38 = or i64 %37, 8192
   store i64 %38, ptr %36, align 8
   %39 = load ptr, ptr %10, align 8
-  %40 = call fastcc i32 @ip_tunnel_bind_dev(ptr noundef %39), !range !37
+  %40 = call fastcc i32 @ip_tunnel_bind_dev(ptr noundef %39)
   %41 = load ptr, ptr %10, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 56
   store i32 %40, ptr %42, align 8
@@ -4358,7 +4358,7 @@ define dso_local i32 @ip_tunnel_init_net(ptr noundef %0, i32 noundef %1, ptr nou
 
 64:                                               ; preds = %35
   %65 = getelementptr i8, ptr %43, i64 2304
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !38
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !37
   %66 = getelementptr inbounds i8, ptr %10, i64 1040
   store volatile ptr %65, ptr %66, align 8
   br label %67
@@ -4369,7 +4369,7 @@ define dso_local i32 @ip_tunnel_init_net(ptr noundef %0, i32 noundef %1, ptr nou
   store ptr %69, ptr %68, align 8
   %70 = getelementptr i8, ptr %43, i64 2320
   store volatile ptr %60, ptr %70, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !39
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !38
   store volatile ptr %68, ptr %60, align 8
   %71 = icmp eq ptr %69, null
   br i1 %71, label %74, label %72
@@ -4449,12 +4449,12 @@ define internal fastcc ptr @__ip_tunnel_create(ptr noundef %0, ptr noundef %1, p
 
 25:                                               ; preds = %20
   store i1 true, ptr @__ip_tunnel_create.__already_done, align 1
-  call void asm sideeffect "896: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 896b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 896) #16, !srcloc !40
+  call void asm sideeffect "896: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 896b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 896) #16, !srcloc !39
   call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 253) #16
-  call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #16, !srcloc !41
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 253, i32 2313, i64 12) #16, !srcloc !42
-  call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #16, !srcloc !43
-  call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_end\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #16, !srcloc !44
+  call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #16, !srcloc !40
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 253, i32 2313, i64 12) #16, !srcloc !41
+  call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #16, !srcloc !42
+  call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_end\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #16, !srcloc !43
   br label %26
 
 26:                                               ; preds = %25, %20
@@ -4469,7 +4469,7 @@ define internal fastcc ptr @__ip_tunnel_create(ptr noundef %0, ptr noundef %1, p
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds i8, ptr %32, i64 272
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !45
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !44
   store volatile ptr %0, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %32, i64 2104
   store ptr %1, ptr %36, align 8
@@ -4498,7 +4498,7 @@ define internal fastcc ptr @__ip_tunnel_create(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ip_tunnel_bind_dev(ptr nocapture noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 68, -2147483648) i32 @ip_tunnel_bind_dev(ptr nocapture noundef %0) unnamed_addr #3 align 16 {
   %2 = alloca %struct.flowi4, align 8
   %3 = getelementptr i8, ptr %0, i64 2452
   %4 = load i32, ptr %3, align 4
@@ -4687,7 +4687,7 @@ define dso_local void @ip_tunnel_delete_nets(ptr noundef readonly %0, i32 nounde
 
 28:                                               ; preds = %26, %.preheader8
   %29 = icmp eq ptr %22, %17
-  br i1 %29, label %.loopexit9, label %.preheader8, !llvm.loop !46
+  br i1 %29, label %.loopexit9, label %.preheader8, !llvm.loop !45
 
 30:                                               ; preds = %.loopexit, %.loopexit9
   %31 = phi i64 [ 0, %.loopexit9 ], [ %52, %.loopexit ]
@@ -4719,17 +4719,17 @@ define dso_local void @ip_tunnel_delete_nets(ptr noundef readonly %0, i32 nounde
   %49 = getelementptr i8, ptr %40, i64 -8
   %50 = icmp eq ptr %49, null
   %51 = or i1 %48, %50
-  br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !47
+  br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !46
 
 .loopexit:                                        ; preds = %47, %30
   %52 = add nuw nsw i64 %31, 1
   %53 = icmp eq i64 %52, 128
-  br i1 %53, label %54, label %30, !llvm.loop !48
+  br i1 %53, label %54, label %30, !llvm.loop !47
 
 54:                                               ; preds = %.loopexit
   %55 = load ptr, ptr %11, align 8
   %56 = icmp eq ptr %55, %0
-  br i1 %56, label %.loopexit10, label %10, !llvm.loop !49
+  br i1 %56, label %.loopexit10, label %10, !llvm.loop !48
 
 .loopexit10:                                      ; preds = %54, %3
   call void @unregister_netdevice_many(ptr noundef nonnull %4) #16
@@ -4935,7 +4935,7 @@ define dso_local i32 @ip_tunnel_newlink(ptr noundef %0, ptr nocapture noundef re
   br label %138
 
 138:                                              ; preds = %133, %129, %125
-  %139 = call fastcc i32 @ip_tunnel_bind_dev(ptr noundef %0), !range !37
+  %139 = call fastcc i32 @ip_tunnel_bind_dev(ptr noundef %0)
   %140 = getelementptr i8, ptr %1, i64 32
   %141 = load ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, null
@@ -4995,7 +4995,7 @@ define dso_local i32 @ip_tunnel_newlink(ptr noundef %0, ptr nocapture noundef re
   br i1 %185, label %188, label %186
 
 186:                                              ; preds = %165
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !38
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !37
   %187 = getelementptr inbounds i8, ptr %15, i64 1040
   store volatile ptr %8, ptr %187, align 8
   br label %188
@@ -5006,7 +5006,7 @@ define dso_local i32 @ip_tunnel_newlink(ptr noundef %0, ptr nocapture noundef re
   store ptr %190, ptr %189, align 8
   %191 = getelementptr i8, ptr %0, i64 2320
   store volatile ptr %183, ptr %191, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !39
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !38
   store volatile ptr %189, ptr %183, align 8
   %192 = icmp eq ptr %190, null
   br i1 %192, label %.loopexit, label %193
@@ -5032,7 +5032,7 @@ declare dso_local i32 @register_netdevice(ptr noundef) local_unnamed_addr #5
 declare dso_local i32 @dev_set_mtu(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ip_tunnel_changelink(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ip_tunnel_changelink(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #3 align 16 {
   %5 = getelementptr i8, ptr %0, i64 2304
   %6 = getelementptr i8, ptr %0, i64 2336
   %7 = load ptr, ptr %6, align 8
@@ -5246,11 +5246,11 @@ define dso_local i32 @ip_tunnel_init(ptr noundef %0) #3 align 16 {
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %15
-  %20 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %17) #17, !srcloc !50
+  %20 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %17) #17, !srcloc !49
   %21 = and i64 %20, 4294967232
   %22 = icmp eq i64 %21, 0
   %23 = add nuw nsw i64 %20, 1
-  br i1 %22, label %11, label %.thread, !llvm.loop !51
+  br i1 %22, label %11, label %.thread, !llvm.loop !50
 
 .thread:                                          ; preds = %15, %11, %19
   %24 = getelementptr inbounds i8, ptr %0, i64 160
@@ -5563,18 +5563,17 @@ attributes #19 = { nounwind allocsize(0) }
 !34 = !{i8 0, i8 2}
 !35 = !{}
 !36 = distinct !{!36, !6, !7}
-!37 = !{i32 68, i32 -2147483648}
-!38 = !{i64 2160010094}
-!39 = !{i64 2151875593}
-!40 = !{i64 2160041659, i64 2160041468, i64 2160041520, i64 2160041566, i64 2160041594}
-!41 = !{i64 2160042217, i64 2160042026, i64 2160042078, i64 2160042124, i64 2160042152}
-!42 = !{i64 2160042291, i64 2160042320, i64 2160042366, i64 2160042424, i64 2160042478, i64 2160042532, i64 2160042587, i64 2160042618, i64 2160042926, i64 2160042932, i64 2160042979, i64 2160043002, i64 2160043028}
-!43 = !{i64 2160043481, i64 2160043292, i64 2160043342, i64 2160043388, i64 2160043416}
-!44 = !{i64 2160043787, i64 2160043598, i64 2160043648, i64 2160043694, i64 2160043722}
-!45 = !{i64 2155722205}
+!37 = !{i64 2160010094}
+!38 = !{i64 2151875593}
+!39 = !{i64 2160041659, i64 2160041468, i64 2160041520, i64 2160041566, i64 2160041594}
+!40 = !{i64 2160042217, i64 2160042026, i64 2160042078, i64 2160042124, i64 2160042152}
+!41 = !{i64 2160042291, i64 2160042320, i64 2160042366, i64 2160042424, i64 2160042478, i64 2160042532, i64 2160042587, i64 2160042618, i64 2160042926, i64 2160042932, i64 2160042979, i64 2160043002, i64 2160043028}
+!42 = !{i64 2160043481, i64 2160043292, i64 2160043342, i64 2160043388, i64 2160043416}
+!43 = !{i64 2160043787, i64 2160043598, i64 2160043648, i64 2160043694, i64 2160043722}
+!44 = !{i64 2155722205}
+!45 = distinct !{!45, !6, !7}
 !46 = distinct !{!46, !6, !7}
 !47 = distinct !{!47, !6, !7}
 !48 = distinct !{!48, !6, !7}
-!49 = distinct !{!49, !6, !7}
-!50 = !{i64 1033528}
-!51 = distinct !{!51, !6, !7}
+!49 = !{i64 1033528}
+!50 = distinct !{!50, !6, !7}

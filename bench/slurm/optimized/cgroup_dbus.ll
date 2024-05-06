@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [52 x i8] c"%s: Invalid response type %c not supported by Slurm\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [9 x i8], align 8
   %4 = alloca %struct.DBusMessageIter, align 8
   %5 = alloca ptr, align 8
@@ -386,7 +386,7 @@ define i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr noundef %1) local_un
   %144 = load ptr, ptr %19, align 8
   call void @dbus_pending_call_unref(ptr noundef %144) #5
   call void @dbus_connection_unref(ptr noundef nonnull %30) #5
-  %145 = call fastcc i32 @_process_and_close_reply_msg(ptr noundef nonnull %140), !range !6
+  %145 = call fastcc i32 @_process_and_close_reply_msg(ptr noundef nonnull %140)
   %.not27 = icmp ne i32 %145, 0
   %. = sext i1 %.not27 to i32
   br label %146
@@ -438,7 +438,7 @@ declare void @dbus_connection_unref(ptr noundef) local_unnamed_addr #1
 declare void @dbus_pending_call_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_process_and_close_reply_msg(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_process_and_close_reply_msg(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.DBusMessageIter, align 8
   %3 = alloca ptr, align 8
   %4 = call i32 @dbus_message_iter_init(ptr noundef %0, ptr noundef nonnull %2) #5
@@ -495,7 +495,7 @@ define internal fastcc i32 @_process_and_close_reply_msg(ptr noundef %0) unnamed
   %.1 = phi i32 [ -1, %23 ], [ -1, %21 ], [ -1, %18 ], [ -1, %15 ], [ %.0, %13 ], [ %.0, %10 ], [ %.0, %7 ]
   %26 = call i32 @dbus_message_iter_next(ptr noundef nonnull %2) #5
   %.not5 = icmp eq i32 %26, 0
-  br i1 %.not5, label %27, label %5, !llvm.loop !7
+  br i1 %.not5, label %27, label %5, !llvm.loop !6
 
 27:                                               ; preds = %25
   call void @dbus_message_unref(ptr noundef %0) #5
@@ -542,6 +542,5 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

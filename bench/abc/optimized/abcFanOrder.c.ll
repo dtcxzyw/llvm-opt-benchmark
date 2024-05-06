@@ -2811,7 +2811,7 @@ define void @Abc_NtkSortSops(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Abc_NodeMakeSCCFree(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Abc_NodeMakeSCCFree(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 28
@@ -3098,7 +3098,7 @@ define void @Abc_NodeCheckDist1Free(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Abc_NodeMakeLegit(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Abc_NodeMakeLegit(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr i8, ptr %0, i64 28
   br label %4
@@ -3196,10 +3196,10 @@ define i32 @Abc_NodeMakeLegit(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %37, label %14, label %.thread.us.us.i
 
 Abc_NodeMakeDist1Free.exit:                       ; preds = %.lr.ph.split.us.i, %._crit_edge47.split.us.us.i, %4, %.lr.ph.i
-  %38 = tail call i32 @Abc_NodeMakeSCCFree(ptr noundef %0), !range !54
+  %38 = tail call i32 @Abc_NodeMakeSCCFree(ptr noundef %0)
   %39 = add nuw nsw i32 %.045, 1
   %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %40, label %4, !llvm.loop !55
+  br i1 %.not, label %40, label %4, !llvm.loop !54
 
 40:                                               ; preds = %Abc_NodeMakeDist1Free.exit
   %41 = icmp ne i32 %.045, 0
@@ -3235,7 +3235,7 @@ define noundef i32 @Abc_NtkMakeLegit(ptr nocapture noundef readonly %0) local_un
   br i1 %.not15, label %14, label %17
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @Abc_NodeMakeLegit(ptr noundef nonnull %9), !range !54
+  %15 = tail call i32 @Abc_NodeMakeLegit(ptr noundef nonnull %9)
   %16 = add nsw i32 %15, %.018
   %.pre = load ptr, ptr %2, align 8
   br label %17
@@ -3248,7 +3248,7 @@ define noundef i32 @Abc_NtkMakeLegit(ptr nocapture noundef readonly %0) local_un
   %.val = load i32, ptr %19, align 4
   %20 = sext i32 %.val to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !56
+  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !55
 
 .critedge:                                        ; preds = %17
   %.not = icmp eq i32 %.1, 0
@@ -3320,7 +3320,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4
@@ -3434,6 +3434,5 @@ attributes #19 = { nounwind willreturn memory(read) }
 !51 = distinct !{!51, !5}
 !52 = distinct !{!52, !5}
 !53 = distinct !{!53, !5}
-!54 = !{i32 0, i32 2}
+!54 = distinct !{!54, !5}
 !55 = distinct !{!55, !5}
-!56 = distinct !{!56, !5}

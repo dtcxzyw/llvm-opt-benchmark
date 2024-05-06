@@ -3826,7 +3826,7 @@ define void @_ZN5osgeo4proj9operation10Conversion9createUTMERKNS0_4util11Propert
 
 27:                                               ; preds = %26
   %28 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9807) #26, !noalias !15
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %28, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %41
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %27
@@ -4011,7 +4011,7 @@ define void @_ZN5osgeo4proj9operation10Conversion24createTransverseMercatorERKNS
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9807) #26, !noalias !18
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %10
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %7
@@ -4030,7 +4030,7 @@ define void @_ZN5osgeo4proj9operation10Conversion38createGaussSchreiberTransvers
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.3) #26, !noalias !21
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %10
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %7
@@ -4049,7 +4049,7 @@ define void @_ZN5osgeo4proj9operation10Conversion37createTransverseMercatorSouth
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9808) #26, !noalias !24
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %10
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %7
@@ -4068,7 +4068,7 @@ define void @_ZN5osgeo4proj9operation10Conversion25createTwoPointEquidistantERKN
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.4) #26, !noalias !27
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %11
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %8
@@ -4089,7 +4089,7 @@ define void @_ZN5osgeo4proj9operation10Conversion24createTunisiaMappingGridERKNS
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9816) #26, !noalias !30
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -4110,7 +4110,7 @@ define void @_ZN5osgeo4proj9operation10Conversion23createTunisiaMiningGridERKNS0
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9816) #26, !noalias !33
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -4129,7 +4129,7 @@ define void @_ZN5osgeo4proj9operation10Conversion21createAlbersEqualAreaERKNS0_4
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9822) #26, !noalias !36
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %11
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %8
@@ -4148,7 +4148,7 @@ define void @_ZN5osgeo4proj9operation10Conversion31createLambertConicConformal_1
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9801) #26, !noalias !39
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %10
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %7
@@ -4167,7 +4167,7 @@ define void @_ZN5osgeo4proj9operation10Conversion40createLambertConicConformal_1
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1102) #26, !noalias !42
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %11
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %8
@@ -4186,7 +4186,7 @@ define void @_ZN5osgeo4proj9operation10Conversion31createLambertConicConformal_2
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9802) #26, !noalias !45
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %11
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %8
@@ -4205,7 +4205,7 @@ define void @_ZN5osgeo4proj9operation10Conversion40createLambertConicConformal_2
   %10 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %11 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1051) #26, !noalias !48
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %12
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %9
@@ -4226,7 +4226,7 @@ define void @_ZN5osgeo4proj9operation10Conversion39createLambertConicConformal_2
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9803) #26, !noalias !51
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %11
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %8
@@ -4245,7 +4245,7 @@ define void @_ZN5osgeo4proj9operation10Conversion26createAzimuthalEquidistantERK
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1125) #26, !noalias !54
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -4264,7 +4264,7 @@ define void @_ZN5osgeo4proj9operation10Conversion20createGuamProjectionERKNS0_4u
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9831) #26, !noalias !57
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -4283,7 +4283,7 @@ define void @_ZN5osgeo4proj9operation10Conversion11createBonneERKNS0_4util11Prop
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9827) #26, !noalias !60
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -4302,7 +4302,7 @@ define void @_ZN5osgeo4proj9operation10Conversion42createLambertCylindricalEqual
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9834) #26, !noalias !63
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -4321,7 +4321,7 @@ define void @_ZN5osgeo4proj9operation10Conversion33createLambertCylindricalEqual
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9835) #26, !noalias !66
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -4340,7 +4340,7 @@ define void @_ZN5osgeo4proj9operation10Conversion20createCassiniSoldnerERKNS0_4u
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9806) #26, !noalias !69
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -4359,7 +4359,7 @@ define void @_ZN5osgeo4proj9operation10Conversion22createEquidistantConicERKNS0_
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1119) #26, !noalias !72
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %11
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %8
@@ -4378,7 +4378,7 @@ define void @_ZN5osgeo4proj9operation10Conversion13createEckertIERKNS0_4util11Pr
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.5) #26, !noalias !75
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -4399,7 +4399,7 @@ define void @_ZN5osgeo4proj9operation10Conversion14createEckertIIERKNS0_4util11P
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.6) #26, !noalias !78
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -4418,7 +4418,7 @@ define void @_ZN5osgeo4proj9operation10Conversion15createEckertIIIERKNS0_4util11
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.7) #26, !noalias !81
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -4437,7 +4437,7 @@ define void @_ZN5osgeo4proj9operation10Conversion14createEckertIVERKNS0_4util11P
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.8) #26, !noalias !84
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -4456,7 +4456,7 @@ define void @_ZN5osgeo4proj9operation10Conversion13createEckertVERKNS0_4util11Pr
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.9) #26, !noalias !87
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -4475,7 +4475,7 @@ define void @_ZN5osgeo4proj9operation10Conversion14createEckertVIERKNS0_4util11P
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.10) #26, !noalias !90
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -4513,7 +4513,7 @@ define void @_ZN5osgeo4proj9operation10Conversion28createEquidistantCylindricalE
 
 15:                                               ; preds = %14
   %16 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1028) #26, !noalias !93
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %23
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %15
@@ -4599,7 +4599,7 @@ define void @_ZN5osgeo4proj9operation10Conversion37createEquidistantCylindricalS
 
 15:                                               ; preds = %14
   %16 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1029) #26, !noalias !96
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %23
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %15
@@ -4655,7 +4655,7 @@ define void @_ZN5osgeo4proj9operation10Conversion10createGallERKNS0_4util11Prope
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.11) #26, !noalias !99
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -4674,7 +4674,7 @@ define void @_ZN5osgeo4proj9operation10Conversion21createGoodeHomolosineERKNS0_4
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.12) #26, !noalias !102
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -4693,7 +4693,7 @@ define void @_ZN5osgeo4proj9operation10Conversion32createInterruptedGoodeHomolos
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.13) #26, !noalias !105
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -4712,7 +4712,7 @@ define void @_ZN5osgeo4proj9operation10Conversion34createGeostationarySatelliteS
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.14) #26, !noalias !108
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %6
@@ -4731,7 +4731,7 @@ define void @_ZN5osgeo4proj9operation10Conversion34createGeostationarySatelliteS
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.15) #26, !noalias !111
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %6
@@ -4750,7 +4750,7 @@ define void @_ZN5osgeo4proj9operation10Conversion14createGnomonicERKNS0_4util11P
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.16) #26, !noalias !114
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %6
@@ -4769,7 +4769,7 @@ define void @_ZN5osgeo4proj9operation10Conversion35createHotineObliqueMercatorVa
   %10 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %11 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9812) #26, !noalias !117
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %12
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %9
@@ -4788,7 +4788,7 @@ define void @_ZN5osgeo4proj9operation10Conversion35createHotineObliqueMercatorVa
   %10 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %11 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9815) #26, !noalias !120
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %12
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %9
@@ -4898,7 +4898,7 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14Para
   %47 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %43, ptr %47, align 8
   %48 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.17) #26, !noalias !124
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %48, ptr noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %135
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %46
@@ -5230,7 +5230,7 @@ define void @_ZN5osgeo4proj9operation10Conversion28createLabordeObliqueMercatorE
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9813) #26, !noalias !128
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %11
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %8
@@ -5249,7 +5249,7 @@ define void @_ZN5osgeo4proj9operation10Conversion36createInternationalMapWorldPo
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.18) #26, !noalias !131
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %10
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %7
@@ -5268,7 +5268,7 @@ define void @_ZN5osgeo4proj9operation10Conversion25createKrovakNorthOrientedERKN
   %10 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %11 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1041) #26, !noalias !134
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %12
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %9
@@ -5287,7 +5287,7 @@ define void @_ZN5osgeo4proj9operation10Conversion12createKrovakERKNS0_4util11Pro
   %10 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %11 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9819) #26, !noalias !137
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %12
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %9
@@ -5306,7 +5306,7 @@ define void @_ZN5osgeo4proj9operation10Conversion31createLambertAzimuthalEqualAr
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9820) #26, !noalias !140
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -5325,7 +5325,7 @@ define void @_ZN5osgeo4proj9operation10Conversion23createMillerCylindricalERKNS0
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.19) #26, !noalias !143
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -5344,7 +5344,7 @@ define void @_ZN5osgeo4proj9operation10Conversion22createMercatorVariantAERKNS0_
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9804) #26, !noalias !146
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %10
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %7
@@ -5363,7 +5363,7 @@ define void @_ZN5osgeo4proj9operation10Conversion22createMercatorVariantBERKNS0_
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9805) #26, !noalias !149
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -5382,7 +5382,7 @@ define void @_ZN5osgeo4proj9operation10Conversion40createPopularVisualisationPse
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1024) #26, !noalias !152
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -5401,7 +5401,7 @@ define void @_ZN5osgeo4proj9operation10Conversion23createMercatorSphericalERKNS0
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1026) #26, !noalias !155
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -5420,7 +5420,7 @@ define void @_ZN5osgeo4proj9operation10Conversion15createMollweideERKNS0_4util11
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.20) #26, !noalias !158
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -5439,7 +5439,7 @@ define void @_ZN5osgeo4proj9operation10Conversion27createNewZealandMappingGridER
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9811) #26, !noalias !161
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -5458,7 +5458,7 @@ define void @_ZN5osgeo4proj9operation10Conversion26createObliqueStereographicERK
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9809) #26, !noalias !164
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %10
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %7
@@ -5477,7 +5477,7 @@ define void @_ZN5osgeo4proj9operation10Conversion18createOrthographicERKNS0_4uti
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9840) #26, !noalias !167
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -5496,7 +5496,7 @@ define void @_ZN5osgeo4proj9operation10Conversion23createAmericanPolyconicERKNS0
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9818) #26, !noalias !170
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -5515,7 +5515,7 @@ define void @_ZN5osgeo4proj9operation10Conversion32createPolarStereographicVaria
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9810) #26, !noalias !173
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %10
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %7
@@ -5534,7 +5534,7 @@ define void @_ZN5osgeo4proj9operation10Conversion32createPolarStereographicVaria
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9829) #26, !noalias !176
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
@@ -5553,7 +5553,7 @@ define void @_ZN5osgeo4proj9operation10Conversion14createRobinsonERKNS0_4util11P
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.21) #26, !noalias !179
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -5572,7 +5572,7 @@ define void @_ZN5osgeo4proj9operation10Conversion16createSinusoidalERKNS0_4util1
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.22) #26, !noalias !182
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -5591,7 +5591,7 @@ define void @_ZN5osgeo4proj9operation10Conversion19createStereographicERKNS0_4ut
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.23) #26, !noalias !185
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %10
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %7
@@ -5610,7 +5610,7 @@ define void @_ZN5osgeo4proj9operation10Conversion19createVanDerGrintenERKNS0_4ut
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.24) #26, !noalias !188
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -5629,7 +5629,7 @@ define void @_ZN5osgeo4proj9operation10Conversion13createWagnerIERKNS0_4util11Pr
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.25) #26, !noalias !191
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -5648,7 +5648,7 @@ define void @_ZN5osgeo4proj9operation10Conversion14createWagnerIIERKNS0_4util11P
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.26) #26, !noalias !194
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -5667,7 +5667,7 @@ define void @_ZN5osgeo4proj9operation10Conversion15createWagnerIIIERKNS0_4util11
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.27) #26, !noalias !197
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %6
@@ -5686,7 +5686,7 @@ define void @_ZN5osgeo4proj9operation10Conversion14createWagnerIVERKNS0_4util11P
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.28) #26, !noalias !200
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -5705,7 +5705,7 @@ define void @_ZN5osgeo4proj9operation10Conversion13createWagnerVERKNS0_4util11Pr
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.29) #26, !noalias !203
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -5724,7 +5724,7 @@ define void @_ZN5osgeo4proj9operation10Conversion14createWagnerVIERKNS0_4util11P
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.30) #26, !noalias !206
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -5743,7 +5743,7 @@ define void @_ZN5osgeo4proj9operation10Conversion15createWagnerVIIERKNS0_4util11
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.31) #26, !noalias !209
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -5762,7 +5762,7 @@ define void @_ZN5osgeo4proj9operation10Conversion36createQuadrilateralizedSpheri
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.32) #26, !noalias !212
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %6
@@ -5781,7 +5781,7 @@ define void @_ZN5osgeo4proj9operation10Conversion31createSphericalCrossTrackHeig
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.33) #26, !noalias !215
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %9
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %6
@@ -5800,7 +5800,7 @@ define void @_ZN5osgeo4proj9operation10Conversion16createEqualEarthERKNS0_4util1
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1078) #26, !noalias !218
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %5
@@ -5819,7 +5819,7 @@ define void @_ZN5osgeo4proj9operation10Conversion25createVerticalPerspectiveERKN
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9838) #26, !noalias !221
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit unwind label %11
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %8
@@ -5838,7 +5838,7 @@ define void @_ZN5osgeo4proj9operation10Conversion32createPoleRotationGRIBConvent
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.34) #26, !noalias !224
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -5857,7 +5857,7 @@ define void @_ZN5osgeo4proj9operation10Conversion36createPoleRotationNetCDFCFCon
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.35) #26, !noalias !227
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit unwind label %8
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
@@ -7059,7 +7059,7 @@ define hidden void @_ZN5osgeo4proj9operation10Conversion34createGeographicGeocen
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %13 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.37) #26, !noalias !230
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %13, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit unwind label %56
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit: ; preds = %12
@@ -9429,7 +9429,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
   call void @_ZN5osgeo4proj9operation26createPropertiesForInverseEPKNS1_19CoordinateOperationEbb(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %14, ptr noundef nonnull %191, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %193 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.37) #26, !noalias !252
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %193, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %193, ptr noundef nonnull readonly align 8 dereferenceable(24) %15)
           to label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit unwind label %215
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit: ; preds = %192
@@ -10000,7 +10000,7 @@ _ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit230: ; preds = %_ZN5osgeo4pro
 
 .noexc:                                           ; preds = %_ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit230
   %160 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9805) #26, !noalias !261
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %160, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %160, ptr noundef nonnull readonly align 8 dereferenceable(24) %5)
           to label %163 unwind label %161
 
 161:                                              ; preds = %.noexc
@@ -10249,7 +10249,7 @@ _ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit240: ; preds = %_ZN5osgeo4pro
 
 .noexc241:                                        ; preds = %_ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit240
   %261 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9804) #26, !noalias !266
-  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %261, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %261, ptr noundef nonnull readonly align 8 dereferenceable(24) %4)
           to label %264 unwind label %262
 
 262:                                              ; preds = %.noexc241

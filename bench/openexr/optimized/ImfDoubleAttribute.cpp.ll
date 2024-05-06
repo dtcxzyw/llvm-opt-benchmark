@@ -234,7 +234,7 @@ entry:
   %arrayidx17.i = getelementptr inbounds i8, ptr %b.i, i64 6
   store i8 %conv16.i, ptr %arrayidx17.i, align 1
   %shr18.i = lshr i64 %0, 56
-  %conv19.i = trunc i64 %shr18.i to i8
+  %conv19.i = trunc nuw i64 %shr18.i to i8
   %arrayidx20.i = getelementptr inbounds i8, ptr %b.i, i64 7
   store i8 %conv19.i, ptr %arrayidx20.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
@@ -347,7 +347,7 @@ if.end:                                           ; preds = %dynamic_cast.end
   ret ptr %1
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #9
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -458,7 +458,7 @@ attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree nounwind memory(read) }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }

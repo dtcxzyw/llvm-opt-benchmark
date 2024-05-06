@@ -57,7 +57,7 @@ define internal zeroext i1 @state_mt(ptr nocapture noundef readonly %0, ptr noca
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %2
-  %.lhs.trunc = trunc i32 %8 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %8 to i8
   %11 = urem i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %11 to i32
   %12 = shl nuw nsw i32 2, %.zext

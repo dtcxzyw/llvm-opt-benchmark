@@ -432,7 +432,7 @@ define void @Inter_CheckAddEqual(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Inter_CheckPerform(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Inter_CheckPerform(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [3 x i32], align 4
   %5 = alloca [3 x i32], align 4
   %6 = load ptr, ptr %1, align 8

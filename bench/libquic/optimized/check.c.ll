@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DH_check_pub_key(ptr nocapture noundef readonly %dh, ptr noundef %pub_key, ptr nocapture noundef %ret) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DH_check_pub_key(ptr nocapture noundef readonly %dh, ptr noundef %pub_key, ptr nocapture noundef %ret) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %ret, align 4
   %call = tail call ptr @BN_CTX_new() #2
@@ -112,7 +112,7 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DH_check(ptr nocapture noundef readonly %dh, ptr nocapture noundef %ret) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DH_check(ptr nocapture noundef readonly %dh, ptr nocapture noundef %ret) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %ret, align 4
   %call = tail call ptr @BN_CTX_new() #2

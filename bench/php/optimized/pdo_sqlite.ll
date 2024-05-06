@@ -667,7 +667,7 @@ define hidden void @zim_PdoSqlite_openBlob(ptr nocapture noundef readonly %0, pt
   %37 = load i64, ptr %10, align 8
   %38 = and i64 %37, 2
   %.lobit = lshr exact i64 %38, 1
-  %39 = trunc i64 %.lobit to i32
+  %39 = trunc nuw nsw i64 %.lobit to i32
   %40 = load ptr, ptr %5, align 8
   %41 = load ptr, ptr %3, align 8
   %42 = load ptr, ptr %4, align 8
@@ -865,7 +865,7 @@ define internal i32 @php_sqlite_collation_callback(ptr noundef %0, i32 noundef %
   %64 = load i64, ptr %7, align 8
   %65 = icmp sgt i64 %64, 0
   %.lobit = ashr i64 %64, 63
-  %spec.select = trunc i64 %.lobit to i32
+  %spec.select = trunc nsw i64 %.lobit to i32
   %.0148 = select i1 %65, i32 1, i32 %spec.select
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #11
   br label %66
@@ -1022,7 +1022,7 @@ define internal noundef i32 @php_pdosqlite3_stream_flush(ptr nocapture readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @php_pdosqlite3_stream_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #4 {
+define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   switch i32 %2, label %57 [

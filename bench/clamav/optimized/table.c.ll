@@ -89,7 +89,7 @@ define i32 @tableInsert(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_un
   br i1 %.not14.i, label %11, label %8
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i32 @strcasecmp(ptr noundef nonnull %7, ptr noundef nonnull %1) #11
+  %9 = tail call i32 @strcasecmp(ptr noundef nonnull %7, ptr noundef nonnull readonly %1) #11
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %tableFind.exit, label %11
 

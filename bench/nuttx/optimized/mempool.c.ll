@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [10 x i8] c"%12zu%*p\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mempool_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -12, 1) i32 @mempool_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = getelementptr inbounds i8, ptr %0, i64 80
@@ -637,7 +637,7 @@ define void @mempool_memdump(ptr nocapture noundef readonly %0, ptr nocapture no
 declare void @syslog(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mempool_deinit(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -16, 1) i32 @mempool_deinit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load i64, ptr %3, align 8

@@ -63,9 +63,9 @@ entry:
   store i32 0, ptr %idx_.i.i, align 4
   %sub.i.i = getelementptr inbounds i8, ptr %dict, i64 1224
   store i32 0, ptr %sub.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %trie.i, i8 0, i64 25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %trie.i, i8 0, i64 25, i1 false)
   %1 = getelementptr inbounds i8, ptr %dict, i64 1248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %1, i8 0, i64 56, i1 false)
   store ptr %contextual, ptr %parent.i, align 8
   %max_quality = getelementptr inbounds i8, ptr %dict, i64 1312
   store i32 11, ptr %max_quality, align 8

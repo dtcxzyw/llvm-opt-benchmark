@@ -282,7 +282,7 @@ define noundef i64 @_ZN7profile12memory_usage5Bytes3new17hf9d3b4f34965452fE(i64 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @_ZN7profile12memory_usage5Bytes9megabytes17h111bc607cd213ff7E(i64 noundef %0) unnamed_addr #4 {
+define noundef range(i64 -8796093022208, 8796093022208) i64 @_ZN7profile12memory_usage5Bytes9megabytes17h111bc607cd213ff7E(i64 noundef %0) unnamed_addr #4 {
   %2 = sdiv i64 %0, 1048576
   ret i64 %2
 }

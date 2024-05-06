@@ -161,7 +161,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.79 = private unnamed_addr constant [9 x i8] c"fork: %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @trigger_pull(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 23) i32 @trigger_pull(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @trigger_list, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
@@ -496,7 +496,7 @@ define internal fastcc void @_dump_trigger_msg(ptr noundef %0, ptr noundef reado
   %50 = load i32, ptr %49, align 4
   %51 = getelementptr inbounds i8, ptr %48, i64 40
   %52 = load ptr, ptr %51, align 8
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.27, i32 noundef %53, i32 noundef %32, ptr noundef %35, ptr noundef %39, ptr noundef %42, i32 noundef %47, i32 noundef %50, ptr noundef %52) #14
   br label %54
 
@@ -774,7 +774,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @trigger_clear(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #14
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -4666,7 +4666,7 @@ _trigger_clone.exit:                              ; preds = %746, %749
   br i1 %exitcond.not.i, label %._crit_edge.i122, label %789, !llvm.loop !21
 
 .loopexit45.i:                                    ; preds = %789
-  %794 = trunc i64 %indvars.iv.i119 to i32
+  %794 = trunc nuw nsw i64 %indvars.iv.i119 to i32
   %795 = getelementptr inbounds i8, ptr %24, i64 16
   %796 = load ptr, ptr %795, align 8
   %797 = call ptr @xstrdup(ptr noundef %796) #14

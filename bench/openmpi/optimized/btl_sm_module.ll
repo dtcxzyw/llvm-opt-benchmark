@@ -223,7 +223,7 @@ sm_btl_first_time_init.exit:                      ; preds = %mca_smsc_base_has_f
   br i1 %or.cond, label %106, label %109
 
 106:                                              ; preds = %104
-  %107 = trunc i64 %indvars.iv to i32
+  %107 = trunc nuw nsw i64 %indvars.iv to i32
   %108 = call i32 @opal_bitmap_set_bit(ptr noundef nonnull %4, i32 noundef %107) #12
   %.not45 = icmp eq i32 %108, 0
   br i1 %.not45, label %._crit_edge, label %sm_btl_first_time_init.exit.thread
@@ -1111,7 +1111,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   %24 = extractvalue { i128, i1 } %22, 0
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %24 to i64
   %.sroa.4.0.extract.shift.i.i.i = lshr i128 %24, 64
-  %.sroa.4.0.extract.trunc.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i, ptr %.sroa.4.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
@@ -1307,7 +1307,7 @@ opal_obj_run_destructors.exit25:                  ; preds = %.lr.ph.i22, %opal_o
 
 21:                                               ; preds = %opal_obj_run_destructors.exit25
   %22 = getelementptr inbounds i8, ptr %20, i64 32
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #15
+  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #15
   %24 = add i64 %23, 33
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %20, i64 %24, i1 false)
   tail call void @free(ptr noundef nonnull %20) #12

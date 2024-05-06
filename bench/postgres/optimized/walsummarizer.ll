@@ -551,7 +551,7 @@ GetLatestLSN.exit:                                ; preds = %170, %176, %178
   %190 = load i32, ptr %4, align 4
   %191 = load i32, ptr %6, align 4
   %192 = lshr i64 %187, 32
-  %193 = trunc i64 %192 to i32
+  %193 = trunc nuw i64 %192 to i32
   %194 = trunc i64 %187 to i32
   %195 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, i32 noundef %190, i32 noundef %191, i32 noundef %193, i32 noundef %194) #11
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 378, ptr noundef nonnull @__func__.WalSummarizerMain) #11
@@ -1039,11 +1039,11 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
 
 43:                                               ; preds = %41
   %44 = lshr i64 %1, 32
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw i64 %44 to i32
   %46 = trunc i64 %1 to i32
   %47 = load i64, ptr %21, align 8
   %48 = lshr i64 %47, 32
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw i64 %48 to i32
   %50 = trunc i64 %47 to i32
   %51 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %0, i32 noundef %45, i32 noundef %46, i32 noundef %49, i32 noundef %50) #11
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 862, ptr noundef nonnull @__func__.SummarizeWAL) #11
@@ -1058,7 +1058,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %56)
   %57 = lshr i64 %1, 32
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw i64 %57 to i32
   %59 = trunc i64 %1 to i32
   %60 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i32 noundef %58, i32 noundef %59) #11
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 879, ptr noundef nonnull @__func__.SummarizeWAL) #11
@@ -1097,11 +1097,11 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   %78 = getelementptr inbounds i8, ptr %25, i64 48
   %79 = load i64, ptr %78, align 8
   %80 = lshr i64 %79, 32
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nuw i64 %80 to i32
   %82 = trunc i64 %79 to i32
   %83 = load i64, ptr %21, align 8
   %84 = lshr i64 %83, 32
-  %85 = trunc i64 %84 to i32
+  %85 = trunc nuw i64 %84 to i32
   %86 = trunc i64 %83 to i32
   %87 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %0, i32 noundef %81, i32 noundef %82, i32 noundef %85, i32 noundef %86) #11
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 915, ptr noundef nonnull @__func__.SummarizeWAL) #11
@@ -1120,7 +1120,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   %94 = getelementptr inbounds i8, ptr %25, i64 48
   %95 = load i64, ptr %94, align 8
   %96 = lshr i64 %95, 32
-  %97 = trunc i64 %96 to i32
+  %97 = trunc nuw i64 %96 to i32
   %98 = trunc i64 %95 to i32
   br i1 %.not93, label %102, label %99
 
@@ -1370,10 +1370,10 @@ SummarizeXactRecord.exit:                         ; preds = %167, %152, %136, %1
 207:                                              ; preds = %.loopexit
   %208 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.13) #11
   %209 = lshr i64 %.083, 32
-  %210 = trunc i64 %209 to i32
+  %210 = trunc nuw i64 %209 to i32
   %211 = trunc i64 %.083 to i32
   %212 = lshr i64 %.084, 32
-  %213 = trunc i64 %212 to i32
+  %213 = trunc nuw i64 %212 to i32
   %214 = trunc i64 %.084 to i32
   %215 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 1024, ptr noundef nonnull @.str.14, i32 noundef %0, i32 noundef %210, i32 noundef %211, i32 noundef %213, i32 noundef %214) #11
   %216 = getelementptr inbounds i8, ptr %10, i64 8
@@ -1714,7 +1714,7 @@ GetLatestLSN.exit:                                ; preds = %45, %51, %53
 64:                                               ; preds = %59
   %65 = load i32, ptr %11, align 8
   %66 = lshr i64 %.pre36, 32
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   %68 = trunc i64 %.pre36 to i32
   %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef %65, i32 noundef %67, i32 noundef %68) #11
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1307, ptr noundef nonnull @__func__.summarizer_read_local_xlog_page) #11

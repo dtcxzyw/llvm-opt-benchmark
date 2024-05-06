@@ -942,7 +942,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.34 = private unnamed_addr constant [36 x i8] c"<slot wrapper '%V' of '%s' objects>\00", align 1
 @.str.35 = private unnamed_addr constant [67 x i8] c"descriptor '%V' requires a '%.100s' object but received a '%.100s'\00", align 1
 @.str.36 = private unnamed_addr constant [40 x i8] c"wrapper %s() takes no keyword arguments\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.37 = private unnamed_addr constant [36 x i8] c"unbound method %U needs an argument\00", align 1
 @.str.38 = private unnamed_addr constant [30 x i8] c"%U takes no keyword arguments\00", align 1
 @.str.39 = private unnamed_addr constant [31 x i8] c" while calling a Python object\00", align 1
@@ -2240,7 +2240,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   %and.i = and i64 %nargsf, 9223372036854775807
-  %call2 = tail call fastcc i32 @method_check_args(ptr noundef %func, ptr noundef %args, i64 noundef %and.i, ptr noundef %kwnames), !range !5
+  %call2 = tail call fastcc i32 @method_check_args(ptr noundef %func, ptr noundef %args, i64 noundef %and.i, ptr noundef %kwnames)
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -2323,7 +2323,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   %and.i = and i64 %nargsf, 9223372036854775807
-  %call2 = tail call fastcc i32 @method_check_args(ptr noundef %func, ptr noundef %args, i64 noundef %and.i, ptr noundef null), !range !5
+  %call2 = tail call fastcc i32 @method_check_args(ptr noundef %func, ptr noundef %args, i64 noundef %and.i, ptr noundef null)
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -2429,7 +2429,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   %and.i = and i64 %nargsf, 9223372036854775807
-  %call2 = tail call fastcc i32 @method_check_args(ptr noundef %func, ptr noundef %args, i64 noundef %and.i, ptr noundef %kwnames), !range !5
+  %call2 = tail call fastcc i32 @method_check_args(ptr noundef %func, ptr noundef %args, i64 noundef %and.i, ptr noundef %kwnames)
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -2475,7 +2475,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   %and.i = and i64 %nargsf, 9223372036854775807
-  %call2 = tail call fastcc i32 @method_check_args(ptr noundef %func, ptr noundef %args, i64 noundef %and.i, ptr noundef null), !range !5
+  %call2 = tail call fastcc i32 @method_check_args(ptr noundef %func, ptr noundef %args, i64 noundef %and.i, ptr noundef null)
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -2521,7 +2521,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   %and.i = and i64 %nargsf, 9223372036854775807
-  %call2 = tail call fastcc i32 @method_check_args(ptr noundef %func, ptr noundef %args, i64 noundef %and.i, ptr noundef %kwnames), !range !5
+  %call2 = tail call fastcc i32 @method_check_args(ptr noundef %func, ptr noundef %args, i64 noundef %and.i, ptr noundef %kwnames)
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -2593,7 +2593,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   %and.i = and i64 %nargsf, 9223372036854775807
-  %call2 = tail call fastcc i32 @method_check_args(ptr noundef %func, ptr noundef %args, i64 noundef %and.i, ptr noundef %kwnames), !range !5
+  %call2 = tail call fastcc i32 @method_check_args(ptr noundef %func, ptr noundef %args, i64 noundef %and.i, ptr noundef %kwnames)
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -2667,7 +2667,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   %and.i = and i64 %nargsf, 9223372036854775807
-  %call2 = tail call fastcc i32 @method_check_args(ptr noundef %func, ptr noundef %args, i64 noundef %and.i, ptr noundef null), !range !5
+  %call2 = tail call fastcc i32 @method_check_args(ptr noundef %func, ptr noundef %args, i64 noundef %and.i, ptr noundef null)
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -2966,7 +2966,7 @@ if.end:                                           ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyDescr_IsData(ptr nocapture noundef readonly %ob) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @PyDescr_IsData(ptr nocapture noundef readonly %ob) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %ob, i64 8
   %ob.val = load ptr, ptr %0, align 8
@@ -3851,7 +3851,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @property_descr_set(ptr nocapture noundef readonly %self, ptr noundef %obj, ptr noundef %value) #0 {
+define internal range(i32 -1, 1) i32 @property_descr_set(ptr nocapture noundef readonly %self, ptr noundef %obj, ptr noundef %value) #0 {
 entry:
   %args = alloca [2 x ptr], align 16
   %cmp = icmp eq ptr %value, null
@@ -4622,7 +4622,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @method_check_args(ptr noundef %func, ptr nocapture noundef readonly %args, i64 noundef %nargs, ptr noundef readonly %kwnames) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @method_check_args(ptr noundef %func, ptr nocapture noundef readonly %args, i64 noundef %nargs, ptr noundef readonly %kwnames) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %nargs, 1
   br i1 %cmp, label %if.then, label %if.end4
@@ -5411,4 +5411,3 @@ attributes #8 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}

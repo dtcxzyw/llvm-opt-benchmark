@@ -42,7 +42,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.13 = private unnamed_addr constant [8 x i8] c"persist\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @activeExpireCycleTryExpire(ptr noundef %db, ptr noundef %de, i64 noundef %now) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @activeExpireCycleTryExpire(ptr noundef %db, ptr noundef %de, i64 noundef %now) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @dictGetSignedIntegerVal(ptr noundef %de) #9
   %cmp = icmp slt i64 %call, %now
@@ -126,7 +126,7 @@ entry:
   %0 = load i64, ptr %now, align 8
   %sub = sub nsw i64 %call, %0
   %1 = load ptr, ptr %privdata, align 8
-  %call2 = tail call i32 @activeExpireCycleTryExpire(ptr noundef %1, ptr noundef %const_de, i64 noundef %0), !range !5
+  %call2 = tail call i32 @activeExpireCycleTryExpire(ptr noundef %1, ptr noundef %const_de, i64 noundef %0)
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -306,7 +306,7 @@ while.cond:                                       ; preds = %while.body
   %cmp69 = icmp ult i64 %.pre86.pre, %spec.select44
   %cmp72 = icmp slt i64 %inc82, %mul67
   %11 = select i1 %cmp69, i1 %cmp72, i1 false
-  br i1 %11, label %while.body, label %while.end, !llvm.loop !6
+  br i1 %11, label %while.body, label %while.end, !llvm.loop !5
 
 while.body:                                       ; preds = %while.body.preheader, %while.cond
   %12 = phi i64 [ %call75, %while.cond ], [ %.pre, %while.body.preheader ]
@@ -375,7 +375,7 @@ do.body.backedge:                                 ; preds = %lor.rhs, %do.cond
   %inc56 = add nsw i32 %inc5662, 1
   %call57 = call i64 @dbSize(ptr noundef %add.ptr, i32 noundef 1) #9
   %cmp58 = icmp eq i64 %call57, 0
-  br i1 %cmp58, label %if.then60, label %if.end61, !llvm.loop !8
+  br i1 %cmp58, label %if.then60, label %if.end61, !llvm.loop !7
 
 for.inc:                                          ; preds = %lor.rhs, %if.then60, %if.then115
   %inc5647 = phi i32 [ %inc56.lcssa, %if.then60 ], [ %inc5662, %if.then115 ], [ %inc5662, %lor.rhs ]
@@ -385,7 +385,7 @@ for.inc:                                          ; preds = %lor.rhs, %if.then60
   %cmp43 = icmp sge i32 %spec.select43, %spec.select
   %.b = load i1, ptr @activeExpireCycle.timelimit_exit, align 4
   %or.cond1.not = select i1 %cmp43, i1 true, i1 %.b
-  br i1 %or.cond1.not, label %for.end.loopexit, label %land.rhs, !llvm.loop !9
+  br i1 %or.cond1.not, label %for.end.loopexit, label %land.rhs, !llvm.loop !8
 
 for.end.loopexit:                                 ; preds = %for.inc, %land.rhs
   %total_sampled.0.lcssa.ph = phi i64 [ %total_sampled.070, %land.rhs ], [ %total_sampled.2, %for.inc ]
@@ -445,7 +445,7 @@ declare i64 @mstime() local_unnamed_addr #1
 declare i64 @dbScan(ptr noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @isExpiryDictValidForSamplingCb(ptr nocapture noundef readonly %d) #3 {
+define internal range(i32 -1, 1) i32 @isExpiryDictValidForSamplingCb(ptr nocapture noundef readonly %d) #3 {
 entry:
   %ht_used = getelementptr inbounds i8, ptr %d, i64 24
   %0 = load i64, ptr %ht_used, align 8
@@ -538,7 +538,7 @@ if.then11:                                        ; preds = %while.body9
 land.lhs.true:                                    ; preds = %if.then11
   %9 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 10), align 8
   %add.ptr17 = getelementptr inbounds %struct.redisDb, ptr %9, i64 %indvars.iv
-  %call18 = tail call i32 @activeExpireCycleTryExpire(ptr noundef %add.ptr17, ptr noundef nonnull %call14, i64 noundef %call), !range !5
+  %call18 = tail call i32 @activeExpireCycleTryExpire(ptr noundef %add.ptr17, ptr noundef nonnull %call14, i64 noundef %call)
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.end21, label %if.then20
 
@@ -562,7 +562,7 @@ if.end27:                                         ; preds = %if.then20, %if.then
   %11 = sext i32 %10 to i64
   %cmp8 = icmp slt i64 %indvars.iv.next, %11
   %12 = select i1 %tobool, i1 %cmp8, i1 false
-  br i1 %12, label %while.body9, label %while.end, !llvm.loop !10
+  br i1 %12, label %while.body9, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end27
   %tobool29.not = icmp eq i64 %new_dbids.1, 0
@@ -722,7 +722,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @dictRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @checkAlreadyExpired(i64 noundef %when) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @checkAlreadyExpired(i64 noundef %when) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @commandTimeSnapshot() #9
   %cmp.not = icmp slt i64 %call, %when
@@ -747,7 +747,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 declare i64 @commandTimeSnapshot() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @parseExtendedExpireArgumentsOrReply(ptr noundef %c, ptr nocapture noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @parseExtendedExpireArgumentsOrReply(ptr noundef %c, ptr nocapture noundef %flags) local_unnamed_addr #0 {
 entry:
   %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
@@ -805,7 +805,7 @@ if.end18:                                         ; preds = %if.else10, %if.else
   %5 = load i32, ptr %argc, align 8
   %6 = sext i32 %5 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %6
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !11
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end18
   %7 = icmp ne i32 %nx.1, 0
@@ -853,7 +853,7 @@ entry:
   %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %arrayidx2, align 8
   store i32 0, ptr %flag, align 4
-  %call = call i32 @parseExtendedExpireArgumentsOrReply(ptr noundef %c, ptr noundef nonnull %flag), !range !12
+  %call = call i32 @parseExtendedExpireArgumentsOrReply(ptr noundef %c, ptr noundef nonnull %flag)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -1389,7 +1389,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load i32, ptr %argc, align 8
   %5 = sext i32 %4 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %5
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !13
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !11
 
 for.end.loopexit:                                 ; preds = %for.body
   %6 = zext nneg i32 %spec.select to i64
@@ -1432,12 +1432,10 @@ attributes #11 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{i32 -1, i32 1}
-!13 = distinct !{!13, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}

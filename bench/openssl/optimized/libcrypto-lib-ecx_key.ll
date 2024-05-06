@@ -111,7 +111,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @ossl_ecx_key_up_ref(ptr nocapture noundef %key) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_ecx_key_up_ref(ptr nocapture noundef %key) local_unnamed_addr #3 {
 entry:
   %references = getelementptr inbounds i8, ptr %key, i64 100
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
@@ -134,7 +134,7 @@ entry:
 declare noalias ptr @CRYPTO_secure_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ecx_compute_key(ptr noundef %peer, ptr noundef readonly %priv, i64 noundef %keylen, ptr noundef %secret, ptr nocapture noundef writeonly %secretlen, i64 noundef %outlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ecx_compute_key(ptr noundef %peer, ptr noundef readonly %priv, i64 noundef %keylen, ptr noundef %secret, ptr nocapture noundef writeonly %secretlen, i64 noundef %outlen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %priv, null
   br i1 %cmp, label %if.then, label %lor.lhs.false

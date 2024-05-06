@@ -616,7 +616,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIaLNS0_8CellKindE35EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i, align 4
   store i32 587202600, ptr %cond.i.i.i.i.i, align 4
   br label %for.body5.i.i.i
@@ -778,7 +778,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIaLNS0_8CellKindE35EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i.i, align 4
   store i32 587202600, ptr %cond.i.i.i.i.i.i, align 4
   br label %for.body5.i.i.i.i
@@ -1229,7 +1229,7 @@ entry:
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i, ptr %clazz_.i.i.i, align 4
   %propStorage_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i, align 4
   ret void
 }
@@ -1480,7 +1480,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIsLNS0_8CellKindE36EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i, align 4
   store i32 603979816, ptr %cond.i.i.i.i.i, align 4
   br label %for.body5.i.i.i
@@ -1642,7 +1642,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIsLNS0_8CellKindE36EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i.i, align 4
   store i32 603979816, ptr %cond.i.i.i.i.i.i, align 4
   br label %for.body5.i.i.i.i
@@ -1896,7 +1896,7 @@ entry:
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i, ptr %clazz_.i.i.i, align 4
   %propStorage_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i, align 4
   ret void
 }
@@ -2119,7 +2119,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIiLNS0_8CellKindE37EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i, align 4
   store i32 620757032, ptr %cond.i.i.i.i.i, align 4
   br label %for.body5.i.i.i
@@ -2281,7 +2281,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIiLNS0_8CellKindE37EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i.i, align 4
   store i32 620757032, ptr %cond.i.i.i.i.i.i, align 4
   br label %for.body5.i.i.i.i
@@ -2534,7 +2534,7 @@ entry:
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i, ptr %clazz_.i.i.i, align 4
   %propStorage_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i, align 4
   ret void
 }
@@ -2758,7 +2758,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIhLNS0_8CellKindE38EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i, align 4
   store i32 637534248, ptr %cond.i.i.i.i.i, align 4
   br label %for.body5.i.i.i
@@ -2920,7 +2920,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIhLNS0_8CellKindE38EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i.i, align 4
   store i32 637534248, ptr %cond.i.i.i.i.i.i, align 4
   br label %for.body5.i.i.i.i
@@ -3174,7 +3174,7 @@ entry:
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i, ptr %clazz_.i.i.i, align 4
   %propStorage_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i, align 4
   ret void
 }
@@ -3381,7 +3381,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIhLNS0_8CellKindE39EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i, align 4
   store i32 654311464, ptr %cond.i.i.i.i.i, align 4
   br label %for.body5.i.i.i
@@ -3543,7 +3543,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIhLNS0_8CellKindE39EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i.i, align 4
   store i32 654311464, ptr %cond.i.i.i.i.i.i, align 4
   br label %for.body5.i.i.i.i
@@ -3772,7 +3772,7 @@ entry:
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i, ptr %clazz_.i.i.i, align 4
   %propStorage_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i, align 4
   ret void
 }
@@ -3996,7 +3996,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayItLNS0_8CellKindE40EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i, align 4
   store i32 671088680, ptr %cond.i.i.i.i.i, align 4
   br label %for.body5.i.i.i
@@ -4158,7 +4158,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayItLNS0_8CellKindE40EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i.i, align 4
   store i32 671088680, ptr %cond.i.i.i.i.i.i, align 4
   br label %for.body5.i.i.i.i
@@ -4412,7 +4412,7 @@ entry:
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i, ptr %clazz_.i.i.i, align 4
   %propStorage_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i, align 4
   ret void
 }
@@ -4635,7 +4635,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIjLNS0_8CellKindE41EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i, align 4
   store i32 687865896, ptr %cond.i.i.i.i.i, align 4
   br label %for.body5.i.i.i
@@ -4797,7 +4797,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIjLNS0_8CellKindE41EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i.i, align 4
   store i32 687865896, ptr %cond.i.i.i.i.i.i, align 4
   br label %for.body5.i.i.i.i
@@ -5050,7 +5050,7 @@ entry:
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i, ptr %clazz_.i.i.i, align 4
   %propStorage_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i, align 4
   ret void
 }
@@ -5259,7 +5259,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIfLNS0_8CellKindE42EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i, align 4
   store i32 704643112, ptr %cond.i.i.i.i.i, align 4
   br label %for.body5.i.i.i
@@ -5421,7 +5421,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIfLNS0_8CellKindE42EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i.i, align 4
   store i32 704643112, ptr %cond.i.i.i.i.i.i, align 4
   br label %for.body5.i.i.i.i
@@ -5650,7 +5650,7 @@ entry:
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i, ptr %clazz_.i.i.i, align 4
   %propStorage_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i, align 4
   ret void
 }
@@ -5856,7 +5856,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIdLNS0_8CellKindE43EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i, align 4
   store i32 721420328, ptr %cond.i.i.i.i.i, align 4
   br label %for.body5.i.i.i
@@ -6018,7 +6018,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIdLNS0_8CellKindE43EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i.i, align 4
   store i32 721420328, ptr %cond.i.i.i.i.i.i, align 4
   br label %for.body5.i.i.i.i
@@ -6247,7 +6247,7 @@ entry:
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i, ptr %clazz_.i.i.i, align 4
   %propStorage_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i, align 4
   ret void
 }
@@ -6526,7 +6526,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIlLNS0_8CellKindE44EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i, align 4
   store i32 738197544, ptr %cond.i.i.i.i.i, align 4
   br label %for.body5.i.i.i
@@ -6688,7 +6688,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayIlLNS0_8CellKindE44EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i.i, align 4
   store i32 738197544, ptr %cond.i.i.i.i.i.i, align 4
   br label %for.body5.i.i.i.i
@@ -6938,7 +6938,7 @@ entry:
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i, ptr %clazz_.i.i.i, align 4
   %propStorage_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i, align 4
   ret void
 }
@@ -7219,7 +7219,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayImLNS0_8CellKindE45EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i, align 4
   store i32 754974760, ptr %cond.i.i.i.i.i, align 4
   br label %for.body5.i.i.i
@@ -7381,7 +7381,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12JSTypedArrayImLNS0_8CellKindE45EEELNS0_1
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i.i.i, align 4
   %propStorage_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i.i.i.i.i.i.i.i, align 4
   store i32 754974760, ptr %cond.i.i.i.i.i.i, align 4
   br label %for.body5.i.i.i.i
@@ -7631,7 +7631,7 @@ entry:
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i, ptr %clazz_.i.i.i, align 4
   %propStorage_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %propStorage_.i.i.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %flags_.i.i.i, align 4
   ret void
 }
@@ -7835,7 +7835,7 @@ declare noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E
 declare noundef i32 @_ZN6hermes2vm13JSArrayBuffer15createDataBlockERNS0_7RuntimeENS0_6HandleIS1_EEjb(ptr noundef nonnull align 8 dereferenceable(9832), ptr, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm16JSTypedArrayBase17setToCopyOfBufferERNS0_7RuntimeENS0_6HandleIS1_EEjNS4_INS0_13JSArrayBufferEEEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %dst.coerce, i32 noundef %dstByteOffset, ptr %src.coerce, i32 noundef %srcByteOffset, i32 noundef %count) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm16JSTypedArrayBase17setToCopyOfBufferERNS0_7RuntimeENS0_6HandleIS1_EEjNS4_INS0_13JSArrayBufferEEEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %dst.coerce, i32 noundef %dstByteOffset, ptr %src.coerce, i32 noundef %srcByteOffset, i32 noundef %count) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call ptr @_ZN6hermes2vm13JSArrayBuffer5cloneERNS0_7RuntimeENS0_6HandleIS1_EEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %src.coerce, i32 noundef %srcByteOffset, i32 noundef %count) #10
   %cmp.i.i.not = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
@@ -7891,7 +7891,7 @@ return:                                           ; preds = %entry, %_ZN6hermes2
 declare ptr @_ZN6hermes2vm13JSArrayBuffer5cloneERNS0_7RuntimeENS0_6HandleIS1_EEjj(ptr noundef nonnull align 8 dereferenceable(9832), ptr, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm16JSTypedArrayBase21setToCopyOfTypedArrayERNS0_7RuntimeENS0_6HandleIS1_EEjS5_jj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %dst.coerce, i32 noundef %dstIndex, ptr nocapture readonly %src.coerce, i32 noundef %srcIndex, i32 noundef %count) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm16JSTypedArrayBase21setToCopyOfTypedArrayERNS0_7RuntimeENS0_6HandleIS1_EEjS5_jj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %dst.coerce, i32 noundef %dstIndex, ptr nocapture readonly %src.coerce, i32 noundef %srcIndex, i32 noundef %count) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp eq i32 %count, 0
   br i1 %cmp, label %return, label %if.end

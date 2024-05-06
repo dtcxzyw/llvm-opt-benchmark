@@ -30,7 +30,7 @@ define dso_local noalias noundef ptr @usb_phy_roothub_alloc(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef i32 @usb_phy_roothub_init(ptr noundef readonly %0) #1 align 16 {
+define dso_local noundef range(i32 -38, 1) i32 @usb_phy_roothub_init(ptr noundef readonly %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -56,7 +56,7 @@ define dso_local noundef i32 @usb_phy_roothub_init(ptr noundef readonly %0) #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @usb_phy_roothub_exit(ptr noundef readonly %0) #1 align 16 {
+define dso_local range(i32 -38, 1) i32 @usb_phy_roothub_exit(ptr noundef readonly %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -83,7 +83,7 @@ define dso_local i32 @usb_phy_roothub_exit(ptr noundef readonly %0) #1 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef i32 @usb_phy_roothub_set_mode(ptr noundef readonly %0, i32 %1) #1 align 16 {
+define dso_local noundef range(i32 -38, 1) i32 @usb_phy_roothub_set_mode(ptr noundef readonly %0, i32 %1) #1 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -109,7 +109,7 @@ define dso_local noundef i32 @usb_phy_roothub_set_mode(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef i32 @usb_phy_roothub_calibrate(ptr noundef readonly %0) #1 align 16 {
+define dso_local noundef range(i32 -38, 1) i32 @usb_phy_roothub_calibrate(ptr noundef readonly %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -135,7 +135,7 @@ define dso_local noundef i32 @usb_phy_roothub_calibrate(ptr noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef i32 @usb_phy_roothub_power_on(ptr noundef readonly %0) #1 align 16 {
+define dso_local noundef range(i32 -38, 1) i32 @usb_phy_roothub_power_on(ptr noundef readonly %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -166,7 +166,7 @@ define dso_local void @usb_phy_roothub_power_off(ptr nocapture readonly %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @usb_phy_roothub_suspend(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #1 align 16 {
+define dso_local range(i32 -38, 1) i32 @usb_phy_roothub_suspend(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 220
   %4 = load i16, ptr %3, align 4
   %5 = and i16 %4, 1
@@ -208,7 +208,7 @@ define dso_local i32 @usb_phy_roothub_suspend(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef i32 @usb_phy_roothub_resume(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #1 align 16 {
+define dso_local noundef range(i32 -38, 1) i32 @usb_phy_roothub_resume(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 220
   %4 = load i16, ptr %3, align 4
   %5 = and i16 %4, 1

@@ -80,7 +80,7 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load ptr, ptr %arrayidx, align 8
   %call4 = tail call ptr @lj_lib_pushcc(ptr noundef %L, ptr noundef %0, i32 noundef 1, i32 noundef 0) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %1 = trunc i64 %indvars.iv.next to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.next to i32
   tail call void @lua_rawseti(ptr noundef %L, i32 noundef -2, i32 noundef %1) #7
   %cmp.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !4
@@ -90,7 +90,7 @@ for.end:                                          ; preds = %for.body
   tail call void @lua_getfield(ptr noundef %L, i32 noundef -10000, ptr noundef nonnull @.str.4) #7
   %call5 = tail call i32 @lua_toboolean(ptr noundef %L, i32 noundef -1) #7
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #7
-  %call.i = tail call ptr @getenv(ptr noundef nonnull @.str.6) #7
+  %call.i = tail call ptr @getenv(ptr noundef nonnull readonly @.str.6) #7
   %cmp.i = icmp eq ptr %call.i, null
   %tobool.i = icmp ne i32 %call5, 0
   %or.cond.i = or i1 %tobool.i, %cmp.i
@@ -108,7 +108,7 @@ if.else.i:                                        ; preds = %for.end
 
 setpath.exit:                                     ; preds = %if.then.i, %if.else.i
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.5) #7
-  %call.i27 = tail call ptr @getenv(ptr noundef nonnull @.str.9) #7
+  %call.i27 = tail call ptr @getenv(ptr noundef nonnull readonly @.str.9) #7
   %cmp.i28 = icmp eq ptr %call.i27, null
   %or.cond.i30 = or i1 %tobool.i, %cmp.i28
   br i1 %or.cond.i30, label %if.then.i34, label %if.else.i31
@@ -186,11 +186,11 @@ declare ptr @luaL_checkudata(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_package_loadlib(ptr noundef %L) #0 {
+define internal range(i32 1, 4) i32 @lj_cf_package_loadlib(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #7
   %call1 = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 2, ptr noundef null) #7
-  %call2 = tail call fastcc i32 @ll_loadfunc(ptr noundef %L, ptr noundef %call, ptr noundef %call1, i32 noundef 1), !range !6
+  %call2 = tail call fastcc i32 @ll_loadfunc(ptr noundef %L, ptr noundef %call, ptr noundef %call1, i32 noundef 1)
   %cmp = icmp eq i32 %call2, 0
   br i1 %cmp, label %return, label %if.else
 
@@ -208,7 +208,7 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_package_searchpath(ptr noundef %L) #0 {
+define internal range(i32 1, 3) i32 @lj_cf_package_searchpath(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #7
   %call1 = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 2, ptr noundef null) #7
@@ -251,7 +251,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ll_loadfunc(ptr noundef %L, ptr noundef %path, ptr noundef %name, i32 noundef %r) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @ll_loadfunc(ptr noundef %L, ptr noundef %path, ptr noundef %name, i32 noundef %r) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #8
   %cmp = icmp ugt i64 %call, 4095
@@ -448,7 +448,7 @@ while.body.i:                                     ; preds = %while.cond.i
 
 while.cond.i.backedge:                            ; preds = %while.body.i, %if.end9
   %path.addr.0.i.be = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %l.0.i23, %if.end9 ]
-  br label %while.cond.i, !llvm.loop !7
+  br label %while.cond.i, !llvm.loop !6
 
 if.end.i:                                         ; preds = %while.cond.i
   %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %path.addr.0.i, i32 noundef 59) #8
@@ -473,7 +473,7 @@ while.body:                                       ; preds = %pushnexttemplate.ex
   %call5 = call ptr @lua_tolstring(ptr noundef %L, i32 noundef -1, ptr noundef null) #7
   %call6 = call ptr @luaL_gsub(ptr noundef %L, ptr noundef %call5, ptr noundef nonnull @.str.30, ptr noundef %name.addr.0) #7
   call void @lua_remove(ptr noundef %L, i32 noundef -2) #7
-  %call.i12 = call noalias ptr @fopen64(ptr noundef %call6, ptr noundef nonnull @.str.33)
+  %call.i12 = call noalias ptr @fopen64(ptr noundef readonly %call6, ptr noundef nonnull @.str.33)
   %cmp.i = icmp eq ptr %call.i12, null
   br i1 %cmp.i, label %if.end9, label %readable.exit
 
@@ -624,7 +624,7 @@ findfile.exit:                                    ; preds = %entry.split.i, %if.
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %findfile.exit
-  %call2 = tail call fastcc i32 @ll_loadfunc(ptr noundef %L, ptr noundef nonnull %phi.call.i, ptr noundef %call, i32 noundef 0), !range !6
+  %call2 = tail call fastcc i32 @ll_loadfunc(ptr noundef %L, ptr noundef nonnull %phi.call.i, ptr noundef %call, i32 noundef 0)
   %cmp3.not = icmp eq i32 %call2, 0
   br i1 %cmp3.not, label %return, label %if.then4
 
@@ -639,7 +639,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_cf_package_loader_croot(ptr noundef %L) #0 {
+define internal range(i32 0, 2) i32 @lj_cf_package_loader_croot(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #7
   %call1 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call, i32 noundef 46) #8
@@ -672,7 +672,7 @@ findfile.exit:                                    ; preds = %entry.split.i, %if.
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %findfile.exit
-  %call7 = tail call fastcc i32 @ll_loadfunc(ptr noundef %L, ptr noundef nonnull %phi.call.i, ptr noundef %call, i32 noundef 0), !range !6
+  %call7 = tail call fastcc i32 @ll_loadfunc(ptr noundef %L, ptr noundef nonnull %phi.call.i, ptr noundef %call, i32 noundef 0)
   switch i32 %call7, label %if.then11 [
     i32 0, label %return
     i32 2, label %if.end12
@@ -773,7 +773,7 @@ for.body.i:                                       ; preds = %setfenv.exit, %for.
   call void @lua_call(ptr noundef %L, i32 noundef 1, i32 noundef 0) #7
   %inc.i = add nuw i32 %i.06.i, 1
   %exitcond.not.i = icmp eq i32 %i.06.i, %conv
-  br i1 %exitcond.not.i, label %dooptions.exit, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %dooptions.exit, label %for.body.i, !llvm.loop !7
 
 dooptions.exit:                                   ; preds = %for.body.i, %setfenv.exit
   ret i32 0
@@ -932,6 +932,5 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 4}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

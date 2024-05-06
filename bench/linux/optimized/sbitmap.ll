@@ -94,7 +94,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_sbitmap_fini
 @llvm.compiler.used = appending global [22 x ptr] [ptr @__UNIQUE_ID___addressable___sbitmap_queue_get329, ptr @__UNIQUE_ID___addressable_sbitmap_add_wait_queue341, ptr @__UNIQUE_ID___addressable_sbitmap_any_bit_set306, ptr @__UNIQUE_ID___addressable_sbitmap_bitmap_show313, ptr @__UNIQUE_ID___addressable_sbitmap_del_wait_queue342, ptr @__UNIQUE_ID___addressable_sbitmap_finish_wait344, ptr @__UNIQUE_ID___addressable_sbitmap_get301, ptr @__UNIQUE_ID___addressable_sbitmap_get_shallow305, ptr @__UNIQUE_ID___addressable_sbitmap_init_node294, ptr @__UNIQUE_ID___addressable_sbitmap_prepare_to_wait343, ptr @__UNIQUE_ID___addressable_sbitmap_queue_clear338, ptr @__UNIQUE_ID___addressable_sbitmap_queue_get_shallow334, ptr @__UNIQUE_ID___addressable_sbitmap_queue_init_node321, ptr @__UNIQUE_ID___addressable_sbitmap_queue_min_shallow_depth335, ptr @__UNIQUE_ID___addressable_sbitmap_queue_recalculate_wake_batch327, ptr @__UNIQUE_ID___addressable_sbitmap_queue_resize328, ptr @__UNIQUE_ID___addressable_sbitmap_queue_show340, ptr @__UNIQUE_ID___addressable_sbitmap_queue_wake_all339, ptr @__UNIQUE_ID___addressable_sbitmap_queue_wake_up337, ptr @__UNIQUE_ID___addressable_sbitmap_resize295, ptr @__UNIQUE_ID___addressable_sbitmap_show308, ptr @__UNIQUE_ID___addressable_sbitmap_weight307], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sbitmap_init_node(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @sbitmap_init_node(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #0 align 16 {
   %8 = zext i1 %5 to i8
   %9 = icmp slt i32 %2, 0
   br i1 %9, label %10, label %.loopexit
@@ -448,7 +448,7 @@ define dso_local zeroext i1 @sbitmap_any_bit_set(ptr nocapture noundef readonly 
   br i1 %22, label %.preheader, label %.split.loop.exit, !llvm.loop !28
 
 .split.loop.exit:                                 ; preds = %15
-  %23 = trunc i64 %indvars.iv.next to i32
+  %23 = trunc nuw i64 %indvars.iv.next to i32
   br label %.split.loop.exit4
 
 .split.loop.exit4:                                ; preds = %.preheader, %.split.loop.exit
@@ -487,7 +487,7 @@ define dso_local i32 @sbitmap_weight(ptr nocapture noundef readonly %0) #0 align
 17:                                               ; preds = %8
   %18 = load i32, ptr %0, align 8
   %19 = load i32, ptr %7, align 4
-  %20 = trunc i64 %9 to i32
+  %20 = trunc nuw i64 %9 to i32
   %21 = shl i32 %20, %19
   %22 = sub i32 %18, %21
   br label %26
@@ -524,7 +524,7 @@ define dso_local i32 @sbitmap_weight(ptr nocapture noundef readonly %0) #0 align
 43:                                               ; preds = %.preheader
   %44 = load i32, ptr %0, align 8
   %45 = load i32, ptr %7, align 4
-  %46 = trunc i64 %36 to i32
+  %46 = trunc nuw i64 %36 to i32
   %47 = shl i32 %46, %45
   %48 = sub i32 %44, %47
   br label %52
@@ -580,7 +580,7 @@ define dso_local void @sbitmap_show(ptr nocapture noundef readonly %0, ptr nound
 19:                                               ; preds = %10
   %20 = load i32, ptr %0, align 8
   %21 = load i32, ptr %9, align 4
-  %22 = trunc i64 %11 to i32
+  %22 = trunc nuw i64 %11 to i32
   %23 = shl i32 %22, %21
   %24 = sub i32 %20, %23
   br label %28
@@ -617,7 +617,7 @@ define dso_local void @sbitmap_show(ptr nocapture noundef readonly %0, ptr nound
 45:                                               ; preds = %.preheader
   %46 = load i32, ptr %0, align 8
   %47 = load i32, ptr %9, align 4
-  %48 = trunc i64 %38 to i32
+  %48 = trunc nuw i64 %38 to i32
   %49 = shl i32 %48, %47
   %50 = sub i32 %46, %49
   br label %54
@@ -665,7 +665,7 @@ sbitmap_weight.exit:                              ; preds = %54, %2, %36
 79:                                               ; preds = %71
   %80 = load i32, ptr %0, align 8
   %81 = load i32, ptr %70, align 4
-  %82 = trunc i64 %72 to i32
+  %82 = trunc nuw i64 %72 to i32
   %83 = shl i32 %82, %81
   %84 = sub i32 %80, %83
   br label %88
@@ -875,7 +875,7 @@ define dso_local void @sbitmap_bitmap_show(ptr nocapture noundef readonly %0, pt
 declare dso_local void @seq_putc(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sbitmap_queue_init_node(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @sbitmap_queue_init_node(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
   %7 = tail call i32 @sbitmap_init_node(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %3, i1 noundef zeroext true), !range !32
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %.loopexit

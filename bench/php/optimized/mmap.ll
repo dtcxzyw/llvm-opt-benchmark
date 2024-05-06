@@ -40,7 +40,7 @@ define ptr @_php_stream_mmap_range(ptr noundef %0, i64 noundef %1, i64 noundef %
 declare i32 @_php_stream_set_option(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @_php_stream_mmap_unmap(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @_php_stream_mmap_unmap(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @_php_stream_set_option(ptr noundef %0, i32 noundef 9, i32 noundef 2, ptr noundef null) #2
   %3 = icmp eq i32 %2, 0
   %4 = zext i1 %3 to i32
@@ -48,7 +48,7 @@ define i32 @_php_stream_mmap_unmap(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @_php_stream_mmap_unmap_ex(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @_php_stream_mmap_unmap_ex(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @_php_stream_seek(ptr noundef %0, i64 noundef %1, i32 noundef 1) #2
   %.not = icmp eq i32 %3, 0
   %4 = tail call i32 @_php_stream_set_option(ptr noundef %0, i32 noundef 9, i32 noundef 2, ptr noundef null) #2

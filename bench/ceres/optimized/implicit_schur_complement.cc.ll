@@ -851,7 +851,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %84, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %96, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %84 ]
-  %88 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i, %82
+  %88 = mul nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i, %82
   %89 = getelementptr double, ptr %81, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
   %90 = getelementptr double, ptr %89, i64 %88
   %91 = getelementptr inbounds double, ptr %86, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
@@ -873,7 +873,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
 
 .lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.loopexit.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %102, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.loopexit.i.i ]
-  %98 = mul nsw i64 %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %82
+  %98 = mul nuw nsw i64 %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %82
   %invariant.gep.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %81, i64 %98
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -1028,7 +1028,7 @@ _ZNSt10shared_ptrIN5ceres8internal19ParallelInvokeStateEEC2ERKS3_.exit.i.i: ; pr
 
 "_ZZN5ceres8internal14ParallelInvokeIZNS0_23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS0_17BlockSparseMatrixEE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSA_E_C2ERKSD_.exit.i.i.i": ; preds = %151, %148
   %153 = getelementptr inbounds i8, ptr %17, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
   %154 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
           to label %155 unwind label %168
 
@@ -1187,7 +1187,7 @@ _ZNSt8functionIFvvEED2Ev.exit41.i.i.i:            ; preds = %173, %170, %168
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %240, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %254, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %240 ]
-  %246 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %238
+  %246 = mul nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %238
   %247 = getelementptr double, ptr %237, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %248 = getelementptr double, ptr %247, i64 %246
   %249 = getelementptr inbounds double, ptr %244, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1292,7 +1292,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   %288 = add nsw i64 %287, %238
   %289 = add nuw nsw i64 %.02956.i.i.i.i, 1
   %290 = getelementptr inbounds double, ptr %.sroa.0.5.ph.i.i.i, i64 %289
-  %291 = mul nsw i64 %.02956.i.i.i.i, %238
+  %291 = mul nuw nsw i64 %.02956.i.i.i.i, %238
   %292 = getelementptr inbounds double, ptr %290, i64 %291
   %293 = getelementptr inbounds double, ptr %.sroa.0.5.ph.i.i.i, i64 %.02956.i.i.i.i
   %294 = getelementptr double, ptr %.sroa.0.5.ph.i.i.i, i64 %291
@@ -1310,7 +1310,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 .lr.ph.i.i.i.i.i132.i.i.i:                        ; preds = %298, %.lr.ph.i.i.i.i.i132.i.i.i
   %.01724.i.i.i.i.i133.i.i.i = phi i64 [ %306, %.lr.ph.i.i.i.i.i132.i.i.i ], [ 1, %298 ]
   %.02223.i.i.i.i.i134.i.i.i = phi double [ %305, %.lr.ph.i.i.i.i.i132.i.i.i ], [ %300, %298 ]
-  %301 = mul nsw i64 %.01724.i.i.i.i.i133.i.i.i, %238
+  %301 = mul nuw nsw i64 %.01724.i.i.i.i.i133.i.i.i, %238
   %302 = getelementptr double, ptr %293, i64 %301
   %303 = load double, ptr %302, align 8
   %304 = fmul double %303, %303
@@ -1350,7 +1350,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELi
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i127.i.i.i:          ; preds = %315, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i127.i.i.i
   %.01724.i.i.i.i.i.i.i.i.i.i.i.i128.i.i.i = phi i64 [ %327, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i127.i.i.i ], [ 1, %315 ]
   %.02223.i.i.i.i.i.i.i.i.i.i.i.i129.i.i.i = phi double [ %326, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i127.i.i.i ], [ %318, %315 ]
-  %320 = mul nsw i64 %.01724.i.i.i.i.i.i.i.i.i.i.i.i128.i.i.i, %238
+  %320 = mul nuw nsw i64 %.01724.i.i.i.i.i.i.i.i.i.i.i.i128.i.i.i, %238
   %321 = getelementptr double, ptr %290, i64 %320
   %322 = load double, ptr %321, align 8
   %323 = getelementptr double, ptr %293, i64 %320
@@ -1462,7 +1462,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1E
   %.sroa.speculated.i77.i.i.i = call i64 @llvm.smin.i64(i64 %362, i64 %.sroa.speculated44.i.i.i.i)
   %363 = sub nsw i64 %362, %.sroa.speculated.i77.i.i.i
   %364 = getelementptr inbounds double, ptr %.sroa.0.5.ph.i.i.i, i64 %.03459.i.i.i.i
-  %365 = mul nsw i64 %.03459.i.i.i.i, %238
+  %365 = mul nuw nsw i64 %.03459.i.i.i.i, %238
   %366 = getelementptr inbounds double, ptr %364, i64 %365
   %367 = add nsw i64 %.sroa.speculated.i77.i.i.i, %.03459.i.i.i.i
   %368 = getelementptr inbounds double, ptr %.sroa.0.5.ph.i.i.i, i64 %367
@@ -1478,7 +1478,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1E
   %374 = add nsw i64 %.sroa.speculated.i77.i.i.i, %373
   %375 = add nuw nsw i64 %.02964.i.i.i.i, 1
   %376 = getelementptr inbounds double, ptr %366, i64 %375
-  %377 = mul nsw i64 %.02964.i.i.i.i, %238
+  %377 = mul nuw nsw i64 %.02964.i.i.i.i, %238
   %378 = getelementptr inbounds double, ptr %376, i64 %377
   %379 = getelementptr inbounds double, ptr %366, i64 %.02964.i.i.i.i
   %380 = getelementptr double, ptr %366, i64 %377
@@ -1496,7 +1496,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1E
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %384, %.lr.ph.i.i.i.i.i.i.i.i
   %.01724.i.i.i.i.i.i.i.i = phi i64 [ %392, %.lr.ph.i.i.i.i.i.i.i.i ], [ 1, %384 ]
   %.02223.i.i.i.i.i.i.i.i = phi double [ %391, %.lr.ph.i.i.i.i.i.i.i.i ], [ %386, %384 ]
-  %387 = mul nsw i64 %.01724.i.i.i.i.i.i.i.i, %238
+  %387 = mul nuw nsw i64 %.01724.i.i.i.i.i.i.i.i, %238
   %388 = getelementptr double, ptr %379, i64 %387
   %389 = load double, ptr %388, align 8
   %390 = fmul double %389, %389
@@ -1536,7 +1536,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELi
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %401, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.01724.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %413, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 1, %401 ]
   %.02223.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi double [ %412, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %404, %401 ]
-  %406 = mul nsw i64 %.01724.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %238
+  %406 = mul nuw nsw i64 %.01724.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %238
   %407 = getelementptr double, ptr %376, i64 %406
   %408 = load double, ptr %407, align 8
   %409 = getelementptr double, ptr %379, i64 %406
@@ -2030,7 +2030,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit.i144.i.i.i: ; 
 
 .lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %634, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader ]
-  %630 = mul nsw i64 %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %238
+  %630 = mul nuw nsw i64 %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %238
   %invariant.gep.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %237, i64 %630
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -7292,7 +7292,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   %58 = load <2 x i64>, ptr %57, align 1
   %59 = and <2 x i64> %58, <i64 9223372036854775807, i64 9223372036854775807>
   %60 = bitcast <2 x i64> %59 to <2 x double>
-  %invariant.gep.i.i.i.i.i = getelementptr i8, ptr %46, i64 48
+  %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 48
   %61 = icmp ugt i64 %44, 7
   br i1 %61, label %.lr.ph.i.i.i.i.i21, label %._crit_edge.i.i.i.i.i
 
@@ -7306,7 +7306,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   %64 = and <2 x i64> %63, <i64 9223372036854775807, i64 9223372036854775807>
   %65 = bitcast <2 x i64> %64 to <2 x double>
   %66 = fadd <2 x double> %.07275.i.i.i.i.i, %65
-  %gep.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
+  %gep.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
   %67 = load <2 x i64>, ptr %gep.i.i.i.i.i, align 1
   %68 = and <2 x i64> %67, <i64 9223372036854775807, i64 9223372036854775807>
   %69 = bitcast <2 x i64> %68 to <2 x double>
@@ -8737,7 +8737,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1
 
 112:                                              ; preds = %110
   %.sroa.speculated341 = call i64 @llvm.smin.i64(i64 %111, i64 4)
-  %113 = mul nsw i64 %.0258395, %.sroa.speculated351
+  %113 = mul nuw nsw i64 %.0258395, %.sroa.speculated351
   %114 = getelementptr inbounds double, ptr %52, i64 %113
   %gep = getelementptr double, ptr %invariant.gep, i64 %.0258395
   call void asm sideeffect "#EIGEN PRODUCT PACK RHS ROWMAJOR", "~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !93
@@ -8859,7 +8859,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1
   %168 = getelementptr double, ptr %154, i64 %167
   store ptr %168, ptr %10, align 8
   store i64 %6, ptr %56, align 8
-  %169 = mul nsw i64 %.0260409, %.sroa.speculated351
+  %169 = mul nuw nsw i64 %.0260409, %.sroa.speculated351
   %170 = getelementptr inbounds double, ptr %52, i64 %169
   invoke void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4ELi4ELb0ELb0EEclERKS3_PKdS8_llldllll(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %35, ptr noundef nonnull %170, i64 noundef %.sroa.speculated334, i64 noundef %.0260409, i64 noundef %.sroa.speculated, double noundef -1.000000e+00, i64 noundef %.sroa.speculated351, i64 noundef %.sroa.speculated351, i64 noundef 0, i64 noundef 0)
           to label %171 unwind label %.loopexit
@@ -12691,7 +12691,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi0
 120:                                              ; preds = %116
   %121 = add nsw i64 %.sroa.speculated352, %.0265405
   %122 = add nsw i64 %.0265405, %61
-  %123 = mul nsw i64 %.0265405, %.sroa.speculated362
+  %123 = mul nuw nsw i64 %.0265405, %.sroa.speculated362
   %124 = getelementptr inbounds double, ptr %52, i64 %123
   %125 = mul nsw i64 %122, %3
   %126 = getelementptr double, ptr %112, i64 %121
@@ -13236,7 +13236,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvvEZZN5ceres8internal14ParallelInvokeIZNS2_23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS2_17BlockSparseMatrixEE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSC_E_clISF_EEDaSE_EUlvE_E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) #2 align 2 {
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS0_17BlockSparseMatrixEE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSA_E_clIKSD_EEDaSC_"(ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(40) %.val)
+  tail call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS0_17BlockSparseMatrixEE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSA_E_clIKSD_EEDaSC_"(ptr noundef nonnull readonly align 8 dereferenceable(40) %.val, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val)
   ret void
 }
 
@@ -13297,7 +13297,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 "_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS2_17BlockSparseMatrixEE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSC_E_clISF_EEDaSE_EUlvE_E15_M_init_functorIRKSH_EEvRSt9_Any_dataSD_.exit.i": ; preds = %22, %19, %7
   %24 = getelementptr inbounds i8, ptr %8, i64 24
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS2_17BlockSparseMatrixEE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSC_E_clISF_EEDaSE_EUlvE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
@@ -13451,7 +13451,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_23Implici
 "_ZZN5ceres8internal14ParallelInvokeIZNS0_23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS0_17BlockSparseMatrixEE3$_0EEvPNS0_11ContextImplEiiiOT_iENUlRSA_E_C2ERKSD_.exit": ; preds = %29, %37, %40
   %42 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %43 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
           to label %.noexc unwind label %99
 
@@ -13705,7 +13705,7 @@ _ZNSt8functionIFvvEED2Ev.exit42:                  ; preds = %104, %101, %99
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %176, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %190, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %176 ]
-  %182 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i, %174
+  %182 = mul nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i, %174
   %183 = getelementptr double, ptr %173, i64 %.05.i.i.i.i.i.i.i.i.i.i.i
   %184 = getelementptr double, ptr %183, i64 %182
   %185 = getelementptr inbounds double, ptr %180, i64 %.05.i.i.i.i.i.i.i.i.i.i.i
@@ -13826,7 +13826,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
   %229 = add nsw i64 %174, %228
   %230 = add nuw nsw i64 %.02956.i, 1
   %231 = getelementptr inbounds double, ptr %.sroa.0.5340, i64 %230
-  %232 = mul nsw i64 %.02956.i, %174
+  %232 = mul nuw nsw i64 %.02956.i, %174
   %233 = getelementptr inbounds double, ptr %231, i64 %232
   %234 = getelementptr inbounds double, ptr %.sroa.0.5340, i64 %.02956.i
   %235 = getelementptr double, ptr %.sroa.0.5340, i64 %232
@@ -13844,7 +13844,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 .lr.ph.i.i.i.i.i134:                              ; preds = %239, %.lr.ph.i.i.i.i.i134
   %.01724.i.i.i.i.i135 = phi i64 [ %247, %.lr.ph.i.i.i.i.i134 ], [ 1, %239 ]
   %.02223.i.i.i.i.i136 = phi double [ %246, %.lr.ph.i.i.i.i.i134 ], [ %241, %239 ]
-  %242 = mul nsw i64 %.01724.i.i.i.i.i135, %174
+  %242 = mul nuw nsw i64 %.01724.i.i.i.i.i135, %174
   %243 = getelementptr double, ptr %234, i64 %242
   %244 = load double, ptr %243, align 8
   %245 = fmul double %244, %244
@@ -13884,7 +13884,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELi
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i129:                ; preds = %256, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i129
   %.01724.i.i.i.i.i.i.i.i.i.i.i.i130 = phi i64 [ %268, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i129 ], [ 1, %256 ]
   %.02223.i.i.i.i.i.i.i.i.i.i.i.i131 = phi double [ %267, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i129 ], [ %259, %256 ]
-  %261 = mul nsw i64 %.01724.i.i.i.i.i.i.i.i.i.i.i.i130, %174
+  %261 = mul nuw nsw i64 %.01724.i.i.i.i.i.i.i.i.i.i.i.i130, %174
   %262 = getelementptr double, ptr %231, i64 %261
   %263 = load double, ptr %262, align 8
   %264 = getelementptr double, ptr %234, i64 %261
@@ -13996,7 +13996,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1E
   %.sroa.speculated.i79 = call i64 @llvm.smin.i64(i64 %303, i64 %.sroa.speculated44.i)
   %304 = sub nsw i64 %303, %.sroa.speculated.i79
   %305 = getelementptr inbounds double, ptr %.sroa.0.5340, i64 %.03459.i
-  %306 = mul nsw i64 %.03459.i, %174
+  %306 = mul nuw nsw i64 %.03459.i, %174
   %307 = getelementptr inbounds double, ptr %305, i64 %306
   %308 = add nsw i64 %.sroa.speculated.i79, %.03459.i
   %309 = getelementptr inbounds double, ptr %.sroa.0.5340, i64 %308
@@ -14012,7 +14012,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1E
   %315 = add nsw i64 %.sroa.speculated.i79, %314
   %316 = add nuw nsw i64 %.02964.i, 1
   %317 = getelementptr inbounds double, ptr %307, i64 %316
-  %318 = mul nsw i64 %.02964.i, %174
+  %318 = mul nuw nsw i64 %.02964.i, %174
   %319 = getelementptr inbounds double, ptr %317, i64 %318
   %320 = getelementptr inbounds double, ptr %307, i64 %.02964.i
   %321 = getelementptr double, ptr %307, i64 %318
@@ -14030,7 +14030,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELin1ELin1E
 .lr.ph.i.i.i.i.i:                                 ; preds = %325, %.lr.ph.i.i.i.i.i
   %.01724.i.i.i.i.i = phi i64 [ %333, %.lr.ph.i.i.i.i.i ], [ 1, %325 ]
   %.02223.i.i.i.i.i = phi double [ %332, %.lr.ph.i.i.i.i.i ], [ %327, %325 ]
-  %328 = mul nsw i64 %.01724.i.i.i.i.i, %174
+  %328 = mul nuw nsw i64 %.01724.i.i.i.i.i, %174
   %329 = getelementptr double, ptr %320, i64 %328
   %330 = load double, ptr %329, align 8
   %331 = fmul double %330, %330
@@ -14070,7 +14070,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_9TransposeINS_6MatrixIdLin1ELin1ELi1ELi
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %342, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
   %.01724.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %354, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ 1, %342 ]
   %.02223.i.i.i.i.i.i.i.i.i.i.i.i = phi double [ %353, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ %345, %342 ]
-  %347 = mul nsw i64 %.01724.i.i.i.i.i.i.i.i.i.i.i.i, %174
+  %347 = mul nuw nsw i64 %.01724.i.i.i.i.i.i.i.i.i.i.i.i, %174
   %348 = getelementptr double, ptr %317, i64 %347
   %349 = load double, ptr %348, align 8
   %350 = getelementptr double, ptr %320, i64 %347
@@ -14569,7 +14569,7 @@ _ZN5Eigen3LLTINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EEC2INS_3MapIS2_Li0ENS_6S
 
 .lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5Eigen3LLTINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EEC2INS_3MapIS2_Li0ENS_6StrideILi0ELi0EEEEEEERKNS_9EigenBaseIT_EE.exit, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %575, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen3LLTINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi2EEC2INS_3MapIS2_Li0ENS_6StrideILi0ELi0EEEEEEERKNS_9EigenBaseIT_EE.exit ]
-  %571 = mul nsw i64 %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %174
+  %571 = mul nuw nsw i64 %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %174
   %invariant.gep.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %173, i64 %571
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -15061,7 +15061,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvvEZZN5ceres8internal14ParallelInvokeIZNS2_23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS2_17BlockSparseMatrixEE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSC_E_clIKSF_EEDaSE_EUlvE_E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) #2 align 2 {
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS0_17BlockSparseMatrixEE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSA_E_clIKSD_EEDaSC_"(ptr noundef nonnull align 8 dereferenceable(40) %.val, ptr noundef nonnull align 8 dereferenceable(40) %.val)
+  tail call fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS0_17BlockSparseMatrixEE3$_0EEvPNS0_11ContextImplEiiiOT_iENKUlRSA_E_clIKSD_EEDaSC_"(ptr noundef nonnull readonly align 8 dereferenceable(40) %.val, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val)
   ret void
 }
 
@@ -15122,7 +15122,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
 "_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS2_17BlockSparseMatrixEE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSC_E_clIKSF_EEDaSE_EUlvE_E15_M_init_functorIRKSI_EEvRSt9_Any_dataSD_.exit.i": ; preds = %22, %19, %7
   %24 = getelementptr inbounds i8, ptr %8, i64 24
   %25 = getelementptr inbounds i8, ptr %.val6, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   store ptr %8, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_23ImplicitSchurComplement20AddDiagonalAndInvertEPKdPNS2_17BlockSparseMatrixEE3$_0EEvPNS2_11ContextImplEiiiOT_iENKUlRSC_E_clIKSF_EEDaSE_EUlvE_E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation.exit"
 

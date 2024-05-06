@@ -403,7 +403,7 @@ _read_msr.exit:                                   ; preds = %27, %29, %32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %34 = lshr i64 %33, 8
   %35 = and i64 %34, 31
-  %36 = uitofp i64 %35 to double
+  %36 = uitofp nneg i64 %35 to double
   %mul = fneg double %36
   %exp2 = tail call double @exp2(double %mul) #10
   %37 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
@@ -413,7 +413,7 @@ _read_msr.exit:                                   ; preds = %27, %29, %32
 
 39:                                               ; preds = %_read_msr.exit
   %40 = and i64 %33, 15
-  %41 = uitofp i64 %40 to double
+  %41 = uitofp nneg i64 %40 to double
   %mul43 = fneg double %41
   %exp244 = tail call double @exp2(double %mul43) #10
   %42 = tail call i32 @slurm_get_log_level() #10
@@ -460,7 +460,7 @@ _read_msr.exit51:                                 ; preds = %51, %53, %56
 60:                                               ; preds = %_read_msr.exit51
   %61 = lshr i64 %57, 32
   %62 = and i64 %61, 32767
-  %63 = uitofp i64 %62 to double
+  %63 = uitofp nneg i64 %62 to double
   %64 = fmul double %exp244, %63
   %65 = fptoui double %64 to i64
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_joules_task, i64 noundef %65) #10
@@ -707,7 +707,7 @@ define noundef i32 @fini() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_gather_energy_p_get_data(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @local_energy, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %9
@@ -782,7 +782,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_gather_energy_p_set_data(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @acct_gather_energy_p_set_data(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca [2 x %struct.acct_gather_profile_dataset_t], align 16
   switch i32 %0, label %60 [

@@ -37,7 +37,7 @@ define i32 @ADIOI_Calc_aggregator(ptr nocapture noundef readonly %0, i64 noundef
   br i1 %20, label %.preheader, label %.loopexit.loopexit, !llvm.loop !4
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %7
@@ -133,7 +133,7 @@ define void @ADIOI_Calc_file_domains(ptr nocapture noundef readonly %0, ptr noca
   %32 = add nsw i64 %spec.select, %.0113.lcssa
   %33 = zext nneg i32 %9 to i64
   %34 = srem i64 %32, %33
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nsw i64 %34 to i32
   %36 = sub nsw i32 %9, %35
   %37 = icmp sgt i32 %36, %35
   %38 = sext i32 %36 to i64
@@ -161,7 +161,7 @@ define void @ADIOI_Calc_file_domains(ptr nocapture noundef readonly %0, ptr noca
   %45 = mul nsw i64 %spec.select, %indvars.iv.next148
   %46 = add nsw i64 %45, %.0113.lcssa
   %47 = srem i64 %46, %33
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nsw i64 %47 to i32
   %49 = sub nsw i32 %9, %48
   %50 = icmp sgt i32 %49, %48
   br i1 %50, label %51, label %54
@@ -314,7 +314,7 @@ define void @ADIOI_Calc_my_req(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %41, label %.preheader.i, label %.loopexit.loopexit.i, !llvm.loop !4
 
 .loopexit.loopexit.i:                             ; preds = %.preheader.i
-  %42 = trunc i64 %indvars.iv.i to i32
+  %42 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %28
@@ -379,7 +379,7 @@ ADIOI_Calc_aggregator.exit:                       ; preds = %47, %.loopexit.i
   br i1 %77, label %.preheader.i158, label %.loopexit.loopexit.i161, !llvm.loop !4
 
 .loopexit.loopexit.i161:                          ; preds = %.preheader.i158
-  %78 = trunc i64 %indvars.iv.i159 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv.i159 to i32
   br label %.loopexit.i154
 
 .loopexit.i154:                                   ; preds = %.loopexit.loopexit.i161, %.lr.ph211
@@ -532,7 +532,7 @@ ADIOI_Calc_aggregator.exit162:                    ; preds = %83, %.loopexit.i154
   br i1 %143, label %.preheader.i167, label %.loopexit.loopexit.i170, !llvm.loop !4
 
 .loopexit.loopexit.i170:                          ; preds = %.preheader.i167
-  %144 = trunc i64 %indvars.iv.i168 to i32
+  %144 = trunc nuw nsw i64 %indvars.iv.i168 to i32
   br label %.loopexit.i163
 
 .loopexit.i163:                                   ; preds = %.loopexit.loopexit.i170, %130
@@ -619,7 +619,7 @@ ADIOI_Calc_aggregator.exit171:                    ; preds = %149, %.loopexit.i16
   br i1 %193, label %.preheader.i176, label %.loopexit.loopexit.i179, !llvm.loop !4
 
 .loopexit.loopexit.i179:                          ; preds = %.preheader.i176
-  %194 = trunc i64 %indvars.iv.i177 to i32
+  %194 = trunc nuw nsw i64 %indvars.iv.i177 to i32
   br label %.loopexit.i172
 
 .loopexit.i172:                                   ; preds = %.loopexit.loopexit.i179, %.lr.ph231

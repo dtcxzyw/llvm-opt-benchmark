@@ -198,7 +198,7 @@ RSTRING_PTR.exit:                                 ; preds = %1, %9
 declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @rsock_is_dgram(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @rsock_is_dgram(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   store i32 4, ptr %3, align 4
@@ -805,7 +805,7 @@ read_buffered_data.exit:                          ; preds = %RSTRING_PTR.exit
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr %44, i64 %47
   %49 = sext i32 %spec.select.i to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.sroa.2.0.i, ptr align 1 %48, i64 %49, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %.sroa.2.0.i, ptr align 1 %48, i64 %49, i1 false)
   %50 = load i32, ptr %45, align 4
   %51 = add nsw i32 %50, %spec.select.i
   store i32 %51, ptr %45, align 4
@@ -1096,7 +1096,7 @@ define i32 @rsock_connect(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 no
   br i1 %or.cond.i, label %.sink.split.i, label %wait_connectable.exit
 
 switch.hole_check:                                ; preds = %20
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 417, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %23
@@ -1125,7 +1125,7 @@ wait_connectable.exit:                            ; preds = %17, %23, %26, %29, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @connect_blocking(ptr nocapture noundef readonly %0) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @connect_blocking(ptr nocapture noundef readonly %0) #0 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1354,7 +1354,7 @@ rsock_init_sock.exit:                             ; preds = %32, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @accept_blocking(ptr nocapture noundef readonly %0) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @accept_blocking(ptr nocapture noundef readonly %0) #0 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1391,7 +1391,7 @@ cloexec_accept.exit:                              ; preds = %.thread.i, %8, %12,
 declare void @rb_gc() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @rsock_getfamily(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 65536) i32 @rsock_getfamily(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %union.union_sockaddr, align 8
   %3 = alloca i32, align 4
   store i32 2048, ptr %3, align 4

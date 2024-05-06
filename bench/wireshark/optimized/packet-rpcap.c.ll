@@ -993,8 +993,8 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rpcap_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @check_rpcap_heur(ptr noundef %0, i32 noundef 1), !range !7
+define internal range(i32 0, 2) i32 @dissect_rpcap_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = tail call fastcc i32 @check_rpcap_heur(ptr noundef %0, i32 noundef 1)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %14, label %6
 
@@ -1021,8 +1021,8 @@ define internal noundef i32 @dissect_rpcap_heur_tcp(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rpcap_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @check_rpcap_heur(ptr noundef %0, i32 noundef 0), !range !7
+define internal range(i32 0, 2) i32 @dissect_rpcap_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call fastcc i32 @check_rpcap_heur(ptr noundef %0, i32 noundef 0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
@@ -1078,7 +1078,7 @@ define internal fastcc void @dissect_rpcap_filter(ptr noundef %0, ptr noundef %1
 19:                                               ; preds = %dissect_rpcap_filterbpf_insn.exit
   %20 = add nuw i32 %.030, 1
   %exitcond.not = icmp eq i32 %20, %15
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %.030 = phi i32 [ %20, %19 ], [ 0, %.lr.ph.preheader ]
@@ -1521,7 +1521,7 @@ define internal i32 @get_rpcap_pdu_len(ptr nocapture readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_rpcap_heur(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_rpcap_heur(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %4 = icmp ult i32 %3, 8
   br i1 %4, label %47, label %5
@@ -1666,5 +1666,4 @@ attributes #8 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !5}
+!7 = distinct !{!7, !5}

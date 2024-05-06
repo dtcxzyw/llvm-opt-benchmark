@@ -437,7 +437,7 @@ define internal fastcc i64 @_compound_head(ptr noundef %0) unnamed_addr #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @try_grab_page(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @try_grab_page(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 1
@@ -1922,7 +1922,7 @@ define internal fastcc ptr @follow_page_mask(ptr noundef %0, i64 noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @fixup_user_fault(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
+define dso_local range(i32 -14, 1) i32 @fixup_user_fault(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
   %5 = icmp eq ptr %3, null
   %6 = or i32 %2, 20
   %7 = select i1 %5, i32 %2, i32 %6
@@ -2729,7 +2729,7 @@ define dso_local i64 @faultin_vma_page_range(ptr noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @check_vma_flags(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @check_vma_flags(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 120
@@ -3169,7 +3169,7 @@ define dso_local i64 @fault_in_safe_writeable(ptr noundef %0, i64 noundef %1) #0
 
 20:                                               ; preds = %.preheader, %24
   %21 = phi i64 [ %26, %24 ], [ %4, %.preheader ]
-  %22 = call i32 @fixup_user_fault(ptr noundef %8, i64 noundef %21, i32 noundef 1, ptr noundef nonnull %3), !range !58
+  %22 = call i32 @fixup_user_fault(ptr noundef %8, i64 noundef %21, i32 noundef 1, ptr noundef nonnull %3)
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %28
 
@@ -7589,7 +7589,7 @@ declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #8
 declare dso_local i32 @pud_huge(i64) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @gup_huge_pud(i64 %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @gup_huge_pud(i64 %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6) unnamed_addr #0 align 16 {
   %8 = and i32 %4, 1
   %9 = icmp eq i32 %8, 0
   %10 = select i1 %9, i64 5, i64 7

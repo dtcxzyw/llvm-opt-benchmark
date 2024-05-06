@@ -40,7 +40,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7517CharsetRecog_UTF85matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %input, ptr noundef %results) unnamed_addr #3 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517CharsetRecog_UTF85matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %input, ptr noundef %results) unnamed_addr #3 align 2 {
 entry:
   %fRawInput = getelementptr inbounds i8, ptr %input, i64 40
   %0 = load ptr, ptr %fRawInput, align 8
@@ -125,7 +125,7 @@ if.end37:                                         ; preds = %for.cond32
   br i1 %cmp42.not, label %if.end45, label %if.then43
 
 if.then43:                                        ; preds = %if.end37
-  %10 = trunc i64 %indvars.iv.next to i32
+  %10 = trunc nsw i64 %indvars.iv.next to i32
   %add44 = add nsw i32 %numInvalid.042, 1
   br label %for.inc
 
@@ -139,7 +139,7 @@ if.then47:                                        ; preds = %if.end45
   br label %for.inc
 
 for.inc.loopexit:                                 ; preds = %for.cond32
-  %11 = trunc i64 %indvars.iv.next to i32
+  %11 = trunc nsw i64 %indvars.iv.next to i32
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.loopexit, %if.then43, %if.then47, %for.body, %if.else28

@@ -395,7 +395,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implI
   %107 = zext nneg i32 %.034.lcssa.i to i64
   %108 = getelementptr inbounds i32, ptr %106, i64 %107
   %109 = load i32, ptr %108, align 4
-  %110 = getelementptr i8, ptr %108, i64 4
+  %110 = getelementptr inbounds i8, ptr %108, i64 4
   %111 = load i32, ptr %110, align 4
   %112 = icmp slt i32 %109, %111
   br i1 %112, label %.lr.ph53.preheader.i, label %._crit_edge.i

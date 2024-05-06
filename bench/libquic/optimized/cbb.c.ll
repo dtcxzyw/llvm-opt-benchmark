@@ -16,9 +16,9 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable
-define hidden noundef i32 @CBB_init(ptr nocapture noundef writeonly %cbb, i64 noundef %initial_capacity) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @CBB_init(ptr nocapture noundef writeonly %cbb, i64 noundef %initial_capacity) local_unnamed_addr #2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cbb, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %cbb, i8 0, i64 32, i1 false)
   %call = tail call noalias ptr @malloc(i64 noundef %initial_capacity) #13
   %cmp = icmp ne i64 %initial_capacity, 0
   %cmp1 = icmp eq ptr %call, null
@@ -59,9 +59,9 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @CBB_init_fixed(ptr nocapture noundef writeonly %cbb, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @CBB_init_fixed(ptr nocapture noundef writeonly %cbb, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #5 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cbb, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %cbb, i8 0, i64 32, i1 false)
   %call.i = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end
@@ -114,7 +114,7 @@ if.end6:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CBB_finish(ptr nocapture noundef %cbb, ptr noundef writeonly %out_data, ptr noundef writeonly %out_len) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_finish(ptr nocapture noundef %cbb, ptr noundef writeonly %out_data, ptr noundef writeonly %out_len) local_unnamed_addr #7 {
 entry:
   %is_top_level = getelementptr inbounds i8, ptr %cbb, i64 26
   %0 = load i8, ptr %is_top_level, align 2
@@ -122,7 +122,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @CBB_flush(ptr noundef nonnull %cbb), !range !7
+  %call = tail call i32 @CBB_flush(ptr noundef nonnull %cbb)
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %return, label %if.end3
 
@@ -194,7 +194,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CBB_flush(ptr nocapture noundef %cbb) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_flush(ptr nocapture noundef %cbb) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %cbb, align 8
   %cmp = icmp eq ptr %0, null
@@ -217,7 +217,7 @@ if.end6:                                          ; preds = %lor.lhs.false
   %3 = load i64, ptr %offset, align 8
   %conv10 = zext i8 %2 to i64
   %add = add i64 %3, %conv10
-  %call = tail call i32 @CBB_flush(ptr noundef nonnull %1), !range !7
+  %call = tail call i32 @CBB_flush(ptr noundef nonnull %1)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false12
 
@@ -269,7 +269,7 @@ if.end53:                                         ; preds = %if.else43
 if.then56:                                        ; preds = %if.else, %if.else35, %if.else39, %if.else43
   %len_len.0.ph = phi i64 [ 1, %if.else43 ], [ 2, %if.else39 ], [ 3, %if.else35 ], [ 4, %if.else ]
   %initial_length_byte.0.ph = phi i8 [ -127, %if.else43 ], [ -126, %if.else39 ], [ -125, %if.else35 ], [ -124, %if.else ]
-  %call59 = tail call fastcc i32 @cbb_buffer_add(ptr noundef nonnull %6, ptr noundef null, i64 noundef %len_len.0.ph), !range !7
+  %call59 = tail call fastcc i32 @cbb_buffer_add(ptr noundef nonnull %6, ptr noundef null, i64 noundef %len_len.0.ph)
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %return, label %if.end62
 
@@ -337,7 +337,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %25 = load i8, ptr %pending_len_len84, align 8
   %conv85 = zext i8 %25 to i64
   %cmp86 = icmp ult i64 %i.0, %conv85
-  br i1 %cmp86, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp86, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.end77
   %len.2.lcssa = phi i64 [ %len.1, %if.end77 ], [ %shr, %for.body ]
@@ -356,7 +356,7 @@ return:                                           ; preds = %for.end, %if.then56
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc noundef i32 @cbb_buffer_add(ptr noundef %base, ptr noundef writeonly %out, i64 noundef %len) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @cbb_buffer_add(ptr noundef %base, ptr noundef writeonly %out, i64 noundef %len) unnamed_addr #6 {
 entry:
   %cmp.i = icmp eq ptr %base, null
   br i1 %cmp.i, label %return, label %if.end.i
@@ -454,9 +454,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CBB_add_u8_length_prefixed(ptr nocapture noundef %cbb, ptr noundef %out_contents) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_u8_length_prefixed(ptr nocapture noundef %cbb, ptr noundef %out_contents) local_unnamed_addr #7 {
 entry:
-  %call.i = tail call i32 @CBB_flush(ptr noundef %cbb), !range !7
+  %call.i = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cbb_add_length_prefixed.exit, label %if.end.i.i.i
 
@@ -529,9 +529,9 @@ cbb_add_length_prefixed.exit:                     ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CBB_add_u16_length_prefixed(ptr nocapture noundef %cbb, ptr noundef %out_contents) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_u16_length_prefixed(ptr nocapture noundef %cbb, ptr noundef %out_contents) local_unnamed_addr #7 {
 entry:
-  %call.i = tail call i32 @CBB_flush(ptr noundef %cbb), !range !7
+  %call.i = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cbb_add_length_prefixed.exit, label %if.end.i.i.i
 
@@ -604,9 +604,9 @@ cbb_add_length_prefixed.exit:                     ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CBB_add_u24_length_prefixed(ptr nocapture noundef %cbb, ptr noundef %out_contents) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_u24_length_prefixed(ptr nocapture noundef %cbb, ptr noundef %out_contents) local_unnamed_addr #7 {
 entry:
-  %call.i = tail call i32 @CBB_flush(ptr noundef %cbb), !range !7
+  %call.i = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %cbb_add_length_prefixed.exit, label %if.end.i.i.i
 
@@ -679,19 +679,19 @@ cbb_add_length_prefixed.exit:                     ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CBB_add_asn1(ptr nocapture noundef %cbb, ptr noundef %out_contents, i8 noundef zeroext %tag) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_asn1(ptr nocapture noundef %cbb, ptr noundef %out_contents, i8 noundef zeroext %tag) local_unnamed_addr #7 {
 entry:
   %0 = and i8 %tag, 31
   %cmp = icmp eq i8 %0, 31
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @CBB_flush(ptr noundef %cbb), !range !7
+  %call = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call.i = tail call i32 @CBB_flush(ptr noundef %cbb), !range !7
+  %call.i = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
@@ -750,7 +750,7 @@ if.end5:                                          ; preds = %if.end18.i.i.i.i, %
   %8 = load ptr, ptr %cbb, align 8
   %len = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %len, align 8
-  %call.i12 = tail call i32 @CBB_flush(ptr noundef nonnull %cbb), !range !7
+  %call.i12 = tail call i32 @CBB_flush(ptr noundef nonnull %cbb)
   %tobool.not.i13 = icmp eq i32 %call.i12, 0
   br i1 %tobool.not.i13, label %return, label %if.end.i14
 
@@ -827,9 +827,9 @@ return:                                           ; preds = %if.end10.i.i.i.i33,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CBB_add_u8(ptr nocapture noundef %cbb, i8 noundef zeroext %value) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_u8(ptr nocapture noundef %cbb, i8 noundef zeroext %value) local_unnamed_addr #7 {
 entry:
-  %call = tail call i32 @CBB_flush(ptr noundef %cbb), !range !7
+  %call = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -885,7 +885,7 @@ cbb_buffer_add.exit.i:                            ; preds = %if.end18.i.i.i, %if
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 %.pre.i.i
   store i64 %add.i.pre-phi.i, ptr %len1.i.i.i, align 8
   store i8 %value, ptr %add.ptr.i.i.i, align 1
-  br label %return, !llvm.loop !10
+  br label %return, !llvm.loop !9
 
 return:                                           ; preds = %cbb_buffer_add.exit.i, %if.end10.i.i.i, %if.then7.i.i.i, %if.end.i.i.i, %if.end, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end.i.i.i ], [ 0, %if.then7.i.i.i ], [ 0, %if.end10.i.i.i ], [ 1, %cbb_buffer_add.exit.i ]
@@ -893,9 +893,9 @@ return:                                           ; preds = %cbb_buffer_add.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CBB_add_bytes(ptr nocapture noundef %cbb, ptr nocapture noundef readonly %data, i64 noundef %len) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_bytes(ptr nocapture noundef %cbb, ptr nocapture noundef readonly %data, i64 noundef %len) local_unnamed_addr #7 {
 entry:
-  %call = tail call i32 @CBB_flush(ptr noundef %cbb), !range !7
+  %call = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
@@ -962,9 +962,9 @@ return:                                           ; preds = %if.end10.i.i, %if.t
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CBB_add_space(ptr nocapture noundef %cbb, ptr noundef writeonly %out_data, i64 noundef %len) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_space(ptr nocapture noundef %cbb, ptr noundef writeonly %out_data, i64 noundef %len) local_unnamed_addr #7 {
 entry:
-  %call = tail call i32 @CBB_flush(ptr noundef %cbb), !range !7
+  %call = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
@@ -1032,9 +1032,9 @@ return:                                           ; preds = %cbb_buffer_add.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CBB_reserve(ptr nocapture noundef %cbb, ptr noundef writeonly %out_data, i64 noundef %len) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_reserve(ptr nocapture noundef %cbb, ptr noundef writeonly %out_data, i64 noundef %len) local_unnamed_addr #7 {
 entry:
-  %call = tail call i32 @CBB_flush(ptr noundef %cbb), !range !7
+  %call = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
@@ -1094,7 +1094,7 @@ return:                                           ; preds = %if.end21.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @CBB_did_write(ptr nocapture noundef readonly %cbb, i64 noundef %len) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @CBB_did_write(ptr nocapture noundef readonly %cbb, i64 noundef %len) local_unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr %cbb, align 8
   %len1 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1123,9 +1123,9 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CBB_add_u16(ptr nocapture noundef %cbb, i16 noundef zeroext %value) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_u16(ptr nocapture noundef %cbb, i16 noundef zeroext %value) local_unnamed_addr #7 {
 entry:
-  %call = tail call i32 @CBB_flush(ptr noundef %cbb), !range !7
+  %call = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1191,7 +1191,7 @@ for.body.i:                                       ; preds = %for.body.i, %cbb_bu
   %shr.i = lshr i16 %v.addr.012.i, 8
   %i.0.i = add nsw i64 %i.013.i, -1
   %cmp3.i = icmp ult i64 %i.0.i, 2
-  br i1 %cmp3.i, label %for.body.i, label %return, !llvm.loop !10
+  br i1 %cmp3.i, label %for.body.i, label %return, !llvm.loop !9
 
 return:                                           ; preds = %for.body.i, %if.end10.i.i.i, %if.then7.i.i.i, %if.end.i.i.i, %if.end, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end.i.i.i ], [ 0, %if.then7.i.i.i ], [ 0, %if.end10.i.i.i ], [ 1, %for.body.i ]
@@ -1199,9 +1199,9 @@ return:                                           ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CBB_add_u24(ptr nocapture noundef %cbb, i32 noundef %value) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_u24(ptr nocapture noundef %cbb, i32 noundef %value) local_unnamed_addr #7 {
 entry:
-  %call = tail call i32 @CBB_flush(ptr noundef %cbb), !range !7
+  %call = tail call i32 @CBB_flush(ptr noundef %cbb)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1267,7 +1267,7 @@ for.body.i:                                       ; preds = %for.body.i, %cbb_bu
   %shr.i = lshr i32 %v.addr.012.i, 8
   %i.0.i = add nsw i64 %i.013.i, -1
   %cmp3.i = icmp ult i64 %i.0.i, 3
-  br i1 %cmp3.i, label %for.body.i, label %return, !llvm.loop !10
+  br i1 %cmp3.i, label %for.body.i, label %return, !llvm.loop !9
 
 return:                                           ; preds = %for.body.i, %if.end10.i.i.i, %if.then7.i.i.i, %if.end.i.i.i, %if.end, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end.i.i.i ], [ 0, %if.then7.i.i.i ], [ 0, %if.end10.i.i.i ], [ 1, %for.body.i ]
@@ -1298,10 +1298,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CBB_add_asn1_uint64(ptr nocapture noundef %cbb, i64 noundef %value) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @CBB_add_asn1_uint64(ptr nocapture noundef %cbb, i64 noundef %value) local_unnamed_addr #7 {
 entry:
   %child = alloca %struct.cbb_st, align 8
-  %call = call i32 @CBB_add_asn1(ptr noundef %cbb, ptr noundef nonnull %child, i8 noundef zeroext 2), !range !7
+  %call = call i32 @CBB_add_asn1(ptr noundef %cbb, ptr noundef nonnull %child, i8 noundef zeroext 2)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %for.body
 
@@ -1326,7 +1326,7 @@ if.end7:                                          ; preds = %if.then2
   br i1 %tobool10.not, label %if.end15, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end7
-  %call.i = call i32 @CBB_flush(ptr noundef nonnull %child), !range !7
+  %call.i = call i32 @CBB_flush(ptr noundef nonnull %child)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
@@ -1385,7 +1385,7 @@ CBB_add_u8.exit:                                  ; preds = %if.end5.i.i.cbb_buf
   br label %if.end15
 
 if.end15:                                         ; preds = %CBB_add_u8.exit, %if.end7, %for.body
-  %call.i7 = call i32 @CBB_flush(ptr noundef nonnull %child), !range !7
+  %call.i7 = call i32 @CBB_flush(ptr noundef nonnull %child)
   %tobool.not.i8 = icmp eq i32 %call.i7, 0
   br i1 %tobool.not.i8, label %return, label %if.end.i9
 
@@ -1442,7 +1442,7 @@ for.inc:                                          ; preds = %if.then2
 for.body.backedge:                                ; preds = %for.inc, %for.inc.thread
   %tobool1.not.be = phi i1 [ true, %for.inc ], [ false, %for.inc.thread ]
   %i.076.be = phi i64 [ %inc, %for.inc ], [ %inc80, %for.inc.thread ]
-  br label %for.body, !llvm.loop !11
+  br label %for.body, !llvm.loop !10
 
 for.inc.thread:                                   ; preds = %if.end18.i.i.i.i34, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i18
   %add.i.pre-phi.i.i21 = phi i64 [ %add.i.i.i.i13, %if.end5.i.i.cbb_buffer_add.exit_crit_edge.i.i18 ], [ %.pre14.i.i36, %if.end18.i.i.i.i34 ]
@@ -1456,7 +1456,7 @@ for.inc.thread:                                   ; preds = %if.end18.i.i.i.i34,
   br i1 %exitcond.not81, label %if.end25, label %for.body.backedge
 
 land.lhs.true21:                                  ; preds = %for.inc
-  %call.i38 = call i32 @CBB_flush(ptr noundef nonnull %child), !range !7
+  %call.i38 = call i32 @CBB_flush(ptr noundef nonnull %child)
   %tobool.not.i39 = icmp eq i32 %call.i38, 0
   br i1 %tobool.not.i39, label %return, label %if.end.i40
 
@@ -1515,7 +1515,7 @@ CBB_add_u8.exit68:                                ; preds = %if.end5.i.i.cbb_buf
   br label %if.end25
 
 if.end25:                                         ; preds = %for.inc.thread, %CBB_add_u8.exit68
-  %call26 = call i32 @CBB_flush(ptr noundef %cbb), !range !7
+  %call26 = call i32 @CBB_flush(ptr noundef %cbb)
   br label %return
 
 return:                                           ; preds = %if.end10.i.i.i.i28, %if.then7.i.i.i.i25, %if.end.i.i.i.i11, %if.end.i9, %if.end15, %if.end10.i.i.i.i, %if.then7.i.i.i.i, %if.end.i.i.i.i, %if.end.i, %land.lhs.true, %if.end10.i.i.i.i59, %if.then7.i.i.i.i56, %if.end.i.i.i.i42, %if.end.i40, %land.lhs.true21, %entry, %if.end25
@@ -1555,8 +1555,7 @@ attributes #15 = { nounwind allocsize(1) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

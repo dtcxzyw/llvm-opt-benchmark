@@ -44,7 +44,7 @@ $__clang_call_terminate = comdat any
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %spake2.i27 = alloca %struct.SPAKE2Run, align 8
   %spake2.i14 = alloca %struct.SPAKE2Run, align 8
@@ -472,7 +472,7 @@ if.then45:                                        ; preds = %land.lhs.true
   %idxprom = zext nneg i32 %div2 to i64
   %arrayidx = getelementptr inbounds [32 x i8], ptr %alice_msg, i64 0, i64 %idxprom
   %4 = load i8, ptr %arrayidx, align 1
-  %5 = trunc i32 %shl to i8
+  %5 = trunc nuw i32 %shl to i8
   %conv49 = xor i8 %4, %5
   store i8 %conv49, ptr %arrayidx, align 1
   br label %if.end50

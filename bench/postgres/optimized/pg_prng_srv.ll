@@ -132,7 +132,7 @@ define dso_local i64 @pg_prng_uint64_range(ptr nocapture noundef %0, i64 noundef
 
 5:                                                ; preds = %3
   %6 = sub i64 %2, %1
-  %7 = tail call i64 @llvm.ctlz.i64(i64 %6, i1 true), !range !5
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %6, i1 true)
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %.promoted = load i64, ptr %0, align 8
   %.promoted14 = load i64, ptr %8, align 8
@@ -154,7 +154,7 @@ define dso_local i64 @pg_prng_uint64_range(ptr nocapture noundef %0, i64 noundef
   %22 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 37)
   %23 = lshr i64 %17, %7
   %24 = icmp ugt i64 %23, %6
-  br i1 %24, label %9, label %.loopexit, !llvm.loop !6
+  br i1 %24, label %9, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %9
   store i64 %21, ptr %0, align 8
@@ -189,7 +189,7 @@ define dso_local i64 @pg_prng_int64(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i64 @pg_prng_int64p(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define dso_local range(i64 0, -9223372036854775808) i64 @pg_prng_int64p(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -229,7 +229,7 @@ define dso_local i32 @pg_prng_uint32(ptr nocapture noundef %0) local_unnamed_add
   %15 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 37)
   store i64 %15, ptr %3, align 8
   %16 = lshr i64 %10, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   ret i32 %17
 }
 
@@ -252,12 +252,12 @@ define dso_local i32 @pg_prng_int32(ptr nocapture noundef %0) local_unnamed_addr
   %15 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 37)
   store i64 %15, ptr %3, align 8
   %16 = lshr i64 %10, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   ret i32 %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @pg_prng_int32p(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define dso_local range(i32 0, -2147483648) i32 @pg_prng_int32p(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -275,7 +275,7 @@ define dso_local i32 @pg_prng_int32p(ptr nocapture noundef %0) local_unnamed_add
   %15 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 37)
   store i64 %15, ptr %3, align 8
   %16 = lshr i64 %10, 33
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   ret i32 %17
 }
 
@@ -298,7 +298,7 @@ define dso_local double @pg_prng_double(ptr nocapture noundef %0) local_unnamed_
   %15 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 37)
   store i64 %15, ptr %3, align 8
   %16 = lshr i64 %10, 12
-  %17 = uitofp i64 %16 to double
+  %17 = uitofp nneg i64 %16 to double
   %18 = tail call double @ldexp(double noundef %17, i32 noundef -52) #8
   ret double %18
 }
@@ -325,7 +325,7 @@ define dso_local double @pg_prng_double_normal(ptr nocapture noundef %0) local_u
   %15 = tail call i64 @llvm.fshl.i64(i64 %5, i64 %5, i64 37)
   store i64 %15, ptr %3, align 8
   %16 = lshr i64 %10, 12
-  %17 = uitofp i64 %16 to double
+  %17 = uitofp nneg i64 %16 to double
   %18 = tail call double @ldexp(double noundef %17, i32 noundef -52) #8
   %19 = fsub double 1.000000e+00, %18
   %20 = load i64, ptr %0, align 8
@@ -344,7 +344,7 @@ define dso_local double @pg_prng_double_normal(ptr nocapture noundef %0) local_u
   %32 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 37)
   store i64 %32, ptr %3, align 8
   %33 = lshr i64 %27, 12
-  %34 = uitofp i64 %33 to double
+  %34 = uitofp nneg i64 %33 to double
   %35 = tail call double @ldexp(double noundef %34, i32 noundef -52) #8
   %36 = fsub double 1.000000e+00, %35
   %37 = tail call double @log(double noundef %19) #8
@@ -410,6 +410,5 @@ attributes #8 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

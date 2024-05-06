@@ -46,7 +46,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_pasid_alloc_table(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @intel_pasid_alloc_table(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i32 @__SCT__might_resched() #8
   %3 = getelementptr inbounds i8, ptr %0, i64 704
   %4 = load ptr, ptr %3, align 8
@@ -586,7 +586,7 @@ define internal fastcc ptr @intel_pasid_get_entry(ptr readonly %.704.val, i32 no
 declare dso_local void @qi_flush_piotlb(ptr noundef, i16 noundef zeroext, i32 noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_pasid_setup_first_level(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_pasid_setup_first_level(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = alloca %struct.qi_desc, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
@@ -764,7 +764,7 @@ define dso_local noundef i32 @intel_pasid_setup_first_level(ptr noundef %0, ptr 
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_pasid_setup_second_level(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_pasid_setup_second_level(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.qi_desc, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
@@ -962,7 +962,7 @@ define dso_local noundef i32 @intel_pasid_setup_second_level(ptr noundef %0, ptr
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_pasid_setup_dirty_tracking(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @intel_pasid_setup_dirty_tracking(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.qi_desc, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_raw_spin_lock(ptr noundef %6) #8
@@ -1107,7 +1107,7 @@ define dso_local noundef i32 @intel_pasid_setup_dirty_tracking(ptr noundef %0, p
 declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_pasid_setup_pass_through(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @intel_pasid_setup_pass_through(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.qi_desc, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_raw_spin_lock(ptr noundef %5) #8
@@ -1326,7 +1326,7 @@ define dso_local void @intel_pasid_setup_page_snoop_control(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_pasid_setup_nested(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_pasid_setup_nested(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.qi_desc, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 72
   %7 = getelementptr inbounds i8, ptr %3, i64 88

@@ -201,7 +201,7 @@ declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) loca
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @monitor_get_fd(ptr noundef %mon, ptr noundef %fdname, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @monitor_get_fd(ptr noundef %mon, ptr noundef %fdname, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %mon_lock = getelementptr inbounds i8, ptr %mon, i64 88
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -985,7 +985,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call4 = tail call i32 @monitor_get_fd(ptr noundef nonnull %mon, ptr noundef nonnull %fdname, ptr noundef %errp), !range !22
+  %call4 = tail call i32 @monitor_get_fd(ptr noundef nonnull %mon, ptr noundef nonnull %fdname, ptr noundef %errp)
   br label %if.end8
 
 if.else:                                          ; preds = %entry
@@ -1064,4 +1064,3 @@ attributes #14 = { nounwind allocsize(0) }
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
-!22 = !{i32 -1, i32 -2147483648}

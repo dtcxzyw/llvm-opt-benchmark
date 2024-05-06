@@ -27,7 +27,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dlfcn_load(ptr noundef %dso) #1 {
+define internal range(i32 0, 2) i32 @dlfcn_load(ptr noundef %dso) #1 {
 entry:
   %call = tail call ptr @DSO_convert_filename(ptr noundef %dso, ptr noundef null) #10
   %call1 = tail call ptr @__errno_location() #11
@@ -89,7 +89,7 @@ return:                                           ; preds = %err.thread, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dlfcn_unload(ptr noundef readonly %dso) #1 {
+define internal range(i32 0, 2) i32 @dlfcn_unload(ptr noundef readonly %dso) #1 {
 entry:
   %cmp = icmp eq ptr %dso, null
   br i1 %cmp, label %if.then, label %if.end
@@ -331,7 +331,7 @@ return:                                           ; preds = %if.end32, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dlfcn_pathbyaddr(ptr noundef %addr, ptr nocapture noundef writeonly %path, i32 noundef %sz) #1 {
+define internal range(i32 -2147483647, -2147483648) i32 @dlfcn_pathbyaddr(ptr noundef %addr, ptr nocapture noundef writeonly %path, i32 noundef %sz) #1 {
 entry:
   %dli = alloca %struct.Dl_info, align 8
   %cmp = icmp eq ptr %addr, null

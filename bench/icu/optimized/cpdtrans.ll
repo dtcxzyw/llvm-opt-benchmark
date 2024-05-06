@@ -505,7 +505,7 @@ for.cond.preheader.i:                             ; preds = %if.end7.i
 
 for.body.us.i:                                    ; preds = %for.cond.preheader.i, %call19.us.i.noexc
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %call19.us.i.noexc ], [ 0, %for.cond.preheader.i ]
-  %4 = trunc i64 %indvars.iv33.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv33.i to i32
   %call19.us.i2 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %list, i32 noundef %4)
           to label %call19.us.i.noexc unwind label %lpad.loopexit
 
@@ -614,7 +614,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %for.body.us ], [ 0, %for.body.lr.ph ]
-  %4 = trunc i64 %indvars.iv33 to i32
+  %4 = trunc nuw nsw i64 %indvars.iv33 to i32
   %call19.us = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %list, i32 noundef %4)
   %5 = load ptr, ptr %trans10, align 8
   %arrayidx.us = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv33
@@ -628,7 +628,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
   %8 = phi i32 [ %12, %for.body ], [ %3, %for.body.lr.ph ]
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = xor i32 %9, -1
   %sub18 = add i32 %8, %10
   %call19 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %list, i32 noundef %sub18)
@@ -856,7 +856,7 @@ for.cond.preheader.i:                             ; preds = %if.end7.i
 
 for.body.us.i:                                    ; preds = %for.cond.preheader.i, %call19.us.i.noexc
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %call19.us.i.noexc ], [ 0, %for.cond.preheader.i ]
-  %4 = trunc i64 %indvars.iv33.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv33.i to i32
   %call19.us.i3 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %list, i32 noundef %4)
           to label %call19.us.i.noexc unwind label %lpad2.loopexit
 
@@ -977,7 +977,7 @@ for.cond.preheader.i:                             ; preds = %if.end7.i
 
 for.body.us.i:                                    ; preds = %for.cond.preheader.i, %call19.us.i.noexc
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %call19.us.i.noexc ], [ 0, %for.cond.preheader.i ]
-  %4 = trunc i64 %indvars.iv33.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv33.i to i32
   %call19.us.i3 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %list, i32 noundef %4)
           to label %call19.us.i.noexc unwind label %lpad2.loopexit
 

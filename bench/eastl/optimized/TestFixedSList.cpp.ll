@@ -6444,7 +6444,7 @@ for.inc:                                          ; preds = %if.then, %lor.lhs.f
 for.end14:                                        ; preds = %for.inc, %for.inc.us
   %argIndex.0.lcssa = phi i32 [ %inc7.us, %for.inc.us ], [ %inc7, %for.inc ]
   %bReturnValue.0.lcssa = phi i8 [ %bReturnValue.1.us, %for.inc.us ], [ %bReturnValue.1, %for.inc ]
-  %tobool15 = trunc i8 %bReturnValue.0.lcssa to i1
+  %tobool15 = trunc nuw i8 %bReturnValue.0.lcssa to i1
   br i1 %tobool15, label %if.then16, label %if.end50
 
 if.then16:                                        ; preds = %entry, %for.end14
@@ -6527,7 +6527,7 @@ if.else47:                                        ; preds = %do.end
 if.end50:                                         ; preds = %if.then46, %if.else47, %vaarg.end27, %for.end14
   %bReturnValue.2 = phi i8 [ %bReturnValue.0.lcssa39, %vaarg.end27 ], [ %bReturnValue.0.lcssa, %for.end14 ], [ 0, %if.else47 ], [ 0, %if.then46 ]
   call void @llvm.va_end.p0(ptr nonnull %args)
-  %tobool52 = trunc i8 %bReturnValue.2 to i1
+  %tobool52 = trunc nuw i8 %bReturnValue.2 to i1
   ret i1 %tobool52
 }
 

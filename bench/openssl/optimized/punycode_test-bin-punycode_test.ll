@@ -85,7 +85,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_punycode(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_punycode(i32 noundef %n) #0 {
 entry:
   %buffer = alloca [50 x i32], align 16
   %bsize = alloca i32, align 4
@@ -133,7 +133,7 @@ return:                                           ; preds = %for.end, %entry
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_dotted_overflow() #0 {
+define internal range(i32 0, 2) i32 @test_dotted_overflow() #0 {
 entry:
   %p = alloca %struct.wpacket_st, align 8
   %call = tail call ptr @BUF_MEM_new() #5
@@ -242,7 +242,7 @@ return:                                           ; preds = %entry, %err, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_a2ulabel() #0 {
+define internal range(i32 0, 2) i32 @test_a2ulabel() #0 {
 entry:
   %out = alloca [50 x i8], align 16
   %in = alloca [530 x i8], align 16
@@ -300,7 +300,7 @@ return:                                           ; preds = %if.end26, %if.end20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_puny_overrun() #0 {
+define internal range(i32 0, 2) i32 @test_puny_overrun() #0 {
 entry:
   %buf = alloca [8 x i32], align 16
   %bsize = alloca i32, align 4

@@ -17,7 +17,7 @@ define i32 @pg_comp_crc32c_sse42(i32 noundef %0, ptr noundef readonly %1, i64 no
   %7 = zext i32 %.033 to i64
   %8 = load i64, ptr %.02432, align 8
   %9 = tail call i64 @llvm.x86.sse42.crc32.64.64(i64 %7, i64 %8)
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   %11 = getelementptr i8, ptr %6, i64 8
   %.not = icmp ugt ptr %11, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4

@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @pfifo_fast_ops = external dso_local global %struct.Qdisc_ops, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mq_init(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal noundef range(i32 -95, 1) i32 @mq_init(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.tc_mq_qopt_offload, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 64
@@ -474,7 +474,7 @@ define internal ptr @mq_leaf(ptr nocapture noundef readonly %0, i64 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i64 @mq_find(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+define internal range(i64 0, 65536) i64 @mq_find(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
   %3 = and i32 %1, 65535
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -597,7 +597,7 @@ define internal noundef i32 @mq_dump_class(ptr nocapture noundef readonly %0, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mq_dump_class_stats(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -1, 1) i32 @mq_dump_class_stats(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 64
   %6 = load ptr, ptr %5, align 64

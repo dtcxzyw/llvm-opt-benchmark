@@ -23729,7 +23729,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEE
   store float %178, ptr %189, align 4
   %191 = mul nuw nsw i64 %.0100.us, 3
   %192 = getelementptr inbounds float, ptr %4, i64 %191
-  %193 = mul nsw i64 %188, 3
+  %193 = mul nuw nsw i64 %188, 3
   %194 = getelementptr inbounds float, ptr %4, i64 %193
   %195 = load <2 x float>, ptr %192, align 4
   %196 = load <2 x float>, ptr %194, align 4
@@ -23772,8 +23772,8 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEE
   br i1 %211, label %212, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEfPT_.exit.thread
 
 212:                                              ; preds = %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEfPT_.exit
-  %213 = getelementptr float, ptr %0, i64 %.sroa.0.1.i.i
-  %214 = getelementptr float, ptr %213, i64 %.0100
+  %213 = getelementptr inbounds float, ptr %0, i64 %.sroa.0.1.i.i
+  %214 = getelementptr inbounds float, ptr %213, i64 %.0100
   %215 = load float, ptr %214, align 4
   store float %215, ptr %202, align 4
   store float %203, ptr %214, align 4
@@ -33074,7 +33074,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35: ; preds = %_ZNSt6vectorIf
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK21SelectionFilterPlugin8getClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 1, 16386) i32 @_ZNK21SelectionFilterPlugin8getClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -33095,7 +33095,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK21SelectionFilterPlugin8getClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
+define noundef range(i32 1, 16386) i32 @_ZThn16_NK21SelectionFilterPlugin8getClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -33115,7 +33115,7 @@ _ZNK21SelectionFilterPlugin8getClassEPK7QAction.exit: ; preds = %2, %switch.look
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN21SelectionFilterPlugin15getRequirementsEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 0, 393217) i32 @_ZN21SelectionFilterPlugin15getRequirementsEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -33145,7 +33145,7 @@ define noundef i32 @_ZN21SelectionFilterPlugin15getRequirementsEPK7QAction(ptr n
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_N21SelectionFilterPlugin15getRequirementsEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
+define noundef range(i32 0, 393217) i32 @_ZThn16_N21SelectionFilterPlugin15getRequirementsEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -33174,7 +33174,7 @@ _ZN21SelectionFilterPlugin15getRequirementsEPK7QAction.exit: ; preds = %2, %2, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK21SelectionFilterPlugin13postConditionEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 -1, 1126071272) i32 @_ZNK21SelectionFilterPlugin13postConditionEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -33195,7 +33195,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK21SelectionFilterPlugin13postConditionEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
+define noundef range(i32 -1, 1126071272) i32 @_ZThn16_NK21SelectionFilterPlugin13postConditionEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -33215,7 +33215,7 @@ _ZNK21SelectionFilterPlugin13postConditionEPK7QAction.exit: ; preds = %2, %switc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK21SelectionFilterPlugin16getPreConditionsEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 0, 2097153) i32 @_ZNK21SelectionFilterPlugin16getPreConditionsEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -33237,7 +33237,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK21SelectionFilterPlugin16getPreConditionsEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
+define noundef range(i32 0, 2097153) i32 @_ZThn16_NK21SelectionFilterPlugin16getPreConditionsEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8

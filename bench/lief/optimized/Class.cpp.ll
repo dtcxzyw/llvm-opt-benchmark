@@ -1508,7 +1508,7 @@ _ZN4LIEF15filter_iteratorIRKSt6vectorIPNS_3DEX5FieldESaIS4_EES4_N9__gnu_cxx17__n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK4LIEF3DEX5Class5indexEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %0) local_unnamed_addr #4 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNK4LIEF3DEX5Class5indexEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64

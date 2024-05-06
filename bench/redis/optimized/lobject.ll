@@ -93,7 +93,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @luaO_rawequalObj(ptr nocapture noundef readonly %t1, ptr nocapture noundef readonly %t2) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @luaO_rawequalObj(ptr nocapture noundef readonly %t1, ptr nocapture noundef readonly %t2) local_unnamed_addr #3 {
 entry:
   %tt = getelementptr inbounds i8, ptr %t1, i64 8
   %0 = load i32, ptr %tt, align 8, !tbaa !10
@@ -141,7 +141,7 @@ return:                                           ; preds = %sw.default, %sw.bb1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @luaO_str2d(ptr noundef %s, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @luaO_str2d(ptr noundef %s, ptr nocapture noundef writeonly %result) local_unnamed_addr #4 {
 entry:
   %endptr = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr) #16

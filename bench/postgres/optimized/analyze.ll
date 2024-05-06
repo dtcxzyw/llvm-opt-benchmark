@@ -2245,7 +2245,7 @@ transformDeclareCursorStmt.exit:                  ; preds = %912, %942
   br i1 %983, label %.lr.ph130, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %980
-  %984 = trunc i8 %.1.i62 to i1
+  %984 = trunc nuw i8 %.1.i62 to i1
   br i1 %984, label %985, label %._crit_edge.thread
 
 985:                                              ; preds = %._crit_edge
@@ -2299,7 +2299,7 @@ transformOptionalSelectInto.exit:                 ; preds = %._crit_edge.thread,
   %.0.i81 = phi ptr [ %998, %997 ], [ %987, %.critedge.i83 ], [ %987, %._crit_edge.thread ]
   %1004 = call ptr @transformStmt(ptr noundef %0, ptr noundef nonnull %.0.i81)
   store ptr %1004, ptr %986, align 8
-  %1005 = trunc i8 %.2.i59 to i1
+  %1005 = trunc nuw i8 %.2.i59 to i1
   br i1 %1005, label %1006, label %transformExplainStmt.exit
 
 1006:                                             ; preds = %transformOptionalSelectInto.exit
@@ -3754,7 +3754,7 @@ define dso_local ptr @BuildOnConflictExcludedTargetlist(ptr nocapture noundef re
   %.023 = phi ptr [ %17, %16 ], [ %27, %18 ]
   %.0 = phi ptr [ null, %16 ], [ %29, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = trunc i64 %indvars.iv.next to i16
+  %31 = trunc nuw nsw i64 %indvars.iv.next to i16
   %32 = tail call ptr @makeTargetEntry(ptr noundef %.023, i16 noundef signext %31, ptr noundef %.0, i1 noundef zeroext false) #10
   %33 = tail call ptr @lappend(ptr noundef %.02226, ptr noundef %32) #10
   %34 = load ptr, ptr %3, align 8

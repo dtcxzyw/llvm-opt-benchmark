@@ -78,7 +78,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZN3net5Cubic31CongestionWindowAfterPacketLossEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %current_congestion_window) local_unnamed_addr #2 align 2 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN3net5Cubic31CongestionWindowAfterPacketLossEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %current_congestion_window) local_unnamed_addr #2 align 2 {
 entry:
   %last_max_congestion_window_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %last_max_congestion_window_, align 8

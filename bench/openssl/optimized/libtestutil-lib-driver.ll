@@ -91,7 +91,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @setup_test_framework(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @setup_test_framework(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @getenv(ptr noundef nonnull @.str) #13
   %call1 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #13
@@ -198,7 +198,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @run_tests(ptr noundef %test_prog_name) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @run_tests(ptr noundef %test_prog_name) local_unnamed_addr #1 {
 entry:
   %value.i = alloca i32, align 4
   %permute = alloca [1024 x i32], align 16
@@ -305,12 +305,12 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %indvars.iv.i.i
   %4 = load ptr, ptr %arrayidx.i.i, align 16
-  %call.i2.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %testname.0.i.ph, ptr noundef nonnull dereferenceable(1) %4) #14
+  %call.i2.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %testname.0.i.ph, ptr noundef nonnull dereferenceable(1) %4) #14
   %cmp2.i.i = icmp eq i32 %call.i2.i, 0
   br i1 %cmp2.i.i, label %for.end.thread.i.i, label %for.inc.i.i
 
 for.end.thread.i.i:                               ; preds = %for.body.i.i
-  %5 = trunc i64 %indvars.iv.i.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %add.i.i = add nuw nsw i32 %5, 1
   store i32 %add.i.i, ptr @single_test, align 4
   br label %if.end8.i.i
@@ -321,7 +321,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %if.then5.i.i, label %for.body.i.i, !llvm.loop !6
 
 if.then5.i.i:                                     ; preds = %for.inc.i.i, %for.cond.preheader.i.i
-  %call6.i.i = call i32 @atoi(ptr nocapture noundef nonnull %testname.0.i.ph) #14
+  %call6.i.i = call i32 @atoi(ptr nocapture noundef nonnull readonly %testname.0.i.ph) #14
   store i32 %call6.i.i, ptr @single_test, align 4
   br label %if.end8.i.i
 
@@ -436,7 +436,7 @@ for.body.preheader:                               ; preds = %if.end17
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds [1024 x i32], ptr %permute, i64 0, i64 %indvars.iv
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %18, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -456,7 +456,7 @@ for.body24:                                       ; preds = %for.body24.preheade
   %indvars.iv124 = phi i64 [ %19, %for.body24.preheader ], [ %indvars.iv.next125, %for.body24 ]
   %indvars.iv.next125 = add nsw i64 %indvars.iv124, -1
   %call25 = call i32 @test_random() #13
-  %20 = trunc i64 %indvars.iv124 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv124 to i32
   %rem = urem i32 %call25, %20
   %idxprom26 = zext nneg i32 %rem to i64
   %arrayidx27 = getelementptr inbounds [1024 x i32], ptr %permute, i64 0, i64 %idxprom26
@@ -528,7 +528,7 @@ if.then73:                                        ; preds = %if.else68
   br i1 %cmp.i, label %set_test_title.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then73
-  %call.i75 = call noalias ptr @strdup(ptr noundef nonnull %27) #13
+  %call.i75 = call noalias ptr @strdup(ptr noundef nonnull readonly %27) #13
   br label %set_test_title.exit
 
 set_test_title.exit:                              ; preds = %if.then73, %cond.false.i
@@ -561,7 +561,7 @@ if.else88:                                        ; preds = %if.else68
   br i1 %cmp.i, label %set_test_title.exit81, label %cond.false.i78
 
 cond.false.i78:                                   ; preds = %if.else88
-  %call.i79 = call noalias ptr @strdup(ptr noundef nonnull %27) #13
+  %call.i79 = call noalias ptr @strdup(ptr noundef nonnull readonly %27) #13
   br label %set_test_title.exit81
 
 set_test_title.exit81:                            ; preds = %if.else88, %cond.false.i78
@@ -742,7 +742,7 @@ for.inc229:                                       ; preds = %if.then219, %lor.lh
   %num_failed.3 = phi i32 [ %num_failed.0110, %if.end66 ], [ %spec.select, %finalize.exit ], [ %num_failed.0110, %for.body39 ], [ %spec.select74, %lor.lhs.false210.if.end224_crit_edge ], [ %spec.select74, %if.then219 ]
   %test_case_count.1 = phi i32 [ %test_case_count.0112, %if.end66 ], [ %add81, %finalize.exit ], [ %test_case_count.0112, %for.body39 ], [ %.pre136, %lor.lhs.false210.if.end224_crit_edge ], [ %add220, %if.then219 ]
   %subtest_case_count.3 = phi i32 [ %subtest_case_count.0113, %if.end66 ], [ %subtest_case_count.0113, %finalize.exit ], [ %subtest_case_count.0113, %for.body39 ], [ %subtest_case_count.1.lcssa, %lor.lhs.false210.if.end224_crit_edge ], [ %subtest_case_count.1.lcssa, %if.then219 ]
-  %indvars.iv.next128 = add nuw i64 %indvars.iv127, 1
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %52 = load i32, ptr @num_tests, align 4
   %53 = zext i32 %52 to i64
   %cmp38.not = icmp eq i64 %indvars.iv.next128, %53
@@ -789,9 +789,9 @@ if.then:                                          ; preds = %entry
 if.end5:                                          ; preds = %if.then, %entry
   %cond = phi ptr [ @.str.22, %entry ], [ @.str.23, %if.then ]
   %call7 = tail call i32 (ptr, ...) @test_printf_tapout(ptr noundef nonnull @.str.21, ptr noundef nonnull %cond) #13
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call9 = call i32 @test_vprintf_tapout(ptr noundef %description, ptr noundef nonnull %ap) #13
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %cmp11 = icmp eq i32 %verdict, 123
   br i1 %cmp11, label %if.then12, label %if.end14
 
@@ -944,13 +944,13 @@ declare i32 @openssl_error_cb(ptr noundef, i64 noundef, ptr noundef) #4
 
 declare i32 @test_flush_stderr() local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #11
-
 declare i32 @test_vprintf_tapout(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #11
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12

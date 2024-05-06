@@ -36,7 +36,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___tcf_em_tre
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable___tcf_em_tree_match594, ptr @__UNIQUE_ID___addressable_tcf_em_register589, ptr @__UNIQUE_ID___addressable_tcf_em_tree_destroy592, ptr @__UNIQUE_ID___addressable_tcf_em_tree_dump593, ptr @__UNIQUE_ID___addressable_tcf_em_tree_validate591, ptr @__UNIQUE_ID___addressable_tcf_em_unregister590], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcf_em_register(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcf_em_register(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -108,7 +108,7 @@ define dso_local void @tcf_em_unregister(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcf_em_tree_validate(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
   %4 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -574,7 +574,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcf_em_tree_dump(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.tcf_ematch_hdr, align 8
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 192
@@ -648,7 +648,7 @@ define dso_local noundef i32 @tcf_em_tree_dump(ptr noundef %0, ptr noundef %1, i
   store i16 %52, ptr %34, align 4
   store i16 0, ptr %35, align 2
   %53 = add nuw nsw i64 %39, 1
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nuw nsw i64 %53 to i32
   %55 = call i32 @nla_put(ptr noundef %0, i32 noundef %54, i32 noundef 8, ptr noundef nonnull %4) #7
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %.thread
@@ -795,7 +795,7 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr nocapture noundef 
   br i1 %27, label %98, label %28, !prof !14
 
 28:                                               ; preds = %.loopexit8
-  %29 = trunc i64 %24 to i32
+  %29 = trunc nsw i64 %24 to i32
   %30 = add nsw i32 %7, 1
   %31 = sext i32 %7 to i64
   %32 = getelementptr [32 x i32], ptr %4, i64 0, i64 %31

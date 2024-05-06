@@ -1299,7 +1299,7 @@ define internal void @i915_ttm_swap_notify(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_ttm_io_mem_reserve(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @i915_ttm_io_mem_reserve(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 368
@@ -1397,7 +1397,7 @@ define internal noundef i32 @i915_ttm_io_mem_reserve(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @i915_ttm_io_mem_pfn(ptr noundef %0, i64 noundef %1) #1 align 16 {
+define internal range(i64 0, 4503603922337791) i64 @i915_ttm_io_mem_pfn(ptr noundef %0, i64 noundef %1) #1 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4, !annotation !5
@@ -1857,7 +1857,7 @@ define internal i32 @i915_ttm_shrink(ptr noundef %0, i32 noundef %1) #1 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i64 @i915_ttm_mmap_offset(ptr nocapture noundef readonly %0) #5 align 16 {
+define internal range(i64 0, -4095) i64 @i915_ttm_mmap_offset(ptr nocapture noundef readonly %0) #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = shl i64 %3, 12

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [18 x i8] c"HWLOC_DEBUG_CHECK\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @hwloc_shmem_topology_get_length(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @hwloc_shmem_topology_get_length(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.hwloc_tma, align 8
   %6 = alloca i64, align 8
@@ -73,7 +73,7 @@ declare i32 @hwloc__topology_dup(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @hwloc_topology_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @hwloc_shmem_topology_write(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @hwloc_shmem_topology_write(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.hwloc_tma, align 8
   %9 = alloca %struct.hwloc_shmem_header, align 8
@@ -185,7 +185,7 @@ define internal ptr @tma_shmem_malloc(ptr nocapture noundef %0, i64 noundef %1) 
 declare void @hwloc_components_fini() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_shmem_topology_adopt(ptr nocapture noundef writeonly %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @hwloc_shmem_topology_adopt(ptr nocapture noundef writeonly %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.hwloc_shmem_header, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %10, label %8

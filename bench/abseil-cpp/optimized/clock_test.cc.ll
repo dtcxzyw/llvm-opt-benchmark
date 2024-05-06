@@ -313,7 +313,7 @@ entry:
   %div.i.i.i = sdiv i64 %call, 1000000000
   %rem.i.i.i = srem i64 %call, 1000000000
   %cmp.i.i.i.i = icmp slt i64 %rem.i.i.i, 0
-  %rem.tr.i.i.i = trunc i64 %rem.i.i.i to i32
+  %rem.tr.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %0 = shl i32 %rem.tr.i.i.i, 2
   %conv.i.i.i.i.i = add i32 %0, -294967296
   %ticks.lobit.i.i.i.i = ashr i64 %rem.i.i.i, 61
@@ -332,7 +332,7 @@ entry:
   %div.i.i.i7 = sdiv i64 %call6, 1000000000
   %rem.i.i.i8 = srem i64 %call6, 1000000000
   %cmp.i.i.i.i9 = icmp slt i64 %rem.i.i.i8, 0
-  %rem.tr.i.i.i10 = trunc i64 %rem.i.i.i8 to i32
+  %rem.tr.i.i.i10 = trunc nsw i64 %rem.i.i.i8 to i32
   %1 = shl i32 %rem.tr.i.i.i10, 2
   %conv.i.i.i.i.i11 = add i32 %1, -294967296
   %ticks.lobit.i.i.i.i12 = ashr i64 %rem.i.i.i8, 61

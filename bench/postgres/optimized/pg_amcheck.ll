@@ -1950,7 +1950,7 @@ define internal fastcc void @compile_database_list(ptr noundef %0, ptr noundef %
   br i1 %.not.us.i, label %24, label %19
 
 19:                                               ; preds = %.lr.ph.split.us.i
-  %20 = trunc i8 %.02025.us.i to i1
+  %20 = trunc nuw i8 %.02025.us.i to i1
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %19
@@ -1977,7 +1977,7 @@ define internal fastcc void @compile_database_list(ptr noundef %0, ptr noundef %
   br i1 %29, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %24
-  %30 = trunc i8 %.1.us.i to i1
+  %30 = trunc nuw i8 %.1.us.i to i1
   br i1 %30, label %append_db_pattern_cte.exit.thread, label %31
 
 31:                                               ; preds = %._crit_edge.i, %12
@@ -2026,7 +2026,7 @@ append_db_pattern_cte.exit.thread:                ; preds = %._crit_edge.i, %31
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %46
-  %51 = trunc i8 %.02025.i to i1
+  %51 = trunc nuw i8 %.02025.i to i1
   br i1 %51, label %53, label %52
 
 52:                                               ; preds = %50
@@ -2053,7 +2053,7 @@ append_db_pattern_cte.exit.thread:                ; preds = %._crit_edge.i, %31
   br i1 %60, label %.lr.ph.split.i, label %._crit_edge.i54, !llvm.loop !12
 
 ._crit_edge.i54:                                  ; preds = %55
-  %61 = trunc i8 %.1.i to i1
+  %61 = trunc nuw i8 %.1.i to i1
   br i1 %61, label %append_db_pattern_cte.exit56, label %._crit_edge.thread.i55
 
 ._crit_edge.thread.i55:                           ; preds = %._crit_edge.i54, %append_db_pattern_cte.exit.thread

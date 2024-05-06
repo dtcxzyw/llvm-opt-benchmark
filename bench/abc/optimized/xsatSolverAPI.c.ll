@@ -530,7 +530,7 @@ xSAT_BQueueFree.exit67:                           ; preds = %xSAT_BQueueFree.exi
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @xSAT_SolverSimplify(ptr noundef %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @xSAT_SolverSimplify(ptr noundef %0) local_unnamed_addr #3 {
   %2 = tail call i32 @xSAT_SolverPropagate(ptr noundef %0) #16
   %.not = icmp eq i32 %2, -1
   br i1 %.not, label %3, label %157
@@ -651,7 +651,7 @@ xSAT_SolverIsClauseSatisfied.exit:                ; preds = %40
 
 xSAT_WatchListRemove.exit:                        ; preds = %64
   %67 = getelementptr inbounds %struct.xSAT_Watcher_t_, ptr %.val.i52, i64 %indvars.iv.i53
-  %68 = trunc i64 %indvars.iv.i53 to i32
+  %68 = trunc nuw nsw i64 %indvars.iv.i53 to i32
   %69 = getelementptr inbounds i8, ptr %67, i64 8
   %70 = getelementptr inbounds i8, ptr %62, i64 4
   %71 = load i32, ptr %70, align 4
@@ -685,7 +685,7 @@ xSAT_WatchListRemove.exit:                        ; preds = %64
 
 xSAT_WatchListRemove.exit59:                      ; preds = %86
   %89 = getelementptr inbounds %struct.xSAT_Watcher_t_, ptr %.val.i55, i64 %indvars.iv.i56
-  %90 = trunc i64 %indvars.iv.i56 to i32
+  %90 = trunc nuw nsw i64 %indvars.iv.i56 to i32
   %91 = getelementptr inbounds i8, ptr %89, i64 8
   %92 = getelementptr inbounds i8, ptr %84, i64 4
   %93 = load i32, ptr %92, align 4
@@ -718,7 +718,7 @@ xSAT_WatchListRemove.exit59:                      ; preds = %86
 
 xSAT_WatchListRemove.exit64:                      ; preds = %105
   %108 = getelementptr inbounds %struct.xSAT_Watcher_t_, ptr %.val.i60, i64 %indvars.iv.i61
-  %109 = trunc i64 %indvars.iv.i61 to i32
+  %109 = trunc nuw nsw i64 %indvars.iv.i61 to i32
   %110 = getelementptr inbounds i8, ptr %108, i64 8
   %111 = getelementptr inbounds i8, ptr %103, i64 4
   %112 = load i32, ptr %111, align 4
@@ -752,7 +752,7 @@ xSAT_WatchListRemove.exit64:                      ; preds = %105
 
 xSAT_WatchListRemove.exit69:                      ; preds = %127
   %130 = getelementptr inbounds %struct.xSAT_Watcher_t_, ptr %.val.i65, i64 %indvars.iv.i66
-  %131 = trunc i64 %indvars.iv.i66 to i32
+  %131 = trunc nuw nsw i64 %indvars.iv.i66 to i32
   %132 = getelementptr inbounds i8, ptr %130, i64 8
   %133 = getelementptr inbounds i8, ptr %125, i64 4
   %134 = load i32, ptr %133, align 4
@@ -1677,7 +1677,7 @@ define internal fastcc void @xSAT_VecWatchListPush(ptr nocapture noundef %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @xSAT_SolverAddClause(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @xSAT_SolverAddClause(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val46 = load i32, ptr %3, align 4
   %4 = getelementptr i8, ptr %1, i64 8
@@ -1801,7 +1801,7 @@ declare i32 @xSAT_SolverEnqueue(ptr noundef, i32 noundef, i32 noundef) local_unn
 declare i32 @xSAT_SolverClaNew(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @xSAT_SolverSolve(ptr noundef %0) local_unnamed_addr #3 {
+define range(i32 -128, 128) i32 @xSAT_SolverSolve(ptr noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   %3 = load i8, ptr %2, align 8
   %.not = icmp eq i8 %3, 0
@@ -1901,7 +1901,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4

@@ -43,7 +43,7 @@ define weak dso_local void @perf_callchain_user(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @get_callchain_buffers(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -75, 1) i32 @get_callchain_buffers(i32 noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @callchain_mutex) #5
   %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @nr_callchain_events, i32 1, ptr nonnull elementtype(i32) @nr_callchain_events) #5, !srcloc !5
   %3 = icmp ugt i32 %2, 2147483646

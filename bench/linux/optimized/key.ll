@@ -636,7 +636,7 @@ declare dso_local i32 @security_key_alloc(ptr noundef, ptr noundef, i64 noundef)
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @key_payload_reserve(ptr noundef %0, i64 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -122, 1) i32 @key_payload_reserve(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = trunc i64 %1 to i32
   %4 = getelementptr inbounds i8, ptr %0, i64 118
   %5 = load i16, ptr %4, align 2
@@ -1729,7 +1729,7 @@ declare dso_local void @key_schedule_gc(i64 noundef) local_unnamed_addr #2
 declare dso_local void @key_schedule_gc_links() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @generic_key_instantiate(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -122, 1) i32 @generic_key_instantiate(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -1825,7 +1825,7 @@ define dso_local noundef i32 @generic_key_instantiate(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @register_key_type(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @register_key_type(ptr noundef %0) #0 align 16 {
   tail call void @down_write(ptr noundef nonnull @key_types_sem) #11
   br label %2
 

@@ -129,7 +129,7 @@ define noundef zeroext i1 @wait_result_is_any_signal(i32 noundef %0, i1 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @wait_result_to_exit_code(i32 noundef %0) local_unnamed_addr #2 {
+define range(i32 -1, 256) i32 @wait_result_to_exit_code(i32 noundef %0) local_unnamed_addr #2 {
   %2 = icmp eq i32 %0, -1
   br i1 %2, label %13, label %3
 

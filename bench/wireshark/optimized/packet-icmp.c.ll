@@ -573,7 +573,7 @@ define internal fastcc noundef zeroext i1 @update_best_guess_timestamp(i64 nound
 
 8:                                                ; preds = %5
   store i64 %0, ptr %6, align 8
-  %9 = trunc i64 %1 to i32
+  %9 = trunc nuw i64 %1 to i32
   %10 = mul nuw nsw i32 %9, 1000
   %11 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %10, ptr %11, align 8
@@ -654,7 +654,7 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare void @register_seq_analysis(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @icmp_seq_analysis_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @icmp_seq_analysis_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 %4) #0 {
   %6 = tail call ptr @sequence_analysis_create_sai_with_addresses(ptr noundef %1, ptr noundef %0) #5
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %39, label %7
@@ -1831,7 +1831,7 @@ proto_item_set_generated.exit344:                 ; preds = %547, %552, %555
   %605 = sext i32 %604 to i64
   %606 = add i64 %601, %605
   %607 = srem i64 %606, 86400000
-  %608 = trunc i64 %607 to i32
+  %608 = trunc nsw i64 %607 to i32
   %609 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #5
   %610 = and i32 %609, 2147483647
   %611 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #5

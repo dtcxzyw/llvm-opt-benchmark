@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ossl_quic_hdr_protector_init = private unnamed_addr constant [3 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_hdr_protector_init(ptr nocapture noundef %hpr, ptr noundef %libctx, ptr noundef %propq, i32 noundef %cipher_id, ptr noundef %quic_hp_key, i64 noundef %quic_hp_key_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_hdr_protector_init(ptr nocapture noundef %hpr, ptr noundef %libctx, ptr noundef %propq, i32 noundef %cipher_id, ptr noundef %quic_hp_key, i64 noundef %quic_hp_key_len) local_unnamed_addr #0 {
 entry:
   %switch.tableidx = add i32 %cipher_id, -1
   %0 = icmp ult i32 %switch.tableidx, 3
@@ -128,7 +128,7 @@ declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_hdr_protector_decrypt(ptr nocapture noundef readonly %hpr, ptr nocapture noundef readonly %ptrs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_hdr_protector_decrypt(ptr nocapture noundef readonly %hpr, ptr nocapture noundef readonly %ptrs) local_unnamed_addr #0 {
 entry:
   %mask.i = alloca [5 x i8], align 1
   %raw_sample = getelementptr inbounds i8, ptr %ptrs, i64 8
@@ -139,7 +139,7 @@ entry:
   %raw_pn = getelementptr inbounds i8, ptr %ptrs, i64 24
   %3 = load ptr, ptr %raw_pn, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %mask.i)
-  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i), !range !4
+  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef readonly %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %ossl_quic_hdr_protector_decrypt_fields.exit, label %if.end.i
 
@@ -166,7 +166,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %xor206.i = xor i8 %9, %8
   store i8 %xor206.i, ptr %arrayidx18.i, align 1
   %exitcond.i = icmp eq i64 %add14.i, %wide.trip.count.i
-  br i1 %exitcond.i, label %ossl_quic_hdr_protector_decrypt_fields.exit, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.i, label %ossl_quic_hdr_protector_decrypt_fields.exit, label %for.body.i, !llvm.loop !4
 
 ossl_quic_hdr_protector_decrypt_fields.exit:      ; preds = %for.body.i, %entry
   %retval.0.i = phi i32 [ 0, %entry ], [ 1, %for.body.i ]
@@ -175,10 +175,10 @@ ossl_quic_hdr_protector_decrypt_fields.exit:      ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_hdr_protector_decrypt_fields(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr nocapture noundef %first_byte, ptr nocapture noundef %pn_bytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_hdr_protector_decrypt_fields(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr nocapture noundef %first_byte, ptr nocapture noundef %pn_bytes) local_unnamed_addr #0 {
 entry:
   %mask = alloca [5 x i8], align 1
-  %call = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef nonnull %mask), !range !4
+  %call = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef nonnull %mask)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -205,7 +205,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %xor206 = xor i8 %5, %4
   store i8 %xor206, ptr %arrayidx18, align 1
   %exitcond = icmp eq i64 %add14, %wide.trip.count
-  br i1 %exitcond, label %return, label %for.body, !llvm.loop !5
+  br i1 %exitcond, label %return, label %for.body, !llvm.loop !4
 
 return:                                           ; preds = %for.body, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 1, %for.body ]
@@ -213,7 +213,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hdr_generate_mask(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef %mask) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hdr_generate_mask(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef %mask) unnamed_addr #0 {
 entry:
   %l = alloca i32, align 4
   %dst = alloca [16 x i8], align 16
@@ -300,7 +300,7 @@ return:                                           ; preds = %for.body.preheader,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_hdr_protector_encrypt(ptr nocapture noundef readonly %hpr, ptr nocapture noundef readonly %ptrs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_hdr_protector_encrypt(ptr nocapture noundef readonly %hpr, ptr nocapture noundef readonly %ptrs) local_unnamed_addr #0 {
 entry:
   %mask.i = alloca [5 x i8], align 1
   %raw_sample = getelementptr inbounds i8, ptr %ptrs, i64 8
@@ -311,7 +311,7 @@ entry:
   %raw_pn = getelementptr inbounds i8, ptr %ptrs, i64 24
   %3 = load ptr, ptr %raw_pn, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %mask.i)
-  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i), !range !4
+  %call.i = call fastcc i32 @hdr_generate_mask(ptr noundef readonly %hpr, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %mask.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %ossl_quic_hdr_protector_encrypt_fields.exit, label %if.end.i
 
@@ -332,7 +332,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %xor6.i = xor i8 %8, %7
   store i8 %xor6.i, ptr %arrayidx9.i, align 1
   %exitcond.i = icmp eq i64 %add6.i, %wide.trip.count.i
-  br i1 %exitcond.i, label %for.end.i, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.i, label %for.end.i, label %for.body.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %for.body.i
   %9 = load i8, ptr %mask.i, align 1
@@ -351,10 +351,10 @@ ossl_quic_hdr_protector_encrypt_fields.exit:      ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_hdr_protector_encrypt_fields(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr nocapture noundef %first_byte, ptr nocapture noundef %pn_bytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_hdr_protector_encrypt_fields(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr nocapture noundef %first_byte, ptr nocapture noundef %pn_bytes) local_unnamed_addr #0 {
 entry:
   %mask = alloca [5 x i8], align 1
-  %call = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef nonnull %mask), !range !4
+  %call = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef nonnull %mask)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -375,7 +375,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %xor6 = xor i8 %4, %3
   store i8 %xor6, ptr %arrayidx9, align 1
   %exitcond = icmp eq i64 %add6, %wide.trip.count
-  br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body
   %5 = load i8, ptr %mask, align 1
@@ -393,7 +393,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_wire_decode_pkt_hdr(ptr nocapture noundef %pkt, i64 noundef %short_conn_id_len, i32 noundef %partial, i32 noundef %nodata, ptr nocapture noundef %hdr, ptr noundef writeonly %ptrs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr(ptr nocapture noundef %pkt, i64 noundef %short_conn_id_len, i32 noundef %partial, i32 noundef %nodata, ptr nocapture noundef %hdr, ptr noundef writeonly %ptrs) local_unnamed_addr #0 {
 entry:
   %token_len237 = alloca i64, align 8
   %len285 = alloca i64, align 8
@@ -482,7 +482,7 @@ if.end67:                                         ; preds = %if.else, %if.then37
 if.end71:                                         ; preds = %if.end67
   %id = getelementptr inbounds i8, ptr %hdr, i64 9
   %6 = load ptr, ptr %pkt, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id, ptr align 1 %6, i64 %short_conn_id_len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %id, ptr align 1 %6, i64 %short_conn_id_len, i1 false)
   %7 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i147 = getelementptr inbounds i8, ptr %7, i64 %short_conn_id_len
   store ptr %add.ptr.i.i147, ptr %pkt, align 8
@@ -518,7 +518,7 @@ if.else83:                                        ; preds = %if.end71
   br i1 %cmp.i.i155, label %return, label %PACKET_copy_bytes.exit160
 
 PACKET_copy_bytes.exit160:                        ; preds = %if.else83
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pn74, ptr align 1 %pkt.val137, i64 %conv88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %pn74, ptr align 1 %pkt.val137, i64 %conv88, i1 false)
   %9 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i157 = getelementptr inbounds i8, ptr %9, i64 %conv88
   store ptr %add.ptr.i.i157, ptr %pkt, align 8
@@ -605,7 +605,7 @@ lor.lhs.false120:                                 ; preds = %PACKET_get_1.exit18
 
 lor.lhs.false127:                                 ; preds = %lor.lhs.false120
   %id122 = getelementptr inbounds i8, ptr %hdr, i64 9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id122, ptr nonnull align 1 %add.ptr.i.i179, i64 %conv124, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %id122, ptr nonnull align 1 %add.ptr.i.i179, i64 %conv124, i1 false)
   %17 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i186 = getelementptr inbounds i8, ptr %17, i64 %conv124
   store ptr %add.ptr.i.i186, ptr %pkt, align 8
@@ -631,7 +631,7 @@ lor.lhs.false133:                                 ; preds = %PACKET_get_1.exit19
 
 if.end141:                                        ; preds = %lor.lhs.false133
   %id135 = getelementptr inbounds i8, ptr %hdr, i64 30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id135, ptr nonnull align 1 %add.ptr.i.i194, i64 %conv137, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %id135, ptr nonnull align 1 %add.ptr.i.i194, i64 %conv137, i1 false)
   %20 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i201 = getelementptr inbounds i8, ptr %20, i64 %conv137
   store ptr %add.ptr.i.i201, ptr %pkt, align 8
@@ -714,7 +714,7 @@ default.unreachable303:                           ; preds = %if.end202
 sw.epilog:                                        ; preds = %if.end202
   %bf.set225 = or disjoint i32 %bf.clear206, 32769
   store i32 %bf.set225, ptr %hdr, align 8
-  %call238 = call fastcc i32 @PACKET_get_quic_vlint(ptr noundef nonnull %pkt, ptr noundef nonnull %token_len237), !range !4
+  %call238 = call fastcc i32 @PACKET_get_quic_vlint(ptr noundef nonnull %pkt, ptr noundef nonnull %token_len237)
   %tobool239 = icmp eq i32 %call238, 0
   br i1 %tobool239, label %return, label %lor.lhs.false243
 
@@ -795,7 +795,7 @@ if.else284:                                       ; preds = %if.end258
   %bf.set293 = select i1 %tobool286.not, i32 %31, i32 0
   %bf.set305 = or disjoint i32 %bf.set293, %bf.clear292
   store i32 %bf.set305, ptr %hdr, align 8
-  %call306 = call fastcc i32 @PACKET_get_quic_vlint(ptr noundef nonnull %pkt, ptr noundef nonnull %len285), !range !4
+  %call306 = call fastcc i32 @PACKET_get_quic_vlint(ptr noundef nonnull %pkt, ptr noundef nonnull %len285)
   %tobool307 = icmp eq i32 %call306, 0
   %32 = load i64, ptr %len285, align 8
   %cmp309 = icmp ult i64 %32, 4
@@ -842,7 +842,7 @@ if.else330:                                       ; preds = %if.end319
 
 if.end340:                                        ; preds = %if.else330
   %34 = load ptr, ptr %pkt, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pn321, ptr align 1 %34, i64 %conv336, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %pn321, ptr align 1 %34, i64 %conv336, i1 false)
   %35 = load ptr, ptr %pkt, align 8
   %add.ptr.i.i235 = getelementptr inbounds i8, ptr %35, i64 %conv336
   store ptr %add.ptr.i.i235, ptr %pkt, align 8
@@ -915,7 +915,7 @@ return:                                           ; preds = %if.end107, %if.else
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @PACKET_get_quic_vlint(ptr nocapture noundef %pkt, ptr nocapture noundef writeonly %data) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @PACKET_get_quic_vlint(ptr nocapture noundef %pkt, ptr nocapture noundef writeonly %data) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val6 = load i64, ptr %0, align 8
@@ -949,7 +949,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %pkt, i64 noundef %short_conn_id_len, ptr noundef %hdr, ptr noundef %ptrs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %pkt, i64 noundef %short_conn_id_len, ptr noundef %hdr, ptr noundef %ptrs) local_unnamed_addr #0 {
 entry:
   %off_start = alloca i64, align 8
   %off_pn = alloca i64, align 8
@@ -1419,7 +1419,7 @@ return:                                           ; preds = %if.end6.i41, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ossl_quic_wire_get_pkt_hdr_dst_conn_id(ptr nocapture noundef readonly %buf, i64 noundef %buf_len, i64 noundef %short_conn_id_len, ptr nocapture noundef writeonly %dst_conn_id) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ossl_quic_wire_get_pkt_hdr_dst_conn_id(ptr nocapture noundef readonly %buf, i64 noundef %buf_len, i64 noundef %short_conn_id_len, ptr nocapture noundef writeonly %dst_conn_id) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ult i64 %buf_len, 7
   %cmp1 = icmp ugt i64 %short_conn_id_len, 20
@@ -1503,7 +1503,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ossl_quic_wire_decode_pkt_hdr_pn(ptr nocapture noundef readonly %enc_pn, i64 noundef %enc_pn_len, i64 noundef %largest_pn, ptr nocapture noundef writeonly %res_pn) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr_pn(ptr nocapture noundef readonly %enc_pn, i64 noundef %enc_pn_len, i64 noundef %largest_pn, ptr nocapture noundef writeonly %res_pn) local_unnamed_addr #4 {
 entry:
   switch i64 %enc_pn_len, label %return [
     i64 1, label %sw.bb
@@ -1602,7 +1602,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @ossl_quic_wire_determine_pn_len(i64 noundef %pn, i64 noundef %largest_acked) local_unnamed_addr #6 {
+define range(i32 1, 5) i32 @ossl_quic_wire_determine_pn_len(i64 noundef %pn, i64 noundef %largest_acked) local_unnamed_addr #6 {
 entry:
   %cond = sub i64 %pn, %largest_acked
   %cmp1 = icmp ult i64 %cond, 129
@@ -1623,7 +1623,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_quic_wire_encode_pkt_hdr_pn(i64 noundef %pn, ptr nocapture noundef writeonly %enc_pn, i64 noundef %enc_pn_len) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr_pn(i64 noundef %pn, ptr nocapture noundef writeonly %enc_pn, i64 noundef %enc_pn_len) local_unnamed_addr #7 {
 entry:
   switch i64 %enc_pn_len, label %return [
     i64 1, label %return.sink.split
@@ -1670,7 +1670,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_validate_retry_integrity_tag(ptr noundef %libctx, ptr noundef %propq, ptr noundef readonly %hdr, ptr noundef %client_initial_dcid) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_validate_retry_integrity_tag(ptr noundef %libctx, ptr noundef %propq, ptr noundef readonly %hdr, ptr noundef %client_initial_dcid) local_unnamed_addr #0 {
 entry:
   %expected_tag = alloca [16 x i8], align 16
   %cmp = icmp eq ptr %hdr, null
@@ -1683,7 +1683,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = call i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef %libctx, ptr noundef %propq, ptr noundef nonnull %hdr, ptr noundef %client_initial_dcid, ptr noundef nonnull %expected_tag), !range !4
+  %call = call i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef %libctx, ptr noundef %propq, ptr noundef nonnull %hdr, ptr noundef %client_initial_dcid, ptr noundef nonnull %expected_tag)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end3
 
@@ -1704,7 +1704,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef %libctx, ptr noundef %propq, ptr nocapture noundef readonly %hdr, ptr noundef %client_initial_dcid, ptr noundef %tag) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef %libctx, ptr noundef %propq, ptr nocapture noundef readonly %hdr, ptr noundef %client_initial_dcid, ptr noundef %tag) local_unnamed_addr #0 {
 entry:
   %l = alloca i32, align 4
   %l2 = alloca i32, align 4
@@ -1792,7 +1792,7 @@ if.end27:                                         ; preds = %lor.lhs.false20
   %dst_conn_id = getelementptr inbounds i8, ptr %hdr2, i64 8
   %6 = load i8, ptr %dst_conn_id, align 8
   %conv29 = zext i8 %6 to i64
-  %call30 = call i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef nonnull %wpkt, i64 noundef %conv29, ptr noundef nonnull %hdr2, ptr noundef null), !range !4
+  %call30 = call i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef nonnull %wpkt, i64 noundef %conv29, ptr noundef nonnull %hdr2, ptr noundef null)
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %err, label %if.end33
 
@@ -1945,7 +1945,6 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

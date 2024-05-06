@@ -23,7 +23,7 @@ define void @drotm_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1,
   br i1 %19, label %20, label %88
 
 20:                                               ; preds = %16
-  %21 = mul nsw i32 %8, %7
+  %21 = mul nuw nsw i32 %8, %7
   %22 = fcmp olt double %12, 0.000000e+00
   br i1 %22, label %63, label %23
 

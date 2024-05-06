@@ -361,7 +361,7 @@ slurmdb_qos_str.exit:                             ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_setup_cluster_rec(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_setup_cluster_rec(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -3316,7 +3316,7 @@ define ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %26
   %22 = phi ptr [ %27, %26 ], [ %21, %.preheader ]
-  %23 = call i32 @slurmdb_setup_cluster_rec(ptr noundef nonnull %22), !range !9
+  %23 = call i32 @slurmdb_setup_cluster_rec(ptr noundef nonnull %22)
   %.not43 = icmp eq i32 %23, 0
   br i1 %.not43, label %26, label %24
 
@@ -3327,7 +3327,7 @@ define ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_addr #0 {
 26:                                               ; preds = %24, %.lr.ph
   %27 = call ptr @list_next(ptr noundef %20) #20
   %.not40 = icmp eq ptr %27, null
-  br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 28:                                               ; preds = %19
   %29 = getelementptr inbounds i8, ptr %2, i64 8
@@ -3351,14 +3351,14 @@ define ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_addr #0 {
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 @xstrcmp(ptr noundef nonnull %33, ptr noundef %38) #20
   %.not38 = icmp eq i32 %39, 0
-  br i1 %.not38, label %41, label %34, !llvm.loop !11
+  br i1 %.not38, label %41, label %34, !llvm.loop !10
 
 .critedge:                                        ; preds = %34
   %40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef nonnull %33) #20
   br label %45
 
 41:                                               ; preds = %36
-  %42 = call i32 @slurmdb_setup_cluster_rec(ptr noundef nonnull %35), !range !9
+  %42 = call i32 @slurmdb_setup_cluster_rec(ptr noundef nonnull %35)
   %.not39 = icmp eq i32 %42, 0
   br i1 %.not39, label %45, label %43
 
@@ -3370,7 +3370,7 @@ define ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_addr #0 {
   call void @list_iterator_reset(ptr noundef %20) #20
   %46 = call ptr @list_next(ptr noundef %31) #20
   %.not36 = icmp eq ptr %46, null
-  br i1 %.not36, label %._crit_edge, label %.preheader45, !llvm.loop !12
+  br i1 %.not36, label %._crit_edge, label %.preheader45, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %45, %28
   call void @list_iterator_destroy(ptr noundef %31) #20
@@ -3982,7 +3982,7 @@ define ptr @slurmdb_qos_str(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @slurmdb_find_qos_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define range(i32 0, 2) i32 @slurmdb_find_qos_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -4039,7 +4039,7 @@ define i32 @str_2_slurmdb_qos(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @xstrcasecmp(ptr noundef nonnull %.0, ptr noundef %20) #20
   %.not20 = icmp eq i32 %21, 0
-  br i1 %.not20, label %22, label %16, !llvm.loop !13
+  br i1 %.not20, label %22, label %16, !llvm.loop !12
 
 22:                                               ; preds = %18
   tail call void @list_iterator_destroy(ptr noundef %15) #20
@@ -4074,7 +4074,7 @@ define ptr @slurmdb_federation_flags_str(i32 noundef %0) local_unnamed_addr #0 {
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @str_2_federation_flags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -805306369, 268435457) i32 @str_2_federation_flags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -4100,7 +4100,7 @@ define noundef i32 @str_2_federation_flags(ptr noundef %0, i32 noundef %1) local
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %13 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %4) #20
   %.not18 = icmp eq ptr %13, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   call void @slurm_xfree(ptr noundef nonnull %3) #20
@@ -4151,7 +4151,7 @@ define noundef nonnull ptr @slurmdb_cluster_fed_states_str(i32 noundef %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @str_2_cluster_fed_states(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 50) i32 @str_2_cluster_fed_states(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -4251,7 +4251,7 @@ declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @str_2_job_flags(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 32) i32 @str_2_job_flags(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -4312,7 +4312,7 @@ _str_2_job_flags.exit:                            ; preds = %.lr.ph, %10, %12, %
 22:                                               ; preds = %_str_2_job_flags.exit
   %23 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %3) #20
   %.not11 = icmp eq ptr %23, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %22, %6
   %.08.lcssa = phi i32 [ 0, %6 ], [ %18, %22 ]
@@ -4473,7 +4473,7 @@ define ptr @slurmdb_qos_flags_str(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @str_2_qos_flags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -805306369, 1073743872) i32 @str_2_qos_flags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -4563,7 +4563,7 @@ _str_2_qos_flags.exit:                            ; preds = %.lr.ph, %14, %16, %
   %34 = or i32 %.0.i, %.01421
   %35 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %4) #20
   %.not18 = icmp eq ptr %35, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_str_2_qos_flags.exit
   call void @slurm_xfree(ptr noundef nonnull %3) #20
@@ -4647,7 +4647,7 @@ define ptr @slurmdb_res_flags_str(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @str_2_res_flags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 1, 1073741826) i32 @str_2_res_flags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -4683,7 +4683,7 @@ define noundef i32 @str_2_res_flags(ptr noundef %0, i32 noundef %1) local_unname
   %14 = or i32 %.01423, %..i
   %15 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %4) #20
   %.not18 = icmp eq ptr %15, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %16 = icmp eq i32 %14, 0
@@ -4728,7 +4728,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @str_2_slurmdb_admin_level(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @str_2_slurmdb_admin_level(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -4814,7 +4814,7 @@ define ptr @slurmdb_get_acct_hierarchical_rec_list(ptr noundef %0) local_unnamed
   %20 = call ptr @xhash_add(ptr noundef %4, ptr noundef nonnull %11) #20
   %21 = call ptr @list_next(ptr noundef %6) #20
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %.outer._crit_edge, label %9, !llvm.loop !18
+  br i1 %.not, label %.outer._crit_edge, label %9, !llvm.loop !17
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds i8, ptr %10, i64 264
@@ -4916,7 +4916,7 @@ define ptr @slurmdb_get_acct_hierarchical_rec_list(ptr noundef %0) local_unnamed
 .outer:                                           ; preds = %71, %69
   %73 = call ptr @list_next(ptr noundef %6) #20
   %.not73 = icmp eq ptr %73, null
-  br i1 %.not73, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not73, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !17
 
 .outer._crit_edge:                                ; preds = %.outer, %16, %1
   call void @list_iterator_destroy(ptr noundef %6) #20
@@ -4959,7 +4959,7 @@ define internal fastcc void @_append_hierarchical_children_ret_list(ptr noundef 
 15:                                               ; preds = %13, %.lr.ph
   %16 = tail call ptr @list_next(ptr noundef %6) #20
   %.not13 = icmp eq ptr %16, null
-  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %15, %5
   tail call void @list_iterator_destroy(ptr noundef %6) #20
@@ -5055,7 +5055,7 @@ define internal fastcc void @_sort_slurmdb_hierarchical_rec_list(ptr noundef %0)
 12:                                               ; preds = %10, %.lr.ph
   %13 = tail call ptr @list_next(ptr noundef %4) #20
   %.not7 = icmp eq ptr %13, null
-  br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %12, %3
   tail call void @list_iterator_destroy(ptr noundef %4) #20
@@ -5082,7 +5082,7 @@ define ptr @slurmdb_tree_name_get(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not38.us, label %9, label %.outer.us.backedge
 
 .outer.us.backedge:                               ; preds = %6, %9
-  br label %.outer.us, !llvm.loop !21
+  br label %.outer.us, !llvm.loop !20
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %12, align 8
@@ -5113,7 +5113,7 @@ define ptr @slurmdb_tree_name_get(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %16 = getelementptr inbounds i8, ptr %14, i64 24
   %17 = load i16, ptr %16, align 8
   %.not38 = icmp eq i16 %17, 0
-  br i1 %.not38, label %18, label %13, !llvm.loop !21
+  br i1 %.not38, label %18, label %13, !llvm.loop !20
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %14, align 8
@@ -5126,7 +5126,7 @@ define ptr @slurmdb_tree_name_get(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %23 = tail call i32 @xstrcmp(ptr noundef nonnull %1, ptr noundef %22) #20
   %.not42 = icmp eq i32 %23, 0
   %spec.select = select i1 %.not42, ptr %14, ptr %.0.ph
-  br label %.outer, !llvm.loop !21
+  br label %.outer, !llvm.loop !20
 
 .split48.us:                                      ; preds = %18, %9
   %.us-phi = phi ptr [ null, %9 ], [ %.0.ph, %18 ]
@@ -5194,7 +5194,7 @@ define ptr @slurmdb_tree_name_get(ptr noundef %0, ptr noundef %1, ptr noundef %2
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_qos_bitstr_from_list(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @set_qos_bitstr_from_list(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %18, label %3
 
@@ -5230,13 +5230,13 @@ define noundef i32 @set_qos_bitstr_from_list(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not15.i, label %16, label %_set_qos_bit_from_string.exit
 
 16:                                               ; preds = %12
-  tail call void %.0.i(ptr noundef %0, i64 noundef %14) #20, !callees !22
+  tail call void %.0.i(ptr noundef %0, i64 noundef %14) #20, !callees !21
   br label %_set_qos_bit_from_string.exit
 
 _set_qos_bit_from_string.exit:                    ; preds = %12, %16
   %17 = tail call ptr @list_next(ptr noundef %4) #20
   %.not9 = icmp eq ptr %17, null
-  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_set_qos_bit_from_string.exit, %3
   tail call void @list_iterator_destroy(ptr noundef %4) #20
@@ -5264,7 +5264,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_qos_bitstr_from_string(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @set_qos_bitstr_from_string(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %.not = icmp eq ptr %1, null
@@ -5330,7 +5330,7 @@ define noundef i32 @set_qos_bitstr_from_string(ptr noundef %0, ptr noundef %1) l
   br i1 %.not15.i, label %32, label %_set_qos_bit_from_string.exit
 
 32:                                               ; preds = %28
-  call void %.0.i(ptr noundef %0, i64 noundef %30) #20, !callees !22
+  call void %.0.i(ptr noundef %0, i64 noundef %30) #20, !callees !21
   br label %_set_qos_bit_from_string.exit
 
 _set_qos_bit_from_string.exit:                    ; preds = %16, %28, %32
@@ -5341,7 +5341,7 @@ _set_qos_bit_from_string.exit:                    ; preds = %16, %28, %32
   %.2 = phi i32 [ %12, %_set_qos_bit_from_string.exit ], [ %.126, %7 ]
   %.1 = phi i32 [ %12, %_set_qos_bit_from_string.exit ], [ %.0, %7 ]
   %34 = add nsw i32 %.2, 1
-  br label %7, !llvm.loop !24
+  br label %7, !llvm.loop !23
 
 35:                                               ; preds = %7, %11
   %36 = sext i32 %.0 to i64
@@ -5378,7 +5378,7 @@ _set_qos_bit_from_string.exit:                    ; preds = %16, %28, %32
   br i1 %.not15.i35, label %51, label %_set_qos_bit_from_string.exit37
 
 51:                                               ; preds = %47
-  call void %.0.i34(ptr noundef %0, i64 noundef %49) #20, !callees !22
+  call void %.0.i34(ptr noundef %0, i64 noundef %49) #20, !callees !21
   br label %_set_qos_bit_from_string.exit37
 
 _set_qos_bit_from_string.exit37:                  ; preds = %35, %47, %51
@@ -5494,7 +5494,7 @@ slurmdb_qos_str.exit:                             ; preds = %25
 34:                                               ; preds = %slurmdb_qos_str.exit.thread36, %30, %32, %slurmdb_qos_str.exit
   %35 = call ptr @list_next(ptr noundef %12) #20
   %.not30 = icmp eq ptr %35, null
-  br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %34, %10
   call void @list_iterator_destroy(ptr noundef %12) #20
@@ -5579,7 +5579,7 @@ define noundef ptr @get_classification_str(i16 noundef zeroext %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i16 @str_2_classification(ptr noundef %0) local_unnamed_addr #0 {
+define zeroext range(i16 0, 260) i16 @str_2_classification(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 
@@ -5640,7 +5640,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i16 @str_2_slurmdb_problem(ptr noundef %0) local_unnamed_addr #0 {
+define zeroext range(i16 0, 5) i16 @str_2_slurmdb_problem(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -6373,7 +6373,7 @@ get_qos_complete_str.exit:                        ; preds = %224, %225, %227, %2
 declare void @mins2time_str(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_report_set_start_end_time(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_report_set_start_end_time(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.tm, align 8
@@ -6512,7 +6512,7 @@ define noundef i32 @slurmdb_report_set_start_end_time(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurmdb_parse_purge(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 65536, 0) i32 @slurmdb_parse_purge(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %3 = add i8 %2, -48
   %or.cond4244 = icmp ult i8 %3, 10
@@ -6533,7 +6533,7 @@ define i32 @slurmdb_parse_purge(ptr noundef %0) local_unnamed_addr #0 {
   %11 = load i8, ptr %10, align 1
   %12 = add i8 %11, -48
   %or.cond42 = icmp ult i8 %12, 10
-  br i1 %or.cond42, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %or.cond42, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %13 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
@@ -6699,7 +6699,7 @@ define i32 @slurmdb_addto_qos_char_list(ptr noundef %0, ptr noundef %1, ptr noun
 declare i32 @slurm_parse_char_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_slurmdb_addto_qos_char_list_internal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 -1, 2) i32 @_slurmdb_addto_qos_char_list_internal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6759,7 +6759,7 @@ define internal noundef i32 @_slurmdb_addto_qos_char_list_internal(ptr noundef %
 32:                                               ; preds = %31, %30
   %33 = call ptr @list_next(ptr noundef %24) #20
   %.not9.i = icmp eq ptr %33, null
-  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %32, %23
   call void @list_iterator_destroy(ptr noundef %24) #20
@@ -6968,7 +6968,7 @@ define i32 @slurmdb_send_accounting_update(ptr noundef %0, ptr noundef %1, ptr n
   %30 = add nuw nsw i32 %.01726, 1
   %exitcond.not = icmp eq i32 %30, 4
   %or.cond = select i1 %.not21, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %31, label %24, !llvm.loop !28
+  br i1 %or.cond, label %31, label %24, !llvm.loop !27
 
 31:                                               ; preds = %27
   %32 = zext i16 %3 to i32
@@ -7034,10 +7034,10 @@ define ptr @slurmdb_cluster_rec_2_report(ptr nocapture noundef readonly %0) loca
 
 14:                                               ; preds = %.lr.ph, %14
   %15 = phi ptr [ %12, %.lr.ph ], [ %17, %14 ]
-  %16 = tail call i32 @slurmdb_add_cluster_accounting_to_tres_list(ptr noundef nonnull %15, ptr noundef nonnull %13), !range !9
+  %16 = tail call i32 @slurmdb_add_cluster_accounting_to_tres_list(ptr noundef nonnull %15, ptr noundef nonnull %13)
   %17 = tail call ptr @list_next(ptr noundef %11) #20
   %.not17 = icmp eq ptr %17, null
-  br i1 %.not17, label %._crit_edge, label %14, !llvm.loop !29
+  br i1 %.not17, label %._crit_edge, label %14, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %14, %9
   tail call void @list_iterator_destroy(ptr noundef %11) #20
@@ -7059,7 +7059,7 @@ define ptr @slurmdb_cluster_rec_2_report(ptr nocapture noundef readonly %0) loca
   store i64 %28, ptr %26, align 8
   %29 = tail call ptr @list_next(ptr noundef %20) #20
   %.not18 = icmp eq ptr %29, null
-  br i1 %.not18, label %._crit_edge23, label %.lr.ph22, !llvm.loop !30
+  br i1 %.not18, label %._crit_edge23, label %.lr.ph22, !llvm.loop !29
 
 ._crit_edge23:                                    ; preds = %.lr.ph22, %._crit_edge
   tail call void @list_iterator_destroy(ptr noundef %20) #20
@@ -7070,7 +7070,7 @@ define ptr @slurmdb_cluster_rec_2_report(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_add_cluster_accounting_to_tres_list(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 -1, 1) i32 @slurmdb_add_cluster_accounting_to_tres_list(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %5
@@ -7089,7 +7089,7 @@ define noundef i32 @slurmdb_add_cluster_accounting_to_tres_list(ptr noundef %0, 
 8:                                                ; preds = %5, %.thread
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 3487, ptr noundef nonnull @__func__.slurmdb_copy_tres_rec) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull readonly align 8 dereferenceable(48) %9, i64 48, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 88
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @xstrdup(ptr noundef %12) #20
@@ -7136,7 +7136,7 @@ define noundef i32 @slurmdb_add_cluster_accounting_to_tres_list(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_get_first_avail_cluster(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_get_first_avail_cluster(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -7245,7 +7245,7 @@ define noundef i32 @slurmdb_get_first_avail_cluster(ptr noundef %0, ptr noundef 
   %56 = call ptr @list_next(ptr noundef %33) #20
   store ptr %56, ptr @working_cluster_rec, align 8
   %.not45 = icmp eq ptr %56, null
-  br i1 %.not45, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not45, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.backedge, %29
   call void @list_iterator_destroy(ptr noundef %33) #20
@@ -7300,7 +7300,7 @@ define noundef i32 @slurmdb_get_first_avail_cluster(ptr noundef %0, ptr noundef 
 75:                                               ; preds = %73
   %76 = load ptr, ptr %70, align 8
   %77 = icmp eq ptr %74, %76
-  br i1 %77, label %78, label %73, !llvm.loop !32
+  br i1 %77, label %78, label %73, !llvm.loop !31
 
 78:                                               ; preds = %75
   %79 = call ptr @list_remove(ptr noundef %72) #20
@@ -7411,7 +7411,7 @@ define internal fastcc noundef ptr @_job_will_run(ptr noundef %0) unnamed_addr #
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.208, ptr noundef %spec.select, i32 noundef %43) #20
   %44 = call ptr @list_next(ptr noundef %39) #20
   %.not11 = icmp eq ptr %44, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33
   call void @list_iterator_destroy(ptr noundef %39) #20
@@ -7440,7 +7440,7 @@ define internal fastcc noundef ptr @_job_will_run(ptr noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sort_local_cluster(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 2) i32 @_sort_local_cluster(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -7495,7 +7495,7 @@ declare ptr @list_peek(ptr noundef) local_unnamed_addr #1
 declare ptr @list_remove(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_get_first_het_job_cluster(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_get_first_het_job_cluster(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [64 x i8], align 16
@@ -7553,7 +7553,7 @@ define noundef i32 @slurmdb_get_first_het_job_cluster(ptr noundef %0, ptr nounde
 31:                                               ; preds = %30, %.lr.ph
   %32 = call ptr @list_next(ptr noundef %22) #20
   %.not55 = icmp eq ptr %32, null
-  br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %31, %20
   call void @list_iterator_destroy(ptr noundef %22) #20
@@ -7636,7 +7636,7 @@ define noundef i32 @slurmdb_get_first_het_job_cluster(ptr noundef %0, ptr nounde
   call void @slurm_xfree(ptr noundef nonnull %5) #20
   %66 = call ptr @list_next(ptr noundef %49) #20
   %.not.i = icmp eq ptr %66, null
-  br i1 %.not.i, label %_het_job_will_run.exit, label %.lr.ph.i, !llvm.loop !35
+  br i1 %.not.i, label %_het_job_will_run.exit, label %.lr.ph.i, !llvm.loop !34
 
 _het_job_will_run.exit:                           ; preds = %64, %48, %54
   call void @list_iterator_destroy(ptr noundef %49) #20
@@ -7671,7 +7671,7 @@ _het_job_will_run.exit:                           ; preds = %64, %48, %54
   %80 = call ptr @list_next(ptr noundef %39) #20
   store ptr %80, ptr @working_cluster_rec, align 8
   %.not57 = icmp eq ptr %80, null
-  br i1 %.not57, label %._crit_edge80, label %.lr.ph79, !llvm.loop !36
+  br i1 %.not57, label %._crit_edge80, label %.lr.ph79, !llvm.loop !35
 
 ._crit_edge80:                                    ; preds = %.backedge, %35
   call void @list_iterator_destroy(ptr noundef %39) #20
@@ -7712,7 +7712,7 @@ _het_job_will_run.exit:                           ; preds = %64, %48, %54
 93:                                               ; preds = %92, %.lr.ph83
   %94 = call ptr @list_next(ptr noundef %86) #20
   %.not60 = icmp eq ptr %94, null
-  br i1 %.not60, label %._crit_edge84, label %.lr.ph83, !llvm.loop !37
+  br i1 %.not60, label %._crit_edge84, label %.lr.ph83, !llvm.loop !36
 
 ._crit_edge84:                                    ; preds = %93, %85
   call void @list_iterator_destroy(ptr noundef %86) #20
@@ -7740,7 +7740,7 @@ _het_job_will_run.exit:                           ; preds = %64, %48, %54
 104:                                              ; preds = %102
   %105 = load ptr, ptr %99, align 8
   %106 = icmp eq ptr %103, %105
-  br i1 %106, label %107, label %102, !llvm.loop !38
+  br i1 %106, label %107, label %102, !llvm.loop !37
 
 107:                                              ; preds = %104
   %108 = call ptr @list_remove(ptr noundef %101) #20
@@ -8103,7 +8103,7 @@ slurmdb_init_cluster_rec.exit:                    ; preds = %.lr.ph, %20
   tail call void @list_append(ptr noundef %27, ptr noundef %19) #20
   %28 = tail call ptr @list_next(ptr noundef %15) #20
   %.not21 = icmp eq ptr %28, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %slurmdb_init_cluster_rec.exit, %14
   tail call void @list_iterator_destroy(ptr noundef %15) #20
@@ -8322,7 +8322,7 @@ define ptr @slurmdb_copy_tres_list(ptr noundef %0) local_unnamed_addr #0 {
 slurmdb_copy_tres_rec.exit:                       ; preds = %2, %slurmdb_copy_tres_rec.exit
   %6 = phi ptr [ %16, %slurmdb_copy_tres_rec.exit ], [ %5, %2 ]
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 3487, ptr noundef nonnull @__func__.slurmdb_copy_tres_rec) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %6, i64 48, i1 false)
   %8 = getelementptr inbounds i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @xstrdup(ptr noundef %9) #20
@@ -8336,7 +8336,7 @@ slurmdb_copy_tres_rec.exit:                       ; preds = %2, %slurmdb_copy_tr
   tail call void @list_append(ptr noundef %3, ptr noundef %7) #20
   %16 = tail call ptr @list_next(ptr noundef %4) #20
   %.not10 = icmp eq ptr %16, null
-  br i1 %.not10, label %._crit_edge, label %slurmdb_copy_tres_rec.exit, !llvm.loop !40
+  br i1 %.not10, label %._crit_edge, label %slurmdb_copy_tres_rec.exit, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %slurmdb_copy_tres_rec.exit, %2
   tail call void @list_iterator_destroy(ptr noundef %4) #20
@@ -8435,7 +8435,7 @@ define noundef ptr @slurmdb_diff_tres_list(ptr noundef %0, ptr noundef %1) local
 .backedge:                                        ; preds = %12, %18, %.lr.ph
   %20 = tail call ptr @list_next(ptr noundef %7) #20
   %.not17 = icmp eq ptr %20, null
-  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.backedge, %5
   tail call void @list_iterator_destroy(ptr noundef %7) #20
@@ -8447,7 +8447,7 @@ define noundef ptr @slurmdb_diff_tres_list(ptr noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @slurmdb_find_tres_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define range(i32 0, 2) i32 @slurmdb_find_tres_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -8490,7 +8490,7 @@ define ptr @slurmdb_tres_string_combine_lists(ptr noundef %0, ptr noundef %1) lo
 .backedge:                                        ; preds = %.lr.ph, %12, %20
   %16 = call ptr @list_next(ptr noundef %7) #20
   %.not15 = icmp eq ptr %16, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %3, align 8
@@ -8582,7 +8582,7 @@ define ptr @slurmdb_make_tres_string(ptr noundef %0, i32 noundef %1) local_unnam
 .backedge.us:                                     ; preds = %23, %29, %12
   %34 = call ptr @list_next(ptr noundef %5) #20
   %.not21.us = icmp eq ptr %34, null
-  br i1 %.not21.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !43
+  br i1 %.not21.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !42
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not22, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -8599,7 +8599,7 @@ define ptr @slurmdb_make_tres_string(ptr noundef %0, i32 noundef %1) local_unnam
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.14, i32 noundef %37, i64 noundef %39) #20
   %40 = call ptr @list_next(ptr noundef %5) #20
   %.not21.us28.us = icmp eq ptr %40, null
-  br i1 %.not21.us28.us, label %._crit_edge, label %.backedge.us27.us, !llvm.loop !43
+  br i1 %.not21.us28.us, label %._crit_edge, label %.backedge.us27.us, !llvm.loop !42
 
 .backedge.us27:                                   ; preds = %.lr.ph.split.split.us, %.backedge.us27
   %41 = phi ptr [ %47, %.backedge.us27 ], [ %6, %.lr.ph.split.split.us ]
@@ -8613,7 +8613,7 @@ define ptr @slurmdb_make_tres_string(ptr noundef %0, i32 noundef %1) local_unnam
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.152, ptr noundef nonnull %spec.select, i32 noundef %44, i64 noundef %46) #20
   %47 = call ptr @list_next(ptr noundef %5) #20
   %.not21.us28 = icmp eq ptr %47, null
-  br i1 %.not21.us28, label %._crit_edge, label %.backedge.us27, !llvm.loop !43
+  br i1 %.not21.us28, label %._crit_edge, label %.backedge.us27, !llvm.loop !42
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %10, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -8634,7 +8634,7 @@ define ptr @slurmdb_make_tres_string(ptr noundef %0, i32 noundef %1) local_unnam
 .backedge.us29:                                   ; preds = %52, %.lr.ph.split.split.split.us
   %55 = call ptr @list_next(ptr noundef %5) #20
   %.not21.us30 = icmp eq ptr %55, null
-  br i1 %.not21.us30, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !43
+  br i1 %.not21.us30, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !42
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.backedge
   %56 = phi ptr [ %64, %.backedge ], [ %6, %.lr.ph.split.split ]
@@ -8655,7 +8655,7 @@ define ptr @slurmdb_make_tres_string(ptr noundef %0, i32 noundef %1) local_unnam
 .backedge:                                        ; preds = %60, %.lr.ph.split.split.split
   %64 = call ptr @list_next(ptr noundef %5) #20
   %.not21 = icmp eq ptr %64, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !43
+  br i1 %.not21, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.backedge, %.backedge.us29, %.backedge.us27, %.backedge.us27.us, %.backedge.us, %4
   call void @list_iterator_destroy(ptr noundef %5) #20
@@ -8698,7 +8698,7 @@ define ptr @slurmdb_make_tres_string_from_arrays(ptr noundef readonly %0, ptr no
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.155, ptr noundef nonnull %12, ptr noundef %14, i64 noundef %10) #20
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count26
-  br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !44
+  br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !43
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.lr.ph ]
@@ -8719,7 +8719,7 @@ define ptr @slurmdb_make_tres_string_from_arrays(ptr noundef readonly %0, ptr no
 22:                                               ; preds = %.lr.ph.split, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count26
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %22, %.lr.ph.split.us, %.preheader
   %23 = load ptr, ptr %5, align 8
@@ -8923,7 +8923,7 @@ define ptr @slurmdb_make_tres_string_from_simple(ptr noundef %0, ptr noundef %1,
   %87 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.149, i32 noundef 44) #21
   %.not73 = icmp eq ptr %87, null
   %88 = getelementptr inbounds i8, ptr %87, i64 1
-  br i1 %.not73, label %.loopexit, label %19, !llvm.loop !45
+  br i1 %.not73, label %.loopexit, label %19, !llvm.loop !44
 
 .loopexit:                                        ; preds = %86, %33
   %.3 = phi ptr [ %.0, %33 ], [ %.2, %86 ]
@@ -9020,7 +9020,7 @@ define ptr @slurmdb_format_tres_str(ptr noundef %0, ptr noundef %1, i1 noundef z
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.1, i64 %indvars.iv.next
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  br label %.preheader, !llvm.loop !46
+  br label %.preheader, !llvm.loop !45
 
 29:                                               ; preds = %.preheader
   %30 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.167, ptr noundef nonnull @__func__.slurmdb_format_tres_str, ptr noundef nonnull %.1) #20
@@ -9136,7 +9136,7 @@ slurmdb_get_tres_base_unit.exit:                  ; preds = %53, %55
   %77 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %43, i32 noundef 44) #21
   %.not74 = icmp eq ptr %77, null
   %78 = getelementptr inbounds i8, ptr %77, i64 1
-  br i1 %.not74, label %79, label %14, !llvm.loop !47
+  br i1 %.not74, label %79, label %14, !llvm.loop !46
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr %4, align 8
@@ -9148,7 +9148,7 @@ slurmdb_get_tres_base_unit.exit:                  ; preds = %53, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_find_tres_in_list_by_type(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define range(i32 0, 2) i32 @slurmdb_find_tres_in_list_by_type(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   br label %3
 
 3:                                                ; preds = %6, %2
@@ -9162,7 +9162,7 @@ define noundef i32 @slurmdb_find_tres_in_list_by_type(ptr nocapture noundef read
 
 6:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %3, !llvm.loop !48
+  br label %3, !llvm.loop !47
 
 7:                                                ; preds = %3, %3
   %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
@@ -9197,7 +9197,7 @@ define noundef i32 @slurmdb_find_tres_in_list_by_type(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_get_tres_base_unit(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @slurmdb_get_tres_base_unit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.180) #20
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -9218,7 +9218,7 @@ define noundef i32 @slurmdb_get_tres_base_unit(ptr noundef %0) local_unnamed_add
 declare i32 @get_convert_unit_val(i32 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurmdb_sort_tres_by_id_asc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define range(i32 -1, 2) i32 @slurmdb_sort_tres_by_id_asc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 24
@@ -9339,7 +9339,7 @@ define void @slurmdb_tres_list_from_string(ptr nocapture noundef %0, ptr noundef
 
 27:                                               ; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %24, !llvm.loop !49
+  br label %24, !llvm.loop !48
 
 28:                                               ; preds = %24
   %29 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.167, ptr noundef nonnull @__func__.slurmdb_tres_list_from_string, ptr noundef nonnull %.1) #20
@@ -9518,7 +9518,7 @@ define void @slurmdb_tres_list_from_string(ptr nocapture noundef %0, ptr noundef
   %107 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %54, i32 noundef 44) #21
   %.not111 = icmp eq ptr %107, null
   %108 = getelementptr inbounds i8, ptr %107, i64 1
-  br i1 %.not111, label %.loopexit, label %18, !llvm.loop !50
+  br i1 %.not111, label %.loopexit, label %18, !llvm.loop !49
 
 .loopexit:                                        ; preds = %106, %51, %47, %38, %33, %28
   %.2 = phi i32 [ %.080, %47 ], [ %.080, %51 ], [ %.080, %38 ], [ %.080, %33 ], [ %.080, %28 ], [ %.181, %106 ]
@@ -9567,7 +9567,7 @@ declare void @assoc_mgr_unlock(ptr noundef) local_unnamed_addr #1
 declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @slurmdb_find_tres_in_list_by_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define range(i32 0, 2) i32 @slurmdb_find_tres_in_list_by_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load i64, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
@@ -9659,7 +9659,7 @@ define ptr @slurmdb_find_tres_in_string(ptr noundef readonly %0, i32 noundef %1)
   %8 = getelementptr inbounds i8, ptr %20, i64 1
   %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #21
   %10 = icmp eq i32 %9, %1
-  br i1 %10, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %10, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %7, %.preheader
   %.0.lcssa = phi ptr [ %0, %.preheader ], [ %8, %7 ]
@@ -9711,7 +9711,7 @@ define i64 @slurmdb_find_tres_count_in_string(ptr noundef readonly %0, i32 nound
   %8 = getelementptr inbounds i8, ptr %17, i64 1
   %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #21
   %10 = icmp eq i32 %9, %1
-  br i1 %10, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %10, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %7, %.preheader
   %.0.lcssa = phi ptr [ %0, %.preheader ], [ %8, %7 ]
@@ -9740,7 +9740,7 @@ define i64 @slurmdb_find_tres_count_in_string(ptr noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurmdb_find_qos_in_list_by_name(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @slurmdb_find_qos_in_list_by_name(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @xstrcmp(ptr noundef %4, ptr noundef %1) #20
@@ -9750,7 +9750,7 @@ define i32 @slurmdb_find_qos_in_list_by_name(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @slurmdb_find_selected_step_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #15 {
+define range(i32 0, 2) i32 @slurmdb_find_selected_step_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %3, ptr noundef nonnull dereferenceable(12) %4, i64 12)
@@ -9780,7 +9780,7 @@ define noundef i32 @slurmdb_find_selected_step_in_list(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @slurmdb_find_assoc_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @slurmdb_find_assoc_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 132
   %5 = load i32, ptr %4, align 4
@@ -9790,7 +9790,7 @@ define i32 @slurmdb_find_assoc_in_list(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @slurmdb_find_update_object_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @slurmdb_find_update_object_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 8
@@ -9801,7 +9801,7 @@ define i32 @slurmdb_find_update_object_in_list(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurmdb_find_cluster_in_list(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @slurmdb_find_cluster_in_list(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @xstrcmp(ptr noundef %4, ptr noundef %1) #20
@@ -9811,7 +9811,7 @@ define i32 @slurmdb_find_cluster_in_list(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @slurmdb_find_cluster_accting_tres_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define range(i32 0, 2) i32 @slurmdb_find_cluster_accting_tres_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
@@ -9823,7 +9823,7 @@ define i32 @slurmdb_find_cluster_accting_tres_in_list(ptr nocapture noundef read
 declare void @list_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_add_accounting_to_tres_list(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 -1, 1) i32 @slurmdb_add_accounting_to_tres_list(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %5
@@ -9842,7 +9842,7 @@ define noundef i32 @slurmdb_add_accounting_to_tres_list(ptr noundef %0, ptr noca
 8:                                                ; preds = %5, %.thread
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 3487, ptr noundef nonnull @__func__.slurmdb_copy_tres_rec) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull readonly align 8 dereferenceable(48) %9, i64 48, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @xstrdup(ptr noundef %12) #20
@@ -9867,7 +9867,7 @@ define noundef i32 @slurmdb_add_accounting_to_tres_list(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurmdb_add_time_from_count_to_tres_list(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_add_time_from_count_to_tres_list(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %30, label %4
 
@@ -9897,7 +9897,7 @@ define noundef i32 @slurmdb_add_time_from_count_to_tres_list(ptr noundef %0, ptr
 
 13:                                               ; preds = %10
   %14 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 3487, ptr noundef nonnull @__func__.slurmdb_copy_tres_rec) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i64 48, i1 false)
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @xstrdup(ptr noundef %16) #20
@@ -10012,10 +10012,10 @@ define void @slurmdb_transfer_acct_list_2_tres(ptr noundef %0, ptr nocapture nou
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %5 = phi ptr [ %7, %.lr.ph ], [ %4, %2 ]
-  %6 = tail call i32 @slurmdb_add_accounting_to_tres_list(ptr noundef nonnull %5, ptr noundef %1), !range !9
+  %6 = tail call i32 @slurmdb_add_accounting_to_tres_list(ptr noundef nonnull %5, ptr noundef %1)
   %7 = tail call ptr @list_next(ptr noundef %3) #20
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   tail call void @list_iterator_destroy(ptr noundef %3) #20
@@ -10043,10 +10043,10 @@ define void @slurmdb_transfer_tres_time(ptr nocapture noundef %0, ptr noundef %1
 
 10:                                               ; preds = %.lr.ph, %10
   %11 = phi ptr [ %8, %.lr.ph ], [ %13, %10 ]
-  %12 = tail call i32 @slurmdb_add_time_from_count_to_tres_list(ptr noundef nonnull %11, ptr noundef %0, i64 noundef %9), !range !9
+  %12 = tail call i32 @slurmdb_add_time_from_count_to_tres_list(ptr noundef nonnull %11, ptr noundef %0, i64 noundef %9)
   %13 = tail call ptr @list_next(ptr noundef %7) #20
   %.not7 = icmp eq ptr %13, null
-  br i1 %.not7, label %._crit_edge, label %10, !llvm.loop !54
+  br i1 %.not7, label %._crit_edge, label %10, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %10, %6
   tail call void @list_iterator_destroy(ptr noundef %7) #20
@@ -10098,7 +10098,7 @@ define ptr @slurmdb_ave_tres_usage(ptr noundef %0, i32 noundef %1) local_unnamed
   store i64 %20, ptr %18, align 8
   %21 = tail call ptr @list_next(ptr noundef %13) #20
   %.not17 = icmp eq ptr %21, null
-  br i1 %.not17, label %._crit_edge, label %16, !llvm.loop !55
+  br i1 %.not17, label %._crit_edge, label %16, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %16, %12
   tail call void @list_iterator_destroy(ptr noundef %13) #20
@@ -10121,7 +10121,7 @@ define ptr @slurmdb_ave_tres_usage(ptr noundef %0, i32 noundef %1) local_unnamed
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.152, ptr noundef nonnull %spec.select.i, i32 noundef %27, i64 noundef %29) #20
   %30 = call ptr @list_next(ptr noundef %22) #20
   %.not21.us28.i = icmp eq ptr %30, null
-  br i1 %.not21.us28.i, label %.loopexit, label %.backedge.us27.i, !llvm.loop !43
+  br i1 %.not21.us28.i, label %.loopexit, label %.backedge.us27.i, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.backedge.us27.i, %._crit_edge
   call void @list_iterator_destroy(ptr noundef %22) #20
@@ -10297,7 +10297,7 @@ define void @slurmdb_destroy_slurmdb_stats(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @slurmdb_job_sort_by_submit_time(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #16 {
+define range(i32 -1, 2) i32 @slurmdb_job_sort_by_submit_time(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 328
   %5 = load i64, ptr %4, align 8
@@ -10378,7 +10378,7 @@ define void @slurmdb_merge_grp_node_usage(ptr noundef %0, ptr noundef %1, ptr no
   store i32 %28, ptr %5, align 4
   %29 = call ptr @next_node_bitmap(ptr noundef nonnull %2, ptr noundef nonnull %5) #20
   %.not23.us = icmp eq ptr %29, null
-  br i1 %.not23.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !56
+  br i1 %.not23.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !55
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %30 = load i32, ptr %5, align 4
@@ -10395,7 +10395,7 @@ define void @slurmdb_merge_grp_node_usage(ptr noundef %0, ptr noundef %1, ptr no
   store i32 %39, ptr %5, align 4
   %40 = call ptr @next_node_bitmap(ptr noundef nonnull %2, ptr noundef nonnull %5) #20
   %.not23 = icmp eq ptr %40, null
-  br i1 %.not23, label %.loopexit, label %.lr.ph.split, !llvm.loop !56
+  br i1 %.not23, label %.loopexit, label %.lr.ph.split, !llvm.loop !55
 
 .loopexit.sink.split:                             ; preds = %7, %6
   %.str.183.sink = phi ptr [ @.str.182, %6 ], [ @.str.183, %7 ]
@@ -10474,7 +10474,7 @@ declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #3
 declare i32 @slurm_sort_char_list_asc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sort_children_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 2) i32 @_sort_children_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %3, align 8
@@ -10584,7 +10584,7 @@ attributes #23 = { nounwind willreturn memory(none) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = !{i32 -1, i32 1}
+!9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
@@ -10596,8 +10596,8 @@ attributes #23 = { nounwind willreturn memory(none) }
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = !{ptr @bit_clear, ptr @bit_set}
+!21 = !{ptr @bit_clear, ptr @bit_set}
+!22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
@@ -10631,4 +10631,3 @@ attributes #23 = { nounwind willreturn memory(none) }
 !53 = distinct !{!53, !7}
 !54 = distinct !{!54, !7}
 !55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7}

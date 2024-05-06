@@ -364,7 +364,7 @@ define internal i32 @nmi_handle(i32 noundef %0, ptr noundef %1) #1 align 16 {
 
 49:                                               ; preds = %46
   %50 = urem i64 %15, 1000000
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw nsw i64 %50 to i32
   %52 = udiv i32 %51, 1000
   %53 = udiv i64 %15, 1000000
   %54 = load ptr, ptr %10, align 8
@@ -383,7 +383,7 @@ define internal i32 @nmi_handle(i32 noundef %0, ptr noundef %1) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__register_nmi_handler(i32 noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__register_nmi_handler(i32 noundef %0, ptr noundef %1) #1 align 16 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr [4 x %struct.nmi_desc], ptr @nmi_desc, i64 0, i64 %3
   %5 = getelementptr inbounds i8, ptr %1, i64 16

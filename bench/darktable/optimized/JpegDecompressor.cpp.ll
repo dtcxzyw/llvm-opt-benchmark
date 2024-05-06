@@ -229,7 +229,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %117 = getelementptr inbounds i8, ptr %99, i64 48
   %118 = load i32, ptr %117, align 8, !tbaa !104, !noalias !99
   %119 = ashr i32 %118, 1
-  %120 = mul nsw i32 %119, %116
+  %120 = mul nuw nsw i32 %119, %116
   %121 = icmp sgt i32 %114, -1
   call void @llvm.assume(i1 %121)
   %122 = icmp sgt i32 %116, -1
@@ -307,13 +307,13 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %182 = icmp ule i32 %181, %51
   call void @llvm.assume(i1 %182)
   %183 = getelementptr inbounds i8, ptr %55, i64 %179
-  %184 = trunc i64 %177 to i32
+  %184 = trunc nuw nsw i64 %177 to i32
   %185 = add i32 %184, %2
   %186 = icmp sgt i32 %185, -1
   call void @llvm.assume(i1 %186)
   %187 = icmp ugt i32 %116, %185
   call void @llvm.assume(i1 %187)
-  %188 = mul nsw i32 %185, %119
+  %188 = mul nuw nsw i32 %185, %119
   %189 = add nuw nsw i32 %188, %114
   %190 = icmp ule i32 %189, %120
   call void @llvm.assume(i1 %190)

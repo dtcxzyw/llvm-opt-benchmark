@@ -648,7 +648,7 @@ if.end120:                                        ; preds = %if.end120.sink.spli
   br i1 %cond1, label %sw.bb, label %for.inc
 
 sw.bb:                                            ; preds = %if.end120
-  %139 = trunc i64 %indvars.iv to i32
+  %139 = trunc nuw nsw i64 %indvars.iv to i32
   %rem148 = urem i32 %139, 3
   %idxprom.i = zext nneg i32 %rem148 to i64
   %arrayidx2.i = getelementptr inbounds float, ptr %frameAworld, i64 %idxprom.i

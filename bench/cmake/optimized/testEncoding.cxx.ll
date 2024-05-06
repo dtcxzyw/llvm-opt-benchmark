@@ -558,7 +558,7 @@ _ZL18testRobustEncodingv.exit:                    ; preds = %178, %187
           to label %208 unwind label %.loopexit.i13
 
 208:                                              ; preds = %206
-  %209 = trunc i64 %indvars.iv.i12 to i32
+  %209 = trunc nuw nsw i64 %indvars.iv.i12 to i32
   %210 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %207, i32 noundef %209)
           to label %211 unwind label %.loopexit.i13
 

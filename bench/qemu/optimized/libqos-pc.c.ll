@@ -19,22 +19,16 @@ entry:
 declare ptr @qtest_vboot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qtest_pc_boot(ptr noundef %cmdline_fmt, ...) local_unnamed_addr #0 {
+define dso_local noundef ptr @qtest_pc_boot(ptr noundef %cmdline_fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %call = call ptr @qtest_vboot(ptr noundef nonnull @qos_ops, ptr noundef %cmdline_fmt, ptr noundef nonnull %ap) #3
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   %0 = load ptr, ptr %call, align 8
   call void @qtest_irq_intercept_in(ptr noundef %0, ptr noundef nonnull @.str) #3
   ret ptr %call
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 declare void @qtest_irq_intercept_in(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -52,6 +46,12 @@ declare void @pc_alloc_init(ptr noundef, ptr noundef, i32 noundef) #1
 declare ptr @qpci_new_pc(ptr noundef, ptr noundef) #1
 
 declare void @qpci_free_pc(ptr noundef) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -226,7 +226,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.132 = private unnamed_addr constant [2 x i8] c"U\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @pysqlite_check_connection(ptr nocapture noundef readonly %con) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @pysqlite_check_connection(ptr nocapture noundef readonly %con) local_unnamed_addr #0 {
 entry:
   %initialized = getelementptr inbounds i8, ptr %con, i64 56
   %0 = load i32, ptr %initialized, align 8
@@ -267,7 +267,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @pysqlite_check_thread(ptr nocapture noundef readonly %self) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @pysqlite_check_thread(ptr nocapture noundef readonly %self) local_unnamed_addr #0 {
 entry:
   %check_same_thread = getelementptr inbounds i8, ptr %self, i64 52
   %0 = load i32, ptr %check_same_thread, align 4
@@ -298,7 +298,7 @@ declare i64 @PyThread_get_thread_ident() local_unnamed_addr #1
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @pysqlite_connection_setup_types(ptr noundef %module) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @pysqlite_connection_setup_types(ptr noundef %module) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %module, ptr noundef nonnull @connection_spec, ptr noundef null) #6
   %cmp = icmp eq ptr %call, null
@@ -362,7 +362,7 @@ if.then13:                                        ; preds = %if.then10
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then7, %if.then13, %if.then10, %if.end
-  %call17 = tail call fastcc i32 @connection_close(ptr noundef nonnull %self), !range !4
+  %call17 = tail call fastcc i32 @connection_close(ptr noundef nonnull %self)
   %cmp = icmp slt i32 %call17, 0
   br i1 %cmp, label %if.then18, label %if.end22
 
@@ -419,7 +419,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pysqlite_connection_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @pysqlite_connection_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %args.i.i = alloca [2 x ptr], align 16
   %bytes.i = alloca ptr, align 8
@@ -556,7 +556,7 @@ if.then2.i:                                       ; preds = %if.else.i
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %cmp.not.i.i, label %get_isolation_level.exit.thread.i, label %for.body.i.i, !llvm.loop !5
+  br i1 %cmp.not.i.i, label %get_isolation_level.exit.thread.i, label %for.body.i.i, !llvm.loop !4
 
 for.body.i.i:                                     ; preds = %if.then2.i, %for.cond.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.cond.i.i ], [ 0, %if.then2.i ]
@@ -719,7 +719,7 @@ if.then5.i:                                       ; preds = %if.end3.i65
   %tp_clear.i = getelementptr inbounds i8, ptr %self.val66.i, i64 192
   %30 = load ptr, ptr %tp_clear.i, align 8
   %call8.i = call i32 %30(ptr noundef nonnull %self) #6
-  %call9.i = call fastcc i32 @connection_close(ptr noundef nonnull %self), !range !4
+  %call9.i = call fastcc i32 @connection_close(ptr noundef nonnull %self)
   %cmp10.i = icmp slt i32 %call9.i, 0
   br i1 %cmp10.i, label %pysqlite_connection_init_impl.exit, label %if.end13.i
 
@@ -998,7 +998,7 @@ if.end77.i:                                       ; preds = %_Py_NewRef.exit75.i
   br i1 %cmp79.i, label %if.then81.i, label %if.end87.i
 
 if.then81.i:                                      ; preds = %if.end77.i
-  %call82.i = call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.46), !range !4
+  %call82.i = call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.46)
   %cmp83.i = icmp slt i32 %call82.i, 0
   br i1 %cmp83.i, label %pysqlite_connection_init_impl.exit, label %if.end87.i
 
@@ -1559,7 +1559,7 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 declare void @PyErr_WriteUnraisable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @connection_close(ptr nocapture noundef %self) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @connection_close(ptr nocapture noundef %self) unnamed_addr #0 {
 entry:
   %db = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %db, align 8
@@ -1578,7 +1578,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool.not, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %land.lhs.true
-  %call4 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.5), !range !4
+  %call4 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.5)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then3, %land.lhs.true, %if.end
@@ -1767,7 +1767,7 @@ declare i32 @sqlite3_set_authorizer(ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @sqlite3_get_autocommit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @connection_exec_stmt(ptr nocapture noundef readonly %self, ptr noundef %sql) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @connection_exec_stmt(ptr nocapture noundef readonly %self, ptr noundef %sql) unnamed_addr #0 {
 entry:
   %stmt = alloca ptr, align 8
   %call = tail call ptr @PyEval_SaveThread() #6
@@ -2235,7 +2235,7 @@ exit:                                             ; preds = %if.then67.i, %do.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_connection_close(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @pysqlite_connection_close(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %check_same_thread.i.i = getelementptr inbounds i8, ptr %self, i64 52
   %0 = load i32, ptr %check_same_thread.i.i, align 4
@@ -2297,7 +2297,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then1.i.i, %if.end.i.i, %if.then6.i, %if.end5.i
-  %call8.i = tail call fastcc i32 @connection_close(ptr noundef nonnull %self), !range !4
+  %call8.i = tail call fastcc i32 @connection_close(ptr noundef nonnull %self)
   %cmp9.i = icmp slt i32 %call8.i, 0
   %._Py_NoneStruct.i = select i1 %cmp9.i, ptr null, ptr @_Py_NoneStruct
   br label %pysqlite_connection_close_impl.exit
@@ -3138,18 +3138,18 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %or.cond1.not.i, label %if.end.i, label %if.end.thread.i
 
 if.end.i:                                         ; preds = %if.end
-  %call4.i = tail call fastcc ptr @pysqlite_connection_rollback_impl(ptr noundef %self)
+  %call4.i = tail call fastcc ptr @pysqlite_connection_rollback_impl(ptr noundef readonly %self)
   %cmp5.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.i, label %exit, label %if.end15.i
 
 if.end.thread.i:                                  ; preds = %if.end
-  %call.i = tail call fastcc ptr @pysqlite_connection_commit_impl(ptr noundef %self)
+  %call.i = tail call fastcc ptr @pysqlite_connection_commit_impl(ptr noundef readonly %self)
   %cmp514.i = icmp eq ptr %call.i, null
   br i1 %cmp514.i, label %if.then7.i, label %if.end15.i
 
 if.then7.i:                                       ; preds = %if.end.thread.i
   %call8.i = tail call ptr @PyErr_GetRaisedException() #6
-  %call9.i = tail call fastcc ptr @pysqlite_connection_rollback_impl(ptr noundef %self)
+  %call9.i = tail call fastcc ptr @pysqlite_connection_rollback_impl(ptr noundef readonly %self)
   %cmp10.i = icmp eq ptr %call9.i, null
   br i1 %cmp10.i, label %if.then11.i, label %if.else12.i
 
@@ -3959,7 +3959,7 @@ land.lhs.true:                                    ; preds = %entry
 
 exit.sink.split:                                  ; preds = %land.lhs.true, %entry
   %call.sink = phi i32 [ %call, %entry ], [ -1, %land.lhs.true ]
-  %call.i = tail call fastcc ptr @setlimit_impl(ptr noundef %self, i32 noundef %call.sink, i32 noundef -1)
+  %call.i = tail call fastcc ptr @setlimit_impl(ptr noundef readonly %self, i32 noundef %call.sink, i32 noundef -1)
   br label %exit
 
 exit:                                             ; preds = %exit.sink.split, %land.lhs.true
@@ -4834,17 +4834,17 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool5.not, label %if.then6, label %if.end24
 
 if.then6:                                         ; preds = %if.then3
-  %call7 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.45), !range !4
+  %call7 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.45)
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %return, label %if.end24
 
 if.then14:                                        ; preds = %if.end
-  %call15 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.45), !range !4
+  %call15 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.45)
   %cmp16 = icmp slt i32 %call15, 0
   br i1 %cmp16, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.then14
-  %call19 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.46), !range !4
+  %call19 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.46)
   %cmp20 = icmp slt i32 %call19, 0
   br i1 %cmp20, label %return, label %if.end24
 
@@ -5117,7 +5117,7 @@ Py_DECREF.exit26:                                 ; preds = %if.end3, %if.then1.
   br i1 %tobool7.not, label %if.then13, label %if.then8
 
 if.then8:                                         ; preds = %Py_DECREF.exit26
-  %call9 = call fastcc i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef nonnull %call.i), !range !4
+  %call9 = call fastcc i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef nonnull %call.i)
   %cmp10 = icmp eq i32 %call9, 0
   %7 = load i64, ptr %call.i, align 8
   %8 = and i64 %7, 2147483648
@@ -5370,7 +5370,7 @@ if.end45:                                         ; preds = %if.end.i.i, %sw.def
   store ptr %cur_py_value.023, ptr %arrayidx.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
 error.sink.split:                                 ; preds = %land.lhs.true30, %land.lhs.true
   %call35 = tail call ptr @PyErr_NoMemory() #6
@@ -5436,7 +5436,7 @@ declare ptr @sqlite3_value_blob(ptr noundef) local_unnamed_addr #1
 declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef %py_val) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef %py_val) unnamed_addr #0 {
 entry:
   %sz = alloca i64, align 8
   %view = alloca %struct.Py_buffer, align 8
@@ -5766,7 +5766,7 @@ if.end:                                           ; preds = %if.end.i14, %if.the
   br i1 %tobool4.not, label %if.then9, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %call6 = tail call fastcc i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef nonnull %call3), !range !4
+  %call6 = tail call fastcc i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef nonnull %call3)
   %cmp = icmp eq i32 %call6, 0
   %3 = load i64, ptr %call3, align 8
   %4 = and i64 %3, 2147483648
@@ -5959,7 +5959,7 @@ for.inc.i:                                        ; preds = %if.end11.i, %_PyWea
   %23 = load ptr, ptr %cursors.i, align 8
   %call4.i33 = tail call i64 @PyList_Size(ptr noundef %23) #6
   %cmp5.i = icmp slt i64 %inc16.i, %call4.i33
-  br i1 %cmp5.i, label %for.body.i, label %do.body.i, !llvm.loop !8
+  br i1 %cmp5.i, label %for.body.i, label %do.body.i, !llvm.loop !7
 
 do.body.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %24 = load ptr, ptr %cursors.i, align 8
@@ -6110,17 +6110,17 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool5.not, label %if.then6, label %if.end24
 
 if.then6:                                         ; preds = %if.then3
-  %call7 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.5), !range !4
+  %call7 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.5)
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %return, label %if.end24
 
 if.then14:                                        ; preds = %if.end
-  %call15 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.5), !range !4
+  %call15 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.5)
   %cmp16 = icmp slt i32 %call15, 0
   br i1 %cmp16, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.then14
-  %call19 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.46), !range !4
+  %call19 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.46)
   %cmp20 = icmp slt i32 %call19, 0
   br i1 %cmp20, label %return, label %if.end24
 
@@ -6863,7 +6863,7 @@ if.then:                                          ; preds = %entry
   br label %if.end8.sink.split
 
 if.else:                                          ; preds = %entry
-  %call5 = call fastcc i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef nonnull %call.i), !range !4
+  %call5 = call fastcc i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef nonnull %call.i)
   %4 = load i64, ptr %call.i, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i10.not = icmp eq i64 %5, 0
@@ -7290,7 +7290,7 @@ return:                                           ; preds = %pysqlite_check_conn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pysqlite_connection_set_isolation_level(ptr nocapture noundef %self, ptr noundef %isolation_level, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @pysqlite_connection_set_isolation_level(ptr nocapture noundef %self, ptr noundef %isolation_level, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %cmp = icmp eq ptr %isolation_level, null
   br i1 %cmp, label %if.then, label %if.end
@@ -7344,7 +7344,7 @@ if.then2.i:                                       ; preds = %if.else.i
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %cmp.not.i.i, label %get_isolation_level.exit.thread.i, label %for.body.i.i, !llvm.loop !5
+  br i1 %cmp.not.i.i, label %get_isolation_level.exit.thread.i, label %for.body.i.i, !llvm.loop !4
 
 for.body.i.i:                                     ; preds = %if.then2.i, %for.cond.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.cond.i.i ], [ 0, %if.then2.i ]
@@ -7543,7 +7543,7 @@ return:                                           ; preds = %pysqlite_check_conn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @set_autocommit(ptr nocapture noundef %self, ptr noundef %val, ptr nocapture readnone %_unused_ctx) #0 {
+define internal range(i32 -1, 1) i32 @set_autocommit(ptr nocapture noundef %self, ptr noundef %val, ptr nocapture readnone %_unused_ctx) #0 {
 entry:
   %check_same_thread.i = getelementptr inbounds i8, ptr %self, i64 52
   %0 = load i32, ptr %check_same_thread.i, align 4
@@ -7635,7 +7635,7 @@ if.then8:                                         ; preds = %if.end
   br i1 %tobool10.not, label %if.then11, label %if.end30
 
 if.then11:                                        ; preds = %if.then8
-  %call12 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.45), !range !4
+  %call12 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.45)
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %return, label %if.end30
 
@@ -7646,7 +7646,7 @@ if.then19:                                        ; preds = %if.end.i12
   br i1 %tobool22.not, label %if.end30, label %if.then23
 
 if.then23:                                        ; preds = %if.then19
-  %call24 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.46), !range !4
+  %call24 = tail call fastcc i32 @connection_exec_stmt(ptr noundef nonnull %self, ptr noundef nonnull @.str.46)
   %cmp25 = icmp slt i32 %call24, 0
   br i1 %cmp25, label %return, label %if.end30
 
@@ -7705,8 +7705,7 @@ attributes #7 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

@@ -142,7 +142,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z24testCommandLineArgumentsiPPc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_Z24testCommandLineArgumentsiPPc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cmsys::CommandLineArguments", align 8
   %4 = alloca i32, align 4
   %5 = alloca double, align 8
@@ -940,7 +940,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit101: ;
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds [4 x ptr], ptr @__const._Z24testCommandLineArgumentsiPPc.valid_strings, i64 0, i64 %.3172
   %355 = load ptr, ptr %354, align 8
-  %356 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %353, ptr noundef nonnull dereferenceable(1) %355) #12
+  %356 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %353, ptr noundef nonnull readonly dereferenceable(1) %355) #12
   %357 = icmp eq i32 %356, 0
   br i1 %357, label %377, label %358
 
@@ -1379,7 +1379,7 @@ declare void @_ZN5cmsys20CommandLineArguments13SetClientDataEPv(ptr noundef nonn
 declare void @_ZN5cmsys20CommandLineArguments26SetUnknownArgumentCallbackEPFiPKcPvE(ptr noundef nonnull align 8 dereferenceable(45), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL16unknown_argumentPKcPv(ptr noundef %0, ptr noundef readnone %1) #3 {
+define internal noundef range(i32 0, 2) i32 @_ZL16unknown_argumentPKcPv(ptr noundef %0, ptr noundef readnone %1) #3 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.71)
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %0)
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.72)
@@ -1436,7 +1436,7 @@ declare void @_ZN5cmsys20CommandLineArguments11AddArgumentEPKcNS0_16ArgumentType
 declare void @_ZN5cmsys20CommandLineArguments11AddCallbackEPKcNS0_16ArgumentTypeEnumEPFiS2_S2_PvES4_S2_(ptr noundef nonnull align 8 dereferenceable(45), ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL8argumentPKcS0_Pv(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #3 {
+define internal noundef range(i32 0, 2) i32 @_ZL8argumentPKcS0_Pv(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #3 {
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.74)
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %0)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.75)

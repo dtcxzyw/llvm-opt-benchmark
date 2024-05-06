@@ -34,7 +34,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2_init(ptr noundef %vpsm2ctx, ptr noundef %vkey, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @sm2_init(ptr noundef %vpsm2ctx, ptr noundef %vkey, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vpsm2ctx, null
   %cmp1 = icmp eq ptr %vkey, null
@@ -200,7 +200,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm2_get_ctx_params(ptr noundef %vpsm2ctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @sm2_get_ctx_params(ptr noundef %vpsm2ctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vpsm2ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -241,7 +241,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2_set_ctx_params(ptr noundef %vpsm2ctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @sm2_set_ctx_params(ptr noundef %vpsm2ctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vpsm2ctx, null
   br i1 %cmp, label %return, label %if.end

@@ -1065,7 +1065,7 @@ define i32 @Lpk_DsdLateArriving(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Lpk_DsdAnalizeOne(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Lpk_DsdAnalizeOne(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
   %7 = alloca [4 x [8 x ptr]], align 16
   %8 = getelementptr inbounds i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
@@ -1598,7 +1598,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %5
   br i1 %67, label %select.unfold.i, label %Kit_TruthCopy.exit, !llvm.loop !25
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i
-  %68 = call i32 @Lpk_DsdAnalizeOne(ptr noundef nonnull %1, ptr noundef nonnull %56, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @Lpk_DsdAnalize.Res1), !range !26
+  %68 = call i32 @Lpk_DsdAnalizeOne(ptr noundef nonnull %1, ptr noundef nonnull %56, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @Lpk_DsdAnalize.Res1)
   %.not53 = icmp eq i32 %68, 0
   br i1 %.not53, label %131, label %69
 
@@ -1630,7 +1630,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i
   br i1 %85, label %86, label %106
 
 86:                                               ; preds = %84
-  %87 = call i32 @Lpk_DsdAnalizeOne(ptr noundef nonnull %1, ptr noundef nonnull %56, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull @Lpk_DsdAnalize.Res2), !range !26
+  %87 = call i32 @Lpk_DsdAnalizeOne(ptr noundef nonnull %1, ptr noundef nonnull %56, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull @Lpk_DsdAnalize.Res2)
   %.not54 = icmp eq i32 %87, 0
   br i1 %.not54, label %131, label %88
 
@@ -1669,7 +1669,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i
   br i1 %109, label %110, label %131
 
 110:                                              ; preds = %106
-  %111 = call i32 @Lpk_DsdAnalizeOne(ptr noundef nonnull %1, ptr noundef nonnull %56, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull @Lpk_DsdAnalize.Res3), !range !26
+  %111 = call i32 @Lpk_DsdAnalizeOne(ptr noundef nonnull %1, ptr noundef nonnull %56, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull @Lpk_DsdAnalize.Res3)
   %.not55 = icmp eq i32 %111, 0
   br i1 %.not55, label %131, label %112
 
@@ -1728,7 +1728,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i
 136:                                              ; preds = %.lr.ph, %135
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %136, %131
   %.04469 = phi ptr [ %.044, %131 ], [ %.04468, %136 ]
@@ -1771,7 +1771,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %2
 23:                                               ; preds = %Kit_TruthCopy.exit
   %24 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %24, 32
-  br i1 %exitcond.not.i, label %Kit_WordFindFirstBit.exit, label %Kit_TruthCopy.exit, !llvm.loop !28
+  br i1 %exitcond.not.i, label %Kit_WordFindFirstBit.exit, label %Kit_TruthCopy.exit, !llvm.loop !27
 
 Kit_WordFindFirstBit.exit:                        ; preds = %Kit_TruthCopy.exit, %23
   %.06.i = phi i32 [ %.07.i, %Kit_TruthCopy.exit ], [ -1, %23 ]
@@ -1821,12 +1821,12 @@ Kit_WordFindFirstBit.exit:                        ; preds = %Kit_TruthCopy.exit,
   tail call void @Kit_TruthCofactor1New(ptr noundef %43, ptr noundef %44, i32 noundef %47, i32 noundef %49) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %30, %.preheader100
   %indvars.iv.next117.pre-phi = phi i64 [ 32, %.preheader100 ], [ %28, %30 ]
   %exitcond120.not = icmp eq i64 %indvars.iv.next117.pre-phi, %wide.trip.count119
-  br i1 %exitcond120.not, label %._crit_edge103, label %.preheader100, !llvm.loop !30
+  br i1 %exitcond120.not, label %._crit_edge103, label %.preheader100, !llvm.loop !29
 
 ._crit_edge103:                                   ; preds = %._crit_edge
   %.not112 = icmp eq i32 %3, 31
@@ -1868,7 +1868,7 @@ Kit_WordFindFirstBit.exit:                        ; preds = %Kit_TruthCopy.exit,
   tail call void @Kit_DsdNtkFree(ptr noundef %63) #9
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count125
-  br i1 %exitcond126.not, label %.preheader99, label %57, !llvm.loop !31
+  br i1 %exitcond126.not, label %.preheader99, label %57, !llvm.loop !30
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge109
   %indvars.iv133 = phi i64 [ %56, %.preheader.lr.ph ], [ %indvars.iv.next134, %._crit_edge109 ]
@@ -1902,12 +1902,12 @@ Kit_WordFindFirstBit.exit:                        ; preds = %Kit_TruthCopy.exit,
   tail call void @Kit_TruthMuxVar(ptr noundef %75, ptr noundef %78, ptr noundef %81, i32 noundef %84, i32 noundef %86) #9
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count131
-  br i1 %exitcond132.not, label %._crit_edge109, label %73, !llvm.loop !32
+  br i1 %exitcond132.not, label %._crit_edge109, label %73, !llvm.loop !31
 
 ._crit_edge109:                                   ; preds = %73, %.preheader
   %indvars.iv.next134 = add nsw i64 %indvars.iv133, -1
   %87 = icmp sgt i64 %indvars.iv133, 1
-  br i1 %87, label %.preheader, label %._crit_edge111, !llvm.loop !33
+  br i1 %87, label %.preheader, label %._crit_edge111, !llvm.loop !32
 
 ._crit_edge111:                                   ; preds = %._crit_edge109, %.preheader99
   %88 = getelementptr inbounds i8, ptr %0, i64 8241200
@@ -2047,11 +2047,10 @@ attributes #11 = { nounwind allocsize(0) }
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = !{i32 0, i32 2}
+!26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}

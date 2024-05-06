@@ -290,7 +290,7 @@ define void @Nwk_ManPrintLutSizes(ptr nocapture noundef readonly %0, ptr nocaptu
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.lr.ph21 ], [ 0, %.critedge ]
   %26 = getelementptr inbounds [256 x i32], ptr %3, i64 0, i64 %indvars.iv23
   %27 = load i32, ptr %26, align 4
-  %28 = trunc i64 %indvars.iv23 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv23 to i32
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %28, i32 noundef %27)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %30 = load i32, ptr %24, align 8
@@ -306,7 +306,7 @@ define void @Nwk_ManPrintLutSizes(ptr nocapture noundef readonly %0, ptr nocaptu
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Nwk_ManCompareAndSaveBest(ptr noundef %0, ptr nocapture readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Nwk_ManCompareAndSaveBest(ptr noundef %0, ptr nocapture readnone %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %7
 
@@ -377,10 +377,10 @@ define noundef i32 @Nwk_ManCompareAndSaveBest(ptr noundef %0, ptr nocapture read
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %37
 
 37:                                               ; preds = %35
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #16
+  %38 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %36) #16
   %39 = add i64 %38, 1
   %40 = tail call noalias ptr @malloc(i64 noundef %39) #14
-  %41 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %36) #15
+  %41 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %36) #15
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %35, %37
@@ -414,10 +414,10 @@ define noundef ptr @Nwk_FileNameGeneric(ptr noundef readonly %0) local_unnamed_a
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #16
   %4 = add i64 %3, 1
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #14
-  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #15
+  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #15
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %2
@@ -523,7 +523,7 @@ define void @Nwk_ManPrintStats(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @Nwk_ManCompareAndSaveBest(ptr noundef %0, ptr poison), !range !8
+  %10 = tail call i32 @Nwk_ManCompareAndSaveBest(ptr noundef %0, ptr poison)
   br label %11
 
 11:                                               ; preds = %9, %6
@@ -537,10 +537,10 @@ define void @Nwk_ManPrintStats(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   br i1 %.not28, label %Nwk_FileNameGeneric.exit, label %Abc_UtilStrsav.exit.i
 
 Abc_UtilStrsav.exit.i:                            ; preds = %12
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #16
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #16
   %16 = add i64 %15, 1
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #14
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %14) #15
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %14) #15
   %19 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 46) #16
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %Nwk_FileNameGeneric.exit, label %20
@@ -654,7 +654,7 @@ Nwk_FileNameGeneric.exit:                         ; preds = %20, %Abc_UtilStrsav
   %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %.lr.ph21.i ], [ 0, %.critedge.i ]
   %77 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %indvars.iv23.i
   %78 = load i32, ptr %77, align 4
-  %79 = trunc i64 %indvars.iv23.i to i32
+  %79 = trunc nuw nsw i64 %indvars.iv23.i to i32
   %80 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %79, i32 noundef %78)
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %81 = load i32, ptr %75, align 8
@@ -728,4 +728,3 @@ attributes #16 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}

@@ -45,7 +45,7 @@ define void @nxmsg_initialize() local_unnamed_addr #0 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nxmsg_alloc(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
+define range(i32 -12, 1) i32 @nxmsg_alloc(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
   %2 = tail call noalias dereferenceable_or_null(72) ptr @zalloc(i64 noundef 72) #9
   %3 = icmp eq ptr %2, null
   br i1 %3, label %nxmsg_alloc_internal.exit.thread, label %.preheader.i
@@ -70,7 +70,7 @@ define noundef i32 @nxmsg_alloc(ptr nocapture noundef writeonly %0) local_unname
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds ptr, ptr %.pre.i, i64 %indvars.iv.i
-  %12 = trunc i64 %indvars.iv.i to i32
+  %12 = trunc nuw nsw i64 %indvars.iv.i to i32
   store ptr %2, ptr %11, align 8
   %13 = add nuw nsw i32 %12, 1
   %14 = getelementptr inbounds i8, ptr %2, i64 56

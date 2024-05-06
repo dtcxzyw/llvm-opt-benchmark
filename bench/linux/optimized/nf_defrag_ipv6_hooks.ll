@@ -164,7 +164,7 @@ define internal void @defrag6_net_exit(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ipv6_defrag(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal range(i32 0, 3) i32 @ipv6_defrag(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 104
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, -8

@@ -177,7 +177,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN5sound17ProxySoundManager9handleMsgEOSt7variantIJSt9monostateNS_31sound_manager_messages_to_proxy18ReportRemovedSoundENS3_7StoppedEEE(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %msg) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN5sound17ProxySoundManager9handleMsgEOSt7variantIJSt9monostateNS_31sound_manager_messages_to_proxy18ReportRemovedSoundENS3_7StoppedEEE(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %msg) local_unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %msg, i64 4
   %msg.val2 = load i8, ptr %0, align 4

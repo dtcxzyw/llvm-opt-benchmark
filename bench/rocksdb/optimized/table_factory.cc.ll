@@ -131,8 +131,8 @@ $_ZTVSt15_Sp_counted_ptrIPN7rocksdb12TableFactoryELN9__gnu_cxx12_Lock_policyE2EE
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @_ZZN7rocksdbL22RegisterTableFactoriesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6loaded = internal global %"struct.std::once_flag" zeroinitializer, align 4
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @_ZTVN7rocksdb13ObjectLibrary12PatternEntryE = external unnamed_addr constant { [6 x ptr] }, align 8
 @_ZTVN7rocksdb13ObjectLibrary12FactoryEntryINS_12TableFactoryEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb13ObjectLibrary12FactoryEntryINS_12TableFactoryEED2Ev, ptr @_ZN7rocksdb13ObjectLibrary12FactoryEntryINS_12TableFactoryEED0Ev, ptr @_ZNK7rocksdb13ObjectLibrary12FactoryEntryINS_12TableFactoryEE7MatchesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZNK7rocksdb13ObjectLibrary12FactoryEntryINS_12TableFactoryEE4NameEv] }, comdat, align 8
@@ -763,7 +763,7 @@ invoke.cont6.i.i.i.i.i:                           ; preds = %invoke.cont.i18.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i12.i.i.i.i)
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i.i.i.i.i, i64 16
   %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp7.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb12TableFactoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZZNS0_L22RegisterTableFactoriesESA_ENK3$_0clEvEUlSA_SF_SG_E_E9_M_invokeERKSt9_Any_dataSA_OSF_OSG_", ptr %_M_invoker.i.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb12TableFactoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZZNS0_L22RegisterTableFactoriesESA_ENK3$_0clEvEUlSA_SF_SG_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %_M_manager.i.i.i.i.i.i.i, align 8
   %call11.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryINS_12TableFactoryEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS4_St14default_deleteIS4_EEPSB_EESD_SN_(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i.i.i.i.i)
@@ -830,7 +830,7 @@ invoke.cont18.i.i.i.i.i:                          ; preds = %invoke.cont.i8.i.i.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2.i.i.i.i)
   %_M_manager.i.i18.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp19.i.i.i.i.i, i64 16
   %_M_invoker.i19.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp19.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp19.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb12TableFactoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZZNS0_L22RegisterTableFactoriesESA_ENK3$_0clEvEUlSA_SF_SG_E0_E9_M_invokeERKSt9_Any_dataSA_OSF_OSG_", ptr %_M_invoker.i19.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb12TableFactoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZZNS0_L22RegisterTableFactoriesESA_ENK3$_0clEvEUlSA_SF_SG_E0_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %_M_manager.i.i18.i.i.i.i.i, align 8
   %call23.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryINS_12TableFactoryEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS4_St14default_deleteIS4_EEPSB_EESD_SN_(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19.i.i.i.i.i)
@@ -897,7 +897,7 @@ invoke.cont33.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i.i.i)
   %_M_manager.i.i34.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp34.i.i.i.i.i, i64 16
   %_M_invoker.i35.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp34.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp34.i.i.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp34.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb12TableFactoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZZNS0_L22RegisterTableFactoriesESA_ENK3$_0clEvEUlSA_SF_SG_E1_E9_M_invokeERKSt9_Any_dataSA_OSF_OSG_", ptr %_M_invoker.i35.i.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb12TableFactoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZZNS0_L22RegisterTableFactoriesESA_ENK3$_0clEvEUlSA_SF_SG_E1_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %_M_manager.i.i34.i.i.i.i.i, align 8
   %call38.i.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryINS_12TableFactoryEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS4_St14default_deleteIS4_EEPSB_EESD_SN_(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34.i.i.i.i.i)

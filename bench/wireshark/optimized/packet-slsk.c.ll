@@ -600,17 +600,17 @@ define internal i32 @dissect_slsk_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %20, label %21, label %get_message_type.exit
 
 21:                                               ; preds = %4
-  %22 = tail call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.329), !range !4
+  %22 = tail call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.329)
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %get_message_type.exit
 
 23:                                               ; preds = %21
-  %24 = tail call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.330), !range !4
+  %24 = tail call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.330)
   %.not7.i = icmp eq i32 %24, 0
   br i1 %.not7.i, label %25, label %get_message_type.exit
 
 25:                                               ; preds = %23
-  %26 = tail call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.332), !range !4
+  %26 = tail call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.332)
   %.not8.i = icmp eq i32 %26, 0
   %.str.182..str.337.i = select i1 %.not8.i, ptr @.str.182, ptr @.str.337
   br label %get_message_type.exit
@@ -693,7 +693,7 @@ get_message_type.exit:                            ; preds = %4, %21, %23, %25
   ]
 
 34:                                               ; preds = %get_message_type.exit
-  %35 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.193), !range !4
+  %35 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.193)
   %.not2376 = icmp eq i32 %35, 0
   br i1 %.not2376, label %50, label %36
 
@@ -714,12 +714,12 @@ get_message_type.exit:                            ; preds = %4, %21, %23, %25
   br label %.loopexit
 
 50:                                               ; preds = %34
-  %51 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.195), !range !4
+  %51 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.195)
   %.not2377 = icmp eq i32 %51, 0
   br i1 %.not2377, label %52, label %54
 
 52:                                               ; preds = %50
-  %53 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.196), !range !4
+  %53 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.196)
   %.not2378 = icmp eq i32 %53, 0
   br i1 %.not2378, label %.loopexit, label %54
 
@@ -745,7 +745,7 @@ get_message_type.exit:                            ; preds = %4, %21, %23, %25
   br label %.loopexit
 
 70:                                               ; preds = %get_message_type.exit
-  %71 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198), !range !4
+  %71 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198)
   %.not2375 = icmp eq i32 %71, 0
   br i1 %.not2375, label %.loopexit, label %72
 
@@ -757,7 +757,7 @@ get_message_type.exit:                            ; preds = %4, %21, %23, %25
   br label %.loopexit
 
 77:                                               ; preds = %get_message_type.exit
-  %78 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.200), !range !4
+  %78 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.200)
   %.not2373 = icmp eq i32 %78, 0
   br i1 %.not2373, label %92, label %79
 
@@ -777,7 +777,7 @@ get_message_type.exit:                            ; preds = %4, %21, %23, %25
   br label %.loopexit
 
 92:                                               ; preds = %77
-  %93 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %93 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2374 = icmp eq i32 %93, 0
   br i1 %.not2374, label %.loopexit, label %94
 
@@ -791,7 +791,7 @@ get_message_type.exit:                            ; preds = %4, %21, %23, %25
   br label %.loopexit
 
 101:                                              ; preds = %get_message_type.exit
-  %102 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204), !range !4
+  %102 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204)
   %.not2372 = icmp eq i32 %102, 0
   br i1 %.not2372, label %.loopexit, label %103
 
@@ -801,7 +801,7 @@ get_message_type.exit:                            ; preds = %4, %21, %23, %25
   br label %.loopexit
 
 106:                                              ; preds = %get_message_type.exit
-  %107 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.206), !range !4
+  %107 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.206)
   %.not2364 = icmp eq i32 %107, 0
   br i1 %.not2364, label %118, label %108
 
@@ -818,7 +818,7 @@ get_message_type.exit:                            ; preds = %4, %21, %23, %25
   br label %.loopexit
 
 118:                                              ; preds = %106
-  %119 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %119 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2365 = icmp eq i32 %119, 0
   br i1 %.not2365, label %127, label %120
 
@@ -832,7 +832,7 @@ get_message_type.exit:                            ; preds = %4, %21, %23, %25
   br label %.loopexit
 
 127:                                              ; preds = %118
-  %128 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.209), !range !4
+  %128 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.209)
   %.not2366 = icmp eq i32 %128, 0
   br i1 %.not2366, label %.loopexit, label %129
 
@@ -917,7 +917,7 @@ proto_item_set_generated.exit2385:                ; preds = %proto_item_set_gene
 
 proto_item_set_generated.exit2388:                ; preds = %proto_item_set_generated.exit2385, %166, %169
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef nonnull %136, ptr noundef nonnull @.str.211) #4
-  %173 = call fastcc i32 @check_slsk_format(ptr noundef nonnull %136, i32 noundef 0, ptr noundef nonnull @.str.209), !range !4
+  %173 = call fastcc i32 @check_slsk_format(ptr noundef nonnull %136, i32 noundef 0, ptr noundef nonnull @.str.209)
   %.not2367 = icmp eq i32 %173, 0
   br i1 %.not2367, label %.loopexit, label %174
 
@@ -932,7 +932,7 @@ proto_item_set_generated.exit2388:                ; preds = %proto_item_set_gene
 .lr.ph2619:                                       ; preds = %174, %._crit_edge2613
   %179 = phi i32 [ %183, %._crit_edge2613 ], [ 0, %174 ]
   %.021842617 = phi i32 [ %.12185.lcssa, %._crit_edge2613 ], [ 4, %174 ]
-  %180 = call fastcc i32 @check_slsk_format(ptr noundef %136, i32 noundef %.021842617, ptr noundef nonnull @.str.212), !range !4
+  %180 = call fastcc i32 @check_slsk_format(ptr noundef %136, i32 noundef %.021842617, ptr noundef nonnull @.str.212)
   %.not2369 = icmp eq i32 %180, 0
   br i1 %.not2369, label %.loopexit, label %181
 
@@ -954,7 +954,7 @@ proto_item_set_generated.exit2388:                ; preds = %proto_item_set_gene
 .lr.ph2612:                                       ; preds = %181, %._crit_edge2605
   %.121852610 = phi i32 [ %.22186.lcssa, %._crit_edge2605 ], [ %191, %181 ]
   %.021922609 = phi i32 [ %197, %._crit_edge2605 ], [ 0, %181 ]
-  %194 = call fastcc i32 @check_slsk_format(ptr noundef %136, i32 noundef %.121852610, ptr noundef nonnull @.str.214), !range !4
+  %194 = call fastcc i32 @check_slsk_format(ptr noundef %136, i32 noundef %.121852610, ptr noundef nonnull @.str.214)
   %.not2370 = icmp eq i32 %194, 0
   br i1 %.not2370, label %._crit_edge2613, label %195
 
@@ -990,7 +990,7 @@ proto_item_set_generated.exit2388:                ; preds = %proto_item_set_gene
   %.221862602 = phi i32 [ %.22186, %221 ], [ %.221862599, %195 ]
   %.22186.in2601 = phi i32 [ %227, %221 ], [ %215, %195 ]
   %.021952600 = phi i32 [ %223, %221 ], [ 0, %195 ]
-  %220 = call fastcc i32 @check_slsk_format(ptr noundef %136, i32 noundef %.221862602, ptr noundef nonnull @.str.216), !range !4
+  %220 = call fastcc i32 @check_slsk_format(ptr noundef %136, i32 noundef %.221862602, ptr noundef nonnull @.str.216)
   %.not2371 = icmp eq i32 %220, 0
   br i1 %.not2371, label %._crit_edge2605, label %221
 
@@ -1006,7 +1006,7 @@ proto_item_set_generated.exit2388:                ; preds = %proto_item_set_gene
   %.22186 = add i32 %.22186.in2601, 12
   %230 = load i32, ptr %12, align 4
   %231 = icmp slt i32 %223, %230
-  br i1 %231, label %.lr.ph2604, label %._crit_edge2605, !llvm.loop !5
+  br i1 %231, label %.lr.ph2604, label %._crit_edge2605, !llvm.loop !4
 
 ._crit_edge2605:                                  ; preds = %221, %.lr.ph2604, %195
   %.22186.lcssa = phi i32 [ %.221862599, %195 ], [ %.221862602, %.lr.ph2604 ], [ %.22186, %221 ]
@@ -1015,7 +1015,7 @@ proto_item_set_generated.exit2388:                ; preds = %proto_item_set_gene
   call void @proto_item_set_len(ptr noundef %232, i32 noundef %233) #4
   %234 = load i32, ptr %11, align 4
   %235 = icmp slt i32 %197, %234
-  br i1 %235, label %.lr.ph2612, label %._crit_edge2613, !llvm.loop !7
+  br i1 %235, label %.lr.ph2612, label %._crit_edge2613, !llvm.loop !6
 
 ._crit_edge2613:                                  ; preds = %._crit_edge2605, %.lr.ph2612, %181
   %.12185.lcssa = phi i32 [ %191, %181 ], [ %.121852610, %.lr.ph2612 ], [ %.22186.lcssa, %._crit_edge2605 ]
@@ -1025,7 +1025,7 @@ proto_item_set_generated.exit2388:                ; preds = %proto_item_set_gene
   store i32 %183, ptr %7, align 4
   %238 = load i32, ptr %8, align 4
   %239 = icmp slt i32 %183, %238
-  br i1 %239, label %.lr.ph2619, label %.loopexit, !llvm.loop !8
+  br i1 %239, label %.lr.ph2619, label %.loopexit, !llvm.loop !7
 
 240:                                              ; preds = %129
   %241 = load i32, ptr @hf_slsk_compr_packet, align 4
@@ -1071,7 +1071,7 @@ proto_item_set_generated.exit2394:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 261:                                              ; preds = %get_message_type.exit
-  %262 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.218), !range !4
+  %262 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.218)
   %.not2362 = icmp eq i32 %262, 0
   br i1 %.not2362, label %273, label %263
 
@@ -1088,7 +1088,7 @@ proto_item_set_generated.exit2394:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 273:                                              ; preds = %261
-  %274 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %274 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2363 = icmp eq i32 %274, 0
   br i1 %.not2363, label %.loopexit, label %275
 
@@ -1102,7 +1102,7 @@ proto_item_set_generated.exit2394:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 282:                                              ; preds = %get_message_type.exit
-  %283 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.209), !range !4
+  %283 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.209)
   %.not2357 = icmp eq i32 %283, 0
   br i1 %.not2357, label %.loopexit, label %284
 
@@ -1206,7 +1206,7 @@ proto_item_set_generated.exit2403:                ; preds = %proto_item_set_gene
 
 proto_item_set_generated.exit2406:                ; preds = %proto_item_set_generated.exit2403, %330, %333
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef nonnull %291, ptr noundef nonnull @.str.211) #4
-  %337 = call fastcc i32 @check_slsk_format(ptr noundef nonnull %291, i32 noundef 0, ptr noundef nonnull @.str.222), !range !4
+  %337 = call fastcc i32 @check_slsk_format(ptr noundef nonnull %291, i32 noundef 0, ptr noundef nonnull @.str.222)
   %.not2358 = icmp eq i32 %337, 0
   br i1 %.not2358, label %.loopexit, label %338
 
@@ -1228,7 +1228,7 @@ proto_item_set_generated.exit2406:                ; preds = %proto_item_set_gene
 .lr.ph2594:                                       ; preds = %338, %._crit_edge2588
   %350 = phi i32 [ %354, %._crit_edge2588 ], [ 0, %338 ]
   %.321872592 = phi i32 [ %.42188.lcssa, %._crit_edge2588 ], [ %347, %338 ]
-  %351 = call fastcc i32 @check_slsk_format(ptr noundef %291, i32 noundef %.321872592, ptr noundef nonnull @.str.214), !range !4
+  %351 = call fastcc i32 @check_slsk_format(ptr noundef %291, i32 noundef %.321872592, ptr noundef nonnull @.str.214)
   %.not2360 = icmp eq i32 %351, 0
   br i1 %.not2360, label %._crit_edge2595, label %352
 
@@ -1264,7 +1264,7 @@ proto_item_set_generated.exit2406:                ; preds = %proto_item_set_gene
   %.421882585 = phi i32 [ %.42188, %378 ], [ %.421882582, %352 ]
   %.42188.in2584 = phi i32 [ %384, %378 ], [ %372, %352 ]
   %.121932583 = phi i32 [ %380, %378 ], [ 0, %352 ]
-  %377 = call fastcc i32 @check_slsk_format(ptr noundef %291, i32 noundef %.421882585, ptr noundef nonnull @.str.216), !range !4
+  %377 = call fastcc i32 @check_slsk_format(ptr noundef %291, i32 noundef %.421882585, ptr noundef nonnull @.str.216)
   %.not2361 = icmp eq i32 %377, 0
   br i1 %.not2361, label %._crit_edge2588, label %378
 
@@ -1280,7 +1280,7 @@ proto_item_set_generated.exit2406:                ; preds = %proto_item_set_gene
   %.42188 = add i32 %.42188.in2584, 12
   %387 = load i32, ptr %11, align 4
   %388 = icmp slt i32 %380, %387
-  br i1 %388, label %.lr.ph2587, label %._crit_edge2588, !llvm.loop !9
+  br i1 %388, label %.lr.ph2587, label %._crit_edge2588, !llvm.loop !8
 
 ._crit_edge2588:                                  ; preds = %378, %.lr.ph2587, %352
   %.42188.lcssa = phi i32 [ %.421882582, %352 ], [ %.421882585, %.lr.ph2587 ], [ %.42188, %378 ]
@@ -1290,7 +1290,7 @@ proto_item_set_generated.exit2406:                ; preds = %proto_item_set_gene
   store i32 %354, ptr %7, align 4
   %391 = load i32, ptr %8, align 4
   %392 = icmp slt i32 %354, %391
-  br i1 %392, label %.lr.ph2594, label %._crit_edge2595, !llvm.loop !10
+  br i1 %392, label %.lr.ph2594, label %._crit_edge2595, !llvm.loop !9
 
 ._crit_edge2595:                                  ; preds = %._crit_edge2588, %.lr.ph2594, %338
   %.32187.lcssa = phi i32 [ %347, %338 ], [ %.321872592, %.lr.ph2594 ], [ %.42188.lcssa, %._crit_edge2588 ]
@@ -1348,7 +1348,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 422:                                              ; preds = %get_message_type.exit
-  %423 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.223), !range !4
+  %423 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.223)
   %.not2355 = icmp eq i32 %423, 0
   br i1 %.not2355, label %439, label %424
 
@@ -1370,7 +1370,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 439:                                              ; preds = %422
-  %440 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225), !range !4
+  %440 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225)
   %.not2356 = icmp eq i32 %440, 0
   br i1 %.not2356, label %.loopexit, label %441
 
@@ -1388,7 +1388,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 452:                                              ; preds = %get_message_type.exit
-  %453 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %453 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2342 = icmp eq i32 %453, 0
   br i1 %.not2342, label %461, label %454
 
@@ -1402,7 +1402,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 461:                                              ; preds = %452
-  %462 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.227), !range !4
+  %462 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.227)
   %.not2343 = icmp eq i32 %462, 0
   br i1 %.not2343, label %.loopexit, label %463
 
@@ -1430,7 +1430,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
 .lr.ph2562:                                       ; preds = %.preheader2433, %480
   %478 = phi i32 [ %485, %480 ], [ 0, %.preheader2433 ]
   %.02561 = phi i32 [ %484, %480 ], [ %472, %.preheader2433 ]
-  %479 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.02561, ptr noundef nonnull @.str.229), !range !4
+  %479 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.02561, ptr noundef nonnull @.str.229)
   %.not2345 = icmp eq i32 %479, 0
   br i1 %.not2345, label %._crit_edge2563, label %480
 
@@ -1443,11 +1443,11 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   store i32 %485, ptr %7, align 4
   %486 = load i32, ptr %8, align 4
   %487 = icmp slt i32 %485, %486
-  br i1 %487, label %.lr.ph2562, label %._crit_edge2563, !llvm.loop !11
+  br i1 %487, label %.lr.ph2562, label %._crit_edge2563, !llvm.loop !10
 
 ._crit_edge2563:                                  ; preds = %480, %.lr.ph2562, %.preheader2433
   %.0.lcssa = phi i32 [ %472, %.preheader2433 ], [ %.02561, %.lr.ph2562 ], [ %484, %480 ]
-  %488 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.0.lcssa, ptr noundef nonnull @.str.209), !range !4
+  %488 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.0.lcssa, ptr noundef nonnull @.str.209)
   %.not2346 = icmp eq i32 %488, 0
   br i1 %.not2346, label %.loopexit2432, label %489
 
@@ -1469,7 +1469,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
 .lr.ph2568:                                       ; preds = %.preheader2431, %500
   %498 = phi i32 [ %504, %500 ], [ 0, %.preheader2431 ]
   %.12567 = phi i32 [ %503, %500 ], [ %492, %.preheader2431 ]
-  %499 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.12567, ptr noundef nonnull @.str.209), !range !4
+  %499 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.12567, ptr noundef nonnull @.str.209)
   %.not2348 = icmp eq i32 %499, 0
   br i1 %.not2348, label %.loopexit2432, label %500
 
@@ -1481,11 +1481,11 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   store i32 %504, ptr %7, align 4
   %505 = load i32, ptr %8, align 4
   %506 = icmp slt i32 %504, %505
-  br i1 %506, label %.lr.ph2568, label %.loopexit2432, !llvm.loop !12
+  br i1 %506, label %.lr.ph2568, label %.loopexit2432, !llvm.loop !11
 
 .loopexit2432:                                    ; preds = %.lr.ph2568, %500, %.preheader2431, %._crit_edge2563
   %.2 = phi i32 [ %.0.lcssa, %._crit_edge2563 ], [ %492, %.preheader2431 ], [ %.12567, %.lr.ph2568 ], [ %503, %500 ]
-  %507 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.2, ptr noundef nonnull @.str.209), !range !4
+  %507 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.2, ptr noundef nonnull @.str.209)
   %.not2349 = icmp eq i32 %507, 0
   br i1 %.not2349, label %.loopexit2430, label %508
 
@@ -1507,7 +1507,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
 .lr.ph2573:                                       ; preds = %.preheader2429, %519
   %517 = phi i32 [ %521, %519 ], [ 0, %.preheader2429 ]
   %.32572 = phi i32 [ %537, %519 ], [ %511, %.preheader2429 ]
-  %518 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.32572, ptr noundef nonnull @.str.230), !range !4
+  %518 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.32572, ptr noundef nonnull @.str.230)
   %.not2351 = icmp eq i32 %518, 0
   br i1 %.not2351, label %.loopexit2430, label %519
 
@@ -1533,11 +1533,11 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   store i32 %521, ptr %7, align 4
   %538 = load i32, ptr %8, align 4
   %539 = icmp slt i32 %521, %538
-  br i1 %539, label %.lr.ph2573, label %.loopexit2430, !llvm.loop !13
+  br i1 %539, label %.lr.ph2573, label %.loopexit2430, !llvm.loop !12
 
 .loopexit2430:                                    ; preds = %.lr.ph2573, %519, %.preheader2429, %.loopexit2432
   %.4 = phi i32 [ %.2, %.loopexit2432 ], [ %511, %.preheader2429 ], [ %.32572, %.lr.ph2573 ], [ %537, %519 ]
-  %540 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.4, ptr noundef nonnull @.str.209), !range !4
+  %540 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.4, ptr noundef nonnull @.str.209)
   %.not2352 = icmp eq i32 %540, 0
   br i1 %.not2352, label %.loopexit, label %541
 
@@ -1559,7 +1559,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
 .lr.ph2578:                                       ; preds = %.preheader, %552
   %550 = phi i32 [ %554, %552 ], [ 0, %.preheader ]
   %.52577 = phi i32 [ %558, %552 ], [ %544, %.preheader ]
-  %551 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.52577, ptr noundef nonnull @.str.209), !range !4
+  %551 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.52577, ptr noundef nonnull @.str.209)
   %.not2354 = icmp eq i32 %551, 0
   br i1 %.not2354, label %.loopexit, label %552
 
@@ -1573,10 +1573,10 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   store i32 %554, ptr %7, align 4
   %559 = load i32, ptr %8, align 4
   %560 = icmp slt i32 %554, %559
-  br i1 %560, label %.lr.ph2578, label %.loopexit, !llvm.loop !14
+  br i1 %560, label %.lr.ph2578, label %.loopexit, !llvm.loop !13
 
 561:                                              ; preds = %get_message_type.exit
-  %562 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %562 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2340 = icmp eq i32 %562, 0
   br i1 %.not2340, label %570, label %563
 
@@ -1590,7 +1590,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 570:                                              ; preds = %561
-  %571 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204), !range !4
+  %571 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204)
   %.not2341 = icmp eq i32 %571, 0
   br i1 %.not2341, label %.loopexit, label %572
 
@@ -1600,7 +1600,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 575:                                              ; preds = %get_message_type.exit
-  %576 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.234), !range !4
+  %576 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.234)
   %.not2337 = icmp eq i32 %576, 0
   br i1 %.not2337, label %609, label %577
 
@@ -1639,12 +1639,12 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 609:                                              ; preds = %575
-  %610 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.236), !range !4
+  %610 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.236)
   %.not2338 = icmp eq i32 %610, 0
   br i1 %.not2338, label %611, label %613
 
 611:                                              ; preds = %609
-  %612 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.237), !range !4
+  %612 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.237)
   %.not2339 = icmp eq i32 %612, 0
   br i1 %.not2339, label %.loopexit, label %613
 
@@ -1683,7 +1683,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 640:                                              ; preds = %get_message_type.exit
-  %641 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225), !range !4
+  %641 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225)
   %.not2336 = icmp eq i32 %641, 0
   br i1 %.not2336, label %.loopexit, label %642
 
@@ -1701,7 +1701,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 653:                                              ; preds = %get_message_type.exit
-  %654 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.240), !range !4
+  %654 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.240)
   %.not2334 = icmp eq i32 %654, 0
   br i1 %.not2334, label %677, label %655
 
@@ -1730,7 +1730,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 677:                                              ; preds = %653
-  %678 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.243), !range !4
+  %678 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.243)
   %.not2335 = icmp eq i32 %678, 0
   br i1 %.not2335, label %.loopexit, label %679
 
@@ -1766,7 +1766,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 708:                                              ; preds = %get_message_type.exit
-  %709 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225), !range !4
+  %709 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225)
   %.not2332 = icmp eq i32 %709, 0
   br i1 %.not2332, label %721, label %710
 
@@ -1784,7 +1784,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 721:                                              ; preds = %708
-  %722 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.245), !range !4
+  %722 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.245)
   %.not2333 = icmp eq i32 %722, 0
   br i1 %.not2333, label %.loopexit, label %723
 
@@ -1806,7 +1806,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 738:                                              ; preds = %get_message_type.exit
-  %739 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198), !range !4
+  %739 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198)
   %.not2331 = icmp eq i32 %739, 0
   br i1 %.not2331, label %.loopexit, label %740
 
@@ -1818,7 +1818,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 745:                                              ; preds = %get_message_type.exit
-  %746 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.248), !range !4
+  %746 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.248)
   %.not2330 = icmp eq i32 %746, 0
   br i1 %.not2330, label %.loopexit, label %747
 
@@ -1834,7 +1834,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 756:                                              ; preds = %get_message_type.exit
-  %757 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198), !range !4
+  %757 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198)
   %.not2329 = icmp eq i32 %757, 0
   br i1 %.not2329, label %.loopexit, label %758
 
@@ -1846,7 +1846,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 763:                                              ; preds = %get_message_type.exit
-  %764 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204), !range !4
+  %764 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204)
   %.not2328 = icmp eq i32 %764, 0
   br i1 %.not2328, label %.loopexit, label %765
 
@@ -1856,7 +1856,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 768:                                              ; preds = %get_message_type.exit
-  %769 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.218), !range !4
+  %769 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.218)
   %.not2327 = icmp eq i32 %769, 0
   br i1 %.not2327, label %.loopexit, label %770
 
@@ -1873,7 +1873,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 780:                                              ; preds = %get_message_type.exit
-  %781 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.253), !range !4
+  %781 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.253)
   %.not2326 = icmp eq i32 %781, 0
   br i1 %.not2326, label %.loopexit, label %782
 
@@ -1887,7 +1887,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 789:                                              ; preds = %get_message_type.exit
-  %790 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.255), !range !4
+  %790 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.255)
   %.not2323 = icmp eq i32 %790, 0
   br i1 %.not2323, label %813, label %791
 
@@ -1916,7 +1916,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 813:                                              ; preds = %789
-  %814 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %814 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2324 = icmp eq i32 %814, 0
   br i1 %.not2324, label %822, label %815
 
@@ -1930,7 +1930,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 822:                                              ; preds = %813
-  %823 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.248), !range !4
+  %823 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.248)
   %.not2325 = icmp eq i32 %823, 0
   br i1 %.not2325, label %.loopexit, label %824
 
@@ -1946,7 +1946,7 @@ proto_item_set_generated.exit2412:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 833:                                              ; preds = %get_message_type.exit
-  %834 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.209), !range !4
+  %834 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.209)
   %.not2317 = icmp eq i32 %834, 0
   br i1 %.not2317, label %.loopexit, label %835
 
@@ -2031,7 +2031,7 @@ proto_item_set_generated.exit2418:                ; preds = %proto_item_set_gene
 
 proto_item_set_generated.exit2421:                ; preds = %proto_item_set_generated.exit2418, %872, %875
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef nonnull %842, ptr noundef nonnull @.str.211) #4
-  %879 = call fastcc i32 @check_slsk_format(ptr noundef nonnull %842, i32 noundef 0, ptr noundef nonnull @.str.227), !range !4
+  %879 = call fastcc i32 @check_slsk_format(ptr noundef nonnull %842, i32 noundef 0, ptr noundef nonnull @.str.227)
   %.not2318 = icmp eq i32 %879, 0
   br i1 %.not2318, label %.loopexit, label %880
 
@@ -2056,7 +2056,7 @@ proto_item_set_generated.exit2421:                ; preds = %proto_item_set_gene
 .lr.ph2559:                                       ; preds = %.lr.ph2559.preheader, %._crit_edge2553
   %892 = phi i32 [ %896, %._crit_edge2553 ], [ 0, %.lr.ph2559.preheader ]
   %.521892557 = phi i32 [ %.62190.lcssa, %._crit_edge2553 ], [ %891, %.lr.ph2559.preheader ]
-  %893 = call fastcc i32 @check_slsk_format(ptr noundef %842, i32 noundef %.521892557, ptr noundef nonnull @.str.212), !range !4
+  %893 = call fastcc i32 @check_slsk_format(ptr noundef %842, i32 noundef %.521892557, ptr noundef nonnull @.str.212)
   %.not2320 = icmp eq i32 %893, 0
   br i1 %.not2320, label %.loopexit, label %894
 
@@ -2078,7 +2078,7 @@ proto_item_set_generated.exit2421:                ; preds = %proto_item_set_gene
 .lr.ph2552:                                       ; preds = %894, %._crit_edge2545
   %.621902550 = phi i32 [ %.72191.lcssa, %._crit_edge2545 ], [ %904, %894 ]
   %.221942549 = phi i32 [ %910, %._crit_edge2545 ], [ 0, %894 ]
-  %907 = call fastcc i32 @check_slsk_format(ptr noundef %842, i32 noundef %.621902550, ptr noundef nonnull @.str.214), !range !4
+  %907 = call fastcc i32 @check_slsk_format(ptr noundef %842, i32 noundef %.621902550, ptr noundef nonnull @.str.214)
   %.not2321 = icmp eq i32 %907, 0
   br i1 %.not2321, label %._crit_edge2553, label %908
 
@@ -2114,7 +2114,7 @@ proto_item_set_generated.exit2421:                ; preds = %proto_item_set_gene
   %.721912542 = phi i32 [ %.72191, %934 ], [ %.721912539, %908 ]
   %.72191.in2541 = phi i32 [ %940, %934 ], [ %928, %908 ]
   %.121962540 = phi i32 [ %936, %934 ], [ 0, %908 ]
-  %933 = call fastcc i32 @check_slsk_format(ptr noundef %842, i32 noundef %.721912542, ptr noundef nonnull @.str.216), !range !4
+  %933 = call fastcc i32 @check_slsk_format(ptr noundef %842, i32 noundef %.721912542, ptr noundef nonnull @.str.216)
   %.not2322 = icmp eq i32 %933, 0
   br i1 %.not2322, label %._crit_edge2545, label %934
 
@@ -2130,7 +2130,7 @@ proto_item_set_generated.exit2421:                ; preds = %proto_item_set_gene
   %.72191 = add i32 %.72191.in2541, 12
   %943 = load i32, ptr %12, align 4
   %944 = icmp slt i32 %936, %943
-  br i1 %944, label %.lr.ph2544, label %._crit_edge2545, !llvm.loop !15
+  br i1 %944, label %.lr.ph2544, label %._crit_edge2545, !llvm.loop !14
 
 ._crit_edge2545:                                  ; preds = %934, %.lr.ph2544, %908
   %.72191.lcssa = phi i32 [ %.721912539, %908 ], [ %.721912542, %.lr.ph2544 ], [ %.72191, %934 ]
@@ -2139,7 +2139,7 @@ proto_item_set_generated.exit2421:                ; preds = %proto_item_set_gene
   call void @proto_item_set_len(ptr noundef %945, i32 noundef %946) #4
   %947 = load i32, ptr %11, align 4
   %948 = icmp slt i32 %910, %947
-  br i1 %948, label %.lr.ph2552, label %._crit_edge2553, !llvm.loop !16
+  br i1 %948, label %.lr.ph2552, label %._crit_edge2553, !llvm.loop !15
 
 ._crit_edge2553:                                  ; preds = %._crit_edge2545, %.lr.ph2552, %894
   %.62190.lcssa = phi i32 [ %904, %894 ], [ %.621902550, %.lr.ph2552 ], [ %.72191.lcssa, %._crit_edge2545 ]
@@ -2149,7 +2149,7 @@ proto_item_set_generated.exit2421:                ; preds = %proto_item_set_gene
   store i32 %896, ptr %7, align 4
   %951 = load i32, ptr %8, align 4
   %952 = icmp slt i32 %896, %951
-  br i1 %952, label %.lr.ph2559, label %.loopexit, !llvm.loop !17
+  br i1 %952, label %.lr.ph2559, label %.loopexit, !llvm.loop !16
 
 953:                                              ; preds = %835
   %954 = load i32, ptr @hf_slsk_compr_packet, align 4
@@ -2195,7 +2195,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 974:                                              ; preds = %get_message_type.exit
-  %975 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.218), !range !4
+  %975 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.218)
   %.not2314 = icmp eq i32 %975, 0
   br i1 %.not2314, label %986, label %976
 
@@ -2212,12 +2212,12 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 986:                                              ; preds = %974
-  %987 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.261), !range !4
+  %987 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.261)
   %.not2315 = icmp eq i32 %987, 0
   br i1 %.not2315, label %988, label %990
 
 988:                                              ; preds = %986
-  %989 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.262), !range !4
+  %989 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.262)
   %.not2316 = icmp eq i32 %989, 0
   br i1 %.not2316, label %.loopexit, label %990
 
@@ -2246,17 +2246,17 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1010:                                             ; preds = %get_message_type.exit
-  %1011 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.264), !range !4
+  %1011 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.264)
   %.not2311 = icmp eq i32 %1011, 0
   br i1 %.not2311, label %1012, label %1016
 
 1012:                                             ; preds = %1010
-  %1013 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.265), !range !4
+  %1013 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.265)
   %.not2312 = icmp eq i32 %1013, 0
   br i1 %.not2312, label %1014, label %1016
 
 1014:                                             ; preds = %1012
-  %1015 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.266), !range !4
+  %1015 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.266)
   %.not2313 = icmp eq i32 %1015, 0
   br i1 %.not2313, label %.loopexit, label %1016
 
@@ -2293,7 +2293,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1039:                                             ; preds = %get_message_type.exit
-  %1040 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %1040 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2310 = icmp eq i32 %1040, 0
   br i1 %.not2310, label %.loopexit, label %1041
 
@@ -2307,7 +2307,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1048:                                             ; preds = %get_message_type.exit
-  %1049 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %1049 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2309 = icmp eq i32 %1049, 0
   br i1 %.not2309, label %.loopexit, label %1050
 
@@ -2321,7 +2321,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1057:                                             ; preds = %get_message_type.exit
-  %1058 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.218), !range !4
+  %1058 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.218)
   %.not2308 = icmp eq i32 %1058, 0
   br i1 %.not2308, label %.loopexit, label %1059
 
@@ -2338,7 +2338,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1069:                                             ; preds = %get_message_type.exit
-  %1070 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %1070 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2307 = icmp eq i32 %1070, 0
   br i1 %.not2307, label %.loopexit, label %1071
 
@@ -2352,7 +2352,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1078:                                             ; preds = %get_message_type.exit
-  %1079 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %1079 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2304 = icmp eq i32 %1079, 0
   br i1 %.not2304, label %1087, label %1080
 
@@ -2366,7 +2366,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1087:                                             ; preds = %1078
-  %1088 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.218), !range !4
+  %1088 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.218)
   %.not2305 = icmp eq i32 %1088, 0
   br i1 %.not2305, label %1099, label %1089
 
@@ -2383,7 +2383,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1099:                                             ; preds = %1087
-  %1100 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225), !range !4
+  %1100 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225)
   %.not2306 = icmp eq i32 %1100, 0
   br i1 %.not2306, label %.loopexit, label %1101
 
@@ -2401,7 +2401,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1112:                                             ; preds = %get_message_type.exit
-  %1113 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %1113 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2303 = icmp eq i32 %1113, 0
   br i1 %.not2303, label %.loopexit, label %1114
 
@@ -2415,7 +2415,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1121:                                             ; preds = %get_message_type.exit
-  %1122 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %1122 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2302 = icmp eq i32 %1122, 0
   br i1 %.not2302, label %.loopexit, label %1123
 
@@ -2429,7 +2429,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1130:                                             ; preds = %get_message_type.exit
-  %1131 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204), !range !4
+  %1131 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204)
   %.not2298 = icmp eq i32 %1131, 0
   br i1 %.not2298, label %1135, label %1132
 
@@ -2439,7 +2439,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1135:                                             ; preds = %1130
-  %1136 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.216), !range !4
+  %1136 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.216)
   %.not2299 = icmp eq i32 %1136, 0
   br i1 %.not2299, label %.loopexit, label %1137
 
@@ -2462,7 +2462,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
 .lr.ph2535:                                       ; preds = %.preheader2435, %1149
   %1147 = phi i32 [ %1151, %1149 ], [ 0, %.preheader2435 ]
   %.72534 = phi i32 [ %1159, %1149 ], [ 12, %.preheader2435 ]
-  %1148 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.72534, ptr noundef nonnull @.str.212), !range !4
+  %1148 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.72534, ptr noundef nonnull @.str.212)
   %.not2301 = icmp eq i32 %1148, 0
   br i1 %.not2301, label %.loopexit, label %1149
 
@@ -2483,10 +2483,10 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   store i32 %1151, ptr %7, align 4
   %1162 = load i32, ptr %8, align 4
   %1163 = icmp slt i32 %1151, %1162
-  br i1 %1163, label %.lr.ph2535, label %.loopexit, !llvm.loop !18
+  br i1 %1163, label %.lr.ph2535, label %.loopexit, !llvm.loop !17
 
 1164:                                             ; preds = %get_message_type.exit
-  %1165 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204), !range !4
+  %1165 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204)
   %.not2297 = icmp eq i32 %1165, 0
   br i1 %.not2297, label %.loopexit, label %1166
 
@@ -2496,7 +2496,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1169:                                             ; preds = %get_message_type.exit
-  %1170 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204), !range !4
+  %1170 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204)
   %.not2293 = icmp eq i32 %1170, 0
   br i1 %.not2293, label %1174, label %1171
 
@@ -2506,7 +2506,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1174:                                             ; preds = %1169
-  %1175 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.216), !range !4
+  %1175 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.216)
   %.not2294 = icmp eq i32 %1175, 0
   br i1 %.not2294, label %.loopexit, label %1176
 
@@ -2529,7 +2529,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
 .lr.ph2530:                                       ; preds = %.preheader2437, %1188
   %1186 = phi i32 [ %1190, %1188 ], [ 0, %.preheader2437 ]
   %.82529 = phi i32 [ %1198, %1188 ], [ 12, %.preheader2437 ]
-  %1187 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.82529, ptr noundef nonnull @.str.212), !range !4
+  %1187 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.82529, ptr noundef nonnull @.str.212)
   %.not2296 = icmp eq i32 %1187, 0
   br i1 %.not2296, label %.loopexit, label %1188
 
@@ -2550,10 +2550,10 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   store i32 %1190, ptr %7, align 4
   %1201 = load i32, ptr %8, align 4
   %1202 = icmp slt i32 %1190, %1201
-  br i1 %1202, label %.lr.ph2530, label %.loopexit, !llvm.loop !19
+  br i1 %1202, label %.lr.ph2530, label %.loopexit, !llvm.loop !18
 
 1203:                                             ; preds = %get_message_type.exit
-  %1204 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %1204 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2289 = icmp eq i32 %1204, 0
   br i1 %.not2289, label %1212, label %1205
 
@@ -2567,7 +2567,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1212:                                             ; preds = %1203
-  %1213 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.227), !range !4
+  %1213 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.227)
   %.not2290 = icmp eq i32 %1213, 0
   br i1 %.not2290, label %.loopexit, label %1214
 
@@ -2595,7 +2595,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
 .lr.ph2525:                                       ; preds = %.preheader2439, %1231
   %1229 = phi i32 [ %1233, %1231 ], [ 0, %.preheader2439 ]
   %.92524 = phi i32 [ %1238, %1231 ], [ %1223, %.preheader2439 ]
-  %1230 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.92524, ptr noundef nonnull @.str.229), !range !4
+  %1230 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.92524, ptr noundef nonnull @.str.229)
   %.not2292 = icmp eq i32 %1230, 0
   br i1 %.not2292, label %.loopexit, label %1231
 
@@ -2612,10 +2612,10 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   store i32 %1233, ptr %7, align 4
   %1240 = load i32, ptr %8, align 4
   %1241 = icmp slt i32 %1233, %1240
-  br i1 %1241, label %.lr.ph2525, label %.loopexit, !llvm.loop !20
+  br i1 %1241, label %.lr.ph2525, label %.loopexit, !llvm.loop !19
 
 1242:                                             ; preds = %get_message_type.exit
-  %1243 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.227), !range !4
+  %1243 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.227)
   %.not2286 = icmp eq i32 %1243, 0
   br i1 %.not2286, label %.loopexit, label %1244
 
@@ -2643,7 +2643,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
 .lr.ph2520:                                       ; preds = %.preheader2441, %1261
   %1259 = phi i32 [ %1263, %1261 ], [ 0, %.preheader2441 ]
   %.102519 = phi i32 [ %1268, %1261 ], [ %1253, %.preheader2441 ]
-  %1260 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.102519, ptr noundef nonnull @.str.229), !range !4
+  %1260 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.102519, ptr noundef nonnull @.str.229)
   %.not2288 = icmp eq i32 %1260, 0
   br i1 %.not2288, label %.loopexit, label %1261
 
@@ -2660,10 +2660,10 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   store i32 %1263, ptr %7, align 4
   %1270 = load i32, ptr %8, align 4
   %1271 = icmp slt i32 %1263, %1270
-  br i1 %1271, label %.lr.ph2520, label %.loopexit, !llvm.loop !21
+  br i1 %1271, label %.lr.ph2520, label %.loopexit, !llvm.loop !20
 
 1272:                                             ; preds = %get_message_type.exit
-  %1273 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.200), !range !4
+  %1273 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.200)
   %.not2285 = icmp eq i32 %1273, 0
   br i1 %.not2285, label %.loopexit, label %1274
 
@@ -2683,7 +2683,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1287:                                             ; preds = %get_message_type.exit
-  %1288 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %1288 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2284 = icmp eq i32 %1288, 0
   br i1 %.not2284, label %.loopexit, label %1289
 
@@ -2697,7 +2697,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1296:                                             ; preds = %get_message_type.exit
-  %1297 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %1297 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2283 = icmp eq i32 %1297, 0
   br i1 %.not2283, label %.loopexit, label %1298
 
@@ -2711,7 +2711,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1305:                                             ; preds = %get_message_type.exit
-  %1306 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204), !range !4
+  %1306 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204)
   %.not2276 = icmp eq i32 %1306, 0
   br i1 %.not2276, label %1310, label %1307
 
@@ -2721,7 +2721,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1310:                                             ; preds = %1305
-  %1311 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.216), !range !4
+  %1311 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.216)
   %.not2277 = icmp eq i32 %1311, 0
   br i1 %.not2277, label %.loopexit, label %1312
 
@@ -2744,7 +2744,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
 .lr.ph2507:                                       ; preds = %.preheader2444, %1324
   %1322 = phi i32 [ %1326, %1324 ], [ 0, %.preheader2444 ]
   %.112506 = phi i32 [ %1331, %1324 ], [ 12, %.preheader2444 ]
-  %1323 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.112506, ptr noundef nonnull @.str.229), !range !4
+  %1323 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.112506, ptr noundef nonnull @.str.229)
   %.not2279 = icmp eq i32 %1323, 0
   br i1 %.not2279, label %._crit_edge2508, label %1324
 
@@ -2761,11 +2761,11 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   store i32 %1326, ptr %7, align 4
   %1333 = load i32, ptr %8, align 4
   %1334 = icmp slt i32 %1326, %1333
-  br i1 %1334, label %.lr.ph2507, label %._crit_edge2508, !llvm.loop !22
+  br i1 %1334, label %.lr.ph2507, label %._crit_edge2508, !llvm.loop !21
 
 ._crit_edge2508:                                  ; preds = %1324, %.lr.ph2507, %.preheader2444
   %.11.lcssa = phi i32 [ 12, %.preheader2444 ], [ %.112506, %.lr.ph2507 ], [ %1331, %1324 ]
-  %1335 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.11.lcssa, ptr noundef nonnull @.str.209), !range !4
+  %1335 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.11.lcssa, ptr noundef nonnull @.str.209)
   %.not2280 = icmp eq i32 %1335, 0
   br i1 %.not2280, label %.loopexit, label %1336
 
@@ -2781,7 +2781,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
 .lr.ph2515:                                       ; preds = %1336, %1343
   %1341 = phi i32 [ %1345, %1343 ], [ 0, %1336 ]
   %.122513 = phi i32 [ %.12, %1343 ], [ %.122512, %1336 ]
-  %1342 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.122513, ptr noundef nonnull @.str.209), !range !4
+  %1342 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.122513, ptr noundef nonnull @.str.209)
   %.not2282 = icmp eq i32 %1342, 0
   br i1 %.not2282, label %.loopexit, label %1343
 
@@ -2795,10 +2795,10 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   store i32 %1345, ptr %7, align 4
   %1349 = load i32, ptr %8, align 4
   %1350 = icmp slt i32 %1345, %1349
-  br i1 %1350, label %.lr.ph2515, label %.loopexit, !llvm.loop !23
+  br i1 %1350, label %.lr.ph2515, label %.loopexit, !llvm.loop !22
 
 1351:                                             ; preds = %get_message_type.exit
-  %1352 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.293), !range !4
+  %1352 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.293)
   %.not2274 = icmp eq i32 %1352, 0
   br i1 %.not2274, label %1374, label %1353
 
@@ -2826,7 +2826,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1374:                                             ; preds = %1351
-  %1375 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.295), !range !4
+  %1375 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.295)
   %.not2275 = icmp eq i32 %1375, 0
   br i1 %.not2275, label %.loopexit, label %1376
 
@@ -2849,7 +2849,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1392:                                             ; preds = %get_message_type.exit
-  %1393 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %1393 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2273 = icmp eq i32 %1393, 0
   br i1 %.not2273, label %.loopexit, label %1394
 
@@ -2863,7 +2863,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1401:                                             ; preds = %get_message_type.exit
-  %1402 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204), !range !4
+  %1402 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204)
   %.not2260 = icmp eq i32 %1402, 0
   br i1 %.not2260, label %1406, label %1403
 
@@ -2873,7 +2873,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1406:                                             ; preds = %1401
-  %1407 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.227), !range !4
+  %1407 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.227)
   %.not2261 = icmp eq i32 %1407, 0
   br i1 %.not2261, label %.loopexit, label %1408
 
@@ -2901,7 +2901,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
 .lr.ph2485:                                       ; preds = %.preheader2450, %1425
   %1423 = phi i32 [ %1430, %1425 ], [ 0, %.preheader2450 ]
   %.132484 = phi i32 [ %1429, %1425 ], [ %1417, %.preheader2450 ]
-  %1424 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.132484, ptr noundef nonnull @.str.229), !range !4
+  %1424 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.132484, ptr noundef nonnull @.str.229)
   %.not2263 = icmp eq i32 %1424, 0
   br i1 %.not2263, label %._crit_edge, label %1425
 
@@ -2914,11 +2914,11 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   store i32 %1430, ptr %7, align 4
   %1431 = load i32, ptr %8, align 4
   %1432 = icmp slt i32 %1430, %1431
-  br i1 %1432, label %.lr.ph2485, label %._crit_edge, !llvm.loop !24
+  br i1 %1432, label %.lr.ph2485, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %1425, %.lr.ph2485, %.preheader2450
   %.13.lcssa = phi i32 [ %1417, %.preheader2450 ], [ %.132484, %.lr.ph2485 ], [ %1429, %1425 ]
-  %1433 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.13.lcssa, ptr noundef nonnull @.str.209), !range !4
+  %1433 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.13.lcssa, ptr noundef nonnull @.str.209)
   %.not2264 = icmp eq i32 %1433, 0
   br i1 %.not2264, label %.loopexit2449, label %1434
 
@@ -2934,7 +2934,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
 .lr.ph2492:                                       ; preds = %1434, %1441
   %1439 = phi i32 [ %1444, %1441 ], [ 0, %1434 ]
   %.142490 = phi i32 [ %.14, %1441 ], [ %.142489, %1434 ]
-  %1440 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.142490, ptr noundef nonnull @.str.209), !range !4
+  %1440 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.142490, ptr noundef nonnull @.str.209)
   %.not2266 = icmp eq i32 %1440, 0
   br i1 %.not2266, label %.loopexit2449, label %1441
 
@@ -2946,11 +2946,11 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   store i32 %1444, ptr %7, align 4
   %1445 = load i32, ptr %8, align 4
   %1446 = icmp slt i32 %1444, %1445
-  br i1 %1446, label %.lr.ph2492, label %.loopexit2449, !llvm.loop !25
+  br i1 %1446, label %.lr.ph2492, label %.loopexit2449, !llvm.loop !24
 
 .loopexit2449:                                    ; preds = %.lr.ph2492, %1441, %1434, %._crit_edge
   %.15 = phi i32 [ %.13.lcssa, %._crit_edge ], [ %.142489, %1434 ], [ %.142490, %.lr.ph2492 ], [ %.14, %1441 ]
-  %1447 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.15, ptr noundef nonnull @.str.209), !range !4
+  %1447 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.15, ptr noundef nonnull @.str.209)
   %.not2267 = icmp eq i32 %1447, 0
   br i1 %.not2267, label %.loopexit2448, label %1448
 
@@ -2972,7 +2972,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
 .lr.ph2497:                                       ; preds = %.preheader2447, %1459
   %1457 = phi i32 [ %1461, %1459 ], [ 0, %.preheader2447 ]
   %.162496 = phi i32 [ %1477, %1459 ], [ %1451, %.preheader2447 ]
-  %1458 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.162496, ptr noundef nonnull @.str.230), !range !4
+  %1458 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.162496, ptr noundef nonnull @.str.230)
   %.not2269 = icmp eq i32 %1458, 0
   br i1 %.not2269, label %.loopexit2448, label %1459
 
@@ -2998,11 +2998,11 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   store i32 %1461, ptr %7, align 4
   %1478 = load i32, ptr %8, align 4
   %1479 = icmp slt i32 %1461, %1478
-  br i1 %1479, label %.lr.ph2497, label %.loopexit2448, !llvm.loop !26
+  br i1 %1479, label %.lr.ph2497, label %.loopexit2448, !llvm.loop !25
 
 .loopexit2448:                                    ; preds = %.lr.ph2497, %1459, %.preheader2447, %.loopexit2449
   %.17 = phi i32 [ %.15, %.loopexit2449 ], [ %1451, %.preheader2447 ], [ %.162496, %.lr.ph2497 ], [ %1477, %1459 ]
-  %1480 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.17, ptr noundef nonnull @.str.209), !range !4
+  %1480 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.17, ptr noundef nonnull @.str.209)
   %.not2270 = icmp eq i32 %1480, 0
   br i1 %.not2270, label %.loopexit, label %1481
 
@@ -3024,7 +3024,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
 .lr.ph2502:                                       ; preds = %.preheader2445, %1492
   %1490 = phi i32 [ %1494, %1492 ], [ 0, %.preheader2445 ]
   %.182501 = phi i32 [ %1498, %1492 ], [ %1484, %.preheader2445 ]
-  %1491 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.182501, ptr noundef nonnull @.str.209), !range !4
+  %1491 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.182501, ptr noundef nonnull @.str.209)
   %.not2272 = icmp eq i32 %1491, 0
   br i1 %.not2272, label %.loopexit, label %1492
 
@@ -3038,10 +3038,10 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   store i32 %1494, ptr %7, align 4
   %1499 = load i32, ptr %8, align 4
   %1500 = icmp slt i32 %1494, %1499
-  br i1 %1500, label %.lr.ph2502, label %.loopexit, !llvm.loop !27
+  br i1 %1500, label %.lr.ph2502, label %.loopexit, !llvm.loop !26
 
 1501:                                             ; preds = %get_message_type.exit
-  %1502 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.299), !range !4
+  %1502 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.299)
   %.not2259 = icmp eq i32 %1502, 0
   br i1 %.not2259, label %.loopexit, label %1503
 
@@ -3071,7 +3071,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1526:                                             ; preds = %get_message_type.exit
-  %1527 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204), !range !4
+  %1527 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204)
   %.not2255 = icmp eq i32 %1527, 0
   br i1 %.not2255, label %1531, label %1528
 
@@ -3081,7 +3081,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1531:                                             ; preds = %1526
-  %1532 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.216), !range !4
+  %1532 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.216)
   %.not2256 = icmp eq i32 %1532, 0
   br i1 %.not2256, label %.loopexit, label %1533
 
@@ -3104,7 +3104,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
 .lr.ph2480:                                       ; preds = %.preheader2451, %1545
   %1543 = phi i32 [ %1550, %1545 ], [ 0, %.preheader2451 ]
   %.192479 = phi i32 [ %1549, %1545 ], [ 12, %.preheader2451 ]
-  %1544 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.192479, ptr noundef nonnull @.str.229), !range !4
+  %1544 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.192479, ptr noundef nonnull @.str.229)
   %.not2258 = icmp eq i32 %1544, 0
   br i1 %.not2258, label %.loopexit, label %1545
 
@@ -3117,10 +3117,10 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   store i32 %1550, ptr %7, align 4
   %1551 = load i32, ptr %8, align 4
   %1552 = icmp slt i32 %1550, %1551
-  br i1 %1552, label %.lr.ph2480, label %.loopexit, !llvm.loop !28
+  br i1 %1552, label %.lr.ph2480, label %.loopexit, !llvm.loop !27
 
 1553:                                             ; preds = %get_message_type.exit
-  %1554 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.303), !range !4
+  %1554 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.303)
   %.not2254 = icmp eq i32 %1554, 0
   br i1 %.not2254, label %.loopexit, label %1555
 
@@ -3132,7 +3132,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1560:                                             ; preds = %get_message_type.exit
-  %1561 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198), !range !4
+  %1561 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198)
   %.not2253 = icmp eq i32 %1561, 0
   br i1 %.not2253, label %.loopexit, label %1562
 
@@ -3144,7 +3144,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1567:                                             ; preds = %get_message_type.exit
-  %1568 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198), !range !4
+  %1568 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198)
   %.not2252 = icmp eq i32 %1568, 0
   br i1 %.not2252, label %.loopexit, label %1569
 
@@ -3156,7 +3156,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1574:                                             ; preds = %get_message_type.exit
-  %1575 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198), !range !4
+  %1575 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198)
   %.not2251 = icmp eq i32 %1575, 0
   br i1 %.not2251, label %.loopexit, label %1576
 
@@ -3168,7 +3168,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1581:                                             ; preds = %get_message_type.exit
-  %1582 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198), !range !4
+  %1582 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198)
   %.not2250 = icmp eq i32 %1582, 0
   br i1 %.not2250, label %.loopexit, label %1583
 
@@ -3180,7 +3180,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1588:                                             ; preds = %get_message_type.exit
-  %1589 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198), !range !4
+  %1589 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198)
   %.not2249 = icmp eq i32 %1589, 0
   br i1 %.not2249, label %.loopexit, label %1590
 
@@ -3192,7 +3192,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1595:                                             ; preds = %get_message_type.exit
-  %1596 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198), !range !4
+  %1596 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198)
   %.not2248 = icmp eq i32 %1596, 0
   br i1 %.not2248, label %.loopexit, label %1597
 
@@ -3204,7 +3204,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1602:                                             ; preds = %get_message_type.exit
-  %1603 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198), !range !4
+  %1603 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198)
   %.not2247 = icmp eq i32 %1603, 0
   br i1 %.not2247, label %.loopexit, label %1604
 
@@ -3216,7 +3216,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1609:                                             ; preds = %get_message_type.exit
-  %1610 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %1610 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2246 = icmp eq i32 %1610, 0
   br i1 %.not2246, label %.loopexit, label %1611
 
@@ -3230,7 +3230,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1618:                                             ; preds = %get_message_type.exit
-  %1619 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204), !range !4
+  %1619 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204)
   %.not2244 = icmp eq i32 %1619, 0
   br i1 %.not2244, label %1623, label %1620
 
@@ -3240,7 +3240,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1623:                                             ; preds = %1618
-  %1624 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198), !range !4
+  %1624 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198)
   %.not2245 = icmp eq i32 %1624, 0
   br i1 %.not2245, label %.loopexit, label %1625
 
@@ -3252,7 +3252,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1630:                                             ; preds = %get_message_type.exit
-  %1631 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.315), !range !4
+  %1631 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.315)
   %.not2243 = icmp eq i32 %1631, 0
   br i1 %.not2243, label %.loopexit, label %1632
 
@@ -3282,7 +3282,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1653:                                             ; preds = %get_message_type.exit
-  %1654 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.303), !range !4
+  %1654 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.303)
   %.not2242 = icmp eq i32 %1654, 0
   br i1 %.not2242, label %.loopexit, label %1655
 
@@ -3294,7 +3294,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1660:                                             ; preds = %get_message_type.exit
-  %1661 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.216), !range !4
+  %1661 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.216)
   %.not2239 = icmp eq i32 %1661, 0
   br i1 %.not2239, label %.loopexit, label %1662
 
@@ -3317,7 +3317,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
 .lr.ph2475:                                       ; preds = %.preheader2453, %1674
   %1672 = phi i32 [ %1685, %1674 ], [ 0, %.preheader2453 ]
   %.202474 = phi i32 [ %1684, %1674 ], [ 12, %.preheader2453 ]
-  %1673 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.202474, ptr noundef nonnull @.str.222), !range !4
+  %1673 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.202474, ptr noundef nonnull @.str.222)
   %.not2241 = icmp eq i32 %1673, 0
   br i1 %.not2241, label %.loopexit, label %1674
 
@@ -3336,10 +3336,10 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   store i32 %1685, ptr %7, align 4
   %1686 = load i32, ptr %8, align 4
   %1687 = icmp slt i32 %1685, %1686
-  br i1 %1687, label %.lr.ph2475, label %.loopexit, !llvm.loop !29
+  br i1 %1687, label %.lr.ph2475, label %.loopexit, !llvm.loop !28
 
 1688:                                             ; preds = %get_message_type.exit
-  %1689 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.248), !range !4
+  %1689 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.248)
   %.not2238 = icmp eq i32 %1689, 0
   br i1 %.not2238, label %.loopexit, label %1690
 
@@ -3355,7 +3355,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1699:                                             ; preds = %get_message_type.exit
-  %1700 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198), !range !4
+  %1700 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198)
   %.not2237 = icmp eq i32 %1700, 0
   br i1 %.not2237, label %.loopexit, label %1701
 
@@ -3367,7 +3367,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1706:                                             ; preds = %get_message_type.exit
-  %1707 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204), !range !4
+  %1707 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.204)
   %.not2233 = icmp eq i32 %1707, 0
   br i1 %.not2233, label %1711, label %1708
 
@@ -3377,7 +3377,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1711:                                             ; preds = %1706
-  %1712 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.216), !range !4
+  %1712 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.216)
   %.not2234 = icmp eq i32 %1712, 0
   br i1 %.not2234, label %.loopexit, label %1713
 
@@ -3400,7 +3400,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
 .lr.ph2470:                                       ; preds = %.preheader2455, %1725
   %1723 = phi i32 [ %1727, %1725 ], [ 0, %.preheader2455 ]
   %.212469 = phi i32 [ %1735, %1725 ], [ 12, %.preheader2455 ]
-  %1724 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.212469, ptr noundef nonnull @.str.212), !range !4
+  %1724 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.212469, ptr noundef nonnull @.str.212)
   %.not2236 = icmp eq i32 %1724, 0
   br i1 %.not2236, label %.loopexit, label %1725
 
@@ -3421,10 +3421,10 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   store i32 %1727, ptr %7, align 4
   %1738 = load i32, ptr %8, align 4
   %1739 = icmp slt i32 %1727, %1738
-  br i1 %1739, label %.lr.ph2470, label %.loopexit, !llvm.loop !30
+  br i1 %1739, label %.lr.ph2470, label %.loopexit, !llvm.loop !29
 
 1740:                                             ; preds = %get_message_type.exit
-  %1741 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %1741 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2229 = icmp eq i32 %1741, 0
   br i1 %.not2229, label %1749, label %1742
 
@@ -3438,7 +3438,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1749:                                             ; preds = %1740
-  %1750 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.227), !range !4
+  %1750 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.227)
   %.not2230 = icmp eq i32 %1750, 0
   br i1 %.not2230, label %.loopexit, label %1751
 
@@ -3466,7 +3466,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
 .lr.ph2465:                                       ; preds = %.preheader2457, %1768
   %1766 = phi i32 [ %1770, %1768 ], [ 0, %.preheader2457 ]
   %.222464 = phi i32 [ %1778, %1768 ], [ %1760, %.preheader2457 ]
-  %1767 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.222464, ptr noundef nonnull @.str.212), !range !4
+  %1767 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.222464, ptr noundef nonnull @.str.212)
   %.not2232 = icmp eq i32 %1767, 0
   br i1 %.not2232, label %.loopexit, label %1768
 
@@ -3487,10 +3487,10 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   store i32 %1770, ptr %7, align 4
   %1781 = load i32, ptr %8, align 4
   %1782 = icmp slt i32 %1770, %1781
-  br i1 %1782, label %.lr.ph2465, label %.loopexit, !llvm.loop !31
+  br i1 %1782, label %.lr.ph2465, label %.loopexit, !llvm.loop !30
 
 1783:                                             ; preds = %get_message_type.exit
-  %1784 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202), !range !4
+  %1784 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.202)
   %.not2226 = icmp eq i32 %1784, 0
   br i1 %.not2226, label %1792, label %1785
 
@@ -3504,7 +3504,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1792:                                             ; preds = %1783
-  %1793 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.227), !range !4
+  %1793 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.227)
   %.not2227 = icmp eq i32 %1793, 0
   br i1 %.not2227, label %.loopexit, label %1794
 
@@ -3532,7 +3532,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
 .lr.ph:                                           ; preds = %.preheader2459, %1811
   %1809 = phi i32 [ %1816, %1811 ], [ 0, %.preheader2459 ]
   %.232461 = phi i32 [ %1815, %1811 ], [ %1803, %.preheader2459 ]
-  %1810 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.232461, ptr noundef nonnull @.str.229), !range !4
+  %1810 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %.232461, ptr noundef nonnull @.str.229)
   %.not2228 = icmp eq i32 %1810, 0
   br i1 %.not2228, label %.loopexit, label %1811
 
@@ -3545,10 +3545,10 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   store i32 %1816, ptr %7, align 4
   %1817 = load i32, ptr %8, align 4
   %1818 = icmp slt i32 %1816, %1817
-  br i1 %1818, label %.lr.ph, label %.loopexit, !llvm.loop !32
+  br i1 %1818, label %.lr.ph, label %.loopexit, !llvm.loop !31
 
 1819:                                             ; preds = %get_message_type.exit
-  %1820 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.248), !range !4
+  %1820 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.248)
   %.not = icmp eq i32 %1820, 0
   br i1 %.not, label %1830, label %1821
 
@@ -3564,7 +3564,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1830:                                             ; preds = %1819
-  %1831 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198), !range !4
+  %1831 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.198)
   %.not2225 = icmp eq i32 %1831, 0
   br i1 %.not2225, label %.loopexit, label %1832
 
@@ -3576,7 +3576,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1837:                                             ; preds = %get_message_type.exit
-  %1838 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.329), !range !4
+  %1838 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.329)
   %.not2379 = icmp eq i32 %1838, 0
   br i1 %.not2379, label %1858, label %1839
 
@@ -3604,7 +3604,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1858:                                             ; preds = %1837
-  %1859 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.330), !range !4
+  %1859 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.330)
   %.not2380 = icmp eq i32 %1859, 0
   br i1 %.not2380, label %1886, label %1860
 
@@ -3639,7 +3639,7 @@ proto_item_set_generated.exit2427:                ; preds = %proto_item_set_gene
   br label %.loopexit
 
 1886:                                             ; preds = %1858
-  %1887 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.332), !range !4
+  %1887 = call fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.332)
   %.not2381 = icmp eq i32 %1887, 0
   br i1 %.not2381, label %1896, label %1888
 
@@ -3690,7 +3690,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_slsk_format(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_slsk_format(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %.pre = load i8, ptr %2, align 1
   br label %tailrecurse
 
@@ -3840,32 +3840,31 @@ attributes #5 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}

@@ -63,7 +63,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_severities_debugfs_init455], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
-define dso_local i32 @mce_severity(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 section ".noinstr.text" align 16 {
+define dso_local range(i32 0, 256) i32 @mce_severity(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 section ".noinstr.text" align 16 {
   %5 = load i8, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 1), align 1
   switch i8 %5, label %50 [
     i8 9, label %6

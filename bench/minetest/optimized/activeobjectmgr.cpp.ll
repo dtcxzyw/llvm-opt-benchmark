@@ -84,17 +84,17 @@ $_ZSt19piecewise_construct = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str = private unnamed_addr constant [58 x i8] c"client::ActiveObjectMgr::~ActiveObjectMgr(): not cleared.\00", align 1
 @g_profiler = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [31 x i8] c"ActiveObjectMgr: CAO count [#]\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.2 = private unnamed_addr constant [44 x i8] c"Client::ActiveObjectMgr::registerObject(): \00", align 1
 @.str.3 = private unnamed_addr constant [21 x i8] c"no free id available\00", align 1
 @.str.4 = private unnamed_addr constant [17 x i8] c"id is not free (\00", align 1
 @.str.5 = private unnamed_addr constant [2 x i8] c")\00", align 1
 @.str.6 = private unnamed_addr constant [11 x i8] c"added (id=\00", align 1
-@verbosestream = external thread_local global %class.LogStream, align 8
+@verbosestream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.7 = private unnamed_addr constant [42 x i8] c"Client::ActiveObjectMgr::removeObject(): \00", align 1
 @.str.8 = private unnamed_addr constant [4 x i8] c"id=\00", align 1
 @.str.9 = private unnamed_addr constant [11 x i8] c" not found\00", align 1
@@ -111,7 +111,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.12 = private unnamed_addr constant [25 x i8] c"m_active_objects.empty()\00", align 1
 @.str.13 = private unnamed_addr constant [118 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/minetest/minetest/src/client/../activeobjectmgr.h\00", align 1
 @__PRETTY_FUNCTION__._ZN15ActiveObjectMgrI18ClientActiveObjectED2Ev = private unnamed_addr constant [89 x i8] c"virtual ActiveObjectMgr<ClientActiveObject>::~ActiveObjectMgr() [T = ClientActiveObject]\00", align 1
-@_ZZNK15ActiveObjectMgrI18ClientActiveObjectE9getFreeIdEvE12last_used_id = linkonce_odr dso_local thread_local global i16 0, comdat, align 2
+@_ZZNK15ActiveObjectMgrI18ClientActiveObjectE9getFreeIdEvE12last_used_id = linkonce_odr dso_local thread_local local_unnamed_addr global i16 0, comdat, align 2
 @_ZSt19piecewise_construct = linkonce_odr dso_local constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
 @.str.14 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.10, ptr @_ZN13ModifySafeMapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EEE10null_valueE }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_activeobjectmgr.cpp, ptr null }]

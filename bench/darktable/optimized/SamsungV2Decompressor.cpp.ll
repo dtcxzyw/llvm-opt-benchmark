@@ -741,7 +741,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %143 = load i32, ptr %59, align 4, !tbaa !115, !noalias !87
   %144 = load i32, ptr %60, align 8, !tbaa !116, !noalias !87
   %145 = ashr i32 %144, 1
-  %146 = mul nsw i32 %145, %143
+  %146 = mul nuw nsw i32 %145, %143
   %147 = icmp sgt i32 %142, -1
   tail call void @llvm.assume(i1 %147)
   %148 = icmp sgt i32 %143, -1
@@ -882,7 +882,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %233 = phi i64 [ %230, %222 ], [ %196, %202 ]
   %234 = phi i32 [ %226, %222 ], [ %195, %202 ]
   %235 = lshr i64 %233, 52
-  %236 = trunc i64 %235 to i32
+  %236 = trunc nuw nsw i64 %235 to i32
   %237 = add nsw i32 %234, -12
   %238 = shl i64 %233, 12
   br label %239
@@ -1064,7 +1064,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %347 = phi i64 [ %344, %336 ], [ %306, %316 ], [ %314, %308 ]
   %348 = phi i32 [ %340, %336 ], [ %305, %316 ], [ 31, %308 ]
   %349 = lshr i64 %347, 61
-  %350 = trunc i64 %349 to i32
+  %350 = trunc nuw nsw i64 %349 to i32
   %351 = add nsw i32 %348, -3
   %352 = shl i64 %347, 3
   store i32 %350, ptr %40, align 8, !tbaa !111, !noalias !117
@@ -1106,7 +1106,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   tail call void @llvm.assume(i1 %71), !noalias !117
   %373 = icmp ugt i32 %143, %1
   tail call void @llvm.assume(i1 %373), !noalias !117
-  %374 = mul nsw i32 %145, %1
+  %374 = mul nuw nsw i32 %145, %1
   %375 = add nuw nsw i32 %374, %142
   %376 = icmp ule i32 %375, %146
   tail call void @llvm.assume(i1 %376), !noalias !117
@@ -1242,7 +1242,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   tail call void @llvm.assume(i1 %458)
   %459 = icmp ugt i32 %143, %445
   tail call void @llvm.assume(i1 %459)
-  %460 = mul nsw i32 %445, %145
+  %460 = mul nuw nsw i32 %445, %145
   %461 = add nuw nsw i32 %460, %142
   %462 = icmp ule i32 %461, %146
   tail call void @llvm.assume(i1 %462)
@@ -1261,7 +1261,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %474 = add nuw nsw i32 %468, 1
   %475 = add nuw nsw i32 %474, %473
   %476 = lshr i32 %475, 1
-  %477 = trunc i32 %476 to i16
+  %477 = trunc nuw i32 %476 to i16
   %478 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %436
   store i16 %477, ptr %478, align 2, !tbaa !120
   %479 = add nuw nsw i64 %436, 1
@@ -1392,7 +1392,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %554 = phi i64 [ %551, %543 ], [ %520, %519 ]
   %555 = phi i32 [ %547, %543 ], [ %521, %519 ]
   %556 = lshr i64 %554, 62
-  %557 = trunc i64 %556 to i32
+  %557 = trunc nuw nsw i64 %556 to i32
   %558 = add nsw i32 %555, -2
   %559 = shl i64 %554, 2
   %560 = icmp ult i32 %558, 2
@@ -1442,7 +1442,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %589 = phi i64 [ %586, %578 ], [ %559, %552 ]
   %590 = phi i32 [ %582, %578 ], [ %558, %552 ]
   %591 = lshr i64 %589, 62
-  %592 = trunc i64 %591 to i32
+  %592 = trunc nuw nsw i64 %591 to i32
   %593 = add nsw i32 %590, -2
   %594 = shl i64 %589, 2
   %595 = icmp ult i32 %593, 2
@@ -1492,7 +1492,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %624 = phi i64 [ %621, %613 ], [ %594, %587 ]
   %625 = phi i32 [ %617, %613 ], [ %593, %587 ]
   %626 = lshr i64 %624, 62
-  %627 = trunc i64 %626 to i32
+  %627 = trunc nuw nsw i64 %626 to i32
   %628 = add nsw i32 %625, -2
   %629 = shl i64 %624, 2
   %630 = icmp ult i32 %628, 2
@@ -1542,7 +1542,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %659 = phi i64 [ %656, %648 ], [ %629, %622 ]
   %660 = phi i32 [ %652, %648 ], [ %628, %622 ]
   %661 = lshr i64 %659, 62
-  %662 = trunc i64 %661 to i32
+  %662 = trunc nuw nsw i64 %661 to i32
   %663 = add nsw i32 %660, -2
   %664 = shl i64 %659, 2
   %665 = load i32, ptr %77, align 8
@@ -1612,7 +1612,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %699 = phi i64 [ %696, %688 ], [ %887, %668 ]
   %700 = phi i32 [ %692, %688 ], [ %888, %668 ]
   %701 = lshr i64 %699, 60
-  %702 = trunc i64 %701 to i32
+  %702 = trunc nuw nsw i64 %701 to i32
   %703 = add nsw i32 %700, -4
   %704 = shl i64 %699, 4
   br label %711
@@ -1729,7 +1729,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %771 = phi i32 [ %748, %747 ], [ %715, %757 ], [ %715, %760 ], [ %715, %764 ]
   %772 = load i32, ptr %116, align 4, !tbaa !14, !noalias !123
   store i32 %772, ptr %115, align 8, !tbaa !14, !noalias !123
-  %773 = trunc i64 %768 to i32
+  %773 = trunc nuw i64 %768 to i32
   store i32 %773, ptr %116, align 4, !tbaa !14, !noalias !123
   %774 = icmp ult i32 %666, %773
   br i1 %774, label %892, label %775
@@ -1825,7 +1825,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %830 = phi i32 [ %806, %805 ], [ %771, %815 ], [ %771, %819 ], [ %771, %823 ]
   store i32 %773, ptr %115, align 8, !tbaa !14, !noalias !123
   %831 = lshr exact i64 %827, 32
-  %832 = trunc i64 %831 to i32
+  %832 = trunc nuw i64 %831 to i32
   store i32 %832, ptr %116, align 4, !tbaa !14, !noalias !123
   %833 = icmp ult i32 %666, %832
   br i1 %833, label %892, label %834
@@ -1910,7 +1910,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %879 = phi i64 [ %876, %868 ], [ %664, %847 ]
   %880 = phi i32 [ %872, %868 ], [ %663, %847 ]
   %881 = lshr i64 %879, 60
-  %882 = trunc i64 %881 to i32
+  %882 = trunc nuw nsw i64 %881 to i32
   %883 = add nsw i32 %880, -4
   %884 = shl i64 %879, 4
   br label %885
@@ -2033,7 +2033,7 @@ default.unreachable150:                           ; preds = %775, %717, %667, %6
   %958 = zext nneg i32 %916 to i64
   %959 = shl i64 %952, %958
   %960 = ashr i64 %952, %956
-  %961 = trunc i64 %960 to i16
+  %961 = trunc nsw i64 %960 to i16
   br label %962
 
 962:                                              ; preds = %950, %908

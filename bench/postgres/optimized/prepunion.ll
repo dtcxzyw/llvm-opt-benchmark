@@ -525,7 +525,7 @@ plan_union_children.exit:                         ; preds = %.outer, %141, %112
   %166 = getelementptr inbounds i8, ptr %165, i64 72
   %167 = load ptr, ptr %166, align 8
   %168 = tail call ptr @lappend(ptr noundef %.085.i190214, ptr noundef %167) #7
-  %169 = trunc i8 %.091.i186218 to i1
+  %169 = trunc nuw i8 %.091.i186218 to i1
   br i1 %169, label %170, label %182
 
 170:                                              ; preds = %.lr.ph219
@@ -632,14 +632,14 @@ plan_union_children.exit:                         ; preds = %.outer, %141, %112
   br i1 %218, label %list_length.exit146.thread, label %229
 
 list_length.exit146.thread:                       ; preds = %.thread162
-  %219 = tail call i32 @llvm.ctlz.i32(i32 %205, i1 true), !range !8
+  %219 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %205, i1 true)
   %220 = sub nuw nsw i32 32, %219
   %221 = icmp sgt i32 %.082.i.lcssa173, %220
   br i1 %221, label %225, label %list_length.exit
 
 list_length.exit:                                 ; preds = %list_length.exit146.thread, %214
   %222 = phi i32 [ 0, %214 ], [ %205, %list_length.exit146.thread ]
-  %223 = tail call i32 @llvm.ctlz.i32(i32 %222, i1 true), !range !8
+  %223 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %222, i1 true)
   %224 = sub nuw nsw i32 32, %223
   br label %225
 
@@ -1204,7 +1204,7 @@ define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly %0, ptr no
   store i32 %101, ptr %102, align 8
   %103 = tail call ptr @lappend(ptr noundef %.0, ptr noundef %98) #7
   %104 = add i32 %.sroa.16.0, 1
-  br label %17, !llvm.loop !9
+  br label %17, !llvm.loop !8
 
 .critedge:                                        ; preds = %52
   %105 = icmp sgt i32 %2, -1
@@ -1476,7 +1476,7 @@ list_head.exit106:                                ; preds = %43
   %116 = getelementptr inbounds i8, ptr %112, i64 32
   store i32 %115, ptr %116, align 8
   %117 = tail call ptr @lappend(ptr noundef %.0, ptr noundef %112) #7
-  br label %.split.split.split, !llvm.loop !10
+  br label %.split.split.split, !llvm.loop !9
 
 .critedge.loopexit:                               ; preds = %89, %94
   %118 = trunc i32 %.081 to i16
@@ -1794,6 +1794,5 @@ attributes #8 = { cold nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 33}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [2 x i8] c"/\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @inode_getpath(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @inode_getpath(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %24, label %5
 
@@ -20,7 +20,7 @@ define i32 @inode_getpath(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i32 @inode_getpath(ptr noundef %9, ptr noundef nonnull %1, i64 noundef %2), !range !6
+  %10 = tail call i32 @inode_getpath(ptr noundef %9, ptr noundef nonnull %1, i64 noundef %2)
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %24, label %12
 
@@ -63,4 +63,3 @@ attributes #2 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -2147483648, i32 1}

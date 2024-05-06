@@ -64,7 +64,7 @@ define internal i32 @cp1251_get_case_fold_codes_by_str(i32 noundef %0, ptr nound
 declare i32 @onigenc_minimum_property_name_to_ctype(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @cp1251_is_code_ctype(i32 noundef %0, i32 noundef %1, ptr nocapture readnone %2) #3 {
+define internal range(i32 0, 2) i32 @cp1251_is_code_ctype(i32 noundef %0, i32 noundef %1, ptr nocapture readnone %2) #3 {
   %4 = icmp ult i32 %0, 256
   br i1 %4, label %5, label %12
 

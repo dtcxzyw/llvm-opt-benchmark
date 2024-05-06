@@ -119,13 +119,13 @@ define void @Msat_OrderClean(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Msat_OrderCheck(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = tail call fastcc i32 @Msat_HeapCheck_rec(ptr noundef %0, i32 noundef 1), !range !7
+define range(i32 0, 2) i32 @Msat_OrderCheck(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+  %2 = tail call fastcc i32 @Msat_HeapCheck_rec(ptr noundef %0, i32 noundef 1)
   ret i32 %2
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @Msat_HeapCheck_rec(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @Msat_HeapCheck_rec(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -166,7 +166,7 @@ tailrecurse:                                      ; preds = %28
 
 28:                                               ; preds = %9, %.lr.ph
   %29 = shl i32 %.tr1416, 1
-  %30 = tail call fastcc i32 @Msat_HeapCheck_rec(ptr noundef nonnull %0, i32 noundef %29), !range !7
+  %30 = tail call fastcc i32 @Msat_HeapCheck_rec(ptr noundef nonnull %0, i32 noundef %29)
   %.not13 = icmp eq i32 %30, 0
   br i1 %.not13, label %._crit_edge, label %tailrecurse
 
@@ -325,7 +325,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %83 = getelementptr inbounds i8, ptr %82, i64 8
   %84 = load i32, ptr %83, align 8
   %85 = icmp slt i32 %81, %84
-  br i1 %85, label %.lr.ph.i.i, label %.._crit_edge.loopexit_crit_edge.i.i, !llvm.loop !8
+  br i1 %85, label %.lr.ph.i.i, label %.._crit_edge.loopexit_crit_edge.i.i, !llvm.loop !7
 
 .._crit_edge.loopexit_crit_edge.i.i:              ; preds = %70
   %.pre50.pre.i.i = load ptr, ptr %82, align 8
@@ -350,7 +350,7 @@ Msat_HeapGetTop.exit:                             ; preds = %16, %Msat_HeapPerco
   %95 = getelementptr inbounds i32, ptr %94, i64 %30
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %96, -1
-  br i1 %97, label %98, label %12, !llvm.loop !9
+  br i1 %97, label %98, label %12, !llvm.loop !8
 
 98:                                               ; preds = %Msat_HeapGetTop.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -484,7 +484,7 @@ Abc_Clock.exit._crit_edge:                        ; preds = %Abc_Clock.exit, %18
   %66 = getelementptr inbounds i32, ptr %60, i64 %65
   store i32 %.024.i.i, ptr %66, align 4
   %.not.i.i = icmp ult i32 %41, 2
-  br i1 %.not.i.i, label %..critedge.loopexit_crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %..critedge.loopexit_crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 ..critedge.loopexit_crit_edge.i.i:                ; preds = %57
   %.pre.pre.i.i = load ptr, ptr %23, align 8
@@ -612,7 +612,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %55 = getelementptr inbounds i32, ptr %49, i64 %54
   store i32 %.024.i.i, ptr %55, align 4
   %.not.i.i = icmp ult i32 %30, 2
-  br i1 %.not.i.i, label %..critedge.loopexit_crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %..critedge.loopexit_crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 ..critedge.loopexit_crit_edge.i.i:                ; preds = %46
   %.pre.pre.i.i = load ptr, ptr %24, align 8
@@ -692,7 +692,6 @@ attributes #9 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

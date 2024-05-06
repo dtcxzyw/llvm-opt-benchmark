@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @PQsslAttributeNames.result = internal constant [1 x ptr] zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @PQsslInUse(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PQsslInUse(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -148,7 +148,7 @@ define i64 @pqsecure_raw_write(ptr nocapture noundef %0, ptr noundef %1, i64 nou
   br i1 %brmerge, label %26, label %23
 
 23:                                               ; preds = %19
-  %24 = call i32 @pq_block_sigpipe(ptr noundef nonnull %6, ptr noundef nonnull %16), !range !4
+  %24 = call i32 @pq_block_sigpipe(ptr noundef nonnull %6, ptr noundef nonnull %16)
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %.loopexit, label %26
 
@@ -231,7 +231,7 @@ define i64 @pqsecure_raw_write(ptr nocapture noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pq_block_sigpipe(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @pq_block_sigpipe(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca %struct.__sigset_t, align 8
   %4 = alloca %struct.__sigset_t, align 8
   %5 = call i32 @sigemptyset(ptr noundef nonnull %3) #9
@@ -390,4 +390,3 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

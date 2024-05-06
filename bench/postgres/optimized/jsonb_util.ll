@@ -122,7 +122,7 @@ define dso_local noundef ptr @JsonbValueToJsonb(ptr noundef %0) local_unnamed_ad
   store i32 %32, ptr %28, align 8
   %33 = sext i32 %31 to i64
   %34 = getelementptr %struct.JsonbPair, ptr %30, i64 %33, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull readonly align 8 dereferenceable(32) %21, i64 32, i1 false)
   br label %pushJsonbValueScalar.exit
 
 35:                                               ; preds = %24
@@ -344,7 +344,7 @@ define dso_local ptr @pushJsonbValue(ptr noundef %0, i32 noundef %1, ptr noundef
   store i32 %82, ptr %78, align 8
   %83 = sext i32 %81 to i64
   %84 = getelementptr %struct.JsonbPair, ptr %80, i64 %83, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull readonly align 8 dereferenceable(32) %71, i64 32, i1 false)
   br label %pushJsonbValueScalar.exit
 
 85:                                               ; preds = %74
@@ -436,14 +436,14 @@ JsonbIteratorInit.exit:                           ; preds = %106, %116
   br i1 %.not57, label %135, label %130
 
 130:                                              ; preds = %128
-  %131 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true), !range !8
-  %132 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true), !range !8
+  %131 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true)
+  %132 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true)
   %133 = call fastcc ptr @pushJsonbValueScalar(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %5)
-  %134 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true), !range !8
+  %134 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true)
   br label %pushJsonbValueScalar.exit
 
 135:                                              ; preds = %128, %JsonbIteratorInit.exit
-  %136 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false), !range !8
+  %136 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false)
   %.not5869 = icmp eq i32 %136, 0
   br i1 %.not5869, label %pushJsonbValueScalar.exit, label %.lr.ph71
 
@@ -471,9 +471,9 @@ JsonbIteratorInit.exit:                           ; preds = %106, %116
 147:                                              ; preds = %138, %143, %146
   %148 = phi ptr [ null, %146 ], [ %5, %143 ], [ %5, %138 ]
   %149 = call fastcc ptr @pushJsonbValueScalar(ptr noundef %0, i32 noundef %139, ptr noundef %148)
-  %150 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false), !range !8
+  %150 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false)
   %.not58 = icmp eq i32 %150, 0
-  br i1 %.not58, label %pushJsonbValueScalar.exit, label %138, !llvm.loop !9
+  br i1 %.not58, label %pushJsonbValueScalar.exit, label %138, !llvm.loop !8
 
 pushJsonbValueScalar.exit:                        ; preds = %147, %135, %77, %76, %._crit_edge, %130, %92, %._crit_edge68
   %.051 = phi ptr [ %40, %._crit_edge68 ], [ %93, %92 ], [ %133, %130 ], [ %71, %._crit_edge ], [ %71, %76 ], [ %71, %77 ], [ null, %135 ], [ %149, %147 ]
@@ -506,7 +506,7 @@ define dso_local i32 @getJsonbOffset(ptr nocapture noundef readonly %0, i32 noun
   %12 = and i32 %11, 268435455
   %13 = add i32 %12, %.08
   %.not = icmp sgt i32 %11, -1
-  br i1 %.not, label %5, label %14, !llvm.loop !10
+  br i1 %.not, label %5, label %14, !llvm.loop !9
 
 14:                                               ; preds = %8, %5
   %.1 = phi i32 [ %13, %8 ], [ %.08, %5 ]
@@ -541,7 +541,7 @@ define dso_local i32 @getJsonbLength(ptr nocapture noundef readonly %0, i32 noun
   %16 = and i32 %15, 268435455
   %17 = add i32 %16, %.08.i
   %.not.i = icmp sgt i32 %15, -1
-  br i1 %.not.i, label %9, label %getJsonbOffset.exit, !llvm.loop !10
+  br i1 %.not.i, label %9, label %getJsonbOffset.exit, !llvm.loop !9
 
 getJsonbOffset.exit:                              ; preds = %9, %12
   %.1.i = phi i32 [ %17, %12 ], [ %.08.i, %9 ]
@@ -677,8 +677,8 @@ JsonbIteratorInit.exit26:                         ; preds = %44, %54
   br label %69
 
 69:                                               ; preds = %compareJsonbScalarValue.exit, %JsonbIteratorInit.exit26
-  %70 = call i32 @JsonbIteratorNext(ptr noundef nonnull %3, ptr noundef nonnull %5, i1 noundef zeroext false), !range !8
-  %71 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %6, i1 noundef zeroext false), !range !8
+  %70 = call i32 @JsonbIteratorNext(ptr noundef nonnull %3, ptr noundef nonnull %5, i1 noundef zeroext false)
+  %71 = call i32 @JsonbIteratorNext(ptr noundef nonnull %4, ptr noundef nonnull %6, i1 noundef zeroext false)
   %72 = icmp eq i32 %70, %71
   br i1 %72, label %73, label %130
 
@@ -797,7 +797,7 @@ JsonbIteratorInit.exit26:                         ; preds = %44, %54
 compareJsonbScalarValue.exit:                     ; preds = %81, %95, %88, %82, %103, %115, %75
   %.2 = phi i32 [ 0, %75 ], [ 0, %115 ], [ %.1, %103 ], [ %94, %88 ], [ %87, %82 ], [ 0, %95 ], [ 0, %81 ]
   %135 = icmp eq i32 %.2, 0
-  br i1 %135, label %69, label %compareJsonbScalarValue.exit.thread, !llvm.loop !11
+  br i1 %135, label %69, label %compareJsonbScalarValue.exit.thread, !llvm.loop !10
 
 compareJsonbScalarValue.exit.thread:              ; preds = %73, %compareJsonbScalarValue.exit, %101, %130, %127, %112, %118
   %.3 = phi i32 [ %..i, %101 ], [ %134, %130 ], [ %129, %127 ], [ %114, %112 ], [ %120, %118 ], [ %.2, %compareJsonbScalarValue.exit ], [ 0, %73 ]
@@ -811,7 +811,7 @@ compareJsonbScalarValue.exit.thread:              ; preds = %73, %compareJsonbSc
   %138 = load ptr, ptr %137, align 8
   tail call void @pfree(ptr noundef nonnull %136) #13
   %.not23 = icmp eq ptr %138, null
-  br i1 %.not23, label %thread-pre-split, label %.lr.ph, !llvm.loop !12
+  br i1 %.not23, label %thread-pre-split, label %.lr.ph, !llvm.loop !11
 
 thread-pre-split:                                 ; preds = %.lr.ph, %compareJsonbScalarValue.exit.thread
   %.pr28 = load ptr, ptr %4, align 8
@@ -824,7 +824,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %compareJso
   %141 = load ptr, ptr %140, align 8
   tail call void @pfree(ptr noundef nonnull %139) #13
   %.not24 = icmp eq ptr %141, null
-  br i1 %.not24, label %._crit_edge, label %.lr.ph51, !llvm.loop !13
+  br i1 %.not24, label %._crit_edge, label %.lr.ph51, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph51, %thread-pre-split
   ret i32 %.3
@@ -887,7 +887,7 @@ iteratorFromContainer.exit:                       ; preds = %11, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @JsonbIteratorNext(ptr nocapture noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 8) i32 @JsonbIteratorNext(ptr nocapture noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -1089,7 +1089,7 @@ switch.early.test:                                ; preds = %56
   %115 = and i32 %114, 268435455
   %116 = add i32 %115, %.08.i
   %.not.i = icmp sgt i32 %114, -1
-  br i1 %.not.i, label %108, label %getJsonbOffset.exit, !llvm.loop !10
+  br i1 %.not.i, label %108, label %getJsonbOffset.exit, !llvm.loop !9
 
 getJsonbOffset.exit:                              ; preds = %108, %111
   %.1.i = phi i32 [ %116, %111 ], [ %.08.i, %108 ]
@@ -1329,7 +1329,7 @@ define dso_local ptr @findJsonbValueFromContainer(ptr noundef %0, i32 noundef %1
   %.1 = add i32 %26, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %13
-  br i1 %exitcond.not, label %27, label %15, !llvm.loop !14
+  br i1 %exitcond.not, label %27, label %15, !llvm.loop !13
 
 27:                                               ; preds = %22
   tail call void @pfree(ptr noundef nonnull %12) #13
@@ -1403,7 +1403,7 @@ define internal fastcc void @fillJsonbValue(ptr nocapture noundef readonly %0, i
   %28 = and i32 %27, 268435455
   %29 = add i32 %28, %.08.i.i
   %.not.i.i = icmp sgt i32 %27, -1
-  br i1 %.not.i.i, label %21, label %getJsonbOffset.exit.i, !llvm.loop !10
+  br i1 %.not.i.i, label %21, label %getJsonbOffset.exit.i, !llvm.loop !9
 
 getJsonbOffset.exit.i:                            ; preds = %24, %21
   %.1.i.i = phi i32 [ %29, %24 ], [ %.08.i.i, %21 ]
@@ -1474,7 +1474,7 @@ getJsonbLength.exit:                              ; preds = %getJsonbOffset.exit
   %61 = and i32 %60, 268435455
   %62 = add i32 %61, %.08.i.i33
   %.not.i.i38 = icmp sgt i32 %60, -1
-  br i1 %.not.i.i38, label %54, label %getJsonbOffset.exit.i35, !llvm.loop !10
+  br i1 %.not.i.i38, label %54, label %getJsonbOffset.exit.i35, !llvm.loop !9
 
 getJsonbOffset.exit.i35:                          ; preds = %57, %54
   %.1.i.i36 = phi i32 [ %62, %57 ], [ %.08.i.i33, %54 ]
@@ -1610,7 +1610,7 @@ define dso_local ptr @getKeyJsonValueFromContainer(ptr noundef %0, ptr nocapture
   %26 = and i32 %25, 268435455
   %27 = add i32 %26, %.08.i
   %.not.i = icmp sgt i32 %25, -1
-  br i1 %.not.i, label %19, label %getJsonbOffset.exit, !llvm.loop !10
+  br i1 %.not.i, label %19, label %getJsonbOffset.exit, !llvm.loop !9
 
 getJsonbOffset.exit:                              ; preds = %19, %22
   %.1.i = phi i32 [ %27, %22 ], [ %.08.i, %19 ]
@@ -1637,7 +1637,7 @@ getJsonbOffset.exit:                              ; preds = %19, %22
   %39 = and i32 %38, 268435455
   %40 = add i32 %39, %.08.i.i
   %.not.i.i = icmp sgt i32 %38, -1
-  br i1 %.not.i.i, label %.preheader, label %getJsonbOffset.exit.i, !llvm.loop !10
+  br i1 %.not.i.i, label %.preheader, label %getJsonbOffset.exit.i, !llvm.loop !9
 
 getJsonbOffset.exit.i:                            ; preds = %35, %.preheader
   %.1.i.i = phi i32 [ %40, %35 ], [ %.08.i.i, %.preheader ]
@@ -1660,7 +1660,7 @@ lengthCompareJsonbString.exit.thread:             ; preds = %getJsonbLength.exit
   br label %65
 
 lengthCompareJsonbString.exit:                    ; preds = %getJsonbLength.exit
-  %48 = tail call i32 @memcmp(ptr noundef %29, ptr noundef %1, i64 noundef %13) #15
+  %48 = tail call i32 @memcmp(ptr noundef readonly %29, ptr noundef readonly %1, i64 noundef %13) #15
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %65
 
@@ -1693,7 +1693,7 @@ lengthCompareJsonbString.exit:                    ; preds = %getJsonbLength.exit
   %63 = and i32 %62, 268435455
   %64 = add i32 %63, %.08.i44
   %.not.i47 = icmp sgt i32 %62, -1
-  br i1 %.not.i47, label %56, label %getJsonbOffset.exit48, !llvm.loop !10
+  br i1 %.not.i47, label %56, label %getJsonbOffset.exit48, !llvm.loop !9
 
 getJsonbOffset.exit48:                            ; preds = %56, %59
   %.1.i46 = phi i32 [ %64, %59 ], [ %.08.i44, %56 ]
@@ -1707,7 +1707,7 @@ getJsonbOffset.exit48:                            ; preds = %56, %59
   %.137 = select i1 %66, i32 %.03651, i32 %17
   %.1 = select i1 %66, i32 %67, i32 %.03552
   %68 = icmp ult i32 %.1, %.137
-  br i1 %68, label %14, label %.loopexit, !llvm.loop !15
+  br i1 %68, label %14, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %65, %4, %getJsonbOffset.exit48
   %.0 = phi ptr [ %.034, %getJsonbOffset.exit48 ], [ null, %4 ], [ null, %65 ]
@@ -1756,7 +1756,7 @@ define dso_local ptr @getIthJsonbValueFromContainer(ptr noundef %0, i32 noundef 
   %23 = and i32 %22, 268435455
   %24 = add i32 %23, %.08.i
   %.not.i = icmp sgt i32 %22, -1
-  br i1 %.not.i, label %16, label %getJsonbOffset.exit, !llvm.loop !10
+  br i1 %.not.i, label %16, label %getJsonbOffset.exit, !llvm.loop !9
 
 getJsonbOffset.exit:                              ; preds = %16, %19
   %.1.i = phi i32 [ %24, %19 ], [ %.08.i, %16 ]
@@ -1904,7 +1904,7 @@ appendKey.exit:                                   ; preds = %._crit_edge.i, %64
   %72 = getelementptr inbounds i8, ptr %52, i64 16
   %73 = sext i32 %70 to i64
   %74 = getelementptr %struct.JsonbPair, ptr %71, i64 %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false)
   %75 = load i32, ptr %53, align 8
   %76 = load ptr, ptr %72, align 8
   %77 = sext i32 %75 to i64
@@ -1922,7 +1922,7 @@ appendKey.exit:                                   ; preds = %._crit_edge.i, %64
   store i32 %85, ptr %81, align 8
   %86 = sext i32 %84 to i64
   %87 = getelementptr %struct.JsonbPair, ptr %83, i64 %86, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false)
   br label %194
 
 88:                                               ; preds = %3
@@ -2072,7 +2072,7 @@ lengthCompareJsonbStringValue.exit.thread.us.i:   ; preds = %lengthCompareJsonbS
   %146 = sdiv exact i64 %145, 72
   %147 = sext i32 %141 to i64
   %148 = icmp slt i64 %146, %147
-  br i1 %148, label %.lr.ph48.split.us.i, label %._crit_edge.i46, !llvm.loop !16
+  br i1 %148, label %.lr.ph48.split.us.i, label %._crit_edge.i46, !llvm.loop !15
 
 .lr.ph48.split.i:                                 ; preds = %159, %.lr.ph48.split.preheader.i
   %149 = phi i32 [ %160, %159 ], [ %.pr.pre.i, %.lr.ph48.split.preheader.i ]
@@ -2119,7 +2119,7 @@ lengthCompareJsonbStringValue.exit.thread.i:      ; preds = %lengthCompareJsonbS
   %165 = sdiv exact i64 %164, 72
   %166 = sext i32 %160 to i64
   %167 = icmp slt i64 %165, %166
-  br i1 %167, label %.lr.ph48.split.i, label %._crit_edge.i46, !llvm.loop !16
+  br i1 %167, label %.lr.ph48.split.i, label %._crit_edge.i46, !llvm.loop !15
 
 ._crit_edge.i46:                                  ; preds = %159, %140, %.thread62.i, %.critedge.thread61.i
   %.0.lcssa.i = phi ptr [ %113, %.critedge.thread61.i ], [ %125, %.thread62.i ], [ %.1.us.i, %140 ], [ %.1.i, %159 ]
@@ -2164,7 +2164,7 @@ uniqueifyJsonbObject.exit:                        ; preds = %118, %.thread.i, %.
   store i32 %185, ptr %181, align 8
   %186 = sext i32 %184 to i64
   %187 = getelementptr %struct.JsonbPair, ptr %183, i64 %186, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef nonnull align 8 dereferenceable(32) %174, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef nonnull readonly align 8 dereferenceable(32) %174, i64 32, i1 false)
   br label %194
 
 188:                                              ; preds = %177
@@ -2196,8 +2196,8 @@ define dso_local noundef zeroext i1 @JsonbDeepContains(ptr nocapture noundef %0,
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   tail call void @check_stack_depth() #13
-  %10 = call i32 @JsonbIteratorNext(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext false), !range !8
-  %11 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext false), !range !8
+  %10 = call i32 @JsonbIteratorNext(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext false)
+  %11 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext false)
   %.not = icmp eq i32 %10, %11
   br i1 %.not, label %12, label %.loopexit
 
@@ -2216,7 +2216,7 @@ define dso_local noundef zeroext i1 @JsonbDeepContains(ptr nocapture noundef %0,
   br i1 %18, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %13
-  %19 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext false), !range !8
+  %19 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext false)
   %20 = icmp eq i32 %19, 7
   br i1 %20, label %.loopexit, label %.lr.ph91
 
@@ -2234,7 +2234,7 @@ define dso_local noundef zeroext i1 @JsonbDeepContains(ptr nocapture noundef %0,
   br i1 %.not59, label %.loopexit, label %28
 
 28:                                               ; preds = %22
-  %29 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true), !range !8
+  %29 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true)
   %30 = load i32, ptr %27, align 8
   %31 = load i32, ptr %4, align 8
   %.not60 = icmp eq i32 %30, %31
@@ -2365,7 +2365,7 @@ JsonbIteratorInit.exit62:                         ; preds = %76, %86
   br i1 %95, label %96, label %.loopexit
 
 96:                                               ; preds = %33, %JsonbIteratorInit.exit62
-  %97 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext false), !range !8
+  %97 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext false)
   %98 = icmp eq i32 %97, 7
   br i1 %98, label %.loopexit, label %22
 
@@ -2384,7 +2384,7 @@ JsonbIteratorInit.exit62:                         ; preds = %76, %86
   br i1 %108, label %109, label %.loopexit
 
 109:                                              ; preds = %105, %99
-  %110 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true), !range !8
+  %110 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true)
   %111 = icmp eq i32 %110, 5
   br i1 %111, label %.loopexit, label %.lr.ph83
 
@@ -2425,7 +2425,7 @@ JsonbIteratorInit.exit62:                         ; preds = %76, %86
 .lr.ph:                                           ; preds = %121, %132
   %.04372 = phi i32 [ %.1, %132 ], [ 0, %121 ]
   %.04471 = phi i32 [ %133, %132 ], [ 0, %121 ]
-  %125 = call i32 @JsonbIteratorNext(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext true), !range !8
+  %125 = call i32 @JsonbIteratorNext(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext true)
   %126 = load i32, ptr %3, align 8
   %127 = icmp eq i32 %126, 18
   br i1 %127, label %128, label %132
@@ -2441,7 +2441,7 @@ JsonbIteratorInit.exit62:                         ; preds = %76, %86
   %.1 = phi i32 [ %129, %128 ], [ %.04372, %.lr.ph ]
   %133 = add nuw i32 %.04471, 1
   %exitcond.not = icmp eq i32 %133, %.04681
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %132
   %134 = icmp eq i32 %.1, 0
@@ -2590,7 +2590,7 @@ JsonbIteratorInit.exit66:                         ; preds = %177, %187
 203:                                              ; preds = %202
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond105.not, label %.loopexit, label %138, !llvm.loop !18
+  br i1 %exitcond105.not, label %.loopexit, label %138, !llvm.loop !17
 
 ._crit_edge76.loopexit:                           ; preds = %202
   %204 = trunc nuw i64 %indvars.iv to i32
@@ -2606,7 +2606,7 @@ JsonbIteratorInit.exit66:                         ; preds = %177, %187
 206:                                              ; preds = %._crit_edge76, %115
   %.250 = phi ptr [ %.04880, %115 ], [ %.149111, %._crit_edge76 ]
   %.2 = phi i32 [ %.04681, %115 ], [ %.147113, %._crit_edge76 ]
-  %207 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true), !range !8
+  %207 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true)
   %208 = icmp eq i32 %207, 5
   br i1 %208, label %.loopexit, label %113
 
@@ -2826,7 +2826,7 @@ lengthCompareJsonbStringValue.exit:               ; preds = %3
   %10 = getelementptr i8, ptr %0, i64 16
   %.val13 = load ptr, ptr %10, align 8
   %11 = sext i32 %.val to i64
-  %12 = tail call i32 @memcmp(ptr noundef %.val13, ptr noundef %.val15, i64 noundef %11) #15
+  %12 = tail call i32 @memcmp(ptr noundef readonly %.val13, ptr noundef readonly %.val15, i64 noundef %11) #15
   %13 = icmp eq i32 %12, 0
   %14 = icmp ne ptr %2, null
   %or.cond = and i1 %14, %13
@@ -2926,7 +2926,7 @@ define internal fastcc void @convertJsonbValue(ptr noundef %0, ptr nocapture nou
   store i8 0, ptr %31, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %padBufferToInt.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %padBufferToInt.exit, label %.lr.ph.i, !llvm.loop !18
 
 padBufferToInt.exit:                              ; preds = %.lr.ph.i, %13
   %32 = getelementptr inbounds i8, ptr %2, i64 24
@@ -3006,7 +3006,7 @@ padBufferToInt.exit:                              ; preds = %.lr.ph.i, %13
   %73 = add i32 %.0.i41, 4
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %._crit_edge43, label %51, !llvm.loop !20
+  br i1 %exitcond56.not, label %._crit_edge43, label %51, !llvm.loop !19
 
 ._crit_edge43:                                    ; preds = %69, %padBufferToInt.exit
   %74 = load i32, ptr %16, align 8
@@ -3063,7 +3063,7 @@ convertJsonbArray.exit:                           ; preds = %._crit_edge43
   store i8 0, ptr %100, align 1
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %wide.trip.count.i22
-  br i1 %exitcond.not.i26, label %padBufferToInt.exit27, label %.lr.ph.i23, !llvm.loop !19
+  br i1 %exitcond.not.i26, label %padBufferToInt.exit27, label %.lr.ph.i23, !llvm.loop !18
 
 padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %82
   %101 = or i32 %84, 536870912
@@ -3147,7 +3147,7 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %82
   %142 = add i32 %.0.i1733, 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %120, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader, label %120, !llvm.loop !20
 
 143:                                              ; preds = %.lr.ph38, %163
   %indvars.iv47 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next48, %163 ]
@@ -3193,7 +3193,7 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %82
   %167 = add i32 %.1.i37, 4
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %119
-  br i1 %exitcond51.not, label %._crit_edge, label %143, !llvm.loop !22
+  br i1 %exitcond51.not, label %._crit_edge, label %143, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %163, %padBufferToInt.exit27, %.preheader
   %168 = load i32, ptr %85, align 8
@@ -3259,7 +3259,7 @@ define internal fastcc void @convertJsonbScalar(ptr noundef %0, ptr nocapture no
   %17 = sext i32 %12 to i64
   %18 = getelementptr i8, ptr %.val.i, i64 %17
   %19 = sext i32 %10 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %9, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %18, ptr readonly align 1 %9, i64 %19, i1 false)
   %20 = load i32, ptr %7, align 8
   br label %99
 
@@ -3329,7 +3329,7 @@ define internal fastcc void @convertJsonbScalar(ptr noundef %0, ptr nocapture no
   store i8 0, ptr %60, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %padBufferToInt.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %padBufferToInt.exit, label %.lr.ph.i, !llvm.loop !18
 
 padBufferToInt.exit:                              ; preds = %.lr.ph.i, %43
   %61 = load ptr, ptr %22, align 8
@@ -3345,7 +3345,7 @@ padBufferToInt.exit:                              ; preds = %.lr.ph.i, %43
   %67 = sext i32 %62 to i64
   %68 = getelementptr i8, ptr %.val.i31, i64 %67
   %69 = zext nneg i32 %44 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 1 %61, i64 %69, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %68, ptr readonly align 1 %61, i64 %69, i1 false)
   %sext33 = shl i32 %49, 16
   %70 = ashr exact i32 %sext33, 16
   %71 = add nsw i32 %70, %44
@@ -3382,7 +3382,7 @@ padBufferToInt.exit:                              ; preds = %.lr.ph.i, %43
   %94 = getelementptr i8, ptr %.val.i32, i64 %93
   %sext = shl i64 %85, 32
   %95 = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %94, ptr nonnull align 16 %4, i64 %95, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %94, ptr nonnull readonly align 16 %4, i64 %95, i1 false)
   br label %99
 
 96:                                               ; preds = %3
@@ -3448,7 +3448,7 @@ attributes #15 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 8}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
@@ -3462,4 +3462,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}

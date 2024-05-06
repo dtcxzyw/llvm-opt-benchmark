@@ -54,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [28 x i8] c"am_rdma_queued_descriptor_t\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_btl_base_am_rdma_init(ptr noundef %0) local_unnamed_addr #0 {
+define i32 @mca_btl_base_am_rdma_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
@@ -193,7 +193,7 @@ am_rdma_internal_fini.exit:                       ; preds = %opal_thread_add_fet
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @am_rdma_internal_init(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -3, 1) i32 @am_rdma_internal_init(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (%struct.opal_mutex_t, ptr @am_rdma_internal_init.initialized_mutex, i64 0, i32 1, i32 0, i32 0)) #9
   %.b37 = load i1, ptr @am_rdma_internal_init.initialized, align 1
   br i1 %.b37, label %16, label %5
@@ -316,7 +316,7 @@ opal_obj_new.exit.thread41:                       ; preds = %.lr.ph.i.i, %24
   br label %62
 
 54:                                               ; preds = %48
-  %55 = trunc i8 %44 to i1
+  %55 = trunc nuw i8 %44 to i1
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %54
@@ -398,7 +398,7 @@ define internal i32 @am_rdma_cswap_wrapper(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_btl_base_am_rdma_create(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define i32 @opal_btl_base_am_rdma_create(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @am_rdma_internal_init(ptr noundef %0, i1 noundef zeroext %2, ptr noundef %3)
   ret i32 %5
 }
@@ -1087,7 +1087,7 @@ opal_obj_new.exit.thread27.i:                     ; preds = %.lr.ph.i.i.i, %20
   %31 = getelementptr inbounds i8, ptr %15, i64 632
   store i8 0, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %15, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull readonly align 8 dereferenceable(48) %4, i64 48, i1 false)
   %33 = load i8, ptr %4, align 8
   %34 = icmp ugt i8 %33, 1
   br i1 %34, label %am_rdma_alloc_operation.exit.thread, label %35
@@ -1108,10 +1108,10 @@ opal_obj_new.exit.thread27.i:                     ; preds = %.lr.ph.i.i.i, %20
   %42 = getelementptr inbounds i8, ptr %15, i64 368
   %43 = getelementptr inbounds i8, ptr %0, i64 80
   %44 = load i64, ptr %43, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull align 1 %41, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull readonly align 1 %41, i64 %44, i1 false)
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   %46 = getelementptr inbounds i8, ptr %15, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 1 %45, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull readonly align 1 %45, i64 %44, i1 false)
   br label %am_rdma_alloc_operation.exit.thread
 
 am_rdma_alloc_operation.exit.thread:              ; preds = %opal_obj_new.exit.thread27.i, %35, %37, %40
@@ -1278,7 +1278,7 @@ opal_obj_new.exit.thread27.i:                     ; preds = %.lr.ph.i.i.i, %22
   %33 = getelementptr inbounds i8, ptr %17, i64 632
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %17, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull readonly align 8 dereferenceable(48) %6, i64 48, i1 false)
   %35 = load i8, ptr %6, align 8
   %36 = icmp ugt i8 %35, 1
   br i1 %36, label %am_rdma_alloc_operation.exit.thread, label %37
@@ -1299,10 +1299,10 @@ opal_obj_new.exit.thread27.i:                     ; preds = %.lr.ph.i.i.i, %22
   %44 = getelementptr inbounds i8, ptr %17, i64 368
   %45 = getelementptr inbounds i8, ptr %0, i64 80
   %46 = load i64, ptr %45, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %44, ptr nonnull align 1 %43, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %44, ptr nonnull readonly align 1 %43, i64 %46, i1 false)
   %47 = getelementptr inbounds i8, ptr %43, i64 %46
   %48 = getelementptr inbounds i8, ptr %17, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 1 %47, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull readonly align 1 %47, i64 %46, i1 false)
   br label %am_rdma_alloc_operation.exit.thread
 
 am_rdma_alloc_operation.exit.thread:              ; preds = %opal_obj_new.exit.thread27.i, %37, %39, %42
@@ -1831,7 +1831,7 @@ opal_obj_new.exit.thread27.i:                     ; preds = %.lr.ph.i.i.i, %15
   %26 = getelementptr inbounds i8, ptr %10, i64 632
   store i8 0, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %10, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull readonly align 8 dereferenceable(48) %4, i64 48, i1 false)
   %28 = load i8, ptr %4, align 8
   %29 = icmp ugt i8 %28, 1
   br i1 %29, label %am_rdma_alloc_operation.exit.thread, label %30
@@ -1853,10 +1853,10 @@ opal_obj_new.exit.thread27.i:                     ; preds = %.lr.ph.i.i.i, %15
   %38 = getelementptr inbounds i8, ptr %10, i64 368
   %39 = getelementptr inbounds i8, ptr %0, i64 80
   %40 = load i64, ptr %39, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 1 %37, i64 %40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull readonly align 1 %37, i64 %40, i1 false)
   %41 = getelementptr inbounds i8, ptr %37, i64 %40
   %42 = getelementptr inbounds i8, ptr %10, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull align 1 %41, i64 %40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull readonly align 1 %41, i64 %40, i1 false)
   br label %am_rdma_alloc_operation.exit.thread
 
 am_rdma_alloc_operation.exit:                     ; preds = %14
@@ -2447,7 +2447,7 @@ define internal fastcc i32 @am_rdma_start(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not.i.i, label %opal_obj_new.exit.thread98, label %.lr.ph.i.i, !llvm.loop !6
 
 opal_obj_new.exit.thread98:                       ; preds = %.lr.ph.i.i, %24
-  %31 = trunc i32 %2 to i8
+  %31 = trunc nuw nsw i32 %2 to i8
   %32 = getelementptr inbounds i8, ptr %19, i64 16
   store i8 %31, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %19, i64 24

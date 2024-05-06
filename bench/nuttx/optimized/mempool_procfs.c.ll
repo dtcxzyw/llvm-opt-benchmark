@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [32 x i8] c"%12s:%11lu%9lu%9lu%9lu%9lu%9lu\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mempool_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, i32 %2, i32 %3) #0 {
+define internal range(i32 -12, 1) i32 @mempool_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, i32 %2, i32 %3) #0 {
   %5 = tail call noalias dereferenceable_or_null(96) ptr @zalloc(i64 noundef 96) #12
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7
@@ -117,7 +117,7 @@ define internal i64 @mempool_read(ptr nocapture noundef %0, ptr noundef %1, i64 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @mempool_dup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal range(i32 -12, 1) i32 @mempool_dup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias dereferenceable_or_null(96) ptr @malloc(i64 noundef 96) #14

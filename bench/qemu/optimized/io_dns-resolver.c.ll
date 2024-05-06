@@ -52,7 +52,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qio_dns_resolver_lookup_sync(ptr nocapture readnone %resolver, ptr noundef %addr, ptr nocapture noundef %naddrs, ptr nocapture noundef %addrs, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qio_dns_resolver_lookup_sync(ptr nocapture readnone %resolver, ptr noundef %addr, ptr nocapture noundef %naddrs, ptr nocapture noundef %addrs, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %ai.i = alloca %struct.addrinfo, align 8
   %res.i = alloca ptr, align 8
@@ -309,7 +309,7 @@ entry:
   %0 = load ptr, ptr %opaque, align 8
   %naddrs = getelementptr inbounds i8, ptr %opaque, i64 16
   %addrs = getelementptr inbounds i8, ptr %opaque, i64 8
-  %call2 = call i32 @qio_dns_resolver_lookup_sync(ptr poison, ptr noundef %0, ptr noundef nonnull %naddrs, ptr noundef nonnull %addrs, ptr noundef nonnull %err), !range !8
+  %call2 = call i32 @qio_dns_resolver_lookup_sync(ptr poison, ptr noundef %0, ptr noundef nonnull %naddrs, ptr noundef nonnull %addrs, ptr noundef nonnull %err)
   %1 = load ptr, ptr %err, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -350,7 +350,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i64 %i.08, 1
   %4 = load i64, ptr %naddrs, align 8
   %cmp = icmp ult i64 %inc, %4
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %entry
   %addrs1 = getelementptr inbounds i8, ptr %opaque, i64 8
@@ -395,7 +395,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i64 %i.012, 1
   %5 = load i64, ptr %naddrs1, align 8
   %cmp = icmp ult i64 %inc, %5
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %if.end, %entry
   ret void
@@ -487,6 +487,5 @@ attributes #9 = { noreturn nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

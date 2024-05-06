@@ -1652,7 +1652,7 @@ define linkonce_odr noundef ptr @_ZN12QHashPrivate4DataINS_4NodeI7QStringS2_EEE8
 9:                                                ; preds = %8
   %10 = shl nuw i64 %1, 1
   %11 = add i64 %10, -1
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %11, i1 true), !range !20
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %11, i1 true)
   %13 = xor i64 %12, 63
   %14 = shl i64 2, %13
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i
@@ -1771,7 +1771,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeI7QStringS2_EEEC2ERKS4_
 17:                                               ; preds = %16
   %18 = shl nuw i64 %.sroa.speculated, 1
   %19 = add i64 %18, -1
-  %20 = tail call i64 @llvm.ctlz.i64(i64 %19, i1 true), !range !20
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %19, i1 true)
   %21 = xor i64 %20, 63
   %22 = shl i64 2, %21
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -1947,7 +1947,7 @@ _ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit: ; preds = %_Z11
   %122 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<QString, QString>>::Entry", ptr %114, i64 %.011.i.i
   store i8 %121, ptr %122, align 1
   %exitcond.not.i.i = icmp eq i64 %120, %112
-  br i1 %exitcond.not.i.i, label %123, label %119, !llvm.loop !21
+  br i1 %exitcond.not.i.i, label %123, label %119, !llvm.loop !20
 
 123:                                              ; preds = %119
   %124 = getelementptr inbounds i8, ptr %103, i64 128
@@ -2016,12 +2016,12 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %142, %_ZN12QHashPri
 _ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit: ; preds = %153, %_ZN7QStringC2ERKS_.exit.i, %54
   %155 = add nuw nsw i64 %.02331, 1
   %exitcond.not = icmp eq i64 %155, 128
-  br i1 %exitcond.not, label %156, label %54, !llvm.loop !22
+  br i1 %exitcond.not, label %156, label %54, !llvm.loop !21
 
 156:                                              ; preds = %_ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit
   %157 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %157, %47
-  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !23
+  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %156, %.loopexit
   ret void
@@ -2090,7 +2090,6 @@ attributes #18 = { nounwind willreturn memory(read) }
 !17 = distinct !{!17, !"_ZNK15QListWidgetItem4textEv"}
 !18 = distinct !{!18, !14}
 !19 = !{}
-!20 = !{i64 0, i64 65}
+!20 = distinct !{!20, !14}
 !21 = distinct !{!21, !14}
 !22 = distinct !{!22, !14}
-!23 = distinct !{!23, !14}

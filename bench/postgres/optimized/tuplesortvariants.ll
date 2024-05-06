@@ -251,7 +251,7 @@ define internal i32 @comparetup_heap(ptr nocapture noundef readonly %0, ptr noca
 
 33:                                               ; preds = %26
   %34 = icmp slt i32 %29, 0
-  %35 = sub i32 0, %29
+  %35 = sub nsw i32 0, %29
   br i1 %34, label %ApplySortComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %33, %26
@@ -340,7 +340,7 @@ define internal i32 @comparetup_heap_tiebreak(ptr nocapture noundef readonly %0,
 
 51:                                               ; preds = %44
   %52 = icmp slt i32 %47, 0
-  %53 = sub i32 0, %47
+  %53 = sub nsw i32 0, %47
   br i1 %52, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortAbbrevFullComparator.exit
 
 ApplySortAbbrevFullComparator.exit:               ; preds = %51, %44
@@ -400,7 +400,7 @@ ApplySortAbbrevFullComparator.exit.thread44:      ; preds = %34, %ApplySortAbbre
 
 83:                                               ; preds = %76
   %84 = icmp slt i32 %79, 0
-  %85 = sub i32 0, %79
+  %85 = sub nsw i32 0, %79
   br i1 %84, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %83, %76
@@ -630,7 +630,7 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   %76 = load i32, ptr %71, align 8
   %77 = getelementptr inbounds i8, ptr %70, i64 13
   %78 = lshr i32 %76, 25
-  %79 = trunc i32 %78 to i8
+  %79 = trunc nuw nsw i32 %78 to i8
   %80 = and i8 %79, 1
   store i8 %80, ptr %77, align 1
   %81 = getelementptr inbounds i8, ptr %71, i64 4
@@ -752,7 +752,7 @@ define internal i32 @comparetup_cluster(ptr nocapture noundef readonly %0, ptr n
 
 37:                                               ; preds = %30
   %38 = icmp slt i32 %33, 0
-  %39 = sub i32 0, %33
+  %39 = sub nsw i32 0, %33
   br i1 %38, label %ApplySortComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %37, %30
@@ -840,7 +840,7 @@ define internal i32 @comparetup_cluster_tiebreak(ptr nocapture noundef readonly 
 
 52:                                               ; preds = %45
   %53 = icmp slt i32 %48, 0
-  %54 = sub i32 0, %48
+  %54 = sub nsw i32 0, %48
   br i1 %53, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortAbbrevFullComparator.exit
 
 ApplySortAbbrevFullComparator.exit:               ; preds = %52, %45
@@ -925,7 +925,7 @@ ApplySortAbbrevFullComparator.exit.thread90:      ; preds = %35, %20, %ApplySort
 
 98:                                               ; preds = %91
   %99 = icmp slt i32 %94, 0
-  %100 = sub i32 0, %94
+  %100 = sub nsw i32 0, %94
   br i1 %99, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %98, %91
@@ -937,7 +937,7 @@ ApplySortComparator.exit.thread97:                ; preds = %81, %ApplySortCompa
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %101 = getelementptr i8, ptr %.1118, i64 64
   %102 = load i32, ptr %66, align 4
-  %103 = trunc i64 %indvars.iv.next132 to i32
+  %103 = trunc nuw i64 %indvars.iv.next132 to i32
   %104 = icmp sgt i32 %102, %103
   br i1 %104, label %.lr.ph119, label %ApplySortAbbrevFullComparator.exit.thread, !llvm.loop !11
 
@@ -1032,7 +1032,7 @@ ApplySortComparator.exit.thread97:                ; preds = %81, %ApplySortCompa
 
 157:                                              ; preds = %150
   %158 = icmp slt i32 %153, 0
-  %159 = sub i32 0, %153
+  %159 = sub nsw i32 0, %153
   br i1 %158, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortComparator.exit86
 
 ApplySortComparator.exit86:                       ; preds = %157, %150
@@ -1048,7 +1048,7 @@ ApplySortComparator.exit86.thread103:             ; preds = %ApplySortComparator
   %160 = phi i32 [ %.pre135, %ApplySortComparator.exit86.ApplySortComparator.exit86.thread103_crit_edge ], [ %129, %140 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %161 = getelementptr i8, ptr %.2113, i64 64
-  %162 = trunc i64 %indvars.iv.next to i32
+  %162 = trunc nuw i64 %indvars.iv.next to i32
   %163 = icmp sgt i32 %160, %162
   br i1 %163, label %.lr.ph, label %ApplySortAbbrevFullComparator.exit.thread, !llvm.loop !12
 
@@ -1304,7 +1304,7 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
   %57 = load i32, ptr %52, align 8
   %58 = getelementptr inbounds i8, ptr %51, i64 13
   %59 = lshr i32 %57, 25
-  %60 = trunc i32 %59 to i8
+  %60 = trunc nuw nsw i32 %59 to i8
   %61 = and i8 %60, 1
   store i8 %61, ptr %58, align 1
   %62 = getelementptr inbounds i8, ptr %52, i64 4
@@ -1420,7 +1420,7 @@ define internal i32 @comparetup_index_btree(ptr nocapture noundef readonly %0, p
 
 33:                                               ; preds = %26
   %34 = icmp slt i32 %29, 0
-  %35 = sub i32 0, %29
+  %35 = sub nsw i32 0, %29
   br i1 %34, label %ApplySortComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %33, %26
@@ -1500,7 +1500,7 @@ define internal i32 @comparetup_index_btree_tiebreak(ptr nocapture noundef reado
 
 46:                                               ; preds = %39
   %47 = icmp slt i32 %42, 0
-  %48 = sub i32 0, %42
+  %48 = sub nsw i32 0, %42
   br i1 %47, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortAbbrevFullComparator.exit
 
 ApplySortAbbrevFullComparator.exit:               ; preds = %46, %39
@@ -1558,7 +1558,7 @@ ApplySortAbbrevFullComparator.exit.thread84:      ; preds = %29, %ApplySortAbbre
 
 74:                                               ; preds = %67
   %75 = icmp slt i32 %70, 0
-  %76 = sub i32 0, %70
+  %76 = sub nsw i32 0, %70
   br i1 %75, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %74, %67
@@ -1798,7 +1798,7 @@ define dso_local ptr @tuplesort_begin_index_hash(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @comparetup_index_hash(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 -1, 2) i32 @comparetup_index_hash(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2056,7 +2056,7 @@ define internal void @removeabbrev_index_brin(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @comparetup_index_brin(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #5 {
+define internal range(i32 -1, 2) i32 @comparetup_index_brin(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
@@ -2305,7 +2305,7 @@ define internal i32 @comparetup_datum(ptr nocapture noundef readonly %0, ptr noc
 
 33:                                               ; preds = %26
   %34 = icmp slt i32 %29, 0
-  %35 = sub i32 0, %29
+  %35 = sub nsw i32 0, %29
   br i1 %34, label %comparetup_datum_tiebreak.exit, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %33, %26
@@ -2469,7 +2469,7 @@ define internal void @writetup_datum(ptr nocapture noundef readonly %0, ptr noun
 23:                                               ; preds = %3, %14, %16
   %.014 = phi ptr [ %17, %16 ], [ %15, %14 ], [ null, %3 ]
   %.0 = phi i64 [ %22, %16 ], [ 8, %14 ], [ 0, %3 ]
-  %24 = trunc i64 %.0 to i32
+  %24 = trunc nuw i64 %.0 to i32
   %25 = add i32 %24, 4
   store i32 %25, ptr %4, align 4
   call void @LogicalTapeWrite(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 4) #9

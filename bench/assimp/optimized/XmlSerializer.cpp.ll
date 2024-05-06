@@ -5847,7 +5847,7 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i40:  ; preds = %for.inc.i.i36, %if.
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %g.i.i)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %b.i.i)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %a.i.i)
-  %call.i.i5.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i) #24
+  %call.i.i5.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %retval.0.i.i) #24
   switch i64 %call.i.i5.i, label %_ZN6Assimp4D3MF12_GLOBAL__N_110parseColorEPKcR9aiColor4tIfE.exit.i [
     i64 9, label %if.end2.i.i
     i64 7, label %if.end2.i.i
@@ -5900,7 +5900,7 @@ if.end5.i.i:                                      ; preds = %if.end2.i.i
   %div30.i.i = fdiv float %conv29.i.i, 2.550000e+02
   %b31.i.i = getelementptr inbounds i8, ptr %diffuse.i, i64 8
   store float %div30.i.i, ptr %b31.i.i, align 4
-  %call32.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i) #24
+  %call32.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %retval.0.i.i) #24
   %cmp33.i.i = icmp eq i64 %call32.i.i, 7
   br i1 %cmp33.i.i, label %if.then.i, label %if.end35.i.i
 

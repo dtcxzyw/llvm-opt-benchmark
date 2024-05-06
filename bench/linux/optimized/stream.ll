@@ -362,7 +362,7 @@ define dso_local void @sk_stream_wait_close(ptr noundef %0, i64 noundef %1) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sk_stream_wait_memory(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local range(i32 -512, 1) i32 @sk_stream_wait_memory(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = load i64, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #5

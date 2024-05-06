@@ -878,7 +878,7 @@ cond.true.i:                                      ; preds = %if.then
   %idxprom.i.i = zext nneg i32 %div2.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %idxprom.i.i
   %4 = load i8, ptr %arrayidx.i.i, align 1
-  %5 = trunc i32 %shl.i.i to i8
+  %5 = trunc nuw i32 %shl.i.i to i8
   %conv1.i.i = or i8 %4, %5
   store i8 %conv1.i.i, ptr %arrayidx.i.i, align 1
   br label %_ZN8facebook5velox4bits6setBitImEEvPT_jb.exit
@@ -1226,7 +1226,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %shl2.i = shl nsw i64 -1, %and.i35
   %not.i = xor i64 %shl2.i, -1
   %cmp8.i.not = icmp eq i64 %and.i35, 0
-  %2 = trunc i64 %and.i35 to i32
+  %2 = trunc nuw nsw i64 %and.i35 to i32
   %notmask17.i = shl nsw i32 -1, %2
   %3 = xor i32 %notmask17.i, 255
   %conv18.i = zext i32 %3 to i64
@@ -1302,7 +1302,7 @@ for.body.us154:                                   ; preds = %for.body.lr.ph.spli
   %shr.i38.us = lshr i64 %12, %sub23.i
   %and24.i.us = and i64 %shr.i38.us, %conv18.i
   %or25.i.us = or disjoint i64 %and20.i.us, %and24.i.us
-  %conv26.i.us = trunc i64 %or25.i.us to i8
+  %conv26.i.us = trunc nuw i64 %or25.i.us to i8
   store i8 %conv26.i.us, ptr %add.ptr.i.us, align 1
   %add.us168 = add nuw i64 %add153.us155, 64
   %cmp.not.us169 = icmp ugt i64 %add.us168, %numBits
@@ -1336,7 +1336,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %shr.i38 = lshr i64 %or.i, %sub23.i
   %and24.i = and i64 %shr.i38, %conv18.i
   %or25.i = or disjoint i64 %and20.i, %and24.i
-  %conv26.i = trunc i64 %or25.i to i8
+  %conv26.i = trunc nuw i64 %or25.i to i8
   store i8 %conv26.i, ptr %add.ptr.i, align 1
   %add = add nuw i64 %add153, 64
   %cmp.not = icmp ugt i64 %add, %numBits
@@ -1363,7 +1363,7 @@ if.end3.i46:                                      ; preds = %if.then
   %arrayidx.i47 = getelementptr inbounds i8, ptr %23, i64 4
   %25 = load i8, ptr %arrayidx.i47, align 1
   %conv4.i48 = zext i8 %25 to i32
-  %26 = trunc i64 %and.i41 to i32
+  %26 = trunc nuw nsw i64 %and.i41 to i32
   %or10.i = tail call i32 @llvm.fshr.i32(i32 %conv4.i48, i32 %24, i32 %26)
   br label %_ZN8facebook5velox4bits6detail8loadBitsIjEET_PKmmh.exit
 
@@ -1390,7 +1390,7 @@ _ZN8facebook5velox4bits6detail8loadBitsIjEET_PKmmh.exit: ; preds = %if.then, %if
 
 if.then.i59:                                      ; preds = %_ZN8facebook5velox4bits6detail8loadBitsIjEET_PKmmh.exit
   %add.ptr.i60 = getelementptr inbounds i8, ptr %28, i64 4
-  %30 = trunc i64 %and.i54 to i32
+  %30 = trunc nuw nsw i64 %and.i54 to i32
   %notmask17.i61 = shl nsw i32 -1, %30
   %31 = load i8, ptr %add.ptr.i60, align 1
   %conv19.i = zext i8 %31 to i64
@@ -1402,7 +1402,7 @@ if.then.i59:                                      ; preds = %_ZN8facebook5velox4
   %shr.i62 = lshr i64 %conv, %sub25.i
   %and26.i = and i64 %shr.i62, %conv20.i
   %or27.i = or disjoint i64 %and22.i, %and26.i
-  %conv28.i = trunc i64 %or27.i to i8
+  %conv28.i = trunc nuw i64 %or27.i to i8
   store i8 %conv28.i, ptr %add.ptr.i60, align 1
   br label %if.end
 
@@ -1426,7 +1426,7 @@ if.then12:                                        ; preds = %if.end
 if.end5.i:                                        ; preds = %if.then12
   %arrayidx.i70 = getelementptr inbounds i8, ptr %34, i64 2
   %36 = load i8, ptr %arrayidx.i70, align 1
-  %37 = trunc i64 %and.i65 to i16
+  %37 = trunc nuw nsw i64 %and.i65 to i16
   %38 = zext i8 %36 to i16
   %conv14.i71 = tail call i16 @llvm.fshr.i16(i16 %38, i16 %35, i16 %37)
   br label %_ZN8facebook5velox4bits6detail8loadBitsItEET_PKmmh.exit
@@ -1454,7 +1454,7 @@ _ZN8facebook5velox4bits6detail8loadBitsItEET_PKmmh.exit: ; preds = %if.then12, %
 
 if.then.i90:                                      ; preds = %_ZN8facebook5velox4bits6detail8loadBitsItEET_PKmmh.exit
   %add.ptr.i91 = getelementptr inbounds i8, ptr %40, i64 2
-  %42 = trunc i64 %and.i78 to i32
+  %42 = trunc nuw nsw i64 %and.i78 to i32
   %notmask17.i94 = shl nsw i32 -1, %42
   %43 = load i8, ptr %add.ptr.i91, align 1
   %conv19.i95 = zext i8 %43 to i64
@@ -1466,7 +1466,7 @@ if.then.i90:                                      ; preds = %_ZN8facebook5velox4
   %shr.i100 = lshr i64 %conv17, %sub25.i99
   %and26.i101 = and i64 %shr.i100, %conv20.i96
   %or27.i102 = or i64 %and22.i98, %and26.i101
-  %conv28.i103 = trunc i64 %or27.i102 to i8
+  %conv28.i103 = trunc nuw i64 %or27.i102 to i8
   store i8 %conv28.i103, ptr %add.ptr.i91, align 1
   br label %if.end19
 
@@ -1483,7 +1483,7 @@ for.body22.lr.ph:                                 ; preds = %if.end19
   %49 = add i64 %i.2, %targetOffset
   %50 = and i64 %49, 7
   %tobool.not.i108 = icmp eq i64 %48, 0
-  %sh_prom.i117 = trunc i64 %48 to i8
+  %sh_prom.i117 = trunc nuw nsw i64 %48 to i8
   %sub25.i144 = sub nuw nsw i64 8, %50
   br label %for.body22
 
@@ -1539,7 +1539,7 @@ _ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit: ; preds = %for.body22, 
 
 if.then.i135:                                     ; preds = %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit
   %add.ptr.i136 = getelementptr inbounds i8, ptr %55, i64 1
-  %57 = trunc i64 %add9.i132 to i32
+  %57 = trunc nuw nsw i64 %add9.i132 to i32
   %conv14.i137 = add nuw nsw i32 %57, 248
   %conv15.i138 = and i32 %conv14.i137, 255
   %notmask17.i139 = shl nsw i32 -1, %conv15.i138
@@ -1552,7 +1552,7 @@ if.then.i135:                                     ; preds = %_ZN8facebook5velox4
   %shr.i145 = lshr i64 %conv30, %sub25.i144
   %and26.i146 = and i64 %shr.i145, %conv20.i141
   %or27.i147 = or i64 %and22.i143, %and26.i146
-  %conv28.i148 = trunc i64 %or27.i147 to i8
+  %conv28.i148 = trunc nuw i64 %or27.i147 to i8
   store i8 %conv28.i148, ptr %add.ptr.i136, align 1
   br label %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit
 
@@ -3088,9 +3088,9 @@ if.else.i32:                                      ; preds = %if.then10
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else.i32, %if.then.i37, %if.end8
-  %add64 = add nsw i32 %mul.i, 64
-  %cmp15.not65 = icmp sgt i32 %add64, %1
-  br i1 %cmp15.not65, label %for.end, label %for.body.lr.ph
+  %add65 = add nsw i32 %mul.i, 64
+  %cmp15.not66 = icmp sgt i32 %add65, %1
+  br i1 %cmp15.not66, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end14
   %6 = and i8 %fullWordFunc.coerce1, 1
@@ -3099,13 +3099,13 @@ for.body.lr.ph:                                   ; preds = %if.end14
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %add67 = phi i32 [ %add64, %for.body.lr.ph ], [ %add, %for.body ]
-  %i.066 = phi i32 [ %mul.i, %for.body.lr.ph ], [ %add67, %for.body ]
-  %div16 = sdiv i32 %i.066, 64
+  %add68 = phi i32 [ %add65, %for.body.lr.ph ], [ %add, %for.body ]
+  %i.067 = phi i32 [ %mul.i, %for.body.lr.ph ], [ %add68, %for.body ]
+  %div16 = sdiv i32 %i.067, 64
   %idxprom.i42 = sext i32 %div16 to i64
   %arrayidx.i43 = getelementptr inbounds i64, ptr %fullWordFunc.coerce0, i64 %idxprom.i42
   store i64 %cond.i, ptr %arrayidx.i43, align 8
-  %add = add nsw i32 %add67, 64
+  %add = add nsw i32 %add68, 64
   %cmp15.not = icmp sgt i32 %add, %1
   br i1 %cmp15.not, label %for.end, label %for.body, !llvm.loop !21
 
@@ -3119,26 +3119,26 @@ if.then19:                                        ; preds = %for.end
   %sh_prom.i44 = zext nneg i32 %sub21 to i64
   %notmask.i45 = shl nsw i64 -1, %sh_prom.i44
   %tobool.i47 = trunc i8 %partialWordFunc.coerce1 to i1
-  br i1 %tobool.i47, label %if.then.i52, label %if.else.i48
+  br i1 %tobool.i47, label %if.then.i53, label %if.else.i48
 
-if.then.i52:                                      ; preds = %if.then19
+if.then.i53:                                      ; preds = %if.then19
   %sub.i46 = xor i64 %notmask.i45, -1
-  %idxprom.i53 = sext i32 %div20 to i64
-  %arrayidx.i54 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom.i53
-  %8 = load i64, ptr %arrayidx.i54, align 8
-  %or.i55 = or i64 %8, %sub.i46
-  store i64 %or.i55, ptr %arrayidx.i54, align 8
+  %idxprom.i54 = sext i32 %div20 to i64
+  %arrayidx.i55 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom.i54
+  %8 = load i64, ptr %arrayidx.i55, align 8
+  %or.i56 = or i64 %8, %sub.i46
+  store i64 %or.i56, ptr %arrayidx.i55, align 8
   br label %if.end23
 
 if.else.i48:                                      ; preds = %if.then19
-  %idxprom2.i49 = sext i32 %div20 to i64
-  %arrayidx3.i50 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom2.i49
-  %9 = load i64, ptr %arrayidx3.i50, align 8
-  %and4.i51 = and i64 %9, %notmask.i45
-  store i64 %and4.i51, ptr %arrayidx3.i50, align 8
+  %idxprom2.i50 = sext i32 %div20 to i64
+  %arrayidx3.i51 = getelementptr inbounds i64, ptr %partialWordFunc.coerce0, i64 %idxprom2.i50
+  %9 = load i64, ptr %arrayidx3.i51, align 8
+  %and4.i52 = and i64 %9, %notmask.i45
+  store i64 %and4.i52, ptr %arrayidx3.i51, align 8
   br label %if.end23
 
-if.end23:                                         ; preds = %if.else.i48, %if.then.i52, %if.else.i, %if.then.i, %entry, %for.end
+if.end23:                                         ; preds = %if.else.i48, %if.then.i53, %if.else.i, %if.then.i, %entry, %for.end
   ret void
 }
 

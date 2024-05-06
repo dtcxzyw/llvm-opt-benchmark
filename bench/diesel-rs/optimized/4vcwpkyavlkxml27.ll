@@ -27,7 +27,7 @@ define void @_ZN5serde2de9MapAccess10next_entry17h85474c78146c47f1E(ptr nocaptur
   br i1 %10, label %12, label %14
 
 11:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
   br label %_ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE.exit
 
 12:                                               ; preds = %7
@@ -49,7 +49,7 @@ define void @_ZN5serde2de9MapAccess10next_entry17h85474c78146c47f1E(ptr nocaptur
   br label %_ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE.exit
 
 19:                                               ; preds = %14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
   br label %_ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE.exit
 
 _ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE.exit: ; preds = %11, %12, %17, %19

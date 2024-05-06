@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.23 = private unnamed_addr constant [26 x i8] c"uri authority unsupported\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_err_load_OSSL_STORE_strings() local_unnamed_addr #0 {
+define noundef i32 @ossl_err_load_OSSL_STORE_strings() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ERR_reason_error_string(i64 noundef 369098859) #2
   %cmp = icmp eq ptr %call, null

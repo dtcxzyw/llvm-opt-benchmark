@@ -405,7 +405,7 @@ define hidden ptr @lexbor_str_append_with_rep_null_chars(ptr nocapture noundef %
   %22 = phi i64 [ %58, %60 ], [ %.pre.i49, %67 ]
   %23 = phi ptr [ %.val.i46, %60 ], [ %65, %67 ]
   %24 = getelementptr inbounds i8, ptr %23, i64 %22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %24, ptr noundef nonnull align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %24, ptr noundef nonnull readonly align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
   %25 = load i64, ptr %5, align 8
   %26 = add i64 %25, 3
   store i64 %26, ptr %5, align 8
@@ -455,7 +455,7 @@ define hidden ptr @lexbor_str_append_with_rep_null_chars(ptr nocapture noundef %
   %51 = phi i64 [ %38, %41 ], [ %.pre.i, %49 ]
   %52 = phi ptr [ %.val.i, %41 ], [ %47, %49 ]
   %53 = getelementptr inbounds i8, ptr %52, i64 %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %.04163, i64 %37, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr readonly align 1 %.04163, i64 %37, i1 false)
   %54 = load i64, ptr %5, align 8
   %55 = add i64 %54, %37
   store i64 %55, ptr %5, align 8
@@ -513,7 +513,7 @@ lexbor_str_append.exit55:                         ; preds = %72, %80
   %81 = phi i64 [ %69, %72 ], [ %.pre.i54, %80 ]
   %82 = phi ptr [ %.val.i51, %72 ], [ %78, %80 ]
   %83 = getelementptr inbounds i8, ptr %82, i64 %81
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %83, ptr align 1 %.04163, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %83, ptr readonly align 1 %.04163, i64 %32, i1 false)
   %84 = load i64, ptr %5, align 8
   %85 = add i64 %84, %32
   store i64 %85, ptr %5, align 8
@@ -600,7 +600,7 @@ lexbor_str_init.exit._crit_edge:                  ; preds = %lexbor_str_init.exi
   %34 = phi i64 [ %21, %24 ], [ %.pre.i12, %32 ]
   %35 = phi ptr [ %.val.i, %24 ], [ %30, %32 ]
   %36 = getelementptr inbounds i8, ptr %35, i64 %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 %17, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr readonly align 1 %17, i64 %19, i1 false)
   %37 = load i64, ptr %20, align 8
   %38 = add i64 %37, %19
   store i64 %38, ptr %20, align 8

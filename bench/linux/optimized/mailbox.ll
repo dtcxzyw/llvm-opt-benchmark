@@ -637,7 +637,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mbox_controller_register(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @mbox_controller_register(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %54, label %3
 
@@ -748,7 +748,7 @@ define dso_local noundef i32 @mbox_controller_register(ptr noundef %0) #0 align 
 declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @txdone_hrtimer(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @txdone_hrtimer(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -991,7 +991,7 @@ define dso_local void @mbox_controller_unregister(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @hrtimer_cancel(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @devm_mbox_controller_register(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @devm_mbox_controller_register(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @__devm_mbox_controller_unregister, i64 noundef 8, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str.10) #5
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
@@ -1051,7 +1051,7 @@ define dso_local void @devm_mbox_controller_unregister(ptr noundef %0, ptr nound
 declare dso_local i32 @devres_release(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @devm_mbox_controller_match(ptr nocapture readnone %0, ptr noundef readonly %1, ptr noundef readnone %2) #0 align 16 {
+define internal range(i32 0, 2) i32 @devm_mbox_controller_match(ptr nocapture readnone %0, ptr noundef readonly %1, ptr noundef readnone %2) #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5
 

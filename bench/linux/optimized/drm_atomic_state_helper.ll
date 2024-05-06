@@ -1122,7 +1122,7 @@ define dso_local void @drm_atomic_helper_connector_tv_reset(ptr noundef %0) #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @drm_atomic_helper_connector_tv_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_connector_tv_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40

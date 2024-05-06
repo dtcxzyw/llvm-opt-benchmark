@@ -355,7 +355,7 @@ _ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit8: ; preds = %_ZNSt10shared_pt
   %.not.i.i.i617 = phi i1 [ true, %_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit ], [ false, %22 ], [ false, %28 ]
   %30 = phi ptr [ %19, %_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit ], [ %26, %22 ], [ %19, %28 ]
   %31 = phi ptr [ null, %_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit ], [ %25, %22 ], [ %.pr, %28 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %32 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17
           to label %.noexc unwind label %121
 

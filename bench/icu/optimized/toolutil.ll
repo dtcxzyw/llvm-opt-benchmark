@@ -116,7 +116,7 @@ declare noundef ptr @_ZNK6icu_759ErrorCode9errorNameEv(ptr noundef nonnull align
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @getCurrentYear() local_unnamed_addr #0 {
+define range(i32 -2147481748, -2147483648) i32 @getCurrentYear() local_unnamed_addr #0 {
 entry:
   %now = alloca i64, align 8
   %0 = load i32, ptr @_ZL11currentYear, align 4
@@ -230,7 +230,7 @@ declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_un
 declare ptr @__errno_location() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef signext i8 @uprv_fileExists(ptr nocapture noundef readonly %file) local_unnamed_addr #12 {
+define signext range(i8 0, 2) i8 @uprv_fileExists(ptr nocapture noundef readonly %file) local_unnamed_addr #12 {
 entry:
   %stat_buf = alloca %struct.stat, align 8
   %call = call i32 @stat(ptr noundef %file, ptr noundef nonnull %stat_buf) #21

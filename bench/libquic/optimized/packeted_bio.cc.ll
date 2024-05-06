@@ -50,7 +50,7 @@ if.end:                                           ; preds = %entry
   tail call void @BIO_clear_retry_flags(ptr noundef nonnull %bio)
   store i8 80, ptr %header, align 1
   %shr = lshr i32 %inl, 24
-  %conv = trunc i32 %shr to i8
+  %conv = trunc nuw i32 %shr to i8
   %arrayidx1 = getelementptr inbounds i8, ptr %header, i64 1
   store i8 %conv, ptr %arrayidx1, align 1
   %shr2 = lshr i32 %inl, 16
@@ -111,7 +111,7 @@ while.body.i:                                     ; preds = %if.end4.i, %if.end
   %len.addr.010.i = phi i64 [ %sub.i, %if.end4.i ], [ 1, %if.end ]
   %out.addr.09.i = phi ptr [ %add.ptr.i, %if.end4.i ], [ %opcode, %if.end ]
   %cmp1.i = icmp ult i64 %len.addr.010.i, 2147483648
-  %conv.i = trunc i64 %len.addr.010.i to i32
+  %conv.i = trunc nuw nsw i64 %len.addr.010.i to i32
   %spec.select.i = select i1 %cmp1.i, i32 %conv.i, i32 2147483647
   %call.i = call i32 @BIO_read(ptr noundef %1, ptr noundef %out.addr.09.i, i32 noundef %spec.select.i)
   %cmp2.i = icmp slt i32 %call.i, 1
@@ -143,7 +143,7 @@ while.body.i31:                                   ; preds = %if.end4.i39, %if.th
   %len.addr.010.i32 = phi i64 [ %sub.i42, %if.end4.i39 ], [ 8, %if.then6 ]
   %out.addr.09.i33 = phi ptr [ %add.ptr.i41, %if.end4.i39 ], [ %buf, %if.then6 ]
   %cmp1.i34 = icmp ult i64 %len.addr.010.i32, 2147483648
-  %conv.i35 = trunc i64 %len.addr.010.i32 to i32
+  %conv.i35 = trunc nuw nsw i64 %len.addr.010.i32 to i32
   %spec.select.i36 = select i1 %cmp1.i34, i32 %conv.i35, i32 2147483647
   %call.i37 = call i32 @BIO_read(ptr noundef %3, ptr noundef %out.addr.09.i33, i32 noundef %spec.select.i36)
   %cmp2.i38 = icmp slt i32 %call.i37, 1
@@ -229,7 +229,7 @@ while.body.i46:                                   ; preds = %if.end4.i54, %if.en
   %len.addr.010.i47 = phi i64 [ %sub.i57, %if.end4.i54 ], [ 4, %if.end51 ]
   %out.addr.09.i48 = phi ptr [ %add.ptr.i56, %if.end4.i54 ], [ %len_bytes, %if.end51 ]
   %cmp1.i49 = icmp ult i64 %len.addr.010.i47, 2147483648
-  %conv.i50 = trunc i64 %len.addr.010.i47 to i32
+  %conv.i50 = trunc nuw nsw i64 %len.addr.010.i47 to i32
   %spec.select.i51 = select i1 %cmp1.i49, i32 %conv.i50, i32 2147483647
   %call.i52 = call i32 @BIO_read(ptr noundef %15, ptr noundef %out.addr.09.i48, i32 noundef %spec.select.i51)
   %cmp2.i53 = icmp slt i32 %call.i52, 1
@@ -278,7 +278,7 @@ while.body.i61:                                   ; preds = %if.end77, %if.end4.
   %len.addr.010.i62 = phi i64 [ %sub.i72, %if.end4.i69 ], [ %conv73, %if.end77 ]
   %out.addr.09.i63 = phi ptr [ %add.ptr.i71, %if.end4.i69 ], [ %call74, %if.end77 ]
   %cmp1.i64 = icmp ult i64 %len.addr.010.i62, 2147483648
-  %conv.i65 = trunc i64 %len.addr.010.i62 to i32
+  %conv.i65 = trunc nuw nsw i64 %len.addr.010.i62 to i32
   %spec.select.i66 = select i1 %cmp1.i64, i32 %conv.i65, i32 2147483647
   %call.i67 = call i32 @BIO_read(ptr noundef %20, ptr noundef %out.addr.09.i63, i32 noundef %spec.select.i66)
   %cmp2.i68 = icmp slt i32 %call.i67, 1
@@ -309,7 +309,7 @@ return:                                           ; preds = %if.end57, %if.end11
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN12_GLOBAL__N_112PacketedCtrlEP6bio_stilPv(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #0 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN12_GLOBAL__N_112PacketedCtrlEP6bio_stilPv(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #0 {
 entry:
   %next_bio = getelementptr inbounds i8, ptr %bio, i64 56
   %0 = load ptr, ptr %next_bio, align 8
@@ -339,7 +339,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_112PacketedFreeEP6bio_st(ptr noundef writeonly %bio) #2 {
+define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_112PacketedFreeEP6bio_st(ptr noundef writeonly %bio) #2 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end

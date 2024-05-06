@@ -528,9 +528,9 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %118, %_ZNSt12_Vecto
 
 .lr.ph111.preheader:                              ; preds = %._crit_edge, %.preheader.preheader
   %.051113 = phi i64 [ %168, %._crit_edge ], [ 0, %.preheader.preheader ]
-  %156 = mul nsw i64 %.051113, %153
+  %156 = mul nuw nsw i64 %.051113, %153
   %157 = getelementptr i64, ptr %135, i64 %156
-  %158 = mul nsw i64 %.051113, %154
+  %158 = mul nuw nsw i64 %.051113, %154
   %159 = getelementptr i64, ptr %135, i64 %158
   br label %.lr.ph111
 
@@ -1569,7 +1569,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %9
 
 .noexc27:                                         ; preds = %.noexc3.i
   store ptr %20, ptr %10, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 %18
+  %21 = getelementptr i8, ptr %20, i64 %18
   %22 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %21, ptr %22, align 8
   store i8 0, ptr %20, align 1

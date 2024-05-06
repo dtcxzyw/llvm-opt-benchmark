@@ -73,7 +73,7 @@ list_length.exit:                                 ; preds = %2, %3
   tail call void @pg_qsort(ptr noundef %10, i64 noundef %8, i64 noundef 4, ptr noundef nonnull @oid_cmp) #10
   %17 = tail call ptr @CatalogOpenIndexes(ptr noundef %7) #10
   %18 = tail call i64 @llvm.umin.i64(i64 %8, i64 862)
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = shl nuw nsw i64 %18, 3
   %21 = tail call ptr @palloc(i64 noundef %20) #10
   %.not = icmp eq i32 %19, 0
@@ -156,7 +156,7 @@ list_length.exit:                                 ; preds = %2, %3
   %69 = getelementptr i8, ptr %68, i64 8
   store i64 %25, ptr %69, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111126, 1
-  %70 = trunc i64 %indvars.iv.next112 to i32
+  %70 = trunc nsw i64 %indvars.iv.next112 to i32
   %71 = sitofp i32 %70 to float
   %72 = bitcast float %71 to i32
   %73 = sext i32 %72 to i64
@@ -475,7 +475,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   unreachable
 
 89:                                               ; preds = %.lr.ph137
-  %90 = trunc i64 %indvars.iv169 to i32
+  %90 = trunc nuw nsw i64 %indvars.iv169 to i32
   %sext = shl i64 %indvars.iv169, 32
   %91 = ashr exact i64 %sext, 32
   %92 = getelementptr ptr, ptr %50, i64 %91
@@ -549,7 +549,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %137 = load i8, ptr %136, align 2
   %138 = zext i8 %137 to i64
   %139 = getelementptr i8, ptr %135, i64 %138
-  %140 = trunc i64 %indvars.iv.i to i32
+  %140 = trunc nuw nsw i64 %indvars.iv.i to i32
   %141 = sitofp i32 %140 to float
   %142 = getelementptr inbounds i8, ptr %139, i64 8
   %143 = load float, ptr %142, align 4
@@ -752,7 +752,7 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 declare ptr @SearchSysCacheList(i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @sort_order_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @sort_order_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16

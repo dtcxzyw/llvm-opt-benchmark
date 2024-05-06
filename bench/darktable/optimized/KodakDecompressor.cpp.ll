@@ -664,7 +664,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor10decompressEv(ptr nocapture 
   %16 = getelementptr inbounds i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !118, !noalias !113
   %18 = ashr i32 %17, 1
-  %19 = mul nsw i32 %18, %15
+  %19 = mul nuw nsw i32 %18, %15
   %20 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %15, -1

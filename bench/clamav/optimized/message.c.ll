@@ -301,7 +301,7 @@ declare i32 @json_object_put(ptr noundef) local_unnamed_addr #4
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @messageSetMimeType(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @messageSetMimeType(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1036,7 +1036,7 @@ define void @messageAddArgument(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 18:                                               ; preds = %16
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %.0) #21
-  %19 = tail call fastcc i32 @usefulArg(ptr noundef nonnull %.0), !range !4
+  %19 = tail call fastcc i32 @usefulArg(ptr noundef nonnull %.0)
   %.not48 = icmp eq i32 %19, 0
   br i1 %.not48, label %.loopexit, label %.preheader
 
@@ -1489,7 +1489,7 @@ messageGetMimeType.exit:                          ; preds = %186, %183
 
 192:                                              ; preds = %messageGetMimeType.exit
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24) #21
-  %193 = tail call i32 @messageSetMimeType(ptr noundef nonnull %0, ptr noundef nonnull @.str.25), !range !4
+  %193 = tail call i32 @messageSetMimeType(ptr noundef nonnull %0, ptr noundef nonnull @.str.25)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %messageGetMimeType.exit, %192, %18, %16, %5, %186, %177, %160, %40, %4
@@ -1497,7 +1497,7 @@ messageGetMimeType.exit:                          ; preds = %186, %183
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @usefulArg(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @usefulArg(ptr noundef %0) unnamed_addr #2 {
   %2 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef nonnull @.str.35, i64 noundef 4) #23
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %18, label %3
@@ -1680,7 +1680,7 @@ define void @messageAddArguments(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 48:                                               ; preds = %46, %45
   %.3 = phi ptr [ @.str.13, %45 ], [ %47, %46 ]
-  %49 = tail call fastcc i32 @usefulArg(ptr noundef nonnull %33), !range !4
+  %49 = tail call fastcc i32 @usefulArg(ptr noundef nonnull %33)
   %.not99 = icmp eq i32 %49, 0
   br i1 %.not99, label %50, label %51
 
@@ -1908,13 +1908,13 @@ define ptr @messageGetFilename(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @messageHasFilename(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = tail call fastcc i32 @messageHasArgument(ptr noundef %0, ptr noundef nonnull @.str.18), !range !4
+define range(i32 0, 2) i32 @messageHasFilename(ptr noundef %0) local_unnamed_addr #2 {
+  %2 = tail call fastcc i32 @messageHasArgument(ptr noundef %0, ptr noundef nonnull @.str.18)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call fastcc i32 @messageHasArgument(ptr noundef %0, ptr noundef nonnull @.str.36), !range !4
+  %4 = tail call fastcc i32 @messageHasArgument(ptr noundef %0, ptr noundef nonnull @.str.36)
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -1923,7 +1923,7 @@ define noundef i32 @messageHasFilename(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @messageHasArgument(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @messageHasArgument(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -2199,7 +2199,7 @@ define i32 @messageGetEncoding(ptr noundef readonly %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @messageAddLine(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @messageAddLine(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2360,7 +2360,7 @@ define internal fastcc void @messageIsEncoding(ptr nocapture noundef %0) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @messageAddStr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @messageAddStr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2708,7 +2708,7 @@ define internal fastcc void @messageDedup(ptr nocapture noundef %0) unnamed_addr
 declare ptr @lineCreate(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @messageMoveText(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @messageMoveText(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2929,13 +2929,13 @@ define internal fastcc ptr @decode(ptr nocapture noundef %0, ptr noundef readonl
   %.0126213 = phi ptr [ %46, %.lr.ph214 ], [ %2, %.preheader ]
   %.0129212 = phi ptr [ %35, %.lr.ph214 ], [ %1, %.preheader ]
   %22 = getelementptr inbounds i8, ptr %.0129212, i64 1
-  %23 = tail call zeroext i8 %3(i8 noundef signext %21) #21, !callees !5
+  %23 = tail call zeroext i8 %3(i8 noundef signext %21) #21, !callees !4
   %24 = getelementptr inbounds i8, ptr %.0129212, i64 2
   %25 = load i8, ptr %22, align 1
-  %26 = tail call zeroext i8 %3(i8 noundef signext %25) #21, !callees !5
+  %26 = tail call zeroext i8 %3(i8 noundef signext %25) #21, !callees !4
   %27 = getelementptr inbounds i8, ptr %.0129212, i64 3
   %28 = load i8, ptr %24, align 1
-  %29 = tail call zeroext i8 %3(i8 noundef signext %28) #21, !callees !5
+  %29 = tail call zeroext i8 %3(i8 noundef signext %28) #21, !callees !4
   %30 = shl i8 %23, 2
   %31 = lshr i8 %26, 4
   %32 = and i8 %31, 3
@@ -2944,7 +2944,7 @@ define internal fastcc ptr @decode(ptr nocapture noundef %0, ptr noundef readonl
   store i8 %33, ptr %.0126213, align 1
   %35 = getelementptr inbounds i8, ptr %.0129212, i64 4
   %36 = load i8, ptr %27, align 1
-  %37 = tail call zeroext i8 %3(i8 noundef signext %36) #21, !callees !5
+  %37 = tail call zeroext i8 %3(i8 noundef signext %36) #21, !callees !4
   %38 = shl i8 %26, 4
   %39 = lshr i8 %29, 2
   %40 = and i8 %39, 15
@@ -3080,7 +3080,7 @@ select.unfold:                                    ; preds = %78, %53
 
 111:                                              ; preds = %.lr.ph
   %112 = getelementptr inbounds i8, ptr %.1130209, i64 1
-  %113 = tail call zeroext i8 %3(i8 noundef signext %107) #21, !callees !5
+  %113 = tail call zeroext i8 %3(i8 noundef signext %107) #21, !callees !4
   br label %114
 
 114:                                              ; preds = %111, %109
@@ -3102,7 +3102,7 @@ select.unfold:                                    ; preds = %78, %53
 
 121:                                              ; preds = %117
   %122 = getelementptr inbounds i8, ptr %.2131, i64 1
-  %123 = tail call zeroext i8 %3(i8 noundef signext %115) #21, !callees !5
+  %123 = tail call zeroext i8 %3(i8 noundef signext %115) #21, !callees !4
   br label %124
 
 124:                                              ; preds = %121, %119
@@ -3124,7 +3124,7 @@ select.unfold:                                    ; preds = %78, %53
 
 131:                                              ; preds = %127
   %132 = getelementptr inbounds i8, ptr %.3132, i64 1
-  %133 = tail call zeroext i8 %3(i8 noundef signext %125) #21, !callees !5
+  %133 = tail call zeroext i8 %3(i8 noundef signext %125) #21, !callees !4
   br label %134
 
 134:                                              ; preds = %131, %129
@@ -3136,7 +3136,7 @@ select.unfold:                                    ; preds = %78, %53
 
 137:                                              ; preds = %134
   %138 = getelementptr inbounds i8, ptr %.4, i64 1
-  %139 = tail call zeroext i8 %3(i8 noundef signext %135) #21, !callees !5
+  %139 = tail call zeroext i8 %3(i8 noundef signext %135) #21, !callees !4
   %140 = shl i8 %.0123, 2
   %141 = lshr i8 %.1121, 4
   %142 = and i8 %141, 3
@@ -3192,7 +3192,7 @@ define internal zeroext i8 @base64(i8 noundef signext %0) #13 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @messageSavePartial(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 27) i32 @messageSavePartial(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca [4 x i8], align 1
   %7 = alloca [1024 x i8], align 16
@@ -3211,7 +3211,7 @@ messageGetBody.exit.i:                            ; preds = %4
   br i1 %13, label %messageExport.exit.thread, label %14
 
 14:                                               ; preds = %messageGetBody.exit.i
-  %15 = tail call ptr @fileblobCreate() #21, !callees !6
+  %15 = tail call ptr @fileblobCreate() #21, !callees !5
   %16 = icmp eq ptr %15, null
   br i1 %16, label %messageExport.exit.thread, label %17
 
@@ -3243,14 +3243,14 @@ messageGetBody.exit.i:                            ; preds = %4
   %30 = load i8, ptr %.0154.ph.i, align 1
   %.not185.i = icmp eq i8 %30, 0
   %spec.select.i = select i1 %.not185.i, ptr @.str.99, ptr %.0154.ph.i
-  call void @fileblobPartialSet(ptr noundef nonnull %15, ptr noundef nonnull %7, ptr noundef nonnull %spec.select.i) #21, !callees !7
+  call void @fileblobPartialSet(ptr noundef nonnull %15, ptr noundef nonnull %7, ptr noundef nonnull %spec.select.i) #21, !callees !6
   call void @free(ptr noundef nonnull %.0154.ph.i) #21
   br label %31
 
 .critedge.i:                                      ; preds = %25
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.96) #21
   tail call void @messageAddArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.97)
-  call void @fileblobPartialSet(ptr noundef nonnull %15, ptr noundef nonnull %7, ptr noundef nonnull @.str.99) #21, !callees !7
+  call void @fileblobPartialSet(ptr noundef nonnull %15, ptr noundef nonnull %7, ptr noundef nonnull @.str.99) #21, !callees !6
   br label %31
 
 31:                                               ; preds = %.critedge.i, %29
@@ -3260,7 +3260,7 @@ messageGetBody.exit.i:                            ; preds = %4
 
 messageGetBody.exit204.i:                         ; preds = %31
   %34 = load ptr, ptr %11, align 8
-  %35 = call ptr @textToFileblob(ptr noundef %34, ptr noundef nonnull %15, i32 noundef 0) #21, !callees !8
+  %35 = call ptr @textToFileblob(ptr noundef %34, ptr noundef nonnull %15, i32 noundef 0) #21, !callees !7
   br label %messageExport.exit
 
 36:                                               ; preds = %31, %17
@@ -3271,7 +3271,7 @@ messageGetBody.exit204.i:                         ; preds = %31
   br i1 %.not187.i, label %41, label %40
 
 40:                                               ; preds = %36
-  call void @fileblobSetCTX(ptr noundef nonnull %15, ptr noundef nonnull %39) #21, !callees !9
+  call void @fileblobSetCTX(ptr noundef nonnull %15, ptr noundef nonnull %39) #21, !callees !8
   %.pre.i = load i32, ptr %18, align 4
   br label %41
 
@@ -3305,7 +3305,7 @@ messageExport.exit.thread13:                      ; preds = %41
   br label %58
 
 51:                                               ; preds = %47
-  %52 = call ptr @fileblobCreate() #21, !callees !6
+  %52 = call ptr @fileblobCreate() #21, !callees !5
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %55
 
@@ -3314,7 +3314,7 @@ messageExport.exit.thread13:                      ; preds = %41
   br label %messageExport.exit
 
 55:                                               ; preds = %51
-  call void @fileblobDestroy(ptr noundef %.0150266.i) #21, !callees !10
+  call void @fileblobDestroy(ptr noundef %.0150266.i) #21, !callees !9
   %56 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.101, i32 noundef %56, i32 noundef %50) #21
   %57 = icmp eq i32 %50, 6
@@ -3346,12 +3346,12 @@ messageExport.exit.thread13:                      ; preds = %41
   %70 = load i8, ptr %66, align 1
   %.not195.i = icmp eq i8 %70, 0
   %spec.select4.i = select i1 %.not195.i, ptr @.str.99, ptr %66
-  call void @fileblobPartialSet(ptr noundef %.1216.i, ptr noundef nonnull %7, ptr noundef nonnull %spec.select4.i) #21, !callees !7
+  call void @fileblobPartialSet(ptr noundef %.1216.i, ptr noundef nonnull %7, ptr noundef nonnull %spec.select4.i) #21, !callees !6
   call void @free(ptr noundef nonnull %66) #21
   br label %.thread231.i
 
 .critedge202.i:                                   ; preds = %64, %60
-  call void @fileblobPartialSet(ptr noundef %.1216.i, ptr noundef nonnull %7, ptr noundef nonnull @.str.99) #21, !callees !7
+  call void @fileblobPartialSet(ptr noundef %.1216.i, ptr noundef nonnull %7, ptr noundef nonnull @.str.99) #21, !callees !6
   br label %.thread231.i
 
 .thread231.i:                                     ; preds = %.critedge202.i, %67
@@ -3395,7 +3395,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
 .thread240.i:                                     ; preds = %messageGetFilename.exit.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.105) #21
   call void @messageAddArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.97)
-  call void @fileblobPartialSet(ptr noundef %.1218.i, ptr noundef nonnull %7, ptr noundef nonnull @.str.99) #21, !callees !7
+  call void @fileblobPartialSet(ptr noundef %.1218.i, ptr noundef nonnull %7, ptr noundef nonnull @.str.99) #21, !callees !6
   %84 = load ptr, ptr %11, align 8
   br label %88
 
@@ -3403,7 +3403,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %86 = load i8, ptr %.0.i205225.i, align 1
   %.not191.i = icmp eq i8 %86, 0
   %spec.select5.i = select i1 %.not191.i, ptr @.str.99, ptr %.0.i205225.i
-  call void @fileblobPartialSet(ptr noundef %.1218.i, ptr noundef nonnull %7, ptr noundef nonnull %spec.select5.i) #21, !callees !7
+  call void @fileblobPartialSet(ptr noundef %.1218.i, ptr noundef nonnull %7, ptr noundef nonnull %spec.select5.i) #21, !callees !6
   %87 = load ptr, ptr %11, align 8
   call void @free(ptr noundef nonnull %.0.i205225.i) #21
   br label %88
@@ -3418,7 +3418,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
 
 90:                                               ; preds = %88
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.106) #21
-  call void @fileblobDestroy(ptr noundef %.1217237.i) #21, !callees !10
+  call void @fileblobDestroy(ptr noundef %.1217237.i) #21, !callees !9
   br label %messageExport.exit.thread
 
 91:                                               ; preds = %88
@@ -3509,7 +3509,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %123 = ptrtoint ptr %.5.i to i64
   %124 = ptrtoint ptr %.0151.us.i to i64
   %125 = sub i64 %123, %124
-  %126 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.us.i, i64 noundef %125) #21, !callees !11
+  %126 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.us.i, i64 noundef %125) #21, !callees !10
   %127 = add i64 %125, %.0158.us.i
   br label %128
 
@@ -3586,7 +3586,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %154 = ptrtoint ptr %148 to i64
   %155 = ptrtoint ptr %.0151.i to i64
   %156 = sub i64 %154, %155
-  %157 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.i, i64 noundef %156) #21, !callees !11
+  %157 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.i, i64 noundef %156) #21, !callees !10
   %158 = add i64 %156, %.0158.i
   br label %159
 
@@ -3627,7 +3627,7 @@ base64Flush.exit.i:                               ; preds = %166
 169:                                              ; preds = %base64Flush.exit.i
   %170 = ptrtoint ptr %168 to i64
   %171 = sub i64 %170, %46
-  %172 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %6, i64 noundef %171) #21, !callees !11
+  %172 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %6, i64 noundef %171) #21, !callees !10
   br label %base64Flush.exit.thread.i
 
 base64Flush.exit.thread.i:                        ; preds = %134, %169, %base64Flush.exit.i, %166, %.loopexit.i
@@ -3694,7 +3694,7 @@ messageGetBody.exit.i:                            ; preds = %3
   br i1 %9, label %messageExport.exit, label %10
 
 10:                                               ; preds = %messageGetBody.exit.i
-  %11 = tail call ptr @fileblobCreate() #21, !callees !6
+  %11 = tail call ptr @fileblobCreate() #21, !callees !5
   %12 = icmp eq ptr %11, null
   br i1 %12, label %messageExport.exit, label %13
 
@@ -3726,14 +3726,14 @@ messageGetBody.exit.i:                            ; preds = %3
   %26 = load i8, ptr %.0154.ph.i, align 1
   %.not185.i = icmp eq i8 %26, 0
   %spec.select.i = select i1 %.not185.i, ptr @.str.99, ptr %.0154.ph.i
-  tail call void @fileblobSetFilename(ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull %spec.select.i) #21, !callees !7
+  tail call void @fileblobSetFilename(ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull %spec.select.i) #21, !callees !6
   tail call void @free(ptr noundef nonnull %.0154.ph.i) #21
   br label %27
 
 .critedge.i:                                      ; preds = %21
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.96) #21
   tail call void @messageAddArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.97)
-  tail call void @fileblobSetFilename(ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull @.str.99) #21, !callees !7
+  tail call void @fileblobSetFilename(ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull @.str.99) #21, !callees !6
   br label %27
 
 27:                                               ; preds = %.critedge.i, %25
@@ -3743,7 +3743,7 @@ messageGetBody.exit.i:                            ; preds = %3
 
 messageGetBody.exit204.i:                         ; preds = %27
   %30 = load ptr, ptr %7, align 8
-  %31 = tail call ptr @textToFileblob(ptr noundef %30, ptr noundef nonnull %11, i32 noundef %2) #21, !callees !8
+  %31 = tail call ptr @textToFileblob(ptr noundef %30, ptr noundef nonnull %11, i32 noundef %2) #21, !callees !7
   br label %messageExport.exit
 
 32:                                               ; preds = %27, %13
@@ -3754,7 +3754,7 @@ messageGetBody.exit204.i:                         ; preds = %27
   br i1 %.not187.i, label %37, label %36
 
 36:                                               ; preds = %32
-  tail call void @fileblobSetCTX(ptr noundef nonnull %11, ptr noundef nonnull %35) #21, !callees !9
+  tail call void @fileblobSetCTX(ptr noundef nonnull %11, ptr noundef nonnull %35) #21, !callees !8
   %.pre.i = load i32, ptr %14, align 4
   br label %37
 
@@ -3784,7 +3784,7 @@ messageGetBody.exit204.i:                         ; preds = %27
   br label %55
 
 48:                                               ; preds = %44
-  %49 = call ptr @fileblobCreate() #21, !callees !6
+  %49 = call ptr @fileblobCreate() #21, !callees !5
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %52
 
@@ -3793,7 +3793,7 @@ messageGetBody.exit204.i:                         ; preds = %27
   br label %messageExport.exit
 
 52:                                               ; preds = %48
-  call void @fileblobDestroy(ptr noundef %.0150266.i) #21, !callees !10
+  call void @fileblobDestroy(ptr noundef %.0150266.i) #21, !callees !9
   %53 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.101, i32 noundef %53, i32 noundef %47) #21
   %54 = icmp eq i32 %47, 6
@@ -3825,12 +3825,12 @@ messageGetBody.exit204.i:                         ; preds = %27
   %67 = load i8, ptr %63, align 1
   %.not195.i = icmp eq i8 %67, 0
   %spec.select4.i = select i1 %.not195.i, ptr @.str.99, ptr %63
-  call void @fileblobSetFilename(ptr noundef %.1216.i, ptr noundef %1, ptr noundef nonnull %spec.select4.i) #21, !callees !7
+  call void @fileblobSetFilename(ptr noundef %.1216.i, ptr noundef %1, ptr noundef nonnull %spec.select4.i) #21, !callees !6
   call void @free(ptr noundef nonnull %63) #21
   br label %.thread231.i
 
 .critedge202.i:                                   ; preds = %61, %57
-  call void @fileblobSetFilename(ptr noundef %.1216.i, ptr noundef %1, ptr noundef nonnull @.str.99) #21, !callees !7
+  call void @fileblobSetFilename(ptr noundef %.1216.i, ptr noundef %1, ptr noundef nonnull @.str.99) #21, !callees !6
   br label %.thread231.i
 
 .thread231.i:                                     ; preds = %.critedge202.i, %64
@@ -3874,7 +3874,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
 .thread240.i:                                     ; preds = %messageGetFilename.exit.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.105) #21
   call void @messageAddArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.97)
-  call void @fileblobSetFilename(ptr noundef %.1218.i, ptr noundef %1, ptr noundef nonnull @.str.99) #21, !callees !7
+  call void @fileblobSetFilename(ptr noundef %.1218.i, ptr noundef %1, ptr noundef nonnull @.str.99) #21, !callees !6
   %81 = load ptr, ptr %7, align 8
   br label %85
 
@@ -3882,7 +3882,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %83 = load i8, ptr %.0.i205225.i, align 1
   %.not191.i = icmp eq i8 %83, 0
   %spec.select5.i = select i1 %.not191.i, ptr @.str.99, ptr %.0.i205225.i
-  call void @fileblobSetFilename(ptr noundef %.1218.i, ptr noundef %1, ptr noundef nonnull %spec.select5.i) #21, !callees !7
+  call void @fileblobSetFilename(ptr noundef %.1218.i, ptr noundef %1, ptr noundef nonnull %spec.select5.i) #21, !callees !6
   %84 = load ptr, ptr %7, align 8
   call void @free(ptr noundef nonnull %.0.i205225.i) #21
   br label %85
@@ -3897,7 +3897,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
 
 87:                                               ; preds = %85
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.106) #21
-  call void @fileblobDestroy(ptr noundef %.1217237.i) #21, !callees !10
+  call void @fileblobDestroy(ptr noundef %.1217237.i) #21, !callees !9
   br label %messageExport.exit
 
 88:                                               ; preds = %85
@@ -3988,7 +3988,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %120 = ptrtoint ptr %.5.i to i64
   %121 = ptrtoint ptr %.0151.us.i to i64
   %122 = sub i64 %120, %121
-  %123 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.us.i, i64 noundef %122) #21, !callees !11
+  %123 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.us.i, i64 noundef %122) #21, !callees !10
   %124 = add i64 %122, %.0158.us.i
   br label %125
 
@@ -4032,11 +4032,11 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   br i1 %144, label %145, label %147
 
 145:                                              ; preds = %140
-  %146 = call ptr @textToFileblob(ptr noundef nonnull %.0152239.i, ptr noundef %.1217237.i, i32 noundef %2) #21, !callees !8
+  %146 = call ptr @textToFileblob(ptr noundef nonnull %.0152239.i, ptr noundef %.1217237.i, i32 noundef %2) #21, !callees !7
   br label %messageExport.exit
 
 147:                                              ; preds = %140
-  %148 = call ptr @textToFileblob(ptr noundef nonnull %.0152239.i, ptr noundef %.1217237.i, i32 noundef 0) #21, !callees !8
+  %148 = call ptr @textToFileblob(ptr noundef nonnull %.0152239.i, ptr noundef %.1217237.i, i32 noundef 0) #21, !callees !7
   br label %base64Flush.exit.thread.i
 
 .preheader.split.i:                               ; preds = %88, %180
@@ -4088,7 +4088,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %163 = ptrtoint ptr %157 to i64
   %164 = ptrtoint ptr %.0151.i to i64
   %165 = sub i64 %163, %164
-  %166 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.i, i64 noundef %165) #21, !callees !11
+  %166 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.i, i64 noundef %165) #21, !callees !10
   %167 = add i64 %165, %.0158.i
   br label %168
 
@@ -4146,7 +4146,7 @@ base64Flush.exit.i:                               ; preds = %184
 187:                                              ; preds = %base64Flush.exit.i
   %188 = ptrtoint ptr %186 to i64
   %189 = sub i64 %188, %43
-  %190 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %5, i64 noundef %189) #21, !callees !11
+  %190 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %5, i64 noundef %189) #21, !callees !10
   br label %base64Flush.exit.thread.i
 
 base64Flush.exit.thread.i:                        ; preds = %187, %base64Flush.exit.i, %184, %.loopexit.i, %147
@@ -4197,7 +4197,7 @@ messageGetBody.exit.i:                            ; preds = %2
   br i1 %8, label %messageExport.exit, label %9
 
 9:                                                ; preds = %messageGetBody.exit.i
-  %10 = tail call ptr @blobCreate() #21, !callees !6
+  %10 = tail call ptr @blobCreate() #21, !callees !5
   %11 = icmp eq ptr %10, null
   br i1 %11, label %messageExport.exit, label %12
 
@@ -4229,14 +4229,14 @@ messageGetBody.exit.i:                            ; preds = %2
   %25 = load i8, ptr %.0154.ph.i, align 1
   %.not185.i = icmp eq i8 %25, 0
   %spec.select.i = select i1 %.not185.i, ptr @.str.99, ptr %.0154.ph.i
-  tail call void @blobSetFilename(ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %spec.select.i) #21, !callees !7
+  tail call void @blobSetFilename(ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %spec.select.i) #21, !callees !6
   tail call void @free(ptr noundef nonnull %.0154.ph.i) #21
   br label %26
 
 .critedge.i:                                      ; preds = %20
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.96) #21
   tail call void @messageAddArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.97)
-  tail call void @blobSetFilename(ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull @.str.99) #21, !callees !7
+  tail call void @blobSetFilename(ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull @.str.99) #21, !callees !6
   br label %26
 
 26:                                               ; preds = %.critedge.i, %24
@@ -4246,7 +4246,7 @@ messageGetBody.exit.i:                            ; preds = %2
 
 messageGetBody.exit204.i:                         ; preds = %26
   %29 = load ptr, ptr %6, align 8
-  %30 = tail call ptr @textToBlob(ptr noundef %29, ptr noundef nonnull %10, i32 noundef %1) #21, !callees !8
+  %30 = tail call ptr @textToBlob(ptr noundef %29, ptr noundef nonnull %10, i32 noundef %1) #21, !callees !7
   br label %messageExport.exit
 
 31:                                               ; preds = %26, %12
@@ -4275,7 +4275,7 @@ messageGetBody.exit204.i:                         ; preds = %26
   br label %49
 
 42:                                               ; preds = %38
-  %43 = call ptr @blobCreate() #21, !callees !6
+  %43 = call ptr @blobCreate() #21, !callees !5
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %46
 
@@ -4284,7 +4284,7 @@ messageGetBody.exit204.i:                         ; preds = %26
   br label %messageExport.exit
 
 46:                                               ; preds = %42
-  call void @blobDestroy(ptr noundef %.0150266.i) #21, !callees !10
+  call void @blobDestroy(ptr noundef %.0150266.i) #21, !callees !9
   %47 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.101, i32 noundef %47, i32 noundef %41) #21
   %48 = icmp eq i32 %41, 6
@@ -4316,12 +4316,12 @@ messageGetBody.exit204.i:                         ; preds = %26
   %61 = load i8, ptr %57, align 1
   %.not195.i = icmp eq i8 %61, 0
   %spec.select4.i = select i1 %.not195.i, ptr @.str.99, ptr %57
-  call void @blobSetFilename(ptr noundef %.1216.i, ptr noundef null, ptr noundef nonnull %spec.select4.i) #21, !callees !7
+  call void @blobSetFilename(ptr noundef %.1216.i, ptr noundef null, ptr noundef nonnull %spec.select4.i) #21, !callees !6
   call void @free(ptr noundef nonnull %57) #21
   br label %.thread231.i
 
 .critedge202.i:                                   ; preds = %55, %51
-  call void @blobSetFilename(ptr noundef %.1216.i, ptr noundef null, ptr noundef nonnull @.str.99) #21, !callees !7
+  call void @blobSetFilename(ptr noundef %.1216.i, ptr noundef null, ptr noundef nonnull @.str.99) #21, !callees !6
   br label %.thread231.i
 
 .thread231.i:                                     ; preds = %.critedge202.i, %58
@@ -4365,7 +4365,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
 .thread240.i:                                     ; preds = %messageGetFilename.exit.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.105) #21
   call void @messageAddArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.97)
-  call void @blobSetFilename(ptr noundef %.1218.i, ptr noundef null, ptr noundef nonnull @.str.99) #21, !callees !7
+  call void @blobSetFilename(ptr noundef %.1218.i, ptr noundef null, ptr noundef nonnull @.str.99) #21, !callees !6
   %75 = load ptr, ptr %6, align 8
   br label %79
 
@@ -4373,7 +4373,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %77 = load i8, ptr %.0.i205225.i, align 1
   %.not191.i = icmp eq i8 %77, 0
   %spec.select5.i = select i1 %.not191.i, ptr @.str.99, ptr %.0.i205225.i
-  call void @blobSetFilename(ptr noundef %.1218.i, ptr noundef null, ptr noundef nonnull %spec.select5.i) #21, !callees !7
+  call void @blobSetFilename(ptr noundef %.1218.i, ptr noundef null, ptr noundef nonnull %spec.select5.i) #21, !callees !6
   %78 = load ptr, ptr %6, align 8
   call void @free(ptr noundef nonnull %.0.i205225.i) #21
   br label %79
@@ -4388,7 +4388,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
 
 81:                                               ; preds = %79
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.106) #21
-  call void @blobDestroy(ptr noundef %.1217237.i) #21, !callees !10
+  call void @blobDestroy(ptr noundef %.1217237.i) #21, !callees !9
   br label %messageExport.exit
 
 82:                                               ; preds = %79
@@ -4479,7 +4479,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %114 = ptrtoint ptr %.5.i to i64
   %115 = ptrtoint ptr %.0151.us.i to i64
   %116 = sub i64 %114, %115
-  %117 = call i32 @blobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.us.i, i64 noundef %116) #21, !callees !11
+  %117 = call i32 @blobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.us.i, i64 noundef %116) #21, !callees !10
   %118 = add i64 %116, %.0158.us.i
   br label %119
 
@@ -4523,11 +4523,11 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %134
-  %140 = call ptr @textToBlob(ptr noundef nonnull %.0152239.i, ptr noundef %.1217237.i, i32 noundef %1) #21, !callees !8
+  %140 = call ptr @textToBlob(ptr noundef nonnull %.0152239.i, ptr noundef %.1217237.i, i32 noundef %1) #21, !callees !7
   br label %messageExport.exit
 
 141:                                              ; preds = %134
-  %142 = call ptr @textToBlob(ptr noundef nonnull %.0152239.i, ptr noundef %.1217237.i, i32 noundef 0) #21, !callees !8
+  %142 = call ptr @textToBlob(ptr noundef nonnull %.0152239.i, ptr noundef %.1217237.i, i32 noundef 0) #21, !callees !7
   br label %base64Flush.exit.thread.i
 
 .preheader.split.i:                               ; preds = %82, %174
@@ -4579,7 +4579,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %157 = ptrtoint ptr %151 to i64
   %158 = ptrtoint ptr %.0151.i to i64
   %159 = sub i64 %157, %158
-  %160 = call i32 @blobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.i, i64 noundef %159) #21, !callees !11
+  %160 = call i32 @blobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.i, i64 noundef %159) #21, !callees !10
   %161 = add i64 %159, %.0158.i
   br label %162
 
@@ -4637,7 +4637,7 @@ base64Flush.exit.i:                               ; preds = %178
 181:                                              ; preds = %base64Flush.exit.i
   %182 = ptrtoint ptr %180 to i64
   %183 = sub i64 %182, %37
-  %184 = call i32 @blobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %4, i64 noundef %183) #21, !callees !11
+  %184 = call i32 @blobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %4, i64 noundef %183) #21, !callees !10
   br label %base64Flush.exit.thread.i
 
 base64Flush.exit.thread.i:                        ; preds = %181, %base64Flush.exit.i, %178, %.loopexit.i, %141
@@ -5623,7 +5623,7 @@ decode.exit:                                      ; preds = %193, %.lr.ph214.i, 
   br i1 %228, label %.critedge, label %229
 
 229:                                              ; preds = %226
-  %230 = tail call i32 @isuuencodebegin(ptr noundef nonnull %2), !range !4
+  %230 = tail call i32 @isuuencodebegin(ptr noundef nonnull %2)
   %.not117 = icmp ne i32 %230, 0
   %231 = and i8 %224, 63
   %232 = icmp eq i8 %231, 32
@@ -5738,7 +5738,7 @@ declare ptr @cli_strrcpy(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i32 @isuuencodebegin(ptr nocapture noundef readonly %0) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @isuuencodebegin(ptr nocapture noundef readonly %0) local_unnamed_addr #16 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %2, 98
   br i1 %.not, label %3, label %37
@@ -5811,7 +5811,7 @@ define void @messageSetCTX(ptr nocapture noundef writeonly %0, ptr noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @messageContainsVirus(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @messageContainsVirus(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 123
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 1
@@ -5890,11 +5890,10 @@ attributes #24 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{ptr @base64, ptr @uudecode}
-!6 = !{ptr @blobCreate, ptr @fileblobCreate}
-!7 = !{ptr @blobSetFilename, ptr @fileblobPartialSet, ptr @fileblobSetFilename}
-!8 = !{ptr @textToBlob, ptr @textToFileblob}
-!9 = !{ptr @fileblobSetCTX}
-!10 = !{ptr @blobDestroy, ptr @fileblobDestroy}
-!11 = !{ptr @blobAddData, ptr @fileblobAddData}
+!4 = !{ptr @base64, ptr @uudecode}
+!5 = !{ptr @blobCreate, ptr @fileblobCreate}
+!6 = !{ptr @blobSetFilename, ptr @fileblobPartialSet, ptr @fileblobSetFilename}
+!7 = !{ptr @textToBlob, ptr @textToFileblob}
+!8 = !{ptr @fileblobSetCTX}
+!9 = !{ptr @blobDestroy, ptr @fileblobDestroy}
+!10 = !{ptr @blobAddData, ptr @fileblobAddData}

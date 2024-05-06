@@ -191,7 +191,7 @@ define dso_local i32 @remap_io_sg(ptr noundef %0, i64 noundef %1, i64 noundef %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define internal noundef i32 @remap_sg(ptr noundef %0, i64 %1, ptr nocapture noundef %2) #4 align 16 {
+define internal noundef range(i32 -22, 1) i32 @remap_sg(ptr noundef %0, i64 %1, ptr nocapture noundef %2) #4 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8

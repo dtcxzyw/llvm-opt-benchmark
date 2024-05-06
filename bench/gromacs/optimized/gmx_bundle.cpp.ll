@@ -1653,8 +1653,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit230:       ; preds = %471, %474
   br i1 %500, label %609, label %608
 
 608:                                              ; preds = %._crit_edge137.i
-  call fastcc void @_ZL11rotate_endsP8t_bundlePfii(ptr noundef nonnull %20, ptr noundef nonnull %4, i32 noundef 1)
-  call fastcc void @_ZL11rotate_endsP8t_bundlePfii(ptr noundef nonnull %20, ptr noundef nonnull %4, i32 noundef 0)
+  call fastcc void @_ZL11rotate_endsP8t_bundlePfii(ptr noundef nonnull readonly %20, ptr noundef nonnull %4, i32 noundef 1)
+  call fastcc void @_ZL11rotate_endsP8t_bundlePfii(ptr noundef nonnull readonly %20, ptr noundef nonnull %4, i32 noundef 0)
   br label %609
 
 609:                                              ; preds = %608, %._crit_edge137.i
@@ -2003,10 +2003,10 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit230:       ; preds = %471, %474
   %860 = getelementptr inbounds i8, ptr %853, i64 8
   store float %859, ptr %860, align 4
   %861 = load ptr, ptr @_ZZL9dump_axesP11t_trxstatusP10t_trxframeP7t_atomsP8t_bundleE4xout, align 8
-  %862 = getelementptr %"class.gmx::BasicVector", ptr %861, i64 %851
-  %863 = getelementptr i8, ptr %862, i64 12
-  %864 = getelementptr i8, ptr %862, i64 16
-  %865 = getelementptr i8, ptr %862, i64 20
+  %862 = getelementptr inbounds %"class.gmx::BasicVector", ptr %861, i64 %851
+  %863 = getelementptr inbounds i8, ptr %862, i64 12
+  %864 = getelementptr inbounds i8, ptr %862, i64 16
+  %865 = getelementptr inbounds i8, ptr %862, i64 20
   %866 = getelementptr inbounds [3 x float], ptr %847, i64 %indvars.iv.i238
   %867 = load float, ptr %866, align 4
   store float %867, ptr %863, align 4
@@ -2018,24 +2018,24 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit230:       ; preds = %471, %474
   store float %871, ptr %865, align 4
   %872 = getelementptr inbounds [3 x float], ptr %848, i64 %indvars.iv.i238
   %873 = load ptr, ptr @_ZZL9dump_axesP11t_trxstatusP10t_trxframeP7t_atomsP8t_bundleE4xout, align 8
-  %874 = getelementptr %"class.gmx::BasicVector", ptr %873, i64 %851
-  %875 = getelementptr i8, ptr %874, i64 24
+  %874 = getelementptr inbounds %"class.gmx::BasicVector", ptr %873, i64 %851
+  %875 = getelementptr inbounds i8, ptr %874, i64 24
   %876 = load float, ptr %872, align 4
   store float %876, ptr %875, align 4
   %877 = getelementptr inbounds i8, ptr %872, i64 4
   %878 = load float, ptr %877, align 4
-  %879 = getelementptr i8, ptr %874, i64 28
+  %879 = getelementptr inbounds i8, ptr %874, i64 28
   store float %878, ptr %879, align 4
   %880 = getelementptr inbounds i8, ptr %872, i64 8
   %881 = load float, ptr %880, align 4
-  %882 = getelementptr i8, ptr %874, i64 32
+  %882 = getelementptr inbounds i8, ptr %874, i64 32
   store float %881, ptr %882, align 4
   %indvars.iv.next.i239 = add nuw nsw i64 %indvars.iv.i238, 1
   %exitcond305.not = icmp eq i64 %indvars.iv.next.i239, %849
   br i1 %exitcond305.not, label %._crit_edge.i236, label %.lr.ph.i237, !llvm.loop !19
 
 ._crit_edge.i236:                                 ; preds = %.lr.ph.i237, %.noexc240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(176) %13, i64 176, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull readonly align 8 dereferenceable(176) %13, i64 176, i1 false)
   store i8 0, ptr %487, align 8
   store i8 0, ptr %488, align 8
   store i8 0, ptr %489, align 8

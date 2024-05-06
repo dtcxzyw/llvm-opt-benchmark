@@ -147,7 +147,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN8proxygen8Sampling12rateToWeightEd(double noundef %rate) local_unnamed_addr #1 align 2 {
+define noundef range(i32 0, 1000001) i32 @_ZN8proxygen8Sampling12rateToWeightEd(double noundef %rate) local_unnamed_addr #1 align 2 {
 entry:
   %mul = fmul double %rate, 1.000000e+06
   %conv = fptoui double %mul to i32
@@ -301,7 +301,7 @@ if.end:                                           ; preds = %entry
   %conv2.i.i.i = zext i32 %call1.i.i.i to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %conv2.i.i.i
   %shr.i.i = lshr i64 %or.i.i.i, 11
-  %conv.i.i = uitofp i64 %shr.i.i to double
+  %conv.i.i = uitofp nneg i64 %shr.i.i to double
   %mul.i.i = fmul double %conv.i.i, 0x3CA0000000000000
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   %1 = load double, ptr %rate_, align 8

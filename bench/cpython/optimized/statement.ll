@@ -246,7 +246,7 @@ declare void @PyObject_GC_Track(ptr noundef) local_unnamed_addr #1
 declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @pysqlite_statement_setup_types(ptr noundef %module) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @pysqlite_statement_setup_types(ptr noundef %module) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %module, ptr noundef nonnull @stmt_spec, ptr noundef null) #4
   %cmp = icmp eq ptr %call, null

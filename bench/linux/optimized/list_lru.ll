@@ -285,7 +285,7 @@ define dso_local void @list_lru_putback(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @list_lru_count_one(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define dso_local range(i64 0, -9223372036854775808) i64 @list_lru_count_one(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture readnone %2) #0 align 16 {
   tail call void @__rcu_read_lock() #5
   %4 = load ptr, ptr %0, align 8
   %5 = sext i32 %1 to i64
@@ -466,7 +466,7 @@ define dso_local i64 @list_lru_walk_node(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__list_lru_init(ptr nocapture noundef %0, i1 zeroext %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @__list_lru_init(ptr nocapture noundef %0, i1 zeroext %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = load i32, ptr @nr_node_ids, align 4
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 6

@@ -1749,7 +1749,7 @@ define hidden void @proto_register_ua3g() local_unnamed_addr #0 {
 define internal void @version_number_computer(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
   %3 = udiv i32 %1, 10000
   %4 = urem i32 %1, 10000
-  %.lhs.trunc = trunc i32 %4 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %4 to i16
   %5 = udiv i16 %.lhs.trunc, 100
   %.zext = zext nneg i16 %5 to i32
   %6 = urem i16 %.lhs.trunc, 100
@@ -3774,7 +3774,7 @@ switch.lookup:                                    ; preds = %4
   br i1 %.not29, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %switch.lookup
-  %switch.cast = trunc i8 %5 to i3
+  %switch.cast = trunc nuw i8 %5 to i3
   %switch.downshift = lshr exact i3 -4, %switch.cast
   %switch.masked = trunc i3 %switch.downshift to i1
   br label %.lr.ph
@@ -4344,7 +4344,7 @@ define internal fastcc void @decode_audio_config(ptr noundef %0, ptr noundef %1,
 
 .preheader145:                                    ; preds = %.lr.ph, %77
   %indvars.iv = phi i64 [ %indvars.iv.next, %77 ], [ 0, %.lr.ph ]
-  %71 = trunc i64 %indvars.iv to i32
+  %71 = trunc nuw nsw i64 %indvars.iv to i32
   %72 = shl nuw nsw i32 1, %71
   %73 = and i32 %72, %70
   %.not144 = icmp eq i32 %73, 0

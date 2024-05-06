@@ -163,7 +163,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_scsi_build_s
 @llvm.compiler.used = appending global [40 x ptr] [ptr @__UNIQUE_ID___addressable___scsi_init_queue549, ptr @__UNIQUE_ID___addressable_scsi_alloc_request532, ptr @__UNIQUE_ID___addressable_scsi_alloc_sgtables531, ptr @__UNIQUE_ID___addressable_scsi_block_requests552, ptr @__UNIQUE_ID___addressable_scsi_block_targets575, ptr @__UNIQUE_ID___addressable_scsi_build_sense596, ptr @__UNIQUE_ID___addressable_scsi_device_quiesce563, ptr @__UNIQUE_ID___addressable_scsi_device_resume564, ptr @__UNIQUE_ID___addressable_scsi_device_set_state557, ptr @__UNIQUE_ID___addressable_scsi_done538, ptr @__UNIQUE_ID___addressable_scsi_done_direct539, ptr @__UNIQUE_ID___addressable_scsi_execute_cmd513, ptr @__UNIQUE_ID___addressable_scsi_free_sgtables514, ptr @__UNIQUE_ID___addressable_scsi_host_block577, ptr @__UNIQUE_ID___addressable_scsi_host_unblock578, ptr @__UNIQUE_ID___addressable_scsi_internal_device_block_nowait567, ptr @__UNIQUE_ID___addressable_scsi_internal_device_unblock_nowait572, ptr @__UNIQUE_ID___addressable_scsi_kmap_atomic_sg583, ptr @__UNIQUE_ID___addressable_scsi_kunmap_atomic_sg585, ptr @__UNIQUE_ID___addressable_scsi_mode_select554, ptr @__UNIQUE_ID___addressable_scsi_mode_sense555, ptr @__UNIQUE_ID___addressable_scsi_target_quiesce565, ptr @__UNIQUE_ID___addressable_scsi_target_resume566, ptr @__UNIQUE_ID___addressable_scsi_target_unblock576, ptr @__UNIQUE_ID___addressable_scsi_test_unit_ready556, ptr @__UNIQUE_ID___addressable_scsi_unblock_requests553, ptr @__UNIQUE_ID___addressable_scsi_vpd_lun_id592, ptr @__UNIQUE_ID___addressable_scsi_vpd_tpg_id595, ptr @__UNIQUE_ID___addressable_sdev_disable_disk_events586, ptr @__UNIQUE_ID___addressable_sdev_enable_disk_events589, ptr @__UNIQUE_ID___addressable_sdev_evt_alloc559, ptr @__UNIQUE_ID___addressable_sdev_evt_send558, ptr @__UNIQUE_ID___addressable_sdev_evt_send_simple560, ptr @__kunmap_atomic.__UNIQUE_ID___addressable___SCK__preempt_schedule324, ptr @trace_scsi_dispatch_cmd_done.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace472, ptr @trace_scsi_dispatch_cmd_done.__UNIQUE_ID___addressable___SCK__tp_func_scsi_dispatch_cmd_done471, ptr @trace_scsi_dispatch_cmd_error.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace458, ptr @trace_scsi_dispatch_cmd_error.__UNIQUE_ID___addressable___SCK__tp_func_scsi_dispatch_cmd_error457, ptr @trace_scsi_dispatch_cmd_start.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace444, ptr @trace_scsi_dispatch_cmd_start.__UNIQUE_ID___addressable___SCK__tp_func_scsi_dispatch_cmd_start443], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @scsi_init_sense_cache(ptr nocapture noundef readnone %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @scsi_init_sense_cache(ptr nocapture noundef readnone %0) local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @scsi_sense_cache_mutex) #16
   %2 = load ptr, ptr @scsi_sense_cache, align 8
   %3 = icmp eq ptr %2, null
@@ -1855,7 +1855,7 @@ default.unreachable12:                            ; preds = %122
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i8 @scsi_alloc_sgtables(ptr noundef %0) #0 align 16 {
+define dso_local noundef zeroext range(i8 0, 11) i8 @scsi_alloc_sgtables(ptr noundef %0) #0 align 16 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %0, i64 -248
@@ -2592,7 +2592,7 @@ define dso_local i32 @scsi_mode_select(ptr nocapture noundef readonly %0, i32 no
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @scsi_mode_sense(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef %8, ptr noundef %9) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @scsi_mode_sense(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef %8, ptr noundef %9) #0 align 16 {
   %11 = alloca [12 x i8], align 1
   %12 = alloca %struct.scsi_sense_hdr, align 8
   %13 = alloca %struct.scsi_exec_args, align 8
@@ -2963,7 +2963,7 @@ define dso_local i32 @scsi_test_unit_ready(ptr nocapture noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @scsi_device_set_state(ptr nocapture noundef %0, i32 noundef %1) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @scsi_device_set_state(ptr nocapture noundef %0, i32 noundef %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2016
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, %1
@@ -3324,7 +3324,7 @@ define dso_local noundef ptr @sdev_evt_alloc(i32 noundef %0, i32 noundef %1) #0 
 declare dso_local void @sdev_prefix_printk(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @scsi_device_quiesce(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @scsi_device_quiesce(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2024
@@ -3515,7 +3515,7 @@ define dso_local void @scsi_start_queue(ptr noundef %0) local_unnamed_addr #0 al
 declare dso_local void @blk_mq_unquiesce_queue(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @scsi_internal_device_block_nowait(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @scsi_internal_device_block_nowait(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2016
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %13 [
@@ -3555,7 +3555,7 @@ define dso_local noundef i32 @scsi_internal_device_block_nowait(ptr noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @scsi_internal_device_unblock_nowait(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @scsi_internal_device_unblock_nowait(ptr noundef %0, i32 noundef %1) #0 align 16 {
   switch i32 %1, label %19 [
     i32 2, label %3
     i32 7, label %3
@@ -3729,7 +3729,7 @@ define internal noundef i32 @target_unblock(ptr noundef %0, ptr noundef %1) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @scsi_host_block(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @scsi_host_block(ptr noundef %0) #0 align 16 {
   %2 = tail call ptr @__scsi_iterate_devices(ptr noundef %0, ptr noundef null) #16
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -3796,7 +3796,7 @@ define dso_local noundef i32 @scsi_host_block(ptr noundef %0) #0 align 16 {
 declare dso_local void @scsi_device_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @scsi_host_unblock(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @scsi_host_unblock(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = tail call ptr @__scsi_iterate_devices(ptr noundef %0, ptr noundef null) #16
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -4243,7 +4243,7 @@ define dso_local i32 @scsi_vpd_lun_id(ptr noundef %0, ptr nocapture noundef writ
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @scsi_vpd_tpg_id(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
+define dso_local range(i32 -11, 65536) i32 @scsi_vpd_tpg_id(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
   tail call void @__rcu_read_lock() #16
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   %4 = load volatile ptr, ptr %3, align 8
@@ -5461,7 +5461,7 @@ define internal void @scsi_commit_rqs(ptr nocapture noundef readonly %0) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @scsi_mq_get_budget(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -1, -2147483648) i32 @scsi_mq_get_budget(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 48
   %4 = tail call i32 @sbitmap_get(ptr noundef %3) #16
@@ -5853,7 +5853,7 @@ define internal void @scsi_map_queues(ptr noundef %0) #0 align 16 {
 declare dso_local void @scsi_show_rq(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i8 @scsi_device_state_check(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext range(i8 0, 18) i8 @scsi_device_state_check(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2016
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %20 [

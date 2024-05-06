@@ -62,7 +62,7 @@ define internal fastcc noundef i64 @gz_write(ptr noundef %0, ptr noundef %1, i64
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5
-  %10 = tail call fastcc i32 @gz_init(ptr noundef nonnull %0), !range !5
+  %10 = tail call fastcc i32 @gz_init(ptr noundef nonnull %0)
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %.critedge, label %12
 
@@ -83,7 +83,7 @@ define internal fastcc noundef i64 @gz_write(ptr noundef %0, ptr noundef %1, i64
   br i1 %.not.i, label %24, label %21
 
 21:                                               ; preds = %15
-  %22 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %22 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %.critedge, label %24
 
@@ -99,7 +99,7 @@ define internal fastcc noundef i64 @gz_write(ptr noundef %0, ptr noundef %1, i64
 27:                                               ; preds = %38
   %28 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %28, 0
-  br i1 %.not22.i, label %gz_zero.exit, label %29, !llvm.loop !6
+  br i1 %.not22.i, label %gz_zero.exit, label %29, !llvm.loop !5
 
 29:                                               ; preds = %27, %.lr.ph.i
   %.02026.i = phi i64 [ %17, %.lr.ph.i ], [ %28, %27 ]
@@ -129,7 +129,7 @@ define internal fastcc noundef i64 @gz_write(ptr noundef %0, ptr noundef %1, i64
   %40 = load i64, ptr %26, align 8
   %41 = add nsw i64 %40, %.pre-phi.i
   store i64 %41, ptr %26, align 8
-  %42 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %42 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %43 = icmp eq i32 %42, -1
   br i1 %43, label %.critedge, label %27
 
@@ -176,7 +176,7 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   %66 = sub i32 %65, %64
   %67 = zext i32 %66 to i64
   %68 = icmp ult i64 %.055, %67
-  %69 = trunc i64 %.055 to i32
+  %69 = trunc nuw i64 %.055 to i32
   %spec.select = select i1 %68, i32 %69, i32 %66
   %70 = and i64 %63, 4294967295
   %71 = getelementptr inbounds i8, ptr %57, i64 %70
@@ -194,7 +194,7 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
 
 78:                                               ; preds = %56
   %79 = getelementptr inbounds i8, ptr %.054, i64 %72
-  %80 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %80 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %81 = icmp eq i32 %80, -1
   br i1 %81, label %.critedge, label %51
 
@@ -204,7 +204,7 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
   br i1 %.not59, label %87, label %84
 
 84:                                               ; preds = %82
-  %85 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %85 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %86 = icmp eq i32 %85, -1
   br i1 %86, label %.critedge, label %87
 
@@ -216,19 +216,19 @@ gz_zero.exit:                                     ; preds = %27, %24, %12
 89:                                               ; preds = %94, %87
   %.1 = phi i64 [ %2, %87 ], [ %95, %94 ]
   %spec.select6264 = tail call i64 @llvm.umin.i64(i64 %.1, i64 4294967295)
-  %spec.select62 = trunc i64 %spec.select6264 to i32
+  %spec.select62 = trunc nuw i64 %spec.select6264 to i32
   store i32 %spec.select62, ptr %48, align 8
   %90 = load i64, ptr %88, align 8
   %91 = add nsw i64 %90, %spec.select6264
   store i64 %91, ptr %88, align 8
-  %92 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %92 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %93 = icmp eq i32 %92, -1
   br i1 %93, label %.critedge, label %94
 
 94:                                               ; preds = %89
   %95 = sub i64 %.1, %spec.select6264
   %.not60 = icmp eq i64 %95, 0
-  br i1 %.not60, label %.critedge, label %89, !llvm.loop !8
+  br i1 %.not60, label %.critedge, label %89, !llvm.loop !7
 
 .critedge:                                        ; preds = %38, %94, %89, %78, %56, %21, %84, %9, %3
   %.053 = phi i64 [ 0, %3 ], [ 0, %9 ], [ 0, %84 ], [ 0, %21 ], [ %2, %56 ], [ 0, %78 ], [ %2, %94 ], [ 0, %89 ], [ 0, %38 ]
@@ -281,7 +281,7 @@ define dso_local noundef i64 @cm_zlib_gzfwrite(ptr noundef %0, i64 noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cm_zlib_gzputc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 256) i32 @cm_zlib_gzputc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1 x i8], align 1
   %4 = icmp eq ptr %0, null
   br i1 %4, label %gz_zero.exit.thread, label %5
@@ -315,7 +315,7 @@ define dso_local noundef i32 @cm_zlib_gzputc(ptr noundef %0, i32 noundef %1) loc
   br i1 %.not.i, label %23, label %20
 
 20:                                               ; preds = %15
-  %21 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %21 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %gz_zero.exit.thread, label %23
 
@@ -332,7 +332,7 @@ define dso_local noundef i32 @cm_zlib_gzputc(ptr noundef %0, i32 noundef %1) loc
 27:                                               ; preds = %38
   %28 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %28, 0
-  br i1 %.not22.i, label %gz_zero.exit, label %29, !llvm.loop !6
+  br i1 %.not22.i, label %gz_zero.exit, label %29, !llvm.loop !5
 
 29:                                               ; preds = %27, %.lr.ph.i
   %.02026.i = phi i64 [ %17, %.lr.ph.i ], [ %28, %27 ]
@@ -362,7 +362,7 @@ define dso_local noundef i32 @cm_zlib_gzputc(ptr noundef %0, i32 noundef %1) loc
   %40 = load i64, ptr %26, align 8
   %41 = add nsw i64 %40, %.pre-phi.i
   store i64 %41, ptr %26, align 8
-  %42 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %42 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %43 = icmp eq i32 %42, -1
   br i1 %43, label %gz_zero.exit.thread, label %27
 
@@ -432,7 +432,7 @@ gz_zero.exit.thread:                              ; preds = %38, %20, %73, %5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cm_zlib_gzputs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @cm_zlib_gzputs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %18, label %4
 
@@ -458,7 +458,7 @@ define dso_local i32 @cm_zlib_gzputs(ptr noundef %0, ptr noundef %1) local_unnam
   br label %18
 
 13:                                               ; preds = %10
-  %14 = trunc i64 %11 to i32
+  %14 = trunc nuw i64 %11 to i32
   %15 = tail call fastcc i64 @gz_write(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %11)
   %16 = icmp ult i64 %15, %11
   %17 = select i1 %16, i32 -1, i32 %14
@@ -497,7 +497,7 @@ define dso_local i32 @cm_zlib_gzvprintf(ptr noundef %0, ptr nocapture noundef re
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %12
-  %17 = tail call fastcc i32 @gz_init(ptr noundef nonnull %0), !range !5
+  %17 = tail call fastcc i32 @gz_init(ptr noundef nonnull %0)
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %19, label %21
 
@@ -521,7 +521,7 @@ define dso_local i32 @cm_zlib_gzvprintf(ptr noundef %0, ptr nocapture noundef re
   br i1 %.not.i, label %32, label %29
 
 29:                                               ; preds = %24
-  %30 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %30 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %.loopexit, label %32
 
@@ -537,7 +537,7 @@ define dso_local i32 @cm_zlib_gzvprintf(ptr noundef %0, ptr nocapture noundef re
 35:                                               ; preds = %46
   %36 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %36, 0
-  br i1 %.not22.i, label %gz_zero.exit, label %37, !llvm.loop !6
+  br i1 %.not22.i, label %gz_zero.exit, label %37, !llvm.loop !5
 
 37:                                               ; preds = %35, %.lr.ph.i
   %.02026.i = phi i64 [ %26, %.lr.ph.i ], [ %36, %35 ]
@@ -567,7 +567,7 @@ define dso_local i32 @cm_zlib_gzvprintf(ptr noundef %0, ptr nocapture noundef re
   %48 = load i64, ptr %34, align 8
   %49 = add nsw i64 %48, %.pre-phi.i
   store i64 %49, ptr %34, align 8
-  %50 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %50 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %51 = icmp eq i32 %50, -1
   br i1 %51, label %.loopexit, label %35
 
@@ -638,7 +638,7 @@ gz_zero.exit._crit_edge:                          ; preds = %gz_zero.exit
 
 90:                                               ; preds = %83
   store i32 %77, ptr %53, align 8
-  %91 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %91 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %92 = icmp eq i32 %91, -1
   br i1 %92, label %93, label %95
 
@@ -665,7 +665,7 @@ gz_zero.exit._crit_edge:                          ; preds = %gz_zero.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gz_init(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
@@ -752,7 +752,7 @@ define internal fastcc noundef i32 @gz_init(ptr noundef %0) unnamed_addr #0 {
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gz_comp(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
@@ -760,7 +760,7 @@ define internal fastcc noundef i32 @gz_comp(ptr noundef %0, i32 noundef %1) unna
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = tail call fastcc i32 @gz_init(ptr noundef nonnull %0), !range !5
+  %8 = tail call fastcc i32 @gz_init(ptr noundef nonnull %0)
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %.loopexit, label %10
 
@@ -808,7 +808,7 @@ define internal fastcc noundef i32 @gz_comp(ptr noundef %0, i32 noundef %1) unna
   %33 = getelementptr inbounds i8, ptr %31, i64 %32
   store ptr %33, ptr %3, align 8
   %.not72 = icmp eq i32 %30, 0
-  br i1 %.not72, label %.loopexit, label %16, !llvm.loop !9
+  br i1 %.not72, label %.loopexit, label %16, !llvm.loop !8
 
 34:                                               ; preds = %10
   %35 = getelementptr inbounds i8, ptr %0, i64 96
@@ -871,7 +871,7 @@ define internal fastcc noundef i32 @gz_comp(ptr noundef %0, i32 noundef %1) unna
 63:                                               ; preds = %59
   %64 = load i32, ptr %44, align 8
   %.not70.us = icmp eq i32 %60, %64
-  br i1 %.not70.us, label %.split82.us, label %.split.us, !llvm.loop !10
+  br i1 %.not70.us, label %.split82.us, label %.split.us, !llvm.loop !9
 
 .lr.ph78.us:                                      ; preds = %52, %74
   %65 = phi ptr [ %77, %74 ], [ %54, %52 ]
@@ -894,7 +894,7 @@ define internal fastcc noundef i32 @gz_comp(ptr noundef %0, i32 noundef %1) unna
   store ptr %77, ptr %47, align 8
   %78 = load ptr, ptr %46, align 8
   %79 = icmp ugt ptr %78, %77
-  br i1 %79, label %.lr.ph78.us, label %._crit_edge.us, !llvm.loop !11
+  br i1 %79, label %.lr.ph78.us, label %._crit_edge.us, !llvm.loop !10
 
 .split:                                           ; preds = %43, %114
   %80 = phi i32 [ %115, %114 ], [ %.pre91, %43 ]
@@ -939,7 +939,7 @@ define internal fastcc noundef i32 @gz_comp(ptr noundef %0, i32 noundef %1) unna
   store ptr %102, ptr %47, align 8
   %103 = load ptr, ptr %46, align 8
   %104 = icmp ugt ptr %103, %102
-  br i1 %104, label %.lr.ph78, label %._crit_edge.loopexit, !llvm.loop !11
+  br i1 %104, label %.lr.ph78, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %99
   %.pre90 = load i32, ptr %44, align 8
@@ -971,7 +971,7 @@ define internal fastcc noundef i32 @gz_comp(ptr noundef %0, i32 noundef %1) unna
 114:                                              ; preds = %110
   %115 = load i32, ptr %44, align 8
   %.not70 = icmp eq i32 %111, %115
-  br i1 %.not70, label %.split82.us, label %.split, !llvm.loop !10
+  br i1 %.not70, label %.split82.us, label %.split, !llvm.loop !9
 
 .split82.us:                                      ; preds = %114, %63
   %116 = icmp eq i32 %1, 4
@@ -992,17 +992,11 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @cm_zlib_gzprintf(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call i32 @cm_zlib_gzvprintf(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret i32 %4
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @cm_zlib_gzflush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1040,7 +1034,7 @@ define dso_local i32 @cm_zlib_gzflush(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %.not.i, label %22, label %19
 
 19:                                               ; preds = %13
-  %20 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %20 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %.sink.split, label %22
 
@@ -1057,7 +1051,7 @@ define dso_local i32 @cm_zlib_gzflush(ptr noundef %0, i32 noundef %1) local_unna
 26:                                               ; preds = %37
   %27 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %27, 0
-  br i1 %.not22.i, label %gz_zero.exit, label %28, !llvm.loop !6
+  br i1 %.not22.i, label %gz_zero.exit, label %28, !llvm.loop !5
 
 28:                                               ; preds = %26, %.lr.ph.i
   %.02026.i = phi i64 [ %15, %.lr.ph.i ], [ %27, %26 ]
@@ -1087,12 +1081,12 @@ define dso_local i32 @cm_zlib_gzflush(ptr noundef %0, i32 noundef %1) local_unna
   %39 = load i64, ptr %25, align 8
   %40 = add nsw i64 %39, %.pre-phi.i
   store i64 %40, ptr %25, align 8
-  %41 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %41 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %.sink.split, label %26
 
 gz_zero.exit:                                     ; preds = %26, %22, %10
-  %43 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef %1), !range !5
+  %43 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef %1)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %37, %19, %gz_zero.exit
@@ -1150,7 +1144,7 @@ define dso_local i32 @cm_zlib_gzsetparams(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %.not.i, label %31, label %28
 
 28:                                               ; preds = %23
-  %29 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %29 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %.loopexit, label %31
 
@@ -1167,7 +1161,7 @@ define dso_local i32 @cm_zlib_gzsetparams(ptr noundef %0, i32 noundef %1, i32 no
 35:                                               ; preds = %46
   %36 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %36, 0
-  br i1 %.not22.i, label %gz_zero.exit, label %37, !llvm.loop !6
+  br i1 %.not22.i, label %gz_zero.exit, label %37, !llvm.loop !5
 
 37:                                               ; preds = %35, %.lr.ph.i
   %.02026.i = phi i64 [ %25, %.lr.ph.i ], [ %36, %35 ]
@@ -1197,7 +1191,7 @@ define dso_local i32 @cm_zlib_gzsetparams(ptr noundef %0, i32 noundef %1, i32 no
   %48 = load i64, ptr %34, align 8
   %49 = add nsw i64 %48, %.pre-phi.i
   store i64 %49, ptr %34, align 8
-  %50 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %50 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %51 = icmp eq i32 %50, -1
   br i1 %51, label %.loopexit, label %35
 
@@ -1218,7 +1212,7 @@ gz_zero.exit:                                     ; preds = %35, %31, %20
   br i1 %.not29, label %63, label %58
 
 58:                                               ; preds = %55
-  %59 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 5), !range !5
+  %59 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 5)
   %60 = icmp eq i32 %59, -1
   br i1 %60, label %61, label %63
 
@@ -1271,7 +1265,7 @@ define dso_local i32 @cm_zlib_gzclose_w(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %18, label %15
 
 15:                                               ; preds = %9
-  %16 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %16 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %.loopexit, label %18
 
@@ -1288,7 +1282,7 @@ define dso_local i32 @cm_zlib_gzclose_w(ptr noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %33
   %23 = sub nsw i64 %.02026.i, %.pre-phi.i
   %.not22.i = icmp eq i64 %23, 0
-  br i1 %.not22.i, label %gz_zero.exit, label %24, !llvm.loop !6
+  br i1 %.not22.i, label %gz_zero.exit, label %24, !llvm.loop !5
 
 24:                                               ; preds = %22, %.lr.ph.i
   %.02026.i = phi i64 [ %11, %.lr.ph.i ], [ %23, %22 ]
@@ -1318,7 +1312,7 @@ define dso_local i32 @cm_zlib_gzclose_w(ptr noundef %0) local_unnamed_addr #0 {
   %35 = load i64, ptr %21, align 8
   %36 = add nsw i64 %35, %.pre-phi.i
   store i64 %36, ptr %21, align 8
-  %37 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0), !range !5
+  %37 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 0)
   %38 = icmp eq i32 %37, -1
   br i1 %38, label %.loopexit, label %22
 
@@ -1329,7 +1323,7 @@ define dso_local i32 @cm_zlib_gzclose_w(ptr noundef %0) local_unnamed_addr #0 {
 
 gz_zero.exit:                                     ; preds = %22, %18, %.loopexit, %6
   %.020 = phi i32 [ %40, %.loopexit ], [ 0, %6 ], [ 0, %18 ], [ 0, %22 ]
-  %41 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 4), !range !5
+  %41 = tail call fastcc i32 @gz_comp(ptr noundef nonnull %0, i32 noundef 4)
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %43, label %46
 
@@ -1386,7 +1380,7 @@ gz_zero.exit:                                     ; preds = %22, %18, %.loopexit
 declare i32 @cm_zlib_deflateEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
@@ -1394,25 +1388,31 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 declare i32 @cm_zlib_deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #10
+declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #11
+declare ptr @__errno_location() local_unnamed_addr #10
 
 declare i32 @cm_zlib_deflateReset(ptr noundef) local_unnamed_addr #1
 
 declare i32 @cm_zlib_deflate(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #12
@@ -1431,13 +1431,13 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
@@ -1451,10 +1451,9 @@ attributes #16 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

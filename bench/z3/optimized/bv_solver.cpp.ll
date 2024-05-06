@@ -6783,7 +6783,7 @@ return:                                           ; preds = %for.inc, %_ZN6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN2bv6solver5checkEv(ptr noundef nonnull align 8 dereferenceable(640) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @_ZN2bv6solver5checkEv(ptr noundef nonnull align 8 dereferenceable(640) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %delay = alloca %class.svector.244, align 8
   %m_num_scopes.i = getelementptr inbounds i8, ptr %this, i64 104

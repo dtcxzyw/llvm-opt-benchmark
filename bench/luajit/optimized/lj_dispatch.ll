@@ -24,7 +24,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr = getelementptr inbounds i8, ptr @lj_vm_asm_begin, i64 %idx.ext
   %arrayidx2 = getelementptr inbounds ptr, ptr %dispatch, i64 %indvars.iv
   store ptr %add.ptr, ptr %arrayidx2, align 8
-  %arrayidx4 = getelementptr i8, ptr %arrayidx2, i64 1232
+  %arrayidx4 = getelementptr inbounds i8, ptr %arrayidx2, i64 1232
   store ptr %add.ptr, ptr %arrayidx4, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 89
@@ -141,7 +141,7 @@ entry:
   br i1 %cmp42.not, label %if.end195, label %if.then
 
 if.then:                                          ; preds = %entry
-  %conv39 = trunc i32 %or38 to i8
+  %conv39 = trunc nuw nsw i32 %or38 to i8
   %dispatch = getelementptr inbounds i8, ptr %g, i64 3968
   store i8 %conv39, ptr %dispatchmode, align 2
   %and47 = and i32 %or7, 48
@@ -358,7 +358,7 @@ declare hidden void @lj_vm_inshook() #1
 declare hidden void @lj_vm_callhook() #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @luaJIT_setmode(ptr noundef %L, i32 noundef %idx, i32 noundef %mode) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @luaJIT_setmode(ptr noundef %L, i32 noundef %idx, i32 noundef %mode) local_unnamed_addr #3 {
 entry:
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -757,7 +757,7 @@ entry:
   %and = and i32 %mask, 15
   %cmp = icmp eq ptr %func, null
   %cmp1 = icmp eq i32 %and, 0
-  %1 = trunc i32 %and to i8
+  %1 = trunc nuw nsw i32 %and to i8
   %spec.select10 = select i1 %cmp1, ptr null, ptr %func
   %2 = inttoptr i64 %0 to ptr
   %hookf = getelementptr inbounds i8, ptr %2, i64 336
@@ -792,7 +792,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @lua_gethookmask(ptr nocapture noundef readonly %L) local_unnamed_addr #7 {
+define dso_local range(i32 0, 16) i32 @lua_gethookmask(ptr nocapture noundef readonly %L) local_unnamed_addr #7 {
 entry:
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8

@@ -354,7 +354,7 @@ define internal fastcc i32 @msxml_parse_element(ptr nocapture noundef readonly %
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %56
-  %63 = tail call i32 @strncasecmp(ptr noundef nonnull %35, ptr noundef %59, i64 noundef %49) #9
+  %63 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %35, ptr noundef %59, i64 noundef %49) #9
   %.not.i = icmp eq i32 %63, 0
   br i1 %.not.i, label %msxml_check_key.exit, label %64
 
@@ -1002,7 +1002,7 @@ declare i32 @xmlTextReaderMoveToElement(ptr noundef) local_unnamed_addr #2
 declare i32 @xmlTextReaderIsEmptyElement(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @msxml_parse_value(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @msxml_parse_value(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @cli_jsonarray(ptr noundef %0, ptr noundef nonnull @.str.21) #8
   %5 = icmp eq ptr %4, null

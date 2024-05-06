@@ -130,7 +130,7 @@ target triple = "x86_64-pc-linux-gnu"
 @slurm_autodetect_cgroup_version = alias ptr (), ptr @autodetect_cgroup_version
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cgroup_conf_init() #0 {
+define range(i32 -1, 1) i32 @cgroup_conf_init() #0 {
   %1 = alloca [22 x %struct.conf_file_options], align 16
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
@@ -835,7 +835,7 @@ declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @sort_key_pairs(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cgroup_write_conf(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cgroup_write_conf(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @cg_conf_lock) #12
   %.not = icmp eq i32 %3, 0
@@ -1007,7 +1007,7 @@ define noundef i32 @cgroup_write_conf(i32 noundef %0) local_unnamed_addr #0 {
 declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i8, align 1
   %4 = alloca i32, align 4
@@ -1478,7 +1478,7 @@ define zeroext i1 @cgroup_memcg_job_confinement() local_unnamed_addr #0 {
 declare ptr @xstrstr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cgroup_g_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cgroup_g_init() local_unnamed_addr #0 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #12
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
@@ -1495,7 +1495,7 @@ define noundef i32 @cgroup_g_init() local_unnamed_addr #0 {
   br i1 %.not13, label %6, label %24
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @cgroup_conf_init(), !range !11
+  %7 = tail call i32 @cgroup_conf_init()
   %.not14 = icmp eq i32 %7, 0
   br i1 %.not14, label %15, label %8
 
@@ -1847,4 +1847,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = !{i32 -1, i32 1}

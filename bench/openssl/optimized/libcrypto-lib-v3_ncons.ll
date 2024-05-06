@@ -430,7 +430,7 @@ if.end23:                                         ; preds = %nc_minmax_valid.exi
 
 if.end26:                                         ; preds = %if.end23
   %13 = load ptr, ptr %call7, align 8
-  %call31 = tail call fastcc i32 @nc_match_single(i32 noundef %effective_type.0.fr, ptr noundef nonnull %gen, ptr noundef %13), !range !7
+  %call31 = tail call fastcc i32 @nc_match_single(i32 noundef %effective_type.0.fr, ptr noundef nonnull %gen, ptr noundef %13)
   %cmp32 = icmp eq i32 %call31, 0
   br i1 %cmp32, label %for.inc, label %if.else
 
@@ -445,7 +445,7 @@ for.inc:                                          ; preds = %if.end26, %if.else,
   %14 = load ptr, ptr %nc, align 8
   %call3 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #9
   %cmp4 = icmp slt i32 %inc, %call3
-  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc
   %15 = icmp eq i32 %match.1, 1
@@ -517,7 +517,7 @@ nc_minmax_valid.exit49.us:                        ; preds = %if.end7.i45.us, %if
 
 if.end67.us:                                      ; preds = %nc_minmax_valid.exit49.us
   %26 = load ptr, ptr %call48.us, align 8
-  %call69.us = tail call fastcc i32 @nc_match_single(i32 noundef 0, ptr noundef nonnull %gen, ptr noundef %26), !range !7
+  %call69.us = tail call fastcc i32 @nc_match_single(i32 noundef 0, ptr noundef nonnull %gen, ptr noundef %26)
   switch i32 %call69.us, label %return [
     i32 0, label %return.loopexit
     i32 47, label %for.inc77.us
@@ -528,7 +528,7 @@ for.inc77.us:                                     ; preds = %if.end67.us, %lor.l
   %27 = load ptr, ptr %excludedSubtrees, align 8
   %call43.us = tail call i32 @OPENSSL_sk_num(ptr noundef %27) #9
   %cmp44.us = icmp slt i32 %inc78.us, %call43.us
-  br i1 %cmp44.us, label %for.body45.us, label %return, !llvm.loop !9
+  br i1 %cmp44.us, label %for.body45.us, label %return, !llvm.loop !8
 
 for.body45:                                       ; preds = %for.body45.lr.ph, %for.inc77
   %i.159 = phi i32 [ %inc78, %for.inc77 ], [ 0, %for.body45.lr.ph ]
@@ -574,7 +574,7 @@ nc_minmax_valid.exit49:                           ; preds = %lor.lhs.false52, %i
 
 if.end67:                                         ; preds = %nc_minmax_valid.exit49
   %33 = load ptr, ptr %call48, align 8
-  %call69 = tail call fastcc i32 @nc_match_single(i32 noundef %effective_type.0.fr, ptr noundef nonnull %gen, ptr noundef %33), !range !7
+  %call69 = tail call fastcc i32 @nc_match_single(i32 noundef %effective_type.0.fr, ptr noundef nonnull %gen, ptr noundef %33)
   switch i32 %call69, label %return [
     i32 0, label %return.loopexit82
     i32 47, label %for.inc77
@@ -585,7 +585,7 @@ for.inc77:                                        ; preds = %if.end67, %for.body
   %34 = load ptr, ptr %excludedSubtrees, align 8
   %call43 = tail call i32 @OPENSSL_sk_num(ptr noundef %34) #9
   %cmp44 = icmp slt i32 %inc78, %call43
-  br i1 %cmp44, label %for.body45, label %return, !llvm.loop !9
+  br i1 %cmp44, label %for.body45, label %return, !llvm.loop !8
 
 return.loopexit:                                  ; preds = %if.end67.us
   br label %return
@@ -657,7 +657,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %dec.i = add nsw i32 %utf8_length.034.i, -1
   %cmp1.not.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp1.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !10
+  br i1 %cmp1.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !9
 
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %while.cond.preheader.i
   %utf8_length.0.lcssa.i = phi i32 [ 0, %while.cond.preheader.i ], [ %utf8_length.034.i, %land.rhs.i ], [ 0, %while.body.i ]
@@ -714,7 +714,7 @@ if.then47.i:                                      ; preds = %if.end40.i
 
 land.lhs.true56.i:                                ; preds = %if.then47.i
   %arrayidx13.i.le = getelementptr inbounds i8, ptr %.pre.i, i64 %indvars.iv.i
-  %arrayidx58.i = getelementptr i8, ptr %arrayidx13.i.le, i64 1
+  %arrayidx58.i = getelementptr inbounds i8, ptr %arrayidx13.i.le, i64 1
   %8 = load i8, ptr %arrayidx58.i, align 1
   %cmp60.not.i = icmp eq i8 %8, 46
   br i1 %cmp60.not.i, label %if.end8, label %land.lhs.true62.i
@@ -730,12 +730,12 @@ land.lhs.true62.i:                                ; preds = %land.lhs.true56.i
 for.inc.i:                                        ; preds = %if.then47.i, %lor.lhs.false27.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv4.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.inc.thread.i:                                 ; preds = %land.lhs.true62.i
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not44.i = icmp eq i64 %indvars.iv.next43.i, %conv4.i
-  br i1 %exitcond.not44.i, label %if.end11, label %for.body.outer.i, !llvm.loop !11
+  br i1 %exitcond.not44.i, label %if.end11, label %for.body.outer.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.inc.i
   br i1 %3, label %if.end8, label %if.end11
@@ -864,7 +864,7 @@ for.inc:                                          ; preds = %print_nc_ipadd.exit
   %inc = add nuw nsw i32 %i.03, 1
   %call4 = tail call i32 @OPENSSL_sk_num(ptr noundef %trees) #9
   %cmp5 = icmp slt i32 %inc, %call4
-  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %if.end
   ret void
@@ -891,7 +891,7 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
 declare i32 @OBJ_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nc_match_single(i32 noundef %effective_type, ptr nocapture noundef readonly %gen, ptr nocapture noundef readonly %base) unnamed_addr #1 {
+define internal fastcc range(i32 0, 54) i32 @nc_match_single(i32 noundef %effective_type, ptr nocapture noundef readonly %gen, ptr nocapture noundef readonly %base) unnamed_addr #1 {
 entry:
   %ulabel.i = alloca [256 x i8], align 16
   %0 = load i32, ptr %gen, align 8
@@ -963,7 +963,7 @@ land.rhs.i.i:                                     ; preds = %for.inc.i.i, %land.
 for.inc.i.i:                                      ; preds = %land.rhs.i.i
   %dec.i.i = add nsw i32 %i.011.i.i, -1
   %cmp.i.i = icmp sgt i32 %i.011.i.i, 1
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %end.i, !llvm.loop !13
+  br i1 %cmp.i.i, label %land.rhs.i.i, label %end.i, !llvm.loop !12
 
 for.end.i.i:                                      ; preds = %if.end15.i
   %cmp3.i.i = icmp eq i32 %9, 0
@@ -999,7 +999,7 @@ if.end30.i:                                       ; preds = %if.then25.i
 if.then37.i:                                      ; preds = %if.end30.i
   %sub42.i = sub i64 %conv32.i, %call34.i
   %add.ptr43.i = getelementptr inbounds i8, ptr %8, i64 %sub42.i
-  %call47.i = call fastcc i32 @ia5ncasecmp(ptr noundef nonnull %ulabel.i, ptr noundef %add.ptr43.i, i64 noundef %call34.i), !range !14
+  %call47.i = call fastcc i32 @ia5ncasecmp(ptr noundef nonnull %ulabel.i, ptr noundef %add.ptr43.i, i64 noundef %call34.i)
   %cmp48.i = icmp eq i32 %call47.i, 0
   br i1 %cmp48.i, label %end.i, label %if.end52.i
 
@@ -1024,7 +1024,7 @@ if.end59.i:                                       ; preds = %if.end53.i
   br i1 %cmp67.not.i, label %lor.lhs.false.i, label %if.then73.i
 
 lor.lhs.false.i:                                  ; preds = %if.end59.i
-  %call70.i = call fastcc i32 @ia5ncasecmp(ptr noundef nonnull %ulabel.i, ptr noundef nonnull %13, i64 noundef %sub64.i), !range !14
+  %call70.i = call fastcc i32 @ia5ncasecmp(ptr noundef nonnull %ulabel.i, ptr noundef nonnull %13, i64 noundef %sub64.i)
   %cmp71.not.i = icmp eq i32 %call70.i, 0
   br i1 %cmp71.not.i, label %end.i, label %if.then73.i
 
@@ -1153,7 +1153,7 @@ for.inc.i.i32:                                    ; preds = %if.then.i.i, %for.b
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %s1.addr.016.i.i, i64 1
   %incdec.ptr38.i.i = getelementptr inbounds i8, ptr %s2.addr.017.i.i, i64 1
   %cmp.not.i.i = icmp eq i64 %dec.i.i33, 0
-  br i1 %cmp.not.i.i, label %return, label %for.body.i.i, !llvm.loop !15
+  br i1 %cmp.not.i.i, label %return, label %for.body.i.i, !llvm.loop !13
 
 sw.bb11:                                          ; preds = %entry
   %d12 = getelementptr inbounds i8, ptr %gen, i64 8
@@ -1183,7 +1183,7 @@ land.rhs.i.i71:                                   ; preds = %for.inc.i.i75, %lan
 for.inc.i.i75:                                    ; preds = %land.rhs.i.i71
   %dec.i.i76 = add nsw i32 %i.011.i.i72, -1
   %cmp.i.i77 = icmp sgt i32 %i.011.i.i72, 1
-  br i1 %cmp.i.i77, label %land.rhs.i.i71, label %ia5memrchr.exit.i42, !llvm.loop !13
+  br i1 %cmp.i.i77, label %land.rhs.i.i71, label %ia5memrchr.exit.i42, !llvm.loop !12
 
 for.end.i.i38:                                    ; preds = %sw.bb11
   %cmp3.i.i39 = icmp eq i32 %.val13, 0
@@ -1217,7 +1217,7 @@ land.rhs.i54.i:                                   ; preds = %for.inc.i58.i, %lan
 for.inc.i58.i:                                    ; preds = %land.rhs.i54.i
   %dec.i59.i = add nsw i32 %i.011.i55.i, -1
   %cmp.i60.i = icmp sgt i32 %i.011.i55.i, 1
-  br i1 %cmp.i60.i, label %land.rhs.i54.i, label %return, !llvm.loop !13
+  br i1 %cmp.i60.i, label %land.rhs.i54.i, label %return, !llvm.loop !12
 
 for.end.i42.i:                                    ; preds = %ia5memrchr.exit.i42
   %cmp3.i43.i = icmp eq i32 %47, 0
@@ -1280,7 +1280,7 @@ for.inc.i63.i:                                    ; preds = %if.then.i.i60, %for
   %incdec.ptr.i.i66 = getelementptr inbounds i8, ptr %s1.addr.016.i.i58, i64 1
   %incdec.ptr38.i.i67 = getelementptr inbounds i8, ptr %s2.addr.017.i.i57, i64 1
   %cmp.not.i.i68 = icmp eq i64 %dec.i64.i, 0
-  br i1 %cmp.not.i.i68, label %return, label %for.body.i.i55, !llvm.loop !15
+  br i1 %cmp.not.i.i68, label %return, label %for.body.i.i55, !llvm.loop !13
 
 if.then25.i45:                                    ; preds = %if.end.i44
   %cmp26.not.i = icmp eq ptr %retval.0.i.i, %.val14
@@ -1357,7 +1357,7 @@ for.inc.i81.i:                                    ; preds = %if.then.i71.i, %for
   %incdec.ptr.i83.i = getelementptr inbounds i8, ptr %s1.addr.016.i69.i, i64 1
   %incdec.ptr38.i84.i = getelementptr inbounds i8, ptr %s2.addr.017.i68.i, i64 1
   %cmp.not.i85.i = icmp eq i64 %dec.i82.i, 0
-  br i1 %cmp.not.i85.i, label %return, label %for.body.i66.i, !llvm.loop !15
+  br i1 %cmp.not.i85.i, label %return, label %for.body.i66.i, !llvm.loop !13
 
 sw.bb15:                                          ; preds = %entry
   %d16 = getelementptr inbounds i8, ptr %gen, i64 8
@@ -1445,7 +1445,7 @@ if.then74.i:                                      ; preds = %if.then70.i
   %idx.ext77.i = zext nneg i32 %72 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext77.i
   %add.ptr78.i = getelementptr inbounds i8, ptr %add.ptr75.i, i64 %idx.neg.i
-  %call81.i = tail call fastcc i32 @ia5ncasecmp(ptr noundef nonnull %add.ptr78.i, ptr noundef nonnull %68, i64 noundef %idx.ext77.i), !range !14
+  %call81.i = tail call fastcc i32 @ia5ncasecmp(ptr noundef nonnull %add.ptr78.i, ptr noundef nonnull %68, i64 noundef %idx.ext77.i)
   %cmp82.i = icmp eq i32 %call81.i, 0
   br i1 %cmp82.i, label %return, label %if.end86.i
 
@@ -1458,7 +1458,7 @@ if.end87.i:                                       ; preds = %land.lhs.true.i90, 
 
 lor.lhs.false91.i:                                ; preds = %if.end87.i
   %conv92.i = sext i32 %hostlen.0.i to i64
-  %call93.i = tail call fastcc i32 @ia5ncasecmp(ptr noundef nonnull %add.ptr.i87, ptr noundef %68, i64 noundef %conv92.i), !range !14
+  %call93.i = tail call fastcc i32 @ia5ncasecmp(ptr noundef nonnull %add.ptr.i87, ptr noundef %68, i64 noundef %conv92.i)
   %tobool.not.i89 = icmp eq i32 %call93.i, 0
   %spec.select.i = select i1 %tobool.not.i89, i32 0, i32 47
   br label %return
@@ -1498,7 +1498,7 @@ for.body.preheader.i:                             ; preds = %if.end8.i
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %idx.ext.i94
-  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !14
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
@@ -1532,7 +1532,7 @@ declare i32 @ossl_a2ulabel(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @ia5ncasecmp(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2, i64 noundef %n) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 2) i32 @ia5ncasecmp(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2, i64 noundef %n) unnamed_addr #5 {
 entry:
   %cmp.not15 = icmp eq i64 %n, 0
   br i1 %cmp.not15, label %return, label %for.body
@@ -1568,7 +1568,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %incdec.ptr = getelementptr inbounds i8, ptr %s1.addr.016, i64 1
   %incdec.ptr38 = getelementptr inbounds i8, ptr %s2.addr.017, i64 1
   %cmp.not = icmp eq i64 %dec, 0
-  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !15
+  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !13
 
 return:                                           ; preds = %for.inc, %entry, %if.end30
   %retval.0 = phi i32 [ %., %if.end30 ], [ 0, %entry ], [ 0, %for.inc ]
@@ -1616,13 +1616,11 @@ attributes #10 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 54}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 -1, i32 2}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!14 = distinct !{!14, !5}

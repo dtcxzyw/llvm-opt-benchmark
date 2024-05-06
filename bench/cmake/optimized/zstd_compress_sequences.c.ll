@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @BIT_mask = internal unnamed_addr constant [32 x i32] [i32 0, i32 1, i32 3, i32 7, i32 15, i32 31, i32 63, i32 127, i32 255, i32 511, i32 1023, i32 2047, i32 4095, i32 8191, i32 16383, i32 32767, i32 65535, i32 131071, i32 262143, i32 524287, i32 1048575, i32 2097151, i32 4194303, i32 8388607, i32 16777215, i32 33554431, i32 67108863, i32 134217727, i32 268435455, i32 536870911, i32 1073741823, i32 2147483647], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @ZSTD_fseBitCost(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 -1, 72057594037927936) i64 @ZSTD_fseBitCost(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %.val.i = load i16, ptr %0, align 1
   %4 = zext i16 %.val.i to i32
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -82,7 +82,7 @@ define dso_local i64 @ZSTD_fseBitCost(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @ZSTD_crossEntropyCost(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i64 0, 72057594037927936) i64 @ZSTD_crossEntropyCost(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sub i32 8, %1
   %6 = add i32 %3, 1
   %umax = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
@@ -116,7 +116,7 @@ define dso_local i64 @ZSTD_crossEntropyCost(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ZSTD_selectEncodingType(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #1 {
+define dso_local range(i32 0, 4) i32 @ZSTD_selectEncodingType(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #1 {
   %12 = alloca [512 x i8], align 16
   %13 = alloca [53 x i16], align 16
   %14 = icmp eq i64 %3, %4
@@ -430,7 +430,7 @@ declare i64 @FSE_normalizeCount(ptr noundef, i32 noundef, ptr noundef, i64 nound
 declare i64 @FSE_writeNCount(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, i64 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #4 {
+define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, i64 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #4 {
   %13 = getelementptr inbounds i8, ptr %0, i64 %1
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = icmp ugt i64 %1, 8

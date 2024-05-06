@@ -84,7 +84,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call4 = call fastcc i32 @parse_internal_render_format_spec(ptr noundef %obj, ptr noundef %format_spec, i64 noundef %start, i64 noundef %end, ptr noundef nonnull %format, i8 noundef signext 115, i8 noundef signext 60), !range !5
+  %call4 = call fastcc i32 @parse_internal_render_format_spec(ptr noundef %obj, ptr noundef %format_spec, i64 noundef %start, i64 noundef %end, ptr noundef nonnull %format, i8 noundef signext 115, i8 noundef signext 60)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %if.end7
 
@@ -298,7 +298,7 @@ return:                                           ; preds = %if.end76.i, %cond.f
 declare i32 @_PyUnicodeWriter_WriteStr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_internal_render_format_spec(ptr nocapture noundef readonly %obj, ptr noundef %format_spec, i64 noundef %start, i64 noundef %end, ptr nocapture noundef %format, i8 noundef signext %default_type, i8 noundef signext %default_align) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_internal_render_format_spec(ptr nocapture noundef readonly %obj, ptr noundef %format_spec, i64 noundef %start, i64 noundef %end, ptr nocapture noundef %format, i8 noundef signext %default_type, i8 noundef signext %default_align) unnamed_addr #0 {
 entry:
   %pos = alloca i64, align 8
   store i64 %start, ptr %pos, align 8
@@ -1023,7 +1023,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call4 = call fastcc i32 @parse_internal_render_format_spec(ptr noundef %obj, ptr noundef %format_spec, i64 noundef %start, i64 noundef %end, ptr noundef nonnull %format, i8 noundef signext 100, i8 noundef signext 62), !range !5
+  %call4 = call fastcc i32 @parse_internal_render_format_spec(ptr noundef %obj, ptr noundef %format_spec, i64 noundef %start, i64 noundef %end, ptr noundef nonnull %format, i8 noundef signext 100, i8 noundef signext 62)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %if.end7
 
@@ -1299,13 +1299,13 @@ cond.end82.i:                                     ; preds = %cond.false80.i, %if
   %inumeric_chars.0.i39 = phi i64 [ %inumeric_chars.0.i38, %cond.false80.i ], [ %conv73.i, %if.end75.i ]
   %tmp.0.i37 = phi ptr [ %tmp.0.i36, %cond.false80.i ], [ %call61.i, %if.end75.i ]
   %cond83.i = phi i32 [ %30, %cond.false80.i ], [ 97, %if.end75.i ]
-  %call84.i = call fastcc i32 @get_locale_info(i32 noundef %cond83.i, ptr noundef nonnull %locale.i), !range !6
+  %call84.i = call fastcc i32 @get_locale_info(i32 noundef %cond83.i, ptr noundef nonnull %locale.i)
   %cmp85.i = icmp eq i32 %call84.i, -1
   br i1 %cmp85.i, label %done.i, label %if.end88.i
 
 if.end88.i:                                       ; preds = %cond.end82.i
   %add89.i = add i64 %inumeric_chars.0.i39, %n_digits.0.i43
-  %call90.i = call fastcc i64 @calc_number_widths(ptr noundef nonnull %spec.i, i64 noundef %n_prefix.1.i47, i32 noundef %sign_char.1.i41, i64 noundef %inumeric_chars.0.i39, i64 noundef %add89.i, i64 noundef %n_remainder.0.i45, i32 noundef 0, ptr noundef nonnull %locale.i, ptr noundef nonnull %format, ptr noundef nonnull %maxchar.i)
+  %call90.i = call fastcc i64 @calc_number_widths(ptr noundef nonnull %spec.i, i64 noundef %n_prefix.1.i47, i32 noundef %sign_char.1.i41, i64 noundef %inumeric_chars.0.i39, i64 noundef %add89.i, i64 noundef %n_remainder.0.i45, i32 noundef 0, ptr noundef nonnull %locale.i, ptr noundef nonnull readonly %format, ptr noundef nonnull %maxchar.i)
   %cmp91.i = icmp eq i64 %call90.i, -1
   br i1 %cmp91.i, label %done.i, label %if.end94.i
 
@@ -1340,7 +1340,7 @@ if.end116.i:                                      ; preds = %cond.false107.i, %c
   %36 = load i32, ptr %format, align 8
   %cmp118.i = icmp eq i32 %3, 88
   %conv119.i = zext i1 %cmp118.i to i32
-  %call120.i = call fastcc i32 @fill_number(ptr noundef nonnull %writer, ptr noundef nonnull %spec.i, ptr noundef %tmp.0.i37, i64 noundef %inumeric_chars.0.i39, ptr noundef %tmp.0.i37, i64 noundef %prefix.1.i49, i32 noundef %36, ptr noundef nonnull %locale.i, i32 noundef %conv119.i), !range !6
+  %call120.i = call fastcc i32 @fill_number(ptr noundef nonnull %writer, ptr noundef nonnull %spec.i, ptr noundef %tmp.0.i37, i64 noundef %inumeric_chars.0.i39, ptr noundef %tmp.0.i37, i64 noundef %prefix.1.i49, i32 noundef %36, ptr noundef nonnull %locale.i, i32 noundef %conv119.i)
   br label %done.i
 
 done.i:                                           ; preds = %if.end116.i, %cond.false107.i, %if.end88.i, %cond.end82.i
@@ -1670,7 +1670,7 @@ cond.false:                                       ; preds = %PyUnicode_READ_CHAR
 
 cond.end:                                         ; preds = %PyUnicode_READ_CHAR.exit, %cond.false
   %cond = phi i32 [ %20, %cond.false ], [ 97, %PyUnicode_READ_CHAR.exit ]
-  %call80 = call fastcc i32 @get_locale_info(i32 noundef %cond, ptr noundef nonnull %locale), !range !6
+  %call80 = call fastcc i32 @get_locale_info(i32 noundef %cond, ptr noundef nonnull %locale)
   %cmp81 = icmp eq i32 %call80, -1
   br i1 %cmp81, label %if.then.i59, label %if.end84
 
@@ -1710,7 +1710,7 @@ cond.false102:                                    ; preds = %land.lhs.true94, %c
 
 if.end111:                                        ; preds = %land.lhs.true94, %cond.false98, %cond.false102
   %28 = load i32, ptr %format, align 8
-  %call112 = call fastcc i32 @fill_number(ptr noundef nonnull %writer, ptr noundef nonnull %spec, ptr noundef nonnull %call65, i64 noundef %index.0, ptr noundef null, i64 noundef 0, i32 noundef %28, ptr noundef nonnull %locale, i32 noundef 0), !range !6
+  %call112 = call fastcc i32 @fill_number(ptr noundef nonnull %writer, ptr noundef nonnull %spec, ptr noundef nonnull %call65, i64 noundef %index.0, ptr noundef null, i64 noundef 0, i32 noundef %28, ptr noundef nonnull %locale, i32 noundef 0)
   br label %if.then.i59
 
 if.then.i59:                                      ; preds = %if.end111, %cond.end, %if.end84, %cond.false102
@@ -1815,7 +1815,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @parse_internal_render_format_spec(ptr noundef %obj, ptr noundef %format_spec, i64 noundef %start, i64 noundef %end, ptr noundef nonnull %format, i8 noundef signext 0, i8 noundef signext 62), !range !5
+  %call1 = call fastcc i32 @parse_internal_render_format_spec(ptr noundef %obj, ptr noundef %format_spec, i64 noundef %start, i64 noundef %end, ptr noundef nonnull %format, i8 noundef signext 0, i8 noundef signext 62)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end3
 
@@ -1896,7 +1896,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @parse_internal_render_format_spec(ptr noundef %obj, ptr noundef %format_spec, i64 noundef %start, i64 noundef %end, ptr noundef nonnull %format, i8 noundef signext 0, i8 noundef signext 62), !range !5
+  %call1 = call fastcc i32 @parse_internal_render_format_spec(ptr noundef %obj, ptr noundef %format_spec, i64 noundef %start, i64 noundef %end, ptr noundef nonnull %format, i8 noundef signext 0, i8 noundef signext 62)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end3
 
@@ -1926,7 +1926,7 @@ sw.bb:                                            ; preds = %if.end3, %if.end3, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %re_float_type.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %im_float_type.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %locale.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tmp_format.i, ptr noundef nonnull align 8 dereferenceable(56) %format, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tmp_format.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %format, i64 56, i1 false)
   store i32 127, ptr %maxchar.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %locale.i, i8 0, i64 32, i1 false)
   %precision2.i = getelementptr inbounds i8, ptr %format, i64 40
@@ -2060,7 +2060,7 @@ if.end79.i:                                       ; preds = %if.end74.i
   %thousands_separators.i = getelementptr inbounds i8, ptr %format, i64 32
   %15 = load i32, ptr %thousands_separators.i, align 8
   %cond.i = select i1 %cmp94.i, i32 97, i32 %15
-  %call96.i = call fastcc i32 @get_locale_info(i32 noundef %cond.i, ptr noundef nonnull %locale.i), !range !6
+  %call96.i = call fastcc i32 @get_locale_info(i32 noundef %cond.i, ptr noundef nonnull %locale.i)
   %cmp97.i = icmp eq i32 %call96.i, -1
   br i1 %cmp97.i, label %done.i, label %if.end100.i
 
@@ -2198,12 +2198,12 @@ if.end176.i:                                      ; preds = %PyUnicode_WRITE.exi
   br i1 %tobool109.not139148.i, label %if.then178.i, label %if.end184.i
 
 if.then178.i:                                     ; preds = %if.end176.i
-  %call179.i = call fastcc i32 @fill_number(ptr noundef nonnull %writer, ptr noundef nonnull %re_spec.i, ptr noundef nonnull %call70.i, i64 noundef %i_re.0.i, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %locale.i, i32 noundef 0), !range !6
+  %call179.i = call fastcc i32 @fill_number(ptr noundef nonnull %writer, ptr noundef nonnull %re_spec.i, ptr noundef nonnull %call70.i, i64 noundef %i_re.0.i, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %locale.i, i32 noundef 0)
   %cmp180.i = icmp eq i32 %call179.i, -1
   br i1 %cmp180.i, label %done.i, label %if.end184.i
 
 if.end184.i:                                      ; preds = %if.then178.i, %if.end176.i
-  %call185.i = call fastcc i32 @fill_number(ptr noundef nonnull %writer, ptr noundef nonnull %im_spec.i, ptr noundef nonnull %call75.i, i64 noundef %i_im.0.i, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %locale.i, i32 noundef 0), !range !6
+  %call185.i = call fastcc i32 @fill_number(ptr noundef nonnull %writer, ptr noundef nonnull %im_spec.i, ptr noundef nonnull %call75.i, i64 noundef %i_im.0.i, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %locale.i, i32 noundef 0)
   %cmp186.i = icmp eq i32 %call185.i, -1
   br i1 %cmp186.i, label %done.i, label %if.end189.i
 
@@ -2458,7 +2458,7 @@ if.end9.us:                                       ; preds = %if.end.us
   %inc.us = add i64 %pos.019.us, 1
   %inc10.us = add i32 %numdigits.020.us, 1
   %exitcond80.not = icmp eq i64 %inc.us, %end
-  br i1 %exitcond80.not, label %for.end, label %for.body.us, !llvm.loop !7
+  br i1 %exitcond80.not, label %for.end, label %for.body.us, !llvm.loop !5
 
 for.body.us34:                                    ; preds = %for.body.lr.ph, %if.end9.us47
   %accumulator.021.us35 = phi i64 [ %add.us49, %if.end9.us47 ], [ 0, %for.body.lr.ph ]
@@ -2484,7 +2484,7 @@ if.end9.us47:                                     ; preds = %if.end.us43
   %inc.us50 = add i64 %pos.019.us37, 1
   %inc10.us51 = add i32 %numdigits.020.us36, 1
   %exitcond.not = icmp eq i64 %inc.us50, %end
-  br i1 %exitcond.not, label %for.end, label %for.body.us34, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end, label %for.body.us34, !llvm.loop !5
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end9
   %accumulator.021 = phi i64 [ %add, %if.end9 ], [ 0, %for.body.lr.ph ]
@@ -2516,7 +2516,7 @@ if.end9:                                          ; preds = %if.end
   %inc = add i64 %pos.019, 1
   %inc10 = add i32 %numdigits.020, 1
   %exitcond81.not = icmp eq i64 %inc, %end
-  br i1 %exitcond81.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond81.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %if.end9.us47, %for.body.us34, %if.end9.us, %for.body.us, %if.end9, %for.body, %PyUnicode_DATA.exit
   %pos.0.lcssa = phi i64 [ %0, %PyUnicode_DATA.exit ], [ %pos.019, %for.body ], [ %end, %if.end9 ], [ %pos.019.us, %for.body.us ], [ %end, %if.end9.us ], [ %pos.019.us37, %for.body.us34 ], [ %end, %if.end9.us47 ]
@@ -2674,7 +2674,7 @@ return:                                           ; preds = %PyUnicode_DATA.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_locale_info(i32 noundef %type, ptr noundef %locale_info) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_locale_info(i32 noundef %type, ptr noundef %locale_info) unnamed_addr #0 {
 entry:
   switch i32 %type, label %return [
     i32 97, label %sw.bb
@@ -2998,7 +2998,7 @@ return:                                           ; preds = %if.else42, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @fill_number(ptr noundef %writer, ptr nocapture noundef readonly %spec, ptr noundef %digits, i64 noundef %d_start, ptr noundef %prefix, i64 noundef %p_start, i32 noundef %fill_char, ptr nocapture noundef readonly %locale, i32 noundef %toupper) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @fill_number(ptr noundef %writer, ptr nocapture noundef readonly %spec, ptr noundef %digits, i64 noundef %d_start, ptr noundef %prefix, i64 noundef %p_start, i32 noundef %fill_char, ptr nocapture noundef readonly %locale, i32 noundef %toupper) unnamed_addr #0 {
 entry:
   %kind1 = getelementptr inbounds i8, ptr %writer, i64 16
   %0 = load i32, ptr %kind1, align 8
@@ -3071,53 +3071,53 @@ if.then11:                                        ; preds = %if.end9
   tail call void @_PyUnicode_FastCopyCharacters(ptr noundef %12, i64 noundef %13, ptr noundef %prefix, i64 noundef %p_start, i64 noundef %11) #12
   %tobool15.not = icmp ne i32 %toupper, 0
   %.pre = load i64, ptr %n_prefix, align 8
-  %cmp18127 = icmp sgt i64 %.pre, 0
-  %or.cond = select i1 %tobool15.not, i1 %cmp18127, i1 false
+  %cmp18129 = icmp sgt i64 %.pre, 0
+  %or.cond = select i1 %tobool15.not, i1 %cmp18129, i1 false
   br i1 %or.cond, label %for.body.lr.ph, label %if.end27
 
 for.body.lr.ph:                                   ; preds = %if.then11
   switch i32 %0, label %for.body [
     i32 1, label %for.body.us
-    i32 2, label %for.body.us130
+    i32 2, label %for.body.us132
   ]
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
-  %t.0128.us = phi i64 [ %inc26.us, %for.body.us ], [ 0, %for.body.lr.ph ]
+  %t.0130.us = phi i64 [ %inc26.us, %for.body.us ], [ 0, %for.body.lr.ph ]
   %14 = load i64, ptr %pos13, align 8
   %15 = getelementptr i8, ptr %1, i64 %14
-  %arrayidx.i89.us = getelementptr i8, ptr %15, i64 %t.0128.us
+  %arrayidx.i89.us = getelementptr i8, ptr %15, i64 %t.0130.us
   %16 = load i8, ptr %arrayidx.i89.us, align 1
-  %idxprom118.us = zext i8 %16 to i64
-  %arrayidx119.us = getelementptr [256 x i8], ptr @_Py_ctype_toupper, i64 0, i64 %idxprom118.us
-  %17 = load i8, ptr %arrayidx119.us, align 1
+  %idxprom120.us = zext i8 %16 to i64
+  %arrayidx121.us = getelementptr [256 x i8], ptr @_Py_ctype_toupper, i64 0, i64 %idxprom120.us
+  %17 = load i8, ptr %arrayidx121.us, align 1
   store i8 %17, ptr %arrayidx.i89.us, align 1
-  %inc26.us = add nuw nsw i64 %t.0128.us, 1
+  %inc26.us = add nuw nsw i64 %t.0130.us, 1
   %18 = load i64, ptr %n_prefix, align 8
   %cmp18.us = icmp slt i64 %inc26.us, %18
-  br i1 %cmp18.us, label %for.body.us, label %if.end27, !llvm.loop !9
+  br i1 %cmp18.us, label %for.body.us, label %if.end27, !llvm.loop !7
 
-for.body.us130:                                   ; preds = %for.body.lr.ph, %for.body.us130
-  %t.0128.us131 = phi i64 [ %inc26.us134, %for.body.us130 ], [ 0, %for.body.lr.ph ]
+for.body.us132:                                   ; preds = %for.body.lr.ph, %for.body.us132
+  %t.0130.us133 = phi i64 [ %inc26.us136, %for.body.us132 ], [ 0, %for.body.lr.ph ]
   %19 = load i64, ptr %pos13, align 8
   %20 = getelementptr i16, ptr %1, i64 %19
-  %arrayidx4.i.us = getelementptr i16, ptr %20, i64 %t.0128.us131
+  %arrayidx4.i.us = getelementptr i16, ptr %20, i64 %t.0130.us133
   %21 = load i16, ptr %arrayidx4.i.us, align 2
   %22 = and i16 %21, 255
-  %idxprom123.us = zext nneg i16 %22 to i64
-  %arrayidx124.us = getelementptr [256 x i8], ptr @_Py_ctype_toupper, i64 0, i64 %idxprom123.us
-  %23 = load i8, ptr %arrayidx124.us, align 1
+  %idxprom125.us = zext nneg i16 %22 to i64
+  %arrayidx126.us = getelementptr [256 x i8], ptr @_Py_ctype_toupper, i64 0, i64 %idxprom125.us
+  %23 = load i8, ptr %arrayidx126.us, align 1
   %conv4.i92.us = zext i8 %23 to i16
   store i16 %conv4.i92.us, ptr %arrayidx4.i.us, align 2
-  %inc26.us134 = add nuw nsw i64 %t.0128.us131, 1
+  %inc26.us136 = add nuw nsw i64 %t.0130.us133, 1
   %24 = load i64, ptr %n_prefix, align 8
-  %cmp18.us135 = icmp slt i64 %inc26.us134, %24
-  br i1 %cmp18.us135, label %for.body.us130, label %if.end27, !llvm.loop !9
+  %cmp18.us137 = icmp slt i64 %inc26.us136, %24
+  br i1 %cmp18.us137, label %for.body.us132, label %if.end27, !llvm.loop !7
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %t.0128 = phi i64 [ %inc26, %for.body ], [ 0, %for.body.lr.ph ]
+  %t.0130 = phi i64 [ %inc26, %for.body ], [ 0, %for.body.lr.ph ]
   %25 = load i64, ptr %pos13, align 8
   %26 = getelementptr i32, ptr %1, i64 %25
-  %arrayidx7.i90 = getelementptr i32, ptr %26, i64 %t.0128
+  %arrayidx7.i90 = getelementptr i32, ptr %26, i64 %t.0130
   %27 = load i32, ptr %arrayidx7.i90, align 4
   %28 = and i32 %27, 255
   %idxprom = zext nneg i32 %28 to i64
@@ -3125,13 +3125,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %29 = load i8, ptr %arrayidx, align 1
   %conv23 = zext i8 %29 to i32
   store i32 %conv23, ptr %arrayidx7.i90, align 4
-  %inc26 = add nuw nsw i64 %t.0128, 1
+  %inc26 = add nuw nsw i64 %t.0130, 1
   %30 = load i64, ptr %n_prefix, align 8
   %cmp18 = icmp slt i64 %inc26, %30
-  br i1 %cmp18, label %for.body, label %if.end27, !llvm.loop !9
+  br i1 %cmp18, label %for.body, label %if.end27, !llvm.loop !7
 
-if.end27:                                         ; preds = %for.body.us130, %for.body.us, %for.body, %if.then11
-  %31 = phi i64 [ %.pre, %if.then11 ], [ %30, %for.body ], [ %18, %for.body.us ], [ %24, %for.body.us130 ]
+if.end27:                                         ; preds = %for.body.us132, %for.body.us, %for.body, %if.then11
+  %31 = phi i64 [ %.pre, %if.then11 ], [ %30, %for.body ], [ %18, %for.body.us ], [ %24, %for.body.us132 ]
   %32 = load i64, ptr %pos13, align 8
   %add30 = add i64 %32, %31
   store i64 %add30, ptr %pos13, align 8
@@ -3182,86 +3182,86 @@ if.end52:                                         ; preds = %if.end49, %if.end40
   %d_pos.0 = phi i64 [ %add51, %if.end49 ], [ %d_start, %if.end40 ]
   %tobool53.not = icmp ne i32 %toupper, 0
   %n_grouped_digits80.phi.trans.insert = getelementptr inbounds i8, ptr %spec, i64 48
-  %.pre140 = load i64, ptr %n_grouped_digits80.phi.trans.insert, align 8
-  %cmp58136 = icmp sgt i64 %.pre140, 0
-  %or.cond146 = select i1 %tobool53.not, i1 %cmp58136, i1 false
-  br i1 %or.cond146, label %for.body60.lr.ph, label %if.end79
+  %.pre142 = load i64, ptr %n_grouped_digits80.phi.trans.insert, align 8
+  %cmp58138 = icmp sgt i64 %.pre142, 0
+  %or.cond148 = select i1 %tobool53.not, i1 %cmp58138, i1 false
+  br i1 %or.cond148, label %for.body60.lr.ph, label %if.end79
 
 for.body60.lr.ph:                                 ; preds = %if.end52
   %pos62 = getelementptr inbounds i8, ptr %writer, i64 32
   br label %for.body60
 
-for.body60:                                       ; preds = %for.body60.lr.ph, %PyUnicode_WRITE.exit116
-  %t55.0137 = phi i64 [ 0, %for.body60.lr.ph ], [ %inc77, %PyUnicode_WRITE.exit116 ]
+for.body60:                                       ; preds = %for.body60.lr.ph, %PyUnicode_WRITE.exit118
+  %t55.0139 = phi i64 [ 0, %for.body60.lr.ph ], [ %inc77, %PyUnicode_WRITE.exit118 ]
   %44 = load i64, ptr %pos62, align 8
-  %add63 = add i64 %44, %t55.0137
-  switch i32 %0, label %if.end6.i106 [
-    i32 1, label %if.then.i103
-    i32 2, label %if.then3.i99
+  %add63 = add i64 %44, %t55.0139
+  switch i32 %0, label %if.end6.i107 [
+    i32 1, label %if.then.i104
+    i32 2, label %if.then3.i100
   ]
 
-if.then.i103:                                     ; preds = %for.body60
-  %arrayidx.i104 = getelementptr i8, ptr %1, i64 %add63
-  %45 = load i8, ptr %arrayidx.i104, align 1
-  %conv.i105 = zext i8 %45 to i32
-  br label %PyUnicode_READ.exit108
+if.then.i104:                                     ; preds = %for.body60
+  %arrayidx.i105 = getelementptr i8, ptr %1, i64 %add63
+  %45 = load i8, ptr %arrayidx.i105, align 1
+  %conv.i106 = zext i8 %45 to i32
+  br label %PyUnicode_READ.exit109
 
-if.then3.i99:                                     ; preds = %for.body60
-  %arrayidx4.i100 = getelementptr i16, ptr %1, i64 %add63
-  %46 = load i16, ptr %arrayidx4.i100, align 2
-  %conv5.i101 = zext i16 %46 to i32
-  br label %PyUnicode_READ.exit108
+if.then3.i100:                                    ; preds = %for.body60
+  %arrayidx4.i101 = getelementptr i16, ptr %1, i64 %add63
+  %46 = load i16, ptr %arrayidx4.i101, align 2
+  %conv5.i102 = zext i16 %46 to i32
+  br label %PyUnicode_READ.exit109
 
-if.end6.i106:                                     ; preds = %for.body60
-  %arrayidx7.i107 = getelementptr i32, ptr %1, i64 %add63
-  %47 = load i32, ptr %arrayidx7.i107, align 4
-  br label %PyUnicode_READ.exit108
+if.end6.i107:                                     ; preds = %for.body60
+  %arrayidx7.i108 = getelementptr i32, ptr %1, i64 %add63
+  %47 = load i32, ptr %arrayidx7.i108, align 4
+  br label %PyUnicode_READ.exit109
 
-PyUnicode_READ.exit108:                           ; preds = %if.then.i103, %if.then3.i99, %if.end6.i106
-  %retval.0.i102 = phi i32 [ %conv.i105, %if.then.i103 ], [ %conv5.i101, %if.then3.i99 ], [ %47, %if.end6.i106 ]
-  %48 = and i32 %retval.0.i102, 255
+PyUnicode_READ.exit109:                           ; preds = %if.then.i104, %if.then3.i100, %if.end6.i107
+  %retval.0.i103 = phi i32 [ %conv.i106, %if.then.i104 ], [ %conv5.i102, %if.then3.i100 ], [ %47, %if.end6.i107 ]
+  %48 = and i32 %retval.0.i103, 255
   %idxprom67 = zext nneg i32 %48 to i64
   %arrayidx68 = getelementptr [256 x i8], ptr @_Py_ctype_toupper, i64 0, i64 %idxprom67
   %49 = load i8, ptr %arrayidx68, align 1
   %cmp70 = icmp slt i8 %49, 0
   br i1 %cmp70, label %if.then72, label %if.end73
 
-if.then72:                                        ; preds = %PyUnicode_READ.exit108
+if.then72:                                        ; preds = %PyUnicode_READ.exit109
   %50 = load ptr, ptr @PyExc_SystemError, align 8
   tail call void @PyErr_SetString(ptr noundef %50, ptr noundef nonnull @.str.20) #12
   br label %return
 
-if.end73:                                         ; preds = %PyUnicode_READ.exit108
-  switch i32 %0, label %if.else6.i114 [
-    i32 1, label %if.then.i112
-    i32 2, label %if.then3.i109
+if.end73:                                         ; preds = %PyUnicode_READ.exit109
+  switch i32 %0, label %if.else6.i116 [
+    i32 1, label %if.then.i113
+    i32 2, label %if.then3.i110
   ]
 
-if.then.i112:                                     ; preds = %if.end73
-  %arrayidx.i113 = getelementptr i8, ptr %1, i64 %add63
-  store i8 %49, ptr %arrayidx.i113, align 1
-  br label %PyUnicode_WRITE.exit116
+if.then.i113:                                     ; preds = %if.end73
+  %arrayidx.i115 = getelementptr i8, ptr %1, i64 %add63
+  store i8 %49, ptr %arrayidx.i115, align 1
+  br label %PyUnicode_WRITE.exit118
 
-if.then3.i109:                                    ; preds = %if.end73
-  %conv4.i110 = zext nneg i8 %49 to i16
-  %arrayidx5.i111 = getelementptr i16, ptr %1, i64 %add63
-  store i16 %conv4.i110, ptr %arrayidx5.i111, align 2
-  br label %PyUnicode_WRITE.exit116
+if.then3.i110:                                    ; preds = %if.end73
+  %conv4.i111 = zext nneg i8 %49 to i16
+  %arrayidx5.i112 = getelementptr i16, ptr %1, i64 %add63
+  store i16 %conv4.i111, ptr %arrayidx5.i112, align 2
+  br label %PyUnicode_WRITE.exit118
 
-if.else6.i114:                                    ; preds = %if.end73
+if.else6.i116:                                    ; preds = %if.end73
   %conv69 = zext nneg i8 %49 to i32
-  %arrayidx7.i115 = getelementptr i32, ptr %1, i64 %add63
-  store i32 %conv69, ptr %arrayidx7.i115, align 4
-  br label %PyUnicode_WRITE.exit116
+  %arrayidx7.i117 = getelementptr i32, ptr %1, i64 %add63
+  store i32 %conv69, ptr %arrayidx7.i117, align 4
+  br label %PyUnicode_WRITE.exit118
 
-PyUnicode_WRITE.exit116:                          ; preds = %if.then.i112, %if.then3.i109, %if.else6.i114
-  %inc77 = add nuw nsw i64 %t55.0137, 1
+PyUnicode_WRITE.exit118:                          ; preds = %if.then.i113, %if.then3.i110, %if.else6.i116
+  %inc77 = add nuw nsw i64 %t55.0139, 1
   %51 = load i64, ptr %n_grouped_digits80.phi.trans.insert, align 8
   %cmp58 = icmp slt i64 %inc77, %51
-  br i1 %cmp58, label %for.body60, label %if.end79, !llvm.loop !10
+  br i1 %cmp58, label %for.body60, label %if.end79, !llvm.loop !8
 
-if.end79:                                         ; preds = %PyUnicode_WRITE.exit116, %if.end52
-  %52 = phi i64 [ %.pre140, %if.end52 ], [ %51, %PyUnicode_WRITE.exit116 ]
+if.end79:                                         ; preds = %PyUnicode_WRITE.exit118, %if.end52
+  %52 = phi i64 [ %.pre142, %if.end52 ], [ %51, %PyUnicode_WRITE.exit118 ]
   %pos81 = getelementptr inbounds i8, ptr %writer, i64 32
   %53 = load i64, ptr %pos81, align 8
   %add82 = add i64 %53, %52
@@ -3394,7 +3394,7 @@ land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %wh
 while.body.us:                                    ; preds = %land.rhs.us
   %inc.us = add i64 %pos.addr.030.us, 1
   %exitcond55.not = icmp eq i64 %inc.us, %end
-  br i1 %exitcond55.not, label %land.end9.thread, label %land.rhs.us, !llvm.loop !11
+  br i1 %exitcond55.not, label %land.end9.thread, label %land.rhs.us, !llvm.loop !9
 
 land.rhs.us33:                                    ; preds = %land.rhs.lr.ph, %while.body.us41
   %pos.addr.030.us34 = phi i64 [ %inc.us42, %while.body.us41 ], [ %pos, %land.rhs.lr.ph ]
@@ -3411,7 +3411,7 @@ land.rhs.us33:                                    ; preds = %land.rhs.lr.ph, %wh
 while.body.us41:                                  ; preds = %land.rhs.us33
   %inc.us42 = add i64 %pos.addr.030.us34, 1
   %exitcond.not = icmp eq i64 %inc.us42, %end
-  br i1 %exitcond.not, label %land.end9.thread, label %land.rhs.us33, !llvm.loop !11
+  br i1 %exitcond.not, label %land.end9.thread, label %land.rhs.us33, !llvm.loop !9
 
 land.end9.thread:                                 ; preds = %while.body.us41, %while.body.us, %while.body, %PyUnicode_DATA.exit
   %pos.addr.0.lcssa = phi i64 [ %pos, %PyUnicode_DATA.exit ], [ %end, %while.body ], [ %end, %while.body.us ], [ %end, %while.body.us41 ]
@@ -3433,7 +3433,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
 while.body:                                       ; preds = %land.rhs
   %inc = add i64 %pos.addr.030, 1
   %exitcond56.not = icmp eq i64 %inc, %end
-  br i1 %exitcond56.not, label %land.end9.thread, label %land.rhs, !llvm.loop !11
+  br i1 %exitcond56.not, label %land.end9.thread, label %land.rhs, !llvm.loop !9
 
 land.rhs5:                                        ; preds = %land.rhs.us33, %land.rhs.us, %land.rhs
   %.us-phi = phi i64 [ %pos.addr.030, %land.rhs ], [ %pos.addr.030.us, %land.rhs.us ], [ %pos.addr.030.us34, %land.rhs.us33 ]
@@ -3526,10 +3526,8 @@ attributes #13 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = !{i32 -1, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

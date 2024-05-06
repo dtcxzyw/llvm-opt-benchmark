@@ -227,7 +227,7 @@ BufferGetPage.exit.i:                             ; preds = %110, %104
   %131 = add i32 %.059.i, 1
   %132 = sext i32 %.059.i to i64
   %133 = getelementptr [2048 x i16], ptr %5, i64 0, i64 %132
-  %134 = trunc i64 %indvars.iv.i to i16
+  %134 = trunc nuw i64 %indvars.iv.i to i16
   store i16 %134, ptr %133, align 2
   br label %135
 
@@ -368,7 +368,7 @@ BufferGetPage.exit51.i:                           ; preds = %152, %148
 BufferGetPage.exit53.i:                           ; preds = %200, %194
   %.0.i.i52.i = phi ptr [ %199, %194 ], [ %205, %200 ]
   %206 = lshr i64 %193, 32
-  %207 = trunc i64 %206 to i32
+  %207 = trunc nuw i64 %206 to i32
   store i32 %207, ptr %.0.i.i52.i, align 4
   %208 = trunc i64 %193 to i32
   %209 = getelementptr inbounds i8, ptr %.0.i.i52.i, i64 4
@@ -559,7 +559,7 @@ _hash_vacuum_one_page.exit._crit_edge:            ; preds = %BufferGetPage.exit1
 BufferGetPage.exit110:                            ; preds = %302, %308
   %.0.i.i109 = phi ptr [ %307, %302 ], [ %313, %308 ]
   %314 = lshr i64 %300, 32
-  %315 = trunc i64 %314 to i32
+  %315 = trunc nuw i64 %314 to i32
   store i32 %315, ptr %.0.i.i109, align 4
   %316 = trunc i64 %300 to i32
   %317 = getelementptr inbounds i8, ptr %.0.i.i109, i64 4

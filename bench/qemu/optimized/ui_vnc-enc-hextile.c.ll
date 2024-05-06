@@ -312,7 +312,7 @@ if.else95.us:                                     ; preds = %for.body85.us
 if.then98.us:                                     ; preds = %if.else95.us
   %idx.ext.us = sext i32 %n_data.1263.us to i64
   %add.ptr99.us = getelementptr i8, ptr %data, i64 %idx.ext.us
-  %11 = trunc i64 %indvars.iv294 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv294 to i32
   %sub.us = sub i32 %11, %min_x.0265.us
   %and.i.us = shl i32 %min_x.0265.us, 4
   %or.i.us = or disjoint i32 %and.i.us, %and1.i.us
@@ -328,7 +328,7 @@ if.then98.us:                                     ; preds = %if.else95.us
   br label %for.inc103.us
 
 if.then90.us:                                     ; preds = %for.body85.us
-  %13 = trunc i64 %indvars.iv294 to i32
+  %13 = trunc nuw nsw i64 %indvars.iv294 to i32
   %spec.select157.us = select i1 %cmp91.us, i32 %13, i32 %min_x.0265.us
   br label %for.inc103.us
 
@@ -394,7 +394,7 @@ for.body140:                                      ; preds = %for.body140.lr.ph, 
   %n_subtiles.5245 = phi i32 [ %n_subtiles.4258, %for.body140.lr.ph ], [ %n_subtiles.6, %for.inc179 ]
   %n_data.5244 = phi i32 [ %n_data.4257, %for.body140.lr.ph ], [ %n_data.6, %for.inc179 ]
   %tobool141.not = icmp eq i32 %has_color.0246, 0
-  %16 = trunc i64 %indvars.iv287 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv287 to i32
   %arrayidx144 = getelementptr i32, ptr %irow.2256, i64 %indvars.iv287
   %17 = load i32, ptr %arrayidx144, align 4
   br i1 %tobool141.not, label %if.then142, label %if.else151
@@ -512,7 +512,7 @@ if.then220:                                       ; preds = %for.cond82.preheade
   %n_subtiles.8185.ph = phi i32 [ 0, %sw.epilog212 ], [ %n_subtiles.4.lcssa, %for.end203 ], [ 0, %if.end74 ], [ 0, %sw.bb76 ], [ %n_subtiles.3.us, %if.end115.us ], [ 0, %for.cond82.preheader ]
   %n_data.8184.ph = phi i32 [ 0, %sw.epilog212 ], [ %n_data.4.lcssa, %for.end203 ], [ 0, %if.end74 ], [ 0, %sw.bb76 ], [ %n_data.3.us, %if.end115.us ], [ 0, %for.cond82.preheader ]
   %flags.4.ph = phi i32 [ %flags.1, %sw.epilog212 ], [ %flags.2, %for.end203 ], [ %flags.1, %if.end74 ], [ %or77, %sw.bb76 ], [ %or77, %if.end115.us ], [ %or77, %for.cond82.preheader ]
-  %conv217200 = trunc i32 %flags.4.ph to i8
+  %conv217200 = trunc nuw nsw i32 %flags.4.ph to i8
   tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv217200) #7
   %and = and i32 %flags.4.ph, 2
   %tobool221.not = icmp eq i32 %and, 0
@@ -805,7 +805,7 @@ if.else95.us:                                     ; preds = %for.body85.us
 if.then98.us:                                     ; preds = %if.else95.us
   %idx.ext.us = sext i32 %n_data.1268.us to i64
   %add.ptr99.us = getelementptr i8, ptr %data, i64 %idx.ext.us
-  %11 = trunc i64 %indvars.iv299 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv299 to i32
   %sub.us = sub i32 %11, %min_x.0270.us
   %and.i.us = shl i32 %min_x.0270.us, 4
   %or.i.us = or disjoint i32 %and.i.us, %and1.i.us
@@ -821,7 +821,7 @@ if.then98.us:                                     ; preds = %if.else95.us
   br label %for.inc103.us
 
 if.then90.us:                                     ; preds = %for.body85.us
-  %13 = trunc i64 %indvars.iv299 to i32
+  %13 = trunc nuw nsw i64 %indvars.iv299 to i32
   %spec.select162.us = select i1 %cmp91.us, i32 %13, i32 %min_x.0270.us
   br label %for.inc103.us
 
@@ -887,7 +887,7 @@ for.body140:                                      ; preds = %for.body140.lr.ph, 
   %n_subtiles.5250 = phi i32 [ %n_subtiles.4263, %for.body140.lr.ph ], [ %n_subtiles.6, %for.inc180 ]
   %n_data.5249 = phi i32 [ %n_data.4262, %for.body140.lr.ph ], [ %n_data.6, %for.inc180 ]
   %tobool141.not = icmp eq i32 %has_color.0251, 0
-  %16 = trunc i64 %indvars.iv292 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv292 to i32
   %arrayidx144 = getelementptr i32, ptr %irow.2261, i64 %indvars.iv292
   %17 = load i32, ptr %arrayidx144, align 4
   br i1 %tobool141.not, label %if.then142, label %if.else151
@@ -1010,7 +1010,7 @@ if.then222:                                       ; preds = %for.cond82.preheade
   %n_subtiles.8190.ph = phi i32 [ 0, %sw.epilog214 ], [ %n_subtiles.4.lcssa, %for.end205 ], [ 0, %if.end74 ], [ 0, %sw.bb76 ], [ %n_subtiles.3.us, %if.end115.us ], [ 0, %for.cond82.preheader ]
   %n_data.8189.ph = phi i32 [ 0, %sw.epilog214 ], [ %n_data.4.lcssa, %for.end205 ], [ 0, %if.end74 ], [ 0, %sw.bb76 ], [ %n_data.3.us, %if.end115.us ], [ 0, %for.cond82.preheader ]
   %flags.4.ph = phi i32 [ %flags.1, %sw.epilog214 ], [ %flags.2, %for.end205 ], [ %flags.1, %if.end74 ], [ %or77, %sw.bb76 ], [ %or77, %if.end115.us ], [ %or77, %for.cond82.preheader ]
-  %conv219205 = trunc i32 %flags.4.ph to i8
+  %conv219205 = trunc nuw nsw i32 %flags.4.ph to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv219205) #7
   %and = and i32 %flags.4.ph, 2
   %tobool223.not = icmp eq i32 %and, 0

@@ -320,7 +320,7 @@ define noundef i32 @pg_b64_enc_len(i32 noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @pg_b64_dec_len(i32 noundef %0) local_unnamed_addr #2 {
+define noundef range(i32 -536870912, 536870912) i32 @pg_b64_dec_len(i32 noundef %0) local_unnamed_addr #2 {
   %2 = mul i32 %0, 3
   %3 = ashr i32 %2, 2
   ret i32 %3

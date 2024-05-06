@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [41 x i8] c"failed to setup admin virtqueue, err=%ld\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vp_modern_admin_cmd_exec(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -65535, 1) i32 @vp_modern_admin_cmd_exec(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca [4 x ptr], align 16
   %5 = alloca %struct.scatterlist, align 8
@@ -661,7 +661,7 @@ define internal void @vp_set_status(ptr noundef %0, i8 noundef zeroext %1) #0 al
   store i16 1, ptr %24, align 2
   %25 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %4, ptr %25, align 8
-  %26 = call i32 @vp_modern_admin_cmd_exec(ptr noundef %0, ptr noundef nonnull %3), !range !23
+  %26 = call i32 @vp_modern_admin_cmd_exec(ptr noundef %0, ptr noundef nonnull %3)
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %37
 
@@ -674,7 +674,7 @@ define internal void @vp_set_status(ptr noundef %0, i8 noundef zeroext %1) #0 al
   %31 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %5, ptr %31, align 8
   store ptr null, ptr %25, align 8
-  %32 = call i32 @vp_modern_admin_cmd_exec(ptr noundef %0, ptr noundef nonnull %3), !range !23
+  %32 = call i32 @vp_modern_admin_cmd_exec(ptr noundef %0, ptr noundef nonnull %3)
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %37
 
@@ -710,7 +710,7 @@ define internal void @vp_reset(ptr noundef %0) #0 align 16 {
   tail call void @msleep(i32 noundef 1) #8
   %5 = tail call zeroext i8 @vp_modern_get_status(ptr noundef %2) #8
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %6, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %1
   %7 = getelementptr inbounds i8, ptr %0, i64 784
@@ -754,7 +754,7 @@ define internal i32 @vp_modern_find_vqs(ptr noundef %0, i32 noundef %1, ptr noun
   tail call void @vp_modern_set_queue_enable(ptr noundef %15, i16 noundef zeroext %20, i1 noundef zeroext true) #8
   %21 = load ptr, ptr %17, align 8
   %22 = icmp eq ptr %21, %11
-  br i1 %22, label %.loopexit, label %16, !llvm.loop !25
+  br i1 %22, label %.loopexit, label %16, !llvm.loop !24
 
 .loopexit:                                        ; preds = %16, %10, %7
   %23 = phi i32 [ %8, %7 ], [ 0, %10 ], [ 0, %16 ]
@@ -775,7 +775,7 @@ define internal i64 @vp_get_features(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vp_finalize_features(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @vp_finalize_features(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 784
   %3 = load i64, ptr %2, align 8
   tail call void @vring_transport_features(ptr noundef %0) #8
@@ -959,7 +959,7 @@ define internal noundef zeroext i1 @vp_get_shm_region(ptr nocapture noundef read
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
   %40 = call zeroext i8 @pci_find_next_capability(ptr noundef %10, i8 noundef zeroext %16, i32 noundef 9) #8
   %41 = icmp eq i8 %40, 0
-  br i1 %41, label %.thread5, label %15, !llvm.loop !26
+  br i1 %41, label %.thread5, label %15, !llvm.loop !25
 
 42:                                               ; preds = %34
   %43 = add nuw nsw i32 %17, 8
@@ -1027,7 +1027,7 @@ define internal noundef zeroext i1 @vp_get_shm_region(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vp_modern_disable_vq_and_reset(ptr nocapture noundef %0) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @vp_modern_disable_vq_and_reset(ptr nocapture noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 784
@@ -1063,7 +1063,7 @@ define internal noundef i32 @vp_modern_disable_vq_and_reset(ptr nocapture nounde
   store volatile ptr %21, ptr %21, align 8
   store volatile ptr %21, ptr %22, align 8
   %26 = getelementptr inbounds i8, ptr %3, i64 1088
-  %27 = load i8, ptr %26, align 8, !range !27, !noundef !28
+  %27 = load i8, ptr %26, align 8, !range !26, !noundef !27
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %37, label %29
 
@@ -1096,7 +1096,7 @@ define internal noundef i32 @vp_modern_enable_vq_after_reset(ptr noundef %0) #0 
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 808
   %5 = getelementptr inbounds i8, ptr %0, i64 52
-  %6 = load i8, ptr %5, align 4, !range !27, !noundef !28
+  %6 = load i8, ptr %5, align 4, !range !26, !noundef !27
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %43, label %8
 
@@ -1320,7 +1320,7 @@ declare dso_local i32 @vp_modern_get_queue_reset(ptr noundef, i16 noundef zeroex
 declare dso_local zeroext i1 @vp_modern_get_queue_enable(ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @vp_active_vq(ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @vp_active_vq(ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 808
@@ -1453,9 +1453,8 @@ attributes #10 = { cold nounwind }
 !20 = !{i64 2155403196, i64 2155403225, i64 2155403271, i64 2155403329, i64 2155403383, i64 2155403437, i64 2155403492, i64 2155403523}
 !21 = !{i64 2155404411, i64 2155404220, i64 2155404272, i64 2155404318, i64 2155404346}
 !22 = !{i64 2155404485, i64 2155404514, i64 2155404560, i64 2155404618, i64 2155404672, i64 2155404726, i64 2155404781, i64 2155404812}
-!23 = !{i32 -65535, i32 1}
+!23 = distinct !{!23, !9, !10}
 !24 = distinct !{!24, !9, !10}
 !25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = !{i8 0, i8 2}
-!28 = !{}
+!26 = !{i8 0, i8 2}
+!27 = !{}

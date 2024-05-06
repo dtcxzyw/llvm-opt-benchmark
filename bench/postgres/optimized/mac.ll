@@ -307,7 +307,7 @@ declare void @pq_begintypsend(ptr noundef) local_unnamed_addr #2
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @macaddr_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 -1, 2) i64 @macaddr_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -386,7 +386,7 @@ macaddr_cmp_internal.exit:                        ; preds = %1, %33, %35, %63
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @macaddr_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @macaddr_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -461,7 +461,7 @@ macaddr_cmp_internal.exit:                        ; preds = %35, %1, %33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @macaddr_le(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @macaddr_le(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -540,7 +540,7 @@ macaddr_cmp_internal.exit:                        ; preds = %1, %33, %35, %63
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @macaddr_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @macaddr_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -615,7 +615,7 @@ macaddr_cmp_internal.exit:                        ; preds = %1, %32, %60
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @macaddr_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @macaddr_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -690,7 +690,7 @@ macaddr_cmp_internal.exit:                        ; preds = %35, %1, %33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @macaddr_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @macaddr_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -769,7 +769,7 @@ macaddr_cmp_internal.exit:                        ; preds = %1, %33, %35, %63
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @macaddr_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @macaddr_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -844,7 +844,7 @@ macaddr_cmp_internal.exit:                        ; preds = %1, %32, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashmacaddr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashmacaddr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1072,7 +1072,7 @@ define dso_local noundef i64 @macaddr_sortsupport(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @macaddr_fast_cmp(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #3 {
+define internal range(i32 -1, 2) i32 @macaddr_fast_cmp(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #3 {
   %4 = inttoptr i64 %0 to ptr
   %5 = inttoptr i64 %1 to ptr
   %6 = load i8, ptr %4, align 1
@@ -1168,7 +1168,7 @@ define internal i64 @macaddr_abbrev_convert(i64 noundef %0, ptr nocapture nounde
 11:                                               ; preds = %2
   %12 = trunc i48 %.0.copyload to i32
   %13 = lshr i64 %.0.insert.ext, 32
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw nsw i64 %13 to i32
   %15 = xor i32 %14, %12
   %16 = getelementptr inbounds i8, ptr %4, i64 16
   %17 = tail call i32 @hash_bytes_uint32(i32 noundef %15) #6

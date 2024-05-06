@@ -85,7 +85,7 @@ define i32 @mca_topo_base_dist_graph_distribute(ptr nocapture readnone %0, ptr n
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %39 = trunc i64 %indvars.iv.next to i32
+  %39 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph348
@@ -265,7 +265,7 @@ define i32 @mca_topo_base_dist_graph_distribute(ptr nocapture readnone %0, ptr n
   br i1 %exitcond405.not, label %._crit_edge358.split.loopexit, label %105, !llvm.loop !9
 
 ._crit_edge358.split.loopexit:                    ; preds = %105
-  %134 = trunc i64 %indvars.iv.next403 to i32
+  %134 = trunc nsw i64 %indvars.iv.next403 to i32
   br label %._crit_edge358.split
 
 ._crit_edge358.split:                             ; preds = %._crit_edge358.split.loopexit, %.preheader342
@@ -402,7 +402,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %148
   %202 = sext i32 %.0262 to i64
   %203 = sext i32 %.0279363 to i64
   %204 = getelementptr inbounds ptr, ptr %190, i64 %203
-  %205 = trunc i64 %indvars.iv420 to i32
+  %205 = trunc nuw nsw i64 %indvars.iv420 to i32
   %206 = tail call i32 %199(ptr noundef nonnull %201, i64 noundef %202, ptr noundef nonnull @ompi_mpi_int, i32 noundef %205, i32 noundef -50, i32 noundef 4, ptr noundef %1, ptr noundef %204) #9
   %207 = add nsw i32 %.0279363, 1
   br label %208
@@ -425,7 +425,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %148
   %217 = sext i32 %.1263 to i64
   %218 = sext i32 %.1280 to i64
   %219 = getelementptr inbounds ptr, ptr %190, i64 %218
-  %220 = trunc i64 %indvars.iv420 to i32
+  %220 = trunc nuw nsw i64 %indvars.iv420 to i32
   %221 = tail call i32 %214(ptr noundef nonnull %216, i64 noundef %217, ptr noundef nonnull @ompi_mpi_int, i32 noundef %220, i32 noundef -51, i32 noundef 4, ptr noundef %1, ptr noundef %219) #9
   %222 = add nsw i32 %.1280, 1
   br label %223
@@ -506,7 +506,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %148
   %259 = load ptr, ptr %226, align 8
   %260 = getelementptr inbounds i32, ptr %259, i64 %indvars.iv427
   store i32 %258, ptr %260, align 4
-  %261 = trunc i64 %255 to i32
+  %261 = trunc nuw nsw i64 %255 to i32
   %262 = add i32 %252, %261
   %263 = sext i32 %262 to i64
   %264 = getelementptr inbounds i32, ptr %.0260, i64 %263
@@ -520,7 +520,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %148
   br i1 %exitcond433.not, label %.loopexit341.loopexit, label %254, !llvm.loop !12
 
 .loopexit341.loopexit:                            ; preds = %254
-  %268 = trunc i64 %indvars.iv.next428 to i32
+  %268 = trunc nsw i64 %indvars.iv.next428 to i32
   br label %.loopexit341
 
 .loopexit341:                                     ; preds = %240, %.loopexit341.loopexit, %.preheader340
@@ -601,7 +601,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %148
   %310 = load ptr, ptr %287, align 8
   %311 = getelementptr inbounds i32, ptr %310, i64 %indvars.iv436
   store i32 %309, ptr %311, align 4
-  %312 = trunc i64 %306 to i32
+  %312 = trunc nuw nsw i64 %306 to i32
   %313 = add i32 %303, %312
   %314 = sext i32 %313 to i64
   %315 = getelementptr inbounds i32, ptr %.1261, i64 %314
@@ -615,7 +615,7 @@ opal_obj_new.exit.thread310:                      ; preds = %.lr.ph.i.i, %148
   br i1 %exitcond442.not, label %.loopexit.loopexit, label %305, !llvm.loop !14
 
 .loopexit.loopexit:                               ; preds = %305
-  %319 = trunc i64 %indvars.iv.next437 to i32
+  %319 = trunc nsw i64 %indvars.iv.next437 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %291, %.loopexit.loopexit, %.preheader

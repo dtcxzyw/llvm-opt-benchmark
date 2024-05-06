@@ -130,7 +130,7 @@ declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xxsubtype_exec(ptr noundef %m) #0 {
+define internal range(i32 -1, 1) i32 @xxsubtype_exec(ptr noundef %m) #0 {
 entry:
   store ptr @PyDict_Type, ptr getelementptr inbounds (%struct._typeobject, ptr @spamdict_type, i64 0, i32 30), align 8
   %call = tail call i32 @PyType_Ready(ptr noundef nonnull @spamdict_type) #3
@@ -173,7 +173,7 @@ declare i32 @PyType_Ready(ptr noundef) local_unnamed_addr #1
 declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @spamdict_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal range(i32 -1, 1) i32 @spamdict_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDict_Type, i64 0, i32 35), align 8
   %call = tail call i32 %0(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #3
@@ -238,7 +238,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @spamlist_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal range(i32 -1, 1) i32 @spamlist_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyList_Type, i64 0, i32 35), align 8
   %call = tail call i32 %0(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #3

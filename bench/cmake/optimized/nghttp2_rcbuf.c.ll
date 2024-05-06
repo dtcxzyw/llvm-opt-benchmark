@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_rcbuf_new(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_rcbuf_new(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = add i64 %1, 40
   %5 = tail call ptr @nghttp2_mem_malloc(ptr noundef %2, i64 noundef %4) #4
   %6 = icmp eq ptr %5, null
@@ -39,7 +39,7 @@ define dso_local noundef i32 @nghttp2_rcbuf_new(ptr nocapture noundef %0, i64 no
 declare ptr @nghttp2_mem_malloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_rcbuf_new2(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_rcbuf_new2(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = add i64 %2, 41
   %6 = tail call ptr @nghttp2_mem_malloc(ptr noundef %3, i64 noundef %5) #4
   %7 = icmp eq ptr %6, null
@@ -149,7 +149,7 @@ define dso_local { ptr, i64 } @nghttp2_rcbuf_get_buf(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @nghttp2_rcbuf_is_static(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @nghttp2_rcbuf_is_static(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, -1

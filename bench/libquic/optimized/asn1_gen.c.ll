@@ -754,7 +754,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.end
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %elem) #11
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %elem) #11
   %conv.i = trunc i64 %call.i to i32
   br label %if.end.i
 
@@ -773,7 +773,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %3 = load ptr, ptr %storemerge7.i, align 8
-  %call8.i = tail call i32 @strncmp(ptr noundef %3, ptr noundef nonnull %elem, i64 noundef %conv7.i) #11
+  %call8.i = tail call i32 @strncmp(ptr noundef %3, ptr noundef nonnull readonly %elem, i64 noundef %conv7.i) #11
   %tobool.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool.not.i, label %asn1_str2tag.exit, label %for.inc.i
 

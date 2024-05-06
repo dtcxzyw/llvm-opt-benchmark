@@ -187,7 +187,7 @@ Vec_StrGrow.exit.i96:                             ; preds = %41, %39
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %58 = trunc i64 %indvars.iv to i32
+  %58 = trunc nuw nsw i64 %indvars.iv to i32
   %59 = icmp eq i32 %10, %58
   br i1 %59, label %._crit_edge.thread, label %.preheader156
 
@@ -302,7 +302,7 @@ Vec_StrGrow.exit.i110:                            ; preds = %85, %83
   br i1 %exitcond187.not, label %._crit_edge163.thread215, label %.lr.ph162, !llvm.loop !7
 
 ._crit_edge163:                                   ; preds = %.lr.ph162
-  %102 = trunc i64 %indvars.iv183 to i32
+  %102 = trunc nuw nsw i64 %indvars.iv183 to i32
   %103 = icmp eq i32 %10, %102
   br i1 %103, label %._crit_edge163.thread215, label %._crit_edge163.thread
 
@@ -467,7 +467,7 @@ Vec_StrGrow.exit.i124:                            ; preds = %129, %127
   br i1 %165, label %.lr.ph179, label %.critedge
 
 .lr.ph179:                                        ; preds = %.loopexit
-  %166 = trunc i64 %indvars.iv202 to i32
+  %166 = trunc nuw nsw i64 %indvars.iv202 to i32
   %167 = or disjoint i32 %147, %166
   %168 = trunc i32 %167 to i8
   br label %169

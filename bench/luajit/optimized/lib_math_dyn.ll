@@ -43,7 +43,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_ffh_math_log(ptr noundef %L) #0 {
+define internal range(i32 0, 3) i32 @lj_ffh_math_log(ptr noundef %L) #0 {
 entry:
   %call = tail call double @lj_lib_checknum(ptr noundef %L, i32 noundef 1) #4
   %base = getelementptr inbounds i8, ptr %L, i64 32
@@ -96,7 +96,7 @@ entry:
 do.body:                                          ; preds = %do.body, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %do.body ], [ 0, %entry ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %0 = trunc i64 %indvars.iv.next to i32
+  %0 = trunc nuw nsw i64 %indvars.iv.next to i32
   %call = tail call double @lj_lib_checknum(ptr noundef %L, i32 noundef %0) #4
   %1 = load ptr, ptr %base, align 8
   %add.ptr = getelementptr inbounds %union.TValue, ptr %1, i64 %indvars.iv.next

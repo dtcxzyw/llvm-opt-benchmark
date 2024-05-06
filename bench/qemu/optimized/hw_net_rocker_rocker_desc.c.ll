@@ -66,7 +66,7 @@ if.end:                                           ; preds = %entry, %if.then
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @desc_set_buf(ptr nocapture noundef %info, i64 noundef %tlv_size) local_unnamed_addr #1 {
+define dso_local range(i32 -90, 1) i32 @desc_set_buf(ptr nocapture noundef %info, i64 noundef %tlv_size) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %info, align 8
   %r = getelementptr inbounds i8, ptr %0, i64 32
@@ -440,7 +440,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %ring, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %ring, i8 0, i64 28, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

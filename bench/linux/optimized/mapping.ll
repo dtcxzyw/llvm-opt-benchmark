@@ -222,7 +222,7 @@ define internal void @dmam_release(ptr noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @dmam_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @dmam_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -727,7 +727,7 @@ define dso_local void @dma_unmap_page_attrs(ptr noundef %0, i64 noundef %1, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dma_map_sg_attrs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local range(i32 0, -2147483648) i32 @dma_map_sg_attrs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = tail call fastcc i32 @__dma_map_sg_attrs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4)
   %7 = tail call i32 @llvm.smax.i32(i32 %6, i32 0)
   ret i32 %7
@@ -799,7 +799,7 @@ define internal fastcc i32 @__dma_map_sg_attrs(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dma_map_sgtable(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @dma_map_sgtable(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
@@ -1886,7 +1886,7 @@ define dso_local zeroext i1 @dma_pci_p2pdma_supported(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dma_set_mask(ptr noundef %0, i64 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @dma_set_mask(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 560
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1935,7 +1935,7 @@ define dso_local noundef i32 @dma_set_mask(ptr noundef %0, i64 noundef %1) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dma_set_coherent_mask(ptr noundef %0, i64 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @dma_set_coherent_mask(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 552
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

@@ -1771,7 +1771,7 @@ if.then9:                                         ; preds = %if.end
 if.end10:                                         ; preds = %if.end
   %arrayidx.i20 = getelementptr inbounds [0 x ptr], ptr %m_domain.i, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx.i20, align 8
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw i64 %indvars.iv to i32
   %call12 = call ptr @_ZN7datalog7context17get_argument_nameEPK9func_declj(ptr noundef nonnull align 8 dereferenceable(3556) %ctx, ptr noundef nonnull %0, i32 noundef %3)
   %4 = ptrtoint ptr %call12 to i64
   %and.i = and i64 %4, 7
@@ -2234,7 +2234,7 @@ for.cond5.preheader:                              ; preds = %for.body
 
 for.body7.lr.ph:                                  ; preds = %for.cond5.preheader
   %m_idx.i = getelementptr inbounds i8, ptr %2, i64 16
-  %4 = trunc i64 %indvars.iv82 to i32
+  %4 = trunc nuw i64 %indvars.iv82 to i32
   br label %for.body7
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.inc
@@ -2447,7 +2447,7 @@ _ZN7datalog21variable_intersection8add_pairEjj.exit: ; preds = %lor.lhs.false.i2
   %23 = phi ptr [ %.pre.i11.i, %_ZN6vectorIjLb0EjE13expand_vectorEv.exit ], [ %17, %lor.lhs.false.i2.i ]
   %idx.ext.i6.i = zext i32 %22 to i64
   %add.ptr.i7.i = getelementptr inbounds i32, ptr %23, i64 %idx.ext.i6.i
-  %24 = trunc i64 %indvars.iv79 to i32
+  %24 = trunc nuw i64 %indvars.iv79 to i32
   store i32 %24, ptr %add.ptr.i7.i, align 4
   %25 = load ptr, ptr %m_args2.i, align 8
   %arrayidx10.i8.i = getelementptr inbounds i8, ptr %25, i64 -4
@@ -2487,7 +2487,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.e
   %31 = phi ptr [ %.pre.i, %if.then.i ], [ %27, %lor.lhs.false.i ]
   %idx.ext.i = zext i32 %30 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %31, i64 %idx.ext.i
-  %32 = trunc i64 %indvars.iv82 to i32
+  %32 = trunc nuw i64 %indvars.iv82 to i32
   store i32 %32, ptr %add.ptr.i, align 4
   %33 = load ptr, ptr %m_const_indexes, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %33, i64 -4
@@ -4510,7 +4510,7 @@ for.body12.preheader:                             ; preds = %_ZN15ref_vector_cor
 
 for.body12:                                       ; preds = %for.body12.preheader, %for.inc25
   %indvars.iv41 = phi i64 [ 0, %for.body12.preheader ], [ %indvars.iv.next42, %for.inc25 ]
-  %17 = trunc i64 %indvars.iv41 to i32
+  %17 = trunc nuw i64 %indvars.iv41 to i32
   %18 = xor i32 %17, -1
   %sub13 = add i32 %retval.0.i.i48, %18
   %19 = load ptr, ptr %m_nodes.i, align 8
@@ -4657,7 +4657,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp2.i, label %for.inc.i, label %for.cond3.preheader.i
 
 for.cond3.preheader.i:                            ; preds = %for.body.i
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nuw i64 %indvars.iv.i to i32
   br label %for.cond3.i
 
 for.cond3.i:                                      ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit.i, %for.cond3.preheader.i
@@ -4737,7 +4737,7 @@ for.body:                                         ; preds = %for.inc
 
 for.body.for.cond3.preheader_crit_edge:           ; preds = %for.body
   %cmp.le = icmp ult i64 %indvars.iv.next, %2
-  %6 = trunc i64 %indvars.iv.next to i32
+  %6 = trunc nuw i64 %indvars.iv.next to i32
   br label %for.cond3.preheader
 
 for.cond3.preheader:                              ; preds = %for.body.for.cond3.preheader_crit_edge, %for.body.preheader

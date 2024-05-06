@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [18 x i8] c"compression-level\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_add_filter_lzop(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, -19) i32 @archive_write_add_filter_lzop(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @__archive_write_allocate_filter(ptr noundef %0) #7
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #7
   %4 = icmp eq i32 %3, -30
@@ -104,7 +104,7 @@ define internal i32 @archive_write_lzop_open(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @archive_write_lzop_options(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #3 {
+define internal range(i32 -20, 1) i32 @archive_write_lzop_options(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.4) #9

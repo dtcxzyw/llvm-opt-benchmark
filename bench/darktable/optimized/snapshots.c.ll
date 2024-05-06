@@ -597,7 +597,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 declare void @dtgtk_cairo_paint_refresh(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @button_released(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define noundef range(i32 0, 2) i32 @button_released(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds i8, ptr %0, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !6
   %8 = getelementptr inbounds i8, ptr %7, i64 1396
@@ -626,7 +626,7 @@ define noundef i32 @button_released(ptr nocapture noundef readonly %0, double no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @button_pressed(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = getelementptr inbounds i8, ptr %0, i64 280
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   %10 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !13
@@ -770,7 +770,7 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
 declare void @dt_control_queue_redraw_center(...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mouse_moved(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @mouse_moved(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !6
   %8 = getelementptr inbounds i8, ptr %7, i64 1396

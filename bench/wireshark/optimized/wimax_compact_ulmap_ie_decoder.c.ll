@@ -778,7 +778,7 @@ wimax_compact_ulmap_rcid_ie_decoder.exit625:      ; preds = %112, %.sink.split.i
   %.4557 = phi i32 [ %235, %._crit_edge ], [ %229, %225 ], [ %220, %219 ]
   %.11 = phi i32 [ %.10.lcssa, %._crit_edge ], [ %228, %225 ], [ %.9, %219 ]
   %237 = tail call fastcc i32 @wimax_compact_ulmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %2, i32 noundef %.11, i32 noundef %.5567)
-  %238 = add i32 %237, %.4557
+  %238 = add nuw nsw i32 %237, %.4557
   br label %wimax_culmap_extension_ie_decoder.exit
 
 239:                                              ; preds = %5
@@ -926,7 +926,7 @@ wimax_compact_ulmap_rcid_ie_decoder.exit639:      ; preds = %270, %.sink.split.i
   %308 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %307, ptr noundef %2, i32 noundef %.14, i32 noundef %.719, i32 noundef 0) #2
   %309 = tail call fastcc i32 @wimax_compact_ulmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %2, i32 noundef %306, i32 noundef %278)
   %310 = add nuw nsw i32 %.5558, 2
-  %311 = add nsw i32 %310, %309
+  %311 = add nuw nsw i32 %310, %309
   br label %wimax_culmap_extension_ie_decoder.exit
 
 312:                                              ; preds = %5
@@ -1026,7 +1026,7 @@ wimax_compact_ulmap_rcid_ie_decoder.exit654:      ; preds = %331, %353, %.sink.s
 
 360:                                              ; preds = %wimax_compact_ulmap_rcid_ie_decoder.exit654
   %361 = add nuw nsw i32 %.0.i652, 2
-  %362 = tail call i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef %358, i32 noundef %359), !range !6
+  %362 = tail call i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef %358, i32 noundef %359)
   %363 = add nuw nsw i32 %361, %362
   %364 = lshr i32 %362, 1
   %365 = add i32 %364, %358
@@ -1257,7 +1257,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @wimax_compact_ulmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 1, 3) i32 @wimax_compact_ulmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #2
   %6 = and i32 %3, 1
   %.not = icmp eq i32 %6, 0
@@ -1297,7 +1297,7 @@ define internal fastcc noundef i32 @wimax_compact_ulmap_harq_control_ie_decoder(
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 2, 33) i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #2
   %7 = and i32 %4, 1
   %.not = icmp eq i32 %7, 0
@@ -1433,7 +1433,7 @@ define hidden i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr noundef %0, ptr 
   %.2.us = phi i32 [ %77, %69 ], [ %63, %66 ], [ %63, %65 ]
   %79 = add nuw nsw i32 %.0207.us, 2
   %80 = icmp ult i32 %79, %.0202
-  br i1 %80, label %.split.us, label %.loopexit, !llvm.loop !7
+  br i1 %80, label %.split.us, label %.loopexit, !llvm.loop !6
 
 .split:                                           ; preds = %.split.preheader, %103
   %.0207 = phi i32 [ %104, %103 ], [ 0, %.split.preheader ]
@@ -1472,7 +1472,7 @@ define hidden i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr noundef %0, ptr 
   %.2 = phi i32 [ %98, %89 ], [ %85, %100 ], [ %85, %99 ]
   %104 = add nuw nsw i32 %.0207, 2
   %105 = icmp ult i32 %104, %.0202
-  br i1 %105, label %.split, label %.loopexit, !llvm.loop !7
+  br i1 %105, label %.split, label %.loopexit, !llvm.loop !6
 
 106:                                              ; preds = %28
   %107 = load i32, ptr @hf_extended_uiuc_ie_aas_ul, align 4
@@ -1685,5 +1685,4 @@ attributes #2 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 2, i32 33}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

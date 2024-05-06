@@ -48,7 +48,7 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @thread_fd_wait(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @thread_fd_wait(i64 %0, i64 noundef %1) #0 {
   %3 = and i64 %1, 1
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %6, label %4
@@ -72,7 +72,7 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @thread_fd_writable(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @thread_fd_writable(i64 %0, i64 noundef %1) #0 {
   %3 = and i64 %1, 1
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %6, label %4

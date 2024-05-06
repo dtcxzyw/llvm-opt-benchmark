@@ -651,7 +651,7 @@ if.end31:                                         ; preds = %if.then27, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__stream_open(ptr nocapture noundef %stream, i32 noundef %fd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__stream_open(ptr nocapture noundef %stream, i32 noundef %fd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %fd1 = getelementptr inbounds i8, ptr %stream, i64 184
   %0 = load i32, ptr %fd1, align 8
@@ -1278,7 +1278,7 @@ declare i32 @uv__tcp_listen(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare i32 @uv__pipe_listen(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_shutdown(ptr noundef %req, ptr noundef %stream, ptr noundef %cb) local_unnamed_addr #0 {
+define dso_local range(i32 -107, 1) i32 @uv_shutdown(ptr noundef %req, ptr noundef %stream, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %stream, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -1331,7 +1331,7 @@ return:                                           ; preds = %do.body9, %if.then1
 declare void @uv__io_feed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_write2(ptr noundef %req, ptr noundef %stream, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef %send_handle, ptr noundef %cb) local_unnamed_addr #0 {
+define dso_local range(i32 -32, 1) i32 @uv_write2(ptr noundef %req, ptr noundef %stream, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef %send_handle, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %fd.i = getelementptr inbounds i8, ptr %stream, i64 184
   %0 = load i32, ptr %fd.i, align 8
@@ -1656,9 +1656,9 @@ return:                                           ; preds = %uv__write_req_finis
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_write(ptr noundef %req, ptr noundef %handle, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef %cb) local_unnamed_addr #0 {
+define dso_local range(i32 -32, 1) i32 @uv_write(ptr noundef %req, ptr noundef %handle, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @uv_write2(ptr noundef %req, ptr noundef %handle, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef null, ptr noundef %cb), !range !5
+  %call = tail call i32 @uv_write2(ptr noundef %req, ptr noundef %handle, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef null, ptr noundef %cb)
   ret i32 %call
 }
 
@@ -1690,7 +1690,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i.i, label %uv_try_write2.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i.i
-  %call5.i = tail call fastcc i32 @uv__try_write(ptr noundef nonnull %stream, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef null)
+  %call5.i = tail call fastcc i32 @uv__try_write(ptr noundef nonnull readonly %stream, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef null)
   br label %uv_try_write2.exit
 
 uv_try_write2.exit:                               ; preds = %entry, %lor.lhs.false.i, %if.end.i, %if.end.i.i, %if.end4.i
@@ -1957,7 +1957,7 @@ return:                                           ; preds = %entry, %do.end16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @uv_is_readable(ptr nocapture noundef readonly %stream) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @uv_is_readable(ptr nocapture noundef readonly %stream) local_unnamed_addr #5 {
 entry:
   %flags = getelementptr inbounds i8, ptr %stream, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -1967,7 +1967,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @uv_is_writable(ptr nocapture noundef readonly %stream) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @uv_is_writable(ptr nocapture noundef readonly %stream) local_unnamed_addr #5 {
 entry:
   %flags = getelementptr inbounds i8, ptr %stream, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -2202,4 +2202,3 @@ attributes #14 = { cold }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -32, i32 1}

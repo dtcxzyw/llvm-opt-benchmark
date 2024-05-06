@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [26 x i8] c"    UserID=%s(%u) Used=%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_load_burst_buffer_stat(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_load_burst_buffer_stat(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.slurm_msg, align 8
   %6 = alloca %struct.bb_status_req_msg, align 8
@@ -118,7 +118,7 @@ declare void @slurm_free_return_code_msg(ptr noundef) local_unnamed_addr #1
 declare void @slurm_seterrno(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_load_burst_buffer_info(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_load_burst_buffer_info(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.slurm_msg, align 8
   %3 = alloca %struct.slurm_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %2) #8
@@ -274,7 +274,7 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   %53 = load ptr, ptr %35, align 8
   %54 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %53, i64 %indvars.iv, i32 1
   %55 = load ptr, ptr %54, align 8
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.4, i32 noundef %56, ptr noundef %55, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %16) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = load i32, ptr %33, align 8

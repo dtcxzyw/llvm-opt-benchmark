@@ -106,7 +106,7 @@ if.then7.i:                                       ; preds = %if.end5.i
   br label %exr_attr_preview_init.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
   %cmp10.not.i = icmp eq i64 %mul2.i, 0
   br i1 %cmp10.not.i, label %if.then, label %if.then12.i
 
@@ -157,7 +157,7 @@ if.end5:                                          ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @exr_attr_preview_destroy(ptr noundef readonly %ctxt, ptr noundef %p) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @exr_attr_preview_destroy(ptr noundef readonly %ctxt, ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end

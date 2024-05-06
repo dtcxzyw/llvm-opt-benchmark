@@ -34,25 +34,25 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pkcs5_pbe_rc4_md5() #0 {
+define internal range(i32 0, 2) i32 @test_pkcs5_pbe_rc4_md5() #0 {
 entry:
   %call = tail call ptr @EVP_rc4() #2
   %call1 = tail call ptr @EVP_md5() #2
-  %call2 = tail call fastcc i32 @test_pkcs5_pbe(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @pbe_ciphertext_rc4_md5, i32 noundef 24), !range !5
+  %call2 = tail call fastcc i32 @test_pkcs5_pbe(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @pbe_ciphertext_rc4_md5, i32 noundef 24)
   ret i32 %call2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pkcs5_pbe_des_sha1() #0 {
+define internal range(i32 0, 2) i32 @test_pkcs5_pbe_des_sha1() #0 {
 entry:
   %call = tail call ptr @EVP_des_cbc() #2
   %call1 = tail call ptr @EVP_sha1() #2
-  %call2 = tail call fastcc i32 @test_pkcs5_pbe(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @pbe_ciphertext_des_sha1, i32 noundef 32), !range !5
+  %call2 = tail call fastcc i32 @test_pkcs5_pbe(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @pbe_ciphertext_des_sha1, i32 noundef 32)
   ret i32 %call2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_pkcs5_pbe(ptr noundef %cipher, ptr noundef %md, ptr noundef %exp, i32 noundef %exp_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_pkcs5_pbe(ptr noundef %cipher, ptr noundef %md, ptr noundef %exp, i32 noundef %exp_len) unnamed_addr #0 {
 entry:
   %i = alloca i32, align 4
   %out = alloca [32 x i8], align 16
@@ -199,4 +199,3 @@ attributes #2 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

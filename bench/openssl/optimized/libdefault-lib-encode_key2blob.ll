@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.sm22blob_encode = private unnamed_addr constant [16 x i8] c"sm22blob_encode\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal ptr @key2blob_newctx(ptr noundef readnone returned %provctx) #0 {
+define internal noundef ptr @key2blob_newctx(ptr noundef readnone returned %provctx) #0 {
 entry:
   ret ptr %provctx
 }
@@ -27,7 +27,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @ec2blob_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @ec2blob_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2blob_check_selection.exit, label %for.body.i
@@ -116,7 +116,7 @@ return:                                           ; preds = %key2blob_encode.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal i32 @sm22blob_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #1 {
+define internal range(i32 0, 2) i32 @sm22blob_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2blob_check_selection.exit, label %for.body.i

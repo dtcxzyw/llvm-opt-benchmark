@@ -35,7 +35,7 @@ define void @__lzma_wrap_free(ptr nocapture readnone %0, ptr nocapture noundef %
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_LzmaInit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cli_LzmaInit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 156
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -200,7 +200,7 @@ define void @cli_LzmaShutdown(ptr noundef %0) local_unnamed_addr #0 {
 declare void @LzmaDec_Free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_LzmaDecode(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @cli_LzmaDecode(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
@@ -210,7 +210,7 @@ define i32 @cli_LzmaDecode(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %7, label %._crit_edge
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @cli_LzmaInit(ptr noundef nonnull %0, i64 noundef 0), !range !4
+  %8 = tail call i32 @cli_LzmaInit(ptr noundef nonnull %0, i64 noundef 0)
   br label %39
 
 ._crit_edge:                                      ; preds = %1
@@ -297,4 +297,3 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

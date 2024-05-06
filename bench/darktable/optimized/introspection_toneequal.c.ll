@@ -614,7 +614,7 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #7 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #7 {
   %7 = icmp eq i32 %2, 1
   br i1 %7, label %8, label %29
 
@@ -1439,7 +1439,7 @@ define void @commit_params(ptr noundef %0, ptr nocapture noundef readonly %1, pt
   br i1 %121, label %122, label %99
 
 122:                                              ; preds = %99
-  %123 = call fastcc i32 @pseudo_solve(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0), !range !143
+  %123 = call fastcc i32 @pseudo_solve(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %8, ptr noundef nonnull align 64 dereferenceable(32) %5, i64 32, i1 false), !tbaa !6, !alias.scope !156
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #32
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #32
@@ -1540,7 +1540,7 @@ define void @commit_params(ptr noundef %0, ptr nocapture noundef readonly %1, pt
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef i32 @update_curve_lut(ptr noundef %0) unnamed_addr #14 {
+define internal fastcc noundef range(i32 0, 2) i32 @update_curve_lut(ptr noundef %0) unnamed_addr #14 {
   %2 = alloca [9 x float], align 64
   %3 = getelementptr inbounds i8, ptr %0, i64 680
   %4 = load ptr, ptr %3, align 8, !tbaa !166
@@ -1667,7 +1667,7 @@ define internal fastcc noundef i32 @update_curve_lut(ptr noundef %0) unnamed_add
   %92 = getelementptr inbounds i8, ptr %6, i64 2432
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(36) %2, ptr noundef nonnull align 4 dereferenceable(36) %92, i64 36, i1 false), !tbaa !6, !alias.scope !172
   %93 = getelementptr inbounds i8, ptr %6, i64 1088
-  %94 = call fastcc i32 @pseudo_solve(ptr noundef nonnull %93, ptr noundef nonnull %2, i32 noundef 1), !range !143
+  %94 = call fastcc i32 @pseudo_solve(ptr noundef nonnull %93, ptr noundef nonnull %2, i32 noundef 1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef nonnull align 64 dereferenceable(32) %2, i64 32, i1 false), !tbaa !6, !alias.scope !176
   store i32 1, ptr %91, align 4, !tbaa !167
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #32
@@ -1803,7 +1803,7 @@ define internal fastcc noundef i32 @update_curve_lut(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef i32 @pseudo_solve(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef %1, i32 noundef %2) unnamed_addr #14 {
+define internal fastcc noundef range(i32 0, 2) i32 @pseudo_solve(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef %1, i32 noundef %2) unnamed_addr #14 {
   %4 = tail call ptr @dt_alloc_aligned(i64 noundef 256) #32
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 64) ]
   %5 = tail call ptr @dt_alloc_aligned(i64 noundef 32) #32
@@ -3666,7 +3666,7 @@ show_guiding_controls.exit:                       ; preds = %50, %37, %75, %71, 
 declare void @dt_bauhaus_widget_set_quad_active(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #4 {
   %7 = alloca float, align 4
   %8 = alloca float, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 664
@@ -4037,7 +4037,7 @@ define internal fastcc void @switch_cursors(ptr noundef %0) unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mouse_leave(ptr noundef %0) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @mouse_leave(ptr noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 16, !tbaa !61
   %4 = icmp eq ptr %3, null
@@ -4092,7 +4092,7 @@ declare void @gtk_widget_queue_draw(ptr noundef) local_unnamed_addr #6
 declare i64 @gtk_widget_get_type() local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @scrolled(ptr noundef %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @scrolled(ptr noundef %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds i8, ptr %0, i64 664
   %7 = load ptr, ptr %6, align 8, !tbaa !81
   %8 = getelementptr inbounds i8, ptr %0, i64 704
@@ -4295,7 +4295,7 @@ define internal fastcc i32 @set_new_params_interactive(float noundef %0, float n
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(36) %6, ptr noundef nonnull align 4 dereferenceable(36) %10, i64 36, i1 false), !tbaa !6, !alias.scope !313
   %38 = getelementptr inbounds i8, ptr %3, i64 1088
-  %39 = call fastcc i32 @pseudo_solve(ptr noundef nonnull %38, ptr noundef nonnull %6, i32 noundef 1), !range !143
+  %39 = call fastcc i32 @pseudo_solve(ptr noundef nonnull %38, ptr noundef nonnull %6, i32 noundef 1)
   store i32 %39, ptr %7, align 8, !tbaa !142
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %45
@@ -6169,7 +6169,7 @@ declare void @gtk_widget_set_can_focus(ptr noundef, i32 noundef) local_unnamed_a
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @area_draw(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 {
+define internal noundef range(i32 0, 2) i32 @area_draw(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 {
   %4 = getelementptr inbounds i8, ptr %2, i64 704
   %5 = load ptr, ptr %4, align 16, !tbaa !61
   %6 = icmp eq ptr %5, null
@@ -6834,7 +6834,7 @@ define internal noundef i32 @area_draw(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @area_button_press(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #4 {
+define internal noundef range(i32 0, 2) i32 @area_button_press(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #4 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !263
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !270
@@ -6905,7 +6905,7 @@ define internal noundef i32 @area_button_press(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @area_button_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #4 {
+define internal noundef range(i32 0, 2) i32 @area_button_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #4 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !263
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !270
@@ -6951,7 +6951,7 @@ define internal noundef i32 @area_button_release(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @area_enter_leave_notify(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #4 {
+define internal noundef range(i32 0, 2) i32 @area_enter_leave_notify(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #4 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !263
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !270
@@ -7035,7 +7035,7 @@ define internal noundef i32 @area_enter_leave_notify(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @area_motion_notify(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #4 {
+define internal noundef range(i32 0, 2) i32 @area_motion_notify(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #4 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !263
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !270
@@ -7270,7 +7270,7 @@ define internal noundef i32 @area_motion_notify(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @area_scroll(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #4 {
+define internal range(i32 0, 2) i32 @area_scroll(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #4 {
   %4 = tail call i32 @dt_gui_ignore_scroll(ptr noundef %1) #32
   %5 = icmp eq i32 %4, 0
   %6 = zext i1 %5 to i32
@@ -7864,7 +7864,7 @@ declare ptr @gtk_notebook_get_nth_page(ptr noundef, i32 noundef) local_unnamed_a
 declare void @gtk_notebook_set_current_page(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @notebook_button_press(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #4 {
+define internal noundef range(i32 0, 2) i32 @notebook_button_press(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #4 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !263
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !270
@@ -8253,7 +8253,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #20 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !397
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

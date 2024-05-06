@@ -270,7 +270,7 @@ $_ZTV13BaseException = comdat any
 @.str.47 = private unnamed_addr constant [13 x i8] c"EndInventory\00", align 1
 @.str.48 = private unnamed_addr constant [5 x i8] c"List\00", align 1
 @.str.49 = private unnamed_addr constant [9 x i8] c"KeepList\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.50 = private unnamed_addr constant [47 x i8] c"Inventory::deSerialize(): Tried to keep list '\00", align 1
 @.str.51 = private unnamed_addr constant [25 x i8] c"' which is non-existent.\00", align 1
 @.str.52 = private unnamed_addr constant [36 x i8] c"Malformatted inventory (damaged?). \00", align 1
@@ -5521,7 +5521,7 @@ lpad:                                             ; preds = %call3.i.i.i.i.noexc
   br label %common.resume
 
 if.else:                                          ; preds = %_ZN9ItemStackC2ERKS_.exit
-  %conv7 = trunc i32 %takecount to i16
+  %conv7 = trunc nuw i32 %takecount to i16
   %sub.i = sub i16 %17, %conv7
   store i16 %sub.i, ptr %count, align 8, !tbaa !17
   %cmp.i = icmp eq i16 %17, %conv7
@@ -5693,7 +5693,7 @@ _ZN9ItemStackC2ERKS_.exit:                        ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp5, label %if.then6, label %return
 
 if.then6:                                         ; preds = %_ZN9ItemStackC2ERKS_.exit
-  %conv7 = trunc i32 %peekcount to i16
+  %conv7 = trunc nuw i32 %peekcount to i16
   store i16 %conv7, ptr %count.i13, align 8, !tbaa !17
   br label %return
 

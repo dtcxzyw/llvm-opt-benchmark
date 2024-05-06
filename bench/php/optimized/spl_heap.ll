@@ -384,7 +384,7 @@ define hidden void @zim_SplHeap_extract(ptr noundef %0, ptr noundef %1) #0 {
   br label %.sink.split
 
 16:                                               ; preds = %.critedge
-  %17 = tail call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull %3), !range !4
+  %17 = tail call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull %3)
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %19, label %24
 
@@ -404,7 +404,7 @@ define hidden void @zim_SplHeap_extract(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @spl_ptr_heap_delete_top(ptr nocapture noundef %0, ptr noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_ptr_heap_delete_top(ptr nocapture noundef %0, ptr noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, -1
@@ -675,7 +675,7 @@ define hidden void @zim_SplPriorityQueue_insert(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @spl_ptr_pqueue_elem_cmp_long(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
+define internal range(i32 -1, 2) i32 @spl_ptr_pqueue_elem_cmp_long(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -688,7 +688,7 @@ define internal i32 @spl_ptr_pqueue_elem_cmp_long(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @spl_ptr_pqueue_elem_cmp_double(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
+define internal range(i32 -1, 2) i32 @spl_ptr_pqueue_elem_cmp_double(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -801,7 +801,7 @@ define hidden void @zim_SplPriorityQueue_extract(ptr noundef %0, ptr noundef %1)
   br label %33
 
 21:                                               ; preds = %.critedge
-  %22 = call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef nonnull %12, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !4
+  %22 = call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef nonnull %12, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %24, label %29
 
@@ -1018,7 +1018,7 @@ define hidden void @zim_SplPriorityQueue_setExtractFlags(ptr nocapture noundef r
 
 20:                                               ; preds = %12
   %21 = load ptr, ptr %4, align 8
-  %22 = trunc i64 %14 to i32
+  %22 = trunc nuw nsw i64 %14 to i32
   %23 = getelementptr inbounds i8, ptr %21, i64 -24
   store i32 %22, ptr %23, align 8
   store i64 %14, ptr %1, align 8
@@ -1515,7 +1515,7 @@ define hidden void @zim_SplHeap_next(ptr noundef %0, ptr nocapture readnone %1) 
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -32
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef %11, ptr noundef null, ptr noundef nonnull %8), !range !4
+  %12 = tail call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef %11, ptr noundef null, ptr noundef nonnull %8)
   br label %13
 
 13:                                               ; preds = %.critedge, %5
@@ -2223,7 +2223,7 @@ define internal noundef ptr @spl_heap_object_clone(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @spl_heap_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1, 1) i32 @spl_heap_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
@@ -2557,7 +2557,7 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
 
 78:                                               ; preds = %.lr.ph117
   %79 = getelementptr inbounds i8, ptr %.06689116, i64 16
-  %80 = load ptr, ptr %79, align 8, !nonnull !5, !noundef !5
+  %80 = load ptr, ptr %79, align 8, !nonnull !4, !noundef !4
   %81 = icmp eq ptr %80, %16
   br i1 %81, label %.loopexit, label %.lr.ph117
 
@@ -2590,7 +2590,7 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   %94 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %93, ptr noundef nonnull @.str.6, i64 noundef 7) #14
   %.not73 = icmp ne ptr %94, null
   tail call void @llvm.assume(i1 %.not73)
-  %95 = load ptr, ptr %94, align 8, !nonnull !5, !noundef !5
+  %95 = load ptr, ptr %94, align 8, !nonnull !4, !noundef !4
   %96 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %95, ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %95, i64 16
@@ -2604,7 +2604,7 @@ spl_ptr_heap_clone.exit:                          ; preds = %.lr.ph.i, %21, %27
   %103 = tail call ptr @zend_hash_find(ptr noundef nonnull %93, ptr noundef %102) #14
   %.not74 = icmp ne ptr %103, null
   tail call void @llvm.assume(i1 %.not74)
-  %104 = load ptr, ptr %103, align 8, !nonnull !5, !noundef !5
+  %104 = load ptr, ptr %103, align 8, !nonnull !4, !noundef !4
   %105 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %104, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %104, i64 16
@@ -2707,7 +2707,7 @@ define internal void @spl_heap_it_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @spl_heap_it_valid(ptr nocapture noundef readonly %0) #10 {
+define internal range(i32 -1, 1) i32 @spl_heap_it_valid(ptr nocapture noundef readonly %0) #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -32
@@ -2785,7 +2785,7 @@ define internal void @spl_heap_it_move_forward(ptr noundef %0) #0 {
   br label %14
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %2), !range !4
+  %13 = tail call fastcc i32 @spl_ptr_heap_delete_top(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %2)
   tail call void @zend_user_it_invalidate_current(ptr noundef nonnull %0) #14
   br label %14
 
@@ -2880,5 +2880,4 @@ attributes #16 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{}
+!4 = !{}

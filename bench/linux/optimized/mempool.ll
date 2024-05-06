@@ -219,7 +219,7 @@ define dso_local void @mempool_destroy(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mempool_init_node(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @mempool_init_node(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) #0 align 16 {
   store i32 0, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %8, align 4
@@ -301,8 +301,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mempool_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
-  %6 = tail call i32 @mempool_init_node(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 3264, i32 noundef -1), !range !14
+define dso_local noundef range(i32 -12, 1) i32 @mempool_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
+  %6 = tail call i32 @mempool_init_node(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 3264, i32 noundef -1)
   ret i32 %6
 }
 
@@ -314,7 +314,7 @@ define dso_local noundef ptr @mempool_create(i32 noundef %0, ptr noundef %1, ptr
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @mempool_init_node(ptr noundef nonnull %6, i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 3264, i32 noundef -1), !range !14
+  %9 = tail call i32 @mempool_init_node(ptr noundef nonnull %6, i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 3264, i32 noundef -1)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %12, label %11
 
@@ -349,7 +349,7 @@ define dso_local noundef ptr @mempool_create_node(i32 noundef %0, ptr noundef %1
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %13
-  %21 = tail call i32 @mempool_init_node(ptr noundef nonnull %18, i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5), !range !14
+  %21 = tail call i32 @mempool_init_node(ptr noundef nonnull %18, i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5)
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %24, label %23
 
@@ -363,13 +363,13 @@ define dso_local noundef ptr @mempool_create_node(i32 noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mempool_resize(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @mempool_resize(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = icmp slt i32 %1, 1
   br i1 %3, label %4, label %5, !prof !5
 
 4:                                                ; preds = %2
-  tail call void asm sideeffect "405: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 405b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 405) #7, !srcloc !15
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 320, i32 0, i64 12) #7, !srcloc !16
+  tail call void asm sideeffect "405: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 405b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 405) #7, !srcloc !14
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 320, i32 0, i64 12) #7, !srcloc !15
   unreachable
 
 5:                                                ; preds = %2
@@ -419,7 +419,7 @@ define dso_local noundef i32 @mempool_resize(ptr noundef %0, i32 noundef %1) #0 
   %36 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
   %37 = load i32, ptr %12, align 8
   %38 = icmp sgt i32 %37, %1
-  br i1 %38, label %20, label %.loopexit8, !llvm.loop !17
+  br i1 %38, label %20, label %.loopexit8, !llvm.loop !16
 
 .loopexit8:                                       ; preds = %33, %11
   %39 = phi i64 [ %7, %11 ], [ %36, %33 ]
@@ -491,7 +491,7 @@ define dso_local noundef i32 @mempool_resize(ptr noundef %0, i32 noundef %1) #0 
   %78 = load i32, ptr %53, align 8
   %79 = load i32, ptr %8, align 4
   %80 = icmp slt i32 %78, %79
-  br i1 %80, label %62, label %.loopexit7, !llvm.loop !18
+  br i1 %80, label %62, label %.loopexit7, !llvm.loop !17
 
 81:                                               ; preds = %68
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %69) #7
@@ -535,10 +535,10 @@ define dso_local noalias ptr @mempool_alloc(ptr noundef %0, i32 noundef %1) #0 a
   %14 = load ptr, ptr %12, align 8
   %15 = tail call ptr %13(i32 noundef %10, ptr noundef %14) #7
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %.loopexit, !prof !19
+  br i1 %16, label %17, label %.loopexit, !prof !18
 
 17:                                               ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !19
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = getelementptr inbounds i8, ptr %3, i64 8
   %20 = getelementptr inbounds i8, ptr %3, i64 16
@@ -562,7 +562,7 @@ define dso_local noalias ptr @mempool_alloc(ptr noundef %0, i32 noundef %1) #0 a
   br i1 %5, label %.split14.us, label %31
 
 31:                                               ; preds = %30
-  %32 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !21
+  %32 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !20
   %33 = inttoptr i64 %32 to ptr
   store ptr %33, ptr %19, align 8
   store ptr @autoremove_wake_function, ptr %20, align 8
@@ -577,7 +577,7 @@ define dso_local noalias ptr @mempool_alloc(ptr noundef %0, i32 noundef %1) #0 a
   %36 = load ptr, ptr %12, align 8
   %37 = call ptr %35(i32 noundef %9, ptr noundef %36) #7
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.split.us, label %.loopexit, !prof !22
+  br i1 %38, label %.split.us, label %.loopexit, !prof !21
 
 .split:                                           ; preds = %24
   %39 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
@@ -589,7 +589,7 @@ define dso_local noalias ptr @mempool_alloc(ptr noundef %0, i32 noundef %1) #0 a
   %.us-phi = phi i64 [ %27, %.split.us ], [ %39, %.split ]
   %42 = call fastcc ptr @remove_element(ptr noundef %0)
   call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %.us-phi) #7
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !23
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !22
   br label %.loopexit
 
 43:                                               ; preds = %.split
@@ -598,7 +598,7 @@ define dso_local noalias ptr @mempool_alloc(ptr noundef %0, i32 noundef %1) #0 a
   %45 = load ptr, ptr %12, align 8
   %46 = tail call ptr %44(i32 noundef %9, ptr noundef %45) #7
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %24, label %.loopexit, !prof !22
+  br i1 %47, label %24, label %.loopexit, !prof !21
 
 .split14.us:                                      ; preds = %30
   call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %27) #7
@@ -663,7 +663,7 @@ define dso_local noalias ptr @mempool_alloc_preallocated(ptr noundef %0) #0 alig
 
 23:                                               ; preds = %19, %12
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %2) #7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !23
   br label %25
 
 24:                                               ; preds = %1
@@ -681,7 +681,7 @@ define dso_local void @mempool_free(ptr noundef %0, ptr noundef %1) #0 align 16 
   br i1 %3, label %29, label %4, !prof !5
 
 4:                                                ; preds = %2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !24
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load volatile i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 4
@@ -827,15 +827,14 @@ attributes #10 = { nounwind memory(none) }
 !11 = !{!"branch_weights", i32 2000, i32 1}
 !12 = !{i64 2155228956, i64 2155228765, i64 2155228817, i64 2155228863, i64 2155228891}
 !13 = !{i64 2155229030, i64 2155229059, i64 2155229105, i64 2155229163, i64 2155229217, i64 2155229271, i64 2155229326, i64 2155229357}
-!14 = !{i32 -12, i32 1}
-!15 = !{i64 2155246926, i64 2155246735, i64 2155246787, i64 2155246833, i64 2155246861}
-!16 = !{i64 2155247000, i64 2155247029, i64 2155247075, i64 2155247133, i64 2155247187, i64 2155247241, i64 2155247296, i64 2155247327}
+!14 = !{i64 2155246926, i64 2155246735, i64 2155246787, i64 2155246833, i64 2155246861}
+!15 = !{i64 2155247000, i64 2155247029, i64 2155247075, i64 2155247133, i64 2155247187, i64 2155247241, i64 2155247296, i64 2155247327}
+!16 = distinct !{!16, !9, !10}
 !17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = !{!"branch_weights", i32 1, i32 1998}
-!20 = !{!"auto-init"}
-!21 = !{i64 2148175442}
-!22 = !{!"branch_weights", i32 0, i32 1}
-!23 = !{i64 2155252178}
-!24 = !{i64 2155254644}
-!25 = !{i64 2155256910}
+!18 = !{!"branch_weights", i32 1, i32 1998}
+!19 = !{!"auto-init"}
+!20 = !{i64 2148175442}
+!21 = !{!"branch_weights", i32 0, i32 1}
+!22 = !{i64 2155252178}
+!23 = !{i64 2155254644}
+!24 = !{i64 2155256910}

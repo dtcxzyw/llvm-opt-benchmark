@@ -339,7 +339,7 @@ declare noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef n
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.10107650269694508106(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.10107650269694508106(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

@@ -1494,10 +1494,10 @@ _Z15grid_jump_limitPK17gmx_domdec_comm_tfi.exit.i.i.i: ; preds = %277, %_ZL16cel
 
 404:                                              ; preds = %402
   %405 = load ptr, ptr %392, align 8
-  %406 = getelementptr float, ptr %405, i64 %indvars.iv294.i.i.i
+  %406 = getelementptr inbounds float, ptr %405, i64 %indvars.iv294.i.i.i
   %407 = load float, ptr %406, align 4
   %408 = fpext float %407 to double
-  %409 = getelementptr i8, ptr %406, i64 4
+  %409 = getelementptr inbounds i8, ptr %406, i64 4
   %410 = load float, ptr %409, align 4
   %411 = fpext float %410 to double
   %412 = trunc nuw nsw i64 %indvars.iv294.i.i.i to i32

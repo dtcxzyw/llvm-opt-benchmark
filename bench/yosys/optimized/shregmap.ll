@@ -660,12 +660,12 @@ define internal void @_ZN12_GLOBAL__N_112ShregmapPass7executeESt6vectorINSt7__cx
   %45 = alloca %"class.std::vector.23", align 8
   %46 = alloca %"struct.(anonymous namespace)::ShregmapWorker", align 8
   %47 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %47, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %47, i8 0, i64 48, i1 false)
   store i32 2, ptr %4, align 8
   %48 = getelementptr inbounds i8, ptr %4, i64 4
   %49 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr null, ptr %49, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %48, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   invoke void (ptr, ptr, ...) @_ZN5Yosys10log_headerEPNS_5RTLIL6DesignEPKcz(ptr noundef %2, ptr noundef nonnull @.str.44)

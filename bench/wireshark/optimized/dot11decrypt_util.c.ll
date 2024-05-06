@@ -127,7 +127,7 @@ define hidden noundef zeroext i1 @dot11decrypt_prf(ptr noundef %0, i64 noundef %
   store i8 0, ptr %28, align 1
   %29 = getelementptr i8, ptr %9, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr nonnull align 1 %3, i64 %4, i1 false)
-  %.lhs.trunc = trunc i64 %7 to i8
+  %.lhs.trunc = trunc nuw i64 %7 to i8
   %30 = udiv i8 %.lhs.trunc, 20
   %31 = getelementptr [256 x i8], ptr %9, i64 0, i64 %22
   %32 = and i32 %12, 65535
@@ -314,7 +314,7 @@ sha256.exit.thread:                               ; preds = %35, %52
   br label %58
 
 56:                                               ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %55, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %55, i64 32, i1 false)
   %57 = load ptr, ptr %13, align 8
   call void @gcry_md_close(ptr noundef %57) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -378,7 +378,7 @@ sha256.exit.thread:                               ; preds = %23, %31
   br label %37
 
 35:                                               ; preds = %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(32) %34, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(32) %34, i64 32, i1 false)
   %36 = load ptr, ptr %10, align 8
   call void @gcry_md_close(ptr noundef %36) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)

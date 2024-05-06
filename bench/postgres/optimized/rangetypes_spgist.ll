@@ -592,12 +592,12 @@ select.unfold173:                                 ; preds = %64, %58, %61, %70, 
 124:                                              ; preds = %123, %121
   %.1 = phi ptr [ %14, %123 ], [ null, %121 ]
   %. = phi ptr [ %15, %123 ], [ null, %121 ]
-  %125 = call fastcc i32 @adjacent_inner_consistent(ptr noundef %89, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef %.), !range !11
+  %125 = call fastcc i32 @adjacent_inner_consistent(ptr noundef %89, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef %.)
   %126 = icmp sgt i32 %125, 0
   %127 = icmp slt i32 %125, 0
   %.163 = select i1 %127, i32 12, i32 0
   %.0130 = select i1 %126, i32 18, i32 %.163
-  %128 = call fastcc i32 @adjacent_inner_consistent(ptr noundef %89, ptr noundef nonnull %12, ptr noundef nonnull %8, ptr noundef %.1), !range !11
+  %128 = call fastcc i32 @adjacent_inner_consistent(ptr noundef %89, ptr noundef nonnull %12, ptr noundef nonnull %8, ptr noundef %.1)
   %129 = icmp sgt i32 %128, 0
   %130 = icmp slt i32 %128, 0
   %.164 = select i1 %130, i32 24, i32 0
@@ -773,7 +773,7 @@ getQuadrant.exit:                                 ; preds = %141, %149, %150
   %182 = load i32, ptr %90, align 8
   %183 = sext i32 %182 to i64
   %184 = icmp slt i64 %indvars.iv.next316, %183
-  br i1 %184, label %100, label %.thread178, !llvm.loop !12
+  br i1 %184, label %100, label %.thread178, !llvm.loop !11
 
 .thread178:                                       ; preds = %select.unfold173, %.thread175, %58, %.thread272, %.thread272.thread, %157, %.preheader, %82
   %.2149 = phi i1 [ false, %82 ], [ false, %.preheader ], [ %.1148193220244271278, %.thread272 ], [ %.1148193220244271278281, %.thread272.thread ], [ %.1148.ph, %157 ], [ false, %58 ], [ false, %.thread175 ], [ false, %select.unfold173 ]
@@ -851,7 +851,7 @@ getQuadrant.exit:                                 ; preds = %141, %149, %150
   %226 = phi i32 [ %.pre322, %210 ], [ %207, %.lr.ph304.split.us ]
   %227 = add i32 %.3145303.us, 1
   %.not160.us = icmp sgt i32 %227, %226
-  br i1 %.not160.us, label %._crit_edge, label %.lr.ph304.split.us, !llvm.loop !13
+  br i1 %.not160.us, label %._crit_edge, label %.lr.ph304.split.us, !llvm.loop !12
 
 .lr.ph304.split:                                  ; preds = %.thread324, %239
   %228 = phi i32 [ %240, %239 ], [ %204, %.thread324 ]
@@ -878,7 +878,7 @@ getQuadrant.exit:                                 ; preds = %141, %149, %150
   %240 = phi i32 [ %228, %.lr.ph304.split ], [ %.pre321, %231 ]
   %241 = add i32 %.3145303, 1
   %.not160 = icmp sgt i32 %241, %240
-  br i1 %.not160, label %._crit_edge, label %.lr.ph304.split, !llvm.loop !13
+  br i1 %.not160, label %._crit_edge, label %.lr.ph304.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %239, %225, %.thread324, %191
   %242 = phi ptr [ %203, %.thread324 ], [ %199, %191 ], [ %199, %225 ], [ %203, %239 ]
@@ -897,7 +897,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @adjacent_inner_consistent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @adjacent_inner_consistent(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %29, label %5
 
@@ -983,7 +983,7 @@ declare i32 @range_cmp_bounds(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @spg_range_quad_leaf_consistent(ptr noundef %0) local_unnamed_addr #1 {
+define dso_local range(i64 0, 2) i64 @spg_range_quad_leaf_consistent(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1101,7 +1101,7 @@ define dso_local noundef i64 @spg_range_quad_leaf_consistent(ptr noundef %0) loc
   %72 = load i32, ptr %17, align 8
   %73 = sext i32 %72 to i64
   %.not = icmp slt i64 %indvars.iv.next, %73
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %71, %67, %56, %54, %50, %46, %42, %38, %34, %30, %26, %1
   %.lcssa50 = phi i64 [ 1, %1 ], [ 0, %26 ], [ 0, %30 ], [ 0, %34 ], [ 0, %38 ], [ 0, %42 ], [ 0, %46 ], [ 0, %50 ], [ 0, %54 ], [ 0, %56 ], [ 0, %67 ], [ 1, %71 ]
@@ -1163,7 +1163,6 @@ attributes #7 = { cold nounwind }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 -1, i32 2}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}

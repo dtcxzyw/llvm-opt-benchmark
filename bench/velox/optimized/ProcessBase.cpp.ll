@@ -407,7 +407,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #2
 define noundef zeroext i1 @_ZN8facebook5velox7process7hasAvx2Ev() local_unnamed_addr #7 {
 entry:
   %0 = load i8, ptr @_ZN8facebook5velox7process12_GLOBAL__N_111avx2CpuFlagE, align 1
-  %tobool = trunc i8 %0 to i1
+  %tobool = trunc nuw i8 %0 to i1
   %1 = load i8, ptr @_ZN3fLB10FLAGS_avx2E, align 1
   %tobool1 = trunc i8 %1 to i1
   %2 = select i1 %tobool, i1 %tobool1, i1 false
@@ -418,7 +418,7 @@ entry:
 define noundef zeroext i1 @_ZN8facebook5velox7process7hasBmi2Ev() local_unnamed_addr #7 {
 entry:
   %0 = load i8, ptr @_ZN8facebook5velox7process12_GLOBAL__N_111bmi2CpuFlagE, align 1
-  %tobool = trunc i8 %0 to i1
+  %tobool = trunc nuw i8 %0 to i1
   %1 = load i8, ptr @_ZN3fLB10FLAGS_bmi2E, align 1
   %tobool1 = trunc i8 %1 to i1
   %2 = select i1 %tobool, i1 %tobool1, i1 false

@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.24 = private unnamed_addr constant [38 x i8] c"Unknown target audit message type %d\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @packet_target_to_host_sockaddr(ptr nocapture noundef writeonly %host_addr, i64 noundef %target_addr, i32 noundef %len) #0 {
+define internal range(i64 -14, 1) i64 @packet_target_to_host_sockaddr(ptr nocapture noundef writeonly %host_addr, i64 noundef %target_addr, i32 noundef %len) #0 {
 entry:
   %conv = zext i32 %len to i64
   %call = tail call ptr @lock_user(i32 noundef 1, i64 noundef %target_addr, i64 noundef %conv, i1 noundef zeroext true) #5
@@ -1471,7 +1471,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @swap_data_u64(ptr nocapture readnone %buf, i64 noundef %len) #1 {
+define internal range(i64 8, 0) i64 @swap_data_u64(ptr nocapture readnone %buf, i64 noundef %len) #1 {
 entry:
   %cmp = icmp ult i64 %len, 8
   %spec.select = select i1 %cmp, i64 -22, i64 %len

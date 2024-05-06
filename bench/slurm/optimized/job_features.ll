@@ -406,7 +406,7 @@ declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @list_find_first_ro(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_cmp_job_feature(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @_cmp_job_feature(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @xstrcmp(ptr noundef %3, ptr noundef %4) #4

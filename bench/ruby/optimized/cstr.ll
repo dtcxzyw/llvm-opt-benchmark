@@ -39,7 +39,7 @@ define void @Init_string_cstr(i64 noundef %0) local_unnamed_addr #0 {
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bug_str_cstr_term(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @bug_str_cstr_term(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = inttoptr i64 %0 to ptr
@@ -277,7 +277,7 @@ rb_num2long_inline.exit30:                        ; preds = %10, %12
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bug_str_s_cstr_term(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @bug_str_s_cstr_term(i64 %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = and i64 %1, 7
   %5 = icmp ne i64 %4, 0
@@ -543,7 +543,7 @@ RSTRING_PTR.exit:                                 ; preds = %RB_FL_SET.exit, %32
   br i1 %.not.i23, label %ruby_nonempty_memcpy.exit, label %33
 
 33:                                               ; preds = %RSTRING_PTR.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr align 1 %.sroa.2.0.i, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %11, ptr readonly align 1 %.sroa.2.0.i, i64 %10, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit, %33
@@ -579,7 +579,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @bug_str_s_cstr_embedded_p(i64 %0, i64 noundef %1) #2 {
+define internal range(i64 0, 21) i64 @bug_str_s_cstr_embedded_p(i64 %0, i64 noundef %1) #2 {
   %3 = inttoptr i64 %1 to ptr
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 8192

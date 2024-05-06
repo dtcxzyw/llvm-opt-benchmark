@@ -92,7 +92,7 @@ declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #1
 declare void @rb_sys_fail_str(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @get_noatime_p(i64 %0, i64 noundef %1) #0 {
+define range(i64 0, 21) i64 @get_noatime_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.statfs, align 8
   %5 = alloca ptr, align 8

@@ -365,7 +365,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @be_null_filter(ptr noundef %src, ptr noundef %dst, i64 noundef %lim, i32 %state, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 3) i32 @be_null_filter(ptr noundef %src, ptr noundef %dst, i64 noundef %lim, i32 %state, ptr nocapture readnone %ctx) #0 {
 entry:
   %call = tail call i32 @evbuffer_remove_buffer(ptr noundef %src, ptr noundef %dst, i64 noundef %lim) #2
   %0 = lshr i32 %call, 30

@@ -9036,7 +9036,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeI7QString15QHashDummyVa
 8:                                                ; preds = %7
   %9 = shl nuw i64 %.0, 1
   %10 = add i64 %9, -1
-  %11 = tail call i64 @llvm.ctlz.i64(i64 %10, i1 true), !range !83
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %12 = xor i64 %11, 63
   %13 = shl i64 2, %12
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -9250,7 +9250,7 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE6insertEm.exit: ; pr
 125:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE6insertEm.exit
   %126 = add nuw nsw i64 %.02333, 1
   %exitcond.not = icmp eq i64 %126, 128
-  br i1 %exitcond.not, label %127, label %43, !llvm.loop !84
+  br i1 %exitcond.not, label %127, label %43, !llvm.loop !83
 
 127:                                              ; preds = %125
   %128 = load ptr, ptr %42, align 8
@@ -9302,7 +9302,7 @@ _ZN12QHashPrivate4NodeI7QString15QHashDummyValueED2Ev.exit.i: ; preds = %136, %_
 _ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE8freeDataEv.exit: ; preds = %127, %143
   %144 = add nuw nsw i64 %.02234, 1
   %exitcond36.not = icmp eq i64 %144, %38
-  br i1 %exitcond36.not, label %._crit_edge.thread, label %40, !llvm.loop !85
+  br i1 %exitcond36.not, label %._crit_edge.thread, label %40, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.loopexit32
   %145 = icmp eq ptr %15, null
@@ -9419,7 +9419,7 @@ define linkonce_odr noundef ptr @_ZN12QHashPrivate4DataINS_4NodeI7QString15QHash
 9:                                                ; preds = %8
   %10 = shl nuw i64 %1, 1
   %11 = add i64 %10, -1
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %11, i1 true), !range !83
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %11, i1 true)
   %13 = xor i64 %12, 63
   %14 = shl i64 2, %13
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i
@@ -9611,7 +9611,7 @@ define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeI7QString15QHashDummyVa
 17:                                               ; preds = %16
   %18 = shl nuw i64 %.sroa.speculated, 1
   %19 = add i64 %18, -1
-  %20 = tail call i64 @llvm.ctlz.i64(i64 %19, i1 true), !range !83
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %19, i1 true)
   %21 = xor i64 %20, 63
   %22 = shl i64 2, %21
   br label %_ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit
@@ -9836,12 +9836,12 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE6insertEm.exit: ; pr
 _ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit: ; preds = %142, %_ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE6insertEm.exit, %54
   %144 = add nuw nsw i64 %.02331, 1
   %exitcond.not = icmp eq i64 %144, 128
-  br i1 %exitcond.not, label %145, label %54, !llvm.loop !86
+  br i1 %exitcond.not, label %145, label %54, !llvm.loop !85
 
 145:                                              ; preds = %_ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit
   %146 = add nuw nsw i64 %.033, 1
   %exitcond35.not = icmp eq i64 %146, %47
-  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !87
+  br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %145, %.loopexit
   ret void
@@ -10336,7 +10336,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit30.thread: ; preds = %38, 
   %54 = add i64 %53, 1
   store i64 %54, ptr %48, align 16
   %55 = icmp ult ptr %52, %45
-  br i1 %55, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit, !llvm.loop !88
+  br i1 %55, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit, !llvm.loop !87
 
 56:                                               ; preds = %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit30
   %57 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10366,7 +10366,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit30.thread: ; preds = %38, 
   %68 = add i64 %67, 1
   store i64 %68, ptr %62, align 16
   %69 = icmp ult ptr %66, %59
-  br i1 %69, label %63, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit, !llvm.loop !89
+  br i1 %69, label %63, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit, !llvm.loop !88
 
 _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit: ; preds = %63, %.noexc, %56, %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit30.thread, %35
   %70 = load ptr, ptr %0, align 8
@@ -10691,7 +10691,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %63 = add i64 %62, 1
   store i64 %63, ptr %48, align 16
   %64 = icmp ult ptr %61, %45
-  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !90
+  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !89
 
 65:                                               ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30
   %66 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10733,7 +10733,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %86 = add i64 %85, 1
   store i64 %86, ptr %71, align 16
   %87 = icmp ult ptr %84, %68
-  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !91
+  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !90
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %72, %_ZN7QStringC2ERKS_.exit.i, %65, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread, %35
   %88 = load ptr, ptr %0, align 8
@@ -11066,7 +11066,7 @@ attributes #25 = { cold noreturn }
 !80 = !{}
 !81 = distinct !{!81, !8}
 !82 = distinct !{!82, !8}
-!83 = !{i64 0, i64 65}
+!83 = distinct !{!83, !8}
 !84 = distinct !{!84, !8}
 !85 = distinct !{!85, !8}
 !86 = distinct !{!86, !8}
@@ -11074,4 +11074,3 @@ attributes #25 = { cold noreturn }
 !88 = distinct !{!88, !8}
 !89 = distinct !{!89, !8}
 !90 = distinct !{!90, !8}
-!91 = distinct !{!91, !8}

@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [48 x i8] c"usage: proxy_thr <message-size> <message-count>\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z40test_assert_success_message_errno_helperiPKcS0_(i32 noundef returned %rc_, ptr noundef %msg_, ptr noundef %expr_) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, -1) i32 @_Z40test_assert_success_message_errno_helperiPKcS0_(i32 noundef returned %rc_, ptr noundef %msg_, ptr noundef %expr_) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %rc_, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -88,7 +88,7 @@ declare i32 @zmq_send(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_
 declare i32 @zmq_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #4 {
+define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #4 {
 entry:
   %cfg_proxy = alloca %struct.proxy_hwm_cfg_t, align 8
   %cfg_sub1 = alloca %struct.proxy_hwm_cfg_t, align 8
@@ -114,7 +114,7 @@ if.end:                                           ; preds = %entry
   store i64 %conv4, ptr @_ZL13message_count, align 8
   %call6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %call1)
   %2 = load i64, ptr @_ZL13message_count, align 8
-  %conv7 = trunc i64 %2 to i32
+  %conv7 = trunc nsw i64 %2 to i32
   %call8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %conv7)
   %call9 = tail call ptr @zmq_ctx_new()
   %call10 = tail call i32 @zmq_ctx_set(ptr noundef %call9, i32 noundef 1, i32 noundef 4)

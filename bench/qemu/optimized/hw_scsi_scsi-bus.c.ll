@@ -645,7 +645,7 @@ sw.bb67.i:                                        ; preds = %sw.bb
   br label %if.end13
 
 sw.default76.i:                                   ; preds = %sw.bb
-  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull %cmd, ptr noundef nonnull %dev, ptr noundef nonnull %buf)
+  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull writeonly %cmd, ptr noundef nonnull readonly %dev, ptr noundef nonnull %buf)
   br label %if.end13
 
 sw.bb5:                                           ; preds = %if.end
@@ -683,7 +683,7 @@ sw.bb1.i23:                                       ; preds = %sw.bb5
   br label %if.end13
 
 sw.default.i:                                     ; preds = %sw.bb5
-  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull %cmd, ptr noundef nonnull %dev, ptr noundef nonnull %buf)
+  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull writeonly %cmd, ptr noundef nonnull readonly %dev, ptr noundef nonnull %buf)
   br label %if.end13
 
 sw.bb7:                                           ; preds = %if.end
@@ -729,7 +729,7 @@ sw.bb5.i:                                         ; preds = %sw.bb7, %sw.bb7, %s
   br label %if.end13
 
 sw.default.i47:                                   ; preds = %sw.bb7
-  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull %cmd, ptr noundef nonnull %dev, ptr noundef nonnull %buf)
+  tail call fastcc void @scsi_req_xfer(ptr noundef nonnull writeonly %cmd, ptr noundef nonnull readonly %dev, ptr noundef nonnull %buf)
   br label %if.end13
 
 sw.default:                                       ; preds = %if.end
@@ -2180,7 +2180,7 @@ if.then134:                                       ; preds = %sw.bb130
   %30 = load i8, ptr %arrayidx143, align 1
   %31 = and i8 %30, 31
   %and145 = zext nneg i8 %31 to i32
-  %call146 = tail call fastcc i32 @scsi_get_performance_length(i32 noundef %or140, i32 noundef %conv142, i32 noundef %and145), !range !13
+  %call146 = tail call fastcc i32 @scsi_get_performance_length(i32 noundef %or140, i32 noundef %conv142, i32 noundef %and145)
   %conv147 = zext nneg i32 %call146 to i64
   br label %sw.epilog.sink.split
 
@@ -2709,7 +2709,7 @@ for.body:                                         ; preds = %entry, %for.body
   %8 = load i32, ptr %len, align 8
   %9 = sext i32 %8 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %9
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %entry
   %mode = getelementptr inbounds i8, ptr %req, i64 96
@@ -3409,7 +3409,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @scsi_req_cancel_async(ptr noundef nonnull %2, ptr noundef null)
   %3 = load ptr, ptr %requests, align 8
   %cmp.not = icmp eq ptr %3, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !15
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %while.body, %entry
   %4 = load ptr, ptr %conf, align 8
@@ -3760,7 +3760,7 @@ rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %i
   %11 = load ptr, ptr %req, align 8
   %children.i = getelementptr inbounds i8, ptr %11, i64 80
   %12 = load atomic i64, ptr %children.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !16
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !15
   %tobool21.not34.i = icmp eq i64 %12, 0
   br i1 %tobool21.not34.i, label %for.inc52.i, label %for.body22.i
 
@@ -3838,9 +3838,9 @@ while.end50.i:                                    ; preds = %if.then38.i, %land.
   %len.2.i = phi i32 [ %add43.i, %if.then38.i ], [ %len.135.i, %land.lhs.true34.i ], [ %len.135.i, %land.lhs.true31.i ], [ %len.135.i, %land.lhs.true.i ], [ %len.135.i, %for.body22.i ]
   %sibling.i = getelementptr inbounds i8, ptr %kid.036.i, i64 32
   %26 = load atomic i64, ptr %sibling.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !16
   %tobool21.not.i = icmp eq i64 %26, 0
-  br i1 %tobool21.not.i, label %for.inc52.i, label %for.body22.i, !llvm.loop !18
+  br i1 %tobool21.not.i, label %for.inc52.i, label %for.body22.i, !llvm.loop !17
 
 for.inc52.i:                                      ; preds = %while.end50.i, %rcu_read_auto_lock.exit.i
   %len.1.lcssa.i = phi i32 [ 16, %rcu_read_auto_lock.exit.i ], [ %len.2.i, %while.end50.i ]
@@ -4181,7 +4181,7 @@ entry:
 declare i32 @scsi_cdb_xfer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal fastcc i32 @scsi_get_performance_length(i32 noundef %num_desc, i32 noundef %type, i32 noundef %data_type) unnamed_addr #11 {
+define internal fastcc range(i32 8, 134215689) i32 @scsi_get_performance_length(i32 noundef %num_desc, i32 noundef %type, i32 noundef %data_type) unnamed_addr #11 {
 entry:
   switch i32 %type, label %return [
     i32 0, label %sw.bb
@@ -4451,7 +4451,7 @@ scsi_req_enqueue_internal.exit:                   ; preds = %scsi_req_ref.exit.i
   %call = call i32 @qemu_get_byte(ptr noundef %f) #15
   %sext = shl i32 %call, 24
   %cmp = icmp sgt i32 %sext, 0
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !19
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !18
 
 while.end:                                        ; preds = %scsi_req_enqueue_internal.exit, %entry
   ret i32 0
@@ -4548,7 +4548,7 @@ for.inc:                                          ; preds = %if.end20, %if.then2
   %next = getelementptr inbounds i8, ptr %req.025, i64 392
   %req.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %req.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.inc, %entry
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef 0) #15
@@ -4924,7 +4924,7 @@ land.rhs:                                         ; preds = %do.body
   %max_target = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %max_target, align 8
   %cmp9 = icmp slt i32 %inc, %6
-  br i1 %cmp9, label %do.body, label %if.then11, !llvm.loop !21
+  br i1 %cmp9, label %do.body, label %if.then11, !llvm.loop !20
 
 if.then11:                                        ; preds = %land.rhs
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 267, ptr noundef nonnull @__func__.scsi_qdev_realize, ptr noundef nonnull @.str.107) #15
@@ -4955,7 +4955,7 @@ land.rhs26:                                       ; preds = %do.body18
   %max_lun = getelementptr inbounds i8, ptr %9, i64 12
   %10 = load i32, ptr %max_lun, align 4
   %cmp28 = icmp slt i32 %inc21, %10
-  br i1 %cmp28, label %do.body18, label %if.then32, !llvm.loop !22
+  br i1 %cmp28, label %do.body18, label %if.then32, !llvm.loop !21
 
 if.then32:                                        ; preds = %land.rhs26
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 277, ptr noundef nonnull @__func__.scsi_qdev_realize, ptr noundef nonnull @.str.108) #15
@@ -5126,7 +5126,7 @@ sw.bb6:                                           ; preds = %if.then
 if.end:                                           ; preds = %if.then, %sw.bb, %sw.bb6, %scsi_req_ref.exit
   tail call void @scsi_req_unref(ptr noundef nonnull %req.016)
   %tobool.not = icmp eq ptr %3, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !23
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !22
 
 for.end:                                          ; preds = %if.end, %entry
   %7 = load ptr, ptr %conf, align 8
@@ -5191,14 +5191,13 @@ attributes #18 = { cold }
 !10 = !{i64 2150161343}
 !11 = distinct !{!11, !9}
 !12 = !{}
-!13 = !{i32 8, i32 134215689}
+!13 = distinct !{!13, !9}
 !14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = !{i64 2152687887}
-!17 = !{i64 2152692374}
+!15 = !{i64 2152687887}
+!16 = !{i64 2152692374}
+!17 = distinct !{!17, !9}
 !18 = distinct !{!18, !9}
 !19 = distinct !{!19, !9}
 !20 = distinct !{!20, !9}
 !21 = distinct !{!21, !9}
 !22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}

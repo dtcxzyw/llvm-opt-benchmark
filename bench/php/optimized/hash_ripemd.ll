@@ -112,7 +112,7 @@ define void @PHP_RIPEMD128Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %12 = getelementptr inbounds i8, ptr %3, i64 2
   store i8 %11, ptr %12, align 1
   %13 = lshr i32 %5, 24
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw i32 %13 to i8
   %15 = getelementptr inbounds i8, ptr %3, i64 3
   store i8 %14, ptr %15, align 1
   %16 = getelementptr inbounds i8, ptr %1, i64 20
@@ -129,7 +129,7 @@ define void @PHP_RIPEMD128Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %25 = getelementptr inbounds i8, ptr %3, i64 6
   store i8 %24, ptr %25, align 1
   %26 = lshr i32 %17, 24
-  %27 = trunc i32 %26 to i8
+  %27 = trunc nuw i32 %26 to i8
   %28 = getelementptr inbounds i8, ptr %3, i64 7
   store i8 %27, ptr %28, align 1
   %29 = lshr i32 %5, 3
@@ -156,7 +156,7 @@ define void @PHP_RIPEMD128Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %44 = getelementptr inbounds i8, ptr %1, i64 24
   %45 = zext nneg i32 %30 to i64
   %46 = getelementptr inbounds [64 x i8], ptr %44, i64 0, i64 %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull readonly align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
   tail call fastcc void @RIPEMD128Transform(ptr noundef nonnull %1, ptr noundef nonnull %44)
   %47 = add nuw nsw i64 %43, 63
   %48 = icmp ult i64 %47, %33
@@ -165,7 +165,7 @@ define void @PHP_RIPEMD128Final(ptr nocapture noundef writeonly %0, ptr noundef 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %.031.i = phi i64 [ %50, %.lr.ph.i ], [ %43, %42 ]
   %49 = getelementptr inbounds i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @RIPEMD128Transform(ptr noundef %1, ptr noundef nonnull %49)
+  tail call fastcc void @RIPEMD128Transform(ptr noundef %1, ptr noundef nonnull readonly %49)
   %50 = add nuw nsw i64 %.031.i, 64
   %51 = add nuw nsw i64 %.031.i, 127
   %52 = icmp ult i64 %51, %33
@@ -182,7 +182,7 @@ PHP_RIPEMD128Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %56 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %.028.i
   %57 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
   %58 = sub i64 %33, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull align 1 %57, i64 %58, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
   %59 = load i32, ptr %4, align 4
   %60 = lshr i32 %59, 3
   %61 = and i32 %60, 63
@@ -201,30 +201,30 @@ PHP_RIPEMD128Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %69 = zext nneg i32 %68 to i64
   %70 = zext nneg i32 %61 to i64
   %71 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %69, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %69, i1 false)
   tail call fastcc void @RIPEMD128Transform(ptr noundef nonnull %1, ptr noundef nonnull %55)
-  br label %PHP_RIPEMD128Update.exit20
+  br label %PHP_RIPEMD128Update.exit22
 
 72:                                               ; preds = %PHP_RIPEMD128Update.exit
   %73 = zext nneg i32 %61 to i64
-  br label %PHP_RIPEMD128Update.exit20
+  br label %PHP_RIPEMD128Update.exit22
 
-PHP_RIPEMD128Update.exit20:                       ; preds = %67, %72
+PHP_RIPEMD128Update.exit22:                       ; preds = %72, %67
   %.028.i18 = phi i64 [ %73, %72 ], [ 0, %67 ]
   %.1.i19 = phi i64 [ 0, %72 ], [ %69, %67 ]
   %74 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %.028.i18
   %75 = getelementptr inbounds i8, ptr %3, i64 %.1.i19
   %76 = sub nuw nsw i64 8, %.1.i19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull align 1 %75, i64 %76, i1 false)
-  br label %.lr.ph.i21
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
+  br label %.lr.ph.i23
 
-.lr.ph.i21:                                       ; preds = %.lr.ph.i21, %PHP_RIPEMD128Update.exit20
-  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD128Update.exit20 ], [ %indvars.iv.next23.i, %.lr.ph.i21 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD128Update.exit20 ], [ %indvars.iv.next.i, %.lr.ph.i21 ]
+.lr.ph.i23:                                       ; preds = %.lr.ph.i23, %PHP_RIPEMD128Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD128Update.exit22 ], [ %indvars.iv.next23.i, %.lr.ph.i23 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD128Update.exit22 ], [ %indvars.iv.next.i, %.lr.ph.i23 ]
   %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
   %78 = load i32, ptr %77, align 4
   %79 = lshr i32 %78, 24
-  %80 = trunc i32 %79 to i8
+  %80 = trunc nuw i32 %79 to i8
   %81 = or disjoint i64 %indvars.iv.i, 3
   %82 = getelementptr inbounds i8, ptr %0, i64 %81
   store i8 %80, ptr %82, align 1
@@ -247,9 +247,9 @@ PHP_RIPEMD128Update.exit20:                       ; preds = %67, %72
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 4
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %.lr.ph.i21
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %.lr.ph.i23
 
-RIPEMDEncode.exit:                                ; preds = %.lr.ph.i21
+RIPEMDEncode.exit:                                ; preds = %.lr.ph.i23
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 88) #6
   ret void
 }
@@ -348,7 +348,7 @@ define void @PHP_RIPEMD160Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %12 = getelementptr inbounds i8, ptr %3, i64 2
   store i8 %11, ptr %12, align 1
   %13 = lshr i32 %5, 24
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw i32 %13 to i8
   %15 = getelementptr inbounds i8, ptr %3, i64 3
   store i8 %14, ptr %15, align 1
   %16 = getelementptr inbounds i8, ptr %1, i64 24
@@ -365,7 +365,7 @@ define void @PHP_RIPEMD160Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %25 = getelementptr inbounds i8, ptr %3, i64 6
   store i8 %24, ptr %25, align 1
   %26 = lshr i32 %17, 24
-  %27 = trunc i32 %26 to i8
+  %27 = trunc nuw i32 %26 to i8
   %28 = getelementptr inbounds i8, ptr %3, i64 7
   store i8 %27, ptr %28, align 1
   %29 = lshr i32 %5, 3
@@ -392,7 +392,7 @@ define void @PHP_RIPEMD160Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %44 = getelementptr inbounds i8, ptr %1, i64 28
   %45 = zext nneg i32 %30 to i64
   %46 = getelementptr inbounds [64 x i8], ptr %44, i64 0, i64 %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull readonly align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
   tail call fastcc void @RIPEMD160Transform(ptr noundef nonnull %1, ptr noundef nonnull %44)
   %47 = add nuw nsw i64 %43, 63
   %48 = icmp ult i64 %47, %33
@@ -401,7 +401,7 @@ define void @PHP_RIPEMD160Final(ptr nocapture noundef writeonly %0, ptr noundef 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %.031.i = phi i64 [ %50, %.lr.ph.i ], [ %43, %42 ]
   %49 = getelementptr inbounds i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @RIPEMD160Transform(ptr noundef %1, ptr noundef nonnull %49)
+  tail call fastcc void @RIPEMD160Transform(ptr noundef %1, ptr noundef nonnull readonly %49)
   %50 = add nuw nsw i64 %.031.i, 64
   %51 = add nuw nsw i64 %.031.i, 127
   %52 = icmp ult i64 %51, %33
@@ -418,7 +418,7 @@ PHP_RIPEMD160Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %56 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %.028.i
   %57 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
   %58 = sub i64 %33, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull align 1 %57, i64 %58, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
   %59 = load i32, ptr %4, align 4
   %60 = lshr i32 %59, 3
   %61 = and i32 %60, 63
@@ -437,30 +437,30 @@ PHP_RIPEMD160Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %69 = zext nneg i32 %68 to i64
   %70 = zext nneg i32 %61 to i64
   %71 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %69, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %69, i1 false)
   tail call fastcc void @RIPEMD160Transform(ptr noundef nonnull %1, ptr noundef nonnull %55)
-  br label %PHP_RIPEMD160Update.exit20
+  br label %PHP_RIPEMD160Update.exit22
 
 72:                                               ; preds = %PHP_RIPEMD160Update.exit
   %73 = zext nneg i32 %61 to i64
-  br label %PHP_RIPEMD160Update.exit20
+  br label %PHP_RIPEMD160Update.exit22
 
-PHP_RIPEMD160Update.exit20:                       ; preds = %67, %72
+PHP_RIPEMD160Update.exit22:                       ; preds = %72, %67
   %.028.i18 = phi i64 [ %73, %72 ], [ 0, %67 ]
   %.1.i19 = phi i64 [ 0, %72 ], [ %69, %67 ]
   %74 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %.028.i18
   %75 = getelementptr inbounds i8, ptr %3, i64 %.1.i19
   %76 = sub nuw nsw i64 8, %.1.i19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull align 1 %75, i64 %76, i1 false)
-  br label %.lr.ph.i21
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
+  br label %.lr.ph.i23
 
-.lr.ph.i21:                                       ; preds = %.lr.ph.i21, %PHP_RIPEMD160Update.exit20
-  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD160Update.exit20 ], [ %indvars.iv.next23.i, %.lr.ph.i21 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD160Update.exit20 ], [ %indvars.iv.next.i, %.lr.ph.i21 ]
+.lr.ph.i23:                                       ; preds = %.lr.ph.i23, %PHP_RIPEMD160Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD160Update.exit22 ], [ %indvars.iv.next23.i, %.lr.ph.i23 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD160Update.exit22 ], [ %indvars.iv.next.i, %.lr.ph.i23 ]
   %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
   %78 = load i32, ptr %77, align 4
   %79 = lshr i32 %78, 24
-  %80 = trunc i32 %79 to i8
+  %80 = trunc nuw i32 %79 to i8
   %81 = or disjoint i64 %indvars.iv.i, 3
   %82 = getelementptr inbounds i8, ptr %0, i64 %81
   store i8 %80, ptr %82, align 1
@@ -483,9 +483,9 @@ PHP_RIPEMD160Update.exit20:                       ; preds = %67, %72
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 5
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %.lr.ph.i21
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %.lr.ph.i23
 
-RIPEMDEncode.exit:                                ; preds = %.lr.ph.i21
+RIPEMDEncode.exit:                                ; preds = %.lr.ph.i23
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 92) #6
   ret void
 }
@@ -578,7 +578,7 @@ define void @PHP_RIPEMD256Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %12 = getelementptr inbounds i8, ptr %3, i64 2
   store i8 %11, ptr %12, align 1
   %13 = lshr i32 %5, 24
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw i32 %13 to i8
   %15 = getelementptr inbounds i8, ptr %3, i64 3
   store i8 %14, ptr %15, align 1
   %16 = getelementptr inbounds i8, ptr %1, i64 36
@@ -595,7 +595,7 @@ define void @PHP_RIPEMD256Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %25 = getelementptr inbounds i8, ptr %3, i64 6
   store i8 %24, ptr %25, align 1
   %26 = lshr i32 %17, 24
-  %27 = trunc i32 %26 to i8
+  %27 = trunc nuw i32 %26 to i8
   %28 = getelementptr inbounds i8, ptr %3, i64 7
   store i8 %27, ptr %28, align 1
   %29 = lshr i32 %5, 3
@@ -622,7 +622,7 @@ define void @PHP_RIPEMD256Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %44 = getelementptr inbounds i8, ptr %1, i64 40
   %45 = zext nneg i32 %30 to i64
   %46 = getelementptr inbounds [64 x i8], ptr %44, i64 0, i64 %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull readonly align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
   tail call fastcc void @RIPEMD256Transform(ptr noundef nonnull %1, ptr noundef nonnull %44)
   %47 = add nuw nsw i64 %43, 63
   %48 = icmp ult i64 %47, %33
@@ -631,7 +631,7 @@ define void @PHP_RIPEMD256Final(ptr nocapture noundef writeonly %0, ptr noundef 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %.031.i = phi i64 [ %50, %.lr.ph.i ], [ %43, %42 ]
   %49 = getelementptr inbounds i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @RIPEMD256Transform(ptr noundef %1, ptr noundef nonnull %49)
+  tail call fastcc void @RIPEMD256Transform(ptr noundef %1, ptr noundef nonnull readonly %49)
   %50 = add nuw nsw i64 %.031.i, 64
   %51 = add nuw nsw i64 %.031.i, 127
   %52 = icmp ult i64 %51, %33
@@ -648,7 +648,7 @@ PHP_RIPEMD256Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %56 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %.028.i
   %57 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
   %58 = sub i64 %33, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull align 1 %57, i64 %58, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
   %59 = load i32, ptr %4, align 4
   %60 = lshr i32 %59, 3
   %61 = and i32 %60, 63
@@ -667,30 +667,30 @@ PHP_RIPEMD256Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %69 = zext nneg i32 %68 to i64
   %70 = zext nneg i32 %61 to i64
   %71 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %69, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %69, i1 false)
   tail call fastcc void @RIPEMD256Transform(ptr noundef nonnull %1, ptr noundef nonnull %55)
-  br label %PHP_RIPEMD256Update.exit20
+  br label %PHP_RIPEMD256Update.exit22
 
 72:                                               ; preds = %PHP_RIPEMD256Update.exit
   %73 = zext nneg i32 %61 to i64
-  br label %PHP_RIPEMD256Update.exit20
+  br label %PHP_RIPEMD256Update.exit22
 
-PHP_RIPEMD256Update.exit20:                       ; preds = %67, %72
+PHP_RIPEMD256Update.exit22:                       ; preds = %72, %67
   %.028.i18 = phi i64 [ %73, %72 ], [ 0, %67 ]
   %.1.i19 = phi i64 [ 0, %72 ], [ %69, %67 ]
   %74 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %.028.i18
   %75 = getelementptr inbounds i8, ptr %3, i64 %.1.i19
   %76 = sub nuw nsw i64 8, %.1.i19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull align 1 %75, i64 %76, i1 false)
-  br label %.lr.ph.i21
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
+  br label %.lr.ph.i23
 
-.lr.ph.i21:                                       ; preds = %.lr.ph.i21, %PHP_RIPEMD256Update.exit20
-  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD256Update.exit20 ], [ %indvars.iv.next23.i, %.lr.ph.i21 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD256Update.exit20 ], [ %indvars.iv.next.i, %.lr.ph.i21 ]
+.lr.ph.i23:                                       ; preds = %.lr.ph.i23, %PHP_RIPEMD256Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD256Update.exit22 ], [ %indvars.iv.next23.i, %.lr.ph.i23 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD256Update.exit22 ], [ %indvars.iv.next.i, %.lr.ph.i23 ]
   %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
   %78 = load i32, ptr %77, align 4
   %79 = lshr i32 %78, 24
-  %80 = trunc i32 %79 to i8
+  %80 = trunc nuw i32 %79 to i8
   %81 = or disjoint i64 %indvars.iv.i, 3
   %82 = getelementptr inbounds i8, ptr %0, i64 %81
   store i8 %80, ptr %82, align 1
@@ -713,9 +713,9 @@ PHP_RIPEMD256Update.exit20:                       ; preds = %67, %72
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 8
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %.lr.ph.i21
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %.lr.ph.i23
 
-RIPEMDEncode.exit:                                ; preds = %.lr.ph.i21
+RIPEMDEncode.exit:                                ; preds = %.lr.ph.i23
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #6
   ret void
 }
@@ -806,7 +806,7 @@ define void @PHP_RIPEMD320Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %12 = getelementptr inbounds i8, ptr %3, i64 2
   store i8 %11, ptr %12, align 1
   %13 = lshr i32 %5, 24
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw i32 %13 to i8
   %15 = getelementptr inbounds i8, ptr %3, i64 3
   store i8 %14, ptr %15, align 1
   %16 = getelementptr inbounds i8, ptr %1, i64 44
@@ -823,7 +823,7 @@ define void @PHP_RIPEMD320Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %25 = getelementptr inbounds i8, ptr %3, i64 6
   store i8 %24, ptr %25, align 1
   %26 = lshr i32 %17, 24
-  %27 = trunc i32 %26 to i8
+  %27 = trunc nuw i32 %26 to i8
   %28 = getelementptr inbounds i8, ptr %3, i64 7
   store i8 %27, ptr %28, align 1
   %29 = lshr i32 %5, 3
@@ -850,7 +850,7 @@ define void @PHP_RIPEMD320Final(ptr nocapture noundef writeonly %0, ptr noundef 
   %44 = getelementptr inbounds i8, ptr %1, i64 48
   %45 = zext nneg i32 %30 to i64
   %46 = getelementptr inbounds [64 x i8], ptr %44, i64 0, i64 %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull readonly align 16 dereferenceable(1) @PADDING, i64 %43, i1 false)
   tail call fastcc void @RIPEMD320Transform(ptr noundef nonnull %1, ptr noundef nonnull %44)
   %47 = add nuw nsw i64 %43, 63
   %48 = icmp ult i64 %47, %33
@@ -859,7 +859,7 @@ define void @PHP_RIPEMD320Final(ptr nocapture noundef writeonly %0, ptr noundef 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %.031.i = phi i64 [ %50, %.lr.ph.i ], [ %43, %42 ]
   %49 = getelementptr inbounds i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @RIPEMD320Transform(ptr noundef %1, ptr noundef nonnull %49)
+  tail call fastcc void @RIPEMD320Transform(ptr noundef %1, ptr noundef nonnull readonly %49)
   %50 = add nuw nsw i64 %.031.i, 64
   %51 = add nuw nsw i64 %.031.i, 127
   %52 = icmp ult i64 %51, %33
@@ -876,7 +876,7 @@ PHP_RIPEMD320Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %56 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %.028.i
   %57 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
   %58 = sub i64 %33, %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull align 1 %57, i64 %58, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
   %59 = load i32, ptr %4, align 4
   %60 = lshr i32 %59, 3
   %61 = and i32 %60, 63
@@ -895,30 +895,30 @@ PHP_RIPEMD320Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %69 = zext nneg i32 %68 to i64
   %70 = zext nneg i32 %61 to i64
   %71 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %69, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %69, i1 false)
   tail call fastcc void @RIPEMD320Transform(ptr noundef nonnull %1, ptr noundef nonnull %55)
-  br label %PHP_RIPEMD320Update.exit20
+  br label %PHP_RIPEMD320Update.exit22
 
 72:                                               ; preds = %PHP_RIPEMD320Update.exit
   %73 = zext nneg i32 %61 to i64
-  br label %PHP_RIPEMD320Update.exit20
+  br label %PHP_RIPEMD320Update.exit22
 
-PHP_RIPEMD320Update.exit20:                       ; preds = %67, %72
+PHP_RIPEMD320Update.exit22:                       ; preds = %72, %67
   %.028.i18 = phi i64 [ %73, %72 ], [ 0, %67 ]
   %.1.i19 = phi i64 [ 0, %72 ], [ %69, %67 ]
   %74 = getelementptr inbounds [64 x i8], ptr %55, i64 0, i64 %.028.i18
   %75 = getelementptr inbounds i8, ptr %3, i64 %.1.i19
   %76 = sub nuw nsw i64 8, %.1.i19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull align 1 %75, i64 %76, i1 false)
-  br label %.lr.ph.i21
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
+  br label %.lr.ph.i23
 
-.lr.ph.i21:                                       ; preds = %.lr.ph.i21, %PHP_RIPEMD320Update.exit20
-  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD320Update.exit20 ], [ %indvars.iv.next23.i, %.lr.ph.i21 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD320Update.exit20 ], [ %indvars.iv.next.i, %.lr.ph.i21 ]
+.lr.ph.i23:                                       ; preds = %.lr.ph.i23, %PHP_RIPEMD320Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD320Update.exit22 ], [ %indvars.iv.next23.i, %.lr.ph.i23 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD320Update.exit22 ], [ %indvars.iv.next.i, %.lr.ph.i23 ]
   %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
   %78 = load i32, ptr %77, align 4
   %79 = lshr i32 %78, 24
-  %80 = trunc i32 %79 to i8
+  %80 = trunc nuw i32 %79 to i8
   %81 = or disjoint i64 %indvars.iv.i, 3
   %82 = getelementptr inbounds i8, ptr %0, i64 %81
   store i8 %80, ptr %82, align 1
@@ -941,9 +941,9 @@ PHP_RIPEMD320Update.exit20:                       ; preds = %67, %72
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 10
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %.lr.ph.i21
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %.lr.ph.i23
 
-RIPEMDEncode.exit:                                ; preds = %.lr.ph.i21
+RIPEMDEncode.exit:                                ; preds = %.lr.ph.i23
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 112) #6
   ret void
 }

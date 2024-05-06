@@ -134,7 +134,7 @@ define hidden void @"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5), !noalias !42
   %11 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h810765b17a7bf5a1E, align 1, !range !44, !noalias !42, !noundef !4
-  %12 = trunc i8 %11 to i1
+  %12 = trunc nuw i8 %11 to i1
   %13 = load i8, ptr getelementptr inbounds ({ i8, i8 }, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h810765b17a7bf5a1E, i64 0, i32 1), align 1, !noalias !42
   %.not.i.i.i.i = icmp eq i8 %13, 0
   %.0.not.i.i.i.i = select i1 %12, i1 %.not.i.i.i.i, i1 false

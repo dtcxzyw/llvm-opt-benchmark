@@ -129,7 +129,7 @@ $_ZN4mold7SyncOutINS_3elf7ContextINS1_4I386EEEE2muE = comdat any
 @.str.11 = private unnamed_addr constant [13 x i8] c" is not in [\00", align 1
 @.str.12 = private unnamed_addr constant [3 x i8] c", \00", align 1
 @.str.13 = private unnamed_addr constant [2 x i8] c")\00", align 1
-@_ZN4mold12opt_demangleE = linkonce_odr dso_local thread_local global i8 0, comdat, align 1
+@_ZN4mold12opt_demangleE = linkonce_odr dso_local thread_local local_unnamed_addr global i8 0, comdat, align 1
 @_ZZN4mold3elfL14relax_ld_to_leEPhNS0_6ElfRelINS0_4I386EEEmE4insn = internal unnamed_addr constant [11 x i8] c"e\A1\00\00\00\00-\00\00\00\00", align 1
 @_ZZN4mold3elfL14relax_ld_to_leEPhNS0_6ElfRelINS0_4I386EEEmE4insn_0 = internal unnamed_addr constant [12 x i8] c"e\A1\00\00\00\00-\00\00\00\00\90", align 1
 @.str.14 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
@@ -261,7 +261,7 @@ _ZNSt12_Vector_baseIPN4mold7CounterESaIS2_EED2Ev.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read)
-define dso_local noundef i64 @_ZN4mold3elf10get_addendINS0_4I386EEElPhRKNS0_6ElfRelIT_EE(ptr nocapture noundef readonly %loc, ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %rel) local_unnamed_addr #5 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_ZN4mold3elf10get_addendINS0_4I386EEElPhRKNS0_6ElfRelIT_EE(ptr nocapture noundef readonly %loc, ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %rel) local_unnamed_addr #5 {
 entry:
   %r_type = getelementptr inbounds i8, ptr %rel, i64 4
   %0 = load i8, ptr %r_type, align 1
@@ -1283,12 +1283,12 @@ if.else128:                                       ; preds = %sw.bb118
 
 sw.bb.i:                                          ; preds = %if.else128, %if.else128
   %add.ptr.i211 = getelementptr inbounds i8, ptr %add.ptr19, i64 -2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %add.ptr.i211, ptr noundef nonnull align 1 dereferenceable(11) @_ZZN4mold3elfL14relax_ld_to_leEPhNS0_6ElfRelINS0_4I386EEEmE4insn, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(11) %add.ptr.i211, ptr noundef nonnull align 1 dereferenceable(11) @_ZZN4mold3elfL14relax_ld_to_leEPhNS0_6ElfRelINS0_4I386EEEmE4insn, i64 7, i1 false)
   br label %_ZN4mold3elfL14relax_ld_to_leEPhNS0_6ElfRelINS0_4I386EEEm.exit
 
 sw.bb3.i207:                                      ; preds = %if.else128, %if.else128
   %add.ptr4.i208 = getelementptr inbounds i8, ptr %add.ptr19, i64 -2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %add.ptr4.i208, ptr noundef nonnull align 1 dereferenceable(12) @_ZZN4mold3elfL14relax_ld_to_leEPhNS0_6ElfRelINS0_4I386EEEmE4insn_0, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(12) %add.ptr4.i208, ptr noundef nonnull align 1 dereferenceable(12) @_ZZN4mold3elfL14relax_ld_to_leEPhNS0_6ElfRelINS0_4I386EEEmE4insn_0, i64 12, i1 false)
   br label %_ZN4mold3elfL14relax_ld_to_leEPhNS0_6ElfRelINS0_4I386EEEm.exit
 
 sw.default.i212:                                  ; preds = %if.else128

@@ -1051,7 +1051,7 @@ __instance_destroy.exit:                          ; preds = %65, %64, %62, %.pre
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nfnl_log_net_init(ptr noundef %0) #3 align 16 {
+define internal noundef range(i32 -12, 1) i32 @nfnl_log_net_init(ptr noundef %0) #3 align 16 {
   %2 = load i32, ptr @nfnl_log_net_id, align 4
   tail call void @__rcu_read_lock() #12
   %3 = getelementptr inbounds i8, ptr %0, i64 2536
@@ -2231,7 +2231,7 @@ declare dso_local void @_raw_read_lock_bh(ptr noundef) local_unnamed_addr #1 sec
 declare dso_local void @_raw_read_unlock_bh(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @nfulnl_put_bridge(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @nfulnl_put_bridge(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %1, i64 182

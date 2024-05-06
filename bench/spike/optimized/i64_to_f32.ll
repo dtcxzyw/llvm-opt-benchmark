@@ -19,7 +19,7 @@ define i32 @i64_to_f32(i64 noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %8
   %sh.diff = lshr i64 %0, 32
-  %tr.sh.diff = trunc i64 %sh.diff to i32
+  %tr.sh.diff = trunc nuw i64 %sh.diff to i32
   %10 = and i32 %tr.sh.diff, -2147483648
   %11 = zext nneg i32 %6 to i64
   %12 = shl i64 %3, %11

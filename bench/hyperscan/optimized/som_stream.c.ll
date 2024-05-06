@@ -85,8 +85,8 @@ if.end.i55:                                       ; preds = %sw.bb.i359, %sw.bb1
   br i1 %tobool.i56.not, label %for.end, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i55
-  %11 = tail call i64 @llvm.cttz.i64(i64 %retval.i337.0, i1 true), !range !5
-  %cast.i523 = trunc i64 %11 to i32
+  %11 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %retval.i337.0, i1 true)
+  %cast.i523 = trunc nuw nsw i64 %11 to i32
   br label %do.end8.lr.ph
 
 for.body.i.preheader:                             ; preds = %if.then4.i28
@@ -104,15 +104,15 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 
 if.then60.i:                                      ; preds = %for.body.i
   %mul62.i = shl nuw nsw i64 %indvars.iv, 6
-  %13 = tail call i64 @llvm.cttz.i64(i64 %12, i1 true), !range !5
+  %13 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %12, i1 true)
   %add65.i = or disjoint i64 %13, %mul62.i
-  %conv66.i = trunc i64 %add65.i to i32
+  %conv66.i = trunc nuw nsw i64 %add65.i to i32
   br label %mmbit_iterate.exit31
 
 if.end67.i:                                       ; preds = %for.body.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %if.end67.i
   %14 = and i32 %1, 63
@@ -171,14 +171,14 @@ mmbit_get_flat_block.exit434:                     ; preds = %sw.default.i426, %s
   br i1 %tobool93.i.not, label %for.end, label %if.then94.i
 
 if.then94.i:                                      ; preds = %mmbit_get_flat_block.exit434
-  %20 = tail call i64 @llvm.cttz.i64(i64 %retval.i402.0, i1 true), !range !5
-  %cast.i = trunc i64 %20 to i32
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %retval.i402.0, i1 true)
+  %cast.i = trunc nuw nsw i64 %20 to i32
   %add96.i = or disjoint i32 %mul74.i, %cast.i
   br label %do.end8.lr.ph
 
 if.else.i25:                                      ; preds = %if.end.i19
   %sub.i20 = add i32 %1, -1
-  %21 = tail call i32 @llvm.ctlz.i32(i32 %sub.i20, i1 true), !range !8
+  %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i20, i1 true)
   %idxprom.i553 = zext nneg i32 %21 to i64
   %arrayidx.i554 = getelementptr inbounds [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %idxprom.i553
   %22 = load i8, ptr %arrayidx.i554, align 1
@@ -210,8 +210,8 @@ if.then5.i:                                       ; preds = %while.body.i
 
 if.then11.i:                                      ; preds = %if.then5.i
   %shl.i = shl i32 %key.i186.1, 6
-  %25 = tail call i64 @llvm.cttz.i64(i64 %and10.i, i1 true), !range !5
-  %cast.i533 = trunc i64 %25 to i32
+  %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and10.i, i1 true)
+  %cast.i533 = trunc nuw nsw i64 %25 to i32
   %add13.i = or disjoint i32 %shl.i, %cast.i533
   %cmp14.i = icmp eq i32 %level.i.1, %conv.i555
   br i1 %cmp14.i, label %mmbit_iterate.exit31, label %if.end17.i
@@ -250,7 +250,7 @@ do.end8.lr.ph:                                    ; preds = %if.then94.i, %if.th
   %conv = zext i8 %6 to i32
   %sub.i = add i32 %1, -1
   %cmp.i40 = icmp ult i32 %1, 257
-  %27 = tail call i32 @llvm.ctlz.i32(i32 %sub.i, i1 true), !range !8
+  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
   %idxprom.i = zext nneg i32 %27 to i64
   %arrayidx.i = getelementptr inbounds [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %idxprom.i
   %conv.i73 = zext nneg i32 %1 to i64
@@ -310,13 +310,13 @@ if.end.i33:                                       ; preds = %do.end8
 
 sw.bb4.i:                                         ; preds = %if.end.i33
   %cond.i = tail call i64 @llvm.umin.i64(i64 %sub.i34, i64 65535)
-  %conv7.i = trunc i64 %cond.i to i16
+  %conv7.i = trunc nuw i64 %cond.i to i16
   store i16 %conv7.i, ptr %add.ptr10, align 2
   br label %for.inc
 
 sw.bb8.i:                                         ; preds = %if.end.i33
   %cond14.i = tail call i64 @llvm.umin.i64(i64 %sub.i34, i64 4294967295)
-  %conv15.i = trunc i64 %cond14.i to i32
+  %conv15.i = trunc nuw i64 %cond14.i to i32
   store i32 %conv15.i, ptr %add.ptr10, align 4
   br label %for.inc
 
@@ -370,21 +370,21 @@ if.then4.i176:                                    ; preds = %sw.bb.i267, %sw.bb1
   %cmp.i437 = icmp eq i32 %inc.i177, 64
   %conv.i436 = zext nneg i32 %inc.i177 to i64
   %notmask208 = shl nsw i64 -1, %conv.i436
-  %retval.i435.0 = select i1 %cmp.i437, i64 0, i64 %notmask208
-  %and.i180 = and i64 %retval.i255.0, %retval.i435.0
+  %not.i179 = select i1 %cmp.i437, i64 0, i64 %notmask208
+  %and.i180 = and i64 %retval.i255.0, %not.i179
   %tobool.i172.not = icmp eq i64 %and.i180, 0
   br i1 %tobool.i172.not, label %for.end, label %if.then6.i174
 
 if.then6.i174:                                    ; preds = %if.then4.i176
-  %33 = tail call i64 @llvm.cttz.i64(i64 %and.i180, i1 true), !range !5
-  %cast.i531 = trunc i64 %33 to i32
+  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i180, i1 true)
+  %cast.i531 = trunc nuw nsw i64 %33 to i32
   br label %mmbit_iterate.exit
 
 if.end9.i75:                                      ; preds = %if.then4.i
   %inc15.i128 = add nuw i32 %i.0220, 1
   %add.i130 = add nuw nsw i64 %idxprom, 64
   %div18.i132203 = lshr i64 %add.i130, 6
-  %34 = trunc i64 %div18.i132203 to i32
+  %34 = trunc nuw nsw i64 %div18.i132203 to i32
   %conv19.i134 = add nsw i32 %34, -1
   %conv20.i135 = zext nneg i32 %conv19.i134 to i64
   %mul.i136 = shl nuw i32 %conv19.i134, 6
@@ -438,14 +438,14 @@ mmbit_get_flat_block.exit303:                     ; preds = %sw.default.i295, %s
   %cmp.i445 = icmp eq i32 %sub33.i151, 64
   %conv.i444 = zext nneg i32 %sub33.i151 to i64
   %notmask205 = shl nsw i64 -1, %conv.i444
-  %retval.i442.0 = select i1 %cmp.i445, i64 0, i64 %notmask205
-  %and36.i154 = and i64 %retval.i271.0, %retval.i442.0
+  %not35.i153 = select i1 %cmp.i445, i64 0, i64 %notmask205
+  %and36.i154 = and i64 %retval.i271.0, %not35.i153
   %tobool37.i155.not = icmp eq i64 %and36.i154, 0
   br i1 %tobool37.i155.not, label %if.else.i156, label %if.then38.i164
 
 if.then38.i164:                                   ; preds = %mmbit_get_flat_block.exit303
-  %40 = tail call i64 @llvm.cttz.i64(i64 %and36.i154, i1 true), !range !5
-  %cast.i529 = trunc i64 %40 to i32
+  %40 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and36.i154, i1 true)
+  %cast.i529 = trunc nuw nsw i64 %40 to i32
   %add40.i166 = or disjoint i32 %mul.i136, %cast.i529
   br label %mmbit_iterate.exit
 
@@ -469,15 +469,15 @@ for.body.i112:                                    ; preds = %for.cond.i82.prehea
 
 if.then60.i120:                                   ; preds = %for.body.i112
   %mul62.i122 = shl nuw nsw i64 %indvars.iv227, 6
-  %42 = tail call i64 @llvm.cttz.i64(i64 %41, i1 true), !range !5
+  %42 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %41, i1 true)
   %add65.i125 = or disjoint i64 %42, %mul62.i122
-  %conv66.i126 = trunc i64 %add65.i125 to i32
+  %conv66.i126 = trunc nuw nsw i64 %add65.i125 to i32
   br label %mmbit_iterate.exit
 
 if.end67.i118:                                    ; preds = %for.body.i112
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count230
-  br i1 %exitcond231.not, label %for.end.i84, label %for.body.i112, !llvm.loop !6
+  br i1 %exitcond231.not, label %for.end.i84, label %for.body.i112, !llvm.loop !5
 
 for.end.i84:                                      ; preds = %if.end67.i118, %for.cond.i82.preheader
   %start.i65.1.lcssa = phi i32 [ %34, %for.cond.i82.preheader ], [ %div.i77202, %if.end67.i118 ]
@@ -536,8 +536,8 @@ mmbit_get_flat_block.exit336:                     ; preds = %sw.default.i328, %s
   br i1 %tobool93.i106.not, label %for.end, label %if.then94.i108
 
 if.then94.i108:                                   ; preds = %mmbit_get_flat_block.exit336
-  %48 = tail call i64 @llvm.cttz.i64(i64 %retval.i304.0, i1 true), !range !5
-  %cast.i525 = trunc i64 %48 to i32
+  %48 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %retval.i304.0, i1 true)
+  %cast.i525 = trunc nuw nsw i64 %48 to i32
   %add96.i110 = or disjoint i32 %mul74.i91, %cast.i525
   br label %mmbit_iterate.exit
 
@@ -575,8 +575,8 @@ if.then5.i229:                                    ; preds = %while.body.i216
 
 if.then11.i240:                                   ; preds = %if.then5.i229
   %shl.i241 = shl i32 %key.i209.1, 6
-  %52 = tail call i64 @llvm.cttz.i64(i64 %and10.i237, i1 true), !range !5
-  %cast.i535 = trunc i64 %52 to i32
+  %52 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and10.i237, i1 true)
+  %cast.i535 = trunc nuw nsw i64 %52 to i32
   %add13.i243 = or disjoint i32 %shl.i241, %cast.i535
   %cmp14.i245 = icmp eq i32 %level.i208.1, %conv.i547
   br i1 %cmp14.i245, label %mmbit_iterate.exit, label %if.end17.i246
@@ -605,7 +605,7 @@ if.end23.i222:                                    ; preds = %if.end19.i219
 mmbit_iterate.exit:                               ; preds = %if.then11.i240, %if.then94.i108, %if.then60.i120, %if.then38.i164, %if.then6.i174
   %retval.i.0 = phi i32 [ %cast.i531, %if.then6.i174 ], [ %add40.i166, %if.then38.i164 ], [ %conv66.i126, %if.then60.i120 ], [ %add96.i110, %if.then94.i108 ], [ %add13.i243, %if.then11.i240 ]
   %cmp.not = icmp eq i32 %retval.i.0, -1
-  br i1 %cmp.not, label %for.end, label %do.end8, !llvm.loop !9
+  br i1 %cmp.not, label %for.end, label %do.end8, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end19.i, %for.end.i84, %mmbit_get_flat_block.exit336, %if.else.i156, %if.then4.i176, %for.inc, %mmbit_iterate.exit, %if.end19.i219, %for.end.i, %mmbit_get_flat_block.exit434, %if.end.i55, %entry, %mmbit_iterate.exit31
   ret void
@@ -691,8 +691,8 @@ if.end.i53:                                       ; preds = %sw.bb.i358, %sw.bb1
   br i1 %tobool.i54.not, label %for.end, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i53
-  %11 = tail call i64 @llvm.cttz.i64(i64 %retval.i336.0, i1 true), !range !5
-  %cast.i522 = trunc i64 %11 to i32
+  %11 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %retval.i336.0, i1 true)
+  %cast.i522 = trunc nuw nsw i64 %11 to i32
   br label %for.body.lr.ph
 
 for.body.i.preheader:                             ; preds = %if.then4.i29
@@ -710,15 +710,15 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 
 if.then60.i:                                      ; preds = %for.body.i
   %mul62.i = shl nuw nsw i64 %indvars.iv, 6
-  %13 = tail call i64 @llvm.cttz.i64(i64 %12, i1 true), !range !5
+  %13 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %12, i1 true)
   %add65.i = or disjoint i64 %13, %mul62.i
-  %conv66.i = trunc i64 %add65.i to i32
+  %conv66.i = trunc nuw nsw i64 %add65.i to i32
   br label %mmbit_iterate.exit32
 
 if.end67.i:                                       ; preds = %for.body.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %if.end67.i
   %14 = and i32 %.fr, 63
@@ -777,14 +777,14 @@ mmbit_get_flat_block.exit433:                     ; preds = %sw.default.i425, %s
   br i1 %tobool93.i.not, label %for.end, label %if.then94.i
 
 if.then94.i:                                      ; preds = %mmbit_get_flat_block.exit433
-  %20 = tail call i64 @llvm.cttz.i64(i64 %retval.i401.0, i1 true), !range !5
-  %cast.i = trunc i64 %20 to i32
+  %20 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %retval.i401.0, i1 true)
+  %cast.i = trunc nuw nsw i64 %20 to i32
   %add96.i = or disjoint i32 %mul74.i, %cast.i
   br label %for.body.lr.ph
 
 if.else.i26:                                      ; preds = %if.end.i20
   %sub.i21 = add i32 %.fr, -1
-  %21 = tail call i32 @llvm.ctlz.i32(i32 %sub.i21, i1 true), !range !8
+  %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i21, i1 true)
   %idxprom.i552 = zext nneg i32 %21 to i64
   %arrayidx.i553 = getelementptr inbounds [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %idxprom.i552
   %22 = load i8, ptr %arrayidx.i553, align 1
@@ -816,8 +816,8 @@ if.then5.i:                                       ; preds = %while.body.i
 
 if.then11.i:                                      ; preds = %if.then5.i
   %shl.i = shl i32 %key.i185.1, 6
-  %25 = tail call i64 @llvm.cttz.i64(i64 %and10.i, i1 true), !range !5
-  %cast.i532 = trunc i64 %25 to i32
+  %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and10.i, i1 true)
+  %cast.i532 = trunc nuw nsw i64 %25 to i32
   %add13.i = or disjoint i32 %shl.i, %cast.i532
   %cmp14.i = icmp eq i32 %level.i.1, %conv.i554
   br i1 %cmp14.i, label %mmbit_iterate.exit32, label %if.end17.i
@@ -855,7 +855,7 @@ for.body.lr.ph:                                   ; preds = %if.then94.i, %if.th
   %invariant.gep = getelementptr i8, ptr %add.ptr, i64 -4
   %conv = zext i8 %6 to i32
   %sub.i = add i32 %.fr, -1
-  %27 = tail call i32 @llvm.ctlz.i32(i32 %sub.i, i1 true), !range !8
+  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
   %idxprom.i = zext nneg i32 %27 to i64
   %arrayidx.i = getelementptr inbounds [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %idxprom.i
   %conv.i72 = zext nneg i32 %.fr to i64
@@ -998,15 +998,15 @@ if.then4.i175.us.us:                              ; preds = %sw.default.i268.us.
   %cmp.i436.us.us = icmp eq i32 %inc.i176.us.us, 64
   %conv.i435.us.us = zext nneg i32 %inc.i176.us.us to i64
   %notmask198.us.us = shl nsw i64 -1, %conv.i435.us.us
-  %retval.i434.0.us.us = select i1 %cmp.i436.us.us, i64 0, i64 %notmask198.us.us
-  %and.i179.us.us = and i64 %retval.i254.0.us.us, %retval.i434.0.us.us
+  %not.i178.us.us = select i1 %cmp.i436.us.us, i64 0, i64 %notmask198.us.us
+  %and.i179.us.us = and i64 %retval.i254.0.us.us, %not.i178.us.us
   %tobool.i171.not.us.us = icmp eq i64 %and.i179.us.us, 0
   br i1 %tobool.i171.not.us.us, label %for.end, label %mmbit_iterate.exit.us230.us
 
 mmbit_iterate.exit.us230.us:                      ; preds = %if.then4.i175.us.us
-  %38 = tail call i64 @llvm.cttz.i64(i64 %and.i179.us.us, i1 true), !range !5
-  %cast.i530.us.us = trunc i64 %38 to i32
-  br label %for.body.us211.us, !llvm.loop !10
+  %38 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i179.us.us, i1 true)
+  %cast.i530.us.us = trunc nuw nsw i64 %38 to i32
+  br label %for.body.us211.us, !llvm.loop !8
 
 for.body.us211:                                   ; preds = %for.body.us211.preheader, %mmbit_iterate.exit.us230
   %i.0210.us212 = phi i32 [ %retval.i.0.us231, %mmbit_iterate.exit.us230 ], [ %retval.i13.0252, %for.body.us211.preheader ]
@@ -1052,7 +1052,7 @@ if.end2.i.us:                                     ; preds = %loadSomValue.exit.u
   %inc15.i127.us = add nuw i32 %i.0210.us212, 1
   %add.i129.us = add nuw nsw i64 %idxprom.us228, 64
   %div18.i131193.us = lshr i64 %add.i129.us, 6
-  %42 = trunc i64 %div18.i131193.us to i32
+  %42 = trunc nuw nsw i64 %div18.i131193.us to i32
   %conv19.i133.us = add nsw i32 %42, -1
   %conv20.i134.us = zext nneg i32 %conv19.i133.us to i64
   %mul.i135.us = shl nuw i32 %conv19.i133.us, 6
@@ -1106,14 +1106,14 @@ mmbit_get_flat_block.exit302.us:                  ; preds = %sw.default.i294.us,
   %cmp.i444.us = icmp eq i32 %sub33.i150.us, 64
   %conv.i443.us = zext nneg i32 %sub33.i150.us to i64
   %notmask195.us = shl nsw i64 -1, %conv.i443.us
-  %retval.i441.0.us = select i1 %cmp.i444.us, i64 0, i64 %notmask195.us
-  %and36.i153.us = and i64 %retval.i270.0.us, %retval.i441.0.us
+  %not35.i152.us = select i1 %cmp.i444.us, i64 0, i64 %notmask195.us
+  %and36.i153.us = and i64 %retval.i270.0.us, %not35.i152.us
   %tobool37.i154.not.us = icmp eq i64 %and36.i153.us, 0
   br i1 %tobool37.i154.not.us, label %if.else.i155.us, label %if.then38.i163.us
 
 if.then38.i163.us:                                ; preds = %mmbit_get_flat_block.exit302.us
-  %48 = tail call i64 @llvm.cttz.i64(i64 %and36.i153.us, i1 true), !range !5
-  %cast.i528.us = trunc i64 %48 to i32
+  %48 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and36.i153.us, i1 true)
+  %cast.i528.us = trunc nuw nsw i64 %48 to i32
   %add40.i165.us = or disjoint i32 %mul.i135.us, %cast.i528.us
   br label %mmbit_iterate.exit.us230
 
@@ -1180,8 +1180,8 @@ mmbit_get_flat_block.exit335.us:                  ; preds = %sw.default.i327.us,
   br i1 %tobool93.i105.not.us, label %for.end, label %if.then94.i107.us
 
 if.then94.i107.us:                                ; preds = %mmbit_get_flat_block.exit335.us
-  %54 = tail call i64 @llvm.cttz.i64(i64 %retval.i303.0.us, i1 true), !range !5
-  %cast.i524.us = trunc i64 %54 to i32
+  %54 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %retval.i303.0.us, i1 true)
+  %cast.i524.us = trunc nuw nsw i64 %54 to i32
   %add96.i109.us = or disjoint i32 %mul74.i90.us, %cast.i524.us
   br label %mmbit_iterate.exit.us230
 
@@ -1195,20 +1195,20 @@ for.body.i111.us:                                 ; preds = %for.cond.i81.prehea
 
 if.then60.i119.us:                                ; preds = %for.body.i111.us
   %mul62.i121.us = shl nuw nsw i64 %indvars.iv241, 6
-  %56 = tail call i64 @llvm.cttz.i64(i64 %55, i1 true), !range !5
+  %56 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %55, i1 true)
   %add65.i124.us = or disjoint i64 %56, %mul62.i121.us
-  %conv66.i125.us = trunc i64 %add65.i124.us to i32
+  %conv66.i125.us = trunc nuw nsw i64 %add65.i124.us to i32
   br label %mmbit_iterate.exit.us230
 
 if.end67.i117.us:                                 ; preds = %for.body.i111.us
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count244
-  br i1 %exitcond245.not, label %for.end.i83.us, label %for.body.i111.us, !llvm.loop !6
+  br i1 %exitcond245.not, label %for.end.i83.us, label %for.body.i111.us, !llvm.loop !5
 
 mmbit_iterate.exit.us230:                         ; preds = %if.then60.i119.us, %if.then94.i107.us, %if.then38.i163.us
   %retval.i.0.us231 = phi i32 [ %add40.i165.us, %if.then38.i163.us ], [ %conv66.i125.us, %if.then60.i119.us ], [ %add96.i109.us, %if.then94.i107.us ]
   %cmp.not.us232 = icmp eq i32 %retval.i.0.us231, -1
-  br i1 %cmp.not.us232, label %for.end, label %for.body.us211, !llvm.loop !10
+  br i1 %cmp.not.us232, label %for.end, label %for.body.us211, !llvm.loop !8
 
 for.cond.i81.preheader.us:                        ; preds = %if.else.i155.us
   %cmp52.i82204.us = icmp ugt i32 %div.i76192, %42
@@ -1288,8 +1288,8 @@ if.then5.i228:                                    ; preds = %while.body.i215
 
 if.then11.i239:                                   ; preds = %if.then5.i228
   %shl.i240 = shl i32 %key.i208.1, 6
-  %63 = tail call i64 @llvm.cttz.i64(i64 %and10.i236, i1 true), !range !5
-  %cast.i534 = trunc i64 %63 to i32
+  %63 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and10.i236, i1 true)
+  %cast.i534 = trunc nuw nsw i64 %63 to i32
   %add13.i242 = or disjoint i32 %shl.i240, %cast.i534
   %cmp14.i244 = icmp eq i32 %level.i207.1, %conv.i546
   br i1 %cmp14.i244, label %mmbit_iterate.exit, label %if.end17.i245
@@ -1317,7 +1317,7 @@ if.end23.i221:                                    ; preds = %if.end19.i218
 
 mmbit_iterate.exit:                               ; preds = %if.then11.i239
   %cmp.not = icmp eq i32 %add13.i242, -1
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end19.i, %loadSomValue.exit, %mmbit_iterate.exit, %if.end19.i218, %for.end.i83.us, %mmbit_get_flat_block.exit335.us, %if.else.i155.us, %loadSomValue.exit.us226, %mmbit_iterate.exit.us230, %if.then4.i175.us.us, %loadSomValue.exit.us226.us, %for.end.i, %mmbit_get_flat_block.exit433, %if.end.i53, %entry, %loadSomValue.exit.us, %mmbit_iterate.exit32
   ret void
@@ -1346,9 +1346,7 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i32 0, i32 33}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

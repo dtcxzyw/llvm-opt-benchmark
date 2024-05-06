@@ -533,7 +533,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
   store float %add.i.i, ptr %contacts, align 4
-  %204 = trunc i64 %indvars.iv.i.i to i32
+  %204 = trunc nuw i64 %indvars.iv.i.i to i32
   store i32 %204, ptr %point_indices.i.i, align 16
   br label %for.inc.sink.split.i.i
 
@@ -545,7 +545,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 if.then12.i.i:                                    ; preds = %if.else.i.i
   %idxprom14.i.i = zext i32 %193 to i64
   %arrayidx15.i.i = getelementptr inbounds [16 x i32], ptr %point_indices.i.i, i64 0, i64 %idxprom14.i.i
-  %205 = trunc i64 %indvars.iv.i.i to i32
+  %205 = trunc nuw i64 %indvars.iv.i.i to i32
   store i32 %205, ptr %arrayidx15.i.i, align 4
   %inc.i.i = add i32 %193, 1
   br label %for.inc.sink.split.i.i
@@ -632,7 +632,7 @@ if.then.i.i111:                                   ; preds = %for.body.i.i102
 
 if.then5.i.i139:                                  ; preds = %if.then.i.i111
   store float %add.i.i109, ptr %contacts, align 4
-  %221 = trunc i64 %indvars.iv.i.i103 to i32
+  %221 = trunc nuw i64 %indvars.iv.i.i103 to i32
   store i32 %221, ptr %point_indices.i.i93, align 16
   br label %for.inc.sink.split.i.i120
 
@@ -644,7 +644,7 @@ if.else.i.i113:                                   ; preds = %if.then.i.i111
 if.then12.i.i116:                                 ; preds = %if.else.i.i113
   %idxprom14.i.i117 = zext i32 %210 to i64
   %arrayidx15.i.i118 = getelementptr inbounds [16 x i32], ptr %point_indices.i.i93, i64 0, i64 %idxprom14.i.i117
-  %222 = trunc i64 %indvars.iv.i.i103 to i32
+  %222 = trunc nuw i64 %indvars.iv.i.i103 to i32
   store i32 %222, ptr %arrayidx15.i.i118, align 4
   %inc.i.i119 = add i32 %210, 1
   br label %for.inc.sink.split.i.i120

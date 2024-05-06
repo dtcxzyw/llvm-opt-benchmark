@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_tx_h_michael_mic_add(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 40
   %4 = getelementptr inbounds i8, ptr %2, i64 200
@@ -196,7 +196,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare dso_local void @michael_mic(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_rx_h_michael_mic_verify(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 65569) i32 @ieee80211_rx_h_michael_mic_verify(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   store i64 0, ptr %2, align 8, !annotation !12
@@ -394,7 +394,7 @@ declare dso_local void @skb_trim(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare dso_local void @cfg80211_michael_mic_failure(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_crypto_tkip_encrypt(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_tkip_encrypt(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @ieee80211_tx_set_protected(ptr noundef %0) #10
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
@@ -512,7 +512,7 @@ define dso_local noundef i32 @ieee80211_crypto_tkip_encrypt(ptr noundef %0) loca
 declare dso_local void @ieee80211_tx_set_protected(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_crypto_tkip_decrypt(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 65571) i32 @ieee80211_crypto_tkip_decrypt(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 200
@@ -614,7 +614,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare dso_local ptr @skb_pull(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_crypto_ccmp_encrypt(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca [16 x i8], align 16
   tail call void @ieee80211_tx_set_protected(ptr noundef %0) #10
@@ -865,7 +865,7 @@ define dso_local noundef i32 @ieee80211_crypto_ccmp_encrypt(ptr noundef %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_crypto_ccmp_decrypt(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [6 x i8], align 1
   %4 = alloca [32 x i8], align 16
   %5 = alloca [16 x i8], align 16
@@ -1079,7 +1079,7 @@ define dso_local noundef i32 @ieee80211_crypto_ccmp_decrypt(ptr nocapture nounde
   store i16 %137, ptr %141, align 2
   %142 = getelementptr inbounds i8, ptr %4, i64 4
   %143 = getelementptr inbounds i8, ptr %79, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(18) %142, ptr noundef align 2 dereferenceable(18) %143, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 4 dereferenceable(18) %142, ptr noundef readonly align 2 dereferenceable(18) %143, i64 18, i1 false)
   %144 = getelementptr inbounds i8, ptr %79, i64 22
   %145 = load i8, ptr %144, align 2
   %146 = and i8 %145, 15
@@ -1092,7 +1092,7 @@ define dso_local noundef i32 @ieee80211_crypto_ccmp_decrypt(ptr nocapture nounde
 
 150:                                              ; preds = %136
   %151 = getelementptr inbounds i8, ptr %79, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %149, ptr noundef align 2 dereferenceable(6) %151, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 8 dereferenceable(6) %149, ptr noundef readonly align 2 dereferenceable(6) %151, i64 6, i1 false)
   %152 = getelementptr inbounds i8, ptr %4, i64 30
   store i8 %138, ptr %152, align 2
   %153 = getelementptr inbounds i8, ptr %4, i64 31
@@ -1112,9 +1112,9 @@ ccmp_special_blocks.exit:                         ; preds = %150, %154
   store i8 %156, ptr %157, align 1
   %158 = getelementptr inbounds i8, ptr %5, i64 2
   %159 = getelementptr inbounds i8, ptr %79, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %158, ptr noundef align 2 dereferenceable(6) %159, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 2 dereferenceable(6) %158, ptr noundef readonly align 2 dereferenceable(6) %159, i64 6, i1 false)
   %160 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %160, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 8 dereferenceable(6) %160, ptr noundef nonnull readonly align 1 dereferenceable(6) %3, i64 6, i1 false)
   %161 = getelementptr inbounds i8, ptr %11, i64 152
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr i8, ptr %81, i64 8
@@ -1202,7 +1202,7 @@ declare dso_local i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_crypto_gcmp_encrypt(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [32 x i8], align 16
   %3 = alloca [16 x i8], align 16
   tail call void @ieee80211_tx_set_protected(ptr noundef %0) #10
@@ -1466,7 +1466,7 @@ define dso_local noundef i32 @ieee80211_crypto_gcmp_encrypt(ptr noundef %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_crypto_gcmp_decrypt(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [6 x i8], align 1
   %3 = alloca [32 x i8], align 16
   %4 = alloca [16 x i8], align 16
@@ -1650,9 +1650,9 @@ define dso_local noundef i32 @ieee80211_crypto_gcmp_decrypt(ptr nocapture nounde
   %117 = getelementptr inbounds i8, ptr %78, i64 10
   %118 = getelementptr inbounds i8, ptr %4, i64 12
   store i16 0, ptr %118, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %4, ptr noundef align 2 dereferenceable(6) %117, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(6) %4, ptr noundef align 2 dereferenceable(6) %117, i64 6, i1 false)
   %119 = getelementptr inbounds i8, ptr %4, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %119, ptr noundef nonnull align 1 dereferenceable(6) %2, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 2 dereferenceable(6) %119, ptr noundef nonnull readonly align 1 dereferenceable(6) %2, i64 6, i1 false)
   %120 = getelementptr inbounds i8, ptr %4, i64 14
   store i8 0, ptr %120, align 2
   %121 = getelementptr inbounds i8, ptr %4, i64 15
@@ -1689,7 +1689,7 @@ define dso_local noundef i32 @ieee80211_crypto_gcmp_decrypt(ptr nocapture nounde
   store i16 %141, ptr %145, align 2
   %146 = getelementptr inbounds i8, ptr %3, i64 4
   %147 = getelementptr inbounds i8, ptr %78, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(18) %146, ptr noundef align 2 dereferenceable(18) %147, i64 18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 4 dereferenceable(18) %146, ptr noundef align 2 dereferenceable(18) %147, i64 18, i1 false)
   %148 = getelementptr inbounds i8, ptr %78, i64 22
   %149 = load i8, ptr %148, align 2
   %150 = and i8 %149, 15
@@ -1702,7 +1702,7 @@ define dso_local noundef i32 @ieee80211_crypto_gcmp_decrypt(ptr nocapture nounde
 
 154:                                              ; preds = %140
   %155 = getelementptr inbounds i8, ptr %78, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %153, ptr noundef align 2 dereferenceable(6) %155, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 8 dereferenceable(6) %153, ptr noundef align 2 dereferenceable(6) %155, i64 6, i1 false)
   %156 = getelementptr inbounds i8, ptr %3, i64 30
   store i8 %142, ptr %156, align 2
   %157 = getelementptr inbounds i8, ptr %3, i64 31
@@ -1794,7 +1794,7 @@ gcmp_special_blocks.exit:                         ; preds = %154, %158
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_crypto_aes_cmac_encrypt(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_encrypt(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -1918,7 +1918,7 @@ define dso_local noundef i32 @ieee80211_crypto_aes_cmac_encrypt(ptr noundef read
 declare dso_local void @ieee80211_aes_cmac(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_crypto_aes_cmac_256_encrypt(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_256_encrypt(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -2030,7 +2030,7 @@ define dso_local noundef i32 @ieee80211_crypto_aes_cmac_256_encrypt(ptr noundef 
 declare dso_local void @ieee80211_aes_cmac_256(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_crypto_aes_cmac_decrypt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 65576) i32 @ieee80211_crypto_aes_cmac_decrypt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
   %3 = alloca [8 x i8], align 8
   %4 = alloca [6 x i8], align 1
@@ -2153,7 +2153,7 @@ define dso_local noundef i32 @ieee80211_crypto_aes_cmac_decrypt(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_crypto_aes_cmac_256_decrypt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 65577) i32 @ieee80211_crypto_aes_cmac_256_decrypt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
   %3 = alloca [16 x i8], align 16
   %4 = alloca [6 x i8], align 1
@@ -2276,7 +2276,7 @@ define dso_local noundef i32 @ieee80211_crypto_aes_cmac_256_decrypt(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_crypto_aes_gmac_encrypt(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @ieee80211_crypto_aes_gmac_encrypt(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
   %3 = alloca [12 x i8], align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2406,7 +2406,7 @@ define dso_local i32 @ieee80211_crypto_aes_gmac_encrypt(ptr noundef readonly %0)
 declare dso_local i32 @ieee80211_aes_gmac(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_crypto_aes_gmac_decrypt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 1, 65578) i32 @ieee80211_crypto_aes_gmac_decrypt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
   %3 = alloca [6 x i8], align 1
   %4 = alloca [12 x i8], align 1

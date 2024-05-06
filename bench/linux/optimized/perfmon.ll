@@ -214,7 +214,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.82 = private unnamed_addr constant [55 x i8] c"\014DMAR: Cannot find the assigned event for counter %d\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @alloc_iommu_pmu(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @alloc_iommu_pmu(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 2251799813685248
@@ -263,7 +263,7 @@ define dso_local noundef i32 @alloc_iommu_pmu(ptr noundef %0) local_unnamed_addr
   br i1 %34, label %221, label %35
 
 35:                                               ; preds = %31
-  %36 = trunc i64 %17 to i32
+  %36 = trunc nuw nsw i64 %17 to i32
   %37 = getelementptr inbounds i8, ptr %33, i64 8
   store i32 %36, ptr %37, align 8
   %38 = icmp ugt i32 %36, 64
@@ -289,17 +289,17 @@ define dso_local noundef i32 @alloc_iommu_pmu(ptr noundef %0) local_unnamed_addr
   %48 = getelementptr inbounds i8, ptr %33, i64 16
   store i32 %47, ptr %48, align 8
   %49 = lshr i64 %14, 32
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nuw i64 %49 to i32
   %51 = and i32 %50, 31
   %52 = getelementptr inbounds i8, ptr %33, i64 24
   store i32 %51, ptr %52, align 8
   %53 = lshr i64 %14, 52
   %54 = and i64 %53, 7
   %55 = shl nuw nsw i64 1024, %54
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw nsw i64 %55 to i32
   %57 = getelementptr inbounds i8, ptr %33, i64 20
   store i32 %56, ptr %57, align 4
-  %58 = trunc i64 %21 to i32
+  %58 = trunc nuw nsw i64 %21 to i32
   %59 = getelementptr inbounds i8, ptr %33, i64 12
   store i32 %58, ptr %59, align 4
   %60 = shl nuw nsw i64 %21, 3
@@ -849,7 +849,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @iommu_pmu_event_init(ptr nocapture noundef %0) #6 align 16 {
+define internal noundef range(i32 -22, 1) i32 @iommu_pmu_event_init(ptr nocapture noundef %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 360
   %3 = getelementptr inbounds i8, ptr %0, i64 216
   %4 = load i32, ptr %3, align 8
@@ -955,7 +955,7 @@ define internal void @iommu_pmu_disable(ptr nocapture noundef readonly %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @iommu_pmu_add(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @iommu_pmu_add(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 360
@@ -1062,7 +1062,7 @@ define internal noundef i32 @iommu_pmu_add(ptr noundef %0, i32 noundef %1) #0 al
 
 76:                                               ; preds = %71
   %77 = lshr i64 %73, 32
-  %78 = trunc i64 %77 to i32
+  %78 = trunc nuw i64 %77 to i32
   %79 = and i32 %78, 65535
   %80 = or disjoint i32 %79, -2147483648
   %81 = load ptr, ptr %46, align 8
@@ -1140,7 +1140,7 @@ define internal noundef i32 @iommu_pmu_add(ptr noundef %0, i32 noundef %1) #0 al
   %129 = getelementptr inbounds i8, ptr %0, i64 280
   %130 = load i64, ptr %129, align 8
   %131 = lshr i64 %130, 32
-  %132 = trunc i64 %131 to i32
+  %132 = trunc nuw i64 %131 to i32
   %133 = and i32 %132, 31
   %134 = or disjoint i32 %133, -2147483648
   %135 = load ptr, ptr %46, align 8
@@ -1525,7 +1525,7 @@ define internal noundef i64 @event_show(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @cpumask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @cpumask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = load i32, ptr @nr_cpu_ids, align 4
   %5 = tail call i32 @bitmap_print_to_pagebuf(i1 noundef zeroext true, ptr noundef %2, ptr noundef nonnull @iommu_pmu_cpu_mask, i32 noundef %4) #12
   %6 = sext i32 %5 to i64
@@ -2632,7 +2632,7 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 declare dso_local i32 @request_threaded_irq(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @iommu_pmu_irq_handler(i32 %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @iommu_pmu_irq_handler(i32 %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr i8, ptr %4, i64 804

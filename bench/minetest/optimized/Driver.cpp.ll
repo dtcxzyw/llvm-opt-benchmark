@@ -103,7 +103,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @_ZNK3irr5video14COpenGL3Driver20getVersionFromOpenGLEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define range(i32 0, 16777216) i32 @_ZNK3irr5video14COpenGL3Driver20getVersionFromOpenGLEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
 entry:
   %major = alloca i32, align 4
   %minor = alloca i32, align 4

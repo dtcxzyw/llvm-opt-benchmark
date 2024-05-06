@@ -116,7 +116,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btavctp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -237,7 +237,7 @@ define internal i32 @dissect_btavctp(ptr noundef %0, ptr noundef %1, ptr noundef
   store i8 2, ptr %89, align 2
   store i16 %81, ptr %9, align 2
   %90 = lshr i16 %81, 8
-  %91 = trunc i16 %90 to i8
+  %91 = trunc nuw i16 %90 to i8
   %92 = getelementptr inbounds i8, ptr %9, i64 3
   store i8 %91, ptr %92, align 1
   %93 = trunc i16 %81 to i8
@@ -303,10 +303,10 @@ define internal i32 @dissect_btavctp(ptr noundef %0, ptr noundef %1, ptr noundef
 128:                                              ; preds = %112
   %129 = getelementptr inbounds i8, ptr %10, i64 2
   store i8 2, ptr %129, align 2
-  %130 = trunc i32 %.0201 to i16
+  %130 = trunc nuw i32 %.0201 to i16
   store i16 %130, ptr %10, align 2
   %131 = lshr i32 %.0201, 8
-  %132 = trunc i32 %131 to i8
+  %132 = trunc nuw i32 %131 to i8
   %133 = getelementptr inbounds i8, ptr %10, i64 3
   store i8 %132, ptr %133, align 1
   %134 = trunc i32 %.0201 to i8

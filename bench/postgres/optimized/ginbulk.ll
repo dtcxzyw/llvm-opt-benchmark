@@ -366,7 +366,7 @@ declare ptr @rbt_iterate(ptr noundef) local_unnamed_addr #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @qsortCompareItemPointers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 2) i32 @qsortCompareItemPointers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %.val.i = load i16, ptr %0, align 2
   %3 = getelementptr i8, ptr %0, i64 2
   %.val5.i = load i16, ptr %3, align 2

@@ -187,7 +187,7 @@ entry:
 declare i32 @UI_method_set_reader(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ui_read(ptr noundef %ui, ptr noundef %uis) #0 {
+define internal range(i32 -2147483648, 2) i32 @ui_read(ptr noundef %ui, ptr noundef %uis) #0 {
 entry:
   %result = alloca [1025 x i8], align 16
   %call = tail call i32 @UI_get_string_type(ptr noundef %uis) #4
@@ -278,7 +278,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ui_dup_method_data(ptr nocapture readnone %to, ptr nocapture readnone %from, ptr nocapture noundef %pptr, i32 %idx, i64 %argl, ptr nocapture readnone %argp) #0 {
+define internal range(i32 0, 2) i32 @ui_dup_method_data(ptr nocapture readnone %to, ptr nocapture readnone %from, ptr nocapture noundef %pptr, i32 %idx, i64 %argl, ptr nocapture readnone %argp) #0 {
 entry:
   %0 = load ptr, ptr %pptr, align 8
   %cmp.not = icmp eq ptr %0, null

@@ -219,7 +219,7 @@ if.then19:                                        ; preds = %if.else
   %sub = sub nsw i32 %conv24, %conv23
   %sub32 = sub nsw i32 %conv23, %conv24
   %cond = select i1 %cmp25, i32 %sub, i32 %sub32
-  %6 = trunc i32 %cond to i16
+  %6 = trunc nsw i32 %cond to i16
   %conv34 = add nsw i16 %6, 1
   store i16 %conv34, ptr %_count11, align 2
   %conv37 = zext i16 %conv34 to i64
@@ -275,7 +275,7 @@ if.else62:                                        ; preds = %if.else
 
 if.then67:                                        ; preds = %if.else62
   %sub72 = sub nsw i32 %conv65, %conv64
-  %14 = trunc i32 %sub72 to i16
+  %14 = trunc nsw i32 %sub72 to i16
   %conv74 = add nsw i16 %14, 1
   store i16 %conv74, ptr %_count11, align 2
   %15 = load ptr, ptr %_next76, align 8
@@ -789,7 +789,7 @@ do.end187:                                        ; preds = %do.body173, %if.the
   %conv192.pre-phi = phi i32 [ %conv178, %do.body173 ], [ %.pre71, %if.then183 ]
   %45 = phi i16 [ %42, %do.body173 ], [ %.pre65, %if.then183 ]
   %sub193.neg = sub nsw i32 %conv192.pre-phi, %conv14938
-  %46 = trunc i32 %sub193.neg to i16
+  %46 = trunc nsw i32 %sub193.neg to i16
   %conv195 = add i16 %45, %46
   store i16 %conv195, ptr %_count, align 2
   %conv198 = zext i16 %conv195 to i64

@@ -248,7 +248,7 @@ for.body4:                                        ; preds = %for.body4.lr.ph, %f
   %3 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i21 = getelementptr inbounds %class.btVector3, ptr %3, i64 %indvars.iv139
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %4 = trunc i64 %indvars.iv.next140 to i32
+  %4 = trunc nuw i64 %indvars.iv.next140 to i32
   %cmp8125 = icmp sgt i32 %0, %4
   br i1 %cmp8125, label %for.body9.lr.ph, label %for.cond2.loopexit
 
@@ -496,7 +496,7 @@ if.end34:                                         ; preds = %for.body.lr.ph.i53,
 
 for.inc35:                                        ; preds = %if.end34
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %84 = trunc i64 %indvars.iv.next135 to i32
+  %84 = trunc nuw i64 %indvars.iv.next135 to i32
   %cmp8 = icmp sgt i32 %0, %84
   br i1 %cmp8, label %for.body9, label %for.cond2.loopexit, !llvm.loop !13
 
@@ -557,7 +557,7 @@ for.body4:                                        ; preds = %for.body4.lr.ph, %f
   %3 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i24 = getelementptr inbounds %class.btVector3, ptr %3, i64 %indvars.iv188
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
-  %4 = trunc i64 %indvars.iv.next189 to i32
+  %4 = trunc nuw i64 %indvars.iv.next189 to i32
   %cmp8175 = icmp sgt i32 %0, %4
   br i1 %cmp8175, label %for.body9.lr.ph, label %for.cond2.loopexit
 
@@ -797,7 +797,7 @@ _ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit: ; preds = %if.then41
 
 for.inc:                                          ; preds = %for.body.lr.ph.i, %for.body9, %land.lhs.true, %land.lhs.true22, %_ZN14btGeometryUtil19isPointInsidePlanesERK20btAlignedObjectArrayI9btVector3ERKS1_f.exit, %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit, %if.then
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %94 = trunc i64 %indvars.iv.next184 to i32
+  %94 = trunc nuw i64 %indvars.iv.next184 to i32
   %cmp8 = icmp sgt i32 %0, %94
   br i1 %cmp8, label %for.body9, label %for.cond2.loopexit, !llvm.loop !16
 

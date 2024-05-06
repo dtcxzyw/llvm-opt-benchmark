@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @zlib_inflate_table.dext = internal unnamed_addr constant [32 x i16] [i16 16, i16 16, i16 16, i16 16, i16 17, i16 17, i16 18, i16 18, i16 19, i16 19, i16 20, i16 20, i16 21, i16 21, i16 22, i16 22, i16 23, i16 23, i16 24, i16 24, i16 25, i16 25, i16 26, i16 26, i16 27, i16 27, i16 28, i16 28, i16 29, i16 29, i16 64, i16 64], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @zlib_inflate_table(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 align 16 {
   %7 = alloca [16 x i16], align 16
   %8 = alloca [16 x i16], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #4
@@ -65,7 +65,7 @@ define dso_local noundef i32 @zlib_inflate_table(i32 noundef %0, ptr nocapture n
   br i1 %30, label %35, label %26, !llvm.loop !8
 
 .loopexit29.loopexit:                             ; preds = %26
-  %31 = trunc i64 %indvars.iv.next to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.loopexit29
 
 .loopexit29:                                      ; preds = %.loopexit29.loopexit, %.loopexit30

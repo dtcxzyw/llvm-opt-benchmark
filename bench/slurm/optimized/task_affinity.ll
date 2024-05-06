@@ -212,7 +212,7 @@ define noundef i32 @task_p_pre_setuid(ptr noundef %0) local_unnamed_addr #0 {
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
-  %18 = trunc i64 %indvars.iv.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   %19 = tail call i32 @get_cpuset(ptr noundef %17, ptr noundef nonnull %0, i32 noundef %18) #5
   %.not11.i = icmp eq i32 %19, 0
   br i1 %.not11.i, label %20, label %25
@@ -240,7 +240,7 @@ _calc_cpu_affinity.exit:                          ; preds = %25, %1, %.preheader
 declare void @cpu_freq_cpuset_validate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @task_p_pre_launch(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @task_p_pre_launch(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.bitmask, align 8
   %3 = alloca %struct.nodemask_t, align 16
   %4 = alloca [128 x i8], align 16
@@ -321,7 +321,7 @@ nodemask_isset_compat.exit.i:                     ; preds = %33, %44
   br i1 %.not.i.not.i, label %44, label %42
 
 42:                                               ; preds = %nodemask_isset_compat.exit.i
-  %43 = trunc i64 %indvars.iv.i to i32
+  %43 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @numa_set_preferred(i32 noundef %43) #5
   br label %_numa_set_preferred.exit
 

@@ -298,7 +298,7 @@ define dso_local void @nfs_fattr_map_and_free_names(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs_map_string_to_numeric(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @nfs_map_string_to_numeric(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14

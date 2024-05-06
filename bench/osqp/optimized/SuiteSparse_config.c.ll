@@ -52,7 +52,7 @@ define double @SuiteSparse_hypot(double noundef %0, double noundef %1) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SuiteSparse_divcomplex(double noundef %0, double noundef %1, double noundef %2, double noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #4 {
+define range(i32 0, 2) i32 @SuiteSparse_divcomplex(double noundef %0, double noundef %1, double noundef %2, double noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #4 {
   %7 = tail call double @llvm.fabs.f64(double %2)
   %8 = tail call double @llvm.fabs.f64(double %3)
   %9 = fcmp ult double %7, %8

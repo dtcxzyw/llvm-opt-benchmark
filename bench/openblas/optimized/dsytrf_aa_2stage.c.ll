@@ -659,7 +659,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 432:                                              ; preds = %429
   %433 = load i32, ptr %18, align 4, !tbaa !3
   %434 = icmp slt i32 %433, 1
-  %435 = mul nsw i32 %430, %129
+  %435 = mul nuw nsw i32 %430, %129
   %436 = add nsw i32 %435, -1
   %437 = add i32 %430, %117
   %438 = add nsw i32 %430, -1

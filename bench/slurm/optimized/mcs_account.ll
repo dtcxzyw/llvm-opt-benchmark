@@ -37,7 +37,7 @@ define noundef i32 @fini() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mcs_p_set_mcs_label(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mcs_p_set_mcs_label(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   tail call void @slurm_xfree(ptr noundef nonnull %3) #4
   %.not = icmp eq ptr %1, null
@@ -92,7 +92,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_mcs_get_enforced() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mcs_p_check_mcs_label(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mcs_p_check_mcs_label(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.slurmdb_assoc_rec, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %4, i8 0, i64 336, i1 false)
   %5 = getelementptr inbounds i8, ptr %4, i64 8

@@ -213,7 +213,7 @@ if.end:                                           ; preds = %if.end9.i.i.i.i, %f
   call void @_ZN6hermes13DominanceInfoC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(72) %DT.i, ptr noundef %__begin1.sroa.0.0191) #12
   %scopeDesc_.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0191, i64 72
   %6 = load ptr, ptr %scopeDesc_.i.i.i, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_113runOnFunctionEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %__begin1.sroa.0.0191, ptr noundef %6, ptr nonnull %DT.i, ptr nonnull %F.addr.i)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_113runOnFunctionEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %__begin1.sroa.0.0191, ptr noundef %6, ptr nonnull %DT.i, ptr nonnull readonly %F.addr.i)
   call fastcc void @_ZN12_GLOBAL__N_116promoteVariablesEPN6hermes8FunctionERN4llvh9SetVectorIS2_St6vectorIS2_SaIS2_EENS3_8DenseSetIS2_NS3_12DenseMapInfoIS2_EEEEEE(ptr noundef nonnull %__begin1.sroa.0.0191, ptr noundef nonnull align 8 dereferenceable(48) %maybeUnreachableFuncs)
   %7 = load ptr, ptr %scopeDesc_.i.i.i, align 8
   call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_113runOnFunctionEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_1EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %__begin1.sroa.0.0191, ptr noundef %7)
@@ -3833,7 +3833,7 @@ _ZN12_GLOBAL__N_130determineCapturedVariableUsageEPN6hermes8FunctionERN4llvh8Den
   store ptr %capturedVariableUsage, ptr %agg.tmp1.sroa.3.0.agg.tmp126.sroa_idx, align 8
   %scopeDesc_.i.i27 = getelementptr inbounds i8, ptr %250, i64 72
   %251 = load ptr, ptr %scopeDesc_.i.i27, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_1EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %250, ptr noundef %251, ptr noundef nonnull byval(%class.anon.136) align 8 %agg.tmp126)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_1EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %250, ptr noundef %251, ptr noundef nonnull readonly byval(%class.anon.136) align 8 %agg.tmp126)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp126)
   %252 = load ptr, ptr %F.addr, align 8
   %parent_.i.i = getelementptr inbounds i8, ptr %252, i64 56
@@ -3856,7 +3856,7 @@ _ZN12_GLOBAL__N_130determineCapturedVariableUsageEPN6hermes8FunctionERN4llvh8Den
   store ptr %capturedVariableUsage, ptr %agg.tmp2.sroa.6.0.agg.tmp229.sroa_idx, align 8
   %scopeDesc_.i.i30 = getelementptr inbounds i8, ptr %252, i64 72
   %254 = load ptr, ptr %scopeDesc_.i.i30, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_2EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %252, ptr noundef %254, ptr noundef nonnull byval(%class.anon.140) align 8 %agg.tmp229)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_2EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %252, ptr noundef %254, ptr noundef nonnull readonly byval(%class.anon.140) align 8 %agg.tmp229)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp229)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %alreadyProcessed, i8 0, i64 20, i1 false)
   %255 = load ptr, ptr %F.addr, align 8
@@ -4436,7 +4436,7 @@ while.end:                                        ; preds = %while.cond
   store ptr %changed, ptr %agg.tmp62.sroa.7.0.agg.tmp62233.sroa_idx, align 8
   %scopeDesc_.i.i234 = getelementptr inbounds i8, ptr %336, i64 72
   %337 = load ptr, ptr %scopeDesc_.i.i234, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_3EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %336, ptr noundef %337, ptr noundef nonnull byval(%class.anon.149) align 8 %agg.tmp62233)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_3EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %336, ptr noundef %337, ptr noundef nonnull readonly byval(%class.anon.149) align 8 %agg.tmp62233)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %agg.tmp62233)
   br label %cleanup
 
@@ -4694,7 +4694,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockENS_8DenseSetIPNS2_8Var
   store ptr %__begin167.sroa.0.01017, ptr %agg.tmp91.sroa.8.0.agg.tmp91332.sroa_idx, align 8
   %scopeDesc_.i.i333 = getelementptr inbounds i8, ptr %362, i64 72
   %363 = load ptr, ptr %scopeDesc_.i.i333, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_4EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %362, ptr noundef %363, ptr noundef nonnull byval(%class.anon.157) align 8 %agg.tmp91332)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_4EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %362, ptr noundef %363, ptr noundef nonnull readonly byval(%class.anon.157) align 8 %agg.tmp91332)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp91332)
   br label %for.inc92
 
@@ -9028,8 +9028,8 @@ if.end37.i.i.if.then.i.i.i78.i_crit_edge:         ; preds = %if.end37.i.i
 if.then.i.i.i78.i:                                ; preds = %if.end37.i.i.if.then.i.i.i78.i_crit_edge, %if.end24.i.i
   %55 = phi ptr [ %.pre14, %if.end37.i.i.if.then.i.i.i78.i_crit_edge ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.end24.i.i ]
   %56 = phi ptr [ %.pre, %if.end37.i.i.if.then.i.i.i78.i_crit_edge ], [ %52, %if.end24.i.i ]
-  %conv.i50.i.pre-phi21.i = phi i64 [ %.pre18.i, %if.end37.i.i.if.then.i.i.i78.i_crit_edge ], [ %conv.i30.i.i, %if.end24.i.i ]
-  %gepdiff.i.i = shl nuw nsw i64 %conv.i50.i.pre-phi21.i, 3
+  %conv.i51.i.pre-phi21.i = phi i64 [ %.pre18.i, %if.end37.i.i.if.then.i.i.i78.i_crit_edge ], [ %conv.i30.i.i, %if.end24.i.i ]
+  %gepdiff.i.i = shl nuw nsw i64 %conv.i51.i.pre-phi21.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr align 8 %56, i64 %gepdiff.i.i, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes8VariableELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i.i
 
@@ -9189,8 +9189,8 @@ if.end22:                                         ; preds = %if.then.i.i.i.i.i, 
   br label %return.sink.split
 
 if.end24:                                         ; preds = %if.end12
-  %Capacity.i37 = getelementptr inbounds i8, ptr %this, i64 12
-  %8 = load i32, ptr %Capacity.i37, align 4
+  %Capacity.i38 = getelementptr inbounds i8, ptr %this, i64 12
+  %8 = load i32, ptr %Capacity.i38, align 4
   %cmp26 = icmp ult i32 %8, %5
   br i1 %cmp26, label %if.then27, label %if.else
 
@@ -9202,19 +9202,19 @@ if.then27:                                        ; preds = %if.end24
 
 if.else:                                          ; preds = %if.end24
   %tobool30.not = icmp eq i32 %6, 0
-  br i1 %tobool30.not, label %if.end37, label %if.then.i.i.i.i.i46
+  br i1 %tobool30.not, label %if.end37, label %if.then.i.i.i.i.i47
 
-if.then.i.i.i.i.i46:                              ; preds = %if.else
+if.then.i.i.i.i.i47:                              ; preds = %if.else
   %add.ptr.idx = shl nuw nsw i64 %conv.i32, 3
   %9 = load ptr, ptr %this, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %9, ptr align 8 %0, i64 %add.ptr.idx, i1 false)
   br label %if.end37
 
-if.end37:                                         ; preds = %if.then.i.i.i.i.i46, %if.else, %if.then27
-  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ 0, %if.else ], [ %conv.i32, %if.then.i.i.i.i.i46 ]
+if.end37:                                         ; preds = %if.then.i.i.i.i.i47, %if.else, %if.then27
+  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ 0, %if.else ], [ %conv.i32, %if.then.i.i.i.i.i47 ]
   %10 = load i32, ptr %Size.i29, align 8
-  %conv.i50 = zext i32 %10 to i64
-  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i50
+  %conv.i51 = zext i32 %10 to i64
+  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i51
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes8VariableELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end37
@@ -9223,7 +9223,7 @@ if.then.i.i:                                      ; preds = %if.end37
   %add.ptr39 = getelementptr inbounds i8, ptr %11, i64 %add.ptr39.idx
   %12 = load ptr, ptr %this, align 8
   %add.ptr42 = getelementptr inbounds ptr, ptr %12, i64 %CurSize.0
-  %13 = sub nsw i64 %conv.i50, %CurSize.0
+  %13 = sub nsw i64 %conv.i51, %CurSize.0
   %gepdiff = shl nsw i64 %13, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 8 %add.ptr39, i64 %gepdiff, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes8VariableELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit

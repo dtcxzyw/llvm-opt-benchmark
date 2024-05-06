@@ -2132,7 +2132,7 @@ _ZNK11ast_manager3getERKN14parray_managerINS_28expr_dependency_array_configEE3re
 
 invoke.cont57:                                    ; preds = %_ZNK11ast_manager3getERKN14parray_managerINS_28expr_dependency_array_configEE3refEj.exit.i, %if.end48
   %cond.i103 = phi ptr [ %82, %_ZNK11ast_manager3getERKN14parray_managerINS_28expr_dependency_array_configEE3refEj.exit.i ], [ null, %if.end48 ]
-  %83 = trunc i64 %indvars.iv to i32
+  %83 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN4goal6updateEjP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %70, i32 noundef %83, ptr noundef %71, ptr noundef %69, ptr noundef %cond.i103)
           to label %invoke.cont62 unwind label %lpad15.loopexit.split-lp.loopexit
 
@@ -2711,7 +2711,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %conv.i.i.i.i = trunc i64 %u to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %u to i32
   store i32 %conv.i.i.i.i, ptr %ref.tmp, align 8
   store i8 0, ptr %m_kind.i.i.i, align 4
   br label %_ZN8rationalC2EmNS_4ui64E.exit

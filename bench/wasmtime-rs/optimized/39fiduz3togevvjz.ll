@@ -33,7 +33,7 @@ define void @"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h24782e28e2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i32 @_ZN4core4iter6traits8iterator8Iterator3nth17h175177591546384eE(ptr align 8 %0, i64 %1) unnamed_addr #0 {
+define range(i32 0, 1114113) i32 @_ZN4core4iter6traits8iterator8Iterator3nth17h175177591546384eE(ptr align 8 %0, i64 %1) unnamed_addr #0 {
   %3 = tail call i64 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17hdb6a2689b3db5eb5E"(ptr align 8 %0, i64 %1)
   %.not.not = icmp eq i64 %3, 0
   br i1 %.not.not, label %4, label %6
@@ -82,7 +82,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h345c71f671730e3b
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i8 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by28_$u7b$$u7b$closure$u7d$$u7d$17he57b7f083c9c0659E"(ptr nocapture readnone align 1 %0, i1 zeroext %1) unnamed_addr #2 {
+define range(i8 0, 2) i8 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by28_$u7b$$u7b$closure$u7d$$u7d$17he57b7f083c9c0659E"(ptr nocapture readnone align 1 %0, i1 zeroext %1) unnamed_addr #2 {
   %3 = zext i1 %1 to i8
   ret i8 %3
 }

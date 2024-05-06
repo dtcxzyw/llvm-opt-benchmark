@@ -281,7 +281,7 @@ thread-pre-split:                                 ; preds = %98, %101
 143:                                              ; preds = %.lr.ph.i
   %144 = getelementptr inbounds i64, ptr %62, i64 %indvars.iv.i
   %145 = load i64, ptr %144, align 8
-  %146 = trunc i64 %indvars.iv.i to i32
+  %146 = trunc nuw nsw i64 %indvars.iv.i to i32
   %147 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %138, i32 noundef %146, i64 noundef %142, i64 noundef %145)
   br label %148
 
@@ -332,7 +332,7 @@ print_vars.exit:                                  ; preds = %print_vars.exit.loo
 169:                                              ; preds = %.lr.ph.i136
   %170 = getelementptr inbounds i64, ptr %62, i64 %indvars.iv.i137
   %171 = load i64, ptr %170, align 8
-  %172 = trunc i64 %indvars.iv.i137 to i32
+  %172 = trunc nuw nsw i64 %indvars.iv.i137 to i32
   %173 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %164, i32 noundef %172, i64 noundef %168, i64 noundef %171)
   br label %174
 
@@ -563,7 +563,7 @@ thread-pre-split158:                              ; preds = %240, %244
 293:                                              ; preds = %.lr.ph.i144
   %294 = getelementptr inbounds i64, ptr %67, i64 %indvars.iv.i145
   %295 = load i64, ptr %294, align 8
-  %296 = trunc i64 %indvars.iv.i145 to i32
+  %296 = trunc nuw nsw i64 %indvars.iv.i145 to i32
   %297 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %288, i32 noundef %296, i64 noundef %292, i64 noundef %295)
   br label %298
 
@@ -614,7 +614,7 @@ print_vars.exit149:                               ; preds = %print_vars.exit149.
 319:                                              ; preds = %.lr.ph.i152
   %320 = getelementptr inbounds i64, ptr %67, i64 %indvars.iv.i153
   %321 = load i64, ptr %320, align 8
-  %322 = trunc i64 %indvars.iv.i153 to i32
+  %322 = trunc nuw nsw i64 %indvars.iv.i153 to i32
   %323 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %314, i32 noundef %322, i64 noundef %318, i64 noundef %321)
   br label %324
 

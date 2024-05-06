@@ -77,7 +77,7 @@ declare void @hwloc__free_infos(ptr noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @hwloc_internal_cpukinds_dup(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @hwloc_internal_cpukinds_dup(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 840
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 760
@@ -213,7 +213,7 @@ define hidden void @hwloc_internal_cpukinds_restrict(ptr noundef %0) local_unnam
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %8, i64 %5
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #21
+  %11 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #21
   %12 = getelementptr inbounds i8, ptr %11, i64 184
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @hwloc_bitmap_and(ptr noundef %10, ptr noundef %10, ptr noundef %13) #19
@@ -889,7 +889,7 @@ hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread: ; preds = %.loopexit.
   %indvars.iv.i138 = phi i64 [ %indvars.iv.next.i139, %.lr.ph.i137 ], [ 0, %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread ]
   %262 = load ptr, ptr %258, align 8
   %263 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %262, i64 %indvars.iv.i138, i32 1
-  %264 = trunc i64 %indvars.iv.i138 to i32
+  %264 = trunc nuw i64 %indvars.iv.i138 to i32
   store i32 %264, ptr %263, align 8
   %indvars.iv.next.i139 = add nuw nsw i64 %indvars.iv.i138, 1
   %265 = load i32, ptr %4, align 8
@@ -902,7 +902,7 @@ hwloc__cpukinds_finalize_ranking.exit:            ; preds = %.lr.ph.i137, %251, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @hwloc_internal_cpukinds_register(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, i64 noundef %4) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @hwloc_internal_cpukinds_register(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %1) #21
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
@@ -953,7 +953,7 @@ define hidden noundef i32 @hwloc_internal_cpukinds_register(ptr nocapture nounde
   %27 = or disjoint i32 %.3.i, 2
   %.425.i = select i1 %.not31.i, i64 %.324.i, i64 %26
   %.4.i = select i1 %.not31.i, i32 %.3.i, i32 %27
-  %28 = trunc i64 %.425.i to i32
+  %28 = trunc nuw i64 %.425.i to i32
   %29 = lshr i32 %28, 1
   %30 = and i32 %29, 1
   %.5.i = add nuw nsw i32 %30, %.4.i
@@ -1062,14 +1062,14 @@ hwloc_flsl_manual.exit:                           ; preds = %12, %16
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %87 ]
   %80 = getelementptr inbounds %struct.hwloc_info_s, ptr %78, i64 %indvars.iv.i.i
   %81 = load ptr, ptr %80, align 8
-  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(1) %74) #21
+  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull readonly dereferenceable(1) %74) #21
   %.not.i.i = icmp eq i32 %82, 0
   br i1 %.not.i.i, label %83, label %87
 
 83:                                               ; preds = %79
   %84 = getelementptr inbounds i8, ptr %80, i64 8
   %85 = load ptr, ptr %84, align 8
-  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(1) %76) #21
+  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull readonly dereferenceable(1) %76) #21
   %.not10.i.i = icmp eq i32 %86, 0
   br i1 %.not10.i.i, label %hwloc__cpukind_check_duplicate_info.exit.i, label %87
 
@@ -1124,14 +1124,14 @@ hwloc__cpukind_add_infos.exit:                    ; preds = %hwloc__cpukind_chec
   %indvars.iv.i.i122 = phi i64 [ 0, %.lr.ph.i.i120 ], [ %indvars.iv.next.i.i124, %113 ]
   %106 = getelementptr inbounds %struct.hwloc_info_s, ptr %104, i64 %indvars.iv.i.i122
   %107 = load ptr, ptr %106, align 8
-  %108 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(1) %100) #21
+  %108 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull readonly dereferenceable(1) %100) #21
   %.not.i.i123 = icmp eq i32 %108, 0
   br i1 %.not.i.i123, label %109, label %113
 
 109:                                              ; preds = %105
   %110 = getelementptr inbounds i8, ptr %106, i64 8
   %111 = load ptr, ptr %110, align 8
-  %112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull dereferenceable(1) %102) #21
+  %112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull readonly dereferenceable(1) %102) #21
   %.not10.i.i130 = icmp eq i32 %112, 0
   br i1 %.not10.i.i130, label %hwloc__cpukind_check_duplicate_info.exit.i128, label %113
 
@@ -1195,14 +1195,14 @@ hwloc__cpukind_add_infos.exit131:                 ; preds = %hwloc__cpukind_chec
   %indvars.iv.i.i138 = phi i64 [ 0, %.lr.ph.i.i136 ], [ %indvars.iv.next.i.i140, %146 ]
   %139 = getelementptr inbounds %struct.hwloc_info_s, ptr %137, i64 %indvars.iv.i.i138
   %140 = load ptr, ptr %139, align 8
-  %141 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %140, ptr noundef nonnull dereferenceable(1) %133) #21
+  %141 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %140, ptr noundef nonnull readonly dereferenceable(1) %133) #21
   %.not.i.i139 = icmp eq i32 %141, 0
   br i1 %.not.i.i139, label %142, label %146
 
 142:                                              ; preds = %138
   %143 = getelementptr inbounds i8, ptr %139, i64 8
   %144 = load ptr, ptr %143, align 8
-  %145 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %144, ptr noundef nonnull dereferenceable(1) %135) #21
+  %145 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %144, ptr noundef nonnull readonly dereferenceable(1) %135) #21
   %.not10.i.i146 = icmp eq i32 %145, 0
   br i1 %.not10.i.i146, label %hwloc__cpukind_check_duplicate_info.exit.i144, label %146
 
@@ -1300,14 +1300,14 @@ hwloc__cpukind_add_infos.exit147:                 ; preds = %hwloc__cpukind_chec
   %indvars.iv.i.i154 = phi i64 [ 0, %.lr.ph.i.i152 ], [ %indvars.iv.next.i.i156, %190 ]
   %183 = getelementptr inbounds %struct.hwloc_info_s, ptr %181, i64 %indvars.iv.i.i154
   %184 = load ptr, ptr %183, align 8
-  %185 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %184, ptr noundef nonnull dereferenceable(1) %177) #21
+  %185 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %184, ptr noundef nonnull readonly dereferenceable(1) %177) #21
   %.not.i.i155 = icmp eq i32 %185, 0
   br i1 %.not.i.i155, label %186, label %190
 
 186:                                              ; preds = %182
   %187 = getelementptr inbounds i8, ptr %183, i64 8
   %188 = load ptr, ptr %187, align 8
-  %189 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %188, ptr noundef nonnull dereferenceable(1) %179) #21
+  %189 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %188, ptr noundef nonnull readonly dereferenceable(1) %179) #21
   %.not10.i.i162 = icmp eq i32 %189, 0
   br i1 %.not10.i.i162, label %hwloc__cpukind_check_duplicate_info.exit.i160, label %190
 
@@ -1363,7 +1363,7 @@ declare noalias ptr @hwloc_bitmap_alloc() local_unnamed_addr #2
 declare i32 @hwloc_bitmap_andnot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_cpukinds_register(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @hwloc_cpukinds_register(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %8, label %6
 
@@ -1393,7 +1393,7 @@ define noundef i32 @hwloc_cpukinds_register(ptr nocapture noundef %0, ptr nounde
 
 15:                                               ; preds = %13
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %2, i32 -1)
-  %16 = tail call i32 @hwloc_internal_cpukinds_register(ptr noundef %0, ptr noundef nonnull %14, i32 noundef %spec.store.select, ptr noundef %3, i64 noundef 1), !range !22
+  %16 = tail call i32 @hwloc_internal_cpukinds_register(ptr noundef %0, ptr noundef nonnull %14, i32 noundef %spec.store.select, ptr noundef %3, i64 noundef 1)
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %20, label %18
 
@@ -1514,7 +1514,7 @@ define internal fastcc void @hwloc__cpukinds_summarize_info(ptr nocapture nounde
   %47 = load i32, ptr %12, align 8
   %48 = zext i32 %47 to i64
   %49 = icmp ult i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %46, %9
   %50 = load ptr, ptr %8, align 8
@@ -1552,7 +1552,7 @@ define internal fastcc void @hwloc__cpukinds_summarize_info(ptr nocapture nounde
   %63 = load i32, ptr %5, align 8
   %64 = zext i32 %63 to i64
   %65 = icmp ult i64 %indvars.iv.next60, %64
-  br i1 %65, label %9, label %._crit_edge55, !llvm.loop !24
+  br i1 %65, label %9, label %._crit_edge55, !llvm.loop !23
 
 ._crit_edge55:                                    ; preds = %62, %2
   ret void
@@ -1579,7 +1579,7 @@ define i32 @hwloc_cpukinds_get_nr(ptr nocapture noundef readonly %0, i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hwloc_cpukinds_get_info(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, i64 noundef %5) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @hwloc_cpukinds_get_info(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, i64 noundef %5) local_unnamed_addr #1 {
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %9, label %7
 
@@ -1695,7 +1695,7 @@ define i32 @hwloc_cpukinds_get_by_cpuset(ptr nocapture noundef readonly %0, ptr 
 23:                                               ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %23, %.preheader
   %24 = tail call ptr @__errno_location() #24
@@ -1703,7 +1703,7 @@ define i32 @hwloc_cpukinds_get_by_cpuset(ptr nocapture noundef readonly %0, ptr 
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %15
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge, %21, %13, %4
@@ -1726,7 +1726,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #5
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @hwloc__cpukinds_compare_ranking_values(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #17 {
+define internal range(i32 -1, 2) i32 @hwloc__cpukinds_compare_ranking_values(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #17 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1795,7 +1795,6 @@ attributes #25 = { nounwind allocsize(1) }
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = !{i32 -1, i32 1}
+!22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}

@@ -52,7 +52,7 @@ declare dso_local void @hid_unregister_driver(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @__hid_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ks_input_mapping(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @ks_input_mapping(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #2 align 16 {
   %7 = load i32, ptr %3, align 4
   %8 = and i32 %7, -65536
   %9 = icmp eq i32 %8, -16777216

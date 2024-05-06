@@ -1209,7 +1209,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i125.i
 
 _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %for.body.i.i125.i
   %mul.i.i.i = shl nuw nsw i64 %i.06.i.i.i, 6
-  %139 = call noundef i64 @llvm.cttz.i64(i64 %138, i1 true), !range !49
+  %139 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %138, i1 true)
   %add.i.i.i = or disjoint i64 %139, %mul.i.i.i
   %cmp.not320.i = icmp eq i64 %add.i.i.i, 256
   br i1 %cmp.not320.i, label %for.inc172.loopexit.i, label %for.body126.lr.ph.i
@@ -1262,13 +1262,13 @@ land.end141.i:                                    ; preds = %invoke.cont133.i
 
 if.end153.i:                                      ; preds = %land.end141.i, %invoke.cont133.i, %for.body126.i
   %146 = phi i1 [ %not.tobool.i.i134.not.i, %land.end141.i ], [ false, %invoke.cont133.i ], [ false, %for.body126.i ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  %147 = load i8, ptr %_M_storage.i.i.i, align 8, !noalias !50
+  call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  %147 = load i8, ptr %_M_storage.i.i.i, align 8, !noalias !49
   %frombool.i.i.i = and i8 %147, 1
-  store i8 %frombool.i.i.i, ptr %ref.tmp154.i, align 8, !alias.scope !50
-  store i8 0, ptr %eod.i.i.i, align 1, !alias.scope !50
+  store i8 %frombool.i.i.i, ptr %ref.tmp154.i, align 8, !alias.scope !49
+  store i8 0, ptr %eod.i.i.i, align 1, !alias.scope !49
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.i.i.i) #18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %nocase.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !50
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %nocase.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !49
   %call.i1.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %s.i135.i)
           to label %call.i.noexc.i.i unwind label %lpad.i.loopexit.i
 
@@ -1379,8 +1379,8 @@ if.end69.i.i:                                     ; preds = %if.then.i.i.i.i.i.i
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.end69.i.i, %call.i.noexc.i.i
-  %157 = load i64, ptr %m_num_bits.i.i.i137.i, align 8, !noalias !50
-  store i64 %157, ptr %m_num_bits3.i.i.i138.i, align 8, !alias.scope !50
+  %157 = load i64, ptr %m_num_bits.i.i.i137.i, align 8, !noalias !49
+  store i64 %157, ptr %m_num_bits3.i.i.i138.i, align 8, !alias.scope !49
   invoke void @_ZN3ue211ue2_literal9push_backEcb(ptr noundef nonnull align 8 dereferenceable(64) %s.i.i.i, i8 noundef signext %conv.i, i1 noundef zeroext %146)
           to label %invoke.cont157.i unwind label %lpad.i.loopexit.i
 
@@ -1449,7 +1449,7 @@ if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i
   %mul.i.i152.i = and i64 %c.0321.i, 192
-  %161 = call i64 @llvm.cttz.i64(i64 %and.i.i150.i, i1 true), !range !53
+  %161 = call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %and.i.i150.i, i1 true)
   %add9.i.i.i = or disjoint i64 %161, %mul.i.i152.i
   br label %for.body126.i.backedge
 
@@ -1463,11 +1463,11 @@ for.body.i.i154.i:                                ; preds = %for.cond.i.i153.i
   %arrayidx.i.i13.i.i.i = getelementptr inbounds [4 x i64], ptr %props.i.i, i64 0, i64 %i.0.i.i.i
   %162 = load i64, ptr %arrayidx.i.i13.i.i.i, align 8
   %tobool17.not.i.i.i = icmp eq i64 %162, 0
-  br i1 %tobool17.not.i.i.i, label %for.cond.i.i153.i, label %if.then18.i.i.i, !llvm.loop !54
+  br i1 %tobool17.not.i.i.i, label %for.cond.i.i153.i, label %if.then18.i.i.i, !llvm.loop !52
 
 if.then18.i.i.i:                                  ; preds = %for.body.i.i154.i
   %mul19.i.i.i = shl nuw nsw i64 %i.0.i.i.i, 6
-  %163 = call noundef i64 @llvm.cttz.i64(i64 %162, i1 true), !range !49
+  %163 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %162, i1 true)
   %add21.i.i.i = or disjoint i64 %163, %mul19.i.i.i
   br label %for.body126.i.backedge
 
@@ -1523,7 +1523,7 @@ for.inc197.sink.split.i:                          ; preds = %for.inc197.sink.spl
 for.inc197.i:                                     ; preds = %for.inc193.i, %for.inc197.sink.split.i, %if.end45.i
   %169 = load ptr, ptr %order.i, align 8, !noalias !10
   %cmp.i.i.i.not.i = icmp eq ptr %incdec.ptr.i.i.i, %169
-  br i1 %cmp.i.i.i.not.i, label %cleanup.i, label %invoke.cont23.i, !llvm.loop !55
+  br i1 %cmp.i.i.i.not.i, label %cleanup.i, label %invoke.cont23.i, !llvm.loop !53
 
 cleanup.i:                                        ; preds = %for.inc197.i, %_ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit145.i, %invoke.cont8.i
   %cmp.i.i.i.not319.i.not = phi i1 [ false, %invoke.cont8.i ], [ true, %_ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit145.i ], [ false, %for.inc197.i ]
@@ -1547,7 +1547,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt6vectorImSaImE
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %this.val.i.i.i.i.i.i.i.i)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 48
   %cmp.not.i.i.i.i163.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %171
-  br i1 %cmp.not.i.i.i.i163.i, label %invoke.cont.i164.i, label %for.body.i.i.i.i.i, !llvm.loop !56
+  br i1 %cmp.not.i.i.i.i163.i, label %invoke.cont.i164.i, label %for.body.i.i.i.i.i, !llvm.loop !54
 
 invoke.cont.i164.i:                               ; preds = %for.body.i.i.i.i.i, %_ZNSt6vectorImSaImEED2Ev.exit.i
   %tobool.not.i.i.i165.i = icmp eq ptr %170, null
@@ -1806,7 +1806,7 @@ cond.end.i.i:                                     ; preds = %if.end35.i.i.i.i, %
   %9 = getelementptr i8, ptr %__x.038.i.i, i64 %.sink.i.i
   %__x.0.i.i = load ptr, ptr %9, align 8
   %cmp.not.i.i = icmp eq ptr %__x.0.i.i, null
-  br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !57
+  br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !55
 
 while.end.i.i:                                    ; preds = %cond.end.i.i
   br i1 %retval.0.i.i33.i.i, label %if.then.i.i, label %if.end12.i.i
@@ -1971,7 +1971,7 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
   tail call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef %this.val.i.i.i.i.i.i)
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 48
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !56
+  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !54
 
 invoke.contthread-pre-split:                      ; preds = %for.body.i.i.i
   %this.val.pr = load ptr, ptr %this, align 8
@@ -2036,7 +2036,7 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalES2_St9_IdentityIS2_ESt4lessIS2_E
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.i.i.i.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.06) #22
   %cmp.not = icmp eq ptr %__x.addr.0.val, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !58
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !56
 
 while.end:                                        ; preds = %_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS2_E.exit, %entry
   ret void
@@ -2315,7 +2315,7 @@ cond.end:                                         ; preds = %if.end.i.i, %if.end
   %9 = getelementptr i8, ptr %__x.038, i64 %.sink
   %__x.0 = load ptr, ptr %9, align 8
   %cmp.not = icmp eq ptr %__x.0, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !59
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !57
 
 while.end:                                        ; preds = %cond.end
   br i1 %retval.0.i.i33, label %if.then, label %if.end12
@@ -2463,7 +2463,7 @@ for.inc:                                          ; preds = %if.end, %for.body
   %nc.1 = phi i1 [ %nc.034, %for.body ], [ %.nc.0, %if.end ]
   %inc.i.i.i = add i64 %it.sroa.6.032, 1
   %cmp.i.i.i.not = icmp eq i64 %inc.i.i.i, %end.coerce1
-  br i1 %cmp.i.i.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !60
+  br i1 %cmp.i.i.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !58
 
 for.end.loopexit:                                 ; preds = %for.inc
   %12 = select i1 %cs.1, i1 %nc.1, i1 false
@@ -2527,7 +2527,7 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalESt4pairIKS2_NS0_8flat_setIjSt4le
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.i.i.i.i.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.06) #22
   %cmp.not = icmp eq ptr %__x.addr.0.val, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !61
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !59
 
 while.end:                                        ; preds = %_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalESt4pairIKS2_NS0_8flat_setIjSt4lessIjESaIjEEEESt10_Select1stISA_ES6_IS2_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, %entry
   ret void
@@ -2627,16 +2627,14 @@ attributes #23 = { noreturn nounwind }
 !46 = distinct !{!46, !42, !"_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6insertENS0_12vec_iteratorIPjLb1EEERKj: %agg.result:thread"}
 !47 = distinct !{!47, !6}
 !48 = distinct !{!48, !6}
-!49 = !{i64 0, i64 65}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZNK3ue212_GLOBAL__N_111sls_literal6appendEcb: %agg.result"}
-!52 = distinct !{!52, !"_ZNK3ue212_GLOBAL__N_111sls_literal6appendEcb"}
-!53 = !{i64 1, i64 65}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZNK3ue212_GLOBAL__N_111sls_literal6appendEcb: %agg.result"}
+!51 = distinct !{!51, !"_ZNK3ue212_GLOBAL__N_111sls_literal6appendEcb"}
+!52 = distinct !{!52, !6}
+!53 = distinct !{!53, !6}
 !54 = distinct !{!54, !6}
 !55 = distinct !{!55, !6}
 !56 = distinct !{!56, !6}
 !57 = distinct !{!57, !6}
 !58 = distinct !{!58, !6}
 !59 = distinct !{!59, !6}
-!60 = distinct !{!60, !6}
-!61 = distinct !{!61, !6}

@@ -675,7 +675,7 @@ uuid_v4_gen.exit:                                 ; preds = %._crit_edge.i, %9
   %44 = getelementptr inbounds i8, ptr %1, i64 15
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
-  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 37, ptr noundef nonnull @.str.75, i32 noundef %12, i32 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %28, i32 noundef %31, i32 noundef %34, i32 noundef %37, i32 noundef %40, i32 noundef %43, i32 noundef %46) #23
+  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %6, i64 noundef 37, ptr noundef nonnull @.str.75, i32 noundef %12, i32 noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %28, i32 noundef %31, i32 noundef %34, i32 noundef %37, i32 noundef %40, i32 noundef %43, i32 noundef %46) #23
   %48 = getelementptr inbounds i8, ptr %2, i64 40
   store i8 0, ptr %48, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
@@ -824,22 +824,22 @@ define i32 @updatedb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   br i1 %or.cond7.i.i, label %56, label %111
 
 56:                                               ; preds = %48
-  %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.105) #27
+  %57 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.105) #27
   %.not.i.i.i = icmp eq i32 %57, 0
   br i1 %.not.i.i.i, label %select.unfold.i.i, label %58
 
 58:                                               ; preds = %56
-  %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.106) #27
+  %59 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.106) #27
   %.not4.i.i.i = icmp eq i32 %59, 0
   br i1 %.not4.i.i.i, label %select.unfold.i.i, label %60
 
 60:                                               ; preds = %58
-  %61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.107) #27
+  %61 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.107) #27
   %.not5.i.i.i = icmp eq i32 %61, 0
   br i1 %.not5.i.i.i, label %select.unfold.i.i, label %62
 
 62:                                               ; preds = %60
-  %63 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(13) @.str.108) #27
+  %63 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(13) @.str.108) #27
   %.not6.i.i.i = icmp eq i32 %63, 0
   br i1 %.not6.i.i.i, label %select.unfold.i.i, label %textrecordfield.exit.i.i
 

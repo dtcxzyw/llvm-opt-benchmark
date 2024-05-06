@@ -34,7 +34,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !5
 
 for.end.loopexit:                                 ; preds = %for.body
-  %4 = trunc i64 %indvars.iv.next to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
@@ -80,7 +80,7 @@ while.body:                                       ; preds = %entry, %while.body
 
 while.end:                                        ; preds = %while.body, %entry
   %sum.addr.0.lcssa = phi i32 [ %sum, %entry ], [ %add, %while.body ]
-  %0 = trunc i32 %sum.addr.0.lcssa to i16
+  %0 = trunc nuw i32 %sum.addr.0.lcssa to i16
   %conv = xor i16 %0, -1
   ret i16 %conv
 }
@@ -115,7 +115,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.loopexit.i.i, !llvm.loop !5
 
 for.end.loopexit.i.i:                             ; preds = %for.body.i.i
-  %4 = trunc i64 %indvars.iv.next.i.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   br label %for.end.i.i
 
 for.end.i.i:                                      ; preds = %for.end.loopexit.i.i, %entry
@@ -175,7 +175,7 @@ while.body.i:                                     ; preds = %net_checksum_add.ex
 
 net_checksum_finish.exit:                         ; preds = %while.body.i, %net_checksum_add.exit32
   %sum.addr.0.lcssa.i = phi i32 [ %add6, %net_checksum_add.exit32 ], [ %add.i, %while.body.i ]
-  %9 = trunc i32 %sum.addr.0.lcssa.i to i16
+  %9 = trunc nuw i32 %sum.addr.0.lcssa.i to i16
   %conv.i = xor i16 %9, -1
   ret i16 %conv.i
 }
@@ -256,7 +256,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !5
 
 for.end.loopexit.i.i.i:                           ; preds = %for.body.i.i.i
-  %6 = trunc i64 %indvars.iv.next.i.i.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.next.i.i.i to i32
   br label %for.end.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %if.then21
@@ -291,7 +291,7 @@ while.body.i.i:                                   ; preds = %net_checksum_add.ex
 
 net_raw_checksum.exit:                            ; preds = %while.body.i.i, %net_checksum_add.exit.i
   %sum.addr.0.lcssa.i.i = phi i32 [ %add16.i.i.i, %net_checksum_add.exit.i ], [ %add.i.i, %while.body.i.i ]
-  %8 = trunc i32 %sum.addr.0.lcssa.i.i to i16
+  %8 = trunc nuw i32 %sum.addr.0.lcssa.i.i to i16
   %conv.i.i = xor i16 %8, -1
   %9 = tail call i16 @llvm.bswap.i16(i16 %conv.i.i)
   store i16 %9, ptr %ip_sum, align 1
@@ -401,7 +401,7 @@ if.then:                                          ; preds = %for.body
   %3 = load ptr, ptr %arrayidx, align 8
   %sub14 = sub i64 %conv, %iovec_off.028
   %add.ptr = getelementptr i8, ptr %3, i64 %sub14
-  %conv15 = trunc i64 %cond to i32
+  %conv15 = trunc nuw i64 %cond to i32
   %sub.i = add i32 %conv15, -1
   %cmp14.i = icmp sgt i32 %sub.i, 0
   br i1 %cmp14.i, label %for.body.preheader.i, label %for.end.i
@@ -428,7 +428,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !5
 
 for.end.loopexit.i:                               ; preds = %for.body.i
-  %8 = trunc i64 %indvars.iv.next.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.then

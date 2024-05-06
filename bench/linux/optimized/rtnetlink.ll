@@ -372,7 +372,7 @@ define dso_local i32 @rtnl_trylock() #0 align 16 {
 declare dso_local i32 @mutex_trylock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rtnl_is_locked() #0 align 16 {
+define dso_local range(i32 0, 2) i32 @rtnl_is_locked() #0 align 16 {
   %1 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull @rtnl_mutex) #18
   %2 = zext i1 %1 to i32
   ret i32 %2
@@ -391,13 +391,13 @@ define dso_local zeroext i1 @refcount_dec_and_rtnl_lock(ptr noundef %0) #0 align
 declare dso_local zeroext i1 @refcount_dec_and_mutex_lock(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rtnl_register_module(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @rtnl_register_module(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 align 16 {
   %7 = tail call fastcc i32 @rtnl_register_internal(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5), !range !12
   ret i32 %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @rtnl_register_internal(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -105, 1) i32 @rtnl_register_internal(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
   %7 = icmp ugt i32 %1, 129
   br i1 %7, label %8, label %9, !prof !13
 
@@ -565,7 +565,7 @@ define dso_local void @rtnl_register(i32 noundef %0, i32 noundef %1, ptr noundef
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rtnl_unregister(i32 noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @rtnl_unregister(i32 noundef %0, i32 noundef %1) #0 align 16 {
   %3 = icmp ugt i32 %0, 129
   br i1 %3, label %4, label %5, !prof !13
 
@@ -676,7 +676,7 @@ declare dso_local void @synchronize_net() local_unnamed_addr #1
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef i32 @__rtnl_link_register(ptr noundef %0) #5 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @__rtnl_link_register(ptr noundef %0) #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   br label %4
@@ -738,7 +738,7 @@ define dso_local noundef i32 @__rtnl_link_register(ptr noundef %0) #5 align 16 {
 declare dso_local void @unregister_netdevice_queue(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rtnl_link_register(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @rtnl_link_register(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   %4 = icmp ugt i32 %3, 50
@@ -1056,7 +1056,7 @@ define dso_local i32 @rtnetlink_send(ptr noundef %0, ptr nocapture noundef reado
 declare dso_local i32 @nlmsg_notify(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rtnl_unicast(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @rtnl_unicast(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 272
   %5 = load ptr, ptr %4, align 16
   %6 = tail call i32 @netlink_unicast(ptr noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 64) #18
@@ -1490,7 +1490,7 @@ declare dso_local ptr @get_net_ns_by_pid(i32 noundef) local_unnamed_addr #1
 declare dso_local ptr @get_net_ns_by_fd(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rtnl_delete_link(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @rtnl_delete_link(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
   store ptr %4, ptr %4, align 8
@@ -1522,7 +1522,7 @@ define dso_local noundef i32 @rtnl_delete_link(ptr noundef %0, i32 noundef %1, p
 declare dso_local void @unregister_netdevice_many_notify(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rtnl_configure_link(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @rtnl_configure_link(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 168
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq ptr %1, null
@@ -2552,7 +2552,7 @@ define internal fastcc i64 @if_nlmsg_size(ptr noundef %0, i32 noundef %1) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @rtnl_fill_ifinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_ifinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) unnamed_addr #0 align 16 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -2982,7 +2982,7 @@ define internal fastcc noundef i32 @rtnl_fill_ifinfo(ptr noundef %0, ptr noundef
   br i1 %261, label %262, label %347
 
 262:                                              ; preds = %259
-  %263 = call fastcc i32 @rtnl_port_fill(ptr noundef %0, ptr noundef %1, i32 noundef %8), !range !63
+  %263 = call fastcc i32 @rtnl_port_fill(ptr noundef %0, ptr noundef %1, i32 noundef %8)
   %264 = icmp eq i32 %263, 0
   br i1 %264, label %265, label %347
 
@@ -3053,7 +3053,7 @@ define internal fastcc noundef i32 @rtnl_fill_ifinfo(ptr noundef %0, ptr noundef
 
 302:                                              ; preds = %297, %291
   call void @__rcu_read_lock() #18
-  %303 = call fastcc i32 @rtnl_fill_link_af(ptr noundef %0, ptr noundef %1, i32 noundef %8), !range !63
+  %303 = call fastcc i32 @rtnl_fill_link_af(ptr noundef %0, ptr noundef %1, i32 noundef %8)
   %304 = icmp eq i32 %303, 0
   call void @__rcu_read_unlock() #18
   br i1 %304, label %305, label %347
@@ -3103,12 +3103,12 @@ define internal fastcc noundef i32 @rtnl_fill_ifinfo(ptr noundef %0, ptr noundef
   br i1 %331, label %.thread12, label %347
 
 .thread12:                                        ; preds = %308, %328, %324, %322
-  %332 = call fastcc i32 @rtnl_fill_devlink_port(ptr noundef %0), !range !63
+  %332 = call fastcc i32 @rtnl_fill_devlink_port(ptr noundef %0)
   %333 = icmp eq i32 %332, 0
   br i1 %333, label %334, label %347
 
 334:                                              ; preds = %.thread12
-  %335 = call fastcc i32 @rtnl_fill_dpll_pin(ptr noundef %0), !range !63
+  %335 = call fastcc i32 @rtnl_fill_dpll_pin(ptr noundef %0)
   %336 = icmp eq i32 %335, 0
   br i1 %336, label %337, label %347
 
@@ -3365,7 +3365,7 @@ declare dso_local i32 @dev_uc_del(ptr noundef, ptr noundef) local_unnamed_addr #
 declare dso_local i32 @dev_mc_del(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ndo_dflt_fdb_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -2147483648, 1) i32 @ndo_dflt_fdb_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef %4) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %2, i64 552
   %7 = load i16, ptr %6, align 8
   %8 = icmp eq i16 %7, 1
@@ -3404,7 +3404,7 @@ define dso_local noundef i32 @ndo_dflt_fdb_dump(ptr noundef %0, ptr nocapture no
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds i8, ptr %26, i64 40
-  %32 = tail call fastcc i32 @nlmsg_populate_fdb_fill(ptr noundef %0, ptr noundef %2, ptr noundef %31, i16 noundef zeroext 0, i32 noundef %15, i32 noundef %19, i32 noundef 28, i32 noundef 2, i16 noundef zeroext 128), !range !63
+  %32 = tail call fastcc i32 @nlmsg_populate_fdb_fill(ptr noundef %0, ptr noundef %2, ptr noundef %31, i16 noundef zeroext 0, i32 noundef %15, i32 noundef %19, i32 noundef 28, i32 noundef 2, i16 noundef zeroext 128)
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %.loopexit, label %._crit_edge
 
@@ -3452,7 +3452,7 @@ define dso_local noundef i32 @ndo_dflt_fdb_dump(ptr noundef %0, ptr nocapture no
 
 52:                                               ; preds = %46
   %53 = getelementptr inbounds i8, ptr %48, i64 40
-  %54 = tail call fastcc i32 @nlmsg_populate_fdb_fill(ptr noundef %0, ptr noundef %2, ptr noundef %53, i16 noundef zeroext 0, i32 noundef %40, i32 noundef %39, i32 noundef 28, i32 noundef 2, i16 noundef zeroext 128), !range !63
+  %54 = tail call fastcc i32 @nlmsg_populate_fdb_fill(ptr noundef %0, ptr noundef %2, ptr noundef %53, i16 noundef zeroext 0, i32 noundef %40, i32 noundef %39, i32 noundef 28, i32 noundef 2, i16 noundef zeroext 128)
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %.loopexit, label %._crit_edge19
 
@@ -8208,7 +8208,7 @@ define internal i32 @rtnl_fdb_dump(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br label %219
 
 217:                                              ; preds = %209
-  %218 = call i32 @ndo_dflt_fdb_dump(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %162, ptr poison, ptr noundef nonnull %5), !range !75
+  %218 = call i32 @ndo_dflt_fdb_dump(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %162, ptr poison, ptr noundef nonnull %5)
   br label %219
 
 219:                                              ; preds = %217, %215
@@ -8951,7 +8951,7 @@ define internal i32 @rtnl_stats_get(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 49:                                               ; preds = %42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !47
-  %50 = call fastcc i32 @rtnl_stats_get_parse(ptr noundef %1, i32 noundef %44, ptr noundef nonnull %4, ptr noundef %2), !range !75
+  %50 = call fastcc i32 @rtnl_stats_get_parse(ptr noundef %1, i32 noundef %44, ptr noundef nonnull %4, ptr noundef %2)
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %.thread
 
@@ -9112,7 +9112,7 @@ define internal i32 @rtnl_stats_dump(ptr noundef %0, ptr nocapture noundef %1) #
 
 65:                                               ; preds = %59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !47
-  %66 = call fastcc i32 @rtnl_stats_get_parse(ptr noundef %28, i32 noundef %60, ptr noundef nonnull %5, ptr noundef %7), !range !75
+  %66 = call fastcc i32 @rtnl_stats_get_parse(ptr noundef %28, i32 noundef %60, ptr noundef nonnull %5, ptr noundef %7)
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %.thread
 
@@ -10014,7 +10014,7 @@ define internal fastcc i32 @nla_put_ifalias(ptr noundef %0, ptr noundef %1) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @rtnl_fill_proto_down(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_proto_down(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 2168
@@ -10093,7 +10093,7 @@ define internal fastcc noundef i32 @rtnl_fill_proto_down(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @rtnl_fill_link_ifmap(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -90, 1) i32 @rtnl_fill_link_ifmap(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.rtnl_link_ifmap, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
   %4 = getelementptr inbounds i8, ptr %1, i64 336
@@ -10217,7 +10217,7 @@ define internal fastcc i32 @rtnl_phys_switch_id_fill(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @rtnl_fill_stats(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_stats(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = tail call ptr @nla_reserve_64bit(ptr noundef %0, i32 noundef 23, i32 noundef 200, i32 noundef 42) #18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %106, label %5
@@ -10357,7 +10357,7 @@ define internal fastcc noundef i32 @rtnl_fill_stats(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @rtnl_fill_vf(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_vf(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -10879,7 +10879,7 @@ define internal fastcc noundef i32 @rtnl_fill_vf(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @rtnl_port_fill(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -11286,7 +11286,7 @@ define internal fastcc zeroext i1 @rtnl_have_link_slave_info(ptr noundef %0) unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @rtnl_link_fill(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 184
@@ -11558,7 +11558,7 @@ define internal fastcc i32 @rtnl_fill_link_netnsid(ptr noundef %0, ptr noundef %
 declare dso_local ptr @memchr_inv(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @rtnl_fill_link_af(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_link_af(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 184
@@ -11670,7 +11670,7 @@ define internal fastcc noundef i32 @rtnl_fill_link_af(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @rtnl_fill_prop_list(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_fill_prop_list(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 184
@@ -11756,7 +11756,7 @@ define internal fastcc i32 @rtnl_fill_prop_list(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @rtnl_fill_devlink_port(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_devlink_port(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 184
@@ -11787,7 +11787,7 @@ define internal fastcc noundef i32 @rtnl_fill_devlink_port(ptr noundef %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @rtnl_fill_dpll_pin(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @rtnl_fill_dpll_pin(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 184
@@ -11851,7 +11851,7 @@ declare dso_local i32 @peernet2id_alloc(ptr noundef, ptr noundef, i32 noundef) l
 declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @nlmsg_populate_fdb_fill(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef zeroext %8) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @nlmsg_populate_fdb_fill(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef zeroext %8) unnamed_addr #0 align 16 {
   %10 = alloca i16, align 2
   store i16 %3, ptr %10, align 2
   %11 = getelementptr inbounds i8, ptr %0, i64 116
@@ -11959,7 +11959,7 @@ declare dso_local zeroext i1 @netdev_offload_xstats_enabled(ptr noundef, i32 nou
 declare dso_local i32 @netdev_offload_xstats_get(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rtnetlink_net_init(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @rtnetlink_net_init(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.netlink_kernel_cfg, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #18
   store i32 36, ptr %2, align 8
@@ -12004,7 +12004,7 @@ define internal void @rtnetlink_rcv(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rtnetlink_bind(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @rtnetlink_bind(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = and i32 %1, -2
   %4 = icmp eq i32 %3, 30
   br i1 %4, label %5, label %9
@@ -14492,7 +14492,7 @@ declare dso_local i32 @netdev_name_node_alt_destroy(ptr noundef, ptr noundef) lo
 declare dso_local i32 @__nla_validate(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @fdb_vid_parse(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @fdb_vid_parse(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %19, label %5
 
@@ -14552,7 +14552,7 @@ define internal fastcc void @rtnl_fdb_notify(ptr nocapture noundef readonly %0, 
   br i1 %16, label %25, label %17
 
 17:                                               ; preds = %5
-  %18 = tail call fastcc i32 @nlmsg_populate_fdb_fill(ptr noundef nonnull %15, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef 0, i32 noundef 0, i32 noundef %3, i32 noundef 0, i16 noundef zeroext %4), !range !63
+  %18 = tail call fastcc i32 @nlmsg_populate_fdb_fill(ptr noundef nonnull %15, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef 0, i32 noundef 0, i32 noundef %3, i32 noundef 0, i16 noundef zeroext %4)
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %20, label %21
 
@@ -14655,7 +14655,7 @@ define internal fastcc noundef i32 @rtnl_bridge_notify(ptr noundef %0) unnamed_a
 declare dso_local ptr @nla_find(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @rtnl_stats_get_parse(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_stats_get_parse(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca [6 x ptr], align 16
   %6 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
@@ -14778,7 +14778,7 @@ declare dso_local i32 @netdev_offload_xstats_enable(ptr noundef, i32 noundef, pt
 declare dso_local i32 @netdev_offload_xstats_disable(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rtnl_validate_mdb_entry_get(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry_get(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = load i16, ptr %0, align 2
   %4 = icmp eq i16 %3, 32
   br i1 %4, label %10, label %5
@@ -14880,7 +14880,7 @@ define internal noundef i32 @rtnl_validate_mdb_entry_get(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rtnl_validate_mdb_entry(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = load i16, ptr %0, align 2
   %4 = icmp eq i16 %3, 32
   br i1 %4, label %10, label %5
@@ -15032,7 +15032,7 @@ define internal noundef i32 @rtnl_validate_mdb_entry(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rtnl_validate_mdb_entry_del_bulk(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @rtnl_validate_mdb_entry_del_bulk(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = alloca %struct.br_mdb_entry, align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, i8 0, i64 28, i1 false)

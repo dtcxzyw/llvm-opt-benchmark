@@ -89,7 +89,7 @@ $_ZN4absl12lts_2023080212log_internal10LogMessagelsILi13EEERS2_RAT__Kc = comdat 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"parsing\00", align 1
 @.str.3 = private unnamed_addr constant [131 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/protobuf/protobuf/src/google/protobuf/parse_context.h\00", align 1
-@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
+@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local local_unnamed_addr global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
 @.str.8 = private unnamed_addr constant [15 x i8] c"dst != nullptr\00", align 1
 @.str.9 = private unnamed_addr constant [2 x i8] c",\00", align 1
 @.str.11 = private unnamed_addr constant [13 x i8] c"Can't happen\00", align 1

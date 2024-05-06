@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/asn1/a_i2d_fp.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_i2d_fp(ptr nocapture noundef readonly %i2d, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_i2d_fp(ptr nocapture noundef readonly %i2d, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #4
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #4
@@ -19,7 +19,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i32 @BIO_set_fp(ptr noundef nonnull %call1, ptr noundef %out, i32 noundef 0) #4
-  %call3 = tail call i32 @ASN1_i2d_bio(ptr noundef %i2d, ptr noundef nonnull %call1, ptr noundef %x), !range !7
+  %call3 = tail call i32 @ASN1_i2d_bio(ptr noundef %i2d, ptr noundef nonnull %call1, ptr noundef %x)
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #4
   br label %return
 
@@ -37,7 +37,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare i32 @BIO_set_fp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_i2d_bio(ptr nocapture noundef readonly %i2d, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_i2d_bio(ptr nocapture noundef readonly %i2d, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %call = tail call i32 %i2d(ptr noundef %x, ptr noundef null) #4
@@ -94,7 +94,7 @@ declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_item_i2d_fp(ptr noundef %it, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_item_i2d_fp(ptr noundef %it, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #4
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #4
@@ -107,7 +107,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i32 @BIO_set_fp(ptr noundef nonnull %call1, ptr noundef %out, i32 noundef 0) #4
-  %call3 = tail call i32 @ASN1_item_i2d_bio(ptr noundef %it, ptr noundef nonnull %call1, ptr noundef %x), !range !7
+  %call3 = tail call i32 @ASN1_item_i2d_bio(ptr noundef %it, ptr noundef nonnull %call1, ptr noundef %x)
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #4
   br label %return
 
@@ -117,7 +117,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_item_i2d_bio(ptr noundef %it, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_item_i2d_bio(ptr noundef %it, ptr noundef %out, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %b = alloca ptr, align 8
   store ptr null, ptr %b, align 8
@@ -181,4 +181,3 @@ attributes #5 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}

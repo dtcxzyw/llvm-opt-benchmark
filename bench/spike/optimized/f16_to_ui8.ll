@@ -18,7 +18,7 @@ define zeroext i8 @f16_to_ui8(i16 %0, i8 noundef zeroext %1, i1 noundef zeroext 
   br label %11
 
 9:                                                ; preds = %3
-  %10 = trunc i64 %5 to i8
+  %10 = trunc nuw i64 %5 to i8
   br label %11
 
 11:                                               ; preds = %9, %7

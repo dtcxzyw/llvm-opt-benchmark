@@ -486,7 +486,7 @@ define internal noundef i32 @setup_io_tlb_npages(ptr noundef %0) #4 section ".in
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i64 @swiotlb_size_or_default() local_unnamed_addr #5 align 16 {
+define dso_local range(i64 0, -2047) i64 @swiotlb_size_or_default() local_unnamed_addr #5 align 16 {
   %1 = load i64, ptr @default_nslabs, align 8
   %2 = shl i64 %1, 11
   ret i64 %2
@@ -2283,7 +2283,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #0
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i64 @swiotlb_max_mapping_size(ptr nocapture noundef readonly %0) local_unnamed_addr #9 align 16 {
+define dso_local range(i64 -2147221503, 2147745793) i64 @swiotlb_max_mapping_size(ptr nocapture noundef readonly %0) local_unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 592
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2522,7 +2522,7 @@ define internal noundef i32 @io_tlb_hiwater_get(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal noundef i32 @io_tlb_hiwater_set(ptr noundef %0, i64 noundef %1) #19 align 16 {
+define internal noundef range(i32 -22, 1) i32 @io_tlb_hiwater_set(ptr noundef %0, i64 noundef %1) #19 align 16 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %4, label %6
 

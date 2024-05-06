@@ -89,7 +89,7 @@ while.cond38:                                     ; preds = %for.body, %while.co
 do.end:                                           ; preds = %while.cond38
   %shl43 = shl i64 %fractional_part.1, 16
   %div = udiv i64 %shl43, 100000000000000
-  %conv44 = trunc i64 %div to i32
+  %conv44 = trunc nuw nsw i64 %div to i32
   %add46 = add i32 %integer_part.0.lcssa, %conv44
   store i32 %add46, ptr %result, align 4
   %cmp47.not = icmp eq ptr %end, null

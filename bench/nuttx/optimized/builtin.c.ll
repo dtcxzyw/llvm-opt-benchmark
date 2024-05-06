@@ -24,7 +24,7 @@ define void @builtin_uninitialize() local_unnamed_addr #0 {
 declare i32 @unregister_binfmt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @builtin_loadbinary(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture readnone %2, i32 %3) #0 {
+define internal range(i32 -2147483648, 1) i32 @builtin_loadbinary(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture readnone %2, i32 %3) #0 {
   %5 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #3
   %.not = icmp eq ptr %5, null
   %6 = getelementptr inbounds i8, ptr %5, i64 1

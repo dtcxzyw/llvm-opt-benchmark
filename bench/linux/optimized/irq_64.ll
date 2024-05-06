@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__default_kernel_pte_mask = external dso_local local_unnamed_addr global i64, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @irq_init_percpu_irqstack(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @irq_init_percpu_irqstack(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [4 x ptr], align 16
   %3 = zext i32 %0 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3

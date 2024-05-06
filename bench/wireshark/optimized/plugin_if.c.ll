@@ -497,7 +497,7 @@ declare ptr @g_list_copy(ptr noundef) local_unnamed_addr #2
 declare ptr @g_list_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @ext_toolbar_insert_sort(ptr noundef readonly %0, ptr noundef readonly %1) #5 {
+define internal range(i32 -2, 3) i32 @ext_toolbar_insert_sort(ptr noundef readonly %0, ptr noundef readonly %1) #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -634,7 +634,7 @@ define void @ext_toolbar_register_update_cb(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ext_toolbar_find_item(ptr noundef readonly %0, ptr noundef readonly %1) #1 {
+define internal range(i32 -1, 1) i32 @ext_toolbar_find_item(ptr noundef readonly %0, ptr noundef readonly %1) #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

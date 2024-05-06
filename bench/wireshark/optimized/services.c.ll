@@ -11663,7 +11663,7 @@ declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 nound
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_entry(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -65535, 65536) i32 @compare_entry(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i16, ptr %0, align 2
   %4 = zext i16 %3 to i32
   %5 = load i16, ptr %1, align 8

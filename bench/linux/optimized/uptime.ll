@@ -104,7 +104,7 @@ define internal noundef i32 @uptime_proc_show(ptr noundef %0, ptr nocapture read
   %45 = load i64, ptr %44, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %46 = urem i64 %.lcssa, 1000000000
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nuw nsw i64 %46 to i32
   %48 = udiv i64 %.lcssa, 1000000000
   %49 = sdiv i64 %45, 10000000
   %50 = udiv i32 %47, 10000000

@@ -605,7 +605,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %29
   %62 = getelementptr i32, ptr %54, i64 %61
   store i32 %60, ptr %62, align 4, !noalias !6
   %63 = add nuw i32 %52, %58
-  %gep.i = getelementptr i32, ptr %54, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds i32, ptr %54, i64 %indvars.iv.i
   store i32 %63, ptr %gep.i, align 4, !noalias !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %53
@@ -681,16 +681,16 @@ _ZN5ZXing8BitArrayC2Ei.exit.i:                    ; preds = %.noexc97.i, %_ZNSt6
   %97 = add nsw i64 %95, %96
   %98 = shl nsw i64 %89, 2
   %99 = add nsw i64 %98, %96
-  %100 = mul nsw i64 %89, 6
+  %100 = mul nuw nsw i64 %89, 6
   %101 = add nsw i64 %100, %96
   %102 = sext i32 %94 to i64
-  %invariant.gep355.i = getelementptr i32, ptr %39, i64 %90
+  %invariant.gep355.i = getelementptr inbounds i32, ptr %39, i64 %90
   br label %103
 
 103:                                              ; preds = %171, %.lr.ph.i
   %indvars.iv283.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next284.i, %171 ]
   %104 = shl nuw nsw i64 %indvars.iv283.i, 1
-  %gep356.i = getelementptr i32, ptr %invariant.gep355.i, i64 %indvars.iv283.i
+  %gep356.i = getelementptr inbounds i32, ptr %invariant.gep355.i, i64 %indvars.iv283.i
   %105 = add nsw i64 %104, %96
   %106 = add nsw i64 %97, %104
   %107 = sub nsw i64 %102, %indvars.iv283.i

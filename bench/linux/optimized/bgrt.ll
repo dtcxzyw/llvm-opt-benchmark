@@ -129,7 +129,7 @@ define internal noundef i64 @image_read(ptr nocapture readnone %0, ptr nocapture
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @version_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @version_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
   %4 = load i16, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 1), align 1
   %5 = zext i16 %4 to i32
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %5) #6
@@ -141,7 +141,7 @@ define internal i64 @version_show(ptr nocapture readnone %0, ptr nocapture readn
 declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @status_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @status_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
   %4 = load i8, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 2), align 1
   %5 = zext i8 %4 to i32
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %5) #6
@@ -150,7 +150,7 @@ define internal i64 @status_show(ptr nocapture readnone %0, ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @type_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @type_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
   %4 = load i8, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 3), align 1
   %5 = zext i8 %4 to i32
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %5) #6
@@ -159,7 +159,7 @@ define internal i64 @type_show(ptr nocapture readnone %0, ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @xoffset_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @xoffset_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
   %4 = load i32, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 5), align 1
   %5 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %4) #6
   %6 = sext i32 %5 to i64
@@ -167,7 +167,7 @@ define internal i64 @xoffset_show(ptr nocapture readnone %0, ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @yoffset_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @yoffset_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
   %4 = load i32, ptr getelementptr inbounds (%struct.acpi_table_bgrt, ptr @bgrt_tab, i64 0, i32 6), align 1
   %5 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %4) #6
   %6 = sext i32 %5 to i64

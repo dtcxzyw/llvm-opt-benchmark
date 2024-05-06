@@ -981,7 +981,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV5Decompressor12process
   %75 = load i32, ptr %45, align 4, !tbaa !151, !noalias !147
   %76 = load i32, ptr %46, align 8, !tbaa !152, !noalias !147
   %77 = ashr i32 %76, 1
-  %78 = mul nsw i32 %77, %75
+  %78 = mul nuw nsw i32 %77, %75
   %79 = icmp sgt i32 %74, -1
   call void @llvm.assume(i1 %79)
   %80 = icmp sgt i32 %75, -1
@@ -1018,7 +1018,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV5Decompressor12process
   %102 = zext nneg i8 %101 to i32
   %103 = add i32 %109, 1
   %104 = add i32 %103, %102
-  %105 = trunc i64 %153 to i32
+  %105 = trunc nuw nsw i64 %153 to i32
   %106 = icmp slt i32 %104, 10
   br i1 %106, label %107, label %155, !llvm.loop !153
 
@@ -1049,7 +1049,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV5Decompressor12process
 
 121:                                              ; preds = %117
   store i32 0, ptr %4, align 4
-  %122 = trunc i64 %108 to i32
+  %122 = trunc nuw nsw i64 %108 to i32
   %123 = call i32 @llvm.umin.i32(i32 %15, i32 %122)
   %124 = add nuw nsw i32 %123, 4
   %125 = call i32 @llvm.umin.i32(i32 %124, i32 %15)
@@ -1074,7 +1074,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV5Decompressor12process
   call void @llvm.assume(i1 %88)
   call void @llvm.assume(i1 %91)
   %139 = zext nneg i32 %110 to i64
-  %140 = trunc i32 %111 to i8
+  %140 = trunc nuw nsw i32 %111 to i8
   %141 = add nuw nsw i8 %140, 20
   %142 = icmp sgt i32 %110, -1
   call void @llvm.assume(i1 %142)
@@ -1542,7 +1542,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV5Decompressor12process
   %75 = load i32, ptr %45, align 4, !tbaa !151, !noalias !161
   %76 = load i32, ptr %46, align 8, !tbaa !152, !noalias !161
   %77 = ashr i32 %76, 1
-  %78 = mul nsw i32 %77, %75
+  %78 = mul nuw nsw i32 %77, %75
   %79 = icmp sgt i32 %74, -1
   call void @llvm.assume(i1 %79)
   %80 = icmp sgt i32 %75, -1
@@ -1579,7 +1579,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV5Decompressor12process
   %102 = zext nneg i8 %101 to i32
   %103 = add i32 %109, 1
   %104 = add i32 %103, %102
-  %105 = trunc i64 %153 to i32
+  %105 = trunc nuw nsw i64 %153 to i32
   %106 = icmp slt i32 %104, 9
   br i1 %106, label %107, label %155, !llvm.loop !164
 
@@ -1610,7 +1610,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV5Decompressor12process
 
 121:                                              ; preds = %117
   store i32 0, ptr %4, align 4
-  %122 = trunc i64 %108 to i32
+  %122 = trunc nuw nsw i64 %108 to i32
   %123 = call i32 @llvm.umin.i32(i32 %15, i32 %122)
   %124 = add nuw nsw i32 %123, 4
   %125 = call i32 @llvm.umin.i32(i32 %124, i32 %15)
@@ -1635,7 +1635,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV5Decompressor12process
   call void @llvm.assume(i1 %88)
   call void @llvm.assume(i1 %91)
   %139 = zext nneg i32 %110 to i64
-  %140 = trunc i32 %111 to i8
+  %140 = trunc nuw nsw i32 %111 to i8
   %141 = add nuw nsw i8 %140, 18
   %142 = icmp sgt i32 %110, -1
   call void @llvm.assume(i1 %142)

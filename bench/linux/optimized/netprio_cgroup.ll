@@ -223,7 +223,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local void @rtnl_lock() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @netprio_set_prio(i32 %.80.val, ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @netprio_set_prio(i32 %.80.val, ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2136
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i32 %1, 0
@@ -371,7 +371,7 @@ declare dso_local ptr @sock_from_file(ptr noundef) local_unnamed_addr #5
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #5 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i64 @read_prioidx(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @read_prioidx(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64

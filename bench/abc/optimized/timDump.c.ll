@@ -28,7 +28,7 @@ thread-pre-split:                                 ; preds = %Vec_StrPush.exit.i
   %.04.i = phi i32 [ %7, %thread-pre-split ], [ 3, %2 ]
   %11 = shl nsw i32 %.04.i, 3
   %12 = lshr i32 1, %11
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = icmp eq i32 %10, %9
   br i1 %14, label %15, label %.Vec_StrGrow.exit10_crit_edge.i.i
 
@@ -1118,7 +1118,7 @@ Vec_StrPutI_ne.exit215:                           ; preds = %Vec_StrPush.exit.i2
   %503 = extractelement <2 x i32> %502, i64 0
   %504 = extractelement <2 x i32> %502, i64 1
   %505 = mul nsw i32 %504, %503
-  %invariant.gep = getelementptr i8, ptr %396, i64 12
+  %invariant.gep = getelementptr inbounds i8, ptr %396, i64 12
   %506 = icmp sgt i32 %505, 0
   br i1 %506, label %.lr.ph220.preheader, label %._crit_edge
 
@@ -1128,7 +1128,7 @@ Vec_StrPutI_ne.exit215:                           ; preds = %Vec_StrPush.exit.i2
 
 .lr.ph220:                                        ; preds = %.lr.ph220.preheader, %.lr.ph220
   %indvars.iv231 = phi i64 [ 0, %.lr.ph220.preheader ], [ %indvars.iv.next232, %.lr.ph220 ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv231
+  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %indvars.iv231
   %507 = load float, ptr %gep, align 4
   tail call fastcc void @Vec_StrPutF(ptr noundef nonnull %3, float noundef %507)
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
@@ -1498,7 +1498,7 @@ Vec_StrGrow.exit.i24:                             ; preds = %102, %100
 Vec_StrPush.exit25:                               ; preds = %.Vec_StrGrow.exit10_crit_edge.i19, %Vec_StrGrow.exit.i24, %114
   %116 = phi ptr [ %.pre.i21, %.Vec_StrGrow.exit10_crit_edge.i19 ], [ %115, %114 ], [ %104, %Vec_StrGrow.exit.i24 ]
   %.sroa.0.3.extract.shift = lshr i32 %3, 24
-  %.sroa.0.3.extract.trunc = trunc i32 %.sroa.0.3.extract.shift to i8
+  %.sroa.0.3.extract.trunc = trunc nuw i32 %.sroa.0.3.extract.shift to i8
   %117 = load i32, ptr %4, align 4
   %118 = add nsw i32 %117, 1
   store i32 %118, ptr %4, align 4
@@ -1728,7 +1728,7 @@ Vec_StrGetI_ne.exit147:                           ; preds = %Vec_StrGetI_ne.exit
   br i1 %.not.i152, label %Vec_StrGetI_ne.exit153, label %80, !llvm.loop !11
 
 Vec_StrGetI_ne.exit153:                           ; preds = %80
-  %88 = trunc i64 %.0.lcssa to i32
+  %88 = trunc nsw i64 %.0.lcssa to i32
   %89 = add i32 %88, 4
   %90 = icmp sgt i32 %86, 0
   br i1 %90, label %.preheader222.lr.ph, label %.preheader
@@ -1836,7 +1836,7 @@ Vec_StrGetI_ne.exit172:                           ; preds = %Vec_StrGetI_ne.exit
   %invariant.gep = getelementptr i8, ptr %.val.i158, i64 1
   %invariant.gep254 = getelementptr i8, ptr %.val.i158, i64 2
   %invariant.gep256 = getelementptr i8, ptr %.val.i158, i64 3
-  %invariant.gep258 = getelementptr i8, ptr %136, i64 12
+  %invariant.gep258 = getelementptr inbounds i8, ptr %136, i64 12
   %142 = icmp sgt i32 %132, 0
   br i1 %142, label %.lr.ph.preheader, label %._crit_edge262
 
@@ -1867,14 +1867,14 @@ Vec_StrGetI_ne.exit172:                           ; preds = %Vec_StrGetI_ne.exit
   %.sroa.0.3.insert.ext.i = zext i8 %148 to i32
   %.sroa.0.3.insert.shift.i = shl nuw i32 %.sroa.0.3.insert.ext.i, 24
   %.sroa.0.3.insert.insert.i = or disjoint i32 %.sroa.0.2.insert.insert.i, %.sroa.0.3.insert.shift.i
-  %gep259 = getelementptr float, ptr %invariant.gep258, i64 %indvars.iv337
+  %gep259 = getelementptr inbounds float, ptr %invariant.gep258, i64 %indvars.iv337
   store i32 %.sroa.0.3.insert.insert.i, ptr %gep259, align 4
   %indvars.iv.next338 = add nuw nsw i64 %indvars.iv337, 1
   %exitcond344.not = icmp eq i64 %indvars.iv.next338, %wide.trip.count
   br i1 %exitcond344.not, label %._crit_edge262.loopexit, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge262.loopexit:                          ; preds = %.lr.ph
-  %149 = trunc i64 %indvars.iv.next340 to i32
+  %149 = trunc nsw i64 %indvars.iv.next340 to i32
   br label %._crit_edge262
 
 ._crit_edge262:                                   ; preds = %._crit_edge262.loopexit, %Vec_StrGetI_ne.exit172
@@ -1987,7 +1987,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.sroa.0.3.insert.shift.i187 = shl nuw i32 %.sroa.0.3.insert.ext.i186, 24
   %.sroa.0.3.insert.insert.i188 = or disjoint i32 %.sroa.0.2.insert.insert.i184, %.sroa.0.3.insert.shift.i187
   %200 = bitcast i32 %.sroa.0.3.insert.insert.i188 to float
-  %201 = trunc i64 %indvars.iv346 to i32
+  %201 = trunc nuw nsw i64 %indvars.iv346 to i32
   tail call void @Tim_ManInitPiArrival(ptr noundef nonnull %24, i32 noundef %201, float noundef %200) #8
   %.pre = load i32, ptr %102, align 8
   br label %202
@@ -2045,7 +2045,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.sroa.0.3.insert.shift.i201 = shl nuw i32 %.sroa.0.3.insert.ext.i200, 24
   %.sroa.0.3.insert.insert.i202 = or disjoint i32 %.sroa.0.2.insert.insert.i198, %.sroa.0.3.insert.shift.i201
   %227 = bitcast i32 %.sroa.0.3.insert.insert.i202 to float
-  %228 = trunc i64 %indvars.iv349 to i32
+  %228 = trunc nuw nsw i64 %indvars.iv349 to i32
   tail call void @Tim_ManInitPoRequired(ptr noundef nonnull %24, i32 noundef %228, float noundef %227) #8
   %.pre352 = load i32, ptr %207, align 4
   br label %229

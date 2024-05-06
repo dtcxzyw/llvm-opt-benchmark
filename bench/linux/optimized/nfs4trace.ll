@@ -7669,7 +7669,7 @@ define internal void @trace_event_raw_event_nfs4_idmap_event(ptr noundef %0, ptr
 
 16:                                               ; preds = %14, %11, %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !65
-  %17 = add i32 %2, 1
+  %17 = add nuw i32 %2, 1
   %18 = icmp slt i32 %2, 1
   %19 = select i1 %18, i32 1, i32 %17
   %20 = sext i32 %19 to i64
@@ -7710,7 +7710,7 @@ define internal void @perf_trace_nfs4_idmap_event(ptr noundef %0, ptr nocapture 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   store ptr null, ptr %6, align 8, !annotation !65
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
-  %8 = add i32 %2, 1
+  %8 = add nuw i32 %2, 1
   %9 = icmp slt i32 %2, 1
   %10 = select i1 %9, i32 1, i32 %8
   %11 = shl i32 %10, 16

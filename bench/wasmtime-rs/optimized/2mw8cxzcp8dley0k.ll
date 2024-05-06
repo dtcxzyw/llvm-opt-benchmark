@@ -1138,7 +1138,7 @@ define { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i48 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6c542d5a00e218d0E"(ptr align 8 %0, i16 %1, i16 %2, i8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define range(i48 0, 1099511627776) i48 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6c542d5a00e218d0E"(ptr align 8 %0, i16 %1, i16 %2, i8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { i64, [1 x i64] }, align 8
   %6 = alloca i16, align 2
   store i16 %1, ptr %6, align 2
@@ -1395,7 +1395,7 @@ define noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i48 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h2c661853be7e7fccE"(ptr align 8 %0, ptr align 2 %1) unnamed_addr #0 {
+define range(i48 0, 1099511627776) i48 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h2c661853be7e7fccE"(ptr align 8 %0, ptr align 2 %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = tail call i64 @_ZN4core4hash11BuildHasher8hash_one17ha1c92d113077e1a1E(ptr nonnull align 8 %3, ptr align 2 %1)
   %5 = icmp ne ptr %1, null

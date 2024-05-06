@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [17 x i8] c"No packets found\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @compare_rlc_headers(i8 noundef zeroext %0, i8 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i16 noundef zeroext %7, i16 noundef zeroext %8, i16 noundef zeroext %9, i8 noundef zeroext %10, i8 noundef zeroext %11, i32 noundef %12) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @compare_rlc_headers(i8 noundef zeroext %0, i8 noundef zeroext %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i16 noundef zeroext %7, i16 noundef zeroext %8, i16 noundef zeroext %9, i8 noundef zeroext %10, i8 noundef zeroext %11, i32 noundef %12) local_unnamed_addr #0 {
   %.not = icmp eq i8 %0, %1
   br i1 %.not, label %14, label %28
 
@@ -393,7 +393,7 @@ declare void @remove_tap_listener(ptr noundef) local_unnamed_addr #3
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @rlc_graph_segment_list_get(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @rlc_graph_segment_list_get(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
   %5 = alloca %struct.rlc_segment, align 8
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null

@@ -1156,7 +1156,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %20 = getelementptr inbounds i8, ptr %10, i64 48
   %21 = load i32, ptr %20, align 8, !tbaa !161, !noalias !156
   %22 = ashr i32 %21, 1
-  %23 = mul nsw i32 %22, %19
+  %23 = mul nuw nsw i32 %22, %19
   %24 = icmp sgt i32 %17, -1
   tail call void @llvm.assume(i1 %24)
   %25 = icmp sgt i32 %19, -1
@@ -1695,7 +1695,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   call void @llvm.assume(i1 %377)
   %378 = icmp uge i32 %17, %364
   call void @llvm.assume(i1 %378)
-  %379 = mul nsw i32 %364, 6
+  %379 = mul nuw nsw i32 %364, 6
   %380 = add nuw nsw i32 %379, 6
   %381 = icmp ule i32 %380, %17
   call void @llvm.assume(i1 %381)
@@ -2151,7 +2151,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %20 = getelementptr inbounds i8, ptr %10, i64 48
   %21 = load i32, ptr %20, align 8, !tbaa !161, !noalias !223
   %22 = ashr i32 %21, 1
-  %23 = mul nsw i32 %22, %19
+  %23 = mul nuw nsw i32 %22, %19
   %24 = icmp sgt i32 %17, -1
   tail call void @llvm.assume(i1 %24)
   %25 = icmp sgt i32 %19, -1
@@ -3146,7 +3146,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %20 = getelementptr inbounds i8, ptr %10, i64 48
   %21 = load i32, ptr %20, align 8, !tbaa !161, !noalias !257
   %22 = ashr i32 %21, 1
-  %23 = mul nsw i32 %22, %19
+  %23 = mul nuw nsw i32 %22, %19
   %24 = icmp sgt i32 %17, -1
   tail call void @llvm.assume(i1 %24)
   %25 = icmp sgt i32 %19, -1
@@ -4128,7 +4128,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %20 = getelementptr inbounds i8, ptr %10, i64 48
   %21 = load i32, ptr %20, align 8, !tbaa !161, !noalias !284
   %22 = ashr i32 %21, 1
-  %23 = mul nsw i32 %22, %19
+  %23 = mul nuw nsw i32 %22, %19
   %24 = icmp sgt i32 %17, -1
   tail call void @llvm.assume(i1 %24)
   %25 = icmp sgt i32 %19, -1

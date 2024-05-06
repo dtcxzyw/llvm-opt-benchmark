@@ -2651,7 +2651,7 @@ if.then.i.i.i.i.i.i.i.i7507:                      ; preds = %while.end.i.i.i.i.i
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i7456:                      ; preds = %while.end.i.i.i.i.i.i.i.i7452
-  %conv.i13.i.i.i.i.i.i.i.i7457 = trunc i16 %value.addr.0.lcssa.i.i.i.i.i.i.i.i7454 to i8
+  %conv.i13.i.i.i.i.i.i.i.i7457 = trunc nuw i16 %value.addr.0.lcssa.i.i.i.i.i.i.i.i7454 to i8
   %add.i.i.i.i.i.i.i.i.i7458 = or disjoint i8 %conv.i13.i.i.i.i.i.i.i.i7457, 48
   %incdec.ptr.i.i14.i.i.i.i.i.i.i.i7459 = getelementptr inbounds i8, ptr %cursor.1.i.i.i.i.i.i.i7453, i64 -1
   store i8 %add.i.i.i.i.i.i.i.i.i7458, ptr %incdec.ptr.i.i14.i.i.i.i.i.i.i.i7459, align 1, !noalias !81
@@ -3230,7 +3230,7 @@ if.then.i.i.i.i.i.i.i.i7228:                      ; preds = %while.end.i.i.i.i.i
   br label %do.end57.i.i.i.i.i7185
 
 if.else.i.i.i.i.i.i.i.i7182:                      ; preds = %while.end.i.i.i.i.i.i.i.i7179
-  %conv.i13.i.i.i.i.i.i.i.i = trunc i16 %value.addr.0.lcssa.i.i.i.i.i.i.i.i7181 to i8
+  %conv.i13.i.i.i.i.i.i.i.i = trunc nuw i16 %value.addr.0.lcssa.i.i.i.i.i.i.i.i7181 to i8
   %add.i.i.i.i.i.i.i.i.i7183 = or disjoint i8 %conv.i13.i.i.i.i.i.i.i.i, 48
   %incdec.ptr.i.i14.i.i.i.i.i.i.i.i7184 = getelementptr inbounds i8, ptr %cursor.1.i.i.i.i.i.i.i7180, i64 -1
   store i8 %add.i.i.i.i.i.i.i.i.i7183, ptr %incdec.ptr.i.i14.i.i.i.i.i.i.i.i7184, align 1, !noalias !98
@@ -3800,7 +3800,7 @@ if.then.i.i.i.i.i.i.i.i6953:                      ; preds = %while.end.i.i.i.i.i
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i.i6905
 
 if.else.i.i.i.i.i.i.i.i6902:                      ; preds = %while.end.i.i.i.i.i.i.i.i6898
-  %512 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6900 to i8
+  %512 = trunc nuw i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6900 to i8
   %conv.i.i.i.i.i.i.i.i.i6903 = or disjoint i8 %512, 48
   %incdec.ptr.i.i14.i.i.i.i.i.i.i.i6904 = getelementptr inbounds i8, ptr %cursor.1.i.i.i.i.i.i.i6899, i64 -1
   store i8 %conv.i.i.i.i.i.i.i.i.i6903, ptr %incdec.ptr.i.i14.i.i.i.i.i.i.i.i6904, align 1, !noalias !114
@@ -4379,7 +4379,7 @@ if.then.i.i.i.i.i.i.i.i6671:                      ; preds = %while.end.i.i.i.i.i
   br label %do.end57.i.i.i.i.i6628
 
 if.else.i.i.i.i.i.i.i.i6625:                      ; preds = %while.end.i.i.i.i.i.i.i.i6621
-  %599 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6623 to i8
+  %599 = trunc nuw i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6623 to i8
   %conv.i.i.i.i.i.i.i.i.i6626 = or disjoint i8 %599, 48
   %incdec.ptr.i.i14.i.i.i.i.i.i.i.i6627 = getelementptr inbounds i8, ptr %cursor.1.i.i.i.i.i.i.i6622, i64 -1
   store i8 %conv.i.i.i.i.i.i.i.i.i6626, ptr %incdec.ptr.i.i14.i.i.i.i.i.i.i.i6627, align 1, !noalias !131
@@ -4947,7 +4947,7 @@ if.then.i.i.i.i.i.i.i.i6397:                      ; preds = %while.end.i.i.i.i.i
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i.i6349
 
 if.else.i.i.i.i.i.i.i.i6346:                      ; preds = %while.end.i.i.i.i.i.i.i.i6342
-  %686 = trunc i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6344 to i8
+  %686 = trunc nuw i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6344 to i8
   %conv.i.i.i.i.i.i.i.i.i6347 = or disjoint i8 %686, 48
   %incdec.ptr.i.i13.i.i.i.i.i.i.i.i6348 = getelementptr inbounds i8, ptr %cursor.1.i.i.i.i.i.i.i6343, i64 -1
   store i8 %conv.i.i.i.i.i.i.i.i.i6347, ptr %incdec.ptr.i.i13.i.i.i.i.i.i.i.i6348, align 1, !noalias !147
@@ -5524,7 +5524,7 @@ if.then.i.i.i.i.i.i.i.i6117:                      ; preds = %while.end.i.i.i.i.i
   br label %do.end57.i.i.i.i.i6074
 
 if.else.i.i.i.i.i.i.i.i6071:                      ; preds = %while.end.i.i.i.i.i.i.i.i6067
-  %773 = trunc i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6069 to i8
+  %773 = trunc nuw i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i6069 to i8
   %conv.i.i.i.i.i.i.i.i.i6072 = or disjoint i8 %773, 48
   %incdec.ptr.i.i13.i.i.i.i.i.i.i.i6073 = getelementptr inbounds i8, ptr %cursor.1.i.i.i.i.i.i.i6068, i64 -1
   store i8 %conv.i.i.i.i.i.i.i.i.i6072, ptr %incdec.ptr.i.i13.i.i.i.i.i.i.i.i6073, align 1, !noalias !164
@@ -6094,7 +6094,7 @@ if.then.i.i.i.i.i.i.i5908:                        ; preds = %while.end.i.i.i.i.i
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i.i.i
-  %conv.i13.i.i.i.i.i.i.i = trunc i16 %value.addr.0.lcssa.i.i.i.i.i.i.i to i8
+  %conv.i13.i.i.i.i.i.i.i = trunc nuw i16 %value.addr.0.lcssa.i.i.i.i.i.i.i to i8
   %add.i.i.i.i.i.i.i.i5896 = or disjoint i8 %conv.i13.i.i.i.i.i.i.i, 48
   %incdec.ptr.i.i14.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cursor.1.i.i.i.i.i.i, i64 -1
   store i8 %add.i.i.i.i.i.i.i.i5896, ptr %incdec.ptr.i.i14.i.i.i.i.i.i.i, align 1, !noalias !178
@@ -11457,7 +11457,7 @@ if.then.i.i.i.i.i.i.i.i3778:                      ; preds = %while.end.i.i.i.i.i
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i.i3730
 
 if.else.i.i.i.i.i.i.i.i3727:                      ; preds = %while.end.i.i.i.i.i.i.i.i3723
-  %1714 = trunc i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i3725 to i8
+  %1714 = trunc nuw i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i3725 to i8
   %conv.i.i.i.i.i.i.i.i.i3728 = or disjoint i8 %1714, 48
   %incdec.ptr.i.i13.i.i.i.i.i.i.i.i3729 = getelementptr inbounds i8, ptr %cursor.1.i.i.i.i.i.i.i3724, i64 -1
   store i8 %conv.i.i.i.i.i.i.i.i.i3728, ptr %incdec.ptr.i.i13.i.i.i.i.i.i.i.i3729, align 1, !noalias !314
@@ -12069,7 +12069,7 @@ if.end.i.i56.i.i.i.i.i3444:                       ; preds = %_ZN5arrow12_GLOBAL_
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buffer.i.i.i.i.i.i.i.i3242), !noalias !330
   %add.i.i.i.i.i.i.i.i.i.i3445 = add nsw i32 %1796, 719468
   %cmp.i.i.i.i.i.i.i.i.i.i3446 = icmp sgt i32 %1796, -719469
-  %sub.i.i.i.i.i.i.i.i.i.i3447 = add nsw i32 %1796, 573372
+  %sub.i.i.i.i.i.i.i.i.i.i3447 = add nuw nsw i32 %1796, 573372
   %cond.i.i.i.i.i.i.i.i.i.i3448 = select i1 %cmp.i.i.i.i.i.i.i.i.i.i3446, i32 %add.i.i.i.i.i.i.i.i.i.i3445, i32 %sub.i.i.i.i.i.i.i.i.i.i3447
   %div.i.i.i.i.i.i.i.i.i.i3449 = sdiv i32 %cond.i.i.i.i.i.i.i.i.i.i3448, 146097
   %mul.neg.i.i.i.i.i.i.i.i.i.i3450 = mul nsw i32 %div.i.i.i.i.i.i.i.i.i.i3449, -146097
@@ -12077,9 +12077,9 @@ if.end.i.i56.i.i.i.i.i3444:                       ; preds = %_ZN5arrow12_GLOBAL_
   %div2.i.i.i.i.i.i.i.i.i.i3452 = udiv i32 %sub1.i.i.i.i.i.i.i.i.i.i3451, 1460
   %div4.i.i.i.i.i.i.i.i.i.i3453 = udiv i32 %sub1.i.i.i.i.i.i.i.i.i.i3451, 36524
   %div6.i.i.i.i.i.i.i.i.i.i3454 = udiv i32 %sub1.i.i.i.i.i.i.i.i.i.i3451, 146096
-  %.neg8700 = add nsw i32 %div4.i.i.i.i.i.i.i.i.i.i3453, %sub1.i.i.i.i.i.i.i.i.i.i3451
+  %.neg8697 = add nsw i32 %div4.i.i.i.i.i.i.i.i.i.i3453, %sub1.i.i.i.i.i.i.i.i.i.i3451
   %1803 = add nuw nsw i32 %div2.i.i.i.i.i.i.i.i.i.i3452, %div6.i.i.i.i.i.i.i.i.i.i3454
-  %sub7.i.i.i.i.i.i.i.i.i.i3456 = sub nsw i32 %.neg8700, %1803
+  %sub7.i.i.i.i.i.i.i.i.i.i3456 = sub nsw i32 %.neg8697, %1803
   %div8.i.i.i.i.i.i.i.i.i.i3457 = udiv i32 %sub7.i.i.i.i.i.i.i.i.i.i3456, 365
   %mul9.i.i.i.i.i.i.i.i.i.i3458 = mul nsw i32 %div.i.i.i.i.i.i.i.i.i.i3449, 400
   %add10.i.i.i.i.i.i.i.i.i.i3459 = add nsw i32 %div8.i.i.i.i.i.i.i.i.i.i3457, %mul9.i.i.i.i.i.i.i.i.i.i3458
@@ -12127,7 +12127,7 @@ if.end.i.i56.i.i.i.i.i3444:                       ; preds = %_ZN5arrow12_GLOBAL_
   %conv.i24.i.i.i.i.i.i.i.i.i3489 = ashr exact i32 %sext.i.i.i.i.i.i.i.i.i3488, 16
   %cmp.i.i.i.i.i.i.i.i.i3490 = icmp slt i32 %conv.i24.i.i.i.i.i.i.i.i.i3489, 0
   %1810 = call i32 @llvm.abs.i32(i32 %conv.i24.i.i.i.i.i.i.i.i.i3489, i1 true)
-  %rem.lhs.trunc.i.i.i.i.i.i.i.i.i3491 = trunc i32 %1810 to i16
+  %rem.lhs.trunc.i.i.i.i.i.i.i.i.i3491 = trunc nuw i32 %1810 to i16
   %rem40.i.i.i.i.i.i.i.i.i3492 = urem i16 %rem.lhs.trunc.i.i.i.i.i.i.i.i.i3491, 100
   %1811 = shl nuw nsw i16 %rem40.i.i.i.i.i.i.i.i.i3492, 1
   %idxprom.i26.i.i.i.i.i.i.i.i.i3493 = zext nneg i16 %1811 to i64
@@ -12152,7 +12152,7 @@ if.end.i.i56.i.i.i.i.i3444:                       ; preds = %_ZN5arrow12_GLOBAL_
 
 if.then.i.i.i.i.i.i.i.i.i3512:                    ; preds = %if.end.i.i56.i.i.i.i.i3444
   %div1243.i.i.i.i.i.i.i.i.i3513 = udiv i16 %rem.lhs.trunc.i.i.i.i.i.i.i.i.i3491, 10000
-  %1817 = trunc i16 %div1243.i.i.i.i.i.i.i.i.i3513 to i8
+  %1817 = trunc nuw nsw i16 %div1243.i.i.i.i.i.i.i.i.i3513 to i8
   %conv.i37.i.i.i.i.i.i.i.i.i3514 = or disjoint i8 %1817, 48
   store i8 %conv.i37.i.i.i.i.i.i.i.i.i3514, ptr %incdec.ptr.i.i38.i.i.i.i.i.i.i.i.i3349, align 1, !noalias !330
   br label %if.end.i.i.i.i.i.i.i.i.i3502
@@ -12767,7 +12767,7 @@ if.end.i.i56.i.i.i.i.i:                           ; preds = %_ZN5arrow12_GLOBAL_
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buffer.i.i.i.i.i.i.i.i), !noalias !346
   %add.i.i.i.i.i.i.i.i.i.i3163 = add nsw i32 %conv.i.i.i.i.i.i.i.i.i3162, 719468
   %cmp.i.i.i.i.i.i.i.i.i.i3164 = icmp sgt i32 %conv.i.i.i.i.i.i.i.i.i3162, -719469
-  %sub.i.i.i.i.i.i.i.i.i.i3165 = add nsw i32 %conv.i.i.i.i.i.i.i.i.i3162, 573372
+  %sub.i.i.i.i.i.i.i.i.i.i3165 = add nuw nsw i32 %conv.i.i.i.i.i.i.i.i.i3162, 573372
   %cond.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i3164, i32 %add.i.i.i.i.i.i.i.i.i.i3163, i32 %sub.i.i.i.i.i.i.i.i.i.i3165
   %div.i.i.i.i.i.i.i.i.i.i = sdiv i32 %cond.i.i.i.i.i.i.i.i.i.i, 146097
   %mul.neg.i.i.i.i.i.i.i.i.i.i = mul nsw i32 %div.i.i.i.i.i.i.i.i.i.i, -146097
@@ -12775,9 +12775,9 @@ if.end.i.i56.i.i.i.i.i:                           ; preds = %_ZN5arrow12_GLOBAL_
   %div2.i.i.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i.i.i.i.i.i.i.i, 1460
   %div4.i.i.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i.i.i.i.i.i.i.i, 36524
   %div6.i.i.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i.i.i.i.i.i.i.i, 146096
-  %.neg8699 = add nsw i32 %div4.i.i.i.i.i.i.i.i.i.i, %sub1.i.i.i.i.i.i.i.i.i.i
+  %.neg8696 = add nsw i32 %div4.i.i.i.i.i.i.i.i.i.i, %sub1.i.i.i.i.i.i.i.i.i.i
   %1906 = add nuw nsw i32 %div2.i.i.i.i.i.i.i.i.i.i, %div6.i.i.i.i.i.i.i.i.i.i
-  %sub7.i.i.i.i.i.i.i.i.i.i = sub nsw i32 %.neg8699, %1906
+  %sub7.i.i.i.i.i.i.i.i.i.i = sub nsw i32 %.neg8696, %1906
   %div8.i.i.i.i.i.i.i.i.i.i = udiv i32 %sub7.i.i.i.i.i.i.i.i.i.i, 365
   %mul9.i.i.i.i.i.i.i.i.i.i = mul nsw i32 %div.i.i.i.i.i.i.i.i.i.i, 400
   %add10.i.i.i.i.i.i.i.i.i.i = add nsw i32 %div8.i.i.i.i.i.i.i.i.i.i, %mul9.i.i.i.i.i.i.i.i.i.i
@@ -12825,7 +12825,7 @@ if.end.i.i56.i.i.i.i.i:                           ; preds = %_ZN5arrow12_GLOBAL_
   %conv.i24.i.i.i.i.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i.i.i.i.i.i, 16
   %cmp.i.i.i.i.i.i.i.i.i3168 = icmp slt i32 %conv.i24.i.i.i.i.i.i.i.i.i, 0
   %1913 = call i32 @llvm.abs.i32(i32 %conv.i24.i.i.i.i.i.i.i.i.i, i1 true)
-  %rem.lhs.trunc.i.i.i.i.i.i.i.i.i = trunc i32 %1913 to i16
+  %rem.lhs.trunc.i.i.i.i.i.i.i.i.i = trunc nuw i32 %1913 to i16
   %rem40.i.i.i.i.i.i.i.i.i = urem i16 %rem.lhs.trunc.i.i.i.i.i.i.i.i.i, 100
   %1914 = shl nuw nsw i16 %rem40.i.i.i.i.i.i.i.i.i, 1
   %idxprom.i26.i.i.i.i.i.i.i.i.i = zext nneg i16 %1914 to i64
@@ -12850,7 +12850,7 @@ if.end.i.i56.i.i.i.i.i:                           ; preds = %_ZN5arrow12_GLOBAL_
 
 if.then.i.i.i.i.i.i.i.i.i3170:                    ; preds = %if.end.i.i56.i.i.i.i.i
   %div1243.i.i.i.i.i.i.i.i.i = udiv i16 %rem.lhs.trunc.i.i.i.i.i.i.i.i.i, 10000
-  %1920 = trunc i16 %div1243.i.i.i.i.i.i.i.i.i to i8
+  %1920 = trunc nuw nsw i16 %div1243.i.i.i.i.i.i.i.i.i to i8
   %conv.i37.i.i.i.i.i.i.i.i.i = or disjoint i8 %1920, 48
   store i8 %conv.i37.i.i.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i38.i.i.i.i.i.i.i.i.i, align 1, !noalias !346
   br label %if.end.i.i.i.i.i.i.i.i.i3169
@@ -13438,7 +13438,7 @@ sw.bb3.i.i.i.i.i.i.i.i2841:                       ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i2843, label %if.then.i.i.i.i.i.i.i.i.i2842
 
 if.then.i.i.i.i.i.i.i.i.i2842:                    ; preds = %sw.bb3.i.i.i.i.i.i.i.i2841
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_13TimestampTypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2005, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i2714)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_13TimestampTypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2005, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2714)
           to label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2818, !noalias !350
 
 if.end.i.i.i.i.i.i.i.i.i2843:                     ; preds = %sw.bb3.i.i.i.i.i.i.i.i2841
@@ -13570,7 +13570,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   store i8 32, ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i2886, align 1, !noalias !364
   %add.i.i.i.i.i.i.i.i.i.i.i2887 = add nsw i32 %timepoint_days.sroa.0.0.i.i.i.i.i.i.i.i.i, 719468
   %cmp.i.i18.i.i.i.i.i.i.i.i.i = icmp sgt i32 %timepoint_days.sroa.0.0.i.i.i.i.i.i.i.i.i, -719469
-  %sub.i.i19.i.i.i.i.i.i.i.i.i = add nsw i32 %timepoint_days.sroa.0.0.i.i.i.i.i.i.i.i.i, 573372
+  %sub.i.i19.i.i.i.i.i.i.i.i.i = add nuw nsw i32 %timepoint_days.sroa.0.0.i.i.i.i.i.i.i.i.i, 573372
   %cond.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i18.i.i.i.i.i.i.i.i.i, i32 %add.i.i.i.i.i.i.i.i.i.i.i2887, i32 %sub.i.i19.i.i.i.i.i.i.i.i.i
   %div.i.i.i.i.i.i.i.i.i.i.i = sdiv i32 %cond.i.i.i.i.i.i.i.i.i.i.i, 146097
   %mul.neg.i.i.i.i.i.i.i.i.i.i.i = mul nsw i32 %div.i.i.i.i.i.i.i.i.i.i.i, -146097
@@ -13578,9 +13578,9 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %div2.i.i.i.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i.i.i.i.i.i.i.i.i, 1460
   %div4.i.i.i.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i.i.i.i.i.i.i.i.i, 36524
   %div6.i.i.i.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i.i.i.i.i.i.i.i.i, 146096
-  %.neg8696 = add i32 %div4.i.i.i.i.i.i.i.i.i.i.i, %sub1.i.i.i.i.i.i.i.i.i.i.i
+  %.neg8693 = add i32 %div4.i.i.i.i.i.i.i.i.i.i.i, %sub1.i.i.i.i.i.i.i.i.i.i.i
   %2021 = add nuw nsw i32 %div6.i.i.i.i.i.i.i.i.i.i.i, %div2.i.i.i.i.i.i.i.i.i.i.i
-  %sub7.i.i.i.i.i.i.i.i.i.i.i = sub i32 %.neg8696, %2021
+  %sub7.i.i.i.i.i.i.i.i.i.i.i = sub i32 %.neg8693, %2021
   %div8.i.i.i.i.i.i.i.i.i.i.i = udiv i32 %sub7.i.i.i.i.i.i.i.i.i.i.i, 365
   %mul9.i.i.i.i.i.i.i.i.i.i.i = mul nsw i32 %div.i.i.i.i.i.i.i.i.i.i.i, 400
   %add10.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %div8.i.i.i.i.i.i.i.i.i.i.i, %mul9.i.i.i.i.i.i.i.i.i.i.i
@@ -13634,7 +13634,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %conv.i24.i.i.i.i.i.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i.i.i.i.i.i.i, 16
   %cmp.i.i.i.i.i.i.i.i.i.i2888 = icmp slt i32 %conv.i24.i.i.i.i.i.i.i.i.i.i, 0
   %2028 = call i32 @llvm.abs.i32(i32 %conv.i24.i.i.i.i.i.i.i.i.i.i, i1 true)
-  %rem.lhs.trunc.i.i.i.i.i.i.i.i.i.i = trunc i32 %2028 to i16
+  %rem.lhs.trunc.i.i.i.i.i.i.i.i.i.i = trunc nuw i32 %2028 to i16
   %rem40.i.i.i.i.i.i.i.i.i.i = urem i16 %rem.lhs.trunc.i.i.i.i.i.i.i.i.i.i, 100
   %2029 = shl nuw nsw i16 %rem40.i.i.i.i.i.i.i.i.i.i, 1
   %idxprom.i26.i.i.i.i.i.i.i.i.i.i = zext nneg i16 %2029 to i64
@@ -13663,7 +13663,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
 
 if.then.i.i.i.i.i.i.i.i.i.i2894:                  ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2867
   %div1243.i.i.i.i.i.i.i.i.i.i = udiv i16 %rem.lhs.trunc.i.i.i.i.i.i.i.i.i.i, 10000
-  %2035 = trunc i16 %div1243.i.i.i.i.i.i.i.i.i.i to i8
+  %2035 = trunc nuw nsw i16 %div1243.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i37.i.i.i.i.i.i.i.i.i.i = or disjoint i8 %2035, 48
   %incdec.ptr.i.i38.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2014, i64 -21
   store i8 %conv.i37.i.i.i.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i38.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !364
@@ -13699,12 +13699,12 @@ sw.bb4.i.i.i.i.i.i.i.i2816:                       ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %spec.select.i.i11.i.i.i.i.i.i.i.i, label %if.end.i13.i.i.i.i.i.i.i.i2838, label %if.then.i12.i.i.i.i.i.i.i.i2817
 
 if.then.i12.i.i.i.i.i.i.i.i2817:                  ; preds = %sw.bb4.i.i.i.i.i.i.i.i2816
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_13TimestampTypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2005, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i2714)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_13TimestampTypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2005, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2714)
           to label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2818, !noalias !350
 
 if.end.i13.i.i.i.i.i.i.i.i2838:                   ; preds = %sw.bb4.i.i.i.i.i.i.i.i2816
   %div.i.i.i.i14.i.i.i.i.i.i.i.i = sdiv i64 %2005, 86400000000
-  %conv.i.i.i.i15.i.i.i.i.i.i.i.i = trunc i64 %div.i.i.i.i14.i.i.i.i.i.i.i.i to i32
+  %conv.i.i.i.i15.i.i.i.i.i.i.i.i = trunc nsw i64 %div.i.i.i.i14.i.i.i.i.i.i.i.i to i32
   %mul.i.i.i.i.i.i.i16.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i14.i.i.i.i.i.i.i.i, 86400000000
   %cmp.i.i.i.not.i17.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i16.i.i.i.i.i.i.i.i, %2005
   br i1 %cmp.i.i.i.not.i17.i.i.i.i.i.i.i.i, label %if.else.i175.i.i.i.i.i.i.i.i, label %if.then11.i18.i.i.i.i.i.i.i.i
@@ -13831,7 +13831,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   store i8 32, ptr %incdec.ptr.i.i68.i.i.i.i.i.i.i.i, align 1, !noalias !364
   %add.i.i.i69.i.i.i.i.i.i.i.i = add nsw i32 %timepoint_days.sroa.0.0.i23.i.i.i.i.i.i.i.i, 719468
   %cmp.i.i18.i70.i.i.i.i.i.i.i.i = icmp sgt i32 %timepoint_days.sroa.0.0.i23.i.i.i.i.i.i.i.i, -719469
-  %sub.i.i19.i71.i.i.i.i.i.i.i.i = add nsw i32 %timepoint_days.sroa.0.0.i23.i.i.i.i.i.i.i.i, 573372
+  %sub.i.i19.i71.i.i.i.i.i.i.i.i = add nuw nsw i32 %timepoint_days.sroa.0.0.i23.i.i.i.i.i.i.i.i, 573372
   %cond.i.i.i72.i.i.i.i.i.i.i.i = select i1 %cmp.i.i18.i70.i.i.i.i.i.i.i.i, i32 %add.i.i.i69.i.i.i.i.i.i.i.i, i32 %sub.i.i19.i71.i.i.i.i.i.i.i.i
   %div.i.i.i73.i.i.i.i.i.i.i.i = sdiv i32 %cond.i.i.i72.i.i.i.i.i.i.i.i, 146097
   %mul.neg.i.i.i74.i.i.i.i.i.i.i.i = mul nsw i32 %div.i.i.i73.i.i.i.i.i.i.i.i, -146097
@@ -13839,9 +13839,9 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %div2.i.i.i76.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i75.i.i.i.i.i.i.i.i, 1460
   %div4.i.i.i77.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i75.i.i.i.i.i.i.i.i, 36524
   %div6.i.i.i78.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i75.i.i.i.i.i.i.i.i, 146096
-  %.neg8695 = add nsw i32 %div4.i.i.i77.i.i.i.i.i.i.i.i, %sub1.i.i.i75.i.i.i.i.i.i.i.i
+  %.neg8692 = add nsw i32 %div4.i.i.i77.i.i.i.i.i.i.i.i, %sub1.i.i.i75.i.i.i.i.i.i.i.i
   %2052 = add nuw nsw i32 %div6.i.i.i78.i.i.i.i.i.i.i.i, %div2.i.i.i76.i.i.i.i.i.i.i.i
-  %sub7.i.i.i80.i.i.i.i.i.i.i.i = sub nsw i32 %.neg8695, %2052
+  %sub7.i.i.i80.i.i.i.i.i.i.i.i = sub nsw i32 %.neg8692, %2052
   %div8.i.i.i81.i.i.i.i.i.i.i.i = udiv i32 %sub7.i.i.i80.i.i.i.i.i.i.i.i, 365
   %mul9.i.i.i82.i.i.i.i.i.i.i.i = mul nsw i32 %div.i.i.i73.i.i.i.i.i.i.i.i, 400
   %add10.i.i.i83.i.i.i.i.i.i.i.i = add nsw i32 %div8.i.i.i81.i.i.i.i.i.i.i.i, %mul9.i.i.i82.i.i.i.i.i.i.i.i
@@ -13895,7 +13895,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %conv.i24.i.i119.i.i.i.i.i.i.i.i = ashr exact i32 %sext.i.i118.i.i.i.i.i.i.i.i, 16
   %cmp.i.i120.i.i.i.i.i.i.i.i = icmp slt i32 %conv.i24.i.i119.i.i.i.i.i.i.i.i, 0
   %2059 = call i32 @llvm.abs.i32(i32 %conv.i24.i.i119.i.i.i.i.i.i.i.i, i1 true)
-  %rem.lhs.trunc.i.i121.i.i.i.i.i.i.i.i = trunc i32 %2059 to i16
+  %rem.lhs.trunc.i.i121.i.i.i.i.i.i.i.i = trunc nuw i32 %2059 to i16
   %rem40.i.i122.i.i.i.i.i.i.i.i = urem i16 %rem.lhs.trunc.i.i121.i.i.i.i.i.i.i.i, 100
   %2060 = shl nuw nsw i16 %rem40.i.i122.i.i.i.i.i.i.i.i, 1
   %idxprom.i26.i.i123.i.i.i.i.i.i.i.i = zext nneg i16 %2060 to i64
@@ -13924,7 +13924,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
 
 if.then.i.i148.i.i.i.i.i.i.i.i:                   ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2839
   %div1243.i.i149.i.i.i.i.i.i.i.i = udiv i16 %rem.lhs.trunc.i.i121.i.i.i.i.i.i.i.i, 10000
-  %2066 = trunc i16 %div1243.i.i149.i.i.i.i.i.i.i.i to i8
+  %2066 = trunc nuw nsw i16 %div1243.i.i149.i.i.i.i.i.i.i.i to i8
   %conv.i37.i.i150.i.i.i.i.i.i.i.i = or disjoint i8 %2066, 48
   %incdec.ptr.i.i38.i.i151.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2045, i64 -21
   store i8 %conv.i37.i.i150.i.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i38.i.i151.i.i.i.i.i.i.i.i, align 1, !noalias !364
@@ -13956,7 +13956,7 @@ _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationI
 sw.bb7.i.i.i.i.i.i.i.i2911:                       ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i2812
   call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %buffer.i180.i.i.i.i.i.i.i.i), !noalias !364
   %div.i.i.i.i181.i.i.i.i.i.i.i.i = sdiv i64 %2005, 86400000000000
-  %conv.i.i.i.i182.i.i.i.i.i.i.i.i = trunc i64 %div.i.i.i.i181.i.i.i.i.i.i.i.i to i32
+  %conv.i.i.i.i182.i.i.i.i.i.i.i.i = trunc nsw i64 %div.i.i.i.i181.i.i.i.i.i.i.i.i to i32
   %mul.i.i.i.i.i.i.i183.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i181.i.i.i.i.i.i.i.i, 86400000000000
   %cmp.i.i.i.not.i184.i.i.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i.i.i183.i.i.i.i.i.i.i.i, %2005
   br i1 %cmp.i.i.i.not.i184.i.i.i.i.i.i.i.i, label %if.else.i338.i.i.i.i.i.i.i.i, label %if.then11.i185.i.i.i.i.i.i.i.i
@@ -14088,9 +14088,9 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %div2.i.i.i239.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i238.i.i.i.i.i.i.i.i, 1460
   %div4.i.i.i240.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i238.i.i.i.i.i.i.i.i, 36524
   %div6.i.i.i241.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i238.i.i.i.i.i.i.i.i, 146096
-  %.neg8697 = add nsw i32 %div4.i.i.i240.i.i.i.i.i.i.i.i, %sub1.i.i.i238.i.i.i.i.i.i.i.i
+  %.neg8694 = add nsw i32 %div4.i.i.i240.i.i.i.i.i.i.i.i, %sub1.i.i.i238.i.i.i.i.i.i.i.i
   %2082 = add nuw nsw i32 %div6.i.i.i241.i.i.i.i.i.i.i.i, %div2.i.i.i239.i.i.i.i.i.i.i.i
-  %sub7.i.i.i243.i.i.i.i.i.i.i.i = sub nsw i32 %.neg8697, %2082
+  %sub7.i.i.i243.i.i.i.i.i.i.i.i = sub nsw i32 %.neg8694, %2082
   %div8.i.i.i244.i.i.i.i.i.i.i.i = udiv i32 %sub7.i.i.i243.i.i.i.i.i.i.i.i, 365
   %mul9.i.i.i245.i.i.i.i.i.i.i.i = mul nuw nsw i32 %div.i.i.i236.i.i.i.i.i.i.i.i, 400
   %add10.i.i.i246.i.i.i.i.i.i.i.i = add nuw nsw i32 %div8.i.i.i244.i.i.i.i.i.i.i.i, %mul9.i.i.i245.i.i.i.i.i.i.i.i
@@ -14144,7 +14144,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %conv.i24.i.i282.i.i.i.i.i.i.i.i = ashr exact i32 %sext.i.i281.i.i.i.i.i.i.i.i, 16
   %cmp.i.i283.i.i.i.i.i.i.i.i = icmp slt i32 %conv.i24.i.i282.i.i.i.i.i.i.i.i, 0
   %2089 = call i32 @llvm.abs.i32(i32 %conv.i24.i.i282.i.i.i.i.i.i.i.i, i1 true)
-  %rem.lhs.trunc.i.i284.i.i.i.i.i.i.i.i = trunc i32 %2089 to i16
+  %rem.lhs.trunc.i.i284.i.i.i.i.i.i.i.i = trunc nuw i32 %2089 to i16
   %rem40.i.i285.i.i.i.i.i.i.i.i = urem i16 %rem.lhs.trunc.i.i284.i.i.i.i.i.i.i.i, 100
   %2090 = shl nuw nsw i16 %rem40.i.i285.i.i.i.i.i.i.i.i, 1
   %idxprom.i26.i.i286.i.i.i.i.i.i.i.i = zext nneg i16 %2090 to i64
@@ -14173,7 +14173,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
 
 if.then.i.i311.i.i.i.i.i.i.i.i:                   ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2912
   %div1243.i.i312.i.i.i.i.i.i.i.i = udiv i16 %rem.lhs.trunc.i.i284.i.i.i.i.i.i.i.i, 10000
-  %2096 = trunc i16 %div1243.i.i312.i.i.i.i.i.i.i.i to i8
+  %2096 = trunc nuw nsw i16 %div1243.i.i312.i.i.i.i.i.i.i.i to i8
   %conv.i37.i.i313.i.i.i.i.i.i.i.i = or disjoint i8 %2096, 48
   %incdec.ptr.i.i38.i.i314.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2075, i64 -21
   store i8 %conv.i37.i.i313.i.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i38.i.i314.i.i.i.i.i.i.i.i, align 1, !noalias !364
@@ -14209,7 +14209,7 @@ sw.epilog.i.i.i.i.i.i.i.i2913:                    ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %spec.select.i.i343.i.i.i.i.i.i.i.i, label %if.end.i345.i.i.i.i.i.i.i.i, label %if.then.i344.i.i.i.i.i.i.i.i
 
 if.then.i344.i.i.i.i.i.i.i.i:                     ; preds = %sw.epilog.i.i.i.i.i.i.i.i2913
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_13TimestampTypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2005, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i2714)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_13TimestampTypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2005, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2714)
           to label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2818, !noalias !350
 
 if.end.i345.i.i.i.i.i.i.i.i:                      ; preds = %sw.epilog.i.i.i.i.i.i.i.i2913
@@ -14268,7 +14268,7 @@ if.end25.i353.i.i.i.i.i.i.i.i:                    ; preds = %if.else.i444.i.i.i.
   store i8 32, ptr %incdec.ptr.i.i369.i.i.i.i.i.i.i.i, align 1, !noalias !364
   %add.i.i.i370.i.i.i.i.i.i.i.i = add nsw i32 %timepoint_days.sroa.0.0.i355.i.i.i.i.i.i.i.i, 719468
   %cmp.i.i.i.i.i.i.i.i.i.i.i2920 = icmp sgt i32 %timepoint_days.sroa.0.0.i355.i.i.i.i.i.i.i.i, -719469
-  %sub.i.i13.i.i.i.i.i.i.i.i.i = add nsw i32 %timepoint_days.sroa.0.0.i355.i.i.i.i.i.i.i.i, 573372
+  %sub.i.i13.i.i.i.i.i.i.i.i.i = add nuw nsw i32 %timepoint_days.sroa.0.0.i355.i.i.i.i.i.i.i.i, 573372
   %cond.i.i.i371.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i2920, i32 %add.i.i.i370.i.i.i.i.i.i.i.i, i32 %sub.i.i13.i.i.i.i.i.i.i.i.i
   %div.i.i.i372.i.i.i.i.i.i.i.i = sdiv i32 %cond.i.i.i371.i.i.i.i.i.i.i.i, 146097
   %mul.neg.i.i.i373.i.i.i.i.i.i.i.i = mul nsw i32 %div.i.i.i372.i.i.i.i.i.i.i.i, -146097
@@ -14276,9 +14276,9 @@ if.end25.i353.i.i.i.i.i.i.i.i:                    ; preds = %if.else.i444.i.i.i.
   %div2.i.i.i375.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i374.i.i.i.i.i.i.i.i, 1460
   %div4.i.i.i376.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i374.i.i.i.i.i.i.i.i, 36524
   %div6.i.i.i377.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i374.i.i.i.i.i.i.i.i, 146096
-  %.neg8698 = add nsw i32 %div4.i.i.i376.i.i.i.i.i.i.i.i, %sub1.i.i.i374.i.i.i.i.i.i.i.i
+  %.neg8695 = add nsw i32 %div4.i.i.i376.i.i.i.i.i.i.i.i, %sub1.i.i.i374.i.i.i.i.i.i.i.i
   %2105 = add nuw nsw i32 %div6.i.i.i377.i.i.i.i.i.i.i.i, %div2.i.i.i375.i.i.i.i.i.i.i.i
-  %sub7.i.i.i379.i.i.i.i.i.i.i.i = sub nsw i32 %.neg8698, %2105
+  %sub7.i.i.i379.i.i.i.i.i.i.i.i = sub nsw i32 %.neg8695, %2105
   %div8.i.i.i380.i.i.i.i.i.i.i.i = udiv i32 %sub7.i.i.i379.i.i.i.i.i.i.i.i, 365
   %mul9.i.i.i381.i.i.i.i.i.i.i.i = mul nsw i32 %div.i.i.i372.i.i.i.i.i.i.i.i, 400
   %add10.i.i.i382.i.i.i.i.i.i.i.i = add nsw i32 %div8.i.i.i380.i.i.i.i.i.i.i.i, %mul9.i.i.i381.i.i.i.i.i.i.i.i
@@ -14326,7 +14326,7 @@ if.end25.i353.i.i.i.i.i.i.i.i:                    ; preds = %if.else.i444.i.i.i.
   %conv.i24.i.i413.i.i.i.i.i.i.i.i = ashr exact i32 %sext.i.i412.i.i.i.i.i.i.i.i, 16
   %cmp.i.i414.i.i.i.i.i.i.i.i = icmp slt i32 %conv.i24.i.i413.i.i.i.i.i.i.i.i, 0
   %2112 = call i32 @llvm.abs.i32(i32 %conv.i24.i.i413.i.i.i.i.i.i.i.i, i1 true)
-  %rem.lhs.trunc.i.i415.i.i.i.i.i.i.i.i = trunc i32 %2112 to i16
+  %rem.lhs.trunc.i.i415.i.i.i.i.i.i.i.i = trunc nuw i32 %2112 to i16
   %rem40.i.i416.i.i.i.i.i.i.i.i = urem i16 %rem.lhs.trunc.i.i415.i.i.i.i.i.i.i.i, 100
   %2113 = shl nuw nsw i16 %rem40.i.i416.i.i.i.i.i.i.i.i, 1
   %idxprom.i26.i.i417.i.i.i.i.i.i.i.i = zext nneg i16 %2113 to i64
@@ -14351,7 +14351,7 @@ if.end25.i353.i.i.i.i.i.i.i.i:                    ; preds = %if.else.i444.i.i.i.
 
 if.then.i.i440.i.i.i.i.i.i.i.i:                   ; preds = %if.end25.i353.i.i.i.i.i.i.i.i
   %div1243.i.i441.i.i.i.i.i.i.i.i = udiv i16 %rem.lhs.trunc.i.i415.i.i.i.i.i.i.i.i, 10000
-  %2119 = trunc i16 %div1243.i.i441.i.i.i.i.i.i.i.i to i8
+  %2119 = trunc nuw nsw i16 %div1243.i.i441.i.i.i.i.i.i.i.i to i8
   %conv.i37.i.i442.i.i.i.i.i.i.i.i = or disjoint i8 %2119, 48
   store i8 %conv.i37.i.i442.i.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i38.i.i443.i.i.i.i.i.i.i.i, align 1, !noalias !364
   br label %if.end.i.i430.i.i.i.i.i.i.i.i
@@ -14927,7 +14927,7 @@ sw.bb3.i.i.i.i.i.i.i.i2552:                       ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i2553, label %if.end.i.i.i.i.i.i.i.i.i2555, label %if.then.i.i.i.i.i.i.i.i.i2554
 
 if.then.i.i.i.i.i.i.i.i.i2554:                    ; preds = %sw.bb3.i.i.i.i.i.i.i.i2552
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i2337)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2337)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_iOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2484, !noalias !369
 
 if.end.i.i.i.i.i.i.i.i.i2555:                     ; preds = %sw.bb3.i.i.i.i.i.i.i.i2552
@@ -15057,7 +15057,7 @@ sw.bb4.i.i.i.i.i.i.i.i2481:                       ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i11.i.i.i.i.i.i.i.i2482, label %if.end.i13.i.i.i.i.i.i.i.i2521, label %if.then.i12.i.i.i.i.i.i.i.i2483
 
 if.then.i12.i.i.i.i.i.i.i.i2483:                  ; preds = %sw.bb4.i.i.i.i.i.i.i.i2481
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i2337)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2337)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_iOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2484, !noalias !369
 
 if.end.i13.i.i.i.i.i.i.i.i2521:                   ; preds = %sw.bb4.i.i.i.i.i.i.i.i2481
@@ -15178,7 +15178,7 @@ sw.bb7.i.i.i.i.i.i.i.i2626:                       ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i80.i.i.i.i.i.i.i.i, label %if.end.i82.i.i.i.i.i.i.i.i, label %if.then.i81.i.i.i.i.i.i.i.i
 
 if.then.i81.i.i.i.i.i.i.i.i:                      ; preds = %sw.bb7.i.i.i.i.i.i.i.i2626
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i2337)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2337)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_iOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2484, !noalias !369
 
 if.end.i82.i.i.i.i.i.i.i.i:                       ; preds = %sw.bb7.i.i.i.i.i.i.i.i2626
@@ -15289,7 +15289,7 @@ sw.epilog.i.i.i.i.i.i.i.i2630:                    ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i142.i.i.i.i.i.i.i.i, label %if.end.i144.i.i.i.i.i.i.i.i, label %if.then.i143.i.i.i.i.i.i.i.i
 
 if.then.i143.i.i.i.i.i.i.i.i:                     ; preds = %sw.epilog.i.i.i.i.i.i.i.i2630
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i2337)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2205, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2337)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_iOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2484, !noalias !369
 
 if.end.i144.i.i.i.i.i.i.i.i:                      ; preds = %sw.epilog.i.i.i.i.i.i.i.i2630
@@ -15885,11 +15885,11 @@ sw.bb3.i.i.i.i.i.i.i.i:                           ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i2267
 
 if.then.i.i.i.i.i.i.i.i.i2267:                    ; preds = %sw.bb3.i.i.i.i.i.i.i.i
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2247, !noalias !387
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %sw.bb3.i.i.i.i.i.i.i.i
-  %div.i.i11.i.i.lhs.trunc.i.i.i.i.i.i.i.i.i = trunc i64 %2340 to i32
+  %div.i.i11.i.i.lhs.trunc.i.i.i.i.i.i.i.i.i = trunc nuw i64 %2340 to i32
   %div.i.i11.i.i19.i.i.i.i.i.i.i.i.i = udiv i32 %div.i.i11.i.i.lhs.trunc.i.i.i.i.i.i.i.i.i, 3600000
   %div.i.i11.i.i.zext.i.i.i.i.i.i.i.i.i = zext nneg i32 %div.i.i11.i.i19.i.i.i.i.i.i.i.i.i to i64
   %div.i.i212.i.i20.i.i.i.i.i.i.i.i.i = udiv i32 %div.i.i11.i.i.lhs.trunc.i.i.i.i.i.i.i.i.i, 60000
@@ -16015,7 +16015,7 @@ sw.bb4.i.i.i.i.i.i.i.i:                           ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i11.i.i.i.i.i.i.i.i, label %if.end.i13.i.i.i.i.i.i.i.i, label %if.then.i12.i.i.i.i.i.i.i.i
 
 if.then.i12.i.i.i.i.i.i.i.i:                      ; preds = %sw.bb4.i.i.i.i.i.i.i.i
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2247, !noalias !387
 
 if.end.i13.i.i.i.i.i.i.i.i:                       ; preds = %sw.bb4.i.i.i.i.i.i.i.i
@@ -16140,7 +16140,7 @@ sw.bb7.i.i.i.i.i.i.i.i:                           ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i83.i.i.i.i.i.i.i.i, label %if.end.i85.i.i.i.i.i.i.i.i, label %if.then.i84.i.i.i.i.i.i.i.i
 
 if.then.i84.i.i.i.i.i.i.i.i:                      ; preds = %sw.bb7.i.i.i.i.i.i.i.i
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2247, !noalias !387
 
 if.end.i85.i.i.i.i.i.i.i.i:                       ; preds = %sw.bb7.i.i.i.i.i.i.i.i
@@ -16265,11 +16265,11 @@ sw.epilog.i.i.i.i.i.i.i.i:                        ; preds = %_ZN5arrow12_GLOBAL_
   br i1 %cmp.i.i.i159.i.i.i.i.i.i.i.i, label %if.end.i161.i.i.i.i.i.i.i.i, label %if.then.i160.i.i.i.i.i.i.i.i
 
 if.then.i160.i.i.i.i.i.i.i.i:                     ; preds = %sw.epilog.i.i.i.i.i.i.i.i
-  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull align 8 dereferenceable(8) %appender.i.i.i.i)
+  invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2340, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i)
           to label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2247, !noalias !387
 
 if.end.i161.i.i.i.i.i.i.i.i:                      ; preds = %sw.epilog.i.i.i.i.i.i.i.i
-  %div.i.i10.i.i.lhs.trunc.i.i.i.i.i.i.i.i.i = trunc i64 %2340 to i32
+  %div.i.i10.i.i.lhs.trunc.i.i.i.i.i.i.i.i.i = trunc nuw i64 %2340 to i32
   %div.i.i10.i.i11.i.i.i.i.i.i.i.i.i = udiv i32 %div.i.i10.i.i.lhs.trunc.i.i.i.i.i.i.i.i.i, 3600
   %div.i.i10.i.i.zext.i.i.i.i.i.i.i.i.i = zext nneg i32 %div.i.i10.i.i11.i.i.i.i.i.i.i.i.i to i64
   %div.i.i211.i.i12.i.i.i.i.i.i.i.i.i = udiv i32 %div.i.i10.i.i.lhs.trunc.i.i.i.i.i.i.i.i.i, 60
@@ -16829,7 +16829,7 @@ call.i.i52.i.i.i.i.noexc.i2000:                   ; preds = %_ZN5arrow12_GLOBAL_
   call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %buffer.i.i.i.i.i.i.i1867), !noalias !417
   %interval.sroa.0.0.extract.trunc.i.i.i.i.i.i.i2001 = trunc i64 %2472 to i32
   %interval.sroa.3.0.extract.shift.i.i.i.i.i.i.i2002 = lshr i64 %2472, 32
-  %interval.sroa.3.0.extract.trunc.i.i.i.i.i.i.i2003 = trunc i64 %interval.sroa.3.0.extract.shift.i.i.i.i.i.i.i2002 to i32
+  %interval.sroa.3.0.extract.trunc.i.i.i.i.i.i.i2003 = trunc nuw i64 %interval.sroa.3.0.extract.shift.i.i.i.i.i.i.i2002 to i32
   store i8 115, ptr %incdec.ptr.i.i.i.i.i.i.i.i1959, align 1, !noalias !417
   store i8 110, ptr %incdec.ptr.i4.i.i.i.i.i.i.i1960, align 1, !noalias !417
   %cond.i.i.i.i.i.i.i.i2004 = call noundef i64 @llvm.abs.i64(i64 %2473, i1 false)
@@ -16872,7 +16872,7 @@ if.then.i.i.i.i.i.i.i.i2078:                      ; preds = %while.end.i.i.i.i.i
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i2009:                      ; preds = %while.end.i.i.i.i.i.i.i.i2005
-  %2478 = trunc i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i2007 to i8
+  %2478 = trunc nuw i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i2007 to i8
   %conv.i.i.i.i.i.i.i.i.i2010 = or disjoint i8 %2478, 48
   %incdec.ptr.i.i13.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cursor.1.i.i.i.i.i.i.i2006, i64 -1
   store i8 %conv.i.i.i.i.i.i.i.i.i2010, ptr %incdec.ptr.i.i13.i.i.i.i.i.i.i.i, align 1, !noalias !417
@@ -16938,7 +16938,7 @@ if.then.i13.i.i.i.i.i.i.i:                        ; preds = %while.end.i8.i.i.i.
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i.i2023
 
 if.else.i11.i.i.i.i.i.i.i2020:                    ; preds = %while.end.i8.i.i.i.i.i.i.i2016
-  %2484 = trunc i32 %value.addr.0.lcssa.i9.i.i.i.i.i.i.i2018 to i8
+  %2484 = trunc nuw i32 %value.addr.0.lcssa.i9.i.i.i.i.i.i.i2018 to i8
   %conv.i.i12.i.i.i.i.i.i.i2021 = or disjoint i8 %2484, 48
   %incdec.ptr.i.i14.i.i.i.i.i.i.i.i2022 = getelementptr inbounds i8, ptr %cursor.5.i.i.i.i.i.i.i2017, i64 -1
   store i8 %conv.i.i12.i.i.i.i.i.i.i2021, ptr %incdec.ptr.i.i14.i.i.i.i.i.i.i.i2022, align 1, !noalias !417
@@ -17004,7 +17004,7 @@ if.then.i34.i.i.i.i.i.i.i:                        ; preds = %while.end.i28.i.i.i
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit52.i.i.i.i.i.i.i
 
 if.else.i31.i.i.i.i.i.i.i:                        ; preds = %while.end.i28.i.i.i.i.i.i.i
-  %2490 = trunc i32 %value.addr.0.lcssa.i29.i.i.i.i.i.i.i to i8
+  %2490 = trunc nuw i32 %value.addr.0.lcssa.i29.i.i.i.i.i.i.i to i8
   %conv.i.i32.i.i.i.i.i.i.i = or disjoint i8 %2490, 48
   %incdec.ptr.i.i14.i33.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cursor.9.i.i.i.i.i.i.i, i64 -1
   store i8 %conv.i.i32.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i14.i33.i.i.i.i.i.i.i, align 1, !noalias !417
@@ -17586,7 +17586,7 @@ if.then.i.i.i.i.i.i.i.i1789:                      ; preds = %while.end.i.i.i.i.i
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i.i1748
 
 if.else.i.i.i.i.i.i.i.i1745:                      ; preds = %while.end.i.i.i.i.i.i.i.i1741
-  %2577 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i1743 to i8
+  %2577 = trunc nuw i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i1743 to i8
   %conv.i.i.i.i.i.i.i.i.i1746 = or disjoint i8 %2577, 48
   %incdec.ptr.i.i14.i.i.i.i.i.i.i.i1747 = getelementptr inbounds i8, ptr %cursor.1.i.i.i.i.i.i.i1742, i64 -1
   store i8 %conv.i.i.i.i.i.i.i.i.i1746, ptr %incdec.ptr.i.i14.i.i.i.i.i.i.i.i1747, align 1, !noalias !433
@@ -18124,7 +18124,7 @@ call.i.i52.i.i.i.i.noexc.i:                       ; preds = %_ZN5arrow12_GLOBAL_
   call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %buffer.i.i.i.i.i.i.i), !noalias !449
   %interval.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %call.i.i52.i.i.i.i19.i to i32
   %interval.sroa.3.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %call.i.i52.i.i.i.i19.i, 32
-  %interval.sroa.3.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %interval.sroa.3.0.extract.shift.i.i.i.i.i.i.i to i32
+  %interval.sroa.3.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i64 %interval.sroa.3.0.extract.shift.i.i.i.i.i.i.i to i32
   store i8 115, ptr %incdec.ptr.i.i.i.i.i.i.i.i, align 1, !noalias !449
   store i8 109, ptr %incdec.ptr.i3.i.i.i.i.i.i.i, align 1, !noalias !449
   %cond.i.i.i.i.i.i.i.i = call noundef i32 @llvm.abs.i32(i32 %interval.sroa.3.0.extract.trunc.i.i.i.i.i.i.i, i1 false)
@@ -18169,7 +18169,7 @@ if.then.i.i.i.i.i.i.i.i1601:                      ; preds = %while.end.i.i.i.i.i
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i1590:                      ; preds = %while.end.i.i.i.i.i.i.i.i
-  %2661 = trunc i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i to i8
+  %2661 = trunc nuw i32 %value.addr.0.lcssa.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i.i.i.i.i.i = or disjoint i8 %2661, 48
   %incdec.ptr.i.i14.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cursor.1.i.i.i.i.i.i.i, i64 -1
   store i8 %conv.i.i.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i14.i.i.i.i.i.i.i.i, align 1, !noalias !449
@@ -18235,7 +18235,7 @@ if.then.i14.i.i.i.i.i.i.i:                        ; preds = %while.end.i8.i.i.i.
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit32.i.i.i.i.i.i.i
 
 if.else.i11.i.i.i.i.i.i.i:                        ; preds = %while.end.i8.i.i.i.i.i.i.i
-  %2667 = trunc i32 %value.addr.0.lcssa.i9.i.i.i.i.i.i.i to i8
+  %2667 = trunc nuw i32 %value.addr.0.lcssa.i9.i.i.i.i.i.i.i to i8
   %conv.i.i12.i.i.i.i.i.i.i = or disjoint i8 %2667, 48
   %incdec.ptr.i.i14.i13.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cursor.5.i.i.i.i.i.i.i, i64 -1
   store i8 %conv.i.i12.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i14.i13.i.i.i.i.i.i.i, align 1, !noalias !449
@@ -22188,7 +22188,7 @@ entry:
   store i32 %0, ptr %indent_.i.i.i, align 8, !noalias !655
   %sink_.i.i.i = getelementptr inbounds i8, ptr %printer.i, i64 16
   store ptr %sink, ptr %sink_.i.i.i, align 8, !noalias !655
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5PrintERKNS_5ArrayE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %printer.i, ptr noundef nonnull align 8 dereferenceable(32) %arr)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5PrintERKNS_5ArrayE(ptr noalias nonnull writeonly align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %printer.i, ptr noundef nonnull align 8 dereferenceable(32) %arr)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
@@ -22931,7 +22931,7 @@ invoke.cont6:                                     ; preds = %do.body
   %3 = load i32, ptr %column_options, align 8, !noalias !688
   store i32 %3, ptr %indent_.i.i.i, align 8, !noalias !688
   store ptr %sink, ptr %sink_.i.i.i, align 8, !noalias !688
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5PrintERKNS_5ArrayE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %printer.i, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5PrintERKNS_5ArrayE(ptr noalias nonnull writeonly align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %printer.i, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad8
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont6
@@ -25006,7 +25006,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i.i.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i
 
@@ -25160,7 +25160,7 @@ if.then.i.i.i47:                                  ; preds = %while.end.i.i.i35
   br label %while.end.loopexit97
 
 if.else.i.i.i38:                                  ; preds = %while.end.i.i.i35
-  %12 = trunc i32 %__val.addr.0.lcssa.i.i.i36 to i8
+  %12 = trunc nuw i32 %__val.addr.0.lcssa.i.i.i36 to i8
   %conv.i.i.i39 = or disjoint i8 %12, 48
   br label %while.end.loopexit97
 
@@ -25388,7 +25388,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i.i.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i
 
@@ -25538,7 +25538,7 @@ if.then.i.i.i48:                                  ; preds = %while.end.i.i.i36
   br label %while.end.loopexit94
 
 if.else.i.i.i39:                                  ; preds = %while.end.i.i.i36
-  %10 = trunc i64 %__val.addr.0.lcssa.i.i.i37 to i8
+  %10 = trunc nuw i64 %__val.addr.0.lcssa.i.i.i37 to i8
   %conv.i.i.i40 = or disjoint i8 %10, 48
   br label %while.end.loopexit94
 
@@ -29603,7 +29603,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter6IndentEv.exit: ; preds = %for.body.i181, 
           to label %invoke.cont5.i unwind label %lpad4.i
 
 invoke.cont5.i:                                   ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter6IndentEv.exit
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %call8.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call6.i, i32 noundef %15)
           to label %invoke.cont7.i unwind label %lpad4.i
 
@@ -30656,7 +30656,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   br label %_ZSt12__to_chars_iImENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSN_S4_i.exit
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i.i.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %5, 48
   br label %_ZSt12__to_chars_iImENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSN_S4_i.exit
 
@@ -30795,7 +30795,7 @@ if.then.i.i.i45:                                  ; preds = %while.end.i.i.i32
   br label %while.end.loopexit86
 
 if.else.i.i.i35:                                  ; preds = %while.end.i.i.i32
-  %10 = trunc i64 %__val.addr.0.lcssa.i.i.i33 to i8
+  %10 = trunc nuw i64 %__val.addr.0.lcssa.i.i.i33 to i8
   %conv.i.i.i36 = or disjoint i8 %10, 48
   br label %while.end.loopexit86
 

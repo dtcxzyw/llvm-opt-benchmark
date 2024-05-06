@@ -280,7 +280,7 @@ define internal i32 @dissect_ipmi_trace(ptr noundef %0, ptr noundef %1, ptr noun
 
 84:                                               ; preds = %82
   store i8 0, ptr %6, align 1
-  %85 = trunc i32 %17 to i8
+  %85 = trunc nuw nsw i32 %17 to i8
   %86 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 %85, ptr %86, align 1
   %87 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2

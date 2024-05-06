@@ -191,7 +191,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_sshkdf_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kdf_sshkdf_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %type.addr.i = alloca i8, align 1
   %digest.i = alloca [64 x i8], align 16
@@ -201,7 +201,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @kdf_sshkdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @kdf_sshkdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end
 
@@ -368,7 +368,7 @@ if.then58.i:                                      ; preds = %if.end54.i
 if.end60.i:                                       ; preds = %if.end54.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 16 %digest.i, i64 %conv55.i, i1 false)
   %cmp32.i = icmp ult i64 %add.i, %keylen
-  br i1 %cmp32.i, label %for.body.i, label %out.i, !llvm.loop !5
+  br i1 %cmp32.i, label %for.body.i, label %out.i, !llvm.loop !4
 
 out.i:                                            ; preds = %if.end60.i, %if.end49.i, %if.end45.i, %if.end41.i, %if.end37.i, %for.body.i, %if.then58.i, %if.end28.i, %if.then26.i, %if.end19.i, %if.end15.i, %if.end11.i, %if.end7.i, %if.end3.i, %if.end.i
   %ret.0.i = phi i32 [ 1, %if.then26.i ], [ 1, %if.then58.i ], [ 0, %if.end19.i ], [ 0, %if.end15.i ], [ 0, %if.end11.i ], [ 0, %if.end7.i ], [ 0, %if.end3.i ], [ 0, %if.end.i ], [ 1, %if.end28.i ], [ 1, %if.end60.i ], [ 0, %if.end49.i ], [ 0, %if.end45.i ], [ 0, %if.end41.i ], [ 0, %if.end37.i ], [ 0, %for.body.i ]
@@ -395,7 +395,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_sshkdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kdf_sshkdf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %kdftype = alloca ptr, align 8
   %0 = load ptr, ptr %vctx, align 8
@@ -596,6 +596,5 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

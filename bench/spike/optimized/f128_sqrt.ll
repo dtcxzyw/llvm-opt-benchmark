@@ -67,7 +67,7 @@ define { i64, i64 } @f128_sqrt(i64 %0, i64 %1) local_unnamed_addr #0 {
   %27 = and i64 %.0, 1
   %28 = or i64 %.sroa.8.0, 281474976710656
   %29 = lshr i64 %28, 17
-  %30 = trunc i64 %27 to i32
+  %30 = trunc nuw nsw i64 %27 to i32
   %31 = trunc i64 %29 to i32
   %32 = call i32 @softfloat_approxRecipSqrt32_1(i32 noundef %30, i32 noundef %31) #3
   %33 = zext i32 %32 to i64

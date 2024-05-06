@@ -7310,7 +7310,7 @@ define noundef i32 @_ZThn16_NK10FilterDirt13postConditionEPK7QAction(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK10FilterDirt8getClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define noundef range(i32 0, 4097) i32 @_ZNK10FilterDirt8getClassEPK7QAction(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 144
@@ -7324,7 +7324,7 @@ define noundef i32 @_ZNK10FilterDirt8getClassEPK7QAction(ptr noundef nonnull ali
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK10FilterDirt8getClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
+define noundef range(i32 0, 4097) i32 @_ZThn16_NK10FilterDirt8getClassEPK7QAction(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8

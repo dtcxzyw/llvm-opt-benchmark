@@ -274,7 +274,7 @@ define void @Txs3_ManCollectCone_rec(ptr noundef %0, ptr noundef %1) local_unnam
 Gia_ObjIsPi.exit:                                 ; preds = %5
   %7 = load ptr, ptr %0, align 8
   %8 = lshr i64 %.val, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   %10 = and i32 %9, 536870911
   %11 = getelementptr i8, ptr %7, i64 16
   %.val4.i = load i32, ptr %11, align 8
@@ -683,7 +683,7 @@ define void @Txs3_ManCollectCone(ptr noundef %0, i32 noundef %1) local_unnamed_a
 .lr.ph.preheader.i:                               ; preds = %._crit_edge.i, %.lr.ph27.preheader.i
   %indvars.iv32.i = phi i64 [ 0, %.lr.ph27.preheader.i ], [ %indvars.iv.next33.i, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph27.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %54 = trunc i64 %indvars.iv32.i to i32
+  %54 = trunc nuw nsw i64 %indvars.iv32.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -695,7 +695,7 @@ define void @Txs3_ManCollectCone(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %58 = getelementptr inbounds i32, ptr %.val86, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = icmp slt i32 %56, %59
-  %61 = trunc i64 %indvars.iv29.i to i32
+  %61 = trunc nuw nsw i64 %indvars.iv29.i to i32
   %spec.select.i = select i1 %60, i32 %61, i32 %.024.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count.i
@@ -732,7 +732,7 @@ Vec_IntSelectSort.exit:                           ; preds = %._crit_edge.i, %47
 .lr.ph.preheader.i92:                             ; preds = %._crit_edge.i102, %.lr.ph27.preheader.i89
   %indvars.iv32.i93 = phi i64 [ 0, %.lr.ph27.preheader.i89 ], [ %indvars.iv.next33.i95, %._crit_edge.i102 ]
   %indvars.iv.i94 = phi i64 [ 1, %.lr.ph27.preheader.i89 ], [ %indvars.iv.next.i103, %._crit_edge.i102 ]
-  %72 = trunc i64 %indvars.iv32.i93 to i32
+  %72 = trunc nuw nsw i64 %indvars.iv32.i93 to i32
   br label %.lr.ph.i96
 
 .lr.ph.i96:                                       ; preds = %.lr.ph.i96, %.lr.ph.preheader.i92
@@ -744,7 +744,7 @@ Vec_IntSelectSort.exit:                           ; preds = %._crit_edge.i, %47
   %76 = getelementptr inbounds i32, ptr %.val87, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = icmp sgt i32 %74, %77
-  %79 = trunc i64 %indvars.iv29.i97 to i32
+  %79 = trunc nuw nsw i64 %indvars.iv29.i97 to i32
   %spec.select.i99 = select i1 %78, i32 %79, i32 %.024.i98
   %indvars.iv.next30.i100 = add nuw nsw i64 %indvars.iv29.i97, 1
   %exitcond.not.i101 = icmp eq i64 %indvars.iv.next30.i100, %wide.trip.count.i91
@@ -875,7 +875,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .lr.ph.preheader.i108:                            ; preds = %._crit_edge.i118, %.lr.ph27.preheader.i105
   %indvars.iv32.i109 = phi i64 [ 0, %.lr.ph27.preheader.i105 ], [ %indvars.iv.next33.i111, %._crit_edge.i118 ]
   %indvars.iv.i110 = phi i64 [ 1, %.lr.ph27.preheader.i105 ], [ %indvars.iv.next.i119, %._crit_edge.i118 ]
-  %132 = trunc i64 %indvars.iv32.i109 to i32
+  %132 = trunc nuw nsw i64 %indvars.iv32.i109 to i32
   br label %.lr.ph.i112
 
 .lr.ph.i112:                                      ; preds = %.lr.ph.i112, %.lr.ph.preheader.i108
@@ -887,7 +887,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %136 = getelementptr inbounds i32, ptr %.val88, i64 %135
   %137 = load i32, ptr %136, align 4
   %138 = icmp sgt i32 %134, %137
-  %139 = trunc i64 %indvars.iv29.i113 to i32
+  %139 = trunc nuw nsw i64 %indvars.iv29.i113 to i32
   %spec.select.i115 = select i1 %138, i32 %139, i32 %.024.i114
   %indvars.iv.next30.i116 = add nuw nsw i64 %indvars.iv29.i113, 1
   %exitcond.not.i117 = icmp eq i64 %indvars.iv.next30.i116, %wide.trip.count.i107
@@ -1744,7 +1744,7 @@ Vec_IntPush.exit222:                              ; preds = %.Vec_IntGrow.exit10
 .lr.ph.preheader.i:                               ; preds = %._crit_edge.i, %.lr.ph27.preheader.i
   %indvars.iv32.i = phi i64 [ 0, %.lr.ph27.preheader.i ], [ %indvars.iv.next33.i, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph27.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %348 = trunc i64 %indvars.iv32.i to i32
+  %348 = trunc nuw nsw i64 %indvars.iv32.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1756,7 +1756,7 @@ Vec_IntPush.exit222:                              ; preds = %.Vec_IntGrow.exit10
   %352 = getelementptr inbounds i32, ptr %.val165, i64 %351
   %353 = load i32, ptr %352, align 4
   %354 = icmp slt i32 %350, %353
-  %355 = trunc i64 %indvars.iv29.i to i32
+  %355 = trunc nuw nsw i64 %indvars.iv29.i to i32
   %spec.select.i = select i1 %354, i32 %355, i32 %.024.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count.i

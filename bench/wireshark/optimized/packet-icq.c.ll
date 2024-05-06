@@ -482,7 +482,7 @@ define internal i32 @dissect_icq(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %72 = lshr i32 %55, 24
   %gep22.i.i.i = getelementptr i8, ptr %invariant.gep21.i.i.i, i64 %indvars.iv.i.i.i
   %73 = load i8, ptr %gep22.i.i.i, align 1
-  %74 = trunc i32 %72 to i8
+  %74 = trunc nuw i32 %72 to i8
   %75 = xor i8 %73, %74
   store i8 %75, ptr %gep22.i.i.i, align 1
   br label %76
@@ -1367,7 +1367,7 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
   %.5.neg240.be.in = phi i32 [ %103, %101 ], [ %92, %96 ]
   %.5181238.be = phi i32 [ %114, %101 ], [ %99, %96 ]
   %.0186236.be = phi i32 [ %113, %101 ], [ 1, %96 ]
-  %.5239.be = add i32 %.5.neg240.be.in, 1
+  %.5239.be = add nuw i32 %.5.neg240.be.in, 1
   %.5.neg240.be = xor i32 %.5.neg240.be.in, -1
   br label %91, !llvm.loop !12
 

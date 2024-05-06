@@ -63,7 +63,7 @@ if.end12:                                         ; preds = %if.else
   br i1 %or.cond.i, label %land.lhs.true2.i, label %entry.split.i
 
 entry.split.i:                                    ; preds = %if.end12
-  %call625.i = tail call fastcc i32 @rsa_multiprime_keygen(ptr noundef nonnull %rsa, i32 noundef %bits, i32 noundef %primes, ptr noundef %e_value, ptr noundef %cb), !range !4
+  %call625.i = tail call fastcc i32 @rsa_multiprime_keygen(ptr noundef nonnull %rsa, i32 noundef %bits, i32 noundef %primes, ptr noundef %e_value, ptr noundef %cb)
   br label %return
 
 land.lhs.true2.i:                                 ; preds = %if.end12
@@ -76,7 +76,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true2.i
   br i1 %cmp4.i, label %if.then.i, label %lor.lhs.false.split.i
 
 lor.lhs.false.split.i:                            ; preds = %lor.lhs.false.i
-  %call626.i = tail call fastcc i32 @rsa_multiprime_keygen(ptr noundef nonnull %rsa, i32 noundef %bits, i32 noundef 2, ptr noundef nonnull %e_value, ptr noundef %cb), !range !4
+  %call626.i = tail call fastcc i32 @rsa_multiprime_keygen(ptr noundef nonnull %rsa, i32 noundef %bits, i32 noundef 2, ptr noundef nonnull %e_value, ptr noundef %cb)
   br label %return
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %land.lhs.true2.i
@@ -93,7 +93,7 @@ declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_rsa_sp800_56b_generate_key(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rsa_multiprime_keygen(ptr nocapture noundef %rsa, i32 noundef %bits, i32 noundef %primes, ptr noundef %e_value, ptr noundef %cb) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr nocapture noundef %rsa, i32 noundef %bits, i32 noundef %primes, ptr noundef %e_value, ptr noundef %cb) unnamed_addr #0 {
 entry:
   %bitsr = alloca [5 x i32], align 16
   %cmp = icmp slt i32 %bits, 512
@@ -172,7 +172,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %cond, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
   %dirty_cnt = getelementptr inbounds i8, ptr %rsa, i64 216
@@ -323,7 +323,7 @@ if.end104:                                        ; preds = %for.body100
   %call.i195 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i, ptr noundef nonnull %call101) #3
   %inc107 = add nuw nsw i32 %i.1235, 1
   %exitcond282.not = icmp eq i32 %inc107, %smax
-  br i1 %exitcond282.not, label %if.end109, label %for.body100, !llvm.loop !7
+  br i1 %exitcond282.not, label %if.end109, label %for.body100, !llvm.loop !6
 
 if.end109:                                        ; preds = %if.end104, %if.end84
   %pinfo.1 = phi ptr [ null, %if.end84 ], [ %call101, %if.end104 ]
@@ -396,7 +396,7 @@ for.cond137:                                      ; preds = %if.end152
 
 for.body139.backedge:                             ; preds = %for.cond137, %redo.loopexit
   %j.0237.be = phi i32 [ %inc158, %for.cond137 ], [ 0, %redo.loopexit ]
-  br label %for.body139, !llvm.loop !8
+  br label %for.body139, !llvm.loop !7
 
 for.body139:                                      ; preds = %for.cond137.preheader.lr.ph, %for.body139.backedge
   %j.0237 = phi i32 [ %j.0237.be, %for.body139.backedge ], [ 0, %for.cond137.preheader.lr.ph ]
@@ -544,7 +544,7 @@ for.inc261:                                       ; preds = %if.else238, %if.end
   %i.3 = phi i32 [ %i.2252, %if.end256 ], [ 0, %if.else206 ], [ -1, %if.else238 ]
   %inc262 = add nsw i32 %i.3, 1
   %cmp116 = icmp slt i32 %inc262, %primes
-  br i1 %cmp116, label %for.body117, label %for.end263, !llvm.loop !9
+  br i1 %cmp116, label %for.body117, label %for.end263, !llvm.loop !8
 
 for.end263:                                       ; preds = %for.inc261
   %29 = load ptr, ptr %p, align 8
@@ -589,7 +589,7 @@ for.body292.preheader:                            ; preds = %for.cond290.prehead
 for.cond290:                                      ; preds = %if.end301
   %inc308 = add nuw nsw i32 %i.4255, 1
   %exitcond285.not = icmp eq i32 %inc308, %smax284
-  br i1 %exitcond285.not, label %for.end309, label %for.body292, !llvm.loop !10
+  br i1 %exitcond285.not, label %for.end309, label %for.body292, !llvm.loop !9
 
 for.body292:                                      ; preds = %for.body292.preheader, %for.cond290
   %i.4255 = phi i32 [ %inc308, %for.cond290 ], [ 2, %for.body292.preheader ]
@@ -652,7 +652,7 @@ for.body337.preheader:                            ; preds = %for.cond335.prehead
 for.cond335:                                      ; preds = %for.body337
   %inc347 = add nuw nsw i32 %i.5257, 1
   %exitcond287.not = icmp eq i32 %inc347, %smax286
-  br i1 %exitcond287.not, label %for.end348, label %for.body337, !llvm.loop !11
+  br i1 %exitcond287.not, label %for.end348, label %for.body337, !llvm.loop !10
 
 for.body337:                                      ; preds = %for.body337.preheader, %for.cond335
   %i.5257 = phi i32 [ %inc347, %for.cond335 ], [ 2, %for.body337.preheader ]
@@ -689,7 +689,7 @@ for.body363.preheader:                            ; preds = %for.cond361.prehead
 for.cond361:                                      ; preds = %for.body363
   %inc373 = add nuw nsw i32 %i.6259, 1
   %exitcond289.not = icmp eq i32 %inc373, %smax288
-  br i1 %exitcond289.not, label %err, label %for.body363, !llvm.loop !12
+  br i1 %exitcond289.not, label %err, label %for.body363, !llvm.loop !11
 
 for.body363:                                      ; preds = %for.body363.preheader, %for.cond361
   %i.6259 = phi i32 [ %inc373, %for.cond361 ], [ 2, %for.body363.preheader ]
@@ -815,12 +815,11 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

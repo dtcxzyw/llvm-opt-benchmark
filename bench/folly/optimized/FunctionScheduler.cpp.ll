@@ -1274,7 +1274,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !38
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 
@@ -2909,7 +2909,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add = add nuw nsw i64 %sub, 1
-  %div.rhs.trunc = trunc i64 %add to i32
+  %div.rhs.trunc = trunc nuw nsw i64 %add to i32
   %div47 = udiv i32 2147483645, %div.rhs.trunc
   %div.zext = zext nneg i32 %div47 to i64
   %mul = mul nuw nsw i64 %add, %div.zext
@@ -3536,7 +3536,7 @@ call2.i.noexc:                                    ; preds = %_ZNSt11unique_lockI
   %9 = load ptr, ptr %chunks_.i, align 8, !tbaa !7
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
-  %conv.i = trunc i64 %or.i to i8
+  %conv.i = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %10 = load ptr, ptr %functionsMap_, align 8
@@ -4413,7 +4413,7 @@ call2.i.noexc:                                    ; preds = %_ZNSt11unique_lockI
   %9 = load ptr, ptr %chunks_.i, align 8, !tbaa !7
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
-  %conv.i = trunc i64 %or.i to i8
+  %conv.i = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %10 = load ptr, ptr %functionsMap_, align 8
@@ -5137,7 +5137,7 @@ entry:
   %2 = load ptr, ptr %chunks_.i, align 8, !tbaa !7
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
-  %conv.i = trunc i64 %or.i to i8
+  %conv.i = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %3 = load ptr, ptr %this, align 8
@@ -5337,7 +5337,7 @@ if.then:                                          ; preds = %entry
   %6 = load ptr, ptr %chunks_.i, align 8, !tbaa !7
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
-  %conv.i = trunc i64 %or.i to i8
+  %conv.i = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %for.cond.i
@@ -5563,7 +5563,7 @@ call2.i.noexc:                                    ; preds = %if.end
   %3 = load ptr, ptr %chunks_.i, align 8, !tbaa !7
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
-  %conv.i = trunc i64 %or.i to i8
+  %conv.i = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %4 = load ptr, ptr %functionsMap_, align 8
@@ -5859,7 +5859,7 @@ call2.i.noexc:                                    ; preds = %if.end
   %3 = load ptr, ptr %chunks_.i, align 8, !tbaa !7
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
-  %conv.i = trunc i64 %or.i to i8
+  %conv.i = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %4 = load ptr, ptr %functionsMap_, align 8
@@ -6513,7 +6513,7 @@ call2.i.noexc:                                    ; preds = %if.end13
   %10 = load ptr, ptr %chunks_.i, align 8, !tbaa !7
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
-  %conv.i = trunc i64 %or.i to i8
+  %conv.i = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %11 = load ptr, ptr %functionsMap_, align 8
@@ -9295,7 +9295,7 @@ if.else11.i.i:                                    ; preds = %if.then.i
   %sub.i.i8 = add i64 %.sroa.speculated.i, -1
   %div.i.i = udiv i64 %sub.i.i8, 10
   %18 = tail call i64 @llvm.ctlz.i64(i64 %div.i.i, i1 true), !range !280
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %add.i.i.i = sub nuw nsw i32 64, %19
   %conv.i.i9 = zext nneg i32 %add.i.i.i to i64
   %shl.i.i = shl nuw nsw i64 1, %conv.i.i9
@@ -9850,7 +9850,7 @@ if.then.i19.i:                                    ; preds = %while.end.i
   unreachable
 
 invoke.cont78:                                    ; preds = %while.end.i
-  %conv4.i.i = trunc i64 %or.i to i8
+  %conv4.i.i = trunc nuw i64 %or.i to i8
   store i8 %conv4.i.i, ptr %arrayidx.i.i.i.i195, align 1, !tbaa !38
   %control_.i.i197 = getelementptr inbounds i8, ptr %add.ptr.lcssa.i, i64 14
   %29 = load i8, ptr %control_.i.i197, align 2, !tbaa !205

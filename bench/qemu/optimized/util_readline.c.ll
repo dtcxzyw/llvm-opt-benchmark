@@ -393,7 +393,7 @@ if.end9.i.thread:                                 ; preds = %for.inc.i
   br label %if.then13.i
 
 for.end.split.loop.exit.i:                        ; preds = %for.body.i
-  %23 = trunc i64 %indvars.iv.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %for.end.split.loop.exit.i, %sw.bb33
@@ -870,7 +870,7 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %arrayidx62 = getelementptr i8, ptr %29, i64 %indvars.iv
   %31 = load i8, ptr %arrayidx62, align 1
   %cmp64.not = icmp eq i8 %30, %31
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select72 = select i1 %cmp64.not, i32 %max_prefix.2105, i32 %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = sext i32 %spec.select72 to i64
@@ -949,7 +949,7 @@ if.end95:                                         ; preds = %if.else, %for.body8
   %cmp107114 = phi i1 [ %48, %if.end95.loopexit ], [ true, %if.then81 ], [ true, %for.end78 ], [ true, %for.body86.lr.ph ], [ false, %if.else ]
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %max_width.0.lcssa147, i32 80)
   %max_width.2 = tail call i32 @llvm.smax.i32(i32 %spec.store.select, i32 10)
-  %div.rhs.trunc = trunc i32 %max_width.2 to i8
+  %div.rhs.trunc = trunc nuw nsw i32 %max_width.2 to i8
   %div102 = udiv i8 80, %div.rhs.trunc
   %div.zext = zext nneg i8 %div102 to i32
   br i1 %cmp107114, label %for.body109, label %for.end128
@@ -1093,7 +1093,7 @@ if.end22:                                         ; preds = %for.body
   br i1 %cmp24, label %same_entry.loopexit, label %for.inc53
 
 same_entry.loopexit:                              ; preds = %if.end22
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   br label %same_entry
 
 same_entry:                                       ; preds = %same_entry.loopexit, %if.then5
@@ -1158,7 +1158,7 @@ if.end66:                                         ; preds = %for.body44, %if.the
   br i1 %cmp67, label %if.then69, label %if.end71
 
 if.then69.loopexit:                               ; preds = %for.body
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   br label %if.then69
 
 if.then69:                                        ; preds = %if.then69.loopexit, %if.end66

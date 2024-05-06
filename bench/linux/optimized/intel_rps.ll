@@ -4533,7 +4533,7 @@ define dso_local i32 @intel_rps_read_actual_frequency_fw(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__read_cagf(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -31, 512) i32 @__read_cagf(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -3696
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 -3672
@@ -4685,7 +4685,7 @@ define internal fastcc i32 @__read_cagf(ptr nocapture noundef readonly %0, i1 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_rps_read_punit_req_frequency(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -11993, 25551) i32 @intel_rps_read_punit_req_frequency(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -3672
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
@@ -4778,7 +4778,7 @@ define dso_local i32 @intel_rps_read_punit_req_frequency(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_rps_get_requested_frequency(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -11993, 25551) i32 @intel_rps_get_requested_frequency(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -3060
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 4
@@ -4797,7 +4797,7 @@ define dso_local i32 @intel_rps_get_requested_frequency(ptr nocapture noundef re
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @intel_rps_read_punit_req_frequency(ptr noundef %0), !range !54
+  %14 = tail call i32 @intel_rps_read_punit_req_frequency(ptr noundef %0)
   br label %62
 
 15:                                               ; preds = %9, %5, %1
@@ -4965,7 +4965,7 @@ define dso_local i32 @intel_rps_get_max_frequency(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @intel_rps_get_max_raw_freq(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 0, 85899346) i32 @intel_rps_get_max_raw_freq(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -3060
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 4
@@ -5350,7 +5350,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %39
-  %43 = tail call i32 @intel_rps_read_punit_req_frequency(ptr noundef %0), !range !54
+  %43 = tail call i32 @intel_rps_read_punit_req_frequency(ptr noundef %0)
   br label %90
 
 44:                                               ; preds = %39, %36, %16
@@ -5632,7 +5632,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br i1 %239, label %242, label %240
 
 240:                                              ; preds = %237
-  %241 = tail call i32 @intel_rps_read_punit_req_frequency(ptr noundef %0), !range !54
+  %241 = tail call i32 @intel_rps_read_punit_req_frequency(ptr noundef %0)
   br label %288
 
 242:                                              ; preds = %237, %234, %230
@@ -7296,7 +7296,7 @@ define dso_local i32 @intel_rps_get_min_frequency(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @intel_rps_get_min_raw_freq(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 0, 85899346) i32 @intel_rps_get_min_raw_freq(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -3060
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 4
@@ -7742,7 +7742,7 @@ define dso_local void @intel_rps_driver_register(ptr nocapture noundef readonly 
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !55
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !54
   store volatile ptr %3, ptr @ips_mchdev, align 8
   %8 = tail call ptr @__symbol_get(ptr noundef nonnull @.str.69) #10
   %9 = icmp eq ptr %8, null
@@ -7789,7 +7789,7 @@ define dso_local i64 @i915_read_mch_val() #0 align 16 {
 .preheader:                                       ; preds = %3, %12
   %7 = phi i32 [ %13, %12 ], [ %5, %3 ]
   %8 = add i32 %7, 1
-  %9 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %8, ptr elementtype(i32) %4, i32 %7) #10, !srcloc !56
+  %9 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %8, ptr elementtype(i32) %4, i32 %7) #10, !srcloc !55
   %10 = extractvalue { i8, i32 } %9, 0
   %11 = icmp ult i8 %10, 2
   tail call void @llvm.assume(i1 %11)
@@ -7799,7 +7799,7 @@ define dso_local i64 @i915_read_mch_val() #0 align 16 {
 12:                                               ; preds = %.preheader
   %13 = extractvalue { i8, i32 } %9, 1
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.thread, label %.preheader, !llvm.loop !57
+  br i1 %14, label %.thread, label %.preheader, !llvm.loop !56
 
 .thread:                                          ; preds = %.preheader, %12, %3
   %15 = phi i32 [ 0, %3 ], [ %7, %.preheader ], [ 0, %12 ]
@@ -8046,7 +8046,7 @@ define dso_local noundef zeroext i1 @i915_gpu_raise() #0 align 16 {
 .preheader:                                       ; preds = %3, %12
   %7 = phi i32 [ %13, %12 ], [ %5, %3 ]
   %8 = add i32 %7, 1
-  %9 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %8, ptr elementtype(i32) %4, i32 %7) #10, !srcloc !56
+  %9 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %8, ptr elementtype(i32) %4, i32 %7) #10, !srcloc !55
   %10 = extractvalue { i8, i32 } %9, 0
   %11 = icmp ult i8 %10, 2
   tail call void @llvm.assume(i1 %11)
@@ -8056,7 +8056,7 @@ define dso_local noundef zeroext i1 @i915_gpu_raise() #0 align 16 {
 12:                                               ; preds = %.preheader
   %13 = extractvalue { i8, i32 } %9, 1
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.thread, label %.preheader, !llvm.loop !57
+  br i1 %14, label %.thread, label %.preheader, !llvm.loop !56
 
 .thread:                                          ; preds = %.preheader, %12, %3
   %15 = phi i32 [ 0, %3 ], [ %7, %.preheader ], [ 0, %12 ]
@@ -8120,7 +8120,7 @@ define dso_local noundef zeroext i1 @i915_gpu_lower() #0 align 16 {
 .preheader:                                       ; preds = %3, %12
   %7 = phi i32 [ %13, %12 ], [ %5, %3 ]
   %8 = add i32 %7, 1
-  %9 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %8, ptr elementtype(i32) %4, i32 %7) #10, !srcloc !56
+  %9 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %8, ptr elementtype(i32) %4, i32 %7) #10, !srcloc !55
   %10 = extractvalue { i8, i32 } %9, 0
   %11 = icmp ult i8 %10, 2
   tail call void @llvm.assume(i1 %11)
@@ -8130,7 +8130,7 @@ define dso_local noundef zeroext i1 @i915_gpu_lower() #0 align 16 {
 12:                                               ; preds = %.preheader
   %13 = extractvalue { i8, i32 } %9, 1
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.thread, label %.preheader, !llvm.loop !57
+  br i1 %14, label %.thread, label %.preheader, !llvm.loop !56
 
 .thread:                                          ; preds = %.preheader, %12, %3
   %15 = phi i32 [ 0, %3 ], [ %7, %.preheader ], [ 0, %12 ]
@@ -8194,7 +8194,7 @@ define dso_local zeroext i1 @i915_gpu_busy() #0 align 16 {
 .preheader:                                       ; preds = %3, %12
   %7 = phi i32 [ %13, %12 ], [ %5, %3 ]
   %8 = add i32 %7, 1
-  %9 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %8, ptr elementtype(i32) %4, i32 %7) #10, !srcloc !56
+  %9 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %8, ptr elementtype(i32) %4, i32 %7) #10, !srcloc !55
   %10 = extractvalue { i8, i32 } %9, 0
   %11 = icmp ult i8 %10, 2
   tail call void @llvm.assume(i1 %11)
@@ -8204,7 +8204,7 @@ define dso_local zeroext i1 @i915_gpu_busy() #0 align 16 {
 12:                                               ; preds = %.preheader
   %13 = extractvalue { i8, i32 } %9, 1
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.thread, label %.preheader, !llvm.loop !57
+  br i1 %14, label %.thread, label %.preheader, !llvm.loop !56
 
 .thread:                                          ; preds = %.preheader, %12, %3
   %15 = phi i32 [ 0, %3 ], [ %7, %.preheader ], [ 0, %12 ]
@@ -8256,7 +8256,7 @@ define dso_local noundef zeroext i1 @i915_gpu_turbo_disable() #0 align 16 {
 .preheader:                                       ; preds = %3, %12
   %7 = phi i32 [ %13, %12 ], [ %5, %3 ]
   %8 = add i32 %7, 1
-  %9 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %8, ptr elementtype(i32) %4, i32 %7) #10, !srcloc !56
+  %9 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %8, ptr elementtype(i32) %4, i32 %7) #10, !srcloc !55
   %10 = extractvalue { i8, i32 } %9, 0
   %11 = icmp ult i8 %10, 2
   tail call void @llvm.assume(i1 %11)
@@ -8266,7 +8266,7 @@ define dso_local noundef zeroext i1 @i915_gpu_turbo_disable() #0 align 16 {
 12:                                               ; preds = %.preheader
   %13 = extractvalue { i8, i32 } %9, 1
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.thread, label %.preheader, !llvm.loop !57
+  br i1 %14, label %.thread, label %.preheader, !llvm.loop !56
 
 .thread:                                          ; preds = %.preheader, %12, %3
   %15 = phi i32 [ 0, %3 ], [ %7, %.preheader ], [ 0, %12 ]
@@ -8572,7 +8572,6 @@ attributes #11 = { cold nounwind }
 !51 = distinct !{!51, !9, !10}
 !52 = !{i32 -255, i32 512}
 !53 = !{i64 2155451069}
-!54 = !{i32 -11993, i32 25551}
-!55 = !{i64 2159743008}
-!56 = !{i64 2148406242, i64 2148406281, i64 2148406302, i64 2148406339, i64 2148406362, i64 2148406371, i64 2148406669}
-!57 = distinct !{!57, !9, !10}
+!54 = !{i64 2159743008}
+!55 = !{i64 2148406242, i64 2148406281, i64 2148406302, i64 2148406339, i64 2148406362, i64 2148406371, i64 2148406669}
+!56 = distinct !{!56, !9, !10}

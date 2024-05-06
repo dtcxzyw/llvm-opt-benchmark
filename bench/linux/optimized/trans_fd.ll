@@ -776,7 +776,7 @@ define internal i32 @p9_fd_request(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @p9_fd_cancel(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @p9_fd_cancel(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 44
@@ -885,7 +885,7 @@ define internal noundef i32 @p9_fd_show_options(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @parse_opts(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @parse_opts(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
   %3 = alloca [3 x %struct.substring_t], align 16
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -1950,7 +1950,7 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @p9_fd_create(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal noundef range(i32 -92, 1) i32 @p9_fd_create(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = alloca %struct.p9_fd_opts, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !14

@@ -36,7 +36,7 @@ $__clang_call_terminate = comdat any
 @mmbit_root_offset_from_level = external local_unnamed_addr constant [7 x i32], align 16
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3ue210mmbit_sizeEj(i32 noundef %total_bits) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, -7) i32 @_ZN3ue210mmbit_sizeEj(i32 noundef %total_bits) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp ugt i32 %total_bits, -2147483648
   br i1 %cmp, label %if.then, label %if.end
@@ -1063,7 +1063,7 @@ invoke.cont54.i:                                  ; preds = %invoke.cont54.i, %i
   %add.ptr.i160.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %.pre126, i64 %indvars.iv.i
   %93 = load i64, ptr %add.ptr.i160.i, align 8
   %94 = call i64 @llvm.ctpop.i64(i64 %93), !range !13
-  %conv.i.i = trunc i64 %94 to i32
+  %conv.i.i = trunc nuw nsw i64 %94 to i32
   %add56.i = add i32 %population.0216.i, %conv.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1109,7 +1109,7 @@ invoke.cont82.i:                                  ; preds = %for.cond.cleanup34.
   %add.ptr.i170.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %89, i64 %i67.0228.i
   %99 = load i64, ptr %add.ptr.i170.i, align 8
   %100 = call i64 @llvm.ctpop.i64(i64 %99), !range !13
-  %conv.i142.i = trunc i64 %100 to i32
+  %conv.i142.i = trunc nuw nsw i64 %100 to i32
   %add84.i = add i32 %population66.0227.i, %conv.i142.i
   %inc86.i = add nuw i64 %i67.0228.i, 1
   %exitcond.not = icmp eq i64 %inc86.i, %sub.ptr.div.i165225.i
@@ -1206,7 +1206,7 @@ for.body:                                         ; preds = %_ZN3ue2L11add_scatt
   br i1 %cmp.not.i242, label %if.end.i244, label %_ZL14get_flat_masksjjj.exit261
 
 if.end.i244:                                      ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   %sub.i245 = sub i32 %end, %4
   %cmp1.i246 = icmp ult i32 %sub.i245, 64
   %sh_prom.i282 = zext nneg i32 %sub.i245 to i64

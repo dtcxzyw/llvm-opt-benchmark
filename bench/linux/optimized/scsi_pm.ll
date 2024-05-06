@@ -14,7 +14,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_scsi_autopm_
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_scsi_autopm_get_device426, ptr @__UNIQUE_ID___addressable_scsi_autopm_put_device427], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @scsi_autopm_get_device(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @scsi_autopm_get_device(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 440
   %3 = tail call i32 @__pm_runtime_resume(ptr noundef %2, i32 noundef 4) #2
   %4 = icmp slt i32 %3, 0
@@ -53,7 +53,7 @@ define dso_local void @scsi_autopm_put_target(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @scsi_autopm_get_host(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @scsi_autopm_get_host(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 592
   %3 = tail call i32 @__pm_runtime_resume(ptr noundef %2, i32 noundef 4) #2
   %4 = icmp slt i32 %3, 0
@@ -482,7 +482,7 @@ define internal i32 @scsi_runtime_resume(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @scsi_runtime_idle(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -16, 1) i32 @scsi_runtime_idle(ptr noundef %0) #0 align 16 {
   %2 = tail call i32 @scsi_is_sdev_device(ptr noundef %0) #2
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %8, label %4

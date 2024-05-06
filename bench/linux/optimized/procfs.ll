@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @lockd_remove_procfs], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @lockd_create_procfs() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @lockd_create_procfs() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call ptr @proc_mkdir(ptr noundef nonnull @.str, ptr noundef null) #4
   %2 = icmp eq ptr %1, null
   br i1 %2, label %7, label %3

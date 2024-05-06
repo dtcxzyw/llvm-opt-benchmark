@@ -113,7 +113,7 @@ declare void @__redisSetError(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @redisNetWrite(ptr noundef %c) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @redisNetWrite(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %fd = getelementptr inbounds i8, ptr %c, i64 140
   %0 = load i32, ptr %fd, align 4
@@ -193,7 +193,7 @@ return:                                           ; preds = %if.then, %hi_sdslen
 declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisKeepAlive(ptr noundef %c, i32 noundef %interval) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisKeepAlive(ptr noundef %c, i32 noundef %interval) local_unnamed_addr #0 {
 entry:
   %val = alloca i32, align 4
   store i32 1, ptr %val, align 4
@@ -241,7 +241,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisSetTcpNoDelay(ptr noundef %c) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisSetTcpNoDelay(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [128 x i8], align 16
   %yes = alloca i32, align 4
@@ -279,7 +279,7 @@ return:                                           ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisContextSetTcpUserTimeout(ptr noundef %c, i32 noundef %timeout) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextSetTcpUserTimeout(ptr noundef %c, i32 noundef %timeout) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [128 x i8], align 16
   %timeout.addr = alloca i32, align 4
@@ -317,7 +317,7 @@ return:                                           ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisCheckConnectDone(ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly %completed) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisCheckConnectDone(ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly %completed) local_unnamed_addr #0 {
 entry:
   %so_error = alloca i32, align 4
   %optlen = alloca i32, align 4
@@ -381,7 +381,7 @@ declare i32 @connect(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisCheckSocketError(ptr noundef %c) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisCheckSocketError(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %buf.i3 = alloca [128 x i8], align 16
   %buf.i = alloca [128 x i8], align 16
@@ -436,7 +436,7 @@ return:                                           ; preds = %if.end4, %if.then5,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisContextSetTimeout(ptr noundef %c, i64 %tv.coerce0, i64 %tv.coerce1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextSetTimeout(ptr noundef %c, i64 %tv.coerce0, i64 %tv.coerce1) local_unnamed_addr #0 {
 entry:
   %buf.i9 = alloca [128 x i8], align 16
   %buf.i = alloca [128 x i8], align 16
@@ -462,7 +462,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.end9.i:                                        ; preds = %if.then3.i, %if.end.i
   %3 = phi ptr [ %call.i.i, %if.then3.i ], [ %1, %if.end.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %tv, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %tv, i64 16, i1 false)
   br label %if.end
 
 if.then:                                          ; preds = %if.then3.i
@@ -516,7 +516,7 @@ return:                                           ; preds = %if.end5, %if.then11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisContextUpdateCommandTimeout(ptr nocapture noundef %c, ptr noundef readonly %timeout) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextUpdateCommandTimeout(ptr nocapture noundef %c, ptr noundef readonly %timeout) local_unnamed_addr #0 {
 entry:
   %command_timeout = getelementptr inbounds i8, ptr %c, i64 184
   %0 = load ptr, ptr %command_timeout, align 8
@@ -545,7 +545,7 @@ return:                                           ; preds = %if.then3, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisContextUpdateConnectTimeout(ptr nocapture noundef %c, ptr noundef readonly %timeout) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextUpdateConnectTimeout(ptr nocapture noundef %c, ptr noundef readonly %timeout) local_unnamed_addr #0 {
 entry:
   %connect_timeout = getelementptr inbounds i8, ptr %c, i64 176
   %0 = load ptr, ptr %connect_timeout, align 8
@@ -577,14 +577,14 @@ return:                                           ; preds = %if.then3, %entry, %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisContextConnectTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextConnectTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @_redisContextConnectTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout, ptr noundef null), !range !4
+  %call = tail call fastcc i32 @_redisContextConnectTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_redisContextConnectTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef readonly %timeout, ptr noundef %source_addr) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_redisContextConnectTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef readonly %timeout, ptr noundef %source_addr) unnamed_addr #0 {
 entry:
   %n = alloca i32, align 4
   %_port = alloca [6 x i8], align 1
@@ -640,7 +640,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.end9.i:                                        ; preds = %if.then3.i, %if.end.i
   %6 = phi ptr [ %call.i.i, %if.then3.i ], [ %4, %if.end.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %timeout, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %timeout, i64 16, i1 false)
   %.pre = load ptr, ptr %connect_timeout, align 8
   br label %if.end20
 
@@ -783,7 +783,7 @@ if.end89:                                         ; preds = %if.end89.lr.ph, %re
   %call86129 = phi i32 [ %call86126, %if.end89.lr.ph ], [ %call86, %redisNetClose.exit96 ]
   %reuses.1128 = phi i32 [ %reuses.0132, %if.end89.lr.ph ], [ %inc, %redisNetClose.exit96 ]
   store i32 %call86129, ptr %fd, align 4
-  %call90 = call fastcc i32 @redisSetBlocking(ptr noundef %c, i32 noundef 0), !range !4
+  %call90 = call fastcc i32 @redisSetBlocking(ptr noundef %c, i32 noundef 0)
   %cmp91.not = icmp eq i32 %call90, 0
   br i1 %cmp91.not, label %if.end93, label %end
 
@@ -934,12 +934,12 @@ redisNetClose.exit96:                             ; preds = %land.lhs.true.i90, 
   br i1 %cmp87, label %for.inc198, label %if.end89
 
 wait_for_ready:                                   ; preds = %if.else164, %if.then160
-  %call176 = call fastcc i32 @redisContextWaitReady(ptr noundef nonnull %c, i64 noundef %storemerge.i.ph), !range !4
+  %call176 = call fastcc i32 @redisContextWaitReady(ptr noundef nonnull %c, i64 noundef %storemerge.i.ph)
   %cmp177.not = icmp eq i32 %call176, 0
   br i1 %cmp177.not, label %if.end180, label %end
 
 if.end180:                                        ; preds = %wait_for_ready
-  %call181 = call i32 @redisSetTcpNoDelay(ptr noundef nonnull %c), !range !4
+  %call181 = call i32 @redisSetTcpNoDelay(ptr noundef nonnull %c)
   %cmp182.not = icmp eq i32 %call181, 0
   br i1 %cmp182.not, label %if.end189, label %end
 
@@ -948,7 +948,7 @@ if.end189:                                        ; preds = %if.end139, %if.end1
   br i1 %tobool190.not, label %if.end196, label %land.lhs.true191
 
 land.lhs.true191:                                 ; preds = %if.end189
-  %call192 = call fastcc i32 @redisSetBlocking(ptr noundef nonnull %c, i32 noundef 1), !range !4
+  %call192 = call fastcc i32 @redisSetBlocking(ptr noundef nonnull %c, i32 noundef 1)
   %cmp193.not = icmp eq i32 %call192, 0
   br i1 %cmp193.not, label %if.end196, label %end
 
@@ -993,14 +993,14 @@ return:                                           ; preds = %end, %if.then212, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisContextConnectBindTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout, ptr noundef %source_addr) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextConnectBindTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout, ptr noundef %source_addr) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @_redisContextConnectTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout, ptr noundef %source_addr), !range !4
+  %call = tail call fastcc i32 @_redisContextConnectTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout, ptr noundef %source_addr)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisContextConnectUnix(ptr noundef %c, ptr noundef %path, ptr noundef readonly %timeout) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextConnectUnix(ptr noundef %c, ptr noundef %path, ptr noundef readonly %timeout) local_unnamed_addr #0 {
 entry:
   %buf.i.i = alloca [128 x i8], align 16
   %flags = getelementptr inbounds i8, ptr %c, i64 144
@@ -1023,7 +1023,7 @@ redisCreateSocket.exit.thread:                    ; preds = %entry
 if.end:                                           ; preds = %entry
   %fd.i = getelementptr inbounds i8, ptr %c, i64 140
   store i32 %call.i, ptr %fd.i, align 4
-  %call1 = tail call fastcc i32 @redisSetBlocking(ptr noundef nonnull %c, i32 noundef 0), !range !4
+  %call1 = tail call fastcc i32 @redisSetBlocking(ptr noundef nonnull %c, i32 noundef 0)
   %cmp2.not = icmp eq i32 %call1, 0
   br i1 %cmp2.not, label %if.end4, label %return
 
@@ -1067,7 +1067,7 @@ if.then3.i:                                       ; preds = %if.end.i31
 
 if.end9.i:                                        ; preds = %if.then3.i, %if.end.i31
   %7 = phi ptr [ %call.i.i33, %if.then3.i ], [ %5, %if.end.i31 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %timeout, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %timeout, i64 16, i1 false)
   %.pre = load ptr, ptr %connect_timeout, align 8
   br label %if.end25
 
@@ -1144,7 +1144,7 @@ if.then42:                                        ; preds = %if.end38
   br i1 %or.cond, label %if.else47, label %if.end59
 
 if.else47:                                        ; preds = %if.then42
-  %call48 = tail call fastcc i32 @redisContextWaitReady(ptr noundef nonnull %c, i64 noundef %storemerge.i.ph), !range !4
+  %call48 = tail call fastcc i32 @redisContextWaitReady(ptr noundef nonnull %c, i64 noundef %storemerge.i.ph)
   %cmp49.not = icmp eq i32 %call48, 0
   br i1 %cmp49.not, label %if.end53, label %return
 
@@ -1153,7 +1153,7 @@ if.end53:                                         ; preds = %if.else47, %if.end3
   br i1 %tobool54.not, label %if.end59, label %land.lhs.true55
 
 land.lhs.true55:                                  ; preds = %if.end53
-  %call56 = tail call fastcc i32 @redisSetBlocking(ptr noundef nonnull %c, i32 noundef 1), !range !4
+  %call56 = tail call fastcc i32 @redisSetBlocking(ptr noundef nonnull %c, i32 noundef 1)
   %cmp57.not = icmp eq i32 %call56, 0
   br i1 %cmp57.not, label %if.end59, label %return
 
@@ -1173,7 +1173,7 @@ return:                                           ; preds = %redisContextTimeout
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @redisSetBlocking(ptr noundef %c, i32 noundef %blocking) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @redisSetBlocking(ptr noundef %c, i32 noundef %blocking) unnamed_addr #0 {
 entry:
   %buf.i9 = alloca [128 x i8], align 16
   %buf.i = alloca [128 x i8], align 16
@@ -1240,7 +1240,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @redisContextWaitReady(ptr noundef %c, i64 noundef %msec) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @redisContextWaitReady(ptr noundef %c, i64 noundef %msec) unnamed_addr #0 {
 entry:
   %buf.i25 = alloca [128 x i8], align 16
   %so_error.i = alloca i32, align 4
@@ -1344,7 +1344,7 @@ if.end17.i:                                       ; preds = %if.end14.i, %if.end
 redisCheckConnectDone.exit.thread:                ; preds = %if.end17.i, %if.then5.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %so_error.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %optlen.i)
-  %call18 = call i32 @redisCheckSocketError(ptr noundef nonnull %c), !range !4
+  %call18 = call i32 @redisCheckSocketError(ptr noundef nonnull %c)
   br label %return
 
 redisCheckConnectDone.exit:                       ; preds = %if.end17.i, %if.end11, %if.then10.i
@@ -1430,4 +1430,3 @@ attributes #11 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

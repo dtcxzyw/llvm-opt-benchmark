@@ -92,7 +92,7 @@ define ptr @cs_transpose(ptr noundef readonly %0, i32 noundef %1) local_unnamed_
 
 .lr.ph63.us.preheader:                            ; preds = %.lr.ph66.split.us
   %55 = sext i32 %51 to i64
-  %56 = trunc i64 %indvars.iv79 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv79 to i32
   br label %.lr.ph63.us
 
 .loopexit.us:                                     ; preds = %.lr.ph63.us, %.lr.ph66.split.us
@@ -134,7 +134,7 @@ define ptr @cs_transpose(ptr noundef readonly %0, i32 noundef %1) local_unnamed_
 
 .lr.ph63.preheader:                               ; preds = %.lr.ph66.split
   %74 = sext i32 %70 to i64
-  %75 = trunc i64 %indvars.iv73 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv73 to i32
   br label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %.lr.ph63

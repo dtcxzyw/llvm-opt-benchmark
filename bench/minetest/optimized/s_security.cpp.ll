@@ -857,7 +857,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN17ScriptApiSecurity9sl_g_loadEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN17ScriptApiSecurity9sl_g_loadEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %len = alloca i64, align 8
@@ -1154,7 +1154,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN17ScriptApiSecurity13sl_g_loadfileEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN17ScriptApiSecurity13sl_g_loadfileEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %path = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1630,7 +1630,7 @@ unreachable:                                      ; preds = %invoke.cont51
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN17ScriptApiSecurity15sl_g_loadstringEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN17ScriptApiSecurity15sl_g_loadstringEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %size = alloca i64, align 8

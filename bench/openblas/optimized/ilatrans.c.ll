@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [2 x i8] c"C\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ilatrans_(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 114) i32 @ilatrans_(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #2
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %11

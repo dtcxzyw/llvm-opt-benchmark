@@ -453,7 +453,7 @@ declare dso_local void @security_release_secctx(ptr noundef, i32 noundef) local_
 declare dso_local void @audit_log_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netlbl_unlhsh_remove(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlhsh_remove(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 16 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -776,7 +776,7 @@ define dso_local i32 @netlbl_unlabel_genl_init() local_unnamed_addr #3 section "
 declare dso_local i32 @genl_register_family(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @netlbl_unlabel_init(i32 noundef %0) local_unnamed_addr #3 section ".init.text" align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlabel_init(i32 noundef %0) local_unnamed_addr #3 section ".init.text" align 16 {
   %2 = icmp eq i32 %0, 0
   br i1 %2, label %24, label %3
 
@@ -834,7 +834,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @register_netdevice_notifier(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netlbl_unlabel_getattr(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -42, 1) i32 @netlbl_unlabel_getattr(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #10
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8
@@ -1337,7 +1337,7 @@ define internal i32 @netlbl_unlabel_staticadd(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @netlbl_unlabel_staticremove(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @netlbl_unlabel_staticremove(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.netlbl_audit, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !5
@@ -1444,7 +1444,7 @@ define internal noundef i32 @netlbl_unlabel_staticremove(ptr nocapture readnone 
   %70 = getelementptr i8, ptr %40, i64 48
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %71, i64 4
-  %73 = call i32 @netlbl_unlhsh_remove(ptr noundef nonnull @init_net, ptr noundef %72, ptr noundef %68, ptr noundef %67, i32 noundef %69, ptr noundef nonnull %3), !range !23
+  %73 = call i32 @netlbl_unlhsh_remove(ptr noundef nonnull @init_net, ptr noundef %72, ptr noundef %68, ptr noundef %67, i32 noundef %69, ptr noundef nonnull %3)
   br label %.thread
 
 .thread:                                          ; preds = %52, %63, %55, %._crit_edge, %28, %2
@@ -1579,7 +1579,7 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
 .loopexit27:                                      ; preds = %80, %.preheader26, %73
   %83 = phi ptr [ %74, %73 ], [ %81, %80 ], [ %76, %.preheader26 ]
   %84 = icmp eq ptr %83, %51
-  br i1 %84, label %.loopexit35, label %.preheader34, !llvm.loop !24
+  br i1 %84, label %.loopexit35, label %.preheader34, !llvm.loop !23
 
 .loopexit35:                                      ; preds = %.loopexit27, %.loopexit37
   %85 = getelementptr i8, ptr %39, i64 -24
@@ -1641,7 +1641,7 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
 .loopexit:                                        ; preds = %114, %.preheader, %107
   %117 = phi ptr [ %108, %107 ], [ %115, %114 ], [ %110, %.preheader ]
   %118 = icmp eq ptr %117, %85
-  br i1 %118, label %.loopexit30, label %.preheader29, !llvm.loop !25
+  br i1 %118, label %.loopexit30, label %.preheader29, !llvm.loop !24
 
 .loopexit30:                                      ; preds = %.loopexit, %.loopexit32, %47, %.preheader39
   %119 = phi i32 [ %42, %47 ], [ %42, %.preheader39 ], [ 0, %.loopexit32 ], [ 0, %.loopexit ]
@@ -1649,7 +1649,7 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
   %121 = phi i32 [ %40, %47 ], [ %40, %.preheader39 ], [ 0, %.loopexit32 ], [ 0, %.loopexit ]
   %122 = load volatile ptr, ptr %39, align 8
   %123 = icmp eq ptr %122, %36
-  br i1 %123, label %.loopexit40, label %.preheader39, !llvm.loop !26
+  br i1 %123, label %.loopexit40, label %.preheader39, !llvm.loop !25
 
 .loopexit40:                                      ; preds = %.loopexit30, %29
   %124 = phi i32 [ %33, %29 ], [ %119, %.loopexit30 ]
@@ -1660,7 +1660,7 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
   %129 = load i32, ptr %128, align 8
   %130 = zext i32 %129 to i64
   %131 = icmp ult i64 %126, %130
-  br i1 %131, label %29, label %.loopexit41, !llvm.loop !27
+  br i1 %131, label %29, label %.loopexit41, !llvm.loop !26
 
 .loopexit41:                                      ; preds = %.loopexit40, %105, %71, %2
   %132 = phi i64 [ %30, %71 ], [ %30, %105 ], [ %6, %2 ], [ %126, %.loopexit40 ]
@@ -1811,7 +1811,7 @@ define internal i32 @netlbl_unlabel_staticadddef(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @netlbl_unlabel_staticremovedef(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @netlbl_unlabel_staticremovedef(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.netlbl_audit, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !5
@@ -1909,7 +1909,7 @@ define internal noundef i32 @netlbl_unlabel_staticremovedef(ptr nocapture readno
   %63 = getelementptr i8, ptr %.pn3, i64 4
   %64 = getelementptr i8, ptr %.pn, i64 4
   %65 = zext i16 %62 to i32
-  %66 = call i32 @netlbl_unlhsh_remove(ptr noundef nonnull @init_net, ptr noundef null, ptr noundef %64, ptr noundef %63, i32 noundef %65, ptr noundef nonnull %3), !range !23
+  %66 = call i32 @netlbl_unlhsh_remove(ptr noundef nonnull @init_net, ptr noundef null, ptr noundef %64, ptr noundef %63, i32 noundef %65, ptr noundef nonnull %3)
   br label %.thread
 
 .thread:                                          ; preds = %48, %59, %51, %._crit_edge, %24
@@ -2006,7 +2006,7 @@ define internal i32 @netlbl_unlabel_staticlistdef(ptr noundef %0, ptr noundef %1
 .loopexit26:                                      ; preds = %50, %.preheader25, %43
   %53 = phi ptr [ %44, %43 ], [ %51, %50 ], [ %46, %.preheader25 ]
   %54 = icmp eq ptr %53, %18
-  br i1 %54, label %.loopexit29, label %32, !llvm.loop !28
+  br i1 %54, label %.loopexit29, label %32, !llvm.loop !27
 
 .loopexit29:                                      ; preds = %.loopexit26, %.loopexit31
   %55 = phi i32 [ 0, %.loopexit31 ], [ %35, %.loopexit26 ]
@@ -2071,7 +2071,7 @@ define internal i32 @netlbl_unlabel_staticlistdef(ptr noundef %0, ptr noundef %1
 .loopexit:                                        ; preds = %88, %.preheader, %81
   %91 = phi ptr [ %82, %81 ], [ %89, %88 ], [ %84, %.preheader ]
   %92 = icmp eq ptr %91, %56
-  br i1 %92, label %.loopexit._crit_edge, label %70, !llvm.loop !29
+  br i1 %92, label %.loopexit._crit_edge, label %70, !llvm.loop !28
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
   %.pre = zext i32 %73 to i64
@@ -2093,7 +2093,7 @@ define internal i32 @netlbl_unlabel_staticlistdef(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @netlbl_unlabel_accept(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @netlbl_unlabel_accept(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.netlbl_audit, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !5
@@ -2334,12 +2334,12 @@ define internal fastcc i32 @netlbl_unlabel_staticlist_gen(i32 noundef %0, ptr no
   %92 = getelementptr inbounds i8, ptr %88, i64 200
   %93 = load ptr, ptr %92, align 8
   %94 = icmp ugt ptr %93, %89
-  br i1 %94, label %95, label %96, !prof !30
+  br i1 %94, label %95, label %96, !prof !29
 
 95:                                               ; preds = %91
-  call void asm sideeffect "536: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 536b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 536) #10, !srcloc !31
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1062, i32 2305, i64 12) #10, !srcloc !32
-  call void asm sideeffect "537: nop\0A\09.pushsection .discard.instr_end\0A\09.long 537b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 537) #10, !srcloc !33
+  call void asm sideeffect "536: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 536b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 536) #10, !srcloc !30
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1062, i32 2305, i64 12) #10, !srcloc !31
+  call void asm sideeffect "537: nop\0A\09.pushsection .discard.instr_end\0A\09.long 537b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 537) #10, !srcloc !32
   %.pre = load ptr, ptr %92, align 8
   br label %96
 
@@ -2508,14 +2508,13 @@ attributes #13 = { nounwind memory(none) }
 !20 = distinct !{!20, !7, !8}
 !21 = distinct !{!21, !7, !8}
 !22 = !{i64 2148655608}
-!23 = !{i32 -22, i32 1}
+!23 = distinct !{!23, !7, !8}
 !24 = distinct !{!24, !7, !8}
 !25 = distinct !{!25, !7, !8}
 !26 = distinct !{!26, !7, !8}
 !27 = distinct !{!27, !7, !8}
 !28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = !{!"branch_weights", i32 1, i32 2000}
-!31 = !{i64 2157309018, i64 2157308827, i64 2157308879, i64 2157308925, i64 2157308953}
-!32 = !{i64 2157309092, i64 2157309121, i64 2157309167, i64 2157309225, i64 2157309279, i64 2157309333, i64 2157309388, i64 2157309419, i64 2157309727, i64 2157309733, i64 2157309780, i64 2157309803, i64 2157309829}
-!33 = !{i64 2157310284, i64 2157310095, i64 2157310145, i64 2157310191, i64 2157310219}
+!29 = !{!"branch_weights", i32 1, i32 2000}
+!30 = !{i64 2157309018, i64 2157308827, i64 2157308879, i64 2157308925, i64 2157308953}
+!31 = !{i64 2157309092, i64 2157309121, i64 2157309167, i64 2157309225, i64 2157309279, i64 2157309333, i64 2157309388, i64 2157309419, i64 2157309727, i64 2157309733, i64 2157309780, i64 2157309803, i64 2157309829}
+!32 = !{i64 2157310284, i64 2157310095, i64 2157310145, i64 2157310191, i64 2157310219}

@@ -762,7 +762,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString8
 declare void @_ZN6icu_759UVector327setSizeEi(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_759BytesTrie8Iterator7hasNextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759BytesTrie8Iterator7hasNextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #7 align 2 {
 entry:
   %pos_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %pos_, align 8
@@ -784,7 +784,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_759BytesTrie8Iterator4nextER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_759BytesTrie8Iterator4nextER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -936,8 +936,8 @@ if.then4.i:                                       ; preds = %if.else.i
 if.else5.i:                                       ; preds = %if.else.i
   %and.i = and i32 %shr36, 1
   %22 = zext nneg i32 %and.i to i64
-  %23 = getelementptr i8, ptr %incdec.ptr31.lcssa, i64 %22
-  %add.ptr6.i = getelementptr i8, ptr %23, i64 3
+  %23 = getelementptr inbounds i8, ptr %incdec.ptr31.lcssa, i64 %22
+  %add.ptr6.i = getelementptr inbounds i8, ptr %23, i64 3
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else5.i, %if.then4.i, %if.then2.i, %if.else46, %if.then33, %land.lhs.true
@@ -1073,8 +1073,8 @@ if.then5.i:                                       ; preds = %if.else.i
 if.else6.i:                                       ; preds = %if.else.i
   %2 = and i8 %1, 1
   %3 = zext nneg i8 %2 to i64
-  %4 = getelementptr i8, ptr %incdec.ptr.i, i64 %3
-  %add.ptr7.i = getelementptr i8, ptr %4, i64 3
+  %4 = getelementptr inbounds i8, ptr %incdec.ptr.i, i64 %3
+  %add.ptr7.i = getelementptr inbounds i8, ptr %4, i64 3
   br label %_ZN6icu_759BytesTrie9skipDeltaEPKh.exit
 
 _ZN6icu_759BytesTrie9skipDeltaEPKh.exit:          ; preds = %while.body, %if.then2.i, %if.then5.i, %if.else6.i
@@ -1193,8 +1193,8 @@ if.then4.i:                                       ; preds = %if.else.i42
 if.else5.i:                                       ; preds = %if.else.i42
   %and.i = and i32 %shr10, 1
   %22 = zext nneg i32 %and.i to i64
-  %23 = getelementptr i8, ptr %incdec.ptr7, i64 %22
-  %add.ptr6.i = getelementptr i8, ptr %23, i64 3
+  %23 = getelementptr inbounds i8, ptr %incdec.ptr7, i64 %22
+  %add.ptr6.i = getelementptr inbounds i8, ptr %23, i64 3
   br label %_ZN6icu_759BytesTrie9skipValueEPKhi.exit
 
 _ZN6icu_759BytesTrie9skipValueEPKhi.exit:         ; preds = %while.end, %if.then2.i44, %if.then4.i, %if.else5.i

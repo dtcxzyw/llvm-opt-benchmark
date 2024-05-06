@@ -277,7 +277,7 @@ return:                                           ; preds = %if.then26, %if.end1
 declare i32 @wc_Hash(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wc_SignatureDerEncode(i32 noundef %hash_type, ptr noundef %hash_data, i32 noundef %hash_len, ptr nocapture noundef writeonly %hash_enc_len) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @wc_SignatureDerEncode(i32 noundef %hash_type, ptr noundef %hash_data, i32 noundef %hash_len, ptr nocapture noundef writeonly %hash_enc_len) unnamed_addr #0 {
 entry:
   %call = tail call i32 @wc_HashGetOID(i32 noundef %hash_type) #6
   %cmp = icmp slt i32 %call, 0
@@ -502,7 +502,7 @@ if.then26:                                        ; preds = %if.end20
   br i1 %cmp21, label %if.end31, label %if.then33
 
 if.end31:                                         ; preds = %if.then26
-  %call30 = call fastcc i32 @wc_SignatureDerEncode(i32 noundef %hash_type, ptr noundef nonnull %hash_data, i32 noundef %call15, ptr noundef nonnull %hash_enc_len), !range !9
+  %call30 = call fastcc i32 @wc_SignatureDerEncode(i32 noundef %hash_type, ptr noundef nonnull %hash_data, i32 noundef %call15, ptr noundef nonnull %hash_enc_len)
   %cmp32 = icmp eq i32 %call30, 0
   br i1 %cmp32, label %if.end31.if.then33_crit_edge, label %return
 
@@ -549,4 +549,3 @@ attributes #6 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -2147483648, i32 1}

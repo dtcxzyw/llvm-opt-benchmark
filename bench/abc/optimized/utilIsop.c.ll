@@ -69,7 +69,7 @@ define i64 @Abc_Isop6Cover(i64 noundef %0, i64 noundef %1, ptr nocapture noundef
   %indvars.iv = phi i64 [ %14, %.preheader.preheader ], [ %indvars.iv.next, %29 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw i64 %indvars.iv to i32
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %.preheader._crit_edge
 
@@ -319,7 +319,7 @@ Abc_TtHasVar.exit:                                ; preds = %19, %28
 
 .preheader.us.i54:                                ; preds = %.preheader.us.i54.preheader, %.preheader.us.i54
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %.preheader.us.i54 ], [ 0, %.preheader.us.i54.preheader ]
-  %invariant.gep.i = getelementptr i64, ptr %2, i64 %indvars.iv27.i
+  %invariant.gep.i = getelementptr inbounds i64, ptr %2, i64 %indvars.iv27.i
   store i64 %.pre, ptr %invariant.gep.i, align 8
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count
@@ -349,14 +349,14 @@ Abc_TtHasVar.exit:                                ; preds = %19, %28
 
 .preheader.us.i61:                                ; preds = %._crit_edge.us.i68, %.preheader.us.preheader.i60
   %indvars.iv27.i62 = phi i64 [ 0, %.preheader.us.preheader.i60 ], [ %indvars.iv.next28.i69, %._crit_edge.us.i68 ]
-  %invariant.gep.i63 = getelementptr i64, ptr %2, i64 %indvars.iv27.i62
+  %invariant.gep.i63 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv27.i62
   br label %59
 
 59:                                               ; preds = %59, %.preheader.us.i61
   %indvars.iv.i64 = phi i64 [ 0, %.preheader.us.i61 ], [ %indvars.iv.next.i66, %59 ]
   %60 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i64
   %61 = load i64, ptr %60, align 8
-  %gep.i65 = getelementptr i64, ptr %invariant.gep.i63, i64 %indvars.iv.i64
+  %gep.i65 = getelementptr inbounds i64, ptr %invariant.gep.i63, i64 %indvars.iv.i64
   store i64 %61, ptr %gep.i65, align 8
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i64, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %58
@@ -364,7 +364,7 @@ Abc_TtHasVar.exit:                                ; preds = %19, %28
 
 ._crit_edge.us.i68:                               ; preds = %59
   %indvars.iv.next28.i69 = add nuw nsw i64 %indvars.iv27.i62, %58
-  %62 = trunc i64 %indvars.iv.next28.i69 to i32
+  %62 = trunc nuw i64 %indvars.iv.next28.i69 to i32
   %63 = icmp sgt i32 %9, %62
   br i1 %63, label %.preheader.us.i61, label %Abc_TtStretch6.exit, !llvm.loop !11
 
@@ -419,7 +419,7 @@ define void @Abc_IsopBuildTruth(ptr nocapture noundef readonly %0, i32 noundef %
 
 23:                                               ; preds = %23, %.preheader1.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader1.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = trunc i64 %indvars.iv.i.i to i32
+  %24 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %25 = and i32 %14, %24
   %.not.i.i = icmp ne i32 %25, 0
   %26 = sext i1 %.not.i.i to i64
@@ -445,7 +445,7 @@ Abc_IsopTtElems.exit:                             ; preds = %.loopexit.i.i, %5
 .lr.ph.preheader.i:                               ; preds = %Abc_IsopTtElems.exit
   %33 = zext nneg i32 %31 to i64
   %34 = shl nuw nsw i64 %33, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, i8 0, i64 %34, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %2, i8 0, i64 %34, i1 false)
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %Abc_IsopTtElems.exit, %.lr.ph.preheader.i
@@ -471,7 +471,7 @@ Abc_TtClear.exit:                                 ; preds = %Abc_IsopTtElems.exi
   br i1 %32, label %Abc_TtFill.exit, label %.lr.ph.preheader.i35
 
 .lr.ph.preheader.i35:                             ; preds = %41
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %6, i8 -1, i64 %39, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %6, i8 -1, i64 %39, i1 false)
   br label %Abc_TtFill.exit
 
 Abc_TtFill.exit:                                  ; preds = %41, %.lr.ph.preheader.i35
@@ -592,7 +592,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i60, %.crite
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_Isop(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @Abc_Isop(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca [1024 x i64], align 16
   %7 = sext i32 %2 to i64
   %8 = shl nsw i64 %7, 32
@@ -1053,7 +1053,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_IsopPrint(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #1 {
-  %5 = tail call i32 @Abc_Isop(ptr noundef %0, i32 noundef %1, i32 noundef 65535, ptr noundef %2, i32 noundef %3), !range !30
+  %5 = tail call i32 @Abc_Isop(ptr noundef %0, i32 noundef %1, i32 noundef 65535, ptr noundef %2, i32 noundef %3)
   tail call void @Abc_IsopPrintCover(ptr noundef %2, i32 noundef %1, i32 noundef %5)
   ret void
 }
@@ -1081,7 +1081,7 @@ define i64 @Abc_Esop6Cover(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr n
 
 .preheader:                                       ; preds = %.preheader.preheader, %11
   %indvars.iv = phi i64 [ %5, %.preheader.preheader ], [ %indvars.iv.next, %11 ]
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %.preheader._crit_edge
 
@@ -1102,7 +1102,7 @@ define i64 @Abc_Esop6Cover(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr n
   %18 = xor i64 %14, %0
   %19 = and i64 %17, %18
   %.not77 = icmp eq i64 %19, 0
-  br i1 %.not77, label %.preheader, label %split, !llvm.loop !31
+  br i1 %.not77, label %.preheader, label %split, !llvm.loop !30
 
 split:                                            ; preds = %11, %.preheader._crit_edge
   %.pre-phi80 = phi i64 [ %.pre79, %.preheader._crit_edge ], [ %13, %11 ]
@@ -1216,7 +1216,7 @@ define internal fastcc i32 @Abc_EsopAddLits(ptr noundef %0, i64 noundef %1, i64 
   store i32 %24, ptr %25, align 4
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %12
-  br i1 %exitcond105.not, label %.preheader, label %.lr.ph86, !llvm.loop !32
+  br i1 %exitcond105.not, label %.preheader, label %.lr.ph86, !llvm.loop !31
 
 26:                                               ; preds = %.lr.ph88, %26
   %indvars.iv106 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next107, %26 ]
@@ -1227,7 +1227,7 @@ define internal fastcc i32 @Abc_EsopAddLits(ptr noundef %0, i64 noundef %1, i64 
   store i32 %29, ptr %gep117, align 4
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %9
-  br i1 %exitcond110.not, label %.loopexit, label %26, !llvm.loop !33
+  br i1 %exitcond110.not, label %.loopexit, label %26, !llvm.loop !32
 
 30:                                               ; preds = %6
   %31 = icmp eq i64 %4, %2
@@ -1261,7 +1261,7 @@ define internal fastcc i32 @Abc_EsopAddLits(ptr noundef %0, i64 noundef %1, i64 
   store i32 %46, ptr %gep113, align 4
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %33
-  br i1 %exitcond100.not, label %.loopexit, label %43, !llvm.loop !34
+  br i1 %exitcond100.not, label %.loopexit, label %43, !llvm.loop !33
 
 47:                                               ; preds = %30
   %48 = lshr i64 %1, 32
@@ -1299,7 +1299,7 @@ define internal fastcc i32 @Abc_EsopAddLits(ptr noundef %0, i64 noundef %1, i64 
   store i32 %62, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %48
-  br i1 %exitcond.not, label %.preheader77, label %59, !llvm.loop !35
+  br i1 %exitcond.not, label %.preheader77, label %59, !llvm.loop !34
 
 63:                                               ; preds = %.lr.ph82, %63
   %indvars.iv91 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next92, %63 ]
@@ -1309,7 +1309,7 @@ define internal fastcc i32 @Abc_EsopAddLits(ptr noundef %0, i64 noundef %1, i64 
   store i32 %65, ptr %gep, align 4
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %50
-  br i1 %exitcond95.not, label %.loopexit78, label %63, !llvm.loop !36
+  br i1 %exitcond95.not, label %.loopexit78, label %63, !llvm.loop !35
 
 .loopexit78:                                      ; preds = %63, %.preheader77, %47
   %66 = add nsw i32 %51, %49
@@ -1376,7 +1376,7 @@ define i64 @Abc_EsopCover(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr no
 
 .loopexit126.us:                                  ; preds = %._crit_edge.us.i.us, %.preheader.lr.ph.i.us
   %26 = icmp sgt i32 %.021.i135.us, 7
-  br i1 %26, label %.preheader.lr.ph.i.us, label %Abc_TtHasVar.exit.thread, !llvm.loop !37
+  br i1 %26, label %.preheader.lr.ph.i.us, label %Abc_TtHasVar.exit.thread, !llvm.loop !36
 
 Abc_TtHasVar.exit:                                ; preds = %17
   %27 = icmp eq i32 %.021.i135.us, 6
@@ -1467,7 +1467,7 @@ Abc_EsopCheck.exit.thread:                        ; preds = %4
 
 .loopexit123.us:                                  ; preds = %._crit_edge.us.i99.us, %.preheader.lr.ph.i88.us
   %61 = icmp sgt i32 %.021.i78137.us, 7
-  br i1 %61, label %.preheader.lr.ph.i88.us, label %Abc_TtHasVar.exit100.thread, !llvm.loop !37
+  br i1 %61, label %.preheader.lr.ph.i88.us, label %Abc_TtHasVar.exit100.thread, !llvm.loop !36
 
 62:                                               ; preds = %.thread, %39
   %63 = phi ptr [ %38, %.thread ], [ %44, %39 ]
@@ -1529,7 +1529,7 @@ Abc_EsopCheck.exit81:                             ; preds = %62, %Abc_TtHasVar.e
   store i64 %83, ptr %81, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph142, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph142, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph142
   %84 = ashr i64 %.022.i79, 32
@@ -1582,7 +1582,7 @@ Abc_EsopCheck.exit81:                             ; preds = %62, %Abc_TtHasVar.e
 
 .loopexit.us:                                     ; preds = %._crit_edge.us.i113.us, %.preheader.lr.ph.i102.us
   %102 = icmp sgt i32 %.021.i82143.us, 7
-  br i1 %102, label %.preheader.lr.ph.i102.us, label %Abc_TtHasVar.exit114.thread, !llvm.loop !37
+  br i1 %102, label %.preheader.lr.ph.i102.us, label %Abc_TtHasVar.exit114.thread, !llvm.loop !36
 
 Abc_EsopCheck.exit85.thread:                      ; preds = %._crit_edge
   %103 = load i64, ptr %0, align 8
@@ -1624,7 +1624,7 @@ Abc_EsopCheck.exit85:                             ; preds = %Abc_TtHasVar.exit11
   store i64 %114, ptr %112, align 8
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count177
-  br i1 %exitcond178.not, label %._crit_edge149, label %.lr.ph148, !llvm.loop !39
+  br i1 %exitcond178.not, label %._crit_edge149, label %.lr.ph148, !llvm.loop !38
 
 ._crit_edge149:                                   ; preds = %.lr.ph148, %Abc_EsopCheck.exit85
   %.022.i83193 = phi i64 [ %.022.i83, %Abc_EsopCheck.exit85 ], [ %.022.i83192, %.lr.ph148 ]
@@ -1706,7 +1706,7 @@ define i64 @Abc_EsopCheck(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr no
 
 .loopexit.us:                                     ; preds = %._crit_edge.us.i.us, %.preheader.lr.ph.i.us
   %25 = icmp sgt i32 %.02129.us, 7
-  br i1 %25, label %.preheader.lr.ph.i.us, label %Abc_TtHasVar.exit.thread, !llvm.loop !37
+  br i1 %25, label %.preheader.lr.ph.i.us, label %Abc_TtHasVar.exit.thread, !llvm.loop !36
 
 26:                                               ; preds = %4
   %27 = load i64, ptr %0, align 8
@@ -1747,7 +1747,7 @@ define i64 @Abc_IsopNew(ptr nocapture noundef readonly %0, ptr nocapture noundef
 .lr.ph18.preheader.i:                             ; preds = %6
   %16 = zext nneg i32 %14 to i64
   %17 = shl nuw nsw i64 %16, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, i8 0, i64 %17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %2, i8 0, i64 %17, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %17, i1 false)
   br label %.lr.ph.i
 
@@ -1760,7 +1760,7 @@ define i64 @Abc_IsopNew(ptr nocapture noundef readonly %0, ptr nocapture noundef
   store i64 %20, ptr %21, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %16
-  br i1 %exitcond.not.i, label %Abc_TtCopy.exit195, label %.lr.ph.i, !llvm.loop !40
+  br i1 %exitcond.not.i, label %Abc_TtCopy.exit195, label %.lr.ph.i, !llvm.loop !39
 
 Abc_TtCopy.exit195:                               ; preds = %.lr.ph.i, %6
   %22 = icmp slt i32 %3, 6
@@ -1801,7 +1801,7 @@ Abc_TtCopy.exit195:                               ; preds = %.lr.ph.i, %6
 37:                                               ; preds = %.lr.ph.i198
   %indvars.iv.next.i200 = add nuw nsw i64 %indvars.iv.i199, 1
   %exitcond.not.i201 = icmp eq i64 %indvars.iv.next.i200, %wide.trip.count.i197
-  br i1 %exitcond.not.i201, label %.loopexit304.loopexit, label %.lr.ph.i198, !llvm.loop !41
+  br i1 %exitcond.not.i201, label %.loopexit304.loopexit, label %.lr.ph.i198, !llvm.loop !40
 
 .lr.ph.i198:                                      ; preds = %37, %.lr.ph.preheader.i196
   %indvars.iv.i199 = phi i64 [ 0, %.lr.ph.preheader.i196 ], [ %indvars.iv.next.i200, %37 ]
@@ -1818,7 +1818,7 @@ Abc_TtCopy.exit195:                               ; preds = %.lr.ph.i, %6
   br i1 %.not.i206, label %68, label %42
 
 42:                                               ; preds = %.lr.ph.i204
-  %43 = trunc i64 %indvars.iv.i205 to i32
+  %43 = trunc nuw nsw i64 %indvars.iv.i205 to i32
   %44 = shl nsw i32 %43, 6
   %45 = and i64 %41, 4294967295
   %46 = icmp eq i64 %45, 0
@@ -1859,7 +1859,7 @@ Abc_TtCopy.exit195:                               ; preds = %.lr.ph.i, %6
 68:                                               ; preds = %.lr.ph.i204
   %indvars.iv.next.i207 = add nuw nsw i64 %indvars.iv.i205, 1
   %exitcond.not.i208 = icmp eq i64 %indvars.iv.next.i207, %wide.trip.count.i197
-  br i1 %exitcond.not.i208, label %Abc_TtFindFirstBit.exit, label %.lr.ph.i204, !llvm.loop !42
+  br i1 %exitcond.not.i208, label %Abc_TtFindFirstBit.exit, label %.lr.ph.i204, !llvm.loop !41
 
 Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %.0.i = phi i32 [ %67, %42 ], [ -1, %68 ]
@@ -1879,12 +1879,12 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %74 = or i32 %73, %.0162313
   %75 = add nuw nsw i32 %.0169312, 1
   %exitcond.not = icmp eq i32 %75, %3
-  br i1 %exitcond.not, label %.preheader303, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %.preheader303, label %.lr.ph, !llvm.loop !42
 
 .lr.ph316:                                        ; preds = %.preheader303, %.lr.ph316
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph316 ], [ 0, %.preheader303 ]
   %.0315 = phi i32 [ %spec.select, %.lr.ph316 ], [ 0, %.preheader303 ]
-  %76 = trunc i64 %indvars.iv to i32
+  %76 = trunc nuw nsw i64 %indvars.iv to i32
   %77 = shl nuw i32 1, %76
   %78 = xor i32 %77, %.0.i
   %79 = ashr i32 %78, 6
@@ -1901,7 +1901,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %spec.select = add i32 %87, %.0315
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond372.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond372.not, label %._crit_edge, label %.lr.ph316, !llvm.loop !44
+  br i1 %exitcond372.not, label %._crit_edge, label %.lr.ph316, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph316, %Abc_TtFindFirstBit.exit, %.preheader303
   %.0162.lcssa396 = phi i32 [ %74, %.preheader303 ], [ 0, %Abc_TtFindFirstBit.exit ], [ %74, %.lr.ph316 ]
@@ -1946,7 +1946,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   br i1 %or.cond411, label %.lr.ph321, label %.loopexit299
 
 .lr.ph321:                                        ; preds = %.lr.ph330
-  %110 = trunc i64 %indvars.iv380 to i32
+  %110 = trunc nuw nsw i64 %indvars.iv380 to i32
   %111 = shl nuw i32 1, %110
   br label %112
 
@@ -1959,7 +1959,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   br i1 %.not190, label %115, label %._crit_edge393
 
 ._crit_edge393:                                   ; preds = %112
-  %.pre394 = trunc i64 %indvars.iv375 to i32
+  %.pre394 = trunc nuw nsw i64 %indvars.iv375 to i32
   br label %128
 
 115:                                              ; preds = %112
@@ -1975,14 +1975,14 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %125 = shl nuw i64 1, %124
   %126 = and i64 %122, %125
   %.not191 = icmp eq i64 %126, 0
-  %127 = trunc i64 %indvars.iv375 to i32
+  %127 = trunc nuw nsw i64 %indvars.iv375 to i32
   br i1 %.not191, label %.loopexit299, label %128
 
 128:                                              ; preds = %._crit_edge393, %115
   %.pre-phi = phi i32 [ %.pre394, %._crit_edge393 ], [ %127, %115 ]
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
   %exitcond379.not = icmp eq i64 %indvars.iv.next376, %wide.trip.count378
-  br i1 %exitcond379.not, label %.loopexit299, label %112, !llvm.loop !45
+  br i1 %exitcond379.not, label %.loopexit299, label %112, !llvm.loop !44
 
 .loopexit299:                                     ; preds = %128, %115, %.lr.ph330
   %.1175 = phi i32 [ %.0174327, %.lr.ph330 ], [ %.0174327, %128 ], [ %127, %115 ]
@@ -1991,7 +1991,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %130 = icmp eq i32 %.1166, -1
   %131 = and i1 %129, %130
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
-  br i1 %131, label %.lr.ph330, label %.loopexit302, !llvm.loop !46
+  br i1 %131, label %.lr.ph330, label %.loopexit302, !llvm.loop !45
 
 .loopexit302:                                     ; preds = %.loopexit299
   %132 = icmp eq i32 %.1166, -1
@@ -2010,10 +2010,10 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
 135:                                              ; preds = %.lr.ph347
   %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
   %exitcond389.not = icmp eq i64 %indvars.iv.next386, %wide.trip.count388
-  br i1 %exitcond389.not, label %._crit_edge348, label %.lr.ph347, !llvm.loop !47
+  br i1 %exitcond389.not, label %._crit_edge348, label %.lr.ph347, !llvm.loop !46
 
 ._crit_edge348.loopexit.split.loop.exit:          ; preds = %.lr.ph347
-  %136 = trunc i64 %indvars.iv385 to i32
+  %136 = trunc nuw nsw i64 %indvars.iv385 to i32
   br label %._crit_edge348
 
 ._crit_edge348:                                   ; preds = %135, %._crit_edge348.loopexit.split.loop.exit, %.preheader300
@@ -2164,7 +2164,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   br label %398
 
 .lr.ph.preheader.i209:                            ; preds = %170
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %7, i8 0, i64 %33, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(1) %7, i8 0, i64 %33, i1 false)
   %241 = and i32 %.0.i, 63
   %242 = zext nneg i32 %241 to i64
   %243 = shl nuw i64 1, %242
@@ -2244,7 +2244,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
 291:                                              ; preds = %292
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next44.i, %wide.trip.count.i197
-  br i1 %exitcond47.not.i, label %.loopexit297, label %292, !llvm.loop !48
+  br i1 %exitcond47.not.i, label %.loopexit297, label %292, !llvm.loop !47
 
 292:                                              ; preds = %291, %.lr.ph.i217
   %indvars.iv43.i = phi i64 [ 0, %.lr.ph.i217 ], [ %indvars.iv.next44.i, %291 ]
@@ -2278,7 +2278,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
 304:                                              ; preds = %305
   %indvars.iv.next.i215 = add nuw nsw i64 %indvars.iv.i214, 1
   %exitcond.not.i216 = icmp eq i64 %indvars.iv.next.i215, %wide.trip.count.i213
-  br i1 %exitcond.not.i216, label %._crit_edge.us.i, label %305, !llvm.loop !49
+  br i1 %exitcond.not.i216, label %._crit_edge.us.i, label %305, !llvm.loop !48
 
 305:                                              ; preds = %304, %.preheader.us.i
   %indvars.iv.i214 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i215, %304 ]
@@ -2294,7 +2294,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
 ._crit_edge.us.i:                                 ; preds = %304
   %312 = getelementptr inbounds i64, ptr %.02535.us.i, i64 %301
   %313 = icmp ult ptr %312, %34
-  br i1 %313, label %.preheader.us.i, label %.loopexit297, !llvm.loop !50
+  br i1 %313, label %.preheader.us.i, label %.loopexit297, !llvm.loop !49
 
 .loopexit297:                                     ; preds = %._crit_edge.us.i, %291
   br i1 %288, label %.lr.ph.i228, label %.thread
@@ -2313,7 +2313,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   store i64 %320, ptr %317, align 8
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count.i197
-  br i1 %exitcond40.not.i, label %Abc_TtExpandCubePos2Neg.exit, label %316, !llvm.loop !51
+  br i1 %exitcond40.not.i, label %Abc_TtExpandCubePos2Neg.exit, label %316, !llvm.loop !50
 
 .thread:                                          ; preds = %.loopexit297
   %321 = add nsw i32 %.4333, -6
@@ -2342,12 +2342,12 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   store i64 %329, ptr %330, align 8
   %indvars.iv.next.i225 = add nuw nsw i64 %indvars.iv.i224, 1
   %exitcond.not.i226 = icmp eq i64 %indvars.iv.next.i225, %wide.trip.count.i222
-  br i1 %exitcond.not.i226, label %._crit_edge.us.i227, label %326, !llvm.loop !52
+  br i1 %exitcond.not.i226, label %._crit_edge.us.i227, label %326, !llvm.loop !51
 
 ._crit_edge.us.i227:                              ; preds = %326
   %331 = getelementptr inbounds i64, ptr %.031.us.i, i64 %323
   %332 = icmp ult ptr %331, %35
-  br i1 %332, label %.preheader.us.i223, label %Abc_TtExpandCubePos2Neg.exit, !llvm.loop !53
+  br i1 %332, label %.preheader.us.i223, label %Abc_TtExpandCubePos2Neg.exit, !llvm.loop !52
 
 Abc_TtExpandCubePos2Neg.exit:                     ; preds = %._crit_edge.us.i227, %316, %.preheader.lr.ph.i, %.thread
   %333 = shl i32 3, %285
@@ -2367,7 +2367,7 @@ Abc_TtExpandCubePos2Neg.exit:                     ; preds = %._crit_edge.us.i227
 340:                                              ; preds = %341
   %indvars.iv.next44.i246 = add nuw nsw i64 %indvars.iv43.i244, 1
   %exitcond47.not.i247 = icmp eq i64 %indvars.iv.next44.i246, %wide.trip.count.i197
-  br i1 %exitcond47.not.i247, label %.loopexit, label %341, !llvm.loop !54
+  br i1 %exitcond47.not.i247, label %.loopexit, label %341, !llvm.loop !53
 
 341:                                              ; preds = %340, %.lr.ph.i242
   %indvars.iv43.i244 = phi i64 [ 0, %.lr.ph.i242 ], [ %indvars.iv.next44.i246, %340 ]
@@ -2402,7 +2402,7 @@ Abc_TtExpandCubePos2Neg.exit:                     ; preds = %._crit_edge.us.i227
 353:                                              ; preds = %354
   %indvars.iv.next.i239 = add nuw nsw i64 %indvars.iv.i237, 1
   %exitcond.not.i240 = icmp eq i64 %indvars.iv.next.i239, %wide.trip.count.i234
-  br i1 %exitcond.not.i240, label %._crit_edge.us.i241, label %354, !llvm.loop !55
+  br i1 %exitcond.not.i240, label %._crit_edge.us.i241, label %354, !llvm.loop !54
 
 354:                                              ; preds = %353, %.preheader.us.i235
   %indvars.iv.i237 = phi i64 [ 0, %.preheader.us.i235 ], [ %indvars.iv.next.i239, %353 ]
@@ -2417,7 +2417,7 @@ Abc_TtExpandCubePos2Neg.exit:                     ; preds = %._crit_edge.us.i227
 ._crit_edge.us.i241:                              ; preds = %353
   %359 = getelementptr inbounds i64, ptr %.02535.us.i236, i64 %350
   %360 = icmp ult ptr %359, %34
-  br i1 %360, label %.preheader.us.i235, label %.loopexit, !llvm.loop !56
+  br i1 %360, label %.preheader.us.i235, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %._crit_edge.us.i241, %340
   br i1 %337, label %.lr.ph.i259, label %.thread285
@@ -2436,7 +2436,7 @@ Abc_TtExpandCubePos2Neg.exit:                     ; preds = %._crit_edge.us.i227
   store i64 %367, ptr %364, align 8
   %indvars.iv.next37.i262 = add nuw nsw i64 %indvars.iv36.i261, 1
   %exitcond40.not.i263 = icmp eq i64 %indvars.iv.next37.i262, %wide.trip.count.i197
-  br i1 %exitcond40.not.i263, label %Abc_TtExpandCubeNeg2Pos.exit, label %363, !llvm.loop !57
+  br i1 %exitcond40.not.i263, label %Abc_TtExpandCubeNeg2Pos.exit, label %363, !llvm.loop !56
 
 .thread285:                                       ; preds = %.loopexit
   %368 = add nsw i32 %.4333, -6
@@ -2465,12 +2465,12 @@ Abc_TtExpandCubePos2Neg.exit:                     ; preds = %._crit_edge.us.i227
   store i64 %375, ptr %377, align 8
   %indvars.iv.next.i256 = add nuw nsw i64 %indvars.iv.i255, 1
   %exitcond.not.i257 = icmp eq i64 %indvars.iv.next.i256, %wide.trip.count.i252
-  br i1 %exitcond.not.i257, label %._crit_edge.us.i258, label %373, !llvm.loop !58
+  br i1 %exitcond.not.i257, label %._crit_edge.us.i258, label %373, !llvm.loop !57
 
 ._crit_edge.us.i258:                              ; preds = %373
   %378 = getelementptr inbounds i64, ptr %.031.us.i254, i64 %370
   %379 = icmp ult ptr %378, %35
-  br i1 %379, label %.preheader.us.i253, label %Abc_TtExpandCubeNeg2Pos.exit, !llvm.loop !59
+  br i1 %379, label %.preheader.us.i253, label %Abc_TtExpandCubeNeg2Pos.exit, !llvm.loop !58
 
 Abc_TtExpandCubeNeg2Pos.exit:                     ; preds = %._crit_edge.us.i258, %363, %.preheader.lr.ph.i230, %.thread285
   %380 = shl i32 3, %285
@@ -2487,7 +2487,7 @@ Abc_TtCheckWithCubeNeg2Pos.exit:                  ; preds = %341, %292, %354, %3
   %.2 = phi i32 [ %.1161339, %Abc_TtExpandCubePos2Neg.exit ], [ %.1161339, %Abc_TtExpandCubeNeg2Pos.exit ], [ %383, %Abc_TtCheckWithCubeNeg2Pos.exit ], [ %.1161339, %.lr.ph342 ]
   %385 = add nuw nsw i32 %.4333, 1
   %exitcond384.not = icmp eq i32 %385, %3
-  br i1 %exitcond384.not, label %.lr.ph.preheader.i264, label %.lr.ph342, !llvm.loop !60
+  br i1 %exitcond384.not, label %.lr.ph.preheader.i264, label %.lr.ph342, !llvm.loop !59
 
 .lr.ph.preheader.i264:                            ; preds = %384, %.lr.ph.preheader.i209
   %.1163.lcssa = phi i32 [ %283, %.lr.ph.preheader.i209 ], [ %.2164, %384 ]
@@ -2639,7 +2639,7 @@ switch.lookup:                                    ; preds = %21
   br i1 %exitcond.not, label %Abc_IsopPrintCover.exit, label %.lr.ph.us.i, !llvm.loop !29
 
 Abc_IsopPrintCover.exit:                          ; preds = %._crit_edge.us.i, %14, %16
-  call void @Abc_IsopBuildTruth(ptr noundef nonnull %2, i32 noundef 4, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 0)
+  call void @Abc_IsopBuildTruth(ptr noundef nonnull readonly %2, i32 noundef 4, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 0)
   %29 = load i64, ptr %1, align 8
   %.not.i.i = icmp eq i64 %29, 8685324408917096584
   br i1 %.not.i.i, label %Abc_IsopVerify.exit, label %30
@@ -2855,7 +2855,7 @@ Abc_Clock.exit50:                                 ; preds = %Abc_TtNot.exit48, %
 Abc_Clock.exit52:                                 ; preds = %Abc_Clock.exit50, %90
   %.0.i51.neg = phi i64 [ %.neg63, %90 ], [ 1, %Abc_Clock.exit50 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %94 = call i32 @Abc_Isop(ptr noundef %0, i32 noundef %1, i32 noundef 65535, ptr noundef nonnull %2, i32 noundef 1), !range !30
+  %94 = call i32 @Abc_Isop(ptr noundef %0, i32 noundef %1, i32 noundef 65535, ptr noundef nonnull %2, i32 noundef 1)
   %.val = load i32, ptr %35, align 4
   %95 = sext i32 %.val to i64
   %96 = load i64, ptr @Abc_IsopTest.TotalCost.2, align 16
@@ -3118,7 +3118,7 @@ define internal i64 @Abc_Isop9Cover(ptr nocapture noundef readonly %0, ptr nound
   store i64 %18, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %20, label %11, !llvm.loop !61
+  br i1 %exitcond.not, label %20, label %11, !llvm.loop !60
 
 20:                                               ; preds = %11
   %21 = call i64 @Abc_IsopCheck(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 8, i64 noundef %3, ptr noundef %4)
@@ -3138,7 +3138,7 @@ define internal i64 @Abc_Isop9Cover(ptr nocapture noundef readonly %0, ptr nound
   store i64 %28, ptr %29, align 8
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 4
-  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !62
+  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !61
 
 30:                                               ; preds = %.preheader101
   %31 = getelementptr inbounds i8, ptr %1, i64 32
@@ -3178,7 +3178,7 @@ define internal i64 @Abc_Isop9Cover(ptr nocapture noundef readonly %0, ptr nound
   store i64 %56, ptr %57, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 4
-  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !63
+  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !62
 
 58:                                               ; preds = %.preheader100
   %59 = ashr i64 %35, 32
@@ -3206,7 +3206,7 @@ define internal i64 @Abc_Isop9Cover(ptr nocapture noundef readonly %0, ptr nound
   store i64 %72, ptr %74, align 8
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 4
-  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !64
+  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !63
 
 .preheader.preheader:                             ; preds = %.preheader99
   br i1 %.not96, label %Abc_IsopAddLits.exit, label %75
@@ -3275,7 +3275,7 @@ define internal i64 @Abc_Isop10Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %18, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %20, label %11, !llvm.loop !65
+  br i1 %exitcond.not, label %20, label %11, !llvm.loop !64
 
 20:                                               ; preds = %11
   %21 = call i64 @Abc_IsopCheck(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 9, i64 noundef %3, ptr noundef %4)
@@ -3295,7 +3295,7 @@ define internal i64 @Abc_Isop10Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %28, ptr %29, align 8
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 8
-  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !66
+  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !65
 
 30:                                               ; preds = %.preheader101
   %31 = getelementptr inbounds i8, ptr %1, i64 64
@@ -3335,7 +3335,7 @@ define internal i64 @Abc_Isop10Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %56, ptr %57, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 8
-  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !67
+  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !66
 
 58:                                               ; preds = %.preheader100
   %59 = ashr i64 %35, 32
@@ -3363,7 +3363,7 @@ define internal i64 @Abc_Isop10Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %72, ptr %74, align 8
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 8
-  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !68
+  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !67
 
 .preheader.preheader:                             ; preds = %.preheader99
   br i1 %.not96, label %Abc_IsopAddLits.exit, label %75
@@ -3432,7 +3432,7 @@ define internal i64 @Abc_Isop11Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %18, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %20, label %11, !llvm.loop !69
+  br i1 %exitcond.not, label %20, label %11, !llvm.loop !68
 
 20:                                               ; preds = %11
   %21 = call i64 @Abc_IsopCheck(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 10, i64 noundef %3, ptr noundef %4)
@@ -3452,7 +3452,7 @@ define internal i64 @Abc_Isop11Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %28, ptr %29, align 8
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 16
-  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !70
+  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !69
 
 30:                                               ; preds = %.preheader101
   %31 = getelementptr inbounds i8, ptr %1, i64 128
@@ -3492,7 +3492,7 @@ define internal i64 @Abc_Isop11Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %56, ptr %57, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 16
-  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !71
+  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !70
 
 58:                                               ; preds = %.preheader100
   %59 = ashr i64 %35, 32
@@ -3520,7 +3520,7 @@ define internal i64 @Abc_Isop11Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %72, ptr %74, align 8
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 16
-  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !72
+  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !71
 
 .preheader.preheader:                             ; preds = %.preheader99
   br i1 %.not96, label %Abc_IsopAddLits.exit, label %75
@@ -3589,7 +3589,7 @@ define internal i64 @Abc_Isop12Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %18, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %20, label %11, !llvm.loop !73
+  br i1 %exitcond.not, label %20, label %11, !llvm.loop !72
 
 20:                                               ; preds = %11
   %21 = call i64 @Abc_IsopCheck(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 11, i64 noundef %3, ptr noundef %4)
@@ -3609,7 +3609,7 @@ define internal i64 @Abc_Isop12Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %28, ptr %29, align 8
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 32
-  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !74
+  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !73
 
 30:                                               ; preds = %.preheader101
   %31 = getelementptr inbounds i8, ptr %1, i64 256
@@ -3649,7 +3649,7 @@ define internal i64 @Abc_Isop12Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %56, ptr %57, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 32
-  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !75
+  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !74
 
 58:                                               ; preds = %.preheader100
   %59 = ashr i64 %35, 32
@@ -3677,7 +3677,7 @@ define internal i64 @Abc_Isop12Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %72, ptr %74, align 8
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 32
-  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !76
+  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !75
 
 .preheader.preheader:                             ; preds = %.preheader99
   br i1 %.not96, label %Abc_IsopAddLits.exit, label %75
@@ -3746,7 +3746,7 @@ define internal i64 @Abc_Isop13Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %18, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %20, label %11, !llvm.loop !77
+  br i1 %exitcond.not, label %20, label %11, !llvm.loop !76
 
 20:                                               ; preds = %11
   %21 = call i64 @Abc_IsopCheck(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 12, i64 noundef %3, ptr noundef %4)
@@ -3766,7 +3766,7 @@ define internal i64 @Abc_Isop13Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %28, ptr %29, align 8
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 64
-  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !78
+  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !77
 
 30:                                               ; preds = %.preheader101
   %31 = getelementptr inbounds i8, ptr %1, i64 512
@@ -3806,7 +3806,7 @@ define internal i64 @Abc_Isop13Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %56, ptr %57, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 64
-  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !79
+  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !78
 
 58:                                               ; preds = %.preheader100
   %59 = ashr i64 %35, 32
@@ -3834,7 +3834,7 @@ define internal i64 @Abc_Isop13Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %72, ptr %74, align 8
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 64
-  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !80
+  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !79
 
 .preheader.preheader:                             ; preds = %.preheader99
   br i1 %.not96, label %Abc_IsopAddLits.exit, label %75
@@ -3903,7 +3903,7 @@ define internal i64 @Abc_Isop14Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %18, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
-  br i1 %exitcond.not, label %20, label %11, !llvm.loop !81
+  br i1 %exitcond.not, label %20, label %11, !llvm.loop !80
 
 20:                                               ; preds = %11
   %21 = call i64 @Abc_IsopCheck(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 13, i64 noundef %3, ptr noundef %4)
@@ -3923,7 +3923,7 @@ define internal i64 @Abc_Isop14Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %28, ptr %29, align 8
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 128
-  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !82
+  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !81
 
 30:                                               ; preds = %.preheader101
   %31 = getelementptr inbounds i8, ptr %1, i64 1024
@@ -3963,7 +3963,7 @@ define internal i64 @Abc_Isop14Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %56, ptr %57, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 128
-  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !83
+  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !82
 
 58:                                               ; preds = %.preheader100
   %59 = ashr i64 %35, 32
@@ -3991,7 +3991,7 @@ define internal i64 @Abc_Isop14Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %72, ptr %74, align 8
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 128
-  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !84
+  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !83
 
 .preheader.preheader:                             ; preds = %.preheader99
   br i1 %.not96, label %Abc_IsopAddLits.exit, label %75
@@ -4060,7 +4060,7 @@ define internal i64 @Abc_Isop15Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %18, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %20, label %11, !llvm.loop !85
+  br i1 %exitcond.not, label %20, label %11, !llvm.loop !84
 
 20:                                               ; preds = %11
   %21 = call i64 @Abc_IsopCheck(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 14, i64 noundef %3, ptr noundef %4)
@@ -4080,7 +4080,7 @@ define internal i64 @Abc_Isop15Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %28, ptr %29, align 8
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 256
-  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !86
+  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !85
 
 30:                                               ; preds = %.preheader101
   %31 = getelementptr inbounds i8, ptr %1, i64 2048
@@ -4120,7 +4120,7 @@ define internal i64 @Abc_Isop15Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %56, ptr %57, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 256
-  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !87
+  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !86
 
 58:                                               ; preds = %.preheader100
   %59 = ashr i64 %35, 32
@@ -4148,7 +4148,7 @@ define internal i64 @Abc_Isop15Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %72, ptr %74, align 8
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 256
-  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !88
+  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !87
 
 .preheader.preheader:                             ; preds = %.preheader99
   br i1 %.not96, label %Abc_IsopAddLits.exit, label %75
@@ -4217,7 +4217,7 @@ define internal i64 @Abc_Isop16Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %18, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %20, label %11, !llvm.loop !89
+  br i1 %exitcond.not, label %20, label %11, !llvm.loop !88
 
 20:                                               ; preds = %11
   %21 = call i64 @Abc_IsopCheck(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 15, i64 noundef %3, ptr noundef %4)
@@ -4237,7 +4237,7 @@ define internal i64 @Abc_Isop16Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %28, ptr %29, align 8
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 512
-  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !90
+  br i1 %exitcond110.not, label %30, label %.preheader101, !llvm.loop !89
 
 30:                                               ; preds = %.preheader101
   %31 = getelementptr inbounds i8, ptr %1, i64 4096
@@ -4277,7 +4277,7 @@ define internal i64 @Abc_Isop16Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %56, ptr %57, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 512
-  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !91
+  br i1 %exitcond114.not, label %58, label %.preheader100, !llvm.loop !90
 
 58:                                               ; preds = %.preheader100
   %59 = ashr i64 %35, 32
@@ -4305,7 +4305,7 @@ define internal i64 @Abc_Isop16Cover(ptr nocapture noundef readonly %0, ptr noun
   store i64 %72, ptr %74, align 8
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 512
-  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !92
+  br i1 %exitcond118.not, label %.preheader.preheader, label %.preheader99, !llvm.loop !91
 
 .preheader.preheader:                             ; preds = %.preheader99
   br i1 %.not96, label %Abc_IsopAddLits.exit, label %75
@@ -4509,7 +4509,7 @@ attributes #22 = { nounwind willreturn memory(read) }
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
-!30 = !{i32 -1, i32 2}
+!30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
@@ -4571,4 +4571,3 @@ attributes #22 = { nounwind willreturn memory(read) }
 !89 = distinct !{!89, !5}
 !90 = distinct !{!90, !5}
 !91 = distinct !{!91, !5}
-!92 = distinct !{!92, !5}

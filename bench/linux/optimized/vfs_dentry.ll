@@ -107,7 +107,7 @@ define internal i32 @v9fs_lookup_revalidate(ptr noundef %0, i32 noundef %1) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @v9fs_cached_dentry_delete(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i32 0, 2) i32 @v9fs_cached_dentry_delete(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

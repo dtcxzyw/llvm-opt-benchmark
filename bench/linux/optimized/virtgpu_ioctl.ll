@@ -114,7 +114,7 @@ define internal i32 @virtio_gpu_map_ioctl(ptr nocapture noundef readonly %0, ptr
 declare dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @virtio_gpu_getparam_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
+define internal range(i32 -22, 1) i32 @virtio_gpu_getparam_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -424,7 +424,7 @@ virtio_gpu_create_context_locked.exit:            ; preds = %25, %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @virtio_gpu_resource_info_ioctl(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @virtio_gpu_resource_info_ioctl(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 align 16 {
   %4 = load i32, ptr %1, align 4
   %5 = tail call ptr @drm_gem_object_lookup(ptr noundef %2, i32 noundef %4) #6
   %6 = icmp eq ptr %5, null
@@ -810,7 +810,7 @@ virtio_gpu_create_context_locked.exit:            ; preds = %48, %55
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @virtio_gpu_wait_ioctl(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @virtio_gpu_wait_ioctl(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load i32, ptr %1, align 4
   %5 = tail call ptr @drm_gem_object_lookup(ptr noundef %2, i32 noundef %4) #6
   %6 = icmp eq ptr %5, null
@@ -1413,7 +1413,7 @@ define internal i32 @virtio_gpu_context_init_ioctl(ptr nocapture noundef readonl
   br i1 %61, label %62, label %.loopexit
 
 62:                                               ; preds = %58
-  %63 = trunc i64 %50 to i32
+  %63 = trunc nuw nsw i64 %50 to i32
   %64 = or disjoint i32 %59, %63
   store i32 %64, ptr %44, align 4
   br label %86
@@ -1426,7 +1426,7 @@ define internal i32 @virtio_gpu_context_init_ioctl(ptr nocapture noundef readonl
   br i1 %69, label %.loopexit, label %70
 
 70:                                               ; preds = %65
-  %71 = trunc i64 %50 to i32
+  %71 = trunc nuw nsw i64 %50 to i32
   %72 = tail call i64 @dma_fence_context_alloc(i32 noundef %71) #6
   store i64 %72, ptr %41, align 8
   store i32 %71, ptr %42, align 4

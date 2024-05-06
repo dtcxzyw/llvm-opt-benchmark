@@ -2125,7 +2125,7 @@ declare ptr @hostlist_shift_dims(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @scontrol_encode_hostlist(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @scontrol_encode_hostlist(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -2305,7 +2305,7 @@ declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) loca
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @scontrol_job_ready(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @scontrol_job_ready(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @atoi(ptr nocapture noundef %0) #17
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %7
@@ -2412,7 +2412,7 @@ _wait_nodes_ready.exit:                           ; preds = %.sink.split.i, %.th
 declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @scontrol_callerid(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @scontrol_callerid(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca [16 x i8], align 16
   %5 = alloca i32, align 4

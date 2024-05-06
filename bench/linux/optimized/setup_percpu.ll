@@ -184,7 +184,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local i32 @pcpu_embed_first_chunk(i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2 section ".init.text"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(read, inaccessiblemem: none)
-define internal i32 @pcpu_cpu_distance(i32 noundef %0, i32 noundef %1) #3 section ".init.text" align 16 {
+define internal range(i32 10, 21) i32 @pcpu_cpu_distance(i32 noundef %0, i32 noundef %1) #3 section ".init.text" align 16 {
   %3 = load ptr, ptr @x86_cpu_to_node_map_early_ptr, align 8
   %4 = icmp eq ptr %3, null
   %5 = sext i32 %0 to i64

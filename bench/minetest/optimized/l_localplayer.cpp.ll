@@ -1062,7 +1062,7 @@ entry:
 declare void @_Z11push_groupsP9lua_StateRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_iEEE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN14LuaLocalPlayer9l_hud_addEP9lua_State(ptr noundef %L) #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN14LuaLocalPlayer9l_hud_addEP9lua_State(ptr noundef %L) #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call.i.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN14LuaLocalPlayer9classNameE)
   %0 = load ptr, ptr %call.i.i, align 8, !tbaa !14
@@ -1244,7 +1244,7 @@ declare i64 @luaL_checkinteger(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare noundef ptr @_ZN6Player9removeHudEj(ptr noundef nonnull align 8 dereferenceable(432), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN14LuaLocalPlayer12l_hud_changeEP9lua_State(ptr noundef %L) #6 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN14LuaLocalPlayer12l_hud_changeEP9lua_State(ptr noundef %L) #6 align 2 {
 entry:
   %stat = alloca i8, align 1
   %unused = alloca ptr, align 8
@@ -1305,7 +1305,7 @@ declare void @lua_pushnil(ptr noundef) local_unnamed_addr #0
 declare void @_Z16push_hud_elementP9lua_StateP10HudElement(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN14LuaLocalPlayer13l_hud_get_allEP9lua_State(ptr noundef %L) #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN14LuaLocalPlayer13l_hud_get_allEP9lua_State(ptr noundef %L) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %L.addr = alloca ptr, align 8
   %agg.tmp = alloca %"class.std::function", align 8

@@ -225,7 +225,7 @@ Curl_dynhds_get.exit:                             ; preds = %for.inc.i, %entry, 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_dynhds_add(ptr nocapture noundef %dynhds, ptr nocapture noundef readonly %name, i64 noundef %namelen, ptr nocapture noundef readonly %value, i64 noundef %valuelen) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_dynhds_add(ptr nocapture noundef %dynhds, ptr nocapture noundef readonly %name, i64 noundef %namelen, ptr nocapture noundef readonly %value, i64 noundef %valuelen) local_unnamed_addr #1 {
 entry:
   %max_entries = getelementptr inbounds i8, ptr %dynhds, i64 24
   %0 = load i64, ptr %max_entries, align 8
@@ -260,14 +260,14 @@ if.end6:                                          ; preds = %if.end
 if.end.i:                                         ; preds = %if.end6
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %add.ptr.i, ptr %call.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %name, i64 %namelen, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %name, i64 %namelen, i1 false)
   %namelen6.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %namelen, ptr %namelen6.i, align 8
   %6 = getelementptr i8, ptr %add.ptr.i, i64 %namelen
   %add.ptr8.i = getelementptr i8, ptr %6, i64 1
   %value9.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %add.ptr8.i, ptr %value9.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr8.i, ptr align 1 %value, i64 %valuelen, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr8.i, ptr readonly align 1 %value, i64 %valuelen, i1 false)
   %valuelen10.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %valuelen, ptr %valuelen10.i, align 8
   %and.i = and i32 %4, 1
@@ -351,16 +351,16 @@ return:                                           ; preds = %if.end6, %if.end39,
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_dynhds_cadd(ptr nocapture noundef %dynhds, ptr nocapture noundef readonly %name, ptr nocapture noundef readonly %value) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_dynhds_cadd(ptr nocapture noundef %dynhds, ptr nocapture noundef readonly %name, ptr nocapture noundef readonly %value) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #10
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #10
-  %call2 = tail call i32 @Curl_dynhds_add(ptr noundef %dynhds, ptr noundef %name, i64 noundef %call, ptr noundef %value, i64 noundef %call1), !range !8
+  %call2 = tail call i32 @Curl_dynhds_add(ptr noundef %dynhds, ptr noundef %name, i64 noundef %call, ptr noundef %value, i64 noundef %call1)
   ret i32 %call2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_dynhds_h1_add_line(ptr nocapture noundef %dynhds, ptr noundef %line, i64 noundef %line_len) local_unnamed_addr #1 {
+define hidden range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr nocapture noundef %dynhds, ptr noundef %line, i64 noundef %line_len) local_unnamed_addr #1 {
 entry:
   %tobool = icmp ne ptr %line, null
   %tobool1 = icmp ne i64 %line_len, 0
@@ -393,7 +393,7 @@ while.body:                                       ; preds = %land.rhs, %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %line.addr.044, i64 1
   %dec = add i64 %line_len.addr.043, -1
   %tobool12.not = icmp eq i64 %dec, 0
-  br i1 %tobool12.not, label %return, label %land.rhs, !llvm.loop !9
+  br i1 %tobool12.not, label %return, label %land.rhs, !llvm.loop !8
 
 if.end23:                                         ; preds = %land.rhs
   %3 = load ptr, ptr %dynhds, align 8
@@ -434,7 +434,7 @@ if.end28:                                         ; preds = %if.end23
   %add.ptr17.i = getelementptr inbounds i8, ptr %add.ptr12.i, i64 %15
   store i8 32, ptr %add.ptr17.i, align 1
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr17.i, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr18.i, ptr nonnull align 1 %line.addr.044, i64 %line_len.addr.043, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr18.i, ptr nonnull readonly align 1 %line.addr.044, i64 %line_len.addr.043, i1 false)
   %valuelen19.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %add2.i, ptr %valuelen19.i, align 8
   %16 = load ptr, ptr %dynhds, align 8
@@ -473,7 +473,7 @@ for.inc:                                          ; preds = %for.body, %for.body
   %p.0 = getelementptr inbounds i8, ptr %p.048, i64 1
   %i.0 = add nuw i64 %i.049, 1
   %cmp38 = icmp ult i64 %i.0, %line_len
-  br i1 %cmp38, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp38, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %for.body, %if.end36
   %p.0.lcssa = phi ptr [ %p.045, %if.end36 ], [ %p.048, %for.body ], [ %p.0, %for.inc ]
@@ -494,7 +494,7 @@ if.end55:                                         ; preds = %if.then53, %for.end
   %sub.ptr.rhs.cast59 = ptrtoint ptr %p.0.lcssa to i64
   %sub.ptr.sub60 = sub i64 %sub.ptr.lhs.cast58, %sub.ptr.rhs.cast59
   %valuelen.0 = select i1 %tobool56.not, i64 %sub50, i64 %sub.ptr.sub60
-  %call62 = tail call i32 @Curl_dynhds_add(ptr noundef %dynhds, ptr noundef nonnull %line, i64 noundef %sub.ptr.sub, ptr noundef nonnull %p.0.lcssa, i64 noundef %valuelen.0), !range !8
+  %call62 = tail call i32 @Curl_dynhds_add(ptr noundef %dynhds, ptr noundef nonnull %line, i64 noundef %sub.ptr.sub, ptr noundef nonnull %p.0.lcssa, i64 noundef %valuelen.0)
   br label %return
 
 return:                                           ; preds = %while.body, %if.end23, %if.else, %if.then8, %entry, %if.end55, %if.end28
@@ -506,14 +506,14 @@ return:                                           ; preds = %while.body, %if.end
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_dynhds_h1_cadd_line(ptr nocapture noundef %dynhds, ptr noundef %line) local_unnamed_addr #1 {
+define hidden range(i32 0, 44) i32 @Curl_dynhds_h1_cadd_line(ptr nocapture noundef %dynhds, ptr noundef %line) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %line, null
   br i1 %tobool.not, label %cond.end, label %cond.true.split
 
 cond.true.split:                                  ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %line) #10
-  %call13 = tail call i32 @Curl_dynhds_h1_add_line(ptr noundef %dynhds, ptr noundef nonnull %line, i64 noundef %call), !range !11
+  %call13 = tail call i32 @Curl_dynhds_h1_add_line(ptr noundef %dynhds, ptr noundef nonnull %line, i64 noundef %call)
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true.split
@@ -533,7 +533,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %i.014, 1
   %1 = load i64, ptr %hds_len, align 8
   %cmp = icmp ult i64 %inc, %1
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !12
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !10
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.014 = phi i64 [ %inc, %for.cond ], [ 0, %entry ]
@@ -590,8 +590,6 @@ attributes #10 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 28}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 44}
-!12 = distinct !{!12, !5}

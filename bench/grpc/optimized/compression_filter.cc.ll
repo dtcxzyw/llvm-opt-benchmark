@@ -638,7 +638,7 @@ $_ZTIN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE1EEE = com
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @.str.17 = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/promise/context.h\00", align 1
 @.str.18 = private unnamed_addr constant [13 x i8] c"p != nullptr\00", align 1
-@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @_ZTVN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientCompressionFilterEEEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientCompressionFilterEEEEE, ptr @_ZN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientCompressionFilterEEEED2Ev, ptr @_ZN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientCompressionFilterEEEED0Ev] }, comdat, align 8
 @_ZTSN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientCompressionFilterEEEEE = linkonce_odr constant [111 x i8] c"N9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_23ClientCompressionFilterEEEEE\00", comdat, align 1
 @_ZTSN9grpc_core5Arena16ManagedNewObjectE = linkonce_odr constant [37 x i8] c"N9grpc_core5Arena16ManagedNewObjectE\00", comdat, align 1
@@ -657,7 +657,7 @@ $_ZTIN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE1EEE = com
 @_ZTVN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISQ_EEvSB_NS_13DebugLocationEEUlvE_EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISQ_EEvSB_NS_13DebugLocationEEUlvE_EE, ptr @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISQ_EEvSB_NS_13DebugLocationEEUlvE_E11MakePromiseES5_Pv, ptr @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISQ_EEvSB_NS_13DebugLocationEEUlvE_E7DestroyEPv, ptr @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISQ_EEvSB_NS_13DebugLocationEEUlvE_E8PollOnceEPv, ptr @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISQ_EEvSB_NS_13DebugLocationEEUlvE_ED2Ev, ptr @_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISQ_EEvSB_NS_13DebugLocationEEUlvE_ED0Ev] }, comdat, align 8
 @_ZTSN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISQ_EEvSB_NS_13DebugLocationEEUlvE_EE = linkonce_odr constant [343 x i8] c"N9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISQ_EEvSB_NS_13DebugLocationEEUlvE_EE\00", comdat, align 1
 @_ZTIN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISQ_EEvSB_NS_13DebugLocationEEUlvE_EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerToClientMessageINS_23ClientCompressionFilterEEEvMNT_4CallEFN4absl12lts_202308028StatusOrIS5_EES5_PSB_EPNS8_14FilterCallDataISB_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISQ_EEvSB_NS_13DebugLocationEEUlvE_EE, ptr @_ZTIN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE3MapE }, comdat, align 8
-@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local global ptr, align 8
+@_ZN9grpc_core8Activity19g_current_activity_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE = linkonce_odr constant %"struct.grpc_core::arena_promise_detail::Vtable" { ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE8PollOnceEPNS0_7ArgTypeE, ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7DestroyEPNS0_7ArgTypeE }, comdat, align 8
 @_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEENS_14promise_detail4RaceIJZNS_5LatchIS6_E4WaitEvEUlvE_NS_12ArenaPromiseIS6_EEEEEE6vtableE = linkonce_odr constant %"struct.grpc_core::arena_promise_detail::Vtable" { ptr @_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEENS_14promise_detail4RaceIJZNS_5LatchIS6_E4WaitEvEUlvE_NS_12ArenaPromiseIS6_EEEEEE8PollOnceEPNS0_7ArgTypeE, ptr @_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEENS_14promise_detail4RaceIJZNS_5LatchIS6_E4WaitEvEUlvE_NS_12ArenaPromiseIS6_EEEEEE7DestroyEPNS0_7ArgTypeE }, comdat, align 8
 @_ZTVN9grpc_core23ServerCompressionFilterE = linkonce_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN9grpc_core23ServerCompressionFilterE, ptr @_ZN9grpc_core13ChannelFilter8PostInitEv, ptr @_ZN9grpc_core22ImplementChannelFilterINS_23ServerCompressionFilterEE15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES3_EE, ptr @_ZN9grpc_core13ChannelFilter16StartTransportOpEP17grpc_transport_op, ptr @_ZN9grpc_core13ChannelFilter14GetChannelInfoEPK17grpc_channel_info, ptr @_ZN9grpc_core23ServerCompressionFilterD2Ev, ptr @_ZN9grpc_core23ServerCompressionFilterD0Ev] }, comdat, align 8
@@ -701,11 +701,11 @@ $_ZTIN9grpc_core21promise_filter_detail8CallDataILNS_14FilterEndpointE1EEE = com
 @.str.20 = private unnamed_addr constant [16 x i8] c"not implemented\00", align 1
 @.str.21 = private unnamed_addr constant [65 x i8] c"nullptr == pollent_.exchange(pollent, std::memory_order_release)\00", align 1
 @.str.22 = private unnamed_addr constant [33 x i8] c"then_schedule_closure == nullptr\00", align 1
-@_ZN9grpc_core14promise_detail7ContextI25grpc_call_context_elementE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextI19grpc_polling_entityE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextIN17grpc_event_engine12experimental11EventEngineEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextI25grpc_call_context_elementE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextI19grpc_polling_entityE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_16CallFinalizationEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextIN17grpc_event_engine12experimental11EventEngineEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZN9grpc_core14promise_detail7ContextINS_11CallContextEE8current_E = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
 @.str.23 = private unnamed_addr constant [49 x i8] c"args->is_last == ((kFlags & kFilterIsLast) != 0)\00", align 1
 @_ZTVN9grpc_core21promise_filter_detail20InvalidChannelFilterE = linkonce_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN9grpc_core21promise_filter_detail20InvalidChannelFilterE, ptr @_ZN9grpc_core13ChannelFilter8PostInitEv, ptr @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES2_EE, ptr @_ZN9grpc_core13ChannelFilter16StartTransportOpEP17grpc_transport_op, ptr @_ZN9grpc_core13ChannelFilter14GetChannelInfoEPK17grpc_channel_info, ptr @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilterD2Ev, ptr @_ZN9grpc_core21promise_filter_detail20InvalidChannelFilterD0Ev] }, comdat, align 8
 @_ZTSN9grpc_core21promise_filter_detail20InvalidChannelFilterE = linkonce_odr constant [58 x i8] c"N9grpc_core21promise_filter_detail20InvalidChannelFilterE\00", comdat, align 1
@@ -1473,7 +1473,7 @@ entry:
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %args.sroa.4.0.extract.trunc = trunc i64 %args.sroa.4.0.extract.shift to i32
+  %args.sroa.4.0.extract.trunc = trunc nuw i64 %args.sroa.4.0.extract.shift to i32
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %message, i64 8
   %1 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %length.i = getelementptr inbounds i8, ptr %1, i64 32
@@ -4214,7 +4214,7 @@ entry:
   store i64 %3, ptr %6, align 8, !noalias !41
   store ptr null, ptr %2, align 8, !noalias !41
   %7 = load i32, ptr %0, align 4, !noalias !41
-  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
+  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr nonnull writeonly sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -4634,7 +4634,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload.i = load i64, ptr %decompress_args_.i, align 4, !noalias !90
   %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 12
   %agg.tmp2.sroa.2.0.copyload.i = load i8, ptr %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i, align 4, !noalias !90
-  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
+  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -6109,7 +6109,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload.i = load i64, ptr %0, align 4, !noalias !144
   %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   %agg.tmp2.sroa.2.0.copyload.i = load i8, ptr %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i, align 4, !noalias !144
-  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
+  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -6628,7 +6628,7 @@ entry:
   store ptr null, ptr %2, align 8, !noalias !190
   %compression_algorithm_.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %compression_algorithm_.i, align 4, !noalias !190
-  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
+  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr nonnull writeonly sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -7972,7 +7972,7 @@ entry:
   store i64 %3, ptr %6, align 8, !noalias !245
   store ptr null, ptr %2, align 8, !noalias !245
   %7 = load i32, ptr %0, align 4, !noalias !245
-  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
+  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -8357,7 +8357,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload.i = load i64, ptr %decompress_args_.i, align 4, !noalias !294
   %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 12
   %agg.tmp2.sroa.2.0.copyload.i = load i8, ptr %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i, align 4, !noalias !294
-  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
+  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -9925,7 +9925,7 @@ entry:
   %agg.tmp2.sroa.0.0.copyload.i = load i64, ptr %0, align 4, !noalias !352
   %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   %agg.tmp2.sroa.2.0.copyload.i = load i8, ptr %agg.tmp2.sroa.2.0.decompress_args_.sroa_idx.i, align 4, !noalias !352
-  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
+  invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.26") align 8 %r, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i64 %agg.tmp2.sroa.0.0.copyload.i, i8 %agg.tmp2.sroa.2.0.copyload.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -10374,7 +10374,7 @@ entry:
   store ptr null, ptr %2, align 8, !noalias !398
   %compression_algorithm_.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %compression_algorithm_.i, align 4, !noalias !398
-  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
+  invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithm(ptr writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(23) %compression_engine_.i, ptr noundef nonnull %agg.tmp.i, i32 noundef %7)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry

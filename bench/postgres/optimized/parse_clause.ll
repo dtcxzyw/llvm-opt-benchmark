@@ -745,7 +745,7 @@ list_length.exit.i392:                            ; preds = %265, %249
 305:                                              ; preds = %296
   store i32 23, ptr %6, align 4
   store i32 -1, ptr %7, align 4
-  %306 = trunc i64 %indvars.iv222.i617 to i32
+  %306 = trunc nuw nsw i64 %indvars.iv222.i617 to i32
   store i32 %306, ptr %262, align 8
   br label %322
 
@@ -829,7 +829,7 @@ list_length.exit.i392:                            ; preds = %265, %249
 
 354:                                              ; preds = %346
   %355 = load ptr, ptr %281, align 8
-  %356 = trunc i64 %indvars.iv222.i617 to i32
+  %356 = trunc nuw nsw i64 %indvars.iv222.i617 to i32
   %357 = call ptr @bms_add_member(ptr noundef %355, i32 noundef %356) #9
   store ptr %357, ptr %281, align 8
   br label %358
@@ -2125,7 +2125,7 @@ buildMergedJoinVar.exit:                          ; preds = %976, %977, %980, %9
   br label %.split608.backedge
 
 .thread465.loopexit.loopexit:                     ; preds = %905, %900
-  %1013 = trunc i64 %indvars.iv706 to i32
+  %1013 = trunc nuw nsw i64 %indvars.iv706 to i32
   br label %.thread465.loopexit
 
 .thread465.loopexit:                              ; preds = %887, %.thread465.loopexit.loopexit
@@ -3775,7 +3775,7 @@ define dso_local ptr @transformWindowDefinitions(ptr noundef %0, ptr noundef rea
   br i1 %.not15.i, label %30, label %27
 
 27:                                               ; preds = %22
-  %28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %15) #11
+  %28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %15) #11
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %findWindowClause.exit, label %30
 
@@ -3834,7 +3834,7 @@ findWindowClause.exit.thread.thread:              ; preds = %16
   br i1 %.not15.i133, label %56, label %53
 
 53:                                               ; preds = %48
-  %54 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %39) #11
+  %54 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull readonly dereferenceable(1) %39) #11
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %findWindowClause.exit136, label %56
 
@@ -4691,7 +4691,7 @@ assignSortGroupRef.exit:                          ; preds = %.lr.ph102, %._crit_
   br i1 %34, label %.lr.ph102, label %._crit_edge94
 
 ._crit_edge113.loopexit:                          ; preds = %57
-  %35 = trunc i8 %.160 to i1
+  %35 = trunc nuw i8 %.160 to i1
   br label %._crit_edge113
 
 ._crit_edge113:                                   ; preds = %._crit_edge113.loopexit, %.lr.ph109, %._crit_edge94
@@ -4716,7 +4716,7 @@ assignSortGroupRef.exit:                          ; preds = %.lr.ph102, %._crit_
   br i1 %44, label %45, label %57
 
 45:                                               ; preds = %.lr.ph124
-  %46 = trunc i8 %.059106122 to i1
+  %46 = trunc nuw i8 %.059106122 to i1
   br i1 %46, label %.split, label %54
 
 .split:                                           ; preds = %45
@@ -5434,7 +5434,7 @@ define internal fastcc i32 @extractRemainingColumns(ptr noundef %0, ptr nocaptur
   br i1 %.not44, label %63, label %30
 
 30:                                               ; preds = %.lr.ph76
-  %31 = trunc i64 %indvars.iv.next70 to i32
+  %31 = trunc nsw i64 %indvars.iv.next70 to i32
   %32 = tail call zeroext i1 @bms_is_member(i32 noundef %31, ptr noundef %.035.lcssa) #9
   br i1 %32, label %63, label %33
 

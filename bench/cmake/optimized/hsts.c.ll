@@ -80,7 +80,7 @@ define dso_local void @Curl_hsts_cleanup(ptr nocapture noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_hsts_parse(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   store i64 0, ptr %4, align 8
@@ -113,7 +113,7 @@ define dso_local noundef i32 @Curl_hsts_parse(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not80, label %28, label %12
 
 12:                                               ; preds = %.critedge
-  %13 = trunc i8 %.070 to i1
+  %13 = trunc nuw i8 %.070 to i1
   br i1 %13, label %hsts_create.exit, label %14
 
 14:                                               ; preds = %12
@@ -211,7 +211,7 @@ define dso_local noundef i32 @Curl_hsts_parse(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not88, label %41, label %.preheader93, !llvm.loop !11
 
 41:                                               ; preds = %.critedge10
-  %42 = trunc i8 %.171 to i1
+  %42 = trunc nuw i8 %.171 to i1
   br i1 %42, label %43, label %hsts_create.exit
 
 43:                                               ; preds = %41
@@ -705,7 +705,7 @@ declare i32 @Curl_rename(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_hsts_loadfile(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [257 x i8], align 16
   %5 = alloca [65 x i8], align 16
   %6 = load ptr, ptr @Curl_cfree, align 8
@@ -758,7 +758,7 @@ define dso_local noundef i32 @Curl_hsts_loadfile(ptr nocapture readnone %0, ptr 
 20:                                               ; preds = %.preheader.i
   call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %5)
-  %21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.10, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  %21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.0.i, ptr noundef nonnull @.str.10, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %22 = icmp eq i32 %21, 2
   br i1 %22, label %23, label %hsts_add.exit.i
 
@@ -1013,11 +1013,11 @@ define dso_local void @Curl_hsts_loadfiles(ptr noundef %0) local_unnamed_addr #0
   %.011 = phi ptr [ %3, %4 ], [ %12, %7 ]
   %8 = load ptr, ptr %6, align 8
   %9 = load ptr, ptr %.011, align 8
-  %10 = tail call i32 @Curl_hsts_loadfile(ptr nonnull poison, ptr noundef %8, ptr noundef %9), !range !16
+  %10 = tail call i32 @Curl_hsts_loadfile(ptr nonnull poison, ptr noundef %8, ptr noundef %9)
   %11 = getelementptr inbounds i8, ptr %.011, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not10 = icmp eq ptr %12, null
-  br i1 %.not10, label %13, label %7, !llvm.loop !17
+  br i1 %.not10, label %13, label %7, !llvm.loop !16
 
 13:                                               ; preds = %7
   %14 = tail call i32 @Curl_share_unlock(ptr noundef nonnull %0, i32 noundef 7) #9
@@ -1093,5 +1093,4 @@ attributes #10 = { nounwind willreturn memory(read) }
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = !{i32 0, i32 28}
-!17 = distinct !{!17, !6}
+!16 = distinct !{!16, !6}

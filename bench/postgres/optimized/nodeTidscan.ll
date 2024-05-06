@@ -786,7 +786,7 @@ declare zeroext i1 @execCurrentOf(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @itemptr_comparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @itemptr_comparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %.val = load i16, ptr %0, align 2
   %3 = getelementptr i8, ptr %0, i64 2
   %.val18 = load i16, ptr %3, align 2

@@ -81,7 +81,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_size_t_priority_queue(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_size_t_priority_queue(i32 noundef %n) #0 {
 entry:
   %rem = and i32 %n, 7
   %conv3 = ashr i32 %n, 3
@@ -97,21 +97,21 @@ entry:
   %idxprom = zext nneg i32 %rem to i64
   %arrayidx = getelementptr inbounds [8 x i32], ptr @test_size_t_priority_counts, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
-  %call = tail call fastcc i32 @test_size_t_priority_queue_int(i32 noundef %rem8, i32 noundef %rem4, i32 noundef %0, i32 noundef %rem10, i32 noundef %rem6, i32 noundef %rem12), !range !5
+  %call = tail call fastcc i32 @test_size_t_priority_queue_int(i32 noundef %rem8, i32 noundef %rem4, i32 noundef %0, i32 noundef %rem10, i32 noundef %rem6, i32 noundef %rem12)
   ret i32 %call
 }
 
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_large_priority_queue() #0 {
+define internal range(i32 0, 2) i32 @test_large_priority_queue() #0 {
 entry:
-  %call = tail call fastcc i32 @test_size_t_priority_queue_int(i32 noundef 0, i32 noundef 0, i32 noundef 500000, i32 noundef 5000, i32 noundef 1, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @test_size_t_priority_queue_int(i32 noundef 0, i32 noundef 0, i32 noundef 500000, i32 noundef 5000, i32 noundef 1, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_22644() #0 {
+define internal range(i32 0, 2) i32 @test_22644() #0 {
 entry:
   %infos = alloca [32 x %struct.info_st], align 16
   %call.i = tail call ptr @ossl_pqueue_new(ptr noundef nonnull @cmp) #7
@@ -124,7 +124,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i64 %i.030, ptr %sub_seq, align 8
   %inc = add nuw nsw i64 %i.030, 1
   %exitcond.not = icmp eq i64 %inc, 32
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
   store i64 70650219160667140, ptr %infos, align 16
@@ -312,7 +312,7 @@ err:                                              ; preds = %lor.lhs.false162, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_size_t_priority_queue_int(i32 noundef %reserve, i32 noundef %order, i32 noundef %count, i32 noundef %remove, i32 noundef %random, i32 noundef %popfree) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 noundef %reserve, i32 noundef %order, i32 noundef %count, i32 noundef %remove, i32 noundef %random, i32 noundef %popfree) unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %order to i64
   %arrayidx = getelementptr inbounds [3 x ptr], ptr @test_size_t_priority_queue_int.orders, i64 0, i64 %idxprom
@@ -347,7 +347,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   store i64 %1, ptr %arrayidx13.us, align 8
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count76
-  br i1 %exitcond77.not, label %for.end, label %for.body.us, !llvm.loop !8
+  br i1 %exitcond77.not, label %for.end, label %for.body.us, !llvm.loop !7
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
@@ -357,7 +357,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i64 %conv9, ptr %arrayidx13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count76
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %for.body.us, %if.end
   %mul = shl nsw i64 %conv, 3
@@ -409,7 +409,7 @@ for.body47.preheader:                             ; preds = %if.end43
 for.cond44:                                       ; preds = %for.body47
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %for.end59, label %for.body47, !llvm.loop !9
+  br i1 %exitcond82.not, label %for.end59, label %for.body47, !llvm.loop !8
 
 for.body47:                                       ; preds = %for.body47.preheader, %for.cond44
   %indvars.iv78 = phi i64 [ 0, %for.body47.preheader ], [ %indvars.iv.next79, %for.cond44 ]
@@ -469,7 +469,7 @@ if.end88:                                         ; preds = %if.then79
 
 if.end91:                                         ; preds = %if.end88, %while.body
   %cmp72 = icmp ugt i32 %dec64.in, 1
-  br i1 %cmp72, label %while.body, label %while.end, !llvm.loop !10
+  br i1 %cmp72, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end91, %while.cond.preheader
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @test_size_t_priority_queue_int.sorted, ptr nonnull align 16 @test_size_t_priority_queue_int.values, i64 %mul, i1 false)
@@ -482,10 +482,10 @@ if.end95:                                         ; preds = %while.end, %if.end6
   br i1 %cmp98.not66, label %for.end116, label %for.body100
 
 for.cond96:                                       ; preds = %lor.lhs.false106
-  %indvars.iv.next84 = add nuw i64 %indvars.iv83, 1
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %call.i52 = tail call ptr @ossl_pqueue_peek(ptr noundef %call.i) #7
   %cmp98.not = icmp eq ptr %call.i52, null
-  br i1 %cmp98.not, label %for.end116, label %for.body100, !llvm.loop !11
+  br i1 %cmp98.not, label %for.end116, label %for.body100, !llvm.loop !10
 
 for.body100:                                      ; preds = %if.end95, %for.cond96
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %for.cond96 ], [ 0, %if.end95 ]
@@ -545,7 +545,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @qsort_size_t_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal range(i32 -1, 2) i32 @qsort_size_t_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
@@ -557,7 +557,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @qsort_size_t_compare_rev(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal range(i32 -1, 2) i32 @qsort_size_t_compare_rev(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
 entry:
   %0 = load i64, ptr %b, align 8
   %1 = load i64, ptr %a, align 8
@@ -571,7 +571,7 @@ entry:
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @size_t_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal range(i32 -1, 2) i32 @size_t_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
@@ -616,7 +616,7 @@ declare void @ossl_pqueue_pop_free(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @ossl_pqueue_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal range(i32 -1, 2) i32 @cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
@@ -661,10 +661,9 @@ attributes #7 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

@@ -572,7 +572,7 @@ entry:
   store i64 %2, ptr %ref.tmp.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK9hashtableIN3sat11npn3_finder6binaryENS3_4hashENS3_2eqEERKS0_INS2_7ternaryENS9_4hashENS9_2eqEENS1_7literalESF_SF_RNS1_6clauseEEZNS2_8find_muxER10ptr_vectorISG_EE3$_0E9_M_invokeERKSt9_Any_dataS8_SE_OSF_SR_SR_SH_", ptr %_M_invoker.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK9hashtableIN3sat11npn3_finder6binaryENS3_4hashENS3_2eqEERKS0_INS2_7ternaryENS9_4hashENS9_2eqEENS1_7literalESF_SF_RNS1_6clauseEEZNS2_8find_muxER10ptr_vectorISG_EE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
-  invoke void @_ZN3sat11npn3_finder9find_npn3ER10ptr_vectorINS_6clauseEERKSt8functionIFvNS_7literalES6_S6_S6_EERKS5_IFbRK9hashtableINS0_6binaryENSC_4hashENSC_2eqEERKSB_INS0_7ternaryENSI_4hashENSI_2eqEES6_S6_S6_RS2_EE(ptr noundef nonnull align 8 dereferenceable(416) %this, ptr noundef nonnull align 8 dereferenceable(8) %clauses, ptr noundef nonnull align 8 dereferenceable(32) %m_on_mux.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  invoke void @_ZN3sat11npn3_finder9find_npn3ER10ptr_vectorINS_6clauseEERKSt8functionIFvNS_7literalES6_S6_S6_EERKS5_IFbRK9hashtableINS0_6binaryENSC_4hashENSC_2eqEERKSB_INS0_7ternaryENSI_4hashENSI_2eqEES6_S6_S6_RS2_EE(ptr noundef nonnull align 8 dereferenceable(416) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %clauses, ptr noundef nonnull align 8 dereferenceable(32) %m_on_mux.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -624,7 +624,7 @@ _ZN3sat11npn3_finder8find_muxER10ptr_vectorINS_6clauseEE.exit: ; preds = %invoke
   store i64 %2, ptr %ref.tmp.i10, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK9hashtableIN3sat11npn3_finder6binaryENS3_4hashENS3_2eqEERKS0_INS2_7ternaryENS9_4hashENS9_2eqEENS1_7literalESF_SF_RNS1_6clauseEEZNS2_8find_majER10ptr_vectorISG_EE3$_0E9_M_invokeERKSt9_Any_dataS8_SE_OSF_SR_SR_SH_", ptr %_M_invoker.i.i12, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK9hashtableIN3sat11npn3_finder6binaryENS3_4hashENS3_2eqEERKS0_INS2_7ternaryENS9_4hashENS9_2eqEENS1_7literalESF_SF_RNS1_6clauseEEZNS2_8find_majER10ptr_vectorISG_EE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %_M_manager.i.i.i11, align 8
-  invoke void @_ZN3sat11npn3_finder9find_npn3ER10ptr_vectorINS_6clauseEERKSt8functionIFvNS_7literalES6_S6_S6_EERKS5_IFbRK9hashtableINS0_6binaryENSC_4hashENSC_2eqEERKSB_INS0_7ternaryENSI_4hashENSI_2eqEES6_S6_S6_RS2_EE(ptr noundef nonnull align 8 dereferenceable(416) %this, ptr noundef nonnull align 8 dereferenceable(8) %clauses, ptr noundef nonnull align 8 dereferenceable(32) %m_on_maj.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i10)
+  invoke void @_ZN3sat11npn3_finder9find_npn3ER10ptr_vectorINS_6clauseEERKSt8functionIFvNS_7literalES6_S6_S6_EERKS5_IFbRK9hashtableINS0_6binaryENSC_4hashENSC_2eqEERKSB_INS0_7ternaryENSI_4hashENSI_2eqEES6_S6_S6_RS2_EE(ptr noundef nonnull align 8 dereferenceable(416) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %clauses, ptr noundef nonnull align 8 dereferenceable(32) %m_on_maj.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i10)
           to label %invoke.cont.i19 unwind label %lpad.i13
 
 invoke.cont.i19:                                  ; preds = %_ZN3sat11npn3_finder8find_muxER10ptr_vectorINS_6clauseEE.exit
@@ -672,7 +672,7 @@ _ZN3sat11npn3_finder8find_majER10ptr_vectorINS_6clauseEE.exit: ; preds = %invoke
   store i64 %2, ptr %ref.tmp.i24, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK9hashtableIN3sat11npn3_finder6binaryENS3_4hashENS3_2eqEERKS0_INS2_7ternaryENS9_4hashENS9_2eqEENS1_7literalESF_SF_RNS1_6clauseEEZNS2_10find_orandER10ptr_vectorISG_EE3$_0E9_M_invokeERKSt9_Any_dataS8_SE_OSF_SR_SR_SH_", ptr %_M_invoker.i.i26, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRK9hashtableIN3sat11npn3_finder6binaryENS3_4hashENS3_2eqEERKS0_INS2_7ternaryENS9_4hashENS9_2eqEENS1_7literalESF_SF_RNS1_6clauseEEZNS2_10find_orandER10ptr_vectorISG_EE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %_M_manager.i.i.i25, align 8
-  invoke void @_ZN3sat11npn3_finder9find_npn3ER10ptr_vectorINS_6clauseEERKSt8functionIFvNS_7literalES6_S6_S6_EERKS5_IFbRK9hashtableINS0_6binaryENSC_4hashENSC_2eqEERKSB_INS0_7ternaryENSI_4hashENSI_2eqEES6_S6_S6_RS2_EE(ptr noundef nonnull align 8 dereferenceable(416) %this, ptr noundef nonnull align 8 dereferenceable(8) %clauses, ptr noundef nonnull align 8 dereferenceable(32) %m_on_orand.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i24)
+  invoke void @_ZN3sat11npn3_finder9find_npn3ER10ptr_vectorINS_6clauseEERKSt8functionIFvNS_7literalES6_S6_S6_EERKS5_IFbRK9hashtableINS0_6binaryENSC_4hashENSC_2eqEERKSB_INS0_7ternaryENSI_4hashENSI_2eqEES6_S6_S6_RS2_EE(ptr noundef nonnull align 8 dereferenceable(416) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %clauses, ptr noundef nonnull align 8 dereferenceable(32) %m_on_orand.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i24)
           to label %invoke.cont.i33 unwind label %lpad.i27
 
 invoke.cont.i33:                                  ; preds = %_ZN3sat11npn3_finder8find_majER10ptr_vectorINS_6clauseEE.exit
@@ -4236,51 +4236,51 @@ _ZN3sat11npn3_finder7ternaryC2ENS_7literalES2_S2_PNS_6clauseE.exit: ; preds = %i
 if.then38:                                        ; preds = %entry
   %12 = getelementptr inbounds i8, ptr %this, i64 16
   %13 = load ptr, ptr %12, align 8
-  %m_lits.i47 = getelementptr inbounds i8, ptr %c, i64 20
-  %agg.tmp40.sroa.0.0.copyload = load i32, ptr %m_lits.i47, align 4
-  %arrayidx.i49 = getelementptr inbounds i8, ptr %c, i64 24
-  %agg.tmp42.sroa.0.0.copyload = load i32, ptr %arrayidx.i49, align 4
-  %arrayidx.i51 = getelementptr inbounds i8, ptr %c, i64 28
-  %agg.tmp44.sroa.0.0.copyload = load i32, ptr %arrayidx.i51, align 4
-  %arrayidx.i53 = getelementptr inbounds i8, ptr %c, i64 32
-  %agg.tmp46.sroa.0.0.copyload = load i32, ptr %arrayidx.i53, align 4
+  %m_lits.i50 = getelementptr inbounds i8, ptr %c, i64 20
+  %agg.tmp40.sroa.0.0.copyload = load i32, ptr %m_lits.i50, align 4
+  %arrayidx.i53 = getelementptr inbounds i8, ptr %c, i64 24
+  %agg.tmp42.sroa.0.0.copyload = load i32, ptr %arrayidx.i53, align 4
+  %arrayidx.i55 = getelementptr inbounds i8, ptr %c, i64 28
+  %agg.tmp44.sroa.0.0.copyload = load i32, ptr %arrayidx.i55, align 4
+  %arrayidx.i57 = getelementptr inbounds i8, ptr %c, i64 32
+  %agg.tmp46.sroa.0.0.copyload = load i32, ptr %arrayidx.i57, align 4
   store i32 %agg.tmp40.sroa.0.0.copyload, ptr %ref.tmp39, align 8
   %x.i = getelementptr inbounds i8, ptr %ref.tmp39, i64 4
   store i32 %agg.tmp42.sroa.0.0.copyload, ptr %x.i, align 4
-  %y.i54 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
-  store i32 %agg.tmp44.sroa.0.0.copyload, ptr %y.i54, align 8
-  %z.i55 = getelementptr inbounds i8, ptr %ref.tmp39, i64 12
-  store i32 %agg.tmp46.sroa.0.0.copyload, ptr %z.i55, align 4
-  %orig.i56 = getelementptr inbounds i8, ptr %ref.tmp39, i64 16
-  store ptr %c, ptr %orig.i56, align 8
-  %cmp.i57 = icmp ugt i32 %agg.tmp40.sroa.0.0.copyload, %agg.tmp42.sroa.0.0.copyload
-  br i1 %cmp.i57, label %if.then.i59, label %if.end.i58
+  %y.i58 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
+  store i32 %agg.tmp44.sroa.0.0.copyload, ptr %y.i58, align 8
+  %z.i59 = getelementptr inbounds i8, ptr %ref.tmp39, i64 12
+  store i32 %agg.tmp46.sroa.0.0.copyload, ptr %z.i59, align 4
+  %orig.i60 = getelementptr inbounds i8, ptr %ref.tmp39, i64 16
+  store ptr %c, ptr %orig.i60, align 8
+  %cmp.i61 = icmp ugt i32 %agg.tmp40.sroa.0.0.copyload, %agg.tmp42.sroa.0.0.copyload
+  br i1 %cmp.i61, label %if.then.i63, label %if.end.i62
 
-if.then.i59:                                      ; preds = %if.then38
+if.then.i63:                                      ; preds = %if.then38
   store i32 %agg.tmp42.sroa.0.0.copyload, ptr %ref.tmp39, align 8
   store i32 %agg.tmp40.sroa.0.0.copyload, ptr %x.i, align 4
-  br label %if.end.i58
+  br label %if.end.i62
 
-if.end.i58:                                       ; preds = %if.then.i59, %if.then38
-  %14 = phi i32 [ %agg.tmp40.sroa.0.0.copyload, %if.then.i59 ], [ %agg.tmp42.sroa.0.0.copyload, %if.then38 ]
-  %15 = phi i32 [ %agg.tmp42.sroa.0.0.copyload, %if.then.i59 ], [ %agg.tmp40.sroa.0.0.copyload, %if.then38 ]
+if.end.i62:                                       ; preds = %if.then.i63, %if.then38
+  %14 = phi i32 [ %agg.tmp40.sroa.0.0.copyload, %if.then.i63 ], [ %agg.tmp42.sroa.0.0.copyload, %if.then38 ]
+  %15 = phi i32 [ %agg.tmp42.sroa.0.0.copyload, %if.then.i63 ], [ %agg.tmp40.sroa.0.0.copyload, %if.then38 ]
   %cmp14.i = icmp ugt i32 %agg.tmp44.sroa.0.0.copyload, %agg.tmp46.sroa.0.0.copyload
   br i1 %cmp14.i, label %if.then15.i, label %if.end18.i
 
-if.then15.i:                                      ; preds = %if.end.i58
-  store i32 %agg.tmp46.sroa.0.0.copyload, ptr %y.i54, align 8
-  store i32 %agg.tmp44.sroa.0.0.copyload, ptr %z.i55, align 4
+if.then15.i:                                      ; preds = %if.end.i62
+  store i32 %agg.tmp46.sroa.0.0.copyload, ptr %y.i58, align 8
+  store i32 %agg.tmp44.sroa.0.0.copyload, ptr %z.i59, align 4
   br label %if.end18.i
 
-if.end18.i:                                       ; preds = %if.then15.i, %if.end.i58
-  %16 = phi i32 [ %agg.tmp44.sroa.0.0.copyload, %if.then15.i ], [ %agg.tmp46.sroa.0.0.copyload, %if.end.i58 ]
-  %17 = phi i32 [ %agg.tmp46.sroa.0.0.copyload, %if.then15.i ], [ %agg.tmp44.sroa.0.0.copyload, %if.end.i58 ]
+if.end18.i:                                       ; preds = %if.then15.i, %if.end.i62
+  %16 = phi i32 [ %agg.tmp44.sroa.0.0.copyload, %if.then15.i ], [ %agg.tmp46.sroa.0.0.copyload, %if.end.i62 ]
+  %17 = phi i32 [ %agg.tmp46.sroa.0.0.copyload, %if.then15.i ], [ %agg.tmp44.sroa.0.0.copyload, %if.end.i62 ]
   %cmp23.i = icmp ugt i32 %15, %17
   br i1 %cmp23.i, label %if.then24.i, label %if.end27.i
 
 if.then24.i:                                      ; preds = %if.end18.i
   store i32 %17, ptr %ref.tmp39, align 8
-  store i32 %15, ptr %y.i54, align 8
+  store i32 %15, ptr %y.i58, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.then24.i, %if.end18.i
@@ -4290,7 +4290,7 @@ if.end27.i:                                       ; preds = %if.then24.i, %if.en
 
 if.then33.i:                                      ; preds = %if.end27.i
   store i32 %16, ptr %x.i, align 4
-  store i32 %14, ptr %z.i55, align 4
+  store i32 %14, ptr %z.i59, align 4
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.then33.i, %if.end27.i
@@ -4300,7 +4300,7 @@ if.end36.i:                                       ; preds = %if.then33.i, %if.en
 
 if.then42.i:                                      ; preds = %if.end36.i
   store i32 %18, ptr %x.i, align 4
-  store i32 %19, ptr %y.i54, align 8
+  store i32 %19, ptr %y.i58, align 8
   br label %_ZN3sat11npn3_finder10quaternaryC2ENS_7literalES2_S2_S2_PNS_6clauseE.exit
 
 _ZN3sat11npn3_finder10quaternaryC2ENS_7literalES2_S2_S2_PNS_6clauseE.exit: ; preds = %if.end36.i, %if.then42.i

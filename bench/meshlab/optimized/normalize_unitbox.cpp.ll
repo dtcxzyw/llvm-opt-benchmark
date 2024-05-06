@@ -87,7 +87,7 @@ define void @_Z17normalize_unitboxRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEE(pt
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %8, i64 16
   %22 = load <2 x double>, ptr %21, align 16
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %8, i64 48
+  %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 48
   %23 = icmp ugt i64 %12, 7
   br i1 %23, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
@@ -99,7 +99,7 @@ define void @_Z17normalize_unitboxRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEE(pt
   %24 = getelementptr inbounds double, ptr %8, i64 %.05475.i.i.i.i
   %25 = load <2 x double>, ptr %24, align 16
   %26 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.06972.i.i.i.i, <2 x double> %25) #12, !srcloc !14
-  %gep.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i, i64 %.054.in74.i.i.i.i
+  %gep.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i, i64 %.054.in74.i.i.i.i
   %27 = load <2 x double>, ptr %gep.i.i.i.i, align 16
   %28 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %storemerge73.i.i.i.i, <2 x double> %27) #12, !srcloc !14
   %.054.i.i.i.i = add nuw nsw i64 %.05475.i.i.i.i, 4
@@ -280,7 +280,7 @@ thread-pre-split:                                 ; preds = %_ZN5Eigen15PlainObj
   br i1 %45, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %46 = mul nsw i64 %.0810.i, %39
+  %46 = mul nuw nsw i64 %.0810.i, %39
   %47 = getelementptr double, ptr %40, i64 %46
   br label %.lr.ph.i
 

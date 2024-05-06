@@ -213,7 +213,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 declare i32 @g_timeout_add(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_poll_devices(ptr nocapture noundef readonly %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef readonly %0) #1 {
   %2 = alloca %union.SDL_Event, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #9
   %3 = call i32 @SDL_PollEvent(ptr noundef nonnull %2) #9
@@ -547,7 +547,7 @@ define internal noalias ptr @_key_to_string(i32 noundef %0, i32 noundef %1) #1 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @_string_to_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define internal range(i32 0, 2) i32 @_string_to_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
   store i32 0, ptr %1, align 4, !tbaa !30
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.7, ptr noundef nonnull dereferenceable(1) %0) #11
   %4 = icmp eq i32 %3, 0
@@ -720,7 +720,7 @@ define internal noalias ptr @_move_to_string(i32 noundef %0, i32 noundef %1) #1 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @_string_to_move(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define internal range(i32 0, 2) i32 @_string_to_move(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
   store i32 0, ptr %1, align 4, !tbaa !30
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.31, ptr noundef nonnull dereferenceable(1) %0) #11
   %4 = icmp eq i32 %3, 0

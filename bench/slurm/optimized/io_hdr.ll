@@ -56,7 +56,7 @@ declare void @pack16(i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @io_hdr_unpack(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @io_hdr_unpack(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @unpack16(ptr noundef %0, ptr noundef %1) #6
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %13
@@ -229,7 +229,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @free_buf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @io_init_msg_validate(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @io_init_msg_validate(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #6
   %4 = icmp sgt i32 %3, 5
   br i1 %4, label %5, label %6
@@ -297,7 +297,7 @@ define noundef i32 @io_init_msg_validate(ptr nocapture noundef readonly %0, ptr 
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @io_init_msg_write_to_fd(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @io_init_msg_write_to_fd(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @init_buf(i32 noundef 26) #6
   %4 = tail call i32 @get_log_level() #6
   %5 = icmp sgt i32 %4, 5
@@ -459,7 +459,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @io_init_msg_read_from_fd(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @io_init_msg_read_from_fd(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = tail call i32 @get_log_level() #6

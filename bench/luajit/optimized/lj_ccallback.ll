@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.FPRCBArg = type { double }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @lj_ccallback_ptr2slot(ptr nocapture noundef readonly %cts, ptr noundef %p) local_unnamed_addr #0 {
+define hidden range(i32 -1, 947854885) i32 @lj_ccallback_ptr2slot(ptr nocapture noundef readonly %cts, ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %mcode = getelementptr inbounds i8, ptr %cts, i64 184
   %0 = load ptr, ptr %mcode, align 8

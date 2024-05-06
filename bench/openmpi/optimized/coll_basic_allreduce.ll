@@ -197,7 +197,7 @@ opal_datatype_span.exit:                          ; preds = %19, %25
   %indvars.iv = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next, %63 ]
   %64 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
-  %65 = trunc i64 %indvars.iv to i32
+  %65 = trunc nuw nsw i64 %indvars.iv to i32
   %66 = tail call i32 %64(ptr noundef nonnull %41, i64 noundef %20, ptr noundef %3, i32 noundef %65, i32 noundef -12, i32 noundef 4, ptr noundef %5, ptr noundef %gep) #4
   %.not107 = icmp eq i32 %66, 0
   br i1 %.not107, label %63, label %.thread122
@@ -306,7 +306,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store ptr %4, ptr %6, align 8
-  %10 = trunc i64 %3 to i32
+  %10 = trunc nsw i64 %3 to i32
   store i32 %10, ptr %9, align 4
   %11 = icmp ugt i64 %3, 2147483647
   br i1 %11, label %12, label %30

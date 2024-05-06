@@ -353,7 +353,7 @@ define internal void @uv__cancelled(ptr nocapture readnone %0) #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_queue_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @uv_queue_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %22, label %6
 

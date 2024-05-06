@@ -61,7 +61,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_sparse_array() #0 {
+define internal range(i32 0, 2) i32 @test_sparse_array() #0 {
 entry:
   %call.i = tail call ptr @ossl_sa_new() #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.11, i32 noundef 43, ptr noundef nonnull @.str.12, ptr noundef %call.i) #3
@@ -140,7 +140,7 @@ err:                                              ; preds = %for.inc35, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_sparse_array_num() #0 {
+define internal range(i32 0, 2) i32 @test_sparse_array_num() #0 {
 entry:
   %call.i = tail call i64 @ossl_sa_num(ptr noundef null) #3
   %call1 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.11, i32 noundef 83, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i64 noundef %call.i, i64 noundef 0) #3
@@ -193,7 +193,7 @@ err:                                              ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_sparse_array_doall() #0 {
+define internal range(i32 0, 2) i32 @test_sparse_array_doall() #0 {
 entry:
   %doall_data = alloca %struct.doall_st, align 8
   %call.i = tail call ptr @ossl_sa_new() #3

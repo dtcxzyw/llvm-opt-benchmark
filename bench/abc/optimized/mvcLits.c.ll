@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Mvc_CoverAnyLiteral(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 2147483647) i32 @Mvc_CoverAnyLiteral(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.13956 = add nsw i32 %4, -1
@@ -570,7 +570,7 @@ define i32 @Mvc_CoverCountLiterals(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Mvc_CoverIsOneLiteral(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Mvc_CoverIsOneLiteral(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @Mvc_CoverReadCubeNum(ptr noundef %0) #5
   %.not = icmp eq i32 %2, 1
   br i1 %.not, label %3, label %.critedge

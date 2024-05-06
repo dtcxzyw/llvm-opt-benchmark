@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [23 x i8] c"Heuristics.BoundsCheck\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef signext %8) local_unnamed_addr #0 {
+define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef signext %8) local_unnamed_addr #0 {
   %10 = zext i32 %4 to i64
   %11 = getelementptr inbounds %struct.cli_exe_section, ptr %3, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 8
@@ -35,7 +35,7 @@ define noundef i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %24 = getelementptr inbounds i8, ptr %1, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 147
   %26 = getelementptr inbounds i8, ptr %24, i64 198
-  %27 = tail call fastcc i32 @yc_poly_emulator(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %25, ptr noundef nonnull %26, i32 noundef %7, i32 noundef %7), !range !4
+  %27 = tail call fastcc i32 @yc_poly_emulator(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %25, ptr noundef nonnull %26, i32 noundef %7, i32 noundef %7)
   switch i32 %27, label %29 [
     i32 2, label %.loopexit
     i32 1, label %28
@@ -102,7 +102,7 @@ define noundef i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %64 = getelementptr inbounds i8, ptr %1, i64 %63
   %65 = getelementptr inbounds i8, ptr %37, i64 32
   %66 = load i32, ptr %65, align 4
-  %67 = tail call fastcc i32 @yc_poly_emulator(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %35, ptr noundef %64, i32 noundef %66, i32 noundef %59), !range !4
+  %67 = tail call fastcc i32 @yc_poly_emulator(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %35, ptr noundef %64, i32 noundef %66, i32 noundef %59)
   switch i32 %67, label %68 [
     i32 2, label %.loopexit.loopexit
     i32 1, label %.loopexit
@@ -149,7 +149,7 @@ define noundef i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @yc_poly_emulator(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @yc_poly_emulator(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
 .split:
   %invariant.umin = tail call i32 @llvm.umin.i32(i32 %5, i32 %6)
   %.not = icmp eq i32 %invariant.umin, 0
@@ -158,7 +158,7 @@ define internal fastcc noundef i32 @yc_poly_emulator(ptr noundef %0, ptr noundef
 .lr.ph:                                           ; preds = %.split
   %7 = trunc i32 %5 to i8
   %8 = ptrtoint ptr %1 to i64
-  %invariant.gep = getelementptr i8, ptr %3, i64 1
+  %invariant.gep = getelementptr inbounds i8, ptr %3, i64 1
   br label %9
 
 9:                                                ; preds = %.lr.ph, %135
@@ -324,7 +324,7 @@ yc_bounds_check.exit165:                          ; preds = %79
   br label %132
 
 91:                                               ; preds = %27
-  %gep236 = getelementptr i8, ptr %invariant.gep, i64 %20
+  %gep236 = getelementptr inbounds i8, ptr %invariant.gep, i64 %20
   %92 = ptrtoint ptr %gep236 to i64
   %93 = sub i64 %92, %8
   %94 = trunc i64 %93 to i32
@@ -375,7 +375,7 @@ yc_bounds_check.exit171:                          ; preds = %112
   br label %132
 
 117:                                              ; preds = %27
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %20
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %20
   %118 = ptrtoint ptr %gep to i64
   %119 = sub i64 %118, %8
   %120 = trunc i64 %119 to i32
@@ -450,4 +450,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 3}

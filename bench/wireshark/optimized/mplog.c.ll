@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mplog_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mplog_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @mplog_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [6 x i8], align 1
   %5 = load ptr, ptr %0, align 8
   %6 = call i32 @wtap_read_bytes(ptr noundef %5, ptr noundef nonnull %4, i32 noundef 6, ptr noundef %1, ptr noundef %2) #3
@@ -67,17 +67,17 @@ define hidden i32 @mplog_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mplog_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @mplog_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #3
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call fastcc i32 @mplog_read_packet(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !4
+  %10 = tail call fastcc i32 @mplog_read_packet(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mplog_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @mplog_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #3
@@ -86,7 +86,7 @@ define internal noundef i32 @mplog_seek_read(ptr nocapture noundef readonly %0, 
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = tail call fastcc i32 @mplog_read_packet(ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !4
+  %13 = tail call fastcc i32 @mplog_read_packet(ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %18
 
@@ -123,7 +123,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mplog_read_packet(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @mplog_read_packet(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [8 x i8], align 1
   tail call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef 4100) #3
   %7 = load ptr, ptr %2, align 8
@@ -211,7 +211,7 @@ define internal fastcc noundef i32 @mplog_read_packet(ptr noundef %0, ptr nocapt
   %.186 = phi ptr [ %45, %44 ], [ %.085, %47 ]
   %.182 = phi i32 [ %46, %44 ], [ %.081, %47 ]
   %51 = icmp slt i32 %.182, 4096
-  br i1 %51, label %16, label %.loopexit, !llvm.loop !5
+  br i1 %51, label %16, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %50, %18, %22, %19, %48, %42
   %.283 = phi i32 [ %.081, %42 ], [ %.081, %48 ], [ %.081, %22 ], [ %.081, %19 ], [ 0, %18 ], [ %.182, %50 ]
@@ -248,7 +248,7 @@ define internal fastcc noundef i32 @mplog_read_packet(ptr noundef %0, ptr nocapt
   %68 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %67, ptr %68, align 8
   %69 = urem i64 %66, 1000000000
-  %70 = trunc i64 %69 to i32
+  %70 = trunc nuw nsw i64 %69 to i32
   %71 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %70, ptr %71, align 8
   %72 = add i32 %.283, 4
@@ -282,6 +282,5 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

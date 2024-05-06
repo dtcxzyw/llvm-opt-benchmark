@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.DdSubtable = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddExact(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddExact(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
@@ -908,7 +908,7 @@ checkSymmInfo.exit:                               ; preds = %370, %404, %.checkS
   %.0216.lcssa = phi ptr [ %121, %._crit_edge497 ], [ %.0218519, %._crit_edge512 ]
   %.0214.lcssa = phi ptr [ %118, %._crit_edge497 ], [ %.0213522, %._crit_edge512 ]
   %.0213.lcssa = phi ptr [ %131, %._crit_edge497 ], [ %.0214521, %._crit_edge512 ]
-  %410 = tail call fastcc i32 @ddShuffle(ptr noundef %0, ptr noundef nonnull %136, i32 noundef %.0211.lcssa465, i32 noundef %.0212.lcssa), !range !27
+  %410 = tail call fastcc i32 @ddShuffle(ptr noundef %0, ptr noundef nonnull %136, i32 noundef %.0211.lcssa465, i32 noundef %.0212.lcssa)
   %411 = icmp eq i32 %410, 0
   br i1 %411, label %ddShuffle.exit, label %412
 
@@ -1068,7 +1068,7 @@ define internal fastcc noalias noundef ptr @initSymmInfo(ptr nocapture noundef r
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %15, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !27
 
 .loopexit:                                        ; preds = %16, %3
   ret ptr %8
@@ -1198,14 +1198,14 @@ define internal fastcc i32 @ddCountRoots(ptr noundef readonly %0, i32 noundef %1
   %75 = and i64 %74, -2
   %76 = inttoptr i64 %75 to ptr
   %.not52 = icmp eq ptr %76, %0
-  br i1 %.not52, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not52, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %72, %.lr.ph66
   %.244.lcssa = phi i32 [ %.14363, %.lr.ph66 ], [ %.345, %72 ]
   %.2.lcssa = phi i32 [ %.164, %.lr.ph66 ], [ %.4, %72 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge67, label %.lr.ph66, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge67, label %.lr.ph66, !llvm.loop !29
 
 ._crit_edge67:                                    ; preds = %._crit_edge, %9
   %.143.lcssa = phi i32 [ %.04272, %9 ], [ %.244.lcssa, %._crit_edge ]
@@ -1213,7 +1213,7 @@ define internal fastcc i32 @ddCountRoots(ptr noundef readonly %0, i32 noundef %1
   %indvars.iv.next81 = add nsw i64 %indvars.iv80, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next81 to i32
   %exitcond83.not = icmp eq i32 %8, %lftr.wideiv
-  br i1 %exitcond83.not, label %._crit_edge76, label %9, !llvm.loop !31
+  br i1 %exitcond83.not, label %._crit_edge76, label %9, !llvm.loop !30
 
 ._crit_edge76:                                    ; preds = %._crit_edge67
   %.not27.i = icmp slt i32 %.1.lcssa, %1
@@ -1257,18 +1257,18 @@ define internal fastcc i32 @ddCountRoots(ptr noundef readonly %0, i32 noundef %1
   %93 = inttoptr i64 %92 to ptr
   store ptr %93, ptr %89, align 8
   %.not20.i = icmp eq ptr %93, %0
-  br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph25.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge26.i, label %.lr.ph25.i, !llvm.loop !33
+  br i1 %exitcond.not.i, label %._crit_edge26.i, label %.lr.ph25.i, !llvm.loop !32
 
 ._crit_edge26.i:                                  ; preds = %._crit_edge.i, %80
   %indvars.iv.next34.i = add nsw i64 %indvars.iv33.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next34.i to i32
   %exitcond36.not.i = icmp eq i32 %79, %lftr.wideiv.i
-  br i1 %exitcond36.not.i, label %ddClearGlobal.exit, label %80, !llvm.loop !34
+  br i1 %exitcond36.not.i, label %ddClearGlobal.exit, label %80, !llvm.loop !33
 
 ddClearGlobal.exit:                               ; preds = %._crit_edge26.i, %._crit_edge76
   %.042.lcssa88 = phi i32 [ %.143.lcssa, %._crit_edge76 ], [ %.042.lcssa87, %._crit_edge26.i ]
@@ -1276,7 +1276,7 @@ ddClearGlobal.exit:                               ; preds = %._crit_edge26.i, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ddShuffle(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ddShuffle(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %.not18 = icmp slt i32 %3, %2
   br i1 %.not18, label %ddSiftUp.exit, label %.lr.ph
 
@@ -1393,11 +1393,10 @@ attributes #9 = { nounwind allocsize(0) }
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = !{i32 0, i32 2}
+!27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}

@@ -147,7 +147,7 @@ define void @dgbtf2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %or.cond14, label %109, label %101
 
 101:                                              ; preds = %93
-  %102 = trunc i64 %indvars.iv to i32
+  %102 = trunc nuw nsw i64 %indvars.iv to i32
   %reass.add = add i32 %83, %102
   %reass.mul = mul i32 %reass.add, %15
   %103 = add i32 %reass.mul, 1

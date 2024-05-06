@@ -44,7 +44,7 @@ define dso_local void @InitCatalogCache() local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %2, i64 12
   %9 = getelementptr inbounds i8, ptr %2, i64 28
   %10 = load i32, ptr %9, align 4
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   %12 = tail call ptr @InitCatCache(i32 noundef %11, i32 noundef %3, i32 noundef %5, i32 noundef %7, ptr noundef nonnull %8, i32 noundef %10) #7
   %13 = getelementptr [83 x ptr], ptr @SysCache, i64 0, i64 %indvars.iv
   store ptr %12, ptr %13, align 8
@@ -184,7 +184,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @oid_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1, 2) i32 @oid_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ugt i32 %3, %4

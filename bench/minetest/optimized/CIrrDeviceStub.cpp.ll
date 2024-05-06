@@ -892,7 +892,7 @@ entry:
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3irr14CIrrDeviceStub21checkSuccessiveClicksEiiNS_18EMOUSE_INPUT_EVENTE(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %mouseX, i32 noundef %mouseY, i32 noundef %inputEvent) unnamed_addr #0 align 2 {
+define noundef range(i32 1, 4) i32 @_ZN3irr14CIrrDeviceStub21checkSuccessiveClicksEiiNS_18EMOUSE_INPUT_EVENTE(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %mouseX, i32 noundef %mouseY, i32 noundef %inputEvent) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 88

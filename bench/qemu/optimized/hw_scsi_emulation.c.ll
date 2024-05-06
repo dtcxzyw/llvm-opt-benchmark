@@ -8,63 +8,63 @@ define dso_local noundef i32 @scsi_emulate_block_limits(ptr nocapture noundef wr
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(60) %outbuf, i8 0, i64 60, i1 false)
   %0 = load i8, ptr %bl, align 4
-  %1 = and i8 %0, 1
-  store i8 %1, ptr %outbuf, align 1
+  %conv = and i8 %0, 1
+  store i8 %conv, ptr %outbuf, align 1
   %max_io_sectors = getelementptr inbounds i8, ptr %bl, i64 20
-  %2 = load i32, ptr %max_io_sectors, align 4
-  %tobool1.not = icmp eq i32 %2, 0
+  %1 = load i32, ptr %max_io_sectors, align 4
+  %tobool1.not = icmp eq i32 %1, 0
   %add.ptr17 = getelementptr i8, ptr %outbuf, i64 2
   %min_io_size18 = getelementptr inbounds i8, ptr %bl, i64 2
-  %3 = load i16, ptr %min_io_size18, align 2
+  %2 = load i16, ptr %min_io_size18, align 2
   br i1 %tobool1.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %conv2 = zext i16 %3 to i32
-  %cond = tail call i32 @llvm.umin.i32(i32 %2, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
-  %4 = tail call i16 @llvm.bswap.i16(i16 %conv5)
-  store i16 %4, ptr %add.ptr17, align 1
+  %conv2 = zext i16 %2 to i32
+  %cond = tail call i32 @llvm.umin.i32(i32 %1, i32 %conv2)
+  %conv5 = trunc nuw i32 %cond to i16
+  %3 = tail call i16 @llvm.bswap.i16(i16 %conv5)
+  store i16 %3, ptr %add.ptr17, align 1
   %add.ptr6 = getelementptr i8, ptr %outbuf, i64 4
-  %5 = load i32, ptr %max_io_sectors, align 4
-  %6 = tail call i32 @llvm.bswap.i32(i32 %5)
-  store i32 %6, ptr %add.ptr6, align 1
+  %4 = load i32, ptr %max_io_sectors, align 4
+  %5 = tail call i32 @llvm.bswap.i32(i32 %4)
+  store i32 %5, ptr %add.ptr6, align 1
   %opt_io_size = getelementptr inbounds i8, ptr %bl, i64 8
-  %7 = load i32, ptr %opt_io_size, align 4
-  %8 = load i32, ptr %max_io_sectors, align 4
-  %cond16 = tail call i32 @llvm.umin.i32(i32 %7, i32 %8)
+  %6 = load i32, ptr %opt_io_size, align 4
+  %7 = load i32, ptr %max_io_sectors, align 4
+  %cond16 = tail call i32 @llvm.umin.i32(i32 %6, i32 %7)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %9 = tail call i16 @llvm.bswap.i16(i16 %3)
-  store i16 %9, ptr %add.ptr17, align 1
+  %8 = tail call i16 @llvm.bswap.i16(i16 %2)
+  store i16 %8, ptr %add.ptr17, align 1
   %opt_io_size20 = getelementptr inbounds i8, ptr %bl, i64 8
-  %10 = load i32, ptr %opt_io_size20, align 4
+  %9 = load i32, ptr %opt_io_size20, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %.sink27 = phi i32 [ %10, %if.else ], [ %cond16, %if.then ]
-  %11 = tail call i32 @llvm.bswap.i32(i32 %.sink27)
-  %12 = getelementptr i8, ptr %outbuf, i64 8
-  store i32 %11, ptr %12, align 1
+  %.sink27 = phi i32 [ %9, %if.else ], [ %cond16, %if.then ]
+  %10 = tail call i32 @llvm.bswap.i32(i32 %.sink27)
+  %11 = getelementptr i8, ptr %outbuf, i64 8
+  store i32 %10, ptr %11, align 1
   %add.ptr21 = getelementptr i8, ptr %outbuf, i64 16
   %max_unmap_sectors = getelementptr inbounds i8, ptr %bl, i64 12
-  %13 = load i32, ptr %max_unmap_sectors, align 4
-  %14 = tail call i32 @llvm.bswap.i32(i32 %13)
-  store i32 %14, ptr %add.ptr21, align 1
+  %12 = load i32, ptr %max_unmap_sectors, align 4
+  %13 = tail call i32 @llvm.bswap.i32(i32 %12)
+  store i32 %13, ptr %add.ptr21, align 1
   %add.ptr22 = getelementptr i8, ptr %outbuf, i64 20
   %max_unmap_descr = getelementptr inbounds i8, ptr %bl, i64 4
-  %15 = load i32, ptr %max_unmap_descr, align 4
-  %16 = tail call i32 @llvm.bswap.i32(i32 %15)
-  store i32 %16, ptr %add.ptr22, align 1
+  %14 = load i32, ptr %max_unmap_descr, align 4
+  %15 = tail call i32 @llvm.bswap.i32(i32 %14)
+  store i32 %15, ptr %add.ptr22, align 1
   %add.ptr23 = getelementptr i8, ptr %outbuf, i64 24
   %unmap_sectors = getelementptr inbounds i8, ptr %bl, i64 16
-  %17 = load i32, ptr %unmap_sectors, align 4
-  %18 = tail call i32 @llvm.bswap.i32(i32 %17)
-  store i32 %18, ptr %add.ptr23, align 1
+  %16 = load i32, ptr %unmap_sectors, align 4
+  %17 = tail call i32 @llvm.bswap.i32(i32 %16)
+  store i32 %17, ptr %add.ptr23, align 1
   %add.ptr24 = getelementptr i8, ptr %outbuf, i64 36
-  %19 = load i32, ptr %max_io_sectors, align 4
-  %20 = tail call i32 @llvm.bswap.i32(i32 %19)
-  store i32 %20, ptr %add.ptr24, align 1
+  %18 = load i32, ptr %max_io_sectors, align 4
+  %19 = tail call i32 @llvm.bswap.i32(i32 %18)
+  store i32 %19, ptr %add.ptr24, align 1
   ret i32 60
 }
 

@@ -454,7 +454,7 @@ declare dso_local ptr @symtab_search(ptr noundef, ptr noundef) local_unnamed_add
 declare dso_local i32 @ebitmap_contains(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mls_range_isvalid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @mls_range_isvalid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %57, label %5
@@ -535,7 +535,7 @@ define dso_local i32 @mls_range_isvalid(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mls_context_isvalid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @mls_context_isvalid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %48, label %5
@@ -900,7 +900,7 @@ define dso_local i32 @mls_range_set(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mls_setup_user_range(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @mls_setup_user_range(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %85, label %7

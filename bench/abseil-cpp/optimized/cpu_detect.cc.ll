@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [13 x i8] c"AuthenticAMD\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4absl12crc_internal10GetCpuTypeEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 14) i32 @_ZN4absl12crc_internal10GetCpuTypeEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cpu_info.i = alloca [4 x i32], align 16
   %vendor.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -80,7 +80,7 @@ sw.bb17.i:                                        ; preds = %sw.bb
   %4 = lshr i32 %asmresult.i.i1, 12
   %shl.i = and i32 %4, 240
   %add15.i = or disjoint i32 %and3.i, %shl.i
-  %trunc.i = trunc i32 %add15.i to i8
+  %trunc.i = trunc nuw i32 %add15.i to i8
   switch i8 %trunc.i, label %sw.default.i [
     i8 44, label %return
     i8 45, label %sw.bb19.i

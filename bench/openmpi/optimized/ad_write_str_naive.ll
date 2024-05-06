@@ -262,7 +262,7 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %154, label %155, label %164
 
 155:                                              ; preds = %150
-  %156 = trunc i64 %indvars.iv to i32
+  %156 = trunc nuw nsw i64 %indvars.iv to i32
   %157 = sub nsw i64 %153, %144
   %158 = getelementptr inbounds i8, ptr %113, i64 24
   %159 = load ptr, ptr %158, align 8
@@ -288,7 +288,7 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   br label %.loopexit380
 
 .loopexit380.loopexit:                            ; preds = %130
-  %169 = trunc i64 %indvars.iv452 to i32
+  %169 = trunc nuw nsw i64 %indvars.iv452 to i32
   %170 = sub nsw i64 %137, %119
   br label %.loopexit380
 
@@ -544,7 +544,7 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   %317 = sext i32 %316 to i64
   %318 = load i64, ptr %279, align 8
   %319 = srem i64 %317, %318
-  %320 = trunc i64 %319 to i32
+  %320 = trunc nsw i64 %319 to i32
   %321 = add nsw i32 %.0322416, 1
   %322 = load i64, ptr %13, align 8
   %323 = sext i32 %321 to i64

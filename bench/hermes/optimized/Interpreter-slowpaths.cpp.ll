@@ -2221,7 +2221,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_16PropertyAccessorEEENS0_6HandleI
 declare i64 @_ZN6hermes2vm16PropertyAccessor6createERNS0_7RuntimeENS0_6HandleINS0_8CallableEEES6_(ptr noundef nonnull align 8 dereferenceable(9832), ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm11Interpreter17caseIteratorBeginERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs, ptr nocapture noundef readonly %ip) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm11Interpreter17caseIteratorBeginERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs, ptr nocapture noundef readonly %ip) local_unnamed_addr #0 align 2 {
 entry:
   %desc = alloca %"struct.hermes::vm::NamedPropertyDescriptor", align 8
   %iterRecord = alloca %"class.hermes::vm::CallResult.184", align 8
@@ -2336,7 +2336,7 @@ return:                                           ; preds = %if.then11, %_ZN6her
 define linkonce_odr hidden { i32, i64 } @_ZN6hermes2vm8JSObject17getNamedSlotValueENS0_12PseudoHandleIS1_EERNS0_7RuntimeENS0_23NamedPropertyDescriptorE(ptr %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i64 %desc.coerce) local_unnamed_addr #0 comdat align 2 {
 entry:
   %desc.sroa.44.0.extract.shift = lshr i64 %desc.coerce, 32
-  %desc.sroa.44.0.extract.trunc = trunc i64 %desc.sroa.44.0.extract.shift to i32
+  %desc.sroa.44.0.extract.trunc = trunc nuw i64 %desc.sroa.44.0.extract.shift to i32
   %0 = and i64 %desc.coerce, 1280
   %or.cond = icmp eq i64 %0, 0
   br i1 %or.cond, label %if.end, label %if.then
@@ -2492,7 +2492,7 @@ return:                                           ; preds = %sw.bb39.i, %sw.bb36
 declare void @_ZN6hermes2vm11getIteratorERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEEN4llvh8OptionalINS3_INS0_8CallableEEEEE(ptr sret(%"class.hermes::vm::CallResult.184") align 8, ptr noundef nonnull align 8 dereferenceable(9832), ptr, i64, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm11Interpreter16caseIteratorNextERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs, ptr nocapture noundef readonly %ip) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm11Interpreter16caseIteratorNextERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs, ptr nocapture noundef readonly %ip) local_unnamed_addr #0 align 2 {
 entry:
   %iterRecord = alloca %"struct.hermes::vm::IteratorRecord", align 8
   %op2 = getelementptr inbounds i8, ptr %ip, i64 2
@@ -2852,7 +2852,7 @@ declare ptr @_ZN6hermes2vm12iteratorNextERNS0_7RuntimeERKNS0_14IteratorRecordEN4
 declare noundef zeroext i1 @_ZN6hermes2vm9toBooleanENS0_11HermesValueE(i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm11Interpreter16caseGetPNameListERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs, ptr nocapture noundef readonly %ip) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm11Interpreter16caseGetPNameListERNS0_7RuntimeEPNS0_17PinnedHermesValueEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs, ptr nocapture noundef readonly %ip) local_unnamed_addr #0 align 2 {
 entry:
   %beginIndex = alloca i32, align 4
   %endIndex = alloca i32, align 4
@@ -2942,7 +2942,7 @@ declare { i32, i64 } @_ZN6hermes2vm8toObjectERNS0_7RuntimeENS0_6HandleINS0_11Her
 declare ptr @_ZN6hermes2vm21getForInPropertyNamesERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEERjS6_(ptr noundef nonnull align 8 dereferenceable(9832), ptr, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm11Interpreter15implCallBuiltinERNS0_7RuntimeEPNS0_17PinnedHermesValueEPNS0_9CodeBlockEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs, ptr noundef %curCodeBlock, i32 noundef %op3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm11Interpreter15implCallBuiltinERNS0_7RuntimeEPNS0_17PinnedHermesValueEPNS0_9CodeBlockEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %frameRegs, ptr noundef %curCodeBlock, i32 noundef %op3) local_unnamed_addr #0 align 2 {
 entry:
   %currentIP_.i = getelementptr inbounds i8, ptr %runtime, i64 9824
   %0 = load ptr, ptr %currentIP_.i, align 8
@@ -3083,7 +3083,7 @@ cleanup:                                          ; preds = %if.end13, %if.then7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm11Interpreter20declareGlobalVarImplERNS0_7RuntimeEPNS0_9CodeBlockEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %curCodeBlock, ptr nocapture noundef readonly %ip) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm11Interpreter20declareGlobalVarImplERNS0_7RuntimeEPNS0_9CodeBlockEPKNS_4inst4InstE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %curCodeBlock, ptr nocapture noundef readonly %ip) local_unnamed_addr #0 align 2 {
 entry:
   %desc = alloca %"struct.hermes::vm::NamedPropertyDescriptor", align 4
   %topGCScope_.i.i = getelementptr inbounds i8, ptr %runtime, i64 8

@@ -319,7 +319,7 @@ define internal i32 @fec_prepare_data(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @fec_reply_size(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 16, 0) i32 @fec_reply_size(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -343,7 +343,7 @@ define internal i32 @fec_reply_size(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @fec_fill_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @fec_fill_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -468,7 +468,7 @@ define internal i32 @fec_fill_reply(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ethnl_set_fec_validate(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
+define internal range(i32 -95, 2) i32 @ethnl_set_fec_validate(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 760
   %5 = load ptr, ptr %4, align 8

@@ -660,7 +660,7 @@ define dso_local i32 @sk_filter_trim_cap(ptr noundef %0, ptr noundef %1, i32 nou
 declare dso_local i32 @security_sock_rcv_skb(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_get_pay_offset(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @bpf_skb_get_pay_offset(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = tail call i32 @skb_get_poff(ptr noundef %6) #34
   %8 = zext i32 %7 to i64
@@ -771,7 +771,7 @@ define dso_local i64 @bpf_skb_get_nlattr_nest(i64 noundef %0, i64 noundef %1, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_load_helper_8(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -14, 256) i64 @bpf_skb_load_helper_8(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
   %6 = alloca i8, align 1
   %7 = inttoptr i64 %0 to ptr
   %8 = inttoptr i64 %1 to ptr
@@ -821,7 +821,7 @@ define dso_local i64 @bpf_skb_load_helper_8(i64 noundef %0, i64 noundef %1, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_load_helper_8_no_cache(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -14, 256) i64 @bpf_skb_load_helper_8_no_cache(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
   %6 = alloca i8, align 1
   %7 = inttoptr i64 %0 to ptr
   %8 = trunc i64 %1 to i32
@@ -876,7 +876,7 @@ define dso_local i64 @bpf_skb_load_helper_8_no_cache(i64 noundef %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_load_helper_16(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -14, 65536) i64 @bpf_skb_load_helper_16(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
   %6 = alloca i16, align 2
   %7 = inttoptr i64 %0 to ptr
   %8 = inttoptr i64 %1 to ptr
@@ -929,7 +929,7 @@ define dso_local i64 @bpf_skb_load_helper_16(i64 noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_load_helper_16_no_cache(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -14, 65536) i64 @bpf_skb_load_helper_16_no_cache(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
   %6 = alloca i16, align 2
   %7 = inttoptr i64 %0 to ptr
   %8 = trunc i64 %1 to i32
@@ -987,7 +987,7 @@ define dso_local i64 @bpf_skb_load_helper_16_no_cache(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_load_helper_32(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -14, 4294967296) i64 @bpf_skb_load_helper_32(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
   %6 = alloca i32, align 4
   %7 = inttoptr i64 %0 to ptr
   %8 = inttoptr i64 %1 to ptr
@@ -1040,7 +1040,7 @@ define dso_local i64 @bpf_skb_load_helper_32(i64 noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_load_helper_32_no_cache(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -14, 4294967296) i64 @bpf_skb_load_helper_32_no_cache(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
   %6 = alloca i32, align 4
   %7 = inttoptr i64 %0 to ptr
   %8 = trunc i64 %1 to i32
@@ -2044,7 +2044,7 @@ define dso_local i32 @sk_reuseport_attach_filter(ptr nocapture noundef readonly 
 declare dso_local i32 @reuseport_attach_prog(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i32 @sk_attach_bpf(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 -95, 0) i32 @sk_attach_bpf(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 2097152
@@ -2054,7 +2054,7 @@ define dso_local i32 @sk_attach_bpf(i32 noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i32 @sk_reuseport_attach_bpf(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 -95, 0) i32 @sk_reuseport_attach_bpf(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 2097152
@@ -2098,7 +2098,7 @@ define dso_local void @sk_reuseport_prog_free(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @bpf_skb_store_bytes(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @bpf_skb_store_bytes(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = inttoptr i64 %2 to ptr
@@ -2231,7 +2231,7 @@ define dso_local noundef i64 @bpf_skb_store_bytes(i64 noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__bpf_skb_store_bytes(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__bpf_skb_store_bytes(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = icmp ult i64 %4, 4
   br i1 %6, label %7, label %90, !prof !9
 
@@ -2360,7 +2360,7 @@ define dso_local noundef i32 @__bpf_skb_store_bytes(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @bpf_skb_load_bytes(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
+define dso_local noundef range(i64 -14, 1) i64 @bpf_skb_load_bytes(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = inttoptr i64 %2 to ptr
@@ -2419,7 +2419,7 @@ define dso_local noundef i64 @bpf_skb_load_bytes(i64 noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__bpf_skb_load_bytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @__bpf_skb_load_bytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = icmp slt i32 %1, 0
   br i1 %5, label %.thread, label %6, !prof !14
 
@@ -2474,7 +2474,7 @@ define dso_local noundef i32 @__bpf_skb_load_bytes(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @bpf_flow_dissector_load_bytes(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
+define dso_local noundef range(i64 -14, 1) i64 @bpf_flow_dissector_load_bytes(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
   %6 = trunc i64 %1 to i32
   %7 = inttoptr i64 %2 to ptr
   %8 = trunc i64 %3 to i32
@@ -2535,7 +2535,7 @@ define dso_local noundef i64 @bpf_flow_dissector_load_bytes(i64 noundef %0, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i64 @bpf_skb_load_bytes_relative(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #6 align 16 {
+define dso_local noundef range(i64 -14, 1) i64 @bpf_skb_load_bytes_relative(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #6 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = inttoptr i64 %2 to ptr
   %8 = getelementptr inbounds i8, ptr %6, i64 192
@@ -2592,7 +2592,7 @@ define dso_local noundef i64 @bpf_skb_load_bytes_relative(i64 noundef %0, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_pull_data(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_skb_pull_data(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = icmp eq i32 %7, 0
@@ -2651,7 +2651,7 @@ define dso_local i64 @bpf_sk_fullsock(i64 noundef %0, i64 %1, i64 %2, i64 %3, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @sk_skb_pull_data(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @sk_skb_pull_data(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = icmp eq i32 %7, 0
@@ -2673,7 +2673,7 @@ define dso_local i64 @sk_skb_pull_data(i64 noundef %0, i64 noundef %1, i64 %2, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @bpf_l3_csum_replace(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @bpf_l3_csum_replace(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = icmp ult i64 %4, 16
@@ -2786,7 +2786,7 @@ define dso_local noundef i64 @bpf_l3_csum_replace(i64 noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @bpf_l4_csum_replace(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @bpf_l4_csum_replace(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = and i64 %4, 16
@@ -2892,7 +2892,7 @@ define dso_local noundef i64 @bpf_l4_csum_replace(i64 noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_csum_diff(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local range(i64 -22, 4294967296) i64 @bpf_csum_diff(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = inttoptr i64 %2 to ptr
@@ -2961,7 +2961,7 @@ define dso_local i64 @bpf_csum_diff(i64 noundef %0, i64 noundef %1, i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read)
-define dso_local i64 @bpf_csum_update(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #8 align 16 {
+define dso_local range(i64 -524, 4294967296) i64 @bpf_csum_update(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #8 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 128
   %8 = load i8, ptr %7, align 8
@@ -2984,7 +2984,7 @@ define dso_local i64 @bpf_csum_update(i64 noundef %0, i64 noundef %1, i64 %2, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local i64 @bpf_csum_level(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #6 align 16 {
+define dso_local range(i64 -22, 4) i64 @bpf_csum_level(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #6 align 16 {
   %6 = inttoptr i64 %0 to ptr
   switch i64 %1, label %70 [
     i64 1, label %7
@@ -3096,7 +3096,7 @@ define dso_local i64 @bpf_csum_level(i64 noundef %0, i64 noundef %1, i64 %2, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_clone_redirect(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_clone_redirect(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = icmp ult i64 %2, 2
   br i1 %7, label %8, label %52, !prof !9
@@ -4449,7 +4449,7 @@ define internal fastcc i32 @__bpf_redirect(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read)
-define dso_local noundef i64 @bpf_redirect(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #8 align 16 {
+define dso_local noundef range(i64 2, 8) i64 @bpf_redirect(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #8 align 16 {
   %6 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @bpf_redirect_info) #35, !srcloc !52
   %7 = icmp ult i64 %1, 2
   br i1 %7, label %8, label %13, !prof !9
@@ -4469,7 +4469,7 @@ define dso_local noundef i64 @bpf_redirect(i64 noundef %0, i64 noundef %1, i64 %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read)
-define dso_local noundef i64 @bpf_redirect_peer(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #8 align 16 {
+define dso_local noundef range(i64 2, 8) i64 @bpf_redirect_peer(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #8 align 16 {
   %6 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @bpf_redirect_info) #35, !srcloc !53
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %8, label %12, !prof !9
@@ -4488,7 +4488,7 @@ define dso_local noundef i64 @bpf_redirect_peer(i64 noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read)
-define dso_local noundef i64 @bpf_redirect_neigh(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #8 align 16 {
+define dso_local noundef range(i64 2, 8) i64 @bpf_redirect_neigh(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #8 align 16 {
   %6 = inttoptr i64 %1 to ptr
   %7 = trunc i64 %2 to i32
   %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @bpf_redirect_info) #35, !srcloc !54
@@ -4537,7 +4537,7 @@ define dso_local noundef i64 @bpf_msg_cork_bytes(i64 noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @bpf_msg_pull_data(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pull_data(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = trunc i64 %2 to i32
@@ -4849,7 +4849,7 @@ define dso_local noundef i64 @bpf_msg_pull_data(i64 noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @bpf_msg_push_data(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
   %6 = alloca { i32, i32, i64, i32, i32 }, align 8
   %7 = alloca { i32, i32, i64, i32, i32 }, align 8
   %8 = alloca { i32, i32, i64, i32, i32 }, align 8
@@ -5335,7 +5335,7 @@ define dso_local noundef i64 @bpf_msg_push_data(i64 noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @bpf_msg_pop_data(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
   %6 = alloca %struct.scatterlist, align 8
   %7 = alloca %struct.scatterlist, align 8
   %8 = inttoptr i64 %0 to ptr
@@ -5785,7 +5785,7 @@ define dso_local noundef i64 @bpf_msg_pop_data(i64 noundef %0, i64 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_get_cgroup_classid_curr(i64 %0, i64 %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @bpf_get_cgroup_classid_curr(i64 %0, i64 %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #33, !srcloc !6
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @task_cls_state(ptr noundef %7) #34
@@ -5796,7 +5796,7 @@ define dso_local i64 @bpf_get_cgroup_classid_curr(i64 %0, i64 %1, i64 %2, i64 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local i64 @bpf_skb_cgroup_classid(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #7 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @bpf_skb_cgroup_classid(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #7 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -5837,7 +5837,7 @@ define dso_local i64 @bpf_skb_cgroup_classid(i64 noundef %0, i64 %1, i64 %2, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_get_cgroup_classid(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @bpf_get_cgroup_classid(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #33, !srcloc !6
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @task_cls_state(ptr noundef %7) #34
@@ -5894,7 +5894,7 @@ define dso_local noundef i64 @bpf_get_route_realm(i64 %0, i64 %1, i64 %2, i64 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_get_hash_recalc(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @bpf_get_hash_recalc(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 129
   %8 = load i24, ptr %7, align 1
@@ -5939,7 +5939,7 @@ define dso_local noundef i64 @bpf_set_hash(i64 noundef %0, i64 noundef %1, i64 %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_vlan_push(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_skb_vlan_push(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %2 to i16
   %8 = and i64 %1, 65535
@@ -6059,7 +6059,7 @@ define dso_local i64 @bpf_skb_vlan_push(i64 noundef %0, i64 noundef %1, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_vlan_pop(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_skb_vlan_pop(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 129
   %8 = load i24, ptr %7, align 1
@@ -6175,7 +6175,7 @@ define dso_local i64 @bpf_skb_vlan_pop(i64 noundef %0, i64 %1, i64 %2, i64 %3, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_change_proto(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 1) i64 @bpf_skb_change_proto(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i16
   %8 = icmp eq i64 %2, 0
@@ -6403,7 +6403,7 @@ define dso_local i64 @bpf_skb_change_proto(i64 noundef %0, i64 noundef %1, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i64 @bpf_skb_change_type(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #6 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @bpf_skb_change_type(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #6 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 128
   %8 = load i8, ptr %7, align 8
@@ -6427,7 +6427,7 @@ define dso_local noundef i64 @bpf_skb_change_type(i64 noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @sk_skb_adjust_room(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @sk_skb_adjust_room(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = icmp slt i32 %7, 0
@@ -6581,7 +6581,7 @@ define dso_local i64 @sk_skb_adjust_room(i64 noundef %0, i64 noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_adjust_room(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 1) i64 @bpf_skb_adjust_room(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = trunc i64 %2 to i32
@@ -7164,7 +7164,7 @@ define dso_local i64 @bpf_skb_adjust_room(i64 noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_change_tail(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_skb_change_tail(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = tail call fastcc i32 @__bpf_skb_change_tail(ptr noundef %6, i32 noundef %7, i64 noundef %2)
@@ -7197,7 +7197,7 @@ define dso_local i64 @bpf_skb_change_tail(i64 noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @sk_skb_change_tail(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @sk_skb_change_tail(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = tail call fastcc i32 @__bpf_skb_change_tail(ptr noundef %6, i32 noundef %7, i64 noundef %2)
@@ -7206,7 +7206,7 @@ define dso_local i64 @sk_skb_change_tail(i64 noundef %0, i64 noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_change_head(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_skb_change_head(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = getelementptr inbounds i8, ptr %6, i64 112
@@ -7327,7 +7327,7 @@ define dso_local i64 @bpf_skb_change_head(i64 noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @sk_skb_change_head(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @sk_skb_change_head(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = getelementptr inbounds i8, ptr %6, i64 112
@@ -7424,7 +7424,7 @@ define dso_local i64 @sk_skb_change_head(i64 noundef %0, i64 noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i64 @bpf_xdp_get_buff_len(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #11 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @bpf_xdp_get_buff_len(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #11 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -7458,7 +7458,7 @@ define dso_local i64 @bpf_xdp_get_buff_len(i64 noundef %0, i64 %1, i64 %2, i64 %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i64 @bpf_xdp_adjust_head(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #6 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @bpf_xdp_adjust_head(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #6 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -8563,7 +8563,7 @@ define dso_local i32 @__bpf_xdp_store_bytes(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @bpf_xdp_adjust_tail(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local noundef range(i64 -95, 1) i64 @bpf_xdp_adjust_tail(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = getelementptr inbounds i8, ptr %6, i64 8
@@ -8627,7 +8627,7 @@ define dso_local noundef i64 @bpf_xdp_adjust_tail(i64 noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i64 @bpf_xdp_adjust_meta(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #6 align 16 {
+define dso_local noundef range(i64 -524, 1) i64 @bpf_xdp_adjust_meta(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #6 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -8716,7 +8716,7 @@ define dso_local void @bpf_clear_redirect_map(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xdp_master_redirect(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 3, 5) i32 @xdp_master_redirect(ptr noundef %0) #0 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @bpf_redirect_info) #35, !srcloc !97
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -8757,7 +8757,7 @@ define dso_local noundef i32 @xdp_master_redirect(ptr noundef %0) #0 align 16 {
 declare dso_local ptr @netdev_master_upper_dev_get_rcu(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xdp_do_redirect(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @xdp_do_redirect(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @bpf_redirect_info) #35, !srcloc !98
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 36
@@ -9001,7 +9001,7 @@ define dso_local noundef i32 @xdp_do_redirect(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xdp_do_redirect_frame(ptr noundef %0, ptr nocapture readnone %1, ptr noundef readnone %2, ptr noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @xdp_do_redirect_frame(ptr noundef %0, ptr nocapture readnone %1, ptr noundef readnone %2, ptr noundef %3) #0 align 16 {
   %5 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @bpf_redirect_info) #35, !srcloc !111
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 36
@@ -9149,7 +9149,7 @@ define dso_local noundef i32 @xdp_do_redirect_frame(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xdp_do_generic_redirect(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -524, 1) i32 @xdp_do_generic_redirect(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @bpf_redirect_info) #35, !srcloc !112
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 36
@@ -9414,7 +9414,7 @@ define internal fastcc void @trace_xdp_redirect_err(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read)
-define dso_local noundef i64 @bpf_xdp_redirect(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #8 align 16 {
+define dso_local noundef range(i64 0, 5) i64 @bpf_xdp_redirect(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #8 align 16 {
   %6 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @bpf_redirect_info) #35, !srcloc !114
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %8, label %13, !prof !9
@@ -9475,7 +9475,7 @@ define dso_local i64 @bpf_skb_event_output(i64 noundef %0, i64 noundef %1, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i64 @bpf_skb_get_tunnel_key(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #6 align 16 {
+define dso_local noundef range(i64 -71, 1) i64 @bpf_skb_get_tunnel_key(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #6 align 16 {
   %6 = alloca [44 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %6, i64 21
   %8 = getelementptr inbounds i8, ptr %6, i64 20
@@ -9645,7 +9645,7 @@ define dso_local noundef i64 @bpf_skb_get_tunnel_key(i64 noundef %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local i64 @bpf_skb_get_tunnel_opt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #6 align 16 {
+define dso_local range(i64 -12, 256) i64 @bpf_skb_get_tunnel_opt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #6 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = inttoptr i64 %1 to ptr
   %8 = trunc i64 %2 to i32
@@ -9744,7 +9744,7 @@ define dso_local i64 @bpf_skb_get_tunnel_opt(i64 noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @bpf_skb_set_tunnel_key(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @bpf_skb_set_tunnel_key(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
   %6 = alloca [44 x i8], align 16
   %7 = inttoptr i64 %0 to ptr
   %8 = inttoptr i64 %1 to ptr
@@ -9913,7 +9913,7 @@ define dso_local noundef i64 @bpf_skb_set_tunnel_key(i64 noundef %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read)
-define dso_local noundef i64 @bpf_skb_set_tunnel_opt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #8 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @bpf_skb_set_tunnel_opt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #8 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = inttoptr i64 %1 to ptr
   %8 = trunc i64 %2 to i32
@@ -9997,7 +9997,7 @@ define dso_local noundef i64 @bpf_skb_set_tunnel_opt(i64 noundef %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local i64 @bpf_skb_under_cgroup(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #7 align 16 {
+define dso_local range(i64 -11, 2) i64 @bpf_skb_under_cgroup(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #7 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = inttoptr i64 %1 to ptr
   %8 = trunc i64 %2 to i32
@@ -10502,7 +10502,7 @@ define dso_local i64 @bpf_get_netns_cookie_sk_msg(i64 noundef %0, i64 %1, i64 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local i64 @bpf_get_socket_uid(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #7 align 16 {
+define dso_local range(i64 -2147483648, 4294967296) i64 @bpf_get_socket_uid(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #7 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -10551,7 +10551,7 @@ define dso_local i64 @bpf_get_socket_uid(i64 noundef %0, i64 %1, i64 %2, i64 %3,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_sk_setsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_sk_setsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = trunc i64 %2 to i32
@@ -10565,7 +10565,7 @@ define dso_local i64 @bpf_sk_setsockopt(i64 noundef %0, i64 noundef %1, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_sk_getsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_sk_getsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = trunc i64 %2 to i32
@@ -10579,7 +10579,7 @@ define dso_local i64 @bpf_sk_getsockopt(i64 noundef %0, i64 noundef %1, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_unlocked_sk_setsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_unlocked_sk_setsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = trunc i64 %2 to i32
@@ -10591,7 +10591,7 @@ define dso_local i64 @bpf_unlocked_sk_setsockopt(i64 noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_unlocked_sk_getsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_unlocked_sk_getsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = trunc i64 %2 to i32
@@ -10603,7 +10603,7 @@ define dso_local i64 @bpf_unlocked_sk_getsockopt(i64 noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_sock_addr_setsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_sock_addr_setsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = trunc i64 %2 to i32
@@ -10618,7 +10618,7 @@ define dso_local i64 @bpf_sock_addr_setsockopt(i64 noundef %0, i64 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_sock_addr_getsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_sock_addr_getsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = trunc i64 %2 to i32
@@ -10633,7 +10633,7 @@ define dso_local i64 @bpf_sock_addr_getsockopt(i64 noundef %0, i64 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_sock_ops_setsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_sock_ops_setsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = trunc i64 %2 to i32
@@ -10648,7 +10648,7 @@ define dso_local i64 @bpf_sock_ops_setsockopt(i64 noundef %0, i64 noundef %1, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_sock_ops_getsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_sock_ops_getsockopt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = trunc i64 %2 to i32
@@ -10827,7 +10827,7 @@ bpf_sock_ops_get_syn.exit.thread:                 ; preds = %74, %105, %118, %bp
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local i64 @bpf_sock_ops_cb_flags_set(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #7 align 16 {
+define dso_local range(i64 -22, -127) i64 @bpf_sock_ops_cb_flags_set(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #7 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 18
@@ -10854,7 +10854,7 @@ define dso_local i64 @bpf_sock_ops_cb_flags_set(i64 noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_bind(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_bind(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = inttoptr i64 %1 to ptr
   %8 = trunc i64 %2 to i32
@@ -10903,7 +10903,7 @@ define dso_local i64 @bpf_bind(i64 noundef %0, i64 noundef %1, i64 noundef %2, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i64 @bpf_skb_get_xfrm_state(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #6 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @bpf_skb_get_xfrm_state(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #6 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = inttoptr i64 %2 to ptr
@@ -10981,7 +10981,7 @@ define dso_local noundef i64 @bpf_skb_get_xfrm_state(i64 noundef %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @bpf_xdp_fib_lookup(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
+define dso_local noundef range(i64 -97, 10) i64 @bpf_xdp_fib_lookup(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = inttoptr i64 %1 to ptr
   %8 = trunc i64 %3 to i32
@@ -11024,7 +11024,7 @@ define dso_local noundef i64 @bpf_xdp_fib_lookup(i64 noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_fib_lookup(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_skb_fib_lookup(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = inttoptr i64 %1 to ptr
   %8 = trunc i64 %3 to i32
@@ -11085,7 +11085,7 @@ define dso_local i64 @bpf_skb_fib_lookup(i64 noundef %0, i64 noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_check_mtu(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local range(i64 -22, 3) i64 @bpf_skb_check_mtu(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = inttoptr i64 %2 to ptr
@@ -11179,7 +11179,7 @@ define dso_local i64 @bpf_skb_check_mtu(i64 noundef %0, i64 noundef %1, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_xdp_check_mtu(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local range(i64 -22, 2) i64 @bpf_xdp_check_mtu(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = inttoptr i64 %2 to ptr
@@ -12016,7 +12016,7 @@ define dso_local i64 @bpf_get_listener_sock(i64 noundef %0, i64 %1, i64 %2, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_skb_ecn_set_ce(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 0, 2) i64 @bpf_skb_ecn_set_ce(i64 noundef %0, i64 %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
   %6 = alloca %struct.vlan_hdr, align 4
   %7 = alloca %struct.vlan_hdr, align 4
   %8 = inttoptr i64 %0 to ptr
@@ -12480,7 +12480,7 @@ define dso_local i32 @bpf_xdp_sock_convert_ctx_access(i32 noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_tcp_check_syncookie(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local range(i64 -93, 1) i64 @bpf_tcp_check_syncookie(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = inttoptr i64 %1 to ptr
   %8 = trunc i64 %2 to i32
@@ -12600,7 +12600,7 @@ define dso_local i64 @bpf_tcp_check_syncookie(i64 noundef %0, i64 noundef %1, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_tcp_gen_syncookie(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local range(i64 -93, 281474976710656) i64 @bpf_tcp_gen_syncookie(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = alloca i32, align 4
   %7 = inttoptr i64 %0 to ptr
   %8 = inttoptr i64 %1 to ptr
@@ -12709,7 +12709,7 @@ define dso_local i64 @bpf_tcp_gen_syncookie(i64 noundef %0, i64 noundef %1, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @bpf_sk_assign(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local noundef range(i64 -101, 1) i64 @bpf_sk_assign(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = inttoptr i64 %1 to ptr
   %8 = icmp eq i64 %1, 0
@@ -13250,7 +13250,7 @@ define dso_local noundef i64 @bpf_sock_ops_store_hdr_opt(i64 noundef %0, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i64 @bpf_sock_ops_reserve_hdr_opt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #6 align 16 {
+define dso_local noundef range(i64 -28, 1) i64 @bpf_sock_ops_reserve_hdr_opt(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #6 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = getelementptr inbounds i8, ptr %6, i64 48
@@ -13283,7 +13283,7 @@ define dso_local noundef i64 @bpf_sock_ops_reserve_hdr_opt(i64 noundef %0, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i64 @bpf_skb_set_tstamp(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #6 align 16 {
+define dso_local noundef range(i64 -95, 1) i64 @bpf_skb_set_tstamp(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #6 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 176
   %8 = load i16, ptr %7, align 8
@@ -13331,7 +13331,7 @@ define dso_local noundef i64 @bpf_skb_set_tstamp(i64 noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_tcp_raw_gen_syncookie_ipv4(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -22, 281474976710656) i64 @bpf_tcp_raw_gen_syncookie_ipv4(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
   %6 = alloca i16, align 2
   %7 = inttoptr i64 %0 to ptr
   %8 = inttoptr i64 %1 to ptr
@@ -13369,7 +13369,7 @@ define dso_local i64 @bpf_tcp_raw_gen_syncookie_ipv4(i64 noundef %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_tcp_raw_gen_syncookie_ipv6(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -22, 281474976710656) i64 @bpf_tcp_raw_gen_syncookie_ipv6(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
   %6 = alloca i16, align 2
   %7 = inttoptr i64 %0 to ptr
   %8 = inttoptr i64 %1 to ptr
@@ -13407,7 +13407,7 @@ define dso_local i64 @bpf_tcp_raw_gen_syncookie_ipv6(i64 noundef %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_tcp_raw_check_syncookie_ipv4(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -13, 1) i64 @bpf_tcp_raw_check_syncookie_ipv4(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = inttoptr i64 %1 to ptr
   %8 = tail call i32 @__cookie_v4_check(ptr noundef %6, ptr noundef %7) #34
@@ -13417,7 +13417,7 @@ define dso_local i64 @bpf_tcp_raw_check_syncookie_ipv4(i64 noundef %0, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bpf_tcp_raw_check_syncookie_ipv6(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -13, 1) i64 @bpf_tcp_raw_check_syncookie_ipv6(i64 noundef %0, i64 noundef %1, i64 %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = inttoptr i64 %1 to ptr
   %8 = tail call i32 @__cookie_v6_check(ptr noundef %6, ptr noundef %7) #34
@@ -15556,7 +15556,7 @@ define internal noundef zeroext i1 @tc_cls_act_is_valid_access(i32 noundef %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @tc_cls_act_prologue(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) #15 align 16 {
+define internal noundef range(i32 0, 12) i32 @tc_cls_act_prologue(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) #15 align 16 {
   br i1 %1, label %4, label %47
 
 4:                                                ; preds = %3
@@ -21895,7 +21895,7 @@ define internal noundef zeroext i1 @sk_skb_is_valid_access(i32 noundef %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @sk_skb_prologue(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) #15 align 16 {
+define internal noundef range(i32 0, 12) i32 @sk_skb_prologue(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) #15 align 16 {
   br i1 %1, label %4, label %47
 
 4:                                                ; preds = %3
@@ -22786,7 +22786,7 @@ define internal noundef i32 @bpf_prog_test_run_flow_dissector(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sk_detach_filter(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @sk_detach_filter(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 2097152
@@ -22833,7 +22833,7 @@ define dso_local noundef i32 @sk_detach_filter(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sk_get_filter(ptr noundef %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 65536) i32 @sk_get_filter(ptr noundef %0, ptr %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   tail call void @sockopt_lock_sock(ptr noundef %0) #34
   %5 = getelementptr inbounds i8, ptr %0, i64 288
   %6 = load ptr, ptr %5, align 8
@@ -22966,7 +22966,7 @@ define dso_local ptr @bpf_run_sk_reuseport(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @sk_select_reuseport(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
+define dso_local range(i64 -97, 1) i64 @sk_select_reuseport(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = inttoptr i64 %1 to ptr
   %8 = inttoptr i64 %2 to ptr
@@ -23063,7 +23063,7 @@ define dso_local i64 @sk_select_reuseport(i64 noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @sk_reuseport_load_bytes(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
+define dso_local noundef range(i64 -14, 1) i64 @sk_reuseport_load_bytes(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #0 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = trunc i64 %1 to i32
   %8 = inttoptr i64 %2 to ptr
@@ -23123,7 +23123,7 @@ define dso_local noundef i64 @sk_reuseport_load_bytes(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i64 @sk_reuseport_load_bytes_relative(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #6 align 16 {
+define dso_local noundef range(i64 -14, 1) i64 @sk_reuseport_load_bytes_relative(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #6 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = inttoptr i64 %2 to ptr
   %8 = load ptr, ptr %6, align 8
@@ -23451,7 +23451,7 @@ define internal i32 @sk_reuseport_convert_ctx_access(i32 %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local noundef i64 @bpf_sk_lookup_assign(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #7 align 16 {
+define dso_local noundef range(i64 -97, 1) i64 @bpf_sk_lookup_assign(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) #7 align 16 {
   %6 = inttoptr i64 %0 to ptr
   %7 = inttoptr i64 %1 to ptr
   %8 = icmp ult i64 %2, 4
@@ -24152,21 +24152,21 @@ define dso_local i64 @bpf_sock_from_file(i64 noundef %0, i64 %1, i64 %2, i64 %3,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @bpf_dynptr_from_skb(ptr nocapture readonly %0, i64 noundef %1, ptr nocapture readnone %2) #10 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bpf_dynptr_from_skb(ptr nocapture readonly %0, i64 noundef %1, ptr nocapture readnone %2) #10 align 16 {
   %4 = icmp eq i64 %1, 0
   %5 = select i1 %4, i32 0, i32 -22
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @bpf_dynptr_from_xdp(ptr nocapture readonly %0, i64 noundef %1, ptr nocapture readnone %2) #10 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bpf_dynptr_from_xdp(ptr nocapture readonly %0, i64 noundef %1, ptr nocapture readnone %2) #10 align 16 {
   %4 = icmp eq i64 %1, 0
   %5 = select i1 %4, i32 0, i32 -22
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @bpf_sock_addr_set_sun_path(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #6 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bpf_sock_addr_set_sun_path(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #6 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i16, ptr %5, align 8
@@ -24193,7 +24193,7 @@ define dso_local noundef i32 @bpf_sock_addr_set_sun_path(ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @bpf_dynptr_from_skb_rdonly(ptr nocapture noundef readnone %0, i64 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #10 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bpf_dynptr_from_skb_rdonly(ptr nocapture noundef readnone %0, i64 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #10 align 16 {
   %4 = icmp eq i64 %1, 0
   %5 = select i1 %4, i32 0, i32 -22
   ret i32 %5
@@ -26282,7 +26282,7 @@ declare dso_local ptr @skb_push(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @bpf_skb_net_hdr_pop(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @bpf_skb_net_hdr_pop(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 178
   %5 = load i16, ptr %4, align 2
   %6 = getelementptr inbounds i8, ptr %0, i64 180
@@ -26607,7 +26607,7 @@ define internal fastcc i32 @__bpf_skb_change_tail(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @bpf_xdp_frags_shrink_tail(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @bpf_xdp_frags_shrink_tail(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -26750,7 +26750,7 @@ define internal fastcc noundef i32 @bpf_xdp_frags_shrink_tail(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal fastcc noundef i32 @bpf_xdp_frags_increase_tail(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #6 align 16 {
+define internal fastcc noundef range(i32 -95, 1) i32 @bpf_xdp_frags_increase_tail(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -27238,7 +27238,7 @@ declare dso_local i32 @do_ip_getsockopt(ptr noundef, i32 noundef, i32 noundef, p
 declare dso_local i32 @do_ip_setsockopt(ptr noundef, i32 noundef, i32 noundef, ptr, i8, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @bpf_sol_tcp_setsockopt(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @bpf_sol_tcp_setsockopt(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = icmp eq i32 %3, 4
   br i1 %5, label %6, label %40
 
@@ -27561,7 +27561,7 @@ sol_tcp_sockopt.exit:                             ; preds = %33, %29, %34, %48, 
 declare dso_local i32 @__inet_bind(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @bpf_ipv4_fib_lookup(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 9) i32 @bpf_ipv4_fib_lookup(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.fib_result, align 8
   %6 = alloca %struct.flowi4, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #34
@@ -27900,7 +27900,7 @@ define internal fastcc noundef i32 @bpf_ipv4_fib_lookup(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @bpf_ipv6_fib_lookup(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 10) i32 @bpf_ipv6_fib_lookup(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.fib6_result, align 8
   %6 = alloca %struct.flowi6, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 16

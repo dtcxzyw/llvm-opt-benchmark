@@ -83,7 +83,7 @@ ompi_comm_remote_size.exit:                       ; preds = %10, %14
   %43 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
   %44 = zext nneg i32 %35 to i64
   %45 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv
-  %46 = trunc i64 %indvars.iv to i32
+  %46 = trunc nuw nsw i64 %indvars.iv to i32
   %47 = tail call i32 %43(ptr noundef %42, i64 noundef %44, ptr noundef %7, i32 noundef %46, i32 noundef -14, ptr noundef %8, ptr noundef nonnull %45) #2
   %.not63 = icmp eq i32 %47, 0
   br i1 %.not63, label %67, label %48
@@ -155,7 +155,7 @@ ompi_request_cancel.exit.i:                       ; preds = %58, %55
   %78 = zext nneg i32 %69 to i64
   %79 = add nuw nsw i64 %indvars.iv107, %33
   %80 = getelementptr inbounds ptr, ptr %30, i64 %79
-  %81 = trunc i64 %indvars.iv107 to i32
+  %81 = trunc nuw nsw i64 %indvars.iv107 to i32
   %82 = tail call i32 %77(ptr noundef %76, i64 noundef %78, ptr noundef %3, i32 noundef %81, i32 noundef -14, i32 noundef 4, ptr noundef %8, ptr noundef nonnull %80) #2
   %.not62 = icmp eq i32 %82, 0
   br i1 %.not62, label %104, label %83

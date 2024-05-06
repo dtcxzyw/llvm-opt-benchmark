@@ -5885,12 +5885,12 @@ define linkonce_odr dso_local void @_ZN14ReorderVisitor12reorderBlockEP7AstNode(
 
 27:                                               ; preds = %.lr.ph.i.i.i
   %28 = icmp eq ptr %7, %.0710.i.i.i
-  %spec.select18.i.i = or i1 %28, %26
+  %spec.select.i.i = or i1 %28, %26
   br label %29
 
 29:                                               ; preds = %.noexc, %27
   %.0.lcssa.i17.i.i = phi ptr [ %7, %.noexc ], [ %.0710.i.i.i, %27 ]
-  %30 = phi i1 [ true, %.noexc ], [ %spec.select18.i.i, %27 ]
+  %30 = phi i1 [ true, %.noexc ], [ %spec.select.i.i, %27 ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %30, ptr noundef nonnull %21, ptr noundef nonnull %.0.lcssa.i17.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   %31 = load i64, ptr %11, align 8
   %32 = add i64 %31, 1

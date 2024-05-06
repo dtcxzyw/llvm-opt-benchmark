@@ -11,7 +11,7 @@ define zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i32 @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h7dc0f4943e84ab00E"(ptr align 8 %0, i32 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define range(i32 0, 1114113) i32 @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h7dc0f4943e84ab00E"(ptr align 8 %0, i32 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
   %4 = call zeroext i1 @"_ZN6common10validation24validate_collection_name28_$u7b$$u7b$closure$u7d$$u7d$17h7c4fe092dc8fd134E"(ptr align 8 %0, ptr nonnull align 4 %3)

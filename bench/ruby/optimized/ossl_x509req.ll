@@ -683,7 +683,7 @@ define internal noundef i64 @ossl_x509req_sign(i64 noundef returned %0, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_x509req_verify(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_x509req_verify(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_x509req_type) #6
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6

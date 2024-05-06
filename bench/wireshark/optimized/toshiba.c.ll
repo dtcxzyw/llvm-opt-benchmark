@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @toshiba_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @toshiba_open(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @toshiba_open(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [240 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %4, i64 239
@@ -110,7 +110,7 @@ define hidden i32 @toshiba_open(ptr nocapture noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @toshiba_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @toshiba_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i32 @file_getc(ptr noundef %7) #7
   %.not17.i = icmp eq i32 %8, -1
@@ -164,7 +164,7 @@ toshiba_seek_next_packet.exit:                    ; preds = %18
   %32 = add nuw nsw i64 %20, 1
   store i64 %32, ptr %5, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = tail call fastcc i32 @parse_toshiba_packet(ptr noundef %33, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !8
+  %34 = tail call fastcc i32 @parse_toshiba_packet(ptr noundef %33, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %toshiba_seek_next_packet.exit.thread
 
 toshiba_seek_next_packet.exit.thread:             ; preds = %._crit_edge.i, %22, %toshiba_seek_next_packet.exit, %31
@@ -173,7 +173,7 @@ toshiba_seek_next_packet.exit.thread:             ; preds = %._crit_edge.i, %22,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @toshiba_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @toshiba_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = add i64 %1, -1
@@ -183,7 +183,7 @@ define internal noundef i32 @toshiba_seek_read(ptr nocapture noundef readonly %0
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %7, align 8
-  %14 = tail call fastcc i32 @parse_toshiba_packet(ptr noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !8
+  %14 = tail call fastcc i32 @parse_toshiba_packet(ptr noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %19
 
@@ -221,7 +221,7 @@ declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_toshiba_packet(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_toshiba_packet(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [240 x i8], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -275,7 +275,7 @@ define internal fastcc noundef i32 @parse_toshiba_packet(ptr noundef %0, ptr noc
   store i8 0, ptr %24, align 16
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %6, ptr noundef nonnull dereferenceable(17) @.str.3, i64 17)
   %.not56 = icmp eq i32 %bcmp, 0
-  br i1 %.not56, label %34, label %27, !llvm.loop !9
+  br i1 %.not56, label %34, label %27, !llvm.loop !8
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds i8, ptr %6, i64 64
@@ -427,10 +427,10 @@ define internal fastcc noundef i32 @parse_toshiba_packet(ptr noundef %0, ptr noc
 109:                                              ; preds = %108, %.preheader28.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 46
-  br i1 %exitcond.not.i, label %.preheader.i.preheader, label %.preheader28.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.preheader.i.preheader, label %.preheader28.i, !llvm.loop !9
 
 .preheader.i.preheader:                           ; preds = %109
-  %110 = trunc i64 %103 to i32
+  %110 = trunc nuw nsw i64 %103 to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
@@ -456,7 +456,7 @@ define internal fastcc noundef i32 @parse_toshiba_packet(ptr noundef %0, ptr noc
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 5
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next36.i, 8
-  br i1 %exitcond40.not.i, label %parse_single_hex_dump_line.exit, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond40.not.i, label %parse_single_hex_dump_line.exit, label %.preheader.i, !llvm.loop !10
 
 123:                                              ; preds = %102
   store i32 -13, ptr %3, align 4
@@ -467,7 +467,7 @@ define internal fastcc noundef i32 @parse_toshiba_packet(ptr noundef %0, ptr noc
 parse_single_hex_dump_line.exit:                  ; preds = %.preheader.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %96, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %96, !llvm.loop !11
 
 .loopexit:                                        ; preds = %parse_single_hex_dump_line.exit, %82, %123, %99, %46, %42, %37, %30, %25, %19
   %.0 = phi i32 [ 0, %19 ], [ 0, %25 ], [ 0, %30 ], [ 0, %37 ], [ 0, %42 ], [ 0, %46 ], [ 0, %99 ], [ 0, %123 ], [ 1, %82 ], [ 1, %parse_single_hex_dump_line.exit ]
@@ -526,8 +526,7 @@ attributes #8 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

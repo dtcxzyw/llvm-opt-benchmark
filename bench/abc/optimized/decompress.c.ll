@@ -4110,7 +4110,7 @@ makeMaps_d.exit:                                  ; preds = %2167
   br i1 %.not2713, label %2899, label %2894, !llvm.loop !17
 
 2899:                                             ; preds = %2894
-  %2900 = trunc i64 %indvars.iv2504 to i32
+  %2900 = trunc nsw i64 %indvars.iv2504 to i32
   %2901 = getelementptr inbounds [16 x i32], ptr %2891, i64 0, i64 %indvars.iv2508
   store i32 %2900, ptr %2901, align 4
   %indvars.iv.next2509 = add nsw i64 %indvars.iv2508, -1
@@ -4996,11 +4996,11 @@ makeMaps_d.exit:                                  ; preds = %2167
   br i1 %3409, label %3404, label %.loopexit1890.loopexit, !llvm.loop !21
 
 .loopexit1890.loopexit:                           ; preds = %3405
-  %3410 = trunc i64 %indvars.iv.next2541 to i32
+  %3410 = trunc nsw i64 %indvars.iv.next2541 to i32
   br label %.loopexit1890
 
 .loopexit1890.loopexit2396:                       ; preds = %3399
-  %3411 = trunc i64 %indvars.iv.next2535 to i32
+  %3411 = trunc nsw i64 %indvars.iv.next2535 to i32
   br label %.loopexit1890
 
 3412:                                             ; preds = %3139
@@ -5069,7 +5069,7 @@ makeMaps_d.exit:                                  ; preds = %2167
 
 .lr.ph2250:                                       ; preds = %.lr.ph2250.preheader, %.lr.ph2250
   %indvars.iv2530 = phi i64 [ %3426, %.lr.ph2250.preheader ], [ %indvars.iv.next2531, %.lr.ph2250 ]
-  %3449 = trunc i64 %indvars.iv2530 to i32
+  %3449 = trunc nuw i64 %indvars.iv2530 to i32
   %3450 = add i32 %3418, %3449
   %3451 = add i32 %3450, -1
   %3452 = zext i32 %3451 to i64
@@ -5184,7 +5184,7 @@ makeMaps_d.exit:                                  ; preds = %2167
   br i1 %.not2716, label %3512, label %3504, !llvm.loop !26
 
 3512:                                             ; preds = %3504
-  %3513 = trunc i64 %indvars.iv2518 to i32
+  %3513 = trunc nsw i64 %indvars.iv2518 to i32
   store i32 %3513, ptr %3502, align 4
   %indvars.iv.next2523 = add nsw i64 %indvars.iv2522, -1
   %.not2717 = icmp eq i64 %indvars.iv2522, 0
@@ -5919,7 +5919,7 @@ makeMaps_d.exit:                                  ; preds = %2167
   %3951 = load ptr, ptr %3778, align 8
   %3952 = getelementptr inbounds i32, ptr %3951, i64 %indvars.iv2573
   %3953 = load i32, ptr %3952, align 4
-  %3954 = trunc i64 %indvars.iv2573 to i32
+  %3954 = trunc nuw nsw i64 %indvars.iv2573 to i32
   %3955 = shl i32 %3954, 8
   %3956 = and i32 %3953, 255
   %3957 = zext nneg i32 %3956 to i64
@@ -7103,7 +7103,7 @@ makeMaps_d.exit:                                  ; preds = %2167
   br label %.loopexit
 
 .loopexit.loopexit2392:                           ; preds = %.preheader1885
-  %4862 = trunc i64 %indvars.iv2557 to i32
+  %4862 = trunc nuw nsw i64 %indvars.iv2557 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %66, %159, %252, %347, %466, %559, %652, %745, %838, %931, %1040, %1137, %1234, %1331, %1427, %1524, %1621, %1719, %2227, %2317, %2959, %3594, %3699, %3223, %3398, %3404, %3328, %3070, %2572, %2745, %2832, %2443, %.lr.ph2316, %2062, %1871, %4064, %4157, %4250, %4343, %4436, %4535, %4632, %4729, %4826, %.loopexit.loopexit2392, %._crit_edge2352, %._crit_edge2347, %._crit_edge2342, %._crit_edge2337, %._crit_edge2332, %3927, %3917, %3999, %3983, %3742, %3734, %3628, %3539, %3412, %3363, %3257, %3168, %3105, %2993, %2902, %2650, %._crit_edge2197, %._crit_edge2192, %._crit_edge2192, %._crit_edge2192, %makeMaps_d.exit, %1754, %._crit_edge2186, %._crit_edge2146, %._crit_edge2141, %._crit_edge2136, %._crit_edge2131, %._crit_edge2126, %._crit_edge2121, %404, %390, %._crit_edge2116, %._crit_edge2111, %._crit_edge2106, %._crit_edge, %4861, %._crit_edge2372

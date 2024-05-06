@@ -483,7 +483,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %1, ptr %13, align 8
   %14 = load ptr, ptr %1, align 8
-  %15 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 92) #26
+  %15 = tail call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %14, i32 noundef 92) #26
   %16 = icmp ugt ptr %15, %14
   %17 = getelementptr inbounds i8, ptr %15, i64 1
   %spec.select.i = select i1 %16, ptr %17, ptr %14

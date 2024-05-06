@@ -454,7 +454,7 @@ _ZN7tracing4span4Span8do_enter17hbc9c1a32e0d90029E.exit: ; preds = %.thread, %66
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %44)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %44, ptr noundef nonnull align 8 dereferenceable(192) %0, i64 192, i1 false)
   %72 = load i64, ptr @_ZN8async_io6driver8block_on5CACHE7__getit5__KEY17h084c86aeafa17e1dE, align 8, !range !95, !noalias !96, !noundef !17
-  %trunc.i.i.i = trunc i64 %72 to i1
+  %trunc.i.i.i = trunc nuw i64 %72 to i1
   br i1 %trunc.i.i.i, label %_ZN8async_io6driver8block_on5CACHE7__getit17h278e05a6d0505739E.exit.thread.i, label %73
 
 73:                                               ; preds = %_ZN7tracing4span4Span8do_enter17hbc9c1a32e0d90029E.exit
@@ -479,7 +479,7 @@ _ZN8async_io6driver8block_on5CACHE7__getit17h278e05a6d0505739E.exit.thread.i: ; 
   %.0269.i.i = phi i8 [ %.2271.i.i, %.body.i.i ], [ %.1270.i.i, %80 ]
   %.0265.i.i = phi i1 [ false, %.body.i.i ], [ %.1266.i.i, %80 ]
   %.pn310.pn.i.i = phi { ptr, i32 } [ %.pn310.i.i, %.body.i.i ], [ %81, %80 ]
-  %79 = trunc i8 %.0273.i.i to i1
+  %79 = trunc nuw i8 %.0273.i.i to i1
   br i1 %79, label %485, label %.body365.i.i
 
 80:                                               ; preds = %.critedge.i.i, %84
@@ -630,7 +630,7 @@ default.unreachable:                              ; preds = %.outer.i.i
 
 132:                                              ; preds = %130
   %133 = load i64, ptr @_ZN8fastrand10global_rng3RNG7__getit5__KEY17h9ffb0d3aa2679fc3E, align 8, !range !95, !noalias !110, !noundef !17
-  %trunc.i.i.i.i.i.i.i = trunc i64 %133 to i1
+  %trunc.i.i.i.i.i.i.i = trunc nuw i64 %133 to i1
   br i1 %trunc.i.i.i.i.i.i.i, label %136, label %_ZN8fastrand10global_rng3RNG7__getit17h976a44bdba5e523cE.exit.i.i.i.i.i
 
 _ZN8fastrand10global_rng3RNG7__getit17h976a44bdba5e523cE.exit.i.i.i.i.i: ; preds = %132
@@ -898,12 +898,12 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.th
 
 212:                                              ; preds = %.critedge.i.i
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %40), !noalias !104
-  %213 = trunc i8 %.2275.i.i to i1
+  %213 = trunc nuw i8 %.2275.i.i to i1
   br i1 %213, label %215, label %"_ZN4core3ptr127drop_in_place$LT$$LP$parking..Parker$C$core..task..wake..Waker$C$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$RP$$GT$17hee68c1eb95112344E.exit.i.i"
 
 "_ZN4core3ptr127drop_in_place$LT$$LP$parking..Parker$C$core..task..wake..Waker$C$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$RP$$GT$17hee68c1eb95112344E.exit.i.i": ; preds = %241, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit7.i.i.i", %212
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42), !noalias !104
-  %214 = trunc i8 %.2271.i.i to i1
+  %214 = trunc nuw i8 %.2271.i.i to i1
   br i1 %214, label %247, label %501
 
 215:                                              ; preds = %212
@@ -988,7 +988,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.th
   %.3272.i.i = phi i8 [ %.0269.i.i, %485 ], [ %.0269.i.i, %78 ], [ %.2271.i.i, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit.i.i.i" ], [ %.2271.i.i, %234 ], [ %.2271.i.i, %245 ]
   %.2.i.i = phi i1 [ %.0265.i.i, %485 ], [ %.0265.i.i, %78 ], [ false, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit.i.i.i" ], [ false, %234 ], [ false, %245 ]
   %.pn310.pn.pn.i.i = phi { ptr, i32 } [ %.pn310.pn.i.i, %485 ], [ %.pn310.pn.i.i, %78 ], [ %.pn.i.i.i, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit.i.i.i" ], [ %.pn.i.i.i, %234 ], [ %246, %245 ]
-  %244 = trunc i8 %.3272.i.i to i1
+  %244 = trunc nuw i8 %.3272.i.i to i1
   br i1 %244, label %486, label %250
 
 245:                                              ; preds = %241
@@ -1037,7 +1037,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.th
 .loopexit.split-lp641.i.i:                        ; preds = %.loopexit.split-lp.i.i, %.loopexit.split-lp641.loopexit.split-lp.i.i, %.loopexit.split-lp641.loopexit.i.i
   %.0279.i.i = phi i8 [ %.2281.i.i, %.loopexit.split-lp.i.i ], [ %.1280.ph.ph.i.i, %.loopexit.split-lp641.loopexit.i.i ], [ %.1280.ph.ph655.i.i, %.loopexit.split-lp641.loopexit.split-lp.i.i ]
   %.pn.i.i = phi { ptr, i32 } [ %lpad.phi.i.i, %.loopexit.split-lp.i.i ], [ %lpad.loopexit656.i.i, %.loopexit.split-lp641.loopexit.i.i ], [ %lpad.loopexit.split-lp657.i.i, %.loopexit.split-lp641.loopexit.split-lp.i.i ]
-  %261 = trunc i8 %.0279.i.i to i1
+  %261 = trunc nuw i8 %.0279.i.i to i1
   br i1 %261, label %408, label %.body.i.i
 
 .loopexit.split-lp641.thread.i.i:                 ; preds = %"_ZN79_$LT$async_io..driver..CallOnDrop$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbe6da69e9bb066f1E.llvm.14408593437386099104.exit.i.i.i", %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h0113a959e2ea9a8eE.exit.thread575.i.i"
@@ -1281,7 +1281,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit384
   %.sroa.3538.0.copyload.i.i = load ptr, ptr %.sroa.3538.0..sroa_idx.i.i, align 8, !noalias !104, !nonnull !17, !noundef !17
   %.sroa.4539.0.copyload.i.i = load i8, ptr %.sroa.4539.0..sroa_idx.i.i, align 8, !noalias !104
   %317 = getelementptr inbounds i8, ptr %.sroa.3538.0.copyload.i.i, i64 4
-  %318 = trunc i8 %.sroa.4539.0.copyload.i.i to i1
+  %318 = trunc nuw i8 %.sroa.4539.0.copyload.i.i to i1
   br i1 %318, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.14408593437386099104.exit.i.i.i.i.i, label %319
 
 319:                                              ; preds = %.critedge324.i.i
@@ -1550,7 +1550,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit411
 "_ZN4core3ptr283drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$$LP$$RP$$C$async_executor..Executor..run$LT$$LP$$RP$$C$core..future..pending..Pending$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfb75e8fb32a24f31E.exit399.i.i": ; preds = %"_ZN79_$LT$async_io..driver..CallOnDrop$LT$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbe6da69e9bb066f1E.llvm.14408593437386099104.exit.i395.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27), !noalias !104
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28), !noalias !104
-  %387 = trunc i8 %.3282.i.i to i1
+  %387 = trunc nuw i8 %.3282.i.i to i1
   br i1 %387, label %388, label %405
 
 388:                                              ; preds = %"_ZN4core3ptr283drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$$LP$$RP$$C$async_executor..Executor..run$LT$$LP$$RP$$C$core..future..pending..Pending$LT$$LP$$RP$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfb75e8fb32a24f31E.exit399.i.i"
@@ -1560,7 +1560,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit411
   %389 = load ptr, ptr %.sroa.3538.0..sroa_idx.i.i, align 8, !alias.scope !218, !noalias !104, !nonnull !17, !align !18, !noundef !17
   %390 = getelementptr inbounds i8, ptr %389, i64 4
   %391 = load i8, ptr %.sroa.4539.0..sroa_idx.i.i, align 8, !range !219, !alias.scope !220, !noalias !104, !noundef !17
-  %392 = trunc i8 %391 to i1
+  %392 = trunc nuw i8 %391 to i1
   br i1 %392, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.14408593437386099104.exit.i.i.i419.i.i, label %393
 
 393:                                              ; preds = %388
@@ -1875,7 +1875,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit443
   %472 = load ptr, ptr %99, align 8, !alias.scope !243, !noalias !104, !nonnull !17, !align !18, !noundef !17
   %473 = getelementptr inbounds i8, ptr %472, i64 4
   %474 = load i8, ptr %100, align 8, !range !219, !alias.scope !244, !noalias !104, !noundef !17
-  %475 = trunc i8 %474 to i1
+  %475 = trunc nuw i8 %474 to i1
   br i1 %475, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.14408593437386099104.exit.i.i.i458.i.i, label %476
 
 476:                                              ; preds = %471

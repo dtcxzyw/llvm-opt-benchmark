@@ -187,7 +187,7 @@ for.end:                                          ; preds = %for.inc
 if.then49:                                        ; preds = %for.end
   %22 = load ptr, ptr %user_argv, align 8
   %23 = load ptr, ptr %22, align 8
-  %call.i = call i64 @strcspn(ptr noundef %23, ptr noundef nonnull @.str.31) #12
+  %call.i = call i64 @strcspn(ptr noundef readonly %23, ptr noundef nonnull @.str.31) #12
   %arrayidx.i = getelementptr inbounds i8, ptr %23, i64 %call.i
   %24 = load i8, ptr %arrayidx.i, align 1
   %cmp.i.not = icmp eq i8 %24, 0
@@ -385,7 +385,7 @@ lor.lhs.false58:                                  ; preds = %lor.lhs.false55
   br i1 %tobool60.not, label %if.end87, label %if.else62
 
 if.else62:                                        ; preds = %lor.lhs.false58
-  %call.i = call i64 @strcspn(ptr noundef nonnull %10, ptr noundef nonnull @.str.31) #12
+  %call.i = call i64 @strcspn(ptr noundef nonnull readonly %10, ptr noundef nonnull @.str.31) #12
   %arrayidx.i = getelementptr inbounds i8, ptr %10, i64 %call.i
   %11 = load i8, ptr %arrayidx.i, align 1
   %cmp.i.not = icmp eq i8 %11, 0

@@ -16,7 +16,7 @@ $__clang_call_terminate = comdat any
 @_ZN5folly12_GLOBAL__N_111gCacheStateE = internal global %"struct.folly::(anonymous namespace)::CacheState" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZN5folly12_GLOBAL__N_110CacheState5epochE = internal global { i64 } { i64 1 }, align 8
-@_ZZN5folly13getOSThreadIDEvE5cache = internal thread_local global %"struct.std::pair" zeroinitializer, align 8
+@_ZZN5folly13getOSThreadIDEvE5cache = internal thread_local unnamed_addr global %"struct.std::pair" zeroinitializer, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_ThreadId.cpp, ptr null }]
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable

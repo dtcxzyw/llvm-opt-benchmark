@@ -1296,7 +1296,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %src, i64 16, i1 false)
   %0 = getelementptr inbounds i8, ptr %dst, i64 16
   %1 = getelementptr inbounds i8, ptr %src, i64 16
   %2 = load i8, ptr %1, align 1

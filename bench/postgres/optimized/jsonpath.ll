@@ -1240,8 +1240,8 @@ define internal fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef reado
   %31 = getelementptr inbounds i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = load i8, ptr %32, align 1
-  %.not200 = icmp eq i8 %33, 0
-  br i1 %.not200, label %35, label %34
+  %.not201 = icmp eq i8 %33, 0
+  br i1 %.not201, label %35, label %34
 
 34:                                               ; preds = %30
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.43) #12
@@ -1278,18 +1278,18 @@ switch.lookup:                                    ; preds = %38
 operationPriority.exit:                           ; preds = %38, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 6, %38 ]
   %46 = load i32, ptr %1, align 8
-  %switch.tableidx208 = add i32 %46, -4
-  %47 = icmp ult i32 %switch.tableidx208, 38
-  br i1 %47, label %switch.lookup207, label %operationPriority.exit189
+  %switch.tableidx209 = add i32 %46, -4
+  %47 = icmp ult i32 %switch.tableidx209, 38
+  br i1 %47, label %switch.lookup208, label %operationPriority.exit189
 
-switch.lookup207:                                 ; preds = %operationPriority.exit
-  %48 = zext nneg i32 %switch.tableidx208 to i64
-  %switch.gep209 = getelementptr inbounds [38 x i32], ptr @switch.table.operationPriority, i64 0, i64 %48
-  %switch.load210 = load i32, ptr %switch.gep209, align 4
+switch.lookup208:                                 ; preds = %operationPriority.exit
+  %48 = zext nneg i32 %switch.tableidx209 to i64
+  %switch.gep210 = getelementptr inbounds [38 x i32], ptr @switch.table.operationPriority, i64 0, i64 %48
+  %switch.load211 = load i32, ptr %switch.gep210, align 4
   br label %operationPriority.exit189
 
-operationPriority.exit189:                        ; preds = %operationPriority.exit, %switch.lookup207
-  %.0.i188 = phi i32 [ %switch.load210, %switch.lookup207 ], [ 6, %operationPriority.exit ]
+operationPriority.exit189:                        ; preds = %operationPriority.exit, %switch.lookup208
+  %.0.i188 = phi i32 [ %switch.load211, %switch.lookup208 ], [ 6, %operationPriority.exit ]
   %49 = icmp ule i32 %.0.i, %.0.i188
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef nonnull %5, i1 noundef zeroext false, i1 noundef zeroext %49)
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 32) #12
@@ -1302,31 +1302,31 @@ operationPriority.exit189:                        ; preds = %operationPriority.e
   %54 = load i32, ptr %53, align 4
   call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %52, i32 noundef %54)
   %55 = load i32, ptr %5, align 8
-  %switch.tableidx212 = add i32 %55, -4
-  %56 = icmp ult i32 %switch.tableidx212, 38
-  br i1 %56, label %switch.lookup211, label %operationPriority.exit191
+  %switch.tableidx213 = add i32 %55, -4
+  %56 = icmp ult i32 %switch.tableidx213, 38
+  br i1 %56, label %switch.lookup212, label %operationPriority.exit191
 
-switch.lookup211:                                 ; preds = %operationPriority.exit189
-  %57 = zext nneg i32 %switch.tableidx212 to i64
-  %switch.gep213 = getelementptr inbounds [38 x i32], ptr @switch.table.operationPriority, i64 0, i64 %57
-  %switch.load214 = load i32, ptr %switch.gep213, align 4
+switch.lookup212:                                 ; preds = %operationPriority.exit189
+  %57 = zext nneg i32 %switch.tableidx213 to i64
+  %switch.gep214 = getelementptr inbounds [38 x i32], ptr @switch.table.operationPriority, i64 0, i64 %57
+  %switch.load215 = load i32, ptr %switch.gep214, align 4
   br label %operationPriority.exit191
 
-operationPriority.exit191:                        ; preds = %operationPriority.exit189, %switch.lookup211
-  %.0.i190 = phi i32 [ %switch.load214, %switch.lookup211 ], [ 6, %operationPriority.exit189 ]
+operationPriority.exit191:                        ; preds = %operationPriority.exit189, %switch.lookup212
+  %.0.i190 = phi i32 [ %switch.load215, %switch.lookup212 ], [ 6, %operationPriority.exit189 ]
   %58 = load i32, ptr %1, align 8
-  %switch.tableidx216 = add i32 %58, -4
-  %59 = icmp ult i32 %switch.tableidx216, 38
-  br i1 %59, label %switch.lookup215, label %operationPriority.exit193
+  %switch.tableidx217 = add i32 %58, -4
+  %59 = icmp ult i32 %switch.tableidx217, 38
+  br i1 %59, label %switch.lookup216, label %operationPriority.exit193
 
-switch.lookup215:                                 ; preds = %operationPriority.exit191
-  %60 = zext nneg i32 %switch.tableidx216 to i64
-  %switch.gep217 = getelementptr inbounds [38 x i32], ptr @switch.table.operationPriority, i64 0, i64 %60
-  %switch.load218 = load i32, ptr %switch.gep217, align 4
+switch.lookup216:                                 ; preds = %operationPriority.exit191
+  %60 = zext nneg i32 %switch.tableidx217 to i64
+  %switch.gep218 = getelementptr inbounds [38 x i32], ptr @switch.table.operationPriority, i64 0, i64 %60
+  %switch.load219 = load i32, ptr %switch.gep218, align 4
   br label %operationPriority.exit193
 
-operationPriority.exit193:                        ; preds = %operationPriority.exit191, %switch.lookup215
-  %.0.i192 = phi i32 [ %switch.load218, %switch.lookup215 ], [ 6, %operationPriority.exit191 ]
+operationPriority.exit193:                        ; preds = %operationPriority.exit191, %switch.lookup216
+  %.0.i192 = phi i32 [ %switch.load219, %switch.lookup216 ], [ 6, %operationPriority.exit191 ]
   %61 = icmp ule i32 %.0.i190, %.0.i192
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef nonnull %5, i1 noundef zeroext false, i1 noundef zeroext %61)
   br i1 %3, label %62, label %263
@@ -1362,11 +1362,11 @@ operationPriority.exit193:                        ; preds = %operationPriority.e
 
 74:                                               ; preds = %73
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 40) #12
-  %.pre206 = load i32, ptr %1, align 8
+  %.pre207 = load i32, ptr %1, align 8
   br label %75
 
 75:                                               ; preds = %74, %73
-  %76 = phi i32 [ %.pre206, %74 ], [ %11, %73 ]
+  %76 = phi i32 [ %.pre207, %74 ], [ %11, %73 ]
   %77 = icmp eq i32 %76, 19
   %78 = select i1 %77, i8 43, i8 45
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext %78) #12
@@ -1376,31 +1376,31 @@ operationPriority.exit193:                        ; preds = %operationPriority.e
   %82 = load i32, ptr %81, align 8
   call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %80, i32 noundef %82)
   %83 = load i32, ptr %5, align 8
-  %switch.tableidx220 = add i32 %83, -4
-  %84 = icmp ult i32 %switch.tableidx220, 38
-  br i1 %84, label %switch.lookup219, label %operationPriority.exit195
+  %switch.tableidx221 = add i32 %83, -4
+  %84 = icmp ult i32 %switch.tableidx221, 38
+  br i1 %84, label %switch.lookup220, label %operationPriority.exit195
 
-switch.lookup219:                                 ; preds = %75
-  %85 = zext nneg i32 %switch.tableidx220 to i64
-  %switch.gep221 = getelementptr inbounds [38 x i32], ptr @switch.table.operationPriority, i64 0, i64 %85
-  %switch.load222 = load i32, ptr %switch.gep221, align 4
+switch.lookup220:                                 ; preds = %75
+  %85 = zext nneg i32 %switch.tableidx221 to i64
+  %switch.gep222 = getelementptr inbounds [38 x i32], ptr @switch.table.operationPriority, i64 0, i64 %85
+  %switch.load223 = load i32, ptr %switch.gep222, align 4
   br label %operationPriority.exit195
 
-operationPriority.exit195:                        ; preds = %75, %switch.lookup219
-  %.0.i194 = phi i32 [ %switch.load222, %switch.lookup219 ], [ 6, %75 ]
+operationPriority.exit195:                        ; preds = %75, %switch.lookup220
+  %.0.i194 = phi i32 [ %switch.load223, %switch.lookup220 ], [ 6, %75 ]
   %86 = load i32, ptr %1, align 8
-  %switch.tableidx224 = add i32 %86, -4
-  %87 = icmp ult i32 %switch.tableidx224, 38
-  br i1 %87, label %switch.lookup223, label %operationPriority.exit197
+  %switch.tableidx225 = add i32 %86, -4
+  %87 = icmp ult i32 %switch.tableidx225, 38
+  br i1 %87, label %switch.lookup224, label %operationPriority.exit197
 
-switch.lookup223:                                 ; preds = %operationPriority.exit195
-  %88 = zext nneg i32 %switch.tableidx224 to i64
-  %switch.gep225 = getelementptr inbounds [38 x i32], ptr @switch.table.operationPriority, i64 0, i64 %88
-  %switch.load226 = load i32, ptr %switch.gep225, align 4
+switch.lookup224:                                 ; preds = %operationPriority.exit195
+  %88 = zext nneg i32 %switch.tableidx225 to i64
+  %switch.gep226 = getelementptr inbounds [38 x i32], ptr @switch.table.operationPriority, i64 0, i64 %88
+  %switch.load227 = load i32, ptr %switch.gep226, align 4
   br label %operationPriority.exit197
 
-operationPriority.exit197:                        ; preds = %operationPriority.exit195, %switch.lookup223
-  %.0.i196 = phi i32 [ %switch.load226, %switch.lookup223 ], [ 6, %operationPriority.exit195 ]
+operationPriority.exit197:                        ; preds = %operationPriority.exit195, %switch.lookup224
+  %.0.i196 = phi i32 [ %switch.load227, %switch.lookup224 ], [ 6, %operationPriority.exit195 ]
   %89 = icmp ule i32 %.0.i194, %.0.i196
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef nonnull %5, i1 noundef zeroext false, i1 noundef zeroext %89)
   br i1 %3, label %90, label %263
@@ -1498,9 +1498,9 @@ jspGetArraySubscript.exit:                        ; preds = %101, %109
   br i1 %123, label %126, label %128
 
 126:                                              ; preds = %120
-  switch i32 %125, label %.thread199.thread [
+  switch i32 %125, label %.thread200.thread [
     i32 -1, label %127
-    i32 0, label %.thread198
+    i32 0, label %.thread199
   ]
 
 127:                                              ; preds = %126
@@ -1513,32 +1513,32 @@ jspGetArraySubscript.exit:                        ; preds = %101, %109
   br i1 %129, label %131, label %133
 
 131:                                              ; preds = %128
-  br i1 %130, label %132, label %.thread198
+  br i1 %130, label %132, label %.thread199
 
 132:                                              ; preds = %131
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.50) #12
   br label %263
 
-.thread198:                                       ; preds = %126, %131
+.thread199:                                       ; preds = %126, %131
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.51, i32 noundef %122) #12
   br label %263
 
 133:                                              ; preds = %128
-  br i1 %130, label %134, label %.thread199
+  br i1 %130, label %134, label %.thread200
 
 134:                                              ; preds = %133
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.52, i32 noundef %125) #12
   br label %263
 
-.thread199:                                       ; preds = %133
+.thread200:                                       ; preds = %133
   %135 = icmp eq i32 %125, -1
-  br i1 %135, label %136, label %.thread199.thread
+  br i1 %135, label %136, label %.thread200.thread
 
-136:                                              ; preds = %.thread199
+136:                                              ; preds = %.thread200
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.53, i32 noundef %122) #12
   br label %263
 
-.thread199.thread:                                ; preds = %126, %.thread199
+.thread200.thread:                                ; preds = %126, %.thread200
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %122, i32 noundef %125) #12
   br label %263
 
@@ -1656,9 +1656,9 @@ jspGetArraySubscript.exit:                        ; preds = %101, %109
   %178 = load i32, ptr %177, align 8
   call void @jspInitByBuffer(ptr noundef nonnull %5, ptr noundef %176, i32 noundef %178)
   %179 = load i32, ptr %5, align 8
-  %180 = tail call fastcc i32 @operationPriority(i32 noundef %179), !range !11
+  %180 = tail call fastcc i32 @operationPriority(i32 noundef %179)
   %181 = load i32, ptr %1, align 8
-  %182 = tail call fastcc i32 @operationPriority(i32 noundef %181), !range !11
+  %182 = tail call fastcc i32 @operationPriority(i32 noundef %181)
   %183 = icmp ule i32 %180, %182
   call fastcc void @printJsonPathItem(ptr noundef %0, ptr noundef nonnull %5, i1 noundef zeroext false, i1 noundef zeroext %183)
   call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.66) #12
@@ -1690,33 +1690,33 @@ jspGetArraySubscript.exit:                        ; preds = %101, %109
 
 195:                                              ; preds = %192
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 115) #12
-  %.pre203 = load i32, ptr %186, align 4
+  %.pre204 = load i32, ptr %186, align 4
   br label %196
 
 196:                                              ; preds = %195, %192
-  %197 = phi i32 [ %.pre203, %195 ], [ %193, %192 ]
+  %197 = phi i32 [ %.pre204, %195 ], [ %193, %192 ]
   %198 = and i32 %197, 4
   %.not183 = icmp eq i32 %198, 0
   br i1 %.not183, label %200, label %199
 
 199:                                              ; preds = %196
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 109) #12
-  %.pre204 = load i32, ptr %186, align 4
+  %.pre205 = load i32, ptr %186, align 4
   br label %200
 
 200:                                              ; preds = %199, %196
-  %201 = phi i32 [ %.pre204, %199 ], [ %197, %196 ]
+  %201 = phi i32 [ %.pre205, %199 ], [ %197, %196 ]
   %202 = and i32 %201, 8
   %.not184 = icmp eq i32 %202, 0
   br i1 %.not184, label %204, label %203
 
 203:                                              ; preds = %200
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 120) #12
-  %.pre205 = load i32, ptr %186, align 4
+  %.pre206 = load i32, ptr %186, align 4
   br label %204
 
 204:                                              ; preds = %203, %200
-  %205 = phi i32 [ %.pre205, %203 ], [ %201, %200 ]
+  %205 = phi i32 [ %.pre206, %203 ], [ %201, %200 ]
   %206 = and i32 %205, 16
   %.not185 = icmp eq i32 %206, 0
   br i1 %.not185, label %208, label %207
@@ -1873,7 +1873,7 @@ jspGetArraySubscript.exit:                        ; preds = %101, %109
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 826, ptr noundef nonnull @__func__.printJsonPathItem) #12
   unreachable
 
-263:                                              ; preds = %209, %210, %127, %134, %.thread199.thread, %136, %132, %.thread198, %operationPriority.exit197, %90, %operationPriority.exit193, %62, %34, %35, %21, %29, %258, %251, %244, %237, %230, %229, %228, %227, %213, %212, %211, %171, %170, %169, %162, %161, %160, %159, %158, %157, %152, %147, %144, %143, %142, %139, %._crit_edge, %94, %91, %68, %63, %13, %12
+263:                                              ; preds = %209, %210, %127, %134, %.thread200.thread, %136, %132, %.thread199, %operationPriority.exit197, %90, %operationPriority.exit193, %62, %34, %35, %21, %29, %258, %251, %244, %237, %230, %229, %228, %227, %213, %212, %211, %171, %170, %169, %162, %161, %160, %159, %158, %157, %152, %147, %144, %143, %142, %139, %._crit_edge, %94, %91, %68, %63, %13, %12
   %264 = getelementptr inbounds i8, ptr %1, i64 4
   %265 = load i32, ptr %264, align 4
   %266 = icmp sgt i32 %265, 0
@@ -1897,7 +1897,7 @@ declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) loca
 declare i64 @numeric_out(ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @operationPriority(i32 noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 7) i32 @operationPriority(i32 noundef %0) unnamed_addr #7 {
   %switch.tableidx = add i32 %0, -4
   %2 = icmp ult i32 %switch.tableidx, 38
   br i1 %2, label %switch.lookup, label %4
@@ -1955,4 +1955,3 @@ attributes #13 = { cold nounwind }
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !9}
-!11 = !{i32 0, i32 7}

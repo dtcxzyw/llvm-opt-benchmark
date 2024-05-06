@@ -1719,8 +1719,8 @@ if.end:                                           ; preds = %_ZNK17arith_recogni
   %9 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %9 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %10 = getelementptr i8, ptr %x, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %10, i64 32
+  %10 = getelementptr inbounds i8, ptr %x, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %10, i64 32
   %cmp.not357 = icmp eq i32 %9, 0
   br i1 %cmp.not357, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %for.body.lr.ph
 
@@ -2171,14 +2171,14 @@ if.then80:                                        ; preds = %invoke.cont78
   %75 = load i32, ptr %m_num_args.i206, align 8
   %idx.ext.i207 = zext i32 %75 to i64
   %add.ptr.i208.idx = shl nuw nsw i64 %idx.ext.i207, 3
-  %76 = getelementptr i8, ptr %11, i64 %add.ptr.i208.idx
-  %add.ptr.i208.ptr = getelementptr i8, ptr %76, i64 32
+  %76 = getelementptr inbounds i8, ptr %11, i64 %add.ptr.i208.idx
+  %add.ptr.i208.ptr = getelementptr inbounds i8, ptr %76, i64 32
   %cmp88.not354 = icmp eq i32 %75, 0
   br i1 %cmp88.not354, label %if.end166, label %for.body89.preheader
 
 for.body89.preheader:                             ; preds = %if.then80
-  %invariant.gep = getelementptr i8, ptr %11, i64 32
-  %invariant.gep380 = getelementptr i8, ptr %11, i64 32
+  %invariant.gep = getelementptr inbounds i8, ptr %11, i64 32
+  %invariant.gep380 = getelementptr inbounds i8, ptr %11, i64 32
   br label %for.body89
 
 for.body89:                                       ; preds = %for.body89.preheader, %for.inc161
@@ -2215,7 +2215,7 @@ if.end93:                                         ; preds = %land.rhs.i216, %inv
   %83 = load i32, ptr %m_num_args.i206, align 8
   %idx.ext.i225 = zext i32 %83 to i64
   %add.ptr.i226.idx = shl nuw nsw i64 %idx.ext.i225, 3
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %add.ptr.i226.idx
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %add.ptr.i226.idx
   %cmp101.not348 = icmp eq i32 %83, 0
   br i1 %cmp101.not348, label %if.end116.thread, label %for.body102
 
@@ -2323,7 +2323,7 @@ if.end116:                                        ; preds = %for.inc
   store i32 16, ptr %m_capacity.i.i, align 4
   %idx.ext.i236 = zext i32 %.pre366 to i64
   %add.ptr.i237.idx = shl nuw nsw i64 %idx.ext.i236, 3
-  %gep381 = getelementptr i8, ptr %invariant.gep380, i64 %add.ptr.i237.idx
+  %gep381 = getelementptr inbounds i8, ptr %invariant.gep380, i64 %add.ptr.i237.idx
   %cmp128.not351 = icmp eq i32 %.pre366, 0
   br i1 %cmp128.not351, label %for.end138, label %for.body129
 
@@ -3021,8 +3021,8 @@ if.end:                                           ; preds = %_ZNK17arith_recogni
   %6 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %6 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %7 = getelementptr i8, ptr %x, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %7, i64 32
+  %7 = getelementptr inbounds i8, ptr %x, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %7, i64 32
   %cmp.not96 = icmp eq i32 %6, 0
   br i1 %cmp.not96, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %for.body.lr.ph
 
@@ -3036,8 +3036,8 @@ for.body.lr.ph:                                   ; preds = %if.end
   %term4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %m_manager.i.i57 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %dep.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %invariant.gep = getelementptr i8, ptr %x, i64 32
-  %invariant.gep112 = getelementptr i8, ptr %x, i64 32
+  %invariant.gep = getelementptr inbounds i8, ptr %x, i64 32
+  %invariant.gep112 = getelementptr inbounds i8, ptr %x, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc71
@@ -3107,7 +3107,7 @@ if.end15:                                         ; preds = %invoke.cont12
   %19 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i33 = zext i32 %19 to i64
   %add.ptr.i34.idx = shl nuw nsw i64 %idx.ext.i33, 3
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %add.ptr.i34.idx
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %add.ptr.i34.idx
   %cmp21.not90 = icmp eq i32 %19, 0
   br i1 %cmp21.not90, label %if.end36.thread, label %for.body22
 
@@ -3215,7 +3215,7 @@ if.end36:                                         ; preds = %for.inc
   store i32 16, ptr %m_capacity.i.i, align 4
   %idx.ext.i41 = zext i32 %.pre to i64
   %add.ptr.i42.idx = shl nuw nsw i64 %idx.ext.i41, 3
-  %gep113 = getelementptr i8, ptr %invariant.gep112, i64 %add.ptr.i42.idx
+  %gep113 = getelementptr inbounds i8, ptr %invariant.gep112, i64 %add.ptr.i42.idx
   %cmp46.not93 = icmp eq i32 %.pre, 0
   br i1 %cmp46.not93, label %cond.false.i.i, label %for.body47
 
@@ -3948,8 +3948,8 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.end.i, %if.then.
   %13 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %13 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %14 = getelementptr i8, ptr %12, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %14, i64 32
+  %14 = getelementptr inbounds i8, ptr %12, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %14, i64 32
   %cmp.not19 = icmp eq i32 %13, 0
   br i1 %cmp.not19, label %for.end, label %for.body.lr.ph
 

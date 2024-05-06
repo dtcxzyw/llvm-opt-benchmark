@@ -103,7 +103,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @second_overflow(i64 noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @second_overflow(i64 noundef %0) local_unnamed_addr #3 align 16 {
   %2 = load i32, ptr @time_state, align 4
   switch i32 %2, label %default.unreachable [
     i32 0, label %3
@@ -300,7 +300,7 @@ define dso_local void @ntp_notify_cmos_timer() local_unnamed_addr #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__do_adjtimex(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 align 16 {
   %5 = load i32, ptr %0, align 8
   %6 = and i32 %5, 32768
   %7 = icmp eq i32 %6, 0
@@ -500,7 +500,7 @@ define dso_local i32 @__do_adjtimex(ptr nocapture noundef %0, ptr nocapture noun
   br i1 %120, label %121, label %123
 
 121:                                              ; preds = %117
-  %122 = trunc i64 %119 to i32
+  %122 = trunc nuw nsw i64 %119 to i32
   store i32 %122, ptr %2, align 4
   %.pre8 = load i32, ptr %0, align 8
   br label %123
@@ -783,7 +783,7 @@ define dso_local i32 @__do_adjtimex(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @ntp_tick_adj_setup(ptr noundef %0) #5 section ".init.text" align 16 {
+define internal range(i32 1, 0) i32 @ntp_tick_adj_setup(ptr noundef %0) #5 section ".init.text" align 16 {
   %2 = tail call i32 @kstrtoll(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ntp_tick_adj) #10
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %7

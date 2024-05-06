@@ -116,9 +116,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @pm_buffer_append_format(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #4 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #16
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %pm_buffer_append_length.exit, label %6
 
@@ -166,12 +166,12 @@ define hidden void @pm_buffer_append_format(ptr nocapture noundef %0, ptr nocapt
 
 27:                                               ; preds = %6, %22
   store i64 %10, ptr %0, align 8
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 %9
   %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %8, ptr noundef %1, ptr noundef nonnull %3) #16
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %32 = load i64, ptr %0, align 8
   %33 = add i64 %32, -1
   store i64 %33, ptr %0, align 8
@@ -181,14 +181,8 @@ pm_buffer_append_length.exit:                     ; preds = %22, %2, %27
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @pm_buffer_append_string(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #4 {
@@ -240,7 +234,7 @@ define hidden void @pm_buffer_append_string(ptr nocapture noundef %0, ptr nocapt
   %23 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %20, %17 ]
   store i64 %5, ptr %0, align 8
   %24 = getelementptr i8, ptr %23, i64 %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr readonly align 1 %1, i64 %2, i1 false)
   br label %pm_buffer_append.exit
 
 pm_buffer_append.exit:                            ; preds = %17, %22
@@ -297,7 +291,7 @@ define hidden void @pm_buffer_append_bytes(ptr nocapture noundef %0, ptr nocaptu
   %23 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %20, %17 ]
   store i64 %5, ptr %0, align 8
   %24 = getelementptr i8, ptr %23, i64 %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr readonly align 1 %1, i64 %2, i1 false)
   br label %pm_buffer_append.exit
 
 pm_buffer_append.exit:                            ; preds = %17, %22
@@ -372,7 +366,7 @@ define hidden void @pm_buffer_append_varuint(ptr nocapture noundef %0, i32 nound
   br label %28
 
 5:                                                ; preds = %2
-  %6 = trunc i32 %1 to i8
+  %6 = trunc nuw nsw i32 %1 to i8
   %7 = load i64, ptr %0, align 8
   %8 = add i64 %7, 1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -482,7 +476,7 @@ pm_buffer_append_byte.exit17:                     ; preds = %43, %47
   br i1 %51, label %28, label %52, !llvm.loop !9
 
 52:                                               ; preds = %pm_buffer_append_byte.exit17
-  %53 = trunc i32 %50 to i8
+  %53 = trunc nuw nsw i32 %50 to i8
   %54 = load i64, ptr %0, align 8
   %55 = add i64 %54, 1
   %56 = load i64, ptr %4, align 8
@@ -1341,10 +1335,10 @@ pm_buffer_append_length.exit:                     ; preds = %17, %22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @pm_buffer_concat(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
@@ -1403,7 +1397,7 @@ define hidden void @pm_buffer_concat(ptr nocapture noundef %0, ptr nocapture nou
   %26 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %23, %20 ]
   store i64 %8, ptr %0, align 8
   %27 = getelementptr i8, ptr %26, i64 %7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %6, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr readonly align 1 %6, i64 %3, i1 false)
   br label %pm_buffer_append.exit
 
 pm_buffer_append.exit:                            ; preds = %25, %20, %2
@@ -1411,7 +1405,7 @@ pm_buffer_append.exit:                            ; preds = %25, %20, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @pm_buffer_clear(ptr nocapture noundef writeonly %0) local_unnamed_addr #9 {
+define hidden void @pm_buffer_clear(ptr nocapture noundef writeonly %0) local_unnamed_addr #8 {
   store i64 0, ptr %0, align 8
   ret void
 }
@@ -1446,10 +1440,10 @@ define hidden void @pm_buffer_rstrip(ptr nocapture noundef %0) local_unnamed_add
   ret void
 }
 
-declare zeroext i1 @pm_char_is_whitespace(i8 noundef zeroext) local_unnamed_addr #10
+declare zeroext i1 @pm_char_is_whitespace(i8 noundef zeroext) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @pm_buffer_free(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define hidden void @pm_buffer_free(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #16
@@ -1457,10 +1451,16 @@ define hidden void @pm_buffer_free(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1468,14 +1468,14 @@ attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,unini
 attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind sspstrong willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind sspstrong willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nounwind allocsize(0) }
 attributes #15 = { nounwind allocsize(1) }
 attributes #16 = { nounwind }

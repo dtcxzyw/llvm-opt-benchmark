@@ -2897,7 +2897,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !7
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 
@@ -7337,7 +7337,7 @@ _ZNK5folly7dynamic3getINS0_10ObjectImplEEERKT_v.exit: ; preds = %entry
   %4 = load ptr, ptr %u_.i.i.i.i, align 8, !tbaa !291
   %notmask.i = shl nsw i64 -1, %sh_prom.i
   %sub.i = xor i64 %notmask.i, -1
-  %conv.i = trunc i64 %or.i to i8
+  %conv.i = trunc nuw i64 %or.i to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i, i64 0
   %vecinit15.i.i = shufflevector <16 x i8> %vecinit.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp324.i.i.i.i = icmp eq ptr %key.coerce1, %key.coerce0
@@ -7769,7 +7769,7 @@ _ZN5folly4json20firstEscapableInWordILb1EmEEmT0_RKNS0_18serialization_optsE.exit
   %needsEscape.1.lcssa.1.i = phi i64 [ %needsEscape.1.lcssa.i, %while.end.i ], [ %or13.1.i, %while.body.1.i ]
   %tobool16.not.i = icmp eq i64 %needsEscape.1.lcssa.1.i, 0
   %17 = call i64 @llvm.cttz.i64(i64 %needsEscape.1.lcssa.1.i, i1 true), !range !55
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %19 = add nuw nsw i32 %18, 1
   %div34.i = lshr i32 %19, 3
   %sub18.i = add nsw i32 %div34.i, -1
@@ -7924,13 +7924,13 @@ if.then93:                                        ; preds = %land.rhs83, %if.end
   br i1 %cmp97, label %if.then98, label %if.else100
 
 if.then98:                                        ; preds = %if.then93
-  %conv99 = trunc i32 %call96 to i16
+  %conv99 = trunc nuw i32 %call96 to i16
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %buf.i) #26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %buf.i, ptr noundef nonnull align 1 dereferenceable(7) @__const._ZZN5folly4json16escapeStringImplILb0EEEvNS_5RangeIPKcEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_18serialization_optsEENKUlDsE_clEDs.buf, i64 7, i1 false)
   %shr.i = lshr i16 %conv99, 12
-  %conv2.i = trunc i16 %shr.i to i8
+  %conv2.i = trunc nuw nsw i16 %shr.i to i8
   %shr4.i384 = lshr i32 %call96, 8
-  %39 = trunc i32 %shr4.i384 to i8
+  %39 = trunc nuw i32 %shr4.i384 to i8
   %conv6.i = and i8 %39, 15
   %40 = trunc i32 %call96 to i8
   %41 = lshr i8 %40, 4
@@ -8417,7 +8417,7 @@ if.end:                                           ; preds = %if.then13.i, %if.en
   %or4.i = or i64 %11, %or.i193
   %tobool.not.i194 = icmp eq i64 %or4.i, 0
   %12 = call i64 @llvm.cttz.i64(i64 %or4.i, i1 true), !range !55
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %14 = add nuw nsw i32 %13, 1
   %div11.i = lshr i32 %14, 3
   %sub.i195 = add nsw i32 %div11.i, -1
@@ -8556,13 +8556,13 @@ if.then78:                                        ; preds = %if.end73
   br i1 %cmp82, label %if.then83, label %if.else85
 
 if.then83:                                        ; preds = %if.then78
-  %conv84 = trunc i32 %call81 to i16
+  %conv84 = trunc nuw i32 %call81 to i16
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %buf.i) #26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %buf.i, ptr noundef nonnull align 1 dereferenceable(7) @__const._ZZN5folly4json16escapeStringImplILb0EEEvNS_5RangeIPKcEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_18serialization_optsEENKUlDsE_clEDs.buf, i64 7, i1 false)
   %shr.i = lshr i16 %conv84, 12
-  %conv2.i = trunc i16 %shr.i to i8
+  %conv2.i = trunc nuw nsw i16 %shr.i to i8
   %shr4.i367 = lshr i32 %call81, 8
-  %31 = trunc i32 %shr4.i367 to i8
+  %31 = trunc nuw i32 %shr4.i367 to i8
   %conv6.i = and i8 %31, 15
   %32 = trunc i32 %call81 to i8
   %33 = lshr i8 %32, 4
@@ -14193,7 +14193,7 @@ if.then.i19.i:                                    ; preds = %while.end.i
   unreachable
 
 invoke.cont99:                                    ; preds = %while.end.i
-  %conv4.i.i = trunc i64 %or.i to i8
+  %conv4.i.i = trunc nuw i64 %or.i to i8
   store i8 %conv4.i.i, ptr %arrayidx.i.i.i.i244, align 1, !tbaa !7
   %control_.i.i246 = getelementptr inbounds i8, ptr %add.ptr.lcssa.i, i64 14
   %27 = load i8, ptr %control_.i.i246, align 2, !tbaa !227
@@ -15536,13 +15536,13 @@ _ZN5folly4json12_GLOBAL__N_15InputppEv.exit101:   ; preds = %cond.false.i.i97, %
   %cond.i.i99 = phi i32 [ %conv.i.i98, %cond.false.i.i97 ], [ -1, %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit93" ]
   %conv.i = trunc i32 %cond19.i to i16
   %18 = shl nuw i16 %conv.i, 12
-  %conv.i48 = trunc i32 %cond19.i47 to i16
+  %conv.i48 = trunc nsw i32 %cond19.i47 to i16
   %19 = shl nuw nsw i16 %conv.i48, 8
   %add27 = add nuw nsw i16 %19, %18
-  %conv.i69 = trunc i32 %cond19.i68 to i16
+  %conv.i69 = trunc nsw i32 %cond19.i68 to i16
   %20 = shl nuw nsw i16 %conv.i69, 4
   %add1628 = add nuw nsw i16 %add27, %20
-  %conv.i90 = trunc i32 %cond19.i89 to i16
+  %conv.i90 = trunc nsw i32 %cond19.i89 to i16
   %add2229 = add nuw nsw i16 %add1628, %conv.i90
   store i32 %cond.i.i99, ptr %1, align 4, !tbaa !323
   ret i16 %add2229
@@ -15668,7 +15668,7 @@ land.lhs.true.i.i:                                ; preds = %_ZNSt11char_traitsI
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %sub.i.i = sub i64 %call.i.i.i, %sub.ptr.sub.i.i.i
   %sh.diff.i.i = lshr i64 %sub.i.i, 62
-  %tr.sh.diff.i.i = trunc i64 %sh.diff.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw nsw i64 %sh.diff.i.i to i32
   %shl.i.i = and i32 %tr.sh.diff.i.i, 2
   %sub8.i.i = add nsw i32 %shl.i.i, -1
   br label %_ZN5follyleIPKcEEbRKNS_5RangeIT_EES7_.exit

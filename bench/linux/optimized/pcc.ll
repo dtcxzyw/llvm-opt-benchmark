@@ -161,7 +161,7 @@ define internal i32 @pcc_init() #4 section ".init.text" align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @acpi_pcc_probe() unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @acpi_pcc_probe() unnamed_addr #4 section ".init.text" align 16 {
   %1 = alloca ptr, align 8
   %2 = alloca [6 x %struct.acpi_subtable_proc], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #10
@@ -818,7 +818,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare dso_local i32 @acpi_get_table(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @parse_pcc_subspace(ptr nocapture noundef readonly %0, i64 %1) #6 align 16 {
+define internal range(i32 -22, 1) i32 @parse_pcc_subspace(ptr nocapture noundef readonly %0, i64 %1) #6 align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp ult i8 %3, 6
   %5 = select i1 %4, i32 0, i32 -22
@@ -1049,7 +1049,7 @@ declare dso_local i32 @acpi_read(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @acpi_write(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pcc_mbox_irq(i32 %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @pcc_mbox_irq(i32 %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10

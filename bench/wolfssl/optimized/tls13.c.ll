@@ -1643,7 +1643,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @HashOutput(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @FindSuiteSSL(ptr nocapture noundef readonly %ssl, ptr nocapture noundef readonly %suite) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @FindSuiteSSL(ptr nocapture noundef readonly %ssl, ptr nocapture noundef readonly %suite) local_unnamed_addr #5 {
 entry:
   %suites1 = getelementptr inbounds i8, ptr %ssl, i64 8
   %0 = load ptr, ptr %suites1, align 8
@@ -2473,7 +2473,7 @@ if.end455:                                        ; preds = %if.end446
   %30 = load i8, ptr %cipherSuite, align 2
   %arrayidx461 = getelementptr inbounds i8, ptr %suite, i64 1
   store i8 %30, ptr %arrayidx461, align 1
-  %call463 = call i32 @FindSuiteSSL(ptr noundef nonnull %ssl, ptr noundef nonnull %suite), !range !12
+  %call463 = call i32 @FindSuiteSSL(ptr noundef nonnull %ssl, ptr noundef nonnull %suite)
   %tobool464.not = icmp eq i32 %call463, 0
   br i1 %tobool464.not, label %return, label %if.end468
 
@@ -2555,8 +2555,8 @@ if.end25:                                         ; preds = %if.end
 if.then27:                                        ; preds = %if.end25
   %cmp32.not = icmp ne i8 %args.sroa.0.sroa.0.0.extract.trunc, 3
   %cmp43 = icmp ugt i8 %args.sroa.0.sroa.4.0.extract.trunc, 3
-  %or.cond182 = or i1 %cmp32.not, %cmp43
-  br i1 %or.cond182, label %if.then45, label %if.else
+  %or.cond183 = or i1 %cmp32.not, %cmp43
+  br i1 %or.cond183, label %if.then45, label %if.else
 
 if.then45:                                        ; preds = %if.then27
   %minor55 = getelementptr inbounds i8, ptr %ssl, i64 695
@@ -2613,7 +2613,7 @@ if.end17.i:                                       ; preds = %if.end9.i
 
 if.end28.i:                                       ; preds = %if.end17.i
   %cmp31.i = icmp ult i32 %add24.i, %helloSz
-  br i1 %cmp31.i, label %if.then33.i, label %if.end92.thread173
+  br i1 %cmp31.i, label %if.then33.i, label %if.end92.thread174
 
 if.then33.i:                                      ; preds = %if.end28.i
   %add34.i = add nuw nsw i32 %add24.i, 2
@@ -2645,7 +2645,7 @@ if.end46.i:                                       ; preds = %if.end38.i
 if.end51.i:                                       ; preds = %if.end46.i
   %.pre.i = load i32, ptr %foundVersion.i, align 4
   %7 = icmp eq i32 %.pre.i, 0
-  br i1 %7, label %if.end92.thread173, label %if.end92
+  br i1 %7, label %if.end92.thread174, label %if.end92
 
 DoTls13SupportedVersions.exit.thread:             ; preds = %if.then79, %if.end.i, %if.end9.i, %if.end17.i, %if.then33.i, %if.end38.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %foundVersion.i)
@@ -2656,7 +2656,7 @@ DoTls13SupportedVersions.exit:                    ; preds = %if.end46.i
   %cmp88 = icmp slt i32 %call.i, 0
   br i1 %cmp88, label %FreeDch13Args.exit, label %if.end163
 
-if.end92.thread173:                               ; preds = %if.end28.i, %if.end51.i
+if.end92.thread174:                               ; preds = %if.end28.i, %if.end51.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %foundVersion.i)
   br label %if.then94
 
@@ -2668,8 +2668,8 @@ if.end92:                                         ; preds = %if.end51.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %foundVersion.i)
   br i1 %tobool54.not.i.not, label %if.then94, label %if.end163
 
-if.then94:                                        ; preds = %if.then69, %if.then45, %if.end92.thread173, %if.end92
-  %args.sroa.0.sroa.4.0153167 = phi i8 [ %args.sroa.0.sroa.4.0.extract.trunc, %if.end92 ], [ %args.sroa.0.sroa.4.0.extract.trunc, %if.end92.thread173 ], [ %args.sroa.0.sroa.4.0.extract.trunc, %if.then69 ], [ 3, %if.then45 ]
+if.then94:                                        ; preds = %if.then69, %if.then45, %if.end92.thread174, %if.end92
+  %args.sroa.0.sroa.4.0154168 = phi i8 [ %args.sroa.0.sroa.4.0.extract.trunc, %if.end92 ], [ %args.sroa.0.sroa.4.0.extract.trunc, %if.end92.thread174 ], [ %args.sroa.0.sroa.4.0.extract.trunc, %if.then69 ], [ 3, %if.then45 ]
   %bf.load96 = load i64, ptr %dtls, align 8
   %9 = and i64 %bf.load96, 1024
   %tobool100.not = icmp eq i64 %9, 0
@@ -2683,17 +2683,17 @@ if.end104:                                        ; preds = %if.then94
   br i1 %tobool111.not, label %land.lhs.true112, label %land.lhs.true130
 
 land.lhs.true112:                                 ; preds = %if.end104
-  %cmp119 = icmp ult i8 %args.sroa.0.sroa.4.0153167, %11
+  %cmp119 = icmp ult i8 %args.sroa.0.sroa.4.0154168, %11
   br i1 %cmp119, label %FreeDch13Args.exit, label %if.end143
 
 land.lhs.true130:                                 ; preds = %if.end104
-  %cmp138 = icmp ugt i8 %args.sroa.0.sroa.4.0153167, %11
+  %cmp138 = icmp ugt i8 %args.sroa.0.sroa.4.0154168, %11
   br i1 %cmp138, label %FreeDch13Args.exit, label %if.end143
 
 if.end143:                                        ; preds = %land.lhs.true112, %land.lhs.true130
   %minor145 = getelementptr inbounds i8, ptr %ssl, i64 695
   %12 = load i8, ptr %minor145, align 1
-  store i8 %args.sroa.0.sroa.4.0153167, ptr %minor145, align 1
+  store i8 %args.sroa.0.sroa.4.0154168, ptr %minor145, align 1
   %call155 = call i32 @HashInput(ptr noundef nonnull %ssl, ptr noundef nonnull %add.ptr, i32 noundef %helloSz) #11
   store i8 %12, ptr %minor145, align 1
   %cmp158 = icmp eq i32 %call155, 0
@@ -2899,8 +2899,8 @@ if.then4.i:                                       ; preds = %if.end210, %if.end2
   br label %FreeDch13Args.exit
 
 FreeDch13Args.exit:                               ; preds = %DoTls13SupportedVersions.exit, %if.then160, %if.end143, %entry, %if.end, %if.then94, %land.lhs.true130, %land.lhs.true112, %if.end163, %if.end178, %if.end198, %DoTls13SupportedVersions.exit.thread, %if.then4.i
-  %ret.7181 = phi i32 [ %ret.7.ph, %if.then4.i ], [ %call161, %if.then160 ], [ %call155, %if.end143 ], [ %call.i, %DoTls13SupportedVersions.exit ], [ -328, %entry ], [ -326, %if.end ], [ -326, %if.then94 ], [ -326, %land.lhs.true130 ], [ -326, %land.lhs.true112 ], [ -425, %if.end163 ], [ -328, %if.end178 ], [ -125, %if.end198 ], [ -328, %DoTls13SupportedVersions.exit.thread ]
-  ret i32 %ret.7181
+  %ret.7182 = phi i32 [ %ret.7.ph, %if.then4.i ], [ %call161, %if.then160 ], [ %call155, %if.end143 ], [ %call.i, %DoTls13SupportedVersions.exit ], [ -328, %entry ], [ -326, %if.end ], [ -326, %if.then94 ], [ -326, %land.lhs.true130 ], [ -326, %land.lhs.true112 ], [ -425, %if.end163 ], [ -328, %if.end178 ], [ -125, %if.end198 ], [ -328, %DoTls13SupportedVersions.exit.thread ]
+  ret i32 %ret.7182
 }
 
 declare i32 @HashInput(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -3152,7 +3152,7 @@ declare i32 @TLSX_GetResponseSize(ptr noundef, i8 noundef zeroext, ptr noundef) 
 declare i32 @TLSX_WriteResponse(ptr noundef, ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CreateSigData(ptr nocapture noundef readonly %ssl, ptr noundef %sigData, ptr nocapture noundef writeonly %sigDataSz, i32 noundef %check) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @CreateSigData(ptr nocapture noundef readonly %ssl, ptr noundef %sigData, ptr nocapture noundef writeonly %sigDataSz, i32 noundef %check) local_unnamed_addr #0 {
 entry:
   %side1 = getelementptr inbounds i8, ptr %ssl, i64 1008
   %bf.load = load i64, ptr %side1, align 8
@@ -4501,7 +4501,7 @@ do.end132:                                        ; preds = %if.end120
 
 if.end141:                                        ; preds = %do.end132
   %sigDataSz = getelementptr inbounds i8, ptr %args, i64 40
-  %call145 = call i32 @CreateSigData(ptr noundef nonnull %ssl, ptr noundef nonnull %call134, ptr noundef nonnull %sigDataSz, i32 noundef 1), !range !13
+  %call145 = call i32 @CreateSigData(ptr noundef nonnull %ssl, ptr noundef nonnull %call134, ptr noundef nonnull %sigDataSz, i32 noundef 1)
   %cmp146.not = icmp eq i32 %call145, 0
   br i1 %cmp146.not, label %if.end149, label %do.end288
 
@@ -5163,7 +5163,7 @@ while.body:                                       ; preds = %while.cond
   %call86 = tail call i32 @ProcessReply(ptr noundef nonnull %ssl) #11
   store i32 %call86, ptr %error87, align 8
   %cmp88 = icmp slt i32 %call86, 0
-  br i1 %cmp88, label %return, label %while.cond, !llvm.loop !14
+  br i1 %cmp88, label %return, label %while.cond, !llvm.loop !12
 
 while.end:                                        ; preds = %while.cond
   %bf.load94 = load i64, ptr %side, align 8
@@ -5214,7 +5214,7 @@ while.body142:                                    ; preds = %while.cond136
   %call143 = tail call i32 @ProcessReply(ptr noundef nonnull %ssl) #11
   store i32 %call143, ptr %error144, align 8
   %cmp145 = icmp slt i32 %call143, 0
-  br i1 %cmp145, label %return, label %while.cond136, !llvm.loop !15
+  br i1 %cmp145, label %return, label %while.cond136, !llvm.loop !13
 
 while.end150:                                     ; preds = %while.cond136
   store i8 4, ptr %connectState, align 2
@@ -5536,13 +5536,13 @@ if.then119:                                       ; preds = %if.end114
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %call115, i64 8
   store i8 %conv6.i.i.i, ptr %arrayidx7.i.i.i, align 1
   %idxprom = zext nneg i32 %i.0 to i64
-  %arrayidx = getelementptr i8, ptr %call115, i64 %idxprom
+  %arrayidx = getelementptr inbounds i8, ptr %call115, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
-  %add.ptr = getelementptr i8, ptr %arrayidx, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %arrayidx, i64 1
   store i8 %conv.i, ptr %add.ptr, align 1
-  %arrayidx4.i = getelementptr i8, ptr %arrayidx, i64 2
+  %arrayidx4.i = getelementptr inbounds i8, ptr %arrayidx, i64 2
   store i8 %conv3.i, ptr %arrayidx4.i, align 1
-  %arrayidx7.i = getelementptr i8, ptr %arrayidx, i64 3
+  %arrayidx7.i = getelementptr inbounds i8, ptr %arrayidx, i64 3
   store i8 %conv6.i, ptr %arrayidx7.i, align 1
   %add126 = add nuw nsw i32 %i.0, 4
   %sub127 = add i32 %length.2224, -4
@@ -5603,7 +5603,7 @@ if.then.i:                                        ; preds = %if.then148
   %idx.ext.i = zext i32 %18 to i64
   %add.ptr.i151 = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i
   %conv.i152 = zext i32 %cond.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr154, ptr align 1 %add.ptr.i151, i64 %conv.i152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr154, ptr readonly align 1 %add.ptr.i151, i64 %conv.i152, i1 false)
   %cmp1.not.i = icmp ult i32 %sub.i, %fragSz.2192
   br i1 %cmp1.not.i, label %if.end4.i, label %AddCertExt.exit
 
@@ -5641,7 +5641,7 @@ if.else.i:                                        ; preds = %if.end4.i
   %spec.select.i = call i32 @llvm.umin.i32(i32 %sub7.i, i32 %sub26.i)
   %add.ptr33.i = getelementptr inbounds i8, ptr %add.ptr154, i64 %idx.ext22.i
   %conv34.i = zext i32 %spec.select.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr33.i, ptr align 1 %add.ptr25.i, i64 %conv34.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr33.i, ptr align 1 %add.ptr25.i, i64 %conv34.i, i1 false)
   %add35.i = add i32 %spec.select.i, %i.0.i
   br label %AddCertExt.exit
 
@@ -5729,7 +5729,7 @@ if.then.i173:                                     ; preds = %NextCert.exit, %if.
   %idx.ext.i176 = zext i32 %offset.2212 to i64
   %add.ptr.i177 = getelementptr inbounds i8, ptr %p.3215, i64 %idx.ext.i176
   %conv.i178 = zext i32 %cond.i.i175 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr203217, ptr align 1 %add.ptr.i177, i64 %conv.i178, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr203217, ptr readonly align 1 %add.ptr.i177, i64 %conv.i178, i1 false)
   %cmp1.not.i179 = icmp ult i32 %sub.i174, %fragSz.4
   br i1 %cmp1.not.i179, label %if.then.i173.if.end4.i159_crit_edge, label %AddCertExt.exit180
 
@@ -5814,7 +5814,7 @@ if.end241:                                        ; preds = %if.then239, %if.end
   %cmp79 = icmp ne i32 %length.6, 0
   %cmp81 = icmp eq i32 %ret.3, 0
   %37 = select i1 %cmp79, i1 %cmp81, i1 false
-  br i1 %37, label %while.body, label %while.end242, !llvm.loop !16
+  br i1 %37, label %while.body, label %while.end242, !llvm.loop !14
 
 while.end242:                                     ; preds = %if.end241
   %cmp243.not = icmp eq i32 %ret.3, -327
@@ -5960,7 +5960,7 @@ if.end109:                                        ; preds = %if.then85, %if.then
 if.end116:                                        ; preds = %if.end109, %EncodeSigAlg.exit
   %11 = phi ptr [ %call106, %if.end109 ], [ %8, %EncodeSigAlg.exit ]
   %sigDataSz = getelementptr inbounds i8, ptr %args, i64 40
-  %call120 = call i32 @CreateSigData(ptr noundef nonnull %ssl, ptr noundef nonnull %11, ptr noundef nonnull %sigDataSz, i32 noundef 0), !range !13
+  %call120 = call i32 @CreateSigData(ptr noundef nonnull %ssl, ptr noundef nonnull %11, ptr noundef nonnull %sigDataSz, i32 noundef 0)
   %cmp121.not = icmp eq i32 %call120, 0
   br i1 %cmp121.not, label %if.end124, label %do.end350
 
@@ -6436,7 +6436,7 @@ return:                                           ; preds = %DeriveFinishedSecre
 declare void @FreeHandshakeResources(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_UseKeyShare(ptr noundef %ssl, i16 noundef zeroext %group) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @wolfSSL_UseKeyShare(ptr noundef %ssl, i16 noundef zeroext %group) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %if.end
@@ -6455,7 +6455,7 @@ return:                                           ; preds = %if.end, %entry
 declare i32 @TLSX_KeyShare_Use(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_NoKeyShares(ptr noundef %ssl) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @wolfSSL_NoKeyShares(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %if.end
@@ -6480,7 +6480,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 declare i32 @TLSX_KeyShare_Empty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_CTX_no_ticket_TLSv13(ptr noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i32 -344, 1) i32 @wolfSSL_CTX_no_ticket_TLSv13(ptr noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6506,7 +6506,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_no_ticket_TLSv13(ptr noundef readonly %ssl) local_unnamed_addr #0 {
+define range(i32 -344, 1) i32 @wolfSSL_no_ticket_TLSv13(ptr noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6532,7 +6532,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_CTX_no_dhe_psk(ptr noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wolfSSL_CTX_no_dhe_psk(ptr noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6551,7 +6551,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_no_dhe_psk(ptr noundef readonly %ssl) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wolfSSL_no_dhe_psk(ptr noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6570,7 +6570,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_CTX_only_dhe_psk(ptr noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wolfSSL_CTX_only_dhe_psk(ptr noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6589,7 +6589,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_only_dhe_psk(ptr noundef readonly %ssl) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wolfSSL_only_dhe_psk(ptr noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6729,7 +6729,7 @@ Tls13UpdateKeys.exit.thread:                      ; preds = %Tls13UpdateKeys.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wolfSSL_key_update_response(ptr noundef readonly %ssl, ptr noundef writeonly %required) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wolfSSL_key_update_response(ptr noundef readonly %ssl, ptr noundef writeonly %required) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %required, null
   %cmp1 = icmp eq ptr %ssl, null
@@ -6846,7 +6846,7 @@ if.end13:                                         ; preds = %for.body
   store i16 %conv16, ptr %arrayidx18, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %if.end13, %if.end5
   %conv19 = trunc i32 %count to i8
@@ -6915,7 +6915,7 @@ if.end13:                                         ; preds = %for.body
   store i16 %conv16, ptr %arrayidx18, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %if.end13, %if.end5
   %conv19 = trunc i32 %count to i8
@@ -7075,7 +7075,7 @@ while.body:                                       ; preds = %while.cond
   %call142 = tail call i32 @ProcessReply(ptr noundef nonnull %ssl) #11
   store i32 %call142, ptr %error143, align 8
   %cmp144 = icmp slt i32 %call142, 0
-  br i1 %cmp144, label %return, label %while.cond, !llvm.loop !19
+  br i1 %cmp144, label %return, label %while.cond, !llvm.loop !17
 
 while.end:                                        ; preds = %while.cond
   store i8 2, ptr %acceptState136, align 1
@@ -7127,7 +7127,7 @@ while.body196:                                    ; preds = %if.then187, %while.
   %call197 = tail call i32 @ProcessReply(ptr noundef nonnull %ssl) #11
   store i32 %call197, ptr %error198, align 8
   %cmp199 = icmp slt i32 %call197, 0
-  br i1 %cmp199, label %return, label %while.cond190thread-pre-split, !llvm.loop !20
+  br i1 %cmp199, label %return, label %while.cond190thread-pre-split, !llvm.loop !18
 
 if.end205:                                        ; preds = %while.cond190thread-pre-split, %sw.bb181
   store i8 5, ptr %acceptState136, align 1
@@ -7253,7 +7253,7 @@ while.body360:                                    ; preds = %while.cond354
   %call361 = tail call i32 @ProcessReply(ptr noundef nonnull %ssl) #11
   store i32 %call361, ptr %error362, align 8
   %cmp363 = icmp slt i32 %call361, 0
-  br i1 %cmp363, label %return, label %while.cond354, !llvm.loop !21
+  br i1 %cmp363, label %return, label %while.cond354, !llvm.loop !19
 
 while.end368:                                     ; preds = %while.cond354
   store i8 14, ptr %acceptState136, align 1
@@ -7351,7 +7351,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %mac_algorithm.i = getelementptr inbounds i8, ptr %ssl, i64 708
   %1 = load i8, ptr %mac_algorithm.i, align 2
   %conv.i = zext i8 %1 to i32
-  %call.i = call fastcc i32 @DeriveKeyMsg(ptr noundef nonnull %ssl, ptr noundef nonnull %key.i, ptr noundef nonnull %secret.i, i32 noundef %conv.i)
+  %call.i = call fastcc i32 @DeriveKeyMsg(ptr noundef nonnull readonly %ssl, ptr noundef nonnull %key.i, ptr noundef nonnull %secret.i, i32 noundef %conv.i)
   %cmp4.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp4.not.i, label %DeriveHandshakeSecret.exit, label %DeriveHandshakeSecret.exit.thread
 
@@ -7789,13 +7789,11 @@ attributes #12 = { nounwind willreturn memory(none) }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 0, i32 2}
-!13 = !{i32 -2147483648, i32 1}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}

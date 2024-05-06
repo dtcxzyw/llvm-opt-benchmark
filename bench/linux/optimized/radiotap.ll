@@ -16,7 +16,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_ra
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_ieee80211_radiotap_iterator_init532, ptr @__UNIQUE_ID___addressable_ieee80211_radiotap_iterator_next533], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @ieee80211_radiotap_iterator_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = icmp ult i32 %2, 8
   br i1 %5, label %.loopexit1, label %6
 

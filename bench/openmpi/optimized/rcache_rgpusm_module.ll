@@ -127,7 +127,7 @@ opal_obj_run_constructors.exit26:                 ; preds = %.lr.ph.i23, %25
 declare void @mca_rcache_base_module_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_rcache_rgpusm_register(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 %4, ptr noundef %5) #0 {
+define i32 @mca_rcache_rgpusm_register(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = load i32, ptr getelementptr inbounds (%struct.mca_rcache_rgpusm_component_t, ptr @mca_rcache_rgpusm_component, i64 0, i32 4), align 4
@@ -172,7 +172,7 @@ define noundef i32 @mca_rcache_rgpusm_register(ptr noundef %0, ptr noundef %1, i
   br label %opal_free_list_return.exit
 
 33:                                               ; preds = %17
-  %34 = tail call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %15), !range !6
+  %34 = tail call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %15)
   %.not165 = icmp eq i32 %34, 0
   br i1 %.not165, label %74, label %35
 
@@ -531,7 +531,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %68, %54
   br label %opal_free_list_return.exit
 
 250:                                              ; preds = %234
-  %251 = tail call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %226), !range !6
+  %251 = tail call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %226)
   switch i32 %251, label %.thread179 [
     i32 -10, label %252
     i32 0, label %.thread
@@ -581,7 +581,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %68, %54
   %279 = load i32, ptr %278, align 16
   %280 = add i32 %279, 1
   store i32 %280, ptr %278, align 16
-  %281 = call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %226), !range !6
+  %281 = call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %226)
   %.not160187 = icmp eq i32 %281, 0
   br i1 %.not160187, label %.thread, label %.lr.ph.preheader
 
@@ -593,9 +593,9 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %68, %54
   br i1 %282, label %283, label %.thread179
 
 283:                                              ; preds = %.lr.ph
-  %284 = call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %226), !range !6
+  %284 = call fastcc i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %226)
   %.not160 = icmp eq i32 %284, 0
-  br i1 %.not160, label %.thread, label %.lr.ph, !llvm.loop !7
+  br i1 %.not160, label %.thread, label %.lr.ph, !llvm.loop !6
 
 .thread179:                                       ; preds = %.lr.ph, %250
   %.2182 = phi i32 [ %251, %250 ], [ -1, %.lr.ph ]
@@ -737,7 +737,7 @@ opal_free_list_return_mt.exit.sink.split.i168:    ; preds = %323, %309
   %.0 = phi i32 [ %355, %353 ], [ 1, %.preheader195 ]
   %354 = call fastcc zeroext i1 @mca_rcache_rgpusm_deregister_lru(ptr noundef %0)
   %355 = add nuw nsw i32 %.0, 1
-  br i1 %354, label %353, label %356, !llvm.loop !8
+  br i1 %354, label %353, label %356, !llvm.loop !7
 
 356:                                              ; preds = %353
   %357 = load i32, ptr getelementptr inbounds (%struct.mca_rcache_rgpusm_component_t, ptr @mca_rcache_rgpusm_component, i64 0, i32 5), align 8
@@ -774,7 +774,7 @@ opal_free_list_return_mt.exit.sink.split.i168:    ; preds = %323, %309
 
 374:                                              ; preds = %369, %372
   %375 = call fastcc zeroext i1 @mca_rcache_rgpusm_deregister_lru(ptr noundef nonnull %0)
-  br i1 %375, label %.preheader, label %.thread183, !llvm.loop !9
+  br i1 %375, label %.preheader, label %.thread183, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %361, %334
   %.3 = phi i32 [ %364, %361 ], [ %337, %334 ], [ %367, %.preheader ]
@@ -1019,7 +1019,7 @@ define noundef i32 @mca_rcache_rgpusm_deregister(ptr noundef %0, ptr noundef %1)
   %70 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %71 = load ptr, ptr %70, align 8
   %.not.i.i = icmp eq ptr %71, null
-  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i, !llvm.loop !9
 
 mca_rcache_rgpusm_close_mem_handle.exit:          ; preds = %.lr.ph.i.i, %63
   %72 = load i8, ptr @opal_uses_threads, align 1
@@ -1243,7 +1243,7 @@ define void @mca_rcache_rgpusm_finalize(ptr noundef %0) #0 {
   %73 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not.i.i = icmp eq ptr %74, null
-  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i, !llvm.loop !9
 
 mca_rcache_rgpusm_close_mem_handle.exit:          ; preds = %.lr.ph.i.i, %66
   %75 = load i8, ptr @opal_uses_threads, align 1
@@ -1327,11 +1327,11 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %106, %95
 opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atomic.exit.i.i, %93, %95, %97, %104, %106, %opal_free_list_return_mt.exit.sink.split.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %opal_free_list_return.exit
   %110 = icmp eq i32 %38, 100
-  br i1 %110, label %36, label %._crit_edge.thread, !llvm.loop !12
+  br i1 %110, label %36, label %._crit_edge.thread, !llvm.loop !11
 
 ._crit_edge.thread:                               ; preds = %36, %._crit_edge
   %111 = getelementptr inbounds i8, ptr %0, i64 480
@@ -1349,7 +1349,7 @@ opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atom
   %117 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %118 = load ptr, ptr %117, align 8
   %.not.i = icmp eq ptr %118, null
-  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !9
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %._crit_edge.thread
   %119 = getelementptr inbounds i8, ptr %0, i64 128
@@ -1367,7 +1367,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %._crit_e
   %125 = getelementptr inbounds i8, ptr %.07.i34, i64 8
   %126 = load ptr, ptr %125, align 8
   %.not.i35 = icmp eq ptr %126, null
-  br i1 %.not.i35, label %opal_obj_run_destructors.exit36, label %.lr.ph.i33, !llvm.loop !10
+  br i1 %.not.i35, label %opal_obj_run_destructors.exit36, label %.lr.ph.i33, !llvm.loop !9
 
 opal_obj_run_destructors.exit36:                  ; preds = %.lr.ph.i33, %opal_obj_run_destructors.exit
   %127 = load i8, ptr @opal_uses_threads, align 1
@@ -1449,7 +1449,7 @@ opal_update_counted_pointer.exit.i.i:             ; preds = %.lr.ph.i.i
   %23 = extractvalue { i128, i1 } %21, 0
   %.sroa.0.0.extract.trunc.i.i = trunc i128 %23 to i64
   %.sroa.4.0.extract.shift.i.i = lshr i128 %23, 64
-  %.sroa.4.0.extract.trunc.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i)
@@ -1528,7 +1528,7 @@ declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -10, 1) i32 @mca_rcache_rgpusm_open_mem_handle(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.opal_accelerator_base_module_t, ptr @opal_accelerator, i64 0, i32 15), align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 184
   %6 = getelementptr inbounds i8, ptr %2, i64 80
@@ -1729,7 +1729,7 @@ define internal fastcc void @mca_rcache_rgpusm_deregister_no_lock(ptr noundef %0
   %41 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i, !llvm.loop !9
 
 mca_rcache_rgpusm_close_mem_handle.exit:          ; preds = %.lr.ph.i.i, %34
   %43 = load i8, ptr @opal_uses_threads, align 1
@@ -1872,7 +1872,7 @@ opal_list_remove_first.exit:                      ; preds = %1
   %36 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %mca_rcache_rgpusm_close_mem_handle.exit, label %.lr.ph.i.i, !llvm.loop !9
 
 mca_rcache_rgpusm_close_mem_handle.exit:          ; preds = %.lr.ph.i.i, %29
   %38 = load i8, ptr @opal_uses_threads, align 1
@@ -2013,10 +2013,9 @@ attributes #6 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -10, i32 1}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

@@ -230,7 +230,7 @@ define dso_local noundef ptr @snd_seq_queue_alloc(i32 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_queue_delete(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_queue_delete(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = icmp ugt i32 %1, 31
   br i1 %3, label %28, label %4
 
@@ -480,7 +480,7 @@ declare dso_local i64 @snd_seq_timer_get_cur_time(ptr noundef, i1 noundef zeroex
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_seq_enqueue_event(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_seq_enqueue_event(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread, label %5
 
@@ -591,7 +591,7 @@ define dso_local i32 @snd_seq_enqueue_event(ptr noundef %0, i32 noundef %1, i32 
 declare dso_local i32 @snd_seq_prioq_cell_in(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_seq_queue_check_access(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 2) i32 @snd_seq_queue_check_access(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = icmp ugt i32 %0, 31
   br i1 %3, label %.thread, label %4
 
@@ -643,7 +643,7 @@ define dso_local i32 @snd_seq_queue_check_access(i32 noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_queue_set_owner(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_queue_set_owner(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = icmp ugt i32 %0, 31
   br i1 %4, label %.thread, label %5
 
@@ -758,7 +758,7 @@ declare dso_local i32 @snd_seq_timer_open(ptr noundef) local_unnamed_addr #3
 declare dso_local void @snd_seq_timer_defaults(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_queue_timer_close(i32 noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_queue_timer_close(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = icmp ugt i32 %0, 31
   br i1 %2, label %.thread, label %3
 
@@ -882,7 +882,7 @@ declare dso_local i32 @snd_seq_timer_set_tempo_ppq(ptr noundef, i32 noundef, i32
 declare dso_local i32 @snd_seq_timer_set_skew(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_queue_use(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_queue_use(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = icmp ugt i32 %0, 31
   br i1 %4, label %.thread, label %5
 
@@ -973,7 +973,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_seq_queue_is_used(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -22, 2) i32 @snd_seq_queue_is_used(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = icmp ugt i32 %0, 31
   br i1 %3, label %.thread, label %4
 
@@ -1226,7 +1226,7 @@ define dso_local void @snd_seq_queue_remove_cells(i32 noundef %0, ptr noundef %1
 declare dso_local void @snd_seq_prioq_remove_events(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_seq_control_queue(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_seq_control_queue(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = alloca %struct.snd_seq_event, align 4
   %5 = alloca %struct.snd_seq_event, align 4
   %6 = alloca %struct.snd_seq_event, align 4

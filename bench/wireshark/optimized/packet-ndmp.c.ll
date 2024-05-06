@@ -1063,7 +1063,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.754 = private unnamed_addr constant [10 x i8] c"Version 5\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @check_if_ndmp(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @check_if_ndmp(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 284
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 10000
@@ -1210,7 +1210,7 @@ check_ndmp_rm.exit:                               ; preds = %15, %12, %4
   br i1 %or.cond, label %25, label %23
 
 23:                                               ; preds = %check_ndmp_rm.exit
-  %24 = tail call i32 @check_if_ndmp(ptr noundef %0, ptr noundef %1), !range !4
+  %24 = tail call i32 @check_if_ndmp(ptr noundef %0, ptr noundef %1)
   %.not11 = icmp eq i32 %24, 0
   br i1 %.not11, label %check_ndmp_rm.exit.thread, label %._crit_edge
 
@@ -1259,7 +1259,7 @@ define internal i32 @dissect_ndmp_heur(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @check_if_ndmp(ptr noundef %0, ptr noundef %1), !range !4
+  %8 = tail call i32 @check_if_ndmp(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %12, label %9
 
@@ -1277,7 +1277,7 @@ define internal i32 @dissect_ndmp_heur(ptr noundef %0, ptr noundef %1, ptr nound
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_ndmp_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 4, -2147483644) i32 @get_ndmp_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #7
   %6 = and i32 %5, 2147483647
   %7 = add nuw i32 %6, 4
@@ -1869,13 +1869,13 @@ dissect_ndmp_header.exit.i:                       ; preds = %329, %proto_item_se
   %indvars.iv.i256 = phi i64 [ %indvars.iv.next.i, %336 ], [ 0, %dissect_ndmp_header.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i256, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 56
-  br i1 %exitcond.i, label %340, label %336, !llvm.loop !5
+  br i1 %exitcond.i, label %340, label %336, !llvm.loop !4
 
 336:                                              ; preds = %.lr.ph
   %337 = getelementptr [57 x %struct._ndmp_command], ptr @ndmp_commands, i64 0, i64 %indvars.iv.next.i
   %338 = load i32, ptr %337, align 8
   %339 = icmp eq i32 %338, %173
-  br i1 %339, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %339, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 340:                                              ; preds = %.lr.ph
   %341 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %323, ptr noundef nonnull @ei_ndmp_msg) #7
@@ -3966,6 +3966,5 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

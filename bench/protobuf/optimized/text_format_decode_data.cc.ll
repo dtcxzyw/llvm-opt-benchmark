@@ -803,7 +803,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
 invoke.cont8:                                     ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   %value.addr.i.0.lcssa.i.i = phi i32 [ %conv, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %shr.i.i.i, %while.body.i.i.i ]
-  %conv1.i.i.i = trunc i32 %value.addr.i.0.lcssa.i.i to i8
+  %conv1.i.i.i = trunc nuw nsw i32 %value.addr.i.0.lcssa.i.i to i8
   %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa.i.i, i64 1
   store i8 %conv1.i.i.i, ptr %ptr.addr.i.0.lcssa.i.i, align 1
   store ptr %incdec.ptr2.i.i.i, ptr %cur_.i, align 8
@@ -843,7 +843,7 @@ while.body.i.i.i25:                               ; preds = %_ZN6google8protobuf
 invoke.cont15:                                    ; preds = %while.body.i.i.i25, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i18
   %ptr.addr.i.0.lcssa.i.i21 = phi ptr [ %retval.0.i.i19, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i18 ], [ %incdec.ptr.i.i.i30, %while.body.i.i.i25 ]
   %value.addr.i.0.lcssa.i.i22 = phi i32 [ %14, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i18 ], [ %shr.i.i.i29, %while.body.i.i.i25 ]
-  %conv1.i.i.i23 = trunc i32 %value.addr.i.0.lcssa.i.i22 to i8
+  %conv1.i.i.i23 = trunc nuw nsw i32 %value.addr.i.0.lcssa.i.i22 to i8
   %incdec.ptr2.i.i.i24 = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa.i.i21, i64 1
   store i8 %conv1.i.i.i23, ptr %ptr.addr.i.0.lcssa.i.i21, align 1
   store ptr %incdec.ptr2.i.i.i24, ptr %cur_.i, align 8

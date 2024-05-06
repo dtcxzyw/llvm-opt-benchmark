@@ -431,7 +431,7 @@ for.body:                                         ; preds = %ahci_reg_init.exit,
   %6 = load ptr, ptr %dev, align 8
   %arrayidx = getelementptr %struct.AHCIDevice, ptr %6, i64 %indvars.iv
   %port = getelementptr inbounds i8, ptr %arrayidx, i64 56
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @ide_bus_init(ptr noundef nonnull %port, i64 noundef 2304, ptr noundef %qdev, i32 noundef %7, i32 noundef 1) #12
   %arrayidx10 = getelementptr ptr, ptr %call4, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx10, align 8
@@ -586,7 +586,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 0, ptr %scr_ctl, align 4
   %cmd = getelementptr inbounds i8, ptr %port_regs, i64 24
   store i32 6, ptr %cmd, align 4
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @ahci_reset_port(ptr noundef nonnull %s, i32 noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %ports, align 8
@@ -728,7 +728,7 @@ return:                                           ; preds = %trace_ahci_reset_po
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @ahci_state_post_load(ptr noundef %opaque, i32 %version_id) #0 {
+define internal range(i32 -1, 1) i32 @ahci_state_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %ports = getelementptr inbounds i8, ptr %opaque, i64 600
   %0 = load i32, ptr %ports, align 8
@@ -766,7 +766,7 @@ if.then11:                                        ; preds = %if.end
 if.end12:                                         ; preds = %if.end
   %and14 = and i32 %2, -49153
   store i32 %and14, ptr %cmd, align 4
-  %call = tail call fastcc i32 @ahci_cond_start_engines(ptr noundef %arrayidx), !range !11
+  %call = tail call fastcc i32 @ahci_cond_start_engines(ptr noundef %arrayidx)
   %cmp15.not = icmp eq i32 %call, 0
   br i1 %cmp15.not, label %for.cond18.preheader, label %return
 
@@ -845,7 +845,7 @@ if.end52:                                         ; preds = %get_cmd_header.exit
   %15 = load i32, ptr %sector_count, align 8
   %conv55 = zext i32 %15 to i64
   %mul = shl nuw nsw i64 %conv55, 9
-  %call56 = tail call fastcc i32 @ahci_populate_sglist(ptr noundef %arrayidx, ptr noundef nonnull %sglist, ptr noundef nonnull %arrayidx10.i, i64 noundef %mul, i64 noundef 0), !range !11
+  %call56 = tail call fastcc i32 @ahci_populate_sglist(ptr noundef %arrayidx, ptr noundef nonnull %sglist, ptr noundef nonnull %arrayidx10.i, i64 noundef %mul, i64 noundef 0)
   %16 = load i32, ptr %sector_count, align 8
   %conv58 = zext i32 %16 to i64
   %size = getelementptr inbounds i8, ptr %arrayidx23, i64 40
@@ -857,7 +857,7 @@ if.end52:                                         ; preds = %get_cmd_header.exit
 for.inc:                                          ; preds = %if.end52, %if.end30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %for.end, label %for.body20, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end, label %for.body20, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc
   %busy_slot = getelementptr inbounds i8, ptr %arrayidx, i64 2476
@@ -898,7 +898,7 @@ for.inc80:                                        ; preds = %if.then66, %get_cmd
   %inc81 = add nuw nsw i32 %i.066, 1
   %22 = load i32, ptr %ports, align 8
   %cmp = icmp slt i32 %inc81, %22
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !13
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !12
 
 return:                                           ; preds = %if.end12, %if.else, %for.inc80, %if.end34, %if.end52, %get_cmd_header.exit, %if.end39, %for.body20, %entry, %get_cmd_header.exit.thread, %if.then11, %if.then
   %retval.0 = phi i32 [ -1, %if.then11 ], [ -1, %if.then ], [ -1, %get_cmd_header.exit.thread ], [ 0, %entry ], [ -1, %for.body20 ], [ -1, %if.end39 ], [ -1, %get_cmd_header.exit ], [ -1, %if.end52 ], [ -1, %if.end34 ], [ -1, %if.end12 ], [ -1, %if.else ], [ 0, %for.inc80 ]
@@ -963,7 +963,7 @@ for.inc:                                          ; preds = %for.body, %if.end
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = sext i32 %4 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %5
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -978,7 +978,7 @@ entry:
   %and = and i64 %addr, -4
   %0 = trunc i64 %addr to i32
   %conv = and i32 %0, 3
-  %call = tail call fastcc i64 @ahci_mem_read_32(ptr noundef %opaque, i64 noundef %and), !range !15
+  %call = tail call fastcc i64 @ahci_mem_read_32(ptr noundef %opaque, i64 noundef %and)
   %add = add i32 %conv, %size
   %cmp = icmp ult i32 %add, 5
   br i1 %cmp, label %if.end11, label %do.body
@@ -993,7 +993,7 @@ if.else5:                                         ; preds = %do.body
 
 do.end:                                           ; preds = %do.body
   %add6 = add i64 %and, 4
-  %call7 = tail call fastcc i64 @ahci_mem_read_32(ptr noundef %opaque, i64 noundef %add6), !range !15
+  %call7 = tail call fastcc i64 @ahci_mem_read_32(ptr noundef %opaque, i64 noundef %add6)
   %shl = shl nuw i64 %call7, 32
   %or = or disjoint i64 %shl, %call
   br label %if.end11
@@ -1103,7 +1103,7 @@ if.end4:                                          ; preds = %trace_ahci_mem_writ
 
 if.then6:                                         ; preds = %if.end4
   %div39 = lshr exact i64 %addr, 2
-  %conv7 = trunc i64 %div39 to i32
+  %conv7 = trunc nuw nsw i64 %div39 to i32
   switch i32 %conv7, label %do.body27 [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb12
@@ -1367,7 +1367,7 @@ if.end17.i:                                       ; preds = %if.then16.i, %sw.bb
   store i32 %or.i, ptr %cmd.i, align 4
   %39 = load ptr, ptr %dev.i, align 8
   %arrayidx24.i = getelementptr %struct.AHCIDevice, ptr %39, i64 %idxprom.i
-  %call.i = tail call fastcc i32 @ahci_cond_start_engines(ptr noundef %arrayidx24.i), !range !11
+  %call.i = tail call fastcc i32 @ahci_cond_start_engines(ptr noundef %arrayidx24.i)
   %40 = load i32, ptr %cmd.i, align 4
   %and26.i = and i32 %40, 16384
   %tobool27.not.i = icmp eq i32 %and26.i, 0
@@ -1526,7 +1526,7 @@ if.end66:                                         ; preds = %if.then65.i, %trace
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @ahci_mem_read_32(ptr noundef %opaque, i64 noundef %addr) unnamed_addr #0 {
+define internal fastcc range(i64 0, 4294967296) i64 @ahci_mem_read_32(ptr noundef %opaque, i64 noundef %addr) unnamed_addr #0 {
 entry:
   %_now.i.i55 = alloca %struct.timeval, align 8
   %_now.i.i41 = alloca %struct.timeval, align 8
@@ -1539,7 +1539,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %div26 = lshr i64 %addr, 2
-  %conv = trunc i64 %div26 to i32
+  %conv = trunc nuw nsw i64 %div26 to i32
   switch i32 %conv, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb4
@@ -1966,7 +1966,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw i32 1, %6
   %or = or i32 %3, %shl
   store i32 %or, ptr %irqstatus, align 8
@@ -1976,7 +1976,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %7 = phi i32 [ %3, %for.body ], [ %or, %if.then ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %entry
   %8 = phi i32 [ 0, %entry ], [ %7, %for.inc ]
@@ -2142,7 +2142,7 @@ declare void @msi_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @ahci_cond_start_engines(ptr nocapture noundef %ad) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ahci_cond_start_engines(ptr nocapture noundef %ad) unnamed_addr #0 {
 entry:
   %_now.i.i.i42 = alloca %struct.timeval, align 8
   %xlen.i.i.i24 = alloca i64, align 8
@@ -3176,7 +3176,7 @@ ahci_write_fis_d2h.exit.i.i.i:                    ; preds = %return.sink.split.i
   store i8 1, ptr %used.i.i.i, align 1
   store ptr %arrayidx5.i.i, ptr %arrayidx5.i.i.i, align 8
   %slot20.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i.i, i64 106
-  %111 = trunc i64 %indvars.iv to i8
+  %111 = trunc nuw nsw i64 %indvars.iv to i8
   store i8 %111, ptr %slot20.i.i.i, align 2
   %lst.i93.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 2456
   %112 = load ptr, ptr %lst.i93.i.i, align 8
@@ -3471,7 +3471,7 @@ if.end72.i.i.i:                                   ; preds = %trace_process_ncq_c
   %mul.i.i.i = zext nneg i32 %163 to i64
   %sglist.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i.i, i64 24
   %164 = load ptr, ptr %cmdh.i.i.i, align 8
-  %call85.i.i.i = call fastcc i32 @ahci_populate_sglist(ptr noundef %arrayidx5.i.i, ptr noundef nonnull %sglist.i.i.i, ptr noundef %164, i64 noundef %mul.i.i.i, i64 noundef 0), !range !11
+  %call85.i.i.i = call fastcc i32 @ahci_populate_sglist(ptr noundef %arrayidx5.i.i, ptr noundef nonnull %sglist.i.i.i, ptr noundef %164, i64 noundef %mul.i.i.i, i64 noundef 0)
   %size87.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i.i, i64 40
   %165 = load i64, ptr %size87.i.i.i, align 8
   %cmp88.i.i.i = icmp ult i64 %165, %mul.i.i.i
@@ -3631,7 +3631,7 @@ if.then76.i.i:                                    ; preds = %if.end57.i.i
   %io_buffer.i.i = getelementptr inbounds i8, ptr %ifs.i.i, i64 888
   %195 = load ptr, ptr %io_buffer.i.i, align 8
   %arrayidx77.i.i = getelementptr i8, ptr %call.i.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %195, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx77.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %195, ptr noundef nonnull readonly align 1 dereferenceable(16) %arrayidx77.i.i, i64 16, i1 false)
   %196 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool78.i.i = icmp ne i32 %196, 0
   %197 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_DUMP_DSTATE, align 2
@@ -3716,9 +3716,9 @@ out.i:                                            ; preds = %trace_handle_cmd_un
 
 for.inc:                                          ; preds = %out.i, %trace_handle_cmd_badfis.exit.i, %trace_handle_cmd_badport.exit.i, %trace_handle_cmd_nolist.exit.i, %trace_handle_cmd_busy.exit.i, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %211 = trunc i64 %indvars.iv.next to i32
+  %211 = trunc nuw nsw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %if.end10, label %land.rhs, !llvm.loop !17
+  br i1 %exitcond.not, label %if.end10, label %land.rhs, !llvm.loop !15
 
 if.end10:                                         ; preds = %land.rhs, %for.inc, %land.lhs.true, %entry
   ret void
@@ -3798,7 +3798,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %if.end
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %and = and i32 %0, 15
   %cmp1 = icmp eq i32 %and, 0
   br i1 %cmp1, label %if.then, label %if.end
@@ -3814,7 +3814,7 @@ if.end:                                           ; preds = %if.then, %for.body
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.116, i32 noundef %conv) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %if.end, %entry
   %len.i = getelementptr inbounds i8, ptr %call, i64 8
@@ -3900,7 +3900,7 @@ _nocheck__trace_handle_reg_h2d_fis_dump.exit:     ; preds = %entry, %land.lhs.tr
 declare void @ide_bus_exec_cmd(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @ahci_populate_sglist(ptr noundef %ad, ptr noundef %sglist, ptr nocapture noundef readonly %cmd, i64 noundef %limit, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ahci_populate_sglist(ptr noundef %ad, ptr noundef %sglist, ptr nocapture noundef readonly %cmd, i64 noundef %limit, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %_now.i.i111 = alloca %struct.timeval, align 8
   %_now.i.i97 = alloca %struct.timeval, align 8
@@ -4116,10 +4116,10 @@ if.end60:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  br i1 %exitcond.not, label %if.then71, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %if.then71, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
   %sub = sub i64 %offset, %sum.0144
   %or.cond67 = icmp ugt i64 %sub, %conv55
   br i1 %or.cond67, label %if.then71, label %if.end74
@@ -4209,7 +4209,7 @@ for.body97:                                       ; preds = %land.rhs
   call void @qemu_sglist_add(ptr noundef nonnull %sglist, i64 noundef %54, i64 noundef %cond114) #12
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count
-  br i1 %exitcond160.not, label %out, label %land.rhs, !llvm.loop !20
+  br i1 %exitcond160.not, label %out, label %land.rhs, !llvm.loop !18
 
 out:                                              ; preds = %land.rhs, %for.body97, %if.end74, %trace_ahci_populate_sglist_bad_offset.exit, %trace_ahci_populate_sglist_short_map.exit
   %r.0 = phi i32 [ -1, %trace_ahci_populate_sglist_short_map.exit ], [ -1, %trace_ahci_populate_sglist_bad_offset.exit ], [ 0, %if.end74 ], [ 0, %for.body97 ], [ 0, %land.rhs ]
@@ -4992,7 +4992,7 @@ entry:
   %conv = sext i32 %limit to i64
   %io_buffer_offset = getelementptr inbounds i8, ptr %dma, i64 992
   %1 = load i64, ptr %io_buffer_offset, align 8
-  %call = tail call fastcc i32 @ahci_populate_sglist(ptr noundef %dma, ptr noundef nonnull %sg, ptr noundef %0, i64 noundef %conv, i64 noundef %1), !range !11
+  %call = tail call fastcc i32 @ahci_populate_sglist(ptr noundef %dma, ptr noundef nonnull %sg, ptr noundef %0, i64 noundef %conv, i64 noundef %1)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -5102,7 +5102,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @ahci_dma_rw_buf(ptr noundef %dma, i1 noundef zeroext %is_write) #0 {
+define internal range(i32 0, 2) i32 @ahci_dma_rw_buf(ptr noundef %dma, i1 noundef zeroext %is_write) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %ifs = getelementptr inbounds i8, ptr %dma, i64 192
@@ -5121,7 +5121,7 @@ entry:
   %conv = sext i32 %sub to i64
   %io_buffer_offset = getelementptr inbounds i8, ptr %dma, i64 992
   %4 = load i64, ptr %io_buffer_offset, align 8
-  %call = tail call fastcc i32 @ahci_populate_sglist(ptr noundef %dma, ptr noundef nonnull %sg, ptr noundef %3, i64 noundef %conv, i64 noundef %4), !range !11
+  %call = tail call fastcc i32 @ahci_populate_sglist(ptr noundef %dma, ptr noundef nonnull %sg, ptr noundef %3, i64 noundef %conv, i64 noundef %4)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -5207,7 +5207,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.inc
   ret void
@@ -5437,7 +5437,7 @@ define internal fastcc void @ahci_set_signature(ptr nocapture noundef %ad, i32 n
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %shr = lshr i32 %sig, 24
-  %conv = trunc i32 %shr to i8
+  %conv = trunc nuw i32 %shr to i8
   %hcyl = getelementptr inbounds i8, ptr %ad, i64 850
   store i8 %conv, ptr %hcyl, align 2
   %shr1 = lshr i32 %sig, 16
@@ -5609,14 +5609,12 @@ attributes #14 = { noreturn nounwind }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 -1, i32 1}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = !{i64 0, i64 4294967296}
+!15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}

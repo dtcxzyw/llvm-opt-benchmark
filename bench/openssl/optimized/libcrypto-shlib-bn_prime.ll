@@ -54,7 +54,7 @@ return:                                           ; preds = %if.end, %sw.bb, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_generate_prime_ex2(ptr noundef %ret, i32 noundef %bits, i32 noundef %safe, ptr noundef %add, ptr noundef %rem, ptr noundef %cb, ptr noundef %ctx) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BN_generate_prime_ex2(ptr noundef %ret, i32 noundef %bits, i32 noundef %safe, ptr noundef %add, ptr noundef %rem, ptr noundef %cb, ptr noundef %ctx) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp sgt i32 %bits, 2048
   %..i = select i1 %cmp.i, i32 128, i32 64
@@ -855,7 +855,7 @@ land.lhs.true:                                    ; preds = %if.end32
 if.end39:                                         ; preds = %land.lhs.true, %if.end32
   %ctxlocal.0 = phi ptr [ %call35, %land.lhs.true ], [ null, %if.end32 ]
   %ctx.addr.0 = phi ptr [ %call35, %land.lhs.true ], [ %ctx, %if.end32 ]
-  %call40 = call i32 @ossl_bn_miller_rabin_is_prime(ptr noundef %w, i32 noundef %checks, ptr noundef nonnull %ctx.addr.0, ptr noundef %cb, i32 noundef 0, ptr noundef nonnull %status), !range !11
+  %call40 = call i32 @ossl_bn_miller_rabin_is_prime(ptr noundef %w, i32 noundef %checks, ptr noundef nonnull %ctx.addr.0, ptr noundef %cb, i32 noundef 0, ptr noundef nonnull %status)
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %err, label %if.end43
 
@@ -883,14 +883,14 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_generate_prime_ex(ptr noundef %ret, i32 noundef %bits, i32 noundef %safe, ptr noundef %add, ptr noundef %rem, ptr noundef %cb) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BN_generate_prime_ex(ptr noundef %ret, i32 noundef %bits, i32 noundef %safe, ptr noundef %add, ptr noundef %rem, ptr noundef %cb) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @BN_CTX_new() #4
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i32 @BN_generate_prime_ex2(ptr noundef %ret, i32 noundef %bits, i32 noundef %safe, ptr noundef %add, ptr noundef %rem, ptr noundef %cb, ptr noundef nonnull %call), !range !11
+  %call2 = tail call i32 @BN_generate_prime_ex2(ptr noundef %ret, i32 noundef %bits, i32 noundef %safe, ptr noundef %add, ptr noundef %rem, ptr noundef %cb, ptr noundef nonnull %call)
   tail call void @BN_CTX_free(ptr noundef nonnull %call) #4
   br label %return
 
@@ -956,7 +956,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_bn_miller_rabin_is_prime(ptr noundef %w, i32 noundef %iterations, ptr noundef %ctx, ptr noundef %cb, i32 noundef %enhanced, ptr nocapture noundef writeonly %status) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_bn_miller_rabin_is_prime(ptr noundef %w, i32 noundef %iterations, ptr noundef %ctx, ptr noundef %cb, i32 noundef %enhanced, ptr nocapture noundef writeonly %status) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @BN_is_odd(ptr noundef %w) #4
   %tobool.not = icmp eq i32 %call, 0
@@ -1009,7 +1009,7 @@ while.cond:                                       ; preds = %lor.lhs.false, %whi
   %call27 = tail call i32 @BN_is_bit_set(ptr noundef %call2, i32 noundef %a.0) #4
   %tobool28.not = icmp eq i32 %call27, 0
   %inc = add nuw nsw i32 %a.0, 1
-  br i1 %tobool28.not, label %while.cond, label %while.end, !llvm.loop !12
+  br i1 %tobool28.not, label %while.cond, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %while.cond
   %call29 = tail call i32 @BN_rshift(ptr noundef %call5, ptr noundef %call2, i32 noundef %a.0) #4
@@ -1049,7 +1049,7 @@ for.body.lr.ph:                                   ; preds = %if.end44.thread, %i
 for.cond:                                         ; preds = %outer_loop
   %inc129 = add nuw nsw i32 %i.091, 1
   %exitcond95.not = icmp eq i32 %inc129, %iterations.addr.098
-  br i1 %exitcond95.not, label %err.sink.split, label %for.body, !llvm.loop !13
+  br i1 %exitcond95.not, label %err.sink.split, label %for.body, !llvm.loop !12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.091 = phi i32 [ 0, %for.body.lr.ph ], [ %inc129, %for.cond ]
@@ -1096,7 +1096,7 @@ for.cond75.preheader:                             ; preds = %lor.lhs.false70
 for.cond75:                                       ; preds = %if.end88
   %inc93 = add nuw nsw i32 %j.088, 1
   %exitcond.not = icmp eq i32 %inc93, %a.0
-  br i1 %exitcond.not, label %for.end, label %for.body77, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body77, !llvm.loop !13
 
 for.body77:                                       ; preds = %for.cond75.preheader, %for.cond75
   %j.088 = phi i32 [ %inc93, %for.cond75 ], [ 1, %for.cond75.preheader ]
@@ -1265,7 +1265,6 @@ attributes #4 = { nounwind }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}

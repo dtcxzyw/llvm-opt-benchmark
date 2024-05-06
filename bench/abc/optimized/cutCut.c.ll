@@ -85,7 +85,7 @@ define void @Cut_CutRecycle(ptr nocapture noundef %0, ptr noundef %1) local_unna
 declare void @Extra_MmFixedEntryRecycle(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Cut_CutCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @Cut_CutCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 8
   %4 = lshr i32 %3, 28
   %5 = load i32, ptr %1, align 8

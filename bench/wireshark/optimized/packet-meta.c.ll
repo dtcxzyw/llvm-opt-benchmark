@@ -367,7 +367,7 @@ define internal i32 @dissect_meta(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 95:                                               ; preds = %93
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false)
   store i8 9, ptr %33, align 1
   br label %105
 
@@ -384,7 +384,7 @@ define internal i32 @dissect_meta(ptr noundef %0, ptr noundef %1, ptr noundef %2
 100:                                              ; preds = %93
   %101 = load ptr, ptr @sscf_nni_handle, align 8
   store ptr %101, ptr %.0.i.us.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false)
   store i8 10, ptr %33, align 1
   br label %105
 
@@ -709,7 +709,7 @@ evaluate_meta_items.exit:                         ; preds = %evaluate_meta_item_
   %314 = getelementptr inbounds i8, ptr %5, i64 4
   store i8 2, ptr %314, align 4
   %315 = lshr i32 %313, 20
-  %316 = trunc i32 %315 to i16
+  %316 = trunc nuw nsw i32 %315 to i16
   %317 = and i16 %316, 255
   %318 = getelementptr inbounds i8, ptr %5, i64 8
   store i16 %317, ptr %318, align 4
@@ -730,7 +730,7 @@ evaluate_meta_items.exit:                         ; preds = %evaluate_meta_item_
   %328 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %327) #3
   %329 = add nuw nsw i32 %.pre-phi, 4
   %330 = lshr i32 %328, 20
-  %331 = trunc i32 %330 to i16
+  %331 = trunc nuw nsw i32 %330 to i16
   %332 = and i16 %331, 255
   %333 = getelementptr inbounds i8, ptr %5, i64 8
   store i16 %332, ptr %333, align 4

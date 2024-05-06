@@ -223,7 +223,7 @@ define noundef zeroext i1 @_ZNK4LIEF5MachO10ExportInfo3hasENS0_19EXPORT_SYMBOL_F
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK4LIEF5MachO10ExportInfo4kindEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #6 align 2 {
+define noundef range(i64 0, 4) i64 @_ZNK4LIEF5MachO10ExportInfo4kindEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 3

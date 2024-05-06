@@ -59,13 +59,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.43 = private unnamed_addr constant [31 x i8] c"copy = OPENSSL_memdup(in, inl)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -184,7 +184,7 @@ declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #2
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ssl_corrupt(i32 noundef %testidx) #1 {
+define internal range(i32 0, 2) i32 @test_ssl_corrupt(i32 noundef %testidx) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -535,7 +535,7 @@ entry:
 declare i32 @BIO_meth_set_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @tls_corrupt_puts(ptr nocapture readnone %bio, ptr nocapture readnone %str) #0 {
+define internal noundef i32 @tls_corrupt_puts(ptr nocapture readnone %bio, ptr nocapture readnone %str) #0 {
 entry:
   ret i32 -1
 }
@@ -543,7 +543,7 @@ entry:
 declare i32 @BIO_meth_set_gets(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @tls_corrupt_gets(ptr nocapture readnone %bio, ptr nocapture readnone %buf, i32 %size) #0 {
+define internal noundef i32 @tls_corrupt_gets(ptr nocapture readnone %bio, ptr nocapture readnone %buf, i32 %size) #0 {
 entry:
   ret i32 -1
 }
@@ -571,7 +571,7 @@ return:                                           ; preds = %sw.default, %entry
 declare i32 @BIO_meth_set_create(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tls_corrupt_new(ptr noundef %bio) #1 {
+define internal noundef i32 @tls_corrupt_new(ptr noundef %bio) #1 {
 entry:
   tail call void @BIO_set_init(ptr noundef %bio, i32 noundef 1) #3
   ret i32 1
@@ -580,7 +580,7 @@ entry:
 declare i32 @BIO_meth_set_destroy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tls_corrupt_free(ptr noundef %bio) #1 {
+define internal noundef i32 @tls_corrupt_free(ptr noundef %bio) #1 {
 entry:
   tail call void @BIO_set_init(ptr noundef %bio, i32 noundef 0) #3
   ret i32 1

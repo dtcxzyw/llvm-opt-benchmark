@@ -12,7 +12,7 @@ define noundef i32 @partition_intersection_list_init(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @partition_intersection_list_check(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 21) i32 @partition_intersection_list_check(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32

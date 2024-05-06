@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @inflate_table.dext = internal unnamed_addr constant [32 x i16] [i16 16, i16 16, i16 16, i16 16, i16 17, i16 17, i16 18, i16 18, i16 19, i16 19, i16 20, i16 20, i16 21, i16 21, i16 22, i16 22, i16 23, i16 23, i16 24, i16 24, i16 25, i16 25, i16 26, i16 26, i16 27, i16 27, i16 28, i16 28, i16 29, i16 29, i16 64, i16 64], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @inflate_table(i32 noundef %type, ptr nocapture noundef readonly %lens, i32 noundef %codes, ptr nocapture noundef %table, ptr nocapture noundef %bits, ptr nocapture noundef %work) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @inflate_table(i32 noundef %type, ptr nocapture noundef readonly %lens, i32 noundef %codes, ptr nocapture noundef %table, ptr nocapture noundef %bits, ptr nocapture noundef %work) local_unnamed_addr #0 {
 entry:
   %count = alloca [16 x i16], align 16
   %offs = alloca [16 x i16], align 16
@@ -91,7 +91,7 @@ for.inc42:                                        ; preds = %for.body34
   br i1 %exitcond206.not, label %for.end44, label %for.body34, !llvm.loop !7
 
 for.end44.loopexit.split.loop.exit:               ; preds = %for.body34
-  %7 = trunc i64 %indvars.iv200 to i32
+  %7 = trunc nuw nsw i64 %indvars.iv200 to i32
   br label %for.end44
 
 for.end44:                                        ; preds = %for.inc42, %for.end44.loopexit.split.loop.exit, %for.end20

@@ -105,7 +105,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_rx
 @llvm.compiler.used = appending global [16 x ptr] [ptr @__UNIQUE_ID___addressable_ieee80211_mark_rx_ba_filtered_frames3050, ptr @__UNIQUE_ID___addressable_ieee80211_rx_irqsafe3110, ptr @__UNIQUE_ID___addressable_ieee80211_rx_list3107, ptr @__UNIQUE_ID___addressable_ieee80211_rx_napi3108, ptr @__UNIQUE_ID___addressable_ieee80211_sta_ps_transition2994, ptr @__UNIQUE_ID___addressable_ieee80211_sta_pspoll2995, ptr @__UNIQUE_ID___addressable_ieee80211_sta_uapsd_trigger2996, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_drv_event_callback.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1742, ptr @trace_drv_event_callback.__UNIQUE_ID___addressable___SCK__tp_func_drv_event_callback1741, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace804, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_void803, ptr @trace_drv_sta_notify.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1308, ptr @trace_drv_sta_notify.__UNIQUE_ID___addressable___SCK__tp_func_drv_sta_notify1307, ptr @trace_drv_sta_set_decap_offload.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2302, ptr @trace_drv_sta_set_decap_offload.__UNIQUE_ID___addressable___SCK__tp_func_drv_sta_set_decap_offload2301], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_sta_ps_transition(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ieee80211_sta_ps_transition(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -2680
   %4 = getelementptr i8, ptr %0, i64 -2608
   %5 = load ptr, ptr %4, align 8
@@ -6766,7 +6766,7 @@ declare dso_local i32 @__SCT__tp_func_drv_event_callback(ptr noundef, ptr nounde
 declare dso_local i32 @ieee80211_rx_h_michael_mic_verify(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ieee80211_rx_h_action_return(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 131073) i32 @ieee80211_rx_h_action_return(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6872,7 +6872,7 @@ define internal fastcc noundef i32 @ieee80211_rx_h_action_return(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ieee80211_rx_h_ext(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 131073) i32 @ieee80211_rx_h_ext(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6942,7 +6942,7 @@ define internal fastcc noundef i32 @ieee80211_rx_h_ext(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ieee80211_rx_h_mgmt(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 131073) i32 @ieee80211_rx_h_mgmt(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7286,7 +7286,7 @@ declare dso_local void @consume_skb(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @ieee80211_get_bssid(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @sta_stats_encode_rate(ptr nocapture noundef readonly %0) unnamed_addr #4 align 16 {
+define internal fastcc range(i32 0, 8388608) i32 @sta_stats_encode_rate(ptr nocapture noundef readonly %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 31
   %3 = load i8, ptr %2, align 1
   %4 = lshr i8 %3, 3
@@ -7418,7 +7418,7 @@ define internal fastcc i32 @sta_stats_encode_rate(ptr nocapture noundef readonly
 declare dso_local zeroext i1 @cfg80211_rx_unexpected_4addr_frame(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc i32 @ieee80211_get_mmie_keyidx(i32 %.112.val, ptr nocapture readonly %.200.val) unnamed_addr #12 align 16 {
+define internal fastcc range(i32 -1, 65536) i32 @ieee80211_get_mmie_keyidx(i32 %.112.val, ptr nocapture readonly %.200.val) unnamed_addr #12 align 16 {
   %1 = icmp ult i32 %.112.val, 42
   br i1 %1, label %45, label %2
 
@@ -7752,7 +7752,7 @@ declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare dso_local void @led_trigger_blink_oneshot(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__ieee80211_rx_h_amsdu(ptr nocapture noundef %0, i8 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 65550) i32 @__ieee80211_rx_h_amsdu(ptr nocapture noundef %0, i8 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.sk_buff_head, align 8
   %4 = alloca %struct.ethhdr, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 24

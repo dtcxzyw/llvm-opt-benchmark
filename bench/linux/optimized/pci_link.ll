@@ -1008,7 +1008,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local i32 @acpi_walk_resources(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @acpi_pci_link_check_current(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #10 align 16 {
+define internal noundef range(i32 0, 16388) i32 @acpi_pci_link_check_current(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #10 align 16 {
   %3 = load i32, ptr %0, align 1
   switch i32 %3, label %21 [
     i32 15, label %12
@@ -1147,7 +1147,7 @@ define internal void @irqrouter_resume() #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_pci_link_add(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
+define internal noundef range(i32 -12, 2) i32 @acpi_pci_link_add(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 7), align 8
@@ -1223,7 +1223,7 @@ define internal void @acpi_pci_link_remove(ptr nocapture noundef readonly %0) #2
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal noundef i32 @acpi_pci_link_check_possible(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #12 align 16 {
+define internal noundef range(i32 0, 16388) i32 @acpi_pci_link_check_possible(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #12 align 16 {
   %3 = load i32, ptr %0, align 1
   switch i32 %3, label %62 [
     i32 15, label %30

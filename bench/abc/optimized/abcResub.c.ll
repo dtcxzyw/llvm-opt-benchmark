@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [59 x i8] c"Abc_CutVolumeCheck() ERROR: The set of nodes is not a cut!\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkResubstitute(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkResubstitute(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.timespec, align 8
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.timespec, align 8
@@ -102,7 +102,7 @@ Abc_Clock.exit:                                   ; preds = %8, %31
   %spec.select.i = select i1 %47, i32 1, i32 %48
   %49 = getelementptr inbounds i8, ptr %calloc.i, i64 44
   store i32 %spec.select.i, ptr %49, align 4
-  %50 = mul nsw i32 %spec.select.i, 151
+  %50 = mul nuw nsw i32 %spec.select.i, 151
   %51 = zext nneg i32 %50 to i64
   %52 = shl nuw nsw i64 %51, 2
   %53 = call noalias ptr @malloc(i64 noundef %52) #18
@@ -214,7 +214,7 @@ Vec_PtrPush.exit.i:                               ; preds = %94, %Vec_PtrGrow.ex
   store ptr %106, ptr %107, align 8
   %108 = sext i32 %.pre110.i to i64
   %109 = shl nsw i64 %108, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %106, i8 -1, i64 %109, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 4 %106, i8 -1, i64 %109, i1 false)
   %110 = icmp sgt i32 %.pre111.i, 0
   br i1 %110, label %.lr.ph104.i, label %._crit_edge105.i
 
@@ -234,7 +234,7 @@ Vec_PtrPush.exit.i:                               ; preds = %94, %Vec_PtrGrow.ex
   %115 = load ptr, ptr %112, align 8
   %116 = getelementptr inbounds ptr, ptr %115, i64 %indvars.iv.i
   %117 = load ptr, ptr %116, align 8
-  %118 = trunc i64 %indvars.iv.i to i32
+  %118 = trunc nuw nsw i64 %indvars.iv.i to i32
   %119 = shl nuw i32 1, %118
   br label %120
 
@@ -567,7 +567,7 @@ Abc_ManResubStart.exit:                           ; preds = %Vec_PtrAlloc.exit92
   br i1 %297, label %Extra_ProgressBarUpdate.exit, label %298
 
 298:                                              ; preds = %294, %293
-  %299 = trunc i64 %indvars.iv380 to i32
+  %299 = trunc nuw nsw i64 %indvars.iv380 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %236, i32 noundef %299, ptr noundef null) #17
   %.val141.pre = load i32, ptr %291, align 4
   br label %Extra_ProgressBarUpdate.exit
@@ -1549,7 +1549,7 @@ Abc_Clock.exit115.i:                              ; preds = %712, %Abc_Clock.exi
   br label %.loopexit96.i.i
 
 753:                                              ; preds = %745
-  %754 = trunc i64 %indvars.iv138.i.i to i32
+  %754 = trunc nuw nsw i64 %indvars.iv138.i.i to i32
   %755 = add i32 %723, %754
   %.val84.i.i = load ptr, ptr %724, align 8
   %756 = sext i32 %755 to i64
@@ -1751,7 +1751,7 @@ Abc_Clock.exit125.i:                              ; preds = %833, %Abc_Clock.exi
   br i1 %exitcond.not.i131.i, label %._crit_edge.thread.i.i, label %842, !llvm.loop !24
 
 ._crit_edge.loopexit.i.i:                         ; preds = %842
-  %849 = trunc i64 %indvars.iv.i128.i to i32
+  %849 = trunc nuw nsw i64 %indvars.iv.i128.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %Abc_Clock.exit125.i
@@ -1991,7 +1991,7 @@ Abc_Clock.exit143.i:                              ; preds = %917, %914
   br i1 %exitcond.not.i163.i, label %._crit_edge.thread.i149.i, label %952, !llvm.loop !27
 
 ._crit_edge.i159.i:                               ; preds = %952
-  %963 = trunc i64 %indvars.iv.i158.i to i32
+  %963 = trunc nuw nsw i64 %indvars.iv.i158.i to i32
   %964 = icmp eq i32 %949, %963
   br i1 %964, label %._crit_edge.thread.i149.i, label %.lr.ph108.i.i
 
@@ -2079,7 +2079,7 @@ Vec_PtrGrow.exit.i.i155.i:                        ; preds = %978, %976
   br i1 %exitcond133.not.i.i, label %._crit_edge109.thread.i.i, label %.lr.ph108.i.i, !llvm.loop !28
 
 ._crit_edge109.i.i:                               ; preds = %.lr.ph108.i.i
-  %1002 = trunc i64 %indvars.iv129.i.i to i32
+  %1002 = trunc nuw nsw i64 %indvars.iv129.i.i to i32
   %1003 = icmp eq i32 %949, %1002
   br i1 %1003, label %._crit_edge109.thread.i.i, label %.preheader100.i.i
 
@@ -2166,7 +2166,7 @@ Vec_PtrGrow.exit.i77.i.i:                         ; preds = %1019, %1017
   br i1 %exitcond138.not.i.i, label %._crit_edge115.thread.i.i, label %.preheader100.i.i, !llvm.loop !29
 
 ._crit_edge115.i.i:                               ; preds = %.preheader100.i.i
-  %1044 = trunc i64 %indvars.iv134.i.i to i32
+  %1044 = trunc nuw nsw i64 %indvars.iv134.i.i to i32
   %1045 = icmp eq i32 %949, %1044
   br i1 %1045, label %._crit_edge115.thread.i.i, label %.lr.ph120.i.i
 
@@ -2249,7 +2249,7 @@ Vec_PtrGrow.exit.i84.i.i:                         ; preds = %1058, %1056
   br i1 %exitcond143.not.i.i, label %._crit_edge121.thread.i.i, label %.lr.ph120.i.i, !llvm.loop !30
 
 ._crit_edge121.loopexit.i.i:                      ; preds = %.lr.ph120.i.i
-  %1082 = trunc i64 %indvars.iv139.i.i to i32
+  %1082 = trunc nuw nsw i64 %indvars.iv139.i.i to i32
   br label %._crit_edge121.i.i
 
 ._crit_edge121.i.i:                               ; preds = %._crit_edge121.loopexit.i.i, %._crit_edge.thread148.i.i
@@ -2519,11 +2519,11 @@ Abc_ManResubDivsS.exit.i:                         ; preds = %Abc_ManResubDivsS.e
   br i1 %.not157.us.i.i, label %1213, label %.loopexit180.us.loopexit.i.i
 
 .loopexit180.us.loopexit.i.i:                     ; preds = %1198
-  %1210 = trunc i64 %indvars.iv285.i.i to i32
+  %1210 = trunc nuw nsw i64 %indvars.iv285.i.i to i32
   br label %.loopexit180.us.i.i
 
 .loopexit180.us.loopexit334.i.i:                  ; preds = %1184
-  %1211 = trunc i64 %indvars.iv280.i.i to i32
+  %1211 = trunc nuw nsw i64 %indvars.iv280.i.i to i32
   br label %.loopexit180.us.i.i
 
 .loopexit180.us.i.i:                              ; preds = %.preheader181.us.i.i, %.preheader179.us.i.i, %.loopexit180.us.loopexit334.i.i, %.loopexit180.us.loopexit.i.i
@@ -2627,11 +2627,11 @@ Abc_ManResubDivsS.exit.i:                         ; preds = %Abc_ManResubDivsS.e
   br i1 %exitcond272.not.i.i, label %.split.us.i167.i, label %1240, !llvm.loop !37
 
 .loopexit184.loopexit.i.i:                        ; preds = %1240
-  %1254 = trunc i64 %indvars.iv268.i.i to i32
+  %1254 = trunc nuw nsw i64 %indvars.iv268.i.i to i32
   br label %.loopexit184.i.i
 
 .loopexit184.loopexit337.i.i:                     ; preds = %1227
-  %1255 = trunc i64 %indvars.iv.i170.i to i32
+  %1255 = trunc nuw nsw i64 %indvars.iv.i170.i to i32
   br label %.loopexit184.i.i
 
 .loopexit184.i.i:                                 ; preds = %.loopexit184.loopexit337.i.i, %.loopexit184.loopexit.i.i, %.preheader183.i.i, %.preheader185.i.i
@@ -4594,7 +4594,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #17
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #17
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -4613,7 +4613,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -4624,19 +4624,13 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -4734,14 +4728,14 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
 
 declare i32 @Abc_ObjRequiredLevel(ptr noundef) local_unnamed_addr #1
 
 declare i32 @Abc_NodeMffcInside(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture noundef %0) unnamed_addr #12 {
+define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture noundef %0) unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
@@ -4830,7 +4824,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %38 = getelementptr inbounds i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
   %indvars.iv.next835 = add nuw nsw i64 %indvars.iv834, 1
-  %40 = trunc i64 %indvars.iv.next835 to i32
+  %40 = trunc nuw i64 %indvars.iv.next835 to i32
   %41 = icmp sgt i32 %.val478, %40
   br i1 %41, label %.lr.ph631.us, label %.critedge4.loopexit.us
 
@@ -4986,19 +4980,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   br i1 %.not460.us.us, label %152, label %.loopexit559.us.us.loopexit
 
 .loopexit559.us.us.loopexit:                      ; preds = %114
-  %130 = trunc i64 %indvars.iv824 to i32
+  %130 = trunc nuw nsw i64 %indvars.iv824 to i32
   br label %.loopexit559.us.us
 
 .loopexit559.us.us.loopexit942:                   ; preds = %98
-  %131 = trunc i64 %indvars.iv819 to i32
+  %131 = trunc nuw nsw i64 %indvars.iv819 to i32
   br label %.loopexit559.us.us
 
 .loopexit559.us.us.loopexit944:                   ; preds = %78
-  %132 = trunc i64 %indvars.iv814 to i32
+  %132 = trunc nuw nsw i64 %indvars.iv814 to i32
   br label %.loopexit559.us.us
 
 .loopexit559.us.us.loopexit946:                   ; preds = %58
-  %133 = trunc i64 %indvars.iv809 to i32
+  %133 = trunc nuw nsw i64 %indvars.iv809 to i32
   br label %.loopexit559.us.us
 
 .loopexit559.us.us:                               ; preds = %95, %.loopexit559.us.us.loopexit946, %.loopexit559.us.us.loopexit944, %.loopexit559.us.us.loopexit942, %.loopexit559.us.us.loopexit, %.preheader564.us.us, %.preheader562.us.us, %.preheader558.us.us
@@ -5044,7 +5038,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %.6388.us.us = phi ptr [ %.3385.us.us, %145 ], [ %.4386.us.us, %148 ], [ %.2384627.us.us, %.loopexit559.us.us ]
   %.6374.us.us = phi ptr [ %.3371.us.us, %145 ], [ %.4372.us.us, %148 ], [ %.2370628.us.us, %.loopexit559.us.us ]
   %indvars.iv.next832 = add nuw nsw i64 %indvars.iv831, 1
-  %150 = trunc i64 %indvars.iv.next832 to i32
+  %150 = trunc nuw i64 %indvars.iv.next832 to i32
   %151 = icmp sgt i32 %.val478, %150
   br i1 %151, label %49, label %.critedge4.loopexit.us, !llvm.loop !51
 
@@ -5100,7 +5094,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %162 = getelementptr inbounds i8, ptr %161, i64 56
   %163 = load ptr, ptr %162, align 8
   %indvars.iv.next805 = add nuw nsw i64 %indvars.iv804, 1
-  %164 = trunc i64 %indvars.iv.next805 to i32
+  %164 = trunc nuw i64 %indvars.iv.next805 to i32
   %165 = icmp sgt i32 %.val478, %164
   br i1 %165, label %.lr.ph631, label %.critedge4.loopexit
 
@@ -5279,19 +5273,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   br i1 %exitcond789.not, label %.loopexit567.thread, label %240, !llvm.loop !56
 
 .loopexit567.loopexit:                            ; preds = %201
-  %257 = trunc i64 %indvars.iv790 to i32
+  %257 = trunc nuw nsw i64 %indvars.iv790 to i32
   br label %.loopexit567
 
 .loopexit567.loopexit948:                         ; preds = %240
-  %258 = trunc i64 %indvars.iv785 to i32
+  %258 = trunc nuw nsw i64 %indvars.iv785 to i32
   br label %.loopexit567
 
 .loopexit567.loopexit950:                         ; preds = %219
-  %259 = trunc i64 %indvars.iv780 to i32
+  %259 = trunc nuw nsw i64 %indvars.iv780 to i32
   br label %.loopexit567
 
 .loopexit567.loopexit952:                         ; preds = %183
-  %260 = trunc i64 %indvars.iv to i32
+  %260 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit567
 
 .loopexit567:                                     ; preds = %236, %.loopexit567.loopexit952, %.loopexit567.loopexit950, %.loopexit567.loopexit948, %.loopexit567.loopexit, %.preheader572, %.preheader570, %.preheader566
@@ -5348,7 +5342,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %.6388 = phi ptr [ %.3385, %272 ], [ %.4386, %275 ], [ %.2384627, %.loopexit567 ]
   %.6374 = phi ptr [ %.3371, %272 ], [ %.4372, %275 ], [ %.2370628, %.loopexit567 ]
   %indvars.iv.next800 = add nuw nsw i64 %indvars.iv799, 1
-  %281 = trunc i64 %indvars.iv.next800 to i32
+  %281 = trunc nuw i64 %indvars.iv.next800 to i32
   %282 = icmp sgt i32 %.val478, %281
   br i1 %282, label %173, label %.critedge4.loopexit, !llvm.loop !51
 
@@ -5400,7 +5394,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %299 = getelementptr inbounds i8, ptr %298, i64 56
   %300 = load ptr, ptr %299, align 8
   %indvars.iv.next904 = add nuw nsw i64 %indvars.iv903, 1
-  %301 = trunc i64 %indvars.iv.next904 to i32
+  %301 = trunc nuw i64 %indvars.iv.next904 to i32
   %302 = icmp sgt i32 %.val475, %301
   br i1 %302, label %.lr.ph706.us, label %.critedge10.loopexit.us
 
@@ -5556,19 +5550,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   br i1 %.not423.us.us, label %413, label %.loopexit.us.us.loopexit
 
 .loopexit.us.us.loopexit:                         ; preds = %375
-  %391 = trunc i64 %indvars.iv893 to i32
+  %391 = trunc nuw nsw i64 %indvars.iv893 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us.loopexit925:                      ; preds = %359
-  %392 = trunc i64 %indvars.iv888 to i32
+  %392 = trunc nuw nsw i64 %indvars.iv888 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us.loopexit927:                      ; preds = %339
-  %393 = trunc i64 %indvars.iv883 to i32
+  %393 = trunc nuw nsw i64 %indvars.iv883 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us.loopexit929:                      ; preds = %319
-  %394 = trunc i64 %indvars.iv878 to i32
+  %394 = trunc nuw nsw i64 %indvars.iv878 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us:                                  ; preds = %356, %.loopexit.us.us.loopexit929, %.loopexit.us.us.loopexit927, %.loopexit.us.us.loopexit925, %.loopexit.us.us.loopexit, %.preheader548.us.us, %.preheader546.us.us, %.preheader.us.us
@@ -5614,7 +5608,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %.13395.us.us = phi ptr [ %.10392.us.us, %406 ], [ %.11393.us.us, %409 ], [ %.9391702.us.us, %.loopexit.us.us ]
   %.13381.us.us = phi ptr [ %.10378.us.us, %406 ], [ %.11379.us.us, %409 ], [ %.9377703.us.us, %.loopexit.us.us ]
   %indvars.iv.next901 = add nuw nsw i64 %indvars.iv900, 1
-  %411 = trunc i64 %indvars.iv.next901 to i32
+  %411 = trunc nuw i64 %indvars.iv.next901 to i32
   %412 = icmp sgt i32 %.val475, %411
   br i1 %412, label %310, label %.critedge10.loopexit.us, !llvm.loop !62
 
@@ -5670,7 +5664,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %423 = getelementptr inbounds i8, ptr %422, i64 56
   %424 = load ptr, ptr %423, align 8
   %indvars.iv.next874 = add nuw nsw i64 %indvars.iv873, 1
-  %425 = trunc i64 %indvars.iv.next874 to i32
+  %425 = trunc nuw i64 %indvars.iv.next874 to i32
   %426 = icmp sgt i32 %.val475, %425
   br i1 %426, label %.lr.ph706, label %.critedge10.loopexit
 
@@ -5849,19 +5843,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   br i1 %exitcond858.not, label %.loopexit551.thread, label %501, !llvm.loop !67
 
 .loopexit551.loopexit:                            ; preds = %462
-  %518 = trunc i64 %indvars.iv859 to i32
+  %518 = trunc nuw nsw i64 %indvars.iv859 to i32
   br label %.loopexit551
 
 .loopexit551.loopexit931:                         ; preds = %501
-  %519 = trunc i64 %indvars.iv854 to i32
+  %519 = trunc nuw nsw i64 %indvars.iv854 to i32
   br label %.loopexit551
 
 .loopexit551.loopexit933:                         ; preds = %480
-  %520 = trunc i64 %indvars.iv849 to i32
+  %520 = trunc nuw nsw i64 %indvars.iv849 to i32
   br label %.loopexit551
 
 .loopexit551.loopexit935:                         ; preds = %444
-  %521 = trunc i64 %indvars.iv844 to i32
+  %521 = trunc nuw nsw i64 %indvars.iv844 to i32
   br label %.loopexit551
 
 .loopexit551:                                     ; preds = %497, %.loopexit551.loopexit935, %.loopexit551.loopexit933, %.loopexit551.loopexit931, %.loopexit551.loopexit, %.preheader556, %.preheader554, %.preheader550
@@ -5990,7 +5984,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %.13395 = phi ptr [ %.10392, %533 ], [ %.11393, %536 ], [ %.9391702, %.loopexit551 ]
   %.13381 = phi ptr [ %.10378, %533 ], [ %.11379, %536 ], [ %.9377703, %.loopexit551 ]
   %indvars.iv.next869 = add nuw nsw i64 %indvars.iv868, 1
-  %594 = trunc i64 %indvars.iv.next869 to i32
+  %594 = trunc nuw i64 %indvars.iv.next869 to i32
   %595 = icmp sgt i32 %.val475, %594
   br i1 %595, label %434, label %.critedge10.loopexit, !llvm.loop !62
 
@@ -6122,7 +6116,7 @@ define internal fastcc void @Abc_ManResubDivsD(ptr nocapture noundef readonly %0
   br i1 %exitcond.not, label %._crit_edge.thread, label %62, !llvm.loop !68
 
 ._crit_edge.loopexit:                             ; preds = %62
-  %76 = trunc i64 %indvars.iv to i32
+  %76 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader283
@@ -6298,7 +6292,7 @@ Vec_PtrPush.exit184:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond374.not, label %._crit_edge301.thread, label %143, !llvm.loop !69
 
 ._crit_edge301.loopexit:                          ; preds = %143
-  %157 = trunc i64 %indvars.iv370 to i32
+  %157 = trunc nuw nsw i64 %indvars.iv370 to i32
   br label %._crit_edge301
 
 ._crit_edge301:                                   ; preds = %._crit_edge301.loopexit, %139
@@ -6477,7 +6471,7 @@ Vec_PtrPush.exit198:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond379.not, label %._crit_edge310.thread, label %227, !llvm.loop !70
 
 ._crit_edge310.loopexit:                          ; preds = %227
-  %241 = trunc i64 %indvars.iv375 to i32
+  %241 = trunc nuw nsw i64 %indvars.iv375 to i32
   br label %._crit_edge310
 
 ._crit_edge310:                                   ; preds = %._crit_edge310.loopexit, %223
@@ -6659,7 +6653,7 @@ Vec_PtrPush.exit212:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond384.not, label %._crit_edge319.thread, label %314, !llvm.loop !71
 
 ._crit_edge319.loopexit:                          ; preds = %314
-  %328 = trunc i64 %indvars.iv380 to i32
+  %328 = trunc nuw nsw i64 %indvars.iv380 to i32
   br label %._crit_edge319
 
 ._crit_edge319:                                   ; preds = %._crit_edge319.loopexit, %310
@@ -6847,7 +6841,7 @@ Vec_PtrPush.exit226:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond389.not, label %._crit_edge327.thread, label %404, !llvm.loop !72
 
 ._crit_edge327.loopexit:                          ; preds = %404
-  %418 = trunc i64 %indvars.iv385 to i32
+  %418 = trunc nuw nsw i64 %indvars.iv385 to i32
   br label %._crit_edge327
 
 ._crit_edge327:                                   ; preds = %._crit_edge327.loopexit, %.preheader
@@ -7023,7 +7017,7 @@ Vec_PtrPush.exit240:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond394.not, label %._crit_edge336.thread, label %485, !llvm.loop !73
 
 ._crit_edge336.loopexit:                          ; preds = %485
-  %498 = trunc i64 %indvars.iv390 to i32
+  %498 = trunc nuw nsw i64 %indvars.iv390 to i32
   br label %._crit_edge336
 
 ._crit_edge336:                                   ; preds = %._crit_edge336.loopexit, %481
@@ -7202,7 +7196,7 @@ Vec_PtrPush.exit254:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond399.not, label %._crit_edge345.thread, label %568, !llvm.loop !74
 
 ._crit_edge345.loopexit:                          ; preds = %568
-  %581 = trunc i64 %indvars.iv395 to i32
+  %581 = trunc nuw nsw i64 %indvars.iv395 to i32
   br label %._crit_edge345
 
 ._crit_edge345:                                   ; preds = %._crit_edge345.loopexit, %564
@@ -7384,7 +7378,7 @@ Vec_PtrPush.exit268:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond404.not, label %._crit_edge354.thread, label %654, !llvm.loop !75
 
 ._crit_edge354.loopexit:                          ; preds = %654
-  %668 = trunc i64 %indvars.iv400 to i32
+  %668 = trunc nuw nsw i64 %indvars.iv400 to i32
   br label %._crit_edge354
 
 ._crit_edge354:                                   ; preds = %._crit_edge354.loopexit, %650
@@ -7537,7 +7531,7 @@ Vec_PtrPush.exit282:                              ; preds = %.Vec_PtrGrow.exit11
   %738 = load ptr, ptr %19, align 8
   %739 = getelementptr i8, ptr %738, i64 4
   %.val174 = load i32, ptr %739, align 4
-  %740 = trunc i64 %indvars.iv.next408 to i32
+  %740 = trunc nuw i64 %indvars.iv.next408 to i32
   %741 = icmp sgt i32 %.val174, %740
   br i1 %741, label %44, label %.critedge2, !llvm.loop !76
 
@@ -7556,7 +7550,7 @@ Vec_PtrPush.exit282:                              ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noundef %0) unnamed_addr #12 {
+define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noundef %0) unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
@@ -7758,19 +7752,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noun
   br i1 %exitcond547.not, label %.split.us, label %110, !llvm.loop !82
 
 .loopexit350.us.loopexit:                         ; preds = %110
-  %127 = trunc i64 %indvars.iv543 to i32
+  %127 = trunc nuw nsw i64 %indvars.iv543 to i32
   br label %.loopexit350.us
 
 .loopexit350.us.loopexit665:                      ; preds = %92
-  %128 = trunc i64 %indvars.iv538 to i32
+  %128 = trunc nuw nsw i64 %indvars.iv538 to i32
   br label %.loopexit350.us
 
 .loopexit350.us.loopexit667:                      ; preds = %73
-  %129 = trunc i64 %indvars.iv533 to i32
+  %129 = trunc nuw nsw i64 %indvars.iv533 to i32
   br label %.loopexit350.us
 
 .loopexit350.us.loopexit669:                      ; preds = %56
-  %130 = trunc i64 %indvars.iv to i32
+  %130 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit350.us
 
 .loopexit350.us:                                  ; preds = %.loopexit350.us.loopexit669, %.loopexit350.us.loopexit667, %.loopexit350.us.loopexit665, %.loopexit350.us.loopexit, %.preheader355.us, %.preheader353.us, %.preheader351.us, %.preheader349.us
@@ -7938,19 +7932,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noun
   br i1 %.not303.us.us, label %225, label %.loopexit342.us.us.loopexit
 
 .loopexit342.us.us.loopexit:                      ; preds = %205
-  %220 = trunc i64 %indvars.iv568 to i32
+  %220 = trunc nuw nsw i64 %indvars.iv568 to i32
   br label %.loopexit342.us.us
 
 .loopexit342.us.us.loopexit658:                   ; preds = %188
-  %221 = trunc i64 %indvars.iv563 to i32
+  %221 = trunc nuw nsw i64 %indvars.iv563 to i32
   br label %.loopexit342.us.us
 
 .loopexit342.us.us.loopexit660:                   ; preds = %170
-  %222 = trunc i64 %indvars.iv558 to i32
+  %222 = trunc nuw nsw i64 %indvars.iv558 to i32
   br label %.loopexit342.us.us
 
 .loopexit342.us.us.loopexit662:                   ; preds = %154
-  %223 = trunc i64 %indvars.iv553 to i32
+  %223 = trunc nuw nsw i64 %indvars.iv553 to i32
   br label %.loopexit342.us.us
 
 .loopexit342.us.us:                               ; preds = %.loopexit342.us.us.loopexit662, %.loopexit342.us.us.loopexit660, %.loopexit342.us.us.loopexit658, %.loopexit342.us.us.loopexit, %.preheader347.us.us, %.preheader345.us.us, %.preheader343.us.us, %.preheader341.us.us
@@ -8187,19 +8181,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noun
   br i1 %exitcond602.not, label %.split460.us, label %332, !llvm.loop !92
 
 .loopexit334.us.loopexit:                         ; preds = %332
-  %349 = trunc i64 %indvars.iv598 to i32
+  %349 = trunc nuw nsw i64 %indvars.iv598 to i32
   br label %.loopexit334.us
 
 .loopexit334.us.loopexit649:                      ; preds = %315
-  %350 = trunc i64 %indvars.iv593 to i32
+  %350 = trunc nuw nsw i64 %indvars.iv593 to i32
   br label %.loopexit334.us
 
 .loopexit334.us.loopexit651:                      ; preds = %297
-  %351 = trunc i64 %indvars.iv588 to i32
+  %351 = trunc nuw nsw i64 %indvars.iv588 to i32
   br label %.loopexit334.us
 
 .loopexit334.us.loopexit653:                      ; preds = %280
-  %352 = trunc i64 %indvars.iv583 to i32
+  %352 = trunc nuw nsw i64 %indvars.iv583 to i32
   br label %.loopexit334.us
 
 .loopexit334.us:                                  ; preds = %.loopexit334.us.loopexit653, %.loopexit334.us.loopexit651, %.loopexit334.us.loopexit649, %.loopexit334.us.loopexit, %.preheader339.us, %.preheader337.us, %.preheader335.us, %.preheader333.us
@@ -8367,19 +8361,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noun
   br i1 %.not286.us.us, label %447, label %.loopexit.us.us.loopexit
 
 .loopexit.us.us.loopexit:                         ; preds = %427
-  %442 = trunc i64 %indvars.iv623 to i32
+  %442 = trunc nuw nsw i64 %indvars.iv623 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us.loopexit642:                      ; preds = %410
-  %443 = trunc i64 %indvars.iv618 to i32
+  %443 = trunc nuw nsw i64 %indvars.iv618 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us.loopexit644:                      ; preds = %392
-  %444 = trunc i64 %indvars.iv613 to i32
+  %444 = trunc nuw nsw i64 %indvars.iv613 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us.loopexit646:                      ; preds = %376
-  %445 = trunc i64 %indvars.iv608 to i32
+  %445 = trunc nuw nsw i64 %indvars.iv608 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us:                                  ; preds = %.loopexit.us.us.loopexit646, %.loopexit.us.us.loopexit644, %.loopexit.us.us.loopexit642, %.loopexit.us.us.loopexit, %.preheader331.us.us, %.preheader329.us.us, %.preheader327.us.us, %.preheader.us.us
@@ -8446,7 +8440,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @Abc_ManResubDivs3(ptr nocapture noundef %0) unnamed_addr #12 {
+define internal fastcc noalias noundef ptr @Abc_ManResubDivs3(ptr nocapture noundef %0) unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
@@ -9136,67 +9130,67 @@ default.unreachable547:                           ; preds = %.lr.ph416
   unreachable
 
 .loopexit.loopexit:                               ; preds = %80
-  %400 = trunc i64 %indvars.iv530 to i32
+  %400 = trunc nuw nsw i64 %indvars.iv530 to i32
   br label %.loopexit
 
 .loopexit.loopexit549:                            ; preds = %99
-  %401 = trunc i64 %indvars.iv525 to i32
+  %401 = trunc nuw nsw i64 %indvars.iv525 to i32
   br label %.loopexit
 
 .loopexit.loopexit551:                            ; preds = %119
-  %402 = trunc i64 %indvars.iv520 to i32
+  %402 = trunc nuw nsw i64 %indvars.iv520 to i32
   br label %.loopexit
 
 .loopexit.loopexit553:                            ; preds = %139
-  %403 = trunc i64 %indvars.iv515 to i32
+  %403 = trunc nuw nsw i64 %indvars.iv515 to i32
   br label %.loopexit
 
 .loopexit.loopexit555:                            ; preds = %158
-  %404 = trunc i64 %indvars.iv510 to i32
+  %404 = trunc nuw nsw i64 %indvars.iv510 to i32
   br label %.loopexit
 
 .loopexit.loopexit557:                            ; preds = %178
-  %405 = trunc i64 %indvars.iv505 to i32
+  %405 = trunc nuw nsw i64 %indvars.iv505 to i32
   br label %.loopexit
 
 .loopexit.loopexit559:                            ; preds = %199
-  %406 = trunc i64 %indvars.iv500 to i32
+  %406 = trunc nuw nsw i64 %indvars.iv500 to i32
   br label %.loopexit
 
 .loopexit.loopexit561:                            ; preds = %220
-  %407 = trunc i64 %indvars.iv495 to i32
+  %407 = trunc nuw nsw i64 %indvars.iv495 to i32
   br label %.loopexit
 
 .loopexit.loopexit563:                            ; preds = %240
-  %408 = trunc i64 %indvars.iv490 to i32
+  %408 = trunc nuw nsw i64 %indvars.iv490 to i32
   br label %.loopexit
 
 .loopexit.loopexit565:                            ; preds = %260
-  %409 = trunc i64 %indvars.iv485 to i32
+  %409 = trunc nuw nsw i64 %indvars.iv485 to i32
   br label %.loopexit
 
 .loopexit.loopexit567:                            ; preds = %281
-  %410 = trunc i64 %indvars.iv480 to i32
+  %410 = trunc nuw nsw i64 %indvars.iv480 to i32
   br label %.loopexit
 
 .loopexit.loopexit569:                            ; preds = %302
-  %411 = trunc i64 %indvars.iv475 to i32
+  %411 = trunc nuw nsw i64 %indvars.iv475 to i32
   br label %.loopexit
 
 .loopexit.loopexit571:                            ; preds = %322
-  %412 = trunc i64 %indvars.iv470 to i32
+  %412 = trunc nuw nsw i64 %indvars.iv470 to i32
   br label %.loopexit
 
 .loopexit.loopexit573:                            ; preds = %341
-  %413 = trunc i64 %indvars.iv465 to i32
+  %413 = trunc nuw nsw i64 %indvars.iv465 to i32
   br label %.loopexit
 
 .loopexit.loopexit575:                            ; preds = %361
-  %414 = trunc i64 %indvars.iv460 to i32
+  %414 = trunc nuw nsw i64 %indvars.iv460 to i32
   br label %.loopexit
 
 .loopexit.loopexit577:                            ; preds = %381
-  %415 = trunc i64 %indvars.iv to i32
+  %415 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit577, %.loopexit.loopexit575, %.loopexit.loopexit573, %.loopexit.loopexit571, %.loopexit.loopexit569, %.loopexit.loopexit567, %.loopexit.loopexit565, %.loopexit.loopexit563, %.loopexit.loopexit561, %.loopexit.loopexit559, %.loopexit.loopexit557, %.loopexit.loopexit555, %.loopexit.loopexit553, %.loopexit.loopexit551, %.loopexit.loopexit549, %.loopexit.loopexit, %.preheader328, %.preheader326, %.preheader324, %.preheader322, %.preheader320, %.preheader318, %.preheader316, %.preheader314, %.preheader312, %.preheader310, %.preheader308, %.preheader306, %.preheader304, %.preheader302, %.preheader300, %.preheader
@@ -9216,6 +9210,12 @@ default.unreachable547:                           ; preds = %.lr.ph416
   %.0279 = phi ptr [ %420, %.loopexit.thread ], [ null, %1 ], [ null, %.critedge2.loopexit ]
   ret ptr %.0279
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13
@@ -9244,10 +9244,10 @@ attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nofree nounwind }
 attributes #14 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

@@ -361,7 +361,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !60
   store ptr %4, ptr %3, align 8, !noalias !60
-  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hc92cc99514a1f43aE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.5347b72af948f8ce21828a79249034e6.154, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 @anon.5347b72af948f8ce21828a79249034e6.184, i64 noundef 6, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5347b72af948f8ce21828a79249034e6.185, ptr noalias noundef nonnull readonly align 1 @anon.5347b72af948f8ce21828a79249034e6.126, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5347b72af948f8ce21828a79249034e6.19)
+  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hc92cc99514a1f43aE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.5347b72af948f8ce21828a79249034e6.154, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 @anon.5347b72af948f8ce21828a79249034e6.184, i64 noundef 6, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5347b72af948f8ce21828a79249034e6.185, ptr noalias noundef nonnull readonly align 1 @anon.5347b72af948f8ce21828a79249034e6.126, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5347b72af948f8ce21828a79249034e6.19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !60
   ret i1 %6
 }
@@ -1049,7 +1049,7 @@ common.resume:                                    ; preds = %66, %49
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcb411a41664aea14E.exit": ; preds = %57
   %60 = shl nuw nsw i64 %5, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %13, i64 %60, i1 false), !alias.scope !184, !noalias !188
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 8 %13, i64 %60, i1 false), !alias.scope !184, !noalias !188
   %61 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %40, ptr %61, align 4
   %62 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1121,7 +1121,7 @@ common.resume:                                    ; preds = %66, %49
 
 87:                                               ; preds = %76
   %88 = shl i64 %5, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %54, i64 %88, i1 false), !alias.scope !198, !noalias !202
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 8 %54, i64 %88, i1 false), !alias.scope !198, !noalias !202
   %89 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %73, ptr %89, align 4
   %90 = getelementptr inbounds i8, ptr %0, i64 8
@@ -16965,7 +16965,7 @@ common.resume:                                    ; preds = %80, %63
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcb411a41664aea14E.exit": ; preds = %71
   %74 = shl nuw nsw i64 %5, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %13, i64 %74, i1 false), !alias.scope !4562, !noalias !4566
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 8 %13, i64 %74, i1 false), !alias.scope !4562, !noalias !4566
   %switch = icmp ne i64 %52, 0
   %. = zext i1 %switch to i32
   %75 = getelementptr inbounds i8, ptr %0, i64 4
@@ -17038,7 +17038,7 @@ common.resume:                                    ; preds = %80, %63
 
 99:                                               ; preds = %88
   %100 = shl i64 %5, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %68, i64 %100, i1 false), !alias.scope !4575, !noalias !4579
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 8 %68, i64 %100, i1 false), !alias.scope !4575, !noalias !4579
   %switch96 = icmp ne i64 %83, 0
   %.98 = zext i1 %switch96 to i32
   %101 = getelementptr inbounds i8, ptr %0, i64 4
@@ -17297,7 +17297,7 @@ define internal fastcc { i32, i32 } @_ZN14regex_automata3nfa8thompson6pikevm6Pik
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcb411a41664aea14E.exit": ; preds = %42
   %45 = shl nuw nsw i64 %4, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull align 8 %11, i64 %45, i1 false), !alias.scope !4609, !noalias !4613
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull readonly align 8 %11, i64 %45, i1 false), !alias.scope !4609, !noalias !4613
   %46 = load i64, ptr %10, align 8, !range !31, !noundef !4
   %trunc29 = trunc nuw i64 %46 to i1
   %47 = getelementptr inbounds i8, ptr %10, i64 16
@@ -17365,7 +17365,7 @@ common.resume:                                    ; preds = %63, %55
 
 68:                                               ; preds = %65
   %69 = shl i64 %4, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull align 8 %60, i64 %69, i1 false), !alias.scope !4618, !noalias !4622
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull readonly align 8 %60, i64 %69, i1 false), !alias.scope !4618, !noalias !4622
   %70 = load i64, ptr %8, align 8, !range !31, !noundef !4
   %trunc28 = trunc nuw i64 %70 to i1
   %71 = getelementptr inbounds i8, ptr %8, i64 16

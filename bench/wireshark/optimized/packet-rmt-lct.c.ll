@@ -433,7 +433,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_lct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+define internal range(i32 0, 1021) i32 @dissect_lct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #4
   %7 = zext i16 %6 to i32

@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.BN_usub = private unnamed_addr constant [8 x i8] c"BN_usub\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_add(ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_add(ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
 entry:
   %neg = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i32, ptr %neg, align 8
@@ -84,7 +84,7 @@ if.else:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %if.else
   %13 = load i32, ptr %neg, align 8
-  %call7 = tail call i32 @BN_usub(ptr noundef %r, ptr noundef nonnull %a, ptr noundef nonnull %b), !range !6
+  %call7 = tail call i32 @BN_usub(ptr noundef %r, ptr noundef nonnull %a, ptr noundef nonnull %b)
   br label %if.end15
 
 if.else8:                                         ; preds = %if.else
@@ -93,7 +93,7 @@ if.else8:                                         ; preds = %if.else
 
 if.then10:                                        ; preds = %if.else8
   %14 = load i32, ptr %neg1, align 8
-  %call12 = tail call i32 @BN_usub(ptr noundef %r, ptr noundef nonnull %b, ptr noundef nonnull %a), !range !6
+  %call12 = tail call i32 @BN_usub(ptr noundef %r, ptr noundef nonnull %b, ptr noundef nonnull %a)
   br label %if.end15
 
 if.else13:                                        ; preds = %if.else8
@@ -109,7 +109,7 @@ if.end15:                                         ; preds = %while.end.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_uadd(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_uadd(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
@@ -181,7 +181,7 @@ return:                                           ; preds = %entry, %while.end
 declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_usub(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_usub(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
@@ -236,7 +236,7 @@ while.body:                                       ; preds = %while.body.preheade
   %6 = and i64 %borrow.024, 1
   %and14 = select i1 %cmp12, i64 %6, i64 0
   %tobool.not = icmp eq i32 %dec, 0
-  br i1 %tobool.not, label %while.cond15.preheader, label %while.body, !llvm.loop !7
+  br i1 %tobool.not, label %while.cond15.preheader, label %while.body, !llvm.loop !6
 
 land.rhs:                                         ; preds = %while.cond15.preheader, %while.body20
   %rp.129 = phi ptr [ %incdec.ptr17, %while.body20 ], [ %rp.0.lcssa, %while.cond15.preheader ]
@@ -249,7 +249,7 @@ land.rhs:                                         ; preds = %while.cond15.prehea
 while.body20:                                     ; preds = %land.rhs
   %dec21 = add nsw i32 %max.028, -1
   %tobool16.not = icmp eq i32 %dec21, 0
-  br i1 %tobool16.not, label %while.end22, label %land.rhs, !llvm.loop !8
+  br i1 %tobool16.not, label %while.end22, label %land.rhs, !llvm.loop !7
 
 while.end22:                                      ; preds = %land.rhs, %while.body20, %while.cond15.preheader
   %max.0.lcssa = phi i32 [ 0, %while.cond15.preheader ], [ 0, %while.body20 ], [ %max.028, %land.rhs ]
@@ -267,7 +267,7 @@ return:                                           ; preds = %if.end, %while.end2
 declare void @BN_zero_ex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_sub(ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_sub(ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
 entry:
   %neg = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i32, ptr %neg, align 8
@@ -344,7 +344,7 @@ if.else:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %if.else
   %13 = load i32, ptr %neg, align 8
-  %call7 = tail call i32 @BN_usub(ptr noundef %r, ptr noundef nonnull %a, ptr noundef nonnull %b), !range !6
+  %call7 = tail call i32 @BN_usub(ptr noundef %r, ptr noundef nonnull %a, ptr noundef nonnull %b)
   br label %if.end15
 
 if.else8:                                         ; preds = %if.else
@@ -355,7 +355,7 @@ if.then10:                                        ; preds = %if.else8
   %14 = load i32, ptr %neg1, align 8
   %tobool.not = icmp eq i32 %14, 0
   %lnot.ext = zext i1 %tobool.not to i32
-  %call12 = tail call i32 @BN_usub(ptr noundef %r, ptr noundef nonnull %b, ptr noundef nonnull %a), !range !6
+  %call12 = tail call i32 @BN_usub(ptr noundef %r, ptr noundef nonnull %b, ptr noundef nonnull %a)
   br label %if.end15
 
 if.else13:                                        ; preds = %if.else8
@@ -394,6 +394,5 @@ attributes #2 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

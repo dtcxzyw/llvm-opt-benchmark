@@ -164,7 +164,7 @@ define internal i32 @beep_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @beep_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @beep_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -600,7 +600,7 @@ set_mime_hdr_flags.exit:                          ; preds = %67, %77, %78, %79, 
 
 118:                                              ; preds = %113, %112
   %.0267 = phi i32 [ %117, %113 ], [ %95, %112 ]
-  %119 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %.0267, ptr noundef %.0272), !range !4
+  %119 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %.0267, ptr noundef %.0272)
   %120 = icmp slt i32 %119, 1
   br i1 %120, label %121, label %129
 
@@ -685,7 +685,7 @@ header_len.exit.i:                                ; preds = %143, %143, %137
 
 158:                                              ; preds = %156, %148
   %.0323843.i = phi ptr [ %153, %156 ], [ null, %148 ]
-  %159 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %130, ptr noundef %.0323843.i), !range !4
+  %159 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %130, ptr noundef %.0323843.i)
   br label %164
 
 160:                                              ; preds = %.thread.i
@@ -694,7 +694,7 @@ header_len.exit.i:                                ; preds = %143, %143, %137
 
 162:                                              ; preds = %160, %148
   %.0323947.i = phi ptr [ %153, %160 ], [ null, %148 ]
-  %163 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %134, ptr noundef %.0323947.i), !range !4
+  %163 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %134, ptr noundef %.0323947.i)
   br label %164
 
 164:                                              ; preds = %162, %158
@@ -781,7 +781,7 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
   %206 = load i32, ptr @hf_beep_window, align 4
   %207 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %205, ptr noundef null, i32 noundef %206, ptr noundef nonnull %13, ptr noundef nonnull @seq_window_hfa)
   %208 = add i32 %207, %205
-  %209 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %208, ptr noundef null), !range !4
+  %209 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %208, ptr noundef null)
   %210 = icmp slt i32 %209, 1
   br i1 %210, label %327, label %233
 
@@ -801,7 +801,7 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
   %222 = load i32, ptr @hf_beep_window, align 4
   %223 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %221, ptr noundef nonnull %3, i32 noundef %222, ptr noundef nonnull %13, ptr noundef nonnull @seq_window_hfa)
   %224 = add i32 %223, %221
-  %225 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %224, ptr noundef nonnull %3), !range !4
+  %225 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %224, ptr noundef nonnull %3)
   %226 = icmp slt i32 %225, 1
   br i1 %226, label %.thread321, label %233
 
@@ -852,7 +852,7 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
 
 250:                                              ; preds = %239
   %251 = add i32 %1, 3
-  %252 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %251, ptr noundef null), !range !4
+  %252 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %251, ptr noundef null)
   %253 = icmp slt i32 %252, 1
   br i1 %253, label %327, label %269
 
@@ -863,7 +863,7 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
   %257 = load i32, ptr @hf_beep_cmd, align 4
   %258 = tail call ptr @proto_tree_add_item(ptr noundef null, i32 noundef %257, ptr noundef %0, i32 noundef %1, i32 noundef 3, i32 noundef 0) #5
   %259 = add i32 %1, 3
-  %260 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %259, ptr noundef %256), !range !4
+  %260 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %259, ptr noundef %256)
   %261 = icmp slt i32 %260, 1
   br i1 %261, label %262, label %269
 
@@ -1031,7 +1031,7 @@ define internal fastcc i32 @dissect_beep_int(ptr noundef %0, ptr nocapture nound
   %15 = and i16 %14, 8
   %.not.i = icmp eq i16 %15, 0
   %16 = add i32 %.0.i, 1
-  br i1 %.not.i, label %num_len.exit, label %9, !llvm.loop !5
+  br i1 %.not.i, label %num_len.exit, label %9, !llvm.loop !4
 
 num_len.exit:                                     ; preds = %9
   %17 = getelementptr inbounds i8, ptr %1, i64 408
@@ -1071,7 +1071,7 @@ proto_item_set_hidden.exit:                       ; preds = %.lr.ph, %27, %30
   %36 = getelementptr ptr, ptr %6, i64 %35
   %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %proto_item_set_hidden.exit, %num_len.exit
   store i32 %21, ptr %5, align 4
@@ -1079,7 +1079,7 @@ proto_item_set_hidden.exit:                       ; preds = %.lr.ph, %27, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_term(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 3) i32 @check_term(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #5
   %6 = icmp eq i8 %5, 13
   br i1 %6, label %7, label %14
@@ -1170,7 +1170,6 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 3}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

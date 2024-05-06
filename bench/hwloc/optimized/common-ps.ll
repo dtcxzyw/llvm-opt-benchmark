@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [18 x i8] c"/proc/%ld/environ\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @hwloc_ps_read_process(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca [1024 x i8], align 16
@@ -571,7 +571,7 @@ define internal fastcc void @hwloc_ps_pidcmd_from_env(ptr noundef %0, i32 nounde
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %21
   %.01115.i = phi ptr [ %24, %21 ], [ %5, %.lr.ph.i.preheader ]
-  %20 = call i32 @strncmp(ptr noundef nonnull %.01115.i, ptr noundef %18, i64 noundef %19) #16
+  %20 = call i32 @strncmp(ptr noundef nonnull %.01115.i, ptr noundef readonly %18, i64 noundef %19) #16
   %.not12.i = icmp eq i32 %20, 0
   br i1 %.not12.i, label %hwloc_ps_pidcmd__from_env.exit, label %21
 
@@ -660,7 +660,7 @@ define hidden void @hwloc_ps_free_process(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @hwloc_ps_foreach_process(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly %5, i64 noundef %6) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @hwloc_ps_foreach_process(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.hwloc_ps_process, align 8
   %9 = alloca ptr, align 8
   %10 = tail call ptr @opendir(ptr noundef nonnull @.str.16)
@@ -698,7 +698,7 @@ define hidden noundef i32 @hwloc_ps_foreach_process(ptr noundef %0, ptr noundef 
   store i32 0, ptr %13, align 4
   store i32 0, ptr %14, align 8
   store ptr null, ptr %15, align 8
-  %26 = call i32 @hwloc_ps_read_process(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, i64 noundef %4), !range !10
+  %26 = call i32 @hwloc_ps_read_process(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, i64 noundef %4)
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %36, label %28
 
@@ -758,7 +758,7 @@ hwloc_ps_free_process.exit:                       ; preds = %43, %36
 .backedge:                                        ; preds = %hwloc_ps_free_process.exit, %19
   %49 = call ptr @readdir(ptr noundef nonnull %10) #14
   %.not21 = icmp eq ptr %49, null
-  br i1 %.not21, label %._crit_edge, label %19, !llvm.loop !11
+  br i1 %.not21, label %._crit_edge, label %19, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
   %50 = call i32 @closedir(ptr noundef nonnull %10)
@@ -784,7 +784,7 @@ define hidden noundef i32 @hwloc_ps_foreach_child(ptr noundef %0, ptr noundef %1
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %9, i64 1128
   store ptr null, ptr %16, align 8
-  %17 = call i32 @hwloc_ps_read_process(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, i64 noundef %5), !range !10
+  %17 = call i32 @hwloc_ps_read_process(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, i64 noundef %5)
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %30, label %19
 
@@ -866,7 +866,7 @@ hwloc_ps_free_process.exit:                       ; preds = %37, %30
 .backedge:                                        ; preds = %.lr.ph, %53, %.lr.ph45
   %52 = call ptr @readdir(ptr noundef nonnull %45) #14
   %.not38 = icmp eq ptr %52, null
-  br i1 %.not38, label %._crit_edge, label %.lr.ph45, !llvm.loop !12
+  br i1 %.not38, label %._crit_edge, label %.lr.ph45, !llvm.loop !11
 
 53:                                               ; preds = %.lr.ph45
   %54 = call i64 @fread(ptr noundef nonnull %11, i64 noundef 1, i64 noundef 4095, ptr noundef nonnull %51)
@@ -876,7 +876,7 @@ hwloc_ps_free_process.exit:                       ; preds = %37, %30
   %57 = call i64 @strtoul(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 10) #14
   %58 = load ptr, ptr %12, align 8
   %59 = icmp eq ptr %58, %11
-  br i1 %59, label %.backedge, label %.lr.ph, !llvm.loop !12
+  br i1 %59, label %.backedge, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %53, %.lr.ph
   %60 = phi ptr [ %64, %.lr.ph ], [ %58, %53 ]
@@ -885,7 +885,7 @@ hwloc_ps_free_process.exit:                       ; preds = %37, %30
   %63 = call i64 @strtoul(ptr noundef %60, ptr noundef nonnull %12, i32 noundef 10) #14
   %64 = load ptr, ptr %12, align 8
   %65 = icmp eq ptr %64, %60
-  br i1 %65, label %.backedge, label %.lr.ph, !llvm.loop !12
+  br i1 %65, label %.backedge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
   %66 = call i32 @closedir(ptr noundef nonnull %45)
@@ -938,6 +938,5 @@ attributes #17 = { nounwind allocsize(0,1) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 -1, i32 1}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

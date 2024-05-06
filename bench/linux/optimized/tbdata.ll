@@ -61,7 +61,7 @@ define dso_local void @acpi_tb_init_table_descriptor(ptr nocapture noundef write
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_tb_acquire_table(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @acpi_tb_acquire_table(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 26
   %6 = load i8, ptr %5, align 2
   %7 = and i8 %6, 3
@@ -131,7 +131,7 @@ define dso_local void @acpi_tb_release_table(ptr noundef %0, i32 noundef %1, i8 
 declare dso_local void @acpi_os_unmap_memory(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_tb_acquire_temp_table(ptr nocapture noundef writeonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_acquire_temp_table(ptr nocapture noundef writeonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   %5 = and i8 %2, 3
   switch i8 %5, label %.thread4 [
     i8 1, label %6
@@ -273,7 +273,7 @@ define dso_local void @acpi_tb_invalidate_table(ptr nocapture noundef %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_tb_validate_table(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 5) i32 @acpi_tb_validate_table(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -305,7 +305,7 @@ define dso_local noundef i32 @acpi_tb_validate_table(ptr nocapture noundef %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_tb_validate_temp_table(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 5) i32 @acpi_tb_validate_temp_table(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
@@ -422,7 +422,7 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
   %45 = select i1 %44, ptr @.str.2, ptr %42
   %46 = load i64, ptr %0, align 8
   %47 = lshr i64 %46, 32
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw i64 %47 to i32
   %49 = trunc i64 %46 to i32
   tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 528, i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %45, i32 noundef %48, i32 noundef %49) #8
   br label %120
@@ -529,7 +529,7 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
   %112 = select i1 %111, ptr @.str.2, ptr %109
   %113 = load i64, ptr %0, align 8
   %114 = lshr i64 %113, 32
-  %115 = trunc i64 %114 to i32
+  %115 = trunc nuw i64 %114 to i32
   %116 = trunc i64 %113 to i32
   tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 548, i32 noundef 7, ptr noundef nonnull @.str.3, ptr noundef %112, i32 noundef %115, i32 noundef %116) #8
   br label %120
@@ -590,7 +590,7 @@ declare dso_local void @acpi_exception(ptr noundef, i32 noundef, i32 noundef, pt
 declare dso_local zeroext i8 @acpi_ut_valid_nameseg(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_tb_resize_root_table_list() local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 16) i32 @acpi_tb_resize_root_table_list() local_unnamed_addr #2 align 16 {
   %1 = alloca i64, align 8
   %2 = load i8, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 3), align 8
   %3 = zext i8 %2 to i32
@@ -850,7 +850,7 @@ define dso_local i32 @acpi_tb_allocate_owner_id(i32 noundef %0) local_unnamed_ad
 declare dso_local i32 @acpi_ut_allocate_owner_id(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_tb_release_owner_id(i32 noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_release_owner_id(i32 noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #8
   %3 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
   %4 = icmp ugt i32 %3, %0
@@ -873,7 +873,7 @@ define dso_local noundef i32 @acpi_tb_release_owner_id(i32 noundef %0) local_unn
 declare dso_local void @acpi_ut_release_owner_id(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_tb_get_owner_id(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_get_owner_id(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 align 16 {
   %3 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #8
   %4 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
   %5 = icmp ugt i32 %4, %0
@@ -894,7 +894,7 @@ define dso_local noundef i32 @acpi_tb_get_owner_id(i32 noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i8 @acpi_tb_is_table_loaded(i32 noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local zeroext range(i8 0, 9) i8 @acpi_tb_is_table_loaded(i32 noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #8
   %3 = load i32, ptr getelementptr inbounds (%struct.acpi_table_list, ptr @acpi_gbl_root_table_list, i64 0, i32 1), align 8
   %4 = icmp ugt i32 %3, %0

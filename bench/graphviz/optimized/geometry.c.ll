@@ -79,7 +79,7 @@ define double @area_2(double %0, double %1, double %2, double %3, double %4, dou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @leftOf(double %0, double %1, double %2, double %3, double %4, double %5) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @leftOf(double %0, double %1, double %2, double %3, double %4, double %5) local_unnamed_addr #4 {
   %7 = fsub double %1, %3
   %8 = fsub double %4, %2
   %9 = fsub double %5, %3
@@ -93,7 +93,7 @@ define i32 @leftOf(double %0, double %1, double %2, double %3, double %4, double
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @intersection(double %0, double %1, double %2, double %3, double %4, double %5, double %6, double %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @intersection(double %0, double %1, double %2, double %3, double %4, double %5, double %6, double %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #3 {
   %10 = fsub double %7, %5
   %11 = fsub double %5, %7
   %12 = fmul double %11, %2

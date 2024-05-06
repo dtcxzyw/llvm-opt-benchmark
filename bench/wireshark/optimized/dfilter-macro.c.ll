@@ -1074,7 +1074,7 @@ define hidden void @dfilter_macro_cleanup() local_unnamed_addr #0 {
 declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @dfilter_macro_table_count() local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @dfilter_macro_table_count() local_unnamed_addr #0 {
   %1 = load ptr, ptr @macros_table, align 8
   %2 = tail call i32 @g_hash_table_size(ptr noundef %1) #6
   %3 = zext i32 %2 to i64

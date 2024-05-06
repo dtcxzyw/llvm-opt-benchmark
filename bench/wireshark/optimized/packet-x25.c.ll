@@ -2787,7 +2787,7 @@ define internal fastcc void @dump_facilities(ptr noundef %0, ptr nocapture nound
 
 .lr.ph.i:                                         ; preds = %271, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %271 ]
-  %256 = trunc i64 %indvars.iv.i to i32
+  %256 = trunc nuw nsw i64 %indvars.iv.i to i32
   %257 = and i32 %256, 1
   %258 = icmp eq i32 %257, 0
   %259 = lshr i32 %256, 1
@@ -2876,7 +2876,7 @@ dte_address_util.exit:                            ; preds = %271, %243
 
 .lr.ph.i378:                                      ; preds = %318, %.lr.ph.preheader.i376
   %indvars.iv.i379 = phi i64 [ 0, %.lr.ph.preheader.i376 ], [ %indvars.iv.next.i380, %318 ]
-  %303 = trunc i64 %indvars.iv.i379 to i32
+  %303 = trunc nuw nsw i64 %indvars.iv.i379 to i32
   %304 = and i32 %303, 1
   %305 = icmp eq i32 %304, 0
   %306 = lshr i32 %303, 1
@@ -2962,7 +2962,7 @@ dte_address_util.exit387:                         ; preds = %318, %289
 
 .lr.ph.i391:                                      ; preds = %366, %.lr.ph.preheader.i389
   %indvars.iv.i392 = phi i64 [ 0, %.lr.ph.preheader.i389 ], [ %indvars.iv.next.i393, %366 ]
-  %351 = trunc i64 %indvars.iv.i392 to i32
+  %351 = trunc nuw nsw i64 %indvars.iv.i392 to i32
   %352 = and i32 %351, 1
   %353 = icmp eq i32 %352, 0
   %354 = lshr i32 %351, 1
@@ -3071,7 +3071,7 @@ dte_address_util.exit400:                         ; preds = %366, %337
 
 .lr.ph.i404:                                      ; preds = %432, %.lr.ph.preheader.i402
   %indvars.iv.i405 = phi i64 [ 0, %.lr.ph.preheader.i402 ], [ %indvars.iv.next.i406, %432 ]
-  %417 = trunc i64 %indvars.iv.i405 to i32
+  %417 = trunc nuw nsw i64 %indvars.iv.i405 to i32
   %418 = and i32 %417, 1
   %419 = icmp eq i32 %418, 0
   %420 = lshr i32 %417, 1

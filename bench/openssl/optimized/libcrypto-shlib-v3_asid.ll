@@ -193,7 +193,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509v3_asid_add_inherit(ptr noundef %asid, i32 noundef %which) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_asid_add_inherit(ptr noundef %asid, i32 noundef %which) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %asid, null
   br i1 %cmp, label %return, label %if.end
@@ -254,7 +254,7 @@ return:                                           ; preds = %if.then3, %if.end, 
 declare ptr @ASN1_NULL_new() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509v3_asid_add_id_or_range(ptr noundef %asid, i32 noundef %which, ptr noundef %min, ptr noundef %max) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_asid_add_id_or_range(ptr noundef %asid, i32 noundef %which, ptr noundef %min, ptr noundef %max) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %asid, null
   br i1 %cmp, label %return, label %if.end
@@ -446,21 +446,21 @@ declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #2
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509v3_asid_is_canonical(ptr noundef readonly %asid) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_asid_is_canonical(ptr noundef readonly %asid) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %asid, null
   br i1 %cmp, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %0 = load ptr, ptr %asid, align 8
-  %call = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef %0), !range !4
+  %call = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef %0)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.end, label %land.rhs
 
 land.rhs:                                         ; preds = %lor.rhs
   %rdi = getelementptr inbounds i8, ptr %asid, i64 8
   %1 = load ptr, ptr %rdi, align 8
-  %call1 = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef %1), !range !4
+  %call1 = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef %1)
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.rhs, %entry
@@ -469,7 +469,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ASIdentifierChoice_is_canonical(ptr noundef readonly %choice) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ASIdentifierChoice_is_canonical(ptr noundef readonly %choice) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %choice, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -614,7 +614,7 @@ if.then48:                                        ; preds = %if.end45
 if.end49:                                         ; preds = %if.end45
   %call50 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef nonnull %call46, ptr noundef %b_min.1) #5
   %cmp51 = icmp sgt i32 %call50, -1
-  br i1 %cmp51, label %done, label %for.cond, !llvm.loop !5
+  br i1 %cmp51, label %done, label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
   %call56 = tail call i32 @OPENSSL_sk_num(ptr noundef %3) #5
@@ -656,21 +656,21 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509v3_asid_canonize(ptr noundef readonly %asid) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_asid_canonize(ptr noundef readonly %asid) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %asid, null
   br i1 %cmp, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %0 = load ptr, ptr %asid, align 8
-  %call = tail call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %0), !range !4
+  %call = tail call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %0)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.end, label %land.rhs
 
 land.rhs:                                         ; preds = %lor.rhs
   %rdi = getelementptr inbounds i8, ptr %asid, i64 8
   %1 = load ptr, ptr %rdi, align 8
-  %call1 = tail call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %1), !range !4
+  %call1 = tail call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %1)
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.rhs, %entry
@@ -679,7 +679,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ASIdentifierChoice_canonize(ptr noundef %choice) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ASIdentifierChoice_canonize(ptr noundef %choice) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %choice, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -906,7 +906,7 @@ for.inc:                                          ; preds = %if.end68, %sw.epilo
   %call13 = tail call i32 @OPENSSL_sk_num(ptr noundef %23) #5
   %sub = add nsw i32 %call13, -1
   %cmp14 = icmp slt i32 %inc.pre-phi, %sub
-  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !7
+  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %if.end8
   %bn.0.lcssa = phi ptr [ null, %if.end8 ], [ %bn.1, %for.inc ]
@@ -935,7 +935,7 @@ lor.lhs.false117:                                 ; preds = %land.lhs.true110
   br i1 %cmp119, label %done, label %if.end123
 
 if.end123:                                        ; preds = %lor.lhs.false117, %land.lhs.true110, %for.end
-  %call124 = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef nonnull %choice), !range !4
+  %call124 = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef nonnull %choice)
   br label %done
 
 done:                                             ; preds = %if.end.i38, %lor.lhs.false22, %if.end.i, %for.body, %sw.bb, %if.end35, %lor.lhs.false39, %if.end26, %if.end123, %lor.lhs.false117, %if.then67, %if.then62, %if.then48
@@ -1159,7 +1159,7 @@ if.then102:                                       ; preds = %if.end98
 if.end104:                                        ; preds = %if.end98, %if.then75
   %max.1 = phi ptr [ %call92, %if.end98 ], [ null, %if.then75 ]
   %20 = load ptr, ptr %min, align 8
-  %call105 = call i32 @X509v3_asid_add_id_or_range(ptr noundef nonnull %call1.i, i32 noundef %which.0, ptr noundef %20, ptr noundef %max.1), !range !4
+  %call105 = call i32 @X509v3_asid_add_id_or_range(ptr noundef nonnull %call1.i, i32 noundef %which.0, ptr noundef %20, ptr noundef %max.1)
   %tobool106.not = icmp eq i32 %call105, 0
   br i1 %tobool106.not, label %if.then107, label %if.end108
 
@@ -1177,18 +1177,18 @@ for.inc:                                          ; preds = %X509v3_asid_add_inh
   %inc109 = add nuw nsw i32 %i.097, 1
   %call2 = call i32 @OPENSSL_sk_num(ptr noundef %values) #5
   %cmp3 = icmp slt i32 %inc109, %call2
-  br i1 %cmp3, label %for.body, label %lor.rhs.i, !llvm.loop !8
+  br i1 %cmp3, label %for.body, label %lor.rhs.i, !llvm.loop !7
 
 lor.rhs.i:                                        ; preds = %for.inc, %for.cond.preheader
   %21 = load ptr, ptr %call1.i, align 8
-  %call.i = call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %21), !range !4
+  %call.i = call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %21)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %err, label %X509v3_asid_canonize.exit
 
 X509v3_asid_canonize.exit:                        ; preds = %lor.rhs.i
   %rdi.i50 = getelementptr inbounds i8, ptr %call1.i, i64 8
   %22 = load ptr, ptr %rdi.i50, align 8
-  %call1.i51 = call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %22), !range !4
+  %call1.i51 = call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %22)
   %tobool111.not = icmp eq i32 %call1.i51, 0
   br i1 %tobool111.not, label %err, label %return
 
@@ -1206,17 +1206,17 @@ return:                                           ; preds = %X509v3_asid_canoniz
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @i2r_ASIdentifiers(ptr nocapture readnone %method, ptr nocapture noundef readonly %ext, ptr noundef %out, i32 noundef %indent) #1 {
+define internal range(i32 0, 2) i32 @i2r_ASIdentifiers(ptr nocapture readnone %method, ptr nocapture noundef readonly %ext, ptr noundef %out, i32 noundef %indent) #1 {
 entry:
   %0 = load ptr, ptr %ext, align 8
-  %call = tail call fastcc i32 @i2r_ASIdentifierChoice(ptr noundef %out, ptr noundef %0, i32 noundef %indent, ptr noundef nonnull @.str.20), !range !4
+  %call = tail call fastcc i32 @i2r_ASIdentifierChoice(ptr noundef %out, ptr noundef %0, i32 noundef %indent, ptr noundef nonnull @.str.20)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
   %rdi = getelementptr inbounds i8, ptr %ext, i64 8
   %1 = load ptr, ptr %rdi, align 8
-  %call1 = tail call fastcc i32 @i2r_ASIdentifierChoice(ptr noundef %out, ptr noundef %1, i32 noundef %indent, ptr noundef nonnull @.str.21), !range !4
+  %call1 = tail call fastcc i32 @i2r_ASIdentifierChoice(ptr noundef %out, ptr noundef %1, i32 noundef %indent, ptr noundef nonnull @.str.21)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
@@ -1225,7 +1225,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @X509v3_asid_inherits(ptr noundef readonly %asid) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @X509v3_asid_inherits(ptr noundef readonly %asid) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %asid, null
   br i1 %cmp.not, label %land.end9, label %land.rhs
@@ -1258,7 +1258,7 @@ land.end9:                                        ; preds = %land.lhs.true, %lan
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509v3_asid_subset(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509v3_asid_subset(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %a, %b
@@ -1322,7 +1322,7 @@ land.rhs:                                         ; preds = %lor.rhs
   %8 = load ptr, ptr %u, align 8
   %u15 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %u15, align 8
-  %call16 = tail call fastcc i32 @asid_contains(ptr noundef %8, ptr noundef %9), !range !4
+  %call16 = tail call fastcc i32 @asid_contains(ptr noundef %8, ptr noundef %9)
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %return, label %land.rhs.if.end20_crit_edge
 
@@ -1345,7 +1345,7 @@ land.rhs25:                                       ; preds = %lor.rhs22
   %12 = load ptr, ptr %u27, align 8
   %u29 = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load ptr, ptr %u29, align 8
-  %call30 = tail call fastcc i32 @asid_contains(ptr noundef %12, ptr noundef %13), !range !4
+  %call30 = tail call fastcc i32 @asid_contains(ptr noundef %12, ptr noundef %13)
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i19, %land.lhs.true.i, %lor.rhs, %if.end20, %land.rhs25, %lor.rhs22, %land.rhs, %X509v3_asid_inherits.exit, %X509v3_asid_inherits.exit27, %if.end, %entry
@@ -1354,7 +1354,7 @@ return:                                           ; preds = %land.lhs.true.i19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @asid_contains(ptr noundef %parent, ptr noundef %child) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @asid_contains(ptr noundef %parent, ptr noundef %child) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %child, null
   %cmp1 = icmp eq ptr %parent, %child
@@ -1374,7 +1374,7 @@ for.cond:                                         ; preds = %if.end27
   %inc33 = add nuw nsw i32 %c.038, 1
   %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef %child) #5
   %cmp6 = icmp slt i32 %inc33, %call5
-  br i1 %cmp6, label %for.body, label %return, !llvm.loop !9
+  br i1 %cmp6, label %for.body, label %return, !llvm.loop !8
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %c.038 = phi i32 [ %inc33, %for.cond ], [ 0, %for.cond.preheader ]
@@ -1546,14 +1546,14 @@ if.end46:                                         ; preds = %if.end36, %if.else
   %i.0 = phi i32 [ 0, %if.else ], [ -1, %if.end36 ]
   %x.0 = phi ptr [ %call41, %if.else ], [ null, %if.end36 ]
   %3 = load ptr, ptr %ext.addr.0, align 8
-  %call.i = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef %3), !range !4
+  %call.i = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef %3)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %do.body, label %X509v3_asid_is_canonical.exit
 
 X509v3_asid_is_canonical.exit:                    ; preds = %if.end46
   %rdi.i = getelementptr inbounds i8, ptr %ext.addr.0, i64 8
   %4 = load ptr, ptr %rdi.i, align 8
-  %call1.i = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef %4), !range !4
+  %call1.i = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef %4)
   %tobool48.not = icmp eq i32 %call1.i, 0
   br i1 %tobool48.not, label %do.body, label %if.end61
 
@@ -1676,14 +1676,14 @@ if.end123:                                        ; preds = %do.body113
 
 lor.rhs.i:                                        ; preds = %if.end102
   %14 = load ptr, ptr %12, align 8
-  %call.i138 = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef %14), !range !4
+  %call.i138 = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef %14)
   %tobool.not.i139 = icmp eq i32 %call.i138, 0
   br i1 %tobool.not.i139, label %do.body134, label %X509v3_asid_is_canonical.exit144
 
 X509v3_asid_is_canonical.exit144:                 ; preds = %lor.rhs.i
   %rdi.i141 = getelementptr inbounds i8, ptr %12, i64 8
   %15 = load ptr, ptr %rdi.i141, align 8
-  %call1.i142 = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef %15), !range !4
+  %call1.i142 = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef %15)
   %tobool132.not = icmp eq i32 %call1.i142, 0
   br i1 %tobool132.not, label %do.body134, label %if.end149
 
@@ -1753,7 +1753,7 @@ if.then183:                                       ; preds = %land.lhs.true177
 lor.lhs.false185:                                 ; preds = %if.then183
   %u188 = getelementptr inbounds i8, ptr %22, i64 8
   %25 = load ptr, ptr %u188, align 8
-  %call189 = tail call fastcc i32 @asid_contains(ptr noundef %25, ptr noundef %child_as.2), !range !4
+  %call189 = tail call fastcc i32 @asid_contains(ptr noundef %25, ptr noundef %child_as.2)
   %tobool190.not = icmp eq i32 %call189, 0
   br i1 %tobool190.not, label %do.body196, label %lor.lhs.false185.if.then191_crit_edge
 
@@ -1843,7 +1843,7 @@ if.then247:                                       ; preds = %land.lhs.true241
 lor.lhs.false249:                                 ; preds = %if.then247
   %u252 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load ptr, ptr %u252, align 8
-  %call253 = tail call fastcc i32 @asid_contains(ptr noundef %37, ptr noundef %child_rdi.2), !range !4
+  %call253 = tail call fastcc i32 @asid_contains(ptr noundef %37, ptr noundef %child_rdi.2)
   %tobool254.not = icmp eq i32 %call253, 0
   br i1 %tobool254.not, label %do.body260, label %lor.lhs.false249.if.then255_crit_edge
 
@@ -1880,7 +1880,7 @@ for.inc:                                          ; preds = %if.end236, %land.lh
   %i.1 = add nuw nsw i32 %i.1207, 1
   %call81 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %chain) #5
   %cmp82 = icmp slt i32 %i.1, %call81
-  br i1 %cmp82, label %for.body, label %if.end294, !llvm.loop !10
+  br i1 %cmp82, label %for.body, label %if.end294, !llvm.loop !9
 
 for.end:                                          ; preds = %if.end79
   %cmp278.not = icmp eq ptr %x.0, null
@@ -2063,7 +2063,7 @@ declare ptr @s2i_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @i2r_ASIdentifierChoice(ptr noundef %out, ptr noundef readonly %choice, i32 noundef %indent, ptr noundef %msg) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @i2r_ASIdentifierChoice(ptr noundef %out, ptr noundef readonly %choice, i32 noundef %indent, ptr noundef %msg) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %choice, null
   br i1 %cmp, label %return, label %if.end
@@ -2139,7 +2139,7 @@ for.inc:                                          ; preds = %if.end15, %if.end30
   %9 = load ptr, ptr %u, align 8
   %call4 = tail call i32 @OPENSSL_sk_num(ptr noundef %9) #5
   %cmp5 = icmp slt i32 %inc, %call4
-  br i1 %cmp5, label %for.body, label %return, !llvm.loop !11
+  br i1 %cmp5, label %for.body, label %return, !llvm.loop !10
 
 return:                                           ; preds = %sw.bb10, %sw.bb18, %if.end23, %for.body, %for.inc, %for.cond.preheader, %sw.bb, %if.end, %entry
   %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.end ], [ 1, %sw.bb ], [ 1, %for.cond.preheader ], [ 0, %sw.bb10 ], [ 0, %sw.bb18 ], [ 0, %if.end23 ], [ 0, %for.body ], [ 1, %for.inc ]
@@ -2164,11 +2164,10 @@ attributes #6 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

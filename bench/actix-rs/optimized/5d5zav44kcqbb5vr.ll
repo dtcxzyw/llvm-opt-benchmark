@@ -130,7 +130,7 @@ define void @_ZN12actix_router8resource11ResourceDef11root_prefix17h760f6ac3af35
           to label %25 unwind label %22, !noalias !5
 
 25:                                               ; preds = %24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   br label %_ZN12actix_router8resource12insert_slash17hba1dd6d093853746E.exit
 
 26:                                               ; preds = %22

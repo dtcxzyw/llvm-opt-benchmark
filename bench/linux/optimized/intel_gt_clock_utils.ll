@@ -217,7 +217,7 @@ define dso_local i64 @intel_gt_pm_interval_to_ns(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @intel_gt_ns_to_clock_interval(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 0, 18446744074) i64 @intel_gt_ns_to_clock_interval(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 3584
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -228,7 +228,7 @@ define dso_local i64 @intel_gt_ns_to_clock_interval(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i64 @intel_gt_ns_to_pm_interval(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i64 0, 1152921530) i64 @intel_gt_ns_to_pm_interval(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 3584
   %4 = load i32, ptr %3, align 8
   %5 = freeze i32 %4
@@ -246,7 +246,7 @@ define dso_local i64 @intel_gt_ns_to_pm_interval(ptr nocapture noundef readonly 
 
 16:                                               ; preds = %2
   %17 = add nuw nsw i64 %11, 24
-  %.lhs.trunc = trunc i64 %17 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %17 to i32
   %18 = urem i32 %.lhs.trunc, 25
   %.zext = zext nneg i32 %18 to i64
   %19 = sub nuw nsw i64 %17, %.zext

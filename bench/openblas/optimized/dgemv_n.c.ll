@@ -72,7 +72,7 @@ define noundef i32 @dgemv_n(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   %59 = load double, ptr %12, align 8, !tbaa !7
   %60 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %59, i64 0
   %61 = shufflevector <2 x double> %60, <2 x double> poison, <4 x i32> zeroinitializer
-  %62 = trunc i64 %48 to i32
+  %62 = trunc nsw i64 %48 to i32
   %63 = and i32 %62, -8
   %64 = shufflevector <2 x double> %60, <2 x double> poison, <8 x i32> zeroinitializer
   %65 = icmp sgt i32 %63, 0
@@ -86,7 +86,7 @@ define noundef i32 @dgemv_n(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   %69 = load double, ptr %12, align 8, !tbaa !7
   %70 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %69, i64 0
   %71 = shufflevector <2 x double> %70, <2 x double> poison, <4 x i32> zeroinitializer
-  %72 = trunc i64 %48 to i32
+  %72 = trunc nsw i64 %48 to i32
   %73 = and i32 %72, -8
   %74 = shufflevector <2 x double> %70, <2 x double> poison, <8 x i32> zeroinitializer
   %75 = icmp sgt i32 %73, 0

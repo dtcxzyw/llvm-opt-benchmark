@@ -224,7 +224,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @.str.14 = private unnamed_addr constant [38 x i8] c"SQLite3 database has been locked for \00", align 1
 @.str.15 = private unnamed_addr constant [5 x i8] c" ms.\00", align 1
 @warningstream = external thread_local global %class.LogStream, align 8
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.16 = private unnamed_addr constant [22 x i8] c" ms; this causes lag.\00", align 1
 @.str.17 = private unnamed_addr constant [17 x i8] c" ms - giving up!\00", align 1
 @.str.18 = private unnamed_addr constant [10 x i8] c" seconds!\00", align 1
@@ -276,7 +276,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @.str.53 = private unnamed_addr constant [63 x i8] c"Failed to prepare query 'DELETE FROM `blocks` WHERE `pos` = ?'\00", align 1
 @.str.54 = private unnamed_addr constant [27 x i8] c"SELECT `pos` FROM `blocks`\00", align 1
 @.str.55 = private unnamed_addr constant [53 x i8] c"Failed to prepare query 'SELECT `pos` FROM `blocks`'\00", align 1
-@verbosestream = external thread_local global %class.LogStream, align 8
+@verbosestream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.56 = private unnamed_addr constant [36 x i8] c"ServerMap: SQLite3 database opened.\00", align 1
 @.str.57 = private unnamed_addr constant [37 x i8] c"deleteBlock: Block failed to delete \00", align 1
 @.str.58 = private unnamed_addr constant [164 x i8] c"Internal error: failed to bind query at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/minetest/minetest/src/database/database-sqlite3.cpp:267\00", align 1
@@ -720,7 +720,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef i32 @_ZN16Database_SQLite311busyHandlerEPvi(ptr nocapture noundef %data, i32 noundef %count) #6 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN16Database_SQLite311busyHandlerEPvi(ptr nocapture noundef %data, i32 noundef %count) #6 align 2 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %arrayidx1 = getelementptr inbounds i8, ptr %data, i64 8
@@ -2948,7 +2948,7 @@ if.then.i.i.i363:                                 ; preds = %while.end.i.i.i
   br label %_Z4itosB5cxx11i.exit
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %107 = trunc i32 %__val.addr.0.lcssa.i.i.i to i8
+  %107 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %107, 48
   br label %_Z4itosB5cxx11i.exit
 
@@ -5939,7 +5939,7 @@ if.then:                                          ; preds = %entry
   %vec.sroa.2.0.extract.shift.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 16
   %vec.sroa.2.0.extract.trunc.i = trunc i48 %vec.sroa.2.0.extract.shift.i to i16
   %vec.sroa.3.0.extract.shift.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 32
-  %vec.sroa.3.0.extract.trunc.i = trunc i48 %vec.sroa.3.0.extract.shift.i to i16
+  %vec.sroa.3.0.extract.trunc.i = trunc nuw i48 %vec.sroa.3.0.extract.shift.i to i16
   %call1.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.180, i64 noundef 1)
   %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEs(ptr noundef nonnull align 8 dereferenceable(8) %0, i16 noundef signext %vec.sroa.0.0.extract.trunc.i)
   %call1.i8.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call1.i, ptr noundef nonnull @.str.181, i64 noundef 1)
@@ -21542,7 +21542,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal noundef i32 @"_ZZN25ModStorageDatabaseSQLite38listModsEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEN3$_08__invokeEPviPPcSD_"(ptr noundef nonnull %res_vp, i32 %n_col, ptr noundef nonnull %cols, ptr nocapture readnone %col_names) #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @"_ZZN25ModStorageDatabaseSQLite38listModsEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEN3$_08__invokeEPviPPcSD_"(ptr noundef nonnull %res_vp, i32 %n_col, ptr noundef nonnull %cols, ptr nocapture readnone %col_names) #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPcEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %res_vp, ptr noundef nonnull align 8 dereferenceable(8) %cols)
           to label %"_ZZN25ModStorageDatabaseSQLite38listModsEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEENK3$_0clEPviPPcSD_.exit" unwind label %lpad.i

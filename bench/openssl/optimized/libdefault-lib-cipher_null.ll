@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @null_einit(ptr nocapture noundef writeonly %vctx, ptr nocapture readnone %key, i64 %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr nocapture readnone %params) #0 {
+define internal range(i32 0, 2) i32 @null_einit(ptr nocapture noundef writeonly %vctx, ptr nocapture readnone %key, i64 %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr nocapture readnone %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -57,7 +57,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @null_dinit(ptr nocapture readnone %vctx, ptr nocapture readnone %key, i64 %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr nocapture readnone %params) #0 {
+define internal range(i32 0, 2) i32 @null_dinit(ptr nocapture readnone %vctx, ptr nocapture readnone %key, i64 %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr nocapture readnone %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp ne i32 %call, 0
@@ -66,7 +66,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @null_cipher(ptr nocapture noundef %vctx, ptr noundef writeonly %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
+define internal range(i32 0, 2) i32 @null_cipher(ptr nocapture noundef %vctx, ptr noundef writeonly %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -119,7 +119,7 @@ return:                                           ; preds = %if.end10, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @null_final(ptr nocapture readnone %vctx, ptr nocapture readnone %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
+define internal range(i32 0, 2) i32 @null_final(ptr nocapture readnone %vctx, ptr nocapture readnone %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -144,7 +144,7 @@ entry:
 declare ptr @ossl_cipher_generic_gettable_params(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @null_get_ctx_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @null_get_ctx_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #4
   %cmp.not = icmp eq ptr %call, null
@@ -198,7 +198,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @null_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @null_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.4) #4
   %cmp.not = icmp eq ptr %call, null

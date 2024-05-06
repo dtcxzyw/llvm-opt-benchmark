@@ -108,7 +108,7 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @legacy_params(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %2, 1
   br i1 %7, label %8, label %101
 
@@ -2630,7 +2630,7 @@ declare void @gtk_widget_set_tooltip_text(ptr noundef, ptr noundef) local_unname
 declare ptr @dt_iop_togglebutton_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_edit_masks(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_edit_masks(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !144
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !145
@@ -2782,7 +2782,7 @@ define internal noundef i32 @_edit_masks(ptr nocapture readnone %0, ptr nocaptur
 declare void @dtgtk_cairo_paint_masks_eye(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_add_shape_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_add_shape_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !144
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !145
@@ -3227,7 +3227,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !153
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

@@ -174,7 +174,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #5 sect
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.SDL_DisplayMode, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

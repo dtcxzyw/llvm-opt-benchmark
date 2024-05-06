@@ -184,7 +184,7 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   br i1 %130, label %asum_compute.exit, label %.preheader.i, !llvm.loop !15
 
 131:                                              ; preds = %19
-  %132 = mul nsw i64 %2, %0
+  %132 = mul nuw nsw i64 %2, %0
   %133 = icmp sgt i64 %132, 0
   br i1 %133, label %.preheader8.i, label %asum_compute.exit
 
@@ -395,7 +395,7 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   br i1 %125, label %asum_compute.exit, label %.preheader.i, !llvm.loop !15
 
 126:                                              ; preds = %14
-  %127 = mul nsw i64 %5, %0
+  %127 = mul nuw nsw i64 %5, %0
   %128 = icmp sgt i64 %127, 0
   br i1 %128, label %.preheader8.i, label %asum_compute.exit
 

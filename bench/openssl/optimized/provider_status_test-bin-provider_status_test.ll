@@ -77,7 +77,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -158,9 +158,9 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @OSSL_SELF_TEST_set_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @self_test_on_load(ptr noundef %params, ptr nocapture noundef %arg) #1 {
+define internal range(i32 0, 2) i32 @self_test_on_load(ptr noundef %params, ptr nocapture noundef %arg) #1 {
 entry:
-  %call = tail call fastcc i32 @self_test_events(ptr noundef %params, ptr noundef %arg, ptr noundef nonnull @.str.22, i32 noundef 0), !range !7
+  %call = tail call fastcc i32 @self_test_events(ptr noundef %params, ptr noundef %arg, ptr noundef nonnull @.str.22, i32 noundef 0)
   ret i32 %call
 }
 
@@ -171,7 +171,7 @@ declare i32 @opt_printf_stderr(ptr noundef, ...) local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_provider_status() #1 {
+define internal range(i32 0, 2) i32 @test_provider_status() #1 {
 entry:
   %status = alloca i32, align 4
   %params = alloca [2 x %struct.ossl_param_st], align 16
@@ -186,7 +186,7 @@ entry:
   br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call fastcc i32 @get_provider_params(ptr noundef %call), !range !7
+  %call2 = tail call fastcc i32 @get_provider_params(ptr noundef %call)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %err, label %if.end5
 
@@ -272,7 +272,7 @@ err:                                              ; preds = %if.end48, %if.end37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_provider_gettable_params() #1 {
+define internal range(i32 0, 2) i32 @test_provider_gettable_params() #1 {
 entry:
   %0 = load ptr, ptr @libctx, align 8
   %1 = load ptr, ptr @provider_name, align 8
@@ -282,7 +282,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call fastcc i32 @get_provider_params(ptr noundef %call), !range !7
+  %call2 = tail call fastcc i32 @get_provider_params(ptr noundef %call)
   %call3 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %call) #5
   br label %return
 
@@ -302,7 +302,7 @@ entry:
 declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @self_test_events(ptr noundef %params, ptr nocapture noundef %arg, ptr noundef %title, i32 noundef %corrupt) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @self_test_events(ptr noundef %params, ptr nocapture noundef %arg, ptr noundef %title, i32 noundef %corrupt) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %arg, align 4
   %cmp = icmp eq i32 %0, 0
@@ -407,7 +407,7 @@ declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_
 declare ptr @OSSL_PROVIDER_load(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_provider_params(ptr noundef %prov) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @get_provider_params(ptr noundef %prov) unnamed_addr #1 {
 entry:
   %params = alloca [5 x %struct.ossl_param_st], align 16
   %name = alloca ptr, align 8
@@ -533,18 +533,18 @@ declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @self_test_on_demand(ptr noundef %params, ptr nocapture noundef %arg) #1 {
+define internal range(i32 0, 2) i32 @self_test_on_demand(ptr noundef %params, ptr nocapture noundef %arg) #1 {
 entry:
-  %call = tail call fastcc i32 @self_test_events(ptr noundef %params, ptr noundef %arg, ptr noundef nonnull @.str.54, i32 noundef 0), !range !7
+  %call = tail call fastcc i32 @self_test_events(ptr noundef %params, ptr noundef %arg, ptr noundef nonnull @.str.54, i32 noundef 0)
   ret i32 %call
 }
 
 declare i32 @OSSL_PROVIDER_self_test(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @self_test_on_demand_fail(ptr noundef %params, ptr nocapture noundef %arg) #1 {
+define internal range(i32 0, 2) i32 @self_test_on_demand_fail(ptr noundef %params, ptr nocapture noundef %arg) #1 {
 entry:
-  %call = tail call fastcc i32 @self_test_events(ptr noundef %params, ptr noundef %arg, ptr noundef nonnull @.str.55, i32 noundef 1), !range !7
+  %call = tail call fastcc i32 @self_test_events(ptr noundef %params, ptr noundef %arg, ptr noundef nonnull @.str.55, i32 noundef 1)
   ret i32 %call
 }
 
@@ -583,4 +583,3 @@ attributes #6 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}

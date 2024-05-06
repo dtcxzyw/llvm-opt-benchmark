@@ -108,7 +108,7 @@ define hidden void @"_ZN9rand_core5block17BlockRng$LT$R$GT$3new17hd921afab69fd6c
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN74_$LT$rand..distributions..uniform..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h51d8475ee1c3560fE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1, !range !20, !noundef !7
-  %trunc = trunc i8 %3 to i1
+  %trunc = trunc nuw i8 %3 to i1
   %. = select i1 %trunc, i64 40, i64 58
   %anon.babe30cb278fe6d131dce567c988361c.5.anon.babe30cb278fe6d131dce567c988361c.6 = select i1 %trunc, ptr @anon.babe30cb278fe6d131dce567c988361c.6, ptr @anon.babe30cb278fe6d131dce567c988361c.5
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.babe30cb278fe6d131dce567c988361c.5.anon.babe30cb278fe6d131dce567c988361c.6, i64 noundef %.)
@@ -116,7 +116,7 @@ define noundef zeroext i1 @"_ZN74_$LT$rand..distributions..uniform..Error$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN4rand13distributions7uniform16char_to_comp_u3217h1c7648e96ed3bdc1E(i32 noundef %0) unnamed_addr #3 {
+define noundef range(i32 0, -2048) i32 @_ZN4rand13distributions7uniform16char_to_comp_u3217h1c7648e96ed3bdc1E(i32 noundef %0) unnamed_addr #3 {
   %2 = icmp ugt i32 %0, 55295
   %3 = add i32 %0, -2048
   %.0 = select i1 %2, i32 %3, i32 %0
@@ -135,7 +135,7 @@ define hidden noundef nonnull ptr @_ZN4rand4rngs6thread14THREAD_RNG_KEY6__init17
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @_ZN9rand_core11SeedableRng8from_rng17h46aae3730df8aefeE(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 16 dereferenceable(64) %4)
   %5 = load i64, ptr %4, align 16, !range !21, !noundef !7
-  %trunc = trunc i64 %5 to i1
+  %trunc = trunc nuw i64 %5 to i1
   br i1 %trunc, label %10, label %6
 
 6:                                                ; preds = %0

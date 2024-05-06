@@ -279,7 +279,7 @@ define internal i32 @dissect_btsmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %40, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
   %42 = load i32, ptr @hf_btsmp_oob_data_flags, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %42, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #2
-  %44 = tail call fastcc i32 @dissect_btsmp_auth_req(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %1, ptr noundef %23), !range !4
+  %44 = tail call fastcc i32 @dissect_btsmp_auth_req(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %1, ptr noundef %23)
   %45 = load i32, ptr @hf_btsmp_max_enc_key_size, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %45, ptr noundef %0, i32 noundef %44, i32 noundef 1, i32 noundef -2147483648) #2
   %47 = add nuw nsw i32 %44, 1
@@ -339,7 +339,7 @@ define internal i32 @dissect_btsmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 82:                                               ; preds = %31
   %83 = load ptr, ptr %24, align 8
   tail call void @col_append_str(ptr noundef %83, i32 noundef 25, ptr noundef nonnull @.str.113) #2
-  %84 = tail call fastcc i32 @dissect_btsmp_auth_req(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %23), !range !4
+  %84 = tail call fastcc i32 @dissect_btsmp_auth_req(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %23)
   br label %107
 
 85:                                               ; preds = %31
@@ -422,7 +422,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_btsmp_auth_req(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 2, 5) i32 @dissect_btsmp_auth_req(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.116) #2
@@ -593,4 +593,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 2, i32 5}

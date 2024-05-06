@@ -186,7 +186,7 @@ $_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeE
 @.str.62 = private unnamed_addr constant [14 x i8] c"--- DONE ---\0A\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ssl_ctx.i = alloca %"class.std::unique_ptr", align 8
   %cipher_list.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1392,7 +1392,7 @@ if.end256:                                        ; preds = %invoke.cont251, %if
   br i1 %cmp.i125, label %if.then.i126, label %if.end.i
 
 if.then.i126:                                     ; preds = %if.end256
-  call void @perror(ptr noundef nonnull @.str.35) #26
+  call void @perror(ptr noundef nonnull readonly @.str.35) #26
   br label %invoke.cont258.thread
 
 if.end.i:                                         ; preds = %if.end256
@@ -1422,7 +1422,7 @@ call11.i.noexc:                                   ; preds = %if.end10.i
 
 if.then13.i.invoke:                               ; preds = %call11.i.noexc, %if.end5.i, %if.end.i
   %.str.36.sink = phi ptr [ @.str.36, %if.end.i ], [ @.str.38, %if.end5.i ], [ @.str.39, %call11.i.noexc ]
-  call void @perror(ptr noundef nonnull %.str.36.sink) #26
+  call void @perror(ptr noundef nonnull readonly %.str.36.sink) #26
   %38 = invoke noundef i32 @close(i32 noundef %call.i)
           to label %invoke.cont258.thread unwind label %lpad
 
@@ -2447,7 +2447,7 @@ return:                                           ; preds = %if.else, %if.then5,
 declare void @SSL_CTX_set_select_certificate_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL25SelectCertificateCallbackPK22ssl_early_callback_ctx(ptr noundef %ctx) #7 {
+define internal noundef range(i32 -1, 2) i32 @_ZL25SelectCertificateCallbackPK22ssl_early_callback_ctx(ptr noundef %ctx) #7 {
 entry:
   %extension_data = alloca ptr, align 8
   %extension_len = alloca i64, align 8
@@ -2559,7 +2559,7 @@ return:                                           ; preds = %if.end41, %if.then3
 declare void @SSL_CTX_set_client_cert_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL18ClientCertCallbackP6ssl_stPP7x509_stPP11evp_pkey_st(ptr noundef %ssl, ptr nocapture noundef writeonly %out_x509, ptr nocapture noundef writeonly %out_pkey) #7 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 -1, 2) i32 @_ZL18ClientCertCallbackP6ssl_stPP7x509_stPP11evp_pkey_st(ptr noundef %ssl, ptr nocapture noundef writeonly %out_x509, ptr nocapture noundef writeonly %out_pkey) #7 personality ptr @__gxx_personality_v0 {
 entry:
   %x509 = alloca %"class.std::unique_ptr.31", align 8
   %pkey = alloca %"class.std::unique_ptr.10", align 8
@@ -2646,7 +2646,7 @@ return:                                           ; preds = %if.then.i5, %_ZNSt1
 declare void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL28NextProtosAdvertisedCallbackP6ssl_stPPKhPjPv(ptr noundef %ssl, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, ptr nocapture readnone %arg) #7 {
+define internal noundef range(i32 0, 4) i32 @_ZL28NextProtosAdvertisedCallbackP6ssl_stPPKhPjPv(ptr noundef %ssl, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, ptr nocapture readnone %arg) #7 {
 entry:
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
@@ -2670,7 +2670,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @SSL_CTX_set_next_proto_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL23NextProtoSelectCallbackP6ssl_stPPhS1_PKhjPv(ptr noundef %ssl, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %in, i32 %inlen, ptr nocapture readnone %arg) #7 {
+define internal noundef range(i32 0, 4) i32 @_ZL23NextProtoSelectCallbackP6ssl_stPPhS1_PKhjPv(ptr noundef %ssl, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %in, i32 %inlen, ptr nocapture readnone %arg) #7 {
 entry:
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
@@ -2694,7 +2694,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL18AlpnSelectCallbackP6ssl_stPPKhPhS2_jPv(ptr noundef %ssl, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture noundef readonly %in, i32 noundef %inlen, ptr nocapture readnone %arg) #7 {
+define internal noundef range(i32 0, 4) i32 @_ZL18AlpnSelectCallbackP6ssl_stPPKhPhS2_jPv(ptr noundef %ssl, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture noundef readonly %in, i32 noundef %inlen, ptr nocapture readnone %arg) #7 {
 entry:
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
@@ -2815,7 +2815,7 @@ entry:
 declare i32 @SSL_CTX_set_tlsext_ticket_key_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL17TicketKeyCallbackP6ssl_stPhS1_P17evp_cipher_ctx_stP11hmac_ctx_sti(ptr noundef %ssl, ptr nocapture noundef %key_name, ptr noundef %iv, ptr noundef %ctx, ptr noundef %hmac_ctx, i32 noundef %encrypt) #7 {
+define internal noundef range(i32 -1, 3) i32 @_ZL17TicketKeyCallbackP6ssl_stPhS1_P17evp_cipher_ctx_stP11hmac_ctx_sti(ptr noundef %ssl, ptr nocapture noundef %key_name, ptr noundef %iv, ptr noundef %ctx, ptr noundef %hmac_ctx, i32 noundef %encrypt) #7 {
 entry:
   %tobool.not = icmp ne i32 %encrypt, 0
   br i1 %tobool.not, label %if.then, label %if.else
@@ -2861,7 +2861,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 declare i32 @SSL_CTX_add_client_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL26CustomExtensionAddCallbackP6ssl_stjPPKhPmPiPv(ptr noundef %ssl, i32 noundef %extension_value, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, ptr nocapture readnone %out_alert_value, ptr noundef readnone %add_arg) #7 {
+define internal noundef range(i32 -1, 2) i32 @_ZL26CustomExtensionAddCallbackP6ssl_stjPPKhPmPiPv(ptr noundef %ssl, i32 noundef %extension_value, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, ptr nocapture readnone %out_alert_value, ptr noundef readnone %add_arg) #7 {
 entry:
   %cmp = icmp ne i32 %extension_value, 1234
   %cmp1 = icmp ne ptr %add_arg, inttoptr (i64 1234 to ptr)
@@ -2917,7 +2917,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL28CustomExtensionParseCallbackP6ssl_stjPKhmPiPv(ptr nocapture readnone %ssl, i32 noundef %extension_value, ptr nocapture noundef readonly %contents, i64 noundef %contents_len, ptr nocapture noundef writeonly %out_alert_value, ptr noundef readnone %parse_arg) #3 {
+define internal noundef range(i32 0, 2) i32 @_ZL28CustomExtensionParseCallbackP6ssl_stjPKhmPiPv(ptr nocapture readnone %ssl, i32 noundef %extension_value, ptr nocapture noundef readonly %contents, i64 noundef %contents_len, ptr nocapture noundef writeonly %out_alert_value, ptr noundef readnone %parse_arg) #3 {
 entry:
   %cmp = icmp ne i32 %extension_value, 1234
   %cmp1 = icmp ne ptr %parse_arg, inttoptr (i64 1235 to ptr)
@@ -2959,7 +2959,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL13VerifySucceedP17x509_store_ctx_stPv(ptr noundef %store_ctx, ptr nocapture readnone %arg) #7 {
+define internal noundef range(i32 0, 2) i32 @_ZL13VerifySucceedP17x509_store_ctx_stPv(ptr noundef %store_ctx, ptr nocapture readnone %arg) #7 {
 entry:
   %data = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -3699,7 +3699,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZL30AsyncPrivateKeyMaxSignatureLenP6ssl_st(ptr noundef %ssl) #7 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL30AsyncPrivateKeyMaxSignatureLenP6ssl_st(ptr noundef %ssl) #7 {
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
@@ -3711,7 +3711,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL19AsyncPrivateKeySignP6ssl_stPhPmmPK9env_md_stPKhm(ptr noundef %ssl, ptr nocapture readnone %out, ptr nocapture readnone %out_len, i64 %max_out, ptr noundef %md, ptr noundef %in, i64 noundef %in_len) #7 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 1, 3) i32 @_ZL19AsyncPrivateKeySignP6ssl_stPhPmmPK9env_md_stPKhm(ptr noundef %ssl, ptr nocapture readnone %out, ptr nocapture readnone %out_len, i64 %max_out, ptr noundef %md, ptr noundef %in, i64 noundef %in_len) #7 personality ptr @__gxx_personality_v0 {
 entry:
   %ctx = alloca %"class.std::unique_ptr.63", align 8
   %len = alloca i64, align 8
@@ -3806,7 +3806,7 @@ _ZNSt10unique_ptrI15evp_pkey_ctx_st14OpenSSLDeleterIS0_XadL_Z17EVP_PKEY_CTX_free
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL27AsyncPrivateKeySignCompleteP6ssl_stPhPmm(ptr noundef %ssl, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out) #7 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 3) i32 @_ZL27AsyncPrivateKeySignCompleteP6ssl_stPhPmm(ptr noundef %ssl, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out) #7 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
@@ -3868,7 +3868,7 @@ return:                                           ; preds = %if.end, %_ZNSt6vect
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL22AsyncPrivateKeyDecryptP6ssl_stPhPmmPKhm(ptr noundef %ssl, ptr nocapture readnone %out, ptr noundef %out_len, i64 %max_out, ptr noundef %in, i64 noundef %in_len) #7 {
+define internal noundef range(i32 1, 3) i32 @_ZL22AsyncPrivateKeyDecryptP6ssl_stPhPmmPKhm(ptr noundef %ssl, ptr nocapture readnone %out, ptr noundef %out_len, i64 %max_out, ptr noundef %in, i64 noundef %in_len) #7 {
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
@@ -3920,7 +3920,7 @@ return:                                           ; preds = %if.end7, %if.end16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL30AsyncPrivateKeyDecryptCompleteP6ssl_stPhPmm(ptr noundef %ssl, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out) #7 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 3) i32 @_ZL30AsyncPrivateKeyDecryptCompleteP6ssl_stPhPmm(ptr noundef %ssl, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out) #7 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
@@ -4032,7 +4032,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub
+  %add.ptr.i.i.i.i.i.i = getelementptr i8, ptr %0, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
@@ -4183,7 +4183,7 @@ declare i32 @SSL_set_mode(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @SSL_set_cert_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL12CertCallbackP6ssl_stPv(ptr noundef %ssl, ptr nocapture readnone %arg) #7 {
+define internal noundef range(i32 -1, 2) i32 @_ZL12CertCallbackP6ssl_stPv(ptr noundef %ssl, ptr nocapture readnone %arg) #7 {
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
@@ -4327,7 +4327,7 @@ declare i32 @SSL_set_mtu(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @SSL_CTX_set_dos_protection_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL12DDoSCallbackPK22ssl_early_callback_ctx(ptr nocapture noundef readonly %early_context) #7 {
+define internal noundef range(i32 0, 2) i32 @_ZL12DDoSCallbackPK22ssl_early_callback_ctx(ptr nocapture noundef readonly %early_context) #7 {
 entry:
   %0 = load ptr, ptr %early_context, align 8
   %1 = load i32, ptr @_ZL14g_config_index, align 4
@@ -5014,7 +5014,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIhSaIhE
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit
   %call5.i.i.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %__n) #29
   store ptr %call5.i.i.i.i1.i, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %__n
+  %add.ptr.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i, i64 %__n
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i, align 1

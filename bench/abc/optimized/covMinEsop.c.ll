@@ -82,7 +82,7 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
 
 .loopexit.i:                                      ; preds = %33
   %37 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv.next.i
-  %38 = trunc i64 %indvars.iv.next.i to i32
+  %38 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %39
 
 39:                                               ; preds = %.loopexit.i, %26
@@ -138,7 +138,7 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
 
 60:                                               ; preds = %57
   %61 = and i32 %59, 1431655765
-  %62 = tail call i32 @llvm.ctpop.i32(i32 %61), !range !7
+  %62 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %61)
   %.not.i.i = icmp ult i32 %62, 2
   br i1 %.not.i.i, label %63, label %Min_CubesDistTwo.exit.i
 
@@ -179,14 +179,14 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
   %.2.i.i = phi i32 [ %.162.i.i, %70 ], [ %77, %75 ], [ %.162.i.i, %65 ]
   %79 = add nuw nsw i32 %.04760.i.i, 2
   %80 = icmp ult i32 %.04760.i.i, 30
-  br i1 %80, label %65, label %.loopexit.i.i, !llvm.loop !8
+  br i1 %80, label %65, label %.loopexit.i.i, !llvm.loop !7
 
 .loopexit.i.i:                                    ; preds = %78, %47
   %.346.i.i = phi i32 [ %.04364.i.i, %47 ], [ %.245.i.i, %78 ]
   %.3.i.i = phi i32 [ %.065.i.i, %47 ], [ %.2.i.i, %78 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %47, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %47, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %.loopexit.i.i
   %81 = icmp sgt i32 %.346.i.i, -1
@@ -212,7 +212,7 @@ Min_EsopAddCube.exit234.i:                        ; preds = %Min_EsopAddCube.exi
 Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thread.i.i, %83
   %.0146.i = load ptr, ptr %.0146332.i, align 8
   %cond.i = icmp eq ptr %.0146.i, null
-  br i1 %cond.i, label %._crit_edge.i, label %42, !llvm.loop !10
+  br i1 %cond.i, label %._crit_edge.i, label %42, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %Min_CubesDistTwo.exit.i, %39
   %88 = load i32, ptr %0, align 8
@@ -273,7 +273,7 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
 
 115:                                              ; preds = %112
   %116 = and i32 %114, 1431655765
-  %117 = tail call i32 @llvm.ctpop.i32(i32 %116), !range !7
+  %117 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %116)
   %.not.i198.i = icmp ult i32 %117, 2
   br i1 %.not.i198.i, label %118, label %Min_CubesDistTwo.exit199.i
 
@@ -314,14 +314,14 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
   %.2.i186.i = phi i32 [ %.162.i180.i, %125 ], [ %132, %130 ], [ %.162.i180.i, %120 ]
   %134 = add nuw nsw i32 %.04760.i182.i, 2
   %135 = icmp ult i32 %.04760.i182.i, 30
-  br i1 %135, label %120, label %.loopexit.i187.i, !llvm.loop !8
+  br i1 %135, label %120, label %.loopexit.i187.i, !llvm.loop !7
 
 .loopexit.i187.i:                                 ; preds = %133, %102
   %.346.i188.i = phi i32 [ %.04364.i177.i, %102 ], [ %.245.i185.i, %133 ]
   %.3.i189.i = phi i32 [ %.065.i176.i, %102 ], [ %.2.i186.i, %133 ]
   %indvars.iv.next.i190.i = add nuw nsw i64 %indvars.iv.i175.i, 1
   %exitcond.not.i191.i = icmp eq i64 %indvars.iv.next.i190.i, %wide.trip.count.i174.i
-  br i1 %exitcond.not.i191.i, label %._crit_edge.i192.i, label %102, !llvm.loop !9
+  br i1 %exitcond.not.i191.i, label %._crit_edge.i192.i, label %102, !llvm.loop !8
 
 ._crit_edge.i192.i:                               ; preds = %.loopexit.i187.i
   %136 = icmp sgt i32 %.346.i188.i, -1
@@ -347,7 +347,7 @@ Min_CubesDistTwo.exit.i:                          ; preds = %60, %54, %73, %.thr
 Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.thread.i195.i, %138
   %.1147.i = load ptr, ptr %.1147336.i, align 8
   %.not160.i = icmp eq ptr %.1147.i, null
-  br i1 %.not160.i, label %.thread272.loopexit.i, label %97, !llvm.loop !11
+  br i1 %.not160.i, label %.thread272.loopexit.i, label %97, !llvm.loop !10
 
 .thread272.loopexit.i:                            ; preds = %Min_CubesDistTwo.exit199.i
   %.pre.i = load i32, ptr %0, align 8
@@ -413,7 +413,7 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
 
 171:                                              ; preds = %168
   %172 = and i32 %170, 1431655765
-  %173 = tail call i32 @llvm.ctpop.i32(i32 %172), !range !7
+  %173 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %172)
   %.not.i226.i = icmp ult i32 %173, 2
   br i1 %.not.i226.i, label %174, label %Min_CubesDistTwo.exit227.i
 
@@ -454,14 +454,14 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
   %.2.i214.i = phi i32 [ %.162.i208.i, %181 ], [ %188, %186 ], [ %.162.i208.i, %176 ]
   %190 = add nuw nsw i32 %.04760.i210.i, 2
   %191 = icmp ult i32 %.04760.i210.i, 30
-  br i1 %191, label %176, label %.loopexit.i215.i, !llvm.loop !8
+  br i1 %191, label %176, label %.loopexit.i215.i, !llvm.loop !7
 
 .loopexit.i215.i:                                 ; preds = %189, %158
   %.346.i216.i = phi i32 [ %.04364.i205.i, %158 ], [ %.245.i213.i, %189 ]
   %.3.i217.i = phi i32 [ %.065.i204.i, %158 ], [ %.2.i214.i, %189 ]
   %indvars.iv.next.i218.i = add nuw nsw i64 %indvars.iv.i203.i, 1
   %exitcond.not.i219.i = icmp eq i64 %indvars.iv.next.i218.i, %wide.trip.count.i202.i
-  br i1 %exitcond.not.i219.i, label %._crit_edge.i220.i, label %158, !llvm.loop !9
+  br i1 %exitcond.not.i219.i, label %._crit_edge.i220.i, label %158, !llvm.loop !8
 
 ._crit_edge.i220.i:                               ; preds = %.loopexit.i215.i
   %192 = icmp sgt i32 %.346.i216.i, -1
@@ -487,7 +487,7 @@ Min_CubesDistTwo.exit199.i:                       ; preds = %115, %109, %128, %.
 Min_CubesDistTwo.exit227.i:                       ; preds = %171, %165, %184, %.thread.i223.i, %194
   %.3.i = load ptr, ptr %.3342.i, align 8
   %.not162.i = icmp eq ptr %.3.i, null
-  br i1 %.not162.i, label %.thread290.i, label %153, !llvm.loop !12
+  br i1 %.not162.i, label %.thread290.i, label %153, !llvm.loop !11
 
 .thread290.i:                                     ; preds = %Min_CubesDistTwo.exit227.i, %146, %.thread272.i
   %199 = load ptr, ptr %.1.i, align 8
@@ -590,14 +590,14 @@ Min_EsopAddCube.exit234.i.backedge:               ; preds = %Min_EsopAddCube.exi
   br label %269
 
 269:                                              ; preds = %269, %.thread300.i
-  %270 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.1.i), !range !13
+  %270 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.1.i)
   %.not.i228.i = icmp eq i32 %270, 0
-  br i1 %.not.i228.i, label %Min_EsopAddCube.exit.i, label %269, !llvm.loop !14
+  br i1 %.not.i228.i, label %Min_EsopAddCube.exit.i, label %269, !llvm.loop !12
 
 Min_EsopAddCube.exit.i:                           ; preds = %269, %Min_EsopAddCube.exit.i
-  %271 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.4308.i), !range !13
+  %271 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.4308.i)
   %.not.i229.i = icmp eq i32 %271, 0
-  br i1 %.not.i229.i, label %Min_EsopAddCube.exit230.i, label %Min_EsopAddCube.exit.i, !llvm.loop !14
+  br i1 %.not.i229.i, label %Min_EsopAddCube.exit230.i, label %Min_EsopAddCube.exit.i, !llvm.loop !12
 
 Min_EsopAddCube.exit230.i:                        ; preds = %Min_EsopAddCube.exit.i
   %272 = load i32, ptr %2, align 8
@@ -662,14 +662,14 @@ Min_EsopAddCube.exit230.i:                        ; preds = %Min_EsopAddCube.exi
   br label %314
 
 314:                                              ; preds = %314, %275
-  %315 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.1.i), !range !13
+  %315 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.1.i)
   %.not.i231.i = icmp eq i32 %315, 0
-  br i1 %.not.i231.i, label %Min_EsopAddCube.exit232.i, label %314, !llvm.loop !14
+  br i1 %.not.i231.i, label %Min_EsopAddCube.exit232.i, label %314, !llvm.loop !12
 
 Min_EsopAddCube.exit232.i:                        ; preds = %314, %Min_EsopAddCube.exit232.i
-  %316 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.4308.i), !range !13
+  %316 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.4308.i)
   %.not.i233.i = icmp eq i32 %316, 0
-  br i1 %.not.i233.i, label %Min_EsopAddCube.exit234.i.backedge, label %Min_EsopAddCube.exit232.i, !llvm.loop !14
+  br i1 %.not.i233.i, label %Min_EsopAddCube.exit234.i.backedge, label %Min_EsopAddCube.exit232.i, !llvm.loop !12
 
 Min_EsopRewrite.exit:                             ; preds = %32
   %317 = load i32, ptr %2, align 8
@@ -679,21 +679,21 @@ Min_EsopRewrite.exit:                             ; preds = %32
   %321 = sitofp i32 %9 to double
   %322 = fdiv double %320, %321
   %323 = fcmp ogt double %322, 3.000000e+00
-  br i1 %323, label %7, label %.loopexit, !llvm.loop !15
+  br i1 %323, label %7, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %Min_EsopRewrite.exit, %1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Min_EsopAddCubeInt(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Min_EsopAddCubeInt(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = lshr i32 %6, 22
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr inbounds ptr, ptr %4, i64 %8
   %.082140 = load ptr, ptr %9, align 8
   %.not141 = icmp eq ptr %.082140, null
   br i1 %.not141, label %Min_CubesAreEqual.exit._crit_edge, label %.lr.ph
@@ -709,7 +709,7 @@ define noundef i32 @Min_EsopAddCubeInt(ptr nocapture noundef %0, ptr noundef %1)
 Min_CubesAreEqual.exit.loopexit:                  ; preds = %15
   %.082 = load ptr, ptr %.082143, align 8
   %.not = icmp eq ptr %.082, null
-  br i1 %.not, label %Min_CubesAreEqual.exit._crit_edge, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not, label %Min_CubesAreEqual.exit._crit_edge, label %.lr.ph.i, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %Min_CubesAreEqual.exit.loopexit
   %.082143 = phi ptr [ %.082, %Min_CubesAreEqual.exit.loopexit ], [ %.082140, %.lr.ph ]
@@ -720,7 +720,7 @@ Min_CubesAreEqual.exit.loopexit:                  ; preds = %15
 14:                                               ; preds = %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit124, label %15, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.loopexit124, label %15, !llvm.loop !15
 
 15:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
@@ -749,7 +749,7 @@ Min_CubesAreEqual.exit._crit_edge:                ; preds = %Min_CubesAreEqual.e
   br i1 %23, label %24, label %.loopexit123
 
 24:                                               ; preds = %Min_CubesAreEqual.exit._crit_edge
-  %25 = getelementptr i8, ptr %9, i64 8
+  %25 = getelementptr inbounds i8, ptr %9, i64 8
   %26 = getelementptr inbounds i8, ptr %0, i64 64
   br label %27
 
@@ -761,9 +761,9 @@ Min_CubesAreEqual.exit._crit_edge:                ; preds = %Min_CubesAreEqual.e
 
 28:                                               ; preds = %27
   %29 = load ptr, ptr %26, align 8
-  %30 = tail call fastcc i32 @Min_CubesDistOne(ptr noundef %1, ptr noundef nonnull %.183, ptr noundef %29), !range !13
+  %30 = tail call fastcc i32 @Min_CubesDistOne(ptr noundef %1, ptr noundef nonnull %.183, ptr noundef %29)
   %.not95 = icmp eq i32 %30, 0
-  br i1 %.not95, label %27, label %31, !llvm.loop !18
+  br i1 %.not95, label %27, label %31, !llvm.loop !16
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %.183, align 8
@@ -799,7 +799,7 @@ Min_CubesAreEqual.exit._crit_edge:                ; preds = %Min_CubesAreEqual.e
   store i32 %51, ptr %41, align 4
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i104, 1
   %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, %wide.trip.count.i103
-  br i1 %exitcond.not.i106, label %Min_CubesTransform.exit, label %40, !llvm.loop !19
+  br i1 %exitcond.not.i106, label %Min_CubesTransform.exit, label %40, !llvm.loop !17
 
 Min_CubesTransform.exit:                          ; preds = %40, %31
   %52 = and i32 %33, -4194304
@@ -834,9 +834,9 @@ Min_CubesTransform.exit:                          ; preds = %40, %31
 
 61:                                               ; preds = %60
   %62 = load ptr, ptr %59, align 8
-  %63 = tail call fastcc i32 @Min_CubesDistOne(ptr noundef %1, ptr noundef nonnull %.284, ptr noundef %62), !range !13
+  %63 = tail call fastcc i32 @Min_CubesDistOne(ptr noundef %1, ptr noundef nonnull %.284, ptr noundef %62)
   %.not94 = icmp eq i32 %63, 0
-  br i1 %.not94, label %60, label %64, !llvm.loop !20
+  br i1 %.not94, label %60, label %64, !llvm.loop !18
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr %.284, align 8
@@ -872,7 +872,7 @@ Min_CubesTransform.exit:                          ; preds = %40, %31
   store i32 %84, ptr %74, align 4
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i110, 1
   %exitcond.not.i112 = icmp eq i64 %indvars.iv.next.i111, %wide.trip.count.i109
-  br i1 %exitcond.not.i112, label %Min_CubesTransform.exit113, label %73, !llvm.loop !19
+  br i1 %exitcond.not.i112, label %Min_CubesTransform.exit113, label %73, !llvm.loop !17
 
 Min_CubesTransform.exit113:                       ; preds = %73, %64
   %85 = and i32 %66, -4194304
@@ -906,9 +906,9 @@ Min_CubesTransform.exit113:                       ; preds = %73, %64
 
 98:                                               ; preds = %97
   %99 = load ptr, ptr %59, align 8
-  %100 = tail call fastcc i32 @Min_CubesDistOne(ptr noundef %1, ptr noundef nonnull %.385, ptr noundef %99), !range !13
+  %100 = tail call fastcc i32 @Min_CubesDistOne(ptr noundef %1, ptr noundef nonnull %.385, ptr noundef %99)
   %.not93 = icmp eq i32 %100, 0
-  br i1 %.not93, label %97, label %101, !llvm.loop !21
+  br i1 %.not93, label %97, label %101, !llvm.loop !19
 
 101:                                              ; preds = %98
   %102 = load ptr, ptr %.385, align 8
@@ -944,7 +944,7 @@ Min_CubesTransform.exit113:                       ; preds = %73, %64
   store i32 %121, ptr %111, align 4
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i117, 1
   %exitcond.not.i119 = icmp eq i64 %indvars.iv.next.i118, %wide.trip.count.i116
-  br i1 %exitcond.not.i119, label %Min_CubesTransform.exit120, label %110, !llvm.loop !19
+  br i1 %exitcond.not.i119, label %Min_CubesTransform.exit120, label %110, !llvm.loop !17
 
 Min_CubesTransform.exit120:                       ; preds = %110, %101
   %122 = getelementptr i8, ptr %0, i64 8
@@ -981,7 +981,7 @@ Min_CubesTransform.exit120:                       ; preds = %110, %101
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Min_CubesDistOne(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Min_CubesDistOne(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4193280
@@ -1020,7 +1020,7 @@ define internal fastcc noundef i32 @Min_CubesDistOne(ptr noundef %0, ptr noundef
   %21 = lshr i32 %17, 1
   %22 = or i32 %21, %17
   %23 = and i32 %22, 1431655765
-  %24 = tail call i32 @llvm.ctpop.i32(i32 %23), !range !7
+  %24 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %23)
   %.not29.us.us = icmp ult i32 %24, 2
   br i1 %.not29.us.us, label %25, label %.loopexit
 
@@ -1028,7 +1028,7 @@ define internal fastcc noundef i32 @Min_CubesDistOne(ptr noundef %0, ptr noundef
   %.1.us.us = phi i32 [ 1, %20 ], [ %.034.us.us, %.lr.ph.split.us.split.us ]
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %26 = icmp ult i64 %indvars.iv.next48, %12
-  br i1 %26, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !22
+  br i1 %26, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !20
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %.lr.ph ]
@@ -1049,7 +1049,7 @@ define internal fastcc noundef i32 @Min_CubesDistOne(ptr noundef %0, ptr noundef
   %35 = lshr i32 %31, 1
   %36 = or i32 %35, %31
   %37 = and i32 %36, 1431655765
-  %38 = tail call i32 @llvm.ctpop.i32(i32 %37), !range !7
+  %38 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %37)
   %.not29 = icmp ult i32 %38, 2
   br i1 %.not29, label %39, label %.loopexit
 
@@ -1068,7 +1068,7 @@ define internal fastcc noundef i32 @Min_CubesDistOne(ptr noundef %0, ptr noundef
   %45 = and i32 %44, 4095
   %46 = zext nneg i32 %45 to i64
   %47 = icmp ult i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !22
+  br i1 %47, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %41, %25
   %.0.lcssa = phi i32 [ %.1.us.us, %25 ], [ %.1, %41 ]
@@ -1094,9 +1094,9 @@ define void @Min_EsopAddCube(ptr nocapture noundef %0, ptr noundef %1) local_unn
   br label %3
 
 3:                                                ; preds = %3, %2
-  %4 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef %1), !range !13
+  %4 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %3, !llvm.loop !14
+  br i1 %.not, label %5, label %3, !llvm.loop !12
 
 5:                                                ; preds = %3
   ret void
@@ -1133,13 +1133,13 @@ attributes #4 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 17}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i32 0, i32 2}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
@@ -1147,5 +1147,3 @@ attributes #4 = { nounwind }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}

@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [35 x i8] c"position information is misordered\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @compareWordEntryPos(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define dso_local range(i32 -1, 2) i32 @compareWordEntryPos(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load i16, ptr %0, align 2
   %4 = and i16 %3, 16383
   %5 = load i16, ptr %1, align 2
@@ -1157,7 +1157,7 @@ define dso_local i64 @tsvectorrecv(ptr nocapture noundef readonly %0) local_unna
   %47 = zext i1 %.not103 to i32
   %48 = getelementptr inbounds i8, ptr %.1.lcssa, i64 8
   %49 = getelementptr [0 x %struct.WordEntry], ptr %48, i64 0, i64 %indvars.iv149
-  %50 = trunc i64 %21 to i32
+  %50 = trunc nuw nsw i64 %21 to i32
   %51 = shl nuw nsw i32 %50, 1
   %52 = or disjoint i32 %51, %47
   %53 = shl i32 %.090135, 12

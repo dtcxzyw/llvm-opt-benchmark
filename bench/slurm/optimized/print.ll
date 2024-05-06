@@ -123,7 +123,7 @@ print_job_from_format.exit10:                     ; preds = %26, %36, %37, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @print_job_from_format(ptr noundef %0, ptr noundef %1) #0 {
+define dso_local range(i32 -1, 1) i32 @print_job_from_format(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call ptr @list_iterator_create(ptr noundef %1) #8
   br label %4
 

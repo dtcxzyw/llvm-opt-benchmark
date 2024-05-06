@@ -231,7 +231,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN3Ore8placeOreEP6MapgenjN3irr4core8vector3dIsEES5_(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr nocapture noundef readonly %mg, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i64 0, 2) i64 @_ZN3Ore8placeOreEP6MapgenjN3irr4core8vector3dIsEES5_(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr nocapture noundef readonly %mg, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %nmin.sroa.2.0.extract.shift = lshr i48 %nmin.coerce, 16
   %nmin.sroa.2.0.extract.trunc = trunc i48 %nmin.sroa.2.0.extract.shift to i16

@@ -2609,7 +2609,7 @@ define internal void @dissect_isis_lsp_clv_mt_cap(ptr noundef %0, ptr noundef %1
   br i1 %.not.i79, label %dissect_isis_lsp_clv_mt_cap_spb_instance.exit, label %.lr.ph.i78, !llvm.loop !14
 
 142:                                              ; preds = %26
-  %143 = tail call fastcc i32 @dissect_isis_trill_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %20, i32 noundef %23, i32 noundef %21), !range !15
+  %143 = tail call fastcc i32 @dissect_isis_trill_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %20, i32 noundef %23, i32 noundef %21)
   %144 = icmp eq i32 %143, -1
   br i1 %144, label %145, label %dissect_isis_lsp_clv_mt_cap_spb_instance.exit
 
@@ -2622,7 +2622,7 @@ dissect_isis_lsp_clv_mt_cap_spb_instance.exit:    ; preds = %136, %111, %134, %1
   %148 = sub nsw i32 %19, %21
   %149 = add i32 %20, %21
   %150 = icmp sgt i32 %148, 1
-  br i1 %150, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %150, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %dissect_isis_lsp_clv_mt_cap_spb_instance.exit, %8, %24, %6
   ret void
@@ -2766,7 +2766,7 @@ define internal void @dissect_isis_lsp_clv_sid_label_binding(ptr noundef %0, ptr
 90:                                               ; preds = %76, %80, %84, %57, %61, %65, %87
   %91 = add i32 %47, %.0117
   %92 = icmp slt i32 %91, %35
-  br i1 %92, label %39, label %.loopexit, !llvm.loop !17
+  br i1 %92, label %39, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %90, %32, %6
   ret void
@@ -2905,7 +2905,7 @@ define internal void @dissect_isis_rt_capable_clv(ptr noundef %0, ptr noundef %1
   br label %.loopexit
 
 27:                                               ; preds = %.lr.ph
-  %28 = tail call fastcc i32 @dissect_isis_trill_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %21, i32 noundef %24, i32 noundef %22), !range !15
+  %28 = tail call fastcc i32 @dissect_isis_trill_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %21, i32 noundef %24, i32 noundef %22)
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %30, label %33
 
@@ -2918,7 +2918,7 @@ define internal void @dissect_isis_rt_capable_clv(ptr noundef %0, ptr noundef %1
   %34 = sub nsw i32 %20, %22
   %35 = add i32 %21, %22
   %36 = icmp sgt i32 %34, 1
-  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %33, %6, %25
   ret void
@@ -2983,7 +2983,7 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
   %.2216.lcssa = phi i32 [ %46, %.lr.ph282 ], [ %55, %.lr.ph275 ]
   %.1.lcssa = phi i32 [ %47, %.lr.ph282 ], [ %56, %.lr.ph275 ]
   %38 = icmp sgt i32 %.1.lcssa, 0
-  br i1 %38, label %.lr.ph282, label %.loopexit242, !llvm.loop !19
+  br i1 %38, label %.lr.ph282, label %.loopexit242, !llvm.loop !18
 
 .lr.ph282:                                        ; preds = %.lr.ph282.preheader, %.loopexit
   %.0281 = phi i32 [ %.1.lcssa, %.loopexit ], [ %37, %.lr.ph282.preheader ]
@@ -3021,7 +3021,7 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
   %58 = icmp ugt i32 %.1274, 6
   %59 = icmp ugt i32 %.0220272, 1
   %60 = select i1 %58, i1 %59, i1 false
-  br i1 %60, label %.lr.ph275, label %.loopexit, !llvm.loop !20
+  br i1 %60, label %.lr.ph275, label %.loopexit, !llvm.loop !19
 
 61:                                               ; preds = %.lr.ph287
   %62 = add nuw nsw i32 %11, 2
@@ -3064,7 +3064,7 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
   %.4218.lcssa = phi i32 [ %95, %.lr.ph268 ], [ %104, %.lr.ph261 ]
   %.3.lcssa = phi i32 [ %96, %.lr.ph268 ], [ %105, %.lr.ph261 ]
   %87 = icmp sgt i32 %.3.lcssa, 0
-  br i1 %87, label %.lr.ph268, label %.loopexit242, !llvm.loop !21
+  br i1 %87, label %.lr.ph268, label %.loopexit242, !llvm.loop !20
 
 .lr.ph268:                                        ; preds = %.lr.ph268.preheader, %.loopexit240
   %.2267 = phi i32 [ %.3.lcssa, %.loopexit240 ], [ %86, %.lr.ph268.preheader ]
@@ -3102,7 +3102,7 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
   %107 = icmp ugt i32 %.3260, 4
   %108 = icmp ugt i32 %.1221258, 1
   %109 = select i1 %107, i1 %108, i1 false
-  br i1 %109, label %.lr.ph261, label %.loopexit240, !llvm.loop !22
+  br i1 %109, label %.lr.ph261, label %.loopexit240, !llvm.loop !21
 
 110:                                              ; preds = %.lr.ph287
   %111 = add nuw nsw i32 %11, 2
@@ -3145,7 +3145,7 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
   %.6.lcssa = phi i32 [ %144, %.lr.ph254 ], [ %153, %.lr.ph ]
   %.5.lcssa = phi i32 [ %145, %.lr.ph254 ], [ %154, %.lr.ph ]
   %136 = icmp sgt i32 %.5.lcssa, 0
-  br i1 %136, label %.lr.ph254, label %.loopexit242, !llvm.loop !23
+  br i1 %136, label %.lr.ph254, label %.loopexit242, !llvm.loop !22
 
 .lr.ph254:                                        ; preds = %.lr.ph254.preheader, %.loopexit241
   %.4253 = phi i32 [ %.5.lcssa, %.loopexit241 ], [ %135, %.lr.ph254.preheader ]
@@ -3183,7 +3183,7 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
   %156 = icmp ugt i32 %.5248, 16
   %157 = icmp ugt i32 %.2222246, 1
   %158 = select i1 %156, i1 %157, i1 false
-  br i1 %158, label %.lr.ph, label %.loopexit241, !llvm.loop !24
+  br i1 %158, label %.lr.ph, label %.loopexit241, !llvm.loop !23
 
 159:                                              ; preds = %.lr.ph287
   %160 = zext i8 %8 to i32
@@ -3204,7 +3204,7 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
   %.7230 = phi i32 [ %170, %159 ], [ %121, %119 ], [ %72, %70 ], [ %23, %21 ], [ %35, %25 ], [ %84, %74 ], [ %133, %123 ], [ %.2225.lcssa, %.loopexit ], [ %.4227.lcssa, %.loopexit240 ], [ %.6229.lcssa, %.loopexit241 ]
   %.7 = phi i32 [ %171, %159 ], [ %122, %119 ], [ %73, %70 ], [ %24, %21 ], [ %36, %25 ], [ %85, %74 ], [ %134, %123 ], [ %.2216.lcssa, %.loopexit ], [ %.4218.lcssa, %.loopexit240 ], [ %.6.lcssa, %.loopexit241 ]
   %172 = icmp sgt i32 %.7230, 0
-  br i1 %172, label %.lr.ph287, label %._crit_edge, !llvm.loop !25
+  br i1 %172, label %.lr.ph287, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.loopexit242, %6
   ret void
@@ -3472,7 +3472,7 @@ define internal void @dissect_lsp_srv6_locator_clv(ptr noundef %0, ptr noundef %
   %158 = add i32 %148, %143
   %159 = sub nsw i32 %149, %143
   %160 = icmp sgt i32 %159, 1
-  br i1 %160, label %.lr.ph.i.i, label %dissect_lsp_srv6_locator_subclv.exit.i, !llvm.loop !26
+  br i1 %160, label %.lr.ph.i.i, label %dissect_lsp_srv6_locator_subclv.exit.i, !llvm.loop !25
 
 161:                                              ; preds = %97
   %162 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %88, ptr noundef %1, ptr noundef nonnull @ei_isis_lsp_subtlv, ptr noundef %0, i32 noundef %98, i32 noundef %84, ptr noundef nonnull @.str.908, i32 noundef %81, i32 noundef %84) #3
@@ -3483,7 +3483,7 @@ dissect_lsp_srv6_locator_subclv.exit.i:           ; preds = %157, %161, %151, %1
   %163 = add i32 %98, %84
   %164 = sub nsw i32 %93, %84
   %165 = icmp sgt i32 %164, 1
-  br i1 %165, label %.lr.ph.i, label %.loopexit, !llvm.loop !27
+  br i1 %165, label %.lr.ph.i, label %.loopexit, !llvm.loop !26
 
 dissect_lsp_srv6_locator_entry.exit.thread:       ; preds = %27, %34, %41, %50, %95
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -3500,7 +3500,7 @@ dissect_lsp_srv6_locator_entry.exit.thread:       ; preds = %27, %34, %41, %50, 
   %166 = add i32 %48, %.064
   %167 = sub nsw i32 %.02363, %48
   %168 = icmp sgt i32 %167, 0
-  br i1 %168, label %25, label %.loopexit27, !llvm.loop !28
+  br i1 %168, label %25, label %.loopexit27, !llvm.loop !27
 
 .loopexit27:                                      ; preds = %.loopexit, %dissect_lsp_srv6_locator_entry.exit.thread, %13
   ret void
@@ -3547,7 +3547,7 @@ define internal void @dissect_lsp_purge_orig_id_clv(ptr noundef %0, ptr noundef 
   %26 = add i32 %.04147, 6
   %27 = add nuw nsw i32 %.048, 1
   %exitcond.not = icmp eq i32 %27, %16
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %18, %8
   ret void
@@ -3611,7 +3611,7 @@ define internal void @dissect_lsp_mac_reachability(ptr noundef %0, ptr noundef %
   %35 = add i32 %.046, 6
   %36 = add nuw nsw i32 %.04245, 1
   %exitcond.not = icmp eq i32 %.04245, %23
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %34, %11, %9
   ret void
@@ -3768,7 +3768,7 @@ define internal void @dissect_lsp_avaya_ipvpn(ptr noundef %0, ptr noundef %1, pt
   %101 = load i32, ptr %7, align 4
   %102 = sub i32 %101, %40
   store i32 %102, ptr %7, align 4
-  br label %30, !llvm.loop !31
+  br label %30, !llvm.loop !30
 
 .loopexit:                                        ; preds = %30, %32, %28, %10
   ret void
@@ -3841,7 +3841,7 @@ define internal fastcc void @dissect_lsp_eis_neighbors_clv_inner(ptr noundef %0,
   %23 = add i32 %.191.us, %18
   %24 = sub nsw i32 %.17990.us, %18
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !32
+  br i1 %25, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !31
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %28
   %.191 = phi i32 [ %64, %28 ], [ %.0, %.lr.ph.split.preheader ]
@@ -3895,7 +3895,7 @@ define internal fastcc void @dissect_lsp_eis_neighbors_clv_inner(ptr noundef %0,
   %64 = add i32 %.191, %18
   %65 = sub nsw i32 %.17990, %18
   %66 = icmp sgt i32 %65, 0
-  br i1 %66, label %.lr.ph.split, label %.loopexit, !llvm.loop !32
+  br i1 %66, label %.lr.ph.split, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %28, %22, %17, %.split.us
   ret void
@@ -3995,7 +3995,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
   %37 = shl i32 %.01517.i, 1
   %38 = add nuw nsw i32 %.018.i, 1
   %exitcond.not.i = icmp eq i32 %38, 32
-  br i1 %exitcond.not.i, label %dissect_subclv_admin_group.exit, label %31, !llvm.loop !33
+  br i1 %exitcond.not.i, label %dissect_subclv_admin_group.exit, label %31, !llvm.loop !32
 
 39:                                               ; preds = %.lr.ph360
   %40 = load i32, ptr @hf_isis_lsp_ext_is_reachability_link_local_identifier, align 4
@@ -4050,7 +4050,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
   %76 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format(ptr noundef %67, i32 noundef %74, ptr noundef %0, i32 noundef %70, i32 noundef 4, float noundef %73, ptr noundef nonnull @.str.818, i32 noundef %.014.i, double noundef %75) #3
   %77 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i335 = icmp eq i32 %77, 8
-  br i1 %exitcond.not.i335, label %dissect_subclv_admin_group.exit, label %68, !llvm.loop !34
+  br i1 %exitcond.not.i335, label %dissect_subclv_admin_group.exit, label %68, !llvm.loop !33
 
 78:                                               ; preds = %.lr.ph360
   %79 = load i32, ptr @hf_isis_lsp_ext_is_reachability_ipv6_interface_address, align 4
@@ -4076,7 +4076,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
   %90 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %89, ptr noundef %0, i32 noundef %87, i32 noundef 4, i32 noundef %88, ptr noundef nonnull @.str.819, i32 noundef %.012.i, i32 noundef %88) #3
   %91 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i337 = icmp eq i32 %91, %85
-  br i1 %exitcond.not.i337, label %dissect_subclv_admin_group.exit, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond.not.i337, label %dissect_subclv_admin_group.exit, label %.lr.ph.i, !llvm.loop !34
 
 .lr.ph358:                                        ; preds = %.preheader, %.lr.ph358
   %.0310357 = phi i32 [ %97, %.lr.ph358 ], [ %20, %.preheader ]
@@ -4089,7 +4089,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
   %97 = add nsw i32 %.0310357, -2
   %98 = add i32 %.0312356, 2
   %99 = icmp ugt i32 %.0310357, 3
-  br i1 %99, label %.lr.ph358, label %dissect_subclv_admin_group.exit, !llvm.loop !36
+  br i1 %99, label %.lr.ph358, label %dissect_subclv_admin_group.exit, !llvm.loop !35
 
 100:                                              ; preds = %.lr.ph360
   %101 = load i32, ptr @hf_isis_lsp_clv_app_sabm_legacy, align 4
@@ -4503,7 +4503,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
   %369 = sub nsw i32 %359, %354
   %370 = add i32 %360, %354
   %371 = icmp sgt i32 %369, 1
-  br i1 %371, label %.lr.ph355, label %dissect_subclv_admin_group.exit, !llvm.loop !37
+  br i1 %371, label %.lr.ph355, label %dissect_subclv_admin_group.exit, !llvm.loop !36
 
 372:                                              ; preds = %.lr.ph360
   %373 = load i32, ptr @hf_isis_lsp_clv_srv6_endx_sid_system_id, align 4
@@ -4573,7 +4573,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
   %417 = sub nsw i32 %407, %402
   %418 = add i32 %408, %402
   %419 = icmp sgt i32 %417, 1
-  br i1 %419, label %.lr.ph, label %dissect_subclv_admin_group.exit, !llvm.loop !38
+  br i1 %419, label %.lr.ph, label %dissect_subclv_admin_group.exit, !llvm.loop !37
 
 420:                                              ; preds = %.lr.ph360
   %421 = load i32, ptr @hf_isis_lsp_ext_is_reachability_value, align 4
@@ -4583,7 +4583,7 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
 dissect_subclv_admin_group.exit:                  ; preds = %416, %368, %.lr.ph358, %.lr.ph.i, %68, %36, %372, %327, %.preheader, %279, %275, %267, %260, %252, %227, %225, %217, %215, %84, %410, %362, %306, %313, %130, %132, %420, %324, %321, %318, %300, %287, %280, %133, %81, %78, %58, %51, %48, %45, %39
   %423 = add nuw nsw i32 %24, %.0315359
   %424 = icmp slt i32 %423, %4
-  br i1 %424, label %.lr.ph360, label %._crit_edge, !llvm.loop !39
+  br i1 %424, label %.lr.ph360, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %dissect_subclv_admin_group.exit, %5
   call void @decrement_dissection_depth(ptr noundef %1) #3
@@ -4679,7 +4679,7 @@ define internal fastcc void @dissect_ipreach_subclv(ptr noundef %0, ptr noundef 
   %13 = add i32 %.071, 4
   %14 = add nsw i32 %.05970, -4
   %15 = icmp ugt i32 %.05970, 7
-  br i1 %15, label %.lr.ph72, label %dissect_prefix_attr_flags_subclv.exit, !llvm.loop !40
+  br i1 %15, label %.lr.ph72, label %dissect_prefix_attr_flags_subclv.exit, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %.preheader65, %.lr.ph
   %.169 = phi i32 [ %18, %.lr.ph ], [ %4, %.preheader65 ]
@@ -4689,7 +4689,7 @@ define internal fastcc void @dissect_ipreach_subclv(ptr noundef %0, ptr noundef 
   %18 = add i32 %.169, 8
   %19 = add nsw i32 %.16068, -8
   %20 = icmp ugt i32 %.16068, 15
-  br i1 %20, label %.lr.ph, label %dissect_prefix_attr_flags_subclv.exit, !llvm.loop !41
+  br i1 %20, label %.lr.ph, label %dissect_prefix_attr_flags_subclv.exit, !llvm.loop !40
 
 21:                                               ; preds = %7
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #3
@@ -4852,7 +4852,7 @@ dissect_bierinfo_subsubtlv.exit.i:                ; preds = %106, %104, %86
   %114 = add i32 %99, %91
   %115 = sub nsw i32 %100, %91
   %116 = icmp sgt i32 %115, 0
-  br i1 %116, label %.lr.ph.i, label %dissect_bierinfo_subtlv.exit, !llvm.loop !42
+  br i1 %116, label %.lr.ph.i, label %dissect_bierinfo_subtlv.exit, !llvm.loop !41
 
 dissect_bierinfo_subtlv.exit:                     ; preds = %dissect_bierinfo_subsubtlv.exit.i, %65, %69, %84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -4877,7 +4877,7 @@ declare void @isis_dissect_ip_int_clv(ptr noundef, ptr noundef, ptr noundef, ptr
 declare void @isis_dissect_ipv6_int_clv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_isis_trill_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dissect_isis_trill_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   switch i32 %4, label %.loopexit [
     i32 1, label %7
     i32 2, label %22
@@ -5014,7 +5014,7 @@ define internal fastcc noundef i32 @dissect_isis_trill_clv(ptr noundef %0, ptr n
   %97 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %88, i32 noundef %94, ptr noundef %0, i32 noundef %.0345, i32 noundef 2, i32 noundef %95, ptr noundef nonnull @.str.866, i32 noundef %96, i32 noundef %95, i32 noundef %95) #3
   %98 = add i16 %.0343395, 1
   %99 = icmp ugt i32 %.0347.in393, 5
-  br i1 %99, label %.lr.ph396, label %.loopexit, !llvm.loop !43
+  br i1 %99, label %.lr.ph396, label %.loopexit, !llvm.loop !42
 
 100:                                              ; preds = %6
   %101 = add i32 %3, -2
@@ -5038,7 +5038,7 @@ define internal fastcc noundef i32 @dissect_isis_trill_clv(ptr noundef %0, ptr n
   %114 = add nsw i32 %.1348390, -5
   %115 = add i32 %.1346391, 5
   %116 = icmp ugt i32 %.1348390, 9
-  br i1 %116, label %.lr.ph392, label %.loopexit, !llvm.loop !44
+  br i1 %116, label %.lr.ph392, label %.loopexit, !llvm.loop !43
 
 117:                                              ; preds = %6
   %118 = add i32 %3, -2
@@ -5076,7 +5076,7 @@ define internal fastcc noundef i32 @dissect_isis_trill_clv(ptr noundef %0, ptr n
   %142 = add nsw i32 %.2349387, -6
   %143 = add i32 %.2388, 6
   %144 = icmp ugt i32 %.2349387, 11
-  br i1 %144, label %.lr.ph389, label %.loopexit, !llvm.loop !45
+  br i1 %144, label %.lr.ph389, label %.loopexit, !llvm.loop !44
 
 145:                                              ; preds = %6
   %146 = add i32 %3, -2
@@ -5102,7 +5102,7 @@ define internal fastcc noundef i32 @dissect_isis_trill_clv(ptr noundef %0, ptr n
   %158 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %149, i32 noundef %155, ptr noundef %0, i32 noundef %.3, i32 noundef 2, i32 noundef %156, ptr noundef nonnull @.str.866, i32 noundef %157, i32 noundef %156, i32 noundef %156) #3
   %159 = add i16 %.1344385, 1
   %160 = icmp ugt i32 %.3350.in383, 5
-  br i1 %160, label %.lr.ph386, label %.loopexit, !llvm.loop !46
+  br i1 %160, label %.lr.ph386, label %.loopexit, !llvm.loop !45
 
 161:                                              ; preds = %6
   %162 = add i32 %3, -2
@@ -5122,7 +5122,7 @@ define internal fastcc noundef i32 @dissect_isis_trill_clv(ptr noundef %0, ptr n
   %169 = load i32, ptr @hf_isis_lsp_rt_capable_vlan_group_secondary_vlan_id, align 4
   %170 = tail call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %169, ptr noundef %0, i32 noundef %.4, i32 noundef 2, i32 noundef 0) #3
   %171 = icmp ugt i32 %.4351.in380, 5
-  br i1 %171, label %.lr.ph382, label %.loopexit, !llvm.loop !47
+  br i1 %171, label %.lr.ph382, label %.loopexit, !llvm.loop !46
 
 172:                                              ; preds = %6
   %173 = add i32 %3, -2
@@ -5139,7 +5139,7 @@ define internal fastcc noundef i32 @dissect_isis_trill_clv(ptr noundef %0, ptr n
   %180 = tail call ptr @proto_tree_add_item(ptr noundef %176, i32 noundef %178, ptr noundef %0, i32 noundef %179, i32 noundef 1, i32 noundef 0) #3
   %181 = add nuw nsw i32 %.0342378, 1
   %exitcond.not = icmp eq i32 %181, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph379, !llvm.loop !48
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph379, !llvm.loop !47
 
 182:                                              ; preds = %6
   %183 = add i32 %3, -2
@@ -5183,7 +5183,7 @@ define internal fastcc noundef i32 @dissect_isis_trill_clv(ptr noundef %0, ptr n
   %208 = add nuw i32 %.1376, 5
   %209 = add nuw i32 %208, %.pre-phi
   %210 = icmp slt i32 %209, %190
-  br i1 %210, label %.lr.ph377, label %.loopexit, !llvm.loop !49
+  br i1 %210, label %.lr.ph377, label %.loopexit, !llvm.loop !48
 
 211:                                              ; preds = %6
   %212 = add i32 %3, -2
@@ -5214,7 +5214,7 @@ define internal fastcc noundef i32 @dissect_isis_trill_clv(ptr noundef %0, ptr n
   %230 = add nsw i32 %.5352373, -2
   %231 = add i32 %.5374, 2
   %232 = icmp ugt i32 %.5352373, 3
-  br i1 %232, label %.lr.ph375, label %.loopexit, !llvm.loop !50
+  br i1 %232, label %.lr.ph375, label %.loopexit, !llvm.loop !49
 
 233:                                              ; preds = %6
   %234 = add i32 %3, -2
@@ -5272,13 +5272,13 @@ define internal fastcc noundef i32 @dissect_isis_trill_clv(ptr noundef %0, ptr n
   %269 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %262, i32 noundef %268, ptr noundef %0, i32 noundef %266, i32 noundef 4, i32 noundef %267, ptr noundef nonnull @.str.819, i32 noundef %.012.i, i32 noundef %267) #3
   %270 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %270, %264
-  br i1 %exitcond.not.i, label %dissect_subclv_ext_admin_group.exit, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %dissect_subclv_ext_admin_group.exit, label %.lr.ph.i, !llvm.loop !34
 
 dissect_subclv_ext_admin_group.exit:              ; preds = %.lr.ph.i, %263, %.lr.ph
   %271 = sub i32 %255, %257
   %272 = add i32 %256, %257
   %273 = icmp sgt i32 %271, 1
-  br i1 %273, label %.lr.ph, label %.loopexit, !llvm.loop !51
+  br i1 %273, label %.lr.ph, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %dissect_subclv_ext_admin_group.exit, %.lr.ph375, %207, %.lr.ph379, %.lr.ph382, %.lr.ph386, %.lr.ph389, %.lr.ph392, %.lr.ph396, %233, %219, %182, %172, %161, %145, %117, %100, %84, %6, %53, %61, %39, %41, %211, %71, %46, %7
   %.0 = phi i32 [ 0, %211 ], [ 0, %71 ], [ 0, %46 ], [ 0, %7 ], [ 0, %41 ], [ 0, %39 ], [ 0, %61 ], [ 0, %53 ], [ -1, %6 ], [ 0, %84 ], [ 0, %100 ], [ 0, %117 ], [ 0, %145 ], [ 0, %161 ], [ 0, %172 ], [ 0, %182 ], [ 0, %219 ], [ 0, %233 ], [ 0, %.lr.ph396 ], [ 0, %.lr.ph392 ], [ 0, %.lr.ph389 ], [ 0, %.lr.ph386 ], [ 0, %.lr.ph382 ], [ 0, %.lr.ph379 ], [ 0, %207 ], [ 0, %.lr.ph375 ], [ 0, %dissect_subclv_ext_admin_group.exit ]
@@ -5498,7 +5498,7 @@ dissect_metric.exit66:                            ; preds = %56, %dissect_metric
   %82 = add i32 %78, %.072
   %83 = sub nsw i32 %64, %63
   %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %61, label %.loopexit, !llvm.loop !52
+  br i1 %84, label %61, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %73, %dissect_metric.exit66, %71, %66, %8
   ret void
@@ -5536,7 +5536,7 @@ attributes #3 = { nounwind }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = !{i32 -1, i32 1}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
@@ -5573,4 +5573,3 @@ attributes #3 = { nounwind }
 !49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
 !51 = distinct !{!51, !5}
-!52 = distinct !{!52, !5}

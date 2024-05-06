@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.34 = private unnamed_addr constant [33 x i8] c"External sequences are not valid\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ERR_getErrorString(i32 noundef %code) local_unnamed_addr #0 {
+define noundef nonnull ptr @ERR_getErrorString(i32 noundef %code) local_unnamed_addr #0 {
 entry:
   switch i32 %code, label %sw.default [
     i32 0, label %return

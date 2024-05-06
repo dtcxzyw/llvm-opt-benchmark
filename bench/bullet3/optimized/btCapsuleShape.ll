@@ -477,16 +477,16 @@ entry:
   %38 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %37, <2 x float> %28, <2 x float> %35)
   %39 = fsub <2 x float> %29, %38
   %sub14.i = fsub float %center.sroa.5.0.copyload, %22
-  %retval.sroa.3.12.vec.insert.i30 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
+  %retval.sroa.3.12.vec.insert.i31 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
   store <2 x float> %39, ptr %aabbMin, align 4
   %ref.tmp15.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %aabbMin, i64 8
-  store <2 x float> %retval.sroa.3.12.vec.insert.i30, ptr %ref.tmp15.sroa.2.0..sroa_idx, align 4
+  store <2 x float> %retval.sroa.3.12.vec.insert.i31, ptr %ref.tmp15.sroa.2.0..sroa_idx, align 4
   %40 = fadd <2 x float> %29, %38
   %add14.i = fadd float %center.sroa.5.0.copyload, %22
-  %retval.sroa.3.12.vec.insert.i40 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
+  %retval.sroa.3.12.vec.insert.i41 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
   store <2 x float> %40, ptr %aabbMax, align 4
   %ref.tmp18.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %aabbMax, i64 8
-  store <2 x float> %retval.sroa.3.12.vec.insert.i40, ptr %ref.tmp18.sroa.2.0..sroa_idx, align 4
+  store <2 x float> %retval.sroa.3.12.vec.insert.i41, ptr %ref.tmp18.sroa.2.0..sroa_idx, align 4
   ret void
 }
 

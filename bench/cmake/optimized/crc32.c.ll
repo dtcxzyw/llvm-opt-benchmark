@@ -13,7 +13,7 @@ define dso_local noundef nonnull ptr @cm_zlib_get_crc_table() local_unnamed_addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @cm_zlib_crc32_z(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_z(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %242, label %5
 
@@ -58,7 +58,7 @@ define dso_local i64 @cm_zlib_crc32_z(i64 noundef %0, ptr noundef %1, i64 nounde
   %25 = udiv i64 %.0168.lcssa, 40
   %.neg = mul i64 %25, -40
   %26 = add i64 %.neg, %.0168.lcssa
-  %27 = trunc i64 %.0158.lcssa to i32
+  %27 = trunc nuw i64 %.0158.lcssa to i32
   %28 = add nsw i64 %25, -1
   %.not246 = icmp eq i64 %28, 0
   br i1 %.not246, label %._crit_edge255, label %.lr.ph254.preheader
@@ -408,14 +408,14 @@ crc_word.exit229:                                 ; preds = %154
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @cm_zlib_crc32(i64 noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32(i64 noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = zext i32 %2 to i64
-  %5 = tail call i64 @cm_zlib_crc32_z(i64 noundef %0, ptr noundef %1, i64 noundef %4), !range !12
+  %5 = tail call i64 @cm_zlib_crc32_z(i64 noundef %0, ptr noundef %1, i64 noundef %4)
   ret i64 %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i64 @cm_zlib_crc32_combine64(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_combine64(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not10.i = icmp eq i64 %2, 0
   br i1 %.not10.i, label %x2nmodp.exit, label %.lr.ph.i
 
@@ -464,7 +464,7 @@ multmodp.exit.i:                                  ; preds = %12, %.lr.ph.i
   %23 = ashr i64 %.0811.i, 1
   %24 = add i32 %.0712.i, 1
   %.not.i = icmp ult i64 %.0811.i, 2
-  br i1 %.not.i, label %x2nmodp.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %x2nmodp.exit, label %.lr.ph.i, !llvm.loop !12
 
 x2nmodp.exit:                                     ; preds = %multmodp.exit.i, %3
   %.0.lcssa.i = phi i32 [ -2147483648, %3 ], [ %.1.i, %multmodp.exit.i ]
@@ -504,7 +504,7 @@ multmodp.exit:                                    ; preds = %28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i64 @cm_zlib_crc32_combine(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_combine(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not10.i.i = icmp eq i64 %2, 0
   br i1 %.not10.i.i, label %x2nmodp.exit.i, label %.lr.ph.i.i
 
@@ -553,7 +553,7 @@ multmodp.exit.i.i:                                ; preds = %12, %.lr.ph.i.i
   %23 = ashr i64 %.0811.i.i, 1
   %24 = add i32 %.0712.i.i, 1
   %.not.i.i = icmp ult i64 %.0811.i.i, 2
-  br i1 %.not.i.i, label %x2nmodp.exit.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %x2nmodp.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 x2nmodp.exit.i:                                   ; preds = %multmodp.exit.i.i, %3
   %.0.lcssa.i.i = phi i32 [ -2147483648, %3 ], [ %.1.i.i, %multmodp.exit.i.i ]
@@ -593,7 +593,7 @@ cm_zlib_crc32_combine64.exit:                     ; preds = %28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i64 @cm_zlib_crc32_combine_gen64(i64 noundef %0) local_unnamed_addr #2 {
+define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_combine_gen64(i64 noundef %0) local_unnamed_addr #2 {
   %.not10.i = icmp eq i64 %0, 0
   br i1 %.not10.i, label %x2nmodp.exit, label %.lr.ph.i
 
@@ -642,7 +642,7 @@ multmodp.exit.i:                                  ; preds = %10, %.lr.ph.i
   %21 = ashr i64 %.0811.i, 1
   %22 = add i32 %.0712.i, 1
   %.not.i = icmp ult i64 %.0811.i, 2
-  br i1 %.not.i, label %x2nmodp.exit.loopexit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %x2nmodp.exit.loopexit, label %.lr.ph.i, !llvm.loop !12
 
 x2nmodp.exit.loopexit:                            ; preds = %multmodp.exit.i
   %23 = zext i32 %.1.i to i64
@@ -654,7 +654,7 @@ x2nmodp.exit:                                     ; preds = %x2nmodp.exit.loopex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i64 @cm_zlib_crc32_combine_gen(i64 noundef %0) local_unnamed_addr #2 {
+define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_combine_gen(i64 noundef %0) local_unnamed_addr #2 {
   %.not10.i.i = icmp eq i64 %0, 0
   br i1 %.not10.i.i, label %cm_zlib_crc32_combine_gen64.exit, label %.lr.ph.i.i
 
@@ -703,7 +703,7 @@ multmodp.exit.i.i:                                ; preds = %10, %.lr.ph.i.i
   %21 = ashr i64 %.0811.i.i, 1
   %22 = add i32 %.0712.i.i, 1
   %.not.i.i = icmp ult i64 %.0811.i.i, 2
-  br i1 %.not.i.i, label %x2nmodp.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %x2nmodp.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 x2nmodp.exit.loopexit.i:                          ; preds = %multmodp.exit.i.i
   %23 = zext i32 %.1.i.i to i64
@@ -715,7 +715,7 @@ cm_zlib_crc32_combine_gen64.exit:                 ; preds = %1, %x2nmodp.exit.lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i64 @cm_zlib_crc32_combine_op(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i64 0, 4294967296) i64 @cm_zlib_crc32_combine_op(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = trunc i64 %2 to i32
   %5 = trunc i64 %0 to i32
   br label %6
@@ -770,5 +770,4 @@ attributes #2 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-p
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i64 0, i64 4294967296}
-!13 = distinct !{!13, !6}
+!12 = distinct !{!12, !6}

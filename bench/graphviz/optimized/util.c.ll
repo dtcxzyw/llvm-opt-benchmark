@@ -113,7 +113,7 @@ gv_calloc.exit.preheader:                         ; preds = %._crit_edge.thread
   br i1 %exitcond54.not, label %gv_calloc.exit.loopexit, label %.lr.ph38
 
 gv_calloc.exit.loopexit:                          ; preds = %.lr.ph38
-  %34 = trunc i64 %indvars.iv.next47 to i32
+  %34 = trunc nsw i64 %indvars.iv.next47 to i32
   br label %gv_calloc.exit
 
 gv_calloc.exit:                                   ; preds = %gv_calloc.exit.loopexit, %.lr.ph43
@@ -186,9 +186,9 @@ gv_recalloc.exit:                                 ; preds = %18, %20
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv30 = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next31, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %28 = getelementptr %struct.Pxy_t, ptr %24, i64 %indvars.iv30
-  %29 = getelementptr i8, ptr %28, i64 32
-  %30 = getelementptr i8, ptr %28, i64 16
+  %28 = getelementptr inbounds %struct.Pxy_t, ptr %24, i64 %indvars.iv30
+  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %30 = getelementptr inbounds i8, ptr %28, i64 16
   %31 = getelementptr inbounds %struct.Pxy_t, ptr %0, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
@@ -206,8 +206,8 @@ gv_recalloc.exit:                                 ; preds = %18, %20
 ._crit_edge:                                      ; preds = %23, %._crit_edge.loopexit
   %.023.lcssa = phi i64 [ %32, %._crit_edge.loopexit ], [ 2, %23 ]
   %.0.lcssa = phi i64 [ %33, %._crit_edge.loopexit ], [ 1, %23 ]
-  %34 = getelementptr %struct.Pxy_t, ptr %24, i64 %.023.lcssa
-  %35 = getelementptr i8, ptr %34, i64 16
+  %34 = getelementptr inbounds %struct.Pxy_t, ptr %24, i64 %.023.lcssa
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = getelementptr inbounds %struct.Pxy_t, ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)

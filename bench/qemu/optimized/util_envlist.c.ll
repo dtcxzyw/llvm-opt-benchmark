@@ -116,7 +116,7 @@ envlist_parse.exit:                               ; preds = %entry, %do.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @envlist_setenv(ptr noundef %envlist, ptr noundef %env) local_unnamed_addr #0 {
+define dso_local range(i32 0, 23) i32 @envlist_setenv(ptr noundef %envlist, ptr noundef %env) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %envlist, null
   %cmp2 = icmp eq ptr %env, null
@@ -251,7 +251,7 @@ envlist_parse.exit:                               ; preds = %entry, %do.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @envlist_unsetenv(ptr noundef %envlist, ptr noundef readonly %env) local_unnamed_addr #0 {
+define dso_local range(i32 0, 23) i32 @envlist_unsetenv(ptr noundef %envlist, ptr noundef readonly %env) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %envlist, null
   %cmp2 = icmp eq ptr %env, null

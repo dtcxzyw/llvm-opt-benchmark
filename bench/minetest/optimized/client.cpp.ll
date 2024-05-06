@@ -437,13 +437,13 @@ $_ZZ12mt_localtimevE7tz_init = comdat any
 @_ZTI13BaseException = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS13BaseException, ptr @_ZTISt9exception }, comdat, align 8
 @.str.28 = private unnamed_addr constant [41 x i8] c"Finished migration of client mod storage\00", align 1
 @.str.29 = private unnamed_addr constant [22 x i8] c"enable_client_modding\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.30 = private unnamed_addr constant [51 x i8] c"Client-provided mod loading is disabled by server.\00", align 1
 @.str.31 = private unnamed_addr constant [10 x i8] c"*builtin*\00", align 1
 @.str.32 = private unnamed_addr constant [11 x i8] c"clientmods\00", align 1
 @.str.33 = private unnamed_addr constant [6 x i8] c"share\00", align 1
 @.str.35 = private unnamed_addr constant [10 x i8] c"mods.conf\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.36 = private unnamed_addr constant [22 x i8] c"Client loading mods: \00", align 1
 @.str.37 = private unnamed_addr constant [2 x i8] c" \00", align 1
 @.str.38 = private unnamed_addr constant [2 x i8] c":\00", align 1
@@ -504,7 +504,7 @@ $_ZZ12mt_localtimevE7tz_init = comdat any
 @.str.81 = private unnamed_addr constant [3 x i8] c".x\00", align 1
 @.str.82 = private unnamed_addr constant [5 x i8] c".b3d\00", align 1
 @.str.83 = private unnamed_addr constant [5 x i8] c".obj\00", align 1
-@verbosestream = external thread_local global %class.LogStream, align 8
+@verbosestream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.84 = private unnamed_addr constant [36 x i8] c"Client: Storing model into memory: \00", align 1
 @.str.85 = private unnamed_addr constant [28 x i8] c"Multiple models with name \22\00", align 1
 @.str.86 = private unnamed_addr constant [34 x i8] c"\22 found; replacing previous model\00", align 1
@@ -527,7 +527,7 @@ $_ZZ12mt_localtimevE7tz_init = comdat any
 @.str.101 = private unnamed_addr constant [7 x i8] c"worlds\00", align 1
 @.str.102 = private unnamed_addr constant [8 x i8] c"server_\00", align 1
 @.str.103 = private unnamed_addr constant [2 x i8] c"_\00", align 1
-@actionstream = external thread_local global %class.LogStream, align 8
+@actionstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.104 = private unnamed_addr constant [49 x i8] c"Local map saving started, map will be saved at '\00", align 1
 @.str.105 = private unnamed_addr constant [2 x i8] c"'\00", align 1
 @.str.106 = private unnamed_addr constant [27 x i8] c"Networking not initialized\00", align 1
@@ -626,8 +626,8 @@ $_ZZ12mt_localtimevE7tz_init = comdat any
 @__PRETTY_FUNCTION__._ZN15RenderingEngine16get_video_driverEv = private unnamed_addr constant [64 x i8] c"static video::IVideoDriver *RenderingEngine::get_video_driver()\00", align 1
 @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = linkonce_odr dso_local local_unnamed_addr constant [201 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00", comdat, align 16
 @_ZZ12mt_localtimevE7tz_init = linkonce_odr dso_local global %"struct.std::once_flag" zeroinitializer, comdat, align 4
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @.str.172 = private unnamed_addr constant [48 x i8] c"cannot create std::deque larger than max_size()\00", align 1
 @.str.173 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.174 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
@@ -18511,7 +18511,7 @@ declare noundef nonnull align 8 dereferenceable(648) ptr @_ZN17ClientEnvironment
 declare void @_Z15srp_user_deleteP7SRPUser(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN6Client13choseAuthMechEj(i32 noundef %mechs) local_unnamed_addr #17 align 2 {
+define dso_local noundef range(i32 0, 5) i32 @_ZN6Client13choseAuthMechEj(i32 noundef %mechs) local_unnamed_addr #17 align 2 {
 entry:
   %and = and i32 %mechs, 2
   %tobool.not = icmp eq i32 %and, 0

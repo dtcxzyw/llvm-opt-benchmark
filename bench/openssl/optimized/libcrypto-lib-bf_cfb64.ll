@@ -83,7 +83,7 @@ if.then2:                                         ; preds = %while.body
   call void @BF_encrypt(ptr noundef nonnull %ti, ptr noundef %schedule) #2
   %9 = load i32, ptr %ti, align 4
   %shr = lshr i32 %9, 24
-  %conv43 = trunc i32 %shr to i8
+  %conv43 = trunc nuw i32 %shr to i8
   store i8 %conv43, ptr %ivec, align 1
   %shr45 = lshr i32 %9, 16
   %conv47 = trunc i32 %shr45 to i8
@@ -95,7 +95,7 @@ if.then2:                                         ; preds = %while.body
   store i8 %conv54, ptr %incdec.ptr9, align 1
   %10 = load i32, ptr %arrayidx41, align 4
   %shr57 = lshr i32 %10, 24
-  %conv59 = trunc i32 %shr57 to i8
+  %conv59 = trunc nuw i32 %shr57 to i8
   store i8 %conv59, ptr %incdec.ptr15, align 1
   %shr61 = lshr i32 %10, 16
   %conv63 = trunc i32 %shr61 to i8
@@ -165,7 +165,7 @@ if.then87:                                        ; preds = %while.body84
   call void @BF_encrypt(ptr noundef nonnull %ti, ptr noundef %schedule) #2
   %21 = load i32, ptr %ti, align 4
   %shr134 = lshr i32 %21, 24
-  %conv136 = trunc i32 %shr134 to i8
+  %conv136 = trunc nuw i32 %shr134 to i8
   store i8 %conv136, ptr %ivec, align 1
   %shr138 = lshr i32 %21, 16
   %conv140 = trunc i32 %shr138 to i8
@@ -177,7 +177,7 @@ if.then87:                                        ; preds = %while.body84
   store i8 %conv147, ptr %incdec.ptr98, align 1
   %22 = load i32, ptr %arrayidx131, align 4
   %shr150 = lshr i32 %22, 24
-  %conv152 = trunc i32 %shr150 to i8
+  %conv152 = trunc nuw i32 %shr150 to i8
   store i8 %conv152, ptr %incdec.ptr104, align 1
   %shr154 = lshr i32 %22, 16
   %conv156 = trunc i32 %shr154 to i8

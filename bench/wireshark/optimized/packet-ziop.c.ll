@@ -88,7 +88,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.58 = private unnamed_addr constant [4 x i8] c"XAR\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_ziop_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden range(i32 0, 2) i32 @dissect_ziop_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %6 = icmp ult i32 %5, 12
   br i1 %6, label %dissect_ziop_tcp.exit, label %7

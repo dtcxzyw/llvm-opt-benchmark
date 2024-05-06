@@ -833,7 +833,7 @@ if.end:                                           ; preds = %while.body
   %cmp.i8.i.i = icmp slt i32 %63, 0
   %64 = sub i32 0, %63
   %retval.0.i.i.p = select i1 %cmp.i8.i.i, i32 %64, i32 1
-  %65 = trunc i64 %indvars.iv to i32
+  %65 = trunc nsw i64 %indvars.iv to i32
   %retval.0.i.i = add i32 %retval.0.i.i.p, %65
   %tobool8.not = icmp eq i32 %retval.0.i.i, 0
   br i1 %tobool8.not, label %if.end10, label %if.then9
@@ -1046,7 +1046,7 @@ for.body:                                         ; preds = %_ZN20btAlignedObjec
   %vtable9 = load ptr, ptr %7, align 8
   %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 32
   %9 = load ptr, ptr %vfn10, align 8
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %10, ptr noundef nonnull align 4 dereferenceable(32) %arrayidx.i)
           to label %invoke.cont11 unwind label %lpad.loopexit
 

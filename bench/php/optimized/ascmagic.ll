@@ -176,7 +176,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
   br i1 %38, label %encode_utf8.exit.thread, label %39
 
 39:                                               ; preds = %35
-  %40 = trunc i64 %33 to i8
+  %40 = trunc nuw nsw i64 %33 to i8
   %41 = getelementptr inbounds i8, ptr %.06471.i, i64 1
   store i8 %40, ptr %.06471.i, align 1
   br label %125
@@ -193,7 +193,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 48:                                               ; preds = %44
   %49 = lshr i64 %33, 6
-  %50 = trunc i64 %49 to i8
+  %50 = trunc nuw i64 %49 to i8
   %51 = or disjoint i8 %50, -64
   store i8 %51, ptr %.06471.i, align 1
   br label %119
@@ -210,7 +210,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 58:                                               ; preds = %54
   %59 = lshr i64 %33, 12
-  %60 = trunc i64 %59 to i8
+  %60 = trunc nuw i64 %59 to i8
   %61 = or disjoint i8 %60, -32
   %62 = getelementptr inbounds i8, ptr %.06471.i, i64 1
   store i8 %61, ptr %.06471.i, align 1
@@ -228,7 +228,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 69:                                               ; preds = %65
   %70 = lshr i64 %33, 18
-  %71 = trunc i64 %70 to i8
+  %71 = trunc nuw i64 %70 to i8
   %72 = or disjoint i8 %71, -16
   store i8 %72, ptr %.06471.i, align 1
   br label %106
@@ -245,7 +245,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 79:                                               ; preds = %75
   %80 = lshr i64 %33, 24
-  %81 = trunc i64 %80 to i8
+  %81 = trunc nuw i64 %80 to i8
   %82 = or disjoint i8 %81, -8
   %83 = getelementptr inbounds i8, ptr %.06471.i, i64 1
   store i8 %82, ptr %.06471.i, align 1
@@ -261,7 +261,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 89:                                               ; preds = %84
   %90 = lshr i64 %33, 30
-  %91 = trunc i64 %90 to i8
+  %91 = trunc nuw i64 %90 to i8
   %92 = or disjoint i8 %91, -4
   %93 = getelementptr inbounds i8, ptr %.06471.i, i64 1
   store i8 %92, ptr %.06471.i, align 1

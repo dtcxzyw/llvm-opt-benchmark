@@ -698,7 +698,7 @@ define dso_local ptr @__i915_gem_object_unset_pages(ptr noundef %0) local_unname
 declare dso_local void @i915_gem_object_make_unshrinkable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__i915_gem_object_put_pages(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @__i915_gem_object_put_pages(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0

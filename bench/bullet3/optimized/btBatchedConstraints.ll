@@ -3312,7 +3312,7 @@ if.end50.i:                                       ; preds = %land.lhs.true.i, %f
 
 if.end67.i:                                       ; preds = %if.end39.i, %if.end50.i
   %iPhase.2.i = phi i32 [ %and.i, %if.end50.i ], [ %iPhase.1.i, %if.end39.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gridChunkDim.i, ptr noundef nonnull align 8 dereferenceable(12) %gridChunkDim68.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gridChunkDim.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %gridChunkDim68.i, i64 12, i1 false)
   br label %for.body72.i
 
 for.body72.i:                                     ; preds = %_Z7btClampIiEvRT_RKS0_S3_.exit.i, %if.end67.i

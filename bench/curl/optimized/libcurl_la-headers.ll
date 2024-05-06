@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @curl_easy_header(ptr noundef %easy, ptr noundef %name, i64 noundef %nameindex, i32 noundef %type, i32 noundef %request, ptr noundef writeonly %hout) local_unnamed_addr #0 {
+define range(i32 0, 7) i32 @curl_easy_header(ptr noundef %easy, ptr noundef %name, i64 noundef %nameindex, i32 noundef %type, i32 noundef %request, ptr noundef writeonly %hout) local_unnamed_addr #0 {
 entry:
   %tobool = icmp eq ptr %name, null
   %tobool1 = icmp eq ptr %hout, null
@@ -303,7 +303,7 @@ return:                                           ; preds = %if.end20, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_headers_push(ptr noundef %data, ptr noundef %header, i8 noundef zeroext %type) local_unnamed_addr #0 {
+define hidden range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %data, ptr noundef %header, i8 noundef zeroext %type) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %header, align 1
   switch i8 %0, label %if.end [

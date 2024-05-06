@@ -604,7 +604,7 @@ define i32 @Extra_bddSuppSize(ptr nocapture noundef readonly %0, ptr noundef rea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Extra_bddSuppContainVar(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Extra_bddSuppContainVar(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not6 = icmp eq ptr %5, %1
@@ -632,7 +632,7 @@ define noundef i32 @Extra_bddSuppContainVar(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Extra_bddSuppOverlapping(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Extra_bddSuppOverlapping(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
   %4 = load i32, ptr %1, align 8
   %.not16 = icmp eq i32 %4, 2147483647
   br i1 %.not16, label %.critedge, label %.lr.ph
@@ -819,7 +819,7 @@ Extra_bddSuppSize.exit49:                         ; preds = %.lr.ph.i44, %45
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Extra_bddSuppCheckContainment(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Extra_bddSuppCheckContainment(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #6 {
   %6 = icmp eq ptr %1, %2
   br i1 %6, label %.loopexit60, label %.preheader
 
@@ -1544,7 +1544,7 @@ declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef)
 declare ptr @cuddBddAndRecur(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Extra_bddIsVar(ptr noundef %0) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Extra_bddIsVar(ptr noundef %0) local_unnamed_addr #8 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -2
   %4 = inttoptr i64 %3 to ptr
@@ -2310,7 +2310,7 @@ define ptr @extraBddChangePolarity(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Extra_bddVarIsInCube(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 -1, 2) i32 @Extra_bddVarIsInCube(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr

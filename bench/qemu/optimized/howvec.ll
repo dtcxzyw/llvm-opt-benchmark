@@ -586,7 +586,7 @@ declare ptr @g_hash_table_get_values(ptr noundef) local_unnamed_addr #2
 declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmp_exec_count(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #8 {
+define internal range(i32 -1, 2) i32 @cmp_exec_count(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #8 {
 entry:
   %count = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i64, ptr %count, align 8

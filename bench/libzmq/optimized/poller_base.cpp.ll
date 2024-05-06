@@ -168,12 +168,12 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE23_M_get_insert_equal_posERS1_.exit.i.i: ; preds = %while.body.i.i.i
   %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %__x.07.i.i.i
-  %spec.select11.i.i = or i1 %cmp2.i.i.i, %cmp.i.i.i.i
+  %spec.select.i.i = or i1 %cmp2.i.i.i, %cmp.i.i.i.i
   br label %_ZNSt8multimapImN3zmq13poller_base_t12timer_info_tESt4lessImESaISt4pairIKmS2_EEE6insertEOS7_.exit
 
 _ZNSt8multimapImN3zmq13poller_base_t12timer_info_tESt4lessImESaISt4pairIKmS2_EEE6insertEOS7_.exit: ; preds = %entry, %_ZNSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE23_M_get_insert_equal_posERS1_.exit.i.i
   %__y.0.lcssa.i10.i.i = phi ptr [ %add.ptr.i.i.i.i, %entry ], [ %__x.07.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE23_M_get_insert_equal_posERS1_.exit.i.i ]
-  %1 = phi i1 [ true, %entry ], [ %spec.select11.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE23_M_get_insert_equal_posERS1_.exit.i.i ]
+  %1 = phi i1 [ true, %entry ], [ %spec.select.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE23_M_get_insert_equal_posERS1_.exit.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
   %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %add, ptr %_M_storage.i.i.i.i.i.i.i, align 8

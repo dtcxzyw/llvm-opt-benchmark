@@ -776,7 +776,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %477 = getelementptr i8, ptr %465, i64 %476
   %narrow.i = sub nuw nsw i32 5, %.lcssa8.i
   %478 = zext nneg i32 %narrow.i to i64
-  call void @llvm.memset.p0.i64(ptr noundef align 1 %477, i8 0, i64 %478, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef writeonly align 1 %477, i8 0, i64 %478, i1 false)
   br label %500
 
 479:                                              ; preds = %.lr.ph.i
@@ -890,7 +890,7 @@ netlbl_cipsov4_add_common.exit:                   ; preds = %484, %444, %500
   %545 = getelementptr i8, ptr %533, i64 %544
   %narrow.i34 = sub nuw nsw i32 5, %.lcssa8.i33
   %546 = zext nneg i32 %narrow.i34 to i64
-  call void @llvm.memset.p0.i64(ptr noundef align 1 %545, i8 0, i64 %546, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef writeonly align 1 %545, i8 0, i64 %546, i1 false)
   br label %568
 
 547:                                              ; preds = %.lr.ph.i36
@@ -1409,7 +1409,7 @@ declare dso_local void @security_current_getsecid_subj(ptr noundef) local_unname
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @netlbl_cipsov4_add_common(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @netlbl_cipsov4_add_common(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8

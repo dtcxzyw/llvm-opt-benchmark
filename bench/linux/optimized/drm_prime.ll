@@ -1312,7 +1312,7 @@ declare dso_local void @dma_buf_unmap_attachment_unlocked(ptr noundef, ptr nound
 declare dso_local void @dma_buf_detach(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_prime_sg_to_page_array(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @drm_prime_sg_to_page_array(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.sg_page_iter, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !28
@@ -1369,7 +1369,7 @@ declare dso_local void @__sg_page_iter_start(ptr noundef, ptr noundef, i32 nound
 declare dso_local zeroext i1 @__sg_page_iter_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_prime_sg_to_dma_addr_array(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @drm_prime_sg_to_dma_addr_array(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.sg_dma_page_iter, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !28

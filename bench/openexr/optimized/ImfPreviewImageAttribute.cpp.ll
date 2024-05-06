@@ -310,7 +310,7 @@ if.end:                                           ; preds = %dynamic_cast.end
   ret ptr %1
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #9
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -421,7 +421,7 @@ entry:
   %arrayidx5.i = getelementptr inbounds i8, ptr %b.i, i64 2
   store i8 %conv4.i, ptr %arrayidx5.i, align 1
   %shr6.i = lshr i32 %0, 24
-  %conv7.i = trunc i32 %shr6.i to i8
+  %conv7.i = trunc nuw i32 %shr6.i to i8
   %arrayidx8.i = getelementptr inbounds i8, ptr %b.i, i64 3
   store i8 %conv7.i, ptr %arrayidx8.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
@@ -443,7 +443,7 @@ entry:
   %arrayidx5.i21 = getelementptr inbounds i8, ptr %b.i14, i64 2
   store i8 %conv4.i20, ptr %arrayidx5.i21, align 1
   %shr6.i22 = lshr i32 %2, 24
-  %conv7.i23 = trunc i32 %shr6.i22 to i8
+  %conv7.i23 = trunc nuw i32 %shr6.i22 to i8
   %arrayidx8.i24 = getelementptr inbounds i8, ptr %b.i14, i64 3
   store i8 %conv7.i23, ptr %arrayidx8.i24, align 1
   %vtable.i.i.i25 = load ptr, ptr %os, align 8
@@ -686,7 +686,7 @@ attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree nounwind memory(read) }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }

@@ -67,7 +67,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %conv = trunc i64 %size to i32
+  %conv = trunc nuw i64 %size to i32
   %call = tail call ptr @inet_ntop(i32 noundef %af, ptr noundef %src, ptr noundef %dst, i32 noundef %conv) #7
   ret ptr %call
 }

@@ -91,7 +91,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.41 = private unnamed_addr constant [28 x i8] c" mca_common_sm_fini failed\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_btl_smcuda_component_open() #0 {
+define internal range(i32 -1, 1) i32 @mca_btl_smcuda_component_open() #0 {
   %1 = load i32, ptr getelementptr inbounds (%struct.mca_btl_smcuda_t, ptr @mca_btl_smcuda, i64 0, i32 0, i32 10), align 4
   %2 = and i32 %1, 12288
   %or.cond.i = icmp eq i32 %2, 0
@@ -119,7 +119,7 @@ mca_btl_smcuda_component_verify.exit:             ; preds = %0, %3, %6
   store i64 1, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 37), align 8
   %12 = load i32, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 21), align 8
   %13 = add nsw i32 %12, -1
-  %14 = tail call i32 @llvm.ctlz.i32(i32 %13, i1 true), !range !4
+  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %narrow.i = sub nuw nsw i32 32, %14
   %15 = shl nuw i32 1, %narrow.i
   %.inv.i = icmp sgt i32 %12, 1
@@ -193,7 +193,7 @@ mca_btl_smcuda_component_verify.exit:             ; preds = %0, %3, %6
   %47 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %48 = load ptr, ptr %47, align 8
   %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %43
   %49 = load i32, ptr @opal_class_init_epoch, align 4
@@ -220,7 +220,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %43
   %56 = getelementptr inbounds i8, ptr %.07.i11, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not.i12 = icmp eq ptr %57, null
-  br i1 %.not.i12, label %opal_obj_run_constructors.exit13, label %.lr.ph.i10, !llvm.loop !5
+  br i1 %.not.i12, label %opal_obj_run_constructors.exit13, label %.lr.ph.i10, !llvm.loop !4
 
 opal_obj_run_constructors.exit13:                 ; preds = %.lr.ph.i10, %52
   %58 = load i32, ptr @opal_class_init_epoch, align 4
@@ -247,7 +247,7 @@ opal_obj_run_constructors.exit13:                 ; preds = %.lr.ph.i10, %52
   %65 = getelementptr inbounds i8, ptr %.07.i16, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not.i17 = icmp eq ptr %66, null
-  br i1 %.not.i17, label %opal_obj_run_constructors.exit18, label %.lr.ph.i15, !llvm.loop !5
+  br i1 %.not.i17, label %opal_obj_run_constructors.exit18, label %.lr.ph.i15, !llvm.loop !4
 
 opal_obj_run_constructors.exit18:                 ; preds = %.lr.ph.i15, %61
   %67 = load i32, ptr @opal_class_init_epoch, align 4
@@ -274,7 +274,7 @@ opal_obj_run_constructors.exit18:                 ; preds = %.lr.ph.i15, %61
   %74 = getelementptr inbounds i8, ptr %.07.i21, i64 8
   %75 = load ptr, ptr %74, align 8
   %.not.i22 = icmp eq ptr %75, null
-  br i1 %.not.i22, label %opal_obj_run_constructors.exit23, label %.lr.ph.i20, !llvm.loop !5
+  br i1 %.not.i22, label %opal_obj_run_constructors.exit23, label %.lr.ph.i20, !llvm.loop !4
 
 opal_obj_run_constructors.exit23:                 ; preds = %.lr.ph.i20, %70
   %76 = load i32, ptr @opal_class_init_epoch, align 4
@@ -301,7 +301,7 @@ opal_obj_run_constructors.exit23:                 ; preds = %.lr.ph.i20, %70
   %83 = getelementptr inbounds i8, ptr %.07.i26, i64 8
   %84 = load ptr, ptr %83, align 8
   %.not.i27 = icmp eq ptr %84, null
-  br i1 %.not.i27, label %opal_obj_run_constructors.exit28, label %.lr.ph.i25, !llvm.loop !5
+  br i1 %.not.i27, label %opal_obj_run_constructors.exit28, label %.lr.ph.i25, !llvm.loop !4
 
 opal_obj_run_constructors.exit28:                 ; preds = %.lr.ph.i25, %79, %mca_btl_smcuda_component_verify.exit
   %.0 = phi i32 [ -1, %mca_btl_smcuda_component_verify.exit ], [ 0, %79 ], [ 0, %.lr.ph.i25 ]
@@ -587,7 +587,7 @@ define i32 @mca_btl_smcuda_component_progress() #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %.loopexit99, !llvm.loop !7
+  br i1 %22, label %.lr.ph, label %.loopexit99, !llvm.loop !6
 
 .loopexit99:                                      ; preds = %19, %0
   %23 = phi i32 [ %7, %0 ], [ %20, %19 ]
@@ -643,7 +643,7 @@ define i32 @mca_btl_smcuda_component_progress() #0 {
   br i1 %53, label %.preheader.i.backedge, label %54
 
 .preheader.i.backedge:                            ; preds = %.preheader.i, %54
-  br label %.preheader.i, !llvm.loop !8
+  br label %.preheader.i, !llvm.loop !7
 
 54:                                               ; preds = %.preheader.i
   %55 = cmpxchg volatile ptr %42, i32 0, i32 1 acquire monotonic, align 4
@@ -696,7 +696,7 @@ opal_atomic_lock.exit:                            ; preds = %54, %49, %46
   %82 = add nsw i32 %81, -1
   store i32 %82, ptr %44, align 8
   %83 = icmp sgt i32 %81, 1
-  br i1 %83, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %83, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %70
   fence release
@@ -791,7 +791,7 @@ sm_fifo_read.exit:                                ; preds = %opal_atomic_lock.ex
   br i1 %137, label %.preheader.i70.backedge, label %138
 
 .preheader.i70.backedge:                          ; preds = %.preheader.i70, %138
-  br label %.preheader.i70, !llvm.loop !8
+  br label %.preheader.i70, !llvm.loop !7
 
 138:                                              ; preds = %.preheader.i70
   %139 = cmpxchg volatile ptr %133, i32 0, i32 1 acquire monotonic, align 4
@@ -902,7 +902,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %sm_fifo_write.exit
   %207 = load ptr, ptr %206, align 8
   %208 = shl i64 %90, 61
   %sext = ashr i64 %208, 63
-  %209 = trunc i64 %sext to i32
+  %209 = trunc nsw i64 %sext to i32
   call void %207(ptr noundef nonnull @mca_btl_smcuda, ptr noundef %200, ptr noundef nonnull %198, i32 noundef %209) #14
   br label %210
 
@@ -1066,7 +1066,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %252, %254
   br i1 %296, label %.preheader.i75.backedge, label %297
 
 .preheader.i75.backedge:                          ; preds = %.preheader.i75, %297
-  br label %.preheader.i75, !llvm.loop !8
+  br label %.preheader.i75, !llvm.loop !7
 
 297:                                              ; preds = %.preheader.i75
   %298 = cmpxchg volatile ptr %292, i32 0, i32 1 acquire monotonic, align 4
@@ -1171,7 +1171,7 @@ opal_thread_add_fetch_32.exit.i81:                ; preds = %sm_fifo_write.exit8
   %355 = call i32 @llvm.smin.i32(i32 %353, i32 %354)
   %356 = sext i32 %355 to i64
   %357 = icmp slt i64 %indvars.iv.next121, %356
-  br i1 %357, label %35, label %.preheader, !llvm.loop !10
+  br i1 %357, label %35, label %.preheader, !llvm.loop !9
 
 .lr.ph110:                                        ; preds = %.preheader, %opal_free_list_return.exit93
   %.3109 = phi i32 [ %424, %opal_free_list_return.exit93 ], [ %.058.lcssa, %.preheader ]
@@ -1288,7 +1288,7 @@ opal_free_list_return.exit93:                     ; preds = %opal_free_list_retu
   %424 = add nsw i32 %.3109, 1
   %425 = call i32 @mca_btl_smcuda_progress_one_ipc_event(ptr noundef nonnull %2) #14
   %426 = icmp eq i32 %425, 1
-  br i1 %426, label %.lr.ph110, label %._crit_edge, !llvm.loop !11
+  br i1 %426, label %.lr.ph110, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %opal_free_list_return.exit93, %.preheader
   %.3.lcssa = phi i32 [ %.058.lcssa, %.preheader ], [ %424, %opal_free_list_return.exit93 ]
@@ -1474,7 +1474,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %71, %73
   br i1 %92, label %.preheader.i.backedge, label %93
 
 .preheader.i.backedge:                            ; preds = %.preheader.i, %93
-  br label %.preheader.i, !llvm.loop !8
+  br label %.preheader.i, !llvm.loop !7
 
 93:                                               ; preds = %.preheader.i
   %94 = cmpxchg volatile ptr %88, i32 0, i32 1 acquire monotonic, align 4
@@ -1582,12 +1582,12 @@ opal_lifo_push_atomic.exit.i.i25:                 ; preds = %opal_atomic_compare
   %151 = load i64, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 29, i32 4), align 8
   %.not.i.i27 = icmp eq i64 %151, 0
   %or.cond33 = select i1 %150, i1 true, i1 %.not.i.i27
-  br i1 %or.cond33, label %opal_free_list_return.exit29, label %152, !llvm.loop !12
+  br i1 %or.cond33, label %opal_free_list_return.exit29, label %152, !llvm.loop !11
 
 152:                                              ; preds = %opal_lifo_push_atomic.exit.i.i25
   %153 = load volatile i32, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 29, i32 13, i32 1), align 8
   %.not.i.i.i28 = icmp eq i32 %153, 0
-  br i1 %.not.i.i.i28, label %opal_free_list_return.exit29, label %opal_free_list_return_mt.exit.sink.split.i21, !llvm.loop !12
+  br i1 %.not.i.i.i28, label %opal_free_list_return.exit29, label %opal_free_list_return_mt.exit.sink.split.i21, !llvm.loop !11
 
 154:                                              ; preds = %add_pending.exit
   %155 = inttoptr i64 %140 to ptr
@@ -1602,18 +1602,18 @@ opal_lifo_push_atomic.exit.i.i25:                 ; preds = %opal_atomic_compare
   %161 = load i64, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 29, i32 4), align 8
   %.not.i4.i19 = icmp eq i64 %161, 0
   %or.cond34 = select i1 %160, i1 true, i1 %.not.i4.i19
-  br i1 %or.cond34, label %opal_free_list_return.exit29, label %162, !llvm.loop !12
+  br i1 %or.cond34, label %opal_free_list_return.exit29, label %162, !llvm.loop !11
 
 162:                                              ; preds = %154
   %163 = load volatile i32, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 29, i32 13, i32 1), align 8
   %.not.i.i5.i20 = icmp eq i32 %163, 0
-  br i1 %.not.i.i5.i20, label %opal_free_list_return.exit29, label %opal_free_list_return_mt.exit.sink.split.i21, !llvm.loop !12
+  br i1 %.not.i.i5.i20, label %opal_free_list_return.exit29, label %opal_free_list_return_mt.exit.sink.split.i21, !llvm.loop !11
 
 opal_free_list_return_mt.exit.sink.split.i21:     ; preds = %162, %152
   %164 = load volatile i32, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 29, i32 13, i32 2), align 4
   %165 = add nsw i32 %164, 1
   store volatile i32 %165, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 29, i32 13, i32 2), align 4
-  br label %opal_free_list_return.exit29, !llvm.loop !12
+  br label %opal_free_list_return.exit29, !llvm.loop !11
 
 opal_free_list_return.exit29:                     ; preds = %opal_free_list_return.exit, %66, %1, %opal_free_list_return_mt.exit.sink.split.i21, %162, %154, %152, %opal_lifo_push_atomic.exit.i.i25
   ret void
@@ -1936,7 +1936,7 @@ define internal void @mca_btl_smcuda_component_fini() #0 {
   %6 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !12
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %0
   %8 = load ptr, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 13), align 16
@@ -1995,7 +1995,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %20, %23
   %35 = getelementptr inbounds i8, ptr %.07.i5, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i6 = icmp eq ptr %36, null
-  br i1 %.not.i6, label %opal_obj_run_destructors.exit7.loopexit, label %.lr.ph.i4, !llvm.loop !13
+  br i1 %.not.i6, label %opal_obj_run_destructors.exit7.loopexit, label %.lr.ph.i4, !llvm.loop !12
 
 opal_obj_run_destructors.exit7.loopexit:          ; preds = %.lr.ph.i4
   %.pre = load ptr, ptr getelementptr inbounds (%struct.mca_btl_smcuda_component_t, ptr @mca_btl_smcuda_component, i64 0, i32 13), align 16
@@ -2175,7 +2175,7 @@ get_mpool_res_size.exit.thread23:                 ; preds = %95
   %101 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %102 = load ptr, ptr %101, align 8
   %.not.i = icmp eq ptr %102, null
-  br i1 %.not.i, label %get_mpool_res_size.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %get_mpool_res_size.exit, label %.lr.ph.i, !llvm.loop !12
 
 get_mpool_res_size.exit:                          ; preds = %.lr.ph.i
   tail call void @free(ptr noundef nonnull %.0) #14
@@ -2291,7 +2291,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %21, %23
   br i1 %47, label %.preheader.i.backedge, label %48
 
 .preheader.i.backedge:                            ; preds = %.preheader.i, %48
-  br label %.preheader.i, !llvm.loop !8
+  br label %.preheader.i, !llvm.loop !7
 
 48:                                               ; preds = %.preheader.i
   %49 = cmpxchg volatile ptr %43, i32 0, i32 1 acquire monotonic, align 4
@@ -2464,7 +2464,7 @@ opal_update_counted_pointer.exit.i.i:             ; preds = %.lr.ph.i.i
   %23 = extractvalue { i128, i1 } %21, 0
   %.sroa.0.0.extract.trunc.i.i = trunc i128 %23 to i64
   %.sroa.4.0.extract.shift.i.i = lshr i128 %23, 64
-  %.sroa.4.0.extract.trunc.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i)
@@ -2601,13 +2601,12 @@ attributes #16 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

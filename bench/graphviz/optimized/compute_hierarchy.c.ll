@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @compute_hierarchy(ptr noundef %0, i32 noundef %1, double noundef %2, double noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @compute_hierarchy(ptr noundef %0, i32 noundef %1, double noundef %2, double noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   %9 = sext i32 %1 to i64
   br i1 %.not, label %10, label %._crit_edge103
@@ -33,7 +33,7 @@ define noundef i32 @compute_hierarchy(ptr noundef %0, i32 noundef %1, double nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %15 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %16, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -142,7 +142,7 @@ gv_calloc.exit:                                   ; preds = %48
   %70 = add nsw i32 %.089, 1
   %71 = sext i32 %.089 to i64
   %72 = getelementptr inbounds i32, ptr %56, i64 %71
-  %73 = trunc i64 %indvars.iv98 to i32
+  %73 = trunc nuw nsw i64 %indvars.iv98 to i32
   store i32 %73, ptr %72, align 4
   br label %74
 

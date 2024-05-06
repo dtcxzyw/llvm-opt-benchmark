@@ -445,7 +445,7 @@ pmix_obj_new_tma.exit.thread:                     ; preds = %96, %98, %91, %37, 
 declare zeroext i1 @PMIx_Check_nspace(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_pnet_base_setup_fork(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -27, 1) i32 @pmix_pnet_base_setup_fork(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr getelementptr inbounds (%struct.pmix_mca_base_framework_t, ptr @pmix_pnet_base_framework, i64 0, i32 11), align 4
   %or.cond = icmp ult i32 %3, 64
   br i1 %or.cond, label %4, label %10
@@ -647,14 +647,14 @@ define void @pmix_pnet_base_deregister_nspace(ptr noundef %0) local_unnamed_addr
 
 9:                                                ; preds = %8, %3, %1
   %10 = icmp eq ptr %0, null
-  %.038 = load ptr, ptr getelementptr inbounds (%struct.pmix_pnet_globals_t, ptr @pmix_pnet_globals, i64 0, i32 2, i32 1, i32 1), align 8
-  %.not39 = icmp eq ptr %.038, getelementptr inbounds (%struct.pmix_pnet_globals_t, ptr @pmix_pnet_globals, i64 0, i32 2, i32 1)
-  %or.cond45 = select i1 %10, i1 true, i1 %.not39
-  br i1 %or.cond45, label %.thread, label %.lr.ph
+  %.039 = load ptr, ptr getelementptr inbounds (%struct.pmix_pnet_globals_t, ptr @pmix_pnet_globals, i64 0, i32 2, i32 1, i32 1), align 8
+  %.not40 = icmp eq ptr %.039, getelementptr inbounds (%struct.pmix_pnet_globals_t, ptr @pmix_pnet_globals, i64 0, i32 2, i32 1)
+  %or.cond46 = select i1 %10, i1 true, i1 %.not40
+  br i1 %or.cond46, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %16
-  %.040 = phi ptr [ %.0, %16 ], [ %.038, %9 ]
-  %11 = getelementptr inbounds i8, ptr %.040, i64 144
+  %.041 = phi ptr [ %.0, %16 ], [ %.039, %9 ]
+  %11 = getelementptr inbounds i8, ptr %.041, i64 144
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 144
   %14 = load ptr, ptr %13, align 8
@@ -662,16 +662,16 @@ define void @pmix_pnet_base_deregister_nspace(ptr noundef %0) local_unnamed_addr
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %.040, i64 120
+  %17 = getelementptr inbounds i8, ptr %.041, i64 120
   %.0 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %.0, getelementptr inbounds (%struct.pmix_pnet_globals_t, ptr @pmix_pnet_globals, i64 0, i32 2, i32 1)
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !15
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %.040, i64 144
-  %20 = getelementptr inbounds i8, ptr %.040, i64 120
+  %19 = getelementptr inbounds i8, ptr %.041, i64 144
+  %20 = getelementptr inbounds i8, ptr %.041, i64 120
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %.040, i64 128
+  %22 = getelementptr inbounds i8, ptr %.041, i64 128
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 120
   store volatile ptr %21, ptr %24, align 8
@@ -681,32 +681,32 @@ define void @pmix_pnet_base_deregister_nspace(ptr noundef %0) local_unnamed_addr
   %27 = load volatile i64, ptr getelementptr inbounds (%struct.pmix_pnet_globals_t, ptr @pmix_pnet_globals, i64 0, i32 2, i32 2), align 8
   %28 = add i64 %27, -1
   store volatile i64 %28, ptr getelementptr inbounds (%struct.pmix_pnet_globals_t, ptr @pmix_pnet_globals, i64 0, i32 2, i32 2), align 8
-  %.02841 = load ptr, ptr getelementptr inbounds (%struct.pmix_pnet_globals_t, ptr @pmix_pnet_globals, i64 0, i32 0, i32 1, i32 1), align 8
-  %.not3342 = icmp eq ptr %.02841, getelementptr inbounds (%struct.pmix_pnet_globals_t, ptr @pmix_pnet_globals, i64 0, i32 0, i32 1)
-  br i1 %.not3342, label %._crit_edge, label %.lr.ph44
+  %.02842 = load ptr, ptr getelementptr inbounds (%struct.pmix_pnet_globals_t, ptr @pmix_pnet_globals, i64 0, i32 0, i32 1, i32 1), align 8
+  %.not3343 = icmp eq ptr %.02842, getelementptr inbounds (%struct.pmix_pnet_globals_t, ptr @pmix_pnet_globals, i64 0, i32 0, i32 1)
+  br i1 %.not3343, label %._crit_edge, label %.lr.ph45
 
-.lr.ph44:                                         ; preds = %18, %35
-  %.02843 = phi ptr [ %.028, %35 ], [ %.02841, %18 ]
-  %29 = getelementptr inbounds i8, ptr %.02843, i64 152
+.lr.ph45:                                         ; preds = %18, %35
+  %.02844 = phi ptr [ %.028, %35 ], [ %.02842, %18 ]
+  %29 = getelementptr inbounds i8, ptr %.02844, i64 152
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 64
   %32 = load ptr, ptr %31, align 8
   %.not35 = icmp eq ptr %32, null
   br i1 %.not35, label %35, label %33
 
-33:                                               ; preds = %.lr.ph44
+33:                                               ; preds = %.lr.ph45
   %34 = load ptr, ptr %19, align 8
   tail call void %32(ptr noundef %34) #11
   br label %35
 
-35:                                               ; preds = %.lr.ph44, %33
-  %36 = getelementptr inbounds i8, ptr %.02843, i64 120
+35:                                               ; preds = %.lr.ph45, %33
+  %36 = getelementptr inbounds i8, ptr %.02844, i64 120
   %.028 = load ptr, ptr %36, align 8
   %.not33 = icmp eq ptr %.028, getelementptr inbounds (%struct.pmix_pnet_globals_t, ptr @pmix_pnet_globals, i64 0, i32 0, i32 1)
-  br i1 %.not33, label %._crit_edge, label %.lr.ph44, !llvm.loop !16
+  br i1 %.not33, label %._crit_edge, label %.lr.ph45, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %35, %18
-  %37 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %.040) #11
+  %37 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %.041) #11
   %38 = icmp eq i32 %37, 35
   br i1 %38, label %39, label %41
 
@@ -718,16 +718,16 @@ define void @pmix_pnet_base_deregister_nspace(ptr noundef %0) local_unnamed_addr
   unreachable
 
 41:                                               ; preds = %._crit_edge
-  %42 = getelementptr inbounds i8, ptr %.040, i64 48
+  %42 = getelementptr inbounds i8, ptr %.041, i64 48
   %43 = load i32, ptr %42, align 8
   %44 = add nsw i32 %43, -1
   store i32 %44, ptr %42, align 8
-  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.040) #11
+  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.041) #11
   %46 = icmp eq i32 %44, 0
   br i1 %46, label %47, label %.thread
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %.040, i64 40
+  %48 = getelementptr inbounds i8, ptr %.041, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 48
   %51 = load ptr, ptr %50, align 8
@@ -738,25 +738,25 @@ define void @pmix_pnet_base_deregister_nspace(ptr noundef %0) local_unnamed_addr
 .lr.ph.i:                                         ; preds = %47, %.lr.ph.i
   %53 = phi ptr [ %55, %.lr.ph.i ], [ %52, %47 ]
   %.07.i = phi ptr [ %54, %.lr.ph.i ], [ %51, %47 ]
-  tail call void %53(ptr noundef %.040) #11
+  tail call void %53(ptr noundef %.041) #11
   %54 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not.i = icmp eq ptr %55, null
   br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !17
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %47
-  %56 = getelementptr inbounds i8, ptr %.040, i64 96
+  %56 = getelementptr inbounds i8, ptr %.041, i64 96
   %57 = load ptr, ptr %56, align 8
   %.not34 = icmp eq ptr %57, null
   br i1 %.not34, label %60, label %58
 
 58:                                               ; preds = %pmix_obj_run_destructors.exit
-  %59 = getelementptr inbounds i8, ptr %.040, i64 56
-  tail call void %57(ptr noundef nonnull %59, ptr noundef nonnull %.040) #11
+  %59 = getelementptr inbounds i8, ptr %.041, i64 56
+  tail call void %57(ptr noundef nonnull %59, ptr noundef nonnull %.041) #11
   br label %.thread
 
 60:                                               ; preds = %pmix_obj_run_destructors.exit
-  tail call void @free(ptr noundef nonnull %.040) #11
+  tail call void @free(ptr noundef nonnull %.041) #11
   br label %.thread
 
 .thread:                                          ; preds = %16, %58, %60, %41, %9

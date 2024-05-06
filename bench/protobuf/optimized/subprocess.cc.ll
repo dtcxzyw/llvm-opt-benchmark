@@ -152,14 +152,14 @@ cond.false13:                                     ; preds = %cleanup.done
 
 cleanup.done25:                                   ; preds = %cleanup.done
   %call29 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %program) #22
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call29) #24
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call29) #24
   %add.i = add i64 %call.i, 1
   %call1.i = call noalias ptr @malloc(i64 noundef %add.i) #25
   %cmp.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp.not.i, label %_ZN6google8protobuf8compiler12_GLOBAL__N_115portable_strdupEPKc.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup.done25
-  %call2.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call1.i, ptr noundef nonnull dereferenceable(1) %call29) #22
+  %call2.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call1.i, ptr noundef nonnull readonly dereferenceable(1) %call29) #22
   br label %_ZN6google8protobuf8compiler12_GLOBAL__N_115portable_strdupEPKc.exit
 
 _ZN6google8protobuf8compiler12_GLOBAL__N_115portable_strdupEPKc.exit: ; preds = %cleanup.done25, %if.then.i

@@ -13084,7 +13084,7 @@ define void @mupAddValIdent(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 declare void @_ZN2mu10ParserBase11AddValIdentEPFiPKcPiPdE(ptr noundef nonnull align 8 dereferenceable(596), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @mupError(ptr nocapture noundef %0) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @mupError(ptr nocapture noundef %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load i8, ptr %2, align 8
   store i8 0, ptr %2, align 8

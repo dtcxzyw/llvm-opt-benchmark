@@ -447,7 +447,7 @@ if.then21:                                        ; preds = %if.end17
   %timestamp = getelementptr inbounds i8, ptr %sct, i64 40
   %8 = load i64, ptr %timestamp, align 8
   %shr = lshr i64 %8, 56
-  %conv25 = trunc i64 %shr to i8
+  %conv25 = trunc nuw i64 %shr to i8
   %incdec.ptr26 = getelementptr inbounds i8, ptr %5, i64 34
   store i8 %conv25, ptr %add.ptr24, align 1
   %9 = load i64, ptr %timestamp, align 8
@@ -687,7 +687,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @SCT_LIST_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2o_SCT_LIST(ptr noundef %a, ptr noundef %pp) local_unnamed_addr #0 {
+define range(i32 -1, 65536) i32 @i2o_SCT_LIST(ptr noundef %a, ptr noundef %pp) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr null, ptr %p, align 8
@@ -892,7 +892,7 @@ if.then58:                                        ; preds = %if.then48
 
 if.end61:                                         ; preds = %if.end11.thread, %if.then48, %if.then58, %if.end45
   %len2.0.lcssa8588 = phi i64 [ %len2.0.lcssa8592, %if.then48 ], [ %len2.0.lcssa8592, %if.then58 ], [ %len2.0.lcssa, %if.end45 ], [ 2, %if.end11.thread ]
-  %conv62 = trunc i64 %len2.0.lcssa8588 to i32
+  %conv62 = trunc nuw nsw i64 %len2.0.lcssa8588 to i32
   br label %return
 
 err:                                              ; preds = %for.body, %for.end
@@ -963,7 +963,7 @@ entry:
   %oct = alloca %struct.asn1_string_st, align 8
   %data = getelementptr inbounds i8, ptr %oct, i64 8
   store ptr null, ptr %data, align 8
-  %call = call i32 @i2o_SCT_LIST(ptr noundef %a, ptr noundef nonnull %data), !range !8
+  %call = call i32 @i2o_SCT_LIST(ptr noundef %a, ptr noundef nonnull %data)
   store i32 %call, ptr %oct, align 8
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end
@@ -996,4 +996,3 @@ attributes #3 = { nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -1, i32 65536}

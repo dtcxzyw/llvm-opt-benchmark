@@ -403,7 +403,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i.i
 
 virtio_input_add_config.exit:                     ; preds = %for.inc.i.i, %while.body
   %call5.i = tail call noalias dereferenceable_or_null(152) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 152) #13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %call5.i, ptr noundef nonnull align 4 dereferenceable(136) %arrayidx11, i64 136, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %call5.i, ptr noundef nonnull readonly align 4 dereferenceable(136) %arrayidx11, i64 136, i1 false)
   %node.i = getelementptr inbounds i8, ptr %call5.i, i64 136
   store ptr null, ptr %node.i, align 8
   %6 = load ptr, ptr %tql_prev, align 8
@@ -473,7 +473,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i.i
 
 virtio_input_add_config.exit:                     ; preds = %for.inc.i.i, %if.end
   %call5.i = tail call noalias dereferenceable_or_null(152) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 152) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %call5.i, ptr noundef nonnull align 4 dereferenceable(136) %id, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %call5.i, ptr noundef nonnull readonly align 4 dereferenceable(136) %id, i64 136, i1 false)
   %node.i = getelementptr inbounds i8, ptr %call5.i, i64 136
   store ptr null, ptr %node.i, align 8
   %tql_prev.i = getelementptr inbounds i8, ptr %vinput, i64 536

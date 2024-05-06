@@ -132,7 +132,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @msmouse_ioctl(ptr noundef %chr, i32 noundef %cmd, ptr nocapture noundef %arg) #0 {
+define internal range(i32 -95, 1) i32 @msmouse_ioctl(ptr noundef %chr, i32 noundef %cmd, ptr nocapture noundef %arg) #0 {
 entry:
   %bytes = alloca [32 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 71, ptr noundef nonnull @__func__.MOUSE_CHARDEV) #6
@@ -288,7 +288,7 @@ if.end:                                           ; preds = %entry
   %and7.i = lshr i32 %1, 6
   %shr8.i = and i32 %and7.i, 3
   %or.i = or disjoint i32 %shl.i, %shr8.i
-  %4 = trunc i32 %or.i to i8
+  %4 = trunc nuw nsw i32 %or.i to i8
   %arrayidx13.i = getelementptr inbounds i8, ptr %bytes.i, i64 1
   %5 = trunc i32 %1 to i8
   %6 = and i8 %5, 63

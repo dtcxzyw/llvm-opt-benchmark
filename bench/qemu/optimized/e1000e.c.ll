@@ -294,7 +294,7 @@ entry:
   br i1 %cmp, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  %conv8 = uitofp i32 %and to x86_fp80
+  %conv8 = uitofp nneg i32 %and to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 121, ptr noundef nonnull @__func__.e1000e_pci_start_hw, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv8, ptr noundef nonnull @.str.11, x86_fp80 noundef 0xK40088080000000000000, i8 noundef signext 120) #6
   br label %do.end
 
@@ -320,7 +320,7 @@ do.end:                                           ; preds = %if.else, %entry
   tail call void @qpci_io_writel(ptr noundef %pci_dev, i64 %18, i8 %19, i64 noundef 14336, i32 noundef %conv18) #6
   %20 = load i64, ptr %e1000e, align 8
   %shr = lshr i64 %20, 32
-  %conv22 = trunc i64 %shr to i32
+  %conv22 = trunc nuw i64 %shr to i32
   %21 = load i64, ptr %mac_regs.i, align 8
   %22 = load i8, ptr %1, align 8
   tail call void @qpci_io_writel(ptr noundef %pci_dev, i64 %21, i8 %22, i64 noundef 14340, i32 noundef %conv22) #6
@@ -344,7 +344,7 @@ do.end:                                           ; preds = %if.else, %entry
   tail call void @qpci_io_writel(ptr noundef %pci_dev, i64 %32, i8 %33, i64 noundef 10240, i32 noundef %conv29) #6
   %34 = load i64, ptr %rx_ring, align 8
   %shr33 = lshr i64 %34, 32
-  %conv34 = trunc i64 %shr33 to i32
+  %conv34 = trunc nuw i64 %shr33 to i32
   %35 = load i64, ptr %mac_regs.i, align 8
   %36 = load i8, ptr %1, align 8
   tail call void @qpci_io_writel(ptr noundef %pci_dev, i64 %35, i8 %36, i64 noundef 10244, i32 noundef %conv34) #6

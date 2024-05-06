@@ -614,7 +614,7 @@ invoke.cont:                                      ; preds = %init
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
   %2 = load i8, ptr @_ZZN17grpc_event_engine12experimental12PipeWakeupFd18CreatePipeWakeupFdEvE24kIsPipeWakeupFdSupported, align 1
-  %tobool1 = trunc i8 %2 to i1
+  %tobool1 = trunc nuw i8 %2 to i1
   br i1 %tobool1, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %init.end

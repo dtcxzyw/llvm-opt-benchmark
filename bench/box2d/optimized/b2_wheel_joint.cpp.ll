@@ -124,7 +124,7 @@ invoke.cont:
   %2 = load i64, ptr %localAxisA, align 4
   store i64 %2, ptr %m_localXAxisA4, align 8
   %3 = lshr i64 %2, 32
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw i64 %3 to i32
   %5 = bitcast i32 %4 to float
   %mul.i = fneg float %5
   %6 = trunc i64 %2 to i32

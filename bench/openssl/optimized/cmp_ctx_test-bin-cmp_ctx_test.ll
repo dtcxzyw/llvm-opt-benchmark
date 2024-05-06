@@ -184,7 +184,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #6
   %tobool.not = icmp eq i32 %call, 0
@@ -257,7 +257,7 @@ declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnam
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_CTX_libctx_propq() #1 {
+define internal range(i32 0, 2) i32 @test_CTX_libctx_propq() #1 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #6
   %call1 = tail call ptr @OSSL_CMP_CTX_new(ptr noundef %call, ptr noundef nonnull @.str.50) #6
@@ -291,7 +291,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_CTX_reinit() #1 {
+define internal range(i32 0, 2) i32 @test_CTX_reinit() #1 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.3)
   %cmp = icmp eq ptr %call, null
@@ -800,7 +800,7 @@ return:                                           ; preds = %entry, %tear_down.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cmp_ctx_log_cb() #1 {
+define internal range(i32 0, 2) i32 @test_cmp_ctx_log_cb() #1 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.6)
   %cmp = icmp eq ptr %call, null
@@ -874,7 +874,7 @@ return:                                           ; preds = %entry, %tear_down.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_CTX_print_errors() #1 {
+define internal range(i32 0, 2) i32 @test_CTX_print_errors() #1 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.7)
   %cmp = icmp eq ptr %call, null

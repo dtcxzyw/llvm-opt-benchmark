@@ -670,7 +670,7 @@ return:                                           ; preds = %entry, %sw.bb4, %sw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN2EA4StdC9Stopwatch21GetStopwatchFrequencyEv() local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i64 1, 1000000001) i64 @_ZN2EA4StdC9Stopwatch21GetStopwatchFrequencyEv() local_unnamed_addr #5 align 2 {
 entry:
   %.b = load i1, ptr @_ZN12_GLOBAL__N_120mnStopwatchFrequencyE, align 8
   %0 = select i1 %.b, i64 1000000000, i64 1

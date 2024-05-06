@@ -842,7 +842,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 400:                                              ; preds = %379
   %401 = add i32 %.1326, 1
-  %402 = trunc i32 %389 to i16
+  %402 = trunc nuw nsw i32 %389 to i16
   store i16 %402, ptr %381, align 2
   br label %488
 

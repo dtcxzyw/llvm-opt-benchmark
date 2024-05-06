@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable
-define hidden i32 @FLAC__fixed_compute_best_predictor(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
 entry:
   %cmp158 = icmp sgt i32 %data_len, 0
   br i1 %cmp158, label %for.body.preheader, label %for.end
@@ -180,7 +180,7 @@ cond.end325:                                      ; preds = %cond.end311, %cond.
 declare double @log(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable
-define hidden i32 @FLAC__fixed_compute_best_predictor_wide(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_wide(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
 entry:
   %cmp158 = icmp sgt i32 %data_len, 0
   br i1 %cmp158, label %for.body.preheader, label %for.end
@@ -358,7 +358,7 @@ cond.end350:                                      ; preds = %cond.end336, %cond.
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable
-define hidden noundef i32 @FLAC__fixed_compute_best_predictor_limit_residual(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_residual(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
 entry:
   %cmp171 = icmp sgt i32 %data_len, -4
   br i1 %cmp171, label %for.body.preheader, label %if.end302.thread
@@ -602,7 +602,7 @@ if.end390:                                        ; preds = %if.end368, %cond.tr
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite) uwtable
-define hidden noundef i32 @FLAC__fixed_compute_best_predictor_limit_residual_33bit(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
+define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_residual_33bit(ptr nocapture noundef readonly %data, i32 noundef %data_len, ptr nocapture noundef writeonly %residual_bits_per_sample) local_unnamed_addr #0 {
 entry:
   %cmp172 = icmp sgt i32 %data_len, -4
   br i1 %cmp172, label %for.body.preheader, label %if.end241.thread

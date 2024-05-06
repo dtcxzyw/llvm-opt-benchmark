@@ -2185,8 +2185,8 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %if.end
   %163 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i408 = zext i32 %163 to i64
   %add.ptr.i409.idx = shl nuw nsw i64 %idx.ext.i408, 3
-  %164 = getelementptr i8, ptr %11, i64 %add.ptr.i409.idx
-  %add.ptr.i409.ptr = getelementptr i8, ptr %164, i64 32
+  %164 = getelementptr inbounds i8, ptr %11, i64 %add.ptr.i409.idx
+  %add.ptr.i409.ptr = getelementptr inbounds i8, ptr %164, i64 32
   %cmp183.not719 = icmp eq i32 %163, 0
   br i1 %cmp183.not719, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit478, label %for.body184.preheader
 

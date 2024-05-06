@@ -374,7 +374,7 @@ entry:
   %conv2 = trunc i64 %call1 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %skipLongerMatches.i)
   store i32 0, ptr %skipLongerMatches.i, align 4
-  %call.i = call fastcc i32 @stringmatchlen_impl(ptr noundef %pattern, i32 noundef %conv, ptr noundef %string, i32 noundef %conv2, i32 noundef %nocase, ptr noundef nonnull %skipLongerMatches.i)
+  %call.i = call fastcc i32 @stringmatchlen_impl(ptr noundef readonly %pattern, i32 noundef %conv, ptr noundef readonly %string, i32 noundef %conv2, i32 noundef %nocase, ptr noundef nonnull %skipLongerMatches.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %skipLongerMatches.i)
   ret i32 %call.i
 }
@@ -437,7 +437,7 @@ for.body14:                                       ; preds = %for.body14.preheade
 for.end22:                                        ; preds = %for.body14, %for.cond11.preheader
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %skipLongerMatches.i)
   store i32 0, ptr %skipLongerMatches.i, align 4
-  %call.i = call fastcc i32 @stringmatchlen_impl(ptr noundef nonnull %pat, i32 noundef %1, ptr noundef nonnull %str, i32 noundef %0, i32 noundef 0, ptr noundef nonnull %skipLongerMatches.i)
+  %call.i = call fastcc i32 @stringmatchlen_impl(ptr noundef nonnull readonly %pat, i32 noundef %1, ptr noundef nonnull readonly %str, i32 noundef %0, i32 noundef 0, ptr noundef nonnull %skipLongerMatches.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %skipLongerMatches.i)
   %add = add nuw nsw i32 %call.i, %total_matches.012
   %dec = add nsw i32 %dec13, -1
@@ -2715,7 +2715,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %statbuf.i)
-  %call.i = call i32 @stat64(ptr noundef %dname, ptr noundef nonnull %statbuf.i) #31
+  %call.i = call i32 @stat64(ptr noundef readonly %dname, ptr noundef nonnull %statbuf.i) #31
   %cmp.i = icmp ne i32 %call.i, 0
   %st_mode.i = getelementptr inbounds i8, ptr %statbuf.i, i64 24
   %1 = load i32, ptr %st_mode.i, align 8

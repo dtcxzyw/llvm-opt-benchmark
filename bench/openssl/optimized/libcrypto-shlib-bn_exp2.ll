@@ -137,8 +137,8 @@ for.body.preheader:                               ; preds = %if.then84
   br label %for.body
 
 for.cond:                                         ; preds = %lor.lhs.false95
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %1 = trunc i64 %indvars.iv.next to i32
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %1 = trunc nsw i64 %indvars.iv.next to i32
   %i.0.highbits = lshr i32 %1, %sub
   %cmp91 = icmp eq i32 %i.0.highbits, 0
   br i1 %cmp91, label %for.body, label %if.end105, !llvm.loop !4
@@ -204,8 +204,8 @@ for.body141.preheader:                            ; preds = %if.then130
   br label %for.body141
 
 for.cond139:                                      ; preds = %lor.lhs.false146
-  %indvars.iv.next165 = add nuw i64 %indvars.iv164, 1
-  %5 = trunc i64 %indvars.iv.next165 to i32
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
+  %5 = trunc nsw i64 %indvars.iv.next165 to i32
   %i.1.highbits = lshr i32 %5, %sub137
   %cmp140 = icmp eq i32 %i.1.highbits, 0
   br i1 %cmp140, label %for.body141, label %if.end159, !llvm.loop !6

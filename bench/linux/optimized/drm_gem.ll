@@ -347,7 +347,7 @@ define dso_local void @drm_gem_private_object_fini(ptr noundef %0) #0 align 16 {
 declare dso_local void @dma_resv_fini(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_gem_handle_delete(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_gem_handle_delete(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_raw_spin_lock(ptr noundef %3) #11
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1240,7 +1240,7 @@ declare dso_local zeroext i1 @folio_mark_dirty(ptr noundef) local_unnamed_addr #
 declare dso_local void @folio_mark_accessed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_gem_objects_lookup(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @drm_gem_objects_lookup(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
   %5 = icmp eq i32 %2, 0
   br i1 %5, label %.thread, label %6
 
@@ -1339,7 +1339,7 @@ objects_lookup.exit:                              ; preds = %28, %44
 declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @drm_gem_dma_resv_wait(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i64 noundef %3) #0 align 16 {
+define dso_local range(i64 -9223372036854775808, 1) i64 @drm_gem_dma_resv_wait(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_raw_spin_lock(ptr noundef %5) #11
   %6 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1417,7 +1417,7 @@ define dso_local i64 @drm_gem_dma_resv_wait(ptr noundef %0, i32 noundef %1, i1 n
 declare dso_local i64 @dma_resv_wait_timeout(ptr noundef, i32 noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_gem_close_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @drm_gem_close_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 176
@@ -1440,7 +1440,7 @@ define dso_local noundef i32 @drm_gem_close_ioctl(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_gem_flink_ioctl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_gem_flink_ioctl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 176
@@ -2669,7 +2669,7 @@ define dso_local void @drm_gem_lru_move_tail(ptr noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @drm_gem_lru_scan(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @drm_gem_lru_scan(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
   %5 = alloca %struct.drm_gem_lru, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
   %6 = load ptr, ptr %0, align 8

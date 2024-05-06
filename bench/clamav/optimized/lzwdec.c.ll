@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [22 x i8] c"no data was processed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @lzwInit(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -4, 1) i32 @lzwInit(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #7
   %3 = icmp eq ptr %2, null
   br i1 %3, label %24, label %4
@@ -81,7 +81,7 @@ declare ptr @cli_max_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %319, label %3
 

@@ -3627,7 +3627,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %62, %64
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN9syscall_t15sys_getmainvarsEmmmmmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4, i64 %5, i64 %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -12, 1) i64 @_ZN9syscall_t15sys_getmainvarsEmmmmmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4, i64 %5, i64 %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::vector.0", align 8
   %10 = alloca %"class.std::vector.40", align 8
   %11 = alloca %"class.std::allocator.20", align 1

@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @generate_canonical_g.ggen = internal constant [4 x i8] c"ggen", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ffc_params_FIPS186_4_gen_verify(ptr noundef %libctx, ptr noundef %params, i32 noundef %mode, i32 noundef %type, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @ossl_ffc_params_FIPS186_4_gen_verify(ptr noundef %libctx, ptr noundef %params, i32 noundef %mode, i32 noundef %type, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %pcounter = alloca i32, align 4
   %m = alloca i32, align 4
@@ -310,7 +310,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
   %15 = phi ptr [ %.pre, %for.cond.preheader ], [ %17, %if.end200 ]
   %cmp169 = icmp ne ptr %seed.1188, %15
   %conv170 = zext i1 %cmp169 to i32
-  %call171 = call fastcc i32 @generate_q_fips186_4(ptr noundef %call47, ptr noundef nonnull %call120, ptr noundef %call18, i32 noundef %conv35, ptr noundef nonnull %seed.1188, i64 noundef %spec.select, i32 noundef %conv170, ptr noundef nonnull %m, ptr noundef nonnull %res, ptr noundef %cb), !range !4
+  %call171 = call fastcc i32 @generate_q_fips186_4(ptr noundef %call47, ptr noundef nonnull %call120, ptr noundef %call18, i32 noundef %conv35, ptr noundef nonnull %seed.1188, i64 noundef %spec.select, i32 noundef %conv170, ptr noundef nonnull %m, ptr noundef nonnull %res, ptr noundef %cb)
   %tobool172.not = icmp eq i32 %call171, 0
   br i1 %tobool172.not, label %err, label %if.end174
 
@@ -339,7 +339,7 @@ if.end186:                                        ; preds = %if.end182
 
 if.end190:                                        ; preds = %if.end186
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call130, ptr nonnull align 1 %seed.1188, i64 %spec.select, i1 false)
-  %call192 = call fastcc i32 @generate_p(ptr noundef %call47, ptr noundef %call18, i32 noundef %counter.0, i32 noundef %conv160, ptr noundef nonnull %call130, i64 noundef %spec.select, ptr noundef nonnull %call120, ptr noundef %call119, i32 noundef %L.tr189, ptr noundef %cb, ptr noundef nonnull %pcounter, ptr noundef nonnull %res), !range !5
+  %call192 = call fastcc i32 @generate_p(ptr noundef %call47, ptr noundef %call18, i32 noundef %counter.0, i32 noundef %conv160, ptr noundef nonnull %call130, i64 noundef %spec.select, ptr noundef nonnull %call120, ptr noundef %call119, i32 noundef %L.tr189, ptr noundef %cb, ptr noundef nonnull %pcounter, ptr noundef nonnull %res)
   %cmp193 = icmp sgt i32 %call192, 0
   br i1 %cmp193, label %for.end, label %if.end196
 
@@ -428,7 +428,7 @@ land.lhs.true254:                                 ; preds = %if.end251
   br i1 %cmp255.not, label %if.else271, label %if.then257
 
 if.then257:                                       ; preds = %land.lhs.true254
-  %call259 = tail call fastcc i32 @generate_canonical_g(ptr noundef %call47, ptr noundef nonnull %call226, ptr noundef %call18, ptr noundef %call52, ptr noundef nonnull %call56, ptr noundef %p.0, ptr noundef %call54, i32 noundef %21, ptr noundef nonnull %seed.2, i64 noundef %spec.select), !range !4
+  %call259 = tail call fastcc i32 @generate_canonical_g(ptr noundef %call47, ptr noundef nonnull %call226, ptr noundef %call18, ptr noundef %call52, ptr noundef nonnull %call56, ptr noundef %p.0, ptr noundef %call54, i32 noundef %21, ptr noundef nonnull %seed.2, i64 noundef %spec.select)
   %tobool260.not = icmp eq i32 %call259, 0
   br i1 %tobool260.not, label %if.then261, label %if.end262
 
@@ -454,7 +454,7 @@ if.else271:                                       ; preds = %land.lhs.true254, %
   br i1 %cmp, label %if.end279, label %if.then273
 
 if.then273:                                       ; preds = %if.else271
-  %call274 = call fastcc i32 @generate_unverifiable_g(ptr noundef %call47, ptr noundef nonnull %call226, ptr noundef %call52, ptr noundef nonnull %call56, ptr noundef %p.0, ptr noundef %call54, ptr noundef %call53, ptr noundef nonnull %hret), !range !4
+  %call274 = call fastcc i32 @generate_unverifiable_g(ptr noundef %call47, ptr noundef nonnull %call226, ptr noundef %call52, ptr noundef nonnull %call56, ptr noundef %p.0, ptr noundef %call54, ptr noundef %call53, ptr noundef nonnull %hret)
   %tobool275.not = icmp eq i32 %call274, 0
   br i1 %tobool275.not, label %err, label %if.end279
 
@@ -592,7 +592,7 @@ declare i32 @BN_lshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @BN_value_one() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @generate_q_fips186_4(ptr noundef %ctx, ptr noundef %q, ptr noundef %evpmd, i32 noundef %qsize, ptr noundef %seed, i64 noundef %seedlen, i32 noundef %generate_seed, ptr nocapture noundef %retm, ptr nocapture noundef %res, ptr noundef %cb) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @generate_q_fips186_4(ptr noundef %ctx, ptr noundef %q, ptr noundef %evpmd, i32 noundef %qsize, ptr noundef %seed, i64 noundef %seedlen, i32 noundef %generate_seed, ptr nocapture noundef %retm, ptr nocapture noundef %res, ptr noundef %cb) unnamed_addr #0 {
 entry:
   %md = alloca [64 x i8], align 16
   %0 = load i32, ptr %retm, align 4
@@ -768,7 +768,7 @@ declare i32 @BN_GENCB_call(ptr noundef, i32 noundef, i32 noundef) local_unnamed_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @generate_p(ptr noundef %ctx, ptr noundef %evpmd, i32 noundef %max_counter, i32 noundef %n, ptr noundef %buf, i64 noundef %buf_len, ptr noundef %q, ptr noundef %p, i32 noundef %L, ptr noundef %cb, ptr nocapture noundef writeonly %counter, ptr nocapture noundef %res) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @generate_p(ptr noundef %ctx, ptr noundef %evpmd, i32 noundef %max_counter, i32 noundef %n, ptr noundef %buf, i64 noundef %buf_len, ptr noundef %q, ptr noundef %p, i32 noundef %L, ptr noundef %cb, ptr nocapture noundef writeonly %counter, ptr nocapture noundef %res) unnamed_addr #0 {
 entry:
   %md = alloca [64 x i8], align 16
   tail call void @BN_CTX_start(ptr noundef %ctx) #5
@@ -819,7 +819,7 @@ if.end18:                                         ; preds = %land.lhs.true, %for
 for.cond19:                                       ; preds = %lor.lhs.false43
   %inc49 = add nuw i32 %j.053, 1
   %exitcond.not = icmp eq i32 %j.053, %n
-  br i1 %exitcond.not, label %for.end50, label %for.body21, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end50, label %for.body21, !llvm.loop !4
 
 for.body21:                                       ; preds = %if.end18, %for.cond19
   %j.053 = phi i32 [ %inc49, %for.cond19 ], [ 0, %if.end18 ]
@@ -827,7 +827,7 @@ for.body21:                                       ; preds = %if.end18, %for.cond
 
 for.cond23:                                       ; preds = %for.body26, %for.body21
   %indvars.iv = phi i64 [ %2, %for.body26 ], [ %0, %for.body21 ]
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw i64 %indvars.iv to i32
   %cmp24 = icmp sgt i32 %1, 0
   br i1 %cmp24, label %for.body26, label %for.end
 
@@ -838,7 +838,7 @@ for.body26:                                       ; preds = %for.cond23
   %inc = add i8 %3, 1
   store i8 %inc, ptr %arrayidx, align 1
   %cmp30.not = icmp eq i8 %inc, 0
-  br i1 %cmp30.not, label %for.cond23, label %for.end, !llvm.loop !8
+  br i1 %cmp30.not, label %for.cond23, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body26, %for.cond23
   %call34 = call i32 @EVP_Digest(ptr noundef %buf, i64 noundef %buf_len, ptr noundef nonnull %md, ptr noundef null, ptr noundef %evpmd, ptr noundef null) #5
@@ -918,7 +918,7 @@ if.end83:                                         ; preds = %if.then78
 for.inc89:                                        ; preds = %if.end74, %if.end83
   %inc90 = add nuw i32 %i.055, 1
   %exitcond62.not = icmp eq i32 %i.055, %max_counter
-  br i1 %exitcond62.not, label %for.end91, label %for.body, !llvm.loop !9
+  br i1 %exitcond62.not, label %for.end91, label %for.body, !llvm.loop !7
 
 for.end91:                                        ; preds = %for.inc89, %for.cond.preheader
   %4 = load i32, ptr %res, align 4
@@ -943,7 +943,7 @@ declare i32 @BN_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @generate_canonical_g(ptr noundef %ctx, ptr noundef %mont, ptr noundef %evpmd, ptr noundef %g, ptr noundef %tmp, ptr noundef %p, ptr noundef %e, i32 noundef %gindex, ptr noundef %seed, i64 noundef %seedlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @generate_canonical_g(ptr noundef %ctx, ptr noundef %mont, ptr noundef %evpmd, ptr noundef %g, ptr noundef %tmp, ptr noundef %p, ptr noundef %e, i32 noundef %gindex, ptr noundef %seed, i64 noundef %seedlen) unnamed_addr #0 {
 entry:
   %md = alloca [64 x i8], align 16
   %call = tail call i32 @EVP_MD_get_size(ptr noundef %evpmd) #5
@@ -964,13 +964,13 @@ for.cond.preheader:                               ; preds = %if.end
 for.cond:                                         ; preds = %if.end34
   %inc = add nuw nsw i32 %counter.014, 1
   %exitcond.not = icmp eq i32 %inc, 65536
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %counter.014 = phi i32 [ 1, %for.cond.preheader ], [ %inc, %for.cond ]
   store i8 %conv, ptr %md, align 16
   %shr = lshr i32 %counter.014, 8
-  %conv7 = trunc i32 %shr to i8
+  %conv7 = trunc nuw i32 %shr to i8
   store i8 %conv7, ptr %arrayidx8, align 1
   %conv10 = trunc i32 %counter.014 to i8
   store i8 %conv10, ptr %arrayidx11, align 2
@@ -1025,7 +1025,7 @@ return:                                           ; preds = %if.end, %entry, %fo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @generate_unverifiable_g(ptr noundef %ctx, ptr noundef %mont, ptr noundef %g, ptr noundef %hbn, ptr noundef %p, ptr noundef %e, ptr noundef %pm1, ptr nocapture noundef writeonly %hret) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @generate_unverifiable_g(ptr noundef %ctx, ptr noundef %mont, ptr noundef %g, ptr noundef %hbn, ptr noundef %p, ptr noundef %e, ptr noundef %pm1, ptr nocapture noundef writeonly %hret) unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_set_word(ptr noundef %hbn, i64 noundef 2) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -1087,7 +1087,7 @@ declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ffc_params_FIPS186_2_gen_verify(ptr noundef %libctx, ptr noundef %params, i32 noundef %mode, i32 %type, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @ossl_ffc_params_FIPS186_2_gen_verify(ptr noundef %libctx, ptr noundef %params, i32 noundef %mode, i32 %type, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %buf2.i = alloca [64 x i8], align 16
   %md.i = alloca [64 x i8], align 16
@@ -1288,7 +1288,7 @@ if.then121:                                       ; preds = %if.end113
 
 if.end124:                                        ; preds = %if.end113
   %conv126 = zext i1 %cmp46.not to i32
-  %conv.i = trunc i64 %shr to i32
+  %conv.i = trunc nuw i64 %shr to i32
   %cmp291.i = icmp sgt i32 %conv.i, 0
   %sub45.i = add nsw i64 %shr, -1
   %arrayidx46.i = getelementptr inbounds [64 x i8], ptr %md.i, i64 0, i64 %sub45.i
@@ -1332,7 +1332,7 @@ if.end5.i:                                        ; preds = %land.lhs.true.i, %i
 
 for.cond6.i:                                      ; preds = %for.body.i, %if.end5.i
   %indvars.iv.i = phi i64 [ %16, %for.body.i ], [ %shr, %if.end5.i ]
-  %15 = trunc i64 %indvars.iv.i to i32
+  %15 = trunc nuw i64 %indvars.iv.i to i32
   %cmp7.i = icmp sgt i32 %15, 0
   br i1 %cmp7.i, label %for.body.i, label %for.end.i
 
@@ -1343,7 +1343,7 @@ for.body.i:                                       ; preds = %for.cond6.i
   %inc9.i = add i8 %17, 1
   store i8 %inc9.i, ptr %arrayidx.i, align 1
   %cmp13.not.i = icmp eq i8 %inc9.i, 0
-  br i1 %cmp13.not.i, label %for.cond6.i, label %for.end.i, !llvm.loop !11
+  br i1 %cmp13.not.i, label %for.cond6.i, label %for.end.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond6.i
   %call18.i = call i32 @EVP_Digest(ptr noundef nonnull %seed, i64 noundef %shr, ptr noundef nonnull %md.i, ptr noundef null, ptr noundef nonnull %call19, ptr noundef null) #5
@@ -1368,7 +1368,7 @@ for.body31.i:                                     ; preds = %for.cond27.preheade
   store i8 %xor29.i, ptr %arrayidx36.i, align 1
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv5.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next6.i, %shr
-  br i1 %exitcond.not.i, label %for.end41.i, label %for.body31.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %for.end41.i, label %for.body31.i, !llvm.loop !10
 
 for.end41.i:                                      ; preds = %for.body31.i, %for.cond27.preheader.i
   %20 = load i8, ptr %md.i, align 16
@@ -1421,7 +1421,7 @@ if.then152:                                       ; preds = %if.then148
 
 if.end155:                                        ; preds = %if.then148, %if.end140
   %counter.0 = phi i32 [ %conv146, %if.end140 ], [ %24, %if.then148 ]
-  %call158 = call fastcc i32 @generate_p(ptr noundef nonnull %call58, ptr noundef nonnull %call19, i32 noundef %counter.0, i32 noundef %conv143, ptr noundef nonnull %buf, i64 noundef %shr, ptr noundef %call65, ptr noundef %call66, i32 noundef %div139.tr, ptr noundef %cb, ptr noundef nonnull %pcounter, ptr noundef nonnull %res), !range !5
+  %call158 = call fastcc i32 @generate_p(ptr noundef nonnull %call58, ptr noundef nonnull %call19, i32 noundef %counter.0, i32 noundef %conv143, ptr noundef nonnull %buf, i64 noundef %shr, ptr noundef %call65, ptr noundef %call66, i32 noundef %div139.tr, ptr noundef %cb, ptr noundef nonnull %pcounter, ptr noundef nonnull %res)
   %cmp159 = icmp sgt i32 %call158, 0
   br i1 %cmp159, label %for.end, label %if.end162
 
@@ -1488,7 +1488,7 @@ if.end204:                                        ; preds = %if.then199
   br i1 %tobool206.not, label %if.then281, label %if.end208
 
 if.end208:                                        ; preds = %if.end204
-  %call209 = call fastcc i32 @generate_unverifiable_g(ptr noundef nonnull %call58, ptr noundef nonnull %call189, ptr noundef %call64, ptr noundef %call67, ptr noundef %p.0, ptr noundef %call63, ptr noundef nonnull %call68, ptr noundef nonnull %hret), !range !4
+  %call209 = call fastcc i32 @generate_unverifiable_g(ptr noundef nonnull %call58, ptr noundef nonnull %call189, ptr noundef %call64, ptr noundef %call67, ptr noundef %p.0, ptr noundef %call63, ptr noundef nonnull %call68, ptr noundef nonnull %hret)
   %tobool210.not = icmp eq i32 %call209, 0
   br i1 %tobool210.not, label %if.then281, label %if.end223.thread
 
@@ -1599,16 +1599,16 @@ if.end282:                                        ; preds = %if.then16, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ffc_params_FIPS186_4_generate(ptr noundef %libctx, ptr noundef %params, i32 noundef %type, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @ossl_ffc_params_FIPS186_4_generate(ptr noundef %libctx, ptr noundef %params, i32 noundef %type, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_ffc_params_FIPS186_4_gen_verify(ptr noundef %libctx, ptr noundef %params, i32 noundef 1, i32 noundef %type, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb), !range !13
+  %call = tail call i32 @ossl_ffc_params_FIPS186_4_gen_verify(ptr noundef %libctx, ptr noundef %params, i32 noundef 1, i32 noundef %type, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ffc_params_FIPS186_2_generate(ptr noundef %libctx, ptr noundef %params, i32 noundef %type, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ffc_params_FIPS186_2_generate(ptr noundef %libctx, ptr noundef %params, i32 noundef %type, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_ffc_params_FIPS186_2_gen_verify(ptr noundef %libctx, ptr noundef %params, i32 noundef 1, i32 poison, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb), !range !13
+  %call = tail call i32 @ossl_ffc_params_FIPS186_2_gen_verify(ptr noundef %libctx, ptr noundef %params, i32 noundef 1, i32 poison, i64 noundef %L, i64 noundef %N, ptr noundef %res, ptr noundef %cb)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1683,13 +1683,10 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 -1, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = !{i32 0, i32 3}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

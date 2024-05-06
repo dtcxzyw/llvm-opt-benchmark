@@ -97,7 +97,7 @@ define hidden noundef i32 @_ZN21unicode_normalization7lookups17composition_table
 
 _ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.3355593342274400970.exit: ; preds = %2
   %6 = shl nuw i32 %0, 16
-  %7 = or i32 %6, %1
+  %7 = or disjoint i32 %6, %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %8 = mul i32 %7, -1640531527
@@ -380,7 +380,7 @@ define noundef zeroext i1 @_ZN21unicode_normalization7lookups17is_combining_mark
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noundef i64 @_ZN21unicode_normalization7lookups32stream_safe_trailing_nonstarters17h151aa84cee5734a5E(i32 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noundef range(i64 0, 256) i64 @_ZN21unicode_normalization7lookups32stream_safe_trailing_nonstarters17h151aa84cee5734a5E(i32 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
 _ZN21unicode_normalization12perfect_hash10mph_lookup17he7426c414cdc4c14E.llvm.3355593342274400970.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
@@ -492,7 +492,7 @@ define hidden i48 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5
 
 30:                                               ; preds = %26
   %sh.diff.i.i = lshr i64 %.sroa.03.0.copyload, 16
-  %tr.sh.diff.i.i = trunc i64 %sh.diff.i.i to i48
+  %tr.sh.diff.i.i = trunc nuw i64 %sh.diff.i.i to i48
   %.sroa.3.0.insert.shift.i.i = and i48 %tr.sh.diff.i.i, -4294967296
   %31 = trunc i64 %.sroa.03.0.copyload to i48
   %32 = lshr i48 %31, 16

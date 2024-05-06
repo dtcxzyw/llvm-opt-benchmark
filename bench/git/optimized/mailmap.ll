@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [26 x i8] c"mailmap is not a blob: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @read_mailmap(ptr noundef %map) local_unnamed_addr #0 {
+define dso_local i32 @read_mailmap(ptr noundef %map) local_unnamed_addr #0 {
 entry:
   %oid.i = alloca %struct.object_id, align 4
   %size.i = alloca i64, align 8
@@ -63,7 +63,7 @@ lor.lhs.false.if.then5_crit_edge:                 ; preds = %lor.lhs.false
 
 if.then5:                                         ; preds = %lor.lhs.false.if.then5_crit_edge, %if.end
   %tobool7.not = phi i32 [ %4, %lor.lhs.false.if.then5_crit_edge ], [ 0, %if.end ]
-  %call8 = tail call fastcc i32 @read_mailmap_file(ptr noundef nonnull %map, ptr noundef nonnull @.str.1, i32 noundef %tobool7.not), !range !5
+  %call8 = tail call fastcc i32 @read_mailmap_file(ptr noundef nonnull %map, ptr noundef nonnull @.str.1, i32 noundef %tobool7.not)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then5, %lor.lhs.false
@@ -128,7 +128,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   call fastcc void @read_mailmap_line(ptr noundef %map, ptr noundef nonnull %buf.addr.06.i.i)
   %13 = load i8, ptr %end.0.i.i, align 1
   %tobool.not.i.i = icmp eq i8 %13, 0
-  br i1 %tobool.not.i.i, label %read_mailmap_string.exit.i, label %while.body.i.i, !llvm.loop !6
+  br i1 %tobool.not.i.i, label %read_mailmap_string.exit.i, label %while.body.i.i, !llvm.loop !5
 
 read_mailmap_string.exit.i:                       ; preds = %if.end.i.i, %if.end13.i
   call void @free(ptr noundef %call3.i) #11
@@ -145,7 +145,7 @@ read_mailmap_blob.exit:                           ; preds = %if.then12, %if.end.
 if.end15:                                         ; preds = %read_mailmap_blob.exit, %if.end9
   %err.1 = phi i32 [ %or14, %read_mailmap_blob.exit ], [ %err.0, %if.end9 ]
   %14 = load ptr, ptr @git_mailmap_file, align 8
-  %call16 = call fastcc i32 @read_mailmap_file(ptr noundef %map, ptr noundef %14, i32 noundef 0), !range !5
+  %call16 = call fastcc i32 @read_mailmap_file(ptr noundef %map, ptr noundef %14, i32 noundef 0)
   %or17 = or i32 %call16, %err.1
   ret i32 %or17
 }
@@ -160,7 +160,7 @@ entry:
 declare i32 @is_bare_repository() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @read_mailmap_file(ptr noundef %map, ptr noundef %filename, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_mailmap_file(ptr noundef %map, ptr noundef %filename, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %buffer = alloca [1024 x i8], align 16
   %tobool.not = icmp eq ptr %filename, null
@@ -204,7 +204,7 @@ while.body:                                       ; preds = %if.end12, %while.bo
   call fastcc void @read_mailmap_line(ptr noundef %map, ptr noundef nonnull %buffer)
   %call14 = call ptr @fgets(ptr noundef nonnull %buffer, i32 noundef 1024, ptr noundef %call13)
   %cmp15.not = icmp eq ptr %call14, null
-  br i1 %cmp15.not, label %while.end, label %while.body, !llvm.loop !8
+  br i1 %cmp15.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %if.end12
   %call17 = call i32 @fclose(ptr noundef %call13)
@@ -247,7 +247,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @map_user(ptr noundef %map, ptr nocapture noundef %email, ptr nocapture noundef %emaillen, ptr nocapture noundef %name, ptr nocapture noundef %namelen) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @map_user(ptr noundef %map, ptr nocapture noundef %email, ptr nocapture noundef %emaillen, ptr nocapture noundef %name, ptr nocapture noundef %namelen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %email, align 8
   %1 = load i64, ptr %emaillen, align 8
@@ -306,7 +306,7 @@ land.lhs.true.i:                                  ; preds = %if.else20.i
 
 if.end33.i:                                       ; preds = %land.lhs.true.i, %if.else20.i
   %cmp8.i = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %cmp8.i, label %land.rhs.i, label %return, !llvm.loop !9
+  br i1 %cmp8.i, label %land.rhs.i, label %return, !llvm.loop !8
 
 lookup_prefix.exit:                               ; preds = %if.then.i
   %10 = load ptr, ptr %map, align 8
@@ -388,7 +388,7 @@ land.lhs.true.i41:                                ; preds = %if.else20.i37
 
 if.end33.i39:                                     ; preds = %land.lhs.true.i41, %if.else20.i37
   %cmp8.i40 = icmp ugt i64 %indvars.iv.i29, 1
-  br i1 %cmp8.i40, label %land.rhs.i28, label %if.end8, !llvm.loop !9
+  br i1 %cmp8.i40, label %land.rhs.i28, label %if.end8, !llvm.loop !8
 
 if.end8:                                          ; preds = %if.end33.i39, %land.lhs.true.i41, %while.body.i33, %land.rhs.i28, %if.end7.i23, %if.else.i20, %if.then1.i48
   %retval.0.i32 = phi ptr [ %arrayidx2.i50, %if.then1.i48 ], [ null, %if.else.i20 ], [ null, %if.end7.i23 ], [ null, %land.rhs.i28 ], [ null, %while.body.i33 ], [ null, %if.end33.i39 ], [ %arrayidx14.i34, %land.lhs.true.i41 ]
@@ -489,7 +489,7 @@ while.cond.i:                                     ; preds = %if.end.i, %while.co
   %cmp11.i = icmp ult ptr %nstart.0.i, %call.i
   %4 = and i1 %cmp11.i, %cmp9.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %nstart.0.i, i64 1
-  br i1 %4, label %while.cond.i, label %while.cond14.i, !llvm.loop !10
+  br i1 %4, label %while.cond.i, label %while.cond14.i, !llvm.loop !9
 
 while.cond14.i:                                   ; preds = %while.cond.i, %land.rhs17.i
   %call.pn.i = phi ptr [ %nend.0.i, %land.rhs17.i ], [ %call.i, %while.cond.i ]
@@ -504,7 +504,7 @@ land.rhs17.i:                                     ; preds = %while.cond14.i
   %6 = load i8, ptr %arrayidx19.i, align 1
   %7 = and i8 %6, 1
   %cmp22.not.i = icmp eq i8 %7, 0
-  br i1 %cmp22.not.i, label %while.end27.i, label %while.cond14.i, !llvm.loop !11
+  br i1 %cmp22.not.i, label %while.end27.i, label %while.cond14.i, !llvm.loop !10
 
 while.end27.i:                                    ; preds = %land.rhs17.i, %while.cond14.i
   %cmp28.not.i = icmp ugt ptr %nstart.0.i, %nend.0.i
@@ -537,7 +537,7 @@ while.cond.i10:                                   ; preds = %if.end.i4, %while.c
   %cmp11.i15 = icmp ult ptr %nstart.0.i11, %call.i2
   %12 = and i1 %cmp11.i15, %cmp9.i14
   %incdec.ptr.i16 = getelementptr inbounds i8, ptr %nstart.0.i11, i64 1
-  br i1 %12, label %while.cond.i10, label %while.cond14.i18, !llvm.loop !10
+  br i1 %12, label %while.cond.i10, label %while.cond14.i18, !llvm.loop !9
 
 while.cond14.i18:                                 ; preds = %while.cond.i10, %land.rhs17.i29
   %call.pn.i19 = phi ptr [ %nend.0.i20, %land.rhs17.i29 ], [ %call.i2, %while.cond.i10 ]
@@ -552,7 +552,7 @@ land.rhs17.i29:                                   ; preds = %while.cond14.i18
   %14 = load i8, ptr %arrayidx19.i31, align 1
   %15 = and i8 %14, 1
   %cmp22.not.i32 = icmp eq i8 %15, 0
-  br i1 %cmp22.not.i32, label %while.end27.i22, label %while.cond14.i18, !llvm.loop !11
+  br i1 %cmp22.not.i32, label %while.end27.i22, label %while.cond14.i18, !llvm.loop !10
 
 while.end27.i22:                                  ; preds = %land.rhs17.i29, %while.cond14.i18
   %cmp28.not.i23 = icmp ugt ptr %nstart.0.i11, %nend.0.i20
@@ -709,10 +709,9 @@ attributes #13 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

@@ -490,12 +490,12 @@ define dso_local void @finalize_manifest(ptr noundef %0, ptr noundef readonly %1
   %8 = getelementptr inbounds i8, ptr %.029, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = lshr i64 %9, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   %12 = trunc i64 %9 to i32
   %13 = getelementptr inbounds i8, ptr %.029, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = lshr i64 %14, 32
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw i64 %15 to i32
   %17 = trunc i64 %14 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, ptr noundef nonnull %6, i32 noundef %7, i32 noundef %11, i32 noundef %12, i32 noundef %16, i32 noundef %17) #6
   %18 = getelementptr inbounds i8, ptr %.029, i64 24

@@ -117,7 +117,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.2 = private unnamed_addr constant [17 x i8] c"  data contents:\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @do_operations(ptr nocapture noundef readonly %options) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @do_operations(ptr nocapture noundef readonly %options) local_unnamed_addr #0 {
 entry:
   %streaminfo.i = alloca %struct.FLAC__StreamMetadata, align 8
   %album_gain.i = alloca float, align 4
@@ -326,7 +326,7 @@ if.then26.us.i.i:                                 ; preds = %for.body15.us.i.i
 
 lor.lhs.false38.us.i.i:                           ; preds = %if.then26.us.i.i
   %application_id.us.i.i = getelementptr inbounds i8, ptr %arrayidx22.us.i.i, i64 4
-  %bcmp.us.i.i = tail call i32 @bcmp(ptr nonnull %application_id.us.i.i, ptr nonnull %data.i.i, i64 %conv.i.i)
+  %bcmp.us.i.i = tail call i32 @bcmp(ptr nonnull %application_id.us.i.i, ptr nonnull readonly %data.i.i, i64 %conv.i.i)
   %cmp48.us.i.i = icmp eq i32 %bcmp.us.i.i, 0
   br i1 %cmp48.us.i.i, label %if.then50.us.i.i, label %for.inc.us.i.i
 
@@ -1475,7 +1475,7 @@ if.then26.us.i:                                   ; preds = %for.body15.us.i
 
 lor.lhs.false38.us.i:                             ; preds = %if.then26.us.i
   %application_id.us.i = getelementptr inbounds i8, ptr %arrayidx22.us.i, i64 4
-  %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %application_id.us.i, ptr nonnull %data.i, i64 %conv.i.i)
+  %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %application_id.us.i, ptr nonnull readonly %data.i, i64 %conv.i.i)
   %cmp48.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %cmp48.us.i, label %if.then50.us.i, label %for.inc.us.i
 

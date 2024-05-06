@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [48 x i8] c"[drm] Applying Ironlake quirks for intel_iommu\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_ggtt_gmch_probe(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @intel_ggtt_gmch_probe(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
@@ -206,7 +206,7 @@ declare dso_local void @intel_ggtt_bind_vma(ptr noundef, ptr noundef, ptr nounde
 declare dso_local void @intel_ggtt_unbind_vma(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_ggtt_gmch_enable_hw(ptr nocapture noundef readnone %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -5, 1) i32 @intel_ggtt_gmch_enable_hw(ptr nocapture noundef readnone %0) local_unnamed_addr #0 align 16 {
   %2 = tail call zeroext i1 @intel_gmch_enable_gtt() #5
   %3 = select i1 %2, i32 0, i32 -5
   ret i32 %3

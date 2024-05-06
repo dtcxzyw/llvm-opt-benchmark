@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ucred = type { i32, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @getpeereid(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @getpeereid(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ucred, align 4
   %5 = alloca i32, align 4
   store i32 12, ptr %5, align 4

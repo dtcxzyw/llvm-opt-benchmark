@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [50 x i8] c"Kit_PlaToTruth(): SOP is represented incorrectly.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Kit_PlaIsConst0(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Kit_PlaIsConst0(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 32
   br i1 %3, label %4, label %9
@@ -27,7 +27,7 @@ define i32 @Kit_PlaIsConst0(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Kit_PlaIsConst1(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Kit_PlaIsConst1(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 32
   br i1 %3, label %4, label %9
@@ -45,7 +45,7 @@ define i32 @Kit_PlaIsConst1(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @Kit_PlaIsBuf(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Kit_PlaIsBuf(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 1
   %.not = icmp eq i8 %3, 0
@@ -79,7 +79,7 @@ define noundef i32 @Kit_PlaIsBuf(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @Kit_PlaIsInv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Kit_PlaIsInv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 1
   %.not = icmp eq i8 %3, 0
@@ -169,7 +169,7 @@ define i32 @Kit_PlaGetCubeNum(ptr noundef readonly %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Kit_PlaIsComplement(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Kit_PlaIsComplement(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   br label %2
 
 2:                                                ; preds = %10, %1
@@ -343,7 +343,7 @@ Kit_PlaStart.exit:                                ; preds = %16, %6
   %.val31.us = load ptr, ptr %21, align 8
   %24 = getelementptr inbounds i32, ptr %.val31.us, i64 %indvars.iv38
   %25 = load i32, ptr %24, align 4
-  %26 = mul nsw i64 %indvars.iv38, %23
+  %26 = mul nuw nsw i64 %indvars.iv38, %23
   %27 = getelementptr inbounds i8, ptr %10, i64 %26
   br label %28
 
@@ -1627,7 +1627,7 @@ define void @Kit_PlaToTruth(ptr nocapture noundef readonly %0, i32 noundef %1, p
 select.unfold.preheader.i:                        ; preds = %11
   %16 = zext nneg i32 %spec.select.i to i64
   %17 = shl nuw nsw i64 %16, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %4, i8 0, i64 %17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %4, i8 0, i64 %17, i1 false)
   br label %Kit_TruthClear.exit
 
 Kit_TruthClear.exit:                              ; preds = %11, %select.unfold.preheader.i
@@ -1666,7 +1666,7 @@ select.unfold.preheader.i47.us:                   ; preds = %select.unfold.prehe
   %.04068.us = phi i32 [ %60, %Kit_TruthOr.exit.loopexit.us ], [ 0, %select.unfold.preheader.i47.us.preheader ]
   %31 = getelementptr inbounds i8, ptr %.03969.us, i64 %23
   %32 = load i8, ptr %31, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %3, i8 -1, i64 %25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %3, i8 -1, i64 %25, i1 false)
   br label %39
 
 select.unfold.i57.us:                             ; preds = %Kit_TruthAnd.exit.us75, %select.unfold.i57.us
@@ -1754,7 +1754,7 @@ select.unfold.preheader.i47:                      ; preds = %.lr.ph71.split, %Ki
   %.04068 = phi i32 [ %74, %Kit_TruthOr.exit.loopexit ], [ 0, %.lr.ph71.split ]
   %65 = getelementptr inbounds i8, ptr %.03969, i64 %23
   %66 = load i8, ptr %65, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %3, i8 -1, i64 %25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %3, i8 -1, i64 %25, i1 false)
   br label %select.unfold.i57
 
 select.unfold.i57:                                ; preds = %select.unfold.i57, %select.unfold.preheader.i47

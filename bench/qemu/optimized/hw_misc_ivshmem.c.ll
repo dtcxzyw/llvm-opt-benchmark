@@ -386,7 +386,7 @@ if.then14.i:                                      ; preds = %if.end9.i
   br label %ivshmem_recv_setup.exit
 
 if.end15.i:                                       ; preds = %if.end9.i
-  %conv.i = trunc i64 %retval.0.i38.i to i32
+  %conv.i = trunc nuw nsw i64 %retval.0.i38.i to i32
   %vm_id.i = getelementptr inbounds i8, ptr %call.i, i64 2688
   store i32 %conv.i, ptr %vm_id.i, align 16
   br label %do.body.i
@@ -841,7 +841,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @ivshmem_can_receive(ptr nocapture noundef readonly %opaque) #0 {
+define internal range(i32 1, 9) i32 @ivshmem_can_receive(ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %msg_buffered_bytes = getelementptr inbounds i8, ptr %opaque, i64 3296
   %0 = load i32, ptr %msg_buffered_bytes, align 16
@@ -915,7 +915,7 @@ declare void @vmstate_register_ram(ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal i64 @ivshmem_io_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 %size) #3 {
+define internal range(i64 0, 4294967296) i64 @ivshmem_io_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 %size) #3 {
 entry:
   switch i64 %addr, label %sw.epilog [
     i64 0, label %sw.bb
@@ -1461,7 +1461,7 @@ for.body.lr.ph:                                   ; preds = %if.then2
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %or.i = or i32 %shl.i, %4
   %conv.i = sext i32 %or.i to i64
   %5 = load ptr, ptr %peers, align 16
@@ -1581,7 +1581,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %iv
   br i1 %tobool3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %for.body
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @ivshmem_vector_mask(ptr noundef %call.i, i32 noundef %6)
   %.pre = load ptr, ptr %msi_vectors, align 16
   br label %if.end5
@@ -1621,7 +1621,7 @@ for.end:                                          ; preds = %ivshmem_remove_kvm_
 declare i32 @msix_set_vector_notifiers(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @ivshmem_vector_unmask(ptr noundef %dev, i32 noundef %vector, i64 %msg.coerce0, i32 %msg.coerce1) #0 {
+define internal range(i32 -2147483648, 1) i32 @ivshmem_vector_unmask(ptr noundef %dev, i32 noundef %vector, i64 %msg.coerce0, i32 %msg.coerce1) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 63, ptr noundef nonnull @__func__.IVSHMEM_COMMON) #11
   %peers = getelementptr inbounds i8, ptr %call.i, i64 3264
@@ -1757,7 +1757,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom = sext i32 %3 to i64
   %eventfds = getelementptr %struct.Peer, ptr %2, i64 %idxprom, i32 1
   %4 = load ptr, ptr %eventfds, align 8
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw i64 %indvars.iv to i32
   %call4 = tail call zeroext i1 @msix_is_masked(ptr noundef %dev, i32 noundef %5) #11
   br i1 %call4, label %if.end, label %for.inc
 
@@ -1842,7 +1842,7 @@ declare zeroext i1 @host_memory_backend_is_mapped(ptr noundef) local_unnamed_add
 declare ptr @object_get_canonical_path_component(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @ivshmem_pre_load(ptr nocapture noundef readonly %opaque) #0 {
+define internal range(i32 -22, 1) i32 @ivshmem_pre_load(ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 3300
   %opaque.val = load i32, ptr %0, align 4

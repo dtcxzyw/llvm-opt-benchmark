@@ -681,7 +681,7 @@ define void @Min_CoverWriteStore(ptr nocapture noundef %0, ptr nocapture noundef
   br i1 %.not1214, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %6
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
@@ -899,7 +899,7 @@ define void @Min_CoverCheck(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Min_CubeCheck(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Min_CubeCheck(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8

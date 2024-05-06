@@ -804,7 +804,7 @@ define dso_local noundef ptr @gro_find_complete_by_type(i16 noundef zeroext %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @napi_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @napi_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 156
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 65
@@ -1010,7 +1010,7 @@ define dso_local noundef i32 @napi_gro_receive(ptr noundef %0, ptr noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @dev_gro_receive(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 5) i32 @dev_gro_receive(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 148
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 7
@@ -1681,7 +1681,7 @@ define dso_local ptr @napi_get_frags(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @napi_gro_frags(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @napi_gro_frags(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8

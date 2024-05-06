@@ -518,7 +518,7 @@ entry:
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %0, ptr %wrap.coerce) #15
   %1 = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17
-  tail call void @_ZN4node9HistogramC2ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(80) %call.i, ptr noundef nonnull align 8 dereferenceable(20) %options)
+  tail call void @_ZN4node9HistogramC2ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(80) %call.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %options)
   store ptr %call.i, ptr %1, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %call.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
@@ -2810,7 +2810,7 @@ entry:
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %1, ptr %agg.tmp.sroa.0.0.copyload) #15
   %2 = getelementptr inbounds i8, ptr %call, i64 32
   %call.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17
-  tail call void @_ZN4node9HistogramC2ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(80) %call.i.i, ptr noundef nonnull align 8 dereferenceable(20) %args3)
+  tail call void @_ZN4node9HistogramC2ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(80) %call.i.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %args3)
   store ptr %call.i.i, ptr %2, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %call.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
@@ -3340,7 +3340,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call166, ptr noundef %102, ptr nonnull %add.ptr.i486) #15
   %103 = getelementptr inbounds i8, ptr %call166, i64 32
   %call.i.i = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17
-  call void @_ZN4node9HistogramC2ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(80) %call.i.i, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp171)
+  call void @_ZN4node9HistogramC2ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(80) %call.i.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %ref.tmp171)
   store ptr %call.i.i, ptr %103, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call166, i64 40
   %call.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
@@ -7904,7 +7904,7 @@ entry:
   tail call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %env, ptr %wrap.coerce, ptr noundef nonnull %timer_, i32 noundef %type) #15
   %0 = getelementptr inbounds i8, ptr %this, i64 88
   %call.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17
-  tail call void @_ZN4node9HistogramC2ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(80) %call.i, ptr noundef nonnull align 8 dereferenceable(20) %options)
+  tail call void @_ZN4node9HistogramC2ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(80) %call.i, ptr noundef nonnull readonly align 8 dereferenceable(20) %options)
   store ptr %call.i, ptr %0, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %call.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17

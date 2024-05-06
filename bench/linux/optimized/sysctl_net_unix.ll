@@ -76,7 +76,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [15 x i8] c"max_dgram_qlen\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @unix_sysctl_register(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @unix_sysctl_register(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, @init_net
   br i1 %2, label %9, label %3
 

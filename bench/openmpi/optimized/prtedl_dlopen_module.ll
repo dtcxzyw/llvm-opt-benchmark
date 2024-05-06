@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [4 x i8] c".lo\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dlopen_open(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
+define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.stat, align 8
   store ptr null, ptr %3, align 8
@@ -157,7 +157,7 @@ define internal i32 @dlopen_close(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dlopen_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3) #0 {
+define internal range(i32 -1, 1) i32 @dlopen_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3) #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @dlsym(ptr noundef %5, ptr noundef %1) #7
   store ptr %6, ptr %2, align 8

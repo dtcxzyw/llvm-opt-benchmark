@@ -1311,7 +1311,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_group_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_group_init() local_unnamed_addr #0 {
   %1 = load i32, ptr @opal_class_init_epoch, align 4
   %2 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_pointer_array_t_class, i64 0, i32 4), align 8
   %.not = icmp eq i32 %1, %2

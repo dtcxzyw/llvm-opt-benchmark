@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9) local_unnamed_addr #0 {
-  %11 = tail call i64 @llvm.ctpop.i64(i64 %8), !range !6
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %8)
   %.not = icmp ult i64 %11, 2
   br i1 %.not, label %12, label %82
 
@@ -31,7 +31,7 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
   %.1111 = tail call i64 @llvm.umin.i64(i64 %.0110126, i64 %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
   %.0110.lcssa = phi i64 [ %13, %12 ], [ %.1111, %.lr.ph ]
@@ -119,7 +119,7 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
 
 56:                                               ; preds = %.sink.split, %47, %54
   %exitcond145.not = icmp eq i64 %indvars.iv.next143, %2
-  br i1 %exitcond145.not, label %._crit_edge132.loopexit, label %.lr.ph131, !llvm.loop !9
+  br i1 %exitcond145.not, label %._crit_edge132.loopexit, label %.lr.ph131, !llvm.loop !8
 
 ._crit_edge132.loopexit:                          ; preds = %56
   %57 = trunc nuw i64 %2 to i32
@@ -172,7 +172,7 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
   %78 = getelementptr inbounds %struct.mempool_s, ptr %29, i64 %indvars.iv.next147
   %79 = tail call i32 @mempool_deinit(ptr noundef nonnull %78) #6
   %80 = icmp ugt i64 %indvars.iv146, 1
-  br i1 %80, label %.lr.ph136, label %._crit_edge137, !llvm.loop !10
+  br i1 %80, label %.lr.ph136, label %._crit_edge137, !llvm.loop !9
 
 ._crit_edge137:                                   ; preds = %.lr.ph136, %.loopexit
   tail call fastcc void @mempool_multiple_free_chunk(ptr noundef %16, ptr noundef nonnull %29)
@@ -486,7 +486,7 @@ define internal fastcc void @mempool_multiple_free_chunk(ptr noundef %0, ptr nou
 43:                                               ; preds = %.preheader, %41
   %44 = phi ptr [ %39, %.preheader ], [ %.pre, %41 ]
   %.not42 = icmp eq ptr %44, null
-  br i1 %.not42, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %.not42, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %43, %29, %33, %38
   %45 = getelementptr inbounds i8, ptr %0, i64 56
@@ -500,7 +500,7 @@ define internal fastcc void @mempool_multiple_free_chunk(ptr noundef %0, ptr nou
 50:                                               ; preds = %.lr.ph, %19
   %.037 = load ptr, ptr %.03747, align 8
   %.not = icmp eq ptr %.037, null
-  br i1 %.not, label %.loopexit43, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %.loopexit43, label %.lr.ph, !llvm.loop !11
 
 .loopexit43:                                      ; preds = %50, %13, %23, %.loopexit
   %51 = tail call i32 @nxrmutex_unlock(ptr noundef nonnull %14) #6
@@ -558,7 +558,7 @@ define ptr @mempool_multiple_alloc(ptr noundef readonly %0, i64 noundef %1) loca
   %.129.i = select i1 %25, i64 %22, i64 %.02837.i
   %.1.i = select i1 %25, i64 %.038.i, i64 %26
   %27 = icmp ult i64 %.1.i, %.129.i
-  br i1 %27, label %20, label %._crit_edge.i, !llvm.loop !13
+  br i1 %27, label %20, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %20, %.preheader.i
   %.0.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %.1.i, %20 ]
@@ -591,7 +591,7 @@ mempool_multiple_find.exit.thread15:              ; preds = %10, %mempool_multip
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %.010, i64 184
   %40 = icmp ult ptr %39, %35
-  br i1 %40, label %36, label %mempool_multiple_find.exit.thread, !llvm.loop !14
+  br i1 %40, label %36, label %mempool_multiple_find.exit.thread, !llvm.loop !13
 
 mempool_multiple_find.exit.thread:                ; preds = %38, %36, %._crit_edge.i, %2, %13, %mempool_multiple_find.exit
   %.0 = phi ptr [ null, %mempool_multiple_find.exit ], [ null, %13 ], [ null, %2 ], [ null, %._crit_edge.i ], [ null, %38 ], [ %37, %36 ]
@@ -652,7 +652,7 @@ define ptr @mempool_multiple_realloc(ptr noundef readonly %0, ptr noundef %1, i6
   %.129.i.i = select i1 %28, i64 %25, i64 %.02837.i.i
   %.1.i.i = select i1 %28, i64 %.038.i.i, i64 %29
   %30 = icmp ult i64 %.1.i.i, %.129.i.i
-  br i1 %30, label %23, label %._crit_edge.i.i, !llvm.loop !13
+  br i1 %30, label %23, label %._crit_edge.i.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %23, %.preheader.i.i
   %.0.lcssa.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.1.i.i, %23 ]
@@ -685,7 +685,7 @@ mempool_multiple_find.exit.thread15.i:            ; preds = %mempool_multiple_fi
 41:                                               ; preds = %39
   %42 = getelementptr inbounds i8, ptr %.010.i, i64 184
   %43 = icmp ult ptr %42, %38
-  br i1 %43, label %39, label %mempool_multiple_alloc.exit, !llvm.loop !14
+  br i1 %43, label %39, label %mempool_multiple_alloc.exit, !llvm.loop !13
 
 44:                                               ; preds = %3
   br i1 %5, label %mempool_multiple_alloc.exit, label %45
@@ -773,7 +773,7 @@ mempool_multiple_get_dict.exit:                   ; preds = %70
   %.129.i.i42 = select i1 %94, i64 %91, i64 %.02837.i.i41
   %.1.i.i43 = select i1 %94, i64 %.038.i.i40, i64 %95
   %96 = icmp ult i64 %.1.i.i43, %.129.i.i42
-  br i1 %96, label %89, label %._crit_edge.i.i44, !llvm.loop !13
+  br i1 %96, label %89, label %._crit_edge.i.i44, !llvm.loop !12
 
 ._crit_edge.i.i44:                                ; preds = %89, %.preheader.i.i37
   %.0.lcssa.i.i45 = phi i64 [ 0, %.preheader.i.i37 ], [ %.1.i.i43, %89 ]
@@ -806,7 +806,7 @@ mempool_multiple_find.exit.thread15.i30:          ; preds = %mempool_multiple_fi
 107:                                              ; preds = %105
   %108 = getelementptr inbounds i8, ptr %.010.i32, i64 184
   %109 = icmp ult ptr %108, %104
-  br i1 %109, label %105, label %mempool_multiple_alloc.exit, !llvm.loop !14
+  br i1 %109, label %105, label %mempool_multiple_alloc.exit, !llvm.loop !13
 
 mempool_multiple_alloc.exit46:                    ; preds = %105
   %110 = load ptr, ptr %67, align 8
@@ -870,7 +870,7 @@ mempool_multiple_alloc.exit:                      ; preds = %107, %41, %39, %._c
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mempool_multiple_free(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @mempool_multiple_free(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -1043,7 +1043,7 @@ define ptr @mempool_multiple_memalign(ptr noundef readonly %0, i64 noundef %1, i
   %.129.i = select i1 %27, i64 %24, i64 %.02837.i
   %.1.i = select i1 %27, i64 %.038.i, i64 %28
   %29 = icmp ult i64 %.1.i, %.129.i
-  br i1 %29, label %22, label %._crit_edge.i, !llvm.loop !13
+  br i1 %29, label %22, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %22, %.preheader.i
   %.0.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %.1.i, %22 ]
@@ -1085,7 +1085,7 @@ mempool_multiple_find.exit.thread18:              ; preds = %12, %mempool_multip
 47:                                               ; preds = %38
   %48 = getelementptr inbounds i8, ptr %.013, i64 184
   %49 = icmp ult ptr %48, %37
-  br i1 %49, label %38, label %mempool_multiple_find.exit.thread, !llvm.loop !15
+  br i1 %49, label %38, label %mempool_multiple_find.exit.thread, !llvm.loop !14
 
 mempool_multiple_find.exit.thread:                ; preds = %47, %._crit_edge.i, %3, %15, %mempool_multiple_find.exit, %40
   %.0 = phi ptr [ %46, %40 ], [ null, %mempool_multiple_find.exit ], [ null, %15 ], [ null, %3 ], [ null, %._crit_edge.i ], [ null, %47 ]
@@ -1107,7 +1107,7 @@ define void @mempool_multiple_foreach(ptr nocapture noundef readonly %0, ptr noc
   %8 = add nuw i64 %.06, 1
   %9 = load i64, ptr %4, align 8
   %10 = icmp ult i64 %8, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1193,7 +1193,7 @@ define void @mempool_multiple_mallinfo(ptr dead_on_unwind noalias nocapture writ
   %61 = add nuw i64 %.014, 1
   %62 = load i64, ptr %28, align 8
   %63 = icmp ult i64 %61, %62
-  br i1 %63, label %38, label %._crit_edge, !llvm.loop !17
+  br i1 %63, label %38, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %38
   store i32 %52, ptr %33, align 4
@@ -1240,7 +1240,7 @@ define i64 @mempool_multiple_info_task(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i64, ptr %3, align 8
   %11 = icmp ugt i64 %10, %indvars.iv.next
-  br i1 %11, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !18
+  br i1 %11, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %12 = zext i32 %9 to i64
@@ -1271,7 +1271,7 @@ define void @mempool_multiple_memdump(ptr nocapture noundef readonly %0, ptr nou
   %7 = add nuw i64 %.05, 1
   %8 = load i64, ptr %3, align 8
   %9 = icmp ult i64 %7, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1301,7 +1301,7 @@ define void @mempool_multiple_deinit(ptr noundef %0) local_unnamed_addr #0 {
   %10 = add nuw i64 %.021, 1
   %11 = load i64, ptr %2, align 8
   %12 = icmp ult i64 %10, %11
-  br i1 %12, label %.lr.ph, label %.preheader, !llvm.loop !20
+  br i1 %12, label %.lr.ph, label %.preheader, !llvm.loop !19
 
 .lr.ph23:                                         ; preds = %.preheader, %16
   %.122 = phi i64 [ %17, %16 ], [ 0, %.preheader ]
@@ -1316,7 +1316,7 @@ define void @mempool_multiple_deinit(ptr noundef %0) local_unnamed_addr #0 {
   %17 = add nuw i64 %.122, 1
   %18 = load i64, ptr %5, align 8
   %19 = icmp ult i64 %17, %18
-  br i1 %19, label %.lr.ph23, label %._crit_edge, !llvm.loop !21
+  br i1 %19, label %.lr.ph23, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %16, %.lr.ph23, %.preheader
   %20 = load ptr, ptr %4, align 8
@@ -1357,19 +1357,18 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i64 0, i64 65}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}

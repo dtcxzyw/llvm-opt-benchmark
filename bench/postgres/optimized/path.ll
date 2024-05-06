@@ -299,12 +299,12 @@ sub_2:                                            ; preds = %sub_1125
   br i1 %44, label %.outer.backedge, label %46
 
 46:                                               ; preds = %45
-  %47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.177) #18
+  %47 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.177) #18
   %.not.i = icmp eq ptr %.179.ph, %.177
   br i1 %.not.i, label %append_subdir_to_path.exit, label %48
 
 48:                                               ; preds = %46
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.179.ph, ptr nonnull align 1 %.177, i64 %47, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %.179.ph, ptr nonnull readonly align 1 %.177, i64 %47, i1 false)
   br label %append_subdir_to_path.exit
 
 append_subdir_to_path.exit:                       ; preds = %46, %48
@@ -387,12 +387,12 @@ trim_directory.exit:                              ; preds = %52, %77
 80:                                               ; preds = %51
   %81 = getelementptr i8, ptr %.179.ph, i64 1
   store i8 47, ptr %.179.ph, align 1
-  %82 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.177) #18
+  %82 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.177) #18
   %.not.i99 = icmp eq ptr %81, %.177
   br i1 %.not.i99, label %append_subdir_to_path.exit100, label %83
 
 83:                                               ; preds = %80
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %81, ptr nonnull align 1 %.177, i64 %82, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %81, ptr nonnull readonly align 1 %.177, i64 %82, i1 false)
   br label %append_subdir_to_path.exit100
 
 append_subdir_to_path.exit100:                    ; preds = %80, %83
@@ -401,7 +401,7 @@ append_subdir_to_path.exit100:                    ; preds = %80, %83
   br label %.outer.backedge
 
 86:                                               ; preds = %.tail123
-  %87 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.177) #18
+  %87 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.177) #18
   %.not.i101 = icmp eq ptr %.179.ph, %.177
   br i1 %44, label %88, label %91
 
@@ -409,7 +409,7 @@ append_subdir_to_path.exit100:                    ; preds = %80, %83
   br i1 %.not.i101, label %append_subdir_to_path.exit102, label %89
 
 89:                                               ; preds = %88
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.179.ph, ptr nonnull align 1 %.177, i64 %87, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %.179.ph, ptr nonnull readonly align 1 %.177, i64 %87, i1 false)
   br label %append_subdir_to_path.exit102
 
 append_subdir_to_path.exit102:                    ; preds = %88, %89
@@ -420,7 +420,7 @@ append_subdir_to_path.exit102:                    ; preds = %88, %89
   br i1 %.not.i101, label %append_subdir_to_path.exit104, label %92
 
 92:                                               ; preds = %91
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.179.ph, ptr nonnull align 1 %.177, i64 %87, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %.179.ph, ptr nonnull readonly align 1 %.177, i64 %87, i1 false)
   br label %append_subdir_to_path.exit104
 
 append_subdir_to_path.exit104:                    ; preds = %91, %92
@@ -501,12 +501,12 @@ trim_directory.exit116:                           ; preds = %96, %121
 126:                                              ; preds = %95
   %127 = getelementptr i8, ptr %.179.ph, i64 1
   store i8 47, ptr %.179.ph, align 1
-  %128 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.177) #18
+  %128 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.177) #18
   %.not.i117 = icmp eq ptr %127, %.177
   br i1 %.not.i117, label %append_subdir_to_path.exit118, label %129
 
 129:                                              ; preds = %126
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %127, ptr nonnull align 1 %.177, i64 %128, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %127, ptr nonnull readonly align 1 %.177, i64 %128, i1 false)
   br label %append_subdir_to_path.exit118
 
 append_subdir_to_path.exit118:                    ; preds = %126, %129
@@ -517,7 +517,7 @@ append_subdir_to_path.exit118:                    ; preds = %126, %129
 132:                                              ; preds = %.tail123
   %133 = getelementptr i8, ptr %.179.ph, i64 1
   store i8 47, ptr %.179.ph, align 1
-  %134 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.177) #18
+  %134 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.177) #18
   %.not.i119 = icmp eq ptr %133, %.177
   br i1 %44, label %135, label %138
 
@@ -525,7 +525,7 @@ append_subdir_to_path.exit118:                    ; preds = %126, %129
   br i1 %.not.i119, label %append_subdir_to_path.exit120, label %136
 
 136:                                              ; preds = %135
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %133, ptr nonnull align 1 %.177, i64 %134, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %133, ptr nonnull readonly align 1 %.177, i64 %134, i1 false)
   br label %append_subdir_to_path.exit120
 
 append_subdir_to_path.exit120:                    ; preds = %135, %136
@@ -536,7 +536,7 @@ append_subdir_to_path.exit120:                    ; preds = %135, %136
   br i1 %.not.i119, label %append_subdir_to_path.exit122, label %139
 
 139:                                              ; preds = %138
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %133, ptr nonnull align 1 %.177, i64 %134, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %133, ptr nonnull readonly align 1 %.177, i64 %134, i1 false)
   br label %append_subdir_to_path.exit122
 
 append_subdir_to_path.exit122:                    ; preds = %138, %139

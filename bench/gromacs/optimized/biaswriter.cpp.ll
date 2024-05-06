@@ -1188,26 +1188,26 @@ _ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
   %54 = extractvalue { ptr, i32 } %53, 0
   %55 = tail call ptr @__cxa_begin_catch(ptr %54) #20
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %56, label %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit37.sink.split
+  br i1 %.not, label %56, label %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit39.sink.split
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds i8, ptr %26, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %58, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit37, label %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit37.sink.split
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit39, label %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit39.sink.split
 
-59:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit37
+59:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit39
   %60 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %61 unwind label %62
 
-_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit37.sink.split: ; preds = %52, %56
+_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit39.sink.split: ; preds = %52, %56
   %.sink = phi ptr [ %58, %56 ], [ %25, %52 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sink) #22
-  br label %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit37
+  br label %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit39
 
-_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit37.sink.split, %56
+_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit39: ; preds = %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit39.sink.split, %56
   invoke void @__cxa_rethrow() #23
           to label %65 unwind label %59
 
@@ -1221,7 +1221,7 @@ _ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit37: 
   tail call void @__clang_call_terminate(ptr %64) #21
   unreachable
 
-65:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit37
+65:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx14AwhEnergyBlockESaIS1_EE13_M_deallocateEPS1_m.exit39
   unreachable
 }
 

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @bio_err = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @log_set_verbosity(ptr noundef %prog, i32 noundef %level) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @log_set_verbosity(ptr noundef %prog, i32 noundef %level) local_unnamed_addr #0 {
 entry:
   %or.cond = icmp ugt i32 %level, 8
   br i1 %or.cond, label %if.then, label %if.end
@@ -36,7 +36,7 @@ entry:
   %prefix.i = alloca [80 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %ap_copy = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %cmp = icmp sgt i32 %category, -1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
@@ -47,9 +47,9 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %call1 = call ptr @OSSL_trace_begin(i32 noundef %category) #5
-  call void @llvm.va_copy(ptr nonnull %ap_copy, ptr nonnull %ap)
+  call void @llvm.va_copy.p0(ptr nonnull %ap_copy, ptr nonnull %ap)
   %call5 = call i32 @BIO_vprintf(ptr noundef %call1, ptr noundef %fmt, ptr noundef nonnull %ap_copy) #5
-  call void @llvm.va_end(ptr nonnull %ap_copy)
+  call void @llvm.va_end.p0(ptr nonnull %ap_copy)
   %call7 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call1, ptr noundef nonnull @.str.1) #5
   call void @OSSL_trace_end(i32 noundef %category, ptr noundef %call1) #5
   br label %if.end
@@ -76,49 +76,49 @@ if.end11:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %if.end11
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @log_get_verbosity() local_unnamed_addr #1 {
+define range(i32 0, 9) i32 @log_get_verbosity() local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @verbosity, align 4
   ret i32 %0
 }
 
+declare i32 @OSSL_trace_enabled(i32 noundef) local_unnamed_addr #2
+
+declare ptr @OSSL_trace_begin(i32 noundef) local_unnamed_addr #2
+
+declare i32 @BIO_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare void @OSSL_trace_end(i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
+
+declare ptr @BIO_f_prefix() local_unnamed_addr #2
+
+declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @BIO_pop(ptr noundef) local_unnamed_addr #2
+
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-declare i32 @OSSL_trace_enabled(i32 noundef) local_unnamed_addr #3
-
-declare ptr @OSSL_trace_begin(i32 noundef) local_unnamed_addr #3
+declare void @llvm.va_start.p0(ptr) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #2
-
-declare i32 @BIO_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @llvm.va_copy.p0(ptr, ptr) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
-
-declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
-
-declare void @OSSL_trace_end(i32 noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #3
-
-declare ptr @BIO_f_prefix() local_unnamed_addr #3
-
-declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @BIO_pop(ptr noundef) local_unnamed_addr #3
-
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
+declare void @llvm.va_end.p0(ptr) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
@@ -128,8 +128,8 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 

@@ -46,7 +46,7 @@ define void @breakPoly(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @makeAddPoly(ptr nocapture noundef writeonly %0, ptr noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @makeAddPoly(ptr nocapture noundef writeonly %0, ptr noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -113,12 +113,12 @@ gv_calloc.exit:                                   ; preds = %10
   %42 = getelementptr inbounds i8, ptr %37, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(4) @.str) #18
+  %45 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(4) @.str) #18
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %36
-  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(8) @.str.1) #18
+  %48 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(8) @.str.1) #18
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %isBox.exit.thread
 
@@ -186,7 +186,7 @@ isBox.exit:                                       ; preds = %72, %88
   %.sink.i = phi double [ %58, %88 ], [ %73, %72 ]
   %90 = load double, ptr %.sink20.i, align 8
   %91 = fcmp une double %.sink.i, %90
-  br i1 %91, label %.thread, label %.thread158
+  br i1 %91, label %.thread, label %.thread159
 
 isBox.exit.thread:                                ; preds = %50, %47
   %92 = icmp ult i64 %41, 3
@@ -195,9 +195,9 @@ isBox.exit.thread:                                ; preds = %50, %47
 93:                                               ; preds = %isBox.exit.thread
   %94 = load i32, ptr %39, align 8
   %.not133 = icmp eq i32 %94, 0
-  br i1 %.not133, label %.thread, label %.thread147
+  br i1 %.not133, label %.thread, label %.thread148
 
-.thread147:                                       ; preds = %93
+.thread148:                                       ; preds = %93
   %95 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 2, ptr %95, align 8
   br label %174
@@ -224,14 +224,14 @@ isBox.exit.thread:                                ; preds = %50, %47
   %104 = icmp eq ptr %103, null
   br i1 %104, label %108, label %gv_calloc.exit136
 
-.thread158:                                       ; preds = %isBox.exit
+.thread159:                                       ; preds = %isBox.exit
   %105 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 1, ptr %105, align 8
   %106 = tail call noalias ptr @calloc(i64 noundef %41, i64 noundef 16) #15
   %107 = icmp eq ptr %106, null
   br i1 %107, label %108, label %gv_calloc.exit136.thread
 
-108:                                              ; preds = %.thread158, %102
+108:                                              ; preds = %.thread159, %102
   %109 = load ptr, ptr @stderr, align 8
   %110 = shl nuw i64 %41, 4
   %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %109, ptr noundef nonnull @.str.5, i64 noundef %110) #16
@@ -249,8 +249,8 @@ gv_calloc.exit136:                                ; preds = %102
   %.pre = load ptr, ptr %112, align 8
   br label %159
 
-gv_calloc.exit136.thread:                         ; preds = %.thread158, %gv_calloc.exit136
-  %116 = phi ptr [ %103, %gv_calloc.exit136 ], [ %106, %.thread158 ]
+gv_calloc.exit136.thread:                         ; preds = %.thread159, %gv_calloc.exit136
+  %116 = phi ptr [ %103, %gv_calloc.exit136 ], [ %106, %.thread159 ]
   %117 = getelementptr inbounds i8, ptr %39, i64 56
   %118 = load ptr, ptr %117, align 8
   %119 = load double, ptr %118, align 8
@@ -304,9 +304,9 @@ gv_calloc.exit136.thread:                         ; preds = %.thread158, %gv_cal
   br label %.loopexit
 
 159:                                              ; preds = %.lr.ph, %159
-  %.0129153 = phi i64 [ 0, %.lr.ph ], [ %173, %159 ]
-  %160 = getelementptr inbounds %struct.pointf_s, ptr %.pre, i64 %.0129153
-  %161 = getelementptr inbounds %struct.pointf_s, ptr %103, i64 %.0129153
+  %.0129154 = phi i64 [ 0, %.lr.ph ], [ %173, %159 ]
+  %160 = getelementptr inbounds %struct.pointf_s, ptr %.pre, i64 %.0129154
+  %161 = getelementptr inbounds %struct.pointf_s, ptr %103, i64 %.0129154
   %162 = load <2 x double>, ptr %160, align 8
   %163 = fmul <2 x double> %162, %162
   %164 = extractelement <2 x double> %163, i64 1
@@ -320,11 +320,11 @@ gv_calloc.exit136.thread:                         ; preds = %.thread158, %gv_cal
   %171 = fmul <2 x double> %162, %170
   %172 = fdiv <2 x double> %171, <double 7.200000e+01, double 7.200000e+01>
   store <2 x double> %172, ptr %161, align 8
-  %173 = add nuw i64 %.0129153, 1
+  %173 = add nuw i64 %.0129154, 1
   %exitcond.not = icmp eq i64 %173, %41
   br i1 %exitcond.not, label %.loopexit, label %159
 
-174:                                              ; preds = %.thread147, %.thread
+174:                                              ; preds = %.thread148, %.thread
   %175 = call fastcc ptr @genRound(ptr noundef nonnull %1, ptr noundef nonnull %5, float noundef %2, float noundef %3)
   br label %.loopexit
 
@@ -332,7 +332,7 @@ gv_calloc.exit136.thread:                         ; preds = %.thread158, %gv_cal
   store i64 4, ptr %5, align 8
   %177 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 4, i64 noundef 16) #15
   %178 = icmp eq ptr %177, null
-  br i1 %178, label %179, label %gv_calloc.exit137
+  br i1 %178, label %179, label %gv_calloc.exit138
 
 179:                                              ; preds = %176
   %180 = load ptr, ptr @stderr, align 8
@@ -340,7 +340,7 @@ gv_calloc.exit136.thread:                         ; preds = %.thread158, %gv_cal
   tail call fastcc void @graphviz_exit() #17
   unreachable
 
-gv_calloc.exit137:                                ; preds = %176
+gv_calloc.exit138:                                ; preds = %176
   %182 = load ptr, ptr %6, align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 24
   %184 = load ptr, ptr %183, align 8
@@ -391,8 +391,8 @@ gv_calloc.exit137:                                ; preds = %176
   %216 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %215) #14
   br label %236
 
-.loopexit:                                        ; preds = %159, %gv_calloc.exit137, %208, %gv_calloc.exit136.thread, %174, %gv_calloc.exit
-  %.0128 = phi ptr [ %14, %gv_calloc.exit ], [ %210, %208 ], [ %177, %gv_calloc.exit137 ], [ %116, %gv_calloc.exit136.thread ], [ %175, %174 ], [ %103, %159 ]
+.loopexit:                                        ; preds = %159, %gv_calloc.exit138, %208, %gv_calloc.exit136.thread, %174, %gv_calloc.exit
+  %.0128 = phi ptr [ %14, %gv_calloc.exit ], [ %210, %208 ], [ %177, %gv_calloc.exit138 ], [ %116, %gv_calloc.exit136.thread ], [ %175, %174 ], [ %103, %159 ]
   %217 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %.0128, ptr %217, align 8
   %218 = load i64, ptr %5, align 8
@@ -462,7 +462,7 @@ define internal fastcc noalias noundef ptr @genRound(ptr noundef %0, ptr nocaptu
 
 .lr.ph:                                           ; preds = %.thread28
   %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = uitofp i64 %9 to double
+  %13 = uitofp nneg i64 %9 to double
   %14 = insertelement <2 x float> poison, float %2, i64 0
   %15 = insertelement <2 x float> %14, float %3, i64 1
   %16 = fpext <2 x float> %15 to <2 x double>
@@ -480,7 +480,7 @@ gv_calloc.exit:                                   ; preds = %.lr.ph, %gv_calloc.
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 48
   %23 = load double, ptr %22, align 8
-  %24 = uitofp i64 %.030 to double
+  %24 = uitofp nneg i64 %.030 to double
   %25 = fdiv double %24, %13
   %26 = fmul double %25, 0x400921FB54442D18
   %27 = fmul double %26, 2.000000e+00
@@ -510,7 +510,7 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @makePoly(ptr nocapture noundef writeonly %0, ptr noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @makePoly(ptr nocapture noundef writeonly %0, ptr noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -601,33 +601,33 @@ gv_calloc.exit82.preheader:                       ; preds = %43
   unreachable
 
 gv_calloc.exit82:                                 ; preds = %gv_calloc.exit82.preheader, %gv_calloc.exit82
-  %.07599 = phi i64 [ 0, %gv_calloc.exit82.preheader ], [ %59, %gv_calloc.exit82 ]
-  %51 = getelementptr inbounds %struct.pointf_s, ptr %.pre, i64 %.07599
+  %.075100 = phi i64 [ 0, %gv_calloc.exit82.preheader ], [ %59, %gv_calloc.exit82 ]
+  %51 = getelementptr inbounds %struct.pointf_s, ptr %.pre, i64 %.075100
   %52 = load double, ptr %51, align 8
   %53 = fdiv double %52, 7.200000e+01
-  %54 = getelementptr inbounds %struct.pointf_s, ptr %44, i64 %.07599
+  %54 = getelementptr inbounds %struct.pointf_s, ptr %44, i64 %.075100
   store double %53, ptr %54, align 8
-  %55 = getelementptr inbounds %struct.pointf_s, ptr %.pre, i64 %.07599, i32 1
+  %55 = getelementptr inbounds %struct.pointf_s, ptr %.pre, i64 %.075100, i32 1
   %56 = load double, ptr %55, align 8
   %57 = fdiv double %56, 7.200000e+01
   %58 = getelementptr inbounds i8, ptr %54, i64 8
   store double %57, ptr %58, align 8
-  %59 = add nuw i64 %.07599, 1
+  %59 = add nuw i64 %.075100, 1
   %exitcond.not = icmp eq i64 %59, %37
   br i1 %exitcond.not, label %.loopexit, label %gv_calloc.exit82
 
 60:                                               ; preds = %32
   %61 = call fastcc ptr @genRound(ptr noundef nonnull %1, ptr noundef nonnull %5, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  %.pre103 = load ptr, ptr %6, align 8
+  %.pre104 = load ptr, ptr %6, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %gv_calloc.exit82, %60
-  %62 = phi ptr [ %.pre103, %60 ], [ %33, %gv_calloc.exit82 ]
+  %62 = phi ptr [ %.pre104, %60 ], [ %33, %gv_calloc.exit82 ]
   %.074 = phi ptr [ %61, %60 ], [ %44, %gv_calloc.exit82 ]
   %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(4) @.str) #18
+  %66 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull readonly dereferenceable(4) @.str) #18
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %70
 
@@ -637,12 +637,12 @@ gv_calloc.exit82:                                 ; preds = %gv_calloc.exit82.pr
   br label %153
 
 70:                                               ; preds = %.loopexit
-  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(8) @.str.1) #18
+  %71 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull readonly dereferenceable(8) @.str.1) #18
   %72 = icmp eq i32 %71, 0
   %73 = load i64, ptr %5, align 8
   %.not.i = icmp eq i64 %73, 4
-  %or.cond95 = select i1 %72, i1 %.not.i, i1 false
-  br i1 %or.cond95, label %74, label %isBox.exit.thread
+  %or.cond96 = select i1 %72, i1 %.not.i, i1 false
+  br i1 %or.cond96, label %74, label %isBox.exit.thread
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds i8, ptr %.074, i64 8
@@ -733,7 +733,7 @@ isBox.exit.thread:                                ; preds = %95, %99, %105, %81,
   store i64 4, ptr %5, align 8
   %124 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 4, i64 noundef 16) #15
   %125 = icmp eq ptr %124, null
-  br i1 %125, label %126, label %gv_calloc.exit83
+  br i1 %125, label %126, label %gv_calloc.exit84
 
 126:                                              ; preds = %123
   %127 = load ptr, ptr @stderr, align 8
@@ -741,7 +741,7 @@ isBox.exit.thread:                                ; preds = %95, %99, %105, %81,
   tail call fastcc void @graphviz_exit() #17
   unreachable
 
-gv_calloc.exit83:                                 ; preds = %123
+gv_calloc.exit84:                                 ; preds = %123
   %129 = load ptr, ptr %6, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 24
   %131 = load ptr, ptr %130, align 8
@@ -781,17 +781,17 @@ gv_calloc.exit83:                                 ; preds = %123
   %152 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %151) #14
   br label %187
 
-153:                                              ; preds = %gv_calloc.exit83, %144, %113, %121, %119, %68, %gv_calloc.exit
-  %.1 = phi ptr [ %14, %gv_calloc.exit ], [ %146, %144 ], [ %124, %gv_calloc.exit83 ], [ %.074, %68 ], [ %.074, %113 ], [ %.074, %119 ], [ %.074, %121 ]
+153:                                              ; preds = %gv_calloc.exit84, %144, %113, %121, %119, %68, %gv_calloc.exit
+  %.1 = phi ptr [ %14, %gv_calloc.exit ], [ %146, %144 ], [ %124, %gv_calloc.exit84 ], [ %.074, %68 ], [ %.074, %113 ], [ %.074, %119 ], [ %.074, %121 ]
   %154 = fcmp une float %2, 1.000000e+00
   %155 = fcmp une float %3, 1.000000e+00
   %or.cond = or i1 %154, %155
-  %.pr.pre104 = load i64, ptr %5, align 8
+  %.pr.pre105 = load i64, ptr %5, align 8
   br i1 %or.cond, label %156, label %inflatePts.exit
 
 156:                                              ; preds = %153
-  %.not.i90 = icmp eq i64 %.pr.pre104, 0
-  br i1 %.not.i90, label %bbox.exit.thread, label %.lr.ph.i
+  %.not.i91 = icmp eq i64 %.pr.pre105, 0
+  br i1 %.not.i91, label %bbox.exit.thread, label %.lr.ph.i
 
 bbox.exit.thread:                                 ; preds = %156
   %157 = getelementptr inbounds i8, ptr %0, i64 40
@@ -818,7 +818,7 @@ bbox.exit.thread:                                 ; preds = %156
   store <2 x double> %166, ptr %.089.i, align 8
   %167 = getelementptr inbounds i8, ptr %.089.i, i64 16
   %168 = add nuw i64 %.010.i, 1
-  %exitcond.not.i = icmp eq i64 %168, %.pr.pre104
+  %exitcond.not.i = icmp eq i64 %168, %.pr.pre105
   br i1 %exitcond.not.i, label %inflatePts.exit.loopexit, label %164
 
 inflatePts.exit.loopexit:                         ; preds = %164
@@ -826,7 +826,7 @@ inflatePts.exit.loopexit:                         ; preds = %164
   br label %inflatePts.exit
 
 inflatePts.exit:                                  ; preds = %inflatePts.exit.loopexit, %153
-  %.pr = phi i64 [ %.pr.pre, %inflatePts.exit.loopexit ], [ %.pr.pre104, %153 ]
+  %.pr = phi i64 [ %.pr.pre, %inflatePts.exit.loopexit ], [ %.pr.pre105, %153 ]
   %169 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %.1, ptr %169, align 8
   %170 = trunc i64 %.pr to i32
@@ -834,24 +834,24 @@ inflatePts.exit:                                  ; preds = %inflatePts.exit.loo
   store i32 %170, ptr %171, align 8
   %172 = load <2 x double>, ptr %.1, align 8
   %173 = icmp ugt i64 %.pr, 1
-  br i1 %173, label %.lr.ph.i91, label %bbox.exit
+  br i1 %173, label %.lr.ph.i92, label %bbox.exit
 
-.lr.ph.i91:                                       ; preds = %inflatePts.exit, %.lr.ph.i91
-  %.031.i = phi i64 [ %180, %.lr.ph.i91 ], [ 1, %inflatePts.exit ]
-  %.02526.i = phi ptr [ %176, %.lr.ph.i91 ], [ %.1, %inflatePts.exit ]
-  %174 = phi <2 x double> [ %178, %.lr.ph.i91 ], [ %172, %inflatePts.exit ]
-  %175 = phi <2 x double> [ %179, %.lr.ph.i91 ], [ %172, %inflatePts.exit ]
+.lr.ph.i92:                                       ; preds = %inflatePts.exit, %.lr.ph.i92
+  %.031.i = phi i64 [ %180, %.lr.ph.i92 ], [ 1, %inflatePts.exit ]
+  %.02526.i = phi ptr [ %176, %.lr.ph.i92 ], [ %.1, %inflatePts.exit ]
+  %174 = phi <2 x double> [ %178, %.lr.ph.i92 ], [ %172, %inflatePts.exit ]
+  %175 = phi <2 x double> [ %179, %.lr.ph.i92 ], [ %172, %inflatePts.exit ]
   %176 = getelementptr inbounds i8, ptr %.02526.i, i64 16
   %177 = load <2 x double>, ptr %176, align 8
   %178 = tail call <2 x double> @llvm.minnum.v2f64(<2 x double> %174, <2 x double> %177)
   %179 = tail call <2 x double> @llvm.maxnum.v2f64(<2 x double> %175, <2 x double> %177)
   %180 = add nuw i64 %.031.i, 1
-  %exitcond.not.i92 = icmp eq i64 %180, %.pr
-  br i1 %exitcond.not.i92, label %bbox.exit, label %.lr.ph.i91
+  %exitcond.not.i93 = icmp eq i64 %180, %.pr
+  br i1 %exitcond.not.i93, label %bbox.exit, label %.lr.ph.i92
 
-bbox.exit:                                        ; preds = %.lr.ph.i91, %inflatePts.exit
-  %181 = phi <2 x double> [ %172, %inflatePts.exit ], [ %178, %.lr.ph.i91 ]
-  %182 = phi <2 x double> [ %172, %inflatePts.exit ], [ %179, %.lr.ph.i91 ]
+bbox.exit:                                        ; preds = %.lr.ph.i92, %inflatePts.exit
+  %181 = phi <2 x double> [ %172, %inflatePts.exit ], [ %178, %.lr.ph.i92 ]
+  %182 = phi <2 x double> [ %172, %inflatePts.exit ], [ %179, %.lr.ph.i92 ]
   %183 = getelementptr inbounds i8, ptr %0, i64 16
   store <2 x double> %181, ptr %0, align 8
   store <2 x double> %182, ptr %183, align 8
@@ -869,7 +869,7 @@ bbox.exit:                                        ; preds = %.lr.ph.i91, %inflat
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @polyOverlap(double %0, double %1, ptr nocapture noundef readonly %2, double %3, double %4, ptr nocapture noundef readonly %5) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @polyOverlap(double %0, double %1, ptr nocapture noundef readonly %2, double %3, double %4, ptr nocapture noundef readonly %5) local_unnamed_addr #2 {
   %7 = alloca %struct.pointf_s, align 8
   %8 = alloca %struct.pointf_s, align 8
   %9 = alloca %struct.pointf_s, align 8
@@ -1230,7 +1230,7 @@ edgesIntersect.exit:                              ; preds = %128
   %229 = load i32, ptr %105, align 8
   %230 = extractelement <2 x double> %218, i64 0
   %231 = extractelement <2 x double> %218, i64 1
-  %232 = call fastcc i32 @inPoly(ptr noundef %228, i32 noundef %229, double %230, double %231), !range !4
+  %232 = call fastcc i32 @inPoly(ptr noundef %228, i32 noundef %229, double %230, double %231)
   %.not45 = icmp eq i32 %232, 0
   br i1 %.not45, label %233, label %250
 
@@ -1252,7 +1252,7 @@ edgesIntersect.exit:                              ; preds = %128
   %246 = load i32, ptr %91, align 8
   %247 = extractelement <2 x double> %235, i64 0
   %248 = extractelement <2 x double> %235, i64 1
-  %249 = call fastcc i32 @inPoly(ptr noundef %245, i32 noundef %246, double %247, double %248), !range !4
+  %249 = call fastcc i32 @inPoly(ptr noundef %245, i32 noundef %246, double %247, double %248)
   br label %250
 
 250:                                              ; preds = %edgesIntersect.exit, %227, %244, %233, %51, %41, %6
@@ -1263,7 +1263,7 @@ edgesIntersect.exit:                              ; preds = %128
 declare void @addpt(ptr noundef, double, double, double, double) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @inPoly(ptr nocapture noundef readonly %0, i32 noundef %1, double %2, double %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @inPoly(ptr nocapture noundef readonly %0, i32 noundef %1, double %2, double %3) unnamed_addr #2 {
   %5 = load ptr, ptr @tp3, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %20
@@ -1333,7 +1333,7 @@ gv_calloc.exit:                                   ; preds = %12
 33:                                               ; preds = %.lr.ph46, %75
   %indvars.iv48 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next49, %75 ]
   %.045 = phi double [ 0.000000e+00, %.lr.ph46 ], [ %.1, %75 ]
-  %34 = trunc i64 %indvars.iv48 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv48 to i32
   %35 = add i32 %23, %34
   %36 = srem i32 %35, %1
   %37 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %indvars.iv48
@@ -1498,4 +1498,3 @@ attributes #19 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

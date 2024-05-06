@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @trace_i915_reg_rw.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace777, ptr @trace_i915_reg_rw.__UNIQUE_ID___addressable___SCK__tp_func_i915_reg_rw776], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @skl_update_scaler_crtc(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @skl_update_scaler_crtc(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1488
   %3 = load i8, ptr %2, align 8, !range !6, !noundef !7
   %4 = icmp eq i8 %3, 0
@@ -104,7 +104,7 @@ define dso_local noundef i32 @skl_update_scaler_crtc(ptr nocapture noundef %0) l
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @skl_update_scaler(ptr nocapture noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i64 noundef %9, i1 noundef zeroext %10) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @skl_update_scaler(ptr nocapture noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i64 noundef %9, i1 noundef zeroext %10) unnamed_addr #0 align 16 {
   %12 = getelementptr inbounds i8, ptr %0, i64 1524
   %13 = load ptr, ptr %0, align 8
   %14 = load ptr, ptr %13, align 8

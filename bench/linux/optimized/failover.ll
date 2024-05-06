@@ -46,7 +46,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_failover_init560, ptr @__UNIQUE_ID___addressable_failover_register555, ptr @__UNIQUE_ID___addressable_failover_slave_unregister540, ptr @__UNIQUE_ID___addressable_failover_unregister558, ptr @__UNIQUE_ID_description561, ptr @__UNIQUE_ID_file562, ptr @__UNIQUE_ID_license563, ptr @__exitcall_failover_exit, ptr @failover_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @failover_slave_unregister(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @failover_slave_unregister(ptr noundef %0) #0 align 16 {
   %2 = load i64, ptr %0, align 8
   %3 = and i64 %2, 268435456
   %4 = icmp eq i64 %3, 0
@@ -336,7 +336,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 sect
 declare dso_local void @rtnl_lock() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @failover_slave_register(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @failover_slave_register(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.netdev_lag_upper_info, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
   %3 = getelementptr inbounds i8, ptr %0, i64 552
@@ -486,7 +486,7 @@ declare dso_local i32 @netdev_master_upper_dev_link(ptr noundef, ptr noundef, pt
 declare dso_local i32 @register_netdevice_notifier(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @failover_event(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @failover_event(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 134217728

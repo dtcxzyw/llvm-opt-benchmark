@@ -718,7 +718,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_replay_check(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_check(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 464
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %54 [
@@ -856,7 +856,7 @@ define dso_local noundef i32 @xfrm_replay_check(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @xfrm_replay_check_esn(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @xfrm_replay_check_esn(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 432
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @llvm.bswap.i32(i32 %2)
@@ -962,7 +962,7 @@ define internal fastcc noundef i32 @xfrm_replay_check_esn(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_replay_recheck(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 464
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %89 [
@@ -1152,7 +1152,7 @@ define dso_local noundef i32 @xfrm_replay_recheck(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_replay_overflow(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -75, 1) i32 @xfrm_replay_overflow(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 464
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -1330,7 +1330,7 @@ define dso_local noundef i32 @xfrm_replay_overflow(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_init_replay(ptr nocapture noundef %0, ptr noundef writeonly %1) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xfrm_init_replay(ptr nocapture noundef %0, ptr noundef writeonly %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 432
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

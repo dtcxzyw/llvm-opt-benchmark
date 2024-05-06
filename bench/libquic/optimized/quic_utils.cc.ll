@@ -1206,7 +1206,7 @@ entry:
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net9QuicUtils26DetermineAddressChangeTypeERKNS_10IPEndPointES3_(ptr noundef nonnull align 8 dereferenceable(26) %old_address, ptr noundef nonnull align 8 dereferenceable(26) %new_address) local_unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 7) i32 @_ZN3net9QuicUtils26DetermineAddressChangeTypeERKNS_10IPEndPointES3_(ptr noundef nonnull align 8 dereferenceable(26) %old_address, ptr noundef nonnull align 8 dereferenceable(26) %new_address) local_unnamed_addr #7 align 2 {
 entry:
   %call1.i = tail call noundef zeroext i1 @_ZNK3net9IPAddress7IsValidEv(ptr noundef nonnull align 8 dereferenceable(24) %old_address)
   br i1 %call1.i, label %lor.lhs.false, label %return

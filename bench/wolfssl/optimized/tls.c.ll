@@ -211,9 +211,9 @@ define i32 @wolfSSL_DeriveTlsKeys(ptr noundef %key_dig, i32 noundef %key_dig_len
 entry:
   %seed.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %seed.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %seed.i, ptr noundef nonnull align 1 dereferenceable(32) %sr, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %seed.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %sr, i64 32, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %seed.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(32) %cr, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %cr, i64 32, i1 false)
   %call.i = call i32 @wc_PRF_TLS(ptr noundef %key_dig, i32 noundef %key_dig_len, ptr noundef %ms, i32 noundef %msLen, ptr noundef nonnull @key_label, i32 noundef 13, ptr noundef nonnull %seed.i, i32 noundef 64, i32 noundef %tls1_2, i32 noundef %hash_type, ptr noundef null, i32 noundef -2) #16
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %seed.i)
   ret i32 %call.i
@@ -250,9 +250,9 @@ entry:
   %devId = getelementptr inbounds i8, ptr %ssl, i64 1180
   %6 = load i32, ptr %devId, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %seed.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %seed.i, ptr noundef nonnull align 1 dereferenceable(32) %serverRandom, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %seed.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %serverRandom, i64 32, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %seed.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(32) %clientRandom, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %clientRandom, i64 32, i1 false)
   %call.i = call i32 @wc_PRF_TLS(ptr noundef nonnull %key_dig, i32 noundef %add7, ptr noundef nonnull %masterSecret, i32 noundef 48, ptr noundef nonnull @key_label, i32 noundef 13, ptr noundef nonnull %seed.i, i32 noundef 64, i32 noundef %call, i32 noundef %conv14, ptr noundef %5, i32 noundef %6) #16
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %seed.i)
   %cmp = icmp eq i32 %call.i, 0
@@ -274,9 +274,9 @@ define i32 @wolfSSL_MakeTlsMasterSecret(ptr noundef %ms, i32 noundef %msLen, ptr
 entry:
   %seed.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %seed.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %seed.i, ptr noundef nonnull align 1 dereferenceable(32) %cr, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %seed.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %cr, i64 32, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %seed.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(32) %sr, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %sr, i64 32, i1 false)
   %call.i = call i32 @wc_PRF_TLS(ptr noundef %ms, i32 noundef %msLen, ptr noundef %pms, i32 noundef %pmsLen, ptr noundef nonnull @master_label, i32 noundef 13, ptr noundef nonnull %seed.i, i32 noundef 64, i32 noundef %tls1_2, i32 noundef %hash_type, ptr noundef null, i32 noundef -2) #16
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %seed.i)
   ret i32 %call.i
@@ -375,9 +375,9 @@ if.else:                                          ; preds = %entry
   %devId26 = getelementptr inbounds i8, ptr %ssl, i64 1180
   %14 = load i32, ptr %devId26, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %seed.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %seed.i, ptr noundef nonnull align 1 dereferenceable(32) %clientRandom, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %seed.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %clientRandom, i64 32, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %seed.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(32) %serverRandom, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %serverRandom, i64 32, i1 false)
   %call.i22 = call i32 @wc_PRF_TLS(ptr noundef nonnull %masterSecret11, i32 noundef 48, ptr noundef %10, i32 noundef %11, ptr noundef nonnull @master_label, i32 noundef 13, ptr noundef nonnull %seed.i, i32 noundef 64, i32 noundef %call21, i32 noundef %conv24, ptr noundef %13, i32 noundef %14) #16
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %seed.i)
   br label %if.end28
@@ -415,9 +415,9 @@ if.then31:                                        ; preds = %if.end28
   %devId.i = getelementptr inbounds i8, ptr %ssl, i64 1180
   %21 = load i32, ptr %devId.i, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %seed.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %seed.i.i, ptr noundef nonnull align 1 dereferenceable(32) %serverRandom.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %seed.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %serverRandom.i, i64 32, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %seed.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(32) %clientRandom.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull readonly align 1 dereferenceable(32) %clientRandom.i, i64 32, i1 false)
   %call.i.i = call i32 @wc_PRF_TLS(ptr noundef nonnull %key_dig.i, i32 noundef %add7.i, ptr noundef nonnull %masterSecret.i, i32 noundef 48, ptr noundef nonnull @key_label, i32 noundef 13, ptr noundef nonnull %seed.i.i, i32 noundef 64, i32 noundef %call.i24, i32 noundef %conv14.i, ptr noundef %20, i32 noundef %21) #16
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %seed.i.i)
   %cmp.i = icmp eq i32 %call.i.i, 0
@@ -494,7 +494,7 @@ return:                                           ; preds = %if.end, %switch.loo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @wolfSSL_GetHmacType_ex(ptr noundef readonly %specs) local_unnamed_addr #6 {
+define range(i32 -173, 8) i32 @wolfSSL_GetHmacType_ex(ptr noundef readonly %specs) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %specs, null
   br i1 %cmp, label %return, label %if.end
@@ -518,7 +518,7 @@ return:                                           ; preds = %if.end, %switch.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wolfSSL_SetTlsHmacInner(ptr noundef %ssl, ptr noundef %inner, i32 noundef %sz, i32 noundef %content, i32 noundef %verify) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wolfSSL_SetTlsHmacInner(ptr noundef %ssl, ptr noundef %inner, i32 noundef %sz, i32 noundef %content, i32 noundef %verify) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   %cmp1 = icmp eq ptr %inner, null
@@ -1067,7 +1067,7 @@ declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TLSX_Append(ptr nocapture noundef %list, i32 noundef %type, ptr noundef %data, ptr nocapture noundef readnone %heap) local_unnamed_addr #0 {
+define range(i32 -125, 1) i32 @TLSX_Append(ptr nocapture noundef %list, i32 noundef %type, ptr noundef %data, ptr nocapture noundef readnone %heap) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #16
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -1218,7 +1218,7 @@ while.end:                                        ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TLSX_Push(ptr nocapture noundef %list, i32 noundef %type, ptr noundef %data, ptr nocapture readnone %heap) local_unnamed_addr #0 {
+define range(i32 -125, 1) i32 @TLSX_Push(ptr nocapture noundef %list, i32 noundef %type, ptr noundef %data, ptr nocapture readnone %heap) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #16
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -1264,7 +1264,7 @@ return:                                           ; preds = %do.body, %entry, %i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @TLSX_CheckUnsupportedExtension(ptr nocapture noundef readonly %ssl, i32 noundef %type) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @TLSX_CheckUnsupportedExtension(ptr nocapture noundef readonly %ssl, i32 noundef %type) local_unnamed_addr #7 {
 entry:
   %extensions = getelementptr inbounds i8, ptr %ssl, i64 1200
   %0 = load ptr, ptr %extensions, align 16
@@ -1415,7 +1415,7 @@ return:                                           ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TLSX_UseSNI(ptr noundef %extensions, i8 noundef zeroext %type, ptr noundef readonly %data, i16 noundef zeroext %size, ptr nocapture readnone %heap) local_unnamed_addr #0 {
+define range(i32 -173, 2) i32 @TLSX_UseSNI(ptr noundef %extensions, i8 noundef zeroext %type, ptr noundef readonly %data, i16 noundef zeroext %size, ptr nocapture readnone %heap) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %extensions, null
   %cmp1 = icmp eq ptr %data, null
@@ -1456,7 +1456,7 @@ if.then19.i:                                      ; preds = %if.then.i
   br label %return
 
 if.end4:                                          ; preds = %sw.bb.i
-  %call12.i = tail call ptr @strncpy(ptr noundef nonnull %call5.i, ptr noundef nonnull %data, i64 noundef %conv3.i) #16
+  %call12.i = tail call ptr @strncpy(ptr noundef nonnull %call5.i, ptr noundef nonnull readonly %data, i64 noundef %conv3.i) #16
   %0 = load ptr, ptr %data6.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %conv3.i
   store i8 0, ptr %arrayidx.i, align 1
@@ -1512,7 +1512,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   %7 = load ptr, ptr %next8.i, align 8
   store ptr %7, ptr %next1.i.le, align 8
   store ptr null, ptr %next8.i, align 8
-  tail call void @TLSX_FreeAll(ptr noundef nonnull %5, ptr poison)
+  tail call void @TLSX_FreeAll(ptr noundef nonnull %5, ptr readnone poison)
   br label %return
 
 if.then9:                                         ; preds = %if.then6
@@ -1687,7 +1687,7 @@ if.end:                                           ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @TLSX_SNI_GetFromBuffer(ptr nocapture noundef readonly %clientHello, i32 noundef %helloSz, i8 noundef zeroext %type, ptr nocapture noundef writeonly %sni, ptr nocapture noundef %inOutSz) local_unnamed_addr #10 {
+define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr nocapture noundef readonly %clientHello, i32 noundef %helloSz, i8 noundef zeroext %type, ptr nocapture noundef writeonly %sni, ptr nocapture noundef %inOutSz) local_unnamed_addr #10 {
 entry:
   %cmp = icmp ult i32 %helloSz, 44
   br i1 %cmp, label %return, label %if.end
@@ -1793,8 +1793,8 @@ if.end73:                                         ; preds = %if.end64
 
 if.end83:                                         ; preds = %if.end73
   %13 = zext i8 %12 to i64
-  %14 = getelementptr i8, ptr %clientHello, i64 %13
-  %add.ptr85 = getelementptr i8, ptr %14, i64 44
+  %14 = getelementptr inbounds i8, ptr %clientHello, i64 %13
+  %add.ptr85 = getelementptr inbounds i8, ptr %14, i64 44
   %add.ptr85.val = load i8, ptr %add.ptr85, align 1
   %15 = getelementptr i8, ptr %14, i64 45
   %add.ptr85.val86 = load i8, ptr %15, align 1
@@ -2159,7 +2159,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   %6 = load ptr, ptr %next8.i, align 8
   store ptr %6, ptr %next1.i.le, align 8
   store ptr null, ptr %next8.i, align 8
-  tail call void @TLSX_FreeAll(ptr noundef nonnull %4, ptr poison)
+  tail call void @TLSX_FreeAll(ptr noundef nonnull %4, ptr readnone poison)
   br label %return
 
 if.then16:                                        ; preds = %if.end10
@@ -2207,7 +2207,7 @@ return:                                           ; preds = %while.body.i19, %wh
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TLSX_SupportedCurve_CheckPriority(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
+define range(i32 2, 1) i32 @TLSX_SupportedCurve_CheckPriority(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
   %priority = alloca ptr, align 8
   store ptr null, ptr %priority, align 8
@@ -2369,7 +2369,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TLSX_SupportedFFDHE_Set(ptr nocapture noundef %ssl) local_unnamed_addr #0 {
+define range(i32 2, 1) i32 @TLSX_SupportedFFDHE_Set(ptr nocapture noundef %ssl) local_unnamed_addr #0 {
 entry:
   %priority = alloca ptr, align 8
   store ptr null, ptr %priority, align 8
@@ -2577,7 +2577,7 @@ return:                                           ; preds = %while.body.i, %for.
 declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @TLSX_SupportedCurve_Preferred(ptr nocapture noundef readonly %ssl, i32 noundef %checkSupported) local_unnamed_addr #7 {
+define range(i32 -173, 65536) i32 @TLSX_SupportedCurve_Preferred(ptr nocapture noundef readonly %ssl, i32 noundef %checkSupported) local_unnamed_addr #7 {
 entry:
   %extensions = getelementptr inbounds i8, ptr %ssl, i64 1200
   %0 = load ptr, ptr %extensions, align 16
@@ -2638,7 +2638,7 @@ return:                                           ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @TLSX_ValidateSupportedCurves(ptr nocapture noundef readonly %ssl, i8 noundef zeroext %first, i8 noundef zeroext %second, ptr nocapture noundef writeonly %ecdhCurveOID) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @TLSX_ValidateSupportedCurves(ptr nocapture noundef readonly %ssl, i8 noundef zeroext %first, i8 noundef zeroext %second, ptr nocapture noundef writeonly %ecdhCurveOID) local_unnamed_addr #11 {
 entry:
   %ecdhCurveOID1 = getelementptr inbounds i8, ptr %ssl, i64 1128
   %0 = load i32, ptr %ecdhCurveOID1, align 8
@@ -3077,7 +3077,7 @@ return:                                           ; preds = %while.body.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TLSX_SupportedCurve_Copy(ptr noundef readonly %src, ptr noundef %dst, ptr nocapture noundef readnone %heap) local_unnamed_addr #0 {
+define range(i32 -125, 1) i32 @TLSX_SupportedCurve_Copy(ptr noundef readonly %src, ptr noundef %dst, ptr nocapture noundef readnone %heap) local_unnamed_addr #0 {
 entry:
   %tobool.not4.i = icmp eq ptr %src, null
   br i1 %tobool.not4.i, label %return, label %land.rhs.i
@@ -3179,7 +3179,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   %6 = load ptr, ptr %next8.i, align 8
   store ptr %6, ptr %next1.i.le, align 8
   store ptr null, ptr %next8.i, align 8
-  tail call void @TLSX_FreeAll(ptr noundef nonnull %4, ptr poison)
+  tail call void @TLSX_FreeAll(ptr noundef nonnull %4, ptr readnone poison)
   br label %return
 
 if.then10:                                        ; preds = %if.end5
@@ -3227,7 +3227,7 @@ return:                                           ; preds = %while.body.i17, %wh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @TLSX_EncryptThenMac_Respond(ptr nocapture noundef readonly %ssl) local_unnamed_addr #8 {
+define range(i32 -428, 1) i32 @TLSX_EncryptThenMac_Respond(ptr nocapture noundef readonly %ssl) local_unnamed_addr #8 {
 entry:
   %extensions = getelementptr inbounds i8, ptr %ssl, i64 1200
   %0 = load ptr, ptr %extensions, align 16
@@ -3257,7 +3257,7 @@ return:                                           ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TLSX_SupportedVersions_Parse(ptr noundef %ssl, ptr nocapture noundef readonly %input, i16 noundef zeroext %length, i8 noundef zeroext %msgType, ptr nocapture noundef writeonly %pv, ptr noundef %opts, ptr noundef %exts) local_unnamed_addr #0 {
+define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %ssl, ptr nocapture noundef readonly %input, i16 noundef zeroext %length, i8 noundef zeroext %msgType, ptr nocapture noundef writeonly %pv, ptr noundef %opts, ptr noundef %exts) local_unnamed_addr #0 {
 entry:
   %dtls = getelementptr inbounds i8, ptr %ssl, i64 1008
   %bf.load = load i64, ptr %dtls, align 8
@@ -3421,7 +3421,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %tobool.not.i, label %if.then83, label %land.rhs.i, !llvm.loop !16
 
 if.then83:                                        ; preds = %while.body.i, %land.lhs.true
-  %call84 = tail call i32 @TLSX_Push(ptr noundef nonnull %exts, i32 noundef 43, ptr noundef %ssl, ptr poison), !range !34
+  %call84 = tail call i32 @TLSX_Push(ptr noundef nonnull %exts, i32 noundef 43, ptr noundef %ssl, ptr poison)
   %cmp85.not = icmp eq i32 %call84, 0
   br i1 %cmp85.not, label %if.end88, label %return
 
@@ -3854,7 +3854,7 @@ if.end22:                                         ; preds = %if.else19, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @TLSX_KeyShare_Parse_ClientHello(ptr noundef %ssl, ptr noundef readonly %input, i16 noundef zeroext %length, ptr nocapture noundef %extensions) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @TLSX_KeyShare_Parse_ClientHello(ptr noundef %ssl, ptr noundef readonly %input, i16 noundef zeroext %length, ptr nocapture noundef %extensions) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %extensions, align 8
   %tobool.not4.i = icmp eq ptr %0, null
@@ -3908,7 +3908,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   %6 = load ptr, ptr %next8.i, align 8
   store ptr %6, ptr %next1.i.le, align 8
   store ptr null, ptr %next8.i, align 8
-  tail call void @TLSX_FreeAll(ptr noundef nonnull %4, ptr poison)
+  tail call void @TLSX_FreeAll(ptr noundef nonnull %4, ptr readnone poison)
   br label %if.end4
 
 if.end4:                                          ; preds = %land.rhs.i, %do.body.i, %if.then5.i
@@ -3975,7 +3975,7 @@ if.end15.i:                                       ; preds = %if.end9.i
 
 if.end20.i:                                       ; preds = %if.end15.i
   %arrayidx22.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 1 %arrayidx22.i, i64 %conv16.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull readonly align 1 %arrayidx22.i, i64 %conv16.i, i1 false)
   %call24.i = tail call i32 @TLSX_KeyShare_Use(ptr noundef %ssl, i16 noundef zeroext %or.i.i, i16 noundef zeroext %or.i23.i, ptr noundef nonnull %call.i, ptr noundef null, ptr noundef nonnull %extensions)
   %cmp25.not.i = icmp eq i32 %call24.i, 0
   br i1 %cmp25.not.i, label %TLSX_KeyShareEntry_Parse.exit.thread27, label %if.then27.i
@@ -4000,7 +4000,7 @@ if.end27:                                         ; preds = %TLSX_KeyShareEntry_
   %retval.0.i2030 = phi i32 [ %add39.i, %TLSX_KeyShareEntry_Parse.exit.thread27 ], [ %call24.i, %TLSX_KeyShareEntry_Parse.exit ]
   %add28 = add nuw nsw i32 %retval.0.i2030, %offset.035
   %cmp16 = icmp slt i32 %add28, %conv
-  br i1 %cmp16, label %while.body, label %return, !llvm.loop !35
+  br i1 %cmp16, label %while.body, label %return, !llvm.loop !34
 
 return:                                           ; preds = %TLSX_KeyShareEntry_Parse.exit, %if.end27, %while.body, %if.end.i19, %if.end9.i, %if.end15.i, %while.cond.preheader, %if.then, %if.end8, %if.end4
   %retval.0 = phi i32 [ -328, %if.end4 ], [ -328, %if.end8 ], [ -125, %if.then ], [ 0, %while.cond.preheader ], [ %call24.i, %TLSX_KeyShareEntry_Parse.exit ], [ 0, %if.end27 ], [ -328, %while.body ], [ -425, %if.end.i19 ], [ -328, %if.end9.i ], [ -125, %if.end15.i ]
@@ -4020,7 +4020,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %extensions = getelementptr inbounds i8, ptr %ssl, i64 1200
-  %call = tail call i32 @TLSX_KeyShare_Parse_ClientHello(ptr noundef %ssl, ptr noundef %input, i16 noundef zeroext %length, ptr noundef nonnull %extensions), !range !36
+  %call = tail call i32 @TLSX_KeyShare_Parse_ClientHello(ptr noundef %ssl, ptr noundef %input, i16 noundef zeroext %length, ptr noundef nonnull %extensions)
   br label %return
 
 if.then5:                                         ; preds = %entry
@@ -4086,7 +4086,7 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 for.body.i:                                       ; preds = %for.cond.i
   %8 = load i16, ptr %curve.0.i, align 8
   %cmp8.i = icmp eq i16 %8, %or.i
-  br i1 %cmp8.i, label %if.end13, label %for.cond.i, !llvm.loop !37
+  br i1 %cmp8.i, label %if.end13, label %for.cond.i, !llvm.loop !35
 
 if.end13:                                         ; preds = %for.body.i
   br i1 %tobool.not4.i.i, label %if.then.i41, label %land.rhs.i.i35
@@ -4133,7 +4133,7 @@ while.cond.i:                                     ; preds = %while.body.i
   %next.i = getelementptr inbounds i8, ptr %list.025.i, i64 64
   %list.0.i = load ptr, ptr %next.i, align 8
   %cmp6.not.i = icmp eq ptr %list.0.i, null
-  br i1 %cmp6.not.i, label %return, label %while.body.i, !llvm.loop !38
+  br i1 %cmp6.not.i, label %return, label %while.body.i, !llvm.loop !36
 
 while.body.i:                                     ; preds = %if.end5.i44, %while.cond.i
   %list.025.i = phi ptr [ %list.0.i, %while.cond.i ], [ %list.023.i, %if.end5.i44 ]
@@ -4171,7 +4171,7 @@ if.end15.i:                                       ; preds = %if.end9.i
 
 if.end20.i:                                       ; preds = %if.end15.i
   %arrayidx22.i = getelementptr inbounds i8, ptr %input, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 1 %arrayidx22.i, i64 %conv16.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull readonly align 1 %arrayidx22.i, i64 %conv16.i, i1 false)
   %call24.i = call i32 @TLSX_KeyShare_Use(ptr noundef %ssl, i16 noundef zeroext %or.i, i16 noundef zeroext %or.i23.i, ptr noundef nonnull %call.i, ptr noundef nonnull %keyShareEntry, ptr noundef nonnull %extensions10)
   %cmp25.not.i = icmp eq i32 %call24.i, 0
   br i1 %cmp25.not.i, label %if.end37.i, label %if.then27.i
@@ -4286,7 +4286,7 @@ for.cond.i71:                                     ; preds = %for.cond.i71.prehea
 for.body.i76:                                     ; preds = %for.cond.i71
   %29 = load i16, ptr %curve.0.i74, align 8
   %cmp8.i77 = icmp eq i16 %29, %or.i51
-  br i1 %cmp8.i77, label %if.end53, label %for.cond.i71, !llvm.loop !37
+  br i1 %cmp8.i77, label %if.end53, label %for.cond.i71, !llvm.loop !35
 
 if.end53:                                         ; preds = %for.body.i76
   br i1 %tobool.not4.i.i52, label %if.then.i87, label %land.rhs.i.i81
@@ -4333,7 +4333,7 @@ while.cond.i105:                                  ; preds = %while.body.i102
   %next.i106 = getelementptr inbounds i8, ptr %list.025.i103, i64 64
   %list.0.i107 = load ptr, ptr %next.i106, align 8
   %cmp6.not.i108 = icmp eq ptr %list.0.i107, null
-  br i1 %cmp6.not.i108, label %if.end57, label %while.body.i102, !llvm.loop !38
+  br i1 %cmp6.not.i108, label %if.end57, label %while.body.i102, !llvm.loop !36
 
 while.body.i102:                                  ; preds = %if.end5.i97, %while.cond.i105
   %list.025.i103 = phi ptr [ %list.0.i107, %while.cond.i105 ], [ %list.023.i100, %if.end5.i97 ]
@@ -4392,7 +4392,7 @@ if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
   %42 = load ptr, ptr %next8.i.i, align 8
   store ptr %42, ptr %next1.i.i.le, align 8
   store ptr null, ptr %next8.i.i, align 8
-  tail call void @TLSX_FreeAll(ptr noundef nonnull %40, ptr poison)
+  tail call void @TLSX_FreeAll(ptr noundef nonnull %40, ptr readnone poison)
   br label %if.end62
 
 if.else.i:                                        ; preds = %land.rhs.i.i112
@@ -4753,7 +4753,7 @@ if.end27:                                         ; preds = %if.else23, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TLSX_KeyShare_Empty(ptr nocapture noundef %ssl) local_unnamed_addr #0 {
+define range(i32 -125, 1) i32 @TLSX_KeyShare_Empty(ptr nocapture noundef %ssl) local_unnamed_addr #0 {
 entry:
   %extensions = getelementptr inbounds i8, ptr %ssl, i64 1200
   %0 = load ptr, ptr %extensions, align 16
@@ -4808,7 +4808,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   %6 = load ptr, ptr %next8.i, align 8
   store ptr %6, ptr %next1.i.le, align 8
   store ptr null, ptr %next8.i, align 8
-  tail call void @TLSX_FreeAll(ptr noundef nonnull %4, ptr poison)
+  tail call void @TLSX_FreeAll(ptr noundef nonnull %4, ptr readnone poison)
   br label %if.end8
 
 if.else:                                          ; preds = %land.rhs.i
@@ -4882,7 +4882,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   %6 = load ptr, ptr %next8.i, align 8
   store ptr %6, ptr %next1.i.le, align 8
   store ptr null, ptr %next8.i, align 8
-  tail call void @TLSX_FreeAll(ptr noundef nonnull %4, ptr poison)
+  tail call void @TLSX_FreeAll(ptr noundef nonnull %4, ptr readnone poison)
   %.pre = load ptr, ptr %extensions, align 8
   br label %if.end
 
@@ -4922,7 +4922,7 @@ if.end16:                                         ; preds = %while.body
   %next = getelementptr inbounds i8, ptr %storemerge52, i64 64
   %storemerge = load ptr, ptr %next, align 8
   %cmp10.not = icmp eq ptr %storemerge, null
-  br i1 %cmp10.not, label %if.then19, label %while.body, !llvm.loop !39
+  br i1 %cmp10.not, label %if.then19, label %while.body, !llvm.loop !37
 
 if.then19:                                        ; preds = %if.end16, %if.end8
   %call.i = tail call ptr @wolfSSL_Malloc(i64 noundef 72) #16
@@ -4939,7 +4939,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.e
   %11 = load ptr, ptr %list.addr.0.i, align 8
   %cmp2.not.i = icmp eq ptr %11, null
   %next4.i = getelementptr inbounds i8, ptr %11, i64 64
-  br i1 %cmp2.not.i, label %TLSX_KeyShare_New.exit.thread, label %while.cond.i, !llvm.loop !40
+  br i1 %cmp2.not.i, label %TLSX_KeyShare_New.exit.thread, label %while.cond.i, !llvm.loop !38
 
 TLSX_KeyShare_New.exit.thread:                    ; preds = %while.cond.i
   store ptr %call.i, ptr %list.addr.0.i, align 8
@@ -5060,14 +5060,14 @@ if.then36:                                        ; preds = %if.end33
 if.then40:                                        ; preds = %if.end33, %if.then36
   tail call void @wolfSSL_Free(ptr noundef nonnull %list.addr.02) #16
   %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !41
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !39
 
 while.end:                                        ; preds = %if.then40, %entry
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TLSX_KeyShare_SetSupported(ptr nocapture noundef readonly %ssl, ptr nocapture noundef %extensions) local_unnamed_addr #0 {
+define range(i32 -421, 1) i32 @TLSX_KeyShare_SetSupported(ptr nocapture noundef readonly %ssl, ptr nocapture noundef %extensions) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %extensions, align 8
   %tobool.not4.i = icmp eq ptr %0, null
@@ -5128,7 +5128,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end4
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond.not.i, label %TLSX_KeyShare_GroupRank.exit, label %for.body.i, !llvm.loop !42
+  br i1 %exitcond.not.i, label %TLSX_KeyShare_GroupRank.exit, label %for.body.i, !llvm.loop !40
 
 return.split.loop.exit6.i:                        ; preds = %for.body.i
   %9 = trunc i64 %indvars.iv to i32
@@ -5150,7 +5150,7 @@ for.inc:                                          ; preds = %for.body, %TLSX_Key
   %next = getelementptr inbounds i8, ptr %curve.142, i64 8
   %10 = load ptr, ptr %next, align 8
   %cmp1.not = icmp eq ptr %10, null
-  br i1 %cmp1.not, label %for.end, label %for.body, !llvm.loop !43
+  br i1 %cmp1.not, label %for.end, label %for.body, !llvm.loop !41
 
 for.end:                                          ; preds = %for.inc
   %cmp21 = icmp eq ptr %preferredCurve.1, null
@@ -5192,7 +5192,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   %14 = load ptr, ptr %next8.i, align 8
   store ptr %14, ptr %next1.i.le, align 8
   store ptr null, ptr %next8.i, align 8
-  tail call void @TLSX_FreeAll(ptr noundef nonnull %12, ptr poison)
+  tail call void @TLSX_FreeAll(ptr noundef nonnull %12, ptr readnone poison)
   %.pre = load ptr, ptr %extensions, align 8
   br label %if.end29
 
@@ -5214,7 +5214,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.e
   %17 = load ptr, ptr %list.addr.0.i, align 8
   %cmp2.not.i = icmp eq ptr %17, null
   %next4.i = getelementptr inbounds i8, ptr %17, i64 64
-  br i1 %cmp2.not.i, label %if.end38, label %while.cond.i, !llvm.loop !40
+  br i1 %cmp2.not.i, label %if.end38, label %while.cond.i, !llvm.loop !38
 
 if.end38:                                         ; preds = %while.cond.i
   store ptr %call.i, ptr %list.addr.0.i, align 8
@@ -5228,7 +5228,7 @@ return:                                           ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @TLSX_KeyShare_Choose(ptr noundef readonly %ssl, ptr noundef readonly %extensions, i8 zeroext %cipherSuite0, i8 zeroext %cipherSuite, ptr nocapture noundef writeonly %kse, ptr nocapture noundef writeonly %searched) local_unnamed_addr #11 {
+define range(i32 -310, 1) i32 @TLSX_KeyShare_Choose(ptr noundef readonly %ssl, ptr noundef readonly %extensions, i8 zeroext %cipherSuite0, i8 zeroext %cipherSuite, ptr nocapture noundef writeonly %kse, ptr nocapture noundef writeonly %searched) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -5332,7 +5332,7 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 for.body.i:                                       ; preds = %for.cond.i
   %13 = load i16, ptr %curve.0.i, align 8
   %cmp8.i = icmp eq i16 %13, %6
-  br i1 %cmp8.i, label %if.end21, label %for.cond.i, !llvm.loop !37
+  br i1 %cmp8.i, label %if.end21, label %for.cond.i, !llvm.loop !35
 
 if.end21:                                         ; preds = %for.body.i
   %14 = and i16 %6, -256
@@ -5369,7 +5369,7 @@ for.body.i26:                                     ; preds = %for.inc.i, %if.end4
 for.inc.i:                                        ; preds = %for.body.i26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next, %17
-  br i1 %exitcond.not.i, label %TLSX_KeyShare_GroupRank.exit, label %for.body.i26, !llvm.loop !42
+  br i1 %exitcond.not.i, label %TLSX_KeyShare_GroupRank.exit, label %for.body.i26, !llvm.loop !40
 
 return.split.loop.exit6.i:                        ; preds = %for.body.i26
   %19 = trunc i64 %indvars.iv to i32
@@ -5391,7 +5391,7 @@ for.inc:                                          ; preds = %while.body.i7.i, %f
   %next = getelementptr inbounds i8, ptr %clientKSE.050, i64 64
   %20 = load ptr, ptr %next, align 8
   %cmp12.not = icmp eq ptr %20, null
-  br i1 %cmp12.not, label %for.end, label %for.body, !llvm.loop !44
+  br i1 %cmp12.not, label %for.end, label %for.body, !llvm.loop !42
 
 for.end:                                          ; preds = %while.body.i, %for.inc, %if.end, %if.end11
   %preferredKSE.0.lcssa = phi ptr [ null, %if.end11 ], [ null, %if.end ], [ %preferredKSE.1, %for.inc ], [ null, %while.body.i ]
@@ -5457,7 +5457,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.e
   %5 = load ptr, ptr %list.addr.0.i, align 8
   %cmp2.not.i = icmp eq ptr %5, null
   %next4.i = getelementptr inbounds i8, ptr %5, i64 64
-  br i1 %cmp2.not.i, label %if.end16, label %while.cond.i, !llvm.loop !40
+  br i1 %cmp2.not.i, label %if.end16, label %while.cond.i, !llvm.loop !38
 
 if.end16:                                         ; preds = %while.cond.i
   store ptr %call.i, ptr %list.addr.0.i, align 8
@@ -5537,7 +5537,7 @@ entry:
   store i32 0, ptr %doHelloRetry, align 4
   %extensions = getelementptr inbounds i8, ptr %ssl, i64 1200
   %0 = load ptr, ptr %extensions, align 16
-  %call = call i32 @TLSX_KeyShare_Choose(ptr noundef %ssl, ptr noundef %0, i8 zeroext poison, i8 zeroext poison, ptr noundef nonnull %clientKSE, ptr noundef nonnull %searched), !range !45
+  %call = call i32 @TLSX_KeyShare_Choose(ptr noundef %ssl, ptr noundef %0, i8 zeroext poison, i8 zeroext poison, ptr noundef nonnull %clientKSE, ptr noundef nonnull %searched)
   %cmp = icmp eq i32 %call, 0
   %1 = load i8, ptr %searched, align 1
   %tobool = icmp ne i8 %1, 0
@@ -5551,7 +5551,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   store i32 1, ptr %doHelloRetry, align 4
-  %call5 = tail call i32 @TLSX_KeyShare_SetSupported(ptr noundef nonnull %ssl, ptr noundef nonnull %extensions), !range !46
+  %call5 = tail call i32 @TLSX_KeyShare_SetSupported(ptr noundef nonnull %ssl, ptr noundef nonnull %extensions)
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -5617,14 +5617,14 @@ land.rhs.preheader:                               ; preds = %while.cond.preheade
 land.rhs:                                         ; preds = %while.body
   %1 = load i32, ptr %extension.0, align 8
   %cmp2.not = icmp eq i32 %1, %type
-  br i1 %cmp2.not, label %if.then6.loopexit, label %while.body, !llvm.loop !47
+  br i1 %cmp2.not, label %if.then6.loopexit, label %while.body, !llvm.loop !43
 
 while.body:                                       ; preds = %land.rhs.preheader, %land.rhs
   %extension.01523 = phi ptr [ %extension.0, %land.rhs ], [ %extension.012, %land.rhs.preheader ]
   %next3 = getelementptr inbounds i8, ptr %extension.01523, i64 24
   %extension.0 = load ptr, ptr %next3, align 8
   %tobool.not = icmp eq ptr %extension.0, null
-  br i1 %tobool.not, label %if.end9, label %land.rhs, !llvm.loop !47
+  br i1 %tobool.not, label %if.end9, label %land.rhs, !llvm.loop !43
 
 if.then6.loopexit:                                ; preds = %land.rhs
   %next3.le = getelementptr inbounds i8, ptr %extension.01523, i64 24
@@ -5645,7 +5645,7 @@ if.end9:                                          ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @TLSX_SupportExtensions(ptr noundef %ssl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TLSX_SupportExtensions(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ssl, null
   br i1 %tobool.not, label %land.end, label %land.rhs
@@ -5736,7 +5736,7 @@ if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
   %7 = load ptr, ptr %next8.i.i, align 8
   store ptr %7, ptr %next1.i.i.le, align 8
   store ptr null, ptr %next8.i.i, align 8
-  tail call void @TLSX_FreeAll(ptr noundef nonnull %5, ptr poison)
+  tail call void @TLSX_FreeAll(ptr noundef nonnull %5, ptr readnone poison)
   br label %if.end4
 
 if.end4:                                          ; preds = %land.rhs.i.i, %do.body.i.i, %if.then5.i.i, %if.then
@@ -5894,7 +5894,7 @@ if.then5.i.i90:                                   ; preds = %land.lhs.true.i.i88
   %30 = load ptr, ptr %next8.i.i92, align 8
   store ptr %30, ptr %next1.i.i87.le, align 8
   store ptr null, ptr %next8.i.i92, align 8
-  tail call void @TLSX_FreeAll(ptr noundef nonnull %28, ptr poison)
+  tail call void @TLSX_FreeAll(ptr noundef nonnull %28, ptr readnone poison)
   br label %if.end59
 
 TLSX_SignatureAlgorithms_FreeAll.exit.i:          ; preds = %if.end7.i
@@ -5947,7 +5947,7 @@ if.then5.i.i106:                                  ; preds = %land.lhs.true.i.i10
   %35 = load ptr, ptr %next8.i.i108, align 8
   store ptr %35, ptr %next1.i.i102.le, align 8
   store ptr null, ptr %next8.i.i108, align 8
-  tail call void @TLSX_FreeAll(ptr noundef nonnull %33, ptr poison)
+  tail call void @TLSX_FreeAll(ptr noundef nonnull %33, ptr readnone poison)
   br label %if.end74
 
 if.end74:                                         ; preds = %do.body.i.i100, %if.then5.i.i106
@@ -5958,7 +5958,7 @@ if.end74:                                         ; preds = %do.body.i.i100, %if
 
 do.end80:                                         ; preds = %if.end74
   %37 = load ptr, ptr %heap54, align 8
-  %call83 = tail call fastcc i32 @TLSX_SetSignatureAlgorithmsCert(ptr noundef nonnull %extensions53, ptr noundef nonnull %ssl, ptr noundef %37), !range !48
+  %call83 = tail call fastcc i32 @TLSX_SetSignatureAlgorithmsCert(ptr noundef nonnull %extensions53, ptr noundef nonnull %ssl, ptr noundef %37)
   %cmp84.not = icmp eq i32 %call83, 0
   br i1 %cmp84.not, label %if.end88, label %return
 
@@ -5999,7 +5999,7 @@ for.cond103.preheader:                            ; preds = %for.cond.preheader,
 for.cond103:                                      ; preds = %for.body107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp105.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %cmp105.not, label %for.inc121, label %for.body107, !llvm.loop !49
+  br i1 %cmp105.not, label %for.inc121, label %for.body107, !llvm.loop !44
 
 for.body107:                                      ; preds = %for.cond103.preheader, %for.cond103
   %indvars.iv = phi i64 [ 0, %for.cond103.preheader ], [ %indvars.iv.next, %for.cond103 ]
@@ -6012,7 +6012,7 @@ for.inc121:                                       ; preds = %for.cond103
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %cmp100 = icmp ult i64 %indvars.iv.next165, %42
   %45 = and i1 %cmp100, %cmp114
-  br i1 %45, label %for.cond103.preheader, label %if.end145, !llvm.loop !50
+  br i1 %45, label %for.cond103.preheader, label %if.end145, !llvm.loop !45
 
 if.else128:                                       ; preds = %land.rhs.i111
   %data = getelementptr inbounds i8, ptr %extension.05.i112, i64 8
@@ -6044,7 +6044,7 @@ return:                                           ; preds = %if.end.i, %TLSX_Sig
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @TLSX_SetSignatureAlgorithmsCert(ptr noundef %extensions, ptr noundef %data, ptr nocapture noundef readnone %heap) unnamed_addr #0 {
+define internal fastcc range(i32 -173, 1) i32 @TLSX_SetSignatureAlgorithmsCert(ptr noundef %extensions, ptr noundef %data, ptr nocapture noundef readnone %heap) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %extensions, null
   br i1 %cmp, label %return, label %if.end
@@ -6085,7 +6085,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %next8.i, align 8
   store ptr %3, ptr %next1.i.le, align 8
   store ptr null, ptr %next8.i, align 8
-  tail call void @TLSX_FreeAll(ptr noundef nonnull %1, ptr poison)
+  tail call void @TLSX_FreeAll(ptr noundef nonnull %1, ptr readnone poison)
   br label %return
 
 return:                                           ; preds = %do.body.i, %if.then5.i, %if.end, %entry
@@ -6182,7 +6182,7 @@ if.end76:                                         ; preds = %if.end76.sink.split
   br i1 %tobool77.not, label %if.end86, label %if.then78
 
 if.then78:                                        ; preds = %if.end76
-  %call81 = call fastcc i32 @TLSX_GetSize(ptr noundef nonnull %6, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length), !range !51
+  %call81 = call fastcc i32 @TLSX_GetSize(ptr noundef nonnull %6, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length)
   %cmp82.not = icmp eq i32 %call81, 0
   br i1 %cmp82.not, label %if.end86, label %return
 
@@ -6198,7 +6198,7 @@ land.lhs.true:                                    ; preds = %if.end86
   br i1 %tobool91.not, label %if.end101, label %if.then92
 
 if.then92:                                        ; preds = %land.lhs.true
-  %call96 = call fastcc i32 @TLSX_GetSize(ptr noundef nonnull %8, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length), !range !51
+  %call96 = call fastcc i32 @TLSX_GetSize(ptr noundef nonnull %8, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length)
   %cmp97.not = icmp eq i32 %call96, 0
   br i1 %cmp97.not, label %if.end101, label %return
 
@@ -6250,7 +6250,7 @@ return:                                           ; preds = %entry, %if.then92, 
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @TLSX_GetSize(ptr noundef readonly %list, ptr nocapture noundef %semaphore, i8 noundef zeroext %msgType, ptr nocapture noundef %pLength) unnamed_addr #9 {
+define internal fastcc range(i32 -394, 1) i32 @TLSX_GetSize(ptr noundef readonly %list, ptr nocapture noundef %semaphore, i8 noundef zeroext %msgType, ptr nocapture noundef %pLength) unnamed_addr #9 {
 entry:
   %tobool.not6873 = icmp eq ptr %list, null
   br i1 %tobool.not6873, label %while.end, label %while.body.lr.ph.lr.ph
@@ -6288,7 +6288,7 @@ land.lhs.true:                                    ; preds = %while.body
 
 while.cond.backedge:                              ; preds = %land.lhs.true, %if.end
   %tobool.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !52
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !46
 
 if.end:                                           ; preds = %while.body, %while.body, %land.lhs.true
   %4 = load i32, ptr %list.addr.069, align 8
@@ -6353,7 +6353,7 @@ sw.bb.i:                                          ; preds = %while.body.i
 sw.epilog.i:                                      ; preds = %sw.bb.i, %while.body.i
   %length.1.i = phi i16 [ %add6.i, %sw.bb.i ], [ %add.i, %while.body.i ]
   %tobool.not.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i, label %TLSX_SNI_GetSize.exit, label %while.body.i, !llvm.loop !53
+  br i1 %tobool.not.i, label %TLSX_SNI_GetSize.exit, label %while.body.i, !llvm.loop !47
 
 TLSX_SNI_GetSize.exit:                            ; preds = %sw.epilog.i, %if.then24
   %length.0.lcssa.i = phi i16 [ 2, %if.then24 ], [ %length.1.i, %sw.epilog.i ]
@@ -6373,7 +6373,7 @@ while.body.i26:                                   ; preds = %sw.bb43, %while.bod
   %13 = load ptr, ptr %next.i27, align 8
   %add.i28 = add i16 %length.04.i, 2
   %tobool.not.i29 = icmp eq ptr %13, null
-  br i1 %tobool.not.i29, label %TLSX_SupportedCurve_GetSize.exit, label %while.body.i26, !llvm.loop !54
+  br i1 %tobool.not.i29, label %TLSX_SupportedCurve_GetSize.exit, label %while.body.i26, !llvm.loop !48
 
 TLSX_SupportedCurve_GetSize.exit:                 ; preds = %while.body.i26, %sw.bb43
   %length.0.lcssa.i30 = phi i16 [ 2, %sw.bb43 ], [ %add.i28, %while.body.i26 ]
@@ -6393,7 +6393,7 @@ while.body.i32:                                   ; preds = %sw.bb50, %while.bod
   %15 = load ptr, ptr %next.i35, align 8
   %add.i36 = add i16 %length.04.i33, 1
   %tobool.not.i37 = icmp eq ptr %15, null
-  br i1 %tobool.not.i37, label %TLSX_PointFormat_GetSize.exit, label %while.body.i32, !llvm.loop !55
+  br i1 %tobool.not.i37, label %TLSX_PointFormat_GetSize.exit, label %while.body.i32, !llvm.loop !49
 
 TLSX_PointFormat_GetSize.exit:                    ; preds = %while.body.i32, %sw.bb50
   %length.0.lcssa.i38 = phi i16 [ 1, %sw.bb50 ], [ %add.i36, %while.body.i32 ]
@@ -6510,7 +6510,7 @@ while.body.us.us.i:                               ; preds = %if.end.split.us.i, 
   %35 = add i16 %len.1.ph.us12.i, 4
   %conv22.us.i = add i16 %35, %34
   %cmp10.not.us.us.i = icmp eq ptr %32, null
-  br i1 %cmp10.not.us.us.i, label %TLSX_KeyShare_GetSize.exit, label %while.body.us.us.i, !llvm.loop !56
+  br i1 %cmp10.not.us.us.i, label %TLSX_KeyShare_GetSize.exit, label %while.body.us.us.i, !llvm.loop !50
 
 while.cond.outer.i:                               ; preds = %sw.bb96, %if.end16.split.i
   %len.1.ph.i = phi i16 [ %conv22.i, %if.end16.split.i ], [ 0, %sw.bb96 ]
@@ -6528,7 +6528,7 @@ while.body.i46:                                   ; preds = %while.cond.i
   %pubKey.i = getelementptr inbounds i8, ptr %list.addr.0.i, i64 40
   %37 = load ptr, ptr %pubKey.i, align 8
   %cmp13.i = icmp eq ptr %37, null
-  br i1 %cmp13.i, label %while.cond.i, label %if.end16.split.i, !llvm.loop !56
+  br i1 %cmp13.i, label %while.cond.i, label %if.end16.split.i, !llvm.loop !50
 
 if.end16.split.i:                                 ; preds = %while.body.i46
   %pubKeyLen.i = getelementptr inbounds i8, ptr %list.addr.0.i, i64 48
@@ -6536,7 +6536,7 @@ if.end16.split.i:                                 ; preds = %while.body.i46
   %39 = trunc i32 %38 to i16
   %40 = add i16 %len.1.ph.i, 4
   %conv22.i = add i16 %40, %39
-  br label %while.cond.outer.i, !llvm.loop !56
+  br label %while.cond.outer.i, !llvm.loop !50
 
 TLSX_KeyShare_GetSize.exit:                       ; preds = %while.body.us.us.i, %while.cond.i, %sw.bb96, %if.end.split.us.i
   %retval.0.i45 = phi i16 [ 2, %sw.bb96 ], [ 2, %if.end.split.us.i ], [ %len.1.ph.i, %while.cond.i ], [ %conv22.us.i, %while.body.us.us.i ]
@@ -6549,7 +6549,7 @@ sw.epilog:                                        ; preds = %if.else.i, %if.end3
   %or22 = or i8 %shl, %6
   store i8 %or22, ptr %arrayidx.le, align 1
   %tobool.not68 = icmp eq ptr %2, null
-  br i1 %tobool.not68, label %while.end, label %while.body.lr.ph, !llvm.loop !52
+  br i1 %tobool.not68, label %while.end, label %while.body.lr.ph, !llvm.loop !46
 
 while.end:                                        ; preds = %sw.epilog, %while.cond.backedge, %entry
   %length.0.ph.lcssa = phi i16 [ 0, %entry ], [ %length.0.ph74, %while.cond.backedge ], [ %length.2, %sw.epilog ]
@@ -6789,7 +6789,7 @@ land.lhs.true:                                    ; preds = %while.body
 
 while.cond.backedge:                              ; preds = %land.lhs.true, %if.end
   %tobool.not = icmp eq ptr %2, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !57
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !51
 
 if.end:                                           ; preds = %while.body, %while.body, %land.lhs.true
   %4 = load i32, ptr %list.addr.0114, align 8
@@ -6874,14 +6874,14 @@ sw.bb.i:                                          ; preds = %while.body.i
   %add.ptr8.i = getelementptr inbounds i8, ptr %add.ptr30, i64 %idx.ext7.i
   %13 = load ptr, ptr %data.i, align 8
   %conv10.i = and i64 %call.i, 65535
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr8.i, ptr align 1 %13, i64 %conv10.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr8.i, ptr align 1 %13, i64 %conv10.i, i1 false)
   %add13.i = add i16 %add.i, %conv2.i
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb.i, %while.body.i
   %offset.1.i = phi i16 [ %add13.i, %sw.bb.i ], [ %inc.i, %while.body.i ]
   %tobool.not.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i, label %TLSX_SNI_Write.exit, label %while.body.i, !llvm.loop !58
+  br i1 %tobool.not.i, label %TLSX_SNI_Write.exit, label %while.body.i, !llvm.loop !52
 
 TLSX_SNI_Write.exit:                              ; preds = %sw.epilog.i, %do.end
   %offset.0.lcssa.i = phi i16 [ 2, %do.end ], [ %offset.1.i, %sw.epilog.i ]
@@ -6919,7 +6919,7 @@ while.body.i39:                                   ; preds = %do.end60, %while.bo
   %next.i46 = getelementptr inbounds i8, ptr %list.addr.012.i, i64 8
   %16 = load ptr, ptr %next.i46, align 8
   %tobool.not.i47 = icmp eq ptr %16, null
-  br i1 %tobool.not.i47, label %TLSX_SupportedCurve_Write.exit, label %while.body.i39, !llvm.loop !59
+  br i1 %tobool.not.i47, label %TLSX_SupportedCurve_Write.exit, label %while.body.i39, !llvm.loop !53
 
 TLSX_SupportedCurve_Write.exit:                   ; preds = %while.body.i39, %do.end60
   %offset.0.lcssa.i48 = phi i16 [ 2, %do.end60 ], [ %add.i45, %while.body.i39 ]
@@ -6952,7 +6952,7 @@ while.body.i50:                                   ; preds = %do.end72, %while.bo
   %next.i54 = getelementptr inbounds i8, ptr %list.addr.07.i, i64 8
   %19 = load ptr, ptr %next.i54, align 8
   %tobool.not.i55 = icmp eq ptr %19, null
-  br i1 %tobool.not.i55, label %TLSX_PointFormat_Write.exit, label %while.body.i50, !llvm.loop !60
+  br i1 %tobool.not.i55, label %TLSX_PointFormat_Write.exit, label %while.body.i50, !llvm.loop !54
 
 TLSX_PointFormat_Write.exit:                      ; preds = %while.body.i50, %do.end72
   %offset.0.lcssa.i56 = phi i16 [ 1, %do.end72 ], [ %inc.i51, %while.body.i50 ]
@@ -7013,7 +7013,7 @@ if.else.i:                                        ; preds = %cond.end.i
   %hashSigAlgo15.i = getelementptr inbounds i8, ptr %20, i64 10
   %28 = load i16, ptr %hashSigAlgoSz6.i, align 8
   %conv18.i = zext i16 %28 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14.i, ptr nonnull align 2 %hashSigAlgo15.i, i64 %conv18.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14.i, ptr nonnull readonly align 2 %hashSigAlgo15.i, i64 %conv18.i, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -7044,7 +7044,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp7.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
-  %arrayidx11.i.i = getelementptr i8, ptr %arrayidx.i.i, i64 1
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
   %34 = load i8, ptr %arrayidx11.i.i, align 1
   %cmp13.i.i = icmp ult i8 %34, 7
   br i1 %cmp13.i.i, label %if.end24.i.i, label %land.lhs.true30.i.i
@@ -7082,7 +7082,7 @@ for.inc.i.i:                                      ; preds = %if.then46.i.i, %lan
   %40 = phi i16 [ %32, %for.body.i.i ], [ %conv23.i.i, %if.end24.i.i ], [ %37, %land.lhs.true30.i.i ], [ %conv56.i.i, %if.then46.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %cmp4.i.i = icmp ult i64 %indvars.iv.next.i.i, %31
-  br i1 %cmp4.i.i, label %for.body.i.i, label %TLSX_SignatureAlgorithms_Write.exit, !llvm.loop !61
+  br i1 %cmp4.i.i, label %for.body.i.i, label %TLSX_SignatureAlgorithms_Write.exit, !llvm.loop !55
 
 TLSX_SignatureAlgorithms_Write.exit:              ; preds = %for.inc.i.i, %if.end.i, %if.end.i.i
   %add.i59 = add i16 %offset.0.ph, 6
@@ -7195,7 +7195,7 @@ do.end139:                                        ; preds = %if.end19
   %certHashSigAlgo.i = getelementptr inbounds i8, ptr %53, i64 1086
   %55 = load i16, ptr %certHashSigAlgoSz.i, align 4
   %conv.i75 = zext i16 %55 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i74, ptr nonnull align 2 %certHashSigAlgo.i, i64 %conv.i75, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i74, ptr nonnull readonly align 2 %certHashSigAlgo.i, i64 %conv.i75, i1 false)
   %56 = load i16, ptr %certHashSigAlgoSz.i, align 4
   %add.i76 = add i16 %offset.0.ph, 6
   %add147 = add i16 %add.i76, %56
@@ -7251,12 +7251,12 @@ while.body.us.us.i:                               ; preds = %if.end.split.us.i, 
   %62 = load ptr, ptr %pubKey29.us.i, align 8
   %63 = load i32, ptr %pubKeyLen.us.i, align 8
   %conv31.us.i = zext i32 %63 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx28.us.i, ptr align 1 %62, i64 %conv31.us.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %arrayidx28.us.i, ptr align 1 %62, i64 %conv31.us.i, i1 false)
   %64 = load i32, ptr %pubKeyLen.us.i, align 8
   %65 = trunc i32 %64 to i16
   %conv37.us.i = add i16 %add25.us.i, %65
   %cmp10.not.us.us.i = icmp eq ptr %59, null
-  br i1 %cmp10.not.us.us.i, label %while.end.i, label %while.body.us.us.i, !llvm.loop !62
+  br i1 %cmp10.not.us.us.i, label %while.end.i, label %while.body.us.us.i, !llvm.loop !56
 
 while.cond.outer.i:                               ; preds = %if.end.i77, %if.end16.split.i
   %i.1.ph.i = phi i16 [ %conv37.i, %if.end16.split.i ], [ 0, %if.end.i77 ]
@@ -7274,7 +7274,7 @@ while.body.i79:                                   ; preds = %while.cond.i
   %pubKey.i = getelementptr inbounds i8, ptr %list.addr.0.i, i64 40
   %67 = load ptr, ptr %pubKey.i, align 8
   %cmp13.i = icmp eq ptr %67, null
-  br i1 %cmp13.i, label %while.cond.i, label %if.end16.split.i, !llvm.loop !62
+  br i1 %cmp13.i, label %while.cond.i, label %if.end16.split.i, !llvm.loop !56
 
 if.end16.split.i:                                 ; preds = %while.body.i79
   %pubKey.i.le = getelementptr inbounds i8, ptr %list.addr.0.i, i64 40
@@ -7304,11 +7304,11 @@ if.end16.split.i:                                 ; preds = %while.body.i79
   %70 = load ptr, ptr %pubKey.i.le, align 8
   %71 = load i32, ptr %pubKeyLen.i, align 8
   %conv31.i = zext i32 %71 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx28.i, ptr align 1 %70, i64 %conv31.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %arrayidx28.i, ptr align 1 %70, i64 %conv31.i, i1 false)
   %72 = load i32, ptr %pubKeyLen.i, align 8
   %73 = trunc i32 %72 to i16
   %conv37.i = add i16 %add25.i, %73
-  br label %while.cond.outer.i, !llvm.loop !62
+  br label %while.cond.outer.i, !llvm.loop !56
 
 while.end.i:                                      ; preds = %while.body.us.us.i, %while.cond.i
   %.us-phi.i = phi i16 [ %i.1.ph.i, %while.cond.i ], [ %conv37.us.i, %while.body.us.us.i ]
@@ -7362,7 +7362,7 @@ sw.epilog:                                        ; preds = %do.end126, %if.end5
   %or35 = or i8 %shl173, %77
   store i8 %or35, ptr %arrayidx182, align 1
   %cmp185.not = icmp eq i32 %ret.1, 0
-  br i1 %cmp185.not, label %while.cond.outer, label %while.end, !llvm.loop !57
+  br i1 %cmp185.not, label %while.cond.outer, label %while.end, !llvm.loop !51
 
 while.end:                                        ; preds = %sw.epilog, %while.cond.outer, %while.cond.backedge
   %offset.3 = phi i16 [ %offset.0.ph, %while.cond.backedge ], [ %offset.0.ph, %while.cond.outer ], [ %offset.2, %sw.epilog ]
@@ -7483,7 +7483,7 @@ TLSX_SupportExtensions.exit:                      ; preds = %land.rhs.i
 if.then144:                                       ; preds = %land.rhs.i, %TLSX_SupportExtensions.exit
   %extensions = getelementptr inbounds i8, ptr %ssl, i64 1200
   %7 = load ptr, ptr %extensions, align 16
-  %call146 = call fastcc i32 @TLSX_GetSize(ptr noundef %7, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length), !range !51
+  %call146 = call fastcc i32 @TLSX_GetSize(ptr noundef %7, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length)
   %cmp147.not = icmp eq i32 %call146, 0
   br i1 %cmp147.not, label %if.then144.if.end151_crit_edge, label %return
 
@@ -7686,7 +7686,7 @@ return:                                           ; preds = %if.end176, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TLSX_ParseVersion(ptr noundef %ssl, ptr nocapture noundef readonly %input, i16 noundef zeroext %length, i8 noundef zeroext %msgType, ptr nocapture noundef writeonly %found) local_unnamed_addr #0 {
+define range(i32 -394, 1) i32 @TLSX_ParseVersion(ptr noundef %ssl, ptr nocapture noundef readonly %input, i16 noundef zeroext %length, i8 noundef zeroext %msgType, ptr nocapture noundef writeonly %found) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %found, align 4
   %conv = zext i16 %length to i32
@@ -7729,7 +7729,7 @@ if.end15:                                         ; preds = %if.end
   %conv2.i = zext i8 %add.ptr.val18 to i16
   %or.i = or disjoint i16 %shl.i, %conv2.i
   %cmp17 = icmp eq i16 %or.i, 43
-  br i1 %cmp17, label %if.then19, label %while.cond, !llvm.loop !63
+  br i1 %cmp17, label %if.then19, label %while.cond, !llvm.loop !57
 
 if.then19:                                        ; preds = %if.end15
   store i32 1, ptr %found, align 4
@@ -7738,7 +7738,7 @@ if.then19:                                        ; preds = %if.end15
   %version = getelementptr inbounds i8, ptr %ssl, i64 694
   %options = getelementptr inbounds i8, ptr %ssl, i64 1000
   %extensions = getelementptr inbounds i8, ptr %ssl, i64 1200
-  %call = tail call i32 @TLSX_SupportedVersions_Parse(ptr noundef %ssl, ptr noundef nonnull %add.ptr21, i16 noundef zeroext %or.i22, i8 noundef zeroext %msgType, ptr noundef nonnull %version, ptr noundef nonnull %options, ptr noundef nonnull %extensions), !range !51
+  %call = tail call i32 @TLSX_SupportedVersions_Parse(ptr noundef %ssl, ptr noundef nonnull %add.ptr21, i16 noundef zeroext %or.i22, i8 noundef zeroext %msgType, ptr noundef nonnull %version, ptr noundef nonnull %options, ptr noundef nonnull %extensions)
   br label %while.end
 
 while.end:                                        ; preds = %if.end, %while.body, %while.cond, %if.then19
@@ -8086,7 +8086,7 @@ lor.lhs.false104.i:                               ; preds = %lor.end.i, %lor.rhs
 if.then107.i:                                     ; preds = %lor.lhs.false104.i, %lor.end.i, %if.end73.i
   %matchStat.0.i = phi i8 [ 1, %lor.lhs.false104.i ], [ 2, %lor.end.i ], [ 3, %if.end73.i ]
   %add.ptr111.i = getelementptr inbounds i8, ptr %add.ptr97, i64 5
-  %call112.i = tail call i32 @TLSX_UseSNI(ptr noundef nonnull %extensions.i.i, i8 noundef zeroext 0, ptr noundef nonnull %add.ptr111.i, i16 noundef zeroext %or.i60.i, ptr poison), !range !64
+  %call112.i = tail call i32 @TLSX_UseSNI(ptr noundef nonnull %extensions.i.i, i8 noundef zeroext 0, ptr noundef nonnull %add.ptr111.i, i16 noundef zeroext %or.i60.i, ptr poison)
   %cmp113.not.i = icmp eq i32 %call112.i, 1
   br i1 %cmp113.not.i, label %if.end116.i, label %sw.epilog
 
@@ -8343,7 +8343,7 @@ if.end17.i:                                       ; preds = %if.end12.i
   %spec.select.i = tail call i16 @llvm.umin.i16(i16 %or.i.i184, i16 38)
   store i16 %spec.select.i, ptr %hashSigAlgoSz.i, align 2
   %conv27.i = zext nneg i16 %spec.select.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %hashSigAlgo.i, ptr nonnull align 1 %add.ptr.i185, i64 %conv27.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %hashSigAlgo.i, ptr nonnull readonly align 1 %add.ptr.i185, i64 %conv27.i, i1 false)
   %53 = and i16 %conv2.i.i183, 1
   %cmp.not.i.i187 = icmp eq i16 %53, 0
   br i1 %cmp.not.i.i187, label %if.end.i.i, label %while.end
@@ -8362,7 +8362,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.en
   br i1 %cmp7.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
-  %arrayidx11.i.i = getelementptr i8, ptr %arrayidx.i.i, i64 1
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
   %57 = load i8, ptr %arrayidx11.i.i, align 1
   %cmp13.i.i = icmp ult i8 %57, 7
   br i1 %cmp13.i.i, label %if.end24.i.i, label %land.lhs.true30.i.i
@@ -8400,7 +8400,7 @@ for.inc.i.i:                                      ; preds = %if.then46.i.i, %lan
   %63 = phi i16 [ %55, %for.body.i.i ], [ %conv23.i.i, %if.end24.i.i ], [ %60, %land.lhs.true30.i.i ], [ %conv56.i.i, %if.then46.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %cmp4.i.i = icmp ult i64 %indvars.iv.next.i.i, %54
-  br i1 %cmp4.i.i, label %for.body.i.i, label %sw.epilog, !llvm.loop !61
+  br i1 %cmp4.i.i, label %for.body.i.i, label %sw.epilog, !llvm.loop !55
 
 do.end347:                                        ; preds = %if.end70
   %64 = load i16, ptr %version406, align 2
@@ -8479,7 +8479,7 @@ if.then5.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   %72 = load ptr, ptr %next8.i.i.i, align 8
   store ptr %72, ptr %next1.i.i.i.le, align 8
   store ptr null, ptr %next8.i.i.i, align 8
-  tail call void @TLSX_FreeAll(ptr noundef nonnull %70, ptr poison)
+  tail call void @TLSX_FreeAll(ptr noundef nonnull %70, ptr readnone poison)
   br label %sw.epilog
 
 if.end23.i:                                       ; preds = %if.end9.i191
@@ -8542,7 +8542,7 @@ if.end12.i219:                                    ; preds = %if.end6.i210
   %spec.select.i221 = tail call i16 @llvm.umin.i16(i16 %or.i.i215, i16 38)
   store i16 %spec.select.i221, ptr %certHashSigAlgoSz.i, align 4
   %conv21.i = zext nneg i16 %spec.select.i221 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %certHashSigAlgo.i, ptr nonnull align 1 %add.ptr.i220, i64 %conv21.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %certHashSigAlgo.i, ptr nonnull readonly align 1 %add.ptr.i220, i64 %conv21.i, i1 false)
   br label %sw.epilog
 
 do.end405:                                        ; preds = %if.end70
@@ -8572,7 +8572,7 @@ sw.epilog:                                        ; preds = %land.rhs.i.i.i195, 
   %conv13 = and i32 %add432, 65535
   %cmp15 = icmp ult i32 %conv13, %conv14
   %76 = select i1 %cmp11, i1 %cmp15, i1 false
-  br i1 %76, label %while.body, label %while.end, !llvm.loop !65
+  br i1 %76, label %while.body, label %while.end, !llvm.loop !58
 
 while.end.sink.split:                             ; preds = %if.else136.i, %if.then4.i, %lor.lhs.false.i
   %.sink = phi i32 [ 110, %lor.lhs.false.i ], [ 110, %if.then4.i ], [ 112, %if.else136.i ]
@@ -8711,7 +8711,7 @@ for.inc.us.i:                                     ; preds = %for.body.us.i
   %next.us.i = getelementptr inbounds i8, ptr %ctx_sni.035.us.i, i64 16
   %93 = load ptr, ptr %next.us.i, align 8
   %tobool10.not.us.i = icmp eq ptr %93, null
-  br i1 %tobool10.not.us.i, label %return, label %for.body.us.i, !llvm.loop !66
+  br i1 %tobool10.not.us.i, label %return, label %for.body.us.i, !llvm.loop !59
 
 for.cond29.preheader.i:                           ; preds = %for.inc.i, %cond.end8.i, %cond.end8.thread56.i
   %cond945.i = phi ptr [ %90, %cond.end8.i ], [ %88, %cond.end8.thread56.i ], [ %90, %for.inc.i ]
@@ -8759,7 +8759,7 @@ for.inc.i:                                        ; preds = %if.end.i240, %if.th
   %next.i = getelementptr inbounds i8, ptr %ctx_sni.035.i, i64 16
   %102 = load ptr, ptr %next.i, align 8
   %tobool10.not.i = icmp eq ptr %102, null
-  br i1 %tobool10.not.i, label %for.cond29.preheader.i, label %for.body.i, !llvm.loop !66
+  br i1 %tobool10.not.i, label %for.cond29.preheader.i, label %for.body.i, !llvm.loop !59
 
 for.body31.i:                                     ; preds = %for.cond29.preheader.i, %for.inc45.i
   %ssl_sni.038.i = phi ptr [ %106, %for.inc45.i ], [ %cond945.i, %for.cond29.preheader.i ]
@@ -8779,7 +8779,7 @@ for.inc45.i:                                      ; preds = %if.then36.i, %for.b
   %next46.i = getelementptr inbounds i8, ptr %ssl_sni.038.i, i64 16
   %106 = load ptr, ptr %next46.i, align 8
   %tobool30.not.i = icmp eq ptr %106, null
-  br i1 %tobool30.not.i, label %return, label %for.body31.i, !llvm.loop !67
+  br i1 %tobool30.not.i, label %return, label %for.body31.i, !llvm.loop !60
 
 return.sink.split.i:                              ; preds = %if.end.i240, %while.body.i27.i, %for.body.us.i, %if.then36.i
   %call43.i = tail call i32 @SendAlert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef 40) #16
@@ -9235,9 +9235,9 @@ attributes #17 = { nounwind willreturn memory(read) }
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
-!34 = !{i32 -125, i32 1}
+!34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
-!36 = !{i32 -2147483648, i32 1}
+!36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
@@ -9246,13 +9246,13 @@ attributes #17 = { nounwind willreturn memory(read) }
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
 !44 = distinct !{!44, !5}
-!45 = !{i32 -310, i32 1}
-!46 = !{i32 -421, i32 1}
+!45 = distinct !{!45, !5}
+!46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
-!48 = !{i32 -173, i32 1}
+!48 = distinct !{!48, !5}
 !49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
-!51 = !{i32 -394, i32 1}
+!51 = distinct !{!51, !5}
 !52 = distinct !{!52, !5}
 !53 = distinct !{!53, !5}
 !54 = distinct !{!54, !5}
@@ -9262,10 +9262,3 @@ attributes #17 = { nounwind willreturn memory(read) }
 !58 = distinct !{!58, !5}
 !59 = distinct !{!59, !5}
 !60 = distinct !{!60, !5}
-!61 = distinct !{!61, !5}
-!62 = distinct !{!62, !5}
-!63 = distinct !{!63, !5}
-!64 = !{i32 -173, i32 2}
-!65 = distinct !{!65, !5}
-!66 = distinct !{!66, !5}
-!67 = distinct !{!67, !5}

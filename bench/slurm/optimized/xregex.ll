@@ -20,10 +20,10 @@ define void @dump_regex_error(i32 noundef %0, ptr noundef %1, ptr noundef %2, ..
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call i64 @regerror(i32 noundef %0, ptr noundef %1, ptr noundef null, i64 noundef 0) #3
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %8 = call ptr @vxstrfmt(ptr noundef %2, ptr noundef nonnull %4) #3
   store ptr %8, ptr %6, align 8
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %10, label %12
 
@@ -58,13 +58,7 @@ define void @dump_regex_error(i32 noundef %0, ptr noundef %1, ptr noundef %2, ..
 
 declare i64 @regerror(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
 declare ptr @vxstrfmt(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
@@ -98,6 +92,12 @@ define noundef zeroext i1 @regex_quick_match(ptr noundef %0, ptr noundef %1) loc
 }
 
 declare i32 @regexec(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

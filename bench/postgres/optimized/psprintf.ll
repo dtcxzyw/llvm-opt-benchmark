@@ -16,9 +16,9 @@ define dso_local noundef ptr @psprintf(ptr noundef %0, ...) local_unnamed_addr #
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr @palloc(i64 noundef 128) #6
   store i32 %4, ptr %3, align 4
-  call void @llvm.va_start(ptr nonnull %2)
-  %6 = call i64 @pvsnprintf(ptr noundef %5, i64 noundef 128, ptr noundef %0, ptr noundef nonnull %2), !range !5
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
+  %6 = call i64 @pvsnprintf(ptr noundef %5, i64 noundef 128, ptr noundef %0, ptr noundef nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   %7 = icmp ult i64 %6, 128
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -32,9 +32,9 @@ define dso_local noundef ptr @psprintf(ptr noundef %0, ...) local_unnamed_addr #
   call void @pfree(ptr noundef %9) #6
   %10 = call ptr @palloc(i64 noundef %8) #6
   store i32 %4, ptr %3, align 4
-  call void @llvm.va_start(ptr nonnull %2)
-  %11 = call i64 @pvsnprintf(ptr noundef %10, i64 noundef %8, ptr noundef %0, ptr noundef nonnull %2), !range !5
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
+  %11 = call i64 @pvsnprintf(ptr noundef %10, i64 noundef %8, ptr noundef %0, ptr noundef nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   %12 = icmp ult i64 %11, %8
   br i1 %12, label %._crit_edge, label %.lr.ph
 }
@@ -44,11 +44,8 @@ declare ptr @__errno_location() local_unnamed_addr #1
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pvsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pvsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @pg_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #6
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %13
@@ -87,9 +84,6 @@ define dso_local i64 @pvsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
-
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 declare i32 @pg_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -99,13 +93,19 @@ declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare ptr @pg_strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #4
+declare void @exit(i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nounwind willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { noreturn nounwind }
@@ -117,4 +117,3 @@ attributes #7 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 -2147483648, i64 2147483648}

@@ -985,7 +985,7 @@ cleanup:                                          ; preds = %_ZN4base4File4Info8
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base4File4LockEv(ptr noundef nonnull align 8 dereferenceable(50) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -16, 1) i32 @_ZN4base4File4LockEv(ptr noundef nonnull align 8 dereferenceable(50) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lock.i = alloca %struct.flock, align 8
   %scoped_file_trace = alloca %"class.base::FileTracing::ScopedTrace", align 8
@@ -1051,7 +1051,7 @@ invoke.cont5:                                     ; preds = %call.i.noexc, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base4File6UnlockEv(ptr noundef nonnull align 8 dereferenceable(50) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -16, 1) i32 @_ZN4base4File6UnlockEv(ptr noundef nonnull align 8 dereferenceable(50) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lock.i = alloca %struct.flock, align 8
   %scoped_file_trace = alloca %"class.base::FileTracing::ScopedTrace", align 8
@@ -1156,7 +1156,7 @@ if.then9:                                         ; preds = %invoke.cont6
   %call10 = tail call ptr @__errno_location() #14
   %3 = load i32, ptr %call10, align 4
   %call12 = invoke noundef i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 noundef %3)
-          to label %invoke.cont11 unwind label %lpad, !range !19
+          to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %if.then9
   invoke void @_ZN4base4FileC1ENS0_5ErrorE(ptr noundef nonnull align 8 dereferenceable(50) %agg.result, i32 noundef %call12)
@@ -1191,7 +1191,7 @@ declare void @_ZN4base4FileC1Ev(ptr noundef nonnull align 8 dereferenceable(50))
 declare i32 @dup(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 noundef %saved_errno) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -16, 0) i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 noundef %saved_errno) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::allocator", align 1
@@ -1336,7 +1336,7 @@ land.rhs:                                         ; preds = %do.body
   %call66 = tail call ptr @__errno_location() #14
   %5 = load i32, ptr %call66, align 4
   %cmp67 = icmp eq i32 %5, 4
-  br i1 %cmp67, label %do.body, label %do.end, !llvm.loop !20
+  br i1 %cmp67, label %do.body, label %do.end, !llvm.loop !19
 
 do.end:                                           ; preds = %do.body, %land.rhs
   %tobool69 = icmp ne i32 %and14, 0
@@ -1373,7 +1373,7 @@ land.rhs88:                                       ; preds = %do.body82
   %call89 = tail call ptr @__errno_location() #14
   %6 = load i32, ptr %call89, align 4
   %cmp90 = icmp eq i32 %6, 4
-  br i1 %cmp90, label %do.body82, label %if.then101, !llvm.loop !21
+  br i1 %cmp90, label %do.body82, label %if.then101, !llvm.loop !20
 
 do.end92:                                         ; preds = %do.body82
   %cmp94 = icmp sgt i32 %call85, -1
@@ -1389,7 +1389,7 @@ if.end99:                                         ; preds = %do.end
 if.then101:                                       ; preds = %land.rhs88, %do.end92, %if.end99
   %call102 = tail call ptr @__errno_location() #14
   %7 = load i32, ptr %call102, align 4
-  %call103 = tail call noundef i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 noundef %7), !range !19
+  %call103 = tail call noundef i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 noundef %7)
   %error_details_104 = getelementptr inbounds i8, ptr %this, i64 44
   store i32 %call103, ptr %error_details_104, align 4
   br label %return
@@ -1501,7 +1501,7 @@ land.rhs:                                         ; preds = %invoke.cont5
   %call7 = tail call ptr @__errno_location() #14
   %1 = load i32, ptr %call7, align 4
   %cmp8 = icmp eq i32 %1, 4
-  br i1 %cmp8, label %do.body, label %do.end, !llvm.loop !22
+  br i1 %cmp8, label %do.body, label %do.end, !llvm.loop !21
 
 do.end:                                           ; preds = %invoke.cont5, %land.rhs
   %tobool.not = icmp eq i32 %call6, 0
@@ -1707,7 +1707,6 @@ attributes #15 = { noreturn nounwind }
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = !{i32 -16, i32 0}
+!19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}

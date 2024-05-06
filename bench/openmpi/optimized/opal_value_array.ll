@@ -32,7 +32,7 @@ define internal void @opal_value_array_destruct(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_value_array_set_size(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @opal_value_array_set_size(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %4, %1

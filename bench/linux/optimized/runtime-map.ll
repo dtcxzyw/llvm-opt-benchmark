@@ -251,7 +251,7 @@ define internal i64 @map_attr_show(ptr noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @type_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #8 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @type_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #8 align 16 {
   %3 = load i32, ptr %0, align 8
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef 4096, ptr noundef nonnull @.str.4, i32 noundef %3) #12
   %5 = sext i32 %4 to i64
@@ -262,7 +262,7 @@ define internal noundef i64 @type_show(ptr nocapture noundef readonly %0, ptr no
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @phys_addr_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #8 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @phys_addr_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef 4096, ptr noundef nonnull @.str.6, i64 noundef %4) #12
@@ -271,7 +271,7 @@ define internal noundef i64 @phys_addr_show(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @virt_addr_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #8 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @virt_addr_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef 4096, ptr noundef nonnull @.str.6, i64 noundef %4) #12
@@ -280,7 +280,7 @@ define internal noundef i64 @virt_addr_show(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @num_pages_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #8 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @num_pages_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef 4096, ptr noundef nonnull @.str.6, i64 noundef %4) #12
@@ -289,7 +289,7 @@ define internal noundef i64 @num_pages_show(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @attribute_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #8 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @attribute_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef 4096, ptr noundef nonnull @.str.6, i64 noundef %4) #12

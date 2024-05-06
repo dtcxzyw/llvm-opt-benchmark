@@ -17,7 +17,7 @@ define dso_local noundef i32 @__libarchive_hmac_build_hack() local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @__hmac_sha1_init(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #1 {
+define internal range(i32 -1, 1) i32 @__hmac_sha1_init(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca [2 x %struct.ossl_param_st], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, ptr noundef nonnull align 1 dereferenceable(5) @__const.__hmac_sha1_init.sha1, i64 5, i1 false)

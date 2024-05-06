@@ -39,7 +39,7 @@ define internal noundef i32 @file_open(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @file_write(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i64 noundef %3) #0 {
+define internal range(i64 1, 0) i64 @file_write(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i64 noundef %3) #0 {
   br label %5
 
 5:                                                ; preds = %9, %4

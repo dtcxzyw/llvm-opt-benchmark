@@ -23,7 +23,7 @@ define i64 @nrand(i64 noundef %0) local_unnamed_addr #1 {
   %5 = mul i64 %4, 470001
   %6 = urem i64 %5, 999563
   %7 = tail call i64 @llvm.umax.i64(i64 %6, i64 1)
-  %8 = uitofp i64 %6 to double
+  %8 = uitofp nneg i64 %6 to double
   %9 = fdiv double %8, 9.995630e+05
   %10 = fmul double %9, %2
   %11 = fptoui double %10 to i64
@@ -46,7 +46,7 @@ define i32 @rand_r(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %6 = mul nuw nsw i64 %5, 470001
   %7 = urem i64 %6, 999563
   %8 = tail call i64 @llvm.umax.i64(i64 %7, i64 1)
-  %9 = uitofp i64 %7 to double
+  %9 = uitofp nneg i64 %7 to double
   %10 = fdiv double %9, 9.995630e+05
   %11 = fmul double %10, 0x41DFFFFFFFC00000
   %12 = fptoui double %11 to i64
@@ -54,9 +54,9 @@ define i32 @rand_r(ptr nocapture noundef %0) local_unnamed_addr #2 {
   br i1 %.not.i, label %nrand_r.exit, label %4, !llvm.loop !6
 
 nrand_r.exit:                                     ; preds = %4
-  %13 = trunc i64 %8 to i32
+  %13 = trunc nuw nsw i64 %8 to i32
   store i32 %13, ptr %0, align 4
-  %14 = trunc i64 %12 to i32
+  %14 = trunc nuw i64 %12 to i32
   ret i32 %14
 }
 

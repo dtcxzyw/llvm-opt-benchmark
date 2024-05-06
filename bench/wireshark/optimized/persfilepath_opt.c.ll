@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [9 x i8] c"persdata\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @persfilepath_opt(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @persfilepath_opt(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #3
   %4 = icmp eq ptr %3, null
   br i1 %4, label %25, label %5

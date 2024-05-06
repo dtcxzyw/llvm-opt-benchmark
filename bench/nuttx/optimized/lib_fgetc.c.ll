@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @fgetc_unlocked(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 256) i32 @fgetc_unlocked(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = call i64 @lib_fread_unlocked(ptr noundef nonnull %2, i64 noundef 1, ptr noundef %0) #4
   %4 = icmp sgt i64 %3, 0
@@ -17,7 +17,7 @@ define i32 @fgetc_unlocked(ptr noundef %0) local_unnamed_addr #0 {
 declare i64 @lib_fread_unlocked(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @fgetc(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 256) i32 @fgetc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   tail call void @flockfile(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)

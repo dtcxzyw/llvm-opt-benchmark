@@ -64,13 +64,13 @@ define dso_local noundef i32 @Curl_initinfo(ptr noundef %0) local_unnamed_addr #
 declare void @Curl_ssl_free_certinfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_getinfo(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
+define dso_local range(i32 0, 49) i32 @Curl_getinfo(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %355, label %4
 
 4:                                                ; preds = %2
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %5 = and i32 %1, 15728640
   %6 = add nsw i32 %5, -1048576
   %7 = lshr exact i32 %6, 20
@@ -795,19 +795,13 @@ switch.lookup:                                    ; preds = %35
 
 getinfo_char.exit:                                ; preds = %353, %335, %329, %327, %325, %323, %322, %.sink.split.i54, %257, %.sink.split.i49, %173, %.sink.split.i48, %81, %.sink.split.i, %24, %4, %350, %319, %254, %170, %78, %21
   %.0 = phi i32 [ 48, %4 ], [ 48, %350 ], [ 48, %319 ], [ 48, %254 ], [ 48, %170 ], [ 48, %78 ], [ 48, %21 ], [ 48, %24 ], [ 0, %.sink.split.i ], [ 48, %81 ], [ 0, %.sink.split.i48 ], [ 48, %173 ], [ 0, %.sink.split.i49 ], [ 48, %257 ], [ 0, %.sink.split.i54 ], [ 48, %322 ], [ 0, %329 ], [ 0, %335 ], [ 0, %327 ], [ 0, %325 ], [ 0, %323 ], [ 0, %353 ]
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %355
 
 355:                                              ; preds = %2, %getinfo_char.exit
   %.028 = phi i32 [ %.0, %getinfo_char.exit ], [ 43, %2 ]
   ret i32 %.028
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 declare i32 @Curl_getconnectinfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -818,6 +812,12 @@ declare ptr @Curl_cookie_list(ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_ssl_backend() local_unnamed_addr #1
 
 declare ptr @Curl_ssl_get_internals(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3

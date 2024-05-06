@@ -151,7 +151,7 @@ lor.lhs.false:                                    ; preds = %if.end7
 
 if.else:                                          ; preds = %lor.lhs.false
   %4 = xor i64 %call10, -1
-  %sub16 = add i64 %sub, %4
+  %sub16 = add nsw i64 %sub, %4
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end7, %lor.lhs.false, %if.else

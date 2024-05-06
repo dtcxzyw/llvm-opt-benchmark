@@ -3067,7 +3067,7 @@ entry:
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @.str.20)
   %ref.tmp.sroa.3.0.extract.shift = lshr i64 %call2, 32
-  %ref.tmp.sroa.3.0.extract.trunc = trunc i64 %ref.tmp.sroa.3.0.extract.shift to i32
+  %ref.tmp.sroa.3.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.3.0.extract.shift to i32
   ret i32 %ref.tmp.sroa.3.0.extract.trunc
 }
 
@@ -3095,7 +3095,7 @@ entry:
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull @.str.20)
   %ref.tmp.sroa.3.0.extract.shift = lshr i64 %call2, 32
-  %ref.tmp.sroa.3.0.extract.trunc = trunc i64 %ref.tmp.sroa.3.0.extract.shift to i32
+  %ref.tmp.sroa.3.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.3.0.extract.shift to i32
   %vtable3 = load ptr, ptr %call.i, align 8, !tbaa !37
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 56
   %1 = load ptr, ptr %vfn4, align 8

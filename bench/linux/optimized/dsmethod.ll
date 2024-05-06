@@ -88,7 +88,7 @@ declare dso_local i32 @acpi_ds_init_aml_walk(ptr noundef, ptr noundef, ptr nound
 declare dso_local void @acpi_ds_delete_walk_state(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @acpi_ds_detect_named_opcodes(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 align 16 {
+define internal noundef range(i32 0, 16388) i32 @acpi_ds_detect_named_opcodes(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1040
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8

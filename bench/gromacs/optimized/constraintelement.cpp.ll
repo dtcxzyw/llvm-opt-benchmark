@@ -1207,7 +1207,7 @@ define weak_odr void @_ZN3gmx18ConstraintsElementILNS_18ConstraintVariableE0EE5a
   %53 = getelementptr inbounds i8, ptr %0, i64 72
   %54 = load ptr, ptr %53, align 8
   %55 = call noundef ptr @_ZN3gmx10EnergyData16constraintVirialEl(ptr noundef nonnull align 8 dereferenceable(552) %54, i64 noundef %1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %55, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %55, i8 0, i64 36, i1 false)
   br label %56
 
 56:                                               ; preds = %52, %46
@@ -2913,7 +2913,7 @@ define weak_odr void @_ZN3gmx18ConstraintsElementILNS_18ConstraintVariableE1EE5a
   %57 = getelementptr inbounds i8, ptr %0, i64 72
   %58 = load ptr, ptr %57, align 8
   %59 = call noundef ptr @_ZN3gmx10EnergyData16constraintVirialEl(ptr noundef nonnull align 8 dereferenceable(552) %58, i64 noundef %1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %59, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %59, i8 0, i64 36, i1 false)
   br label %60
 
 60:                                               ; preds = %56, %50

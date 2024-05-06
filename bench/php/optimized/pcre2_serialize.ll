@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_pcre2_default_compile_context_8 = external local_unnamed_addr constant %struct.pcre2_real_compile_context_8, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_pcre2_serialize_encode(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define range(i32 -51, -2147483648) i32 @php_pcre2_serialize_encode(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   %6 = select i1 %.not, ptr @_pcre2_default_compile_context_8, ptr %4
   %7 = icmp eq ptr %0, null
@@ -117,7 +117,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_pcre2_serialize_decode(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -62, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   %5 = select i1 %.not, ptr @_pcre2_default_compile_context_8, ptr %3
   %6 = icmp eq ptr %2, null

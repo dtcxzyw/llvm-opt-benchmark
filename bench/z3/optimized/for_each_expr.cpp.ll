@@ -1121,8 +1121,8 @@ if.end11:                                         ; preds = %for.body
   %23 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i32 = zext i32 %23 to i64
   %add.ptr.i33.idx = shl nuw nsw i64 %idx.ext.i32, 3
-  %24 = getelementptr i8, ptr %22, i64 %add.ptr.i33.idx
-  %add.ptr.i33.ptr = getelementptr i8, ptr %24, i64 32
+  %24 = getelementptr inbounds i8, ptr %22, i64 %add.ptr.i33.idx
+  %add.ptr.i33.ptr = getelementptr inbounds i8, ptr %24, i64 32
   %cmp16.not92 = icmp eq i32 %23, 0
   br i1 %cmp16.not92, label %for.inc29, label %for.body17.preheader
 
@@ -2053,8 +2053,8 @@ if.then:                                          ; preds = %_ZN8obj_markI4expr1
   %11 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %11 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %12 = getelementptr i8, ptr %5, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %12, i64 32
+  %12 = getelementptr inbounds i8, ptr %5, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %12, i64 32
   %cmp.not47 = icmp eq i32 %11, 0
   br i1 %cmp.not47, label %if.end14, label %for.body.preheader
 
@@ -2783,8 +2783,8 @@ if.then7:                                         ; preds = %if.end
   %13 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %13 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %14 = getelementptr i8, ptr %5, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %14, i64 32
+  %14 = getelementptr inbounds i8, ptr %5, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %14, i64 32
   %cmp.not87 = icmp eq i32 %13, 0
   br i1 %cmp.not87, label %if.then30, label %for.body.preheader
 

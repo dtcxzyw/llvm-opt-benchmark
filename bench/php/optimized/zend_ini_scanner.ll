@@ -86,7 +86,7 @@ define hidden nonnull ptr @zend_ini_scanner_get_filename() local_unnamed_addr #2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zend_ini_open_file_for_scanning(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zend_ini_open_file_for_scanning(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = call i32 @zend_stream_fixup(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
@@ -145,7 +145,7 @@ init_ini_scanner.exit.thread:                     ; preds = %7
 declare i32 @zend_stream_fixup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zend_ini_prepare_string_for_scanning(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zend_ini_prepare_string_for_scanning(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %or.cond3.i = icmp ugt i32 %1, 2
   br i1 %or.cond3.i, label %init_ini_scanner.exit.thread, label %3
 

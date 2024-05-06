@@ -99,7 +99,7 @@ Vec_FltStart.exit:                                ; preds = %6, %2
 
 39:                                               ; preds = %.lr.ph94
   %40 = fsub float %37, %.06791
-  %41 = trunc i64 %indvars.iv110 to i32
+  %41 = trunc nuw nsw i64 %indvars.iv110 to i32
   %42 = sub nsw i32 %41, %.06293
   %43 = sitofp i32 %42 to float
   %44 = fdiv float %40, %43
@@ -687,7 +687,7 @@ Abc_SclAddWireLoad.exit206:                       ; preds = %181, %187
   br i1 %237, label %238, label %241
 
 238:                                              ; preds = %234, %231
-  %239 = trunc i64 %indvars.iv270 to i32
+  %239 = trunc nuw nsw i64 %indvars.iv270 to i32
   %240 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %239)
   %.pre285 = load ptr, ptr %2, align 8
   br label %241

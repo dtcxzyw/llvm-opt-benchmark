@@ -41,7 +41,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dtls_listen_test(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @dtls_listen_test(i32 noundef %i) #0 {
 entry:
   %data = alloca ptr, align 8
   %idxprom = sext i32 %i to i64
@@ -173,7 +173,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %i.05 = phi i32 [ 0, %entry ], [ %inc, %for.body ]
   %cookie.addr.04 = phi ptr [ %cookie, %entry ], [ %incdec.ptr, %for.body ]
-  %conv = trunc i32 %i.05 to i8
+  %conv = trunc nuw nsw i32 %i.05 to i8
   store i8 %conv, ptr %cookie.addr.04, align 1
   %inc = add nuw nsw i32 %i.05, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %cookie.addr.04, i64 1
@@ -188,7 +188,7 @@ for.end:                                          ; preds = %for.body
 declare void @SSL_CTX_set_cookie_verify_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @cookie_verify(ptr nocapture readnone %ssl, ptr nocapture noundef readonly %cookie, i32 noundef %cookie_len) #3 {
+define internal range(i32 0, 2) i32 @cookie_verify(ptr nocapture readnone %ssl, ptr nocapture noundef readonly %cookie, i32 noundef %cookie_len) #3 {
 entry:
   %cmp.not = icmp eq i32 %cookie_len, 20
   br i1 %cmp.not, label %for.body, label %return

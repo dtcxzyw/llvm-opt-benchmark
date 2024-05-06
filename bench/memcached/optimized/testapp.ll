@@ -405,7 +405,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cache_reuse_test() #0 {
+define internal range(i32 1, 3) i32 @cache_reuse_test() #0 {
 entry:
   %call = tail call ptr @cache_create(ptr noundef nonnull @.str.60, i64 noundef 4, i64 noundef 8) #18
   %cmp = icmp eq ptr %call, null
@@ -442,7 +442,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cache_redzone_test() #0 {
+define internal range(i32 1, 3) i32 @cache_redzone_test() #0 {
 entry:
   %old_action = alloca %struct.sigaction, align 8
   %action = alloca %struct.sigaction, align 8
@@ -640,7 +640,7 @@ if.end36:                                         ; preds = %if.end31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_stats_prefix_record_get() #0 {
+define internal range(i32 1, 3) i32 @test_stats_prefix_record_get() #0 {
 entry:
   tail call void @stats_prefix_clear() #18
   tail call void @stats_prefix_record_get(ptr noundef nonnull @.str.80, i64 noundef 7, i1 noundef zeroext false) #18
@@ -731,7 +731,7 @@ return:                                           ; preds = %if.end32, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_stats_prefix_record_delete() #0 {
+define internal range(i32 1, 3) i32 @test_stats_prefix_record_delete() #0 {
 entry:
   tail call void @stats_prefix_clear() #18
   tail call void @stats_prefix_record_delete(ptr noundef nonnull @.str.80, i64 noundef 7) #18
@@ -795,7 +795,7 @@ return:                                           ; preds = %if.end15, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_stats_prefix_record_set() #0 {
+define internal range(i32 1, 3) i32 @test_stats_prefix_record_set() #0 {
 entry:
   tail call void @stats_prefix_clear() #18
   tail call void @stats_prefix_record_set(ptr noundef nonnull @.str.80, i64 noundef 7) #18
@@ -1663,7 +1663,7 @@ if.end7:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_vperror() #0 {
+define internal range(i32 1, 3) i32 @test_vperror() #0 {
 entry:
   %tmpl = alloca [24 x i8], align 16
   %buf = alloca [80 x i8], align 16
@@ -1748,7 +1748,7 @@ if.end34:                                         ; preds = %if.end28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_issue_101() #0 {
+define internal range(i32 0, 3) i32 @test_issue_101() #0 {
 entry:
   %conns.sroa.0 = alloca ptr, align 16
   %conns.sroa.3 = alloca ptr, align 8
@@ -2317,7 +2317,7 @@ while.body:                                       ; preds = %if.end13, %while.bo
   %offset.0129 = phi i64 [ 5, %if.end13 ], [ %add, %while.body ]
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %offset.0129
   %sub = sub nuw nsw i64 4096, %offset.0129
-  %conv = trunc i64 %offset.0129 to i32
+  %conv = trunc nuw nsw i64 %offset.0129 to i32
   %call18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull @.str.244, i32 noundef %conv) #18
   %conv19 = sext i32 %call18 to i64
   %add = add nsw i64 %offset.0129, %conv19
@@ -2589,7 +2589,7 @@ if.end62:                                         ; preds = %close_conn.exit123
 define internal noundef i32 @test_binary_noop() #0 {
 entry:
   %buffer = alloca %union.anon.0, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
   store i8 -128, ptr %buffer, align 8
   %opcode.i.i = getelementptr inbounds i8, ptr %buffer, i64 1
   store i8 10, ptr %opcode.i.i, align 1
@@ -2819,7 +2819,7 @@ entry:
 define internal noundef i32 @test_binary_version() #0 {
 entry:
   %buffer = alloca %union.anon.20, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
   store i8 -128, ptr %buffer, align 8
   %opcode.i.i = getelementptr inbounds i8, ptr %buffer, i64 1
   store i8 11, ptr %opcode.i.i, align 1
@@ -2937,7 +2937,7 @@ entry:
 define internal noundef i32 @test_binary_stat() #0 {
 entry:
   %buffer = alloca %union.anon.25, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
   store i8 -128, ptr %buffer, align 8
   %opcode.i.i = getelementptr inbounds i8, ptr %buffer, i64 1
   store i8 16, ptr %opcode.i.i, align 1
@@ -3033,7 +3033,7 @@ entry:
 
 while.body:                                       ; preds = %entry, %safe_recv_packet.exit
   %cmd.04 = phi i8 [ 37, %entry ], [ %inc, %safe_recv_packet.exit ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
   store i8 -128, ptr %buffer, align 8
   store i8 %cmd.04, ptr %opcode.i.i, align 1
   store i16 %call.i.i, ptr %keylen8.i.i, align 2
@@ -3103,7 +3103,7 @@ while.end:                                        ; preds = %safe_recv_packet.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_binary_pipeline_hickup() #0 {
+define internal range(i32 1, 3) i32 @test_binary_pipeline_hickup() #0 {
 entry:
   %key.i = alloca [256 x ptr], align 16
   %command.i = alloca %union.anon.27, align 8
@@ -3127,15 +3127,15 @@ if.end:                                           ; preds = %entry
   %conv = trunc i64 %call5 to i32
   call void @srand(i32 noundef %conv) #18
   %invariant.gep.i = getelementptr inbounds i8, ptr %command.i, i64 24
-  %opcode.i.i89.i = getelementptr inbounds i8, ptr %command.i, i64 1
-  %keylen8.i.i91.i = getelementptr inbounds i8, ptr %command.i, i64 2
-  %bodylen.i.i93.i = getelementptr inbounds i8, ptr %command.i, i64 8
-  %opaque.i.i94.i = getelementptr inbounds i8, ptr %command.i, i64 12
-  %extlen.i82.i = getelementptr inbounds i8, ptr %command.i, i64 4
-  %add.ptr.i88.i = getelementptr inbounds i8, ptr %command.i, i64 28
+  %opcode.i.i95.i = getelementptr inbounds i8, ptr %command.i, i64 1
+  %keylen8.i.i97.i = getelementptr inbounds i8, ptr %command.i, i64 2
+  %bodylen.i.i99.i = getelementptr inbounds i8, ptr %command.i, i64 8
+  %opaque.i.i100.i = getelementptr inbounds i8, ptr %command.i, i64 12
+  %extlen.i88.i = getelementptr inbounds i8, ptr %command.i, i64 4
+  %add.ptr.i94.i = getelementptr inbounds i8, ptr %command.i, i64 28
   %initial14.i.i = getelementptr inbounds i8, ptr %command.i, i64 32
-  %expiration.i58.i = getelementptr inbounds i8, ptr %command.i, i64 40
-  %add.ptr.i59.i = getelementptr inbounds i8, ptr %command.i, i64 44
+  %expiration.i61.i = getelementptr inbounds i8, ptr %command.i, i64 40
+  %add.ptr.i62.i = getelementptr inbounds i8, ptr %command.i, i64 44
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %test_binary_pipeline_hickup_chunk.exit
@@ -3144,11 +3144,11 @@ for.body:                                         ; preds = %if.end, %test_binar
   call void @llvm.lifetime.start.p0(i64 66560, ptr nonnull %command.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %key.i, i8 0, i64 2048, i1 false)
   %1 = load volatile i8, ptr @hickup_thread_running, align 1
-  %tobool107.i = trunc i8 %1 to i1
-  br i1 %tobool107.i, label %while.body.i, label %test_binary_pipeline_hickup_chunk.exit
+  %tobool113.i = trunc i8 %1 to i1
+  br i1 %tobool113.i, label %while.body.i, label %test_binary_pipeline_hickup_chunk.exit
 
 while.body.i:                                     ; preds = %for.body, %if.then.i
-  %offset.0108.i = phi i64 [ %add44.i, %if.then.i ], [ 0, %for.body ]
+  %offset.0114.i = phi i64 [ %add44.i, %if.then.i ], [ 0, %for.body ]
   %call.i = call i32 @rand() #18
   %conv.i = trunc i32 %call.i to i8
   %call1.i = call i32 @rand() #18
@@ -3203,20 +3203,20 @@ if.else.i.i:                                      ; preds = %sw.bb.i
   unreachable
 
 storage_command.exit.i:                           ; preds = %sw.bb.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
-  store i8 %conv.i, ptr %opcode.i.i89.i, align 1
-  %conv.i.i = trunc i32 %add2.i to i16
+  store i8 %conv.i, ptr %opcode.i.i95.i, align 1
+  %conv.i.i = trunc nsw i32 %add2.i to i16
   %call.i.i = call zeroext i16 @htons(i16 noundef zeroext %conv.i.i) #22
-  store i16 %call.i.i, ptr %keylen8.i.i91.i, align 2
-  store i8 8, ptr %extlen.i82.i, align 4
+  store i16 %call.i.i, ptr %keylen8.i.i97.i, align 2
+  store i8 8, ptr %extlen.i88.i, align 4
   %conv8.i.i = add nsw i32 %rem.i, 17
   %call9.i.i = call i32 @htonl(i32 noundef %conv8.i.i) #22
-  store i32 %call9.i.i, ptr %bodylen.i.i93.i, align 8
-  store i32 -559038737, ptr %opaque.i.i94.i, align 4
+  store i32 %call9.i.i, ptr %bodylen.i.i99.i, align 8
+  store i32 -559038737, ptr %opaque.i.i100.i, align 4
   store i32 0, ptr %invariant.gep.i, align 8
-  store i32 0, ptr %add.ptr.i88.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %initial14.i.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
+  store i32 0, ptr %add.ptr.i94.i, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %initial14.i.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
   %add.ptr18.i.i = getelementptr inbounds i8, ptr %initial14.i.i, i64 %conv3.i
   store i64 -77129852189294865, ptr %add.ptr18.i.i, align 1
   br label %sw.epilog.i
@@ -3231,156 +3231,156 @@ if.else.i.i.i:                                    ; preds = %sw.bb7.i
   unreachable
 
 raw_command.exit.i:                               ; preds = %sw.bb7.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
-  store i8 %conv.i, ptr %opcode.i.i89.i, align 1
-  %conv6.i.i.i = trunc i32 %add2.i to i16
+  store i8 %conv.i, ptr %opcode.i.i95.i, align 1
+  %conv6.i.i.i = trunc nsw i32 %add2.i to i16
   %call.i.i.i = call zeroext i16 @htons(i16 noundef zeroext %conv6.i.i.i) #22
-  store i16 %call.i.i.i, ptr %keylen8.i.i91.i, align 2
+  store i16 %call.i.i.i, ptr %keylen8.i.i97.i, align 2
   %add10.i.i.i = add nsw i32 %rem.i, 9
   %call12.i.i.i = call i32 @htonl(i32 noundef %add10.i.i.i) #22
-  store i32 %call12.i.i.i, ptr %bodylen.i.i93.i, align 8
-  store i32 -559038737, ptr %opaque.i.i94.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %invariant.gep.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
+  store i32 %call12.i.i.i, ptr %bodylen.i.i99.i, align 8
+  store i32 -559038737, ptr %opaque.i.i100.i, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %invariant.gep.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %conv3.i
   store i64 -77129852189294865, ptr %gep.i, align 1
   br label %sw.epilog.i
 
 sw.bb11.i:                                        ; preds = %while.body.i, %while.body.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
-  store i8 %conv.i, ptr %opcode.i.i89.i, align 1
+  store i8 %conv.i, ptr %opcode.i.i95.i, align 1
   %call.i.i25.i = call zeroext i16 @htons(i16 noundef zeroext 0) #22
-  store i16 %call.i.i25.i, ptr %keylen8.i.i91.i, align 2
+  store i16 %call.i.i25.i, ptr %keylen8.i.i97.i, align 2
   %call12.i.i27.i = call i32 @htonl(i32 noundef 0) #22
-  store i32 %call12.i.i27.i, ptr %bodylen.i.i93.i, align 8
-  store i32 -559038737, ptr %opaque.i.i94.i, align 4
+  store i32 %call12.i.i27.i, ptr %bodylen.i.i99.i, align 8
+  store i32 -559038737, ptr %opaque.i.i100.i, align 4
   br label %sw.epilog.i
 
 sw.bb14.i:                                        ; preds = %while.body.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
-  store i8 10, ptr %opcode.i.i89.i, align 1
+  store i8 10, ptr %opcode.i.i95.i, align 1
   %call.i.i31.i = call zeroext i16 @htons(i16 noundef zeroext 0) #22
-  store i16 %call.i.i31.i, ptr %keylen8.i.i91.i, align 2
+  store i16 %call.i.i31.i, ptr %keylen8.i.i97.i, align 2
   %call12.i.i33.i = call i32 @htonl(i32 noundef 0) #22
-  store i32 %call12.i.i33.i, ptr %bodylen.i.i93.i, align 8
-  store i32 -559038737, ptr %opaque.i.i94.i, align 4
+  store i32 %call12.i.i33.i, ptr %bodylen.i.i99.i, align 8
+  store i32 -559038737, ptr %opaque.i.i100.i, align 4
   br label %sw.epilog.i
 
 sw.bb17.i:                                        ; preds = %while.body.i, %while.body.i
   %add1.i.i36.i = add nsw i64 %conv3.i, 24
-  %cmp.i.i37.i = icmp ult i64 %add1.i.i36.i, 66560
-  br i1 %cmp.i.i37.i, label %raw_command.exit47.i, label %if.else.i.i38.i
+  %cmp.i.i38.i = icmp ult i64 %add1.i.i36.i, 66560
+  br i1 %cmp.i.i38.i, label %raw_command.exit50.i, label %if.else.i.i39.i
 
-if.else.i.i38.i:                                  ; preds = %sw.bb17.i
+if.else.i.i39.i:                                  ; preds = %sw.bb17.i
   call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.62, i32 noundef 1117, ptr noundef nonnull @__PRETTY_FUNCTION__.ext_command) #19
   unreachable
 
-raw_command.exit47.i:                             ; preds = %sw.bb17.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+raw_command.exit50.i:                             ; preds = %sw.bb17.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
-  store i8 %conv.i, ptr %opcode.i.i89.i, align 1
-  %conv6.i.i40.i = trunc i32 %add2.i to i16
-  %call.i.i41.i = call zeroext i16 @htons(i16 noundef zeroext %conv6.i.i40.i) #22
-  store i16 %call.i.i41.i, ptr %keylen8.i.i91.i, align 2
-  %call12.i.i43.i = call i32 @htonl(i32 noundef %add2.i) #22
-  store i32 %call12.i.i43.i, ptr %bodylen.i.i93.i, align 8
-  store i32 -559038737, ptr %opaque.i.i94.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %invariant.gep.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
+  store i8 %conv.i, ptr %opcode.i.i95.i, align 1
+  %conv6.i.i41.i = trunc nsw i32 %add2.i to i16
+  %call.i.i42.i = call zeroext i16 @htons(i16 noundef zeroext %conv6.i.i41.i) #22
+  store i16 %call.i.i42.i, ptr %keylen8.i.i97.i, align 2
+  %call12.i.i46.i = call i32 @htonl(i32 noundef %add2.i) #22
+  store i32 %call12.i.i46.i, ptr %bodylen.i.i99.i, align 8
+  store i32 -559038737, ptr %opaque.i.i100.i, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %invariant.gep.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
   br label %sw.epilog.i
 
 sw.bb21.i:                                        ; preds = %while.body.i, %while.body.i, %while.body.i, %while.body.i
-  %add.i48.i = add nsw i64 %conv3.i, 48
-  %cmp.i49.i = icmp ult i64 %add.i48.i, 66560
-  br i1 %cmp.i49.i, label %arithmetic_command.exit.i, label %if.else.i50.i
+  %add.i51.i = add nsw i64 %conv3.i, 48
+  %cmp.i52.i = icmp ult i64 %add.i51.i, 66560
+  br i1 %cmp.i52.i, label %arithmetic_command.exit.i, label %if.else.i53.i
 
-if.else.i50.i:                                    ; preds = %sw.bb21.i
+if.else.i53.i:                                    ; preds = %sw.bb21.i
   call void @__assert_fail(ptr noundef nonnull @.str.288, ptr noundef nonnull @.str.62, i32 noundef 1212, ptr noundef nonnull @__PRETTY_FUNCTION__.arithmetic_command) #19
   unreachable
 
 arithmetic_command.exit.i:                        ; preds = %sw.bb21.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %command.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %command.i, i8 0, i64 48, i1 false)
   store i8 -128, ptr %command.i, align 8
-  store i8 %conv.i, ptr %opcode.i.i89.i, align 1
-  %conv.i52.i = trunc i32 %add2.i to i16
-  %call.i53.i = call zeroext i16 @htons(i16 noundef zeroext %conv.i52.i) #22
-  store i16 %call.i53.i, ptr %keylen8.i.i91.i, align 2
-  store i8 20, ptr %extlen.i82.i, align 4
+  store i8 %conv.i, ptr %opcode.i.i95.i, align 1
+  %conv.i55.i = trunc nsw i32 %add2.i to i16
+  %call.i56.i = call zeroext i16 @htons(i16 noundef zeroext %conv.i55.i) #22
+  store i16 %call.i56.i, ptr %keylen8.i.i97.i, align 2
+  store i8 20, ptr %extlen.i88.i, align 4
   %conv6.i.i = add nsw i32 %rem.i, 21
   %call7.i.i = call i32 @htonl(i32 noundef %conv6.i.i) #22
-  store i32 %call7.i.i, ptr %bodylen.i.i93.i, align 8
-  store i32 -559038737, ptr %opaque.i.i94.i, align 4
+  store i32 %call7.i.i, ptr %bodylen.i.i99.i, align 8
+  store i32 -559038737, ptr %opaque.i.i100.i, align 4
   %call10.i.i = call i64 @htonll(i64 noundef 1) #18
   store i64 %call10.i.i, ptr %invariant.gep.i, align 8
   %call12.i.i = call i64 @htonll(i64 noundef 0) #18
   store i64 %call12.i.i, ptr %initial14.i.i, align 8
   %call15.i.i = call i32 @htonl(i32 noundef 0) #22
-  store i32 %call15.i.i, ptr %expiration.i58.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i59.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
+  store i32 %call15.i.i, ptr %expiration.i61.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %add.ptr.i62.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
   %add17.i.i = add nsw i64 %conv3.i, 44
   br label %sw.epilog.i
 
 sw.bb25.i:                                        ; preds = %while.body.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
-  store i8 11, ptr %opcode.i.i89.i, align 1
-  %call.i.i61.i = call zeroext i16 @htons(i16 noundef zeroext 0) #22
-  store i16 %call.i.i61.i, ptr %keylen8.i.i91.i, align 2
-  %call12.i.i63.i = call i32 @htonl(i32 noundef 0) #22
-  store i32 %call12.i.i63.i, ptr %bodylen.i.i93.i, align 8
-  store i32 -559038737, ptr %opaque.i.i94.i, align 4
+  store i8 11, ptr %opcode.i.i95.i, align 1
+  %call.i.i64.i = call zeroext i16 @htons(i16 noundef zeroext 0) #22
+  store i16 %call.i.i64.i, ptr %keylen8.i.i97.i, align 2
+  %call12.i.i66.i = call i32 @htonl(i32 noundef 0) #22
+  store i32 %call12.i.i66.i, ptr %bodylen.i.i99.i, align 8
+  store i32 -559038737, ptr %opaque.i.i100.i, align 4
   br label %sw.epilog.i
 
 sw.bb28.i:                                        ; preds = %while.body.i, %while.body.i, %while.body.i, %while.body.i
-  %add1.i.i66.i = add nsw i64 %conv3.i, 24
-  %cmp.i.i67.i = icmp ult i64 %add1.i.i66.i, 66560
-  br i1 %cmp.i.i67.i, label %raw_command.exit77.i, label %if.else.i.i68.i
+  %add1.i.i69.i = add nsw i64 %conv3.i, 24
+  %cmp.i.i71.i = icmp ult i64 %add1.i.i69.i, 66560
+  br i1 %cmp.i.i71.i, label %raw_command.exit83.i, label %if.else.i.i72.i
 
-if.else.i.i68.i:                                  ; preds = %sw.bb28.i
+if.else.i.i72.i:                                  ; preds = %sw.bb28.i
   call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.62, i32 noundef 1117, ptr noundef nonnull @__PRETTY_FUNCTION__.ext_command) #19
   unreachable
 
-raw_command.exit77.i:                             ; preds = %sw.bb28.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+raw_command.exit83.i:                             ; preds = %sw.bb28.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
-  store i8 %conv.i, ptr %opcode.i.i89.i, align 1
-  %conv6.i.i70.i = trunc i32 %add2.i to i16
-  %call.i.i71.i = call zeroext i16 @htons(i16 noundef zeroext %conv6.i.i70.i) #22
-  store i16 %call.i.i71.i, ptr %keylen8.i.i91.i, align 2
-  %call12.i.i73.i = call i32 @htonl(i32 noundef %add2.i) #22
-  store i32 %call12.i.i73.i, ptr %bodylen.i.i93.i, align 8
-  store i32 -559038737, ptr %opaque.i.i94.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %invariant.gep.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
+  store i8 %conv.i, ptr %opcode.i.i95.i, align 1
+  %conv6.i.i74.i = trunc nsw i32 %add2.i to i16
+  %call.i.i75.i = call zeroext i16 @htons(i16 noundef zeroext %conv6.i.i74.i) #22
+  store i16 %call.i.i75.i, ptr %keylen8.i.i97.i, align 2
+  %call12.i.i79.i = call i32 @htonl(i32 noundef %add2.i) #22
+  store i32 %call12.i.i79.i, ptr %bodylen.i.i99.i, align 8
+  store i32 -559038737, ptr %opaque.i.i100.i, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %invariant.gep.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
   br label %sw.epilog.i
 
 sw.bb32.i:                                        ; preds = %while.body.i, %while.body.i, %while.body.i, %while.body.i, %while.body.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %command.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %command.i, i8 0, i64 32, i1 false)
   store i8 -128, ptr %command.i, align 8
-  store i8 %conv.i, ptr %opcode.i.i89.i, align 1
-  %conv.i79.i = trunc i32 %add2.i to i16
-  %call.i80.i = call zeroext i16 @htons(i16 noundef zeroext %conv.i79.i) #22
-  store i16 %call.i80.i, ptr %keylen8.i.i91.i, align 2
-  store i8 4, ptr %extlen.i82.i, align 4
+  store i8 %conv.i, ptr %opcode.i.i95.i, align 1
+  %conv.i85.i = trunc nsw i32 %add2.i to i16
+  %call.i86.i = call zeroext i16 @htons(i16 noundef zeroext %conv.i85.i) #22
+  store i16 %call.i86.i, ptr %keylen8.i.i97.i, align 2
+  store i8 4, ptr %extlen.i88.i, align 4
   %call5.i.i = call i32 @htonl(i32 noundef 10) #22
   store i32 %call5.i.i, ptr %invariant.gep.i, align 8
-  %conv6.i84.i = add nsw i32 %rem.i, 5
-  %call7.i85.i = call i32 @htonl(i32 noundef %conv6.i84.i) #22
-  store i32 %call7.i85.i, ptr %bodylen.i.i93.i, align 8
-  store i32 -559038737, ptr %opaque.i.i94.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i88.i, ptr nonnull align 16 %key.i, i64 %conv3.i, i1 false)
+  %conv6.i90.i = add nsw i32 %rem.i, 5
+  %call7.i91.i = call i32 @htonl(i32 noundef %conv6.i90.i) #22
+  store i32 %call7.i91.i, ptr %bodylen.i.i99.i, align 8
+  store i32 -559038737, ptr %opaque.i.i100.i, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %add.ptr.i94.i, ptr nonnull readonly align 16 %key.i, i64 %conv3.i, i1 false)
   %add10.i.i = add nsw i64 %conv3.i, 28
   br label %sw.epilog.i
 
 sw.bb36.i:                                        ; preds = %while.body.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
-  store i8 16, ptr %opcode.i.i89.i, align 1
-  %call.i.i90.i = call zeroext i16 @htons(i16 noundef zeroext 0) #22
-  store i16 %call.i.i90.i, ptr %keylen8.i.i91.i, align 2
-  %call12.i.i92.i = call i32 @htonl(i32 noundef 0) #22
-  store i32 %call12.i.i92.i, ptr %bodylen.i.i93.i, align 8
-  store i32 -559038737, ptr %opaque.i.i94.i, align 4
+  store i8 16, ptr %opcode.i.i95.i, align 1
+  %call.i.i96.i = call zeroext i16 @htons(i16 noundef zeroext 0) #22
+  store i16 %call.i.i96.i, ptr %keylen8.i.i97.i, align 2
+  %call12.i.i98.i = call i32 @htonl(i32 noundef 0) #22
+  store i32 %call12.i.i98.i, ptr %bodylen.i.i99.i, align 8
+  store i32 -559038737, ptr %opaque.i.i100.i, align 4
   br label %sw.epilog.i
 
 sw.bb39.i:                                        ; preds = %while.body.i, %while.body.i, %while.body.i, %while.body.i, %while.body.i
@@ -3389,24 +3389,24 @@ sw.bb39.i:                                        ; preds = %while.body.i, %whil
 
 sw.default.i:                                     ; preds = %sw.bb39.i, %while.body.i
   %cmd.0.i = phi i8 [ %conv.i, %while.body.i ], [ %conv41.i, %sw.bb39.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %command.i, i8 0, i64 24, i1 false)
   store i8 -128, ptr %command.i, align 8
-  store i8 %cmd.0.i, ptr %opcode.i.i89.i, align 1
-  %call.i.i96.i = call zeroext i16 @htons(i16 noundef zeroext 0) #22
-  store i16 %call.i.i96.i, ptr %keylen8.i.i91.i, align 2
-  %call12.i.i98.i = call i32 @htonl(i32 noundef 0) #22
-  store i32 %call12.i.i98.i, ptr %bodylen.i.i93.i, align 8
-  store i32 -559038737, ptr %opaque.i.i94.i, align 4
+  store i8 %cmd.0.i, ptr %opcode.i.i95.i, align 1
+  %call.i.i102.i = call zeroext i16 @htons(i16 noundef zeroext 0) #22
+  store i16 %call.i.i102.i, ptr %keylen8.i.i97.i, align 2
+  %call12.i.i104.i = call i32 @htonl(i32 noundef 0) #22
+  store i32 %call12.i.i104.i, ptr %bodylen.i.i99.i, align 8
+  store i32 -559038737, ptr %opaque.i.i100.i, align 4
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %sw.default.i, %sw.bb36.i, %sw.bb32.i, %raw_command.exit77.i, %sw.bb25.i, %arithmetic_command.exit.i, %raw_command.exit47.i, %sw.bb14.i, %sw.bb11.i, %raw_command.exit.i, %storage_command.exit.i
-  %len.0.i = phi i64 [ 24, %sw.default.i ], [ 24, %sw.bb36.i ], [ %add10.i.i, %sw.bb32.i ], [ %add1.i.i66.i, %raw_command.exit77.i ], [ 24, %sw.bb25.i ], [ %add17.i.i, %arithmetic_command.exit.i ], [ %add1.i.i36.i, %raw_command.exit47.i ], [ 24, %sw.bb14.i ], [ 24, %sw.bb11.i ], [ %add2.i.i.i, %raw_command.exit.i ], [ %add1.i.i, %storage_command.exit.i ]
-  %add44.i = add nsw i64 %len.0.i, %offset.0108.i
+sw.epilog.i:                                      ; preds = %sw.default.i, %sw.bb36.i, %sw.bb32.i, %raw_command.exit83.i, %sw.bb25.i, %arithmetic_command.exit.i, %raw_command.exit50.i, %sw.bb14.i, %sw.bb11.i, %raw_command.exit.i, %storage_command.exit.i
+  %len.0.i = phi i64 [ 24, %sw.default.i ], [ 24, %sw.bb36.i ], [ %add10.i.i, %sw.bb32.i ], [ %add1.i.i69.i, %raw_command.exit83.i ], [ 24, %sw.bb25.i ], [ %add17.i.i, %arithmetic_command.exit.i ], [ %add1.i.i36.i, %raw_command.exit50.i ], [ 24, %sw.bb14.i ], [ 24, %sw.bb11.i ], [ %add2.i.i.i, %raw_command.exit.i ], [ %add1.i.i, %storage_command.exit.i ]
+  %add44.i = add nsw i64 %len.0.i, %offset.0114.i
   %cmp45.i = icmp ult i64 %add44.i, 66560
   br i1 %cmp45.i, label %if.then.i, label %test_binary_pipeline_hickup_chunk.exit
 
 if.then.i:                                        ; preds = %sw.epilog.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 %offset.0108.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 %offset.0114.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 8 %command.i, i64 %len.0.i, i1 false)
   %2 = load volatile i8, ptr @hickup_thread_running, align 1
   %tobool.i = trunc i8 %2 to i1
@@ -3415,14 +3415,14 @@ if.then.i:                                        ; preds = %sw.epilog.i
   br i1 %3, label %while.body.i, label %test_binary_pipeline_hickup_chunk.exit, !llvm.loop !22
 
 test_binary_pipeline_hickup_chunk.exit:           ; preds = %sw.epilog.i, %if.then.i, %for.body
-  %offset.0.lcssa.i = phi i64 [ 0, %for.body ], [ %add44.i, %if.then.i ], [ %offset.0108.i, %sw.epilog.i ]
+  %offset.0.lcssa.i = phi i64 [ 0, %for.body ], [ %add44.i, %if.then.i ], [ %offset.0114.i, %sw.epilog.i ]
   call fastcc void @safe_send(ptr noundef %call, i64 noundef %offset.0.lcssa.i, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %key.i)
   call void @llvm.lifetime.end.p0(i64 66560, ptr nonnull %command.i)
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %test_binary_pipeline_hickup_chunk.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
   store i8 -128, ptr %call, align 8
   %opcode.i.i = getelementptr inbounds i8, ptr %call, i64 1
   store i8 23, ptr %opcode.i.i, align 1
@@ -3649,7 +3649,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   store ptr @jenkins_hash, ptr @hash, align 8
   tail call void @stats_prefix_init(i8 noundef signext 58) #18
@@ -3665,7 +3665,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   br i1 %tobool.not, label %for.end, label %for.cond, !llvm.loop !24
 
 for.end:                                          ; preds = %for.cond
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, i32 noundef %1)
   %2 = load ptr, ptr @testcases, align 16
   %cmp.not12 = icmp eq ptr %2, null
@@ -3684,7 +3684,7 @@ for.body5:                                        ; preds = %for.end, %if.end29
   %5 = load ptr, ptr @stdout, align 8
   %6 = add nuw nsw i64 %indvars.iv17, 1
   %7 = load ptr, ptr %arrayidx315, align 16
-  %8 = trunc i64 %6 to i32
+  %8 = trunc nuw i64 %6 to i32
   switch i32 %call10, label %if.else23 [
     i32 0, label %if.end29
     i32 1, label %if.then17
@@ -4922,7 +4922,7 @@ declare i32 @ntohl(i32 noundef) local_unnamed_addr #10
 define internal fastcc void @test_binary_quit_impl(i8 noundef zeroext %cmd) unnamed_addr #0 {
 entry:
   %buffer = alloca %union.anon.4, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
   store i8 -128, ptr %buffer, align 8
   %opcode.i.i = getelementptr inbounds i8, ptr %buffer, i64 1
   store i8 %cmd, ptr %opcode.i.i, align 1
@@ -5060,7 +5060,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 storage_command.exit:                             ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i, align 1
@@ -5082,7 +5082,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call
   store i64 -2401053088876213506, ptr %add.ptr18.i, align 1
   %cmp3 = icmp eq i8 %cmd, 1
@@ -5288,7 +5288,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 storage_command.exit:                             ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i, align 1
@@ -5310,7 +5310,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call
   store i64 -2401053088876213506, ptr %add.ptr18.i, align 1
   %keylen.i14 = getelementptr inbounds i8, ptr %receive, i64 2
@@ -5464,7 +5464,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 storage_command.exit:                             ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i, align 1
@@ -5486,7 +5486,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call
   store i64 -2401053088876213506, ptr %add.ptr18.i, align 1
   br label %do.body.us.i
@@ -5558,7 +5558,7 @@ if.else.i20:                                      ; preds = %safe_recv_packet.ex
   unreachable
 
 storage_command.exit34:                           ; preds = %safe_recv_packet.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 2, ptr %opcode.i, align 1
   %conv.i22 = trunc i64 %call6 to i16
@@ -5572,7 +5572,7 @@ storage_command.exit34:                           ; preds = %safe_recv_packet.ex
   store i32 -559038737, ptr %opaque.i, align 4
   store i32 0, ptr %body.i, align 8
   store i32 0, ptr %expiration.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call6, i1 false)
   %add.ptr18.i33 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call6
   store i64 -2401053088876213506, ptr %add.ptr18.i33, align 1
   br label %do.body.us.i35
@@ -5644,7 +5644,7 @@ if.else.i70:                                      ; preds = %safe_recv_packet.ex
   unreachable
 
 storage_command.exit84:                           ; preds = %safe_recv_packet.exit66
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 %cmd, ptr %opcode.i, align 1
   %conv.i72 = trunc i64 %call12 to i16
@@ -5658,7 +5658,7 @@ storage_command.exit84:                           ; preds = %safe_recv_packet.ex
   store i32 -559038737, ptr %opaque.i, align 4
   store i32 0, ptr %body.i, align 8
   store i32 0, ptr %expiration.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call12, i1 false)
   %add.ptr18.i83 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call12
   store i64 -2401053088876213506, ptr %add.ptr18.i83, align 1
   %cmp15 = icmp eq i8 %cmd, 3
@@ -5792,7 +5792,7 @@ if.else.i.i:                                      ; preds = %entry
   unreachable
 
 if.end.i.i:                                       ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i.i, align 1
@@ -5811,7 +5811,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then23.i.i:                                    ; preds = %if.end.i.i
   %add.ptr24.i.i = getelementptr inbounds i8, ptr %send, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr24.i.i, ptr nonnull align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr24.i.i, ptr nonnull readonly align 1 %key, i64 %call, i1 false)
   br label %do.body.us.i.preheader
 
 do.body.us.i.preheader:                           ; preds = %if.end.i.i, %if.then23.i.i
@@ -5884,7 +5884,7 @@ if.else.i:                                        ; preds = %safe_recv_packet.ex
   unreachable
 
 storage_command.exit:                             ; preds = %safe_recv_packet.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 2, ptr %opcode.i.i, align 1
   %conv.i13 = trunc i64 %call6 to i16
@@ -5902,7 +5902,7 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i16 = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i16, ptr align 1 %key, i64 %call6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i16, ptr readonly align 1 %key, i64 %call6, i1 false)
   br label %do.body.us.i17
 
 do.body.us.i17:                                   ; preds = %do.cond.us.i26, %storage_command.exit
@@ -5972,7 +5972,7 @@ if.else.i.i51:                                    ; preds = %safe_recv_packet.ex
   unreachable
 
 if.end.i.i52:                                     ; preds = %safe_recv_packet.exit48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 %cmd, ptr %opcode.i.i, align 1
   %conv6.i.i54 = trunc i64 %call12 to i16
@@ -5985,7 +5985,7 @@ if.end.i.i52:                                     ; preds = %safe_recv_packet.ex
   br i1 %cmp21.not.i.i, label %do.body.us.i65.preheader, label %if.then23.i.i62
 
 if.then23.i.i62:                                  ; preds = %if.end.i.i52
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull align 1 %key, i64 %call12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call12, i1 false)
   br label %do.body.us.i65.preheader
 
 do.body.us.i65.preheader:                         ; preds = %if.end.i.i52, %if.then23.i.i62
@@ -6142,11 +6142,11 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i, align 1
-  %conv.i = trunc i64 %spec.store.select to i8
+  %conv.i = trunc nuw nsw i64 %spec.store.select to i8
   %extlen5.i = getelementptr inbounds i8, ptr %send, i64 4
   store i8 %conv.i, ptr %extlen5.i, align 4
   %conv6.i = trunc i64 %call5 to i16
@@ -6167,7 +6167,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then19.i:                                      ; preds = %if.end.i, %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr nonnull align 4 %expiration., i64 %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end.i, %if.then19.i
@@ -6176,7 +6176,7 @@ if.end20.i:                                       ; preds = %if.end.i, %if.then1
 
 if.then23.i:                                      ; preds = %if.end20.i
   %add.ptr24.i = getelementptr inbounds i8, ptr %send, i64 %add.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i, ptr nonnull align 1 %key, i64 %call5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %add.ptr24.i, ptr nonnull readonly align 1 %key, i64 %call5, i1 false)
   br label %do.body.us.i.preheader
 
 do.body.us.i.preheader:                           ; preds = %if.end20.i, %if.then23.i
@@ -6240,21 +6240,21 @@ if.end2.i:                                        ; preds = %safe_send.exit
 safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if.end2.i
   call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 1)
   %call11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #21
-  %add1.i28 = add i64 %call11, 32
-  %cmp.i29 = icmp ult i64 %add1.i28, 1024
-  br i1 %cmp.i29, label %storage_command.exit, label %if.else.i30
+  %add1.i29 = add i64 %call11, 32
+  %cmp.i30 = icmp ult i64 %add1.i29, 1024
+  br i1 %cmp.i30, label %storage_command.exit, label %if.else.i31
 
-if.else.i30:                                      ; preds = %safe_recv_packet.exit
+if.else.i31:                                      ; preds = %safe_recv_packet.exit
   call void @__assert_fail(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.62, i32 noundef 1085, ptr noundef nonnull @__PRETTY_FUNCTION__.storage_command) #19
   unreachable
 
 storage_command.exit:                             ; preds = %safe_recv_packet.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 2, ptr %opcode.i, align 1
-  %conv.i33 = trunc i64 %call11 to i16
-  %call.i34 = call zeroext i16 @htons(i16 noundef zeroext %conv.i33) #22
-  store i16 %call.i34, ptr %keylen8.i, align 2
+  %conv.i34 = trunc i64 %call11 to i16
+  %call.i35 = call zeroext i16 @htons(i16 noundef zeroext %conv.i34) #22
+  store i16 %call.i35, ptr %keylen8.i, align 2
   store i8 8, ptr %extlen5.i, align 4
   %7 = trunc i64 %call11 to i32
   %conv8.i = add nsw i32 %7, 8
@@ -6265,191 +6265,191 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   store i32 0, ptr %body.i, align 8
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
-  %add.ptr.i37 = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i37, ptr align 1 %key, i64 %call11, i1 false)
-  br label %do.body.us.i38
+  %add.ptr.i38 = getelementptr inbounds i8, ptr %send, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i38, ptr readonly align 1 %key, i64 %call11, i1 false)
+  br label %do.body.us.i39
 
-do.body.us.i38:                                   ; preds = %do.cond.us.i47, %storage_command.exit
-  %offset.0.us.i39 = phi i64 [ %offset.1.us.i48, %do.cond.us.i47 ], [ 0, %storage_command.exit ]
-  %sub.us.i40 = sub i64 %add1.i28, %offset.0.us.i39
+do.body.us.i39:                                   ; preds = %do.cond.us.i48, %storage_command.exit
+  %offset.0.us.i40 = phi i64 [ %offset.1.us.i49, %do.cond.us.i48 ], [ 0, %storage_command.exit ]
+  %sub.us.i41 = sub i64 %add1.i29, %offset.0.us.i40
   %8 = load ptr, ptr @con, align 8
-  %write.us.i41 = getelementptr inbounds i8, ptr %8, i64 16
-  %9 = load ptr, ptr %write.us.i41, align 8
-  %add.ptr.us.i42 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i39
-  %call3.us.i43 = call i64 %9(ptr noundef %8, ptr noundef nonnull %add.ptr.us.i42, i64 noundef %sub.us.i40) #18
-  %cmp4.us.i44 = icmp eq i64 %call3.us.i43, -1
-  br i1 %cmp4.us.i44, label %if.then6.us.i50, label %if.else.us.i45
+  %write.us.i42 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = load ptr, ptr %write.us.i42, align 8
+  %add.ptr.us.i43 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i40
+  %call3.us.i44 = call i64 %9(ptr noundef %8, ptr noundef nonnull %add.ptr.us.i43, i64 noundef %sub.us.i41) #18
+  %cmp4.us.i45 = icmp eq i64 %call3.us.i44, -1
+  br i1 %cmp4.us.i45, label %if.then6.us.i51, label %if.else.us.i46
 
-if.else.us.i45:                                   ; preds = %do.body.us.i38
-  %add19.us.i46 = add nsw i64 %call3.us.i43, %offset.0.us.i39
-  br label %do.cond.us.i47
+if.else.us.i46:                                   ; preds = %do.body.us.i39
+  %add19.us.i47 = add nsw i64 %call3.us.i44, %offset.0.us.i40
+  br label %do.cond.us.i48
 
-if.then6.us.i50:                                  ; preds = %do.body.us.i38
-  %call7.us.i51 = tail call ptr @__errno_location() #22
-  %10 = load i32, ptr %call7.us.i51, align 4
-  %cmp8.not.us.i52 = icmp eq i32 %10, 4
-  br i1 %cmp8.not.us.i52, label %do.cond.us.i47, label %if.then10.i53
+if.then6.us.i51:                                  ; preds = %do.body.us.i39
+  %call7.us.i52 = tail call ptr @__errno_location() #22
+  %10 = load i32, ptr %call7.us.i52, align 4
+  %cmp8.not.us.i53 = icmp eq i32 %10, 4
+  br i1 %cmp8.not.us.i53, label %do.cond.us.i48, label %if.then10.i54
 
-do.cond.us.i47:                                   ; preds = %if.then6.us.i50, %if.else.us.i45
-  %offset.1.us.i48 = phi i64 [ %offset.0.us.i39, %if.then6.us.i50 ], [ %add19.us.i46, %if.else.us.i45 ]
-  %cmp21.us.i49 = icmp ult i64 %offset.1.us.i48, %add1.i28
-  br i1 %cmp21.us.i49, label %do.body.us.i38, label %safe_send.exit56, !llvm.loop !19
+do.cond.us.i48:                                   ; preds = %if.then6.us.i51, %if.else.us.i46
+  %offset.1.us.i49 = phi i64 [ %offset.0.us.i40, %if.then6.us.i51 ], [ %add19.us.i47, %if.else.us.i46 ]
+  %cmp21.us.i50 = icmp ult i64 %offset.1.us.i49, %add1.i29
+  br i1 %cmp21.us.i50, label %do.body.us.i39, label %safe_send.exit57, !llvm.loop !19
 
-if.then10.i53:                                    ; preds = %if.then6.us.i50
+if.then10.i54:                                    ; preds = %if.then6.us.i51
   %11 = load ptr, ptr @stderr, align 8
-  %call12.i54 = call ptr @strerror(i32 noundef %10) #18
-  %call13.i55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.238, ptr noundef %call12.i54) #23
+  %call12.i55 = call ptr @strerror(i32 noundef %10) #18
+  %call13.i56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.238, ptr noundef %call12.i55) #23
   call void @abort() #19
   unreachable
 
-safe_send.exit56:                                 ; preds = %do.cond.us.i47
-  %call.i57 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
-  br i1 %call.i57, label %if.end2.i59, label %safe_recv_packet.exit69
+safe_send.exit57:                                 ; preds = %do.cond.us.i48
+  %call.i58 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  br i1 %call.i58, label %if.end2.i60, label %safe_recv_packet.exit70
 
-if.end2.i59:                                      ; preds = %safe_send.exit56
-  %keylen.i60 = getelementptr inbounds i8, ptr %receive, i64 2
-  %12 = load i16, ptr %keylen.i60, align 2
-  %call3.i61 = call zeroext i16 @ntohs(i16 noundef zeroext %12) #22
-  store i16 %call3.i61, ptr %keylen.i60, align 2
-  %status.i62 = getelementptr inbounds i8, ptr %receive, i64 6
-  %13 = load i16, ptr %status.i62, align 2
-  %call7.i63 = call zeroext i16 @ntohs(i16 noundef zeroext %13) #22
-  store i16 %call7.i63, ptr %status.i62, align 2
-  %bodylen.i64 = getelementptr inbounds i8, ptr %receive, i64 8
-  %14 = load i32, ptr %bodylen.i64, align 8
-  %call11.i65 = call i32 @ntohl(i32 noundef %14) #22
-  store i32 %call11.i65, ptr %bodylen.i64, align 8
-  %add.ptr.i66 = getelementptr inbounds i8, ptr %receive, i64 24
-  %conv.i67 = zext i32 %call11.i65 to i64
-  %call16.i68 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i66, i64 noundef %conv.i67)
-  br label %safe_recv_packet.exit69
+if.end2.i60:                                      ; preds = %safe_send.exit57
+  %keylen.i61 = getelementptr inbounds i8, ptr %receive, i64 2
+  %12 = load i16, ptr %keylen.i61, align 2
+  %call3.i62 = call zeroext i16 @ntohs(i16 noundef zeroext %12) #22
+  store i16 %call3.i62, ptr %keylen.i61, align 2
+  %status.i63 = getelementptr inbounds i8, ptr %receive, i64 6
+  %13 = load i16, ptr %status.i63, align 2
+  %call7.i64 = call zeroext i16 @ntohs(i16 noundef zeroext %13) #22
+  store i16 %call7.i64, ptr %status.i63, align 2
+  %bodylen.i65 = getelementptr inbounds i8, ptr %receive, i64 8
+  %14 = load i32, ptr %bodylen.i65, align 8
+  %call11.i66 = call i32 @ntohl(i32 noundef %14) #22
+  store i32 %call11.i66, ptr %bodylen.i65, align 8
+  %add.ptr.i67 = getelementptr inbounds i8, ptr %receive, i64 24
+  %conv.i68 = zext i32 %call11.i66 to i64
+  %call16.i69 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i67, i64 noundef %conv.i68)
+  br label %safe_recv_packet.exit70
 
-safe_recv_packet.exit69:                          ; preds = %safe_send.exit56, %if.end2.i59
+safe_recv_packet.exit70:                          ; preds = %safe_send.exit57, %if.end2.i60
   call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
-  %opcode.i75 = getelementptr inbounds i8, ptr %temp, i64 1
-  %extlen5.i77 = getelementptr inbounds i8, ptr %temp, i64 4
-  %keylen8.i80 = getelementptr inbounds i8, ptr %temp, i64 2
-  %bodylen.i84 = getelementptr inbounds i8, ptr %temp, i64 8
-  %opaque.i85 = getelementptr inbounds i8, ptr %temp, i64 12
-  %add.ptr.i88 = getelementptr inbounds i8, ptr %temp, i64 24
-  %add.ptr24.i92 = getelementptr inbounds i8, ptr %temp, i64 %add.i
+  %opcode.i76 = getelementptr inbounds i8, ptr %temp, i64 1
+  %extlen5.i78 = getelementptr inbounds i8, ptr %temp, i64 4
+  %keylen8.i81 = getelementptr inbounds i8, ptr %temp, i64 2
+  %bodylen.i85 = getelementptr inbounds i8, ptr %temp, i64 8
+  %opaque.i86 = getelementptr inbounds i8, ptr %temp, i64 12
+  %add.ptr.i89 = getelementptr inbounds i8, ptr %temp, i64 24
+  %add.ptr24.i93 = getelementptr inbounds i8, ptr %temp, i64 %add.i
   br label %for.body
 
-for.body:                                         ; preds = %safe_recv_packet.exit69, %ext_command.exit93
-  %ii.0130 = phi i32 [ 0, %safe_recv_packet.exit69 ], [ %inc, %ext_command.exit93 ]
-  %len.0129 = phi i64 [ 0, %safe_recv_packet.exit69 ], [ %add, %ext_command.exit93 ]
+for.body:                                         ; preds = %safe_recv_packet.exit70, %ext_command.exit94
+  %ii.0131 = phi i32 [ 0, %safe_recv_packet.exit70 ], [ %inc, %ext_command.exit94 ]
+  %len.0130 = phi i64 [ 0, %safe_recv_packet.exit70 ], [ %add, %ext_command.exit94 ]
   %call24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #21
-  %add1.i71 = add i64 %call24, %add.i
-  %cmp.i72 = icmp ult i64 %add1.i71, 1024
-  br i1 %cmp.i72, label %if.end.i74, label %if.else.i73
+  %add1.i72 = add i64 %call24, %add.i
+  %cmp.i73 = icmp ult i64 %add1.i72, 1024
+  br i1 %cmp.i73, label %if.end.i75, label %if.else.i74
 
-if.else.i73:                                      ; preds = %for.body
+if.else.i74:                                      ; preds = %for.body
   call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.62, i32 noundef 1117, ptr noundef nonnull @__PRETTY_FUNCTION__.ext_command) #19
   unreachable
 
-if.end.i74:                                       ; preds = %for.body
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)
+if.end.i75:                                       ; preds = %for.body
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)
   store i8 -128, ptr %temp, align 8
-  store i8 %cmd, ptr %opcode.i75, align 1
-  store i8 %conv.i, ptr %extlen5.i77, align 4
-  %conv6.i78 = trunc i64 %call24 to i16
-  %call.i79 = call zeroext i16 @htons(i16 noundef zeroext %conv6.i78) #22
-  store i16 %call.i79, ptr %keylen8.i80, align 2
-  %add9.i81 = add i64 %call24, %spec.store.select
-  %conv11.i82 = trunc i64 %add9.i81 to i32
-  %call12.i83 = call i32 @htonl(i32 noundef %conv11.i82) #22
-  store i32 %call12.i83, ptr %bodylen.i84, align 8
-  store i32 -559038737, ptr %opaque.i85, align 4
-  switch i8 %cmd, label %if.end20.i89 [
-    i8 35, label %if.then19.i87
-    i8 29, label %if.then19.i87
+  store i8 %cmd, ptr %opcode.i76, align 1
+  store i8 %conv.i, ptr %extlen5.i78, align 4
+  %conv6.i79 = trunc i64 %call24 to i16
+  %call.i80 = call zeroext i16 @htons(i16 noundef zeroext %conv6.i79) #22
+  store i16 %call.i80, ptr %keylen8.i81, align 2
+  %add9.i82 = add i64 %call24, %spec.store.select
+  %conv11.i83 = trunc i64 %add9.i82 to i32
+  %call12.i84 = call i32 @htonl(i32 noundef %conv11.i83) #22
+  store i32 %call12.i84, ptr %bodylen.i85, align 8
+  store i32 -559038737, ptr %opaque.i86, align 4
+  switch i8 %cmd, label %if.end20.i90 [
+    i8 35, label %if.then19.i88
+    i8 29, label %if.then19.i88
   ]
 
-if.then19.i87:                                    ; preds = %if.end.i74, %if.end.i74
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i88, ptr nonnull align 4 %expiration., i64 %spec.store.select, i1 false)
-  br label %if.end20.i89
+if.then19.i88:                                    ; preds = %if.end.i75, %if.end.i75
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i89, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
+  br label %if.end20.i90
 
-if.end20.i89:                                     ; preds = %if.end.i74, %if.then19.i87
-  br i1 %cmp21.not.i, label %ext_command.exit93, label %if.then23.i91
+if.end20.i90:                                     ; preds = %if.end.i75, %if.then19.i88
+  br i1 %cmp21.not.i, label %ext_command.exit94, label %if.then23.i92
 
-if.then23.i91:                                    ; preds = %if.end20.i89
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i92, ptr nonnull align 1 %key, i64 %call24, i1 false)
-  br label %ext_command.exit93
+if.then23.i92:                                    ; preds = %if.end20.i90
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %add.ptr24.i93, ptr nonnull readonly align 1 %key, i64 %call24, i1 false)
+  br label %ext_command.exit94
 
-ext_command.exit93:                               ; preds = %if.end20.i89, %if.then23.i91
-  %add.ptr = getelementptr inbounds i8, ptr %send, i64 %len.0129
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 8 %temp, i64 %add1.i71, i1 false)
-  %add = add i64 %add1.i71, %len.0129
-  %inc = add nuw nsw i32 %ii.0130, 1
+ext_command.exit94:                               ; preds = %if.end20.i90, %if.then23.i92
+  %add.ptr = getelementptr inbounds i8, ptr %send, i64 %len.0130
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 8 %temp, i64 %add1.i72, i1 false)
+  %add = add i64 %add1.i72, %len.0130
+  %inc = add nuw nsw i32 %ii.0131, 1
   %exitcond.not = icmp eq i32 %inc, 10
-  br i1 %exitcond.not, label %do.body.us.i94, label %for.body, !llvm.loop !35
+  br i1 %exitcond.not, label %do.body.us.i95, label %for.body, !llvm.loop !35
 
-do.body.us.i94:                                   ; preds = %ext_command.exit93, %do.cond.us.i103
-  %offset.0.us.i95 = phi i64 [ %offset.1.us.i104, %do.cond.us.i103 ], [ 0, %ext_command.exit93 ]
-  %sub.us.i96 = sub i64 %add, %offset.0.us.i95
+do.body.us.i95:                                   ; preds = %ext_command.exit94, %do.cond.us.i104
+  %offset.0.us.i96 = phi i64 [ %offset.1.us.i105, %do.cond.us.i104 ], [ 0, %ext_command.exit94 ]
+  %sub.us.i97 = sub i64 %add, %offset.0.us.i96
   %15 = load ptr, ptr @con, align 8
-  %write.us.i97 = getelementptr inbounds i8, ptr %15, i64 16
-  %16 = load ptr, ptr %write.us.i97, align 8
-  %add.ptr.us.i98 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i95
-  %call3.us.i99 = call i64 %16(ptr noundef %15, ptr noundef nonnull %add.ptr.us.i98, i64 noundef %sub.us.i96) #18
-  %cmp4.us.i100 = icmp eq i64 %call3.us.i99, -1
-  br i1 %cmp4.us.i100, label %if.then6.us.i106, label %if.else.us.i101
+  %write.us.i98 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = load ptr, ptr %write.us.i98, align 8
+  %add.ptr.us.i99 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i96
+  %call3.us.i100 = call i64 %16(ptr noundef %15, ptr noundef nonnull %add.ptr.us.i99, i64 noundef %sub.us.i97) #18
+  %cmp4.us.i101 = icmp eq i64 %call3.us.i100, -1
+  br i1 %cmp4.us.i101, label %if.then6.us.i107, label %if.else.us.i102
 
-if.else.us.i101:                                  ; preds = %do.body.us.i94
-  %add19.us.i102 = add nsw i64 %call3.us.i99, %offset.0.us.i95
-  br label %do.cond.us.i103
+if.else.us.i102:                                  ; preds = %do.body.us.i95
+  %add19.us.i103 = add nsw i64 %call3.us.i100, %offset.0.us.i96
+  br label %do.cond.us.i104
 
-if.then6.us.i106:                                 ; preds = %do.body.us.i94
-  %call7.us.i107 = tail call ptr @__errno_location() #22
-  %17 = load i32, ptr %call7.us.i107, align 4
-  %cmp8.not.us.i108 = icmp eq i32 %17, 4
-  br i1 %cmp8.not.us.i108, label %do.cond.us.i103, label %if.then10.i109
+if.then6.us.i107:                                 ; preds = %do.body.us.i95
+  %call7.us.i108 = tail call ptr @__errno_location() #22
+  %17 = load i32, ptr %call7.us.i108, align 4
+  %cmp8.not.us.i109 = icmp eq i32 %17, 4
+  br i1 %cmp8.not.us.i109, label %do.cond.us.i104, label %if.then10.i110
 
-do.cond.us.i103:                                  ; preds = %if.then6.us.i106, %if.else.us.i101
-  %offset.1.us.i104 = phi i64 [ %offset.0.us.i95, %if.then6.us.i106 ], [ %add19.us.i102, %if.else.us.i101 ]
-  %cmp21.us.i105 = icmp ult i64 %offset.1.us.i104, %add
-  br i1 %cmp21.us.i105, label %do.body.us.i94, label %for.cond29.preheader, !llvm.loop !19
+do.cond.us.i104:                                  ; preds = %if.then6.us.i107, %if.else.us.i102
+  %offset.1.us.i105 = phi i64 [ %offset.0.us.i96, %if.then6.us.i107 ], [ %add19.us.i103, %if.else.us.i102 ]
+  %cmp21.us.i106 = icmp ult i64 %offset.1.us.i105, %add
+  br i1 %cmp21.us.i106, label %do.body.us.i95, label %for.cond29.preheader, !llvm.loop !19
 
-for.cond29.preheader:                             ; preds = %do.cond.us.i103
-  %keylen.i116 = getelementptr inbounds i8, ptr %receive, i64 2
-  %status.i118 = getelementptr inbounds i8, ptr %receive, i64 6
-  %bodylen.i120 = getelementptr inbounds i8, ptr %receive, i64 8
-  %add.ptr.i122 = getelementptr inbounds i8, ptr %receive, i64 24
+for.cond29.preheader:                             ; preds = %do.cond.us.i104
+  %keylen.i117 = getelementptr inbounds i8, ptr %receive, i64 2
+  %status.i119 = getelementptr inbounds i8, ptr %receive, i64 6
+  %bodylen.i121 = getelementptr inbounds i8, ptr %receive, i64 8
+  %add.ptr.i123 = getelementptr inbounds i8, ptr %receive, i64 24
   br label %for.body32
 
-if.then10.i109:                                   ; preds = %if.then6.us.i106
+if.then10.i110:                                   ; preds = %if.then6.us.i107
   %18 = load ptr, ptr @stderr, align 8
-  %call12.i110 = call ptr @strerror(i32 noundef %17) #18
-  %call13.i111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.238, ptr noundef %call12.i110) #23
+  %call12.i111 = call ptr @strerror(i32 noundef %17) #18
+  %call13.i112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.238, ptr noundef %call12.i111) #23
   call void @abort() #19
   unreachable
 
-for.body32:                                       ; preds = %for.cond29.preheader, %safe_recv_packet.exit125
-  %ii.1131 = phi i32 [ 0, %for.cond29.preheader ], [ %inc36, %safe_recv_packet.exit125 ]
-  %call.i113 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
-  br i1 %call.i113, label %if.end2.i115, label %safe_recv_packet.exit125
+for.body32:                                       ; preds = %for.cond29.preheader, %safe_recv_packet.exit126
+  %ii.1132 = phi i32 [ 0, %for.cond29.preheader ], [ %inc36, %safe_recv_packet.exit126 ]
+  %call.i114 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  br i1 %call.i114, label %if.end2.i116, label %safe_recv_packet.exit126
 
-if.end2.i115:                                     ; preds = %for.body32
-  %19 = load i16, ptr %keylen.i116, align 2
-  %call3.i117 = call zeroext i16 @ntohs(i16 noundef zeroext %19) #22
-  store i16 %call3.i117, ptr %keylen.i116, align 2
-  %20 = load i16, ptr %status.i118, align 2
-  %call7.i119 = call zeroext i16 @ntohs(i16 noundef zeroext %20) #22
-  store i16 %call7.i119, ptr %status.i118, align 2
-  %21 = load i32, ptr %bodylen.i120, align 8
-  %call11.i121 = call i32 @ntohl(i32 noundef %21) #22
-  store i32 %call11.i121, ptr %bodylen.i120, align 8
-  %conv.i123 = zext i32 %call11.i121 to i64
-  %call16.i124 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i122, i64 noundef %conv.i123)
-  br label %safe_recv_packet.exit125
+if.end2.i116:                                     ; preds = %for.body32
+  %19 = load i16, ptr %keylen.i117, align 2
+  %call3.i118 = call zeroext i16 @ntohs(i16 noundef zeroext %19) #22
+  store i16 %call3.i118, ptr %keylen.i117, align 2
+  %20 = load i16, ptr %status.i119, align 2
+  %call7.i120 = call zeroext i16 @ntohs(i16 noundef zeroext %20) #22
+  store i16 %call7.i120, ptr %status.i119, align 2
+  %21 = load i32, ptr %bodylen.i121, align 8
+  %call11.i122 = call i32 @ntohl(i32 noundef %21) #22
+  store i32 %call11.i122, ptr %bodylen.i121, align 8
+  %conv.i124 = zext i32 %call11.i122 to i64
+  %call16.i125 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i123, i64 noundef %conv.i124)
+  br label %safe_recv_packet.exit126
 
-safe_recv_packet.exit125:                         ; preds = %for.body32, %if.end2.i115
+safe_recv_packet.exit126:                         ; preds = %for.body32, %if.end2.i116
   call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 0)
-  %inc36 = add nuw nsw i32 %ii.1131, 1
-  %exitcond134.not = icmp eq i32 %inc36, 10
-  br i1 %exitcond134.not, label %for.end37, label %for.body32, !llvm.loop !36
+  %inc36 = add nuw nsw i32 %ii.1132, 1
+  %exitcond135.not = icmp eq i32 %inc36, 10
+  br i1 %exitcond135.not, label %for.end37, label %for.body32, !llvm.loop !36
 
-for.end37:                                        ; preds = %safe_recv_packet.exit125
+for.end37:                                        ; preds = %safe_recv_packet.exit126
   ret void
 }
 
@@ -6476,7 +6476,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 storage_command.exit:                             ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 2, ptr %opcode.i, align 1
@@ -6498,21 +6498,21 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call5, i1 false)
   %expiration. = select i1 %or.cond.not, ptr null, ptr %expiration
   %add.i = or disjoint i64 %spec.store.select, 24
   %add1.i19 = or disjoint i64 %spec.store.select, 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)
   store i8 -128, ptr %temp, align 8
   %opcode.i22 = getelementptr inbounds i8, ptr %temp, i64 1
   store i8 %cmd, ptr %opcode.i22, align 1
-  %conv.i23 = trunc i64 %spec.store.select to i8
+  %conv.i23 = trunc nuw nsw i64 %spec.store.select to i8
   %extlen5.i = getelementptr inbounds i8, ptr %temp, i64 4
   store i8 %conv.i23, ptr %extlen5.i, align 4
   %call.i24 = tail call zeroext i16 @htons(i16 noundef zeroext 24) #22
   %keylen8.i = getelementptr inbounds i8, ptr %temp, i64 2
   store i16 %call.i24, ptr %keylen8.i, align 2
-  %conv11.i = trunc i64 %add.i to i32
+  %conv11.i = trunc nuw nsw i64 %add.i to i32
   %call12.i = tail call i32 @htonl(i32 noundef %conv11.i) #22
   %bodylen.i25 = getelementptr inbounds i8, ptr %temp, i64 8
   store i32 %call12.i, ptr %bodylen.i25, align 8
@@ -6524,12 +6524,12 @@ storage_command.exit:                             ; preds = %entry
 
 if.then19.i:                                      ; preds = %storage_command.exit, %storage_command.exit
   %add.ptr.i27 = getelementptr inbounds i8, ptr %temp, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i27, ptr nonnull align 4 %expiration., i64 %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i27, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
   br label %ext_command.exit
 
 ext_command.exit:                                 ; preds = %storage_command.exit, %if.then19.i
   %add.ptr24.i = getelementptr inbounds i8, ptr %temp, i64 %add.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %add.ptr24.i, ptr noundef nonnull align 1 dereferenceable(24) @.str.279, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(24) %add.ptr24.i, ptr noundef nonnull readonly align 1 dereferenceable(24) @.str.279, i64 24, i1 false)
   store i32 -17958194, ptr %opaque.i26, align 4
   %add.ptr = getelementptr inbounds i8, ptr %send, i64 %add1.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 8 dereferenceable(1) %temp, i64 %add1.i19, i1 false)
@@ -6543,7 +6543,7 @@ if.else.i31:                                      ; preds = %ext_command.exit
   unreachable
 
 if.end.i32:                                       ; preds = %ext_command.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %temp, i8 0, i64 24, i1 false)
   store i8 -128, ptr %temp, align 8
   store i8 %cmd, ptr %opcode.i22, align 1
   store i8 %conv.i23, ptr %extlen5.i, align 4
@@ -6560,7 +6560,7 @@ if.end.i32:                                       ; preds = %ext_command.exit
 
 if.then19.i44:                                    ; preds = %if.end.i32, %if.end.i32
   %add.ptr.i45 = getelementptr inbounds i8, ptr %temp, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i45, ptr nonnull align 4 %expiration., i64 %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i45, ptr nonnull readonly align 4 %expiration., i64 %spec.store.select, i1 false)
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end.i32, %if.then19.i44
@@ -6568,7 +6568,7 @@ if.end20.i:                                       ; preds = %if.end.i32, %if.the
   br i1 %cmp21.not.i, label %ext_command.exit47, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end20.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr24.i, ptr nonnull align 1 %key, i64 %call5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %add.ptr24.i, ptr nonnull readonly align 1 %key, i64 %call5, i1 false)
   br label %ext_command.exit47
 
 ext_command.exit47:                               ; preds = %if.end20.i, %if.then23.i
@@ -6675,7 +6675,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 arithmetic_command.exit:                          ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %send, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %send, i8 0, i64 48, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i, align 1
@@ -6702,7 +6702,7 @@ arithmetic_command.exit:                          ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 40
   store i32 %call15.i, ptr %expiration.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
   %add17.i = add nsw i64 %call, 44
   %cmp3 = icmp eq i8 %cmd, 5
   %keylen.i = getelementptr inbounds i8, ptr %receive, i64 2
@@ -6849,7 +6849,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 arithmetic_command.exit:                          ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %send, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %send, i8 0, i64 48, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i, align 1
@@ -6876,7 +6876,7 @@ arithmetic_command.exit:                          ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 40
   store i32 %call15.i, ptr %expiration.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
   %add17.i = add nsw i64 %call, 44
   %cmp3 = icmp eq i8 %cmd, 6
   %keylen.i = getelementptr inbounds i8, ptr %receive, i64 2
@@ -7084,7 +7084,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 storage_command.exit:                             ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 2, ptr %opcode.i, align 1
@@ -7106,7 +7106,7 @@ storage_command.exit:                             ; preds = %entry
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call, i1 false)
   br label %do.body.us.i
 
 do.body.us.i:                                     ; preds = %do.cond.us.i, %storage_command.exit
@@ -7166,7 +7166,7 @@ if.end2.i:                                        ; preds = %safe_send.exit
 
 safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if.end2.i
   call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 32, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 %cmd, ptr %opcode.i, align 1
   store i8 4, ptr %extlen.i, align 4
@@ -7251,7 +7251,7 @@ if.else.i.i:                                      ; preds = %if.end
   unreachable
 
 if.end.i.i:                                       ; preds = %if.end
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %conv6.i.i = trunc i64 %call12 to i16
   %call.i.i = call zeroext i16 @htons(i16 noundef zeroext %conv6.i.i) #22
@@ -7264,7 +7264,7 @@ if.end.i.i:                                       ; preds = %if.end
   br i1 %cmp21.not.i.i, label %do.body.us.i63.preheader, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull align 1 %key, i64 %call12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call12, i1 false)
   br label %do.body.us.i63.preheader
 
 do.body.us.i63.preheader:                         ; preds = %if.end.i.i, %if.then23.i.i
@@ -7405,7 +7405,7 @@ if.else.i129:                                     ; preds = %for.body
   unreachable
 
 storage_command.exit142:                          ; preds = %for.body
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 2, ptr %opcode.i, align 1
   %conv.i131 = trunc i64 %call24 to i16
@@ -7419,7 +7419,7 @@ storage_command.exit142:                          ; preds = %for.body
   store i32 -559038737, ptr %opaque.i, align 4
   store i32 0, ptr %body.i, align 8
   store i32 0, ptr %expiration.i, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i, ptr align 1 %key, i64 %call24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i, ptr readonly align 1 %key, i64 %call24, i1 false)
   br label %do.body.us.i143
 
 do.body.us.i143:                                  ; preds = %do.cond.us.i152, %storage_command.exit142
@@ -7475,7 +7475,7 @@ if.end2.i164:                                     ; preds = %safe_send.exit161
 
 safe_recv_packet.exit174:                         ; preds = %safe_send.exit161, %if.end2.i164
   call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 2, i16 noundef zeroext 0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 32, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 %cmd, ptr %opcode.i, align 1
   br i1 %cmp30, label %if.then2.i, label %flush_command.exit
@@ -7561,7 +7561,7 @@ if.else.i.i216:                                   ; preds = %if.end40
   unreachable
 
 if.end.i.i217:                                    ; preds = %if.end40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %conv6.i.i219 = trunc i64 %call42 to i16
   %call.i.i220 = call zeroext i16 @htons(i16 noundef zeroext %conv6.i.i219) #22
@@ -7573,7 +7573,7 @@ if.end.i.i217:                                    ; preds = %if.end40
   br i1 %cmp21.not.i.i, label %do.body.us.i230.preheader, label %if.then23.i.i227
 
 if.then23.i.i227:                                 ; preds = %if.end.i.i217
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull align 1 %key, i64 %call42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call42, i1 false)
   br label %do.body.us.i230.preheader
 
 do.body.us.i230.preheader:                        ; preds = %if.end.i.i217, %if.then23.i.i227
@@ -7653,7 +7653,7 @@ if.else.i.i:                                      ; preds = %entry
   unreachable
 
 if.end.i.i:                                       ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   %opcode.i.i = getelementptr inbounds i8, ptr %send, i64 1
   store i8 %cmd, ptr %opcode.i.i, align 1
@@ -7673,13 +7673,13 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then23.i.i:                                    ; preds = %if.end.i.i
   %add.ptr24.i.i = getelementptr inbounds i8, ptr %send, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr24.i.i, ptr nonnull align 1 %key, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr24.i.i, ptr nonnull readonly align 1 %key, i64 %call, i1 false)
   br label %raw_command.exit
 
 raw_command.exit:                                 ; preds = %if.end.i.i, %if.then23.i.i
   %1 = getelementptr i8, ptr %send, i64 %call
   %add.ptr29.i.i = getelementptr i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr29.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %add.ptr29.i.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
   br label %do.body.us.i
 
 do.body.us.i:                                     ; preds = %do.cond.us.i, %raw_command.exit
@@ -7749,7 +7749,7 @@ if.else.i:                                        ; preds = %safe_recv_packet.ex
   unreachable
 
 storage_command.exit:                             ; preds = %safe_recv_packet.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 2, ptr %opcode.i.i, align 1
   %conv.i41 = trunc i64 %call7 to i16
@@ -7767,9 +7767,9 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   %expiration.i = getelementptr inbounds i8, ptr %send, i64 28
   store i32 0, ptr %expiration.i, align 4
   %add.ptr.i44 = getelementptr inbounds i8, ptr %send, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i44, ptr align 1 %key, i64 %call7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i44, ptr readonly align 1 %key, i64 %call7, i1 false)
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr.i44, i64 %call7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr18.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %add.ptr18.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
   br label %do.body.us.i45
 
 do.body.us.i45:                                   ; preds = %do.cond.us.i54, %storage_command.exit
@@ -7839,7 +7839,7 @@ if.else.i.i80:                                    ; preds = %safe_recv_packet.ex
   unreachable
 
 if.end.i.i81:                                     ; preds = %safe_recv_packet.exit76
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 %cmd, ptr %opcode.i.i, align 1
   %conv6.i.i83 = trunc i64 %call14 to i16
@@ -7853,13 +7853,13 @@ if.end.i.i81:                                     ; preds = %safe_recv_packet.ex
   br i1 %cmp21.not.i.i, label %raw_command.exit95, label %if.then23.i.i92
 
 if.then23.i.i92:                                  ; preds = %if.end.i.i81
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull align 1 %key, i64 %call14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call14, i1 false)
   br label %raw_command.exit95
 
 raw_command.exit95:                               ; preds = %if.end.i.i81, %if.then23.i.i92
   %18 = getelementptr i8, ptr %send, i64 %call14
   %add.ptr29.i.i94 = getelementptr i8, ptr %18, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr29.i.i94, ptr noundef nonnull align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %add.ptr29.i.i94, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.297, i64 5, i1 false)
   br label %do.body.us.i96
 
 do.body.us.i96:                                   ; preds = %do.cond.us.i105, %raw_command.exit95
@@ -7920,7 +7920,7 @@ if.end2.i117:                                     ; preds = %if.then
   br label %if.end.sink.split
 
 if.else:                                          ; preds = %safe_send.exit114
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 10, ptr %opcode.i.i, align 1
   %call.i.i130 = call zeroext i16 @htons(i16 noundef zeroext 0) #22
@@ -7995,89 +7995,89 @@ if.end:                                           ; preds = %if.end.sink.split, 
   call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext %.sink, i16 noundef zeroext 0)
   %call30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #21
   %add1.i.i167 = add i64 %call30, 24
-  %cmp.i.i168 = icmp ult i64 %add1.i.i167, 1024
-  br i1 %cmp.i.i168, label %if.end.i.i170, label %if.else.i.i169
+  %cmp.i.i169 = icmp ult i64 %add1.i.i167, 1024
+  br i1 %cmp.i.i169, label %if.end.i.i171, label %if.else.i.i170
 
-if.else.i.i169:                                   ; preds = %if.end
+if.else.i.i170:                                   ; preds = %if.end
   call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.62, i32 noundef 1117, ptr noundef nonnull @__PRETTY_FUNCTION__.ext_command) #19
   unreachable
 
-if.end.i.i170:                                    ; preds = %if.end
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
+if.end.i.i171:                                    ; preds = %if.end
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
   store i8 -128, ptr %send, align 8
   store i8 12, ptr %opcode.i.i, align 1
-  %conv6.i.i172 = trunc i64 %call30 to i16
-  %call.i.i173 = call zeroext i16 @htons(i16 noundef zeroext %conv6.i.i172) #22
-  store i16 %call.i.i173, ptr %keylen8.i.i, align 2
-  %conv11.i.i175 = trunc i64 %call30 to i32
-  %call12.i.i176 = call i32 @htonl(i32 noundef %conv11.i.i175) #22
-  store i32 %call12.i.i176, ptr %bodylen.i.i, align 8
+  %conv6.i.i173 = trunc i64 %call30 to i16
+  %call.i.i174 = call zeroext i16 @htons(i16 noundef zeroext %conv6.i.i173) #22
+  store i16 %call.i.i174, ptr %keylen8.i.i, align 2
+  %conv11.i.i177 = trunc i64 %call30 to i32
+  %call12.i.i178 = call i32 @htonl(i32 noundef %conv11.i.i177) #22
+  store i32 %call12.i.i178, ptr %bodylen.i.i, align 8
   store i32 -559038737, ptr %opaque.i.i, align 4
-  br i1 %cmp21.not.i.i, label %do.body.us.i183.preheader, label %if.then23.i.i180
+  br i1 %cmp21.not.i.i, label %do.body.us.i185.preheader, label %if.then23.i.i182
 
-if.then23.i.i180:                                 ; preds = %if.end.i.i170
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %body.i, ptr nonnull align 1 %key, i64 %call30, i1 false)
-  br label %do.body.us.i183.preheader
+if.then23.i.i182:                                 ; preds = %if.end.i.i171
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %body.i, ptr nonnull readonly align 1 %key, i64 %call30, i1 false)
+  br label %do.body.us.i185.preheader
 
-do.body.us.i183.preheader:                        ; preds = %if.end.i.i170, %if.then23.i.i180
-  br label %do.body.us.i183
+do.body.us.i185.preheader:                        ; preds = %if.end.i.i171, %if.then23.i.i182
+  br label %do.body.us.i185
 
-do.body.us.i183:                                  ; preds = %do.body.us.i183.preheader, %do.cond.us.i192
-  %offset.0.us.i184 = phi i64 [ %offset.1.us.i193, %do.cond.us.i192 ], [ 0, %do.body.us.i183.preheader ]
-  %sub.us.i185 = sub i64 %add1.i.i167, %offset.0.us.i184
+do.body.us.i185:                                  ; preds = %do.body.us.i185.preheader, %do.cond.us.i194
+  %offset.0.us.i186 = phi i64 [ %offset.1.us.i195, %do.cond.us.i194 ], [ 0, %do.body.us.i185.preheader ]
+  %sub.us.i187 = sub i64 %add1.i.i167, %offset.0.us.i186
   %34 = load ptr, ptr @con, align 8
-  %write.us.i186 = getelementptr inbounds i8, ptr %34, i64 16
-  %35 = load ptr, ptr %write.us.i186, align 8
-  %add.ptr.us.i187 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i184
-  %call3.us.i188 = call i64 %35(ptr noundef %34, ptr noundef nonnull %add.ptr.us.i187, i64 noundef %sub.us.i185) #18
-  %cmp4.us.i189 = icmp eq i64 %call3.us.i188, -1
-  br i1 %cmp4.us.i189, label %if.then6.us.i195, label %if.else.us.i190
+  %write.us.i188 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = load ptr, ptr %write.us.i188, align 8
+  %add.ptr.us.i189 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i186
+  %call3.us.i190 = call i64 %35(ptr noundef %34, ptr noundef nonnull %add.ptr.us.i189, i64 noundef %sub.us.i187) #18
+  %cmp4.us.i191 = icmp eq i64 %call3.us.i190, -1
+  br i1 %cmp4.us.i191, label %if.then6.us.i197, label %if.else.us.i192
 
-if.else.us.i190:                                  ; preds = %do.body.us.i183
-  %add19.us.i191 = add nsw i64 %call3.us.i188, %offset.0.us.i184
-  br label %do.cond.us.i192
+if.else.us.i192:                                  ; preds = %do.body.us.i185
+  %add19.us.i193 = add nsw i64 %call3.us.i190, %offset.0.us.i186
+  br label %do.cond.us.i194
 
-if.then6.us.i195:                                 ; preds = %do.body.us.i183
-  %call7.us.i196 = tail call ptr @__errno_location() #22
-  %36 = load i32, ptr %call7.us.i196, align 4
-  %cmp8.not.us.i197 = icmp eq i32 %36, 4
-  br i1 %cmp8.not.us.i197, label %do.cond.us.i192, label %if.then10.i198
+if.then6.us.i197:                                 ; preds = %do.body.us.i185
+  %call7.us.i198 = tail call ptr @__errno_location() #22
+  %36 = load i32, ptr %call7.us.i198, align 4
+  %cmp8.not.us.i199 = icmp eq i32 %36, 4
+  br i1 %cmp8.not.us.i199, label %do.cond.us.i194, label %if.then10.i200
 
-do.cond.us.i192:                                  ; preds = %if.then6.us.i195, %if.else.us.i190
-  %offset.1.us.i193 = phi i64 [ %offset.0.us.i184, %if.then6.us.i195 ], [ %add19.us.i191, %if.else.us.i190 ]
-  %cmp21.us.i194 = icmp ult i64 %offset.1.us.i193, %add1.i.i167
-  br i1 %cmp21.us.i194, label %do.body.us.i183, label %safe_send.exit201, !llvm.loop !19
+do.cond.us.i194:                                  ; preds = %if.then6.us.i197, %if.else.us.i192
+  %offset.1.us.i195 = phi i64 [ %offset.0.us.i186, %if.then6.us.i197 ], [ %add19.us.i193, %if.else.us.i192 ]
+  %cmp21.us.i196 = icmp ult i64 %offset.1.us.i195, %add1.i.i167
+  br i1 %cmp21.us.i196, label %do.body.us.i185, label %safe_send.exit203, !llvm.loop !19
 
-if.then10.i198:                                   ; preds = %if.then6.us.i195
+if.then10.i200:                                   ; preds = %if.then6.us.i197
   %37 = load ptr, ptr @stderr, align 8
-  %call12.i199 = call ptr @strerror(i32 noundef %36) #18
-  %call13.i200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.238, ptr noundef %call12.i199) #23
+  %call12.i201 = call ptr @strerror(i32 noundef %36) #18
+  %call13.i202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.238, ptr noundef %call12.i201) #23
   call void @abort() #19
   unreachable
 
-safe_send.exit201:                                ; preds = %do.cond.us.i192
-  %call.i202 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
-  br i1 %call.i202, label %if.end2.i204, label %safe_recv_packet.exit214
+safe_send.exit203:                                ; preds = %do.cond.us.i194
+  %call.i204 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
+  br i1 %call.i204, label %if.end2.i206, label %safe_recv_packet.exit216
 
-if.end2.i204:                                     ; preds = %safe_send.exit201
-  %keylen.i205 = getelementptr inbounds i8, ptr %receive, i64 2
-  %38 = load i16, ptr %keylen.i205, align 2
-  %call3.i206 = call zeroext i16 @ntohs(i16 noundef zeroext %38) #22
-  store i16 %call3.i206, ptr %keylen.i205, align 2
-  %status.i207 = getelementptr inbounds i8, ptr %receive, i64 6
-  %39 = load i16, ptr %status.i207, align 2
-  %call7.i208 = call zeroext i16 @ntohs(i16 noundef zeroext %39) #22
-  store i16 %call7.i208, ptr %status.i207, align 2
-  %bodylen.i209 = getelementptr inbounds i8, ptr %receive, i64 8
-  %40 = load i32, ptr %bodylen.i209, align 8
-  %call11.i210 = call i32 @ntohl(i32 noundef %40) #22
-  store i32 %call11.i210, ptr %bodylen.i209, align 8
-  %add.ptr.i211 = getelementptr inbounds i8, ptr %receive, i64 24
-  %conv.i212 = zext i32 %call11.i210 to i64
-  %call16.i213 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i211, i64 noundef %conv.i212)
-  br label %safe_recv_packet.exit214
+if.end2.i206:                                     ; preds = %safe_send.exit203
+  %keylen.i207 = getelementptr inbounds i8, ptr %receive, i64 2
+  %38 = load i16, ptr %keylen.i207, align 2
+  %call3.i208 = call zeroext i16 @ntohs(i16 noundef zeroext %38) #22
+  store i16 %call3.i208, ptr %keylen.i207, align 2
+  %status.i209 = getelementptr inbounds i8, ptr %receive, i64 6
+  %39 = load i16, ptr %status.i209, align 2
+  %call7.i210 = call zeroext i16 @ntohs(i16 noundef zeroext %39) #22
+  store i16 %call7.i210, ptr %status.i209, align 2
+  %bodylen.i211 = getelementptr inbounds i8, ptr %receive, i64 8
+  %40 = load i32, ptr %bodylen.i211, align 8
+  %call11.i212 = call i32 @ntohl(i32 noundef %40) #22
+  store i32 %call11.i212, ptr %bodylen.i211, align 8
+  %add.ptr.i213 = getelementptr inbounds i8, ptr %receive, i64 24
+  %conv.i214 = zext i32 %call11.i212 to i64
+  %call16.i215 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i213, i64 noundef %conv.i214)
+  br label %safe_recv_packet.exit216
 
-safe_recv_packet.exit214:                         ; preds = %safe_send.exit201, %if.end2.i204
+safe_recv_packet.exit216:                         ; preds = %safe_send.exit203, %if.end2.i206
   call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 12, i16 noundef zeroext 0)
   %keylen = getelementptr inbounds i8, ptr %receive, i64 2
   %41 = load i16, ptr %keylen, align 2
@@ -8086,11 +8086,11 @@ safe_recv_packet.exit214:                         ; preds = %safe_send.exit201, 
   %cmp37 = icmp eq i64 %call36, %conv35
   br i1 %cmp37, label %if.end41, label %if.else40
 
-if.else40:                                        ; preds = %safe_recv_packet.exit214
+if.else40:                                        ; preds = %safe_recv_packet.exit216
   call void @__assert_fail(ptr noundef nonnull @.str.298, ptr noundef nonnull @.str.62, i32 noundef 1930, ptr noundef nonnull @__PRETTY_FUNCTION__.test_binary_concat_impl) #19
   unreachable
 
-if.end41:                                         ; preds = %safe_recv_packet.exit214
+if.end41:                                         ; preds = %safe_recv_packet.exit216
   %bodylen = getelementptr inbounds i8, ptr %receive, i64 8
   %42 = load i32, ptr %bodylen, align 8
   %conv43 = zext i32 %42 to i64

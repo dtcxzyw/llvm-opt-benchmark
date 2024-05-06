@@ -44,7 +44,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_validate_all_contexts(ptr nocapture noundef readonly %s, i32 noundef %thisctx, ptr nocapture noundef readonly %exts) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_validate_all_contexts(ptr nocapture noundef readonly %s, i32 noundef %thisctx, ptr nocapture noundef readonly %exts) local_unnamed_addr #1 {
 entry:
   %offset = alloca i64, align 8
   %and = and i32 %thisctx, 128
@@ -135,7 +135,7 @@ return:                                           ; preds = %if.else11, %for.inc
 declare ptr @custom_ext_find(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @extension_is_relevant(ptr nocapture noundef readonly %s, i32 noundef %extctx, i32 noundef %thisctx) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @extension_is_relevant(ptr nocapture noundef readonly %s, i32 noundef %extctx, i32 noundef %thisctx) local_unnamed_addr #3 {
 entry:
   %and = and i32 %thisctx, 2048
   %cmp.not = icmp ne i32 %and, 0
@@ -214,7 +214,7 @@ return:                                           ; preds = %lor.lhs.false43, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_collect_extensions(ptr noundef %s, ptr nocapture noundef readonly %packet, i32 noundef %context, ptr nocapture noundef writeonly %res, ptr noundef writeonly %len, i32 noundef %init) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_collect_extensions(ptr noundef %s, ptr nocapture noundef readonly %packet, i32 noundef %context, ptr nocapture noundef writeonly %res, ptr noundef writeonly %len, i32 noundef %init) local_unnamed_addr #1 {
 entry:
   %offset.i = alloca i64, align 8
   %extensions.sroa.0.0.copyload = load ptr, ptr %packet, align 8
@@ -753,7 +753,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 declare i32 @custom_ext_parse(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_parse_all_extensions(ptr noundef %s, i32 noundef %context, ptr noundef %exts, ptr noundef %x, i64 noundef %chainidx, i32 noundef %fin) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_parse_all_extensions(ptr noundef %s, i32 noundef %context, ptr noundef %exts, ptr noundef %x, i64 noundef %chainidx, i32 noundef %fin) local_unnamed_addr #1 {
 entry:
   %cert = getelementptr inbounds i8, ptr %s, i64 2048
   %0 = load ptr, ptr %cert, align 8
@@ -813,7 +813,7 @@ return:                                           ; preds = %for.body, %for.inc1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @should_add_extension(ptr nocapture noundef readonly %s, i32 noundef %extctx, i32 noundef %thisctx, i32 noundef %max_version) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @should_add_extension(ptr nocapture noundef readonly %s, i32 noundef %extctx, i32 noundef %thisctx, i32 noundef %max_version) local_unnamed_addr #3 {
 entry:
   %and = and i32 %thisctx, %extctx
   %cmp = icmp eq i32 %and, 0
@@ -910,7 +910,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tls_construct_extensions(ptr noundef %s, ptr noundef %pkt, i32 noundef %context, ptr noundef %x, i64 noundef %chainidx) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_construct_extensions(ptr noundef %s, ptr noundef %pkt, i32 noundef %context, ptr noundef %x, i64 noundef %chainidx) local_unnamed_addr #1 {
 entry:
   %min_version = alloca i32, align 4
   %max_version = alloca i32, align 4
@@ -1129,7 +1129,7 @@ declare i32 @custom_ext_add(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @WPACKET_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tls_psk_do_binder(ptr noundef %s, ptr noundef %md, ptr noundef %msgstart, i64 noundef %binderoffset, ptr noundef %binderin, ptr noundef %binderout, ptr noundef %sess, i32 noundef %sign, i32 noundef %external) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %s, ptr noundef %md, ptr noundef %msgstart, i64 noundef %binderoffset, ptr noundef %binderin, ptr noundef %binderout, ptr noundef %sess, i32 noundef %sign, i32 noundef %external) local_unnamed_addr #1 {
 entry:
   %hash = alloca [64 x i8], align 16
   %binderkey = alloca [64 x i8], align 16
@@ -1461,7 +1461,7 @@ declare i32 @tls_construct_stoc_renegotiate(ptr noundef, ptr noundef, i32 nounde
 declare i32 @tls_construct_ctos_renegotiate(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @final_renegotiate(ptr noundef %s, i32 %context, i32 noundef %sent) #1 {
+define internal range(i32 0, 2) i32 @final_renegotiate(ptr noundef %s, i32 %context, i32 noundef %sent) #1 {
 entry:
   %server = getelementptr inbounds i8, ptr %s, i64 112
   %0 = load i32, ptr %server, align 8
@@ -1539,7 +1539,7 @@ declare i32 @tls_construct_stoc_server_name(ptr noundef, ptr noundef, i32 nounde
 declare i32 @tls_construct_ctos_server_name(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @final_server_name(ptr noundef %s, i32 %context, i32 noundef %sent) #1 {
+define internal range(i32 0, 2) i32 @final_server_name(ptr noundef %s, i32 %context, i32 noundef %sent) #1 {
 entry:
   %altmp = alloca i32, align 4
   store i32 112, ptr %altmp, align 4
@@ -1770,7 +1770,7 @@ declare i32 @tls_construct_stoc_maxfragmentlen(ptr noundef, ptr noundef, i32 nou
 declare i32 @tls_construct_ctos_maxfragmentlen(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @final_maxfragmentlen(ptr noundef %s, i32 %context, i32 noundef %sent) #1 {
+define internal range(i32 0, 2) i32 @final_maxfragmentlen(ptr noundef %s, i32 %context, i32 noundef %sent) #1 {
 entry:
   %server = getelementptr inbounds i8, ptr %s, i64 112
   %0 = load i32, ptr %server, align 8
@@ -1877,7 +1877,7 @@ declare i32 @tls_construct_stoc_ec_pt_formats(ptr noundef, ptr noundef, i32 noun
 declare i32 @tls_construct_ctos_ec_pt_formats(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @final_ec_pt_formats(ptr noundef %s, i32 %context, i32 %sent) #1 {
+define internal range(i32 0, 2) i32 @final_ec_pt_formats(ptr noundef %s, i32 %context, i32 %sent) #1 {
 entry:
   %server = getelementptr inbounds i8, ptr %s, i64 112
   %0 = load i32, ptr %server, align 8
@@ -2184,7 +2184,7 @@ declare i32 @tls_construct_stoc_ems(ptr noundef, ptr noundef, i32 noundef, ptr n
 declare i32 @tls_construct_ctos_ems(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @final_ems(ptr noundef %s, i32 %context, i32 %sent) #1 {
+define internal range(i32 0, 2) i32 @final_ems(ptr noundef %s, i32 %context, i32 %sent) #1 {
 entry:
   %s3 = getelementptr inbounds i8, ptr %s, i64 280
   %0 = load i64, ptr %s3, align 8
@@ -2324,7 +2324,7 @@ declare i32 @tls_parse_ctos_sig_algs(ptr noundef, ptr noundef, i32 noundef, ptr 
 declare i32 @tls_construct_ctos_sig_algs(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @final_sig_algs(ptr noundef %s, i32 %context, i32 noundef %sent) #1 {
+define internal range(i32 0, 2) i32 @final_sig_algs(ptr noundef %s, i32 %context, i32 noundef %sent) #1 {
 entry:
   %tobool.not = icmp eq i32 %sent, 0
   br i1 %tobool.not, label %land.lhs.true, label %return
@@ -2391,7 +2391,7 @@ declare i32 @tls_construct_stoc_key_share(ptr noundef, ptr noundef, i32 noundef,
 declare i32 @tls_construct_ctos_key_share(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @final_key_share(ptr noundef %s, i32 noundef %context, i32 noundef %sent) #1 {
+define internal range(i32 0, 2) i32 @final_key_share(ptr noundef %s, i32 noundef %context, i32 noundef %sent) #1 {
 entry:
   %pgroups = alloca ptr, align 8
   %num_groups = alloca i64, align 8
@@ -2667,7 +2667,7 @@ declare i32 @tls_construct_stoc_early_data(ptr noundef, ptr noundef, i32 noundef
 declare i32 @tls_construct_ctos_early_data(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @final_early_data(ptr noundef %s, i32 noundef %context, i32 noundef %sent) #1 {
+define internal range(i32 0, 2) i32 @final_early_data(ptr noundef %s, i32 noundef %context, i32 noundef %sent) #1 {
 entry:
   %tobool.not = icmp eq i32 %sent, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -2768,7 +2768,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tls_parse_certificate_authorities(ptr noundef %s, ptr noundef %pkt, i32 %context, ptr nocapture readnone %x, i64 %chainidx) #1 {
+define internal range(i32 0, 2) i32 @tls_parse_certificate_authorities(ptr noundef %s, ptr noundef %pkt, i32 %context, ptr nocapture readnone %x, i64 %chainidx) #1 {
 entry:
   %call = tail call i32 @parse_ca_names(ptr noundef %s, ptr noundef %pkt) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -2792,7 +2792,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tls_construct_certificate_authorities(ptr noundef %s, ptr noundef %pkt, i32 %context, ptr nocapture readnone %x, i64 %chainidx) #1 {
+define internal range(i32 0, 3) i32 @tls_construct_certificate_authorities(ptr noundef %s, ptr noundef %pkt, i32 %context, ptr nocapture readnone %x, i64 %chainidx) #1 {
 entry:
   %call = tail call ptr @get_ca_names(ptr noundef %s) #8
   %cmp = icmp eq ptr %call, null
@@ -2846,7 +2846,7 @@ declare i32 @tls_construct_stoc_psk(ptr noundef, ptr noundef, i32 noundef, ptr n
 declare i32 @tls_construct_ctos_psk(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @final_psk(ptr noundef %s, i32 %context, i32 noundef %sent) #1 {
+define internal range(i32 0, 2) i32 @final_psk(ptr noundef %s, i32 %context, i32 noundef %sent) #1 {
 entry:
   %server = getelementptr inbounds i8, ptr %s, i64 112
   %0 = load i32, ptr %server, align 8

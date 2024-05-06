@@ -117,7 +117,7 @@ for.end:                                          ; preds = %for.body
 invoke.cont23:                                    ; preds = %for.end
   %call25 = call i32 @_setjmp(ptr noundef %call24) #14
   %tobool26.not = icmp eq i32 %call25, 0
-  br i1 %tobool26.not, label %if.end28, label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit30
+  br i1 %tobool26.not, label %if.end28, label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit31
 
 _ZNSt6vectorIPKhSaIS1_EED2Ev.exit:                ; preds = %invoke.cont33, %invoke.cont31, %invoke.cont30, %invoke.cont29, %if.end28, %for.end
   %7 = landingpad { ptr, i32 }
@@ -143,14 +143,14 @@ invoke.cont31:                                    ; preds = %invoke.cont30
 
 invoke.cont33:                                    ; preds = %invoke.cont31
   invoke void @png_write_png(ptr noundef nonnull %call, ptr noundef nonnull %call7, i32 noundef 0, ptr noundef null)
-          to label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit30 unwind label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit
+          to label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit31 unwind label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit
 
-_ZNSt6vectorIPKhSaIS1_EED2Ev.exit30:              ; preds = %invoke.cont33, %invoke.cont23
+_ZNSt6vectorIPKhSaIS1_EED2Ev.exit31:              ; preds = %invoke.cont33, %invoke.cont23
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i27) #15
   br label %cleanup35
 
-cleanup35:                                        ; preds = %if.end10, %if.end6, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit30
-  %retval.1 = phi i1 [ %tobool26.not, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit30 ], [ false, %if.end6 ], [ false, %if.end10 ]
+cleanup35:                                        ; preds = %if.end10, %if.end6, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit31
+  %retval.1 = phi i1 [ %tobool26.not, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit31 ], [ false, %if.end6 ], [ false, %if.end10 ]
   invoke void @png_destroy_write_struct(ptr noundef nonnull %guard, ptr noundef nonnull %info3.i)
           to label %_ZN7msdfgen8PngGuardD2Ev.exit unwind label %terminate.lpad.i
 
@@ -250,8 +250,8 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %cmp24.not = icmp eq i32 %mul4, 0
-  br i1 %cmp24.not, label %for.end, label %invoke.cont6.preheader
+  %cmp25.not = icmp eq i32 %mul4, 0
+  br i1 %cmp25.not, label %for.end, label %invoke.cont6.preheader
 
 invoke.cont6.preheader:                           ; preds = %invoke.cont
   %wide.trip.count = zext nneg i32 %mul4 to i64
@@ -279,28 +279,28 @@ invoke.cont6:                                     ; preds = %invoke.cont6.prehea
 lpad5:                                            ; preds = %for.end
   %1 = landingpad { ptr, i32 }
           cleanup
-  %tobool.not.i.i.i = icmp eq ptr %bytePixels.sroa.0.029, null
+  %tobool.not.i.i.i = icmp eq ptr %bytePixels.sroa.0.030, null
   br i1 %tobool.not.i.i.i, label %eh.resume, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad5
-  tail call void @_ZdlPv(ptr noundef nonnull %bytePixels.sroa.0.029) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %bytePixels.sroa.0.030) #15
   br label %eh.resume
 
 for.end:                                          ; preds = %invoke.cont6, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, %invoke.cont
-  %bytePixels.sroa.0.029 = phi ptr [ %call5.i.i.i.i1.i.i13, %invoke.cont ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i1.i.i13, %invoke.cont6 ]
-  %call11 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef nonnull %bytePixels.sroa.0.029, i32 noundef %width, i32 noundef %height, i32 noundef %channels, i32 noundef %colorType, ptr noundef %filename)
+  %bytePixels.sroa.0.030 = phi ptr [ %call5.i.i.i.i1.i.i13, %invoke.cont ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i1.i.i13, %invoke.cont6 ]
+  %call11 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef nonnull %bytePixels.sroa.0.030, i32 noundef %width, i32 noundef %height, i32 noundef %channels, i32 noundef %colorType, ptr noundef %filename)
           to label %invoke.cont10 unwind label %lpad5
 
 invoke.cont10:                                    ; preds = %for.end
-  %tobool.not.i.i.i15 = icmp eq ptr %bytePixels.sroa.0.029, null
-  br i1 %tobool.not.i.i.i15, label %return, label %if.then.i.i.i16
+  %tobool.not.i.i.i16 = icmp eq ptr %bytePixels.sroa.0.030, null
+  br i1 %tobool.not.i.i.i16, label %return, label %if.then.i.i.i17
 
-if.then.i.i.i16:                                  ; preds = %invoke.cont10
-  tail call void @_ZdlPv(ptr noundef nonnull %bytePixels.sroa.0.029) #15
+if.then.i.i.i17:                                  ; preds = %invoke.cont10
+  tail call void @_ZdlPv(ptr noundef nonnull %bytePixels.sroa.0.030) #15
   br label %return
 
-return:                                           ; preds = %if.then.i.i.i16, %invoke.cont10, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %call11, %invoke.cont10 ], [ %call11, %if.then.i.i.i16 ]
+return:                                           ; preds = %if.then.i.i.i17, %invoke.cont10, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ %call11, %invoke.cont10 ], [ %call11, %if.then.i.i.i17 ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad5

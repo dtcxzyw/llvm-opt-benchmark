@@ -153,7 +153,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$cranelift_codegen..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN86_$LT$cranelift_codegen..ir..entities..Block$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h967cd819e61bac7bE.llvm.10542051026992468343"(i32 noundef %0) unnamed_addr #4 {
+define hidden noundef range(i64 0, 4294967296) i64 @"_ZN86_$LT$cranelift_codegen..ir..entities..Block$u20$as$u20$cranelift_entity..EntityRef$GT$5index17h967cd819e61bac7bE.llvm.10542051026992468343"(i32 noundef %0) unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   ret i64 %2
 }
@@ -188,7 +188,7 @@ define void @_ZN18cranelift_frontend8frontend22FunctionBuilderContext3new17hed42
   %.sroa.4.0..sroa_idx40.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx40.i.i, align 8, !alias.scope !23, !noalias !20
   %.sroa.541.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.541.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !23, !noalias !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.541.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !23, !noalias !20
   %.sroa.6.0..sroa_idx42.i.i = getelementptr inbounds i8, ptr %4, i64 32
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.6.0..sroa_idx42.i.i, align 8, !alias.scope !23, !noalias !20
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 40
@@ -200,7 +200,7 @@ define void @_ZN18cranelift_frontend8frontend22FunctionBuilderContext3new17hed42
   %.sroa.4.0..sroa_idx37.i.i = getelementptr inbounds i8, ptr %4, i64 64
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx37.i.i, align 8, !alias.scope !23, !noalias !20
   %.sroa.5.0..sroa_idx38.i.i = getelementptr inbounds i8, ptr %4, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.5.0..sroa_idx38.i.i, i8 0, i64 20, i1 false), !alias.scope !23, !noalias !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %.sroa.5.0..sroa_idx38.i.i, i8 0, i64 20, i1 false), !alias.scope !23, !noalias !20
   %.sroa.6.0..sroa_idx39.i.i = getelementptr inbounds i8, ptr %4, i64 92
   store i32 -1, ptr %.sroa.6.0..sroa_idx39.i.i, align 4, !alias.scope !23, !noalias !20
   %6 = getelementptr inbounds i8, ptr %4, i64 96
@@ -209,31 +209,31 @@ define void @_ZN18cranelift_frontend8frontend22FunctionBuilderContext3new17hed42
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !23, !noalias !20
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 112
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !23, !noalias !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !23, !noalias !20
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !23, !noalias !20
   %.sroa.53.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 136
   %.sroa.04.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.53.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !23, !noalias !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.53.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !23, !noalias !20
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.04.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !23, !noalias !20
   %.sroa.04.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 160
   %.sroa.05.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.sroa.5.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !23, !noalias !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.04.sroa.5.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !23, !noalias !20
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.05.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !23, !noalias !20
   %.sroa.05.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 184
   %.sroa.417.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 208
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.05.sroa.5.0..sroa_idx.i.i, i8 0, i64 24, i1 false), !alias.scope !23, !noalias !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.05.sroa.5.0..sroa_idx.i.i, i8 0, i64 24, i1 false), !alias.scope !23, !noalias !20
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.417.0..sroa_idx.i.i, align 8, !alias.scope !23, !noalias !20
   %.sroa.518.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 216
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 232
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.518.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !23, !noalias !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.518.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !23, !noalias !20
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !23, !noalias !20
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 240
   %.sroa.024.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 256
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !23, !noalias !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !23, !noalias !20
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.024.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !23, !noalias !20
   %.sroa.024.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 264
   %.sroa.526.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 280
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.024.sroa.5.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !23, !noalias !20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.024.sroa.5.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !alias.scope !23, !noalias !20
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.526.0..sroa_idx.i.i, align 8, !alias.scope !23, !noalias !20
   %.sroa.6.0..sroa_idx27.i.i = getelementptr inbounds i8, ptr %4, i64 288
   store i64 0, ptr %.sroa.6.0..sroa_idx27.i.i, align 8, !alias.scope !23, !noalias !20
@@ -287,11 +287,11 @@ define void @_ZN18cranelift_frontend8frontend22FunctionBuilderContext3new17hed42
 "_ZN95_$LT$cranelift_frontend..frontend..FunctionBuilderContext$u20$as$u20$core..default..Default$GT$7default17h44f0e21e36fc50a4E.exit": ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(296) %4, i64 296, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(296) %4, i64 296, i1 false)
   %19 = getelementptr inbounds i8, ptr %0, i64 296
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %20 = getelementptr inbounds i8, ptr %0, i64 328
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false)
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 352
   store i16 %10, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i)
@@ -1934,7 +1934,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memcpy17haf
   %27 = getelementptr inbounds i8, ptr %17, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !232, !noalias !235, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %28, i64 %26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %29, ptr noundef nonnull align 4 dereferenceable(12) %16, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %29, ptr noundef nonnull readonly align 4 dereferenceable(12) %16, i64 12, i1 false)
   %30 = load i64, ptr %20, align 8, !alias.scope !232, !noalias !235, !noundef !4
   %31 = add i64 %30, 1
   store i64 %31, ptr %20, align 8, !alias.scope !232, !noalias !235
@@ -1961,7 +1961,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memcpy17haf
   %38 = phi i64 [ %.pre.i3, %.noexc4 ], [ %33, %32 ]
   %39 = load ptr, ptr %27, align 8, !alias.scope !237, !noalias !240, !nonnull !4, !noundef !4
   %40 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %39, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %40, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %40, ptr noundef nonnull readonly align 4 dereferenceable(12) %15, i64 12, i1 false)
   %41 = load i64, ptr %20, align 8, !alias.scope !237, !noalias !240, !noundef !4
   %42 = add i64 %41, 1
   store i64 %42, ptr %20, align 8, !alias.scope !237, !noalias !240
@@ -1988,7 +1988,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memcpy17haf
   %49 = phi i64 [ %.pre.i6, %.noexc7 ], [ %44, %43 ]
   %50 = load ptr, ptr %27, align 8, !alias.scope !242, !noalias !245, !nonnull !4, !noundef !4
   %51 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %50, i64 %49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %51, ptr noundef nonnull align 4 dereferenceable(12) %14, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %51, ptr noundef nonnull readonly align 4 dereferenceable(12) %14, i64 12, i1 false)
   %52 = load i64, ptr %20, align 8, !alias.scope !242, !noalias !245, !noundef !4
   %53 = add i64 %52, 1
   store i64 %53, ptr %20, align 8, !alias.scope !242, !noalias !245
@@ -2018,7 +2018,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memcpy17haf
   %63 = getelementptr inbounds i8, ptr %17, i64 32
   %64 = load ptr, ptr %63, align 8, !alias.scope !247, !noalias !250, !nonnull !4, !noundef !4
   %65 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %64, i64 %62
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %65, ptr noundef nonnull align 4 dereferenceable(12) %13, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %65, ptr noundef nonnull readonly align 4 dereferenceable(12) %13, i64 12, i1 false)
   %66 = load i64, ptr %56, align 8, !alias.scope !247, !noalias !250, !noundef !4
   %67 = add i64 %66, 1
   store i64 %67, ptr %56, align 8, !alias.scope !247, !noalias !250
@@ -2080,7 +2080,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit: 
   %84 = call noundef nonnull align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %68), !noalias !267
   %85 = getelementptr inbounds i8, ptr %10, i64 12
   %86 = getelementptr inbounds i8, ptr %84, i64 136
-  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull %10, ptr noundef nonnull %85, ptr noalias noundef nonnull align 8 dereferenceable(48) %86), !noalias !270
+  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %85, ptr noalias noundef nonnull align 8 dereferenceable(48) %86), !noalias !270
   %87 = load i32, ptr %8, align 4, !noalias !263, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !263
   %88 = getelementptr inbounds i8, ptr %7, i64 1
@@ -2456,7 +2456,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memset17h30
   %28 = getelementptr inbounds i8, ptr %18, i64 8
   %29 = load ptr, ptr %28, align 8, !alias.scope !318, !noalias !321, !nonnull !4, !noundef !4
   %30 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %29, i64 %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %30, ptr noundef nonnull align 4 dereferenceable(12) %17, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %30, ptr noundef nonnull readonly align 4 dereferenceable(12) %17, i64 12, i1 false)
   %31 = load i64, ptr %21, align 8, !alias.scope !318, !noalias !321, !noundef !4
   %32 = add i64 %31, 1
   store i64 %32, ptr %21, align 8, !alias.scope !318, !noalias !321
@@ -2483,7 +2483,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memset17h30
   %39 = phi i64 [ %.pre.i3, %.noexc4 ], [ %34, %33 ]
   %40 = load ptr, ptr %28, align 8, !alias.scope !323, !noalias !326, !nonnull !4, !noundef !4
   %41 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %40, i64 %39
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %41, ptr noundef nonnull align 4 dereferenceable(12) %16, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %41, ptr noundef nonnull readonly align 4 dereferenceable(12) %16, i64 12, i1 false)
   %42 = load i64, ptr %21, align 8, !alias.scope !323, !noalias !326, !noundef !4
   %43 = add i64 %42, 1
   store i64 %43, ptr %21, align 8, !alias.scope !323, !noalias !326
@@ -2510,7 +2510,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memset17h30
   %50 = phi i64 [ %.pre.i6, %.noexc7 ], [ %45, %44 ]
   %51 = load ptr, ptr %28, align 8, !alias.scope !328, !noalias !331, !nonnull !4, !noundef !4
   %52 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %51, i64 %50
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %52, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %52, ptr noundef nonnull readonly align 4 dereferenceable(12) %15, i64 12, i1 false)
   %53 = load i64, ptr %21, align 8, !alias.scope !328, !noalias !331, !noundef !4
   %54 = add i64 %53, 1
   store i64 %54, ptr %21, align 8, !alias.scope !328, !noalias !331
@@ -2540,7 +2540,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memset17h30
   %64 = getelementptr inbounds i8, ptr %18, i64 32
   %65 = load ptr, ptr %64, align 8, !alias.scope !333, !noalias !336, !nonnull !4, !noundef !4
   %66 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %65, i64 %63
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %66, ptr noundef nonnull align 4 dereferenceable(12) %14, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %66, ptr noundef nonnull readonly align 4 dereferenceable(12) %14, i64 12, i1 false)
   %67 = load i64, ptr %57, align 8, !alias.scope !333, !noalias !336, !noundef !4
   %68 = add i64 %67, 1
   store i64 %68, ptr %57, align 8, !alias.scope !333, !noalias !336
@@ -2612,7 +2612,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit14
   %91 = call noundef nonnull align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %69), !noalias !359
   %92 = getelementptr inbounds i8, ptr %11, i64 12
   %93 = getelementptr inbounds i8, ptr %91, i64 136
-  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull %11, ptr noundef nonnull %92, ptr noalias noundef nonnull align 8 dereferenceable(48) %93), !noalias !362
+  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %92, ptr noalias noundef nonnull align 8 dereferenceable(48) %93), !noalias !362
   %94 = load i32, ptr %8, align 4, !noalias !355, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !355
   %95 = getelementptr inbounds i8, ptr %7, i64 1
@@ -2923,7 +2923,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder12call_memmove17h8
   %27 = getelementptr inbounds i8, ptr %17, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !408, !noalias !411, !nonnull !4, !noundef !4
   %29 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %28, i64 %26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %29, ptr noundef nonnull align 4 dereferenceable(12) %16, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %29, ptr noundef nonnull readonly align 4 dereferenceable(12) %16, i64 12, i1 false)
   %30 = load i64, ptr %20, align 8, !alias.scope !408, !noalias !411, !noundef !4
   %31 = add i64 %30, 1
   store i64 %31, ptr %20, align 8, !alias.scope !408, !noalias !411
@@ -2950,7 +2950,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder12call_memmove17h8
   %38 = phi i64 [ %.pre.i3, %.noexc4 ], [ %33, %32 ]
   %39 = load ptr, ptr %27, align 8, !alias.scope !413, !noalias !416, !nonnull !4, !noundef !4
   %40 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %39, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %40, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %40, ptr noundef nonnull readonly align 4 dereferenceable(12) %15, i64 12, i1 false)
   %41 = load i64, ptr %20, align 8, !alias.scope !413, !noalias !416, !noundef !4
   %42 = add i64 %41, 1
   store i64 %42, ptr %20, align 8, !alias.scope !413, !noalias !416
@@ -2977,7 +2977,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder12call_memmove17h8
   %49 = phi i64 [ %.pre.i6, %.noexc7 ], [ %44, %43 ]
   %50 = load ptr, ptr %27, align 8, !alias.scope !418, !noalias !421, !nonnull !4, !noundef !4
   %51 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %50, i64 %49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %51, ptr noundef nonnull align 4 dereferenceable(12) %14, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %51, ptr noundef nonnull readonly align 4 dereferenceable(12) %14, i64 12, i1 false)
   %52 = load i64, ptr %20, align 8, !alias.scope !418, !noalias !421, !noundef !4
   %53 = add i64 %52, 1
   store i64 %53, ptr %20, align 8, !alias.scope !418, !noalias !421
@@ -3007,7 +3007,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder12call_memmove17h8
   %63 = getelementptr inbounds i8, ptr %17, i64 32
   %64 = load ptr, ptr %63, align 8, !alias.scope !423, !noalias !426, !nonnull !4, !noundef !4
   %65 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %64, i64 %62
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %65, ptr noundef nonnull align 4 dereferenceable(12) %13, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %65, ptr noundef nonnull readonly align 4 dereferenceable(12) %13, i64 12, i1 false)
   %66 = load i64, ptr %56, align 8, !alias.scope !423, !noalias !426, !noundef !4
   %67 = add i64 %66, 1
   store i64 %67, ptr %56, align 8, !alias.scope !423, !noalias !426
@@ -3069,7 +3069,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit: 
   %84 = call noundef nonnull align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %68), !noalias !443
   %85 = getelementptr inbounds i8, ptr %10, i64 12
   %86 = getelementptr inbounds i8, ptr %84, i64 136
-  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull %10, ptr noundef nonnull %85, ptr noalias noundef nonnull align 8 dereferenceable(48) %86), !noalias !446
+  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %85, ptr noalias noundef nonnull align 8 dereferenceable(48) %86), !noalias !446
   %87 = load i32, ptr %8, align 4, !noalias !439, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !439
   %88 = getelementptr inbounds i8, ptr %7, i64 1
@@ -3153,7 +3153,7 @@ define noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memc
   %32 = getelementptr inbounds i8, ptr %17, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !453, !noalias !456, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %33, i64 %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %34, ptr noundef nonnull align 4 dereferenceable(12) %16, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %34, ptr noundef nonnull readonly align 4 dereferenceable(12) %16, i64 12, i1 false)
   %35 = load i64, ptr %19, align 8, !alias.scope !453, !noalias !456, !noundef !4
   %36 = add i64 %35, 1
   store i64 %36, ptr %19, align 8, !alias.scope !453, !noalias !456
@@ -3180,7 +3180,7 @@ define noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memc
   %43 = phi i64 [ %.pre.i4, %.noexc5 ], [ %38, %37 ]
   %44 = load ptr, ptr %32, align 8, !alias.scope !458, !noalias !461, !nonnull !4, !noundef !4
   %45 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %44, i64 %43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %45, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %45, ptr noundef nonnull readonly align 4 dereferenceable(12) %15, i64 12, i1 false)
   %46 = load i64, ptr %19, align 8, !alias.scope !458, !noalias !461, !noundef !4
   %47 = add i64 %46, 1
   store i64 %47, ptr %19, align 8, !alias.scope !458, !noalias !461
@@ -3207,7 +3207,7 @@ define noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memc
   %54 = phi i64 [ %.pre.i7, %.noexc8 ], [ %49, %48 ]
   %55 = load ptr, ptr %32, align 8, !alias.scope !463, !noalias !466, !nonnull !4, !noundef !4
   %56 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %55, i64 %54
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %56, ptr noundef nonnull align 4 dereferenceable(12) %14, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %56, ptr noundef nonnull readonly align 4 dereferenceable(12) %14, i64 12, i1 false)
   %57 = load i64, ptr %19, align 8, !alias.scope !463, !noalias !466, !noundef !4
   %58 = add i64 %57, 1
   store i64 %58, ptr %19, align 8, !alias.scope !463, !noalias !466
@@ -3237,7 +3237,7 @@ define noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder11call_memc
   %68 = getelementptr inbounds i8, ptr %17, i64 32
   %69 = load ptr, ptr %68, align 8, !alias.scope !468, !noalias !471, !nonnull !4, !noundef !4
   %70 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %69, i64 %67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %70, ptr noundef nonnull align 4 dereferenceable(12) %13, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %70, ptr noundef nonnull readonly align 4 dereferenceable(12) %13, i64 12, i1 false)
   %71 = load i64, ptr %61, align 8, !alias.scope !468, !noalias !471, !noundef !4
   %72 = add i64 %71, 1
   store i64 %72, ptr %61, align 8, !alias.scope !468, !noalias !471
@@ -3299,7 +3299,7 @@ _ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE.exit: 
   %89 = call noundef nonnull align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %73), !noalias !488
   %90 = getelementptr inbounds i8, ptr %10, i64 12
   %91 = getelementptr inbounds i8, ptr %89, i64 136
-  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull %10, ptr noundef nonnull %90, ptr noalias noundef nonnull align 8 dereferenceable(48) %91), !noalias !491
+  call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %90, ptr noalias noundef nonnull align 8 dereferenceable(48) %91), !noalias !491
   %92 = load i32, ptr %8, align 4, !noalias !484, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !484
   %93 = getelementptr inbounds i8, ptr %7, i64 1

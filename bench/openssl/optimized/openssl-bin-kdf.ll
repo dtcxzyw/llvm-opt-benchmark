@@ -54,7 +54,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.40 = private unnamed_addr constant [6 x i8] c"%s:%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @kdf_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @kdf_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %opts = alloca ptr, align 8
   store ptr null, ptr %opts, align 8
@@ -252,7 +252,7 @@ if.end106:                                        ; preds = %if.end101
   br i1 %tobool86.not, label %if.else, label %if.then108
 
 if.then108:                                       ; preds = %if.end106
-  %conv109 = trunc i64 %dkm_len.0 to i32
+  %conv109 = trunc nsw i64 %dkm_len.0 to i32
   %call110 = tail call i32 @BIO_write(ptr noundef nonnull %call87, ptr noundef nonnull %call97, i32 noundef %conv109) #4
   br label %if.end122
 
@@ -327,7 +327,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @alloc_kdf_algorithm_name(ptr nocapture noundef %optp, ptr noundef %name, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc noundef ptr @alloc_kdf_algorithm_name(ptr nocapture noundef %optp, ptr noundef %name, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #5
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #5

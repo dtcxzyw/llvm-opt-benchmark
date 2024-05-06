@@ -92,7 +92,7 @@ define dso_local i32 @rb_shape_get_shape_id(i64 noundef %0) local_unnamed_addr #
   %7 = inttoptr i64 %0 to ptr
   %8 = load i64, ptr %7, align 8
   %9 = lshr i64 %8, 32
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   br label %11
 
 11:                                               ; preds = %1, %6
@@ -151,7 +151,7 @@ rb_shape_get_shape_id.exit:                       ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i32 @rb_shape_frozen_shape_p(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @rb_shape_frozen_shape_p(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 2
@@ -259,7 +259,7 @@ ROBJECT_IVPTR.exit32:                             ; preds = %53
   %61 = zext i32 %59 to i64
   %62 = shl nuw nsw i64 %61, 3
   %63 = getelementptr inbounds i8, ptr %17, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull align 1 %.0, i64 %62, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %63, ptr nonnull readonly align 1 %.0, i64 %62, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %ROBJECT_IVPTR.exit32, %60
@@ -517,7 +517,7 @@ rb_shape_alloc.exit.i:                            ; preds = %24
   %42 = getelementptr inbounds i8, ptr %39, i64 28
   store i32 %37, ptr %42, align 4
   store ptr null, ptr %39, align 8
-  %43 = trunc i32 %2 to i8
+  %43 = trunc nuw i32 %2 to i8
   %44 = getelementptr inbounds i8, ptr %39, i64 24
   store i8 %43, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 25
@@ -1261,7 +1261,7 @@ rb_shape_alloc_with_parent_id.exit27:             ; preds = %47
   store ptr null, ptr %56, align 8
   %60 = getelementptr inbounds i8, ptr %56, i64 24
   store i8 0, ptr %60, align 8
-  %61 = trunc i32 %.02530 to i8
+  %61 = trunc nuw i32 %.02530 to i8
   %62 = getelementptr inbounds i8, ptr %56, i64 25
   store i8 %61, ptr %62, align 1
   %63 = getelementptr inbounds i8, ptr %56, i64 32

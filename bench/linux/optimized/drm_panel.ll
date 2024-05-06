@@ -118,7 +118,7 @@ define dso_local void @drm_panel_remove(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_panel_prepare(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_panel_prepare(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %38, label %3
 
@@ -196,7 +196,7 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_panel_unprepare(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_panel_unprepare(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %42, label %3
 
@@ -274,7 +274,7 @@ define dso_local i32 @drm_panel_unprepare(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_panel_enable(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_panel_enable(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -360,7 +360,7 @@ define dso_local i32 @drm_panel_enable(ptr noundef %0) #0 align 16 {
 declare dso_local void @drm_dev_printk(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_panel_disable(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_panel_disable(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %44, label %3
 

@@ -24,7 +24,7 @@ define void @Init_gb18030() local_unnamed_addr #0 {
 declare i32 @rb_enc_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @gb18030_mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 -3, 5) i32 @gb18030_mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i64
@@ -726,7 +726,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @gb18030_is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 0, 2) i32 @gb18030_is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds [256 x i8], ptr @GB18030_MAP, i64 0, i64 %5

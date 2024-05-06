@@ -211,7 +211,7 @@ if.end3:                                          ; preds = %if.end
   %cmp4 = icmp eq ptr %parseError, null
   %spec.store.select = select i1 %cmp4, ptr %temp, ptr %parseError
   %idLength.lobit = lshr i32 %idLength, 31
-  %conv = trunc i32 %idLength.lobit to i8
+  %conv = trunc nuw nsw i32 %idLength.lobit to i8
   store ptr %id, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ID, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %idLength)
           to label %invoke.cont unwind label %lpad
@@ -246,7 +246,7 @@ lpad10:                                           ; preds = %if.then9
 
 if.else:                                          ; preds = %invoke.cont
   %rulesLength.lobit = lshr i32 %rulesLength, 31
-  %conv19 = trunc i32 %rulesLength.lobit to i8
+  %conv19 = trunc nuw nsw i32 %rulesLength.lobit to i8
   store ptr %rules, ptr %agg.tmp20, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ruleStr, i8 noundef signext %conv19, ptr noundef nonnull %agg.tmp20, i32 noundef %rulesLength)
           to label %invoke.cont23 unwind label %lpad22
@@ -518,7 +518,7 @@ entry:
   %ID = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %idLength.lobit = lshr i32 %idLength, 31
-  %conv = trunc i32 %idLength.lobit to i8
+  %conv = trunc nuw nsw i32 %idLength.lobit to i8
   store ptr %id, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ID, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %idLength)
           to label %invoke.cont unwind label %lpad
@@ -596,7 +596,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.then3:                                         ; preds = %land.lhs.true
   %filterPatternLen.lobit = lshr i32 %filterPatternLen, 31
-  %conv5 = trunc i32 %filterPatternLen.lobit to i8
+  %conv5 = trunc nuw nsw i32 %filterPatternLen.lobit to i8
   store ptr %filterPattern, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %pat, i8 noundef signext %conv5, ptr noundef nonnull %agg.tmp, i32 noundef %filterPatternLen)
           to label %invoke.cont unwind label %lpad

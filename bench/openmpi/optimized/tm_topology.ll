@@ -78,7 +78,7 @@ define hidden noalias noundef ptr @tm_get_local_topology_with_hwloc() local_unna
 .lr.ph25.i:                                       ; preds = %._crit_edge.i, %.lr.ph25.preheader.i
   %.01823.i = phi i32 [ %25, %._crit_edge.i ], [ 0, %.lr.ph25.preheader.i ]
   %11 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %7, i32 noundef %.01823.i) #22
-  %12 = call ptr @hwloc_get_obj_by_depth(ptr noundef %7, i32 noundef %.01823.i, i32 noundef 0) #22
+  %12 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %7, i32 noundef %.01823.i, i32 noundef 0) #22
   %13 = getelementptr inbounds i8, ptr %12, i64 104
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %11, 1
@@ -163,14 +163,14 @@ symetric.exit:                                    ; preds = %hwloc_get_next_obj_
 48:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %49 = load ptr, ptr %1, align 8
-  %50 = trunc i64 %indvars.iv to i32
+  %50 = trunc nuw i64 %indvars.iv to i32
   %51 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %49, i32 noundef %50) #22
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i64, ptr %37, i64 %indvars.iv
   store i64 %52, ptr %53, align 8
   %54 = shl nsw i64 %52, 3
   %55 = call noalias ptr @malloc(i64 noundef %54) #25
-  %56 = call ptr @hwloc_get_obj_by_depth(ptr noundef %49, i32 noundef %50, i32 noundef 0) #22
+  %56 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %49, i32 noundef %50, i32 noundef 0) #22
   store ptr %56, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %55, i64 8
   %58 = add nsw i32 %51, -1
@@ -269,7 +269,7 @@ define internal fastcc void @build_process_tab_id(ptr nocapture noundef readonly
   %indvars.iv76 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next77, %12 ]
   %13 = load ptr, ptr %10, align 8
   %14 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv76
-  %15 = trunc i64 %indvars.iv76 to i32
+  %15 = trunc nuw i64 %indvars.iv76 to i32
   store i32 %15, ptr %14, align 4
   %16 = load ptr, ptr %11, align 8
   %17 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv76
@@ -318,7 +318,7 @@ define internal fastcc void @build_process_tab_id(ptr nocapture noundef readonly
   br i1 %35, label %36, label %44
 
 36:                                               ; preds = %34
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw i64 %indvars.iv to i32
   %38 = load ptr, ptr @stderr, align 8
   %39 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
@@ -536,7 +536,7 @@ define hidden noalias noundef ptr @tm_load_topology(ptr noundef %0, i32 noundef 
   %store_forwarded = phi double [ %load_initial, %.lr.ph53.preheader.i ], [ %68, %.lr.ph53.i ]
   %indvars.iv57.i = phi i64 [ %wide.trip.count.i, %.lr.ph53.preheader.i ], [ %indvars.iv.next58.i, %.lr.ph53.i ]
   %indvars.iv.next58.i = add nsw i64 %indvars.iv57.i, -1
-  %66 = getelementptr double, ptr %53, i64 %indvars.iv.next58.i
+  %66 = getelementptr inbounds double, ptr %53, i64 %indvars.iv.next58.i
   %67 = load double, ptr %66, align 8
   %68 = fadd double %store_forwarded, %67
   store double %68, ptr %66, align 8
@@ -689,7 +689,7 @@ tgt_to_tm.exit:                                   ; preds = %build_synthetic_pro
 .lr.ph25.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph25.preheader.i.i
   %.01823.i.i = phi i32 [ %150, %._crit_edge.i.i ], [ 0, %.lr.ph25.preheader.i.i ]
   %136 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %132, i32 noundef %.01823.i.i) #22
-  %137 = call ptr @hwloc_get_obj_by_depth(ptr noundef %132, i32 noundef %.01823.i.i, i32 noundef 0) #22
+  %137 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %132, i32 noundef %.01823.i.i, i32 noundef 0) #22
   %138 = getelementptr inbounds i8, ptr %137, i64 104
   %139 = load i32, ptr %138, align 8
   %140 = icmp sgt i32 %136, 1
@@ -784,14 +784,14 @@ symetric.exit.i:                                  ; preds = %hwloc_get_next_obj_
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i5, %200
   %indvars.iv77.i = phi i64 [ %indvars.iv.next78.i, %200 ], [ 0, %.lr.ph.i5 ]
   %178 = load ptr, ptr %3, align 8
-  %179 = trunc i64 %indvars.iv77.i to i32
+  %179 = trunc nuw i64 %indvars.iv77.i to i32
   %180 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %178, i32 noundef %179) #22
   %181 = zext i32 %180 to i64
   %182 = getelementptr inbounds i64, ptr %163, i64 %indvars.iv77.i
   store i64 %181, ptr %182, align 8
   %183 = shl nuw nsw i64 %181, 3
   %184 = call noalias ptr @malloc(i64 noundef %183) #25
-  %185 = call ptr @hwloc_get_obj_by_depth(ptr noundef %178, i32 noundef %179, i32 noundef 0) #22
+  %185 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %178, i32 noundef %179, i32 noundef 0) #22
   store ptr %185, ptr %184, align 8
   %186 = getelementptr inbounds i8, ptr %184, i64 8
   %187 = add i32 %180, -1
@@ -826,14 +826,14 @@ symetric.exit.i:                                  ; preds = %hwloc_get_next_obj_
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i5, %221
   %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i7, %221 ], [ 0, %.lr.ph.i5 ]
   %201 = load ptr, ptr %3, align 8
-  %202 = trunc i64 %indvars.iv.i6 to i32
+  %202 = trunc nuw i64 %indvars.iv.i6 to i32
   %203 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %201, i32 noundef %202) #22
   %204 = zext i32 %203 to i64
   %205 = getelementptr inbounds i64, ptr %163, i64 %indvars.iv.i6
   store i64 %204, ptr %205, align 8
   %206 = shl nuw nsw i64 %204, 3
   %207 = call noalias ptr @malloc(i64 noundef %206) #25
-  %208 = call ptr @hwloc_get_obj_by_depth(ptr noundef %201, i32 noundef %202, i32 noundef 0) #22
+  %208 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %201, i32 noundef %202, i32 noundef 0) #22
   store ptr %208, ptr %207, align 8
   %209 = getelementptr inbounds i8, ptr %207, i64 8
   %210 = add i32 %203, -1
@@ -922,7 +922,7 @@ define hidden void @tm_display_topology(ptr nocapture noundef readonly %0) local
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %8, i32 noundef %7)
   %putchar24 = tail call i32 @putchar(i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1057,7 +1057,7 @@ define hidden void @tm_display_arity(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @tm_int_cmp_inc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define hidden range(i32 -1, 2) i32 @tm_int_cmp_inc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4
@@ -1066,7 +1066,7 @@ define hidden i32 @tm_int_cmp_inc(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @tm_topology_set_binding_constraints(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @tm_topology_set_binding_constraints(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %2, i64 80
   store i32 %1, ptr %4, align 8
   %5 = sext i32 %1 to i64
@@ -1126,7 +1126,7 @@ tm_topology_set_binding_constraints_cpy.exit:     ; preds = %15, %3, %27, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @tm_topology_add_binding_constraints(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @tm_topology_add_binding_constraints(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
   %3 = alloca [1000000 x i8], align 16
   %4 = tail call i32 @tm_get_verbose_level() #21
   %5 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.12)
@@ -1848,7 +1848,7 @@ define hidden noalias noundef ptr @tm_build_synthetic_topology(ptr nocapture nou
 
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = trunc i64 %indvars.iv to i32
+  %38 = trunc nuw nsw i64 %indvars.iv to i32
   %39 = srem i32 %38, %4
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds i32, ptr %3, i64 %40
@@ -1889,7 +1889,7 @@ define hidden noalias noundef ptr @tm_build_synthetic_topology(ptr nocapture nou
 56:                                               ; preds = %.lr.ph73, %56
   %store_forwarded = phi double [ %load_initial, %.lr.ph73 ], [ %59, %56 ]
   %indvars.iv80 = phi i64 [ %53, %.lr.ph73 ], [ %indvars.iv.next81, %56 ]
-  %57 = getelementptr double, ptr %20, i64 %indvars.iv80
+  %57 = getelementptr inbounds double, ptr %20, i64 %indvars.iv80
   %58 = load double, ptr %57, align 8
   %59 = fadd double %store_forwarded, %58
   store double %59, ptr %57, align 8
@@ -1971,7 +1971,7 @@ define hidden void @tm_enable_oversubscribing(ptr nocapture noundef %0, i32 noun
 
 47:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %48 = trunc i64 %indvars.iv to i32
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
   %49 = udiv i32 %48, %1
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds i32, ptr %46, i64 %50

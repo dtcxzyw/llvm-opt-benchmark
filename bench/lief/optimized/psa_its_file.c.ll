@@ -15,10 +15,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [9 x i8] c".psa_its\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @psa_its_get_info(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -152, 1) i32 @psa_its_get_info(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
-  %4 = call fastcc i32 @psa_its_read_file(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %3), !range !4
+  %4 = call fastcc i32 @psa_its_read_file(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %3)
   %5 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -32,14 +32,14 @@ define hidden noundef i32 @psa_its_get_info(i64 noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @psa_its_read_file(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -152, 1) i32 @psa_its_read_file(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca [25 x i8], align 16
   %5 = alloca %struct.psa_its_file_header_t, align 1
   store ptr null, ptr %2, align 8
   %6 = lshr i64 %0, 32
   %7 = trunc nuw i64 %6 to i32
   %8 = trunc i64 %0 to i32
-  %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @.str.6) #3
+  %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %4, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @.str.6) #3
   %10 = call noalias ptr @fopen(ptr noundef nonnull %4, ptr noundef nonnull @.str.3)
   store ptr %10, ptr %2, align 8
   %11 = icmp eq ptr %10, null
@@ -72,11 +72,11 @@ define internal fastcc noundef i32 @psa_its_read_file(i64 noundef %0, ptr nocapt
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @psa_its_get(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define hidden range(i32 -152, 1) i32 @psa_its_get(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.psa_storage_info_t, align 4
   store ptr null, ptr %6, align 8
-  %8 = call fastcc i32 @psa_its_read_file(i64 noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %6), !range !4
+  %8 = call fastcc i32 @psa_its_read_file(i64 noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %.thread-pre-split_crit_edge
 
@@ -134,7 +134,7 @@ declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) loca
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @psa_its_set(i64 noundef %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -146, 1) i32 @psa_its_set(i64 noundef %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [25 x i8], align 16
   %6 = alloca %struct.psa_its_file_header_t, align 8
   %7 = icmp eq i64 %0, 0
@@ -175,7 +175,7 @@ define hidden noundef i32 @psa_its_set(i64 noundef %0, i32 noundef %1, ptr nocap
   %31 = lshr i64 %0, 32
   %32 = trunc nuw i64 %31 to i32
   %33 = trunc i64 %0 to i32
-  %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %32, i32 noundef %33, ptr noundef nonnull @.str.6) #3
+  %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %32, i32 noundef %33, ptr noundef nonnull @.str.6) #3
   %35 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2)
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread39, label %37
@@ -237,12 +237,12 @@ declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture nounde
 declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @psa_its_remove(i64 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -146, 1) i32 @psa_its_remove(i64 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [25 x i8], align 16
   %3 = lshr i64 %0, 32
   %4 = trunc nuw i64 %3 to i32
   %5 = trunc i64 %0 to i32
-  %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.6) #3
+  %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %2, i64 noundef 25, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.6) #3
   %7 = call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.3)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %12, label %9
@@ -276,4 +276,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -152, i32 1}

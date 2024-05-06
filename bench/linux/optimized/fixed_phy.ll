@@ -53,7 +53,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [14 x ptr] [ptr @__UNIQUE_ID___addressable_fixed_mdio_bus_init584, ptr @__UNIQUE_ID___addressable_fixed_phy_add579, ptr @__UNIQUE_ID___addressable_fixed_phy_change_carrier577, ptr @__UNIQUE_ID___addressable_fixed_phy_register580, ptr @__UNIQUE_ID___addressable_fixed_phy_register_with_gpiod581, ptr @__UNIQUE_ID___addressable_fixed_phy_set_link_update578, ptr @__UNIQUE_ID___addressable_fixed_phy_unregister582, ptr @__UNIQUE_ID_author586, ptr @__UNIQUE_ID_description585, ptr @__UNIQUE_ID_file587, ptr @__UNIQUE_ID_license588, ptr @__exitcall_fixed_mdio_bus_exit, ptr @fixed_mdio_bus_exit, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @fixed_phy_change_carrier(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fixed_phy_change_carrier(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2144
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -101,7 +101,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @fixed_phy_set_link_update(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @fixed_phy_set_link_update(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -141,7 +141,7 @@ define dso_local noundef i32 @fixed_phy_set_link_update(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @fixed_phy_add(i32 noundef %0, i32 noundef %1, ptr noundef %2) #2 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @fixed_phy_add(i32 noundef %0, i32 noundef %1, ptr noundef %2) #2 align 16 {
   %4 = tail call i32 @swphy_validate_state(ptr noundef %2) #9
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %23, label %6

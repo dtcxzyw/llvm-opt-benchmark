@@ -504,16 +504,16 @@ define internal fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, 
   br i1 %.not.i.i, label %can_uncompress_body.exit.thread.i, label %79
 
 79:                                               ; preds = %78
-  %80 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(5) @.str.72) #7
+  %80 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %61, ptr noundef nonnull dereferenceable(5) @.str.72) #7
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %can_uncompress_body.exit.thread69.i, label %can_uncompress_body.exit.i
+  br i1 %81, label %can_uncompress_body.exit.thread71.i, label %can_uncompress_body.exit.i
 
 can_uncompress_body.exit.i:                       ; preds = %79
-  %82 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(8) @.str.73) #7
-  %.not71.i = icmp eq i32 %82, 0
-  br i1 %.not71.i, label %can_uncompress_body.exit.thread69.i, label %can_uncompress_body.exit.thread.i
+  %82 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %61, ptr noundef nonnull dereferenceable(8) @.str.73) #7
+  %.not73.i = icmp eq i32 %82, 0
+  br i1 %.not73.i, label %can_uncompress_body.exit.thread71.i, label %can_uncompress_body.exit.thread.i
 
-can_uncompress_body.exit.thread69.i:              ; preds = %can_uncompress_body.exit.i, %79
+can_uncompress_body.exit.thread71.i:              ; preds = %can_uncompress_body.exit.i, %79
   store ptr null, ptr %7, align 8
   %83 = call ptr @tvb_child_uncompress(ptr noundef %0, ptr noundef %0, i32 noundef %73, i32 noundef %35) #5
   %84 = load i32, ptr @ett_grpc_encoded_entity, align 4
@@ -521,16 +521,16 @@ can_uncompress_body.exit.thread69.i:              ; preds = %can_uncompress_body
   %.not66.i = icmp eq ptr %83, null
   br i1 %.not66.i, label %90, label %86
 
-86:                                               ; preds = %can_uncompress_body.exit.thread69.i
+86:                                               ; preds = %can_uncompress_body.exit.thread71.i
   %87 = call i32 @tvb_captured_length(ptr noundef nonnull %83) #5
   call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %83, ptr noundef nonnull @.str.70) #5
   %88 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %88, ptr noundef nonnull @.str.71, i32 noundef %87) #5
   %89 = load i32, ptr %5, align 4
-  call fastcc void @dissect_body_data(ptr noundef %55, ptr noundef %1, ptr noundef nonnull %83, i32 noundef 0, i32 noundef %87, i32 noundef 1, i32 noundef %89, ptr noundef nonnull %3)
+  call fastcc void @dissect_body_data(ptr noundef %55, ptr noundef %1, ptr noundef nonnull %83, i32 noundef 0, i32 noundef %87, i32 noundef 1, i32 noundef %89, ptr noundef nonnull readonly %3)
   br label %dissect_body_data.exit.i
 
-90:                                               ; preds = %can_uncompress_body.exit.thread69.i
+90:                                               ; preds = %can_uncompress_body.exit.thread71.i
   %91 = call ptr @proto_tree_add_expert(ptr noundef %85, ptr noundef %1, ptr noundef nonnull @ei_grpc_body_decompression_failed, ptr noundef %0, i32 noundef %73, i32 noundef %35) #5
   %92 = load i32, ptr %5, align 4
   %93 = load i32, ptr @hf_grpc_message_data, align 4
@@ -559,7 +559,7 @@ can_uncompress_body.exit.thread.i:                ; preds = %can_uncompress_body
 
 108:                                              ; preds = %75
   %109 = load i32, ptr %5, align 4
-  call fastcc void @dissect_body_data(ptr noundef %55, ptr noundef %1, ptr noundef %0, i32 noundef %73, i32 noundef %35, i32 noundef 1, i32 noundef %109, ptr noundef nonnull %3)
+  call fastcc void @dissect_body_data(ptr noundef %55, ptr noundef %1, ptr noundef %0, i32 noundef %73, i32 noundef %35, i32 noundef 1, i32 noundef %109, ptr noundef nonnull readonly %3)
   br label %dissect_body_data.exit.i
 
 dissect_body_data.exit.i:                         ; preds = %108, %104, %can_uncompress_body.exit.thread.i, %96, %90, %86

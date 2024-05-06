@@ -236,7 +236,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph55.i, !llvm.loop !9
 
 .critedge.i.split.loop.exit33:                    ; preds = %.lr.ph55.i
-  %95 = trunc i64 %indvars.iv to i32
+  %95 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %94, %.critedge.i.split.loop.exit33
@@ -322,7 +322,7 @@ declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) loca
 declare ptr @CreateBlockRefTableReader(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @walsummary_read_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #2 {
+define internal range(i32 0, -2147483648) i32 @walsummary_read_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #2 {
   %4 = load i32, ptr %0, align 8
   %5 = sext i32 %2 to i64
   %6 = tail call i64 @read(i32 noundef %4, ptr noundef %1, i64 noundef %5) #8
@@ -368,7 +368,7 @@ declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_block_numbers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @compare_block_numbers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ugt i32 %3, %4

@@ -100,7 +100,7 @@ define dso_local void @InitDeadLockChecking() local_unnamed_addr #0 {
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @DeadLockCheck(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 1, 5) i32 @DeadLockCheck(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 0, ptr @nCurConstraints, align 4
   store i32 0, ptr @nPossibleConstraints, align 4
@@ -120,7 +120,7 @@ define dso_local i32 @DeadLockCheck(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr @nVisitedProcs, align 4
   store i32 0, ptr @nDeadlockDetails, align 4
   store i32 0, ptr %2, align 4
-  %8 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, i32 noundef 0, ptr noundef %7, ptr noundef nonnull %2)
+  %8 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, i32 noundef 0, ptr noundef writeonly %7, ptr noundef nonnull %2)
   br i1 %8, label %39, label %9
 
 9:                                                ; preds = %6
@@ -246,7 +246,7 @@ define internal fastcc noundef zeroext i1 @DeadLockCheckRecurse(ptr noundef %0) 
   %17 = sext i32 %15 to i64
   %18 = getelementptr %struct.EDGE, ptr %16, i64 %17
   %19 = load ptr, ptr @possibleConstraints, align 8
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = add i32 %10, %20
   %22 = sext i32 %21 to i64
   %23 = getelementptr %struct.EDGE, ptr %19, i64 %22
@@ -292,7 +292,7 @@ define internal fastcc noundef zeroext i1 @DeadLockCheckRecurse(ptr noundef %0) 
   %38 = sext i32 %36 to i64
   %39 = getelementptr %struct.EDGE, ptr %37, i64 %38
   %40 = load ptr, ptr @possibleConstraints, align 8
-  %41 = trunc i64 %indvars.iv27 to i32
+  %41 = trunc nuw nsw i64 %indvars.iv27 to i32
   %42 = add i32 %10, %41
   %43 = sext i32 %42 to i64
   %44 = getelementptr %struct.EDGE, ptr %40, i64 %43
@@ -550,14 +550,14 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   br i1 %44, label %45, label %37, !llvm.loop !11
 
 45:                                               ; preds = %40
-  %46 = trunc i64 %indvars.iv.i to i32
+  %46 = trunc nuw i64 %indvars.iv.i to i32
   %47 = add i32 %46, -1
   %48 = icmp slt i32 %47, 0
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   br i1 %48, label %ExpandConstraints.exit, label %34, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %37
-  %49 = trunc i64 %indvars.iv.i to i32
+  %49 = trunc nuw i64 %indvars.iv.i to i32
   %50 = sext i32 %32 to i64
   %51 = getelementptr %struct.WAIT_ORDER, ptr %16, i64 %50
   store ptr %36, ptr %51, align 8
@@ -680,7 +680,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 
 104:                                              ; preds = %100, %.lr.ph170.i.us.i
   %105 = icmp eq i32 %.0127168.i.us.i, -1
-  %106 = trunc i64 %indvars.iv.i.us.i to i32
+  %106 = trunc nuw nsw i64 %indvars.iv.i.us.i to i32
   br i1 %105, label %109, label %107
 
 107:                                              ; preds = %104
@@ -719,7 +719,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 
 121:                                              ; preds = %117, %.lr.ph174.i.us.i
   %122 = icmp eq i32 %.0131172.i.us.i, -1
-  %123 = trunc i64 %indvars.iv205.i.us.i to i32
+  %123 = trunc nuw nsw i64 %indvars.iv205.i.us.i to i32
   br i1 %122, label %126, label %124
 
 124:                                              ; preds = %121
@@ -805,7 +805,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 
 157:                                              ; preds = %153, %.lr.ph182.i.i
   %indvars.iv.next213.i.i = add nsw i64 %indvars.iv212.i.i, -1
-  %158 = trunc i64 %indvars.iv212.i.i to i32
+  %158 = trunc nuw i64 %indvars.iv212.i.i to i32
   %159 = icmp sgt i32 %158, 0
   br i1 %159, label %.lr.ph182.i.i, label %ExpandConstraints.exit.thread, !llvm.loop !19
 
@@ -896,7 +896,7 @@ ExpandConstraints.exit:                           ; preds = %.outer.i, %45
   store i32 0, ptr @nVisitedProcs, align 4
   store i32 0, ptr @nDeadlockDetails, align 4
   store i32 0, ptr %2, align 4
-  %200 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %199, i32 noundef 0, ptr noundef %6, ptr noundef nonnull %2)
+  %200 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %199, i32 noundef 0, ptr noundef writeonly %6, ptr noundef nonnull %2)
   br i1 %200, label %201, label %204
 
 201:                                              ; preds = %.lr.ph
@@ -912,7 +912,7 @@ ExpandConstraints.exit:                           ; preds = %.outer.i, %45
   store i32 0, ptr @nVisitedProcs, align 4
   store i32 0, ptr @nDeadlockDetails, align 4
   store i32 0, ptr %2, align 4
-  %208 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %207, i32 noundef 0, ptr noundef %6, ptr noundef nonnull %2)
+  %208 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %207, i32 noundef 0, ptr noundef writeonly %6, ptr noundef nonnull %2)
   br i1 %208, label %209, label %212
 
 209:                                              ; preds = %204
@@ -933,7 +933,7 @@ ExpandConstraints.exit:                           ; preds = %.outer.i, %45
   store i32 0, ptr @nVisitedProcs, align 4
   store i32 0, ptr @nDeadlockDetails, align 4
   store i32 0, ptr %2, align 4
-  %216 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, i32 noundef 0, ptr noundef %6, ptr noundef nonnull %2)
+  %216 = call fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, i32 noundef 0, ptr noundef writeonly %6, ptr noundef nonnull %2)
   br i1 %216, label %217, label %ExpandConstraints.exit.thread
 
 217:                                              ; preds = %._crit_edge

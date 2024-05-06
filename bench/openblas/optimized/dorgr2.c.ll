@@ -90,7 +90,7 @@ define void @dorgr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %60, label %68, label %61
 
 61:                                               ; preds = %.split.us
-  %62 = trunc i64 %56 to i32
+  %62 = trunc nsw i64 %56 to i32
   %63 = add nsw i32 %43, %62
   %64 = mul nsw i64 %56, %53
   %65 = sext i32 %63 to i64
@@ -121,7 +121,7 @@ define void @dorgr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %82, label %90, label %83
 
 83:                                               ; preds = %.split
-  %84 = trunc i64 %72 to i32
+  %84 = trunc nsw i64 %72 to i32
   %85 = add nsw i32 %43, %84
   %86 = mul nsw i64 %72, %53
   %87 = sext i32 %85 to i64

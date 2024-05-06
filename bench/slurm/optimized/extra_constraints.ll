@@ -118,7 +118,7 @@ _element2str.exit:                                ; preds = %29, %_element2str.e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i1 @extra_constraints_enabled() local_unnamed_addr #1 {
   %1 = load i8, ptr @extra_constraints_parsing, align 1
-  %2 = trunc i8 %1 to i1
+  %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
 
@@ -217,7 +217,7 @@ define noundef i32 @extra_constraints_parse(ptr noundef %0, ptr nocapture nounde
 
 7:                                                ; preds = %2
   %8 = load i8, ptr @extra_constraints_parsing, align 1
-  %9 = trunc i8 %8 to i1
+  %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %7
@@ -693,7 +693,7 @@ define void @extra_constraints_set_parsing(i1 noundef zeroext %0) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @extra_constraints_test(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @extra_constraints_parsing, align 1
-  %4 = trunc i8 %3 to i1
+  %4 = trunc nuw i8 %3 to i1
   %.not = icmp ne ptr %0, null
   %or.cond.not = and i1 %.not, %4
   br i1 %or.cond.not, label %5, label %8

@@ -198,7 +198,7 @@ conn_write.exit:                                  ; preds = %if.then.i, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @conn_ctrl(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @conn_ctrl(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #0 {
 entry:
   %ptr1 = getelementptr inbounds i8, ptr %bio, i64 48
   %0 = load ptr, ptr %ptr1, align 8
@@ -347,7 +347,7 @@ sw.epilog:                                        ; preds = %if.then21, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @conn_new(ptr nocapture noundef writeonly %bio) #3 {
+define internal range(i32 0, 2) i32 @conn_new(ptr nocapture noundef writeonly %bio) #3 {
 entry:
   %init = getelementptr inbounds i8, ptr %bio, i64 24
   store i32 0, ptr %init, align 8
@@ -364,7 +364,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @conn_free(ptr noundef %bio) #0 {
+define internal range(i32 0, 2) i32 @conn_free(ptr noundef %bio) #0 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end
@@ -421,7 +421,7 @@ return:                                           ; preds = %if.end.i5, %if.end2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @conn_callback_ctrl(ptr nocapture noundef readonly %bio, i32 noundef %cmd, ptr noundef %fp) #4 {
+define internal range(i64 0, 2) i64 @conn_callback_ctrl(ptr nocapture noundef readonly %bio, i32 noundef %cmd, ptr noundef %fp) #4 {
 entry:
   %cond = icmp eq i32 %cmd, 14
   br i1 %cond, label %sw.bb, label %sw.epilog

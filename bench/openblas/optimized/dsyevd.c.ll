@@ -89,7 +89,7 @@ define void @dsyevd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %28, label %55, label %49
 
 49:                                               ; preds = %48
-  %50 = mul nsw i32 %38, 5
+  %50 = mul nuw nsw i32 %38, 5
   %51 = add nuw nsw i32 %50, 3
   %52 = shl nuw i32 %38, 1
   %53 = add i32 %52, 6

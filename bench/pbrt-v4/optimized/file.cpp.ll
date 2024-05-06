@@ -2502,7 +2502,7 @@ init.check:                                       ; preds = %do.end
 init:                                             ; preds = %init.check
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFP23libdeflate_decompressorvEZN4pbrt28ReadDecompressedFileContentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFP23libdeflate_decompressorvEZN4pbrt28ReadDecompressedFileContentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   invoke void @_ZN4pbrt11ThreadLocalIP23libdeflate_decompressorEC2EOSt8functionIFS2_vEE(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN4pbrt28ReadDecompressedFileContentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13decompressors, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -2938,7 +2938,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %entry
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %conv4 = and i64 %call.i.i1.i, 4294967295
   %rem = urem i64 %conv4, %sub.ptr.div.i
-  %conv5 = trunc i64 %rem to i32
+  %conv5 = trunc nuw i64 %rem to i32
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %_ZNKSt4hashINSt6thread2idEEclERKS1_.exit
@@ -3088,7 +3088,7 @@ if.then84:                                        ; preds = %if.end77
 
 if.end90:                                         ; preds = %if.then84, %if.end77
   %hash.4 = phi i32 [ %rem8870, %if.then84 ], [ %add78, %if.end77 ]
-  %16 = trunc i64 %indvars.iv.next to i32
+  %16 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %16, ptr %va, align 4
   store i64 %sub.ptr.div.i22, ptr %vb, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %sub.ptr.div.i22
@@ -3485,7 +3485,7 @@ switch.early.test18:                              ; preds = %if.else42
   ]
 
 if.then51:                                        ; preds = %switch.early.test18, %switch.early.test18, %switch.early.test18, %if.else42
-  %conv52 = trunc i32 %call3 to i8
+  %conv52 = trunc nuw i32 %call3 to i8
   %idxprom54 = sext i32 %curNumberPos.0.ph to i64
   %arrayidx55 = getelementptr inbounds [32 x i8], ptr %curNumber, i64 0, i64 %idxprom54
   store i8 %conv52, ptr %arrayidx55, align 1
@@ -5306,7 +5306,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #21
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i29
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #21
@@ -5318,11 +5318,11 @@ lpad17:                                           ; preds = %invoke.cont19
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i29:                                      ; preds = %lpad
+if.then.i32:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #22
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i29, %if.end.thread
+invoke.cont19:                                    ; preds = %if.then.i32, %if.end.thread
   invoke void @__cxa_rethrow() #24
           to label %unreachable unwind label %lpad17
 

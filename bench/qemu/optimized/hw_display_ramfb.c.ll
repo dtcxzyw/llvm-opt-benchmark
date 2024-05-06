@@ -161,7 +161,7 @@ ramfb_create_display_surface.exit.thread:         ; preds = %if.then18.i, %entry
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %conv20.i = trunc i64 %spec.select.i to i32
+  %conv20.i = trunc nuw i64 %spec.select.i to i32
   %call21.i = call ptr @qemu_create_displaysurface_from(i32 noundef %1, i32 noundef %3, i32 noundef %call14, i32 noundef %conv20.i, ptr noundef %call.i) #5
   %14 = load ptr, ptr %call21.i, align 8
   call void @pixman_image_set_destroy_function(ptr noundef %14, ptr noundef nonnull @ramfb_unmap_display_surface, ptr noundef null) #5

@@ -934,20 +934,20 @@ _ZNK3smt5enode12get_num_argsEv.exit27:            ; preds = %_ZNK3smt5enode12get
 if.end8:                                          ; preds = %_ZNK3smt5enode12get_num_argsEv.exit27
   %8 = and i16 %bf.load.i, 32
   %tobool.i.not = icmp eq i16 %8, 0
-  %m_args.i36 = getelementptr inbounds i8, ptr %n1, i64 112
+  %m_args.i37 = getelementptr inbounds i8, ptr %n1, i64 112
   br i1 %tobool.i.not, label %for.cond.preheader, label %if.then10
 
 for.cond.preheader:                               ; preds = %if.end8
-  %cmp2843.not = icmp eq i32 %cond.i, 0
-  br i1 %cmp2843.not, label %return, label %for.body.lr.ph
+  %cmp2844.not = icmp eq i32 %cond.i, 0
+  br i1 %cmp2844.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %m_args.i39 = getelementptr inbounds i8, ptr %n2, i64 112
+  %m_args.i40 = getelementptr inbounds i8, ptr %n2, i64 112
   %wide.trip.count = zext i32 %cond.i to i64
   br label %for.body
 
 if.then10:                                        ; preds = %if.end8
-  %9 = load ptr, ptr %m_args.i36, align 8
+  %9 = load ptr, ptr %m_args.i37, align 8
   %m_root.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %m_root.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %n1, i64 120
@@ -956,12 +956,12 @@ if.then10:                                        ; preds = %if.end8
   %12 = load ptr, ptr %m_root.i30, align 8
   %m_args.i31 = getelementptr inbounds i8, ptr %n2, i64 112
   %13 = load ptr, ptr %m_args.i31, align 8
-  %m_root.i32 = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load ptr, ptr %m_root.i32, align 8
-  %arrayidx.i34 = getelementptr inbounds i8, ptr %n2, i64 120
-  %15 = load ptr, ptr %arrayidx.i34, align 8
-  %m_root.i35 = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load ptr, ptr %m_root.i35, align 8
+  %m_root.i33 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load ptr, ptr %m_root.i33, align 8
+  %arrayidx.i35 = getelementptr inbounds i8, ptr %n2, i64 120
+  %15 = load ptr, ptr %arrayidx.i35, align 8
+  %m_root.i36 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load ptr, ptr %m_root.i36, align 8
   %cmp19 = icmp eq ptr %10, %14
   %cmp20 = icmp eq ptr %12, %16
   %or.cond = and i1 %cmp19, %cmp20
@@ -979,19 +979,19 @@ if.then26:                                        ; preds = %if.end22
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx.i37 = getelementptr inbounds [0 x ptr], ptr %m_args.i36, i64 0, i64 %indvars.iv
-  %17 = load ptr, ptr %arrayidx.i37, align 8
-  %m_root.i38 = getelementptr inbounds i8, ptr %17, i64 8
-  %18 = load ptr, ptr %m_root.i38, align 8
-  %arrayidx.i41 = getelementptr inbounds [0 x ptr], ptr %m_args.i39, i64 0, i64 %indvars.iv
-  %19 = load ptr, ptr %arrayidx.i41, align 8
-  %m_root.i42 = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load ptr, ptr %m_root.i42, align 8
+  %arrayidx.i38 = getelementptr inbounds [0 x ptr], ptr %m_args.i37, i64 0, i64 %indvars.iv
+  %17 = load ptr, ptr %arrayidx.i38, align 8
+  %m_root.i39 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load ptr, ptr %m_root.i39, align 8
+  %arrayidx.i42 = getelementptr inbounds [0 x ptr], ptr %m_args.i40, i64 0, i64 %indvars.iv
+  %19 = load ptr, ptr %arrayidx.i42, align 8
+  %m_root.i43 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load ptr, ptr %m_root.i43, align 8
   %cmp33.not = icmp eq ptr %18, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond47.not = select i1 %cmp33.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond47.not, label %for.body, label %return, !llvm.loop !13
+  %or.cond48.not = select i1 %cmp33.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond48.not, label %for.body, label %return, !llvm.loop !13
 
 return:                                           ; preds = %for.body, %for.cond.preheader, %if.end22, %if.then10, %_ZNK3smt5enode12get_num_argsEv.exit27, %entry, %if.then26
   %retval.0 = phi i1 [ true, %if.then26 ], [ false, %entry ], [ false, %_ZNK3smt5enode12get_num_argsEv.exit27 ], [ true, %if.then10 ], [ false, %if.end22 ], [ true, %for.cond.preheader ], [ %cmp33.not, %for.body ]

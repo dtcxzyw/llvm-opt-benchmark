@@ -325,19 +325,19 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @_ZTIN9grpc_core10OrphanableE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core10OrphanableE }, comdat, align 8
 @_ZTIN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperENS_11UnrefDeleteEEE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperENS_11UnrefDeleteEEE, ptr @_ZTIN9grpc_core10OrphanableE }, align 8
 @_ZTIN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperE, ptr @_ZTIN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapperENS_11UnrefDeleteEEE }, align 8
-@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core4Fork16support_enabled_E = external local_unnamed_addr global %"struct.std::atomic", align 1
 @_ZTVN9grpc_core7ExecCtxE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN9grpc_core7ExecCtxE, ptr @_ZN9grpc_core7ExecCtxD2Ev, ptr @_ZN9grpc_core7ExecCtxD0Ev, ptr @_ZN9grpc_core7ExecCtx18CheckReadyToFinishEv] }, comdat, align 8
 @_ZTSN9grpc_core7ExecCtxE = linkonce_odr constant [21 x i8] c"N9grpc_core7ExecCtxE\00", comdat, align 1
 @_ZTIN9grpc_core7ExecCtxE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core7ExecCtxE }, comdat, align 8
 @_ZTVN9grpc_core15ScopedTimeCacheE = external unnamed_addr constant { [4 x ptr] }, align 8
 @_ZTVN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core9Timestamp12ScopedSourceE, ptr @__cxa_pure_virtual, ptr @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv] }, comdat, align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTSN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant [37 x i8] c"N9grpc_core9Timestamp12ScopedSourceE\00", comdat, align 1
 @_ZTSN9grpc_core9Timestamp6SourceE = linkonce_odr constant [30 x i8] c"N9grpc_core9Timestamp6SourceE\00", comdat, align 1
 @_ZTIN9grpc_core9Timestamp6SourceE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp6SourceE }, comdat, align 8
 @_ZTIN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp12ScopedSourceE, ptr @_ZTIN9grpc_core9Timestamp6SourceE }, comdat, align 8
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.22 = private unnamed_addr constant [16 x i8] c"hostname lookup\00", align 1
 @_ZN4absl12lts_202308026Status16kMovedFromStringE = linkonce_odr constant [28 x i8] c"Status accessed after move.\00", comdat, align 16
 @.str.23 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
@@ -4950,7 +4950,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #21
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i33
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i36
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt16allocator_traitsISaIN9grpc_core17EndpointAddressesEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr) #21
@@ -4962,11 +4962,11 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i33:                                      ; preds = %lpad
+if.then.i36:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #23
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %if.then.i33, %if.end.thread
+invoke.cont21:                                    ; preds = %if.then.i36, %if.end.thread
   invoke void @__cxa_rethrow() #25
           to label %unreachable unwind label %lpad19
 
@@ -8177,7 +8177,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #21
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i33
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i36
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt16allocator_traitsISaIN9grpc_core17EndpointAddressesEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr) #21
@@ -8189,11 +8189,11 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i33:                                      ; preds = %lpad
+if.then.i36:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #23
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %if.then.i33, %if.end.thread
+invoke.cont21:                                    ; preds = %if.then.i36, %if.end.thread
   invoke void @__cxa_rethrow() #25
           to label %unreachable unwind label %lpad19
 
@@ -8555,7 +8555,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %invoke.cont29.i.i.i
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper13OnTXTResolvedEN4absl12lts_202308028StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEE3$_0EclINS_17__normal_iteratorIPSF_SH_EEEEbT_.exit.i.i.i.i.i.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i.i.i.i
   %42 = extractvalue { i64, ptr } %call2.i.i.i.i.i.i.i.i.i.i, 1
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %42, ptr noundef nonnull dereferenceable(12) @.str.42, i64 12)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %42, ptr noundef nonnull dereferenceable(12) @.str.42, i64 12)
   %cmp7.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont36.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
@@ -8568,7 +8568,7 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %"_ZN9__gnu_cxx5__op
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper13OnTXTResolvedEN4absl12lts_202308028StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEE3$_0EclINS_17__normal_iteratorIPSF_SH_EEEEbT_.exit14.i.i.i.i.i.i.i.i.i": ; preds = %if.end.i.i.i.i.i.i.i.i.i
   %44 = extractvalue { i64, ptr } %call2.i9.i.i.i.i.i.i.i.i.i, 1
-  %bcmp.i.i.i12.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %44, ptr noundef nonnull dereferenceable(12) @.str.42, i64 12)
+  %bcmp.i.i.i12.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %44, ptr noundef nonnull dereferenceable(12) @.str.42, i64 12)
   %cmp7.i.i.i13.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i12.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i13.i.i.i.i.i.i.i.i.i, label %invoke.cont36.i.i.i.i.i.i, label %if.end10.i.i.i.i.i.i.i.i.i
 
@@ -8581,7 +8581,7 @@ if.end10.i.i.i.i.i.i.i.i.i:                       ; preds = %"_ZN9__gnu_cxx5__op
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper13OnTXTResolvedEN4absl12lts_202308028StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEE3$_0EclINS_17__normal_iteratorIPSF_SH_EEEEbT_.exit21.i.i.i.i.i.i.i.i.i": ; preds = %if.end10.i.i.i.i.i.i.i.i.i
   %46 = extractvalue { i64, ptr } %call2.i16.i.i.i.i.i.i.i.i.i, 1
-  %bcmp.i.i.i19.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %46, ptr noundef nonnull dereferenceable(12) @.str.42, i64 12)
+  %bcmp.i.i.i19.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %46, ptr noundef nonnull dereferenceable(12) @.str.42, i64 12)
   %cmp7.i.i.i20.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i19.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i20.i.i.i.i.i.i.i.i.i, label %invoke.cont36.i.i.i.i.i.i, label %if.end16.i.i.i.i.i.i.i.i.i
 
@@ -8594,7 +8594,7 @@ if.end16.i.i.i.i.i.i.i.i.i:                       ; preds = %"_ZN9__gnu_cxx5__op
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper13OnTXTResolvedEN4absl12lts_202308028StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEE3$_0EclINS_17__normal_iteratorIPSF_SH_EEEEbT_.exit28.i.i.i.i.i.i.i.i.i": ; preds = %if.end16.i.i.i.i.i.i.i.i.i
   %48 = extractvalue { i64, ptr } %call2.i23.i.i.i.i.i.i.i.i.i, 1
-  %bcmp.i.i.i26.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %48, ptr noundef nonnull dereferenceable(12) @.str.42, i64 12)
+  %bcmp.i.i.i26.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %48, ptr noundef nonnull dereferenceable(12) @.str.42, i64 12)
   %cmp7.i.i.i27.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i26.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i27.i.i.i.i.i.i.i.i.i, label %invoke.cont36.i.i.i.i.i.i, label %if.end22.i.i.i.i.i.i.i.i.i
 
@@ -8627,7 +8627,7 @@ sw.bb.i.i.i.i.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i.i
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper13OnTXTResolvedEN4absl12lts_202308028StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEE3$_0EclINS_17__normal_iteratorIPSF_SH_EEEEbT_.exit39.i.i.i.i.i.i.i.i.i": ; preds = %sw.bb.i.i.i.i.i.i.i.i.i
   %50 = extractvalue { i64, ptr } %call2.i34.i.i.i.i.i.i.i.i.i, 1
-  %bcmp.i.i.i37.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %50, ptr noundef nonnull dereferenceable(12) @.str.42, i64 12)
+  %bcmp.i.i.i37.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %50, ptr noundef nonnull dereferenceable(12) @.str.42, i64 12)
   %cmp7.i.i.i38.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i37.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i38.i.i.i.i.i.i.i.i.i, label %invoke.cont36.i.i.i.i.i.i, label %if.end29.i.i.i.i.i.i.i.i.i
 
@@ -8644,7 +8644,7 @@ sw.bb31.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end29.i.i.i.i.i.
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper13OnTXTResolvedEN4absl12lts_202308028StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEE3$_0EclINS_17__normal_iteratorIPSF_SH_EEEEbT_.exit46.i.i.i.i.i.i.i.i.i": ; preds = %sw.bb31.i.i.i.i.i.i.i.i.i
   %52 = extractvalue { i64, ptr } %call2.i41.i.i.i.i.i.i.i.i.i, 1
-  %bcmp.i.i.i44.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %52, ptr noundef nonnull dereferenceable(12) @.str.42, i64 12)
+  %bcmp.i.i.i44.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %52, ptr noundef nonnull dereferenceable(12) @.str.42, i64 12)
   %cmp7.i.i.i45.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i44.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i45.i.i.i.i.i.i.i.i.i, label %invoke.cont36.i.i.i.i.i.i, label %if.end36.i.i.i.i.i.i.i.i.i
 
@@ -8661,7 +8661,7 @@ sw.bb38.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end36.i.i.i.i.i.
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolver28EventEngineDNSRequestWrapper13OnTXTResolvedEN4absl12lts_202308028StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEE3$_0EclINS_17__normal_iteratorIPSF_SH_EEEEbT_.exit53.i.i.i.i.i.i.i.i.i": ; preds = %sw.bb38.i.i.i.i.i.i.i.i.i
   %54 = extractvalue { i64, ptr } %call2.i48.i.i.i.i.i.i.i.i.i, 1
-  %bcmp.i.i.i51.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %54, ptr noundef nonnull dereferenceable(12) @.str.42, i64 12)
+  %bcmp.i.i.i51.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %54, ptr noundef nonnull dereferenceable(12) @.str.42, i64 12)
   %cmp7.i.i.i52.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i51.i.i.i.i.i.i.i.i.i, 0
   br i1 %cmp7.i.i.i52.i.i.i.i.i.i.i.i.i, label %invoke.cont36.i.i.i.i.i.i, label %if.end43.i.i.i.i.i.i.i.i.i
 

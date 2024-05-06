@@ -60,7 +60,7 @@ define i32 @fifo_string_cache_contains(ptr nocapture noundef readonly %0, ptr no
 declare i32 @g_hash_table_contains(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fifo_string_cache_insert(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @fifo_string_cache_insert(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @g_hash_table_contains(ptr noundef %3, ptr noundef %1) #3
   %.not = icmp eq i32 %4, 0

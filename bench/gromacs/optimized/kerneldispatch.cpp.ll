@@ -135,7 +135,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 @"__PRETTY_FUNCTION__._ZZNK18nonbonded_verlet_t23dispatchNonbondedKernelEN3gmx19InteractionLocalityERK19interaction_const_tRKNS0_12StepWorkloadEiNS0_8ArrayRefIKNS0_11BasicVectorIfEEEENS8_IfEESD_P6t_nrnbENK3$_0clEv" = private unnamed_addr constant [259 x i8] c"auto nonbonded_verlet_t::dispatchNonbondedKernel(gmx::InteractionLocality, const interaction_const_t &, const gmx::StepWorkload &, int, gmx::ArrayRef<const gmx::RVec>, gmx::ArrayRef<real>, gmx::ArrayRef<real>, t_nrnb *)::(anonymous class)::operator()() const\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define noundef range(i32 0, 5) i32 @_Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   switch i32 %1, label %4 [
     i32 1, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread
     i32 2, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread
@@ -162,7 +162,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.thread: ; preds = %3, %3, %3, %3, %3,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJCombinationRule15VanDerWaalsType20InteractionModifiers12LongRangeVdW(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 7) i32 @_Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJCombinationRule15VanDerWaalsType20InteractionModifiers12LongRangeVdW(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.gmx::InvalidInputError", align 8
   %7 = alloca %"class.gmx::ExceptionInitializer", align 8
   %8 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -881,7 +881,7 @@ _Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb.ex
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds i8, ptr %2, i64 92
   %56 = load i32, ptr %55, align 4
-  %57 = tail call noundef i32 @_Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJCombinationRule15VanDerWaalsType20InteractionModifiers12LongRangeVdW(i32 noundef %49, i32 noundef %51, i32 noundef %52, i32 noundef %54, i32 noundef %56), !range !7
+  %57 = tail call noundef i32 @_Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJCombinationRule15VanDerWaalsType20InteractionModifiers12LongRangeVdW(i32 noundef %49, i32 noundef %51, i32 noundef %52, i32 noundef %54, i32 noundef %56)
   store i32 %57, ptr %14, align 4
   %58 = load i32, ptr %25, align 8
   %59 = icmp ne i32 %58, 1
@@ -1468,7 +1468,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #12
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare !callback !8 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #12
+declare !callback !7 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #12
 
 declare void @_Z26reduce_energies_over_listsPK16nbnxn_atomdata_tiPfS2_(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1964,6 +1964,5 @@ attributes #19 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 7}
-!8 = !{!9}
-!9 = !{i64 2, i64 -1, i64 -1, i1 true}
+!7 = !{!8}
+!8 = !{i64 2, i64 -1, i64 -1, i1 true}

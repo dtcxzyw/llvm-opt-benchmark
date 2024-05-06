@@ -51,7 +51,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @g_list_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mcaststream_packet(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 %4) #0 {
+define hidden range(i32 0, 2) i32 @mcaststream_packet(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 %4) #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca %struct.nstime_t, align 8
   %.sroa.26 = alloca [20 x i8], align 4

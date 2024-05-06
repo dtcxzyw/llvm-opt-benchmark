@@ -354,7 +354,7 @@ define internal void @e1000_get_wol(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_set_wol(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal noundef range(i32 -95, 1) i32 @e1000_set_wol(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 14220
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 8
@@ -460,7 +460,7 @@ define internal void @e1000_set_msglevel(ptr nocapture noundef writeonly %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_nway_reset(ptr noundef %0) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @e1000_nway_reset(ptr noundef %0) #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 2304
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   %4 = load volatile i64, ptr %3, align 8
@@ -492,7 +492,7 @@ define internal noundef i32 @e1000_nway_reset(ptr noundef %0) #1 align 16 {
 declare dso_local i32 @ethtool_op_get_link(ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @e1000_get_eeprom_len(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal range(i32 0, 131071) i32 @e1000_get_eeprom_len(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = getelementptr i8, ptr %0, i64 4904
   %3 = load i16, ptr %2, align 8
   %4 = zext i16 %3 to i32
@@ -756,7 +756,7 @@ define internal noundef i32 @e1000_get_coalesce(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_set_coalesce(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @e1000_set_coalesce(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = getelementptr i8, ptr %0, i64 2304
   %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
@@ -3229,7 +3229,7 @@ define internal void @e1000_get_strings(ptr nocapture readnone %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_set_phys_id(ptr noundef %0, i32 noundef %1) #1 align 16 {
+define internal noundef range(i32 0, 3) i32 @e1000_set_phys_id(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 3768
   switch i32 %1, label %39 [
     i32 1, label %4
@@ -3353,7 +3353,7 @@ define internal void @e1000_get_ethtool_stats(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @e1000e_get_priv_flags(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal range(i32 0, 2) i32 @e1000e_get_priv_flags(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = getelementptr i8, ptr %0, i64 14224
   %3 = load i32, ptr %2, align 16
   %4 = lshr i32 %3, 15
@@ -3362,7 +3362,7 @@ define internal i32 @e1000e_get_priv_flags(ptr nocapture noundef readonly %0) #3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @e1000e_set_priv_flags(ptr nocapture noundef %0, i32 noundef %1) #5 align 16 {
+define internal noundef range(i32 -22, 1) i32 @e1000e_set_priv_flags(ptr nocapture noundef %0, i32 noundef %1) #5 align 16 {
   %3 = getelementptr i8, ptr %0, i64 14224
   %4 = load i32, ptr %3, align 16
   %5 = and i32 %4, -32769
@@ -3393,7 +3393,7 @@ define internal noundef i32 @e1000e_set_priv_flags(ptr nocapture noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @e1000e_get_sset_count(ptr nocapture readnone %0, i32 noundef %1) #2 align 16 {
+define internal noundef range(i32 -95, 54) i32 @e1000e_get_sset_count(ptr nocapture readnone %0, i32 noundef %1) #2 align 16 {
   switch i32 %1, label %5 [
     i32 0, label %6
     i32 1, label %3
@@ -3415,7 +3415,7 @@ define internal noundef i32 @e1000e_get_sset_count(ptr nocapture readnone %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_get_rxnfc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #1 align 16 {
+define internal noundef range(i32 -95, 1) i32 @e1000_get_rxnfc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 0, ptr %4, align 8
   %5 = load i32, ptr %1, align 8
@@ -3528,7 +3528,7 @@ define internal noundef i32 @e1000e_get_ts_info(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000e_get_eee(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef range(i32 -95, 1) i32 @e1000e_get_eee(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = alloca i16, align 2
   %4 = getelementptr i8, ptr %0, i64 3768
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #15
@@ -3689,7 +3689,7 @@ define internal noundef i32 @e1000e_set_eee(ptr noundef %0, ptr nocapture nounde
   %4 = getelementptr i8, ptr %0, i64 2304
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !5
-  %5 = call i32 @e1000e_get_eee(ptr noundef %0, ptr noundef nonnull %3), !range !37
+  %5 = call i32 @e1000e_get_eee(ptr noundef %0, ptr noundef nonnull %3)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %58
 
@@ -3960,7 +3960,7 @@ define internal noundef i32 @e1000_get_link_ksettings(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_set_link_ksettings(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 -95, 1) i32 @e1000_set_link_ksettings(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr i8, ptr %0, i64 2304
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
@@ -4029,7 +4029,7 @@ define internal noundef i32 @e1000_set_link_ksettings(ptr noundef %0, ptr nounde
   %43 = icmp ult i8 %42, 2
   call void @llvm.assume(i1 %43)
   %44 = icmp eq i8 %42, 0
-  br i1 %44, label %.loopexit, label %.preheader, !llvm.loop !38
+  br i1 %44, label %.loopexit, label %.preheader, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.preheader, %37
   %45 = getelementptr inbounds i8, ptr %1, i64 11
@@ -4448,7 +4448,7 @@ define internal fastcc void @e1000_free_desc_rings(ptr nocapture noundef %0) unn
   %31 = add nuw i32 %18, 1
   %32 = load i32, ptr %12, align 4
   %33 = icmp ult i32 %31, %32
-  br i1 %33, label %17, label %.loopexit6, !llvm.loop !39
+  br i1 %33, label %17, label %.loopexit6, !llvm.loop !38
 
 .loopexit6:                                       ; preds = %28, %11, %7, %1
   %34 = getelementptr inbounds i8, ptr %0, i64 11752
@@ -4492,7 +4492,7 @@ define internal fastcc void @e1000_free_desc_rings(ptr nocapture noundef %0) unn
   %58 = add nuw i32 %48, 1
   %59 = load i32, ptr %42, align 4
   %60 = icmp ult i32 %58, %59
-  br i1 %60, label %47, label %.loopexit, !llvm.loop !40
+  br i1 %60, label %47, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %55, %41, %37, %.loopexit6
   %61 = load ptr, ptr %4, align 8
@@ -4659,7 +4659,6 @@ attributes #17 = { nounwind allocsize(0) }
 !34 = distinct !{!34, !11, !12}
 !35 = distinct !{!35, !11, !12}
 !36 = distinct !{!36, !11, !12}
-!37 = !{i32 -95, i32 1}
+!37 = distinct !{!37, !11, !12}
 !38 = distinct !{!38, !11, !12}
 !39 = distinct !{!39, !11, !12}
-!40 = distinct !{!40, !11, !12}

@@ -167,7 +167,7 @@ define noalias noundef ptr @sequence_analysis_create_sai_with_addresses(ptr noca
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 168
   %19 = load ptr, ptr %18, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   store i32 %15, ptr %14, align 8
   %20 = icmp eq i32 %17, 0
   br i1 %20, label %copy_address.exit, label %21
@@ -190,7 +190,7 @@ copy_address.exit:                                ; preds = %12, %21
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds i8, ptr %0, i64 192
   %32 = load ptr, ptr %31, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   store i32 %28, ptr %27, align 8
   %33 = icmp eq i32 %30, 0
   br i1 %33, label %copy_address.exit23, label %copy_address.exit23.sink.split
@@ -215,7 +215,7 @@ copy_address.exit:                                ; preds = %12, %21
   %45 = load i32, ptr %44, align 4
   %46 = getelementptr inbounds i8, ptr %0, i64 216
   %47 = load ptr, ptr %46, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   store i32 %43, ptr %42, align 8
   %48 = icmp eq i32 %45, 0
   br i1 %48, label %copy_address.exit24, label %49
@@ -238,7 +238,7 @@ copy_address.exit24:                              ; preds = %40, %49
   %58 = load i32, ptr %57, align 4
   %59 = getelementptr inbounds i8, ptr %0, i64 240
   %60 = load ptr, ptr %59, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
   store i32 %56, ptr %55, align 8
   %61 = icmp eq i32 %58, 0
   br i1 %61, label %copy_address.exit23, label %copy_address.exit23.sink.split
@@ -468,7 +468,7 @@ define void @sequence_analysis_info_free(ptr noundef %0) local_unnamed_addr #0 {
   br label %free_address.exit.i.i
 
 free_address.exit.i.i:                            ; preds = %24, %21, %17, %14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 40
   br i1 %exitcond.not.i.i, label %sequence_analysis_list_free.exit, label %14, !llvm.loop !4
@@ -551,7 +551,7 @@ define void @sequence_analysis_list_free(ptr noundef %0) local_unnamed_addr #0 {
   br label %free_address.exit.i
 
 free_address.exit.i:                              ; preds = %24, %21, %17, %14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 40
   br i1 %exitcond.not.i, label %sequence_analysis_free_nodes.exit, label %14, !llvm.loop !4
@@ -589,7 +589,7 @@ define void @sequence_analysis_list_sort(ptr noundef readonly %0) local_unnamed_
 declare void @g_queue_sort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @sequence_analysis_sort_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
+define internal range(i32 -1, 2) i32 @sequence_analysis_sort_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
   %4 = load i32, ptr %0, align 8
   %5 = load i32, ptr %1, align 8
   %6 = icmp ult i32 %4, %5
@@ -634,7 +634,7 @@ define internal void @sequence_analysis_item_free(ptr noundef %0) #0 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %1, %10, %14, %17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = load i32, ptr %18, align 8
   %.not.i.i9 = icmp eq i32 %19, 0
@@ -657,7 +657,7 @@ free_address.exit:                                ; preds = %1, %10, %14, %17
   br label %free_address.exit11
 
 free_address.exit11:                              ; preds = %free_address.exit, %20, %24, %27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   %28 = getelementptr inbounds i8, ptr %0, i64 136
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
@@ -703,7 +703,7 @@ define void @sequence_analysis_free_nodes(ptr nocapture noundef %0) local_unname
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %3, %6, %10, %13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
   br i1 %exitcond.not, label %14, label %3, !llvm.loop !4
@@ -799,7 +799,7 @@ cmp_address.exit.thread.i:                        ; preds = %cmp_address.exit.i,
   %36 = load i32, ptr %9, align 8
   %37 = load i32, ptr %16, align 4
   %38 = load ptr, ptr %17, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   store i32 %36, ptr %35, align 8
   %39 = icmp eq i32 %37, 0
   br i1 %39, label %add_or_get_node.exit, label %40
@@ -816,11 +816,11 @@ cmp_address.exit.thread.i:                        ; preds = %cmp_address.exit.i,
   br label %add_or_get_node.exit
 
 copy_address.exit.loopexit.split.loop.exit.i:     ; preds = %cmp_address.exit.i
-  %46 = trunc i64 %indvars.iv.i to i32
+  %46 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %add_or_get_node.exit
 
 copy_address.exit.loopexit.split.loop.exit27.i:   ; preds = %27
-  %47 = trunc i64 %indvars.iv.i to i32
+  %47 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %add_or_get_node.exit
 
 add_or_get_node.exit:                             ; preds = %cmp_address.exit.thread.i, %5, %.critedge.i, %40, %copy_address.exit.loopexit.split.loop.exit.i, %copy_address.exit.loopexit.split.loop.exit27.i
@@ -885,7 +885,7 @@ cmp_address.exit.thread.i14:                      ; preds = %cmp_address.exit.i1
   %76 = load i32, ptr %49, align 8
   %77 = load i32, ptr %56, align 4
   %78 = load ptr, ptr %57, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
   store i32 %76, ptr %75, align 8
   %79 = icmp eq i32 %77, 0
   br i1 %79, label %add_or_get_node.exit24, label %80
@@ -902,11 +902,11 @@ cmp_address.exit.thread.i14:                      ; preds = %cmp_address.exit.i1
   br label %add_or_get_node.exit24
 
 copy_address.exit.loopexit.split.loop.exit.i21:   ; preds = %cmp_address.exit.i19
-  %86 = trunc i64 %indvars.iv.i11 to i32
+  %86 = trunc nuw nsw i64 %indvars.iv.i11 to i32
   br label %add_or_get_node.exit24
 
 copy_address.exit.loopexit.split.loop.exit27.i22: ; preds = %67
-  %87 = trunc i64 %indvars.iv.i11 to i32
+  %87 = trunc nuw nsw i64 %indvars.iv.i11 to i32
   br label %add_or_get_node.exit24
 
 add_or_get_node.exit24:                           ; preds = %cmp_address.exit.thread.i14, %add_or_get_node.exit, %.critedge.i23, %80, %copy_address.exit.loopexit.split.loop.exit.i21, %copy_address.exit.loopexit.split.loop.exit27.i22

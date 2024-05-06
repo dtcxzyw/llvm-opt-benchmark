@@ -663,7 +663,7 @@ define internal void @nhmex_mbox_msr_enable_event(ptr noundef %0, ptr nocapture 
 declare dso_local i64 @uncore_msr_read_counter(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nhmex_mbox_hw_config(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @nhmex_mbox_hw_config(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = getelementptr inbounds i8, ptr %1, i64 408
   %5 = getelementptr inbounds i8, ptr %1, i64 432
@@ -2042,7 +2042,7 @@ define internal void @nhmex_rbox_msr_enable_event(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @nhmex_rbox_hw_config(ptr nocapture readnone %0, ptr nocapture noundef %1) #4 align 16 {
+define internal noundef range(i32 -22, 1) i32 @nhmex_rbox_hw_config(ptr nocapture readnone %0, ptr nocapture noundef %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 360
   %4 = getelementptr inbounds i8, ptr %1, i64 432
   %5 = load i64, ptr %3, align 8

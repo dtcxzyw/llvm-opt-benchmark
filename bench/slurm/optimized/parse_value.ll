@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [36 x i8] c"\22%s\22 is not a valid option for \22%s\22\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_handle_long(ptr nocapture noundef writeonly %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @s_p_handle_long(ptr nocapture noundef writeonly %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @__errno_location() #4
   store i32 0, ptr %5, align 4
@@ -87,7 +87,7 @@ declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_handle_uint16(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @s_p_handle_uint16(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @__errno_location() #4
   store i32 0, ptr %5, align 4
@@ -148,7 +148,7 @@ define noundef i32 @s_p_handle_uint16(ptr nocapture noundef writeonly %0, ptr no
 
 36:                                               ; preds = %14, %17, %32
   %.0 = phi i64 [ %6, %32 ], [ 65535, %17 ], [ 65535, %14 ]
-  %37 = trunc i64 %.0 to i16
+  %37 = trunc nuw i64 %.0 to i16
   store i16 %37, ptr %0, align 2
   br label %38
 
@@ -161,7 +161,7 @@ define noundef i32 @s_p_handle_uint16(ptr nocapture noundef writeonly %0, ptr no
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_handle_uint32(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @s_p_handle_uint32(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @__errno_location() #4
   store i32 0, ptr %5, align 4
@@ -236,7 +236,7 @@ define noundef i32 @s_p_handle_uint32(ptr nocapture noundef writeonly %0, ptr no
 
 42:                                               ; preds = %20, %23, %38
   %.1 = phi i64 [ %.0, %38 ], [ 4294967295, %23 ], [ 4294967295, %20 ]
-  %43 = trunc i64 %.1 to i32
+  %43 = trunc nuw i64 %.1 to i32
   store i32 %43, ptr %0, align 4
   br label %44
 
@@ -246,7 +246,7 @@ define noundef i32 @s_p_handle_uint32(ptr nocapture noundef writeonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_handle_uint64(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @s_p_handle_uint64(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @__errno_location() #4
   store i32 0, ptr %5, align 4
@@ -325,7 +325,7 @@ define noundef i32 @s_p_handle_uint64(ptr nocapture noundef writeonly %0, ptr no
 declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_handle_boolean(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @s_p_handle_boolean(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @xstrcasecmp(ptr noundef %2, ptr noundef nonnull @.str.10) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %21, label %5
@@ -380,7 +380,7 @@ define noundef i32 @s_p_handle_boolean(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_handle_float(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @s_p_handle_float(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @__errno_location() #4
   store i32 0, ptr %5, align 4
@@ -436,7 +436,7 @@ define noundef i32 @s_p_handle_float(ptr nocapture noundef writeonly %0, ptr nou
 declare float @strtof(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_handle_double(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @s_p_handle_double(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @__errno_location() #4
   store i32 0, ptr %5, align 4
@@ -492,7 +492,7 @@ define noundef i32 @s_p_handle_double(ptr nocapture noundef writeonly %0, ptr no
 declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @s_p_handle_long_double(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @s_p_handle_long_double(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @__errno_location() #4
   store i32 0, ptr %5, align 4

@@ -574,7 +574,7 @@ if.end31:                                         ; preds = %if.then21.if.end31_
   %12 = phi ptr [ %.pre, %if.then21.if.end31_crit_edge ], [ %8, %if.end17 ]
   store ptr %12, ptr %arrayidx14, align 8
   %queue_index = getelementptr inbounds i8, ptr %12, i64 336
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %13, ptr %queue_index, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1251,9 +1251,9 @@ if.end48:                                         ; preds = %if.end34
   br i1 %tobool.not, label %if.end50, label %inval
 
 if.end50:                                         ; preds = %if.end48
-  %conv51 = trunc i64 %dom.0 to i32
+  %conv51 = trunc nuw nsw i64 %dom.0 to i32
   store i32 %conv51, ptr %call, align 4
-  %conv52 = trunc i64 %bus.0 to i32
+  %conv52 = trunc nuw nsw i64 %bus.0 to i32
   %bus53 = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %conv52, ptr %bus53, align 4
   %slot54 = getelementptr inbounds i8, ptr %call, i64 8

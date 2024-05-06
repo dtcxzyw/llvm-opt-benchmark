@@ -844,7 +844,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.96 = private unnamed_addr constant [23 x i8] c"Server::AsyncRunStep()\00", align 1
 @.str.97 = private unnamed_addr constant [11 x i8] c"time_speed\00", align 1
 @.str.98 = private unnamed_addr constant [19 x i8] c"time_send_interval\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.99 = private unnamed_addr constant [31 x i8] c"Server: Maximum lag peaked at \00", align 1
 @.str.100 = private unnamed_addr constant [11 x i8] c" (steplen=\00", align 1
 @.str.101 = private unnamed_addr constant [29 x i8] c"Server: map timer and unload\00", align 1
@@ -60164,7 +60164,7 @@ declare noundef zeroext i1 @_ZN8Settings16updateConfigFileEPKc(ptr noundef nonnu
 declare noundef zeroext i1 @_ZN2fs6RenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i16 @_ZN6Server21getProtocolVersionMinEv() local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext range(i16 37, 45) i16 @_ZN6Server21getProtocolVersionMinEv() local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i35 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8

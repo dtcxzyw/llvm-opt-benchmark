@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [3 x i8] c"no\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_REQ_print_bio(ptr noundef %bio, ptr noundef %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_REQ_print_bio(ptr noundef %bio, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end

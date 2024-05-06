@@ -32,7 +32,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_blake2s_get_ctx_params(ptr noundef readonly %vctx, ptr noundef %params) #1 {
+define range(i32 0, 2) i32 @ossl_blake2s_get_ctx_params(ptr noundef readonly %vctx, ptr noundef %params) #1 {
 entry:
   %cmp = icmp eq ptr %vctx, null
   br i1 %cmp, label %return, label %if.end
@@ -76,7 +76,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_blake2s_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #1 {
+define range(i32 0, 2) i32 @ossl_blake2s_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #1 {
 entry:
   %size = alloca i64, align 8
   %cmp = icmp eq ptr %vctx, null
@@ -116,7 +116,7 @@ if.then12:                                        ; preds = %if.end9
 
 if.end13:                                         ; preds = %if.end9
   %params14 = getelementptr inbounds i8, ptr %vctx, i64 128
-  %conv = trunc i64 %0 to i8
+  %conv = trunc nuw nsw i64 %0 to i8
   call void @ossl_blake2s_param_set_digest_length(ptr noundef nonnull %params14, i8 noundef zeroext %conv) #4
   br label %return
 
@@ -220,14 +220,14 @@ entry:
 declare ptr @ossl_digest_default_gettable_params(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @blake2s256_internal_init(ptr noundef %ctx, ptr noundef %params) #1 {
+define internal range(i32 0, 2) i32 @blake2s256_internal_init(ptr noundef %ctx, ptr noundef %params) #1 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call1 = tail call i32 @ossl_blake2s_set_ctx_params(ptr noundef %ctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @ossl_blake2s_set_ctx_params(ptr noundef %ctx, ptr noundef %params)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %land.end, label %land.rhs
 
@@ -266,7 +266,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_blake2b_get_ctx_params(ptr noundef readonly %vctx, ptr noundef %params) #1 {
+define range(i32 0, 2) i32 @ossl_blake2b_get_ctx_params(ptr noundef readonly %vctx, ptr noundef %params) #1 {
 entry:
   %cmp = icmp eq ptr %vctx, null
   br i1 %cmp, label %return, label %if.end
@@ -300,7 +300,7 @@ return:                                           ; preds = %if.end4, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_blake2b_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #1 {
+define range(i32 0, 2) i32 @ossl_blake2b_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #1 {
 entry:
   %size = alloca i64, align 8
   %cmp = icmp eq ptr %vctx, null
@@ -340,7 +340,7 @@ if.then12:                                        ; preds = %if.end9
 
 if.end13:                                         ; preds = %if.end9
   %params14 = getelementptr inbounds i8, ptr %vctx, i64 240
-  %conv = trunc i64 %0 to i8
+  %conv = trunc nuw nsw i64 %0 to i8
   call void @ossl_blake2b_param_set_digest_length(ptr noundef nonnull %params14, i8 noundef zeroext %conv) #4
   br label %return
 
@@ -438,14 +438,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @blake2b512_internal_init(ptr noundef %ctx, ptr noundef %params) #1 {
+define internal range(i32 0, 2) i32 @blake2b512_internal_init(ptr noundef %ctx, ptr noundef %params) #1 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call1 = tail call i32 @ossl_blake2b_set_ctx_params(ptr noundef %ctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @ossl_blake2b_set_ctx_params(ptr noundef %ctx, ptr noundef %params)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %land.end, label %land.rhs
 
@@ -508,4 +508,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

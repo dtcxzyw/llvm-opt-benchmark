@@ -754,8 +754,8 @@ invoke.cont13:                                    ; preds = %invoke.cont
 for.cond.preheader:                               ; preds = %invoke.cont13
   %6 = load ptr, ptr %master, align 8
   %7 = load i32, ptr %6, align 8
-  %cmp28.not = icmp eq i32 %7, 0
-  br i1 %cmp28.not, label %if.end26, label %for.body.lr.ph
+  %cmp29.not = icmp eq i32 %7, 0
+  br i1 %cmp29.not, label %if.end26, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %axis = getelementptr inbounds i8, ptr %6, i64 16
@@ -793,18 +793,18 @@ if.end26:                                         ; preds = %for.cond, %for.cond
   %success.0 = phi i1 [ false, %invoke.cont13 ], [ true, %if.then21 ], [ false, %for.cond.preheader ], [ false, %for.cond ]
   %11 = load ptr, ptr %font, align 8
   %call32 = invoke i32 @FT_Set_Var_Design_Coordinates(ptr noundef %11, i32 noundef %conv10, ptr noundef nonnull %call5.i.i.i.i2.i.i9)
-          to label %_ZNSt6vectorIlSaIlEED2Ev.exit17 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit
+          to label %_ZNSt6vectorIlSaIlEED2Ev.exit18 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-_ZNSt6vectorIlSaIlEED2Ev.exit17:                  ; preds = %if.end26
+_ZNSt6vectorIlSaIlEED2Ev.exit18:                  ; preds = %if.end26
   %tobool33.not = icmp eq i32 %call32, 0
   %spec.select = and i1 %success.0, %tobool33.not
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i9) #17
   %.pre = load ptr, ptr %master, align 8
   br label %if.end36
 
-if.end36:                                         ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit17, %land.lhs.true, %if.end
-  %12 = phi ptr [ %.pre, %_ZNSt6vectorIlSaIlEED2Ev.exit17 ], [ %2, %land.lhs.true ], [ null, %if.end ]
-  %success.2 = phi i1 [ %spec.select, %_ZNSt6vectorIlSaIlEED2Ev.exit17 ], [ false, %land.lhs.true ], [ false, %if.end ]
+if.end36:                                         ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit18, %land.lhs.true, %if.end
+  %12 = phi ptr [ %.pre, %_ZNSt6vectorIlSaIlEED2Ev.exit18 ], [ %2, %land.lhs.true ], [ null, %if.end ]
+  %success.2 = phi i1 [ %spec.select, %_ZNSt6vectorIlSaIlEED2Ev.exit18 ], [ false, %land.lhs.true ], [ false, %if.end ]
   %13 = load ptr, ptr %library, align 8
   %call38 = call i32 @FT_Done_MM_Var(ptr noundef %13, ptr noundef %12)
   br label %return
@@ -1020,38 +1020,38 @@ _ZNKSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE12_M_check_lenEmPKc.exit: ; p
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #16
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i8 0, i64 32, i1 false)
-  %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
+  %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
 
-if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE12_M_check_lenEmPKc.exit
-  %incdec.ptr.i.i.i22 = getelementptr inbounds i8, ptr %add.ptr, i64 32
-  %add.ptr.i.i.i.i.i25 = getelementptr %"struct.msdfgen::FontVariationAxis", ptr %add.ptr, i64 %__n
-  br label %for.body.i.i.i.i.i.i.i26
+if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE12_M_check_lenEmPKc.exit
+  %incdec.ptr.i.i.i23 = getelementptr inbounds i8, ptr %add.ptr, i64 32
+  %add.ptr.i.i.i.i.i26 = getelementptr %"struct.msdfgen::FontVariationAxis", ptr %add.ptr, i64 %__n
+  br label %for.body.i.i.i.i.i.i.i27
 
-for.body.i.i.i.i.i.i.i26:                         ; preds = %for.body.i.i.i.i.i.i.i26, %if.end.i.i.i.i.i24
-  %__first.addr.04.i.i.i.i.i.i.i27 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i28, %for.body.i.i.i.i.i.i.i26 ], [ %incdec.ptr.i.i.i22, %if.end.i.i.i.i.i24 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i27, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 32, i1 false)
-  %incdec.ptr.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i27, i64 32
-  %cmp.not.i.i.i.i.i.i.i29 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i28, %add.ptr.i.i.i.i.i25
-  br i1 %cmp.not.i.i.i.i.i.i.i29, label %try.cont, label %for.body.i.i.i.i.i.i.i26, !llvm.loop !10
+for.body.i.i.i.i.i.i.i27:                         ; preds = %for.body.i.i.i.i.i.i.i27, %if.end.i.i.i.i.i25
+  %__first.addr.04.i.i.i.i.i.i.i28 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i29, %for.body.i.i.i.i.i.i.i27 ], [ %incdec.ptr.i.i.i23, %if.end.i.i.i.i.i25 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i64 32, i1 false)
+  %incdec.ptr.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i28, i64 32
+  %cmp.not.i.i.i.i.i.i.i30 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i29, %add.ptr.i.i.i.i.i26
+  br i1 %cmp.not.i.i.i.i.i.i.i30, label %try.cont, label %for.body.i.i.i.i.i.i.i27, !llvm.loop !10
 
-try.cont:                                         ; preds = %for.body.i.i.i.i.i.i.i26, %_ZNKSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE12_M_check_lenEmPKc.exit
+try.cont:                                         ; preds = %for.body.i.i.i.i.i.i.i27, %_ZNKSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE12_M_check_lenEmPKc.exit
   %cmp.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp.i.i.i, label %if.then.i.i.i33, label %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i.i34, label %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 
-if.then.i.i.i33:                                  ; preds = %try.cont
+if.then.i.i.i34:                                  ; preds = %try.cont
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 
-_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %try.cont, %if.then.i.i.i33
-  %tobool.not.i34 = icmp eq ptr %1, null
-  br i1 %tobool.not.i34, label %_ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.exit36, label %if.then.i35
+_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %try.cont, %if.then.i.i.i34
+  %tobool.not.i35 = icmp eq ptr %1, null
+  br i1 %tobool.not.i35, label %_ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.exit37, label %if.then.i36
 
-if.then.i35:                                      ; preds = %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
+if.then.i36:                                      ; preds = %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #17
-  br label %_ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.exit36
+  br label %_ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.exit37
 
-_ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i35
+_ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i36
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"struct.msdfgen::FontVariationAxis", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
@@ -1059,7 +1059,7 @@ _ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.e
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPN7msdfgen17FontVariationAxisEmS1_ET_S3_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.exit36, %entry
+if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPN7msdfgen17FontVariationAxisEmS1_ET_S3_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.exit37, %entry
   ret void
 }
 

@@ -235,7 +235,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
 20:                                               ; preds = %12, %.preheader.split.us.split.us
   %.055.us.us = phi double [ %19, %12 ], [ 0.000000e+00, %.preheader.split.us.split.us ]
   %21 = icmp ult i64 %indvars.iv113, %11
-  %22 = getelementptr float, ptr %1, i64 %indvars.iv113
+  %22 = getelementptr inbounds float, ptr %1, i64 %indvars.iv113
   br i1 %21, label %23, label %._crit_edge118
 
 ._crit_edge118:                                   ; preds = %20
@@ -243,7 +243,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
   br label %30
 
 23:                                               ; preds = %20
-  %24 = getelementptr i8, ptr %22, i64 4
+  %24 = getelementptr inbounds i8, ptr %22, i64 4
   %25 = load float, ptr %24, align 4
   %26 = load float, ptr %22, align 4
   %27 = fsub float %25, %26
@@ -289,7 +289,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
 48:                                               ; preds = %40, %.preheader.split.us.split
   %.055.us = phi double [ %47, %40 ], [ 0.000000e+00, %.preheader.split.us.split ]
   %49 = icmp ult i64 %indvars.iv108, %11
-  %50 = getelementptr float, ptr %1, i64 %indvars.iv108
+  %50 = getelementptr inbounds float, ptr %1, i64 %indvars.iv108
   br i1 %49, label %51, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %48
@@ -297,7 +297,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
   br label %58
 
 51:                                               ; preds = %48
-  %52 = getelementptr i8, ptr %50, i64 4
+  %52 = getelementptr inbounds i8, ptr %50, i64 4
   %53 = load float, ptr %52, align 4
   %54 = load float, ptr %50, align 4
   %55 = fsub float %53, %54
@@ -361,8 +361,8 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
   br i1 %88, label %89, label %97
 
 89:                                               ; preds = %87
-  %90 = getelementptr float, ptr %1, i64 %indvars.iv103
-  %91 = getelementptr i8, ptr %90, i64 4
+  %90 = getelementptr inbounds float, ptr %1, i64 %indvars.iv103
+  %91 = getelementptr inbounds i8, ptr %90, i64 4
   %92 = load float, ptr %91, align 4
   %93 = load float, ptr %90, align 4
   %94 = fsub float %92, %93
@@ -417,8 +417,8 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr noc
   br i1 %115, label %116, label %124
 
 116:                                              ; preds = %114
-  %117 = getelementptr float, ptr %1, i64 %indvars.iv
-  %118 = getelementptr i8, ptr %117, i64 4
+  %117 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %118 = getelementptr inbounds i8, ptr %117, i64 4
   %119 = load float, ptr %118, align 4
   %120 = load float, ptr %117, align 4
   %121 = fsub float %119, %120

@@ -62,7 +62,7 @@ define void @PHP_ADLER32Update(ptr nocapture noundef %0, ptr nocapture noundef r
 define void @PHP_ADLER32Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #2 {
   %3 = load i32, ptr %1, align 4
   %4 = lshr i32 %3, 24
-  %5 = trunc i32 %4 to i8
+  %5 = trunc nuw i32 %4 to i8
   store i8 %5, ptr %0, align 1
   %6 = load i32, ptr %1, align 4
   %7 = lshr i32 %6, 16

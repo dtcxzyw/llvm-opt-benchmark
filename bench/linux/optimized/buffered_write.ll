@@ -1637,7 +1637,7 @@ declare dso_local i64 @generic_write_checks(ptr noundef, ptr noundef) local_unna
 declare dso_local void @netfs_end_io_write(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @netfs_page_mkwrite(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 1, 1025) i32 @netfs_page_mkwrite(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8

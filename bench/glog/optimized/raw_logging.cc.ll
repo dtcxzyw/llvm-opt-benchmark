@@ -77,8 +77,8 @@ $_ZTIN6google12base_logging12LogStreamBufE = comdat any
 @_ZTSN6google12_GLOBAL__N_115StaticStringBufILm3000EEE = internal constant [50 x i8] c"N6google12_GLOBAL__N_115StaticStringBufILm3000EEE\00", align 1
 @_ZTIN6google12_GLOBAL__N_115StaticStringBufILm3000EEE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6google12_GLOBAL__N_115StaticStringBufILm3000EEE, ptr @_ZTISt15basic_streambufIcSt11char_traitsIcEE }, align 8
 @.str.3 = private unnamed_addr constant [37 x i8] c"thread::id of a non-executing thread\00", align 1
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN6googleL9crash_bufE = internal global [3001 x i8] zeroinitializer, align 16
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 @llvm.compiler.used = appending global [2 x ptr] [ptr @_ZN6google10LogMessage9LogStreamC1EPcil, ptr @_ZN6google10LogMessage9LogStreamC2EPcil], section "llvm.metadata"
@@ -370,7 +370,7 @@ _ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit: ; preds = %44, %
   %63 = load ptr, ptr %8, align 8
   %64 = load i64, ptr %9, align 8
   call void @llvm.va_start.p0(ptr nonnull %10)
-  %65 = call i32 @vsnprintf(ptr noundef %63, i64 noundef %64, ptr noundef %3, ptr noundef nonnull %10) #15
+  %65 = call i32 @vsnprintf(ptr noundef %63, i64 noundef %64, ptr noundef readonly %3, ptr noundef nonnull %10) #15
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %77, label %67
 

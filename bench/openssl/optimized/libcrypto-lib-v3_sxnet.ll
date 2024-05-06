@@ -68,7 +68,7 @@ SXNET_add_id_asc.exit.thread:                     ; preds = %for.body
   br label %return
 
 SXNET_add_id_asc.exit:                            ; preds = %for.body
-  %call1.i = call i32 @SXNET_add_id_INTEGER(ptr noundef nonnull %sx, ptr noundef nonnull %call.i, ptr noundef %1, i32 noundef -1), !range !6
+  %call1.i = call i32 @SXNET_add_id_INTEGER(ptr noundef nonnull %sx, ptr noundef nonnull %call.i, ptr noundef %1, i32 noundef -1)
   %tobool.not = icmp eq i32 %call1.i, 0
   br i1 %tobool.not, label %return, label %for.cond
 
@@ -82,7 +82,7 @@ return:                                           ; preds = %SXNET_add_id_asc.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sxnet_i2r(ptr nocapture readnone %method, ptr nocapture noundef readonly %sx, ptr noundef %out, i32 noundef %indent) #1 {
+define internal range(i32 0, 2) i32 @sxnet_i2r(ptr nocapture readnone %method, ptr nocapture noundef readonly %sx, ptr noundef %out, i32 noundef %indent) #1 {
 entry:
   %v = alloca i64, align 8
   %0 = load ptr, ptr %sx, align 8
@@ -128,7 +128,7 @@ if.end14:                                         ; preds = %for.body
   %6 = load ptr, ptr %ids, align 8
   %call6 = call i32 @OPENSSL_sk_num(ptr noundef %6) #4
   %cmp7 = icmp slt i32 %inc, %call6
-  br i1 %cmp7, label %for.body, label %return, !llvm.loop !7
+  br i1 %cmp7, label %for.body, label %return, !llvm.loop !6
 
 return:                                           ; preds = %for.body, %if.end14, %if.end
   %retval.0 = phi i32 [ 1, %if.end ], [ 1, %if.end14 ], [ 0, %for.body ]
@@ -206,7 +206,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SXNET_add_id_asc(ptr noundef %psx, ptr noundef %zone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @SXNET_add_id_asc(ptr noundef %psx, ptr noundef %zone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %zone) #4
   %cmp = icmp eq ptr %call, null
@@ -219,7 +219,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @SXNET_add_id_INTEGER(ptr noundef %psx, ptr noundef nonnull %call, ptr noundef %user, i32 noundef %userlen), !range !6
+  %call1 = tail call i32 @SXNET_add_id_INTEGER(ptr noundef %psx, ptr noundef nonnull %call, ptr noundef %user, i32 noundef %userlen)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -236,7 +236,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SXNET_add_id_INTEGER(ptr noundef %psx, ptr noundef %zone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @SXNET_add_id_INTEGER(ptr noundef %psx, ptr noundef %zone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %psx, null
   %cmp1 = icmp eq ptr %zone, null
@@ -300,7 +300,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %3 = load ptr, ptr %ids.i, align 8
   %call1.i21 = tail call i32 @OPENSSL_sk_num(ptr noundef %3) #4
   %cmp.i = icmp slt i32 %inc.i, %call1.i21
-  br i1 %cmp.i, label %for.body.i, label %if.end30, !llvm.loop !8
+  br i1 %cmp.i, label %for.body.i, label %if.end30, !llvm.loop !7
 
 for.body.i:                                       ; preds = %if.end22, %for.cond.i
   %i.07.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %if.end22 ]
@@ -375,7 +375,7 @@ return:                                           ; preds = %err, %if.then50, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SXNET_add_id_ulong(ptr noundef %psx, i64 noundef %lzone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @SXNET_add_id_ulong(ptr noundef %psx, i64 noundef %lzone, ptr noundef %user, i32 noundef %userlen) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ASN1_INTEGER_new() #4
   %cmp = icmp eq ptr %call, null
@@ -394,7 +394,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call2 = tail call i32 @SXNET_add_id_INTEGER(ptr noundef %psx, ptr noundef nonnull %call, ptr noundef %user, i32 noundef %userlen), !range !6
+  %call2 = tail call i32 @SXNET_add_id_INTEGER(ptr noundef %psx, ptr noundef nonnull %call, ptr noundef %user, i32 noundef %userlen)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -425,7 +425,7 @@ for.cond:                                         ; preds = %for.body
   %1 = load ptr, ptr %ids, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #4
   %cmp = icmp slt i32 %inc, %call1
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !7
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.07 = phi i32 [ %inc, %for.cond ], [ 0, %entry ]
@@ -475,7 +475,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %1 = load ptr, ptr %ids.i, align 8
   %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #4
   %cmp.i = icmp slt i32 %inc.i, %call1.i
-  br i1 %cmp.i, label %for.body.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !8
+  br i1 %cmp.i, label %for.body.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !7
 
 for.body.i:                                       ; preds = %if.end, %for.cond.i
   %i.07.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %if.end ]
@@ -532,7 +532,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %1 = load ptr, ptr %ids.i, align 8
   %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #4
   %cmp.i = icmp slt i32 %inc.i, %call1.i
-  br i1 %cmp.i, label %for.body.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !8
+  br i1 %cmp.i, label %for.body.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !7
 
 for.body.i:                                       ; preds = %if.end, %for.cond.i
   %i.07.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %if.end ]
@@ -593,6 +593,5 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

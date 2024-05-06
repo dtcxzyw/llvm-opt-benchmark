@@ -149,7 +149,7 @@ _set_cond.exit.us:                                ; preds = %25, %20
   br i1 %.not86.i, label %70, label %73
 
 70:                                               ; preds = %65
-  %71 = trunc i64 %indvars.iv.i to i32
+  %71 = trunc nsw i64 %indvars.iv.i to i32
   %72 = add nsw i32 %71, -1
   br label %_set_cond.exit
 

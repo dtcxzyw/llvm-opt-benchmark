@@ -861,7 +861,7 @@ invoke.cont144:                                   ; preds = %invoke.cont84
   %56 = insertelement <2 x i48> %55, i48 %p.sroa.2.0.extract.shift.i, i64 1
   %57 = trunc <2 x i48> %56 to <2 x i16>
   %p.sroa.3.0.extract.shift.i = lshr i48 %agg.tmp127.sroa.0.0.copyload, 32
-  %p.sroa.3.0.extract.trunc.i = trunc i48 %p.sroa.3.0.extract.shift.i to i16
+  %p.sroa.3.0.extract.trunc.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i to i16
   %58 = extractelement <2 x i16> %57, i64 0
   %conv.i373 = sitofp i16 %58 to float
   %59 = extractelement <2 x i16> %57, i64 1
@@ -3254,11 +3254,11 @@ entry:
   %bpmin.sroa.2.0.extract.shift = lshr i48 %bpmin.coerce, 16
   %bpmin.sroa.2.0.extract.trunc = trunc i48 %bpmin.sroa.2.0.extract.shift to i16
   %bpmin.sroa.3.0.extract.shift = lshr i48 %bpmin.coerce, 32
-  %bpmin.sroa.3.0.extract.trunc = trunc i48 %bpmin.sroa.3.0.extract.shift to i16
+  %bpmin.sroa.3.0.extract.trunc = trunc nuw i48 %bpmin.sroa.3.0.extract.shift to i16
   tail call void @_ZN3MapC2EP8IGameDef(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %gamedef)
   store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV8DummyMap, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
   %sh.diff = lshr i48 %bpmax.coerce, 16
-  %tr.sh.diff = trunc i48 %sh.diff to i32
+  %tr.sh.diff = trunc nuw i48 %sh.diff to i32
   %conv4 = ashr i32 %tr.sh.diff, 16
   %conv70 = sext i16 %bpmin.sroa.3.0.extract.trunc to i32
   %cmp.not71 = icmp slt i32 %conv4, %conv70

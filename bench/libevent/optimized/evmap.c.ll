@@ -130,7 +130,7 @@ if.end10:                                         ; preds = %for.end, %entry
 declare void @event_mm_free_(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evmap_io_add_(ptr noundef %base, i32 noundef %fd, ptr noundef %ev) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @evmap_io_add_(ptr noundef %base, i32 noundef %fd, ptr noundef %ev) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %base, align 8
   %io2 = getelementptr inbounds i8, ptr %base, i64 808
@@ -205,7 +205,7 @@ if.then12:                                        ; preds = %do.body10
   br i1 %cmp20, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.then12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %9, i8 0, i64 14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(14) %9, i8 0, i64 14, i1 false)
   %.pre = load ptr, ptr %io2, align 8
   %arrayidx30.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %idxprom
   %.pre68 = load ptr, ptr %arrayidx30.phi.trans.insert, align 8
@@ -339,7 +339,7 @@ declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @event_warnx(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evmap_io_del_(ptr noundef %base, i32 noundef %fd, ptr nocapture noundef readonly %ev) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @evmap_io_del_(ptr noundef %base, i32 noundef %fd, ptr nocapture noundef readonly %ev) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %base, align 8
   %io2 = getelementptr inbounds i8, ptr %base, i64 808
@@ -506,7 +506,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 declare void @event_active_nolock_(ptr noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evmap_signal_add_(ptr noundef %base, i32 noundef %sig, ptr noundef %ev) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @evmap_signal_add_(ptr noundef %base, i32 noundef %sig, ptr noundef %ev) local_unnamed_addr #1 {
 entry:
   %evsigsel = getelementptr inbounds i8, ptr %base, i64 32
   %0 = load ptr, ptr %evsigsel, align 8
@@ -632,7 +632,7 @@ return:                                           ; preds = %if.end9.i, %while.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evmap_signal_del_(ptr noundef %base, i32 noundef %sig, ptr nocapture noundef readonly %ev) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @evmap_signal_del_(ptr noundef %base, i32 noundef %sig, ptr nocapture noundef readonly %ev) local_unnamed_addr #1 {
 entry:
   %evsigsel = getelementptr inbounds i8, ptr %base, i64 32
   %0 = load ptr, ptr %evsigsel, align 8
@@ -744,7 +744,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evmap_reinit_(ptr noundef %base) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evmap_reinit_(ptr noundef %base) local_unnamed_addr #1 {
 entry:
   %io.i = getelementptr inbounds i8, ptr %base, i64 808
   %nentries.i = getelementptr inbounds i8, ptr %base, i64 816
@@ -1029,12 +1029,12 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %changelist, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %changelist, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @event_changelist_add_(ptr nocapture noundef %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture noundef %p) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @event_changelist_add_(ptr nocapture noundef %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture noundef %p) local_unnamed_addr #1 {
 entry:
   %changelist1 = getelementptr inbounds i8, ptr %base, i64 16
   %conv15 = zext i16 %events to i32
@@ -1129,7 +1129,7 @@ return:                                           ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @event_changelist_del_(ptr nocapture noundef %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture noundef %p) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @event_changelist_del_(ptr nocapture noundef %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture noundef %p) local_unnamed_addr #1 {
 entry:
   %changelist1 = getelementptr inbounds i8, ptr %base, i64 16
   %conv21 = zext i16 %events to i32

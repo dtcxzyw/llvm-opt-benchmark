@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [46 x i8] c"Io_WriteBench: EXDC is not written (warning).\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Io_WriteBench(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Io_WriteBench(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -55,7 +55,7 @@ define noundef i32 @Io_WriteBench(ptr nocapture noundef readonly %0, ptr nocaptu
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %7, align 8
-  %16 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   %17 = tail call ptr @Nm_ManFindNameById(ptr noundef %15, i32 noundef %16) #6
   %.not21.i = icmp eq ptr %17, null
   br i1 %.not21.i, label %.critedge2.i, label %.lr.ph.i
@@ -297,7 +297,7 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   br i1 %132, label %Extra_ProgressBarUpdate.exit.i, label %133
 
 133:                                              ; preds = %129, %128
-  %134 = trunc i64 %indvars.iv91.i to i32
+  %134 = trunc nuw nsw i64 %indvars.iv91.i to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %115, i32 noundef %134, ptr noundef null) #6
   br label %Extra_ProgressBarUpdate.exit.i
 
@@ -459,7 +459,7 @@ declare ptr @Extra_TimeStamp(...) local_unnamed_addr #2
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Io_WriteBenchLut(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Io_WriteBenchLut(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -483,7 +483,7 @@ define noundef i32 @Io_WriteBenchLut(ptr nocapture noundef readonly %0, ptr noca
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %7, align 8
-  %16 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   %17 = tail call ptr @Nm_ManFindNameById(ptr noundef %15, i32 noundef %16) #6
   %.not21.i = icmp eq ptr %17, null
   br i1 %.not21.i, label %.critedge2.i, label %.lr.ph.i
@@ -732,7 +732,7 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   br i1 %136, label %Extra_ProgressBarUpdate.exit.i, label %137
 
 137:                                              ; preds = %133, %132
-  %138 = trunc i64 %indvars.iv94.i to i32
+  %138 = trunc nuw nsw i64 %indvars.iv94.i to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %119, i32 noundef %138, ptr noundef null) #6
   br label %Extra_ProgressBarUpdate.exit.i
 
@@ -790,7 +790,7 @@ Extra_TruthNot.exit.i.i:                          ; preds = %select.unfold.i.i.i
 
 select.unfold.i56.i.i:                            ; preds = %166, %Extra_TruthNot.exit.i.i
   %indvars.iv.i57.i.i = phi i64 [ %163, %Extra_TruthNot.exit.i.i ], [ %167, %166 ]
-  %164 = trunc i64 %indvars.iv.i57.i.i to i32
+  %164 = trunc nuw i64 %indvars.iv.i57.i.i to i32
   %165 = icmp sgt i32 %164, 0
   br i1 %165, label %166, label %Extra_TruthIsConst0.exit.i.i
 
@@ -819,7 +819,7 @@ Extra_TruthIsConst0.exit.i.i:                     ; preds = %select.unfold.i56.i
 
 select.unfold.i59.i.i:                            ; preds = %166, %180
   %indvars.iv.i60.i.i = phi i64 [ %181, %180 ], [ %163, %166 ]
-  %178 = trunc i64 %indvars.iv.i60.i.i to i32
+  %178 = trunc nuw i64 %indvars.iv.i60.i.i to i32
   %179 = icmp sgt i32 %178, 0
   br i1 %179, label %180, label %Extra_TruthIsConst1.exit.i.i
 

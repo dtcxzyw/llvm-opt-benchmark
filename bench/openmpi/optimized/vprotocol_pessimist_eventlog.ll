@@ -468,7 +468,7 @@ define void @ompi_vprotocol_pessimist_delivery_replay(i64 noundef %0, ptr nounde
 
 38:                                               ; preds = %26
   %39 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   %41 = getelementptr inbounds i8, ptr %.03255, i64 16
   %42 = load volatile ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %.03255, i64 24

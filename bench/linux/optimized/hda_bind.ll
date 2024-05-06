@@ -28,7 +28,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_hda_code
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable___hda_codec_driver_register368, ptr @__UNIQUE_ID___addressable_hda_codec_driver_unregister369, ptr @__UNIQUE_ID___addressable_snd_hda_codec_configure370, ptr @__UNIQUE_ID___addressable_snd_hda_codec_set_name361, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hda_codec_set_name(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_set_name(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %32, label %4
 
@@ -423,7 +423,7 @@ define internal void @hda_codec_driver_shutdown(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @hda_codec_match(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define internal noundef range(i32 0, 2) i32 @hda_codec_match(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 972
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -517,7 +517,7 @@ define dso_local void @hda_codec_driver_unregister(ptr noundef %0) #0 align 16 {
 declare dso_local void @driver_unregister(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hda_codec_configure(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_configure(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1432
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1

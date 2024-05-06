@@ -29,7 +29,7 @@ define dso_local zeroext i1 @qid_eq(i64 %0, i64 %1) #0 align 16 {
   br i1 %7, label %8, label %17
 
 8:                                                ; preds = %2
-  %9 = trunc i64 %4 to i32
+  %9 = trunc nuw i64 %4 to i32
   switch i32 %9, label %16 [
     i32 0, label %10
     i32 1, label %12
@@ -62,7 +62,7 @@ define dso_local zeroext i1 @qid_eq(i64 %0, i64 %1) #0 align 16 {
 define dso_local zeroext i1 @qid_lt(i64 %0, i64 %1) #0 align 16 {
   %3 = trunc i64 %0 to i32
   %4 = lshr i64 %0, 32
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw i64 %4 to i32
   %6 = trunc i64 %1 to i32
   %7 = lshr i64 %1, 32
   %8 = icmp ult i64 %4, %7
@@ -104,7 +104,7 @@ define dso_local zeroext i1 @qid_lt(i64 %0, i64 %1) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @from_kqid(ptr nocapture readnone %0, i64 %1) #0 align 16 {
   %3 = lshr i64 %1, 32
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw i64 %3 to i32
   %5 = icmp ult i32 %4, 3
   br i1 %5, label %7, label %6
 
@@ -122,7 +122,7 @@ define dso_local i32 @from_kqid(ptr nocapture readnone %0, i64 %1) #0 align 16 {
 define dso_local i32 @from_kqid_munged(ptr nocapture readnone %0, i64 %1) #0 align 16 {
   %3 = trunc i64 %1 to i32
   %4 = lshr i64 %1, 32
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw i64 %4 to i32
   switch i32 %5, label %17 [
     i32 0, label %6
     i32 1, label %10
@@ -159,7 +159,7 @@ define dso_local i32 @from_kqid_munged(ptr nocapture readnone %0, i64 %1) #0 ali
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @qid_valid(i64 %0) #0 align 16 {
   %2 = lshr i64 %0, 32
-  %3 = trunc i64 %2 to i32
+  %3 = trunc nuw i64 %2 to i32
   %4 = icmp ult i32 %3, 3
   br i1 %4, label %6, label %5
 

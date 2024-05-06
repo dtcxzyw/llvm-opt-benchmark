@@ -1000,7 +1000,7 @@ if.end44:                                         ; preds = %if.end168.i, %cond.
 for.body.preheader.i:                             ; preds = %if.end44
   %68 = zext nneg i32 %shr.i495 to i64
   %69 = shl nuw nsw i64 %68, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %res1, i8 0, i64 %69, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %res1, i8 0, i64 %69, i1 false)
   br label %for.body3.i.preheader
 
 for.body3.i.preheader:                            ; preds = %for.body.preheader.i, %if.end44
@@ -1104,7 +1104,7 @@ from_words52.exit:                                ; preds = %for.body.i36.i, %fo
 for.body.preheader.i573:                          ; preds = %from_words52.exit
   %75 = zext nneg i32 %shr.i495 to i64
   %76 = shl nuw nsw i64 %75, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %res2, i8 0, i64 %76, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %res2, i8 0, i64 %76, i1 false)
   br label %for.body3.i560.preheader
 
 for.body3.i560.preheader:                         ; preds = %for.body.preheader.i573, %from_words52.exit

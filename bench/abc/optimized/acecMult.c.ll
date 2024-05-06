@@ -785,7 +785,7 @@ define void @Acec_MultFuncTest4() local_unnamed_addr #0 {
   %16 = load ptr, ptr @stdout, align 8
   call void @Extra_PrintHex(ptr noundef %16, ptr noundef nonnull %1, i32 noundef 4) #10
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = urem i32 %18, 12
   %20 = icmp eq i32 %19, 11
   br i1 %20, label %21, label %22
@@ -874,7 +874,7 @@ define noalias noundef ptr @Acec_MultCollectInputs(ptr nocapture noundef readonl
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph30.i
   %indvars.iv35.i = phi i64 [ 0, %.lr.ph30.i ], [ %indvars.iv.next36.i, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph30.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %27 = trunc i64 %indvars.iv35.i to i32
+  %27 = trunc nuw nsw i64 %indvars.iv35.i to i32
   %.val25.i = load ptr, ptr %26, align 8
   br label %28
 
@@ -893,7 +893,7 @@ define noalias noundef ptr @Acec_MultCollectInputs(ptr nocapture noundef readonl
   %38 = getelementptr inbounds i32, ptr %.val25.i, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = icmp slt i32 %33, %39
-  %41 = trunc i64 %indvars.iv32.i to i32
+  %41 = trunc nuw nsw i64 %indvars.iv32.i to i32
   %spec.select.i = select i1 %40, i32 %41, i32 %.02327.i
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count.i
@@ -1052,7 +1052,7 @@ Vec_IntStart.exit153:                             ; preds = %Vec_IntAlloc.exit.t
   store i32 %65, ptr %63, align 4
   %.val139 = load i64, ptr %58, align 4
   %66 = lshr i64 %.val139, 32
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   %68 = and i32 %67, 536870911
   %69 = sub nsw i32 %56, %68
   %70 = sext i32 %69 to i64
@@ -1097,7 +1097,7 @@ Vec_IntStart.exit153:                             ; preds = %Vec_IntAlloc.exit.t
 
 .lr.ph184:                                        ; preds = %80
   %84 = getelementptr i8, ptr %81, i64 8
-  %85 = trunc i64 %indvars.iv198 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv198 to i32
   br label %86
 
 86:                                               ; preds = %.lr.ph184, %187
@@ -1126,7 +1126,7 @@ Vec_IntStart.exit153:                             ; preds = %Vec_IntAlloc.exit.t
 
 101:                                              ; preds = %86
   %102 = lshr i64 %.val132, 32
-  %103 = trunc i64 %102 to i32
+  %103 = trunc nuw i64 %102 to i32
   %104 = and i32 %103, 536870911
   %105 = sub nsw i32 %89, %104
   %106 = sext i32 %105 to i64
@@ -1149,7 +1149,7 @@ Vec_IntStart.exit153:                             ; preds = %Vec_IntAlloc.exit.t
   %116 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val128, i64 %90
   %.val141 = load i64, ptr %116, align 4
   %117 = lshr i64 %.val141, 32
-  %118 = trunc i64 %117 to i32
+  %118 = trunc nuw i64 %117 to i32
   %119 = and i32 %118, 536870911
   %120 = sub nsw i32 %89, %119
   %121 = sext i32 %120 to i64
@@ -1164,7 +1164,7 @@ Vec_IntStart.exit153:                             ; preds = %Vec_IntAlloc.exit.t
   %127 = and i32 %126, 536870911
   %128 = sub nsw i32 %89, %127
   %129 = lshr i64 %.val134, 32
-  %130 = trunc i64 %129 to i32
+  %130 = trunc nuw i64 %129 to i32
   %131 = and i32 %130, 536870911
   %132 = sub nsw i32 %89, %131
   %133 = load i32, ptr %32, align 4
@@ -1386,7 +1386,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %223, ptr %36, align 4
   %224 = sext i32 %199 to i64
   %225 = getelementptr inbounds i32, ptr %222, i64 %224
-  %226 = trunc i64 %indvars.iv201 to i32
+  %226 = trunc nuw nsw i64 %indvars.iv201 to i32
   store i32 %226, ptr %225, align 4
   %.val109 = load ptr, ptr %79, align 8
   %227 = getelementptr inbounds i32, ptr %.val109, i64 %indvars.iv201
@@ -1419,7 +1419,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph30.i
   %indvars.iv35.i = phi i64 [ 0, %.lr.ph30.i ], [ %indvars.iv.next36.i, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph30.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %235 = trunc i64 %indvars.iv35.i to i32
+  %235 = trunc nuw nsw i64 %indvars.iv35.i to i32
   br label %236
 
 236:                                              ; preds = %236, %.lr.ph.i
@@ -1437,7 +1437,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %246 = getelementptr inbounds i32, ptr %.val25.i, i64 %245
   %247 = load i32, ptr %246, align 4
   %248 = icmp slt i32 %241, %247
-  %249 = trunc i64 %indvars.iv32.i to i32
+  %249 = trunc nuw nsw i64 %indvars.iv32.i to i32
   %spec.select.i = select i1 %248, i32 %249, i32 %.02327.i
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count.i
@@ -1825,7 +1825,7 @@ Vec_IntStart.exit135:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %75
-  %80 = trunc i64 %indvars.iv165 to i32
+  %80 = trunc nuw nsw i64 %indvars.iv165 to i32
   %81 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %80, i32 noundef %77)
   %.pre = load i32, ptr %13, align 8
   br label %82
@@ -1870,8 +1870,8 @@ Vec_IntStart.exit135:                             ; preds = %Vec_IntAlloc.exit.t
 
 .lr.ph156:                                        ; preds = %92
   %96 = getelementptr i8, ptr %93, i64 8
-  %97 = trunc i64 %indvars.iv174 to i32
-  %98 = trunc i64 %indvars.iv174 to i32
+  %97 = trunc nuw nsw i64 %indvars.iv174 to i32
+  %98 = trunc nuw nsw i64 %indvars.iv174 to i32
   br label %99
 
 99:                                               ; preds = %.lr.ph156, %147
@@ -2017,7 +2017,7 @@ Vec_IntStart.exit135:                             ; preds = %Vec_IntAlloc.exit.t
   %158 = sitofp i32 %157 to double
   %159 = sitofp i32 %154 to double
   %160 = fdiv double %158, %159
-  %161 = trunc i64 %indvars.iv177 to i32
+  %161 = trunc nuw nsw i64 %indvars.iv177 to i32
   %162 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %161, i32 noundef %154, double noundef %160)
   %.val.pre = load i32, ptr %43, align 4
   br label %.critedge2
@@ -2195,7 +2195,7 @@ Vec_WrdStart.exit:                                ; preds = %Vec_BitStart.exit, 
   br i1 %or.cond, label %56, label %49
 
 56:                                               ; preds = %50
-  %57 = trunc i64 %indvars.iv50 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv50 to i32
   %58 = and i32 %57, 31
   %59 = shl nuw i32 1, %58
   %60 = lshr i64 %indvars.iv50, 5
@@ -2259,7 +2259,7 @@ define internal fastcc i32 @Abc_Tt6MinBase(ptr nocapture noundef %0, ptr noundef
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %35 ], [ 0, %.lr.ph ]
   %.035.us = phi i32 [ %.1.us, %35 ], [ 0, %.lr.ph ]
   %.02431.us = phi i64 [ %.2.us, %35 ], [ %4, %.lr.ph ]
-  %6 = trunc i64 %indvars.iv40 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv40 to i32
   %7 = shl nuw i32 1, %6
   %8 = zext nneg i32 %7 to i64
   %9 = lshr i64 %.02431.us, %8
@@ -2310,7 +2310,7 @@ define internal fastcc i32 @Abc_Tt6MinBase(ptr nocapture noundef %0, ptr noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %.lr.ph ]
   %.035 = phi i32 [ %.1, %68 ], [ 0, %.lr.ph ]
   %.02431 = phi i64 [ %.2, %68 ], [ %4, %.lr.ph ]
-  %36 = trunc i64 %indvars.iv to i32
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = shl nuw i32 1, %36
   %38 = zext nneg i32 %37 to i64
   %39 = lshr i64 %.02431, %38
@@ -2403,7 +2403,7 @@ define void @Acec_MultFindPPs_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2
   tail call void @Acec_MultFindPPs_rec(ptr noundef nonnull %0, i32 noundef %17, ptr noundef %2)
   %.val16 = load i64, ptr %6, align 4
   %18 = lshr i64 %.val16, 32
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw i64 %18 to i32
   %20 = and i32 %19, 536870911
   %21 = sub nsw i32 %1, %20
   tail call void @Acec_MultFindPPs_rec(ptr noundef nonnull %0, i32 noundef %21, ptr noundef %2)
@@ -2579,7 +2579,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %14
   br i1 %or.cond, label %47, label %40
 
 47:                                               ; preds = %41
-  %48 = trunc i64 %indvars.iv49 to i32
+  %48 = trunc nuw nsw i64 %indvars.iv49 to i32
   tail call void @Acec_MultFindPPs_rec(ptr noundef %0, i32 noundef %48, ptr noundef nonnull %3)
   %49 = add nsw i32 %.047, 1
   br label %.critedge

@@ -1629,7 +1629,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !10
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 
@@ -2545,7 +2545,7 @@ lpad:                                             ; preds = %invoke.cont3, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly9AsyncBase6submitENS_5RangeIPPNS_11AsyncBaseOpEEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr %ops.coerce0, ptr %ops.coerce1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, -2147483648) i32 @_ZN5folly9AsyncBase6submitENS_5RangeIPPNS_11AsyncBaseOpEEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr %ops.coerce0, ptr %ops.coerce1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp = alloca i32, align 4

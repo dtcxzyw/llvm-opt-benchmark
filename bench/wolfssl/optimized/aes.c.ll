@@ -43,16 +43,16 @@ if.end.i.i:                                       ; preds = %if.end4, %if.end4, 
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %reg2.i.i, ptr noundef nonnull align 1 dereferenceable(16) %iv, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %reg2.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %iv, i64 16, i1 false)
   br label %if.end16.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %reg2.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %reg2.i.i, i8 0, i64 16, i1 false)
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.else.i.i, %if.then1.i.i
   %conv.i = zext nneg i32 %keylen to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %aes, ptr align 1 %userKey, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %aes, ptr readonly align 1 %userKey, i64 %conv.i, i1 false)
   %0 = ptrtoint ptr %aes to i64
   %1 = and i64 %0, 3
   %or.cond.i.i = icmp eq i64 %1, 0
@@ -79,7 +79,7 @@ if.else.i24.i:                                    ; preds = %if.end16.i
 
 if.else.i.i.thread.i:                             ; preds = %if.else.i24.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %temp.i.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %aes, ptr align 1 %userKey, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %aes, ptr readonly align 1 %userKey, i64 %conv.i, i1 false)
   br label %ByteReverseWords.exit.i.i
 
 for.body9.preheader.i.i:                          ; preds = %if.else.i24.i
@@ -98,7 +98,7 @@ for.body9.i.i:                                    ; preds = %for.body9.i.i, %for
 
 ByteReverseWords.exit.i:                          ; preds = %for.body9.i.i, %for.body.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %temp.i.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %aes, ptr align 1 %userKey, i64 %conv.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %aes, ptr readonly align 1 %userKey, i64 %conv.i, i1 false)
   br i1 %or.cond.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %ByteReverseWords.exit.i
@@ -658,11 +658,11 @@ if.end.i33.i:                                     ; preds = %for.body260.i.i, %F
   br i1 %tobool.not.i.i, label %if.else.i38.i, label %if.then1.i36.i
 
 if.then1.i36.i:                                   ; preds = %if.end.i33.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %reg2.i.i, ptr noundef nonnull align 1 dereferenceable(16) %iv, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %reg2.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %iv, i64 16, i1 false)
   br label %return
 
 if.else.i38.i:                                    ; preds = %if.end.i33.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %reg2.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %reg2.i.i, i8 0, i64 16, i1 false)
   br label %return
 
 return:                                           ; preds = %if.else.i38.i, %if.then1.i36.i, %if.end4, %entry
@@ -671,7 +671,7 @@ return:                                           ; preds = %if.else.i38.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_AesSetIV(ptr noundef writeonly %aes, ptr noundef readonly %iv) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_AesSetIV(ptr noundef writeonly %aes, ptr noundef readonly %iv) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %aes, null
   br i1 %cmp, label %return, label %if.end
@@ -701,7 +701,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_AesCbcEncrypt(ptr noundef %aes, ptr noundef writeonly %out, ptr noundef %in, i32 noundef %sz) local_unnamed_addr #4 {
+define i32 @wc_AesCbcEncrypt(ptr noundef %aes, ptr noundef writeonly %out, ptr noundef %in, i32 noundef %sz) local_unnamed_addr #4 {
 entry:
   %in31 = ptrtoint ptr %in to i64
   %cmp = icmp eq ptr %aes, null
@@ -766,7 +766,7 @@ for.body.i.i.us:                                  ; preds = %while.body.us, %for
   br i1 %exitcond.not.i.i.us, label %xorbuf.exit.us, label %for.body.i.i.us, !llvm.loop !12
 
 xorbuf.exit.us:                                   ; preds = %for.body.i.us, %for.body.i.i.us
-  %call.us = tail call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef nonnull %reg, ptr noundef nonnull %reg), !range !13
+  %call.us = tail call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef nonnull %reg, ptr noundef nonnull %reg)
   %cmp11.not.us = icmp eq i32 %call.us, 0
   br i1 %cmp11.not.us, label %if.end13.us, label %return
 
@@ -776,7 +776,7 @@ if.end13.us:                                      ; preds = %xorbuf.exit.us
   %add.ptr16.us = getelementptr inbounds i8, ptr %in.addr.023.us, i64 16
   %dec.us = add nsw i32 %dec24.us, -1
   %tobool.not.us = icmp eq i32 %dec24.us, 0
-  br i1 %tobool.not.us, label %return, label %while.body.us, !llvm.loop !14
+  br i1 %tobool.not.us, label %return, label %while.body.us, !llvm.loop !13
 
 while.body:                                       ; preds = %while.body.preheader, %if.end13
   %dec24 = phi i32 [ %dec, %if.end13 ], [ %dec20, %while.body.preheader ]
@@ -796,7 +796,7 @@ while.body.i:                                     ; preds = %while.body, %while.
   store i8 %xor17.i, ptr %b.022.i, align 1
   %dec.i = add nsw i32 %count.addr.021.i, -1
   %cmp4.not.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp4.not.i, label %xorbuf.exit, label %while.body.i, !llvm.loop !15
+  br i1 %cmp4.not.i, label %xorbuf.exit, label %while.body.i, !llvm.loop !14
 
 for.body.i:                                       ; preds = %while.body, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %while.body ]
@@ -811,7 +811,7 @@ for.body.i:                                       ; preds = %while.body, %for.bo
   br i1 %exitcond.not.i, label %xorbuf.exit, label %for.body.i, !llvm.loop !11
 
 xorbuf.exit:                                      ; preds = %for.body.i, %while.body.i
-  %call = tail call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef nonnull %reg, ptr noundef nonnull %reg), !range !13
+  %call = tail call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef nonnull %reg, ptr noundef nonnull %reg)
   %cmp11.not = icmp eq i32 %call, 0
   br i1 %cmp11.not, label %if.end13, label %return
 
@@ -821,7 +821,7 @@ if.end13:                                         ; preds = %xorbuf.exit
   %add.ptr16 = getelementptr inbounds i8, ptr %in.addr.023, i64 16
   %dec = add nsw i32 %dec24, -1
   %tobool.not = icmp eq i32 %dec24, 0
-  br i1 %tobool.not, label %return, label %while.body, !llvm.loop !14
+  br i1 %tobool.not, label %return, label %while.body, !llvm.loop !13
 
 return:                                           ; preds = %xorbuf.exit, %if.end13, %xorbuf.exit.us, %if.end13.us, %if.end, %entry
   %retval.0 = phi i32 [ -173, %entry ], [ 0, %if.end ], [ %call.us, %xorbuf.exit.us ], [ 0, %if.end13.us ], [ %call, %xorbuf.exit ], [ 0, %if.end13 ]
@@ -829,7 +829,7 @@ return:                                           ; preds = %xorbuf.exit, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @wc_AesEncrypt(ptr noundef readonly %aes, ptr nocapture noundef readonly %inBlock, ptr nocapture noundef writeonly %outBlock) unnamed_addr #1 {
+define internal fastcc range(i32 -226, 1) i32 @wc_AesEncrypt(ptr noundef readonly %aes, ptr nocapture noundef readonly %inBlock, ptr nocapture noundef writeonly %outBlock) unnamed_addr #1 {
 entry:
   %rounds = getelementptr inbounds i8, ptr %aes, i64 240
   %0 = load i32, ptr %rounds, align 16
@@ -3717,7 +3717,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
   store i8 %xor17.i, ptr %b.022.i, align 1
   %dec.i = add nsw i32 %count.addr.021.i, -1
   %cmp4.not.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp4.not.i, label %xorbuf.exit, label %while.body.i, !llvm.loop !15
+  br i1 %cmp4.not.i, label %xorbuf.exit, label %while.body.i, !llvm.loop !14
 
 for.body.i.i:                                     ; preds = %while.cond.preheader.i, %for.body.i.i
   %tpb.sroa.0.0.i = phi ptr [ %incdec.ptr1.i.i, %for.body.i.i ], [ %out.addr.028, %while.cond.preheader.i ]
@@ -3750,7 +3750,7 @@ xorbuf.exit:                                      ; preds = %for.body.i, %while.
   %add.ptr = getelementptr inbounds i8, ptr %out.addr.028, i64 16
   %add.ptr18 = getelementptr inbounds i8, ptr %in.addr.029, i64 16
   %tobool9.not = icmp eq i32 %dec30, 0
-  br i1 %tobool9.not, label %return, label %while.body, !llvm.loop !16
+  br i1 %tobool9.not, label %return, label %while.body, !llvm.loop !15
 
 return:                                           ; preds = %while.body, %xorbuf.exit, %if.end6, %if.end, %entry
   %retval.0 = phi i32 [ -173, %entry ], [ 0, %if.end ], [ -173, %if.end6 ], [ -226, %while.body ], [ 0, %xorbuf.exit ]
@@ -3781,7 +3781,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   store i8 %or.i, ptr %arrayidx4.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %RIGHTSHIFTX.exit, label %for.body.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %RIGHTSHIFTX.exit, label %for.body.i, !llvm.loop !16
 
 RIGHTSHIFTX.exit:                                 ; preds = %for.body.i
   %2 = and i8 %0, 1
@@ -3807,7 +3807,7 @@ for.body.i62:                                     ; preds = %for.body.i62, %RIGH
   store i8 %or.i68, ptr %arrayidx4.i65, align 1
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i63, 1
   %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, 16
-  br i1 %exitcond.not.i70, label %RIGHTSHIFTX.exit73, label %for.body.i62, !llvm.loop !17
+  br i1 %exitcond.not.i70, label %RIGHTSHIFTX.exit73, label %for.body.i62, !llvm.loop !16
 
 RIGHTSHIFTX.exit73:                               ; preds = %for.body.i62
   %7 = and i8 %5, 1
@@ -3833,7 +3833,7 @@ for.body.i75:                                     ; preds = %for.body.i75, %RIGH
   store i8 %or.i81, ptr %arrayidx4.i78, align 1
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond.not.i83 = icmp eq i64 %indvars.iv.next.i82, 16
-  br i1 %exitcond.not.i83, label %RIGHTSHIFTX.exit86, label %for.body.i75, !llvm.loop !17
+  br i1 %exitcond.not.i83, label %RIGHTSHIFTX.exit86, label %for.body.i75, !llvm.loop !16
 
 RIGHTSHIFTX.exit86:                               ; preds = %for.body.i75
   %12 = and i8 %10, 1
@@ -3849,7 +3849,7 @@ RIGHTSHIFTX.exit86:                               ; preds = %for.body.i75
   %16 = ptrtoint ptr %arrayidx17 to i64
   %rem1.i = and i64 %16, 7
   %cmp.i = icmp eq i64 %rem.i, %rem1.i
-  br i1 %cmp.i, label %while.cond.preheader.i, label %xorbuf.exit.loopexit625
+  br i1 %cmp.i, label %while.cond.preheader.i, label %xorbuf.exit.loopexit615
 
 while.cond.preheader.i:                           ; preds = %RIGHTSHIFTX.exit86
   %cmp3.i.not = icmp eq i64 %rem.i, 0
@@ -3867,7 +3867,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
   store i8 %xor17.i, ptr %b.022.i, align 1
   %dec.i = add nsw i32 %count.addr.021.i, -1
   %cmp4.not.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp4.not.i, label %xorbuf.exit, label %while.body.i, !llvm.loop !15
+  br i1 %cmp4.not.i, label %xorbuf.exit, label %while.body.i, !llvm.loop !14
 
 for.body.i.i:                                     ; preds = %while.cond.preheader.i, %for.body.i.i
   %tpb.sroa.0.0.i = phi ptr [ %incdec.ptr1.i.i, %for.body.i.i ], [ %arrayidx23, %while.cond.preheader.i ]
@@ -3883,37 +3883,37 @@ for.body.i.i:                                     ; preds = %while.cond.preheade
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, 2
   br i1 %exitcond.not.i.i, label %xorbuf.exit, label %for.body.i.i, !llvm.loop !12
 
-xorbuf.exit.loopexit625:                          ; preds = %RIGHTSHIFTX.exit86
+xorbuf.exit.loopexit615:                          ; preds = %RIGHTSHIFTX.exit86
   %.pre = load i8, ptr %arrayidx23, align 1
   %xor1516.i = xor i8 %.pre, %xor.i85
   store i8 %xor1516.i, ptr %arrayidx23, align 1
   br label %xorbuf.exit
 
-xorbuf.exit:                                      ; preds = %while.body.i, %for.body.i.i, %xorbuf.exit.loopexit625
+xorbuf.exit:                                      ; preds = %while.body.i, %for.body.i.i, %xorbuf.exit.loopexit615
   %arrayidx31 = getelementptr inbounds i8, ptr %gcm, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx31, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx5, i64 16, i1 false)
   %21 = ptrtoint ptr %arrayidx31 to i64
   %rem.i92 = and i64 %21, 7
   %cmp.i94 = icmp eq i64 %rem.i92, %rem1.i
-  br i1 %cmp.i94, label %while.cond.preheader.i109, label %xorbuf.exit135.loopexit623
+  br i1 %cmp.i94, label %while.cond.preheader.i109, label %xorbuf.exit134.loopexit613
 
 while.cond.preheader.i109:                        ; preds = %xorbuf.exit
   %cmp3.i110.not = icmp eq i64 %rem1.i, 0
-  br i1 %cmp3.i110.not, label %for.body.i.i112, label %while.body.i126
+  br i1 %cmp3.i110.not, label %for.body.i.i112, label %while.body.i125
 
-while.body.i126:                                  ; preds = %while.cond.preheader.i109, %while.body.i126
-  %m.023.i127 = phi ptr [ %incdec.ptr.i130, %while.body.i126 ], [ %arrayidx17, %while.cond.preheader.i109 ]
-  %b.022.i128 = phi ptr [ %incdec.ptr5.i131, %while.body.i126 ], [ %arrayidx31, %while.cond.preheader.i109 ]
-  %count.addr.021.i129 = phi i32 [ %dec.i133, %while.body.i126 ], [ 16, %while.cond.preheader.i109 ]
-  %incdec.ptr.i130 = getelementptr inbounds i8, ptr %m.023.i127, i64 1
-  %22 = load i8, ptr %m.023.i127, align 1
-  %incdec.ptr5.i131 = getelementptr inbounds i8, ptr %b.022.i128, i64 1
-  %23 = load i8, ptr %b.022.i128, align 1
-  %xor17.i132 = xor i8 %23, %22
-  store i8 %xor17.i132, ptr %b.022.i128, align 1
-  %dec.i133 = add nsw i32 %count.addr.021.i129, -1
-  %cmp4.not.i134 = icmp eq i32 %dec.i133, 0
-  br i1 %cmp4.not.i134, label %xorbuf.exit135, label %while.body.i126, !llvm.loop !15
+while.body.i125:                                  ; preds = %while.cond.preheader.i109, %while.body.i125
+  %m.023.i126 = phi ptr [ %incdec.ptr.i129, %while.body.i125 ], [ %arrayidx17, %while.cond.preheader.i109 ]
+  %b.022.i127 = phi ptr [ %incdec.ptr5.i130, %while.body.i125 ], [ %arrayidx31, %while.cond.preheader.i109 ]
+  %count.addr.021.i128 = phi i32 [ %dec.i132, %while.body.i125 ], [ 16, %while.cond.preheader.i109 ]
+  %incdec.ptr.i129 = getelementptr inbounds i8, ptr %m.023.i126, i64 1
+  %22 = load i8, ptr %m.023.i126, align 1
+  %incdec.ptr5.i130 = getelementptr inbounds i8, ptr %b.022.i127, i64 1
+  %23 = load i8, ptr %b.022.i127, align 1
+  %xor17.i131 = xor i8 %23, %22
+  store i8 %xor17.i131, ptr %b.022.i127, align 1
+  %dec.i132 = add nsw i32 %count.addr.021.i128, -1
+  %cmp4.not.i133 = icmp eq i32 %dec.i132, 0
+  br i1 %cmp4.not.i133, label %xorbuf.exit134, label %while.body.i125, !llvm.loop !14
 
 for.body.i.i112:                                  ; preds = %while.cond.preheader.i109, %for.body.i.i112
   %tpb.sroa.0.0.i113 = phi ptr [ %incdec.ptr1.i.i117, %for.body.i.i112 ], [ %arrayidx31, %while.cond.preheader.i109 ]
@@ -3927,443 +3927,443 @@ for.body.i.i112:                                  ; preds = %while.cond.preheade
   store i64 %xor.i.i118, ptr %tpb.sroa.0.0.i113, align 8
   %inc.i.i119 = add nuw nsw i32 %i.03.i.i115, 1
   %exitcond.not.i.i120 = icmp eq i32 %inc.i.i119, 2
-  br i1 %exitcond.not.i.i120, label %xorbuf.exit135, label %for.body.i.i112, !llvm.loop !12
+  br i1 %exitcond.not.i.i120, label %xorbuf.exit134, label %for.body.i.i112, !llvm.loop !12
 
-xorbuf.exit135.loopexit623:                       ; preds = %xorbuf.exit
-  %.pre629 = load i8, ptr %arrayidx31, align 1
-  %.pre628 = load i8, ptr %arrayidx17, align 1
-  %xor1516.i106 = xor i8 %.pre629, %.pre628
+xorbuf.exit134.loopexit613:                       ; preds = %xorbuf.exit
+  %.pre619 = load i8, ptr %arrayidx31, align 1
+  %.pre618 = load i8, ptr %arrayidx17, align 1
+  %xor1516.i106 = xor i8 %.pre619, %.pre618
   store i8 %xor1516.i106, ptr %arrayidx31, align 1
-  br label %xorbuf.exit135
+  br label %xorbuf.exit134
 
-xorbuf.exit135:                                   ; preds = %while.body.i126, %for.body.i.i112, %xorbuf.exit135.loopexit623
+xorbuf.exit134:                                   ; preds = %while.body.i125, %for.body.i.i112, %xorbuf.exit134.loopexit613
   %arrayidx39 = getelementptr inbounds i8, ptr %gcm, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx39, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx5, i64 16, i1 false)
   %26 = ptrtoint ptr %arrayidx39 to i64
-  %rem.i136 = and i64 %26, 7
+  %rem.i135 = and i64 %26, 7
   %27 = ptrtoint ptr %arrayidx11 to i64
-  %rem1.i137 = and i64 %27, 7
-  %cmp.i138 = icmp eq i64 %rem.i136, %rem1.i137
-  br i1 %cmp.i138, label %while.cond.preheader.i153, label %xorbuf.exit179.loopexit621
+  %rem1.i136 = and i64 %27, 7
+  %cmp.i137 = icmp eq i64 %rem.i135, %rem1.i136
+  br i1 %cmp.i137, label %while.cond.preheader.i152, label %xorbuf.exit177.loopexit611
 
-while.cond.preheader.i153:                        ; preds = %xorbuf.exit135
-  %cmp3.i154.not = icmp eq i64 %rem.i136, 0
-  br i1 %cmp3.i154.not, label %for.body.i.i156, label %while.body.i170
+while.cond.preheader.i152:                        ; preds = %xorbuf.exit134
+  %cmp3.i153.not = icmp eq i64 %rem.i135, 0
+  br i1 %cmp3.i153.not, label %for.body.i.i155, label %while.body.i168
 
-while.body.i170:                                  ; preds = %while.cond.preheader.i153, %while.body.i170
-  %m.023.i171 = phi ptr [ %incdec.ptr.i174, %while.body.i170 ], [ %arrayidx11, %while.cond.preheader.i153 ]
-  %b.022.i172 = phi ptr [ %incdec.ptr5.i175, %while.body.i170 ], [ %arrayidx39, %while.cond.preheader.i153 ]
-  %count.addr.021.i173 = phi i32 [ %dec.i177, %while.body.i170 ], [ 16, %while.cond.preheader.i153 ]
-  %incdec.ptr.i174 = getelementptr inbounds i8, ptr %m.023.i171, i64 1
-  %28 = load i8, ptr %m.023.i171, align 1
-  %incdec.ptr5.i175 = getelementptr inbounds i8, ptr %b.022.i172, i64 1
-  %29 = load i8, ptr %b.022.i172, align 1
-  %xor17.i176 = xor i8 %29, %28
-  store i8 %xor17.i176, ptr %b.022.i172, align 1
-  %dec.i177 = add nsw i32 %count.addr.021.i173, -1
-  %cmp4.not.i178 = icmp eq i32 %dec.i177, 0
-  br i1 %cmp4.not.i178, label %xorbuf.exit179, label %while.body.i170, !llvm.loop !15
+while.body.i168:                                  ; preds = %while.cond.preheader.i152, %while.body.i168
+  %m.023.i169 = phi ptr [ %incdec.ptr.i172, %while.body.i168 ], [ %arrayidx11, %while.cond.preheader.i152 ]
+  %b.022.i170 = phi ptr [ %incdec.ptr5.i173, %while.body.i168 ], [ %arrayidx39, %while.cond.preheader.i152 ]
+  %count.addr.021.i171 = phi i32 [ %dec.i175, %while.body.i168 ], [ 16, %while.cond.preheader.i152 ]
+  %incdec.ptr.i172 = getelementptr inbounds i8, ptr %m.023.i169, i64 1
+  %28 = load i8, ptr %m.023.i169, align 1
+  %incdec.ptr5.i173 = getelementptr inbounds i8, ptr %b.022.i170, i64 1
+  %29 = load i8, ptr %b.022.i170, align 1
+  %xor17.i174 = xor i8 %29, %28
+  store i8 %xor17.i174, ptr %b.022.i170, align 1
+  %dec.i175 = add nsw i32 %count.addr.021.i171, -1
+  %cmp4.not.i176 = icmp eq i32 %dec.i175, 0
+  br i1 %cmp4.not.i176, label %xorbuf.exit177, label %while.body.i168, !llvm.loop !14
 
-for.body.i.i156:                                  ; preds = %while.cond.preheader.i153, %for.body.i.i156
-  %tpb.sroa.0.0.i157 = phi ptr [ %incdec.ptr1.i.i161, %for.body.i.i156 ], [ %arrayidx39, %while.cond.preheader.i153 ]
-  %tpm.sroa.0.0.i158 = phi ptr [ %incdec.ptr.i.i160, %for.body.i.i156 ], [ %arrayidx11, %while.cond.preheader.i153 ]
-  %i.03.i.i159 = phi i32 [ %inc.i.i163, %for.body.i.i156 ], [ 0, %while.cond.preheader.i153 ]
-  %incdec.ptr.i.i160 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i158, i64 8
-  %30 = load i64, ptr %tpm.sroa.0.0.i158, align 8
-  %incdec.ptr1.i.i161 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i157, i64 8
-  %31 = load i64, ptr %tpb.sroa.0.0.i157, align 8
-  %xor.i.i162 = xor i64 %31, %30
-  store i64 %xor.i.i162, ptr %tpb.sroa.0.0.i157, align 8
-  %inc.i.i163 = add nuw nsw i32 %i.03.i.i159, 1
-  %exitcond.not.i.i164 = icmp eq i32 %inc.i.i163, 2
-  br i1 %exitcond.not.i.i164, label %xorbuf.exit179, label %for.body.i.i156, !llvm.loop !12
+for.body.i.i155:                                  ; preds = %while.cond.preheader.i152, %for.body.i.i155
+  %tpb.sroa.0.0.i156 = phi ptr [ %incdec.ptr1.i.i160, %for.body.i.i155 ], [ %arrayidx39, %while.cond.preheader.i152 ]
+  %tpm.sroa.0.0.i157 = phi ptr [ %incdec.ptr.i.i159, %for.body.i.i155 ], [ %arrayidx11, %while.cond.preheader.i152 ]
+  %i.03.i.i158 = phi i32 [ %inc.i.i162, %for.body.i.i155 ], [ 0, %while.cond.preheader.i152 ]
+  %incdec.ptr.i.i159 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i157, i64 8
+  %30 = load i64, ptr %tpm.sroa.0.0.i157, align 8
+  %incdec.ptr1.i.i160 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i156, i64 8
+  %31 = load i64, ptr %tpb.sroa.0.0.i156, align 8
+  %xor.i.i161 = xor i64 %31, %30
+  store i64 %xor.i.i161, ptr %tpb.sroa.0.0.i156, align 8
+  %inc.i.i162 = add nuw nsw i32 %i.03.i.i158, 1
+  %exitcond.not.i.i163 = icmp eq i32 %inc.i.i162, 2
+  br i1 %exitcond.not.i.i163, label %xorbuf.exit177, label %for.body.i.i155, !llvm.loop !12
 
-xorbuf.exit179.loopexit621:                       ; preds = %xorbuf.exit135
-  %.pre631 = load i8, ptr %arrayidx39, align 1
-  %.pre630 = load i8, ptr %arrayidx11, align 1
-  %xor1516.i150 = xor i8 %.pre631, %.pre630
-  store i8 %xor1516.i150, ptr %arrayidx39, align 1
-  br label %xorbuf.exit179
+xorbuf.exit177.loopexit611:                       ; preds = %xorbuf.exit134
+  %.pre621 = load i8, ptr %arrayidx39, align 1
+  %.pre620 = load i8, ptr %arrayidx11, align 1
+  %xor1516.i149 = xor i8 %.pre621, %.pre620
+  store i8 %xor1516.i149, ptr %arrayidx39, align 1
+  br label %xorbuf.exit177
 
-xorbuf.exit179:                                   ; preds = %while.body.i170, %for.body.i.i156, %xorbuf.exit179.loopexit621
+xorbuf.exit177:                                   ; preds = %while.body.i168, %for.body.i.i155, %xorbuf.exit177.loopexit611
   %arrayidx47 = getelementptr inbounds i8, ptr %gcm, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx47, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx5, i64 16, i1 false)
   %32 = ptrtoint ptr %arrayidx47 to i64
-  %rem.i180 = and i64 %32, 7
-  %cmp.i182 = icmp eq i64 %rem.i180, %rem.i
-  br i1 %cmp.i182, label %while.cond.preheader.i197, label %xorbuf.exit223.loopexit619
+  %rem.i178 = and i64 %32, 7
+  %cmp.i180 = icmp eq i64 %rem.i178, %rem.i
+  br i1 %cmp.i180, label %while.cond.preheader.i195, label %xorbuf.exit220.loopexit609
 
-while.cond.preheader.i197:                        ; preds = %xorbuf.exit179
-  %cmp3.i198.not = icmp eq i64 %rem.i, 0
-  br i1 %cmp3.i198.not, label %for.body.i.i200, label %while.body.i214
+while.cond.preheader.i195:                        ; preds = %xorbuf.exit177
+  %cmp3.i196.not = icmp eq i64 %rem.i, 0
+  br i1 %cmp3.i196.not, label %for.body.i.i198, label %while.body.i211
 
-while.body.i214:                                  ; preds = %while.cond.preheader.i197, %while.body.i214
-  %m.023.i215 = phi ptr [ %incdec.ptr.i218, %while.body.i214 ], [ %arrayidx23, %while.cond.preheader.i197 ]
-  %b.022.i216 = phi ptr [ %incdec.ptr5.i219, %while.body.i214 ], [ %arrayidx47, %while.cond.preheader.i197 ]
-  %count.addr.021.i217 = phi i32 [ %dec.i221, %while.body.i214 ], [ 16, %while.cond.preheader.i197 ]
-  %incdec.ptr.i218 = getelementptr inbounds i8, ptr %m.023.i215, i64 1
-  %33 = load i8, ptr %m.023.i215, align 1
-  %incdec.ptr5.i219 = getelementptr inbounds i8, ptr %b.022.i216, i64 1
-  %34 = load i8, ptr %b.022.i216, align 1
-  %xor17.i220 = xor i8 %34, %33
-  store i8 %xor17.i220, ptr %b.022.i216, align 1
-  %dec.i221 = add nsw i32 %count.addr.021.i217, -1
-  %cmp4.not.i222 = icmp eq i32 %dec.i221, 0
-  br i1 %cmp4.not.i222, label %xorbuf.exit223, label %while.body.i214, !llvm.loop !15
+while.body.i211:                                  ; preds = %while.cond.preheader.i195, %while.body.i211
+  %m.023.i212 = phi ptr [ %incdec.ptr.i215, %while.body.i211 ], [ %arrayidx23, %while.cond.preheader.i195 ]
+  %b.022.i213 = phi ptr [ %incdec.ptr5.i216, %while.body.i211 ], [ %arrayidx47, %while.cond.preheader.i195 ]
+  %count.addr.021.i214 = phi i32 [ %dec.i218, %while.body.i211 ], [ 16, %while.cond.preheader.i195 ]
+  %incdec.ptr.i215 = getelementptr inbounds i8, ptr %m.023.i212, i64 1
+  %33 = load i8, ptr %m.023.i212, align 1
+  %incdec.ptr5.i216 = getelementptr inbounds i8, ptr %b.022.i213, i64 1
+  %34 = load i8, ptr %b.022.i213, align 1
+  %xor17.i217 = xor i8 %34, %33
+  store i8 %xor17.i217, ptr %b.022.i213, align 1
+  %dec.i218 = add nsw i32 %count.addr.021.i214, -1
+  %cmp4.not.i219 = icmp eq i32 %dec.i218, 0
+  br i1 %cmp4.not.i219, label %xorbuf.exit220, label %while.body.i211, !llvm.loop !14
 
-for.body.i.i200:                                  ; preds = %while.cond.preheader.i197, %for.body.i.i200
-  %tpb.sroa.0.0.i201 = phi ptr [ %incdec.ptr1.i.i205, %for.body.i.i200 ], [ %arrayidx47, %while.cond.preheader.i197 ]
-  %tpm.sroa.0.0.i202 = phi ptr [ %incdec.ptr.i.i204, %for.body.i.i200 ], [ %arrayidx23, %while.cond.preheader.i197 ]
-  %i.03.i.i203 = phi i32 [ %inc.i.i207, %for.body.i.i200 ], [ 0, %while.cond.preheader.i197 ]
-  %incdec.ptr.i.i204 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i202, i64 8
-  %35 = load i64, ptr %tpm.sroa.0.0.i202, align 8
-  %incdec.ptr1.i.i205 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i201, i64 8
-  %36 = load i64, ptr %tpb.sroa.0.0.i201, align 8
-  %xor.i.i206 = xor i64 %36, %35
-  store i64 %xor.i.i206, ptr %tpb.sroa.0.0.i201, align 8
-  %inc.i.i207 = add nuw nsw i32 %i.03.i.i203, 1
-  %exitcond.not.i.i208 = icmp eq i32 %inc.i.i207, 2
-  br i1 %exitcond.not.i.i208, label %xorbuf.exit223, label %for.body.i.i200, !llvm.loop !12
+for.body.i.i198:                                  ; preds = %while.cond.preheader.i195, %for.body.i.i198
+  %tpb.sroa.0.0.i199 = phi ptr [ %incdec.ptr1.i.i203, %for.body.i.i198 ], [ %arrayidx47, %while.cond.preheader.i195 ]
+  %tpm.sroa.0.0.i200 = phi ptr [ %incdec.ptr.i.i202, %for.body.i.i198 ], [ %arrayidx23, %while.cond.preheader.i195 ]
+  %i.03.i.i201 = phi i32 [ %inc.i.i205, %for.body.i.i198 ], [ 0, %while.cond.preheader.i195 ]
+  %incdec.ptr.i.i202 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i200, i64 8
+  %35 = load i64, ptr %tpm.sroa.0.0.i200, align 8
+  %incdec.ptr1.i.i203 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i199, i64 8
+  %36 = load i64, ptr %tpb.sroa.0.0.i199, align 8
+  %xor.i.i204 = xor i64 %36, %35
+  store i64 %xor.i.i204, ptr %tpb.sroa.0.0.i199, align 8
+  %inc.i.i205 = add nuw nsw i32 %i.03.i.i201, 1
+  %exitcond.not.i.i206 = icmp eq i32 %inc.i.i205, 2
+  br i1 %exitcond.not.i.i206, label %xorbuf.exit220, label %for.body.i.i198, !llvm.loop !12
 
-xorbuf.exit223.loopexit619:                       ; preds = %xorbuf.exit179
-  %.pre633 = load i8, ptr %arrayidx47, align 1
-  %.pre632 = load i8, ptr %arrayidx23, align 1
-  %xor1516.i194 = xor i8 %.pre633, %.pre632
-  store i8 %xor1516.i194, ptr %arrayidx47, align 1
-  br label %xorbuf.exit223
+xorbuf.exit220.loopexit609:                       ; preds = %xorbuf.exit177
+  %.pre623 = load i8, ptr %arrayidx47, align 1
+  %.pre622 = load i8, ptr %arrayidx23, align 1
+  %xor1516.i192 = xor i8 %.pre623, %.pre622
+  store i8 %xor1516.i192, ptr %arrayidx47, align 1
+  br label %xorbuf.exit220
 
-xorbuf.exit223:                                   ; preds = %while.body.i214, %for.body.i.i200, %xorbuf.exit223.loopexit619
+xorbuf.exit220:                                   ; preds = %while.body.i211, %for.body.i.i198, %xorbuf.exit220.loopexit609
   %arrayidx55 = getelementptr inbounds i8, ptr %gcm, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx55, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx2, i64 16, i1 false)
   %37 = ptrtoint ptr %arrayidx55 to i64
-  %rem.i224 = and i64 %37, 7
-  %cmp.i226 = icmp eq i64 %rem.i224, %rem1.i
-  br i1 %cmp.i226, label %while.cond.preheader.i241, label %xorbuf.exit267.loopexit617
+  %rem.i221 = and i64 %37, 7
+  %cmp.i223 = icmp eq i64 %rem.i221, %rem1.i
+  br i1 %cmp.i223, label %while.cond.preheader.i238, label %xorbuf.exit263.loopexit607
 
-while.cond.preheader.i241:                        ; preds = %xorbuf.exit223
-  %cmp3.i242.not = icmp eq i64 %rem1.i, 0
-  br i1 %cmp3.i242.not, label %for.body.i.i244, label %while.body.i258
+while.cond.preheader.i238:                        ; preds = %xorbuf.exit220
+  %cmp3.i239.not = icmp eq i64 %rem1.i, 0
+  br i1 %cmp3.i239.not, label %for.body.i.i241, label %while.body.i254
 
-while.body.i258:                                  ; preds = %while.cond.preheader.i241, %while.body.i258
-  %m.023.i259 = phi ptr [ %incdec.ptr.i262, %while.body.i258 ], [ %arrayidx17, %while.cond.preheader.i241 ]
-  %b.022.i260 = phi ptr [ %incdec.ptr5.i263, %while.body.i258 ], [ %arrayidx55, %while.cond.preheader.i241 ]
-  %count.addr.021.i261 = phi i32 [ %dec.i265, %while.body.i258 ], [ 16, %while.cond.preheader.i241 ]
-  %incdec.ptr.i262 = getelementptr inbounds i8, ptr %m.023.i259, i64 1
-  %38 = load i8, ptr %m.023.i259, align 1
-  %incdec.ptr5.i263 = getelementptr inbounds i8, ptr %b.022.i260, i64 1
-  %39 = load i8, ptr %b.022.i260, align 1
-  %xor17.i264 = xor i8 %39, %38
-  store i8 %xor17.i264, ptr %b.022.i260, align 1
-  %dec.i265 = add nsw i32 %count.addr.021.i261, -1
-  %cmp4.not.i266 = icmp eq i32 %dec.i265, 0
-  br i1 %cmp4.not.i266, label %xorbuf.exit267, label %while.body.i258, !llvm.loop !15
+while.body.i254:                                  ; preds = %while.cond.preheader.i238, %while.body.i254
+  %m.023.i255 = phi ptr [ %incdec.ptr.i258, %while.body.i254 ], [ %arrayidx17, %while.cond.preheader.i238 ]
+  %b.022.i256 = phi ptr [ %incdec.ptr5.i259, %while.body.i254 ], [ %arrayidx55, %while.cond.preheader.i238 ]
+  %count.addr.021.i257 = phi i32 [ %dec.i261, %while.body.i254 ], [ 16, %while.cond.preheader.i238 ]
+  %incdec.ptr.i258 = getelementptr inbounds i8, ptr %m.023.i255, i64 1
+  %38 = load i8, ptr %m.023.i255, align 1
+  %incdec.ptr5.i259 = getelementptr inbounds i8, ptr %b.022.i256, i64 1
+  %39 = load i8, ptr %b.022.i256, align 1
+  %xor17.i260 = xor i8 %39, %38
+  store i8 %xor17.i260, ptr %b.022.i256, align 1
+  %dec.i261 = add nsw i32 %count.addr.021.i257, -1
+  %cmp4.not.i262 = icmp eq i32 %dec.i261, 0
+  br i1 %cmp4.not.i262, label %xorbuf.exit263, label %while.body.i254, !llvm.loop !14
 
-for.body.i.i244:                                  ; preds = %while.cond.preheader.i241, %for.body.i.i244
-  %tpb.sroa.0.0.i245 = phi ptr [ %incdec.ptr1.i.i249, %for.body.i.i244 ], [ %arrayidx55, %while.cond.preheader.i241 ]
-  %tpm.sroa.0.0.i246 = phi ptr [ %incdec.ptr.i.i248, %for.body.i.i244 ], [ %arrayidx17, %while.cond.preheader.i241 ]
-  %i.03.i.i247 = phi i32 [ %inc.i.i251, %for.body.i.i244 ], [ 0, %while.cond.preheader.i241 ]
-  %incdec.ptr.i.i248 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i246, i64 8
-  %40 = load i64, ptr %tpm.sroa.0.0.i246, align 8
-  %incdec.ptr1.i.i249 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i245, i64 8
-  %41 = load i64, ptr %tpb.sroa.0.0.i245, align 8
-  %xor.i.i250 = xor i64 %41, %40
-  store i64 %xor.i.i250, ptr %tpb.sroa.0.0.i245, align 8
-  %inc.i.i251 = add nuw nsw i32 %i.03.i.i247, 1
-  %exitcond.not.i.i252 = icmp eq i32 %inc.i.i251, 2
-  br i1 %exitcond.not.i.i252, label %xorbuf.exit267, label %for.body.i.i244, !llvm.loop !12
+for.body.i.i241:                                  ; preds = %while.cond.preheader.i238, %for.body.i.i241
+  %tpb.sroa.0.0.i242 = phi ptr [ %incdec.ptr1.i.i246, %for.body.i.i241 ], [ %arrayidx55, %while.cond.preheader.i238 ]
+  %tpm.sroa.0.0.i243 = phi ptr [ %incdec.ptr.i.i245, %for.body.i.i241 ], [ %arrayidx17, %while.cond.preheader.i238 ]
+  %i.03.i.i244 = phi i32 [ %inc.i.i248, %for.body.i.i241 ], [ 0, %while.cond.preheader.i238 ]
+  %incdec.ptr.i.i245 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i243, i64 8
+  %40 = load i64, ptr %tpm.sroa.0.0.i243, align 8
+  %incdec.ptr1.i.i246 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i242, i64 8
+  %41 = load i64, ptr %tpb.sroa.0.0.i242, align 8
+  %xor.i.i247 = xor i64 %41, %40
+  store i64 %xor.i.i247, ptr %tpb.sroa.0.0.i242, align 8
+  %inc.i.i248 = add nuw nsw i32 %i.03.i.i244, 1
+  %exitcond.not.i.i249 = icmp eq i32 %inc.i.i248, 2
+  br i1 %exitcond.not.i.i249, label %xorbuf.exit263, label %for.body.i.i241, !llvm.loop !12
 
-xorbuf.exit267.loopexit617:                       ; preds = %xorbuf.exit223
-  %.pre635 = load i8, ptr %arrayidx55, align 1
-  %.pre634 = load i8, ptr %arrayidx17, align 1
-  %xor1516.i238 = xor i8 %.pre635, %.pre634
-  store i8 %xor1516.i238, ptr %arrayidx55, align 1
-  br label %xorbuf.exit267
+xorbuf.exit263.loopexit607:                       ; preds = %xorbuf.exit220
+  %.pre625 = load i8, ptr %arrayidx55, align 1
+  %.pre624 = load i8, ptr %arrayidx17, align 1
+  %xor1516.i235 = xor i8 %.pre625, %.pre624
+  store i8 %xor1516.i235, ptr %arrayidx55, align 1
+  br label %xorbuf.exit263
 
-xorbuf.exit267:                                   ; preds = %while.body.i258, %for.body.i.i244, %xorbuf.exit267.loopexit617
+xorbuf.exit263:                                   ; preds = %while.body.i254, %for.body.i.i241, %xorbuf.exit263.loopexit607
   %arrayidx63 = getelementptr inbounds i8, ptr %gcm, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx63, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx2, i64 16, i1 false)
   %42 = ptrtoint ptr %arrayidx63 to i64
-  %rem.i268 = and i64 %42, 7
-  %cmp.i270 = icmp eq i64 %rem.i268, %rem1.i137
-  br i1 %cmp.i270, label %while.cond.preheader.i285, label %xorbuf.exit311.loopexit615
+  %rem.i264 = and i64 %42, 7
+  %cmp.i266 = icmp eq i64 %rem.i264, %rem1.i136
+  br i1 %cmp.i266, label %while.cond.preheader.i281, label %xorbuf.exit306.loopexit605
 
-while.cond.preheader.i285:                        ; preds = %xorbuf.exit267
-  %cmp3.i286.not = icmp eq i64 %rem1.i137, 0
-  br i1 %cmp3.i286.not, label %for.body.i.i288, label %while.body.i302
+while.cond.preheader.i281:                        ; preds = %xorbuf.exit263
+  %cmp3.i282.not = icmp eq i64 %rem1.i136, 0
+  br i1 %cmp3.i282.not, label %for.body.i.i284, label %while.body.i297
 
-while.body.i302:                                  ; preds = %while.cond.preheader.i285, %while.body.i302
-  %m.023.i303 = phi ptr [ %incdec.ptr.i306, %while.body.i302 ], [ %arrayidx11, %while.cond.preheader.i285 ]
-  %b.022.i304 = phi ptr [ %incdec.ptr5.i307, %while.body.i302 ], [ %arrayidx63, %while.cond.preheader.i285 ]
-  %count.addr.021.i305 = phi i32 [ %dec.i309, %while.body.i302 ], [ 16, %while.cond.preheader.i285 ]
-  %incdec.ptr.i306 = getelementptr inbounds i8, ptr %m.023.i303, i64 1
-  %43 = load i8, ptr %m.023.i303, align 1
-  %incdec.ptr5.i307 = getelementptr inbounds i8, ptr %b.022.i304, i64 1
-  %44 = load i8, ptr %b.022.i304, align 1
-  %xor17.i308 = xor i8 %44, %43
-  store i8 %xor17.i308, ptr %b.022.i304, align 1
-  %dec.i309 = add nsw i32 %count.addr.021.i305, -1
-  %cmp4.not.i310 = icmp eq i32 %dec.i309, 0
-  br i1 %cmp4.not.i310, label %xorbuf.exit311, label %while.body.i302, !llvm.loop !15
+while.body.i297:                                  ; preds = %while.cond.preheader.i281, %while.body.i297
+  %m.023.i298 = phi ptr [ %incdec.ptr.i301, %while.body.i297 ], [ %arrayidx11, %while.cond.preheader.i281 ]
+  %b.022.i299 = phi ptr [ %incdec.ptr5.i302, %while.body.i297 ], [ %arrayidx63, %while.cond.preheader.i281 ]
+  %count.addr.021.i300 = phi i32 [ %dec.i304, %while.body.i297 ], [ 16, %while.cond.preheader.i281 ]
+  %incdec.ptr.i301 = getelementptr inbounds i8, ptr %m.023.i298, i64 1
+  %43 = load i8, ptr %m.023.i298, align 1
+  %incdec.ptr5.i302 = getelementptr inbounds i8, ptr %b.022.i299, i64 1
+  %44 = load i8, ptr %b.022.i299, align 1
+  %xor17.i303 = xor i8 %44, %43
+  store i8 %xor17.i303, ptr %b.022.i299, align 1
+  %dec.i304 = add nsw i32 %count.addr.021.i300, -1
+  %cmp4.not.i305 = icmp eq i32 %dec.i304, 0
+  br i1 %cmp4.not.i305, label %xorbuf.exit306, label %while.body.i297, !llvm.loop !14
 
-for.body.i.i288:                                  ; preds = %while.cond.preheader.i285, %for.body.i.i288
-  %tpb.sroa.0.0.i289 = phi ptr [ %incdec.ptr1.i.i293, %for.body.i.i288 ], [ %arrayidx63, %while.cond.preheader.i285 ]
-  %tpm.sroa.0.0.i290 = phi ptr [ %incdec.ptr.i.i292, %for.body.i.i288 ], [ %arrayidx11, %while.cond.preheader.i285 ]
-  %i.03.i.i291 = phi i32 [ %inc.i.i295, %for.body.i.i288 ], [ 0, %while.cond.preheader.i285 ]
-  %incdec.ptr.i.i292 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i290, i64 8
-  %45 = load i64, ptr %tpm.sroa.0.0.i290, align 8
-  %incdec.ptr1.i.i293 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i289, i64 8
-  %46 = load i64, ptr %tpb.sroa.0.0.i289, align 8
-  %xor.i.i294 = xor i64 %46, %45
-  store i64 %xor.i.i294, ptr %tpb.sroa.0.0.i289, align 8
-  %inc.i.i295 = add nuw nsw i32 %i.03.i.i291, 1
-  %exitcond.not.i.i296 = icmp eq i32 %inc.i.i295, 2
-  br i1 %exitcond.not.i.i296, label %xorbuf.exit311, label %for.body.i.i288, !llvm.loop !12
+for.body.i.i284:                                  ; preds = %while.cond.preheader.i281, %for.body.i.i284
+  %tpb.sroa.0.0.i285 = phi ptr [ %incdec.ptr1.i.i289, %for.body.i.i284 ], [ %arrayidx63, %while.cond.preheader.i281 ]
+  %tpm.sroa.0.0.i286 = phi ptr [ %incdec.ptr.i.i288, %for.body.i.i284 ], [ %arrayidx11, %while.cond.preheader.i281 ]
+  %i.03.i.i287 = phi i32 [ %inc.i.i291, %for.body.i.i284 ], [ 0, %while.cond.preheader.i281 ]
+  %incdec.ptr.i.i288 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i286, i64 8
+  %45 = load i64, ptr %tpm.sroa.0.0.i286, align 8
+  %incdec.ptr1.i.i289 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i285, i64 8
+  %46 = load i64, ptr %tpb.sroa.0.0.i285, align 8
+  %xor.i.i290 = xor i64 %46, %45
+  store i64 %xor.i.i290, ptr %tpb.sroa.0.0.i285, align 8
+  %inc.i.i291 = add nuw nsw i32 %i.03.i.i287, 1
+  %exitcond.not.i.i292 = icmp eq i32 %inc.i.i291, 2
+  br i1 %exitcond.not.i.i292, label %xorbuf.exit306, label %for.body.i.i284, !llvm.loop !12
 
-xorbuf.exit311.loopexit615:                       ; preds = %xorbuf.exit267
-  %.pre637 = load i8, ptr %arrayidx63, align 1
-  %.pre636 = load i8, ptr %arrayidx11, align 1
-  %xor1516.i282 = xor i8 %.pre637, %.pre636
-  store i8 %xor1516.i282, ptr %arrayidx63, align 1
-  br label %xorbuf.exit311
+xorbuf.exit306.loopexit605:                       ; preds = %xorbuf.exit263
+  %.pre627 = load i8, ptr %arrayidx63, align 1
+  %.pre626 = load i8, ptr %arrayidx11, align 1
+  %xor1516.i278 = xor i8 %.pre627, %.pre626
+  store i8 %xor1516.i278, ptr %arrayidx63, align 1
+  br label %xorbuf.exit306
 
-xorbuf.exit311:                                   ; preds = %while.body.i302, %for.body.i.i288, %xorbuf.exit311.loopexit615
+xorbuf.exit306:                                   ; preds = %while.body.i297, %for.body.i.i284, %xorbuf.exit306.loopexit605
   %arrayidx71 = getelementptr inbounds i8, ptr %gcm, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx71, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx2, i64 16, i1 false)
   %47 = ptrtoint ptr %arrayidx71 to i64
-  %rem.i312 = and i64 %47, 7
-  %cmp.i314 = icmp eq i64 %rem.i312, %rem.i
-  br i1 %cmp.i314, label %while.cond.preheader.i329, label %xorbuf.exit355.loopexit613
+  %rem.i307 = and i64 %47, 7
+  %cmp.i309 = icmp eq i64 %rem.i307, %rem.i
+  br i1 %cmp.i309, label %while.cond.preheader.i324, label %xorbuf.exit349.loopexit603
 
-while.cond.preheader.i329:                        ; preds = %xorbuf.exit311
-  %cmp3.i330.not = icmp eq i64 %rem.i, 0
-  br i1 %cmp3.i330.not, label %for.body.i.i332, label %while.body.i346
+while.cond.preheader.i324:                        ; preds = %xorbuf.exit306
+  %cmp3.i325.not = icmp eq i64 %rem.i, 0
+  br i1 %cmp3.i325.not, label %for.body.i.i327, label %while.body.i340
 
-while.body.i346:                                  ; preds = %while.cond.preheader.i329, %while.body.i346
-  %m.023.i347 = phi ptr [ %incdec.ptr.i350, %while.body.i346 ], [ %arrayidx23, %while.cond.preheader.i329 ]
-  %b.022.i348 = phi ptr [ %incdec.ptr5.i351, %while.body.i346 ], [ %arrayidx71, %while.cond.preheader.i329 ]
-  %count.addr.021.i349 = phi i32 [ %dec.i353, %while.body.i346 ], [ 16, %while.cond.preheader.i329 ]
-  %incdec.ptr.i350 = getelementptr inbounds i8, ptr %m.023.i347, i64 1
-  %48 = load i8, ptr %m.023.i347, align 1
-  %incdec.ptr5.i351 = getelementptr inbounds i8, ptr %b.022.i348, i64 1
-  %49 = load i8, ptr %b.022.i348, align 1
-  %xor17.i352 = xor i8 %49, %48
-  store i8 %xor17.i352, ptr %b.022.i348, align 1
-  %dec.i353 = add nsw i32 %count.addr.021.i349, -1
-  %cmp4.not.i354 = icmp eq i32 %dec.i353, 0
-  br i1 %cmp4.not.i354, label %xorbuf.exit355, label %while.body.i346, !llvm.loop !15
+while.body.i340:                                  ; preds = %while.cond.preheader.i324, %while.body.i340
+  %m.023.i341 = phi ptr [ %incdec.ptr.i344, %while.body.i340 ], [ %arrayidx23, %while.cond.preheader.i324 ]
+  %b.022.i342 = phi ptr [ %incdec.ptr5.i345, %while.body.i340 ], [ %arrayidx71, %while.cond.preheader.i324 ]
+  %count.addr.021.i343 = phi i32 [ %dec.i347, %while.body.i340 ], [ 16, %while.cond.preheader.i324 ]
+  %incdec.ptr.i344 = getelementptr inbounds i8, ptr %m.023.i341, i64 1
+  %48 = load i8, ptr %m.023.i341, align 1
+  %incdec.ptr5.i345 = getelementptr inbounds i8, ptr %b.022.i342, i64 1
+  %49 = load i8, ptr %b.022.i342, align 1
+  %xor17.i346 = xor i8 %49, %48
+  store i8 %xor17.i346, ptr %b.022.i342, align 1
+  %dec.i347 = add nsw i32 %count.addr.021.i343, -1
+  %cmp4.not.i348 = icmp eq i32 %dec.i347, 0
+  br i1 %cmp4.not.i348, label %xorbuf.exit349, label %while.body.i340, !llvm.loop !14
 
-for.body.i.i332:                                  ; preds = %while.cond.preheader.i329, %for.body.i.i332
-  %tpb.sroa.0.0.i333 = phi ptr [ %incdec.ptr1.i.i337, %for.body.i.i332 ], [ %arrayidx71, %while.cond.preheader.i329 ]
-  %tpm.sroa.0.0.i334 = phi ptr [ %incdec.ptr.i.i336, %for.body.i.i332 ], [ %arrayidx23, %while.cond.preheader.i329 ]
-  %i.03.i.i335 = phi i32 [ %inc.i.i339, %for.body.i.i332 ], [ 0, %while.cond.preheader.i329 ]
-  %incdec.ptr.i.i336 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i334, i64 8
-  %50 = load i64, ptr %tpm.sroa.0.0.i334, align 8
-  %incdec.ptr1.i.i337 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i333, i64 8
-  %51 = load i64, ptr %tpb.sroa.0.0.i333, align 8
-  %xor.i.i338 = xor i64 %51, %50
-  store i64 %xor.i.i338, ptr %tpb.sroa.0.0.i333, align 8
-  %inc.i.i339 = add nuw nsw i32 %i.03.i.i335, 1
-  %exitcond.not.i.i340 = icmp eq i32 %inc.i.i339, 2
-  br i1 %exitcond.not.i.i340, label %xorbuf.exit355, label %for.body.i.i332, !llvm.loop !12
+for.body.i.i327:                                  ; preds = %while.cond.preheader.i324, %for.body.i.i327
+  %tpb.sroa.0.0.i328 = phi ptr [ %incdec.ptr1.i.i332, %for.body.i.i327 ], [ %arrayidx71, %while.cond.preheader.i324 ]
+  %tpm.sroa.0.0.i329 = phi ptr [ %incdec.ptr.i.i331, %for.body.i.i327 ], [ %arrayidx23, %while.cond.preheader.i324 ]
+  %i.03.i.i330 = phi i32 [ %inc.i.i334, %for.body.i.i327 ], [ 0, %while.cond.preheader.i324 ]
+  %incdec.ptr.i.i331 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i329, i64 8
+  %50 = load i64, ptr %tpm.sroa.0.0.i329, align 8
+  %incdec.ptr1.i.i332 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i328, i64 8
+  %51 = load i64, ptr %tpb.sroa.0.0.i328, align 8
+  %xor.i.i333 = xor i64 %51, %50
+  store i64 %xor.i.i333, ptr %tpb.sroa.0.0.i328, align 8
+  %inc.i.i334 = add nuw nsw i32 %i.03.i.i330, 1
+  %exitcond.not.i.i335 = icmp eq i32 %inc.i.i334, 2
+  br i1 %exitcond.not.i.i335, label %xorbuf.exit349, label %for.body.i.i327, !llvm.loop !12
 
-xorbuf.exit355.loopexit613:                       ; preds = %xorbuf.exit311
-  %.pre639 = load i8, ptr %arrayidx71, align 1
-  %.pre638 = load i8, ptr %arrayidx23, align 1
-  %xor1516.i326 = xor i8 %.pre639, %.pre638
-  store i8 %xor1516.i326, ptr %arrayidx71, align 1
-  br label %xorbuf.exit355
+xorbuf.exit349.loopexit603:                       ; preds = %xorbuf.exit306
+  %.pre629 = load i8, ptr %arrayidx71, align 1
+  %.pre628 = load i8, ptr %arrayidx23, align 1
+  %xor1516.i321 = xor i8 %.pre629, %.pre628
+  store i8 %xor1516.i321, ptr %arrayidx71, align 1
+  br label %xorbuf.exit349
 
-xorbuf.exit355:                                   ; preds = %while.body.i346, %for.body.i.i332, %xorbuf.exit355.loopexit613
+xorbuf.exit349:                                   ; preds = %while.body.i340, %for.body.i.i327, %xorbuf.exit349.loopexit603
   %arrayidx79 = getelementptr inbounds i8, ptr %gcm, i64 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx79, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx2, i64 16, i1 false)
   %52 = ptrtoint ptr %arrayidx79 to i64
-  %rem.i356 = and i64 %52, 7
+  %rem.i350 = and i64 %52, 7
   %53 = ptrtoint ptr %arrayidx5 to i64
-  %rem1.i357 = and i64 %53, 7
-  %cmp.i358 = icmp eq i64 %rem.i356, %rem1.i357
-  br i1 %cmp.i358, label %while.cond.preheader.i373, label %xorbuf.exit399.loopexit611
+  %rem1.i351 = and i64 %53, 7
+  %cmp.i352 = icmp eq i64 %rem.i350, %rem1.i351
+  br i1 %cmp.i352, label %while.cond.preheader.i367, label %xorbuf.exit392.loopexit601
 
-while.cond.preheader.i373:                        ; preds = %xorbuf.exit355
-  %cmp3.i374.not = icmp eq i64 %rem.i356, 0
-  br i1 %cmp3.i374.not, label %for.body.i.i376, label %while.body.i390
+while.cond.preheader.i367:                        ; preds = %xorbuf.exit349
+  %cmp3.i368.not = icmp eq i64 %rem.i350, 0
+  br i1 %cmp3.i368.not, label %for.body.i.i370, label %while.body.i383
 
-while.body.i390:                                  ; preds = %while.cond.preheader.i373, %while.body.i390
-  %m.023.i391 = phi ptr [ %incdec.ptr.i394, %while.body.i390 ], [ %arrayidx5, %while.cond.preheader.i373 ]
-  %b.022.i392 = phi ptr [ %incdec.ptr5.i395, %while.body.i390 ], [ %arrayidx79, %while.cond.preheader.i373 ]
-  %count.addr.021.i393 = phi i32 [ %dec.i397, %while.body.i390 ], [ 16, %while.cond.preheader.i373 ]
-  %incdec.ptr.i394 = getelementptr inbounds i8, ptr %m.023.i391, i64 1
-  %54 = load i8, ptr %m.023.i391, align 1
-  %incdec.ptr5.i395 = getelementptr inbounds i8, ptr %b.022.i392, i64 1
-  %55 = load i8, ptr %b.022.i392, align 1
-  %xor17.i396 = xor i8 %55, %54
-  store i8 %xor17.i396, ptr %b.022.i392, align 1
-  %dec.i397 = add nsw i32 %count.addr.021.i393, -1
-  %cmp4.not.i398 = icmp eq i32 %dec.i397, 0
-  br i1 %cmp4.not.i398, label %xorbuf.exit399, label %while.body.i390, !llvm.loop !15
+while.body.i383:                                  ; preds = %while.cond.preheader.i367, %while.body.i383
+  %m.023.i384 = phi ptr [ %incdec.ptr.i387, %while.body.i383 ], [ %arrayidx5, %while.cond.preheader.i367 ]
+  %b.022.i385 = phi ptr [ %incdec.ptr5.i388, %while.body.i383 ], [ %arrayidx79, %while.cond.preheader.i367 ]
+  %count.addr.021.i386 = phi i32 [ %dec.i390, %while.body.i383 ], [ 16, %while.cond.preheader.i367 ]
+  %incdec.ptr.i387 = getelementptr inbounds i8, ptr %m.023.i384, i64 1
+  %54 = load i8, ptr %m.023.i384, align 1
+  %incdec.ptr5.i388 = getelementptr inbounds i8, ptr %b.022.i385, i64 1
+  %55 = load i8, ptr %b.022.i385, align 1
+  %xor17.i389 = xor i8 %55, %54
+  store i8 %xor17.i389, ptr %b.022.i385, align 1
+  %dec.i390 = add nsw i32 %count.addr.021.i386, -1
+  %cmp4.not.i391 = icmp eq i32 %dec.i390, 0
+  br i1 %cmp4.not.i391, label %xorbuf.exit392, label %while.body.i383, !llvm.loop !14
 
-for.body.i.i376:                                  ; preds = %while.cond.preheader.i373, %for.body.i.i376
-  %tpb.sroa.0.0.i377 = phi ptr [ %incdec.ptr1.i.i381, %for.body.i.i376 ], [ %arrayidx79, %while.cond.preheader.i373 ]
-  %tpm.sroa.0.0.i378 = phi ptr [ %incdec.ptr.i.i380, %for.body.i.i376 ], [ %arrayidx5, %while.cond.preheader.i373 ]
-  %i.03.i.i379 = phi i32 [ %inc.i.i383, %for.body.i.i376 ], [ 0, %while.cond.preheader.i373 ]
-  %incdec.ptr.i.i380 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i378, i64 8
-  %56 = load i64, ptr %tpm.sroa.0.0.i378, align 8
-  %incdec.ptr1.i.i381 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i377, i64 8
-  %57 = load i64, ptr %tpb.sroa.0.0.i377, align 8
-  %xor.i.i382 = xor i64 %57, %56
-  store i64 %xor.i.i382, ptr %tpb.sroa.0.0.i377, align 8
-  %inc.i.i383 = add nuw nsw i32 %i.03.i.i379, 1
-  %exitcond.not.i.i384 = icmp eq i32 %inc.i.i383, 2
-  br i1 %exitcond.not.i.i384, label %xorbuf.exit399, label %for.body.i.i376, !llvm.loop !12
+for.body.i.i370:                                  ; preds = %while.cond.preheader.i367, %for.body.i.i370
+  %tpb.sroa.0.0.i371 = phi ptr [ %incdec.ptr1.i.i375, %for.body.i.i370 ], [ %arrayidx79, %while.cond.preheader.i367 ]
+  %tpm.sroa.0.0.i372 = phi ptr [ %incdec.ptr.i.i374, %for.body.i.i370 ], [ %arrayidx5, %while.cond.preheader.i367 ]
+  %i.03.i.i373 = phi i32 [ %inc.i.i377, %for.body.i.i370 ], [ 0, %while.cond.preheader.i367 ]
+  %incdec.ptr.i.i374 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i372, i64 8
+  %56 = load i64, ptr %tpm.sroa.0.0.i372, align 8
+  %incdec.ptr1.i.i375 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i371, i64 8
+  %57 = load i64, ptr %tpb.sroa.0.0.i371, align 8
+  %xor.i.i376 = xor i64 %57, %56
+  store i64 %xor.i.i376, ptr %tpb.sroa.0.0.i371, align 8
+  %inc.i.i377 = add nuw nsw i32 %i.03.i.i373, 1
+  %exitcond.not.i.i378 = icmp eq i32 %inc.i.i377, 2
+  br i1 %exitcond.not.i.i378, label %xorbuf.exit392, label %for.body.i.i370, !llvm.loop !12
 
-xorbuf.exit399.loopexit611:                       ; preds = %xorbuf.exit355
-  %.pre641 = load i8, ptr %arrayidx79, align 1
-  %.pre640 = load i8, ptr %arrayidx5, align 1
-  %xor1516.i370 = xor i8 %.pre641, %.pre640
-  store i8 %xor1516.i370, ptr %arrayidx79, align 1
-  br label %xorbuf.exit399
+xorbuf.exit392.loopexit601:                       ; preds = %xorbuf.exit349
+  %.pre631 = load i8, ptr %arrayidx79, align 1
+  %.pre630 = load i8, ptr %arrayidx5, align 1
+  %xor1516.i364 = xor i8 %.pre631, %.pre630
+  store i8 %xor1516.i364, ptr %arrayidx79, align 1
+  br label %xorbuf.exit392
 
-xorbuf.exit399:                                   ; preds = %while.body.i390, %for.body.i.i376, %xorbuf.exit399.loopexit611
+xorbuf.exit392:                                   ; preds = %while.body.i383, %for.body.i.i370, %xorbuf.exit392.loopexit601
   %arrayidx87 = getelementptr inbounds i8, ptr %gcm, i64 224
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx87, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx2, i64 16, i1 false)
   %58 = ptrtoint ptr %arrayidx87 to i64
-  %rem.i400 = and i64 %58, 7
-  %cmp.i402 = icmp eq i64 %rem.i400, %rem.i92
-  br i1 %cmp.i402, label %while.cond.preheader.i417, label %xorbuf.exit443.loopexit609
+  %rem.i393 = and i64 %58, 7
+  %cmp.i395 = icmp eq i64 %rem.i393, %rem.i92
+  br i1 %cmp.i395, label %while.cond.preheader.i410, label %xorbuf.exit435.loopexit599
 
-while.cond.preheader.i417:                        ; preds = %xorbuf.exit399
-  %cmp3.i418.not = icmp eq i64 %rem.i92, 0
-  br i1 %cmp3.i418.not, label %for.body.i.i420, label %while.body.i434
+while.cond.preheader.i410:                        ; preds = %xorbuf.exit392
+  %cmp3.i411.not = icmp eq i64 %rem.i92, 0
+  br i1 %cmp3.i411.not, label %for.body.i.i413, label %while.body.i426
 
-while.body.i434:                                  ; preds = %while.cond.preheader.i417, %while.body.i434
-  %m.023.i435 = phi ptr [ %incdec.ptr.i438, %while.body.i434 ], [ %arrayidx31, %while.cond.preheader.i417 ]
-  %b.022.i436 = phi ptr [ %incdec.ptr5.i439, %while.body.i434 ], [ %arrayidx87, %while.cond.preheader.i417 ]
-  %count.addr.021.i437 = phi i32 [ %dec.i441, %while.body.i434 ], [ 16, %while.cond.preheader.i417 ]
-  %incdec.ptr.i438 = getelementptr inbounds i8, ptr %m.023.i435, i64 1
-  %59 = load i8, ptr %m.023.i435, align 1
-  %incdec.ptr5.i439 = getelementptr inbounds i8, ptr %b.022.i436, i64 1
-  %60 = load i8, ptr %b.022.i436, align 1
-  %xor17.i440 = xor i8 %60, %59
-  store i8 %xor17.i440, ptr %b.022.i436, align 1
-  %dec.i441 = add nsw i32 %count.addr.021.i437, -1
-  %cmp4.not.i442 = icmp eq i32 %dec.i441, 0
-  br i1 %cmp4.not.i442, label %xorbuf.exit443, label %while.body.i434, !llvm.loop !15
+while.body.i426:                                  ; preds = %while.cond.preheader.i410, %while.body.i426
+  %m.023.i427 = phi ptr [ %incdec.ptr.i430, %while.body.i426 ], [ %arrayidx31, %while.cond.preheader.i410 ]
+  %b.022.i428 = phi ptr [ %incdec.ptr5.i431, %while.body.i426 ], [ %arrayidx87, %while.cond.preheader.i410 ]
+  %count.addr.021.i429 = phi i32 [ %dec.i433, %while.body.i426 ], [ 16, %while.cond.preheader.i410 ]
+  %incdec.ptr.i430 = getelementptr inbounds i8, ptr %m.023.i427, i64 1
+  %59 = load i8, ptr %m.023.i427, align 1
+  %incdec.ptr5.i431 = getelementptr inbounds i8, ptr %b.022.i428, i64 1
+  %60 = load i8, ptr %b.022.i428, align 1
+  %xor17.i432 = xor i8 %60, %59
+  store i8 %xor17.i432, ptr %b.022.i428, align 1
+  %dec.i433 = add nsw i32 %count.addr.021.i429, -1
+  %cmp4.not.i434 = icmp eq i32 %dec.i433, 0
+  br i1 %cmp4.not.i434, label %xorbuf.exit435, label %while.body.i426, !llvm.loop !14
 
-for.body.i.i420:                                  ; preds = %while.cond.preheader.i417, %for.body.i.i420
-  %tpb.sroa.0.0.i421 = phi ptr [ %incdec.ptr1.i.i425, %for.body.i.i420 ], [ %arrayidx87, %while.cond.preheader.i417 ]
-  %tpm.sroa.0.0.i422 = phi ptr [ %incdec.ptr.i.i424, %for.body.i.i420 ], [ %arrayidx31, %while.cond.preheader.i417 ]
-  %i.03.i.i423 = phi i32 [ %inc.i.i427, %for.body.i.i420 ], [ 0, %while.cond.preheader.i417 ]
-  %incdec.ptr.i.i424 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i422, i64 8
-  %61 = load i64, ptr %tpm.sroa.0.0.i422, align 8
-  %incdec.ptr1.i.i425 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i421, i64 8
-  %62 = load i64, ptr %tpb.sroa.0.0.i421, align 8
-  %xor.i.i426 = xor i64 %62, %61
-  store i64 %xor.i.i426, ptr %tpb.sroa.0.0.i421, align 8
-  %inc.i.i427 = add nuw nsw i32 %i.03.i.i423, 1
-  %exitcond.not.i.i428 = icmp eq i32 %inc.i.i427, 2
-  br i1 %exitcond.not.i.i428, label %xorbuf.exit443, label %for.body.i.i420, !llvm.loop !12
+for.body.i.i413:                                  ; preds = %while.cond.preheader.i410, %for.body.i.i413
+  %tpb.sroa.0.0.i414 = phi ptr [ %incdec.ptr1.i.i418, %for.body.i.i413 ], [ %arrayidx87, %while.cond.preheader.i410 ]
+  %tpm.sroa.0.0.i415 = phi ptr [ %incdec.ptr.i.i417, %for.body.i.i413 ], [ %arrayidx31, %while.cond.preheader.i410 ]
+  %i.03.i.i416 = phi i32 [ %inc.i.i420, %for.body.i.i413 ], [ 0, %while.cond.preheader.i410 ]
+  %incdec.ptr.i.i417 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i415, i64 8
+  %61 = load i64, ptr %tpm.sroa.0.0.i415, align 8
+  %incdec.ptr1.i.i418 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i414, i64 8
+  %62 = load i64, ptr %tpb.sroa.0.0.i414, align 8
+  %xor.i.i419 = xor i64 %62, %61
+  store i64 %xor.i.i419, ptr %tpb.sroa.0.0.i414, align 8
+  %inc.i.i420 = add nuw nsw i32 %i.03.i.i416, 1
+  %exitcond.not.i.i421 = icmp eq i32 %inc.i.i420, 2
+  br i1 %exitcond.not.i.i421, label %xorbuf.exit435, label %for.body.i.i413, !llvm.loop !12
 
-xorbuf.exit443.loopexit609:                       ; preds = %xorbuf.exit399
-  %.pre643 = load i8, ptr %arrayidx87, align 1
-  %.pre642 = load i8, ptr %arrayidx31, align 1
-  %xor1516.i414 = xor i8 %.pre643, %.pre642
-  store i8 %xor1516.i414, ptr %arrayidx87, align 1
-  br label %xorbuf.exit443
+xorbuf.exit435.loopexit599:                       ; preds = %xorbuf.exit392
+  %.pre633 = load i8, ptr %arrayidx87, align 1
+  %.pre632 = load i8, ptr %arrayidx31, align 1
+  %xor1516.i407 = xor i8 %.pre633, %.pre632
+  store i8 %xor1516.i407, ptr %arrayidx87, align 1
+  br label %xorbuf.exit435
 
-xorbuf.exit443:                                   ; preds = %while.body.i434, %for.body.i.i420, %xorbuf.exit443.loopexit609
+xorbuf.exit435:                                   ; preds = %while.body.i426, %for.body.i.i413, %xorbuf.exit435.loopexit599
   %arrayidx95 = getelementptr inbounds i8, ptr %gcm, i64 240
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx95, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx2, i64 16, i1 false)
   %63 = ptrtoint ptr %arrayidx95 to i64
-  %rem.i444 = and i64 %63, 7
-  %cmp.i446 = icmp eq i64 %rem.i444, %rem.i136
-  br i1 %cmp.i446, label %while.cond.preheader.i461, label %xorbuf.exit487.loopexit607
+  %rem.i436 = and i64 %63, 7
+  %cmp.i438 = icmp eq i64 %rem.i436, %rem.i135
+  br i1 %cmp.i438, label %while.cond.preheader.i453, label %xorbuf.exit478.loopexit597
 
-while.cond.preheader.i461:                        ; preds = %xorbuf.exit443
-  %cmp3.i462.not = icmp eq i64 %rem.i136, 0
-  br i1 %cmp3.i462.not, label %for.body.i.i464, label %while.body.i478
+while.cond.preheader.i453:                        ; preds = %xorbuf.exit435
+  %cmp3.i454.not = icmp eq i64 %rem.i135, 0
+  br i1 %cmp3.i454.not, label %for.body.i.i456, label %while.body.i469
 
-while.body.i478:                                  ; preds = %while.cond.preheader.i461, %while.body.i478
-  %m.023.i479 = phi ptr [ %incdec.ptr.i482, %while.body.i478 ], [ %arrayidx39, %while.cond.preheader.i461 ]
-  %b.022.i480 = phi ptr [ %incdec.ptr5.i483, %while.body.i478 ], [ %arrayidx95, %while.cond.preheader.i461 ]
-  %count.addr.021.i481 = phi i32 [ %dec.i485, %while.body.i478 ], [ 16, %while.cond.preheader.i461 ]
-  %incdec.ptr.i482 = getelementptr inbounds i8, ptr %m.023.i479, i64 1
-  %64 = load i8, ptr %m.023.i479, align 1
-  %incdec.ptr5.i483 = getelementptr inbounds i8, ptr %b.022.i480, i64 1
-  %65 = load i8, ptr %b.022.i480, align 1
-  %xor17.i484 = xor i8 %65, %64
-  store i8 %xor17.i484, ptr %b.022.i480, align 1
-  %dec.i485 = add nsw i32 %count.addr.021.i481, -1
-  %cmp4.not.i486 = icmp eq i32 %dec.i485, 0
-  br i1 %cmp4.not.i486, label %xorbuf.exit487, label %while.body.i478, !llvm.loop !15
+while.body.i469:                                  ; preds = %while.cond.preheader.i453, %while.body.i469
+  %m.023.i470 = phi ptr [ %incdec.ptr.i473, %while.body.i469 ], [ %arrayidx39, %while.cond.preheader.i453 ]
+  %b.022.i471 = phi ptr [ %incdec.ptr5.i474, %while.body.i469 ], [ %arrayidx95, %while.cond.preheader.i453 ]
+  %count.addr.021.i472 = phi i32 [ %dec.i476, %while.body.i469 ], [ 16, %while.cond.preheader.i453 ]
+  %incdec.ptr.i473 = getelementptr inbounds i8, ptr %m.023.i470, i64 1
+  %64 = load i8, ptr %m.023.i470, align 1
+  %incdec.ptr5.i474 = getelementptr inbounds i8, ptr %b.022.i471, i64 1
+  %65 = load i8, ptr %b.022.i471, align 1
+  %xor17.i475 = xor i8 %65, %64
+  store i8 %xor17.i475, ptr %b.022.i471, align 1
+  %dec.i476 = add nsw i32 %count.addr.021.i472, -1
+  %cmp4.not.i477 = icmp eq i32 %dec.i476, 0
+  br i1 %cmp4.not.i477, label %xorbuf.exit478, label %while.body.i469, !llvm.loop !14
 
-for.body.i.i464:                                  ; preds = %while.cond.preheader.i461, %for.body.i.i464
-  %tpb.sroa.0.0.i465 = phi ptr [ %incdec.ptr1.i.i469, %for.body.i.i464 ], [ %arrayidx95, %while.cond.preheader.i461 ]
-  %tpm.sroa.0.0.i466 = phi ptr [ %incdec.ptr.i.i468, %for.body.i.i464 ], [ %arrayidx39, %while.cond.preheader.i461 ]
-  %i.03.i.i467 = phi i32 [ %inc.i.i471, %for.body.i.i464 ], [ 0, %while.cond.preheader.i461 ]
-  %incdec.ptr.i.i468 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i466, i64 8
-  %66 = load i64, ptr %tpm.sroa.0.0.i466, align 8
-  %incdec.ptr1.i.i469 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i465, i64 8
-  %67 = load i64, ptr %tpb.sroa.0.0.i465, align 8
-  %xor.i.i470 = xor i64 %67, %66
-  store i64 %xor.i.i470, ptr %tpb.sroa.0.0.i465, align 8
-  %inc.i.i471 = add nuw nsw i32 %i.03.i.i467, 1
-  %exitcond.not.i.i472 = icmp eq i32 %inc.i.i471, 2
-  br i1 %exitcond.not.i.i472, label %xorbuf.exit487, label %for.body.i.i464, !llvm.loop !12
+for.body.i.i456:                                  ; preds = %while.cond.preheader.i453, %for.body.i.i456
+  %tpb.sroa.0.0.i457 = phi ptr [ %incdec.ptr1.i.i461, %for.body.i.i456 ], [ %arrayidx95, %while.cond.preheader.i453 ]
+  %tpm.sroa.0.0.i458 = phi ptr [ %incdec.ptr.i.i460, %for.body.i.i456 ], [ %arrayidx39, %while.cond.preheader.i453 ]
+  %i.03.i.i459 = phi i32 [ %inc.i.i463, %for.body.i.i456 ], [ 0, %while.cond.preheader.i453 ]
+  %incdec.ptr.i.i460 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i458, i64 8
+  %66 = load i64, ptr %tpm.sroa.0.0.i458, align 8
+  %incdec.ptr1.i.i461 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i457, i64 8
+  %67 = load i64, ptr %tpb.sroa.0.0.i457, align 8
+  %xor.i.i462 = xor i64 %67, %66
+  store i64 %xor.i.i462, ptr %tpb.sroa.0.0.i457, align 8
+  %inc.i.i463 = add nuw nsw i32 %i.03.i.i459, 1
+  %exitcond.not.i.i464 = icmp eq i32 %inc.i.i463, 2
+  br i1 %exitcond.not.i.i464, label %xorbuf.exit478, label %for.body.i.i456, !llvm.loop !12
 
-xorbuf.exit487.loopexit607:                       ; preds = %xorbuf.exit443
-  %.pre645 = load i8, ptr %arrayidx95, align 1
-  %.pre644 = load i8, ptr %arrayidx39, align 1
-  %xor1516.i458 = xor i8 %.pre645, %.pre644
-  store i8 %xor1516.i458, ptr %arrayidx95, align 1
-  br label %xorbuf.exit487
+xorbuf.exit478.loopexit597:                       ; preds = %xorbuf.exit435
+  %.pre635 = load i8, ptr %arrayidx95, align 1
+  %.pre634 = load i8, ptr %arrayidx39, align 1
+  %xor1516.i450 = xor i8 %.pre635, %.pre634
+  store i8 %xor1516.i450, ptr %arrayidx95, align 1
+  br label %xorbuf.exit478
 
-xorbuf.exit487:                                   ; preds = %while.body.i478, %for.body.i.i464, %xorbuf.exit487.loopexit607
+xorbuf.exit478:                                   ; preds = %while.body.i469, %for.body.i.i456, %xorbuf.exit478.loopexit597
   %arrayidx103 = getelementptr inbounds i8, ptr %gcm, i64 256
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx103, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx2, i64 16, i1 false)
   %68 = ptrtoint ptr %arrayidx103 to i64
-  %rem.i488 = and i64 %68, 7
-  %cmp.i490 = icmp eq i64 %rem.i488, %rem.i180
-  br i1 %cmp.i490, label %while.cond.preheader.i505, label %xorbuf.exit531.loopexit605
+  %rem.i479 = and i64 %68, 7
+  %cmp.i481 = icmp eq i64 %rem.i479, %rem.i178
+  br i1 %cmp.i481, label %while.cond.preheader.i496, label %xorbuf.exit521.loopexit595
 
-while.cond.preheader.i505:                        ; preds = %xorbuf.exit487
-  %cmp3.i506.not = icmp eq i64 %rem.i180, 0
-  br i1 %cmp3.i506.not, label %for.body.i.i508, label %while.body.i522
+while.cond.preheader.i496:                        ; preds = %xorbuf.exit478
+  %cmp3.i497.not = icmp eq i64 %rem.i178, 0
+  br i1 %cmp3.i497.not, label %for.body.i.i499, label %while.body.i512
 
-while.body.i522:                                  ; preds = %while.cond.preheader.i505, %while.body.i522
-  %m.023.i523 = phi ptr [ %incdec.ptr.i526, %while.body.i522 ], [ %arrayidx47, %while.cond.preheader.i505 ]
-  %b.022.i524 = phi ptr [ %incdec.ptr5.i527, %while.body.i522 ], [ %arrayidx103, %while.cond.preheader.i505 ]
-  %count.addr.021.i525 = phi i32 [ %dec.i529, %while.body.i522 ], [ 16, %while.cond.preheader.i505 ]
-  %incdec.ptr.i526 = getelementptr inbounds i8, ptr %m.023.i523, i64 1
-  %69 = load i8, ptr %m.023.i523, align 1
-  %incdec.ptr5.i527 = getelementptr inbounds i8, ptr %b.022.i524, i64 1
-  %70 = load i8, ptr %b.022.i524, align 1
-  %xor17.i528 = xor i8 %70, %69
-  store i8 %xor17.i528, ptr %b.022.i524, align 1
-  %dec.i529 = add nsw i32 %count.addr.021.i525, -1
-  %cmp4.not.i530 = icmp eq i32 %dec.i529, 0
-  br i1 %cmp4.not.i530, label %for.body.preheader, label %while.body.i522, !llvm.loop !15
+while.body.i512:                                  ; preds = %while.cond.preheader.i496, %while.body.i512
+  %m.023.i513 = phi ptr [ %incdec.ptr.i516, %while.body.i512 ], [ %arrayidx47, %while.cond.preheader.i496 ]
+  %b.022.i514 = phi ptr [ %incdec.ptr5.i517, %while.body.i512 ], [ %arrayidx103, %while.cond.preheader.i496 ]
+  %count.addr.021.i515 = phi i32 [ %dec.i519, %while.body.i512 ], [ 16, %while.cond.preheader.i496 ]
+  %incdec.ptr.i516 = getelementptr inbounds i8, ptr %m.023.i513, i64 1
+  %69 = load i8, ptr %m.023.i513, align 1
+  %incdec.ptr5.i517 = getelementptr inbounds i8, ptr %b.022.i514, i64 1
+  %70 = load i8, ptr %b.022.i514, align 1
+  %xor17.i518 = xor i8 %70, %69
+  store i8 %xor17.i518, ptr %b.022.i514, align 1
+  %dec.i519 = add nsw i32 %count.addr.021.i515, -1
+  %cmp4.not.i520 = icmp eq i32 %dec.i519, 0
+  br i1 %cmp4.not.i520, label %for.body.preheader, label %while.body.i512, !llvm.loop !14
 
-for.body.i.i508:                                  ; preds = %while.cond.preheader.i505, %for.body.i.i508
-  %tpb.sroa.0.0.i509 = phi ptr [ %incdec.ptr1.i.i513, %for.body.i.i508 ], [ %arrayidx103, %while.cond.preheader.i505 ]
-  %tpm.sroa.0.0.i510 = phi ptr [ %incdec.ptr.i.i512, %for.body.i.i508 ], [ %arrayidx47, %while.cond.preheader.i505 ]
-  %i.03.i.i511 = phi i32 [ %inc.i.i515, %for.body.i.i508 ], [ 0, %while.cond.preheader.i505 ]
-  %incdec.ptr.i.i512 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i510, i64 8
-  %71 = load i64, ptr %tpm.sroa.0.0.i510, align 8
-  %incdec.ptr1.i.i513 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i509, i64 8
-  %72 = load i64, ptr %tpb.sroa.0.0.i509, align 8
-  %xor.i.i514 = xor i64 %72, %71
-  store i64 %xor.i.i514, ptr %tpb.sroa.0.0.i509, align 8
-  %inc.i.i515 = add nuw nsw i32 %i.03.i.i511, 1
-  %exitcond.not.i.i516 = icmp eq i32 %inc.i.i515, 2
-  br i1 %exitcond.not.i.i516, label %for.body.preheader, label %for.body.i.i508, !llvm.loop !12
+for.body.i.i499:                                  ; preds = %while.cond.preheader.i496, %for.body.i.i499
+  %tpb.sroa.0.0.i500 = phi ptr [ %incdec.ptr1.i.i504, %for.body.i.i499 ], [ %arrayidx103, %while.cond.preheader.i496 ]
+  %tpm.sroa.0.0.i501 = phi ptr [ %incdec.ptr.i.i503, %for.body.i.i499 ], [ %arrayidx47, %while.cond.preheader.i496 ]
+  %i.03.i.i502 = phi i32 [ %inc.i.i506, %for.body.i.i499 ], [ 0, %while.cond.preheader.i496 ]
+  %incdec.ptr.i.i503 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i501, i64 8
+  %71 = load i64, ptr %tpm.sroa.0.0.i501, align 8
+  %incdec.ptr1.i.i504 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i500, i64 8
+  %72 = load i64, ptr %tpb.sroa.0.0.i500, align 8
+  %xor.i.i505 = xor i64 %72, %71
+  store i64 %xor.i.i505, ptr %tpb.sroa.0.0.i500, align 8
+  %inc.i.i506 = add nuw nsw i32 %i.03.i.i502, 1
+  %exitcond.not.i.i507 = icmp eq i32 %inc.i.i506, 2
+  br i1 %exitcond.not.i.i507, label %for.body.preheader, label %for.body.i.i499, !llvm.loop !12
 
-xorbuf.exit531.loopexit605:                       ; preds = %xorbuf.exit487
-  %.pre647 = load i8, ptr %arrayidx103, align 1
-  %.pre646 = load i8, ptr %arrayidx47, align 1
-  %xor1516.i502 = xor i8 %.pre647, %.pre646
-  store i8 %xor1516.i502, ptr %arrayidx103, align 1
+xorbuf.exit521.loopexit595:                       ; preds = %xorbuf.exit478
+  %.pre637 = load i8, ptr %arrayidx103, align 1
+  %.pre636 = load i8, ptr %arrayidx47, align 1
+  %xor1516.i493 = xor i8 %.pre637, %.pre636
+  store i8 %xor1516.i493, ptr %arrayidx103, align 1
   br label %for.body.preheader
 
-for.body.preheader:                               ; preds = %while.body.i522, %for.body.i.i508, %xorbuf.exit531.loopexit605
+for.body.preheader:                               ; preds = %while.body.i512, %for.body.i.i499, %xorbuf.exit521.loopexit595
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %Shift4_M0.exit
@@ -4371,35 +4371,35 @@ for.body:                                         ; preds = %for.body.preheader,
   %73 = or disjoint i64 %indvars.iv, 16
   %arrayidx111 = getelementptr inbounds [16 x i8], ptr %M0, i64 %73
   %arrayidx114 = getelementptr inbounds [16 x i8], ptr %M0, i64 %indvars.iv
-  br label %for.body.i532
+  br label %for.body.i522
 
-for.body.i532:                                    ; preds = %for.body.i532, %for.body
-  %indvars.iv.i533 = phi i64 [ 15, %for.body ], [ %indvars.iv.next.i535, %for.body.i532 ]
-  %74 = getelementptr i8, ptr %arrayidx114, i64 %indvars.iv.i533
-  %arrayidx.i534 = getelementptr i8, ptr %74, i64 -1
-  %75 = load i8, ptr %arrayidx.i534, align 1
+for.body.i522:                                    ; preds = %for.body.i522, %for.body
+  %indvars.iv.i523 = phi i64 [ 15, %for.body ], [ %indvars.iv.next.i525, %for.body.i522 ]
+  %74 = getelementptr i8, ptr %arrayidx114, i64 %indvars.iv.i523
+  %arrayidx.i524 = getelementptr i8, ptr %74, i64 -1
+  %75 = load i8, ptr %arrayidx.i524, align 1
   %76 = load i8, ptr %74, align 1
   %or8.i = tail call i8 @llvm.fshl.i8(i8 %75, i8 %76, i8 4)
-  %arrayidx10.i = getelementptr inbounds i8, ptr %arrayidx111, i64 %indvars.iv.i533
+  %arrayidx10.i = getelementptr inbounds i8, ptr %arrayidx111, i64 %indvars.iv.i523
   store i8 %or8.i, ptr %arrayidx10.i, align 1
-  %indvars.iv.next.i535 = add nsw i64 %indvars.iv.i533, -1
-  %cmp.i536 = icmp ugt i64 %indvars.iv.i533, 1
-  br i1 %cmp.i536, label %for.body.i532, label %Shift4_M0.exit, !llvm.loop !18
+  %indvars.iv.next.i525 = add nsw i64 %indvars.iv.i523, -1
+  %cmp.i526 = icmp ugt i64 %indvars.iv.i523, 1
+  br i1 %cmp.i526, label %for.body.i522, label %Shift4_M0.exit, !llvm.loop !17
 
-Shift4_M0.exit:                                   ; preds = %for.body.i532
+Shift4_M0.exit:                                   ; preds = %for.body.i522
   %77 = load i8, ptr %arrayidx114, align 1
   %78 = lshr i8 %77, 4
   store i8 %78, ptr %arrayidx111, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %Shift4_M0.exit
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @wc_AesGcmSetKey(ptr noundef %aes, ptr nocapture noundef readonly %key, i32 noundef %len) local_unnamed_addr #0 {
+define i32 @wc_AesGcmSetKey(ptr noundef %aes, ptr nocapture noundef readonly %key, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %iv = alloca [16 x i8], align 16
   switch i32 %len, label %return [
@@ -4420,7 +4420,7 @@ if.end6:                                          ; preds = %if.end
 
 if.end15:                                         ; preds = %if.end6
   %gcm = getelementptr inbounds i8, ptr %aes, i64 304
-  %call12 = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef nonnull %iv, ptr noundef nonnull %gcm), !range !13
+  %call12 = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef nonnull %iv, ptr noundef nonnull %gcm)
   %cmp16 = icmp eq i32 %call12, 0
   br i1 %cmp16, label %if.then17, label %return
 
@@ -4436,8 +4436,8 @@ return:                                           ; preds = %if.end6, %if.end15,
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @GHASH(ptr noundef readonly %gcm, ptr noundef %a, i32 noundef %aSz, ptr noundef %c, i32 noundef %cSz, ptr nocapture noundef writeonly %s, i32 noundef %sSz) local_unnamed_addr #4 {
 entry:
-  %c250 = ptrtoint ptr %c to i64
-  %a249 = ptrtoint ptr %a to i64
+  %c246 = ptrtoint ptr %c to i64
+  %a245 = ptrtoint ptr %a to i64
   %x = alloca [16 x i8], align 16
   %scratch = alloca [16 x i8], align 16
   %cmp = icmp eq ptr %gcm, null
@@ -4452,25 +4452,25 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %rem = and i32 %aSz, 15
-  %tobool.not240 = icmp ult i32 %aSz, 16
-  br i1 %tobool.not240, label %while.end, label %while.body.lr.ph
+  %tobool.not236 = icmp ult i32 %aSz, 16
+  br i1 %tobool.not236, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then3
   %div23 = lshr i32 %aSz, 4
   %M0 = getelementptr inbounds i8, ptr %gcm, i64 16
-  %0 = and i64 %a249, 7
+  %0 = and i64 %a245, 7
   %cmp.i = icmp eq i64 %0, 0
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %xorbuf.exit
-  %blocks.0242 = phi i32 [ %div23, %while.body.lr.ph ], [ %dec, %xorbuf.exit ]
-  %a.addr.0241 = phi ptr [ %a, %while.body.lr.ph ], [ %add.ptr, %xorbuf.exit ]
-  %dec = add nsw i32 %blocks.0242, -1
+  %blocks.0238 = phi i32 [ %div23, %while.body.lr.ph ], [ %dec, %xorbuf.exit ]
+  %a.addr.0237 = phi ptr [ %a, %while.body.lr.ph ], [ %add.ptr, %xorbuf.exit ]
+  %dec = add nsw i32 %blocks.0238, -1
   br i1 %cmp.i, label %for.body.i.i, label %for.body.i
 
 for.body.i.i:                                     ; preds = %while.body, %for.body.i.i
   %tpb.sroa.0.0.i = phi ptr [ %incdec.ptr1.i.i, %for.body.i.i ], [ %x, %while.body ]
-  %tpm.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %a.addr.0241, %while.body ]
+  %tpm.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %a.addr.0237, %while.body ]
   %i.03.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %while.body ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i, i64 8
   %1 = load i64, ptr %tpm.sroa.0.0.i, align 8
@@ -4484,7 +4484,7 @@ for.body.i.i:                                     ; preds = %while.body, %for.bo
 
 for.body.i:                                       ; preds = %while.body, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %while.body ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %a.addr.0241, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds i8, ptr %a.addr.0237, i64 %indvars.iv.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %arrayidx13.i = getelementptr inbounds i8, ptr %x, i64 %indvars.iv.i
   %4 = load i8, ptr %arrayidx13.i, align 1
@@ -4496,9 +4496,9 @@ for.body.i:                                       ; preds = %while.body, %for.bo
 
 xorbuf.exit:                                      ; preds = %for.body.i, %for.body.i.i
   call fastcc void @GMULT(ptr noundef nonnull %x, ptr noundef nonnull %M0)
-  %add.ptr = getelementptr inbounds i8, ptr %a.addr.0241, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %a.addr.0237, i64 16
   %tobool.not = icmp eq i32 %dec, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !20
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !19
 
 while.end:                                        ; preds = %xorbuf.exit, %if.then3
   %a.addr.0.lcssa = phi ptr [ %a, %if.then3 ], [ %add.ptr, %xorbuf.exit ]
@@ -4523,14 +4523,14 @@ for.body.i.i45:                                   ; preds = %if.then8, %for.body
   store i64 %xor.i.i51, ptr %tpb.sroa.0.0.i46, align 8
   %inc.i.i52 = add nuw nsw i32 %i.03.i.i48, 1
   %exitcond.not.i.i53 = icmp eq i32 %inc.i.i52, 2
-  br i1 %exitcond.not.i.i53, label %xorbuf.exit68, label %for.body.i.i45, !llvm.loop !12
+  br i1 %exitcond.not.i.i53, label %xorbuf.exit67, label %for.body.i.i45, !llvm.loop !12
 
-xorbuf.exit68:                                    ; preds = %for.body.i.i45
+xorbuf.exit67:                                    ; preds = %for.body.i.i45
   %M014 = getelementptr inbounds i8, ptr %gcm, i64 16
   call fastcc void @GMULT(ptr noundef nonnull %x, ptr noundef nonnull %M014)
   br label %if.end17
 
-if.end17:                                         ; preds = %while.end, %xorbuf.exit68, %if.end
+if.end17:                                         ; preds = %while.end, %xorbuf.exit67, %if.end
   %cmp18 = icmp ne i32 %cSz, 0
   %cmp21 = icmp ne ptr %c, null
   %or.cond1 = and i1 %cmp21, %cmp18
@@ -4538,56 +4538,56 @@ if.end17:                                         ; preds = %while.end, %xorbuf.
 
 if.then23:                                        ; preds = %if.end17
   %rem25 = and i32 %cSz, 15
-  %tobool28.not243 = icmp ult i32 %cSz, 16
-  br i1 %tobool28.not243, label %while.end35, label %while.body29.lr.ph
+  %tobool28.not239 = icmp ult i32 %cSz, 16
+  br i1 %tobool28.not239, label %while.end35, label %while.body29.lr.ph
 
 while.body29.lr.ph:                               ; preds = %if.then23
   %div2424 = lshr i32 %cSz, 4
   %M032 = getelementptr inbounds i8, ptr %gcm, i64 16
-  %7 = and i64 %c250, 7
-  %cmp.i71 = icmp eq i64 %7, 0
+  %7 = and i64 %c246, 7
+  %cmp.i70 = icmp eq i64 %7, 0
   br label %while.body29
 
-while.body29:                                     ; preds = %while.body29.lr.ph, %xorbuf.exit112
-  %blocks.1245 = phi i32 [ %div2424, %while.body29.lr.ph ], [ %dec27, %xorbuf.exit112 ]
-  %c.addr.0244 = phi ptr [ %c, %while.body29.lr.ph ], [ %add.ptr34, %xorbuf.exit112 ]
-  %dec27 = add nsw i32 %blocks.1245, -1
-  br i1 %cmp.i71, label %for.body.i.i89, label %for.body.i79
+while.body29:                                     ; preds = %while.body29.lr.ph, %xorbuf.exit110
+  %blocks.1241 = phi i32 [ %div2424, %while.body29.lr.ph ], [ %dec27, %xorbuf.exit110 ]
+  %c.addr.0240 = phi ptr [ %c, %while.body29.lr.ph ], [ %add.ptr34, %xorbuf.exit110 ]
+  %dec27 = add nsw i32 %blocks.1241, -1
+  br i1 %cmp.i70, label %for.body.i.i88, label %for.body.i78
 
-for.body.i.i89:                                   ; preds = %while.body29, %for.body.i.i89
-  %tpb.sroa.0.0.i90 = phi ptr [ %incdec.ptr1.i.i94, %for.body.i.i89 ], [ %x, %while.body29 ]
-  %tpm.sroa.0.0.i91 = phi ptr [ %incdec.ptr.i.i93, %for.body.i.i89 ], [ %c.addr.0244, %while.body29 ]
-  %i.03.i.i92 = phi i32 [ %inc.i.i96, %for.body.i.i89 ], [ 0, %while.body29 ]
-  %incdec.ptr.i.i93 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i91, i64 8
-  %8 = load i64, ptr %tpm.sroa.0.0.i91, align 8
-  %incdec.ptr1.i.i94 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i90, i64 8
-  %9 = load i64, ptr %tpb.sroa.0.0.i90, align 8
-  %xor.i.i95 = xor i64 %9, %8
-  store i64 %xor.i.i95, ptr %tpb.sroa.0.0.i90, align 8
-  %inc.i.i96 = add nuw nsw i32 %i.03.i.i92, 1
-  %exitcond.not.i.i97 = icmp eq i32 %inc.i.i96, 2
-  br i1 %exitcond.not.i.i97, label %xorbuf.exit112, label %for.body.i.i89, !llvm.loop !12
+for.body.i.i88:                                   ; preds = %while.body29, %for.body.i.i88
+  %tpb.sroa.0.0.i89 = phi ptr [ %incdec.ptr1.i.i93, %for.body.i.i88 ], [ %x, %while.body29 ]
+  %tpm.sroa.0.0.i90 = phi ptr [ %incdec.ptr.i.i92, %for.body.i.i88 ], [ %c.addr.0240, %while.body29 ]
+  %i.03.i.i91 = phi i32 [ %inc.i.i95, %for.body.i.i88 ], [ 0, %while.body29 ]
+  %incdec.ptr.i.i92 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i90, i64 8
+  %8 = load i64, ptr %tpm.sroa.0.0.i90, align 8
+  %incdec.ptr1.i.i93 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i89, i64 8
+  %9 = load i64, ptr %tpb.sroa.0.0.i89, align 8
+  %xor.i.i94 = xor i64 %9, %8
+  store i64 %xor.i.i94, ptr %tpb.sroa.0.0.i89, align 8
+  %inc.i.i95 = add nuw nsw i32 %i.03.i.i91, 1
+  %exitcond.not.i.i96 = icmp eq i32 %inc.i.i95, 2
+  br i1 %exitcond.not.i.i96, label %xorbuf.exit110, label %for.body.i.i88, !llvm.loop !12
 
-for.body.i79:                                     ; preds = %while.body29, %for.body.i79
-  %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i84, %for.body.i79 ], [ 0, %while.body29 ]
-  %arrayidx.i81 = getelementptr inbounds i8, ptr %c.addr.0244, i64 %indvars.iv.i80
-  %10 = load i8, ptr %arrayidx.i81, align 1
-  %arrayidx13.i82 = getelementptr inbounds i8, ptr %x, i64 %indvars.iv.i80
-  %11 = load i8, ptr %arrayidx13.i82, align 1
-  %xor1516.i83 = xor i8 %11, %10
-  store i8 %xor1516.i83, ptr %arrayidx13.i82, align 1
-  %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i80, 1
-  %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, 16
-  br i1 %exitcond.not.i85, label %xorbuf.exit112, label %for.body.i79, !llvm.loop !11
+for.body.i78:                                     ; preds = %while.body29, %for.body.i78
+  %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i83, %for.body.i78 ], [ 0, %while.body29 ]
+  %arrayidx.i80 = getelementptr inbounds i8, ptr %c.addr.0240, i64 %indvars.iv.i79
+  %10 = load i8, ptr %arrayidx.i80, align 1
+  %arrayidx13.i81 = getelementptr inbounds i8, ptr %x, i64 %indvars.iv.i79
+  %11 = load i8, ptr %arrayidx13.i81, align 1
+  %xor1516.i82 = xor i8 %11, %10
+  store i8 %xor1516.i82, ptr %arrayidx13.i81, align 1
+  %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i79, 1
+  %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, 16
+  br i1 %exitcond.not.i84, label %xorbuf.exit110, label %for.body.i78, !llvm.loop !11
 
-xorbuf.exit112:                                   ; preds = %for.body.i79, %for.body.i.i89
+xorbuf.exit110:                                   ; preds = %for.body.i78, %for.body.i.i88
   call fastcc void @GMULT(ptr noundef nonnull %x, ptr noundef nonnull %M032)
-  %add.ptr34 = getelementptr inbounds i8, ptr %c.addr.0244, i64 16
+  %add.ptr34 = getelementptr inbounds i8, ptr %c.addr.0240, i64 16
   %tobool28.not = icmp eq i32 %dec27, 0
-  br i1 %tobool28.not, label %while.end35, label %while.body29, !llvm.loop !21
+  br i1 %tobool28.not, label %while.end35, label %while.body29, !llvm.loop !20
 
-while.end35:                                      ; preds = %xorbuf.exit112, %if.then23
-  %c.addr.0.lcssa = phi ptr [ %c, %if.then23 ], [ %add.ptr34, %xorbuf.exit112 ]
+while.end35:                                      ; preds = %xorbuf.exit110, %if.then23
+  %c.addr.0.lcssa = phi ptr [ %c, %if.then23 ], [ %add.ptr34, %xorbuf.exit110 ]
   %cmp36.not = icmp eq i32 %rem25, 0
   br i1 %cmp36.not, label %if.end48, label %if.then38
 
@@ -4595,28 +4595,28 @@ if.then38:                                        ; preds = %while.end35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %scratch, i8 0, i64 16, i1 false)
   %conv41 = zext nneg i32 %rem25 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %scratch, ptr nonnull align 1 %c.addr.0.lcssa, i64 %conv41, i1 false)
-  br label %for.body.i.i133
+  br label %for.body.i.i131
 
-for.body.i.i133:                                  ; preds = %if.then38, %for.body.i.i133
-  %tpb.sroa.0.0.i134 = phi ptr [ %incdec.ptr1.i.i138, %for.body.i.i133 ], [ %x, %if.then38 ]
-  %tpm.sroa.0.0.i135 = phi ptr [ %incdec.ptr.i.i137, %for.body.i.i133 ], [ %scratch, %if.then38 ]
-  %i.03.i.i136 = phi i32 [ %inc.i.i140, %for.body.i.i133 ], [ 0, %if.then38 ]
-  %incdec.ptr.i.i137 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i135, i64 8
-  %12 = load i64, ptr %tpm.sroa.0.0.i135, align 8
-  %incdec.ptr1.i.i138 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i134, i64 8
-  %13 = load i64, ptr %tpb.sroa.0.0.i134, align 8
-  %xor.i.i139 = xor i64 %13, %12
-  store i64 %xor.i.i139, ptr %tpb.sroa.0.0.i134, align 8
-  %inc.i.i140 = add nuw nsw i32 %i.03.i.i136, 1
-  %exitcond.not.i.i141 = icmp eq i32 %inc.i.i140, 2
-  br i1 %exitcond.not.i.i141, label %xorbuf.exit156, label %for.body.i.i133, !llvm.loop !12
+for.body.i.i131:                                  ; preds = %if.then38, %for.body.i.i131
+  %tpb.sroa.0.0.i132 = phi ptr [ %incdec.ptr1.i.i136, %for.body.i.i131 ], [ %x, %if.then38 ]
+  %tpm.sroa.0.0.i133 = phi ptr [ %incdec.ptr.i.i135, %for.body.i.i131 ], [ %scratch, %if.then38 ]
+  %i.03.i.i134 = phi i32 [ %inc.i.i138, %for.body.i.i131 ], [ 0, %if.then38 ]
+  %incdec.ptr.i.i135 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i133, i64 8
+  %12 = load i64, ptr %tpm.sroa.0.0.i133, align 8
+  %incdec.ptr1.i.i136 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i132, i64 8
+  %13 = load i64, ptr %tpb.sroa.0.0.i132, align 8
+  %xor.i.i137 = xor i64 %13, %12
+  store i64 %xor.i.i137, ptr %tpb.sroa.0.0.i132, align 8
+  %inc.i.i138 = add nuw nsw i32 %i.03.i.i134, 1
+  %exitcond.not.i.i139 = icmp eq i32 %inc.i.i138, 2
+  br i1 %exitcond.not.i.i139, label %xorbuf.exit153, label %for.body.i.i131, !llvm.loop !12
 
-xorbuf.exit156:                                   ; preds = %for.body.i.i133
+xorbuf.exit153:                                   ; preds = %for.body.i.i131
   %M045 = getelementptr inbounds i8, ptr %gcm, i64 16
   call fastcc void @GMULT(ptr noundef nonnull %x, ptr noundef nonnull %M045)
   br label %if.end48
 
-if.end48:                                         ; preds = %while.end35, %xorbuf.exit156, %if.end17
+if.end48:                                         ; preds = %while.end35, %xorbuf.exit153, %if.end17
   %shr.i = lshr i32 %aSz, 29
   %shl.i = shl i32 %aSz, 3
   store i8 0, ptr %scratch, align 16
@@ -4643,55 +4643,55 @@ if.end48:                                         ; preds = %while.end35, %xorbu
   %arrayidx20.i = getelementptr inbounds i8, ptr %scratch, i64 7
   store i8 %conv19.i, ptr %arrayidx20.i, align 1
   %arrayidx49 = getelementptr inbounds i8, ptr %scratch, i64 8
-  %shr.i157 = lshr i32 %cSz, 29
-  %shl.i158 = shl i32 %cSz, 3
+  %shr.i154 = lshr i32 %cSz, 29
+  %shl.i155 = shl i32 %cSz, 3
   store i8 0, ptr %arrayidx49, align 8
-  %arrayidx4.i159 = getelementptr inbounds i8, ptr %scratch, i64 9
-  store i8 0, ptr %arrayidx4.i159, align 1
-  %arrayidx7.i160 = getelementptr inbounds i8, ptr %scratch, i64 10
-  store i8 0, ptr %arrayidx7.i160, align 2
-  %conv8.i161 = trunc nuw nsw i32 %shr.i157 to i8
-  %arrayidx9.i162 = getelementptr inbounds i8, ptr %scratch, i64 11
-  store i8 %conv8.i161, ptr %arrayidx9.i162, align 1
-  %shr10.i163 = lshr i32 %shl.i158, 24
-  %conv11.i164 = trunc nuw i32 %shr10.i163 to i8
-  %arrayidx12.i165 = getelementptr inbounds i8, ptr %scratch, i64 12
-  store i8 %conv11.i164, ptr %arrayidx12.i165, align 4
-  %shr13.i166 = lshr i32 %shl.i158, 16
-  %conv14.i167 = trunc i32 %shr13.i166 to i8
-  %arrayidx15.i168 = getelementptr inbounds i8, ptr %scratch, i64 13
-  store i8 %conv14.i167, ptr %arrayidx15.i168, align 1
-  %shr16.i169 = lshr i32 %shl.i158, 8
-  %conv17.i170 = trunc i32 %shr16.i169 to i8
-  %arrayidx18.i171 = getelementptr inbounds i8, ptr %scratch, i64 14
-  store i8 %conv17.i170, ptr %arrayidx18.i171, align 2
-  %conv19.i172 = trunc i32 %shl.i158 to i8
-  %arrayidx20.i173 = getelementptr inbounds i8, ptr %scratch, i64 15
-  store i8 %conv19.i172, ptr %arrayidx20.i173, align 1
-  br label %for.body.i.i194
+  %arrayidx4.i156 = getelementptr inbounds i8, ptr %scratch, i64 9
+  store i8 0, ptr %arrayidx4.i156, align 1
+  %arrayidx7.i157 = getelementptr inbounds i8, ptr %scratch, i64 10
+  store i8 0, ptr %arrayidx7.i157, align 2
+  %conv8.i158 = trunc nuw nsw i32 %shr.i154 to i8
+  %arrayidx9.i159 = getelementptr inbounds i8, ptr %scratch, i64 11
+  store i8 %conv8.i158, ptr %arrayidx9.i159, align 1
+  %shr10.i160 = lshr i32 %shl.i155, 24
+  %conv11.i161 = trunc nuw i32 %shr10.i160 to i8
+  %arrayidx12.i162 = getelementptr inbounds i8, ptr %scratch, i64 12
+  store i8 %conv11.i161, ptr %arrayidx12.i162, align 4
+  %shr13.i163 = lshr i32 %shl.i155, 16
+  %conv14.i164 = trunc i32 %shr13.i163 to i8
+  %arrayidx15.i165 = getelementptr inbounds i8, ptr %scratch, i64 13
+  store i8 %conv14.i164, ptr %arrayidx15.i165, align 1
+  %shr16.i166 = lshr i32 %shl.i155, 8
+  %conv17.i167 = trunc i32 %shr16.i166 to i8
+  %arrayidx18.i168 = getelementptr inbounds i8, ptr %scratch, i64 14
+  store i8 %conv17.i167, ptr %arrayidx18.i168, align 2
+  %conv19.i169 = trunc i32 %shl.i155 to i8
+  %arrayidx20.i170 = getelementptr inbounds i8, ptr %scratch, i64 15
+  store i8 %conv19.i169, ptr %arrayidx20.i170, align 1
+  br label %for.body.i.i191
 
-for.body.i.i194:                                  ; preds = %if.end48, %for.body.i.i194
-  %tpb.sroa.0.0.i195 = phi ptr [ %incdec.ptr1.i.i199, %for.body.i.i194 ], [ %x, %if.end48 ]
-  %tpm.sroa.0.0.i196 = phi ptr [ %incdec.ptr.i.i198, %for.body.i.i194 ], [ %scratch, %if.end48 ]
-  %i.03.i.i197 = phi i32 [ %inc.i.i201, %for.body.i.i194 ], [ 0, %if.end48 ]
-  %incdec.ptr.i.i198 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i196, i64 8
-  %14 = load i64, ptr %tpm.sroa.0.0.i196, align 8
-  %incdec.ptr1.i.i199 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i195, i64 8
-  %15 = load i64, ptr %tpb.sroa.0.0.i195, align 8
-  %xor.i.i200 = xor i64 %15, %14
-  store i64 %xor.i.i200, ptr %tpb.sroa.0.0.i195, align 8
-  %inc.i.i201 = add nuw nsw i32 %i.03.i.i197, 1
-  %exitcond.not.i.i202 = icmp eq i32 %inc.i.i201, 2
-  br i1 %exitcond.not.i.i202, label %xorbuf.exit217, label %for.body.i.i194, !llvm.loop !12
+for.body.i.i191:                                  ; preds = %if.end48, %for.body.i.i191
+  %tpb.sroa.0.0.i192 = phi ptr [ %incdec.ptr1.i.i196, %for.body.i.i191 ], [ %x, %if.end48 ]
+  %tpm.sroa.0.0.i193 = phi ptr [ %incdec.ptr.i.i195, %for.body.i.i191 ], [ %scratch, %if.end48 ]
+  %i.03.i.i194 = phi i32 [ %inc.i.i198, %for.body.i.i191 ], [ 0, %if.end48 ]
+  %incdec.ptr.i.i195 = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i193, i64 8
+  %14 = load i64, ptr %tpm.sroa.0.0.i193, align 8
+  %incdec.ptr1.i.i196 = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i192, i64 8
+  %15 = load i64, ptr %tpb.sroa.0.0.i192, align 8
+  %xor.i.i197 = xor i64 %15, %14
+  store i64 %xor.i.i197, ptr %tpb.sroa.0.0.i192, align 8
+  %inc.i.i198 = add nuw nsw i32 %i.03.i.i194, 1
+  %exitcond.not.i.i199 = icmp eq i32 %inc.i.i198, 2
+  br i1 %exitcond.not.i.i199, label %xorbuf.exit213, label %for.body.i.i191, !llvm.loop !12
 
-xorbuf.exit217:                                   ; preds = %for.body.i.i194
+xorbuf.exit213:                                   ; preds = %for.body.i.i191
   %M053 = getelementptr inbounds i8, ptr %gcm, i64 16
   call fastcc void @GMULT(ptr noundef nonnull %x, ptr noundef nonnull %M053)
   %conv56 = zext i32 %sSz to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %s, ptr nonnull align 16 %x, i64 %conv56, i1 false)
   br label %return
 
-return:                                           ; preds = %entry, %xorbuf.exit217
+return:                                           ; preds = %entry, %xorbuf.exit213
   ret void
 }
 
@@ -4746,7 +4746,7 @@ for.body:                                         ; preds = %entry, %for.body
   %xor53 = xor i64 %xor34, %conv51
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp = icmp ugt i64 %indvars.iv, 1
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body
   %10 = load i8, ptr %x, align 1
@@ -4792,7 +4792,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_AesGcmEncrypt(ptr noundef %aes, ptr noundef %out, ptr noundef %in, i32 noundef %sz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz) local_unnamed_addr #4 {
+define i32 @wc_AesGcmEncrypt(ptr noundef %aes, ptr noundef %out, ptr noundef %in, i32 noundef %sz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz) local_unnamed_addr #4 {
 entry:
   %counter.i = alloca [16 x i8], align 16
   %initialCounter.i = alloca [16 x i8], align 16
@@ -4857,11 +4857,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %dec.i.i = add nsw i32 %i.03.i.i, -1
   %cmp.i.i = icmp ugt i32 %i.03.i.i, 12
   %or.cond.i.i = and i1 %cmp.i.i, %tobool.not.i.i
-  br i1 %or.cond.i.i, label %for.body.i.i, label %IncrementGcmCounter.exit.i, !llvm.loop !23
+  br i1 %or.cond.i.i, label %for.body.i.i, label %IncrementGcmCounter.exit.i, !llvm.loop !22
 
 IncrementGcmCounter.exit.i:                       ; preds = %for.body.i.i
   %dec153.i = add nsw i32 %dec153.in.i, -1
-  %call.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef nonnull %counter.i, ptr noundef nonnull %scratch.i), !range !13
+  %call.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef nonnull %counter.i, ptr noundef nonnull %scratch.i)
   %cmp8.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp8.not.i, label %if.end11.i, label %AES_GCM_encrypt_C.exit
 
@@ -4889,7 +4889,7 @@ while.body.i.i:                                   ; preds = %while.cond.preheade
   %incdec.ptr11.i.i = getelementptr inbounds i8, ptr %o.030.i.i, i64 1
   store i8 %xor22.i.i, ptr %o.030.i.i, align 1
   %exitcond.not.i = icmp eq i64 %b.031.i.idx.i, 7
-  br i1 %exitcond.not.i, label %for.body.i.i.preheader.i, label %while.body.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %for.body.i.i.preheader.i, label %while.body.i.i, !llvm.loop !23
 
 for.body.i.i.preheader.i:                         ; preds = %while.body.i.i, %while.cond.preheader.i.i
   %count.addr.0.lcssa.i.i = phi i32 [ 2, %while.cond.preheader.i.i ], [ 1, %while.body.i.i ]
@@ -4912,7 +4912,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   store i64 %xor.i.i.i, ptr %tpo.sroa.0.0.i.i, align 8
   %inc.i.i.i = add nuw nsw i32 %i.03.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %inc.i.i.i, %count.addr.0.lcssa.i.i
-  br i1 %exitcond.not.i.i.i, label %xorbufout.exit.i, label %for.body.i.i.i, !llvm.loop !25
+  br i1 %exitcond.not.i.i.i, label %xorbufout.exit.i, label %for.body.i.i.i, !llvm.loop !24
 
 for.body.i28.i:                                   ; preds = %if.end11.i, %for.body.i28.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i28.i ], [ 0, %if.end11.i ]
@@ -4925,13 +4925,13 @@ for.body.i28.i:                                   ; preds = %if.end11.i, %for.bo
   store i8 %xor1921.i.i, ptr %arrayidx22.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %xorbufout.exit.i, label %for.body.i28.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %xorbufout.exit.i, label %for.body.i28.i, !llvm.loop !25
 
 xorbufout.exit.i:                                 ; preds = %for.body.i28.i, %for.body.i.i.i
   %add.ptr13.i = getelementptr inbounds i8, ptr %p.0147.i, i64 16
   %add.ptr14.i = getelementptr inbounds i8, ptr %c.0150.i, i64 16
   %tobool.not.i = icmp eq i32 %dec153.i, 0
-  br i1 %tobool.not.i, label %while.end.i, label %for.body.i.preheader.i, !llvm.loop !27
+  br i1 %tobool.not.i, label %while.end.i, label %for.body.i.preheader.i, !llvm.loop !26
 
 while.end.i:                                      ; preds = %xorbufout.exit.i, %if.end.i
   %p.0.lcssa.i = phi ptr [ %in, %if.end.i ], [ %add.ptr13.i, %xorbufout.exit.i ]
@@ -4950,10 +4950,10 @@ for.body.i31.i:                                   ; preds = %while.end.i, %for.b
   %dec.i37.i = add nsw i32 %i.03.i32.i, -1
   %cmp.i38.i = icmp ugt i32 %i.03.i32.i, 12
   %or.cond.i39.i = and i1 %cmp.i38.i, %tobool.not.i36.i
-  br i1 %or.cond.i39.i, label %for.body.i31.i, label %IncrementGcmCounter.exit40.i, !llvm.loop !23
+  br i1 %or.cond.i39.i, label %for.body.i31.i, label %IncrementGcmCounter.exit40.i, !llvm.loop !22
 
 IncrementGcmCounter.exit40.i:                     ; preds = %for.body.i31.i
-  %call21.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef nonnull %counter.i, ptr noundef nonnull %scratch.i), !range !13
+  %call21.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef nonnull %counter.i, ptr noundef nonnull %scratch.i)
   %cmp22.not.i = icmp eq i32 %call21.i, 0
   br i1 %cmp22.not.i, label %if.end25.i, label %AES_GCM_encrypt_C.exit
 
@@ -4989,7 +4989,7 @@ while.body.i88.i:                                 ; preds = %while.body.i88.i, %
   %incdec.ptr11.i96.i = getelementptr inbounds i8, ptr %o.030.i91.i, i64 1
   store i8 %xor22.i95.i, ptr %o.030.i91.i, align 1
   %exitcond159.not.i = icmp eq ptr %b.031.i90.i, %scevgep158.i
-  br i1 %exitcond159.not.i, label %while.end.i65.i.loopexit, label %while.body.i88.i, !llvm.loop !24
+  br i1 %exitcond159.not.i, label %while.end.i65.i.loopexit, label %while.body.i88.i, !llvm.loop !23
 
 while.end.i65.i.loopexit:                         ; preds = %while.body.i88.i
   %21 = sub nsw i32 %17, %18
@@ -5018,7 +5018,7 @@ for.body.i.i72.i:                                 ; preds = %while.end.i65.i, %f
   store i64 %xor.i.i79.i, ptr %tpo.sroa.0.0.i73.i, align 8
   %inc.i.i81.i = add nuw nsw i32 %i.03.i.i76.i, 1
   %exitcond.not.i.i82.i = icmp eq i32 %inc.i.i81.i, %div20.i70.i
-  br i1 %exitcond.not.i.i82.i, label %XorWordsOut.exit.i83.i, label %for.body.i.i72.i, !llvm.loop !25
+  br i1 %exitcond.not.i.i82.i, label %XorWordsOut.exit.i83.i, label %for.body.i.i72.i, !llvm.loop !24
 
 XorWordsOut.exit.i83.i:                           ; preds = %for.body.i.i72.i, %while.end.i65.i
   %tpo.sroa.0.1.i84.i = phi ptr [ %o.0.lcssa.i67.i, %while.end.i65.i ], [ %incdec.ptr2.i.i80.i, %for.body.i.i72.i ]
@@ -5050,7 +5050,7 @@ for.body.i55.i:                                   ; preds = %for.body.i55.i, %fo
   store i8 %xor1921.i59.i, ptr %arrayidx22.i60.i, align 1
   %indvars.iv.next.i61.i = add nuw nsw i64 %indvars.iv.i56.i, 1
   %exitcond.not.i62.i = icmp eq i64 %indvars.iv.next.i61.i, %wide.trip.count.i54.i
-  br i1 %exitcond.not.i62.i, label %if.end27.i, label %for.body.i55.i, !llvm.loop !26
+  br i1 %exitcond.not.i62.i, label %if.end27.i, label %for.body.i55.i, !llvm.loop !25
 
 if.end27.i:                                       ; preds = %for.body.i55.i, %if.end.i47.i, %while.end.i
   %tobool28.not.i = icmp eq ptr %authTag, null
@@ -5059,7 +5059,7 @@ if.end27.i:                                       ; preds = %for.body.i55.i, %if
 if.then29.i:                                      ; preds = %if.end27.i
   %gcm30.i = getelementptr inbounds i8, ptr %aes, i64 304
   call void @GHASH(ptr noundef nonnull %gcm30.i, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %out, i32 noundef %sz, ptr noundef nonnull %authTag, i32 noundef %authTagSz)
-  %call33.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef nonnull %initialCounter.i, ptr noundef nonnull %scratch.i), !range !13
+  %call33.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef nonnull %initialCounter.i, ptr noundef nonnull %scratch.i)
   %cmp34.not.i = icmp eq i32 %call33.i, 0
   br i1 %cmp34.not.i, label %if.end37.i, label %AES_GCM_encrypt_C.exit
 
@@ -5127,7 +5127,7 @@ return:                                           ; preds = %entry, %AES_GCM_enc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_AesGcmDecrypt(ptr noundef %aes, ptr noundef %out, ptr noundef %in, i32 noundef %sz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef readonly %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz) local_unnamed_addr #4 {
+define i32 @wc_AesGcmDecrypt(ptr noundef %aes, ptr noundef %out, ptr noundef %in, i32 noundef %sz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef readonly %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz) local_unnamed_addr #4 {
 entry:
   %counter.i = alloca [16 x i8], align 16
   %scratch.i = alloca [16 x i8], align 16
@@ -5166,7 +5166,7 @@ do.end:                                           ; preds = %lor.lhs.false9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %scratch.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %Tprime.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %EKY0.i)
-  %out154.i = ptrtoint ptr %out to i64
+  %out153.i = ptrtoint ptr %out to i64
   %div26.i = lshr i32 %sz, 4
   %rem.i = and i32 %sz, 15
   %cmp.i = icmp eq i32 %ivSz, 12
@@ -5188,7 +5188,7 @@ if.else.i:                                        ; preds = %do.end
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %gcm3.i = getelementptr inbounds i8, ptr %aes, i64 304
   call void @GHASH(ptr noundef nonnull %gcm3.i, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %in, i32 noundef %sz, ptr noundef nonnull %Tprime.i, i32 noundef 16)
-  %call.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef nonnull %counter.i, ptr noundef nonnull %EKY0.i), !range !13
+  %call.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef nonnull %counter.i, ptr noundef nonnull %EKY0.i)
   %cmp7.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp7.not.i, label %for.body.i.i.i, label %AES_GCM_decrypt_C.exit
 
@@ -5207,19 +5207,19 @@ for.body.i.i.i:                                   ; preds = %if.end.i, %for.body
   br i1 %exitcond.not.i.i.i, label %while.cond.preheader.i, label %for.body.i.i.i, !llvm.loop !12
 
 while.cond.preheader.i:                           ; preds = %for.body.i.i.i
-  %tobool.not144.i = icmp ult i32 %sz, 16
-  br i1 %tobool.not144.i, label %while.end.i, label %for.body.i27.preheader.preheader.i
+  %tobool.not143.i = icmp ult i32 %sz, 16
+  br i1 %tobool.not143.i, label %while.end.i, label %for.body.i27.preheader.preheader.i
 
 for.body.i27.preheader.preheader.i:               ; preds = %while.cond.preheader.i
-  %3 = and i64 %out154.i, 7
+  %3 = and i64 %out153.i, 7
   %cmp627.i.not.i = icmp eq i64 %3, 0
   %incdec.ptr.i60.ptr.i = getelementptr inbounds i8, ptr %scratch.i, i64 8
   br label %for.body.i27.preheader.i
 
 for.body.i27.preheader.i:                         ; preds = %xorbufout.exit.i, %for.body.i27.preheader.preheader.i
-  %dec151.in.i = phi i32 [ %dec151.i, %xorbufout.exit.i ], [ %div26.i, %for.body.i27.preheader.preheader.i ]
-  %p.0148.i = phi ptr [ %add.ptr22.i, %xorbufout.exit.i ], [ %out, %for.body.i27.preheader.preheader.i ]
-  %c.0145.i = phi ptr [ %add.ptr23.i, %xorbufout.exit.i ], [ %in, %for.body.i27.preheader.preheader.i ]
+  %dec150.in.i = phi i32 [ %dec150.i, %xorbufout.exit.i ], [ %div26.i, %for.body.i27.preheader.preheader.i ]
+  %p.0147.i = phi ptr [ %add.ptr22.i, %xorbufout.exit.i ], [ %out, %for.body.i27.preheader.preheader.i ]
+  %c.0144.i = phi ptr [ %add.ptr23.i, %xorbufout.exit.i ], [ %in, %for.body.i27.preheader.preheader.i ]
   br label %for.body.i27.i
 
 for.body.i27.i:                                   ; preds = %for.body.i27.i, %for.body.i27.preheader.i
@@ -5233,17 +5233,17 @@ for.body.i27.i:                                   ; preds = %for.body.i27.i, %fo
   %dec.i29.i = add nsw i32 %i.03.i.i, -1
   %cmp.i30.i = icmp ugt i32 %i.03.i.i, 12
   %or.cond.i.i = and i1 %cmp.i30.i, %tobool.not.i.i
-  br i1 %or.cond.i.i, label %for.body.i27.i, label %IncrementGcmCounter.exit.i, !llvm.loop !23
+  br i1 %or.cond.i.i, label %for.body.i27.i, label %IncrementGcmCounter.exit.i, !llvm.loop !22
 
 IncrementGcmCounter.exit.i:                       ; preds = %for.body.i27.i
-  %dec151.i = add nsw i32 %dec151.in.i, -1
-  %call16.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef nonnull %counter.i, ptr noundef nonnull %scratch.i), !range !13
+  %dec150.i = add nsw i32 %dec150.in.i, -1
+  %call16.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef nonnull %counter.i, ptr noundef nonnull %scratch.i)
   %cmp17.not.i = icmp eq i32 %call16.i, 0
   br i1 %cmp17.not.i, label %if.end20.i, label %AES_GCM_decrypt_C.exit
 
 if.end20.i:                                       ; preds = %IncrementGcmCounter.exit.i
-  %5 = ptrtoint ptr %p.0148.i to i64
-  %6 = ptrtoint ptr %c.0145.i to i64
+  %5 = ptrtoint ptr %p.0147.i to i64
+  %6 = ptrtoint ptr %c.0144.i to i64
   %7 = or i64 %6, %5
   %8 = and i64 %7, 7
   %or.cond.i34.i = icmp eq i64 %8, 0
@@ -5253,9 +5253,9 @@ while.cond.preheader.i46.i:                       ; preds = %if.end20.i
   br i1 %cmp627.i.not.i, label %for.body.i.i48.preheader.i, label %while.body.i59.i
 
 while.body.i59.i:                                 ; preds = %while.cond.preheader.i46.i, %while.body.i59.i
-  %m.032.i.i = phi ptr [ %incdec.ptr8.i.i, %while.body.i59.i ], [ %c.0145.i, %while.cond.preheader.i46.i ]
+  %m.032.i.i = phi ptr [ %incdec.ptr8.i.i, %while.body.i59.i ], [ %c.0144.i, %while.cond.preheader.i46.i ]
   %b.031.i.idx.i = phi i64 [ %b.031.i.add.i, %while.body.i59.i ], [ 0, %while.cond.preheader.i46.i ]
-  %o.030.i.i = phi ptr [ %incdec.ptr11.i.i, %while.body.i59.i ], [ %p.0148.i, %while.cond.preheader.i46.i ]
+  %o.030.i.i = phi ptr [ %incdec.ptr11.i.i, %while.body.i59.i ], [ %p.0147.i, %while.cond.preheader.i46.i ]
   %b.031.i.ptr.i = getelementptr inbounds i8, ptr %scratch.i, i64 %b.031.i.idx.i
   %b.031.i.add.i = add nuw nsw i64 %b.031.i.idx.i, 1
   %9 = load i8, ptr %b.031.i.ptr.i, align 1
@@ -5265,13 +5265,13 @@ while.body.i59.i:                                 ; preds = %while.cond.preheade
   %incdec.ptr11.i.i = getelementptr inbounds i8, ptr %o.030.i.i, i64 1
   store i8 %xor22.i.i, ptr %o.030.i.i, align 1
   %exitcond.not.i = icmp eq i64 %b.031.i.idx.i, 7
-  br i1 %exitcond.not.i, label %for.body.i.i48.preheader.i, label %while.body.i59.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %for.body.i.i48.preheader.i, label %while.body.i59.i, !llvm.loop !23
 
 for.body.i.i48.preheader.i:                       ; preds = %while.body.i59.i, %while.cond.preheader.i46.i
   %count.addr.0.lcssa.i.i = phi i32 [ 2, %while.cond.preheader.i46.i ], [ 1, %while.body.i59.i ]
-  %o.0.lcssa.i.i = phi ptr [ %p.0148.i, %while.cond.preheader.i46.i ], [ %incdec.ptr11.i.i, %while.body.i59.i ]
+  %o.0.lcssa.i.i = phi ptr [ %p.0147.i, %while.cond.preheader.i46.i ], [ %incdec.ptr11.i.i, %while.body.i59.i ]
   %b.0.lcssa.i.i = phi ptr [ %scratch.i, %while.cond.preheader.i46.i ], [ %incdec.ptr.i60.ptr.i, %while.body.i59.i ]
-  %m.0.lcssa.i.i = phi ptr [ %c.0145.i, %while.cond.preheader.i46.i ], [ %incdec.ptr8.i.i, %while.body.i59.i ]
+  %m.0.lcssa.i.i = phi ptr [ %c.0144.i, %while.cond.preheader.i46.i ], [ %incdec.ptr8.i.i, %while.body.i59.i ]
   br label %for.body.i.i48.i
 
 for.body.i.i48.i:                                 ; preds = %for.body.i.i48.i, %for.body.i.i48.preheader.i
@@ -5288,26 +5288,26 @@ for.body.i.i48.i:                                 ; preds = %for.body.i.i48.i, %
   store i64 %xor.i.i54.i, ptr %tpo.sroa.0.0.i.i, align 8
   %inc.i.i55.i = add nuw nsw i32 %i.03.i.i51.i, 1
   %exitcond.not.i.i56.i = icmp eq i32 %inc.i.i55.i, %count.addr.0.lcssa.i.i
-  br i1 %exitcond.not.i.i56.i, label %xorbufout.exit.i, label %for.body.i.i48.i, !llvm.loop !25
+  br i1 %exitcond.not.i.i56.i, label %xorbufout.exit.i, label %for.body.i.i48.i, !llvm.loop !24
 
 for.body.i41.i:                                   ; preds = %if.end20.i, %for.body.i41.i
   %indvars.iv.i42.i = phi i64 [ %indvars.iv.next.i44.i, %for.body.i41.i ], [ 0, %if.end20.i ]
   %arrayidx.i43.i = getelementptr inbounds i8, ptr %scratch.i, i64 %indvars.iv.i42.i
   %13 = load i8, ptr %arrayidx.i43.i, align 1
-  %arrayidx17.i.i = getelementptr inbounds i8, ptr %c.0145.i, i64 %indvars.iv.i42.i
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %c.0144.i, i64 %indvars.iv.i42.i
   %14 = load i8, ptr %arrayidx17.i.i, align 1
   %xor1921.i.i = xor i8 %14, %13
-  %arrayidx22.i.i = getelementptr inbounds i8, ptr %p.0148.i, i64 %indvars.iv.i42.i
+  %arrayidx22.i.i = getelementptr inbounds i8, ptr %p.0147.i, i64 %indvars.iv.i42.i
   store i8 %xor1921.i.i, ptr %arrayidx22.i.i, align 1
   %indvars.iv.next.i44.i = add nuw nsw i64 %indvars.iv.i42.i, 1
   %exitcond.not.i45.i = icmp eq i64 %indvars.iv.next.i44.i, 16
-  br i1 %exitcond.not.i45.i, label %xorbufout.exit.i, label %for.body.i41.i, !llvm.loop !26
+  br i1 %exitcond.not.i45.i, label %xorbufout.exit.i, label %for.body.i41.i, !llvm.loop !25
 
 xorbufout.exit.i:                                 ; preds = %for.body.i41.i, %for.body.i.i48.i
-  %add.ptr22.i = getelementptr inbounds i8, ptr %p.0148.i, i64 16
-  %add.ptr23.i = getelementptr inbounds i8, ptr %c.0145.i, i64 16
-  %tobool.not.i = icmp eq i32 %dec151.i, 0
-  br i1 %tobool.not.i, label %while.end.i, label %for.body.i27.preheader.i, !llvm.loop !28
+  %add.ptr22.i = getelementptr inbounds i8, ptr %p.0147.i, i64 16
+  %add.ptr23.i = getelementptr inbounds i8, ptr %c.0144.i, i64 16
+  %tobool.not.i = icmp eq i32 %dec150.i, 0
+  br i1 %tobool.not.i, label %while.end.i, label %for.body.i27.preheader.i, !llvm.loop !27
 
 while.end.i:                                      ; preds = %xorbufout.exit.i, %while.cond.preheader.i
   %c.0.lcssa.i = phi ptr [ %in, %while.cond.preheader.i ], [ %add.ptr23.i, %xorbufout.exit.i ]
@@ -5326,10 +5326,10 @@ for.body.i62.i:                                   ; preds = %while.end.i, %for.b
   %dec.i68.i = add nsw i32 %i.03.i63.i, -1
   %cmp.i69.i = icmp ugt i32 %i.03.i63.i, 12
   %or.cond.i70.i = and i1 %cmp.i69.i, %tobool.not.i67.i
-  br i1 %or.cond.i70.i, label %for.body.i62.i, label %IncrementGcmCounter.exit71.i, !llvm.loop !23
+  br i1 %or.cond.i70.i, label %for.body.i62.i, label %IncrementGcmCounter.exit71.i, !llvm.loop !22
 
 IncrementGcmCounter.exit71.i:                     ; preds = %for.body.i62.i
-  %call30.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef nonnull %counter.i, ptr noundef nonnull %scratch.i), !range !13
+  %call30.i = call fastcc i32 @wc_AesEncrypt(ptr noundef %aes, ptr noundef nonnull %counter.i, ptr noundef nonnull %scratch.i)
   %cmp31.not.i = icmp eq i32 %call30.i, 0
   br i1 %cmp31.not.i, label %if.end34.i, label %AES_GCM_decrypt_C.exit
 
@@ -5355,15 +5355,15 @@ for.body.i.i93.preheader.i:                       ; preds = %while.end.i91.i
 XorWords.exit.i102.i:                             ; preds = %for.body.i.i93.preheader.i, %while.end.i91.i
   %tpb.sroa.0.1.i104.i = phi ptr [ %scratch.i, %while.end.i91.i ], [ %incdec.ptr1.i.i98.i, %for.body.i.i93.preheader.i ]
   %tpm.sroa.0.1.i105.i = phi ptr [ %c.0.lcssa.i, %while.end.i91.i ], [ %incdec.ptr.i.i97.i, %for.body.i.i93.preheader.i ]
-  %rem8.i106.i = and i32 %sz, 7
+  %rem8.i.i = and i32 %sz, 7
   br label %if.end.i75.i
 
 if.end.i75.i:                                     ; preds = %XorWords.exit.i102.i, %if.end34.i
-  %count.addr.1.i76.i = phi i32 [ %rem8.i106.i, %XorWords.exit.i102.i ], [ %rem.i, %if.end34.i ]
+  %count.addr.1.i76.i = phi i32 [ %rem8.i.i, %XorWords.exit.i102.i ], [ %rem.i, %if.end34.i ]
   %b.1.i77.i = phi ptr [ %tpb.sroa.0.1.i104.i, %XorWords.exit.i102.i ], [ %scratch.i, %if.end34.i ]
   %m.1.i78.i = phi ptr [ %tpm.sroa.0.1.i105.i, %XorWords.exit.i102.i ], [ %c.0.lcssa.i, %if.end34.i ]
   %cmp928.not.i79.i = icmp eq i32 %count.addr.1.i76.i, 0
-  br i1 %cmp928.not.i79.i, label %xorbuf.exit116.i, label %for.body.preheader.i80.i
+  br i1 %cmp928.not.i79.i, label %xorbuf.exit115.i, label %for.body.preheader.i80.i
 
 for.body.preheader.i80.i:                         ; preds = %if.end.i75.i
   %wide.trip.count.i81.i = zext nneg i32 %count.addr.1.i76.i to i64
@@ -5379,37 +5379,37 @@ for.body.i82.i:                                   ; preds = %for.body.i82.i, %fo
   store i8 %xor1516.i86.i, ptr %arrayidx13.i85.i, align 1
   %indvars.iv.next.i87.i = add nuw nsw i64 %indvars.iv.i83.i, 1
   %exitcond.not.i88.i = icmp eq i64 %indvars.iv.next.i87.i, %wide.trip.count.i81.i
-  br i1 %exitcond.not.i88.i, label %xorbuf.exit116.i, label %for.body.i82.i, !llvm.loop !11
+  br i1 %exitcond.not.i88.i, label %xorbuf.exit115.i, label %for.body.i82.i, !llvm.loop !11
 
-xorbuf.exit116.i:                                 ; preds = %for.body.i82.i, %if.end.i75.i
+xorbuf.exit115.i:                                 ; preds = %for.body.i82.i, %if.end.i75.i
   %conv37.i = zext nneg i32 %rem.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.0.lcssa.i, ptr nonnull align 16 %scratch.i, i64 %conv37.i, i1 false)
   br label %if.end38.i
 
-if.end38.i:                                       ; preds = %xorbuf.exit116.i, %while.end.i
-  %cmp6.i117.i = icmp sgt i32 %authTagSz, 0
-  br i1 %cmp6.i117.i, label %for.body.preheader.i118.i, label %ConstantCompare.exit.thread.i
+if.end38.i:                                       ; preds = %xorbuf.exit115.i, %while.end.i
+  %cmp6.i116.i = icmp sgt i32 %authTagSz, 0
+  br i1 %cmp6.i116.i, label %for.body.preheader.i117.i, label %ConstantCompare.exit.thread.i
 
-for.body.preheader.i118.i:                        ; preds = %if.end38.i
-  %wide.trip.count.i119.i = zext nneg i32 %authTagSz to i64
-  br label %for.body.i120.i
+for.body.preheader.i117.i:                        ; preds = %if.end38.i
+  %wide.trip.count.i118.i = zext nneg i32 %authTagSz to i64
+  br label %for.body.i119.i
 
-for.body.i120.i:                                  ; preds = %for.body.i120.i, %for.body.preheader.i118.i
-  %indvars.iv.i121.i = phi i64 [ 0, %for.body.preheader.i118.i ], [ %indvars.iv.next.i123.i, %for.body.i120.i ]
-  %compareSum.08.i.i = phi i32 [ 0, %for.body.preheader.i118.i ], [ %or.i.i, %for.body.i120.i ]
-  %arrayidx.i122.i = getelementptr inbounds i8, ptr %authTag, i64 %indvars.iv.i121.i
-  %21 = load i8, ptr %arrayidx.i122.i, align 1
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %Tprime.i, i64 %indvars.iv.i121.i
+for.body.i119.i:                                  ; preds = %for.body.i119.i, %for.body.preheader.i117.i
+  %indvars.iv.i120.i = phi i64 [ 0, %for.body.preheader.i117.i ], [ %indvars.iv.next.i122.i, %for.body.i119.i ]
+  %compareSum.08.i.i = phi i32 [ 0, %for.body.preheader.i117.i ], [ %or.i.i, %for.body.i119.i ]
+  %arrayidx.i121.i = getelementptr inbounds i8, ptr %authTag, i64 %indvars.iv.i120.i
+  %21 = load i8, ptr %arrayidx.i121.i, align 1
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %Tprime.i, i64 %indvars.iv.i120.i
   %22 = load i8, ptr %arrayidx2.i.i, align 1
   %xor5.i.i = xor i8 %22, %21
   %xor5.i.fr.i = freeze i8 %xor5.i.i
   %xor.i.i = zext i8 %xor5.i.fr.i to i32
   %or.i.i = or i32 %compareSum.08.i.i, %xor.i.i
-  %indvars.iv.next.i123.i = add nuw nsw i64 %indvars.iv.i121.i, 1
-  %exitcond.not.i124.i = icmp eq i64 %indvars.iv.next.i123.i, %wide.trip.count.i119.i
-  br i1 %exitcond.not.i124.i, label %ConstantCompare.exit.i, label %for.body.i120.i, !llvm.loop !29
+  %indvars.iv.next.i122.i = add nuw nsw i64 %indvars.iv.i120.i, 1
+  %exitcond.not.i123.i = icmp eq i64 %indvars.iv.next.i122.i, %wide.trip.count.i118.i
+  br i1 %exitcond.not.i123.i, label %ConstantCompare.exit.i, label %for.body.i119.i, !llvm.loop !28
 
-ConstantCompare.exit.i:                           ; preds = %for.body.i120.i
+ConstantCompare.exit.i:                           ; preds = %for.body.i119.i
   %.not.i = icmp eq i32 %or.i.i, 0
   br i1 %.not.i, label %ConstantCompare.exit.thread.i, label %AES_GCM_decrypt_C.exit
 
@@ -5430,7 +5430,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_AesGcmSetExtIV(ptr noundef writeonly %aes, ptr noundef readonly %iv, i32 noundef %ivSz) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_AesGcmSetExtIV(ptr noundef writeonly %aes, ptr noundef readonly %iv, i32 noundef %ivSz) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %aes, null
   %cmp1 = icmp eq ptr %iv, null
@@ -5527,7 +5527,7 @@ if.end24:                                         ; preds = %lor.lhs.false2, %lo
 declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_AesGcmEncrypt_ex(ptr noundef %aes, ptr noundef %out, ptr noundef %in, i32 noundef %sz, ptr noundef writeonly %ivOut, i32 noundef %ivOutSz, ptr noundef %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz) local_unnamed_addr #4 {
+define i32 @wc_AesGcmEncrypt_ex(ptr noundef %aes, ptr noundef %out, ptr noundef %in, i32 noundef %sz, ptr noundef writeonly %ivOut, i32 noundef %ivOutSz, ptr noundef %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %aes, null
   br i1 %cmp, label %if.end39, label %lor.lhs.false
@@ -5597,7 +5597,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %inc.i = add i8 %5, 1
   store i8 %inc.i, ptr %arrayidx.i, align 1
   %tobool.not.i = icmp eq i8 %inc.i, 0
-  br i1 %tobool.not.i, label %for.cond.i, label %if.end39, !llvm.loop !30
+  br i1 %tobool.not.i, label %for.cond.i, label %if.end39, !llvm.loop !29
 
 if.end39:                                         ; preds = %for.body.i, %for.cond.i, %if.then18, %lor.lhs.false9, %lor.lhs.false7, %lor.lhs.false5, %land.lhs.true, %entry, %if.then30
   %ret.2 = phi i32 [ %call, %if.then30 ], [ -173, %lor.lhs.false9 ], [ -173, %lor.lhs.false7 ], [ -173, %lor.lhs.false5 ], [ -173, %land.lhs.true ], [ -173, %entry ], [ -260, %if.then18 ], [ 0, %for.cond.i ], [ 0, %for.body.i ]
@@ -5640,13 +5640,13 @@ if.then12:                                        ; preds = %lor.lhs.false2
 
 if.end.i:                                         ; preds = %if.then12, %if.then12, %if.then12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %iv.i, i8 0, i64 16, i1 false)
-  %call.i = call i32 @wc_AesSetKey(ptr noundef nonnull %aes, ptr noundef nonnull %key, i32 noundef %keySz, ptr noundef nonnull %iv.i, i32 noundef 0)
+  %call.i = call i32 @wc_AesSetKey(ptr noundef nonnull %aes, ptr noundef nonnull readonly %key, i32 noundef %keySz, ptr noundef nonnull %iv.i, i32 noundef 0)
   %cmp8.i = icmp eq i32 %call.i, 0
   br i1 %cmp8.i, label %if.end15.i, label %wc_AesGcmSetKey.exit.thread
 
 if.end15.i:                                       ; preds = %if.end.i
   %gcm.i = getelementptr inbounds i8, ptr %aes, i64 304
-  %call12.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef nonnull %iv.i, ptr noundef nonnull %gcm.i), !range !13
+  %call12.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef nonnull %iv.i, ptr noundef nonnull %gcm.i)
   %cmp16.i = icmp eq i32 %call12.i, 0
   br i1 %cmp16.i, label %lor.lhs.false2.i, label %wc_AesGcmSetKey.exit.thread
 
@@ -5680,7 +5680,7 @@ if.then30.i:                                      ; preds = %lor.lhs.false3.i
   store i32 %ivSz, ptr %nonceSz.i, align 8
   store i32 1, ptr %invokeCtr.i, align 16
   %conv.i = zext nneg i32 %ivSz to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %iv, ptr nonnull align 16 %reg.i, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %iv, ptr nonnull align 16 %reg.i, i64 %conv.i, i1 false)
   %call.i20 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %aes, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %reg.i, i32 noundef %ivSz, ptr noundef nonnull %authTag, i32 noundef %authTagSz, ptr noundef %authIn, i32 noundef %authInSz)
   %cmp33.i = icmp eq i32 %call.i20, 0
   br i1 %cmp33.i, label %for.cond.i.i, label %for.cond.preheader.i
@@ -5698,7 +5698,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   %inc.i.i = add i8 %2, 1
   store i8 %inc.i.i, ptr %arrayidx.i.i, align 1
   %tobool.not.i.i = icmp eq i8 %inc.i.i, 0
-  br i1 %tobool.not.i.i, label %for.cond.i.i, label %for.cond.preheader.i, !llvm.loop !30
+  br i1 %tobool.not.i.i, label %for.cond.i.i, label %for.cond.preheader.i, !llvm.loop !29
 
 for.cond.preheader.i:                             ; preds = %for.body.i.i, %for.cond.i.i, %if.then30.i, %wc_AesGcmSetKey.exit.thread, %lor.lhs.false3.i, %lor.lhs.false2.i
   %ret.1 = phi i32 [ %call.i20, %if.then30.i ], [ -173, %lor.lhs.false2.i ], [ %call15.i, %lor.lhs.false3.i ], [ %retval.0.i.ph, %wc_AesGcmSetKey.exit.thread ], [ 0, %for.cond.i.i ], [ 0, %for.body.i.i ]
@@ -5711,7 +5711,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i.not = icmp eq i32 %sub8.i, 0
-  br i1 %cmp5.i.not, label %return, label %for.body.i, !llvm.loop !31
+  br i1 %cmp5.i.not, label %return, label %for.body.i, !llvm.loop !30
 
 return:                                           ; preds = %for.body.i, %entry, %lor.lhs.false2
   %retval.0 = phi i32 [ -173, %lor.lhs.false2 ], [ -173, %entry ], [ %ret.1, %for.body.i ]
@@ -5719,7 +5719,7 @@ return:                                           ; preds = %for.body.i, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_AesInit(ptr noundef writeonly %aes, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #8 {
+define range(i32 -173, 1) i32 @wc_AesInit(ptr noundef writeonly %aes, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %aes, null
   br i1 %cmp, label %return, label %if.end
@@ -5743,7 +5743,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @wc_GmacVerify(ptr noundef readonly %key, i32 noundef %keySz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %authTag, i32 noundef %authTagSz) local_unnamed_addr #0 {
+define i32 @wc_GmacVerify(ptr noundef readonly %key, i32 noundef %keySz, ptr noundef %iv, i32 noundef %ivSz, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %authTag, i32 noundef %authTagSz) local_unnamed_addr #0 {
 entry:
   %iv.i = alloca [16 x i8], align 16
   %aes = alloca [1 x %struct.Aes], align 16
@@ -5777,13 +5777,13 @@ if.then12:                                        ; preds = %lor.lhs.false2
 
 if.end.i:                                         ; preds = %if.then12, %if.then12, %if.then12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %iv.i, i8 0, i64 16, i1 false)
-  %call.i = call i32 @wc_AesSetKey(ptr noundef nonnull %aes, ptr noundef nonnull %key, i32 noundef %keySz, ptr noundef nonnull %iv.i, i32 noundef 0)
+  %call.i = call i32 @wc_AesSetKey(ptr noundef nonnull %aes, ptr noundef nonnull readonly %key, i32 noundef %keySz, ptr noundef nonnull %iv.i, i32 noundef 0)
   %cmp8.i = icmp eq i32 %call.i, 0
   br i1 %cmp8.i, label %if.end15.i, label %wc_AesGcmSetKey.exit.thread
 
 if.end15.i:                                       ; preds = %if.end.i
   %gcm.i = getelementptr inbounds i8, ptr %aes, i64 304
-  %call12.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef nonnull %iv.i, ptr noundef nonnull %gcm.i), !range !13
+  %call12.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %aes, ptr noundef nonnull %iv.i, ptr noundef nonnull %gcm.i)
   %cmp16.i = icmp eq i32 %call12.i, 0
   br i1 %cmp16.i, label %if.then16, label %wc_AesGcmSetKey.exit.thread
 
@@ -5809,7 +5809,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i.not = icmp eq i32 %sub8.i, 0
-  br i1 %cmp5.i.not, label %return, label %for.body.i, !llvm.loop !31
+  br i1 %cmp5.i.not, label %return, label %for.body.i, !llvm.loop !30
 
 return:                                           ; preds = %for.body.i, %entry, %lor.lhs.false2
   %retval.0 = phi i32 [ -173, %lor.lhs.false2 ], [ -173, %entry ], [ %ret.0, %for.body.i ]
@@ -5817,7 +5817,7 @@ return:                                           ; preds = %for.body.i, %entry,
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @wc_GmacSetKey(ptr noundef %gmac, ptr noundef readonly %key, i32 noundef %len) local_unnamed_addr #0 {
+define i32 @wc_GmacSetKey(ptr noundef %gmac, ptr noundef readonly %key, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %iv.i = alloca [16 x i8], align 16
   %cmp = icmp eq ptr %gmac, null
@@ -5835,13 +5835,13 @@ if.end:                                           ; preds = %entry
 
 if.end6.i:                                        ; preds = %if.end, %if.end, %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %iv.i, i8 0, i64 16, i1 false)
-  %call.i = call i32 @wc_AesSetKey(ptr noundef nonnull %gmac, ptr noundef nonnull %key, i32 noundef %len, ptr noundef nonnull %iv.i, i32 noundef 0)
+  %call.i = call i32 @wc_AesSetKey(ptr noundef nonnull %gmac, ptr noundef nonnull readonly %key, i32 noundef %len, ptr noundef nonnull %iv.i, i32 noundef 0)
   %cmp8.i = icmp eq i32 %call.i, 0
   br i1 %cmp8.i, label %if.end15.i, label %wc_AesGcmSetKey.exit
 
 if.end15.i:                                       ; preds = %if.end6.i
   %gcm.i = getelementptr inbounds i8, ptr %gmac, i64 304
-  %call12.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %gmac, ptr noundef nonnull %iv.i, ptr noundef nonnull %gcm.i), !range !13
+  %call12.i = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %gmac, ptr noundef nonnull %iv.i, ptr noundef nonnull %gcm.i)
   %cmp16.i = icmp eq i32 %call12.i, 0
   br i1 %cmp16.i, label %if.then17.i, label %wc_AesGcmSetKey.exit
 
@@ -5860,7 +5860,7 @@ return:                                           ; preds = %entry, %wc_AesGcmSe
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_GmacUpdate(ptr noundef %gmac, ptr noundef %iv, i32 noundef %ivSz, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %authTag, i32 noundef %authTagSz) local_unnamed_addr #4 {
+define i32 @wc_GmacUpdate(ptr noundef %gmac, ptr noundef %iv, i32 noundef %ivSz, ptr noundef %authIn, i32 noundef %authInSz, ptr noundef %authTag, i32 noundef %authTagSz) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %gmac, null
   br i1 %cmp, label %return, label %if.end
@@ -5875,7 +5875,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_AesGetKeySize(ptr noundef readonly %aes, ptr noundef writeonly %keySize) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_AesGetKeySize(ptr noundef readonly %aes, ptr noundef writeonly %keySize) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %aes, null
   %cmp1 = icmp eq ptr %keySize, null
@@ -5959,7 +5959,7 @@ attributes #12 = { nounwind }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i32 -226, i32 1}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
@@ -5977,4 +5977,3 @@ attributes #12 = { nounwind }
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}

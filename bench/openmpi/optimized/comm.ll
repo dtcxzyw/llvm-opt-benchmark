@@ -77,7 +77,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 @.str.22 = private unnamed_addr constant [24 x i8] c"  Remote group size:%d\0A\00", align 1
 @ompi_comm_print_cid.cid_buffer = internal thread_local global [2 x [20 x i8]] zeroinitializer, align 16
-@ompi_comm_print_cid.cid_buffer_index = internal thread_local global i32 0, align 4
+@ompi_comm_print_cid.cid_buffer_index = internal thread_local unnamed_addr global i32 0, align 4
 @.str.23 = private unnamed_addr constant [11 x i8] c"0x%lx%08lx\00", align 1
 @.str.24 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 @opal_class_init_epoch = external local_unnamed_addr global i32, align 4
@@ -208,7 +208,7 @@ opal_obj_new.exit.thread109:                      ; preds = %.lr.ph.i.i, %30
   store ptr null, ptr %41, align 8
   %42 = icmp slt i32 %.070, 2
   %43 = add nsw i32 %.070, -1
-  %44 = tail call i32 @llvm.ctlz.i32(i32 %43, i1 true), !range !6
+  %44 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %43, i1 true)
   %45 = sub nuw nsw i32 32, %44
   %.0.i = select i1 %42, i32 0, i32 %45
   %46 = getelementptr inbounds i8, ptr %25, i64 240
@@ -760,7 +760,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %20, %23
   %36 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %0, align 8
@@ -860,7 +860,7 @@ opal_thread_add_fetch_32.exit47:                  ; preds = %68, %71
   %84 = getelementptr inbounds i8, ptr %.07.i50, i64 8
   %85 = load ptr, ptr %84, align 8
   %.not.i51 = icmp eq ptr %85, null
-  br i1 %.not.i51, label %opal_obj_run_destructors.exit52.loopexit, label %.lr.ph.i49, !llvm.loop !7
+  br i1 %.not.i51, label %opal_obj_run_destructors.exit52.loopexit, label %.lr.ph.i49, !llvm.loop !6
 
 opal_obj_run_destructors.exit52.loopexit:         ; preds = %.lr.ph.i49
   %.pre68 = load ptr, ptr %0, align 8
@@ -932,7 +932,7 @@ opal_thread_add_fetch_32.exit54:                  ; preds = %102, %105
   %117 = getelementptr inbounds i8, ptr %.07.i57, i64 8
   %118 = load ptr, ptr %117, align 8
   %.not.i58 = icmp eq ptr %118, null
-  br i1 %.not.i58, label %opal_obj_run_destructors.exit59.loopexit, label %.lr.ph.i56, !llvm.loop !7
+  br i1 %.not.i58, label %opal_obj_run_destructors.exit59.loopexit, label %.lr.ph.i56, !llvm.loop !6
 
 opal_obj_run_destructors.exit59.loopexit:         ; preds = %.lr.ph.i56
   %.pre74 = load ptr, ptr %0, align 8
@@ -1079,7 +1079,7 @@ ompi_comm_remote_size.exit:                       ; preds = %8
   %spec.select = add nuw nsw i32 %.062119, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %32 = icmp eq i32 %spec.select, 0
@@ -1129,7 +1129,7 @@ ompi_comm_remote_size.exit:                       ; preds = %8
   %.158 = phi i32 [ %48, %44 ], [ %.057122, %.lr.ph123 ]
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %.loopexit, label %.lr.ph123, !llvm.loop !9
+  br i1 %exitcond129.not, label %.loopexit, label %.lr.ph123, !llvm.loop !8
 
 .loopexit:                                        ; preds = %49, %.preheader, %8
   %.2 = phi i32 [ 0, %8 ], [ %spec.select, %.preheader ], [ %spec.select, %49 ]
@@ -1140,7 +1140,7 @@ ompi_comm_remote_size.exit:                       ; preds = %8
   %50 = getelementptr inbounds i8, ptr %0, i64 296
   %51 = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %52 = call i32 @ompi_comm_set_nb(ptr noundef nonnull %6, ptr noundef %0, i32 noundef 0, ptr noundef null, i32 noundef %.2, ptr noundef %.054, ptr noundef null, ptr noundef %51, ptr noundef %1, ptr noundef %.052, i32 noundef 0, ptr noundef nonnull %5)
+  %52 = call i32 @ompi_comm_set_nb(ptr noundef nonnull writeonly %6, ptr noundef %0, i32 noundef 0, ptr noundef null, i32 noundef %.2, ptr noundef %.054, ptr noundef null, ptr noundef %51, ptr noundef %1, ptr noundef %.052, i32 noundef 0, ptr noundef nonnull %5)
   %.not.i85 = icmp eq i32 %52, 0
   br i1 %.not.i85, label %53, label %ompi_comm_set.exit.thread96
 
@@ -1478,7 +1478,7 @@ define i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %1, i32 nounde
   %spec.select = add nuw nsw i32 %.0162207, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %40 = icmp eq i32 %spec.select, 0
@@ -1527,7 +1527,7 @@ define i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %1, i32 nounde
   %.1150 = phi i32 [ %61, %50 ], [ %.0149210, %.lr.ph211 ]
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %exitcond232.not = icmp eq i64 %indvars.iv.next229, %wide.trip.count231
-  br i1 %exitcond232.not, label %._crit_edge212, label %.lr.ph211, !llvm.loop !11
+  br i1 %exitcond232.not, label %._crit_edge212, label %.lr.ph211, !llvm.loop !10
 
 ._crit_edge212:                                   ; preds = %62, %.preheader205
   %.not260 = icmp eq i32 %spec.select, 1
@@ -1558,7 +1558,7 @@ define i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %1, i32 nounde
   store i32 %72, ptr %73, align 4
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %exitcond237.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count236
-  br i1 %exitcond237.not, label %._crit_edge215, label %.lr.ph214, !llvm.loop !12
+  br i1 %exitcond237.not, label %._crit_edge215, label %.lr.ph214, !llvm.loop !11
 
 ._crit_edge215:                                   ; preds = %.lr.ph214
   br i1 %17, label %74, label %129
@@ -1603,7 +1603,7 @@ define i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %1, i32 nounde
   %spec.select193 = add nuw nsw i32 %.0158216, %95
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241
-  br i1 %exitcond242.not, label %._crit_edge219, label %.lr.ph218, !llvm.loop !13
+  br i1 %exitcond242.not, label %._crit_edge219, label %.lr.ph218, !llvm.loop !12
 
 ._crit_edge219:                                   ; preds = %.lr.ph218
   %.not261 = icmp eq i32 %spec.select193, 0
@@ -1652,7 +1652,7 @@ define i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %1, i32 nounde
   %.3 = phi i32 [ %116, %105 ], [ %.2151222, %.lr.ph223 ]
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %exitcond247.not = icmp eq i64 %indvars.iv.next244, %wide.trip.count246
-  br i1 %exitcond247.not, label %._crit_edge224, label %.lr.ph223, !llvm.loop !14
+  br i1 %exitcond247.not, label %._crit_edge224, label %.lr.ph223, !llvm.loop !13
 
 ._crit_edge224:                                   ; preds = %117, %.preheader202
   %.not186 = icmp eq i32 %spec.select193, 1
@@ -1684,7 +1684,7 @@ define i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %1, i32 nounde
   store i32 %125, ptr %126, align 4
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
-  br i1 %exitcond252.not, label %.loopexit, label %.lr.ph226, !llvm.loop !15
+  br i1 %exitcond252.not, label %.loopexit, label %.lr.ph226, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph226, %.preheader203, %._crit_edge219
   %.0158.lcssa259 = phi i32 [ %spec.select193, %._crit_edge219 ], [ 0, %.preheader203 ], [ %spec.select193, %.lr.ph226 ]
@@ -1711,7 +1711,7 @@ define i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %1, i32 nounde
   %132 = load ptr, ptr %131, align 8
   %133 = select i1 %5, i32 2, i32 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %134 = call i32 @ompi_comm_set_nb(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %spec.select, ptr noundef nonnull %68, i32 noundef %.2160, ptr noundef %.1, ptr noundef null, ptr noundef %132, ptr noundef %130, ptr noundef %.0138, i32 noundef %133, ptr noundef nonnull %7)
+  %134 = call i32 @ompi_comm_set_nb(ptr noundef nonnull writeonly %9, ptr noundef %0, i32 noundef %spec.select, ptr noundef nonnull %68, i32 noundef %.2160, ptr noundef %.1, ptr noundef null, ptr noundef %132, ptr noundef %130, ptr noundef %.0138, i32 noundef %133, ptr noundef nonnull %7)
   %.not.i = icmp eq i32 %134, 0
   br i1 %.not.i, label %135, label %ompi_comm_set.exit.thread199
 
@@ -1777,7 +1777,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %145, %148
   %159 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %160 = load ptr, ptr %159, align 8
   %.not.i196 = icmp eq ptr %160, null
-  br i1 %.not.i196, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i196, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre253 = load ptr, ptr %10, align 8
@@ -1951,7 +1951,7 @@ ompi_comm_remote_size.exit:                       ; preds = %8
 38:                                               ; preds = %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit87, label %39, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit87, label %39, !llvm.loop !15
 
 39:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
@@ -2010,7 +2010,7 @@ ompi_comm_remote_size.exit:                       ; preds = %8
 66:                                               ; preds = %68
   %67 = add nuw nsw i32 %.16291, 1
   %exitcond98.not = icmp eq i32 %67, %16
-  br i1 %exitcond98.not, label %.loopexit, label %68, !llvm.loop !17
+  br i1 %exitcond98.not, label %.loopexit, label %68, !llvm.loop !16
 
 68:                                               ; preds = %.lr.ph92, %66
   %.16291 = phi i32 [ 0, %.lr.ph92 ], [ %67, %66 ]
@@ -2055,7 +2055,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @rankkeycompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 -1, 2) i32 @rankkeycompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -2140,7 +2140,7 @@ define i32 @ompi_comm_split_type(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %indvars.iv101 = phi i64 [ %indvars.iv.next, %25 ], [ 0, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv101, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond, label %33, label %25, !llvm.loop !18
+  br i1 %exitcond, label %33, label %25, !llvm.loop !17
 
 25:                                               ; preds = %.lr.ph102
   %26 = getelementptr inbounds [13 x %struct.ompi_comm_split_type_hw_guided_t], ptr @ompi_comm_split_type_hw_guided_support, i64 0, i64 %indvars.iv.next
@@ -2148,7 +2148,7 @@ define i32 @ompi_comm_split_type(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #23
   %29 = call i32 @strncasecmp(ptr noundef nonnull %22, ptr noundef nonnull %27, i64 noundef %28) #23
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.thread, label %.lr.ph102, !llvm.loop !18
+  br i1 %30, label %.thread, label %.lr.ph102, !llvm.loop !17
 
 .thread:                                          ; preds = %25, %20
   %.lcssa99 = phi ptr [ @ompi_comm_split_type_hw_guided_support, %20 ], [ %26, %25 ]
@@ -2270,14 +2270,14 @@ define i32 @ompi_comm_split_type(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i, %97 ], [ 0, %94 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i93, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.i, label %102, label %97, !llvm.loop !19
+  br i1 %exitcond.i, label %102, label %97, !llvm.loop !18
 
 97:                                               ; preds = %.lr.ph
   %98 = getelementptr inbounds [13 x %struct.ompi_comm_split_type_hw_guided_t], ptr @ompi_comm_split_type_hw_guided_support, i64 0, i64 %indvars.iv.next.i
   %99 = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = icmp eq i32 %100, %1
-  br i1 %101, label %ompi_comm_split_type_to_str.exit.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %101, label %ompi_comm_split_type_to_str.exit.loopexit, label %.lr.ph, !llvm.loop !18
 
 102:                                              ; preds = %.lr.ph
   %switch.selectcmp.i = icmp eq i32 %1, 12
@@ -2364,7 +2364,7 @@ define internal fastcc i32 @ompi_comm_split_unguided(ptr noundef %0, i32 noundef
 14:                                               ; preds = %8
   %15 = icmp eq i32 %1, -32766
   %16 = select i1 %15, i32 -32766, i32 0
-  %17 = call i32 @ompi_comm_split_with_info(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %2, ptr noundef null, ptr noundef nonnull %9, i1 noundef zeroext false)
+  %17 = call i32 @ompi_comm_split_with_info(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %2, ptr noundef null, ptr noundef nonnull writeonly %9, i1 noundef zeroext false)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %19, label %18
 
@@ -2489,7 +2489,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %58, %61
   %72 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %73 = load ptr, ptr %72, align 8
   %.not.i55 = icmp eq ptr %73, null
-  br i1 %.not.i55, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i55, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %66
   call void @free(ptr noundef %27) #19
@@ -2501,7 +2501,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %66
   %76 = getelementptr inbounds [13 x %struct.ompi_comm_split_type_hw_guided_t], ptr @ompi_comm_split_type_hw_guided_support, i64 0, i64 %indvars.iv.next
   %77 = load ptr, ptr %76, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond, label %78, label %opal_obj_new.exit, !llvm.loop !20
+  br i1 %exitcond, label %78, label %opal_obj_new.exit, !llvm.loop !19
 
 78:                                               ; preds = %opal_obj_new.exit, %74
   %79 = call i32 @ompi_comm_free(ptr noundef nonnull %9)
@@ -2542,7 +2542,7 @@ opal_thread_add_fetch_32.exit57:                  ; preds = %83, %86
   %97 = getelementptr inbounds i8, ptr %.07.i60, i64 8
   %98 = load ptr, ptr %97, align 8
   %.not.i61 = icmp eq ptr %98, null
-  br i1 %.not.i61, label %opal_obj_run_destructors.exit62, label %.lr.ph.i59, !llvm.loop !7
+  br i1 %.not.i61, label %opal_obj_run_destructors.exit62, label %.lr.ph.i59, !llvm.loop !6
 
 opal_obj_run_destructors.exit62:                  ; preds = %.lr.ph.i59, %91
   call void @free(ptr noundef %27) #19
@@ -2576,7 +2576,7 @@ define internal fastcc i32 @ompi_comm_split_type_core(ptr noundef %0, i32 nounde
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 248
   %21 = load ptr, ptr %20, align 8
-  %22 = call fastcc i32 @ompi_comm_split_type_get_part(ptr noundef %21, i32 noundef %1, ptr noundef nonnull %12, ptr noundef nonnull %15), !range !21
+  %22 = call fastcc i32 @ompi_comm_split_type_get_part(ptr noundef %21, i32 noundef %1, ptr noundef nonnull %12, ptr noundef nonnull %15)
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %23, label %89
 
@@ -2588,7 +2588,7 @@ define internal fastcc i32 @ompi_comm_split_type_core(ptr noundef %0, i32 nounde
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %0, i64 256
   %27 = load ptr, ptr %26, align 8
-  %28 = call fastcc i32 @ompi_comm_split_type_get_part(ptr noundef %27, i32 noundef %1, ptr noundef nonnull %13, ptr noundef nonnull %16), !range !21
+  %28 = call fastcc i32 @ompi_comm_split_type_get_part(ptr noundef %27, i32 noundef %1, ptr noundef nonnull %13, ptr noundef nonnull %16)
   %.not46 = icmp eq i32 %28, 0
   br i1 %.not46, label %._crit_edge, label %29
 
@@ -2611,7 +2611,7 @@ define internal fastcc i32 @ompi_comm_split_type_core(ptr noundef %0, i32 nounde
   %37 = getelementptr inbounds i8, ptr %0, i64 296
   %38 = load ptr, ptr %37, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %39 = call i32 @ompi_comm_set_nb(ptr noundef nonnull %14, ptr noundef nonnull %0, i32 noundef %35, ptr noundef %36, i32 noundef %33, ptr noundef %32, ptr noundef null, ptr noundef %38, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %10)
+  %39 = call i32 @ompi_comm_set_nb(ptr noundef nonnull writeonly %14, ptr noundef nonnull %0, i32 noundef %35, ptr noundef %36, i32 noundef %33, ptr noundef %32, ptr noundef null, ptr noundef %38, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %10)
   %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %40, label %ompi_comm_set.exit.thread55
 
@@ -2696,7 +2696,7 @@ ompi_comm_set.exit:                               ; preds = %40
   %76 = load ptr, ptr %75, align 8
   %77 = call i32 @opal_info_remove_unreferenced(ptr noundef %76) #19
   %78 = load ptr, ptr %14, align 8
-  %79 = call i32 @ompi_comm_split_with_info(ptr noundef %78, i32 noundef %2, i32 noundef %3, ptr noundef null, ptr noundef %8, i1 noundef zeroext false)
+  %79 = call i32 @ompi_comm_split_with_info(ptr noundef %78, i32 noundef %2, i32 noundef %3, ptr noundef null, ptr noundef writeonly %8, i1 noundef zeroext false)
   %80 = call i32 @ompi_comm_free(ptr noundef nonnull %14)
   br label %81
 
@@ -2756,7 +2756,7 @@ define i32 @ompi_comm_dup_with_info(ptr noundef %0, ptr noundef %1, ptr nocaptur
   %17 = getelementptr inbounds i8, ptr %0, i64 248
   %18 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %19 = call i32 @ompi_comm_set_nb(ptr noundef nonnull %5, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %.026, i32 noundef 2, ptr noundef nonnull %4)
+  %19 = call i32 @ompi_comm_set_nb(ptr noundef nonnull writeonly %5, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %.026, i32 noundef 2, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %20, label %ompi_comm_set.exit.thread54
 
@@ -2824,7 +2824,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %31, %34
   %45 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not.i36 = icmp eq ptr %46, null
-  br i1 %.not.i36, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i36, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %39
   call void @free(ptr noundef %25) #19
@@ -2969,7 +2969,7 @@ opal_thread_add_fetch_32.exit46:                  ; preds = %112, %115
   %126 = getelementptr inbounds i8, ptr %.07.i49, i64 8
   %127 = load ptr, ptr %126, align 8
   %.not.i50 = icmp eq ptr %127, null
-  br i1 %.not.i50, label %opal_obj_run_destructors.exit51.loopexit, label %.lr.ph.i48, !llvm.loop !7
+  br i1 %.not.i50, label %opal_obj_run_destructors.exit51.loopexit, label %.lr.ph.i48, !llvm.loop !6
 
 opal_obj_run_destructors.exit51.loopexit:         ; preds = %.lr.ph.i48
   %.pre = load ptr, ptr %5, align 8
@@ -3003,7 +3003,7 @@ define i32 @ompi_comm_idup(ptr noundef %0, ptr nocapture noundef writeonly %1, p
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 256
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call fastcc i32 @ompi_comm_idup_internal(ptr noundef %0, ptr noundef %5, ptr noundef %7, ptr noundef null, ptr noundef %1, ptr noundef %2)
+  %8 = tail call fastcc i32 @ompi_comm_idup_internal(ptr noundef %0, ptr noundef %5, ptr noundef %7, ptr noundef null, ptr noundef writeonly %1, ptr noundef writeonly %2)
   ret i32 %8
 }
 
@@ -3032,7 +3032,7 @@ define i32 @ompi_comm_create_group(ptr noundef %0, ptr noundef %1, i32 noundef %
   %12 = getelementptr inbounds i8, ptr %0, i64 296
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %14 = call i32 @ompi_comm_set_nb(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %9, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %11, ptr noundef %13, ptr noundef %1, ptr noundef null, i32 noundef 2, ptr noundef nonnull %5)
+  %14 = call i32 @ompi_comm_set_nb(ptr noundef nonnull writeonly %7, ptr noundef %0, i32 noundef %9, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %11, ptr noundef %13, ptr noundef %1, ptr noundef null, i32 noundef 2, ptr noundef nonnull %5)
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %15, label %ompi_comm_set.exit.thread45
 
@@ -3100,7 +3100,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %26, %29
   %40 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not.i27 = icmp eq ptr %41, null
-  br i1 %.not.i27, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i27, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %34
   call void @free(ptr noundef %20) #19
@@ -3235,7 +3235,7 @@ opal_thread_add_fetch_32.exit37:                  ; preds = %104, %107
   %118 = getelementptr inbounds i8, ptr %.07.i40, i64 8
   %119 = load ptr, ptr %118, align 8
   %.not.i41 = icmp eq ptr %119, null
-  br i1 %.not.i41, label %opal_obj_run_destructors.exit42.loopexit, label %.lr.ph.i39, !llvm.loop !7
+  br i1 %.not.i41, label %opal_obj_run_destructors.exit42.loopexit, label %.lr.ph.i39, !llvm.loop !6
 
 opal_obj_run_destructors.exit42.loopexit:         ; preds = %.lr.ph.i39
   %.pre = load ptr, ptr %7, align 8
@@ -3265,7 +3265,7 @@ define i32 @ompi_comm_create_from_group(ptr noundef %0, ptr noundef %1, ptr noca
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %11 = call i32 @ompi_comm_set_nb(ptr noundef nonnull %7, ptr noundef null, i32 noundef %10, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %3, ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6)
+  %11 = call i32 @ompi_comm_set_nb(ptr noundef nonnull writeonly %7, ptr noundef null, i32 noundef %10, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %3, ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6)
   %.not.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i, label %12, label %ompi_comm_set_simple.exit.thread23
 
@@ -3599,7 +3599,7 @@ ompi_comm_invalid.exit:                           ; preds = %25
   %81 = getelementptr inbounds i8, ptr %0, i64 296
   %82 = load ptr, ptr %81, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %83 = call i32 @ompi_comm_set_nb(ptr noundef nonnull %13, ptr noundef nonnull %0, i32 noundef %79, ptr noundef null, i32 noundef %80, ptr noundef null, ptr noundef null, ptr noundef %82, ptr noundef %77, ptr noundef %76, i32 noundef 0, ptr noundef nonnull %7)
+  %83 = call i32 @ompi_comm_set_nb(ptr noundef nonnull writeonly %13, ptr noundef nonnull %0, i32 noundef %79, ptr noundef null, i32 noundef %80, ptr noundef null, ptr noundef null, ptr noundef %82, ptr noundef %77, ptr noundef %76, i32 noundef 0, ptr noundef nonnull %7)
   %.not.i = icmp eq i32 %83, 0
   br i1 %.not.i, label %84, label %ompi_comm_set.exit.thread85
 
@@ -3761,7 +3761,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %.lr.ph, %48, %62, %
   %71 = load i32, ptr %70, align 8
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %ompi_group_peer_lookup.exit, %35, %32
   %.sink = phi ptr [ %34, %32 ], [ %39, %35 ], [ %39, %ompi_group_peer_lookup.exit ]
@@ -3960,7 +3960,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %.lr.ph, %48, %62, %
   store i16 %.sink179, ptr %163, align 4
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge167, label %135, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge167, label %135, !llvm.loop !21
 
 ._crit_edge167:                                   ; preds = %.thread151, %.preheader
   %164 = phi ptr [ %.pre174, %.preheader ], [ %.sink183, %.thread151 ]
@@ -4272,7 +4272,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %134, %137
   %148 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %149 = load ptr, ptr %148, align 8
   %.not.i113 = icmp eq ptr %149, null
-  br i1 %.not.i113, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i113, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %142
   call void @free(ptr noundef %120) #19
@@ -4304,7 +4304,7 @@ ompi_comm_extended_cid_block_available.exit.i:    ; preds = %154
   br i1 %.not.i115, label %ompi_comm_extended_cid_block_new.exit, label %162
 
 162:                                              ; preds = %ompi_comm_extended_cid_block_available.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %156, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %156, i64 16, i1 false)
   %163 = add nuw i8 %161, 1
   store i8 %163, ptr %160, align 8
   %164 = getelementptr inbounds i8, ptr %13, i64 8
@@ -4445,7 +4445,7 @@ opal_thread_add_fetch_32.exit119:                 ; preds = %227, %230
   %241 = getelementptr inbounds i8, ptr %.07.i122, i64 8
   %242 = load ptr, ptr %241, align 8
   %.not.i123 = icmp eq ptr %242, null
-  br i1 %.not.i123, label %opal_obj_run_destructors.exit124, label %.lr.ph.i121, !llvm.loop !7
+  br i1 %.not.i123, label %opal_obj_run_destructors.exit124, label %.lr.ph.i121, !llvm.loop !6
 
 opal_obj_run_destructors.exit124:                 ; preds = %.lr.ph.i121, %235
   call void @free(ptr noundef %.083) #19
@@ -4515,7 +4515,7 @@ opal_thread_add_fetch_32.exit126:                 ; preds = %261, %264
   %275 = getelementptr inbounds i8, ptr %.07.i129, i64 8
   %276 = load ptr, ptr %275, align 8
   %.not.i130 = icmp eq ptr %276, null
-  br i1 %.not.i130, label %opal_obj_run_destructors.exit131, label %.lr.ph.i128, !llvm.loop !7
+  br i1 %.not.i130, label %opal_obj_run_destructors.exit131, label %.lr.ph.i128, !llvm.loop !6
 
 opal_obj_run_destructors.exit131:                 ; preds = %.lr.ph.i128, %269
   call void @free(ptr noundef %255) #19
@@ -4569,7 +4569,7 @@ declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare void @ompi_set_group_rank(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_comm_compare(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @ompi_comm_compare(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 336
   %6 = load ptr, ptr %5, align 8
@@ -4786,7 +4786,7 @@ ompi_comm_remote_size.exit:                       ; preds = %2
   br i1 %or.cond3, label %ompi_comm_remote_size.exit.thread, label %37
 
 37:                                               ; preds = %36
-  %38 = call i32 @ompi_comm_determine_first_auto(ptr noundef nonnull %0), !range !24
+  %38 = call i32 @ompi_comm_determine_first_auto(ptr noundef nonnull %0)
   br label %ompi_comm_remote_size.exit.thread
 
 ompi_comm_remote_size.exit.thread:                ; preds = %2, %37, %31, %36, %22, %14, %ompi_comm_remote_size.exit, %21
@@ -4795,7 +4795,7 @@ ompi_comm_remote_size.exit.thread:                ; preds = %2, %37, %31, %36, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_determine_first_auto(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ompi_comm_determine_first_auto(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -5061,7 +5061,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %24, %21
   %36 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i, label %opal_obj_run_destructors.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not.i.i, label %opal_obj_run_destructors.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit.loopexit.i:         ; preds = %.lr.ph.i.i
   %.pre.i = load ptr, ptr %7, align 8
@@ -5119,7 +5119,7 @@ opal_thread_add_fetch_32.exit42.i:                ; preds = %48, %45
   %60 = getelementptr inbounds i8, ptr %.07.i45.i, i64 8
   %61 = load ptr, ptr %60, align 8
   %.not.i46.i = icmp eq ptr %61, null
-  br i1 %.not.i46.i, label %opal_obj_run_destructors.exit47.loopexit.i, label %.lr.ph.i44.i, !llvm.loop !7
+  br i1 %.not.i46.i, label %opal_obj_run_destructors.exit47.loopexit.i, label %.lr.ph.i44.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit47.loopexit.i:       ; preds = %.lr.ph.i44.i
   %.pre55.i = load ptr, ptr %40, align 8
@@ -5233,7 +5233,7 @@ ompi_comm_fill_rest.exit:                         ; preds = %97, %106
   %119 = load i32, ptr %118, align 8
   %120 = icmp slt i32 %119, 2
   %121 = add nsw i32 %119, -1
-  %122 = tail call i32 @llvm.ctlz.i32(i32 %121, i1 true), !range !6
+  %122 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %121, i1 true)
   %123 = sub nuw nsw i32 32, %122
   %.0.i54.i = select i1 %120, i32 0, i32 %123
   %124 = getelementptr inbounds i8, ptr %1, i64 240
@@ -5259,7 +5259,7 @@ declare i32 @opal_hash_table_init(ptr noundef, i64 noundef) local_unnamed_addr #
 declare i32 @opal_info_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ompi_comm_split_type_get_part(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -5, 1) i32 @ompi_comm_split_type_get_part(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca ptr, align 8
   %7 = alloca %struct.pmix_proc, align 4
@@ -5466,14 +5466,14 @@ define internal fastcc noundef i32 @ompi_comm_split_type_get_part(ptr nocapture 
   %indvars.iv.i77 = phi i64 [ %indvars.iv.next.i, %97 ], [ 0, %.lr.ph79.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i77, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.i, label %102, label %97, !llvm.loop !19
+  br i1 %exitcond.i, label %102, label %97, !llvm.loop !18
 
 97:                                               ; preds = %.lr.ph79
   %98 = getelementptr inbounds [13 x %struct.ompi_comm_split_type_hw_guided_t], ptr @ompi_comm_split_type_hw_guided_support, i64 0, i64 %indvars.iv.next.i
   %99 = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = icmp eq i32 %100, %1
-  br i1 %101, label %ompi_comm_split_type_to_str.exit.loopexit, label %.lr.ph79, !llvm.loop !19
+  br i1 %101, label %ompi_comm_split_type_to_str.exit.loopexit, label %.lr.ph79, !llvm.loop !18
 
 102:                                              ; preds = %.lr.ph79
   %switch.selectcmp.i = icmp eq i32 %1, 12
@@ -5509,7 +5509,7 @@ ompi_comm_split_type_to_str.exit:                 ; preds = %ompi_comm_split_typ
   %.1 = phi i32 [ %.03476, %25 ], [ %.03476, %42 ], [ %107, %106 ], [ %.03476, %105 ], [ %.03476, %26 ], [ %.03476, %46 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.thread66
   store i32 %.1, ptr %3, align 4
@@ -5608,7 +5608,7 @@ define internal fastcc i32 @ompi_comm_split_verify(ptr noundef %0, i32 noundef %
 42:                                               ; preds = %33, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.sink.split, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.sink.split, label %.lr.ph, !llvm.loop !23
 
 .sink.split:                                      ; preds = %42, %41, %.preheader, %15
   %.031.ph = phi i32 [ %27, %15 ], [ 0, %.preheader ], [ 0, %41 ], [ 0, %42 ]
@@ -5700,7 +5700,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %18, %21
   %33 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %10, align 8
@@ -5869,7 +5869,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %75, %78
   %90 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %91 = load ptr, ptr %90, align 8
   %.not.i27 = icmp eq ptr %91, null
-  br i1 %.not.i27, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i27, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit.loopexit:           ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %10, align 8
@@ -5977,7 +5977,7 @@ attributes #24 = { nounwind allocsize(1) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 33}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -5992,9 +5992,6 @@ attributes #24 = { nounwind allocsize(1) }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = !{i32 -5, i32 1}
+!21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
-!24 = !{i32 0, i32 2}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}

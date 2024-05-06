@@ -924,7 +924,7 @@ _ZN3zmq6blob_tD2Ev.exit:                          ; preds = %lpad15, %if.then.i
 declare void @_ZN3zmq8object_tC2EPS0_(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN3zmq6pipe_t11compute_lwmEi(i32 noundef %hwm_) local_unnamed_addr #8 align 2 {
+define noundef range(i32 -1073741823, 1073741824) i32 @_ZN3zmq6pipe_t11compute_lwmEi(i32 noundef %hwm_) local_unnamed_addr #8 align 2 {
 entry:
   %add = add nsw i32 %hwm_, 1
   %div = sdiv i32 %add, 2

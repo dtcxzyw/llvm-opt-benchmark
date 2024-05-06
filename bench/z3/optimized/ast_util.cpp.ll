@@ -1214,8 +1214,8 @@ if.then2:                                         ; preds = %_ZNK11ast_manager5i
   %5 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %5 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %6 = getelementptr i8, ptr %n, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %6, i64 32
+  %6 = getelementptr inbounds i8, ptr %n, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %6, i64 32
   %cmp.not9 = icmp eq i32 %5, 0
   br i1 %cmp.not9, label %return, label %for.body.preheader
 
@@ -1627,8 +1627,8 @@ for.body.lr.ph:                                   ; preds = %if.then6
   store ptr null, ptr %m_nodes.i.i, align 8
   %idx.ext.i = zext i32 %17 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %20 = getelementptr i8, ptr %1, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %20, i64 32
+  %20 = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %20, i64 32
   %m_args.i.ptr = getelementptr inbounds i8, ptr %1, i64 32
   %m_manager.i37 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
   %sub = add i32 %limit, -1
@@ -1877,8 +1877,8 @@ for.body44.lr.ph:                                 ; preds = %if.then27
   store ptr null, ptr %m_nodes.i.i95, align 8
   %idx.ext.i99 = zext i32 %56 to i64
   %add.ptr.i100.idx = shl nuw nsw i64 %idx.ext.i99, 3
-  %59 = getelementptr i8, ptr %1, i64 %add.ptr.i100.idx
-  %add.ptr.i100.ptr = getelementptr i8, ptr %59, i64 32
+  %59 = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i100.idx
+  %add.ptr.i100.ptr = getelementptr inbounds i8, ptr %59, i64 32
   %m_args.i96.ptr = getelementptr inbounds i8, ptr %1, i64 32
   %m_manager.i101 = getelementptr inbounds i8, ptr %ref.tmp47, i64 8
   %sub49 = add i32 %limit, -1
@@ -2957,8 +2957,8 @@ if.then18:                                        ; preds = %invoke.cont16
   %40 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %40 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %41 = getelementptr i8, ptr %4, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %41, i64 32
+  %41 = getelementptr inbounds i8, ptr %4, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %41, i64 32
   %cmp26.not659 = icmp eq i32 %40, 0
   br i1 %cmp26.not659, label %for.end, label %for.body27.preheader
 
@@ -3308,8 +3308,8 @@ if.then56:                                        ; preds = %invoke.cont54
   %96 = load i32, ptr %m_num_args.i246, align 8
   %idx.ext.i247 = zext i32 %96 to i64
   %add.ptr.i248.idx = shl nuw nsw i64 %idx.ext.i247, 3
-  %97 = getelementptr i8, ptr %90, i64 %add.ptr.i248.idx
-  %add.ptr.i248.ptr = getelementptr i8, ptr %97, i64 32
+  %97 = getelementptr inbounds i8, ptr %90, i64 %add.ptr.i248.idx
+  %add.ptr.i248.ptr = getelementptr inbounds i8, ptr %97, i64 32
   %cmp65.not661 = icmp eq i32 %96, 0
   br i1 %cmp65.not661, label %for.end74, label %for.body66.preheader
 
@@ -4660,8 +4660,8 @@ if.then18:                                        ; preds = %invoke.cont16
   %40 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %40 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %41 = getelementptr i8, ptr %4, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %41, i64 32
+  %41 = getelementptr inbounds i8, ptr %4, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %41, i64 32
   %cmp26.not633 = icmp eq i32 %40, 0
   br i1 %cmp26.not633, label %for.end, label %for.body27.preheader
 
@@ -5011,8 +5011,8 @@ if.then56:                                        ; preds = %invoke.cont54
   %96 = load i32, ptr %m_num_args.i245, align 8
   %idx.ext.i246 = zext i32 %96 to i64
   %add.ptr.i247.idx = shl nuw nsw i64 %idx.ext.i246, 3
-  %97 = getelementptr i8, ptr %90, i64 %add.ptr.i247.idx
-  %add.ptr.i247.ptr = getelementptr i8, ptr %97, i64 32
+  %97 = getelementptr inbounds i8, ptr %90, i64 %add.ptr.i247.idx
+  %add.ptr.i247.ptr = getelementptr inbounds i8, ptr %97, i64 32
   %cmp65.not635 = icmp eq i32 %96, 0
   br i1 %cmp65.not635, label %for.end74, label %for.body66.preheader
 

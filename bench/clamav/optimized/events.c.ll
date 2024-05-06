@@ -121,7 +121,7 @@ define void @cli_event_error_oom(ptr noundef %0, i32 noundef %1) local_unnamed_a
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_event_define(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @cli_event_define(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = load ptr, ptr %0, align 8
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds %struct.cli_event, ptr %6, i64 %7
@@ -1263,7 +1263,7 @@ define void @cli_event_debug_all(ptr noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_event_diff(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @cli_event_diff(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = tail call fastcc ptr @get_event(ptr noundef %0, i32 noundef %2)
   %5 = tail call fastcc ptr @get_event(ptr noundef %1, i32 noundef %2)
   %6 = icmp ne ptr %4, null
@@ -1473,7 +1473,7 @@ define internal fastcc i32 @ev_diff(i32 noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_event_diff_all(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @cli_event_diff_all(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 40
@@ -1492,7 +1492,7 @@ define i32 @cli_event_diff_all(ptr noundef %0, ptr noundef %1, ptr noundef reado
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.01828.us = phi i32 [ %9, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.01926.us = phi i32 [ %10, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %8 = tail call i32 @cli_event_diff(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.01926.us), !range !4
+  %8 = tail call i32 @cli_event_diff(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.01926.us)
   %9 = add i32 %8, %.01828.us
   %10 = add nuw i32 %.01926.us, 1
   %11 = load i32, ptr %4, align 8
@@ -1517,7 +1517,7 @@ define i32 @cli_event_diff_all(ptr noundef %0, ptr noundef %1, ptr noundef reado
   br i1 %.not25, label %21, label %24
 
 21:                                               ; preds = %.lr.ph.split
-  %22 = tail call i32 @cli_event_diff(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %19), !range !4
+  %22 = tail call i32 @cli_event_diff(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %19)
   %23 = add i32 %22, %.01828
   br label %24
 
@@ -1589,4 +1589,3 @@ attributes #13 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

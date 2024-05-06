@@ -756,7 +756,7 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   br i1 %or.cond43.i, label %259, label %256
 
 256:                                              ; preds = %250
-  %257 = trunc i64 %indvars.iv.i to i32
+  %257 = trunc nuw nsw i64 %indvars.iv.i to i32
   %258 = call i32 @close(i32 noundef %257) #13
   %.pre.i = load i32, ptr @listen_fd, align 4
   %.pre137.i = load i64, ptr %3, align 8
@@ -954,7 +954,7 @@ declare void @slurm_free_config_response_msg(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_on_msg(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 1008) i32 @_on_msg(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 148
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1

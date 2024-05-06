@@ -2469,7 +2469,7 @@ call.i.i.i.i.noexc:                               ; preds = %if.then.i23
   store ptr %23, ptr %_M_func.i.i.i.i.i, align 8
   %24 = getelementptr inbounds i8, ptr %call.i.i.i.i25, i64 16
   %_M_invoker.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i25, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   %25 = load ptr, ptr %_M_invoker.i, align 8
   store ptr %25, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i, align 8
   %26 = load ptr, ptr %_M_manager.i.i, align 8
@@ -2478,7 +2478,7 @@ call.i.i.i.i.noexc:                               ; preds = %if.then.i23
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %call.i.i.i.i.noexc
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i25, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   store ptr %26, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i.i.i.i.i.i.i.i.i
@@ -2486,7 +2486,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %call.i.i.i.i.noexc
 _ZNSt8functionIFvvEEC2EOS1_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %call.i.i.i.i.noexc
   %27 = getelementptr inbounds i8, ptr %call.i.i.i.i25, i64 48
   %_M_invoker.i3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i25, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   %28 = load ptr, ptr %_M_invoker.i8, align 8
   store ptr %28, ptr %_M_invoker.i3.i.i.i.i.i.i.i.i.i.i, align 8
   %29 = load ptr, ptr %_M_manager.i.i7, align 8
@@ -2495,7 +2495,7 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i
 
 if.then.i7.i.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i.i.i.i.i.i.i.i.i
   %_M_manager.i.i8.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i25, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store ptr %29, ptr %_M_manager.i.i8.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i7, i8 0, i64 16, i1 false)
   br label %invoke.cont.i.i.i.i
@@ -2583,7 +2583,7 @@ call.i.i.i.noexc.i.i:                             ; preds = %_ZNSt12_Vector_base
   store ptr %38, ptr %_M_func.i.i.i.i.i.i, align 8
   %39 = getelementptr inbounds i8, ptr %call.i.i.i18.i.i, i64 16
   %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i18.i.i, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
   %40 = load ptr, ptr %_M_invoker.i, align 8
   store ptr %40, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %41 = load ptr, ptr %_M_manager.i.i, align 8
@@ -2592,7 +2592,7 @@ call.i.i.i.noexc.i.i:                             ; preds = %_ZNSt12_Vector_base
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %call.i.i.i.noexc.i.i
   %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i2.i = getelementptr inbounds i8, ptr %call.i.i.i18.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   store ptr %41, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i.i.i2.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i.i.i.i.i.i.i.i.i.i
@@ -2600,14 +2600,14 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %call.i.i.i.noexc.i.
 _ZNSt8functionIFvvEEC2EOS1_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %call.i.i.i.noexc.i.i
   %42 = getelementptr inbounds i8, ptr %call.i.i.i18.i.i, i64 48
   %_M_invoker.i3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i18.i.i, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   store ptr %20, ptr %_M_invoker.i3.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i6.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.not.i6.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %if.then.i7.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i7.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i.i.i.i.i.i.i.i.i.i
   %_M_manager.i.i8.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i18.i.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store ptr %19, ptr %_M_manager.i.i8.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i7, i8 0, i64 16, i1 false)
   br label %invoke.cont.i.i.i.i.i
@@ -2943,7 +2943,7 @@ common.resume:                                    ; preds = %if.then.i.i25, %_ZN
 _ZNSt8functionIFvvEEC2ERKS1_.exit:                ; preds = %entry, %invoke.cont.i
   %_M_manager.i.i1 = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
   %_M_invoker.i2 = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp2, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvvEZN6spdlog7details11thread_poolC1EmmSt8functionIS0_EE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i2, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN6spdlog7details11thread_poolC1EmmSt8functionIS0_EE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %_M_manager.i.i1, align 8
   invoke void @_ZN6spdlog7details11thread_poolC2EmmSt8functionIFvvEES4_(ptr noundef nonnull align 8 dereferenceable(224) %this, i64 noundef %q_max_items, i64 noundef %threads_n, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2)
@@ -3026,12 +3026,12 @@ entry:
   %agg.tmp2 = alloca %"class.std::function.37", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvvEZN6spdlog7details11thread_poolC1EmmE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN6spdlog7details11thread_poolC1EmmE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %_M_manager.i.i1 = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
   %_M_invoker.i2 = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp2, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvvEZN6spdlog7details11thread_poolC1EmmE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i2, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN6spdlog7details11thread_poolC1EmmE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i1, align 8
   invoke void @_ZN6spdlog7details11thread_poolC2EmmSt8functionIFvvEES4_(ptr noundef nonnull align 8 dereferenceable(224) %this, i64 noundef %q_max_items, i64 noundef %threads_n, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2)

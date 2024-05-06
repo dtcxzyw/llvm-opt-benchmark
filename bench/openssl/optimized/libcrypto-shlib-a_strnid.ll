@@ -31,7 +31,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @ASN1_STRING_set_default_mask_asc(ptr noundef %p) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ASN1_STRING_set_default_mask_asc(ptr noundef %p) local_unnamed_addr #2 {
 entry:
   %end = alloca ptr, align 8
   %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %p, ptr noundef nonnull dereferenceable(6) @.str, i64 noundef 5) #11
@@ -208,7 +208,7 @@ declare i32 @OPENSSL_sk_find(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_STRING_TABLE_add(i32 noundef %nid, i64 noundef %minsize, i64 noundef %maxsize, i64 noundef %mask, i64 noundef %flags) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ASN1_STRING_TABLE_add(i32 noundef %nid, i64 noundef %minsize, i64 noundef %maxsize, i64 noundef %mask, i64 noundef %flags) local_unnamed_addr #5 {
 entry:
   %fnd.i.i = alloca %struct.asn1_string_table_st, align 8
   %0 = load ptr, ptr @stable, align 8

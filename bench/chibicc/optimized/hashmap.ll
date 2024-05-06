@@ -79,7 +79,7 @@ land.lhs.true3.i.i.i:                             ; preds = %for.body.i.i
   br i1 %cmp5.i10.i.i, label %match.exit.i.i, label %if.end6.i.i
 
 match.exit.i.i:                                   ; preds = %land.lhs.true3.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr %key, i64 %conv.i11.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr readonly %key, i64 %conv.i11.i.i)
   %cmp7.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp7.i.i.i, label %cond.true.i, label %if.end6.i.i
 
@@ -164,7 +164,7 @@ land.lhs.true3.i.i:                               ; preds = %for.body.i
   br i1 %cmp5.i10.i, label %match.exit.i, label %if.end6.i
 
 match.exit.i:                                     ; preds = %land.lhs.true3.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr %key, i64 %conv.i11.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr readonly %key, i64 %conv.i11.i)
   %cmp7.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp7.i.i, label %cond.true, label %if.end6.i
 
@@ -387,7 +387,7 @@ land.lhs.true3.i:                                 ; preds = %for.body.i
   br i1 %cmp5.i, label %match.exit, label %for.inc.i
 
 match.exit:                                       ; preds = %land.lhs.true3.i
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %16, ptr %key, i64 %conv.i2)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %16, ptr readonly %key, i64 %conv.i2)
   %cmp7.i3 = icmp eq i32 %bcmp.i, 0
   br i1 %cmp7.i3, label %get_or_insert_entry.exit, label %for.inc.i
 
@@ -483,7 +483,7 @@ land.lhs.true3.i.i.i:                             ; preds = %for.body.i.i
   br i1 %cmp5.i10.i.i, label %match.exit.i.i, label %if.end6.i.i
 
 match.exit.i.i:                                   ; preds = %land.lhs.true3.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr %key, i64 %conv.i11.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr readonly %key, i64 %conv.i11.i.i)
   %cmp7.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp7.i.i.i, label %if.then.i, label %if.end6.i.i
 
@@ -566,7 +566,7 @@ land.lhs.true3.i.i:                               ; preds = %for.body.i
   br i1 %cmp5.i10.i, label %match.exit.i, label %if.end6.i
 
 match.exit.i:                                     ; preds = %land.lhs.true3.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr %key, i64 %conv.i11.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %3, ptr readonly %key, i64 %conv.i11.i)
   %cmp7.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp7.i.i, label %if.then, label %if.end6.i
 
@@ -599,7 +599,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %call1 = tail call ptr (ptr, ...) @format(ptr noundef nonnull @.str, i32 noundef %0) #13
   %1 = inttoptr i64 %indvars.iv to ptr
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call1) #10
@@ -619,7 +619,7 @@ for.body6:                                        ; preds = %for.body, %for.body
 
 for.body15:                                       ; preds = %for.body6, %for.body15
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %for.body15 ], [ 1500, %for.body6 ]
-  %2 = trunc i64 %indvars.iv57 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv57 to i32
   %call16 = tail call ptr (ptr, ...) @format(ptr noundef nonnull @.str, i32 noundef %2) #13
   %3 = inttoptr i64 %indvars.iv57 to ptr
   %call.i38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call16) #10
@@ -631,7 +631,7 @@ for.body15:                                       ; preds = %for.body6, %for.bod
 
 for.body25:                                       ; preds = %for.body15, %for.body25
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %for.body25 ], [ 6000, %for.body15 ]
-  %4 = trunc i64 %indvars.iv61 to i32
+  %4 = trunc nuw nsw i64 %indvars.iv61 to i32
   %call26 = tail call ptr (ptr, ...) @format(ptr noundef nonnull @.str, i32 noundef %4) #13
   %5 = inttoptr i64 %indvars.iv61 to ptr
   %call.i40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call26) #10
@@ -648,7 +648,7 @@ for.cond32:                                       ; preds = %for.body35
 
 for.body35:                                       ; preds = %for.body25, %for.cond32
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %for.cond32 ], [ 0, %for.body25 ]
-  %6 = trunc i64 %indvars.iv65 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv65 to i32
   %call36 = tail call ptr (ptr, ...) @format(ptr noundef nonnull @.str, i32 noundef %6) #13
   %call37 = tail call ptr @hashmap_get(ptr noundef %call, ptr noundef %call36)
   %7 = ptrtoint ptr %call37 to i64
@@ -681,7 +681,7 @@ for.cond59:                                       ; preds = %for.body62
 
 for.body62:                                       ; preds = %for.cond45, %for.cond59
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %for.cond59 ], [ 1500, %for.cond45 ]
-  %8 = trunc i64 %indvars.iv70 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv70 to i32
   %call63 = tail call ptr (ptr, ...) @format(ptr noundef nonnull @.str, i32 noundef %8) #13
   %call64 = tail call ptr @hashmap_get(ptr noundef %call, ptr noundef %call63)
   %9 = ptrtoint ptr %call64 to i64
@@ -714,7 +714,7 @@ for.cond89:                                       ; preds = %for.body92
 
 for.body92:                                       ; preds = %for.cond75, %for.cond89
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %for.cond89 ], [ 2000, %for.cond75 ]
-  %10 = trunc i64 %indvars.iv75 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv75 to i32
   %call93 = tail call ptr (ptr, ...) @format(ptr noundef nonnull @.str, i32 noundef %10) #13
   %call94 = tail call ptr @hashmap_get(ptr noundef %call, ptr noundef %call93)
   %11 = ptrtoint ptr %call94 to i64
@@ -742,7 +742,7 @@ cond.false113:                                    ; preds = %for.body108
 
 for.body122:                                      ; preds = %for.cond105, %for.body122
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %for.body122 ], [ 6000, %for.cond105 ]
-  %12 = trunc i64 %indvars.iv80 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv80 to i32
   %call123 = tail call ptr (ptr, ...) @format(ptr noundef nonnull @.str, i32 noundef %12) #13
   %13 = inttoptr i64 %indvars.iv80 to ptr
   %call.i42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call123) #10

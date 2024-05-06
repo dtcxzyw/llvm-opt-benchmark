@@ -146,7 +146,7 @@ return:                                           ; preds = %if.end7, %if.then4,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7rocksdb15PlainTableIndex9GetOffsetEjPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %prefix_hash, ptr nocapture noundef writeonly %bucket_value) local_unnamed_addr #1 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK7rocksdb15PlainTableIndex9GetOffsetEjPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %prefix_hash, ptr nocapture noundef writeonly %bucket_value) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %rem.i = urem i32 %prefix_hash, %0

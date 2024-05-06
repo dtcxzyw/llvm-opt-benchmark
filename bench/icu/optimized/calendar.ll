@@ -1784,13 +1784,13 @@ entry:
 if.then:                                          ; preds = %entry
   %fFields = getelementptr inbounds i8, ptr %right, i64 12
   %fFields2 = getelementptr inbounds i8, ptr %this, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %fFields2, ptr noundef nonnull align 4 dereferenceable(96) %fFields, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(96) %fFields2, ptr noundef nonnull readonly align 4 dereferenceable(96) %fFields, i64 96, i1 false)
   %fIsSet = getelementptr inbounds i8, ptr %right, i64 108
   %fIsSet5 = getelementptr inbounds i8, ptr %this, i64 108
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %fIsSet5, ptr noundef nonnull align 4 dereferenceable(24) %fIsSet, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(24) %fIsSet5, ptr noundef nonnull readonly align 4 dereferenceable(24) %fIsSet, i64 24, i1 false)
   %fStamp = getelementptr inbounds i8, ptr %right, i64 132
   %fStamp8 = getelementptr inbounds i8, ptr %this, i64 132
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %fStamp8, ptr noundef nonnull align 4 dereferenceable(96) %fStamp, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(96) %fStamp8, ptr noundef nonnull readonly align 4 dereferenceable(96) %fStamp, i64 96, i1 false)
   %fTime = getelementptr inbounds i8, ptr %right, i64 232
   %0 = load double, ptr %fTime, align 8
   %fTime10 = getelementptr inbounds i8, ptr %this, i64 232
@@ -3144,7 +3144,7 @@ return:                                           ; preds = %if.then3, %if.end4,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_758Calendar14isEquivalentToERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %other) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_758Calendar14isEquivalentToERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %other) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %vtable, i64 -8
@@ -3263,7 +3263,7 @@ land.end:                                         ; preds = %if.end.i, %land.rhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_758Calendar6equalsERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %when, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_758Calendar6equalsERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %when, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %when
   br i1 %cmp, label %lor.end, label %lor.rhs
@@ -3369,7 +3369,7 @@ lor.end:                                          ; preds = %_ZNK6icu_758Calenda
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_758Calendar6beforeERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %when, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_758Calendar6beforeERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %when, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %when
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -3475,7 +3475,7 @@ land.end:                                         ; preds = %_ZNK6icu_758Calenda
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_758Calendar5afterERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %when, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_758Calendar5afterERKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %when, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %when
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -5172,7 +5172,7 @@ return:                                           ; preds = %entry, %if.end23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_758Calendar5isSetE19UCalendarDateFields(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, i32 noundef %field) local_unnamed_addr #15 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_758Calendar5isSetE19UCalendarDateFields(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, i32 noundef %field) local_unnamed_addr #15 align 2 {
 entry:
   %or.cond = icmp ugt i32 %field, 23
   br i1 %or.cond, label %return, label %if.end
@@ -5800,7 +5800,7 @@ return:                                           ; preds = %entry, %if.end48
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_ZN6icu_758Calendar20julianDayToDayOfWeekEi(i32 noundef %julian) local_unnamed_addr #17 align 2 {
+define noundef zeroext range(i8 -5, 15) i8 @_ZN6icu_758Calendar20julianDayToDayOfWeekEi(i32 noundef %julian) local_unnamed_addr #17 align 2 {
 entry:
   %add = add nsw i32 %julian, 1
   %rem = srem i32 %add, 7
@@ -5851,7 +5851,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN6icu_758Calendar10weekNumberEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, i32 noundef %desiredDay, i32 noundef %dayOfPeriod, i32 noundef %dayOfWeek) local_unnamed_addr #15 align 2 {
+define noundef range(i32 -306783378, 306783380) i32 @_ZN6icu_758Calendar10weekNumberEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, i32 noundef %desiredDay, i32 noundef %dayOfPeriod, i32 noundef %dayOfWeek) local_unnamed_addr #15 align 2 {
 entry:
   %fFirstDayOfWeek.i = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i32, ptr %fFirstDayOfWeek.i, align 8
@@ -7287,7 +7287,7 @@ sw.bb90:                                          ; preds = %if.then81
   %cmp91 = icmp sgt i32 %cond, 0
   %71 = load double, ptr %fTime.i235, align 8
   %cond96 = select i1 %cmp91, double %71, double %69
-  %call97 = call noundef signext i8 @_ZNK6icu_758Calendar34getImmediatePreviousZoneTransitionEdPdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %cond96, ptr noundef nonnull %immediatePrevTrans, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !12
+  %call97 = call noundef signext i8 @_ZNK6icu_758Calendar34getImmediatePreviousZoneTransitionEdPdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %cond96, ptr noundef nonnull %immediatePrevTrans, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %72 = load i32, ptr %status, align 4
   %cmp.i237 = icmp slt i32 %72, 1
   %tobool100 = icmp ne i8 %call97, 0
@@ -7312,7 +7312,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_758Calendar34getImmediatePreviousZoneTransitionEdPdR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, double noundef %base, ptr nocapture noundef writeonly %transitionTime, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_758Calendar34getImmediatePreviousZoneTransitionEdPdR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, double noundef %base, ptr nocapture noundef writeonly %transitionTime, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %trans = alloca %"class.icu_75::TimeZoneTransition", align 8
   %0 = load i32, ptr %status, align 4
@@ -7579,7 +7579,7 @@ if.end24:                                         ; preds = %if.else15
   %shl = shl nuw i32 %max.0328, 1
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %shl, i32 2147483647)
   %cmp.i76 = icmp sgt i32 %22, 0
-  br i1 %cmp.i76, label %while.end, label %if.end.i79, !llvm.loop !13
+  br i1 %cmp.i76, label %while.end, label %if.end.i79, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end24, %if.else, %if.end24.thread, %while.cond.preheader
   %23 = phi i32 [ %9, %while.cond.preheader ], [ 1, %if.end24.thread ], [ %22, %if.else ], [ %22, %if.end24 ]
@@ -7701,7 +7701,7 @@ if.else37:                                        ; preds = %_ZNK6icu_758Calenda
   %min.2.add = select i1 %cmp38, i32 %min.2337, i32 %add
   %sub = sub nsw i32 %add.max.2, %min.2.add
   %cmp26 = icmp sgt i32 %sub, 1
-  br i1 %cmp26, label %land.rhs, label %if.end95, !llvm.loop !14
+  br i1 %cmp26, label %land.rhs, label %if.end95, !llvm.loop !13
 
 if.else44:                                        ; preds = %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit
   %cmp45 = fcmp ogt double %retval.0.i, %targetMs
@@ -7824,7 +7824,7 @@ if.end67.thread:                                  ; preds = %if.else61
 
 if.end67:                                         ; preds = %if.else61
   %cmp.i161 = icmp sgt i32 %50, 0
-  br i1 %cmp.i161, label %while.end68, label %if.end.i164, !llvm.loop !15
+  br i1 %cmp.i161, label %while.end68, label %if.end.i164, !llvm.loop !14
 
 while.end68:                                      ; preds = %if.end67, %if.else58, %if.end67.thread, %while.cond48.preheader
   %51 = phi i32 [ %9, %while.cond48.preheader ], [ 1, %if.end67.thread ], [ %50, %if.else58 ], [ %50, %if.end67 ]
@@ -7946,7 +7946,7 @@ if.else87:                                        ; preds = %_ZNK6icu_758Calenda
   %min.5.add80 = select i1 %cmp88, i32 %min.5325, i32 %add80
   %sub70 = sub nsw i32 %min.5.add80, %add80.max47.1
   %cmp71 = icmp sgt i32 %sub70, 1
-  br i1 %cmp71, label %land.rhs72, label %if.end95, !llvm.loop !16
+  br i1 %cmp71, label %land.rhs72, label %if.end95, !llvm.loop !15
 
 if.end95:                                         ; preds = %if.else87, %if.else37, %if.else44, %while.end, %while.end68
   %.pr = phi i32 [ %9, %if.else44 ], [ %23, %while.end ], [ %51, %while.end68 ], [ %37, %if.else37 ], [ %65, %if.else87 ]
@@ -8074,7 +8074,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZNK6icu_758Calendar16getDayOfWeekTypeE19UCalendarDaysOfWeekR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, i32 noundef %dayOfWeek, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #14 align 2 {
+define noundef range(i32 0, 4) i32 @_ZNK6icu_758Calendar16getDayOfWeekTypeE19UCalendarDaysOfWeekR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, i32 noundef %dayOfWeek, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #14 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -8275,7 +8275,7 @@ return:                                           ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_758Calendar9isWeekendEv(ptr noundef nonnull align 8 dereferenceable(618) %this) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_758Calendar9isWeekendEv(ptr noundef nonnull align 8 dereferenceable(618) %this) unnamed_addr #1 align 2 {
 if.end.i:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -8750,7 +8750,7 @@ _ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %_ZN
 if.else:                                          ; preds = %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
   %dec = add nsw i32 %fieldValue.0, -1
   %cmp22.not.not = icmp sgt i32 %fieldValue.0, %call8
-  br i1 %cmp22.not.not, label %if.end.i, label %delete.notnull, !llvm.loop !17
+  br i1 %cmp22.not.not, label %if.end.i, label %delete.notnull, !llvm.loop !16
 
 delete.notnull:                                   ; preds = %if.else, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
   %result.1 = phi i32 [ %result.0, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit ], [ %fieldValue.0, %if.else ]
@@ -8769,7 +8769,7 @@ return:                                           ; preds = %delete.notnull, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_758Calendar14inDaylightTimeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_758Calendar14inDaylightTimeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -9133,7 +9133,7 @@ _ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit53: ; preds = %if.end4.i13, %
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp7.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %cmp7.not, label %if.end14, label %for.body, !llvm.loop !18
+  br i1 %cmp7.not, label %if.end14, label %for.body, !llvm.loop !17
 
 if.end14:                                         ; preds = %for.inc, %land.lhs.true, %if.end
   store i32 1, ptr %status, align 4
@@ -9180,7 +9180,7 @@ for.inc:                                          ; preds = %for.body, %if.then5
   %cmp.i6 = icmp slt i32 %5, 1
   %cmp = icmp ult i64 %indvars.iv, 23
   %6 = and i1 %cmp.i6, %cmp
-  br i1 %6, label %for.body, label %for.end, !llvm.loop !19
+  br i1 %6, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -9358,7 +9358,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, ptr nocapture noundef readonly %precedenceTable) local_unnamed_addr #15 align 2 {
+define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, ptr nocapture noundef readonly %precedenceTable) local_unnamed_addr #15 align 2 {
 entry:
   %0 = load i32, ptr %precedenceTable, align 4
   %cmp48.not = icmp eq i32 %0, -1
@@ -9389,7 +9389,7 @@ for.inc67.us:                                     ; preds = %for.inc64.us.us, %f
   %cmp.us = icmp ne i32 %4, -1
   %cmp4.us = icmp eq i32 %bestField.1.lcssa.us, 24
   %5 = select i1 %cmp.us, i1 %cmp4.us, i1 false
-  br i1 %5, label %for.cond5.preheader.us, label %for.end69, !llvm.loop !20
+  br i1 %5, label %for.cond5.preheader.us, label %for.end69, !llvm.loop !19
 
 for.body12.us.us:                                 ; preds = %for.cond5.preheader.us, %for.inc64.us.us
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %for.inc64.us.us ], [ 0, %for.cond5.preheader.us ]
@@ -9419,7 +9419,7 @@ if.else.us.us:                                    ; preds = %for.body27.us.us
   %arrayidx25.us.us = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv68, i64 %indvars.iv65, i64 %indvars.iv.next63
   %10 = load i32, ptr %arrayidx25.us.us, align 4
   %cmp26.not.us.us = icmp eq i32 %10, -1
-  br i1 %cmp26.not.us.us, label %for.end.us.us, label %for.body27.us.us, !llvm.loop !21
+  br i1 %cmp26.not.us.us, label %for.end.us.us, label %for.body27.us.us, !llvm.loop !20
 
 for.end.us.us:                                    ; preds = %if.else.us.us, %for.body12.us.us
   %lineStamp.0.lcssa.us.us = phi i32 [ 0, %for.body12.us.us ], [ %spec.select.us.us, %if.else.us.us ]
@@ -9438,7 +9438,7 @@ for.inc64.us.us:                                  ; preds = %for.body27.us.us, %
   %arrayidx9.us.us = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv68, i64 %indvars.iv.next66
   %11 = load i32, ptr %arrayidx9.us.us, align 4
   %cmp11.not.us.us = icmp eq i32 %11, -1
-  br i1 %cmp11.not.us.us, label %for.inc67.us, label %for.body12.us.us, !llvm.loop !22
+  br i1 %cmp11.not.us.us, label %for.inc67.us, label %for.body12.us.us, !llvm.loop !21
 
 for.cond5.preheader:                              ; preds = %for.cond5.preheader.lr.ph, %for.inc67
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %for.inc67 ], [ 0, %for.cond5.preheader.lr.ph ]
@@ -9475,7 +9475,7 @@ if.else:                                          ; preds = %for.body27
   %arrayidx25 = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv59, i64 %indvars.iv56, i64 %indvars.iv.next
   %17 = load i32, ptr %arrayidx25, align 4
   %cmp26.not = icmp eq i32 %17, -1
-  br i1 %cmp26.not, label %for.end, label %for.body27, !llvm.loop !21
+  br i1 %cmp26.not, label %for.end, label %for.body27, !llvm.loop !20
 
 for.end:                                          ; preds = %if.else, %for.body12
   %lineStamp.0.lcssa = phi i32 [ 0, %for.body12 ], [ %spec.select, %if.else ]
@@ -9499,7 +9499,7 @@ for.inc64:                                        ; preds = %for.body27, %if.the
   %arrayidx9 = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv59, i64 %indvars.iv.next57
   %19 = load i32, ptr %arrayidx9, align 4
   %cmp11.not = icmp eq i32 %19, -1
-  br i1 %cmp11.not, label %for.inc67, label %for.body12, !llvm.loop !22
+  br i1 %cmp11.not, label %for.inc67, label %for.body12, !llvm.loop !21
 
 for.inc67:                                        ; preds = %for.inc64, %for.cond5.preheader
   %bestField.1.lcssa = phi i32 [ 24, %for.cond5.preheader ], [ %bestField.3, %for.inc64 ]
@@ -9509,7 +9509,7 @@ for.inc67:                                        ; preds = %for.inc64, %for.con
   %cmp = icmp ne i32 %20, -1
   %cmp4 = icmp eq i32 %bestField.1.lcssa, 24
   %21 = select i1 %cmp, i1 %cmp4, i1 false
-  br i1 %21, label %for.cond5.preheader, label %for.end69, !llvm.loop !20
+  br i1 %21, label %for.cond5.preheader, label %for.end69, !llvm.loop !19
 
 for.end69:                                        ; preds = %for.inc67, %for.inc67.us, %entry
   %bestField.0.lcssa = phi i32 [ 24, %entry ], [ %bestField.1.lcssa.us, %for.inc67.us ], [ %bestField.1.lcssa, %for.inc67 ]
@@ -9559,7 +9559,7 @@ for.inc.i:                                        ; preds = %if.then5.i, %for.bo
   %cmp.i6.i = icmp slt i32 %6, 1
   %cmp.i26 = icmp ult i64 %indvars.iv.i, 23
   %7 = and i1 %cmp.i26, %cmp.i6.i
-  br i1 %7, label %for.body.i, label %_ZN6icu_758Calendar14validateFieldsER10UErrorCode.exit, !llvm.loop !19
+  br i1 %7, label %for.body.i, label %_ZN6icu_758Calendar14validateFieldsER10UErrorCode.exit, !llvm.loop !18
 
 _ZN6icu_758Calendar14validateFieldsER10UErrorCode.exit: ; preds = %for.inc.i
   br i1 %cmp.i6.i, label %if.end9, label %if.end76
@@ -9612,7 +9612,7 @@ if.end9.i:                                        ; preds = %for.body.i15.prehea
   %vfn.i32 = getelementptr inbounds i8, ptr %vtable.i31, i64 360
   %14 = load ptr, ptr %vfn.i32, align 8
   %call10.i = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(618) %this)
-  %call11.i = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call10.i), !range !23
+  %call11.i = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call10.i)
   %cmp12.i = icmp eq i32 %call11.i, 24
   %spec.store.select.i = select i1 %cmp12.i, i32 5, i32 %call11.i
   %vtable15.i = load ptr, ptr %this, align 8
@@ -9776,7 +9776,7 @@ if.then53:                                        ; preds = %if.then50
   br label %if.end76
 
 if.else54:                                        ; preds = %if.then50
-  %call55 = call noundef signext i8 @_ZNK6icu_758Calendar34getImmediatePreviousZoneTransitionEdPdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %sub44, ptr noundef nonnull %immediatePrevTransition, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !12
+  %call55 = call noundef signext i8 @_ZNK6icu_758Calendar34getImmediatePreviousZoneTransitionEdPdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %sub44, ptr noundef nonnull %immediatePrevTransition, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %41 = load i32, ptr %status, align 4
   %cmp.i58 = icmp slt i32 %41, 1
   %tobool59 = icmp ne i8 %call55, 0
@@ -9860,7 +9860,7 @@ if.end9:                                          ; preds = %for.body.i15.prehea
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 360
   %5 = load ptr, ptr %vfn, align 8
   %call10 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(618) %this)
-  %call11 = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call10), !range !23
+  %call11 = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call10)
   %cmp12 = icmp eq i32 %call11, 24
   %spec.store.select = select i1 %cmp12, i32 5, i32 %call11
   %vtable15 = load ptr, ptr %this, align 8
@@ -10234,7 +10234,7 @@ if.end48:                                         ; preds = %if.end27
   %cmp53 = icmp slt i32 %sub, 0
   %add55 = add nsw i32 %sub, 7
   %spec.select63 = select i1 %cmp53, i32 %add55, i32 %sub
-  %call.i = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar14kDOWPrecedenceE), !range !23
+  %call.i = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull readonly align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar14kDOWPrecedenceE)
   switch i32 %call.i, label %_ZN6icu_758Calendar11getLocalDOWEv.exit [
     i32 7, label %sw.bb.i
     i32 18, label %sw.bb3.i
@@ -10314,7 +10314,7 @@ if.then86:                                        ; preds = %if.else84
   br i1 %or.cond160, label %if.then94, label %lor.lhs.false89
 
 lor.lhs.false89:                                  ; preds = %if.then86
-  %call90 = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar15kYearPrecedenceE), !range !23
+  %call90 = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar15kYearPrecedenceE)
   %cmp91.not = icmp eq i32 %call90, 17
   %cmp93.not = icmp eq i32 %27, 1
   %or.cond65 = select i1 %cmp91.not, i1 true, i1 %cmp93.not
@@ -10432,9 +10432,9 @@ return:                                           ; preds = %entry, %if.end177, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN6icu_758Calendar11getLocalDOWEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this) local_unnamed_addr #15 align 2 {
+define noundef range(i32 0, 7) i32 @_ZN6icu_758Calendar11getLocalDOWEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this) local_unnamed_addr #15 align 2 {
 entry:
-  %call = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar14kDOWPrecedenceE), !range !23
+  %call = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar14kDOWPrecedenceE)
   switch i32 %call, label %sw.epilog [
     i32 7, label %sw.bb
     i32 18, label %sw.bb3
@@ -10478,8 +10478,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_758Calendar35handleGetExtendedYearFromWeekFieldsEii(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %yearWoy, i32 noundef %woy) unnamed_addr #1 align 2 {
 entry:
-  %call = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar15kDatePrecedenceE), !range !23
-  %call.i = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar14kDOWPrecedenceE), !range !23
+  %call = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar15kDatePrecedenceE)
+  %call.i = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull readonly align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar14kDOWPrecedenceE)
   switch i32 %call.i, label %_ZN6icu_758Calendar11getLocalDOWEv.exit [
     i32 7, label %sw.bb.i
     i32 18, label %sw.bb3.i
@@ -11103,7 +11103,7 @@ _ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit108: ; preds = %
 
 if.end37:                                         ; preds = %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit108
   %cmp38.not = icmp eq i32 %add, %endValue
-  br i1 %cmp38.not, label %delete.notnull, label %do.body, !llvm.loop !24
+  br i1 %cmp38.not, label %delete.notnull, label %do.body, !llvm.loop !22
 
 delete.notnull:                                   ; preds = %if.then3.i.i92, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i102, %if.then10.i.i84, %if.end8.i88, %do.body, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit108, %if.end37, %if.then3.i.i, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i, %if.then10.i.i, %if.end8.i63, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
   %result.1 = phi i32 [ %startValue, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit ], [ %startValue, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit ], [ %startValue, %if.end8.i63 ], [ %startValue, %if.then10.i.i ], [ %startValue, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i ], [ %startValue, %if.then3.i.i ], [ %result.0, %if.then3.i.i92 ], [ %result.0, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i102 ], [ %result.0, %if.then10.i.i84 ], [ %result.0, %if.end8.i88 ], [ %result.0, %do.body ], [ %endValue, %if.end37 ], [ %result.0, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit108 ]
@@ -11993,7 +11993,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_758Calendar16internalGetMonthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this) unnamed_addr #15 align 2 {
 entry:
-  %call = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar16kMonthPrecedenceE), !range !23
+  %call = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar16kMonthPrecedenceE)
   %cmp = icmp eq i32 %call, 2
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %arrayidx.i, align 4
@@ -12006,7 +12006,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_758Calendar16internalGetMonthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(618) %this, i32 noundef %defaultValue) unnamed_addr #15 align 2 {
 entry:
-  %call = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar16kMonthPrecedenceE), !range !23
+  %call = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar16kMonthPrecedenceE)
   %cmp = icmp eq i32 %call, 2
   br i1 %cmp, label %if.then, label %if.end
 
@@ -12200,7 +12200,7 @@ invoke.cont3:                                     ; preds = %for.body
 invoke.cont5:                                     ; preds = %invoke.cont3
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #23
   %4 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #23, !srcloc !25
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #23, !srcloc !23
   %5 = load ptr, ptr %arrayidx17, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp7, ptr noundef %5, i32 noundef -1, i32 noundef 0)
           to label %invoke.cont10 unwind label %lpad
@@ -12241,7 +12241,7 @@ invoke.cont15:                                    ; preds = %new.cont.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds [19 x ptr], ptr @_ZL9gCalTypes, i64 0, i64 %indvars.iv.next
   %cmp.not = icmp eq i64 %indvars.iv.next, 18
-  br i1 %cmp.not, label %if.end, label %for.body, !llvm.loop !26
+  br i1 %cmp.not, label %if.end, label %for.body, !llvm.loop !24
 
 lpad:                                             ; preds = %new.cont.i, %invoke.cont5
   %11 = landingpad { ptr, i32 }
@@ -12262,7 +12262,7 @@ lpad4:                                            ; preds = %invoke.cont3
 ehcleanup:                                        ; preds = %lpad4, %lpad2
   %.pn = phi { ptr, i32 } [ %13, %lpad4 ], [ %12, %lpad2 ]
   %14 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %14) #23, !srcloc !25
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %14) #23, !srcloc !23
   br label %ehcleanup17
 
 lpad11:                                           ; preds = %invoke.cont10
@@ -12355,7 +12355,7 @@ invoke.cont11:                                    ; preds = %invoke.cont7
 invoke.cont13:                                    ; preds = %invoke.cont11
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #23
   %8 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #23, !srcloc !25
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #23, !srcloc !23
   %fullName.i = getelementptr inbounds i8, ptr %loc, i64 40
   %9 = load ptr, ptr %fullName.i, align 8
   %call18 = invoke fastcc noundef i32 @_ZN6icu_75L24getCalendarTypeForLocaleEPKc(ptr noundef %9)
@@ -12398,7 +12398,7 @@ lpad12:                                           ; preds = %invoke.cont11
 ehcleanup:                                        ; preds = %lpad12, %lpad10
   %.pn = phi { ptr, i32 } [ %15, %lpad12 ], [ %14, %lpad10 ]
   %16 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %16) #23, !srcloc !25
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %16) #23, !srcloc !23
   br label %ehcleanup25
 
 lpad20:                                           ; preds = %invoke.cont19
@@ -12603,7 +12603,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #23
   %0 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #23, !srcloc !25
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #23, !srcloc !23
   store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN6icu_7515CalendarServiceE, i64 0, i32 0, i64 2), ptr %this, align 8
   store i32 0, ptr %status, align 4
   %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 144) #23
@@ -12642,7 +12642,7 @@ lpad2:                                            ; preds = %invoke.cont
 ehcleanup:                                        ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %3, %lpad2 ], [ %2, %lpad ]
   %4 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #23, !srcloc !25
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #23, !srcloc !23
   br label %eh.resume
 
 lpad4:                                            ; preds = %new.notnull
@@ -13048,7 +13048,7 @@ attributes #26 = { nounwind willreturn memory(read) }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i8 0, i8 2}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
@@ -13059,7 +13059,5 @@ attributes #26 = { nounwind willreturn memory(read) }
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = !{i32 -2147483648, i32 32}
+!23 = !{i64 2150403706}
 !24 = distinct !{!24, !5}
-!25 = !{i64 2150403706}
-!26 = distinct !{!26, !5}

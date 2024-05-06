@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @working_cluster_rec = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_set_trigger(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_set_trigger(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.trigger_info_msg, align 8
@@ -57,7 +57,7 @@ declare i32 @slurm_send_recv_controller_rc_msg(ptr noundef, ptr noundef, ptr nou
 declare void @slurm_seterrno(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_clear_trigger(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_clear_trigger(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.trigger_info_msg, align 8
@@ -93,7 +93,7 @@ define i32 @slurm_clear_trigger(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_get_triggers(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_get_triggers(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.slurm_msg, align 8
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.trigger_info_msg, align 8
@@ -149,7 +149,7 @@ declare i32 @slurm_send_recv_controller_msg(ptr noundef, ptr noundef, ptr nounde
 declare void @slurm_free_return_code_msg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_pull_trigger(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_pull_trigger(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.trigger_info_msg, align 8

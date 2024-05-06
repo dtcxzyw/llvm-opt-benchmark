@@ -434,7 +434,7 @@ invoke.cont120:                                   ; preds = %for.cond87
   br i1 %cmp138, label %invoke.cont127.for.end143_crit_edge, label %for.cond87, !llvm.loop !8
 
 invoke.cont127.for.end143_crit_edge:              ; preds = %invoke.cont120
-  %66 = trunc i64 %indvars.iv541 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv541 to i32
   %.pre549 = load ptr, ptr %mIndices, align 8
   br label %for.end143
 
@@ -889,7 +889,7 @@ for.inc371:                                       ; preds = %for.body355, %land.
   br i1 %exitcond527.not, label %if.end384, label %for.body355, !llvm.loop !13
 
 for.end373:                                       ; preds = %invoke.cont367
-  %193 = trunc i64 %indvars.iv523 to i32
+  %193 = trunc nuw nsw i64 %indvars.iv523 to i32
   %cmp374.not = icmp eq i32 %13, %193
   br i1 %cmp374.not, label %if.end384, label %for.cond294.backedge
 
@@ -967,7 +967,7 @@ for.cond416:                                      ; preds = %for.cond416, %if.en
   br i1 %tobool420, label %for.cond416, label %for.end424, !llvm.loop !16
 
 for.end424:                                       ; preds = %for.cond416
-  %201 = trunc i64 %indvars.iv528 to i32
+  %201 = trunc nuw nsw i64 %indvars.iv528 to i32
   store i32 %201, ptr %199, align 4
   br label %for.cond428
 
@@ -982,7 +982,7 @@ for.cond428:                                      ; preds = %for.cond428, %for.e
   br i1 %tobool432, label %for.cond428, label %for.end436, !llvm.loop !17
 
 for.end436:                                       ; preds = %for.cond428
-  %203 = trunc i64 %indvars.iv.next532 to i32
+  %203 = trunc nuw i64 %indvars.iv.next532 to i32
   %204 = load ptr, ptr %mIndices409, align 8
   %arrayidx438 = getelementptr inbounds i8, ptr %204, i64 4
   store i32 %203, ptr %arrayidx438, align 4
@@ -997,7 +997,7 @@ for.cond440:                                      ; preds = %for.cond440, %for.e
   br i1 %tobool444, label %for.cond440, label %for.end448, !llvm.loop !18
 
 for.end448:                                       ; preds = %for.cond440
-  %206 = trunc i64 %indvars.iv538 to i32
+  %206 = trunc nuw i64 %indvars.iv538 to i32
   %207 = load ptr, ptr %mIndices409, align 8
   %arrayidx450 = getelementptr inbounds i8, ptr %207, i64 8
   store i32 %206, ptr %arrayidx450, align 4

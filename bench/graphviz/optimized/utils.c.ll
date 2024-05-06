@@ -39,7 +39,7 @@ define ptr @agdtopen(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
 declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @agdtdelete(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @agdtdelete(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   store ptr %0, ptr @Ag_dictop_G, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr %4(ptr noundef nonnull %1, ptr noundef %2, i32 noundef 2) #3
@@ -49,7 +49,7 @@ define i32 @agdtdelete(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @agdtclose(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @agdtclose(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dtdisc(ptr noundef %1, ptr noundef null) #3
   store ptr %0, ptr @Ag_dictop_G, align 8
   %4 = tail call i32 @dtclose(ptr noundef %1) #3

@@ -97,7 +97,7 @@ declare dso_local i32 @acpi_evaluate_integer(ptr noundef, ptr noundef, ptr nound
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_acpi_program_hp_params(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.acpi_buffer, align 8
   %3 = alloca %struct.hpx_type0, align 8
   %4 = alloca i32, align 4
@@ -1071,7 +1071,7 @@ define internal fastcc ptr @acpi_pci_find_companion(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_dev_acpi_reset(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -25, 1) i32 @pci_dev_acpi_reset(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = getelementptr inbounds i8, ptr %0, i64 816
   %5 = load ptr, ptr %4, align 8
@@ -1674,7 +1674,7 @@ define dso_local void @acpi_pci_remove_bus(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_acpi_set_companion_lookup_hook(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pci_acpi_set_companion_lookup_hook(ptr noundef %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 

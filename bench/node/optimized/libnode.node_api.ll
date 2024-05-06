@@ -1434,7 +1434,7 @@ return:                                           ; preds = %entry, %if.end9, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @napi_remove_async_cleanup_hook(ptr noundef %remove_handle) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_remove_async_cleanup_hook(ptr noundef %remove_handle) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %remove_handle, null
   br i1 %cmp, label %return, label %delete.notnull
@@ -3951,7 +3951,7 @@ do.end14:                                         ; preds = %do.body5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @napi_call_threadsafe_function(ptr noundef %func, ptr noundef %data, i32 noundef %is_blocking) local_unnamed_addr #3 {
+define dso_local range(i32 0, 17) i32 @napi_call_threadsafe_function(ptr noundef %func, ptr noundef %data, i32 noundef %is_blocking) local_unnamed_addr #3 {
 entry:
   %data.addr.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %func, null
@@ -4116,7 +4116,7 @@ _ZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4PushEPv34napi_threadsafe_function_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @napi_acquire_threadsafe_function(ptr noundef %func) local_unnamed_addr #3 {
+define dso_local range(i32 0, 17) i32 @napi_acquire_threadsafe_function(ptr noundef %func) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %func, null
   br i1 %cmp.not, label %do.body3, label %do.end4
@@ -4148,7 +4148,7 @@ _ZN6v8impl12_GLOBAL__N_118ThreadSafeFunction7AcquireEv.exit: ; preds = %do.end4,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @napi_release_threadsafe_function(ptr noundef %func, i32 noundef %mode) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @napi_release_threadsafe_function(ptr noundef %func, i32 noundef %mode) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %func, null
   br i1 %cmp.not, label %do.body3, label %do.end4
@@ -4972,7 +4972,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

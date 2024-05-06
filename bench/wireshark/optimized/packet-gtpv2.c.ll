@@ -3684,7 +3684,7 @@ define hidden void @dissect_gtpv2_mbms_session_duration(ptr noundef %0, ptr noun
 17:                                               ; preds = %8
   %18 = udiv i32 %9, 3600
   %19 = urem i32 %9, 3600
-  %.lhs.trunc = trunc i32 %19 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %19 to i16
   %20 = udiv i16 %.lhs.trunc, 60
   %.zext = zext nneg i16 %20 to i32
   %21 = urem i16 %.lhs.trunc, 60
@@ -4875,7 +4875,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #0
 declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gtpv2_stat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @gtpv2_stat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #1 {
   %6 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %40
@@ -6189,7 +6189,7 @@ define internal void @dissect_gtpv2_f_teid(ptr noundef %0, ptr nocapture noundef
   %82 = load i32, ptr %81, align 4
   %83 = getelementptr inbounds i8, ptr %.071, i64 8
   %84 = load ptr, ptr %83, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 %80, ptr %79, align 8
   %85 = icmp eq i32 %82, 0
   br i1 %85, label %copy_address_wmem.exit, label %86
@@ -6229,7 +6229,7 @@ copy_address_wmem.exit:                           ; preds = %77, %86
   %103 = load i32, ptr %102, align 4
   %104 = getelementptr inbounds i8, ptr %.072, i64 8
   %105 = load ptr, ptr %104, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false)
   store i32 %101, ptr %100, align 8
   %106 = icmp eq i32 %103, 0
   br i1 %106, label %copy_address_wmem.exit81, label %107
@@ -6308,7 +6308,7 @@ define internal void @dissect_gtpv2_s103pdf(ptr noundef %0, ptr noundef %1, ptr 
 
 .lr.ph.preheader:                                 ; preds = %17
   %26 = add nuw nsw i32 %.041, 5
-  %27 = trunc i32 %.041 to i8
+  %27 = trunc nuw nsw i32 %.041 to i8
   %28 = add i8 %23, %27
   %29 = add i8 %28, 5
   br label %.lr.ph
@@ -6717,7 +6717,7 @@ define internal void @dissect_gtpv2_mm_context_utms_cq(ptr noundef %0, ptr nound
   br i1 %52, label %53, label %80
 
 53:                                               ; preds = %49
-  %54 = tail call fastcc i32 @dissect_gtpv2_access_restriction_data(ptr noundef %0, ptr noundef %2, i32 noundef %50), !range !21
+  %54 = tail call fastcc i32 @dissect_gtpv2_access_restriction_data(ptr noundef %0, ptr noundef %2, i32 noundef %50)
   %55 = icmp eq i32 %54, %51
   br i1 %55, label %80, label %56
 
@@ -6824,7 +6824,7 @@ define internal void @dissect_gtpv2_mm_context_gsm_cq(ptr noundef %0, ptr nounde
   br i1 %50, label %51, label %78
 
 51:                                               ; preds = %47
-  %52 = tail call fastcc i32 @dissect_gtpv2_access_restriction_data(ptr noundef %0, ptr noundef %2, i32 noundef %48), !range !21
+  %52 = tail call fastcc i32 @dissect_gtpv2_access_restriction_data(ptr noundef %0, ptr noundef %2, i32 noundef %48)
   %53 = icmp eq i32 %52, %49
   br i1 %53, label %78, label %54
 
@@ -6931,7 +6931,7 @@ define internal void @dissect_gtpv2_mm_context_utms_q(ptr noundef %0, ptr nounde
   br i1 %50, label %51, label %98
 
 51:                                               ; preds = %47
-  %52 = tail call fastcc i32 @dissect_gtpv2_access_restriction_data(ptr noundef %0, ptr noundef %2, i32 noundef %48), !range !21
+  %52 = tail call fastcc i32 @dissect_gtpv2_access_restriction_data(ptr noundef %0, ptr noundef %2, i32 noundef %48)
   %53 = icmp eq i32 %52, %49
   br i1 %53, label %98, label %54
 
@@ -7155,7 +7155,7 @@ proto_item_set_generated.exit278:                 ; preds = %82, %79, %78, %74
   br i1 %103, label %104, label %239
 
 104:                                              ; preds = %100
-  %105 = tail call fastcc i32 @dissect_gtpv2_access_restriction_data(ptr noundef %0, ptr noundef %2, i32 noundef %101), !range !21
+  %105 = tail call fastcc i32 @dissect_gtpv2_access_restriction_data(ptr noundef %0, ptr noundef %2, i32 noundef %101)
   %106 = icmp eq i32 %105, %102
   br i1 %106, label %239, label %107
 
@@ -7447,7 +7447,7 @@ define internal void @dissect_gtpv2_mm_context_utms_qq(ptr noundef %0, ptr nound
   br i1 %.not104, label %55, label %71
 
 55:                                               ; preds = %52
-  %56 = tail call fastcc i32 @dissect_gtpv2_access_restriction_data(ptr noundef %0, ptr noundef %2, i32 noundef %53), !range !21
+  %56 = tail call fastcc i32 @dissect_gtpv2_access_restriction_data(ptr noundef %0, ptr noundef %2, i32 noundef %53)
   %.not105 = icmp ult i32 %56, %54
   br i1 %.not105, label %57, label %71
 
@@ -9007,7 +9007,7 @@ define internal void @dissect_gtpv2_pres_rep_area_information(ptr noundef %0, pt
 32:                                               ; preds = %28, %.lr.ph
   %.1 = phi i32 [ %31, %28 ], [ %25, %.lr.ph ]
   %33 = icmp slt i32 %.1, %20
-  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !22
+  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %32, %17, %8
   ret void
@@ -10113,7 +10113,7 @@ define internal fastcc i32 @dissect_gtpv2_authentication_quintuplets(ptr noundef
   %33 = add i32 %32, %28
   %34 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %34, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.035.lcssa = phi i32 [ %2, %4 ], [ %33, %.lr.ph ]
@@ -10121,7 +10121,7 @@ define internal fastcc i32 @dissect_gtpv2_authentication_quintuplets(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gtpv2_access_restriction_data(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483647, 65536) i32 @dissect_gtpv2_access_restriction_data(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @ett_gtpv2_access_rest_data, align 4
   %5 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef %4, ptr noundef null, ptr noundef nonnull @.str.1681) #10
   %6 = load i32, ptr @hf_gtpv2_spare_bits, align 4
@@ -10181,7 +10181,7 @@ define internal fastcc noundef i32 @dissect_gtpv2_authentication_quadruplets(ptr
   %30 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %29, ptr noundef %0, i32 noundef %28, i32 noundef 32, i32 noundef 0) #10
   %31 = add i32 %28, 32
   %exitcond.not = icmp eq i32 %8, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.031.lcssa = phi i32 [ %2, %4 ], [ %31, %.lr.ph ]
@@ -10269,7 +10269,7 @@ define internal i32 @gtpv2_sn_hash(ptr nocapture noundef readonly %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gtpv2_sn_equal_matched(ptr noundef %0, ptr noundef %1) #1 {
+define internal range(i32 0, 2) i32 @gtpv2_sn_equal_matched(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca %struct.nstime_t, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -10335,7 +10335,7 @@ define internal i32 @gtpv2_sn_equal_matched(ptr noundef %0, ptr noundef %1) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gtpv2_sn_equal_unmatched(ptr noundef %0, ptr noundef %1) #1 {
+define internal range(i32 0, 2) i32 @gtpv2_sn_equal_unmatched(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca %struct.nstime_t, align 8
   %4 = load i32, ptr @pref_pair_matching_max_interval_ms, align 4
   %.not = icmp eq i32 %4, 0
@@ -10476,7 +10476,6 @@ attributes #10 = { nounwind }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = !{i32 -2147483647, i32 65536}
+!21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}

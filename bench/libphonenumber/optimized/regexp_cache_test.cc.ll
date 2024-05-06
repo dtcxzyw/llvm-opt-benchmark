@@ -1068,7 +1068,7 @@ _ZNK5boost6system10error_code5valueEv.exit.i:     ; preds = %12
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = urem i64 %19, 2097143
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   %22 = mul nuw nsw i32 %21, 1000
   %23 = add i32 %22, %16
   %24 = icmp eq i32 %23, %2
@@ -2505,7 +2505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit14: ; 
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = urem i64 %47, 2097143
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw nsw i64 %48 to i32
   %50 = mul nuw nsw i32 %49, 1000
   %51 = add i32 %50, %43
   br label %_ZNK5boost6system10error_code5valueEv.exit

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sched_param = type { i32 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pthread_setschedprio(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @pthread_setschedprio(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.sched_param, align 4
   store i32 %1, ptr %3, align 4
   %4 = call i32 @nxsched_set_param(i32 noundef %0, ptr noundef nonnull %3) #2

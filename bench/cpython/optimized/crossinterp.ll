@@ -881,7 +881,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [17 x i8] c"InterpreterError\00", align 1
 @.str.4 = private unnamed_addr constant [30 x i8] c"An interpreter was not found.\00", align 1
 @.str.5 = private unnamed_addr constant [25 x i8] c"InterpreterNotFoundError\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.6 = private unnamed_addr constant [47 x i8] c"object does not support cross-interpreter data\00", align 1
 @.str.7 = private unnamed_addr constant [43 x i8] c"%S does not support cross-interpreter data\00", align 1
 @PyExc_SystemError = external local_unnamed_addr global ptr, align 8
@@ -1120,7 +1120,7 @@ _xidata_clear.exit:                               ; preds = %do.body.i, %if.then
 define dso_local void @_PyCrossInterpreterData_Init(ptr nocapture noundef writeonly %data, ptr noundef readonly %interp, ptr noundef %shared, ptr noundef %obj, ptr noundef %new_object) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
   %interpid.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i, align 8
   store ptr %shared, ptr %data, align 8
@@ -1160,10 +1160,10 @@ cond.end:                                         ; preds = %if.end, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyCrossInterpreterData_InitWithSize(ptr nocapture noundef writeonly %data, ptr noundef readonly %interp, i64 noundef %size, ptr noundef %obj, ptr noundef %new_object) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyCrossInterpreterData_InitWithSize(ptr nocapture noundef writeonly %data, ptr noundef readonly %interp, i64 noundef %size, ptr noundef %obj, ptr noundef %new_object) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
   %interpid.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i, align 8
   store ptr null, ptr %data, align 8
@@ -1276,7 +1276,7 @@ _lookup_getdata.exit:                             ; preds = %cond.end.i.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyObject_CheckCrossInterpreterData(ptr noundef %obj) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyObject_CheckCrossInterpreterData(ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -1356,7 +1356,7 @@ return:                                           ; preds = %_lookup_getdata.exi
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyObject_GetCrossInterpreterData(ptr noundef %obj, ptr noundef %data) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyObject_GetCrossInterpreterData(ptr noundef %obj, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyThreadState_GetCurrent() #13
   %interp1 = getelementptr inbounds i8, ptr %call, i64 16
@@ -1689,7 +1689,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyCrossInterpreterData_RegisterClass(ptr noundef %cls, ptr noundef %getdata) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyCrossInterpreterData_RegisterClass(ptr noundef %cls, ptr noundef %getdata) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %cls, i64 8
   %cls.val9 = load ptr, ptr %0, align 8
@@ -1938,7 +1938,7 @@ return:                                           ; preds = %if.end6, %while.con
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyCrossInterpreterData_UnregisterClass(ptr noundef %cls) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyCrossInterpreterData_UnregisterClass(ptr noundef %cls) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -2285,7 +2285,7 @@ Py_DECREF.exit71.i:                               ; preds = %if.then1.i69.i, %if
   br i1 %cmp22.i, label %error.i, label %if.end24.i
 
 if.end24.i:                                       ; preds = %Py_DECREF.exit71.i
-  %call25.i = tail call fastcc ptr @_PyXI_excinfo_format(ptr noundef nonnull %uncaught)
+  %call25.i = tail call fastcc ptr @_PyXI_excinfo_format(ptr noundef nonnull readonly %uncaught)
   %cmp26.i = icmp eq ptr %call25.i, null
   br i1 %cmp26.i, label %error.i, label %if.end28.i
 
@@ -2440,7 +2440,7 @@ if.then3.i27:                                     ; preds = %if.then.i17
 
 if.end4.i:                                        ; preds = %if.then3.i27, %if.then.i17, %if.then14
   %tbexc.0.i = phi ptr [ null, %if.then3.i27 ], [ %call.i18, %if.then.i17 ], [ null, %if.then14 ]
-  %call5.i = tail call fastcc ptr @_PyXI_excinfo_format(ptr noundef nonnull %uncaught9)
+  %call5.i = tail call fastcc ptr @_PyXI_excinfo_format(ptr noundef nonnull readonly %uncaught9)
   tail call void @PyErr_SetObject(ptr noundef %40, ptr noundef %call5.i) #13
   %42 = load i64, ptr %call5.i, align 8
   %43 = and i64 %42, 2147483648
@@ -2679,7 +2679,7 @@ _sharedns_new.exit.thread:                        ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
-  %call5 = tail call fastcc i32 @_sharedns_init(ptr noundef nonnull %call.i, ptr noundef nonnull %names), !range !8
+  %call5 = tail call fastcc i32 @_sharedns_init(ptr noundef nonnull %call.i, ptr noundef nonnull %names)
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %if.then7, label %return
 
@@ -2699,7 +2699,7 @@ return:                                           ; preds = %_sharedns_new.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_sharedns_init(ptr nocapture noundef writeonly %ns, ptr noundef %names) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_sharedns_init(ptr nocapture noundef writeonly %ns, ptr noundef %names) unnamed_addr #0 {
 entry:
   %size.i.i36 = alloca i64, align 8
   %size.i.i = alloca i64, align 8
@@ -2789,7 +2789,7 @@ for.inc:                                          ; preds = %if.end.i.i
   store ptr null, ptr %data.i, align 8
   %inc = add nuw nsw i64 %i.068, 1
   %exitcond81.not = icmp eq i64 %inc, %cond
-  br i1 %exitcond81.not, label %if.end44, label %for.body, !llvm.loop !9
+  br i1 %exitcond81.not, label %if.end44, label %for.body, !llvm.loop !8
 
 if.else:                                          ; preds = %if.end10
   %call23 = tail call i32 @PySequence_Check(ptr noundef nonnull %names) #13
@@ -2857,7 +2857,7 @@ Py_DECREF.exit:                                   ; preds = %_sharednsitem_init.
 for.inc39:                                        ; preds = %Py_DECREF.exit
   %inc40 = add nuw nsw i64 %i.166, 1
   %exitcond.not = icmp eq i64 %inc40, %cond
-  br i1 %exitcond.not, label %if.end44, label %for.body28, !llvm.loop !10
+  br i1 %exitcond.not, label %if.end44, label %for.body28, !llvm.loop !9
 
 error.thread:                                     ; preds = %if.else
   %7 = load ptr, ptr @PyExc_NotImplementedError, align 8
@@ -2891,7 +2891,7 @@ _sharednsitem_clear.exit:                         ; preds = %for.body49, %if.the
   call fastcc void @_sharednsitem_clear_value(ptr noundef nonnull %arrayidx50)
   %inc52 = add nuw nsw i64 %j.070, 1
   %exitcond82.not = icmp eq i64 %inc52, %i.2
-  br i1 %exitcond82.not, label %for.end53, label %for.body49, !llvm.loop !11
+  br i1 %exitcond82.not, label %for.end53, label %for.body49, !llvm.loop !10
 
 for.end53:                                        ; preds = %_sharednsitem_clear.exit, %error.thread, %error
   call void @PyMem_RawFree(ptr noundef nonnull %call6) #13
@@ -2907,7 +2907,7 @@ declare i64 @PySequence_Size(ptr noundef) local_unnamed_addr #1
 declare void @PyErr_Clear() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyXI_FillNamespaceFromDict(ptr nocapture noundef readonly %ns, ptr noundef %nsobj, ptr noundef %session) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyXI_FillNamespaceFromDict(ptr nocapture noundef readonly %ns, ptr noundef %nsobj, ptr noundef %session) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %ns, align 8
   %cmp26 = icmp sgt i64 %0, 0
@@ -2938,7 +2938,7 @@ if.then.i.i:                                      ; preds = %if.end3.i
   br label %if.then
 
 if.end.i.i:                                       ; preds = %if.end3.i
-  %call4.i.i = tail call i32 @_PyObject_GetCrossInterpreterData(ptr noundef nonnull %call.i, ptr noundef nonnull %call.i.i), !range !8
+  %call4.i.i = tail call i32 @_PyObject_GetCrossInterpreterData(ptr noundef nonnull %call.i, ptr noundef nonnull %call.i.i)
   %cmp5.not.i.i = icmp eq i32 %call4.i.i, 0
   br i1 %cmp5.not.i.i, label %for.inc7, label %if.then6.i.i
 
@@ -2987,13 +2987,13 @@ for.body4:                                        ; preds = %_propagate_not_shar
   tail call fastcc void @_sharednsitem_clear_value(ptr noundef %arrayidx6)
   %inc = add nuw nsw i64 %j.029, 1
   %exitcond.not = icmp eq i64 %inc, %i.027
-  br i1 %exitcond.not, label %return, label %for.body4, !llvm.loop !12
+  br i1 %exitcond.not, label %return, label %for.body4, !llvm.loop !11
 
 for.inc7:                                         ; preds = %if.end.i.i, %_sharednsitem_copy_from_ns.exit
   %inc8 = add nuw nsw i64 %i.027, 1
   %9 = load i64, ptr %ns, align 8
   %cmp = icmp slt i64 %inc8, %9
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !13
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !12
 
 return:                                           ; preds = %for.inc7, %for.body4, %entry, %_propagate_not_shareable_error.exit
   %retval.0 = phi i32 [ -1, %_propagate_not_shareable_error.exit ], [ 0, %entry ], [ -1, %for.body4 ], [ 0, %for.inc7 ]
@@ -3070,7 +3070,7 @@ if.end:                                           ; preds = %_release_xid_data.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyXI_ApplyNamespace(ptr nocapture noundef readonly %ns, ptr noundef %nsobj, ptr noundef %dflt) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyXI_ApplyNamespace(ptr nocapture noundef readonly %ns, ptr noundef %nsobj, ptr noundef %dflt) local_unnamed_addr #0 {
 entry:
   %items = getelementptr inbounds i8, ptr %ns, i64 8
   %0 = load i64, ptr %ns, align 8
@@ -3081,7 +3081,7 @@ for.cond:                                         ; preds = %_sharednsitem_apply
   %inc = add nuw nsw i64 %i.07, 1
   %1 = load i64, ptr %ns, align 8
   %cmp = icmp slt i64 %inc, %1
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !13
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.07 = phi i64 [ %inc, %for.cond ], [ 0, %entry ]
@@ -3184,7 +3184,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @_PyXI_HasCapturedException(ptr nocapture noundef readonly %session) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @_PyXI_HasCapturedException(ptr nocapture noundef readonly %session) local_unnamed_addr #4 {
 entry:
   %error = getelementptr inbounds i8, ptr %session, i64 40
   %0 = load ptr, ptr %error, align 8
@@ -3194,7 +3194,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyXI_Enter(ptr noundef %session, ptr noundef %interp, ptr noundef %nsupdates) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyXI_Enter(ptr noundef %session, ptr noundef %interp, ptr noundef %nsupdates) local_unnamed_addr #0 {
 entry:
   %errcode = alloca i32, align 4
   %cmp.not = icmp eq ptr %nsupdates, null
@@ -3226,7 +3226,7 @@ _sharedns_new.exit.thread.i:                      ; preds = %if.end3.i
 
 if.end7.i:                                        ; preds = %if.end3.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i, i8 0, i64 16, i1 false)
-  %call8.i = tail call fastcc i32 @_sharedns_init(ptr noundef nonnull %call.i.i, ptr noundef nonnull %nsupdates), !range !8
+  %call8.i = tail call fastcc i32 @_sharedns_init(ptr noundef nonnull %call.i.i, ptr noundef nonnull %nsupdates)
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %if.then10.i, label %if.end15.i
 
@@ -3241,7 +3241,7 @@ if.then13.i:                                      ; preds = %if.then10.i
   br label %land.lhs.true
 
 if.end15.i:                                       ; preds = %if.end7.i
-  %call16.i = tail call i32 @_PyXI_FillNamespaceFromDict(ptr noundef nonnull %call.i.i, ptr noundef nonnull %nsupdates, ptr noundef null), !range !8
+  %call16.i = tail call i32 @_PyXI_FillNamespaceFromDict(ptr noundef nonnull %call.i.i, ptr noundef nonnull %nsupdates, ptr noundef null)
   %cmp17.i = icmp slt i32 %call16.i, 0
   br i1 %cmp17.i, label %error.i, label %if.end4
 
@@ -3377,7 +3377,7 @@ _Py_NewRef.exit:                                  ; preds = %if.end16, %if.end.i
   br i1 %cmp18.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %_Py_NewRef.exit
-  %call20 = tail call i32 @_PyXI_ApplyNamespace(ptr noundef nonnull %sharedns.0, ptr noundef nonnull %call13, ptr noundef null), !range !8
+  %call20 = tail call i32 @_PyXI_ApplyNamespace(ptr noundef nonnull %sharedns.0, ptr noundef nonnull %call13, ptr noundef null)
   %cmp21 = icmp slt i32 %call20, 0
   br i1 %cmp21, label %if.then22, label %if.end23
 
@@ -3594,13 +3594,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %xi.i5 = getelementptr inbounds i8, ptr %interp, i64 4200
   tail call fastcc void @_xidregistry_init(ptr noundef nonnull %xi.i5)
-  %2 = load ptr, ptr @PyExc_ValueError, align 8, !noalias !15
-  %call.i = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.48, ptr noundef %2, ptr noundef null) #13, !noalias !15
+  %2 = load ptr, ptr @PyExc_ValueError, align 8, !noalias !14
+  %call.i = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.48, ptr noundef %2, ptr noundef null) #13, !noalias !14
   %cmp.i6 = icmp eq ptr %call.i, null
   br i1 %cmp.i6, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  tail call void @PyErr_Clear() #13, !noalias !15
+  tail call void @PyErr_Clear() #13, !noalias !14
   %status.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 0, ptr %status.sroa.3.0.agg.result.sroa_idx, align 4
   %status.sroa.3.sroa.2.0.status.sroa.3.0.agg.result.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3615,7 +3615,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %PyExc_NotShareableError.i = getelementptr inbounds i8, ptr %interp, i64 4224
-  store ptr %call.i, ptr %PyExc_NotShareableError.i, align 8, !noalias !15
+  store ptr %call.i, ptr %PyExc_NotShareableError.i, align 8, !noalias !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   br label %return
 
@@ -4038,7 +4038,7 @@ if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 Py_XDECREF.exit.i.i:                              ; preds = %if.then1.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i, %while.body.i.i
   tail call void @PyMem_RawFree(ptr noundef nonnull %cur.06.i.i) #13
   %cmp.not.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i.i, label %_xidregistry_fini.exit, label %while.body.i.i, !llvm.loop !18
+  br i1 %cmp.not.i.i, label %_xidregistry_fini.exit, label %while.body.i.i, !llvm.loop !17
 
 _xidregistry_fini.exit:                           ; preds = %Py_XDECREF.exit.i.i, %_fini_not_shareable_error_type.exit, %if.end.i
   %9 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
@@ -4089,7 +4089,7 @@ if.then1.i.i.i.i22:                               ; preds = %if.end.i.i.i.i19
 Py_XDECREF.exit.i.i17:                            ; preds = %if.then1.i.i.i.i22, %if.end.i.i.i.i19, %if.then.i.i.i15, %while.body.i.i10
   tail call void @PyMem_RawFree(ptr noundef nonnull %cur.06.i.i11) #13
   %cmp.not.i.i18 = icmp eq ptr %13, null
-  br i1 %cmp.not.i.i18, label %if.end, label %while.body.i.i10, !llvm.loop !18
+  br i1 %cmp.not.i.i18, label %if.end, label %while.body.i.i10, !llvm.loop !17
 
 if.end:                                           ; preds = %Py_XDECREF.exit.i.i17, %if.end.i7, %if.then, %_xidregistry_fini.exit
   ret void
@@ -5075,7 +5075,7 @@ entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %1 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
   %interpid.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i, align 8
   store ptr null, ptr %data, align 8
@@ -5099,7 +5099,7 @@ _PyCrossInterpreterData_Init.exit:                ; preds = %entry, %cond.true.i
 declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_long_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr nocapture noundef writeonly %data) #0 {
+define internal range(i32 -1, 1) i32 @_long_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr nocapture noundef writeonly %data) #0 {
 entry:
   %call = tail call i64 @PyLong_AsSsize_t(ptr noundef %obj) #13
   %cmp = icmp eq i64 %call, -1
@@ -5126,7 +5126,7 @@ if.end5:                                          ; preds = %land.lhs.true, %ent
   %2 = load ptr, ptr %interp, align 8
   %3 = inttoptr i64 %call to ptr
   %4 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %4, i8 0, i64 32, i1 false)
   %interpid.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i, align 8
   store ptr %3, ptr %data, align 8
@@ -5151,12 +5151,12 @@ return:                                           ; preds = %if.then, %if.then4,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_bytes_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr nocapture noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @_bytes_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr nocapture noundef %data) #0 {
 entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %1 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
   %interpid.i.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i.i, align 8
   store ptr null, ptr %data, align 8
@@ -5250,12 +5250,12 @@ return:                                           ; preds = %_PyCrossInterpreter
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_str_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr nocapture noundef writeonly %data) #0 {
+define internal range(i32 -1, 1) i32 @_str_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr nocapture noundef writeonly %data) #0 {
 entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %1 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
   %interpid.i.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i.i, align 8
   store ptr null, ptr %data, align 8
@@ -5344,7 +5344,7 @@ entry:
   %cond = zext i1 %cmp to i64
   %1 = inttoptr i64 %cond to ptr
   %2 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %2, i8 0, i64 32, i1 false)
   %interpid.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i, align 8
   store ptr %1, ptr %data, align 8
@@ -5365,12 +5365,12 @@ _PyCrossInterpreterData_Init.exit:                ; preds = %entry, %cond.true.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_float_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr nocapture noundef writeonly %data) #0 {
+define internal range(i32 -1, 1) i32 @_float_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr nocapture noundef writeonly %data) #0 {
 entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %1 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %1, i8 0, i64 32, i1 false)
   %interpid.i.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i.i, align 8
   store ptr null, ptr %data, align 8
@@ -5405,7 +5405,7 @@ return:                                           ; preds = %_PyCrossInterpreter
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_tuple_shared(ptr noundef %tstate, ptr noundef %obj, ptr nocapture noundef writeonly %data) #0 {
+define internal range(i32 -1, 1) i32 @_tuple_shared(ptr noundef %tstate, ptr noundef %obj, ptr nocapture noundef writeonly %data) #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 16
   %obj.val = load i64, ptr %0, align 8
@@ -5468,7 +5468,7 @@ _Py_EnterRecursiveCallTstate.exit:                ; preds = %if.end21
   br i1 %tobool2.i.not, label %if.end25, label %if.then27
 
 if.end25:                                         ; preds = %if.end21, %_Py_EnterRecursiveCallTstate.exit
-  %call24 = tail call i32 @_PyObject_GetCrossInterpreterData(ptr noundef %2, ptr noundef nonnull %call.i), !range !8
+  %call24 = tail call i32 @_PyObject_GetCrossInterpreterData(ptr noundef %2, ptr noundef nonnull %call.i)
   %4 = load i32, ptr %c_recursion_remaining.i.i, align 4
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr %c_recursion_remaining.i.i, align 4
@@ -5486,13 +5486,13 @@ if.end28:                                         ; preds = %if.end25
   %inc = add nuw nsw i64 %i.032, 1
   %6 = load i64, ptr %call1, align 8
   %cmp16 = icmp slt i64 %inc, %6
-  br i1 %cmp16, label %for.body, label %if.then.i22, !llvm.loop !19
+  br i1 %cmp16, label %for.body, label %if.then.i22, !llvm.loop !18
 
 if.then.i22:                                      ; preds = %if.end28, %for.cond.preheader
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %7 = load ptr, ptr %interp, align 8
   %8 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %8, i8 0, i64 32, i1 false)
   %interpid.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i, align 8
   store ptr %call1, ptr %data, align 8
@@ -5554,7 +5554,7 @@ for.inc.i:                                        ; preds = %if.then.i23, %for.b
   %18 = phi i64 [ %12, %for.body.i ], [ %.pre.i, %if.then.i23 ]
   %inc.i24 = add nuw nsw i64 %i.013.i, 1
   %cmp.i25 = icmp slt i64 %inc.i24, %18
-  br i1 %cmp.i25, label %for.body.i, label %_tuple_shared_free.exit, !llvm.loop !20
+  br i1 %cmp.i25, label %for.body.i, label %_tuple_shared_free.exit, !llvm.loop !19
 
 _tuple_shared_free.exit:                          ; preds = %for.inc.i, %error
   %19 = load ptr, ptr %data9, align 8
@@ -5702,7 +5702,7 @@ if.end8:                                          ; preds = %for.body
   %inc = add nuw nsw i64 %i.013, 1
   %8 = load i64, ptr %0, align 8
   %cmp3 = icmp slt i64 %inc, %8
-  br i1 %cmp3, label %for.body, label %return, !llvm.loop !21
+  br i1 %cmp3, label %for.body, label %return, !llvm.loop !20
 
 return:                                           ; preds = %if.end8, %for.cond.preheader, %if.end.i, %if.then1.i, %if.then7, %entry
   %retval.0 = phi ptr [ null, %entry ], [ null, %if.then7 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call, %for.cond.preheader ], [ %call, %if.end8 ]
@@ -5745,7 +5745,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %7 = phi i64 [ %1, %for.body ], [ %.pre, %if.then ]
   %inc = add nuw nsw i64 %i.013, 1
   %cmp = icmp slt i64 %inc, %7
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !20
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.inc, %entry
   %data9 = getelementptr inbounds i8, ptr %data, i64 8
@@ -5801,17 +5801,16 @@ attributes #16 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_init_not_shareable_error_type: %agg.result"}
-!17 = distinct !{!17, !"_init_not_shareable_error_type"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_init_not_shareable_error_type: %agg.result"}
+!16 = distinct !{!16, !"_init_not_shareable_error_type"}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}

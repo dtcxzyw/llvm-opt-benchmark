@@ -195,7 +195,7 @@ for.inc:                                          ; preds = %for.body26, %if.the
   br i1 %cmp25, label %for.body26, label %if.end39.loopexit, !llvm.loop !4
 
 if.end39.loopexit:                                ; preds = %for.inc
-  %6 = trunc i64 %indvars.iv.next to i32
+  %6 = trunc nsw i64 %indvars.iv.next to i32
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end39.loopexit, %_ZN4YAML15IntroCharTypeOfEi.exit
@@ -1587,7 +1587,7 @@ entry:
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %entry
-  %conv11.i = trunc i64 %spec.store.select to i8
+  %conv11.i = trunc nuw i64 %spec.store.select to i8
   store i8 %conv11.i, ptr %ref.tmp, align 1
   %_M_finish.i.i = getelementptr inbounds i8, ptr %q, i64 48
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -1614,7 +1614,7 @@ if.else:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %if.else
   %shr9.i = lshr i64 %spec.store.select, 6
-  %3 = trunc i64 %shr9.i to i8
+  %3 = trunc nuw i64 %shr9.i to i8
   %conv11.i24 = or disjoint i8 %3, -64
   store i8 %conv11.i24, ptr %ref.tmp6, align 1
   %_M_finish.i.i25 = getelementptr inbounds i8, ptr %q, i64 48
@@ -1634,28 +1634,28 @@ if.then.i.i29:                                    ; preds = %if.then5
 
 if.else.i.i31:                                    ; preds = %if.then5
   call void @_ZNSt5dequeIcSaIcEE16_M_push_back_auxIJcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %q, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6)
-  %.pre130 = load ptr, ptr %_M_finish.i.i25, align 8
+  %.pre133 = load ptr, ptr %_M_finish.i.i25, align 8
   br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit32
 
 _ZNSt5dequeIcSaIcEE9push_backEOc.exit32:          ; preds = %if.then.i.i29, %if.else.i.i31
-  %7 = phi ptr [ %incdec.ptr.i.i30, %if.then.i.i29 ], [ %.pre130, %if.else.i.i31 ]
+  %7 = phi ptr [ %incdec.ptr.i.i30, %if.then.i.i29 ], [ %.pre133, %if.else.i.i31 ]
   %8 = trunc i64 %spec.store.select to i8
   %9 = and i8 %8, 63
-  %conv11.i35 = or disjoint i8 %9, -128
-  store i8 %conv11.i35, ptr %ref.tmp8, align 1
+  %conv11.i36 = or disjoint i8 %9, -128
+  store i8 %conv11.i36, ptr %ref.tmp8, align 1
   %10 = load ptr, ptr %_M_last.i.i26, align 8
-  %add.ptr.i.i38 = getelementptr inbounds i8, ptr %10, i64 -1
-  %cmp.not.i.i39 = icmp eq ptr %7, %add.ptr.i.i38
-  br i1 %cmp.not.i.i39, label %if.else.i.i42, label %if.then.i.i40
+  %add.ptr.i.i39 = getelementptr inbounds i8, ptr %10, i64 -1
+  %cmp.not.i.i40 = icmp eq ptr %7, %add.ptr.i.i39
+  br i1 %cmp.not.i.i40, label %if.else.i.i43, label %if.then.i.i41
 
-if.then.i.i40:                                    ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit32
-  store i8 %conv11.i35, ptr %7, align 1
+if.then.i.i41:                                    ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit32
+  store i8 %conv11.i36, ptr %7, align 1
   %11 = load ptr, ptr %_M_finish.i.i25, align 8
-  %incdec.ptr.i.i41 = getelementptr inbounds i8, ptr %11, i64 1
-  store ptr %incdec.ptr.i.i41, ptr %_M_finish.i.i25, align 8
+  %incdec.ptr.i.i42 = getelementptr inbounds i8, ptr %11, i64 1
+  store ptr %incdec.ptr.i.i42, ptr %_M_finish.i.i25, align 8
   br label %if.end30
 
-if.else.i.i42:                                    ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit32
+if.else.i.i43:                                    ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit32
   call void @_ZNSt5dequeIcSaIcEE16_M_push_back_auxIJcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %q, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8)
   br label %if.end30
 
@@ -1664,173 +1664,173 @@ if.else10:                                        ; preds = %if.else
   br i1 %cmp11, label %if.then12, label %if.else19
 
 if.then12:                                        ; preds = %if.else10
-  %shr9.i44 = lshr i64 %spec.store.select, 12
-  %12 = trunc i64 %shr9.i44 to i8
-  %conv11.i47 = or disjoint i8 %12, -32
-  store i8 %conv11.i47, ptr %ref.tmp13, align 1
-  %_M_finish.i.i48 = getelementptr inbounds i8, ptr %q, i64 48
-  %13 = load ptr, ptr %_M_finish.i.i48, align 8
-  %_M_last.i.i49 = getelementptr inbounds i8, ptr %q, i64 64
-  %14 = load ptr, ptr %_M_last.i.i49, align 8
-  %add.ptr.i.i50 = getelementptr inbounds i8, ptr %14, i64 -1
-  %cmp.not.i.i51 = icmp eq ptr %13, %add.ptr.i.i50
-  br i1 %cmp.not.i.i51, label %if.else.i.i54, label %if.then.i.i52
+  %shr9.i45 = lshr i64 %spec.store.select, 12
+  %12 = trunc nuw i64 %shr9.i45 to i8
+  %conv11.i48 = or disjoint i8 %12, -32
+  store i8 %conv11.i48, ptr %ref.tmp13, align 1
+  %_M_finish.i.i49 = getelementptr inbounds i8, ptr %q, i64 48
+  %13 = load ptr, ptr %_M_finish.i.i49, align 8
+  %_M_last.i.i50 = getelementptr inbounds i8, ptr %q, i64 64
+  %14 = load ptr, ptr %_M_last.i.i50, align 8
+  %add.ptr.i.i51 = getelementptr inbounds i8, ptr %14, i64 -1
+  %cmp.not.i.i52 = icmp eq ptr %13, %add.ptr.i.i51
+  br i1 %cmp.not.i.i52, label %if.else.i.i55, label %if.then.i.i53
 
-if.then.i.i52:                                    ; preds = %if.then12
-  store i8 %conv11.i47, ptr %13, align 1
-  %15 = load ptr, ptr %_M_finish.i.i48, align 8
-  %incdec.ptr.i.i53 = getelementptr inbounds i8, ptr %15, i64 1
-  store ptr %incdec.ptr.i.i53, ptr %_M_finish.i.i48, align 8
-  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit55
+if.then.i.i53:                                    ; preds = %if.then12
+  store i8 %conv11.i48, ptr %13, align 1
+  %15 = load ptr, ptr %_M_finish.i.i49, align 8
+  %incdec.ptr.i.i54 = getelementptr inbounds i8, ptr %15, i64 1
+  store ptr %incdec.ptr.i.i54, ptr %_M_finish.i.i49, align 8
+  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit56
 
-if.else.i.i54:                                    ; preds = %if.then12
+if.else.i.i55:                                    ; preds = %if.then12
   call void @_ZNSt5dequeIcSaIcEE16_M_push_back_auxIJcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %q, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
-  %.pre128 = load ptr, ptr %_M_finish.i.i48, align 8
-  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit55
+  %.pre131 = load ptr, ptr %_M_finish.i.i49, align 8
+  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit56
 
-_ZNSt5dequeIcSaIcEE9push_backEOc.exit55:          ; preds = %if.then.i.i52, %if.else.i.i54
-  %16 = phi ptr [ %incdec.ptr.i.i53, %if.then.i.i52 ], [ %.pre128, %if.else.i.i54 ]
-  %shr9.i56 = lshr i64 %spec.store.select, 6
-  %17 = trunc i64 %shr9.i56 to i8
+_ZNSt5dequeIcSaIcEE9push_backEOc.exit56:          ; preds = %if.then.i.i53, %if.else.i.i55
+  %16 = phi ptr [ %incdec.ptr.i.i54, %if.then.i.i53 ], [ %.pre131, %if.else.i.i55 ]
+  %shr9.i57 = lshr i64 %spec.store.select, 6
+  %17 = trunc i64 %shr9.i57 to i8
   %18 = and i8 %17, 63
-  %conv11.i59 = or disjoint i8 %18, -128
-  store i8 %conv11.i59, ptr %ref.tmp15, align 1
-  %19 = load ptr, ptr %_M_last.i.i49, align 8
-  %add.ptr.i.i62 = getelementptr inbounds i8, ptr %19, i64 -1
-  %cmp.not.i.i63 = icmp eq ptr %16, %add.ptr.i.i62
-  br i1 %cmp.not.i.i63, label %if.else.i.i66, label %if.then.i.i64
+  %conv11.i60 = or disjoint i8 %18, -128
+  store i8 %conv11.i60, ptr %ref.tmp15, align 1
+  %19 = load ptr, ptr %_M_last.i.i50, align 8
+  %add.ptr.i.i63 = getelementptr inbounds i8, ptr %19, i64 -1
+  %cmp.not.i.i64 = icmp eq ptr %16, %add.ptr.i.i63
+  br i1 %cmp.not.i.i64, label %if.else.i.i67, label %if.then.i.i65
 
-if.then.i.i64:                                    ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit55
-  store i8 %conv11.i59, ptr %16, align 1
-  %20 = load ptr, ptr %_M_finish.i.i48, align 8
-  %incdec.ptr.i.i65 = getelementptr inbounds i8, ptr %20, i64 1
-  store ptr %incdec.ptr.i.i65, ptr %_M_finish.i.i48, align 8
-  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit67
+if.then.i.i65:                                    ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit56
+  store i8 %conv11.i60, ptr %16, align 1
+  %20 = load ptr, ptr %_M_finish.i.i49, align 8
+  %incdec.ptr.i.i66 = getelementptr inbounds i8, ptr %20, i64 1
+  store ptr %incdec.ptr.i.i66, ptr %_M_finish.i.i49, align 8
+  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit68
 
-if.else.i.i66:                                    ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit55
+if.else.i.i67:                                    ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit56
   call void @_ZNSt5dequeIcSaIcEE16_M_push_back_auxIJcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %q, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15)
-  %.pre129 = load ptr, ptr %_M_finish.i.i48, align 8
-  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit67
+  %.pre132 = load ptr, ptr %_M_finish.i.i49, align 8
+  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit68
 
-_ZNSt5dequeIcSaIcEE9push_backEOc.exit67:          ; preds = %if.then.i.i64, %if.else.i.i66
-  %21 = phi ptr [ %incdec.ptr.i.i65, %if.then.i.i64 ], [ %.pre129, %if.else.i.i66 ]
+_ZNSt5dequeIcSaIcEE9push_backEOc.exit68:          ; preds = %if.then.i.i65, %if.else.i.i67
+  %21 = phi ptr [ %incdec.ptr.i.i66, %if.then.i.i65 ], [ %.pre132, %if.else.i.i67 ]
   %22 = trunc i64 %spec.store.select to i8
   %23 = and i8 %22, 63
-  %conv11.i70 = or disjoint i8 %23, -128
-  store i8 %conv11.i70, ptr %ref.tmp17, align 1
-  %24 = load ptr, ptr %_M_last.i.i49, align 8
-  %add.ptr.i.i73 = getelementptr inbounds i8, ptr %24, i64 -1
-  %cmp.not.i.i74 = icmp eq ptr %21, %add.ptr.i.i73
-  br i1 %cmp.not.i.i74, label %if.else.i.i77, label %if.then.i.i75
+  %conv11.i72 = or disjoint i8 %23, -128
+  store i8 %conv11.i72, ptr %ref.tmp17, align 1
+  %24 = load ptr, ptr %_M_last.i.i50, align 8
+  %add.ptr.i.i75 = getelementptr inbounds i8, ptr %24, i64 -1
+  %cmp.not.i.i76 = icmp eq ptr %21, %add.ptr.i.i75
+  br i1 %cmp.not.i.i76, label %if.else.i.i79, label %if.then.i.i77
 
-if.then.i.i75:                                    ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit67
-  store i8 %conv11.i70, ptr %21, align 1
-  %25 = load ptr, ptr %_M_finish.i.i48, align 8
-  %incdec.ptr.i.i76 = getelementptr inbounds i8, ptr %25, i64 1
-  store ptr %incdec.ptr.i.i76, ptr %_M_finish.i.i48, align 8
+if.then.i.i77:                                    ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit68
+  store i8 %conv11.i72, ptr %21, align 1
+  %25 = load ptr, ptr %_M_finish.i.i49, align 8
+  %incdec.ptr.i.i78 = getelementptr inbounds i8, ptr %25, i64 1
+  store ptr %incdec.ptr.i.i78, ptr %_M_finish.i.i49, align 8
   br label %if.end30
 
-if.else.i.i77:                                    ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit67
+if.else.i.i79:                                    ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit68
   call void @_ZNSt5dequeIcSaIcEE16_M_push_back_auxIJcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %q, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17)
   br label %if.end30
 
 if.else19:                                        ; preds = %if.else10
-  %shr9.i79 = lshr i64 %spec.store.select, 18
-  %26 = trunc i64 %shr9.i79 to i8
+  %shr9.i81 = lshr i64 %spec.store.select, 18
+  %26 = trunc i64 %shr9.i81 to i8
   %27 = and i8 %26, 7
-  %conv11.i82 = or disjoint i8 %27, -16
-  store i8 %conv11.i82, ptr %ref.tmp20, align 1
-  %_M_finish.i.i83 = getelementptr inbounds i8, ptr %q, i64 48
-  %28 = load ptr, ptr %_M_finish.i.i83, align 8
-  %_M_last.i.i84 = getelementptr inbounds i8, ptr %q, i64 64
-  %29 = load ptr, ptr %_M_last.i.i84, align 8
-  %add.ptr.i.i85 = getelementptr inbounds i8, ptr %29, i64 -1
-  %cmp.not.i.i86 = icmp eq ptr %28, %add.ptr.i.i85
-  br i1 %cmp.not.i.i86, label %if.else.i.i89, label %if.then.i.i87
+  %conv11.i84 = or disjoint i8 %27, -16
+  store i8 %conv11.i84, ptr %ref.tmp20, align 1
+  %_M_finish.i.i85 = getelementptr inbounds i8, ptr %q, i64 48
+  %28 = load ptr, ptr %_M_finish.i.i85, align 8
+  %_M_last.i.i86 = getelementptr inbounds i8, ptr %q, i64 64
+  %29 = load ptr, ptr %_M_last.i.i86, align 8
+  %add.ptr.i.i87 = getelementptr inbounds i8, ptr %29, i64 -1
+  %cmp.not.i.i88 = icmp eq ptr %28, %add.ptr.i.i87
+  br i1 %cmp.not.i.i88, label %if.else.i.i91, label %if.then.i.i89
 
-if.then.i.i87:                                    ; preds = %if.else19
-  store i8 %conv11.i82, ptr %28, align 1
-  %30 = load ptr, ptr %_M_finish.i.i83, align 8
-  %incdec.ptr.i.i88 = getelementptr inbounds i8, ptr %30, i64 1
-  store ptr %incdec.ptr.i.i88, ptr %_M_finish.i.i83, align 8
-  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit90
+if.then.i.i89:                                    ; preds = %if.else19
+  store i8 %conv11.i84, ptr %28, align 1
+  %30 = load ptr, ptr %_M_finish.i.i85, align 8
+  %incdec.ptr.i.i90 = getelementptr inbounds i8, ptr %30, i64 1
+  store ptr %incdec.ptr.i.i90, ptr %_M_finish.i.i85, align 8
+  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit92
 
-if.else.i.i89:                                    ; preds = %if.else19
+if.else.i.i91:                                    ; preds = %if.else19
   call void @_ZNSt5dequeIcSaIcEE16_M_push_back_auxIJcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %q, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20)
-  %.pre = load ptr, ptr %_M_finish.i.i83, align 8
-  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit90
+  %.pre = load ptr, ptr %_M_finish.i.i85, align 8
+  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit92
 
-_ZNSt5dequeIcSaIcEE9push_backEOc.exit90:          ; preds = %if.then.i.i87, %if.else.i.i89
-  %31 = phi ptr [ %incdec.ptr.i.i88, %if.then.i.i87 ], [ %.pre, %if.else.i.i89 ]
-  %shr9.i91 = lshr i64 %spec.store.select, 12
-  %32 = trunc i64 %shr9.i91 to i8
+_ZNSt5dequeIcSaIcEE9push_backEOc.exit92:          ; preds = %if.then.i.i89, %if.else.i.i91
+  %31 = phi ptr [ %incdec.ptr.i.i90, %if.then.i.i89 ], [ %.pre, %if.else.i.i91 ]
+  %shr9.i93 = lshr i64 %spec.store.select, 12
+  %32 = trunc i64 %shr9.i93 to i8
   %33 = and i8 %32, 63
-  %conv11.i94 = or disjoint i8 %33, -128
-  store i8 %conv11.i94, ptr %ref.tmp22, align 1
-  %34 = load ptr, ptr %_M_last.i.i84, align 8
-  %add.ptr.i.i97 = getelementptr inbounds i8, ptr %34, i64 -1
-  %cmp.not.i.i98 = icmp eq ptr %31, %add.ptr.i.i97
-  br i1 %cmp.not.i.i98, label %if.else.i.i101, label %if.then.i.i99
+  %conv11.i96 = or disjoint i8 %33, -128
+  store i8 %conv11.i96, ptr %ref.tmp22, align 1
+  %34 = load ptr, ptr %_M_last.i.i86, align 8
+  %add.ptr.i.i99 = getelementptr inbounds i8, ptr %34, i64 -1
+  %cmp.not.i.i100 = icmp eq ptr %31, %add.ptr.i.i99
+  br i1 %cmp.not.i.i100, label %if.else.i.i103, label %if.then.i.i101
 
-if.then.i.i99:                                    ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit90
-  store i8 %conv11.i94, ptr %31, align 1
-  %35 = load ptr, ptr %_M_finish.i.i83, align 8
-  %incdec.ptr.i.i100 = getelementptr inbounds i8, ptr %35, i64 1
-  store ptr %incdec.ptr.i.i100, ptr %_M_finish.i.i83, align 8
-  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit102
+if.then.i.i101:                                   ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit92
+  store i8 %conv11.i96, ptr %31, align 1
+  %35 = load ptr, ptr %_M_finish.i.i85, align 8
+  %incdec.ptr.i.i102 = getelementptr inbounds i8, ptr %35, i64 1
+  store ptr %incdec.ptr.i.i102, ptr %_M_finish.i.i85, align 8
+  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit104
 
-if.else.i.i101:                                   ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit90
+if.else.i.i103:                                   ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit92
   call void @_ZNSt5dequeIcSaIcEE16_M_push_back_auxIJcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %q, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22)
-  %.pre126 = load ptr, ptr %_M_finish.i.i83, align 8
-  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit102
+  %.pre129 = load ptr, ptr %_M_finish.i.i85, align 8
+  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit104
 
-_ZNSt5dequeIcSaIcEE9push_backEOc.exit102:         ; preds = %if.then.i.i99, %if.else.i.i101
-  %36 = phi ptr [ %incdec.ptr.i.i100, %if.then.i.i99 ], [ %.pre126, %if.else.i.i101 ]
-  %shr9.i103 = lshr i64 %spec.store.select, 6
-  %37 = trunc i64 %shr9.i103 to i8
+_ZNSt5dequeIcSaIcEE9push_backEOc.exit104:         ; preds = %if.then.i.i101, %if.else.i.i103
+  %36 = phi ptr [ %incdec.ptr.i.i102, %if.then.i.i101 ], [ %.pre129, %if.else.i.i103 ]
+  %shr9.i105 = lshr i64 %spec.store.select, 6
+  %37 = trunc i64 %shr9.i105 to i8
   %38 = and i8 %37, 63
-  %conv11.i106 = or disjoint i8 %38, -128
-  store i8 %conv11.i106, ptr %ref.tmp24, align 1
-  %39 = load ptr, ptr %_M_last.i.i84, align 8
-  %add.ptr.i.i109 = getelementptr inbounds i8, ptr %39, i64 -1
-  %cmp.not.i.i110 = icmp eq ptr %36, %add.ptr.i.i109
-  br i1 %cmp.not.i.i110, label %if.else.i.i113, label %if.then.i.i111
+  %conv11.i108 = or disjoint i8 %38, -128
+  store i8 %conv11.i108, ptr %ref.tmp24, align 1
+  %39 = load ptr, ptr %_M_last.i.i86, align 8
+  %add.ptr.i.i111 = getelementptr inbounds i8, ptr %39, i64 -1
+  %cmp.not.i.i112 = icmp eq ptr %36, %add.ptr.i.i111
+  br i1 %cmp.not.i.i112, label %if.else.i.i115, label %if.then.i.i113
 
-if.then.i.i111:                                   ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit102
-  store i8 %conv11.i106, ptr %36, align 1
-  %40 = load ptr, ptr %_M_finish.i.i83, align 8
-  %incdec.ptr.i.i112 = getelementptr inbounds i8, ptr %40, i64 1
-  store ptr %incdec.ptr.i.i112, ptr %_M_finish.i.i83, align 8
-  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit114
+if.then.i.i113:                                   ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit104
+  store i8 %conv11.i108, ptr %36, align 1
+  %40 = load ptr, ptr %_M_finish.i.i85, align 8
+  %incdec.ptr.i.i114 = getelementptr inbounds i8, ptr %40, i64 1
+  store ptr %incdec.ptr.i.i114, ptr %_M_finish.i.i85, align 8
+  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit116
 
-if.else.i.i113:                                   ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit102
+if.else.i.i115:                                   ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit104
   call void @_ZNSt5dequeIcSaIcEE16_M_push_back_auxIJcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %q, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24)
-  %.pre127 = load ptr, ptr %_M_finish.i.i83, align 8
-  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit114
+  %.pre130 = load ptr, ptr %_M_finish.i.i85, align 8
+  br label %_ZNSt5dequeIcSaIcEE9push_backEOc.exit116
 
-_ZNSt5dequeIcSaIcEE9push_backEOc.exit114:         ; preds = %if.then.i.i111, %if.else.i.i113
-  %41 = phi ptr [ %incdec.ptr.i.i112, %if.then.i.i111 ], [ %.pre127, %if.else.i.i113 ]
+_ZNSt5dequeIcSaIcEE9push_backEOc.exit116:         ; preds = %if.then.i.i113, %if.else.i.i115
+  %41 = phi ptr [ %incdec.ptr.i.i114, %if.then.i.i113 ], [ %.pre130, %if.else.i.i115 ]
   %42 = trunc i64 %spec.store.select to i8
   %43 = and i8 %42, 63
-  %conv11.i117 = or disjoint i8 %43, -128
-  store i8 %conv11.i117, ptr %ref.tmp26, align 1
-  %44 = load ptr, ptr %_M_last.i.i84, align 8
-  %add.ptr.i.i120 = getelementptr inbounds i8, ptr %44, i64 -1
-  %cmp.not.i.i121 = icmp eq ptr %41, %add.ptr.i.i120
-  br i1 %cmp.not.i.i121, label %if.else.i.i124, label %if.then.i.i122
+  %conv11.i120 = or disjoint i8 %43, -128
+  store i8 %conv11.i120, ptr %ref.tmp26, align 1
+  %44 = load ptr, ptr %_M_last.i.i86, align 8
+  %add.ptr.i.i123 = getelementptr inbounds i8, ptr %44, i64 -1
+  %cmp.not.i.i124 = icmp eq ptr %41, %add.ptr.i.i123
+  br i1 %cmp.not.i.i124, label %if.else.i.i127, label %if.then.i.i125
 
-if.then.i.i122:                                   ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit114
-  store i8 %conv11.i117, ptr %41, align 1
-  %45 = load ptr, ptr %_M_finish.i.i83, align 8
-  %incdec.ptr.i.i123 = getelementptr inbounds i8, ptr %45, i64 1
-  store ptr %incdec.ptr.i.i123, ptr %_M_finish.i.i83, align 8
+if.then.i.i125:                                   ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit116
+  store i8 %conv11.i120, ptr %41, align 1
+  %45 = load ptr, ptr %_M_finish.i.i85, align 8
+  %incdec.ptr.i.i126 = getelementptr inbounds i8, ptr %45, i64 1
+  store ptr %incdec.ptr.i.i126, ptr %_M_finish.i.i85, align 8
   br label %if.end30
 
-if.else.i.i124:                                   ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit114
+if.else.i.i127:                                   ; preds = %_ZNSt5dequeIcSaIcEE9push_backEOc.exit116
   call void @_ZNSt5dequeIcSaIcEE16_M_push_back_auxIJcEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %q, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26)
   br label %if.end30
 
-if.end30:                                         ; preds = %if.else.i.i124, %if.then.i.i122, %if.else.i.i77, %if.then.i.i75, %if.else.i.i42, %if.then.i.i40, %if.else.i.i, %if.then.i.i
+if.end30:                                         ; preds = %if.else.i.i127, %if.then.i.i125, %if.else.i.i79, %if.then.i.i77, %if.else.i.i43, %if.then.i.i41, %if.else.i.i, %if.then.i.i
   ret void
 }
 

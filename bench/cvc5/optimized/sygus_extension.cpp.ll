@@ -41702,7 +41702,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory9datatypes14SygusExtension14getGuardStatusENS0_12NodeTemplateILb1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1264) %this, ptr nocapture noundef readonly %g) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN4cvc58internal6theory9datatypes14SygusExtension14getGuardStatusENS0_12NodeTemplateILb1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1264) %this, ptr nocapture noundef readonly %g) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca i8, align 1
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.483", align 8

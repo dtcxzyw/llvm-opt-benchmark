@@ -12,7 +12,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(pt
   br i1 %3, label %4, label %17
 
 4:                                                ; preds = %2
-  %5 = trunc i32 %1 to i8
+  %5 = trunc nuw i32 %1 to i8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !4, !noundef !7
   %8 = load i64, ptr %0, align 8, !alias.scope !4, !noundef !7
@@ -47,7 +47,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(pt
 
 21:                                               ; preds = %17
   %22 = lshr i32 %1, 6
-  %23 = trunc i32 %22 to i8
+  %23 = trunc nuw i32 %22 to i8
   %24 = or disjoint i8 %23, -64
   store i8 %24, ptr %.sroa.0, align 4, !alias.scope !8
   %25 = trunc i32 %1 to i8
@@ -59,7 +59,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(pt
 
 28:                                               ; preds = %19
   %29 = lshr i32 %1, 12
-  %30 = trunc i32 %29 to i8
+  %30 = trunc nuw i32 %29 to i8
   %31 = or disjoint i8 %30, -32
   store i8 %31, ptr %.sroa.0, align 4, !alias.scope !8
   %32 = lshr i32 %1, 6
@@ -122,7 +122,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %21, 
   %66 = getelementptr inbounds i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8, !alias.scope !11, !noalias !16, !nonnull !7, !noundef !7
   %68 = getelementptr inbounds i8, ptr %67, i64 %65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %68, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0, i64 %55, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %68, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0, i64 %55, i1 false)
   %69 = load i64, ptr %56, align 8, !alias.scope !11, !noalias !16, !noundef !7
   %70 = add i64 %69, %55
   store i64 %70, ptr %56, align 8, !alias.scope !11, !noalias !16
@@ -139,7 +139,7 @@ define void @_ZN12grep_printer5jsont4Data10from_bytes17ha252ebe3512ee741E(ptr no
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN4core3str8converts9from_utf817h017986454711f672E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %5 = load i64, ptr %4, align 8, !range !21, !noundef !7
-  %trunc = trunc i64 %5 to i1
+  %trunc = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !7, !align !22
   %8 = getelementptr inbounds i8, ptr %4, i64 16
@@ -162,7 +162,7 @@ define void @_ZN12grep_printer5jsont4Data9from_path17hef5432ba15bbeed8E(ptr noal
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN3std3sys6os_str5bytes5Slice6to_str17h328f49daa1d0d44cE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %5 = load i64, ptr %4, align 8, !range !21, !noundef !7
-  %trunc = trunc i64 %5 to i1
+  %trunc = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !7, !align !22
   %8 = getelementptr inbounds i8, ptr %4, i64 16

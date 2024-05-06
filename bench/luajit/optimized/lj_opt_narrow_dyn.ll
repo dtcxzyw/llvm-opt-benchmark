@@ -50,7 +50,7 @@ if.end:                                           ; preds = %if.then, %if.else
   store i32 %conv12.sink, ptr %5, align 8
   %6 = load i16, ptr %fold, align 8
   %conv16 = zext i16 %6 to i32
-  %call = call fastcc i32 @narrow_conv_backprop(ptr noundef nonnull %nc, i32 noundef %conv16, i32 noundef 0), !range !3
+  %call = call fastcc i32 @narrow_conv_backprop(ptr noundef nonnull %nc, i32 noundef %conv16, i32 noundef 0)
   %cmp17 = icmp ult i32 %call, 2
   br i1 %cmp17, label %if.then19, label %return
 
@@ -87,7 +87,7 @@ if.then.i:                                        ; preds = %while.body.i
 
 if.else.i:                                        ; preds = %while.body.i
   %shr.i = lshr i32 %11, 16
-  %trunc.i = trunc i32 %shr.i to i16
+  %trunc.i = trunc nuw i32 %shr.i to i16
   switch i16 %trunc.i, label %if.else44.i [
     i16 1, label %if.then18.i
     i16 2, label %if.then25.i
@@ -202,7 +202,7 @@ if.end88.i:                                       ; preds = %if.then80.i, %if.en
   %next.2.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i, %if.then18.i ], [ %incdec.ptr.i, %if.then25.i ], [ %next.1.i, %cond.end.i ], [ %incdec.ptr.i, %if.then80.i ], [ %incdec.ptr.i, %if.end67.i ]
   %guardot.2.i = phi i16 [ %guardot.053.i, %if.then.i ], [ %guardot.053.i, %if.then18.i ], [ %guardot.053.i, %if.then25.i ], [ %guardot.053.i, %cond.end.i ], [ %guardot.1.i, %if.then80.i ], [ %guardot.1.i, %if.end67.i ]
   %cmp.i = icmp ult ptr %next.2.i, %8
-  br i1 %cmp.i, label %while.body.i, label %narrow_conv_emit.exit, !llvm.loop !4
+  br i1 %cmp.i, label %while.body.i, label %narrow_conv_emit.exit, !llvm.loop !3
 
 narrow_conv_emit.exit:                            ; preds = %if.end88.i, %if.then19
   %23 = load i32, ptr %stack, align 8
@@ -214,7 +214,7 @@ return:                                           ; preds = %entry, %if.end, %na
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @narrow_conv_backprop(ptr noundef %nc, i32 noundef %ref, i32 noundef %depth) unnamed_addr #1 {
+define internal fastcc range(i32 0, 11) i32 @narrow_conv_backprop(ptr noundef %nc, i32 noundef %ref, i32 noundef %depth) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %ir2 = getelementptr inbounds i8, ptr %0, i64 32
@@ -357,7 +357,7 @@ while.body.us:                                    ; preds = %if.end111.us
   %18 = load i16, ptr %arrayidx76.us, align 8
   %conv78.us = zext i16 %18 to i32
   %cmp79.us = icmp eq i32 %conv78.us, %ref
-  br i1 %cmp79.us, label %if.then107, label %if.end111.us, !llvm.loop !6
+  br i1 %cmp79.us, label %if.then107, label %if.end111.us, !llvm.loop !5
 
 if.end111.us:                                     ; preds = %if.end111.us.preheader, %while.body.us
   %19 = phi i64 [ %idxprom75.us, %while.body.us ], [ %idxprom75.us110, %if.end111.us.preheader ]
@@ -365,7 +365,7 @@ if.end111.us:                                     ; preds = %if.end111.us.prehea
   %cref.0.in.us = load i16, ptr %gep, align 2
   %cref.0.us = zext i16 %cref.0.in.us to i32
   %cmp71.us = icmp ugt i32 %cref.0.us, %ref
-  br i1 %cmp71.us, label %while.body.us, label %while.end, !llvm.loop !6
+  br i1 %cmp71.us, label %while.body.us, label %while.end, !llvm.loop !5
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end111
   %cref.0108 = phi i32 [ %cref.0, %if.end111 ], [ %cref.0105, %while.body.lr.ph ]
@@ -408,7 +408,7 @@ if.end111:                                        ; preds = %land.lhs.true95, %l
   %cref.0.in = load i16, ptr %prev, align 2
   %cref.0 = zext i16 %cref.0.in to i32
   %cmp71 = icmp ugt i32 %cref.0, %ref
-  br i1 %cmp71, label %while.body, label %while.end, !llvm.loop !6
+  br i1 %cmp71, label %while.body, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %if.end111, %if.end111.us, %if.end66
   %.off = add i8 %4, -41
@@ -424,7 +424,7 @@ if.then122:                                       ; preds = %while.end
   %or.cond = and i1 %cmp129, %cmp126
   %add132 = or disjoint i32 %28, 4096
   %spec.select = select i1 %or.cond, i32 %add132, i32 %28
-  %conv135 = trunc i32 %ref to i16
+  %conv135 = trunc nuw i32 %ref to i16
   %bpropcache.i = getelementptr inbounds i8, ptr %0, i64 2852
   br label %for.body.i
 
@@ -450,7 +450,7 @@ land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
 for.inc.i:                                        ; preds = %land.lhs.true8.i, %land.lhs.true.i, %for.body.i
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 16
-  br i1 %exitcond.not.i, label %if.else141, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %if.else141, label %for.body.i, !llvm.loop !6
 
 if.then136:                                       ; preds = %land.lhs.true8.i
   %val = getelementptr inbounds i8, ptr %arrayidx.i, i64 2
@@ -486,7 +486,7 @@ land.lhs.true.i87:                                ; preds = %for.body.i79
 for.inc.i83:                                      ; preds = %land.lhs.true.i87, %for.body.i79
   %inc.i84 = add nuw nsw i64 %i.07.i80, 1
   %exitcond.not.i85 = icmp eq i64 %inc.i84, 16
-  br i1 %exitcond.not.i85, label %if.end160, label %for.body.i79, !llvm.loop !7
+  br i1 %exitcond.not.i85, label %if.end160, label %for.body.i79, !llvm.loop !6
 
 if.then150:                                       ; preds = %land.lhs.true.i87
   %val151 = getelementptr inbounds i8, ptr %arrayidx.i81, i64 2
@@ -509,11 +509,11 @@ if.then168:                                       ; preds = %if.end160
   %inc = add nsw i32 %depth, 1
   %37 = load i16, ptr %arrayidx, align 8
   %conv171 = zext i16 %37 to i32
-  %call172 = tail call fastcc i32 @narrow_conv_backprop(ptr noundef nonnull %nc, i32 noundef %conv171, i32 noundef %inc), !range !3
+  %call172 = tail call fastcc i32 @narrow_conv_backprop(ptr noundef nonnull %nc, i32 noundef %conv171, i32 noundef %inc)
   %op2173 = getelementptr inbounds i8, ptr %arrayidx, i64 2
   %38 = load i16, ptr %op2173, align 2
   %conv174 = zext i16 %38 to i32
-  %call175 = tail call fastcc i32 @narrow_conv_backprop(ptr noundef nonnull %nc, i32 noundef %conv174, i32 noundef %inc), !range !3
+  %call175 = tail call fastcc i32 @narrow_conv_backprop(ptr noundef nonnull %nc, i32 noundef %conv174, i32 noundef %inc)
   %add176 = add nuw nsw i32 %call175, %call172
   %cmp177 = icmp ult i32 %add176, 2
   br i1 %cmp177, label %if.then179, label %if.end190
@@ -710,7 +710,7 @@ land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
 for.inc.i:                                        ; preds = %land.lhs.true8.i, %land.lhs.true.i, %for.body.i
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 16
-  br i1 %exitcond.not.i, label %if.else, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %if.else, label %for.body.i, !llvm.loop !6
 
 if.then8:                                         ; preds = %land.lhs.true8.i
   %val = getelementptr inbounds i8, ptr %arrayidx.i, i64 2
@@ -783,7 +783,7 @@ land.lhs.true33:                                  ; preds = %if.else30
   br i1 %tobool40.not, label %if.then41, label %common.ret47
 
 if.then41:                                        ; preds = %land.lhs.true33
-  %conv43 = trunc i32 %mode to i16
+  %conv43 = trunc nuw nsw i32 %mode to i16
   %fold.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i = getelementptr inbounds i8, ptr %J, i64 188
   store i16 23317, ptr %ot1.i, align 4
@@ -963,7 +963,7 @@ land.lhs.true10:                                  ; preds = %land.lhs.true5
   br i1 %cmp.i50, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true10
-  %op.tr34 = trunc i32 %op to i16
+  %op.tr34 = trunc nuw i32 %op to i16
   %7 = shl nuw nsw i16 %op.tr34, 8
   %conv = add nuw nsw i16 %7, 3219
   br label %return
@@ -1258,7 +1258,7 @@ return:                                           ; preds = %if.end, %if.then
 declare hidden i32 @lj_ir_tonum(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @lj_opt_narrow_forl(ptr nocapture noundef readonly %J, ptr nocapture noundef readonly %tv) local_unnamed_addr #4 {
+define hidden range(i32 14, 20) i32 @lj_opt_narrow_forl(ptr nocapture noundef readonly %J, ptr nocapture noundef readonly %tv) local_unnamed_addr #4 {
 entry:
   %0 = getelementptr i8, ptr %J, i64 168
   %J.val = load i32, ptr %0, align 8
@@ -1334,7 +1334,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp13, label %if.then, label %if.end47
 
 if.then:                                          ; preds = %entry, %entry, %land.lhs.true
-  %conv16 = trunc i32 %ref to i16
+  %conv16 = trunc nuw i32 %ref to i16
   %bpropcache.i = getelementptr inbounds i8, ptr %0, i64 2852
   br label %for.body.i
 
@@ -1355,7 +1355,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 16
-  br i1 %exitcond.not.i, label %if.else, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %if.else, label %for.body.i, !llvm.loop !6
 
 if.then17:                                        ; preds = %land.lhs.true.i
   %val = getelementptr inbounds i8, ptr %arrayidx.i, i64 2
@@ -1442,8 +1442,7 @@ attributes #6 = { noreturn nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 0, i32 11}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}

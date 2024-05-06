@@ -728,7 +728,7 @@ define internal fastcc zeroext i1 @FetchTableStates(ptr nocapture noundef writeo
 
 33:                                               ; preds = %._crit_edge22, %31
   %34 = phi i8 [ %.pre, %._crit_edge22 ], [ %32, %31 ]
-  %35 = trunc i8 %34 to i1
+  %35 = trunc nuw i8 %34 to i1
   ret i1 %35
 }
 
@@ -1690,7 +1690,7 @@ slot_getattr.exit158.i.i.i:                       ; preds = %slot_getsomeattrs.e
 
 442:                                              ; preds = %slot_getattr.exit158.i.i.i
   %443 = load ptr, ptr %395, align 8
-  %444 = trunc i64 %indvars.iv213.i.i.i to i32
+  %444 = trunc nuw nsw i64 %indvars.iv213.i.i.i to i32
   %445 = call ptr @bms_add_member(ptr noundef %443, i32 noundef %444) #12
   store ptr %445, ptr %395, align 8
   br label %446
@@ -1717,11 +1717,11 @@ slot_getattr.exit158.i.i.i:                       ; preds = %slot_getsomeattrs.e
   br i1 %454, label %.lr.ph192.i.i.i, label %.outer._crit_edge.loopexit205.i.i.i, !llvm.loop !13
 
 .outer._crit_edge.loopexit.i.i.i:                 ; preds = %414
-  %455 = trunc i64 %indvars.iv213.i.i.i to i32
+  %455 = trunc nuw nsw i64 %indvars.iv213.i.i.i to i32
   br label %.outer._crit_edge.i.i.i
 
 .outer._crit_edge.loopexit205.i.i.i:              ; preds = %.outer.i.i.i
-  %456 = trunc i64 %indvars.iv.next214.i.i.i to i32
+  %456 = trunc nuw nsw i64 %indvars.iv.next214.i.i.i to i32
   br label %.outer._crit_edge.i.i.i
 
 .outer._crit_edge.i.i.i:                          ; preds = %.outer._crit_edge.loopexit205.i.i.i, %.outer._crit_edge.loopexit.i.i.i, %390
@@ -2252,7 +2252,7 @@ walrcv_clear_result.exit49.i:                     ; preds = %693, %690
 705:                                              ; preds = %703
   %706 = load i64, ptr %0, align 8
   %707 = lshr i64 %706, 32
-  %708 = trunc i64 %707 to i32
+  %708 = trunc nuw i64 %707 to i32
   %709 = trunc i64 %706 to i32
   %710 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef nonnull %14, i32 noundef %708, i32 noundef %709) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1538, ptr noundef nonnull @__func__.LogicalRepSyncTableStart) #12

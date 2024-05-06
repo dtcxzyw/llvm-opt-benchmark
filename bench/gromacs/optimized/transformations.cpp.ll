@@ -159,7 +159,7 @@ define void @_ZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23Two
   %30 = ptrtoint ptr %.val.i.i.i to i64
   %31 = sub i64 %29, %30
   %32 = sdiv exact i64 %31, 12
-  %33 = tail call i64 @llvm.ctlz.i64(i64 %32, i1 true), !range !5
+  %33 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %32, i1 true)
   %34 = shl nuw nsw i64 %33, 1
   %35 = xor i64 %34, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val.i.i.i, ptr %.val19.i.i.i, i64 noundef %35, ptr nonnull @_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJS3_NS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS1_INS_21FENEBondTypeParameterEEENS1_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESP_)
@@ -190,7 +190,7 @@ define void @_ZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23Two
   %.01924.i.i.i.i.i.add.i.i56.i.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i53.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i57.i.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i56.i.i.i.i.i.i.i, 12
   %or.cond.i.i58.i.i.i.i.i.i.i = select i1 %42, i1 true, i1 %.not.i.i.i.i.i.i.i57.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i58.i.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJS3_NS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS1_INS_21FENEBondTypeParameterEEENS1_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESP_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i58.i.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJS3_NS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS1_INS_21FENEBondTypeParameterEEENS1_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESP_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i52.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.07.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.022.i.ptr.i.i.i.i.i.i.i.i, i64 12, i1 false)
@@ -220,7 +220,7 @@ _ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_25HarmonicBondType
   %.01924.i.i.i.i.i.add.i.i48.i.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i45.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i49.i.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i48.i.i.i.i.i.i.i, 12
   %or.cond.i.i50.i.i.i.i.i.i.i = select i1 %49, i1 true, i1 %.not.i.i.i.i.i.i.i49.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i50.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i50.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i36.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i.i.i.i.i.i.i
   %.sroa.0.09.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.pn21.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i.i.i.i.i.i.i ], [ %.sroa.0.0.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i36.i.i.i.i.i.i.i ]
@@ -243,7 +243,7 @@ _ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_25HarmonicBondType
   %.01924.i.i.i.i.i.add.i.i40.i.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i37.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i41.i.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i40.i.i.i.i.i.i.i, 12
   %or.cond.i.i42.i.i.i.i.i.i.i = select i1 %54, i1 true, i1 %.not.i.i.i.i.i.i.i41.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i42.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i42.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %48, %53
   %.sroa.04.0.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i.i.i.i.i.i.i.i.i, %53 ], [ %.sroa.0.022.i.ptr.i.i.i.i.i.i.i.i, %48 ]
@@ -254,7 +254,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
 55:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i.i.i.i.i.i.i, 12
   %.not.i.i3.i.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i.i.i.i.i.i.i, 192
-  br i1 %.not.i.i3.i.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i.i.i.i.i.i.i, label %37, !llvm.loop !8
+  br i1 %.not.i.i3.i.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i.i.i.i.i.i.i, label %37, !llvm.loop !7
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i.i.i.i.i.i.i: ; preds = %55
   %56 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 192
@@ -283,7 +283,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i32.i.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i29.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i33.i.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i32.i.i.i.i.i.i.i, 12
   %or.cond.i.i34.i.i.i.i.i.i.i = select i1 %61, i1 true, i1 %.not.i.i.i.i.i.i.i33.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i34.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i34.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i14.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i.i20.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i.i.i.i.i.i.i
   %.sroa.0.09.i.i15.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.0.07.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i.i.i.i.i.i.i ], [ %.sroa.0.0.i.i17.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i20.i.i.i.i.i.i.i ]
@@ -306,7 +306,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i24.i.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i21.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i25.i.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i24.i.i.i.i.i.i.i, 12
   %or.cond.i.i26.i.i.i.i.i.i.i = select i1 %66, i1 true, i1 %.not.i.i.i.i.i.i.i25.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i26.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i26.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i: ; preds = %60, %65
   %.sroa.04.0.lcssa.i.i12.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i15.i.i.i.i.i.i.i.i, %65 ], [ %.sroa.0.08.i.i.i.i.i.i.i.i.i, %60 ]
@@ -314,7 +314,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %24)
   %67 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i.i.i.i.i.i, i64 12
   %.not.i13.i.i.i.i.i.i.i.i = icmp eq ptr %67, %.val19.i.i.i
-  br i1 %.not.i13.i.i.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS5_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i13.i.i.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS5_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i.i.i.i.i.i.i, !llvm.loop !8
 
 68:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.07.i18.i.i.i.i.i.i.i.i)
@@ -341,7 +341,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
   %.01924.i.i.i.i.i.add.i.i16.i.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i13.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i17.i.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i16.i.i.i.i.i.i.i, 12
   %or.cond.i.i18.i.i.i.i.i.i.i = select i1 %73, i1 true, i1 %.not.i.i.i.i.i.i.i17.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i18.i.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJS3_NS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS1_INS_21FENEBondTypeParameterEEENS1_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESP_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i18.i.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJS3_NS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS1_INS_21FENEBondTypeParameterEEENS1_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESP_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i12.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.07.i18.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.022.i23.i.i.i.i.i.i.i.i, i64 12, i1 false)
@@ -373,7 +373,7 @@ _ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_25HarmonicBondType
   %.01924.i.i.i.i.i.add.i.i8.i.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i5.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i9.i.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i8.i.i.i.i.i.i.i, 12
   %or.cond.i.i10.i.i.i.i.i.i.i = select i1 %82, i1 true, i1 %.not.i.i.i.i.i.i.i9.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i10.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i10.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i29.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i.i.i.i.i.i.i
   %.sroa.0.09.i.i30.i.i.i.i.i.i.i.i = phi ptr [ %.pn21.i24.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i.i.i.i.i.i.i ], [ %.sroa.0.0.i.i32.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
@@ -396,7 +396,7 @@ _ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_25HarmonicBondType
   %.01924.i.i.i.i.i.add.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i.i.i.i.i.i.i.i, 12
   %or.cond.i.i.i.i.i.i.i.i.i = select i1 %87, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i: ; preds = %81, %86
   %.sroa.04.0.lcssa.i.i26.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i30.i.i.i.i.i.i.i.i, %86 ], [ %.sroa.0.022.i23.i.i.i.i.i.i.i.i, %81 ]
@@ -407,7 +407,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
 88:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i.i.i.i.i.i.i, i64 12
   %.not.i28.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i.i.i.i.i.i.i, %.val19.i.i.i
-  br i1 %.not.i28.i.i.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i.i.i.i.i.i.i, label %.lr.ph.i22.i.i.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i28.i.i.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i.i.i.i.i.i.i, label %.lr.ph.i22.i.i.i.i.i.i.i.i, !llvm.loop !7
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i.i.i.i.i.i.i: ; preds = %88, %68
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.07.i18.i.i.i.i.i.i.i.i)
@@ -426,7 +426,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %93 = ptrtoint ptr %.val20.i.i.i.i.i.i to i64
   %94 = sub i64 %92, %93
   %95 = sdiv exact i64 %94, 12
-  %96 = tail call i64 @llvm.ctlz.i64(i64 %95, i1 true), !range !5
+  %96 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %95, i1 true)
   %97 = shl nuw nsw i64 %96, 1
   %98 = xor i64 %97, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val20.i.i.i.i.i.i, ptr %.val21.i.i.i.i.i.i, i64 noundef %98, ptr nonnull @_ZN5nblib18interactionSortKeyINS_11G96BondTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES1_NS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_)
@@ -457,7 +457,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i56.i102.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i53.i99.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i57.i103.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i56.i102.i.i.i.i.i.i, 12
   %or.cond.i.i58.i104.i.i.i.i.i.i = select i1 %105, i1 true, i1 %.not.i.i.i.i.i.i.i57.i103.i.i.i.i.i.i
-  br i1 %or.cond.i.i58.i104.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_11G96BondTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES1_NS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i98.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i58.i104.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_11G96BondTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES1_NS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i98.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i153.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i52.i98.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.07.i.i.i55.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.022.i.ptr.i.i97.i.i.i.i.i.i, i64 12, i1 false)
@@ -487,7 +487,7 @@ _ZN5nblib18interactionSortKeyINS_11G96BondTypeEEENSt9enable_ifIXtlNS_8ContainsIT
   %.01924.i.i.i.i.i.add.i.i48.i109.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i45.i106.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i49.i110.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i48.i109.i.i.i.i.i.i, 12
   %or.cond.i.i50.i111.i.i.i.i.i.i = select i1 %112, i1 true, i1 %.not.i.i.i.i.i.i.i49.i110.i.i.i.i.i.i
-  br i1 %or.cond.i.i50.i111.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i112.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i105.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i50.i111.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i112.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i105.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i.i.i142.i.i.i.i.i.i:                    ; preds = %.lr.ph.i.i.i.i.i.i.i36.i146.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i105.i.i.i.i.i.i
   %.sroa.0.09.i.i.i.i143.i.i.i.i.i.i = phi ptr [ %.pn21.i.i.i96.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i105.i.i.i.i.i.i ], [ %.sroa.0.0.i.i.i.i145.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i36.i146.i.i.i.i.i.i ]
@@ -510,7 +510,7 @@ _ZN5nblib18interactionSortKeyINS_11G96BondTypeEEENSt9enable_ifIXtlNS_8ContainsIT
   %.01924.i.i.i.i.i.add.i.i40.i150.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i37.i147.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i41.i151.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i40.i150.i.i.i.i.i.i, 12
   %or.cond.i.i42.i152.i.i.i.i.i.i = select i1 %117, i1 true, i1 %.not.i.i.i.i.i.i.i41.i151.i.i.i.i.i.i
-  br i1 %or.cond.i.i42.i152.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i112.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i146.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i42.i152.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i112.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i146.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i112.i.i.i.i.i.i: ; preds = %111, %116
   %.sroa.04.0.lcssa.i.i.i.i113.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i.i.i143.i.i.i.i.i.i, %116 ], [ %.sroa.0.022.i.ptr.i.i97.i.i.i.i.i.i, %111 ]
@@ -521,7 +521,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
 118:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i112.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i153.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i114.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i95.i.i.i.i.i.i, 12
   %.not.i.i3.i115.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i114.i.i.i.i.i.i, 192
-  br i1 %.not.i.i3.i115.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i116.i.i.i.i.i.i, label %100, !llvm.loop !8
+  br i1 %.not.i.i3.i115.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i116.i.i.i.i.i.i, label %100, !llvm.loop !7
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i116.i.i.i.i.i.i: ; preds = %118
   %119 = getelementptr inbounds i8, ptr %.val20.i.i.i.i.i.i, i64 192
@@ -550,7 +550,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i32.i125.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i29.i122.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i33.i126.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i32.i125.i.i.i.i.i.i, 12
   %or.cond.i.i34.i127.i.i.i.i.i.i = select i1 %124, i1 true, i1 %.not.i.i.i.i.i.i.i33.i126.i.i.i.i.i.i
-  br i1 %or.cond.i.i34.i127.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i128.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i121.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i34.i127.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i128.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i121.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i14.i.i131.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i20.i135.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i121.i.i.i.i.i.i
   %.sroa.0.09.i.i15.i.i132.i.i.i.i.i.i = phi ptr [ %.sroa.0.07.i.i.i.i120.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i121.i.i.i.i.i.i ], [ %.sroa.0.0.i.i17.i.i134.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i20.i135.i.i.i.i.i.i ]
@@ -573,7 +573,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i24.i139.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i21.i136.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i25.i140.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i24.i139.i.i.i.i.i.i, 12
   %or.cond.i.i26.i141.i.i.i.i.i.i = select i1 %129, i1 true, i1 %.not.i.i.i.i.i.i.i25.i140.i.i.i.i.i.i
-  br i1 %or.cond.i.i26.i141.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i128.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i135.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i26.i141.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i128.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i135.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i128.i.i.i.i.i.i: ; preds = %123, %128
   %.sroa.04.0.lcssa.i.i12.i.i129.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i15.i.i132.i.i.i.i.i.i, %128 ], [ %.sroa.0.08.i.i.i119.i.i.i.i.i.i, %123 ]
@@ -581,7 +581,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21)
   %130 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i119.i.i.i.i.i.i, i64 12
   %.not.i13.i.i130.i.i.i.i.i.i = icmp eq ptr %130, %.val21.i.i.i.i.i.i
-  br i1 %.not.i13.i.i130.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS7_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i118.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i13.i.i130.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS7_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i118.i.i.i.i.i.i, !llvm.loop !8
 
 131:                                              ; preds = %91
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.07.i18.i.i54.i.i.i.i.i.i)
@@ -608,7 +608,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
   %.01924.i.i.i.i.i.add.i.i16.i66.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i13.i63.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i17.i67.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i16.i66.i.i.i.i.i.i, 12
   %or.cond.i.i18.i68.i.i.i.i.i.i = select i1 %136, i1 true, i1 %.not.i.i.i.i.i.i.i17.i67.i.i.i.i.i.i
-  br i1 %or.cond.i.i18.i68.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_11G96BondTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES1_NS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i62.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i18.i68.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_11G96BondTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES1_NS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i62.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i92.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i12.i62.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.07.i18.i.i54.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.022.i23.i.i60.i.i.i.i.i.i, i64 12, i1 false)
@@ -640,7 +640,7 @@ _ZN5nblib18interactionSortKeyINS_11G96BondTypeEEENSt9enable_ifIXtlNS_8ContainsIT
   %.01924.i.i.i.i.i.add.i.i8.i73.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i5.i70.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i9.i74.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i8.i73.i.i.i.i.i.i, 12
   %or.cond.i.i10.i75.i.i.i.i.i.i = select i1 %145, i1 true, i1 %.not.i.i.i.i.i.i.i9.i74.i.i.i.i.i.i
-  br i1 %or.cond.i.i10.i75.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i76.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i69.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i10.i75.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i76.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i69.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i29.i.i81.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i85.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i69.i.i.i.i.i.i
   %.sroa.0.09.i.i30.i.i82.i.i.i.i.i.i = phi ptr [ %.pn21.i24.i.i61.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i69.i.i.i.i.i.i ], [ %.sroa.0.0.i.i32.i.i84.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i85.i.i.i.i.i.i ]
@@ -663,7 +663,7 @@ _ZN5nblib18interactionSortKeyINS_11G96BondTypeEEENSt9enable_ifIXtlNS_8ContainsIT
   %.01924.i.i.i.i.i.add.i.i.i89.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i.i86.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i90.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i.i89.i.i.i.i.i.i, 12
   %or.cond.i.i.i91.i.i.i.i.i.i = select i1 %150, i1 true, i1 %.not.i.i.i.i.i.i.i.i90.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i91.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i76.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i85.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i.i91.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i76.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i85.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i76.i.i.i.i.i.i: ; preds = %144, %149
   %.sroa.04.0.lcssa.i.i26.i.i77.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i30.i.i82.i.i.i.i.i.i, %149 ], [ %.sroa.0.022.i23.i.i60.i.i.i.i.i.i, %144 ]
@@ -674,7 +674,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
 151:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i76.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i92.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i78.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i60.i.i.i.i.i.i, i64 12
   %.not.i28.i.i79.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i78.i.i.i.i.i.i, %.val21.i.i.i.i.i.i
-  br i1 %.not.i28.i.i79.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i80.i.i.i.i.i.i, label %.lr.ph.i22.i.i59.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i28.i.i79.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i80.i.i.i.i.i.i, label %.lr.ph.i22.i.i59.i.i.i.i.i.i, !llvm.loop !7
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i80.i.i.i.i.i.i: ; preds = %151, %131
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.07.i18.i.i54.i.i.i.i.i.i)
@@ -693,7 +693,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %156 = ptrtoint ptr %.val22.i.i.i.i.i.i to i64
   %157 = sub i64 %155, %156
   %158 = sdiv exact i64 %157, 12
-  %159 = tail call i64 @llvm.ctlz.i64(i64 %158, i1 true), !range !5
+  %159 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %158, i1 true)
   %160 = shl nuw nsw i64 %159, 1
   %161 = xor i64 %160, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val22.i.i.i.i.i.i, ptr %.val23.i.i.i.i.i.i, i64 noundef %161, ptr nonnull @_ZN5nblib18interactionSortKeyINS_13CubicBondTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES1_NS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_)
@@ -724,7 +724,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i56.i203.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i53.i200.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i57.i204.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i56.i203.i.i.i.i.i.i, 12
   %or.cond.i.i58.i205.i.i.i.i.i.i = select i1 %168, i1 true, i1 %.not.i.i.i.i.i.i.i57.i204.i.i.i.i.i.i
-  br i1 %or.cond.i.i58.i205.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_13CubicBondTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES1_NS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i199.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i58.i205.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_13CubicBondTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES1_NS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i199.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i254.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i52.i199.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.07.i.i.i156.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.022.i.ptr.i.i198.i.i.i.i.i.i, i64 12, i1 false)
@@ -754,7 +754,7 @@ _ZN5nblib18interactionSortKeyINS_13CubicBondTypeEEENSt9enable_ifIXtlNS_8Contains
   %.01924.i.i.i.i.i.add.i.i48.i210.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i45.i207.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i49.i211.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i48.i210.i.i.i.i.i.i, 12
   %or.cond.i.i50.i212.i.i.i.i.i.i = select i1 %175, i1 true, i1 %.not.i.i.i.i.i.i.i49.i211.i.i.i.i.i.i
-  br i1 %or.cond.i.i50.i212.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i213.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i206.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i50.i212.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i213.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i206.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i.i.i243.i.i.i.i.i.i:                    ; preds = %.lr.ph.i.i.i.i.i.i.i36.i247.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i206.i.i.i.i.i.i
   %.sroa.0.09.i.i.i.i244.i.i.i.i.i.i = phi ptr [ %.pn21.i.i.i197.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i206.i.i.i.i.i.i ], [ %.sroa.0.0.i.i.i.i246.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i36.i247.i.i.i.i.i.i ]
@@ -777,7 +777,7 @@ _ZN5nblib18interactionSortKeyINS_13CubicBondTypeEEENSt9enable_ifIXtlNS_8Contains
   %.01924.i.i.i.i.i.add.i.i40.i251.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i37.i248.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i41.i252.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i40.i251.i.i.i.i.i.i, 12
   %or.cond.i.i42.i253.i.i.i.i.i.i = select i1 %180, i1 true, i1 %.not.i.i.i.i.i.i.i41.i252.i.i.i.i.i.i
-  br i1 %or.cond.i.i42.i253.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i213.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i247.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i42.i253.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i213.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i247.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i213.i.i.i.i.i.i: ; preds = %174, %179
   %.sroa.04.0.lcssa.i.i.i.i214.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i.i.i244.i.i.i.i.i.i, %179 ], [ %.sroa.0.022.i.ptr.i.i198.i.i.i.i.i.i, %174 ]
@@ -788,7 +788,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
 181:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i213.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i254.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i215.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i196.i.i.i.i.i.i, 12
   %.not.i.i3.i216.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i215.i.i.i.i.i.i, 192
-  br i1 %.not.i.i3.i216.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i217.i.i.i.i.i.i, label %163, !llvm.loop !8
+  br i1 %.not.i.i3.i216.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i217.i.i.i.i.i.i, label %163, !llvm.loop !7
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i217.i.i.i.i.i.i: ; preds = %181
   %182 = getelementptr inbounds i8, ptr %.val22.i.i.i.i.i.i, i64 192
@@ -817,7 +817,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i32.i226.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i29.i223.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i33.i227.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i32.i226.i.i.i.i.i.i, 12
   %or.cond.i.i34.i228.i.i.i.i.i.i = select i1 %187, i1 true, i1 %.not.i.i.i.i.i.i.i33.i227.i.i.i.i.i.i
-  br i1 %or.cond.i.i34.i228.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i229.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i222.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i34.i228.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i229.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i222.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i14.i.i232.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i20.i236.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i222.i.i.i.i.i.i
   %.sroa.0.09.i.i15.i.i233.i.i.i.i.i.i = phi ptr [ %.sroa.0.07.i.i.i.i221.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i222.i.i.i.i.i.i ], [ %.sroa.0.0.i.i17.i.i235.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i20.i236.i.i.i.i.i.i ]
@@ -840,7 +840,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i24.i240.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i21.i237.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i25.i241.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i24.i240.i.i.i.i.i.i, 12
   %or.cond.i.i26.i242.i.i.i.i.i.i = select i1 %192, i1 true, i1 %.not.i.i.i.i.i.i.i25.i241.i.i.i.i.i.i
-  br i1 %or.cond.i.i26.i242.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i229.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i236.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i26.i242.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i229.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i236.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i229.i.i.i.i.i.i: ; preds = %186, %191
   %.sroa.04.0.lcssa.i.i12.i.i230.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i15.i.i233.i.i.i.i.i.i, %191 ], [ %.sroa.0.08.i.i.i220.i.i.i.i.i.i, %186 ]
@@ -848,7 +848,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18)
   %193 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i220.i.i.i.i.i.i, i64 12
   %.not.i13.i.i231.i.i.i.i.i.i = icmp eq ptr %193, %.val23.i.i.i.i.i.i
-  br i1 %.not.i13.i.i231.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS9_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i219.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i13.i.i231.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS9_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i219.i.i.i.i.i.i, !llvm.loop !8
 
 194:                                              ; preds = %154
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.07.i18.i.i155.i.i.i.i.i.i)
@@ -875,7 +875,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
   %.01924.i.i.i.i.i.add.i.i16.i167.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i13.i164.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i17.i168.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i16.i167.i.i.i.i.i.i, 12
   %or.cond.i.i18.i169.i.i.i.i.i.i = select i1 %199, i1 true, i1 %.not.i.i.i.i.i.i.i17.i168.i.i.i.i.i.i
-  br i1 %or.cond.i.i18.i169.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_13CubicBondTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES1_NS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i163.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i18.i169.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_13CubicBondTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES1_NS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i163.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i193.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i12.i163.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.07.i18.i.i155.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.022.i23.i.i161.i.i.i.i.i.i, i64 12, i1 false)
@@ -907,7 +907,7 @@ _ZN5nblib18interactionSortKeyINS_13CubicBondTypeEEENSt9enable_ifIXtlNS_8Contains
   %.01924.i.i.i.i.i.add.i.i8.i174.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i5.i171.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i9.i175.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i8.i174.i.i.i.i.i.i, 12
   %or.cond.i.i10.i176.i.i.i.i.i.i = select i1 %208, i1 true, i1 %.not.i.i.i.i.i.i.i9.i175.i.i.i.i.i.i
-  br i1 %or.cond.i.i10.i176.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i177.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i170.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i10.i176.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i177.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i170.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i29.i.i182.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i186.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i170.i.i.i.i.i.i
   %.sroa.0.09.i.i30.i.i183.i.i.i.i.i.i = phi ptr [ %.pn21.i24.i.i162.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i170.i.i.i.i.i.i ], [ %.sroa.0.0.i.i32.i.i185.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i186.i.i.i.i.i.i ]
@@ -930,7 +930,7 @@ _ZN5nblib18interactionSortKeyINS_13CubicBondTypeEEENSt9enable_ifIXtlNS_8Contains
   %.01924.i.i.i.i.i.add.i.i.i190.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i.i187.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i191.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i.i190.i.i.i.i.i.i, 12
   %or.cond.i.i.i192.i.i.i.i.i.i = select i1 %213, i1 true, i1 %.not.i.i.i.i.i.i.i.i191.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i192.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i177.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i186.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i.i192.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i177.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i186.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i177.i.i.i.i.i.i: ; preds = %207, %212
   %.sroa.04.0.lcssa.i.i26.i.i178.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i30.i.i183.i.i.i.i.i.i, %212 ], [ %.sroa.0.022.i23.i.i161.i.i.i.i.i.i, %207 ]
@@ -941,7 +941,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
 214:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i177.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i193.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i179.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i161.i.i.i.i.i.i, i64 12
   %.not.i28.i.i180.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i179.i.i.i.i.i.i, %.val23.i.i.i.i.i.i
-  br i1 %.not.i28.i.i180.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i181.i.i.i.i.i.i, label %.lr.ph.i22.i.i160.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i28.i.i180.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i181.i.i.i.i.i.i, label %.lr.ph.i22.i.i160.i.i.i.i.i.i, !llvm.loop !7
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i181.i.i.i.i.i.i: ; preds = %214, %194
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.07.i18.i.i155.i.i.i.i.i.i)
@@ -960,7 +960,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %219 = ptrtoint ptr %.val24.i.i.i.i.i.i to i64
   %220 = sub i64 %218, %219
   %221 = sdiv exact i64 %220, 12
-  %222 = tail call i64 @llvm.ctlz.i64(i64 %221, i1 true), !range !5
+  %222 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %221, i1 true)
   %223 = shl nuw nsw i64 %222, 1
   %224 = xor i64 %223, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val24.i.i.i.i.i.i, ptr %.val25.i.i.i.i.i.i, i64 noundef %224, ptr nonnull @_ZN5nblib18interactionSortKeyINS_13MorseBondTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES1_NS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_)
@@ -991,7 +991,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i56.i304.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i53.i301.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i57.i305.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i56.i304.i.i.i.i.i.i, 12
   %or.cond.i.i58.i306.i.i.i.i.i.i = select i1 %231, i1 true, i1 %.not.i.i.i.i.i.i.i57.i305.i.i.i.i.i.i
-  br i1 %or.cond.i.i58.i306.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_13MorseBondTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES1_NS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i300.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i58.i306.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_13MorseBondTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES1_NS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i300.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i355.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i52.i300.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.07.i.i.i257.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.022.i.ptr.i.i299.i.i.i.i.i.i, i64 12, i1 false)
@@ -1021,7 +1021,7 @@ _ZN5nblib18interactionSortKeyINS_13MorseBondTypeEEENSt9enable_ifIXtlNS_8Contains
   %.01924.i.i.i.i.i.add.i.i48.i311.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i45.i308.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i49.i312.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i48.i311.i.i.i.i.i.i, 12
   %or.cond.i.i50.i313.i.i.i.i.i.i = select i1 %238, i1 true, i1 %.not.i.i.i.i.i.i.i49.i312.i.i.i.i.i.i
-  br i1 %or.cond.i.i50.i313.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i314.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i307.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i50.i313.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i314.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i307.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i.i.i344.i.i.i.i.i.i:                    ; preds = %.lr.ph.i.i.i.i.i.i.i36.i348.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i307.i.i.i.i.i.i
   %.sroa.0.09.i.i.i.i345.i.i.i.i.i.i = phi ptr [ %.pn21.i.i.i298.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i307.i.i.i.i.i.i ], [ %.sroa.0.0.i.i.i.i347.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i36.i348.i.i.i.i.i.i ]
@@ -1044,7 +1044,7 @@ _ZN5nblib18interactionSortKeyINS_13MorseBondTypeEEENSt9enable_ifIXtlNS_8Contains
   %.01924.i.i.i.i.i.add.i.i40.i352.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i37.i349.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i41.i353.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i40.i352.i.i.i.i.i.i, 12
   %or.cond.i.i42.i354.i.i.i.i.i.i = select i1 %243, i1 true, i1 %.not.i.i.i.i.i.i.i41.i353.i.i.i.i.i.i
-  br i1 %or.cond.i.i42.i354.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i314.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i348.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i42.i354.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i314.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i348.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i314.i.i.i.i.i.i: ; preds = %237, %242
   %.sroa.04.0.lcssa.i.i.i.i315.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i.i.i345.i.i.i.i.i.i, %242 ], [ %.sroa.0.022.i.ptr.i.i299.i.i.i.i.i.i, %237 ]
@@ -1055,7 +1055,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
 244:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i314.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i355.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i316.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i297.i.i.i.i.i.i, 12
   %.not.i.i3.i317.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i316.i.i.i.i.i.i, 192
-  br i1 %.not.i.i3.i317.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i318.i.i.i.i.i.i, label %226, !llvm.loop !8
+  br i1 %.not.i.i3.i317.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i318.i.i.i.i.i.i, label %226, !llvm.loop !7
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i318.i.i.i.i.i.i: ; preds = %244
   %245 = getelementptr inbounds i8, ptr %.val24.i.i.i.i.i.i, i64 192
@@ -1084,7 +1084,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i32.i327.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i29.i324.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i33.i328.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i32.i327.i.i.i.i.i.i, 12
   %or.cond.i.i34.i329.i.i.i.i.i.i = select i1 %250, i1 true, i1 %.not.i.i.i.i.i.i.i33.i328.i.i.i.i.i.i
-  br i1 %or.cond.i.i34.i329.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i330.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i323.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i34.i329.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i330.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i323.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i14.i.i333.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i20.i337.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i323.i.i.i.i.i.i
   %.sroa.0.09.i.i15.i.i334.i.i.i.i.i.i = phi ptr [ %.sroa.0.07.i.i.i.i322.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i323.i.i.i.i.i.i ], [ %.sroa.0.0.i.i17.i.i336.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i20.i337.i.i.i.i.i.i ]
@@ -1107,7 +1107,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i24.i341.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i21.i338.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i25.i342.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i24.i341.i.i.i.i.i.i, 12
   %or.cond.i.i26.i343.i.i.i.i.i.i = select i1 %255, i1 true, i1 %.not.i.i.i.i.i.i.i25.i342.i.i.i.i.i.i
-  br i1 %or.cond.i.i26.i343.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i330.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i337.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i26.i343.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i330.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i337.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i330.i.i.i.i.i.i: ; preds = %249, %254
   %.sroa.04.0.lcssa.i.i12.i.i331.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i15.i.i334.i.i.i.i.i.i, %254 ], [ %.sroa.0.08.i.i.i321.i.i.i.i.i.i, %249 ]
@@ -1115,7 +1115,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15)
   %256 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i321.i.i.i.i.i.i, i64 12
   %.not.i13.i.i332.i.i.i.i.i.i = icmp eq ptr %256, %.val25.i.i.i.i.i.i
-  br i1 %.not.i13.i.i332.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISB_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i320.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i13.i.i332.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISB_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i320.i.i.i.i.i.i, !llvm.loop !8
 
 257:                                              ; preds = %217
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.07.i18.i.i256.i.i.i.i.i.i)
@@ -1142,7 +1142,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
   %.01924.i.i.i.i.i.add.i.i16.i268.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i13.i265.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i17.i269.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i16.i268.i.i.i.i.i.i, 12
   %or.cond.i.i18.i270.i.i.i.i.i.i = select i1 %262, i1 true, i1 %.not.i.i.i.i.i.i.i17.i269.i.i.i.i.i.i
-  br i1 %or.cond.i.i18.i270.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_13MorseBondTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES1_NS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i264.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i18.i270.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_13MorseBondTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES1_NS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i264.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i294.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i12.i264.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.07.i18.i.i256.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.022.i23.i.i262.i.i.i.i.i.i, i64 12, i1 false)
@@ -1174,7 +1174,7 @@ _ZN5nblib18interactionSortKeyINS_13MorseBondTypeEEENSt9enable_ifIXtlNS_8Contains
   %.01924.i.i.i.i.i.add.i.i8.i275.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i5.i272.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i9.i276.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i8.i275.i.i.i.i.i.i, 12
   %or.cond.i.i10.i277.i.i.i.i.i.i = select i1 %271, i1 true, i1 %.not.i.i.i.i.i.i.i9.i276.i.i.i.i.i.i
-  br i1 %or.cond.i.i10.i277.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i278.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i271.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i10.i277.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i278.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i271.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i29.i.i283.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i287.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i271.i.i.i.i.i.i
   %.sroa.0.09.i.i30.i.i284.i.i.i.i.i.i = phi ptr [ %.pn21.i24.i.i263.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i271.i.i.i.i.i.i ], [ %.sroa.0.0.i.i32.i.i286.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i287.i.i.i.i.i.i ]
@@ -1197,7 +1197,7 @@ _ZN5nblib18interactionSortKeyINS_13MorseBondTypeEEENSt9enable_ifIXtlNS_8Contains
   %.01924.i.i.i.i.i.add.i.i.i291.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i.i288.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i292.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i.i291.i.i.i.i.i.i, 12
   %or.cond.i.i.i293.i.i.i.i.i.i = select i1 %276, i1 true, i1 %.not.i.i.i.i.i.i.i.i292.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i293.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i278.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i287.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i.i293.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i278.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i287.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i278.i.i.i.i.i.i: ; preds = %270, %275
   %.sroa.04.0.lcssa.i.i26.i.i279.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i30.i.i284.i.i.i.i.i.i, %275 ], [ %.sroa.0.022.i23.i.i262.i.i.i.i.i.i, %270 ]
@@ -1208,7 +1208,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
 277:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i278.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i294.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i280.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i262.i.i.i.i.i.i, i64 12
   %.not.i28.i.i281.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i280.i.i.i.i.i.i, %.val25.i.i.i.i.i.i
-  br i1 %.not.i28.i.i281.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i282.i.i.i.i.i.i, label %.lr.ph.i22.i.i261.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i28.i.i281.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i282.i.i.i.i.i.i, label %.lr.ph.i22.i.i261.i.i.i.i.i.i, !llvm.loop !7
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i282.i.i.i.i.i.i: ; preds = %277, %257
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.07.i18.i.i256.i.i.i.i.i.i)
@@ -1227,7 +1227,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %282 = ptrtoint ptr %.val26.i.i.i.i.i.i to i64
   %283 = sub i64 %281, %282
   %284 = sdiv exact i64 %283, 12
-  %285 = tail call i64 @llvm.ctlz.i64(i64 %284, i1 true), !range !5
+  %285 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %284, i1 true)
   %286 = shl nuw nsw i64 %285, 1
   %287 = xor i64 %286, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val26.i.i.i.i.i.i, ptr %.val27.i.i.i.i.i.i, i64 noundef %287, ptr nonnull @_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS1_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES3_NS1_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESP_)
@@ -1258,7 +1258,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i56.i405.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i53.i402.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i57.i406.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i56.i405.i.i.i.i.i.i, 12
   %or.cond.i.i58.i407.i.i.i.i.i.i = select i1 %294, i1 true, i1 %.not.i.i.i.i.i.i.i57.i406.i.i.i.i.i.i
-  br i1 %or.cond.i.i58.i407.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS1_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES3_NS1_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESP_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i401.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i58.i407.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS1_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES3_NS1_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESP_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i401.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i456.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i52.i401.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.07.i.i.i358.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.022.i.ptr.i.i400.i.i.i.i.i.i, i64 12, i1 false)
@@ -1288,7 +1288,7 @@ _ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_21FENEBondTypePara
   %.01924.i.i.i.i.i.add.i.i48.i412.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i45.i409.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i49.i413.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i48.i412.i.i.i.i.i.i, 12
   %or.cond.i.i50.i414.i.i.i.i.i.i = select i1 %301, i1 true, i1 %.not.i.i.i.i.i.i.i49.i413.i.i.i.i.i.i
-  br i1 %or.cond.i.i50.i414.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i415.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i408.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i50.i414.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i415.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i408.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i.i.i445.i.i.i.i.i.i:                    ; preds = %.lr.ph.i.i.i.i.i.i.i36.i449.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i408.i.i.i.i.i.i
   %.sroa.0.09.i.i.i.i446.i.i.i.i.i.i = phi ptr [ %.pn21.i.i.i399.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i408.i.i.i.i.i.i ], [ %.sroa.0.0.i.i.i.i448.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i36.i449.i.i.i.i.i.i ]
@@ -1311,7 +1311,7 @@ _ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_21FENEBondTypePara
   %.01924.i.i.i.i.i.add.i.i40.i453.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i37.i450.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i41.i454.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i40.i453.i.i.i.i.i.i, 12
   %or.cond.i.i42.i455.i.i.i.i.i.i = select i1 %306, i1 true, i1 %.not.i.i.i.i.i.i.i41.i454.i.i.i.i.i.i
-  br i1 %or.cond.i.i42.i455.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i415.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i449.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i42.i455.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i415.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i449.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i415.i.i.i.i.i.i: ; preds = %300, %305
   %.sroa.04.0.lcssa.i.i.i.i416.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i.i.i446.i.i.i.i.i.i, %305 ], [ %.sroa.0.022.i.ptr.i.i400.i.i.i.i.i.i, %300 ]
@@ -1322,7 +1322,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
 307:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i415.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i456.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i417.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i398.i.i.i.i.i.i, 12
   %.not.i.i3.i418.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i417.i.i.i.i.i.i, 192
-  br i1 %.not.i.i3.i418.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i419.i.i.i.i.i.i, label %289, !llvm.loop !8
+  br i1 %.not.i.i3.i418.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i419.i.i.i.i.i.i, label %289, !llvm.loop !7
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i419.i.i.i.i.i.i: ; preds = %307
   %308 = getelementptr inbounds i8, ptr %.val26.i.i.i.i.i.i, i64 192
@@ -1351,7 +1351,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i32.i428.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i29.i425.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i33.i429.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i32.i428.i.i.i.i.i.i, 12
   %or.cond.i.i34.i430.i.i.i.i.i.i = select i1 %313, i1 true, i1 %.not.i.i.i.i.i.i.i33.i429.i.i.i.i.i.i
-  br i1 %or.cond.i.i34.i430.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i431.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i424.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i34.i430.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i431.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i424.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i14.i.i434.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i20.i438.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i424.i.i.i.i.i.i
   %.sroa.0.09.i.i15.i.i435.i.i.i.i.i.i = phi ptr [ %.sroa.0.07.i.i.i.i423.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i424.i.i.i.i.i.i ], [ %.sroa.0.0.i.i17.i.i437.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i20.i438.i.i.i.i.i.i ]
@@ -1374,7 +1374,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i24.i442.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i21.i439.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i25.i443.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i24.i442.i.i.i.i.i.i, 12
   %or.cond.i.i26.i444.i.i.i.i.i.i = select i1 %318, i1 true, i1 %.not.i.i.i.i.i.i.i25.i443.i.i.i.i.i.i
-  br i1 %or.cond.i.i26.i444.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i431.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i438.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i26.i444.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i431.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i438.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i431.i.i.i.i.i.i: ; preds = %312, %317
   %.sroa.04.0.lcssa.i.i12.i.i432.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i15.i.i435.i.i.i.i.i.i, %317 ], [ %.sroa.0.08.i.i.i422.i.i.i.i.i.i, %312 ]
@@ -1382,7 +1382,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
   %319 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i422.i.i.i.i.i.i, i64 12
   %.not.i13.i.i433.i.i.i.i.i.i = icmp eq ptr %319, %.val27.i.i.i.i.i.i
-  br i1 %.not.i13.i.i433.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISE_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i421.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i13.i.i433.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISE_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i421.i.i.i.i.i.i, !llvm.loop !8
 
 320:                                              ; preds = %280
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.07.i18.i.i357.i.i.i.i.i.i)
@@ -1409,7 +1409,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
   %.01924.i.i.i.i.i.add.i.i16.i369.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i13.i366.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i17.i370.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i16.i369.i.i.i.i.i.i, 12
   %or.cond.i.i18.i371.i.i.i.i.i.i = select i1 %325, i1 true, i1 %.not.i.i.i.i.i.i.i17.i370.i.i.i.i.i.i
-  br i1 %or.cond.i.i18.i371.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS1_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES3_NS1_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESP_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i365.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i18.i371.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS1_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES3_NS1_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESP_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i365.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i395.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i12.i365.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.07.i18.i.i357.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.022.i23.i.i363.i.i.i.i.i.i, i64 12, i1 false)
@@ -1441,7 +1441,7 @@ _ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_21FENEBondTypePara
   %.01924.i.i.i.i.i.add.i.i8.i376.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i5.i373.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i9.i377.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i8.i376.i.i.i.i.i.i, 12
   %or.cond.i.i10.i378.i.i.i.i.i.i = select i1 %334, i1 true, i1 %.not.i.i.i.i.i.i.i9.i377.i.i.i.i.i.i
-  br i1 %or.cond.i.i10.i378.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i379.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i372.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i10.i378.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i379.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i372.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i29.i.i384.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i388.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i372.i.i.i.i.i.i
   %.sroa.0.09.i.i30.i.i385.i.i.i.i.i.i = phi ptr [ %.pn21.i24.i.i364.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i372.i.i.i.i.i.i ], [ %.sroa.0.0.i.i32.i.i387.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i388.i.i.i.i.i.i ]
@@ -1464,7 +1464,7 @@ _ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_21FENEBondTypePara
   %.01924.i.i.i.i.i.add.i.i.i392.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i.i389.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i393.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i.i392.i.i.i.i.i.i, 12
   %or.cond.i.i.i394.i.i.i.i.i.i = select i1 %339, i1 true, i1 %.not.i.i.i.i.i.i.i.i393.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i394.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i379.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i388.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i.i394.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i379.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i388.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i379.i.i.i.i.i.i: ; preds = %333, %338
   %.sroa.04.0.lcssa.i.i26.i.i380.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i30.i.i385.i.i.i.i.i.i, %338 ], [ %.sroa.0.022.i23.i.i363.i.i.i.i.i.i, %333 ]
@@ -1475,7 +1475,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
 340:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i379.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i395.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i381.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i363.i.i.i.i.i.i, i64 12
   %.not.i28.i.i382.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i381.i.i.i.i.i.i, %.val27.i.i.i.i.i.i
-  br i1 %.not.i28.i.i382.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i383.i.i.i.i.i.i, label %.lr.ph.i22.i.i362.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i28.i.i382.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i383.i.i.i.i.i.i, label %.lr.ph.i22.i.i362.i.i.i.i.i.i, !llvm.loop !7
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i383.i.i.i.i.i.i: ; preds = %340, %320
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.07.i18.i.i357.i.i.i.i.i.i)
@@ -1494,7 +1494,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %345 = ptrtoint ptr %.val28.i.i.i.i.i.i to i64
   %346 = sub i64 %344, %345
   %347 = sdiv exact i64 %346, 12
-  %348 = tail call i64 @llvm.ctlz.i64(i64 %347, i1 true), !range !5
+  %348 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %347, i1 true)
   %349 = shl nuw nsw i64 %348, 1
   %350 = xor i64 %349, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val28.i.i.i.i.i.i, ptr %.val29.i.i.i.i.i.i, i64 noundef %350, ptr nonnull @_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS1_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS1_INS_21FENEBondTypeParameterEEES3_NS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESP_)
@@ -1525,7 +1525,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i56.i506.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i53.i503.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i57.i507.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i56.i506.i.i.i.i.i.i, 12
   %or.cond.i.i58.i508.i.i.i.i.i.i = select i1 %357, i1 true, i1 %.not.i.i.i.i.i.i.i57.i507.i.i.i.i.i.i
-  br i1 %or.cond.i.i58.i508.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS1_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS1_INS_21FENEBondTypeParameterEEES3_NS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESP_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i502.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i58.i508.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS1_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS1_INS_21FENEBondTypeParameterEEES3_NS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESP_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i502.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i557.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i52.i502.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.07.i.i.i459.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.022.i.ptr.i.i501.i.i.i.i.i.i, i64 12, i1 false)
@@ -1555,7 +1555,7 @@ _ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_38HalfAttractiveQu
   %.01924.i.i.i.i.i.add.i.i48.i513.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i45.i510.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i49.i514.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i48.i513.i.i.i.i.i.i, 12
   %or.cond.i.i50.i515.i.i.i.i.i.i = select i1 %364, i1 true, i1 %.not.i.i.i.i.i.i.i49.i514.i.i.i.i.i.i
-  br i1 %or.cond.i.i50.i515.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i516.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i509.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i50.i515.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i516.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i509.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i.i.i546.i.i.i.i.i.i:                    ; preds = %.lr.ph.i.i.i.i.i.i.i36.i550.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i509.i.i.i.i.i.i
   %.sroa.0.09.i.i.i.i547.i.i.i.i.i.i = phi ptr [ %.pn21.i.i.i500.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i509.i.i.i.i.i.i ], [ %.sroa.0.0.i.i.i.i549.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i36.i550.i.i.i.i.i.i ]
@@ -1578,7 +1578,7 @@ _ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_38HalfAttractiveQu
   %.01924.i.i.i.i.i.add.i.i40.i554.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i37.i551.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i41.i555.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i40.i554.i.i.i.i.i.i, 12
   %or.cond.i.i42.i556.i.i.i.i.i.i = select i1 %369, i1 true, i1 %.not.i.i.i.i.i.i.i41.i555.i.i.i.i.i.i
-  br i1 %or.cond.i.i42.i556.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i516.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i550.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i42.i556.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i516.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i550.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i516.i.i.i.i.i.i: ; preds = %363, %368
   %.sroa.04.0.lcssa.i.i.i.i517.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i.i.i547.i.i.i.i.i.i, %368 ], [ %.sroa.0.022.i.ptr.i.i501.i.i.i.i.i.i, %363 ]
@@ -1589,7 +1589,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
 370:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i516.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i557.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i518.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i499.i.i.i.i.i.i, 12
   %.not.i.i3.i519.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i518.i.i.i.i.i.i, 192
-  br i1 %.not.i.i3.i519.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i520.i.i.i.i.i.i, label %352, !llvm.loop !8
+  br i1 %.not.i.i3.i519.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i520.i.i.i.i.i.i, label %352, !llvm.loop !7
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i520.i.i.i.i.i.i: ; preds = %370
   %371 = getelementptr inbounds i8, ptr %.val28.i.i.i.i.i.i, i64 192
@@ -1618,7 +1618,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i32.i529.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i29.i526.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i33.i530.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i32.i529.i.i.i.i.i.i, 12
   %or.cond.i.i34.i531.i.i.i.i.i.i = select i1 %376, i1 true, i1 %.not.i.i.i.i.i.i.i33.i530.i.i.i.i.i.i
-  br i1 %or.cond.i.i34.i531.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i532.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i525.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i34.i531.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i532.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i525.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i14.i.i535.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i20.i539.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i525.i.i.i.i.i.i
   %.sroa.0.09.i.i15.i.i536.i.i.i.i.i.i = phi ptr [ %.sroa.0.07.i.i.i.i524.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i525.i.i.i.i.i.i ], [ %.sroa.0.0.i.i17.i.i538.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i20.i539.i.i.i.i.i.i ]
@@ -1641,7 +1641,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i24.i543.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i21.i540.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i25.i544.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i24.i543.i.i.i.i.i.i, 12
   %or.cond.i.i26.i545.i.i.i.i.i.i = select i1 %381, i1 true, i1 %.not.i.i.i.i.i.i.i25.i544.i.i.i.i.i.i
-  br i1 %or.cond.i.i26.i545.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i532.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i539.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i26.i545.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i532.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i539.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i532.i.i.i.i.i.i: ; preds = %375, %380
   %.sroa.04.0.lcssa.i.i12.i.i533.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i15.i.i536.i.i.i.i.i.i, %380 ], [ %.sroa.0.08.i.i.i523.i.i.i.i.i.i, %375 ]
@@ -1649,7 +1649,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
   %382 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i523.i.i.i.i.i.i, i64 12
   %.not.i13.i.i534.i.i.i.i.i.i = icmp eq ptr %382, %.val29.i.i.i.i.i.i
-  br i1 %.not.i13.i.i534.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISH_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i522.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i13.i.i534.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISH_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i522.i.i.i.i.i.i, !llvm.loop !8
 
 383:                                              ; preds = %343
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.07.i18.i.i458.i.i.i.i.i.i)
@@ -1676,7 +1676,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
   %.01924.i.i.i.i.i.add.i.i16.i470.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i13.i467.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i17.i471.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i16.i470.i.i.i.i.i.i, 12
   %or.cond.i.i18.i472.i.i.i.i.i.i = select i1 %388, i1 true, i1 %.not.i.i.i.i.i.i.i17.i471.i.i.i.i.i.i
-  br i1 %or.cond.i.i18.i472.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS1_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS1_INS_21FENEBondTypeParameterEEES3_NS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESP_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i466.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i18.i472.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS1_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS1_INS_21FENEBondTypeParameterEEES3_NS_10PairLJTypeEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESP_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i466.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i496.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i12.i466.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.07.i18.i.i458.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.022.i23.i.i464.i.i.i.i.i.i, i64 12, i1 false)
@@ -1708,7 +1708,7 @@ _ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_38HalfAttractiveQu
   %.01924.i.i.i.i.i.add.i.i8.i477.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i5.i474.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i9.i478.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i8.i477.i.i.i.i.i.i, 12
   %or.cond.i.i10.i479.i.i.i.i.i.i = select i1 %397, i1 true, i1 %.not.i.i.i.i.i.i.i9.i478.i.i.i.i.i.i
-  br i1 %or.cond.i.i10.i479.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i480.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i473.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i10.i479.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i480.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i473.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i29.i.i485.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i489.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i473.i.i.i.i.i.i
   %.sroa.0.09.i.i30.i.i486.i.i.i.i.i.i = phi ptr [ %.pn21.i24.i.i465.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i473.i.i.i.i.i.i ], [ %.sroa.0.0.i.i32.i.i488.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i489.i.i.i.i.i.i ]
@@ -1731,7 +1731,7 @@ _ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_38HalfAttractiveQu
   %.01924.i.i.i.i.i.add.i.i.i493.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i.i490.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i494.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i.i493.i.i.i.i.i.i, 12
   %or.cond.i.i.i495.i.i.i.i.i.i = select i1 %402, i1 true, i1 %.not.i.i.i.i.i.i.i.i494.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i495.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i480.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i489.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i.i495.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i480.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i489.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i480.i.i.i.i.i.i: ; preds = %396, %401
   %.sroa.04.0.lcssa.i.i26.i.i481.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i30.i.i486.i.i.i.i.i.i, %401 ], [ %.sroa.0.022.i23.i.i464.i.i.i.i.i.i, %396 ]
@@ -1742,7 +1742,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
 403:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i480.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i496.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i482.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i464.i.i.i.i.i.i, i64 12
   %.not.i28.i.i483.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i482.i.i.i.i.i.i, %.val29.i.i.i.i.i.i
-  br i1 %.not.i28.i.i483.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i484.i.i.i.i.i.i, label %.lr.ph.i22.i.i463.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i28.i.i483.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i484.i.i.i.i.i.i, label %.lr.ph.i22.i.i463.i.i.i.i.i.i, !llvm.loop !7
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i484.i.i.i.i.i.i: ; preds = %403, %383
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.07.i18.i.i458.i.i.i.i.i.i)
@@ -1761,7 +1761,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %408 = ptrtoint ptr %.val30.i.i.i.i.i.i to i64
   %409 = sub i64 %407, %408
   %410 = sdiv exact i64 %409, 12
-  %411 = tail call i64 @llvm.ctlz.i64(i64 %410, i1 true), !range !5
+  %411 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %410, i1 true)
   %412 = shl nuw nsw i64 %411, 1
   %413 = xor i64 %412, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val30.i.i.i.i.i.i, ptr %.val31.i.i.i.i.i.i, i64 noundef %413, ptr nonnull @_ZN5nblib18interactionSortKeyINS_10PairLJTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEES1_EEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_)
@@ -1792,7 +1792,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i56.i607.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i53.i604.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i57.i608.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i56.i607.i.i.i.i.i.i, 12
   %or.cond.i.i58.i609.i.i.i.i.i.i = select i1 %420, i1 true, i1 %.not.i.i.i.i.i.i.i57.i608.i.i.i.i.i.i
-  br i1 %or.cond.i.i58.i609.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_10PairLJTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEES1_EEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i603.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i58.i609.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_10PairLJTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEES1_EEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i603.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i658.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i52.i603.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.07.i.i.i560.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.022.i.ptr.i.i602.i.i.i.i.i.i, i64 12, i1 false)
@@ -1822,7 +1822,7 @@ _ZN5nblib18interactionSortKeyINS_10PairLJTypeEEENSt9enable_ifIXtlNS_8ContainsIT_
   %.01924.i.i.i.i.i.add.i.i48.i614.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i45.i611.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i49.i615.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i48.i614.i.i.i.i.i.i, 12
   %or.cond.i.i50.i616.i.i.i.i.i.i = select i1 %427, i1 true, i1 %.not.i.i.i.i.i.i.i49.i615.i.i.i.i.i.i
-  br i1 %or.cond.i.i50.i616.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i617.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i610.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i50.i616.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i617.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i610.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i.i.i647.i.i.i.i.i.i:                    ; preds = %.lr.ph.i.i.i.i.i.i.i36.i651.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i610.i.i.i.i.i.i
   %.sroa.0.09.i.i.i.i648.i.i.i.i.i.i = phi ptr [ %.pn21.i.i.i601.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i610.i.i.i.i.i.i ], [ %.sroa.0.0.i.i.i.i650.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i36.i651.i.i.i.i.i.i ]
@@ -1845,7 +1845,7 @@ _ZN5nblib18interactionSortKeyINS_10PairLJTypeEEENSt9enable_ifIXtlNS_8ContainsIT_
   %.01924.i.i.i.i.i.add.i.i40.i655.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i37.i652.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i41.i656.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i40.i655.i.i.i.i.i.i, 12
   %or.cond.i.i42.i657.i.i.i.i.i.i = select i1 %432, i1 true, i1 %.not.i.i.i.i.i.i.i41.i656.i.i.i.i.i.i
-  br i1 %or.cond.i.i42.i657.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i617.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i651.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i42.i657.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i617.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i651.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i617.i.i.i.i.i.i: ; preds = %426, %431
   %.sroa.04.0.lcssa.i.i.i.i618.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i.i.i648.i.i.i.i.i.i, %431 ], [ %.sroa.0.022.i.ptr.i.i602.i.i.i.i.i.i, %426 ]
@@ -1856,7 +1856,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
 433:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i617.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i658.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i619.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i600.i.i.i.i.i.i, 12
   %.not.i.i3.i620.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i619.i.i.i.i.i.i, 192
-  br i1 %.not.i.i3.i620.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i621.i.i.i.i.i.i, label %415, !llvm.loop !8
+  br i1 %.not.i.i3.i620.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i621.i.i.i.i.i.i, label %415, !llvm.loop !7
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i621.i.i.i.i.i.i: ; preds = %433
   %434 = getelementptr inbounds i8, ptr %.val30.i.i.i.i.i.i, i64 192
@@ -1885,7 +1885,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i32.i630.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i29.i627.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i33.i631.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i32.i630.i.i.i.i.i.i, 12
   %or.cond.i.i34.i632.i.i.i.i.i.i = select i1 %439, i1 true, i1 %.not.i.i.i.i.i.i.i33.i631.i.i.i.i.i.i
-  br i1 %or.cond.i.i34.i632.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i633.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i626.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i34.i632.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i633.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i626.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i14.i.i636.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i20.i640.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i626.i.i.i.i.i.i
   %.sroa.0.09.i.i15.i.i637.i.i.i.i.i.i = phi ptr [ %.sroa.0.07.i.i.i.i625.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i626.i.i.i.i.i.i ], [ %.sroa.0.0.i.i17.i.i639.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i20.i640.i.i.i.i.i.i ]
@@ -1908,7 +1908,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i24.i644.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i21.i641.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i25.i645.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i24.i644.i.i.i.i.i.i, 12
   %or.cond.i.i26.i646.i.i.i.i.i.i = select i1 %444, i1 true, i1 %.not.i.i.i.i.i.i.i25.i645.i.i.i.i.i.i
-  br i1 %or.cond.i.i26.i646.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i633.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i640.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i26.i646.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i633.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i640.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i633.i.i.i.i.i.i: ; preds = %438, %443
   %.sroa.04.0.lcssa.i.i12.i.i634.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i15.i.i637.i.i.i.i.i.i, %443 ], [ %.sroa.0.08.i.i.i624.i.i.i.i.i.i, %438 ]
@@ -1916,7 +1916,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   %445 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i624.i.i.i.i.i.i, i64 12
   %.not.i13.i.i635.i.i.i.i.i.i = icmp eq ptr %445, %.val31.i.i.i.i.i.i
-  br i1 %.not.i13.i.i635.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISJ_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i623.i.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i13.i.i635.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISJ_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i623.i.i.i.i.i.i, !llvm.loop !8
 
 446:                                              ; preds = %406
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.07.i18.i.i559.i.i.i.i.i.i)
@@ -1943,7 +1943,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
   %.01924.i.i.i.i.i.add.i.i16.i571.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i13.i568.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i17.i572.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i16.i571.i.i.i.i.i.i, 12
   %or.cond.i.i18.i573.i.i.i.i.i.i = select i1 %451, i1 true, i1 %.not.i.i.i.i.i.i.i17.i572.i.i.i.i.i.i
-  br i1 %or.cond.i.i18.i573.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_10PairLJTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEES1_EEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i567.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i18.i573.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_10PairLJTypeEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEES1_EEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESP_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i567.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i597.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i12.i567.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.07.i18.i.i559.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.022.i23.i.i565.i.i.i.i.i.i, i64 12, i1 false)
@@ -1975,7 +1975,7 @@ _ZN5nblib18interactionSortKeyINS_10PairLJTypeEEENSt9enable_ifIXtlNS_8ContainsIT_
   %.01924.i.i.i.i.i.add.i.i8.i578.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i5.i575.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i9.i579.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i8.i578.i.i.i.i.i.i, 12
   %or.cond.i.i10.i580.i.i.i.i.i.i = select i1 %460, i1 true, i1 %.not.i.i.i.i.i.i.i9.i579.i.i.i.i.i.i
-  br i1 %or.cond.i.i10.i580.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i581.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i574.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i10.i580.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i581.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i574.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i29.i.i586.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i590.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i574.i.i.i.i.i.i
   %.sroa.0.09.i.i30.i.i587.i.i.i.i.i.i = phi ptr [ %.pn21.i24.i.i566.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i574.i.i.i.i.i.i ], [ %.sroa.0.0.i.i32.i.i589.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i590.i.i.i.i.i.i ]
@@ -1998,7 +1998,7 @@ _ZN5nblib18interactionSortKeyINS_10PairLJTypeEEENSt9enable_ifIXtlNS_8ContainsIT_
   %.01924.i.i.i.i.i.add.i.i.i594.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i.i591.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i595.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i.i594.i.i.i.i.i.i, 12
   %or.cond.i.i.i596.i.i.i.i.i.i = select i1 %465, i1 true, i1 %.not.i.i.i.i.i.i.i.i595.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i596.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i581.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i590.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i.i596.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i581.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i590.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i581.i.i.i.i.i.i: ; preds = %459, %464
   %.sroa.04.0.lcssa.i.i26.i.i582.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i30.i.i587.i.i.i.i.i.i, %464 ], [ %.sroa.0.022.i23.i.i565.i.i.i.i.i.i, %459 ]
@@ -2009,7 +2009,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EES
 466:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i581.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i597.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i583.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i565.i.i.i.i.i.i, i64 12
   %.not.i28.i.i584.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i583.i.i.i.i.i.i, %.val31.i.i.i.i.i.i
-  br i1 %.not.i28.i.i584.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i585.i.i.i.i.i.i, label %.lr.ph.i22.i.i564.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i28.i.i584.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i585.i.i.i.i.i.i, label %.lr.ph.i22.i.i564.i.i.i.i.i.i, !llvm.loop !7
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i585.i.i.i.i.i.i: ; preds = %466, %446
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.07.i18.i.i559.i.i.i.i.i.i)
@@ -2028,7 +2028,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorI
   %471 = ptrtoint ptr %.val32.i.i.i.i.i.i to i64
   %472 = sub i64 %470, %471
   %473 = ashr exact i64 %472, 4
-  %474 = tail call i64 @llvm.ctlz.i64(i64 %473, i1 true), !range !5
+  %474 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %473, i1 true)
   %475 = shl nuw nsw i64 %474, 1
   %476 = xor i64 %475, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val32.i.i.i.i.i.i, ptr %.val33.i.i.i.i.i.i, i64 noundef %476, ptr nonnull @_ZN5nblib18interactionSortKeyINS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJS3_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENS8_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESS_)
@@ -2074,7 +2074,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   %488 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i.i690.i.i.i.i.i.i, i64 -12
   %489 = load i32, ptr %488, align 4
   %490 = icmp slt i32 %481, %489
-  br i1 %490, label %.lr.ph.i.i.i.i689.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %490, label %.lr.ph.i.i.i.i689.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i689.i.i.i.i.i.i, %484
   %.sroa.04.0.lcssa.i.i.i.i678.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i.ptr.i.i677.i.i.i.i.i.i, %484 ], [ %.sroa.0.09.i.i.i.i690.i.i.i.i.i.i, %.lr.ph.i.i.i.i689.i.i.i.i.i.i ]
@@ -2088,7 +2088,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
 491:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i679.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i675.i.i.i.i.i.i, 16
   %.not.i.i3.i680.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i679.i.i.i.i.i.i, 256
-  br i1 %.not.i.i3.i680.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i.i.i.i.i.i.i, label %479, !llvm.loop !11
+  br i1 %.not.i.i3.i680.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i.i.i.i.i.i.i, label %479, !llvm.loop !10
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i.i.i.i.i.i.i: ; preds = %491
   %492 = getelementptr inbounds i8, ptr %.val32.i.i.i.i.i.i, i64 256
@@ -2114,7 +2114,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorI
   %498 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i.i687.i.i.i.i.i.i, i64 -28
   %499 = load i32, ptr %498, align 4
   %500 = icmp slt i32 %496, %499
-  br i1 %500, label %.lr.ph.i.i14.i.i686.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %500, label %.lr.ph.i.i14.i.i686.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i14.i.i686.i.i.i.i.i.i, %.lr.ph.i10.i.i682.i.i.i.i.i.i
   %.sroa.04.0.lcssa.i.i12.i.i684.i.i.i.i.i.i = phi ptr [ %.sroa.0.08.i.i.i683.i.i.i.i.i.i, %.lr.ph.i10.i.i682.i.i.i.i.i.i ], [ %.sroa.0.09.i.i15.i.i688.i.i.i.i.i.i, %.lr.ph.i.i14.i.i686.i.i.i.i.i.i ]
@@ -2123,7 +2123,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
   store i64 %.sroa.610.0.copyload.i.i.i.i.i.i.i, ptr %.sroa.610.0..sroa.04.0.lcssa.i.i12.i.sroa_idx.i.i.i.i.i.i.i, align 4
   %501 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i683.i.i.i.i.i.i, i64 16
   %.not.i13.i.i685.i.i.i.i.i.i = icmp eq ptr %501, %.val33.i.i.i.i.i.i
-  br i1 %.not.i13.i.i685.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISN_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i682.i.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i13.i.i685.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISN_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i682.i.i.i.i.i.i, !llvm.loop !11
 
 502:                                              ; preds = %469
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.07.i18.i.i660.i.i.i.i.i.i)
@@ -2172,7 +2172,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   %517 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i30.i.i671.i.i.i.i.i.i, i64 -12
   %518 = load i32, ptr %517, align 4
   %519 = icmp slt i32 %505, %518
-  br i1 %519, label %.lr.ph.i.i29.i.i670.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %519, label %.lr.ph.i.i29.i.i670.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i29.i.i670.i.i.i.i.i.i, %513
   %.sroa.04.0.lcssa.i.i26.i.i667.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i23.i.i665.i.i.i.i.i.i, %513 ], [ %.sroa.0.09.i.i30.i.i671.i.i.i.i.i.i, %.lr.ph.i.i29.i.i670.i.i.i.i.i.i ]
@@ -2186,7 +2186,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
 520:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i668.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i665.i.i.i.i.i.i, i64 16
   %.not.i28.i.i669.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i668.i.i.i.i.i.i, %.val33.i.i.i.i.i.i
-  br i1 %.not.i28.i.i669.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i.i.i.i.i.i.i, label %.lr.ph.i22.i.i664.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i28.i.i669.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i.i.i.i.i.i.i, label %.lr.ph.i22.i.i664.i.i.i.i.i.i, !llvm.loop !10
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i.i.i.i.i.i.i: ; preds = %520, %502
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.07.i18.i.i660.i.i.i.i.i.i)
@@ -2205,7 +2205,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorI
   %525 = ptrtoint ptr %.val34.i.i.i.i.i.i to i64
   %526 = sub i64 %524, %525
   %527 = ashr exact i64 %526, 4
-  %528 = tail call i64 @llvm.ctlz.i64(i64 %527, i1 true), !range !5
+  %528 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %527, i1 true)
   %529 = shl nuw nsw i64 %528, 1
   %530 = xor i64 %529, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val34.i.i.i.i.i.i, ptr %.val35.i.i.i.i.i.i, i64 noundef %530, ptr nonnull @_ZN5nblib18interactionSortKeyINS_16CosineParamAngleINS_17G96AngleParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES3_NS_12QuarticAngleENS1_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESS_)
@@ -2251,7 +2251,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   %542 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i.i749.i.i.i.i.i.i, i64 -12
   %543 = load i32, ptr %542, align 4
   %544 = icmp slt i32 %535, %543
-  br i1 %544, label %.lr.ph.i.i.i.i748.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i725.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %544, label %.lr.ph.i.i.i.i748.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i725.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i725.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i748.i.i.i.i.i.i, %538
   %.sroa.04.0.lcssa.i.i.i.i726.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i.ptr.i.i721.i.i.i.i.i.i, %538 ], [ %.sroa.0.09.i.i.i.i749.i.i.i.i.i.i, %.lr.ph.i.i.i.i748.i.i.i.i.i.i ]
@@ -2265,7 +2265,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
 545:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i725.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i752.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i729.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i719.i.i.i.i.i.i, 16
   %.not.i.i3.i730.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i729.i.i.i.i.i.i, 256
-  br i1 %.not.i.i3.i730.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i731.i.i.i.i.i.i, label %533, !llvm.loop !11
+  br i1 %.not.i.i3.i730.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i731.i.i.i.i.i.i, label %533, !llvm.loop !10
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i731.i.i.i.i.i.i: ; preds = %545
   %546 = getelementptr inbounds i8, ptr %.val34.i.i.i.i.i.i, i64 256
@@ -2291,7 +2291,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorI
   %552 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i.i746.i.i.i.i.i.i, i64 -28
   %553 = load i32, ptr %552, align 4
   %554 = icmp slt i32 %550, %553
-  br i1 %554, label %.lr.ph.i.i14.i.i745.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i740.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %554, label %.lr.ph.i.i14.i.i745.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i740.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i740.i.i.i.i.i.i: ; preds = %.lr.ph.i.i14.i.i745.i.i.i.i.i.i, %.lr.ph.i10.i.i733.i.i.i.i.i.i
   %.sroa.04.0.lcssa.i.i12.i.i741.i.i.i.i.i.i = phi ptr [ %.sroa.0.08.i.i.i734.i.i.i.i.i.i, %.lr.ph.i10.i.i733.i.i.i.i.i.i ], [ %.sroa.0.09.i.i15.i.i747.i.i.i.i.i.i, %.lr.ph.i.i14.i.i745.i.i.i.i.i.i ]
@@ -2300,7 +2300,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
   store i64 %.sroa.610.0.copyload.i739.i.i.i.i.i.i, ptr %.sroa.610.0..sroa.04.0.lcssa.i.i12.i.sroa_idx.i743.i.i.i.i.i.i, align 4
   %555 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i734.i.i.i.i.i.i, i64 16
   %.not.i13.i.i744.i.i.i.i.i.i = icmp eq ptr %555, %.val35.i.i.i.i.i.i
-  br i1 %.not.i13.i.i744.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISR_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i733.i.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i13.i.i744.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISR_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i733.i.i.i.i.i.i, !llvm.loop !11
 
 556:                                              ; preds = %523
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.07.i18.i.i693.i.i.i.i.i.i)
@@ -2349,7 +2349,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   %571 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i30.i.i713.i.i.i.i.i.i, i64 -12
   %572 = load i32, ptr %571, align 4
   %573 = icmp slt i32 %559, %572
-  br i1 %573, label %.lr.ph.i.i29.i.i712.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i705.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %573, label %.lr.ph.i.i29.i.i712.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i705.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i705.i.i.i.i.i.i: ; preds = %.lr.ph.i.i29.i.i712.i.i.i.i.i.i, %567
   %.sroa.04.0.lcssa.i.i26.i.i706.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i23.i.i700.i.i.i.i.i.i, %567 ], [ %.sroa.0.09.i.i30.i.i713.i.i.i.i.i.i, %.lr.ph.i.i29.i.i712.i.i.i.i.i.i ]
@@ -2363,7 +2363,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
 574:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i705.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i716.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i709.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i700.i.i.i.i.i.i, i64 16
   %.not.i28.i.i710.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i709.i.i.i.i.i.i, %.val35.i.i.i.i.i.i
-  br i1 %.not.i28.i.i710.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i711.i.i.i.i.i.i, label %.lr.ph.i22.i.i699.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i28.i.i710.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i711.i.i.i.i.i.i, label %.lr.ph.i22.i.i699.i.i.i.i.i.i, !llvm.loop !10
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i711.i.i.i.i.i.i: ; preds = %574, %556
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.07.i18.i.i693.i.i.i.i.i.i)
@@ -2382,7 +2382,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorI
   %579 = ptrtoint ptr %.val36.i.i.i.i.i.i to i64
   %580 = sub i64 %578, %579
   %581 = ashr exact i64 %580, 4
-  %582 = tail call i64 @llvm.ctlz.i64(i64 %581, i1 true), !range !5
+  %582 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %581, i1 true)
   %583 = shl nuw nsw i64 %582, 1
   %584 = xor i64 %583, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val36.i.i.i.i.i.i, ptr %.val37.i.i.i.i.i.i, i64 noundef %584, ptr nonnull @_ZN5nblib18interactionSortKeyINS_12QuarticAngleEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES1_NS9_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESS_)
@@ -2428,7 +2428,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   %596 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i.i809.i.i.i.i.i.i, i64 -12
   %597 = load i32, ptr %596, align 4
   %598 = icmp slt i32 %589, %597
-  br i1 %598, label %.lr.ph.i.i.i.i808.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i785.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %598, label %.lr.ph.i.i.i.i808.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i785.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i785.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i808.i.i.i.i.i.i, %592
   %.sroa.04.0.lcssa.i.i.i.i786.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i.ptr.i.i781.i.i.i.i.i.i, %592 ], [ %.sroa.0.09.i.i.i.i809.i.i.i.i.i.i, %.lr.ph.i.i.i.i808.i.i.i.i.i.i ]
@@ -2442,7 +2442,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
 599:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i785.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i812.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i789.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i779.i.i.i.i.i.i, 16
   %.not.i.i3.i790.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i789.i.i.i.i.i.i, 256
-  br i1 %.not.i.i3.i790.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i791.i.i.i.i.i.i, label %587, !llvm.loop !11
+  br i1 %.not.i.i3.i790.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i791.i.i.i.i.i.i, label %587, !llvm.loop !10
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i791.i.i.i.i.i.i: ; preds = %599
   %600 = getelementptr inbounds i8, ptr %.val36.i.i.i.i.i.i, i64 256
@@ -2468,7 +2468,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorI
   %606 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i.i806.i.i.i.i.i.i, i64 -28
   %607 = load i32, ptr %606, align 4
   %608 = icmp slt i32 %604, %607
-  br i1 %608, label %.lr.ph.i.i14.i.i805.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i800.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %608, label %.lr.ph.i.i14.i.i805.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i800.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i800.i.i.i.i.i.i: ; preds = %.lr.ph.i.i14.i.i805.i.i.i.i.i.i, %.lr.ph.i10.i.i793.i.i.i.i.i.i
   %.sroa.04.0.lcssa.i.i12.i.i801.i.i.i.i.i.i = phi ptr [ %.sroa.0.08.i.i.i794.i.i.i.i.i.i, %.lr.ph.i10.i.i793.i.i.i.i.i.i ], [ %.sroa.0.09.i.i15.i.i807.i.i.i.i.i.i, %.lr.ph.i.i14.i.i805.i.i.i.i.i.i ]
@@ -2477,7 +2477,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
   store i64 %.sroa.610.0.copyload.i799.i.i.i.i.i.i, ptr %.sroa.610.0..sroa.04.0.lcssa.i.i12.i.sroa_idx.i803.i.i.i.i.i.i, align 4
   %609 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i794.i.i.i.i.i.i, i64 16
   %.not.i13.i.i804.i.i.i.i.i.i = icmp eq ptr %609, %.val37.i.i.i.i.i.i
-  br i1 %.not.i13.i.i804.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIST_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i793.i.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i13.i.i804.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIST_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i793.i.i.i.i.i.i, !llvm.loop !11
 
 610:                                              ; preds = %577
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.07.i18.i.i753.i.i.i.i.i.i)
@@ -2526,7 +2526,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   %625 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i30.i.i773.i.i.i.i.i.i, i64 -12
   %626 = load i32, ptr %625, align 4
   %627 = icmp slt i32 %613, %626
-  br i1 %627, label %.lr.ph.i.i29.i.i772.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i765.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %627, label %.lr.ph.i.i29.i.i772.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i765.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i765.i.i.i.i.i.i: ; preds = %.lr.ph.i.i29.i.i772.i.i.i.i.i.i, %621
   %.sroa.04.0.lcssa.i.i26.i.i766.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i23.i.i760.i.i.i.i.i.i, %621 ], [ %.sroa.0.09.i.i30.i.i773.i.i.i.i.i.i, %.lr.ph.i.i29.i.i772.i.i.i.i.i.i ]
@@ -2540,7 +2540,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
 628:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i765.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i776.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i769.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i760.i.i.i.i.i.i, i64 16
   %.not.i28.i.i770.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i769.i.i.i.i.i.i, %.val37.i.i.i.i.i.i
-  br i1 %.not.i28.i.i770.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i771.i.i.i.i.i.i, label %.lr.ph.i22.i.i759.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i28.i.i770.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i771.i.i.i.i.i.i, label %.lr.ph.i22.i.i759.i.i.i.i.i.i, !llvm.loop !10
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i771.i.i.i.i.i.i: ; preds = %628, %610
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.07.i18.i.i753.i.i.i.i.i.i)
@@ -2559,7 +2559,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorI
   %633 = ptrtoint ptr %.val38.i.i.i.i.i.i to i64
   %634 = sub i64 %632, %633
   %635 = ashr exact i64 %634, 4
-  %636 = tail call i64 @llvm.ctlz.i64(i64 %635, i1 true), !range !5
+  %636 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %635, i1 true)
   %637 = shl nuw nsw i64 %636, 1
   %638 = xor i64 %637, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val38.i.i.i.i.i.i, ptr %.val39.i.i.i.i.i.i, i64 noundef %638, ptr nonnull @_ZN5nblib18interactionSortKeyINS_16CosineParamAngleINS_24RestrictedAngleParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS1_INS_17G96AngleParameterEEENS_12QuarticAngleES3_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESS_)
@@ -2605,7 +2605,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   %650 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i.i869.i.i.i.i.i.i, i64 -12
   %651 = load i32, ptr %650, align 4
   %652 = icmp slt i32 %643, %651
-  br i1 %652, label %.lr.ph.i.i.i.i868.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i845.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %652, label %.lr.ph.i.i.i.i868.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i845.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i845.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i868.i.i.i.i.i.i, %646
   %.sroa.04.0.lcssa.i.i.i.i846.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i.ptr.i.i841.i.i.i.i.i.i, %646 ], [ %.sroa.0.09.i.i.i.i869.i.i.i.i.i.i, %.lr.ph.i.i.i.i868.i.i.i.i.i.i ]
@@ -2619,7 +2619,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
 653:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i845.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i872.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i849.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i839.i.i.i.i.i.i, 16
   %.not.i.i3.i850.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i849.i.i.i.i.i.i, 256
-  br i1 %.not.i.i3.i850.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i851.i.i.i.i.i.i, label %641, !llvm.loop !11
+  br i1 %.not.i.i3.i850.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i851.i.i.i.i.i.i, label %641, !llvm.loop !10
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i851.i.i.i.i.i.i: ; preds = %653
   %654 = getelementptr inbounds i8, ptr %.val38.i.i.i.i.i.i, i64 256
@@ -2645,7 +2645,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorI
   %660 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i.i866.i.i.i.i.i.i, i64 -28
   %661 = load i32, ptr %660, align 4
   %662 = icmp slt i32 %658, %661
-  br i1 %662, label %.lr.ph.i.i14.i.i865.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i860.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %662, label %.lr.ph.i.i14.i.i865.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i860.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i860.i.i.i.i.i.i: ; preds = %.lr.ph.i.i14.i.i865.i.i.i.i.i.i, %.lr.ph.i10.i.i853.i.i.i.i.i.i
   %.sroa.04.0.lcssa.i.i12.i.i861.i.i.i.i.i.i = phi ptr [ %.sroa.0.08.i.i.i854.i.i.i.i.i.i, %.lr.ph.i10.i.i853.i.i.i.i.i.i ], [ %.sroa.0.09.i.i15.i.i867.i.i.i.i.i.i, %.lr.ph.i.i14.i.i865.i.i.i.i.i.i ]
@@ -2654,7 +2654,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
   store i64 %.sroa.610.0.copyload.i859.i.i.i.i.i.i, ptr %.sroa.610.0..sroa.04.0.lcssa.i.i12.i.sroa_idx.i863.i.i.i.i.i.i, align 4
   %663 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i854.i.i.i.i.i.i, i64 16
   %.not.i13.i.i864.i.i.i.i.i.i = icmp eq ptr %663, %.val39.i.i.i.i.i.i
-  br i1 %.not.i13.i.i864.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISW_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i853.i.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i13.i.i864.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISW_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i853.i.i.i.i.i.i, !llvm.loop !11
 
 664:                                              ; preds = %631
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.07.i18.i.i813.i.i.i.i.i.i)
@@ -2703,7 +2703,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   %679 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i30.i.i833.i.i.i.i.i.i, i64 -12
   %680 = load i32, ptr %679, align 4
   %681 = icmp slt i32 %667, %680
-  br i1 %681, label %.lr.ph.i.i29.i.i832.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i825.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %681, label %.lr.ph.i.i29.i.i832.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i825.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i825.i.i.i.i.i.i: ; preds = %.lr.ph.i.i29.i.i832.i.i.i.i.i.i, %675
   %.sroa.04.0.lcssa.i.i26.i.i826.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i23.i.i820.i.i.i.i.i.i, %675 ], [ %.sroa.0.09.i.i30.i.i833.i.i.i.i.i.i, %.lr.ph.i.i29.i.i832.i.i.i.i.i.i ]
@@ -2717,7 +2717,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
 682:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i825.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i836.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i829.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i820.i.i.i.i.i.i, i64 16
   %.not.i28.i.i830.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i829.i.i.i.i.i.i, %.val39.i.i.i.i.i.i
-  br i1 %.not.i28.i.i830.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i831.i.i.i.i.i.i, label %.lr.ph.i22.i.i819.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i28.i.i830.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i831.i.i.i.i.i.i, label %.lr.ph.i22.i.i819.i.i.i.i.i.i, !llvm.loop !10
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i831.i.i.i.i.i.i: ; preds = %682, %664
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.07.i18.i.i813.i.i.i.i.i.i)
@@ -2736,7 +2736,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorI
   %687 = ptrtoint ptr %.val40.i.i.i.i.i.i to i64
   %688 = sub i64 %686, %687
   %689 = ashr exact i64 %688, 4
-  %690 = tail call i64 @llvm.ctlz.i64(i64 %689, i1 true), !range !5
+  %690 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %689, i1 true)
   %691 = shl nuw nsw i64 %690, 1
   %692 = xor i64 %691, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val40.i.i.i.i.i.i, ptr %.val41.i.i.i.i.i.i, i64 noundef %692, ptr nonnull @_ZN5nblib18interactionSortKeyINS_13CrossBondBondEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENS9_INS_24RestrictedAngleParameterEEES1_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESS_)
@@ -2782,7 +2782,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   %704 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i.i929.i.i.i.i.i.i, i64 -12
   %705 = load i32, ptr %704, align 4
   %706 = icmp slt i32 %697, %705
-  br i1 %706, label %.lr.ph.i.i.i.i928.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i905.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %706, label %.lr.ph.i.i.i.i928.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i905.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i905.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i928.i.i.i.i.i.i, %700
   %.sroa.04.0.lcssa.i.i.i.i906.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i.ptr.i.i901.i.i.i.i.i.i, %700 ], [ %.sroa.0.09.i.i.i.i929.i.i.i.i.i.i, %.lr.ph.i.i.i.i928.i.i.i.i.i.i ]
@@ -2796,7 +2796,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
 707:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i905.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i932.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i909.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i899.i.i.i.i.i.i, 16
   %.not.i.i3.i910.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i909.i.i.i.i.i.i, 256
-  br i1 %.not.i.i3.i910.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i911.i.i.i.i.i.i, label %695, !llvm.loop !11
+  br i1 %.not.i.i3.i910.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i911.i.i.i.i.i.i, label %695, !llvm.loop !10
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i911.i.i.i.i.i.i: ; preds = %707
   %708 = getelementptr inbounds i8, ptr %.val40.i.i.i.i.i.i, i64 256
@@ -2822,7 +2822,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorI
   %714 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i.i926.i.i.i.i.i.i, i64 -28
   %715 = load i32, ptr %714, align 4
   %716 = icmp slt i32 %712, %715
-  br i1 %716, label %.lr.ph.i.i14.i.i925.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i920.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %716, label %.lr.ph.i.i14.i.i925.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i920.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i920.i.i.i.i.i.i: ; preds = %.lr.ph.i.i14.i.i925.i.i.i.i.i.i, %.lr.ph.i10.i.i913.i.i.i.i.i.i
   %.sroa.04.0.lcssa.i.i12.i.i921.i.i.i.i.i.i = phi ptr [ %.sroa.0.08.i.i.i914.i.i.i.i.i.i, %.lr.ph.i10.i.i913.i.i.i.i.i.i ], [ %.sroa.0.09.i.i15.i.i927.i.i.i.i.i.i, %.lr.ph.i.i14.i.i925.i.i.i.i.i.i ]
@@ -2831,7 +2831,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
   store i64 %.sroa.610.0.copyload.i919.i.i.i.i.i.i, ptr %.sroa.610.0..sroa.04.0.lcssa.i.i12.i.sroa_idx.i923.i.i.i.i.i.i, align 4
   %717 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i914.i.i.i.i.i.i, i64 16
   %.not.i13.i.i924.i.i.i.i.i.i = icmp eq ptr %717, %.val41.i.i.i.i.i.i
-  br i1 %.not.i13.i.i924.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISY_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i913.i.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i13.i.i924.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clISY_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i913.i.i.i.i.i.i, !llvm.loop !11
 
 718:                                              ; preds = %685
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.07.i18.i.i873.i.i.i.i.i.i)
@@ -2880,7 +2880,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   %733 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i30.i.i893.i.i.i.i.i.i, i64 -12
   %734 = load i32, ptr %733, align 4
   %735 = icmp slt i32 %721, %734
-  br i1 %735, label %.lr.ph.i.i29.i.i892.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i885.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %735, label %.lr.ph.i.i29.i.i892.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i885.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i885.i.i.i.i.i.i: ; preds = %.lr.ph.i.i29.i.i892.i.i.i.i.i.i, %729
   %.sroa.04.0.lcssa.i.i26.i.i886.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i23.i.i880.i.i.i.i.i.i, %729 ], [ %.sroa.0.09.i.i30.i.i893.i.i.i.i.i.i, %.lr.ph.i.i29.i.i892.i.i.i.i.i.i ]
@@ -2894,7 +2894,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
 736:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i885.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i896.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i889.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i880.i.i.i.i.i.i, i64 16
   %.not.i28.i.i890.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i889.i.i.i.i.i.i, %.val41.i.i.i.i.i.i
-  br i1 %.not.i28.i.i890.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i891.i.i.i.i.i.i, label %.lr.ph.i22.i.i879.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i28.i.i890.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i891.i.i.i.i.i.i, label %.lr.ph.i22.i.i879.i.i.i.i.i.i, !llvm.loop !10
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i891.i.i.i.i.i.i: ; preds = %736, %718
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.07.i18.i.i873.i.i.i.i.i.i)
@@ -2913,7 +2913,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorI
   %741 = ptrtoint ptr %.val42.i.i.i.i.i.i to i64
   %742 = sub i64 %740, %741
   %743 = ashr exact i64 %742, 4
-  %744 = tail call i64 @llvm.ctlz.i64(i64 %743, i1 true), !range !5
+  %744 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %743, i1 true)
   %745 = shl nuw nsw i64 %744, 1
   %746 = xor i64 %745, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val42.i.i.i.i.i.i, ptr %.val43.i.i.i.i.i.i, i64 noundef %746, ptr nonnull @_ZN5nblib18interactionSortKeyINS_14CrossBondAngleEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENS9_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES1_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESS_)
@@ -2959,7 +2959,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   %758 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i.i989.i.i.i.i.i.i, i64 -12
   %759 = load i32, ptr %758, align 4
   %760 = icmp slt i32 %751, %759
-  br i1 %760, label %.lr.ph.i.i.i.i988.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i965.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %760, label %.lr.ph.i.i.i.i988.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i965.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i965.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i988.i.i.i.i.i.i, %754
   %.sroa.04.0.lcssa.i.i.i.i966.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i.ptr.i.i961.i.i.i.i.i.i, %754 ], [ %.sroa.0.09.i.i.i.i989.i.i.i.i.i.i, %.lr.ph.i.i.i.i988.i.i.i.i.i.i ]
@@ -2973,7 +2973,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
 761:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i965.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i992.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i969.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i959.i.i.i.i.i.i, 16
   %.not.i.i3.i970.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i969.i.i.i.i.i.i, 256
-  br i1 %.not.i.i3.i970.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i971.i.i.i.i.i.i, label %749, !llvm.loop !11
+  br i1 %.not.i.i3.i970.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i971.i.i.i.i.i.i, label %749, !llvm.loop !10
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i971.i.i.i.i.i.i: ; preds = %761
   %762 = getelementptr inbounds i8, ptr %.val42.i.i.i.i.i.i, i64 256
@@ -2999,7 +2999,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorI
   %768 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i.i986.i.i.i.i.i.i, i64 -28
   %769 = load i32, ptr %768, align 4
   %770 = icmp slt i32 %766, %769
-  br i1 %770, label %.lr.ph.i.i14.i.i985.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i980.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %770, label %.lr.ph.i.i14.i.i985.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i980.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i980.i.i.i.i.i.i: ; preds = %.lr.ph.i.i14.i.i985.i.i.i.i.i.i, %.lr.ph.i10.i.i973.i.i.i.i.i.i
   %.sroa.04.0.lcssa.i.i12.i.i981.i.i.i.i.i.i = phi ptr [ %.sroa.0.08.i.i.i974.i.i.i.i.i.i, %.lr.ph.i10.i.i973.i.i.i.i.i.i ], [ %.sroa.0.09.i.i15.i.i987.i.i.i.i.i.i, %.lr.ph.i.i14.i.i985.i.i.i.i.i.i ]
@@ -3008,7 +3008,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
   store i64 %.sroa.610.0.copyload.i979.i.i.i.i.i.i, ptr %.sroa.610.0..sroa.04.0.lcssa.i.i12.i.sroa_idx.i983.i.i.i.i.i.i, align 4
   %771 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i974.i.i.i.i.i.i, i64 16
   %.not.i13.i.i984.i.i.i.i.i.i = icmp eq ptr %771, %.val43.i.i.i.i.i.i
-  br i1 %.not.i13.i.i984.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS10_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i973.i.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i13.i.i984.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS10_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i973.i.i.i.i.i.i, !llvm.loop !11
 
 772:                                              ; preds = %739
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.07.i18.i.i933.i.i.i.i.i.i)
@@ -3057,7 +3057,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   %787 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i30.i.i953.i.i.i.i.i.i, i64 -12
   %788 = load i32, ptr %787, align 4
   %789 = icmp slt i32 %775, %788
-  br i1 %789, label %.lr.ph.i.i29.i.i952.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i945.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %789, label %.lr.ph.i.i29.i.i952.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i945.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i945.i.i.i.i.i.i: ; preds = %.lr.ph.i.i29.i.i952.i.i.i.i.i.i, %783
   %.sroa.04.0.lcssa.i.i26.i.i946.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i23.i.i940.i.i.i.i.i.i, %783 ], [ %.sroa.0.09.i.i30.i.i953.i.i.i.i.i.i, %.lr.ph.i.i29.i.i952.i.i.i.i.i.i ]
@@ -3071,7 +3071,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
 790:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i945.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i956.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i949.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i940.i.i.i.i.i.i, i64 16
   %.not.i28.i.i950.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i949.i.i.i.i.i.i, %.val43.i.i.i.i.i.i
-  br i1 %.not.i28.i.i950.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i951.i.i.i.i.i.i, label %.lr.ph.i22.i.i939.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i28.i.i950.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i951.i.i.i.i.i.i, label %.lr.ph.i22.i.i939.i.i.i.i.i.i, !llvm.loop !10
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i951.i.i.i.i.i.i: ; preds = %790, %772
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.07.i18.i.i933.i.i.i.i.i.i)
@@ -3090,7 +3090,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorI
   %795 = ptrtoint ptr %.val44.i.i.i.i.i.i to i64
   %796 = sub i64 %794, %795
   %797 = ashr exact i64 %796, 4
-  %798 = tail call i64 @llvm.ctlz.i64(i64 %797, i1 true), !range !5
+  %798 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %797, i1 true)
   %799 = shl nuw nsw i64 %798, 1
   %800 = xor i64 %799, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val44.i.i.i.i.i.i, ptr %.val45.i.i.i.i.i.i, i64 noundef %800, ptr nonnull @_ZN5nblib18interactionSortKeyINS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSB_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES3_EEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS6_vEEELi1EEESS_)
@@ -3136,7 +3136,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   %812 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i.i1049.i.i.i.i.i.i, i64 -12
   %813 = load i32, ptr %812, align 4
   %814 = icmp slt i32 %805, %813
-  br i1 %814, label %.lr.ph.i.i.i.i1048.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i1025.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %814, label %.lr.ph.i.i.i.i1048.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i1025.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i1025.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i1048.i.i.i.i.i.i, %808
   %.sroa.04.0.lcssa.i.i.i.i1026.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i.ptr.i.i1021.i.i.i.i.i.i, %808 ], [ %.sroa.0.09.i.i.i.i1049.i.i.i.i.i.i, %.lr.ph.i.i.i.i1048.i.i.i.i.i.i ]
@@ -3150,7 +3150,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
 815:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i1025.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i1052.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i1029.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i1019.i.i.i.i.i.i, 16
   %.not.i.i3.i1030.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i1029.i.i.i.i.i.i, 256
-  br i1 %.not.i.i3.i1030.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i1031.i.i.i.i.i.i, label %803, !llvm.loop !11
+  br i1 %.not.i.i3.i1030.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i1031.i.i.i.i.i.i, label %803, !llvm.loop !10
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i1031.i.i.i.i.i.i: ; preds = %815
   %816 = getelementptr inbounds i8, ptr %.val44.i.i.i.i.i.i, i64 256
@@ -3176,7 +3176,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorI
   %822 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i.i1046.i.i.i.i.i.i, i64 -28
   %823 = load i32, ptr %822, align 4
   %824 = icmp slt i32 %820, %823
-  br i1 %824, label %.lr.ph.i.i14.i.i1045.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i1040.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %824, label %.lr.ph.i.i14.i.i1045.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i1040.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i1040.i.i.i.i.i.i: ; preds = %.lr.ph.i.i14.i.i1045.i.i.i.i.i.i, %.lr.ph.i10.i.i1033.i.i.i.i.i.i
   %.sroa.04.0.lcssa.i.i12.i.i1041.i.i.i.i.i.i = phi ptr [ %.sroa.0.08.i.i.i1034.i.i.i.i.i.i, %.lr.ph.i10.i.i1033.i.i.i.i.i.i ], [ %.sroa.0.09.i.i15.i.i1047.i.i.i.i.i.i, %.lr.ph.i.i14.i.i1045.i.i.i.i.i.i ]
@@ -3185,7 +3185,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
   store i64 %.sroa.610.0.copyload.i1039.i.i.i.i.i.i, ptr %.sroa.610.0..sroa.04.0.lcssa.i.i12.i.sroa_idx.i1043.i.i.i.i.i.i, align 4
   %825 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i1034.i.i.i.i.i.i, i64 16
   %.not.i13.i.i1044.i.i.i.i.i.i = icmp eq ptr %825, %.val45.i.i.i.i.i.i
-  br i1 %.not.i13.i.i1044.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS13_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i1033.i.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i13.i.i1044.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS13_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i1033.i.i.i.i.i.i, !llvm.loop !11
 
 826:                                              ; preds = %793
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.07.i18.i.i993.i.i.i.i.i.i)
@@ -3234,7 +3234,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   %841 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i30.i.i1013.i.i.i.i.i.i, i64 -12
   %842 = load i32, ptr %841, align 4
   %843 = icmp slt i32 %829, %842
-  br i1 %843, label %.lr.ph.i.i29.i.i1012.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i1005.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %843, label %.lr.ph.i.i29.i.i1012.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i1005.i.i.i.i.i.i, !llvm.loop !9
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i1005.i.i.i.i.i.i: ; preds = %.lr.ph.i.i29.i.i1012.i.i.i.i.i.i, %837
   %.sroa.04.0.lcssa.i.i26.i.i1006.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i23.i.i1000.i.i.i.i.i.i, %837 ], [ %.sroa.0.09.i.i30.i.i1013.i.i.i.i.i.i, %.lr.ph.i.i29.i.i1012.i.i.i.i.i.i ]
@@ -3248,7 +3248,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EES
 844:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i1005.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i1016.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i1009.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i1000.i.i.i.i.i.i, i64 16
   %.not.i28.i.i1010.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i1009.i.i.i.i.i.i, %.val45.i.i.i.i.i.i
-  br i1 %.not.i28.i.i1010.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i1011.i.i.i.i.i.i, label %.lr.ph.i22.i.i999.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i28.i.i1010.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i1011.i.i.i.i.i.i, label %.lr.ph.i22.i.i999.i.i.i.i.i.i, !llvm.loop !10
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i1011.i.i.i.i.i.i: ; preds = %844, %826
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.07.i18.i.i993.i.i.i.i.i.i)
@@ -3267,7 +3267,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorI
   %849 = ptrtoint ptr %.val46.i.i.i.i.i.i to i64
   %850 = sub i64 %848, %849
   %851 = sdiv exact i64 %850, 20
-  %852 = tail call i64 @llvm.ctlz.i64(i64 %851, i1 true), !range !5
+  %852 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %851, i1 true)
   %853 = shl nuw nsw i64 %852, 1
   %854 = xor i64 %853, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val46.i.i.i.i.i.i, ptr %.val47.i.i.i.i.i.i, i64 noundef %854, ptr nonnull @_ZN5nblib18interactionSortKeyINS_14ProperDihedralEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJS1_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESH_)
@@ -3316,7 +3316,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_
   %868 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i.i1090.i.i.i.i.i.i, i64 -16
   %869 = load i32, ptr %868, align 4
   %870 = icmp slt i32 %859, %869
-  br i1 %870, label %.lr.ph.i.i.i.i1089.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %870, label %.lr.ph.i.i.i.i1089.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !12
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i1089.i.i.i.i.i.i, %864
   %.sroa.04.0.lcssa.i.i.i.i1076.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i.ptr.i.i1073.i.i.i.i.i.i, %864 ], [ %.sroa.0.09.i.i.i.i1090.i.i.i.i.i.i, %.lr.ph.i.i.i.i1089.i.i.i.i.i.i ]
@@ -3331,7 +3331,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EES
 871:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i1079.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i1071.i.i.i.i.i.i, 20
   %.not.i.i3.i1080.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i1079.i.i.i.i.i.i, 320
-  br i1 %.not.i.i3.i1080.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i.i.i.i.i.i.i, label %857, !llvm.loop !14
+  br i1 %.not.i.i3.i1080.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i.i.i.i.i.i.i, label %857, !llvm.loop !13
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i.i.i.i.i.i.i: ; preds = %871
   %872 = getelementptr inbounds i8, ptr %.val46.i.i.i.i.i.i, i64 320
@@ -3358,7 +3358,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorI
   %878 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i.i1087.i.i.i.i.i.i, i64 -36
   %879 = load i32, ptr %878, align 4
   %880 = icmp slt i32 %876, %879
-  br i1 %880, label %.lr.ph.i.i14.i.i1086.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %880, label %.lr.ph.i.i14.i.i1086.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i, !llvm.loop !12
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i14.i.i1086.i.i.i.i.i.i, %.lr.ph.i10.i.i1082.i.i.i.i.i.i
   %.sroa.04.0.lcssa.i.i12.i.i1084.i.i.i.i.i.i = phi ptr [ %.sroa.0.08.i.i.i1083.i.i.i.i.i.i, %.lr.ph.i10.i.i1082.i.i.i.i.i.i ], [ %.sroa.0.09.i.i15.i.i1088.i.i.i.i.i.i, %.lr.ph.i.i14.i.i1086.i.i.i.i.i.i ]
@@ -3368,7 +3368,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EES
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.69.i.i.i.i.i.i.i)
   %881 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i1083.i.i.i.i.i.i, i64 20
   %.not.i13.i.i1085.i.i.i.i.i.i = icmp eq ptr %881, %.val47.i.i.i.i.i.i
-  br i1 %.not.i13.i.i1085.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS15_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i1082.i.i.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i13.i.i1085.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS15_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i1082.i.i.i.i.i.i, !llvm.loop !14
 
 882:                                              ; preds = %847
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.07.i18.i.i1053.i.i.i.i.i.i)
@@ -3418,7 +3418,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_
   %896 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i30.i.i1066.i.i.i.i.i.i, i64 -16
   %897 = load i32, ptr %896, align 4
   %898 = icmp slt i32 %885, %897
-  br i1 %898, label %.lr.ph.i.i29.i.i1065.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %898, label %.lr.ph.i.i29.i.i1065.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, !llvm.loop !12
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i29.i.i1065.i.i.i.i.i.i, %892
   %.sroa.04.0.lcssa.i.i26.i.i1062.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i23.i.i1060.i.i.i.i.i.i, %892 ], [ %.sroa.0.09.i.i30.i.i1066.i.i.i.i.i.i, %.lr.ph.i.i29.i.i1065.i.i.i.i.i.i ]
@@ -3433,7 +3433,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EES
 899:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i1063.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i1060.i.i.i.i.i.i, i64 20
   %.not.i28.i.i1064.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i1063.i.i.i.i.i.i, %.val47.i.i.i.i.i.i
-  br i1 %.not.i28.i.i1064.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i.i.i.i.i.i.i, label %.lr.ph.i22.i.i1059.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i28.i.i1064.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i.i.i.i.i.i.i, label %.lr.ph.i22.i.i1059.i.i.i.i.i.i, !llvm.loop !13
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i.i.i.i.i.i.i: ; preds = %899, %882
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.07.i18.i.i1053.i.i.i.i.i.i)
@@ -3452,7 +3452,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorI
   %904 = ptrtoint ptr %.val48.i.i.i.i.i.i to i64
   %905 = sub i64 %903, %904
   %906 = sdiv exact i64 %905, 20
-  %907 = tail call i64 @llvm.ctlz.i64(i64 %906, i1 true), !range !5
+  %907 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %906, i1 true)
   %908 = shl nuw nsw i64 %907, 1
   %909 = xor i64 %908, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val48.i.i.i.i.i.i, ptr %.val49.i.i.i.i.i.i, i64 noundef %909, ptr nonnull @_ZN5nblib18interactionSortKeyINS_16ImproperDihedralEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_14ProperDihedralES1_NS_24RyckaertBellemanDihedralEEEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESH_)
@@ -3501,7 +3501,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_
   %923 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i.i1150.i.i.i.i.i.i, i64 -16
   %924 = load i32, ptr %923, align 4
   %925 = icmp slt i32 %914, %924
-  br i1 %925, label %.lr.ph.i.i.i.i1149.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i1127.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %925, label %.lr.ph.i.i.i.i1149.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i1127.i.i.i.i.i.i, !llvm.loop !12
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i1127.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i1149.i.i.i.i.i.i, %919
   %.sroa.04.0.lcssa.i.i.i.i1128.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i.ptr.i.i1124.i.i.i.i.i.i, %919 ], [ %.sroa.0.09.i.i.i.i1150.i.i.i.i.i.i, %.lr.ph.i.i.i.i1149.i.i.i.i.i.i ]
@@ -3516,7 +3516,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EES
 926:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i1127.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i1153.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i1131.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i1122.i.i.i.i.i.i, 20
   %.not.i.i3.i1132.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i1131.i.i.i.i.i.i, 320
-  br i1 %.not.i.i3.i1132.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i1133.i.i.i.i.i.i, label %912, !llvm.loop !14
+  br i1 %.not.i.i3.i1132.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i1133.i.i.i.i.i.i, label %912, !llvm.loop !13
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i1133.i.i.i.i.i.i: ; preds = %926
   %927 = getelementptr inbounds i8, ptr %.val48.i.i.i.i.i.i, i64 320
@@ -3543,7 +3543,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorI
   %933 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i.i1147.i.i.i.i.i.i, i64 -36
   %934 = load i32, ptr %933, align 4
   %935 = icmp slt i32 %931, %934
-  br i1 %935, label %.lr.ph.i.i14.i.i1146.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i1141.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %935, label %.lr.ph.i.i14.i.i1146.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i1141.i.i.i.i.i.i, !llvm.loop !12
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i1141.i.i.i.i.i.i: ; preds = %.lr.ph.i.i14.i.i1146.i.i.i.i.i.i, %.lr.ph.i10.i.i1135.i.i.i.i.i.i
   %.sroa.04.0.lcssa.i.i12.i.i1142.i.i.i.i.i.i = phi ptr [ %.sroa.0.08.i.i.i1136.i.i.i.i.i.i, %.lr.ph.i10.i.i1135.i.i.i.i.i.i ], [ %.sroa.0.09.i.i15.i.i1148.i.i.i.i.i.i, %.lr.ph.i.i14.i.i1146.i.i.i.i.i.i ]
@@ -3553,7 +3553,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EES
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.69.i1096.i.i.i.i.i.i)
   %936 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i1136.i.i.i.i.i.i, i64 20
   %.not.i13.i.i1145.i.i.i.i.i.i = icmp eq ptr %936, %.val49.i.i.i.i.i.i
-  br i1 %.not.i13.i.i1145.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS17_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i1135.i.i.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i13.i.i1145.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS17_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i1135.i.i.i.i.i.i, !llvm.loop !14
 
 937:                                              ; preds = %902
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.07.i18.i.i1095.i.i.i.i.i.i)
@@ -3603,7 +3603,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_
   %951 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i30.i.i1116.i.i.i.i.i.i, i64 -16
   %952 = load i32, ptr %951, align 4
   %953 = icmp slt i32 %940, %952
-  br i1 %953, label %.lr.ph.i.i29.i.i1115.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i1108.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %953, label %.lr.ph.i.i29.i.i1115.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i1108.i.i.i.i.i.i, !llvm.loop !12
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i1108.i.i.i.i.i.i: ; preds = %.lr.ph.i.i29.i.i1115.i.i.i.i.i.i, %947
   %.sroa.04.0.lcssa.i.i26.i.i1109.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i23.i.i1104.i.i.i.i.i.i, %947 ], [ %.sroa.0.09.i.i30.i.i1116.i.i.i.i.i.i, %.lr.ph.i.i29.i.i1115.i.i.i.i.i.i ]
@@ -3618,7 +3618,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EES
 954:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i1108.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i1119.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i1112.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i1104.i.i.i.i.i.i, i64 20
   %.not.i28.i.i1113.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i1112.i.i.i.i.i.i, %.val49.i.i.i.i.i.i
-  br i1 %.not.i28.i.i1113.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i1114.i.i.i.i.i.i, label %.lr.ph.i22.i.i1103.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i28.i.i1113.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i1114.i.i.i.i.i.i, label %.lr.ph.i22.i.i1103.i.i.i.i.i.i, !llvm.loop !13
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i1114.i.i.i.i.i.i: ; preds = %954, %937
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.07.i18.i.i1095.i.i.i.i.i.i)
@@ -3637,7 +3637,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorI
   %959 = ptrtoint ptr %.val50.i.i.i.i.i.i to i64
   %960 = sub i64 %958, %959
   %961 = sdiv exact i64 %960, 20
-  %962 = tail call i64 @llvm.ctlz.i64(i64 %961, i1 true), !range !5
+  %962 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %961, i1 true)
   %963 = shl nuw nsw i64 %962, 1
   %964 = xor i64 %963, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val50.i.i.i.i.i.i, ptr %.val51.i.i.i.i.i.i, i64 noundef %964, ptr nonnull @_ZN5nblib18interactionSortKeyINS_24RyckaertBellemanDihedralEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES1_EEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESH_)
@@ -3686,7 +3686,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_
   %978 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i.i1211.i.i.i.i.i.i, i64 -16
   %979 = load i32, ptr %978, align 4
   %980 = icmp slt i32 %969, %979
-  br i1 %980, label %.lr.ph.i.i.i.i1210.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i1188.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %980, label %.lr.ph.i.i.i.i1210.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i1188.i.i.i.i.i.i, !llvm.loop !12
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i1188.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i1210.i.i.i.i.i.i, %974
   %.sroa.04.0.lcssa.i.i.i.i1189.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i.ptr.i.i1185.i.i.i.i.i.i, %974 ], [ %.sroa.0.09.i.i.i.i1211.i.i.i.i.i.i, %.lr.ph.i.i.i.i1210.i.i.i.i.i.i ]
@@ -3701,7 +3701,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EES
 981:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i1188.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i1214.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i1192.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i1183.i.i.i.i.i.i, 20
   %.not.i.i3.i1193.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i1192.i.i.i.i.i.i, 320
-  br i1 %.not.i.i3.i1193.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i1194.i.i.i.i.i.i, label %967, !llvm.loop !14
+  br i1 %.not.i.i3.i1193.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i1194.i.i.i.i.i.i, label %967, !llvm.loop !13
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i1194.i.i.i.i.i.i: ; preds = %981
   %982 = getelementptr inbounds i8, ptr %.val50.i.i.i.i.i.i, i64 320
@@ -3728,7 +3728,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorI
   %988 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i.i1208.i.i.i.i.i.i, i64 -36
   %989 = load i32, ptr %988, align 4
   %990 = icmp slt i32 %986, %989
-  br i1 %990, label %.lr.ph.i.i14.i.i1207.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i1202.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %990, label %.lr.ph.i.i14.i.i1207.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i1202.i.i.i.i.i.i, !llvm.loop !12
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i1202.i.i.i.i.i.i: ; preds = %.lr.ph.i.i14.i.i1207.i.i.i.i.i.i, %.lr.ph.i10.i.i1196.i.i.i.i.i.i
   %.sroa.04.0.lcssa.i.i12.i.i1203.i.i.i.i.i.i = phi ptr [ %.sroa.0.08.i.i.i1197.i.i.i.i.i.i, %.lr.ph.i10.i.i1196.i.i.i.i.i.i ], [ %.sroa.0.09.i.i15.i.i1209.i.i.i.i.i.i, %.lr.ph.i.i14.i.i1207.i.i.i.i.i.i ]
@@ -3738,7 +3738,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EES
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.69.i1157.i.i.i.i.i.i)
   %991 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i1197.i.i.i.i.i.i, i64 20
   %.not.i13.i.i1206.i.i.i.i.i.i = icmp eq ptr %991, %.val51.i.i.i.i.i.i
-  br i1 %.not.i13.i.i1206.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS19_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i1196.i.i.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i13.i.i1206.i.i.i.i.i.i, label %"_ZZN5nblib16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS1_INS_11G96BondTypeEEENS1_INS_13CubicBondTypeEEENS1_INS_13MorseBondTypeEEENS1_INS2_INS_21FENEBondTypeParameterEEEEENS1_INS2_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS1_INS_10PairLJTypeEEENS1_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS1_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS1_INS_12QuarticAngleEEENS1_INSO_INS_24RestrictedAngleParameterEEEEENS1_INS_13CrossBondBondEEENS1_INS_14CrossBondAngleEEENS1_INS2_INS_20LinearAngleParameterEEEEENS1_INS_14ProperDihedralEEENS1_INS_16ImproperDihedralEEENS1_INS_24RyckaertBellemanDihedralEEENS1_INS_14Default5CenterEEEEEENK3$_0clIS19_EEDaRT_.exit.i.i.i.i.i.i", label %.lr.ph.i10.i.i1196.i.i.i.i.i.i, !llvm.loop !14
 
 992:                                              ; preds = %957
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.07.i18.i.i1156.i.i.i.i.i.i)
@@ -3788,7 +3788,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_
   %1006 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i30.i.i1177.i.i.i.i.i.i, i64 -16
   %1007 = load i32, ptr %1006, align 4
   %1008 = icmp slt i32 %995, %1007
-  br i1 %1008, label %.lr.ph.i.i29.i.i1176.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i1169.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %1008, label %.lr.ph.i.i29.i.i1176.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i1169.i.i.i.i.i.i, !llvm.loop !12
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i1169.i.i.i.i.i.i: ; preds = %.lr.ph.i.i29.i.i1176.i.i.i.i.i.i, %1002
   %.sroa.04.0.lcssa.i.i26.i.i1170.i.i.i.i.i.i = phi ptr [ %.sroa.0.022.i23.i.i1165.i.i.i.i.i.i, %1002 ], [ %.sroa.0.09.i.i30.i.i1177.i.i.i.i.i.i, %.lr.ph.i.i29.i.i1176.i.i.i.i.i.i ]
@@ -3803,7 +3803,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EES
 1009:                                             ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i1169.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i1180.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i1173.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i1165.i.i.i.i.i.i, i64 20
   %.not.i28.i.i1174.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i1173.i.i.i.i.i.i, %.val51.i.i.i.i.i.i
-  br i1 %.not.i28.i.i1174.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i1175.i.i.i.i.i.i, label %.lr.ph.i22.i.i1164.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i28.i.i1174.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i1175.i.i.i.i.i.i, label %.lr.ph.i22.i.i1164.i.i.i.i.i.i, !llvm.loop !13
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i1175.i.i.i.i.i.i: ; preds = %1009, %992
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.07.i18.i.i1156.i.i.i.i.i.i)
@@ -3822,7 +3822,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorI
   %1014 = ptrtoint ptr %.val52.i.i.i.i.i.i to i64
   %1015 = sub i64 %1013, %1014
   %1016 = sdiv exact i64 %1015, 24
-  %1017 = tail call i64 @llvm.ctlz.i64(i64 %1016, i1 true), !range !5
+  %1017 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1016, i1 true)
   %1018 = shl nuw nsw i64 %1017, 1
   %1019 = xor i64 %1018, 126
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %.val52.i.i.i.i.i.i, ptr %.val53.i.i.i.i.i.i, i64 noundef %1019, ptr nonnull @_ZN5nblib18interactionSortKeyINS_14Default5CenterEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJS1_EEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESF_)
@@ -3853,7 +3853,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i56.i1261.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i53.i1258.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i57.i1262.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i56.i1261.i.i.i.i.i.i, 24
   %or.cond.i.i58.i1263.i.i.i.i.i.i = select i1 %1026, i1 true, i1 %.not.i.i.i.i.i.i.i57.i1262.i.i.i.i.i.i
-  br i1 %or.cond.i.i58.i1263.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_14Default5CenterEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJS1_EEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESF_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i1257.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i58.i1263.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_14Default5CenterEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJS1_EEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESF_.exit59.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i52.i1257.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i52.i1257.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.07.i.i.i1217.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.0.022.i.ptr.i.i1256.i.i.i.i.i.i, i64 24, i1 false)
@@ -3883,7 +3883,7 @@ _ZN5nblib18interactionSortKeyINS_14Default5CenterEEENSt9enable_ifIXtlNS_8Contain
   %.01924.i.i.i.i.i.add.i.i48.i1268.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i45.i1265.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i49.i1269.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i48.i1268.i.i.i.i.i.i, 24
   %or.cond.i.i50.i1270.i.i.i.i.i.i = select i1 %1033, i1 true, i1 %.not.i.i.i.i.i.i.i49.i1269.i.i.i.i.i.i
-  br i1 %or.cond.i.i50.i1270.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i1264.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i50.i1270.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i44.i1264.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i.i.i1298.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i.i36.i1302.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i1264.i.i.i.i.i.i
   %.sroa.0.09.i.i.i.i1299.i.i.i.i.i.i = phi ptr [ %.pn21.i.i.i1255.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i44.i1264.i.i.i.i.i.i ], [ %.sroa.0.0.i.i.i.i1301.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i36.i1302.i.i.i.i.i.i ]
@@ -3906,7 +3906,7 @@ _ZN5nblib18interactionSortKeyINS_14Default5CenterEEENSt9enable_ifIXtlNS_8Contain
   %.01924.i.i.i.i.i.add.i.i40.i1306.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i37.i1303.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i41.i1307.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i40.i1306.i.i.i.i.i.i, 24
   %or.cond.i.i42.i1308.i.i.i.i.i.i = select i1 %1038, i1 true, i1 %.not.i.i.i.i.i.i.i41.i1307.i.i.i.i.i.i
-  br i1 %or.cond.i.i42.i1308.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i1302.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i42.i1308.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i1302.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %1032, %1037
   %.sroa.04.0.lcssa.i.i.i.i1271.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i.i.i1299.i.i.i.i.i.i, %1037 ], [ %.sroa.0.022.i.ptr.i.i1256.i.i.i.i.i.i, %1032 ]
@@ -3917,7 +3917,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EES
 1039:                                             ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i.i.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i.i.i.i.i.i
   %.sroa.0.022.i.add.i.i1272.i.i.i.i.i.i = add nuw nsw i64 %.sroa.0.022.i.idx.i.i1254.i.i.i.i.i.i, 24
   %.not.i.i3.i1273.i.i.i.i.i.i = icmp eq i64 %.sroa.0.022.i.add.i.i1272.i.i.i.i.i.i, 384
-  br i1 %.not.i.i3.i1273.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i.i.i.i.i.i.i, label %1021, !llvm.loop !16
+  br i1 %.not.i.i3.i1273.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i.i.i.i.i.i.i, label %1021, !llvm.loop !15
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i.i.i.i.i.i.i.i: ; preds = %1039
   %1040 = getelementptr inbounds i8, ptr %.val52.i.i.i.i.i.i, i64 384
@@ -3946,7 +3946,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i32.i1282.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i29.i1279.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i33.i1283.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i32.i1282.i.i.i.i.i.i, 24
   %or.cond.i.i34.i1284.i.i.i.i.i.i = select i1 %1045, i1 true, i1 %.not.i.i.i.i.i.i.i33.i1283.i.i.i.i.i.i
-  br i1 %or.cond.i.i34.i1284.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i1278.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i34.i1284.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i28.i1278.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i14.i.i1287.i.i.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.i20.i1291.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i1278.i.i.i.i.i.i
   %.sroa.0.09.i.i15.i.i1288.i.i.i.i.i.i = phi ptr [ %.sroa.0.07.i.i.i.i1277.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i28.i1278.i.i.i.i.i.i ], [ %.sroa.0.0.i.i17.i.i1290.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i20.i1291.i.i.i.i.i.i ]
@@ -3969,7 +3969,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorI
   %.01924.i.i.i.i.i.add.i.i24.i1295.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i21.i1292.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i25.i1296.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i24.i1295.i.i.i.i.i.i, 24
   %or.cond.i.i26.i1297.i.i.i.i.i.i = select i1 %1050, i1 true, i1 %.not.i.i.i.i.i.i.i25.i1296.i.i.i.i.i.i
-  br i1 %or.cond.i.i26.i1297.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i1291.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i26.i1297.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i20.i1291.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i.i.i.i.i.i.i.i: ; preds = %1044, %1049
   %.sroa.04.0.lcssa.i.i12.i.i1285.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i15.i.i1288.i.i.i.i.i.i, %1049 ], [ %.sroa.0.08.i.i.i1276.i.i.i.i.i.i, %1044 ]
@@ -3977,7 +3977,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EES
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %1051 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i1276.i.i.i.i.i.i, i64 24
   %.not.i13.i.i1286.i.i.i.i.i.i = icmp eq ptr %1051, %.val53.i.i.i.i.i.i
-  br i1 %.not.i13.i.i1286.i.i.i.i.i.i, label %"_ZN5nblib14for_each_tupleIRZNS_16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS2_INS_11G96BondTypeEEENS2_INS_13CubicBondTypeEEENS2_INS_13MorseBondTypeEEENS2_INS3_INS_21FENEBondTypeParameterEEEEENS2_INS3_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS_10PairLJTypeEEENS2_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS2_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS2_INS_12QuarticAngleEEENS2_INSP_INS_24RestrictedAngleParameterEEEEENS2_INS_13CrossBondBondEEENS2_INS_14CrossBondAngleEEENS2_INS3_INS_20LinearAngleParameterEEEEENS2_INS_14ProperDihedralEEENS2_INS_16ImproperDihedralEEENS2_INS_24RyckaertBellemanDihedralEEENS2_INS_14Default5CenterEEEEEE3$_0JS6_S8_SA_SC_SF_SI_SK_SO_SS_SU_SX_SZ_S11_S14_S16_S18_S1A_S1C_EEEvOT_RS1_IJDpT0_EE.exit", label %.lr.ph.i10.i.i1275.i.i.i.i.i.i, !llvm.loop !17
+  br i1 %.not.i13.i.i1286.i.i.i.i.i.i, label %"_ZN5nblib14for_each_tupleIRZNS_16sortInteractionsERSt5tupleIJNS_14ListedTypeDataINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEEENS2_INS_11G96BondTypeEEENS2_INS_13CubicBondTypeEEENS2_INS_13MorseBondTypeEEENS2_INS3_INS_21FENEBondTypeParameterEEEEENS2_INS3_INS_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS_10PairLJTypeEEENS2_INS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEEEENS2_INS_16CosineParamAngleINS_17G96AngleParameterEEEEENS2_INS_12QuarticAngleEEENS2_INSP_INS_24RestrictedAngleParameterEEEEENS2_INS_13CrossBondBondEEENS2_INS_14CrossBondAngleEEENS2_INS3_INS_20LinearAngleParameterEEEEENS2_INS_14ProperDihedralEEENS2_INS_16ImproperDihedralEEENS2_INS_24RyckaertBellemanDihedralEEENS2_INS_14Default5CenterEEEEEE3$_0JS6_S8_SA_SC_SF_SI_SK_SO_SS_SU_SX_SZ_S11_S14_S16_S18_S1A_S1C_EEEvOT_RS1_IJDpT0_EE.exit", label %.lr.ph.i10.i.i1275.i.i.i.i.i.i, !llvm.loop !16
 
 1052:                                             ; preds = %1012
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.07.i18.i.i1216.i.i.i.i.i.i)
@@ -4004,7 +4004,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EES
   %.01924.i.i.i.i.i.add.i.i16.i1228.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i13.i1225.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i17.i1229.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i16.i1228.i.i.i.i.i.i, 24
   %or.cond.i.i18.i1230.i.i.i.i.i.i = select i1 %1057, i1 true, i1 %.not.i.i.i.i.i.i.i17.i1229.i.i.i.i.i.i
-  br i1 %or.cond.i.i18.i1230.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_14Default5CenterEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJS1_EEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESF_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i1224.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i18.i1230.i.i.i.i.i.i, label %_ZN5nblib18interactionSortKeyINS_14Default5CenterEEENSt9enable_ifIXtlNS_8ContainsIT_NS_8TypeListIJS1_EEEEEEEbE4typeERKSt5arrayIiXpltlNS_7NCenterIS4_vEEELi1EEESF_.exit19.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i12.i1224.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i12.i1224.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.07.i18.i.i1216.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.0.022.i23.i.i1222.i.i.i.i.i.i, i64 24, i1 false)
@@ -4036,7 +4036,7 @@ _ZN5nblib18interactionSortKeyINS_14Default5CenterEEENSt9enable_ifIXtlNS_8Contain
   %.01924.i.i.i.i.i.add.i.i8.i1235.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i5.i1232.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i9.i1236.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i8.i1235.i.i.i.i.i.i, 24
   %or.cond.i.i10.i1237.i.i.i.i.i.i = select i1 %1066, i1 true, i1 %.not.i.i.i.i.i.i.i9.i1236.i.i.i.i.i.i
-  br i1 %or.cond.i.i10.i1237.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i1231.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i10.i1237.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i4.i1231.i.i.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i29.i.i1241.i.i.i.i.i.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i1245.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i1231.i.i.i.i.i.i
   %.sroa.0.09.i.i30.i.i1242.i.i.i.i.i.i = phi ptr [ %.pn21.i24.i.i1223.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i4.i1231.i.i.i.i.i.i ], [ %.sroa.0.0.i.i32.i.i1244.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i1245.i.i.i.i.i.i ]
@@ -4059,7 +4059,7 @@ _ZN5nblib18interactionSortKeyINS_14Default5CenterEEENSt9enable_ifIXtlNS_8Contain
   %.01924.i.i.i.i.i.add.i.i.i1249.i.i.i.i.i.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i.i.i1246.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i1250.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i.i.i1249.i.i.i.i.i.i, 24
   %or.cond.i.i.i1251.i.i.i.i.i.i = select i1 %1071, i1 true, i1 %.not.i.i.i.i.i.i.i.i1250.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i1251.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i1245.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i.i.i1251.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i1245.i.i.i.i.i.i, !llvm.loop !5
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i: ; preds = %1065, %1070
   %.sroa.04.0.lcssa.i.i26.i.i1238.i.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i30.i.i1242.i.i.i.i.i.i, %1070 ], [ %.sroa.0.022.i23.i.i1222.i.i.i.i.i.i, %1065 ]
@@ -4070,7 +4070,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EES
 1072:                                             ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i25.i.i.i.i.i.i.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33.i.i.i.i.i.i.i.i
   %.sroa.0.0.i27.i.i1239.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.022.i23.i.i1222.i.i.i.i.i.i, i64 24
   %.not.i28.i.i1240.i.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i27.i.i1239.i.i.i.i.i.i, %.val53.i.i.i.i.i.i
-  br i1 %.not.i28.i.i1240.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i.i.i.i.i.i.i, label %.lr.ph.i22.i.i1221.i.i.i.i.i.i, !llvm.loop !16
+  br i1 %.not.i28.i.i1240.i.i.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i.i.i.i.i.i.i, label %.lr.ph.i22.i.i1221.i.i.i.i.i.i, !llvm.loop !15
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit35.i.i.i.i.i.i.i.i: ; preds = %1072, %1052
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.07.i18.i.i1216.i.i.i.i.i.i)
@@ -4098,7 +4098,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5nblib18interactionSortKeyINS_23TwoPa
   %.01924.i.i.i.i.i.add.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i, 12
   %or.cond.i = select i1 %7, i1 true, i1 %.not.i.i.i.i.i.i
-  br i1 %or.cond.i, label %_ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i, label %_ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !5
 
 _ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit:        ; preds = %.lr.ph.i.i.i.i.i.i, %6
   ret i1 %5
@@ -4146,13 +4146,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %18 ], [ %21, %19 ]
   %20 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %0)
   %21 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 12
-  br i1 %20, label %19, label %.preheader.i.i, !llvm.loop !18
+  br i1 %20, label %19, label %.preheader.i.i, !llvm.loop !17
 
 .preheader.i.i:                                   ; preds = %19, %.preheader.i.i
   %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %19 ]
   %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -12
   %22 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.09.1.i.i)
-  br i1 %22, label %.preheader.i.i, label %23, !llvm.loop !19
+  br i1 %22, label %.preheader.i.i, label %23, !llvm.loop !18
 
 23:                                               ; preds = %.preheader.i.i
   %24 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
@@ -4169,10 +4169,10 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.079.i.add.i.i.i.i.i = add nuw nsw i64 %.079.i.idx.i.i.i.i.i, 4
   %27 = getelementptr inbounds i8, ptr %.010.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i = icmp eq i64 %.079.i.add.i.i.i.i.i, 12
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !19
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  br label %18, !llvm.loop !21
+  br label %18, !llvm.loop !20
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit: ; preds = %23
   %28 = add nsw i64 %.017, -1
@@ -4180,7 +4180,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3E
   %29 = ptrtoint ptr %.sroa.012.1.i.i to i64
   %30 = sub i64 %29, %5
   %31 = icmp sgt i64 %30, 192
-  br i1 %31, label %10, label %.loopexit, !llvm.loop !22
+  br i1 %31, label %10, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit, %4, %13
   ret void
@@ -4228,7 +4228,7 @@ define linkonce_odr void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPS
   %25 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.043.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %25, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false)
   %26 = icmp slt i64 %spec.select.i.i.i, %16
-  br i1 %26, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !23
+  br i1 %26, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !22
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %10
   %.0.lcssa.i.i.i = phi i64 [ 0, %10 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
@@ -4270,7 +4270,7 @@ define linkonce_odr void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPS
   %43 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.019.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %43, ptr noundef nonnull align 4 dereferenceable(12) %40, i64 12, i1 false)
   %.not.i.i = icmp ult i64 %.01020.in.i.i.i.i, 2
-  br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !24
+  br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !23
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i: ; preds = %42, %.lr.ph.i.i.i.i, %38
   %.0.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %38 ], [ 0, %42 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -4278,7 +4278,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   %45 = icmp sgt i64 %13, 12
-  br i1 %45, label %10, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, !llvm.loop !25
+  br i1 %45, label %10, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, !llvm.loop !24
 
 _ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit: ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i, %4
   ret void
@@ -4330,7 +4330,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %30 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.043.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %30, ptr noundef nonnull align 4 dereferenceable(12) %29, i64 12, i1 false)
   %31 = icmp slt i64 %spec.select.i.i, %15
-  br i1 %31, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !23
+  br i1 %31, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !22
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %21
   %.0.lcssa.i.i = phi i64 [ %.0.i, %21 ], [ %spec.select.i.i, %.lr.ph.i.i ]
@@ -4362,7 +4362,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %39 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.019.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %39, ptr noundef nonnull align 4 dereferenceable(12) %36, i64 12, i1 false)
   %40 = icmp sgt i64 %.01020.i.i.i, %.0.i
-  br i1 %40, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i, !llvm.loop !24
+  br i1 %40, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i, !llvm.loop !23
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i: ; preds = %38, %.lr.ph.i.i.i, %34
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %34 ], [ %.019.i.i.i, %.lr.ph.i.i.i ], [ %.01020.i.i.i, %38 ]
@@ -4371,7 +4371,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   %42 = icmp eq i64 %.0.i, 0
   %43 = add nsw i64 %.0.i, -1
-  br i1 %42, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, label %21, !llvm.loop !26
+  br i1 %42, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, label %21, !llvm.loop !25
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i, %4
   %44 = icmp ult ptr %1, %2
@@ -4417,7 +4417,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_Sa
   %66 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.043.i.i23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %66, ptr noundef nonnull align 4 dereferenceable(12) %65, i64 12, i1 false)
   %67 = icmp slt i64 %spec.select.i.i24, %47
-  br i1 %67, label %.lr.ph.i.i22, label %._crit_edge.i.i13, !llvm.loop !23
+  br i1 %67, label %.lr.ph.i.i22, label %._crit_edge.i.i13, !llvm.loop !22
 
 ._crit_edge.i.i13:                                ; preds = %.lr.ph.i.i22, %58
   %.0.lcssa.i.i14 = phi i64 [ 0, %58 ], [ %spec.select.i.i24, %.lr.ph.i.i22 ]
@@ -4449,7 +4449,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_Sa
   %75 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.019.i.i.i20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %75, ptr noundef nonnull align 4 dereferenceable(12) %72, i64 12, i1 false)
   %.not.i = icmp ult i64 %.01020.in.i.i.i21, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit, label %.lr.ph.i.i.i19, !llvm.loop !24
+  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit, label %.lr.ph.i.i.i19, !llvm.loop !23
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit: ; preds = %.lr.ph.i.i.i19, %74, %70
   %.0.lcssa.i.i.i18 = phi i64 [ %.1.i.i15, %70 ], [ %.019.i.i.i20, %.lr.ph.i.i.i19 ], [ 0, %74 ]
@@ -4461,7 +4461,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaI
 77:                                               ; preds = %56, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit
   %78 = getelementptr inbounds i8, ptr %.sroa.0.028, i64 12
   %79 = icmp ult ptr %78, %2
-  br i1 %79, label %56, label %._crit_edge, !llvm.loop !27
+  br i1 %79, label %56, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %77, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit
   ret void
@@ -4487,7 +4487,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i = add nuw nsw i64 %.079.i.idx.i.i.i, 4
   %11 = getelementptr inbounds i8, ptr %.010.i.i.i.i, i64 4
   %.not.i.i.i.i = icmp eq i64 %.079.i.add.i.i.i, 12
-  br i1 %.not.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 12:                                               ; preds = %7
   %13 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %3)
@@ -4504,7 +4504,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i30 = add nuw nsw i64 %.079.i.idx.i.i.i28, 4
   %16 = getelementptr inbounds i8, ptr %.010.i.i.i.i27, i64 4
   %.not.i.i.i.i31 = icmp eq i64 %.079.i.add.i.i.i30, 12
-  br i1 %.not.i.i.i.i31, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i26, !llvm.loop !20
+  br i1 %.not.i.i.i.i31, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i26, !llvm.loop !19
 
 .lr.ph.i.i.i.i33:                                 ; preds = %12, %.lr.ph.i.i.i.i33
   %.010.i.i.i.i34 = phi ptr [ %19, %.lr.ph.i.i.i.i33 ], [ %1, %12 ]
@@ -4517,7 +4517,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i37 = add nuw nsw i64 %.079.i.idx.i.i.i35, 4
   %19 = getelementptr inbounds i8, ptr %.010.i.i.i.i34, i64 4
   %.not.i.i.i.i38 = icmp eq i64 %.079.i.add.i.i.i37, 12
-  br i1 %.not.i.i.i.i38, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i33, !llvm.loop !20
+  br i1 %.not.i.i.i.i38, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i33, !llvm.loop !19
 
 20:                                               ; preds = %5
   %21 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %3)
@@ -4534,7 +4534,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i44 = add nuw nsw i64 %.079.i.idx.i.i.i42, 4
   %24 = getelementptr inbounds i8, ptr %.010.i.i.i.i41, i64 4
   %.not.i.i.i.i45 = icmp eq i64 %.079.i.add.i.i.i44, 12
-  br i1 %.not.i.i.i.i45, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i40, !llvm.loop !20
+  br i1 %.not.i.i.i.i45, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i40, !llvm.loop !19
 
 25:                                               ; preds = %20
   %26 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %3)
@@ -4551,7 +4551,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i51 = add nuw nsw i64 %.079.i.idx.i.i.i49, 4
   %29 = getelementptr inbounds i8, ptr %.010.i.i.i.i48, i64 4
   %.not.i.i.i.i52 = icmp eq i64 %.079.i.add.i.i.i51, 12
-  br i1 %.not.i.i.i.i52, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i47, !llvm.loop !20
+  br i1 %.not.i.i.i.i52, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i47, !llvm.loop !19
 
 .lr.ph.i.i.i.i54:                                 ; preds = %25, %.lr.ph.i.i.i.i54
   %.010.i.i.i.i55 = phi ptr [ %32, %.lr.ph.i.i.i.i54 ], [ %2, %25 ]
@@ -4564,7 +4564,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i58 = add nuw nsw i64 %.079.i.idx.i.i.i56, 4
   %32 = getelementptr inbounds i8, ptr %.010.i.i.i.i55, i64 4
   %.not.i.i.i.i59 = icmp eq i64 %.079.i.add.i.i.i58, 12
-  br i1 %.not.i.i.i.i59, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i54, !llvm.loop !20
+  br i1 %.not.i.i.i.i59, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i54, !llvm.loop !19
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm3EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit: ; preds = %.lr.ph.i.i.i.i54, %.lr.ph.i.i.i.i47, %.lr.ph.i.i.i.i40, %.lr.ph.i.i.i.i33, %.lr.ph.i.i.i.i26, %.lr.ph.i.i.i.i
   ret void
@@ -4596,7 +4596,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5nblib18interactionSortKeyINS_11G96Bo
   %.01924.i.i.i.i.i.add.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i, 12
   %or.cond.i = select i1 %7, i1 true, i1 %.not.i.i.i.i.i.i
-  br i1 %or.cond.i, label %_ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i, label %_ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !5
 
 _ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit:        ; preds = %.lr.ph.i.i.i.i.i.i, %6
   ret i1 %5
@@ -4620,7 +4620,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5nblib18interactionSortKeyINS_13Cubic
   %.01924.i.i.i.i.i.add.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i, 12
   %or.cond.i = select i1 %7, i1 true, i1 %.not.i.i.i.i.i.i
-  br i1 %or.cond.i, label %_ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i, label %_ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !5
 
 _ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit:        ; preds = %.lr.ph.i.i.i.i.i.i, %6
   ret i1 %5
@@ -4644,7 +4644,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5nblib18interactionSortKeyINS_13Morse
   %.01924.i.i.i.i.i.add.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i, 12
   %or.cond.i = select i1 %7, i1 true, i1 %.not.i.i.i.i.i.i
-  br i1 %or.cond.i, label %_ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i, label %_ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !5
 
 _ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit:        ; preds = %.lr.ph.i.i.i.i.i.i, %6
   ret i1 %5
@@ -4668,7 +4668,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5nblib18interactionSortKeyINS_23TwoPa
   %.01924.i.i.i.i.i.add.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i, 12
   %or.cond.i = select i1 %7, i1 true, i1 %.not.i.i.i.i.i.i
-  br i1 %or.cond.i, label %_ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i, label %_ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !5
 
 _ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit:        ; preds = %.lr.ph.i.i.i.i.i.i, %6
   ret i1 %5
@@ -4692,7 +4692,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5nblib18interactionSortKeyINS_23TwoPa
   %.01924.i.i.i.i.i.add.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i, 12
   %or.cond.i = select i1 %7, i1 true, i1 %.not.i.i.i.i.i.i
-  br i1 %or.cond.i, label %_ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i, label %_ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !5
 
 _ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit:        ; preds = %.lr.ph.i.i.i.i.i.i, %6
   ret i1 %5
@@ -4716,7 +4716,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5nblib18interactionSortKeyINS_10PairL
   %.01924.i.i.i.i.i.add.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i, 12
   %or.cond.i = select i1 %7, i1 true, i1 %.not.i.i.i.i.i.i
-  br i1 %or.cond.i, label %_ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i, label %_ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !5
 
 _ZStltIiLm3EEbRKSt5arrayIT_XT0_EES4_.exit:        ; preds = %.lr.ph.i.i.i.i.i.i, %6
   ret i1 %5
@@ -4772,13 +4772,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %19 ], [ %22, %20 ]
   %21 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.012.1.i.i, ptr noundef nonnull align 4 dereferenceable(16) %0)
   %22 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 16
-  br i1 %21, label %20, label %.preheader.i.i, !llvm.loop !28
+  br i1 %21, label %20, label %.preheader.i.i, !llvm.loop !27
 
 .preheader.i.i:                                   ; preds = %20, %.preheader.i.i
   %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %20 ]
   %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -16
   %23 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.09.1.i.i)
-  br i1 %23, label %.preheader.i.i, label %24, !llvm.loop !29
+  br i1 %23, label %.preheader.i.i, label %24, !llvm.loop !28
 
 24:                                               ; preds = %.preheader.i.i
   %25 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
@@ -4795,10 +4795,10 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.079.i.add.i.i.i.i.i = add nuw nsw i64 %.079.i.idx.i.i.i.i.i, 4
   %28 = getelementptr inbounds i8, ptr %.010.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i = icmp eq i64 %.079.i.add.i.i.i.i.i, 16
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !19
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  br label %19, !llvm.loop !30
+  br label %19, !llvm.loop !29
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit: ; preds = %24
   %29 = add nsw i64 %.017, -1
@@ -4807,7 +4807,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4E
   %31 = sub i64 %30, %5
   %32 = ashr exact i64 %31, 4
   %33 = icmp sgt i64 %32, 16
-  br i1 %33, label %11, label %.loopexit, !llvm.loop !31
+  br i1 %33, label %11, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit, %4, %14
   ret void
@@ -4849,7 +4849,7 @@ define linkonce_odr void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPS
   %25 = getelementptr inbounds %"struct.std::array.159", ptr %0, i64 %.039.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(16) %24, i64 16, i1 false)
   %26 = icmp slt i64 %spec.select.i.i.i, %16
-  br i1 %26, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !32
+  br i1 %26, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !31
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.lr.ph.i
   %.0.lcssa.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
@@ -4890,7 +4890,7 @@ define linkonce_odr void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPS
   %43 = getelementptr inbounds %"struct.std::array.159", ptr %0, i64 %.018.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %43, ptr noundef nonnull align 4 dereferenceable(16) %40, i64 16, i1 false)
   %.not.i.i = icmp ult i64 %.0919.in.i.i.i.i, 2
-  br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !33
+  br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !32
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i: ; preds = %42, %.lr.ph.i.i.i.i, %38
   %.0.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %38 ], [ 0, %42 ], [ %.018.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -4898,7 +4898,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %44, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %45 = icmp sgt i64 %13, 16
-  br i1 %45, label %.lr.ph.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, !llvm.loop !34
+  br i1 %45, label %.lr.ph.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, !llvm.loop !33
 
 _ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit: ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i, %4
   ret void
@@ -4947,7 +4947,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %31 = getelementptr inbounds %"struct.std::array.159", ptr %0, i64 %.039.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %30, i64 16, i1 false)
   %32 = icmp slt i64 %spec.select.i.i, %15
-  br i1 %32, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !32
+  br i1 %32, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !31
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %21
   %.0.lcssa.i.i = phi i64 [ %.0.i, %21 ], [ %spec.select.i.i, %.lr.ph.i.i ]
@@ -4978,7 +4978,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %40 = getelementptr inbounds %"struct.std::array.159", ptr %0, i64 %.018.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %37, i64 16, i1 false)
   %41 = icmp sgt i64 %.0919.i.i.i, %.0.i
-  br i1 %41, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i, !llvm.loop !33
+  br i1 %41, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i, !llvm.loop !32
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i: ; preds = %39, %.lr.ph.i.i.i, %35
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %35 ], [ %.018.i.i.i, %.lr.ph.i.i.i ], [ %.0919.i.i.i, %39 ]
@@ -4987,7 +4987,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %43 = icmp eq i64 %.0.i, 0
   %44 = add nsw i64 %.0.i, -1
-  br i1 %43, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, label %21, !llvm.loop !35
+  br i1 %43, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, label %21, !llvm.loop !34
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i, %4
   %45 = icmp ult ptr %1, %2
@@ -5029,7 +5029,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_Sa
   %67 = getelementptr inbounds %"struct.std::array.159", ptr %0, i64 %.039.i.i22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(16) %66, i64 16, i1 false)
   %68 = icmp slt i64 %spec.select.i.i23, %47
-  br i1 %68, label %.lr.ph.i.i21, label %._crit_edge.i.i13, !llvm.loop !32
+  br i1 %68, label %.lr.ph.i.i21, label %._crit_edge.i.i13, !llvm.loop !31
 
 ._crit_edge.i.i13:                                ; preds = %.lr.ph.i.i21, %58
   %.0.lcssa.i.i14 = phi i64 [ 0, %58 ], [ %spec.select.i.i23, %.lr.ph.i.i21 ]
@@ -5060,7 +5060,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_Sa
   %76 = getelementptr inbounds %"struct.std::array.159", ptr %0, i64 %.018.i.i.i19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %76, ptr noundef nonnull align 4 dereferenceable(16) %73, i64 16, i1 false)
   %.not.i = icmp ult i64 %.0919.in.i.i.i20, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit, label %.lr.ph.i.i.i18, !llvm.loop !33
+  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit, label %.lr.ph.i.i.i18, !llvm.loop !32
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit: ; preds = %.lr.ph.i.i.i18, %75, %71
   %.0.lcssa.i.i.i17 = phi i64 [ %.1.i.i15, %71 ], [ %.018.i.i.i19, %.lr.ph.i.i.i18 ], [ 0, %75 ]
@@ -5072,7 +5072,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaI
 78:                                               ; preds = %56, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit
   %79 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 16
   %80 = icmp ult ptr %79, %2
-  br i1 %80, label %56, label %._crit_edge, !llvm.loop !36
+  br i1 %80, label %56, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %78, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit
   ret void
@@ -5098,7 +5098,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i = add nuw nsw i64 %.079.i.idx.i.i.i, 4
   %11 = getelementptr inbounds i8, ptr %.010.i.i.i.i, i64 4
   %.not.i.i.i.i = icmp eq i64 %.079.i.add.i.i.i, 16
-  br i1 %.not.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 12:                                               ; preds = %7
   %13 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %3)
@@ -5115,7 +5115,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i30 = add nuw nsw i64 %.079.i.idx.i.i.i28, 4
   %16 = getelementptr inbounds i8, ptr %.010.i.i.i.i27, i64 4
   %.not.i.i.i.i31 = icmp eq i64 %.079.i.add.i.i.i30, 16
-  br i1 %.not.i.i.i.i31, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i26, !llvm.loop !20
+  br i1 %.not.i.i.i.i31, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i26, !llvm.loop !19
 
 .lr.ph.i.i.i.i33:                                 ; preds = %12, %.lr.ph.i.i.i.i33
   %.010.i.i.i.i34 = phi ptr [ %19, %.lr.ph.i.i.i.i33 ], [ %1, %12 ]
@@ -5128,7 +5128,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i37 = add nuw nsw i64 %.079.i.idx.i.i.i35, 4
   %19 = getelementptr inbounds i8, ptr %.010.i.i.i.i34, i64 4
   %.not.i.i.i.i38 = icmp eq i64 %.079.i.add.i.i.i37, 16
-  br i1 %.not.i.i.i.i38, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i33, !llvm.loop !20
+  br i1 %.not.i.i.i.i38, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i33, !llvm.loop !19
 
 20:                                               ; preds = %5
   %21 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %3)
@@ -5145,7 +5145,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i44 = add nuw nsw i64 %.079.i.idx.i.i.i42, 4
   %24 = getelementptr inbounds i8, ptr %.010.i.i.i.i41, i64 4
   %.not.i.i.i.i45 = icmp eq i64 %.079.i.add.i.i.i44, 16
-  br i1 %.not.i.i.i.i45, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i40, !llvm.loop !20
+  br i1 %.not.i.i.i.i45, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i40, !llvm.loop !19
 
 25:                                               ; preds = %20
   %26 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3)
@@ -5162,7 +5162,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i51 = add nuw nsw i64 %.079.i.idx.i.i.i49, 4
   %29 = getelementptr inbounds i8, ptr %.010.i.i.i.i48, i64 4
   %.not.i.i.i.i52 = icmp eq i64 %.079.i.add.i.i.i51, 16
-  br i1 %.not.i.i.i.i52, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i47, !llvm.loop !20
+  br i1 %.not.i.i.i.i52, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i47, !llvm.loop !19
 
 .lr.ph.i.i.i.i54:                                 ; preds = %25, %.lr.ph.i.i.i.i54
   %.010.i.i.i.i55 = phi ptr [ %32, %.lr.ph.i.i.i.i54 ], [ %2, %25 ]
@@ -5175,7 +5175,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i58 = add nuw nsw i64 %.079.i.idx.i.i.i56, 4
   %32 = getelementptr inbounds i8, ptr %.010.i.i.i.i55, i64 4
   %.not.i.i.i.i59 = icmp eq i64 %.079.i.add.i.i.i58, 16
-  br i1 %.not.i.i.i.i59, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i54, !llvm.loop !20
+  br i1 %.not.i.i.i.i59, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i54, !llvm.loop !19
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm4EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit: ; preds = %.lr.ph.i.i.i.i54, %.lr.ph.i.i.i.i47, %.lr.ph.i.i.i.i40, %.lr.ph.i.i.i.i33, %.lr.ph.i.i.i.i26, %.lr.ph.i.i.i.i
   ret void
@@ -5290,13 +5290,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %18 ], [ %21, %19 ]
   %20 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.012.1.i.i, ptr noundef nonnull align 4 dereferenceable(20) %0)
   %21 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 20
-  br i1 %20, label %19, label %.preheader.i.i, !llvm.loop !37
+  br i1 %20, label %19, label %.preheader.i.i, !llvm.loop !36
 
 .preheader.i.i:                                   ; preds = %19, %.preheader.i.i
   %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %19 ]
   %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -20
   %22 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.09.1.i.i)
-  br i1 %22, label %.preheader.i.i, label %23, !llvm.loop !38
+  br i1 %22, label %.preheader.i.i, label %23, !llvm.loop !37
 
 23:                                               ; preds = %.preheader.i.i
   %24 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
@@ -5313,10 +5313,10 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.079.i.add.i.i.i.i.i = add nuw nsw i64 %.079.i.idx.i.i.i.i.i, 4
   %27 = getelementptr inbounds i8, ptr %.010.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i = icmp eq i64 %.079.i.add.i.i.i.i.i, 20
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !19
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  br label %18, !llvm.loop !39
+  br label %18, !llvm.loop !38
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit: ; preds = %23
   %28 = add nsw i64 %.017, -1
@@ -5324,7 +5324,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5E
   %29 = ptrtoint ptr %.sroa.012.1.i.i to i64
   %30 = sub i64 %29, %5
   %31 = icmp sgt i64 %30, 320
-  br i1 %31, label %10, label %.loopexit, !llvm.loop !40
+  br i1 %31, label %10, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit, %4, %13
   ret void
@@ -5368,7 +5368,7 @@ define linkonce_odr void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPS
   %24 = getelementptr inbounds %"struct.std::array.164", ptr %0, i64 %.037.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %24, ptr noundef nonnull align 4 dereferenceable(20) %23, i64 20, i1 false)
   %25 = icmp slt i64 %spec.select.i.i.i, %15
-  br i1 %25, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !41
+  br i1 %25, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !40
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.lr.ph.i
   %.0.lcssa.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
@@ -5409,7 +5409,7 @@ define linkonce_odr void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPS
   %42 = getelementptr inbounds %"struct.std::array.164", ptr %0, i64 %.018.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %42, ptr noundef nonnull align 4 dereferenceable(20) %39, i64 20, i1 false)
   %.not.i.i = icmp ult i64 %.0919.in.i.i.i.i, 2
-  br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !42
+  br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !41
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i: ; preds = %41, %.lr.ph.i.i.i.i, %37
   %.0.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %37 ], [ 0, %41 ], [ %.018.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -5418,7 +5418,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaI
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.08.i.i)
   %44 = icmp sgt i64 %12, 20
-  br i1 %44, label %.lr.ph.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, !llvm.loop !43
+  br i1 %44, label %.lr.ph.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, !llvm.loop !42
 
 _ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit: ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i, %4
   ret void
@@ -5470,7 +5470,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %30 = getelementptr inbounds %"struct.std::array.164", ptr %0, i64 %.037.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %30, ptr noundef nonnull align 4 dereferenceable(20) %29, i64 20, i1 false)
   %31 = icmp slt i64 %spec.select.i.i, %15
-  br i1 %31, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !41
+  br i1 %31, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !40
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %21
   %.0.lcssa.i.i = phi i64 [ %.0.i, %21 ], [ %spec.select.i.i, %.lr.ph.i.i ]
@@ -5501,7 +5501,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %39 = getelementptr inbounds %"struct.std::array.164", ptr %0, i64 %.018.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %39, ptr noundef nonnull align 4 dereferenceable(20) %36, i64 20, i1 false)
   %40 = icmp sgt i64 %.0919.i.i.i, %.0.i
-  br i1 %40, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i, !llvm.loop !42
+  br i1 %40, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i, !llvm.loop !41
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i: ; preds = %38, %.lr.ph.i.i.i, %34
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %34 ], [ %.018.i.i.i, %.lr.ph.i.i.i ], [ %.0919.i.i.i, %38 ]
@@ -5511,7 +5511,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.017.i)
   %42 = icmp eq i64 %.0.i, 0
   %43 = add nsw i64 %.0.i, -1
-  br i1 %42, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, label %21, !llvm.loop !44
+  br i1 %42, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, label %21, !llvm.loop !43
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i, %4
   %44 = icmp ult ptr %1, %2
@@ -5555,7 +5555,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_Sa
   %66 = getelementptr inbounds %"struct.std::array.164", ptr %0, i64 %.037.i.i19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %66, ptr noundef nonnull align 4 dereferenceable(20) %65, i64 20, i1 false)
   %67 = icmp slt i64 %spec.select.i.i20, %47
-  br i1 %67, label %.lr.ph.i.i18, label %._crit_edge.i.i10, !llvm.loop !41
+  br i1 %67, label %.lr.ph.i.i18, label %._crit_edge.i.i10, !llvm.loop !40
 
 ._crit_edge.i.i10:                                ; preds = %.lr.ph.i.i18, %58
   %.0.lcssa.i.i11 = phi i64 [ 0, %58 ], [ %spec.select.i.i20, %.lr.ph.i.i18 ]
@@ -5586,7 +5586,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_Sa
   %75 = getelementptr inbounds %"struct.std::array.164", ptr %0, i64 %.018.i.i.i16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %75, ptr noundef nonnull align 4 dereferenceable(20) %72, i64 20, i1 false)
   %.not.i = icmp ult i64 %.0919.in.i.i.i17, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit, label %.lr.ph.i.i.i15, !llvm.loop !42
+  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit, label %.lr.ph.i.i.i15, !llvm.loop !41
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit: ; preds = %.lr.ph.i.i.i15, %74, %70
   %.0.lcssa.i.i.i14 = phi i64 [ %.1.i.i12, %70 ], [ %.018.i.i.i16, %.lr.ph.i.i.i15 ], [ 0, %74 ]
@@ -5599,7 +5599,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaI
 77:                                               ; preds = %56, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit
   %78 = getelementptr inbounds i8, ptr %.sroa.0.024, i64 20
   %79 = icmp ult ptr %78, %2
-  br i1 %79, label %56, label %._crit_edge, !llvm.loop !45
+  br i1 %79, label %56, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %77, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit
   ret void
@@ -5625,7 +5625,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i = add nuw nsw i64 %.079.i.idx.i.i.i, 4
   %11 = getelementptr inbounds i8, ptr %.010.i.i.i.i, i64 4
   %.not.i.i.i.i = icmp eq i64 %.079.i.add.i.i.i, 20
-  br i1 %.not.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 12:                                               ; preds = %7
   %13 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(20) %1, ptr noundef nonnull align 4 dereferenceable(20) %3)
@@ -5642,7 +5642,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i30 = add nuw nsw i64 %.079.i.idx.i.i.i28, 4
   %16 = getelementptr inbounds i8, ptr %.010.i.i.i.i27, i64 4
   %.not.i.i.i.i31 = icmp eq i64 %.079.i.add.i.i.i30, 20
-  br i1 %.not.i.i.i.i31, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i26, !llvm.loop !20
+  br i1 %.not.i.i.i.i31, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i26, !llvm.loop !19
 
 .lr.ph.i.i.i.i33:                                 ; preds = %12, %.lr.ph.i.i.i.i33
   %.010.i.i.i.i34 = phi ptr [ %19, %.lr.ph.i.i.i.i33 ], [ %1, %12 ]
@@ -5655,7 +5655,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i37 = add nuw nsw i64 %.079.i.idx.i.i.i35, 4
   %19 = getelementptr inbounds i8, ptr %.010.i.i.i.i34, i64 4
   %.not.i.i.i.i38 = icmp eq i64 %.079.i.add.i.i.i37, 20
-  br i1 %.not.i.i.i.i38, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i33, !llvm.loop !20
+  br i1 %.not.i.i.i.i38, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i33, !llvm.loop !19
 
 20:                                               ; preds = %5
   %21 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(20) %1, ptr noundef nonnull align 4 dereferenceable(20) %3)
@@ -5672,7 +5672,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i44 = add nuw nsw i64 %.079.i.idx.i.i.i42, 4
   %24 = getelementptr inbounds i8, ptr %.010.i.i.i.i41, i64 4
   %.not.i.i.i.i45 = icmp eq i64 %.079.i.add.i.i.i44, 20
-  br i1 %.not.i.i.i.i45, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i40, !llvm.loop !20
+  br i1 %.not.i.i.i.i45, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i40, !llvm.loop !19
 
 25:                                               ; preds = %20
   %26 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %3)
@@ -5689,7 +5689,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i51 = add nuw nsw i64 %.079.i.idx.i.i.i49, 4
   %29 = getelementptr inbounds i8, ptr %.010.i.i.i.i48, i64 4
   %.not.i.i.i.i52 = icmp eq i64 %.079.i.add.i.i.i51, 20
-  br i1 %.not.i.i.i.i52, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i47, !llvm.loop !20
+  br i1 %.not.i.i.i.i52, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i47, !llvm.loop !19
 
 .lr.ph.i.i.i.i54:                                 ; preds = %25, %.lr.ph.i.i.i.i54
   %.010.i.i.i.i55 = phi ptr [ %32, %.lr.ph.i.i.i.i54 ], [ %2, %25 ]
@@ -5702,7 +5702,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i58 = add nuw nsw i64 %.079.i.idx.i.i.i56, 4
   %32 = getelementptr inbounds i8, ptr %.010.i.i.i.i55, i64 4
   %.not.i.i.i.i59 = icmp eq i64 %.079.i.add.i.i.i58, 20
-  br i1 %.not.i.i.i.i59, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i54, !llvm.loop !20
+  br i1 %.not.i.i.i.i59, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i54, !llvm.loop !19
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm5EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit: ; preds = %.lr.ph.i.i.i.i54, %.lr.ph.i.i.i.i47, %.lr.ph.i.i.i.i40, %.lr.ph.i.i.i.i33, %.lr.ph.i.i.i.i26, %.lr.ph.i.i.i.i
   ret void
@@ -5746,7 +5746,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5nblib18interactionSortKeyINS_14Defau
   %.01924.i.i.i.i.i.add.i = add nuw nsw i64 %.01924.i.i.i.i.i.idx.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %.01924.i.i.i.i.i.add.i, 24
   %or.cond.i = select i1 %7, i1 true, i1 %.not.i.i.i.i.i.i
-  br i1 %or.cond.i, label %_ZStltIiLm6EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %or.cond.i, label %_ZStltIiLm6EEbRKSt5arrayIT_XT0_EES4_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !5
 
 _ZStltIiLm6EEbRKSt5arrayIT_XT0_EES4_.exit:        ; preds = %.lr.ph.i.i.i.i.i.i, %6
   ret i1 %5
@@ -5791,13 +5791,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %18 ], [ %21, %19 ]
   %20 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.012.1.i.i, ptr noundef nonnull align 4 dereferenceable(24) %0)
   %21 = getelementptr inbounds i8, ptr %.sroa.012.1.i.i, i64 24
-  br i1 %20, label %19, label %.preheader.i.i, !llvm.loop !46
+  br i1 %20, label %19, label %.preheader.i.i, !llvm.loop !45
 
 .preheader.i.i:                                   ; preds = %19, %.preheader.i.i
   %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %19 ]
   %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -24
   %22 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.09.1.i.i)
-  br i1 %22, label %.preheader.i.i, label %23, !llvm.loop !47
+  br i1 %22, label %.preheader.i.i, label %23, !llvm.loop !46
 
 23:                                               ; preds = %.preheader.i.i
   %24 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
@@ -5814,10 +5814,10 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.079.i.add.i.i.i.i.i = add nuw nsw i64 %.079.i.idx.i.i.i.i.i, 4
   %27 = getelementptr inbounds i8, ptr %.010.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i = icmp eq i64 %.079.i.add.i.i.i.i.i, 24
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !19
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  br label %18, !llvm.loop !48
+  br label %18, !llvm.loop !47
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit: ; preds = %23
   %28 = add nsw i64 %.017, -1
@@ -5825,7 +5825,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6E
   %29 = ptrtoint ptr %.sroa.012.1.i.i to i64
   %30 = sub i64 %29, %5
   %31 = icmp sgt i64 %30, 384
-  br i1 %31, label %10, label %.loopexit, !llvm.loop !49
+  br i1 %31, label %10, label %.loopexit, !llvm.loop !48
 
 .loopexit:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit, %4, %13
   ret void
@@ -5869,7 +5869,7 @@ define linkonce_odr void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPS
   %24 = getelementptr inbounds %"struct.std::array.169", ptr %0, i64 %.037.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %24, ptr noundef nonnull align 4 dereferenceable(24) %23, i64 24, i1 false)
   %25 = icmp slt i64 %spec.select.i.i.i, %15
-  br i1 %25, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !50
+  br i1 %25, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !49
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.lr.ph.i
   %.0.lcssa.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
@@ -5910,7 +5910,7 @@ define linkonce_odr void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPS
   %42 = getelementptr inbounds %"struct.std::array.169", ptr %0, i64 %.018.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %42, ptr noundef nonnull align 4 dereferenceable(24) %39, i64 24, i1 false)
   %.not.i.i = icmp ult i64 %.0919.in.i.i.i.i, 2
-  br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !51
+  br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !50
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i: ; preds = %41, %.lr.ph.i.i.i.i, %37
   %.0.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %37 ], [ 0, %41 ], [ %.018.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -5919,7 +5919,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaI
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.08.i.i)
   %44 = icmp sgt i64 %12, 24
-  br i1 %44, label %.lr.ph.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, !llvm.loop !52
+  br i1 %44, label %.lr.ph.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, !llvm.loop !51
 
 _ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit: ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i, %4
   ret void
@@ -5971,7 +5971,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %30 = getelementptr inbounds %"struct.std::array.169", ptr %0, i64 %.037.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %30, ptr noundef nonnull align 4 dereferenceable(24) %29, i64 24, i1 false)
   %31 = icmp slt i64 %spec.select.i.i, %15
-  br i1 %31, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !50
+  br i1 %31, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !49
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %21
   %.0.lcssa.i.i = phi i64 [ %.0.i, %21 ], [ %spec.select.i.i, %.lr.ph.i.i ]
@@ -6002,7 +6002,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt
   %39 = getelementptr inbounds %"struct.std::array.169", ptr %0, i64 %.018.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %39, ptr noundef nonnull align 4 dereferenceable(24) %36, i64 24, i1 false)
   %40 = icmp sgt i64 %.0919.i.i.i, %.0.i
-  br i1 %40, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i, !llvm.loop !51
+  br i1 %40, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i, !llvm.loop !50
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i: ; preds = %38, %.lr.ph.i.i.i, %34
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %34 ], [ %.018.i.i.i, %.lr.ph.i.i.i ], [ %.0919.i.i.i, %38 ]
@@ -6012,7 +6012,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.017.i)
   %42 = icmp eq i64 %.0.i, 0
   %43 = add nsw i64 %.0.i, -1
-  br i1 %42, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, label %21, !llvm.loop !53
+  br i1 %42, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit, label %21, !llvm.loop !52
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i, %4
   %44 = icmp ult ptr %1, %2
@@ -6056,7 +6056,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_Sa
   %66 = getelementptr inbounds %"struct.std::array.169", ptr %0, i64 %.037.i.i19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %66, ptr noundef nonnull align 4 dereferenceable(24) %65, i64 24, i1 false)
   %67 = icmp slt i64 %spec.select.i.i20, %47
-  br i1 %67, label %.lr.ph.i.i18, label %._crit_edge.i.i10, !llvm.loop !50
+  br i1 %67, label %.lr.ph.i.i18, label %._crit_edge.i.i10, !llvm.loop !49
 
 ._crit_edge.i.i10:                                ; preds = %.lr.ph.i.i18, %58
   %.0.lcssa.i.i11 = phi i64 [ 0, %58 ], [ %spec.select.i.i20, %.lr.ph.i.i18 ]
@@ -6087,7 +6087,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_Sa
   %75 = getelementptr inbounds %"struct.std::array.169", ptr %0, i64 %.018.i.i.i16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %75, ptr noundef nonnull align 4 dereferenceable(24) %72, i64 24, i1 false)
   %.not.i = icmp ult i64 %.0919.in.i.i.i17, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit, label %.lr.ph.i.i.i15, !llvm.loop !51
+  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit, label %.lr.ph.i.i.i15, !llvm.loop !50
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit: ; preds = %.lr.ph.i.i.i15, %74, %70
   %.0.lcssa.i.i.i14 = phi i64 [ %.1.i.i12, %70 ], [ %.018.i.i.i16, %.lr.ph.i.i.i15 ], [ 0, %74 ]
@@ -6100,7 +6100,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaI
 77:                                               ; preds = %56, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit
   %78 = getelementptr inbounds i8, ptr %.sroa.0.024, i64 24
   %79 = icmp ult ptr %78, %2
-  br i1 %79, label %56, label %._crit_edge, !llvm.loop !54
+  br i1 %79, label %56, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %77, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_.exit
   ret void
@@ -6126,7 +6126,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i = add nuw nsw i64 %.079.i.idx.i.i.i, 4
   %11 = getelementptr inbounds i8, ptr %.010.i.i.i.i, i64 4
   %.not.i.i.i.i = icmp eq i64 %.079.i.add.i.i.i, 24
-  br i1 %.not.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 12:                                               ; preds = %7
   %13 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(24) %3)
@@ -6143,7 +6143,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i30 = add nuw nsw i64 %.079.i.idx.i.i.i28, 4
   %16 = getelementptr inbounds i8, ptr %.010.i.i.i.i27, i64 4
   %.not.i.i.i.i31 = icmp eq i64 %.079.i.add.i.i.i30, 24
-  br i1 %.not.i.i.i.i31, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i26, !llvm.loop !20
+  br i1 %.not.i.i.i.i31, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i26, !llvm.loop !19
 
 .lr.ph.i.i.i.i33:                                 ; preds = %12, %.lr.ph.i.i.i.i33
   %.010.i.i.i.i34 = phi ptr [ %19, %.lr.ph.i.i.i.i33 ], [ %1, %12 ]
@@ -6156,7 +6156,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i37 = add nuw nsw i64 %.079.i.idx.i.i.i35, 4
   %19 = getelementptr inbounds i8, ptr %.010.i.i.i.i34, i64 4
   %.not.i.i.i.i38 = icmp eq i64 %.079.i.add.i.i.i37, 24
-  br i1 %.not.i.i.i.i38, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i33, !llvm.loop !20
+  br i1 %.not.i.i.i.i38, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i33, !llvm.loop !19
 
 20:                                               ; preds = %5
   %21 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(24) %3)
@@ -6173,7 +6173,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i44 = add nuw nsw i64 %.079.i.idx.i.i.i42, 4
   %24 = getelementptr inbounds i8, ptr %.010.i.i.i.i41, i64 4
   %.not.i.i.i.i45 = icmp eq i64 %.079.i.add.i.i.i44, 24
-  br i1 %.not.i.i.i.i45, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i40, !llvm.loop !20
+  br i1 %.not.i.i.i.i45, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i40, !llvm.loop !19
 
 25:                                               ; preds = %20
   %26 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 4 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(24) %3)
@@ -6190,7 +6190,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i51 = add nuw nsw i64 %.079.i.idx.i.i.i49, 4
   %29 = getelementptr inbounds i8, ptr %.010.i.i.i.i48, i64 4
   %.not.i.i.i.i52 = icmp eq i64 %.079.i.add.i.i.i51, 24
-  br i1 %.not.i.i.i.i52, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i47, !llvm.loop !20
+  br i1 %.not.i.i.i.i52, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i47, !llvm.loop !19
 
 .lr.ph.i.i.i.i54:                                 ; preds = %25, %.lr.ph.i.i.i.i54
   %.010.i.i.i.i55 = phi ptr [ %32, %.lr.ph.i.i.i.i54 ], [ %2, %25 ]
@@ -6203,7 +6203,7 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_ite
   %.079.i.add.i.i.i58 = add nuw nsw i64 %.079.i.idx.i.i.i56, 4
   %32 = getelementptr inbounds i8, ptr %.010.i.i.i.i55, i64 4
   %.not.i.i.i.i59 = icmp eq i64 %.079.i.add.i.i.i58, 24
-  br i1 %.not.i.i.i.i59, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i54, !llvm.loop !20
+  br i1 %.not.i.i.i.i59, label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit, label %.lr.ph.i.i.i.i54, !llvm.loop !19
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIiLm6EESt6vectorIS3_SaIS3_EEEES8_EvT_T0_.exit: ; preds = %.lr.ph.i.i.i.i54, %.lr.ph.i.i.i.i47, %.lr.ph.i.i.i.i40, %.lr.ph.i.i.i.i33, %.lr.ph.i.i.i.i26, %.lr.ph.i.i.i.i
   ret void
@@ -6228,53 +6228,52 @@ attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}
+!36 = distinct !{!36, !6}
+!37 = distinct !{!37, !6}
+!38 = distinct !{!38, !6}
+!39 = distinct !{!39, !6}
+!40 = distinct !{!40, !6}
+!41 = distinct !{!41, !6}
+!42 = distinct !{!42, !6}
+!43 = distinct !{!43, !6}
+!44 = distinct !{!44, !6}
+!45 = distinct !{!45, !6}
+!46 = distinct !{!46, !6}
+!47 = distinct !{!47, !6}
+!48 = distinct !{!48, !6}
+!49 = distinct !{!49, !6}
+!50 = distinct !{!50, !6}
+!51 = distinct !{!51, !6}
+!52 = distinct !{!52, !6}
+!53 = distinct !{!53, !6}

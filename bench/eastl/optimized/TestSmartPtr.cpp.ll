@@ -12035,7 +12035,7 @@ if.then.i.i.i981:                                 ; preds = %if.end.i.i977
   br label %_ZN5eastl10shared_ptrIvED2Ev.exit
 
 _ZN5eastl10shared_ptrIvED2Ev.exit:                ; preds = %invoke.cont407, %if.end.i.i977, %if.then.i.i.i981
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ptr, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ptr, i8 0, i64 16, i1 false)
   %call.i.i.i987 = call noundef ptr @_ZnamPKcijS0_i(i64 noundef 32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %tobool.not.i.i988 = icmp eq ptr %call.i.i.i987, null
   br i1 %tobool.not.i.i988, label %"_ZN5eastl10shared_ptrIiEC2IZL15Test_shared_ptrvE3$_0EEDnT_.exit", label %if.then.i.i989

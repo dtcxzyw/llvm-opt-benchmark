@@ -572,7 +572,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @hb_subset_input_set_user_data(ptr noundef %input, ptr noundef %key, ptr noundef %data, ptr noundef %destroy, i32 noundef %replace) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hb_subset_input_set_user_data(ptr noundef %input, ptr noundef %key, ptr noundef %data, ptr noundef %destroy, i32 noundef %replace) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %input, null
   br i1 %tobool.not.i, label %_ZL23hb_object_set_user_dataI17hb_subset_input_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %lor.lhs.false.i
@@ -741,7 +741,7 @@ declare void @hb_set_clear(ptr noundef) local_unnamed_addr #1
 declare void @hb_set_invert(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @hb_subset_input_pin_axis_to_default(ptr noundef %input, ptr noundef %face, i32 noundef %axis_tag) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hb_subset_input_pin_axis_to_default(ptr noundef %input, ptr noundef %face, i32 noundef %axis_tag) local_unnamed_addr #0 {
 entry:
   %axis_tag.addr = alloca i32, align 4
   %axis_info = alloca %struct.hb_ot_var_axis_info_t, align 4
@@ -773,7 +773,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @hb_ot_var_find_axis_info(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @hb_subset_input_pin_axis_location(ptr noundef %input, ptr noundef %face, i32 noundef %axis_tag, float noundef %axis_value) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hb_subset_input_pin_axis_location(ptr noundef %input, ptr noundef %face, i32 noundef %axis_tag, float noundef %axis_value) local_unnamed_addr #0 {
 entry:
   %axis_tag.addr = alloca i32, align 4
   %axis_info = alloca %struct.hb_ot_var_axis_info_t, align 4
@@ -1254,7 +1254,7 @@ if.end.i.i.i:                                     ; preds = %if.then6.i
   %idx.ext.i.i = zext i32 %15 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %16, i64 %idx.ext.i.i
   %conv.i.i.i = zext i32 %mul.i.i to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i.i, i1 false)
   br label %if.end24
 
 if.then12.i:                                      ; preds = %lor.lhs.false.i, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread17.i, %if.end.i
@@ -1403,7 +1403,7 @@ if.end.i.i:                                       ; preds = %if.then6
   %idx.ext.i = zext i32 %5 to i64
   %add.ptr.i = getelementptr inbounds %struct.hb_bit_page_t, ptr %6, i64 %idx.ext.i
   %conv.i.i10 = zext i32 %mul.i to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv.i.i10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %add.ptr.i, i8 0, i64 %conv.i.i10, i1 false)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end, %if.end.i.i, %if.then6
@@ -2025,7 +2025,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   %mul = shl i32 %.sroa.speculated, 1
   %add5 = add i32 %mul, 8
   %tobool.not.i = icmp eq i32 %add5, 0
-  %3 = tail call i32 @llvm.ctlz.i32(i32 %add5, i1 true), !range !23
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %add5, i1 true)
   %narrow.i = sub nuw nsw i32 32, %3
   %retval.0.i = select i1 %tobool.not.i, i32 0, i32 %narrow.i
   %4 = zext nneg i32 %retval.0.i to i64
@@ -2072,7 +2072,7 @@ _ZN12hb_hashmap_tIj6TripleLb0EE9prime_forEj.exit: ; preds = %for.end, %if.end.i
   %retval.0.i23 = phi i32 [ %13, %if.end.i ], [ 2147483647, %for.end ]
   %prime = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %retval.0.i23, ptr %prime, align 8
-  %call6.tr = trunc i32 %retval.0.i to i16
+  %call6.tr = trunc nuw nsw i32 %retval.0.i to i16
   %conv23 = shl nuw nsw i16 %call6.tr, 1
   %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   store i16 %conv23, ptr %max_chain_length, align 2
@@ -2106,7 +2106,7 @@ if.then29:                                        ; preds = %for.body27
 for.inc38:                                        ; preds = %for.body27, %if.then29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond41.preheader, label %for.body27, !llvm.loop !24
+  br i1 %exitcond.not, label %for.cond41.preheader, label %for.body27, !llvm.loop !23
 
 return:                                           ; preds = %land.lhs.true, %entry, %for.cond41.preheader, %if.then10
   %retval.0 = phi i1 [ true, %for.cond41.preheader ], [ false, %if.then10 ], [ false, %entry ], [ true, %land.lhs.true ]
@@ -2186,7 +2186,7 @@ if.end13:                                         ; preds = %while.body
   %bf.load.i = load i32, ptr %is_used_.i, align 4
   %9 = and i32 %bf.load.i, 2
   %tobool.i.not = icmp eq i32 %9, 0
-  br i1 %tobool.i.not, label %while.end, label %while.body, !llvm.loop !25
+  br i1 %tobool.i.not, label %while.end, label %while.body, !llvm.loop !24
 
 while.end:                                        ; preds = %if.end13, %if.then10
   %tombstone.041 = phi i32 [ %tombstone.047, %if.then10 ], [ %spec.select, %if.end13 ]
@@ -2310,6 +2310,5 @@ attributes #19 = { nounwind allocsize(0) }
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
-!23 = !{i32 0, i32 33}
+!23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}

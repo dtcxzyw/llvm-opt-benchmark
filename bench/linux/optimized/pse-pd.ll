@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ethnl_set_pse.__msg.2 = internal constant [19 x i8] c"No PSE is attached\00", align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pse_prepare_data(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal range(i32 -2147483648, 0) i32 @pse_prepare_data(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @ethnl_ops_begin(ptr noundef %4) #5
   %6 = icmp slt i32 %5, 0
@@ -72,7 +72,7 @@ define internal i32 @pse_prepare_data(ptr nocapture readnone %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @pse_reply_size(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal range(i32 0, 17) i32 @pse_reply_size(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -86,7 +86,7 @@ define internal i32 @pse_reply_size(ptr nocapture readnone %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pse_fill_reply(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -90, 1) i32 @pse_fill_reply(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -125,7 +125,7 @@ define internal noundef i32 @pse_fill_reply(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ethnl_set_pse_validate(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal range(i32 0, 2) i32 @ethnl_set_pse_validate(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 24
@@ -136,7 +136,7 @@ define internal i32 @ethnl_set_pse_validate(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ethnl_set_pse(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -524, -94) i32 @ethnl_set_pse(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 2144
   %5 = load ptr, ptr %4, align 8

@@ -263,7 +263,7 @@ if.end6:                                          ; preds = %if.end
   %sub12 = sub i64 %6, %3
   %spec.select = tail call i64 @llvm.umax.i64(i64 %div22, i64 %sub12)
   %bytes_needed.0 = select i1 %cmp8, i64 %spec.select, i64 %div22
-  %call20 = tail call fastcc i32 @rand_pool_grow(ptr noundef nonnull %pool, i64 noundef %bytes_needed.0), !range !4
+  %call20 = tail call fastcc i32 @rand_pool_grow(ptr noundef nonnull %pool, i64 noundef %bytes_needed.0)
   %tobool.not = icmp eq i32 %call20, 0
   br i1 %tobool.not, label %if.then21, label %return
 
@@ -284,7 +284,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rand_pool_grow(ptr nocapture noundef %pool, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rand_pool_grow(ptr nocapture noundef %pool, i64 noundef %len) unnamed_addr #0 {
 entry:
   %alloc_len = getelementptr inbounds i8, ptr %pool, i64 40
   %0 = load i64, ptr %alloc_len, align 8
@@ -319,7 +319,7 @@ do.body:                                          ; preds = %if.then, %do.body
   %spec.select = select i1 %cmp8, i64 %mul, i64 %2
   %sub11 = sub i64 %spec.select, %1
   %cmp12 = icmp ult i64 %sub11, %len
-  br i1 %cmp12, label %do.body, label %do.end, !llvm.loop !5
+  br i1 %cmp12, label %do.body, label %do.end, !llvm.loop !4
 
 do.end:                                           ; preds = %do.body
   %secure = getelementptr inbounds i8, ptr %pool, i64 20
@@ -379,7 +379,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rand_pool_add(ptr nocapture noundef %pool, ptr noundef readonly %buffer, i64 noundef %len, i64 noundef %entropy) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rand_pool_add(ptr nocapture noundef %pool, ptr noundef readonly %buffer, i64 noundef %len, i64 noundef %entropy) local_unnamed_addr #0 {
 entry:
   %max_len = getelementptr inbounds i8, ptr %pool, i64 32
   %0 = load i64, ptr %max_len, align 8
@@ -426,7 +426,7 @@ if.then13:                                        ; preds = %if.then7
   br label %return
 
 if.end14:                                         ; preds = %if.then7
-  %call = tail call fastcc i32 @rand_pool_grow(ptr noundef nonnull %pool, i64 noundef %len), !range !4
+  %call = tail call fastcc i32 @rand_pool_grow(ptr noundef nonnull %pool, i64 noundef %len)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end16
 
@@ -485,7 +485,7 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  %call = tail call fastcc i32 @rand_pool_grow(ptr noundef nonnull %pool, i64 noundef %len), !range !4
+  %call = tail call fastcc i32 @rand_pool_grow(ptr noundef nonnull %pool, i64 noundef %len)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end9
 
@@ -501,7 +501,7 @@ return:                                           ; preds = %if.end7, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rand_pool_add_end(ptr nocapture noundef %pool, i64 noundef %len, i64 noundef %entropy) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rand_pool_add_end(ptr nocapture noundef %pool, i64 noundef %len, i64 noundef %entropy) local_unnamed_addr #0 {
 entry:
   %alloc_len = getelementptr inbounds i8, ptr %pool, i64 40
   %0 = load i64, ptr %alloc_len, align 8
@@ -558,6 +558,5 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

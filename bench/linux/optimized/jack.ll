@@ -28,7 +28,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_jack_rep
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_snd_jack_add_new_kctl347, ptr @__UNIQUE_ID___addressable_snd_jack_new348, ptr @__UNIQUE_ID___addressable_snd_jack_report355, ptr @__UNIQUE_ID___addressable_snd_jack_set_key354, ptr @__UNIQUE_ID___addressable_snd_jack_set_parent351], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_jack_add_new_kctl(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @snd_jack_add_new_kctl(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @snd_kctl_jack_new(ptr noundef %1, ptr noundef %5) #4
@@ -76,7 +76,7 @@ define dso_local noundef i32 @snd_jack_add_new_kctl(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_jack_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_jack_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #0 align 16 {
   br i1 %4, label %7, label %22
 
 7:                                                ; preds = %6
@@ -465,7 +465,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_jack_set_key(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_jack_set_key(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %1, i32 -1) #6, !srcloc !14
   %5 = sub i32 14, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 72

@@ -616,7 +616,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit89:        ; preds = %189, %192
 
 .loopexit135:                                     ; preds = %210, %200, %198
   %.175 = phi i32 [ %.074, %198 ], [ %201, %200 ], [ %201, %210 ]
-  %216 = mul nsw i64 %indvars.iv208, 3
+  %216 = mul nuw nsw i64 %indvars.iv208, 3
   %217 = load i8, ptr @_ZZ10gmx_velacciPPcE4bMol, align 1
   %218 = trunc i8 %217 to i1
   %219 = load i32, ptr %22, align 4
@@ -710,12 +710,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit89:        ; preds = %189, %192
   %261 = getelementptr inbounds float, ptr %260, i64 %216
   store float %.sroa.0.0.lcssa, ptr %261, align 4
   %262 = load ptr, ptr %259, align 8
-  %263 = getelementptr float, ptr %262, i64 %216
-  %264 = getelementptr i8, ptr %263, i64 4
+  %263 = getelementptr inbounds float, ptr %262, i64 %216
+  %264 = getelementptr inbounds i8, ptr %263, i64 4
   store float %.sroa.4.0.lcssa, ptr %264, align 4
   %265 = load ptr, ptr %259, align 8
-  %266 = getelementptr float, ptr %265, i64 %216
-  %267 = getelementptr i8, ptr %266, i64 8
+  %266 = getelementptr inbounds float, ptr %265, i64 %216
+  %267 = getelementptr inbounds i8, ptr %266, i64 8
   store float %.sroa.8.0.lcssa, ptr %267, align 4
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %268 = load i32, ptr %22, align 4
@@ -763,8 +763,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit89:        ; preds = %189, %192
   %293 = load float, ptr %292, align 4
   %294 = fmul float %.1, %293
   %295 = load ptr, ptr %284, align 8
-  %296 = getelementptr float, ptr %295, i64 %216
-  %297 = getelementptr i8, ptr %296, i64 4
+  %296 = getelementptr inbounds float, ptr %295, i64 %216
+  %297 = getelementptr inbounds i8, ptr %296, i64 4
   store float %294, ptr %297, align 4
   %298 = load ptr, ptr %196, align 8
   %299 = load ptr, ptr %23, align 8
@@ -775,8 +775,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit89:        ; preds = %189, %192
   %304 = load float, ptr %303, align 4
   %305 = fmul float %.1, %304
   %306 = load ptr, ptr %284, align 8
-  %307 = getelementptr float, ptr %306, i64 %216
-  %308 = getelementptr i8, ptr %307, i64 8
+  %307 = getelementptr inbounds float, ptr %306, i64 %216
+  %308 = getelementptr inbounds i8, ptr %307, i64 8
   store float %305, ptr %308, align 4
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %309 = load i32, ptr %22, align 4

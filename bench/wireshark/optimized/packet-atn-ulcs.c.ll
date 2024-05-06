@@ -424,7 +424,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ABRT_diagnostic_value_map = internal global [6 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 6], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @get_aircraft_24_bit_address_from_nsap(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 16777216) i32 @get_aircraft_24_bit_address_from_nsap(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @get_osi_address_type() #5
@@ -539,7 +539,7 @@ define hidden i32 @get_aircraft_24_bit_address_from_nsap(ptr nocapture noundef r
 declare i32 @get_osi_address_type() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @check_heur_msg_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @check_heur_msg_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @get_osi_address_type() #5
@@ -912,7 +912,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_atn_ulcs_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_atn_ulcs_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %6 = icmp ult i32 %5, 2
   br i1 %6, label %17, label %7
@@ -1491,7 +1491,7 @@ create_atn_conversation.exit96:                   ; preds = %143, %add_address_t
   %.1 = phi ptr [ %.0.ph, %create_atn_conversation.exit ], [ %111, %find_atn_conversation.exit75 ], [ %.099, %create_atn_conversation.exit.thread ], [ %114, %add_address_to_hash.exit21.i78 ], [ %114, %143 ]
   %145 = load i32, ptr @ett_atn_ulcs_AARQ_apdu, align 4
   %146 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %145, ptr noundef nonnull @AARQ_apdu_sequence) #5
-  %147 = tail call i32 @get_aircraft_24_bit_address_from_nsap(ptr noundef %7), !range !6
+  %147 = tail call i32 @get_aircraft_24_bit_address_from_nsap(ptr noundef %7)
   %148 = load ptr, ptr @aarq_data_tree, align 8
   %149 = tail call ptr @wmem_tree_lookup32(ptr noundef %148, i32 noundef %147) #5
   %.not48 = icmp eq ptr %149, null
@@ -1526,7 +1526,7 @@ create_atn_conversation.exit96:                   ; preds = %143, %add_address_t
 define internal i32 @dissect_atn_ulcs_AARE_apdu(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @get_aircraft_24_bit_address_from_nsap(ptr noundef %7), !range !6
+  %8 = tail call i32 @get_aircraft_24_bit_address_from_nsap(ptr noundef %7)
   %9 = load ptr, ptr @aarq_data_tree, align 8
   %10 = tail call ptr @wmem_tree_lookup32(ptr noundef %9, i32 noundef %8) #5
   %.not = icmp eq ptr %10, null
@@ -2745,4 +2745,3 @@ attributes #5 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 16777216}

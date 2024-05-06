@@ -150,7 +150,7 @@ BufferGetPage.exit:                               ; preds = %21, %27
   %84 = getelementptr inbounds i8, ptr %83, i64 4
   store i16 -1, ptr %84, align 2
   %85 = lshr i32 %80, 16
-  %86 = trunc i32 %85 to i16
+  %86 = trunc nuw i32 %85 to i16
   store i16 %86, ptr %83, align 2
   %87 = trunc i32 %80 to i16
   %88 = getelementptr inbounds i8, ptr %83, i64 2
@@ -195,7 +195,7 @@ addItemPointersToLeafTuple.exit:                  ; preds = %68, %.thread.i
   %106 = getelementptr inbounds i8, ptr %103, i64 4
   store i16 -1, ptr %106, align 2
   %107 = lshr i32 %105, 16
-  %108 = trunc i32 %107 to i16
+  %108 = trunc nuw i32 %107 to i16
   store i16 %108, ptr %103, align 2
   %109 = trunc i32 %105 to i16
   %110 = getelementptr inbounds i8, ptr %103, i64 2

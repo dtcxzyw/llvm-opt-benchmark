@@ -713,7 +713,7 @@ define void @_ZN7uu_fold6uu_app17h6eca0a5752fc37d3E(ptr noalias nocapture nounde
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i67, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i59, i64 16, i1 false), !noalias !208
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.i59)
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %7), !noalias !220
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %7, ptr noundef nonnull align 8 dereferenceable(592) %19, i64 592, i1 false), !noalias !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(592) %7, ptr noundef nonnull align 8 dereferenceable(592) %19, i64 592, i1 false), !noalias !5
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %19)
   call void @llvm.experimental.noalias.scope.decl(metadata !224)
   call void @llvm.experimental.noalias.scope.decl(metadata !227)
@@ -964,7 +964,7 @@ common.resume:                                    ; preds = %134, %122, %98, %31
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17haad141fcf5cf710cE.exit": ; preds = %.lr.ph.i, %24, %._crit_edge
   store i64 %2, ptr %19, align 8, !noalias !278
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !283
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !283
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !278
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
@@ -1108,7 +1108,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he8ac9c3c5d217007E.exit: ; preds = %
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17haad141fcf5cf710cE.exit39": ; preds = %.lr.ph.i34, %91, %81
   store i64 %2, ptr %86, align 8, !noalias !291
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !296
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !296
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !291
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)

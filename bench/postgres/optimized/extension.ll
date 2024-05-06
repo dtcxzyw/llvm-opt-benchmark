@@ -582,7 +582,7 @@ define internal fastcc { i64, i32 } @CreateExtensionInternal(ptr noundef %0, ptr
 23:                                               ; preds = %16, %6
   %.088 = phi ptr [ %2, %6 ], [ %18, %16 ]
   tail call fastcc void @check_valid_version_name(ptr noundef nonnull %.088)
-  %24 = tail call fastcc ptr @get_extension_script_directory(ptr noundef nonnull %9)
+  %24 = tail call fastcc ptr @get_extension_script_directory(ptr noundef nonnull readonly %9)
   %25 = tail call ptr @palloc(i64 noundef 1024) #13
   %26 = load ptr, ptr %9, align 8
   %27 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %25, i64 noundef 1024, ptr noundef nonnull @.str.45, ptr noundef %24, ptr noundef %26, ptr noundef nonnull %.088) #13
@@ -742,7 +742,7 @@ find_install_path.exit.thread127:                 ; preds = %get_ext_ver_info.ex
   %.3 = phi ptr [ %.2130, %find_install_path.exit.thread127 ], [ null, %23 ]
   %.1 = phi ptr [ %93, %find_install_path.exit.thread127 ], [ %.088, %23 ]
   %95 = tail call ptr @palloc(i64 noundef 72) #13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %95, ptr noundef nonnull align 8 dereferenceable(72) %9, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %95, ptr noundef nonnull readonly align 8 dereferenceable(72) %9, i64 72, i1 false)
   tail call fastcc void @parse_extension_control_file(ptr noundef %95, ptr noundef %.1)
   %.not105 = icmp eq ptr %1, null
   br i1 %.not105, label %96, label %.thread
@@ -1229,7 +1229,7 @@ define dso_local noundef i64 @pg_available_extensions(ptr noundef %0) local_unna
 23:                                               ; preds = %.lr.ph, %is_extension_control_filename.exit.backedge
   %24 = phi ptr [ %16, %.lr.ph ], [ %62, %is_extension_control_filename.exit.backedge ]
   %25 = getelementptr inbounds i8, ptr %24, i64 19
-  %26 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 46) #15
+  %26 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %25, i32 noundef 46) #15
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %is_extension_control_filename.exit.backedge, label %27
 
@@ -1379,7 +1379,7 @@ define dso_local noundef i64 @pg_available_extension_versions(ptr noundef %0) lo
 28:                                               ; preds = %.lr.ph21, %is_extension_control_filename.exit.backedge
   %29 = phi ptr [ %16, %.lr.ph21 ], [ %280, %is_extension_control_filename.exit.backedge ]
   %30 = getelementptr inbounds i8, ptr %29, i64 19
-  %31 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %30, i32 noundef 46) #15
+  %31 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %30, i32 noundef 46) #15
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %is_extension_control_filename.exit.backedge, label %32
 
@@ -1413,7 +1413,7 @@ define dso_local noundef i64 @pg_available_extension_versions(ptr noundef %0) lo
   %47 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %48 = call fastcc ptr @get_ext_ver_list(ptr noundef nonnull %40)
+  %48 = call fastcc ptr @get_ext_ver_list(ptr noundef nonnull readonly %40)
   %49 = getelementptr inbounds i8, ptr %48, i64 4
   %.not.i16 = icmp eq ptr %48, null
   br i1 %.not.i16, label %get_available_versions_for_extension.exit, label %.lr.ph84.i
@@ -1438,7 +1438,7 @@ define dso_local noundef i64 @pg_available_extension_versions(ptr noundef %0) lo
 59:                                               ; preds = %.lr.ph
   %60 = load ptr, ptr %55, align 8
   %61 = call ptr @palloc(i64 noundef 72) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %61, ptr noundef nonnull align 8 dereferenceable(72) %40, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %61, ptr noundef nonnull readonly align 8 dereferenceable(72) %40, i64 72, i1 false)
   call fastcc void @parse_extension_control_file(ptr noundef %61, ptr noundef %60)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i64 0, ptr %3, align 8
@@ -1806,7 +1806,7 @@ find_install_path.exit.i:                         ; preds = %find_update_path.ex
 237:                                              ; preds = %find_install_path.exit.i
   %238 = load ptr, ptr %120, align 8
   %239 = call ptr @palloc(i64 noundef 72) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %239, ptr noundef nonnull align 8 dereferenceable(72) %40, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %239, ptr noundef nonnull readonly align 8 dereferenceable(72) %40, i64 72, i1 false)
   call fastcc void @parse_extension_control_file(ptr noundef %239, ptr noundef %238)
   %240 = load ptr, ptr %120, align 8
   %241 = call ptr @cstring_to_text(ptr noundef %240) #13
@@ -1932,7 +1932,7 @@ define dso_local noundef zeroext i1 @extension_file_exists(ptr nocapture noundef
 .lr.ph:                                           ; preds = %11, %is_extension_control_filename.exit.backedge
   %13 = phi ptr [ %23, %is_extension_control_filename.exit.backedge ], [ %12, %11 ]
   %14 = getelementptr inbounds i8, ptr %13, i64 19
-  %15 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 46) #15
+  %15 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %14, i32 noundef 46) #15
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %is_extension_control_filename.exit.backedge, label %16
 
@@ -2300,7 +2300,7 @@ define internal fastcc ptr @get_ext_ver_list(ptr nocapture noundef readonly %0) 
 10:                                               ; preds = %.lr.ph, %is_extension_script_filename.exit.backedge
   %11 = phi ptr [ %9, %.lr.ph ], [ %26, %is_extension_script_filename.exit.backedge ]
   %12 = getelementptr inbounds i8, ptr %11, i64 19
-  %13 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 46) #15
+  %13 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 46) #15
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %is_extension_script_filename.exit.backedge, label %14
 
@@ -3611,7 +3611,7 @@ define dso_local { i64, i32 } @ExecAlterExtensionStmt(ptr noundef %0, ptr nocapt
   br label %145
 
 96:                                               ; preds = %86
-  %97 = call fastcc ptr @get_ext_ver_list(ptr noundef nonnull %49)
+  %97 = call fastcc ptr @get_ext_ver_list(ptr noundef nonnull readonly %49)
   %.not.i.i = icmp eq ptr %97, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -3847,7 +3847,7 @@ define internal fastcc void @ApplyExtensionUpdates(i32 noundef %0, ptr nocapture
   %29 = getelementptr %union.ListCell, ptr %28, i64 %indvars.iv118130
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @palloc(i64 noundef 72) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, i64 72, i1 false)
   call fastcc void @parse_extension_control_file(ptr noundef %31, ptr noundef %30)
   %32 = call ptr @table_open(i32 noundef 3079, i32 noundef 3) #13
   call void @ScanKeyInit(ptr noundef nonnull %10, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %18) #13
@@ -4611,7 +4611,7 @@ extension_is_trusted.exit.thread:                 ; preds = %17, %extension_is_t
 
 38:                                               ; preds = %extension_is_trusted.exit, %15, %6
   %.0 = phi i1 [ false, %15 ], [ false, %6 ], [ true, %extension_is_trusted.exit ]
-  %39 = call fastcc ptr @get_extension_script_directory(ptr noundef nonnull %1)
+  %39 = call fastcc ptr @get_extension_script_directory(ptr noundef nonnull readonly %1)
   %40 = call ptr @palloc(i64 noundef 1024) #13
   %.not.i = icmp eq ptr %2, null
   %41 = load ptr, ptr %1, align 8
@@ -5155,7 +5155,7 @@ define internal fastcc void @parse_extension_control_file(ptr noundef %0, ptr no
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call fastcc ptr @get_extension_script_directory(ptr noundef %0)
+  %7 = tail call fastcc ptr @get_extension_script_directory(ptr noundef readonly %0)
   %8 = tail call ptr @palloc(i64 noundef 1024) #13
   %9 = load ptr, ptr %0, align 8
   %10 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %8, i64 noundef 1024, ptr noundef nonnull @.str.68, ptr noundef %7, ptr noundef %9, ptr noundef nonnull %1) #13

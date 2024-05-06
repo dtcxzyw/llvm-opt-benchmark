@@ -147,7 +147,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %args, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %to_free, ptr noundef nonnull align 8 dereferenceable(24) @__const.setup_git_env.to_free, i64 24, i1 false)
-  %call.i = tail call ptr @getenv(ptr noundef nonnull @.str.15) #16
+  %call.i = tail call ptr @getenv(ptr noundef nonnull readonly @.str.15) #16
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %getenv_safe.exit, label %if.end.i
 
@@ -164,7 +164,7 @@ if.end.i:                                         ; preds = %entry
 getenv_safe.exit:                                 ; preds = %entry, %if.end.i
   %retval.0.i = phi ptr [ %4, %if.end.i ], [ null, %entry ]
   store ptr %retval.0.i, ptr %args, align 8
-  %call.i3 = call ptr @getenv(ptr noundef nonnull @.str.5) #16
+  %call.i3 = call ptr @getenv(ptr noundef nonnull readonly @.str.5) #16
   %tobool.not.i4 = icmp eq ptr %call.i3, null
   br i1 %tobool.not.i4, label %getenv_safe.exit10, label %if.end.i5
 
@@ -182,7 +182,7 @@ getenv_safe.exit10:                               ; preds = %getenv_safe.exit, %
   %retval.0.i9 = phi ptr [ %8, %if.end.i5 ], [ null, %getenv_safe.exit ]
   %object_dir = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %retval.0.i9, ptr %object_dir, align 8
-  %call.i11 = call ptr @getenv(ptr noundef nonnull @.str.9) #16
+  %call.i11 = call ptr @getenv(ptr noundef nonnull readonly @.str.9) #16
   %tobool.not.i12 = icmp eq ptr %call.i11, null
   br i1 %tobool.not.i12, label %getenv_safe.exit18, label %if.end.i13
 
@@ -200,7 +200,7 @@ getenv_safe.exit18:                               ; preds = %getenv_safe.exit10,
   %retval.0.i17 = phi ptr [ %12, %if.end.i13 ], [ null, %getenv_safe.exit10 ]
   %graft_file = getelementptr inbounds i8, ptr %args, i64 16
   store ptr %retval.0.i17, ptr %graft_file, align 8
-  %call.i19 = call ptr @getenv(ptr noundef nonnull @.str.10) #16
+  %call.i19 = call ptr @getenv(ptr noundef nonnull readonly @.str.10) #16
   %tobool.not.i20 = icmp eq ptr %call.i19, null
   br i1 %tobool.not.i20, label %getenv_safe.exit26, label %if.end.i21
 
@@ -218,7 +218,7 @@ getenv_safe.exit26:                               ; preds = %getenv_safe.exit18,
   %retval.0.i25 = phi ptr [ %16, %if.end.i21 ], [ null, %getenv_safe.exit18 ]
   %index_file = getelementptr inbounds i8, ptr %args, i64 24
   store ptr %retval.0.i25, ptr %index_file, align 8
-  %call.i27 = call ptr @getenv(ptr noundef nonnull @.str.1) #16
+  %call.i27 = call ptr @getenv(ptr noundef nonnull readonly @.str.1) #16
   %tobool.not.i28 = icmp eq ptr %call.i27, null
   br i1 %tobool.not.i28, label %getenv_safe.exit34, label %if.end.i29
 

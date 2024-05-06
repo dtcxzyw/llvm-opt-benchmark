@@ -592,7 +592,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   br i1 %339, label %340, label %326, !llvm.loop !24
 
 340:                                              ; preds = %326
-  %341 = trunc i64 %324 to i32
+  %341 = trunc nuw nsw i64 %324 to i32
   br label %342
 
 342:                                              ; preds = %340, %320
@@ -672,7 +672,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   br i1 %392, label %320, label %393, !llvm.loop !26
 
 393:                                              ; preds = %.loopexit89
-  %394 = trunc i64 %indvars.iv.next338 to i32
+  %394 = trunc nsw i64 %indvars.iv.next338 to i32
   store double %390, ptr %12, align 8, !tbaa !7
   store i32 %394, ptr %10, align 4, !tbaa !3
   %395 = load double, ptr %5, align 8, !tbaa !7
@@ -912,7 +912,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   br i1 %544, label %545, label %531, !llvm.loop !32
 
 545:                                              ; preds = %531
-  %546 = trunc i64 %529 to i32
+  %546 = trunc nuw nsw i64 %529 to i32
   br label %._crit_edge414
 
 ._crit_edge414:                                   ; preds = %526, %545
@@ -932,7 +932,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %560 = load double, ptr %559, align 8, !tbaa !7
   %561 = fadd double %560, %556
   store double %561, ptr %559, align 8, !tbaa !7
-  %562 = trunc i64 %.pre415 to i32
+  %562 = trunc nsw i64 %.pre415 to i32
   %563 = add nsw i32 %548, %562
   %564 = add i32 %563, 1
   %565 = sext i32 %564 to i64
@@ -989,7 +989,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   br label %.loopexit
 
 597:                                              ; preds = %.loopexit84
-  %598 = trunc i64 %indvars.iv.next345 to i32
+  %598 = trunc nsw i64 %indvars.iv.next345 to i32
   store i32 %598, ptr %10, align 4, !tbaa !3
   store double %593, ptr %12, align 8, !tbaa !7
   %599 = load double, ptr %5, align 8, !tbaa !7

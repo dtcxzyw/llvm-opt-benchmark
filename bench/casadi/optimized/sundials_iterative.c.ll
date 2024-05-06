@@ -257,7 +257,7 @@ define noundef i32 @ClassicalGS(ptr nocapture noundef readonly %0, ptr nocapture
   %75 = fadd double %70, %74
   store double %75, ptr %73, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %76 = trunc i64 %indvars.iv.next112 to i32
+  %76 = trunc nuw i64 %indvars.iv.next112 to i32
   %77 = icmp slt i32 %76, %2
   br i1 %77, label %65, label %._crit_edge99, !llvm.loop !10
 
@@ -382,7 +382,7 @@ define i32 @QRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapt
   %65 = getelementptr inbounds double, ptr %64, i64 %indvars.iv159
   store double %63, ptr %65, align 8
   %66 = fcmp oeq double %63, 0.000000e+00
-  %67 = trunc i64 %indvars.iv.next160 to i32
+  %67 = trunc nuw nsw i64 %indvars.iv.next160 to i32
   %.1 = select i1 %66, i32 %67, i32 %.0150
   %indvars.iv.next156 = add nsw i32 %indvars.iv155, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
@@ -500,7 +500,7 @@ define i32 @QRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapt
 declare double @SUNRabs(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @QRsol(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #3 {
+define range(i32 0, -2147483648) i32 @QRsol(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -583,7 +583,7 @@ define i32 @QRsol(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocaptu
   br i1 %exitcond66.not, label %.loopexit, label %.lr.ph52, !llvm.loop !16
 
 ._crit_edge.loopexit.split.loop.exit75:           ; preds = %.lr.ph56
-  %46 = trunc i64 %indvars.iv69 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv69 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %32, %.loopexit, %._crit_edge.loopexit.split.loop.exit75, %4, %.preheader

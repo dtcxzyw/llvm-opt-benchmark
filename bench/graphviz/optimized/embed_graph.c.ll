@@ -103,7 +103,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   %..us.us = tail call i32 @llvm.smin.i32(i32 %40, i32 %42)
   store i32 %..us.us, ptr %39, align 4
   %43 = icmp sgt i32 %..us.us, %.2103.us.us
-  %44 = trunc i64 %indvars.iv142 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv142 to i32
   %.4.us.us = select i1 %43, i32 %44, i32 %.387101.us.us
   %.3.us.us = tail call i32 @llvm.smax.i32(i32 %..us.us, i32 %.2103.us.us)
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
@@ -135,7 +135,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   %..us = tail call i32 @llvm.smin.i32(i32 %50, i32 %52)
   store i32 %..us, ptr %49, align 4
   %53 = icmp sgt i32 %..us, %.2103.us
-  %54 = trunc i64 %indvars.iv132 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv132 to i32
   %.4.us = select i1 %53, i32 %54, i32 %.387101.us
   %.3.us = tail call i32 @llvm.smax.i32(i32 %..us, i32 %.2103.us)
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
@@ -168,7 +168,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   %58 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv117
   %59 = load i32, ptr %58, align 4
   %60 = icmp sgt i32 %59, %.098
-  %61 = trunc i64 %indvars.iv117 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv117 to i32
   %spec.select = select i1 %60, i32 %61, i32 %.08496
   %spec.select94 = tail call i32 @llvm.smax.i32(i32 %59, i32 %.098)
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1

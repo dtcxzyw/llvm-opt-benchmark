@@ -1666,7 +1666,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8838, label %490, label %486
 
 486:                                              ; preds = %483
-  %487 = trunc i8 %.08546 to i1
+  %487 = trunc nuw i8 %.08546 to i1
   br i1 %487, label %488, label %489
 
 488:                                              ; preds = %486
@@ -1686,7 +1686,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8839, label %497, label %493
 
 493:                                              ; preds = %490
-  %494 = trunc i8 %.18547 to i1
+  %494 = trunc nuw i8 %.18547 to i1
   br i1 %494, label %495, label %496
 
 495:                                              ; preds = %493
@@ -1703,7 +1703,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.2 = phi i8 [ 1, %496 ], [ %.18547, %490 ]
   %499 = and i16 %498, 8
   %.not8840 = icmp eq i16 %499, 0
-  %500 = trunc i8 %.2 to i1
+  %500 = trunc nuw i8 %.2 to i1
   br i1 %.not8840, label %503, label %501
 
 501:                                              ; preds = %497
@@ -1866,7 +1866,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8834, label %565, label %561
 
 561:                                              ; preds = %558
-  %562 = trunc i8 %.08548 to i1
+  %562 = trunc nuw i8 %.08548 to i1
   br i1 %562, label %563, label %564
 
 563:                                              ; preds = %561
@@ -1886,7 +1886,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8835, label %572, label %568
 
 568:                                              ; preds = %565
-  %569 = trunc i8 %.18549 to i1
+  %569 = trunc nuw i8 %.18549 to i1
   br i1 %569, label %570, label %571
 
 570:                                              ; preds = %568
@@ -1903,7 +1903,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.28550 = phi i8 [ 1, %571 ], [ %.18549, %565 ]
   %574 = and i16 %573, 8
   %.not8836 = icmp eq i16 %574, 0
-  %575 = trunc i8 %.28550 to i1
+  %575 = trunc nuw i8 %.28550 to i1
   br i1 %.not8836, label %578, label %576
 
 576:                                              ; preds = %572
@@ -2128,7 +2128,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8830, label %667, label %663
 
 663:                                              ; preds = %660
-  %664 = trunc i8 %.08552 to i1
+  %664 = trunc nuw i8 %.08552 to i1
   br i1 %664, label %665, label %666
 
 665:                                              ; preds = %663
@@ -2148,7 +2148,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8831, label %674, label %670
 
 670:                                              ; preds = %667
-  %671 = trunc i8 %.18553 to i1
+  %671 = trunc nuw i8 %.18553 to i1
   br i1 %671, label %672, label %673
 
 672:                                              ; preds = %670
@@ -2165,7 +2165,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.28554 = phi i8 [ 1, %673 ], [ %.18553, %667 ]
   %676 = and i16 %675, 8
   %.not8832 = icmp eq i16 %676, 0
-  %677 = trunc i8 %.28554 to i1
+  %677 = trunc nuw i8 %.28554 to i1
   br i1 %.not8832, label %680, label %678
 
 678:                                              ; preds = %674
@@ -2335,7 +2335,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8826, label %744, label %740
 
 740:                                              ; preds = %737
-  %741 = trunc i8 %.08557 to i1
+  %741 = trunc nuw i8 %.08557 to i1
   br i1 %741, label %742, label %743
 
 742:                                              ; preds = %740
@@ -2355,7 +2355,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8827, label %751, label %747
 
 747:                                              ; preds = %744
-  %748 = trunc i8 %.18558 to i1
+  %748 = trunc nuw i8 %.18558 to i1
   br i1 %748, label %749, label %750
 
 749:                                              ; preds = %747
@@ -2372,7 +2372,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.28559 = phi i8 [ 1, %750 ], [ %.18558, %744 ]
   %753 = and i16 %752, 8
   %.not8828 = icmp eq i16 %753, 0
-  %754 = trunc i8 %.28559 to i1
+  %754 = trunc nuw i8 %.28559 to i1
   br i1 %.not8828, label %757, label %755
 
 755:                                              ; preds = %751
@@ -2535,7 +2535,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8822, label %819, label %815
 
 815:                                              ; preds = %812
-  %816 = trunc i8 %.08561 to i1
+  %816 = trunc nuw i8 %.08561 to i1
   br i1 %816, label %817, label %818
 
 817:                                              ; preds = %815
@@ -2555,7 +2555,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8823, label %826, label %822
 
 822:                                              ; preds = %819
-  %823 = trunc i8 %.18562 to i1
+  %823 = trunc nuw i8 %.18562 to i1
   br i1 %823, label %824, label %825
 
 824:                                              ; preds = %822
@@ -2572,7 +2572,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.28563 = phi i8 [ 1, %825 ], [ %.18562, %819 ]
   %828 = and i16 %827, 8
   %.not8824 = icmp eq i16 %828, 0
-  %829 = trunc i8 %.28563 to i1
+  %829 = trunc nuw i8 %.28563 to i1
   br i1 %.not8824, label %832, label %830
 
 830:                                              ; preds = %826
@@ -5535,7 +5535,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8815, label %2016, label %2012
 
 2012:                                             ; preds = %2009
-  %2013 = trunc i8 %.08575 to i1
+  %2013 = trunc nuw i8 %.08575 to i1
   br i1 %2013, label %2014, label %2015
 
 2014:                                             ; preds = %2012
@@ -5555,7 +5555,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8816, label %2023, label %2019
 
 2019:                                             ; preds = %2016
-  %2020 = trunc i8 %.18576 to i1
+  %2020 = trunc nuw i8 %.18576 to i1
   br i1 %2020, label %2021, label %2022
 
 2021:                                             ; preds = %2019
@@ -5572,7 +5572,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.28577 = phi i8 [ 1, %2022 ], [ %.18576, %2016 ]
   %2025 = and i16 %2024, 8
   %.not8817 = icmp eq i16 %2025, 0
-  %2026 = trunc i8 %.28577 to i1
+  %2026 = trunc nuw i8 %.28577 to i1
   br i1 %.not8817, label %2029, label %2027
 
 2027:                                             ; preds = %2023
@@ -5767,7 +5767,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8811, label %2105, label %2101
 
 2101:                                             ; preds = %2098
-  %2102 = trunc i8 %.08579 to i1
+  %2102 = trunc nuw i8 %.08579 to i1
   br i1 %2102, label %2103, label %2104
 
 2103:                                             ; preds = %2101
@@ -5787,7 +5787,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8812, label %2112, label %2108
 
 2108:                                             ; preds = %2105
-  %2109 = trunc i8 %.18580 to i1
+  %2109 = trunc nuw i8 %.18580 to i1
   br i1 %2109, label %2110, label %2111
 
 2110:                                             ; preds = %2108
@@ -5804,7 +5804,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.28581 = phi i8 [ 1, %2111 ], [ %.18580, %2105 ]
   %2114 = and i16 %2113, 8
   %.not8813 = icmp eq i16 %2114, 0
-  %2115 = trunc i8 %.28581 to i1
+  %2115 = trunc nuw i8 %.28581 to i1
   br i1 %.not8813, label %2118, label %2116
 
 2116:                                             ; preds = %2112
@@ -6006,7 +6006,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8807, label %2196, label %2192
 
 2192:                                             ; preds = %2189
-  %2193 = trunc i8 %.08583 to i1
+  %2193 = trunc nuw i8 %.08583 to i1
   br i1 %2193, label %2194, label %2195
 
 2194:                                             ; preds = %2192
@@ -6026,7 +6026,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8808, label %2203, label %2199
 
 2199:                                             ; preds = %2196
-  %2200 = trunc i8 %.18584 to i1
+  %2200 = trunc nuw i8 %.18584 to i1
   br i1 %2200, label %2201, label %2202
 
 2201:                                             ; preds = %2199
@@ -6043,7 +6043,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.28585 = phi i8 [ 1, %2202 ], [ %.18584, %2196 ]
   %2205 = and i16 %2204, 8
   %.not8809 = icmp eq i16 %2205, 0
-  %2206 = trunc i8 %.28585 to i1
+  %2206 = trunc nuw i8 %.28585 to i1
   br i1 %.not8809, label %2209, label %2207
 
 2207:                                             ; preds = %2203
@@ -6238,7 +6238,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8803, label %2285, label %2281
 
 2281:                                             ; preds = %2278
-  %2282 = trunc i8 %.08587 to i1
+  %2282 = trunc nuw i8 %.08587 to i1
   br i1 %2282, label %2283, label %2284
 
 2283:                                             ; preds = %2281
@@ -6258,7 +6258,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8804, label %2292, label %2288
 
 2288:                                             ; preds = %2285
-  %2289 = trunc i8 %.18588 to i1
+  %2289 = trunc nuw i8 %.18588 to i1
   br i1 %2289, label %2290, label %2291
 
 2290:                                             ; preds = %2288
@@ -6275,7 +6275,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.28589 = phi i8 [ 1, %2291 ], [ %.18588, %2285 ]
   %2294 = and i16 %2293, 8
   %.not8805 = icmp eq i16 %2294, 0
-  %2295 = trunc i8 %.28589 to i1
+  %2295 = trunc nuw i8 %.28589 to i1
   br i1 %.not8805, label %2298, label %2296
 
 2296:                                             ; preds = %2292
@@ -6648,7 +6648,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8799, label %2440, label %2436
 
 2436:                                             ; preds = %2433
-  %2437 = trunc i8 %.08591 to i1
+  %2437 = trunc nuw i8 %.08591 to i1
   br i1 %2437, label %2438, label %2439
 
 2438:                                             ; preds = %2436
@@ -6668,7 +6668,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8800, label %2447, label %2443
 
 2443:                                             ; preds = %2440
-  %2444 = trunc i8 %.18592 to i1
+  %2444 = trunc nuw i8 %.18592 to i1
   br i1 %2444, label %2445, label %2446
 
 2445:                                             ; preds = %2443
@@ -6685,7 +6685,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.28593 = phi i8 [ 1, %2446 ], [ %.18592, %2440 ]
   %2449 = and i16 %2448, 8
   %.not8801 = icmp eq i16 %2449, 0
-  %2450 = trunc i8 %.28593 to i1
+  %2450 = trunc nuw i8 %.28593 to i1
   br i1 %.not8801, label %2453, label %2451
 
 2451:                                             ; preds = %2447
@@ -6742,7 +6742,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8788, label %2470, label %2466
 
 2466:                                             ; preds = %2463
-  %2467 = trunc i8 %.08595 to i1
+  %2467 = trunc nuw i8 %.08595 to i1
   br i1 %2467, label %2468, label %2469
 
 2468:                                             ; preds = %2466
@@ -6762,7 +6762,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8789, label %2477, label %2473
 
 2473:                                             ; preds = %2470
-  %2474 = trunc i8 %.18596 to i1
+  %2474 = trunc nuw i8 %.18596 to i1
   br i1 %2474, label %2475, label %2476
 
 2475:                                             ; preds = %2473
@@ -6782,7 +6782,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8790, label %2484, label %2480
 
 2480:                                             ; preds = %2477
-  %2481 = trunc i8 %.28597 to i1
+  %2481 = trunc nuw i8 %.28597 to i1
   br i1 %2481, label %2482, label %2483
 
 2482:                                             ; preds = %2480
@@ -6802,7 +6802,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8791, label %2491, label %2487
 
 2487:                                             ; preds = %2484
-  %2488 = trunc i8 %.38598 to i1
+  %2488 = trunc nuw i8 %.38598 to i1
   br i1 %2488, label %2489, label %2490
 
 2489:                                             ; preds = %2487
@@ -6822,7 +6822,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8792, label %2498, label %2494
 
 2494:                                             ; preds = %2491
-  %2495 = trunc i8 %.4 to i1
+  %2495 = trunc nuw i8 %.4 to i1
   br i1 %2495, label %2496, label %2497
 
 2496:                                             ; preds = %2494
@@ -6842,7 +6842,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8793, label %2505, label %2501
 
 2501:                                             ; preds = %2498
-  %2502 = trunc i8 %.5 to i1
+  %2502 = trunc nuw i8 %.5 to i1
   br i1 %2502, label %2503, label %2504
 
 2503:                                             ; preds = %2501
@@ -6862,7 +6862,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8794, label %2512, label %2508
 
 2508:                                             ; preds = %2505
-  %2509 = trunc i8 %.6 to i1
+  %2509 = trunc nuw i8 %.6 to i1
   br i1 %2509, label %2510, label %2511
 
 2510:                                             ; preds = %2508
@@ -6882,7 +6882,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8795, label %2519, label %2515
 
 2515:                                             ; preds = %2512
-  %2516 = trunc i8 %.7 to i1
+  %2516 = trunc nuw i8 %.7 to i1
   br i1 %2516, label %2517, label %2518
 
 2517:                                             ; preds = %2515
@@ -6902,7 +6902,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8796, label %2526, label %2522
 
 2522:                                             ; preds = %2519
-  %2523 = trunc i8 %.8 to i1
+  %2523 = trunc nuw i8 %.8 to i1
   br i1 %2523, label %2524, label %2525
 
 2524:                                             ; preds = %2522
@@ -6919,7 +6919,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.9 = phi i8 [ 1, %2525 ], [ %.8, %2519 ]
   %2528 = and i16 %2527, 1024
   %.not8797 = icmp eq i16 %2528, 0
-  %2529 = trunc i8 %.9 to i1
+  %2529 = trunc nuw i8 %.9 to i1
   br i1 %.not8797, label %2532, label %2530
 
 2530:                                             ; preds = %2526
@@ -7033,7 +7033,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8777, label %2577, label %2573
 
 2573:                                             ; preds = %2570
-  %2574 = trunc i8 %.08600 to i1
+  %2574 = trunc nuw i8 %.08600 to i1
   br i1 %2574, label %2575, label %2576
 
 2575:                                             ; preds = %2573
@@ -7053,7 +7053,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8778, label %2584, label %2580
 
 2580:                                             ; preds = %2577
-  %2581 = trunc i8 %.18601 to i1
+  %2581 = trunc nuw i8 %.18601 to i1
   br i1 %2581, label %2582, label %2583
 
 2582:                                             ; preds = %2580
@@ -7073,7 +7073,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8779, label %2591, label %2587
 
 2587:                                             ; preds = %2584
-  %2588 = trunc i8 %.28602 to i1
+  %2588 = trunc nuw i8 %.28602 to i1
   br i1 %2588, label %2589, label %2590
 
 2589:                                             ; preds = %2587
@@ -7093,7 +7093,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8780, label %2598, label %2594
 
 2594:                                             ; preds = %2591
-  %2595 = trunc i8 %.38603 to i1
+  %2595 = trunc nuw i8 %.38603 to i1
   br i1 %2595, label %2596, label %2597
 
 2596:                                             ; preds = %2594
@@ -7113,7 +7113,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8781, label %2605, label %2601
 
 2601:                                             ; preds = %2598
-  %2602 = trunc i8 %.48604 to i1
+  %2602 = trunc nuw i8 %.48604 to i1
   br i1 %2602, label %2603, label %2604
 
 2603:                                             ; preds = %2601
@@ -7133,7 +7133,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8782, label %2612, label %2608
 
 2608:                                             ; preds = %2605
-  %2609 = trunc i8 %.58605 to i1
+  %2609 = trunc nuw i8 %.58605 to i1
   br i1 %2609, label %2610, label %2611
 
 2610:                                             ; preds = %2608
@@ -7153,7 +7153,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8783, label %2619, label %2615
 
 2615:                                             ; preds = %2612
-  %2616 = trunc i8 %.68606 to i1
+  %2616 = trunc nuw i8 %.68606 to i1
   br i1 %2616, label %2617, label %2618
 
 2617:                                             ; preds = %2615
@@ -7173,7 +7173,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8784, label %2626, label %2622
 
 2622:                                             ; preds = %2619
-  %2623 = trunc i8 %.78607 to i1
+  %2623 = trunc nuw i8 %.78607 to i1
   br i1 %2623, label %2624, label %2625
 
 2624:                                             ; preds = %2622
@@ -7193,7 +7193,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8785, label %2633, label %2629
 
 2629:                                             ; preds = %2626
-  %2630 = trunc i8 %.88608 to i1
+  %2630 = trunc nuw i8 %.88608 to i1
   br i1 %2630, label %2631, label %2632
 
 2631:                                             ; preds = %2629
@@ -7210,7 +7210,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.98609 = phi i8 [ 1, %2632 ], [ %.88608, %2626 ]
   %2635 = and i16 %2634, 1024
   %.not8786 = icmp eq i16 %2635, 0
-  %2636 = trunc i8 %.98609 to i1
+  %2636 = trunc nuw i8 %.98609 to i1
   br i1 %.not8786, label %2639, label %2637
 
 2637:                                             ; preds = %2633
@@ -8128,7 +8128,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8763, label %3016, label %3012
 
 3012:                                             ; preds = %3009
-  %3013 = trunc i8 %.08623 to i1
+  %3013 = trunc nuw i8 %.08623 to i1
   br i1 %3013, label %3014, label %3015
 
 3014:                                             ; preds = %3012
@@ -8148,7 +8148,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8764, label %3023, label %3019
 
 3019:                                             ; preds = %3016
-  %3020 = trunc i8 %.18624 to i1
+  %3020 = trunc nuw i8 %.18624 to i1
   br i1 %3020, label %3021, label %3022
 
 3021:                                             ; preds = %3019
@@ -8168,7 +8168,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8765, label %3030, label %3026
 
 3026:                                             ; preds = %3023
-  %3027 = trunc i8 %.28625 to i1
+  %3027 = trunc nuw i8 %.28625 to i1
   br i1 %3027, label %3028, label %3029
 
 3028:                                             ; preds = %3026
@@ -8188,7 +8188,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8766, label %3037, label %3033
 
 3033:                                             ; preds = %3030
-  %3034 = trunc i8 %.38626 to i1
+  %3034 = trunc nuw i8 %.38626 to i1
   br i1 %3034, label %3035, label %3036
 
 3035:                                             ; preds = %3033
@@ -8208,7 +8208,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8767, label %3044, label %3040
 
 3040:                                             ; preds = %3037
-  %3041 = trunc i8 %.48627 to i1
+  %3041 = trunc nuw i8 %.48627 to i1
   br i1 %3041, label %3042, label %3043
 
 3042:                                             ; preds = %3040
@@ -8228,7 +8228,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8768, label %3051, label %3047
 
 3047:                                             ; preds = %3044
-  %3048 = trunc i8 %.58628 to i1
+  %3048 = trunc nuw i8 %.58628 to i1
   br i1 %3048, label %3049, label %3050
 
 3049:                                             ; preds = %3047
@@ -8248,7 +8248,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8769, label %3058, label %3054
 
 3054:                                             ; preds = %3051
-  %3055 = trunc i8 %.68629 to i1
+  %3055 = trunc nuw i8 %.68629 to i1
   br i1 %3055, label %3056, label %3057
 
 3056:                                             ; preds = %3054
@@ -8268,7 +8268,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8770, label %3065, label %3061
 
 3061:                                             ; preds = %3058
-  %3062 = trunc i8 %.78630 to i1
+  %3062 = trunc nuw i8 %.78630 to i1
   br i1 %3062, label %3063, label %3064
 
 3063:                                             ; preds = %3061
@@ -8288,7 +8288,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8771, label %3072, label %3068
 
 3068:                                             ; preds = %3065
-  %3069 = trunc i8 %.88631 to i1
+  %3069 = trunc nuw i8 %.88631 to i1
   br i1 %3069, label %3070, label %3071
 
 3070:                                             ; preds = %3068
@@ -8305,7 +8305,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.98632 = phi i8 [ 1, %3071 ], [ %.88631, %3065 ]
   %3074 = and i16 %3073, 1024
   %.not8772 = icmp eq i16 %3074, 0
-  %3075 = trunc i8 %.98632 to i1
+  %3075 = trunc nuw i8 %.98632 to i1
   br i1 %.not8772, label %3078, label %3076
 
 3076:                                             ; preds = %3072
@@ -9923,7 +9923,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8747, label %3731, label %3727
 
 3727:                                             ; preds = %3724
-  %3728 = trunc i8 %.08652 to i1
+  %3728 = trunc nuw i8 %.08652 to i1
   br i1 %3728, label %3729, label %3730
 
 3729:                                             ; preds = %3727
@@ -9943,7 +9943,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8748, label %3738, label %3734
 
 3734:                                             ; preds = %3731
-  %3735 = trunc i8 %.18653 to i1
+  %3735 = trunc nuw i8 %.18653 to i1
   br i1 %3735, label %3736, label %3737
 
 3736:                                             ; preds = %3734
@@ -9963,7 +9963,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8749, label %3745, label %3741
 
 3741:                                             ; preds = %3738
-  %3742 = trunc i8 %.28654 to i1
+  %3742 = trunc nuw i8 %.28654 to i1
   br i1 %3742, label %3743, label %3744
 
 3743:                                             ; preds = %3741
@@ -9983,7 +9983,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8750, label %3752, label %3748
 
 3748:                                             ; preds = %3745
-  %3749 = trunc i8 %.38655 to i1
+  %3749 = trunc nuw i8 %.38655 to i1
   br i1 %3749, label %3750, label %3751
 
 3750:                                             ; preds = %3748
@@ -10003,7 +10003,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8751, label %3759, label %3755
 
 3755:                                             ; preds = %3752
-  %3756 = trunc i8 %.48656 to i1
+  %3756 = trunc nuw i8 %.48656 to i1
   br i1 %3756, label %3757, label %3758
 
 3757:                                             ; preds = %3755
@@ -10023,7 +10023,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8752, label %3766, label %3762
 
 3762:                                             ; preds = %3759
-  %3763 = trunc i8 %.58657 to i1
+  %3763 = trunc nuw i8 %.58657 to i1
   br i1 %3763, label %3764, label %3765
 
 3764:                                             ; preds = %3762
@@ -10043,7 +10043,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8753, label %3773, label %3769
 
 3769:                                             ; preds = %3766
-  %3770 = trunc i8 %.68658 to i1
+  %3770 = trunc nuw i8 %.68658 to i1
   br i1 %3770, label %3771, label %3772
 
 3771:                                             ; preds = %3769
@@ -10063,7 +10063,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8754, label %3780, label %3776
 
 3776:                                             ; preds = %3773
-  %3777 = trunc i8 %.78659 to i1
+  %3777 = trunc nuw i8 %.78659 to i1
   br i1 %3777, label %3778, label %3779
 
 3778:                                             ; preds = %3776
@@ -10083,7 +10083,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8755, label %3787, label %3783
 
 3783:                                             ; preds = %3780
-  %3784 = trunc i8 %.88660 to i1
+  %3784 = trunc nuw i8 %.88660 to i1
   br i1 %3784, label %3785, label %3786
 
 3785:                                             ; preds = %3783
@@ -10100,7 +10100,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.98661 = phi i8 [ 1, %3786 ], [ %.88660, %3780 ]
   %3789 = and i16 %3788, 1024
   %.not8756 = icmp eq i16 %3789, 0
-  %3790 = trunc i8 %.98661 to i1
+  %3790 = trunc nuw i8 %.98661 to i1
   br i1 %.not8756, label %3793, label %3791
 
 3791:                                             ; preds = %3787
@@ -10833,7 +10833,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8740, label %4081, label %4077
 
 4077:                                             ; preds = %4074
-  %4078 = trunc i8 %.08642 to i1
+  %4078 = trunc nuw i8 %.08642 to i1
   br i1 %4078, label %4079, label %4080
 
 4079:                                             ; preds = %4077
@@ -10850,7 +10850,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.18643 = phi i8 [ 1, %4080 ], [ %.08642, %4074 ]
   %4083 = and i16 %4082, 4
   %.not8741 = icmp eq i16 %4083, 0
-  %4084 = trunc i8 %.18643 to i1
+  %4084 = trunc nuw i8 %.18643 to i1
   br i1 %.not8741, label %4087, label %4085
 
 4085:                                             ; preds = %4081
@@ -11089,7 +11089,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   br i1 %.not8737, label %4185, label %4181
 
 4181:                                             ; preds = %4178
-  %4182 = trunc i8 %.08619 to i1
+  %4182 = trunc nuw i8 %.08619 to i1
   br i1 %4182, label %4183, label %4184
 
 4183:                                             ; preds = %4181
@@ -11106,7 +11106,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %.18620 = phi i8 [ 1, %4184 ], [ %.08619, %4178 ]
   %4187 = and i16 %4186, 4
   %.not8738 = icmp eq i16 %4187, 0
-  %4188 = trunc i8 %.18620 to i1
+  %4188 = trunc nuw i8 %.18620 to i1
   br i1 %.not8738, label %4191, label %4189
 
 4189:                                             ; preds = %4185
@@ -11864,14 +11864,14 @@ define internal fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1
   %8 = tail call i64 @pm_newline_list_line_column(ptr noundef nonnull %4, ptr noundef %5, i32 noundef %7) #3
   %.sroa.01.0.extract.trunc = trunc i64 %8 to i32
   %.sroa.22.0.extract.shift = lshr i64 %8, 32
-  %.sroa.22.0.extract.trunc = trunc i64 %.sroa.22.0.extract.shift to i32
+  %.sroa.22.0.extract.trunc = trunc nuw i64 %.sroa.22.0.extract.shift to i32
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %6, align 8
   %12 = tail call i64 @pm_newline_list_line_column(ptr noundef nonnull %4, ptr noundef %10, i32 noundef %11) #3
   %.sroa.0.0.extract.trunc = trunc i64 %12 to i32
   %.sroa.2.0.extract.shift = lshr i64 %12, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.276, i32 noundef %.sroa.01.0.extract.trunc, i32 noundef %.sroa.22.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.sroa.2.0.extract.trunc) #3
   ret void
 }

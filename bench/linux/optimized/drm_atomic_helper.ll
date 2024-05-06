@@ -1995,7 +1995,7 @@ declare dso_local i32 @drm_atomic_add_affected_planes(ptr noundef, ptr noundef) 
 declare dso_local i32 @drm_atomic_add_encoder_bridges(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_atomic_helper_check_wb_connector_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_check_wb_connector_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -2077,7 +2077,7 @@ define dso_local noundef i32 @drm_atomic_helper_check_wb_connector_state(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_atomic_helper_check_plane_state(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #0 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @drm_atomic_helper_check_plane_state(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #0 align 16 {
   %7 = alloca %struct.drm_rect, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -2331,7 +2331,7 @@ declare dso_local zeroext i1 @drm_rect_clip_scaled(ptr noundef, ptr noundef, ptr
 declare dso_local void @drm_rect_rotate_inv(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_atomic_helper_check_crtc_primary_plane(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_check_crtc_primary_plane(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 712

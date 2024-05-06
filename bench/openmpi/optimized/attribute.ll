@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [47 x i8] c"Error while creating the local attribute list\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_attr_get_ref() local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @ompi_attr_get_ref() local_unnamed_addr #0 {
   %1 = load i8, ptr @opal_uses_threads, align 1
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %5
@@ -455,7 +455,7 @@ define i32 @ompi_attr_create_keyval_aint(i32 noundef %0, ptr %1, ptr %2, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_attr_free_keyval(i32 noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @ompi_attr_free_keyval(i32 noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i8, ptr @opal_uses_threads, align 1
   %6 = trunc i8 %5 to i1
@@ -1524,7 +1524,7 @@ opal_obj_new.exit.thread:                         ; preds = %12, %49, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_attr_get_c(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_attr_get_c(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load i8, ptr @opal_uses_threads, align 1
@@ -1620,7 +1620,7 @@ translate_to_c.exit:                              ; preds = %.thread, %27, %30, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_attr_get_fint(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_attr_get_fint(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load i8, ptr @opal_uses_threads, align 1
@@ -1761,7 +1761,7 @@ define internal fastcc i32 @translate_to_fint(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_attr_get_aint(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_attr_get_aint(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load i8, ptr @opal_uses_threads, align 1

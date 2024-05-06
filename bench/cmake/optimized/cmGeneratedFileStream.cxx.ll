@@ -1055,7 +1055,7 @@ define dso_local noundef zeroext i1 @_ZN25cmGeneratedFileStreamBase5CloseEv(ptr 
 41:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   %42 = invoke noundef i32 @_ZN25cmGeneratedFileStreamBase12CompressFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %43 unwind label %46, !range !14
+          to label %43 unwind label %46
 
 43:                                               ; preds = %41
   %.not = icmp eq i32 %42, 0
@@ -1160,7 +1160,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare noundef zeroext i1 @_ZN5cmsys11SystemTools11FilesDifferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN25cmGeneratedFileStreamBase12CompressFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN25cmGeneratedFileStreamBase12CompressFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca [1024 x i8], align 16
   %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
   %6 = tail call ptr @cm_zlib_gzopen(ptr noundef %5, ptr noundef nonnull @.str.6)
@@ -1185,7 +1185,7 @@ define dso_local noundef i32 @_ZN25cmGeneratedFileStreamBase12CompressFileERKNSt
   %13 = trunc i64 %11 to i32
   %14 = call i32 @cm_zlib_gzwrite(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef %13)
   %.not17 = icmp eq i32 %14, 0
-  br i1 %.not17, label %15, label %.preheader, !llvm.loop !15
+  br i1 %.not17, label %15, label %.preheader, !llvm.loop !14
 
 15:                                               ; preds = %12
   %16 = call i32 @fclose(ptr noundef nonnull %8)
@@ -1203,7 +1203,7 @@ define dso_local noundef i32 @_ZN25cmGeneratedFileStreamBase12CompressFileERKNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN25cmGeneratedFileStreamBase10RenameFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(100) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN25cmGeneratedFileStreamBase10RenameFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(100) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN13cmSystemTools10RenameFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %5 = zext i1 %4 to i32
   ret i32 %5
@@ -1472,6 +1472,5 @@ attributes #19 = { noreturn nounwind }
 !11 = !{!12}
 !12 = distinct !{!12, !13, !"_ZZ8cmStrCatIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA9_KcJEES5_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESJ_: argument 0"}
 !13 = distinct !{!13, !"_ZZ8cmStrCatIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA9_KcJEES5_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESJ_"}
-!14 = !{i32 0, i32 2}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}

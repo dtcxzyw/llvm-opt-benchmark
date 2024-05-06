@@ -876,7 +876,7 @@ fiddle_ptr_free_ptr.exit:                         ; preds = %1, %4, %7, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rb_fiddle_ptr_freed_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @rb_fiddle_ptr_freed_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiddle_ptr_data_type) #10
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i8, ptr %3, align 8
@@ -973,7 +973,7 @@ rb_fiddle_ptr_new.exit:                           ; preds = %1, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rb_fiddle_ptr_null_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @rb_fiddle_ptr_null_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiddle_ptr_data_type) #10
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1089,7 +1089,7 @@ define internal i64 @rb_fiddle_ptr_inspect(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rb_fiddle_ptr_cmp(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @rb_fiddle_ptr_cmp(i64 noundef %0, i64 noundef %1) #0 {
   %3 = load i64, ptr @rb_cPointer, align 8
   %4 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %3) #10
   %.not = icmp eq i64 %4, 0
@@ -1152,7 +1152,7 @@ rb_fiddle_ptr2cptr.exit11:                        ; preds = %17, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rb_fiddle_ptr_eql(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @rb_fiddle_ptr_eql(i64 noundef %0, i64 noundef %1) #0 {
   %3 = load i64, ptr @rb_cPointer, align 8
   %4 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %3) #10
   %.not = icmp eq i64 %4, 0

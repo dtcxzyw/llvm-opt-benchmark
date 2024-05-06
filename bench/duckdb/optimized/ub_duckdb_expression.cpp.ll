@@ -24133,7 +24133,7 @@ _ZNSt12_Vector_baseIN6duckdb11OrderByNodeESaIS1_EED2Ev.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i8 @_ZN6duckdb16WindowExpression22WindowToExpressionTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %fun_name) local_unnamed_addr #8 align 2 {
+define noundef zeroext range(i8 110, -121) i8 @_ZN6duckdb16WindowExpression22WindowToExpressionTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %fun_name) local_unnamed_addr #8 align 2 {
 entry:
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %fun_name, ptr noundef nonnull @.str.26) #26
   %cmp.i = icmp eq i32 %call.i, 0

@@ -294,7 +294,7 @@ invoke.cont9:                                     ; preds = %for.body
 
 invoke.cont14:                                    ; preds = %invoke.cont9
   %mul = fmul float %call15, %call15
-  %10 = trunc i64 %indvars.iv361 to i32
+  %10 = trunc nuw i64 %indvars.iv361 to i32
   %a.0317 = add i32 %10, -1
   %cmp17318 = icmp sgt i32 %a.0317, -1
   br i1 %cmp17318, label %for.body18.lr.ph, label %for.end210
@@ -558,7 +558,7 @@ while.body.i:                                     ; preds = %land.rhs.i189
   br i1 %exitcond.not.i, label %for.body86.lr.ph, label %land.rhs.i189, !llvm.loop !10
 
 _ZNK6aiMesh16GetNumUVChannelsEv.exit:             ; preds = %land.rhs.i189
-  %69 = trunc i64 %indvars.iv.i to i32
+  %69 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp85306.not = icmp eq i32 %69, 0
   br i1 %cmp85306.not, label %for.end, label %for.body86.lr.ph
 
@@ -619,7 +619,7 @@ for.inc:                                          ; preds = %for.inc.i207, %if.e
   br i1 %exitcond.not, label %if.end105, label %for.body86, !llvm.loop !11
 
 for.end.loopexit:                                 ; preds = %for.body.i194
-  %80 = trunc i64 %indvars.iv to i32
+  %80 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZNK6aiMesh16GetNumUVChannelsEv.exit
@@ -645,7 +645,7 @@ while.body.i216:                                  ; preds = %land.rhs.i212
   br i1 %exitcond.not.i218, label %for.body112.lr.ph, label %land.rhs.i212, !llvm.loop !12
 
 _ZNK6aiMesh19GetNumColorChannelsEv.exit:          ; preds = %land.rhs.i212
-  %82 = trunc i64 %indvars.iv.i213 to i32
+  %82 = trunc nuw nsw i64 %indvars.iv.i213 to i32
   %cmp111308.not = icmp eq i32 %82, 0
   br i1 %cmp111308.not, label %for.end131, label %for.body112.lr.ph
 
@@ -712,7 +712,7 @@ for.inc129:                                       ; preds = %for.inc.i228, %if.e
   br i1 %exitcond348.not, label %if.end134, label %for.body112, !llvm.loop !14
 
 for.end131.loopexit:                              ; preds = %for.body.i223
-  %96 = trunc i64 %indvars.iv344 to i32
+  %96 = trunc nuw nsw i64 %indvars.iv344 to i32
   br label %for.end131
 
 for.end131:                                       ; preds = %for.end131.loopexit, %_ZNK6aiMesh19GetNumColorChannelsEv.exit
@@ -835,7 +835,7 @@ for.body153:                                      ; preds = %for.body153.lr.ph, 
 
 for.body158.lr.ph:                                ; preds = %for.body153
   %mIndices = getelementptr inbounds i8, ptr %arrayidx155, i64 8
-  %120 = trunc i64 %indvars.iv358 to i32
+  %120 = trunc nuw i64 %indvars.iv358 to i32
   br label %for.body158
 
 for.body158:                                      ; preds = %for.body158.lr.ph, %for.body158
@@ -867,7 +867,7 @@ for.end167:                                       ; preds = %for.body158, %for.b
 
 for.body175.lr.ph:                                ; preds = %for.end167
   %mIndices176 = getelementptr inbounds i8, ptr %arrayidx170, i64 8
-  %128 = trunc i64 %indvars.iv358 to i32
+  %128 = trunc nuw i64 %indvars.iv358 to i32
   br label %for.body175
 
 for.body175:                                      ; preds = %for.body175.lr.ph, %for.body175

@@ -185,7 +185,7 @@ for.end67:                                        ; preds = %if.end64, %if.end64
   %cond = select i1 %negative.0, i128 %sub69, i128 %result.0.lcssa
   %retval.sroa.0.0.extract.trunc35 = trunc i128 %cond to i64
   %retval.sroa.4.0.extract.shift38 = lshr i128 %cond, 64
-  %retval.sroa.4.0.extract.trunc39 = trunc i128 %retval.sroa.4.0.extract.shift38 to i64
+  %retval.sroa.4.0.extract.trunc39 = trunc nuw i128 %retval.sroa.4.0.extract.shift38 to i64
   br label %return
 
 return:                                           ; preds = %if.else58, %if.else50.us, %for.end67
@@ -268,9 +268,9 @@ while.body:                                       ; preds = %if.end, %invoke.con
   %div = sdiv i128 %x.addr.07.frozen, 10
   %2 = mul i128 %div, 10
   %rem.decomposed = sub i128 %x.addr.07.frozen, %2
-  %conv = trunc i128 %rem.decomposed to i32
+  %conv = trunc nsw i128 %rem.decomposed to i32
   %3 = tail call i32 @llvm.abs.i32(i32 %conv, i1 true)
-  %4 = trunc i32 %3 to i8
+  %4 = trunc nuw nsw i32 %3 to i8
   %conv4 = add nuw nsw i8 %4, 48
   %call = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %conv4)
           to label %invoke.cont6 unwind label %lpad5.loopexit

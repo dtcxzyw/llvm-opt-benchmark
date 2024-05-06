@@ -127,32 +127,32 @@ define internal void @follow_stream(ptr nocapture noundef readonly %0, ptr nound
   store i64 -1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %1, ptr %18, align 8
-  %19 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(5) @.str.3, i64 noundef 4) #13
+  %19 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(5) @.str.3, i64 noundef 4) #13
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %follow_arg_mode.exit, label %21
 
 21:                                               ; preds = %2
-  %22 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(7) @.str.4, i64 noundef 6) #13
+  %22 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(7) @.str.4, i64 noundef 6) #13
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %follow_arg_mode.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(8) @.str.5, i64 noundef 7) #13
+  %25 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(8) @.str.5, i64 noundef 7) #13
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %follow_arg_mode.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #13
+  %28 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(5) @.str.6, i64 noundef 4) #13
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %follow_arg_mode.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(7) @.str.7, i64 noundef 6) #13
+  %31 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(7) @.str.7, i64 noundef 6) #13
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %follow_arg_mode.exit, label %33
 
 33:                                               ; preds = %30
-  %34 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(6) @.str.8, i64 noundef 5) #13
+  %34 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(6) @.str.8, i64 noundef 5) #13
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %follow_arg_mode.exit, label %36
 
@@ -502,7 +502,7 @@ define internal void @follow_draw(ptr noundef %0) #0 {
   unreachable
 
 switch.hole_check:                                ; preds = %18
-  %switch.maskindex = trunc i32 %.val to i8
+  %switch.maskindex = trunc nuw i32 %.val to i8
   %switch.shifted = lshr i8 125, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %25
@@ -689,7 +689,7 @@ thread-pre-split:                                 ; preds = %70, %78
   %120 = getelementptr [78 x i8], ptr %2, i64 0, i64 %119
   store i8 %117, ptr %120, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %121 = trunc i64 %indvars.iv.next.i to i32
+  %121 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %.urem.i = and i32 %121, 15
   %122 = icmp eq i32 %.urem.i, 8
   br i1 %122, label %123, label %130
@@ -787,7 +787,7 @@ follow_print_hex.exit:                            ; preds = %141, %83
   br i1 %172, label %.lr.ph154, label %._crit_edge155.loopexit, !llvm.loop !8
 
 ._crit_edge155.loopexit:                          ; preds = %166
-  %173 = trunc i64 %indvars.iv.next172 to i32
+  %173 = trunc nuw i64 %indvars.iv.next172 to i32
   br label %._crit_edge155
 
 ._crit_edge155:                                   ; preds = %._crit_edge155.loopexit, %146

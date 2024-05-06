@@ -30,7 +30,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_txpim() #0 {
+define internal range(i32 0, 2) i32 @test_txpim() #0 {
 entry:
   %pkts = alloca [10 x ptr], align 16
   %chunks = alloca [3 x %struct.quic_txpim_chunk_st], align 16

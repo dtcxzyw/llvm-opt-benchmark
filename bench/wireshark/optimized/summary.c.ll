@@ -450,7 +450,7 @@ tally_frame_data.exit:                            ; preds = %65, %96, %109, %.si
   %249 = getelementptr i8, ptr %245, i64 %indvars.iv.i
   %250 = load i8, ptr %249, align 1
   %251 = zext i8 %250 to i32
-  %252 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %248, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %251) #5
+  %252 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %248, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %251) #5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
   br i1 %exitcond.not.i, label %hash_to_str.exit, label %.lr.ph.i, !llvm.loop !8
@@ -469,7 +469,7 @@ hash_to_str.exit:                                 ; preds = %.lr.ph.i
   %258 = getelementptr i8, ptr %254, i64 %indvars.iv.i98
   %259 = load i8, ptr %258, align 1
   %260 = zext i8 %259 to i32
-  %261 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %257, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %260) #5
+  %261 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %257, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %260) #5
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i98, 1
   %exitcond.not.i101 = icmp eq i64 %indvars.iv.next.i100, 20
   br i1 %exitcond.not.i101, label %hash_to_str.exit102, label %.lr.ph.i97, !llvm.loop !8

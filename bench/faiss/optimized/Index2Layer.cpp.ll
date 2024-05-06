@@ -511,7 +511,7 @@ define void @_ZNK5faiss11Index2Layer9sa_encodeElPKfPh(ptr noundef nonnull align 
 
 52:                                               ; preds = %25
   %53 = icmp ugt i64 %1, 2305843009213693951
-  %54 = shl i64 %1, 3
+  %54 = shl nuw nsw i64 %1, 3
   %55 = select i1 %53, i64 -1, i64 %54
   %56 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %55) #19
   %57 = getelementptr inbounds i8, ptr %0, i64 72

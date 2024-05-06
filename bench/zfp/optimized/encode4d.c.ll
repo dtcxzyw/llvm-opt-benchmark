@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @perm_4 = internal unnamed_addr constant [256 x i8] c"\00\01\04\10@\05P\11DA\14\02\08 \80TQE\15\06\12B\18H\09`!$\81\84\90\03\0C0\C0URF\16I\19X%da\94\91\85\0A\A0\22\88\82(\07\13C\1CL\0Dp14\C1\C4\D0VYe\95\A1\89)\86&\A4\1A\98\92hbJSG\17M\1D\\5tq\D4\D1\C5\0B#\83,\8C\0E\B028\C2\C8\E0Z\A5f\99\96i\A8\A2\8A*W]u\D5\1BKc'\87\93l-\8D\9C\1EN\B1\B46rx9\C6\D2\D8\C9\E1\E4\0F\F03\CC\C3<\A9\A6\9Aj[g\97m\9D^\B5vy\D6\D9\E5\A3\8B+\8E.\AC:\B8\B2\E8\E2\CA\F1\CD=\C77\F4\1F\DC\D3|sO\AA\A7\9Bk\9En\ADz\B9\B6\E9\E6\DA_\F5w\DD\D7}\F2\CE>\CB;\F8/\EC\E3\BC\B3\8F\AB\AE\BA\EA\F6\DE~\DB{\F9o\ED\E7\BD\B7\9F\FC\F3\CF?\AF\FA\BB\EE\EB\BE\FD\F7\DF\7F\FE\FB\EF\BF\FF", align 256
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @zfp_encode_block_double_4(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_encode_block_double_4(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca [256 x i64], align 256
   %4 = alloca i32, align 4
   %5 = alloca [256 x i64], align 256
@@ -44,9 +44,9 @@ define i64 @zfp_encode_block_double_4(ptr nocapture noundef readonly %0, ptr noc
 
 exponent_block_double.exit.thread.i:              ; preds = %20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 256 dereferenceable(2048) %9, i8 0, i64 2048, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 256 dereferenceable(2048) %9, i8 0, i64 2048, i1 false)
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 256 dereferenceable(2048) %7, i8 0, i64 2048, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 256 dereferenceable(2048) %7, i8 0, i64 2048, i1 false)
   br label %rev_fwd_reversible_double.exit.i
 
 exponent_block_double.exit.i:                     ; preds = %20
@@ -94,7 +94,7 @@ rev_fwd_cast_double.exit.i:                       ; preds = %27
 
 rev_fwd_reversible_double.exit.i:                 ; preds = %36, %exponent_block_double.exit.thread.i
   %43 = phi i32 [ -1023, %exponent_block_double.exit.thread.i ], [ %24, %36 ]
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2048) %1, ptr noundef nonnull dereferenceable(2048) %7, i64 2048)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2048) %1, ptr noundef nonnull dereferenceable(2048) %7, i64 2048)
   %.not.i35.not.i = icmp eq i32 %bcmp.i.i, 0
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %7)
   br i1 %.not.i35.not.i, label %44, label %93
@@ -136,7 +136,7 @@ stream_write_bits.exit.i:                         ; preds = %56, %49
   %65 = and i64 %62, %64
   store i64 %65, ptr %51, align 8
   %66 = load ptr, ptr %46, align 8
-  %67 = zext i32 %45 to i64
+  %67 = zext nneg i32 %45 to i64
   %68 = load i64, ptr %66, align 8
   %69 = shl i64 %67, %68
   %70 = getelementptr inbounds i8, ptr %66, i64 8
@@ -179,7 +179,7 @@ stream_write_bits.exit.i:                         ; preds = %56, %49
   br label %rev_encode_block_double_4.exit
 
 93:                                               ; preds = %rev_fwd_reversible_double.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 256 dereferenceable(2048) %9, ptr noundef nonnull align 8 dereferenceable(2048) %1, i64 2048, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 256 dereferenceable(2048) %9, ptr noundef nonnull readonly align 8 dereferenceable(2048) %1, i64 2048, i1 false)
   br label %94
 
 94:                                               ; preds = %100, %93
@@ -1412,7 +1412,7 @@ stream_write_bit.exit44.i:                        ; preds = %116, %.lr.ph96.i
   br label %.critedge.i
 
 .critedge2.i:                                     ; preds = %stream_write_bit.exit44.i
-  %120 = trunc i64 %indvars.iv131.i to i32
+  %120 = trunc nuw nsw i64 %indvars.iv131.i to i32
   %121 = add nuw i32 %120, 1
   %122 = icmp ult i32 %120, 255
   br i1 %122, label %.lr.ph110.i, label %.critedge.i
@@ -1448,7 +1448,7 @@ encode_many_ints_prec_uint64.exit:                ; preds = %.critedge.i, %72
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @zfp_encode_block_strided_double_4(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_encode_block_strided_double_4(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [256 x double], align 256
   %8 = shl nsw i64 %2, 2
   %9 = sub nsw i64 %3, %8
@@ -1507,12 +1507,12 @@ define i64 @zfp_encode_block_strided_double_4(ptr nocapture noundef readonly %0,
   br i1 %exitcond47.not.i, label %gather_double_4.exit, label %.preheader29.i
 
 gather_double_4.exit:                             ; preds = %25
-  %28 = call i64 @zfp_encode_block_double_4(ptr noundef %0, ptr noundef nonnull %7), !range !17
+  %28 = call i64 @zfp_encode_block_double_4(ptr noundef %0, ptr noundef nonnull %7)
   ret i64 %28
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @zfp_encode_partial_block_strided_double_4(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_encode_partial_block_strided_double_4(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9) local_unnamed_addr #0 {
   %11 = alloca [256 x double], align 256
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %.preheader95.us.i, label %.preheader102.lr.ph.i
@@ -1922,7 +1922,7 @@ pad_block_double.exit88.us134.i:                  ; preds = %.preheader98.i, %pa
   br i1 %exitcond225.not.i, label %.preheader96.i, label %.preheader102.i
 
 gather_partial_double_4.exit:                     ; preds = %.split155.split.split.us.us.i, %.split155.split.us.us.i, %.split155.split.split.split.us.us.i, %.split155.us.us.i, %.preheader96.i
-  %138 = call i64 @zfp_encode_block_double_4(ptr noundef %0, ptr noundef nonnull %11), !range !17
+  %138 = call i64 @zfp_encode_block_double_4(ptr noundef %0, ptr noundef nonnull %11)
   ret i64 %138
 }
 
@@ -1985,4 +1985,3 @@ attributes #11 = { nounwind }
 !14 = !{!15}
 !15 = distinct !{!15, !13, !"encode_many_ints_prec_uint64: argument 1"}
 !16 = !{!12, !15}
-!17 = !{i64 0, i64 4294967296}

@@ -506,7 +506,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i9
 invoke.cont4:                                     ; preds = %invoke.cont
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileE, i64 0, i32 0, i64 2), ptr %call, align 8
   %lut3D.i = getelementptr inbounds i8, ptr %call, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lut3D.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %lut3D.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
           to label %invoke.cont5 unwind label %lpad.i.i.i.i
 

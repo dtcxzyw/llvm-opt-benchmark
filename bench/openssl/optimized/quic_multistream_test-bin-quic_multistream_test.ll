@@ -390,7 +390,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #14
   %tobool.not = icmp eq i32 %call, 0
@@ -435,7 +435,7 @@ declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #2
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_dyn_frame_types(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_dyn_frame_types(i32 noundef %idx) #1 {
 entry:
   %script_name = alloca [64 x i8], align 16
   %idxprom11 = sext i32 %idx to i64
@@ -473,12 +473,12 @@ for.inc:                                          ; preds = %for.inc.sink.split,
 
 for.end:                                          ; preds = %for.inc
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %script_name, i64 noundef 64, ptr noundef nonnull @.str.20, i32 noundef %idx) #14
-  %call17 = call fastcc i32 @run_script(ptr noundef nonnull @dyn_frame_types_script, ptr noundef nonnull %script_name, i32 noundef 0, i32 noundef 0), !range !7
+  %call17 = call fastcc i32 @run_script(ptr noundef nonnull @dyn_frame_types_script, ptr noundef nonnull %script_name, i32 noundef 0, i32 noundef 0)
   ret i32 %call17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_script(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_script(i32 noundef %idx) #1 {
 entry:
   %script_name = alloca [64 x i8], align 16
   %rem = srem i32 %idx, 2
@@ -497,7 +497,7 @@ if.end:                                           ; preds = %entry
   %idxprom = sext i32 %div2 to i64
   %arrayidx = getelementptr inbounds [78 x ptr], ptr @scripts, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %call6 = call fastcc i32 @run_script(ptr noundef %0, ptr noundef nonnull %script_name, i32 noundef %rem, i32 noundef %rem1), !range !7
+  %call6 = call fastcc i32 @run_script(ptr noundef %0, ptr noundef nonnull %script_name, i32 noundef %rem, i32 noundef %rem1)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -509,7 +509,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @run_script(ptr noundef %script, ptr noundef %script_name, i32 noundef %free_order, i32 noundef %blocking) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @run_script(ptr noundef %script, ptr noundef %script_name, i32 noundef %free_order, i32 noundef %blocking) unnamed_addr #1 {
 entry:
   %rv.i = alloca i32, align 4
   %ina.i = alloca %struct.in_addr, align 4
@@ -907,7 +907,7 @@ if.end11.i:                                       ; preds = %if.then.i, %for.bod
   call void @ossl_crypto_mutex_free(ptr noundef nonnull %m.i2) #14
   %inc.i = add nuw i64 %i.015.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %31
-  br i1 %exitcond.not.i, label %join_threads.exit, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %join_threads.exit, label %for.body.i, !llvm.loop !7
 
 join_threads.exit:                                ; preds = %if.end11.i, %if.end8
   %ok.0.lcssa.i = phi i32 [ 1, %if.end8 ], [ %ok.2.i, %if.end11.i ]
@@ -924,7 +924,7 @@ out:                                              ; preds = %join_threads.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_21_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_21_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [8 x i8], align 1
@@ -1462,7 +1462,7 @@ for.inc:                                          ; preds = %if.end98, %for.body
   %inc117 = add nuw i64 %i.01121, 1
   %29 = load i64, ptr %num_threads997, align 8
   %cmp91 = icmp ult i64 %inc117, %29
-  br i1 %cmp91, label %for.body, label %if.end118, !llvm.loop !9
+  br i1 %cmp91, label %for.body, label %if.end118, !llvm.loop !8
 
 if.end118:                                        ; preds = %for.inc, %for.cond90.preheader, %if.end86
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 1151, ptr noundef nonnull @.str.66, ptr noundef %script_name, i32 noundef %thread_idx) #14
@@ -2447,7 +2447,7 @@ land.lhs.true583:                                 ; preds = %if.end579
 if.end588:                                        ; preds = %land.lhs.true583, %if.end579
   %123 = load ptr, ptr %stream_name, align 8
   %124 = load i64, ptr %stream_id, align 8
-  %call590 = call fastcc i32 @helper_set_s_stream(ptr noundef nonnull %h, ptr noundef %123, i64 noundef %124), !range !7
+  %call590 = call fastcc i32 @helper_set_s_stream(ptr noundef nonnull %h, ptr noundef %123, i64 noundef %124)
   %call593 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1497, ptr noundef nonnull @.str.105, i32 noundef %call590) #14
   %tobool594.not = icmp eq i32 %call593, 0
   br i1 %tobool594.not, label %out, label %for.cond.backedge
@@ -2610,7 +2610,7 @@ s_lock.exit767:                                   ; preds = %s_checked_out_p.exi
 
 if.end644:                                        ; preds = %s_lock.exit746
   %139 = load ptr, ptr %stream_name, align 8
-  %call646 = call fastcc i32 @helper_set_s_stream(ptr noundef nonnull %h, ptr noundef %139, i64 noundef %call637), !range !7
+  %call646 = call fastcc i32 @helper_set_s_stream(ptr noundef nonnull %h, ptr noundef %139, i64 noundef %call637)
   %call649 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1535, ptr noundef nonnull @.str.106, i32 noundef %call646) #14
   %tobool650.not = icmp eq i32 %call649, 0
   br i1 %tobool650.not, label %out, label %for.cond.backedge
@@ -3051,7 +3051,7 @@ if.end844:                                        ; preds = %if.end839
   %187 = load ptr, ptr %stream_name, align 8
   %arg2846 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %188 = load i64, ptr %arg2846, align 8
-  %call847 = call fastcc i32 @helper_set_s_stream(ptr noundef nonnull %h, ptr noundef %187, i64 noundef %188), !range !7
+  %call847 = call fastcc i32 @helper_set_s_stream(ptr noundef nonnull %h, ptr noundef %187, i64 noundef %188)
   %call850 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1680, ptr noundef nonnull @.str.123, i32 noundef %call847) #14
   %tobool851.not = icmp eq i32 %call850, 0
   br i1 %tobool851.not, label %out, label %for.cond.backedge
@@ -3069,7 +3069,7 @@ if.end858:                                        ; preds = %sw.bb854
 
 if.end863:                                        ; preds = %if.end858
   %190 = load ptr, ptr %stream_name, align 8
-  %call865 = call fastcc i32 @helper_set_s_stream(ptr noundef nonnull %h, ptr noundef %190, i64 noundef -1), !range !7
+  %call865 = call fastcc i32 @helper_set_s_stream(ptr noundef nonnull %h, ptr noundef %190, i64 noundef -1)
   %call868 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1693, ptr noundef nonnull @.str.124, i32 noundef %call865) #14
   %tobool869.not = icmp eq i32 %call868, 0
   br i1 %tobool869.not, label %out, label %for.cond.backedge
@@ -3285,7 +3285,7 @@ for.cond998:                                      ; preds = %if.end1027
   %inc1041 = add nuw i64 %i982.01119, 1
   %205 = load i64, ptr %arg1988, align 8
   %cmp1000 = icmp ult i64 %inc1041, %205
-  br i1 %cmp1000, label %for.body1002, label %for.cond.backedge, !llvm.loop !10
+  br i1 %cmp1000, label %for.body1002, label %for.cond.backedge, !llvm.loop !9
 
 for.body1002:                                     ; preds = %for.body1002.lr.ph, %for.cond998
   %i982.01119 = phi i64 [ 0, %for.body1002.lr.ph ], [ %inc1041, %for.cond998 ]
@@ -3587,7 +3587,7 @@ for.body1160:                                     ; preds = %if.then1154, %for.b
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 1958, ptr noundef nonnull @.str.143, i64 noundef %248, i64 noundef %249, i64 noundef %250) #14
   %inc1165 = add nuw i64 %i1155.01124, 1
   %exitcond.not = icmp eq i64 %inc1165, %repeat_stack_len.2
-  br i1 %exitcond.not, label %for.end1166, label %for.body1160, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end1166, label %for.body1160, !llvm.loop !10
 
 for.end1166:                                      ; preds = %for.body1160, %if.then1154
   %251 = load ptr, ptr @stderr, align 8
@@ -3725,7 +3725,7 @@ if.end11.i:                                       ; preds = %if.then.i, %for.bod
   call void @ossl_crypto_mutex_free(ptr noundef nonnull %m.i) #14
   %inc.i = add nuw i64 %i.015.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %1
-  br i1 %exitcond.not.i, label %join_threads.exit, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %join_threads.exit, label %for.body.i, !llvm.loop !7
 
 join_threads.exit:                                ; preds = %if.end11.i, %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %rv.i)
@@ -4240,7 +4240,7 @@ declare i64 @SSL_get_stream_id(ptr noundef) local_unnamed_addr #2
 declare i32 @ossl_quic_tserver_stream_new(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @helper_set_s_stream(ptr nocapture noundef readonly %h, ptr noundef %stream_name, i64 noundef %s_stream_id) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @helper_set_s_stream(ptr nocapture noundef readonly %h, ptr noundef %stream_name, i64 noundef %s_stream_id) unnamed_addr #1 {
 entry:
   %key.i = alloca %struct.stream_info, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %stream_name, ptr noundef nonnull dereferenceable(8) @.str.154) #16
@@ -4435,7 +4435,7 @@ declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #2
 declare void @ossl_crypto_condvar_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @check_rejected(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @check_rejected(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
 entry:
   %check_op = getelementptr inbounds i8, ptr %hl, i64 24
   %0 = load ptr, ptr %check_op, align 8
@@ -4623,7 +4623,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @check_stream_stopped(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @check_stream_stopped(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
 entry:
   %check_op = getelementptr inbounds i8, ptr %hl, i64 24
   %0 = load ptr, ptr %check_op, align 8
@@ -4702,7 +4702,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @skip_time_ms(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @skip_time_ms(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
 entry:
   %time_lock = getelementptr inbounds i8, ptr %h, i64 168
   %0 = load ptr, ptr %time_lock, align 8
@@ -4733,7 +4733,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_key_update_ge(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @check_key_update_ge(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hl) #1 {
 entry:
   %c_conn = getelementptr inbounds i8, ptr %h, i64 112
   %0 = load ptr, ptr %c_conn, align 8
@@ -4780,7 +4780,7 @@ declare i32 @test_int64_t_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef,
 declare i32 @test_uint64_t_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_key_update_lt(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @check_key_update_lt(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hl) #1 {
 entry:
   %c_conn = getelementptr inbounds i8, ptr %h, i64 112
   %0 = load ptr, ptr %c_conn, align 8
@@ -4799,7 +4799,7 @@ entry:
 declare i32 @test_uint64_t_lt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @trigger_key_update(ptr nocapture noundef readonly %h, ptr nocapture readnone %hl) #1 {
+define internal range(i32 0, 2) i32 @trigger_key_update(ptr nocapture noundef readonly %h, ptr nocapture readnone %hl) #1 {
 entry:
   %c_conn = getelementptr inbounds i8, ptr %h, i64 112
   %0 = load ptr, ptr %c_conn, align 8
@@ -4839,7 +4839,7 @@ if.end.i:                                         ; preds = %if.end.i, %if.end.l
   tail call void @ossl_crypto_condvar_wait(ptr noundef %4, ptr noundef %5) #14
   %6 = load volatile i64, ptr %scratch0, align 8
   %cmp.not.i = icmp ult i64 %6, %1
-  br i1 %cmp.not.i, label %if.end.i, label %script_20_wait.exit, !llvm.loop !12
+  br i1 %cmp.not.i, label %if.end.i, label %script_20_wait.exit, !llvm.loop !11
 
 script_20_wait.exit:                              ; preds = %if.end.i, %entry
   %7 = load ptr, ptr %misc_m.i, align 8
@@ -4908,7 +4908,7 @@ if.end.i:                                         ; preds = %if.end.i, %if.end.l
   tail call void @ossl_crypto_condvar_wait(ptr noundef %4, ptr noundef %5) #14
   %6 = load volatile i64, ptr %scratch1, align 8
   %cmp.not.i = icmp ult i64 %6, %1
-  br i1 %cmp.not.i, label %if.end.i, label %script_20_wait.exit, !llvm.loop !12
+  br i1 %cmp.not.i, label %if.end.i, label %script_20_wait.exit, !llvm.loop !11
 
 script_20_wait.exit:                              ; preds = %if.end.i, %entry
   %7 = load ptr, ptr %misc_m.i, align 8
@@ -4938,7 +4938,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_23_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_23_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [16 x i8], align 16
@@ -5008,7 +5008,7 @@ return:                                           ; preds = %if.then32, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_24_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_24_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [16 x i8], align 16
@@ -5080,7 +5080,7 @@ return:                                           ; preds = %if.then32, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_28_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_28_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [32 x i8], align 16
@@ -5175,7 +5175,7 @@ return:                                           ; preds = %if.then48, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_32_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_32_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [64 x i8], align 16
@@ -5264,7 +5264,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.011, 1
   %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %i.011 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
@@ -5307,7 +5307,7 @@ return:                                           ; preds = %if.then55, %if.else
 declare i32 @WPACKET_put_bytes__(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_39_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_39_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [64 x i8], align 16
@@ -5438,14 +5438,14 @@ for.inc:                                          ; preds = %for.body
   %cmp44 = icmp ult i64 %inc, %conv43
   %cmp46 = icmp ult i64 %i.020, 19
   %7 = and i1 %cmp46, %cmp44
-  br i1 %7, label %for.body, label %for.cond58.preheader, !llvm.loop !14
+  br i1 %7, label %for.body, label %for.cond58.preheader, !llvm.loop !13
 
 for.cond58:                                       ; preds = %for.body63
   %inc72 = add nuw nsw i64 %i.123, 1
   %8 = load i8, ptr %new_cid, align 1
   %conv60 = zext i8 %8 to i64
   %cmp61 = icmp ult i64 %inc72, %conv60
-  br i1 %cmp61, label %for.body63, label %for.body77.preheader, !llvm.loop !15
+  br i1 %cmp61, label %for.body63, label %for.body77.preheader, !llvm.loop !14
 
 for.body63:                                       ; preds = %for.cond58.preheader, %for.cond58
   %i.123 = phi i64 [ %inc72, %for.cond58 ], [ %inc, %for.cond58.preheader ]
@@ -5459,7 +5459,7 @@ for.body63:                                       ; preds = %for.cond58.preheade
 for.cond74:                                       ; preds = %for.body77
   %inc86 = add nuw nsw i64 %i.224, 1
   %exitcond.not = icmp eq i64 %inc86, 16
-  br i1 %exitcond.not, label %for.end87, label %for.body77, !llvm.loop !16
+  br i1 %exitcond.not, label %for.end87, label %for.body77, !llvm.loop !15
 
 for.body77:                                       ; preds = %for.body77.preheader, %for.cond74
   %i.224 = phi i64 [ %inc86, %for.cond74 ], [ 0, %for.body77.preheader ]
@@ -5504,7 +5504,7 @@ declare ptr @ossl_quic_tserver_get_channel(ptr noundef) local_unnamed_addr #2
 declare void @ossl_quic_channel_get_diag_local_cid(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_41_inject_plain(ptr nocapture noundef %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_41_inject_plain(ptr nocapture noundef %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [16 x i8], align 16
@@ -5636,7 +5636,7 @@ s_lock.exit:                                      ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @script_41_check(ptr nocapture noundef readonly %h, ptr nocapture readnone %hl) #1 {
+define internal range(i32 0, 2) i32 @script_41_check(ptr nocapture noundef readonly %h, ptr nocapture readnone %hl) #1 {
 entry:
   %scratch0 = getelementptr inbounds i8, ptr %h, i64 256
   %0 = load i64, ptr %scratch0, align 8
@@ -5736,7 +5736,7 @@ declare i32 @ossl_quic_wire_decode_frame_path_response(ptr noundef, ptr noundef)
 declare i32 @test_uint64_t_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_42_inject_plain(ptr nocapture noundef %h, ptr nocapture readnone %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_42_inject_plain(ptr nocapture noundef %h, ptr nocapture readnone %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %frame_buf = alloca [64 x i8], align 16
   %written = alloca i64, align 8
@@ -5820,7 +5820,7 @@ return:                                           ; preds = %if.then43, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_44_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_44_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [16 x i8], align 16
@@ -5884,7 +5884,7 @@ return:                                           ; preds = %if.then26, %if.else
 declare i32 @ossl_quic_wire_encode_padding(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @force_ping(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @force_ping(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
 entry:
   %0 = getelementptr i8, ptr %hl, i64 16
   %hl.val4 = load i32, ptr %0, align 8
@@ -5987,7 +5987,7 @@ s_lock.exit25:                                    ; preds = %if.then.i16, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @wait_incoming_acks_increased(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @wait_incoming_acks_increased(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
 entry:
   %0 = getelementptr i8, ptr %hl, i64 16
   %hl.val = load i32, ptr %0, align 8
@@ -6054,7 +6054,7 @@ return:                                           ; preds = %s_lock.exit, %if.th
 declare zeroext i16 @ossl_quic_channel_get_diag_num_rx_ack(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_46_inject_plain(ptr nocapture noundef %h, ptr nocapture readnone %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_46_inject_plain(ptr nocapture noundef %h, ptr nocapture readnone %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [16 x i8], align 16
@@ -6224,7 +6224,7 @@ return:                                           ; preds = %if.then94, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_52_inject_plain(ptr nocapture noundef %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_52_inject_plain(ptr nocapture noundef %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %frame_buf = alloca [64 x i8], align 16
   %written = alloca i64, align 8
@@ -6310,7 +6310,7 @@ return:                                           ; preds = %if.then45, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_53_inject_plain(ptr nocapture noundef %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_53_inject_plain(ptr nocapture noundef %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %written = alloca i64, align 8
   %wpkt = alloca %struct.wpacket_st, align 8
@@ -6373,7 +6373,7 @@ lor.lhs.false23:                                  ; preds = %lor.lhs.false17
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.018, 1
   %exitcond.not = icmp eq i64 %inc, %spec.select11
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.body:                                         ; preds = %lor.lhs.false23, %for.cond
   %i.018 = phi i64 [ %inc, %for.cond ], [ 0, %lor.lhs.false23 ]
@@ -6432,14 +6432,14 @@ for.body:                                         ; preds = %entry, %for.body
   store i8 %1, ptr %arrayidx, align 1
   %inc = add nuw i64 %i.04, 1
   %exitcond.not = icmp eq i64 %inc, %buf_len
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %entry
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_58_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_58_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %frame_buf = alloca [64 x i8], align 16
   %written = alloca i64, align 8
@@ -6531,7 +6531,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_shutdown_reason(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @check_shutdown_reason(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
 entry:
   %0 = getelementptr i8, ptr %hl, i64 16
   %hl.val = load i32, ptr %0, align 8
@@ -6610,7 +6610,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 declare i32 @test_size_t_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_61_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_61_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [32 x i8], align 16
@@ -6704,7 +6704,7 @@ return:                                           ; preds = %if.then48, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_65_inject_plain(ptr nocapture noundef %h, ptr nocapture readnone %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_65_inject_plain(ptr nocapture noundef %h, ptr nocapture readnone %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %frame_buf = alloca [64 x i8], align 16
   %written = alloca i64, align 8
@@ -6778,7 +6778,7 @@ return:                                           ; preds = %if.then37, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_66_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
+define internal range(i32 0, 2) i32 @script_66_inject_plain(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %hdr, ptr nocapture readnone %buf, i64 %len) #1 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %frame_buf = alloca [64 x i8], align 16
@@ -6865,7 +6865,7 @@ return:                                           ; preds = %if.then46, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_68_inject_handshake(ptr nocapture noundef readonly %h, ptr nocapture noundef writeonly %msg, i64 %msglen) #1 {
+define internal range(i32 0, 2) i32 @script_68_inject_handshake(ptr nocapture noundef readonly %h, ptr nocapture noundef writeonly %msg, i64 %msglen) #1 {
 entry:
   %inject_word0 = getelementptr inbounds i8, ptr %h, i64 240
   %0 = load i64, ptr %inject_word0, align 8
@@ -6906,7 +6906,7 @@ return:                                           ; preds = %sw.epilog, %entry, 
 declare i32 @qtest_fault_resize_message(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_max_early_data(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @set_max_early_data(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
 entry:
   %0 = getelementptr i8, ptr %hl, i64 16
   %hl.val = load i32, ptr %0, align 8
@@ -6969,7 +6969,7 @@ s_lock.exit:                                      ; preds = %if.then.i, %if.end.
 declare i32 @ossl_quic_tserver_set_max_early_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @script_72_check(ptr nocapture noundef readonly %h, ptr nocapture readnone %hl) #1 {
+define internal range(i32 0, 2) i32 @script_72_check(ptr nocapture noundef readonly %h, ptr nocapture readnone %hl) #1 {
 entry:
   %fail_count = getelementptr inbounds i8, ptr %h, i64 272
   %0 = load i64, ptr %fail_count, align 8
@@ -6980,7 +6980,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @server_gen_version_neg(ptr nocapture noundef %h, ptr nocapture noundef readonly %msg, i64 %stride) #1 {
+define internal range(i32 0, 2) i32 @server_gen_version_neg(ptr nocapture noundef %h, ptr nocapture noundef readonly %msg, i64 %stride) #1 {
 entry:
   %hdr.i = alloca %struct.quic_pkt_hdr_st, align 8
   %l = alloca i64, align 8
@@ -7087,7 +7087,7 @@ declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #2
 declare i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @script_76_check(ptr nocapture noundef readonly %h, ptr nocapture readnone %hl) #1 {
+define internal range(i32 0, 2) i32 @script_76_check(ptr nocapture noundef readonly %h, ptr nocapture readnone %hl) #1 {
 entry:
   %c_conn = getelementptr inbounds i8, ptr %h, i64 112
   %0 = load ptr, ptr %c_conn, align 8
@@ -7112,7 +7112,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @trigger_late_session_ticket(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
+define internal range(i32 0, 2) i32 @trigger_late_session_ticket(ptr nocapture noundef %h, ptr nocapture noundef readonly %hl) #1 {
 entry:
   store i64 0, ptr @new_session_count, align 8
   %0 = getelementptr i8, ptr %hl, i64 16
@@ -7169,7 +7169,7 @@ s_lock.exit:                                      ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_got_session_ticket(ptr nocapture readnone %h, ptr nocapture readnone %hl) #1 {
+define internal range(i32 0, 2) i32 @check_got_session_ticket(ptr nocapture readnone %h, ptr nocapture readnone %hl) #1 {
 entry:
   %0 = load i64, ptr @new_session_count, align 8
   %call = tail call i32 @test_size_t_gt(ptr noundef nonnull @.str.14, i32 noundef 5021, ptr noundef nonnull @.str.262, ptr noundef nonnull @.str.32, i64 noundef %0, i64 noundef 0) #14
@@ -7230,7 +7230,7 @@ attributes #16 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
@@ -7241,4 +7241,3 @@ attributes #16 = { nounwind willreturn memory(read) }
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}

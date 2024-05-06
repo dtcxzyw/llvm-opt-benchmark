@@ -466,7 +466,7 @@ define dso_local i32 @nfs_wait_on_request(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfs_page_group_lock_subrequests(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @nfs_page_group_lock_subrequests(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i32 @nfs_page_group_lock(ptr noundef %0)
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %.loopexit28, label %4
@@ -1784,7 +1784,7 @@ define dso_local void @nfs_free_request(ptr noundef %0) local_unnamed_addr #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @nfs_generic_pg_test(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @nfs_generic_pg_test(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
@@ -2321,7 +2321,7 @@ declare dso_local void @nfs_init_cinfo(ptr noundef, ptr noundef, ptr noundef) lo
 declare dso_local i64 @nfs_reqs_to_commit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs_pageio_add_request(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @nfs_pageio_add_request(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.list_head, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2525,7 +2525,7 @@ define dso_local noundef i32 @nfs_pageio_add_request(ptr noundef %0, ptr noundef
   br i1 %119, label %142, label %120
 
 120:                                              ; preds = %117
-  %121 = tail call fastcc i32 @nfs_do_recoalesce(ptr noundef %0), !range !72
+  %121 = tail call fastcc i32 @nfs_do_recoalesce(ptr noundef %0)
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %142, label %114, !llvm.loop !73
 
@@ -2560,7 +2560,7 @@ define dso_local noundef i32 @nfs_pageio_add_request(ptr noundef %0, ptr noundef
   br i1 %138, label %.thread11, label %139
 
 139:                                              ; preds = %136
-  %140 = tail call fastcc i32 @nfs_do_recoalesce(ptr noundef %0), !range !72
+  %140 = tail call fastcc i32 @nfs_do_recoalesce(ptr noundef %0)
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %thread-pre-split, label %133, !llvm.loop !73
 
@@ -3638,7 +3638,7 @@ define dso_local void @nfs_pageio_stop_mirroring(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @nfs_init_nfspagecache() local_unnamed_addr #5 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @nfs_init_nfspagecache() local_unnamed_addr #5 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.1, i32 noundef 96, i32 noundef 0, i32 noundef 8192, ptr noundef null) #11
   store ptr %1, ptr @nfs_page_cachep, align 8
   %2 = icmp eq ptr %1, null
@@ -3911,7 +3911,7 @@ declare dso_local ptr @get_nfs_open_context(ptr noundef) local_unnamed_addr #2
 declare dso_local void @nfs_fattr_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__nfs_pageio_add_request(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 40
@@ -4470,7 +4470,7 @@ define internal fastcc noundef i32 @__nfs_pageio_add_request(ptr noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @nfs_do_recoalesce(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @nfs_do_recoalesce(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.list_head, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8

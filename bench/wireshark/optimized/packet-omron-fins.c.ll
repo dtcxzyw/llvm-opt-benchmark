@@ -1475,7 +1475,7 @@ define internal i32 @dissect_omron_fins_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   br i1 %7, label %switch.hole_check, label %42
 
 switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc i32 %6 to i8
+  %switch.maskindex = trunc nuw i32 %6 to i8
   %switch.shifted = lshr i8 79, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %42

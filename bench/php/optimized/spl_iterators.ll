@@ -3566,7 +3566,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
 .critedge4:                                       ; preds = %94, %97
   %99 = load ptr, ptr %5, align 8
   %100 = load ptr, ptr %99, align 8
-  %101 = call fastcc i32 @spl_get_iterator_from_aggregate(ptr noundef nonnull %6, ptr noundef %.0110, ptr noundef %100), !range !5
+  %101 = call fastcc i32 @spl_get_iterator_from_aggregate(ptr noundef nonnull %6, ptr noundef %.0110, ptr noundef %100)
   %102 = icmp eq i32 %101, -1
   br i1 %102, label %210, label %.thread
 
@@ -4462,7 +4462,7 @@ define hidden void @zim_FilterIterator_rewind(ptr nocapture noundef readonly %0,
   br label %spl_filter_it_rewind.exit
 
 spl_filter_it_rewind.exit:                        ; preds = %17, %21, %26
-  tail call fastcc void @spl_filter_it_fetch(ptr noundef nonnull %3, ptr noundef nonnull %10)
+  tail call fastcc void @spl_filter_it_fetch(ptr noundef nonnull readonly %3, ptr noundef nonnull %10)
   br label %27
 
 27:                                               ; preds = %spl_filter_it_rewind.exit, %14, %6
@@ -4512,7 +4512,7 @@ define hidden void @zim_FilterIterator_next(ptr nocapture noundef readonly %0, p
   %23 = load i64, ptr %22, align 8
   %24 = add nsw i64 %23, 1
   store i64 %24, ptr %22, align 8
-  tail call fastcc void @spl_filter_it_fetch(ptr noundef nonnull %3, ptr noundef nonnull %17)
+  tail call fastcc void @spl_filter_it_fetch(ptr noundef nonnull readonly %3, ptr noundef nonnull %17)
   br label %25
 
 25:                                               ; preds = %16, %13, %6
@@ -5501,7 +5501,7 @@ define hidden void @zim_RegexIterator_setMode(ptr nocapture noundef readonly %0,
   br label %28
 
 25:                                               ; preds = %17
-  %26 = trunc i64 %13 to i32
+  %26 = trunc nuw i64 %13 to i32
   %27 = getelementptr inbounds i8, ptr %18, i64 -16
   store i32 %26, ptr %27, align 8
   br label %28
@@ -8699,7 +8699,7 @@ define hidden void @zim_EmptyIterator_next(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @spl_append_it_next_iterator(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @spl_append_it_next_iterator(ptr noundef %0) local_unnamed_addr #0 {
   tail call fastcc void @spl_dual_it_free(ptr noundef %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
@@ -9017,7 +9017,7 @@ spl_dual_it_valid.exit27:                         ; preds = %47
   br label %68
 
 68:                                               ; preds = %.preheader, %68
-  %69 = call i32 @spl_append_it_next_iterator(ptr noundef nonnull %15), !range !5
+  %69 = call i32 @spl_append_it_next_iterator(ptr noundef nonnull %15)
   %70 = load ptr, ptr %15, align 8
   %71 = load ptr, ptr %3, align 8
   %72 = load ptr, ptr %71, align 8
@@ -9061,7 +9061,7 @@ spl_dual_it_valid.exit.thread:                    ; preds = %4, %spl_dual_it_val
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef %10) #10
-  %15 = tail call i32 @spl_append_it_next_iterator(ptr noundef nonnull %0), !range !5
+  %15 = tail call i32 @spl_append_it_next_iterator(ptr noundef nonnull %0)
   %.not5 = icmp eq i32 %15, 0
   br i1 %.not5, label %4, label %spl_dual_it_fetch.exit
 
@@ -9332,7 +9332,7 @@ define hidden void @zim_AppendIterator_rewind(ptr nocapture noundef readonly %0,
   %22 = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef %19) #10
-  %24 = tail call i32 @spl_append_it_next_iterator(ptr noundef nonnull %10), !range !5
+  %24 = tail call i32 @spl_append_it_next_iterator(ptr noundef nonnull %10)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %27
 
@@ -9571,7 +9571,7 @@ define hidden void @zim_AppendIterator_getArrayIterator(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @spl_iterator_apply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @spl_iterator_apply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -9742,7 +9742,7 @@ define hidden void @zif_iterator_to_array(ptr noundef %0, ptr noundef %1) local_
   %39 = load i8, ptr %3, align 1
   %40 = trunc i8 %39 to i1
   %41 = select i1 %40, ptr @spl_iterator_to_array_apply, ptr @spl_iterator_to_values_apply
-  %42 = call i32 @spl_iterator_apply(ptr noundef nonnull %9, ptr noundef nonnull %41, ptr noundef nonnull %1), !range !5
+  %42 = call i32 @spl_iterator_apply(ptr noundef nonnull %9, ptr noundef nonnull %41, ptr noundef nonnull %1)
   br label %43
 
 43:                                               ; preds = %31, %28, %36, %34, %.thread135
@@ -9758,7 +9758,7 @@ declare ptr @zend_array_to_list(ptr noundef) local_unnamed_addr #1
 declare ptr @_zend_new_array_0() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @spl_iterator_to_array_apply(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 3) i32 @spl_iterator_to_array_apply(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
@@ -9814,7 +9814,7 @@ define internal noundef i32 @spl_iterator_to_array_apply(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @spl_iterator_to_values_apply(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 3) i32 @spl_iterator_to_values_apply(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -12535,7 +12535,7 @@ define internal noundef nonnull ptr @spl_RecursiveTreeIterator_new(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @spl_get_iterator_from_aggregate(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_get_iterator_from_aggregate(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @zend_call_method(ptr noundef %2, ptr noundef %1, ptr noundef %5, ptr noundef nonnull @.str.35, i64 noundef 11, ptr noundef %0, i32 noundef 0, ptr noundef null, ptr noundef null) #10
@@ -12952,7 +12952,7 @@ define internal void @spl_recursive_it_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @spl_recursive_it_valid(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @spl_recursive_it_valid(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -152
@@ -13138,4 +13138,3 @@ attributes #12 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -1, i32 1}

@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i64 @mp_pacl_listxattr(ptr nocapture readnone %ctx, ptr nocapture readnone %path, ptr nocapture readnone %name, ptr noundef writeonly %value, i64 noundef %osize) #1 {
+define internal range(i64 -1, 25) i64 @mp_pacl_listxattr(ptr nocapture readnone %ctx, ptr nocapture readnone %path, ptr nocapture readnone %name, ptr noundef writeonly %value, i64 noundef %osize) #1 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %return, label %if.end
@@ -85,7 +85,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i64 @mp_dacl_listxattr(ptr nocapture readnone %ctx, ptr nocapture readnone %path, ptr nocapture readnone %name, ptr noundef writeonly %value, i64 noundef %osize) #1 {
+define internal range(i64 -1, 26) i64 @mp_dacl_listxattr(ptr nocapture readnone %ctx, ptr nocapture readnone %path, ptr nocapture readnone %name, ptr noundef writeonly %value, i64 noundef %osize) #1 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %return, label %if.end

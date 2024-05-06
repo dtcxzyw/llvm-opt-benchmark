@@ -65,7 +65,7 @@ return:                                           ; preds = %entry, %while.end
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASYNC_WAIT_CTX_set_wait_fd(ptr nocapture noundef %ctx, ptr noundef %key, i32 noundef %fd, ptr noundef %custom_data, ptr noundef %cleanup) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_set_wait_fd(ptr nocapture noundef %ctx, ptr noundef %key, i32 noundef %fd, ptr noundef %custom_data, ptr noundef %cleanup) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 48, ptr noundef nonnull @.str, i32 noundef 50) #8
   %cmp = icmp eq ptr %call, null
@@ -97,7 +97,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ASYNC_WAIT_CTX_get_fd(ptr nocapture noundef readonly %ctx, ptr noundef readnone %key, ptr nocapture noundef writeonly %fd, ptr nocapture noundef writeonly %custom_data) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_get_fd(ptr nocapture noundef readonly %ctx, ptr noundef readnone %key, ptr nocapture noundef writeonly %fd, ptr nocapture noundef writeonly %custom_data) local_unnamed_addr #2 {
 entry:
   %curr.08 = load ptr, ptr %ctx, align 8
   %cmp.not9 = icmp eq ptr %curr.08, null
@@ -264,7 +264,7 @@ return:                                           ; preds = %if.end19, %while.co
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASYNC_WAIT_CTX_clear_fd(ptr nocapture noundef %ctx, ptr noundef readnone %key) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_clear_fd(ptr nocapture noundef %ctx, ptr noundef readnone %key) local_unnamed_addr #0 {
 entry:
   %curr.019 = load ptr, ptr %ctx, align 8
   %cmp.not20 = icmp eq ptr %curr.019, null
@@ -325,7 +325,7 @@ return:                                           ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ASYNC_WAIT_CTX_set_callback(ptr noundef writeonly %ctx, ptr noundef %callback, ptr noundef %callback_arg) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_set_callback(ptr noundef writeonly %ctx, ptr noundef %callback, ptr noundef %callback_arg) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -343,7 +343,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ASYNC_WAIT_CTX_get_callback(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %callback, ptr nocapture noundef writeonly %callback_arg) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_get_callback(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %callback, ptr nocapture noundef writeonly %callback_arg) local_unnamed_addr #5 {
 entry:
   %callback1 = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %callback1, align 8

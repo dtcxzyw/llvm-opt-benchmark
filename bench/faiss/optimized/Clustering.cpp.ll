@@ -3243,7 +3243,7 @@ define void @_ZN5faiss12Clustering1DC2Ei(ptr nocapture noundef nonnull writeonly
   store i32 1, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %5, i8 0, i64 5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(5) %5, i8 0, i64 5, i1 false)
   store i32 39, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 256, ptr %7, align 4
@@ -3257,7 +3257,7 @@ define void @_ZN5faiss12Clustering1DC2Ei(ptr nocapture noundef nonnull writeonly
   %12 = sext i32 %1 to i64
   store i64 %12, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %13, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss12Clustering1DE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
@@ -3318,14 +3318,14 @@ _ZN5faiss12Clustering1DD2Ev.exit:                 ; preds = %_ZNSt6vectorIN5fais
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5faiss12Clustering1DC2EiRKNS_20ClusteringParametersE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = sext i32 %1 to i64
   store i64 %7, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss12Clustering1DE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
@@ -3662,7 +3662,7 @@ define void @_ZN5faiss24ProgressiveDimClusteringC2Eii(ptr nocapture noundef nonn
   store i32 1, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %6, i8 0, i64 5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(5) %6, i8 0, i64 5, i1 false)
   store i32 39, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 256, ptr %8, align 4

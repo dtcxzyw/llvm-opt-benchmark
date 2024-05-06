@@ -997,7 +997,7 @@ return:                                           ; preds = %if.else220, %if.the
 define dso_local ptr @lpGetValue(ptr noundef %p, ptr nocapture noundef writeonly %slen, ptr nocapture noundef writeonly %lval) local_unnamed_addr #2 {
 entry:
   %ele_len = alloca i64, align 8
-  %call.i = call fastcc ptr @lpGetWithSize(ptr noundef %p, ptr noundef nonnull %ele_len, ptr noundef null, ptr noundef null)
+  %call.i = call fastcc ptr @lpGetWithSize(ptr noundef %p, ptr noundef nonnull writeonly %ele_len, ptr noundef null, ptr noundef null)
   %tobool.not = icmp eq ptr %call.i, null
   %0 = load i64, ptr %ele_len, align 8
   br i1 %tobool.not, label %if.else, label %if.then
@@ -2023,7 +2023,7 @@ lpEncodeString.exit:                              ; preds = %if.then.i141, %if.t
   %.sink.i = phi i64 [ 2, %if.then4.i139 ], [ 5, %if.else12.i136 ], [ 1, %if.then.i141 ]
   %add.ptr10.i = getelementptr inbounds i8, ptr %dst.1, i64 %.sink.i
   %conv11.i = zext i32 %size to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i, ptr nonnull align 1 %elestr, i64 %conv11.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr10.i, ptr nonnull readonly align 1 %elestr, i64 %conv11.i, i1 false)
   br label %if.end180
 
 if.else174:                                       ; preds = %if.else171
@@ -3627,7 +3627,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %p, ptr noundef nonnull %sz, ptr noundef null, ptr noundef null)
+  %call.i = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %p, ptr noundef nonnull writeonly %sz, ptr noundef null, ptr noundef null)
   %tobool.not = icmp eq ptr %call.i, null
   %conv10 = zext i32 %slen to i64
   br i1 %tobool.not, label %if.else, label %if.then2
@@ -3776,7 +3776,7 @@ cond.false15:                                     ; preds = %cond.end
 
 cond.end16:                                       ; preds = %cond.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ele_len.i)
-  %call.i.i = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %call6, ptr noundef nonnull %ele_len.i, ptr noundef null, ptr noundef null)
+  %call.i.i = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %call6, ptr noundef nonnull writeonly %ele_len.i, ptr noundef null, ptr noundef null)
   %tobool.not.i = icmp eq ptr %call.i.i, null
   %0 = load i64, ptr %ele_len.i, align 8
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -3810,7 +3810,7 @@ cond.false28:                                     ; preds = %if.end
 
 cond.end29:                                       ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ele_len.i10)
-  %call.i.i11 = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %call19, ptr noundef nonnull %ele_len.i10, ptr noundef null, ptr noundef null)
+  %call.i.i11 = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %call19, ptr noundef nonnull writeonly %ele_len.i10, ptr noundef null, ptr noundef null)
   %tobool.not.i12 = icmp eq ptr %call.i.i11, null
   %1 = load i64, ptr %ele_len.i10, align 8
   br i1 %tobool.not.i12, label %if.else.i15, label %if.then.i13
@@ -4240,7 +4240,7 @@ while.end:                                        ; preds = %lpNext.exit, %while
   %gep68 = getelementptr inbounds %struct.pick, ptr %invariant.gep67, i64 %indvars.iv77
   %29 = load i32, ptr %gep68, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ele_len.i)
-  %call.i.i33 = call fastcc ptr @lpGetWithSize(ptr noundef %p.1.lcssa, ptr noundef nonnull %ele_len.i, ptr noundef null, ptr noundef null)
+  %call.i.i33 = call fastcc ptr @lpGetWithSize(ptr noundef %p.1.lcssa, ptr noundef nonnull writeonly %ele_len.i, ptr noundef null, ptr noundef null)
   %tobool.not.i34 = icmp eq ptr %call.i.i33, null
   %30 = load i64, ptr %ele_len.i, align 8
   %conv.i35 = trunc i64 %30 to i32
@@ -4391,7 +4391,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %klval.058.us = phi i64 [ %spec.select45.us, %while.end.us ], [ 0, %while.body.lr.ph ]
   %klen.056.us = phi i32 [ %spec.select.us, %while.end.us ], [ 0, %while.body.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ele_len.i)
-  %call.i.i.us = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %p.063.us, ptr noundef nonnull %ele_len.i, ptr noundef null, ptr noundef null)
+  %call.i.i.us = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %p.063.us, ptr noundef nonnull writeonly %ele_len.i, ptr noundef null, ptr noundef null)
   %tobool.not.i32.us = icmp eq ptr %call.i.i.us, null
   %9 = load i64, ptr %ele_len.i, align 8
   %conv.i33.us = trunc i64 %9 to i32
@@ -4404,7 +4404,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
 
 cond.end30.us:                                    ; preds = %while.body.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ele_len.i35)
-  %call.i.i36.us = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %call20.us, ptr noundef nonnull %ele_len.i35, ptr noundef null, ptr noundef null)
+  %call.i.i36.us = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %call20.us, ptr noundef nonnull writeonly %ele_len.i35, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ele_len.i35)
   %cmp3350.us = icmp ult i32 %pickindex.062.us, %count
   br i1 %cmp3350.us, label %land.rhs35.us.us.preheader, label %while.end.us
@@ -4456,7 +4456,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %vlen.057 = phi i32 [ %spec.select46, %while.end ], [ 0, %while.body.lr.ph ]
   %klen.056 = phi i32 [ %spec.select, %while.end ], [ 0, %while.body.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ele_len.i)
-  %call.i.i = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %p.063, ptr noundef nonnull %ele_len.i, ptr noundef null, ptr noundef null)
+  %call.i.i = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %p.063, ptr noundef nonnull writeonly %ele_len.i, ptr noundef null, ptr noundef null)
   %tobool.not.i32 = icmp eq ptr %call.i.i, null
   %15 = load i64, ptr %ele_len.i, align 8
   %conv.i33 = trunc i64 %15 to i32
@@ -4474,7 +4474,7 @@ cond.false29:                                     ; preds = %while.body, %while.
 
 cond.end30:                                       ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ele_len.i35)
-  %call.i.i36 = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %call20, ptr noundef nonnull %ele_len.i35, ptr noundef null, ptr noundef null)
+  %call.i.i36 = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %call20, ptr noundef nonnull writeonly %ele_len.i35, ptr noundef null, ptr noundef null)
   %tobool.not.i37 = icmp eq ptr %call.i.i36, null
   %16 = load i64, ptr %ele_len.i35, align 8
   %conv.i39 = trunc i64 %16 to i32
@@ -4643,7 +4643,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
 
 cond.end.us:                                      ; preds = %while.body.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ele_len.i)
-  %call.i.i23.us = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %call5.us, ptr noundef nonnull %ele_len.i, ptr noundef null, ptr noundef null)
+  %call.i.i23.us = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %call5.us, ptr noundef nonnull writeonly %ele_len.i, ptr noundef null, ptr noundef null)
   %tobool.not.i24.us = icmp eq ptr %call.i.i23.us, null
   %10 = load i64, ptr %ele_len.i, align 8
   %conv.i25.us = trunc i64 %10 to i32
@@ -4689,7 +4689,7 @@ cond.false:                                       ; preds = %while.body, %while.
 
 cond.end:                                         ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ele_len.i)
-  %call.i.i23 = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %call5, ptr noundef nonnull %ele_len.i, ptr noundef null, ptr noundef null)
+  %call.i.i23 = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %call5, ptr noundef nonnull writeonly %ele_len.i, ptr noundef null, ptr noundef null)
   %tobool.not.i24 = icmp eq ptr %call.i.i23, null
   %13 = load i64, ptr %ele_len.i, align 8
   %conv.i25 = trunc i64 %13 to i32
@@ -4714,7 +4714,7 @@ cond.false20:                                     ; preds = %cond.end, %cond.end
 cond.end21:                                       ; preds = %cond.end
   %14 = load i32, ptr %index, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ele_len.i27)
-  %call.i.i28 = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %call11, ptr noundef nonnull %ele_len.i27, ptr noundef null, ptr noundef null)
+  %call.i.i28 = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %call11, ptr noundef nonnull writeonly %ele_len.i27, ptr noundef null, ptr noundef null)
   %tobool.not.i29 = icmp eq ptr %call.i.i28, null
   %15 = load i64, ptr %ele_len.i27, align 8
   %conv.i31 = trunc i64 %15 to i32
@@ -5127,7 +5127,7 @@ for.body:                                         ; preds = %lpEncodeBacklen.exi
 
 for.end:                                          ; preds = %for.body
   %putchar = call i32 @putchar(i32 10)
-  %call.i = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %p.054, ptr noundef nonnull %vlen, ptr noundef nonnull %intbuf, ptr noundef null)
+  %call.i = call fastcc ptr @lpGetWithSize(ptr noundef nonnull %p.054, ptr noundef nonnull writeonly %vlen, ptr noundef nonnull %intbuf, ptr noundef null)
   %call18 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21)
   %14 = load i64, ptr %vlen, align 8
   %cmp19 = icmp sgt i64 %14, 40

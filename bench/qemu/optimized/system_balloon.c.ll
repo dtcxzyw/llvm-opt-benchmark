@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qemu_loglevel = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @qemu_add_balloon_handler(ptr noundef %event_func, ptr noundef %stat_func, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qemu_add_balloon_handler(ptr noundef %event_func, ptr noundef %stat_func, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @balloon_event_fn, align 8
   %tobool = icmp ne ptr %0, null

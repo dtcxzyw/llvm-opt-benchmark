@@ -12647,11 +12647,11 @@ _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i
 
 69:                                               ; preds = %66
   %70 = zext nneg i32 %57 to i64
-  %71 = getelementptr i8, ptr %.012, i64 %70
-  %72 = getelementptr i8, ptr %71, i64 1
+  %71 = getelementptr inbounds i8, ptr %.012, i64 %70
+  %72 = getelementptr inbounds i8, ptr %71, i64 1
   %73 = sext i32 %55 to i64
   %74 = sub nsw i64 %73, %70
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %72, ptr nonnull align 1 %71, i64 %74, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull align 1 %71, i64 %74, i1 false)
   store i8 46, ptr %71, align 1
   %75 = getelementptr i8, ptr %.012, i64 %73
   %76 = getelementptr i8, ptr %75, i64 1
@@ -14307,7 +14307,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
   %34 = getelementptr inbounds i8, ptr %1, i64 16
   %35 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFN3nix3refINS0_7CommandEEEvEZNS0_L16registerCommand2I17CmdShowDerivationEENS0_15RegisterCommandEOSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %35, align 8
   store ptr @_ZNSt17_Function_handlerIFN3nix3refINS0_7CommandEEEvEZNS0_L16registerCommand2I17CmdShowDerivationEENS0_15RegisterCommandEOSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEUlvE_E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation, ptr %34, align 8
   %36 = load ptr, ptr @_ZN3nix15RegisterCommand8commandsB5cxx11E, align 8

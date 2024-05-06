@@ -74,7 +74,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.57 = private unnamed_addr constant [221 x i8] c"Clamonacc: at least one of OnAccessExcludeUID, OnAccessExcludeUname, or OnAccessExcludeRootUID must be specified ... it is recommended you exclude the clamd instance UID or uname to prevent infinite event scanning loops\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 2, 4) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [128 x i8], align 16
   %5 = alloca i32, align 4
@@ -336,7 +336,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   ]
 
 130:                                              ; preds = %128
-  %131 = call i32 @onas_check_client_connection(ptr noundef nonnull %6), !range !5
+  %131 = call i32 @onas_check_client_connection(ptr noundef nonnull %6)
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %139, label %133
 
@@ -445,7 +445,7 @@ declare i32 @daemonize() local_unnamed_addr #2
 declare i32 @onas_setup_client(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onas_check_client_connection(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 17) i32 @onas_check_client_connection(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %3 = call i32 @onas_check_remote(ptr noundef %0, ptr noundef nonnull %2) #12
@@ -739,4 +739,3 @@ attributes #14 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 17}

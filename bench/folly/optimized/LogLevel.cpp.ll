@@ -820,7 +820,7 @@ invoke.cont113:                                   ; preds = %for.cond.i.i441.1.2
 
 invoke.cont117:                                   ; preds = %invoke.cont113
   %ref.tmp115.sroa.5494.0.extract.shift = lshr i64 %call118, 32
-  %ref.tmp115.sroa.5494.0.extract.trunc = trunc i64 %ref.tmp115.sroa.5494.0.extract.shift to i32
+  %ref.tmp115.sroa.5494.0.extract.trunc = trunc nuw i64 %ref.tmp115.sroa.5494.0.extract.shift to i32
   %86 = and i64 %call118, 255
   %cmp.i459 = icmp eq i64 %86, 1
   %retval.0.i = select i1 %cmp.i459, i32 %ref.tmp115.sroa.5494.0.extract.trunc, i32 -1
@@ -1500,7 +1500,7 @@ if.end.i.i7:                                      ; preds = %for.body.i.i.i.i
 _ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIjEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IjEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit: ; preds = %for.cond.i.i.i.i, %if.then.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp4) #18
   %ref.tmp.sroa.52.0.extract.shift.i.i = lshr i64 %call.i.i.i, 32
-  %ref.tmp.sroa.52.0.extract.trunc.i.i = trunc i64 %ref.tmp.sroa.52.0.extract.shift.i.i to i32
+  %ref.tmp.sroa.52.0.extract.trunc.i.i = trunc nuw i64 %ref.tmp.sroa.52.0.extract.shift.i.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp) #18
@@ -2420,7 +2420,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !15
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 

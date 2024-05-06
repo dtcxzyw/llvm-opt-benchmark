@@ -10248,7 +10248,7 @@ define void @_Z11set_box_relPK10t_inputrecP7t_state(ptr noundef %0, ptr noundef 
   %3 = getelementptr inbounds i8, ptr %1, i64 52
   %4 = tail call noundef zeroext i1 @_Z11correct_boxP8_IO_FILElPA3_f(ptr noundef null, i64 noundef 0, ptr noundef nonnull %3)
   %5 = getelementptr inbounds i8, ptr %1, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %5, i8 0, i64 36, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 204
   %7 = getelementptr inbounds i8, ptr %0, i64 652
   %8 = tail call noundef zeroext i1 @_Z22shouldPreserveBoxShapeRK23PressureCouplingOptionsPA3_Kf(ptr noundef nonnull align 4 dereferenceable(92) %6, ptr noundef nonnull %7)

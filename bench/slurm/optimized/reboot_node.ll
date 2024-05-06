@@ -47,7 +47,7 @@ declare i32 @slurm_get_errno() local_unnamed_addr #1
 declare void @slurm_perror(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @scontrol_reboot_nodes(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @scontrol_reboot_nodes(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.slurm_msg, align 8
   %7 = alloca %struct.reboot_msg, align 8

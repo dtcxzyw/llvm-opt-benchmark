@@ -160,7 +160,7 @@ define dso_local void @prte_info_do_params(i1 noundef zeroext %0, i1 noundef zer
   %.03.i = phi ptr [ %.0.i, %10 ], [ %.01.i, %2 ]
   %6 = getelementptr inbounds i8, ptr %.03.i, i64 144
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(6) @.str.18) #9
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(6) @.str.18) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %pmix_cmd_line_get_param.exit, label %10
 
@@ -562,7 +562,7 @@ define dso_local void @prte_info_do_path(i1 noundef zeroext %0) local_unnamed_ad
   %.03.i = phi ptr [ %.0.i, %35 ], [ %.01.i, %1 ]
   %31 = getelementptr inbounds i8, ptr %.03.i, i64 144
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(5) @.str.22) #9
+  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(5) @.str.22) #9
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %pmix_cmd_line_get_param.exit, label %35
 

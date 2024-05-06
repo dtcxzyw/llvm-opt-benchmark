@@ -494,7 +494,7 @@ declare void @_ZN3net15SpdyHeaderBlock6insertERKSt4pairIN4base16BasicStringPiece
 declare void @_ZN4base11IntToStringB5cxx11Ei(ptr sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN3net14QuicSpdyStream5ReadvEPK5iovecm(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef %iov, i64 noundef %iov_len) unnamed_addr #0 align 2 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN3net14QuicSpdyStream5ReadvEPK5iovecm(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef %iov, i64 noundef %iov_len) unnamed_addr #0 align 2 {
 entry:
   %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   %call2 = tail call noundef i32 @_ZN3net19QuicStreamSequencer5ReadvEPK5iovecm(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i, ptr noundef %iov, i64 noundef %iov_len)

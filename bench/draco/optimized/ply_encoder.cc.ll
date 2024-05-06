@@ -112,7 +112,7 @@ define noundef zeroext i1 @_ZN5draco10PlyEncoder12EncodeToFileERKNS_10PointCloud
           to label %11 unwind label %14
 
 11:                                               ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br i1 %10, label %16, label %28
 
 12:                                               ; preds = %7
@@ -206,7 +206,7 @@ define noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeToBufferERKNS_10PointClo
   store ptr %1, ptr %4, align 8
   store ptr %2, ptr %0, align 8
   %5 = tail call noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeInternalEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret i1 %5
 }
 
@@ -924,7 +924,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %310, %317
   %338 = getelementptr inbounds i8, ptr %336, i64 100
   %339 = load i8, ptr %338, align 4
   %340 = trunc i8 %339 to i1
-  %341 = trunc i64 %indvars.iv to i32
+  %341 = trunc nuw i64 %indvars.iv to i32
   br i1 %340, label %347, label %342
 
 342:                                              ; preds = %331
@@ -1402,7 +1402,7 @@ define noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeToBufferERKNS_4MeshEPNS_
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %0, align 8
   %6 = tail call noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeInternalEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret i1 %6
 }
 

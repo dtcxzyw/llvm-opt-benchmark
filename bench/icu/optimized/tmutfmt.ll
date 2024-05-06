@@ -2958,7 +2958,7 @@ declare void @_ZN6icu_7513MeasureFormat17adoptNumberFormatEPNS_12NumberFormatER1
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_75L31tmutfmtHashTableValueComparatorE8UElementS0_(ptr nocapture readonly %val1.coerce, ptr nocapture readonly %val2.coerce) #1 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_75L31tmutfmtHashTableValueComparatorE8UElementS0_(ptr nocapture readonly %val1.coerce, ptr nocapture readonly %val2.coerce) #1 {
 entry:
   %0 = load ptr, ptr %val1.coerce, align 8
   %1 = load ptr, ptr %val2.coerce, align 8

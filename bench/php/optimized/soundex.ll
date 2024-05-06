@@ -85,7 +85,7 @@ define hidden void @zif_soundex(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %29
-  %32 = trunc i32 %26 to i8
+  %32 = trunc nuw i32 %26 to i8
   %33 = add nsw i64 %27, -65
   %34 = getelementptr inbounds [26 x i8], ptr @zif_soundex.soundex_table, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1

@@ -3171,14 +3171,14 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   %263 = getelementptr inbounds i8, ptr %260, i64 %262
   store <8 x i8> <i8 115, i8 36, i8 48, i8 123, i8 115, i8 16, i8 4, i8 48>, ptr %263, align 4
   %264 = zext nneg i32 %261 to i64
-  %265 = getelementptr i8, ptr %260, i64 %264
-  %266 = getelementptr i8, ptr %265, i64 8
+  %265 = getelementptr inbounds i8, ptr %260, i64 %264
+  %266 = getelementptr inbounds i8, ptr %265, i64 8
   store i8 115, ptr %266, align 4
-  %267 = getelementptr i8, ptr %265, i64 9
+  %267 = getelementptr inbounds i8, ptr %265, i64 9
   store i8 36, ptr %267, align 1
-  %268 = getelementptr i8, ptr %265, i64 10
+  %268 = getelementptr inbounds i8, ptr %265, i64 10
   store i8 32, ptr %268, align 2
-  %269 = getelementptr i8, ptr %265, i64 11
+  %269 = getelementptr inbounds i8, ptr %265, i64 11
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread91, %.thread94

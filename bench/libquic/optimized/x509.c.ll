@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [2 x i8] c":\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PKCS8_pkey_set0(ptr nocapture noundef readonly %priv, ptr noundef %aobj, i32 noundef %version, i32 noundef %ptype, ptr noundef %pval, ptr noundef %penc, i32 noundef %penclen) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @PKCS8_pkey_set0(ptr nocapture noundef readonly %priv, ptr noundef %aobj, i32 noundef %version, i32 noundef %ptype, ptr noundef %pval, ptr noundef %penc, i32 noundef %penclen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %version, -1
   br i1 %cmp, label %if.then, label %if.end3
@@ -73,7 +73,7 @@ declare void @ASN1_TYPE_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare i32 @X509_ALGOR_set0(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @PKCS8_pkey_get0(ptr noundef writeonly %ppkalg, ptr noundef writeonly %pk, ptr nocapture noundef writeonly %ppklen, ptr noundef writeonly %pa, ptr nocapture noundef %p8) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @PKCS8_pkey_get0(ptr noundef writeonly %ppkalg, ptr noundef writeonly %pk, ptr nocapture noundef writeonly %ppklen, ptr noundef writeonly %pa, ptr nocapture noundef %p8) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %ppkalg, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -133,7 +133,7 @@ return:                                           ; preds = %if.end24, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_signature_dump(ptr noundef %bp, ptr nocapture noundef readonly %sig, i32 noundef %indent) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_signature_dump(ptr noundef %bp, ptr nocapture noundef readonly %sig, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %sig, align 8
   %data = getelementptr inbounds i8, ptr %sig, i64 8
@@ -149,7 +149,7 @@ for.cond:                                         ; preds = %if.end6, %entry
   br i1 %exitcond.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %rem = urem i32 %3, 18
   %cmp1 = icmp eq i32 %rem, 0
   br i1 %cmp1, label %if.then, label %if.end6

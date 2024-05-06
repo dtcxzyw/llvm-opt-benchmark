@@ -191,7 +191,7 @@ cond.false5.i:                                    ; preds = %cond.end.i
 
 ucm_printMapping.exit:                            ; preds = %cond.true4.i, %cond.false5.i
   %cond10.i = phi ptr [ %b.i, %cond.true4.i ], [ %add.ptr8.i, %cond.false5.i ]
-  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull %m.035, ptr noundef %cond.i, ptr noundef %cond10.i, ptr noundef %f)
+  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull readonly %m.035, ptr noundef %cond.i, ptr noundef %cond10.i, ptr noundef %f)
   %incdec.ptr = getelementptr inbounds i8, ptr %m.035, i64 12
   %inc = add nuw nsw i32 %i.034, 1
   %exitcond.not = icmp eq i32 %inc, %1
@@ -248,7 +248,7 @@ cond.false5.i23:                                  ; preds = %cond.end.i19
 
 ucm_printMapping.exit31:                          ; preds = %cond.true4.i29, %cond.false5.i23
   %cond10.i28 = phi ptr [ %b.i30, %cond.true4.i29 ], [ %add.ptr8.i27, %cond.false5.i23 ]
-  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull %add.ptr, ptr noundef %cond.i20, ptr noundef %cond10.i28, ptr noundef %f)
+  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull readonly %add.ptr, ptr noundef %cond.i20, ptr noundef %cond10.i28, ptr noundef %f)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond40.not, label %if.end, label %for.body3, !llvm.loop !8
@@ -1058,7 +1058,7 @@ for.end:                                          ; preds = %for.inc, %if.end94
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ucm_checkValidity(ptr nocapture noundef readonly %table, ptr noundef %baseStates) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ucm_checkValidity(ptr nocapture noundef readonly %table, ptr noundef %baseStates) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %table, align 8
   %mappingsLength = getelementptr inbounds i8, ptr %table, i64 12
@@ -1134,7 +1134,7 @@ cond.false5.i:                                    ; preds = %cond.end.i
 
 ucm_printMapping.exit:                            ; preds = %cond.true4.i, %cond.false5.i
   %cond10.i = phi ptr [ %b.i, %cond.true4.i ], [ %add.ptr8.i, %cond.false5.i ]
-  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull %m.012, ptr noundef %cond.i, ptr noundef %cond10.i, ptr noundef %5)
+  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull readonly %m.012, ptr noundef %cond.i, ptr noundef %cond10.i, ptr noundef %5)
   br label %if.end
 
 if.end:                                           ; preds = %ucm_printMapping.exit, %cond.end
@@ -1151,7 +1151,7 @@ while.end:                                        ; preds = %if.end, %entry
 declare i32 @ucm_countChars(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ucm_checkBaseExt(ptr nocapture noundef readonly %baseStates, ptr noundef %base, ptr noundef %ext, ptr noundef %moveTarget, i8 noundef signext %intersectBase) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ucm_checkBaseExt(ptr nocapture noundef readonly %baseStates, ptr noundef %base, ptr noundef %ext, ptr noundef %moveTarget, i8 noundef signext %intersectBase) local_unnamed_addr #1 {
 entry:
   %flagsType = getelementptr inbounds i8, ptr %base, i64 57
   %0 = load i8, ptr %flagsType, align 1
@@ -1393,9 +1393,9 @@ if.else87.i:                                      ; preds = %if.then77.i
   %37 = load ptr, ptr @stderr, align 8
   %38 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 135, i64 1, ptr %37) #17
   %39 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %base, ptr noundef %mb.116.i, ptr noundef %39)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %base, ptr noundef %mb.116.i, ptr noundef %39)
   %40 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %ext, ptr noundef nonnull %me.119.i, ptr noundef %40)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %ext, ptr noundef nonnull %me.119.i, ptr noundef %40)
   %41 = or i8 %result.025.i, 2
   br label %if.end94.i
 
@@ -1471,9 +1471,9 @@ if.else156.i:                                     ; preds = %if.else146.i
   %52 = load ptr, ptr @stderr, align 8
   %53 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 170, i64 1, ptr %52) #17
   %54 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %base, ptr noundef %mb.116.i, ptr noundef %54)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %base, ptr noundef %mb.116.i, ptr noundef %54)
   %55 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %ext, ptr noundef %me.119.i, ptr noundef %55)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %ext, ptr noundef %me.119.i, ptr noundef %55)
   br label %if.end162.i
 
 if.end162.i:                                      ; preds = %if.else156.i, %if.then148.i, %if.then138.i
@@ -1744,9 +1744,9 @@ if.else94.i:                                      ; preds = %if.then84.i
   %94 = load ptr, ptr @stderr, align 8
   %95 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 135, i64 1, ptr %94) #17
   %96 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %base, ptr noundef %.us-phi12.i, ptr noundef %96)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %base, ptr noundef %.us-phi12.i, ptr noundef %96)
   %97 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %ext, ptr noundef %add.ptr28.i, ptr noundef %97)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %ext, ptr noundef %add.ptr28.i, ptr noundef %97)
   %98 = or i8 %result.022.i, 2
   br label %if.end101.i
 
@@ -1817,9 +1817,9 @@ if.else162.i:                                     ; preds = %if.else152.i
   %109 = load ptr, ptr @stderr, align 8
   %110 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 170, i64 1, ptr %109) #17
   %111 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %base, ptr noundef %.us-phi12.i, ptr noundef %111)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %base, ptr noundef %.us-phi12.i, ptr noundef %111)
   %112 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %ext, ptr noundef %add.ptr28.i, ptr noundef %112)
+  tail call void @ucm_printMapping(ptr noundef nonnull readonly %ext, ptr noundef %add.ptr28.i, ptr noundef %112)
   br label %if.end168.i
 
 if.end168.i:                                      ; preds = %if.else162.i, %if.then154.i, %if.then144.i
@@ -2544,7 +2544,7 @@ while.end162:                                     ; preds = %if.end159, %while.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ucm_separateMappings(ptr noundef %ucm, i8 noundef signext %isSISO) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ucm_separateMappings(ptr noundef %ucm, i8 noundef signext %isSISO) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %ucm, align 8
   %1 = load ptr, ptr %0, align 8
@@ -2621,7 +2621,7 @@ cond.false5.i:                                    ; preds = %cond.end.i
 
 ucm_printMapping.exit:                            ; preds = %cond.end.i, %cond.false5.i
   %cond10.i = phi ptr [ %add.ptr8.i, %cond.false5.i ], [ %b, %cond.end.i ]
-  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull %m.062, ptr noundef %cond.i, ptr noundef %cond10.i, ptr noundef %8)
+  tail call fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef nonnull readonly %m.062, ptr noundef %cond.i, ptr noundef %cond10.i, ptr noundef %8)
   br label %for.inc.sink.split
 
 if.end:                                           ; preds = %for.body
@@ -2895,7 +2895,7 @@ ucm_moveMappings.exit:                            ; preds = %if.end27.i, %if.end
   %states69 = getelementptr inbounds i8, ptr %ucm, i64 16
   %50 = load ptr, ptr %ucm, align 8
   %51 = load ptr, ptr %ext, align 8
-  %call73 = tail call signext i8 @ucm_checkBaseExt(ptr noundef nonnull %states69, ptr noundef %50, ptr noundef %51, ptr noundef %51, i8 noundef signext 0), !range !25
+  %call73 = tail call signext i8 @ucm_checkBaseExt(ptr noundef nonnull %states69, ptr noundef %50, ptr noundef %51, ptr noundef %51, i8 noundef signext 0)
   br label %return
 
 if.else74:                                        ; preds = %entry, %if.end65
@@ -2909,7 +2909,7 @@ return:                                           ; preds = %for.inc.thread, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ucm_mappingType(ptr noundef %baseStates, ptr nocapture noundef readonly %m, ptr nocapture noundef readnone %codePoints, ptr noundef %bytes) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @ucm_mappingType(ptr noundef %baseStates, ptr nocapture noundef readonly %m, ptr nocapture noundef readnone %codePoints, ptr noundef %bytes) local_unnamed_addr #1 {
 entry:
   %bLen = getelementptr inbounds i8, ptr %m, i64 9
   %0 = load i8, ptr %bLen, align 1
@@ -3035,7 +3035,7 @@ if.end19:                                         ; preds = %if.end14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx20 = getelementptr inbounds i8, ptr %bytes, i64 %indvars.iv
   store i8 %conv9, ptr %arrayidx20, align 1
-  br label %for.cond, !llvm.loop !26
+  br label %for.cond, !llvm.loop !25
 
 for.end:                                          ; preds = %if.end
   %6 = trunc nuw nsw i64 %indvars.iv to i8
@@ -3051,7 +3051,7 @@ return:                                           ; preds = %for.end, %if.then17
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ucm_parseMappingLine(ptr nocapture noundef writeonly %m, ptr noundef %codePoints, ptr nocapture noundef %bytes, ptr noundef %line) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ucm_parseMappingLine(ptr nocapture noundef writeonly %m, ptr noundef %codePoints, ptr nocapture noundef %bytes, ptr noundef %line) local_unnamed_addr #1 {
 entry:
   %end.i = alloca ptr, align 8
   %end = alloca ptr, align 8
@@ -3136,7 +3136,7 @@ if.end28:                                         ; preds = %if.end23
   %arrayidx29 = getelementptr inbounds i32, ptr %codePoints, i64 %idxprom
   store i32 %conv9, ptr %arrayidx29, align 4
   %add.ptr30 = getelementptr inbounds i8, ptr %3, i64 1
-  br label %for.cond, !llvm.loop !27
+  br label %for.cond, !llvm.loop !26
 
 for.end:                                          ; preds = %if.end
   switch i8 %uLen.0, label %if.else39 [
@@ -3219,7 +3219,7 @@ if.end19.i:                                       ; preds = %if.end14.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx20.i = getelementptr inbounds i8, ptr %bytes, i64 %indvars.iv.i
   store i8 %conv9.i, ptr %arrayidx20.i, align 1
-  br label %for.cond.i, !llvm.loop !26
+  br label %for.cond.i, !llvm.loop !25
 
 ucm_parseBytes.exit.thread:                       ; preds = %if.end14.i, %if.end6.i, %lor.lhs.false.i
   %.str.5.sink = phi ptr [ @.str.5, %lor.lhs.false.i ], [ @.str.5, %if.end6.i ], [ @.str.6, %if.end14.i ]
@@ -3278,7 +3278,7 @@ if.then83:                                        ; preds = %if.then77
 
 if.end87:                                         ; preds = %for.cond70
   %incdec.ptr88 = getelementptr inbounds i8, ptr %s.2, i64 1
-  br label %for.cond70, !llvm.loop !28
+  br label %for.cond70, !llvm.loop !27
 
 for.end89:                                        ; preds = %for.cond70, %if.then77
   %f.0 = phi i8 [ %sub, %if.then77 ], [ -1, %for.cond70 ]
@@ -3487,7 +3487,7 @@ if.end:                                           ; preds = %ucm_closeTable.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ucm_addMappingAuto(ptr nocapture noundef readonly %ucm, i8 noundef signext %forBase, ptr noundef %baseStates, ptr nocapture noundef %m, ptr nocapture noundef readonly %codePoints, ptr noundef %bytes) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ucm_addMappingAuto(ptr nocapture noundef readonly %ucm, i8 noundef signext %forBase, ptr noundef %baseStates, ptr nocapture noundef %m, ptr nocapture noundef readonly %codePoints, ptr noundef %bytes) local_unnamed_addr #1 {
 entry:
   %f = getelementptr inbounds i8, ptr %m, i64 10
   %0 = load i8, ptr %f, align 2
@@ -3598,7 +3598,7 @@ return:                                           ; preds = %if.then12, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ucm_addMappingFromLine(ptr nocapture noundef readonly %ucm, ptr noundef %line, i8 noundef signext %forBase, ptr noundef %baseStates) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ucm_addMappingFromLine(ptr nocapture noundef readonly %ucm, ptr noundef %line, i8 noundef signext %forBase, ptr noundef %baseStates) local_unnamed_addr #1 {
 entry:
   %m = alloca %struct.UCMapping, align 4
   %codePoints = alloca [19 x i32], align 16
@@ -3618,12 +3618,12 @@ lor.lhs.false:                                    ; preds = %entry
   ]
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call10 = call signext i8 @ucm_parseMappingLine(ptr noundef nonnull %m, ptr noundef nonnull %codePoints, ptr noundef nonnull %bytes, ptr noundef nonnull %line), !range !25
+  %call10 = call signext i8 @ucm_parseMappingLine(ptr noundef nonnull %m, ptr noundef nonnull %codePoints, ptr noundef nonnull %bytes, ptr noundef nonnull %line)
   %tobool.not = icmp eq i8 %call10, 0
   br i1 %tobool.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
-  %call13 = call signext i8 @ucm_addMappingAuto(ptr noundef %ucm, i8 noundef signext %forBase, ptr noundef %baseStates, ptr noundef nonnull %m, ptr noundef nonnull %codePoints, ptr noundef nonnull %bytes), !range !25
+  %call13 = call signext i8 @ucm_addMappingAuto(ptr noundef %ucm, i8 noundef signext %forBase, ptr noundef %baseStates, ptr noundef nonnull %m, ptr noundef nonnull %codePoints, ptr noundef nonnull %bytes)
   br label %return
 
 return:                                           ; preds = %if.end, %land.rhs, %entry, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false
@@ -3673,7 +3673,7 @@ land.rhs:                                         ; preds = %if.end5, %while.bod
 
 while.body:                                       ; preds = %land.rhs, %land.rhs
   %cmp = icmp ult ptr %line, %add.ptr
-  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !29
+  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !28
 
 while.end:                                        ; preds = %while.body, %land.rhs, %if.end5
   %end.0.lcssa = phi ptr [ %strchr, %if.end5 ], [ %end.013, %land.rhs ], [ %add.ptr, %while.body ]
@@ -3712,12 +3712,12 @@ lor.lhs.false.i:                                  ; preds = %if.end24
   ]
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call10.i = call signext i8 @ucm_parseMappingLine(ptr noundef nonnull %m.i, ptr noundef nonnull %codePoints.i, ptr noundef nonnull %bytes.i, ptr noundef nonnull %line), !range !25
+  %call10.i = call signext i8 @ucm_parseMappingLine(ptr noundef nonnull %m.i, ptr noundef nonnull %codePoints.i, ptr noundef nonnull %bytes.i, ptr noundef nonnull %line)
   %tobool.not.i = icmp eq i8 %call10.i, 0
   br i1 %tobool.not.i, label %ucm_addMappingFromLine.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end.i
-  %call13.i = call signext i8 @ucm_addMappingAuto(ptr noundef %ucm, i8 noundef signext %forBase, ptr noundef %baseStates, ptr noundef nonnull %m.i, ptr noundef nonnull %codePoints.i, ptr noundef nonnull %bytes.i), !range !25
+  %call13.i = call signext i8 @ucm_addMappingAuto(ptr noundef readonly %ucm, i8 noundef signext %forBase, ptr noundef %baseStates, ptr noundef nonnull %m.i, ptr noundef nonnull %codePoints.i, ptr noundef nonnull %bytes.i)
   br label %ucm_addMappingFromLine.exit
 
 ucm_addMappingFromLine.exit:                      ; preds = %if.end24, %lor.lhs.false.i, %lor.lhs.false.i, %lor.lhs.false.i, %if.end.i, %land.rhs.i
@@ -3728,7 +3728,7 @@ ucm_addMappingFromLine.exit:                      ; preds = %if.end24, %lor.lhs.
   %and7 = and i8 %retval.0.i, %isOK.0.ph19
   %call115 = call ptr @T_FileStream_readLine(ptr noundef %convFile, ptr noundef nonnull %line, i32 noundef 500)
   %tobool2.not16 = icmp eq ptr %call115, null
-  br i1 %tobool2.not16, label %for.end.thread, label %if.end5.lr.ph, !llvm.loop !30
+  br i1 %tobool2.not16, label %for.end.thread, label %if.end5.lr.ph, !llvm.loop !29
 
 for.end:                                          ; preds = %if.end19
   %tobool30.not = icmp eq i8 %isOK.0.ph19, 0
@@ -3814,9 +3814,8 @@ attributes #20 = { nounwind }
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
-!25 = !{i8 0, i8 2}
+!25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}

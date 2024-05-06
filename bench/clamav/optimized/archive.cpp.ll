@@ -2229,7 +2229,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %8
 declare noundef zeroext i1 @_ZN4File5WOpenEPKw(ptr noundef nonnull align 8 dereferenceable(8256), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN7Archive11IsSignatureEPKhm(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
+define noundef range(i32 0, 5) i32 @_ZN7Archive11IsSignatureEPKhm(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %.thread, label %3
 

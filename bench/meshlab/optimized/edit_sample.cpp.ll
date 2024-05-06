@@ -976,7 +976,7 @@ _ZN16SampleEditPlugin17mouseReleaseEventEP11QMouseEventR9MeshModelP6GLArea.exit:
   %61 = getelementptr inbounds i8, ptr %0, i64 48
   %62 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 0, ptr %62, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
   ret void
 }
 
@@ -9437,7 +9437,7 @@ define void @_ZThn16_N16SampleEditPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGL
   %6 = getelementptr inbounds i8, ptr %0, i64 44
   %7 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 0, ptr %7, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   ret void
 }
 

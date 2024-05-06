@@ -286,7 +286,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @gzbuffer(ptr noundef %file, i32 noundef %size) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @gzbuffer(ptr noundef %file, i32 noundef %size) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -319,7 +319,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @gzrewind(ptr noundef %file) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @gzrewind(ptr noundef %file) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -532,7 +532,7 @@ if.end55:                                         ; preds = %if.end47
   br i1 %cmp59, label %return, label %if.end62
 
 if.end62:                                         ; preds = %if.end55
-  %call63 = tail call i32 @gzrewind(ptr noundef nonnull %file), !range !6
+  %call63 = tail call i32 @gzrewind(ptr noundef nonnull %file)
   %cmp64 = icmp eq i32 %call63, -1
   br i1 %cmp64, label %return, label %if.end68
 
@@ -546,7 +546,7 @@ if.then72:                                        ; preds = %if.end47, %if.end68
   %14 = load i32, ptr %file, align 8
   %conv75 = zext i32 %14 to i64
   %cmp76 = icmp ult i64 %offset.addr.156, %conv75
-  %conv78 = trunc i64 %offset.addr.156 to i32
+  %conv78 = trunc nuw i64 %offset.addr.156 to i32
   %cond = select i1 %cmp76, i32 %conv78, i32 %14
   %sub83 = sub i32 %14, %cond
   store i32 %sub83, ptr %file, align 8
@@ -953,4 +953,3 @@ attributes #13 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -1, i32 1}

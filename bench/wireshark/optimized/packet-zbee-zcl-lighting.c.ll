@@ -441,13 +441,13 @@ define internal void @decode_startup_color_temperature(ptr nocapture noundef wri
   br label %decode_color_temperature.exit
 
 4:                                                ; preds = %2
-  %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.199, i32 noundef 0) #5
+  %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.199, i32 noundef 0) #5
   br label %decode_color_temperature.exit
 
 6:                                                ; preds = %2
   %7 = zext i16 %1 to i32
   %8 = udiv i32 1000000, %7
-  %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.200, i32 noundef %7, i32 noundef %8) #5
+  %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.200, i32 noundef %7, i32 noundef %8) #5
   br label %decode_color_temperature.exit
 
 decode_color_temperature.exit:                    ; preds = %6, %4, %3

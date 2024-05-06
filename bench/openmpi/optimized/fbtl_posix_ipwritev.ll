@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [51 x i8] c"mca_fbtl_posix_ipwritev: error in aio_write():  %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @mca_fbtl_posix_ipwritev(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i64 -1, 1) i64 @mca_fbtl_posix_ipwritev(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(96) ptr @malloc(i64 noundef 96) #7
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6

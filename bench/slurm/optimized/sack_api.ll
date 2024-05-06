@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @init_buf(i32 noundef 1024) #6
-  %6 = tail call fastcc i32 @_sack_connect(), !range !6
+  %6 = tail call fastcc i32 @_sack_connect()
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %.thread, label %8
 
@@ -110,7 +110,7 @@ define ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_un
   br label %.lr.ph.split.us.backedge
 
 .lr.ph.split.us.backedge:                         ; preds = %38, %35
-  br label %.lr.ph.split.us, !llvm.loop !7
+  br label %.lr.ph.split.us, !llvm.loop !6
 
 .split146:                                        ; preds = %.lr.ph134.split.split.us, %74
   %40 = tail call i32 @get_log_level() #6
@@ -159,7 +159,7 @@ define ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_un
   br label %.lr.ph134.backedge
 
 .lr.ph134.backedge:                               ; preds = %56, %53
-  br label %.lr.ph134, !llvm.loop !9
+  br label %.lr.ph134, !llvm.loop !8
 
 .lr.ph134:                                        ; preds = %.lr.ph134.backedge, %.lr.ph134.preheader
   %.074.ph185 = phi ptr [ %4, %.lr.ph134.preheader ], [ %50, %.lr.ph134.backedge ]
@@ -353,7 +353,7 @@ define ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_un
   br label %.lr.ph187.backedge
 
 .lr.ph187.backedge:                               ; preds = %121, %118
-  br label %.lr.ph187, !llvm.loop !10
+  br label %.lr.ph187, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.split192.us, %79, %29, %.split123.us, %42, %.split146, %45, %.split136.us, %48, %.split143, %.outer95._crit_edge, %107, %.split200.us, %110, %.split189.us, %113, %.split196.us
   %.073 = phi ptr [ null, %29 ], [ null, %.split123.us ], [ null, %42 ], [ null, %.split146 ], [ null, %45 ], [ null, %.split136.us ], [ null, %48 ], [ null, %.split143 ], [ %82, %107 ], [ %82, %.split200.us ], [ %82, %110 ], [ %82, %.split189.us ], [ %82, %113 ], [ %82, %.split196.us ], [ null, %.outer95._crit_edge ], [ %82, %79 ], [ %82, %.split192.us ]
@@ -376,7 +376,7 @@ define ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_un
 declare ptr @init_buf(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_sack_connect() unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @_sack_connect() unnamed_addr #0 {
   br label %1
 
 1:                                                ; preds = %0, %24
@@ -428,7 +428,7 @@ _sack_try_connection.exit:                        ; preds = %11
 24:                                               ; preds = %20, %10, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %25, label %1, !llvm.loop !11
+  br i1 %exitcond.not, label %25, label %1, !llvm.loop !10
 
 25:                                               ; preds = %24
   %26 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8) #6
@@ -472,7 +472,7 @@ define i32 @sack_verify(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 -1, ptr %2, align 4
   %3 = tail call ptr @init_buf(i32 noundef 1024) #6
-  %4 = tail call fastcc i32 @_sack_connect(), !range !6
+  %4 = tail call fastcc i32 @_sack_connect()
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %.thread, label %6
 
@@ -566,7 +566,7 @@ define i32 @sack_verify(ptr noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph.split.us.backedge
 
 .lr.ph.split.us.backedge:                         ; preds = %41, %38
-  br label %.lr.ph.split.us, !llvm.loop !12
+  br label %.lr.ph.split.us, !llvm.loop !11
 
 .split108:                                        ; preds = %.lr.ph96.split.split.us, %77
   %43 = tail call i32 @get_log_level() #6
@@ -615,7 +615,7 @@ define i32 @sack_verify(ptr noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph96.backedge
 
 .lr.ph96.backedge:                                ; preds = %59, %56
-  br label %.lr.ph96, !llvm.loop !13
+  br label %.lr.ph96, !llvm.loop !12
 
 .lr.ph96:                                         ; preds = %.lr.ph96.backedge, %.lr.ph96.preheader
   %.0.ph147 = phi ptr [ %2, %.lr.ph96.preheader ], [ %53, %.lr.ph96.backedge ]
@@ -734,11 +734,10 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 -2147483648}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

@@ -1181,7 +1181,7 @@ declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unname
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_autosar_nm_can_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_autosar_nm_can_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %5, label %6
 

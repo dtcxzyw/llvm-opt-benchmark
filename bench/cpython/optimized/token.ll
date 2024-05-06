@@ -74,7 +74,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._PyToken_TwoChars = private unnamed_addr constant [3 x i32] [i32 33, i32 29, i32 28], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyToken_OneChar(i32 noundef %c1) local_unnamed_addr #0 {
+define dso_local range(i32 7, 56) i32 @_PyToken_OneChar(i32 noundef %c1) local_unnamed_addr #0 {
 entry:
   switch i32 %c1, label %sw.epilog [
     i32 33, label %return
@@ -181,7 +181,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyToken_TwoChars(i32 noundef %c1, i32 noundef %c2) local_unnamed_addr #0 {
+define dso_local range(i32 27, 56) i32 @_PyToken_TwoChars(i32 noundef %c1, i32 noundef %c2) local_unnamed_addr #0 {
 entry:
   switch i32 %c1, label %sw.epilog47 [
     i32 33, label %sw.bb
@@ -284,7 +284,7 @@ return:                                           ; preds = %switch.lookup, %sw.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @_PyToken_ThreeChars(i32 noundef %c1, i32 noundef %c2, i32 noundef %c3) local_unnamed_addr #0 {
+define dso_local range(i32 44, 56) i32 @_PyToken_ThreeChars(i32 noundef %c1, i32 noundef %c2, i32 noundef %c3) local_unnamed_addr #0 {
 entry:
   switch i32 %c1, label %sw.epilog24 [
     i32 42, label %sw.bb

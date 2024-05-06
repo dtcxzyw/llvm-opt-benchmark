@@ -43,7 +43,7 @@ define i32 @hash(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @yr_hash_table_create(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @yr_hash_table_create(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = sext i32 %0 to i64
   %4 = shl nsw i64 %3, 3
   %5 = add nsw i64 %4, 8
@@ -302,7 +302,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @yr_hash_table_add(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @yr_hash_table_add(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = tail call ptr @cli_max_malloc(i64 noundef 32) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %67, label %7

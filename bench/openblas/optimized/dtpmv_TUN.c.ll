@@ -19,7 +19,7 @@ define noundef i32 @dtpmv_TUN(i64 noundef %0, ptr noundef %1, ptr noundef %2, i6
 
 12:                                               ; preds = %9
   %13 = add nuw nsw i64 %0, 1
-  %14 = mul nsw i64 %13, %0
+  %14 = mul nuw nsw i64 %13, %0
   %15 = lshr i64 %14, 1
   %16 = getelementptr double, ptr %1, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -8
@@ -40,7 +40,7 @@ define noundef i32 @dtpmv_TUN(i64 noundef %0, ptr noundef %1, ptr noundef %2, i6
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %19
-  %30 = sub i64 1, %23
+  %30 = sub nsw i64 1, %23
   %31 = getelementptr inbounds double, ptr %21, i64 %30
   %32 = tail call double @ddot_k(i64 noundef %24, ptr noundef nonnull %31, i64 noundef 1, ptr noundef nonnull %10, i64 noundef 1) #2
   %33 = load double, ptr %25, align 8, !tbaa !3
@@ -49,7 +49,7 @@ define noundef i32 @dtpmv_TUN(i64 noundef %0, ptr noundef %1, ptr noundef %2, i6
   br label %35
 
 35:                                               ; preds = %29, %19
-  %36 = sub i64 0, %23
+  %36 = sub nsw i64 0, %23
   %37 = getelementptr inbounds double, ptr %21, i64 %36
   %38 = add nuw nsw i64 %20, 1
   %39 = icmp eq i64 %38, %0

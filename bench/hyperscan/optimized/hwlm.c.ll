@@ -1201,7 +1201,7 @@ for.cond.i6262.i:                                 ; preds = %if.end.i6278.i, %sw
   %cmp.i6264.i = phi i1 [ true, %sw.bb6.i106.i ], [ false, %if.end.i6278.i ]
   %buf.addr.i6257.0.idx.sroa.phi.i = phi ptr [ %temp.i, %sw.bb6.i106.i ], [ %buf.addr.i5728.0.idx.sroa.gep2057.i, %if.end.i6278.i ]
   %buf.addr.i6257.0.idx.i = phi i64 [ 0, %sw.bb6.i106.i ], [ 16, %if.end.i6278.i ]
-  %gep1967.i = getelementptr i8, ptr %buf.addr.i5728.0.idx.sroa.gep2057.i, i64 %buf.addr.i6257.0.idx.i
+  %gep1967.i = getelementptr inbounds i8, ptr %buf.addr.i5728.0.idx.sroa.gep2057.i, i64 %buf.addr.i6257.0.idx.i
   br i1 %cmp.i6264.i, label %for.body.i6266.i, label %cond.false25.i664.i
 
 for.body.i6266.i:                                 ; preds = %for.cond.i6262.i
@@ -1275,7 +1275,7 @@ for.cond.i5751.i:                                 ; preds = %if.end.i5769.i, %sw
   %cmp.i5753.i = phi i1 [ true, %sw.bb10.i102.i ], [ false, %if.end.i5769.i ]
   %buf.addr.i5728.0.idx.sroa.phi.i = phi ptr [ %temp.i, %sw.bb10.i102.i ], [ %buf.addr.i5728.0.idx.sroa.gep2057.i, %if.end.i5769.i ]
   %buf.addr.i5728.0.idx.i = phi i64 [ 0, %sw.bb10.i102.i ], [ 16, %if.end.i5769.i ]
-  %gep.i = getelementptr i8, ptr %buf.addr.i5728.0.idx.sroa.gep2057.i, i64 %buf.addr.i5728.0.idx.i
+  %gep.i = getelementptr inbounds i8, ptr %buf.addr.i5728.0.idx.sroa.gep2057.i, i64 %buf.addr.i5728.0.idx.i
   br i1 %cmp.i5753.i, label %for.body.i5755.i, label %cond.true22.i754.i
 
 for.body.i5755.i:                                 ; preds = %for.cond.i5751.i

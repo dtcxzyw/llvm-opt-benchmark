@@ -398,7 +398,7 @@ define i32 @SUNQRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noc
   %67 = getelementptr inbounds double, ptr %66, i64 %indvars.iv174
   store double %65, ptr %67, align 8
   %68 = fcmp oeq double %65, 0.000000e+00
-  %69 = trunc i64 %indvars.iv.next175 to i32
+  %69 = trunc nuw nsw i64 %indvars.iv.next175 to i32
   %.1 = select i1 %68, i32 %69, i32 %.0165
   %indvars.iv.next171 = add nsw i32 %indvars.iv170, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
@@ -521,7 +521,7 @@ define i32 @SUNQRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noc
 declare double @llvm.fabs.f64(double) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @SUNQRsol(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #5 {
+define range(i32 0, -2147483648) i32 @SUNQRsol(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #5 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -604,7 +604,7 @@ define i32 @SUNQRsol(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noca
   br i1 %exitcond66.not, label %.loopexit, label %.lr.ph52
 
 ._crit_edge.loopexit.split.loop.exit75:           ; preds = %.lr.ph56
-  %46 = trunc i64 %indvars.iv69 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv69 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %32, %.loopexit, %._crit_edge.loopexit.split.loop.exit75, %4, %.preheader
@@ -1127,8 +1127,8 @@ define noundef i32 @SUNQRAdd_DCGS2_SB(ptr noundef %0, ptr noundef %1, ptr nounde
   %gep99 = getelementptr double, ptr %invariant.gep98, i64 %.197
   %51 = load double, ptr %gep99, align 8
   %52 = load ptr, ptr %17, align 8
-  %53 = getelementptr double, ptr %52, i64 %.197
-  %54 = getelementptr double, ptr %53, i64 %25
+  %53 = getelementptr inbounds double, ptr %52, i64 %.197
+  %54 = getelementptr inbounds double, ptr %53, i64 %25
   %55 = load double, ptr %54, align 8
   %56 = fadd double %51, %55
   store double %56, ptr %gep99, align 8

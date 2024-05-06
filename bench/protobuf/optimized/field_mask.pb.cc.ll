@@ -456,7 +456,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   %conv.i.i = trunc i64 %call.i to i32
   %or.i.i.i = or i32 %conv.i.i, 1
-  %6 = tail call noundef i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true), !range !8
+  %6 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
   %sub.i.i.i = xor i32 %6, 31
   %mul.i.i.i = mul nuw nsw i32 %sub.i.i.i, 9
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
@@ -466,7 +466,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add9 = add i64 %add.i.i, %conv.i.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv.i
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %entry
   %total_size.0.lcssa = phi i64 [ %conv.i, %entry ], [ %add9, %for.body ]
@@ -689,5 +689,4 @@ attributes #17 = { allocsize(0) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 33}
-!9 = distinct !{!9, !5}
+!8 = distinct !{!8, !5}

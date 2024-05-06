@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [122 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/evp/p_rsa.c\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @pkey_rsa_init(ptr nocapture noundef writeonly %ctx) #0 {
+define internal range(i32 0, 2) i32 @pkey_rsa_init(ptr nocapture noundef writeonly %ctx) #0 {
 entry:
   %calloc = tail call dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
   %tobool.not = icmp eq ptr %calloc, null
@@ -32,7 +32,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_rsa_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #1 {
+define internal range(i32 0, 2) i32 @pkey_rsa_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #1 {
 entry:
   %calloc.i = tail call dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
   %tobool.not.i = icmp eq ptr %calloc.i, null
@@ -128,7 +128,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_rsa_keygen(ptr nocapture noundef readonly %ctx, ptr noundef %pkey) #1 {
+define internal range(i32 0, 2) i32 @pkey_rsa_keygen(ptr nocapture noundef readonly %ctx, ptr noundef %pkey) #1 {
 entry:
   %data = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %data, align 8
@@ -249,7 +249,7 @@ if.end26:                                         ; preds = %sw.bb
   br label %return
 
 sw.bb28:                                          ; preds = %if.end19
-  %call29 = tail call fastcc i32 @setup_tbuf(ptr noundef nonnull %0, ptr noundef nonnull %ctx), !range !7
+  %call29 = tail call fastcc i32 @setup_tbuf(ptr noundef nonnull %0, ptr noundef nonnull %ctx)
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %return, label %lor.lhs.false
 
@@ -386,7 +386,7 @@ return:                                           ; preds = %lor.lhs.false27, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_rsa_verify_recover(ptr nocapture noundef readonly %ctx, ptr noundef writeonly %out, ptr nocapture noundef %out_len, ptr noundef %sig, i64 noundef %sig_len) #1 {
+define internal range(i32 0, 2) i32 @pkey_rsa_verify_recover(ptr nocapture noundef readonly %ctx, ptr noundef writeonly %out, ptr nocapture noundef %out_len, ptr noundef %sig, i64 noundef %sig_len) #1 {
 entry:
   %asn1_prefix = alloca ptr, align 8
   %asn1_prefix_len = alloca i64, align 8
@@ -693,7 +693,7 @@ return:                                           ; preds = %if.end14, %setup_tb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_rsa_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %type, i32 noundef %p1, ptr noundef %p2) #1 {
+define internal range(i32 0, 2) i32 @pkey_rsa_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %type, i32 noundef %p1, ptr noundef %p2) #1 {
 entry:
   %data = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %data, align 8
@@ -1129,7 +1129,7 @@ declare i32 @EVP_MD_type(ptr noundef) local_unnamed_addr #2
 declare i32 @RSA_sign(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @setup_tbuf(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %pk) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @setup_tbuf(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %pk) unnamed_addr #1 {
 entry:
   %tbuf = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %tbuf, align 8
@@ -1206,4 +1206,3 @@ attributes #9 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}

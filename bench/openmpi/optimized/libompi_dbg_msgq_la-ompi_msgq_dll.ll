@@ -98,7 +98,7 @@ define noundef i32 @mqs_dll_taddr_width() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mqs_setup_image(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 104) i32 @mqs_setup_image(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr %4(i64 noundef 536) #12
@@ -161,7 +161,7 @@ define i32 @mqs_image_has_queues(ptr noundef %0, ptr noundef %1) local_unnamed_a
 declare i32 @ompi_fill_in_type_info(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mqs_setup_process(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 104) i32 @mqs_setup_process(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %5 = load ptr, ptr %4, align 8
@@ -275,7 +275,7 @@ define noundef i32 @mqs_setup_process(ptr noundef %0, ptr noundef %1) local_unna
 declare i64 @ompi_fetch_int(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @mqs_process_has_queues(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 0, 146) i32 @mqs_process_has_queues(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -440,7 +440,7 @@ communicators_changed.exit.thread:                ; preds = %1, %communicators_c
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %303 ]
   %.0126143.i = phi i32 [ 0, %.lr.ph.i ], [ %.1127.i, %303 ]
   %92 = load i32, ptr %85, align 8
-  %93 = trunc i64 %indvars.iv.i to i32
+  %93 = trunc nuw nsw i64 %indvars.iv.i to i32
   %94 = mul nsw i32 %92, %93
   %95 = sext i32 %94 to i64
   %96 = add i64 %80, %95
@@ -629,7 +629,7 @@ communicators_changed.exit.thread:                ; preds = %1, %communicators_c
   %213 = getelementptr inbounds i8, ptr %212, i64 24
   %214 = load ptr, ptr %213, align 8
   %215 = load i32, ptr %190, align 8
-  %216 = trunc i64 %indvars.iv126.i.i to i32
+  %216 = trunc nuw nsw i64 %indvars.iv126.i.i to i32
   %217 = mul nsw i32 %215, %216
   %218 = sext i32 %217 to i64
   %219 = getelementptr inbounds i8, ptr %179, i64 %218
@@ -661,7 +661,7 @@ communicators_changed.exit.thread:                ; preds = %1, %communicators_c
   %229 = getelementptr inbounds i8, ptr %228, i64 24
   %230 = load ptr, ptr %229, align 8
   %231 = load i32, ptr %227, align 8
-  %232 = trunc i64 %indvars.iv138.i.i to i32
+  %232 = trunc nuw nsw i64 %indvars.iv138.i.i to i32
   %233 = mul nsw i32 %231, %232
   %234 = sext i32 %233 to i64
   %235 = getelementptr inbounds i8, ptr %179, i64 %234
@@ -683,7 +683,7 @@ communicators_changed.exit.thread:                ; preds = %1, %communicators_c
   %242 = getelementptr inbounds i8, ptr %241, i64 24
   %243 = load ptr, ptr %242, align 8
   %244 = load i32, ptr %227, align 8
-  %245 = trunc i64 %indvars.iv132.i.i to i32
+  %245 = trunc nuw nsw i64 %indvars.iv132.i.i to i32
   %246 = mul nsw i32 %244, %245
   %247 = sext i32 %246 to i64
   %248 = getelementptr inbounds i8, ptr %179, i64 %247
@@ -710,7 +710,7 @@ communicators_changed.exit.thread:                ; preds = %1, %communicators_c
   %256 = getelementptr inbounds i8, ptr %255, i64 24
   %257 = load ptr, ptr %256, align 8
   %258 = load i32, ptr %190, align 8
-  %259 = trunc i64 %indvars.iv121.i.i to i32
+  %259 = trunc nuw nsw i64 %indvars.iv121.i.i to i32
   %260 = mul nsw i32 %258, %259
   %261 = sext i32 %260 to i64
   %262 = getelementptr inbounds i8, ptr %179, i64 %261
@@ -733,7 +733,7 @@ communicators_changed.exit.thread:                ; preds = %1, %communicators_c
   br i1 %270, label %271, label %275
 
 271:                                              ; preds = %267
-  %272 = trunc i64 %indvars.iv.i.i to i32
+  %272 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %273 = load ptr, ptr %180, align 8
   %274 = getelementptr inbounds i32, ptr %273, i64 %indvars.iv121.i.i
   store i32 %272, ptr %274, align 4
@@ -924,7 +924,7 @@ rebuild_communicator_list.exit:                   ; preds = %._crit_edge157.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mqs_setup_communicator_iterator(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 3) i32 @mqs_setup_communicator_iterator(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -946,7 +946,7 @@ define i32 @mqs_setup_communicator_iterator(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mqs_get_communicator(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 0, 102) i32 @mqs_get_communicator(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -972,7 +972,7 @@ define noundef i32 @mqs_get_communicator(ptr noundef %0, ptr nocapture noundef w
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mqs_get_comm_group(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 0, 102) i32 @mqs_get_comm_group(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -1019,7 +1019,7 @@ define noundef i32 @mqs_get_comm_group(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mqs_next_communicator(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 3) i32 @mqs_next_communicator(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -1036,7 +1036,7 @@ define i32 @mqs_next_communicator(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mqs_setup_operation_iterator(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 103) i32 @mqs_setup_operation_iterator(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -1232,7 +1232,7 @@ define internal fastcc void @opal_free_list_t_init_parser(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mqs_next_operation(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 103) i32 @mqs_next_operation(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -1254,7 +1254,7 @@ define noundef i32 @mqs_next_operation(ptr noundef %0, ptr nocapture noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @fetch_request(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 3) i32 @fetch_request(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #2 {
   %4 = alloca [64 x i8], align 16
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8

@@ -84,7 +84,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -213,7 +213,7 @@ declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_x509_files() #1 {
+define internal range(i32 0, 2) i32 @test_x509_files() #1 {
 entry:
   %sig_oid.i = alloca ptr, align 8
   %alg.i = alloca ptr, align 8
@@ -422,11 +422,11 @@ test_x509_sig_aid.exit:                           ; preds = %if.end12, %if.end.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i)
   %24 = load ptr, ptr @eecert_filename, align 8
   %call.i7 = call ptr @X509_get_X509_PUBKEY(ptr noundef nonnull %call5) #6
-  %call1.i8 = call fastcc i32 @test_spki_aid(ptr noundef %call.i7, ptr noundef %24), !range !7
+  %call1.i8 = call fastcc i32 @test_spki_aid(ptr noundef %call.i7, ptr noundef %24)
   %and = and i32 %call1.i8, %ret.0.i
   %25 = load ptr, ptr @cacert_filename, align 8
   %call.i9 = call ptr @X509_get_X509_PUBKEY(ptr noundef nonnull %call9) #6
-  %call1.i10 = call fastcc i32 @test_spki_aid(ptr noundef %call.i9, ptr noundef %25), !range !7
+  %call1.i10 = call fastcc i32 @test_spki_aid(ptr noundef %call.i9, ptr noundef %25)
   %and16 = and i32 %and, %call1.i10
   br label %end
 
@@ -443,7 +443,7 @@ end:                                              ; preds = %test_x509_sig_aid.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_spki_file() #1 {
+define internal range(i32 0, 2) i32 @test_spki_file() #1 {
 entry:
   %0 = load ptr, ptr @pubkey_filename, align 8
   %call = tail call ptr @BIO_new_file(ptr noundef %0, ptr noundef nonnull @.str.25) #6
@@ -468,7 +468,7 @@ if.then3:                                         ; preds = %if.end
   br label %end
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call fastcc i32 @test_spki_aid(ptr noundef nonnull %call1, ptr noundef %2), !range !7
+  %call5 = tail call fastcc i32 @test_spki_aid(ptr noundef nonnull %call1, ptr noundef %2)
   br label %end
 
 end:                                              ; preds = %if.end4, %if.then3, %if.then
@@ -547,7 +547,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @X509_get_X509_PUBKEY(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_spki_aid(ptr noundef %pubkey, ptr noundef %filename) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_spki_aid(ptr noundef %pubkey, ptr noundef %filename) unnamed_addr #1 {
 entry:
   %oid = alloca ptr, align 8
   %alg = alloca ptr, align 8
@@ -705,4 +705,3 @@ attributes #6 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}

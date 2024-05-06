@@ -1737,7 +1737,7 @@ declare i64 @g_dbus_proxy_get_type() local_unnamed_addr #4
 declare ptr @g_variant_new(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_console_call_register_listener_finish(ptr noundef %proxy, ptr noundef %out_fd_list, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_console_call_register_listener_finish(ptr noundef %proxy, ptr noundef %out_fd_list, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -1763,7 +1763,7 @@ declare void @g_variant_get(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare void @g_variant_unref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_console_call_register_listener_sync(ptr noundef %proxy, ptr noundef %arg_listener, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %fd_list, ptr noundef %out_fd_list, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_console_call_register_listener_sync(ptr noundef %proxy, ptr noundef %arg_listener, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %fd_list, ptr noundef %out_fd_list, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -1800,7 +1800,7 @@ entry:
 declare void @g_dbus_proxy_call(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_console_call_set_uiinfo_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_console_call_set_uiinfo_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -1822,7 +1822,7 @@ _out:                                             ; preds = %entry, %if.end
 declare ptr @g_dbus_proxy_call_finish(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_console_call_set_uiinfo_sync(ptr noundef %proxy, i16 noundef zeroext %arg_width_mm, i16 noundef zeroext %arg_height_mm, i32 noundef %arg_xoff, i32 noundef %arg_yoff, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_console_call_set_uiinfo_sync(ptr noundef %proxy, i16 noundef zeroext %arg_width_mm, i16 noundef zeroext %arg_height_mm, i32 noundef %arg_xoff, i32 noundef %arg_yoff, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -2251,7 +2251,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_keyboard_call_press_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_keyboard_call_press_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -2271,7 +2271,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_keyboard_call_press_sync(ptr noundef %proxy, i32 noundef %arg_keycode, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_keyboard_call_press_sync(ptr noundef %proxy, i32 noundef %arg_keycode, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -2302,7 +2302,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_keyboard_call_release_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_keyboard_call_release_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -2322,7 +2322,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_keyboard_call_release_sync(ptr noundef %proxy, i32 noundef %arg_keycode, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_keyboard_call_release_sync(ptr noundef %proxy, i32 noundef %arg_keycode, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -2747,7 +2747,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_mouse_call_press_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_mouse_call_press_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -2767,7 +2767,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_mouse_call_press_sync(ptr noundef %proxy, i32 noundef %arg_button, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_mouse_call_press_sync(ptr noundef %proxy, i32 noundef %arg_button, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -2798,7 +2798,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_mouse_call_release_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_mouse_call_release_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -2818,7 +2818,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_mouse_call_release_sync(ptr noundef %proxy, i32 noundef %arg_button, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_mouse_call_release_sync(ptr noundef %proxy, i32 noundef %arg_button, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -2849,7 +2849,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_mouse_call_set_abs_position_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_mouse_call_set_abs_position_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -2869,7 +2869,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_mouse_call_set_abs_position_sync(ptr noundef %proxy, i32 noundef %arg_x, i32 noundef %arg_y, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_mouse_call_set_abs_position_sync(ptr noundef %proxy, i32 noundef %arg_x, i32 noundef %arg_y, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -2900,7 +2900,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_mouse_call_rel_motion_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_mouse_call_rel_motion_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -2920,7 +2920,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_mouse_call_rel_motion_sync(ptr noundef %proxy, i32 noundef %arg_dx, i32 noundef %arg_dy, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_mouse_call_rel_motion_sync(ptr noundef %proxy, i32 noundef %arg_dx, i32 noundef %arg_dy, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -3355,7 +3355,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_multi_touch_call_send_event_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_multi_touch_call_send_event_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -3375,7 +3375,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_multi_touch_call_send_event_sync(ptr noundef %proxy, i32 noundef %arg_kind, i64 noundef %arg_num_slot, double noundef %arg_x, double noundef %arg_y, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_multi_touch_call_send_event_sync(ptr noundef %proxy, i32 noundef %arg_kind, i64 noundef %arg_num_slot, double noundef %arg_x, double noundef %arg_y, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -3810,7 +3810,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_call_scanout_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_call_scanout_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -3830,7 +3830,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_call_scanout_sync(ptr noundef %proxy, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %arg_stride, i32 noundef %arg_pixman_format, ptr noundef %arg_data, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_call_scanout_sync(ptr noundef %proxy, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %arg_stride, i32 noundef %arg_pixman_format, ptr noundef %arg_data, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -3861,7 +3861,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_call_update_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_call_update_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -3881,7 +3881,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_call_update_sync(ptr noundef %proxy, i32 noundef %arg_x, i32 noundef %arg_y, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %arg_stride, i32 noundef %arg_pixman_format, ptr noundef %arg_data, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_call_update_sync(ptr noundef %proxy, i32 noundef %arg_x, i32 noundef %arg_y, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %arg_stride, i32 noundef %arg_pixman_format, ptr noundef %arg_data, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -3912,7 +3912,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_call_scanout_dmabuf_finish(ptr noundef %proxy, ptr noundef %out_fd_list, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_call_scanout_dmabuf_finish(ptr noundef %proxy, ptr noundef %out_fd_list, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -3932,7 +3932,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_call_scanout_dmabuf_sync(ptr noundef %proxy, ptr noundef %arg_dmabuf, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %arg_stride, i32 noundef %arg_fourcc, i64 noundef %arg_modifier, i32 noundef %arg_y0_top, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %fd_list, ptr noundef %out_fd_list, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_call_scanout_dmabuf_sync(ptr noundef %proxy, ptr noundef %arg_dmabuf, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %arg_stride, i32 noundef %arg_fourcc, i64 noundef %arg_modifier, i32 noundef %arg_y0_top, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %fd_list, ptr noundef %out_fd_list, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -3963,7 +3963,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_call_update_dmabuf_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_call_update_dmabuf_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -3983,7 +3983,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_call_update_dmabuf_sync(ptr noundef %proxy, i32 noundef %arg_x, i32 noundef %arg_y, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_call_update_dmabuf_sync(ptr noundef %proxy, i32 noundef %arg_x, i32 noundef %arg_y, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -4014,7 +4014,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_call_disable_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_call_disable_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -4034,7 +4034,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_call_disable_sync(ptr noundef %proxy, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_call_disable_sync(ptr noundef %proxy, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -4065,7 +4065,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_call_mouse_set_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_call_mouse_set_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -4085,7 +4085,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_call_mouse_set_sync(ptr noundef %proxy, i32 noundef %arg_x, i32 noundef %arg_y, i32 noundef %arg_on, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_call_mouse_set_sync(ptr noundef %proxy, i32 noundef %arg_x, i32 noundef %arg_y, i32 noundef %arg_on, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -4116,7 +4116,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_call_cursor_define_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_call_cursor_define_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -4136,7 +4136,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_call_cursor_define_sync(ptr noundef %proxy, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %arg_hot_x, i32 noundef %arg_hot_y, ptr noundef %arg_data, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_call_cursor_define_sync(ptr noundef %proxy, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %arg_hot_x, i32 noundef %arg_hot_y, ptr noundef %arg_data, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -4558,7 +4558,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_win32_map_call_scanout_map_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_win32_map_call_scanout_map_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -4578,7 +4578,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_win32_map_call_scanout_map_sync(ptr noundef %proxy, i64 noundef %arg_handle, i32 noundef %arg_offset, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %arg_stride, i32 noundef %arg_pixman_format, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_win32_map_call_scanout_map_sync(ptr noundef %proxy, i64 noundef %arg_handle, i32 noundef %arg_offset, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %arg_stride, i32 noundef %arg_pixman_format, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -4609,7 +4609,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_win32_map_call_update_map_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_win32_map_call_update_map_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -4629,7 +4629,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_win32_map_call_update_map_sync(ptr noundef %proxy, i32 noundef %arg_x, i32 noundef %arg_y, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_win32_map_call_update_map_sync(ptr noundef %proxy, i32 noundef %arg_x, i32 noundef %arg_y, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -5011,7 +5011,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_win32_d3d11_call_scanout_texture2d_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_win32_d3d11_call_scanout_texture2d_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -5031,7 +5031,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_win32_d3d11_call_scanout_texture2d_sync(ptr noundef %proxy, i64 noundef %arg_handle, i32 noundef %arg_texture_width, i32 noundef %arg_texture_height, i32 noundef %arg_y0_top, i32 noundef %arg_x, i32 noundef %arg_y, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_win32_d3d11_call_scanout_texture2d_sync(ptr noundef %proxy, i64 noundef %arg_handle, i32 noundef %arg_texture_width, i32 noundef %arg_texture_height, i32 noundef %arg_y0_top, i32 noundef %arg_x, i32 noundef %arg_y, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -5062,7 +5062,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_win32_d3d11_call_update_texture2d_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_win32_d3d11_call_update_texture2d_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -5082,7 +5082,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_listener_win32_d3d11_call_update_texture2d_sync(ptr noundef %proxy, i32 noundef %arg_x, i32 noundef %arg_y, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_listener_win32_d3d11_call_update_texture2d_sync(ptr noundef %proxy, i32 noundef %arg_x, i32 noundef %arg_y, i32 noundef %arg_width, i32 noundef %arg_height, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -5520,7 +5520,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_clipboard_call_register_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_clipboard_call_register_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -5540,7 +5540,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_clipboard_call_register_sync(ptr noundef %proxy, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_clipboard_call_register_sync(ptr noundef %proxy, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -5571,7 +5571,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_clipboard_call_unregister_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_clipboard_call_unregister_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -5591,7 +5591,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_clipboard_call_unregister_sync(ptr noundef %proxy, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_clipboard_call_unregister_sync(ptr noundef %proxy, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -5622,7 +5622,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_clipboard_call_grab_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_clipboard_call_grab_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -5642,7 +5642,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_clipboard_call_grab_sync(ptr noundef %proxy, i32 noundef %arg_selection, i32 noundef %arg_serial, ptr noundef %arg_mimes, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_clipboard_call_grab_sync(ptr noundef %proxy, i32 noundef %arg_selection, i32 noundef %arg_serial, ptr noundef %arg_mimes, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -5673,7 +5673,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_clipboard_call_release_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_clipboard_call_release_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -5693,7 +5693,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_clipboard_call_release_sync(ptr noundef %proxy, i32 noundef %arg_selection, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_clipboard_call_release_sync(ptr noundef %proxy, i32 noundef %arg_selection, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -5724,7 +5724,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_clipboard_call_request_finish(ptr noundef %proxy, ptr noundef %out_reply_mime, ptr noundef %out_data, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_clipboard_call_request_finish(ptr noundef %proxy, ptr noundef %out_reply_mime, ptr noundef %out_data, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -5744,7 +5744,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_clipboard_call_request_sync(ptr noundef %proxy, i32 noundef %arg_selection, ptr noundef %arg_mimes, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %out_reply_mime, ptr noundef %out_data, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_clipboard_call_request_sync(ptr noundef %proxy, i32 noundef %arg_selection, ptr noundef %arg_mimes, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %out_reply_mime, ptr noundef %out_data, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -6201,7 +6201,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_call_register_out_listener_finish(ptr noundef %proxy, ptr noundef %out_fd_list, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_call_register_out_listener_finish(ptr noundef %proxy, ptr noundef %out_fd_list, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -6221,7 +6221,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_call_register_out_listener_sync(ptr noundef %proxy, ptr noundef %arg_listener, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %fd_list, ptr noundef %out_fd_list, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_call_register_out_listener_sync(ptr noundef %proxy, ptr noundef %arg_listener, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %fd_list, ptr noundef %out_fd_list, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -6252,7 +6252,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_call_register_in_listener_finish(ptr noundef %proxy, ptr noundef %out_fd_list, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_call_register_in_listener_finish(ptr noundef %proxy, ptr noundef %out_fd_list, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -6272,7 +6272,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_call_register_in_listener_sync(ptr noundef %proxy, ptr noundef %arg_listener, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %fd_list, ptr noundef %out_fd_list, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_call_register_in_listener_sync(ptr noundef %proxy, ptr noundef %arg_listener, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %fd_list, ptr noundef %out_fd_list, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -6712,7 +6712,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_out_listener_call_init_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_out_listener_call_init_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -6732,7 +6732,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_out_listener_call_init_sync(ptr noundef %proxy, i64 noundef %arg_id, i8 noundef zeroext %arg_bits, i32 noundef %arg_is_signed, i32 noundef %arg_is_float, i32 noundef %arg_freq, i8 noundef zeroext %arg_nchannels, i32 noundef %arg_bytes_per_frame, i32 noundef %arg_bytes_per_second, i32 noundef %arg_be, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_out_listener_call_init_sync(ptr noundef %proxy, i64 noundef %arg_id, i8 noundef zeroext %arg_bits, i32 noundef %arg_is_signed, i32 noundef %arg_is_float, i32 noundef %arg_freq, i8 noundef zeroext %arg_nchannels, i32 noundef %arg_bytes_per_frame, i32 noundef %arg_bytes_per_second, i32 noundef %arg_be, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -6765,7 +6765,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_out_listener_call_fini_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_out_listener_call_fini_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -6785,7 +6785,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_out_listener_call_fini_sync(ptr noundef %proxy, i64 noundef %arg_id, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_out_listener_call_fini_sync(ptr noundef %proxy, i64 noundef %arg_id, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -6816,7 +6816,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_out_listener_call_set_enabled_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_out_listener_call_set_enabled_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -6836,7 +6836,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_out_listener_call_set_enabled_sync(ptr noundef %proxy, i64 noundef %arg_id, i32 noundef %arg_enabled, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_out_listener_call_set_enabled_sync(ptr noundef %proxy, i64 noundef %arg_id, i32 noundef %arg_enabled, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -6867,7 +6867,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_out_listener_call_set_volume_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_out_listener_call_set_volume_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -6887,7 +6887,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_out_listener_call_set_volume_sync(ptr noundef %proxy, i64 noundef %arg_id, i32 noundef %arg_mute, ptr noundef %arg_volume, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_out_listener_call_set_volume_sync(ptr noundef %proxy, i64 noundef %arg_id, i32 noundef %arg_mute, ptr noundef %arg_volume, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -6918,7 +6918,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_out_listener_call_write_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_out_listener_call_write_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -6938,7 +6938,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_out_listener_call_write_sync(ptr noundef %proxy, i64 noundef %arg_id, ptr noundef %arg_data, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_out_listener_call_write_sync(ptr noundef %proxy, i64 noundef %arg_id, ptr noundef %arg_data, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -7402,7 +7402,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_in_listener_call_init_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_in_listener_call_init_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -7422,7 +7422,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_in_listener_call_init_sync(ptr noundef %proxy, i64 noundef %arg_id, i8 noundef zeroext %arg_bits, i32 noundef %arg_is_signed, i32 noundef %arg_is_float, i32 noundef %arg_freq, i8 noundef zeroext %arg_nchannels, i32 noundef %arg_bytes_per_frame, i32 noundef %arg_bytes_per_second, i32 noundef %arg_be, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_in_listener_call_init_sync(ptr noundef %proxy, i64 noundef %arg_id, i8 noundef zeroext %arg_bits, i32 noundef %arg_is_signed, i32 noundef %arg_is_float, i32 noundef %arg_freq, i8 noundef zeroext %arg_nchannels, i32 noundef %arg_bytes_per_frame, i32 noundef %arg_bytes_per_second, i32 noundef %arg_be, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -7455,7 +7455,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_in_listener_call_fini_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_in_listener_call_fini_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -7475,7 +7475,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_in_listener_call_fini_sync(ptr noundef %proxy, i64 noundef %arg_id, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_in_listener_call_fini_sync(ptr noundef %proxy, i64 noundef %arg_id, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -7506,7 +7506,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_in_listener_call_set_enabled_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_in_listener_call_set_enabled_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -7526,7 +7526,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_in_listener_call_set_enabled_sync(ptr noundef %proxy, i64 noundef %arg_id, i32 noundef %arg_enabled, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_in_listener_call_set_enabled_sync(ptr noundef %proxy, i64 noundef %arg_id, i32 noundef %arg_enabled, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -7557,7 +7557,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_in_listener_call_set_volume_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_in_listener_call_set_volume_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -7577,7 +7577,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_in_listener_call_set_volume_sync(ptr noundef %proxy, i64 noundef %arg_id, i32 noundef %arg_mute, ptr noundef %arg_volume, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_in_listener_call_set_volume_sync(ptr noundef %proxy, i64 noundef %arg_id, i32 noundef %arg_mute, ptr noundef %arg_volume, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -7608,7 +7608,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_in_listener_call_read_finish(ptr noundef %proxy, ptr noundef %out_data, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_in_listener_call_read_finish(ptr noundef %proxy, ptr noundef %out_data, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -7628,7 +7628,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_audio_in_listener_call_read_sync(ptr noundef %proxy, i64 noundef %arg_id, i64 noundef %arg_size, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %out_data, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_audio_in_listener_call_read_sync(ptr noundef %proxy, i64 noundef %arg_id, i64 noundef %arg_size, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %out_data, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -8269,7 +8269,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_chardev_call_register_finish(ptr noundef %proxy, ptr noundef %out_fd_list, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_chardev_call_register_finish(ptr noundef %proxy, ptr noundef %out_fd_list, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -8289,7 +8289,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_chardev_call_register_sync(ptr noundef %proxy, ptr noundef %arg_stream, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %fd_list, ptr noundef %out_fd_list, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_chardev_call_register_sync(ptr noundef %proxy, ptr noundef %arg_stream, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %fd_list, ptr noundef %out_fd_list, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -8320,7 +8320,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_chardev_call_send_break_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_chardev_call_send_break_finish(ptr noundef %proxy, ptr noundef %res, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -8340,7 +8340,7 @@ _out:                                             ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_dbus_display1_chardev_call_send_break_sync(ptr noundef %proxy, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @qemu_dbus_display1_chardev_call_send_break_sync(ptr noundef %proxy, i32 noundef %call_flags, i32 noundef %timeout_msec, ptr noundef %cancellable, ptr noundef %error) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @g_dbus_proxy_get_type() #13
   %call1 = tail call ptr @g_type_check_instance_cast(ptr noundef %proxy, i64 noundef %call) #12
@@ -10186,7 +10186,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @_qemu_dbus_display1_vm_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal range(i32 0, 2) i32 @_qemu_dbus_display1_vm_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_vm_skeleton_get_type() #13
@@ -11610,7 +11610,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @_qemu_dbus_display1_console_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal range(i32 0, 2) i32 @_qemu_dbus_display1_console_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_console_skeleton_get_type() #13
@@ -12786,7 +12786,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @_qemu_dbus_display1_keyboard_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal range(i32 0, 2) i32 @_qemu_dbus_display1_keyboard_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_keyboard_skeleton_get_type() #13
@@ -13852,7 +13852,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @_qemu_dbus_display1_mouse_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal range(i32 0, 2) i32 @_qemu_dbus_display1_mouse_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_mouse_skeleton_get_type() #13
@@ -14918,7 +14918,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @_qemu_dbus_display1_multi_touch_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal range(i32 0, 2) i32 @_qemu_dbus_display1_multi_touch_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_multi_touch_skeleton_get_type() #13
@@ -15991,7 +15991,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @_qemu_dbus_display1_listener_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal range(i32 0, 2) i32 @_qemu_dbus_display1_listener_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_listener_skeleton_get_type() #13
@@ -16619,7 +16619,7 @@ if.end13:                                         ; preds = %if.else7, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @_qemu_dbus_display1_listener_win32_map_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal range(i32 0, 2) i32 @_qemu_dbus_display1_listener_win32_map_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_listener_win32_map_skeleton_get_type() #13
@@ -17229,7 +17229,7 @@ if.end13:                                         ; preds = %if.else7, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @_qemu_dbus_display1_listener_win32_d3d11_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal range(i32 0, 2) i32 @_qemu_dbus_display1_listener_win32_d3d11_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_listener_win32_d3d11_skeleton_get_type() #13
@@ -18284,7 +18284,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @_qemu_dbus_display1_clipboard_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal range(i32 0, 2) i32 @_qemu_dbus_display1_clipboard_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_clipboard_skeleton_get_type() #13
@@ -19357,7 +19357,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @_qemu_dbus_display1_audio_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal range(i32 0, 2) i32 @_qemu_dbus_display1_audio_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_audio_skeleton_get_type() #13
@@ -20430,7 +20430,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @_qemu_dbus_display1_audio_out_listener_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal range(i32 0, 2) i32 @_qemu_dbus_display1_audio_out_listener_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_audio_out_listener_skeleton_get_type() #13
@@ -21503,7 +21503,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @_qemu_dbus_display1_audio_in_listener_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal range(i32 0, 2) i32 @_qemu_dbus_display1_audio_in_listener_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_audio_in_listener_skeleton_get_type() #13
@@ -22778,7 +22778,7 @@ for.end:                                          ; preds = %for.body, %if.end47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @_qemu_dbus_display1_chardev_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
+define internal range(i32 0, 2) i32 @_qemu_dbus_display1_chardev_skeleton_handle_set_property(ptr nocapture readnone %connection, ptr nocapture readnone %sender, ptr nocapture readnone %object_path, ptr nocapture readnone %interface_name, ptr noundef %property_name, ptr noundef %variant, ptr noundef %error, ptr noundef %user_data) #1 {
 entry:
   %value = alloca %struct._GValue, align 8
   %call = tail call i64 @qemu_dbus_display1_chardev_skeleton_get_type() #13

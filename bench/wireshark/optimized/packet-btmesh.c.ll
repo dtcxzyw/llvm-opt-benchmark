@@ -3471,7 +3471,7 @@ define hidden ptr @btmesh_network_find_key_and_decrypt(ptr noundef %0, ptr nocap
 .preheader:                                       ; preds = %51, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %51 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %54 = trunc i64 %indvars.iv.next.i to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %55 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %54) #16
   %56 = getelementptr [16 x i8], ptr %8, i64 0, i64 %indvars.iv.i
   %57 = load i8, ptr %56, align 1
@@ -4180,7 +4180,7 @@ define internal void @format_scheduler_month(ptr noundef %0, i32 noundef %1) #0 
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %13 ]
   %.015 = phi i32 [ 1, %2 ], [ %.2, %13 ]
   %.0913 = phi ptr [ %0, %2 ], [ %.211, %13 ]
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %5 = shl nuw nsw i32 1, %4
   %6 = and i32 %5, %1
   %.not = icmp eq i32 %6, 0
@@ -4334,7 +4334,7 @@ define internal void @format_scheduler_day_of_week(ptr noundef %0, i32 noundef %
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %13 ]
   %.015 = phi i32 [ 1, %2 ], [ %.2, %13 ]
   %.0913 = phi ptr [ %0, %2 ], [ %.211, %13 ]
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %5 = shl nuw nsw i32 1, %4
   %6 = and i32 %5, %1
   %.not = icmp eq i32 %6, 0
@@ -4633,7 +4633,7 @@ define internal void @format_sensor_period(ptr nocapture noundef writeonly %0, i
 
 22:                                               ; preds = %17
   %23 = urem i64 %18, 3600
-  %.lhs.trunc = trunc i64 %23 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %23 to i16
   %24 = udiv i16 %.lhs.trunc, 60
   %.zext = zext nneg i16 %24 to i64
   %25 = urem i64 %18, 60
@@ -4643,10 +4643,10 @@ define internal void @format_sensor_period(ptr nocapture noundef writeonly %0, i
 27:                                               ; preds = %17
   %28 = udiv i64 %18, 86400
   %29 = urem i64 %18, 86400
-  %.lhs.trunc20 = trunc i64 %29 to i32
+  %.lhs.trunc20 = trunc nuw nsw i64 %29 to i32
   %30 = udiv i32 %.lhs.trunc20, 3600
   %.zext21 = zext nneg i32 %30 to i64
-  %.lhs.trunc22 = trunc i64 %21 to i16
+  %.lhs.trunc22 = trunc nuw nsw i64 %21 to i16
   %31 = udiv i16 %.lhs.trunc22, 60
   %.zext23 = zext nneg i16 %31 to i64
   %32 = urem i64 %18, 60
@@ -5249,7 +5249,7 @@ define internal zeroext i1 @uat_btmesh_record_update_cb(ptr nocapture noundef %0
   %23 = load ptr, ptr %22, align 8
   tail call void @g_free(ptr noundef %23) #16
   %24 = load ptr, ptr %0, align 8
-  %25 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %22, ptr noundef %24, ptr noundef nonnull @.str.1357, i32 noundef 16, ptr noundef %1), !range !10
+  %25 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %22, ptr noundef %24, ptr noundef nonnull @.str.1357, i32 noundef 16, ptr noundef %1)
   %26 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %25, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 56
@@ -5469,7 +5469,7 @@ create_master_security_keys.exit:                 ; preds = %96
   %115 = load ptr, ptr %114, align 8
   call void @g_free(ptr noundef %115) #16
   %116 = load ptr, ptr %111, align 8
-  %117 = call fastcc i32 @compute_ascii_key(ptr noundef nonnull %114, ptr noundef %116, ptr noundef nonnull @.str.1359, i32 noundef 16, ptr noundef nonnull %1), !range !10
+  %117 = call fastcc i32 @compute_ascii_key(ptr noundef nonnull %114, ptr noundef %116, ptr noundef nonnull @.str.1359, i32 noundef 16, ptr noundef nonnull %1)
   %118 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %117, ptr %118, align 8
   %119 = load ptr, ptr %1, align 8
@@ -5613,7 +5613,7 @@ k4.exit.thread59:                                 ; preds = %149, %127, %131, %1
   %168 = load ptr, ptr %167, align 8
   call void @g_free(ptr noundef %168) #16
   %169 = load ptr, ptr %164, align 8
-  %170 = call fastcc i32 @compute_ascii_key(ptr noundef nonnull %167, ptr noundef %169, ptr noundef nonnull @.str.1361, i32 noundef 4, ptr noundef nonnull %1), !range !10
+  %170 = call fastcc i32 @compute_ascii_key(ptr noundef nonnull %167, ptr noundef %169, ptr noundef nonnull @.str.1361, i32 noundef 4, ptr noundef nonnull %1)
   %171 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %170, ptr %171, align 8
   %172 = load ptr, ptr %1, align 8
@@ -5729,7 +5729,7 @@ define internal zeroext i1 @uat_btmesh_dev_key_record_update_cb(ptr nocapture no
   %7 = load ptr, ptr %6, align 8
   tail call void @g_free(ptr noundef %7) #16
   %8 = load ptr, ptr %0, align 8
-  %9 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %6, ptr noundef %8, ptr noundef nonnull @.str.1363, i32 noundef 16, ptr noundef %1), !range !10
+  %9 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %6, ptr noundef %8, ptr noundef nonnull @.str.1363, i32 noundef 16, ptr noundef %1)
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %9, ptr %10, align 8
   %11 = load ptr, ptr %1, align 8
@@ -5766,7 +5766,7 @@ define internal zeroext i1 @uat_btmesh_dev_key_record_update_cb(ptr nocapture no
   %25 = load ptr, ptr %24, align 8
   tail call void @g_free(ptr noundef %25) #16
   %26 = load ptr, ptr %21, align 8
-  %27 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %24, ptr noundef %26, ptr noundef nonnull @.str.1365, i32 noundef 2, ptr noundef nonnull %1), !range !10
+  %27 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %24, ptr noundef %26, ptr noundef nonnull @.str.1365, i32 noundef 2, ptr noundef nonnull %1)
   %28 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %27, ptr %28, align 8
   %29 = load ptr, ptr %1, align 8
@@ -5848,7 +5848,7 @@ define internal zeroext i1 @uat_btmesh_label_uuid_record_update_cb(ptr nocapture
   %12 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %12) #16
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %11, ptr noundef %13, ptr noundef nonnull @.str.1367, i32 noundef 16, ptr noundef %1), !range !10
+  %14 = tail call fastcc i32 @compute_ascii_key(ptr noundef nonnull %11, ptr noundef %13, ptr noundef nonnull @.str.1367, i32 noundef 16, ptr noundef %1)
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %14, ptr %15, align 8
   %16 = load ptr, ptr %1, align 8
@@ -6460,7 +6460,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @compute_ascii_key(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483647) i32 @compute_ascii_key(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %87, label %6
 
@@ -6590,7 +6590,7 @@ define internal fastcc i32 @compute_ascii_key(ptr nocapture noundef %0, ptr noun
   store i8 %76, ptr %79, align 1
   %80 = add i32 %.189, 1
   %81 = icmp ult i32 %73, %46
-  br i1 %81, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !11
+  br i1 %81, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %72
   %.pre = load ptr, ptr %0, align 8
@@ -6629,7 +6629,7 @@ declare i32 @g_ascii_xdigit_value(i8 noundef signext) local_unnamed_addr #11
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @s1(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @s1(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca [16 x i8], align 16
@@ -6960,7 +6960,7 @@ check_address_type.exit.i:                        ; preds = %25, %23
   %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i, 1
   %52 = zext i32 %51 to i64
   %53 = icmp ult i64 %indvars.iv.next136.i, %52
-  br i1 %53, label %.lr.ph113.split.us.i, label %thread-pre-split.i, !llvm.loop !12
+  br i1 %53, label %.lr.ph113.split.us.i, label %thread-pre-split.i, !llvm.loop !11
 
 54:                                               ; preds = %.lr.ph.us.i, %71
   %55 = phi i32 [ %49, %.lr.ph.us.i ], [ %72, %71 ]
@@ -6981,10 +6981,10 @@ check_address_type.exit.i:                        ; preds = %25, %23
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %61
-  %68 = trunc i64 %indvars.iv132.i to i32
+  %68 = trunc nuw i64 %indvars.iv132.i to i32
   store i32 %68, ptr %17, align 4
   %69 = load ptr, ptr %76, align 8
-  %70 = tail call fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %3, ptr noundef %16, i32 noundef %12, ptr noundef %69, ptr noundef nonnull %4), !range !13
+  %70 = tail call fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %3, ptr noundef %16, i32 noundef %12, ptr noundef %69, ptr noundef nonnull %4)
   %.not105.us.i = icmp eq i32 %70, 0
   br i1 %.not105.us.i, label %._crit_edge151.i, label %.loopexit107.sink.split.i
 
@@ -6999,7 +6999,7 @@ check_address_type.exit.i:                        ; preds = %25, %23
   %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
   %74 = zext i32 %72 to i64
   %75 = icmp ult i64 %indvars.iv.next133.i, %74
-  br i1 %75, label %54, label %.loopexit109.us.loopexit.i, !llvm.loop !14
+  br i1 %75, label %54, label %.loopexit109.us.loopexit.i, !llvm.loop !12
 
 .lr.ph.us.i:                                      ; preds = %44
   %76 = getelementptr inbounds i8, ptr %35, i64 80
@@ -7033,7 +7033,7 @@ check_address_type.exit.i:                        ; preds = %25, %23
 93:                                               ; preds = %88
   %94 = getelementptr inbounds i8, ptr %79, i64 80
   %95 = load ptr, ptr %94, align 8
-  %96 = tail call fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %3, ptr noundef %16, i32 noundef %12, ptr noundef %95, ptr noundef nonnull %4), !range !13
+  %96 = tail call fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %3, ptr noundef %16, i32 noundef %12, ptr noundef %95, ptr noundef nonnull %4)
   %.not104.i = icmp eq i32 %96, 0
   br i1 %.not104.i, label %._crit_edge.i, label %.loopexit107.sink.split.i
 
@@ -7048,7 +7048,7 @@ check_address_type.exit.i:                        ; preds = %25, %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %100 = zext i32 %98 to i64
   %101 = icmp ult i64 %indvars.iv.next.i, %100
-  br i1 %101, label %.lr.ph113.split.i, label %thread-pre-split.i, !llvm.loop !12
+  br i1 %101, label %.lr.ph113.split.i, label %thread-pre-split.i, !llvm.loop !11
 
 thread-pre-split.i:                               ; preds = %97, %.loopexit109.us.i, %.preheader110.i
   %.pr.i = load i8, ptr %26, align 1
@@ -7098,7 +7098,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
   %123 = zext i32 %122 to i64
   %124 = icmp ult i64 %indvars.iv.next145.i, %123
-  br i1 %124, label %.lr.ph116.split.us.i, label %btmesh_access_find_key_and_decrypt.exit, !llvm.loop !15
+  br i1 %124, label %.lr.ph116.split.us.i, label %btmesh_access_find_key_and_decrypt.exit, !llvm.loop !13
 
 125:                                              ; preds = %.lr.ph.us117.i, %142
   %126 = phi i32 [ %120, %.lr.ph.us117.i ], [ %143, %142 ]
@@ -7119,10 +7119,10 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
   br i1 %137, label %138, label %142
 
 138:                                              ; preds = %132
-  %139 = trunc i64 %indvars.iv141.i to i32
+  %139 = trunc nuw i64 %indvars.iv141.i to i32
   store i32 %139, ptr %17, align 4
   %140 = load ptr, ptr %147, align 8
-  %141 = tail call fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %3, ptr noundef %16, i32 noundef %12, ptr noundef %140, ptr noundef nonnull %4), !range !13
+  %141 = tail call fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %3, ptr noundef %16, i32 noundef %12, ptr noundef %140, ptr noundef nonnull %4)
   %.not100.us.i = icmp eq i32 %141, 0
   br i1 %.not100.us.i, label %._crit_edge156.i, label %.loopexit107.sink.split.i
 
@@ -7137,7 +7137,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
   %indvars.iv.next142.i = add nuw nsw i64 %indvars.iv141.i, 1
   %145 = zext i32 %143 to i64
   %146 = icmp ult i64 %indvars.iv.next142.i, %145
-  br i1 %146, label %125, label %.loopexit.us.i.loopexit, !llvm.loop !16
+  br i1 %146, label %125, label %.loopexit.us.i.loopexit, !llvm.loop !14
 
 .lr.ph.us117.i:                                   ; preds = %117
   %147 = getelementptr inbounds i8, ptr %113, i64 8
@@ -7163,7 +7163,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
 156:                                              ; preds = %153
   %157 = getelementptr inbounds i8, ptr %149, i64 8
   %158 = load ptr, ptr %157, align 8
-  %159 = tail call fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %3, ptr noundef %16, i32 noundef %12, ptr noundef %158, ptr noundef %4), !range !13
+  %159 = tail call fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %3, ptr noundef %16, i32 noundef %12, ptr noundef %158, ptr noundef %4)
   %.not99.i = icmp eq i32 %159, 0
   br i1 %.not99.i, label %160, label %.loopexit107.sink.split.i
 
@@ -7179,7 +7179,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
 163:                                              ; preds = %161
   %164 = getelementptr inbounds i8, ptr %149, i64 8
   %165 = load ptr, ptr %164, align 8
-  %166 = tail call fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %3, ptr noundef %16, i32 noundef %12, ptr noundef %165, ptr noundef %4), !range !13
+  %166 = tail call fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %3, ptr noundef %16, i32 noundef %12, ptr noundef %165, ptr noundef %4)
   %.not103.i = icmp eq i32 %166, 0
   br i1 %.not103.i, label %167, label %.loopexit107.sink.split.i
 
@@ -7188,7 +7188,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit109.u
   %168 = load i32, ptr @num_btmesh_dev_key_uat, align 4
   %169 = zext i32 %168 to i64
   %170 = icmp ult i64 %indvars.iv.next139.i, %169
-  br i1 %170, label %.lr.ph116.split.i, label %btmesh_access_find_key_and_decrypt.exit, !llvm.loop !15
+  br i1 %170, label %.lr.ph116.split.i, label %btmesh_access_find_key_and_decrypt.exit, !llvm.loop !13
 
 .loopexit107.sink.split.i:                        ; preds = %93, %67, %163, %156, %138
   %171 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %16, i32 noundef %12, i32 noundef %12) #16
@@ -7228,7 +7228,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @try_access_decrypt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @try_access_decrypt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = alloca [13 x i8], align 1
   %8 = alloca ptr, align 8
   %9 = alloca [3 x i64], align 16
@@ -7829,7 +7829,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %119 = add i32 %.24049, 2
   %120 = add nuw nsw i32 %.04050, 1
   %exitcond.not = icmp eq i32 %120, %96
-  br i1 %exitcond.not, label %.loopexit3980, label %116, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit3980, label %116, !llvm.loop !15
 
 .loopexit3980:                                    ; preds = %116, %.lr.ph4055
   %.3 = phi i32 [ %112, %.lr.ph4055 ], [ %119, %116 ]
@@ -7849,14 +7849,14 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %127 = add i32 %.44051, 4
   %128 = add nuw nsw i32 %.14052, 1
   %exitcond4088.not = icmp eq i32 %128, %99
-  br i1 %exitcond4088.not, label %.loopexit, label %124, !llvm.loop !18
+  br i1 %exitcond4088.not, label %.loopexit, label %124, !llvm.loop !16
 
 .loopexit:                                        ; preds = %124, %.loopexit3980
   %.5 = phi i32 [ %.3, %.loopexit3980 ], [ %127, %124 ]
   %129 = add i32 %.039704054, 1
   %130 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.5) #16
   %131 = icmp sgt i32 %130, 2
-  br i1 %131, label %.lr.ph4055, label %.loopexit3981, !llvm.loop !19
+  br i1 %131, label %.lr.ph4055, label %.loopexit3981, !llvm.loop !17
 
 132:                                              ; preds = %42
   %133 = load i32, ptr @hf_btmesh_config_model_publication_set_elementaddress, align 4
@@ -7934,7 +7934,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %195 = add i32 %.64046, 1
   %196 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %195) #16
   %197 = icmp sgt i32 %196, 0
-  br i1 %197, label %.lr.ph4047, label %.loopexit3981, !llvm.loop !20
+  br i1 %197, label %.lr.ph4047, label %.loopexit3981, !llvm.loop !18
 
 198:                                              ; preds = %42
   %199 = load i32, ptr @hf_btmesh_health_fault_status_test_id, align 4
@@ -7957,7 +7957,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %212 = add i32 %.74043, 1
   %213 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %212) #16
   %214 = icmp sgt i32 %213, 0
-  br i1 %214, label %.lr.ph4044, label %.loopexit3981, !llvm.loop !21
+  br i1 %214, label %.lr.ph4044, label %.loopexit3981, !llvm.loop !19
 
 215:                                              ; preds = %42
   %216 = load i32, ptr @hf_btmesh_config_heartbeat_publication_status_status, align 4
@@ -8068,7 +8068,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %304 = add i32 %.84040, %.sink
   %305 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %304) #16
   %306 = icmp sgt i32 %305, 1
-  br i1 %306, label %.lr.ph4041, label %.loopexit3981, !llvm.loop !22
+  br i1 %306, label %.lr.ph4041, label %.loopexit3981, !llvm.loop !20
 
 307:                                              ; preds = %42
   %308 = load i32, ptr @hf_btmesh_config_appkey_status_status, align 4
@@ -8606,7 +8606,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %728 = add i32 %.104037, 2
   %729 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %728) #16
   %730 = icmp sgt i32 %729, 1
-  br i1 %730, label %.lr.ph4038, label %.loopexit3981, !llvm.loop !23
+  br i1 %730, label %.lr.ph4038, label %.loopexit3981, !llvm.loop !21
 
 731:                                              ; preds = %42
   %732 = load i32, ptr @hf_btmesh_config_vendor_model_subscription_get_elementaddress, align 4
@@ -8641,7 +8641,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %755 = add i32 %.114034, 2
   %756 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %755) #16
   %757 = icmp sgt i32 %756, 1
-  br i1 %757, label %.lr.ph4035, label %.loopexit3981, !llvm.loop !24
+  br i1 %757, label %.lr.ph4035, label %.loopexit3981, !llvm.loop !22
 
 758:                                              ; preds = %42
   %759 = load i32, ptr @hf_btmesh_config_low_power_node_polltimeout_get_lpnaddress, align 4
@@ -8935,7 +8935,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %988 = add i32 %.124031, %.sink4120
   %989 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %988) #16
   %990 = icmp sgt i32 %989, 1
-  br i1 %990, label %.lr.ph4032, label %.loopexit3981, !llvm.loop !25
+  br i1 %990, label %.lr.ph4032, label %.loopexit3981, !llvm.loop !23
 
 991:                                              ; preds = %42
   %992 = load i32, ptr @hf_btmesh_config_netkey_status_status, align 4
@@ -9072,7 +9072,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %1100 = add i32 %.144028, %.sink4121
   %1101 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1100) #16
   %1102 = icmp sgt i32 %1101, 1
-  br i1 %1102, label %.lr.ph4029, label %.loopexit3981, !llvm.loop !26
+  br i1 %1102, label %.lr.ph4029, label %.loopexit3981, !llvm.loop !24
 
 1103:                                             ; preds = %42
   %1104 = load i32, ptr @hf_btmesh_config_vendor_model_app_get_elementaddress, align 4
@@ -9134,7 +9134,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %1147 = add i32 %.164025, %.sink4122
   %1148 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1147) #16
   %1149 = icmp sgt i32 %1148, 1
-  br i1 %1149, label %.lr.ph4026, label %.loopexit3981, !llvm.loop !27
+  br i1 %1149, label %.lr.ph4026, label %.loopexit3981, !llvm.loop !25
 
 1150:                                             ; preds = %42
   %1151 = load i32, ptr @hf_btmesh_generic_location_global_status_global_latitude, align 4
@@ -9801,7 +9801,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %1704 = add i32 %.184022, 2
   %1705 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1704) #16
   %1706 = icmp sgt i32 %1705, 1
-  br i1 %1706, label %.lr.ph4023, label %.loopexit3981, !llvm.loop !28
+  br i1 %1706, label %.lr.ph4023, label %.loopexit3981, !llvm.loop !26
 
 1707:                                             ; preds = %42
   %1708 = load i32, ptr @hf_btmesh_scene_store_scene_number, align 4
@@ -11374,7 +11374,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %3049 = add i32 %.194019, 2
   %3050 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3049) #16
   %3051 = icmp sgt i32 %3050, 1
-  br i1 %3051, label %.lr.ph4020, label %.loopexit3981, !llvm.loop !29
+  br i1 %3051, label %.lr.ph4020, label %.loopexit3981, !llvm.loop !27
 
 3052:                                             ; preds = %42
   %3053 = load i32, ptr @hf_btmesh_generic_manufacturer_property_get_manufacturer_property_id, align 4
@@ -11434,7 +11434,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %3093 = add i32 %.204016, 2
   %3094 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3093) #16
   %3095 = icmp sgt i32 %3094, 1
-  br i1 %3095, label %.lr.ph4017, label %.loopexit3981, !llvm.loop !30
+  br i1 %3095, label %.lr.ph4017, label %.loopexit3981, !llvm.loop !28
 
 3096:                                             ; preds = %42
   %3097 = load i32, ptr @hf_btmesh_generic_admin_property_get_admin_property_id, align 4
@@ -11504,7 +11504,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %3147 = add i32 %.214013, 2
   %3148 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3147) #16
   %3149 = icmp sgt i32 %3148, 1
-  br i1 %3149, label %.lr.ph4014, label %.loopexit3981, !llvm.loop !31
+  br i1 %3149, label %.lr.ph4014, label %.loopexit3981, !llvm.loop !29
 
 3150:                                             ; preds = %42
   %3151 = load i32, ptr @hf_btmesh_generic_user_property_get_user_property_id, align 4
@@ -11574,7 +11574,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %3199 = add i32 %.224010, 2
   %3200 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3199) #16
   %3201 = icmp sgt i32 %3200, 1
-  br i1 %3201, label %.lr.ph4011, label %.loopexit3981, !llvm.loop !32
+  br i1 %3201, label %.lr.ph4011, label %.loopexit3981, !llvm.loop !30
 
 3202:                                             ; preds = %42
   %3203 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
@@ -11624,7 +11624,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %3234 = add i32 %.234007, 8
   %3235 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3234) #16
   %3236 = icmp sgt i32 %3235, 0
-  br i1 %3236, label %.lr.ph4008, label %.loopexit3981, !llvm.loop !33
+  br i1 %3236, label %.lr.ph4008, label %.loopexit3981, !llvm.loop !31
 
 3237:                                             ; preds = %42
   %3238 = load i32, ptr @hf_btmesh_sensor_cadence_get_property_id, align 4
@@ -11644,7 +11644,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %3250 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3245) #16
   %3251 = lshr i8 %3250, 7
   %3252 = add nuw nsw i32 %.03971, 3
-  %3253 = call fastcc i32 @dissect_sensor_cadence(ptr noundef %10, ptr noundef %0, i32 noundef %3252, i16 noundef zeroext %3244, i8 noundef zeroext %3251, ptr noundef nonnull @sensor_cadence_set_hfs), !range !34
+  %3253 = call fastcc i32 @dissect_sensor_cadence(ptr noundef %10, ptr noundef %0, i32 noundef %3252, i16 noundef zeroext %3244, i8 noundef zeroext %3251, ptr noundef nonnull @sensor_cadence_set_hfs)
   %3254 = add nsw i32 %3253, %3252
   br label %.loopexit3981
 
@@ -11660,7 +11660,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %3264 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3259) #16
   %3265 = lshr i8 %3264, 7
   %3266 = add nuw nsw i32 %.03971, 3
-  %3267 = call fastcc i32 @dissect_sensor_cadence(ptr noundef %10, ptr noundef %0, i32 noundef %3266, i16 noundef zeroext %3258, i8 noundef zeroext %3265, ptr noundef nonnull @sensor_cadence_set_unacknowledged_hfs), !range !34
+  %3267 = call fastcc i32 @dissect_sensor_cadence(ptr noundef %10, ptr noundef %0, i32 noundef %3266, i16 noundef zeroext %3258, i8 noundef zeroext %3265, ptr noundef nonnull @sensor_cadence_set_unacknowledged_hfs)
   %3268 = add nsw i32 %3267, %3266
   br label %.loopexit3981
 
@@ -11676,7 +11676,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %3278 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3273) #16
   %3279 = lshr i8 %3278, 7
   %3280 = add nuw nsw i32 %.03971, 3
-  %3281 = call fastcc i32 @dissect_sensor_cadence(ptr noundef %10, ptr noundef %0, i32 noundef %3280, i16 noundef zeroext %3272, i8 noundef zeroext %3279, ptr noundef nonnull @sensor_cadence_status_hfs), !range !34
+  %3281 = call fastcc i32 @dissect_sensor_cadence(ptr noundef %10, ptr noundef %0, i32 noundef %3280, i16 noundef zeroext %3272, i8 noundef zeroext %3279, ptr noundef nonnull @sensor_cadence_status_hfs)
   %3282 = add nsw i32 %3281, %3280
   br label %.loopexit3981
 
@@ -11709,7 +11709,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %3301 = add i32 %.244004, 2
   %3302 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3301) #16
   %3303 = icmp sgt i32 %3302, 1
-  br i1 %3303, label %.lr.ph4005, label %.loopexit3981, !llvm.loop !35
+  br i1 %3303, label %.lr.ph4005, label %.loopexit3981, !llvm.loop !32
 
 3304:                                             ; preds = %42
   %3305 = load i32, ptr @hf_btmesh_sensor_setting_get_sensor_property_id, align 4
@@ -11816,7 +11816,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %3381 = add i32 %3374, %3380
   %3382 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3381) #16
   %3383 = icmp sgt i32 %3382, 0
-  br i1 %3383, label %.lr.ph4002, label %.loopexit3981, !llvm.loop !36
+  br i1 %3383, label %.lr.ph4002, label %.loopexit3981, !llvm.loop !33
 
 3384:                                             ; preds = %42
   %3385 = load i32, ptr @hf_btmesh_sensor_column_get_property_id, align 4
@@ -11865,7 +11865,7 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %3416 = add i32 %3415, %.274000
   %3417 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3416) #16
   %3418 = icmp sgt i32 %3417, 0
-  br i1 %3418, label %.lr.ph, label %.loopexit3981, !llvm.loop !37
+  br i1 %3418, label %.lr.ph, label %.loopexit3981, !llvm.loop !34
 
 3419:                                             ; preds = %42
   %3420 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.03971) #16
@@ -11929,12 +11929,12 @@ define internal fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 
   %15 = getelementptr inbounds i8, ptr %14, i64 2
   %16 = load i16, ptr %15, align 2
   %.not.i.i = icmp eq i16 %16, 0
-  br i1 %.not.i.i, label %find_btmesh_property_characteristic_idx.exit.thread, label %17, !llvm.loop !38
+  br i1 %.not.i.i, label %find_btmesh_property_characteristic_idx.exit.thread, label %17, !llvm.loop !35
 
 17:                                               ; preds = %.lr.ph.i
   %18 = load i16, ptr %14, align 4
   %19 = icmp eq i16 %18, %4
-  br i1 %19, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i, !llvm.loop !38
+  br i1 %19, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i, !llvm.loop !35
 
 find_characteristic_id.exit.preheader.i:          ; preds = %17, %10
   %.lcssa.i = phi i16 [ -1, %10 ], [ %16, %17 ]
@@ -11951,10 +11951,10 @@ find_characteristic_id.exit.i:                    ; preds = %22, %find_character
   %23 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i.i
   %24 = load i16, ptr %23, align 8
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 89
-  br i1 %exitcond.i.i, label %find_btmesh_property_characteristic_idx.exit.thread, label %find_characteristic_id.exit.i, !llvm.loop !39
+  br i1 %exitcond.i.i, label %find_btmesh_property_characteristic_idx.exit.thread, label %find_characteristic_id.exit.i, !llvm.loop !36
 
 find_btmesh_property_characteristic_idx.exit:     ; preds = %find_characteristic_id.exit.i
-  %25 = trunc i64 %indvars.iv.i.i to i32
+  %25 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %.not = icmp eq i32 %25, -1
   br i1 %.not, label %find_btmesh_property_characteristic_idx.exit.thread, label %26
 
@@ -11989,7 +11989,7 @@ find_btmesh_property_characteristic_idx.exit.thread: ; preds = %.lr.ph.i, %22, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sensor_cadence(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i8 noundef zeroext %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 262144) i32 @dissect_sensor_cadence(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i8 noundef zeroext %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = icmp eq i8 %4, 0
   %8 = icmp eq i16 %3, -1
   br i1 %7, label %9, label %31
@@ -12005,12 +12005,12 @@ define internal fastcc i32 @dissect_sensor_cadence(ptr noundef %0, ptr noundef %
   %13 = getelementptr inbounds i8, ptr %12, i64 2
   %14 = load i16, ptr %13, align 2
   %.not.i.i = icmp eq i16 %14, 0
-  br i1 %.not.i.i, label %find_btmesh_property_length.exit.thread, label %15, !llvm.loop !38
+  br i1 %.not.i.i, label %find_btmesh_property_length.exit.thread, label %15, !llvm.loop !35
 
 15:                                               ; preds = %.lr.ph.i
   %16 = load i16, ptr %12, align 4
   %17 = icmp eq i16 %16, %3
-  br i1 %17, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i, !llvm.loop !38
+  br i1 %17, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i, !llvm.loop !35
 
 find_characteristic_id.exit.preheader.i:          ; preds = %15, %9
   %.lcssa.i = phi i16 [ -1, %9 ], [ %14, %15 ]
@@ -12027,7 +12027,7 @@ find_characteristic_id.exit.i:                    ; preds = %20, %find_character
   %21 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i.i
   %22 = load i16, ptr %21, align 8
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 89
-  br i1 %exitcond.i.i, label %find_btmesh_property_length.exit.thread, label %find_characteristic_id.exit.i, !llvm.loop !39
+  br i1 %exitcond.i.i, label %find_btmesh_property_length.exit.thread, label %find_characteristic_id.exit.i, !llvm.loop !36
 
 find_characteristic_idx.exit.i:                   ; preds = %find_characteristic_id.exit.i
   %23 = and i64 %indvars.iv.i.i, 4294967295
@@ -12055,12 +12055,12 @@ find_btmesh_property_length.exit:                 ; preds = %find_characteristic
   %35 = getelementptr inbounds i8, ptr %34, i64 2
   %36 = load i16, ptr %35, align 2
   %.not.i.i91 = icmp eq i16 %36, 0
-  br i1 %.not.i.i91, label %find_btmesh_property_length.exit101.thread, label %37, !llvm.loop !38
+  br i1 %.not.i.i91, label %find_btmesh_property_length.exit101.thread, label %37, !llvm.loop !35
 
 37:                                               ; preds = %.lr.ph.i89
   %38 = load i16, ptr %34, align 4
   %39 = icmp eq i16 %38, %3
-  br i1 %39, label %find_characteristic_id.exit.preheader.i92, label %.lr.ph.i89, !llvm.loop !38
+  br i1 %39, label %find_characteristic_id.exit.preheader.i92, label %.lr.ph.i89, !llvm.loop !35
 
 find_characteristic_id.exit.preheader.i92:        ; preds = %37, %31
   %.lcssa.i93 = phi i16 [ -1, %31 ], [ %36, %37 ]
@@ -12077,7 +12077,7 @@ find_characteristic_id.exit.i94:                  ; preds = %42, %find_character
   %43 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i.i96
   %44 = load i16, ptr %43, align 8
   %exitcond.i.i97 = icmp eq i64 %indvars.iv.next.i.i96, 89
-  br i1 %exitcond.i.i97, label %find_btmesh_property_length.exit101.thread, label %find_characteristic_id.exit.i94, !llvm.loop !39
+  br i1 %exitcond.i.i97, label %find_btmesh_property_length.exit101.thread, label %find_characteristic_id.exit.i94, !llvm.loop !36
 
 find_characteristic_idx.exit.i99:                 ; preds = %find_characteristic_id.exit.i94
   %45 = and i64 %indvars.iv.i.i95, 4294967295
@@ -12205,12 +12205,12 @@ define internal fastcc i32 @dissect_columns_raw_value(ptr noundef %0, ptr nounde
   %10 = getelementptr inbounds i8, ptr %9, i64 2
   %11 = load i16, ptr %10, align 2
   %.not.i.i = icmp eq i16 %11, 0
-  br i1 %.not.i.i, label %find_btmesh_property_characteristic_idx.exit, label %12, !llvm.loop !38
+  br i1 %.not.i.i, label %find_btmesh_property_characteristic_idx.exit, label %12, !llvm.loop !35
 
 12:                                               ; preds = %.lr.ph.i
   %13 = load i16, ptr %9, align 4
   %14 = icmp eq i16 %13, %3
-  br i1 %14, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i, !llvm.loop !38
+  br i1 %14, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i, !llvm.loop !35
 
 find_characteristic_id.exit.preheader.i:          ; preds = %12, %5
   %.lcssa.i = phi i16 [ -1, %5 ], [ %11, %12 ]
@@ -12227,10 +12227,10 @@ find_characteristic_id.exit.i:                    ; preds = %17, %find_character
   %18 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i.i
   %19 = load i16, ptr %18, align 8
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 89
-  br i1 %exitcond.i.i, label %find_btmesh_property_characteristic_idx.exit, label %find_characteristic_id.exit.i, !llvm.loop !39
+  br i1 %exitcond.i.i, label %find_btmesh_property_characteristic_idx.exit, label %find_characteristic_id.exit.i, !llvm.loop !36
 
 .split.loop.exit.i.i:                             ; preds = %find_characteristic_id.exit.i
-  %20 = trunc i64 %indvars.iv.i.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %find_btmesh_property_characteristic_idx.exit
 
 find_btmesh_property_characteristic_idx.exit:     ; preds = %.lr.ph.i, %17, %.split.loop.exit.i.i
@@ -12286,7 +12286,7 @@ find_btmesh_property_characteristic_idx.exit:     ; preds = %.lr.ph.i, %17, %.sp
   %51 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %indvars.iv.next.i
   %52 = load i16, ptr %51, align 2
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.i, label %find_column_properties_idx.exit.thread, label %47, !llvm.loop !40
+  br i1 %exitcond.i, label %find_column_properties_idx.exit.thread, label %47, !llvm.loop !37
 
 find_column_properties_idx.exit:                  ; preds = %47
   %53 = and i64 %indvars.iv.i, 4294967295
@@ -12311,10 +12311,10 @@ find_column_properties_idx.exit:                  ; preds = %47
   %62 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i89
   %63 = load i16, ptr %62, align 8
   %exitcond.i90 = icmp eq i64 %indvars.iv.next.i89, 89
-  br i1 %exitcond.i90, label %find_column_properties_idx.exit.thread, label %58, !llvm.loop !39
+  br i1 %exitcond.i90, label %find_column_properties_idx.exit.thread, label %58, !llvm.loop !36
 
 find_characteristic_idx.exit:                     ; preds = %58
-  %64 = trunc i64 %indvars.iv.i88 to i32
+  %64 = trunc nuw nsw i64 %indvars.iv.i88 to i32
   %.not81 = icmp eq i32 %64, -1
   br i1 %.not81, label %find_column_properties_idx.exit.thread, label %65
 
@@ -12392,12 +12392,12 @@ define internal fastcc i32 @dissect_property_raw_value_entry(ptr noundef %0, ptr
   %10 = getelementptr inbounds i8, ptr %9, i64 2
   %11 = load i16, ptr %10, align 2
   %.not.i.i = icmp eq i16 %11, 0
-  br i1 %.not.i.i, label %find_btmesh_property_characteristic_idx.exit.thread, label %12, !llvm.loop !38
+  br i1 %.not.i.i, label %find_btmesh_property_characteristic_idx.exit.thread, label %12, !llvm.loop !35
 
 12:                                               ; preds = %.lr.ph.i
   %13 = load i16, ptr %9, align 4
   %14 = icmp eq i16 %13, %3
-  br i1 %14, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i, !llvm.loop !38
+  br i1 %14, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i, !llvm.loop !35
 
 find_characteristic_id.exit.preheader.i:          ; preds = %12, %5
   %.lcssa.i = phi i16 [ -1, %5 ], [ %11, %12 ]
@@ -12414,7 +12414,7 @@ find_characteristic_id.exit.i:                    ; preds = %17, %find_character
   %18 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i.i
   %19 = load i16, ptr %18, align 8
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 89
-  br i1 %exitcond.i.i, label %find_btmesh_property_characteristic_idx.exit.thread, label %find_characteristic_id.exit.i, !llvm.loop !39
+  br i1 %exitcond.i.i, label %find_btmesh_property_characteristic_idx.exit.thread, label %find_characteristic_id.exit.i, !llvm.loop !36
 
 find_btmesh_property_characteristic_idx.exit.thread: ; preds = %.lr.ph.i, %17
   %20 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
@@ -12458,7 +12458,7 @@ find_btmesh_property_characteristic_idx.exit:     ; preds = %find_characteristic
   %41 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %indvars.iv.next.i
   %42 = load i16, ptr %41, align 2
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.i, label %find_column_properties_idx.exit.thread, label %37, !llvm.loop !40
+  br i1 %exitcond.i, label %find_column_properties_idx.exit.thread, label %37, !llvm.loop !37
 
 find_column_properties_idx.exit:                  ; preds = %37
   %43 = and i64 %indvars.iv.i, 4294967295
@@ -12484,10 +12484,10 @@ find_column_properties_idx.exit:                  ; preds = %37
   %53 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i93
   %54 = load i16, ptr %53, align 8
   %exitcond.i94 = icmp eq i64 %indvars.iv.next.i93, 89
-  br i1 %exitcond.i94, label %find_column_properties_idx.exit.thread, label %49, !llvm.loop !39
+  br i1 %exitcond.i94, label %find_column_properties_idx.exit.thread, label %49, !llvm.loop !36
 
 find_characteristic_idx.exit:                     ; preds = %49
-  %55 = trunc i64 %indvars.iv.i92 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv.i92 to i32
   %.not85 = icmp eq i32 %55, -1
   br i1 %.not85, label %find_column_properties_idx.exit.thread, label %56
 
@@ -12540,10 +12540,10 @@ find_characteristic_idx.exit:                     ; preds = %49
   %85 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i98
   %86 = load i16, ptr %85, align 8
   %exitcond.i99 = icmp eq i64 %indvars.iv.next.i98, 89
-  br i1 %exitcond.i99, label %find_characteristic_idx.exit102.thread, label %81, !llvm.loop !39
+  br i1 %exitcond.i99, label %find_characteristic_idx.exit102.thread, label %81, !llvm.loop !36
 
 find_characteristic_idx.exit102:                  ; preds = %81
-  %87 = trunc i64 %indvars.iv.i97 to i32
+  %87 = trunc nuw nsw i64 %indvars.iv.i97 to i32
   %.not88 = icmp eq i32 %87, -1
   br i1 %.not88, label %find_characteristic_idx.exit102.thread, label %88
 
@@ -12655,7 +12655,7 @@ define internal fastcc void @dissect_btmesh_property_idx(ptr noundef %0, ptr nou
   %33 = getelementptr [7 x %struct.btmesh_column_property_t], ptr @btmesh_column_properties, i64 0, i64 %indvars.iv.next.i
   %34 = load i16, ptr %33, align 2
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.i, label %proto_item_set_generated.exit, label %29, !llvm.loop !40
+  br i1 %exitcond.i, label %proto_item_set_generated.exit, label %29, !llvm.loop !37
 
 find_column_properties_idx.exit:                  ; preds = %29
   %35 = and i64 %indvars.iv.i, 4294967295
@@ -12681,7 +12681,7 @@ find_column_properties_idx.exit:                  ; preds = %29
   %45 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i61
   %46 = load i16, ptr %45, align 8
   %exitcond.i62 = icmp eq i64 %indvars.iv.next.i61, 89
-  br i1 %exitcond.i62, label %proto_item_set_generated.exit, label %41, !llvm.loop !39
+  br i1 %exitcond.i62, label %proto_item_set_generated.exit, label %41, !llvm.loop !36
 
 find_characteristic_idx.exit:                     ; preds = %41
   %47 = and i64 %indvars.iv.i60, 4294967295
@@ -12725,7 +12725,7 @@ find_characteristic_idx.exit:                     ; preds = %41
   %69 = getelementptr [90 x %struct.bt_gatt_characteristic_t], ptr @bt_gatt_characteristics, i64 0, i64 %indvars.iv.next.i65
   %70 = load i16, ptr %69, align 8
   %exitcond.i66 = icmp eq i64 %indvars.iv.next.i65, 89
-  br i1 %exitcond.i66, label %proto_item_set_generated.exit, label %65, !llvm.loop !39
+  br i1 %exitcond.i66, label %proto_item_set_generated.exit, label %65, !llvm.loop !36
 
 find_characteristic_idx.exit69:                   ; preds = %65
   %71 = and i64 %indvars.iv.i64, 4294967295
@@ -12842,7 +12842,7 @@ define internal i32 @upper_transport_fragment_hash(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @upper_transport_fragment_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 0, 2) i32 @upper_transport_fragment_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load i16, ptr %0, align 4
   %4 = load i16, ptr %1, align 4
   %5 = icmp eq i16 %3, %4
@@ -12980,10 +12980,10 @@ attributes #20 = { nounwind willreturn memory(none) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 -1, i32 -2147483647}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i32 0, i32 2}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
@@ -13004,10 +13004,7 @@ attributes #20 = { nounwind willreturn memory(none) }
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
-!34 = !{i32 -2, i32 262144}
+!34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}

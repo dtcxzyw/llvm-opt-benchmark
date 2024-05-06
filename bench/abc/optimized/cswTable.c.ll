@@ -203,7 +203,7 @@ Csw_CutHash.exit:                                 ; preds = %7, %2
 
 select.unfold.i:                                  ; preds = %41, %56
   %indvars.iv.i34 = phi i64 [ %57, %56 ], [ %31, %41 ]
-  %54 = trunc i64 %indvars.iv.i34 to i32
+  %54 = trunc nuw i64 %indvars.iv.i34 to i32
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %56, label %Kit_TruthIsEqual.exit
 
@@ -236,7 +236,7 @@ Kit_TruthIsEqual.exit:                            ; preds = %select.unfold.i
 
 select.unfold.i37:                                ; preds = %41, %74
   %indvars.iv.i38 = phi i64 [ %75, %74 ], [ %31, %41 ]
-  %72 = trunc i64 %indvars.iv.i38 to i32
+  %72 = trunc nuw i64 %indvars.iv.i38 to i32
   %73 = icmp sgt i32 %72, 0
   br i1 %73, label %74, label %Kit_TruthIsOpposite.exit
 

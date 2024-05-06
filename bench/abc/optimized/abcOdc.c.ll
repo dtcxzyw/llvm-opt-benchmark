@@ -83,7 +83,7 @@ define noalias noundef ptr @Abc_NtkDontCareAlloc(i32 noundef %0, i32 noundef %1,
 
 30:                                               ; preds = %4, %30
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %30 ]
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = shl nuw i32 1, %31
   %33 = add nsw i64 %indvars.iv, %29
   %34 = getelementptr inbounds %struct.Odc_Obj_t_, ptr %20, i64 %33, i32 5
@@ -176,7 +176,7 @@ Vec_PtrAllocSimInfo.exit83:                       ; preds = %.lr.ph.i79, %Vec_Pt
   %75 = getelementptr inbounds i8, ptr %calloc, i64 128
   store ptr %72, ptr %75, align 8
   %76 = load ptr, ptr %53, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %76, i8 -1, i64 %62, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %76, i8 -1, i64 %62, i1 false)
   br i1 %68, label %.lr.ph91, label %.preheader
 
 .lr.ph91:                                         ; preds = %Vec_PtrAllocSimInfo.exit83
@@ -189,8 +189,8 @@ Vec_PtrAllocSimInfo.exit83:                       ; preds = %.lr.ph.i79, %Vec_Pt
   %.val75.us = load ptr, ptr %74, align 8
   %78 = getelementptr inbounds ptr, ptr %.val75.us, i64 %indvars.iv101
   %79 = load ptr, ptr %78, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %79, i8 0, i64 %62, i1 false)
-  %80 = trunc i64 %indvars.iv101 to i32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %79, i8 0, i64 %62, i1 false)
+  %80 = trunc nuw nsw i64 %indvars.iv101 to i32
   %81 = shl nuw i32 1, %80
   br label %82
 
@@ -260,7 +260,7 @@ Abc_InfoRandom.exit.loopexit.us:                  ; preds = %.lr.ph.i85.us
   %.val75 = load ptr, ptr %74, align 8
   %111 = getelementptr inbounds ptr, ptr %.val75, i64 %indvars.iv96
   %112 = load ptr, ptr %111, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %112, i8 0, i64 %62, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(1) %112, i8 0, i64 %62, i1 false)
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count104
   br i1 %exitcond99.not, label %.preheader, label %.lr.ph91.split, !llvm.loop !8
@@ -975,7 +975,7 @@ define void @Abc_NtkDontCareWinCollectRoots(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkDontCareWinAddMissing_rec(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkDontCareWinAddMissing_rec(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.val2.i = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 16
   %.val3.i = load i32, ptr %3, align 8
@@ -1134,7 +1134,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds ptr, ptr %.val22.val.val, i64 %79
   %81 = load ptr, ptr %80, align 8
-  %82 = tail call i32 @Abc_NtkDontCareWinAddMissing_rec(ptr noundef %0, ptr noundef %81), !range !19
+  %82 = tail call i32 @Abc_NtkDontCareWinAddMissing_rec(ptr noundef %0, ptr noundef %81)
   %.not17 = icmp eq i32 %82, 0
   br i1 %.not17, label %.critedge, label %71
 
@@ -1144,7 +1144,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkDontCareWinAddMissing(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkDontCareWinAddMissing(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1232,7 +1232,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
   %.val22 = load i32, ptr %42, align 4
   %43 = sext i32 %.val22 to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %.lr.ph, label %.critedge, !llvm.loop !20
+  br i1 %44, label %.lr.ph, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %.lr.ph, %Abc_NtkIncrementTravId.exit
   %45 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1253,7 +1253,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
   %.val21 = load i32, ptr %54, align 4
   %55 = sext i32 %.val21 to i64
   %56 = icmp slt i64 %indvars.iv.next32, %55
-  br i1 %56, label %.lr.ph27, label %.critedge2, !llvm.loop !21
+  br i1 %56, label %.lr.ph27, label %.critedge2, !llvm.loop !20
 
 .lr.ph27:                                         ; preds = %.critedge, %52
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %52 ], [ 0, %.critedge ]
@@ -1262,7 +1262,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
   %.val = load ptr, ptr %58, align 8
   %59 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv31
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call i32 @Abc_NtkDontCareWinAddMissing_rec(ptr noundef nonnull %0, ptr noundef %60), !range !19
+  %61 = tail call i32 @Abc_NtkDontCareWinAddMissing_rec(ptr noundef nonnull %0, ptr noundef %60)
   %.not = icmp eq i32 %61, 0
   br i1 %.not, label %.critedge2, label %52
 
@@ -1272,7 +1272,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkDontCareWindow(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkDontCareWindow(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   tail call void @Abc_NtkDontCareWinSweepLeafTfo(ptr noundef %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -1311,7 +1311,7 @@ define noundef i32 @Abc_NtkDontCareWindow(ptr nocapture noundef readonly %0) loc
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %20, %1
-  %26 = tail call i32 @Abc_NtkDontCareWinAddMissing(ptr noundef nonnull %0), !range !19
+  %26 = tail call i32 @Abc_NtkDontCareWinAddMissing(ptr noundef nonnull %0)
   br label %27
 
 27:                                               ; preds = %25, %20
@@ -1588,7 +1588,7 @@ Vec_IntGrow.exit.i.i:                             ; preds = %53, %51
   %87 = getelementptr inbounds i8, ptr %79, i64 4
   %88 = load i16, ptr %87, align 2
   %.not.i = icmp eq i16 %88, 0
-  br i1 %.not.i, label %Odc_HashLookup.exit.thread.loopexit, label %76, !llvm.loop !22
+  br i1 %.not.i, label %Odc_HashLookup.exit.thread.loopexit, label %76, !llvm.loop !21
 
 Odc_HashLookup.exit.thread.loopexit:              ; preds = %86
   %89 = getelementptr inbounds i8, ptr %79, i64 4
@@ -1743,7 +1743,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
   %.val53 = load i32, ptr %53, align 4
   %54 = sext i32 %.val53 to i64
   %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %.lr.ph, label %.critedge.preheader, !llvm.loop !23
+  br i1 %55, label %.lr.ph, label %.critedge.preheader, !llvm.loop !22
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.critedge ], [ 0, %.critedge.preheader ]
@@ -1753,7 +1753,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
   %58 = getelementptr inbounds ptr, ptr %.val45, i64 %indvars.iv66
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %0, align 8
-  %61 = trunc i64 %indvars.iv66 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv66 to i32
   %62 = add nsw i32 %60, %61
   %63 = shl i32 %62, 1
   %64 = add i32 %63, 2
@@ -1782,7 +1782,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
   %.val52 = load i32, ptr %79, align 4
   %80 = sext i32 %.val52 to i64
   %81 = icmp slt i64 %indvars.iv.next67, %80
-  br i1 %81, label %.critedge, label %.critedge2, !llvm.loop !24
+  br i1 %81, label %.critedge, label %.critedge2, !llvm.loop !23
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %82 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1825,7 +1825,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
   %.val51 = load i32, ptr %109, align 4
   %110 = sext i32 %.val51 to i64
   %111 = icmp slt i64 %indvars.iv.next70, %110
-  br i1 %111, label %.lr.ph63, label %.critedge4, !llvm.loop !25
+  br i1 %111, label %.lr.ph63, label %.critedge4, !llvm.loop !24
 
 .critedge4:                                       ; preds = %.lr.ph63, %.critedge2
   ret i32 1
@@ -1905,12 +1905,12 @@ common.ret54:                                     ; preds = %28, %19, %10, %30
   %41 = xor i16 %40, %39
   %42 = tail call fastcc zeroext i16 @Odc_And(ptr noundef nonnull %0, i16 noundef zeroext %38, i16 noundef zeroext %41)
   %43 = lshr i32 %32, 16
-  %44 = trunc i32 %43 to i16
+  %44 = trunc nuw i32 %43 to i16
   %.val50 = load i16, ptr %7, align 4
   %45 = and i16 %.val50, 1
   %46 = xor i16 %45, %44
   %47 = lshr i32 %35, 16
-  %48 = trunc i32 %47 to i16
+  %48 = trunc nuw i32 %47 to i16
   %.val52 = load i16, ptr %33, align 2
   %49 = and i16 %.val52, 1
   %50 = xor i16 %49, %48
@@ -1927,7 +1927,7 @@ common.ret54:                                     ; preds = %28, %19, %10, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkDontCareQuantify(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkDontCareQuantify(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1961,7 +1961,7 @@ define noundef i32 @Abc_NtkDontCareQuantify(ptr noundef %0) local_unnamed_addr #
   %20 = load i16, ptr %8, align 8
   %21 = and i16 %20, 1
   %22 = lshr i32 %16, 16
-  %23 = trunc i32 %22 to i16
+  %23 = trunc nuw i32 %22 to i16
   %24 = xor i16 %21, %19
   %25 = xor i16 %24, 1
   %26 = xor i16 %21, %23
@@ -1979,7 +1979,7 @@ define noundef i32 @Abc_NtkDontCareQuantify(ptr noundef %0) local_unnamed_addr #
   %34 = getelementptr i8, ptr %33, i64 4
   %.val = load i32, ptr %34, align 4
   %35 = icmp slt i32 %32, %.val
-  br i1 %35, label %10, label %._crit_edge, !llvm.loop !26
+  br i1 %35, label %10, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %18, %31, %1
   %.018 = phi i32 [ 1, %1 ], [ 1, %31 ], [ 0, %18 ]
@@ -2011,7 +2011,7 @@ define void @Abc_NtkDontCareSimulateSetElem2(ptr nocapture noundef readonly %0) 
   %13 = load i32, ptr %5, align 4
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %12, i8 0, i64 %15, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %12, i8 0, i64 %15, i1 false)
   %16 = load i32, ptr %6, align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
@@ -2043,12 +2043,12 @@ define void @Abc_NtkDontCareSimulateSetElem2(ptr nocapture noundef readonly %0) 
   %31 = phi i32 [ %20, %19 ], [ %.pre, %22 ]
   %32 = add nuw nsw i32 %.01516, 1
   %33 = icmp slt i32 %32, %31
-  br i1 %33, label %19, label %._crit_edge, !llvm.loop !27
+  br i1 %33, label %19, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %30, %7
   %34 = load i32, ptr %0, align 8
   %35 = icmp slt i32 %narrow, %34
-  br i1 %35, label %7, label %._crit_edge20, !llvm.loop !28
+  br i1 %35, label %7, label %._crit_edge20, !llvm.loop !27
 
 ._crit_edge20:                                    ; preds = %._crit_edge, %1
   ret void
@@ -2099,7 +2099,7 @@ define void @Abc_NtkDontCareSimulateSetElem(ptr nocapture noundef readonly %0) l
   %23 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next.i
   store i32 %22, ptr %23, align 4
   %24 = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %24, label %.lr.ph.i, label %Abc_InfoCopy.exit.loopexit, !llvm.loop !29
+  br i1 %24, label %.lr.ph.i, label %Abc_InfoCopy.exit.loopexit, !llvm.loop !28
 
 Abc_InfoCopy.exit.loopexit:                       ; preds = %.lr.ph.i
   %.pre = load i32, ptr %0, align 8
@@ -2109,7 +2109,7 @@ Abc_InfoCopy.exit:                                ; preds = %Abc_InfoCopy.exit.l
   %25 = phi i32 [ %.pre, %Abc_InfoCopy.exit.loopexit ], [ %9, %.lr.ph.split ]
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph.split, label %._crit_edge, !llvm.loop !30
+  br i1 %27, label %.lr.ph.split, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %Abc_InfoCopy.exit, %.lr.ph, %1
   ret void
@@ -2151,14 +2151,14 @@ define void @Abc_NtkDontCareSimulateSetRand(ptr nocapture noundef readonly %0) l
   store i32 %17, ptr %18, align 4
   %19 = load i32, ptr %0, align 8
   %20 = icmp slt i32 %narrow, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %2, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %6, label %._crit_edge17, !llvm.loop !33
+  br i1 %23, label %6, label %._crit_edge17, !llvm.loop !32
 
 ._crit_edge17:                                    ; preds = %._crit_edge, %1
   ret void
@@ -2188,7 +2188,7 @@ define i32 @Abc_NtkDontCareCountMintsWord(ptr nocapture noundef readonly %0, ptr
   %spec.select = add nuw nsw i32 %.08, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %spec.select, %.lr.ph ]
@@ -2246,7 +2246,7 @@ define void @Abc_NtkDontCareTruthOne(ptr nocapture noundef readonly %0, i16 noun
   %33 = load i32, ptr %24, align 4
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !35
+  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !34
 
 36:                                               ; preds = %2
   %37 = icmp eq i16 %22, 0
@@ -2273,7 +2273,7 @@ define void @Abc_NtkDontCareTruthOne(ptr nocapture noundef readonly %0, i16 noun
   %48 = load i32, ptr %38, align 4
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next81, %49
-  br i1 %50, label %.lr.ph71, label %.loopexit, !llvm.loop !36
+  br i1 %50, label %.lr.ph71, label %.loopexit, !llvm.loop !35
 
 51:                                               ; preds = %36
   %or.cond5 = and i1 %37, %21
@@ -2302,7 +2302,7 @@ define void @Abc_NtkDontCareTruthOne(ptr nocapture noundef readonly %0, i16 noun
   %62 = load i32, ptr %52, align 4
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next87, %63
-  br i1 %64, label %.lr.ph75, label %.loopexit, !llvm.loop !37
+  br i1 %64, label %.lr.ph75, label %.loopexit, !llvm.loop !36
 
 .lr.ph73:                                         ; preds = %.preheader63, %.lr.ph73
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.lr.ph73 ], [ 0, %.preheader63 ]
@@ -2317,7 +2317,7 @@ define void @Abc_NtkDontCareTruthOne(ptr nocapture noundef readonly %0, i16 noun
   %71 = load i32, ptr %52, align 4
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next84, %72
-  br i1 %73, label %.lr.ph73, label %.loopexit, !llvm.loop !38
+  br i1 %73, label %.lr.ph73, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph71, %.lr.ph73, %.lr.ph75, %.preheader67, %.preheader65, %.preheader63, %.preheader
   ret void
@@ -2396,7 +2396,7 @@ define i32 @Abc_NtkDontCareSimulate(ptr noundef %0, ptr nocapture noundef %1) lo
   %22 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next.i
   store i32 %21, ptr %22, align 4
   %23 = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %23, label %.lr.ph.i, label %Abc_InfoCopy.exit.loopexit, !llvm.loop !29
+  br i1 %23, label %.lr.ph.i, label %Abc_InfoCopy.exit.loopexit, !llvm.loop !28
 
 Abc_InfoCopy.exit.loopexit:                       ; preds = %.lr.ph.i
   %.pre = load i16, ptr %6, align 8
@@ -2425,7 +2425,7 @@ Abc_InfoCopy.exit:                                ; preds = %Abc_InfoCopy.exit.l
   %32 = xor i32 %31, -1
   store i32 %32, ptr %30, align 4
   %33 = icmp ugt i64 %indvars.iv.i14, 1
-  br i1 %33, label %.lr.ph.i13, label %Abc_InfoNot.exit, !llvm.loop !39
+  br i1 %33, label %.lr.ph.i13, label %Abc_InfoNot.exit, !llvm.loop !38
 
 Abc_InfoNot.exit:                                 ; preds = %.lr.ph.i13, %26, %Abc_InfoCopy.exit
   %34 = load i32, ptr %0, align 8
@@ -2467,7 +2467,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %60 = add nuw i32 %59, %.08.i
   %61 = add nuw i32 %60, %58
   %62 = icmp ugt i64 %indvars.iv.i16, 1
-  br i1 %62, label %select.unfold.i, label %Extra_TruthCountOnes.exit, !llvm.loop !40
+  br i1 %62, label %select.unfold.i, label %Extra_TruthCountOnes.exit, !llvm.loop !39
 
 Extra_TruthCountOnes.exit:                        ; preds = %select.unfold.i, %Abc_InfoNot.exit
   %.0.lcssa.i = phi i32 [ 0, %Abc_InfoNot.exit ], [ %61, %select.unfold.i ]
@@ -2475,7 +2475,7 @@ Extra_TruthCountOnes.exit:                        ; preds = %select.unfold.i, %A
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkDontCareSimulateBefore(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -1073741824, 1073741824) i32 @Abc_NtkDontCareSimulateBefore(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 116
@@ -2515,14 +2515,14 @@ define i32 @Abc_NtkDontCareSimulateBefore(ptr noundef %0, ptr nocapture noundef 
   store i32 %22, ptr %23, align 4
   %24 = load i32, ptr %0, align 8
   %25 = icmp slt i32 %narrow.i, %24
-  br i1 %25, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !32
+  br i1 %25, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph16.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %26 = load i32, ptr %5, align 4
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next.i, %27
-  br i1 %28, label %.lr.ph16.i, label %Abc_NtkDontCareSimulateSetRand.exit, !llvm.loop !33
+  br i1 %28, label %.lr.ph16.i, label %Abc_NtkDontCareSimulateSetRand.exit, !llvm.loop !32
 
 Abc_NtkDontCareSimulateSetRand.exit:              ; preds = %._crit_edge.i, %8
   %29 = tail call i32 @Abc_NtkDontCareSimulate(ptr noundef nonnull %0, ptr noundef %1)
@@ -2544,12 +2544,12 @@ Abc_NtkDontCareSimulateSetRand.exit:              ; preds = %._crit_edge.i, %8
   %spec.select.i = add nuw nsw i32 %.08.i, %34
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i19, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Abc_NtkDontCareCountMintsWord.exit, label %.lr.ph.i16, !llvm.loop !34
+  br i1 %exitcond.not.i, label %Abc_NtkDontCareCountMintsWord.exit, label %.lr.ph.i16, !llvm.loop !33
 
 Abc_NtkDontCareCountMintsWord.exit:               ; preds = %.lr.ph.i16, %Abc_NtkDontCareSimulateSetRand.exit
   %.0.lcssa.i = phi i32 [ 0, %Abc_NtkDontCareSimulateSetRand.exit ], [ %spec.select.i, %.lr.ph.i16 ]
   %35 = add nsw i32 %.0.lcssa.i, %.01420
-  br i1 %10, label %8, label %36, !llvm.loop !41
+  br i1 %10, label %8, label %36, !llvm.loop !40
 
 36:                                               ; preds = %Abc_NtkDontCareCountMintsWord.exit
   %37 = sdiv i32 %4, %6
@@ -2617,7 +2617,7 @@ Abc_Clock.exit:                                   ; preds = %4, %22
 Abc_Clock.exit83:                                 ; preds = %Abc_Clock.exit, %33
   %.0.i82.neg = phi i64 [ %.neg120, %33 ], [ 1, %Abc_Clock.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
-  call void @Abc_NtkDontCareWinSweepLeafTfo(ptr noundef nonnull %0)
+  call void @Abc_NtkDontCareWinSweepLeafTfo(ptr noundef nonnull readonly %0)
   %37 = load ptr, ptr %30, align 8
   %.val.i.i = load ptr, ptr %37, align 8
   %38 = getelementptr i8, ptr %37, i64 16
@@ -2654,7 +2654,7 @@ Abc_Clock.exit83:                                 ; preds = %Abc_Clock.exit, %33
   br i1 %58, label %Abc_NtkDontCareWindow.exit, label %59
 
 59:                                               ; preds = %54, %Abc_Clock.exit83
-  %60 = call i32 @Abc_NtkDontCareWinAddMissing(ptr noundef nonnull %0), !range !19
+  %60 = call i32 @Abc_NtkDontCareWinAddMissing(ptr noundef nonnull readonly %0)
   br label %Abc_NtkDontCareWindow.exit
 
 Abc_NtkDontCareWindow.exit:                       ; preds = %54, %59
@@ -2711,7 +2711,7 @@ Abc_Clock.exit88:                                 ; preds = %74, %77
   %89 = load i32, ptr %88, align 4
   %90 = sext i32 %89 to i64
   %91 = shl nsw i64 %90, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %3, i8 -1, i64 %91, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 4 %3, i8 -1, i64 %91, i1 false)
   %92 = getelementptr inbounds i8, ptr %0, i64 148
   %93 = load i32, ptr %92, align 4
   %94 = add nsw i32 %93, 1
@@ -2841,14 +2841,14 @@ Abc_Clock.exit94:                                 ; preds = %Abc_Clock.exit92, %
   store i32 %159, ptr %160, align 4
   %161 = load i32, ptr %0, align 8
   %162 = icmp slt i32 %narrow.i.i, %161
-  br i1 %162, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !32
+  br i1 %162, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !31
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph16.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %163 = load i32, ptr %142, align 4
   %164 = sext i32 %163 to i64
   %165 = icmp slt i64 %indvars.iv.next.i.i, %164
-  br i1 %165, label %.lr.ph16.i.i, label %Abc_NtkDontCareSimulateSetRand.exit.i, !llvm.loop !33
+  br i1 %165, label %.lr.ph16.i.i, label %Abc_NtkDontCareSimulateSetRand.exit.i, !llvm.loop !32
 
 Abc_NtkDontCareSimulateSetRand.exit.i:            ; preds = %._crit_edge.i.i, %145
   %166 = call i32 @Abc_NtkDontCareSimulate(ptr noundef nonnull %0, ptr noundef %3)
@@ -2870,12 +2870,12 @@ Abc_NtkDontCareSimulateSetRand.exit.i:            ; preds = %._crit_edge.i.i, %1
   %spec.select.i.i = add nuw nsw i32 %.08.i.i, %171
   %indvars.iv.next.i19.i = add nuw nsw i64 %indvars.iv.i17.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i19.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Abc_NtkDontCareCountMintsWord.exit.i, label %.lr.ph.i16.i, !llvm.loop !34
+  br i1 %exitcond.not.i.i, label %Abc_NtkDontCareCountMintsWord.exit.i, label %.lr.ph.i16.i, !llvm.loop !33
 
 Abc_NtkDontCareCountMintsWord.exit.i:             ; preds = %.lr.ph.i16.i, %Abc_NtkDontCareSimulateSetRand.exit.i
   %.0.lcssa.i.i = phi i32 [ 0, %Abc_NtkDontCareSimulateSetRand.exit.i ], [ %spec.select.i.i, %.lr.ph.i16.i ]
   %172 = add nsw i32 %.0.lcssa.i.i, %.01420.i
-  br i1 %147, label %145, label %Abc_NtkDontCareSimulateBefore.exit, !llvm.loop !41
+  br i1 %147, label %145, label %Abc_NtkDontCareSimulateBefore.exit, !llvm.loop !40
 
 Abc_NtkDontCareSimulateBefore.exit:               ; preds = %Abc_NtkDontCareCountMintsWord.exit.i
   %173 = sdiv i32 %141, %143
@@ -2972,7 +2972,7 @@ Abc_Clock.exit99:                                 ; preds = %214, %217
   %231 = load i32, ptr %142, align 4
   %232 = sext i32 %231 to i64
   %233 = shl nsw i64 %232, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %3, i8 -1, i64 %233, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 4 %3, i8 -1, i64 %233, i1 false)
   %234 = getelementptr inbounds i8, ptr %0, i64 152
   %235 = load i32, ptr %234, align 8
   %236 = add nsw i32 %235, 1
@@ -3030,7 +3030,7 @@ Abc_Clock.exit101:                                ; preds = %237, %240
   %262 = load i16, ptr %250, align 8
   %263 = and i16 %262, 1
   %264 = lshr i32 %258, 16
-  %265 = trunc i32 %264 to i16
+  %265 = trunc nuw i32 %264 to i16
   %266 = xor i16 %263, %261
   %267 = xor i16 %266, 1
   %268 = xor i16 %263, %265
@@ -3048,7 +3048,7 @@ Abc_Clock.exit101:                                ; preds = %237, %240
   %276 = getelementptr i8, ptr %275, i64 4
   %.val.i102 = load i32, ptr %276, align 4
   %277 = icmp slt i32 %274, %.val.i102
-  br i1 %277, label %252, label %Abc_NtkDontCareQuantify.exit, !llvm.loop !26
+  br i1 %277, label %252, label %Abc_NtkDontCareQuantify.exit, !llvm.loop !25
 
 Abc_NtkDontCareQuantify.exit:                     ; preds = %260, %273, %Abc_Clock.exit101
   %.not71 = phi i1 [ false, %Abc_Clock.exit101 ], [ true, %260 ], [ false, %273 ]
@@ -3111,7 +3111,7 @@ Abc_Clock.exit106:                                ; preds = %291, %294
   %308 = load i32, ptr %142, align 4
   %309 = sext i32 %308 to i64
   %310 = shl nsw i64 %309, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %3, i8 -1, i64 %310, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 4 %3, i8 -1, i64 %310, i1 false)
   %311 = getelementptr inbounds i8, ptr %0, i64 156
   %312 = load i32, ptr %311, align 4
   %313 = add nsw i32 %312, 1
@@ -3177,7 +3177,7 @@ Abc_Clock.exit108:                                ; preds = %314, %317
   %340 = getelementptr inbounds i32, ptr %330, i64 %indvars.iv.next.i.i114
   store i32 %339, ptr %340, align 4
   %341 = icmp ugt i64 %indvars.iv.i.i113, 1
-  br i1 %341, label %.lr.ph.i.i112, label %Abc_InfoCopy.exit.loopexit.i, !llvm.loop !29
+  br i1 %341, label %.lr.ph.i.i112, label %Abc_InfoCopy.exit.loopexit.i, !llvm.loop !28
 
 Abc_InfoCopy.exit.loopexit.i:                     ; preds = %.lr.ph.i.i112
   %.pre.i = load i32, ptr %0, align 8
@@ -3187,7 +3187,7 @@ Abc_InfoCopy.exit.i:                              ; preds = %Abc_InfoCopy.exit.l
   %342 = phi i32 [ %.pre.i, %Abc_InfoCopy.exit.loopexit.i ], [ %326, %.lr.ph.split.i ]
   %343 = sext i32 %342 to i64
   %344 = icmp slt i64 %indvars.iv.next.i, %343
-  br i1 %344, label %.lr.ph.split.i, label %Abc_NtkDontCareSimulateSetElem.exit, !llvm.loop !30
+  br i1 %344, label %.lr.ph.split.i, label %Abc_NtkDontCareSimulateSetElem.exit, !llvm.loop !29
 
 Abc_NtkDontCareSimulateSetElem.exit:              ; preds = %Abc_InfoCopy.exit.i, %Abc_Clock.exit108, %.lr.ph.i109
   %345 = call i32 @Abc_NtkDontCareSimulate(ptr noundef nonnull %0, ptr noundef %3)
@@ -3377,7 +3377,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
   store i32 0, ptr %39, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %37, %Vec_IntGrow.exit
   store i32 %1, ptr %3, align 4
@@ -3460,7 +3460,7 @@ attributes #20 = { nounwind allocsize(1) }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = !{i32 0, i32 2}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
@@ -3470,9 +3470,9 @@ attributes #20 = { nounwind allocsize(1) }
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5, !31}
-!31 = !{!"llvm.loop.unswitch.partial.disable"}
+!29 = distinct !{!29, !5, !30}
+!30 = !{!"llvm.loop.unswitch.partial.disable"}
+!31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
@@ -3483,4 +3483,3 @@ attributes #20 = { nounwind allocsize(1) }
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}

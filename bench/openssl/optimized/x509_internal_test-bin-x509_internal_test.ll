@@ -99,7 +99,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_standard_exts() #0 {
+define internal range(i32 0, 2) i32 @test_standard_exts() #0 {
 entry:
   br label %for.body
 
@@ -144,7 +144,7 @@ if.end13:                                         ; preds = %for.body6, %for.end
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_a2i_ipaddress(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_a2i_ipaddress(i32 noundef %idx) #0 {
 entry:
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds [17 x %struct.IP_TESTDATA], ptr @a2i_ipaddress_tests, i64 0, i64 %idxprom

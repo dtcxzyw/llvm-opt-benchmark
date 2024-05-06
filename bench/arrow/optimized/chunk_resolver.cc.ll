@@ -29,7 +29,7 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false), !alias.scope !4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false), !alias.scope !4
   %cmp.not.i.i.i.i.i = icmp eq i64 %add.i, 0
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i, label %if.then.i.i.i.i.i.i
 
@@ -103,7 +103,7 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false), !alias.scope !9
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false), !alias.scope !9
   %cmp.not.i.i.i.i.i = icmp eq i64 %add.i, 0
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i, label %if.then.i.i.i.i.i.i
 
@@ -177,7 +177,7 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false), !alias.scope !13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false), !alias.scope !13
   %cmp.not.i.i.i.i.i = icmp eq i64 %add.i, 0
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i, label %if.then.i.i.i.i.i.i
 

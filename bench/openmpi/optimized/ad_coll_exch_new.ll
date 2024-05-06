@@ -45,7 +45,7 @@ define void @ADIOI_Print_flatlist_node(ptr noundef readonly %0) local_unnamed_ad
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = urem i32 %16, 5
   %18 = icmp eq i32 %17, 0
   %19 = icmp ne i64 %indvars.iv, 0
@@ -180,7 +180,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   %75 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %69, i64 %indvars.iv
   %76 = load ptr, ptr %73, align 8
   %77 = getelementptr inbounds ptr, ptr %71, i64 %indvars.iv
-  %78 = trunc i64 %indvars.iv to i32
+  %78 = trunc nuw nsw i64 %indvars.iv to i32
   %79 = call i32 @PMPI_Irecv(ptr noundef %75, i32 noundef 56, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %78, i32 noundef 0, ptr noundef %76, ptr noundef %77) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -532,7 +532,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   %260 = load ptr, ptr %250, align 8
   %261 = sext i32 %.0276334 to i64
   %262 = getelementptr inbounds ptr, ptr %249, i64 %261
-  %263 = trunc i64 %indvars.iv367 to i32
+  %263 = trunc nuw nsw i64 %indvars.iv367 to i32
   %264 = call i32 @PMPI_Irecv(ptr noundef %259, i32 noundef %253, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef %263, i32 noundef 2, ptr noundef %260, ptr noundef %262) #9
   %265 = load ptr, ptr %256, align 8
   %266 = getelementptr inbounds i8, ptr %265, i64 16
@@ -604,7 +604,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   %295 = load ptr, ptr %280, align 8
   %296 = sext i32 %.2278340 to i64
   %297 = getelementptr inbounds ptr, ptr %244, i64 %296
-  %298 = trunc i64 %indvars.iv372 to i32
+  %298 = trunc nuw nsw i64 %indvars.iv372 to i32
   %299 = call i32 @PMPI_Isend(ptr noundef %294, i32 noundef %291, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef %298, i32 noundef 2, ptr noundef %295, ptr noundef %297) #9
   %300 = load ptr, ptr %281, align 8
   %301 = load i32, ptr %290, align 8

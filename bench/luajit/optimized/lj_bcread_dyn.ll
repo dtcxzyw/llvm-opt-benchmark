@@ -125,7 +125,7 @@ if.end12:                                         ; preds = %if.then, %if.then9,
   %idx.ext.i.i.i = zext i32 %mul.i to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %14, i64 %idx.ext.i.i.i
   store ptr %add.ptr.i.i.i, ptr %p.i84, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr3.i, ptr align 1 %14, i64 %idx.ext.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr3.i, ptr align 1 %14, i64 %idx.ext.i.i.i, i1 false)
   %15 = load i32, ptr %level, align 4
   %and4.i = and i32 %15, 1
   %cmp.not.i = icmp ne i32 %and4.i, 0
@@ -158,7 +158,7 @@ if.then.i:                                        ; preds = %bcread_bytecode.exi
   %idx.ext.i.i.i82 = zext nneg i32 %add20 to i64
   %add.ptr.i.i.i83 = getelementptr inbounds i8, ptr %20, i64 %idx.ext.i.i.i82
   store ptr %add.ptr.i.i.i83, ptr %p.i84, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %20, i64 %idx.ext.i.i.i82, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %19, ptr align 1 %20, i64 %idx.ext.i.i.i82, i1 false)
   %21 = load i32, ptr %level, align 4
   %and.i = and i32 %21, 1
   %cmp.not.i85 = icmp eq i32 %and.i, 0
@@ -231,7 +231,7 @@ cond.true.i.i:                                    ; preds = %if.then9.i
 
 cond.false.i.i:                                   ; preds = %cond.true.i.i
   %sub.i.i = add i32 %call.i.i.i, -1
-  %28 = call i32 @llvm.ctlz.i32(i32 %sub.i.i, i1 true), !range !6
+  %28 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i.i, i1 true)
   %add.i37.i = sub nuw nsw i32 32, %28
   br label %cond.end4.i.i
 
@@ -298,7 +298,7 @@ bcread_ktabk.exit68.i:                            ; preds = %if.else14.i57.i, %i
   %inc.i.i = add nuw i32 %i.018.i.i, 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %o.019.i.i, i64 8
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %call.i24.i.i
-  br i1 %exitcond.not.i.i, label %if.end.i.i, label %for.body.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %if.end.i.i, label %for.body.i.i, !llvm.loop !6
 
 if.end.i.i:                                       ; preds = %bcread_ktabk.exit68.i, %cond.end4.i.i
   br i1 %tobool.not.i.i, label %bcread_ktab.exit.i, label %for.body14.i.i
@@ -398,7 +398,7 @@ if.else14.i.i:                                    ; preds = %if.else.i.i
 bcread_ktabk.exit.i:                              ; preds = %if.else14.i.i, %if.then11.i.i, %if.then6.i.i, %if.then.i43.i
   %inc18.i.i = add nuw i32 %i11.020.i.i, 1
   %exitcond21.not.i.i = icmp eq i32 %inc18.i.i, %call.i.i.i
-  br i1 %exitcond21.not.i.i, label %bcread_ktab.exit.i, label %for.body14.i.i, !llvm.loop !8
+  br i1 %exitcond21.not.i.i, label %bcread_ktab.exit.i, label %for.body14.i.i, !llvm.loop !7
 
 bcread_ktab.exit.i:                               ; preds = %bcread_ktabk.exit.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i)
@@ -487,7 +487,7 @@ for.inc.i:                                        ; preds = %if.end49.i, %if.the
   %inc.i = add nuw i32 %i.03.i, 1
   %incdec.ptr57.i = getelementptr inbounds i8, ptr %kr.02.i, i64 8
   %exitcond.not.i98 = icmp eq i32 %inc.i, %call.i108
-  br i1 %exitcond.not.i98, label %bcread_kgc.exit, label %for.body.i95, !llvm.loop !9
+  br i1 %exitcond.not.i98, label %bcread_kgc.exit, label %for.body.i95, !llvm.loop !8
 
 bcread_kgc.exit:                                  ; preds = %for.inc.i, %bcread_uv.exit
   store i32 %call.i108, ptr %sizekgc34, align 8
@@ -527,7 +527,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %or.i.i = or i32 %shl.i.i120, %v.0.i.i
   %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %p.0.i.i, i64 1
   %cmp9.i.i = icmp slt i8 %59, 0
-  br i1 %cmp9.i.i, label %do.body.i.i, label %bcread_uleb128_33.exit.i, !llvm.loop !10
+  br i1 %cmp9.i.i, label %do.body.i.i, label %bcread_uleb128_33.exit.i, !llvm.loop !9
 
 bcread_uleb128_33.exit.i:                         ; preds = %do.body.i.i, %for.body.i105
   %p.1.i.i = phi ptr [ %incdec.ptr.i.i107, %for.body.i105 ], [ %incdec.ptr7.i.i, %do.body.i.i ]
@@ -552,7 +552,7 @@ for.inc.i113:                                     ; preds = %if.else.i117, %if.t
   %inc.i114 = add nuw i32 %i.03.i106, 1
   %incdec.ptr.i115 = getelementptr inbounds i8, ptr %o.02.i, i64 8
   %exitcond.not.i116 = icmp eq i32 %inc.i114, %call.i104
-  br i1 %exitcond.not.i116, label %bcread_knum.exit, label %for.body.i105, !llvm.loop !11
+  br i1 %exitcond.not.i116, label %bcread_knum.exit, label %for.body.i105, !llvm.loop !10
 
 bcread_knum.exit:                                 ; preds = %for.inc.i113, %bcread_kgc.exit
   %firstline49 = getelementptr inbounds i8, ptr %call25, i64 72
@@ -582,7 +582,7 @@ if.then52:                                        ; preds = %bcread_knum.exit
   %idx.ext.i.i.i122 = zext i32 %sizedbg.0 to i64
   %add.ptr.i.i.i123 = getelementptr inbounds i8, ptr %63, i64 %idx.ext.i.i.i122
   store ptr %add.ptr.i.i.i123, ptr %p.i84, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr59, ptr align 1 %63, i64 %idx.ext.i.i.i122, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr59, ptr align 1 %63, i64 %idx.ext.i.i.i122, i1 false)
   %64 = load i32, ptr %level, align 4
   %and.i125 = and i32 %64, 1
   %cmp.not.i126 = icmp eq i32 %and.i125, 0
@@ -622,7 +622,7 @@ for.body.i135:                                    ; preds = %for.body.i135, %for
   store i16 %or.i137, ptr %arrayidx.i136, align 2
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next27.i, %wide.trip.count29.i
-  br i1 %exitcond30.not.i, label %bcread_dbg.exit, label %for.body.i135, !llvm.loop !12
+  br i1 %exitcond30.not.i, label %bcread_dbg.exit, label %for.body.i135, !llvm.loop !11
 
 for.body17.i:                                     ; preds = %for.body17.i, %for.body17.preheader.i
   %indvars.iv.i131 = phi i64 [ 0, %for.body17.preheader.i ], [ %indvars.iv.next.i132, %for.body17.i ]
@@ -632,7 +632,7 @@ for.body17.i:                                     ; preds = %for.body17.i, %for.
   store i32 %69, ptr %arrayidx19.i, align 4
   %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i131, 1
   %exitcond.not.i133 = icmp eq i64 %indvars.iv.next.i132, %wide.trip.count.i130
-  br i1 %exitcond.not.i133, label %bcread_dbg.exit, label %for.body17.i, !llvm.loop !13
+  br i1 %exitcond.not.i133, label %bcread_dbg.exit, label %for.body17.i, !llvm.loop !12
 
 bcread_dbg.exit:                                  ; preds = %for.body17.i, %for.body.i135, %if.then52, %land.lhs.true.i, %for.cond14.preheader.i, %for.cond.preheader.i
   %call25.val77 = load i8, ptr %sizeuv38, align 4
@@ -655,12 +655,12 @@ while.cond.i:                                     ; preds = %while.cond.i.outer,
   %incdec.ptr.i140 = getelementptr inbounds i8, ptr %p.0.i, i64 1
   %71 = load i8, ptr %p.0.i, align 1
   %tobool2.not.i = icmp eq i8 %71, 0
-  br i1 %tobool2.not.i, label %lor.rhs.i, label %while.cond.i, !llvm.loop !14
+  br i1 %tobool2.not.i, label %lor.rhs.i, label %while.cond.i, !llvm.loop !13
 
 lor.rhs.i:                                        ; preds = %while.cond.i
   %dec.i = add nsw i32 %n.0.i.ph, -1
   %tobool3.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool3.not.i, label %bcread_varinfo.exit.loopexit, label %while.cond.i.outer, !llvm.loop !14
+  br i1 %tobool3.not.i, label %bcread_varinfo.exit.loopexit, label %while.cond.i.outer, !llvm.loop !13
 
 bcread_varinfo.exit.loopexit:                     ; preds = %lor.rhs.i
   %72 = ptrtoint ptr %incdec.ptr.i140 to i64
@@ -1252,7 +1252,7 @@ do.cond:                                          ; preds = %lj_buf_need.exit, %
   %sub.ptr.sub75 = sub i64 %sub.ptr.lhs.cast73, %sub.ptr.rhs.cast74
   %conv76 = trunc i64 %sub.ptr.sub75 to i32
   %cmp77 = icmp ult i32 %conv76, %len
-  br i1 %cmp77, label %do.body, label %do.end, !llvm.loop !15
+  br i1 %cmp77, label %do.body, label %do.end, !llvm.loop !14
 
 do.end:                                           ; preds = %do.cond, %if.end40
   ret void
@@ -1302,7 +1302,7 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
 !5 = distinct !{!5, !4}
-!6 = !{i32 0, i32 33}
+!6 = distinct !{!6, !4}
 !7 = distinct !{!7, !4}
 !8 = distinct !{!8, !4}
 !9 = distinct !{!9, !4}
@@ -1311,4 +1311,3 @@ attributes #11 = { nounwind willreturn memory(read) }
 !12 = distinct !{!12, !4}
 !13 = distinct !{!13, !4}
 !14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [35 x i8] c"Unexpected condition in ddJumping\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddAnnealing(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddAnnealing(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sub i32 %2, %1
   %5 = add i32 %4, 1
   %6 = tail call i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noundef %2) #8
@@ -391,7 +391,7 @@ siftBackwardProb.exit.thread.i:                   ; preds = %103, %100, %96, %93
 ddExchange.exit:                                  ; preds = %50
   %181 = fcmp olt double %56, 7.600000e-01
   %spec.select.spec.select126 = select i1 %181, i32 %spec.select, i32 %spec.select126
-  %182 = tail call fastcc i32 @ddJumpingAux(ptr noundef %0, i32 noundef %spec.select.spec.select126, i32 noundef %spec.select126, i32 noundef %spec.select, double noundef %.0103), !range !10
+  %182 = tail call fastcc i32 @ddJumpingAux(ptr noundef %0, i32 noundef %spec.select.spec.select126, i32 noundef %spec.select126, i32 noundef %spec.select, double noundef %.0103)
   %.not125 = icmp eq i32 %182, 0
   br i1 %.not125, label %ddExchange.exit.thread, label %ddExchange.exit.thread184
 
@@ -418,14 +418,14 @@ copyOrder.exit137:                                ; preds = %.lr.ph.i132, %ddExc
   %.2107 = phi i32 [ %.1106.mux, %ddExchange.exit.thread184 ], [ %185, %.lr.ph.i132 ]
   %188 = add nuw nsw i32 %.0100163, 1
   %exitcond.not = icmp eq i32 %188, %.098.ph
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %copyOrder.exit137, %.preheader
   %.1106.lcssa = phi i32 [ %.0105, %.preheader ], [ %.2107, %copyOrder.exit137 ]
   %.1102.lcssa = phi i32 [ %.0101, %.preheader ], [ %185, %copyOrder.exit137 ]
   %189 = fmul double %.0103, 9.000000e-01
   %190 = fcmp ult double %189, 1.000000e+00
-  br i1 %190, label %37, label %191, !llvm.loop !12
+  br i1 %190, label %37, label %191, !llvm.loop !11
 
 191:                                              ; preds = %._crit_edge
   %192 = tail call double @log(double noundef %189) #8
@@ -434,7 +434,7 @@ copyOrder.exit137:                                ; preds = %.lr.ph.i132, %ddExc
   %195 = sitofp i32 %.098.ph to double
   %196 = fmul double %194, %195
   %197 = fptosi double %196 to i32
-  br label %.outer, !llvm.loop !12
+  br label %.outer, !llvm.loop !11
 
 198:                                              ; preds = %stopping_criterion.exit
   br i1 %.not9.i, label %restoreOrder.exit.thread, label %.lr.ph31.i
@@ -468,12 +468,12 @@ copyOrder.exit137:                                ; preds = %.lr.ph.i132, %ddExc
   %213 = tail call i32 @cuddNextLow(ptr noundef %0, i32 noundef %.02127.i) #8
   %214 = sext i32 %213 to i64
   %.not23.i = icmp sgt i64 %208, %214
-  br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i140, !llvm.loop !13
+  br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i140, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %212, %200
   %indvars.iv.next.i141 = add nuw nsw i64 %indvars.iv.i139, 1
   %exitcond.not.i142 = icmp eq i64 %indvars.iv.next.i141, %wide.trip.count.i133
-  br i1 %exitcond.not.i142, label %restoreOrder.exit.thread, label %200, !llvm.loop !14
+  br i1 %exitcond.not.i142, label %restoreOrder.exit.thread, label %200, !llvm.loop !13
 
 restoreOrder.exit.thread:                         ; preds = %._crit_edge.i, %198
   tail call void @free(ptr noundef %15) #8
@@ -496,7 +496,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare i64 @Cudd_Random() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ddJumpingAux(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ddJumpingAux(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 228
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 304
@@ -556,7 +556,7 @@ define internal fastcc i32 @ddJumpingAux(ptr noundef %0, i32 noundef %1, i32 nou
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %20, i32 %.052.i)
   %35 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.03951.i) #8
   %.not.i = icmp sgt i32 %35, %3
-  br i1 %.not.i, label %.lr.ph.i58.preheader, label %19, !llvm.loop !15
+  br i1 %.not.i, label %.lr.ph.i58.preheader, label %19, !llvm.loop !14
 
 36:                                               ; preds = %22, %19
   %.not4555.i = icmp eq ptr %.04050.i, null
@@ -577,7 +577,7 @@ define internal fastcc i32 @ddJumpingAux(ptr noundef %0, i32 noundef %1, i32 nou
   store ptr %42, ptr %43, align 8
   store ptr %.256.i, ptr %37, align 8
   %.not45.i = icmp eq ptr %40, null
-  br i1 %.not45.i, label %.loopexit, label %38, !llvm.loop !16
+  br i1 %.not45.i, label %.loopexit, label %38, !llvm.loop !15
 
 .lr.ph.i58:                                       ; preds = %.lr.ph.i58.preheader, %.lr.ph.i58
   %.02639.i = phi ptr [ %47, %.lr.ph.i58 ], [ %23, %.lr.ph.i58.preheader ]
@@ -681,7 +681,7 @@ define internal fastcc i32 @ddJumpingAux(ptr noundef %0, i32 noundef %1, i32 nou
   %spec.select.i67 = tail call i32 @llvm.smin.i32(i32 %79, i32 %.052.i63)
   %94 = tail call i32 @cuddNextLow(ptr noundef nonnull %0, i32 noundef %.03951.i64) #8
   %.not.i68 = icmp slt i32 %94, %2
-  br i1 %.not.i68, label %.lr.ph.i75.preheader, label %78, !llvm.loop !17
+  br i1 %.not.i68, label %.lr.ph.i75.preheader, label %78, !llvm.loop !16
 
 95:                                               ; preds = %81, %78
   %.not4555.i70 = icmp eq ptr %.04050.i65, null
@@ -702,7 +702,7 @@ define internal fastcc i32 @ddJumpingAux(ptr noundef %0, i32 noundef %1, i32 nou
   store ptr %101, ptr %102, align 8
   store ptr %.256.i72, ptr %96, align 8
   %.not45.i73 = icmp eq ptr %99, null
-  br i1 %.not45.i73, label %.loopexit, label %97, !llvm.loop !18
+  br i1 %.not45.i73, label %.loopexit, label %97, !llvm.loop !17
 
 .lr.ph.i75:                                       ; preds = %.lr.ph.i75.preheader, %.lr.ph.i75
   %.02639.i76 = phi ptr [ %106, %.lr.ph.i75 ], [ %82, %.lr.ph.i75.preheader ]
@@ -780,7 +780,7 @@ siftBackwardProb.exit.thread:                     ; preds = %129, %70, %120, %._
   store ptr %142, ptr %143, align 8
   store ptr %.1110, ptr %137, align 8
   %.not56 = icmp eq ptr %140, null
-  br i1 %.not56, label %.loopexit, label %138, !llvm.loop !19
+  br i1 %.not56, label %.loopexit, label %138, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.lr.ph44.i83, %.lr.ph44.i
   %.2 = phi ptr [ %23, %.lr.ph44.i ], [ %82, %.lr.ph44.i83 ]
@@ -798,7 +798,7 @@ siftBackwardProb.exit.thread:                     ; preds = %129, %70, %120, %._
   store ptr %149, ptr %150, align 8
   store ptr %.3112, ptr %144, align 8
   %.not57 = icmp eq ptr %147, null
-  br i1 %.not57, label %.loopexit, label %145, !llvm.loop !20
+  br i1 %.not57, label %.loopexit, label %145, !llvm.loop !19
 
 .loopexit:                                        ; preds = %97, %145, %138, %38, %75, %95, %16, %36, %133, %15
   %.0 = phi i32 [ 1, %15 ], [ 0, %133 ], [ 0, %36 ], [ 0, %16 ], [ 0, %95 ], [ 0, %75 ], [ 0, %38 ], [ 1, %138 ], [ 0, %145 ], [ 0, %97 ]
@@ -854,7 +854,7 @@ attributes #9 = { nounwind allocsize(0) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
@@ -864,4 +864,3 @@ attributes #9 = { nounwind allocsize(0) }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}

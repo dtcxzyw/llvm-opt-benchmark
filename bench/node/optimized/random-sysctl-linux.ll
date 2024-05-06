@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @uv__random_sysctl.name = internal global [3 x i32] [i32 1, i32 40, i32 6], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__random_sysctl(ptr noundef %buf, i64 noundef %buflen) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__random_sysctl(ptr noundef %buf, i64 noundef %buflen) local_unnamed_addr #0 {
 entry:
   %args = alloca %struct.uv__sysctl_args, align 8
   %uuid = alloca [16 x i8], align 16

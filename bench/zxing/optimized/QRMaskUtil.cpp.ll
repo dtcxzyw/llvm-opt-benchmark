@@ -374,7 +374,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   %262 = ashr exact i64 %261, 32
   %263 = sub nsw i64 %252, %262
   %264 = tail call noundef i64 @llvm.abs.i64(i64 %263, i1 true)
-  %265 = mul nsw i64 %264, 10
+  %265 = mul nuw nsw i64 %264, 10
   %266 = sdiv i64 %265, %262
   %267 = trunc i64 %266 to i32
   %268 = mul i32 %267, 10

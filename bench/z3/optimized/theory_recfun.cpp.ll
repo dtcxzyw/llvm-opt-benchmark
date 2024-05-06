@@ -903,8 +903,8 @@ if.end:                                           ; preds = %entry
   %2 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %2 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %3 = getelementptr i8, ptr %atom, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %3, i64 32
+  %3 = getelementptr inbounds i8, ptr %atom, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %3, i64 32
   %cmp.not17 = icmp eq i32 %2, 0
   br i1 %cmp.not17, label %for.end, label %for.body.lr.ph
 
@@ -1128,8 +1128,8 @@ if.end:                                           ; preds = %entry
   %2 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %2 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %3 = getelementptr i8, ptr %term, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %3, i64 32
+  %3 = getelementptr inbounds i8, ptr %term, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %3, i64 32
   %cmp.not13 = icmp eq i32 %2, 0
   br i1 %cmp.not13, label %for.end, label %for.body.lr.ph
 
@@ -7383,7 +7383,7 @@ declare void @_ZN3smt7context11mk_th_axiomEiN3sat7literalES2_jP9parameter(ptr no
 declare void @_ZN3smt7context11assert_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(11616), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3smt13theory_recfun14final_check_ehEv(ptr noundef nonnull align 8 dereferenceable(212) %this) unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN3smt13theory_recfun14final_check_ehEv(ptr noundef nonnull align 8 dereferenceable(212) %this) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 176

@@ -211,22 +211,22 @@ if.end44.i:                                       ; preds = %if.then42.i, %if.th
 for.end50.i:                                      ; preds = %if.end44.i
   store i8 %19, ptr %logs, align 8
   %candidate.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %logs, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %candidate.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) %candidate.sroa.5.i, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %candidate.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) %candidate.sroa.5.i, i64 3, i1 false)
   %candidate.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %logs, i64 4
   store i32 %candidate.sroa.6.1.i, ptr %candidate.sroa.6.0..sroa_idx.i, align 4
   %candidate.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %logs, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %candidate.sroa.7.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %candidate.sroa.7.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %candidate.sroa.7.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %candidate.sroa.7.i, i64 16, i1 false)
   %candidate.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %logs, i64 24
   store i32 %candidate.sroa.8.1.i, ptr %candidate.sroa.8.0..sroa_idx.i, align 8
   %candidate.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %logs, i64 28
   store i32 %candidate.sroa.9.1.i, ptr %candidate.sroa.9.0..sroa_idx.i, align 4
   %candidate.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %logs, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %candidate.sroa.10.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %candidate.sroa.10.i, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %candidate.sroa.10.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %candidate.sroa.10.i, i64 48, i1 false)
   %candidate.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %logs, i64 80
   store i64 %candidate.sroa.11.1.i, ptr %candidate.sroa.11.0..sroa_idx.i, align 8
   %candidate.sroa.14.0..sroa_idx.i = getelementptr inbounds i8, ptr %logs, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %candidate.sroa.14.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %candidate.sroa.14.i, i64 40, i1 false)
-  %tobool52.i = trunc i8 %19 to i1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %candidate.sroa.14.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %candidate.sroa.14.i, i64 40, i1 false)
+  %tobool52.i = trunc nuw i8 %19 to i1
   br i1 %tobool52.i, label %if.then41, label %if.end39
 
 vhdx_log_search.exit.thread:                      ; preds = %if.then3.i, %for.cond.i, %if.end22.i
@@ -464,7 +464,7 @@ if.end19.thread.i:                                ; preds = %if.end.i45
   %21 = load i64, ptr %20, align 1
   store i64 %21, ptr %call.i43, align 1
   %add.ptr.i = getelementptr i8, ptr %call.i43, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4084) %add.ptr.i, ptr noundef nonnull align 1 dereferenceable(4084) %data8.i, i64 4084, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4084) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(4084) %data8.i, i64 4084, i1 false)
   %add.ptr11.i = getelementptr i8, ptr %call.i43, i64 4092
   %22 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %23 = load i32, ptr %22, align 1
@@ -810,13 +810,13 @@ if.end96:                                         ; preds = %if.else74, %if.end9
   %add.ptr.i = getelementptr i8, ptr %sector_write.0, i64 8
   store i64 %17, ptr %16, align 1
   %data1.i = getelementptr inbounds i8, ptr %data_sector.0109, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4084) %data1.i, ptr noundef nonnull align 1 dereferenceable(4084) %add.ptr.i, i64 4084, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4084) %data1.i, ptr noundef nonnull readonly align 1 dereferenceable(4084) %add.ptr.i, i64 4084, i1 false)
   %add.ptr2.i = getelementptr i8, ptr %sector_write.0, i64 4092
   %18 = getelementptr inbounds i8, ptr %new_desc.0108, i64 4
   %19 = load i32, ptr %add.ptr2.i, align 1
   store i32 %19, ptr %18, align 1
   %shr.i = lshr i64 %15, 32
-  %conv.i = trunc i64 %shr.i to i32
+  %conv.i = trunc nuw i64 %shr.i to i32
   %sequence_high.i = getelementptr inbounds i8, ptr %data_sector.0109, i64 4
   store i32 %conv.i, ptr %sequence_high.i, align 1
   %conv5.i = trunc i64 %15 to i32
@@ -996,7 +996,7 @@ if.end12.i:                                       ; preds = %if.end.i
   %arrayidx.i = getelementptr [2 x ptr], ptr %headers.i, i64 0, i64 %idxprom.i
   %10 = load ptr, ptr %arrayidx.i, align 8
   %log_guid13.i = getelementptr inbounds i8, ptr %10, i64 48
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %log_guid.i, ptr noundef nonnull dereferenceable(16) %log_guid13.i, i64 16)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %log_guid.i, ptr noundef nonnull dereferenceable(16) %log_guid13.i, i64 16)
   %cmp14.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp14.i, label %vhdx_log_hdr_is_valid.exit, label %inc_and_exit
 
@@ -1180,7 +1180,7 @@ if.end12.i:                                       ; preds = %if.end.i
   %arrayidx.i = getelementptr [2 x ptr], ptr %headers.i, i64 0, i64 %idxprom.i
   %11 = load ptr, ptr %arrayidx.i, align 8
   %log_guid13.i = getelementptr inbounds i8, ptr %11, i64 48
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %log_guid.i, ptr noundef nonnull dereferenceable(16) %log_guid13.i, i64 16)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %log_guid.i, ptr noundef nonnull dereferenceable(16) %log_guid13.i, i64 16)
   %cmp14.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp14.i, label %vhdx_log_hdr_is_valid.exit, label %exit
 

@@ -1877,7 +1877,7 @@ define internal void @iostat_draw(ptr nocapture noundef readonly %0) #0 {
   %31 = udiv i64 %20, 1000000
   %32 = trunc i64 %31 to i32
   %33 = urem i64 %20, 1000000
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw nsw i64 %33 to i32
   %35 = and i64 %31, 4294967295
   br label %.lr.ph.i
 
@@ -1973,7 +1973,7 @@ magnitude.exit608:                                ; preds = %.lr.ph.i603, %44
   %69 = udiv i64 %68, 1000000
   %70 = trunc i64 %69 to i32
   %71 = urem i64 %68, 1000000
-  %72 = trunc i64 %71 to i32
+  %72 = trunc nuw nsw i64 %71 to i32
   %73 = and i64 %69, 4294967295
   br label %.lr.ph.i609
 
@@ -2425,7 +2425,7 @@ magnitude.exit650:                                ; preds = %.lr.ph.i645, %196
   %274 = trunc i64 %273 to i32
   %275 = urem i64 %spec.select, 1000000
   %276 = udiv i64 %275, %.0518.lcssa
-  %277 = trunc i64 %276 to i32
+  %277 = trunc nuw nsw i64 %276 to i32
   %278 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %272, i32 noundef %274, i32 noundef %277, ptr noundef %266)
   br label %279
 
@@ -2449,7 +2449,7 @@ magnitude.exit650:                                ; preds = %.lr.ph.i645, %196
   %288 = icmp eq i64 %indvars.iv780, 0
   %289 = select i1 %288, ptr @.str.48, ptr @.str.49
   %indvars.iv.next781 = add nuw nsw i64 %indvars.iv780, 1
-  %290 = trunc i64 %indvars.iv.next781 to i32
+  %290 = trunc nuw i64 %indvars.iv.next781 to i32
   %291 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %289, i32 noundef %290)
   %292 = load ptr, ptr %283, align 8
   %293 = getelementptr ptr, ptr %292, i64 %indvars.iv780
@@ -2585,7 +2585,7 @@ magnitude.exit650:                                ; preds = %.lr.ph.i645, %196
   %355 = zext i32 %354 to i64
   %356 = getelementptr i8, ptr %.sink823, i64 %355
   %indvars.iv.next787 = add nuw nsw i64 %indvars.iv786, 1
-  %357 = trunc i64 %indvars.iv.next787 to i32
+  %357 = trunc nuw i64 %indvars.iv.next787 to i32
   %358 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %357, ptr noundef %356)
   %exitcond790.not = icmp eq i64 %indvars.iv.next787, %10
   br i1 %exitcond790.not, label %._crit_edge724, label %.lr.ph723, !llvm.loop !26
@@ -2608,7 +2608,7 @@ magnitude.exit650:                                ; preds = %.lr.ph.i645, %196
   br i1 %367, label %switch.hole_check, label %371
 
 switch.hole_check:                                ; preds = %365
-  %switch.maskindex = trunc i32 %366 to i16
+  %switch.maskindex = trunc nuw i32 %366 to i16
   %switch.shifted = lshr i16 1807, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %371
@@ -2652,7 +2652,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %or.cond.i, label %384, label %395
 
 384:                                              ; preds = %380
-  %385 = trunc i32 %382 to i8
+  %385 = trunc nuw i32 %382 to i8
   %.neg.lhs.trunc.i = add nsw i8 %385, -6
   %.neg20.i = sdiv i8 %.neg.lhs.trunc.i, -2
   %narrow.i = add nsw i8 %.neg20.i, 5
@@ -2694,7 +2694,7 @@ printcenter.exit:                                 ; preds = %390, %392, %395, %3
   br i1 %or.cond.i651, label %403, label %414
 
 403:                                              ; preds = %399
-  %404 = trunc i32 %401 to i8
+  %404 = trunc nuw i32 %401 to i8
   %.neg.lhs.trunc.i653 = add nsw i8 %404, -6
   %.neg20.i654 = sdiv i8 %.neg.lhs.trunc.i653, -2
   %narrow.i655 = add nsw i8 %.neg20.i654, 5
@@ -3096,12 +3096,12 @@ printcenter.exit668:                              ; preds = %451, %453, %456, %4
 612:                                              ; preds = %598
   %613 = trunc i64 %500 to i32
   %614 = udiv i64 %501, %.0518.lcssa
-  %615 = trunc i64 %614 to i32
+  %615 = trunc nuw nsw i64 %614 to i32
   %616 = udiv i64 %.0517, 1000000
   %617 = trunc i64 %616 to i32
   %618 = urem i64 %.0517, 1000000
   %619 = udiv i64 %618, %.0518.lcssa
-  %620 = trunc i64 %619 to i32
+  %620 = trunc nuw nsw i64 %619 to i32
   %621 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %599, i32 noundef %613, i32 noundef %615, i32 noundef %617, i32 noundef %620)
   br label %622
 
@@ -3190,7 +3190,7 @@ printcenter.exit668:                              ; preds = %451, %453, %456, %4
   %666 = udiv i64 %664, 1000000000
   %667 = trunc i64 %666 to i32
   %668 = urem i64 %665, 1000000
-  %669 = trunc i64 %668 to i32
+  %669 = trunc nuw nsw i64 %668 to i32
   %670 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %626, i32 noundef %667, i32 noundef %669)
   br label %737
 
@@ -3243,7 +3243,7 @@ printcenter.exit668:                              ; preds = %451, %453, %456, %4
   %703 = udiv i64 %701, 1000000000
   %704 = trunc i64 %703 to i32
   %705 = urem i64 %702, 1000000
-  %706 = trunc i64 %705 to i32
+  %706 = trunc nuw nsw i64 %705 to i32
   %707 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %626, i32 noundef %704, i32 noundef %706)
   br label %737
 

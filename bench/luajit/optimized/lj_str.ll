@@ -125,13 +125,13 @@ return:                                           ; preds = %if.end, %while.body
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lj_str_haspattern(ptr noundef readonly %s) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @lj_str_haspattern(ptr noundef readonly %s) local_unnamed_addr #1 {
 entry:
   %len = getelementptr inbounds i8, ptr %s, i64 20
   %0 = load i32, ptr %len, align 4
   %idx.ext = zext i32 %0 to i64
-  %1 = getelementptr i8, ptr %s, i64 %idx.ext
-  %add.ptr1.ptr = getelementptr i8, ptr %1, i64 24
+  %1 = getelementptr inbounds i8, ptr %s, i64 %idx.ext
+  %add.ptr1.ptr = getelementptr inbounds i8, ptr %1, i64 24
   %cmp5.not = icmp eq i32 %0, 0
   br i1 %cmp5.not, label %return, label %while.body.preheader
 
@@ -379,7 +379,7 @@ if.then86:                                        ; preds = %if.then73
   %len91 = getelementptr inbounds i8, ptr %o54.0154, i64 20
   %32 = load i32, ptr %len91, align 4
   %shr.i83 = lshr i64 %31, 32
-  %conv.i84 = trunc i64 %shr.i83 to i32
+  %conv.i84 = trunc nuw i64 %shr.i83 to i32
   %xor.i85 = xor i32 %28, %conv.i84
   %or.i86 = tail call i32 @llvm.fshl.i32(i32 %xor.i85, i32 %xor.i85, i32 4)
   %33 = tail call i32 @llvm.bswap.i32(i32 %or.i86)
@@ -588,7 +588,7 @@ entry:
 if.then.lr.ph:                                    ; preds = %entry
   %invariant.gep145 = getelementptr i8, ptr %str, i64 -1
   %invariant.gep = getelementptr i8, ptr %str, i64 -2
-  %conv = trunc i64 %lenx to i32
+  %conv = trunc nuw i64 %lenx to i32
   %cmp.i = icmp ugt i32 %conv, 3
   %add.ptr18.i = getelementptr inbounds i8, ptr %str, i64 %lenx
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr18.i, i64 -1
@@ -667,7 +667,7 @@ hash_sparse.exit:                                 ; preds = %if.then.i, %if.else
 
 if.then8:                                         ; preds = %hash_sparse.exit
   %shr.i39 = lshr i64 %5, 32
-  %conv.i40 = trunc i64 %shr.i39 to i32
+  %conv.i40 = trunc nuw i64 %shr.i39 to i32
   %xor.i41 = xor i32 %sub45.i, %conv.i40
   %or.i42 = tail call i32 @llvm.fshl.i32(i32 %xor.i41, i32 %xor.i41, i32 4)
   %16 = tail call i32 @llvm.bswap.i32(i32 %or.i42)
@@ -872,7 +872,7 @@ if.then30.i:                                      ; preds = %if.end27.i
   %len32.i = getelementptr inbounds i8, ptr %o.0.i143, i64 20
   %47 = load i32, ptr %len32.i, align 4
   %shr.i77 = lshr i64 %46, 32
-  %conv.i78 = trunc i64 %shr.i77 to i32
+  %conv.i78 = trunc nuw i64 %shr.i77 to i32
   %xor.i79 = xor i32 %44, %conv.i78
   %or.i80 = tail call i32 @llvm.fshl.i32(i32 %xor.i79, i32 %xor.i79, i32 4)
   %48 = tail call i32 @llvm.bswap.i32(i32 %or.i80)
@@ -980,7 +980,7 @@ if.then.i75:                                      ; preds = %if.end62
   %call8.i = tail call i64 @lj_prng_u64(ptr noundef nonnull %prng.i) #12
   %conv9.i = trunc i64 %call8.i to i32
   %shr.i76 = lshr i64 %call8.i, 56
-  %conv11.i = trunc i64 %shr.i76 to i8
+  %conv11.i = trunc nuw i64 %shr.i76 to i8
   store i8 %conv11.i, ptr %idreseed.i, align 4
   br label %if.end.i
 
@@ -998,7 +998,7 @@ if.end.i:                                         ; preds = %if.then.i75, %entry
   %add.ptr.i67 = getelementptr inbounds i8, ptr %call.i61, i64 24
   %add.ptr19.i69 = getelementptr inbounds i8, ptr %add.ptr.i67, i64 %idx.ext.i68
   store i32 0, ptr %add.ptr19.i69, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i67, ptr align 1 %str, i64 %lenx, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i67, ptr readonly align 1 %str, i64 %lenx, i1 false)
   %mask.i70 = getelementptr inbounds i8, ptr %54, i64 160
   %59 = load i32, ptr %mask.i70, align 8
   %and23.i = and i32 %59, %hash.0

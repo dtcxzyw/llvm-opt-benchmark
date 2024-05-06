@@ -2160,7 +2160,7 @@ declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) 
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_wassp_static(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_wassp_static(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %6 = icmp ult i32 %5, 8
   br i1 %6, label %test_wassp.exit.thread, label %test_wassp.exit
@@ -2217,7 +2217,7 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_wassp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_wassp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %6 = icmp ult i32 %5, 8
   br i1 %6, label %test_wassp.exit.thread, label %test_wassp.exit
@@ -2507,7 +2507,7 @@ define internal fastcc void @dissect_wassp(ptr noundef %0, ptr noundef %1, ptr n
 
 126:                                              ; preds = %119
   %127 = add nuw nsw i32 %.1141, 28
-  %128 = tail call fastcc i32 @decode_lbs_tag_header(ptr noundef nonnull %31, ptr noundef %.0108140, i32 noundef %127), !range !4
+  %128 = tail call fastcc i32 @decode_lbs_tag_header(ptr noundef nonnull %31, ptr noundef %.0108140, i32 noundef %127)
   br label %137
 
 129:                                              ; preds = %110
@@ -2578,7 +2578,7 @@ declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr nound
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decode_lbs_tag_header(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 92, 109) i32 @decode_lbs_tag_header(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_aeroscout_header, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 64, i32 noundef 0) #5
   %6 = load i32, ptr @ett_wassp_header, align 4
@@ -2812,7 +2812,7 @@ define internal fastcc i32 @dissect_wassp_mu(ptr noundef %0, ptr noundef %1, ptr
   %119 = add i16 %.088.i, 1
   %120 = zext i16 %119 to i32
   %.not85.i = icmp ult i32 %74, %120
-  br i1 %.not85.i, label %dissect_mu_netflow.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not85.i, label %dissect_mu_netflow.exit, label %.lr.ph.i, !llvm.loop !4
 
 121:                                              ; preds = %53
   %122 = add nuw nsw i32 %70, %72
@@ -3722,7 +3722,7 @@ define internal fastcc noundef i32 @dissect_wassp_tlv(ptr noundef %0, ptr nounde
   %315 = add i32 %.089.i, 6
   %316 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %316, %311
-  br i1 %exitcond.not.i, label %decode_mac_list_struct.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %decode_mac_list_struct.exit, label %.lr.ph.i, !llvm.loop !6
 
 317:                                              ; preds = %29
   %318 = load i32, ptr @hf_wassp_tlv_value_octext, align 4
@@ -3766,7 +3766,7 @@ define internal fastcc noundef i32 @dissect_wassp_tlv(ptr noundef %0, ptr nounde
   %349 = add i32 %.01213.i, 4
   %350 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i513 = icmp eq i32 %350, %342
-  br i1 %exitcond.not.i513, label %decode_mac_list_struct.exit, label %.lr.ph.i512, !llvm.loop !8
+  br i1 %exitcond.not.i513, label %decode_mac_list_struct.exit, label %.lr.ph.i512, !llvm.loop !7
 
 351:                                              ; preds = %29
   %352 = load i32, ptr @hf_wassp_tlv_value_octext, align 4
@@ -3785,7 +3785,7 @@ define internal fastcc noundef i32 @dissect_wassp_tlv(ptr noundef %0, ptr nounde
   %360 = add i32 %.089.i516, 2
   %361 = add nuw nsw i32 %.010.i515, 1
   %exitcond.not.i517 = icmp eq i32 %361, %356
-  br i1 %exitcond.not.i517, label %decode_mac_list_struct.exit, label %.lr.ph.i514, !llvm.loop !9
+  br i1 %exitcond.not.i517, label %decode_mac_list_struct.exit, label %.lr.ph.i514, !llvm.loop !8
 
 362:                                              ; preds = %29
   %363 = load i32, ptr @hf_wassp_tlv_value_octext, align 4
@@ -3804,7 +3804,7 @@ define internal fastcc noundef i32 @dissect_wassp_tlv(ptr noundef %0, ptr nounde
   %371 = add i32 %.089.i520, 4
   %372 = add nuw nsw i32 %.010.i519, 1
   %exitcond.not.i521 = icmp eq i32 %372, %367
-  br i1 %exitcond.not.i521, label %decode_mac_list_struct.exit, label %.lr.ph.i518, !llvm.loop !10
+  br i1 %exitcond.not.i521, label %decode_mac_list_struct.exit, label %.lr.ph.i518, !llvm.loop !9
 
 373:                                              ; preds = %29
   %374 = load i32, ptr @hf_wassp_tlv_value_octext, align 4
@@ -3839,7 +3839,7 @@ define internal fastcc noundef i32 @dissect_wassp_tlv(ptr noundef %0, ptr nounde
   %396 = tail call ptr @proto_tree_add_item(ptr noundef %379, i32 noundef %395, ptr noundef %1, i32 noundef %394, i32 noundef 4, i32 noundef 0) #5
   %397 = add i32 %.03032.i, 1
   %.not.i = icmp sgt i32 %397, %380
-  br i1 %.not.i, label %decode_mac_list_struct.exit, label %.lr.ph.i522, !llvm.loop !11
+  br i1 %.not.i, label %decode_mac_list_struct.exit, label %.lr.ph.i522, !llvm.loop !10
 
 398:                                              ; preds = %29
   %399 = load i32, ptr @hf_wassp_tlv_value_int, align 4
@@ -3886,7 +3886,7 @@ decode_mac_list_struct.exit:                      ; preds = %.lr.ph.i522, %.lr.p
   %.2 = phi i32 [ %422, %419 ], [ %.1507, %decode_mac_list_struct.exit ], [ %45, %37 ], [ %51, %46 ], [ %57, %52 ], [ %61, %58 ], [ %68, %62 ], [ %77, %69 ], [ %83, %78 ], [ %89, %84 ], [ %95, %90 ], [ %99, %96 ], [ %103, %100 ], [ %107, %104 ], [ %111, %108 ], [ %115, %112 ], [ %119, %116 ], [ %123, %120 ], [ %127, %124 ], [ %131, %128 ], [ %135, %132 ], [ %139, %136 ], [ %143, %140 ], [ %147, %144 ], [ %151, %148 ], [ %155, %152 ], [ %159, %156 ], [ %163, %160 ], [ %167, %164 ], [ %171, %168 ], [ %175, %172 ], [ %179, %176 ], [ %183, %180 ], [ %187, %184 ], [ %191, %188 ], [ %195, %192 ], [ %199, %196 ], [ %203, %200 ], [ %207, %204 ], [ %211, %208 ], [ %215, %212 ], [ %219, %216 ], [ %223, %220 ], [ %227, %224 ], [ %231, %228 ], [ %235, %232 ], [ %239, %236 ], [ %243, %240 ], [ %247, %244 ], [ %251, %248 ], [ %255, %252 ], [ %259, %256 ], [ %263, %260 ], [ %267, %264 ], [ %271, %268 ], [ %275, %272 ], [ %279, %276 ], [ %283, %280 ], [ %287, %284 ], [ %291, %288 ], [ %295, %292 ], [ %299, %296 ], [ %305, %300 ], [ %336, %317 ], [ %408, %398 ], [ %417, %409 ], [ %.1507541, %decode_mac_list_struct.exit.thread ]
   %423 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.2) #5
   %424 = icmp ugt i32 %423, 3
-  br i1 %424, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %424, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.thread, %5
   %.0506.lcssa = phi i32 [ %3, %5 ], [ %.2, %.thread ]
@@ -3967,7 +3967,7 @@ define internal fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %0, ptr noundef %1
   %.0230.be = phi i32 [ %53, %43 ], [ %85, %84 ], [ %192, %decode_ipv4_list_struct.exit ], [ %200, %197 ], [ %205, %201 ]
   %54 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.0230.be) #5
   %55 = icmp ugt i32 %54, 3
-  br i1 %55, label %33, label %.critedge, !llvm.loop !13
+  br i1 %55, label %33, label %.critedge, !llvm.loop !12
 
 56:                                               ; preds = %37
   br i1 %24, label %wassp_match_strval.exit, label %57
@@ -4112,7 +4112,7 @@ wassp_type_converter.exit:                        ; preds = %104, %110, %111, %1
   %125 = add i32 %.0263, 4
   %126 = add nuw i32 %.0229262, 1
   %exitcond.not = icmp eq i32 %126, %119
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %wassp_type_converter.exit
   br i1 %29, label %127, label %decode_rate_limit_struct.exit
@@ -4153,7 +4153,7 @@ wassp_type_converter.exit:                        ; preds = %104, %110, %111, %1
   %148 = add i32 %.01213.i, 4
   %149 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %149, %141
-  br i1 %exitcond.not.i, label %decode_rate_limit_struct.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %decode_rate_limit_struct.exit, label %.lr.ph.i, !llvm.loop !7
 
 decode_rate_limit_struct.exit:                    ; preds = %.lr.ph.i, %.loopexit
   br i1 %or.cond10, label %150, label %154
@@ -4191,7 +4191,7 @@ decode_rate_limit_struct.exit:                    ; preds = %.lr.ph.i, %.loopexi
   %161 = add i32 %.089.i, 2
   %162 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i244 = icmp eq i32 %162, %157
-  br i1 %exitcond.not.i244, label %decode_Channel_list.exit, label %.lr.ph.i243, !llvm.loop !9
+  br i1 %exitcond.not.i244, label %decode_Channel_list.exit, label %.lr.ph.i243, !llvm.loop !8
 
 decode_Channel_list.exit:                         ; preds = %.lr.ph.i243, %153, %154
   switch i32 %4, label %decode_mac_list_struct.exit [
@@ -4237,7 +4237,7 @@ decode_Channel_list.exit:                         ; preds = %.lr.ph.i243, %153, 
   %179 = add i32 %.089.i247, 6
   %180 = add nuw nsw i32 %.010.i246, 1
   %exitcond.not.i248 = icmp eq i32 %180, %175
-  br i1 %exitcond.not.i248, label %decode_mac_list_struct.exit, label %.lr.ph.i245, !llvm.loop !7
+  br i1 %exitcond.not.i248, label %decode_mac_list_struct.exit, label %.lr.ph.i245, !llvm.loop !6
 
 decode_mac_list_struct.exit:                      ; preds = %.lr.ph.i245, %decode_Channel_list.exit
   %181 = icmp eq i16 %.0231, 333
@@ -4257,7 +4257,7 @@ decode_mac_list_struct.exit:                      ; preds = %.lr.ph.i245, %decod
   %187 = add i32 %.089.i251, 4
   %188 = add nuw nsw i32 %.010.i250, 1
   %exitcond.not.i252 = icmp eq i32 %188, %183
-  br i1 %exitcond.not.i252, label %decode_ipv4_list_struct.exit, label %.lr.ph.i249, !llvm.loop !10
+  br i1 %exitcond.not.i252, label %decode_ipv4_list_struct.exit, label %.lr.ph.i249, !llvm.loop !9
 
 decode_ipv4_list_struct.exit.sink.split:          ; preds = %167, %164, %128
   %.sink = phi i32 [ 8, %128 ], [ 6, %164 ], [ 6, %167 ]
@@ -4375,7 +4375,7 @@ define internal fastcc void @decode_filter_rule_octext_string(ptr noundef %0, pt
   %65 = add i32 %.0164171, 36
   %66 = add nuw nsw i32 %.0161172, 1
   %exitcond.not = icmp eq i32 %66, %17
-  br i1 %exitcond.not, label %.loopexit170, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit170, label %.lr.ph, !llvm.loop !14
 
 .loopexit170:                                     ; preds = %.lr.ph, %4
   %67 = and i32 %.2, 1
@@ -4429,7 +4429,7 @@ define internal fastcc void @decode_filter_rule_octext_string(ptr noundef %0, pt
   %105 = add i32 %.1165173, 20
   %106 = add nuw nsw i32 %.1162174, 1
   %exitcond180.not = icmp eq i32 %106, %69
-  br i1 %exitcond180.not, label %.loopexit169, label %.lr.ph175, !llvm.loop !16
+  br i1 %exitcond180.not, label %.loopexit169, label %.lr.ph175, !llvm.loop !15
 
 .loopexit169:                                     ; preds = %.lr.ph175, %.loopexit170
   %107 = and i32 %.2, 2
@@ -4468,7 +4468,7 @@ define internal fastcc void @decode_filter_rule_octext_string(ptr noundef %0, pt
   %130 = add i32 %.2166176, 16
   %131 = add nuw nsw i32 %.2163177, 1
   %exitcond182.not = icmp eq i32 %131, %109
-  br i1 %exitcond182.not, label %.loopexit, label %.lr.ph178, !llvm.loop !17
+  br i1 %exitcond182.not, label %.loopexit, label %.lr.ph178, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph178, %.loopexit169
   ret void
@@ -4492,17 +4492,16 @@ attributes #6 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 92, i32 109}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

@@ -650,7 +650,7 @@ define internal noundef zeroext i1 @_server_writable(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_server_read(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 -1, 1) i32 @_server_read(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @get_log_level() #10
@@ -1013,7 +1013,7 @@ define internal noundef i32 @_server_read(ptr nocapture noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_server_write(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 -1, 1) i32 @_server_write(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @get_log_level() #10
@@ -1262,7 +1262,7 @@ define internal noundef zeroext i1 @_file_writable(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_file_write(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 -1, 1) i32 @_file_write(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @get_log_level() #10
@@ -1771,7 +1771,7 @@ define internal noundef i32 @_file_read(ptr nocapture noundef readonly %0, ptr n
   br i1 %119, label %120, label %127
 
 120:                                              ; preds = %117
-  %121 = trunc i64 %indvars.iv to i32
+  %121 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.74, i32 noundef %121) #10
   br label %127
 
@@ -1893,7 +1893,7 @@ _wid.exit:                                        ; preds = %.lr.ph.i, %7, %14
   %24 = tail call i64 @div(i32 noundef %2, i32 noundef 48) #11
   %.sroa.01.0.extract.trunc.i = trunc i64 %24 to i32
   %.sroa.3.0.extract.shift.i = lshr i64 %24, 32
-  %.sroa.3.0.extract.trunc.i = trunc i64 %.sroa.3.0.extract.shift.i to i32
+  %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
   %25 = icmp sgt i32 %.sroa.3.0.extract.trunc.i, 0
   %26 = zext i1 %25 to i32
   %27 = add nsw i32 %26, %.sroa.01.0.extract.trunc.i
@@ -2801,7 +2801,7 @@ define void @client_io_handler_abort(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @client_io_handler_send_test_message(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @client_io_handler_send_test_message(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.io_hdr_t, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 160
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #10

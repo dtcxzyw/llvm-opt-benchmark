@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_readytorun = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unsetenv(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @unsetenv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @g_readytorun, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 16

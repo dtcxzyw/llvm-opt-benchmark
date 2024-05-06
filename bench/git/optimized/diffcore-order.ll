@@ -191,7 +191,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %match_order.exit ]
   %arrayidx = getelementptr inbounds %struct.obj_order, ptr %objs, i64 %indvars.iv
   %orig_order = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %7, ptr %orig_order, align 8
   %8 = load ptr, ptr %arrayidx, align 8
   %call = call ptr %obj_path(ptr noundef %8) #11
@@ -253,7 +253,7 @@ for.inc.i:                                        ; preds = %if.end6.i, %if.end.
   br i1 %cmp.i14, label %for.body.i, label %match_order.exit, !llvm.loop !10
 
 return.loopexit.i:                                ; preds = %while.body.i
-  %22 = trunc i64 %indvars.iv.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %match_order.exit
 
 match_order.exit:                                 ; preds = %for.inc.i, %for.body, %return.loopexit.i

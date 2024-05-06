@@ -57,7 +57,7 @@ define dso_local i32 @acpi_ex_system_wait_mutex(ptr noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ex_system_do_stall(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12293) i32 @acpi_ex_system_do_stall(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp ugt i32 %0, 255
   br i1 %2, label %3, label %4
 

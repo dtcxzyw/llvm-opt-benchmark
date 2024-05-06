@@ -58,7 +58,7 @@ define void @_ZN7RarTime8GetLocalEP12RarLocalTime(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN7RarTime7GetUnixEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define noundef range(i64 0, 18446744074) i64 @_ZN7RarTime7GetUnixEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = add i64 %2, 6802270473709551616
   %4 = udiv i64 %3, 1000000000
@@ -106,7 +106,7 @@ define void @_ZN7RarTime7SetUnixEl(ptr nocapture noundef nonnull writeonly align
 declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN7RarTime6GetWinEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define noundef range(i64 0, 184467440737095517) i64 @_ZN7RarTime6GetWinEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = udiv i64 %2, 100
   ret i64 %3

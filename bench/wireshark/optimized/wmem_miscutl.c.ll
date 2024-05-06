@@ -34,7 +34,7 @@ define noundef i32 @wmem_compare_int(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @wmem_compare_uint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @wmem_compare_uint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = ptrtoint ptr %0 to i64
   %4 = trunc i64 %3 to i32
   %5 = ptrtoint ptr %1 to i64

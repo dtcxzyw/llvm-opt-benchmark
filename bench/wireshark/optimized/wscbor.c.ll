@@ -241,7 +241,7 @@ wscbor_head_read.exit:                            ; preds = %32, %35, %.sink.spl
   br label %wscbor_get_length.exit
 
 72:                                               ; preds = %67
-  %73 = trunc i64 %62 to i32
+  %73 = trunc nuw nsw i64 %62 to i32
   br label %wscbor_get_length.exit
 
 wscbor_get_length.exit:                           ; preds = %69, %72
@@ -368,7 +368,7 @@ wscbor_get_length.exit125.thread:                 ; preds = %121
   br label %135
 
 wscbor_get_length.exit125:                        ; preds = %121
-  %131 = trunc i64 %123 to i32
+  %131 = trunc nuw nsw i64 %123 to i32
   %132 = load i32, ptr %2, align 4
   %133 = add i32 %132, %131
   store i32 %133, ptr %2, align 4
@@ -499,7 +499,7 @@ declare void @wmem_destroy_list(ptr noundef) local_unnamed_addr #1
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @wscbor_chunk_mark_errors(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @wscbor_chunk_mark_errors(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.wscbor_expert_add_t, align 8
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -551,7 +551,7 @@ define i32 @wscbor_has_errors(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @wscbor_is_indefinite_break(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @wscbor_is_indefinite_break(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 7
@@ -570,13 +570,13 @@ define i32 @wscbor_is_indefinite_break(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wscbor_skip_next_item(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null), !range !4
+define range(i32 0, 2) i32 @wscbor_skip_next_item(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call ptr @wscbor_chunk_read(ptr noundef %0, ptr noundef %1, ptr noundef %2)
@@ -609,14 +609,14 @@ define internal fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr n
   br label %20
 
 20:                                               ; preds = %22, %19
-  %21 = call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5), !range !4
+  %21 = call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   %.not42 = icmp eq i32 %21, 0
   br i1 %.not42, label %.loopexit, label %22
 
 22:                                               ; preds = %20
   %23 = load i32, ptr %5, align 4
   %.not43 = icmp eq i32 %23, 0
-  br i1 %.not43, label %20, label %thread-pre-split, !llvm.loop !5
+  br i1 %.not43, label %20, label %thread-pre-split, !llvm.loop !4
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds i8, ptr %7, i64 48
@@ -627,11 +627,11 @@ define internal fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr n
 27:                                               ; preds = %.lr.ph
   %28 = add nuw i64 %.03955, 1
   %exitcond.not = icmp eq i64 %28, %26
-  br i1 %exitcond.not, label %thread-pre-split, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %thread-pre-split, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %24, %27
   %.03955 = phi i64 [ %28, %27 ], [ 0, %24 ]
-  %29 = tail call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null), !range !4
+  %29 = tail call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   %.not41 = icmp eq i32 %29, 0
   br i1 %.not41, label %.loopexit, label %27
 
@@ -646,14 +646,14 @@ define internal fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr n
   br label %35
 
 35:                                               ; preds = %37, %34
-  %36 = call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6), !range !4
+  %36 = call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %.not46 = icmp eq i32 %36, 0
   br i1 %.not46, label %.loopexit, label %37
 
 37:                                               ; preds = %35
   %38 = load i32, ptr %6, align 4
   %.not47 = icmp eq i32 %38, 0
-  br i1 %.not47, label %35, label %thread-pre-split, !llvm.loop !8
+  br i1 %.not47, label %35, label %thread-pre-split, !llvm.loop !7
 
 39:                                               ; preds = %30
   %40 = getelementptr inbounds i8, ptr %7, i64 48
@@ -664,16 +664,16 @@ define internal fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr n
 42:                                               ; preds = %45
   %43 = add nuw i64 %.03856, 1
   %exitcond66.not = icmp eq i64 %43, %41
-  br i1 %exitcond66.not, label %thread-pre-split, label %.lr.ph57, !llvm.loop !9
+  br i1 %exitcond66.not, label %thread-pre-split, label %.lr.ph57, !llvm.loop !8
 
 .lr.ph57:                                         ; preds = %39, %42
   %.03856 = phi i64 [ %43, %42 ], [ 0, %39 ]
-  %44 = tail call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null), !range !4
+  %44 = tail call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   %.not44 = icmp eq i32 %44, 0
   br i1 %.not44, label %.loopexit, label %45
 
 45:                                               ; preds = %.lr.ph57
-  %46 = tail call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null), !range !4
+  %46 = tail call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   %.not45 = icmp eq i32 %46, 0
   br i1 %.not45, label %.loopexit, label %42
 
@@ -715,7 +715,7 @@ wscbor_is_indefinite_break.exit:                  ; preds = %47, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wscbor_skip_if_errors(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wscbor_skip_if_errors(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @wmem_list_count(ptr noundef %6) #8
@@ -726,7 +726,7 @@ define noundef i32 @wscbor_skip_if_errors(ptr noundef %0, ptr noundef %1, ptr no
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   %11 = load i32, ptr %10, align 8
   store i32 %11, ptr %2, align 4
-  %12 = tail call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null), !range !4
+  %12 = tail call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null)
   br label %13
 
 13:                                               ; preds = %4, %9
@@ -767,7 +767,7 @@ define noundef nonnull ptr @wscbor_expert_items(ptr noundef writeonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wscbor_require_major_type(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wscbor_require_major_type(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, %1
@@ -788,7 +788,7 @@ define noundef i32 @wscbor_require_major_type(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wscbor_require_array(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wscbor_require_array(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 4
@@ -809,7 +809,7 @@ wscbor_require_major_type.exit:                   ; preds = %1, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wscbor_require_array_size(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wscbor_require_array_size(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 4
@@ -847,7 +847,7 @@ wscbor_require_array.exit:                        ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wscbor_require_map(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @wscbor_require_map(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 5
@@ -1280,7 +1280,7 @@ define ptr @proto_tree_add_cbor_bitmask(ptr noundef %0, i32 noundef %1, i32 noun
   br label %44
 
 switch.hole_check:                                ; preds = %8
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %14
@@ -1313,7 +1313,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i8 %25, ptr %26, align 1
   %27 = lshr i64 %.03133, 8
   %28 = icmp ugt i64 %indvars.iv, 1
-  br i1 %28, label %24, label %29, !llvm.loop !10
+  br i1 %28, label %24, label %29, !llvm.loop !9
 
 29:                                               ; preds = %24
   %30 = tail call ptr @tvb_new_child_real_data(ptr noundef %5, ptr noundef nonnull %21, i32 noundef %switch.load, i32 noundef %switch.load) #8
@@ -1577,10 +1577,9 @@ attributes #10 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

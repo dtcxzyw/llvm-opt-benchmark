@@ -191,7 +191,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp8, label %if.then10, label %for.inc
 
 if.then10:                                        ; preds = %for.body
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %inc = add nuw nsw i32 %6, 1
   %.pre = load i32, ptr %ibuf_len, align 8
   br label %for.end
@@ -206,7 +206,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %9, label %for.body, label %for.end.loopexit, !llvm.loop !4
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %10 = trunc i64 %indvars.iv.next to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then2, %if.then10
@@ -395,7 +395,7 @@ return:                                           ; preds = %if.end4, %if.end13,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @readbuffer_new(ptr nocapture noundef writeonly %bi) #2 {
+define internal range(i32 0, 2) i32 @readbuffer_new(ptr nocapture noundef writeonly %bi) #2 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str.1, i32 noundef 55) #5
   %cmp = icmp eq ptr %call, null
@@ -428,7 +428,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @readbuffer_free(ptr noundef %a) #2 {
+define internal range(i32 0, 2) i32 @readbuffer_free(ptr noundef %a) #2 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end

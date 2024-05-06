@@ -604,7 +604,7 @@ declare dso_local void @hugetlb_register_node(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @compaction_register_node(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @node_read_meminfo(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @node_read_meminfo(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.sysinfo, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 648
   %6 = load i32, ptr %5, align 8
@@ -707,7 +707,7 @@ declare dso_local i64 @sum_zone_node_page_state(i32 noundef, i32 noundef) local_
 declare dso_local i32 @hugetlb_report_node_meminfo(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @node_read_numastat(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @node_read_numastat(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   tail call void @fold_vm_numa_events() #9
   %4 = getelementptr inbounds i8, ptr %0, i64 648
   %5 = load i32, ptr %4, align 8
@@ -737,7 +737,7 @@ declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local i64 @sum_zone_numa_event_state(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @node_read_distance(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @node_read_distance(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 648
   %5 = load i32, ptr %4, align 8
   %6 = load i64, ptr getelementptr inbounds ([6 x %struct.nodemask_t], ptr @node_states, i64 0, i64 1), align 8
@@ -788,7 +788,7 @@ define internal i64 @node_read_distance(ptr nocapture noundef readonly %0, ptr n
 declare dso_local i32 @__node_distance(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @node_read_vmstat(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @node_read_vmstat(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 648
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -847,7 +847,7 @@ define internal i64 @node_read_vmstat(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal i64 @cpumap_read(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) #8 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @cpumap_read(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) #8 align 16 {
   %7 = alloca [1 x %struct.cpumask], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   %8 = getelementptr inbounds i8, ptr %1, i64 648
@@ -870,7 +870,7 @@ define internal i64 @cpumap_read(ptr nocapture readnone %0, ptr nocapture nounde
 declare dso_local i32 @bitmap_print_bitmask_to_buf(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal i64 @cpulist_read(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) #8 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @cpulist_read(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) #8 align 16 {
   %7 = alloca [1 x %struct.cpumask], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   %8 = getelementptr inbounds i8, ptr %1, i64 648
@@ -893,7 +893,7 @@ define internal i64 @cpulist_read(ptr nocapture readnone %0, ptr nocapture nound
 declare dso_local i32 @bitmap_print_list_to_buf(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_node_state(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_node_state(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64

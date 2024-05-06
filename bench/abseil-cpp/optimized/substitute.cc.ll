@@ -260,7 +260,7 @@ while.body:                                       ; preds = %entry, %while.body
   %writer.021 = phi ptr [ %incdec.ptr, %while.body ], [ %arrayidx, %entry ]
   %value.020 = phi i64 [ %div, %while.body ], [ %dec.coerce0, %entry ]
   %rem = urem i64 %value.020, 10
-  %1 = trunc i64 %rem to i8
+  %1 = trunc nuw nsw i64 %rem to i8
   %conv4 = or disjoint i8 %1, 48
   %incdec.ptr = getelementptr inbounds i8, ptr %writer.021, i64 -1
   store i8 %conv4, ptr %incdec.ptr, align 1
@@ -271,7 +271,7 @@ while.body:                                       ; preds = %entry, %while.body
 while.end:                                        ; preds = %while.body, %entry
   %value.0.lcssa = phi i64 [ %dec.coerce0, %entry ], [ %div, %while.body ]
   %writer.0.lcssa = phi ptr [ %arrayidx, %entry ], [ %incdec.ptr, %while.body ]
-  %conv5 = trunc i64 %value.0.lcssa to i8
+  %conv5 = trunc nuw i64 %value.0.lcssa to i8
   %add7 = or disjoint i8 %conv5, 48
   %incdec.ptr9 = getelementptr inbounds i8, ptr %writer.0.lcssa, i64 -1
   store i8 %add7, ptr %incdec.ptr9, align 1

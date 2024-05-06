@@ -1295,7 +1295,7 @@ _ZNSt6vectorIhSaIhEE5clearEv.exit:                ; preds = %entry, %invoke.cont
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhEE5clearEv.exit
   %conv = zext i32 %numBytes to i64
   %call5.i.i.i.i1.i.i4 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv) #20
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i4, i64 %conv
+  %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i4, i64 %conv
   store i8 0, ptr %call5.i.i.i.i1.i.i4, align 1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i4, i64 1
   %sub.i.i.i.i.i = add nsw i64 %conv, -1

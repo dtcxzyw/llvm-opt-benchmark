@@ -100,7 +100,7 @@ define void @memory_usage_gc() local_unnamed_addr #1 {
 ; Function Attrs: nounwind uwtable
 define internal i64 @linux_get_total_mem_used_by_app() #1 {
   %1 = alloca i64, align 8
-  %2 = call fastcc i32 @linux_get_memory(ptr noundef nonnull %1, ptr noundef null), !range !6
+  %2 = call fastcc i32 @linux_get_memory(ptr noundef nonnull %1, ptr noundef null)
   %.not = icmp eq i32 %2, 0
   %.pre = load i64, ptr %1, align 8
   %3 = select i1 %.not, i64 0, i64 %.pre
@@ -108,7 +108,7 @@ define internal i64 @linux_get_total_mem_used_by_app() #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @linux_get_memory(ptr noundef writeonly %0, ptr noundef writeonly %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @linux_get_memory(ptr noundef writeonly %0, ptr noundef writeonly %1) unnamed_addr #1 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -201,7 +201,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 ; Function Attrs: nounwind uwtable
 define internal i64 @linux_get_rss_mem_used_by_app() #1 {
   %1 = alloca i64, align 8
-  %2 = call fastcc i32 @linux_get_memory(ptr noundef null, ptr noundef nonnull %1), !range !6
+  %2 = call fastcc i32 @linux_get_memory(ptr noundef null, ptr noundef nonnull %1)
   %.not = icmp eq i32 %2, 0
   %.pre = load i64, ptr %1, align 8
   %3 = select i1 %.not, i64 0, i64 %.pre
@@ -223,4 +223,3 @@ attributes #5 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}

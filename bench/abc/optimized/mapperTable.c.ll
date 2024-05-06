@@ -34,7 +34,7 @@ define noalias noundef ptr @Map_SuperTableCreate(ptr nocapture noundef readonly 
 
 7:                                                ; preds = %.lr.ph.i
   %8 = add nuw nsw i32 %.01116.i, 2
-  %9 = mul nsw i32 %8, %8
+  %9 = mul nuw nsw i32 %8, %8
   %.not.i = icmp ugt i32 %9, %5
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -183,7 +183,7 @@ define internal fastcc void @Map_SuperTableResize(ptr nocapture noundef %0) unna
 
 8:                                                ; preds = %.lr.ph.i
   %9 = add nuw nsw i32 %.01116.i, 2
-  %10 = mul nsw i32 %9, %9
+  %10 = mul nuw nsw i32 %9, %9
   %.not.i = icmp ugt i32 %10, %6
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -257,7 +257,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %8
 declare ptr @Extra_MmFixedEntryFetch(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Map_SuperTableInsert(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Map_SuperTableInsert(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -432,7 +432,7 @@ define ptr @Map_SuperTableLookup(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Map_SuperTableCompareSupergates(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define range(i32 -1, 2) i32 @Map_SuperTableCompareSupergates(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4
@@ -447,7 +447,7 @@ define i32 @Map_SuperTableCompareSupergates(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Map_SuperTableCompareGatesInList(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define range(i32 -1, 2) i32 @Map_SuperTableCompareGatesInList(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 236
   %5 = load float, ptr %4, align 4

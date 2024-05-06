@@ -501,7 +501,7 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
 declare dso_local void @pcie_clear_root_pme_status(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pcie_pme_irq(i32 %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @pcie_pme_irq(i32 %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   store i32 0, ptr %3, align 4, !annotation !7

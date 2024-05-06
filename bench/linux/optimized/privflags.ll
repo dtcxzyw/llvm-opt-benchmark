@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [21 x i8] c"(unnamed net_device)\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @privflags_prepare_data(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @privflags_prepare_data(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %1, align 8
@@ -129,7 +129,7 @@ define internal void @privflags_cleanup_data(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ethnl_set_privflags_validate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal range(i32 -95, 2) i32 @ethnl_set_privflags_validate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 760
   %5 = load ptr, ptr %4, align 8
@@ -258,7 +258,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 declare dso_local i32 @ethnl_ops_begin(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ethnl_get_priv_flags_info(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @ethnl_get_priv_flags_info(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 760
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 248

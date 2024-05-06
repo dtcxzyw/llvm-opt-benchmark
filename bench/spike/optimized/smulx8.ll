@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z17fast_rv32i_smulx8P11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_smulx8P11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -112,10 +112,10 @@ define noundef i64 @_Z17fast_rv32i_smulx8P11processor_t6insn_tm(ptr nocapture no
   br label %25
 
 25:                                               ; preds = %11, %25
-  %.04261 = phi i64 [ %16, %11 ], [ %57, %25 ]
-  %.04360 = phi i64 [ 3, %11 ], [ %58, %25 ]
-  %.043.tr = trunc i64 %.04360 to i32
-  %26 = shl i64 %.04360, 4
+  %.04262 = phi i64 [ %16, %11 ], [ %57, %25 ]
+  %.04361 = phi i64 [ 3, %11 ], [ %58, %25 ]
+  %.043.tr = trunc i64 %.04361 to i32
+  %26 = shl i64 %.04361, 4
   %27 = and i64 %26, 4294967280
   %28 = shl i32 %.043.tr, 3
   %29 = zext nneg i32 %28 to i64
@@ -142,7 +142,7 @@ define noundef i64 @_Z17fast_rv32i_smulx8P11processor_t6insn_tm(ptr nocapture no
   %narrow = mul nsw i16 %47, %46
   %48 = shl i64 65535, %27
   %49 = xor i64 %48, -1
-  %50 = and i64 %.04261, %49
+  %50 = and i64 %.04262, %49
   %51 = sext i16 %narrow to i64
   %52 = shl i64 131070, %27
   %53 = xor i64 %52, -1
@@ -150,9 +150,9 @@ define noundef i64 @_Z17fast_rv32i_smulx8P11processor_t6insn_tm(ptr nocapture no
   %55 = mul i64 %54, %51
   %56 = and i64 %55, %48
   %57 = or i64 %56, %50
-  %58 = add nsw i64 %.04360, -1
-  %.not62 = icmp eq i64 %.04360, 0
-  br i1 %.not62, label %59, label %25, !llvm.loop !4
+  %58 = add nsw i64 %.04361, -1
+  %.not63 = icmp eq i64 %.04361, 0
+  br i1 %.not63, label %59, label %25, !llvm.loop !4
 
 59:                                               ; preds = %25
   %.not = icmp eq i64 %14, 0
@@ -299,7 +299,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %59, %60
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19logged_rv32i_smulx8P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_smulx8P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -335,10 +335,10 @@ define noundef i64 @_Z19logged_rv32i_smulx8P11processor_t6insn_tm(ptr noundef %0
   br label %25
 
 25:                                               ; preds = %11, %25
-  %.04983 = phi i64 [ %16, %11 ], [ %57, %25 ]
-  %.05082 = phi i64 [ 3, %11 ], [ %58, %25 ]
-  %.050.tr = trunc i64 %.05082 to i32
-  %26 = shl i64 %.05082, 4
+  %.04984 = phi i64 [ %16, %11 ], [ %57, %25 ]
+  %.05083 = phi i64 [ 3, %11 ], [ %58, %25 ]
+  %.050.tr = trunc i64 %.05083 to i32
+  %26 = shl i64 %.05083, 4
   %27 = and i64 %26, 4294967280
   %28 = shl i32 %.050.tr, 3
   %29 = zext nneg i32 %28 to i64
@@ -365,7 +365,7 @@ define noundef i64 @_Z19logged_rv32i_smulx8P11processor_t6insn_tm(ptr noundef %0
   %narrow = mul nsw i16 %47, %46
   %48 = shl i64 65535, %27
   %49 = xor i64 %48, -1
-  %50 = and i64 %.04983, %49
+  %50 = and i64 %.04984, %49
   %51 = sext i16 %narrow to i64
   %52 = shl i64 131070, %27
   %53 = xor i64 %52, -1
@@ -373,9 +373,9 @@ define noundef i64 @_Z19logged_rv32i_smulx8P11processor_t6insn_tm(ptr noundef %0
   %55 = mul i64 %54, %51
   %56 = and i64 %55, %48
   %57 = or i64 %56, %50
-  %58 = add nsw i64 %.05082, -1
-  %.not86 = icmp eq i64 %.05082, 0
-  br i1 %.not86, label %59, label %25, !llvm.loop !7
+  %58 = add nsw i64 %.05083, -1
+  %.not87 = icmp eq i64 %.05083, 0
+  br i1 %.not87, label %59, label %25, !llvm.loop !7
 
 59:                                               ; preds = %25
   %.not = icmp eq i64 %14, 0
@@ -681,7 +681,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z17fast_rv32e_smulx8P11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_smulx8P11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -765,10 +765,10 @@ define noundef i64 @_Z17fast_rv32e_smulx8P11processor_t6insn_tm(ptr nocapture no
   br label %46
 
 46:                                               ; preds = %43, %46
-  %.05281 = phi i64 [ %23, %43 ], [ %78, %46 ]
-  %.05380 = phi i64 [ 3, %43 ], [ %79, %46 ]
-  %.053.tr = trunc i64 %.05380 to i32
-  %47 = shl i64 %.05380, 4
+  %.05282 = phi i64 [ %23, %43 ], [ %78, %46 ]
+  %.05381 = phi i64 [ 3, %43 ], [ %79, %46 ]
+  %.053.tr = trunc i64 %.05381 to i32
+  %47 = shl i64 %.05381, 4
   %48 = and i64 %47, 4294967280
   %49 = shl i32 %.053.tr, 3
   %50 = zext nneg i32 %49 to i64
@@ -795,7 +795,7 @@ define noundef i64 @_Z17fast_rv32e_smulx8P11processor_t6insn_tm(ptr nocapture no
   %narrow = mul nsw i16 %68, %67
   %69 = shl i64 65535, %48
   %70 = xor i64 %69, -1
-  %71 = and i64 %.05281, %70
+  %71 = and i64 %.05282, %70
   %72 = sext i16 %narrow to i64
   %73 = shl i64 131070, %48
   %74 = xor i64 %73, -1
@@ -803,9 +803,9 @@ define noundef i64 @_Z17fast_rv32e_smulx8P11processor_t6insn_tm(ptr nocapture no
   %76 = mul i64 %75, %72
   %77 = and i64 %76, %69
   %78 = or i64 %77, %71
-  %79 = add nsw i64 %.05380, -1
-  %.not82 = icmp eq i64 %.05380, 0
-  br i1 %.not82, label %80, label %46, !llvm.loop !10
+  %79 = add nsw i64 %.05381, -1
+  %.not83 = icmp eq i64 %.05381, 0
+  br i1 %.not83, label %80, label %46, !llvm.loop !10
 
 80:                                               ; preds = %46
   %.not = icmp eq i64 %13, 0
@@ -986,7 +986,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %80, %81
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z19logged_rv32e_smulx8P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_smulx8P11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -1070,10 +1070,10 @@ define noundef i64 @_Z19logged_rv32e_smulx8P11processor_t6insn_tm(ptr noundef %0
   br label %46
 
 46:                                               ; preds = %43, %46
-  %.059103 = phi i64 [ %23, %43 ], [ %78, %46 ]
-  %.060102 = phi i64 [ 3, %43 ], [ %79, %46 ]
-  %.060.tr = trunc i64 %.060102 to i32
-  %47 = shl i64 %.060102, 4
+  %.059104 = phi i64 [ %23, %43 ], [ %78, %46 ]
+  %.060103 = phi i64 [ 3, %43 ], [ %79, %46 ]
+  %.060.tr = trunc i64 %.060103 to i32
+  %47 = shl i64 %.060103, 4
   %48 = and i64 %47, 4294967280
   %49 = shl i32 %.060.tr, 3
   %50 = zext nneg i32 %49 to i64
@@ -1100,7 +1100,7 @@ define noundef i64 @_Z19logged_rv32e_smulx8P11processor_t6insn_tm(ptr noundef %0
   %narrow = mul nsw i16 %68, %67
   %69 = shl i64 65535, %48
   %70 = xor i64 %69, -1
-  %71 = and i64 %.059103, %70
+  %71 = and i64 %.059104, %70
   %72 = sext i16 %narrow to i64
   %73 = shl i64 131070, %48
   %74 = xor i64 %73, -1
@@ -1108,9 +1108,9 @@ define noundef i64 @_Z19logged_rv32e_smulx8P11processor_t6insn_tm(ptr noundef %0
   %76 = mul i64 %75, %72
   %77 = and i64 %76, %69
   %78 = or i64 %77, %71
-  %79 = add nsw i64 %.060102, -1
-  %.not106 = icmp eq i64 %.060102, 0
-  br i1 %.not106, label %80, label %46, !llvm.loop !12
+  %79 = add nsw i64 %.060103, -1
+  %.not107 = icmp eq i64 %.060103, 0
+  br i1 %.not107, label %80, label %46, !llvm.loop !12
 
 80:                                               ; preds = %46
   %.not = icmp eq i64 %13, 0

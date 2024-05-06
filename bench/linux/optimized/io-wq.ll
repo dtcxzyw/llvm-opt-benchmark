@@ -637,7 +637,7 @@ define dso_local void @io_wq_hash_work(ptr nocapture noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @io_wq_cancel_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 3) i32 @io_wq_cancel_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.io_cb_cancel_data, align 8
   %6 = zext i1 %3 to i8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
@@ -1097,7 +1097,7 @@ define dso_local void @io_wq_put_and_exit(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_wq_cpu_affinity(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @io_wq_cpu_affinity(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %14, label %4
 
@@ -1199,7 +1199,7 @@ define dso_local noundef i32 @io_wq_max_workers(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @io_wq_init() #6 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @io_wq_init() #6 section ".init.text" align 16 {
   %1 = tail call i32 @__cpuhp_setup_state(i32 noundef 189, ptr noundef nonnull @.str.5, i1 noundef zeroext false, ptr noundef nonnull @io_wq_cpu_online, ptr noundef nonnull @io_wq_cpu_offline, i1 noundef zeroext true) #17
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %4, label %3

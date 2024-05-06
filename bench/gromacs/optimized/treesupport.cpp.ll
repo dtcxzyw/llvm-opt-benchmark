@@ -300,7 +300,7 @@ _ZN3gmx12_GLOBAL__N_116TreeAssignHelperC2EPNS_7OptionsEPNS_25IKeyValueTreeErrorH
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %_ZN3gmx12_GLOBAL__N_116TreeAssignHelperC2EPNS_7OptionsEPNS_25IKeyValueTreeErrorHandlerE.exit
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116TreeAssignHelper13assignSubTreeERKNS_18KeyValueTreeObjectE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(72) %1)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_116TreeAssignHelper13assignSubTreeERKNS_18KeyValueTreeObjectE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %.noexc4 unwind label %19
 
 .noexc4:                                          ; preds = %.noexc
@@ -391,11 +391,11 @@ define void @_ZN3gmx36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeOb
   %8 = alloca %"class.gmx::ExceptionInfo", align 8
   store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_115TreeCheckHelperE, i64 0, i32 0, i64 2), ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %10 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %0, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx7Options11rootSectionEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %13 unwind label %26
 

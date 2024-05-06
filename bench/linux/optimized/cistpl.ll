@@ -98,7 +98,7 @@ declare dso_local void @iounmap(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pcmcia_read_cis_mem(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @pcmcia_read_cis_mem(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 align 16 {
   %6 = and i32 %1, 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %42, label %8
@@ -363,7 +363,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pcmcia_write_cis_mem(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pcmcia_write_cis_mem(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 16 {
   %6 = and i32 %1, 8
   %7 = icmp eq i32 %6, 0
   %8 = load i32, ptr @cis_width, align 4
@@ -512,7 +512,7 @@ define dso_local void @destroy_cis_cache(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @verify_cis_cache(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @verify_cis_cache(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 32768
@@ -580,7 +580,7 @@ define dso_local noundef i32 @verify_cis_cache(ptr noundef %0) local_unnamed_add
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pcmcia_replace_cis(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pcmcia_replace_cis(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp ugt i64 %2, 512
   br i1 %4, label %5, label %7
 
@@ -691,7 +691,7 @@ define dso_local noundef i32 @pccard_get_first_tuple(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pccard_get_next_tuple(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -28, 1) i32 @pccard_get_next_tuple(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca [2 x i8], align 2
   %6 = alloca i8, align 1
@@ -1233,7 +1233,7 @@ define internal fastcc noundef i32 @read_cis_cache(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pccard_get_tuple_data(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -28, 1) i32 @pccard_get_tuple_data(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %35, label %4
 
@@ -1281,7 +1281,7 @@ define dso_local noundef i32 @pccard_get_tuple_data(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local i32 @pcmcia_parse_tuple(ptr nocapture noundef readonly %0, ptr noundef %1) #6 align 16 {
+define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr nocapture noundef readonly %0, ptr noundef %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 23
@@ -3193,7 +3193,7 @@ pccard_get_first_tuple.exit.thread:               ; preds = %58, %108, %.loopexi
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pccard_store_cis(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pccard_store_cis(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5) #0 align 16 {
   %7 = tail call i32 @security_locked_down(i32 noundef 11) #12
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %9

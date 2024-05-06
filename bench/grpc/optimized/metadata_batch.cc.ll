@@ -78,7 +78,7 @@ $_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE10AppendSlotEv = comda
 @.str.28 = private unnamed_addr constant [12 x i8] c" (explicit)\00", align 1
 @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = linkonce_odr global %"class.grpc_core::NoDestruct" zeroinitializer, comdat, align 8
 @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = linkonce_odr local_unnamed_addr global i64 0, comdat($_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E), align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTVN9grpc_core14promise_detail10UnwakeableE = external unnamed_addr constant { [6 x ptr] }, align 8
 @.str.31 = private unnamed_addr constant [123 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/gprpp/chunked_vector.h\00", align 1
 @.str.32 = private unnamed_addr constant [18 x i8] c"first_ == nullptr\00", align 1
@@ -324,7 +324,7 @@ land.rhs.i.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i
   %bytes.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %bytes.i.i.i.i.i.i.i.i, align 8
   %cond.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i, ptr %bytes5.i.i.i.i.i.i.i.i, ptr %8
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %cond.i.i.i.i.i.i.i.i, ptr %key.coerce1, i64 %__pred.coerce0.fr.i.i.i.i10)
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr %cond.i.i.i.i.i.i.i.i, ptr readonly %key.coerce1, i64 %__pred.coerce0.fr.i.i.i.i10)
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i, label %"_ZSt9__find_ifIN9grpc_core13ChunkedVectorISt4pairINS0_5SliceES3_ELm10EE15ForwardIteratorEN9__gnu_cxx5__ops10_Iter_predIZNS0_15metadata_detail10UnknownMap6RemoveESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EEET_SI_SI_T0_.exit.i.i.thread", label %while.body.i.i.i.i
 
@@ -396,7 +396,7 @@ land.rhs.i.i.i5.i.i:                              ; preds = %for.body.i.i
   br i1 %cmp.i2.i.i.i.i.i.i.i.i, label %for.inc.thread.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i5.i.i
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %cond.i.i.i.i.i.i, ptr %key.coerce1, i64 %__pred.coerce0.fr.i.i.i.i10)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %cond.i.i.i.i.i.i, ptr readonly %key.coerce1, i64 %__pred.coerce0.fr.i.i.i.i10)
   %cmp.i.i.i.i6.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i6.i.i, label %for.inc.thread.i.i, label %if.then8.i.i
 
@@ -781,7 +781,7 @@ declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sr
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN9grpc_core19ContentTypeMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 3) i8 @_ZN9grpc_core19ContentTypeMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %value, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
@@ -996,7 +996,7 @@ declare i32 @_ZN9grpc_core7Timeout12FromDurationENS_8DurationE(i64) local_unname
 declare void @_ZNK9grpc_core7Timeout6EncodeEv(ptr sret(%"class.grpc_core::Slice") align 8, ptr noundef nonnull align 2 dereferenceable(3)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN9grpc_core10TeMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 2) i8 @_ZN9grpc_core10TeMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %value, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -1034,7 +1034,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN9grpc_core18HttpSchemeMetadata5ParseESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_2023080211FunctionRefIFvS4_RKNS_5SliceEEEE(i64 %value.coerce0, ptr %value.coerce1, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 3) i8 @_ZN9grpc_core18HttpSchemeMetadata5ParseESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_2023080211FunctionRefIFvS4_RKNS_5SliceEEEE(i64 %value.coerce0, ptr %value.coerce1, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::Slice", align 8
   switch i64 %value.coerce0, label %if.end6 [
@@ -1121,7 +1121,7 @@ return:                                           ; preds = %entry, %sw.bb1
 declare void @abort() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN9grpc_core16EncodedSizeOfKeyENS_18HttpSchemeMetadataENS0_9ValueTypeE(i8 noundef zeroext %x) local_unnamed_addr #7 {
+define noundef range(i64 0, 6) i64 @_ZN9grpc_core16EncodedSizeOfKeyENS_18HttpSchemeMetadataENS0_9ValueTypeE(i8 noundef zeroext %x) local_unnamed_addr #7 {
 entry:
   %switch.selectcmp = icmp eq i8 %x, 1
   %switch.select = select i1 %switch.selectcmp, i64 5, i64 0
@@ -1141,7 +1141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN9grpc_core18HttpMethodMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 4) i8 @_ZN9grpc_core18HttpMethodMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %value, align 8
   %tobool.not.i.i = icmp eq ptr %1, null

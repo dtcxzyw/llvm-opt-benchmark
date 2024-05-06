@@ -26,7 +26,7 @@ define dso_local void @nghttp2_priority_spec_default_init(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @nghttp2_priority_spec_check_default(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @nghttp2_priority_spec_check_default(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = load i32, ptr %0, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %13

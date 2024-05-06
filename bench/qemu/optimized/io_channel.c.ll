@@ -189,14 +189,14 @@ return:                                           ; preds = %if.end12, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qio_channel_readv_all_eof(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %errp) #2 {
+define dso_local range(i32 -1, 2) i32 @qio_channel_readv_all_eof(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %errp) #2 {
 entry:
-  %call = tail call i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef null, ptr noundef null, ptr noundef %errp), !range !5
+  %call = tail call i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef null, ptr noundef null, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %fds, ptr noundef %nfds, ptr noundef %errp) #2 {
+define dso_local range(i32 -1, 2) i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %fds, ptr noundef %nfds, ptr noundef %errp) #2 {
 entry:
   %local_iov = alloca ptr, align 8
   %nlocal_iov = alloca i32, align 4
@@ -322,7 +322,7 @@ if.then16.us:                                     ; preds = %if.then14.us
 if.end17.us:                                      ; preds = %if.then16.us, %if.else.us
   %13 = load i32, ptr %nlocal_iov, align 4
   %cmp.us.not = icmp eq i32 %13, 0
-  br i1 %cmp.us.not, label %cleanup, label %while.body.us, !llvm.loop !6
+  br i1 %cmp.us.not, label %cleanup, label %while.body.us, !llvm.loop !5
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end17
   %14 = phi i32 [ %17, %if.end17 ], [ %1, %while.body.lr.ph ]
@@ -357,7 +357,7 @@ if.else:                                          ; preds = %if.then14
 if.end17:                                         ; preds = %if.else, %if.then16
   %17 = load i32, ptr %nlocal_iov, align 4
   %cmp.not = icmp eq i32 %17, 0
-  br i1 %cmp.not, label %cleanup, label %while.body, !llvm.loop !6
+  br i1 %cmp.not, label %cleanup, label %while.body, !llvm.loop !5
 
 if.then21:                                        ; preds = %while.body, %qio_channel_readv_full.exit.us, %qio_channel_readv_full.exit.us.us
   %tobool22.not = icmp eq ptr %local_nfds.0.ph60, null
@@ -398,7 +398,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %inc = add nuw i64 %i.065, 1
   %22 = load i64, ptr %nfds, align 8
   %cmp39 = icmp ult i64 %inc, %22
-  br i1 %cmp39, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp39, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %23 = load ptr, ptr %fds, align 8
@@ -419,7 +419,7 @@ if.then45:                                        ; preds = %if.end43
 next_iter:                                        ; preds = %if.then45, %land.lhs.true
   %.pr = load i32, ptr %nlocal_iov, align 4
   %cmp34.not = icmp eq i32 %.pr, 0
-  br i1 %cmp34.not, label %cleanup, label %while.body.lr.ph, !llvm.loop !6
+  br i1 %cmp34.not, label %cleanup, label %while.body.lr.ph, !llvm.loop !5
 
 cleanup:                                          ; preds = %if.end43, %next_iter, %if.end17, %if.end17.us, %if.end3, %if.else25, %if.then34, %for.end
   %ret.0 = phi i32 [ -1, %for.end ], [ -1, %if.then34 ], [ 0, %if.else25 ], [ 1, %if.end3 ], [ 1, %if.end17.us ], [ 1, %if.end17 ], [ 1, %next_iter ], [ 1, %if.end43 ]
@@ -428,9 +428,9 @@ cleanup:                                          ; preds = %if.end43, %next_ite
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qio_channel_readv_all(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %errp) #2 {
+define dso_local range(i32 2, 1) i32 @qio_channel_readv_all(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %errp) #2 {
 entry:
-  %call.i = tail call i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef null, ptr noundef null, ptr noundef %errp), !range !5
+  %call.i = tail call i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef null, ptr noundef null, ptr noundef %errp)
   switch i32 %call.i, label %if.end3.i [
     i32 0, label %if.then.i
     i32 1, label %qio_channel_readv_full_all.exit
@@ -449,9 +449,9 @@ qio_channel_readv_full_all.exit:                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qio_channel_readv_full_all(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %fds, ptr noundef %nfds, ptr noundef %errp) #2 {
+define dso_local range(i32 2, 1) i32 @qio_channel_readv_full_all(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %fds, ptr noundef %nfds, ptr noundef %errp) #2 {
 entry:
-  %call = tail call i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %fds, ptr noundef %nfds, ptr noundef %errp), !range !5
+  %call = tail call i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %fds, ptr noundef %nfds, ptr noundef %errp)
   switch i32 %call, label %if.end3 [
     i32 0, label %if.then
     i32 1, label %return
@@ -655,14 +655,14 @@ declare i32 @close(i32 noundef) local_unnamed_addr #3
 declare i64 @iov_discard_front(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qio_channel_writev_all(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %errp) #2 {
+define dso_local range(i32 -1, 1) i32 @qio_channel_writev_all(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %errp) #2 {
 entry:
-  %call = tail call i32 @qio_channel_writev_full_all(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef %errp), !range !9
+  %call = tail call i32 @qio_channel_writev_full_all(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qio_channel_writev_full_all(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %fds, i64 noundef %nfds, i32 noundef %flags, ptr noundef %errp) #2 {
+define dso_local range(i32 -1, 1) i32 @qio_channel_writev_full_all(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %fds, i64 noundef %nfds, i32 noundef %flags, ptr noundef %errp) #2 {
 entry:
   %local_iov = alloca ptr, align 8
   %nlocal_iov = alloca i32, align 4
@@ -698,11 +698,11 @@ if.then:                                          ; preds = %while.body
 
 if.then11:                                        ; preds = %if.then
   call void @qio_channel_yield(ptr noundef %ioc, i32 noundef 4)
-  br label %while.condthread-pre-split, !llvm.loop !10
+  br label %while.condthread-pre-split, !llvm.loop !8
 
 if.else:                                          ; preds = %if.then
   call void @qio_channel_wait(ptr noundef %ioc, i32 noundef 4)
-  br label %while.condthread-pre-split, !llvm.loop !10
+  br label %while.condthread-pre-split, !llvm.loop !8
 
 if.end12:                                         ; preds = %while.body
   %cmp13 = icmp slt i64 %call7, 0
@@ -710,7 +710,7 @@ if.end12:                                         ; preds = %while.body
 
 if.end16:                                         ; preds = %if.end12
   %call17 = call i64 @iov_discard_front(ptr noundef nonnull %local_iov, ptr noundef nonnull %nlocal_iov, i64 noundef %call7) #7
-  br label %while.condthread-pre-split, !llvm.loop !10
+  br label %while.condthread-pre-split, !llvm.loop !8
 
 cleanup:                                          ; preds = %if.end12, %while.condthread-pre-split, %entry
   %ret.0 = phi i32 [ 0, %entry ], [ 0, %while.condthread-pre-split ], [ -1, %if.end12 ]
@@ -771,24 +771,24 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qio_channel_read_all_eof(ptr noundef %ioc, ptr noundef %buf, i64 noundef %buflen, ptr noundef %errp) #2 {
+define dso_local range(i32 -1, 2) i32 @qio_channel_read_all_eof(ptr noundef %ioc, ptr noundef %buf, i64 noundef %buflen, ptr noundef %errp) #2 {
 entry:
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8
   %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %buflen, ptr %iov_len, align 8
-  %call.i = call noundef i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef null, ptr noundef null, ptr noundef %errp), !range !5
+  %call.i = call i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef null, ptr noundef null, ptr noundef %errp)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef %buf, i64 noundef %buflen, ptr noundef %errp) #2 {
+define dso_local range(i32 2, 1) i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef %buf, i64 noundef %buflen, ptr noundef %errp) #2 {
 entry:
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8
   %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %buflen, ptr %iov_len, align 8
-  %call.i.i = call i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef null, ptr noundef null, ptr noundef %errp), !range !5
+  %call.i.i = call i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef null, ptr noundef null, ptr noundef %errp)
   switch i32 %call.i.i, label %if.end3.i.i [
     i32 0, label %if.then.i.i
     i32 1, label %qio_channel_readv_all.exit
@@ -807,13 +807,13 @@ qio_channel_readv_all.exit:                       ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qio_channel_write_all(ptr noundef %ioc, ptr noundef %buf, i64 noundef %buflen, ptr noundef %errp) #2 {
+define dso_local range(i32 -1, 1) i32 @qio_channel_write_all(ptr noundef %ioc, ptr noundef %buf, i64 noundef %buflen, ptr noundef %errp) #2 {
 entry:
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8
   %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %buflen, ptr %iov_len, align 8
-  %call.i = call noundef i32 @qio_channel_writev_full_all(ptr noundef %ioc, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef %errp), !range !9
+  %call.i = call i32 @qio_channel_writev_full_all(ptr noundef %ioc, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef %errp)
   ret i32 %call.i
 }
 
@@ -1394,9 +1394,7 @@ attributes #9 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i32 -1, i32 1}
-!10 = distinct !{!10, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

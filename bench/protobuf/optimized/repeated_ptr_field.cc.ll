@@ -10,7 +10,7 @@ $_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_ = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
+@_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E = external thread_local local_unnamed_addr global %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", align 32
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_repeated_ptr_field.cc, ptr null }]
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
@@ -26,7 +26,7 @@ define weak_odr void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noa
 entry:
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %entry
+for.body.i:                                       ; preds = %entry, %for.body.i
   %__first2.addr.07.i = phi ptr [ %incdec.ptr1.i, %for.body.i ], [ %b, %entry ]
   %__first1.addr.06.i.idx = phi i64 [ %__first1.addr.06.i.add, %for.body.i ], [ 0, %entry ]
   %__first1.addr.06.i.ptr = getelementptr inbounds i8, ptr %a, i64 %__first1.addr.06.i.idx

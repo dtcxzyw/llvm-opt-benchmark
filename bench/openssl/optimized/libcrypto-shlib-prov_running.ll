@@ -10,7 +10,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_prov_is_running() local_unnamed_addr #0 {
+define noundef i32 @ossl_prov_is_running() local_unnamed_addr #0 {
 entry:
   ret i32 1
 }

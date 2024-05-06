@@ -293,7 +293,7 @@ if.then:                                          ; preds = %trace_pcnet_ioport_
   br i1 %or.cond, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %conv4 = trunc i64 %addr to i32
+  %conv4 = trunc nuw nsw i64 %addr to i32
   %prom.i = getelementptr inbounds i8, ptr %opaque, i64 8252
   %arrayidx.i = getelementptr [16 x i8], ptr %prom.i, i64 0, i64 %addr
   %8 = load i8, ptr %arrayidx.i, align 1
@@ -346,7 +346,7 @@ land.lhs.true11:                                  ; preds = %if.else
   br i1 %or.cond1, label %if.then18, label %if.end74
 
 if.then18:                                        ; preds = %land.lhs.true11
-  %conv19 = trunc i64 %addr to i32
+  %conv19 = trunc nuw nsw i64 %addr to i32
   %prom.i34 = getelementptr inbounds i8, ptr %opaque, i64 8252
   %arrayidx.i37 = getelementptr [16 x i8], ptr %prom.i34, i64 0, i64 %addr
   %15 = load i8, ptr %arrayidx.i37, align 1
@@ -437,7 +437,7 @@ land.lhs.true30:                                  ; preds = %if.else
   br i1 %or.cond2, label %if.then37, label %if.end74
 
 if.then37:                                        ; preds = %land.lhs.true30
-  %conv38 = trunc i64 %addr to i32
+  %conv38 = trunc nuw nsw i64 %addr to i32
   %prom.i74 = getelementptr inbounds i8, ptr %opaque, i64 8252
   %arrayidx.i77 = getelementptr [16 x i8], ptr %prom.i74, i64 0, i64 %addr
   %29 = load i8, ptr %arrayidx.i77, align 1
@@ -690,7 +690,7 @@ if.then:                                          ; preds = %trace_pcnet_ioport_
   br i1 %or.cond, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %conv4 = trunc i64 %addr to i32
+  %conv4 = trunc nuw nsw i64 %addr to i32
   %conv5 = trunc i64 %data to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %8 = load i32, ptr @trace_events_enabled_count, align 4
@@ -750,7 +750,7 @@ land.lhs.true11:                                  ; preds = %if.else
   br i1 %or.cond1, label %if.then18, label %if.end71
 
 if.then18:                                        ; preds = %land.lhs.true11
-  %conv19 = trunc i64 %addr to i32
+  %conv19 = trunc nuw i64 %addr to i32
   %16 = trunc i64 %data to i32
   %conv21 = and i32 %16, 255
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i41)
@@ -859,7 +859,7 @@ land.lhs.true30:                                  ; preds = %if.else
   br i1 %or.cond2, label %if.then37, label %if.end71
 
 if.then37:                                        ; preds = %land.lhs.true30
-  %conv38 = trunc i64 %addr to i32
+  %conv38 = trunc nuw i64 %addr to i32
   %33 = trunc i64 %data to i32
   %conv40 = and i32 %33, 255
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i89)

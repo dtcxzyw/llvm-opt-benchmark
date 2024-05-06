@@ -99,7 +99,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h58a46eaa2eebc5a8E(ptr
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93c97c06ad9d350eE.exit": ; preds = %7
   %12 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %12, ptr %6, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %.pr = load i64, ptr %4, align 8
   %.not = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not, label %.loopexit, label %13

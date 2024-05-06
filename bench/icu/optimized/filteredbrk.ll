@@ -406,7 +406,7 @@ _ZN6icu_7517LocalUTextPointer12adoptInsteadEP5UText.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator16breakExceptionAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this, i32 noundef %n) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator16breakExceptionAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this, i32 noundef %n) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %iter = alloca %"class.icu_75::UCharsTrie", align 8
   %iter39 = alloca %"class.icu_75::UCharsTrie", align 8
@@ -686,7 +686,7 @@ if.end4:                                          ; preds = %_ZN6icu_7535SimpleF
 
 while.body:                                       ; preds = %if.end4, %sw.bb
   %n.addr.010 = phi i32 [ %call11, %sw.bb ], [ %n, %if.end4 ]
-  %call9 = call noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator16breakExceptionAtEi(ptr noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %n.addr.010), !range !7
+  %call9 = call noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator16breakExceptionAtEi(ptr noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %n.addr.010)
   %cond.not = icmp eq i32 %call9, 0
   br i1 %cond.not, label %return, label %sw.bb
 
@@ -700,7 +700,7 @@ sw.bb:                                            ; preds = %while.body
   %conv = sext i32 %call11 to i64
   %cmp8 = icmp ne i64 %call6, %conv
   %9 = and i1 %cmp7, %cmp8
-  br i1 %9, label %while.body, label %return, !llvm.loop !8
+  br i1 %9, label %while.body, label %return, !llvm.loop !7
 
 return:                                           ; preds = %while.body, %sw.bb, %if.end4, %_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit, %entry, %lor.lhs.false
   %retval.0 = phi i32 [ %n, %lor.lhs.false ], [ -1, %entry ], [ -1, %_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit ], [ %n, %if.end4 ], [ %n.addr.010, %while.body ], [ %call11, %sw.bb ]
@@ -752,7 +752,7 @@ _ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit: 
 
 while.body:                                       ; preds = %_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit, %sw.bb
   %n.addr.08 = phi i32 [ %call11, %sw.bb ], [ %n, %_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit ]
-  %call9 = call noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator16breakExceptionAtEi(ptr noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %n.addr.08), !range !7
+  %call9 = call noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator16breakExceptionAtEi(ptr noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %n.addr.08)
   %cond.not = icmp eq i32 %call9, 0
   br i1 %cond.not, label %return, label %sw.bb
 
@@ -764,7 +764,7 @@ sw.bb:                                            ; preds = %while.body
   %call11 = call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(479) %8)
   %10 = add i32 %call11, -1
   %11 = icmp ult i32 %10, -2
-  br i1 %11, label %while.body, label %return, !llvm.loop !9
+  br i1 %11, label %while.body, label %return, !llvm.loop !8
 
 return:                                           ; preds = %while.body, %sw.bb, %_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit, %entry, %lor.lhs.false3
   %retval.0 = phi i32 [ %n, %lor.lhs.false3 ], [ %n, %entry ], [ -1, %_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit ], [ %n.addr.08, %while.body ], [ %call11, %sw.bb ]
@@ -845,7 +845,7 @@ _ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit.i
 
 while.body.i:                                     ; preds = %_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit.i, %sw.bb.i
   %n.addr.08.i = phi i32 [ %call11.i, %sw.bb.i ], [ %call2, %_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit.i ]
-  %call9.i = call noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator16breakExceptionAtEi(ptr noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %n.addr.08.i), !range !7
+  %call9.i = call noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator16breakExceptionAtEi(ptr noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %n.addr.08.i)
   %cond.not.i = icmp eq i32 %call9.i, 0
   br i1 %cond.not.i, label %_ZN6icu_7535SimpleFilteredSentenceBreakIterator12internalPrevEi.exit, label %sw.bb.i
 
@@ -857,7 +857,7 @@ sw.bb.i:                                          ; preds = %while.body.i
   %call11.i = call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(479) %10)
   %12 = add i32 %call11.i, -1
   %13 = icmp ult i32 %12, -2
-  br i1 %13, label %while.body.i, label %_ZN6icu_7535SimpleFilteredSentenceBreakIterator12internalPrevEi.exit, !llvm.loop !9
+  br i1 %13, label %while.body.i, label %_ZN6icu_7535SimpleFilteredSentenceBreakIterator12internalPrevEi.exit, !llvm.loop !8
 
 _ZN6icu_7535SimpleFilteredSentenceBreakIterator12internalPrevEi.exit: ; preds = %while.body.i, %sw.bb.i, %entry, %lor.lhs.false3.i, %_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit.i
   %retval.0.i = phi i32 [ %call2, %lor.lhs.false3.i ], [ %call2, %entry ], [ -1, %_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit.i ], [ %call11.i, %sw.bb.i ], [ %n.addr.08.i, %while.body.i ]
@@ -914,7 +914,7 @@ _ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit.i
 
 while.body.i:                                     ; preds = %_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit.i, %sw.bb.i
   %n.addr.08.i = phi i32 [ %call11.i, %sw.bb.i ], [ %call2, %_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit.i ]
-  %call9.i = call noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator16breakExceptionAtEi(ptr noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %n.addr.08.i), !range !7
+  %call9.i = call noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator16breakExceptionAtEi(ptr noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %n.addr.08.i)
   %cond.not.i = icmp eq i32 %call9.i, 0
   br i1 %cond.not.i, label %_ZN6icu_7535SimpleFilteredSentenceBreakIterator12internalPrevEi.exit, label %sw.bb.i
 
@@ -926,7 +926,7 @@ sw.bb.i:                                          ; preds = %while.body.i
   %call11.i = call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(479) %10)
   %12 = add i32 %call11.i, -1
   %13 = icmp ult i32 %12, -2
-  br i1 %13, label %while.body.i, label %_ZN6icu_7535SimpleFilteredSentenceBreakIterator12internalPrevEi.exit, !llvm.loop !9
+  br i1 %13, label %while.body.i, label %_ZN6icu_7535SimpleFilteredSentenceBreakIterator12internalPrevEi.exit, !llvm.loop !8
 
 _ZN6icu_7535SimpleFilteredSentenceBreakIterator12internalPrevEi.exit: ; preds = %while.body.i, %sw.bb.i, %entry, %lor.lhs.false3.i, %_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit.i
   %retval.0.i = phi i32 [ %call2, %lor.lhs.false3.i ], [ %call2, %entry ], [ -1, %_ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit.i ], [ %call11.i, %sw.bb.i ], [ %n.addr.08.i, %while.body.i ]
@@ -935,7 +935,7 @@ _ZN6icu_7535SimpleFilteredSentenceBreakIterator12internalPrevEi.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator10isBoundaryEi(ptr nocapture noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %offset) unnamed_addr #2 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator10isBoundaryEi(ptr nocapture noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %offset) unnamed_addr #2 align 2 {
 entry:
   %status = alloca i32, align 4
   %fDelegate = getelementptr inbounds i8, ptr %this, i64 488
@@ -975,7 +975,7 @@ if.then.i.i:                                      ; preds = %if.end5
 
 _ZN6icu_7535SimpleFilteredSentenceBreakIterator10resetStateER10UErrorCode.exit: ; preds = %if.end5, %if.then.i.i
   store ptr %call4.i, ptr %fText.i, align 8
-  %call6 = call noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator16breakExceptionAtEi(ptr noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %offset), !range !7
+  %call6 = call noundef i32 @_ZN6icu_7535SimpleFilteredSentenceBreakIterator16breakExceptionAtEi(ptr noundef nonnull align 8 dereferenceable(504) %this, i32 noundef %offset)
   %8 = trunc nuw nsw i32 %call6 to i8
   %. = xor i8 %8, 1
   br label %return
@@ -1199,30 +1199,30 @@ invoke.cont48:                                    ; preds = %invoke.cont46, %if.
   br i1 %or.cond70, label %do.cond.thread, label %if.then55
 
 if.then55:                                        ; preds = %invoke.cont48
-  call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  call void @llvm.experimental.noalias.scope.decl(metadata !9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %str, align 8, !alias.scope !10
-  store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !10
-  store i32 0, ptr %len.i, align 4, !noalias !10
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %str, align 8, !alias.scope !9
+  store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !9
+  store i32 0, ptr %len.i, align 4, !noalias !9
   %call.i = invoke ptr @ures_getString_75(ptr noundef nonnull %call47, ptr noundef nonnull %len.i, ptr noundef nonnull %status)
-          to label %invoke.cont3.i unwind label %lpad.i, !noalias !10
+          to label %invoke.cont3.i unwind label %lpad.i, !noalias !9
 
 invoke.cont3.i:                                   ; preds = %if.then55
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %call.i) #13, !noalias !10, !srcloc !13
-  %11 = load i32, ptr %status, align 4, !noalias !10
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %call.i) #13, !noalias !9, !srcloc !12
+  %11 = load i32, ptr %status, align 4, !noalias !9
   %cmp.i.i = icmp sgt i32 %11, 0
   br i1 %cmp.i.i, label %if.else.i, label %if.then.i29
 
 if.then.i29:                                      ; preds = %invoke.cont3.i
-  store ptr %call.i, ptr %agg.tmp.i, align 8, !noalias !10
-  %12 = load i32, ptr %len.i, align 4, !noalias !10
+  store ptr %call.i, ptr %agg.tmp.i, align 8, !noalias !9
+  %12 = load i32, ptr %len.i, align 4, !noalias !9
   %call9.i = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %str, i8 noundef signext 1, ptr noundef nonnull %agg.tmp.i, i32 noundef %12)
           to label %invoke.cont8.i unwind label %lpad7.i
 
 invoke.cont8.i:                                   ; preds = %if.then.i29
-  %13 = load ptr, ptr %agg.tmp.i, align 8, !noalias !10
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13) #13, !srcloc !13
+  %13 = load ptr, ptr %agg.tmp.i, align 8, !noalias !9
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13) #13, !srcloc !12
   br label %invoke.cont58
 
 lpad.i:                                           ; preds = %if.else.i, %if.then55
@@ -1233,8 +1233,8 @@ lpad.i:                                           ; preds = %if.else.i, %if.then
 lpad7.i:                                          ; preds = %if.then.i29
   %15 = landingpad { ptr, i32 }
           cleanup
-  %16 = load ptr, ptr %agg.tmp.i, align 8, !noalias !10
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %16) #13, !srcloc !13
+  %16 = load ptr, ptr %agg.tmp.i, align 8, !noalias !9
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %16) #13, !srcloc !12
   br label %ehcleanup.i
 
 if.else.i:                                        ; preds = %invoke.cont3.i
@@ -1274,7 +1274,7 @@ do.cond:                                          ; preds = %invoke.cont58
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %str) #13
   %.pre.pre = load i32, ptr %subStatus, align 4
   %cmp.i32 = icmp sgt i32 %.pre.pre, 0
-  br i1 %cmp.i32, label %do.end, label %do.body, !llvm.loop !14
+  br i1 %cmp.i32, label %do.end, label %do.body, !llvm.loop !13
 
 do.end:                                           ; preds = %do.cond, %do.cond.thread
   %cmp.i30.not60 = phi i1 [ %cmp.i30.not57, %do.cond.thread ], [ false, %do.cond ]
@@ -1679,7 +1679,7 @@ if.end46:                                         ; preds = %if.then40
   %indvars = trunc i64 %indvars.iv.next to i32
   %13 = load i32, ptr %count.i, align 8
   %cmp = icmp sgt i32 %13, %indvars
-  br i1 %cmp, label %for.body, label %for.cond52.preheader, !llvm.loop !15
+  br i1 %cmp, label %for.body, label %for.cond52.preheader, !llvm.loop !14
 
 for.cond137.preheader:                            ; preds = %for.inc133
   br i1 %cmp.i63, label %for.body139.preheader, label %for.end170
@@ -1787,7 +1787,7 @@ for.inc104:                                       ; preds = %if.else95, %invoke.
   %sameAs.1 = phi i32 [ %sameAs.0216, %for.body70 ], [ %sameAs.0216, %if.then91 ], [ %sameAs.0216, %invoke.cont82 ], [ %spec.select, %if.else95 ]
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next233, %wide.trip.count240
-  br i1 %exitcond.not, label %for.end106, label %for.body70, !llvm.loop !16
+  br i1 %exitcond.not, label %for.end106, label %for.body70, !llvm.loop !15
 
 for.end106:                                       ; preds = %for.inc104
   %arrayidx.i84 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %10, i64 %indvars.iv236
@@ -1838,7 +1838,7 @@ for.inc133:                                       ; preds = %invoke.cont58, %inv
   %revCount.2 = phi i32 [ %revCount.1, %if.end131 ], [ %revCount.0219, %invoke.cont64 ], [ %revCount.0219, %invoke.cont58 ]
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond241.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count240
-  br i1 %exitcond241.not, label %for.cond137.preheader, label %for.body54, !llvm.loop !17
+  br i1 %exitcond241.not, label %for.cond137.preheader, label %for.body54, !llvm.loop !16
 
 for.body139:                                      ; preds = %for.body139.preheader, %for.inc168
   %35 = phi ptr [ %10, %for.body139.preheader ], [ %41, %for.inc168 ]
@@ -1887,7 +1887,7 @@ for.inc168:                                       ; preds = %invoke.cont155, %in
   %fwdCount.1 = phi i32 [ %fwdCount.0225, %invoke.cont155 ], [ %inc166, %invoke.cont164 ]
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %exitcond247.not = icmp eq i64 %indvars.iv.next243, %wide.trip.count246
-  br i1 %exitcond247.not, label %for.end170, label %for.body139, !llvm.loop !18
+  br i1 %exitcond247.not, label %for.end170, label %for.body139, !llvm.loop !17
 
 for.end170:                                       ; preds = %for.inc168, %for.cond137.preheader
   %42 = phi ptr [ %10, %for.cond137.preheader ], [ %41, %for.inc168 ]
@@ -2484,7 +2484,7 @@ declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dere
 declare void @_ZN6icu_757UVector12sortedInsertEPvPFi8UElementS2_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN6icu_75L20compareUnicodeStringE8UElementS0_(ptr %t1.coerce, ptr %t2.coerce) #2 {
+define internal noundef range(i32 -128, 128) i32 @_ZN6icu_75L20compareUnicodeStringE8UElementS0_(ptr %t1.coerce, ptr %t2.coerce) #2 {
 entry:
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %t1.coerce, i64 8
   %0 = load i16, ptr %fUnion.i.i.i, align 8
@@ -2600,15 +2600,14 @@ attributes #15 = { allocsize(0) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN6icu_7521ures_getUnicodeStringEPK15UResourceBundleP10UErrorCode: %agg.result"}
-!12 = distinct !{!12, !"_ZN6icu_7521ures_getUnicodeStringEPK15UResourceBundleP10UErrorCode"}
-!13 = !{i64 2149796599}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN6icu_7521ures_getUnicodeStringEPK15UResourceBundleP10UErrorCode: %agg.result"}
+!11 = distinct !{!11, !"_ZN6icu_7521ures_getUnicodeStringEPK15UResourceBundleP10UErrorCode"}
+!12 = !{i64 2149796599}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}

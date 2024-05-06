@@ -121,7 +121,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xstate_get_g
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_cpu_has_xfeatures512, ptr @__UNIQUE_ID___addressable_xfd_update_static_branch598, ptr @__UNIQUE_ID___addressable_xstate_get_guest_group_perm604, ptr @trace_x86_fpu_regs_activated.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace410, ptr @trace_x86_fpu_regs_activated.__UNIQUE_ID___addressable___SCK__tp_func_x86_fpu_regs_activated409], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define dso_local i32 @cpu_has_xfeatures(i64 noundef %0, ptr noundef writeonly %1) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @cpu_has_xfeatures(i64 noundef %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = load i64, ptr getelementptr inbounds (%struct.fpu_state_config, ptr @fpu_kernel_cfg, i64 0, i32 2), align 8
   %4 = xor i64 %3, -1
   %5 = and i64 %4, %0
@@ -186,7 +186,7 @@ define dso_local void @fpu__init_cpu_xstate() local_unnamed_addr #2 align 16 {
   %15 = load i64, ptr getelementptr inbounds (%struct.fpstate, ptr @init_fpstate, i64 0, i32 4), align 8
   %16 = trunc i64 %15 to i32
   %17 = lshr i64 %15, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 452, i32 %16, i32 %18) #14, !srcloc !13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #14
           to label %20 [label %19], !srcloc !14
@@ -199,7 +199,7 @@ define dso_local void @fpu__init_cpu_xstate() local_unnamed_addr #2 align 16 {
   %21 = load i64, ptr getelementptr inbounds (%struct.fpu_state_config, ptr @fpu_user_cfg, i64 0, i32 2), align 8
   %22 = trunc i64 %21 to i32
   %23 = lshr i64 %21, 32
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw i64 %23 to i32
   call void asm sideeffect "xsetbv", "{ax},{dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %22, i32 %24, i32 0) #14, !srcloc !15
   %25 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 32), align 8
   %26 = and i64 %25, 8
@@ -218,7 +218,7 @@ define dso_local void @fpu__init_cpu_xstate() local_unnamed_addr #2 align 16 {
 32:                                               ; preds = %31, %28, %28
   %33 = phi i64 [ 0, %31 ], [ 32768, %28 ], [ 32768, %28 ]
   %34 = or disjoint i64 %33, %30
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 3488, i32 %35, i32 0) #14, !srcloc !13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #14
           to label %37 [label %36], !srcloc !14
@@ -513,7 +513,7 @@ define internal fastcc void @setup_xstate_cache() unnamed_addr #3 section ".init
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @init_xstate_size() unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @init_xstate_size() unnamed_addr #3 section ".init.text" align 16 {
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 234, i32 4, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 21)) #14
           to label %4 [label %4, label %1], !srcloc !12
 
@@ -724,7 +724,7 @@ define dso_local void @fpu__resume_cpu() local_unnamed_addr #2 align 16 {
   %2 = load i64, ptr getelementptr inbounds (%struct.fpu_state_config, ptr @fpu_user_cfg, i64 0, i32 2), align 8
   %3 = trunc i64 %2 to i32
   %4 = lshr i64 %2, 32
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw i64 %4 to i32
   tail call void asm sideeffect "xsetbv", "{ax},{dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %3, i32 %5, i32 0) #14, !srcloc !15
   br label %6
 
@@ -744,7 +744,7 @@ define dso_local void @fpu__resume_cpu() local_unnamed_addr #2 align 16 {
 11:                                               ; preds = %10, %7, %7
   %12 = phi i64 [ 0, %10 ], [ 32768, %7 ], [ 32768, %7 ]
   %13 = or disjoint i64 %12, %9
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw nsw i64 %13 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 3488, i32 %14, i32 0) #14, !srcloc !13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #14
           to label %16 [label %15], !srcloc !14
@@ -766,7 +766,7 @@ define dso_local void @fpu__resume_cpu() local_unnamed_addr #2 align 16 {
   %23 = load i64, ptr %22, align 8
   %24 = trunc i64 %23 to i32
   %25 = lshr i64 %23, 32
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 452, i32 %24, i32 %26) #14, !srcloc !13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #14
           to label %28 [label %27], !srcloc !14
@@ -911,7 +911,7 @@ define internal fastcc ptr @__raw_xsave_addr(ptr noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @arch_set_user_pkey_access(ptr nocapture noundef readnone %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @arch_set_user_pkey_access(ptr nocapture noundef readnone %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 16 {
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 516, i32 16, ptr nonnull getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 56)) #14
           to label %4 [label %4, label %29], !srcloc !12
 
@@ -1463,7 +1463,7 @@ define dso_local void @xsaves(ptr noundef %0, i64 noundef %1) local_unnamed_addr
 13:                                               ; preds = %6
   %14 = trunc i64 %1 to i32
   %15 = lshr i64 %1, 32
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw i64 %15 to i32
   %17 = tail call i32 asm sideeffect "1:.byte 0x48, 0x0f,0xc7,0x2f\0A\09xor $0, $0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 15 \0A .popsection\0A", "={ax},{di},*m,{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr elementtype(%struct.xregs_state) %0, i32 %14, i32 %16) #14, !srcloc !71
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %20, label %19, !prof !6
@@ -1513,7 +1513,7 @@ define dso_local void @xrstors(ptr noundef %0, i64 noundef %1) local_unnamed_add
 13:                                               ; preds = %6
   %14 = trunc i64 %1 to i32
   %15 = lshr i64 %1, 32
-  %16 = trunc i64 %15 to i32
+  %16 = trunc nuw i64 %15 to i32
   %17 = tail call i32 asm sideeffect "1:.byte 0x48, 0x0f,0xc7,0x1f\0A\09xor $0, $0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 15 \0A .popsection\0A", "={ax},{di},*m,{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr elementtype(%struct.xregs_state) %0, i32 %14, i32 %16) #14, !srcloc !75
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %20, label %19, !prof !6
@@ -1608,7 +1608,7 @@ define dso_local void @fpstate_free(ptr noundef readonly %0) local_unnamed_addr 
 declare dso_local void @vfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__xfd_enable_feature(i64 noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @__xfd_enable_feature(i64 noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = and i64 %0, 262144
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %11
@@ -1835,7 +1835,7 @@ define dso_local noundef i32 @__xfd_enable_feature(i64 noundef %0, ptr noundef %
 129:                                              ; preds = %125
   %130 = trunc i64 %126 to i32
   %131 = lshr i64 %126, 32
-  %132 = trunc i64 %131 to i32
+  %132 = trunc nuw i64 %131 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 452, i32 %130, i32 %132) #14, !srcloc !13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #14
           to label %134 [label %133], !srcloc !14
@@ -1870,7 +1870,7 @@ define dso_local noundef i32 @__xfd_enable_feature(i64 noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfd_enable_feature(i64 noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @xfd_enable_feature(i64 noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i32 @__xfd_enable_feature(i64 noundef %0, ptr noundef null), !range !101
   ret i32 %2
 }
@@ -1887,7 +1887,7 @@ define dso_local i64 @xstate_get_guest_group_perm() #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @fpu_xstate_prctl(i32 noundef %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @fpu_xstate_prctl(i32 noundef %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = inttoptr i64 %1 to ptr
   switch i32 %0, label %175 [
     i32 4129, label %4
@@ -2207,7 +2207,7 @@ define internal fastcc i32 @get_xsave_compacted_size() unnamed_addr #3 section "
 3:                                                ; preds = %0, %0
   %4 = load i64, ptr getelementptr inbounds (%struct.fpu_state_config, ptr @fpu_kernel_cfg, i64 0, i32 2), align 8
   %5 = and i64 %4, 3072
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 3488, i32 %6, i32 0) #14, !srcloc !13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #14
           to label %8 [label %7], !srcloc !14
@@ -2221,7 +2221,7 @@ define internal fastcc i32 @get_xsave_compacted_size() unnamed_addr #3 section "
   %10 = load i64, ptr getelementptr inbounds (%struct.fpu_state_config, ptr @fpu_kernel_cfg, i64 0, i32 2), align 8
   %11 = and i64 %10, 3072
   %12 = or disjoint i64 %11, 32768
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 3488, i32 %13, i32 0) #14, !srcloc !13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #14
           to label %15 [label %14], !srcloc !14
@@ -2724,7 +2724,7 @@ define internal fastcc void @check_xtile_data_against_struct(i32 noundef %0) unn
 5:                                                ; preds = %.preheader
   %6 = extractvalue { i32, i32, i32, i32 } %16, 1
   %7 = lshr i32 %6, 16
-  %8 = trunc i32 %7 to i16
+  %8 = trunc nuw i32 %7 to i16
   %9 = zext i16 %15 to i32
   %10 = icmp ugt i32 %7, %9
   %11 = select i1 %10, i16 %8, i16 %15

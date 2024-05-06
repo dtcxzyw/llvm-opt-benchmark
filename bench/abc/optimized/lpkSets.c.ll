@@ -120,7 +120,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %47
   %indvars.iv88 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next89, %47 ]
   %.04872 = phi i32 [ 0, %.lr.ph74.preheader ], [ %.149, %47 ]
-  %40 = trunc i64 %indvars.iv88 to i32
+  %40 = trunc nuw nsw i64 %indvars.iv88 to i32
   %41 = shl nuw i32 1, %40
   %42 = and i32 %41, %.076
   %.not = icmp eq i32 %42, 0
@@ -561,7 +561,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %.fr128 = freeze i32 %22
   %23 = and i32 %.fr128, 65535
   %24 = icmp eq i32 %23, 0
-  %25 = tail call i32 @llvm.ctpop.i32(i32 %23), !range !10
+  %25 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %23)
   %26 = icmp ugt i32 %25, 1
   br i1 %24, label %..critedge2_crit_edge.us, label %.lr.ph.split.us121.preheader
 
@@ -583,7 +583,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %or.cond104.us, label %90, label %34
 
 34:                                               ; preds = %.lr.ph.split.us121
-  %35 = tail call i32 @llvm.ctpop.i32(i32 %29), !range !10
+  %35 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %29)
   %36 = icmp ugt i32 %35, 1
   %or.cond111.us = select i1 %26, i1 true, i1 %36
   br i1 %or.cond111.us, label %37, label %90
@@ -631,7 +631,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %72 = getelementptr inbounds [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %71
   store i16 %69, ptr %72, align 2
   store i32 %12, ptr %66, align 4
-  %73 = trunc i32 %61 to i8
+  %73 = trunc nsw i32 %61 to i8
   %74 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.SRed, i64 0, i64 %65
   store i8 %73, ptr %74, align 1
   br label %.sink.split
@@ -649,16 +649,16 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
 
 82:                                               ; preds = %77
   store i32 %12, ptr %66, align 4
-  %83 = trunc i32 %61 to i8
+  %83 = trunc nsw i32 %61 to i8
   store i8 %83, ptr %78, align 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %68, %82
   %.2.us.ph = phi i32 [ %.1113.us, %82 ], [ %70, %68 ]
-  %84 = trunc i32 %58 to i8
+  %84 = trunc nuw nsw i32 %58 to i8
   %85 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %65
   store i8 %84, ptr %85, align 1
-  %86 = trunc i64 %indvars.iv to i32
+  %86 = trunc nuw nsw i64 %indvars.iv to i32
   %87 = shl i32 %86, 16
   %88 = or i32 %87, %.sink154
   %89 = getelementptr inbounds [65536 x i32], ptr @Lpk_ComposeSets.Parents, i64 0, i64 %65
@@ -669,13 +669,13 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %.2.us = phi i32 [ %.1113.us, %.lr.ph.split.us121 ], [ %.1113.us, %37 ], [ %.1113.us, %77 ], [ %.1113.us, %75 ], [ %.1113.us, %34 ], [ %.2.us.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..critedge2_crit_edge.us, label %.lr.ph.split.us121, !llvm.loop !11
+  br i1 %exitcond.not, label %..critedge2_crit_edge.us, label %.lr.ph.split.us121, !llvm.loop !10
 
 ..critedge2_crit_edge.us:                         ; preds = %90, %.lr.ph.us
   %.us-phi.us = phi i32 [ %.0116.us, %.lr.ph.us ], [ %.2.us, %90 ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
-  br i1 %exitcond137.not, label %.critedge.preheader, label %.lr.ph.us, !llvm.loop !12
+  br i1 %exitcond137.not, label %.critedge.preheader, label %.lr.ph.us, !llvm.loop !11
 
 .critedge.preheader:                              ; preds = %..critedge2_crit_edge.us
   %91 = icmp sgt i32 %.us-phi.us, 0
@@ -707,7 +707,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.089124, i32 %100)
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
-  br i1 %exitcond142.not, label %.preheader, label %.critedge, !llvm.loop !13
+  br i1 %exitcond142.not, label %.preheader, label %.critedge, !llvm.loop !12
 
 101:                                              ; preds = %.lr.ph126, %166
   %indvars.iv143 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next144, %166 ]
@@ -793,7 +793,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
 166:                                              ; preds = %101, %112
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %._crit_edge, label %101, !llvm.loop !14
+  br i1 %exitcond147.not, label %._crit_edge, label %101, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %166, %109, %.lr.ph117, %11, %.critedge.preheader, %.preheader
   ret void
@@ -843,7 +843,7 @@ define void @Lpk_MapSuppPrintSet(ptr nocapture noundef readonly %0, i32 noundef 
 30:                                               ; preds = %28, %25
   %31 = add nuw nsw i32 %.06.i, 1
   %exitcond.not.i = icmp eq i32 %31, 16
-  br i1 %exitcond.not.i, label %Lpk_PrintSetOne.exit, label %25, !llvm.loop !15
+  br i1 %exitcond.not.i, label %Lpk_PrintSetOne.exit, label %25, !llvm.loop !14
 
 Lpk_PrintSetOne.exit:                             ; preds = %30
   %putchar.i = tail call i32 @putchar(i32 32)
@@ -866,7 +866,7 @@ Lpk_PrintSetOne.exit:                             ; preds = %30
 39:                                               ; preds = %37, %34
   %40 = add nuw nsw i32 %.06.i8, 1
   %exitcond.not.i11 = icmp eq i32 %40, 16
-  br i1 %exitcond.not.i11, label %Lpk_PrintSetOne.exit13, label %34, !llvm.loop !15
+  br i1 %exitcond.not.i11, label %Lpk_PrintSetOne.exit13, label %34, !llvm.loop !14
 
 Lpk_PrintSetOne.exit13:                           ; preds = %39
   %putchar.i12 = tail call i32 @putchar(i32 32)
@@ -969,7 +969,7 @@ define i32 @Lpk_MapSuppRedDecSelect(ptr nocapture noundef readonly %0, ptr nound
 49:                                               ; preds = %47, %44
   %50 = add nuw nsw i32 %.06.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %50, 16
-  br i1 %exitcond.not.i.i, label %Lpk_PrintSetOne.exit.i, label %44, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %Lpk_PrintSetOne.exit.i, label %44, !llvm.loop !14
 
 Lpk_PrintSetOne.exit.i:                           ; preds = %49
   %putchar.i.i = tail call i32 @putchar(i32 32)
@@ -977,7 +977,7 @@ Lpk_PrintSetOne.exit.i:                           ; preds = %49
   %.val.i = load i32, ptr %23, align 4
   %51 = sext i32 %.val.i to i64
   %52 = icmp slt i64 %indvars.iv.next.i, %51
-  br i1 %52, label %.lr.ph.i, label %.thread96, !llvm.loop !16
+  br i1 %52, label %.lr.ph.i, label %.thread96, !llvm.loop !15
 
 .thread:                                          ; preds = %31
   %53 = tail call i32 @Lpk_ComputeSets(ptr noundef %34, ptr noundef %8)
@@ -1014,7 +1014,7 @@ Lpk_PrintSetOne.exit.i:                           ; preds = %49
 64:                                               ; preds = %62, %59
   %65 = add nuw nsw i32 %.06.i.i87, 1
   %exitcond.not.i.i90 = icmp eq i32 %65, 16
-  br i1 %exitcond.not.i.i90, label %Lpk_PrintSetOne.exit.i91, label %59, !llvm.loop !15
+  br i1 %exitcond.not.i.i90, label %Lpk_PrintSetOne.exit.i91, label %59, !llvm.loop !14
 
 Lpk_PrintSetOne.exit.i91:                         ; preds = %64
   %putchar.i.i92 = tail call i32 @putchar(i32 32)
@@ -1022,7 +1022,7 @@ Lpk_PrintSetOne.exit.i91:                         ; preds = %64
   %.val.i94 = load i32, ptr %25, align 4
   %66 = sext i32 %.val.i94 to i64
   %67 = icmp slt i64 %indvars.iv.next.i93, %66
-  br i1 %67, label %.lr.ph.i84, label %Lpk_PrintSets.exit95, !llvm.loop !16
+  br i1 %67, label %.lr.ph.i84, label %Lpk_PrintSets.exit95, !llvm.loop !15
 
 Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exit.i91, %.thread96
   %putchar.i83 = tail call i32 @putchar(i32 10)
@@ -1034,7 +1034,7 @@ Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exi
   call void @Lpk_ComposeSets(ptr noundef %8, ptr noundef %10, i32 noundef %2, i32 noundef %.06598, ptr noundef nonnull @Lpk_MapSuppRedDecSelect.pStore, ptr noundef nonnull %6, i32 noundef 256)
   %68 = add nuw nsw i32 %.06598, 1
   %exitcond.not = icmp eq i32 %68, %2
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.critedge75, %21
   br i1 %.not, label %._crit_edge..critedge77_crit_edge, label %69
@@ -1060,11 +1060,11 @@ Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exi
 .lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
   %indvars.iv = phi i64 [ 0, %.lr.ph101.preheader ], [ %indvars.iv.next, %.lr.ph101 ]
   %72 = getelementptr inbounds %struct.Lpk_Set_t_, ptr @Lpk_MapSuppRedDecSelect.pStore, i64 %indvars.iv
-  %73 = trunc i64 %indvars.iv to i32
+  %73 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @Lpk_MapSuppPrintSet(ptr noundef nonnull %72, i32 noundef %73)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond107.not, label %.critedge77, label %.lr.ph101, !llvm.loop !18
+  br i1 %exitcond107.not, label %.critedge77, label %.lr.ph101, !llvm.loop !17
 
 .critedge77:                                      ; preds = %.lr.ph101, %._crit_edge..critedge77_crit_edge
   %74 = phi i32 [ %.pre, %._crit_edge..critedge77_crit_edge ], [ %70, %.lr.ph101 ]
@@ -1101,7 +1101,7 @@ Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exi
   %.1 = phi i32 [ %.064103, %79 ], [ %84, %86 ]
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
-  br i1 %exitcond112.not, label %89, label %79, !llvm.loop !19
+  br i1 %exitcond112.not, label %89, label %79, !llvm.loop !18
 
 89:                                               ; preds = %87
   store ptr %81, ptr @Lpk_MapSuppRedDecSelect.pSet, align 8
@@ -1155,7 +1155,7 @@ Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exi
 114:                                              ; preds = %111
   %115 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %115, 32
-  br i1 %exitcond.not.i, label %Kit_WordFindFirstBit.exit, label %111, !llvm.loop !20
+  br i1 %exitcond.not.i, label %Kit_WordFindFirstBit.exit, label %111, !llvm.loop !19
 
 Kit_WordFindFirstBit.exit:                        ; preds = %111, %114
   %.06.i = phi i32 [ %.07.i, %111 ], [ -1, %114 ]
@@ -1237,7 +1237,7 @@ attributes #13 = { nounwind }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 33}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
@@ -1247,4 +1247,3 @@ attributes #13 = { nounwind }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}

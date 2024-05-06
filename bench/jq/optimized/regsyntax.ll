@@ -91,15 +91,15 @@ define i32 @onig_get_syntax_options(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @onig_set_meta_char(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 -30, 1) i32 @onig_set_meta_char(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = icmp ult i32 %1, 6
   br i1 %4, label %switch.lookup, label %9
 
 switch.lookup:                                    ; preds = %3
   %5 = shl nuw nsw i32 %1, 2
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr i8, ptr %0, i64 %6
-  %8 = getelementptr i8, ptr %7, i64 16
+  %7 = getelementptr inbounds i8, ptr %0, i64 %6
+  %8 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 %2, ptr %8, align 4
   br label %9
 

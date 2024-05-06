@@ -136,7 +136,7 @@ _fdvec_resize.exit.thread:                        ; preds = %._crit_edge, %18
 _fdvec_resize.exit:                               ; preds = %23, %26
   %storemerge = phi ptr [ %28, %26 ], [ %25, %23 ]
   store ptr %storemerge, ptr %9, align 8
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw i64 %indvars.iv to i32
   store i32 %29, ptr %5, align 4
   %30 = load ptr, ptr %9, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -449,10 +449,10 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   %7 = alloca %struct.FileTag, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.5.0.extract.shift = lshr i64 %0, 32
-  %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i32
+  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %.sroa.6.8.extract.trunc = trunc i64 %1 to i32
   %.sroa.11.8.extract.shift = lshr i64 %1, 32
-  %.sroa.11.8.extract.trunc = trunc i64 %.sroa.11.8.extract.shift to i32
+  %.sroa.11.8.extract.trunc = trunc nuw i64 %.sroa.11.8.extract.shift to i32
   %8 = tail call ptr @GetRelationPath(i32 noundef %.sroa.5.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.sroa.6.8.extract.trunc, i32 noundef %.sroa.11.8.extract.trunc, i32 noundef %2) #14
   br i1 %3, label %14, label %9
 
@@ -1841,7 +1841,7 @@ define dso_local void @mdtruncate(ptr nocapture noundef %0, i32 noundef %1, i32 
 32:                                               ; preds = %.lr.ph, %87
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %87 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %33 = trunc i64 %indvars.iv.next to i32
+  %33 = trunc nuw nsw i64 %indvars.iv.next to i32
   %34 = shl i32 %33, 17
   %35 = load ptr, ptr %29, align 8
   %36 = getelementptr %struct._MdfdVec, ptr %35, i64 %indvars.iv.next
@@ -1990,7 +1990,7 @@ define dso_local void @mdregistersync(ptr nocapture noundef %0, i32 noundef %1) 
   %17 = and i64 %indvars.iv.next, 4294967295
   %18 = getelementptr %struct._MdfdVec, ptr %16, i64 %17
   tail call fastcc void @register_dirty_segment(ptr noundef %0, i32 noundef %1, ptr noundef %18)
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw i64 %indvars.iv to i32
   %20 = icmp slt i32 %7, %19
   br i1 %20, label %21, label %38
 
@@ -2094,7 +2094,7 @@ define dso_local void @mdimmedsync(ptr nocapture noundef %0, i32 noundef %1) loc
   br label %30
 
 30:                                               ; preds = %25, %22, %15
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw i64 %indvars.iv to i32
   %32 = icmp slt i32 %7, %31
   br i1 %32, label %33, label %50
 

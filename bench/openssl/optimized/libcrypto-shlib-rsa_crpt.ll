@@ -18,7 +18,7 @@ entry:
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_size(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
+define range(i32 -268435455, 268435456) i32 @RSA_size(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
 entry:
   %n = getelementptr inbounds i8, ptr %r, i64 40
   %0 = load ptr, ptr %n, align 8
@@ -108,7 +108,7 @@ entry:
 declare void @BN_BLINDING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RSA_blinding_on(ptr nocapture noundef %rsa, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_blinding_on(ptr nocapture noundef %rsa, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %blinding = getelementptr inbounds i8, ptr %rsa, i64 192
   %0 = load ptr, ptr %blinding, align 8

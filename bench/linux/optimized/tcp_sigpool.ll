@@ -552,7 +552,7 @@ define dso_local i64 @tcp_sigpool_algo(i32 noundef %0, ptr noundef %1, i64 nound
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcp_sigpool_hash_skb_data(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @tcp_sigpool_hash_skb_data(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.scatterlist, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 112
   %6 = load i32, ptr %5, align 8
@@ -688,9 +688,9 @@ define dso_local noundef i32 @tcp_sigpool_hash_skb_data(ptr nocapture noundef re
   br i1 %95, label %.loopexit, label %96
 
 96:                                               ; preds = %92
-  %97 = call i32 @tcp_sigpool_hash_skb_data(ptr noundef %0, ptr noundef nonnull %94, i32 noundef 0), !range !43
+  %97 = call i32 @tcp_sigpool_hash_skb_data(ptr noundef %0, ptr noundef nonnull %94, i32 noundef 0)
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %92, label %.loopexit, !llvm.loop !44
+  br i1 %98, label %92, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %78, %96, %92, %39
   %99 = phi i32 [ 1, %39 ], [ 0, %92 ], [ 1, %96 ], [ 1, %78 ]
@@ -742,7 +742,7 @@ define internal void @free_old_scratches(ptr noundef %0) #0 align 16 {
   %14 = add i32 %13, -1
   store i32 %14, ptr %2, align 8
   %15 = icmp eq i32 %13, 0
-  br i1 %15, label %.loopexit, label %8, !llvm.loop !45
+  br i1 %15, label %.loopexit, label %8, !llvm.loop !44
 
 .loopexit:                                        ; preds = %8, %1
   tail call void @kfree(ptr noundef %0) #8
@@ -809,7 +809,7 @@ define internal void @cpool_cleanup_work_cb(ptr nocapture readnone %0) #0 align 
   %22 = add nuw nsw i64 %5, 1
   %23 = zext i32 %20 to i64
   %24 = icmp ult i64 %22, %23
-  br i1 %24, label %.preheader, label %25, !llvm.loop !46
+  br i1 %24, label %.preheader, label %25, !llvm.loop !45
 
 25:                                               ; preds = %19
   %26 = and i8 %21, 1
@@ -845,7 +845,7 @@ define internal void @cpool_cleanup_work_cb(ptr nocapture readnone %0) #0 align 
   %45 = add nuw nsw i64 %35, 1
   %46 = and i64 %45, 127
   %47 = icmp ugt i64 %46, 63
-  br i1 %47, label %.thread, label %28, !prof !9, !llvm.loop !47
+  br i1 %47, label %.thread, label %28, !prof !9, !llvm.loop !46
 
 .thread:                                          ; preds = %28, %38, %34
   store i64 0, ptr @__scratch_size, align 8
@@ -929,8 +929,7 @@ attributes #11 = { nounwind memory(read) }
 !40 = !{i64 2155226227, i64 2155226036, i64 2155226088, i64 2155226134, i64 2155226162}
 !41 = !{i64 2155226301, i64 2155226330, i64 2155226376, i64 2155226434, i64 2155226488, i64 2155226542, i64 2155226597, i64 2155226628}
 !42 = distinct !{!42, !11, !12}
-!43 = !{i32 0, i32 2}
+!43 = distinct !{!43, !11, !12}
 !44 = distinct !{!44, !11, !12}
 !45 = distinct !{!45, !11, !12}
 !46 = distinct !{!46, !11, !12}
-!47 = distinct !{!47, !11, !12}

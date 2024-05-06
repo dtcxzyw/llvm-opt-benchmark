@@ -2258,7 +2258,7 @@ entry:
   %ref.tmp29 = alloca %"class.testing::internal::AssertHelper", align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %entry
+for.body.i:                                       ; preds = %entry, %for.body.i
   %__init.addr.06.i = phi double [ %add.i, %for.body.i ], [ 0.000000e+00, %entry ]
   %__first.addr.05.i.idx = phi i64 [ %__first.addr.05.i.add, %for.body.i ], [ 0, %entry ]
   %__first.addr.05.i.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_137ChiSquareTest_CalcChiSquareInt64_Test8TestBodyEv.data, i64 %__first.addr.05.i.idx
@@ -2273,7 +2273,7 @@ _ZSt10accumulateIPKldET0_T_S3_S2_.exit:           ; preds = %for.body.i
   %div = fdiv double %add.i, 3.000000e+00
   br label %for.body.i9
 
-for.body.i9:                                      ; preds = %for.body.i9, %_ZSt10accumulateIPKldET0_T_S3_S2_.exit
+for.body.i9:                                      ; preds = %_ZSt10accumulateIPKldET0_T_S3_S2_.exit, %for.body.i9
   %chi_square.09.i = phi double [ %2, %for.body.i9 ], [ 0.000000e+00, %_ZSt10accumulateIPKldET0_T_S3_S2_.exit ]
   %it.08.i.idx = phi i64 [ %it.08.i.add, %for.body.i9 ], [ 0, %_ZSt10accumulateIPKldET0_T_S3_S2_.exit ]
   %it.08.i.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_137ChiSquareTest_CalcChiSquareInt64_Test8TestBodyEv.data, i64 %it.08.i.idx
@@ -2380,7 +2380,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i, align 8
   br label %for.body.i20
 
-for.body.i20:                                     ; preds = %for.body.i20, %_ZN7testing15AssertionResultD2Ev.exit
+for.body.i20:                                     ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %for.body.i20
   %chi_square.09.i21 = phi double [ %14, %for.body.i20 ], [ 0.000000e+00, %_ZN7testing15AssertionResultD2Ev.exit ]
   %it.08.i22.idx = phi i64 [ %it.08.i22.add, %for.body.i20 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit ]
   %it.08.i22.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_137ChiSquareTest_CalcChiSquareInt64_Test8TestBodyEv.data, i64 %it.08.i22.idx
@@ -2592,7 +2592,7 @@ for.body:                                         ; preds = %entry, %_ZN7testing
   %arrayidx = getelementptr inbounds [100 x [5 x double]], ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_TableData_Test8TestBodyEv.data, i64 0, i64 %indvars.iv
   %0 = load double, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %1 = trunc i64 %indvars.iv.next to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.next to i32
   %call = call noundef double @_ZN4absl15random_internal15ChiSquarePValueEdi(double noundef %0, i32 noundef %1)
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, double noundef %call, double noundef 1.000000e-01, double noundef 1.000000e-04)
   %2 = load i8, ptr %gtest_ar, align 8
@@ -2606,7 +2606,7 @@ if.else:                                          ; preds = %for.body
 invoke.cont:                                      ; preds = %if.else
   %3 = load ptr, ptr %ref.tmp, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 16
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %call2.i31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i32 noundef %4)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -2717,7 +2717,7 @@ if.else29:                                        ; preds = %_ZN7testing15Assert
 invoke.cont32:                                    ; preds = %if.else29
   %18 = load ptr, ptr %ref.tmp30, align 8
   %add.ptr.i43 = getelementptr inbounds i8, ptr %18, i64 16
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %call2.i44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i43, i32 noundef %19)
           to label %invoke.cont34 unwind label %lpad33
 
@@ -2828,7 +2828,7 @@ if.else61:                                        ; preds = %_ZN7testing15Assert
 invoke.cont64:                                    ; preds = %if.else61
   %33 = load ptr, ptr %ref.tmp62, align 8
   %add.ptr.i73 = getelementptr inbounds i8, ptr %33, i64 16
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   %call2.i74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i73, i32 noundef %34)
           to label %invoke.cont66 unwind label %lpad65
 
@@ -2939,7 +2939,7 @@ if.else93:                                        ; preds = %_ZN7testing15Assert
 invoke.cont96:                                    ; preds = %if.else93
   %48 = load ptr, ptr %ref.tmp94, align 8
   %add.ptr.i103 = getelementptr inbounds i8, ptr %48, i64 16
-  %49 = trunc i64 %indvars.iv to i32
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
   %call2.i104 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i103, i32 noundef %49)
           to label %invoke.cont98 unwind label %lpad97
 
@@ -3050,7 +3050,7 @@ if.else125:                                       ; preds = %_ZN7testing15Assert
 invoke.cont128:                                   ; preds = %if.else125
   %63 = load ptr, ptr %ref.tmp126, align 8
   %add.ptr.i133 = getelementptr inbounds i8, ptr %63, i64 16
-  %64 = trunc i64 %indvars.iv to i32
+  %64 = trunc nuw nsw i64 %indvars.iv to i32
   %call2.i134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i133, i32 noundef %64)
           to label %invoke.cont130 unwind label %lpad129
 
@@ -3159,7 +3159,7 @@ if.else157:                                       ; preds = %_ZN7testing15Assert
 invoke.cont160:                                   ; preds = %if.else157
   %77 = load ptr, ptr %ref.tmp158, align 8
   %add.ptr.i163 = getelementptr inbounds i8, ptr %77, i64 16
-  %78 = trunc i64 %indvars.iv to i32
+  %78 = trunc nuw nsw i64 %indvars.iv to i32
   %call2.i164 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i163, i32 noundef %78)
           to label %invoke.cont162 unwind label %lpad161
 
@@ -3256,7 +3256,7 @@ if.else182:                                       ; preds = %_ZN7testing15Assert
 invoke.cont185:                                   ; preds = %if.else182
   %89 = load ptr, ptr %ref.tmp183, align 8
   %add.ptr.i187 = getelementptr inbounds i8, ptr %89, i64 16
-  %90 = trunc i64 %indvars.iv to i32
+  %90 = trunc nuw nsw i64 %indvars.iv to i32
   %call2.i188 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i187, i32 noundef %90)
           to label %invoke.cont187 unwind label %lpad186
 
@@ -3353,7 +3353,7 @@ if.else207:                                       ; preds = %_ZN7testing15Assert
 invoke.cont210:                                   ; preds = %if.else207
   %101 = load ptr, ptr %ref.tmp208, align 8
   %add.ptr.i211 = getelementptr inbounds i8, ptr %101, i64 16
-  %102 = trunc i64 %indvars.iv to i32
+  %102 = trunc nuw nsw i64 %indvars.iv to i32
   %call2.i212 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i211, i32 noundef %102)
           to label %invoke.cont212 unwind label %lpad211
 
@@ -3450,7 +3450,7 @@ if.else232:                                       ; preds = %_ZN7testing15Assert
 invoke.cont235:                                   ; preds = %if.else232
   %113 = load ptr, ptr %ref.tmp233, align 8
   %add.ptr.i235 = getelementptr inbounds i8, ptr %113, i64 16
-  %114 = trunc i64 %indvars.iv to i32
+  %114 = trunc nuw nsw i64 %indvars.iv to i32
   %call2.i236 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i235, i32 noundef %114)
           to label %invoke.cont237 unwind label %lpad236
 
@@ -3547,7 +3547,7 @@ if.else257:                                       ; preds = %_ZN7testing15Assert
 invoke.cont260:                                   ; preds = %if.else257
   %125 = load ptr, ptr %ref.tmp258, align 8
   %add.ptr.i259 = getelementptr inbounds i8, ptr %125, i64 16
-  %126 = trunc i64 %indvars.iv to i32
+  %126 = trunc nuw nsw i64 %indvars.iv to i32
   %call2.i260 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i259, i32 noundef %126)
           to label %invoke.cont262 unwind label %lpad261
 
@@ -3710,7 +3710,7 @@ entry:
   %ref.tmp43 = alloca %"class.testing::internal::AssertHelper", align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %entry
+for.body.i:                                       ; preds = %entry, %for.body.i
   %it.addr.014.i.idx = phi i64 [ %it.addr.014.i.add, %for.body.i ], [ 0, %entry ]
   %eit.addr.013.i.idx = phi i64 [ %eit.addr.013.i.add, %for.body.i ], [ 0, %entry ]
   %chi_square.012.i = phi double [ %chi_square.1.i, %for.body.i ], [ 0.000000e+00, %entry ]
@@ -4820,7 +4820,7 @@ entry:
   %ref.tmp107 = alloca %"class.testing::internal::AssertHelper", align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %entry
+for.body.i:                                       ; preds = %entry, %for.body.i
   %__init.addr.06.i = phi double [ %add.i, %for.body.i ], [ 0.000000e+00, %entry ]
   %__first.addr.05.i.idx = phi i64 [ %__first.addr.05.i.add, %for.body.i ], [ 0, %entry ]
   %__first.addr.05.i.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_DiceRolls_Test8TestBodyEv.rolls, i64 %__first.addr.05.i.idx
@@ -4835,7 +4835,7 @@ _ZSt10accumulateIPKidET0_T_S3_S2_.exit:           ; preds = %for.body.i
   %div = fdiv double %add.i, 6.000000e+00
   br label %for.body.i21
 
-for.body.i21:                                     ; preds = %for.body.i21, %_ZSt10accumulateIPKidET0_T_S3_S2_.exit
+for.body.i21:                                     ; preds = %_ZSt10accumulateIPKidET0_T_S3_S2_.exit, %for.body.i21
   %chi_square.09.i = phi double [ %2, %for.body.i21 ], [ 0.000000e+00, %_ZSt10accumulateIPKidET0_T_S3_S2_.exit ]
   %it.08.i.idx = phi i64 [ %it.08.i.add, %for.body.i21 ], [ 0, %_ZSt10accumulateIPKidET0_T_S3_S2_.exit ]
   %it.08.i.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_DiceRolls_Test8TestBodyEv.rolls, i64 %it.08.i.idx
@@ -5141,7 +5141,7 @@ _ZN7testing15AssertionResultD2Ev.exit72:          ; preds = %if.end56, %_ZNKSt14
   store ptr null, ptr %message_.i69, align 8
   br label %for.body.i74
 
-for.body.i74:                                     ; preds = %for.body.i74, %_ZN7testing15AssertionResultD2Ev.exit72
+for.body.i74:                                     ; preds = %_ZN7testing15AssertionResultD2Ev.exit72, %for.body.i74
   %chi_square.09.i75 = phi double [ %36, %for.body.i74 ], [ 0.000000e+00, %_ZN7testing15AssertionResultD2Ev.exit72 ]
   %it.08.i76.idx = phi i64 [ %it.08.i76.add, %for.body.i74 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit72 ]
   %it.08.i76.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_DiceRolls_Test8TestBodyEv.rolls, i64 %it.08.i76.idx

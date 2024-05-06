@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [5 x i8] c"not \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_coll_base_find_available(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mca_coll_base_find_available(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load volatile ptr, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @ompi_coll_base_framework, i64 0, i32 12, i32 1, i32 1), align 8
   %.015.in21 = getelementptr inbounds i8, ptr %3, i64 16
   %.01522 = load volatile ptr, ptr %.015.in21, align 8

@@ -1150,8 +1150,8 @@ Cudd_IterDerefBdd.exit:                           ; preds = %66
   br i1 %71, label %18, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %18, %Cudd_IterDerefBdd.exit, %.lr.ph
-  %.lcssa = phi i32 [ %3, %.lr.ph ], [ %69, %Cudd_IterDerefBdd.exit ], [ %69, %18 ]
-  %72 = sdiv i32 %.lcssa, 4
+  %.lcssa.ph = phi i32 [ %3, %.lr.ph ], [ %69, %Cudd_IterDerefBdd.exit ], [ %69, %18 ]
+  %72 = sdiv i32 %.lcssa.ph, 4
   store i32 %72, ptr %2, align 8
   %73 = add nsw i32 %72, -1
   %74 = getelementptr inbounds i8, ptr %0, i64 432
@@ -1221,7 +1221,7 @@ define i32 @cuddIsInDeathRow(ptr nocapture noundef readonly %0, ptr noundef read
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !21
 
 ._crit_edge.loopexit.split.loop.exit12:           ; preds = %8
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %._crit_edge.loopexit.split.loop.exit12, %2

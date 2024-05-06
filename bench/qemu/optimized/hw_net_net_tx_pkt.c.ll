@@ -165,7 +165,7 @@ if.end8:                                          ; preds = %if.end
   br i1 %or.cond, label %net_tx_pkt_update_ip_hdr_checksum.exit, label %if.else22
 
 net_tx_pkt_update_ip_hdr_checksum.exit:           ; preds = %if.end8
-  %conv1.i = trunc i64 %add to i16
+  %conv1.i = trunc nuw i64 %add to i16
   %6 = tail call noundef i16 @llvm.bswap.i16(i16 %conv1.i)
   %l3_hdr.i = getelementptr inbounds i8, ptr %pkt, i64 68
   %ip_len.i = getelementptr inbounds i8, ptr %pkt, i64 70
@@ -845,7 +845,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @net_tx_pkt_get_total_len(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @net_tx_pkt_get_total_len(ptr noundef readonly %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1106,7 +1106,7 @@ if.then5.i:                                       ; preds = %if.then.i
   br i1 %cmp6.i, label %if.then8.i, label %net_tx_pkt_fix_ip6_payload_len.exit
 
 if.then8.i:                                       ; preds = %if.then5.i
-  %conv10.i = trunc i32 %13 to i16
+  %conv10.i = trunc nuw i32 %13 to i16
   %call11.i = tail call zeroext i16 @htons(i16 noundef zeroext %conv10.i) #18
   store i16 %call11.i, ptr %ip6_un1_plen.i, align 4
   br label %net_tx_pkt_fix_ip6_payload_len.exit
@@ -1206,7 +1206,7 @@ sw.bb17.i:                                        ; preds = %if.end39
   %29 = load i32, ptr %payload_frags.i, align 8
   %sub.i = add i32 %29, 2
   %conv20.i = trunc i32 %2 to i16
-  call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef nonnull %pkt, ptr noundef %arrayidx12.i, i32 noundef %sub.i, i16 noundef zeroext %conv20.i)
+  call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef nonnull readonly %pkt, ptr noundef %arrayidx12.i, i32 noundef %sub.i, i16 noundef zeroext %conv20.i)
   %gso_size.i31.i = getelementptr inbounds i8, ptr %pkt, i64 4
   %30 = load i16, ptr %gso_size.i31.i, align 4
   %31 = and i16 %30, -8
@@ -1281,7 +1281,7 @@ if.end4.i.i:                                      ; preds = %if.end.i35.i
   br i1 %cmp.i42.i, label %while.body.i34.i, label %net_tx_pkt_fetch_fragment.exit.split.loop.exit106.i, !llvm.loop !8
 
 net_tx_pkt_fetch_fragment.exit.split.loop.exit101.i: ; preds = %if.end.i35.i
-  %38 = trunc i64 %indvars.iv.i to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %net_tx_pkt_fetch_fragment.exit.i
 
 net_tx_pkt_fetch_fragment.exit.split.loop.exit106.i: ; preds = %if.end4.i.i
@@ -1336,7 +1336,7 @@ net_tx_pkt_tcp_fragment_fix.exit.i:               ; preds = %sw.bb8.i.i, %sw.bb.
   %sub30.i = add i32 %dst_idx.1.i, -1
   %add31.i = add i64 %fetched.0.lcssa.i.i, %l4hdr_len.1.i
   %conv32.i = trunc i64 %add31.i to i16
-  call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef nonnull %pkt, ptr noundef nonnull %arrayidx11.i, i32 noundef %sub30.i, i16 noundef zeroext %conv32.i)
+  call fastcc void @net_tx_pkt_do_sw_csum(ptr noundef nonnull readonly %pkt, ptr noundef nonnull %arrayidx11.i, i32 noundef %sub30.i, i16 noundef zeroext %conv32.i)
   br label %sw.epilog35.i
 
 sw.bb33.i:                                        ; preds = %if.end25.i
@@ -1602,7 +1602,7 @@ if.then5:                                         ; preds = %if.then
   br i1 %cmp6, label %if.then8, label %if.end16
 
 if.then8:                                         ; preds = %if.then5
-  %conv10 = trunc i32 %3 to i16
+  %conv10 = trunc nuw i32 %3 to i16
   %call11 = tail call zeroext i16 @htons(i16 noundef zeroext %conv10) #18
   store i16 %call11, ptr %ip6_un1_plen, align 4
   br label %if.end16

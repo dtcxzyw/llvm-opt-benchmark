@@ -9481,7 +9481,7 @@ exit:                                             ; preds = %if.end18, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @depr_star_init(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @depr_star_init(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %0 = getelementptr i8, ptr %args, i64 8
@@ -9648,7 +9648,7 @@ exit:                                             ; preds = %if.end18, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @depr_star_init_noinline(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @depr_star_init_noinline(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %a = alloca ptr, align 8
   %b = alloca ptr, align 8
@@ -9821,7 +9821,7 @@ exit:                                             ; preds = %cond.end33.thread52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @depr_kwd_init(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @depr_kwd_init(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %0 = getelementptr i8, ptr %args, i64 8
@@ -9927,7 +9927,7 @@ exit:                                             ; preds = %if.end49, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @depr_kwd_init_noinline(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @depr_kwd_init_noinline(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %a = alloca ptr, align 8
   %b = alloca ptr, align 8

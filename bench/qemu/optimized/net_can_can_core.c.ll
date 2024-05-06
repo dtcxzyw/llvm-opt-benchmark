@@ -61,7 +61,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @can_bus_remove_client(ptr nocapture noundef %client) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @can_bus_remove_client(ptr nocapture noundef %client) local_unnamed_addr #1 {
 entry:
   %bus1 = getelementptr inbounds i8, ptr %client, i64 8
   %0 = load ptr, ptr %bus1, align 8
@@ -90,7 +90,7 @@ return:                                           ; preds = %entry, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @can_bus_client_send(ptr noundef readonly %client, ptr noundef %frames, i64 noundef %frames_cnt) local_unnamed_addr #2 {
+define dso_local range(i64 -1, 2) i64 @can_bus_client_send(ptr noundef readonly %client, ptr noundef %frames, i64 noundef %frames_cnt) local_unnamed_addr #2 {
 entry:
   %bus1 = getelementptr inbounds i8, ptr %client, i64 8
   %0 = load ptr, ptr %bus1, align 8
@@ -139,7 +139,7 @@ return:                                           ; preds = %if.end, %for.end.lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @can_bus_filter_match(ptr nocapture noundef readonly %filter, i32 noundef %can_id) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @can_bus_filter_match(ptr nocapture noundef readonly %filter, i32 noundef %can_id) local_unnamed_addr #3 {
 entry:
   %can_mask = getelementptr inbounds i8, ptr %filter, i64 4
   %0 = load i32, ptr %can_mask, align 4

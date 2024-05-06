@@ -625,7 +625,7 @@ define internal i32 @dissect_netlink_netfilter(ptr noundef %0, ptr noundef %1, p
   %24 = getelementptr inbounds i8, ptr %3, i64 8
   %25 = load i16, ptr %24, align 4
   %26 = lshr i16 %25, 8
-  %trunc = trunc i16 %26 to i8
+  %trunc = trunc nuw i16 %26 to i8
   %switch.tableidx = add i8 %trunc, -2
   %27 = icmp ult i8 %switch.tableidx, 9
   br i1 %27, label %switch.hole_check, label %32
@@ -651,7 +651,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i16 0, ptr %33, align 8
   %34 = load i16, ptr %24, align 4
   %35 = lshr i16 %34, 8
-  %trunc59 = trunc i16 %35 to i8
+  %trunc59 = trunc nuw i16 %35 to i8
   switch i8 %trunc59, label %99 [
     i8 1, label %36
     i8 2, label %49
@@ -873,7 +873,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @dissect_netlink_attributes(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfct_help_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_nfct_help_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = and i32 %4, 16383
   %cond = icmp eq i32 %8, 1
   br i1 %cond, label %9, label %12
@@ -889,7 +889,7 @@ define internal noundef i32 @dissect_nfct_help_attrs(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfct_seqadj_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_nfct_seqadj_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = and i32 %4, 16383
   %switch.tableidx = add nsw i32 %8, -1
   %9 = icmp ult i32 %switch.tableidx, 3
@@ -950,7 +950,7 @@ define internal i32 @dissect_nfct_tuple_attrs(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfct_tuple_ip_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_nfct_tuple_ip_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = and i32 %4, 16383
   %switch.tableidx = add nsw i32 %8, -1
   %9 = icmp ult i32 %switch.tableidx, 4
@@ -970,7 +970,7 @@ switch.lookup:                                    ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nfct_tuple_proto_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_nfct_tuple_proto_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = and i32 %4, 16383
   %switch.tableidx = add nsw i32 %8, -1
   %9 = icmp ult i32 %switch.tableidx, 3
@@ -1570,7 +1570,7 @@ define internal i32 @dissect_ipset_adt_attrs(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_ipset_ip_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_ipset_ip_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = and i32 %4, 16383
   switch i32 %8, label %12 [
     i32 1, label %.sink.split

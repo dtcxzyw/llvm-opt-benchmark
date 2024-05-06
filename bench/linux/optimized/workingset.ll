@@ -514,7 +514,7 @@ declare dso_local void @shrinker_free(ptr noundef) local_unnamed_addr #2
 declare dso_local i64 @list_lru_count_one(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @shadow_lru_isolate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef range(i32 1, 5) i32 @shadow_lru_isolate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 -24
   %6 = getelementptr i8, ptr %0, i64 -8
   %7 = load ptr, ptr %6, align 8

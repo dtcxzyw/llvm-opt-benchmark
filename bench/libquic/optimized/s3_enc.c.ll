@@ -51,7 +51,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ssl3_init_handshake_buffer(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ssl3_init_handshake_buffer(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
   %s3.i = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3.i, align 8
@@ -109,7 +109,7 @@ entry:
 declare ptr @BUF_MEM_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ssl3_init_handshake_hash(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ssl3_init_handshake_hash(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %s3.i = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3.i, align 8
@@ -171,7 +171,7 @@ declare i32 @EVP_MD_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ssl3_update_handshake_hash(ptr nocapture noundef readonly %ssl, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ssl3_update_handshake_hash(ptr nocapture noundef readonly %ssl, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -249,7 +249,7 @@ declare ptr @EVP_MD_CTX_md(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssl3_prf(ptr nocapture readnone %ssl, ptr noundef %out, i64 noundef %out_len, ptr noundef %secret, i64 noundef %secret_len, ptr nocapture readnone %label, i64 %label_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len) #0 {
+define internal range(i32 0, 2) i32 @ssl3_prf(ptr nocapture readnone %ssl, ptr noundef %out, i64 noundef %out_len, ptr noundef %secret, i64 noundef %secret_len, ptr nocapture readnone %label, i64 %label_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len) #0 {
 entry:
   %md5 = alloca %struct.env_md_ctx_st, align 8
   %sha1 = alloca %struct.env_md_ctx_st, align 8

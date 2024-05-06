@@ -13485,9 +13485,9 @@ invoke.cont:                                      ; preds = %init.i.i.i.i, %init
   %files_totalsize.i.i.i = getelementptr inbounds i8, ptr %call4, i64 128
   %fileio_time.i.i.i = getelementptr inbounds i8, ptr %call4, i64 160
   %max_aniso.i.i.i = getelementptr inbounds i8, ptr %call4, i64 296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_stats.i, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %files_totalsize.i.i.i, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %fileio_time.i.i.i, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %m_stats.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %files_totalsize.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %fileio_time.i.i.i, i8 0, i64 136, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tile.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %max_aniso.i.i.i, align 8
   %closest_interps.i.i.i = getelementptr inbounds i8, ptr %call4, i64 304
@@ -16619,12 +16619,12 @@ entry:
   %files_totalsize.i = getelementptr inbounds i8, ptr %stats, i64 24
   %fileio_time.i = getelementptr inbounds i8, ptr %stats, i64 56
   %max_aniso.i = getelementptr inbounds i8, ptr %stats, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %stats, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %files_totalsize.i, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %fileio_time.i, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %stats, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %files_totalsize.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %fileio_time.i, i8 0, i64 136, i1 false)
   store float 1.000000e+00, ptr %max_aniso.i, align 8
   %closest_interps.i = getelementptr inbounds i8, ptr %stats, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closest_interps.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %closest_interps.i, i8 0, i64 32, i1 false)
   %0 = atomicrmw xchg ptr @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheImpl22m_perthread_info_mutexE, i8 1 acquire, align 1
   %tobool.i.not.i3.i.i = icmp eq i8 %0, 0
   br i1 %tobool.i.not.i3.i.i, label %_ZN18OpenImageIO_v2_6_010spin_mutex10lock_guardC2ERS0_.exit, label %do.body.i.i
@@ -19803,12 +19803,12 @@ if.then:                                          ; preds = %for.body
   %files_totalsize.i = getelementptr inbounds i8, ptr %7, i64 128
   %fileio_time.i = getelementptr inbounds i8, ptr %7, i64 160
   %max_aniso.i = getelementptr inbounds i8, ptr %7, i64 296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_stats, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %files_totalsize.i, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %fileio_time.i, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %m_stats, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %files_totalsize.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %fileio_time.i, i8 0, i64 136, i1 false)
   store float 1.000000e+00, ptr %max_aniso.i, align 8
   %closest_interps.i = getelementptr inbounds i8, ptr %7, i64 304
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closest_interps.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %closest_interps.i, i8 0, i64 32, i1 false)
   %.pre = load ptr, ptr %_M_finish.i, align 8
   %.pre66 = load ptr, ptr %m_all_perthread_info, align 16
   br label %for.inc
@@ -24812,12 +24812,12 @@ if.end306:                                        ; preds = %land.lhs.true278, %
   %files_totalsize.i.i = getelementptr inbounds i8, ptr %stats, i64 24
   %fileio_time.i.i = getelementptr inbounds i8, ptr %stats, i64 56
   %max_aniso.i.i = getelementptr inbounds i8, ptr %stats, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %stats, i8 0, i64 20, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %files_totalsize.i.i, i8 0, i64 28, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %fileio_time.i.i, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %stats, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %files_totalsize.i.i, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %fileio_time.i.i, i8 0, i64 136, i1 false)
   store float 1.000000e+00, ptr %max_aniso.i.i, align 8
   %closest_interps.i.i = getelementptr inbounds i8, ptr %stats, i64 200
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closest_interps.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %closest_interps.i.i, i8 0, i64 32, i1 false)
   call void @_ZNK18OpenImageIO_v2_6_03pvt14ImageCacheImpl10mergestatsERNS0_20ImageCacheStatisticsE(ptr noundef nonnull align 64 dereferenceable(25280) %this, ptr noundef nonnull align 8 dereferenceable(232) %stats)
   %193 = load ptr, ptr %name, align 8
   %194 = load i64, ptr %m_len.i.i, align 8
@@ -25439,7 +25439,7 @@ if.end:                                           ; preds = %entry
   %call5 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #35
   store atomic i32 0, ptr %call5 seq_cst, align 4
   %m_id.i = getelementptr inbounds i8, ptr %call5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_id.i, ptr noundef nonnull align 8 dereferenceable(40) %id, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_id.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %id, i64 40, i1 false)
   %m_pixels.i = getelementptr inbounds i8, ptr %call5, i64 48
   %m_valid.i = getelementptr inbounds i8, ptr %call5, i64 76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %m_pixels.i, i8 0, i64 28, i1 false)
@@ -31864,9 +31864,9 @@ invoke.cont:                                      ; preds = %init.i.i.i.i, %init
   %files_totalsize.i.i.i = getelementptr inbounds i8, ptr %call, i64 128
   %fileio_time.i.i.i = getelementptr inbounds i8, ptr %call, i64 160
   %max_aniso.i.i.i = getelementptr inbounds i8, ptr %call, i64 296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_stats.i, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %files_totalsize.i.i.i, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %fileio_time.i.i.i, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %m_stats.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %files_totalsize.i.i.i, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %fileio_time.i.i.i, i8 0, i64 136, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tile.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %max_aniso.i.i.i, align 8
   %closest_interps.i.i.i = getelementptr inbounds i8, ptr %call, i64 304

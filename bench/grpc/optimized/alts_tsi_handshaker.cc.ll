@@ -128,13 +128,13 @@ $_ZTIN9grpc_core9Timestamp12ScopedSourceE = comdat any
 @_ZTIN9grpc_core7ExecCtxE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core7ExecCtxE }, comdat, align 8
 @_ZTVN9grpc_core15ScopedTimeCacheE = external unnamed_addr constant { [4 x ptr] }, align 8
 @_ZTVN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN9grpc_core9Timestamp12ScopedSourceE, ptr @__cxa_pure_virtual, ptr @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv] }, comdat, align 8
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant [37 x i8] c"N9grpc_core9Timestamp12ScopedSourceE\00", comdat, align 1
 @_ZTSN9grpc_core9Timestamp6SourceE = linkonce_odr constant [30 x i8] c"N9grpc_core9Timestamp6SourceE\00", comdat, align 1
 @_ZTIN9grpc_core9Timestamp6SourceE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp6SourceE }, comdat, align 8
 @_ZTIN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp12ScopedSourceE, ptr @_ZTIN9grpc_core9Timestamp6SourceE }, comdat, align 8
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core4Fork16support_enabled_E = external local_unnamed_addr global %"struct.std::atomic.4", align 1
 @.str.34 = private unnamed_addr constant [39 x i8] c"Invalid arguments to handshaker_next()\00", align 1
 @.str.35 = private unnamed_addr constant [17 x i8] c"invalid argument\00", align 1
@@ -164,7 +164,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z33alts_tsi_handshaker_result_createP23grpc_gcp_HandshakerRespbPP21tsi_handshaker_result(ptr noundef readonly %resp, i1 noundef zeroext %is_client, ptr noundef writeonly %result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 6) i32 @_Z33alts_tsi_handshaker_result_createP23grpc_gcp_HandshakerRespbPP21tsi_handshaker_result(ptr noundef readonly %resp, i1 noundef zeroext %is_client, ptr noundef writeonly %result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr.i = alloca ptr, align 8
   %it.i.i = alloca %struct.upb_strtable_iter, align 8
@@ -724,7 +724,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %do.end
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z26alts_tsi_handshaker_createPK29grpc_alts_credentials_optionsPKcS3_bP16grpc_pollset_setPP14tsi_handshakerm(ptr noundef %options, ptr noundef %target_name, ptr noundef %handshaker_service_url, i1 noundef zeroext %is_client, ptr noundef %interested_parties, ptr noundef writeonly %self, i64 noundef %user_specified_max_frame_size) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_Z26alts_tsi_handshaker_createPK29grpc_alts_credentials_optionsPKcS3_bP16grpc_pollset_setPP14tsi_handshakerm(ptr noundef %options, ptr noundef %target_name, ptr noundef %handshaker_service_url, i1 noundef zeroext %is_client, ptr noundef %interested_parties, ptr noundef writeonly %self, i64 noundef %user_specified_max_frame_size) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.grpc_slice, align 8
   %frombool = zext i1 %is_client to i8
@@ -1231,7 +1231,7 @@ return:                                           ; preds = %if.end, %if.then3, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL34handshaker_result_get_unused_bytesPK21tsi_handshaker_resultPPKhPm(ptr noundef readonly %self, ptr noundef writeonly %bytes, ptr noundef writeonly %bytes_size) #3 {
+define internal noundef range(i32 0, 3) i32 @_ZL34handshaker_result_get_unused_bytesPK21tsi_handshaker_resultPPKhPm(ptr noundef readonly %self, ptr noundef writeonly %bytes, ptr noundef writeonly %bytes_size) #3 {
 entry:
   %cmp = icmp eq ptr %self, null
   %cmp1 = icmp eq ptr %bytes, null
@@ -1390,7 +1390,7 @@ delete.end:                                       ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: uwtable
-define internal noundef i32 @_ZL25handshaker_next_dedicatedP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr nocapture noundef readnone %bytes_to_send, ptr nocapture noundef readnone %bytes_to_send_size, ptr nocapture noundef readnone %result, ptr noundef %cb, ptr noundef %user_data, ptr noundef %error) #13 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 1, 0) i32 @_ZL25handshaker_next_dedicatedP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr nocapture noundef readnone %bytes_to_send, ptr nocapture noundef readnone %bytes_to_send_size, ptr nocapture noundef readnone %result, ptr noundef %cb, ptr noundef %user_data, ptr noundef %error) #13 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, i32 0, i64 2), ptr %exec_ctx, align 8
@@ -1469,7 +1469,7 @@ _ZN9grpc_core15ScopedTimeCacheD2Ev.exit.i:        ; preds = %11, %lpad.i
 _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %invoke.cont2.i, %8
   store ptr %exec_ctx, ptr %5, align 8
   %call = invoke noundef i32 @_ZL15handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr poison, ptr poison, ptr poison, ptr noundef %cb, ptr noundef %user_data, ptr noundef %error)
-          to label %invoke.cont unwind label %lpad, !range !4
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN9grpc_core7ExecCtxC2Ev.exit
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, i32 0, i64 2), ptr %exec_ctx, align 8
@@ -1603,7 +1603,7 @@ declare void @_Z29grpc_channel_destroy_internalP12grpc_channel(ptr noundef) loca
 declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL15handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %cb, ptr noundef %user_data, ptr noundef %error) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 1, 0) i32 @_ZL15handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %cb, ptr noundef %user_data, ptr noundef %error) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp34 = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -1712,7 +1712,7 @@ if.end30:                                         ; preds = %_ZNSt10unique_ptrIh
   store ptr %call17, ptr %cb_arg2.i, align 8
   %error_data.i = getelementptr inbounds i8, ptr %call17, i64 64
   store i64 0, ptr %error_data.i, align 8
-  store i64 0, ptr %agg.tmp, align 8, !alias.scope !5
+  store i64 0, ptr %agg.tmp, align 8, !alias.scope !4
   invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34, ptr noundef nonnull %closure, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont37 unwind label %lpad36
 
@@ -2244,7 +2244,7 @@ entry:
   %call = tail call noundef ptr @_Z39grpc_alts_get_shared_resource_dedicatedv()
   %cq = getelementptr inbounds i8, ptr %call, i64 32
   %1 = load ptr, ptr %cq, align 8
-  store i64 0, ptr %agg.tmp, align 8, !alias.scope !8
+  store i64 0, ptr %agg.tmp, align 8, !alias.scope !7
   %storage = getelementptr inbounds i8, ptr %call, i64 48
   invoke void @_Z14grpc_cq_end_opP21grpc_completion_queuePvN4absl12lts_202308026StatusEPFvS1_P18grpc_cq_completionES1_S6_b(ptr noundef %1, ptr noundef %arg, ptr noundef nonnull %agg.tmp, ptr noundef nonnull @"_ZZL41on_handshaker_service_resp_recv_dedicatedPvN4absl12lts_202308026StatusEEN3$_08__invokeES_P18grpc_cq_completion", ptr noundef null, ptr noundef nonnull %storage, i1 noundef zeroext false)
           to label %invoke.cont unwind label %lpad
@@ -2411,10 +2411,9 @@ attributes #26 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 1, i32 0}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
-!7 = distinct !{!7, !"_ZN4absl12lts_202308028OkStatusEv"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
-!10 = distinct !{!10, !"_ZN4absl12lts_202308028OkStatusEv"}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
+!6 = distinct !{!6, !"_ZN4absl12lts_202308028OkStatusEv"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
+!9 = distinct !{!9, !"_ZN4absl12lts_202308028OkStatusEv"}

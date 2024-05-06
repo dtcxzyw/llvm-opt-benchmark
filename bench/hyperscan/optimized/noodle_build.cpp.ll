@@ -60,7 +60,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i52, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i48, i64 %.sroa.speculated
+  %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i48, i64 %.sroa.speculated
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i, i8 0, i64 %sub.i.i.i.i.i, i1 false)
   br label %if.then.i.i.i.i.i52
 
@@ -75,7 +75,7 @@ call5.i.i.i.i1.i.i.noexc64:                       ; preds = %if.then.i.i.i.i.i52
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont8, label %if.then.i.i.i.i.i.i.i.i.i58
 
 if.then.i.i.i.i.i.i.i.i.i58:                      ; preds = %call5.i.i.i.i1.i.i.noexc64
-  %add.ptr.i.i.i53 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i65, i64 %.sroa.speculated
+  %add.ptr.i.i.i53 = getelementptr i8, ptr %call5.i.i.i.i1.i.i65, i64 %.sroa.speculated
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i55, i8 0, i64 %sub.i.i.i.i.i, i1 false)
   br label %invoke.cont8
 
@@ -248,7 +248,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i78
   br label %lpad62.body
 
 invoke.cont76:                                    ; preds = %invoke.cont63
-  %conv.i.i = trunc i64 %sub75 to i8
+  %conv.i.i = trunc nuw i64 %sub75 to i8
   %30 = load ptr, ptr %agg.result, align 8
   %key_offset80 = getelementptr inbounds i8, ptr %30, i64 25
   store i8 %conv.i.i, ptr %key_offset80, align 1

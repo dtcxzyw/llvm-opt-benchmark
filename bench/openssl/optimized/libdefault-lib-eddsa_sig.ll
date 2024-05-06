@@ -50,7 +50,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @eddsa_digest_signverify_init(ptr noundef %vpeddsactx, ptr noundef readonly %mdname, ptr noundef %vedkey, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @eddsa_digest_signverify_init(ptr noundef %vpeddsactx, ptr noundef readonly %mdname, ptr noundef %vedkey, ptr noundef %params) #0 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %call = tail call i32 @ossl_prov_is_running() #5
@@ -83,7 +83,7 @@ if.then7:                                         ; preds = %if.end4
   br i1 %cmp8.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then7
-  %call11 = tail call i32 @eddsa_set_ctx_params(ptr noundef nonnull %vpeddsactx, ptr noundef %params), !range !4
+  %call11 = tail call i32 @eddsa_set_ctx_params(ptr noundef nonnull %vpeddsactx, ptr noundef %params)
   br label %return
 
 if.end12:                                         ; preds = %if.then7
@@ -174,7 +174,7 @@ if.end44:                                         ; preds = %if.end44.critedge, 
   call void @WPACKET_cleanup(ptr noundef nonnull %pkt) #5
   %key45 = getelementptr inbounds i8, ptr %vpeddsactx, i64 8
   store ptr %vedkey, ptr %key45, align 8
-  %call46 = call i32 @eddsa_set_ctx_params(ptr noundef nonnull %vpeddsactx, ptr noundef %params), !range !4
+  %call46 = call i32 @eddsa_set_ctx_params(ptr noundef nonnull %vpeddsactx, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %if.end44, %entry, %sw.default, %if.then16, %if.end12, %if.then10, %if.then3
@@ -183,7 +183,7 @@ return:                                           ; preds = %if.end44, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ed25519_digest_sign(ptr noundef %vpeddsactx, ptr noundef %sigret, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
+define internal range(i32 0, 2) i32 @ed25519_digest_sign(ptr noundef %vpeddsactx, ptr noundef %sigret, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %md = alloca [64 x i8], align 16
   %mdlen = alloca i64, align 8
@@ -394,7 +394,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @eddsa_get_ctx_params(ptr noundef readonly %vpeddsactx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @eddsa_get_ctx_params(ptr noundef readonly %vpeddsactx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vpeddsactx, null
   br i1 %cmp, label %return, label %if.end
@@ -428,7 +428,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @eddsa_set_ctx_params(ptr noundef %vpeddsactx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @eddsa_set_ctx_params(ptr noundef %vpeddsactx, ptr noundef %params) #0 {
 entry:
   %instance_name = alloca [50 x i8], align 16
   %pinstance_name = alloca ptr, align 8
@@ -599,7 +599,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ed448_digest_sign(ptr noundef %vpeddsactx, ptr noundef %sigret, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
+define internal range(i32 0, 2) i32 @ed448_digest_sign(ptr noundef %vpeddsactx, ptr noundef %sigret, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %md = alloca [64 x i8], align 16
   %key = getelementptr inbounds i8, ptr %vpeddsactx, i64 8
@@ -796,7 +796,7 @@ declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ed448_shake256(ptr noundef %libctx, ptr noundef %in, i64 noundef %inlen, ptr noundef %out) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ed448_shake256(ptr noundef %libctx, ptr noundef %in, i64 noundef %inlen, ptr noundef %out) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_MD_CTX_new() #5
   %call1 = tail call ptr @EVP_MD_fetch(ptr noundef %libctx, ptr noundef nonnull @.str.10, ptr noundef null) #5
@@ -859,4 +859,3 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

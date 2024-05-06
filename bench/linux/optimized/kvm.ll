@@ -1827,7 +1827,7 @@ define internal fastcc void @__send_ipi_mask(ptr nocapture noundef readonly %0, 
 49:                                               ; preds = %42
   %50 = trunc i128 %31 to i64
   %51 = lshr i128 %31, 64
-  %52 = trunc i128 %51 to i64
+  %52 = trunc nuw i128 %51 to i64
   %53 = sext i32 %14 to i64
   %54 = call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09vmcall\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 8*32+15)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09vmmcall\0A6651:\0A.popsection\0A", "={ax},{ax},{bx},{cx},{dx},{si},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 10, i64 %50, i64 %52, i64 %53, i64 %11) #17, !srcloc !60
   %55 = icmp sgt i64 %54, -1
@@ -1869,7 +1869,7 @@ define internal fastcc void @__send_ipi_mask(ptr nocapture noundef readonly %0, 
 70:                                               ; preds = %.thread
   %71 = trunc i128 %68 to i64
   %72 = lshr i128 %68, 64
-  %73 = trunc i128 %72 to i64
+  %73 = trunc nuw i128 %72 to i64
   %74 = sext i32 %.lcssa to i64
   %75 = call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09vmcall\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 8*32+15)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09vmmcall\0A6651:\0A.popsection\0A", "={ax},{ax},{bx},{cx},{dx},{si},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 10, i64 %71, i64 %73, i64 %74, i64 %11) #17, !srcloc !60
   %76 = icmp sgt i64 %75, -1
@@ -2572,7 +2572,7 @@ __kvm_cpuid_base.exit1:                           ; preds = %47, %50, %68
 81:                                               ; preds = %80, %71
   %82 = trunc i64 %79 to i32
   %83 = lshr i64 %44, 32
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw i64 %83 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947010, i32 %82, i32 %84) #17, !srcloc !46
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #17
           to label %86 [label %85], !srcloc !47
@@ -2652,7 +2652,7 @@ __kvm_cpuid_base.exit2:                           ; preds = %90, %93, %111
   %125 = or i64 %124, 1
   %126 = trunc i64 %125 to i32
   %127 = lshr i64 %124, 32
-  %128 = trunc i64 %127 to i32
+  %128 = trunc nuw i64 %127 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947012, i32 %126, i32 %128) #17, !srcloc !46
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #17
           to label %130 [label %129], !srcloc !47
@@ -2676,7 +2676,7 @@ __kvm_cpuid_base.exit2:                           ; preds = %90, %93, %111
   %140 = or i64 %139, 1
   %141 = trunc i64 %140 to i32
   %142 = lshr i64 %139, 32
-  %143 = trunc i64 %142 to i32
+  %143 = trunc nuw i64 %142 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1263947011, i32 %141, i32 %143) #17, !srcloc !46
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #17
           to label %145 [label %144], !srcloc !47

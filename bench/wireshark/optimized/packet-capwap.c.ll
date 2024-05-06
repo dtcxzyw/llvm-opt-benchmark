@@ -1785,7 +1785,7 @@ define internal i32 @dissect_capwap_control(ptr noundef %0, ptr noundef %1, ptr 
   br label %82
 
 26:                                               ; preds = %4
-  %27 = call fastcc i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11), !range !4
+  %27 = call fastcc i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %28 = add nsw i32 %27, %19
   %29 = getelementptr inbounds i8, ptr %1, i64 272
   %30 = load i32, ptr %29, align 8
@@ -1833,11 +1833,11 @@ define internal i32 @dissect_capwap_control(ptr noundef %0, ptr noundef %1, ptr 
 .lr.ph.i:                                         ; preds = %49, %.lr.ph.i
   %.017.i = phi i32 [ %60, %.lr.ph.i ], [ 0, %49 ]
   %58 = add i32 %.017.i, 8
-  %59 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef nonnull %43, ptr noundef %55, i32 noundef %58, ptr noundef %1), !range !5
+  %59 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef nonnull %43, ptr noundef %55, i32 noundef %58, ptr noundef %1)
   %60 = add i32 %59, %.017.i
   %61 = add i32 %60, 8
   %62 = icmp ult i32 %61, %56
-  br i1 %62, label %.lr.ph.i, label %dissect_capwap_message_element.exit.loopexit, !llvm.loop !6
+  br i1 %62, label %.lr.ph.i, label %dissect_capwap_message_element.exit.loopexit, !llvm.loop !4
 
 dissect_capwap_message_element.exit.loopexit:     ; preds = %.lr.ph.i
   %63 = add i32 %60, 8
@@ -1865,11 +1865,11 @@ dissect_capwap_message_element.exit:              ; preds = %49, %dissect_capwap
 .lr.ph.i69:                                       ; preds = %65, %.lr.ph.i69
   %.017.i70 = phi i32 [ %77, %.lr.ph.i69 ], [ 0, %65 ]
   %75 = add i32 %.017.i70, %66
-  %76 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %0, ptr noundef %72, i32 noundef %75, ptr noundef %1), !range !5
+  %76 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %0, ptr noundef %72, i32 noundef %75, ptr noundef %1)
   %77 = add i32 %76, %.017.i70
   %78 = add i32 %77, %66
   %79 = icmp ult i32 %78, %73
-  br i1 %79, label %.lr.ph.i69, label %dissect_capwap_message_element.exit71, !llvm.loop !6
+  br i1 %79, label %.lr.ph.i69, label %dissect_capwap_message_element.exit71, !llvm.loop !4
 
 dissect_capwap_message_element.exit71:            ; preds = %.lr.ph.i69, %65
   %.0.lcssa.i68 = phi i32 [ 0, %65 ], [ %77, %.lr.ph.i69 ]
@@ -1916,7 +1916,7 @@ define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.sink.split
 
 26:                                               ; preds = %4
-  %27 = call fastcc i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11), !range !4
+  %27 = call fastcc i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %28 = add nsw i32 %27, %19
   %29 = getelementptr inbounds i8, ptr %1, i64 272
   %30 = load i32, ptr %29, align 8
@@ -1996,10 +1996,10 @@ define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph.i:                                         ; preds = %71, %.lr.ph.i
   %.026.i = phi i32 [ %75, %.lr.ph.i ], [ 2, %71 ]
-  %74 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %.065, ptr noundef %63, i32 noundef %.026.i, ptr noundef %1), !range !5
+  %74 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %.065, ptr noundef %63, i32 noundef %.026.i, ptr noundef %1)
   %75 = add i32 %74, %.026.i
   %76 = icmp ult i32 %75, %72
-  br i1 %76, label %.lr.ph.i, label %dissect_capwap_data_keep_alive.exit, !llvm.loop !8
+  br i1 %76, label %.lr.ph.i, label %dissect_capwap_data_keep_alive.exit, !llvm.loop !6
 
 77:                                               ; preds = %53
   %78 = load i8, ptr %7, align 1
@@ -2076,7 +2076,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_capwap_preamble(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 1, 5) i32 @dissect_capwap_preamble(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_capwap_preamble, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %6 = load i32, ptr @ett_capwap_preamble, align 4
@@ -2107,7 +2107,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9) unnamed_addr #0 {
   %11 = shl nuw nsw i32 %2, 3
   %12 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %11, i32 noundef 5) #2
   %13 = zext i8 %12 to i32
@@ -2391,7 +2391,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_capwap_message_element_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 4, 65540) i32 @dissect_capwap_message_element_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %2) #2
   %6 = zext i16 %5 to i32
   %7 = add i32 %2, 2
@@ -2550,7 +2550,7 @@ define internal fastcc noundef i32 @dissect_capwap_message_element_type(ptr noun
 dissect_capwap_ac_information.exit:               ; preds = %.lr.ph1015, %.sink.split.i
   %81 = add i32 %64, %.09141013
   %82 = icmp ult i32 %81, %54
-  br i1 %82, label %.lr.ph1015, label %.loopexit, !llvm.loop !9
+  br i1 %82, label %.lr.ph1015, label %.loopexit, !llvm.loop !7
 
 83:                                               ; preds = %4
   %84 = icmp ult i16 %8, 4
@@ -2577,7 +2577,7 @@ dissect_capwap_ac_information.exit:               ; preds = %.lr.ph1015, %.sink.
   %94 = add i32 %.11012, 4
   %95 = add nuw nsw i32 %.09181011, 1
   %exitcond1034.not = icmp eq i32 %95, %90
-  br i1 %exitcond1034.not, label %.loopexit, label %91, !llvm.loop !10
+  br i1 %exitcond1034.not, label %.loopexit, label %91, !llvm.loop !8
 
 96:                                               ; preds = %4
   %97 = icmp ult i16 %8, 16
@@ -2604,7 +2604,7 @@ dissect_capwap_ac_information.exit:               ; preds = %.lr.ph1015, %.sink.
   %107 = add i32 %.21010, 16
   %108 = add nuw nsw i32 %.19191009, 1
   %exitcond1033.not = icmp eq i32 %108, %103
-  br i1 %exitcond1033.not, label %.loopexit, label %104, !llvm.loop !11
+  br i1 %exitcond1033.not, label %.loopexit, label %104, !llvm.loop !9
 
 109:                                              ; preds = %4
   %110 = icmp eq i16 %8, 0
@@ -3035,7 +3035,7 @@ dissect_capwap_ac_information.exit:               ; preds = %.lr.ph1015, %.sink.
 dissect_capwap_board_data.exit:                   ; preds = %.lr.ph1008, %.sink.split.i973
   %339 = add i32 %321, %.31006
   %340 = icmp ult i32 %339, %313
-  br i1 %340, label %.lr.ph1008, label %.loopexit, !llvm.loop !12
+  br i1 %340, label %.lr.ph1008, label %.loopexit, !llvm.loop !10
 
 341:                                              ; preds = %4
   %342 = icmp ult i16 %8, 33
@@ -3091,7 +3091,7 @@ dissect_capwap_board_data.exit:                   ; preds = %.lr.ph1008, %.sink.
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %364, ptr noundef nonnull @.str.1129, i32 noundef %378) #2
   %379 = add nuw nsw i32 %.29201001, 1
   %exitcond1032.not = icmp eq i32 %379, %356
-  br i1 %exitcond1032.not, label %._crit_edge, label %.lr.ph1002, !llvm.loop !13
+  br i1 %exitcond1032.not, label %._crit_edge, label %.lr.ph1002, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph1002, %353
   %380 = mul nuw nsw i32 %356, 3
@@ -3150,7 +3150,7 @@ switch.lookup:                                    ; preds = %.lr.ph1005
 dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch.lookup
   %414 = add i32 %396, %.51003
   %415 = icmp ult i32 %414, %.0916
-  br i1 %415, label %.lr.ph1005, label %.loopexit, !llvm.loop !14
+  br i1 %415, label %.lr.ph1005, label %.loopexit, !llvm.loop !12
 
 416:                                              ; preds = %4
   %.not957 = icmp eq i16 %8, 1
@@ -3386,7 +3386,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %569 = add nuw nsw i32 %565, 1
   %570 = and i32 %569, 255
   %571 = icmp ult i32 %570, %562
-  br i1 %571, label %564, label %.loopexit, !llvm.loop !15
+  br i1 %571, label %564, label %.loopexit, !llvm.loop !13
 
 572:                                              ; preds = %4
   %.not950 = icmp eq i16 %8, 8
@@ -3476,7 +3476,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %628 = tail call i32 @add_tagged_field(ptr noundef %3, ptr noundef %15, ptr noundef %0, i32 noundef %.6998, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #2
   %629 = add i32 %628, %.6998
   %630 = icmp ult i32 %629, %616
-  br i1 %630, label %.lr.ph999, label %.loopexit, !llvm.loop !16
+  br i1 %630, label %.lr.ph999, label %.loopexit, !llvm.loop !14
 
 631:                                              ; preds = %4
   %.not947 = icmp eq i16 %8, 16
@@ -3604,7 +3604,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %718 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %717, ptr noundef %0, i32 noundef %.7996, i32 noundef 1, i32 noundef 0) #2
   %719 = add i32 %.7996, 1
   %exitcond1031.not = icmp eq i32 %719, %712
-  br i1 %exitcond1031.not, label %.loopexit, label %.lr.ph997, !llvm.loop !17
+  br i1 %exitcond1031.not, label %.loopexit, label %.lr.ph997, !llvm.loop !15
 
 720:                                              ; preds = %4
   %721 = icmp ult i16 %8, 14
@@ -3644,7 +3644,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %747 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %746, ptr noundef %0, i32 noundef %.8994, i32 noundef 1, i32 noundef 0) #2
   %748 = add i32 %.8994, 1
   %exitcond1030.not = icmp eq i32 %748, %725
-  br i1 %exitcond1030.not, label %.loopexit, label %.lr.ph995, !llvm.loop !18
+  br i1 %exitcond1030.not, label %.loopexit, label %.lr.ph995, !llvm.loop !16
 
 749:                                              ; preds = %4
   %750 = icmp ult i16 %8, 25
@@ -3698,7 +3698,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %784 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %783, ptr noundef %0, i32 noundef %.9992, i32 noundef 1, i32 noundef 0) #2
   %785 = add i32 %.9992, 1
   %exitcond.not = icmp eq i32 %785, %778
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph993, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph993, !llvm.loop !17
 
 786:                                              ; preds = %4
   %.not943 = icmp eq i16 %8, 4
@@ -3751,7 +3751,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %817 = add nuw nsw i32 %812, 1
   %818 = and i32 %817, 255
   %819 = icmp ult i32 %818, %809
-  br i1 %819, label %811, label %.loopexit, !llvm.loop !20
+  br i1 %819, label %811, label %.loopexit, !llvm.loop !18
 
 820:                                              ; preds = %4
   %821 = icmp ult i16 %8, 8
@@ -3867,7 +3867,7 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   %901 = add i32 %.10989, 1
   %902 = add i8 %.0990, -1
   %.not940 = icmp eq i8 %902, 0
-  br i1 %.not940, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not940, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 903:                                              ; preds = %4
   %.not = icmp eq i16 %8, 1
@@ -4019,7 +4019,7 @@ define internal fastcc void @dissect_capwap_message_element_vendor_fortinet_type
   %58 = add i32 %.0478, 6
   %59 = add nuw nsw i32 %.0469477, 1
   %exitcond484.not = icmp eq i32 %59, %52
-  br i1 %exitcond484.not, label %.loopexit, label %.lr.ph479, !llvm.loop !22
+  br i1 %exitcond484.not, label %.loopexit, label %.lr.ph479, !llvm.loop !20
 
 60:                                               ; preds = %6
   %61 = load i32, ptr @hf_capwap_fortinet_wtp_allow_sn, align 4
@@ -4060,7 +4060,7 @@ define internal fastcc void @dissect_capwap_message_element_vendor_fortinet_type
   %82 = add i32 %.1476, 6
   %83 = add nuw nsw i32 %.1470475, 1
   %exitcond.not = icmp eq i32 %83, %77
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader474
   %.1.lcssa = phi i32 [ %76, %.preheader474 ], [ %82, %.lr.ph ]
@@ -4557,23 +4557,21 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1020}
-!5 = !{i32 4, i32 65540}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}

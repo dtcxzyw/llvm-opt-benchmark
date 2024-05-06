@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [56 x i8] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Chacha_SetIV(ptr noundef writeonly %ctx, ptr noundef readonly %inIv, i32 noundef %counter) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_Chacha_SetIV(ptr noundef writeonly %ctx, ptr noundef readonly %inIv, i32 noundef %counter) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %inIv, null
@@ -36,7 +36,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Chacha_SetKey(ptr noundef writeonly %ctx, ptr noundef readonly %key, i32 noundef %keySz) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_Chacha_SetKey(ptr noundef writeonly %ctx, ptr noundef readonly %key, i32 noundef %keySz) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %key, null
@@ -102,7 +102,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_Chacha_Process(ptr noundef %ctx, ptr noundef %output, ptr noundef %input, i32 noundef %msglen) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Chacha_Process(ptr noundef %ctx, ptr noundef %output, ptr noundef %input, i32 noundef %msglen) local_unnamed_addr #2 {
 entry:
   %tmp.i = alloca %union.anon, align 8
   %cmp = icmp eq ptr %ctx, null
@@ -124,7 +124,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   br i1 %cmp1.not.i, label %if.end19.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %cond.i.i = tail call noundef i32 @llvm.umin.i32(i32 %msglen, i32 %0)
+  %cond.i.i = tail call i32 @llvm.umin.i32(i32 %msglen, i32 %0)
   call fastcc void @wc_Chacha_wordtobyte(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ctx)
   %add.ptr.i = getelementptr inbounds i8, ptr %tmp.i, i64 64
   %idx.ext.i = zext i32 %0 to i64
@@ -479,7 +479,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %scratch, i8 0, i64 64, i1 false)
   %sub = sub i32 64, %0
-  %call = call i32 @wc_Chacha_Process(ptr noundef nonnull %ctx, ptr noundef nonnull %scratch, ptr noundef nonnull %scratch, i32 noundef %sub), !range !9
+  %call = call i32 @wc_Chacha_Process(ptr noundef nonnull %ctx, ptr noundef nonnull %scratch, ptr noundef nonnull %scratch, i32 noundef %sub)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -661,7 +661,7 @@ for.body:                                         ; preds = %entry, %for.body
   %or.i294 = tail call i32 @llvm.fshl.i32(i32 %xor313, i32 %xor313, i32 7)
   %sub = add nsw i32 %i.0311, -2
   %cmp.not = icmp eq i32 %sub, 0
-  br i1 %cmp.not, label %for.cond316.preheader, label %for.body, !llvm.loop !10
+  br i1 %cmp.not, label %for.cond316.preheader, label %for.body, !llvm.loop !9
 
 for.body318:                                      ; preds = %for.cond316.preheader, %for.body318
   %indvars.iv = phi i64 [ 0, %for.cond316.preheader ], [ %indvars.iv.next, %for.body318 ]
@@ -673,7 +673,7 @@ for.body318:                                      ; preds = %for.cond316.prehead
   store i32 %add322, ptr %arrayidx319, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %for.end327, label %for.body318, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end327, label %for.body318, !llvm.loop !10
 
 for.end327:                                       ; preds = %for.body318
   ret void
@@ -710,6 +710,5 @@ attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -173, i32 1}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

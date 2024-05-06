@@ -255,7 +255,7 @@ declare i32 @ASN1_item_sign_ex(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare ptr @OSSL_CMP_PROTECTEDPART_it() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cmp_msg_add_extraCerts(ptr noundef %ctx, ptr noundef %msg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_msg_add_extraCerts(ptr noundef %ctx, ptr noundef %msg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %ctx, null
   %cmp1 = icmp ne ptr %msg, null
@@ -377,7 +377,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cmp_msg_protect(ptr noundef %ctx, ptr noundef %msg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_msg_protect(ptr noundef %ctx, ptr noundef %msg) local_unnamed_addr #0 {
 entry:
   %pbm_der.i = alloca ptr, align 8
   %cmp = icmp ne ptr %ctx, null
@@ -553,7 +553,7 @@ land.lhs.true57:                                  ; preds = %if.end54
   br i1 %cmp60, label %err, label %if.end63
 
 if.end63:                                         ; preds = %land.lhs.true57, %if.end54
-  %call64 = call i32 @ossl_cmp_msg_add_extraCerts(ptr noundef nonnull %ctx, ptr noundef nonnull %msg), !range !4
+  %call64 = call i32 @ossl_cmp_msg_add_extraCerts(ptr noundef nonnull %ctx, ptr noundef nonnull %msg)
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %err, label %if.end67
 
@@ -637,4 +637,3 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

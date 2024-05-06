@@ -34,7 +34,7 @@ define void @_ZN7RawReadC2EP4File(ptr nocapture noundef nonnull writeonly align 
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   ret void
 }
 
@@ -581,7 +581,7 @@ define void @_ZN7RawRead4GetWEPwm(ptr nocapture noundef nonnull align 8 derefere
 declare noundef ptr @_Z9RawToWidePKhPwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7RawRead8GetCRC15Eb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZN7RawRead8GetCRC15Eb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %4, 3

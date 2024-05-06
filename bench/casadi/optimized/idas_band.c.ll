@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [56 x i8] c"The Jacobian routine failed in an unrecoverable manner.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDABand(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -4, 1) i32 @IDABand(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -169,7 +169,7 @@ define internal noundef i32 @IDABandInit(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IDABandSetup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal range(i32 -1, 2) i32 @IDABandSetup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 1632
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 96
@@ -291,7 +291,7 @@ declare ptr @NewLintArray(i64 noundef) local_unnamed_addr #1
 declare void @DestroyMat(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDABandB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDABandB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -361,7 +361,7 @@ define noundef i32 @IDABandB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64
   store ptr @IDABandFreeB, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %.028.lcssa, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 @IDABand(ptr noundef %35, i64 noundef %2, i64 noundef %3, i64 noundef %4), !range !6
+  %36 = tail call i32 @IDABand(ptr noundef %35, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   %.not33 = icmp eq i32 %36, 0
   br i1 %.not33, label %38, label %37
 
@@ -417,4 +417,3 @@ attributes #8 = { nounwind allocsize(0) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -4, i32 1}

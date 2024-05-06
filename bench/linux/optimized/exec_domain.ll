@@ -25,7 +25,7 @@ define internal noundef i32 @proc_execdomains_init() #0 section ".init.text" ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local i64 @__x64_sys_personality(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @__x64_sys_personality(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -46,7 +46,7 @@ define dso_local i64 @__x64_sys_personality(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local i64 @__ia32_sys_personality(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @__ia32_sys_personality(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32

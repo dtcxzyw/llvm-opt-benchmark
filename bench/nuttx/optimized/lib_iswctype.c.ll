@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i32 @iswalnum(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @iswalnum(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp slt i32 %0, 256
   br i1 %2, label %iswalpha.exit, label %iswalpha.exit.thread
 
@@ -39,7 +39,7 @@ define i32 @iswalpha(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @iswdigit(i32 noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @iswdigit(i32 noundef %0) local_unnamed_addr #1 {
   %2 = add i32 %0, -48
   %3 = icmp ult i32 %2, 10
   %4 = zext i1 %3 to i32
@@ -84,7 +84,7 @@ define i32 @iswcntrl(i32 noundef %0) local_unnamed_addr #0 {
 declare i32 @iscntrl(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i32 @iswgraph(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @iswgraph(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp slt i32 %0, 256
   br i1 %2, label %iswprint.exit, label %iswprint.exit.thread
 
@@ -133,7 +133,7 @@ define i32 @iswspace(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @iswlower(i32 noundef %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @iswlower(i32 noundef %0) local_unnamed_addr #3 {
   %2 = tail call i32 @towupper(i32 noundef %0) #6
   %3 = icmp ne i32 %2, %0
   %4 = zext i1 %3 to i32
@@ -146,7 +146,7 @@ declare i32 @towupper(i32 noundef) local_unnamed_addr #4
 declare i32 @isprint(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i32 @iswpunct(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @iswpunct(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp slt i32 %0, 256
   br i1 %2, label %iswalpha.exit.i, label %iswgraph.exit
 
@@ -178,7 +178,7 @@ iswgraph.exit:                                    ; preds = %iswalpha.exit.i, %i
 declare i32 @isspace(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @iswupper(i32 noundef %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @iswupper(i32 noundef %0) local_unnamed_addr #3 {
   %2 = tail call i32 @towlower(i32 noundef %0) #6
   %3 = icmp ne i32 %2, %0
   %4 = zext i1 %3 to i32
@@ -188,7 +188,7 @@ define i32 @iswupper(i32 noundef %0) local_unnamed_addr #3 {
 declare i32 @towlower(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @iswxdigit(i32 noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @iswxdigit(i32 noundef %0) local_unnamed_addr #1 {
   %2 = add i32 %0, -48
   %or.cond = icmp ult i32 %2, 10
   %3 = and i32 %0, -33

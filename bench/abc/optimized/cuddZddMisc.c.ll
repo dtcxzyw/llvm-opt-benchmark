@@ -104,7 +104,7 @@ define void @Cudd_zddPrintSubtable(ptr nocapture noundef readonly %0) local_unna
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr inbounds %struct.DdSubtable, ptr %12, i64 %indvars.iv.next46
-  %14 = trunc i64 %indvars.iv.next46 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.next46 to i32
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %14)
   %16 = getelementptr inbounds i8, ptr %13, i64 12
   %17 = load i32, ptr %16, align 4

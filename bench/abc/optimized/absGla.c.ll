@@ -275,7 +275,7 @@ define i32 @Ga2_ManBreakTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Ga2_ManCheckNodesAnd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Ga2_ManCheckNodesAnd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val17 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val17, 0
@@ -1846,7 +1846,7 @@ Vec_PtrPush.exit41:                               ; preds = %2, %7
 
 70:                                               ; preds = %.lr.ph.i
   %71 = add nuw nsw i32 %.01116.i, 2
-  %72 = mul nsw i32 %71, %71
+  %72 = mul nuw nsw i32 %71, %71
   %.not.i52 = icmp ugt i32 %72, %68
   br i1 %.not.i52, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !18
 
@@ -4195,7 +4195,7 @@ Saig_ManBmcHashKey.exit.i:                        ; preds = %586
   %595 = mul i32 %594, 6
   %596 = zext i32 %595 to i64
   %597 = getelementptr inbounds i32, ptr %585, i64 %596
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %597, ptr noundef nonnull dereferenceable(20) %.val191.i, i64 20)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %597, ptr noundef nonnull readonly dereferenceable(20) %.val191.i, i64 20)
   %.not.i87 = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i87, label %Saig_ManBmcLookup.exit, label %598
 
@@ -4217,7 +4217,7 @@ Saig_ManBmcHashKey.exit.i:                        ; preds = %586
   br label %Saig_ManBmcLookup.exit.thread
 
 Saig_ManBmcLookup.exit.thread:                    ; preds = %601, %604
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %597, ptr noundef nonnull align 4 dereferenceable(20) %.val191.i, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %597, ptr noundef nonnull readonly align 4 dereferenceable(20) %.val191.i, i64 20, i1 false)
   %607 = getelementptr inbounds i8, ptr %597, i64 20
   store i32 0, ptr %607, align 4
   br label %611
@@ -8452,7 +8452,7 @@ define void @Gia_Ga2SendCancel(ptr nocapture noundef readnone %0, i32 noundef %1
 declare i32 @Gia_ManToBridgeBadAbs(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Gia_ManPerformGla(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @Gia_ManPerformGla(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -11270,7 +11270,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #19 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #19 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp sgt i32 %3, %4

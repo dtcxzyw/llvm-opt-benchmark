@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [22 x i8] c"invalid operation: %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_check_key(ptr nocapture noundef readnone %ctx, ptr noundef %rsa, i32 noundef %operation) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_check_key(ptr nocapture noundef readnone %ctx, ptr noundef %rsa, i32 noundef %operation) local_unnamed_addr #0 {
 entry:
   switch i32 %operation, label %sw.default [
     i32 16, label %return
@@ -52,19 +52,19 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_ec_check_key(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %ec, i32 noundef %protect) local_unnamed_addr #2 {
+define noundef i32 @ossl_ec_check_key(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %ec, i32 noundef %protect) local_unnamed_addr #2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_dsa_check_key(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %dsa, i32 noundef %sign) local_unnamed_addr #2 {
+define noundef i32 @ossl_dsa_check_key(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %dsa, i32 noundef %sign) local_unnamed_addr #2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_dh_check_key(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %dh) local_unnamed_addr #2 {
+define noundef i32 @ossl_dh_check_key(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %dh) local_unnamed_addr #2 {
 entry:
   ret i32 1
 }
@@ -79,7 +79,7 @@ entry:
 declare i32 @ossl_digest_get_approved_nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ossl_digest_is_allowed(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %md) local_unnamed_addr #2 {
+define noundef i32 @ossl_digest_is_allowed(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %md) local_unnamed_addr #2 {
 entry:
   ret i32 1
 }

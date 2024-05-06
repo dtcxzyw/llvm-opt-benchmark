@@ -1214,7 +1214,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 declare void @uprv_sortArray_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_755units21ComplexUnitsConverter18greaterThanOrEqualEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, double noundef %quantity, double noundef %limit) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_755units21ComplexUnitsConverter18greaterThanOrEqualEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, double noundef %quantity, double noundef %limit) local_unnamed_addr #1 align 2 {
 entry:
   %fPool.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %fPool.i, align 8

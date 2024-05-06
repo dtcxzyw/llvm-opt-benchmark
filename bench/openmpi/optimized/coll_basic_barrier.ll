@@ -26,7 +26,7 @@ define i32 @mca_coll_basic_barrier_intra_log(ptr noundef %0, ptr nocapture nound
   %8 = xor i32 %notmask.i, -1
   %9 = and i32 %.val60, %8
   %10 = icmp eq i32 %9, 0
-  %11 = tail call i32 @llvm.ctlz.i32(i32 %9, i1 true), !range !4
+  %11 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %12 = xor i32 %11, 31
   %.0.i = select i1 %10, i32 -1, i32 %12
   %13 = add nsw i32 %7, -1
@@ -54,7 +54,7 @@ define i32 @mca_coll_basic_barrier_intra_log(ptr noundef %0, ptr nocapture nound
   %22 = add nsw i32 %.04563, -1
   %23 = ashr i32 %.04662, 1
   %24 = icmp sgt i32 %22, %.0.i
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %21, %2
   %25 = icmp sgt i32 %.val60, 0
@@ -101,7 +101,7 @@ define i32 @mca_coll_basic_barrier_intra_log(ptr noundef %0, ptr nocapture nound
   %44 = add i32 %.166, 1
   %45 = shl i32 %.14765, 1
   %exitcond.not = icmp eq i32 %44, %7
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph68, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph68, !llvm.loop !6
 
 .loopexit:                                        ; preds = %18, %40, %43, %35, %32, %26
   %.0 = phi i32 [ %31, %26 ], [ %34, %32 ], [ 0, %35 ], [ %42, %40 ], [ 0, %43 ], [ %20, %18 ]
@@ -138,7 +138,6 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 1, i32 33}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

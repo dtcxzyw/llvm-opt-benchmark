@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z15cmFortran_yylexP17cmFortran_yystypePv(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 -128, 296) i32 @_Z15cmFortran_yylexP17cmFortran_yystypePv(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -2519,7 +2519,7 @@ define internal fastcc void @_ZL7yyunputiPcPv(i32 noundef %0, ptr noundef %1, pt
 59:                                               ; preds = %._crit_edge, %3
   %.044 = phi ptr [ %46, %._crit_edge ], [ %5, %3 ]
   %.043 = phi ptr [ %47, %._crit_edge ], [ %1, %3 ]
-  %60 = trunc i32 %0 to i8
+  %60 = trunc nsw i32 %0 to i8
   %61 = getelementptr inbounds i8, ptr %.044, i64 -1
   store i8 %60, ptr %61, align 1
   %62 = getelementptr inbounds i8, ptr %2, i64 128
@@ -3572,7 +3572,7 @@ define dso_local void @_Z21cmFortran_yyset_debugiPv(i32 noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @_Z20cmFortran_yylex_initPPv(ptr noundef writeonly %0) local_unnamed_addr #13 {
+define dso_local noundef range(i32 0, 2) i32 @_Z20cmFortran_yylex_initPPv(ptr noundef writeonly %0) local_unnamed_addr #13 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -3600,7 +3600,7 @@ declare ptr @__errno_location() local_unnamed_addr #14
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @_Z26cmFortran_yylex_init_extraP17cmFortranParser_sPPv(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
+define dso_local noundef range(i32 0, 2) i32 @_Z26cmFortran_yylex_init_extraP17cmFortranParser_sPPv(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

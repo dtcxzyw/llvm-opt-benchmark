@@ -182,7 +182,7 @@ define i32 @Extra_BitMatrixReadSize(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Extra_BitMatrixLookup1(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Extra_BitMatrixLookup1(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, 1
@@ -290,7 +290,7 @@ define void @Extra_BitMatrixInsert2(ptr nocapture noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Extra_BitMatrixLookup2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Extra_BitMatrixLookup2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, 1
@@ -443,7 +443,7 @@ define i32 @Extra_BitMatrixCountOnesUpper(ptr nocapture noundef readonly %0) loc
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = trunc i64 %indvars.iv.next to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
@@ -467,7 +467,7 @@ define i32 @Extra_BitMatrixCountOnesUpper(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Extra_BitMatrixIsDisjoint(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @Extra_BitMatrixIsDisjoint(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -520,7 +520,7 @@ define noundef i32 @Extra_BitMatrixIsDisjoint(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Extra_BitMatrixIsClique(ptr nocapture noundef %0) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @Extra_BitMatrixIsClique(ptr nocapture noundef %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0

@@ -395,7 +395,7 @@ Vec_IntAlloc.exit:                                ; preds = %10, %18
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Ssc_ManCheckEquivalence(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Ssc_ManCheckEquivalence(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
@@ -810,7 +810,7 @@ Abc_Clock.exit:                                   ; preds = %14, %17
   %94 = trunc i64 %93 to i32
   %.val3.i71 = load i64, ptr %88, align 4
   %95 = lshr i64 %.val3.i71, 32
-  %96 = trunc i64 %95 to i32
+  %96 = trunc nuw i64 %95 to i32
   %97 = and i32 %96, 536870911
   %98 = sub nsw i32 %94, %97
   call fastcc void @Vec_IntPushUnique(ptr noundef %83, i32 noundef %98)
@@ -830,7 +830,7 @@ Abc_Clock.exit:                                   ; preds = %14, %17
   %111 = trunc i64 %110 to i32
   %.val3.i72 = load i64, ptr %105, align 4
   %112 = lshr i64 %.val3.i72, 32
-  %113 = trunc i64 %112 to i32
+  %113 = trunc nuw i64 %112 to i32
   %114 = and i32 %113, 536870911
   %115 = sub nsw i32 %111, %114
   call fastcc void @Vec_IntPushUnique(ptr noundef %99, i32 noundef %115)
@@ -1086,7 +1086,7 @@ Gia_ManAddClausesMux.exit:                        ; preds = %.critedge2, %245
   %260 = ptrtoint ptr %257 to i64
   %261 = xor i64 %259, %260
   %262 = inttoptr i64 %261 to ptr
-  call fastcc void @Ssc_ManCollectSuper_rec(ptr noundef %251, ptr noundef %262, ptr noundef %252)
+  call fastcc void @Ssc_ManCollectSuper_rec(ptr noundef readonly %251, ptr noundef %262, ptr noundef %252)
   %263 = load i64, ptr %46, align 4
   %264 = lshr i64 %263, 32
   %265 = and i64 %264, 536870911
@@ -1097,7 +1097,7 @@ Gia_ManAddClausesMux.exit:                        ; preds = %.critedge2, %245
   %270 = ptrtoint ptr %267 to i64
   %271 = xor i64 %269, %270
   %272 = inttoptr i64 %271 to ptr
-  call fastcc void @Ssc_ManCollectSuper_rec(ptr noundef %251, ptr noundef %272, ptr noundef %252)
+  call fastcc void @Ssc_ManCollectSuper_rec(ptr noundef readonly %251, ptr noundef %272, ptr noundef %252)
   %273 = load ptr, ptr %29, align 8
   %274 = getelementptr i8, ptr %273, i64 4
   %.val108 = load i32, ptr %274, align 4

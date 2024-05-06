@@ -101,7 +101,7 @@ return:                                           ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_set_check_group_type_from_name(ptr noundef %ec, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_set_check_group_type_from_name(ptr noundef %ec, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %name, null
   br i1 %cmp.i, label %if.end, label %for.body.i
@@ -197,7 +197,7 @@ return:                                           ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_group_todata(ptr noundef %group, ptr noundef %tmpl, ptr noundef %params, ptr nocapture noundef readnone %libctx, ptr nocapture noundef readnone %propq, ptr noundef %bnctx, ptr noundef %genbuf) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_group_todata(ptr noundef %group, ptr noundef %tmpl, ptr noundef %params, ptr nocapture noundef readnone %libctx, ptr nocapture noundef readnone %propq, ptr noundef %bnctx, ptr noundef %genbuf) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %group, null
   br i1 %cmp, label %if.then, label %if.end
@@ -475,7 +475,7 @@ declare i32 @EC_GROUP_get_curve_name(ptr noundef) local_unnamed_addr #1
 declare ptr @OSSL_EC_curve_nid2name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_set_ecdh_cofactor_mode(ptr noundef %ec, i32 noundef %mode) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_set_ecdh_cofactor_mode(ptr noundef %ec, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @EC_KEY_get0_group(ptr noundef %ec) #4
   %or.cond = icmp ugt i32 %mode, 1
@@ -675,7 +675,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ec_group_fromdata(ptr noundef %ec, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_group_fromdata(ptr noundef %ec, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ec, null
   br i1 %cmp, label %return, label %if.end
@@ -704,7 +704,7 @@ declare i32 @EC_KEY_set_group(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @EC_GROUP_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_key_otherparams_fromdata(ptr noundef %ec, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_otherparams_fromdata(ptr noundef %ec, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %name.i.i16 = alloca ptr, align 8
   %name.i.i = alloca ptr, align 8
@@ -916,7 +916,7 @@ return:                                           ; preds = %if.end23, %.loopexi
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ec_key_is_foreign(ptr noundef %ec) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_is_foreign(ptr noundef %ec) local_unnamed_addr #0 {
 entry:
   %engine = getelementptr inbounds i8, ptr %ec, i64 8
   %0 = load ptr, ptr %engine, align 8
@@ -1163,7 +1163,7 @@ declare i32 @CRYPTO_dup_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unn
 declare void @EC_KEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_encoding_param2id(ptr noundef %p, ptr nocapture noundef writeonly %id) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_encoding_param2id(ptr noundef %p, ptr nocapture noundef writeonly %id) local_unnamed_addr #0 {
 entry:
   %name = alloca ptr, align 8
   store ptr null, ptr %name, align 8
@@ -1227,7 +1227,7 @@ return:                                           ; preds = %for.cond.i, %entry,
 declare i32 @OSSL_PARAM_get_utf8_ptr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_pt_format_param2id(ptr noundef %p, ptr nocapture noundef writeonly %id) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_pt_format_param2id(ptr noundef %p, ptr nocapture noundef writeonly %id) local_unnamed_addr #0 {
 entry:
   %name = alloca ptr, align 8
   store ptr null, ptr %name, align 8
@@ -1290,7 +1290,7 @@ return:                                           ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_x509_algor_is_sm2(ptr noundef %palg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_x509_algor_is_sm2(ptr noundef %palg) local_unnamed_addr #0 {
 entry:
   %ptype = alloca i32, align 4
   %pval = alloca ptr, align 8

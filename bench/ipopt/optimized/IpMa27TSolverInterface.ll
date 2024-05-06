@@ -2366,7 +2366,7 @@ define noundef i32 @_ZN5Ipopt20Ma27TSolverInterface10MultiSolveEbPKiS2_iPdbi(ptr
   br i1 %19, label %.critedge, label %23
 
 .critedge:                                        ; preds = %12, %16, %15
-  %20 = tail call noundef i32 @_ZN5Ipopt20Ma27TSolverInterface13FactorizationEPKiS2_bi(ptr noundef nonnull align 8 dereferenceable(370) %0, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %6, i32 noundef %7), !range !4
+  %20 = tail call noundef i32 @_ZN5Ipopt20Ma27TSolverInterface13FactorizationEPKiS2_bi(ptr noundef nonnull align 8 dereferenceable(370) %0, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %6, i32 noundef %7)
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %25
 
@@ -2385,7 +2385,7 @@ define noundef i32 @_ZN5Ipopt20Ma27TSolverInterface10MultiSolveEbPKiS2_iPdbi(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt20Ma27TSolverInterface13FactorizationEPKiS2_bi(ptr noundef nonnull align 8 dereferenceable(370) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 5) i32 @_ZN5Ipopt20Ma27TSolverInterface13FactorizationEPKiS2_bi(ptr noundef nonnull align 8 dereferenceable(370) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca [20 x i32], align 16
@@ -2493,7 +2493,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %5
   %71 = load i32, ptr %49, align 4
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !5
+  br i1 %73, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %48
   %74 = icmp eq ptr %29, null
@@ -3056,7 +3056,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %12, %8, %3
   call void %45(ptr noundef nonnull %4, ptr noundef %46, ptr noundef nonnull %40, ptr noundef %47, ptr noundef nonnull %42, ptr noundef nonnull %29, ptr noundef nonnull %23, ptr noundef %51, ptr noundef nonnull %36, ptr noundef nonnull %30, ptr noundef nonnull %43, ptr noundef nonnull %5)
   %52 = add nuw nsw i32 %.010, 1
   %exitcond.not = icmp eq i32 %52, %1
-  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %44, %_ZN5Ipopt9TimedTask5StartEv.exit
   call void @_ZdaPv(ptr noundef nonnull %29) #19
@@ -3159,7 +3159,7 @@ define noundef i32 @_ZN5Ipopt20Ma27TSolverInterface19InitializeStructureEiiPKiS2
   store i32 %1, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 100
   store i32 %2, ptr %15, align 4
-  %16 = tail call noundef i32 @_ZN5Ipopt20Ma27TSolverInterface21SymbolicFactorizationEPKiS2_(ptr noundef nonnull align 8 dereferenceable(370) %0, ptr noundef %3, ptr noundef %4), !range !4
+  %16 = tail call noundef i32 @_ZN5Ipopt20Ma27TSolverInterface21SymbolicFactorizationEPKiS2_(ptr noundef nonnull align 8 dereferenceable(370) %0, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %41, label %43
 
@@ -3253,7 +3253,7 @@ define noundef i32 @_ZN5Ipopt20Ma27TSolverInterface19InitializeStructureEiiPKiS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt20Ma27TSolverInterface21SymbolicFactorizationEPKiS2_(ptr noundef nonnull align 8 dereferenceable(370) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 5) i32 @_ZN5Ipopt20Ma27TSolverInterface21SymbolicFactorizationEPKiS2_(ptr noundef nonnull align 8 dereferenceable(370) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3407,7 +3407,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %15, %11, %3
   %97 = load i32, ptr %34, align 4
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %99, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %81, %69
   %100 = phi i32 [ %87, %81 ], [ %.pre42, %69 ], [ %97, %.lr.ph ]
@@ -4223,8 +4223,7 @@ attributes #22 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 5}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

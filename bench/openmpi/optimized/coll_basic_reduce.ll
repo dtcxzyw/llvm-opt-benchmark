@@ -88,7 +88,7 @@ opal_datatype_span.exit:                          ; preds = %13, %31
   %.01927.i = phi ptr [ %56, %54 ], [ %51, %50 ]
   %.02026.i = phi i64 [ %58, %54 ], [ %26, %50 ]
   %spec.select24.i = tail call i64 @llvm.umin.i64(i64 %.02026.i, i64 2147483647)
-  %spec.select.i = trunc i64 %spec.select24.i to i32
+  %spec.select.i = trunc nuw nsw i64 %spec.select24.i to i32
   %53 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i, ptr noundef %.01927.i, ptr noundef %.01828.i) #6
   %.not22.i = icmp eq i32 %53, 0
   br i1 %.not22.i, label %54, label %ompi_datatype_copy_content_same_ddt.exit
@@ -202,7 +202,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %54, %50, %43
   %.01927.i182 = phi ptr [ %98, %96 ], [ %45, %93 ]
   %.02026.i183 = phi i64 [ %100, %96 ], [ %26, %93 ]
   %spec.select24.i184 = tail call i64 @llvm.umin.i64(i64 %.02026.i183, i64 2147483647)
-  %spec.select.i185 = trunc i64 %spec.select24.i184 to i32
+  %spec.select.i185 = trunc nuw nsw i64 %spec.select24.i184 to i32
   %95 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %3, i32 noundef %spec.select.i185, ptr noundef %.01927.i182, ptr noundef %.01828.i181) #6
   %.not22.i186 = icmp eq i32 %95, 0
   br i1 %.not22.i186, label %96, label %ompi_datatype_copy_content_same_ddt.exit189
@@ -308,7 +308,7 @@ define internal fastcc void @ompi_datatype_copy_content_same_ddt(ptr noundef %0,
   %.01927 = phi ptr [ %11, %9 ], [ %2, %4 ]
   %.02026 = phi i64 [ %13, %9 ], [ %1, %4 ]
   %spec.select24 = tail call i64 @llvm.umin.i64(i64 %.02026, i64 2147483647)
-  %spec.select = trunc i64 %spec.select24 to i32
+  %spec.select = trunc nuw nsw i64 %spec.select24 to i32
   %8 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %0, i32 noundef %spec.select, ptr noundef %.01927, ptr noundef %.01828) #6
   %.not22 = icmp eq i32 %8, 0
   br i1 %.not22, label %9, label %._crit_edge
@@ -332,7 +332,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store ptr %4, ptr %6, align 8
-  %10 = trunc i64 %3 to i32
+  %10 = trunc nsw i64 %3 to i32
   store i32 %10, ptr %9, align 4
   %11 = icmp ugt i64 %3, 2147483647
   br i1 %11, label %12, label %30

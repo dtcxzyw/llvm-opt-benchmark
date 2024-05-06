@@ -4432,7 +4432,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4416 = private unnamed_addr constant [28 x i8] c"BN_bn2binpad(tmp, buf, num)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @fake_rand_start(ptr noundef null) #4
   store ptr %call, ptr @fake_rand, align 8
@@ -4495,16 +4495,16 @@ declare void @fake_rand_finish(ptr noundef) local_unnamed_addr #1
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_builtin_as_ec(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_builtin_as_ec(i32 noundef %n) #0 {
 entry:
-  %call = tail call fastcc i32 @test_builtin(i32 noundef %n, i32 noundef 408), !range !5
+  %call = tail call fastcc i32 @test_builtin(i32 noundef %n, i32 noundef 408)
   ret i32 %call
 }
 
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ecdsa_sig_NULL() #0 {
+define internal range(i32 0, 2) i32 @test_ecdsa_sig_NULL() #0 {
 entry:
   %siglen = alloca i32, align 4
   %dgst = alloca [128 x i8], align 16
@@ -4540,14 +4540,14 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_builtin_as_sm2(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_builtin_as_sm2(i32 noundef %n) #0 {
 entry:
-  %call = tail call fastcc i32 @test_builtin(i32 noundef %n, i32 noundef 1172), !range !5
+  %call = tail call fastcc i32 @test_builtin(i32 noundef %n, i32 noundef 1172)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x9_62_tests(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @x9_62_tests(i32 noundef %n) #0 {
 entry:
   %pbuf = alloca ptr, align 8
   %digest = alloca [64 x i8], align 16
@@ -4782,7 +4782,7 @@ entry:
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_builtin(i32 noundef %n, i32 noundef %as) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_builtin(i32 noundef %n, i32 noundef %as) unnamed_addr #0 {
 entry:
   %tbs = alloca [128 x i8], align 16
   %sig_len = alloca i64, align 8
@@ -5255,7 +5255,7 @@ declare i32 @test_int_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare i32 @EVP_DigestSignInit(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_sm2_id(ptr noundef %mctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @set_sm2_id(ptr noundef %mctx) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef %mctx) #4
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 182, ptr noundef nonnull @.str.40, ptr noundef %call) #4
@@ -5320,7 +5320,7 @@ declare void @fake_rand_set_callback(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @RAND_get0_private(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fbytes(ptr noundef %buf, i64 noundef %num, ptr nocapture readnone %name, ptr noundef %ctx) #0 {
+define internal range(i32 0, 2) i32 @fbytes(ptr noundef %buf, i64 noundef %num, ptr nocapture readnone %name, ptr noundef %ctx) #0 {
 entry:
   %tmp = alloca ptr, align 8
   tail call void @fake_rand_set_callback(ptr noundef %ctx, ptr noundef null) #4
@@ -5421,4 +5421,3 @@ attributes #4 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @UTF8_getc(ptr nocapture noundef readonly %str, i32 noundef %len, ptr nocapture noundef writeonly %val) local_unnamed_addr #0 {
+define range(i32 -4, 5) i32 @UTF8_getc(ptr nocapture noundef readonly %str, i32 noundef %len, ptr nocapture noundef writeonly %val) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %len, 1
   br i1 %cmp, label %return, label %if.end
@@ -150,7 +150,7 @@ return:                                           ; preds = %if.else78, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @UTF8_putc(ptr noundef writeonly %str, i32 noundef %len, i64 noundef %value) local_unnamed_addr #1 {
+define range(i32 -2, 5) i32 @UTF8_putc(ptr noundef writeonly %str, i32 noundef %len, i64 noundef %value) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %if.end2, label %if.else
@@ -168,7 +168,7 @@ if.end2.thread:                                   ; preds = %if.else
   br i1 %cmp337, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end2.thread
-  %conv = trunc i64 %value to i8
+  %conv = trunc nuw nsw i64 %value to i8
   store i8 %conv, ptr %str, align 1
   br label %return
 
@@ -185,7 +185,7 @@ if.then11:                                        ; preds = %if.end8
 
 if.then17:                                        ; preds = %if.then11
   %shr = lshr i64 %value, 6
-  %0 = trunc i64 %shr to i8
+  %0 = trunc nuw i64 %shr to i8
   %conv18 = or disjoint i8 %0, -64
   %incdec.ptr = getelementptr inbounds i8, ptr %str, i64 1
   store i8 %conv18, ptr %str, align 1
@@ -212,7 +212,7 @@ if.end29:                                         ; preds = %if.then26
 
 if.then35:                                        ; preds = %if.end29
   %shr36 = lshr i64 %value, 12
-  %4 = trunc i64 %shr36 to i8
+  %4 = trunc nuw i64 %shr36 to i8
   %conv39 = or disjoint i8 %4, -32
   %incdec.ptr40 = getelementptr inbounds i8, ptr %str, i64 1
   store i8 %conv39, ptr %str, align 1
@@ -240,7 +240,7 @@ if.then53:                                        ; preds = %if.end50
 
 if.then59:                                        ; preds = %if.then53
   %shr60 = lshr i64 %value, 18
-  %9 = trunc i64 %shr60 to i8
+  %9 = trunc nuw i64 %shr60 to i8
   %conv63 = or disjoint i8 %9, -16
   %incdec.ptr64 = getelementptr inbounds i8, ptr %str, i64 1
   store i8 %conv63, ptr %str, align 1

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @fdt_ro_probe_(ptr noundef %fdt) local_unnamed_addr #0 {
+define dso_local range(i32 -19, 2147483647) i32 @fdt_ro_probe_(ptr noundef %fdt) local_unnamed_addr #0 {
 entry:
   %totalsize1 = getelementptr inbounds i8, ptr %fdt, i64 4
   %0 = load i8, ptr %totalsize1, align 1
@@ -129,7 +129,7 @@ return:                                           ; preds = %if.end4, %if.end29,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @fdt_header_size_(i32 noundef %version) local_unnamed_addr #1 {
+define dso_local range(i64 28, 41) i64 @fdt_header_size_(i32 noundef %version) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i32 %version, 2
   br i1 %cmp, label %return, label %if.else
@@ -153,7 +153,7 @@ return:                                           ; preds = %if.else6, %if.else3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @fdt_header_size(ptr nocapture noundef readonly %fdt) local_unnamed_addr #0 {
+define dso_local range(i64 28, 41) i64 @fdt_header_size(ptr nocapture noundef readonly %fdt) local_unnamed_addr #0 {
 entry:
   %version = getelementptr inbounds i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version, align 1
@@ -195,7 +195,7 @@ fdt_header_size_.exit:                            ; preds = %entry, %if.else.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @fdt_check_header(ptr noundef %fdt) local_unnamed_addr #0 {
+define dso_local range(i32 -19, 1) i32 @fdt_check_header(ptr noundef %fdt) local_unnamed_addr #0 {
 entry:
   %0 = ptrtoint ptr %fdt to i64
   %and = and i64 %0, 7
@@ -803,7 +803,7 @@ return:                                           ; preds = %sw.bb5, %if.then6, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @fdt_first_subnode(ptr noundef %fdt, i32 noundef %offset) local_unnamed_addr #2 {
+define dso_local range(i32 -1, -2147483648) i32 @fdt_first_subnode(ptr noundef %fdt, i32 noundef %offset) local_unnamed_addr #2 {
 entry:
   %offset.addr.i.i = alloca i32, align 4
   %nextoffset.i = alloca i32, align 4
@@ -872,7 +872,7 @@ fdt_next_node.exit:                               ; preds = %do.body.i, %sw.bb13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @fdt_next_subnode(ptr noundef %fdt, i32 noundef %offset) local_unnamed_addr #2 {
+define dso_local range(i32 -1, -2147483648) i32 @fdt_next_subnode(ptr noundef %fdt, i32 noundef %offset) local_unnamed_addr #2 {
 entry:
   %offset.addr.i.i = alloca i32, align 4
   %off_dt_struct.i27 = getelementptr inbounds i8, ptr %fdt, i64 8
@@ -1083,7 +1083,7 @@ land.rhs.i:                                       ; preds = %fdt_offset_ptr.exit
   br i1 %cmp.not.i, label %sw.epilog.i.loopexit, label %do.body.i5, !llvm.loop !5
 
 sw.bb13.i4:                                       ; preds = %if.end.i
-  %call14.i = tail call ptr @fdt_offset_ptr(ptr noundef nonnull %fdt, i32 noundef %add.i, i32 noundef 4)
+  %call14.i = tail call ptr @fdt_offset_ptr(ptr noundef nonnull readonly %fdt, i32 noundef %add.i, i32 noundef 4)
   %tobool17.not.i = icmp eq ptr %call14.i, null
   br i1 %tobool17.not.i, label %return, label %if.end19.i
 
@@ -1111,7 +1111,7 @@ sw.epilog.i.loopexit:                             ; preds = %land.rhs.i
 sw.epilog.i:                                      ; preds = %sw.epilog.i.loopexit, %land.lhs.true35.i, %if.end19.i, %if.end.i, %if.end.i, %if.end.i
   %offset.1.i = phi i32 [ %add.i, %if.end.i ], [ %add.i, %if.end.i ], [ %add.i, %if.end.i ], [ %add24.i, %if.end19.i ], [ %spec.select.i, %land.lhs.true35.i ], [ %30, %sw.epilog.i.loopexit ]
   %sub43.i = sub i32 %offset.1.i, %11
-  %call44.i = tail call ptr @fdt_offset_ptr(ptr noundef nonnull %fdt, i32 noundef %11, i32 noundef %sub43.i)
+  %call44.i = tail call ptr @fdt_offset_ptr(ptr noundef nonnull readonly %fdt, i32 noundef %11, i32 noundef %sub43.i)
   %tobool45.not.i = icmp eq ptr %call44.i, null
   br i1 %tobool45.not.i, label %return, label %fdt_next_tag.exit
 
@@ -1187,13 +1187,13 @@ return:                                           ; preds = %for.body, %for.inc,
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @fdt_move(ptr noundef readonly %fdt, ptr nocapture noundef writeonly %buf, i32 noundef %bufsize) local_unnamed_addr #5 {
+define dso_local range(i32 -2147483648, 1) i32 @fdt_move(ptr noundef readonly %fdt, ptr nocapture noundef writeonly %buf, i32 noundef %bufsize) local_unnamed_addr #5 {
 entry:
   %cmp = icmp slt i32 %bufsize, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @fdt_ro_probe_(ptr noundef %fdt), !range !10
+  %call1 = tail call i32 @fdt_ro_probe_(ptr noundef %fdt)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end4
 
@@ -1271,4 +1271,3 @@ attributes #10 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 -19, i32 2147483647}

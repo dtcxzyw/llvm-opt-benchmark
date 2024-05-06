@@ -35,7 +35,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @UI_null() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_ui_method() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_ui_method() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @UI_null() #5
   store ptr %call, ptr @ui_base_method, align 8

@@ -141,7 +141,7 @@ if.then12.i:                                      ; preds = %if.end5.i
   %rem.i.decomposed = sub i128 %spec.select.i.frozen, %7
   %coerce.sroa.0.0.extract.trunc.i = trunc i128 %rem.i.decomposed to i64
   %coerce.sroa.2.0.extract.shift.i = lshr i128 %rem.i.decomposed, 64
-  %coerce.sroa.2.0.extract.trunc.i = trunc i128 %coerce.sroa.2.0.extract.shift.i to i64
+  %coerce.sroa.2.0.extract.trunc.i = trunc nuw nsw i128 %coerce.sroa.2.0.extract.shift.i to i64
   invoke void @_ZSt9to_stringB5cxx11n(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %fraction.i, i64 noundef %coerce.sroa.0.0.extract.trunc.i, i64 noundef %coerce.sroa.2.0.extract.trunc.i)
           to label %invoke.cont16.i unwind label %lpad15.i, !noalias !7
 
@@ -150,7 +150,7 @@ invoke.cont16.i:                                  ; preds = %if.then12.i
           to label %invoke.cont18.i unwind label %lpad17.i, !noalias !7
 
 invoke.cont18.i:                                  ; preds = %invoke.cont16.i
-  %8 = trunc i64 %.sroa.1.0.extract.shift to i32
+  %8 = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %conv21.i = and i32 %8, 255
   %call22.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %fraction.i) #14, !noalias !7
   %conv23.i = trunc i64 %call22.i to i32
@@ -225,7 +225,7 @@ ehcleanup36.i:                                    ; preds = %ehcleanup.i, %lpad1
   %14 = select i1 %cmp6.i, i64 ptrtoint (ptr @.str.4 to i64), i64 ptrtoint (ptr @.str.5 to i64)
   %retval.i7.sroa.0.0.extract.trunc.i.i = trunc i128 %div.i to i64
   %retval.i7.sroa.2.0.extract.shift.i.i = lshr i128 %div.i, 64
-  %retval.i7.sroa.2.0.extract.trunc.i.i = trunc i128 %retval.i7.sroa.2.0.extract.shift.i.i to i64
+  %retval.i7.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %retval.i7.sroa.2.0.extract.shift.i.i to i64
   %call.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %fractionString.i) #14, !noalias !13
   %call2.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %fractionString.i) #14, !noalias !13
   %15 = ptrtoint ptr %call.i.i.i.i to i64
@@ -268,7 +268,7 @@ _ZN8facebook5velox12_GLOBAL__N_113formatDecimalB5cxx11Ehn.exit: ; preds = %if.th
 declare i64 @_ZN8facebook5velox24getDecimalPrecisionScaleERKNS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn(i64 noundef %value.coerce0, i64 noundef %value.coerce1) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -268435446, 268435457) i32 @_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn(i64 noundef %value.coerce0, i64 noundef %value.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %value.sroa.2.0.insert.ext = zext i64 %value.coerce1 to i128
   %value.sroa.2.0.insert.shift = shl nuw i128 %value.sroa.2.0.insert.ext, 64
@@ -278,15 +278,15 @@ entry:
   %not = xor i128 %value.sroa.0.0.insert.insert, -1
   %extract.t = trunc i128 %not to i64
   %extract = lshr i128 %not, 64
-  %extract.t7 = trunc i128 %extract to i64
+  %extract.t7 = trunc nuw i128 %extract to i64
   %value.addr.0.off0 = select i1 %cmp, i64 %extract.t, i64 %value.coerce0
   %value.addr.0.off64 = select i1 %cmp, i64 %extract.t7, i64 %value.coerce1
   %tobool.not = icmp eq i64 %value.addr.0.off64, 0
   br i1 %tobool.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %entry
-  %0 = tail call i64 @llvm.ctlz.i64(i64 %value.addr.0.off64, i1 true), !range !14
-  %cast.i = trunc i64 %0 to i32
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %value.addr.0.off64, i1 true)
+  %cast.i = trunc nuw nsw i64 %0 to i32
   %sub = sub nuw nsw i32 128, %cast.i
   br label %if.end12
 
@@ -295,8 +295,8 @@ if.else:                                          ; preds = %entry
   br i1 %tobool6.not, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.else
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %value.addr.0.off0, i1 true), !range !14
-  %cast.i10 = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %value.addr.0.off0, i1 true)
+  %cast.i10 = trunc nuw nsw i64 %1 to i32
   %sub9 = sub nuw nsw i32 64, %cast.i10
   br label %if.end12
 
@@ -308,7 +308,7 @@ if.end12:                                         ; preds = %if.else, %if.then7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN8facebook5velox11DecimalUtil11toByteArrayEnPc(i64 noundef %value.coerce0, i64 noundef %value.coerce1, ptr nocapture noundef writeonly %out) local_unnamed_addr #3 align 2 {
+define noundef range(i32 -268435446, 268435457) i32 @_ZN8facebook5velox11DecimalUtil11toByteArrayEnPc(i64 noundef %value.coerce0, i64 noundef %value.coerce1, ptr nocapture noundef writeonly %out) local_unnamed_addr #3 align 2 {
 entry:
   %lowBig = alloca i64, align 8
   %highBig = alloca i64, align 8
@@ -320,15 +320,15 @@ entry:
   %not.i = xor i128 %value.sroa.0.0.insert.insert.i, -1
   %extract.t.i = trunc i128 %not.i to i64
   %extract.i = lshr i128 %not.i, 64
-  %extract.t7.i = trunc i128 %extract.i to i64
+  %extract.t7.i = trunc nuw i128 %extract.i to i64
   %value.addr.0.off0.i = select i1 %cmp.i, i64 %extract.t.i, i64 %value.coerce0
   %value.addr.0.off64.i = select i1 %cmp.i, i64 %extract.t7.i, i64 %value.coerce1
   %tobool.not.i = icmp eq i64 %value.addr.0.off64.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit.thread20
 
 _ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit.thread20: ; preds = %entry
-  %0 = tail call i64 @llvm.ctlz.i64(i64 %value.addr.0.off64.i, i1 true), !range !14
-  %cast.i.i = trunc i64 %0 to i32
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %value.addr.0.off64.i, i1 true)
+  %cast.i.i = trunc nuw nsw i64 %0 to i32
   %sub.i = sub nuw nsw i32 128, %cast.i.i
   %div111213.i22 = lshr i32 %sub.i, 3
   %add.i23 = add nuw nsw i32 %div111213.i22, 1
@@ -346,8 +346,8 @@ _ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit.thread: ; preds = %if
   br label %if.then
 
 _ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit: ; preds = %if.else.i
-  %3 = tail call i64 @llvm.ctlz.i64(i64 %value.addr.0.off0.i, i1 true), !range !14
-  %cast.i10.i = trunc i64 %3 to i32
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %value.addr.0.off0.i, i1 true)
+  %cast.i10.i = trunc nuw nsw i64 %3 to i32
   %sub9.i = sub nuw nsw i32 64, %cast.i10.i
   %div111213.i = lshr i32 %sub9.i, 3
   %add.i = add nuw nsw i32 %div111213.i, 1
@@ -416,26 +416,26 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %conv.i = zext nneg i64 %unsignedDivisor.0.i to i128
   %spec.select.i.frozen = freeze i128 %spec.select.i
   %conv.i.frozen = freeze i128 %conv.i
-  %div.i81 = udiv i128 %spec.select.i.frozen, %conv.i.frozen
-  %1 = mul i128 %div.i81, %conv.i.frozen
-  %rem.i82.decomposed = sub i128 %spec.select.i.frozen, %1
-  %conv10.i = trunc i128 %rem.i82.decomposed to i64
+  %div.i87 = udiv i128 %spec.select.i.frozen, %conv.i.frozen
+  %1 = mul i128 %div.i87, %conv.i.frozen
+  %rem.i88.decomposed = sub i128 %spec.select.i.frozen, %1
+  %conv10.i = trunc nuw nsw i128 %rem.i88.decomposed to i64
   %mul11.i = shl nuw nsw i64 %conv10.i, 1
   %cmp12.not.i = icmp uge i64 %mul11.i, %unsignedDivisor.0.i
   %inc.i = zext i1 %cmp12.not.i to i128
-  %quotient.0.i = add nuw nsw i128 %div.i81, %inc.i
+  %quotient.0.i = add nuw nsw i128 %div.i87, %inc.i
   %conv15.i = sext i32 %resultSign.1.i to i128
   %mul16.i = mul nsw i128 %quotient.0.i, %conv15.i
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  br i1 %cmp.not.i, label %if.then.i24, label %if.end.i26
+  br i1 %cmp.not.i, label %if.then.i26, label %if.end.i28
 
-if.then.i24:                                      ; preds = %if.else
+if.then.i26:                                      ; preds = %if.else
   tail call void @llvm.trap()
   unreachable
 
-if.end.i26:                                       ; preds = %if.else
+if.end.i28:                                       ; preds = %if.else
   %cmp4.i8 = icmp slt i64 %count, 0
   %unsignedDivisor.0.i9 = tail call i64 @llvm.abs.i64(i64 %count, i1 true)
   %conv.i10 = zext nneg i64 %unsignedDivisor.0.i9 to i128
@@ -443,40 +443,40 @@ if.end.i26:                                       ; preds = %if.else
   %div.i11 = udiv i128 -170141183460469231731687303715884105728, %conv.i10.frozen
   %conv = sext i64 %overflow to i128
   %2 = sub nsw i128 0, %conv
-  %mul16.i17 = select i1 %cmp4.i8, i128 %2, i128 %conv
-  %mul4 = mul i128 %mul16.i17, %div.i11
+  %mul16.i19 = select i1 %cmp4.i8, i128 %2, i128 %conv
+  %mul4 = mul i128 %mul16.i19, %div.i11
   %3 = mul i128 %div.i11, %conv.i10.frozen
   %rem.i12.decomposed = sub i128 -170141183460469231731687303715884105728, %3
-  %mul = mul nsw i128 %mul16.i17, %rem.i12.decomposed
+  %mul = mul nsw i128 %mul16.i19, %rem.i12.decomposed
   %4 = load i128, ptr %sum, align 16
-  %spec.select.i27 = tail call i128 @llvm.abs.i128(i128 %4, i1 true)
-  %spec.select.i27.frozen = freeze i128 %spec.select.i27
-  %conv.i10.frozen87 = freeze i128 %conv.i10
-  %div.i3583 = udiv i128 %spec.select.i27.frozen, %conv.i10.frozen87
-  %5 = mul i128 %div.i3583, %conv.i10.frozen87
-  %rem.i3684.decomposed = sub i128 %spec.select.i27.frozen, %5
-  %cmp1.i29 = icmp slt i128 %4, 0
-  %spec.select11.i30 = select i1 %cmp1.i29, i32 -1, i32 1
-  %mul6.i31 = sub nsw i32 0, %spec.select11.i30
-  %resultSign.1.i32 = select i1 %cmp4.i8, i32 %mul6.i31, i32 %spec.select11.i30
-  %conv15.i40 = sext i32 %resultSign.1.i32 to i128
-  %mul18.i42 = mul nsw i128 %rem.i3684.decomposed, %conv15.i40
-  %add = add nsw i128 %mul18.i42, %mul
-  %spec.select.i53 = tail call i128 @llvm.abs.i128(i128 %add, i1 true)
-  %mul16.i41 = mul nsw i128 %div.i3583, %conv15.i40
-  %cmp1.i55 = icmp slt i128 %add, 0
-  %spec.select11.i56 = select i1 %cmp1.i55, i32 -1, i32 1
-  %mul6.i57 = sub nsw i32 0, %spec.select11.i56
-  %resultSign.1.i58 = select i1 %cmp4.i8, i32 %mul6.i57, i32 %spec.select11.i56
-  %div.i6185 = udiv i128 %spec.select.i53, %conv.i10
-  %conv15.i66 = sext i32 %resultSign.1.i58 to i128
-  %mul16.i67 = mul nsw i128 %div.i6185, %conv15.i66
-  %add9 = add i128 %mul16.i41, %mul4
-  %add10 = add i128 %add9, %mul16.i67
+  %spec.select.i29 = tail call i128 @llvm.abs.i128(i128 %4, i1 true)
+  %spec.select.i29.frozen = freeze i128 %spec.select.i29
+  %conv.i10.frozen93 = freeze i128 %conv.i10
+  %div.i3789 = udiv i128 %spec.select.i29.frozen, %conv.i10.frozen93
+  %5 = mul i128 %div.i3789, %conv.i10.frozen93
+  %rem.i3890.decomposed = sub i128 %spec.select.i29.frozen, %5
+  %cmp1.i31 = icmp slt i128 %4, 0
+  %spec.select11.i32 = select i1 %cmp1.i31, i32 -1, i32 1
+  %mul6.i33 = sub nsw i32 0, %spec.select11.i32
+  %resultSign.1.i34 = select i1 %cmp4.i8, i32 %mul6.i33, i32 %spec.select11.i32
+  %conv15.i44 = sext i32 %resultSign.1.i34 to i128
+  %mul18.i46 = mul nsw i128 %rem.i3890.decomposed, %conv15.i44
+  %add = add nsw i128 %mul18.i46, %mul
+  %spec.select.i57 = tail call i128 @llvm.abs.i128(i128 %add, i1 true)
+  %mul16.i45 = mul nsw i128 %div.i3789, %conv15.i44
+  %cmp1.i59 = icmp slt i128 %add, 0
+  %spec.select11.i60 = select i1 %cmp1.i59, i32 -1, i32 1
+  %mul6.i61 = sub nsw i32 0, %spec.select11.i60
+  %resultSign.1.i62 = select i1 %cmp4.i8, i32 %mul6.i61, i32 %spec.select11.i60
+  %div.i6591 = udiv i128 %spec.select.i57, %conv.i10
+  %conv15.i72 = sext i32 %resultSign.1.i62 to i128
+  %mul16.i73 = mul nsw i128 %div.i6591, %conv15.i72
+  %add9 = add i128 %mul16.i45, %mul4
+  %add10 = add i128 %add9, %mul16.i73
   br label %if.end
 
-if.end:                                           ; preds = %if.end.i26, %_ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
-  %storemerge = phi i128 [ %add10, %if.end.i26 ], [ %mul16.i, %_ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit ]
+if.end:                                           ; preds = %if.end.i28, %_ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
+  %storemerge = phi i128 [ %add10, %if.end.i28 ], [ %mul16.i, %_ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit ]
   store i128 %storemerge, ptr %avg, align 16
   ret void
 }
@@ -620,4 +620,3 @@ attributes #15 = { noreturn nounwind }
 !11 = distinct !{!11, !12, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRPKcRnRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSK_: %agg.result"}
 !12 = distinct !{!12, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRPKcRnRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSK_"}
 !13 = !{!11, !8}
-!14 = !{i64 0, i64 65}

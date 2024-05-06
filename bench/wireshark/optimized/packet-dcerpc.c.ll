@@ -1072,7 +1072,7 @@ define void @decode_dcerpc_reset_all() local_unnamed_addr #0 {
   br label %free_address.exit.i
 
 free_address.exit.i:                              ; preds = %13, %10, %6, %.lr.ph
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds i8, ptr %3, i64 24
   %15 = load i32, ptr %14, align 8
   %.not.i.i6.i = icmp eq i32 %15, 0
@@ -1095,7 +1095,7 @@ free_address.exit.i:                              ; preds = %13, %10, %6, %.lr.p
   br label %free_address.exit8.i
 
 free_address.exit8.i:                             ; preds = %23, %20, %16, %free_address.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %24 = getelementptr inbounds i8, ptr %3, i64 72
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
@@ -4127,7 +4127,7 @@ dcerpc_get_decode_data.exit:                      ; preds = %1, %7
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 216
   %19 = load ptr, ptr %18, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store i32 %15, ptr %13, align 8
   %20 = icmp eq i32 %17, 0
   br i1 %20, label %copy_address.exit, label %21
@@ -4151,7 +4151,7 @@ copy_address.exit:                                ; preds = %dcerpc_get_decode_d
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds i8, ptr %0, i64 240
   %33 = load ptr, ptr %32, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   store i32 %29, ptr %27, align 8
   %34 = icmp eq i32 %31, 0
   br i1 %34, label %copy_address.exit18, label %35
@@ -4343,7 +4343,7 @@ define internal noundef i32 @decode_dcerpc_binding_reset(ptr nocapture readnone 
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %6, %11, %15, %18
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds i8, ptr %7, i64 24
   %20 = load i32, ptr %19, align 8
   %.not.i.i9 = icmp eq i32 %20, 0
@@ -4366,7 +4366,7 @@ free_address.exit:                                ; preds = %6, %11, %15, %18
   br label %free_address.exit11
 
 free_address.exit11:                              ; preds = %free_address.exit, %21, %25, %28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %29 = getelementptr inbounds i8, ptr %7, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @g_string_free(ptr noundef %30, i32 noundef 1) #16
@@ -4387,7 +4387,7 @@ define internal noundef i32 @dcerpc_decode_as_change(ptr nocapture readnone %0, 
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 %7, ptr %6, align 8
   %12 = icmp eq i32 %9, 0
   br i1 %12, label %copy_address.exit, label %13
@@ -4411,7 +4411,7 @@ copy_address.exit:                                ; preds = %4, %13
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds i8, ptr %1, i64 32
   %25 = load ptr, ptr %24, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   store i32 %21, ptr %19, align 8
   %26 = icmp eq i32 %23, 0
   br i1 %26, label %copy_address.exit17, label %27
@@ -4470,7 +4470,7 @@ define internal void @dcerpc_decode_as_free(ptr noundef %0) #0 {
   br label %free_address.exit.i
 
 free_address.exit.i:                              ; preds = %11, %8, %4, %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %.not.i.i6.i = icmp eq i32 %13, 0
@@ -4493,7 +4493,7 @@ free_address.exit.i:                              ; preds = %11, %8, %4, %2
   br label %free_address.exit8.i
 
 free_address.exit8.i:                             ; preds = %21, %18, %14, %free_address.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %22 = getelementptr inbounds i8, ptr %0, i64 72
   %23 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %23, null
@@ -4544,7 +4544,7 @@ define internal i32 @dcerpc_bind_hash(ptr nocapture noundef readonly %0) #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @dcerpc_bind_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 0, 2) i32 @dcerpc_bind_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -4590,7 +4590,7 @@ define internal i32 @dcerpc_auth_context_hash(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @dcerpc_auth_context_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 0, 2) i32 @dcerpc_auth_context_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -4636,7 +4636,7 @@ define internal i32 @dcerpc_cn_call_hash(ptr nocapture noundef readonly %0) #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @dcerpc_cn_call_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 0, 2) i32 @dcerpc_cn_call_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -4722,7 +4722,7 @@ define internal i32 @dcerpc_dg_call_hash(ptr nocapture noundef readonly %0) #6 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @dcerpc_dg_call_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 0, 2) i32 @dcerpc_dg_call_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -4756,7 +4756,7 @@ define internal i32 @dcerpc_matched_hash(ptr nocapture noundef readonly %0) #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @dcerpc_matched_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 0, 2) i32 @dcerpc_matched_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -4800,7 +4800,7 @@ define internal i32 @dcerpc_uuid_hash(ptr nocapture noundef readonly %0) #6 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @dcerpc_uuid_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 0, 2) i32 @dcerpc_uuid_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) %1, i64 16)
   %3 = icmp eq i32 %bcmp, 0
   br i1 %3, label %4, label %11
@@ -4826,7 +4826,7 @@ declare void @register_decode_as(ptr noundef) local_unnamed_addr #1
 declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dcerpcstat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @dcerpcstat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
@@ -4980,7 +4980,7 @@ define internal void @dcerpcstat_init(ptr noundef %0, ptr noundef %1) #0 {
   %9 = getelementptr inbounds i8, ptr %5, i64 24
   %10 = load i16, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(16) %8, i64 16, i1 false)
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   store i16 %10, ptr %11, align 4
   %12 = load ptr, ptr @dcerpc_uuids, align 8
@@ -4998,7 +4998,7 @@ dcerpc_get_proto_hf_opnum.exit:                   ; preds = %7, %14
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
   %17 = load i16, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 dereferenceable(16) %8, i64 16, i1 false)
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   store i16 %17, ptr %18, align 4
   %19 = load ptr, ptr @dcerpc_uuids, align 8
@@ -5163,7 +5163,7 @@ define internal i32 @dcerpcstat_param(ptr noundef %0, ptr nocapture noundef read
   %64 = getelementptr i8, ptr %32, i64 23
   store i8 %63, ptr %64, align 1
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %34, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %34, i64 16, i1 false)
   %65 = getelementptr inbounds i8, ptr %5, i64 16
   store i16 %31, ptr %65, align 4
   %66 = load ptr, ptr @dcerpc_uuids, align 8
@@ -5180,7 +5180,7 @@ dcerpc_get_proto_sub_dissector.exit:              ; preds = %30, %68
   %.0.i = phi ptr [ %70, %68 ], [ null, %30 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %34, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(16) %34, i64 16, i1 false)
   %71 = getelementptr inbounds i8, ptr %4, i64 16
   store i16 %31, ptr %71, align 4
   %72 = load ptr, ptr @uuid_dissector_table, align 8
@@ -5314,7 +5314,7 @@ define hidden void @proto_reg_handoff_dcerpc() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dcerpc_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_dcerpc_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call fastcc i32 @is_dcerpc(ptr noundef %0, i32 noundef 0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %20, label %6
@@ -5351,7 +5351,7 @@ dcerpc_get_decode_data.exit:                      ; preds = %6, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dcerpc_cn_pk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_dcerpc_cn_pk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_dcerpc, align 4
@@ -5373,12 +5373,12 @@ dcerpc_get_decode_data.exit:                      ; preds = %4, %10
   %.0.i = phi ptr [ %12, %10 ], [ %8, %4 ]
   %16 = getelementptr inbounds i8, ptr %.0.i, i64 4
   store i32 0, ptr %16, align 4
-  %17 = tail call fastcc i32 @dissect_dcerpc_cn(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef null), !range !19
+  %17 = tail call fastcc i32 @dissect_dcerpc_cn(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef null)
   ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_dcerpc_dg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_dcerpc_dg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._e_dce_dg_common_hdr_t, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.nstime_t, align 8
@@ -6390,7 +6390,7 @@ dissect_sec_vt_header.exit.i:                     ; preds = %157, %156
   %.2.i = phi i32 [ %175, %171 ], [ %169, %167 ]
   %177 = icmp sgt i32 %.2.i, 3
   %or.cond.i = select i1 %.not106.i, i1 %177, i1 false
-  br i1 %or.cond.i, label %57, label %.loopexit.i, !llvm.loop !20
+  br i1 %or.cond.i, label %57, label %.loopexit.i, !llvm.loop !19
 
 .loopexit.i:                                      ; preds = %176, %48
   %.3.i = phi i32 [ %53, %48 ], [ %.298.i, %176 ]
@@ -6588,7 +6588,7 @@ define internal void @decode_dcerpc_add_to_list(ptr noundef %0, ptr nocapture no
 declare ptr @g_slist_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @decode_dcerpc_binding_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
+define internal range(i32 0, 2) i32 @decode_dcerpc_binding_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -6772,7 +6772,7 @@ define internal i32 @dcerpc_fragment_hash(ptr nocapture noundef readonly %0) #6 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @dcerpc_fragment_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
+define internal range(i32 0, 2) i32 @dcerpc_fragment_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 48
@@ -6890,7 +6890,7 @@ define internal noalias noundef ptr @dcerpc_fragment_persistent_key(ptr nocaptur
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 216
   %10 = load ptr, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 %6, ptr %4, align 8
   %11 = icmp eq i32 %8, 0
   br i1 %11, label %copy_address.exit, label %12
@@ -6914,7 +6914,7 @@ copy_address.exit:                                ; preds = %3, %12
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 240
   %24 = load ptr, ptr %23, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   store i32 %20, ptr %18, align 8
   %25 = icmp eq i32 %22, 0
   br i1 %25, label %copy_address.exit9, label %26
@@ -6972,7 +6972,7 @@ define internal void @dcerpc_fragment_free_persistent_key(ptr noundef %0) #0 {
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %2, %4, %8, %11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %.not.i.i5 = icmp eq i32 %13, 0
@@ -6995,7 +6995,7 @@ free_address.exit:                                ; preds = %2, %4, %8, %11
   br label %free_address.exit7
 
 free_address.exit7:                               ; preds = %free_address.exit, %14, %18, %21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   tail call void @g_slice_free1(i64 noundef 72, ptr noundef nonnull %0) #16
   br label %22
 
@@ -7029,7 +7029,7 @@ declare void @set_srt_table_param_data(ptr noundef, ptr noundef) local_unnamed_a
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_dcerpc_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @get_dcerpc_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [4 x i8], align 1
   %6 = add i32 %2, 4
   %7 = call ptr @tvb_memcpy(ptr noundef %1, ptr noundef nonnull %5, i32 noundef %6, i64 noundef 4) #16
@@ -7058,13 +7058,13 @@ dcerpc_tvb_get_ntohs.exit:                        ; preds = %11, %13
 define internal i32 @dissect_dcerpc_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = call fastcc i32 @dissect_dcerpc_cn(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5), !range !19
+  %6 = call fastcc i32 @dissect_dcerpc_cn(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5)
   %7 = load i32, ptr %5, align 4
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_dcerpc_cn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_dcerpc_cn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca %struct._e_guid_t, align 4
   %8 = alloca %struct._e_guid_t, align 4
   %9 = alloca %struct._e_guid_t, align 4
@@ -7900,7 +7900,7 @@ dissect_dcerpc_uint32.exit242.i:                  ; preds = %436, %434
 444:                                              ; preds = %443, %dissect_dcerpc_uint32.exit242.i
   %445 = add nuw nsw i32 %.0189257.i, 1
   %exitcond.not.i = icmp eq i32 %445, %390
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %444, %389
   %.2.lcssa.i = phi i32 [ %.1.i, %389 ], [ %442, %444 ]
@@ -7988,7 +7988,7 @@ dcerpc_get_transport_salt.exit.i:                 ; preds = %466, %dcerpc_get_de
 489:                                              ; preds = %487, %479
   %490 = add nuw nsw i32 %.0186260.i, 1
   %exitcond267.not.i = icmp eq i32 %490, %263
-  br i1 %exitcond267.not.i, label %dissect_dcerpc_cn_bind.exit, label %267, !llvm.loop !22
+  br i1 %exitcond267.not.i, label %dissect_dcerpc_cn_bind.exit, label %267, !llvm.loop !21
 
 dissect_dcerpc_cn_bind.exit:                      ; preds = %489, %dissect_dcerpc_uint8.exit.i
   %.0.lcssa.i = phi i32 [ %261, %dissect_dcerpc_uint8.exit.i ], [ %.2.lcssa.i, %489 ]
@@ -8363,7 +8363,7 @@ dissect_dcerpc_uint32.exit120.i:                  ; preds = %654, %653, %626, %6
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %663, i32 noundef 25, ptr noundef nonnull @.str.11, ptr noundef %616) #16
   %664 = add nuw nsw i32 %.084133.i, 1
   %exitcond.not.i225 = icmp eq i32 %664, %573
-  br i1 %exitcond.not.i225, label %dissect_dcerpc_cn_bind_ack.exit, label %574, !llvm.loop !23
+  br i1 %exitcond.not.i225, label %dissect_dcerpc_cn_bind_ack.exit, label %574, !llvm.loop !22
 
 dissect_dcerpc_cn_bind_ack.exit:                  ; preds = %662, %dissect_dcerpc_uint8.exit.i220
   %.2.lcssa.i227 = phi i32 [ %569, %dissect_dcerpc_uint8.exit.i220 ], [ %phi.call.i, %662 ]
@@ -9916,7 +9916,7 @@ dissect_dcerpc_uint8.exit27.i:                    ; preds = %1434, %dissect_dcer
   %1440 = add nsw i32 %.02230.i, 2
   %1441 = add nuw nsw i32 %.031.i, 1
   %exitcond.not.i297 = icmp eq i32 %1441, %1421
-  br i1 %exitcond.not.i297, label %dissect_dcerpc_cn_bind_nak.exit, label %.lr.ph.i296, !llvm.loop !24
+  br i1 %exitcond.not.i297, label %dissect_dcerpc_cn_bind_nak.exit, label %.lr.ph.i296, !llvm.loop !23
 
 1442:                                             ; preds = %191, %191
   %1443 = call i32 @llvm.smin.i32(i32 %192, i32 16)
@@ -10493,7 +10493,7 @@ dissect_dcerpc_uint32.exit296.i:                  ; preds = %1706, %1705
   %.2.i = phi i32 [ %1491, %1713 ], [ %1712, %dissect_dcerpc_uint32.exit296.i ], [ %1696, %dissect_dcerpc_uint32.exit293.i ], [ %1680, %dissect_dcerpc_uuid_t.exit290.i ], [ %1668, %1663 ], [ %1641, %dcerpc_tvb_get_ntohl.exit284.i ], [ %1491, %dcerpc_tvb_get_ntohl.exit.i ], [ %1491, %dcerpc_tvb_get_ntohl.exit.i ], [ %1491, %dcerpc_tvb_get_ntohl.exit.i ], [ %1625, %dissect_dcerpc_uint32.exit281.i ], [ %1609, %dissect_dcerpc_uint32.exit278.i ], [ %1593, %dissect_dcerpc_uint32.exit275.i ], [ %1577, %dissect_dcerpc_uuid_t.exit272.i ], [ %1565, %dissect_dcerpc_uint32.exit269.i ], [ %1549, %dissect_dcerpc_uuid_t.exit.i ], [ %1507, %dissect_dcerpc_uint32.exit.i310 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i305 = icmp eq i64 %indvars.iv.next.i, %1476
-  br i1 %exitcond.not.i305, label %._crit_edge.i306, label %.lr.ph.i304, !llvm.loop !25
+  br i1 %exitcond.not.i305, label %._crit_edge.i306, label %.lr.ph.i304, !llvm.loop !24
 
 ._crit_edge.i306:                                 ; preds = %1716, %dissect_dcerpc_uint16.exit.i302
   %1717 = load ptr, ptr %103, align 8
@@ -11025,7 +11025,7 @@ dissect_dcerpc_cn_bind_nak.exit:                  ; preds = %dissect_dcerpc_uint
 declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @is_dcerpc(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_dcerpc(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [4 x i8], align 1
   %4 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %1, i32 noundef 16) #16
   %.not = icmp eq i32 %4, 0
@@ -12549,7 +12549,7 @@ dissect_dcerpc_uint32.exit55:                     ; preds = %96, %97
   %103 = add nuw nsw i32 %.03858, 4
   %104 = add nuw nsw i32 %.059, 1
   %exitcond.not = icmp eq i32 %104, %88
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %dissect_dcerpc_uint32.exit55, %dissect_dcerpc_uint16.exit52, %dissect_dcerpc_uint8.exit
   ret void
@@ -13213,7 +13213,7 @@ define internal fastcc i32 @dissect_dcerpc_cn_bs_body(ptr noundef %0, ptr nounde
   store i32 0, ptr %5, align 4
   %.0..0..0..0.27 = load volatile i32, ptr %4, align 4
   %35 = load i32, ptr @dcerpc_cn_desegment, align 4
-  %36 = call fastcc i32 @dissect_dcerpc_cn(ptr noundef %0, i32 noundef %.0..0..0..0.27, ptr noundef %1, ptr noundef %2, i32 noundef %35, ptr noundef nonnull %5), !range !19
+  %36 = call fastcc i32 @dissect_dcerpc_cn(ptr noundef %0, i32 noundef %.0..0..0..0.27, ptr noundef %1, ptr noundef %2, i32 noundef %35, ptr noundef nonnull %5)
   %.not59 = icmp eq i32 %36, 0
   br i1 %.not59, label %39, label %37
 
@@ -13336,7 +13336,7 @@ define internal fastcc i32 @dissect_dcerpc_cn_bs_body(ptr noundef %0, ptr nounde
 88:                                               ; preds = %.lr.ph
   %89 = call ptr @wmem_list_frame_prev(ptr noundef nonnull %.070) #16
   %.not66 = icmp eq ptr %89, null
-  br i1 %.not66, label %.critedge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not66, label %.critedge, label %.lr.ph, !llvm.loop !26
 
 90:                                               ; preds = %.lr.ph
   %.0..0..0..0.29 = load volatile i32, ptr %4, align 4
@@ -13385,7 +13385,7 @@ define internal fastcc i32 @dissect_dcerpc_cn_bs_body(ptr noundef %0, ptr nounde
   %.0..0..0..0.26 = load volatile i32, ptr %4, align 4
   %110 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.26) #16
   %.not = icmp eq i32 %110, 0
-  br i1 %.not, label %.critedge, label %21, !llvm.loop !28
+  br i1 %.not, label %.critedge, label %21, !llvm.loop !27
 
 .critedge:                                        ; preds = %108, %73, %75, %77, %79, %88, %3, %100
   %.0..0..0..0.20 = load volatile i32, ptr %7, align 4
@@ -13466,7 +13466,7 @@ attributes #21 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = !{i32 0, i32 2}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
@@ -13475,4 +13475,3 @@ attributes #21 = { nounwind willreturn memory(read) }
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}

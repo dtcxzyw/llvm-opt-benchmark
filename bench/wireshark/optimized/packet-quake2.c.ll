@@ -519,7 +519,7 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
   %191 = zext i8 %190 to i32
   %192 = sub nsw i32 %191, %188
   %193 = load i32, ptr @ett_quake2_game_clc_cmd_move_moves, align 4
-  %194 = trunc i64 %indvars.iv.next210.i.i.i to i32
+  %194 = trunc nuw nsw i64 %indvars.iv.next210.i.i.i to i32
   %195 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %92, ptr noundef %96, i32 noundef %188, i32 noundef %192, i32 noundef %193, ptr noundef null, ptr noundef nonnull @.str.81, i32 noundef %194) #3
   %196 = load i32, ptr @hf_quake2_game_client_command_move, align 4
   %197 = getelementptr i8, ptr %187, i64 1

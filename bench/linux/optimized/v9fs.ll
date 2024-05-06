@@ -884,7 +884,7 @@ define internal void @exit_v9fs() #4 section ".exit.text" align 16 {
 declare dso_local i32 @unregister_filesystem(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @init_v9fs() #4 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @init_v9fs() #4 section ".init.text" align 16 {
   %1 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.46) #8
   %2 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.50, i32 noundef 688, i32 noundef 0, i32 noundef 1179648, ptr noundef nonnull @v9fs_inode_init_once) #7
   store ptr %2, ptr @v9fs_inode_cache, align 8
@@ -972,7 +972,7 @@ declare dso_local void @rcu_barrier() local_unnamed_addr #2
 declare dso_local void @kmem_cache_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @v9fs_sysfs_init() unnamed_addr #4 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @v9fs_sysfs_init() unnamed_addr #4 section ".init.text" align 16 {
   %1 = load ptr, ptr @fs_kobj, align 8
   %2 = tail call ptr @kobject_create_and_add(ptr noundef nonnull @.str.51, ptr noundef %1) #7
   store ptr %2, ptr @v9fs_kobj, align 8

@@ -90,7 +90,7 @@ define ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef r
   %36 = load ptr, ptr %30, align 8
   %37 = sext i32 %.03438 to i64
   %38 = getelementptr inbounds i32, ptr %36, i64 %37
-  %39 = trunc i64 %34 to i32
+  %39 = trunc nuw nsw i64 %34 to i32
   store i32 %39, ptr %38, align 4
   %40 = add nsw i32 %.03438, 1
   br label %.lr.ph41._crit_edge
@@ -161,7 +161,7 @@ declare void @jv_free(i64, ptr) local_unnamed_addr #1
 declare void @jv_mem_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @locfile_get_line(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -2147483648, 2147483647) i32 @locfile_get_line(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   br label %5
@@ -175,7 +175,7 @@ define i32 @locfile_get_line(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br i1 %.not, label %8, label %5, !llvm.loop !7
 
 8:                                                ; preds = %5
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = add nsw i32 %9, -1
   ret i32 %10
 }
@@ -184,7 +184,7 @@ define i32 @locfile_get_line(ptr nocapture noundef readonly %0, i32 noundef %1) 
 define void @locfile_locate(ptr nocapture noundef readonly %0, i64 %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %.sroa.026.0.extract.trunc = trunc i64 %1 to i32
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %.not = icmp eq i32 %.sroa.026.0.extract.trunc, -1
   br i1 %.not, label %16, label %5
 
@@ -202,7 +202,7 @@ define void @locfile_locate(ptr nocapture noundef readonly %0, i64 %1, ptr nound
   br i1 %.not.i, label %locfile_get_line.exit, label %8, !llvm.loop !7
 
 locfile_get_line.exit:                            ; preds = %8
-  %11 = trunc i64 %indvars.iv.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i to i32
   %12 = add nsw i32 %11, -1
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i32, ptr %7, i64 %13
@@ -215,7 +215,7 @@ locfile_get_line.exit:                            ; preds = %8
   %17 = call { i64, ptr } @jv_string_vfmt(ptr noundef %2, ptr noundef nonnull %4) #6
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %20 = call i32 @jv_get_kind(i64 %18, ptr %19) #6
   %.not32 = icmp eq i32 %20, 0
   br i1 %.not32, label %21, label %24
@@ -274,13 +274,7 @@ locfile_get_line.exit:                            ; preds = %8
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 declare { i64, ptr } @jv_string_vfmt(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
 
 declare void @jq_report_error(ptr noundef, i64, ptr) local_unnamed_addr #1
 
@@ -289,6 +283,12 @@ declare { i64, ptr } @jv_string_fmt(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @jv_string_value(i64, ptr) local_unnamed_addr #1
 
 declare i32 @jv_get_kind(i64, ptr) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

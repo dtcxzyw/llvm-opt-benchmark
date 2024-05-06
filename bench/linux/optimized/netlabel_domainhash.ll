@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [8 x i8] c" res=%u\00", align 1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @netlbl_domhsh_init(i32 noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_init(i32 noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
   %2 = icmp eq i32 %0, 0
   br i1 %2, label %23, label %3
 
@@ -1272,7 +1272,7 @@ define dso_local noundef i32 @netlbl_domhsh_add_default(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netlbl_domhsh_remove_entry(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_entry(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %98, label %4
 
@@ -1484,7 +1484,7 @@ declare dso_local void @calipso_doi_putdef(ptr noundef) local_unnamed_addr #1
 declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netlbl_domhsh_remove_af4(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af4(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #10
   %5 = icmp eq ptr %0, null
   br i1 %5, label %46, label %6
@@ -1656,7 +1656,7 @@ declare dso_local ptr @netlbl_af4list_remove(i32 noundef, i32 noundef, ptr nound
 declare dso_local void @synchronize_rcu() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netlbl_domhsh_remove_af6(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af6(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #10
   %5 = icmp eq ptr %0, null
   br i1 %5, label %46, label %6

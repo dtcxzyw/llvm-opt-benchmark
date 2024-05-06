@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [5 x i8] c"null\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_no_deflt_ctx_init) #2
   ret i32 1
@@ -23,7 +23,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_no_deflt_ctx_init() #0 {
+define internal range(i32 0, 2) i32 @test_no_deflt_ctx_init() #0 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 24, ptr noundef nonnull @.str.2, ptr noundef %call) #2

@@ -88,7 +88,7 @@ define dso_local void @psched_scheduler_init() local_unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   store i32 1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
   %13 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_output_stream_t_class, i64 0, i32 6), align 8
   %14 = load ptr, ptr %13, align 8
   %.not6.i = icmp eq ptr %14, null
@@ -195,8 +195,8 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
 14:                                               ; preds = %12, %7, %3
   %15 = getelementptr inbounds i8, ptr %2, i64 544
   %16 = load i64, ptr %15, align 8
-  %.not449 = icmp eq i64 %16, 0
-  br i1 %.not449, label %.thread453, label %.lr.ph
+  %.not451 = icmp eq i64 %16, 0
+  br i1 %.not451, label %.thread455, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %17 = getelementptr inbounds i8, ptr %2, i64 536
@@ -222,43 +222,43 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   br label %37
 
 37:                                               ; preds = %.lr.ph, %.thread
-  %.0447 = phi i64 [ 0, %.lr.ph ], [ %388, %.thread ]
-  %.0402446 = phi i1 [ false, %.lr.ph ], [ %.1, %.thread ]
-  %.0403445 = phi i32 [ 0, %.lr.ph ], [ %.1404, %.thread ]
+  %.0449 = phi i64 [ 0, %.lr.ph ], [ %388, %.thread ]
+  %.0402448 = phi i1 [ false, %.lr.ph ], [ %.1, %.thread ]
+  %.0403447 = phi i32 [ 0, %.lr.ph ], [ %.1404, %.thread ]
   %38 = load ptr, ptr %17, align 8
-  %39 = getelementptr inbounds %struct.pmix_info, ptr %38, i64 %.0447
+  %39 = getelementptr inbounds %struct.pmix_info, ptr %38, i64 %.0449
   %40 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %39, ptr noundef nonnull @.str.7) #10
   %41 = load ptr, ptr %17, align 8
   br i1 %40, label %42, label %46
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds %struct.pmix_info, ptr %41, i64 %.0447, i32 2, i32 1
+  %43 = getelementptr inbounds %struct.pmix_info, ptr %41, i64 %.0449, i32 2, i32 1
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noalias ptr @strdup(ptr noundef %44) #10
   store ptr %45, ptr %36, align 8
   br label %.thread
 
 46:                                               ; preds = %37
-  %47 = getelementptr inbounds %struct.pmix_info, ptr %41, i64 %.0447
+  %47 = getelementptr inbounds %struct.pmix_info, ptr %41, i64 %.0449
   %48 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %47, ptr noundef nonnull @.str.8) #10
   %49 = load ptr, ptr %17, align 8
   br i1 %48, label %50, label %54
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds %struct.pmix_info, ptr %49, i64 %.0447, i32 2, i32 1
+  %51 = getelementptr inbounds %struct.pmix_info, ptr %49, i64 %.0449, i32 2, i32 1
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noalias ptr @strdup(ptr noundef %52) #10
   store ptr %53, ptr %35, align 8
   br label %.thread
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds %struct.pmix_info, ptr %49, i64 %.0447
+  %55 = getelementptr inbounds %struct.pmix_info, ptr %49, i64 %.0449
   %56 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %55, ptr noundef nonnull @.str.9) #10
   %57 = load ptr, ptr %17, align 8
   br i1 %56, label %58, label %125
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds %struct.pmix_info, ptr %57, i64 %.0447, i32 2
+  %59 = getelementptr inbounds %struct.pmix_info, ptr %57, i64 %.0449, i32 2
   %60 = load i16, ptr %59, align 8
   switch i16 %60, label %122 [
     i16 4, label %61
@@ -391,44 +391,44 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
 122:                                              ; preds = %58
   %123 = tail call ptr @PMIx_Error_string(i32 noundef -27) #10
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %123, ptr noundef nonnull @.str.11, i32 noundef 76) #10
-  %124 = icmp eq i32 %.0403445, 0
-  %spec.select427 = select i1 %124, i32 -27, i32 %.0403445
+  %124 = icmp eq i32 %.0403447, 0
+  %spec.select427 = select i1 %124, i32 -27, i32 %.0403447
   br label %.thread
 
 125:                                              ; preds = %54
-  %126 = getelementptr inbounds %struct.pmix_info, ptr %57, i64 %.0447
+  %126 = getelementptr inbounds %struct.pmix_info, ptr %57, i64 %.0449
   %127 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %126, ptr noundef nonnull @.str.12) #10
   %128 = load ptr, ptr %17, align 8
   br i1 %127, label %129, label %133
 
 129:                                              ; preds = %125
-  %130 = getelementptr inbounds %struct.pmix_info, ptr %128, i64 %.0447, i32 2, i32 1
+  %130 = getelementptr inbounds %struct.pmix_info, ptr %128, i64 %.0449, i32 2, i32 1
   %131 = load ptr, ptr %130, align 8
   %132 = tail call noalias ptr @strdup(ptr noundef %131) #10
   store ptr %132, ptr %33, align 8
   br label %.thread
 
 133:                                              ; preds = %125
-  %134 = getelementptr inbounds %struct.pmix_info, ptr %128, i64 %.0447
+  %134 = getelementptr inbounds %struct.pmix_info, ptr %128, i64 %.0449
   %135 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %134, ptr noundef nonnull @.str.13) #10
   %136 = load ptr, ptr %17, align 8
   br i1 %135, label %137, label %141
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds %struct.pmix_info, ptr %136, i64 %.0447, i32 2, i32 1
+  %138 = getelementptr inbounds %struct.pmix_info, ptr %136, i64 %.0449, i32 2, i32 1
   %139 = load ptr, ptr %138, align 8
   %140 = tail call noalias ptr @strdup(ptr noundef %139) #10
   store ptr %140, ptr %32, align 8
   br label %.thread
 
 141:                                              ; preds = %133
-  %142 = getelementptr inbounds %struct.pmix_info, ptr %136, i64 %.0447
+  %142 = getelementptr inbounds %struct.pmix_info, ptr %136, i64 %.0449
   %143 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %142, ptr noundef nonnull @.str.14) #10
   %144 = load ptr, ptr %17, align 8
   br i1 %143, label %145, label %212
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds %struct.pmix_info, ptr %144, i64 %.0447, i32 2
+  %146 = getelementptr inbounds %struct.pmix_info, ptr %144, i64 %.0449, i32 2
   %147 = load i16, ptr %146, align 8
   switch i16 %147, label %209 [
     i16 4, label %148
@@ -561,44 +561,44 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
 209:                                              ; preds = %145
   %210 = tail call ptr @PMIx_Error_string(i32 noundef -27) #10
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %210, ptr noundef nonnull @.str.11, i32 noundef 91) #10
-  %211 = icmp eq i32 %.0403445, 0
-  %spec.select428 = select i1 %211, i32 -27, i32 %.0403445
+  %211 = icmp eq i32 %.0403447, 0
+  %spec.select428 = select i1 %211, i32 -27, i32 %.0403447
   br label %.thread
 
 212:                                              ; preds = %141
-  %213 = getelementptr inbounds %struct.pmix_info, ptr %144, i64 %.0447
+  %213 = getelementptr inbounds %struct.pmix_info, ptr %144, i64 %.0449
   %214 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %213, ptr noundef nonnull @.str.15) #10
   %215 = load ptr, ptr %17, align 8
   br i1 %214, label %216, label %220
 
 216:                                              ; preds = %212
-  %217 = getelementptr inbounds %struct.pmix_info, ptr %215, i64 %.0447, i32 2, i32 1
+  %217 = getelementptr inbounds %struct.pmix_info, ptr %215, i64 %.0449, i32 2, i32 1
   %218 = load ptr, ptr %217, align 8
   %219 = tail call noalias ptr @strdup(ptr noundef %218) #10
   store ptr %219, ptr %30, align 8
   br label %.thread
 
 220:                                              ; preds = %212
-  %221 = getelementptr inbounds %struct.pmix_info, ptr %215, i64 %.0447
+  %221 = getelementptr inbounds %struct.pmix_info, ptr %215, i64 %.0449
   %222 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %221, ptr noundef nonnull @.str.16) #10
   %223 = load ptr, ptr %17, align 8
   br i1 %222, label %224, label %228
 
 224:                                              ; preds = %220
-  %225 = getelementptr inbounds %struct.pmix_info, ptr %223, i64 %.0447, i32 2, i32 1
+  %225 = getelementptr inbounds %struct.pmix_info, ptr %223, i64 %.0449, i32 2, i32 1
   %226 = load ptr, ptr %225, align 8
   %227 = tail call noalias ptr @strdup(ptr noundef %226) #10
   store ptr %227, ptr %29, align 8
   br label %.thread
 
 228:                                              ; preds = %220
-  %229 = getelementptr inbounds %struct.pmix_info, ptr %223, i64 %.0447
+  %229 = getelementptr inbounds %struct.pmix_info, ptr %223, i64 %.0449
   %230 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %229, ptr noundef nonnull @.str.17) #10
   %231 = load ptr, ptr %17, align 8
   br i1 %230, label %232, label %301
 
 232:                                              ; preds = %228
-  %233 = getelementptr inbounds %struct.pmix_info, ptr %231, i64 %.0447, i32 2
+  %233 = getelementptr inbounds %struct.pmix_info, ptr %231, i64 %.0449, i32 2
   %234 = load i16, ptr %233, align 8
   switch i16 %234, label %298 [
     i16 4, label %235
@@ -733,44 +733,44 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
 298:                                              ; preds = %232
   %299 = tail call ptr @PMIx_Error_string(i32 noundef -27) #10
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %299, ptr noundef nonnull @.str.11, i32 noundef 106) #10
-  %300 = icmp eq i32 %.0403445, 0
-  %spec.select429 = select i1 %300, i32 -27, i32 %.0403445
+  %300 = icmp eq i32 %.0403447, 0
+  %spec.select429 = select i1 %300, i32 -27, i32 %.0403447
   br label %.thread
 
 301:                                              ; preds = %228
-  %302 = getelementptr inbounds %struct.pmix_info, ptr %231, i64 %.0447
+  %302 = getelementptr inbounds %struct.pmix_info, ptr %231, i64 %.0449
   %303 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %302, ptr noundef nonnull @.str.18) #10
   %304 = load ptr, ptr %17, align 8
   br i1 %303, label %305, label %309
 
 305:                                              ; preds = %301
-  %306 = getelementptr inbounds %struct.pmix_info, ptr %304, i64 %.0447, i32 2, i32 1
+  %306 = getelementptr inbounds %struct.pmix_info, ptr %304, i64 %.0449, i32 2, i32 1
   %307 = load ptr, ptr %306, align 8
   %308 = tail call noalias ptr @strdup(ptr noundef %307) #10
   store ptr %308, ptr %27, align 8
   br label %.thread
 
 309:                                              ; preds = %301
-  %310 = getelementptr inbounds %struct.pmix_info, ptr %304, i64 %.0447
+  %310 = getelementptr inbounds %struct.pmix_info, ptr %304, i64 %.0449
   %311 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %310, ptr noundef nonnull @.str.19) #10
   %312 = load ptr, ptr %17, align 8
   br i1 %311, label %313, label %317
 
 313:                                              ; preds = %309
-  %314 = getelementptr inbounds %struct.pmix_info, ptr %312, i64 %.0447, i32 2, i32 1
+  %314 = getelementptr inbounds %struct.pmix_info, ptr %312, i64 %.0449, i32 2, i32 1
   %315 = load ptr, ptr %314, align 8
   %316 = tail call noalias ptr @strdup(ptr noundef %315) #10
   store ptr %316, ptr %26, align 8
   br label %.thread
 
 317:                                              ; preds = %309
-  %318 = getelementptr inbounds %struct.pmix_info, ptr %312, i64 %.0447
+  %318 = getelementptr inbounds %struct.pmix_info, ptr %312, i64 %.0449
   %319 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %318, ptr noundef nonnull @.str.20) #10
   %320 = load ptr, ptr %17, align 8
   br i1 %319, label %321, label %326
 
 321:                                              ; preds = %317
-  %322 = getelementptr inbounds %struct.pmix_info, ptr %320, i64 %.0447, i32 2
+  %322 = getelementptr inbounds %struct.pmix_info, ptr %320, i64 %.0449, i32 2
   %323 = tail call i32 @PMIx_Value_true(ptr noundef nonnull %322) #10
   %324 = icmp ne i32 %323, 0
   %325 = zext i1 %324 to i8
@@ -778,39 +778,39 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   br label %.thread
 
 326:                                              ; preds = %317
-  %327 = getelementptr inbounds %struct.pmix_info, ptr %320, i64 %.0447
+  %327 = getelementptr inbounds %struct.pmix_info, ptr %320, i64 %.0449
   %328 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %327, ptr noundef nonnull @.str.21) #10
   %329 = load ptr, ptr %17, align 8
   br i1 %328, label %330, label %334
 
 330:                                              ; preds = %326
-  %331 = getelementptr inbounds %struct.pmix_info, ptr %329, i64 %.0447, i32 2, i32 1
+  %331 = getelementptr inbounds %struct.pmix_info, ptr %329, i64 %.0449, i32 2, i32 1
   %332 = load ptr, ptr %331, align 8
   %333 = tail call noalias ptr @strdup(ptr noundef %332) #10
   store ptr %333, ptr %24, align 8
   br label %.thread
 
 334:                                              ; preds = %326
-  %335 = getelementptr inbounds %struct.pmix_info, ptr %329, i64 %.0447
+  %335 = getelementptr inbounds %struct.pmix_info, ptr %329, i64 %.0449
   %336 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %335, ptr noundef nonnull @.str.22) #10
   %337 = load ptr, ptr %17, align 8
   br i1 %336, label %338, label %342
 
 338:                                              ; preds = %334
-  %339 = getelementptr inbounds %struct.pmix_info, ptr %337, i64 %.0447, i32 2, i32 1
+  %339 = getelementptr inbounds %struct.pmix_info, ptr %337, i64 %.0449, i32 2, i32 1
   %340 = load ptr, ptr %339, align 8
   %341 = tail call noalias ptr @strdup(ptr noundef %340) #10
   store ptr %341, ptr %23, align 8
   br label %.thread
 
 342:                                              ; preds = %334
-  %343 = getelementptr inbounds %struct.pmix_info, ptr %337, i64 %.0447
+  %343 = getelementptr inbounds %struct.pmix_info, ptr %337, i64 %.0449
   %344 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %343, ptr noundef nonnull @.str.23) #10
   %345 = load ptr, ptr %17, align 8
   br i1 %344, label %346, label %351
 
 346:                                              ; preds = %342
-  %347 = getelementptr inbounds %struct.pmix_info, ptr %345, i64 %.0447, i32 2
+  %347 = getelementptr inbounds %struct.pmix_info, ptr %345, i64 %.0449, i32 2
   %348 = tail call i32 @PMIx_Value_true(ptr noundef nonnull %347) #10
   %349 = icmp ne i32 %348, 0
   %350 = zext i1 %349 to i8
@@ -818,13 +818,13 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   br label %.thread
 
 351:                                              ; preds = %342
-  %352 = getelementptr inbounds %struct.pmix_info, ptr %345, i64 %.0447
+  %352 = getelementptr inbounds %struct.pmix_info, ptr %345, i64 %.0449
   %353 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %352, ptr noundef nonnull @.str.24) #10
   %354 = load ptr, ptr %17, align 8
   br i1 %353, label %355, label %360
 
 355:                                              ; preds = %351
-  %356 = getelementptr inbounds %struct.pmix_info, ptr %354, i64 %.0447, i32 2
+  %356 = getelementptr inbounds %struct.pmix_info, ptr %354, i64 %.0449, i32 2
   %357 = tail call i32 @PMIx_Value_true(ptr noundef nonnull %356) #10
   %358 = icmp ne i32 %357, 0
   %359 = zext i1 %358 to i8
@@ -832,13 +832,13 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   br label %.thread
 
 360:                                              ; preds = %351
-  %361 = getelementptr inbounds %struct.pmix_info, ptr %354, i64 %.0447
+  %361 = getelementptr inbounds %struct.pmix_info, ptr %354, i64 %.0449
   %362 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %361, ptr noundef nonnull @.str.25) #10
   %363 = load ptr, ptr %17, align 8
   br i1 %362, label %364, label %369
 
 364:                                              ; preds = %360
-  %365 = getelementptr inbounds %struct.pmix_info, ptr %363, i64 %.0447, i32 2
+  %365 = getelementptr inbounds %struct.pmix_info, ptr %363, i64 %.0449, i32 2
   %366 = tail call i32 @PMIx_Value_true(ptr noundef nonnull %365) #10
   %367 = icmp ne i32 %366, 0
   %368 = zext i1 %367 to i8
@@ -846,41 +846,41 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   br label %.thread
 
 369:                                              ; preds = %360
-  %370 = getelementptr inbounds %struct.pmix_info, ptr %363, i64 %.0447
+  %370 = getelementptr inbounds %struct.pmix_info, ptr %363, i64 %.0449
   %371 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %370, ptr noundef nonnull @.str.26) #10
   %372 = load ptr, ptr %17, align 8
   br i1 %371, label %373, label %377
 
 373:                                              ; preds = %369
-  %374 = getelementptr inbounds %struct.pmix_info, ptr %372, i64 %.0447, i32 2, i32 1
+  %374 = getelementptr inbounds %struct.pmix_info, ptr %372, i64 %.0449, i32 2, i32 1
   %375 = load ptr, ptr %374, align 8
   %376 = tail call noalias ptr @strdup(ptr noundef %375) #10
   store ptr %376, ptr %19, align 8
   br label %.thread
 
 377:                                              ; preds = %369
-  %378 = getelementptr inbounds %struct.pmix_info, ptr %372, i64 %.0447
+  %378 = getelementptr inbounds %struct.pmix_info, ptr %372, i64 %.0449
   %379 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %378, ptr noundef nonnull @.str.27) #10
   %380 = load ptr, ptr %17, align 8
   br i1 %379, label %381, label %385
 
 381:                                              ; preds = %377
-  %382 = getelementptr inbounds %struct.pmix_info, ptr %380, i64 %.0447, i32 2, i32 1
+  %382 = getelementptr inbounds %struct.pmix_info, ptr %380, i64 %.0449, i32 2, i32 1
   %383 = load ptr, ptr %382, align 8
   %384 = tail call noalias ptr @strdup(ptr noundef %383) #10
   store ptr %384, ptr %18, align 8
   br label %.thread
 
 385:                                              ; preds = %377
-  %386 = getelementptr inbounds %struct.pmix_info, ptr %380, i64 %.0447
+  %386 = getelementptr inbounds %struct.pmix_info, ptr %380, i64 %.0449
   %387 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %386, ptr noundef nonnull @.str.28) #10
-  %spec.select = select i1 %387, i1 true, i1 %.0402446
+  %spec.select = select i1 %387, i1 true, i1 %.0402448
   br label %.thread
 
 .thread:                                          ; preds = %294, %290, %286, %282, %279, %275, %271, %267, %263, %259, %255, %251, %247, %243, %239, %235, %205, %201, %197, %193, %189, %186, %182, %178, %174, %170, %167, %163, %159, %155, %151, %148, %118, %114, %110, %106, %102, %99, %95, %91, %87, %83, %80, %76, %72, %68, %64, %61, %298, %209, %122, %385, %42, %137, %216, %313, %330, %346, %364, %381, %373, %355, %338, %321, %305, %224, %129, %50
-  %.1404 = phi i32 [ %.0403445, %42 ], [ %.0403445, %50 ], [ %.0403445, %129 ], [ %.0403445, %137 ], [ %.0403445, %216 ], [ %.0403445, %224 ], [ %.0403445, %305 ], [ %.0403445, %313 ], [ %.0403445, %321 ], [ %.0403445, %330 ], [ %.0403445, %338 ], [ %.0403445, %346 ], [ %.0403445, %355 ], [ %.0403445, %364 ], [ %.0403445, %373 ], [ %.0403445, %381 ], [ %.0403445, %385 ], [ %spec.select427, %122 ], [ %spec.select428, %209 ], [ %spec.select429, %298 ], [ %.0403445, %61 ], [ %.0403445, %64 ], [ %.0403445, %68 ], [ %.0403445, %72 ], [ %.0403445, %76 ], [ %.0403445, %80 ], [ %.0403445, %83 ], [ %.0403445, %87 ], [ %.0403445, %91 ], [ %.0403445, %95 ], [ %.0403445, %99 ], [ %.0403445, %102 ], [ %.0403445, %106 ], [ %.0403445, %110 ], [ %.0403445, %114 ], [ %.0403445, %118 ], [ %.0403445, %148 ], [ %.0403445, %151 ], [ %.0403445, %155 ], [ %.0403445, %159 ], [ %.0403445, %163 ], [ %.0403445, %167 ], [ %.0403445, %170 ], [ %.0403445, %174 ], [ %.0403445, %178 ], [ %.0403445, %182 ], [ %.0403445, %186 ], [ %.0403445, %189 ], [ %.0403445, %193 ], [ %.0403445, %197 ], [ %.0403445, %201 ], [ %.0403445, %205 ], [ %.0403445, %235 ], [ %.0403445, %239 ], [ %.0403445, %243 ], [ %.0403445, %247 ], [ %.0403445, %251 ], [ %.0403445, %255 ], [ %.0403445, %259 ], [ %.0403445, %263 ], [ %.0403445, %267 ], [ %.0403445, %271 ], [ %.0403445, %275 ], [ %.0403445, %279 ], [ %.0403445, %282 ], [ %.0403445, %286 ], [ %.0403445, %290 ], [ %.0403445, %294 ]
-  %.1 = phi i1 [ %.0402446, %42 ], [ %.0402446, %50 ], [ %.0402446, %129 ], [ %.0402446, %137 ], [ %.0402446, %216 ], [ %.0402446, %224 ], [ %.0402446, %305 ], [ %.0402446, %313 ], [ %.0402446, %321 ], [ %.0402446, %330 ], [ %.0402446, %338 ], [ %.0402446, %346 ], [ %.0402446, %355 ], [ %.0402446, %364 ], [ %.0402446, %373 ], [ %.0402446, %381 ], [ %spec.select, %385 ], [ %.0402446, %122 ], [ %.0402446, %209 ], [ %.0402446, %298 ], [ %.0402446, %61 ], [ %.0402446, %64 ], [ %.0402446, %68 ], [ %.0402446, %72 ], [ %.0402446, %76 ], [ %.0402446, %80 ], [ %.0402446, %83 ], [ %.0402446, %87 ], [ %.0402446, %91 ], [ %.0402446, %95 ], [ %.0402446, %99 ], [ %.0402446, %102 ], [ %.0402446, %106 ], [ %.0402446, %110 ], [ %.0402446, %114 ], [ %.0402446, %118 ], [ %.0402446, %148 ], [ %.0402446, %151 ], [ %.0402446, %155 ], [ %.0402446, %159 ], [ %.0402446, %163 ], [ %.0402446, %167 ], [ %.0402446, %170 ], [ %.0402446, %174 ], [ %.0402446, %178 ], [ %.0402446, %182 ], [ %.0402446, %186 ], [ %.0402446, %189 ], [ %.0402446, %193 ], [ %.0402446, %197 ], [ %.0402446, %201 ], [ %.0402446, %205 ], [ %.0402446, %235 ], [ %.0402446, %239 ], [ %.0402446, %243 ], [ %.0402446, %247 ], [ %.0402446, %251 ], [ %.0402446, %255 ], [ %.0402446, %259 ], [ %.0402446, %263 ], [ %.0402446, %267 ], [ %.0402446, %271 ], [ %.0402446, %275 ], [ %.0402446, %279 ], [ %.0402446, %282 ], [ %.0402446, %286 ], [ %.0402446, %290 ], [ %.0402446, %294 ]
-  %388 = add nuw i64 %.0447, 1
+  %.1404 = phi i32 [ %.0403447, %42 ], [ %.0403447, %50 ], [ %.0403447, %129 ], [ %.0403447, %137 ], [ %.0403447, %216 ], [ %.0403447, %224 ], [ %.0403447, %305 ], [ %.0403447, %313 ], [ %.0403447, %321 ], [ %.0403447, %330 ], [ %.0403447, %338 ], [ %.0403447, %346 ], [ %.0403447, %355 ], [ %.0403447, %364 ], [ %.0403447, %373 ], [ %.0403447, %381 ], [ %.0403447, %385 ], [ %spec.select427, %122 ], [ %spec.select428, %209 ], [ %spec.select429, %298 ], [ %.0403447, %61 ], [ %.0403447, %64 ], [ %.0403447, %68 ], [ %.0403447, %72 ], [ %.0403447, %76 ], [ %.0403447, %80 ], [ %.0403447, %83 ], [ %.0403447, %87 ], [ %.0403447, %91 ], [ %.0403447, %95 ], [ %.0403447, %99 ], [ %.0403447, %102 ], [ %.0403447, %106 ], [ %.0403447, %110 ], [ %.0403447, %114 ], [ %.0403447, %118 ], [ %.0403447, %148 ], [ %.0403447, %151 ], [ %.0403447, %155 ], [ %.0403447, %159 ], [ %.0403447, %163 ], [ %.0403447, %167 ], [ %.0403447, %170 ], [ %.0403447, %174 ], [ %.0403447, %178 ], [ %.0403447, %182 ], [ %.0403447, %186 ], [ %.0403447, %189 ], [ %.0403447, %193 ], [ %.0403447, %197 ], [ %.0403447, %201 ], [ %.0403447, %205 ], [ %.0403447, %235 ], [ %.0403447, %239 ], [ %.0403447, %243 ], [ %.0403447, %247 ], [ %.0403447, %251 ], [ %.0403447, %255 ], [ %.0403447, %259 ], [ %.0403447, %263 ], [ %.0403447, %267 ], [ %.0403447, %271 ], [ %.0403447, %275 ], [ %.0403447, %279 ], [ %.0403447, %282 ], [ %.0403447, %286 ], [ %.0403447, %290 ], [ %.0403447, %294 ]
+  %.1 = phi i1 [ %.0402448, %42 ], [ %.0402448, %50 ], [ %.0402448, %129 ], [ %.0402448, %137 ], [ %.0402448, %216 ], [ %.0402448, %224 ], [ %.0402448, %305 ], [ %.0402448, %313 ], [ %.0402448, %321 ], [ %.0402448, %330 ], [ %.0402448, %338 ], [ %.0402448, %346 ], [ %.0402448, %355 ], [ %.0402448, %364 ], [ %.0402448, %373 ], [ %.0402448, %381 ], [ %spec.select, %385 ], [ %.0402448, %122 ], [ %.0402448, %209 ], [ %.0402448, %298 ], [ %.0402448, %61 ], [ %.0402448, %64 ], [ %.0402448, %68 ], [ %.0402448, %72 ], [ %.0402448, %76 ], [ %.0402448, %80 ], [ %.0402448, %83 ], [ %.0402448, %87 ], [ %.0402448, %91 ], [ %.0402448, %95 ], [ %.0402448, %99 ], [ %.0402448, %102 ], [ %.0402448, %106 ], [ %.0402448, %110 ], [ %.0402448, %114 ], [ %.0402448, %118 ], [ %.0402448, %148 ], [ %.0402448, %151 ], [ %.0402448, %155 ], [ %.0402448, %159 ], [ %.0402448, %163 ], [ %.0402448, %167 ], [ %.0402448, %170 ], [ %.0402448, %174 ], [ %.0402448, %178 ], [ %.0402448, %182 ], [ %.0402448, %186 ], [ %.0402448, %189 ], [ %.0402448, %193 ], [ %.0402448, %197 ], [ %.0402448, %201 ], [ %.0402448, %205 ], [ %.0402448, %235 ], [ %.0402448, %239 ], [ %.0402448, %243 ], [ %.0402448, %247 ], [ %.0402448, %251 ], [ %.0402448, %255 ], [ %.0402448, %259 ], [ %.0402448, %263 ], [ %.0402448, %267 ], [ %.0402448, %271 ], [ %.0402448, %275 ], [ %.0402448, %279 ], [ %.0402448, %282 ], [ %.0402448, %286 ], [ %.0402448, %290 ], [ %.0402448, %294 ]
+  %388 = add nuw i64 %.0449, 1
   %389 = load i64, ptr %15, align 8
   %390 = icmp ult i64 %388, %389
   br i1 %390, label %37, label %._crit_edge, !llvm.loop !8
@@ -999,14 +999,14 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %435
 
 449:                                              ; preds = %._crit_edge
   %450 = icmp eq i32 %.1404, 0
-  br i1 %450, label %.thread453, label %475
+  br i1 %450, label %.thread455, label %475
 
-.thread453:                                       ; preds = %14, %449
+.thread455:                                       ; preds = %14, %449
   %451 = load i32, ptr getelementptr inbounds (%struct.psched_globals_t, ptr @psched_globals, i64 0, i32 5), align 8
   %452 = icmp sgt i32 %451, 0
   br i1 %452, label %453, label %474
 
-453:                                              ; preds = %.thread453
+453:                                              ; preds = %.thread455
   %454 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #10
   %455 = load i64, ptr %5, align 8
   %456 = sitofp i64 %455 to double
@@ -1036,7 +1036,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %435
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %462, ptr noundef nonnull @.str.29, ptr noundef %469, double noundef %461, ptr noundef nonnull %spec.select426, ptr noundef %473, ptr noundef nonnull @.str.11, i32 noundef 152) #10
   br label %474
 
-474:                                              ; preds = %453, %463, %468, %.thread453
+474:                                              ; preds = %453, %463, %468, %.thread455
   tail call void @psched_activate_sched_state(ptr noundef nonnull %2, i32 noundef 2) #10
   br label %506
 
@@ -1079,30 +1079,30 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %435
   %495 = getelementptr inbounds i8, ptr %494, i64 48
   %496 = load ptr, ptr %495, align 8
   %497 = load ptr, ptr %496, align 8
-  %.not6.i430 = icmp eq ptr %497, null
-  br i1 %.not6.i430, label %pmix_obj_run_destructors.exit434, label %.lr.ph.i431
+  %.not6.i431 = icmp eq ptr %497, null
+  br i1 %.not6.i431, label %pmix_obj_run_destructors.exit435, label %.lr.ph.i432
 
-.lr.ph.i431:                                      ; preds = %492, %.lr.ph.i431
-  %498 = phi ptr [ %500, %.lr.ph.i431 ], [ %497, %492 ]
-  %.07.i432 = phi ptr [ %499, %.lr.ph.i431 ], [ %496, %492 ]
+.lr.ph.i432:                                      ; preds = %492, %.lr.ph.i432
+  %498 = phi ptr [ %500, %.lr.ph.i432 ], [ %497, %492 ]
+  %.07.i433 = phi ptr [ %499, %.lr.ph.i432 ], [ %496, %492 ]
   tail call void %498(ptr noundef %2) #10
-  %499 = getelementptr inbounds i8, ptr %.07.i432, i64 8
+  %499 = getelementptr inbounds i8, ptr %.07.i433, i64 8
   %500 = load ptr, ptr %499, align 8
-  %.not.i433 = icmp eq ptr %500, null
-  br i1 %.not.i433, label %pmix_obj_run_destructors.exit434, label %.lr.ph.i431, !llvm.loop !7
+  %.not.i434 = icmp eq ptr %500, null
+  br i1 %.not.i434, label %pmix_obj_run_destructors.exit435, label %.lr.ph.i432, !llvm.loop !7
 
-pmix_obj_run_destructors.exit434:                 ; preds = %.lr.ph.i431, %492
+pmix_obj_run_destructors.exit435:                 ; preds = %.lr.ph.i432, %492
   %501 = getelementptr inbounds i8, ptr %2, i64 96
   %502 = load ptr, ptr %501, align 8
   %.not419 = icmp eq ptr %502, null
   br i1 %.not419, label %505, label %503
 
-503:                                              ; preds = %pmix_obj_run_destructors.exit434
+503:                                              ; preds = %pmix_obj_run_destructors.exit435
   %504 = getelementptr inbounds i8, ptr %2, i64 56
   tail call void %502(ptr noundef nonnull %504, ptr noundef nonnull %2) #10
   br label %506
 
-505:                                              ; preds = %pmix_obj_run_destructors.exit434
+505:                                              ; preds = %pmix_obj_run_destructors.exit435
   tail call void @free(ptr noundef nonnull %2) #10
   br label %506
 

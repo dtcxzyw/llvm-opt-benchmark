@@ -93,7 +93,7 @@ define void @Mio_Init(ptr noundef %0) local_unnamed_addr #0 {
 declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Mio_CommandReadGenlib(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Mio_CommandReadGenlib(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #8
   %5 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #8
   tail call void (...) @Extra_UtilGetoptReset() #8
@@ -272,7 +272,7 @@ define internal noundef i32 @Mio_CommandReadGenlib(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Mio_CommandWriteGenlib(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Mio_CommandWriteGenlib(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #8
   %5 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #8
   tail call void (...) @Extra_UtilGetoptReset() #8
@@ -382,7 +382,7 @@ define internal noundef i32 @Mio_CommandWriteGenlib(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Mio_CommandPrintGenlib(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Mio_CommandPrintGenlib(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #8
   %5 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #8
   tail call void (...) @Extra_UtilGetoptReset() #8
@@ -457,7 +457,7 @@ define internal noundef i32 @Mio_CommandPrintGenlib(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Mio_CommandReadProfile(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Mio_CommandReadProfile(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #8
   %5 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #8
   tail call void (...) @Extra_UtilGetoptReset() #8
@@ -521,7 +521,7 @@ define internal noundef i32 @Mio_CommandReadProfile(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Mio_CommandWriteProfile(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Mio_CommandWriteProfile(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #8
   %5 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #8
   tail call void (...) @Extra_UtilGetoptReset() #8
@@ -580,7 +580,7 @@ define internal noundef i32 @Mio_CommandWriteProfile(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Mio_CommandPrintProfile(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Mio_CommandPrintProfile(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #8
   %5 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #8
   tail call void (...) @Extra_UtilGetoptReset() #8
@@ -674,7 +674,7 @@ declare void @Abc_FrameSetLibGen(ptr noundef) local_unnamed_addr #1
 declare void @Abc_FrameSetLibGen2(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Mio_UpdateGenlib2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Mio_UpdateGenlib2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %5, align 8
   %6 = tail call ptr @Mio_LibraryRead(ptr noundef %2, ptr noundef %.val, ptr noundef null, i32 noundef %3) #8
@@ -747,7 +747,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %9, %7
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %13 = call i32 (...) @Abc_FrameIsBridgeMode() #8
   %.not9 = icmp eq i32 %13, 0
   br i1 %.not9, label %20, label %14
@@ -766,7 +766,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %20, %14
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %23
 
 23:                                               ; preds = %2, %22
@@ -799,22 +799,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
@@ -826,6 +820,12 @@ declare void @Mio_WriteLibrary(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 declare void @Mio_LibraryReadProfile(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @Mio_LibraryWriteProfile(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
@@ -840,9 +840,9 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nofree nounwind }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }

@@ -232,7 +232,7 @@ declare ptr @BN_CTX_new_ex(ptr noundef) local_unnamed_addr #4
 declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dsa_sign_setup(ptr noundef %dsa, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr %rp.0.val, ptr noundef %dgst, i32 noundef %dlen, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @dsa_sign_setup(ptr noundef %dsa, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr %rp.0.val, ptr noundef %dgst, i32 noundef %dlen, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #3 {
 entry:
   %params = getelementptr inbounds i8, ptr %dsa, i64 8
   %0 = load ptr, ptr %params, align 8
@@ -527,7 +527,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dsa_sign_setup_no_digest(ptr noundef %dsa, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef readonly %rp) #3 {
+define internal range(i32 0, 2) i32 @dsa_sign_setup_no_digest(ptr noundef %dsa, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef readonly %rp) #3 {
 entry:
   %rp.val = load ptr, ptr %rp, align 8
   %call = tail call fastcc i32 @dsa_sign_setup(ptr noundef %dsa, ptr noundef %ctx_in, ptr noundef %kinvp, ptr %rp.val, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
@@ -535,7 +535,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_do_verify(ptr noundef %dgst, i32 noundef %dgst_len, ptr noundef %sig, ptr noundef %dsa) #3 {
+define internal range(i32 -1, 2) i32 @dsa_do_verify(ptr noundef %dgst, i32 noundef %dgst_len, ptr noundef %sig, ptr noundef %dsa) #3 {
 entry:
   %r = alloca ptr, align 8
   %s = alloca ptr, align 8
@@ -650,7 +650,7 @@ if.end55:                                         ; preds = %lor.lhs.false49
   br i1 %cmp59, label %if.then123, label %if.end61
 
 if.end61:                                         ; preds = %if.end55
-  %shr = lshr i32 %call, 3
+  %shr = lshr exact i32 %call, 3
   %spec.select = call i32 @llvm.smin.i32(i32 %shr, i32 %dgst_len)
   %call66 = call ptr @BN_bin2bn(ptr noundef %dgst, i32 noundef %spec.select, ptr noundef nonnull %call20) #7
   %cmp67 = icmp eq ptr %call66, null

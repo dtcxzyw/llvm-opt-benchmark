@@ -31,7 +31,7 @@ define void @cuddSetInteract(ptr nocapture noundef readonly %0, i32 noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @cuddTestInteract(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @cuddTestInteract(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %spec.select = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
   %spec.select18 = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
   %4 = getelementptr inbounds i8, ptr %0, i64 136
@@ -58,7 +58,7 @@ define i32 @cuddTestInteract(ptr nocapture noundef readonly %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddInitInteract(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @cuddInitInteract(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
@@ -162,7 +162,7 @@ define noundef i32 @cuddInitInteract(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %44, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %41
-  %45 = trunc i64 %indvars.iv24.i to i32
+  %45 = trunc nuw nsw i64 %indvars.iv24.i to i32
   br label %46
 
 46:                                               ; preds = %66, %.lr.ph.i
@@ -195,7 +195,7 @@ define noundef i32 @cuddInitInteract(ptr noundef %0) local_unnamed_addr #2 {
 
 66:                                               ; preds = %50, %46
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %67 = trunc i64 %indvars.iv21.i to i32
+  %67 = trunc nuw nsw i64 %indvars.iv21.i to i32
   %exitcond.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %46, !llvm.loop !4
 

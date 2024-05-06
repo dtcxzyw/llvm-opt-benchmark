@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @fdt_ro_probe_(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -10, 2147483647) i32 @fdt_ro_probe_(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -122,7 +122,7 @@ define i32 @fdt_ro_probe_(ptr nocapture noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @fdt_header_size_(i32 noundef %0) local_unnamed_addr #1 {
+define range(i64 28, 41) i64 @fdt_header_size_(i32 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ult i32 %0, 2
   br i1 %2, label %9, label %3
 
@@ -145,7 +145,7 @@ define noundef i64 @fdt_header_size_(i32 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @fdt_check_header(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -10, 1) i32 @fdt_check_header(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = shl nuw i32 %3, 24
@@ -739,7 +739,7 @@ fdt_check_node_offset_.exit:                      ; preds = %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @fdt_first_subnode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, -2147483648) i32 @fdt_first_subnode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -807,7 +807,7 @@ fdt_next_node.exit:                               ; preds = %.split.i, %.split25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @fdt_next_subnode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, -2147483648) i32 @fdt_next_subnode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 9
@@ -1011,7 +1011,7 @@ fdt_offset_ptr.exit:                              ; preds = %120, %117
   br i1 %.not38.i, label %.critedge.i.loopexit, label %.preheader.i, !llvm.loop !4
 
 137:                                              ; preds = %fdt_offset_ptr.exit11._crit_edge
-  %138 = tail call ptr @fdt_offset_ptr(ptr noundef nonnull %0, i32 noundef %93, i32 noundef 4)
+  %138 = tail call ptr @fdt_offset_ptr(ptr noundef nonnull readonly %0, i32 noundef %93, i32 noundef 4)
   %.not35.i = icmp eq ptr %138, null
   br i1 %.not35.i, label %fdt_next_node.exit.thread, label %139
 
@@ -1039,7 +1039,7 @@ fdt_offset_ptr.exit:                              ; preds = %120, %117
 .critedge.i:                                      ; preds = %.critedge.i.loopexit, %145, %139, %fdt_offset_ptr.exit11._crit_edge, %fdt_offset_ptr.exit11._crit_edge, %fdt_offset_ptr.exit11._crit_edge
   %.1.i = phi i32 [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %93, %fdt_offset_ptr.exit11._crit_edge ], [ %142, %139 ], [ %spec.select.i, %145 ], [ %148, %.critedge.i.loopexit ]
   %149 = sub nsw i32 %.1.i, %74
-  %150 = tail call ptr @fdt_offset_ptr(ptr noundef nonnull %0, i32 noundef %74, i32 noundef %149)
+  %150 = tail call ptr @fdt_offset_ptr(ptr noundef nonnull readonly %0, i32 noundef %74, i32 noundef %149)
   %.not39.i = icmp eq ptr %150, null
   br i1 %.not39.i, label %fdt_next_node.exit.thread, label %fdt_next_tag.exit
 
@@ -1114,8 +1114,8 @@ define ptr @fdt_find_string_(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @fdt_move(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #5 {
-  %4 = tail call i32 @fdt_ro_probe_(ptr noundef %0), !range !9
+define range(i32 -2147483648, 1) i32 @fdt_move(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #5 {
+  %4 = tail call i32 @fdt_ro_probe_(ptr noundef %0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %28, label %6
 
@@ -1192,4 +1192,3 @@ attributes #10 = { nounwind willreturn memory(read) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -10, i32 2147483647}

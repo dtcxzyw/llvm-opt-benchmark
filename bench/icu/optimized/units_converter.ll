@@ -1550,7 +1550,7 @@ _ZN6icu_7510MemoryPoolINS_14SingleUnitImplELi8EED2Ev.exit: ; preds = %for.end.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_755units21extractConvertibilityERKNS_15MeasureUnitImplES3_RKNS0_15ConversionRatesER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %target, ptr noundef nonnull align 8 dereferenceable(88) %conversionRates, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN6icu_755units21extractConvertibilityERKNS_15MeasureUnitImplES3_RKNS0_15ConversionRatesER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %source, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %target, ptr noundef nonnull align 8 dereferenceable(88) %conversionRates, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %sourceBaseUnit = alloca %"class.icu_75::MeasureUnitImpl", align 8
   %targetBaseUnit = alloca %"class.icu_75::MeasureUnitImpl", align 8
@@ -2360,7 +2360,7 @@ if.then5:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end6:                                          ; preds = %lor.lhs.false
-  %call11 = tail call noundef i32 @_ZN6icu_755units21extractConvertibilityERKNS_15MeasureUnitImplES3_RKNS0_15ConversionRatesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %source, ptr noundef nonnull align 8 dereferenceable(160) %target, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !16
+  %call11 = tail call noundef i32 @_ZN6icu_755units21extractConvertibilityERKNS_15MeasureUnitImplES3_RKNS0_15ConversionRatesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %source, ptr noundef nonnull align 8 dereferenceable(160) %target, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %3 = load i32, ptr %status, align 4
   %cmp.i8 = icmp slt i32 %3, 1
   br i1 %cmp.i8, label %if.end15, label %return
@@ -2708,7 +2708,7 @@ for.inc.i.i.i46:                                  ; preds = %delete.notnull.i.i.
   %indvars.iv.next.i.i.i47 = add nuw nsw i64 %indvars.iv.i.i.i41, 1
   %32 = sext i32 %31 to i64
   %cmp.i.i.i48 = icmp slt i64 %indvars.iv.next.i.i.i47, %32
-  br i1 %cmp.i.i.i48, label %for.body.i.i.i40, label %for.end.i.i.i32, !llvm.loop !17
+  br i1 %cmp.i.i.i48, label %for.body.i.i.i40, label %for.end.i.i.i32, !llvm.loop !16
 
 for.end.i.i.i32:                                  ; preds = %for.inc.i.i.i46, %invoke.cont10
   %33 = load i8, ptr %needToRelease.i.i.i.i, align 4
@@ -2786,7 +2786,7 @@ for.inc.i.i:                                      ; preds = %delete.notnull.i.i,
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %5 = sext i32 %4 to i64
   %cmp.i.i = icmp slt i64 %indvars.iv.next.i.i, %5
-  br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !17
+  br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !16
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %entry
   %needToRelease.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -2997,7 +2997,7 @@ if.end17:                                         ; preds = %land.lhs.true, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_755units14UnitsConverter15compareTwoUnitsERKNS_15MeasureUnitImplES4_RKNS0_15ConversionRatesER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %firstUnit, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %secondUnit, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN6icu_755units14UnitsConverter15compareTwoUnitsERKNS_15MeasureUnitImplES4_RKNS0_15ConversionRatesER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %firstUnit, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %secondUnit, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %firstUnitToBase = alloca %"struct.icu_75::units::Factor", align 16
   %secondUnitToBase = alloca %"struct.icu_75::units::Factor", align 8
@@ -3018,7 +3018,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call noundef i32 @_ZN6icu_755units21extractConvertibilityERKNS_15MeasureUnitImplES3_RKNS0_15ConversionRatesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %firstUnit, ptr noundef nonnull align 8 dereferenceable(160) %secondUnit, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !16
+  %call5 = tail call noundef i32 @_ZN6icu_755units21extractConvertibilityERKNS_15MeasureUnitImplES3_RKNS0_15ConversionRatesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %firstUnit, ptr noundef nonnull align 8 dereferenceable(160) %secondUnit, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %3 = load i32, ptr %status, align 4
   %cmp.i16 = icmp slt i32 %3, 1
   br i1 %cmp.i16, label %if.end9, label %return
@@ -3199,8 +3199,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %call3)
   %11 = load ptr, ptr %agg.tmp, align 8
   %12 = load i32, ptr %1, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %call.i = call noundef ptr @_ZNK6icu_755units15ConversionRates21extractConversionInfoENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr %11, i32 %12, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !18
+  call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  %call.i = call noundef ptr @_ZNK6icu_755units15ConversionRates21extractConversionInfoENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr %11, i32 %12, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !17
   %13 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %13, 1
   br i1 %cmp.i.i, label %if.end.i, label %return
@@ -3210,22 +3210,22 @@ if.end.i:                                         ; preds = %for.body
   br i1 %cmp.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  store i32 5, ptr %status, align 4, !noalias !18
+  store i32 5, ptr %status, align 4, !noalias !17
   br label %return
 
 if.end3.i:                                        ; preds = %if.end.i
   %factor.i = getelementptr inbounds i8, ptr %call.i, i64 136
-  %14 = load ptr, ptr %factor.i, align 8, !noalias !18
+  %14 = load ptr, ptr %factor.i, align 8, !noalias !17
   %len.i.i = getelementptr inbounds i8, ptr %call.i, i64 192
-  %15 = load i32, ptr %len.i.i, align 8, !noalias !18
-  call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stringFactor.i.i), !noalias !18
-  store ptr %14, ptr %stringFactor.i.i, align 8, !noalias !24
-  store i32 %15, ptr %3, align 8, !noalias !24
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %singleFactor, align 16, !alias.scope !24
-  store double 0.000000e+00, ptr %offset.i.i, align 16, !alias.scope !24
-  store i8 0, ptr %2, align 8, !alias.scope !24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %scevgep.i.i, i8 0, i64 60, i1 false), !alias.scope !24
+  %15 = load i32, ptr %len.i.i, align 8, !noalias !17
+  call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stringFactor.i.i), !noalias !17
+  store ptr %14, ptr %stringFactor.i.i, align 8, !noalias !23
+  store i32 %15, ptr %3, align 8, !noalias !23
+  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %singleFactor, align 16, !alias.scope !23
+  store double 0.000000e+00, ptr %offset.i.i, align 16, !alias.scope !23
+  store i8 0, ptr %2, align 8, !alias.scope !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %scevgep.i.i, i8 0, i64 60, i1 false), !alias.scope !23
   %cmp22.i.i = icmp sgt i32 %15, 0
   br i1 %cmp22.i.i, label %for.body.lr.ph.i.i, label %_ZN6icu_755units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UErrorCode.exit.i
 
@@ -3240,7 +3240,7 @@ for.body.i.i:                                     ; preds = %if.end14.i.i, %for.
   %signum.025.i.i = phi i32 [ 1, %for.body.lr.ph.i.i ], [ %spec.select.i.i, %if.end14.i.i ]
   %start.023.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %start.1.i.i, %if.end14.i.i ]
   %arrayidx.i.i6 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv.i.i
-  %17 = load i8, ptr %arrayidx.i.i6, align 1, !noalias !24
+  %17 = load i8, ptr %arrayidx.i.i6, align 1, !noalias !23
   switch i8 %17, label %if.else.i.i [
     i8 42, label %if.then.i.i
     i8 47, label %if.then.i.i
@@ -3249,12 +3249,12 @@ for.body.i.i:                                     ; preds = %if.end14.i.i, %for.
 if.then.i.i:                                      ; preds = %for.body.i.i, %for.body.i.i
   %18 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %sub.i.i = sub nsw i32 %18, %start.023.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i), !noalias !24
-  call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %stringFactor.i.i, i32 noundef %start.023.i.i, i32 noundef %sub.i.i), !noalias !24
-  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8, !noalias !24
-  %.fca.1.load.i.i.i = load i32, ptr %.fca.1.gep.i.i.i, align 8, !noalias !24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i), !noalias !24
-  call fastcc void @_ZN6icu_755units12_GLOBAL__N_116addFactorElementERNS0_6FactorENS_11StringPieceENS0_6SignumER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %singleFactor, ptr %.fca.0.load.i.i.i, i32 %.fca.1.load.i.i.i, i32 noundef %signum.025.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i), !noalias !23
+  call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %stringFactor.i.i, i32 noundef %start.023.i.i, i32 noundef %sub.i.i), !noalias !23
+  %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8, !noalias !23
+  %.fca.1.load.i.i.i = load i32, ptr %.fca.1.gep.i.i.i, align 8, !noalias !23
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i), !noalias !23
+  call fastcc void @_ZN6icu_755units12_GLOBAL__N_116addFactorElementERNS0_6FactorENS_11StringPieceENS0_6SignumER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %singleFactor, ptr %.fca.0.load.i.i.i, i32 %.fca.1.load.i.i.i, i32 noundef %signum.025.i.i, ptr noundef nonnull writeonly align 4 dereferenceable(4) %status)
   %19 = add i32 %18, 1
   br label %if.end14.i.i
 
@@ -3263,32 +3263,32 @@ if.else.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end14.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i16.i.i), !noalias !24
-  call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i16.i.i, ptr noundef nonnull align 8 dereferenceable(12) %stringFactor.i.i, i32 noundef %start.023.i.i, i32 noundef %15), !noalias !24
-  %.fca.0.load.i17.i.i = load ptr, ptr %retval.i16.i.i, align 8, !noalias !24
-  %.fca.1.load.i20.i.i = load i32, ptr %.fca.1.gep.i19.i.i, align 8, !noalias !24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i16.i.i), !noalias !24
-  call fastcc void @_ZN6icu_755units12_GLOBAL__N_116addFactorElementERNS0_6FactorENS_11StringPieceENS0_6SignumER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %singleFactor, ptr %.fca.0.load.i17.i.i, i32 %.fca.1.load.i20.i.i, i32 noundef %signum.025.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i16.i.i), !noalias !23
+  call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i16.i.i, ptr noundef nonnull align 8 dereferenceable(12) %stringFactor.i.i, i32 noundef %start.023.i.i, i32 noundef %15), !noalias !23
+  %.fca.0.load.i17.i.i = load ptr, ptr %retval.i16.i.i, align 8, !noalias !23
+  %.fca.1.load.i20.i.i = load i32, ptr %.fca.1.gep.i19.i.i, align 8, !noalias !23
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i16.i.i), !noalias !23
+  call fastcc void @_ZN6icu_755units12_GLOBAL__N_116addFactorElementERNS0_6FactorENS_11StringPieceENS0_6SignumER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %singleFactor, ptr %.fca.0.load.i17.i.i, i32 %.fca.1.load.i20.i.i, i32 noundef %signum.025.i.i, ptr noundef nonnull writeonly align 4 dereferenceable(4) %status)
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.else.i.i, %if.then.i.i
   %start.1.i.i = phi i32 [ %19, %if.then.i.i ], [ %start.023.i.i, %if.then10.i.i ], [ %start.023.i.i, %if.else.i.i ]
-  %20 = load i8, ptr %arrayidx.i.i6, align 1, !noalias !24
+  %20 = load i8, ptr %arrayidx.i.i6, align 1, !noalias !23
   %cmp18.i.i = icmp eq i8 %20, 47
   %spec.select.i.i = select i1 %cmp18.i.i, i32 -1, i32 %signum.025.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN6icu_755units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UErrorCode.exit.i, label %for.body.i.i, !llvm.loop !25
+  br i1 %exitcond.not.i.i, label %_ZN6icu_755units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UErrorCode.exit.i, label %for.body.i.i, !llvm.loop !24
 
 _ZN6icu_755units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UErrorCode.exit.i: ; preds = %if.end14.i.i, %if.end3.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stringFactor.i.i), !noalias !18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stringFactor.i.i), !noalias !17
   %offset.i5 = getelementptr inbounds i8, ptr %call.i, i64 200
-  %21 = load ptr, ptr %offset.i5, align 8, !noalias !18
+  %21 = load ptr, ptr %offset.i5, align 8, !noalias !17
   %len.i11.i = getelementptr inbounds i8, ptr %call.i, i64 256
-  %22 = load i32, ptr %len.i11.i, align 8, !noalias !18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %strWithDivide.i.i), !noalias !18
-  store ptr %21, ptr %strWithDivide.i.i, align 8, !noalias !18
-  store i32 %22, ptr %4, align 8, !noalias !18
+  %22 = load i32, ptr %len.i11.i, align 8, !noalias !17
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %strWithDivide.i.i), !noalias !17
+  store ptr %21, ptr %strWithDivide.i.i, align 8, !noalias !17
+  store i32 %22, ptr %4, align 8, !noalias !17
   %cmp37.i.i = icmp sgt i32 %22, 0
   br i1 %cmp37.i.i, label %for.body.preheader.i.i, label %if.end10.i.i
 
@@ -3299,95 +3299,95 @@ for.body.preheader.i.i:                           ; preds = %_ZN6icu_755units12_
 for.body.i16.i:                                   ; preds = %for.inc.i.i, %for.body.preheader.i.i
   %indvars.iv.i17.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i19.i, %for.inc.i.i ]
   %arrayidx.i18.i = getelementptr inbounds i8, ptr %21, i64 %indvars.iv.i17.i
-  %23 = load i8, ptr %arrayidx.i18.i, align 1, !noalias !18
+  %23 = load i8, ptr %arrayidx.i18.i, align 1, !noalias !17
   %cmp2.i.i = icmp eq i8 %23, 47
   br i1 %cmp2.i.i, label %if.then4.i.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i16.i
   %indvars.iv.next.i19.i = add nuw nsw i64 %indvars.iv.i17.i, 1
   %exitcond.not.i20.i = icmp eq i64 %indvars.iv.next.i19.i, %wide.trip.count.i15.i
-  br i1 %exitcond.not.i20.i, label %if.end10.i.i, label %for.body.i16.i, !llvm.loop !26
+  br i1 %exitcond.not.i20.i, label %if.end10.i.i, label %for.body.i16.i, !llvm.loop !25
 
 if.then4.i.i:                                     ; preds = %for.body.i16.i
   %24 = trunc nuw nsw i64 %indvars.iv.i17.i to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i14.i), !noalias !18
-  call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i.i14.i, ptr noundef nonnull align 8 dereferenceable(12) %strWithDivide.i.i, i32 noundef 0, i32 noundef %24), !noalias !18
-  %.fca.0.load.i.i21.i = load ptr, ptr %retval.i.i14.i, align 8, !noalias !18
-  %.fca.1.load.i.i23.i = load i32, ptr %.fca.1.gep.i.i22.i, align 8, !noalias !18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i14.i), !noalias !18
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %converter.i.i.i), !noalias !18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %count.i.i.i), !noalias !18
-  store i32 0, ptr %converter.i.i.i, align 8, !noalias !18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %empty_string_value_.i.i.i.i, i8 0, i64 16, i1 false), !noalias !18
-  store ptr @.str.19, ptr %infinity_symbol_.i.i.i.i, align 8, !noalias !18
-  store ptr @.str.19, ptr %nan_symbol_.i.i.i.i, align 8, !noalias !18
-  store i16 0, ptr %separator_.i.i.i.i, align 8, !noalias !18
-  %call2.i.i.i = call noundef double @_ZNK6icu_7517double_conversion23StringToDoubleConverter14StringToDoubleEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) %converter.i.i.i, ptr noundef %.fca.0.load.i.i21.i, i32 noundef %.fca.1.load.i.i23.i, ptr noundef nonnull %count.i.i.i), !noalias !18
-  %25 = load i32, ptr %count.i.i.i, align 4, !noalias !18
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i14.i), !noalias !17
+  call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i.i14.i, ptr noundef nonnull align 8 dereferenceable(12) %strWithDivide.i.i, i32 noundef 0, i32 noundef %24), !noalias !17
+  %.fca.0.load.i.i21.i = load ptr, ptr %retval.i.i14.i, align 8, !noalias !17
+  %.fca.1.load.i.i23.i = load i32, ptr %.fca.1.gep.i.i22.i, align 8, !noalias !17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i14.i), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %converter.i.i.i), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %count.i.i.i), !noalias !17
+  store i32 0, ptr %converter.i.i.i, align 8, !noalias !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %empty_string_value_.i.i.i.i, i8 0, i64 16, i1 false), !noalias !17
+  store ptr @.str.19, ptr %infinity_symbol_.i.i.i.i, align 8, !noalias !17
+  store ptr @.str.19, ptr %nan_symbol_.i.i.i.i, align 8, !noalias !17
+  store i16 0, ptr %separator_.i.i.i.i, align 8, !noalias !17
+  %call2.i.i.i = call noundef double @_ZNK6icu_7517double_conversion23StringToDoubleConverter14StringToDoubleEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) %converter.i.i.i, ptr noundef %.fca.0.load.i.i21.i, i32 noundef %.fca.1.load.i.i23.i, ptr noundef nonnull %count.i.i.i), !noalias !17
+  %25 = load i32, ptr %count.i.i.i, align 4, !noalias !17
   %cmp.not.i.i.i = icmp eq i32 %25, %.fca.1.load.i.i23.i
   br i1 %cmp.not.i.i.i, label %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then4.i.i
-  store i32 3, ptr %status, align 4, !noalias !18
+  store i32 3, ptr %status, align 4, !noalias !17
   br label %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit.i.i
 
 _ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit.i.i: ; preds = %if.then.i.i.i, %if.then4.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %converter.i.i.i), !noalias !18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %count.i.i.i), !noalias !18
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %converter.i.i.i), !noalias !17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %count.i.i.i), !noalias !17
   %add.i.i = add nuw nsw i32 %24, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i8.i.i), !noalias !18
-  call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i8.i.i, ptr noundef nonnull align 8 dereferenceable(12) %strWithDivide.i.i, i32 noundef %add.i.i, i32 noundef %5), !noalias !18
-  %.fca.0.load.i9.i.i = load ptr, ptr %retval.i8.i.i, align 8, !noalias !18
-  %.fca.1.load.i12.i.i = load i32, ptr %.fca.1.gep.i11.i.i, align 8, !noalias !18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i8.i.i), !noalias !18
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %converter.i14.i.i), !noalias !18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %count.i15.i.i), !noalias !18
-  store i32 0, ptr %converter.i14.i.i, align 8, !noalias !18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %empty_string_value_.i.i16.i.i, i8 0, i64 16, i1 false), !noalias !18
-  store ptr @.str.19, ptr %infinity_symbol_.i.i17.i.i, align 8, !noalias !18
-  store ptr @.str.19, ptr %nan_symbol_.i.i18.i.i, align 8, !noalias !18
-  store i16 0, ptr %separator_.i.i19.i.i, align 8, !noalias !18
-  %call2.i20.i.i = call noundef double @_ZNK6icu_7517double_conversion23StringToDoubleConverter14StringToDoubleEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) %converter.i14.i.i, ptr noundef %.fca.0.load.i9.i.i, i32 noundef %.fca.1.load.i12.i.i, ptr noundef nonnull %count.i15.i.i), !noalias !18
-  %26 = load i32, ptr %count.i15.i.i, align 4, !noalias !18
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i8.i.i), !noalias !17
+  call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i8.i.i, ptr noundef nonnull align 8 dereferenceable(12) %strWithDivide.i.i, i32 noundef %add.i.i, i32 noundef %5), !noalias !17
+  %.fca.0.load.i9.i.i = load ptr, ptr %retval.i8.i.i, align 8, !noalias !17
+  %.fca.1.load.i12.i.i = load i32, ptr %.fca.1.gep.i11.i.i, align 8, !noalias !17
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i8.i.i), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %converter.i14.i.i), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %count.i15.i.i), !noalias !17
+  store i32 0, ptr %converter.i14.i.i, align 8, !noalias !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %empty_string_value_.i.i16.i.i, i8 0, i64 16, i1 false), !noalias !17
+  store ptr @.str.19, ptr %infinity_symbol_.i.i17.i.i, align 8, !noalias !17
+  store ptr @.str.19, ptr %nan_symbol_.i.i18.i.i, align 8, !noalias !17
+  store i16 0, ptr %separator_.i.i19.i.i, align 8, !noalias !17
+  %call2.i20.i.i = call noundef double @_ZNK6icu_7517double_conversion23StringToDoubleConverter14StringToDoubleEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) %converter.i14.i.i, ptr noundef %.fca.0.load.i9.i.i, i32 noundef %.fca.1.load.i12.i.i, ptr noundef nonnull %count.i15.i.i), !noalias !17
+  %26 = load i32, ptr %count.i15.i.i, align 4, !noalias !17
   %cmp.not.i21.i.i = icmp eq i32 %26, %.fca.1.load.i12.i.i
   br i1 %cmp.not.i21.i.i, label %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit23.i.i, label %if.then.i22.i.i
 
 if.then.i22.i.i:                                  ; preds = %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit.i.i
-  store i32 3, ptr %status, align 4, !noalias !18
+  store i32 3, ptr %status, align 4, !noalias !17
   br label %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit23.i.i
 
 _ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit23.i.i: ; preds = %if.then.i22.i.i, %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %converter.i14.i.i), !noalias !18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %count.i15.i.i), !noalias !18
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %converter.i14.i.i), !noalias !17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %count.i15.i.i), !noalias !17
   %div.i.i = fdiv double %call2.i.i.i, %call2.i20.i.i
   br label %_ZN6icu_755units12_GLOBAL__N_116loadSingleFactorENS_11StringPieceERKNS0_15ConversionRatesER10UErrorCode.exit
 
 if.end10.i.i:                                     ; preds = %for.inc.i.i, %_ZN6icu_755units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UErrorCode.exit.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %converter.i24.i.i), !noalias !18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %count.i25.i.i), !noalias !18
-  store i32 0, ptr %converter.i24.i.i, align 8, !noalias !18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %empty_string_value_.i.i26.i.i, i8 0, i64 16, i1 false), !noalias !18
-  store ptr @.str.19, ptr %infinity_symbol_.i.i27.i.i, align 8, !noalias !18
-  store ptr @.str.19, ptr %nan_symbol_.i.i28.i.i, align 8, !noalias !18
-  store i16 0, ptr %separator_.i.i29.i.i, align 8, !noalias !18
-  %call2.i30.i.i = call noundef double @_ZNK6icu_7517double_conversion23StringToDoubleConverter14StringToDoubleEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) %converter.i24.i.i, ptr noundef %21, i32 noundef %22, ptr noundef nonnull %count.i25.i.i), !noalias !18
-  %27 = load i32, ptr %count.i25.i.i, align 4, !noalias !18
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %converter.i24.i.i), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %count.i25.i.i), !noalias !17
+  store i32 0, ptr %converter.i24.i.i, align 8, !noalias !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %empty_string_value_.i.i26.i.i, i8 0, i64 16, i1 false), !noalias !17
+  store ptr @.str.19, ptr %infinity_symbol_.i.i27.i.i, align 8, !noalias !17
+  store ptr @.str.19, ptr %nan_symbol_.i.i28.i.i, align 8, !noalias !17
+  store i16 0, ptr %separator_.i.i29.i.i, align 8, !noalias !17
+  %call2.i30.i.i = call noundef double @_ZNK6icu_7517double_conversion23StringToDoubleConverter14StringToDoubleEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) %converter.i24.i.i, ptr noundef %21, i32 noundef %22, ptr noundef nonnull %count.i25.i.i), !noalias !17
+  %27 = load i32, ptr %count.i25.i.i, align 4, !noalias !17
   %cmp.not.i31.i.i = icmp eq i32 %27, %22
   br i1 %cmp.not.i31.i.i, label %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit33.i.i, label %if.then.i32.i.i
 
 if.then.i32.i.i:                                  ; preds = %if.end10.i.i
-  store i32 3, ptr %status, align 4, !noalias !18
+  store i32 3, ptr %status, align 4, !noalias !17
   br label %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit33.i.i
 
 _ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit33.i.i: ; preds = %if.then.i32.i.i, %if.end10.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %converter.i24.i.i), !noalias !18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %count.i25.i.i), !noalias !18
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %converter.i24.i.i), !noalias !17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %count.i25.i.i), !noalias !17
   br label %_ZN6icu_755units12_GLOBAL__N_116loadSingleFactorENS_11StringPieceERKNS0_15ConversionRatesER10UErrorCode.exit
 
 _ZN6icu_755units12_GLOBAL__N_116loadSingleFactorENS_11StringPieceERKNS0_15ConversionRatesER10UErrorCode.exit: ; preds = %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit23.i.i, %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit33.i.i
   %retval.0.i.i = phi double [ %div.i.i, %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit23.i.i ], [ %call2.i30.i.i, %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit33.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %strWithDivide.i.i), !noalias !18
-  store double %retval.0.i.i, ptr %offset.i.i, align 16, !alias.scope !18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %strWithDivide.i.i), !noalias !17
+  store double %retval.0.i.i, ptr %offset.i.i, align 16, !alias.scope !17
   %.pre = load i32, ptr %status, align 4
   %cmp.i7 = icmp slt i32 %.pre, 1
   br i1 %cmp.i7, label %if.end, label %return
@@ -3471,7 +3471,7 @@ _ZN6icu_755units6Factor10multiplyByERKS1_.exit:   ; preds = %for.body.i18
   store double %42, ptr %offset.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !27
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !26
 
 return:                                           ; preds = %_ZN6icu_755units12_GLOBAL__N_116loadSingleFactorENS_11StringPieceERKNS0_15ConversionRatesER10UErrorCode.exit, %_ZN6icu_755units6Factor10multiplyByERKS1_.exit, %for.body, %if.then2.i, %entry
   ret void
@@ -3638,7 +3638,7 @@ for.inc.i:                                        ; preds = %delete.notnull.i, %
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %5 = sext i32 %4 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %5
-  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !17
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !16
 
 for.end.i:                                        ; preds = %for.inc.i, %entry
   %needToRelease.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -3694,7 +3694,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.end10, label %for.body, !llvm.loop !28
+  br i1 %exitcond.not, label %if.end10, label %for.body, !llvm.loop !27
 
 if.then4:                                         ; preds = %for.body
   %2 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3798,16 +3798,15 @@ attributes #18 = { noreturn nounwind }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i32 0, i32 3}
-!17 = distinct !{!17, !5}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN6icu_755units12_GLOBAL__N_116loadSingleFactorENS_11StringPieceERKNS0_15ConversionRatesER10UErrorCode: %agg.result"}
-!20 = distinct !{!20, !"_ZN6icu_755units12_GLOBAL__N_116loadSingleFactorENS_11StringPieceERKNS0_15ConversionRatesER10UErrorCode"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN6icu_755units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UErrorCode: %agg.result"}
-!23 = distinct !{!23, !"_ZN6icu_755units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UErrorCode"}
-!24 = !{!22, !19}
+!16 = distinct !{!16, !5}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN6icu_755units12_GLOBAL__N_116loadSingleFactorENS_11StringPieceERKNS0_15ConversionRatesER10UErrorCode: %agg.result"}
+!19 = distinct !{!19, !"_ZN6icu_755units12_GLOBAL__N_116loadSingleFactorENS_11StringPieceERKNS0_15ConversionRatesER10UErrorCode"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN6icu_755units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UErrorCode: %agg.result"}
+!22 = distinct !{!22, !"_ZN6icu_755units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UErrorCode"}
+!23 = !{!21, !18}
+!24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}

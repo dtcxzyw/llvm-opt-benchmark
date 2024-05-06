@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @acpi_gbl_integer_byte_width = external dso_local local_unnamed_addr global i8, align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ex_get_protocol_buffer_length(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12325) i32 @acpi_ex_get_protocol_buffer_length(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = icmp ugt i32 %0, 15
   br i1 %3, label %9, label %4
 

@@ -331,7 +331,7 @@ define dso_local ptr @pg_tzset_offset(i64 noundef %0) local_unnamed_addr #0 {
   %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
   %10 = getelementptr i8, ptr %2, i64 %9
   %11 = sub i64 64, %9
-  %.lhs.trunc = trunc i64 %7 to i16
+  %.lhs.trunc = trunc nsw i64 %7 to i16
   %12 = sdiv i16 %.lhs.trunc, 60
   %.sext = sext i16 %12 to i64
   %13 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @.str.4, i64 noundef %.sext) #10

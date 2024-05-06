@@ -5969,7 +5969,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br label %.sink.split
 
 21:                                               ; preds = %.lr.ph
-  %22 = trunc i8 %.05568 to i1
+  %22 = trunc nuw i8 %.05568 to i1
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %21
@@ -6029,7 +6029,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %42
-  %43 = trunc i8 %.2 to i1
+  %43 = trunc nuw i8 %.2 to i1
   br i1 %43, label %44, label %._crit_edge.thread
 
 44:                                               ; preds = %._crit_edge

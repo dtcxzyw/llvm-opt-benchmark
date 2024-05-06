@@ -641,7 +641,7 @@ declare ptr @slurmdb_qos_get(ptr noundef, ptr noundef) #2
 declare ptr @slurmdb_associations_get(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @compare_assoc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @compare_assoc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 132
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -777,7 +777,7 @@ define noundef i32 @compare_assoc(ptr nocapture noundef readonly %0, ptr nocaptu
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fuzzy_match_tres(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @fuzzy_match_tres(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #5
   %4 = icmp sgt i32 %3, 8
   br i1 %4, label %5, label %18

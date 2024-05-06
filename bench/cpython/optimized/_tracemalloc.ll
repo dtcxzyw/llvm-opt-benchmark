@@ -82,7 +82,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @_tracemalloc_clear_traces(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @_tracemalloc_clear_traces(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   tail call void @_PyTraceMalloc_ClearTraces() #2
   ret ptr @_Py_NoneStruct
@@ -141,7 +141,7 @@ exit:                                             ; preds = %land.lhs.true7, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @_tracemalloc_stop(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @_tracemalloc_stop(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   tail call void @_PyTraceMalloc_Stop() #2
   ret ptr @_Py_NoneStruct
@@ -172,7 +172,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @_tracemalloc_reset_peak(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @_tracemalloc_reset_peak(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   tail call void @_PyTraceMalloc_ResetPeak() #2
   ret ptr @_Py_NoneStruct

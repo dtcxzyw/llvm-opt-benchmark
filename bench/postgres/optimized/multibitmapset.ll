@@ -316,7 +316,7 @@ define dso_local ptr @mbms_overlap_sets(ptr noundef readonly %0, ptr noundef rea
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %24
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = tail call ptr @bms_add_member(ptr noundef %.0, i32 noundef %29) #5
   br label %31
 

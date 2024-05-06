@@ -1251,7 +1251,7 @@ define internal i32 @dissect_vrt(ptr noundef %0, ptr nocapture noundef readonly 
 167:                                              ; preds = %187, %95
   %indvars.iv.i = phi i64 [ 1, %95 ], [ %indvars.iv.next.i, %187 ]
   %.03043.i = phi i32 [ %166, %95 ], [ %.1.i, %187 ]
-  %168 = trunc i64 %indvars.iv.i to i32
+  %168 = trunc nuw nsw i64 %indvars.iv.i to i32
   %169 = shl nuw nsw i32 1, %168
   %170 = and i32 %169, %96
   %.not32.i = icmp eq i32 %170, 0
@@ -1292,7 +1292,7 @@ define internal i32 @dissect_vrt(ptr noundef %0, ptr nocapture noundef readonly 
 .lr.ph.i.i:                                       ; preds = %187, %209
   %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %209 ], [ 31, %187 ]
   %.02530.i.i = phi i32 [ %.2.i.i, %209 ], [ %.1.i, %187 ]
-  %188 = trunc i64 %indvars.iv46.i to i32
+  %188 = trunc nuw nsw i64 %indvars.iv46.i to i32
   %189 = shl nuw i32 1, %188
   %190 = and i32 %189, %96
   %.not.i.i = icmp eq i32 %190, 0
@@ -1348,7 +1348,7 @@ dissect_context_as_cif.exit.i:                    ; preds = %209
 .lr.ph.i34.i:                                     ; preds = %236, %212
   %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %236 ], [ 31, %212 ]
   %.02530.i36.i = phi i32 [ %.2.i40.i, %236 ], [ %.2.i.i, %212 ]
-  %215 = trunc i64 %indvars.iv49.i to i32
+  %215 = trunc nuw nsw i64 %indvars.iv49.i to i32
   %216 = shl nuw i32 1, %215
   %217 = and i32 %216, %214
   %.not.i37.i = icmp eq i32 %217, 0
@@ -1445,7 +1445,7 @@ dissect_context.exit:                             ; preds = %236, %dissect_conte
 
 271:                                              ; preds = %284, %264
   %indvars.iv.i103 = phi i64 [ 11, %264 ], [ %indvars.iv.next.i104, %284 ]
-  %272 = trunc i64 %indvars.iv.i103 to i32
+  %272 = trunc nuw nsw i64 %indvars.iv.i103 to i32
   %273 = shl nuw i32 1, %272
   %274 = and i32 %273, %270
   %.not35.i = icmp eq i32 %274, 0
@@ -1566,7 +1566,7 @@ define internal noundef i32 @dissect_context_cif1(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_context_assoc_lists(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal range(i32 0, 528365) i32 @dissect_context_assoc_lists(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #8
   %5 = lshr i32 %4, 16
   %6 = and i32 %5, 511

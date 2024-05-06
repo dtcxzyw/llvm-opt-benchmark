@@ -126,7 +126,7 @@ declare noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef, ptr noundef, i64 nou
 declare noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i32 @_Z8stricompPKcS0_(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define noundef range(i32 -1, 2) i32 @_Z8stricompPKcS0_(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = load i8, ptr %0, align 1
   %4 = sext i8 %3 to i32
   %5 = tail call i32 @toupper(i32 noundef %4) #17
@@ -171,7 +171,7 @@ define noundef i32 @_Z8stricompPKcS0_(ptr noundef readonly %0, ptr noundef reado
 declare i32 @toupper(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i32 @_Z9strnicompPKcS0_m(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #4 {
+define noundef range(i32 -1, 2) i32 @_Z9strnicompPKcS0_m(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 

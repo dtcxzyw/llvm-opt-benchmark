@@ -3667,7 +3667,7 @@ define dso_local void @ilk_set_pipeconf(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bdw_get_pipe_misc_bpp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 37) i32 @bdw_get_pipe_misc_bpp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1648
   %4 = load i32, ptr %3, align 8
@@ -12747,7 +12747,7 @@ declare dso_local i32 @intel_fbc_atomic_check(ptr noundef) local_unnamed_addr #2
 declare dso_local void @intel_color_assert_luts(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @intel_async_flip_check_hw(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @intel_async_flip_check_hw(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -15167,7 +15167,7 @@ define dso_local void @intel_plane_destroy(ptr noundef %0) local_unnamed_addr #0
 declare dso_local void @drm_plane_cleanup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_get_pipe_from_crtc_id_ioctl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @intel_get_pipe_from_crtc_id_ioctl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load i32, ptr %1, align 4
   %5 = tail call ptr @drm_mode_object_find(ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef -858993460) #25
   %6 = icmp eq ptr %5, null
@@ -15904,7 +15904,7 @@ declare dso_local void @intel_init_pch_refclk(ptr noundef) local_unnamed_addr #2
 declare dso_local void @drm_helper_move_panel_connectors_to_head(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @intel_mode_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 -2, 16) i32 @intel_mode_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 22
   %4 = load i16, ptr %3, align 2
   %5 = icmp ugt i16 %4, 1
@@ -16026,7 +16026,7 @@ define dso_local i32 @intel_mode_valid(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef i32 @intel_cpu_transcoder_mode_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @intel_cpu_transcoder_mode_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2632
   %4 = load i16, ptr %3, align 8
   %5 = icmp ugt i16 %4, 4
@@ -16103,7 +16103,7 @@ define dso_local noundef i32 @intel_cpu_transcoder_mode_valid(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @intel_mode_valid_max_plane_size(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 0, 5) i32 @intel_mode_valid_max_plane_size(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2632
   %5 = load i16, ptr %4, align 8
   %6 = icmp ult i16 %5, 9

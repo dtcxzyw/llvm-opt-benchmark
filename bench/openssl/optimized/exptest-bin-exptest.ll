@@ -93,7 +93,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.87 = private unnamed_addr constant [3 x i8] c"m2\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_mod_exp_zero) #2
   tail call void @add_all_tests(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_mod_exp, i32 noundef 200, i32 noundef 1) #2
@@ -104,7 +104,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_mod_exp_zero() #0 {
+define internal range(i32 0, 2) i32 @test_mod_exp_zero() #0 {
 entry:
   %call = tail call ptr @BN_CTX_new() #2
   %call1 = tail call ptr @BN_new() #2
@@ -215,7 +215,7 @@ a_is_zero_mod_one.exit92:                         ; preds = %if.end55, %if.then.
   br i1 %tobool67.not, label %err, label %if.end69
 
 if.end69:                                         ; preds = %a_is_zero_mod_one.exit92
-  %call70 = tail call fastcc i32 @a_is_zero_mod_one(ptr noundef nonnull @.str.20, ptr noundef %call11, ptr noundef %call3), !range !5
+  %call70 = tail call fastcc i32 @a_is_zero_mod_one(ptr noundef nonnull @.str.20, ptr noundef %call11, ptr noundef %call3)
   %call73 = tail call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 89, ptr noundef nonnull @.str.19, i32 noundef %call70) #2
   %call77 = tail call i32 @BN_mod_exp_mont_consttime(ptr noundef %call11, ptr noundef %call3, ptr noundef %call7, ptr noundef %call1, ptr noundef %call, ptr noundef null) #2
   %cmp78 = icmp ne i32 %call77, 0
@@ -227,7 +227,7 @@ if.end69:                                         ; preds = %a_is_zero_mod_one.e
 if.end83:                                         ; preds = %if.end69
   %tobool74.not = icmp ne i32 %call73, 0
   %tobool60.not = icmp ne i32 %call59, 0
-  %call84 = tail call fastcc i32 @a_is_zero_mod_one(ptr noundef nonnull @.str.23, ptr noundef %call11, ptr noundef %call3), !range !5
+  %call84 = tail call fastcc i32 @a_is_zero_mod_one(ptr noundef nonnull @.str.23, ptr noundef %call11, ptr noundef %call3)
   %call87 = tail call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 95, ptr noundef nonnull @.str.22, i32 noundef %call84) #2
   %tobool88.not = icmp ne i32 %call87, 0
   %call91 = tail call ptr @BN_MONT_CTX_new() #2
@@ -270,7 +270,7 @@ if.end118:                                        ; preds = %if.end110
   br i1 %tobool123.not, label %err, label %if.end125
 
 if.end125:                                        ; preds = %if.end118
-  %call126 = tail call fastcc i32 @a_is_zero_mod_one(ptr noundef nonnull @.str.23, ptr noundef %call11, ptr noundef %call3), !range !5
+  %call126 = tail call fastcc i32 @a_is_zero_mod_one(ptr noundef nonnull @.str.23, ptr noundef %call11, ptr noundef %call3)
   %call129 = tail call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 116, ptr noundef nonnull @.str.22, i32 noundef %call126) #2
   %call133 = tail call i32 @BN_mod_exp_mont(ptr noundef %call11, ptr noundef %call7, ptr noundef %call3, ptr noundef %call1, ptr noundef %call, ptr noundef %call91) #2
   %cmp134 = icmp ne i32 %call133, 0
@@ -281,15 +281,15 @@ if.end125:                                        ; preds = %if.end118
 
 if.end139:                                        ; preds = %if.end125
   %tobool130.not = icmp ne i32 %call129, 0
-  %call140 = tail call fastcc i32 @a_is_zero_mod_one(ptr noundef nonnull @.str.20, ptr noundef %call11, ptr noundef %call3), !range !5
+  %call140 = tail call fastcc i32 @a_is_zero_mod_one(ptr noundef nonnull @.str.20, ptr noundef %call11, ptr noundef %call3)
   %call143 = tail call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 122, ptr noundef nonnull @.str.19, i32 noundef %call140) #2
   %tobool144.not = icmp ne i32 %call143, 0
-  %.not = select i1 %tobool144.not, i1 %tobool130.not, i1 false
-  %0 = select i1 %.not, i1 %tobool88.not, i1 false
-  %1 = select i1 %0, i1 %tobool74.not, i1 false
-  %2 = select i1 %1, i1 %tobool60.not, i1 false
-  %3 = select i1 %2, i1 %tobool46.not, i1 false
-  %narrow95 = select i1 %3, i1 %tobool32.not, i1 false
+  %.not102 = select i1 %tobool144.not, i1 %tobool130.not, i1 false
+  %.not101 = select i1 %.not102, i1 %tobool88.not, i1 false
+  %.not100 = select i1 %.not101, i1 %tobool74.not, i1 false
+  %.not98 = select i1 %.not100, i1 %tobool60.not, i1 false
+  %.not97 = select i1 %.not98, i1 %tobool46.not, i1 false
+  %narrow95.not = select i1 %.not97, i1 %tobool32.not, i1 false
   %call147 = tail call i32 @BN_mod_exp_mont_word(ptr noundef %call11, i64 noundef 1, ptr noundef %call7, ptr noundef %call1, ptr noundef %call, ptr noundef null) #2
   %cmp148 = icmp ne i32 %call147, 0
   %conv149 = zext i1 %cmp148 to i32
@@ -308,7 +308,7 @@ if.then156:                                       ; preds = %if.end153
   br label %err
 
 if.end157:                                        ; preds = %if.end153
-  %lnot.ext = zext i1 %narrow95 to i32
+  %lnot.ext = zext i1 %narrow95.not to i32
   br label %err
 
 err:                                              ; preds = %if.end139, %if.end125, %if.end118, %if.end110, %if.end103, %if.end95, %if.end83, %if.end69, %a_is_zero_mod_one.exit92, %a_is_zero_mod_one.exit87, %a_is_zero_mod_one.exit, %if.end20, %if.end, %entry, %lor.lhs.false, %lor.lhs.false6, %lor.lhs.false10, %if.end157, %if.then156
@@ -329,7 +329,7 @@ err:                                              ; preds = %if.end139, %if.end1
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_mod_exp(i32 %round) #0 {
+define internal range(i32 0, 2) i32 @test_mod_exp(i32 %round) #0 {
 entry:
   %c = alloca i8, align 1
   %call = tail call ptr @BN_CTX_new() #2
@@ -560,7 +560,7 @@ err:                                              ; preds = %lor.lhs.false121, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_mod_exp_x2(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_mod_exp_x2(i32 noundef %idx) #0 {
 entry:
   %cmp = icmp slt i32 %idx, 101
   br i1 %cmp, label %if.end7, label %if.else
@@ -787,7 +787,7 @@ declare i32 @BN_rand(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_u
 declare i32 @BN_mod_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @a_is_zero_mod_one(ptr noundef %method, ptr noundef %r, ptr noundef %a) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @a_is_zero_mod_one(ptr noundef %method, ptr noundef %r, ptr noundef %a) unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_is_zero(ptr noundef %r) #2
   %tobool.not = icmp eq i32 %call, 0
@@ -863,4 +863,3 @@ attributes #2 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

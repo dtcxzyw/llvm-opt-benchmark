@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.process_pollReq = private unnamed_addr constant [16 x i8] c"process_pollReq\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ossl_cmp_mock_srv_set1_refCert(ptr noundef %srv_ctx, ptr noundef %cert) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ossl_cmp_mock_srv_set1_refCert(ptr noundef %srv_ctx, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %cmp = icmp eq ptr %call, null
@@ -80,7 +80,7 @@ declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #1
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ossl_cmp_mock_srv_set1_certOut(ptr noundef %srv_ctx, ptr noundef %cert) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ossl_cmp_mock_srv_set1_certOut(ptr noundef %srv_ctx, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %cmp = icmp eq ptr %call, null
@@ -114,7 +114,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ossl_cmp_mock_srv_set1_chainOut(ptr noundef %srv_ctx, ptr noundef %chain) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ossl_cmp_mock_srv_set1_chainOut(ptr noundef %srv_ctx, ptr noundef %chain) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %cmp = icmp eq ptr %call, null
@@ -153,7 +153,7 @@ declare ptr @X509_chain_up_ref(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ossl_cmp_mock_srv_set1_caPubsOut(ptr noundef %srv_ctx, ptr noundef %caPubs) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ossl_cmp_mock_srv_set1_caPubsOut(ptr noundef %srv_ctx, ptr noundef %caPubs) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %cmp = icmp eq ptr %call, null
@@ -188,7 +188,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ossl_cmp_mock_srv_set1_newWithNew(ptr noundef %srv_ctx, ptr noundef %cert) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ossl_cmp_mock_srv_set1_newWithNew(ptr noundef %srv_ctx, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %cmp = icmp eq ptr %call, null
@@ -222,7 +222,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ossl_cmp_mock_srv_set1_newWithOld(ptr noundef %srv_ctx, ptr noundef %cert) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ossl_cmp_mock_srv_set1_newWithOld(ptr noundef %srv_ctx, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %cmp = icmp eq ptr %call, null
@@ -256,7 +256,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ossl_cmp_mock_srv_set1_oldWithNew(ptr noundef %srv_ctx, ptr noundef %cert) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ossl_cmp_mock_srv_set1_oldWithNew(ptr noundef %srv_ctx, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %cmp = icmp eq ptr %call, null
@@ -290,7 +290,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ossl_cmp_mock_srv_set_statusInfo(ptr noundef %srv_ctx, i32 noundef %status, i32 noundef %fail_info, ptr noundef %text) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ossl_cmp_mock_srv_set_statusInfo(ptr noundef %srv_ctx, i32 noundef %status, i32 noundef %fail_info, ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %cmp = icmp eq ptr %call, null
@@ -324,7 +324,7 @@ declare ptr @OSSL_CMP_STATUSINFO_new(i32 noundef, i32 noundef, ptr noundef) loca
 declare void @OSSL_CMP_PKISI_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ossl_cmp_mock_srv_set_sendError(ptr noundef %srv_ctx, i32 noundef %bodytype) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ossl_cmp_mock_srv_set_sendError(ptr noundef %srv_ctx, i32 noundef %bodytype) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %cmp = icmp eq ptr %call, null
@@ -347,7 +347,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ossl_cmp_mock_srv_set_pollCount(ptr noundef %srv_ctx, i32 noundef %count) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ossl_cmp_mock_srv_set_pollCount(ptr noundef %srv_ctx, i32 noundef %count) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %cmp = icmp eq ptr %call, null
@@ -380,7 +380,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ossl_cmp_mock_srv_set_checkAfterTime(ptr noundef %srv_ctx, i32 noundef %sec) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ossl_cmp_mock_srv_set_checkAfterTime(ptr noundef %srv_ctx, i32 noundef %sec) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %cmp = icmp eq ptr %call, null
@@ -742,7 +742,7 @@ return:                                           ; preds = %if.end14, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @process_genm(ptr noundef %srv_ctx, ptr noundef %genm, ptr noundef %in, ptr noundef %out) #0 {
+define internal range(i32 0, 2) i32 @process_genm(ptr noundef %srv_ctx, ptr noundef %genm, ptr noundef %in, ptr noundef %out) #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %0 = insertelement <4 x ptr> poison, ptr %call, i64 0
@@ -918,7 +918,7 @@ if.end35:                                         ; preds = %for.end, %if.then20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @process_certConf(ptr noundef %srv_ctx, ptr noundef %certConf, i32 %certReqId, ptr noundef %certHash, ptr nocapture readnone %si) #0 {
+define internal range(i32 0, 2) i32 @process_certConf(ptr noundef %srv_ctx, ptr noundef %certConf, i32 %certReqId, ptr noundef %certHash, ptr nocapture readnone %si) #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %cmp = icmp eq ptr %call, null
@@ -970,7 +970,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @process_pollReq(ptr noundef %srv_ctx, ptr noundef %pollReq, i32 %certReqId, ptr noundef writeonly %certReq, ptr noundef writeonly %check_after) #0 {
+define internal range(i32 0, 2) i32 @process_pollReq(ptr noundef %srv_ctx, ptr noundef %pollReq, i32 %certReqId, ptr noundef writeonly %certReq, ptr noundef writeonly %check_after) #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %0 = insertelement <4 x ptr> poison, ptr %call, i64 0

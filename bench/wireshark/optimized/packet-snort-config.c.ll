@@ -683,7 +683,7 @@ define internal i32 @string_hash(ptr nocapture noundef readonly %0) #8 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @string_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 0, 2) i32 @string_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #15
   %4 = icmp eq i32 %3, 0
   %5 = zext i1 %4 to i32
@@ -2102,7 +2102,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #11
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @content_convert_pcre_for_regex(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @content_convert_pcre_for_regex(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

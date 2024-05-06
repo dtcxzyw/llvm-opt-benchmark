@@ -15,7 +15,7 @@ define i32 @ws_base32_decode(ptr nocapture noundef writeonly %0, i32 noundef %1,
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %14
-  %5 = trunc i64 %indvars.iv.next to i32
+  %5 = trunc nuw i64 %indvars.iv.next to i32
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
   br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 

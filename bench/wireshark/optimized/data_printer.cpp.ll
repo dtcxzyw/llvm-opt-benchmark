@@ -1755,7 +1755,7 @@ _ZN7QStringpLE5QChar.exit:                        ; preds = %.invoke, %_ZN7QStri
           to label %83 unwind label %.loopexit
 
 83:                                               ; preds = %82
-  %84 = trunc i64 %indvars.iv to i32
+  %84 = trunc nuw nsw i64 %indvars.iv to i32
   %85 = shl i32 %84, 4
   %86 = load <2 x ptr>, ptr %5, align 16
   store <2 x ptr> %86, ptr %12, align 16
@@ -2147,7 +2147,7 @@ define noundef i32 @_ZNK11DataPrinter14byteLineLengthEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN11DataPrinter8hexCharsEv() local_unnamed_addr #0 align 2 {
+define noundef range(i32 9, 160) i32 @_ZN11DataPrinter8hexCharsEv() local_unnamed_addr #0 align 2 {
   %1 = load i32, ptr getelementptr inbounds (%struct.recent_settings_tag, ptr @recent, i64 0, i32 14), align 8
   %2 = icmp ult i32 %1, 4
   br i1 %2, label %switch.lookup, label %3

@@ -407,7 +407,7 @@ _ZN6hermes2vm12JSObjectInitL12initToHandleINS0_8JSStringEEENS0_6HandleIT_EERNS0_
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %12, i64 4
   %13 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %13, 2147483647
-  %conv.i = uitofp i32 %and.i to double
+  %conv.i = uitofp nneg i32 %and.i to double
   %14 = load ptr, ptr %topGCScope_.i.i.i.i.i, align 8
   %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 192
   %15 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
@@ -460,7 +460,7 @@ entry:
   %lengthAndUniquedFlag_.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %4, 2147483647
-  %conv = uitofp i32 %and.i to double
+  %conv = uitofp nneg i32 %and.i to double
   %shl.i.i.i.i = shl i32 %4, 3
   %shr.i.i.i.i = ashr exact i32 %shl.i.i.i.i, 3
   %5 = bitcast double %conv to i64
@@ -509,7 +509,7 @@ _ZN6hermes2vm13HermesValue3217encodeNumberValueEdRNS0_7RuntimeE.exit: ; preds = 
   %10 = inttoptr i64 %and.i.i.i.i.i5 to ptr
   %agg.tmp15.sroa.0.0.copyload = load i64, ptr %desc, align 8
   %desc.sroa.1.0.extract.shift.i = lshr i64 %agg.tmp15.sroa.0.0.copyload, 32
-  %desc.sroa.1.0.extract.trunc.i = trunc i64 %desc.sroa.1.0.extract.shift.i to i32
+  %desc.sroa.1.0.extract.trunc.i = trunc nuw i64 %desc.sroa.1.0.extract.shift.i to i32
   %cmp.i.i = icmp ult i32 %desc.sroa.1.0.extract.trunc.i, 5
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 

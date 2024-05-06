@@ -118,7 +118,7 @@ for.end26:                                        ; preds = %for.inc25, %if.end1
 
 if.then29:                                        ; preds = %for.end26
   %key1.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key1.i, ptr align 1 %key, i64 %key_len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key1.i, ptr readonly align 1 %key, i64 %key_len, i1 false)
   %key_len2.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %key_len, ptr %key_len2.i, align 8
   %ptr.i = getelementptr inbounds i8, ptr %call.i, i64 24
@@ -167,7 +167,7 @@ declare void @Curl_llist_remove(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @Curl_llist_insert_next(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_hash_delete(ptr noundef %h, ptr noundef %key, i64 noundef %key_len) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @Curl_hash_delete(ptr noundef %h, ptr noundef %key, i64 noundef %key_len) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %h, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -494,7 +494,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @Curl_str_key_compare(ptr nocapture noundef readonly %k1, i64 noundef %key1_len, ptr nocapture noundef readonly %k2, i64 noundef %key2_len) local_unnamed_addr #4 {
+define hidden range(i64 0, 2) i64 @Curl_str_key_compare(ptr nocapture noundef readonly %k1, i64 noundef %key1_len, ptr nocapture noundef readonly %k2, i64 noundef %key2_len) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq i64 %key1_len, %key2_len
   br i1 %cmp, label %land.lhs.true, label %if.end

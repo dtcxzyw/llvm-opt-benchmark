@@ -113,7 +113,7 @@ entry:
   %ret = alloca [2 x i32], align 4
   store i32 %addr, ptr %args, align 16
   %shr = lshr i64 %buid, 32
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw i64 %shr to i32
   %arrayidx1 = getelementptr inbounds i8, ptr %args, i64 4
   store i32 %conv, ptr %arrayidx1, align 4
   %conv2 = trunc i64 %buid to i32
@@ -134,13 +134,13 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qrtas_ibm_write_pci_config(ptr noundef %qts, ptr noundef %alloc, i64 noundef %buid, i32 noundef %addr, i32 noundef %size, i32 noundef %val) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qrtas_ibm_write_pci_config(ptr noundef %qts, ptr noundef %alloc, i64 noundef %buid, i32 noundef %addr, i32 noundef %size, i32 noundef %val) local_unnamed_addr #0 {
 entry:
   %args = alloca [5 x i32], align 16
   %ret = alloca [1 x i32], align 4
   store i32 %addr, ptr %args, align 16
   %shr = lshr i64 %buid, 32
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw i64 %shr to i32
   %arrayidx1 = getelementptr inbounds i8, ptr %args, i64 4
   store i32 %conv, ptr %arrayidx1, align 4
   %conv2 = trunc i64 %buid to i32

@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [61 x i8] c"Possible integer overflow in zend_arena_calloc() (%zu * %zu)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_load_extension(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_load_extension(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @dlopen(ptr noundef %0, i32 noundef 265) #15
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %7
@@ -57,7 +57,7 @@ define noundef i32 @zend_load_extension(ptr noundef %0) local_unnamed_addr #0 {
   br label %9
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @zend_load_extension_handle(ptr noundef nonnull %2, ptr noundef %0), !range !4
+  %8 = tail call i32 @zend_load_extension_handle(ptr noundef nonnull %2, ptr noundef %0)
   br label %9
 
 9:                                                ; preds = %7, %3
@@ -75,7 +75,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare ptr @dlerror() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_load_extension_handle(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_load_extension_handle(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zend_extension, align 8
   %4 = tail call ptr @dlsym(ptr noundef %0, ptr noundef nonnull @.str.1) #15
   %.not = icmp eq ptr %4, null
@@ -198,7 +198,7 @@ define noundef i32 @zend_load_extension_handle(ptr noundef %0, ptr noundef %1) l
 61:                                               ; preds = %60
   %62 = getelementptr inbounds i8, ptr %.07.i, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %59) #17
+  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull readonly dereferenceable(1) %59) #17
   %.not8.i = icmp eq i32 %64, 0
   br i1 %.not8.i, label %zend_get_extension.exit, label %60
 
@@ -210,7 +210,7 @@ zend_get_extension.exit:                          ; preds = %61
 
 zend_get_extension.exit.thread:                   ; preds = %60, %33
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %3, ptr noundef nonnull align 8 dereferenceable(208) %.036, i64 208, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %3, ptr noundef nonnull readonly align 8 dereferenceable(208) %.036, i64 208, i1 false)
   %68 = getelementptr inbounds i8, ptr %3, i64 192
   store ptr %0, ptr %68, align 8
   call void (ptr, ptr, i32, ...) @zend_llist_apply_with_arguments(ptr noundef nonnull @zend_extensions, ptr noundef nonnull @zend_extension_message_dispatcher, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %3) #15
@@ -439,7 +439,7 @@ define hidden void @zend_startup_extensions() local_unnamed_addr #0 {
 declare void @zend_llist_apply_with_del(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zend_extension_startup(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @zend_extension_startup(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -591,7 +591,7 @@ define i32 @zend_get_op_array_extension_handles(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i64 @zend_internal_run_time_cache_reserved_size() local_unnamed_addr #8 {
+define range(i64 -17179869184, 17179869177) i64 @zend_internal_run_time_cache_reserved_size() local_unnamed_addr #8 {
   %1 = load i32, ptr @zend_op_array_extension_handles, align 4
   %2 = sext i32 %1 to i64
   %3 = shl nsw i64 %2, 3
@@ -650,7 +650,7 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %28, %4
   %.0164.lcssa = phi i64 [ %8, %4 ], [ %.1, %28 ]
-  %30 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %.0164.lcssa) #18, !srcloc !5
+  %30 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %.0164.lcssa) #18, !srcloc !4
   %31 = extractvalue { i64, i64 } %30, 0
   %32 = extractvalue { i64, i64 } %30, 1
   %.not179.not = icmp eq i64 %32, 0
@@ -1000,5 +1000,4 @@ attributes #20 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{i64 2828969, i64 2828990}
+!4 = !{i64 2828969, i64 2828990}

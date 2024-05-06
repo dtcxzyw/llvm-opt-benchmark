@@ -334,10 +334,10 @@ define ptr @Bmc_CexPerformUnrolling(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #21
+  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #21
   %12 = add i64 %11, 1
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #22
-  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %9) #20
+  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %9) #20
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %10
@@ -349,10 +349,10 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %10
   br i1 %.not.i108, label %Abc_UtilStrsav.exit109, label %18
 
 18:                                               ; preds = %Abc_UtilStrsav.exit
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #21
+  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #21
   %20 = add i64 %19, 1
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #22
-  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %17) #20
+  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %17) #20
   br label %Abc_UtilStrsav.exit109
 
 Abc_UtilStrsav.exit109:                           ; preds = %Abc_UtilStrsav.exit, %18
@@ -905,7 +905,7 @@ define ptr @Bmc_CexBuildNetwork(ptr nocapture noundef readonly %0, ptr nocapture
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr @Gia_ManStart(i32 noundef 1000) #20
   %6 = tail call noalias dereferenceable_or_null(6) ptr @malloc(i64 noundef 6) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %6, ptr noundef nonnull align 1 dereferenceable(6) @.str.11, i64 6, i1 false) #20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %6, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.11, i64 6, i1 false) #20
   store ptr %6, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 32
   %.val152 = load ptr, ptr %7, align 8
@@ -1618,7 +1618,7 @@ define void @Bmc_CexPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
 declare void @Abc_CexPrintStatsInputs(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Bmc_CexVerify(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Bmc_CexVerify(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val80 = load ptr, ptr %4, align 8
   %5 = load i64, ptr %.val80, align 4
@@ -3712,7 +3712,7 @@ Abc_Clock.exit:                                   ; preds = %3, %13
   %18 = load ptr, ptr %6, align 8
   %19 = call ptr @Bmc_CexCareBits(ptr noundef %0, ptr noundef %17, ptr noundef %18, ptr noundef null, i32 noundef 1, i32 noundef %2)
   store ptr %19, ptr %8, align 8
-  %20 = call i32 @Bmc_CexVerify(ptr noundef %0, ptr noundef %1, ptr noundef %19), !range !47
+  %20 = call i32 @Bmc_CexVerify(ptr noundef %0, ptr noundef %1, ptr noundef %19)
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %22
 
@@ -3726,7 +3726,7 @@ Abc_Clock.exit:                                   ; preds = %3, %13
   %24 = load ptr, ptr %6, align 8
   %25 = call ptr @Bmc_CexCareBits(ptr noundef %0, ptr noundef %17, ptr noundef %24, ptr noundef %23, i32 noundef 0, i32 noundef %2)
   store ptr %25, ptr %10, align 8
-  %26 = call i32 @Bmc_CexVerify(ptr noundef %0, ptr noundef %1, ptr noundef %25), !range !47
+  %26 = call i32 @Bmc_CexVerify(ptr noundef %0, ptr noundef %1, ptr noundef %25)
   %.not13 = icmp eq i32 %26, 0
   br i1 %.not13, label %27, label %28
 
@@ -3838,7 +3838,7 @@ define void @Gia_ManCountCareBits(ptr nocapture noundef readonly %0, ptr nocaptu
   %.val99 = load i32, ptr %36, align 4
   %37 = sext i32 %.val99 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %19, label %.critedge2, !llvm.loop !48
+  br i1 %38, label %19, label %.critedge2, !llvm.loop !47
 
 .critedge2:                                       ; preds = %19, %21, %10
   %39 = load i32, ptr %8, align 8
@@ -3897,7 +3897,7 @@ define void @Gia_ManCountCareBits(ptr nocapture noundef readonly %0, ptr nocaptu
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next158, %75
-  br i1 %76, label %.lr.ph134, label %.critedge4, !llvm.loop !49
+  br i1 %76, label %.lr.ph134, label %.critedge4, !llvm.loop !48
 
 .critedge4:                                       ; preds = %.lr.ph134, %73, %.critedge2
   %77 = phi i32 [ %39, %.critedge2 ], [ %41, %.lr.ph134 ], [ %74, %73 ]
@@ -3941,7 +3941,7 @@ define void @Gia_ManCountCareBits(ptr nocapture noundef readonly %0, ptr nocaptu
   %.val = load i32, ptr %100, align 4
   %101 = sext i32 %.val to i64
   %102 = icmp slt i64 %indvars.iv.next161, %101
-  br i1 %102, label %.lr.ph138, label %.critedge6.loopexit, !llvm.loop !50
+  br i1 %102, label %.lr.ph138, label %.critedge6.loopexit, !llvm.loop !49
 
 .critedge6.loopexit:                              ; preds = %82, %.lr.ph138
   %.pre172 = load i32, ptr %8, align 8
@@ -4025,7 +4025,7 @@ define void @Gia_ManCountCareBits(ptr nocapture noundef readonly %0, ptr nocaptu
 
 147:                                              ; preds = %.sink.split, %107, %131
   %148 = icmp ugt i64 %indvars.iv163, 2
-  br i1 %148, label %.lr.ph142, label %.critedge8.loopexit, !llvm.loop !51
+  br i1 %148, label %.lr.ph142, label %.critedge8.loopexit, !llvm.loop !50
 
 .critedge8.loopexit:                              ; preds = %147, %.lr.ph142
   %.pre173 = load i32, ptr %8, align 8
@@ -4062,7 +4062,7 @@ define void @Gia_ManCountCareBits(ptr nocapture noundef readonly %0, ptr nocaptu
   %.1 = add nuw nsw i32 %158, %.0145
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge10, label %.lr.ph146.split, !llvm.loop !52
+  br i1 %exitcond.not, label %.critedge10, label %.lr.ph146.split, !llvm.loop !51
 
 .critedge10:                                      ; preds = %.lr.ph146.split, %.lr.ph146, %.critedge8
   %.0.lcssa = phi i32 [ 0, %.critedge8 ], [ 0, %.lr.ph146 ], [ %.1, %.lr.ph146.split ]
@@ -4072,7 +4072,7 @@ define void @Gia_ManCountCareBits(ptr nocapture noundef readonly %0, ptr nocaptu
   %.val118 = load i32, ptr %3, align 4
   %161 = sext i32 %.val118 to i64
   %162 = icmp slt i64 %indvars.iv.next170, %161
-  br i1 %162, label %10, label %.critedge, !llvm.loop !53
+  br i1 %162, label %10, label %.critedge, !llvm.loop !52
 
 .critedge:                                        ; preds = %.critedge10, %..critedge_crit_edge
   %.pre-phi = phi i64 [ %.pre175, %..critedge_crit_edge ], [ %161, %.critedge10 ]
@@ -4145,20 +4145,20 @@ Vec_WecStart.exit:                                ; preds = %1, %4
 
 .preheader18.preheader:                           ; preds = %Vec_WecStart.exit
   %wide.trip.count = zext nneg i32 %0 to i64
-  %invariant.gep = getelementptr i8, ptr %10, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %10, i64 16
   br label %.preheader18
 
 .preheader18:                                     ; preds = %.preheader18.preheader, %79
   %indvars.iv24 = phi i64 [ 0, %.preheader18.preheader ], [ %indvars.iv.next25, %79 ]
   %15 = mul nuw nsw i64 %indvars.iv24, 784
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %15
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %15
   %16 = trunc nuw nsw i64 %indvars.iv.next25 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader18, %78
   %indvars.iv = phi i64 [ 0, %.preheader18 ], [ %indvars.iv.next, %78 ]
-  %17 = getelementptr i8, ptr %gep, i64 %indvars.iv
+  %17 = getelementptr inbounds i8, ptr %gep, i64 %indvars.iv
   br label %18
 
 18:                                               ; preds = %.preheader, %Vec_WecPush.exit
@@ -4281,16 +4281,16 @@ Vec_WecPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %22, ptr %76, align 4
   %77 = add nuw nsw i32 %.01519, 1
   %exitcond.not = icmp eq i32 %77, 8
-  br i1 %exitcond.not, label %78, label %18, !llvm.loop !54
+  br i1 %exitcond.not, label %78, label %18, !llvm.loop !53
 
 78:                                               ; preds = %Vec_WecPush.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next, 784
-  br i1 %exitcond23.not, label %79, label %.preheader, !llvm.loop !55
+  br i1 %exitcond23.not, label %79, label %.preheader, !llvm.loop !54
 
 79:                                               ; preds = %78
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count
-  br i1 %exitcond27.not, label %._crit_edge, label %.preheader18, !llvm.loop !56
+  br i1 %exitcond27.not, label %._crit_edge, label %.preheader18, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %79, %Vec_WecStart.exit
   tail call void @free(ptr noundef %10) #20
@@ -4329,7 +4329,7 @@ define void @Gia_ManCountCareBitsTest(ptr nocapture noundef readonly %0) local_u
 12:                                               ; preds = %11, %8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %7
-  br i1 %exitcond.not, label %._crit_edge.i.i.thread, label %8, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge.i.i.thread, label %8, !llvm.loop !56
 
 ._crit_edge.i.i:                                  ; preds = %1
   %.not.i.i = icmp eq ptr %6, null
@@ -4680,7 +4680,7 @@ attributes #25 = { noreturn nounwind }
 !44 = distinct !{!44, !5}
 !45 = distinct !{!45, !5}
 !46 = distinct !{!46, !5}
-!47 = !{i32 0, i32 2}
+!47 = distinct !{!47, !5}
 !48 = distinct !{!48, !5}
 !49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
@@ -4690,4 +4690,3 @@ attributes #25 = { noreturn nounwind }
 !54 = distinct !{!54, !5}
 !55 = distinct !{!55, !5}
 !56 = distinct !{!56, !5}
-!57 = distinct !{!57, !5}

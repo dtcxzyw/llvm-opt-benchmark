@@ -72,7 +72,7 @@ declare void @oidset_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @for_each_loose_object(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @add_recent_loose(ptr noundef %oid, ptr nocapture noundef readonly %path, ptr noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @add_recent_loose(ptr noundef %oid, ptr nocapture noundef readonly %path, ptr noundef %data) #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %0 = getelementptr i8, ptr %data, i64 24

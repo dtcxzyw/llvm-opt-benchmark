@@ -64,7 +64,7 @@ $_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingM
 @_ZZN4absl13base_internal12CallOnceImplIRFvvEJEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans = linkonce_odr dso_local constant [3 x %"struct.absl::base_internal::SpinLockWaitTransition"] [%"struct.absl::base_internal::SpinLockWaitTransition" { i32 0, i32 1707250555, i8 1 }, %"struct.absl::base_internal::SpinLockWaitTransition" { i32 1707250555, i32 94570706, i8 0 }, %"struct.absl::base_internal::SpinLockWaitTransition" { i32 221, i32 221, i8 1 }], comdat, align 16
 @_ZN4absl15random_internal12_GLOBAL__N_19pool_onceE = internal global { { i32 } } zeroinitializer, align 4
 @_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE8sequence = internal global { i64 } zeroinitializer, align 8
-@_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE10my_pool_id = internal thread_local global i64 8, align 8
+@_ZZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEvE10my_pool_id = internal thread_local unnamed_addr global i64 8, align 8
 
 @_ZN4absl15random_internal10RandenPoolIhEC1Ev = weak_odr dso_local unnamed_addr alias void (ptr), ptr @_ZN4absl15random_internal10RandenPoolIhEC2Ev
 @_ZN4absl15random_internal10RandenPoolItEC1Ev = weak_odr dso_local unnamed_addr alias void (ptr), ptr @_ZN4absl15random_internal10RandenPoolItEC2Ev
@@ -252,7 +252,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4absl13base_inte
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %cond.i.i, ptr noundef nonnull align 16 dereferenceable(256) %arrayidx5.i, i64 256, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %cond.i.i, ptr noundef nonnull readonly align 16 dereferenceable(256) %arrayidx5.i, i64 256, i1 false)
   %next_.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 280
   store i64 64, ptr %next_.i.i, align 8
   %10 = load atomic i32, ptr %mu_.i.i.i monotonic, align 64

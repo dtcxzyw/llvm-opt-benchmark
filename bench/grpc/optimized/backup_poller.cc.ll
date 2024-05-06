@@ -22,7 +22,7 @@ $_ZN4absl12lts_202308026StatusD2Ev = comdat any
 @_ZN9grpc_core10ConfigVars12config_vars_E = external local_unnamed_addr global %"struct.std::atomic", align 8
 @.str.2 = private unnamed_addr constant [11 x i8] c"run_poller\00", align 1
 @.str.3 = private unnamed_addr constant [33 x i8] c"Run client channel backup poller\00", align 1
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_backup_poller.cc, ptr null }]
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0

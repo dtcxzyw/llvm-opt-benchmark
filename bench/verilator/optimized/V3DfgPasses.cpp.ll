@@ -4791,7 +4791,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc39
   %46 = getelementptr inbounds i8, ptr %9, i64 16
   %47 = getelementptr inbounds i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_0E9_M_invokeERKSt9_Any_data", ptr %47, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", ptr %46, align 8
   invoke fastcc void @"_ZZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextENK3$_6clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvvEE"(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %9)
@@ -6038,9 +6038,9 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 .thread:                                          ; preds = %43
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #26
-  br label %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESaIS7_EE13_M_deallocateEPS7_m.exit35
+  br label %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESaIS7_EE13_M_deallocateEPS7_m.exit37
 
-47:                                               ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESaIS7_EE13_M_deallocateEPS7_m.exit35
+47:                                               ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESaIS7_EE13_M_deallocateEPS7_m.exit37
   %48 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -6048,9 +6048,9 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 49:                                               ; preds = %43
   tail call void @_ZdlPv(ptr noundef nonnull %23) #28
-  br label %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESaIS7_EE13_M_deallocateEPS7_m.exit35
+  br label %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESaIS7_EE13_M_deallocateEPS7_m.exit37
 
-_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESaIS7_EE13_M_deallocateEPS7_m.exit35: ; preds = %49, %.thread
+_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESaIS7_EE13_M_deallocateEPS7_m.exit37: ; preds = %49, %.thread
   invoke void @__cxa_rethrow() #31
           to label %54 unwind label %47
 
@@ -6064,7 +6064,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   tail call void @__clang_call_terminate(ptr %53) #27
   unreachable
 
-54:                                               ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESaIS7_EE13_M_deallocateEPS7_m.exit35
+54:                                               ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESaIS7_EE13_M_deallocateEPS7_m.exit37
   unreachable
 }
 
@@ -11338,7 +11338,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasse
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_1E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) #4 align 2 {
   %.val = load ptr, ptr %0, align 8
-  tail call void @_ZN11V3DfgPasses10inlineVarsER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(104) %.val)
+  tail call void @_ZN11V3DfgPasses10inlineVarsER8DfgGraph(ptr noundef nonnull readonly align 8 dereferenceable(104) %.val)
   ret void
 }
 
@@ -11394,7 +11394,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasse
   br label %"_ZNSt14_Function_base13_Base_managerIZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -11428,7 +11428,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasse
   br label %"_ZNSt14_Function_base13_Base_managerIZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_3E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_3E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_3E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -11464,7 +11464,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasse
   br label %"_ZNSt14_Function_base13_Base_managerIZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_4E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -11498,7 +11498,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN11V3DfgPasse
   br label %"_ZNSt14_Function_base13_Base_managerIZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_5E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_5E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN11V3DfgPasses8optimizeER8DfgGraphR24V3DfgOptimizationContextE3$_5E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4

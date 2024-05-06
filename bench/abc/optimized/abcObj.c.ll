@@ -814,7 +814,7 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge118, %35
 
 62:                                               ; preds = %65, %55
   %indvars.iv.i = phi i64 [ %66, %65 ], [ %61, %55 ]
-  %63 = trunc i64 %indvars.iv.i to i32
+  %63 = trunc nuw i64 %indvars.iv.i to i32
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %65, label %71
 
@@ -863,7 +863,7 @@ Vec_PtrRemove.exit:                               ; preds = %74, %71
 
 89:                                               ; preds = %92, %Vec_PtrRemove.exit
   %indvars.iv.i59 = phi i64 [ %93, %92 ], [ %88, %Vec_PtrRemove.exit ]
-  %90 = trunc i64 %indvars.iv.i59 to i32
+  %90 = trunc nuw i64 %indvars.iv.i59 to i32
   %91 = icmp sgt i32 %90, 0
   br i1 %91, label %92, label %98
 
@@ -915,7 +915,7 @@ Vec_PtrRemove.exit65:                             ; preds = %101, %98
 
 117:                                              ; preds = %120, %110
   %indvars.iv.i67 = phi i64 [ %121, %120 ], [ %116, %110 ]
-  %118 = trunc i64 %indvars.iv.i67 to i32
+  %118 = trunc nuw i64 %indvars.iv.i67 to i32
   %119 = icmp sgt i32 %118, 0
   br i1 %119, label %120, label %126
 
@@ -964,7 +964,7 @@ Vec_PtrRemove.exit73:                             ; preds = %129, %126
 
 144:                                              ; preds = %147, %Vec_PtrRemove.exit73
   %indvars.iv.i75 = phi i64 [ %148, %147 ], [ %143, %Vec_PtrRemove.exit73 ]
-  %145 = trunc i64 %indvars.iv.i75 to i32
+  %145 = trunc nuw i64 %indvars.iv.i75 to i32
   %146 = icmp sgt i32 %145, 0
   br i1 %146, label %147, label %153
 
@@ -1020,7 +1020,7 @@ Vec_PtrRemove.exit81:                             ; preds = %156, %153
 
 173:                                              ; preds = %176, %168
   %indvars.iv.i83 = phi i64 [ %177, %176 ], [ %172, %168 ]
-  %174 = trunc i64 %indvars.iv.i83 to i32
+  %174 = trunc nuw i64 %indvars.iv.i83 to i32
   %175 = icmp sgt i32 %174, 0
   br i1 %175, label %176, label %182
 
@@ -1076,7 +1076,7 @@ Vec_PtrRemove.exit89:                             ; preds = %185, %182
 
 202:                                              ; preds = %205, %197
   %indvars.iv.i91 = phi i64 [ %206, %205 ], [ %201, %197 ]
-  %203 = trunc i64 %indvars.iv.i91 to i32
+  %203 = trunc nuw i64 %indvars.iv.i91 to i32
   %204 = icmp sgt i32 %203, 0
   br i1 %204, label %205, label %211
 
@@ -1151,7 +1151,7 @@ Vec_PtrRemove.exit97:                             ; preds = %214, %211
 
 240:                                              ; preds = %243, %235
   %indvars.iv.i99 = phi i64 [ %244, %243 ], [ %239, %235 ]
-  %241 = trunc i64 %indvars.iv.i99 to i32
+  %241 = trunc nuw i64 %indvars.iv.i99 to i32
   %242 = icmp sgt i32 %241, 0
   br i1 %242, label %243, label %249
 
@@ -2607,7 +2607,7 @@ declare ptr @Cudd_bddIte(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 declare ptr @Hop_Mux(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Abc_NodeIsConst(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Abc_NodeIsConst(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 20
   %.val = load i32, ptr %2, align 4
   %3 = and i32 %.val, 15
@@ -2937,7 +2937,7 @@ define void @Abc_NodeComplementInput(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %exitcond.not.i, label %Vec_IntFind.exit.thread, label %10, !llvm.loop !18
 
 Vec_IntFind.exit:                                 ; preds = %10
-  %15 = trunc i64 %indvars.iv.i to i32
+  %15 = trunc nuw nsw i64 %indvars.iv.i to i32
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %Vec_IntFind.exit.thread, label %21
 

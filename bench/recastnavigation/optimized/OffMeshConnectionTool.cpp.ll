@@ -197,7 +197,7 @@ define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr nound
   %36 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %35)
   %37 = tail call noundef float @llvm.fmuladd.f32(float %34, float %34, float %36)
   %38 = fcmp olt float %37, %.031
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
   %40 = lshr i32 %39, 1
   %.122 = select i1 %38, i32 %40, i32 %.02130
   %.1 = select i1 %38, float %37, float %.031

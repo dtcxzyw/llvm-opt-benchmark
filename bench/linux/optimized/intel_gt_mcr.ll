@@ -1585,7 +1585,7 @@ define dso_local void @intel_gt_mcr_get_ss_steering(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_gt_mcr_wait_for_reg(ptr noundef %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -110, 1) i32 @intel_gt_mcr_wait_for_reg(ptr noundef %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %7
 

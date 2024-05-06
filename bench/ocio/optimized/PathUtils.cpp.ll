@@ -472,7 +472,7 @@ unreachable.i.i.i.i.i:                            ; preds = %lpad.i.i.i.i.i
 
 invoke.cont.i.i:                                  ; preds = %call5.i.i.i.i.i.i.i.noexc
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i67, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br i1 %cmp.i4.i, label %if.then.i.i.i62, label %if.else12.i.i.i
 
 if.then.i.i.i62:                                  ; preds = %invoke.cont.i.i
@@ -1637,7 +1637,7 @@ if.then.i19.i:                                    ; preds = %while.body.i
   br i1 %cmp8.not.i.i26.i, label %if.else.i.i35.i, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i.i33.i
 
 _ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i.i33.i: ; preds = %if.then.i19.i
-  %add.ptr.i.i.i.i.i.i.i32.i = getelementptr inbounds i8, ptr %1, i64 1024
+  %add.ptr.i.i.i.i.i.i.i32.i = getelementptr i8, ptr %1, i64 1024
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1024) %1, i8 0, i64 1024, i1 false), !noalias !13
   store ptr %add.ptr.i.i.i.i.i.i.i32.i, ptr %_M_finish.i.i.i, align 8, !noalias !13
   br label %_ZNSt6vectorIcSaIcEE6resizeEm.exit58.i

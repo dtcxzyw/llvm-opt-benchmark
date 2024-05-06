@@ -1131,7 +1131,7 @@ _ZN20btAlignedObjectArrayIP14btHullTriangleED2Ev.exit: ; preds = %_ZN20btAligned
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK11btShapeHull12numTrianglesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1431655766) i32 @_ZNK11btShapeHull12numTrianglesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_numIndices = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %m_numIndices, align 8

@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @buffer_pin_resowner_desc = external constant %struct.ResourceOwnerDesc, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @PrefetchLocalBuffer(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 0, 8589934592) i64 @PrefetchLocalBuffer(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.buftag, align 8
   %5 = load <2 x i32>, ptr %0, align 4
   store <2 x i32> %5, ptr %4, align 8
@@ -266,7 +266,7 @@ PinLocalBuffer.exit:                              ; preds = %20, %35, %40
   %46 = sext i32 %45 to i64
   call void @ResourceOwnerRemember(ptr noundef %44, i64 noundef %46, ptr noundef nonnull @buffer_pin_resowner_desc) #13
   %47 = lshr i32 %.0.i, 24
-  %48 = trunc i32 %47 to i8
+  %48 = trunc nuw i32 %47 to i8
   %49 = and i8 %48, 1
   br label %69
 
@@ -688,7 +688,7 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   %59 = getelementptr %struct.BufferDesc, ptr %57, i64 %58
   %60 = load ptr, ptr @CurrentResourceOwner, align 8
   call void @ResourceOwnerEnlarge(ptr noundef %60) #13
-  %61 = trunc i64 %indvars.iv90 to i32
+  %61 = trunc nuw i64 %indvars.iv90 to i32
   %62 = add i32 %33, %61
   %63 = load <2 x i32>, ptr %32, align 4
   store <2 x i32> %63, ptr %8, align 8
@@ -885,7 +885,7 @@ define dso_local void @MarkLocalBufferDirty(i32 noundef %0) local_unnamed_addr #
 define dso_local void @DropRelationLocalBuffers(i64 %0, i32 %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %5 = load i32, ptr @NLocBuffer, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
@@ -950,7 +950,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %16
   %37 = load i64, ptr %9, align 4
   %.val.i43 = load i32, ptr %33, align 4
   %.sroa.113.0.extract.shift = lshr i64 %37, 32
-  %.sroa.113.0.extract.trunc = trunc i64 %.sroa.113.0.extract.shift to i32
+  %.sroa.113.0.extract.trunc = trunc nuw i64 %.sroa.113.0.extract.shift to i32
   %.sroa.06.0.extract.trunc = trunc i64 %37 to i32
   %38 = load i32, ptr @MyProcNumber, align 4
   %.val42 = load i32, ptr %34, align 4
@@ -1000,7 +1000,7 @@ BufTagMatchesRelFileLocator.exit.thread:          ; preds = %13, %16, %.lr.ph, %
 define dso_local void @DropRelationAllLocalBuffers(i64 %0, i32 %1) local_unnamed_addr #0 {
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = load i32, ptr @NLocBuffer, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
@@ -1053,7 +1053,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %14
   %29 = load i64, ptr %7, align 4
   %.val.i37 = load i32, ptr %25, align 4
   %.sroa.113.0.extract.shift = lshr i64 %29, 32
-  %.sroa.113.0.extract.trunc = trunc i64 %.sroa.113.0.extract.shift to i32
+  %.sroa.113.0.extract.trunc = trunc nuw i64 %.sroa.113.0.extract.shift to i32
   %.sroa.06.0.extract.trunc = trunc i64 %29 to i32
   %30 = load i32, ptr @MyProcNumber, align 4
   %31 = getelementptr i8, ptr %7, i64 12

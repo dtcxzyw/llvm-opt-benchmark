@@ -296,9 +296,9 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i: ; preds = %
   %8 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !19
   %9 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !19
   %cmp.not.i9.i.i = icmp ult i64 %9, %conv.i.i
-  br i1 %cmp.not.i9.i.i, label %if.then.i11.i.i, label %if.end.i.i.i
+  br i1 %cmp.not.i9.i.i, label %if.then.i12.i.i, label %if.end.i.i.i
 
-if.then.i11.i.i:                                  ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i
+if.then.i12.i.i:                                  ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i
   tail call void @llvm.trap()
   unreachable
 
@@ -311,11 +311,11 @@ if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %call6.i.i, align 8, !noalias !19
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %11 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !19
-  %call.i.i12.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(64) %call6.i.i)
+  %call.i.i13.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(64) %call6.i.i)
           to label %call.i.i.noexc.i.i unwind label %lpad.i.i, !noalias !19
 
 call.i.i.noexc.i.i:                               ; preds = %if.then6.i.i.i
-  br i1 %call.i.i12.i.i, label %if.then.i.i.i.i, label %if.then.i.i.i.i.i.i
+  br i1 %call.i.i13.i.i, label %if.then.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.i.noexc.i.i
   tail call void @llvm.trap()
@@ -553,9 +553,9 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %en
   %5 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !20
   %6 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !20
   %cmp.not.i9.i = icmp ult i64 %6, %1
-  br i1 %cmp.not.i9.i, label %if.then.i11.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIiEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
+  br i1 %cmp.not.i9.i, label %if.then.i12.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIiEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
 
-if.then.i11.i:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
+if.then.i12.i:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
   tail call void @llvm.trap()
   unreachable
 
@@ -968,7 +968,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %2 = trunc i64 %sub to i32
+  %2 = trunc nuw i64 %sub to i32
   %conv4 = add nuw i32 %2, 1
   %call.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %__urng)
   %conv.i = zext i32 %conv4 to i64
@@ -1001,7 +1001,7 @@ if.else:                                          ; preds = %entry
 
 do.body.preheader:                                ; preds = %if.else
   %div13 = lshr i64 %sub, 32
-  %conv9 = trunc i64 %div13 to i32
+  %conv9 = trunc nuw i64 %div13 to i32
   %_M_b.i14 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   br label %do.body
 

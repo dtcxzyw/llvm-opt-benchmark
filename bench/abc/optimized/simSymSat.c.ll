@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Fraig_ParamsStruct_t_ = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Sim_SymmsGetPatternUsingSat(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Sim_SymmsGetPatternUsingSat(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -67,7 +67,7 @@ define noundef i32 @Sim_SymmsGetPatternUsingSat(ptr nocapture noundef %0, ptr no
 
 .lr.ph167:                                        ; preds = %32
   %48 = getelementptr i8, ptr %45, i64 8
-  %49 = trunc i64 %indvars.iv202 to i32
+  %49 = trunc nsw i64 %indvars.iv202 to i32
   br label %51
 
 .critedge2.loopexit.loopexit:                     ; preds = %.critedge6
@@ -409,7 +409,7 @@ Abc_Clock.exit45.i:                               ; preds = %175, %Abc_Clock.exi
   br i1 %.not.i, label %207, label %198
 
 198:                                              ; preds = %.lr.ph53.i
-  %199 = trunc i64 %indvars.iv55.i to i32
+  %199 = trunc nuw nsw i64 %indvars.iv55.i to i32
   %200 = and i32 %199, 31
   %201 = shl nuw i32 1, %200
   %202 = lshr i64 %indvars.iv55.i, 5
@@ -595,7 +595,7 @@ Sim_SymmsSatProveOne.exit:                        ; preds = %Abc_Clock.exit45.i,
 .critedge6:                                       ; preds = %.critedge8, %.lr.ph161, %224, %61, %65
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %.val126 = load i32, ptr %46, align 4
-  %289 = trunc i64 %indvars.iv.next197 to i32
+  %289 = trunc nuw i64 %indvars.iv.next197 to i32
   %290 = icmp sgt i32 %.val126, %289
   br i1 %290, label %61, label %.critedge2.loopexit.loopexit, !llvm.loop !14
 

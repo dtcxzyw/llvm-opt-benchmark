@@ -230,7 +230,7 @@ list_head.exit.i:                                 ; preds = %48, %43
   unreachable
 
 create_ctas_nodata.exit:                          ; preds = %._crit_edge.i
-  %114 = call fastcc { i64, i32 } @create_ctas_internal(ptr noundef %.0.lcssa.i, ptr noundef %11)
+  %114 = call fastcc { i64, i32 } @create_ctas_internal(ptr noundef %.0.lcssa.i, ptr noundef readonly %11)
   %.fca.0.extract = extractvalue { i64, i32 } %114, 0
   %.fca.1.extract = extractvalue { i64, i32 } %114, 1
   br label %142
@@ -420,7 +420,7 @@ declare ptr @CreateQueryDesc(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 declare void @ExecutorStart(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @GetIntoRelEFlags(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 65) i32 @GetIntoRelEFlags(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -602,7 +602,7 @@ list_head.exit:                                   ; preds = %3, %10
   %.fca.0.extract = extractvalue { i64, i32 } %70, 0
   %.fca.1.extract = extractvalue { i64, i32 } %70, 1
   %.sroa.020.sroa.2.0.extract.shift = lshr i64 %.fca.0.extract, 32
-  %.sroa.020.sroa.2.0.extract.trunc = trunc i64 %.sroa.020.sroa.2.0.extract.shift to i32
+  %.sroa.020.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.020.sroa.2.0.extract.shift to i32
   %71 = tail call ptr @table_open(i32 noundef %.sroa.020.sroa.2.0.extract.trunc, i32 noundef 8) #6
   %72 = tail call i32 @check_enable_rls(i32 noundef %.sroa.020.sroa.2.0.extract.trunc, i32 noundef 0, i1 noundef zeroext false) #6
   %73 = icmp eq i32 %72, 2
@@ -758,7 +758,7 @@ define internal fastcc { i64, i32 } @create_ctas_internal(ptr noundef %0, ptr no
   %26 = tail call { i64, i32 } @DefineRelation(ptr noundef nonnull %3, i8 noundef signext %6, i32 noundef 0, ptr noundef null, ptr noundef null) #6
   %.fca.0.extract = extractvalue { i64, i32 } %26, 0
   %.sroa.230.0.extract.shift = lshr i64 %.fca.0.extract, 32
-  %.sroa.230.0.extract.trunc = trunc i64 %.sroa.230.0.extract.shift to i32
+  %.sroa.230.0.extract.trunc = trunc nuw i64 %.sroa.230.0.extract.shift to i32
   tail call void @CommandCounterIncrement() #6
   %27 = load ptr, ptr %15, align 8
   %28 = tail call i64 @transformRelOptions(i64 noundef 0, ptr noundef %27, ptr noundef nonnull @.str.9, ptr noundef nonnull @create_ctas_internal.validnsps, i1 noundef zeroext true, i1 noundef zeroext false) #6

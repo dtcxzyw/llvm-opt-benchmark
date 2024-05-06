@@ -6020,7 +6020,7 @@ entry:
 define hidden noundef ptr @assimp_stbi_load(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.3)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -6032,7 +6032,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -6108,7 +6108,7 @@ define hidden noundef ptr @assimp_stbi_load_from_file(ptr noundef %f, ptr nocapt
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -6328,7 +6328,7 @@ define hidden noundef ptr @assimp_stbi_load_from_file_16(ptr noundef %f, ptr noc
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -6543,7 +6543,7 @@ return:                                           ; preds = %if.end6, %_ZL19stbi
 define hidden noundef ptr @assimp_stbi_load_16(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.3)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -6555,7 +6555,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -6655,7 +6655,7 @@ define hidden noundef ptr @assimp_stbi_load_16_from_callbacks(ptr nocapture noun
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i, ptr noundef nonnull align 8 dereferenceable(24) %clbk, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %clbk, i64 24, i1 false)
   %io_user_data.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %user, ptr %io_user_data.i, align 8
   %buflen.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -6734,7 +6734,7 @@ define hidden noundef ptr @assimp_stbi_load_from_callbacks(ptr nocapture noundef
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i, ptr noundef nonnull align 8 dereferenceable(24) %clbk, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %clbk, i64 24, i1 false)
   %io_user_data.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %user, ptr %io_user_data.i, align 8
   %buflen.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -6959,7 +6959,7 @@ define hidden noundef ptr @assimp_stbi_loadf_from_callbacks(ptr nocapture nounde
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i, ptr noundef nonnull align 8 dereferenceable(24) %clbk, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %clbk, i64 24, i1 false)
   %io_user_data.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %user, ptr %io_user_data.i, align 8
   %buflen.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -7013,7 +7013,7 @@ _ZL21stbi__start_callbacksP13stbi__contextP17stbi_io_callbacksPv.exit: ; preds =
 define hidden noundef ptr @assimp_stbi_loadf(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #3 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.3)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -7025,7 +7025,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %s.i)
   %io.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 40
   store ptr %call.i, ptr %io_user_data.i.i.i, align 8
   %buflen.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 52
@@ -7086,7 +7086,7 @@ define hidden noundef ptr @assimp_stbi_loadf_from_file(ptr noundef %f, ptr nocap
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -7145,7 +7145,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef i32 @assimp_stbi_is_hdr(ptr nocapture noundef readonly %filename) local_unnamed_addr #26 {
 entry:
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.3)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -8757,7 +8757,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden range(i32 0, 2) i32 @assimp_stbi_info(ptr nocapture noundef readonly %filename, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #3 {
 entry:
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.3)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -8783,7 +8783,7 @@ entry:
   %s = alloca %struct.stbi__context, align 8
   %call = tail call i64 @ftell(ptr noundef %f)
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -8894,7 +8894,7 @@ declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #24
 ; Function Attrs: mustprogress uwtable
 define hidden range(i32 0, 2) i32 @assimp_stbi_is_16_bit(ptr nocapture noundef readonly %filename) local_unnamed_addr #3 {
 entry:
-  %call.i = tail call noalias noundef ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str.3)
+  %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.3)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -8920,7 +8920,7 @@ entry:
   %s = alloca %struct.stbi__context, align 8
   %call = tail call i64 @ftell(ptr noundef %f)
   %io.i.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) @_ZL21stbi__stdio_callbacks, i64 24, i1 false)
   %io_user_data.i.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %f, ptr %io_user_data.i.i, align 8
   %buflen.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -9080,7 +9080,7 @@ entry:
   %p.i.i = alloca %struct.stbi__png, align 8
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i, ptr noundef nonnull align 8 dereferenceable(24) %c, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %c, i64 24, i1 false)
   %io_user_data.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %user, ptr %io_user_data.i, align 8
   %buflen.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -9239,7 +9239,7 @@ entry:
   %p.i.i = alloca %struct.stbi__png, align 8
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds i8, ptr %s, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i, ptr noundef nonnull align 8 dereferenceable(24) %c, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %c, i64 24, i1 false)
   %io_user_data.i = getelementptr inbounds i8, ptr %s, i64 40
   store ptr %user, ptr %io_user_data.i, align 8
   %buflen.i = getelementptr inbounds i8, ptr %s, i64 52

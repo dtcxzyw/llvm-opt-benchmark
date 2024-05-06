@@ -191,7 +191,7 @@ if.then17:                                        ; preds = %if.end13
 if.end18:                                         ; preds = %if.end13
   %queue_size = getelementptr inbounds i8, ptr %call.i45, i64 586
   %3 = load i16, ptr %queue_size, align 2
-  %4 = tail call i16 @llvm.ctpop.i16(i16 %3), !range !5
+  %4 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %3)
   %or.cond = icmp eq i16 %4, 1
   br i1 %or.cond, label %if.end23, label %if.then22
 
@@ -240,7 +240,7 @@ for.body:                                         ; preds = %if.end35, %for.body
   %10 = load i16, ptr %num_request_queues, align 8
   %11 = zext i16 %10 to i64
   %cmp47 = icmp ult i64 %indvars.iv.next, %11
-  br i1 %cmp47, label %for.body, label %for.end.loopexit, !llvm.loop !6
+  br i1 %cmp47, label %for.body, label %for.end.loopexit, !llvm.loop !5
 
 for.end.loopexit:                                 ; preds = %for.body
   %12 = zext i16 %10 to i32
@@ -278,7 +278,7 @@ for.body77:                                       ; preds = %err_virtio, %for.bo
   %18 = load i16, ptr %num_request_queues, align 8
   %19 = zext i16 %18 to i64
   %cmp75 = icmp ult i64 %indvars.iv.next56, %19
-  br i1 %cmp75, label %for.body77, label %for.end83, !llvm.loop !8
+  br i1 %cmp75, label %for.body77, label %for.end83, !llvm.loop !7
 
 for.end83:                                        ; preds = %for.body77, %err_virtio
   %20 = load ptr, ptr %req_vqs, align 8
@@ -326,7 +326,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = load i16, ptr %num_request_queues, align 8
   %6 = zext i16 %5 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %6
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %entry
   %req_vqs4 = getelementptr inbounds i8, ptr %call.i11, i64 1264
@@ -483,7 +483,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw i32 %i.029.i, 1
   %16 = load i32, ptr %nvqs.i, align 8
   %cmp24.i = icmp ult i32 %inc.i, %16
-  br i1 %cmp24.i, label %for.body.i, label %if.end7, !llvm.loop !10
+  br i1 %cmp24.i, label %for.body.i, label %if.end7, !llvm.loop !9
 
 err_host_notifiers.i:                             ; preds = %if.then19.i, %if.then12.i
   tail call void @vhost_dev_disable_notifiers(ptr noundef nonnull %vhost_dev.i, ptr noundef nonnull %vdev) #8
@@ -569,7 +569,7 @@ entry:
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vuf_check_migration_support(ptr noundef %opaque) #0 {
+define internal range(i32 -95, 1) i32 @vuf_check_migration_support(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
   %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 600
@@ -600,7 +600,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vuf_load_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -2147483648, 1) i32 @vuf_load_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %local_error = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pv, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
@@ -629,7 +629,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vuf_save_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal range(i32 -2147483648, 1) i32 @vuf_save_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
 entry:
   %local_error = alloca ptr, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pv, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 24, ptr noundef nonnull @__func__.VHOST_USER_FS) #8
@@ -751,9 +751,8 @@ attributes #10 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i16 0, i16 17}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

@@ -117,7 +117,7 @@ define dso_local ptr @win64_classify(ptr nocapture noundef %0, ptr nocapture nou
 57:                                               ; preds = %53
   %58 = add i32 %54, -1
   %or.cond47 = icmp ult i32 %58, 8
-  %59 = call i64 @llvm.ctpop.i64(i64 %55), !range !7
+  %59 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %55)
   %60 = icmp ult i64 %59, 2
   %or.cond49 = select i1 %or.cond47, i1 %60, i1 false
   br i1 %or.cond49, label %62, label %is_power_of_two.exit.thread
@@ -399,7 +399,7 @@ define dso_local ptr @win64_create_params(ptr noundef readonly %0, ptr nocapture
   store ptr %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %.thread, label %11, !llvm.loop !8
+  br i1 %exitcond.not, label %.thread, label %11, !llvm.loop !7
 
 .thread:                                          ; preds = %11, %3, %4
   %.018 = phi ptr [ null, %4 ], [ null, %3 ], [ %10, %11 ]
@@ -497,7 +497,7 @@ define dso_local void @c_abi_func_create_win64(ptr nocapture noundef %0) local_u
   store ptr %.sink29, ptr %45, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %32
-  br i1 %exitcond.not.i, label %.preheader.i.preheader, label %35, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.preheader.i.preheader, label %35, !llvm.loop !9
 
 .preheader.i.preheader:                           ; preds = %44
   %.promoted = load i32, ptr %7, align 4
@@ -514,7 +514,7 @@ define dso_local void @c_abi_func_create_win64(ptr nocapture noundef %0) local_u
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store ptr null, ptr %2, align 8
   store i32 0, ptr %3, align 4
-  %51 = call fastcc ptr @type_lowering(ptr noundef %48)
+  %51 = call fastcc ptr @type_lowering(ptr noundef readonly %48)
   %52 = load i32, ptr %51, align 8
   %53 = add i32 %52, -1
   %54 = icmp ult i32 %53, 22
@@ -544,7 +544,7 @@ win64_reclassify_hva_arg.exit.i:                  ; preds = %59, %57, %55, %.pre
   store ptr %.0.i.i, ptr %49, align 8
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %32
-  br i1 %exitcond57.not.i, label %win64_vector_call_args.exit.sink.split, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond57.not.i, label %win64_vector_call_args.exit.sink.split, label %.preheader.i, !llvm.loop !10
 
 63:                                               ; preds = %24
   %64 = getelementptr inbounds i8, ptr %0, i64 16
@@ -573,7 +573,7 @@ win64_reclassify_hva_arg.exit.i:                  ; preds = %59, %57, %55, %.pre
   store ptr %76, ptr %77, align 8
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %70
-  br i1 %exitcond.not.i21, label %win64_create_params.exit, label %73, !llvm.loop !8
+  br i1 %exitcond.not.i21, label %win64_create_params.exit, label %73, !llvm.loop !7
 
 win64_create_params.exit:                         ; preds = %73, %63, %66
   %.018.i = phi ptr [ null, %66 ], [ null, %63 ], [ %72, %73 ]
@@ -605,7 +605,7 @@ win64_create_params.exit:                         ; preds = %73, %63, %66
   store ptr %91, ptr %92, align 8
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %85
-  br i1 %exitcond.not.i26, label %win64_vector_call_args.exit.sink.split, label %88, !llvm.loop !8
+  br i1 %exitcond.not.i26, label %win64_vector_call_args.exit.sink.split, label %88, !llvm.loop !7
 
 win64_vector_call_args.exit.sink.split:           ; preds = %88, %win64_reclassify_hva_arg.exit.i, %81, %win64_create_params.exit
   %.sink31 = phi i64 [ 80, %win64_create_params.exit ], [ 80, %81 ], [ 72, %win64_reclassify_hva_arg.exit.i ], [ 80, %88 ]
@@ -655,8 +655,7 @@ attributes #6 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i64 0, i64 65}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

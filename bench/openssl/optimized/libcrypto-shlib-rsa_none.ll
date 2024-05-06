@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.RSA_padding_check_none = private unnamed_addr constant [23 x i8] c"RSA_padding_check_none\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_padding_add_none(ptr nocapture noundef writeonly %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_padding_add_none(ptr nocapture noundef writeonly %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %flen, %tlen
   br i1 %cmp, label %if.then, label %if.end
@@ -49,7 +49,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_padding_check_none(ptr nocapture noundef writeonly %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen, i32 noundef %num) local_unnamed_addr #0 {
+define noundef i32 @RSA_padding_check_none(ptr nocapture noundef writeonly %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen, i32 noundef %num) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %flen, %tlen
   br i1 %cmp, label %if.then, label %if.end

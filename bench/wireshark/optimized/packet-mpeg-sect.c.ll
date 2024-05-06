@@ -120,7 +120,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.86 = private unnamed_addr constant [17 x i8] c" Table_ID=0x%02x\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @packet_mpeg_sect_mjd_to_utc_time(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 6) i32 @packet_mpeg_sect_mjd_to_utc_time(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %40, label %4
 
@@ -335,7 +335,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mpeg_sect(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 4100) i32 @dissect_mpeg_sect(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 0, ptr %5, align 4

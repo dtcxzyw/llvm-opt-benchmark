@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @working_cluster_rec = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_load_topo(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_load_topo(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.slurm_msg, align 8
   %3 = alloca %struct.slurm_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %2) #3

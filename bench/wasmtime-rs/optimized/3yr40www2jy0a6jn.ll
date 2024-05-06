@@ -815,7 +815,7 @@ define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h8c02afddc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hc8f0d17e9a3754e5E"(ptr align 8 %0, i64 %1, i32 %2, i1 zeroext %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define range(i8 0, 3) i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hc8f0d17e9a3754e5E"(ptr align 8 %0, i64 %1, i32 %2, i1 zeroext %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, i32, {}, [4 x i8] }, i8, [7 x i8] }, align 8
   %6 = alloca { i64, [1 x i64] }, align 8
   %7 = alloca { i64, i32, {}, [4 x i8] }, align 8

@@ -571,7 +571,7 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   %166 = fptosi float %165 to i32
   %167 = tail call i32 @llvm.smin.i32(i32 %166, i32 8191)
   %168 = tail call i32 @llvm.smax.i32(i32 %167, i32 0)
-  %169 = trunc i32 %168 to i16
+  %169 = trunc nuw nsw i32 %168 to i16
   %170 = fmul float %.1, %9
   %171 = tail call float @llvm.ceil.f32(float %170)
   %172 = fptosi float %171 to i32
@@ -659,12 +659,12 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %13, %17
   %38 = mul nsw i32 %37, 3
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds float, ptr %1, i64 %39
-  %41 = getelementptr i8, ptr %36, i64 4
+  %41 = getelementptr inbounds i8, ptr %36, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = mul nsw i32 %42, 3
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds float, ptr %1, i64 %44
-  %46 = getelementptr i8, ptr %36, i64 8
+  %46 = getelementptr inbounds i8, ptr %36, i64 8
   %47 = load i32, ptr %46, align 4
   %48 = mul nsw i32 %47, 3
   %49 = sext i32 %48 to i64
@@ -796,12 +796,12 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %13, %17
   %38 = zext i16 %37 to i64
   %39 = mul nuw nsw i64 %38, 3
   %40 = getelementptr inbounds float, ptr %1, i64 %39
-  %41 = getelementptr i8, ptr %36, i64 2
+  %41 = getelementptr inbounds i8, ptr %36, i64 2
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i64
   %44 = mul nuw nsw i64 %43, 3
   %45 = getelementptr inbounds float, ptr %1, i64 %44
-  %46 = getelementptr i8, ptr %36, i64 4
+  %46 = getelementptr inbounds i8, ptr %36, i64 4
   %47 = load i16, ptr %46, align 2
   %48 = zext i16 %47 to i64
   %49 = mul nuw nsw i64 %48, 3
@@ -927,7 +927,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %11, %15
 31:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %32 = phi i1 [ false, %.lr.ph ], [ %30, %29 ]
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = mul i32 %33, 9
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds float, ptr %1, i64 %35
@@ -1085,7 +1085,7 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr nocapture
   store float %40, ptr %43, align 4
   %44 = getelementptr i8, ptr %34, i64 4
   %45 = load float, ptr %44, align 4
-  %46 = getelementptr i8, ptr %37, i64 4
+  %46 = getelementptr inbounds i8, ptr %37, i64 4
   %47 = load float, ptr %46, align 4
   %48 = fsub float %47, %45
   %49 = tail call float @llvm.fmuladd.f32(float %48, float %31, float %45)
@@ -1093,7 +1093,7 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr nocapture
   store float %49, ptr %50, align 4
   %51 = getelementptr i8, ptr %34, i64 8
   %52 = load float, ptr %51, align 4
-  %53 = getelementptr i8, ptr %37, i64 8
+  %53 = getelementptr inbounds i8, ptr %37, i64 8
   %54 = load float, ptr %53, align 4
   %55 = fsub float %54, %52
   %56 = tail call float @llvm.fmuladd.f32(float %55, float %31, float %52)
@@ -1199,7 +1199,7 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr nocapture
   %.187 = phi i32 [ %.08692, %91 ], [ %118, %106 ], [ %66, %68 ], [ %89, %80 ], [ %66, %78 ]
   %.2 = phi i32 [ %104, %91 ], [ %.1, %106 ], [ %77, %68 ], [ %65, %80 ], [ %65, %78 ]
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %120 = trunc i64 %indvars.iv101 to i32
+  %120 = trunc nuw nsw i64 %indvars.iv101 to i32
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
   br i1 %exitcond105.not, label %._crit_edge98, label %.lr.ph97, !llvm.loop !15
 

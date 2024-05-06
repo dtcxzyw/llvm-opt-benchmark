@@ -358,7 +358,7 @@ _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_113ElectricFieldESt14default_deleteIS2_EED2E
   store ptr getelementptr inbounds inrange(-16, 32) ({ [15 x ptr], [7 x ptr], [6 x ptr], [3 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_113ElectricFieldE, i64 0, i32 2, i64 2), ptr %3, align 8, !noalias !5
   store ptr getelementptr inbounds inrange(-16, 8) ({ [15 x ptr], [7 x ptr], [6 x ptr], [3 x ptr] }, ptr @_ZTVN3gmx12_GLOBAL__N_113ElectricFieldE, i64 0, i32 3, i64 2), ptr %4, align 8, !noalias !5
   %scevgep.i.i = getelementptr inbounds i8, ptr %1, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %scevgep.i.i, i8 0, i64 56, i1 false), !noalias !5
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %scevgep.i.i, i8 0, i64 56, i1 false), !noalias !5
   store ptr %1, ptr %0, align 8
   ret void
 }

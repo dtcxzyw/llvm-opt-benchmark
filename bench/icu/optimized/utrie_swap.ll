@@ -140,7 +140,7 @@ return:                                           ; preds = %if.end54, %if.else,
 declare i32 @udata_readInt32_75(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @utrie2_swap_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define range(i32 0, 1179647) i32 @utrie2_swap_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -256,7 +256,7 @@ return:                                           ; preds = %if.end38, %sw.bb67,
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucptrie_swap_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define range(i32 0, 4325387) i32 @ucptrie_swap_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -453,11 +453,11 @@ sw.bb:                                            ; preds = %if.end.i, %if.end.i
   br label %return
 
 sw.bb3:                                           ; preds = %if.end.i, %if.end.i
-  %call4 = tail call i32 @utrie2_swap_75(ptr noundef %ds, ptr noundef nonnull %inData, i32 noundef %length, ptr noundef %outData, ptr noundef nonnull %pErrorCode), !range !4
+  %call4 = tail call i32 @utrie2_swap_75(ptr noundef %ds, ptr noundef nonnull %inData, i32 noundef %length, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
   br label %return
 
 sw.bb5:                                           ; preds = %if.end.i, %if.end.i
-  %call6 = tail call i32 @ucptrie_swap_75(ptr noundef %ds, ptr noundef nonnull %inData, i32 noundef %length, ptr noundef %outData, ptr noundef nonnull %pErrorCode), !range !5
+  %call6 = tail call i32 @ucptrie_swap_75(ptr noundef %ds, ptr noundef nonnull %inData, i32 noundef %length, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
   br label %return
 
 sw.default:                                       ; preds = %if.end.i, %if.end
@@ -479,5 +479,3 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 1179647}
-!5 = !{i32 0, i32 4325387}

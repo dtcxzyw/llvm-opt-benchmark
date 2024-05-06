@@ -149,7 +149,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_store_register_loader_int(ptr noundef %loader) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_store_register_loader_int(ptr noundef %loader) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %loader, align 8
   %1 = load i8, ptr %0, align 1
@@ -321,9 +321,9 @@ declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_STORE_register_loader(ptr noundef %loader) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_STORE_register_loader(ptr noundef %loader) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_store_register_loader_int(ptr noundef %loader), !range !6
+  %call = tail call i32 @ossl_store_register_loader_int(ptr noundef %loader)
   ret i32 %call
 }
 
@@ -569,4 +569,3 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}

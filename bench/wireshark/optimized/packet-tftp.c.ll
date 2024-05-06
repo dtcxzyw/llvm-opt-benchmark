@@ -268,7 +268,7 @@ define internal i32 @dissect_tftp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond.i, label %.thread, label %is_valid_request.exit
 
 is_valid_request.exit:                            ; preds = %17
-  %20 = tail call fastcc i32 @is_valid_request_body(ptr noundef %0, ptr noundef nonnull %1), !range !4
+  %20 = tail call fastcc i32 @is_valid_request_body(ptr noundef %0, ptr noundef nonnull readonly %1)
   %.not35 = icmp eq i32 %20, 0
   br i1 %.not35, label %.thread, label %21
 
@@ -429,7 +429,7 @@ define hidden void @proto_reg_handoff_tftp() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_embeddedtftp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_embeddedtftp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %31, label %7
@@ -447,7 +447,7 @@ define internal noundef i32 @dissect_embeddedtftp_heur(ptr noundef %0, ptr nound
   ]
 
 9:                                                ; preds = %7, %7
-  %10 = tail call fastcc i32 @is_valid_request_body(ptr noundef %0, ptr noundef %1), !range !4
+  %10 = tail call fastcc i32 @is_valid_request_body(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %31, label %13
 
@@ -500,8 +500,8 @@ tftp_info_for_conversation.exit:                  ; preds = %13, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_tftp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @is_valid_request_body(ptr noundef %0, ptr noundef %1), !range !4
+define internal range(i32 0, 2) i32 @dissect_tftp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call fastcc i32 @is_valid_request_body(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %24, label %6
 
@@ -1246,7 +1246,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @is_valid_request_body(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_valid_request_body(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %4 = icmp sgt i32 %3, 2
   br i1 %4, label %.lr.ph, label %.loopexit
@@ -1279,7 +1279,7 @@ define internal fastcc noundef i32 @is_valid_request_body(ptr noundef %0, ptr no
   %17 = add nuw nsw i32 %.02731, 1
   %18 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %19 = icmp slt i32 %17, %18
-  br i1 %19, label %6, label %._crit_edge, !llvm.loop !5
+  br i1 %19, label %6, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %16
   %20 = and i32 %.1, 1
@@ -1300,7 +1300,7 @@ define internal fastcc noundef i32 @is_valid_request_body(ptr noundef %0, ptr no
 30:                                               ; preds = %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !6
 
 31:                                               ; preds = %23, %30
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %30 ]
@@ -1500,7 +1500,7 @@ define internal fastcc void @tftp_dissect_options(ptr noundef %0, ptr noundef %1
 81:                                               ; preds = %53, %72, %70, %78, %79, %74, %60, %62, %39, %37, %49, %52, %47, %43
   %82 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %33) #6
   %.not = icmp eq i32 %82, 0
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %81, %6
   ret void
@@ -1586,8 +1586,7 @@ attributes #8 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

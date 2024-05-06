@@ -58,7 +58,7 @@ if.then12:                                        ; preds = %if.then8
   br label %return
 
 if.end15:                                         ; preds = %if.then8, %if.end6
-  %conv = trunc i64 %b to i32
+  %conv = trunc nuw nsw i64 %b to i32
   store i32 %conv, ptr %u, align 8
   %packed_alloc_size = getelementptr inbounds i8, ptr %u, i64 8
   store i32 %conv, ptr %packed_alloc_size, align 8
@@ -102,7 +102,7 @@ if.then4.i:                                       ; preds = %if.end3.i
   br label %exr_attr_opaquedata_init.exit
 
 if.end6.i:                                        ; preds = %if.end3.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %u, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %u, i8 0, i64 56, i1 false)
   %cmp7.not.i = icmp eq i64 %b, 0
   br i1 %cmp7.not.i, label %if.end15.i, label %if.then8.i
 
@@ -122,7 +122,7 @@ if.then12.i:                                      ; preds = %if.then8.i
   br label %exr_attr_opaquedata_init.exit
 
 if.end15.i:                                       ; preds = %if.then8.i, %if.end6.i
-  %conv.i = trunc i64 %b to i32
+  %conv.i = trunc nuw nsw i64 %b to i32
   store i32 %conv.i, ptr %u, align 8
   %packed_alloc_size.i = getelementptr inbounds i8, ptr %u, i64 8
   store i32 %conv.i, ptr %packed_alloc_size.i, align 8
@@ -151,7 +151,7 @@ if.end4:                                          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @exr_attr_opaquedata_destroy(ptr noundef %ctxt, ptr noundef %ud) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @exr_attr_opaquedata_destroy(ptr noundef %ctxt, ptr noundef %ud) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -244,7 +244,7 @@ if.then4.i.i:                                     ; preds = %if.end3.i.i
   br label %exr_attr_opaquedata_init.exit.i
 
 if.end6.i.i:                                      ; preds = %if.end3.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ud, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %ud, i8 0, i64 56, i1 false)
   %cmp7.not.i.i = icmp eq i32 %1, 0
   br i1 %cmp7.not.i.i, label %exr_attr_opaquedata_init.exit.i.thread, label %if.then8.i.i
 
@@ -286,7 +286,7 @@ land.lhs.true.i:                                  ; preds = %exr_attr_opaquedata
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull align 1 %0, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %0, i64 %conv, i1 false)
   br label %return
 
 if.end4:                                          ; preds = %if.end

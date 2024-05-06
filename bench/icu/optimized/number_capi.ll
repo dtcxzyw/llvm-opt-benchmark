@@ -1347,7 +1347,7 @@ declare void @_ZNK6icu_7531FormattedValueStringBuilderImpl12toTempStringER10UErr
 declare noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @unumf_resultNextFieldPosition_75(ptr noundef %uresult, ptr noundef %ufpos, ptr noundef %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define signext range(i8 0, 2) i8 @unumf_resultNextFieldPosition_75(ptr noundef %uresult, ptr noundef %ufpos, ptr noundef %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %fp = alloca %"class.icu_75::FieldPosition", align 8
   %0 = load i32, ptr %ec, align 4

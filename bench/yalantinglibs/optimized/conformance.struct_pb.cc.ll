@@ -4342,7 +4342,7 @@ if.end135:                                        ; preds = %if.end104.i1079, %i
   %add.ptr138 = getelementptr inbounds i8, ptr %data, i64 %188
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, i8 0, i64 24, i1 false)
-  %call.i996 = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN11conformance18JspbEncodingConfigEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 1 dereferenceable(1) %173, ptr noundef %add.ptr138, i64 noundef %sz130.01049, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
+  %call.i996 = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN11conformance18JspbEncodingConfigEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull writeonly align 1 dereferenceable(1) %173, ptr noundef %add.ptr138, i64 noundef %sz130.01049, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.end135

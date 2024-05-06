@@ -1505,7 +1505,7 @@ declare dso_local void @scsi_device_unbusy(ptr noundef, ptr noundef) local_unnam
 declare dso_local void @scsi_io_completion(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @scsi_device_max_queue_depth(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 -2147483648, 4097) i32 @scsi_device_max_queue_depth(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 452
   %4 = load i32, ptr %3, align 4
@@ -1514,7 +1514,7 @@ define dso_local i32 @scsi_device_max_queue_depth(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @scsi_change_queue_depth(ptr noundef %0, i32 noundef %1) #1 align 16 {
+define dso_local range(i32 0, 65536) i32 @scsi_change_queue_depth(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 452
   %5 = load i32, ptr %4, align 4
@@ -1524,7 +1524,7 @@ define dso_local i32 @scsi_change_queue_depth(ptr noundef %0, i32 noundef %1) #1
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = trunc i32 %7 to i16
+  %10 = trunc nuw i32 %7 to i16
   %11 = getelementptr inbounds i8, ptr %0, i64 112
   store i16 %10, ptr %11, align 8
   tail call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !19
@@ -1558,7 +1558,7 @@ declare dso_local void @blk_set_queue_depth(ptr noundef, i32 noundef) local_unna
 declare dso_local void @sbitmap_resize(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @scsi_track_queue_full(ptr noundef %0, i32 noundef %1) #1 align 16 {
+define dso_local range(i32 0, 65536) i32 @scsi_track_queue_full(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = load volatile i64, ptr @jiffies, align 64
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load i64, ptr %4, align 8
@@ -1599,7 +1599,7 @@ define dso_local i32 @scsi_track_queue_full(ptr noundef %0, i32 noundef %1) #1 a
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %20
-  %28 = trunc i32 %25 to i16
+  %28 = trunc nuw i32 %25 to i16
   %29 = getelementptr inbounds i8, ptr %0, i64 112
   store i16 %28, ptr %29, align 8
   tail call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !19
@@ -1631,7 +1631,7 @@ define dso_local i32 @scsi_track_queue_full(ptr noundef %0, i32 noundef %1) #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @scsi_get_vpd_page(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @scsi_get_vpd_page(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca [16 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 332
   %7 = load i64, ptr %6, align 4
@@ -1720,7 +1720,7 @@ define dso_local noundef i32 @scsi_get_vpd_page(ptr noundef %0, i8 noundef zeroe
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @scsi_get_vpd_size(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 0, 65540) i32 @scsi_get_vpd_size(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #1 align 16 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca [16 x i8], align 16
   %5 = alloca [36 x i8], align 4
@@ -2065,8 +2065,8 @@ define internal fastcc ptr @scsi_get_vpd_buf(ptr noundef %0, i8 noundef zeroext 
   %10 = getelementptr inbounds i8, ptr %3, i64 4
   %11 = getelementptr inbounds i8, ptr %0, i64 440
   %12 = zext i8 %1 to i32
-  %narrow = add nuw i32 %4, 24
-  %13 = zext i32 %narrow to i64
+  %narrow = add nuw nsw i32 %4, 24
+  %13 = zext nneg i32 %narrow to i64
   %14 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %13, i32 noundef 3264) #18
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %.lr.ph
@@ -2149,7 +2149,7 @@ define internal fastcc ptr @scsi_get_vpd_buf(ptr noundef %0, i8 noundef zeroext 
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @scsi_report_opcode(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i16 noundef zeroext %4) #1 align 16 {
+define dso_local range(i32 -2147483648, 2) i32 @scsi_report_opcode(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i16 noundef zeroext %4) #1 align 16 {
   %6 = alloca [16 x i8], align 16
   %7 = alloca %struct.scsi_sense_hdr, align 8
   %8 = alloca %struct.scsi_exec_args, align 8
@@ -2496,7 +2496,7 @@ declare dso_local i32 @scsi_mode_select(ptr noundef, i32 noundef, i32 noundef, p
 declare dso_local void @scsi_print_sense_hdr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @scsi_device_get(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -6, 1) i32 @scsi_device_get(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2016
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -3

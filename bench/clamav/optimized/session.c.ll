@@ -865,7 +865,7 @@ declare i32 @scan_pathchk(ptr noundef, ptr noundef) #2
 declare void @thrmgr_group_waitforall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @execute_or_dispatch_command(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 21) i32 @execute_or_dispatch_command(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1105,7 +1105,7 @@ print_commands.exit:                              ; preds = %62, %71
   br label %.thread48.i
 
 108:                                              ; preds = %102, %102, %102, %102
-  %109 = tail call noalias ptr @strdup(ptr noundef %2) #13
+  %109 = tail call noalias ptr @strdup(ptr noundef readonly %2) #13
   %110 = getelementptr inbounds i8, ptr %93, i64 8
   store ptr %109, ptr %110, align 8
   %.not36.i = icmp eq ptr %109, null

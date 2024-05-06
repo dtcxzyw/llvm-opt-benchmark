@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @lzma_block_compressed_size(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 12) i32 @lzma_block_compressed_size(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %lzma_block_unpadded_size.exit.thread, label %4
 
@@ -78,7 +78,7 @@ lzma_block_unpadded_size.exit.thread:             ; preds = %21, %2, %4, %7, %12
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @lzma_block_unpadded_size(ptr noundef readonly %0) local_unnamed_addr #1 {
+define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_unpadded_size(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %27, label %3
 
@@ -134,7 +134,7 @@ define dso_local i64 @lzma_block_unpadded_size(ptr noundef readonly %0) local_un
 declare i32 @lzma_check_size(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @lzma_block_total_size(ptr noundef readonly %0) local_unnamed_addr #1 {
+define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_total_size(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %lzma_block_unpadded_size.exit.thread, label %3
 

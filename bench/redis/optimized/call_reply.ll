@@ -521,7 +521,7 @@ return:                                           ; preds = %if.end.i3, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @callReplyGetMapElement(ptr noundef %rep, i64 noundef %idx, ptr noundef writeonly %key, ptr noundef writeonly %val) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @callReplyGetMapElement(ptr noundef %rep, i64 noundef %idx, ptr noundef writeonly %key, ptr noundef writeonly %val) local_unnamed_addr #0 {
 entry:
   %parser.i.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i.i)
@@ -614,7 +614,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @callReplyGetAttributeElement(ptr noundef %rep, i64 noundef %idx, ptr noundef writeonly %key, ptr noundef writeonly %val) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @callReplyGetAttributeElement(ptr noundef %rep, i64 noundef %idx, ptr noundef writeonly %key, ptr noundef writeonly %val) local_unnamed_addr #0 {
 entry:
   %parser.i.i = alloca %struct.ReplyParser, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i.i)
@@ -813,7 +813,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @callReplyIsResp3(ptr nocapture noundef readonly %rep) local_unnamed_addr #3 {
+define dso_local range(i32 0, 5) i32 @callReplyIsResp3(ptr nocapture noundef readonly %rep) local_unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds i8, ptr %rep, i64 36
   %0 = load i32, ptr %flags, align 4

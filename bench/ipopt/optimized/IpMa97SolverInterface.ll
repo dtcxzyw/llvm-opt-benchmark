@@ -5780,7 +5780,7 @@ define void @_ZN5Ipopt19Ma97SolverInterface12SetFunctionsEPFvP14ma97_control_dEP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 align 2 {
+define noundef range(i32 -1, 5) i32 @_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.17) #15
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %13, label %4
@@ -7492,7 +7492,7 @@ declare noundef ptr @_ZN5Ipopt13LibraryLoader10loadSymbolERKNSt7__cxx1112basic_s
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt19Ma97SolverInterface19InitializeStructureEiiPKiS2_(ptr noundef nonnull align 8 dereferenceable(440) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #6 align 2 {
+define noundef range(i32 0, 5) i32 @_ZN5Ipopt19Ma97SolverInterface19InitializeStructureEiiPKiS2_(ptr noundef nonnull align 8 dereferenceable(440) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #6 align 2 {
   %6 = alloca %struct.ma97_info_d, align 8
   %7 = alloca %struct.ma97_info_d, align 8
   %8 = alloca ptr, align 8
@@ -7787,7 +7787,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt19Ma97SolverInterface10MultiSolveEbPKiS2_iPdbi(ptr noundef nonnull align 8 dereferenceable(440) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i32 noundef %7) unnamed_addr #6 align 2 {
+define noundef range(i32 0, 5) i32 @_ZN5Ipopt19Ma97SolverInterface10MultiSolveEbPKiS2_iPdbi(ptr noundef nonnull align 8 dereferenceable(440) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i32 noundef %7) unnamed_addr #6 align 2 {
   %9 = alloca %struct.ma97_info_d, align 8
   br i1 %1, label %14, label %10
 
@@ -8136,7 +8136,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit35:                 ; preds = %160, %164
 
 220:                                              ; preds = %217
   %221 = load i32, ptr %208, align 8
-  %222 = trunc i64 %indvars.iv to i32
+  %222 = trunc nsw i64 %indvars.iv to i32
   %223 = icmp eq i32 %221, %222
   br i1 %223, label %224, label %255
 
@@ -8154,7 +8154,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit35:                 ; preds = %160, %164
   %231 = load i32, ptr %148, align 4
   store i32 %231, ptr %212, align 4
   %232 = load i32, ptr %208, align 8
-  %233 = trunc i64 %indvars.iv to i32
+  %233 = trunc nsw i64 %indvars.iv to i32
   %234 = icmp eq i32 %232, %233
   br i1 %234, label %235, label %.thread44
 
@@ -8187,7 +8187,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit35:                 ; preds = %160, %164
   br i1 %246, label %247, label %255
 
 247:                                              ; preds = %239
-  %248 = trunc i64 %indvars.iv to i32
+  %248 = trunc nsw i64 %indvars.iv to i32
   store i32 %248, ptr %208, align 8
   %249 = getelementptr inbounds [3 x i32], ptr %214, i64 0, i64 %indvars.iv
   %250 = load i32, ptr %249, align 4
@@ -8445,7 +8445,7 @@ define noundef zeroext i1 @_ZN5Ipopt19Ma97SolverInterface15IncreaseQualityEv(ptr
 
 14:                                               ; preds = %11, %11, %11, %11
   store i8 1, ptr %6, align 1
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nsw i64 %indvars.iv to i32
   store i32 %15, ptr %2, align 8
   %16 = getelementptr inbounds [3 x i32], ptr %7, i64 0, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4

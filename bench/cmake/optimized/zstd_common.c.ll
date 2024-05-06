@@ -16,7 +16,7 @@ define dso_local noundef nonnull ptr @ZSTD_versionString() local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @ZSTD_isError(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ZSTD_isError(i64 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i64 %0, -120
   %3 = zext i1 %2 to i32
   ret i32 %3

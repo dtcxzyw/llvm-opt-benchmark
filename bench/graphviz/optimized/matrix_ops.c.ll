@@ -261,7 +261,7 @@ vectors_inner_product.exit235.loopexit:           ; preds = %.lr.ph.i230
   br i1 %exitcond371.not, label %.preheader, label %12
 
 .loopexit.loopexit:                               ; preds = %norm.exit219.loopexit
-  %85 = trunc i64 %indvars.iv367 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv367 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %5
@@ -305,7 +305,7 @@ vectors_inner_product.exit235.loopexit:           ; preds = %.lr.ph.i230
   %indvars.iv399 = phi i64 [ 1, %.lr.ph335.split.us.preheader ], [ %indvars.iv.next400, %109 ]
   %94 = getelementptr inbounds double, ptr %4, i64 %indvars.iv406
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
-  %95 = trunc i64 %indvars.iv406 to i32
+  %95 = trunc nuw nsw i64 %indvars.iv406 to i32
   %96 = load double, ptr %94, align 8
   br label %.lr.ph330.us
 
@@ -354,7 +354,7 @@ copy_vector.exit281.us:                           ; preds = %.lr.ph.i277.us
   %110 = getelementptr inbounds double, ptr %4, i64 %indvars.iv401
   %111 = load double, ptr %110, align 8
   %112 = fcmp olt double %.0149328.us, %111
-  %113 = trunc i64 %indvars.iv401 to i32
+  %113 = trunc nuw nsw i64 %indvars.iv401 to i32
   %.1152.us = select i1 %112, i32 %113, i32 %.0151327.us
   %.1150.us = select i1 %112, double %111, double %.0149328.us
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
@@ -466,7 +466,7 @@ vectors_scalar_mult.exit267.loopexit:             ; preds = %.lr.ph.i263
   %144 = getelementptr inbounds double, ptr %4, i64 %indvars.iv389
   %145 = load double, ptr %144, align 8
   %146 = fcmp olt double %.0149328, %145
-  %147 = trunc i64 %indvars.iv389 to i32
+  %147 = trunc nuw nsw i64 %indvars.iv389 to i32
   %.1152 = select i1 %146, i32 %147, i32 %.0151327
   %.1150 = select i1 %146, double %145, double %.0149328
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
@@ -1415,7 +1415,7 @@ define void @right_mult_with_vector_ff(ptr nocapture noundef readonly %0, i32 no
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph41
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph41
-  %25 = trunc i64 %indvars.iv.next to i32
+  %25 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph45

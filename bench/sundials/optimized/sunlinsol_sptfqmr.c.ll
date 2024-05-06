@@ -1048,7 +1048,7 @@ define ptr @SUNLinSolResid_SPTFQMR(ptr nocapture noundef readonly %0) #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNLinSolLastFlag_SPTFQMR(ptr nocapture noundef readonly %0) #5 {
+define range(i64 -2147483648, 2147483648) i64 @SUNLinSolLastFlag_SPTFQMR(ptr nocapture noundef readonly %0) #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i32, ptr %3, align 8

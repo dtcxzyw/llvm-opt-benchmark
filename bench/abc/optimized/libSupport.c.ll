@@ -211,7 +211,7 @@ define void @close_libs() local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %5
 
 5:                                                ; preds = %.lr.ph
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %6)
   br label %8
 
@@ -256,7 +256,7 @@ define void @call_inits(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %.lr.ph
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %7)
   br label %10
 
@@ -289,7 +289,7 @@ define void @call_ends(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %.lr.ph
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %7)
   br label %10
 
@@ -323,7 +323,7 @@ define void @Libs_Init(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %7)
   br label %10
 
@@ -356,7 +356,7 @@ define void @Libs_End(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %7)
   br label %10
 

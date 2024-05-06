@@ -61,7 +61,7 @@ default.unreachable:                              ; preds = %"_ZN6diesel13query_
   %.sroa.6.0.in.i = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.6.0.i = load ptr, ptr %.sroa.6.0.in.i, align 8, !alias.scope !7, !noalias !10, !nonnull !4, !align !12, !noundef !4
   %17 = load i8, ptr %16, align 1, !range !13, !noalias !14, !noundef !4
-  %18 = trunc i8 %17 to i1
+  %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h97b0e6d67659a98eE.exit.thread.i", label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %14
@@ -130,7 +130,7 @@ default.unreachable:                              ; preds = %"_ZN6diesel13query_
   %.sroa.6.0.in.i128 = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.6.0.i129 = load ptr, ptr %.sroa.6.0.in.i128, align 8, !alias.scope !43, !noalias !46, !nonnull !4, !align !12, !noundef !4
   %32 = load i8, ptr %31, align 1, !range !13, !noalias !60, !noundef !4
-  %33 = trunc i8 %32 to i1
+  %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h97b0e6d67659a98eE.exit.thread.i153", label %.critedge.thread.i147
 
 .critedge.thread.i147:                            ; preds = %29
@@ -197,7 +197,7 @@ thread-pre-split:                                 ; preds = %3, %3
   %.sroa.6.0.in.i160 = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.6.0.i161 = load ptr, ptr %.sroa.6.0.in.i160, align 8, !alias.scope !78, !noalias !81, !nonnull !4, !align !12, !noundef !4
   %44 = load i8, ptr %43, align 1, !range !13, !noalias !83, !noundef !4
-  %45 = trunc i8 %44 to i1
+  %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h97b0e6d67659a98eE.exit.thread.i185", label %.critedge.thread.i179
 
 .critedge.thread.i179:                            ; preds = %41
@@ -471,7 +471,7 @@ define internal fastcc void @"_ZN127_$LT$diesel_demo_step_3_sqlite..schema..post
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !12, !noundef !4
   %10 = load i8, ptr %9, align 1, !range !13, !noundef !4
-  %11 = trunc i8 %10 to i1
+  %11 = trunc nuw i8 %10 to i1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !4
   br i1 %11, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h97b0e6d67659a98eE.exit.thread", label %.critedge.thread

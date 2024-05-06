@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [4 x i8] c"lls\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_characterdata_data_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_characterdata_data_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -59,7 +59,7 @@ declare void @php_dom_throw_error(i32 noundef, i32 noundef) local_unnamed_addr #
 declare void @php_dom_get_content_into_zval(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_characterdata_data_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_characterdata_data_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -85,7 +85,7 @@ define hidden noundef i32 @dom_characterdata_data_write(ptr noundef %0, ptr noca
 declare void @xmlNodeSetContentLen(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_characterdata_length_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_characterdata_length_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -202,7 +202,7 @@ define hidden void @zim_DOMCharacterData_substringData(ptr nocapture noundef rea
 
 52:                                               ; preds = %50, %47
   %53 = phi i64 [ %51, %50 ], [ %36, %47 ]
-  %54 = trunc i64 %35 to i32
+  %54 = trunc nuw i64 %35 to i32
   %55 = trunc i64 %53 to i32
   %56 = call ptr @xmlUTF8Strsub(ptr noundef nonnull %29, i32 noundef %54, i32 noundef %55) #6
   %.not = icmp eq ptr %56, null
@@ -376,7 +376,7 @@ define hidden void @zim_DOMCharacterData_insertData(ptr nocapture noundef readon
   br label %55
 
 44:                                               ; preds = %34
-  %45 = trunc i64 %36 to i32
+  %45 = trunc nuw nsw i64 %36 to i32
   %46 = call ptr @xmlUTF8Strndup(ptr noundef nonnull %30, i32 noundef %45) #6
   %47 = load i64, ptr %4, align 8
   %48 = trunc i64 %47 to i32
@@ -480,7 +480,7 @@ define hidden void @zim_DOMCharacterData_deleteData(ptr nocapture noundef readon
   br i1 %.not, label %51, label %48
 
 48:                                               ; preds = %47
-  %49 = trunc i64 %35 to i32
+  %49 = trunc nuw nsw i64 %35 to i32
   %50 = call ptr @xmlUTF8Strsub(ptr noundef nonnull %29, i32 noundef 0, i32 noundef %49) #6
   %.pre = load i64, ptr %3, align 8
   %.pre32 = load i64, ptr %4, align 8
@@ -600,7 +600,7 @@ define hidden void @zim_DOMCharacterData_replaceData(ptr nocapture noundef reado
   br i1 %.not37, label %53, label %50
 
 50:                                               ; preds = %49
-  %51 = trunc i64 %37 to i32
+  %51 = trunc nuw nsw i64 %37 to i32
   %52 = call ptr @xmlUTF8Strsub(ptr noundef nonnull %31, i32 noundef 0, i32 noundef %51) #6
   %.pre = load i64, ptr %4, align 8
   %.pre38 = load i64, ptr %5, align 8

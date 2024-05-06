@@ -103,7 +103,7 @@ define i32 @LAPACKE_dtprfb(i32 noundef %0, i8 noundef signext %1, i8 noundef sig
   %74 = phi i32 [ %71, %70 ], [ %69, %67 ]
   %75 = phi i32 [ %72, %70 ], [ %68, %67 ]
   %76 = phi i32 [ %5, %70 ], [ %7, %67 ]
-  %77 = mul nsw i32 %75, %74
+  %77 = mul nuw nsw i32 %75, %74
   %78 = zext nneg i32 %77 to i64
   %79 = shl nuw nsw i64 %78, 3
   %80 = tail call noalias ptr @malloc(i64 noundef %79) #8

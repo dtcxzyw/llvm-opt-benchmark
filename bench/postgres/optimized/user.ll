@@ -601,7 +601,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   unreachable
 
 194:                                              ; preds = %187
-  %195 = trunc i8 %.0216663679716734769789822844875899928 to i1
+  %195 = trunc nuw i8 %.0216663679716734769789822844875899928 to i1
   br i1 %195, label %196, label %201
 
 196:                                              ; preds = %194
@@ -614,7 +614,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   unreachable
 
 201:                                              ; preds = %194
-  %202 = trunc i8 %.0219744760797815850870903925 to i1
+  %202 = trunc nuw i8 %.0219744760797815850870903925 to i1
   br i1 %202, label %203, label %210
 
 203:                                              ; preds = %201
@@ -631,7 +631,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   unreachable
 
 210:                                              ; preds = %203, %201
-  %211 = trunc i8 %.0221798814851869904924 to i1
+  %211 = trunc nuw i8 %.0221798814851869904924 to i1
   br i1 %211, label %212, label %219
 
 212:                                              ; preds = %210
@@ -648,7 +648,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   unreachable
 
 219:                                              ; preds = %212, %210
-  %220 = trunc i8 %.0222 to i1
+  %220 = trunc nuw i8 %.0222 to i1
   br i1 %220, label %221, label %228
 
 221:                                              ; preds = %219
@@ -1156,7 +1156,7 @@ define internal fastcc void @AddRoleMems(i32 noundef %0, ptr noundef %1, i32 nou
   %8 = alloca [7 x i64], align 16
   %9 = alloca [7 x i8], align 1
   %10 = alloca [7 x i8], align 1
-  %11 = tail call fastcc i32 @check_role_grantor(i32 noundef %0, i32 noundef %2, i32 noundef %5, i1 noundef zeroext true), !range !7
+  %11 = tail call fastcc i32 @check_role_grantor(i32 noundef %0, i32 noundef %2, i32 noundef %5, i1 noundef zeroext true)
   %12 = tail call ptr @table_open(i32 noundef 1261, i32 noundef 3) #10
   %13 = getelementptr inbounds i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8
@@ -1216,7 +1216,7 @@ define internal fastcc void @AddRoleMems(i32 noundef %0, ptr noundef %1, i32 nou
 43:                                               ; preds = %36
   %44 = tail call zeroext i1 @is_member_of_role_nosuper(i32 noundef %2, i32 noundef %38) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %44, label %.split182, label %.split.split, !llvm.loop !8
+  br i1 %44, label %.split182, label %.split.split, !llvm.loop !7
 
 .split182:                                        ; preds = %43
   %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -1260,7 +1260,7 @@ define internal fastcc void @AddRoleMems(i32 noundef %0, ptr noundef %1, i32 nou
   %66 = load i32, ptr %56, align 8
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next.i, %67
-  br i1 %68, label %.lr.ph.i, label %initialize_revoke_actions.exit, !llvm.loop !9
+  br i1 %68, label %.lr.ph.i, label %initialize_revoke_actions.exit, !llvm.loop !8
 
 initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %54, %59
   %69 = phi i32 [ 0, %54 ], [ %63, %59 ], [ %66, %.lr.ph.i ]
@@ -1323,8 +1323,8 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %54, %59
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %.lr.ph.i154
-  %101 = trunc i64 %indvars.iv.i155 to i32
-  tail call fastcc void @plan_recursive_revoke(ptr noundef nonnull %55, ptr noundef %.08.i, i32 noundef %101, i1 noundef zeroext false, i32 noundef 1)
+  %101 = trunc nuw nsw i64 %indvars.iv.i155 to i32
+  tail call fastcc void @plan_recursive_revoke(ptr noundef nonnull readonly %55, ptr noundef %.08.i, i32 noundef %101, i1 noundef zeroext false, i32 noundef 1)
   %.pre.i = load i32, ptr %56, align 8
   br label %102
 
@@ -1334,7 +1334,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %54, %59
   %indvars.iv.next.i156 = add nuw nsw i64 %indvars.iv.i155, 1
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next.i156, %105
-  br i1 %106, label %.lr.ph.i154, label %plan_member_revoke.exit.loopexit, !llvm.loop !10
+  br i1 %106, label %.lr.ph.i154, label %plan_member_revoke.exit.loopexit, !llvm.loop !9
 
 plan_member_revoke.exit.loopexit:                 ; preds = %102
   %.pre = load i32, ptr %17, align 4
@@ -1378,7 +1378,7 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
 131:                                              ; preds = %111, %123, %127
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge193, label %111, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge193, label %111, !llvm.loop !10
 
 ._crit_edge193:                                   ; preds = %131, %._crit_edge185
   %132 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -1613,7 +1613,7 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
 
 256:                                              ; preds = %255, %217
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
-  br label %.split194, !llvm.loop !12
+  br label %.split194, !llvm.loop !11
 
 .thread163:                                       ; preds = %160, %155, %.thread._crit_edge
   call void @table_close(ptr noundef %12, i32 noundef 0) #10
@@ -2485,7 +2485,7 @@ define internal fastcc void @DelRoleMems(i32 noundef %0, ptr noundef %1, i32 nou
   %9 = alloca [7 x i64], align 16
   %10 = alloca [7 x i8], align 1
   %11 = alloca [7 x i8], align 1
-  %12 = tail call fastcc i32 @check_role_grantor(i32 noundef %0, i32 noundef %2, i32 noundef %5, i1 noundef zeroext false), !range !7
+  %12 = tail call fastcc i32 @check_role_grantor(i32 noundef %0, i32 noundef %2, i32 noundef %5, i1 noundef zeroext false)
   %13 = tail call ptr @table_open(i32 noundef 1261, i32 noundef 3) #10
   %14 = getelementptr inbounds i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
@@ -2513,7 +2513,7 @@ define internal fastcc void @DelRoleMems(i32 noundef %0, ptr noundef %1, i32 nou
   %28 = load i32, ptr %18, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i, %29
-  br i1 %30, label %.lr.ph.i, label %initialize_revoke_actions.exit, !llvm.loop !9
+  br i1 %30, label %.lr.ph.i, label %initialize_revoke_actions.exit, !llvm.loop !8
 
 initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
   %.08.i = phi ptr [ null, %8 ], [ %24, %21 ], [ %24, %.lr.ph.i ]
@@ -2604,7 +2604,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
   br i1 %83, label %84, label %97
 
 84:                                               ; preds = %80
-  %85 = trunc i64 %indvars.iv.i64 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv.i64 to i32
   %86 = load i32, ptr %6, align 4
   %87 = and i32 %86, 2
   %.not.i = icmp eq i32 %87, 0
@@ -2628,14 +2628,14 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
 94:                                               ; preds = %90
   %95 = and i32 %86, 1
   %96 = icmp ne i32 %95, 0
-  tail call fastcc void @plan_recursive_revoke(ptr noundef nonnull %17, ptr noundef %.08.i, i32 noundef %85, i1 noundef zeroext %96, i32 noundef %7)
+  tail call fastcc void @plan_recursive_revoke(ptr noundef nonnull readonly %17, ptr noundef %.08.i, i32 noundef %85, i1 noundef zeroext %96, i32 noundef %7)
   br i1 %68, label %104, label %plan_single_revoke.exit.thread
 
 97:                                               ; preds = %80, %67
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i64, 1
   %98 = icmp ult i64 %indvars.iv.next.i65, %66
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i65, %66
-  br i1 %exitcond.not.i, label %plan_single_revoke.exit.thread, label %67, !llvm.loop !13
+  br i1 %exitcond.not.i, label %plan_single_revoke.exit.thread, label %67, !llvm.loop !12
 
 plan_single_revoke.exit.thread:                   ; preds = %97, %61, %92, %94, %88
   %99 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #10
@@ -2650,7 +2650,7 @@ plan_single_revoke.exit.thread:                   ; preds = %97, %61, %92, %94, 
 
 104:                                              ; preds = %92, %94, %88, %100, %plan_single_revoke.exit.thread
   %105 = add i32 %.sroa.8.0, 1
-  br label %36, !llvm.loop !14
+  br label %36, !llvm.loop !13
 
 106:                                              ; preds = %.lr.ph, %133
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %133 ]
@@ -2715,7 +2715,7 @@ plan_single_revoke.exit.thread:                   ; preds = %97, %61, %92, %94, 
   %134 = load i32, ptr %18, align 8
   %135 = sext i32 %134 to i64
   %136 = icmp slt i64 %indvars.iv.next, %135
-  br i1 %136, label %106, label %._crit_edge, !llvm.loop !15
+  br i1 %136, label %106, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %133, %.preheader
   call void @ReleaseCatCacheList(ptr noundef nonnull %17) #10
@@ -3064,7 +3064,7 @@ define dso_local void @DropRole(ptr nocapture noundef readonly %0) local_unnamed
   call void @CatalogTupleDelete(ptr noundef %14, ptr noundef nonnull %115) #10
   %116 = call ptr @systable_getnext(ptr noundef %105) #10
   %.not82 = icmp eq ptr %116, null
-  br i1 %.not82, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not82, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %103
   call void @systable_endscan(ptr noundef %105) #10
@@ -3088,7 +3088,7 @@ define dso_local void @DropRole(ptr nocapture noundef readonly %0) local_unnamed
   call void @CatalogTupleDelete(ptr noundef %14, ptr noundef nonnull %127) #10
   %128 = call ptr @systable_getnext(ptr noundef %117) #10
   %.not83 = icmp eq ptr %128, null
-  br i1 %.not83, label %._crit_edge115, label %.lr.ph114, !llvm.loop !17
+  br i1 %.not83, label %._crit_edge115, label %.lr.ph114, !llvm.loop !16
 
 ._crit_edge115:                                   ; preds = %.lr.ph114, %._crit_edge
   call void @systable_endscan(ptr noundef %117) #10
@@ -3999,7 +3999,7 @@ declare i64 @getmissingattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_role_grantor(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @check_role_grantor(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %12
 
@@ -4199,7 +4199,7 @@ define internal fastcc void @plan_recursive_revoke(ptr nocapture noundef readonl
 .critedge.us:                                     ; preds = %64, %52
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %67 = icmp ult i64 %indvars.iv.next59, %51
-  br i1 %67, label %52, label %.loopexit, !llvm.loop !18
+  br i1 %67, label %52, label %.loopexit, !llvm.loop !17
 
 68:                                               ; preds = %.lr.ph, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
@@ -4231,7 +4231,7 @@ define internal fastcc void @plan_recursive_revoke(ptr nocapture noundef readonl
 88:                                               ; preds = %68, %80, %84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.preheader, label %68, !llvm.loop !19
+  br i1 %exitcond.not, label %.critedge.preheader, label %68, !llvm.loop !18
 
 .lr.ph51.split:                                   ; preds = %.lr.ph51, %.critedge
   %89 = phi i32 [ %111, %.critedge ], [ %44, %.lr.ph51 ]
@@ -4257,7 +4257,7 @@ define internal fastcc void @plan_recursive_revoke(ptr nocapture noundef readonl
   br i1 %.not, label %.critedge, label %105
 
 105:                                              ; preds = %102
-  %106 = trunc i64 %indvars.iv55 to i32
+  %106 = trunc nuw nsw i64 %indvars.iv55 to i32
   tail call fastcc void @plan_recursive_revoke(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %106, i1 noundef zeroext false, i32 noundef %4)
   %.pre = load i32, ptr %43, align 8
   br label %.critedge
@@ -4276,7 +4276,7 @@ define internal fastcc void @plan_recursive_revoke(ptr nocapture noundef readonl
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %112 = sext i32 %111 to i64
   %113 = icmp slt i64 %indvars.iv.next56, %112
-  br i1 %113, label %.lr.ph51.split, label %.loopexit, !llvm.loop !18
+  br i1 %113, label %.lr.ph51.split, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %84, %.critedge, %.critedge.us, %40, %.critedge.preheader, %5, %35, %29, %9
   ret void
@@ -4315,7 +4315,7 @@ attributes #14 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 1, i32 0}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
@@ -4327,4 +4327,3 @@ attributes #14 = { nounwind willreturn memory(none) }
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}

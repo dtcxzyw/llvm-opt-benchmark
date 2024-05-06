@@ -459,7 +459,7 @@ declare void @ESS_SIGNING_CERT_V2_free(ptr noundef) local_unnamed_addr #1
 declare void @ESS_CERT_ID_V2_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_ESS_check_signing_certs(ptr noundef readonly %ss, ptr noundef readonly %ssv2, ptr noundef %chain, i32 noundef %require_signing_cert) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @OSSL_ESS_check_signing_certs(ptr noundef readonly %ss, ptr noundef readonly %ssv2, ptr noundef %chain, i32 noundef %require_signing_cert) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ss, null
   br i1 %cmp, label %cond.end, label %cond.false

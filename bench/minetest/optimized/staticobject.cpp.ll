@@ -36,7 +36,7 @@ $_ZNSt6vectorI12StaticObjectSaIS0_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS0
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str = private unnamed_addr constant [32 x i8] c"StaticObjectList::serialize(): \00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"too many objects (\00", align 1
 @.str.2 = private unnamed_addr constant [12 x i8] c") in list, \00", align 1
@@ -557,7 +557,7 @@ _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %_ZSt4endlIcSt11char
   br label %cleanup
 
 if.end52:                                         ; preds = %for.cond.cleanup24
-  %conv = trunc i64 %add to i16
+  %conv = trunc nuw i64 %add to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i113) #20
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %conv)
   store i16 %rev.i.i.i, ptr %buf.i113, align 2

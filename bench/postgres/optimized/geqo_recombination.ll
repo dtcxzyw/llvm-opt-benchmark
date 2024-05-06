@@ -19,7 +19,7 @@ define dso_local void @init_tour(ptr noundef %0, ptr nocapture noundef %1, i32 n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph._crit_edge
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph._crit_edge ]
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %7 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %6, i32 noundef 0) #2
   %8 = zext i32 %7 to i64
   %.not = icmp eq i64 %indvars.iv, %8
@@ -36,7 +36,7 @@ define dso_local void @init_tour(ptr noundef %0, ptr nocapture noundef %1, i32 n
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = getelementptr i32, ptr %1, i64 %.pre
-  %14 = trunc i64 %indvars.iv.next to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %14, ptr %13, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5

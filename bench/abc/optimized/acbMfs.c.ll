@@ -5783,7 +5783,7 @@ Vec_IntFree.exit54:                               ; preds = %Vec_IntFree.exit52,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Acb_NtkFindSupp1(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Acb_NtkFindSupp1(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 0, ptr %8, align 4
   %9 = getelementptr i8, ptr %0, i64 136
@@ -6040,7 +6040,7 @@ Vec_IntLits2Vars.exit:                            ; preds = %.lr.ph.i49, %100
 declare i32 @sat_solver_minimize_assumptions(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Acb_NtkFindSupp2(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, ptr nocapture noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Acb_NtkFindSupp2(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, ptr nocapture noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
 .critedge:
   %9 = getelementptr i8, ptr %0, i64 136
   %.val168 = load ptr, ptr %9, align 8
@@ -8379,7 +8379,7 @@ Vec_IntFind.exit.thread:                          ; preds = %108, %100, %Vec_Int
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Acb_NtkOptNode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @Acb_NtkOptNode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -8725,7 +8725,7 @@ Abc_Clock.exit350:                                ; preds = %184, %187
   %194 = load i32, ptr %193, align 8
   %195 = getelementptr inbounds i8, ptr %0, i64 40
   %196 = load ptr, ptr %195, align 8
-  %197 = call i32 @Acb_NtkFindSupp1(ptr noundef %191, i32 noundef %1, ptr noundef %192, i32 noundef %194, i32 poison, ptr poison, ptr noundef %196), !range !94
+  %197 = call i32 @Acb_NtkFindSupp1(ptr noundef %191, i32 noundef %1, ptr noundef %192, i32 noundef %194, i32 poison, ptr poison, ptr noundef %196)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %198 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #24
   %199 = icmp slt i32 %198, 0
@@ -8842,7 +8842,7 @@ Abc_Clock.exit352:                                ; preds = %Abc_Clock.exit350, 
   %259 = load i32, ptr %247, align 4
   %260 = sext i32 %259 to i64
   %261 = icmp slt i64 %indvars.iv.next.i355, %260
-  br i1 %261, label %252, label %Vec_IntRemap.exit, !llvm.loop !95
+  br i1 %261, label %252, label %Vec_IntRemap.exit, !llvm.loop !94
 
 Vec_IntRemap.exit:                                ; preds = %252
   %.pre537 = load ptr, ptr %195, align 8
@@ -8930,7 +8930,7 @@ Acb_ObjIsAreaCritical.exit.thread.i:              ; preds = %Acb_ObjIsAreaCritic
   %spec.select63.i = phi i32 [ %.02647.i, %289 ], [ %spec.select.i, %Acb_ObjIsAreaCritical.exit.i ]
   %298 = phi i32 [ %.048.i, %289 ], [ %spec.select69.i, %Acb_ObjIsAreaCritical.exit.i ]
   %exitcond.not.i363 = icmp eq i64 %indvars.iv.next.i362, %wide.trip.count.i360
-  br i1 %exitcond.not.i363, label %.critedge.i, label %289, !llvm.loop !96
+  br i1 %exitcond.not.i363, label %.critedge.i, label %289, !llvm.loop !95
 
 .critedge.i:                                      ; preds = %Acb_ObjIsAreaCritical.exit.thread.i
   %.not.i = icmp eq i32 %spec.select63.i, 1
@@ -8977,7 +8977,7 @@ Acb_ObjIsAreaCritical.exit42.thread.i:            ; preds = %Acb_ObjIsAreaCritic
 315:                                              ; preds = %Acb_ObjIsAreaCritical.exit42.thread.i, %Acb_ObjIsAreaCritical.exit42.i
   %316 = phi i32 [ %.251.i, %Acb_ObjIsAreaCritical.exit42.thread.i ], [ %314, %Acb_ObjIsAreaCritical.exit42.i ]
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
-  br i1 %exitcond59.not.i, label %Acb_NtkObjMffcEstimate.exit, label %307, !llvm.loop !97
+  br i1 %exitcond59.not.i, label %Acb_NtkObjMffcEstimate.exit, label %307, !llvm.loop !96
 
 Acb_NtkObjMffcEstimate.exit:                      ; preds = %315, %.critedge.i
   %.030.i = phi i32 [ %spec.select63.i, %.critedge.i ], [ %316, %315 ]
@@ -9014,7 +9014,7 @@ Abc_Clock.exit365:                                ; preds = %Acb_NtkObjMffcEstim
   %333 = load i32, ptr %332, align 4
   %.not284 = icmp eq i32 %333, 0
   %334 = zext i1 %.not284 to i32
-  %335 = call i32 @Acb_NtkFindSupp2(ptr noundef %324, i32 noundef %1, ptr noundef %325, i32 noundef %327, i32 poison, ptr poison, ptr noundef %329, i32 noundef %331, i32 noundef %334), !range !94
+  %335 = call i32 @Acb_NtkFindSupp2(ptr noundef %324, i32 noundef %1, ptr noundef %325, i32 noundef %327, i32 poison, ptr poison, ptr noundef %329, i32 noundef %331, i32 noundef %334)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %336 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #24
   %337 = icmp slt i32 %336, 0
@@ -9113,7 +9113,7 @@ Abc_Clock.exit367:                                ; preds = %Abc_Clock.exit365, 
   %388 = load i32, ptr %376, align 4
   %389 = sext i32 %388 to i64
   %390 = icmp slt i64 %indvars.iv.next.i371, %389
-  br i1 %390, label %381, label %Vec_IntRemap.exit372, !llvm.loop !95
+  br i1 %390, label %381, label %Vec_IntRemap.exit372, !llvm.loop !94
 
 Vec_IntRemap.exit372:                             ; preds = %381
   %.pre544 = load ptr, ptr %328, align 8
@@ -9207,7 +9207,7 @@ Acb_ObjIsAreaCritical.exit.thread.i394:           ; preds = %Acb_ObjIsAreaCritic
   %spec.select63.i395 = phi i32 [ %.02647.i385, %420 ], [ %spec.select.i392, %Acb_ObjIsAreaCritical.exit.i388 ]
   %429 = phi i32 [ %.048.i384, %420 ], [ %spec.select69.i393, %Acb_ObjIsAreaCritical.exit.i388 ]
   %exitcond.not.i396 = icmp eq i64 %indvars.iv.next.i386, %wide.trip.count.i382
-  br i1 %exitcond.not.i396, label %.critedge.i397, label %420, !llvm.loop !96
+  br i1 %exitcond.not.i396, label %.critedge.i397, label %420, !llvm.loop !95
 
 .critedge.i397:                                   ; preds = %Acb_ObjIsAreaCritical.exit.thread.i394
   %.not.i398 = icmp eq i32 %spec.select63.i395, 1
@@ -9254,7 +9254,7 @@ Acb_ObjIsAreaCritical.exit42.thread.i411:         ; preds = %Acb_ObjIsAreaCritic
 446:                                              ; preds = %Acb_ObjIsAreaCritical.exit42.thread.i411, %Acb_ObjIsAreaCritical.exit42.i406
   %447 = phi i32 [ %.251.i403, %Acb_ObjIsAreaCritical.exit42.thread.i411 ], [ %445, %Acb_ObjIsAreaCritical.exit42.i406 ]
   %exitcond59.not.i412 = icmp eq i64 %indvars.iv.next56.i404, %wide.trip.count58.i401
-  br i1 %exitcond59.not.i412, label %Acb_NtkObjMffcEstimate.exit413, label %438, !llvm.loop !97
+  br i1 %exitcond59.not.i412, label %Acb_NtkObjMffcEstimate.exit413, label %438, !llvm.loop !96
 
 Acb_NtkObjMffcEstimate.exit413:                   ; preds = %446, %.critedge.i397
   %.030.i379 = phi i32 [ %spec.select63.i395, %.critedge.i397 ], [ %447, %446 ]
@@ -9415,7 +9415,7 @@ Abc_Clock.exit421.Acb_NtkObjMffcEstimate.exit413.thread_crit_edge: ; preds = %Ab
   %.val317 = load i32, ptr %532, align 4
   %533 = sext i32 %.val317 to i64
   %534 = icmp slt i64 %indvars.iv.next, %533
-  br i1 %534, label %517, label %.critedge, !llvm.loop !98
+  br i1 %534, label %517, label %.critedge, !llvm.loop !97
 
 .critedge:                                        ; preds = %530, %506
   %.0.lcssa = phi i32 [ 0, %506 ], [ %.1, %530 ]
@@ -9461,7 +9461,7 @@ Abc_Clock.exit421.Acb_NtkObjMffcEstimate.exit413.thread_crit_edge: ; preds = %Ab
   %indvars.iv.next526 = add nsw i64 %indvars.iv525, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next526 to i32
   %exitcond.not = icmp eq i32 %.val316505, %lftr.wideiv
-  br i1 %exitcond.not, label %.critedge4, label %.lr.ph500, !llvm.loop !99
+  br i1 %exitcond.not, label %.critedge4, label %.lr.ph500, !llvm.loop !98
 
 .lr.ph500:                                        ; preds = %.lr.ph500.preheader, %557
   %indvars.iv525 = phi i64 [ %556, %.lr.ph500.preheader ], [ %indvars.iv.next526, %557 ]
@@ -9505,7 +9505,7 @@ Abc_Clock.exit421.Acb_NtkObjMffcEstimate.exit413.thread_crit_edge: ; preds = %Ab
   %580 = sub nsw i32 %.val316, %492
   %581 = sext i32 %580 to i64
   %582 = icmp slt i64 %indvars.iv.next529, %581
-  br i1 %582, label %549, label %.critedge2, !llvm.loop !100
+  br i1 %582, label %549, label %.critedge2, !llvm.loop !99
 
 .critedge2:                                       ; preds = %577, %.critedge
   %.lcssa501 = phi ptr [ %544, %.critedge ], [ %578, %577 ]
@@ -9575,7 +9575,7 @@ Abc_Clock.exit421.Acb_NtkObjMffcEstimate.exit413.thread_crit_edge: ; preds = %Ab
   %615 = load i32, ptr %603, align 4
   %616 = sext i32 %615 to i64
   %617 = icmp slt i64 %indvars.iv.next.i425, %616
-  br i1 %617, label %608, label %Vec_IntRemap.exit426, !llvm.loop !95
+  br i1 %617, label %608, label %Vec_IntRemap.exit426, !llvm.loop !94
 
 Vec_IntRemap.exit426:                             ; preds = %608
   %.pre548 = load ptr, ptr %485, align 8
@@ -9653,7 +9653,7 @@ Vec_IntLits2Vars.exit430:                         ; preds = %598, %Vec_IntLits2V
   %.val310 = load i32, ptr %655, align 4
   %656 = sext i32 %.val310 to i64
   %657 = icmp slt i64 %indvars.iv.next532, %656
-  br i1 %657, label %.lr.ph514, label %.critedge6, !llvm.loop !101
+  br i1 %657, label %.lr.ph514, label %.critedge6, !llvm.loop !100
 
 .critedge6:                                       ; preds = %.lr.ph514, %Vec_IntLits2Vars.exit430
   %.lcssa510 = phi ptr [ %642, %Vec_IntLits2Vars.exit430 ], [ %654, %.lr.ph514 ]
@@ -9707,7 +9707,7 @@ Vec_IntLits2Vars.exit430:                         ; preds = %598, %Vec_IntLits2V
   %689 = load i32, ptr %677, align 4
   %690 = sext i32 %689 to i64
   %691 = icmp slt i64 %indvars.iv.next.i434, %690
-  br i1 %691, label %682, label %Vec_IntRemap.exit435, !llvm.loop !95
+  br i1 %691, label %682, label %Vec_IntRemap.exit435, !llvm.loop !94
 
 Vec_IntRemap.exit435:                             ; preds = %682
   %.pre552 = load ptr, ptr %485, align 8
@@ -10016,7 +10016,7 @@ Vec_IntPush.exit.i.i:                             ; preds = %88, %Vec_IntGrow.ex
   %95 = load i32, ptr %56, align 4
   %96 = sext i32 %95 to i64
   %97 = icmp slt i64 %indvars.iv.next.i.i, %96
-  br i1 %97, label %.lr.ph.i.i, label %Acb_ObjAddFaninFanout.exit.loopexit.i, !llvm.loop !102
+  br i1 %97, label %.lr.ph.i.i, label %Acb_ObjAddFaninFanout.exit.loopexit.i, !llvm.loop !101
 
 Acb_ObjAddFaninFanout.exit.loopexit.i:            ; preds = %Vec_IntPush.exit.i.i
   %.val.pre.i = load i32, ptr %43, align 4
@@ -10027,7 +10027,7 @@ Acb_ObjAddFaninFanout.exit.i:                     ; preds = %Acb_ObjAddFaninFano
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %98 = sext i32 %.val.i to i64
   %99 = icmp slt i64 %indvars.iv.next.i, %98
-  br i1 %99, label %49, label %Acb_NtkCreateFanout.exit, !llvm.loop !103
+  br i1 %99, label %49, label %Acb_NtkCreateFanout.exit, !llvm.loop !102
 
 Acb_NtkCreateFanout.exit:                         ; preds = %Acb_ObjAddFaninFanout.exit.i, %Acb_NtkCleanObjFanout.exit.i
   %100 = getelementptr inbounds i8, ptr %0, i64 176
@@ -10237,7 +10237,7 @@ Acb_ObjIsAreaCritical.exit.thread.i:              ; preds = %Acb_ObjIsAreaCritic
   %spec.select63.i = phi i32 [ %.02647.i, %184 ], [ %spec.select.i, %Acb_ObjIsAreaCritical.exit.i ]
   %193 = phi i32 [ %.048.i, %184 ], [ %spec.select69.i, %Acb_ObjIsAreaCritical.exit.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i125, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %184, !llvm.loop !96
+  br i1 %exitcond.not.i, label %.critedge.i, label %184, !llvm.loop !95
 
 .critedge.i:                                      ; preds = %Acb_ObjIsAreaCritical.exit.thread.i
   %.not.i127 = icmp eq i32 %spec.select63.i, 1
@@ -10284,7 +10284,7 @@ Acb_ObjIsAreaCritical.exit42.thread.i:            ; preds = %Acb_ObjIsAreaCritic
 210:                                              ; preds = %Acb_ObjIsAreaCritical.exit42.thread.i, %Acb_ObjIsAreaCritical.exit42.i
   %211 = phi i32 [ %.251.i, %Acb_ObjIsAreaCritical.exit42.thread.i ], [ %209, %Acb_ObjIsAreaCritical.exit42.i ]
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
-  br i1 %exitcond59.not.i, label %Acb_NtkObjMffcEstimate.exit, label %202, !llvm.loop !97
+  br i1 %exitcond59.not.i, label %Acb_NtkObjMffcEstimate.exit, label %202, !llvm.loop !96
 
 Acb_NtkObjMffcEstimate.exit:                      ; preds = %210, %177, %.critedge.i, %194
   %.030.i = phi i32 [ %spec.select63.i, %.critedge.i ], [ 1, %194 ], [ 0, %177 ], [ %211, %210 ]
@@ -10298,7 +10298,7 @@ Acb_NtkObjMffcEstimate.exit:                      ; preds = %210, %177, %.crited
   br label %215
 
 215:                                              ; preds = %217, %212
-  %216 = tail call i32 @Acb_NtkOptNode(ptr noundef %4, i32 noundef %169), !range !104
+  %216 = tail call i32 @Acb_NtkOptNode(ptr noundef %4, i32 noundef %169)
   %.not104 = icmp eq i32 %216, 0
   br i1 %.not104, label %.critedge, label %217
 
@@ -10311,7 +10311,7 @@ Acb_NtkObjMffcEstimate.exit:                      ; preds = %210, %177, %.crited
   %221 = getelementptr inbounds i32, ptr %.val106, i64 %220
   %222 = load i32, ptr %221, align 4
   %.not105 = icmp eq i32 %222, 0
-  br i1 %.not105, label %.critedge, label %215, !llvm.loop !105
+  br i1 %.not105, label %.critedge, label %215, !llvm.loop !103
 
 .critedge:                                        ; preds = %215, %217
   %223 = load i32, ptr %172, align 4
@@ -10325,14 +10325,14 @@ Acb_NtkObjMffcEstimate.exit:                      ; preds = %210, %177, %.crited
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %226 = sext i32 %.val107 to i64
   %227 = icmp slt i64 %indvars.iv.next, %226
-  br i1 %227, label %.lr.ph, label %._crit_edge, !llvm.loop !106
+  br i1 %227, label %.lr.ph, label %._crit_edge, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %225, %.preheader
   %.val107144 = phi i32 [ %.val107143, %.preheader ], [ %.val107, %225 ]
   %.val107134141 = phi i32 [ %.val107134, %.preheader ], [ %.val107, %225 ]
   %228 = add nsw i32 %.0137, -1
   %.not147 = icmp eq i32 %.0137, 0
-  br i1 %.not147, label %.split.us, label %.preheader, !llvm.loop !107
+  br i1 %.not147, label %.split.us, label %.preheader, !llvm.loop !105
 
 .split.us:                                        ; preds = %._crit_edge, %Vec_BitStart.exit
   %.not.i128 = icmp eq ptr %153, null
@@ -10525,7 +10525,7 @@ Vec_QuePrio.exit46.i.i:                           ; preds = %322, %318
   %.0.i.i = shl i32 %.1.i.i, 1
   %335 = load i32, ptr %234, align 4
   %336 = icmp slt i32 %.0.i.i, %335
-  br i1 %336, label %.lr.ph.i.i132, label %Vec_QueMoveDown.exit.i, !llvm.loop !109
+  br i1 %336, label %.lr.ph.i.i132, label %Vec_QueMoveDown.exit.i, !llvm.loop !107
 
 Vec_QueMoveDown.exit.i:                           ; preds = %326, %Vec_QuePrio.exit46.i.i, %Vec_QuePrio.exit.i.i
   %.035.lcssa.i.i = phi i32 [ %284, %Vec_QuePrio.exit.i.i ], [ %.03548.i.i, %Vec_QuePrio.exit46.i.i ], [ %.1.i.i, %326 ]
@@ -10546,11 +10546,11 @@ Vec_QuePop.exit:                                  ; preds = %264, %Vec_QueMoveDo
   br i1 %.not93, label %.backedge.backedge, label %344
 
 344:                                              ; preds = %Vec_QuePop.exit
-  %345 = tail call i32 @Acb_NtkOptNode(ptr noundef %4, i32 noundef %255), !range !104
+  %345 = tail call i32 @Acb_NtkOptNode(ptr noundef %4, i32 noundef %255)
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %344, %Vec_QuePop.exit
-  br label %.backedge, !llvm.loop !110
+  br label %.backedge, !llvm.loop !108
 
 .loopexit:                                        ; preds = %Vec_QueTopPriority.exit, %229, %.split.us
   %346 = load i32, ptr %5, align 4
@@ -10723,7 +10723,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp sgt i32 %3, %4
@@ -10896,7 +10896,7 @@ attributes #26 = { nounwind willreturn memory(read) }
 !91 = distinct !{!91, !5}
 !92 = distinct !{!92, !5}
 !93 = distinct !{!93, !5}
-!94 = !{i32 0, i32 2}
+!94 = distinct !{!94, !5}
 !95 = distinct !{!95, !5}
 !96 = distinct !{!96, !5}
 !97 = distinct !{!97, !5}
@@ -10906,10 +10906,8 @@ attributes #26 = { nounwind willreturn memory(read) }
 !101 = distinct !{!101, !5}
 !102 = distinct !{!102, !5}
 !103 = distinct !{!103, !5}
-!104 = !{i32 0, i32 3}
-!105 = distinct !{!105, !5}
-!106 = distinct !{!106, !5}
-!107 = distinct !{!107, !5, !108}
-!108 = !{!"llvm.loop.unswitch.partial.disable"}
-!109 = distinct !{!109, !5}
-!110 = distinct !{!110, !5}
+!104 = distinct !{!104, !5}
+!105 = distinct !{!105, !5, !106}
+!106 = !{!"llvm.loop.unswitch.partial.disable"}
+!107 = distinct !{!107, !5}
+!108 = distinct !{!108, !5}

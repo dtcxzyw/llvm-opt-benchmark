@@ -114,7 +114,7 @@ invoke.cont1:                                     ; preds = %invoke.cont
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %0 = getelementptr inbounds i8, ptr %tm, i64 16
   %1 = getelementptr inbounds i8, ptr %tm, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %1, i8 0, i64 24, i1 false), !alias.scope !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(56) %1, i8 0, i64 24, i1 false), !alias.scope !5
   %ss.i.i = getelementptr inbounds i8, ptr %al, i64 12
   %mm.i.i = getelementptr inbounds i8, ptr %al, i64 11
   %hh.i.i = getelementptr inbounds i8, ptr %al, i64 10
@@ -5014,7 +5014,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt16allocator_tr
   store ptr %call5.i.i.i.i1.i, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i1.i, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %__n
+  %add.ptr.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i, i64 %__n
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i, align 1

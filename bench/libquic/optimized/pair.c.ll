@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [9 x i8] c"BIO pair\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BIO_zero_copy_get_read_buf(ptr noundef %bio, ptr nocapture noundef writeonly %out_read_buf, ptr nocapture noundef writeonly %out_buf_offset, ptr nocapture noundef writeonly %out_available_bytes) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BIO_zero_copy_get_read_buf(ptr noundef %bio, ptr nocapture noundef writeonly %out_read_buf, ptr nocapture noundef writeonly %out_buf_offset, ptr nocapture noundef writeonly %out_available_bytes) local_unnamed_addr #0 {
 entry:
   store i64 0, ptr %out_available_bytes, align 8
   tail call void @BIO_clear_retry_flags(ptr noundef %bio) #12
@@ -106,7 +106,7 @@ declare void @BIO_clear_retry_flags(ptr noundef) local_unnamed_addr #1
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BIO_zero_copy_get_read_buf_done(ptr nocapture noundef %bio, i64 noundef %bytes_read) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BIO_zero_copy_get_read_buf_done(ptr nocapture noundef %bio, i64 noundef %bytes_read) local_unnamed_addr #0 {
 entry:
   %init = getelementptr inbounds i8, ptr %bio, i64 24
   %0 = load i32, ptr %init, align 8
@@ -211,7 +211,7 @@ return:                                           ; preds = %if.end31, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BIO_zero_copy_get_write_buf(ptr noundef %bio, ptr nocapture noundef writeonly %out_write_buf, ptr nocapture noundef writeonly %out_buf_offset, ptr nocapture noundef writeonly %out_available_bytes) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BIO_zero_copy_get_write_buf(ptr noundef %bio, ptr nocapture noundef writeonly %out_write_buf, ptr nocapture noundef writeonly %out_buf_offset, ptr nocapture noundef writeonly %out_available_bytes) local_unnamed_addr #0 {
 entry:
   store i64 0, ptr %out_available_bytes, align 8
   tail call void @BIO_clear_retry_flags(ptr noundef %bio) #12
@@ -321,7 +321,7 @@ return:                                           ; preds = %if.end27, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BIO_zero_copy_get_write_buf_done(ptr nocapture noundef %bio, i64 noundef %bytes_written) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BIO_zero_copy_get_write_buf_done(ptr nocapture noundef %bio, i64 noundef %bytes_written) local_unnamed_addr #0 {
 entry:
   %init = getelementptr inbounds i8, ptr %bio, i64 24
   %0 = load i32, ptr %init, align 8
@@ -431,14 +431,14 @@ return:                                           ; preds = %if.end26, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BIO_new_bio_pair(ptr nocapture noundef writeonly %bio1_p, i64 noundef %writebuf1, ptr nocapture noundef writeonly %bio2_p, i64 noundef %writebuf2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BIO_new_bio_pair(ptr nocapture noundef writeonly %bio1_p, i64 noundef %writebuf1, ptr nocapture noundef writeonly %bio2_p, i64 noundef %writebuf2) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @BIO_new_bio_pair_external_buf(ptr noundef %bio1_p, i64 noundef %writebuf1, ptr noundef null, ptr noundef %bio2_p, i64 noundef %writebuf2, ptr noundef null), !range !7
+  %call = tail call i32 @BIO_new_bio_pair_external_buf(ptr noundef %bio1_p, i64 noundef %writebuf1, ptr noundef null, ptr noundef %bio2_p, i64 noundef %writebuf2, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BIO_new_bio_pair_external_buf(ptr nocapture noundef writeonly %bio1_p, i64 noundef %writebuf1_len, ptr noundef %ext_writebuf1, ptr nocapture noundef writeonly %bio2_p, i64 noundef %writebuf2_len, ptr noundef %ext_writebuf2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BIO_new_bio_pair_external_buf(ptr nocapture noundef writeonly %bio1_p, i64 noundef %writebuf1_len, ptr noundef %ext_writebuf1, ptr nocapture noundef writeonly %bio2_p, i64 noundef %writebuf2_len, ptr noundef %ext_writebuf2) local_unnamed_addr #0 {
 entry:
   %tobool = icmp eq ptr %ext_writebuf1, null
   %tobool1 = icmp ne i64 %writebuf1_len, 0
@@ -710,7 +710,7 @@ do.body:                                          ; preds = %do.body, %if.end14
   %sub43 = sub i64 %rest.0, %chunk.0
   %add.ptr44 = getelementptr inbounds i8, ptr %buf.addr.0, i64 %chunk.0
   %tobool45.not = icmp eq i64 %sub43, 0
-  br i1 %tobool45.not, label %do.end, label %do.body, !llvm.loop !8
+  br i1 %tobool45.not, label %do.end, label %do.body, !llvm.loop !7
 
 do.end:                                           ; preds = %do.body
   %conv46 = trunc i64 %spec.select to i32
@@ -821,7 +821,7 @@ if.end61:                                         ; preds = %if.else59, %if.then
   %buf.addr.1 = phi ptr [ %add.ptr58, %if.then48 ], [ %buf.addr.0, %if.else59 ]
   %sub62 = sub i64 %rest.0, %chunk.0
   %tobool63.not = icmp eq i64 %sub62, 0
-  br i1 %tobool63.not, label %do.end, label %do.body, !llvm.loop !10
+  br i1 %tobool63.not, label %do.end, label %do.body, !llvm.loop !9
 
 do.end:                                           ; preds = %if.end61
   %conv64 = trunc i64 %spec.select to i32
@@ -962,7 +962,7 @@ sw.epilog:                                        ; preds = %sw.bb30, %if.then32
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @bio_new(ptr nocapture noundef writeonly %bio) #3 {
+define internal range(i32 0, 2) i32 @bio_new(ptr nocapture noundef writeonly %bio) #3 {
 entry:
   %calloc = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
   %cmp = icmp eq ptr %calloc, null
@@ -981,7 +981,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @bio_free(ptr noundef %bio) #4 {
+define internal range(i32 0, 2) i32 @bio_free(ptr noundef %bio) #4 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end
@@ -1079,7 +1079,6 @@ attributes #14 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

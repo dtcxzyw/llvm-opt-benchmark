@@ -99,7 +99,7 @@ define internal noundef i32 @chksum_digest(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @chksum_setkey(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #4 align 16 {
+define internal noundef range(i32 -22, 1) i32 @chksum_setkey(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #4 align 16 {
   %4 = icmp eq i32 %2, 4
   br i1 %4, label %5, label %8
 

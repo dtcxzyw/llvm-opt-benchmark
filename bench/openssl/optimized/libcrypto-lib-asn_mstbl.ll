@@ -26,7 +26,7 @@ entry:
 declare i32 @CONF_module_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @stbl_module_init(ptr noundef %md, ptr noundef %cnf) #0 {
+define internal range(i32 0, 2) i32 @stbl_module_init(ptr noundef %md, ptr noundef %cnf) #0 {
 entry:
   %eptr.i = alloca ptr, align 8
   %tbl_mask.i = alloca i64, align 8

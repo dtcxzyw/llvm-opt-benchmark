@@ -234,7 +234,7 @@ define internal void @component_map_destruct(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_info_init(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @opal_info_init(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -995,7 +995,7 @@ define void @opal_info_out(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   br i1 %103, label %escape_quotes.exit, label %104
 
 104:                                              ; preds = %.critedge.i
-  %105 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #20
+  %105 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #20
   %106 = sext i32 %.02132.i to i64
   %107 = add nsw i64 %106, 1
   %108 = add i64 %107, %105

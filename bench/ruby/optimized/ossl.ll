@@ -139,9 +139,9 @@ define void @ossl_raise(i64 noundef %0, ptr noundef %1, ...) local_unnamed_addr 
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %5 = call i64 @rb_vsprintf(ptr noundef nonnull %1, ptr noundef nonnull %3) #17
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -485,7 +485,7 @@ define i64 @ossl_buf2str(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 RSTRING_PTR.exit.i:                               ; preds = %12, %7
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %12 ], [ %11, %7 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.2.0.i.i, ptr nonnull align 1 %0, i64 %4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.2.0.i.i, ptr nonnull readonly align 1 %0, i64 %4, i1 false)
   br label %14
 
 13:                                               ; preds = %2
@@ -874,19 +874,13 @@ define void @ossl_clear_error() local_unnamed_addr #0 {
 
 declare i64 @rb_exc_new_str(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare i64 @rb_vsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
 
 ; Function Attrs: noreturn
 declare void @rb_exc_raise(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 declare i64 @ERR_get_error_all(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -895,7 +889,7 @@ declare ptr @ERR_lib_error_string(i64 noundef) local_unnamed_addr #1
 declare i32 @ruby_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #10
+declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #9
 
 declare void @ERR_clear_error() local_unnamed_addr #1
 
@@ -1007,7 +1001,7 @@ declare i64 @rb_define_module(ptr noundef) local_unnamed_addr #1
 declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_crypto_fixed_length_secure_compare(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal range(i64 0, 21) i64 @ossl_crypto_fixed_length_secure_compare(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store i64 %1, ptr %4, align 8
@@ -1044,7 +1038,7 @@ declare ptr @OpenSSL_version(i32 noundef) local_unnamed_addr #1
 declare extern_weak void @rb_define_module_function(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_fips_mode_get(i64 %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_fips_mode_get(i64 %0) #0 {
   %2 = tail call i32 @EVP_default_properties_is_fips_enabled(ptr noundef null) #17
   %.not = icmp eq i32 %2, 0
   %3 = select i1 %.not, i64 0, i64 20
@@ -1084,13 +1078,13 @@ define internal noundef i64 @ossl_fips_mode_set(i64 %0, i64 noundef returned %1)
 declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @ossl_debug_get(i64 %0) #11 {
+define internal i64 @ossl_debug_get(i64 %0) #10 {
   %2 = load i64, ptr @dOSSL, align 8
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef i64 @ossl_debug_set(i64 %0, i64 noundef returned %1) #12 {
+define internal noundef i64 @ossl_debug_set(i64 %0, i64 noundef returned %1) #11 {
   %3 = and i64 %1, -5
   %.not = icmp eq i64 %3, 0
   %4 = select i1 %.not, i64 0, i64 20
@@ -1137,7 +1131,7 @@ declare void @Init_ossl_asn1() local_unnamed_addr #1
 declare void @Init_ossl_kdf() local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn
-declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #13
+declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #12
 
 declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1152,6 +1146,12 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i32 @EVP_default_properties_is_fips_enabled(ptr noundef) local_unnamed_addr #1
 
 declare i32 @EVP_default_properties_enable_fips(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
@@ -1170,12 +1170,12 @@ attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nofree nounwind }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { cold noreturn nounwind }

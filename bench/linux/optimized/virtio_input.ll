@@ -875,8 +875,8 @@ define internal fastcc void @virtinput_cfg_bits(ptr nocapture noundef readonly %
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
-  %9 = trunc i32 %1 to i8
-  %10 = trunc i32 %2 to i8
+  %9 = trunc nuw nsw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %2 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
   store i8 %9, ptr %6, align 1
   %11 = tail call i32 @__SCT__might_resched() #10

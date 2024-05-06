@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [25 x i8] c"No mapping is available.\00", align 1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Sbc_ManAddInternalToPath_rec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Sbc_ManAddInternalToPath_rec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 176
   %.val = load i32, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 616
@@ -74,7 +74,7 @@ define i32 @Sbc_ManAddInternalToPath_rec(ptr nocapture noundef readonly %0, i32 
   %40 = getelementptr inbounds i8, ptr %39, i64 4
   %41 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
-  %43 = tail call i32 @Sbc_ManAddInternalToPath_rec(ptr noundef nonnull %0, i32 noundef %42, ptr noundef %2), !range !4
+  %43 = tail call i32 @Sbc_ManAddInternalToPath_rec(ptr noundef nonnull %0, i32 noundef %42, ptr noundef %2)
   %44 = or i32 %43, %.043
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val37 = load ptr, ptr %22, align 8
@@ -87,7 +87,7 @@ define i32 @Sbc_ManAddInternalToPath_rec(ptr nocapture noundef readonly %0, i32 
   %50 = load i32, ptr %49, align 4
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %.lr.ph, label %.critedge, !llvm.loop !5
+  br i1 %52, label %.lr.ph, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %.lr.ph
   %.not29 = icmp eq i32 %44, 0
@@ -138,7 +138,7 @@ define void @Sbc_ManAddInternalToPath(ptr noundef %0, ptr nocapture noundef read
 
 13:                                               ; preds = %9
   %.val = load ptr, ptr %6, align 8
-  %14 = trunc i64 %indvars.iv35 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv35 to i32
   %15 = lshr i64 %indvars.iv35, 5
   %16 = and i64 %15, 134217727
   %17 = getelementptr inbounds i32, ptr %.val, i64 %16
@@ -187,10 +187,10 @@ define void @Sbc_ManAddInternalToPath(ptr noundef %0, ptr nocapture noundef read
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph, label %.critedge, !llvm.loop !7
+  br i1 %43, label %.lr.ph, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph, %22
-  %44 = tail call i32 @Sbc_ManAddInternalToPath_rec(ptr noundef nonnull %0, i32 noundef %14, ptr noundef %1), !range !4
+  %44 = tail call i32 @Sbc_ManAddInternalToPath_rec(ptr noundef nonnull %0, i32 noundef %14, ptr noundef %1)
   %.val25.pre = load i32, ptr %3, align 8
   br label %45
 
@@ -199,7 +199,7 @@ define void @Sbc_ManAddInternalToPath(ptr noundef %0, ptr nocapture noundef read
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %46 = sext i32 %.val25 to i64
   %47 = icmp slt i64 %indvars.iv.next36, %46
-  br i1 %47, label %9, label %._crit_edge, !llvm.loop !8
+  br i1 %47, label %9, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %45, %2
   ret void
@@ -264,7 +264,7 @@ define void @Sbc_ManCriticalPath_rec(ptr noundef %0, ptr noundef %1, i32 noundef
 
 36:                                               ; preds = %33
   %37 = lshr i64 %.val76, 32
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw i64 %37 to i32
   %39 = and i32 %38, 536870911
   %40 = tail call i32 @Tim_ManBoxForCi(ptr noundef nonnull %35, i32 noundef %39) #9
   %41 = icmp sgt i32 %40, -1
@@ -316,7 +316,7 @@ define void @Sbc_ManCriticalPath_rec(ptr noundef %0, ptr noundef %1, i32 noundef
 68:                                               ; preds = %49, %65
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %49, !llvm.loop !9
+  br i1 %exitcond.not, label %.critedge, label %49, !llvm.loop !8
 
 69:                                               ; preds = %.lr.ph, %81
   %.val7795 = phi ptr [ %.val7785, %.lr.ph ], [ %.val77, %81 ]
@@ -351,7 +351,7 @@ define void @Sbc_ManCriticalPath_rec(ptr noundef %0, ptr noundef %1, i32 noundef
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next, %88
-  br i1 %89, label %69, label %.critedge, !llvm.loop !10
+  br i1 %89, label %69, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %81, %68, %.preheader, %42, %33, %36, %6
   ret void
@@ -469,7 +469,7 @@ Vec_BitStart.exit:                                ; preds = %9, %19
   %.val35 = load i32, ptr %56, align 4
   %57 = sext i32 %.val35 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %37, label %.critedge, !llvm.loop !11
+  br i1 %58, label %37, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %54, %31
   %59 = load ptr, ptr %3, align 8
@@ -508,7 +508,7 @@ Vec_BitStart.exit:                                ; preds = %9, %19
 
 73:                                               ; preds = %69
   %.val.i = load ptr, ptr %25, align 8
-  %74 = trunc i64 %indvars.iv35.i to i32
+  %74 = trunc nuw nsw i64 %indvars.iv35.i to i32
   %75 = lshr i64 %indvars.iv35.i, 5
   %76 = and i64 %75, 134217727
   %77 = getelementptr inbounds i32, ptr %.val.i, i64 %76
@@ -557,10 +557,10 @@ Vec_BitStart.exit:                                ; preds = %9, %19
   %101 = load i32, ptr %100, align 4
   %102 = sext i32 %101 to i64
   %103 = icmp slt i64 %indvars.iv.next.i, %102
-  br i1 %103, label %.lr.ph.i, label %.critedge.i, !llvm.loop !7
+  br i1 %103, label %.lr.ph.i, label %.critedge.i, !llvm.loop !6
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %82
-  %104 = call i32 @Sbc_ManAddInternalToPath_rec(ptr noundef nonnull %0, i32 noundef %74, ptr noundef nonnull %17), !range !4
+  %104 = call i32 @Sbc_ManAddInternalToPath_rec(ptr noundef nonnull %0, i32 noundef %74, ptr noundef nonnull readonly %17)
   %.val25.pre.i = load i32, ptr %11, align 8
   br label %105
 
@@ -569,7 +569,7 @@ Vec_BitStart.exit:                                ; preds = %9, %19
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %106 = sext i32 %.val25.i to i64
   %107 = icmp slt i64 %indvars.iv.next36.i, %106
-  br i1 %107, label %69, label %Sbc_ManAddInternalToPath.exit, !llvm.loop !8
+  br i1 %107, label %69, label %Sbc_ManAddInternalToPath.exit, !llvm.loop !7
 
 Sbc_ManAddInternalToPath.exit:                    ; preds = %105, %64
   ret ptr %17
@@ -665,7 +665,7 @@ Vec_BitStart.exit:                                ; preds = %1, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = sext i32 %.val95 to i64
   %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %24, label %.critedge, !llvm.loop !12
+  br i1 %46, label %24, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %44, %16
   %.val88 = load i32, ptr %3, align 8
@@ -705,7 +705,7 @@ Vec_BitStart.exit:                                ; preds = %1, %9
 
 55:                                               ; preds = %.lr.ph113
   %56 = add nsw i32 %.066109, 1
-  %57 = trunc i64 %indvars.iv.next132 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv.next132 to i32
   %58 = lshr i64 %indvars.iv.next132, 5
   %59 = and i64 %58, 134217727
   %60 = getelementptr inbounds i32, ptr %13, i64 %59
@@ -769,14 +769,14 @@ Vec_BitStart.exit:                                ; preds = %1, %9
   %99 = load i32, ptr %98, align 4
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next129, %100
-  br i1 %101, label %74, label %.critedge2, !llvm.loop !13
+  br i1 %101, label %74, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %94, %65, %.lr.ph113, %55
   %.167 = phi i32 [ %56, %55 ], [ %.066109, %.lr.ph113 ], [ %56, %65 ], [ %56, %94 ]
   %.165 = phi i32 [ %.064110, %55 ], [ %.064110, %.lr.ph113 ], [ %66, %65 ], [ %66, %94 ]
   %.3 = phi i32 [ %.061111, %55 ], [ %.061111, %.lr.ph113 ], [ %.061111, %65 ], [ %.263, %94 ]
   %102 = icmp sgt i64 %indvars.iv131, 2
-  br i1 %102, label %.lr.ph113, label %.preheader100, !llvm.loop !14
+  br i1 %102, label %.lr.ph113, label %.preheader100, !llvm.loop !13
 
 103:                                              ; preds = %.lr.ph124, %.critedge4
   %indvars.iv137 = phi i64 [ 1, %.lr.ph124 ], [ %indvars.iv.next138, %.critedge4 ]
@@ -794,7 +794,7 @@ Vec_BitStart.exit:                                ; preds = %1, %9
   br i1 %109, label %.lr.ph119, label %.critedge4
 
 .lr.ph119:                                        ; preds = %.preheader
-  %110 = trunc i64 %indvars.iv137 to i32
+  %110 = trunc nuw nsw i64 %indvars.iv137 to i32
   %111 = lshr i64 %indvars.iv137, 5
   %112 = and i64 %111, 134217727
   %113 = getelementptr inbounds i32, ptr %13, i64 %112
@@ -825,13 +825,13 @@ Vec_BitStart.exit:                                ; preds = %1, %9
   %128 = add nsw i32 %127, %.1118
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge4, label %.lr.ph119.split, !llvm.loop !15
+  br i1 %exitcond.not, label %.critedge4, label %.lr.ph119.split, !llvm.loop !14
 
 .critedge4:                                       ; preds = %.lr.ph119.split, %.lr.ph119, %.preheader, %103
   %.2 = phi i32 [ %.0123, %103 ], [ %.0123, %.preheader ], [ %.0123, %.lr.ph119 ], [ %128, %.lr.ph119.split ]
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
-  br i1 %exitcond141.not, label %._crit_edge, label %103, !llvm.loop !16
+  br i1 %exitcond141.not, label %._crit_edge, label %103, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.critedge4, %.critedge, %.preheader100
   %.061.lcssa154 = phi i32 [ %.3, %.preheader100 ], [ 0, %.critedge ], [ %.3, %.critedge4 ]
@@ -907,16 +907,15 @@ attributes #10 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

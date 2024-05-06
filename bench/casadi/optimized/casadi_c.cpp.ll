@@ -867,7 +867,7 @@ _ZNSt6vectorIN6casadi8FunctionESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @casadi_c_activate(i32 noundef %0) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @casadi_c_activate(i32 noundef %0) local_unnamed_addr #5 {
   %2 = tail call noundef i32 @_Z11sanitize_idi(i32 noundef %0)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
@@ -1965,14 +1965,14 @@ define noundef ptr @casadi_c_sparsity_out_id(i32 noundef %0, i64 noundef %1) loc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi8Function12sparsity_outEx(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @casadi_c_work(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define range(i32 -3, 1) i32 @casadi_c_work(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
   %5 = load i32, ptr @_ZL15casadi_c_active, align 4
-  %6 = tail call i32 @casadi_c_work_id(i32 noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !15
+  %6 = tail call i32 @casadi_c_work_id(i32 noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @casadi_c_work_id(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define range(i32 -3, 1) i32 @casadi_c_work_id(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %6 = tail call noundef i32 @_Z11sanitize_idi(i32 noundef %0)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %75
@@ -2257,7 +2257,7 @@ _ZNSt11_Deque_baseIiSaIiEE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.ph.i
   store ptr %12, ptr %.011.i, align 8
   %13 = getelementptr inbounds i8, ptr %.011.i, i64 8
   %14 = icmp ult ptr %13, %11
-  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIiSaIiEE15_M_create_nodesEPPiS3_.exit, !llvm.loop !16
+  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIiSaIiEE15_M_create_nodesEPPiS3_.exit, !llvm.loop !15
 
 15:                                               ; preds = %.lr.ph.i
   %16 = landingpad { ptr, i32 }
@@ -2433,7 +2433,7 @@ _ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
   %25 = getelementptr inbounds i8, ptr %.01215.i.i.i.i.i, i64 8
   %26 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %25, %1
-  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !16
 
 27:                                               ; preds = %.lr.ph.i.i.i.i.i
   %28 = landingpad { ptr, i32 }
@@ -2492,7 +2492,7 @@ _ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i37: ; preds 
   %40 = getelementptr inbounds i8, ptr %.01215.i.i.i.i.i31, i64 8
   %.016.i.i.i.i.i30.add = add nuw nsw i64 %.016.i.i.i.i.i30.idx, 8
   %.not.i.i.i.i.i38 = icmp eq ptr %40, %5
-  br i1 %.not.i.i.i.i.i38, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit43.loopexit, label %.lr.ph.i.i.i.i.i29, !llvm.loop !17
+  br i1 %.not.i.i.i.i.i38, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit43.loopexit, label %.lr.ph.i.i.i.i.i29, !llvm.loop !16
 
 41:                                               ; preds = %.lr.ph.i.i.i.i.i29
   %42 = landingpad { ptr, i32 }
@@ -2680,7 +2680,7 @@ _ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
   %25 = getelementptr inbounds i8, ptr %.01215.i.i.i.i.i, i64 8
   %26 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %25, %1
-  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !16
 
 27:                                               ; preds = %.lr.ph.i.i.i.i.i
   %28 = landingpad { ptr, i32 }
@@ -2739,7 +2739,7 @@ _ZSt10_ConstructIN6casadi8FunctionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i37: ; preds 
   %40 = getelementptr inbounds i8, ptr %.01215.i.i.i.i.i31, i64 8
   %.016.i.i.i.i.i30.add = add nuw nsw i64 %.016.i.i.i.i.i30.idx, 8
   %.not.i.i.i.i.i38 = icmp eq ptr %40, %5
-  br i1 %.not.i.i.i.i.i38, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit43.loopexit, label %.lr.ph.i.i.i.i.i29, !llvm.loop !17
+  br i1 %.not.i.i.i.i.i38, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit43.loopexit, label %.lr.ph.i.i.i.i.i29, !llvm.loop !16
 
 41:                                               ; preds = %.lr.ph.i.i.i.i.i29
   %42 = landingpad { ptr, i32 }
@@ -3249,6 +3249,5 @@ attributes #22 = { builtin allocsize(0) }
 !12 = distinct !{!12, !13, !"_ZNSt5dequeIiSaIiEE3endEv: argument 0"}
 !13 = distinct !{!13, !"_ZNSt5dequeIiSaIiEE3endEv"}
 !14 = !{!"branch_weights", i32 1, i32 1048575}
-!15 = !{i32 -3, i32 1}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}

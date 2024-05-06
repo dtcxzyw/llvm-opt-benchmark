@@ -1624,7 +1624,7 @@ define internal zeroext i1 @ExecParallelRetrieveInstrumentation(ptr noundef %0, 
   unreachable
 
 18:                                               ; preds = %11
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = getelementptr inbounds i8, ptr %1, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
@@ -2076,7 +2076,7 @@ define internal zeroext i1 @ExecParallelReportInstrumentation(ptr noundef %0, pt
   unreachable
 
 20:                                               ; preds = %13
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = getelementptr inbounds i8, ptr %1, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64

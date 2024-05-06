@@ -59,7 +59,7 @@ declare noundef i32 @_Z30alts_grpc_record_protocol_initP25alts_grpc_record_proto
 declare void @gpr_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL35alts_grpc_privacy_integrity_protectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_(ptr noundef %rp, ptr noundef %unprotected_slices, ptr noundef %protected_slices) #0 {
+define internal noundef range(i32 0, 8) i32 @_ZL35alts_grpc_privacy_integrity_protectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_(ptr noundef %rp, ptr noundef %unprotected_slices, ptr noundef %protected_slices) #0 {
 entry:
   %protected_slice = alloca %struct.grpc_slice, align 8
   %error_details = alloca ptr, align 8
@@ -137,7 +137,7 @@ return:                                           ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL37alts_grpc_privacy_integrity_unprotectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_(ptr noundef %rp, ptr noundef %protected_slices, ptr noundef %unprotected_slices) #0 {
+define internal noundef range(i32 0, 8) i32 @_ZL37alts_grpc_privacy_integrity_unprotectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_(ptr noundef %rp, ptr noundef %protected_slices, ptr noundef %unprotected_slices) #0 {
 entry:
   %unprotected_slice = alloca %struct.grpc_slice, align 8
   %error_details = alloca ptr, align 8

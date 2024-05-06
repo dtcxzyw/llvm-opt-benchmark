@@ -22277,9 +22277,9 @@ _ZNSt12_Vector_baseISt6vectorI11colvarvalueSaIS1_EESaIS3_EE13_M_deallocateEPS3_m
 
 .thread:                                          ; preds = %41
   tail call void @_ZNSt6vectorI11colvarvalueSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #24
-  br label %_ZNSt12_Vector_baseISt6vectorI11colvarvalueSaIS1_EESaIS3_EE13_M_deallocateEPS3_m.exit35
+  br label %_ZNSt12_Vector_baseISt6vectorI11colvarvalueSaIS1_EESaIS3_EE13_M_deallocateEPS3_m.exit37
 
-45:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorI11colvarvalueSaIS1_EESaIS3_EE13_M_deallocateEPS3_m.exit35
+45:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorI11colvarvalueSaIS1_EESaIS3_EE13_M_deallocateEPS3_m.exit37
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -22287,9 +22287,9 @@ _ZNSt12_Vector_baseISt6vectorI11colvarvalueSaIS1_EESaIS3_EE13_M_deallocateEPS3_m
 
 47:                                               ; preds = %41
   tail call void @_ZdlPv(ptr noundef nonnull %23) #25
-  br label %_ZNSt12_Vector_baseISt6vectorI11colvarvalueSaIS1_EESaIS3_EE13_M_deallocateEPS3_m.exit35
+  br label %_ZNSt12_Vector_baseISt6vectorI11colvarvalueSaIS1_EESaIS3_EE13_M_deallocateEPS3_m.exit37
 
-_ZNSt12_Vector_baseISt6vectorI11colvarvalueSaIS1_EESaIS3_EE13_M_deallocateEPS3_m.exit35: ; preds = %47, %.thread
+_ZNSt12_Vector_baseISt6vectorI11colvarvalueSaIS1_EESaIS3_EE13_M_deallocateEPS3_m.exit37: ; preds = %47, %.thread
   invoke void @__cxa_rethrow() #26
           to label %52 unwind label %45
 
@@ -22303,7 +22303,7 @@ _ZNSt12_Vector_baseISt6vectorI11colvarvalueSaIS1_EESaIS3_EE13_M_deallocateEPS3_m
   tail call void @__clang_call_terminate(ptr %51) #28
   unreachable
 
-52:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorI11colvarvalueSaIS1_EESaIS3_EE13_M_deallocateEPS3_m.exit35
+52:                                               ; preds = %_ZNSt12_Vector_baseISt6vectorI11colvarvalueSaIS1_EESaIS3_EE13_M_deallocateEPS3_m.exit37
   unreachable
 }
 

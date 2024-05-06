@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.arkRootfind = private unnamed_addr constant [12 x i8] c"arkRootfind\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -244,7 +244,7 @@ define noundef i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %124 = load ptr, ptr %19, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 112
   store ptr null, ptr %125, align 8
-  %126 = mul nsw i32 %7, 3
+  %126 = mul nuw nsw i32 %7, 3
   %127 = zext nneg i32 %126 to i64
   %128 = getelementptr inbounds i8, ptr %0, i64 544
   %129 = load <2 x i64>, ptr %128, align 8
@@ -508,7 +508,7 @@ define noundef i32 @arkRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br i1 %exitcond175.not, label %._crit_edge, label %.lr.ph169
 
 ._crit_edge:                                      ; preds = %.lr.ph169
-  %280 = mul nsw i32 %7, 3
+  %280 = mul nuw nsw i32 %7, 3
   %281 = zext nneg i32 %280 to i64
   %282 = getelementptr inbounds i8, ptr %0, i64 544
   %283 = load <2 x i64>, ptr %282, align 8
@@ -534,7 +534,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRootFree(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkRootFree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -629,7 +629,7 @@ define noundef i32 @arkRootFree(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkPrintRootMem(ptr noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -874,7 +874,7 @@ define noundef i32 @arkPrintRootMem(ptr noundef readonly %0, ptr nocapture nound
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRootCheck1(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -1058,7 +1058,7 @@ declare double @llvm.fabs.f64(double) #5
 declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -1282,7 +1282,7 @@ define i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @arkGetDky(ptr noundef, double noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRootCheck3(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -21, 2) i32 @arkRootCheck3(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -1377,7 +1377,7 @@ define noundef i32 @arkRootCheck3(ptr noundef %0) local_unnamed_addr #0 {
   %66 = fmul double %65, 1.000000e+02
   %67 = getelementptr inbounds i8, ptr %6, i64 88
   store double %66, ptr %67, align 8
-  %68 = tail call i32 @arkRootfind(ptr noundef nonnull %0), !range !4
+  %68 = tail call i32 @arkRootfind(ptr noundef nonnull %0)
   %69 = icmp eq i32 %68, -12
   br i1 %69, label %114, label %.preheader
 
@@ -1473,7 +1473,7 @@ define noundef i32 @arkRootCheck3(ptr noundef %0) local_unnamed_addr #0 {
 declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -2111,4 +2111,3 @@ attributes #9 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -21, i32 2}

@@ -45,7 +45,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z34srp_create_salted_verification_key17SRP_HashAlgorithm10SRP_NGTypePKcPKhmPPhPmS6_S7_S2_S2_(i32 noundef %alg, i32 noundef %ng_type, ptr noundef %username_for_verifier, ptr noundef %password, i64 noundef %len_password, ptr nocapture noundef %bytes_s, ptr nocapture noundef %len_s, ptr nocapture noundef writeonly %bytes_v, ptr nocapture noundef writeonly %len_v, ptr noundef %n_hex, ptr noundef %g_hex) local_unnamed_addr #4 {
+define dso_local noundef range(i32 0, 2) i32 @_Z34srp_create_salted_verification_key17SRP_HashAlgorithm10SRP_NGTypePKcPKhmPPhPmS6_S7_S2_S2_(i32 noundef %alg, i32 noundef %ng_type, ptr noundef %username_for_verifier, ptr noundef %password, i64 noundef %len_password, ptr nocapture noundef %bytes_s, ptr nocapture noundef %len_s, ptr nocapture noundef writeonly %bytes_v, ptr nocapture noundef writeonly %len_v, ptr noundef %n_hex, ptr noundef %g_hex) local_unnamed_addr #4 {
 entry:
   %v = alloca [1 x %struct.__mpz_struct], align 16
   %x = alloca [1 x %struct.__mpz_struct], align 16
@@ -227,7 +227,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL11calculate_xP12__mpz_struct17SRP_HashAlgorithmPKhmPKcS3_m(ptr noundef %result, i32 noundef %alg, ptr nocapture noundef readonly %salt, i64 noundef %salt_len, ptr noundef %username, ptr noundef %password, i64 noundef %password_len) unnamed_addr #4 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL11calculate_xP12__mpz_struct17SRP_HashAlgorithmPKhmPKcS3_m(ptr noundef %result, i32 noundef %alg, ptr nocapture noundef readonly %salt, i64 noundef %salt_len, ptr noundef %username, ptr noundef %password, i64 noundef %password_len) unnamed_addr #4 {
 entry:
   %buff.i = alloca [32 x i8], align 16
   %ucp_hash = alloca [32 x i8], align 16
@@ -563,7 +563,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 declare void @__gmpz_mod(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef %result, i32 noundef %alg, ptr noundef %N, ptr noundef %n1, ptr noundef %n2) unnamed_addr #4 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL4H_nnP12__mpz_struct17SRP_HashAlgorithmPKS_S3_S3_(ptr noundef %result, i32 noundef %alg, ptr noundef %N, ptr noundef %n1, ptr noundef %n2) unnamed_addr #4 {
 entry:
   %buff = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buff) #17
@@ -631,7 +631,7 @@ cleanup:                                          ; preds = %_ZL4hash17SRP_HashA
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %alg, ptr noundef %ng, ptr noundef %dest, ptr noundef %I, ptr noundef %s_bytes, i64 noundef %s_len, ptr noundef %A, ptr noundef %B, ptr noundef %K) unnamed_addr #4 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %alg, ptr noundef %ng, ptr noundef %dest, ptr noundef %I, ptr noundef %s_bytes, i64 noundef %s_len, ptr noundef %A, ptr noundef %B, ptr noundef %K) unnamed_addr #4 {
 entry:
   %H_N = alloca [32 x i8], align 16
   %H_g = alloca [32 x i8], align 16
@@ -764,7 +764,7 @@ cleanup:                                          ; preds = %sw.bb.i122, %_ZL11h
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL15calculate_H_AMK17SRP_HashAlgorithmPhPK12__mpz_structPKhS5_(i32 noundef %alg, ptr noundef %dest, ptr noundef %A, ptr noundef %M, ptr noundef %K) unnamed_addr #4 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL15calculate_H_AMK17SRP_HashAlgorithmPhPK12__mpz_structPKhS5_(i32 noundef %alg, ptr noundef %dest, ptr noundef %A, ptr noundef %M, ptr noundef %K) unnamed_addr #4 {
 entry:
   %ctx = alloca %union.HashCTX, align 4
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx) #17
@@ -885,7 +885,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_Z35srp_verifier_get_session_key_lengthP11SRPVerifier(ptr nocapture noundef readonly %ver) local_unnamed_addr #11 {
+define dso_local noundef range(i64 0, 33) i64 @_Z35srp_verifier_get_session_key_lengthP11SRPVerifier(ptr nocapture noundef readonly %ver) local_unnamed_addr #11 {
 entry:
   %0 = load i32, ptr %ver, align 8, !tbaa !19
   %cond.i = icmp eq i32 %0, 0
@@ -1159,7 +1159,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_Z31srp_user_get_session_key_lengthP7SRPUser(ptr nocapture noundef readonly %usr) local_unnamed_addr #11 {
+define dso_local noundef range(i64 0, 33) i64 @_Z31srp_user_get_session_key_lengthP7SRPUser(ptr nocapture noundef readonly %usr) local_unnamed_addr #11 {
 entry:
   %0 = load i32, ptr %usr, align 8, !tbaa !24
   %cond.i = icmp eq i32 %0, 0
@@ -1168,7 +1168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z29srp_user_start_authenticationP7SRPUserPPcPKhmPPhPm(ptr noundef %usr, ptr noundef writeonly %username, ptr noundef %bytes_a, i64 noundef %len_a, ptr nocapture noundef %bytes_A, ptr nocapture noundef writeonly %len_A) local_unnamed_addr #4 {
+define dso_local noundef range(i32 0, 2) i32 @_Z29srp_user_start_authenticationP7SRPUserPPcPKhmPPhPm(ptr noundef %usr, ptr noundef writeonly %username, ptr noundef %bytes_a, i64 noundef %len_a, ptr nocapture noundef %bytes_A, ptr nocapture noundef writeonly %len_A) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %bytes_a, null
   %a1 = getelementptr inbounds i8, ptr %usr, i64 16

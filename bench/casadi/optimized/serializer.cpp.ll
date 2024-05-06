@@ -2776,7 +2776,7 @@ define noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16Deserializer
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6casadi16DeserializerBase8pop_typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZN6casadi16DeserializerBase8pop_typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca i8, align 1
   %3 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %3, ptr noundef nonnull align 1 dereferenceable(1) %2)
@@ -3321,7 +3321,7 @@ define void @_ZN6casadi16DeserializerBase9unpack_mxEv(ptr dead_on_unwind noalias
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -3903,7 +3903,7 @@ define void @_ZN6casadi16DeserializerBase16unpack_mx_vectorEv(ptr dead_on_unwind
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -4629,7 +4629,7 @@ define void @_ZN6casadi16DeserializerBase9unpack_sxEv(ptr dead_on_unwind noalias
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -5315,7 +5315,7 @@ define void @_ZN6casadi16DeserializerBase16unpack_sx_vectorEv(ptr dead_on_unwind
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -5594,7 +5594,7 @@ define void @_ZN6casadi16DeserializerBase15unpack_sparsityEv(ptr dead_on_unwind 
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -5809,7 +5809,7 @@ define void @_ZN6casadi16DeserializerBase15unpack_sparsityEv(ptr dead_on_unwind 
 
 79:                                               ; preds = %2
   call void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 0)
-  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %81 unwind label %82
 
 81:                                               ; preds = %79
@@ -5993,7 +5993,7 @@ define void @_ZN6casadi16DeserializerBase22unpack_sparsity_vectorEv(ptr dead_on_
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -6209,7 +6209,7 @@ define void @_ZN6casadi16DeserializerBase22unpack_sparsity_vectorEv(ptr dead_on_
 79:                                               ; preds = %2
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !47
-  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %81 unwind label %82, !noalias !47
 
 81:                                               ; preds = %79
@@ -6329,7 +6329,7 @@ define void @_ZN6casadi16DeserializerBase9unpack_dmEv(ptr dead_on_unwind noalias
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -6764,7 +6764,7 @@ define void @_ZN6casadi16DeserializerBase16unpack_dm_vectorEv(ptr dead_on_unwind
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -6980,7 +6980,7 @@ define void @_ZN6casadi16DeserializerBase16unpack_dm_vectorEv(ptr dead_on_unwind
 79:                                               ; preds = %2
   call void @llvm.experimental.noalias.scope.decl(metadata !57)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !57
-  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %81 unwind label %82, !noalias !57
 
 81:                                               ; preds = %79
@@ -7058,7 +7058,7 @@ define void @_ZN6casadi16DeserializerBase13unpack_linsolEv(ptr dead_on_unwind no
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -7273,7 +7273,7 @@ define void @_ZN6casadi16DeserializerBase13unpack_linsolEv(ptr dead_on_unwind no
 
 79:                                               ; preds = %2
   call void @_ZN6casadi6LinsolC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %81 unwind label %82
 
 81:                                               ; preds = %79
@@ -7457,7 +7457,7 @@ define void @_ZN6casadi16DeserializerBase20unpack_linsol_vectorEv(ptr dead_on_un
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -7673,7 +7673,7 @@ define void @_ZN6casadi16DeserializerBase20unpack_linsol_vectorEv(ptr dead_on_un
 79:                                               ; preds = %2
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !67
-  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %81 unwind label %82, !noalias !67
 
 81:                                               ; preds = %79
@@ -7745,7 +7745,7 @@ define void @_ZN6casadi16DeserializerBase15unpack_functionEv(ptr dead_on_unwind 
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -7960,7 +7960,7 @@ define void @_ZN6casadi16DeserializerBase15unpack_functionEv(ptr dead_on_unwind 
 
 79:                                               ; preds = %2
   call void @_ZN6casadi8FunctionC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %81 unwind label %82
 
 81:                                               ; preds = %79
@@ -8144,7 +8144,7 @@ define void @_ZN6casadi16DeserializerBase22unpack_function_vectorEv(ptr dead_on_
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -8360,7 +8360,7 @@ define void @_ZN6casadi16DeserializerBase22unpack_function_vectorEv(ptr dead_on_
 79:                                               ; preds = %2
   call void @llvm.experimental.noalias.scope.decl(metadata !77)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !77
-  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %81 unwind label %82, !noalias !77
 
 81:                                               ; preds = %79
@@ -8438,7 +8438,7 @@ define void @_ZN6casadi16DeserializerBase18unpack_generictypeEv(ptr dead_on_unwi
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -8653,7 +8653,7 @@ define void @_ZN6casadi16DeserializerBase18unpack_generictypeEv(ptr dead_on_unwi
 
 79:                                               ; preds = %2
   call void @_ZN6casadi11GenericTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %81 unwind label %82
 
 81:                                               ; preds = %79
@@ -8837,7 +8837,7 @@ define void @_ZN6casadi16DeserializerBase25unpack_generictype_vectorEv(ptr dead_
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -9053,7 +9053,7 @@ define void @_ZN6casadi16DeserializerBase25unpack_generictype_vectorEv(ptr dead_
 79:                                               ; preds = %2
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !87
-  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %81 unwind label %82, !noalias !87
 
 81:                                               ; preds = %79
@@ -9120,7 +9120,7 @@ define noundef i64 @_ZN6casadi16DeserializerBase10unpack_intEv(ptr nocapture nou
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %0)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -9335,7 +9335,7 @@ define noundef i64 @_ZN6casadi16DeserializerBase10unpack_intEv(ptr nocapture nou
 
 79:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %80 = call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %80 = call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %0)
   call void @_ZN6casadi19DeserializingStream6unpackERx(ptr noundef nonnull align 8 dereferenceable(41) %80, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %81 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -9469,7 +9469,7 @@ define void @_ZN6casadi16DeserializerBase17unpack_int_vectorEv(ptr dead_on_unwin
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -9737,7 +9737,7 @@ define noundef double @_ZN6casadi16DeserializerBase13unpack_doubleEv(ptr nocaptu
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %0)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -9952,7 +9952,7 @@ define noundef double @_ZN6casadi16DeserializerBase13unpack_doubleEv(ptr nocaptu
 
 79:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %80 = call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %80 = call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %0)
   call void @_ZN6casadi19DeserializingStream6unpackERd(ptr noundef nonnull align 8 dereferenceable(41) %80, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %81 = load double, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -10086,7 +10086,7 @@ define void @_ZN6casadi16DeserializerBase20unpack_double_vectorEv(ptr dead_on_un
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -10366,7 +10366,7 @@ define void @_ZN6casadi16DeserializerBase13unpack_stringB5cxx11Ev(ptr dead_on_un
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -10581,7 +10581,7 @@ define void @_ZN6casadi16DeserializerBase13unpack_stringB5cxx11Ev(ptr dead_on_un
 
 79:                                               ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
-  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %81 unwind label %82
 
 81:                                               ; preds = %79
@@ -10733,7 +10733,7 @@ define void @_ZN6casadi16DeserializerBase20unpack_string_vectorB5cxx11Ev(ptr dea
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %18 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
   call void @_ZN6casadi19DeserializingStream6unpackERc(ptr noundef nonnull align 8 dereferenceable(41) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %19 = load i8, ptr %3, align 1
   %20 = sext i8 %19 to i32
@@ -10949,7 +10949,7 @@ define void @_ZN6casadi16DeserializerBase20unpack_string_vectorB5cxx11Ev(ptr dea
 79:                                               ; preds = %2
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !108
-  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %80 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN6casadi16DeserializerBase12deserializerEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %81 unwind label %82, !noalias !108
 
 81:                                               ; preds = %79

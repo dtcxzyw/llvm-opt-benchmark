@@ -189,15 +189,15 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_crash_hotplug_init400, ptr @__UNIQUE_ID___addressable_crash_notes_memory_init397, ptr @__UNIQUE_ID___addressable_crash_save_vmcoreinfo_init392, ptr @__UNIQUE_ID___addressable_insert_crashkernel_resources383, ptr @__UNIQUE_ID___addressable_paddr_vmcoreinfo_note390, ptr @__setup_parse_crashkernel_dummy], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 section ".init.text" align 16 {
-  %7 = tail call fastcc i32 @__parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null) #18, !range !5
+define dso_local range(i32 -22, 1) i32 @parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 section ".init.text" align 16 {
+  %7 = tail call fastcc i32 @__parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null) #18
   %8 = icmp ne ptr %5, null
   %9 = icmp eq i32 %7, -2
   %10 = and i1 %8, %9
   br i1 %10, label %11, label %24
 
 11:                                               ; preds = %6
-  %12 = tail call fastcc i32 @__parse_crashkernel(ptr noundef %0, i64 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @.str.20) #18, !range !5
+  %12 = tail call fastcc i32 @__parse_crashkernel(ptr noundef %0, i64 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @.str.20) #18
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %29
 
@@ -207,7 +207,7 @@ define dso_local i32 @parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noun
   br i1 %16, label %29, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call fastcc i32 @__parse_crashkernel(ptr noundef %0, i64 noundef 0, ptr noundef %4, ptr noundef %3, ptr noundef nonnull @.str.21) #18, !range !5
+  %18 = tail call fastcc i32 @__parse_crashkernel(ptr noundef %0, i64 noundef 0, ptr noundef %4, ptr noundef %3, ptr noundef nonnull @.str.21) #18
   switch i32 %18, label %29 [
     i32 -2, label %19
     i32 0, label %23
@@ -240,15 +240,15 @@ define dso_local i32 @parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noun
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @__parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4) unnamed_addr #0 section ".init.text" align 16 {
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %3, null
   %8 = or i1 %6, %7
-  br i1 %8, label %9, label %10, !prof !6
+  br i1 %8, label %9, label %10, !prof !5
 
 9:                                                ; preds = %5
-  tail call void asm sideeffect "381: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 381b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 381) #19, !srcloc !7
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 274, i32 0, i64 12) #19, !srcloc !8
+  tail call void asm sideeffect "381: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 381b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 381) #19, !srcloc !6
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 274, i32 0, i64 12) #19, !srcloc !7
   unreachable
 
 10:                                               ; preds = %5
@@ -264,7 +264,7 @@ define internal fastcc noundef i32 @__parse_crashkernel(ptr noundef %0, i64 noun
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call fastcc i32 @parse_crashkernel_suffix(ptr noundef %14, ptr noundef nonnull %2, ptr noundef nonnull %4) #18, !range !5
+  %17 = tail call fastcc i32 @parse_crashkernel_suffix(ptr noundef %14, ptr noundef nonnull %2, ptr noundef nonnull %4) #18, !range !8
   br label %30
 
 18:                                               ; preds = %13
@@ -280,11 +280,11 @@ define internal fastcc noundef i32 @__parse_crashkernel(ptr noundef %0, i64 noun
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %21
-  %27 = tail call fastcc i32 @parse_crashkernel_mem(ptr noundef %14, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #18, !range !5
+  %27 = tail call fastcc i32 @parse_crashkernel_mem(ptr noundef %14, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #18
   br label %30
 
 28:                                               ; preds = %21, %18
-  %29 = tail call fastcc i32 @parse_crashkernel_simple(ptr noundef %14, ptr noundef nonnull %2, ptr noundef nonnull %3) #18, !range !5
+  %29 = tail call fastcc i32 @parse_crashkernel_simple(ptr noundef %14, ptr noundef nonnull %2, ptr noundef nonnull %3) #18, !range !8
   br label %30
 
 30:                                               ; preds = %28, %26, %16, %10
@@ -385,7 +385,7 @@ declare dso_local i64 @memblock_phys_alloc_range(i64 noundef, i64 noundef, i64 n
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @reserve_crashkernel_low(i64 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @reserve_crashkernel_low(i64 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = tail call i64 @memblock_phys_alloc_range(i64 noundef %0, i64 noundef 16777216, i64 noundef 0, i64 noundef 4294967296) #19
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %6
@@ -437,7 +437,7 @@ define internal noundef i32 @insert_crashkernel_resources() #0 section ".init.te
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @crash_prepare_elf64_headers(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @crash_prepare_elf64_headers(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 align 16 {
   %5 = load i64, ptr @__cpu_possible_mask, align 8
   %6 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %5) #21, !srcloc !10
   %7 = and i64 %6, 4294967295
@@ -651,7 +651,7 @@ define weak dso_local i64 @paddr_vmcoreinfo_note() #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef i32 @crash_exclude_mem_range(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #9 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @crash_exclude_mem_range(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #9 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -862,10 +862,10 @@ define dso_local void @vmcoreinfo_append_str(ptr noundef %0, ...) local_unnamed_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, i8 0, i64 24, i1 false), !annotation !18
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !18
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %4 = call i32 @vscnprintf(ptr noundef nonnull %3, i64 noundef 80, ptr noundef %0, ptr noundef nonnull %2) #19
   %5 = sext i32 %4 to i64
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   %6 = load i64, ptr @vmcoreinfo_size, align 8
   %7 = sub i64 4096, %6
   %8 = call i64 @llvm.umin.i64(i64 %7, i64 %5)
@@ -899,14 +899,8 @@ define dso_local void @vmcoreinfo_append_str(ptr noundef %0, ...) local_unnamed_
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @ktime_get_real_seconds() local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
-
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @vscnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
@@ -917,7 +911,7 @@ define weak dso_local void @arch_crash_save_vmcoreinfo() local_unnamed_addr #5 a
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @crash_save_vmcoreinfo_init() #0 section ".init.text" align 16 {
+define internal noundef range(i32 -12, 1) i32 @crash_save_vmcoreinfo_init() #0 section ".init.text" align 16 {
   %1 = tail call i64 @get_zeroed_page(i32 noundef 3264) #19
   %2 = inttoptr i64 %1 to ptr
   store ptr %2, ptr @vmcoreinfo_data, align 8
@@ -1051,7 +1045,7 @@ define internal noundef i32 @crash_save_vmcoreinfo_init() #0 section ".init.text
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @crash_notes_memory_init() #0 section ".init.text" align 16 {
+define internal noundef range(i32 -12, 1) i32 @crash_notes_memory_init() #0 section ".init.text" align 16 {
   %1 = tail call noalias dereferenceable_or_null(368) ptr @__alloc_percpu(i64 noundef 368, i64 noundef 512) #22
   store ptr %1, ptr @crash_notes, align 8
   %2 = icmp eq ptr %1, null
@@ -1067,7 +1061,7 @@ define internal noundef i32 @crash_notes_memory_init() #0 section ".init.text" a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @crash_check_update_elfcorehdr() local_unnamed_addr #5 align 16 {
+define dso_local range(i32 0, 2) i32 @crash_check_update_elfcorehdr() local_unnamed_addr #5 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @__crash_hotplug_lock) #19
   %1 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @__kexec_lock, i32 1, i32 0, ptr nonnull elementtype(i32) @__kexec_lock) #19, !srcloc !26
   %2 = icmp eq i32 %1, 0
@@ -1120,7 +1114,7 @@ define internal i32 @crash_hotplug_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree nounwind null_pointer_is_valid optsize memory(read, inaccessiblemem: none)
-define internal fastcc ptr @get_last_crashkernel(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #15 section ".init.text" align 16 {
+define internal fastcc ptr @get_last_crashkernel(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #14 section ".init.text" align 16 {
   %3 = tail call ptr @strstr(ptr noundef %0, ptr noundef nonnull dereferenceable(1) @.str.9) #19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit5, label %5
@@ -1184,7 +1178,7 @@ define internal fastcc ptr @get_last_crashkernel(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @parse_crashkernel_suffix(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @parse_crashkernel_suffix(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
   store ptr %0, ptr %4, align 8
@@ -1234,7 +1228,7 @@ define internal fastcc noundef i32 @parse_crashkernel_suffix(ptr noundef %0, ptr
 declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @parse_crashkernel_mem(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @parse_crashkernel_mem(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   store ptr null, ptr %5, align 8, !annotation !18
@@ -1348,7 +1342,7 @@ thread-pre-split11:                               ; preds = %41
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @parse_crashkernel_simple(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @parse_crashkernel_simple(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
   store ptr %0, ptr %4, align 8
@@ -1545,13 +1539,19 @@ declare dso_local void @arch_crash_handle_hotplug_event(ptr noundef) local_unnam
 declare dso_local void @arch_kexec_protect_crashkres() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
+declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #17
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -1567,10 +1567,10 @@ attributes #10 = { fn_ret_thunk_extern mustprogress nofree nounwind null_pointer
 attributes #11 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #12 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #13 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { cold fn_ret_thunk_extern nofree nounwind null_pointer_is_valid optsize memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { cold fn_ret_thunk_extern nofree nounwind null_pointer_is_valid optsize memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #18 = { cold }
 attributes #19 = { nounwind }
 attributes #20 = { cold nounwind }
@@ -1585,10 +1585,10 @@ attributes #23 = { nounwind memory(read) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = !{i32 -22, i32 1}
-!6 = !{!"branch_weights", i32 1, i32 2000}
-!7 = !{i64 2155102785, i64 2155102594, i64 2155102646, i64 2155102692, i64 2155102720}
-!8 = !{i64 2155102859, i64 2155102888, i64 2155102934, i64 2155102992, i64 2155103046, i64 2155103100, i64 2155103155, i64 2155103186}
+!5 = !{!"branch_weights", i32 1, i32 2000}
+!6 = !{i64 2155102785, i64 2155102594, i64 2155102646, i64 2155102692, i64 2155102720}
+!7 = !{i64 2155102859, i64 2155102888, i64 2155102934, i64 2155102992, i64 2155103046, i64 2155103100, i64 2155103155, i64 2155103186}
+!8 = !{i32 -22, i32 1}
 !9 = !{i32 -12, i32 1}
 !10 = !{i64 2148358160, i64 2148358188, i64 2148358194, i64 2148358210, i64 2148358226, i64 2148358253, i64 2148358586, i64 2148357886, i64 2148358592, i64 2148358640, i64 2148358704, i64 2148358768, i64 2148358825, i64 2148357967, i64 2148357992, i64 2148359032, i64 2148359162, i64 2148359093, i64 2148359176, i64 2148358084}
 !11 = !{i64 846554}

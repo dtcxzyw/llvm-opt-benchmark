@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [9 x i8] c"SHA2-256\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_fips_rand_leak) #3
   ret i32 1
@@ -78,7 +78,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @thread_run(ptr nocapture noundef readonly %arg) #0 {
+define internal noundef ptr @thread_run(ptr nocapture noundef readonly %arg) #0 {
 entry:
   tail call void %arg() #3
   ret ptr null

@@ -67,7 +67,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.usb_desc_attach = private unnamed_addr constant [4 x i64] [i64 16, i64 16, i64 24, i64 32], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @usb_desc_device(ptr nocapture noundef readonly %id, ptr nocapture noundef readonly %dev, i1 noundef zeroext %msos, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 19) i32 @usb_desc_device(ptr nocapture noundef readonly %id, ptr nocapture noundef readonly %dev, i1 noundef zeroext %msos, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %len, 18
   br i1 %cmp, label %return, label %if.end
@@ -92,7 +92,7 @@ if.else:                                          ; preds = %if.end
   store i8 %conv1.i, ptr %u12, align 1
   %0 = load i16, ptr %dev, align 8
   %1 = lshr i16 %0, 8
-  %conv1.i37 = trunc i16 %1 to i8
+  %conv1.i37 = trunc nuw i16 %1 to i8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.else, %if.then7
@@ -121,7 +121,7 @@ if.end18:                                         ; preds = %if.else, %if.then7
   store i8 %conv1.i38, ptr %idVendor_lo, align 1
   %7 = load i16, ptr %id, align 2
   %8 = lshr i16 %7, 8
-  %conv1.i39 = trunc i16 %8 to i8
+  %conv1.i39 = trunc nuw i16 %8 to i8
   %idVendor_hi = getelementptr inbounds i8, ptr %dest, i64 9
   store i8 %conv1.i39, ptr %idVendor_hi, align 1
   %idProduct = getelementptr inbounds i8, ptr %id, i64 2
@@ -131,7 +131,7 @@ if.end18:                                         ; preds = %if.else, %if.then7
   store i8 %conv1.i40, ptr %idProduct_lo, align 1
   %10 = load i16, ptr %idProduct, align 2
   %11 = lshr i16 %10, 8
-  %conv1.i41 = trunc i16 %11 to i8
+  %conv1.i41 = trunc nuw i16 %11 to i8
   %idProduct_hi = getelementptr inbounds i8, ptr %dest, i64 11
   store i8 %conv1.i41, ptr %idProduct_hi, align 1
   %bcdDevice = getelementptr inbounds i8, ptr %id, i64 4
@@ -141,7 +141,7 @@ if.end18:                                         ; preds = %if.else, %if.then7
   store i8 %conv1.i42, ptr %bcdDevice_lo, align 1
   %13 = load i16, ptr %bcdDevice, align 2
   %14 = lshr i16 %13, 8
-  %conv1.i43 = trunc i16 %14 to i8
+  %conv1.i43 = trunc nuw i16 %14 to i8
   %bcdDevice_hi = getelementptr inbounds i8, ptr %dest, i64 13
   store i8 %conv1.i43, ptr %bcdDevice_hi, align 1
   %iManufacturer = getelementptr inbounds i8, ptr %id, i64 6
@@ -168,7 +168,7 @@ return:                                           ; preds = %entry, %if.end18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @usb_desc_device_qualifier(ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 11) i32 @usb_desc_device_qualifier(ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %len, 10
   br i1 %cmp, label %return, label %if.end
@@ -183,7 +183,7 @@ if.end:                                           ; preds = %entry
   store i8 %conv1.i, ptr %u, align 1
   %1 = load i16, ptr %dev, align 8
   %2 = lshr i16 %1, 8
-  %conv1.i18 = trunc i16 %2 to i8
+  %conv1.i18 = trunc nuw i16 %2 to i8
   %bcdUSB_hi = getelementptr inbounds i8, ptr %dest, i64 3
   store i8 %conv1.i18, ptr %bcdUSB_hi, align 1
   %bDeviceClass = getelementptr inbounds i8, ptr %dev, i64 2
@@ -216,7 +216,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @usb_desc_config(ptr nocapture noundef readonly %conf, i32 noundef %flags, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #1 {
+define dso_local range(i32 -2147483648, 65536) i32 @usb_desc_config(ptr nocapture noundef readonly %conf, i32 noundef %flags, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %len, 9
   br i1 %cmp, label %return, label %if.end
@@ -317,7 +317,7 @@ for.body.i:                                       ; preds = %if.end.i, %if.end18
   %idx.ext.i = sext i32 %pos.030.i to i64
   %add.ptr.i = getelementptr i8, ptr %add.ptr, i64 %idx.ext.i
   %sub.i = sub i64 %sub, %idx.ext.i
-  %call.i = tail call i32 @usb_desc_iface(ptr noundef %arrayidx13.i, i32 noundef %flags, ptr noundef %add.ptr.i, i64 noundef %sub.i)
+  %call.i = tail call i32 @usb_desc_iface(ptr noundef %arrayidx13.i, i32 noundef %flags, ptr noundef writeonly %add.ptr.i, i64 noundef %sub.i)
   %cmp15.i = icmp slt i32 %call.i, 0
   br i1 %cmp15.i, label %return, label %if.end18.i
 
@@ -369,7 +369,7 @@ for.end49:                                        ; preds = %if.end43, %for.cond
   %conv1.i = trunc i16 %wTotalLength.1.lcssa to i8
   store i8 %conv1.i, ptr %u, align 1
   %25 = lshr i16 %wTotalLength.1.lcssa, 8
-  %conv1.i43 = trunc i16 %25 to i8
+  %conv1.i43 = trunc nuw i16 %25 to i8
   %wTotalLength_hi = getelementptr inbounds i8, ptr %dest, i64 3
   store i8 %conv1.i43, ptr %wTotalLength_hi, align 1
   %conv54 = zext i16 %wTotalLength.1.lcssa to i32
@@ -532,7 +532,7 @@ usb_desc_other.exit:                              ; preds = %cond.end.i
   %cond.i = zext i8 %cond.in.i to i32
   %data6.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %13 = load ptr, ptr %data6.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr21, ptr align 1 %13, i64 %conv4.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr21, ptr align 1 %13, i64 %conv4.i, i1 false)
   %add27 = add i32 %pos.057, %cond.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i8, ptr %ndesc, align 1
@@ -589,7 +589,7 @@ if.end.i45:                                       ; preds = %cond.end.i43
   store i8 %conv1.i.i, ptr %wMaxPacketSize_lo.i, align 1
   %23 = load i16, ptr %wMaxPacketSize.i, align 2
   %24 = lshr i16 %23, 8
-  %conv1.i43.i = trunc i16 %24 to i8
+  %conv1.i43.i = trunc nuw i16 %24 to i8
   %wMaxPacketSize_hi.i = getelementptr inbounds i8, ptr %add.ptr37, i64 5
   store i8 %conv1.i43.i, ptr %wMaxPacketSize_hi.i, align 1
   %bInterval.i = getelementptr inbounds i8, ptr %add.ptr35, i64 4
@@ -635,7 +635,7 @@ if.then35.i:                                      ; preds = %if.end33.i
   store i8 %conv1.i44.i, ptr %wBytesPerInterval_lo.i, align 1
   %32 = load i16, ptr %wBytesPerInterval.i, align 2
   %33 = lshr i16 %32, 8
-  %conv1.i45.i = trunc i16 %33 to i8
+  %conv1.i45.i = trunc nuw i16 %33 to i8
   %wBytesPerInterval_hi.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
   store i8 %conv1.i45.i, ptr %wBytesPerInterval_hi.i, align 1
   br label %if.end48.i
@@ -650,7 +650,7 @@ if.then51.i:                                      ; preds = %if.end48.i
   %add.ptr54.i = getelementptr i8, ptr %add.ptr37, i64 %idx.ext53.i
   %add.ptr57.i = getelementptr i8, ptr %add.ptr54.i, i64 %idx.ext56.i
   %conv59.i = zext i8 %cond5.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr57.i, ptr nonnull align 1 %34, i64 %conv59.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr57.i, ptr nonnull align 1 %34, i64 %conv59.i, i1 false)
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then51.i, %if.end48.i
@@ -667,7 +667,7 @@ return:                                           ; preds = %cond.end.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @usb_desc_other(ptr nocapture noundef readonly %desc, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 256) i32 @usb_desc_other(ptr nocapture noundef readonly %desc, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %desc, align 8
   %tobool.not = icmp eq i8 %0, 0
@@ -698,7 +698,7 @@ return:                                           ; preds = %cond.end, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @usb_desc_endpoint(ptr nocapture noundef readonly %ep, i32 noundef %flags, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 271) i32 @usb_desc_endpoint(ptr nocapture noundef readonly %ep, i32 noundef %flags, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %is_audio = getelementptr inbounds i8, ptr %ep, i64 7
   %0 = load i8, ptr %is_audio, align 1
@@ -744,7 +744,7 @@ if.end:                                           ; preds = %cond.end
   store i8 %conv1.i, ptr %wMaxPacketSize_lo, align 1
   %6 = load i16, ptr %wMaxPacketSize, align 2
   %7 = lshr i16 %6, 8
-  %conv1.i43 = trunc i16 %7 to i8
+  %conv1.i43 = trunc nuw i16 %7 to i8
   %wMaxPacketSize_hi = getelementptr inbounds i8, ptr %dest, i64 5
   store i8 %conv1.i43, ptr %wMaxPacketSize_hi, align 1
   %bInterval = getelementptr inbounds i8, ptr %ep, i64 4
@@ -790,7 +790,7 @@ if.then35:                                        ; preds = %if.end33
   store i8 %conv1.i44, ptr %wBytesPerInterval_lo, align 1
   %15 = load i16, ptr %wBytesPerInterval, align 2
   %16 = lshr i16 %15, 8
-  %conv1.i45 = trunc i16 %16 to i8
+  %conv1.i45 = trunc nuw i16 %16 to i8
   %wBytesPerInterval_hi = getelementptr inbounds i8, ptr %add.ptr, i64 5
   store i8 %conv1.i45, ptr %wBytesPerInterval_hi, align 1
   br label %if.end48
@@ -1365,7 +1365,7 @@ return:                                           ; preds = %while.body, %if.end
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @usb_desc_get_descriptor(ptr noundef %dev, ptr nocapture noundef writeonly %p, i32 noundef %value, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #4 {
+define dso_local range(i32 -2147483648, 1) i32 @usb_desc_get_descriptor(ptr noundef %dev, ptr nocapture noundef writeonly %p, i32 noundef %value, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %_now.i.i128 = alloca %struct.timeval, align 8
   %_now.i.i110 = alloca %struct.timeval, align 8
@@ -1423,7 +1423,7 @@ if.else.i:                                        ; preds = %sw.bb
   store i8 %conv1.i.i, ptr %u12.i, align 1
   %4 = load i16, ptr %2, align 8
   %5 = lshr i16 %4, 8
-  %conv1.i37.i = trunc i16 %5 to i8
+  %conv1.i37.i = trunc nuw i16 %5 to i8
   br label %usb_desc_device.exit
 
 usb_desc_device.exit:                             ; preds = %if.then7.i, %if.else.i
@@ -1452,7 +1452,7 @@ usb_desc_device.exit:                             ; preds = %if.then7.i, %if.els
   store i8 %conv1.i38.i, ptr %idVendor_lo.i, align 1
   %11 = load i16, ptr %call, align 2
   %12 = lshr i16 %11, 8
-  %conv1.i39.i = trunc i16 %12 to i8
+  %conv1.i39.i = trunc nuw i16 %12 to i8
   %idVendor_hi.i = getelementptr inbounds i8, ptr %call1, i64 9
   store i8 %conv1.i39.i, ptr %idVendor_hi.i, align 1
   %idProduct.i = getelementptr inbounds i8, ptr %call, i64 2
@@ -1462,7 +1462,7 @@ usb_desc_device.exit:                             ; preds = %if.then7.i, %if.els
   store i8 %conv1.i40.i, ptr %idProduct_lo.i, align 1
   %14 = load i16, ptr %idProduct.i, align 2
   %15 = lshr i16 %14, 8
-  %conv1.i41.i = trunc i16 %15 to i8
+  %conv1.i41.i = trunc nuw i16 %15 to i8
   %idProduct_hi.i = getelementptr inbounds i8, ptr %call1, i64 11
   store i8 %conv1.i41.i, ptr %idProduct_hi.i, align 1
   %bcdDevice.i = getelementptr inbounds i8, ptr %call, i64 4
@@ -1472,7 +1472,7 @@ usb_desc_device.exit:                             ; preds = %if.then7.i, %if.els
   store i8 %conv1.i42.i, ptr %bcdDevice_lo.i, align 1
   %17 = load i16, ptr %bcdDevice.i, align 2
   %18 = lshr i16 %17, 8
-  %conv1.i43.i = trunc i16 %18 to i8
+  %conv1.i43.i = trunc nuw i16 %18 to i8
   %bcdDevice_hi.i = getelementptr inbounds i8, ptr %call1, i64 13
   store i8 %conv1.i43.i, ptr %bcdDevice_hi.i, align 1
   %iManufacturer.i = getelementptr inbounds i8, ptr %call, i64 6
@@ -1544,7 +1544,7 @@ if.then25:                                        ; preds = %sw.bb19
   %31 = load ptr, ptr %confs, align 8
   %idx.ext = zext nneg i32 %conv20 to i64
   %add.ptr = getelementptr %struct.USBDescConfig, ptr %31, i64 %idx.ext
-  %call28 = tail call i32 @usb_desc_config(ptr noundef %add.ptr, i32 noundef %spec.select, ptr noundef %call1, i64 noundef 8192), !range !15
+  %call28 = tail call i32 @usb_desc_config(ptr noundef %add.ptr, i32 noundef %spec.select, ptr noundef %call1, i64 noundef 8192)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then25, %sw.bb19
@@ -1724,7 +1724,7 @@ if.then44:                                        ; preds = %sw.bb41
   store i8 %conv1.i.i88, ptr %u.i89, align 1
   %57 = load i16, ptr %other_dev.0, align 8
   %58 = lshr i16 %57, 8
-  %conv1.i18.i = trunc i16 %58 to i8
+  %conv1.i18.i = trunc nuw i16 %58 to i8
   %bcdUSB_hi.i = getelementptr inbounds i8, ptr %call1, i64 3
   store i8 %conv1.i18.i, ptr %bcdUSB_hi.i, align 1
   %bDeviceClass.i90 = getelementptr inbounds i8, ptr %other_dev.0, i64 2
@@ -1810,7 +1810,7 @@ if.then58:                                        ; preds = %land.lhs.true
   %72 = load ptr, ptr %confs59, align 8
   %idx.ext61 = zext nneg i32 %.pre164 to i64
   %add.ptr62 = getelementptr %struct.USBDescConfig, ptr %72, i64 %idx.ext61
-  %call63 = tail call i32 @usb_desc_config(ptr noundef %add.ptr62, i32 noundef %spec.select, ptr noundef %call1, i64 noundef 8192), !range !15
+  %call63 = tail call i32 @usb_desc_config(ptr noundef %add.ptr62, i32 noundef %spec.select, ptr noundef %call1, i64 noundef 8192)
   %arrayidx = getelementptr i8, ptr %call1, i64 1
   store i8 7, ptr %arrayidx, align 1
   br label %if.end64
@@ -1957,7 +1957,7 @@ if.end31.i:                                       ; preds = %if.then57.i.i, %if.
 usb_desc_bos.exit:                                ; preds = %if.end18.i, %if.end31.i
   %wTotalLength.1.i = phi i16 [ %conv34.i, %if.end31.i ], [ %wTotalLength.0.i, %if.end18.i ]
   %bNumDeviceCaps.1.i = phi i8 [ %inc35.i, %if.end31.i ], [ %bNumDeviceCaps.0.i, %if.end18.i ]
-  %conv1.i.i126 = trunc i16 %wTotalLength.1.i to i8
+  %conv1.i.i126 = trunc nuw nsw i16 %wTotalLength.1.i to i8
   %u.i127 = getelementptr inbounds i8, ptr %call1, i64 2
   store i8 %conv1.i.i126, ptr %u.i127, align 1
   %wTotalLength_hi.i = getelementptr inbounds i8, ptr %call1, i64 3
@@ -2020,7 +2020,7 @@ sw.epilog:                                        ; preds = %trace_usb_desc_othe
   br i1 %cmp79, label %sw.epilog.if.then81_crit_edge, label %if.end89
 
 sw.epilog.if.then81_crit_edge:                    ; preds = %sw.epilog
-  %.pre = trunc i64 %len to i32
+  %.pre = trunc nuw nsw i64 %len to i32
   br label %if.then81
 
 if.then81:                                        ; preds = %sw.epilog.if.then81_crit_edge, %trace_usb_desc_device.exit, %trace_usb_desc_bos.exit
@@ -2131,7 +2131,7 @@ trace_usb_set_addr.exit:                          ; preds = %sw.bb, %land.lhs.tr
 
 sw.bb3:                                           ; preds = %if.end
   %conv4 = sext i32 %length to i64
-  %call5 = tail call i32 @usb_desc_get_descriptor(ptr noundef nonnull %dev, ptr noundef %p, i32 noundef %value, ptr noundef %data, i64 noundef %conv4), !range !16
+  %call5 = tail call i32 @usb_desc_get_descriptor(ptr noundef nonnull %dev, ptr noundef %p, i32 noundef %value, ptr noundef %data, i64 noundef %conv4)
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.end
@@ -2216,7 +2216,7 @@ for.inc.i:                                        ; preds = %if.then7.for.inc_cr
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = zext i8 %17 to i64
   %cmp1.i = icmp ult i64 %indvars.iv.next.i, %18
-  br i1 %cmp1.i, label %for.body.i, label %if.end31.i, !llvm.loop !17
+  br i1 %cmp1.i, label %for.body.i, label %if.end31.i, !llvm.loop !15
 
 if.end31.i:                                       ; preds = %for.inc.i, %if.then.i, %for.cond.preheader.i
   %ninterfaces33.i = getelementptr inbounds i8, ptr %dev, i64 5660
@@ -2237,11 +2237,11 @@ for.body43.lr.ph.i:                               ; preds = %for.cond40.preheade
 
 for.body36.i:                                     ; preds = %if.end31.i, %for.body36.i
   %i.134.i = phi i32 [ %inc38.i, %for.body36.i ], [ 0, %if.end31.i ]
-  %call.i = tail call fastcc i32 @usb_desc_set_interface(ptr noundef nonnull %dev, i32 noundef %i.134.i, i32 noundef 0), !range !18
+  %call.i = tail call fastcc i32 @usb_desc_set_interface(ptr noundef nonnull %dev, i32 noundef %i.134.i, i32 noundef 0)
   %inc38.i = add nuw nsw i32 %i.134.i, 1
   %21 = load i32, ptr %ninterfaces33.i, align 4
   %cmp34.i = icmp slt i32 %inc38.i, %21
-  br i1 %cmp34.i, label %for.body36.i, label %for.cond40.preheader.i, !llvm.loop !19
+  br i1 %cmp34.i, label %for.body36.i, label %for.cond40.preheader.i, !llvm.loop !16
 
 for.body43.i:                                     ; preds = %for.body43.i, %for.body43.lr.ph.i
   %indvars.iv38.i = phi i64 [ %20, %for.body43.lr.ph.i ], [ %indvars.iv.next39.i, %for.body43.i ]
@@ -2532,7 +2532,7 @@ if.end70:                                         ; preds = %lor.lhs.false
   br label %sw.epilog
 
 sw.bb75:                                          ; preds = %if.end
-  %call76 = tail call fastcc i32 @usb_desc_set_interface(ptr noundef nonnull %dev, i32 noundef %index, i32 noundef %value), !range !18
+  %call76 = tail call fastcc i32 @usb_desc_set_interface(ptr noundef nonnull %dev, i32 noundef %index, i32 noundef %value)
   %addr77 = getelementptr inbounds i8, ptr %dev, i64 224
   %67 = load i8, ptr %addr77, align 8
   %conv78 = zext i8 %67 to i32
@@ -2668,7 +2668,7 @@ sw.epilog:                                        ; preds = %sw.bb59, %trace_usb
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @usb_desc_set_interface(ptr noundef %dev, i32 noundef %index, i32 noundef %value) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @usb_desc_set_interface(ptr noundef %dev, i32 noundef %index, i32 noundef %value) unnamed_addr #4 {
 entry:
   %0 = getelementptr i8, ptr %dev, i64 5728
   %dev.val = load ptr, ptr %0, align 8
@@ -2731,12 +2731,12 @@ land.lhs.true.i:                                  ; preds = %for.body9.i
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body9.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.inc24.i, label %for.body9.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %for.inc24.i, label %for.body9.i, !llvm.loop !17
 
 for.inc24.i:                                      ; preds = %for.inc.i, %for.cond3.preheader.i
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next13.i, %wide.trip.count15.i
-  br i1 %exitcond16.not.i, label %for.cond27.preheader.i, label %for.cond3.preheader.i, !llvm.loop !21
+  br i1 %exitcond16.not.i, label %for.cond27.preheader.i, label %for.cond3.preheader.i, !llvm.loop !18
 
 for.body33.i:                                     ; preds = %for.inc49.i, %for.body33.lr.ph.i
   %indvars.iv17.i = phi i64 [ 0, %for.body33.lr.ph.i ], [ %indvars.iv.next18.i, %for.inc49.i ]
@@ -2756,7 +2756,7 @@ land.lhs.true42.i:                                ; preds = %for.body33.i
 for.inc49.i:                                      ; preds = %land.lhs.true42.i, %for.body33.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count20.i
-  br i1 %exitcond21.not.i, label %return, label %for.body33.i, !llvm.loop !22
+  br i1 %exitcond21.not.i, label %return, label %for.body33.i, !llvm.loop !19
 
 if.end:                                           ; preds = %land.lhs.true.i, %land.lhs.true42.i
   %retval.0.i = phi ptr [ %arrayidx37.i, %land.lhs.true42.i ], [ %arrayidx15.i, %land.lhs.true.i ]
@@ -2819,7 +2819,7 @@ for.body5.i:                                      ; preds = %for.body5.i, %for.b
   %26 = load i8, ptr %bNumEndpoints.i, align 2
   %27 = zext i8 %26 to i64
   %cmp3.i = icmp ult i64 %indvars.iv.next.i18, %27
-  br i1 %cmp3.i, label %for.body5.i, label %for.inc27.loopexit.i, !llvm.loop !23
+  br i1 %cmp3.i, label %for.body5.i, label %for.inc27.loopexit.i, !llvm.loop !20
 
 for.inc27.loopexit.i:                             ; preds = %for.body5.i
   %.pre.i = load i32, ptr %ninterfaces.i, align 4
@@ -2830,7 +2830,7 @@ for.inc27.i:                                      ; preds = %for.inc27.loopexit.
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %29 = sext i32 %28 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next35.i, %29
-  br i1 %cmp.i, label %for.body.i, label %usb_desc_ep_init.exit, !llvm.loop !24
+  br i1 %cmp.i, label %for.body.i, label %usb_desc_ep_init.exit, !llvm.loop !21
 
 usb_desc_ep_init.exit:                            ; preds = %for.inc27.i, %if.end
   %cmp6.not = icmp eq i32 %11, %value
@@ -2907,13 +2907,10 @@ attributes #16 = { cold }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = !{i32 -2147483648, i32 65536}
-!16 = !{i32 -2147483648, i32 1}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = !{i32 -1, i32 1}
+!18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}

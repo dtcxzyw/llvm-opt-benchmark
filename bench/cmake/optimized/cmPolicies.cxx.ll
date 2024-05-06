@@ -3230,7 +3230,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK10cmPolicies9PolicyMap3GetENS_8PolicyIDE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZNK10cmPolicies9PolicyMap3GetENS_8PolicyIDE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = mul nsw i32 %1, 3
   %4 = sext i32 %3 to i64
   %5 = lshr i64 %4, 6

@@ -1961,7 +1961,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %10 = load i32, ptr %arrayidx5.i, align 4
   %arrayidx7.i = getelementptr inbounds i32, ptr %1, i64 %conv.i39
   %11 = load i32, ptr %arrayidx7.i, align 4
-  %arrayidx9.i = getelementptr i8, ptr %arrayidx7.i, i64 4
+  %arrayidx9.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 4
   %12 = load i32, ptr %arrayidx9.i, align 4
   %sub.i = sub i32 %12, %11
   %idxprom10.i = zext i32 %10 to i64
@@ -2061,7 +2061,7 @@ for.body.i46:                                     ; preds = %if.end.i83, %for.bo
   %27 = load i32, ptr %arrayidx5.i49, align 4
   %arrayidx7.i50 = getelementptr inbounds i32, ptr %1, i64 %conv.i48
   %28 = load i32, ptr %arrayidx7.i50, align 4
-  %arrayidx9.i51 = getelementptr i8, ptr %arrayidx7.i50, i64 4
+  %arrayidx9.i51 = getelementptr inbounds i8, ptr %arrayidx7.i50, i64 4
   %29 = load i32, ptr %arrayidx9.i51, align 4
   %sub.i52 = sub i32 %29, %28
   %idxprom10.i53 = zext i32 %27 to i64
@@ -2708,19 +2708,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp819.i.i, label %for.body.us.preheader.i.i, label %for.body.i.i.preheader
 
 for.body.i.i.preheader:                           ; preds = %for.body
-  %7 = trunc i64 %4 to i32
+  %7 = trunc nuw i64 %4 to i32
   br label %for.body.i.i
 
 for.body.us.preheader.i.i:                        ; preds = %for.body
   %smax.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i, i32 1)
   %idx.ext19.us.i.i = zext nneg i32 %smax.i.i to i64
-  %8 = trunc i64 %4 to i32
+  %8 = trunc nuw i64 %4 to i32
   br label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %for.cond7.for.end_crit_edge.us.i.i, %for.body.us.preheader.i.i
   %indvars.iv32.i.i = phi i64 [ 0, %for.body.us.preheader.i.i ], [ %indvars.iv.next33.i.i, %for.cond7.for.end_crit_edge.us.i.i ]
   %result.024.us.i.i = phi i64 [ 0, %for.body.us.preheader.i.i ], [ %or.us.i.i, %for.cond7.for.end_crit_edge.us.i.i ]
-  %9 = trunc i64 %indvars.iv32.i.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv32.i.i to i32
   %add2.us.i.i = add nuw nsw i32 %8, %9
   %mul3.us.i.i = mul i32 %add2.us.i.i, %5
   %idx.ext.us.i.i = zext i32 %mul3.us.i.i to i64
@@ -2765,7 +2765,7 @@ for.cond7.for.end_crit_edge.us.i.i:               ; preds = %for.body9.us.i.i
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader ]
   %result.024.i.i = phi i64 [ %or.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader ]
-  %17 = trunc i64 %indvars.iv.i.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %add2.i.i = add nuw nsw i32 %7, %17
   %mul3.i.i = mul i32 %add2.i.i, %5
   %idx.ext.i.i = zext i32 %mul3.i.i to i64
@@ -2836,19 +2836,19 @@ for.body28:                                       ; preds = %for.body28.lr.ph, %
   br i1 %cmp819.i.i88, label %for.body.us.preheader.i.i108, label %for.body.i.i89.preheader
 
 for.body.i.i89.preheader:                         ; preds = %for.body28
-  %29 = trunc i64 %26 to i32
+  %29 = trunc nuw i64 %26 to i32
   br label %for.body.i.i89
 
 for.body.us.preheader.i.i108:                     ; preds = %for.body28
   %smax.i.i109 = tail call i32 @llvm.smax.i32(i32 %sub.i.i80, i32 1)
   %idx.ext19.us.i.i110 = zext nneg i32 %smax.i.i109 to i64
-  %30 = trunc i64 %26 to i32
+  %30 = trunc nuw i64 %26 to i32
   br label %for.body.us.i.i111
 
 for.body.us.i.i111:                               ; preds = %for.cond7.for.end_crit_edge.us.i.i130, %for.body.us.preheader.i.i108
   %indvars.iv32.i.i112 = phi i64 [ 0, %for.body.us.preheader.i.i108 ], [ %indvars.iv.next33.i.i140, %for.cond7.for.end_crit_edge.us.i.i130 ]
   %result.024.us.i.i113 = phi i64 [ 0, %for.body.us.preheader.i.i108 ], [ %or.us.i.i139, %for.cond7.for.end_crit_edge.us.i.i130 ]
-  %31 = trunc i64 %indvars.iv32.i.i112 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv32.i.i112 to i32
   %add2.us.i.i114 = add nuw nsw i32 %30, %31
   %mul3.us.i.i115 = mul i32 %add2.us.i.i114, %27
   %idx.ext.us.i.i116 = zext i32 %mul3.us.i.i115 to i64
@@ -2893,7 +2893,7 @@ for.cond7.for.end_crit_edge.us.i.i130:            ; preds = %for.body9.us.i.i121
 for.body.i.i89:                                   ; preds = %for.body.i.i89.preheader, %for.body.i.i89
   %indvars.iv.i.i90 = phi i64 [ %indvars.iv.next.i.i105, %for.body.i.i89 ], [ 0, %for.body.i.i89.preheader ]
   %result.024.i.i91 = phi i64 [ %or.i.i104, %for.body.i.i89 ], [ 0, %for.body.i.i89.preheader ]
-  %39 = trunc i64 %indvars.iv.i.i90 to i32
+  %39 = trunc nuw nsw i64 %indvars.iv.i.i90 to i32
   %add2.i.i92 = add nuw nsw i32 %29, %39
   %mul3.i.i93 = mul i32 %add2.i.i92, %27
   %idx.ext.i.i94 = zext i32 %mul3.i.i93 to i64

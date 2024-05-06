@@ -343,7 +343,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden void @luaT_trybinTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, ptr noundef %res, i32 noundef %event) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @callbinTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, ptr noundef %res, i32 noundef %event), !range !7
+  %call = tail call fastcc i32 @callbinTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, ptr noundef %res, i32 noundef %event)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -388,7 +388,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @callbinTM(ptr noundef %L, ptr nocapture noundef readonly %p1, ptr nocapture noundef readonly %p2, ptr noundef %res, i32 noundef %event) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @callbinTM(ptr noundef %L, ptr nocapture noundef readonly %p1, ptr nocapture noundef readonly %p2, ptr noundef %res, i32 noundef %event) unnamed_addr #0 {
 entry:
   %tt_.i = getelementptr inbounds i8, ptr %p1, i64 8
   %0 = load i8, ptr %tt_.i, align 8
@@ -574,7 +574,7 @@ entry:
   %0 = load ptr, ptr %top1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 -32
   %add.ptr2 = getelementptr inbounds i8, ptr %0, i64 -16
-  %call = tail call fastcc i32 @callbinTM(ptr noundef %L, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr, i32 noundef 22), !range !7
+  %call = tail call fastcc i32 @callbinTM(ptr noundef %L, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr, i32 noundef 22)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -596,7 +596,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call fastcc i32 @callbinTM(ptr noundef %L, ptr noundef %p2, ptr noundef %p1, ptr noundef %res, i32 noundef %event), !range !7
+  %call.i = tail call fastcc i32 @callbinTM(ptr noundef %L, ptr noundef %p2, ptr noundef %p1, ptr noundef %res, i32 noundef %event)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end
 
@@ -637,7 +637,7 @@ sw.default.i:                                     ; preds = %if.then.i
   unreachable
 
 if.else:                                          ; preds = %entry
-  %call.i6 = tail call fastcc i32 @callbinTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, ptr noundef %res, i32 noundef %event), !range !7
+  %call.i6 = tail call fastcc i32 @callbinTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, ptr noundef %res, i32 noundef %event)
   %tobool.not.i7 = icmp eq i32 %call.i6, 0
   br i1 %tobool.not.i7, label %if.then.i8, label %if.end
 
@@ -693,11 +693,11 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @luaT_callorderTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, i32 noundef %event) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @luaT_callorderTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, i32 noundef %event) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load ptr, ptr %top, align 8
-  %call = tail call fastcc i32 @callbinTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, ptr noundef %0, i32 noundef %event), !range !7
+  %call = tail call fastcc i32 @callbinTM(ptr noundef %L, ptr noundef %p1, ptr noundef %p2, ptr noundef %0, i32 noundef %event)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -721,7 +721,7 @@ if.end:                                           ; preds = %entry
 declare hidden void @luaG_ordererror(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @luaT_callorderiTM(ptr noundef %L, ptr noundef %p1, i32 noundef %v2, i32 noundef %flip, i32 noundef %isfloat, i32 noundef %event) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @luaT_callorderiTM(ptr noundef %L, ptr noundef %p1, i32 noundef %v2, i32 noundef %flip, i32 noundef %isfloat, i32 noundef %event) local_unnamed_addr #0 {
 entry:
   %aux = alloca %struct.TValue, align 8
   %tobool.not = icmp eq i32 %isfloat, 0
@@ -738,7 +738,7 @@ entry:
   %p1.aux = select i1 %tobool5.not, ptr %p1, ptr %aux
   %top.i = getelementptr inbounds i8, ptr %L, i64 16
   %2 = load ptr, ptr %top.i, align 8
-  %call.i = call fastcc i32 @callbinTM(ptr noundef %L, ptr noundef %p1.aux, ptr noundef %aux.p1, ptr noundef %2, i32 noundef %event), !range !7
+  %call.i = call fastcc i32 @callbinTM(ptr noundef %L, ptr noundef %p1.aux, ptr noundef %aux.p1, ptr noundef %2, i32 noundef %event)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %luaT_callorderTM.exit
 
@@ -830,7 +830,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i8 0, ptr %tt_34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.end
   %16 = load ptr, ptr %ci, align 8
@@ -935,7 +935,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i8 %11, ptr %tt_29, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond30.preheader, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.cond30.preheader, label %for.body, !llvm.loop !8
 
 for.body33:                                       ; preds = %for.body33.preheader, %for.body33
   %indvars.iv32 = phi i64 [ %8, %for.body33.preheader ], [ %indvars.iv.next33, %for.body33 ]
@@ -943,7 +943,7 @@ for.body33:                                       ; preds = %for.body33.preheade
   store i8 0, ptr %tt_36, align 8
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
-  br i1 %exitcond36.not, label %for.end39, label %for.body33, !llvm.loop !10
+  br i1 %exitcond36.not, label %for.end39, label %for.body33, !llvm.loop !9
 
 for.end39:                                        ; preds = %for.body33, %for.cond30.preheader
   ret void
@@ -970,7 +970,6 @@ attributes #5 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

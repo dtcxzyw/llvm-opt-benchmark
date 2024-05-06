@@ -457,7 +457,7 @@ entry:
 declare ptr @ossl_ec_key_dup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @EC_KEY_up_ref(ptr nocapture noundef %r) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @EC_KEY_up_ref(ptr nocapture noundef %r) local_unnamed_addr #2 {
 entry:
   %references = getelementptr inbounds i8, ptr %r, i64 56
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
@@ -546,7 +546,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_generate_key_dhkem(ptr noundef %eckey, ptr noundef %ikm, i64 noundef %ikmlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_generate_key_dhkem(ptr noundef %eckey, ptr noundef %ikm, i64 noundef %ikmlen) local_unnamed_addr #0 {
 entry:
   %priv_key = getelementptr inbounds i8, ptr %eckey, i64 40
   %0 = load ptr, ptr %priv_key, align 8
@@ -665,7 +665,7 @@ return:                                           ; preds = %if.end, %if.then3, 
 declare i32 @EC_POINT_set_to_infinity(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_key_simple_generate_key(ptr nocapture noundef %eckey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_simple_generate_key(ptr nocapture noundef %eckey) local_unnamed_addr #0 {
 entry:
   %group1.i = getelementptr inbounds i8, ptr %eckey, i64 24
   %0 = load ptr, ptr %group1.i, align 8
@@ -837,7 +837,7 @@ return:                                           ; preds = %if.end7, %if.then6,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_key_public_check_quick(ptr noundef readonly %eckey, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_public_check_quick(ptr noundef readonly %eckey, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %return.sink.split, label %lor.lhs.false
@@ -947,9 +947,9 @@ declare i32 @EC_POINT_is_at_infinity(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @EC_POINT_is_on_curve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_key_public_check(ptr noundef %eckey, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_public_check(ptr noundef %eckey, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_ec_key_public_check_quick(ptr noundef %eckey, ptr noundef %ctx), !range !6
+  %call = tail call i32 @ossl_ec_key_public_check_quick(ptr noundef %eckey, ptr noundef %ctx)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1003,7 +1003,7 @@ return:                                           ; preds = %if.end, %entry, %er
 declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_key_private_check(ptr noundef readonly %eckey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_private_check(ptr noundef readonly %eckey) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %return.sink.split, label %lor.lhs.false
@@ -1053,7 +1053,7 @@ declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @BN_value_one() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_key_pairwise_check(ptr noundef readonly %eckey, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_pairwise_check(ptr noundef readonly %eckey, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -1122,7 +1122,7 @@ return:                                           ; preds = %err, %if.then
 declare i32 @EC_POINT_cmp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_key_simple_check_key(ptr noundef %eckey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_simple_check_key(ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1141,7 +1141,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call4 = tail call i32 @ossl_ec_key_public_check(ptr noundef nonnull %eckey, ptr noundef nonnull %call), !range !6
+  %call4 = tail call i32 @ossl_ec_key_public_check(ptr noundef nonnull %eckey, ptr noundef nonnull %call)
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %err, label %if.end6
 
@@ -1152,12 +1152,12 @@ if.end6:                                          ; preds = %if.end3
   br i1 %cmp7.not, label %if.end15, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %call9 = tail call i32 @ossl_ec_key_private_check(ptr noundef nonnull %eckey), !range !6
+  %call9 = tail call i32 @ossl_ec_key_private_check(ptr noundef nonnull %eckey)
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then8
-  %call11 = tail call i32 @ossl_ec_key_pairwise_check(ptr noundef nonnull %eckey, ptr noundef nonnull %call), !range !6
+  %call11 = tail call i32 @ossl_ec_key_pairwise_check(ptr noundef nonnull %eckey, ptr noundef nonnull %call)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %err, label %if.end15
 
@@ -1245,7 +1245,7 @@ if.then33:                                        ; preds = %lor.lhs.false30, %i
   br label %err
 
 if.end34:                                         ; preds = %lor.lhs.false30
-  %call35 = tail call i32 @EC_KEY_set_public_key(ptr noundef nonnull %key, ptr noundef nonnull %call10), !range !6
+  %call35 = tail call i32 @EC_KEY_set_public_key(ptr noundef nonnull %key, ptr noundef nonnull %call10)
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %err, label %if.end38
 
@@ -1276,7 +1276,7 @@ declare i32 @EC_POINT_set_affine_coordinates(ptr noundef, ptr noundef, ptr nound
 declare i32 @EC_POINT_get_affine_coordinates(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EC_KEY_set_public_key(ptr noundef %key, ptr noundef %pub_key) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_KEY_set_public_key(ptr noundef %key, ptr noundef %pub_key) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %key, align 8
   %set_public = getelementptr inbounds i8, ptr %0, i64 56
@@ -1345,7 +1345,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EC_KEY_set_group(ptr noundef %key, ptr noundef %group) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_KEY_set_group(ptr noundef %key, ptr noundef %group) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %key, align 8
   %set_group = getelementptr inbounds i8, ptr %0, i64 40
@@ -1425,7 +1425,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EC_KEY_set_private_key(ptr noundef %key, ptr noundef %priv_key) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_KEY_set_private_key(ptr noundef %key, ptr noundef %priv_key) local_unnamed_addr #0 {
 entry:
   %group = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %group, align 8
@@ -1692,7 +1692,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i64 @EC_POINT_point2buf(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EC_KEY_oct2key(ptr noundef %key, ptr noundef %buf, i64 noundef %len, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_KEY_oct2key(ptr noundef %key, ptr noundef %buf, i64 noundef %len, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1788,7 +1788,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ossl_ec_key_simple_priv2oct(ptr nocapture noundef readonly %eckey, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define range(i64 -268435455, 268435456) i64 @ossl_ec_key_simple_priv2oct(ptr nocapture noundef readonly %eckey, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %group = getelementptr inbounds i8, ptr %eckey, i64 24
   %0 = load ptr, ptr %group, align 8
@@ -1872,7 +1872,7 @@ return:                                           ; preds = %if.end7, %if.then12
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_key_simple_oct2priv(ptr nocapture noundef %eckey, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_simple_oct2priv(ptr nocapture noundef %eckey, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %priv_key = getelementptr inbounds i8, ptr %eckey, i64 40
   %0 = load ptr, ptr %priv_key, align 8
@@ -1996,7 +1996,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @EC_KEY_can_sign(ptr nocapture noundef readonly %eckey) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @EC_KEY_can_sign(ptr nocapture noundef readonly %eckey) local_unnamed_addr #6 {
 entry:
   %group = getelementptr inbounds i8, ptr %eckey, i64 24
   %0 = load ptr, ptr %group, align 8
@@ -2057,4 +2057,3 @@ attributes #7 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}

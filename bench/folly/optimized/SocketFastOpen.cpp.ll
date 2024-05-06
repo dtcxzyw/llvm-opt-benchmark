@@ -79,7 +79,7 @@ declare noundef i32 @_ZN5folly6netops10getsockoptENS_13NetworkSocketEiiPvPj(i32,
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN5folly6detail25tfo_platform_availabilityEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 17179869184) i64 @_ZN5folly6detail25tfo_platform_availabilityEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN5folly6detail25tfo_platform_availabilityEvE11TFOSettings acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -92,7 +92,7 @@ init.check:                                       ; preds = %entry
 
 init:                                             ; preds = %init.check
   %call = invoke fastcc i64 @"_ZZN5folly6detail25tfo_platform_availabilityEvENK3$_0clEv"()
-          to label %invoke.cont unwind label %lpad, !range !14
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
   store i64 %call, ptr @_ZZN5folly6detail25tfo_platform_availabilityEvE11TFOSettings.0, align 8
@@ -100,7 +100,7 @@ invoke.cont:                                      ; preds = %init
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
-  %retval.sroa.0.0.copyload = load i64, ptr @_ZZN5folly6detail25tfo_platform_availabilityEvE11TFOSettings.0, align 8, !tbaa.struct !15
+  %retval.sroa.0.0.copyload = load i64, ptr @_ZZN5folly6detail25tfo_platform_availabilityEvE11TFOSettings.0, align 8, !tbaa.struct !14
   ret i64 %retval.sroa.0.0.copyload
 
 lpad:                                             ; preds = %init
@@ -114,7 +114,7 @@ lpad:                                             ; preds = %init
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc i64 @"_ZZN5folly6detail25tfo_platform_availabilityEvENK3$_0clEv"() unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i64 0, 17179869184) i64 @"_ZZN5folly6detail25tfo_platform_availabilityEvENK3$_0clEv"() unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fastOpen = alloca i64, align 8
   %ifs = alloca %"class.std::basic_ifstream", align 8
@@ -243,7 +243,6 @@ attributes #11 = { nounwind willreturn memory(read) }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !9, i64 0}
 !13 = !{!"branch_weights", i32 1, i32 1048575}
-!14 = !{i64 0, i64 17179869184}
-!15 = !{i64 0, i64 4, !16, i64 4, i64 4, !16}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"_ZTSN5folly6detail15TFOAvailabilityE", !9, i64 0}
+!14 = !{i64 0, i64 4, !15, i64 4, i64 4, !15}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"_ZTSN5folly6detail15TFOAvailabilityE", !9, i64 0}

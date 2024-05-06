@@ -550,21 +550,21 @@ target triple = "x86_64-pc-linux-gnu"
 @palette_adam = local_unnamed_addr global [11 x [3 x float]] [[3 x float] [float 1.000000e+00, float 0x3FDC9C9CA0000000, float 0.000000e+00], [3 x float] [float 0x3FEEBEBEC0000000, float 0x3FDDDDDDE0000000, float 0x3FB7171720000000], [3 x float] [float 0x3FD0505060000000, float 0x3FE6767680000000, float 0x3FEB9B9BA0000000], [3 x float] [float 0x3FED9D9DA0000000, float 0.000000e+00, float 0x3FE19191A0000000], [3 x float] [float 0x3F98181820000000, float 0x3FDE9E9EA0000000, float 0x3FE69696A0000000], [3 x float] [float 0x3FA8181820000000, float 0x3FC29292A0000000, float 0x3FDDDDDDE0000000], [3 x float] [float 0x3FE0303040000000, float 0x3F70101020000000, float 0x3FBA1A1A20000000], [3 x float] [float 0x3FE8D8D8E0000000, float 0x3FEA9A9AA0000000, float 0x3FCE9E9EA0000000], [3 x float] [float 0x3FDB9B9BA0000000, float 0x3FE7777780000000, float 0x3FBF1F1F20000000], [3 x float] [float 0x3FE6767680000000, float 0x3FA4141420000000, float 0x3FCE1E1E20000000], [3 x float] [float 0x3FE0101020000000, float 0x3FE0101020000000, float 0x3FE0101020000000]], align 16
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @knownColorScheme(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @knownColorScheme(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str) #4
+  %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(4) @.str) #4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %color_palettes_Q.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.1) #4
+  %8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(4) @.str.1) #4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %color_palettes_Q.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.2) #4
+  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(5) @.str.2) #4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %color_palettes_Q.exit, label %.preheader
 
@@ -577,7 +577,7 @@ define noundef i32 @knownColorScheme(ptr nocapture noundef readonly %0) local_un
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %13 ], [ 0, %10 ]
   %14 = getelementptr inbounds [265 x [2 x ptr]], ptr @color_palettes, i64 0, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 16
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %15) #4
+  %16 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %15) #4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %color_palettes_Q.exit, label %13
 
@@ -593,7 +593,7 @@ color_palettes_Q.exit:                            ; preds = %.preheader, %18, %1
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @color_palettes_Q(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @color_palettes_Q(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   br label %3
 
 2:                                                ; preds = %3

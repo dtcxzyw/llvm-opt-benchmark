@@ -27,25 +27,25 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @kvm_has_sync_mmu() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @kvm_has_sync_mmu() local_unnamed_addr #0 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @kvm_on_sigbus_vcpu(ptr nocapture noundef readnone %cpu, i32 noundef %code, ptr nocapture noundef readnone %addr) local_unnamed_addr #0 {
+define dso_local noundef i32 @kvm_on_sigbus_vcpu(ptr nocapture noundef readnone %cpu, i32 noundef %code, ptr nocapture noundef readnone %addr) local_unnamed_addr #0 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @kvm_on_sigbus(i32 noundef %code, ptr nocapture noundef readnone %addr) local_unnamed_addr #0 {
+define dso_local noundef i32 @kvm_on_sigbus(i32 noundef %code, ptr nocapture noundef readnone %addr) local_unnamed_addr #0 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @kvm_irqchip_add_msi_route(ptr nocapture noundef readnone %c, i32 noundef %vector, ptr nocapture noundef readnone %dev) local_unnamed_addr #0 {
+define dso_local noundef i32 @kvm_irqchip_add_msi_route(ptr nocapture noundef readnone %c, i32 noundef %vector, ptr nocapture noundef readnone %dev) local_unnamed_addr #0 {
 entry:
   ret i32 -38
 }
@@ -63,7 +63,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @kvm_irqchip_update_msi_route(ptr nocapture noundef readnone %s, i32 noundef %virq, i64 %msg.coerce0, i32 %msg.coerce1, ptr nocapture noundef readnone %dev) local_unnamed_addr #0 {
+define dso_local noundef i32 @kvm_irqchip_update_msi_route(ptr nocapture noundef readnone %s, i32 noundef %virq, i64 %msg.coerce0, i32 %msg.coerce1, ptr nocapture noundef readnone %dev) local_unnamed_addr #0 {
 entry:
   ret i32 -38
 }
@@ -93,25 +93,25 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr nocapture noundef readnone %s, ptr nocapture noundef readnone %n, ptr nocapture noundef readnone %rn, i32 noundef %virq) local_unnamed_addr #0 {
+define dso_local noundef i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr nocapture noundef readnone %s, ptr nocapture noundef readnone %n, ptr nocapture noundef readnone %rn, i32 noundef %virq) local_unnamed_addr #0 {
 entry:
   ret i32 -38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr nocapture noundef readnone %s, ptr nocapture noundef readnone %n, i32 noundef %virq) local_unnamed_addr #0 {
+define dso_local noundef i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr nocapture noundef readnone %s, ptr nocapture noundef readnone %n, i32 noundef %virq) local_unnamed_addr #0 {
 entry:
   ret i32 -38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @kvm_get_max_memslots() local_unnamed_addr #0 {
+define dso_local noundef i32 @kvm_get_max_memslots() local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @kvm_get_free_memslots() local_unnamed_addr #0 {
+define dso_local noundef i32 @kvm_get_free_memslots() local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
@@ -127,19 +127,19 @@ entry:
 declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @kvm_arm_supports_user_irq() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @kvm_arm_supports_user_irq() local_unnamed_addr #0 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @kvm_dirty_ring_enabled() local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @kvm_dirty_ring_enabled() local_unnamed_addr #0 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @kvm_dirty_ring_size() local_unnamed_addr #0 {
+define dso_local noundef i32 @kvm_dirty_ring_size() local_unnamed_addr #0 {
 entry:
   ret i32 0
 }

@@ -301,14 +301,14 @@ Abc_Clock.exit.i:                                 ; preds = %120, %117
   %131 = call i32 @Cudd_SupportSize(ptr noundef %.val53.val.val.val, ptr noundef %126) #11
   %132 = call double @Cudd_CountMinterm(ptr noundef %.val53.val.val.val, ptr noundef %126, i32 noundef %131) #11
   %133 = call i32 @Extra_Base2LogDouble(double noundef %132) #11
-  %134 = trunc i64 %indvars.iv.i to i32
+  %134 = trunc nuw nsw i64 %indvars.iv.i to i32
   %135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %134, i32 noundef %131, i32 noundef %133)
   %136 = icmp sgt i32 %133, 0
   br i1 %136, label %137, label %141
 
 137:                                              ; preds = %.lr.ph.i
   %138 = add nsw i32 %.0636.i, 1
-  %139 = add nsw i32 %133, %.0693.i
+  %139 = add nuw nsw i32 %133, %.0693.i
   %140 = icmp slt i32 %.0674.i, %133
   %spec.select.i = call i32 @llvm.smax.i32(i32 %.0674.i, i32 %133)
   %spec.select75.i = select i1 %140, i32 %131, i32 %.0655.i

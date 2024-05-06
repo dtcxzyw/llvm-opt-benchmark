@@ -38,7 +38,7 @@ define noalias noundef ptr @Fxch_ManAlloc(ptr noundef %0) local_unnamed_addr #0 
 
 8:                                                ; preds = %.lr.ph.i.i
   %9 = add nuw nsw i32 %.01116.i.i, 2
-  %10 = mul nsw i32 %9, %9
+  %10 = mul nuw nsw i32 %9, %9
   %.not.i.i = icmp ugt i32 %10, %6
   br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
@@ -5738,7 +5738,7 @@ define internal fastcc void @Vec_QueGrow(ptr nocapture noundef %0, i32 noundef %
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4

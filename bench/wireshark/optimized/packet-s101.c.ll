@@ -420,11 +420,11 @@ get_byte.exit88.i:                                ; preds = %128, %get_byte.exit
   %.1.i = phi i8 [ %.0.i87.i, %get_byte.exit88.i ], [ %.068.i, %get_byte.exit82.i ]
   %.not73.i = icmp eq i8 %.0.i.i, 0
   %.not74.i = icmp eq i8 %.0.i77.i, 14
-  %or.cond270.not273.not = select i1 %.not73.i, i1 %.not74.i, i1 false
+  %or.cond270.not273.not276 = select i1 %.not73.i, i1 %.not74.i, i1 false
   %136 = icmp ult i8 %.0.i79.i, 3
-  %or.cond271 = select i1 %or.cond270.not273.not, i1 %136, i1 false
+  %or.cond271.not275 = select i1 %or.cond270.not273.not276, i1 %136, i1 false
   %.not75.i = icmp eq i8 %.0.i81.i, 1
-  %or.cond272 = select i1 %or.cond271, i1 %.not75.i, i1 false
+  %or.cond272 = select i1 %or.cond271.not275, i1 %.not75.i, i1 false
   br i1 %or.cond272, label %137, label %find_s101_packet_header.exit.thread
 
 137:                                              ; preds = %135
@@ -497,7 +497,7 @@ find_s101_packet_header.exit:                     ; preds = %get_byte.exit90.i, 
 
 167:                                              ; preds = %160
   %168 = lshr i64 %.1241, 56
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw nsw i64 %168 to i32
   %170 = and i32 %169, 15
   %171 = load i32, ptr @hf_S101_length_size, align 4
   %172 = add i32 %.0231, 2

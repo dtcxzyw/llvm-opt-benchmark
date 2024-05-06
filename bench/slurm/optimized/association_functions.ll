@@ -89,7 +89,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.71 = private unnamed_addr constant [24 x i8] c" Unknown condition: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sacctmgr_set_assoc_cond(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_cond(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = tail call i32 @llvm.smax.i32(i32 %3, i32 2)
   %8 = zext nneg i32 %7 to i64
@@ -378,7 +378,7 @@ declare i32 @slurmdb_addto_qos_char_list(ptr noundef, ptr noundef, ptr noundef, 
 declare i32 @slurm_addto_char_list_with_case(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @sacctmgr_set_assoc_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
@@ -1841,7 +1841,7 @@ define dso_local i32 @sacctmgr_list_assoc(i32 noundef %0, ptr noundef %1) local_
   %127 = load ptr, ptr %36, align 8
   %128 = sext i32 %.0114151.i to i64
   %129 = getelementptr inbounds i8, ptr %127, i64 %128
-  %130 = call i32 @sacctmgr_set_assoc_cond(ptr noundef %6, ptr noundef %127, ptr noundef nonnull %129, i32 noundef %43, i32 noundef %.1155.i), !range !10
+  %130 = call i32 @sacctmgr_set_assoc_cond(ptr noundef %6, ptr noundef %127, ptr noundef nonnull %129, i32 noundef %43, i32 noundef %.1155.i)
   %131 = icmp eq i32 %130, 0
   %132 = load i32, ptr @exit_code, align 4
   %133 = icmp ne i32 %132, 0
@@ -1860,14 +1860,14 @@ define dso_local i32 @sacctmgr_list_assoc(i32 noundef %0, ptr noundef %1) local_
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %0
-  br i1 %exitcond.not.i, label %_set_cond.exit, label %35, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_set_cond.exit, label %35, !llvm.loop !10
 
 _set_cond.exit:                                   ; preds = %138, %32
   %.0115.lcssa.i = phi i32 [ %.0125, %32 ], [ %0, %138 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %139 = add nsw i32 %.0115.lcssa.i, 1
   %140 = icmp slt i32 %139, %0
-  br i1 %140, label %16, label %._crit_edge, !llvm.loop !12
+  br i1 %140, label %16, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_set_cond.exit, %2
   %141 = load i32, ptr @exit_code, align 4
@@ -2068,14 +2068,14 @@ _set_cond.exit:                                   ; preds = %138, %32
   %219 = add nuw nsw i32 %.0128, 1
   %220 = call ptr @list_next(ptr noundef %199) #9
   %.not110 = icmp eq ptr %220, null
-  br i1 %.not110, label %._crit_edge131, label %.lr.ph130, !llvm.loop !13
+  br i1 %.not110, label %._crit_edge131, label %.lr.ph130, !llvm.loop !12
 
 ._crit_edge131:                                   ; preds = %.lr.ph130, %215
   call void @list_iterator_reset(ptr noundef %199) #9
   %putchar = call i32 @putchar(i32 10)
   %221 = call ptr @list_next(ptr noundef %198) #9
   %.not104 = icmp eq ptr %221, null
-  br i1 %.not104, label %._crit_edge137, label %.lr.ph136, !llvm.loop !14
+  br i1 %.not104, label %._crit_edge137, label %.lr.ph136, !llvm.loop !13
 
 ._crit_edge137:                                   ; preds = %._crit_edge131
   %.not105 = icmp eq ptr %.2, null
@@ -2185,8 +2185,7 @@ attributes #12 = { nounwind willreturn memory(none) }
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}

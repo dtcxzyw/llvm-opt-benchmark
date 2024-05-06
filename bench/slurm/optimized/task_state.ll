@@ -72,7 +72,7 @@ define dso_local ptr @task_state_find(ptr noundef %0, ptr noundef %1) local_unna
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_find_task_state(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_find_task_state(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call zeroext i1 @verify_step_id(ptr noundef %0, ptr noundef %1) #6
   %4 = zext i1 %3 to i32
   ret i32 %4

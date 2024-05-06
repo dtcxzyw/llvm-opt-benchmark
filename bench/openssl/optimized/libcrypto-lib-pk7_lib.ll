@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.PKCS7_set_cipher = private unnamed_addr constant [17 x i8] c"PKCS7_set_cipher\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @PKCS7_ctrl(ptr nocapture noundef %p7, i32 noundef %cmd, i64 noundef %larg, ptr nocapture noundef readnone %parg) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @PKCS7_ctrl(ptr nocapture noundef %p7, i32 noundef %cmd, i64 noundef %larg, ptr nocapture noundef readnone %parg) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -130,19 +130,19 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS7_content_new(ptr nocapture noundef readonly %p7, i32 noundef %type) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_content_new(ptr nocapture noundef readonly %p7, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PKCS7_new() #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @PKCS7_set_type(ptr noundef nonnull %call, i32 noundef %type), !range !4
+  %call1 = tail call i32 @PKCS7_set_type(ptr noundef nonnull %call, i32 noundef %type)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call4 = tail call i32 @PKCS7_set_content(ptr noundef %p7, ptr noundef nonnull %call), !range !4
+  %call4 = tail call i32 @PKCS7_set_content(ptr noundef %p7, ptr noundef nonnull %call)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %err, label %return
 
@@ -158,7 +158,7 @@ return:                                           ; preds = %if.end3, %err
 declare ptr @PKCS7_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS7_set_type(ptr nocapture noundef %p7, i32 noundef %type) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_set_type(ptr nocapture noundef %p7, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2obj(i32 noundef %type) #7
   switch i32 %type, label %sw.default [
@@ -299,7 +299,7 @@ return:                                           ; preds = %if.end28, %if.end43
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS7_set_content(ptr nocapture noundef readonly %p7, ptr noundef %p7_data) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_set_content(ptr nocapture noundef readonly %p7, ptr noundef %p7_data) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -374,7 +374,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS7_add_signer(ptr noundef %p7, ptr noundef %psi) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_add_signer(ptr noundef %p7, ptr noundef %psi) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -408,7 +408,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.026, 1
   %call8 = tail call i32 @OPENSSL_sk_num(ptr noundef %md_sk.0) #7
   %cmp.not = icmp slt i32 %inc, %call8
-  br i1 %cmp.not, label %for.body, label %if.then14, !llvm.loop !5
+  br i1 %cmp.not, label %for.body, label %if.then14, !llvm.loop !4
 
 for.body:                                         ; preds = %sw.epilog, %for.cond
   %i.026 = phi i32 [ %inc, %for.cond ], [ 0, %sw.epilog ]
@@ -541,7 +541,7 @@ return:                                           ; preds = %sw.epilog, %sw.defa
 declare i32 @ossl_x509_add_cert_new(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS7_add_crl(ptr nocapture noundef readonly %p7, ptr noundef %crl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_add_crl(ptr nocapture noundef readonly %p7, ptr noundef %crl) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -807,7 +807,7 @@ if.end12:                                         ; preds = %if.end8
   br i1 %cmp14, label %err, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
-  %call17 = call i32 @PKCS7_add_signer(ptr noundef %p7, ptr noundef nonnull %call9), !range !4
+  %call17 = call i32 @PKCS7_add_signer(ptr noundef %p7, ptr noundef nonnull %call9)
   %tobool.not = icmp eq i32 %call17, 0
   br i1 %tobool.not, label %err, label %return
 
@@ -866,97 +866,97 @@ lor.lhs.false.i.thread:                           ; preds = %if.end.i, %if.end4.
   %5 = load ptr, ptr %d, align 8
   %recipientinfo10.i = getelementptr inbounds i8, ptr %5, i64 %.sink5.i
   %6 = load ptr, ptr %recipientinfo10.i, align 8
-  br label %if.end.i28
+  br label %if.end.i30
 
 lor.lhs.false.i:                                  ; preds = %if.end4.i
   %.pr = load ptr, ptr %d, align 8
-  %cmp1.i27 = icmp eq ptr %.pr, null
-  br i1 %cmp1.i27, label %pkcs7_get_signer_certs.exit, label %if.end.i28
+  %cmp1.i29 = icmp eq ptr %.pr, null
+  br i1 %cmp1.i29, label %pkcs7_get_signer_certs.exit, label %if.end.i30
 
-if.end.i28:                                       ; preds = %lor.lhs.false.i.thread, %lor.lhs.false.i
-  %retval.0.i52 = phi ptr [ %6, %lor.lhs.false.i.thread ], [ null, %lor.lhs.false.i ]
+if.end.i30:                                       ; preds = %lor.lhs.false.i.thread, %lor.lhs.false.i
+  %retval.0.i54 = phi ptr [ %6, %lor.lhs.false.i.thread ], [ null, %lor.lhs.false.i ]
   %7 = load ptr, ptr %type.i, align 8
-  %call.i30 = tail call i32 @OBJ_obj2nid(ptr noundef %7) #7
-  %cmp2.i = icmp eq i32 %call.i30, 22
-  br i1 %cmp2.i, label %PKCS7_get_signer_info.exit.thread60, label %if.else.i
+  %call.i32 = tail call i32 @OBJ_obj2nid(ptr noundef %7) #7
+  %cmp2.i = icmp eq i32 %call.i32, 22
+  br i1 %cmp2.i, label %PKCS7_get_signer_info.exit.thread62, label %if.else.i
 
-if.else.i:                                        ; preds = %if.end.i28
+if.else.i:                                        ; preds = %if.end.i30
   %8 = load ptr, ptr %type.i, align 8
-  %call6.i31 = tail call i32 @OBJ_obj2nid(ptr noundef %8) #7
-  %cmp7.i32 = icmp eq i32 %call6.i31, 24
-  br i1 %cmp7.i32, label %PKCS7_get_signer_info.exit.thread60, label %PKCS7_get_signer_info.exit
+  %call6.i33 = tail call i32 @OBJ_obj2nid(ptr noundef %8) #7
+  %cmp7.i34 = icmp eq i32 %call6.i33, 24
+  br i1 %cmp7.i34, label %PKCS7_get_signer_info.exit.thread62, label %PKCS7_get_signer_info.exit
 
-PKCS7_get_signer_info.exit.thread60:              ; preds = %if.end.i28, %if.else.i
+PKCS7_get_signer_info.exit.thread62:              ; preds = %if.end.i30, %if.else.i
   %9 = load ptr, ptr %d, align 8
   %signer_info10.i = getelementptr inbounds i8, ptr %9, i64 32
   %10 = load ptr, ptr %signer_info10.i, align 8
-  br label %if.end.i37
+  br label %if.end.i39
 
 PKCS7_get_signer_info.exit:                       ; preds = %if.else.i
-  %.pr54 = load ptr, ptr %d, align 8
-  %cmp.i36 = icmp eq ptr %.pr54, null
-  br i1 %cmp.i36, label %pkcs7_get_signer_certs.exit, label %if.end.i37
+  %.pr56 = load ptr, ptr %d, align 8
+  %cmp.i38 = icmp eq ptr %.pr56, null
+  br i1 %cmp.i38, label %pkcs7_get_signer_certs.exit, label %if.end.i39
 
-if.end.i37:                                       ; preds = %PKCS7_get_signer_info.exit.thread60, %PKCS7_get_signer_info.exit
-  %retval.0.i3365 = phi ptr [ %10, %PKCS7_get_signer_info.exit.thread60 ], [ null, %PKCS7_get_signer_info.exit ]
+if.end.i39:                                       ; preds = %PKCS7_get_signer_info.exit.thread62, %PKCS7_get_signer_info.exit
+  %retval.0.i3567 = phi ptr [ %10, %PKCS7_get_signer_info.exit.thread62 ], [ null, %PKCS7_get_signer_info.exit ]
   %11 = load ptr, ptr %type.i, align 8
-  %call.i39 = tail call i32 @OBJ_obj2nid(ptr noundef %11) #7
-  %cmp1.i40 = icmp eq i32 %call.i39, 22
-  br i1 %cmp1.i40, label %return.sink.split.i45, label %if.end4.i41
+  %call.i41 = tail call i32 @OBJ_obj2nid(ptr noundef %11) #7
+  %cmp1.i42 = icmp eq i32 %call.i41, 22
+  br i1 %cmp1.i42, label %return.sink.split.i47, label %if.end4.i43
 
-if.end4.i41:                                      ; preds = %if.end.i37
+if.end4.i43:                                      ; preds = %if.end.i39
   %12 = load ptr, ptr %type.i, align 8
-  %call6.i42 = tail call i32 @OBJ_obj2nid(ptr noundef %12) #7
-  %cmp7.i43 = icmp eq i32 %call6.i42, 24
-  br i1 %cmp7.i43, label %return.sink.split.i45, label %pkcs7_get_signer_certs.exit
+  %call6.i44 = tail call i32 @OBJ_obj2nid(ptr noundef %12) #7
+  %cmp7.i45 = icmp eq i32 %call6.i44, 24
+  br i1 %cmp7.i45, label %return.sink.split.i47, label %pkcs7_get_signer_certs.exit
 
-return.sink.split.i45:                            ; preds = %if.end4.i41, %if.end.i37
+return.sink.split.i47:                            ; preds = %if.end4.i43, %if.end.i39
   %13 = load ptr, ptr %d, align 8
   %cert10.i = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load ptr, ptr %cert10.i, align 8
   br label %pkcs7_get_signer_certs.exit
 
-pkcs7_get_signer_certs.exit:                      ; preds = %lor.lhs.false.i, %PKCS7_get_signer_info.exit, %if.end4.i41, %return.sink.split.i45
-  %retval.0.i3359 = phi ptr [ null, %PKCS7_get_signer_info.exit ], [ %retval.0.i3365, %if.end4.i41 ], [ %retval.0.i3365, %return.sink.split.i45 ], [ null, %lor.lhs.false.i ]
-  %retval.0.i5358 = phi ptr [ %retval.0.i52, %PKCS7_get_signer_info.exit ], [ %retval.0.i52, %if.end4.i41 ], [ %retval.0.i52, %return.sink.split.i45 ], [ null, %lor.lhs.false.i ]
-  %retval.0.i44 = phi ptr [ null, %PKCS7_get_signer_info.exit ], [ null, %if.end4.i41 ], [ %14, %return.sink.split.i45 ], [ null, %lor.lhs.false.i ]
-  %call866 = tail call i32 @OPENSSL_sk_num(ptr noundef %retval.0.i44) #7
-  %cmp967 = icmp sgt i32 %call866, 0
-  br i1 %cmp967, label %for.body, label %for.cond13.preheader
+pkcs7_get_signer_certs.exit:                      ; preds = %lor.lhs.false.i, %PKCS7_get_signer_info.exit, %if.end4.i43, %return.sink.split.i47
+  %retval.0.i3561 = phi ptr [ null, %PKCS7_get_signer_info.exit ], [ %retval.0.i3567, %if.end4.i43 ], [ %retval.0.i3567, %return.sink.split.i47 ], [ null, %lor.lhs.false.i ]
+  %retval.0.i5560 = phi ptr [ %retval.0.i54, %PKCS7_get_signer_info.exit ], [ %retval.0.i54, %if.end4.i43 ], [ %retval.0.i54, %return.sink.split.i47 ], [ null, %lor.lhs.false.i ]
+  %retval.0.i46 = phi ptr [ null, %PKCS7_get_signer_info.exit ], [ null, %if.end4.i43 ], [ %14, %return.sink.split.i47 ], [ null, %lor.lhs.false.i ]
+  %call868 = tail call i32 @OPENSSL_sk_num(ptr noundef %retval.0.i46) #7
+  %cmp969 = icmp sgt i32 %call868, 0
+  br i1 %cmp969, label %for.body, label %for.cond13.preheader
 
 for.cond13.preheader:                             ; preds = %for.body, %pkcs7_get_signer_certs.exit
-  %call1569 = tail call i32 @OPENSSL_sk_num(ptr noundef %retval.0.i5358) #7
-  %cmp1670 = icmp sgt i32 %call1569, 0
-  br i1 %cmp1670, label %for.body17, label %for.cond24.preheader
+  %call1571 = tail call i32 @OPENSSL_sk_num(ptr noundef %retval.0.i5560) #7
+  %cmp1672 = icmp sgt i32 %call1571, 0
+  br i1 %cmp1672, label %for.body17, label %for.cond24.preheader
 
 for.body:                                         ; preds = %pkcs7_get_signer_certs.exit, %for.body
-  %i.068 = phi i32 [ %inc, %for.body ], [ 0, %pkcs7_get_signer_certs.exit ]
-  %call11 = tail call ptr @OPENSSL_sk_value(ptr noundef %retval.0.i44, i32 noundef %i.068) #7
+  %i.070 = phi i32 [ %inc, %for.body ], [ 0, %pkcs7_get_signer_certs.exit ]
+  %call11 = tail call ptr @OPENSSL_sk_value(ptr noundef %retval.0.i46, i32 noundef %i.070) #7
   %call12 = tail call i32 @ossl_x509_set0_libctx(ptr noundef %call11, ptr noundef %0, ptr noundef %1) #7
-  %inc = add nuw nsw i32 %i.068, 1
-  %call8 = tail call i32 @OPENSSL_sk_num(ptr noundef %retval.0.i44) #7
+  %inc = add nuw nsw i32 %i.070, 1
+  %call8 = tail call i32 @OPENSSL_sk_num(ptr noundef %retval.0.i46) #7
   %cmp9 = icmp slt i32 %inc, %call8
-  br i1 %cmp9, label %for.body, label %for.cond13.preheader, !llvm.loop !7
+  br i1 %cmp9, label %for.body, label %for.cond13.preheader, !llvm.loop !6
 
 for.cond24.preheader:                             ; preds = %for.body17, %for.cond13.preheader
-  %call2672 = tail call i32 @OPENSSL_sk_num(ptr noundef %retval.0.i3359) #7
-  %cmp2773 = icmp sgt i32 %call2672, 0
-  br i1 %cmp2773, label %for.body28, label %for.end37
+  %call2674 = tail call i32 @OPENSSL_sk_num(ptr noundef %retval.0.i3561) #7
+  %cmp2775 = icmp sgt i32 %call2674, 0
+  br i1 %cmp2775, label %for.body28, label %for.end37
 
 for.body17:                                       ; preds = %for.cond13.preheader, %for.body17
-  %i.171 = phi i32 [ %inc22, %for.body17 ], [ 0, %for.cond13.preheader ]
-  %call19 = tail call ptr @OPENSSL_sk_value(ptr noundef %retval.0.i5358, i32 noundef %i.171) #7
+  %i.173 = phi i32 [ %inc22, %for.body17 ], [ 0, %for.cond13.preheader ]
+  %call19 = tail call ptr @OPENSSL_sk_value(ptr noundef %retval.0.i5560, i32 noundef %i.173) #7
   %cert = getelementptr inbounds i8, ptr %call19, i64 32
   %15 = load ptr, ptr %cert, align 8
   %call20 = tail call i32 @ossl_x509_set0_libctx(ptr noundef %15, ptr noundef %0, ptr noundef %1) #7
-  %inc22 = add nuw nsw i32 %i.171, 1
-  %call15 = tail call i32 @OPENSSL_sk_num(ptr noundef %retval.0.i5358) #7
+  %inc22 = add nuw nsw i32 %i.173, 1
+  %call15 = tail call i32 @OPENSSL_sk_num(ptr noundef %retval.0.i5560) #7
   %cmp16 = icmp slt i32 %inc22, %call15
-  br i1 %cmp16, label %for.body17, label %for.cond24.preheader, !llvm.loop !8
+  br i1 %cmp16, label %for.body17, label %for.cond24.preheader, !llvm.loop !7
 
 for.body28:                                       ; preds = %for.cond24.preheader, %for.inc35
-  %i.274 = phi i32 [ %inc36, %for.inc35 ], [ 0, %for.cond24.preheader ]
-  %call30 = tail call ptr @OPENSSL_sk_value(ptr noundef %retval.0.i3359, i32 noundef %i.274) #7
+  %i.276 = phi i32 [ %inc36, %for.inc35 ], [ 0, %for.cond24.preheader ]
+  %call30 = tail call ptr @OPENSSL_sk_value(ptr noundef %retval.0.i3561, i32 noundef %i.276) #7
   %cmp31.not = icmp eq ptr %call30, null
   br i1 %cmp31.not, label %for.inc35, label %if.then32
 
@@ -966,10 +966,10 @@ if.then32:                                        ; preds = %for.body28
   br label %for.inc35
 
 for.inc35:                                        ; preds = %for.body28, %if.then32
-  %inc36 = add nuw nsw i32 %i.274, 1
-  %call26 = tail call i32 @OPENSSL_sk_num(ptr noundef %retval.0.i3359) #7
+  %inc36 = add nuw nsw i32 %i.276, 1
+  %call26 = tail call i32 @OPENSSL_sk_num(ptr noundef %retval.0.i3561) #7
   %cmp27 = icmp slt i32 %inc36, %call26
-  br i1 %cmp27, label %for.body28, label %for.end37, !llvm.loop !9
+  br i1 %cmp27, label %for.body28, label %for.end37, !llvm.loop !8
 
 for.end37:                                        ; preds = %for.inc35, %for.cond24.preheader, %entry, %lor.lhs.false
   ret void
@@ -1053,7 +1053,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_pkcs7_set1_propq(ptr nocapture noundef %p7, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pkcs7_set1_propq(ptr nocapture noundef %p7, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %propq1 = getelementptr inbounds i8, ptr %p7, i64 48
   %0 = load ptr, ptr %propq1, align 8
@@ -1088,7 +1088,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_pkcs7_ctx_propagate(ptr nocapture noundef readonly %from, ptr noundef %to) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pkcs7_ctx_propagate(ptr nocapture noundef readonly %from, ptr noundef %to) local_unnamed_addr #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %from, i64 40
   %0 = load ptr, ptr %ctx, align 8
@@ -1126,7 +1126,7 @@ return:                                           ; preds = %if.then7.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS7_set_digest(ptr nocapture noundef readonly %p7, ptr noundef %md) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_set_digest(ptr nocapture noundef readonly %p7, ptr noundef %md) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -1237,7 +1237,7 @@ entry:
   br i1 %cmp, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @PKCS7_RECIP_INFO_set(ptr noundef nonnull %call, ptr noundef %x509), !range !10
+  %call1 = tail call i32 @PKCS7_RECIP_INFO_set(ptr noundef nonnull %call, ptr noundef %x509)
   %cmp2 = icmp slt i32 %call1, 1
   br i1 %cmp2, label %err, label %if.end4
 
@@ -1287,7 +1287,7 @@ return:                                           ; preds = %err, %if.end7
 declare ptr @PKCS7_RECIP_INFO_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS7_RECIP_INFO_set(ptr noundef %p7i, ptr noundef %x509) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @PKCS7_RECIP_INFO_set(ptr noundef %p7i, ptr noundef %x509) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %p7i, align 8
   %call = tail call i32 @ASN1_INTEGER_set(ptr noundef %0, i64 noundef 0) #7
@@ -1393,7 +1393,7 @@ return:                                           ; preds = %if.then32, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS7_add_recipient_info(ptr nocapture noundef readonly %p7, ptr noundef %ri) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_add_recipient_info(ptr nocapture noundef readonly %p7, ptr noundef %ri) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -1464,7 +1464,7 @@ return:                                           ; preds = %entry, %if.then
 declare ptr @X509_find_by_issuer_and_serial(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS7_set_cipher(ptr noundef %p7, ptr noundef %cipher) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_set_cipher(ptr noundef %p7, ptr noundef %cipher) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -1515,7 +1515,7 @@ return:                                           ; preds = %if.end, %if.then, %
 declare i32 @EVP_CIPHER_get_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS7_stream(ptr nocapture noundef writeonly %boundary, ptr nocapture noundef readonly %p7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_stream(ptr nocapture noundef writeonly %boundary, ptr nocapture noundef readonly %p7) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -1624,10 +1624,8 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = !{i32 -2, i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

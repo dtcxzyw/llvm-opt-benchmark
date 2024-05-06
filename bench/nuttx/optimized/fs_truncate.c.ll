@@ -44,7 +44,7 @@ define i32 @file_truncate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ftruncate(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ftruncate(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %file_truncate.exit.thread, label %5

@@ -2730,7 +2730,7 @@ declare dso_local ptr @alloc_skb_with_frags(i64 noundef, i64 noundef, i32 nounde
 declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tcp_try_rmem_schedule(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @tcp_try_rmem_schedule(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 240
   %5 = load volatile i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 280
@@ -3059,7 +3059,7 @@ define internal fastcc noundef i32 @tcp_try_rmem_schedule(ptr noundef %0, ptr no
 declare dso_local i32 @skb_copy_datagram_from_iter(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tcp_queue_rcv(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @tcp_queue_rcv(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 216
   %6 = getelementptr inbounds i8, ptr %0, i64 224
@@ -4227,7 +4227,7 @@ tcp_rcv_rtt_measure_ts.exit:                      ; preds = %176, %182, %202, %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tcp_ack(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -41, 2) i32 @tcp_ack(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = alloca %struct.ack_sample, align 4
   %5 = alloca i32, align 4
   %6 = alloca %struct.tcp_sacktag_state, align 8
@@ -9436,7 +9436,7 @@ declare dso_local void @security_inet_conn_established(ptr noundef, ptr noundef)
 declare dso_local void @inet_csk_reset_keepalive_timer(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcp_rcv_state_process(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @tcp_rcv_state_process(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = alloca %struct.tcp_fastopen_cookie, align 8
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 192

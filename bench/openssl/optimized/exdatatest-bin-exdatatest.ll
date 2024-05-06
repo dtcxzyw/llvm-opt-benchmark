@@ -53,7 +53,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_exdata() #0 {
+define internal range(i32 0, 2) i32 @test_exdata() #0 {
 entry:
   store i1 true, ptr @gbl_result, align 4
   %call = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 230) #2

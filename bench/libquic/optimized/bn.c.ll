@@ -344,7 +344,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @BN_num_bits_word(i64 noundef %l) local_unnamed_addr #9 {
+define hidden range(i32 0, 312) i32 @BN_num_bits_word(i64 noundef %l) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp ult i64 %l, 4294967296
   br i1 %tobool.not, label %if.else31, label %if.then
@@ -558,7 +558,7 @@ return:                                           ; preds = %entry, %BN_num_bits
 declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BN_num_bytes(ptr noundef %bn) local_unnamed_addr #0 {
+define hidden range(i32 0, 536870912) i32 @BN_num_bytes(ptr noundef %bn) local_unnamed_addr #0 {
 entry:
   %top.i = getelementptr inbounds i8, ptr %bn, i64 8
   %0 = load i32, ptr %top.i, align 8
@@ -685,7 +685,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_one(ptr nocapture noundef %bn) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_one(ptr nocapture noundef %bn) local_unnamed_addr #0 {
 entry:
   %dmax.i.i = getelementptr inbounds i8, ptr %bn, i64 12
   %0 = load i32, ptr %dmax.i.i, align 4
@@ -743,7 +743,7 @@ BN_set_word.exit:                                 ; preds = %if.then6.i.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_set_word(ptr nocapture noundef %bn, i64 noundef %value) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_set_word(ptr nocapture noundef %bn, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %value, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -812,7 +812,7 @@ return:                                           ; preds = %if.then10.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @bn_set_words(ptr noundef %bn, ptr nocapture noundef readonly %words, i64 noundef %num) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @bn_set_words(ptr noundef %bn, ptr nocapture noundef readonly %words, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @bn_wexpand(ptr noundef %bn, i64 noundef %num)
   %cmp = icmp eq ptr %call, null
@@ -902,7 +902,7 @@ if.end4:                                          ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @BN_is_negative(ptr nocapture noundef readonly %bn) local_unnamed_addr #12 {
+define hidden range(i32 0, 2) i32 @BN_is_negative(ptr nocapture noundef readonly %bn) local_unnamed_addr #12 {
 entry:
   %neg = getelementptr inbounds i8, ptr %bn, i64 16
   %0 = load i32, ptr %neg, align 8

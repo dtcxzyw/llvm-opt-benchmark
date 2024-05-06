@@ -357,7 +357,7 @@ define dso_local void @xxh64_reset(ptr nocapture noundef writeonly %0, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @xxh32_update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xxh32_update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #5 align 16 {
   %4 = getelementptr i8, ptr %1, i64 %2
   %5 = icmp eq ptr %1, null
   br i1 %5, label %125, label %6
@@ -613,7 +613,7 @@ define dso_local i32 @xxh32_digest(ptr noundef readonly %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @xxh64_update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xxh64_update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #5 align 16 {
   %4 = getelementptr i8, ptr %1, i64 %2
   %5 = icmp eq ptr %1, null
   br i1 %5, label %119, label %6

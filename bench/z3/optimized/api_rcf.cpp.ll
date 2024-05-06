@@ -813,7 +813,7 @@ lpad9.loopexit.split-lp:                          ; preds = %if.then27
 
 invoke.cont21:                                    ; preds = %invoke.cont12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = trunc i64 %indvars.iv.next to i32
+  %3 = trunc nuw i64 %indvars.iv.next to i32
   %spec.select = select i1 %call15, i32 %rz.068, i32 %3
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load ptr, ptr %av, align 8
@@ -947,7 +947,7 @@ for.body64:                                       ; preds = %for.body64.preheade
   %indvars.iv80 = phi i64 [ 0, %for.body64.preheader ], [ %indvars.iv.next81, %for.inc68 ]
   %arrayidx66 = getelementptr inbounds ptr, ptr %Z3ARG3.0, i64 %indvars.iv80
   %18 = load ptr, ptr %arrayidx66, align 8
-  %19 = trunc i64 %indvars.iv80 to i32
+  %19 = trunc nuw i64 %indvars.iv80 to i32
   invoke void @_Z5SetAOPvjj(ptr noundef %18, i32 noundef 3, i32 noundef %19)
           to label %for.inc68 unwind label %lpad34.loopexit
 
@@ -3581,7 +3581,7 @@ declare void @_Z22log_Z3_rcf_coefficientP11_Z3_contextP11_Z3_rcf_numj(ptr nounde
 declare ptr @_ZN11realclosure7manager15get_coefficientERKNS_3numEj(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @Z3_rcf_interval(ptr noundef %c, ptr noundef %a, ptr noundef %lower_is_inf, ptr noundef %lower_is_open, ptr noundef %lower, ptr noundef %upper_is_inf, ptr noundef %upper_is_open, ptr noundef %upper) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @Z3_rcf_interval(ptr noundef %c, ptr noundef %a, ptr noundef %lower_is_inf, ptr noundef %lower_is_open, ptr noundef %lower, ptr noundef %upper_is_inf, ptr noundef %upper_is_open, ptr noundef %upper) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %r_lower = alloca %"class.realclosure::num", align 8
   %r_upper = alloca %"class.realclosure::num", align 8

@@ -681,7 +681,7 @@ define internal fastcc void @mul_n(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mpihelp_mul_karatsuba_case(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @mpihelp_mul_karatsuba_case(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 align 16 {
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -1014,7 +1014,7 @@ define dso_local noundef i32 @mpihelp_mul_karatsuba_case(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mpihelp_mul(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @mpihelp_mul(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 align 16 {
   %7 = alloca %struct.karatsuba_ctx, align 8
   %8 = sext i32 %2 to i64
   %9 = getelementptr i64, ptr %0, i64 %8

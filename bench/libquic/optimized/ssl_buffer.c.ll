@@ -20,7 +20,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @ssl_read_buffer_len(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
+define hidden range(i64 0, 65536) i64 @ssl_read_buffer_len(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -31,7 +31,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ssl_read_buffer_extend_to(ptr noundef %ssl, i64 noundef %len) local_unnamed_addr #1 {
+define hidden range(i32 -2147483648, 2) i32 @ssl_read_buffer_extend_to(ptr noundef %ssl, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %s3.i = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3.i, align 8
@@ -308,7 +308,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @ssl_write_buffer_is_pending(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ssl_write_buffer_is_pending(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -320,7 +320,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ssl_write_buffer_init(ptr noundef %ssl, ptr nocapture noundef writeonly %out_ptr, i64 noundef %max_len) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ssl_write_buffer_init(ptr noundef %ssl, ptr nocapture noundef writeonly %out_ptr, i64 noundef %max_len) local_unnamed_addr #1 {
 entry:
   %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -388,7 +388,7 @@ if.end16:                                         ; preds = %if.end.i
   store i16 %conv.i, ptr %offset.i, align 8
   %len.i = getelementptr inbounds i8, ptr %0, i64 114
   store i16 0, ptr %len.i, align 2
-  %conv11.i = trunc i64 %cap.0 to i16
+  %conv11.i = trunc nuw nsw i64 %cap.0 to i16
   %cap12.i = getelementptr inbounds i8, ptr %0, i64 116
   store i16 %conv11.i, ptr %cap12.i, align 4
   %idx.ext = zext nneg i16 %conv.i to i64
@@ -419,7 +419,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %conv2 = trunc i64 %len to i16
+  %conv2 = trunc nuw i64 %len to i16
   %len3 = getelementptr inbounds i8, ptr %0, i64 114
   store i16 %conv2, ptr %len3, align 2
   ret void
@@ -429,7 +429,7 @@ if.end:                                           ; preds = %entry
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ssl_write_buffer_flush(ptr nocapture noundef %ssl) local_unnamed_addr #1 {
+define hidden range(i32 -2147483648, 2) i32 @ssl_write_buffer_flush(ptr nocapture noundef %ssl) local_unnamed_addr #1 {
 entry:
   %wbio = getelementptr inbounds i8, ptr %ssl, i64 24
   %0 = load ptr, ptr %wbio, align 8

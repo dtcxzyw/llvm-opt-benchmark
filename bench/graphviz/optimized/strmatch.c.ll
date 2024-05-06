@@ -183,7 +183,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc noundef i32 @grpmatch(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @grpmatch(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 360
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   br label %gobble.exit
@@ -367,7 +367,7 @@ strgrpmatch.exit:                                 ; preds = %18, %2
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc noundef i32 @onematch(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @onematch(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   br label %8
 
@@ -1029,7 +1029,7 @@ gv_isspace.exit:                                  ; preds = %gv_isspace.exit.bac
 
 252:                                              ; preds = %250
   %253 = tail call i64 @llvm.umin.i64(i64 %.sroa.13.0497.lcssa, i64 5)
-  %254 = tail call i32 @strncmp(ptr noundef nonnull %238, ptr noundef nonnull @.str, i64 noundef %253) #7
+  %254 = tail call i32 @strncmp(ptr noundef nonnull readonly %238, ptr noundef nonnull readonly @.str, i64 noundef %253) #7
   %.not.i.i.i = icmp eq i32 %254, 0
   %255 = icmp eq i64 %.sroa.13.0497.lcssa, 5
   %spec.select.i.i = and i1 %255, %.not.i.i.i
@@ -1329,7 +1329,7 @@ define internal fastcc zeroext i1 @strview_str_eq(ptr nocapture readonly %0, i64
 strview.exit:                                     ; preds = %4, %5
   %.sroa.3.0.i = phi i64 [ %strlen.i, %4 ], [ %6, %5 ]
   %7 = tail call i64 @llvm.umin.i64(i64 %1, i64 %.sroa.3.0.i)
-  %8 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %2, i64 noundef %7) #7
+  %8 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %2, i64 noundef %7) #7
   %.not.i.i = icmp eq i32 %8, 0
   %9 = icmp eq i64 %.sroa.3.0.i, %1
   %spec.select.i = and i1 %9, %.not.i.i

@@ -4487,9 +4487,9 @@ _ZNSt12_Vector_baseI11t_tabledataSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %
 
 .thread:                                          ; preds = %79
   tail call void @_ZNSt16allocator_traitsISaI11t_tabledataEE7destroyIS0_EEvRS1_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %27) #22
-  br label %_ZNSt12_Vector_baseI11t_tabledataSaIS0_EE13_M_deallocateEPS0_m.exit38
+  br label %_ZNSt12_Vector_baseI11t_tabledataSaIS0_EE13_M_deallocateEPS0_m.exit40
 
-83:                                               ; preds = %_ZNSt12_Vector_baseI11t_tabledataSaIS0_EE13_M_deallocateEPS0_m.exit38
+83:                                               ; preds = %_ZNSt12_Vector_baseI11t_tabledataSaIS0_EE13_M_deallocateEPS0_m.exit40
   %84 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -4497,9 +4497,9 @@ _ZNSt12_Vector_baseI11t_tabledataSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %
 
 85:                                               ; preds = %79
   tail call void @_ZdlPv(ptr noundef nonnull %26) #26
-  br label %_ZNSt12_Vector_baseI11t_tabledataSaIS0_EE13_M_deallocateEPS0_m.exit38
+  br label %_ZNSt12_Vector_baseI11t_tabledataSaIS0_EE13_M_deallocateEPS0_m.exit40
 
-_ZNSt12_Vector_baseI11t_tabledataSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = %85, %.thread
+_ZNSt12_Vector_baseI11t_tabledataSaIS0_EE13_M_deallocateEPS0_m.exit40: ; preds = %85, %.thread
   invoke void @__cxa_rethrow() #23
           to label %90 unwind label %83
 
@@ -4513,7 +4513,7 @@ _ZNSt12_Vector_baseI11t_tabledataSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds =
   tail call void @__clang_call_terminate(ptr %89) #24
   unreachable
 
-90:                                               ; preds = %_ZNSt12_Vector_baseI11t_tabledataSaIS0_EE13_M_deallocateEPS0_m.exit38
+90:                                               ; preds = %_ZNSt12_Vector_baseI11t_tabledataSaIS0_EE13_M_deallocateEPS0_m.exit40
   unreachable
 }
 
@@ -5342,13 +5342,13 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
 53:                                               ; preds = %.preheader, %53
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %53 ]
   %54 = load ptr, ptr %50, align 8
-  %55 = getelementptr float, ptr %54, i64 %51
-  %56 = getelementptr i8, ptr %55, i64 16
-  %57 = getelementptr float, ptr %56, i64 %indvars.iv
+  %55 = getelementptr inbounds float, ptr %54, i64 %51
+  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = getelementptr inbounds float, ptr %56, i64 %indvars.iv
   %58 = load float, ptr %57, align 4
   %59 = load ptr, ptr %30, align 8
-  %60 = getelementptr float, ptr %59, i64 %indvars.iv
-  %61 = getelementptr float, ptr %60, i64 %52
+  %60 = getelementptr inbounds float, ptr %59, i64 %indvars.iv
+  %61 = getelementptr inbounds float, ptr %60, i64 %52
   store float %58, ptr %61, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

@@ -290,7 +290,7 @@ return:                                           ; preds = %trace_vhost_user_wr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhost_user_get_shared_object(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %uuid, ptr nocapture noundef writeonly %dmabuf_fd) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @vhost_user_get_shared_object(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %uuid, ptr nocapture noundef writeonly %dmabuf_fd) local_unnamed_addr #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %opaque = getelementptr inbounds i8, ptr %dev, i64 536
@@ -621,7 +621,7 @@ if.end6:                                          ; preds = %if.else, %if.then3,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vhost_user_backend_init(ptr noundef %dev, ptr noundef %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_backend_init(ptr noundef %dev, ptr noundef %opaque, ptr noundef %errp) #0 {
 entry:
   %msg_reply.i.i = alloca %struct.VhostUserMsg, align 4
   %msg.i96 = alloca %struct.VhostUserMsg, align 4
@@ -655,7 +655,7 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %msg.i.i, align 4
   %flags.i.i = getelementptr inbounds i8, ptr %msg.i.i, i64 4
   store i32 1, ptr %flags.i.i, align 4
-  %call2.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull %dev, ptr noundef nonnull %msg.i.i, ptr noundef null, i32 noundef 0)
+  %call2.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i.i, ptr noundef null, i32 noundef 0)
   %cmp3.i.i = icmp slt i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %if.then5, label %if.end5.i.i
 
@@ -728,7 +728,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
   store i32 15, ptr %msg.i, align 4
   %flags.i = getelementptr inbounds i8, ptr %msg.i, i64 4
   store i32 1, ptr %flags.i, align 4
-  %call2.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull %dev, ptr noundef nonnull %msg.i, ptr noundef null, i32 noundef 0)
+  %call2.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i, ptr noundef null, i32 noundef 0)
   %cmp3.i = icmp slt i32 %call2.i, 0
   br i1 %cmp3.i, label %if.then14, label %if.end5.i
 
@@ -802,7 +802,7 @@ if.end26:                                         ; preds = %if.else21, %if.then
   store i32 8, ptr %size.i.i, align 4
   %payload.i.i64 = getelementptr inbounds i8, ptr %msg.i.i62, i64 12
   store i64 %protocol_features.1, ptr %payload.i.i64, align 4
-  %call5.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull %dev, ptr noundef nonnull %msg.i.i62, ptr noundef null, i32 noundef 0)
+  %call5.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i.i62, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i.i62)
   %cmp30 = icmp slt i32 %call5.i.i, 0
   br i1 %cmp30, label %if.then31, label %if.end32
@@ -831,7 +831,7 @@ if.then36:                                        ; preds = %if.end32
   br i1 %cmp.not.i, label %if.end.i, label %vhost_user_get_u64.exit85
 
 if.end.i:                                         ; preds = %if.then36
-  %call2.i68 = call fastcc i32 @vhost_user_write(ptr noundef nonnull %dev, ptr noundef nonnull %msg.i65, ptr noundef null, i32 noundef 0)
+  %call2.i68 = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i65, ptr noundef null, i32 noundef 0)
   %cmp3.i69 = icmp slt i32 %call2.i68, 0
   br i1 %cmp3.i69, label %if.then39, label %if.end5.i70
 
@@ -923,7 +923,7 @@ if.then66:                                        ; preds = %if.end63
   br label %if.end89
 
 if.else68:                                        ; preds = %if.end63
-  %call69 = call fastcc i32 @vhost_user_get_max_memslots(ptr noundef nonnull %dev, ptr noundef nonnull %ram_slots), !range !5
+  %call69 = call fastcc i32 @vhost_user_get_max_memslots(ptr noundef nonnull %dev, ptr noundef nonnull %ram_slots)
   %cmp70 = icmp slt i32 %call69, 0
   br i1 %cmp70, label %if.then72, label %if.end73
 
@@ -1226,7 +1226,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_net_set_mtu(ptr nocapture noundef readonly %dev, i16 noundef zeroext %mtu) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_net_set_mtu(ptr nocapture noundef readonly %dev, i16 noundef zeroext %mtu) #0 {
 entry:
   %msg_reply.i = alloca %struct.VhostUserMsg, align 4
   %msg = alloca %struct.VhostUserMsg, align 4
@@ -1299,7 +1299,7 @@ return:                                           ; preds = %if.end, %entry, %pr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_set_log_base(ptr nocapture noundef readonly %dev, i64 %base, ptr nocapture noundef readonly %log) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_log_base(ptr nocapture noundef readonly %dev, i64 %base, ptr nocapture noundef readonly %log) #0 {
 entry:
   %fds = alloca [512 x i32], align 16
   %msg = alloca %struct.VhostUserMsg, align 4
@@ -1370,7 +1370,7 @@ return:                                           ; preds = %if.end5, %if.end19,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_set_mem_table(ptr nocapture noundef readonly %dev, ptr nocapture readnone %mem) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_mem_table(ptr nocapture noundef readonly %dev, ptr nocapture readnone %mem) #0 {
 entry:
   %msg_reply.i21 = alloca %struct.VhostUserMsg, align 4
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -1472,19 +1472,19 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br i1 %tobool.i20.not, label %if.else.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %if.end.i
-  %call34.i = call fastcc i32 @vhost_user_add_remove_regions(ptr noundef nonnull %dev, ptr noundef nonnull %msg.i, i1 noundef zeroext %tobool.i, i1 noundef zeroext true), !range !5
+  %call34.i = call fastcc i32 @vhost_user_add_remove_regions(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i, i1 noundef zeroext %tobool.i, i1 noundef zeroext true)
   %cmp35.i = icmp slt i32 %call34.i, 0
   br i1 %cmp35.i, label %vhost_user_set_mem_table_postcopy.exit, label %if.end122.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %call39.i = call fastcc i32 @vhost_user_fill_set_mem_table_msg(ptr noundef nonnull %0, ptr noundef nonnull %dev, ptr noundef nonnull %msg.i, ptr noundef nonnull %fds.i, ptr noundef nonnull %fd_num.i, i1 noundef zeroext true), !range !6
+  %call39.i = call fastcc i32 @vhost_user_fill_set_mem_table_msg(ptr noundef nonnull %0, ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i, ptr noundef nonnull %fds.i, ptr noundef nonnull %fd_num.i, i1 noundef zeroext true)
   %cmp40.i = icmp slt i32 %call39.i, 0
   br i1 %cmp40.i, label %vhost_user_set_mem_table_postcopy.exit, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.else.i
   %24 = load i64, ptr %fd_num.i, align 8
   %conv45.i = trunc i64 %24 to i32
-  %call46.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull %dev, ptr noundef nonnull %msg.i, ptr noundef nonnull %fds.i, i32 noundef %conv45.i)
+  %call46.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i, ptr noundef nonnull %fds.i, i32 noundef %conv45.i)
   %cmp47.i = icmp slt i32 %call46.i, 0
   br i1 %cmp47.i, label %vhost_user_set_mem_table_postcopy.exit, label %if.end50.i
 
@@ -1602,7 +1602,7 @@ for.inc.i:                                        ; preds = %trace_vhost_user_se
   %msg_i.1.i = phi i32 [ %inc.i, %trace_vhost_user_set_mem_table_postcopy.exit.i ], [ %msg_i.04.i, %land.lhs.true.i ], [ %msg_i.04.i, %for.body.i ]
   %inc108.i = add nuw i32 %region_i.02.i, 1
   %cmp76.i = icmp ult i32 %inc108.i, %43
-  br i1 %cmp76.i, label %for.body.i, label %for.end.i, !llvm.loop !7
+  br i1 %cmp76.i, label %for.body.i, label %for.end.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end72.i
   %msg_i.0.lcssa.i = phi i32 [ 0, %if.end72.i ], [ %msg_i.1.i, %for.inc.i ]
@@ -1618,7 +1618,7 @@ if.end113.i:                                      ; preds = %for.end.i
   store i32 8, ptr %size64.i, align 1
   %payload116.i = getelementptr inbounds i8, ptr %msg.i, i64 12
   store i64 0, ptr %payload116.i, align 1
-  %call117.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull %dev, ptr noundef nonnull %msg.i, ptr noundef null, i32 noundef 0)
+  %call117.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i, ptr noundef null, i32 noundef 0)
   %cmp118.i = icmp slt i32 %call117.i, 0
   br i1 %cmp118.i, label %vhost_user_set_mem_table_postcopy.exit, label %if.end122.i
 
@@ -1642,14 +1642,14 @@ if.end:                                           ; preds = %land.end
 
 if.then14:                                        ; preds = %land.end.thread, %if.end
   %tobool.i3539 = phi i1 [ %tobool.i32, %land.end.thread ], [ %tobool.i, %if.end ]
-  %call16 = call fastcc i32 @vhost_user_add_remove_regions(ptr noundef nonnull %dev, ptr noundef nonnull %msg, i1 noundef zeroext %tobool.i3539, i1 noundef zeroext false), !range !5
+  %call16 = call fastcc i32 @vhost_user_add_remove_regions(ptr noundef nonnull %dev, ptr noundef nonnull %msg, i1 noundef zeroext %tobool.i3539, i1 noundef zeroext false)
   %cmp = icmp slt i32 %call16, 0
   br i1 %cmp, label %return, label %if.end33
 
 if.else:                                          ; preds = %land.end.thread, %if.end
   %46 = phi ptr [ %3, %land.end.thread ], [ %45, %if.end ]
   %tobool.i3538 = phi i1 [ %tobool.i32, %land.end.thread ], [ %tobool.i, %if.end ]
-  %call19 = call fastcc i32 @vhost_user_fill_set_mem_table_msg(ptr noundef nonnull %0, ptr noundef nonnull %dev, ptr noundef nonnull %msg, ptr noundef nonnull %fds, ptr noundef nonnull %fd_num, i1 noundef zeroext false), !range !6
+  %call19 = call fastcc i32 @vhost_user_fill_set_mem_table_msg(ptr noundef nonnull %0, ptr noundef nonnull %dev, ptr noundef nonnull %msg, ptr noundef nonnull %fds, ptr noundef nonnull %fd_num, i1 noundef zeroext false)
   %cmp20 = icmp slt i32 %call19, 0
   br i1 %cmp20, label %return, label %if.end22
 
@@ -1710,7 +1710,7 @@ return:                                           ; preds = %if.end22, %if.else,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_set_vring_addr(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %addr) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_vring_addr(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %addr) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %0 = getelementptr inbounds i8, ptr %msg, i64 52
@@ -1726,7 +1726,7 @@ entry:
   %1 = load i32, ptr %flags1, align 4
   %and = and i32 %1, 1
   %tobool = icmp ne i32 %and, 0
-  %call = call fastcc i32 @vhost_user_write_sync(ptr noundef %dev, ptr noundef nonnull %msg, i1 noundef zeroext %tobool), !range !5
+  %call = call fastcc i32 @vhost_user_write_sync(ptr noundef %dev, ptr noundef nonnull %msg, i1 noundef zeroext %tobool)
   ret i32 %call
 }
 
@@ -1764,7 +1764,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_set_vring_num(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %ring) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_vring_num(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %ring) #0 {
 entry:
   %msg.i = alloca %struct.VhostUserMsg, align 4
   %ring.val = load i64, ptr %ring, align 4
@@ -1778,14 +1778,14 @@ entry:
   store i32 8, ptr %size.i, align 4
   %payload.i = getelementptr inbounds i8, ptr %msg.i, i64 12
   store i64 %ring.val, ptr %payload.i, align 4
-  %call5.i = call fastcc i32 @vhost_user_write(ptr noundef %dev, ptr noundef nonnull %msg.i, ptr noundef null, i32 noundef 0)
+  %call5.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg.i, ptr noundef null, i32 noundef 0)
   %call5.mux.i = call i32 @llvm.smin.i32(i32 %call5.i, i32 0)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i)
   ret i32 %call5.mux.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_set_vring_base(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %ring) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_vring_base(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %ring) #0 {
 entry:
   %msg.i = alloca %struct.VhostUserMsg, align 4
   %ring.val = load i64, ptr %ring, align 4
@@ -1799,14 +1799,14 @@ entry:
   store i32 8, ptr %size.i, align 4
   %payload.i = getelementptr inbounds i8, ptr %msg.i, i64 12
   store i64 %ring.val, ptr %payload.i, align 4
-  %call5.i = call fastcc i32 @vhost_user_write(ptr noundef %dev, ptr noundef nonnull %msg.i, ptr noundef null, i32 noundef 0)
+  %call5.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg.i, ptr noundef null, i32 noundef 0)
   %call5.mux.i = call i32 @llvm.smin.i32(i32 %call5.i, i32 0)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i)
   ret i32 %call5.mux.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_get_vring_base(ptr nocapture noundef readonly %dev, ptr nocapture noundef %ring) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_get_vring_base(ptr nocapture noundef readonly %dev, ptr nocapture noundef %ring) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %0 = getelementptr inbounds i8, ptr %msg, i64 20
@@ -1952,7 +1952,7 @@ if.else.i:                                        ; preds = %entry
 
 vhost_set_vring_file.exit:                        ; preds = %if.then.i, %if.else.i
   %fd_num.0.i = phi i32 [ 1, %if.then.i ], [ 0, %if.else.i ]
-  %call.i = call fastcc i32 @vhost_user_write(ptr noundef %dev, ptr noundef nonnull %msg.i, ptr noundef nonnull %fds.i, i32 noundef %fd_num.0.i)
+  %call.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg.i, ptr noundef nonnull %fds.i, i32 noundef %fd_num.0.i)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %fds.i)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i)
   ret i32 %call.i
@@ -1993,7 +1993,7 @@ if.else.i:                                        ; preds = %entry
 
 vhost_set_vring_file.exit:                        ; preds = %if.then.i, %if.else.i
   %fd_num.0.i = phi i32 [ 1, %if.then.i ], [ 0, %if.else.i ]
-  %call.i = call fastcc i32 @vhost_user_write(ptr noundef %dev, ptr noundef nonnull %msg.i, ptr noundef nonnull %fds.i, i32 noundef %fd_num.0.i)
+  %call.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg.i, ptr noundef nonnull %fds.i, i32 noundef %fd_num.0.i)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %fds.i)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i)
   ret i32 %call.i
@@ -2034,14 +2034,14 @@ if.else.i:                                        ; preds = %entry
 
 vhost_set_vring_file.exit:                        ; preds = %if.then.i, %if.else.i
   %fd_num.0.i = phi i32 [ 1, %if.then.i ], [ 0, %if.else.i ]
-  %call.i = call fastcc i32 @vhost_user_write(ptr noundef %dev, ptr noundef nonnull %msg.i, ptr noundef nonnull %fds.i, i32 noundef %fd_num.0.i)
+  %call.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg.i, ptr noundef nonnull %fds.i, i32 noundef %fd_num.0.i)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %fds.i)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_set_features(ptr nocapture noundef readonly %dev, i64 noundef %features) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_features(ptr nocapture noundef readonly %dev, i64 noundef %features) #0 {
 entry:
   %msg.i = alloca %struct.VhostUserMsg, align 4
   %and = and i64 %features, 67108864
@@ -2059,7 +2059,7 @@ entry:
   store i32 8, ptr %size.i, align 4
   %payload.i = getelementptr inbounds i8, ptr %msg.i, i64 12
   store i64 %or, ptr %payload.i, align 4
-  %call.i = call fastcc i32 @vhost_user_write_sync(ptr noundef %dev, ptr noundef nonnull %msg.i, i1 noundef zeroext %tobool), !range !5
+  %call.i = call fastcc i32 @vhost_user_write_sync(ptr noundef readonly %dev, ptr noundef nonnull %msg.i, i1 noundef zeroext %tobool)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i)
   %protocol_features = getelementptr inbounds i8, ptr %dev, i64 480
   %2 = load i64, ptr %protocol_features, align 8
@@ -2070,7 +2070,7 @@ entry:
   br i1 %or.cond.not, label %if.then4, label %return
 
 if.then4:                                         ; preds = %entry
-  %call5 = call fastcc i32 @vhost_user_add_status(ptr noundef nonnull %dev, i8 noundef zeroext 8), !range !5
+  %call5 = call fastcc i32 @vhost_user_add_status(ptr noundef nonnull %dev, i8 noundef zeroext 8)
   br label %return
 
 return:                                           ; preds = %entry, %if.then4
@@ -2079,7 +2079,7 @@ return:                                           ; preds = %entry, %if.then4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vhost_user_get_features(ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly %features) #0 {
+define internal range(i32 -71, 1) i32 @vhost_user_get_features(ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly %features) #0 {
 entry:
   %msg.i = alloca %struct.VhostUserMsg, align 4
   call void @llvm.lifetime.start.p0(i64 1084, ptr nonnull %msg.i)
@@ -2088,7 +2088,7 @@ entry:
   store i32 1, ptr %msg.i, align 4
   %flags.i = getelementptr inbounds i8, ptr %msg.i, i64 4
   store i32 1, ptr %flags.i, align 4
-  %call2.i = call fastcc i32 @vhost_user_write(ptr noundef %dev, ptr noundef nonnull %msg.i, ptr noundef null, i32 noundef 0)
+  %call2.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg.i, ptr noundef null, i32 noundef 0)
   %cmp3.i = icmp slt i32 %call2.i, 0
   br i1 %cmp3.i, label %6, label %if.end5.i
 
@@ -2197,7 +2197,7 @@ if.end:                                           ; preds = %land.lhs.true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_set_vring_enable(ptr nocapture noundef readonly %dev, i32 noundef %enable) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_vring_enable(ptr nocapture noundef readonly %dev, i32 noundef %enable) #0 {
 entry:
   %msg.i = alloca %struct.VhostUserMsg, align 4
   %features = getelementptr inbounds i8, ptr %dev, i64 456
@@ -2226,7 +2226,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw i32 %i.08, 1
   %3 = load i32, ptr %nvqs, align 8
   %cmp = icmp ult i32 %inc, %3
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !9
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !7
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.08 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -2240,7 +2240,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 1, ptr %flags.i, align 4
   store i32 8, ptr %size.i, align 4
   store i64 %state.sroa.0.0.insert.insert, ptr %payload.i, align 4
-  %call.i = call fastcc i32 @vhost_user_write_sync(ptr noundef nonnull %dev, ptr noundef nonnull %msg.i, i1 noundef zeroext true), !range !5
+  %call.i = call fastcc i32 @vhost_user_write_sync(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i)
   %cmp2 = icmp slt i32 %call.i, 0
   br i1 %cmp2, label %return, label %for.cond
@@ -2324,7 +2324,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_send_device_iotlb_msg(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %imsg) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_send_device_iotlb_msg(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %imsg) #0 {
 entry:
   %msg_reply.i = alloca %struct.VhostUserMsg, align 4
   %msg = alloca %struct.VhostUserMsg, align 4
@@ -2386,7 +2386,7 @@ return:                                           ; preds = %entry, %process_mes
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_get_config(ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly %config, i32 noundef %config_len, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_get_config(ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly %config, i32 noundef %config_len, ptr noundef %errp) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %0 = getelementptr inbounds i8, ptr %msg, i64 20
@@ -2476,7 +2476,7 @@ return:                                           ; preds = %if.end34, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_set_config(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %data, i32 noundef %offset, i32 noundef %size, i32 noundef %flags) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_config(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %data, i32 noundef %offset, i32 noundef %size, i32 noundef %flags) #0 {
 entry:
   %msg_reply.i = alloca %struct.VhostUserMsg, align 4
   %msg = alloca %struct.VhostUserMsg, align 4
@@ -2568,7 +2568,7 @@ return:                                           ; preds = %if.end12, %if.end9,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_crypto_create_session(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %session_info, ptr nocapture noundef writeonly %session_id) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_crypto_create_session(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %session_info, ptr nocapture noundef writeonly %session_id) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %protocol_features = getelementptr inbounds i8, ptr %dev, i64 480
@@ -2737,7 +2737,7 @@ return:                                           ; preds = %if.end93, %if.then9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_crypto_close_session(ptr nocapture noundef readonly %dev, i64 noundef %session_id) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_crypto_close_session(ptr nocapture noundef readonly %dev, i64 noundef %session_id) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %protocol_features = getelementptr inbounds i8, ptr %dev, i64 480
@@ -2774,7 +2774,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_get_inflight_fd(ptr nocapture noundef readonly %dev, i16 noundef zeroext %queue_size, ptr nocapture noundef writeonly %inflight) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_get_inflight_fd(ptr nocapture noundef readonly %dev, i16 noundef zeroext %queue_size, ptr nocapture noundef writeonly %inflight) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %opaque = getelementptr inbounds i8, ptr %dev, i64 536
@@ -2918,7 +2918,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_dev_start(ptr nocapture noundef readonly %dev, i1 noundef zeroext %started) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_dev_start(ptr nocapture noundef readonly %dev, i1 noundef zeroext %started) #0 {
 entry:
   %protocol_features = getelementptr inbounds i8, ptr %dev, i64 480
   %0 = load i64, ptr %protocol_features, align 8
@@ -2939,7 +2939,7 @@ if.end:                                           ; preds = %entry
   br i1 %brmerge.not, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call fastcc i32 @vhost_user_add_status(ptr noundef nonnull %dev, i8 noundef zeroext 7), !range !5
+  %call4 = tail call fastcc i32 @vhost_user_add_status(ptr noundef nonnull %dev, i8 noundef zeroext 7)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.then3
@@ -2979,7 +2979,7 @@ if.then1:                                         ; preds = %if.end
   store i32 8, ptr %size.i.i, align 4
   %payload.i.i = getelementptr inbounds i8, ptr %msg.i.i, i64 12
   store i64 0, ptr %payload.i.i, align 4
-  %call5.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull %dev, ptr noundef nonnull %msg.i.i, ptr noundef null, i32 noundef 0)
+  %call5.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i.i, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i.i)
   br label %if.end3
 
@@ -2998,7 +2998,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_set_device_state_fd(ptr nocapture noundef readonly %dev, i32 noundef %direction, i32 noundef %phase, i32 noundef %fd, ptr nocapture noundef writeonly %reply_fd, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_set_device_state_fd(ptr nocapture noundef readonly %dev, i32 noundef %direction, i32 noundef %phase, i32 noundef %fd, ptr nocapture noundef writeonly %reply_fd, ptr noundef %errp) #0 {
 entry:
   %fd.addr = alloca i32, align 4
   %msg = alloca %struct.VhostUserMsg, align 4
@@ -3107,7 +3107,7 @@ return:                                           ; preds = %if.end32, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_check_device_state(ptr nocapture noundef readonly %dev, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_check_device_state(ptr nocapture noundef readonly %dev, ptr noundef %errp) #0 {
 entry:
   %msg = alloca %struct.VhostUserMsg, align 4
   %0 = getelementptr inbounds i8, ptr %msg, i64 8
@@ -3246,7 +3246,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare void @warn_report(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vhost_user_get_max_memslots(ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly %max_memslots) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vhost_user_get_max_memslots(ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly %max_memslots) unnamed_addr #0 {
 entry:
   %msg.i = alloca %struct.VhostUserMsg, align 4
   call void @llvm.lifetime.start.p0(i64 1084, ptr nonnull %msg.i)
@@ -3255,7 +3255,7 @@ entry:
   store i32 36, ptr %msg.i, align 4
   %flags.i = getelementptr inbounds i8, ptr %msg.i, i64 4
   store i32 1, ptr %flags.i, align 4
-  %call2.i = call fastcc i32 @vhost_user_write(ptr noundef %dev, ptr noundef nonnull %msg.i, ptr noundef null, i32 noundef 0)
+  %call2.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg.i, ptr noundef null, i32 noundef 0)
   %cmp3.i = icmp slt i32 %call2.i, 0
   br i1 %cmp3.i, label %vhost_user_get_u64.exit.thread, label %if.end5.i
 
@@ -3467,7 +3467,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_vhost_user_postcopy_listen.exit.i:          ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %sw.bb5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %call.i10 = call fastcc i32 @vhost_user_write(ptr noundef nonnull %0, ptr noundef nonnull %msg.i8, ptr noundef null, i32 noundef 0)
+  %call.i10 = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %0, ptr noundef nonnull %msg.i8, ptr noundef null, i32 noundef 0)
   %cmp.i11 = icmp slt i32 %call.i10, 0
   br i1 %cmp.i11, label %if.then.i14, label %if.end.i12
 
@@ -3567,7 +3567,7 @@ if.else.i.i.i50:                                  ; preds = %if.then.i.i.i48
 
 trace_vhost_user_postcopy_end_entry.exit.i:       ; preds = %if.else.i.i.i50, %if.then8.i.i.i51, %land.lhs.true5.i.i.i45, %sw.bb8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i16)
-  %call.i22 = call fastcc i32 @vhost_user_write(ptr noundef nonnull %0, ptr noundef nonnull %msg.i17, ptr noundef null, i32 noundef 0)
+  %call.i22 = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %0, ptr noundef nonnull %msg.i17, ptr noundef null, i32 noundef 0)
   %cmp.i23 = icmp slt i32 %call.i22, 0
   br i1 %cmp.i23, label %if.then.i44, label %if.end.i24
 
@@ -3670,7 +3670,7 @@ return:                                           ; preds = %sw.bb, %entry, %vho
 declare void @postcopy_add_notifier(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vhost_user_write_sync(ptr nocapture noundef readonly %dev, ptr noundef %msg, i1 noundef zeroext %wait_for_reply) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vhost_user_write_sync(ptr nocapture noundef readonly %dev, ptr noundef %msg, i1 noundef zeroext %wait_for_reply) unnamed_addr #0 {
 entry:
   %msg.i.i = alloca %struct.VhostUserMsg, align 4
   %msg_reply.i = alloca %struct.VhostUserMsg, align 4
@@ -3744,7 +3744,7 @@ if.end15:                                         ; preds = %if.then9
   store i32 1, ptr %msg.i.i, align 4
   %flags.i.i = getelementptr inbounds i8, ptr %msg.i.i, i64 4
   store i32 1, ptr %flags.i.i, align 4
-  %call2.i.i = call fastcc i32 @vhost_user_write(ptr noundef %dev, ptr noundef nonnull %msg.i.i, ptr noundef null, i32 noundef 0)
+  %call2.i.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg.i.i, ptr noundef null, i32 noundef 0)
   %cmp3.i.i = icmp slt i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %13, label %if.end5.i.i
 
@@ -3798,7 +3798,7 @@ declare void @error_report_err(ptr noundef) local_unnamed_addr #3
 declare ptr @qio_channel_add_watch_source(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @backend_read(ptr noundef %ioc, i32 %condition, ptr noundef %opaque) #0 {
+define internal range(i32 0, 2) i32 @backend_read(ptr noundef %ioc, i32 %condition, ptr noundef %opaque) #0 {
 entry:
   %iov.i = alloca [2 x %struct.iovec], align 16
   %uuid.i12 = alloca %struct.QemuUUID, align 4
@@ -3890,12 +3890,12 @@ cond.true:                                        ; preds = %sw.bb15
 
 cond.end:                                         ; preds = %sw.bb15, %cond.true
   %cond = phi i32 [ %8, %cond.true ], [ -1, %sw.bb15 ]
-  %call17 = call fastcc i32 @vhost_user_backend_handle_vring_host_notifier(ptr noundef nonnull %opaque, ptr noundef nonnull %payload, i32 noundef %cond), !range !10
+  %call17 = call fastcc i32 @vhost_user_backend_handle_vring_host_notifier(ptr noundef nonnull %opaque, ptr noundef nonnull %payload, i32 noundef %cond)
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %uuid.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, ptr noundef nonnull align 8 dereferenceable(16) %payload, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %payload, i64 16, i1 false)
   %call.i11 = call zeroext i1 @virtio_add_vhost_device(ptr noundef nonnull %uuid.i, ptr noundef nonnull %opaque) #14
   %conv.i = zext i1 %call.i11 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i)
@@ -3903,7 +3903,7 @@ sw.bb18:                                          ; preds = %if.end11
 
 sw.bb20:                                          ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %uuid.i12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %uuid.i12, ptr noundef nonnull align 8 dereferenceable(16) %payload, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %uuid.i12, ptr noundef nonnull readonly align 8 dereferenceable(16) %payload, i64 16, i1 false)
   %call.i13 = call zeroext i1 @virtio_remove_resource(ptr noundef nonnull %uuid.i12) #14
   %conv.i14 = zext i1 %call.i13 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i12)
@@ -3988,7 +3988,7 @@ for.body:                                         ; preds = %fdcleanup, %for.bod
   %conv38 = sext i32 %inc to i64
   %20 = load i64, ptr %fdsize, align 8
   %cmp39 = icmp ugt i64 %20, %conv38
-  br i1 %cmp39, label %for.body, label %if.end43.loopexit, !llvm.loop !11
+  br i1 %cmp39, label %for.body, label %if.end43.loopexit, !llvm.loop !8
 
 if.end43.loopexit:                                ; preds = %for.body
   %fd.val.pre = load ptr, ptr %fd, align 8
@@ -4011,7 +4011,7 @@ declare i32 @qio_channel_read_all(ptr noundef, ptr noundef, i64 noundef, ptr nou
 declare i32 @vhost_backend_handle_iotlb_msg(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @vhost_user_backend_handle_vring_host_notifier(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %area, i32 noundef %fd) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @vhost_user_backend_handle_vring_host_notifier(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %area, i32 noundef %fd) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %0 = load i64, ptr %area, align 8
@@ -4190,7 +4190,7 @@ return:                                           ; preds = %if.end17, %if.end13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @vhost_user_backend_handle_shared_object_lookup(ptr %u.8.val.0.val, ptr noundef %ioc, ptr noundef %hdr, ptr noundef %payload) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @vhost_user_backend_handle_shared_object_lookup(ptr %u.8.val.0.val, ptr noundef %ioc, ptr noundef %hdr, ptr noundef %payload) unnamed_addr #0 {
 entry:
   %iov.i.i = alloca [2 x %struct.iovec], align 16
   %uuid = alloca %struct.QemuUUID, align 4
@@ -4222,7 +4222,7 @@ if.then:                                          ; preds = %sw.bb5
   br label %sw.epilog
 
 if.end:                                           ; preds = %sw.bb5
-  %call8 = call i32 @vhost_user_get_shared_object(ptr noundef nonnull %call6, ptr noundef nonnull %uuid, ptr noundef nonnull %dmabuf_fd), !range !5
+  %call8 = call i32 @vhost_user_get_shared_object(ptr noundef nonnull %call6, ptr noundef nonnull %uuid, ptr noundef nonnull %dmabuf_fd)
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %if.then10, label %sw.epilog
 
@@ -4489,7 +4489,7 @@ for.inc:                                          ; preds = %trace_vhost_user_po
   %37 = load i64, ptr %region_rb_len, align 8
   %cond = tail call i64 @llvm.umin.i64(i64 %37, i64 %conv3)
   %cmp5 = icmp ugt i64 %cond, %conv
-  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %trace_vhost_user_postcopy_fault_handler.exit
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.41, ptr noundef nonnull @__func__.vhost_user_postcopy_fault_handler, i64 noundef %2) #14
@@ -4635,7 +4635,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %inc = add i32 %i.058, 1
   %conv = sext i32 %inc to i64
   %cmp3 = icmp ugt i64 %cond, %conv
-  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %call29 = tail call ptr @qemu_ram_get_idstr(ptr noundef %rb) #14
@@ -4693,7 +4693,7 @@ declare void @postcopy_unregister_shared_ufd(ptr noundef) local_unnamed_addr #3
 declare void @postcopy_remove_notifier(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vhost_user_add_remove_regions(ptr nocapture noundef readonly %dev, ptr noundef %msg, i1 noundef zeroext %reply_supported, i1 noundef zeroext %track_ramblocks) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vhost_user_add_remove_regions(ptr nocapture noundef readonly %dev, ptr noundef %msg, i1 noundef zeroext %reply_supported, i1 noundef zeroext %track_ramblocks) unnamed_addr #0 {
 entry:
   %msg_reply.i.i39 = alloca %struct.VhostUserMsg, align 4
   %_now.i.i56.i = alloca %struct.timeval, align 8
@@ -4747,7 +4747,7 @@ for.body.i.us:                                    ; preds = %for.body.i.us, %for
   %7 = trunc nuw nsw i64 %indvars.iv.i.us to i32
   store i32 %7, ptr %reg_idx.i.us, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.us, %6
-  br i1 %exitcond.not, label %for.cond40.preheader.i, label %for.body.i.us, !llvm.loop !14
+  br i1 %exitcond.not, label %for.cond40.preheader.i, label %for.body.i.us, !llvm.loop !11
 
 for.cond40.preheader.i:                           ; preds = %for.inc37.i, %for.body.i.us, %entry
   %rm_idx.0.lcssa.i = phi i32 [ 0, %entry ], [ %2, %for.body.i.us ], [ %rm_idx.1.i, %for.inc37.i ]
@@ -4843,7 +4843,7 @@ for.inc.i:                                        ; preds = %reg_equal.exit.i, %
   %29 = load ptr, ptr %mem.i, align 8
   %30 = load i32, ptr %29, align 8
   %cmp2.i = icmp ult i32 %inc.i, %30
-  br i1 %cmp2.i, label %for.body3.i, label %if.then30.i, !llvm.loop !15
+  br i1 %cmp2.i, label %for.body3.i, label %if.then30.i, !llvm.loop !12
 
 if.then30.i:                                      ; preds = %for.inc.i, %for.body.i
   %idxprom31.i = sext i32 %rm_idx.051.i to i64
@@ -4861,7 +4861,7 @@ for.inc37.i:                                      ; preds = %if.then30.i, %if.el
   %32 = load i32, ptr %num_shadow_regions.i, align 4
   %33 = sext i32 %32 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %33
-  br i1 %cmp.i, label %for.body.i, label %for.cond40.preheader.i, !llvm.loop !16
+  br i1 %cmp.i, label %for.body.i, label %for.cond40.preheader.i, !llvm.loop !13
 
 for.body44.i:                                     ; preds = %for.cond40.preheader.i, %for.inc69.i
   %34 = phi ptr [ %41, %for.inc69.i ], [ %8, %for.cond40.preheader.i ]
@@ -4908,7 +4908,7 @@ for.inc69.i:                                      ; preds = %if.end59.i, %for.bo
   %41 = load ptr, ptr %mem41.i, align 8
   %42 = load i32, ptr %41, align 8
   %cmp43.i = icmp ult i32 %inc70.i, %42
-  br i1 %cmp43.i, label %for.body44.i, label %scrub_shadow_regions.exit, !llvm.loop !18
+  br i1 %cmp43.i, label %for.body44.i, label %scrub_shadow_regions.exit, !llvm.loop !15
 
 scrub_shadow_regions.exit:                        ; preds = %for.inc69.i, %for.cond40.preheader.i
   %add_idx.0.lcssa.i = phi i32 [ 0, %for.cond40.preheader.i ], [ %add_idx.1.i, %for.inc69.i ]
@@ -4963,7 +4963,7 @@ vhost_user_fill_msg_region.exit.us.i:             ; preds = %for.body.us.i
   store <2 x i64> %53, ptr %region4.i, align 1
   store i64 %52, ptr %region_buffer.sroa.3.0.region4.sroa_idx.i, align 1
   store i64 0, ptr %region_buffer.sroa.4.0.region4.sroa_idx.i, align 1
-  %call5.us.i = call fastcc i32 @vhost_user_write(ptr noundef %dev, ptr noundef nonnull %msg, ptr noundef null, i32 noundef 0)
+  %call5.us.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg, ptr noundef null, i32 noundef 0)
   %cmp6.us.i = icmp slt i32 %call5.us.i, 0
   br i1 %cmp6.us.i, label %send_remove_regions.exit.thread, label %if.end.us.i
 
@@ -5015,7 +5015,7 @@ if.end14.us.i:                                    ; preds = %process_message_rep
   store i32 %dec.us.i, ptr %num_shadow_regions.i24, align 4
   %indvars.iv.next37.i = add nsw i64 %indvars.iv36.i, -1
   %cmp.us.i = icmp sgt i64 %indvars.iv36.i, 0
-  br i1 %cmp.us.i, label %for.body.us.i, label %send_remove_regions.exit, !llvm.loop !19
+  br i1 %cmp.us.i, label %for.body.us.i, label %send_remove_regions.exit, !llvm.loop !16
 
 for.body.i25:                                     ; preds = %for.body.lr.ph.i22, %if.end14.i
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i36, %if.end14.i ], [ %44, %for.body.lr.ph.i22 ]
@@ -5045,7 +5045,7 @@ vhost_user_fill_msg_region.exit.i:                ; preds = %for.body.i25
   store <2 x i64> %70, ptr %region4.i, align 1
   store i64 %69, ptr %region_buffer.sroa.3.0.region4.sroa_idx.i, align 1
   store i64 0, ptr %region_buffer.sroa.4.0.region4.sroa_idx.i, align 1
-  %call5.i = call fastcc i32 @vhost_user_write(ptr noundef %dev, ptr noundef nonnull %msg, ptr noundef null, i32 noundef 0)
+  %call5.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg, ptr noundef null, i32 noundef 0)
   %cmp6.i = icmp slt i32 %call5.i, 0
   br i1 %cmp6.i, label %send_remove_regions.exit.thread, label %if.end14.i
 
@@ -5075,7 +5075,7 @@ if.end14.i:                                       ; preds = %vhost_user_fill_msg
   store i32 %dec.i, ptr %num_shadow_regions.i24, align 4
   %indvars.iv.next.i36 = add nsw i64 %indvars.iv.i26, -1
   %cmp.i37 = icmp sgt i64 %indvars.iv.i26, 0
-  br i1 %cmp.i37, label %for.body.i25, label %send_remove_regions.exit, !llvm.loop !19
+  br i1 %cmp.i37, label %for.body.i25, label %send_remove_regions.exit, !llvm.loop !16
 
 send_remove_regions.exit.thread:                  ; preds = %vhost_user_fill_msg_region.exit.i, %vhost_user_fill_msg_region.exit.us.i, %process_message_reply.exit.thread.i
   %retval.0.i.ph = phi i32 [ %retval.0.i.ph.i, %process_message_reply.exit.thread.i ], [ %call5.us.i, %vhost_user_fill_msg_region.exit.us.i ], [ %call5.i, %vhost_user_fill_msg_region.exit.i ]
@@ -5203,7 +5203,7 @@ vhost_user_fill_msg_region.exit.i62:              ; preds = %trace_vhost_user_se
   store <2 x i64> %99, ptr %region14.i, align 1
   store i64 %98, ptr %region_buffer.sroa.3.0.region14.sroa_idx.i, align 1
   store i64 %97, ptr %region_buffer.sroa.4.0.region14.sroa_idx.i, align 1
-  %call15.i = call fastcc i32 @vhost_user_write(ptr noundef %dev, ptr noundef nonnull %msg, ptr noundef nonnull %fd.i, i32 noundef 1)
+  %call15.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg, ptr noundef nonnull %fd.i, i32 noundef 1)
   %cmp16.i = icmp slt i32 %call15.i, 0
   br i1 %cmp16.i, label %send_add_regions.exit.thread, label %if.end18.i
 
@@ -5365,7 +5365,7 @@ if.end86.i:                                       ; preds = %if.then78.i, %if.el
   store i32 %inc.i59, ptr %num_shadow_regions.i48, align 4
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %send_add_regions.exit, label %for.body.i49, !llvm.loop !20
+  br i1 %exitcond.not.i, label %send_add_regions.exit, label %for.body.i49, !llvm.loop !17
 
 send_add_regions.exit.thread:                     ; preds = %vhost_user_fill_msg_region.exit.i62, %if.then20.i, %if.then31.i, %if.then39.i, %if.else.i68, %process_message_reply.exit.thread.i65
   %retval.0.i42.ph = phi i32 [ %retval.0.i.ph.i66, %process_message_reply.exit.thread.i65 ], [ -71, %if.else.i68 ], [ -71, %if.then39.i ], [ -71, %if.then31.i ], [ %call15.i, %vhost_user_fill_msg_region.exit.i62 ], [ %call21.i, %if.then20.i ]
@@ -5411,7 +5411,7 @@ return:                                           ; preds = %err, %if.then32, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @vhost_user_fill_set_mem_table_msg(ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly %msg, ptr nocapture noundef writeonly %fds, ptr nocapture noundef %fd_num, i1 noundef zeroext %track_ramblocks) unnamed_addr #0 {
+define internal fastcc range(i32 -105, 1) i32 @vhost_user_fill_set_mem_table_msg(ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly %msg, ptr nocapture noundef writeonly %fds, ptr nocapture noundef %fd_num, i1 noundef zeroext %track_ramblocks) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %offset = alloca i64, align 8
@@ -5535,7 +5535,7 @@ for.inc.us:                                       ; preds = %trace_vhost_user_se
   %30 = load ptr, ptr %mem, align 8
   %31 = load i32, ptr %30, align 8
   %cmp.us = icmp ult i32 %inc29.us, %31
-  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !21
+  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !18
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %32 = phi ptr [ %42, %for.inc ], [ %0, %for.body.lr.ph ]
@@ -5600,7 +5600,7 @@ for.inc:                                          ; preds = %for.body, %vhost_us
   %42 = load ptr, ptr %mem, align 8
   %43 = load i32, ptr %42, align 8
   %cmp = icmp ult i32 %inc29, %43
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %entry
   %44 = load i64, ptr %fd_num, align 8
@@ -5640,7 +5640,7 @@ declare i32 @memory_region_get_fd(ptr noundef) local_unnamed_addr #3
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vhost_user_add_status(ptr nocapture noundef readonly %dev, i8 noundef zeroext %status) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vhost_user_add_status(ptr nocapture noundef readonly %dev, i8 noundef zeroext %status) unnamed_addr #0 {
 entry:
   %msg.i.i6 = alloca %struct.VhostUserMsg, align 4
   %msg.i.i = alloca %struct.VhostUserMsg, align 4
@@ -5650,7 +5650,7 @@ entry:
   store i32 40, ptr %msg.i.i, align 4
   %flags.i.i = getelementptr inbounds i8, ptr %msg.i.i, i64 4
   store i32 1, ptr %flags.i.i, align 4
-  %call2.i.i = call fastcc i32 @vhost_user_write(ptr noundef %dev, ptr noundef nonnull %msg.i.i, ptr noundef null, i32 noundef 0)
+  %call2.i.i = call fastcc i32 @vhost_user_write(ptr noundef readonly %dev, ptr noundef nonnull %msg.i.i, ptr noundef null, i32 noundef 0)
   %cmp3.i.i = icmp slt i32 %call2.i.i, 0
   br i1 %cmp3.i.i, label %vhost_user_get_status.exit.thread, label %if.end5.i.i
 
@@ -5709,7 +5709,7 @@ if.end6:                                          ; preds = %if.end
   store i32 8, ptr %size.i.i, align 4
   %payload.i.i9 = getelementptr inbounds i8, ptr %msg.i.i6, i64 12
   store i64 %conv.i7, ptr %payload.i.i9, align 4
-  %call5.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull %dev, ptr noundef nonnull %msg.i.i6, ptr noundef null, i32 noundef 0)
+  %call5.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i.i6, ptr noundef null, i32 noundef 0)
   %call5.mux.i.i = call i32 @llvm.smin.i32(i32 %call5.i.i, i32 0)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i.i6)
   br label %return
@@ -5757,20 +5757,17 @@ attributes #17 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -2147483648, i32 1}
-!6 = !{i32 -105, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{i32 -22, i32 1}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8, !17}
-!17 = !{!"llvm.loop.unswitch.partial.disable"}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6, !14}
+!14 = !{!"llvm.loop.unswitch.partial.disable"}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}

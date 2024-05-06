@@ -148,7 +148,7 @@ define hidden void @_ZN8rawspeed23PanasonicV7DecompressorC2ENS_8RawImageENS_10By
   br label %83
 
 60:                                               ; preds = %40
-  %61 = trunc i64 %44 to i32
+  %61 = trunc nuw nsw i64 %44 to i32
   %62 = shl nuw i32 %61, 4
   %63 = zext nneg i32 %48 to i64
   %64 = zext i32 %62 to i64
@@ -296,7 +296,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   %13 = getelementptr inbounds i8, ptr %3, i64 48
   %14 = load i32, ptr %13, align 8, !tbaa !109, !noalias !104
   %15 = ashr i32 %14, 1
-  %16 = mul nsw i32 %15, %12
+  %16 = mul nuw nsw i32 %15, %12
   %17 = icmp sgt i32 %10, -1
   tail call void @llvm.assume(i1 %17)
   %18 = icmp sgt i32 %12, -1
@@ -313,7 +313,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   tail call void @llvm.assume(i1 %23)
   %24 = icmp ugt i32 %12, %1
   tail call void @llvm.assume(i1 %24)
-  %25 = mul nsw i32 %15, %1
+  %25 = mul nuw nsw i32 %15, %1
   %26 = add nuw nsw i32 %25, %10
   %27 = icmp ule i32 %26, %16
   tail call void @llvm.assume(i1 %27)
@@ -324,7 +324,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   tail call void @llvm.assume(i1 %31)
   %32 = udiv i32 %10, 9
   %33 = shl nuw nsw i32 %32, 4
-  %34 = mul nsw i32 %33, %1
+  %34 = mul nuw nsw i32 %33, %1
   %35 = add nuw i32 %34, %33
   %36 = getelementptr inbounds i8, ptr %0, i64 24
   %37 = load i32, ptr %36, align 8, !tbaa !17, !noalias !110
@@ -585,7 +585,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   %217 = trunc <8 x i32> %216 to <8 x i16>
   %218 = and <8 x i16> %217, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
   %219 = lshr <8 x i32> %112, <i32 20, i32 20, i32 20, i32 20, i32 20, i32 20, i32 20, i32 20>
-  %220 = trunc <8 x i32> %219 to <8 x i16>
+  %220 = trunc nuw nsw <8 x i32> %219 to <8 x i16>
   %221 = getelementptr i16, ptr %55, i64 %116
   %222 = getelementptr i16, ptr %55, i64 %118
   %223 = getelementptr i16, ptr %55, i64 %120
@@ -664,7 +664,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   %273 = extractelement <8 x i16> %257, i64 7
   store i16 %273, ptr %265, align 2, !tbaa !113, !alias.scope !115, !noalias !118
   %274 = lshr <8 x i32> %113, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %275 = trunc <8 x i32> %274 to <8 x i16>
+  %275 = trunc nuw <8 x i32> %274 to <8 x i16>
   %276 = and <8 x i16> %275, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
   %277 = getelementptr i16, ptr %58, i64 %116
   %278 = getelementptr i16, ptr %58, i64 %118
@@ -753,7 +753,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   %332 = trunc i32 %331 to i16
   %333 = and i16 %332, 16383
   %334 = lshr i32 %326, 20
-  %335 = trunc i32 %334 to i16
+  %335 = trunc nuw nsw i32 %334 to i16
   %336 = getelementptr i16, ptr %55, i64 %304
   store i16 %333, ptr %336, align 2, !tbaa !113
   %337 = getelementptr inbounds i8, ptr %302, i64 12
@@ -768,7 +768,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   %345 = getelementptr i16, ptr %57, i64 %304
   store i16 %344, ptr %345, align 2, !tbaa !113
   %346 = lshr i32 %338, 16
-  %347 = trunc i32 %346 to i16
+  %347 = trunc nuw i32 %346 to i16
   %348 = and i16 %347, 16383
   %349 = getelementptr i16, ptr %58, i64 %304
   store i16 %348, ptr %349, align 2, !tbaa !113

@@ -3,7 +3,7 @@ source_filename = "bench/openexr/original/ImfWav.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN7Imf_3_210wav2EncodeEPtiiiit(ptr noundef %in, i32 noundef %nx, i32 noundef %ox, i32 noundef %ny, i32 noundef %oy, i16 noundef zeroext %mx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i16 %mx, 16384
@@ -123,7 +123,7 @@ for.body14:                                       ; preds = %for.body14.lr.ph, %
   %18 = lshr i32 %sub.i98, 16
   %19 = and i32 %18, 32768
   %spec.select.i99 = xor i32 %19, %shr.i97
-  %conv7.i100 = trunc i32 %spec.select.i99 to i16
+  %conv7.i100 = trunc nuw i32 %spec.select.i99 to i16
   store i16 %conv7.i100, ptr %px.0145, align 2
   %conv8.i101 = trunc i32 %sub.i98 to i16
   store i16 %conv8.i101, ptr %add.ptr18, align 2
@@ -136,7 +136,7 @@ for.body14:                                       ; preds = %for.body14.lr.ph, %
   %22 = lshr i32 %sub.i105, 16
   %23 = and i32 %22, 32768
   %spec.select.i106 = xor i32 %23, %shr.i104
-  %conv7.i107 = trunc i32 %spec.select.i106 to i16
+  %conv7.i107 = trunc nuw i32 %spec.select.i106 to i16
   store i16 %conv7.i107, ptr %add.ptr16, align 2
   %conv8.i108 = trunc i32 %sub.i105 to i16
   store i16 %conv8.i108, ptr %add.ptr20, align 2
@@ -239,7 +239,7 @@ for.body48:                                       ; preds = %for.body48.lr.ph, %
   %37 = and i32 %36, 32768
   %spec.select.i132 = xor i32 %37, %shr.i130
   %conv8.i134 = trunc i32 %sub.i131 to i16
-  %i00.1 = trunc i32 %spec.select.i132 to i16
+  %i00.1 = trunc nuw i32 %spec.select.i132 to i16
   store i16 %conv8.i134, ptr %add.ptr51, align 2
   store i16 %i00.1, ptr %px40.0151, align 2
   %add.ptr58 = getelementptr inbounds i16, ptr %px40.0151, i64 %idx.ext57
@@ -255,7 +255,7 @@ while.end:                                        ; preds = %if.end60, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN7Imf_3_210wav2DecodeEPtiiiit(ptr noundef %in, i32 noundef %nx, i32 noundef %ox, i32 noundef %ny, i32 noundef %oy, i16 noundef zeroext %mx) local_unnamed_addr #0 {
 entry:
   %cond = tail call i32 @llvm.smin.i32(i32 %nx, i32 %ny)
@@ -481,7 +481,7 @@ while.end66:                                      ; preds = %if.end64, %while.en
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #1
 
-attributes #0 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

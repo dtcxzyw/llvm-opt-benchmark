@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [21 x i8] c"Library version: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main() local_unnamed_addr #0 {
+define dso_local noundef i32 @main() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1)
   %call1 = tail call ptr @OpenSSL_version(i32 noundef 7) #3

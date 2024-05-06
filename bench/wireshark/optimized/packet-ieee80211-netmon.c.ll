@@ -96,7 +96,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netmon_802_11(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @dissect_netmon_802_11(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.ieee_802_11_phdr, align 8
   %6 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
@@ -187,7 +187,7 @@ switch.lookup:                                    ; preds = %44
   br label %.thread
 
 59:                                               ; preds = %54
-  %60 = trunc i32 %52 to i16
+  %60 = trunc nuw nsw i32 %52 to i16
   %61 = getelementptr inbounds i8, ptr %5, i64 30
   store i16 %60, ptr %61, align 2
   %62 = load i32, ptr @hf_netmon_802_11_channel, align 4

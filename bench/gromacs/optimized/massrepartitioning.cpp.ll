@@ -150,14 +150,14 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc143, %_ZNSt6v
   %53 = ptrtoint ptr %51 to i64
   %54 = sub i64 %53, %52
   %55 = ashr exact i64 %54, 2
-  %invariant.gep = getelementptr i8, ptr %49, i64 4
-  %invariant.gep238 = getelementptr i8, ptr %49, i64 8
+  %invariant.gep = getelementptr inbounds i8, ptr %49, i64 4
+  %invariant.gep238 = getelementptr inbounds i8, ptr %49, i64 8
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %47, %74
   %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %47 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %57 = load i32, ptr %gep, align 4
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i32, ptr %.sroa.0176.1, i64 %58
@@ -166,7 +166,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc143, %_ZNSt6v
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %.lr.ph
-  %gep239 = getelementptr i32, ptr %invariant.gep238, i64 %indvars.iv
+  %gep239 = getelementptr inbounds i32, ptr %invariant.gep238, i64 %indvars.iv
   %63 = load i32, ptr %gep239, align 4
   br label %66
 
@@ -178,7 +178,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc143, %_ZNSt6v
 66:                                               ; preds = %.lr.ph, %62
   %storemerge140 = phi i32 [ %63, %62 ], [ -2, %.lr.ph ]
   store i32 %storemerge140, ptr %59, align 4
-  %gep241 = getelementptr i32, ptr %invariant.gep238, i64 %indvars.iv
+  %gep241 = getelementptr inbounds i32, ptr %invariant.gep238, i64 %indvars.iv
   %67 = load i32, ptr %gep241, align 4
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i32, ptr %.sroa.0176.1, i64 %68

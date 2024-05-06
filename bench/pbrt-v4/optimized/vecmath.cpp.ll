@@ -532,12 +532,12 @@ entry:
   %9 = load float, ptr %8, align 4
   %call22 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %10 = extractvalue { ptr, i64 } %call22, 0
-  %arrayidx.i12 = getelementptr inbounds i8, ptr %10, i64 4
-  %11 = load float, ptr %arrayidx.i12, align 4
+  %arrayidx.i13 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = load float, ptr %arrayidx.i13, align 4
   %call29 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %12 = extractvalue { ptr, i64 } %call29, 0
-  %arrayidx.i13 = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = load float, ptr %arrayidx.i13, align 4
+  %arrayidx.i14 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load float, ptr %arrayidx.i14, align 4
   %14 = insertelement <2 x float> poison, float %9, i64 0
   %15 = insertelement <2 x float> %14, float %5, i64 1
   %16 = fmul <2 x float> %15, %v.coerce0
@@ -558,14 +558,14 @@ entry:
   %mul39 = fmul float %1, %29
   %call42 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %30 = extractvalue { ptr, i64 } %call42, 0
-  %arrayidx.i14 = getelementptr inbounds i8, ptr %30, i64 4
-  %31 = load float, ptr %arrayidx.i14, align 4
+  %arrayidx.i16 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = load float, ptr %arrayidx.i16, align 4
   %mul45 = fmul float %0, %31
   %add46 = fadd float %mul39, %mul45
   %call49 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %32 = extractvalue { ptr, i64 } %call49, 0
-  %arrayidx.i15 = getelementptr inbounds i8, ptr %32, i64 8
-  %33 = load float, ptr %arrayidx.i15, align 4
+  %arrayidx.i17 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = load float, ptr %arrayidx.i17, align 4
   %mul52 = fmul float %33, %v.coerce1
   %add53 = fadd float %add46, %mul52
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %27, 0
@@ -652,20 +652,20 @@ entry:
   %add50 = fadd float %mul44, %mul49
   %call52 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %13 = extractvalue { ptr, i64 } %call52, 0
-  %arrayidx.i61 = getelementptr inbounds i8, ptr %13, i64 4
-  store float %add50, ptr %arrayidx.i61, align 4
+  %arrayidx.i62 = getelementptr inbounds i8, ptr %13, i64 4
+  store float %add50, ptr %arrayidx.i62, align 4
   %mul56 = fmul float %8, %div3.i.i
   %mul58 = fmul float %sub10, %mul56
   %mul60 = fmul float %5, %sinTheta
   %sub61 = fsub float %mul58, %mul60
   %call63 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %14 = extractvalue { ptr, i64 } %call63, 0
-  %arrayidx.i62 = getelementptr inbounds i8, ptr %14, i64 8
-  store float %sub61, ptr %arrayidx.i62, align 4
+  %arrayidx.i63 = getelementptr inbounds i8, ptr %14, i64 8
+  store float %sub61, ptr %arrayidx.i63, align 4
   %call66 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %15 = extractvalue { ptr, i64 } %call66, 0
-  %arrayidx.i63 = getelementptr inbounds i8, ptr %15, i64 12
-  store float 0.000000e+00, ptr %arrayidx.i63, align 4
+  %arrayidx.i64 = getelementptr inbounds i8, ptr %15, i64 12
+  store float 0.000000e+00, ptr %arrayidx.i64, align 4
   %sub75 = fsub float %mul21, %mul23
   %call77 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %16 = extractvalue { ptr, i64 } %call77, 0
@@ -673,31 +673,31 @@ entry:
   %add86 = fadd float %mul60, %mul58
   %call88 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %17 = extractvalue { ptr, i64 } %call88, 0
-  %arrayidx.i64 = getelementptr inbounds i8, ptr %17, i64 4
-  store float %add86, ptr %arrayidx.i64, align 4
+  %arrayidx.i66 = getelementptr inbounds i8, ptr %17, i64 4
+  store float %add86, ptr %arrayidx.i66, align 4
   %mul92 = fmul float %div3.i.i, %div3.i.i
   %sub96 = fsub float 1.000000e+00, %mul92
   %mul97 = fmul float %sub96, %cosTheta
   %add98 = fadd float %mul92, %mul97
   %call100 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %18 = extractvalue { ptr, i64 } %call100, 0
-  %arrayidx.i65 = getelementptr inbounds i8, ptr %18, i64 8
-  store float %add98, ptr %arrayidx.i65, align 4
+  %arrayidx.i67 = getelementptr inbounds i8, ptr %18, i64 8
+  store float %add98, ptr %arrayidx.i67, align 4
   %call103 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %19 = extractvalue { ptr, i64 } %call103, 0
-  %arrayidx.i66 = getelementptr inbounds i8, ptr %19, i64 12
-  store float 0.000000e+00, ptr %arrayidx.i66, align 4
+  %arrayidx.i68 = getelementptr inbounds i8, ptr %19, i64 12
+  store float 0.000000e+00, ptr %arrayidx.i68, align 4
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp105)
   br label %for.cond1.preheader.i
 
 for.cond1.preheader.i:                            ; preds = %for.inc9.i, %entry
   %indvars.iv11.i = phi i64 [ 0, %entry ], [ %indvars.iv.next12.i, %for.inc9.i ]
-  %20 = trunc i64 %indvars.iv11.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv11.i to i32
   br label %for.body3.i
 
 for.body3.i:                                      ; preds = %for.body3.i, %for.cond1.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond1.preheader.i ], [ %indvars.iv.next.i, %for.body3.i ]
-  %21 = trunc i64 %indvars.iv.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call.i = call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef %21)
   %22 = extractvalue { ptr, i64 } %call.i, 0
   %arrayidx.i.i = getelementptr inbounds float, ptr %22, i64 %indvars.iv11.i

@@ -47,7 +47,7 @@ define void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..c
   store <2 x i64> %15, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
   store i64 %.sroa.415.0.copyload.i, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17h8d928def4da11a97E"(ptr nonnull align 8 %5, ptr nonnull align 8 %1)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17h8d928def4da11a97E"(ptr nonnull align 8 %5, ptr nonnull readonly align 8 %1)
           to label %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17had8782cd06c9ffccE.exit" unwind label %17
 
 16:                                               ; preds = %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17had8782cd06c9ffccE.exit", %10
@@ -895,7 +895,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hbc670858053641
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @"_ZN9hashbrown3raw15Bucket$LT$T$GT$13to_base_index17h7b8f76b2dca7f9f0E"(ptr nocapture readonly align 8 %0, ptr %1) unnamed_addr #1 {
+define range(i64 -192153584101141162, 192153584101141163) i64 @"_ZN9hashbrown3raw15Bucket$LT$T$GT$13to_base_index17h7b8f76b2dca7f9f0E"(ptr nocapture readonly align 8 %0, ptr %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %3 to i64

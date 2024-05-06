@@ -95,7 +95,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %25, %17
   br i1 %.not58.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i.loopexit:                           ; preds = %63
-  %26 = trunc i64 %86 to i8
+  %26 = trunc nuw nsw i64 %86 to i8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %RSTRING_PTR.exit55.i
@@ -155,7 +155,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %25, %17
   br i1 %.not51.i, label %63, label %bubblebabble_str_new.exit
 
 63:                                               ; preds = %.lr.ph.i
-  %64 = add i64 %.061.i, 2
+  %64 = add nuw i64 %.061.i, 2
   %65 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %37
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
@@ -249,7 +249,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %28, %20
   br i1 %.not58.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i.loopexit:                           ; preds = %66
-  %29 = trunc i64 %89 to i8
+  %29 = trunc nuw nsw i64 %89 to i8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %RSTRING_PTR.exit55.i
@@ -309,7 +309,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %28, %20
   br i1 %.not51.i, label %66, label %bubblebabble_str_new.exit
 
 66:                                               ; preds = %.lr.ph.i
-  %67 = add i64 %.061.i, 2
+  %67 = add nuw i64 %.061.i, 2
   %68 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %40
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
@@ -403,7 +403,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %26, %18
   br i1 %.not58.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i.loopexit:                           ; preds = %64
-  %27 = trunc i64 %87 to i8
+  %27 = trunc nuw nsw i64 %87 to i8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %RSTRING_PTR.exit55.i
@@ -463,7 +463,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %26, %18
   br i1 %.not51.i, label %64, label %bubblebabble_str_new.exit
 
 64:                                               ; preds = %.lr.ph.i
-  %65 = add i64 %.061.i, 2
+  %65 = add nuw i64 %.061.i, 2
   %66 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %38
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32

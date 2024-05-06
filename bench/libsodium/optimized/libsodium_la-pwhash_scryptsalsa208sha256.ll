@@ -150,7 +150,7 @@ for.inc25.i:                                      ; preds = %for.body17.i
   br i1 %exitcond.not.i, label %for.end27.i, label %for.body17.i, !llvm.loop !6
 
 for.end27.split.loop.exit.i:                      ; preds = %for.body17.i
-  %0 = trunc i64 %indvars.iv.i to i32
+  %0 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %for.end27.i
 
 for.end27.i:                                      ; preds = %for.inc25.i, %for.end27.split.loop.exit.i
@@ -159,12 +159,12 @@ for.end27.i:                                      ; preds = %for.inc25.i, %for.e
   %sh_prom29.i = zext nneg i32 %storemerge.lcssa28.i to i64
   %div3125.i = lshr i64 %div2824.i, %sh_prom29.i
   %spec.store.select1.i = tail call i64 @llvm.umin.i64(i64 %div3125.i, i64 1073741823)
-  %conv36.i = trunc i64 %spec.store.select1.i to i32
+  %conv36.i = trunc nuw nsw i64 %spec.store.select1.i to i32
   %div37.i10 = lshr i32 %conv36.i, 3
   br label %pickparams.exit
 
 if.end38.loopexit.split.loop.exit.i:              ; preds = %for.body.i
-  %1 = trunc i64 %indvars.iv32.i to i32
+  %1 = trunc nuw nsw i64 %indvars.iv32.i to i32
   br label %pickparams.exit
 
 pickparams.exit:                                  ; preds = %for.inc.i, %if.end38.loopexit.split.loop.exit.i, %for.end27.i
@@ -203,7 +203,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare i32 @crypto_pwhash_scryptsalsa208sha256_ll(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_pwhash_scryptsalsa208sha256_str(ptr noundef nonnull %out, ptr noundef nonnull %passwd, i64 noundef %passwdlen, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @crypto_pwhash_scryptsalsa208sha256_str(ptr noundef nonnull %out, ptr noundef nonnull %passwd, i64 noundef %passwdlen, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
 entry:
   %salt = alloca [32 x i8], align 16
   %setting = alloca [58 x i8], align 16
@@ -245,7 +245,7 @@ for.inc25.i:                                      ; preds = %for.body17.i
   br i1 %exitcond.not.i, label %for.end27.i, label %for.body17.i, !llvm.loop !6
 
 for.end27.split.loop.exit.i:                      ; preds = %for.body17.i
-  %0 = trunc i64 %indvars.iv.i to i32
+  %0 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %for.end27.i
 
 for.end27.i:                                      ; preds = %for.inc25.i, %for.end27.split.loop.exit.i
@@ -254,12 +254,12 @@ for.end27.i:                                      ; preds = %for.inc25.i, %for.e
   %sh_prom29.i = zext nneg i32 %storemerge.lcssa28.i to i64
   %div3125.i = lshr i64 %div2824.i, %sh_prom29.i
   %spec.store.select1.i = tail call i64 @llvm.umin.i64(i64 %div3125.i, i64 1073741823)
-  %conv36.i = trunc i64 %spec.store.select1.i to i32
+  %conv36.i = trunc nuw nsw i64 %spec.store.select1.i to i32
   %div37.i6 = lshr i32 %conv36.i, 3
   br label %pickparams.exit
 
 if.end38.loopexit.split.loop.exit.i:              ; preds = %for.body.i
-  %1 = trunc i64 %indvars.iv32.i to i32
+  %1 = trunc nuw nsw i64 %indvars.iv32.i to i32
   br label %pickparams.exit
 
 pickparams.exit:                                  ; preds = %for.inc.i, %if.end38.loopexit.split.loop.exit.i, %for.end27.i
@@ -352,7 +352,7 @@ declare i32 @sodium_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_pwhash_scryptsalsa208sha256_str_needs_rehash(ptr noundef nonnull %str, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @crypto_pwhash_scryptsalsa208sha256_str_needs_rehash(ptr noundef nonnull %str, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
 entry:
   %N_log2_ = alloca i32, align 4
   %p_ = alloca i32, align 4
@@ -393,7 +393,7 @@ for.inc25.i:                                      ; preds = %for.body17.i
   br i1 %exitcond.not.i, label %for.end27.i, label %for.body17.i, !llvm.loop !6
 
 for.end27.split.loop.exit.i:                      ; preds = %for.body17.i
-  %0 = trunc i64 %indvars.iv.i to i32
+  %0 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %for.end27.i
 
 for.end27.i:                                      ; preds = %for.inc25.i, %for.end27.split.loop.exit.i
@@ -402,12 +402,12 @@ for.end27.i:                                      ; preds = %for.inc25.i, %for.e
   %sh_prom29.i = zext nneg i32 %storemerge.lcssa28.i to i64
   %div3125.i = lshr i64 %div2824.i, %sh_prom29.i
   %spec.store.select1.i = tail call i64 @llvm.umin.i64(i64 %div3125.i, i64 1073741823)
-  %conv36.i = trunc i64 %spec.store.select1.i to i32
+  %conv36.i = trunc nuw nsw i64 %spec.store.select1.i to i32
   %div37.i7 = lshr i32 %conv36.i, 3
   br label %pickparams.exit
 
 if.end38.loopexit.split.loop.exit.i:              ; preds = %for.body.i
-  %1 = trunc i64 %indvars.iv32.i to i32
+  %1 = trunc nuw nsw i64 %indvars.iv32.i to i32
   br label %pickparams.exit
 
 pickparams.exit:                                  ; preds = %for.inc.i, %if.end38.loopexit.split.loop.exit.i, %for.end27.i

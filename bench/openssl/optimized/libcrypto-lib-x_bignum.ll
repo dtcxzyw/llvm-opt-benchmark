@@ -27,7 +27,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bn_new(ptr nocapture noundef writeonly %pval, ptr nocapture readnone %it) #1 {
+define internal range(i32 0, 2) i32 @bn_new(ptr nocapture noundef writeonly %pval, ptr nocapture readnone %it) #1 {
 entry:
   %call = tail call ptr @BN_new() #3
   store ptr %call, ptr %pval, align 8
@@ -67,7 +67,7 @@ return:                                           ; preds = %entry, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bn_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
+define internal range(i32 0, 2) i32 @bn_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   %cmp = icmp eq ptr %0, null
@@ -115,7 +115,7 @@ return:                                           ; preds = %if.end2.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bn_i2c(ptr nocapture noundef readonly %pval, ptr noundef %cont, ptr nocapture readnone %putype, ptr nocapture readnone %it) #1 {
+define internal range(i32 -268435455, 268435457) i32 @bn_i2c(ptr nocapture noundef readonly %pval, ptr noundef %cont, ptr nocapture readnone %putype, ptr nocapture readnone %it) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   %cmp = icmp eq ptr %0, null
@@ -155,7 +155,7 @@ return:                                           ; preds = %entry, %if.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bn_print(ptr noundef %out, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, i32 %indent, ptr nocapture readnone %pctx) #1 {
+define internal range(i32 0, 2) i32 @bn_print(ptr noundef %out, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, i32 %indent, ptr nocapture readnone %pctx) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   %call = tail call i32 @BN_print(ptr noundef %out, ptr noundef %0) #3
@@ -190,7 +190,7 @@ declare i32 @BN_print(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bn_secure_new(ptr nocapture noundef writeonly %pval, ptr nocapture readnone %it) #1 {
+define internal range(i32 0, 2) i32 @bn_secure_new(ptr nocapture noundef writeonly %pval, ptr nocapture readnone %it) #1 {
 entry:
   %call = tail call ptr @BN_secure_new() #3
   store ptr %call, ptr %pval, align 8
@@ -200,7 +200,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bn_secure_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
+define internal range(i32 0, 2) i32 @bn_secure_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   %cmp = icmp eq ptr %0, null

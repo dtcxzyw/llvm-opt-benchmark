@@ -297,11 +297,11 @@ for.cond129:                                      ; preds = %for.cond129.prehead
   br i1 %cmp136, label %if.end141.loopexit, label %for.cond129
 
 if.end141.loopexit:                               ; preds = %for.cond129
-  %6 = trunc i64 %indvars.iv.next204 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.next204 to i32
   br label %if.end141
 
 if.end141.loopexit175:                            ; preds = %while.body
-  %7 = trunc i64 %indvars.iv.next to i32
+  %7 = trunc nuw i64 %indvars.iv.next to i32
   br label %if.end141
 
 if.end141:                                        ; preds = %if.end141.loopexit175, %if.end141.loopexit, %if.end123
@@ -342,7 +342,7 @@ while.body154:                                    ; preds = %while.body154.prehe
   br i1 %cmp152, label %while.body154, label %while.end162.loopexit, !llvm.loop !9
 
 while.end162.loopexit:                            ; preds = %while.body154
-  %11 = trunc i64 %indvars.iv.next207 to i32
+  %11 = trunc nsw i64 %indvars.iv.next207 to i32
   br label %while.end162
 
 while.end162:                                     ; preds = %while.end162.loopexit, %while.cond150.preheader
@@ -557,7 +557,7 @@ if.then:                                          ; preds = %lor.lhs.false6, %lo
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false6
-  %conv7 = trunc i64 %len to i32
+  %conv7 = trunc nuw nsw i64 %len to i32
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc

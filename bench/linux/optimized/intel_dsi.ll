@@ -91,7 +91,7 @@ define dso_local i32 @intel_dsi_bitrate(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @intel_dsi_tlpx_ns(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 50, 201) i32 @intel_dsi_tlpx_ns(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 582
   %3 = load i8, ptr %2, align 2
   %4 = icmp eq i8 %3, 1

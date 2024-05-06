@@ -18,14 +18,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @curlx_uztoso(i64 noundef %uznum) local_unnamed_addr #0 {
+define hidden noundef range(i64 0, -9223372036854775808) i64 @curlx_uztoso(i64 noundef %uznum) local_unnamed_addr #0 {
 entry:
   %and = and i64 %uznum, 9223372036854775807
   ret i64 %and
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @curlx_uztosi(i64 noundef %uznum) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, -2147483648) i32 @curlx_uztosi(i64 noundef %uznum) local_unnamed_addr #0 {
 entry:
   %0 = trunc i64 %uznum to i32
   %conv = and i32 %0, 2147483647
@@ -46,7 +46,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @curlx_sltosi(i64 noundef %slnum) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, -2147483648) i32 @curlx_sltosi(i64 noundef %slnum) local_unnamed_addr #0 {
 entry:
   %0 = trunc i64 %slnum to i32
   %conv = and i32 %0, 2147483647
@@ -68,7 +68,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @curlx_uztosz(i64 noundef %uznum) local_unnamed_addr #0 {
+define hidden noundef range(i64 0, -9223372036854775808) i64 @curlx_uztosz(i64 noundef %uznum) local_unnamed_addr #0 {
 entry:
   %and = and i64 %uznum, 9223372036854775807
   ret i64 %and
@@ -81,7 +81,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @curlx_sztosi(i64 noundef %sznum) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, -2147483648) i32 @curlx_sztosi(i64 noundef %sznum) local_unnamed_addr #0 {
 entry:
   %0 = trunc i64 %sznum to i32
   %conv = and i32 %0, 2147483647
@@ -96,7 +96,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @curlx_sitouz(i32 noundef %sinum) local_unnamed_addr #0 {
+define hidden range(i64 -2147483648, 2147483648) i64 @curlx_sitouz(i32 noundef %sinum) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %sinum to i64
   ret i64 %conv

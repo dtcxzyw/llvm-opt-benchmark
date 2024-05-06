@@ -549,7 +549,7 @@ switch.edge:
   %111 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv.next379
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds double, ptr %112, i64 %indvars.iv378
-  %114 = trunc i64 %indvars.iv.next379 to i32
+  %114 = trunc nuw nsw i64 %indvars.iv.next379 to i32
   br i1 %71, label %115, label %117
 
 115:                                              ; preds = %110
@@ -561,7 +561,7 @@ switch.edge:
   br label %119
 
 119:                                              ; preds = %117, %115
-  %120 = trunc i64 %indvars.iv378 to i32
+  %120 = trunc nuw nsw i64 %indvars.iv378 to i32
   %121 = tail call i32 @SUNQRfact(i32 noundef %84, ptr noundef nonnull %16, ptr noundef %18, i32 noundef %120) #11
   %.not297 = icmp eq i32 %121, 0
   br i1 %.not297, label %123, label %122
@@ -595,7 +595,7 @@ switch.edge:
   br i1 %exitcond381.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %123
-  %139 = trunc i64 %indvars.iv.next379 to i32
+  %139 = trunc nuw nsw i64 %indvars.iv.next379 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %132, %._crit_edge.loopexit.split.loop.exit, %._crit_edge316.thread, %._crit_edge316
@@ -810,7 +810,7 @@ define ptr @SUNLinSolResid_SPFGMR(ptr nocapture noundef readonly %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNLinSolLastFlag_SPFGMR(ptr nocapture noundef readonly %0) #4 {
+define range(i64 -2147483648, 2147483648) i64 @SUNLinSolLastFlag_SPFGMR(ptr nocapture noundef readonly %0) #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8

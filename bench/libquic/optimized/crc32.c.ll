@@ -13,7 +13,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @MOZ_Z_crc32(i64 noundef %crc, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #1 {
+define dso_local range(i64 0, 4294967296) i64 @MOZ_Z_crc32(i64 noundef %crc, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %buf, null
   br i1 %cmp, label %return, label %if.then1
@@ -654,7 +654,7 @@ if.end:                                           ; preds = %entry
   %adler = getelementptr inbounds i8, ptr %strm, i64 96
   %4 = load i64, ptr %adler, align 8
   %conv = trunc i64 %size to i32
-  %call = tail call i64 @MOZ_Z_crc32(i64 noundef %4, ptr noundef %dst, i32 noundef %conv), !range !14
+  %call = tail call i64 @MOZ_Z_crc32(i64 noundef %4, ptr noundef %dst, i32 noundef %conv)
   store i64 %call, ptr %adler, align 8
   br label %return
 
@@ -691,4 +691,3 @@ attributes #6 = { nounwind }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = !{i64 0, i64 4294967296}

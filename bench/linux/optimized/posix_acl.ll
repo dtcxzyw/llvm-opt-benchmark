@@ -621,7 +621,7 @@ define dso_local ptr @posix_acl_clone(ptr noundef %0, i32 noundef %1) #0 align 1
 declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef i32 @posix_acl_valid(ptr nocapture readnone %0, ptr noundef readonly %1) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @posix_acl_valid(ptr nocapture readnone %0, ptr noundef readonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 28
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
@@ -706,7 +706,7 @@ define dso_local noundef i32 @posix_acl_valid(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local i32 @posix_acl_equiv_mode(ptr noundef readonly %0, ptr noundef %1) #6 align 16 {
+define dso_local range(i32 -22, 2) i32 @posix_acl_equiv_mode(ptr noundef readonly %0, ptr noundef %1) #6 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -839,7 +839,7 @@ define dso_local noundef ptr @posix_acl_from_mode(i16 noundef zeroext %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @posix_acl_permission(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -13, 1) i32 @posix_acl_permission(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 1072
@@ -1071,7 +1071,7 @@ define dso_local i32 @__posix_acl_create(ptr nocapture noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc i32 @posix_acl_create_masq(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #8 align 16 {
+define internal fastcc range(i32 -5, 2) i32 @posix_acl_create_masq(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -1180,7 +1180,7 @@ define internal fastcc i32 @posix_acl_create_masq(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__posix_acl_chmod(ptr nocapture noundef %0, i32 noundef %1, i16 noundef zeroext %2) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @__posix_acl_chmod(ptr nocapture noundef %0, i32 noundef %1, i16 noundef zeroext %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread18, label %6
@@ -1512,7 +1512,7 @@ define dso_local i32 @posix_acl_create(ptr noundef %0, ptr nocapture noundef %1,
 declare dso_local i32 @current_umask() local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @posix_acl_update_mode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @posix_acl_update_mode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = load i16, ptr %1, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = icmp eq ptr %6, null
@@ -2002,7 +2002,7 @@ define internal zeroext i1 @posix_acl_xattr_list(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @simple_set_acl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @simple_set_acl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 48

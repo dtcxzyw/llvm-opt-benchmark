@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @K = internal unnamed_addr constant [64 x i32] [i32 1116352408, i32 1899447441, i32 -1245643825, i32 -373957723, i32 961987163, i32 1508970993, i32 -1841331548, i32 -1424204075, i32 -670586216, i32 310598401, i32 607225278, i32 1426881987, i32 1925078388, i32 -2132889090, i32 -1680079193, i32 -1046744716, i32 -459576895, i32 -272742522, i32 264347078, i32 604807628, i32 770255983, i32 1249150122, i32 1555081692, i32 1996064986, i32 -1740746414, i32 -1473132947, i32 -1341970488, i32 -1084653625, i32 -958395405, i32 -710438585, i32 113926993, i32 338241895, i32 666307205, i32 773529912, i32 1294757372, i32 1396182291, i32 1695183700, i32 1986661051, i32 -2117940946, i32 -1838011259, i32 -1564481375, i32 -1474664885, i32 -1035236496, i32 -949202525, i32 -778901479, i32 -694614492, i32 -200395387, i32 275423344, i32 430227734, i32 506948616, i32 659060556, i32 883997877, i32 958139571, i32 1322822218, i32 1537002063, i32 1747873779, i32 1955562222, i32 2024104815, i32 -2067236844, i32 -1933114872, i32 -1866530822, i32 -1538233109, i32 -1090935817, i32 -965641998], align 32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_InitSha256_ex(ptr noundef writeonly %sha256, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha256_ex(ptr noundef writeonly %sha256, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %sha256, null
   br i1 %cmp, label %return, label %if.end
@@ -33,7 +33,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_Sha256Update(ptr noundef %sha256, ptr noundef %data, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha256Update(ptr noundef %sha256, ptr noundef %data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %sha256, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -50,7 +50,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %or.cond1, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %call = tail call fastcc i32 @Sha256Update(ptr noundef nonnull %sha256, ptr noundef %data, i32 noundef %len), !range !4
+  %call = tail call fastcc i32 @Sha256Update(ptr noundef nonnull %sha256, ptr noundef %data, i32 noundef %len)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.end7
@@ -59,7 +59,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @Sha256Update(ptr noundef %sha256, ptr noundef readonly %data, i32 noundef %len) unnamed_addr #1 {
+define internal fastcc range(i32 -173, 1) i32 @Sha256Update(ptr noundef %sha256, ptr noundef readonly %data, i32 noundef %len) unnamed_addr #1 {
 entry:
   %cmp1 = icmp eq ptr %data, null
   %cmp2 = icmp ne i32 %len, 0
@@ -126,7 +126,7 @@ for.body.i:                                       ; preds = %if.then21, %for.bod
   store i32 %or.i.i, ptr %arrayidx.i, align 4
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 16
-  br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !4
 
 for.body9.i:                                      ; preds = %if.then21, %for.body9.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body9.i ], [ 0, %if.then21 ]
@@ -136,7 +136,7 @@ for.body9.i:                                      ; preds = %if.then21, %for.bod
   store i32 %or.i16.i, ptr %add.ptr.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %cmp8.i = icmp ult i64 %indvars.iv.i, 60
-  br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !7
+  br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !6
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
   tail call fastcc void @Transform_Sha256(ptr noundef nonnull %sha256, ptr noundef nonnull %buffer)
@@ -170,13 +170,13 @@ for.body.i58.us:                                  ; preds = %while.body.us, %for
   store i32 %or.i.i61.us, ptr %arrayidx.i60.us, align 4
   %indvars.iv.next25.i63.us = add nuw nsw i64 %indvars.iv24.i59.us, 1
   %exitcond.not.i64.us = icmp eq i64 %indvars.iv.next25.i63.us, 16
-  br i1 %exitcond.not.i64.us, label %ByteReverseWords.exit65.loopexit.us, label %for.body.i58.us, !llvm.loop !5
+  br i1 %exitcond.not.i64.us, label %ByteReverseWords.exit65.loopexit.us, label %for.body.i58.us, !llvm.loop !4
 
 ByteReverseWords.exit65.loopexit.us:              ; preds = %for.body.i58.us
   %sub39.us = add i32 %len.addr.1.us, -64
   tail call fastcc void @Transform_Sha256(ptr noundef nonnull %sha256, ptr noundef nonnull %buffer)
   %cmp34.us = icmp ugt i32 %sub39.us, 63
-  br i1 %cmp34.us, label %while.body.us, label %while.end, !llvm.loop !8
+  br i1 %cmp34.us, label %while.body.us, label %while.end, !llvm.loop !7
 
 while.body:                                       ; preds = %while.body.preheader, %ByteReverseWords.exit65.loopexit66
   %len.addr.1 = phi i32 [ %sub39, %ByteReverseWords.exit65.loopexit66 ], [ %len.addr.0, %while.body.preheader ]
@@ -193,13 +193,13 @@ for.body9.i49:                                    ; preds = %while.body, %for.bo
   store i32 %or.i16.i53, ptr %add.ptr.i51, align 1
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i50, 4
   %cmp8.i56 = icmp ult i64 %indvars.iv.i50, 60
-  br i1 %cmp8.i56, label %for.body9.i49, label %ByteReverseWords.exit65.loopexit66, !llvm.loop !7
+  br i1 %cmp8.i56, label %for.body9.i49, label %ByteReverseWords.exit65.loopexit66, !llvm.loop !6
 
 ByteReverseWords.exit65.loopexit66:               ; preds = %for.body9.i49
   %sub39 = add i32 %len.addr.1, -64
   tail call fastcc void @Transform_Sha256(ptr noundef nonnull %sha256, ptr noundef nonnull %buffer)
   %cmp34 = icmp ugt i32 %sub39, 63
-  br i1 %cmp34, label %while.body, label %while.end, !llvm.loop !8
+  br i1 %cmp34, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %ByteReverseWords.exit65.loopexit66, %ByteReverseWords.exit65.loopexit.us, %if.end33
   %len.addr.2 = phi i32 [ %len.addr.0, %if.end33 ], [ %sub39.us, %ByteReverseWords.exit65.loopexit.us ], [ %sub39, %ByteReverseWords.exit65.loopexit66 ]
@@ -219,7 +219,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha256FinalRaw(ptr noundef %sha256, ptr noundef writeonly %hash) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Sha256FinalRaw(ptr noundef %sha256, ptr noundef writeonly %hash) local_unnamed_addr #2 {
 entry:
   %digest = alloca [8 x i32], align 16
   %cmp = icmp eq ptr %sha256, null
@@ -242,7 +242,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   store i32 %or.i.i, ptr %arrayidx5.i, align 4
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 8
-  br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !4
 
 for.body9.i:                                      ; preds = %if.end, %for.body9.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body9.i ], [ 0, %if.end ]
@@ -253,7 +253,7 @@ for.body9.i:                                      ; preds = %if.end, %for.body9.
   store i32 %or.i16.i, ptr %add.ptr12.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %cmp8.i = icmp ult i64 %indvars.iv.i, 28
-  br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !7
+  br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !6
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %digest, i64 32, i1 false)
@@ -268,7 +268,7 @@ return:                                           ; preds = %entry, %ByteReverse
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha256Final(ptr noundef %sha256, ptr noundef writeonly %hash) local_unnamed_addr #2 {
+define i32 @wc_Sha256Final(ptr noundef %sha256, ptr noundef writeonly %hash) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %sha256, null
   %cmp1 = icmp eq ptr %hash, null
@@ -276,7 +276,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @Sha256Final(ptr noundef nonnull %sha256), !range !9
+  %call = tail call fastcc i32 @Sha256Final(ptr noundef nonnull %sha256)
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %if.end4, label %return
 
@@ -294,7 +294,7 @@ for.body.i:                                       ; preds = %if.end4, %for.body.
   store i32 %or.i.i, ptr %arrayidx.i, align 4
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 8
-  br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !4
 
 for.body9.i:                                      ; preds = %if.end4, %for.body9.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body9.i ], [ 0, %if.end4 ]
@@ -304,7 +304,7 @@ for.body9.i:                                      ; preds = %if.end4, %for.body9
   store i32 %or.i16.i, ptr %add.ptr.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %cmp8.i = icmp ult i64 %indvars.iv.i, 28
-  br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !7
+  br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !6
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %sha256, i64 32, i1 false)
@@ -325,7 +325,7 @@ return:                                           ; preds = %if.end, %entry, %By
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @Sha256Final(ptr noundef %sha256) unnamed_addr #2 {
+define internal fastcc range(i32 -192, 1) i32 @Sha256Final(ptr noundef %sha256) unnamed_addr #2 {
 entry:
   %buffLen = getelementptr inbounds i8, ptr %sha256, i64 96
   %0 = load i32, ptr %buffLen, align 16
@@ -368,7 +368,7 @@ for.body.i:                                       ; preds = %if.then7, %for.body
   store i32 %or.i.i, ptr %arrayidx.i, align 4
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 16
-  br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !4
 
 for.body9.i:                                      ; preds = %if.then7, %for.body9.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body9.i ], [ 0, %if.then7 ]
@@ -378,7 +378,7 @@ for.body9.i:                                      ; preds = %if.then7, %for.body
   store i32 %or.i16.i, ptr %add.ptr.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %cmp8.i = icmp ult i64 %indvars.iv.i, 60
-  br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !7
+  br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !6
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
   tail call fastcc void @Transform_Sha256(ptr noundef nonnull %sha256, ptr noundef nonnull %buffer)
@@ -412,7 +412,7 @@ for.body.i45:                                     ; preds = %if.end24, %for.body
   store i32 %or.i.i48, ptr %arrayidx.i47, align 4
   %indvars.iv.next25.i50 = add nuw nsw i64 %indvars.iv24.i46, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next25.i50, 16
-  br i1 %exitcond.not.i51, label %ByteReverseWords.exit52, label %for.body.i45, !llvm.loop !5
+  br i1 %exitcond.not.i51, label %ByteReverseWords.exit52, label %for.body.i45, !llvm.loop !4
 
 for.body9.i36:                                    ; preds = %if.end24, %for.body9.i36
   %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i42, %for.body9.i36 ], [ 0, %if.end24 ]
@@ -422,7 +422,7 @@ for.body9.i36:                                    ; preds = %if.end24, %for.body
   store i32 %or.i16.i40, ptr %add.ptr.i38, align 1
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i37, 4
   %cmp8.i43 = icmp ult i64 %indvars.iv.i37, 60
-  br i1 %cmp8.i43, label %for.body9.i36, label %ByteReverseWords.exit52, !llvm.loop !7
+  br i1 %cmp8.i43, label %for.body9.i36, label %ByteReverseWords.exit52, !llvm.loop !6
 
 ByteReverseWords.exit52:                          ; preds = %for.body9.i36, %for.body.i45
   %arrayidx40 = getelementptr inbounds i8, ptr %sha256, i64 88
@@ -438,7 +438,7 @@ return:                                           ; preds = %entry, %ByteReverse
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_InitSha224_ex(ptr noundef writeonly %sha224, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha224_ex(ptr noundef writeonly %sha224, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %sha224, null
   br i1 %cmp, label %return, label %if.end
@@ -463,7 +463,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_Sha224Update(ptr noundef %sha224, ptr noundef %data, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha224Update(ptr noundef %sha224, ptr noundef %data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %sha224, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -475,7 +475,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call fastcc i32 @Sha256Update(ptr noundef nonnull %sha224, ptr noundef %data, i32 noundef %len), !range !4
+  %call = tail call fastcc i32 @Sha256Update(ptr noundef nonnull %sha224, ptr noundef %data, i32 noundef %len)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -484,7 +484,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha224Final(ptr noundef %sha224, ptr noundef writeonly %hash) local_unnamed_addr #2 {
+define i32 @wc_Sha224Final(ptr noundef %sha224, ptr noundef writeonly %hash) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %sha224, null
   %cmp1 = icmp eq ptr %hash, null
@@ -492,7 +492,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @Sha256Final(ptr noundef nonnull %sha224), !range !9
+  %call = tail call fastcc i32 @Sha256Final(ptr noundef nonnull %sha224)
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %if.end4, label %return
 
@@ -510,7 +510,7 @@ for.body.i:                                       ; preds = %if.end4, %for.body.
   store i32 %or.i.i, ptr %arrayidx.i, align 4
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next25.i, 7
-  br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %for.body.i, !llvm.loop !4
 
 for.body9.i:                                      ; preds = %if.end4, %for.body9.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body9.i ], [ 0, %if.end4 ]
@@ -520,7 +520,7 @@ for.body9.i:                                      ; preds = %if.end4, %for.body9
   store i32 %or.i16.i, ptr %add.ptr.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %cmp8.i = icmp ult i64 %indvars.iv.i, 24
-  br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !7
+  br i1 %cmp8.i, label %for.body9.i, label %ByteReverseWords.exit, !llvm.loop !6
 
 ByteReverseWords.exit:                            ; preds = %for.body9.i, %for.body.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %sha224, i64 28, i1 false)
@@ -541,7 +541,7 @@ return:                                           ; preds = %if.end, %entry, %By
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_InitSha224(ptr noundef writeonly %sha224) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha224(ptr noundef writeonly %sha224) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %sha224, null
   br i1 %cmp.i, label %wc_InitSha224_ex.exit, label %if.end.i
@@ -591,7 +591,7 @@ while.body.i:                                     ; preds = %if.end, %while.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %z.013.i, i64 1
   store volatile i8 0, ptr %z.013.i, align 1
   %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !10
+  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !8
 
 while.cond9.preheader.i:                          ; preds = %for.body.i
   %tobool11.not20.i = icmp eq i32 %sub8.i, 0
@@ -604,7 +604,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
-  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !11
+  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !9
 
 while.body12.i:                                   ; preds = %while.cond9.preheader.i, %while.body12.i
   %z.122.i = phi ptr [ %incdec.ptr13.i, %while.body12.i ], [ %incdec.ptr7.i, %while.cond9.preheader.i ]
@@ -613,14 +613,14 @@ while.body12.i:                                   ; preds = %while.cond9.prehead
   %incdec.ptr13.i = getelementptr inbounds i8, ptr %z.122.i, i64 1
   store volatile i8 0, ptr %z.122.i, align 1
   %tobool11.not.i = icmp eq i32 %dec10.i, 0
-  br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !12
+  br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !10
 
 return:                                           ; preds = %while.body12.i, %while.cond9.preheader.i, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_InitSha256(ptr noundef writeonly %sha256) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha256(ptr noundef writeonly %sha256) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %sha256, null
   br i1 %cmp.i, label %wc_InitSha256_ex.exit, label %if.end.i
@@ -670,7 +670,7 @@ while.body.i:                                     ; preds = %if.end, %while.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %z.013.i, i64 1
   store volatile i8 0, ptr %z.013.i, align 1
   %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !10
+  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !8
 
 while.cond9.preheader.i:                          ; preds = %for.body.i
   %tobool11.not20.i = icmp eq i32 %sub8.i, 0
@@ -683,7 +683,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
-  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !11
+  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !9
 
 while.body12.i:                                   ; preds = %while.cond9.preheader.i, %while.body12.i
   %z.122.i = phi ptr [ %incdec.ptr13.i, %while.body12.i ], [ %incdec.ptr7.i, %while.cond9.preheader.i ]
@@ -692,61 +692,61 @@ while.body12.i:                                   ; preds = %while.cond9.prehead
   %incdec.ptr13.i = getelementptr inbounds i8, ptr %z.122.i, i64 1
   store volatile i8 0, ptr %z.122.i, align 1
   %tobool11.not.i = icmp eq i32 %dec10.i, 0
-  br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !12
+  br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !10
 
 return:                                           ; preds = %while.body12.i, %while.cond9.preheader.i, %entry
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @wc_Sha224GetHash(ptr noundef readonly %sha224, ptr noundef writeonly %hash) local_unnamed_addr #5 {
+define i32 @wc_Sha224GetHash(ptr noundef readonly %sha224, ptr noundef writeonly %hash) local_unnamed_addr #5 {
 entry:
   %tmpSha224 = alloca [1 x %struct.wc_Sha256], align 16
   %cmp = icmp eq ptr %sha224, null
   %cmp1 = icmp eq ptr %hash, null
   %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end.i4
+  br i1 %or.cond, label %return, label %if.end.i5
 
-if.end.i4:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %tmpSha224, ptr noundef nonnull align 16 dereferenceable(128) %sha224, i64 128, i1 false)
-  %call.i = call fastcc i32 @Sha256Final(ptr noundef nonnull %tmpSha224), !range !9
+if.end.i5:                                        ; preds = %entry
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(128) %tmpSha224, ptr noundef nonnull readonly align 16 dereferenceable(128) %sha224, i64 128, i1 false)
+  %call.i = call fastcc i32 @Sha256Final(ptr noundef nonnull %tmpSha224)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %for.body.i.i, label %for.body.preheader.i.i
 
-for.body.i.i:                                     ; preds = %if.end.i4, %for.body.i.i
-  %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %for.body.i.i ], [ 0, %if.end.i4 ]
+for.body.i.i:                                     ; preds = %if.end.i5, %for.body.i.i
+  %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %for.body.i.i ], [ 0, %if.end.i5 ]
   %arrayidx.i.i = getelementptr inbounds i32, ptr %tmpSha224, i64 %indvars.iv24.i.i
   %0 = load i32, ptr %arrayidx.i.i, align 4
   %or.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %0)
   store i32 %or.i.i.i, ptr %arrayidx.i.i, align 4
   %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next25.i.i, 7
-  br i1 %exitcond.not.i.i, label %ByteReverseWords.exit.i, label %for.body.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %ByteReverseWords.exit.i, label %for.body.i.i, !llvm.loop !4
 
 ByteReverseWords.exit.i:                          ; preds = %for.body.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %tmpSha224, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(28) %hash, ptr noundef nonnull align 16 dereferenceable(28) %tmpSha224, i64 28, i1 false)
   br label %for.body.preheader.i.i
 
-for.body.preheader.i.i:                           ; preds = %ByteReverseWords.exit.i, %if.end.i4
-  %retval.0.i5 = phi i32 [ 0, %ByteReverseWords.exit.i ], [ %call.i, %if.end.i4 ]
-  br label %for.body.i.i7
+for.body.preheader.i.i:                           ; preds = %ByteReverseWords.exit.i, %if.end.i5
+  %retval.0.i6 = phi i32 [ 0, %ByteReverseWords.exit.i ], [ %call.i, %if.end.i5 ]
+  br label %for.body.i.i9
 
-for.body.i.i7:                                    ; preds = %for.body.i.i7, %for.body.preheader.i.i
-  %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i7 ], [ %tmpSha224, %for.body.preheader.i.i ]
-  %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i7 ], [ 128, %for.body.preheader.i.i ]
+for.body.i.i9:                                    ; preds = %for.body.i.i9, %for.body.preheader.i.i
+  %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i9 ], [ %tmpSha224, %for.body.preheader.i.i ]
+  %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i9 ], [ 128, %for.body.preheader.i.i ]
   %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %w.017.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add nsw i32 %len.addr.016.i.i, -8
   %cmp5.i.i.not = icmp eq i32 %sub8.i.i, 0
-  br i1 %cmp5.i.i.not, label %return, label %for.body.i.i7, !llvm.loop !11
+  br i1 %cmp5.i.i.not, label %return, label %for.body.i.i9, !llvm.loop !9
 
-return:                                           ; preds = %for.body.i.i7, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ %retval.0.i5, %for.body.i.i7 ]
+return:                                           ; preds = %for.body.i.i9, %entry
+  %retval.0 = phi i32 [ -173, %entry ], [ %retval.0.i6, %for.body.i.i9 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha224Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #6 {
+define range(i32 -173, 1) i32 @wc_Sha224Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %src, null
   %cmp1 = icmp eq ptr %dst, null
@@ -763,54 +763,54 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @wc_Sha256GetHash(ptr noundef readonly %sha256, ptr noundef writeonly %hash) local_unnamed_addr #5 {
+define i32 @wc_Sha256GetHash(ptr noundef readonly %sha256, ptr noundef writeonly %hash) local_unnamed_addr #5 {
 entry:
   %tmpSha256 = alloca [1 x %struct.wc_Sha256], align 16
   %cmp = icmp eq ptr %sha256, null
   %cmp1 = icmp eq ptr %hash, null
   %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end.i4
+  br i1 %or.cond, label %return, label %if.end.i5
 
-if.end.i4:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %tmpSha256, ptr noundef nonnull align 16 dereferenceable(128) %sha256, i64 128, i1 false)
-  %call.i = call fastcc i32 @Sha256Final(ptr noundef nonnull %tmpSha256), !range !9
+if.end.i5:                                        ; preds = %entry
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(128) %tmpSha256, ptr noundef nonnull readonly align 16 dereferenceable(128) %sha256, i64 128, i1 false)
+  %call.i = call fastcc i32 @Sha256Final(ptr noundef nonnull %tmpSha256)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %for.body.i.i, label %for.body.preheader.i.i
 
-for.body.i.i:                                     ; preds = %if.end.i4, %for.body.i.i
-  %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %for.body.i.i ], [ 0, %if.end.i4 ]
+for.body.i.i:                                     ; preds = %if.end.i5, %for.body.i.i
+  %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %for.body.i.i ], [ 0, %if.end.i5 ]
   %arrayidx.i.i = getelementptr inbounds i32, ptr %tmpSha256, i64 %indvars.iv24.i.i
   %0 = load i32, ptr %arrayidx.i.i, align 4
   %or.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %0)
   store i32 %or.i.i.i, ptr %arrayidx.i.i, align 4
   %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next25.i.i, 8
-  br i1 %exitcond.not.i.i, label %ByteReverseWords.exit.i, label %for.body.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %ByteReverseWords.exit.i, label %for.body.i.i, !llvm.loop !4
 
 ByteReverseWords.exit.i:                          ; preds = %for.body.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %tmpSha256, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(32) %hash, ptr noundef nonnull align 16 dereferenceable(32) %tmpSha256, i64 32, i1 false)
   br label %for.body.preheader.i.i
 
-for.body.preheader.i.i:                           ; preds = %ByteReverseWords.exit.i, %if.end.i4
-  %retval.0.i5 = phi i32 [ 0, %ByteReverseWords.exit.i ], [ %call.i, %if.end.i4 ]
-  br label %for.body.i.i7
+for.body.preheader.i.i:                           ; preds = %ByteReverseWords.exit.i, %if.end.i5
+  %retval.0.i6 = phi i32 [ 0, %ByteReverseWords.exit.i ], [ %call.i, %if.end.i5 ]
+  br label %for.body.i.i9
 
-for.body.i.i7:                                    ; preds = %for.body.i.i7, %for.body.preheader.i.i
-  %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i7 ], [ %tmpSha256, %for.body.preheader.i.i ]
-  %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i7 ], [ 128, %for.body.preheader.i.i ]
+for.body.i.i9:                                    ; preds = %for.body.i.i9, %for.body.preheader.i.i
+  %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i9 ], [ %tmpSha256, %for.body.preheader.i.i ]
+  %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i9 ], [ 128, %for.body.preheader.i.i ]
   %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %w.017.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add nsw i32 %len.addr.016.i.i, -8
   %cmp5.i.i.not = icmp eq i32 %sub8.i.i, 0
-  br i1 %cmp5.i.i.not, label %return, label %for.body.i.i7, !llvm.loop !11
+  br i1 %cmp5.i.i.not, label %return, label %for.body.i.i9, !llvm.loop !9
 
-return:                                           ; preds = %for.body.i.i7, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ %retval.0.i5, %for.body.i.i7 ]
+return:                                           ; preds = %for.body.i.i9, %entry
+  %retval.0 = phi i32 [ -173, %entry ], [ %retval.0.i6, %for.body.i.i9 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha256Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #6 {
+define range(i32 -173, 1) i32 @wc_Sha256Copy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %src, null
   %cmp1 = icmp eq ptr %dst, null
@@ -886,7 +886,7 @@ for.body15:                                       ; preds = %entry, %for.body15
   store i32 %add48, ptr %arrayidx50, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %for.cond54.preheader, label %for.body15, !llvm.loop !13
+  br i1 %exitcond.not, label %for.cond54.preheader, label %for.body15, !llvm.loop !11
 
 for.cond443.preheader:                            ; preds = %for.body56
   store i32 %add293, ptr %arrayidx57, align 4
@@ -1142,7 +1142,7 @@ for.body56:                                       ; preds = %for.cond54.preheade
   %add438 = add i32 %add435, %add417
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 8
   %cmp55 = icmp ult i64 %indvars.iv238, 56
-  br i1 %cmp55, label %for.body56, label %for.cond443.preheader, !llvm.loop !14
+  br i1 %cmp55, label %for.body56, label %for.cond443.preheader, !llvm.loop !12
 
 for.body445:                                      ; preds = %for.cond443.preheader, %for.body445
   %indvars.iv248 = phi i64 [ 0, %for.cond443.preheader ], [ %indvars.iv.next249, %for.body445 ]
@@ -1154,7 +1154,7 @@ for.body445:                                      ; preds = %for.cond443.prehead
   store i32 %add451, ptr %arrayidx450, align 4
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond251.not = icmp eq i64 %indvars.iv.next249, 8
-  br i1 %exitcond251.not, label %for.end454, label %for.body445, !llvm.loop !15
+  br i1 %exitcond251.not, label %for.end454, label %for.body445, !llvm.loop !13
 
 for.end454:                                       ; preds = %for.body445
   ret void
@@ -1185,15 +1185,13 @@ attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -173, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = !{i32 -192, i32 1}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

@@ -56,13 +56,13 @@ define dso_local ptr @GetWalSummaries(i32 noundef %0, i64 noundef %1, i64 nounde
 14:                                               ; preds = %IsWalSummaryFilename.exit.backedge.us.us, %.lr.ph.us
   %15 = phi ptr [ %13, %.lr.ph.us ], [ %38, %IsWalSummaryFilename.exit.backedge.us.us ]
   %16 = getelementptr inbounds i8, ptr %15, i64 19
-  %17 = call i64 @strspn(ptr noundef nonnull %16, ptr noundef nonnull @.str.12) #12
+  %17 = call i64 @strspn(ptr noundef nonnull readonly %16, ptr noundef nonnull @.str.12) #12
   %18 = icmp eq i64 %17, 40
   br i1 %18, label %19, label %IsWalSummaryFilename.exit.backedge.us.us
 
 19:                                               ; preds = %14
   %20 = getelementptr i8, ptr %15, i64 59
-  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str.13) #12
+  %21 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str.13) #12
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %IsWalSummaryFilename.exit.backedge.us.us
 
@@ -113,13 +113,13 @@ IsWalSummaryFilename.exit.backedge.us.us:         ; preds = %23, %19, %14
 46:                                               ; preds = %.lr.ph, %IsWalSummaryFilename.exit.backedge
   %47 = phi ptr [ %45, %.lr.ph ], [ %58, %IsWalSummaryFilename.exit.backedge ]
   %48 = getelementptr inbounds i8, ptr %47, i64 19
-  %49 = call i64 @strspn(ptr noundef nonnull %48, ptr noundef nonnull @.str.12) #12
+  %49 = call i64 @strspn(ptr noundef nonnull readonly %48, ptr noundef nonnull @.str.12) #12
   %50 = icmp eq i64 %49, 40
   br i1 %50, label %51, label %IsWalSummaryFilename.exit.backedge
 
 51:                                               ; preds = %46
   %52 = getelementptr i8, ptr %47, i64 59
-  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(9) @.str.13) #12
+  %53 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %52, ptr noundef nonnull dereferenceable(9) @.str.13) #12
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %IsWalSummaryFilename.exit.backedge
 
@@ -512,7 +512,7 @@ declare ptr @list_copy(ptr noundef) local_unnamed_addr #1
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ListComparatorForWalSummaryFiles(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1, 2) i32 @ListComparatorForWalSummaryFiles(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load i64, ptr %3, align 8
@@ -532,12 +532,12 @@ define dso_local i32 @OpenWalSummaryFile(ptr nocapture noundef readonly %0, i1 n
   %5 = load i32, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
   %7 = lshr i64 %6, 32
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw i64 %7 to i32
   %9 = trunc i64 %6 to i32
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = lshr i64 %11, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = trunc i64 %11 to i32
   %15 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.2, i32 noundef %5, i32 noundef %8, i32 noundef %9, i32 noundef %13, i32 noundef %14) #11
   %16 = call i32 @PathNameOpenFile(ptr noundef nonnull %3, i32 noundef 0) #11
@@ -589,12 +589,12 @@ define dso_local void @RemoveWalSummaryIfOlderThan(ptr nocapture noundef readonl
   %6 = load i32, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = lshr i64 %7, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   %10 = trunc i64 %7 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = lshr i64 %12, 32
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw i64 %13 to i32
   %15 = trunc i64 %12 to i32
   %16 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.2, i32 noundef %6, i32 noundef %9, i32 noundef %10, i32 noundef %14, i32 noundef %15) #11
   %17 = call i32 @lstat(ptr noundef nonnull %3, ptr noundef nonnull %4) #11
@@ -656,7 +656,7 @@ declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ReadWalSummary(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @ReadWalSummary(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.iovec, align 8
   %5 = load i32, ptr %0, align 8
   %6 = sext i32 %2 to i64
@@ -693,7 +693,7 @@ define dso_local i32 @ReadWalSummary(ptr nocapture noundef %0, ptr noundef %1, i
 declare ptr @FilePathName(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WriteWalSummary(ptr nocapture noundef %0, ptr noundef %1, i32 noundef returned %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @WriteWalSummary(ptr nocapture noundef %0, ptr noundef %1, i32 noundef returned %2) local_unnamed_addr #0 {
   %4 = alloca %struct.iovec, align 8
   %5 = load i32, ptr %0, align 8
   %6 = sext i32 %2 to i64
@@ -751,18 +751,18 @@ define dso_local void @ReportWalSummaryError(ptr nocapture noundef readnone %0, 
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @initStringInfo(ptr noundef nonnull %3) #11
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i32 @appendStringInfoVA(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %4) #11
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %7 = phi i32 [ %8, %.lr.ph ], [ %5, %2 ]
   call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef %7) #11
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   %8 = call i32 @appendStringInfoVA(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %4) #11
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -778,27 +778,27 @@ define dso_local void @ReportWalSummaryError(ptr nocapture noundef readnone %0, 
 
 declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
-
 declare i32 @appendStringInfoVA(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
 
 declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 declare i64 @FileReadV(i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i64 @FileWriteV(i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
@@ -816,8 +816,8 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }

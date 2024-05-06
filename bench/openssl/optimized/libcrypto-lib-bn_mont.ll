@@ -8,15 +8,15 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/bn/bn_mont.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_mod_mul_montgomery(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %mont, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_mod_mul_montgomery(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %mont, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %mont, ptr noundef %ctx), !range !4
+  %call = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %mont, ptr noundef %ctx)
   tail call void @bn_correct_top(ptr noundef %r) #4
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bn_mul_mont_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %mont, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_mul_mont_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %mont, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %N = getelementptr inbounds i8, ptr %mont, i64 32
   %top = getelementptr inbounds i8, ptr %mont, i64 40
@@ -95,7 +95,7 @@ if.else:                                          ; preds = %if.end29
   br i1 %tobool37.not, label %err, label %if.end40
 
 if.end40:                                         ; preds = %if.else, %if.then31
-  %call41 = tail call fastcc i32 @bn_from_montgomery_word(ptr noundef %r, ptr noundef nonnull %call26, ptr noundef nonnull %mont), !range !4
+  %call41 = tail call fastcc i32 @bn_from_montgomery_word(ptr noundef %r, ptr noundef nonnull %call26, ptr noundef nonnull %mont)
   br label %err
 
 err:                                              ; preds = %if.end40, %if.else, %if.then31, %if.end25
@@ -123,7 +123,7 @@ declare i32 @bn_sqr_fixed_top(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @bn_mul_fixed_top(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef %r, ptr nocapture noundef readonly %mont) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef %r, ptr nocapture noundef readonly %mont) unnamed_addr #0 {
 entry:
   %N = getelementptr inbounds i8, ptr %mont, i64 32
   %top = getelementptr inbounds i8, ptr %mont, i64 40
@@ -167,7 +167,7 @@ for.body.preheader:                               ; preds = %if.end4
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %sub = sub i32 %6, %5
   %arrayidx = getelementptr inbounds i64, ptr %4, i64 %indvars.iv
   %7 = load i64, ptr %arrayidx, align 8
@@ -176,7 +176,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i64 %and, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
   store i32 %mul, ptr %top7, align 8
@@ -201,7 +201,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %add23 = add i64 %add, %10
   %cmp27 = icmp ne i64 %add, 0
   %cmp33.not = icmp ule i64 %add23, %10
-  %carry.0.tr = trunc i64 %carry.066 to i1
+  %carry.0.tr = trunc nuw i64 %carry.066 to i1
   %or30.narrow = or i1 %cmp27, %carry.0.tr
   %narrow = select i1 %cmp33.not, i1 %or30.narrow, i1 false
   %and36 = zext i1 %narrow to i64
@@ -209,7 +209,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %inc40 = add nuw nsw i32 %i.168, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %rp.067, i64 8
   %exitcond72.not = icmp eq i32 %inc40, %0
-  br i1 %exitcond72.not, label %for.end41, label %for.body16, !llvm.loop !7
+  br i1 %exitcond72.not, label %for.end41, label %for.body16, !llvm.loop !6
 
 for.end41:                                        ; preds = %for.body16, %for.end.thread, %for.end
   %carry.0.lcssa = phi i64 [ 0, %for.end ], [ 0, %for.end.thread ], [ %and36, %for.body16 ]
@@ -249,7 +249,7 @@ for.body61:                                       ; preds = %for.body61.lr.ph, %
   store i64 0, ptr %arrayidx63, align 8
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
-  br i1 %exitcond77.not, label %return, label %for.body61, !llvm.loop !8
+  br i1 %exitcond77.not, label %return, label %for.body61, !llvm.loop !7
 
 return:                                           ; preds = %for.body61, %if.end46, %for.end41, %if.end, %if.then
   %retval.0 = phi i32 [ 1, %if.then ], [ 0, %if.end ], [ 0, %for.end41 ], [ 1, %if.end46 ], [ 1, %for.body61 ]
@@ -259,7 +259,7 @@ return:                                           ; preds = %for.body61, %if.end
 declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_from_montgomery(ptr noundef %ret, ptr noundef %a, ptr nocapture noundef readonly %mont, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_from_montgomery(ptr noundef %ret, ptr noundef %a, ptr nocapture noundef readonly %mont, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call.i = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -272,7 +272,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool2.not.i, label %bn_from_mont_fixed_top.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call fastcc i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef nonnull %call.i, ptr noundef %mont), !range !4
+  %call3.i = tail call fastcc i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef nonnull %call.i, ptr noundef readonly %mont)
   br label %bn_from_mont_fixed_top.exit
 
 bn_from_mont_fixed_top.exit:                      ; preds = %entry, %land.lhs.true.i, %if.then.i
@@ -283,7 +283,7 @@ bn_from_mont_fixed_top.exit:                      ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bn_from_mont_fixed_top(ptr noundef %ret, ptr noundef %a, ptr nocapture noundef readonly %mont, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_from_mont_fixed_top(ptr noundef %ret, ptr noundef %a, ptr nocapture noundef readonly %mont, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -296,7 +296,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call3 = tail call fastcc i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef nonnull %call, ptr noundef %mont), !range !4
+  %call3 = tail call fastcc i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef nonnull %call, ptr noundef %mont)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
@@ -308,10 +308,10 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bn_to_mont_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %mont, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_to_mont_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef %mont, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %RR = getelementptr inbounds i8, ptr %mont, i64 8
-  %call = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef nonnull %RR, ptr noundef %mont, ptr noundef %ctx), !range !4
+  %call = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %r, ptr noundef %a, ptr noundef nonnull %RR, ptr noundef %mont, ptr noundef %ctx)
   ret i32 %call
 }
 
@@ -391,7 +391,7 @@ declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_MONT_CTX_set(ptr noundef %mont, ptr noundef %mod, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_MONT_CTX_set(ptr noundef %mont, ptr noundef %mod, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %tmod = alloca %struct.bignum_st, align 8
   %buf = alloca [2 x i64], align 16
@@ -546,7 +546,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i64 0, ptr %arrayidx88, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %if.end80
   store i32 %7, ptr %top82, align 8
@@ -661,7 +661,7 @@ if.end7:                                          ; preds = %if.end4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %n0.i.i, i8 0, i64 16, i1 false)
   %flags.i = getelementptr inbounds i8, ptr %call.i, i64 96
   store i32 1, ptr %flags.i, align 8
-  %call8 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %call.i, ptr noundef %mod, ptr noundef %ctx), !range !4
+  %call8 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %call.i, ptr noundef %mod, ptr noundef %ctx)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.end.i16, label %if.end11
 
@@ -760,9 +760,8 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

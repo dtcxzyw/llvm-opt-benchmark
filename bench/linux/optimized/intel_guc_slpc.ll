@@ -175,7 +175,7 @@ define internal void @slpc_boost_work(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_guc_slpc_set_max_freq(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_guc_slpc_set_max_freq(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = alloca [4 x i32], align 16
   %4 = getelementptr i8, ptr %0, i64 -1504
   %5 = load ptr, ptr %4, align 8
@@ -452,7 +452,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_guc_slpc_set_min_freq(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_guc_slpc_set_min_freq(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = alloca [4 x i32], align 16
   %4 = getelementptr i8, ptr %0, i64 -1504
   %5 = load ptr, ptr %4, align 8
@@ -1082,9 +1082,9 @@ define dso_local i32 @intel_guc_slpc_enable(ptr noundef %0) local_unnamed_addr #
   br i1 %234, label %.thread21, label %235
 
 235:                                              ; preds = %233
-  %236 = call i32 @intel_guc_slpc_set_max_freq(ptr noundef %0, i32 noundef %228), !range !12
+  %236 = call i32 @intel_guc_slpc_set_max_freq(ptr noundef %0, i32 noundef %228)
   %237 = icmp eq i32 %236, 0
-  br i1 %237, label %.thread21, label %.thread23, !prof !13
+  br i1 %237, label %.thread21, label %.thread23, !prof !12
 
 .thread21:                                        ; preds = %231, %233, %235
   %238 = load i32, ptr %168, align 4
@@ -1099,7 +1099,7 @@ define dso_local i32 @intel_guc_slpc_enable(ptr noundef %0) local_unnamed_addr #
   br label %257
 
 242:                                              ; preds = %.thread21
-  %243 = call i32 @intel_guc_slpc_set_min_freq(ptr noundef %0, i32 noundef %238), !range !12
+  %243 = call i32 @intel_guc_slpc_set_min_freq(ptr noundef %0, i32 noundef %238)
   %244 = icmp eq i32 %243, 0
   br i1 %244, label %257, label %.thread23, !prof !10
 
@@ -1135,7 +1135,7 @@ define dso_local i32 @intel_guc_slpc_enable(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_guc_slpc_set_boost_freq(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_guc_slpc_set_boost_freq(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = icmp ugt i32 %4, %1
@@ -1252,7 +1252,7 @@ define dso_local void @intel_guc_slpc_dec_waiters(ptr noundef %0) local_unnamed_
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @mutex_lock(ptr noundef %2) #7
   %3 = getelementptr inbounds i8, ptr %0, i64 120
-  %4 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, ptr elementtype(i32) %3) #7, !srcloc !14
+  %4 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, ptr elementtype(i32) %3) #7, !srcloc !13
   %5 = icmp ult i8 %4, 2
   tail call void @llvm.assume(i1 %5)
   %6 = icmp eq i8 %4, 0
@@ -1484,6 +1484,5 @@ attributes #8 = { cold nounwind }
 !9 = !{i64 2158708477}
 !10 = !{!"branch_weights", i32 -2147483648, i32 0}
 !11 = !{!"auto-init"}
-!12 = !{i32 -22, i32 1}
-!13 = !{!"branch_weights", i32 2144049393, i32 3434255}
-!14 = !{i64 2149019414, i64 2149019453, i64 2149019474, i64 2149019511, i64 2149019534, i64 2149019543, i64 2149019617}
+!12 = !{!"branch_weights", i32 2144049393, i32 3434255}
+!13 = !{i64 2149019414, i64 2149019453, i64 2149019474, i64 2149019511, i64 2149019534, i64 2149019543, i64 2149019617}

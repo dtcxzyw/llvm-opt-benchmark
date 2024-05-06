@@ -6606,11 +6606,11 @@ _ZL10box_dh_topbP7t_psrec.exit:                   ; preds = %._crit_edge509.spli
 
 1128:                                             ; preds = %1116
   %1129 = load ptr, ptr %1113, align 8
-  %1130 = getelementptr float, ptr %1129, i64 %indvars.iv.i309
+  %1130 = getelementptr inbounds float, ptr %1129, i64 %indvars.iv.i309
   %1131 = load float, ptr %1130, align 4
   %1132 = call noundef float @llvm.fabs.f32(float %1131)
   %1133 = fpext float %1132 to double
-  %1134 = getelementptr i8, ptr %1130, i64 4
+  %1134 = getelementptr inbounds i8, ptr %1130, i64 4
   %1135 = load float, ptr %1134, align 4
   %1136 = fsub float %1135, %1131
   %1137 = call noundef float @llvm.fabs.f32(float %1136)
@@ -6679,11 +6679,11 @@ _ZL10box_dh_topbP7t_psrec.exit:                   ; preds = %._crit_edge509.spli
 
 1167:                                             ; preds = %1155
   %1168 = load ptr, ptr %1154, align 8
-  %1169 = getelementptr float, ptr %1168, i64 %indvars.iv88.i
+  %1169 = getelementptr inbounds float, ptr %1168, i64 %indvars.iv88.i
   %1170 = load float, ptr %1169, align 4
   %1171 = call noundef float @llvm.fabs.f32(float %1170)
   %1172 = fpext float %1171 to double
-  %1173 = getelementptr i8, ptr %1169, i64 4
+  %1173 = getelementptr inbounds i8, ptr %1169, i64 4
   %1174 = load float, ptr %1173, align 4
   %1175 = fsub float %1174, %1170
   %1176 = call noundef float @llvm.fabs.f32(float %1175)

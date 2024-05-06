@@ -221,7 +221,7 @@ define hidden void @proto_register_iso8583() local_unnamed_addr #0 {
   store ptr %7, ptr %3, align 16
   %8 = tail call ptr @wmem_epan_scope() #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = trunc i64 %indvars.iv.next to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.next to i32
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %8, ptr noundef nonnull @.str.119, i32 noundef %9) #6
   store ptr %10, ptr %4, align 8
   %11 = tail call ptr @wmem_epan_scope() #6
@@ -301,7 +301,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_iso8583_msg_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 2, 65538) i32 @get_iso8583_msg_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = load i32, ptr @len_byte_order, align 4
   %6 = icmp eq i32 %5, 1
   %7 = select i1 %6, i32 0, i32 -2147483648
@@ -792,7 +792,7 @@ ishex_str.exit149.thread:                         ; preds = %226, %231, %ishex_s
   %indvars.iv.i153 = phi i64 [ 0, %.lr.ph.i152 ], [ %indvars.iv.next.i, %594 ]
   %.04789.i = phi i32 [ undef, %.lr.ph.i152 ], [ %.6.i, %594 ]
   %.05188.i = phi i32 [ %.0111190, %.lr.ph.i152 ], [ %.354.i, %594 ]
-  %244 = trunc i64 %indvars.iv.i153 to i32
+  %244 = trunc nuw nsw i64 %indvars.iv.i153 to i32
   %.urem.i = and i32 %244, 63
   %.not33.i = icmp eq i32 %.urem.i, 0
   br i1 %.not33.i, label %594, label %245

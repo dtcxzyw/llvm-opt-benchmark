@@ -2078,7 +2078,7 @@ declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @tbm_comparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @tbm_comparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -2384,7 +2384,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @tbm_shared_comparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 {
+define internal range(i32 -1, 2) i32 @tbm_shared_comparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 {
   %4 = load i32, ptr %0, align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr %struct.PagetableEntry, ptr %2, i64 %5
@@ -2993,9 +2993,9 @@ define internal fastcc noundef ptr @pagetable_insert(ptr nocapture noundef %0, i
   %28 = shl i64 %22, 1
   %29 = load ptr, ptr %14, align 8
   %30 = tail call i64 @llvm.umax.i64(i64 %28, i64 2)
-  %31 = tail call i64 @llvm.ctpop.i64(i64 %30), !range !26
+  %31 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %30)
   %32 = icmp ult i64 %31, 2
-  %33 = tail call i64 @llvm.ctlz.i64(i64 %30, i1 true), !range !26
+  %33 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %30, i1 true)
   %34 = sub nuw nsw i64 64, %33
   %35 = shl nuw i64 1, %34
   %.0.i.i.i.i = select i1 %32, i64 %30, i64 %35
@@ -3039,9 +3039,9 @@ pagetable_allocate.exit.i.i:                      ; preds = %48, %45
   %.0.i.i.i = phi ptr [ %47, %45 ], [ %56, %48 ]
   store ptr %.0.i.i.i, ptr %14, align 8
   %57 = tail call i64 @llvm.umax.i64(i64 %.0.i.i.i.i, i64 2)
-  %58 = tail call i64 @llvm.ctpop.i64(i64 %57), !range !26
+  %58 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %57)
   %59 = icmp ult i64 %58, 2
-  %60 = tail call i64 @llvm.ctlz.i64(i64 %57, i1 true), !range !26
+  %60 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %57, i1 true)
   %61 = sub nuw nsw i64 64, %60
   %62 = shl nuw i64 1, %61
   %.0.i.i.i.i.i = select i1 %59, i64 %57, i64 %62
@@ -3097,7 +3097,7 @@ pagetable_update_parameters.exit.i.i:             ; preds = %pagetable_allocate.
   %90 = add i32 %.058.i.i, 1
   %91 = zext i32 %90 to i64
   %92 = icmp ugt i64 %22, %91
-  br i1 %92, label %.lr.ph.i.i, label %.lr.ph66.i.i.preheader, !llvm.loop !27
+  br i1 %92, label %.lr.ph.i.i, label %.lr.ph66.i.i.preheader, !llvm.loop !26
 
 .lr.ph66.i.i.preheader:                           ; preds = %89, %78, %.lr.ph.i.i
   %.04963.i.i.ph = phi i32 [ %.058.i.i, %.lr.ph.i.i ], [ %.058.i.i, %78 ], [ 0, %89 ]
@@ -3149,7 +3149,7 @@ pagetable_update_parameters.exit.i.i:             ; preds = %pagetable_allocate.
   %118 = add i32 %.164.i.i, 1
   %119 = zext i32 %118 to i64
   %120 = icmp ugt i64 %22, %119
-  br i1 %120, label %.lr.ph66.i.i, label %._crit_edge67.i.i, !llvm.loop !28
+  br i1 %120, label %.lr.ph66.i.i, label %._crit_edge67.i.i, !llvm.loop !27
 
 ._crit_edge67.i.i:                                ; preds = %115, %pagetable_update_parameters.exit.i.i
   %.val.i.i = load ptr, ptr %15, align 8
@@ -3280,7 +3280,7 @@ pagetable_distance.exit.i:                        ; preds = %150, %140
   %184 = getelementptr %struct.PagetableEntry, ptr %129, i64 %183
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.073141.i, ptr noundef nonnull align 8 dereferenceable(48) %184, i64 48, i1 false)
   %.not76.i = icmp eq i32 %182, %.069115.i
-  br i1 %.not76.i, label %.sink.split.i, label %.lr.ph143.i, !llvm.loop !29
+  br i1 %.not76.i, label %.sink.split.i, label %.lr.ph143.i, !llvm.loop !28
 
 185:                                              ; preds = %pagetable_distance.exit.i
   %186 = add i32 %.074114.i, 1
@@ -3397,7 +3397,6 @@ attributes #15 = { cold nounwind }
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
-!26 = !{i64 0, i64 65}
+!26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}

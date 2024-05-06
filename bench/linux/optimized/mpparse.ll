@@ -257,7 +257,7 @@ define internal fastcc void @construct_default_ISA_mptable(i32 noundef %0) unnam
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @check_physptr(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @check_physptr(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = alloca %struct.mpc_bus, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -344,7 +344,7 @@ define dso_local void @default_find_smp_config() local_unnamed_addr #0 section "
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @smp_scan_config(i64 noundef %0, i64 noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @smp_scan_config(i64 noundef %0, i64 noundef %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = load i32, ptr @apic_verbosity, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %.preheader26
@@ -1032,7 +1032,7 @@ declare dso_local i32 @mpc_ioapic_id(i32 noundef) local_unnamed_addr #2
 declare dso_local void @mp_save_irq(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i64 @get_mpc_size(i64 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i64 0, 65536) i64 @get_mpc_size(i64 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = tail call ptr @early_memremap(i64 noundef %0, i64 noundef 4096) #10
   %3 = getelementptr inbounds i8, ptr %2, i64 4
   %4 = load i16, ptr %3, align 4
@@ -1168,7 +1168,7 @@ define internal fastcc i32 @smp_read_mpc(ptr noundef %0, i32 noundef %1) unnamed
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @smp_check_mpc(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @smp_check_mpc(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = tail call i32 @bcmp(ptr noundef dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.25, i64 4)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %19, label %6
@@ -1516,7 +1516,7 @@ define internal fastcc void @check_irq_src(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @check_slot(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @check_slot(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = icmp ne i64 %0, 0
   %5 = sext i32 %2 to i64
   %6 = icmp ugt i64 %5, %1

@@ -577,7 +577,7 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr nocapture n
 
 114:                                              ; preds = %111
   %115 = lshr i32 %113, 24
-  %116 = trunc i32 %115 to i8
+  %116 = trunc nuw i32 %115 to i8
   %117 = getelementptr i8, ptr %.0117198, i64 1
   store i8 %116, ptr %.0117198, align 1
   br label %118
@@ -634,7 +634,7 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr nocapture n
 
 139:                                              ; preds = %138
   %140 = lshr i32 %137, 24
-  %141 = trunc i32 %140 to i8
+  %141 = trunc nuw i32 %140 to i8
   %142 = getelementptr i8, ptr %.0117198, i64 1
   store i8 %141, ptr %.0117198, align 1
   br label %143
@@ -691,7 +691,7 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr nocapture n
 
 164:                                              ; preds = %163
   %165 = lshr i32 %162, 24
-  %166 = trunc i32 %165 to i8
+  %166 = trunc nuw i32 %165 to i8
   %167 = getelementptr i8, ptr %.0117198, i64 1
   store i8 %166, ptr %.0117198, align 1
   br label %168
@@ -793,7 +793,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @compare3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = getelementptr i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1269,7 +1269,7 @@ define dso_local i32 @LocalToUtf(ptr noundef %0, i32 noundef %1, ptr nocapture n
 
 53:                                               ; preds = %52
   %54 = lshr i32 %51, 24
-  %55 = trunc i32 %54 to i8
+  %55 = trunc nuw i32 %54 to i8
   %56 = getelementptr i8, ptr %.076136, i64 1
   store i8 %55, ptr %.076136, align 1
   br label %57
@@ -1328,7 +1328,7 @@ define dso_local i32 @LocalToUtf(ptr noundef %0, i32 noundef %1, ptr nocapture n
 
 80:                                               ; preds = %77
   %81 = lshr i32 %79, 24
-  %82 = trunc i32 %81 to i8
+  %82 = trunc nuw i32 %81 to i8
   %83 = getelementptr i8, ptr %.076136, i64 1
   store i8 %82, ptr %.076136, align 1
   br label %84
@@ -1380,7 +1380,7 @@ store_coded_char.exit102:                         ; preds = %96, %98
 
 103:                                              ; preds = %store_coded_char.exit102
   %104 = lshr i32 %102, 24
-  %105 = trunc i32 %104 to i8
+  %105 = trunc nuw i32 %104 to i8
   %106 = getelementptr i8, ptr %.3.i101, i64 1
   store i8 %105, ptr %.3.i101, align 1
   br label %107
@@ -1438,7 +1438,7 @@ store_coded_char.exit102:                         ; preds = %96, %98
 
 129:                                              ; preds = %128
   %130 = lshr i32 %127, 24
-  %131 = trunc i32 %130 to i8
+  %131 = trunc nuw i32 %130 to i8
   %132 = getelementptr i8, ptr %.076136, i64 1
   store i8 %131, ptr %.076136, align 1
   br label %133
@@ -1520,7 +1520,7 @@ store_coded_char.exit:                            ; preds = %147, %145, %121, %1
 declare i32 @pg_encoding_verifymbchar(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare4(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @compare4(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ugt i32 %3, %4

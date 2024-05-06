@@ -230,7 +230,7 @@ declare i32 @update_ref(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @parse_notes_merge_strategy(ptr nocapture noundef readonly %v, ptr nocapture noundef writeonly %s) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @parse_notes_merge_strategy(ptr nocapture noundef readonly %v, ptr nocapture noundef writeonly %s) local_unnamed_addr #4 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %v, ptr noundef nonnull dereferenceable(7) @.str.5) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -297,22 +297,22 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 1, ptr %mode_from_env, align 4
-  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %call1, ptr noundef nonnull @.str.14) #12
+  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %call1, ptr noundef nonnull @.str.14) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %parse_combine_notes_fn.exit.thread, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
-  %call1.i = tail call i32 @strcasecmp(ptr noundef nonnull %call1, ptr noundef nonnull @.str.15) #12
+  %call1.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %call1, ptr noundef nonnull @.str.15) #12
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %parse_combine_notes_fn.exit.thread, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.else.i
-  %call5.i = tail call i32 @strcasecmp(ptr noundef nonnull %call1, ptr noundef nonnull @.str.16) #12
+  %call5.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %call1, ptr noundef nonnull @.str.16) #12
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %parse_combine_notes_fn.exit.thread, label %if.else8.i
 
 if.else8.i:                                       ; preds = %if.else4.i
-  %call9.i = tail call i32 @strcasecmp(ptr noundef nonnull %call1, ptr noundef nonnull @.str.9) #12
+  %call9.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %call1, ptr noundef nonnull @.str.9) #12
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %parse_combine_notes_fn.exit.thread, label %if.then11
 
@@ -396,7 +396,7 @@ declare void @string_list_add_refs_from_colon_sep(ptr noundef, ptr noundef) loca
 declare void @git_config(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @notes_rewrite_config(ptr noundef %k, ptr noundef %v, ptr nocapture readnone %ctx, ptr nocapture noundef %cb) #0 {
+define internal range(i32 -1, 2) i32 @notes_rewrite_config(ptr noundef %k, ptr noundef %v, ptr nocapture readnone %ctx, ptr nocapture noundef %cb) #0 {
 entry:
   %call = tail call i32 @starts_with(ptr noundef %k, ptr noundef nonnull @.str.17) #10
   %tobool.not = icmp eq i32 %call, 0
@@ -436,22 +436,22 @@ if.then10:                                        ; preds = %if.then8
   br label %return
 
 if.end:                                           ; preds = %if.then8
-  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull %v, ptr noundef nonnull @.str.14) #12
+  %call.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %v, ptr noundef nonnull @.str.14) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %parse_combine_notes_fn.exit.thread, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
-  %call1.i = tail call i32 @strcasecmp(ptr noundef nonnull %v, ptr noundef nonnull @.str.15) #12
+  %call1.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %v, ptr noundef nonnull @.str.15) #12
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %parse_combine_notes_fn.exit.thread, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.else.i
-  %call5.i = tail call i32 @strcasecmp(ptr noundef nonnull %v, ptr noundef nonnull @.str.16) #12
+  %call5.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %v, ptr noundef nonnull @.str.16) #12
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %parse_combine_notes_fn.exit.thread, label %if.else8.i
 
 if.else8.i:                                       ; preds = %if.else4.i
-  %call9.i = tail call i32 @strcasecmp(ptr noundef nonnull %v, ptr noundef nonnull @.str.9) #12
+  %call9.i = tail call i32 @strcasecmp(ptr noundef nonnull readonly %v, ptr noundef nonnull @.str.9) #12
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %parse_combine_notes_fn.exit.thread, label %if.then16
 
@@ -534,7 +534,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 declare ptr @load_notes_trees(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @copy_note_for_rewrite(ptr nocapture noundef readonly %c, ptr noundef %from_obj, ptr noundef %to_obj) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @copy_note_for_rewrite(ptr nocapture noundef readonly %c, ptr noundef %from_obj, ptr noundef %to_obj) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %c, align 8
   %1 = load ptr, ptr %0, align 8
@@ -553,7 +553,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call = tail call i32 @copy_note(ptr noundef nonnull %2, ptr noundef %from_obj, ptr noundef %to_obj, i32 noundef 1, ptr noundef %3) #10
   %tobool4 = icmp ne i32 %call, 0
   %4 = select i1 %tobool4, i1 true, i1 %ret.07
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load ptr, ptr %c, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.next
   %6 = load ptr, ptr %arrayidx, align 8
@@ -587,7 +587,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx6 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx6, align 8
   tail call void @free_notes(ptr noundef %4) #10
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load ptr, ptr %c, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.next
   %6 = load ptr, ptr %arrayidx, align 8

@@ -240,7 +240,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %10 = load i16, ptr %arrayidx, align 2
   %conv4 = zext i16 %10 to i32
   %div14 = lshr i16 %10, 14
-  %11 = trunc i16 %div14 to i8
+  %11 = trunc nuw nsw i16 %div14 to i8
   %conv5 = and i8 %11, 1
   %immutable = getelementptr inbounds i8, ptr %call.i15, i64 11
   store i8 %conv5, ptr %immutable, align 1
@@ -409,7 +409,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %while.
 func_finduv.exit:                                 ; preds = %if.then.i, %if.then9.i, %while.end.i
   %retval.0.i = phi ptr [ %call.i23, %while.end.i ], [ %16, %if.then9.i ], [ %16, %if.then.i ]
   %div22 = lshr i16 %12, 14
-  %34 = trunc i16 %div22 to i8
+  %34 = trunc nuw nsw i16 %div22 to i8
   %conv17 = and i8 %34, 1
   %immutable = getelementptr inbounds i8, ptr %retval.0.i, i64 11
   store i8 %conv17, ptr %immutable, align 1

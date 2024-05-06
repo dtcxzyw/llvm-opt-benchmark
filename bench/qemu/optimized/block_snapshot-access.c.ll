@@ -38,7 +38,7 @@ entry:
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @snapshot_access_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @snapshot_access_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @bdrv_open_child(ptr noundef null, ptr noundef %options, ptr noundef nonnull @.str.1, ptr noundef %bs, ptr noundef nonnull @child_of_bds, i32 noundef 17, i1 noundef zeroext false, ptr noundef %errp) #4
   tail call void @bdrv_graph_rdlock_main_loop() #4

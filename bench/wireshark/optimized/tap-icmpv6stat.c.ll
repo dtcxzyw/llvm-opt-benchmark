@@ -100,7 +100,7 @@ define internal void @icmpv6stat_reset(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @icmpv6stat_packet(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @icmpv6stat_packet(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %45, label %7
 
@@ -317,7 +317,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare ptr @g_slist_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_doubles(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 -1, 2) i32 @compare_doubles(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fcmp olt double %3, %4

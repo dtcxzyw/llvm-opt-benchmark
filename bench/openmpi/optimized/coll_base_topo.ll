@@ -73,7 +73,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_tree(i32 noundef %0, ptr n
 .lr.ph.i.i:                                       ; preds = %.preheader.split.i, %.lr.ph.i.i
   %.018.i.i = phi i32 [ %28, %.lr.ph.i.i ], [ 1, %.preheader.split.i ]
   %.01317.i.i = phi i32 [ %29, %.lr.ph.i.i ], [ 0, %.preheader.split.i ]
-  %28 = mul nsw i32 %.018.i.i, %0
+  %28 = mul nuw nsw i32 %.018.i.i, %0
   %29 = add nuw nsw i32 %.01317.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %29, %.0912.i
   br i1 %exitcond.not.i.i, label %pown.exit.i, label %.lr.ph.i.i, !llvm.loop !6
@@ -107,7 +107,7 @@ pown.exit.i:                                      ; preds = %.lr.ph.i.i, %pown.e
 .lr.ph.i:                                         ; preds = %.preheader.i74, %.lr.ph.i
   %.018.i = phi i32 [ %36, %.lr.ph.i ], [ 1, %.preheader.i74 ]
   %.01317.i = phi i32 [ %37, %.lr.ph.i ], [ 0, %.preheader.i74 ]
-  %36 = mul nsw i32 %.018.i, %0
+  %36 = mul nuw nsw i32 %.018.i, %0
   %37 = add nuw nsw i32 %.01317.i, 1
   %exitcond.not.i = icmp eq i32 %37, %.010.i.ph
   br i1 %exitcond.not.i, label %.lr.ph91, label %.lr.ph.i, !llvm.loop !6
@@ -168,7 +168,7 @@ pown.exit.i:                                      ; preds = %.lr.ph.i.i, %pown.e
 .lr.ph.i.i76:                                     ; preds = %.preheader.i.i, %.lr.ph.i.i76
   %.018.i.i77 = phi i32 [ %61, %.lr.ph.i.i76 ], [ 1, %.preheader.i.i ]
   %.01317.i.i78 = phi i32 [ %62, %.lr.ph.i.i76 ], [ 0, %.preheader.i.i ]
-  %61 = mul nsw i32 %.018.i.i77, %0
+  %61 = mul nuw nsw i32 %.018.i.i77, %0
   %62 = add nuw nsw i32 %.01317.i.i78, 1
   %exitcond.not.i.i79 = icmp eq i32 %62, %.010.i84
   br i1 %exitcond.not.i.i79, label %pown.exit.i80, label %.lr.ph.i.i76, !llvm.loop !6
@@ -386,7 +386,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_bmtree(ptr nocapture nound
   %13 = select i1 %12, i32 %.val.val, i32 0
   %spec.select = add nsw i32 %13, %8
   %14 = icmp eq i32 %spec.select, 0
-  %15 = tail call i32 @llvm.ctlz.i32(i32 %spec.select, i1 true), !range !9
+  %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %spec.select, i1 true)
   %narrow.i = sub nuw nsw i32 32, %15
   %16 = shl nuw i32 1, %narrow.i
   %.0.i = select i1 %14, i32 1, i32 %16
@@ -434,7 +434,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_bmtree(ptr nocapture nound
   %34 = shl i32 %.05678, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = icmp slt i32 %34, %.val.val
-  br i1 %35, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
+  br i1 %35, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %30
   %.057.lcssa.ph.in = phi i64 [ %indvars.iv.next, %30 ], [ %indvars.iv, %.lr.ph ]
@@ -523,7 +523,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bmtree(ptr nocapt
   %.1 = phi i32 [ %32, %27 ], [ %.04560, %25 ]
   %36 = shl i32 %.04659, 1
   %37 = icmp slt i32 %36, %.val.val
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %35, %17, %21
   %.04556 = phi i32 [ %.04560, %21 ], [ 0, %17 ], [ %.1, %35 ]
@@ -553,7 +553,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_kmtree(ptr nocapture nound
   %8 = add nuw nsw i32 %.06476, 1
   %9 = mul nsw i32 %.06575, %2
   %10 = icmp slt i32 %9, %.val.val
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.064.lcssa = phi i32 [ 0, %3 ], [ %8, %.lr.ph ]
@@ -588,7 +588,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_kmtree(ptr nocapture nound
   %28 = mul nsw i32 %.061, %2
   %29 = srem i32 %.fr, %28
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %25, label %30, !llvm.loop !13
+  br i1 %.not, label %25, label %30, !llvm.loop !12
 
 30:                                               ; preds = %27
   %31 = add i32 %.fr, %1
@@ -615,7 +615,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_kmtree(ptr nocapture nound
 37:                                               ; preds = %.preheader.us, %47
   %.078.us = phi i32 [ 1, %.preheader.us ], [ %48, %47 ]
   %.177.us = phi i32 [ %.06082.us, %.preheader.us ], [ %.2.us, %47 ]
-  %38 = mul nsw i32 %.078.us, %.16283.us
+  %38 = mul nuw nsw i32 %.078.us, %.16283.us
   %39 = add nsw i32 %38, %.fr
   %40 = icmp slt i32 %39, %.val.val
   br i1 %40, label %41, label %47
@@ -633,12 +633,12 @@ define noalias noundef ptr @ompi_coll_base_topo_build_kmtree(ptr nocapture nound
   %.2.us = phi i32 [ %46, %41 ], [ %.177.us, %37 ]
   %48 = add nuw nsw i32 %.078.us, 1
   %exitcond.not = icmp eq i32 %48, %2
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %37, !llvm.loop !14
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %37, !llvm.loop !13
 
 ..loopexit_crit_edge.us:                          ; preds = %47
   %.162.us = udiv i32 %.16283.us, %2
   %49 = icmp sgt i32 %.162.us, 0
-  br i1 %49, label %.preheader.us, label %._crit_edge84, !llvm.loop !15
+  br i1 %49, label %.preheader.us, label %._crit_edge84, !llvm.loop !14
 
 ._crit_edge84:                                    ; preds = %..loopexit_crit_edge.us, %.preheader.lr.ph, %.loopexit72
   %.060.lcssa = phi i32 [ 0, %.loopexit72 ], [ 0, %.preheader.lr.ph ], [ %.2.us, %..loopexit_crit_edge.us ]
@@ -822,7 +822,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_chain(i32 noundef %0, ptr 
   store i32 %82, ptr %78, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %71
   store i32 %spec.store.select1., ptr %12, align 4
@@ -878,11 +878,10 @@ attributes #12 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 33}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

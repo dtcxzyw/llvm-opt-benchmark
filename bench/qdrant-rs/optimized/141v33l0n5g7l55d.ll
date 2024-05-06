@@ -220,7 +220,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
 37:                                               ; preds = %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17hea50ede113946955E.exit23.i", %34, %32
   %38 = getelementptr inbounds i8, ptr %5, i64 8
   %39 = load i8, ptr %38, align 4, !range !39, !alias.scope !23, !noalias !26, !noundef !4
-  %40 = trunc i8 %39 to i1
+  %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %"_ZN80_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2334c106655261f2E.exit"
 
 41:                                               ; preds = %37
@@ -325,7 +325,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h94f3be7b0dead04dE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i32 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6c27f665835a18c5E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %0) unnamed_addr #3 {
+define hidden noundef range(i32 0, 1114113) i32 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6c27f665835a18c5E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = load i64, ptr %0, align 8, !noundef !4

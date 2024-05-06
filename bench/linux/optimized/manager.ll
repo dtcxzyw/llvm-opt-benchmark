@@ -65,7 +65,7 @@ define dso_local void @pnp_init_resources(ptr noundef %0) local_unnamed_addr #0 
 declare dso_local void @pnp_free_resources(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pnp_auto_config_dev(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @pnp_auto_config_dev(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 848
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -88,7 +88,7 @@ define dso_local noundef i32 @pnp_auto_config_dev(ptr noundef %0) local_unnamed_
   br label %.loopexit
 
 14:                                               ; preds = %5
-  %15 = tail call fastcc i32 @pnp_assign_resources(ptr noundef %0, i32 noundef 0), !range !5
+  %15 = tail call fastcc i32 @pnp_assign_resources(ptr noundef %0, i32 noundef 0)
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit, label %17
 
@@ -102,11 +102,11 @@ define dso_local noundef i32 @pnp_auto_config_dev(ptr noundef %0) local_unnamed_
   %22 = add nuw i32 %25, 1
   %23 = load i32, ptr %18, align 8
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.preheader, label %.loopexit3, !llvm.loop !6
+  br i1 %24, label %.preheader, label %.loopexit3, !llvm.loop !5
 
 .preheader:                                       ; preds = %17, %21
   %25 = phi i32 [ %22, %21 ], [ 1, %17 ]
-  %26 = tail call fastcc i32 @pnp_assign_resources(ptr noundef %0, i32 noundef %25), !range !5
+  %26 = tail call fastcc i32 @pnp_assign_resources(ptr noundef %0, i32 noundef %25)
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %.loopexit, label %21
 
@@ -127,7 +127,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare dso_local void @_dev_printk(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @pnp_assign_resources(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @pnp_assign_resources(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.resource, align 8
   %4 = alloca %struct.resource, align 8
   %5 = alloca %struct.resource, align 8
@@ -162,7 +162,7 @@ define internal fastcc noundef i32 @pnp_assign_resources(ptr noundef %0, i32 nou
 
 21:                                               ; preds = %20, %.preheader27
   %22 = icmp eq ptr %15, %11
-  br i1 %22, label %.loopexit28, label %.preheader27, !llvm.loop !9
+  br i1 %22, label %.loopexit28, label %.preheader27, !llvm.loop !8
 
 .loopexit28:                                      ; preds = %21, %10
   %23 = getelementptr inbounds i8, ptr %0, i64 880
@@ -214,7 +214,7 @@ define internal fastcc noundef i32 @pnp_assign_resources(ptr noundef %0, i32 nou
   %54 = getelementptr inbounds i8, ptr %36, i64 32
   %55 = add i32 %37, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !9
   %56 = getelementptr inbounds i8, ptr %36, i64 64
   %57 = load i8, ptr %56, align 8
   %58 = call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef %37) #7
@@ -289,7 +289,7 @@ define internal fastcc noundef i32 @pnp_assign_resources(ptr noundef %0, i32 nou
   %101 = icmp ugt i64 %96, %100
   %102 = icmp eq i64 %94, 0
   %103 = or i1 %102, %101
-  br i1 %103, label %104, label %90, !llvm.loop !11
+  br i1 %103, label %104, label %90, !llvm.loop !10
 
 104:                                              ; preds = %93
   %105 = load i32, ptr @pnp_debug, align 4
@@ -318,7 +318,7 @@ define internal fastcc noundef i32 @pnp_assign_resources(ptr noundef %0, i32 nou
   %117 = getelementptr inbounds i8, ptr %36, i64 32
   %118 = add i32 %38, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !9
   %119 = getelementptr inbounds i8, ptr %36, i64 64
   %120 = load i8, ptr %119, align 8
   %121 = call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 512, i32 noundef %38) #7
@@ -414,7 +414,7 @@ define internal fastcc noundef i32 @pnp_assign_resources(ptr noundef %0, i32 nou
   %177 = icmp ugt i64 %172, %176
   %178 = icmp eq i64 %170, 0
   %179 = or i1 %178, %177
-  br i1 %179, label %180, label %166, !llvm.loop !12
+  br i1 %179, label %180, label %166, !llvm.loop !11
 
 180:                                              ; preds = %169
   %181 = load i32, ptr @pnp_debug, align 4
@@ -443,7 +443,7 @@ define internal fastcc noundef i32 @pnp_assign_resources(ptr noundef %0, i32 nou
   %193 = getelementptr inbounds i8, ptr %36, i64 32
   %194 = add i32 %39, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !9
   %195 = getelementptr inbounds i8, ptr %36, i64 64
   %196 = load i8, ptr %195, align 8
   %197 = call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 1024, i32 noundef %39) #7
@@ -504,7 +504,7 @@ define internal fastcc noundef i32 @pnp_assign_resources(ptr noundef %0, i32 nou
   %227 = getelementptr [16 x i16], ptr @pnp_assign_irq.xtab, i64 0, i64 %226
   %228 = load i16, ptr %227, align 2
   %229 = zext i16 %228 to i64
-  %230 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %193, i64 %229) #7, !srcloc !13
+  %230 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %193, i64 %229) #7, !srcloc !12
   %231 = icmp ult i8 %230, 2
   call void @llvm.assume(i1 %231)
   %232 = icmp eq i8 %230, 0
@@ -520,7 +520,7 @@ define internal fastcc noundef i32 @pnp_assign_resources(ptr noundef %0, i32 nou
 236:                                              ; preds = %233, %.preheader22
   %237 = add nuw nsw i64 %226, 1
   %238 = icmp eq i64 %237, 16
-  br i1 %238, label %239, label %.preheader22, !llvm.loop !14
+  br i1 %238, label %239, label %.preheader22, !llvm.loop !13
 
 239:                                              ; preds = %236
   %240 = load i8, ptr %195, align 8
@@ -567,7 +567,7 @@ define internal fastcc noundef i32 @pnp_assign_resources(ptr noundef %0, i32 nou
   %261 = getelementptr inbounds i8, ptr %36, i64 32
   %262 = add i32 %40, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !9
   %263 = getelementptr inbounds i8, ptr %36, i64 33
   %264 = load i8, ptr %263, align 1
   %265 = call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 2048, i32 noundef %40) #7
@@ -635,7 +635,7 @@ define internal fastcc noundef i32 @pnp_assign_resources(ptr noundef %0, i32 nou
 302:                                              ; preds = %298, %.preheader24
   %303 = add nuw nsw i64 %289, 1
   %304 = icmp eq i64 %303, 8
-  br i1 %304, label %305, label %.preheader24, !llvm.loop !15
+  br i1 %304, label %305, label %.preheader24, !llvm.loop !14
 
 305:                                              ; preds = %302
   %306 = load i32, ptr @pnp_debug, align 4
@@ -675,7 +675,7 @@ define internal fastcc noundef i32 @pnp_assign_resources(ptr noundef %0, i32 nou
   %327 = phi i32 [ %37, %44 ], [ %321, %316 ]
   %328 = load ptr, ptr %36, align 8
   %329 = icmp eq ptr %328, %23
-  br i1 %329, label %.loopexit26, label %35, !llvm.loop !16
+  br i1 %329, label %.loopexit26, label %35, !llvm.loop !15
 
 .thread:                                          ; preds = %48, %316
   %.ph = phi i32 [ %317, %316 ], [ -22, %48 ]
@@ -708,7 +708,7 @@ define internal fastcc noundef i32 @pnp_assign_resources(ptr noundef %0, i32 nou
 
 343:                                              ; preds = %342, %.preheader
   %344 = icmp eq ptr %337, %11
-  br i1 %344, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %344, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit26:                                      ; preds = %323, %.loopexit28
   call void @mutex_unlock(ptr noundef nonnull @pnp_res_mutex) #7
@@ -727,7 +727,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pnp_start_dev(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pnp_start_dev(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 808
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -780,7 +780,7 @@ declare dso_local void @dbg_pnp_show_resources(ptr noundef, ptr noundef) local_u
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pnp_stop_dev(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pnp_stop_dev(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 808
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
@@ -798,7 +798,7 @@ define dso_local noundef i32 @pnp_stop_dev(ptr noundef %0) #0 align 16 {
 12:                                               ; preds = %7
   %13 = and i32 %9, 32
   %14 = icmp ne i32 %13, 0
-  %15 = load i8, ptr @console_suspend_enabled, align 1, !range !17
+  %15 = load i8, ptr @console_suspend_enabled, align 1, !range !16
   %16 = icmp eq i8 %15, 0
   %17 = select i1 %14, i1 %16, i1 false
   br i1 %17, label %18, label %22
@@ -831,7 +831,7 @@ define dso_local noundef i32 @pnp_stop_dev(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pnp_activate_dev(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pnp_activate_dev(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 848
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -854,7 +854,7 @@ define dso_local noundef i32 @pnp_activate_dev(ptr noundef %0) #0 align 16 {
   br label %pnp_auto_config_dev.exit.thread
 
 14:                                               ; preds = %5
-  %15 = tail call fastcc i32 @pnp_assign_resources(ptr noundef %0, i32 noundef 0), !range !5
+  %15 = tail call fastcc i32 @pnp_assign_resources(ptr noundef %0, i32 noundef 0)
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %pnp_auto_config_dev.exit, label %17
 
@@ -868,11 +868,11 @@ define dso_local noundef i32 @pnp_activate_dev(ptr noundef %0) #0 align 16 {
   %22 = add nuw i32 %25, 1
   %23 = load i32, ptr %18, align 8
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.preheader.i, label %.loopexit3.i, !llvm.loop !6
+  br i1 %24, label %.preheader.i, label %.loopexit3.i, !llvm.loop !5
 
 .preheader.i:                                     ; preds = %17, %21
   %25 = phi i32 [ %22, %21 ], [ 1, %17 ]
-  %26 = tail call fastcc i32 @pnp_assign_resources(ptr noundef %0, i32 noundef %25), !range !5
+  %26 = tail call fastcc i32 @pnp_assign_resources(ptr noundef %0, i32 noundef %25)
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %pnp_auto_config_dev.exit, label %21
 
@@ -927,7 +927,7 @@ pnp_auto_config_dev.exit.thread:                  ; preds = %37, %40, %47, %10, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pnp_disable_dev(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pnp_disable_dev(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 848
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -951,7 +951,7 @@ define dso_local noundef i32 @pnp_disable_dev(ptr noundef %0) #0 align 16 {
 16:                                               ; preds = %11
   %17 = and i32 %13, 32
   %18 = icmp ne i32 %17, 0
-  %19 = load i8, ptr @console_suspend_enabled, align 1, !range !17
+  %19 = load i8, ptr @console_suspend_enabled, align 1, !range !16
   %20 = icmp eq i8 %19, 0
   %21 = select i1 %18, i1 %20, i1 false
   br i1 %21, label %22, label %26
@@ -998,7 +998,7 @@ define dso_local noundef i32 @pnp_disable_dev(ptr noundef %0) #0 align 16 {
 
 41:                                               ; preds = %40, %.preheader
   %42 = icmp eq ptr %35, %31
-  br i1 %42, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %42, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %41, %30
   tail call void @mutex_unlock(ptr noundef nonnull @pnp_res_mutex) #7
@@ -1077,16 +1077,15 @@ attributes #8 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = !{i32 -22, i32 1}
-!6 = distinct !{!6, !7, !8}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{!"auto-init"}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{i64 2148487866, i64 2148487940}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = !{i8 0, i8 2}
+!5 = distinct !{!5, !6, !7}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = !{!"llvm.loop.unroll.disable"}
+!8 = distinct !{!8, !6, !7}
+!9 = !{!"auto-init"}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = !{i64 2148487866, i64 2148487940}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = !{i8 0, i8 2}

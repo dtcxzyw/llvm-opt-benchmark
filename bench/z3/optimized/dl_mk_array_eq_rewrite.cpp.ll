@@ -541,7 +541,7 @@ _ZNK16basic_union_find7is_rootEj.exit.i.i:        ; preds = %land.rhs.i.i
 
 _ZN15obj_equiv_classI4expr11ast_managerE14equiv_iteratorC2ERKS2_j.exit.loopexit9.i: ; preds = %_ZNK16basic_union_find7is_rootEj.exit.i.i, %land.rhs.i.i, %while.cond.i.i
   %indvars.iv.i.lcssa.i = phi i64 [ %indvars.iv.i.i, %_ZNK16basic_union_find7is_rootEj.exit.i.i ], [ %indvars.iv.i.i, %land.rhs.i.i ], [ %51, %while.cond.i.i ]
-  %56 = trunc i64 %indvars.iv.i.lcssa.i to i32
+  %56 = trunc nuw i64 %indvars.iv.i.lcssa.i to i32
   br i1 %cmp.i.i.i.i63, label %invoke.cont34, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread.i
 
 invoke.cont32:                                    ; preds = %for.end31
@@ -1327,8 +1327,8 @@ if.end3:                                          ; preds = %if.else
   %0 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %1 = getelementptr i8, ptr %e, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 32
+  %1 = getelementptr inbounds i8, ptr %e, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 32
   %cmp8.not18 = icmp eq i32 %0, 0
   br i1 %cmp8.not18, label %for.end.thread, label %for.body.preheader
 

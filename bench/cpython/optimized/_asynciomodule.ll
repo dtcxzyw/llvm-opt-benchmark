@@ -2239,7 +2239,7 @@ if.end:                                           ; preds = %entry, %cond.end
   %2 = load ptr, ptr %arrayidx6, align 8
   %3 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %3, align 8
-  %call1.i = call fastcc i32 @enter_task(ptr noundef %module.val, ptr noundef %1, ptr noundef %2)
+  %call1.i = call fastcc i32 @enter_task(ptr noundef readonly %module.val, ptr noundef %1, ptr noundef %2)
   %cmp.i = icmp slt i32 %call1.i, 0
   %._Py_NoneStruct.i = select i1 %cmp.i, ptr null, ptr @_Py_NoneStruct
   br label %exit
@@ -2328,7 +2328,7 @@ if.end:                                           ; preds = %entry, %cond.end
   %2 = load ptr, ptr %arrayidx6, align 8
   %3 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %3, align 8
-  %call1.i = call fastcc noundef ptr @swap_current_task(ptr noundef %module.val, ptr noundef %1, ptr noundef %2)
+  %call1.i = call fastcc noundef ptr @swap_current_task(ptr noundef readonly %module.val, ptr noundef %1, ptr noundef %2)
   br label %exit
 
 exit:                                             ; preds = %cond.end, %if.end
@@ -2508,7 +2508,7 @@ declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, pt
 declare i32 @PyDict_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @register_task(ptr %state.56.val, ptr noundef %task) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @register_task(ptr %state.56.val, ptr noundef %task) unnamed_addr #0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i)
@@ -2679,7 +2679,7 @@ return:                                           ; preds = %if.end.i22, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @module_exec(ptr noundef %mod) #0 {
+define internal range(i32 -1, 1) i32 @module_exec(ptr noundef %mod) #0 {
 entry:
   %0 = getelementptr i8, ptr %mod, i64 32
   %mod.val = load ptr, ptr %0, align 8
@@ -3638,7 +3638,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i9.i
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %Py_XINCREF.exit.i.thread, %if.then1.i.i.i, %if.end.i.i9.i, %if.then.i8.i, %Py_XINCREF.exit.i
-  %call.i75 = call fastcc i32 @future_schedule_callbacks(ptr noundef %state, ptr noundef nonnull %task), !range !7
+  %call.i75 = call fastcc i32 @future_schedule_callbacks(ptr noundef readonly %state, ptr noundef nonnull %task)
   %cmp2.i = icmp eq i32 %call.i75, -1
   %._Py_TrueStruct.i = select i1 %cmp2.i, ptr null, ptr @_Py_TrueStruct
   br label %if.end61
@@ -3679,7 +3679,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i83, %if
   %fut_result.i = getelementptr inbounds i8, ptr %task, i64 64
   store ptr %17, ptr %fut_result.i, align 8
   store i32 2, ptr %task_state, align 8
-  %call5.i = call fastcc i32 @future_schedule_callbacks(ptr noundef %state, ptr noundef nonnull %task), !range !7
+  %call5.i = call fastcc i32 @future_schedule_callbacks(ptr noundef readonly %state, ptr noundef nonnull %task)
   %cmp6.i = icmp eq i32 %call5.i, -1
   %._Py_NoneStruct.i = select i1 %cmp6.i, ptr null, ptr @_Py_NoneStruct
   br label %if.end61
@@ -3765,7 +3765,7 @@ if.then1.i.i.i103:                                ; preds = %if.end.i.i9.i100
   br label %Py_XDECREF.exit.i96
 
 Py_XDECREF.exit.i96:                              ; preds = %if.then1.i.i.i103, %if.end.i.i9.i100, %if.then.i8.i94, %if.end.i90
-  %call.i97 = call fastcc i32 @future_schedule_callbacks(ptr noundef nonnull %state, ptr noundef nonnull %task), !range !7
+  %call.i97 = call fastcc i32 @future_schedule_callbacks(ptr noundef nonnull readonly %state, ptr noundef nonnull %task)
   %cmp2.i98 = icmp eq i32 %call.i97, -1
   %._Py_TrueStruct.i99 = select i1 %cmp2.i98, ptr null, ptr @_Py_TrueStruct
   br label %return
@@ -3884,7 +3884,7 @@ if.end9.i:                                        ; preds = %if.end6.i
 if.end16.i:                                       ; preds = %if.end9.i
   %task_context.i = getelementptr inbounds i8, ptr %task, i64 136
   %54 = load ptr, ptr %task_context.i, align 8
-  %call17.i = call fastcc ptr @future_add_done_callback(ptr noundef nonnull %state, ptr noundef nonnull %17, ptr noundef nonnull %call13.i, ptr noundef %54)
+  %call17.i = call fastcc ptr @future_add_done_callback(ptr noundef nonnull readonly %state, ptr noundef nonnull %17, ptr noundef nonnull %call13.i, ptr noundef %54)
   %55 = load i64, ptr %call13.i, align 8
   %56 = and i64 %55, 2147483648
   %cmp.i270.not.i = icmp eq i64 %56, 0
@@ -3975,7 +3975,7 @@ if.end43.i:                                       ; preds = %lor.lhs.false.i
   br i1 %cmp44.i, label %if.then45.i, label %if.end50.i
 
 if.then45.i:                                      ; preds = %if.end43.i
-  %call46.i = call fastcc i32 @task_call_step_soon(ptr noundef nonnull %state, ptr noundef nonnull %task, ptr noundef null), !range !7
+  %call46.i = call fastcc i32 @task_call_step_soon(ptr noundef nonnull readonly %state, ptr noundef nonnull %task, ptr noundef null)
   %tobool47.not.i = icmp eq i32 %call46.i, 0
   br i1 %tobool47.not.i, label %task_step_handle_result_impl.exit, label %if.then.i.i110
 
@@ -4014,7 +4014,7 @@ Py_DECREF.exit241.i:                              ; preds = %if.then1.i239.i, %i
   br i1 %cmp61.i, label %fail.i, label %if.end63.i
 
 if.end63.i:                                       ; preds = %Py_DECREF.exit241.i
-  %call64.i = call fastcc ptr @get_future_loop(ptr noundef nonnull %state, ptr noundef %17)
+  %call64.i = call fastcc ptr @get_future_loop(ptr noundef nonnull readonly %state, ptr noundef %17)
   %cmp65.i = icmp eq ptr %call64.i, null
   br i1 %cmp65.i, label %fail.i, label %if.end67.i
 
@@ -4210,7 +4210,7 @@ if.end125.i:                                      ; preds = %if.end121.i
   br i1 %tobool126.not.i, label %if.end129.i, label %if.then127.i
 
 if.then127.i:                                     ; preds = %if.end125.i
-  %call128.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull %state, ptr noundef nonnull %task, ptr noundef %84, ptr noundef nonnull @.str.32, ptr noundef nonnull %task, ptr noundef %17)
+  %call128.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull readonly %state, ptr noundef nonnull %task, ptr noundef %84, ptr noundef nonnull @.str.32, ptr noundef nonnull %task, ptr noundef %17)
   store ptr %call128.i, ptr %o.i, align 8
   %85 = load i64, ptr %17, align 8
   %86 = and i64 %85, 2147483648
@@ -4229,7 +4229,7 @@ if.then1.i167.i:                                  ; preds = %if.end.i164.i
   br label %task_step_handle_result_impl.exit
 
 if.end129.i:                                      ; preds = %if.end125.i
-  %call130.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull %state, ptr noundef nonnull %task, ptr noundef %84, ptr noundef nonnull @.str.33, ptr noundef %17)
+  %call130.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull readonly %state, ptr noundef nonnull %task, ptr noundef %84, ptr noundef nonnull @.str.33, ptr noundef %17)
   store ptr %call130.i, ptr %o.i, align 8
   %87 = load i64, ptr %17, align 8
   %88 = and i64 %87, 2147483648
@@ -4249,7 +4249,7 @@ if.then1.i158.i:                                  ; preds = %if.end.i155.i
 
 self_await.i:                                     ; preds = %if.end87
   %89 = load ptr, ptr @PyExc_RuntimeError, align 8
-  %call131.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef %state, ptr noundef nonnull %task, ptr noundef %89, ptr noundef nonnull @.str.34, ptr noundef nonnull %task)
+  %call131.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef readonly %state, ptr noundef nonnull %task, ptr noundef %89, ptr noundef nonnull @.str.34, ptr noundef nonnull %task)
   %90 = load i64, ptr %17, align 8
   %91 = and i64 %90, 2147483648
   %cmp.i321.not.i = icmp eq i64 %91, 0
@@ -4267,7 +4267,7 @@ if.then1.i149.i:                                  ; preds = %if.end.i146.i
 
 yield_insteadof_yf.i:                             ; preds = %Py_DECREF.exit223.i, %if.end6.i
   %92 = load ptr, ptr @PyExc_RuntimeError, align 8
-  %call132.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull %state, ptr noundef nonnull %task, ptr noundef %92, ptr noundef nonnull @.str.35, ptr noundef nonnull %task, ptr noundef %17)
+  %call132.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull readonly %state, ptr noundef nonnull %task, ptr noundef %92, ptr noundef nonnull @.str.35, ptr noundef nonnull %task, ptr noundef %17)
   store ptr %call132.i, ptr %o.i, align 8
   %93 = load i64, ptr %17, align 8
   %94 = and i64 %93, 2147483648
@@ -4287,7 +4287,7 @@ if.then1.i140.i:                                  ; preds = %if.end.i137.i
 
 different_loop.i:                                 ; preds = %if.then1.i230.i, %if.end.i227.i, %if.then70.i, %if.then3.i
   %95 = load ptr, ptr @PyExc_RuntimeError, align 8
-  %call133.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull %state, ptr noundef nonnull %task, ptr noundef %95, ptr noundef nonnull @.str.36, ptr noundef nonnull %task, ptr noundef %17)
+  %call133.i = call ptr (ptr, ptr, ptr, ptr, ...) @task_set_error_soon(ptr noundef nonnull readonly %state, ptr noundef nonnull %task, ptr noundef %95, ptr noundef nonnull @.str.36, ptr noundef nonnull %task, ptr noundef %17)
   store ptr %call133.i, ptr %o.i, align 8
   %96 = load i64, ptr %17, align 8
   %97 = and i64 %96, 2147483648
@@ -4486,7 +4486,7 @@ if.end23:                                         ; preds = %if.end19
   %fut_exception_tb = getelementptr inbounds i8, ptr %fut, i64 56
   store ptr %call24, ptr %fut_exception_tb, align 8
   store i32 2, ptr %fut_state, align 8
-  %call26 = tail call fastcc i32 @future_schedule_callbacks(ptr noundef %state, ptr noundef nonnull %fut), !range !7
+  %call26 = tail call fastcc i32 @future_schedule_callbacks(ptr noundef %state, ptr noundef nonnull %fut)
   %cmp27 = icmp eq i32 %call26, -1
   br i1 %cmp27, label %return, label %if.end29
 
@@ -4537,7 +4537,7 @@ if.end:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @future_schedule_callbacks(ptr nocapture noundef readonly %state, ptr noundef %fut) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @future_schedule_callbacks(ptr nocapture noundef readonly %state, ptr noundef %fut) unnamed_addr #0 {
 entry:
   %stack.i55 = alloca [3 x ptr], align 16
   %stack2.i56 = alloca [4 x ptr], align 16
@@ -4787,7 +4787,7 @@ for.inc:                                          ; preds = %if.end14.i72, %if.t
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %stack2.i56)
   %inc = add nuw nsw i64 %i.087, 1
   %exitcond.not = icmp eq i64 %inc, %.val
-  br i1 %exitcond.not, label %do.body59, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %do.body59, label %for.body, !llvm.loop !7
 
 do.body59:                                        ; preds = %for.inc
   %.pre = load ptr, ptr %fut_callbacks23, align 8
@@ -5045,7 +5045,7 @@ return:                                           ; preds = %if.end31, %if.end24
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @task_call_step_soon(ptr nocapture noundef readonly %state, ptr noundef %task, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @task_call_step_soon(ptr nocapture noundef readonly %state, ptr noundef %task, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %stack.i = alloca [3 x ptr], align 16
   %stack2.i = alloca [4 x ptr], align 16
@@ -5270,7 +5270,7 @@ Py_DECREF.exit28:                                 ; preds = %if.end, %if.then1.i
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %Py_DECREF.exit28
-  %call7 = call fastcc i32 @task_call_step_soon(ptr noundef %state, ptr noundef %task, ptr noundef nonnull %call3), !range !7
+  %call7 = call fastcc i32 @task_call_step_soon(ptr noundef %state, ptr noundef %task, ptr noundef nonnull %call3)
   %cmp8 = icmp eq i32 %call7, -1
   %2 = load i64, ptr %call3, align 8
   %3 = and i64 %2, 2147483648
@@ -5329,7 +5329,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   store ptr null, ptr %fut_result, align 8
-  %call4 = call fastcc i32 @future_get_result(ptr noundef nonnull %call1.val.i, ptr noundef nonnull %o, ptr noundef nonnull %fut_result), !range !9
+  %call4 = call fastcc i32 @future_get_result(ptr noundef nonnull %call1.val.i, ptr noundef nonnull %o, ptr noundef nonnull %fut_result)
   switch i32 %call4, label %sw.default [
     i32 -1, label %if.end12
     i32 0, label %sw.bb5
@@ -5423,7 +5423,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @future_get_result(ptr nocapture noundef readonly %state, ptr nocapture noundef %fut, ptr nocapture noundef writeonly %result) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @future_get_result(ptr nocapture noundef readonly %state, ptr nocapture noundef %fut, ptr nocapture noundef writeonly %result) unnamed_addr #0 {
 entry:
   %fut_state = getelementptr inbounds i8, ptr %fut, i64 96
   %0 = load i32, ptr %fut_state, align 8
@@ -5698,7 +5698,7 @@ declare ptr @PyObject_SelfIter(ptr noundef) #1
 define internal ptr @FutureIter_iternext(ptr nocapture noundef %it) #0 {
 entry:
   %result = alloca ptr, align 8
-  %call = call i32 @FutureIter_am_send(ptr noundef %it, ptr nonnull poison, ptr noundef nonnull %result), !range !9
+  %call = call i32 @FutureIter_am_send(ptr noundef %it, ptr nonnull poison, ptr noundef nonnull %result)
   switch i32 %call, label %default.unreachable3 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb2
@@ -5736,7 +5736,7 @@ return:                                           ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FutureIter_am_send(ptr nocapture noundef %it, ptr nocapture readnone %_unused_arg, ptr nocapture noundef writeonly %result) #0 {
+define internal range(i32 -1, 2) i32 @FutureIter_am_send(ptr nocapture noundef %it, ptr nocapture readnone %_unused_arg, ptr nocapture noundef writeonly %result) #0 {
 entry:
   %future = getelementptr inbounds i8, ptr %it, i64 16
   %0 = load ptr, ptr %future, align 8
@@ -5831,7 +5831,7 @@ define internal ptr @FutureIter_send(ptr nocapture noundef %self, ptr nocapture 
 entry:
   %result.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i)
-  %call.i = call i32 @FutureIter_am_send(ptr noundef %self, ptr nonnull poison, ptr noundef nonnull %result.i), !range !9
+  %call.i = call i32 @FutureIter_am_send(ptr noundef %self, ptr nonnull poison, ptr noundef nonnull %result.i)
   switch i32 %call.i, label %default.unreachable [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb2.i
@@ -6201,7 +6201,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = call fastcc i32 @future_get_result(ptr noundef %call1.val.i, ptr noundef nonnull %self, ptr noundef nonnull %result), !range !9
+  %call2 = call fastcc i32 @future_get_result(ptr noundef %call1.val.i, ptr noundef nonnull %self, ptr noundef nonnull %result)
   switch i32 %call2, label %if.end7 [
     i32 -1, label %return
     i32 0, label %if.then6
@@ -6734,7 +6734,7 @@ return:                                           ; preds = %future_ensure_alive
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_asyncio_Future___init__(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @_asyncio_Future___init__(ptr nocapture noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %0 = getelementptr i8, ptr %args, i64 16
@@ -6773,7 +6773,7 @@ if.end20:                                         ; preds = %if.end
 
 skip_optional_kwonly:                             ; preds = %if.end, %if.end20
   %loop.0 = phi ptr [ %3, %if.end20 ], [ @_Py_NoneStruct, %if.end ]
-  %call.i = call fastcc noundef i32 @future_init(ptr noundef %self, ptr noundef %loop.0), !range !7
+  %call.i = call fastcc i32 @future_init(ptr noundef %self, ptr noundef %loop.0)
   br label %exit
 
 exit:                                             ; preds = %cond.end15, %skip_optional_kwonly
@@ -7072,7 +7072,7 @@ return:                                           ; preds = %if.end.i.i13.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_asyncio_Future_set_result(ptr noundef %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_asyncio_Future_set_result(ptr noundef %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -7130,7 +7130,7 @@ _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if
   %fut_result.i.i = getelementptr inbounds i8, ptr %self, i64 64
   store ptr %1, ptr %fut_result.i.i, align 8
   store i32 2, ptr %fut_state.i.i, align 8
-  %call5.i.i = call fastcc i32 @future_schedule_callbacks(ptr noundef %cls.val.val, ptr noundef nonnull %self), !range !7
+  %call5.i.i = call fastcc i32 @future_schedule_callbacks(ptr noundef readonly %cls.val.val, ptr noundef nonnull %self)
   %cmp6.i.i = icmp eq i32 %call5.i.i, -1
   %._Py_NoneStruct.i.i = select i1 %cmp6.i.i, ptr null, ptr @_Py_NoneStruct
   br label %exit
@@ -7174,7 +7174,7 @@ do.end.i:                                         ; preds = %if.end
   %4 = getelementptr i8, ptr %cls.val, i64 32
   %cls.val.val = load ptr, ptr %4, align 8
   %5 = load ptr, ptr %cond12, align 8
-  %call2.i = call fastcc ptr @future_set_exception(ptr noundef %cls.val.val, ptr noundef nonnull %self, ptr noundef %5)
+  %call2.i = call fastcc ptr @future_set_exception(ptr noundef readonly %cls.val.val, ptr noundef nonnull %self, ptr noundef %5)
   br label %exit
 
 exit:                                             ; preds = %do.end.i, %future_ensure_alive.exit.i, %cond.end
@@ -7242,7 +7242,7 @@ if.then.i:                                        ; preds = %skip_optional_kwonl
   br i1 %cmp2.i, label %exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %call4.i = call fastcc ptr @future_add_done_callback(ptr noundef %cls.val.val30, ptr noundef %self, ptr noundef %11, ptr noundef nonnull %call1.i)
+  %call4.i = call fastcc ptr @future_add_done_callback(ptr noundef readonly %cls.val.val30, ptr noundef %self, ptr noundef %11, ptr noundef nonnull %call1.i)
   %12 = load i64, ptr %call1.i, align 8
   %13 = and i64 %12, 2147483648
   %cmp.i8.not.i = icmp eq i64 %13, 0
@@ -7259,7 +7259,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %exit
 
 if.end5.i:                                        ; preds = %skip_optional_kwonly
-  %call6.i = call fastcc ptr @future_add_done_callback(ptr noundef %cls.val.val, ptr noundef %self, ptr noundef %4, ptr noundef nonnull %8)
+  %call6.i = call fastcc ptr @future_add_done_callback(ptr noundef readonly %cls.val.val, ptr noundef %self, ptr noundef %4, ptr noundef nonnull %8)
   br label %exit
 
 exit:                                             ; preds = %if.end5.i, %if.then1.i.i, %if.end.i.i, %if.end.i, %if.then.i, %cond.end9
@@ -7522,7 +7522,7 @@ for.inc.i:                                        ; preds = %Py_DECREF.exit164.i
   %inc93.i = add nuw nsw i64 %i.010.i, 1
   %31 = load ptr, ptr %fut_callbacks.i, align 8
   %cmp73.not.i = icmp eq ptr %31, null
-  br i1 %cmp73.not.i, label %do.end105.i, label %land.rhs.i, !llvm.loop !10
+  br i1 %cmp73.not.i, label %do.end105.i, label %land.rhs.i, !llvm.loop !8
 
 for.end.thread.i:                                 ; preds = %land.rhs.i
   %cmp943.i = icmp eq i64 %j.09.i, 0
@@ -7638,7 +7638,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_asyncio_Future_cancel(ptr noundef %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_asyncio_Future_cancel(ptr noundef %self, ptr nocapture noundef readonly %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %tobool.not = icmp eq ptr %kwnames, null
@@ -7737,7 +7737,7 @@ if.then1.i.i.i.i:                                 ; preds = %if.end.i.i9.i.i
   br label %Py_XDECREF.exit.i.i
 
 Py_XDECREF.exit.i.i:                              ; preds = %if.then1.i.i.i.i, %if.end.i.i9.i.i, %if.then.i8.i.i, %Py_XINCREF.exit.i.i
-  %call.i.i = call fastcc i32 @future_schedule_callbacks(ptr noundef %cls.val.val, ptr noundef nonnull %self), !range !7
+  %call.i.i = call fastcc i32 @future_schedule_callbacks(ptr noundef readonly %cls.val.val, ptr noundef nonnull %self)
   %cmp2.i.i = icmp eq i32 %call.i.i, -1
   %._Py_TrueStruct.i.i = select i1 %cmp2.i.i, ptr null, ptr @_Py_TrueStruct
   br label %exit
@@ -7933,7 +7933,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FutureObj_set_blocking(ptr nocapture noundef %fut, ptr noundef %val, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @FutureObj_set_blocking(ptr nocapture noundef %fut, ptr noundef %val, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %fut, i64 16
   %fut.val = load ptr, ptr %0, align 8
@@ -8142,7 +8142,7 @@ Py_INCREF.exit:                                   ; preds = %for.body, %if.end.i
   %23 = getelementptr i8, ptr %22, i64 16
   %.val = load i64, ptr %23, align 8
   %cmp31 = icmp slt i64 %add33, %.val
-  br i1 %cmp31, label %for.body, label %return, !llvm.loop !11
+  br i1 %cmp31, label %for.body, label %return, !llvm.loop !9
 
 return:                                           ; preds = %Py_INCREF.exit, %for.cond.preheader, %if.end.i.i, %if.end5, %future_ensure_alive.exit, %Py_INCREF.exit42, %if.end.i52, %if.then1.i, %if.then21, %if.end14, %if.then2
   %retval.0 = phi ptr [ null, %future_ensure_alive.exit ], [ @_Py_NoneStruct, %if.then2 ], [ null, %if.end14 ], [ null, %if.then21 ], [ null, %if.then1.i ], [ null, %if.end.i52 ], [ %call15, %Py_INCREF.exit42 ], [ %4, %if.end5 ], [ %4, %if.end.i.i ], [ %call15, %for.cond.preheader ], [ %call15, %Py_INCREF.exit ]
@@ -8253,7 +8253,7 @@ return:                                           ; preds = %future_ensure_alive
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FutureObj_set_log_traceback(ptr nocapture noundef %fut, ptr noundef %val, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @FutureObj_set_log_traceback(ptr nocapture noundef %fut, ptr noundef %val, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %cmp = icmp eq ptr %val, null
   br i1 %cmp, label %if.then, label %if.end
@@ -8342,7 +8342,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FutureObj_set_cancel_message(ptr nocapture noundef %fut, ptr noundef %msg, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @FutureObj_set_cancel_message(ptr nocapture noundef %fut, ptr noundef %msg, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %cmp = icmp eq ptr %msg, null
   br i1 %cmp, label %if.then, label %if.end
@@ -8391,7 +8391,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @future_init(ptr nocapture noundef %fut, ptr noundef %loop) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @future_init(ptr nocapture noundef %fut, ptr noundef %loop) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %fut_loop = getelementptr inbounds i8, ptr %fut, i64 16
@@ -9052,7 +9052,7 @@ do.end21:                                         ; preds = %do.body15, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_asyncio_Task___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @_asyncio_Task___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %self.addr.i.i = alloca ptr, align 8
   %argsbuf = alloca [5 x ptr], align 16
@@ -9140,7 +9140,7 @@ skip_optional_kwonly:                             ; preds = %if.end.thread, %if.
   %name.1 = phi ptr [ %name.0, %if.end46 ], [ %name.0, %if.then40 ], [ %6, %if.then31 ], [ @_Py_NoneStruct, %if.then23 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %if.end.thread ]
   %context.1 = phi ptr [ %context.0, %if.end46 ], [ %7, %if.then40 ], [ @_Py_NoneStruct, %if.then31 ], [ @_Py_NoneStruct, %if.then23 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %if.end.thread ]
   %eager_start.0 = phi i32 [ %call48, %if.end46 ], [ 0, %if.then40 ], [ 0, %if.then31 ], [ 0, %if.then23 ], [ 0, %if.end ], [ 0, %if.end.thread ]
-  %call.i = call fastcc i32 @future_init(ptr noundef %self, ptr noundef %loop.1), !range !7
+  %call.i = call fastcc i32 @future_init(ptr noundef %self, ptr noundef %loop.1)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %exit
 
@@ -9438,7 +9438,7 @@ if.then62.i:                                      ; preds = %Py_DECREF.exit.i
   br label %exit
 
 if.end68.i:                                       ; preds = %Py_DECREF.exit.i, %if.end53.i
-  %call69.i = call fastcc i32 @task_call_step_soon(ptr noundef %call1.val.i.i, ptr noundef nonnull %self, ptr noundef null), !range !7
+  %call69.i = call fastcc i32 @task_call_step_soon(ptr noundef %call1.val.i.i, ptr noundef nonnull %self, ptr noundef null)
   %tobool70.not.i = icmp eq i32 %call69.i, 0
   br i1 %tobool70.not.i, label %if.end72.i, label %exit
 
@@ -10102,7 +10102,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @TaskObj_set_log_destroy_pending(ptr nocapture noundef %task, ptr noundef %val, ptr nocapture readnone %_unused_ignored) #0 {
+define internal range(i32 -1, 1) i32 @TaskObj_set_log_destroy_pending(ptr nocapture noundef %task, ptr noundef %val, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %cmp = icmp eq ptr %val, null
   br i1 %cmp, label %if.then, label %if.end
@@ -10429,8 +10429,6 @@ attributes #6 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -1, i32 1}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -1, i32 2}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!9 = distinct !{!9, !5}

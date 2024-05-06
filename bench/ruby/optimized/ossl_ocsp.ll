@@ -550,7 +550,7 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ocspreq_check_nonce(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @ossl_ocspreq_check_nonce(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_request_type) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -674,7 +674,7 @@ define internal i64 @ossl_ocspreq_get_certid(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ocspreq_signed_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_ocspreq_signed_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_request_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -778,7 +778,7 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ocspreq_verify(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i64 0, 21) i64 @ossl_ocspreq_verify(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -1097,7 +1097,7 @@ RSTRING_PTR.exit:                                 ; preds = %13, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ocspres_status(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ossl_ocspres_status(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_response_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1372,7 +1372,7 @@ RSTRING_PTR.exit:                                 ; preds = %13, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ocspbres_copy_nonce(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 1, 0) i64 @ossl_ocspbres_copy_nonce(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_basicresp_type) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -2017,7 +2017,7 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ocspbres_verify(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i64 0, 21) i64 @ossl_ocspbres_verify(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -2275,7 +2275,7 @@ RSTRING_PTR.exit:                                 ; preds = %10, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_ocspsres_check_validity(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i64 0, 21) i64 @ossl_ocspsres_check_validity(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -2398,7 +2398,7 @@ ossl_ocspcertid_new.exit:                         ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ocspsres_get_cert_status(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ossl_ocspsres_get_cert_status(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_singleresp_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -2543,7 +2543,7 @@ define internal i64 @ossl_ocspsres_get_revocation_time(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ocspsres_get_revocation_reason(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ossl_ocspsres_get_revocation_reason(i64 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_singleresp_type) #4
   %.not = icmp eq ptr %3, null
@@ -2843,7 +2843,7 @@ RSTRING_PTR.exit:                                 ; preds = %16, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ocspcid_cmp(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_ocspcid_cmp(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_certid_type) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -2871,7 +2871,7 @@ define internal i64 @ossl_ocspcid_cmp(i64 noundef %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ocspcid_cmp_issuer(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @ossl_ocspcid_cmp_issuer(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_certid_type) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6

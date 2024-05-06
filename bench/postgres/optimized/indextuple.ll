@@ -404,7 +404,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %exitcond200.not, label %._crit_edge, label %.lr.ph187, !llvm.loop !11
 
 .critedge.loopexit:                               ; preds = %.lr.ph187
-  %71 = trunc i64 %indvars.iv196 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv196 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.thread170
@@ -465,7 +465,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   %102 = zext nneg i16 %85 to i32
   %103 = add i32 %100, %102
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
-  %104 = trunc i64 %indvars.iv.next202 to i32
+  %104 = trunc nuw i64 %indvars.iv.next202 to i32
   %105 = icmp sgt i32 %63, %104
   br i1 %105, label %.lr.ph193, label %._crit_edge, !llvm.loop !12
 
@@ -498,7 +498,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not.i164, label %225, label %122
 
 122:                                              ; preds = %113, %109
-  %123 = trunc i8 %.0135 to i1
+  %123 = trunc nuw i8 %.0135 to i1
   br i1 %123, label %124, label %.thread173
 
 124:                                              ; preds = %122
@@ -690,7 +690,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 219:                                              ; preds = %212, %215, %181
   %220 = phi i64 [ %184, %181 ], [ %214, %212 ], [ %218, %215 ]
   %221 = trunc i64 %220 to i32
-  %222 = trunc i8 %.1 to i1
+  %222 = trunc nuw i8 %.1 to i1
   br i1 %222, label %223, label %225
 
 223:                                              ; preds = %219
@@ -805,7 +805,7 @@ define dso_local void @index_deform_tuple_internal(ptr nocapture noundef %0, ptr
   br i1 %.not, label %25, label %12
 
 12:                                               ; preds = %10
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   %14 = lshr i64 %indvars.iv, 3
   %15 = and i64 %14, 536870911
   %16 = getelementptr i8, ptr %4, i64 %15
@@ -1108,7 +1108,7 @@ define dso_local ptr @index_truncate_tuple(ptr noundef %0, ptr noundef %1, i32 n
   %11 = and i16 %10, 8191
   %12 = zext nneg i16 %11 to i64
   %13 = tail call ptr @palloc(i64 noundef %12) #8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %13, ptr align 2 %1, i64 %12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %13, ptr readonly align 2 %1, i64 %12, i1 false)
   br label %27
 
 14:                                               ; preds = %3
@@ -1126,9 +1126,9 @@ define dso_local ptr @index_truncate_tuple(ptr noundef %0, ptr noundef %1, i32 n
   %22 = getelementptr i8, ptr %1, i64 %..i.i
   %23 = and i16 %21, -32768
   %24 = zext i16 %23 to i32
-  call void @index_deform_tuple_internal(ptr noundef nonnull %18, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %22, ptr noundef %19, i32 noundef %24)
+  call void @index_deform_tuple_internal(ptr noundef nonnull %18, ptr noundef nonnull writeonly %4, ptr noundef nonnull writeonly %5, ptr noundef %22, ptr noundef %19, i32 noundef %24)
   %25 = load ptr, ptr @CurrentMemoryContext, align 8
-  %26 = call ptr @index_form_tuple_context(ptr noundef nonnull %18, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %25)
+  %26 = call ptr @index_form_tuple_context(ptr noundef nonnull %18, ptr noundef nonnull readonly %4, ptr noundef nonnull %5, ptr noundef %25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %26, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
   call void @pfree(ptr noundef nonnull %18) #8
   br label %27

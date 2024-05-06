@@ -143,7 +143,7 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %105, label %.loopexit22, label %106
 
 106:                                              ; preds = %90
-  %107 = mul nsw i32 %95, %95
+  %107 = mul nuw nsw i32 %95, %95
   %108 = add nsw i32 %107, %97
   %109 = shl nuw i32 %68, 1
   %110 = add nsw i32 %93, -2
@@ -372,7 +372,7 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %261 = and i64 %257, 2
   %262 = icmp eq i64 %261, 0
   %263 = select i1 %262, i32 1, i32 %260
-  %264 = mul nsw i32 %263, %256
+  %264 = mul nuw nsw i32 %263, %256
   %265 = icmp ult i64 %257, 4
   br i1 %265, label %.thread13, label %.preheader18, !llvm.loop !12
 
@@ -414,7 +414,7 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %293 = and i64 %289, 2
   %294 = icmp eq i64 %293, 0
   %295 = select i1 %294, i32 1, i32 %292
-  %296 = mul nsw i32 %295, %288
+  %296 = mul nuw nsw i32 %295, %288
   %297 = icmp ult i64 %289, 4
   br i1 %297, label %.loopexit16, label %.preheader, !llvm.loop !12
 

@@ -107,7 +107,7 @@ define internal ptr @msdos_lookup(ptr noundef %0, ptr noundef %1, i32 %2) #2 ali
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %4, i8 0, i64 11, i1 false), !annotation !5
   %18 = getelementptr inbounds i8, ptr %17, i64 184
-  %19 = call fastcc i32 @msdos_format_name(ptr noundef %12, i32 noundef %14, ptr noundef nonnull %4, ptr noundef %18), !range !6
+  %19 = call fastcc i32 @msdos_format_name(ptr noundef readonly %12, i32 noundef %14, ptr noundef nonnull %4, ptr noundef %18), !range !6
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %msdos_find.exit.thread
 
@@ -328,7 +328,7 @@ define internal i32 @msdos_unlink(ptr noundef %0, ptr nocapture noundef readonly
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3, i8 0, i64 11, i1 false), !annotation !5
   %20 = getelementptr inbounds i8, ptr %19, i64 184
-  %21 = call fastcc i32 @msdos_format_name(ptr noundef %13, i32 noundef %15, ptr noundef nonnull %3, ptr noundef %20), !range !6
+  %21 = call fastcc i32 @msdos_format_name(ptr noundef readonly %13, i32 noundef %15, ptr noundef nonnull %3, ptr noundef %20), !range !6
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %msdos_find.exit.thread
 
@@ -548,7 +548,7 @@ define internal i32 @msdos_rmdir(ptr noundef %0, ptr nocapture noundef readonly 
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3, i8 0, i64 11, i1 false), !annotation !5
   %22 = getelementptr inbounds i8, ptr %21, i64 184
-  %23 = call fastcc i32 @msdos_format_name(ptr noundef %16, i32 noundef %18, ptr noundef nonnull %3, ptr noundef %22), !range !6
+  %23 = call fastcc i32 @msdos_format_name(ptr noundef readonly %16, i32 noundef %18, ptr noundef nonnull %3, ptr noundef %22), !range !6
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %msdos_find.exit.thread
 
@@ -869,7 +869,7 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
   %163 = getelementptr inbounds i8, ptr %159, i64 26
   store i16 %162, ptr %163, align 2
   %164 = lshr i32 %161, 16
-  %165 = trunc i32 %164 to i16
+  %165 = trunc nuw i32 %164 to i16
   %166 = getelementptr inbounds i8, ptr %159, i64 20
   store i16 %165, ptr %166, align 4
   %167 = load ptr, ptr %7, align 8
@@ -992,7 +992,7 @@ define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr
   %225 = getelementptr inbounds i8, ptr %221, i64 26
   store i16 %224, ptr %225, align 2
   %226 = lshr i32 %223, 16
-  %227 = trunc i32 %226 to i16
+  %227 = trunc nuw i32 %226 to i16
   %228 = getelementptr inbounds i8, ptr %221, i64 20
   store i16 %227, ptr %228, align 4
   %229 = load ptr, ptr %7, align 8
@@ -1098,7 +1098,7 @@ declare dso_local ptr @d_splice_alias(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc noundef i32 @msdos_format_name(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #6 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @msdos_format_name(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #6 align 16 {
   %5 = load i8, ptr %0, align 1
   %6 = icmp eq i8 %5, 46
   br i1 %6, label %7, label %15
@@ -1424,7 +1424,7 @@ define internal fastcc i32 @msdos_add_entry(ptr noundef %0, ptr nocapture nounde
   %29 = getelementptr inbounds i8, ptr %8, i64 26
   store i16 %28, ptr %29, align 2
   %30 = lshr i32 %4, 16
-  %31 = trunc i32 %30 to i16
+  %31 = trunc nuw nsw i32 %30 to i16
   %32 = getelementptr inbounds i8, ptr %8, i64 20
   store i16 %31, ptr %32, align 4
   %33 = getelementptr inbounds i8, ptr %8, i64 28

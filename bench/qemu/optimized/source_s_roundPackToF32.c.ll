@@ -49,7 +49,7 @@ lor.end:                                          ; preds = %lor.rhs, %if.then20
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %lor.end
-  %sh_prom.i = trunc i64 %sub to i32
+  %sh_prom.i = trunc nuw i64 %sub to i32
   %shr.i = lshr i32 %conv30, %sh_prom.i
   %4 = sub nsw i32 0, %sh_prom.i
   %sh_prom1.i = and i32 %4, 31

@@ -48,7 +48,7 @@ define noundef i32 @proctrack_p_destroy(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @proctrack_p_find(i32 noundef %0) local_unnamed_addr #2 {
+define range(i64 -2147483648, 2147483648) i64 @proctrack_p_find(i32 noundef %0) local_unnamed_addr #2 {
   %2 = tail call i32 @find_ancestor(i32 noundef %0, ptr noundef nonnull @.str) #6
   %3 = sext i32 %2 to i64
   ret i64 %3
@@ -65,7 +65,7 @@ define zeroext i1 @proctrack_p_has_pid(i64 noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define noundef i32 @proctrack_p_wait(i64 noundef %0) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @proctrack_p_wait(i64 noundef %0) local_unnamed_addr #4 {
   %or.cond = icmp ult i64 %0, 2
   br i1 %or.cond, label %2, label %4
 

@@ -374,7 +374,7 @@ define void @Cba_ManWriteBlifLines(ptr nocapture noundef %0, ptr nocapture nound
   br i1 %22, label %Cba_ObjNtk.exit, label %Cba_ObjNtkId.exit.i
 
 Cba_ObjNtkId.exit.i:                              ; preds = %21
-  %23 = trunc i64 %indvars.iv305 to i32
+  %23 = trunc nuw nsw i64 %indvars.iv305 to i32
   %24 = tail call fastcc i32 @Vec_IntGetEntry(ptr noundef nonnull %13, i32 noundef %23)
   %.val.i = load ptr, ptr %1, align 8
   %25 = icmp sgt i32 %24, 0
@@ -762,7 +762,7 @@ Vec_IntGetEntry.exit184:                          ; preds = %135, %._crit_edge.i
 186:                                              ; preds = %184, %182
   %187 = phi ptr [ %183, %182 ], [ %185, %184 ]
   store ptr %187, ptr %10, align 8
-  %188 = trunc i64 %indvars.iv.next298 to i32
+  %188 = trunc nsw i64 %indvars.iv.next298 to i32
   br label %Vec_IntGrow.exit.sink.split.i.i189
 
 189:                                              ; preds = %173
@@ -809,7 +809,7 @@ Vec_IntGrow.exit.i.i192:                          ; preds = %Vec_IntGrow.exit.si
   br i1 %exitcond.not.i.i198, label %._crit_edge.i.i199, label %.lr.ph.i.i194, !llvm.loop !10
 
 ._crit_edge.i.i199:                               ; preds = %.lr.ph.i.i194, %Vec_IntGrow.exit.i.i192
-  %201 = trunc i64 %indvars.iv.next298 to i32
+  %201 = trunc nsw i64 %indvars.iv.next298 to i32
   store i32 %201, ptr %9, align 4
   br label %Vec_IntGetEntry.exit202
 
@@ -1011,7 +1011,7 @@ Vec_IntGetEntry.exit220:                          ; preds = %.lr.ph, %._crit_edg
 289:                                              ; preds = %287, %285
   %290 = phi ptr [ %286, %285 ], [ %288, %287 ]
   store ptr %290, ptr %10, align 8
-  %291 = trunc i64 %indvars.iv.next286 to i32
+  %291 = trunc nsw i64 %indvars.iv.next286 to i32
   br label %Vec_IntGrow.exit.sink.split.i.i225
 
 292:                                              ; preds = %276
@@ -1058,7 +1058,7 @@ Vec_IntGrow.exit.i.i228:                          ; preds = %Vec_IntGrow.exit.si
   br i1 %exitcond.not.i.i234, label %._crit_edge.i.i235, label %.lr.ph.i.i230, !llvm.loop !10
 
 ._crit_edge.i.i235:                               ; preds = %.lr.ph.i.i230, %Vec_IntGrow.exit.i.i228
-  %304 = trunc i64 %indvars.iv.next286 to i32
+  %304 = trunc nsw i64 %indvars.iv.next286 to i32
   store i32 %304, ptr %9, align 4
   br label %Vec_IntGetEntry.exit238
 
@@ -1085,9 +1085,9 @@ Vec_IntGetEntry.exit238:                          ; preds = %.lr.ph264, %._crit_
 314:                                              ; preds = %20
   %315 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 6, i64 1, ptr %0)
   %.val117 = load ptr, ptr %6, align 8
-  %316 = getelementptr i32, ptr %.val117, i64 %indvars.iv305
+  %316 = getelementptr inbounds i32, ptr %.val117, i64 %indvars.iv305
   %317 = load i32, ptr %316, align 4
-  %318 = getelementptr i8, ptr %316, i64 4
+  %318 = getelementptr inbounds i8, ptr %316, i64 4
   %319 = load i32, ptr %318, align 4
   %320 = icmp slt i32 %317, %319
   br i1 %320, label %.lr.ph278.preheader, label %.critedge4
@@ -1192,8 +1192,8 @@ Vec_IntGetEntry.exit256:                          ; preds = %.lr.ph278, %._crit_
   %357 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %356) #6
   %indvars.iv.next303 = add nsw i64 %indvars.iv302, 1
   %.val118 = load ptr, ptr %6, align 8
-  %358 = getelementptr i32, ptr %.val118, i64 %indvars.iv305
-  %359 = getelementptr i8, ptr %358, i64 4
+  %358 = getelementptr inbounds i32, ptr %.val118, i64 %indvars.iv305
+  %359 = getelementptr inbounds i8, ptr %358, i64 4
   %360 = load i32, ptr %359, align 4
   %361 = sext i32 %360 to i64
   %362 = icmp slt i64 %indvars.iv.next303, %361
@@ -1209,7 +1209,7 @@ Vec_IntGetEntry.exit256:                          ; preds = %.lr.ph278, %._crit_
   %.val.val.i146 = load ptr, ptr %366, align 8
   %367 = tail call ptr @Abc_NamStr(ptr noundef %.val.val.i146, i32 noundef %365) #6
   %368 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %367) #6
-  %369 = trunc i64 %indvars.iv305 to i32
+  %369 = trunc nuw nsw i64 %indvars.iv305 to i32
   %370 = tail call fastcc i32 @Vec_IntGetEntry(ptr noundef nonnull %13, i32 noundef %369)
   %.val130 = load ptr, ptr %1, align 8
   %371 = getelementptr i8, ptr %.val130, i64 24

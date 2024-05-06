@@ -1100,8 +1100,8 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit: ; preds = %._crit_edg
 613:                                              ; preds = %.loopexit31.i, %.lr.ph45.i
   %indvars.iv65.i = phi i64 [ 0, %.lr.ph45.i ], [ %indvars.iv.next66.i, %.loopexit31.i ]
   %.sroa.024.043.i = phi ptr [ %602, %.lr.ph45.i ], [ %783, %.loopexit31.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %614 = getelementptr inbounds i8, ptr %.sroa.024.043.i, i64 40
   %615 = load i32, ptr %614, align 8
   %616 = icmp eq i32 %615, 2
@@ -1470,8 +1470,8 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit.i: ; preds = %803, %80
   br label %842
 
 .preheader.i:                                     ; preds = %842
-  %invariant.gep.i = getelementptr i8, ptr %824, i64 48
-  %invariant.gep47.i = getelementptr i8, ptr %824, i64 24
+  %invariant.gep.i = getelementptr inbounds i8, ptr %824, i64 48
+  %invariant.gep47.i = getelementptr inbounds i8, ptr %824, i64 24
   %841 = getelementptr inbounds i8, ptr %.sroa.06.051.i, i64 296
   br label %859
 
@@ -1501,9 +1501,9 @@ _ZL13pullAllReduceIdEvPK9t_commrecP11pull_comm_tiPT_.exit.i: ; preds = %803, %80
 
 859:                                              ; preds = %859, %.preheader.i
   %indvars.iv72.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next73.i, %859 ]
-  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv72.i
+  %gep.i = getelementptr inbounds double, ptr %invariant.gep.i, i64 %indvars.iv72.i
   %860 = load double, ptr %gep.i, align 8
-  %gep48.i = getelementptr double, ptr %invariant.gep47.i, i64 %indvars.iv72.i
+  %gep48.i = getelementptr inbounds double, ptr %invariant.gep47.i, i64 %indvars.iv72.i
   %861 = load double, ptr %gep48.i, align 8
   %862 = load double, ptr %836, align 8
   %863 = call double @llvm.fmuladd.f64(double %861, double %862, double %860)
@@ -3267,7 +3267,7 @@ _ZNRSt8optionalIN3gmx8ArrayRefIdEEE5valueEv.exit: ; preds = %2
 
 .preheader.i:                                     ; preds = %.lr.ph.i
   %20 = mul nuw nsw i64 %.01719.i, 3
-  %21 = getelementptr double, ptr %6, i64 %20
+  %21 = getelementptr inbounds double, ptr %6, i64 %20
   br label %22
 
 22:                                               ; preds = %22, %.preheader.i
@@ -3283,7 +3283,7 @@ _ZNRSt8optionalIN3gmx8ArrayRefIdEEE5valueEv.exit: ; preds = %2
   %30 = load ptr, ptr %7, align 8
   %31 = getelementptr inbounds %struct.pull_group_work_t, ptr %30, i64 %.01719.i, i32 13, i64 %indvars.iv.i
   %32 = load double, ptr %31, align 8
-  %33 = getelementptr double, ptr %21, i64 %indvars.iv.i
+  %33 = getelementptr inbounds double, ptr %21, i64 %indvars.iv.i
   store double %32, ptr %33, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -3408,14 +3408,14 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
 .preheader:                                       ; preds = %.loopexit, %27
   %.01316 = phi i64 [ %28, %27 ], [ 0, %.loopexit ]
   %21 = mul nuw nsw i64 %.01316, 3
-  %22 = getelementptr double, ptr %18, i64 %21
+  %22 = getelementptr inbounds double, ptr %18, i64 %21
   br label %23
 
 23:                                               ; preds = %.preheader, %23
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %23 ]
   %24 = getelementptr inbounds %struct.pull_group_work_t, ptr %6, i64 %.01316, i32 15, i64 %indvars.iv
   %25 = load double, ptr %24, align 8
-  %26 = getelementptr double, ptr %22, i64 %indvars.iv
+  %26 = getelementptr inbounds double, ptr %22, i64 %indvars.iv
   store double %25, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3459,12 +3459,12 @@ define void @_Z18setPrevStepPullComP6pull_tN3gmx8ArrayRefIKdEE(ptr nocapture nou
 .preheader:                                       ; preds = %.preheader11, %26
   %.01013 = phi i64 [ %27, %26 ], [ 0, %.preheader11 ]
   %19 = mul nuw nsw i64 %.01013, 3
-  %20 = getelementptr double, ptr %1, i64 %19
+  %20 = getelementptr inbounds double, ptr %1, i64 %19
   br label %21
 
 21:                                               ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr double, ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
   %23 = load double, ptr %22, align 8
   %24 = load ptr, ptr %8, align 8
   %25 = getelementptr inbounds %struct.pull_group_work_t, ptr %24, i64 %.01013, i32 15, i64 %indvars.iv

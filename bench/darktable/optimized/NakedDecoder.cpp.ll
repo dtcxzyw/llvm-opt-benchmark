@@ -671,7 +671,7 @@ define internal fastcc noundef i32 @"_ZZN8rawspeed12NakedDecoder10parseHintsEvEN
   %25 = sub i64 %16, %11
   %26 = tail call i64 @llvm.smax.i64(i64 %25, i64 -2147483648)
   %27 = tail call i64 @llvm.smin.i64(i64 %26, i64 2147483647)
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nsw i64 %27 to i32
   br label %29
 
 29:                                               ; preds = %24, %19
@@ -706,7 +706,7 @@ define internal fastcc noundef i32 @"_ZZN8rawspeed12NakedDecoder10parseHintsEvEN
   %50 = sub i64 %11, %41
   %51 = tail call i64 @llvm.smax.i64(i64 %50, i64 -2147483648)
   %52 = tail call i64 @llvm.smin.i64(i64 %51, i64 2147483647)
-  %53 = trunc i64 %52 to i32
+  %53 = trunc nsw i64 %52 to i32
   br label %54
 
 54:                                               ; preds = %49, %44
@@ -796,7 +796,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed5Hints3getIiEET_RKNSt7__cxx
   %27 = sub i64 %18, %12
   %28 = tail call i64 @llvm.smax.i64(i64 %27, i64 -2147483648)
   %29 = tail call i64 @llvm.smin.i64(i64 %28, i64 2147483647)
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nsw i64 %29 to i32
   br label %31
 
 31:                                               ; preds = %26, %21
@@ -831,7 +831,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed5Hints3getIiEET_RKNSt7__cxx
   %52 = sub i64 %12, %43
   %53 = tail call i64 @llvm.smax.i64(i64 %52, i64 -2147483648)
   %54 = tail call i64 @llvm.smin.i64(i64 %53, i64 2147483647)
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nsw i64 %54 to i32
   br label %56
 
 56:                                               ; preds = %51, %46
@@ -947,7 +947,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed5Hints3getIjEET_RKNSt7__cxx
   %27 = sub i64 %18, %12
   %28 = tail call i64 @llvm.smax.i64(i64 %27, i64 -2147483648)
   %29 = tail call i64 @llvm.smin.i64(i64 %28, i64 2147483647)
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nsw i64 %29 to i32
   br label %31
 
 31:                                               ; preds = %26, %21
@@ -982,7 +982,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed5Hints3getIjEET_RKNSt7__cxx
   %52 = sub i64 %12, %43
   %53 = tail call i64 @llvm.smax.i64(i64 %52, i64 -2147483648)
   %54 = tail call i64 @llvm.smin.i64(i64 %53, i64 2147483647)
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nsw i64 %54 to i32
   br label %56
 
 56:                                               ; preds = %51, %46
@@ -1096,7 +1096,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed5Hints3getINSt7__cxx1112basic_stri
   %27 = sub i64 %18, %12
   %28 = tail call i64 @llvm.smax.i64(i64 %27, i64 -2147483648)
   %29 = tail call i64 @llvm.smin.i64(i64 %28, i64 2147483647)
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nsw i64 %29 to i32
   br label %31
 
 31:                                               ; preds = %26, %21
@@ -1131,7 +1131,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed5Hints3getINSt7__cxx1112basic_stri
   %52 = sub i64 %12, %43
   %53 = tail call i64 @llvm.smax.i64(i64 %52, i64 -2147483648)
   %54 = tail call i64 @llvm.smin.i64(i64 %53, i64 2147483647)
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nsw i64 %54 to i32
   br label %56
 
 56:                                               ; preds = %51, %46

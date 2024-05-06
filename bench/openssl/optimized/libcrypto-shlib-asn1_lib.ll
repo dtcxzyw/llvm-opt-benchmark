@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ASN1_check_infinite_end(ptr nocapture noundef %p, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_check_infinite_end(ptr nocapture noundef %p, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp slt i64 %len, 1
   br i1 %cmp.i, label %_asn1_check_infinite_end.exit, label %if.else.i
@@ -41,7 +41,7 @@ _asn1_check_infinite_end.exit:                    ; preds = %entry, %if.else.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ASN1_const_check_infinite_end(ptr nocapture noundef %p, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_const_check_infinite_end(ptr nocapture noundef %p, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp slt i64 %len, 1
   br i1 %cmp.i, label %_asn1_check_infinite_end.exit, label %if.else.i
@@ -467,7 +467,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_STRING_copy(ptr nocapture noundef %dst, ptr noundef readonly %str) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ASN1_STRING_copy(ptr nocapture noundef %dst, ptr noundef readonly %str) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %str, null
   br i1 %cmp, label %return, label %if.end
@@ -480,7 +480,7 @@ if.end:                                           ; preds = %entry
   %data = getelementptr inbounds i8, ptr %str, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i32, ptr %str, align 8
-  %call = tail call i32 @ASN1_STRING_set(ptr noundef %dst, ptr noundef %1, i32 noundef %2), !range !13
+  %call = tail call i32 @ASN1_STRING_set(ptr noundef %dst, ptr noundef %1, i32 noundef %2)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end3
 
@@ -502,7 +502,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_STRING_set(ptr nocapture noundef %str, ptr noundef readonly %_data, i32 noundef %len_in) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ASN1_STRING_set(ptr nocapture noundef %str, ptr noundef readonly %_data, i32 noundef %len_in) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i32 %len_in, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -594,7 +594,7 @@ if.end.i:                                         ; preds = %if.end
   %data.i = getelementptr inbounds i8, ptr %str, i64 8
   %1 = load ptr, ptr %data.i, align 8
   %2 = load i32, ptr %str, align 8
-  %call.i = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %call.i.i, ptr noundef %1, i32 noundef %2), !range !13
+  %call.i = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %call.i.i, ptr noundef %1, i32 noundef %2)
   %tobool.not.i = icmp eq i32 %call.i, 0
   %flags.i7 = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %3 = load i64, ptr %flags.i7, align 8
@@ -909,13 +909,13 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %inc.us = add nuw nsw i32 %i.033.us, 1
   %call2.us = tail call i32 @OPENSSL_sk_num(ptr noundef %text) #13
   %cmp3.us = icmp slt i32 %inc.us, %call2.us
-  br i1 %cmp3.us, label %for.body.us, label %for.end, !llvm.loop !14
+  br i1 %cmp3.us, label %for.body.us, label %for.end, !llvm.loop !13
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.033, 1
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef %text) #13
   %cmp3 = icmp slt i32 %inc, %call2
-  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %length.034 = phi i64 [ %add10, %for.cond ], [ 0, %for.body.lr.ph ]
@@ -960,7 +960,7 @@ for.body28.us:                                    ; preds = %for.body28.lr.ph, %
   %inc46.us = add nuw nsw i32 %i.137.us, 1
   %call25.us = tail call i32 @OPENSSL_sk_num(ptr noundef %text) #13
   %cmp26.us = icmp slt i32 %inc46.us, %call25.us
-  br i1 %cmp26.us, label %for.body28.us, label %for.end47, !llvm.loop !15
+  br i1 %cmp26.us, label %for.body28.us, label %for.end47, !llvm.loop !14
 
 for.body28:                                       ; preds = %for.body28.lr.ph, %if.end41
   %p.038 = phi ptr [ %add.ptr44, %if.end41 ], [ %call18, %for.body28.lr.ph ]
@@ -985,7 +985,7 @@ if.end41:                                         ; preds = %if.then38, %for.bod
   %inc46 = add nuw nsw i32 %i.137, 1
   %call25 = tail call i32 @OPENSSL_sk_num(ptr noundef %text) #13
   %cmp26 = icmp slt i32 %inc46, %call25
-  br i1 %cmp26, label %for.body28, label %for.end47, !llvm.loop !15
+  br i1 %cmp26, label %for.body28, label %for.end47, !llvm.loop !14
 
 for.end47:                                        ; preds = %if.end41, %for.body28.us, %for.cond23.preheader
   %p.0.lcssa = phi ptr [ %call18, %for.cond23.preheader ], [ %add.ptr44.us, %for.body28.us ], [ %add.ptr44, %if.end41 ]
@@ -1037,6 +1037,5 @@ attributes #14 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i32 0, i32 2}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}

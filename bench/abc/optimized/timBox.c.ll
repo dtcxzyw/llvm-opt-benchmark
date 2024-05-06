@@ -135,7 +135,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %70 = add nsw i64 %indvars.iv, %63
   %71 = getelementptr inbounds [0 x i32], ptr %61, i64 0, i64 %indvars.iv
-  %72 = trunc i64 %70 to i32
+  %72 = trunc nsw i64 %70 to i32
   store i32 %72, ptr %71, align 4
   %73 = load i32, ptr %21, align 4
   %74 = load ptr, ptr %62, align 8
@@ -143,7 +143,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store i32 %73, ptr %75, align 4
   %76 = load ptr, ptr %62, align 8
   %77 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %76, i64 %70, i32 3
-  %78 = trunc i64 %indvars.iv to i32
+  %78 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %78, ptr %77, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -154,7 +154,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %80 = add nsw i64 %indvars.iv53, %67
   %81 = add nsw i64 %indvars.iv53, %68
   %82 = getelementptr inbounds [0 x i32], ptr %65, i64 0, i64 %81
-  %83 = trunc i64 %80 to i32
+  %83 = trunc nsw i64 %80 to i32
   store i32 %83, ptr %82, align 4
   %84 = load i32, ptr %21, align 4
   %85 = load ptr, ptr %66, align 8
@@ -162,7 +162,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store i32 %84, ptr %86, align 4
   %87 = load ptr, ptr %66, align 8
   %88 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %87, i64 %80, i32 3
-  %89 = trunc i64 %indvars.iv53 to i32
+  %89 = trunc nuw nsw i64 %indvars.iv53 to i32
   store i32 %89, ptr %88, align 4
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
@@ -231,7 +231,7 @@ define i32 @Tim_ManBoxInputFirst(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Tim_ManBoxInputLast(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 -2147483648, 2147483647) i32 @Tim_ManBoxInputLast(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %3, align 8
@@ -278,7 +278,7 @@ define i32 @Tim_ManBoxOutputFirst(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Tim_ManBoxOutputLast(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 -2147483648, 2147483647) i32 @Tim_ManBoxOutputLast(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %.val5 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %.val5, i64 8
   %.val5.val = load ptr, ptr %3, align 8
@@ -424,7 +424,7 @@ define i32 @Tim_ManBoxFindFromCiNum(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %9
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = add nsw i32 %20, -1
   br label %.critedge
 

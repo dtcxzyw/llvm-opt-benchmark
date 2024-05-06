@@ -509,7 +509,7 @@ define noundef float @_Z9cmap_dihsiPKiPK9t_iparamsPK10gmx_cmap_tPA3_KfPA4_fPA3_f
   %36 = alloca %"class.gmx::BasicVector", align 8
   %37 = alloca %"class.gmx::BasicVector", align 8
   %38 = alloca %"struct.std::array", align 4
-  %invariant.gep = getelementptr i8, ptr %1, i64 20
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 20
   %39 = icmp sgt i32 %0, 0
   br i1 %39, label %.lr.ph, label %._crit_edge
 
@@ -560,7 +560,7 @@ define noundef float @_Z9cmap_dihsiPKiPK9t_iparamsPK10gmx_cmap_tPA3_KfPA4_fPA3_f
   %75 = getelementptr i8, ptr %67, i64 16
   %76 = load i32, ptr %75, align 4
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 6
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv396
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv396
   %77 = load i32, ptr %gep, align 4
   %78 = sext i32 %68 to i64
   %79 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %78
@@ -1778,7 +1778,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor0EEE
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
   %15 = alloca [3 x float], align 8
-  %invariant.gep = getelementptr i8, ptr %1, i64 8
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 8
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
@@ -1796,7 +1796,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor0
   %22 = getelementptr i8, ptr %20, i64 4
   %23 = load i32, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %24 = load i32, ptr %gep, align 4
   %25 = sext i32 %23 to i64
   %26 = getelementptr inbounds [3 x float], ptr %3, i64 %25
@@ -5608,7 +5608,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor
   %34 = alloca float, align 4
   %35 = alloca float, align 4
   %36 = alloca float, align 4
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %37 = icmp sgt i32 %0, 0
   br i1 %37, label %.lr.ph, label %._crit_edge
 
@@ -5636,7 +5636,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor
   %53 = getelementptr i8, ptr %47, i64 12
   %54 = load i32, ptr %53, align 4
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv84
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv84
   %55 = load i32, ptr %gep, align 4
   %56 = sext i32 %50 to i64
   %57 = getelementptr inbounds [3 x float], ptr %3, i64 %56
@@ -5819,7 +5819,7 @@ define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor0E
   %31 = alloca [3 x float], align 4
   %32 = alloca [3 x float], align 4
   %33 = alloca [3 x float], align 4
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %34 = icmp sgt i32 %0, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
 
@@ -5847,7 +5847,7 @@ define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor0E
   %50 = getelementptr i8, ptr %44, i64 12
   %51 = load i32, ptr %50, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv90
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv90
   %52 = load i32, ptr %gep, align 4
   %53 = sext i32 %47 to i64
   %54 = getelementptr inbounds [3 x float], ptr %3, i64 %53
@@ -6012,7 +6012,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor0EEE
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
   %23 = fsub float 1.000000e+00, %7
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
@@ -6029,7 +6029,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor0EEE
   %31 = getelementptr i8, ptr %25, i64 12
   %32 = load i32, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %33 = load i32, ptr %gep, align 4
   %34 = sext i32 %28 to i64
   %35 = getelementptr inbounds [3 x float], ptr %3, i64 %34
@@ -6125,7 +6125,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor0
   %22 = alloca [3 x float], align 4
   %23 = alloca float, align 4
   %24 = alloca float, align 4
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -6145,7 +6145,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor0
   %34 = getelementptr i8, ptr %28, i64 12
   %35 = load i32, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %36 = load i32, ptr %gep, align 4
   %37 = sext i32 %31 to i64
   %38 = getelementptr inbounds [3 x float], ptr %3, i64 %37
@@ -6404,13 +6404,13 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   %77 = or disjoint i64 %indvars.iv135, 1
   %78 = getelementptr inbounds i32, ptr %1, i64 %77
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr i8, ptr %70, i64 8
+  %80 = getelementptr inbounds i8, ptr %70, i64 8
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr i8, ptr %70, i64 12
+  %82 = getelementptr inbounds i8, ptr %70, i64 12
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr i8, ptr %70, i64 16
+  %84 = getelementptr inbounds i8, ptr %70, i64 16
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr i8, ptr %70, i64 20
+  %86 = getelementptr inbounds i8, ptr %70, i64 20
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %81 to i64
   %89 = getelementptr inbounds [3 x float], ptr %3, i64 %88
@@ -6648,7 +6648,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit107: ; preds = %92, %106
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %15 = icmp sgt i32 %0, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -6669,7 +6669,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
   %25 = getelementptr i8, ptr %19, i64 12
   %26 = load i32, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %27 = load i32, ptr %gep, align 4
   %28 = sext i32 %24 to i64
   %29 = getelementptr inbounds float, ptr %17, i64 %28
@@ -6893,7 +6893,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor0EE
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
   %23 = fsub float 1.000000e+00, %7
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
@@ -6909,7 +6909,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor0EE
   %31 = getelementptr i8, ptr %25, i64 12
   %32 = load i32, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %33 = load i32, ptr %gep, align 4
   %34 = sext i32 %26 to i64
   %35 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %34
@@ -7170,7 +7170,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
   %15 = alloca [3 x float], align 8
-  %invariant.gep = getelementptr i8, ptr %1, i64 8
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 8
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
@@ -7188,7 +7188,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor1
   %22 = getelementptr i8, ptr %20, i64 4
   %23 = load i32, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %24 = load i32, ptr %gep, align 4
   %25 = sext i32 %23 to i64
   %26 = getelementptr inbounds [3 x float], ptr %3, i64 %25
@@ -9750,7 +9750,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor1EE
   %22 = alloca [3 x float], align 4
   %23 = alloca [6 x float], align 16
   %24 = fsub float 1.000000e+00, %7
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -9774,7 +9774,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor1EE
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr i8, ptr %32, i64 12
   %39 = load i32, ptr %38, align 4
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv125
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv125
   %40 = load i32, ptr %gep, align 4
   %41 = sext i32 %35 to i64
   %42 = getelementptr inbounds [3 x float], ptr %3, i64 %41
@@ -9915,7 +9915,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor
   %34 = alloca float, align 4
   %35 = alloca float, align 4
   %36 = alloca float, align 4
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %37 = icmp sgt i32 %0, 0
   br i1 %37, label %.lr.ph, label %._crit_edge
 
@@ -9943,7 +9943,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor
   %53 = getelementptr i8, ptr %47, i64 12
   %54 = load i32, ptr %53, align 4
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv84
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv84
   %55 = load i32, ptr %gep, align 4
   %56 = sext i32 %50 to i64
   %57 = getelementptr inbounds [3 x float], ptr %3, i64 %56
@@ -10126,7 +10126,7 @@ define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor1E
   %31 = alloca [3 x float], align 4
   %32 = alloca [3 x float], align 4
   %33 = alloca [3 x float], align 4
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %34 = icmp sgt i32 %0, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
 
@@ -10154,7 +10154,7 @@ define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor1E
   %50 = getelementptr i8, ptr %44, i64 12
   %51 = load i32, ptr %50, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv90
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv90
   %52 = load i32, ptr %gep, align 4
   %53 = sext i32 %47 to i64
   %54 = getelementptr inbounds [3 x float], ptr %3, i64 %53
@@ -10319,7 +10319,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor1EEE
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
   %23 = fsub float 1.000000e+00, %7
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
@@ -10336,7 +10336,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor1EEE
   %31 = getelementptr i8, ptr %25, i64 12
   %32 = load i32, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %33 = load i32, ptr %gep, align 4
   %34 = sext i32 %28 to i64
   %35 = getelementptr inbounds [3 x float], ptr %3, i64 %34
@@ -10432,7 +10432,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor1
   %22 = alloca [3 x float], align 4
   %23 = alloca float, align 4
   %24 = alloca float, align 4
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -10452,7 +10452,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor1
   %34 = getelementptr i8, ptr %28, i64 12
   %35 = load i32, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %36 = load i32, ptr %gep, align 4
   %37 = sext i32 %31 to i64
   %38 = getelementptr inbounds [3 x float], ptr %3, i64 %37
@@ -10711,13 +10711,13 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   %77 = or disjoint i64 %indvars.iv135, 1
   %78 = getelementptr inbounds i32, ptr %1, i64 %77
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr i8, ptr %70, i64 8
+  %80 = getelementptr inbounds i8, ptr %70, i64 8
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr i8, ptr %70, i64 12
+  %82 = getelementptr inbounds i8, ptr %70, i64 12
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr i8, ptr %70, i64 16
+  %84 = getelementptr inbounds i8, ptr %70, i64 16
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr i8, ptr %70, i64 20
+  %86 = getelementptr inbounds i8, ptr %70, i64 20
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %81 to i64
   %89 = getelementptr inbounds [3 x float], ptr %3, i64 %88
@@ -10955,7 +10955,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit107: ; preds = %92, %106
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %15 = icmp sgt i32 %0, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -10976,7 +10976,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
   %25 = getelementptr i8, ptr %19, i64 12
   %26 = load i32, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %27 = load i32, ptr %gep, align 4
   %28 = sext i32 %24 to i64
   %29 = getelementptr inbounds float, ptr %17, i64 %28
@@ -11196,7 +11196,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor1EE
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
   %23 = fsub float 1.000000e+00, %7
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
@@ -11212,7 +11212,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor1EE
   %31 = getelementptr i8, ptr %25, i64 12
   %32 = load i32, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %33 = load i32, ptr %gep, align 4
   %34 = sext i32 %26 to i64
   %35 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %34
@@ -11484,7 +11484,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
   %15 = alloca [3 x float], align 8
-  %invariant.gep = getelementptr i8, ptr %1, i64 8
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 8
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
@@ -11503,7 +11503,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor2
   %23 = getelementptr i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %25 = load i32, ptr %gep, align 4
   %26 = sext i32 %24 to i64
   %27 = getelementptr inbounds [3 x float], ptr %3, i64 %26
@@ -14572,7 +14572,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor2EE
   %22 = alloca [3 x float], align 4
   %23 = alloca [6 x float], align 16
   %24 = fsub float 1.000000e+00, %7
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -14596,7 +14596,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor2EE
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr i8, ptr %32, i64 12
   %39 = load i32, ptr %38, align 4
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv125
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv125
   %40 = load i32, ptr %gep, align 4
   %41 = sext i32 %35 to i64
   %42 = getelementptr inbounds [3 x float], ptr %3, i64 %41
@@ -14738,7 +14738,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor
   %35 = alloca float, align 4
   %36 = alloca float, align 4
   %37 = alloca float, align 4
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %38 = icmp sgt i32 %0, 0
   br i1 %38, label %.lr.ph, label %._crit_edge
 
@@ -14768,7 +14768,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor
   %56 = getelementptr i8, ptr %50, i64 12
   %57 = load i32, ptr %56, align 4
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv120
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv120
   %58 = load i32, ptr %gep, align 4
   %59 = sext i32 %53 to i64
   %60 = getelementptr inbounds [3 x float], ptr %3, i64 %59
@@ -14996,7 +14996,7 @@ define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor2E
   %32 = alloca [3 x float], align 4
   %33 = alloca [3 x float], align 4
   %34 = alloca [3 x float], align 4
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %35 = icmp sgt i32 %0, 0
   br i1 %35, label %.lr.ph, label %._crit_edge
 
@@ -15026,7 +15026,7 @@ define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor2E
   %53 = getelementptr i8, ptr %47, i64 12
   %54 = load i32, ptr %53, align 4
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv132
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv132
   %55 = load i32, ptr %gep, align 4
   %56 = sext i32 %50 to i64
   %57 = getelementptr inbounds [3 x float], ptr %3, i64 %56
@@ -15235,7 +15235,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor2EEE
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
   %23 = fsub float 1.000000e+00, %7
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
@@ -15252,7 +15252,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor2EEE
   %31 = getelementptr i8, ptr %25, i64 12
   %32 = load i32, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %33 = load i32, ptr %gep, align 4
   %34 = sext i32 %28 to i64
   %35 = getelementptr inbounds [3 x float], ptr %3, i64 %34
@@ -15348,7 +15348,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor2
   %22 = alloca [3 x float], align 4
   %23 = alloca float, align 4
   %24 = alloca float, align 4
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -15368,7 +15368,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor2
   %34 = getelementptr i8, ptr %28, i64 12
   %35 = load i32, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %36 = load i32, ptr %gep, align 4
   %37 = sext i32 %31 to i64
   %38 = getelementptr inbounds [3 x float], ptr %3, i64 %37
@@ -15639,13 +15639,13 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   %78 = or disjoint i64 %indvars.iv142, 1
   %79 = getelementptr inbounds i32, ptr %1, i64 %78
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr i8, ptr %71, i64 8
+  %81 = getelementptr inbounds i8, ptr %71, i64 8
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr i8, ptr %71, i64 12
+  %83 = getelementptr inbounds i8, ptr %71, i64 12
   %84 = load i32, ptr %83, align 4
-  %85 = getelementptr i8, ptr %71, i64 16
+  %85 = getelementptr inbounds i8, ptr %71, i64 16
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr i8, ptr %71, i64 20
+  %87 = getelementptr inbounds i8, ptr %71, i64 20
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %82 to i64
   %90 = getelementptr inbounds [3 x float], ptr %3, i64 %89
@@ -15893,7 +15893,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit114: ; preds = %93, %107
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %15 = icmp sgt i32 %0, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -15914,7 +15914,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
   %25 = getelementptr i8, ptr %19, i64 12
   %26 = load i32, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %27 = load i32, ptr %gep, align 4
   %28 = sext i32 %24 to i64
   %29 = getelementptr inbounds float, ptr %17, i64 %28
@@ -16145,7 +16145,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor2EE
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
   %23 = fsub float 1.000000e+00, %7
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
@@ -16161,7 +16161,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor2EE
   %31 = getelementptr i8, ptr %25, i64 12
   %32 = load i32, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %33 = load i32, ptr %gep, align 4
   %34 = sext i32 %26 to i64
   %35 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %34
@@ -16422,7 +16422,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
   %15 = alloca [3 x float], align 8
-  %invariant.gep = getelementptr i8, ptr %1, i64 8
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 8
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
@@ -16440,7 +16440,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor3
   %22 = getelementptr i8, ptr %20, i64 4
   %23 = load i32, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %24 = load i32, ptr %gep, align 4
   %25 = sext i32 %23 to i64
   %26 = getelementptr inbounds [3 x float], ptr %3, i64 %25
@@ -19019,7 +19019,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor3EE
   %22 = alloca [3 x float], align 4
   %23 = alloca [6 x float], align 16
   %24 = fsub float 1.000000e+00, %7
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -19043,7 +19043,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor3EE
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr i8, ptr %32, i64 12
   %39 = load i32, ptr %38, align 4
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv125
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv125
   %40 = load i32, ptr %gep, align 4
   %41 = sext i32 %35 to i64
   %42 = getelementptr inbounds [3 x float], ptr %3, i64 %41
@@ -19184,7 +19184,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor
   %34 = alloca float, align 4
   %35 = alloca float, align 4
   %36 = alloca float, align 4
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %37 = icmp sgt i32 %0, 0
   br i1 %37, label %.lr.ph, label %._crit_edge
 
@@ -19212,7 +19212,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor
   %53 = getelementptr i8, ptr %47, i64 12
   %54 = load i32, ptr %53, align 4
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv84
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv84
   %55 = load i32, ptr %gep, align 4
   %56 = sext i32 %50 to i64
   %57 = getelementptr inbounds [3 x float], ptr %3, i64 %56
@@ -19395,7 +19395,7 @@ define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor3E
   %31 = alloca [3 x float], align 4
   %32 = alloca [3 x float], align 4
   %33 = alloca [3 x float], align 4
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %34 = icmp sgt i32 %0, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
 
@@ -19423,7 +19423,7 @@ define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor3E
   %50 = getelementptr i8, ptr %44, i64 12
   %51 = load i32, ptr %50, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv90
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv90
   %52 = load i32, ptr %gep, align 4
   %53 = sext i32 %47 to i64
   %54 = getelementptr inbounds [3 x float], ptr %3, i64 %53
@@ -19588,7 +19588,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor3EEE
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
   %23 = fsub float 1.000000e+00, %7
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
@@ -19605,7 +19605,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor3EEE
   %31 = getelementptr i8, ptr %25, i64 12
   %32 = load i32, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %33 = load i32, ptr %gep, align 4
   %34 = sext i32 %28 to i64
   %35 = getelementptr inbounds [3 x float], ptr %3, i64 %34
@@ -19701,7 +19701,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor3
   %22 = alloca [3 x float], align 4
   %23 = alloca float, align 4
   %24 = alloca float, align 4
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %25 = icmp sgt i32 %0, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
@@ -19721,7 +19721,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor3
   %34 = getelementptr i8, ptr %28, i64 12
   %35 = load i32, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %36 = load i32, ptr %gep, align 4
   %37 = sext i32 %31 to i64
   %38 = getelementptr inbounds [3 x float], ptr %3, i64 %37
@@ -19980,13 +19980,13 @@ define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor
   %77 = or disjoint i64 %indvars.iv135, 1
   %78 = getelementptr inbounds i32, ptr %1, i64 %77
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr i8, ptr %70, i64 8
+  %80 = getelementptr inbounds i8, ptr %70, i64 8
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr i8, ptr %70, i64 12
+  %82 = getelementptr inbounds i8, ptr %70, i64 12
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr i8, ptr %70, i64 16
+  %84 = getelementptr inbounds i8, ptr %70, i64 16
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr i8, ptr %70, i64 20
+  %86 = getelementptr inbounds i8, ptr %70, i64 20
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %81 to i64
   %89 = getelementptr inbounds [3 x float], ptr %3, i64 %88
@@ -20224,7 +20224,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit107: ; preds = %92, %106
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %15 = icmp sgt i32 %0, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -20245,7 +20245,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
   %25 = getelementptr i8, ptr %19, i64 12
   %26 = load i32, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %27 = load i32, ptr %gep, align 4
   %28 = sext i32 %24 to i64
   %29 = getelementptr inbounds float, ptr %17, i64 %28
@@ -20465,7 +20465,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor3EE
   %21 = alloca [3 x float], align 4
   %22 = alloca [3 x float], align 4
   %23 = fsub float 1.000000e+00, %7
-  %invariant.gep = getelementptr i8, ptr %1, i64 16
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 16
   %24 = icmp sgt i32 %0, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
@@ -20481,7 +20481,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor3EE
   %31 = getelementptr i8, ptr %25, i64 12
   %32 = load i32, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 5
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %33 = load i32, ptr %gep, align 4
   %34 = sext i32 %26 to i64
   %35 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %34

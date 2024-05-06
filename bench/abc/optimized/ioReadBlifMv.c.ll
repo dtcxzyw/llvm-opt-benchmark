@@ -2135,7 +2135,7 @@ Io_MvParseLineConstrs.exit.i:                     ; preds = %.lr.ph.i99.i, %Io_M
   br i1 %.not.i105.i, label %883, label %.preheader.i.i, !llvm.loop !21
 
 883:                                              ; preds = %.preheader.i.i
-  %884 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %880) #19
+  %884 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %880) #19
   %sext.i.i = shl i64 %884, 32
   %885 = ashr exact i64 %sext.i.i, 32
   %886 = trunc i64 %884 to i32
@@ -2174,7 +2174,7 @@ Io_MvParseLineConstrs.exit.i:                     ; preds = %.lr.ph.i99.i, %Io_M
   %902 = sub i32 %900, %901
   %903 = zext i32 %902 to i64
   %904 = add nuw nsw i64 %903, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %896, ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i.i, i64 %904, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %896, ptr noundef nonnull readonly align 1 dereferenceable(1) %scevgep.i.i, i64 %904, i1 false)
   %905 = add i32 %indvars.iv207.i, 1
   %906 = zext i32 %905 to i64
   br label %._crit_edge.i.i
@@ -3721,7 +3721,7 @@ Io_MvGetLine.exit133.i.i.i:                       ; preds = %1568, %.critedge.lo
   br i1 %1578, label %1609, label %1579
 
 1579:                                             ; preds = %.lr.ph159.i.i.i
-  %1580 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1577) #19
+  %1580 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1577) #19
   %1581 = trunc i64 %1580 to i32
   %1582 = icmp sgt i32 %1581, 0
   br i1 %1582, label %.lr.ph.preheader.i.i.i.i, label %Io_ReadBlifCleanName.exit.i.i.i
@@ -7184,7 +7184,7 @@ Io_MvGetLine.exit.i:                              ; preds = %140, %.critedge.loo
   br label %Io_MvParseLineNamesMvOne.exit.thread
 
 143:                                              ; preds = %125
-  %144 = tail call fastcc ptr @Io_MvParseAddResetCircuit(ptr noundef nonnull %0, ptr noundef %123)
+  %144 = tail call fastcc ptr @Io_MvParseAddResetCircuit(ptr noundef nonnull readonly %0, ptr noundef %123)
   %145 = load ptr, ptr %93, align 8
   %146 = tail call ptr @Abc_ObjName(ptr noundef %144) #20
   %147 = load ptr, ptr %51, align 8
@@ -7295,7 +7295,7 @@ Vec_StrPush.exit.i.i:                             ; preds = %Vec_StrGrow.exit.i.
   %198 = getelementptr ptr, ptr %.val45.i.i, i64 %indvars.iv171
   %199 = getelementptr i8, ptr %198, i64 8
   %200 = load ptr, ptr %199, align 8
-  %201 = tail call fastcc i32 @Io_MvParseLiteralMv(ptr noundef nonnull %0, ptr noundef %.040.i, ptr noundef %200, ptr noundef nonnull %177, i32 noundef -1)
+  %201 = tail call fastcc i32 @Io_MvParseLiteralMv(ptr noundef nonnull readonly %0, ptr noundef readonly %.040.i, ptr noundef %200, ptr noundef nonnull %177, i32 noundef -1)
   %.not.i.i = icmp eq i32 %201, 0
   br i1 %.not.i.i, label %Io_MvParseTableMv.exit.thread.i, label %202
 
@@ -7333,7 +7333,7 @@ Vec_StrPush.exit.i.i:                             ; preds = %Vec_StrGrow.exit.i.
   %212 = getelementptr ptr, ptr %211, i64 %indvars.iv67.i.i
   %213 = load ptr, ptr %212, align 8
   %214 = trunc nuw nsw i64 %indvars.iv64.i.i to i32
-  %215 = tail call fastcc i32 @Io_MvParseLiteralMv(ptr noundef %0, ptr noundef %.040.i, ptr noundef %213, ptr noundef %177, i32 noundef %214)
+  %215 = tail call fastcc i32 @Io_MvParseLiteralMv(ptr noundef readonly %0, ptr noundef readonly %.040.i, ptr noundef %213, ptr noundef %177, i32 noundef %214)
   %.not42.us.i.i = icmp eq i32 %215, 0
   br i1 %.not42.us.i.i, label %Io_MvParseTableMv.exit.thread.i, label %206
 
@@ -7344,7 +7344,7 @@ Vec_StrPush.exit.i.i:                             ; preds = %Vec_StrGrow.exit.i.
   %218 = sext i32 %217 to i64
   %219 = getelementptr inbounds ptr, ptr %.val43.us.i.i, i64 %218
   %220 = load ptr, ptr %219, align 8
-  %221 = tail call fastcc i32 @Io_MvParseLiteralMv(ptr noundef %0, ptr noundef %.040.i, ptr noundef %220, ptr noundef %177, i32 noundef -1)
+  %221 = tail call fastcc i32 @Io_MvParseLiteralMv(ptr noundef readonly %0, ptr noundef readonly %.040.i, ptr noundef %220, ptr noundef %177, i32 noundef -1)
   %.not41.us.i.i = icmp eq i32 %221, 0
   br i1 %.not41.us.i.i, label %Io_MvParseTableMv.exit.thread.i, label %207
 
@@ -7356,7 +7356,7 @@ Vec_StrPush.exit.i.i:                             ; preds = %Vec_StrGrow.exit.i.
   %224 = sext i32 %223 to i64
   %225 = getelementptr inbounds ptr, ptr %.val43.i.i, i64 %224
   %226 = load ptr, ptr %225, align 8
-  %227 = tail call fastcc i32 @Io_MvParseLiteralMv(ptr noundef %0, ptr noundef %.040.i, ptr noundef %226, ptr noundef %177, i32 noundef -1)
+  %227 = tail call fastcc i32 @Io_MvParseLiteralMv(ptr noundef readonly %0, ptr noundef readonly %.040.i, ptr noundef %226, ptr noundef %177, i32 noundef -1)
   %.not41.i.i = icmp eq i32 %227, 0
   br i1 %.not41.i.i, label %Io_MvParseTableMv.exit.thread.i, label %228
 

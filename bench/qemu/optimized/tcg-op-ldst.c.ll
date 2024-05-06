@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.TCGHelperInfo = type { ptr, ptr, i64, i64, [14 x %struct.TCGCallArgumentLoc] }
 %struct.TCGCallArgumentLoc = type { i32 }
 
-@tcg_ctx = external thread_local global ptr, align 8
+@tcg_ctx = external thread_local local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [26 x i8] c"../qemu/tcg/tcg-op-ldst.c\00", align 1
 @__func__.tcg_gen_ext_i32 = private unnamed_addr constant [16 x i8] c"tcg_gen_ext_i32\00", align 1
 @__func__.tcg_gen_ext_i64 = private unnamed_addr constant [16 x i8] c"tcg_gen_ext_i64\00", align 1
@@ -205,7 +205,7 @@ if.then.i:                                        ; preds = %entry
 
 tcg_gen_req_mo.exit:                              ; preds = %entry, %if.then.i
   %and.i.i = and i32 %memop, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -391,7 +391,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
   %and.i.i = and i32 %memop, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -579,7 +579,7 @@ if.then.i:                                        ; preds = %entry
 
 tcg_gen_req_mo.exit:                              ; preds = %entry, %if.then.i
   %and.i.i = and i32 %memop, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -770,7 +770,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
   %and.i.i = and i32 %memop, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -956,7 +956,7 @@ entry:
 define internal fastcc void @tcg_gen_qemu_ld_i128_int(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop) unnamed_addr #0 {
 entry:
   %and.i = and i32 %memop, 224
-  %trunc.i = trunc i32 %and.i to i8
+  %trunc.i = trunc nuw i32 %and.i to i8
   switch i8 %trunc.i, label %if.else4.i [
     i8 0, label %get_alignment_bits.exit
     i8 -32, label %if.then2.i
@@ -1313,7 +1313,7 @@ entry:
 define internal fastcc void @tcg_gen_qemu_st_i128_int(ptr noundef %val, ptr noundef %addr, i64 noundef %idx, i32 noundef %memop) unnamed_addr #0 {
 entry:
   %and.i = and i32 %memop, 224
-  %trunc.i = trunc i32 %and.i to i8
+  %trunc.i = trunc nuw i32 %and.i to i8
   switch i8 %trunc.i, label %if.else4.i [
     i8 0, label %get_alignment_bits.exit
     i8 -32, label %if.then2.i
@@ -1893,7 +1893,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %and.i.i = and i32 %memop, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -2086,7 +2086,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -2371,7 +2371,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -2452,7 +2452,7 @@ if.end9:                                          ; preds = %do_nonatomic_op_i32
 define internal fastcc void @do_atomic_op_i32(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, ptr nocapture noundef readonly %table) unnamed_addr #0 {
 entry:
   %and.i.i = and i32 %memop, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -2608,7 +2608,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -2691,7 +2691,7 @@ if.end9:                                          ; preds = %do_nonatomic_op_i64
 define internal fastcc void @do_atomic_op_i64(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, ptr nocapture noundef readonly %table) unnamed_addr #0 {
 entry:
   %and.i.i = and i32 %memop, 224
-  %trunc.i.i = trunc i32 %and.i.i to i8
+  %trunc.i.i = trunc nuw i32 %and.i.i to i8
   switch i8 %trunc.i.i, label %if.else4.i.i [
     i8 0, label %get_alignment_bits.exit.i
     i8 -32, label %if.then2.i.i
@@ -2873,7 +2873,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -2980,7 +2980,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -3089,7 +3089,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -3196,7 +3196,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -3305,7 +3305,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -3412,7 +3412,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -3521,7 +3521,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -3628,7 +3628,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -3737,7 +3737,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -3844,7 +3844,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -3953,7 +3953,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -4060,7 +4060,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -4169,7 +4169,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -4276,7 +4276,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -4385,7 +4385,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -4490,7 +4490,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -4597,7 +4597,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -4702,7 +4702,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -4809,7 +4809,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -4914,7 +4914,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -5021,7 +5021,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -5126,7 +5126,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -5233,7 +5233,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -5338,7 +5338,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -5445,7 +5445,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -5550,7 +5550,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -5657,7 +5657,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -5762,7 +5762,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -5869,7 +5869,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -5974,7 +5974,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -6081,7 +6081,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i
@@ -6186,7 +6186,7 @@ if.else:                                          ; preds = %entry
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call1.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %and.i.i.i = and i32 %memop, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
+  %trunc.i.i.i = trunc nuw i32 %and.i.i.i to i8
   switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
     i8 0, label %get_alignment_bits.exit.i.i
     i8 -32, label %if.then2.i.i.i

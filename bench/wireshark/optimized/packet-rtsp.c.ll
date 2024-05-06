@@ -468,7 +468,7 @@ dissect_rtspinterleaved.exit:                     ; preds = %65, %78, %112
   %121 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.063, i32 noundef -1, ptr noundef nonnull %22, i32 noundef 0) #10
   %122 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.063, i32 noundef %121) #10
   %123 = sext i32 %121 to i64
-  %124 = call fastcc i32 @is_rtsp_request_or_reply(ptr noundef %122, i64 noundef %123, ptr noundef nonnull %23), !range !4
+  %124 = call fastcc i32 @is_rtsp_request_or_reply(ptr noundef %122, i64 noundef %123, ptr noundef nonnull %23)
   %.not.i20 = icmp eq i32 %124, 0
   br i1 %.not.i20, label %149, label %125
 
@@ -559,7 +559,7 @@ dissect_rtspinterleaved.exit:                     ; preds = %65, %78, %112
   %168 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.0253387.i, i32 noundef %163) #10
   %169 = zext nneg i32 %163 to i64
   %170 = getelementptr i8, ptr %168, i64 %169
-  %171 = call fastcc i32 @is_rtsp_request_or_reply(ptr noundef %168, i64 noundef %169, ptr noundef nonnull %24), !range !4
+  %171 = call fastcc i32 @is_rtsp_request_or_reply(ptr noundef %168, i64 noundef %169, ptr noundef nonnull %24)
   %172 = icmp ne i32 %171, 0
   %173 = icmp eq i32 %163, 0
   %or.cond.i21 = or i1 %173, %172
@@ -601,7 +601,7 @@ dissect_rtspinterleaved.exit:                     ; preds = %65, %78, %112
     i8 58, label %.loopexit339.i.loopexit
     i8 32, label %.loopexit339.i
     i8 9, label %.loopexit339.i
-  ], !llvm.loop !5
+  ], !llvm.loop !4
 
 183:                                              ; preds = %175, %.preheader338.i
   br i1 %.not284383.i, label %.loopexit.i, label %184
@@ -669,7 +669,7 @@ dissect_rtspinterleaved.exit:                     ; preds = %65, %78, %112
 212:                                              ; preds = %205, %200, %196
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 11
-  br i1 %exitcond.not.i.i, label %213, label %196, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %213, label %196, !llvm.loop !6
 
 213:                                              ; preds = %212
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133, i32 noundef 1406) #12
@@ -703,7 +703,7 @@ dissect_rtspinterleaved.exit:                     ; preds = %65, %78, %112
 231:                                              ; preds = %.lr.ph.i.i
   %232 = getelementptr i8, ptr %.05870.i.i, i64 1
   %exitcond87.not.i.i = icmp eq ptr %232, %170
-  br i1 %exitcond87.not.i.i, label %process_rtsp_request.exit.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %exitcond87.not.i.i, label %process_rtsp_request.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i, %.thread.i.i
   %.058.lcssa.i.i = phi ptr [ %168, %.thread.i.i ], [ %.05870.i.i, %.lr.ph.i.i ]
@@ -723,7 +723,7 @@ dissect_rtspinterleaved.exit:                     ; preds = %65, %78, %112
 239:                                              ; preds = %.lr.ph74.i.i
   %240 = getelementptr i8, ptr %.173.i.i, i64 1
   %241 = icmp ult ptr %240, %170
-  br i1 %241, label %.lr.ph74.i.i, label %.critedge2.i.i, !llvm.loop !9
+  br i1 %241, label %.lr.ph74.i.i, label %.critedge2.i.i, !llvm.loop !8
 
 .critedge2.i.i:                                   ; preds = %239, %.lr.ph74.i.i, %.critedge.i.i
   %.1.lcssa.i.i = phi ptr [ %.058.lcssa.i.i, %.critedge.i.i ], [ %240, %239 ], [ %.173.i.i, %.lr.ph74.i.i ]
@@ -743,7 +743,7 @@ dissect_rtspinterleaved.exit:                     ; preds = %65, %78, %112
 248:                                              ; preds = %.lr.ph79.i.i
   %249 = getelementptr i8, ptr %.278.i.i, i64 1
   %250 = icmp ult ptr %249, %170
-  br i1 %250, label %.lr.ph79.i.i, label %process_rtsp_request.exit.i, !llvm.loop !10
+  br i1 %250, label %.lr.ph79.i.i, label %process_rtsp_request.exit.i, !llvm.loop !9
 
 process_rtsp_request.exit.i:                      ; preds = %231, %248, %.lr.ph79.i.i, %.critedge2.i.i
   %.1.lcssa90.i.i = phi ptr [ %.1.lcssa.i.i, %.critedge2.i.i ], [ %.1.lcssa.i.i, %.lr.ph79.i.i ], [ %.1.lcssa.i.i, %248 ], [ %170, %231 ]
@@ -787,7 +787,7 @@ process_rtsp_request.exit.i:                      ; preds = %231, %248, %.lr.ph7
 278:                                              ; preds = %.lr.ph.i303.i
   %279 = getelementptr i8, ptr %.03841.i.i, i64 1
   %exitcond.not.i305.i = icmp eq ptr %279, %170
-  br i1 %exitcond.not.i305.i, label %process_rtsp_reply.exit.i, label %.lr.ph.i303.i, !llvm.loop !11
+  br i1 %exitcond.not.i305.i, label %process_rtsp_reply.exit.i, label %.lr.ph.i303.i, !llvm.loop !10
 
 .critedge.i299.i:                                 ; preds = %.lr.ph.i303.i, %263
   %.038.lcssa.i.i = phi ptr [ %168, %263 ], [ %.03841.i.i, %.lr.ph.i303.i ]
@@ -807,7 +807,7 @@ process_rtsp_request.exit.i:                      ; preds = %231, %248, %.lr.ph7
 286:                                              ; preds = %.lr.ph45.i.i
   %287 = getelementptr i8, ptr %.144.i.i, i64 1
   %288 = icmp ult ptr %287, %170
-  br i1 %288, label %.lr.ph45.i.i, label %.critedge2.i300.i, !llvm.loop !12
+  br i1 %288, label %.lr.ph45.i.i, label %.critedge2.i300.i, !llvm.loop !11
 
 .critedge2.i300.i:                                ; preds = %286, %.lr.ph45.i.i, %.critedge.i299.i
   %.1.lcssa.i301.i = phi ptr [ %.038.lcssa.i.i, %.critedge.i299.i ], [ %287, %286 ], [ %.144.i.i, %.lr.ph45.i.i ]
@@ -832,7 +832,7 @@ process_rtsp_request.exit.i:                      ; preds = %231, %248, %.lr.ph7
   %299 = add i32 %296, -48
   %300 = add i32 %299, %298
   %301 = icmp ult ptr %297, %170
-  br i1 %301, label %.lr.ph51.i.i, label %process_rtsp_reply.exit.i, !llvm.loop !13
+  br i1 %301, label %.lr.ph51.i.i, label %process_rtsp_reply.exit.i, !llvm.loop !12
 
 process_rtsp_reply.exit.i:                        ; preds = %278, %295, %.lr.ph51.i.i, %.critedge2.i300.i
   %.1.lcssa59.i.i = phi ptr [ %.1.lcssa.i301.i, %.critedge2.i300.i ], [ %.1.lcssa.i301.i, %.lr.ph51.i.i ], [ %.1.lcssa.i301.i, %295 ], [ %170, %278 ]
@@ -869,7 +869,7 @@ process_rtsp_reply.exit.i:                        ; preds = %278, %295, %.lr.ph5
 315:                                              ; preds = %.lr.ph.i, %.lr.ph.i
   %.0263.i = add nsw i32 %.0263379.i, 1
   %exitcond.not.i = icmp eq i32 %.0263.i, %166
-  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %315, %.lr.ph.i, %.preheader.i
   %.0263.lcssa.i = phi i32 [ %.0263378.i, %.preheader.i ], [ %166, %315 ], [ %.0263379.i, %.lr.ph.i ]
@@ -910,7 +910,7 @@ process_rtsp_reply.exit.i:                        ; preds = %278, %295, %.lr.ph5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %169, i64 255)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %168, i64 %spec.store.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr readonly align 1 %168, i64 %spec.store.select.i.i, i1 false)
   %329 = getelementptr [256 x i8], ptr %8, i64 0, i64 %spec.store.select.i.i
   store i8 0, ptr %329, align 1
   %330 = load i8, ptr %40, align 2
@@ -931,7 +931,7 @@ process_rtsp_reply.exit.i:                        ; preds = %278, %295, %.lr.ph5
   %337 = getelementptr i8, ptr %.0100138.i.i, i64 1
   %338 = load i8, ptr %337, align 1
   %.not117.i.i = icmp eq i8 %338, 0
-  br i1 %.not117.i.i, label %.critedge.i308.i, label %.lr.ph.i307.i, !llvm.loop !15
+  br i1 %.not117.i.i, label %.critedge.i308.i, label %.lr.ph.i307.i, !llvm.loop !14
 
 .critedge.i308.i:                                 ; preds = %336, %.lr.ph.i307.i, %328
   %.0100.lcssa.i.i = phi ptr [ %40, %328 ], [ %337, %336 ], [ %.0100138.i.i, %.lr.ph.i307.i ]
@@ -1318,7 +1318,7 @@ rtsp_create_conversation.exit.i:                  ; preds = %483, %482, %478, %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %spec.store.select.i309.i = call i64 @llvm.umin.i64(i64 %169, i64 255)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 1 %168, i64 %spec.store.select.i309.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr readonly align 1 %168, i64 %spec.store.select.i309.i, i1 false)
   %522 = getelementptr [256 x i8], ptr %5, i64 0, i64 %spec.store.select.i309.i
   store i8 0, ptr %522, align 1
   %523 = load i8, ptr %37, align 1
@@ -1339,7 +1339,7 @@ rtsp_create_conversation.exit.i:                  ; preds = %483, %482, %478, %4
   %530 = getelementptr i8, ptr %.01218.i.i, i64 1
   %531 = load i8, ptr %530, align 1
   %.not.i311.i = icmp eq i8 %531, 0
-  br i1 %.not.i311.i, label %.critedge.i312.i, label %.lr.ph.i310.i, !llvm.loop !16
+  br i1 %.not.i311.i, label %.critedge.i312.i, label %.lr.ph.i310.i, !llvm.loop !15
 
 .critedge.i312.i:                                 ; preds = %529, %.lr.ph.i310.i, %521
   %.012.lcssa.i.i = phi ptr [ %37, %521 ], [ %530, %529 ], [ %.01218.i.i, %.lr.ph.i310.i ]
@@ -1463,7 +1463,7 @@ rtsp_get_content_length.exit.i:                   ; preds = %542, %537, %.crited
   %593 = load i32, ptr %22, align 4
   %594 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %593) #10
   %.not282.i = icmp eq i32 %594, 0
-  br i1 %.not282.i, label %.loopexit.i, label %162, !llvm.loop !17
+  br i1 %.not282.i, label %.loopexit.i, label %162, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %592, %181, %181, %181, %181, %181, %181, %181, %181, %181, %181, %181, %181, %181, %181, %181, %181, %186, %184, %183
   %.0265367.i = phi i32 [ %.0265384.i, %186 ], [ %.0265384.i, %184 ], [ %.0265384.i, %183 ], [ %.0265384.i, %181 ], [ %.0265384.i, %181 ], [ %.0265384.i, %181 ], [ %.0265384.i, %181 ], [ %.0265384.i, %181 ], [ %.0265384.i, %181 ], [ %.0265384.i, %181 ], [ %.0265384.i, %181 ], [ %.0265384.i, %181 ], [ %.0265384.i, %181 ], [ %.0265384.i, %181 ], [ %.0265384.i, %181 ], [ %.0265384.i, %181 ], [ %.0265384.i, %181 ], [ %.0265384.i, %181 ], [ %.0265384.i, %181 ], [ %.1266.i, %592 ]
@@ -1521,7 +1521,7 @@ rtsp_get_content_length.exit.i:                   ; preds = %542, %537, %.crited
   %614 = call i32 @tvb_find_line_end(ptr noundef %613, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %22, i32 noundef 0) #10
   %615 = call ptr @tvb_get_ptr(ptr noundef %613, i32 noundef 0, i32 noundef %614) #10
   %616 = sext i32 %614 to i64
-  %617 = call fastcc i32 @is_rtsp_request_or_reply(ptr noundef %615, i64 noundef %616, ptr noundef nonnull %23), !range !4
+  %617 = call fastcc i32 @is_rtsp_request_or_reply(ptr noundef %615, i64 noundef %616, ptr noundef nonnull %23)
   %.not293.i = icmp eq i32 %617, 0
   br i1 %.not293.i, label %618, label %.thread333.i
 
@@ -1587,7 +1587,7 @@ dissect_rtspmessage.exit:                         ; preds = %162, %125, %.thread
   call void @col_set_fence(ptr noundef %640, i32 noundef 25) #10
   %641 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %639) #10
   %.not = icmp eq i32 %641, 0
-  br i1 %.not, label %._crit_edge, label %50, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %50, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %638, %635, %4
   %642 = call i32 @tvb_captured_length(ptr noundef %0) #10
@@ -1774,7 +1774,7 @@ declare i32 @tvb_find_line_end(ptr noundef, i32 noundef, i32 noundef, ptr nounde
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @is_rtsp_request_or_reply(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_rtsp_request_or_reply(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [4 x i8], align 1
@@ -1854,7 +1854,7 @@ define internal fastcc noundef i32 @is_rtsp_request_or_reply(ptr noundef %0, i64
 48:                                               ; preds = %26, %30, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %49, label %26, !llvm.loop !19
+  br i1 %exitcond.not, label %49, label %26, !llvm.loop !18
 
 49:                                               ; preds = %48
   store i32 2, ptr %2, align 4
@@ -2012,19 +2012,18 @@ attributes #12 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}

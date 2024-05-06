@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_StackTrace.cpp, ptr null }]
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5folly10symbolizer13getStackTraceEPmm(ptr noundef %addresses, i64 noundef %maxAddresses) local_unnamed_addr #0 {
+define noundef range(i64 -1, 2147483648) i64 @_ZN5folly10symbolizer13getStackTraceEPmm(ptr noundef %addresses, i64 noundef %maxAddresses) local_unnamed_addr #0 {
 entry:
   %conv = trunc i64 %maxAddresses to i32
   %call1 = tail call i32 @backtrace(ptr noundef %addresses, i32 noundef %conv)

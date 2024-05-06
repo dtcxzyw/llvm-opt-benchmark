@@ -161,7 +161,7 @@ define internal i32 @dir_close(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @dir_read(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i64 -2147483648, 35) i64 @dir_read(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -418,7 +418,7 @@ seek_pseudodir.exit:                              ; preds = %52, %51, %seek_moun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @dir_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #3 {
+define internal range(i32 -25, 1) i32 @dir_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #3 {
   switch i32 %1, label %11 [
     i32 771, label %4
     i32 1293, label %12

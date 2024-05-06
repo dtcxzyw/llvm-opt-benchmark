@@ -90,7 +90,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mtrr_state: 
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_mtrr_state336, ptr @__setup_mtrr_param_setup, ptr @generic_get_mtrr.__UNIQUE_ID___addressable___SCK__preempt_schedule347], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @mtrr_param_setup(ptr noundef readonly %0) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @mtrr_param_setup(ptr noundef readonly %0) #0 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -835,7 +835,7 @@ define internal fastcc void @get_fixed_ranges() unnamed_addr #1 align 16 {
 
 17:                                               ; preds = %13
   %18 = lshr i64 %11, 32
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw i64 %18 to i32
   %20 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #20, !srcloc !24
   %21 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18, i32 noundef %20) #18
   %22 = and i32 %14, -524289
@@ -874,14 +874,14 @@ define internal fastcc void @get_fixed_ranges() unnamed_addr #1 align 16 {
   %39 = trunc i64 %33 to i32
   store i32 %39, ptr getelementptr inbounds (%struct.mtrr_state_type, ptr @mtrr_state, i64 0, i32 1), align 4
   %40 = lshr i64 %36, 32
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nuw i64 %40 to i32
   store i32 %41, ptr getelementptr inbounds (%struct.mtrr_state_type, ptr @mtrr_state, i64 0, i32 1, i64 4), align 4
   br label %42
 
 42:                                               ; preds = %53, %38
   %43 = phi i1 [ true, %38 ], [ false, %53 ]
   %44 = phi i64 [ 0, %38 ], [ 1, %53 ]
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw nsw i64 %44 to i32
   %46 = or disjoint i32 %45, 600
   %47 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %46) #17, !srcloc !22
   %48 = extractvalue { i64, i64 } %47, 0
@@ -902,7 +902,7 @@ define internal fastcc void @get_fixed_ranges() unnamed_addr #1 align 16 {
   %57 = getelementptr i8, ptr %56, i64 8
   store i32 %54, ptr %57, align 4
   %58 = lshr i64 %51, 32
-  %59 = trunc i64 %58 to i32
+  %59 = trunc nuw i64 %58 to i32
   %60 = getelementptr i8, ptr %56, i64 12
   store i32 %59, ptr %60, align 4
   br i1 %43, label %42, label %.preheader, !llvm.loop !27
@@ -930,7 +930,7 @@ define internal fastcc void @get_fixed_ranges() unnamed_addr #1 align 16 {
   %74 = getelementptr i8, ptr %73, i64 24
   store i32 %71, ptr %74, align 4
   %75 = lshr i64 %68, 32
-  %76 = trunc i64 %75 to i32
+  %76 = trunc nuw i64 %75 to i32
   %77 = getelementptr i8, ptr %73, i64 28
   store i32 %76, ptr %77, align 4
   %78 = add nuw nsw i64 %61, 1
@@ -986,7 +986,7 @@ define dso_local zeroext i1 @get_mtrr_state() local_unnamed_addr #2 section ".in
   %25 = trunc i64 %19 to i32
   store i32 %25, ptr %14, align 4
   %26 = lshr i64 %22, 32
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %28 = getelementptr inbounds i8, ptr %14, i64 4
   store i32 %27, ptr %28, align 4
   %29 = add i32 %16, 513
@@ -1007,7 +1007,7 @@ define dso_local zeroext i1 @get_mtrr_state() local_unnamed_addr #2 section ".in
   %38 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 %37, ptr %38, align 4
   %39 = lshr i64 %34, 32
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw i64 %39 to i32
   %41 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 %40, ptr %41, align 4
   %42 = add nuw nsw i64 %13, 1
@@ -1326,7 +1326,7 @@ define dso_local void @mtrr_disable() local_unnamed_addr #1 align 16 {
   %8 = trunc i64 %2 to i32
   store i32 %8, ptr @deftype_lo, align 4
   %9 = lshr i64 %5, 32
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   store i32 %10, ptr @deftype_hi, align 4
   %11 = and i32 %8, -3328
   %12 = tail call i32 asm sideeffect "1: wrmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=10 \0A.purgem extable_type_reg\0A .popsection\0A", "={ax},{cx},0,{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 767, i32 %11, i32 %10) #17, !srcloc !25
@@ -1420,7 +1420,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
 
 21:                                               ; preds = %15
   %22 = lshr i64 %13, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %24 = getelementptr inbounds i8, ptr %5, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = load i32, ptr @phys_hi_rsvd, align 4
@@ -1484,7 +1484,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
 
 60:                                               ; preds = %53
   %61 = lshr i64 %51, 32
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw i64 %61 to i32
   %63 = getelementptr inbounds i8, ptr %5, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = load i32, ptr @phys_hi_rsvd, align 4
@@ -1569,7 +1569,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
 
 112:                                              ; preds = %108
   %113 = lshr i64 %106, 32
-  %114 = trunc i64 %113 to i32
+  %114 = trunc nuw i64 %113 to i32
   %115 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #20, !srcloc !24
   %116 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18, i32 noundef %115) #18
   %117 = and i32 %109, -524289
@@ -1648,7 +1648,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
 
 158:                                              ; preds = %154
   %159 = lshr i64 %152, 32
-  %160 = trunc i64 %159 to i32
+  %160 = trunc nuw i64 %159 to i32
   %161 = getelementptr i8, ptr %144, i64 4
   %162 = load i32, ptr %161, align 4
   %163 = icmp eq i32 %162, %160
@@ -1746,7 +1746,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @generic_validate_add_page(i64 noundef %0, i64 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @generic_validate_add_page(i64 noundef %0, i64 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = load ptr, ptr @mtrr_if, align 8
   %5 = icmp eq ptr %4, @generic_mtrr_ops
   %6 = load i8, ptr @boot_cpu_data, align 8
@@ -2053,7 +2053,7 @@ define internal void @generic_get_mtrr(i32 noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @generic_have_wrcomb() #1 align 16 {
+define internal range(i32 0, 1025) i32 @generic_have_wrcomb() #1 align 16 {
   %1 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 254) #17, !srcloc !22
   %2 = extractvalue { i64, i64 } %1, 0
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_read_msr, i64 0, i32 1), i32 2) #17
@@ -2076,7 +2076,7 @@ define internal i32 @generic_have_wrcomb() #1 align 16 {
 declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @add_map_entry_at(i64 noundef %0, i64 noundef %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 3) i32 @add_map_entry_at(i64 noundef %0, i64 noundef %1, i8 noundef zeroext %2, i32 noundef %3) unnamed_addr #1 align 16 {
   %5 = icmp ult i64 %0, %1
   br i1 %5, label %6, label %85
 

@@ -1393,7 +1393,7 @@ define internal i32 @dissect_gsm_sim_part(ptr noundef %0, ptr noundef %1, ptr no
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.512) #2
-  %13 = tail call fastcc i32 @dissect_rsp_apdu_tvb(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
+  %13 = tail call fastcc i32 @dissect_rsp_apdu_tvb(ptr noundef %0, i32 noundef 0, ptr noundef nonnull readonly %1, ptr noundef %2, ptr noundef null)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %7, %10
@@ -2136,7 +2136,7 @@ define internal fastcc i32 @dissect_rsp_apdu_tvb(ptr noundef %0, i32 noundef %1,
 
 35:                                               ; preds = %22
   %36 = lshr i16 %23, 8
-  %trunc = trunc i16 %36 to i8
+  %trunc = trunc nuw i16 %36 to i8
   switch i8 %trunc, label %37 [
     i8 -112, label %42
     i8 -111, label %42
@@ -2175,7 +2175,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 define internal fastcc ptr @get_sw_string(ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #0 {
   %3 = zext i16 %1 to i32
   %4 = lshr i16 %1, 8
-  %trunc = trunc i16 %4 to i8
+  %trunc = trunc nuw i16 %4 to i8
   switch i8 %trunc, label %24 [
     i8 -111, label %26
     i8 -98, label %5

@@ -64,7 +64,7 @@ Abc_Clock.exit.i:                                 ; preds = %16, %7
   br i1 %.not.i, label %.critedge.us.i, label %.critedge.i
 
 .critedge.us.i:                                   ; preds = %.critedge.preheader.i, %.critedge.us.i
-  %29 = call fastcc i32 @Abc_NtkCovCoversOne(ptr noundef %10, ptr noundef %0, i32 noundef 0), !range !4
+  %29 = call fastcc i32 @Abc_NtkCovCoversOne(ptr noundef %10, ptr noundef %0, i32 noundef 0)
   %.not30.us.i = icmp eq i32 %29, 0
   br i1 %.not30.us.i, label %.critedge.us.i, label %.preheader.i
 
@@ -85,13 +85,13 @@ Abc_Clock.exit.i:                                 ; preds = %16, %7
   %.val31.val.i = load i32, ptr %36, align 4
   %37 = sext i32 %.val31.val.i to i64
   %38 = icmp slt i64 %indvars.iv.next.i, %37
-  br i1 %38, label %.lr.ph.i, label %.critedge.preheader.i, !llvm.loop !5
+  br i1 %38, label %.lr.ph.i, label %.critedge.preheader.i, !llvm.loop !4
 
 .critedge.i:                                      ; preds = %.critedge.preheader.i, %.critedge.i
   %.1.i = phi i32 [ %39, %.critedge.i ], [ 0, %.critedge.preheader.i ]
   %39 = add nuw nsw i32 %.1.i, 1
   %40 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %39)
-  %41 = call fastcc i32 @Abc_NtkCovCoversOne(ptr noundef %10, ptr noundef %0, i32 noundef %6), !range !4
+  %41 = call fastcc i32 @Abc_NtkCovCoversOne(ptr noundef %10, ptr noundef %0, i32 noundef %6)
   %.not30.i = icmp eq i32 %41, 0
   br i1 %.not30.i, label %.critedge.i, label %.preheader.i
 
@@ -128,7 +128,7 @@ Abc_Clock.exit.i:                                 ; preds = %16, %7
   %.val.i = load i32, ptr %57, align 4
   %58 = sext i32 %.val.i to i64
   %59 = icmp slt i64 %indvars.iv.next49.i, %58
-  br i1 %59, label %.lr.ph44.i, label %.critedge2.i, !llvm.loop !7
+  br i1 %59, label %.lr.ph44.i, label %.critedge2.i, !llvm.loop !6
 
 .critedge2.i:                                     ; preds = %55, %.preheader.i
   br i1 %.not.i, label %Abc_NtkCovCovers.exit, label %60
@@ -244,7 +244,7 @@ Vec_IntGrow.exit.i:                               ; preds = %21, %3
   store i32 -1, ptr %27, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntFill.exit, label %25, !llvm.loop !8
+  br i1 %exitcond.not.i, label %Vec_IntFill.exit, label %25, !llvm.loop !7
 
 Vec_IntFill.exit:                                 ; preds = %25, %Vec_IntGrow.exit.i
   %28 = getelementptr inbounds i8, ptr %5, i64 4
@@ -296,7 +296,7 @@ Vec_IntGrow.exit.i80:                             ; preds = %44, %Vec_IntFill.ex
   store i32 -1, ptr %50, align 4
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, %wide.trip.count.i82
-  br i1 %exitcond.not.i85, label %Vec_IntFill.exit87, label %48, !llvm.loop !8
+  br i1 %exitcond.not.i85, label %Vec_IntFill.exit87, label %48, !llvm.loop !7
 
 Vec_IntFill.exit87:                               ; preds = %48, %Vec_IntGrow.exit.i80
   %51 = getelementptr inbounds i8, ptr %30, i64 4
@@ -345,7 +345,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntFill.exit87,
 75:                                               ; preds = %261
   %76 = load i32, ptr %8, align 4
   %77 = icmp slt i32 %.1, %76
-  br i1 %77, label %.lr.ph148, label %.critedge, !llvm.loop !9
+  br i1 %77, label %.lr.ph148, label %.critedge, !llvm.loop !8
 
 .lr.ph148:                                        ; preds = %.lr.ph, %75
   %.069132147 = phi i32 [ %.170, %75 ], [ 0, %.lr.ph ]
@@ -728,7 +728,7 @@ Vec_IntPush.exit117:                              ; preds = %.Vec_IntGrow.exit10
   %.1 = phi i32 [ %191, %Vec_IntPush.exit103 ], [ %.0133146, %Vec_IntPush.exit110 ], [ %260, %Vec_IntPush.exit117 ]
   %262 = load i32, ptr %6, align 4
   %263 = icmp slt i32 %.170, %262
-  br i1 %263, label %75, label %.critedge, !llvm.loop !9
+  br i1 %263, label %75, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %261, %75, %.lr.ph, %Vec_IntAlloc.exit
   %264 = phi i32 [ %58, %Vec_IntAlloc.exit ], [ %58, %.lr.ph ], [ %262, %75 ], [ %262, %261 ]
@@ -760,7 +760,7 @@ Vec_IntPush.exit117:                              ; preds = %.Vec_IntGrow.exit10
   %.val77 = load ptr, ptr %275, align 8
   %276 = sext i32 %274 to i64
   %277 = getelementptr inbounds i32, ptr %.val77, i64 %276
-  %278 = trunc i64 %indvars.iv to i32
+  %278 = trunc nsw i64 %indvars.iv to i32
   store i32 %278, ptr %277, align 4
   %279 = load ptr, ptr %266, align 8
   %280 = getelementptr inbounds i32, ptr %279, i64 %indvars.iv
@@ -828,7 +828,7 @@ Vec_IntPush.exit124:                              ; preds = %.Vec_IntGrow.exit10
   %307 = load i32, ptr %6, align 4
   %308 = sext i32 %307 to i64
   %309 = icmp slt i64 %indvars.iv.next, %308
-  br i1 %309, label %272, label %.preheader, !llvm.loop !10
+  br i1 %309, label %272, label %.preheader, !llvm.loop !9
 
 310:                                              ; preds = %.lr.ph141, %Vec_IntPush.exit131
   %indvars.iv143 = phi i64 [ %271, %.lr.ph141 ], [ %indvars.iv.next144, %Vec_IntPush.exit131 ]
@@ -838,7 +838,7 @@ Vec_IntPush.exit124:                              ; preds = %.Vec_IntGrow.exit10
   %.val78 = load ptr, ptr %313, align 8
   %314 = sext i32 %312 to i64
   %315 = getelementptr inbounds i32, ptr %.val78, i64 %314
-  %316 = trunc i64 %indvars.iv143 to i32
+  %316 = trunc nsw i64 %indvars.iv143 to i32
   store i32 %316, ptr %315, align 4
   %317 = load ptr, ptr %270, align 8
   %318 = getelementptr inbounds i32, ptr %317, i64 %indvars.iv143
@@ -906,7 +906,7 @@ Vec_IntPush.exit131:                              ; preds = %.Vec_IntGrow.exit10
   %345 = load i32, ptr %8, align 4
   %346 = sext i32 %345 to i64
   %347 = icmp slt i64 %indvars.iv.next144, %346
-  br i1 %347, label %310, label %._crit_edge, !llvm.loop !11
+  br i1 %347, label %310, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit131, %.preheader
   ret ptr %61
@@ -917,7 +917,7 @@ declare ptr @Abc_NtkFanoutCounts(ptr noundef) local_unnamed_addr #1
 declare ptr @Abc_AigConst1(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Abc_NtkCovCoversOne(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NtkCovCoversOne(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -978,7 +978,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br i1 %29, label %Extra_ProgressBarUpdate.exit, label %30
 
 30:                                               ; preds = %26, %22
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %19, i32 noundef %31, ptr noundef null) #13
   br label %Extra_ProgressBarUpdate.exit
 
@@ -1056,7 +1056,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %26, %30
   %.val58.val = load i32, ptr %60, align 4
   %61 = sext i32 %.val58.val to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %22, label %.critedge, !llvm.loop !12
+  br i1 %62, label %22, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %59, %Abc_Clock.exit
   %.047.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.148, %59 ]
@@ -1094,7 +1094,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %26, %30
   %.val = load i32, ptr %78, align 4
   %79 = sext i32 %.val to i64
   %80 = icmp slt i64 %indvars.iv.next89, %79
-  br i1 %80, label %.lr.ph83, label %.critedge2, !llvm.loop !13
+  br i1 %80, label %.lr.ph83, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %76, %.critedge
   %81 = getelementptr inbounds i8, ptr %0, i64 112
@@ -1129,7 +1129,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %26, %30
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %93 = sext i32 %.val55 to i64
   %94 = icmp slt i64 %indvars.iv.next92, %93
-  br i1 %94, label %.lr.ph86, label %.critedge4, !llvm.loop !14
+  br i1 %94, label %.lr.ph86, label %.critedge4, !llvm.loop !13
 
 .critedge4:                                       ; preds = %92, %.critedge2
   %95 = load ptr, ptr %15, align 8
@@ -1194,7 +1194,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #13
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #13
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1213,7 +1213,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1807,7 +1807,7 @@ define internal fastcc void @Abc_NtkCovCovers_rec(ptr noundef %0, ptr nocapture 
   %340 = load i32, ptr %339, align 4
   %341 = sext i32 %340 to i64
   %342 = icmp slt i64 %indvars.iv.next.i.i, %341
-  br i1 %342, label %304, label %._crit_edge.i.i, !llvm.loop !15
+  br i1 %342, label %304, label %._crit_edge.i.i, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %336, %280
   %343 = load ptr, ptr %275, align 8
@@ -1833,13 +1833,13 @@ define internal fastcc void @Abc_NtkCovCovers_rec(ptr noundef %0, ptr nocapture 
   %353 = load ptr, ptr %351, align 8
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %353, ptr noundef nonnull %.0914.i.i.i) #13
   %.not12.i.i.i = icmp eq ptr %.015.i.i.i, null
-  br i1 %.not12.i.i.i, label %Abc_NodeCovSum.exit.i, label %352, !llvm.loop !16
+  br i1 %.not12.i.i.i, label %Abc_NodeCovSum.exit.i, label %352, !llvm.loop !15
 
 354:                                              ; preds = %._crit_edge.i.i
   tail call void @Min_SopAddCube(ptr noundef nonnull %343, ptr noundef nonnull %284) #13
   %355 = load ptr, ptr %.072100.i.i, align 8
   %.not.i168.i = icmp eq ptr %355, null
-  br i1 %.not.i168.i, label %.lr.ph109.i.i, label %280, !llvm.loop !17
+  br i1 %.not.i168.i, label %.lr.ph109.i.i, label %280, !llvm.loop !16
 
 356:                                              ; preds = %430, %.lr.ph109.i.i
   %.071108.i.i = phi ptr [ %272, %.lr.ph109.i.i ], [ %431, %430 ]
@@ -1928,7 +1928,7 @@ define internal fastcc void @Abc_NtkCovCovers_rec(ptr noundef %0, ptr nocapture 
   %416 = load i32, ptr %415, align 4
   %417 = sext i32 %416 to i64
   %418 = icmp slt i64 %indvars.iv.next118.i.i, %417
-  br i1 %418, label %380, label %._crit_edge106.i.i, !llvm.loop !18
+  br i1 %418, label %380, label %._crit_edge106.i.i, !llvm.loop !17
 
 ._crit_edge106.i.i:                               ; preds = %412, %356
   %419 = load ptr, ptr %275, align 8
@@ -1954,13 +1954,13 @@ define internal fastcc void @Abc_NtkCovCovers_rec(ptr noundef %0, ptr nocapture 
   %429 = load ptr, ptr %427, align 8
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %429, ptr noundef nonnull %.0914.i81.i.i) #13
   %.not12.i83.i.i = icmp eq ptr %.015.i82.i.i, null
-  br i1 %.not12.i83.i.i, label %Abc_NodeCovSum.exit.i, label %428, !llvm.loop !16
+  br i1 %.not12.i83.i.i, label %Abc_NodeCovSum.exit.i, label %428, !llvm.loop !15
 
 430:                                              ; preds = %._crit_edge106.i.i
   tail call void @Min_SopAddCube(ptr noundef nonnull %419, ptr noundef nonnull %360) #13
   %431 = load ptr, ptr %.071108.i.i, align 8
   %.not77.i.i = icmp eq ptr %431, null
-  br i1 %.not77.i.i, label %._crit_edge110.i.i, label %356, !llvm.loop !19
+  br i1 %.not77.i.i, label %._crit_edge110.i.i, label %356, !llvm.loop !18
 
 ._crit_edge110.i.i:                               ; preds = %430
   %432 = load ptr, ptr %275, align 8
@@ -1976,7 +1976,7 @@ define internal fastcc void @Abc_NtkCovCovers_rec(ptr noundef %0, ptr nocapture 
   %435 = add nuw nsw i32 %.07.i.i.i, 1
   %436 = load ptr, ptr %.046.i.i.i, align 8
   %.not.i86.i.i = icmp eq ptr %436, null
-  br i1 %.not.i86.i.i, label %Min_CoverCountCubes.exit.i.i, label %.lr.ph.i85.i.i, !llvm.loop !20
+  br i1 %.not.i86.i.i, label %Min_CoverCountCubes.exit.i.i, label %.lr.ph.i85.i.i, !llvm.loop !19
 
 Min_CoverCountCubes.exit.i.i:                     ; preds = %.lr.ph.i85.i.i
   %437 = load i32, ptr %0, align 8
@@ -1994,7 +1994,7 @@ Min_CoverCountCubes.exit.i.i:                     ; preds = %.lr.ph.i85.i.i
   %441 = load ptr, ptr %439, align 8
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %441, ptr noundef nonnull %.0914.i89.i.i) #13
   %.not12.i91.i.i = icmp eq ptr %.015.i90.i.i, null
-  br i1 %.not12.i91.i.i, label %Abc_NodeCovSum.exit.i, label %440, !llvm.loop !16
+  br i1 %.not12.i91.i.i, label %Abc_NodeCovSum.exit.i, label %440, !llvm.loop !15
 
 Abc_NodeCovSum.exit.i:                            ; preds = %440, %428, %352, %Min_CoverCountCubes.exit.i.i, %._crit_edge110.i.i, %424, %348, %271, %180
   %.0110.i = phi ptr [ null, %271 ], [ null, %180 ], [ %434, %Min_CoverCountCubes.exit.i.i ], [ null, %348 ], [ null, %424 ], [ null, %._crit_edge110.i.i ], [ null, %352 ], [ null, %428 ], [ null, %440 ]
@@ -2331,7 +2331,7 @@ define internal fastcc ptr @Abc_NodeCovProduct(ptr nocapture noundef readonly %0
 25:                                               ; preds = %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !20
 
 26:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -2382,7 +2382,7 @@ define internal fastcc ptr @Abc_NodeCovProduct(ptr nocapture noundef readonly %0
   %58 = load ptr, ptr %56, align 8
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %58, ptr noundef nonnull %.0914.i) #13
   %.not12.i = icmp eq ptr %.015.i, null
-  br i1 %.not12.i, label %Min_CoverRecycle.exit, label %57, !llvm.loop !16
+  br i1 %.not12.i, label %Min_CoverRecycle.exit, label %57, !llvm.loop !15
 
 59:                                               ; preds = %._crit_edge
   %60 = getelementptr inbounds i8, ptr %48, i64 8
@@ -2485,7 +2485,7 @@ define internal fastcc ptr @Abc_NodeCovProduct(ptr nocapture noundef readonly %0
   %128 = phi i32 [ %79, %110 ], [ %126, %113 ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
-  br i1 %exitcond107.not, label %._crit_edge92, label %78, !llvm.loop !22
+  br i1 %exitcond107.not, label %._crit_edge92, label %78, !llvm.loop !21
 
 ._crit_edge92:                                    ; preds = %127, %59
   %129 = load ptr, ptr %6, align 8
@@ -2502,12 +2502,12 @@ define internal fastcc ptr @Abc_NodeCovProduct(ptr nocapture noundef readonly %0
 .thread:                                          ; preds = %26, %130, %131
   %132 = load ptr, ptr %.06694, align 8
   %.not73 = icmp eq ptr %132, null
-  br i1 %.not73, label %._crit_edge96, label %.preheader, !llvm.loop !23
+  br i1 %.not73, label %._crit_edge96, label %.preheader, !llvm.loop !22
 
 ._crit_edge96:                                    ; preds = %.thread
   %133 = load ptr, ptr %.06798, align 8
   %.not = icmp eq ptr %133, null
-  br i1 %.not, label %._crit_edge99, label %.preheader87, !llvm.loop !24
+  br i1 %.not, label %._crit_edge99, label %.preheader87, !llvm.loop !23
 
 ._crit_edge99:                                    ; preds = %._crit_edge96, %.preheader87.lr.ph, %5
   %.not72 = icmp eq i32 %3, 0
@@ -2534,7 +2534,7 @@ define internal fastcc ptr @Abc_NodeCovProduct(ptr nocapture noundef readonly %0
   %140 = add nuw nsw i32 %.07.i, 1
   %141 = load ptr, ptr %.046.i, align 8
   %.not.i76 = icmp eq ptr %141, null
-  br i1 %.not.i76, label %Min_CoverCountCubes.exit, label %.lr.ph.i75, !llvm.loop !20
+  br i1 %.not.i76, label %Min_CoverCountCubes.exit, label %.lr.ph.i75, !llvm.loop !19
 
 Min_CoverCountCubes.exit:                         ; preds = %.lr.ph.i75
   %142 = load i32, ptr %0, align 8
@@ -2552,7 +2552,7 @@ Min_CoverCountCubes.exit:                         ; preds = %.lr.ph.i75
   %146 = load ptr, ptr %144, align 8
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %146, ptr noundef nonnull %.0914.i79) #13
   %.not12.i81 = icmp eq ptr %.015.i80, null
-  br i1 %.not12.i81, label %Min_CoverRecycle.exit, label %145, !llvm.loop !16
+  br i1 %.not12.i81, label %Min_CoverRecycle.exit, label %145, !llvm.loop !15
 
 Min_CoverRecycle.exit:                            ; preds = %57, %145, %Min_CoverCountCubes.exit, %137, %53
   %.068 = phi ptr [ %139, %Min_CoverCountCubes.exit ], [ null, %53 ], [ null, %137 ], [ null, %145 ], [ null, %57 ]
@@ -2588,19 +2588,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
@@ -2622,8 +2622,8 @@ attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,unini
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nofree nounwind }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -2638,24 +2638,23 @@ attributes #16 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}

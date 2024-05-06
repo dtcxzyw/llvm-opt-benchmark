@@ -85,7 +85,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7rocksdb28WritePreparedSnapshotChecker15CheckInSnapshotEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %sequence, i64 noundef %snapshot_sequence) unnamed_addr #3 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK7rocksdb28WritePreparedSnapshotChecker15CheckInSnapshotEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %sequence, i64 noundef %snapshot_sequence) unnamed_addr #3 align 2 {
 entry:
   %snapshot_released = alloca i8, align 1
   store i8 0, ptr %snapshot_released, align 1

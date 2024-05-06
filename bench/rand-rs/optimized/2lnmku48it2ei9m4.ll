@@ -172,7 +172,7 @@ _ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit.i.thread: ; pre
   %34 = getelementptr inbounds i8, ptr %13, i64 304
   %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %34, align 16, !alias.scope !42
   %35 = lshr i64 %28, 32
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw i64 %35 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !43
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !43
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %7, align 16, !noalias !46
@@ -256,7 +256,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   %65 = getelementptr inbounds i8, ptr %13, i64 304
   %.sroa.0.0.copyload.i.i915.i = load <4 x i32>, ptr %65, align 16, !alias.scope !68
   %66 = lshr i64 %59, 32
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !69
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !69
   %68 = shufflevector <4 x i32> %.sroa.0.0.copyload.i.i915.i, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 3, i32 1>
@@ -511,7 +511,7 @@ _ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit.i.thread: ; pre
   %34 = getelementptr inbounds i8, ptr %13, i64 304
   %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %34, align 16, !alias.scope !144
   %35 = lshr i64 %28, 32
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw i64 %35 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !145
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !145
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %7, align 16, !noalias !148
@@ -595,7 +595,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   %65 = getelementptr inbounds i8, ptr %13, i64 304
   %.sroa.0.0.copyload.i.i915.i = load <4 x i32>, ptr %65, align 16, !alias.scope !170
   %66 = lshr i64 %59, 32
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !171
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !171
   %68 = shufflevector <4 x i32> %.sroa.0.0.copyload.i.i915.i, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 3, i32 1>
@@ -850,7 +850,7 @@ _ZN11rand_chacha4guts16set_stream_param17h6884ef9a396d1563E.exit.i.thread: ; pre
   %34 = getelementptr inbounds i8, ptr %13, i64 304
   %.sroa.0.0.copyload.i.i.i = load <2 x i64>, ptr %34, align 16, !alias.scope !246
   %35 = lshr i64 %28, 32
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw i64 %35 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !247
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !247
   store <2 x i64> %.sroa.0.0.copyload.i.i.i, ptr %7, align 16, !noalias !250
@@ -934,7 +934,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   %65 = getelementptr inbounds i8, ptr %13, i64 304
   %.sroa.0.0.copyload.i.i915.i = load <4 x i32>, ptr %65, align 16, !alias.scope !272
   %66 = lshr i64 %59, 32
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !273
   %68 = shufflevector <4 x i32> %.sroa.0.0.copyload.i.i915.i, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 3, i32 1>

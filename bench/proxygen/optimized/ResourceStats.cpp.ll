@@ -227,10 +227,10 @@ $_ZZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryI
 @_ZN5folly6detail30StaticSingletonManagerWithRtti5debugINS_18threadlocal_detail10StaticMetaINS0_15ThreadCachedTagEvEEvEE = linkonce_odr global ptr null, comdat, align 8
 @_ZZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE18getThreadEntrySlowEvE20threadEntrySingleton = linkonce_odr thread_local global { ptr, { i64 }, ptr, ptr, ptr, i8, i64, %"union.std::aligned_storage<8, 8>::type" } zeroinitializer, comdat, align 8
 @_ZN5folly19rcu_default_domain_E = external local_unnamed_addr global %"class.folly::Indestructible", align 8
-@_ZZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS0_14StaticMetaBase7EntryIDEE13threadEntryTL = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS0_14StaticMetaBase7EntryIDEE10capacityTL = linkonce_odr thread_local global i64 0, comdat, align 8
-@_ZZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDEE13threadEntryTL = linkonce_odr thread_local global ptr null, comdat, align 8
-@_ZZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDEE10capacityTL = linkonce_odr thread_local global i64 0, comdat, align 8
+@_ZZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS0_14StaticMetaBase7EntryIDEE13threadEntryTL = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS0_14StaticMetaBase7EntryIDEE10capacityTL = linkonce_odr thread_local local_unnamed_addr global i64 0, comdat, align 8
+@_ZZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDEE13threadEntryTL = linkonce_odr thread_local local_unnamed_addr global ptr null, comdat, align 8
+@_ZZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDEE10capacityTL = linkonce_odr thread_local local_unnamed_addr global i64 0, comdat, align 8
 
 @_ZN8proxygen13ResourceStatsC1ESt10unique_ptrINS_9ResourcesESt14default_deleteIS2_EE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8proxygen13ResourceStatsC2ESt10unique_ptrINS_9ResourcesESt14default_deleteIS2_EE
 @_ZN8proxygen13ResourceStatsD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8proxygen13ResourceStatsD2Ev

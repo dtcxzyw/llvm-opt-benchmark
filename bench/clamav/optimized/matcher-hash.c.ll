@@ -359,7 +359,7 @@ define internal fastcc void @hm_sort(ptr nocapture noundef readonly %0, i64 noun
 
 hm_cmp.exit:                                      ; preds = %19
   %26 = getelementptr inbounds i8, ptr %22, i64 4
-  %27 = call i32 @memcmp(ptr noundef nonnull %26, ptr noundef nonnull %9, i64 noundef %11) #8
+  %27 = call i32 @memcmp(ptr noundef nonnull readonly %26, ptr noundef nonnull readonly %9, i64 noundef %11) #8
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %hm_cmp.exit.thread, label %hm_cmp.exit.thread86
 
@@ -440,7 +440,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_hm_have_size(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cli_hm_have_size(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %2, -1
   %or.cond = icmp ult i32 %4, -2
   %5 = icmp ne ptr %0, null
@@ -468,7 +468,7 @@ define i32 @cli_hm_have_size(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @cli_hm_have_wild(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @cli_hm_have_wild(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -487,7 +487,7 @@ define i32 @cli_hm_have_wild(ptr noundef readonly %0, i32 noundef %1) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @cli_hm_have_any(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @cli_hm_have_any(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -513,7 +513,7 @@ define i32 @cli_hm_have_any(ptr noundef readonly %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_hm_scan(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cli_hm_scan(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp ne ptr %0, null
   %7 = add i32 %1, -1
   %8 = icmp ult i32 %7, -2
@@ -578,7 +578,7 @@ define noundef i32 @cli_hm_scan(ptr noundef readonly %0, i32 noundef %1, ptr nou
 
 hm_cmp.exit.i:                                    ; preds = %35
   %43 = getelementptr inbounds i8, ptr %39, i64 4
-  %44 = tail call i32 @memcmp(ptr noundef nonnull %32, ptr noundef nonnull %43, i64 noundef %34) #8
+  %44 = tail call i32 @memcmp(ptr noundef nonnull readonly %32, ptr noundef nonnull readonly %43, i64 noundef %34) #8
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %hm_cmp.exit.thread.i, label %48
 
@@ -622,7 +622,7 @@ hm_scan.exit:                                     ; preds = %56, %hm_cmp.exit.th
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @cli_hm_scan_wild(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @cli_hm_scan_wild(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -667,7 +667,7 @@ define noundef i32 @cli_hm_scan_wild(ptr noundef readonly %0, ptr noundef writeo
 
 hm_cmp.exit.i:                                    ; preds = %24
   %32 = getelementptr inbounds i8, ptr %28, i64 4
-  %33 = tail call i32 @memcmp(ptr noundef nonnull %21, ptr noundef nonnull %32, i64 noundef %23) #8
+  %33 = tail call i32 @memcmp(ptr noundef nonnull readonly %21, ptr noundef nonnull readonly %32, i64 noundef %23) #8
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %hm_cmp.exit.thread.i, label %37
 

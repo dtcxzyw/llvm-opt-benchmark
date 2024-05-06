@@ -867,7 +867,7 @@ proto_item_set_generated.exit117:                 ; preds = %55, %52, %47, %38
   br i1 %31, label %124, label %76
 
 76:                                               ; preds = %75
-  %77 = tail call fastcc i32 @dissect_usb_com_get_ntb_params(ptr noundef %0, ptr noundef %13, i32 noundef %.0113), !range !6
+  %77 = tail call fastcc i32 @dissect_usb_com_get_ntb_params(ptr noundef %0, ptr noundef %13, i32 noundef %.0113)
   br label %124
 
 78:                                               ; preds = %proto_item_set_generated.exit117
@@ -1336,7 +1336,7 @@ define internal noundef i32 @follow_cdc_data_tap_listener(ptr nocapture noundef 
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %1, i64 240
   %23 = load ptr, ptr %22, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   store i32 %19, ptr %17, align 8
   %24 = icmp eq i32 %21, 0
   br i1 %24, label %copy_address.exit, label %25
@@ -1363,7 +1363,7 @@ copy_address.exit:                                ; preds = %14, %25
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds i8, ptr %1, i64 216
   %39 = load ptr, ptr %38, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   store i32 %35, ptr %33, align 8
   %40 = icmp eq i32 %37, 0
   br i1 %40, label %copy_address.exit37, label %copy_address.exit37.sink.split
@@ -1377,7 +1377,7 @@ copy_address.exit:                                ; preds = %14, %25
   %46 = load i32, ptr %45, align 4
   %47 = getelementptr inbounds i8, ptr %1, i64 216
   %48 = load ptr, ptr %47, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   store i32 %44, ptr %42, align 8
   %49 = icmp eq i32 %46, 0
   br i1 %49, label %copy_address.exit38, label %50
@@ -1405,7 +1405,7 @@ copy_address.exit38:                              ; preds = %41, %50
   %63 = load i32, ptr %62, align 4
   %64 = getelementptr inbounds i8, ptr %1, i64 240
   %65 = load ptr, ptr %64, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
   store i32 %61, ptr %59, align 8
   %66 = icmp eq i32 %63, 0
   br i1 %66, label %copy_address.exit37, label %copy_address.exit37.sink.split
@@ -1536,7 +1536,7 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_usb_com_get_ntb_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 28, 36) i32 @dissect_usb_com_get_ntb_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_usb_com_get_ntb_params_length, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #8
   %6 = add nuw nsw i32 %2, 2
@@ -1667,4 +1667,3 @@ attributes #9 = { nounwind allocsize(0,1) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 28, i32 36}

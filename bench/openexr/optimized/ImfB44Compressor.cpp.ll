@@ -178,7 +178,7 @@ lpad.i36:                                         ; preds = %if.then.i34
 invoke.cont32:                                    ; preds = %land.lhs.true.i30, %for.end
   %mul.i33 = mul i64 %numScanLines, %maxScanLineSize
   %add = add i64 %numScanLines, 3
-  %mul = mul nsw i32 %numHalfChans.0, 12
+  %mul = mul nuw nsw i32 %numHalfChans.0, 12
   %conv29 = zext nneg i32 %mul to i64
   %mul30 = mul i64 %add, %conv29
   %div3119 = lshr exact i64 %mul30, 2
@@ -1029,7 +1029,7 @@ for.cond181.preheader:                            ; preds = %for.body173
 
 for.body183:                                      ; preds = %for.cond181.preheader, %for.body183
   %indvars.iv198 = phi i64 [ 0, %for.cond181.preheader ], [ %indvars.iv.next199, %for.body183 ]
-  %93 = trunc i64 %indvars.iv198 to i32
+  %93 = trunc nuw nsw i64 %indvars.iv198 to i32
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %sub185, i32 %93)
   %idxprom187 = sext i32 %.sroa.speculated to i64
   %arrayidx188 = getelementptr inbounds i16, ptr %row0.0165, i64 %idxprom187
@@ -1337,7 +1337,7 @@ _ZN7Imf_3_212_GLOBAL__N_14packEPKtPhbb.exit:      ; preds = %do.end.i, %if.end16
   %retval.0.i = phi i64 [ 14, %if.end166.i ], [ 3, %do.end.i ]
   %conv181.i.sink = trunc i16 %conv178.i.sink.in.in to i8
   %conv178.i.sink.in = lshr i16 %conv178.i.sink.in.in, 8
-  %conv178.i.sink = trunc i16 %conv178.i.sink.in to i8
+  %conv178.i.sink = trunc nuw i16 %conv178.i.sink.in to i8
   store i8 %conv178.i.sink, ptr %outEnd.2164, align 1
   %134 = getelementptr inbounds i8, ptr %outEnd.2164, i64 1
   store i8 %conv181.i.sink, ptr %134, align 1
@@ -1598,7 +1598,7 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
 
 for.body71.lr.ph:                                 ; preds = %for.body52
   %31 = load ptr, ptr %arrayidx30, align 8
-  %mul55 = mul nsw i32 %30, %y48.0193
+  %mul55 = mul nuw nsw i32 %30, %y48.0193
   %idx.ext56 = zext nneg i32 %mul55 to i64
   %add.ptr57 = getelementptr inbounds i16, ptr %31, i64 %idx.ext56
   %idx.ext59 = zext nneg i32 %30 to i64
@@ -2076,7 +2076,7 @@ for.body169:                                      ; preds = %for.body169.lr.ph, 
   %conv.i127 = trunc i16 %102 to i8
   store i8 %conv.i127, ptr %b.i, align 1
   %103 = lshr i16 %102, 8
-  %conv2.i128 = trunc i16 %103 to i8
+  %conv2.i128 = trunc nuw i16 %103 to i8
   store i8 %conv2.i128, ptr %arrayidx3.i, align 1
   br label %while.body.i.i.i
 

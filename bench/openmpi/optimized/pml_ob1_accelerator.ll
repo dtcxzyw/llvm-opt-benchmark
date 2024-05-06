@@ -67,7 +67,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mca_bml = external local_unnamed_addr global %struct.mca_bml_base_module_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_ob1_record_htod_event(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_record_htod_event(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) getelementptr inbounds (%struct.opal_accelerator_base_component_t, ptr @opal_accelerator_base_selected_component, i64 0, i32 0, i32 11), ptr noundef nonnull dereferenceable(5) @.str, i64 5)
   %3 = icmp eq i32 %bcmp, 0
   br i1 %3, label %63, label %4
@@ -196,7 +196,7 @@ define ptr @mca_pml_ob1_get_htod_stream() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_ob1_progress_one_htod_event(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @mca_pml_ob1_progress_one_htod_event(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) getelementptr inbounds (%struct.opal_accelerator_base_component_t, ptr @opal_accelerator_base_selected_component, i64 0, i32 0, i32 11), ptr noundef nonnull dereferenceable(5) @.str, i64 5)
   %2 = icmp eq i32 %bcmp, 0
   br i1 %2, label %57, label %3
@@ -927,8 +927,8 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %8, %opal_convertor_
   %26 = getelementptr inbounds i8, ptr %0, i64 520
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 728
-  %29 = tail call i64 @mca_pml_ob1_rdma_cuda_btls(ptr noundef %25, ptr noundef %23, i64 noundef %27, ptr noundef nonnull %28), !range !11
-  %30 = trunc i64 %29 to i32
+  %29 = tail call i64 @mca_pml_ob1_rdma_cuda_btls(ptr noundef %25, ptr noundef %23, i64 noundef %27, ptr noundef nonnull %28)
+  %30 = trunc nsw i64 %29 to i32
   %31 = getelementptr inbounds i8, ptr %0, i64 584
   store i32 %30, ptr %31, align 8
   %.not = icmp eq i32 %30, 0
@@ -970,7 +970,7 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %8, %opal_convertor_
   %49 = add nuw nsw i64 %.013.i, 1
   %50 = zext i32 %48 to i64
   %51 = icmp ult i64 %49, %50
-  br i1 %51, label %.lr.ph.i, label %mca_pml_ob1_free_rdma_resources.exit, !llvm.loop !12
+  br i1 %51, label %.lr.ph.i, label %mca_pml_ob1_free_rdma_resources.exit, !llvm.loop !11
 
 mca_pml_ob1_free_rdma_resources.exit:             ; preds = %47, %35
   store i32 0, ptr %31, align 8
@@ -1000,7 +1000,7 @@ opal_convertor_need_buffers.exit.thread24:        ; preds = %3, %opal_convertor_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @mca_pml_ob1_rdma_cuda_btls(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @mca_pml_ob1_rdma_cuda_btls(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 136
   %.val = load i64, ptr %5, align 8
   %6 = trunc i64 %.val to i32
@@ -1075,7 +1075,7 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %14, %17
   %42 = load i32, ptr getelementptr inbounds (%struct.mca_pml_ob1_t, ptr @mca_pml_ob1, i64 0, i32 8), align 16
   %43 = icmp slt i32 %.1, %42
   %44 = select i1 %41, i1 %43, i1 false
-  br i1 %44, label %14, label %._crit_edge, !llvm.loop !13
+  br i1 %44, label %14, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.thread
   %45 = icmp eq i32 %.1, 0
@@ -1146,7 +1146,7 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %14, %17
   store i64 %.1.i, ptr %78, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %58, !llvm.loop !14
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %58, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %77, %54
   %.028.lcssa.i = phi i64 [ %2, %54 ], [ %.129.i, %77 ]
@@ -1166,7 +1166,7 @@ declare i32 @mca_pml_ob1_send_request_start_rdma(ptr noundef, ptr noundef, i64 n
 declare i32 @mca_pml_ob1_send_request_start_rndv(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_pml_ob1_accelerator_need_buffers(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @mca_pml_ob1_accelerator_need_buffers(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 72
@@ -1214,7 +1214,7 @@ mca_bml_base_get_endpoint.exit:                   ; preds = %2, %16, %19
 26:                                               ; preds = %28
   %27 = add nuw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %27, %23
-  br i1 %exitcond.not.i, label %.loopexit, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.loopexit, label %28, !llvm.loop !14
 
 28:                                               ; preds = %26, %.lr.ph.i
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %27, %26 ]
@@ -1238,7 +1238,7 @@ mca_bml_base_get_endpoint.exit:                   ; preds = %2, %16, %19
 37:                                               ; preds = %39
   %38 = add nuw i64 %.09.i15, 1
   %exitcond.not.i16 = icmp eq i64 %38, %34
-  br i1 %exitcond.not.i16, label %mca_bml_base_btl_array_find.exit, label %39, !llvm.loop !15
+  br i1 %exitcond.not.i16, label %mca_bml_base_btl_array_find.exit, label %39, !llvm.loop !14
 
 39:                                               ; preds = %37, %.lr.ph.i14
   %.09.i15 = phi i64 [ 0, %.lr.ph.i14 ], [ %38, %37 ]
@@ -1349,7 +1349,7 @@ define void @mca_pml_ob1_accelerator_add_ipc_support(ptr noundef readonly %0, i3
   %sext = shl i64 %38, 32
   %39 = ashr exact i64 %sext, 32
   %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %16, label %._crit_edge, !llvm.loop !16
+  br i1 %40, label %16, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %37, %7
   ret void
@@ -1401,9 +1401,8 @@ attributes #12 = { nounwind allocsize(0) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i64 -2147483648, i64 2147483648}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

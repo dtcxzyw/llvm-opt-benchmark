@@ -2156,7 +2156,7 @@ backtrack.exit:                                   ; preds = %55, %58
 
 67:                                               ; preds = %65
   %68 = load i8, ptr %12, align 1
-  %69 = tail call fastcc signext i8 @char_is_valid_escape(i8 noundef signext %68), !range !18
+  %69 = tail call fastcc signext i8 @char_is_valid_escape(i8 noundef signext %68)
   %70 = icmp eq i8 %69, -1
   br i1 %70, label %71, label %87
 
@@ -2248,7 +2248,7 @@ backtrack.exit:                                   ; preds = %55, %58
   %114 = add nsw i64 %113, %96
   %115 = add nuw nsw i32 %.01519.i, 1
   %exitcond.not.i107 = icmp eq i32 %115, 2
-  br i1 %exitcond.not.i107, label %scan_hex_literal.exit, label %.preheader, !llvm.loop !19
+  br i1 %exitcond.not.i107, label %scan_hex_literal.exit, label %.preheader, !llvm.loop !18
 
 scan_hex_literal.exit:                            ; preds = %111
   %116 = icmp slt i64 %114, 0
@@ -2279,9 +2279,9 @@ scan_hex_literal.exit.thread:                     ; preds = %scan_hex_literal.ex
 
 129:                                              ; preds = %146, %125
   %130 = phi ptr [ %94, %125 ], [ %147, %146 ]
-  %.01519.i109 = phi i32 [ 0, %125 ], [ %150, %146 ]
-  %.01618.i110 = phi i64 [ 0, %125 ], [ %149, %146 ]
-  %131 = shl i64 %.01618.i110, 4
+  %.01519.i110 = phi i32 [ 0, %125 ], [ %150, %146 ]
+  %.01618.i111 = phi i64 [ 0, %125 ], [ %149, %146 ]
+  %131 = shl i64 %.01618.i111, 4
   %132 = load i8, ptr %130, align 1
   %133 = sext i8 %132 to i64
   %134 = and i64 %133, 4294967295
@@ -2309,9 +2309,9 @@ scan_hex_literal.exit.thread:                     ; preds = %scan_hex_literal.ex
   store ptr %147, ptr %2, align 8
   %148 = and i64 %138, 4294967295
   %149 = add nsw i64 %148, %131
-  %150 = add nuw nsw i32 %.01519.i109, 1
-  %exitcond.not.i111 = icmp eq i32 %150, %128
-  br i1 %exitcond.not.i111, label %scan_hex_literal.exit113, label %129, !llvm.loop !19
+  %150 = add nuw nsw i32 %.01519.i110, 1
+  %exitcond.not.i112 = icmp eq i32 %150, %128
+  br i1 %exitcond.not.i112, label %scan_hex_literal.exit113, label %129, !llvm.loop !18
 
 scan_hex_literal.exit113:                         ; preds = %146
   %151 = icmp slt i64 %149, 0
@@ -2376,7 +2376,7 @@ match.exit115.thread:                             ; preds = %165
   %.promoted = load ptr, ptr %2, align 8
   %178 = load i8, ptr %.promoted, align 1
   %.not.i101306 = icmp eq i8 %178, 39
-  br i1 %.not.i101306, label %match.exit102.thread, label %match.exit102.lr.ph, !llvm.loop !20
+  br i1 %.not.i101306, label %match.exit102.thread, label %match.exit102.lr.ph, !llvm.loop !19
 
 match.exit102.lr.ph:                              ; preds = %match.exit102.lr.ph.lr.ph, %.thread124
   %179 = phi i8 [ %4, %match.exit102.lr.ph.lr.ph ], [ %178, %.thread124 ]
@@ -2546,7 +2546,7 @@ define internal fastcc noundef zeroext i1 @scan_raw_string(ptr nocapture noundef
   %37 = getelementptr inbounds i8, ptr %26, i64 %.03851
   store i8 %29, ptr %37, align 1
   %38 = icmp ult ptr %.1, %5
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %35, %18
   %.038.lcssa = phi i64 [ 0, %18 ], [ %36, %35 ]
@@ -2643,7 +2643,7 @@ define internal fastcc noundef zeroext i1 @scan_string(ptr nocapture noundef %0)
 
 .backedge89.backedge:                             ; preds = %8, %6, %6, %.backedge89
   %.060.be = phi ptr [ %4, %.backedge89 ], [ %9, %8 ], [ %4, %6 ], [ %4, %6 ]
-  br label %.backedge89, !llvm.loop !22
+  br label %.backedge89, !llvm.loop !21
 
 .fold.split.loopexit168:                          ; preds = %.backedge89
   br label %.fold.split
@@ -2725,7 +2725,7 @@ backtrack.exit:                                   ; preds = %26, %30, %.critedge
 40:                                               ; preds = %36, %33
   %41 = getelementptr inbounds i8, ptr %34, i64 1
   store ptr %41, ptr %2, align 8
-  br label %33, !llvm.loop !23
+  br label %33, !llvm.loop !22
 
 42:                                               ; preds = %20
   store ptr %24, ptr %18, align 8
@@ -2771,12 +2771,12 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
 57:                                               ; preds = %53, %50
   %58 = getelementptr inbounds i8, ptr %51, i64 1
   store ptr %58, ptr %2, align 8
-  br label %50, !llvm.loop !23
+  br label %50, !llvm.loop !22
 
 59:                                               ; preds = %26
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  %60 = tail call fastcc signext i8 @char_is_valid_escape(i8 noundef signext %27), !range !18
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  %60 = tail call fastcc signext i8 @char_is_valid_escape(i8 noundef signext %27)
   %61 = icmp slt i8 %60, 0
   br i1 %61, label %272, label %62
 
@@ -2789,22 +2789,22 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
 
 63:                                               ; preds = %62
   %64 = getelementptr inbounds i8, ptr %21, i64 2
-  %65 = load i8, ptr %64, align 1, !alias.scope !27, !noalias !24
+  %65 = load i8, ptr %64, align 1, !alias.scope !26, !noalias !23
   %66 = sext i8 %65 to i64
   %67 = and i64 %66, 4294967295
   %68 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %67
-  %69 = load i8, ptr %68, align 1, !noalias !29
+  %69 = load i8, ptr %68, align 1, !noalias !28
   %70 = sext i8 %69 to i32
   %71 = icmp slt i8 %69, 1
   br i1 %71, label %272, label %72
 
 72:                                               ; preds = %63
   %73 = getelementptr inbounds i8, ptr %21, i64 3
-  %74 = load i8, ptr %73, align 1, !alias.scope !27, !noalias !24
+  %74 = load i8, ptr %73, align 1, !alias.scope !26, !noalias !23
   %75 = sext i8 %74 to i64
   %76 = and i64 %75, 4294967295
   %77 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %76
-  %78 = load i8, ptr %77, align 1, !noalias !29
+  %78 = load i8, ptr %77, align 1, !noalias !28
   %79 = icmp slt i8 %78, 1
   br i1 %79, label %272, label %80
 
@@ -2817,44 +2817,44 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
 
 85:                                               ; preds = %62
   %86 = getelementptr inbounds i8, ptr %21, i64 2
-  %87 = load i8, ptr %86, align 1, !alias.scope !27, !noalias !24
+  %87 = load i8, ptr %86, align 1, !alias.scope !26, !noalias !23
   %88 = sext i8 %87 to i64
   %89 = and i64 %88, 4294967295
   %90 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %89
-  %91 = load i8, ptr %90, align 1, !noalias !29
+  %91 = load i8, ptr %90, align 1, !noalias !28
   %92 = sext i8 %91 to i32
   %93 = icmp slt i8 %91, 1
   br i1 %93, label %272, label %94
 
 94:                                               ; preds = %85
   %95 = getelementptr inbounds i8, ptr %21, i64 3
-  %96 = load i8, ptr %95, align 1, !alias.scope !27, !noalias !24
+  %96 = load i8, ptr %95, align 1, !alias.scope !26, !noalias !23
   %97 = sext i8 %96 to i64
   %98 = and i64 %97, 4294967295
   %99 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %98
-  %100 = load i8, ptr %99, align 1, !noalias !29
+  %100 = load i8, ptr %99, align 1, !noalias !28
   %101 = sext i8 %100 to i32
   %102 = icmp slt i8 %100, 1
   br i1 %102, label %272, label %103
 
 103:                                              ; preds = %94
   %104 = getelementptr inbounds i8, ptr %21, i64 4
-  %105 = load i8, ptr %104, align 1, !alias.scope !27, !noalias !24
+  %105 = load i8, ptr %104, align 1, !alias.scope !26, !noalias !23
   %106 = sext i8 %105 to i64
   %107 = and i64 %106, 4294967295
   %108 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %107
-  %109 = load i8, ptr %108, align 1, !noalias !29
+  %109 = load i8, ptr %108, align 1, !noalias !28
   %110 = sext i8 %109 to i32
   %111 = icmp slt i8 %109, 1
   br i1 %111, label %272, label %112
 
 112:                                              ; preds = %103
   %113 = getelementptr inbounds i8, ptr %21, i64 5
-  %114 = load i8, ptr %113, align 1, !alias.scope !27, !noalias !24
+  %114 = load i8, ptr %113, align 1, !alias.scope !26, !noalias !23
   %115 = sext i8 %114 to i64
   %116 = and i64 %115, 4294967295
   %117 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %116
-  %118 = load i8, ptr %117, align 1, !noalias !29
+  %118 = load i8, ptr %117, align 1, !noalias !28
   %119 = icmp slt i8 %118, 1
   br i1 %119, label %272, label %120
 
@@ -2871,88 +2871,88 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
 
 129:                                              ; preds = %62
   %130 = getelementptr inbounds i8, ptr %21, i64 2
-  %131 = load i8, ptr %130, align 1, !alias.scope !27, !noalias !24
+  %131 = load i8, ptr %130, align 1, !alias.scope !26, !noalias !23
   %132 = sext i8 %131 to i64
   %133 = and i64 %132, 4294967295
   %134 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %133
-  %135 = load i8, ptr %134, align 1, !noalias !29
+  %135 = load i8, ptr %134, align 1, !noalias !28
   %136 = zext i8 %135 to i32
   %137 = icmp slt i8 %135, 1
   br i1 %137, label %272, label %138
 
 138:                                              ; preds = %129
   %139 = getelementptr inbounds i8, ptr %21, i64 3
-  %140 = load i8, ptr %139, align 1, !alias.scope !27, !noalias !24
+  %140 = load i8, ptr %139, align 1, !alias.scope !26, !noalias !23
   %141 = sext i8 %140 to i64
   %142 = and i64 %141, 4294967295
   %143 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %142
-  %144 = load i8, ptr %143, align 1, !noalias !29
+  %144 = load i8, ptr %143, align 1, !noalias !28
   %145 = zext i8 %144 to i32
   %146 = icmp slt i8 %144, 1
   br i1 %146, label %272, label %147
 
 147:                                              ; preds = %138
   %148 = getelementptr inbounds i8, ptr %21, i64 4
-  %149 = load i8, ptr %148, align 1, !alias.scope !27, !noalias !24
+  %149 = load i8, ptr %148, align 1, !alias.scope !26, !noalias !23
   %150 = sext i8 %149 to i64
   %151 = and i64 %150, 4294967295
   %152 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %151
-  %153 = load i8, ptr %152, align 1, !noalias !29
+  %153 = load i8, ptr %152, align 1, !noalias !28
   %154 = sext i8 %153 to i32
   %155 = icmp slt i8 %153, 1
   br i1 %155, label %272, label %156
 
 156:                                              ; preds = %147
   %157 = getelementptr inbounds i8, ptr %21, i64 5
-  %158 = load i8, ptr %157, align 1, !alias.scope !27, !noalias !24
+  %158 = load i8, ptr %157, align 1, !alias.scope !26, !noalias !23
   %159 = sext i8 %158 to i64
   %160 = and i64 %159, 4294967295
   %161 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %160
-  %162 = load i8, ptr %161, align 1, !noalias !29
+  %162 = load i8, ptr %161, align 1, !noalias !28
   %163 = sext i8 %162 to i32
   %164 = icmp slt i8 %162, 1
   br i1 %164, label %272, label %165
 
 165:                                              ; preds = %156
   %166 = getelementptr inbounds i8, ptr %21, i64 6
-  %167 = load i8, ptr %166, align 1, !alias.scope !27, !noalias !24
+  %167 = load i8, ptr %166, align 1, !alias.scope !26, !noalias !23
   %168 = sext i8 %167 to i64
   %169 = and i64 %168, 4294967295
   %170 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %169
-  %171 = load i8, ptr %170, align 1, !noalias !29
+  %171 = load i8, ptr %170, align 1, !noalias !28
   %172 = sext i8 %171 to i32
   %173 = icmp slt i8 %171, 1
   br i1 %173, label %272, label %174
 
 174:                                              ; preds = %165
   %175 = getelementptr inbounds i8, ptr %21, i64 7
-  %176 = load i8, ptr %175, align 1, !alias.scope !27, !noalias !24
+  %176 = load i8, ptr %175, align 1, !alias.scope !26, !noalias !23
   %177 = sext i8 %176 to i64
   %178 = and i64 %177, 4294967295
   %179 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %178
-  %180 = load i8, ptr %179, align 1, !noalias !29
+  %180 = load i8, ptr %179, align 1, !noalias !28
   %181 = sext i8 %180 to i32
   %182 = icmp slt i8 %180, 1
   br i1 %182, label %272, label %183
 
 183:                                              ; preds = %174
   %184 = getelementptr inbounds i8, ptr %21, i64 8
-  %185 = load i8, ptr %184, align 1, !alias.scope !27, !noalias !24
+  %185 = load i8, ptr %184, align 1, !alias.scope !26, !noalias !23
   %186 = sext i8 %185 to i64
   %187 = and i64 %186, 4294967295
   %188 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %187
-  %189 = load i8, ptr %188, align 1, !noalias !29
+  %189 = load i8, ptr %188, align 1, !noalias !28
   %190 = sext i8 %189 to i32
   %191 = icmp slt i8 %189, 1
   br i1 %191, label %272, label %192
 
 192:                                              ; preds = %183
   %193 = getelementptr inbounds i8, ptr %21, i64 9
-  %194 = load i8, ptr %193, align 1, !alias.scope !27, !noalias !24
+  %194 = load i8, ptr %193, align 1, !alias.scope !26, !noalias !23
   %195 = sext i8 %194 to i64
   %196 = and i64 %195, 4294967295
   %197 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %196
-  %198 = load i8, ptr %197, align 1, !noalias !29
+  %198 = load i8, ptr %197, align 1, !noalias !28
   %199 = icmp slt i8 %198, 1
   br i1 %199, label %272, label %200
 
@@ -2978,7 +2978,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
 217:                                              ; preds = %62
   %218 = add i64 %.0108, 1
   %219 = getelementptr inbounds i8, ptr %16, i64 %.0108
-  store i8 %60, ptr %219, align 1, !alias.scope !24, !noalias !27
+  store i8 %60, ptr %219, align 1, !alias.scope !23, !noalias !26
   br label %.lr.ph.i
 
 220:                                              ; preds = %200, %120, %80
@@ -2991,7 +2991,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %223 = trunc nuw i32 %.083.in.i to i8
   %224 = add i64 %.0108, 1
   %225 = getelementptr inbounds i8, ptr %16, i64 %.0108
-  store i8 %223, ptr %225, align 1, !alias.scope !24, !noalias !27
+  store i8 %223, ptr %225, align 1, !alias.scope !23, !noalias !26
   br label %.lr.ph.i
 
 226:                                              ; preds = %220
@@ -3003,13 +3003,13 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %230 = trunc nuw i32 %229 to i8
   %231 = or disjoint i8 %230, -64
   %232 = getelementptr inbounds i8, ptr %16, i64 %.0108
-  store i8 %231, ptr %232, align 1, !alias.scope !24, !noalias !27
+  store i8 %231, ptr %232, align 1, !alias.scope !23, !noalias !26
   %233 = trunc i32 %.083.in.i to i8
   %234 = and i8 %233, 63
   %235 = or disjoint i8 %234, -128
   %236 = add i64 %.0108, 2
   %237 = getelementptr i8, ptr %232, i64 1
-  store i8 %235, ptr %237, align 1, !alias.scope !24, !noalias !27
+  store i8 %235, ptr %237, align 1, !alias.scope !23, !noalias !26
   br label %.lr.ph.i
 
 238:                                              ; preds = %226
@@ -3023,40 +3023,40 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %244 = lshr i32 %.083.in.i, 12
   %245 = trunc nuw i32 %244 to i8
   %246 = or disjoint i8 %245, -32
-  store i8 %246, ptr %240, align 1, !alias.scope !24, !noalias !27
+  store i8 %246, ptr %240, align 1, !alias.scope !23, !noalias !26
   %247 = lshr i32 %.083.in.i, 6
   %248 = trunc i32 %247 to i8
   %249 = and i8 %248, 63
   %250 = or disjoint i8 %249, -128
-  store i8 %250, ptr %241, align 1, !alias.scope !24, !noalias !27
+  store i8 %250, ptr %241, align 1, !alias.scope !23, !noalias !26
   %251 = trunc i32 %.083.in.i to i8
   %252 = and i8 %251, 63
   %253 = or disjoint i8 %252, -128
   %254 = add i64 %.0108, 3
-  store i8 %253, ptr %242, align 1, !alias.scope !24, !noalias !27
+  store i8 %253, ptr %242, align 1, !alias.scope !23, !noalias !26
   br label %.lr.ph.i
 
 255:                                              ; preds = %238
   %256 = lshr i32 %.083.in.i, 18
   %257 = trunc i32 %256 to i8
   %258 = or i8 %257, -16
-  store i8 %258, ptr %240, align 1, !alias.scope !24, !noalias !27
+  store i8 %258, ptr %240, align 1, !alias.scope !23, !noalias !26
   %259 = lshr i32 %.083.in.i, 12
   %260 = trunc i32 %259 to i8
   %261 = and i8 %260, 63
   %262 = or disjoint i8 %261, -128
-  store i8 %262, ptr %241, align 1, !alias.scope !24, !noalias !27
+  store i8 %262, ptr %241, align 1, !alias.scope !23, !noalias !26
   %263 = lshr i32 %.083.in.i, 6
   %264 = trunc i32 %263 to i8
   %265 = and i8 %264, 63
   %266 = or disjoint i8 %265, -128
-  store i8 %266, ptr %242, align 1, !alias.scope !24, !noalias !27
+  store i8 %266, ptr %242, align 1, !alias.scope !23, !noalias !26
   %267 = trunc i32 %.083.in.i to i8
   %268 = and i8 %267, 63
   %269 = or disjoint i8 %268, -128
   %270 = add i64 %.0108, 4
   %271 = getelementptr i8, ptr %240, i64 3
-  store i8 %269, ptr %271, align 1, !alias.scope !24, !noalias !27
+  store i8 %269, ptr %271, align 1, !alias.scope !23, !noalias !26
   br label %.lr.ph.i
 
 272:                                              ; preds = %59, %63, %72, %85, %94, %103, %112, %129, %138, %147, %156, %165, %174, %183, %192
@@ -3084,7 +3084,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
 280:                                              ; preds = %276, %273
   %281 = getelementptr inbounds i8, ptr %274, i64 1
   store ptr %281, ptr %2, align 8
-  br label %273, !llvm.loop !23
+  br label %273, !llvm.loop !22
 
 .lr.ph.i:                                         ; preds = %217, %222, %228, %243, %255
   %.180 = phi i64 [ %218, %217 ], [ %224, %222 ], [ %236, %228 ], [ %254, %243 ], [ %270, %255 ]
@@ -3118,7 +3118,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   %293 = phi ptr [ %.pre, %.critedge67 ], [ %291, %290 ]
   %.0.be = phi i64 [ %294, %.critedge67 ], [ %.180, %290 ]
   %.not129 = icmp ult ptr %293, %12
-  br i1 %.not129, label %20, label %._crit_edge, !llvm.loop !30
+  br i1 %.not129, label %20, label %._crit_edge, !llvm.loop !29
 
 .critedge67:                                      ; preds = %25
   %294 = add i64 %.0108, 1
@@ -3979,7 +3979,7 @@ skip.exit:                                        ; preds = %24
   br i1 %49, label %50, label %.backedge151
 
 .backedge151:                                     ; preds = %47, %43
-  br label %40, !llvm.loop !31
+  br label %40, !llvm.loop !30
 
 50:                                               ; preds = %47
   tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
@@ -4079,7 +4079,7 @@ char_is_hex_or_.exit.i:                           ; preds = %40
   br i1 %80, label %81, label %.backedge
 
 .backedge:                                        ; preds = %78, %74
-  br label %71, !llvm.loop !32
+  br label %71, !llvm.loop !31
 
 81:                                               ; preds = %78
   tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
@@ -4261,7 +4261,7 @@ skip.exit14:                                      ; preds = %149
   %172 = and i8 %165, -8
   %173 = icmp eq i8 %172, 48
   %174 = or i1 %166, %173
-  br i1 %174, label %.lr.ph.i, label %._crit_edge.i16, !llvm.loop !33
+  br i1 %174, label %.lr.ph.i, label %._crit_edge.i16, !llvm.loop !32
 
 ._crit_edge.i16:                                  ; preds = %171, %156
   %.lcssa.i = phi i8 [ %158, %156 ], [ %165, %171 ]
@@ -4414,7 +4414,7 @@ skip.exit27:                                      ; preds = %231
   br i1 %249, label %250, label %.backedge162
 
 .backedge162:                                     ; preds = %247, %243
-  br label %240, !llvm.loop !34
+  br label %240, !llvm.loop !33
 
 250:                                              ; preds = %247
   tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
@@ -4536,7 +4536,7 @@ scan_binary.exit:                                 ; preds = %237, %250, %254, %2
   %311 = add i8 %304, -48
   %312 = icmp ult i8 %311, 10
   %313 = or i1 %305, %312
-  br i1 %313, label %.lr.ph.i48, label %._crit_edge.i36, !llvm.loop !35
+  br i1 %313, label %.lr.ph.i48, label %._crit_edge.i36, !llvm.loop !34
 
 ._crit_edge.i36:                                  ; preds = %310, %297
   %.lcssa42.i = phi ptr [ %7, %297 ], [ %303, %310 ]
@@ -4588,7 +4588,7 @@ scan_binary.exit:                                 ; preds = %237, %250, %254, %2
   %333 = add i8 %326, -48
   %334 = icmp ult i8 %333, 10
   %335 = or i1 %327, %334
-  br i1 %335, label %.lr.ph48.i, label %.loopexit.i, !llvm.loop !36
+  br i1 %335, label %.lr.ph48.i, label %.loopexit.i, !llvm.loop !35
 
 .loopexit.i:                                      ; preds = %332, %.preheader.i, %._crit_edge.i36
   %336 = phi i8 [ %319, %.preheader.i ], [ %.lcssa.i37, %._crit_edge.i36 ], [ %326, %332 ]
@@ -4776,7 +4776,7 @@ declare void @error_exit(ptr noundef, ...) local_unnamed_addr #5
 declare ptr @symtab_add(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef signext i8 @char_is_valid_escape(i8 noundef signext %0) unnamed_addr #6 {
+define internal fastcc signext range(i8 -1, 121) i8 @char_is_valid_escape(i8 noundef signext %0) unnamed_addr #6 {
   switch i8 %0, label %16 [
     i8 97, label %17
     i8 98, label %2
@@ -5062,7 +5062,7 @@ backtrack.exit:                                   ; preds = %41, %45
   %56 = load i8, ptr %55, align 1
   %57 = add i8 %56, -48
   %58 = icmp ult i8 %57, 10
-  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !37
+  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %53, %49, %backtrack.exit
   %59 = phi i1 [ false, %53 ], [ false, %49 ], [ false, %backtrack.exit ], [ true, %.preheader ], [ true, %.lr.ph ]
@@ -5163,7 +5163,7 @@ define internal fastcc noundef zeroext i1 @scan_number_suffix(ptr nocapture noun
   %49 = load i8, ptr %48, align 1
   %50 = add i8 %49, -48
   %51 = icmp ult i8 %50, 10
-  br i1 %51, label %.lr.ph81, label %.loopexit, !llvm.loop !38
+  br i1 %51, label %.lr.ph81, label %.loopexit, !llvm.loop !37
 
 52:                                               ; preds = %7
   %53 = load i8, ptr %1, align 1
@@ -5198,7 +5198,7 @@ define internal fastcc noundef zeroext i1 @scan_number_suffix(ptr nocapture noun
   %65 = load i8, ptr %storemerge, align 1
   %66 = add i8 %65, -48
   %67 = icmp ult i8 %66, 10
-  br i1 %67, label %64, label %.loopexit, !llvm.loop !39
+  br i1 %67, label %64, label %.loopexit, !llvm.loop !38
 
 68:                                               ; preds = %7
   %69 = icmp eq i8 %5, 10
@@ -5231,7 +5231,7 @@ define internal fastcc noundef zeroext i1 @scan_number_suffix(ptr nocapture noun
   %83 = load i8, ptr %82, align 1
   %84 = add i8 %83, -48
   %85 = icmp ult i8 %84, 10
-  br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !40
+  br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph, %64, %.lr.ph81, %76, %.preheader, %7, %18, %44
   %86 = phi ptr [ %4, %7 ], [ %45, %44 ], [ %19, %18 ], [ %38, %.preheader ], [ %.promoted, %76 ], [ %48, %.lr.ph81 ], [ %storemerge, %64 ], [ %82, %.lr.ph ]
@@ -5381,18 +5381,18 @@ attributes #10 = { nounwind }
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
-!18 = !{i8 -1, i8 121}
+!18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
 !21 = distinct !{!21, !8}
 !22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"append_esc_string_token: argument 0"}
-!26 = distinct !{!26, !"append_esc_string_token"}
-!27 = !{!28}
-!28 = distinct !{!28, !26, !"append_esc_string_token: argument 1"}
-!29 = !{!25, !28}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"append_esc_string_token: argument 0"}
+!25 = distinct !{!25, !"append_esc_string_token"}
+!26 = !{!27}
+!27 = distinct !{!27, !25, !"append_esc_string_token: argument 1"}
+!28 = !{!24, !27}
+!29 = distinct !{!29, !8}
 !30 = distinct !{!30, !8}
 !31 = distinct !{!31, !8}
 !32 = distinct !{!32, !8}
@@ -5403,4 +5403,3 @@ attributes #10 = { nounwind }
 !37 = distinct !{!37, !8}
 !38 = distinct !{!38, !8}
 !39 = distinct !{!39, !8}
-!40 = distinct !{!40, !8}

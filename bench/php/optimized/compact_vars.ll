@@ -16,7 +16,7 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
   %7 = zext i32 %6 to i64
   %8 = add nuw nsw i64 %7, 63
   %9 = lshr i64 %8, 6
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw nsw i64 %9 to i32
   %11 = shl nuw nsw i64 %9, 3
   %12 = icmp ugt i32 %10, 4096
   br i1 %12, label %13, label %15
@@ -49,7 +49,7 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
 
 29:                                               ; preds = %25, %27
   %30 = phi ptr [ %28, %27 ], [ %26, %25 ]
-  call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 %11, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %18, i8 0, i64 %11, i1 false)
   %31 = getelementptr inbounds i8, ptr %0, i64 84
   %32 = load i32, ptr %31, align 4
   %.not283 = icmp eq i32 %32, 0
@@ -151,7 +151,7 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
   %96 = shl nuw nsw i64 %95, 3
   %97 = add nuw nsw i64 %96, 15
   %98 = lshr i64 %97, 4
-  %99 = trunc i64 %98 to i32
+  %99 = trunc nuw i64 %98 to i32
   %100 = icmp ugt i32 %99, 1
   br i1 %100, label %.lr.ph, label %.loopexit
 
@@ -227,7 +227,7 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
   %136 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv291
   store i32 %.sink, ptr %136, align 4
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
-  %137 = trunc i64 %indvars.iv.next292 to i32
+  %137 = trunc nsw i64 %indvars.iv.next292 to i32
   %138 = icmp ugt i32 %116, %137
   br i1 %138, label %.lr.ph270, label %._crit_edge
 

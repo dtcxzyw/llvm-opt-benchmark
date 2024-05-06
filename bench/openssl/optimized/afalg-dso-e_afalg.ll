@@ -58,7 +58,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.36 = private unnamed_addr constant [43 x i8] c"ALG_PERR: %s(%d): Failed to get eventfd : \00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
+define noundef range(i64 0, 196609) i64 @v_check(i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %cmp.inv = icmp ult i64 %v, 196608
   %. = select i1 %cmp.inv, i64 0, i64 196608
@@ -66,7 +66,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
 entry:
   %kver.i.i = alloca [3 x i32], align 4
   %ut.i.i = alloca %struct.utsname, align 1
@@ -91,7 +91,7 @@ skip_cbs:                                         ; preds = %entry, %if.end
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %skip_cbs
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %id, ptr noundef nonnull dereferenceable(6) @.str) #15
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %id, ptr noundef nonnull dereferenceable(6) @.str) #15
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %bind_helper.exit
 
@@ -509,7 +509,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @afalg_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #1 {
+define internal range(i32 0, 4) i32 @afalg_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #1 {
 entry:
   %cmp = icmp eq ptr %cipher, null
   br i1 %cmp, label %if.then, label %if.end
@@ -555,7 +555,7 @@ declare i32 @EVP_CIPHER_meth_set_flags(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @EVP_CIPHER_meth_set_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @afalg_cipher_init(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 %enc) #1 {
+define internal range(i32 0, 2) i32 @afalg_cipher_init(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 %enc) #1 {
 entry:
   %sa.i = alloca %struct.sockaddr_alg, align 4
   %cmp = icmp eq ptr %ctx, null
@@ -712,7 +712,7 @@ afalg_set_key.exit.thread:                        ; preds = %do.body.i17, %if.th
 
 if.end25:                                         ; preds = %if.end21
   %aio = getelementptr inbounds i8, ptr %call5, i64 16
-  %call26 = call fastcc i32 @afalg_init_aio(ptr noundef nonnull %aio), !range !8
+  %call26 = call fastcc i32 @afalg_init_aio(ptr noundef nonnull %aio)
   %cmp27 = icmp eq i32 %call26, 0
   br i1 %cmp27, label %err, label %if.end29
 
@@ -735,7 +735,7 @@ return:                                           ; preds = %afalg_create_sk.exi
 declare i32 @EVP_CIPHER_meth_set_do_cipher(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @afalg_do_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
+define internal range(i32 0, 2) i32 @afalg_do_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   %custom.i.i = alloca ptr, align 8
   %cb.i = alloca ptr, align 8
@@ -804,7 +804,7 @@ if.end12:                                         ; preds = %if.then11, %if.end8
   %__cmsg_data.i7.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 16, ptr %__cmsg_data.i7.i, align 4
   %iv2.i.i = getelementptr inbounds i8, ptr %call.i, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %iv2.i.i, ptr noundef nonnull align 1 dereferenceable(16) %call13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(16) %iv2.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %call13, i64 16, i1 false)
   store ptr %in, ptr %iov.i, align 8
   %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
   store i64 %inl, ptr %iov_len.i, align 8
@@ -1023,7 +1023,7 @@ if.then53.i:                                      ; preds = %if.then46.i
   %call.i18.i = call i64 (i64, ...) @syscall(i64 noundef 209, i64 noundef %26, i64 noundef 1, ptr noundef nonnull %cb.i) #14
   %27 = and i64 %call.i18.i, 2147483648
   %cmp56.not.i = icmp eq i64 %27, 0
-  br i1 %cmp56.not.i, label %do.body9.i.outer, label %do.body59.i, !llvm.loop !9
+  br i1 %cmp56.not.i, label %do.body9.i.outer, label %do.body59.i, !llvm.loop !8
 
 do.body59.i:                                      ; preds = %if.then53.i
   %28 = load ptr, ptr @stderr, align 8
@@ -1078,7 +1078,7 @@ if.else73.i:                                      ; preds = %if.then37.i
   br i1 %cmp74.i, label %do.body77.i, label %do.body9.i.backedge
 
 do.body9.i.backedge:                              ; preds = %if.else73.i, %if.else.i, %if.then15.i
-  br label %do.body9.i, !llvm.loop !9
+  br label %do.body9.i, !llvm.loop !8
 
 do.body77.i:                                      ; preds = %if.else73.i
   %33 = load ptr, ptr @stderr, align 8
@@ -1123,7 +1123,7 @@ return:                                           ; preds = %afalg_fin_cipher_ai
 declare i32 @EVP_CIPHER_meth_set_cleanup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @afalg_cipher_cleanup(ptr noundef %ctx) #1 {
+define internal range(i32 0, 2) i32 @afalg_cipher_cleanup(ptr noundef %ctx) #1 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %return, label %if.end
@@ -1180,7 +1180,7 @@ declare i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @afalg_init_aio(ptr noundef %aio) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @afalg_init_aio(ptr noundef %aio) unnamed_addr #1 {
 entry:
   %aio_ctx = getelementptr inbounds i8, ptr %aio, i64 8
   store i64 0, ptr %aio_ctx, align 8
@@ -1320,5 +1320,4 @@ attributes #17 = { nounwind willreturn memory(none) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
-!9 = distinct !{!9, !5}
+!8 = distinct !{!8, !5}

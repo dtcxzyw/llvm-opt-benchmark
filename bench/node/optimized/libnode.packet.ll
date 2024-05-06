@@ -1004,7 +1004,7 @@ _ZN4node4quic6PacketC2EPNS_11EnvironmentEPNS1_8ListenerEN2v85LocalINS6_6ObjectEE
   %12 = load i16, ptr %address_3.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq i16 %12, 2
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 16, i64 28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %address_3.i.i, i64 %cond.i.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %address_3.i.i, i64 %cond.i.i.i.i.i, i1 false)
   %data_.i = getelementptr inbounds i8, ptr %call, i64 552
   store ptr %2, ptr %data_.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call, i64 560
@@ -1173,7 +1173,7 @@ _ZNSt10shared_ptrIN4node4quic6Packet4DataEED2Ev.exit: ; preds = %entry
   %10 = load i16, ptr %address_3.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq i16 %10, 2
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 16, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %address_3.i.i, i64 %cond.i.i.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %address_3.i.i, i64 %cond.i.i.i.i.i, i1 false)
   %data_.i = getelementptr inbounds i8, ptr %this, i64 552
   store ptr %_M_impl.i.i.i.i.i.i, ptr %data_.i, align 8
   %_M_refcount.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 560
@@ -2309,8 +2309,8 @@ entry:
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 28
   %call2.i = tail call i32 @htonl(i32 noundef %generateReservedVersion.val.val) #26
   store i32 %call2.i, ptr %ver.i, align 4
-  %2 = getelementptr i8, ptr %generateReservedVersion.val.val9, i64 %cond.i.i.i.i
-  %add.ptr.ptr.i = getelementptr i8, ptr %2, i64 8
+  %2 = getelementptr inbounds i8, ptr %generateReservedVersion.val.val9, i64 %cond.i.i.i.i
+  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry

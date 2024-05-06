@@ -73,7 +73,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.45 = private unnamed_addr constant [10 x i8] c" Reserved\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i8 @get_gs_server(i8 noundef zeroext %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
+define hidden zeroext range(i8 -1, 10) i8 @get_gs_server(i8 noundef zeroext %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   switch i8 %0, label %12 [
     i8 -9, label %14
     i8 -8, label %3

@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_readytorun = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @nxmq_wait_receive(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -32767, 32769) i32 @nxmq_wait_receive(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = and i32 %1, 64
@@ -98,7 +98,7 @@ declare void @up_switch_context(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @poll_notify(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @nxmq_do_receive(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define range(i64 0, 256) i64 @nxmq_do_receive(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 18
   %6 = load i8, ptr %5, align 2
   %7 = zext i8 %6 to i64

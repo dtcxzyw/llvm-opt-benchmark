@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.peektagged_open = private unnamed_addr constant [4 x i32] [i32 0, i32 0, i32 0, i32 1], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @peektagged_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @peektagged_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [12 x i8], align 1
   %5 = alloca ptr, align 8
   %6 = alloca %struct.peektagged_section_header, align 4
@@ -178,7 +178,7 @@ wtap_file_read_number.exit:                       ; preds = %wtap_file_read_till
   br label %89
 
 49:                                               ; preds = %46
-  %50 = call fastcc i32 @wtap_file_read_pattern(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef %2), !range !7
+  %50 = call fastcc i32 @wtap_file_read_pattern(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef %2)
   switch i32 %50, label %53 [
     i32 -1, label %89
     i32 0, label %51
@@ -204,7 +204,7 @@ wtap_file_read_number.exit:                       ; preds = %wtap_file_read_till
   br label %89
 
 57:                                               ; preds = %53
-  %58 = call fastcc i32 @wtap_file_read_pattern(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef %2), !range !7
+  %58 = call fastcc i32 @wtap_file_read_pattern(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef %2)
   switch i32 %58, label %61 [
     i32 -1, label %89
     i32 0, label %59
@@ -241,7 +241,7 @@ wtap_file_read_number.exit:                       ; preds = %wtap_file_read_till
   br label %89
 
 70:                                               ; preds = %65
-  %71 = call fastcc i32 @wtap_file_read_pattern(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %1, ptr noundef %2), !range !7
+  %71 = call fastcc i32 @wtap_file_read_pattern(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %1, ptr noundef %2)
   switch i32 %71, label %73 [
     i32 -1, label %89
     i32 0, label %72
@@ -292,7 +292,7 @@ switch.lookup:                                    ; preds = %73
 declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wtap_file_read_pattern(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @wtap_file_read_pattern(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i8, ptr %1, align 1
   %.not23 = icmp eq i8 %5, 0
   br i1 %.not23, label %.loopexit, label %.lr.ph
@@ -414,12 +414,12 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @peektagged_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @peektagged_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #7
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call fastcc i32 @peektagged_read_packet(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !8
+  %10 = tail call fastcc i32 @peektagged_read_packet(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   switch i32 %10, label %11 [
     i32 -1, label %15
     i32 0, label %14
@@ -440,7 +440,7 @@ define internal noundef i32 @peektagged_read(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @peektagged_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @peektagged_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #7
@@ -449,7 +449,7 @@ define internal noundef i32 @peektagged_seek_read(ptr nocapture noundef readonly
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = tail call fastcc i32 @peektagged_read_packet(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !8
+  %13 = tail call fastcc i32 @peektagged_read_packet(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %15, label %19
 
@@ -494,7 +494,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @peektagged_read_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 5) i32 @peektagged_read_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [6 x i8], align 1
   %.sroa.53.sroa.8 = alloca [5 x i8], align 2
   %8 = getelementptr inbounds i8, ptr %0, i64 96
@@ -535,7 +535,7 @@ define internal fastcc i32 @peektagged_read_packet(ptr nocapture noundef readonl
   %.1148 = phi i32 [ %.0147300, %18 ], [ %.0147300, %84 ], [ %.0147300, %88 ], [ %.0147300, %86 ], [ %.0147300, %68 ], [ %.0147300, %72 ], [ %.0147300, %70 ], [ %.0147300, %62 ], [ %.0147300, %58 ], [ %.0147300, %54 ], [ %.0147300, %50 ], [ %.0147300, %46 ], [ %45, %44 ], [ %.0147300, %40 ], [ %.0147300, %38 ], [ %.0147300, %36 ], [ %.0147300, %31 ], [ %.0147300, %26 ]
   %14 = call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 6, ptr noundef %4, ptr noundef %5) #7
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %13
   %15 = load i32, ptr %4, align 4
@@ -1125,6 +1125,4 @@ attributes #8 = { nounwind allocsize(0,1) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -1, i32 2}
-!8 = !{i32 -1, i32 5}
-!9 = distinct !{!9, !5}
+!7 = distinct !{!7, !5}

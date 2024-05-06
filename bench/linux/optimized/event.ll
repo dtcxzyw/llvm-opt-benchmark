@@ -97,7 +97,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_acpi_bus_generate_netlink_event460, ptr @__UNIQUE_ID___addressable_acpi_event_init462, ptr @__UNIQUE_ID___addressable_acpi_notifier_call_chain457, ptr @__UNIQUE_ID___addressable_register_acpi_notifier458, ptr @__UNIQUE_ID___addressable_unregister_acpi_notifier459], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_notifier_call_chain(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @acpi_notifier_call_chain(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.acpi_bus_event, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
@@ -152,7 +152,7 @@ define dso_local i32 @unregister_acpi_notifier(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @blocking_notifier_chain_unregister(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_bus_generate_netlink_event(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_bus_generate_netlink_event(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) #0 align 16 {
   %5 = tail call ptr @__alloc_skb(i32 noundef 72, i32 noundef 2080, i32 noundef 0, i32 noundef -1) #7
   %6 = icmp eq ptr %5, null
   br i1 %6, label %44, label %7

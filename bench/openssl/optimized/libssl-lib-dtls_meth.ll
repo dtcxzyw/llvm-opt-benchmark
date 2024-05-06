@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @dtls_1_funcs = external global %struct.record_functions_st, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @dtls_get_more_records(ptr noundef %rl) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef %rl) local_unnamed_addr #0 {
 entry:
   %md.i = alloca [64 x i8], align 16
   %macbuf.i = alloca %struct.ssl_mac_buf_st, align 8
@@ -96,9 +96,9 @@ if.then5:                                         ; preds = %again.backedge, %if
   %packet_length2.i.i = getelementptr inbounds i8, ptr %rl, i64 4088
   store i64 %4, ptr %packet_length2.i.i, align 8
   %rbuf4.i.i = getelementptr inbounds i8, ptr %call.val.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %rbuf, ptr noundef nonnull align 8 dereferenceable(48) %rbuf4.i.i, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %rbuf, ptr noundef nonnull readonly align 8 dereferenceable(48) %rbuf4.i.i, i64 48, i1 false)
   %rrec5.i.i = getelementptr inbounds i8, ptr %call.val.i, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %rrec, ptr noundef nonnull align 8 dereferenceable(72) %rrec5.i.i, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %rrec, ptr noundef nonnull readonly align 8 dereferenceable(72) %rrec5.i.i, i64 72, i1 false)
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %rl, i64 4098
   %5 = load ptr, ptr %call.val.i, align 8
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %5, i64 5
@@ -831,7 +831,7 @@ declare i32 @tls_setup_read_buffer(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dtls_prepare_record_header(ptr noundef %rl, ptr noundef %thispkt, ptr nocapture noundef readonly %templ, i8 noundef zeroext %rectype, ptr noundef %recdata) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dtls_prepare_record_header(ptr noundef %rl, ptr noundef %thispkt, ptr nocapture noundef readonly %templ, i8 noundef zeroext %rectype, ptr noundef %recdata) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %recdata, align 8
   %buflen = getelementptr inbounds i8, ptr %templ, i64 16
@@ -970,7 +970,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %lor.lhs.false, %if.end
-  %call11 = tail call i32 @dtls_free(ptr noundef nonnull %2), !range !4
+  %call11 = tail call i32 @dtls_free(ptr noundef nonnull %2)
   store ptr null, ptr %retrl, align 8
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 658, ptr noundef nonnull @__func__.dtls_new_record_layer) #7
@@ -1024,7 +1024,7 @@ err:                                              ; preds = %if.end12, %sw.bb19
 if.then25:                                        ; preds = %err.thread, %err
   %ret.038 = phi i32 [ -2, %err.thread ], [ %call22, %err ]
   %13 = load ptr, ptr %retrl, align 8
-  %call26 = tail call i32 @dtls_free(ptr noundef %13), !range !4
+  %call26 = tail call i32 @dtls_free(ptr noundef %13)
   store ptr null, ptr %retrl, align 8
   br label %return
 
@@ -1034,7 +1034,7 @@ return:                                           ; preds = %err, %if.then25, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dtls_free(ptr noundef %rl) #0 {
+define internal range(i32 0, 2) i32 @dtls_free(ptr noundef %rl) #0 {
 entry:
   %written = alloca i64, align 8
   %left2 = getelementptr inbounds i8, ptr %rl, i64 1728
@@ -1090,7 +1090,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %11 = load ptr, ptr %q, align 8
   %call8 = call ptr @pqueue_pop(ptr noundef %11) #7
   %cmp9.not = icmp eq ptr %call8, null
-  br i1 %cmp9.not, label %while.end, label %while.body, !llvm.loop !5
+  br i1 %cmp9.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %ret.1.lcssa = phi i32 [ %ret.0, %while.cond.preheader ], [ %and, %while.body ]
@@ -1123,7 +1123,7 @@ while.body26:                                     ; preds = %while.cond21.prehea
   %17 = load ptr, ptr %q18, align 8
   %call24 = call ptr @pqueue_pop(ptr noundef %17) #7
   %cmp25.not = icmp eq ptr %call24, null
-  br i1 %cmp25.not, label %while.end31, label %while.body26, !llvm.loop !7
+  br i1 %cmp25.not, label %while.end31, label %while.body26, !llvm.loop !6
 
 while.end31:                                      ; preds = %while.body26, %while.cond21.preheader
   %18 = load ptr, ptr %q18, align 8
@@ -1294,7 +1294,6 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

@@ -869,7 +869,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyStatus = type { i32, ptr, ptr, i32 }
 %union._Py_CODEUNIT = type { i16 }
 
-@_Py_tss_tstate = hidden thread_local global ptr null, align 8
+@_Py_tss_tstate = hidden thread_local local_unnamed_addr global ptr null, align 8
 @_PyRuntime = external global %struct.pyruntimestate, align 8
 @__func__._PyRuntimeState_Init = private unnamed_addr constant [21 x i8] c"_PyRuntimeState_Init\00", align 1
 @.str = private unnamed_addr constant [25 x i8] c"memory allocation failed\00", align 1
@@ -2854,7 +2854,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyInterpreterState_SetRunningMain(ptr noundef %interp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @_PyInterpreterState_SetRunningMain(ptr noundef %interp) local_unnamed_addr #1 {
 entry:
   %main.i = getelementptr inbounds i8, ptr %interp, i64 952
   %0 = load ptr, ptr %main.i, align 8
@@ -2897,7 +2897,7 @@ return:                                           ; preds = %_PyInterpreterState
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyInterpreterState_FailIfRunningMain(ptr nocapture noundef readonly %interp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @_PyInterpreterState_FailIfRunningMain(ptr nocapture noundef readonly %interp) local_unnamed_addr #1 {
 entry:
   %main = getelementptr inbounds i8, ptr %interp, i64 952
   %0 = load ptr, ptr %main, align 8
@@ -2939,7 +2939,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @_PyInterpreterState_IsRunningMain(ptr nocapture noundef readonly %interp) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @_PyInterpreterState_IsRunningMain(ptr nocapture noundef readonly %interp) local_unnamed_addr #7 {
 entry:
   %main = getelementptr inbounds i8, ptr %interp, i64 952
   %0 = load ptr, ptr %main, align 8
@@ -2970,7 +2970,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyInterpreterState_IDInitref(ptr nocapture noundef %interp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @_PyInterpreterState_IDInitref(ptr nocapture noundef %interp) local_unnamed_addr #1 {
 entry:
   %id_mutex = getelementptr inbounds i8, ptr %interp, i64 912
   %0 = load ptr, ptr %id_mutex, align 8
@@ -3001,7 +3001,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 declare ptr @PyThread_allocate_lock() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyInterpreterState_IDIncref(ptr nocapture noundef %interp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @_PyInterpreterState_IDIncref(ptr nocapture noundef %interp) local_unnamed_addr #1 {
 entry:
   %id_mutex.i = getelementptr inbounds i8, ptr %interp, i64 912
   %0 = load ptr, ptr %id_mutex.i, align 8
@@ -4400,7 +4400,7 @@ declare void @_PyCriticalSection_Resume(ptr noundef) local_unnamed_addr #3
 declare void @_PyCriticalSection_SuspendAll(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyThreadState_SetAsyncExc(i64 noundef %id, ptr noundef %exc) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyThreadState_SetAsyncExc(i64 noundef %id, ptr noundef %exc) local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -4971,7 +4971,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyGILState_Check() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyGILState_Check() local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 23), align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -5000,7 +5000,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyGILState_Ensure() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyGILState_Ensure() local_unnamed_addr #1 {
 entry:
   %call.i = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 16)) #14
   %cmp = icmp eq ptr %call.i, null
@@ -5171,7 +5171,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyInterpreterState_GetConfigCopy(ptr noundef %config) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @_PyInterpreterState_GetConfigCopy(ptr noundef %config) local_unnamed_addr #1 {
 entry:
   %status = alloca %struct.PyStatus, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -5219,7 +5219,7 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_PyInterpreterState_HasFeature(ptr nocapture noundef readonly %interp, i64 noundef %feature) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @_PyInterpreterState_HasFeature(ptr nocapture noundef readonly %interp, i64 noundef %feature) local_unnamed_addr #7 {
 entry:
   %feature_flags = getelementptr inbounds i8, ptr %interp, i64 2040
   %0 = load i64, ptr %feature_flags, align 8
@@ -5357,7 +5357,7 @@ if.end:                                           ; preds = %entry, %if.then
 declare void @_PyObject_VirtualFree(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyThreadState_MustExit(ptr noundef readonly %tstate) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_PyThreadState_MustExit(ptr noundef readonly %tstate) local_unnamed_addr #1 {
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 7) monotonic, align 8
   %1 = load atomic i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 6) monotonic, align 8

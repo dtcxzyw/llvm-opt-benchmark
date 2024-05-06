@@ -289,7 +289,7 @@ define i32 @cli_scanhfsplus(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread68
 
 54:                                               ; preds = %35
-  %55 = tail call i32 @llvm.ctpop.i32(i32 %46), !range !4
+  %55 = tail call range(i32 0, 22) i32 @llvm.ctpop.i32(i32 %46)
   %.not86.i = icmp ult i32 %55, 2
   br i1 %.not86.i, label %57, label %56
 
@@ -321,17 +321,17 @@ define i32 @cli_scanhfsplus(ptr noundef %0) local_unnamed_addr #0 {
   br label %hfsplus_volumeheader.exit
 
 hfsplus_volumeheader.exit:                        ; preds = %64, %57
-  %65 = call fastcc i32 @hfsplus_readheader(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull @.str.2), !range !5
+  %65 = call fastcc i32 @hfsplus_readheader(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull @.str.2)
   %.not36 = icmp eq i32 %65, 0
   br i1 %.not36, label %66, label %.thread68
 
 66:                                               ; preds = %hfsplus_volumeheader.exit
-  %67 = call fastcc i32 @hfsplus_readheader(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 3, ptr noundef nonnull @.str.3), !range !5
+  %67 = call fastcc i32 @hfsplus_readheader(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 3, ptr noundef nonnull @.str.3)
   %.not37 = icmp eq i32 %67, 0
   br i1 %.not37, label %68, label %.thread68
 
 68:                                               ; preds = %66
-  %69 = call fastcc i32 @hfsplus_readheader(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 4, ptr noundef nonnull @.str.4), !range !5
+  %69 = call fastcc i32 @hfsplus_readheader(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 4, ptr noundef nonnull @.str.4)
   %.not41 = icmp eq i32 %69, 0
   %70 = getelementptr inbounds i8, ptr %0, i64 16
   %71 = load ptr, ptr %70, align 8
@@ -405,7 +405,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hfsplus_readheader(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @hfsplus_readheader(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
 switch.lookup:
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 1
@@ -415,8 +415,8 @@ switch.lookup:
   %8 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.hfsplus_readheader, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
-  %9 = getelementptr i8, ptr %1, i64 %switch.idx.mult
-  %10 = getelementptr i8, ptr %9, i64 208
+  %9 = getelementptr inbounds i8, ptr %1, i64 %switch.idx.mult
+  %10 = getelementptr inbounds i8, ptr %9, i64 208
   %11 = load i32, ptr %10, align 1
   %12 = mul i32 %7, %11
   %.053 = zext i32 %12 to i64
@@ -575,7 +575,7 @@ declare ptr @cli_gentemp_with_prefix(ptr noundef, ptr noundef) local_unnamed_add
 declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hfsplus_validate_catalog(ptr nocapture noundef readonly %0, i16 %.18.val, i32 %.22.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @hfsplus_validate_catalog(ptr nocapture noundef readonly %0, i16 %.18.val, i32 %.22.val) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 284
   %3 = load i32, ptr %2, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 44
@@ -655,7 +655,7 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef %0, ptr nocapture n
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 9
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 10
   %32 = lshr i16 %28, 2
-  %invariant.gep = getelementptr i8, ptr %30, i64 6
+  %invariant.gep = getelementptr inbounds i8, ptr %30, i64 6
   %33 = add i16 %28, -2
   %34 = getelementptr inbounds i8, ptr %16, i64 8
   %35 = getelementptr inbounds i8, ptr %16, i64 42
@@ -796,7 +796,7 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef %0, ptr nocapture n
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i16
   %108 = shl nuw i16 %107, 8
-  %109 = getelementptr i8, ptr %105, i64 1
+  %109 = getelementptr inbounds i8, ptr %105, i64 1
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i16
   %112 = or disjoint i16 %108, %111
@@ -816,7 +816,7 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef %0, ptr nocapture n
   %119 = load i8, ptr %118, align 1
   %120 = zext i8 %119 to i32
   %121 = shl nuw nsw i32 %120, 8
-  %122 = getelementptr i8, ptr %118, i64 1
+  %122 = getelementptr inbounds i8, ptr %118, i64 1
   %123 = load i8, ptr %122, align 1
   %124 = zext i8 %123 to i32
   %125 = or disjoint i32 %121, %124
@@ -837,15 +837,15 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef %0, ptr nocapture n
   br i1 %133, label %134, label %152
 
 134:                                              ; preds = %132
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %117
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %117
   %135 = load i8, ptr %gep, align 1
   %136 = zext i8 %135 to i32
   %137 = shl nuw nsw i32 %136, 8
-  %138 = getelementptr i8, ptr %118, i64 7
+  %138 = getelementptr inbounds i8, ptr %118, i64 7
   %139 = load i8, ptr %138, align 1
   %140 = zext i8 %139 to i32
   %141 = or disjoint i32 %137, %140
-  %142 = getelementptr i8, ptr %118, i64 8
+  %142 = getelementptr inbounds i8, ptr %118, i64 8
   %.not299 = icmp eq i32 %141, 0
   br i1 %.not299, label %152, label %143
 
@@ -857,7 +857,7 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef %0, ptr nocapture n
 
 146:                                              ; preds = %143
   %147 = zext nneg i32 %144 to i64
-  %148 = call i32 @cli_codepage_to_utf8(ptr noundef %142, i64 noundef %147, i16 noundef zeroext 1201, ptr noundef nonnull %14, ptr noundef nonnull %15) #13
+  %148 = call i32 @cli_codepage_to_utf8(ptr noundef nonnull %142, i64 noundef %147, i16 noundef zeroext 1201, ptr noundef nonnull %14, ptr noundef nonnull %15) #13
   %.not301 = icmp eq i32 %148, 0
   br i1 %.not301, label %._crit_edge845, label %149
 
@@ -1045,7 +1045,7 @@ forkdata_print.exit373:                           ; preds = %205, %209
 
 225:                                              ; preds = %.preheader.split.preheader.i, %.loopexit.i
   %226 = phi i32 [ 1, %.preheader.split.preheader.i ], [ %300, %.loopexit.i ]
-  %227 = call fastcc i32 @hfsplus_fetch_node(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %47, i32 noundef %216, ptr noundef nonnull %219, i64 noundef %218)
+  %227 = call fastcc i32 @hfsplus_fetch_node(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef nonnull readonly %3, ptr noundef nonnull readonly %47, i32 noundef %216, ptr noundef nonnull %219, i64 noundef %218)
   %.not134.i = icmp eq i32 %227, 0
   br i1 %.not134.i, label %229, label %228
 
@@ -1108,7 +1108,7 @@ forkdata_print.exit373:                           ; preds = %205, %209
   %253 = load i8, ptr %252, align 1
   %254 = zext i8 %253 to i16
   %255 = shl nuw i16 %254, 8
-  %256 = getelementptr i8, ptr %252, i64 1
+  %256 = getelementptr inbounds i8, ptr %252, i64 1
   %257 = load i8, ptr %256, align 1
   %258 = zext i8 %257 to i16
   %259 = or disjoint i16 %255, %258
@@ -1176,13 +1176,13 @@ forkdata_print.exit373:                           ; preds = %205, %209
   br i1 %or.cond151.i, label %288, label %299
 
 288:                                              ; preds = %285
-  %289 = getelementptr i8, ptr %272, i64 14
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(34) %289, ptr noundef nonnull dereferenceable(34) @__const.hfsplus_walk_catalog.COMPRESSED_ATTR, i64 34)
+  %289 = getelementptr inbounds i8, ptr %272, i64 14
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(34) %289, ptr noundef nonnull readonly dereferenceable(34) @__const.hfsplus_walk_catalog.COMPRESSED_ATTR, i64 34)
   %290 = icmp eq i32 %bcmp.i, 0
   br i1 %290, label %291, label %299
 
 291:                                              ; preds = %288
-  %292 = getelementptr i8, ptr %272, i64 48
+  %292 = getelementptr inbounds i8, ptr %272, i64 48
   %.sroa.0.0.copyload.i = load i32, ptr %292, align 1
   %.not149.i = icmp eq i32 %.sroa.0.0.copyload.i, 268435456
   br i1 %.not149.i, label %295, label %293
@@ -1193,7 +1193,7 @@ forkdata_print.exit373:                           ; preds = %205, %209
   br label %299
 
 295:                                              ; preds = %291
-  %.sroa.89.0..sroa_idx.i = getelementptr i8, ptr %272, i64 60
+  %.sroa.89.0..sroa_idx.i = getelementptr inbounds i8, ptr %272, i64 60
   %.sroa.89.0.copyload.i = load i32, ptr %.sroa.89.0..sroa_idx.i, align 1
   %296 = call i32 @llvm.bswap.i32(i32 %.sroa.89.0.copyload.i)
   %297 = zext i32 %296 to i64
@@ -1225,8 +1225,8 @@ hfsplus_check_attribute.exit.thread43:            ; preds = %283, %277, %268, %2
   br label %539
 
 301:                                              ; preds = %295
-  %302 = getelementptr i8, ptr %272, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %17, ptr align 1 %302, i64 %297, i1 false)
+  %302 = getelementptr inbounds i8, ptr %272, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %17, ptr nonnull align 1 %302, i64 %297, i1 false)
   call void @free(ptr noundef nonnull %219) #13
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.60) #13
   %303 = icmp ult i32 %296, 16
@@ -2162,7 +2162,7 @@ define internal fastcc void @forkdata_print(ptr noundef %0, ptr nocapture nounde
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hfsplus_fetch_node(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i64 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %2, i64 22
   %9 = load i32, ptr %8, align 1
   %.not = icmp ugt i32 %9, %4
@@ -2326,7 +2326,7 @@ define internal fastcc noundef i32 @hfsplus_fetch_node(ptr nocapture noundef rea
   br i1 %.not.i, label %fmap_readn.exit.thread, label %90
 
 90:                                               ; preds = %85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull align 1 %89, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %77, ptr nonnull align 1 %89, i64 %spec.select.i, i1 false)
   %91 = icmp ult i64 %spec.select.i, 2147483648
   %92 = select i1 %91, i64 %spec.select.i, i64 -1
   br label %fmap_readn.exit
@@ -2659,5 +2659,3 @@ attributes #14 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 22}
-!5 = !{i32 0, i32 27}

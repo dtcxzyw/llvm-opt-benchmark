@@ -30,7 +30,7 @@ $_ZN5folly18parking_lot_detail12WaitNodeBase4waitINSt6chrono3_V212steady_clockEN
 @switch.table._ZN5folly6detail13futexWaitImplEPKNS0_19EmulatedFutexAtomicIjEEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj = private unnamed_addr constant [3 x i32] [i32 0, i32 1, i32 3], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef %futex, i32 noundef %count, i32 noundef %wakeMask) local_unnamed_addr #0 {
+define noundef range(i32 0, -2147483648) i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef %futex, i32 noundef %count, i32 noundef %wakeMask) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %futex, i32 noundef 138, i32 noundef %count, ptr null, ptr null, i32 noundef %wakeMask) #10
   %conv.i = trunc i64 %call.i to i32
@@ -219,7 +219,7 @@ declare void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef %futex, i32 noundef %expected, ptr noundef readonly %absSystemTime, ptr noundef readonly %absSteadyTime, i32 noundef %waitMask) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 4) i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef %futex, i32 noundef %expected, ptr noundef readonly %absSystemTime, ptr noundef readonly %absSteadyTime, i32 noundef %waitMask) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i) #10

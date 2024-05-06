@@ -418,7 +418,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lj_trace_flushall(ptr noundef %L) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @lj_trace_flushall(ptr noundef %L) local_unnamed_addr #2 {
 entry:
   %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -1219,7 +1219,7 @@ if.end.i100:                                      ; preds = %lj_trace_free.exit.
   %add.ptr4.i = getelementptr inbounds i8, ptr %112, i64 -8
   %113 = load i64, ptr %add.ptr4.i, align 8
   %shr.i102 = ashr i64 %113, 47
-  %conv.i103 = trunc i64 %shr.i102 to i32
+  %conv.i103 = trunc nsw i64 %shr.i102 to i32
   %cmp.i104 = icmp ult i32 %conv.i103, -13
   br i1 %cmp.i104, label %if.end9.i, label %if.end14.i
 
@@ -1288,13 +1288,13 @@ if.then.i122:                                     ; preds = %for.body.i
   %call.i125 = tail call i64 @lj_prng_u64(ptr noundef nonnull %prng.i) #13
   %and.i126 = and i64 %call.i125, 15
   %add.i127 = add nuw nsw i64 %shl.i124, %and.i126
-  %conv8.i = trunc i64 %add.i127 to i32
+  %conv8.i = trunc nuw nsw i64 %add.i127 to i32
   %cmp9.i = icmp ugt i32 %conv8.i, 60000
   br i1 %cmp9.i, label %if.then11.i, label %if.then.setpenalty_crit_edge.i
 
 if.then.setpenalty_crit_edge.i:                   ; preds = %if.then.i122
   %.pre.i128 = and i64 %indvars.iv.i, 4294967295
-  %126 = trunc i64 %add.i127 to i16
+  %126 = trunc nuw i64 %add.i127 to i16
   br label %setpenalty.i
 
 if.then11.i:                                      ; preds = %if.then.i122
@@ -1590,7 +1590,7 @@ if.end.i86.i:                                     ; preds = %if.then167.i
   br label %retry.backedge
 
 if.then172.i:                                     ; preds = %if.end162.i
-  %call173.i = tail call i32 @lj_trace_flushall(ptr noundef nonnull %99), !range !11
+  %call173.i = tail call i32 @lj_trace_flushall(ptr noundef nonnull %99)
   br label %if.end95
 
 if.end95:                                         ; preds = %if.end162.i, %if.then167.i, %if.then172.i
@@ -1605,7 +1605,7 @@ do.cond:                                          ; preds = %if.end37, %if.end76
   br i1 %cmp103, label %retry.backedge, label %return
 
 retry.backedge:                                   ; preds = %do.cond, %if.then12.i, %if.end.i86.i
-  br label %retry, !llvm.loop !12
+  br label %retry, !llvm.loop !11
 
 return:                                           ; preds = %do.cond, %do.cond.thread, %if.end95, %trace_stop.exit
   ret ptr null
@@ -1873,7 +1873,7 @@ for.body.i:                                       ; preds = %for.body.i, %lj_sta
   store double %conv.i71, ptr %19, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %for.body8.preheader.i, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %for.body8.preheader.i, label %for.body.i, !llvm.loop !12
 
 for.body8.preheader.i:                            ; preds = %for.body.i
   %.pre.i = load ptr, ptr %top.i, align 8
@@ -1901,7 +1901,7 @@ if.end.i:                                         ; preds = %if.then.i72, %for.b
   store ptr %incdec.ptr20.i, ptr %top.i, align 8
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 16
-  br i1 %exitcond20.not.i, label %trace_exit_regs.exit, label %for.body8.i, !llvm.loop !14
+  br i1 %exitcond20.not.i, label %trace_exit_regs.exit, label %for.body8.i, !llvm.loop !13
 
 trace_exit_regs.exit:                             ; preds = %if.end.i
   call void @lj_vmevent_call(ptr noundef nonnull %1, i64 noundef %call22) #13
@@ -2231,7 +2231,7 @@ do.body:                                          ; preds = %do.body, %if.then
   %exitno.1 = select i1 %cmp12, i32 %shr, i32 %exitno.0
   %lo.1 = select i1 %cmp12, i32 %lo.0, i32 %add15
   %cmp16 = icmp ult i32 %lo.1, %exitno.1
-  br i1 %cmp16, label %do.body, label %do.end, !llvm.loop !15
+  br i1 %cmp16, label %do.body, label %do.end, !llvm.loop !14
 
 do.end:                                           ; preds = %do.body
   %dec = add nsw i32 %exitno.1, -1
@@ -2348,17 +2348,17 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp5.i, label %if.then6.i, label %for.inc.i
 
 if.then6.i:                                       ; preds = %for.body.i
-  %18 = trunc i64 %indvars.iv.i to i32
+  %18 = trunc nuw i64 %indvars.iv.i to i32
   %inc.i = add nuw i32 %18, 1
   store i32 %inc.i, ptr %freetrace.i, align 8
   br label %trace_findfree.exit
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %19 = trunc i64 %indvars.iv.next.i to i32
+  %19 = trunc nuw i64 %indvars.iv.next.i to i32
   store i32 %19, ptr %freetrace.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !15
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end.i
   %param.i = getelementptr inbounds i8, ptr %J, i64 1636
@@ -2393,7 +2393,7 @@ for.body28.i:                                     ; preds = %for.body28.i, %for.
   %26 = load i32, ptr %sizetrace.i, align 4
   %27 = zext i32 %26 to i64
   %cmp27.i = icmp ult i64 %indvars.iv.next34.i, %27
-  br i1 %cmp27.i, label %for.body28.i, label %for.end35.i, !llvm.loop !17
+  br i1 %cmp27.i, label %for.body28.i, label %for.end35.i, !llvm.loop !16
 
 for.end35.i:                                      ; preds = %for.body28.i, %if.end21.i
   %28 = load i32, ptr %freetrace.i, align 8
@@ -2407,7 +2407,7 @@ trace_findfree.exit:                              ; preds = %if.then6.i, %for.en
 if.then33:                                        ; preds = %for.end.i, %trace_findfree.exit
   %L34 = getelementptr inbounds i8, ptr %J, i64 128
   %29 = load ptr, ptr %L34, align 8
-  %call35 = tail call i32 @lj_trace_flushall(ptr noundef %29), !range !11
+  %call35 = tail call i32 @lj_trace_flushall(ptr noundef %29)
   %state36 = getelementptr inbounds i8, ptr %J, i64 236
   store i32 0, ptr %state36, align 4
   br label %return
@@ -2620,10 +2620,9 @@ attributes #14 = { nounwind willreturn memory(none) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}

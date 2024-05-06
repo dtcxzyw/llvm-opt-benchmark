@@ -19,7 +19,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_efi_tpm_fina
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_efi_tpm_final_log_size452], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @efi_tpm_eventlog_init() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @efi_tpm_eventlog_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = load i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 8), align 8
   %2 = icmp eq i64 %1, -1
   br i1 %2, label %54, label %3

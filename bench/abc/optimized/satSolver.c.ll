@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.sat_solver_setnvars = private unnamed_addr constant [3 x i64] [i64 1024, i64 0, i64 0], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @sat_solver_get_var_value(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @sat_solver_get_var_value(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 208
   %.val = load ptr, ptr %3, align 8
   %4 = sext i32 %1 to i64
@@ -91,7 +91,7 @@ define void @sat_solver_set_var_activity(ptr nocapture noundef %0, ptr noundef r
 
 23:                                               ; preds = %.lr.ph65, %60
   %indvars.iv77 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next78, %60 ]
-  %24 = trunc i64 %indvars.iv77 to i32
+  %24 = trunc nuw nsw i64 %indvars.iv77 to i32
   br i1 %.not46, label %28, label %25
 
 25:                                               ; preds = %23
@@ -1454,7 +1454,7 @@ clause_read.exit:                                 ; preds = %1, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sat_solver_addvar(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define range(i32 -2147483648, 2147483647) i32 @sat_solver_addvar(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8
   %3 = add nsw i32 %2, 1
   tail call void @sat_solver_setnvars(ptr noundef nonnull %0, i32 noundef %3)
@@ -1863,7 +1863,7 @@ switch.lookup:                                    ; preds = %206
   %233 = load ptr, ptr %183, align 8
   %234 = getelementptr inbounds i32, ptr %233, i64 %indvars.iv
   store i32 0, ptr %234, align 4
-  %235 = trunc i64 %indvars.iv to i32
+  %235 = trunc nsw i64 %indvars.iv to i32
   tail call fastcc void @veci_push(ptr noundef nonnull %179, i32 noundef %235)
   %236 = load ptr, ptr %181, align 8
   %.val.i = load ptr, ptr %184, align 8
@@ -2686,7 +2686,7 @@ define double @sat_solver_memory(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sat_solver_simplify(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @sat_solver_simplify(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = tail call i32 @sat_solver_propagate(ptr noundef %0)
   %.not = icmp eq i32 %2, 0
   %. = zext i1 %.not to i32
@@ -2855,7 +2855,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 .lr.ph199:                                        ; preds = %.preheader186
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.val164238, i64 %indvars.iv226
   %.pre242 = load ptr, ptr %.phi.trans.insert, align 8
-  %91 = trunc i64 %indvars.iv226 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv226 to i32
   %.not158257 = icmp eq ptr %.pre242, null
   br i1 %.not158257, label %.critedge2.loopexit, label %.lr.ph261
 
@@ -3494,7 +3494,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #30
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #30
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -3513,7 +3513,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -3703,7 +3703,7 @@ sat_solver_canceluntil_rollback.exit:             ; preds = %order_unassigned.ex
   %97 = load ptr, ptr %89, align 8
   %98 = getelementptr inbounds i32, ptr %97, i64 %indvars.iv
   store i32 %.val96, ptr %98, align 4
-  %99 = trunc i64 %indvars.iv to i32
+  %99 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @veci_push(ptr noundef nonnull %84, i32 noundef %99)
   %100 = load ptr, ptr %89, align 8
   %.val.i97 = load ptr, ptr %90, align 8
@@ -3948,7 +3948,7 @@ order_update.exit:                                ; preds = %.lr.ph.i98, %116, %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define i32 @sat_solver_addclause(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @sat_solver_addclause(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 392
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -4273,7 +4273,7 @@ luby.exit:                                        ; preds = %.lr.ph23.i, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sat_solver_solve_internal(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @sat_solver_solve_internal(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
@@ -5631,7 +5631,7 @@ veci_push.exit217.i:                              ; preds = %717, %714, %699
   br i1 %.not122.i.i, label %733, label %740, !llvm.loop !52
 
 740:                                              ; preds = %733
-  %741 = trunc i64 %indvars.iv.next192.i.i to i32
+  %741 = trunc nsw i64 %indvars.iv.next192.i.i to i32
   %742 = load ptr, ptr %39, align 8
   %743 = getelementptr inbounds i32, ptr %742, i64 %737
   %744 = load i32, ptr %743, align 4
@@ -6160,7 +6160,7 @@ solver2_clear_tags.exit.i.i:                      ; preds = %.lr.ph.i151.i.i, %.
   %1005 = getelementptr inbounds i32, ptr %.val127.i.i, i64 %1004
   %1006 = load i32, ptr %1005, align 4
   %1007 = icmp sgt i32 %1006, %.0105180.i.i
-  %1008 = trunc i64 %indvars.iv200.i.i to i32
+  %1008 = trunc nuw nsw i64 %indvars.iv200.i.i to i32
   %spec.select.i.i = select i1 %1007, i32 %1008, i32 %.0106179.i.i
   %spec.select158.i.i = call i32 @llvm.smax.i32(i32 %1006, i32 %.0105180.i.i)
   %indvars.iv.next201.i.i = add nuw nsw i64 %indvars.iv200.i.i, 1
@@ -7069,7 +7069,7 @@ order_unassigned.exit:                            ; preds = %50, %order_update.e
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sat_solver_push(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @sat_solver_push(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
@@ -7555,7 +7555,7 @@ define void @sat_solver_set_resource_limits(ptr nocapture noundef %0, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sat_solver_solve(ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @sat_solver_solve(ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #2 {
   %8 = getelementptr inbounds i8, ptr %0, i64 624
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 0
@@ -7658,7 +7658,7 @@ sat_solver_set_resource_limits.exit:              ; preds = %46, %47, %50
 .lr.ph:                                           ; preds = %sat_solver_set_resource_limits.exit, %53
   %.02835 = phi ptr [ %54, %53 ], [ %1, %sat_solver_set_resource_limits.exit ]
   %56 = load i32, ptr %.02835, align 4
-  %57 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %56), !range !72
+  %57 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %56)
   %.not33 = icmp eq i32 %57, 0
   br i1 %.not33, label %58, label %53
 
@@ -7668,7 +7668,7 @@ sat_solver_set_resource_limits.exit:              ; preds = %46, %47, %50
   br label %66
 
 ._crit_edge:                                      ; preds = %53, %sat_solver_set_resource_limits.exit
-  %59 = tail call i32 @sat_solver_solve_internal(ptr noundef %0), !range !73
+  %59 = tail call i32 @sat_solver_solve_internal(ptr noundef %0)
   tail call fastcc void @sat_solver_canceluntil(ptr noundef %0, i32 noundef 0)
   store i32 0, ptr %51, align 8
   %60 = icmp eq i32 %59, -1
@@ -7713,15 +7713,15 @@ define i32 @sat_solver_solve_lexsat(ptr noundef %0, ptr nocapture noundef %1, i3
   store i8 %11, ptr %15, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %sat_solver_set_literal_polarity.exit, label %6, !llvm.loop !74
+  br i1 %exitcond.not.i, label %sat_solver_set_literal_polarity.exit, label %6, !llvm.loop !72
 
 sat_solver_set_literal_polarity.exit:             ; preds = %6
-  %16 = tail call i32 @sat_solver_solve_internal(ptr noundef nonnull %0), !range !73
+  %16 = tail call i32 @sat_solver_solve_internal(ptr noundef nonnull %0)
   %.not = icmp eq i32 %16, 1
   br i1 %.not, label %.preheader76, label %._crit_edge.thread
 
 sat_solver_set_literal_polarity.exit.thread:      ; preds = %3
-  %17 = tail call i32 @sat_solver_solve_internal(ptr noundef %0), !range !73
+  %17 = tail call i32 @sat_solver_solve_internal(ptr noundef %0)
   %.not98 = icmp eq i32 %17, 1
   br i1 %.not98, label %._crit_edge, label %._crit_edge.thread
 
@@ -7752,10 +7752,10 @@ sat_solver_set_literal_polarity.exit.thread:      ; preds = %3
 30:                                               ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %19, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge.thread, label %19, !llvm.loop !73
 
 ._crit_edge.loopexit:                             ; preds = %19
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %sat_solver_set_literal_polarity.exit.thread, %.preheader76
@@ -7771,19 +7771,19 @@ sat_solver_set_literal_polarity.exit.thread:      ; preds = %3
 34:                                               ; preds = %.preheader
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %38, label %.preheader, !llvm.loop !76
+  br i1 %exitcond94.not, label %38, label %.preheader, !llvm.loop !74
 
 .preheader:                                       ; preds = %.preheader.preheader, %34
   %indvars.iv90 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next91, %34 ]
   %35 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv90
   %36 = load i32, ptr %35, align 4
-  %37 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %36), !range !72
+  %37 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %36)
   %.not71 = icmp eq i32 %37, 0
   br i1 %.not71, label %.thread74, label %34
 
 38:                                               ; preds = %34
-  %39 = tail call i32 @sat_solver_solve_internal(ptr noundef %0), !range !73
-  %40 = trunc i32 %39 to i8
+  %39 = tail call i32 @sat_solver_solve_internal(ptr noundef %0)
+  %40 = trunc nsw i32 %39 to i8
   switch i8 %40, label %._crit_edge84.thread [
     i8 1, label %41
     i8 -1, label %.thread74
@@ -7808,7 +7808,7 @@ sat_solver_set_literal_polarity.exit.thread:      ; preds = %3
   %50 = load i32, ptr %49, align 4
   %51 = xor i32 %50, 1
   store i32 %51, ptr %49, align 4
-  %52 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %51), !range !72
+  %52 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %51)
   %.not73 = icmp eq i32 %52, 0
   br i1 %.not73, label %53, label %54
 
@@ -7827,9 +7827,9 @@ sat_solver_set_literal_polarity.exit.thread:      ; preds = %3
   %58 = or i32 %57, 1
   store i32 %58, ptr %56, align 4
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %59 = trunc i64 %indvars.iv.next96 to i32
+  %59 = trunc nuw i64 %indvars.iv.next96 to i32
   %60 = icmp slt i32 %59, %2
-  br i1 %60, label %.lr.ph83, label %._crit_edge84, !llvm.loop !77
+  br i1 %60, label %.lr.ph83, label %._crit_edge84, !llvm.loop !75
 
 ._crit_edge84:                                    ; preds = %.lr.ph83
   br i1 %55, label %._crit_edge84.thread.sink.split, label %._crit_edge84.thread
@@ -7860,7 +7860,7 @@ sat_solver_set_literal_polarity.exit.thread:      ; preds = %3
   tail call fastcc void @sat_solver_canceluntil(ptr noundef %0, i32 noundef %71)
   %72 = add nsw i32 %.385, -1
   %.not104 = icmp eq i32 %.385, 0
-  br i1 %.not104, label %._crit_edge88, label %69, !llvm.loop !78
+  br i1 %.not104, label %._crit_edge88, label %69, !llvm.loop !76
 
 ._crit_edge88:                                    ; preds = %69, %._crit_edge84.thread
   %sext = shl i32 %.1, 24
@@ -7902,7 +7902,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   br label %19
 
 19:                                               ; preds = %13, %tailrecurse._crit_edge
-  %20 = tail call i32 @sat_solver_solve_internal(ptr noundef %0), !range !73
+  %20 = tail call i32 @sat_solver_solve_internal(ptr noundef %0)
   %21 = icmp ne i32 %20, -1
   %22 = zext i1 %21 to i32
   br label %.loopexit
@@ -7922,12 +7922,12 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
   %27 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
-  %29 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %28), !range !72
+  %29 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %28)
   %.not119 = icmp eq i32 %29, 0
   br i1 %.not119, label %.lr.ph162.preheader, label %37
 
 .lr.ph162.preheader:                              ; preds = %.lr.ph
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.lr.ph162
 
 .lr.ph162:                                        ; preds = %.lr.ph162.preheader, %.lr.ph162
@@ -7938,7 +7938,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   tail call fastcc void @sat_solver_canceluntil(ptr noundef %0, i32 noundef %32)
   %33 = add nsw i32 %.0109161, -1
   %34 = icmp sgt i32 %.0109161, 0
-  br i1 %34, label %.lr.ph162, label %._crit_edge163, !llvm.loop !79
+  br i1 %34, label %.lr.ph162, label %._crit_edge163, !llvm.loop !77
 
 ._crit_edge163:                                   ; preds = %.lr.ph162
   %35 = add nuw nsw i32 %30, 1
@@ -7952,7 +7952,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph160, %.prehea
 37:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %37, %23
   br i1 %.not, label %41, label %38
@@ -7964,7 +7964,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph160, %.prehea
   br label %41
 
 41:                                               ; preds = %38, %._crit_edge
-  %42 = tail call i32 @sat_solver_solve_internal(ptr noundef %0), !range !73
+  %42 = tail call i32 @sat_solver_solve_internal(ptr noundef %0)
   %43 = icmp eq i32 %42, -1
   br i1 %43, label %.preheader125, label %47
 
@@ -7979,7 +7979,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph160, %.prehea
   tail call fastcc void @sat_solver_canceluntil(ptr noundef %0, i32 noundef %45)
   %46 = add nuw nsw i32 %.1159, 1
   %exitcond205.not = icmp eq i32 %46, %24
-  br i1 %exitcond205.not, label %tailrecurse.backedge, label %.lr.ph160, !llvm.loop !81
+  br i1 %exitcond205.not, label %tailrecurse.backedge, label %.lr.ph160, !llvm.loop !79
 
 47:                                               ; preds = %41
   %48 = icmp eq i32 %25, 1
@@ -8007,7 +8007,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph160, %.prehea
   tail call fastcc void @sat_solver_canceluntil(ptr noundef %0, i32 noundef %56)
   %57 = add nuw nsw i32 %.2135, 1
   %exitcond184.not = icmp eq i32 %57, %24
-  br i1 %exitcond184.not, label %._crit_edge138, label %.lr.ph137, !llvm.loop !82
+  br i1 %exitcond184.not, label %._crit_edge138, label %.lr.ph137, !llvm.loop !80
 
 ._crit_edge138:                                   ; preds = %.lr.ph137
   store i32 0, ptr %11, align 4
@@ -8034,7 +8034,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph160, %.prehea
   tail call fastcc void @veci_push(ptr noundef nonnull %10, i32 noundef %61)
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
-  br i1 %exitcond189.not, label %.preheader129, label %.lr.ph141, !llvm.loop !83
+  br i1 %exitcond189.not, label %.preheader129, label %.lr.ph141, !llvm.loop !81
 
 .preheader128:                                    ; preds = %.lr.ph143, %.preheader129
   br i1 %26, label %.lr.ph145.preheader, label %.preheader127
@@ -8053,7 +8053,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph160, %.prehea
   store i32 %63, ptr %64, align 4
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %.preheader128, label %.lr.ph143, !llvm.loop !84
+  br i1 %exitcond194.not, label %.preheader128, label %.lr.ph143, !llvm.loop !82
 
 .preheader127:                                    ; preds = %.lr.ph145, %.preheader128
   br i1 %58, label %.lr.ph147.preheader, label %.preheader127._crit_edge
@@ -8071,18 +8071,18 @@ tailrecurse.backedge:                             ; preds = %.lr.ph160, %.prehea
   store i32 %66, ptr %gep221, align 4
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %.preheader127, label %.lr.ph145, !llvm.loop !85
+  br i1 %exitcond199.not, label %.preheader127, label %.lr.ph145, !llvm.loop !83
 
 .lr.ph147:                                        ; preds = %.lr.ph147.preheader, %76
   %indvars.iv200 = phi i64 [ 0, %.lr.ph147.preheader ], [ %indvars.iv.next201, %76 ]
   %67 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv200
   %68 = load i32, ptr %67, align 4
-  %69 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %68), !range !72
+  %69 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %68)
   %.not118 = icmp eq i32 %69, 0
   br i1 %.not118, label %.lr.ph157.preheader, label %76
 
 .lr.ph157.preheader:                              ; preds = %.lr.ph147
-  %70 = trunc i64 %indvars.iv200 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv200 to i32
   br label %.lr.ph157
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %.lr.ph157
@@ -8093,7 +8093,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph160, %.prehea
   tail call fastcc void @sat_solver_canceluntil(ptr noundef %0, i32 noundef %72)
   %73 = add nsw i32 %.1110156, -1
   %74 = icmp sgt i32 %.1110156, 0
-  br i1 %74, label %.lr.ph157, label %._crit_edge158, !llvm.loop !86
+  br i1 %74, label %.lr.ph157, label %._crit_edge158, !llvm.loop !84
 
 ._crit_edge158:                                   ; preds = %.lr.ph157
   %75 = add nuw nsw i32 %70, 1
@@ -8102,7 +8102,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph160, %.prehea
 76:                                               ; preds = %.lr.ph147
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
-  br i1 %exitcond204.not, label %.preheader127._crit_edge, label %.lr.ph147, !llvm.loop !87
+  br i1 %exitcond204.not, label %.preheader127._crit_edge, label %.lr.ph147, !llvm.loop !85
 
 .preheader127._crit_edge:                         ; preds = %.preheader127, %76
   br i1 %.not, label %80, label %77
@@ -8114,7 +8114,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph160, %.prehea
   br label %80
 
 80:                                               ; preds = %77, %.preheader127._crit_edge
-  %81 = tail call i32 @sat_solver_solve_internal(ptr noundef %0), !range !73
+  %81 = tail call i32 @sat_solver_solve_internal(ptr noundef %0)
   %82 = icmp eq i32 %81, -1
   br i1 %82, label %.preheader, label %86
 
@@ -8129,7 +8129,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph160, %.prehea
   tail call fastcc void @sat_solver_canceluntil(ptr noundef %0, i32 noundef %84)
   %85 = add nuw nsw i32 %.7171, 1
   %exitcond207.not = icmp eq i32 %85, %54
-  br i1 %exitcond207.not, label %.loopexit, label %.lr.ph172, !llvm.loop !88
+  br i1 %exitcond207.not, label %.loopexit, label %.lr.ph172, !llvm.loop !86
 
 86:                                               ; preds = %80
   %87 = and i32 %.tr122164, -2
@@ -8154,7 +8154,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph160, %.prehea
   tail call fastcc void @sat_solver_canceluntil(ptr noundef %0, i32 noundef %96)
   %97 = add nuw nsw i32 %.8167, 1
   %exitcond206.not = icmp eq i32 %97, %54
-  br i1 %exitcond206.not, label %._crit_edge170, label %.lr.ph169, !llvm.loop !89
+  br i1 %exitcond206.not, label %._crit_edge170, label %.lr.ph169, !llvm.loop !87
 
 ._crit_edge170:                                   ; preds = %.lr.ph169, %93
   %98 = add nsw i32 %94, %54
@@ -8181,8 +8181,8 @@ define i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32
   %13 = load i64, ptr %12, align 8
   %14 = sext i32 %3 to i64
   store i64 %14, ptr %12, align 8
-  %15 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %11), !range !72
-  %16 = tail call i32 @sat_solver_solve_internal(ptr noundef %0), !range !73
+  %15 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %11)
+  %16 = tail call i32 @sat_solver_solve_internal(ptr noundef %0)
   %17 = getelementptr inbounds i8, ptr %0, i64 352
   %18 = load i32, ptr %17, align 8
   %19 = add nsw i32 %18, -1
@@ -8193,7 +8193,7 @@ define i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32
 
 21:                                               ; preds = %9
   %22 = getelementptr inbounds i8, ptr %5, i64 4
-  %23 = call i32 @sat_solver_addclause(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %22), !range !72
+  %23 = call i32 @sat_solver_addclause(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %22)
   br label %24
 
 24:                                               ; preds = %21, %9
@@ -8225,13 +8225,13 @@ define i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
   %35 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
-  %37 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %36), !range !72
+  %37 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %36)
   %.not110 = icmp eq i32 %37, 0
   br i1 %.not110, label %.lr.ph147, label %53
 
 .lr.ph147:                                        ; preds = %.lr.ph
   %38 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw nsw i64 %indvars.iv to i32
   %40 = getelementptr inbounds i8, ptr %0, i64 352
   br label %41
 
@@ -8243,7 +8243,7 @@ define i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32
   tail call fastcc void @sat_solver_canceluntil(ptr noundef %0, i32 noundef %43)
   %44 = add nsw i32 %.0102146, -1
   %45 = icmp sgt i32 %.0102146, 0
-  br i1 %45, label %41, label %._crit_edge148, !llvm.loop !90
+  br i1 %45, label %41, label %._crit_edge148, !llvm.loop !88
 
 ._crit_edge148:                                   ; preds = %41
   %46 = add nuw nsw i32 %39, 1
@@ -8259,8 +8259,8 @@ define i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32
   %49 = load i32, ptr %38, align 4
   %50 = xor i32 %49, 1
   store i32 %50, ptr %6, align 4
-  %51 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %47), !range !72
-  br i1 %.not156, label %._crit_edge152, label %48, !llvm.loop !91
+  %51 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %47)
+  br i1 %.not156, label %._crit_edge152, label %48, !llvm.loop !89
 
 ._crit_edge152:                                   ; preds = %48, %._crit_edge148
   %52 = call i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32 noundef %46, i32 noundef %3)
@@ -8270,7 +8270,7 @@ define i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %indvars.iv.next189 = add nuw nsw i32 %indvars.iv188, 1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %53
   %54 = zext nneg i32 %29 to i64
@@ -8290,7 +8290,7 @@ define i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32
   tail call fastcc void @sat_solver_canceluntil(ptr noundef %0, i32 noundef %60)
   %61 = add nuw nsw i32 %.1120, 1
   %exitcond163.not = icmp eq i32 %61, %29
-  br i1 %exitcond163.not, label %._crit_edge123, label %58, !llvm.loop !93
+  br i1 %exitcond163.not, label %._crit_edge123, label %58, !llvm.loop !91
 
 ._crit_edge123.thread:                            ; preds = %._crit_edge.thread, %._crit_edge
   %.ph = phi i32 [ %56, %._crit_edge ], [ %34, %._crit_edge.thread ]
@@ -8327,7 +8327,7 @@ define i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32
   tail call fastcc void @veci_push(ptr noundef nonnull %63, i32 noundef %69)
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
-  br i1 %exitcond168.not, label %.preheader114, label %.lr.ph126, !llvm.loop !94
+  br i1 %exitcond168.not, label %.preheader114, label %.lr.ph126, !llvm.loop !92
 
 .preheader113:                                    ; preds = %.lr.ph128, %.preheader114
   br i1 %31, label %.lr.ph130, label %.preheader112
@@ -8347,7 +8347,7 @@ define i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32
   store i32 %72, ptr %73, align 4
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
-  br i1 %exitcond173.not, label %.preheader113, label %.lr.ph128, !llvm.loop !95
+  br i1 %exitcond173.not, label %.preheader113, label %.lr.ph128, !llvm.loop !93
 
 .preheader112:                                    ; preds = %77, %.preheader113
   br i1 %67, label %.lr.ph133.preheader, label %._crit_edge134.thread
@@ -8371,20 +8371,20 @@ define i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32
   store i32 %79, ptr %gep201, align 4
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
-  br i1 %exitcond178.not, label %.preheader112, label %77, !llvm.loop !96
+  br i1 %exitcond178.not, label %.preheader112, label %77, !llvm.loop !94
 
 .lr.ph133:                                        ; preds = %.lr.ph133.preheader, %98
   %indvars.iv185 = phi i32 [ 1, %.lr.ph133.preheader ], [ %indvars.iv.next186, %98 ]
   %indvars.iv179 = phi i64 [ 0, %.lr.ph133.preheader ], [ %indvars.iv.next180, %98 ]
   %80 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv179
   %81 = load i32, ptr %80, align 4
-  %82 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %81), !range !72
+  %82 = tail call i32 @sat_solver_push(ptr noundef %0, i32 noundef %81)
   %.not = icmp eq i32 %82, 0
   br i1 %.not, label %.lr.ph140, label %98
 
 .lr.ph140:                                        ; preds = %.lr.ph133
   %83 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv179
-  %84 = trunc i64 %indvars.iv179 to i32
+  %84 = trunc nuw nsw i64 %indvars.iv179 to i32
   %85 = getelementptr inbounds i8, ptr %0, i64 352
   br label %86
 
@@ -8396,7 +8396,7 @@ define i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32
   tail call fastcc void @sat_solver_canceluntil(ptr noundef %0, i32 noundef %88)
   %89 = add nsw i32 %.2104139, -1
   %90 = icmp sgt i32 %.2104139, 0
-  br i1 %90, label %86, label %._crit_edge141, !llvm.loop !97
+  br i1 %90, label %86, label %._crit_edge141, !llvm.loop !95
 
 ._crit_edge141:                                   ; preds = %86
   %91 = add nuw nsw i32 %84, 1
@@ -8412,8 +8412,8 @@ define i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32
   %94 = load i32, ptr %83, align 4
   %95 = xor i32 %94, 1
   store i32 %95, ptr %7, align 4
-  %96 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %92), !range !72
-  br i1 %.not154, label %._crit_edge145, label %93, !llvm.loop !98
+  %96 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %92)
+  br i1 %.not154, label %._crit_edge145, label %93, !llvm.loop !96
 
 ._crit_edge145:                                   ; preds = %93, %._crit_edge141
   %97 = call i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32 noundef %91, i32 noundef %3)
@@ -8423,7 +8423,7 @@ define i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
   %indvars.iv.next186 = add nuw i32 %indvars.iv185, 1
-  br i1 %exitcond183.not, label %._crit_edge134, label %.lr.ph133, !llvm.loop !99
+  br i1 %exitcond183.not, label %._crit_edge134, label %.lr.ph133, !llvm.loop !97
 
 ._crit_edge134:                                   ; preds = %98
   %99 = zext nneg i32 %66 to i64
@@ -8443,7 +8443,7 @@ define i32 @sat_solver_minimize_assumptions2(ptr noundef %0, ptr noundef %1, i32
   tail call fastcc void @sat_solver_canceluntil(ptr noundef %0, i32 noundef %105)
   %106 = add nuw nsw i32 %.6135, 1
   %exitcond184.not = icmp eq i32 %106, %66
-  br i1 %exitcond184.not, label %._crit_edge138, label %103, !llvm.loop !100
+  br i1 %exitcond184.not, label %._crit_edge138, label %103, !llvm.loop !98
 
 ._crit_edge138:                                   ; preds = %103, %._crit_edge134.thread, %._crit_edge134
   %107 = phi i32 [ %76, %._crit_edge134.thread ], [ %101, %._crit_edge134 ], [ %101, %103 ]
@@ -8582,19 +8582,13 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #10
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #19
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #19
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @act_var_rescale(ptr nocapture noundef %0) unnamed_addr #1 {
@@ -8623,7 +8617,7 @@ define internal fastcc void @act_var_rescale(ptr nocapture noundef %0) unnamed_a
   %12 = load i32, ptr %0, align 8
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next47, %13
-  br i1 %14, label %.lr.ph40, label %._crit_edge41, !llvm.loop !101
+  br i1 %14, label %.lr.ph40, label %._crit_edge41, !llvm.loop !99
 
 ._crit_edge41:                                    ; preds = %.lr.ph40, %4
   %15 = getelementptr inbounds i8, ptr %0, i64 120
@@ -8652,7 +8646,7 @@ define internal fastcc void @act_var_rescale(ptr nocapture noundef %0) unnamed_a
   %29 = load i32, ptr %0, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next44, %30
-  br i1 %31, label %.lr.ph36, label %._crit_edge37, !llvm.loop !102
+  br i1 %31, label %.lr.ph36, label %._crit_edge37, !llvm.loop !100
 
 ._crit_edge37:                                    ; preds = %.lr.ph36, %21
   %32 = getelementptr inbounds i8, ptr %0, i64 120
@@ -8683,7 +8677,7 @@ define internal fastcc void @act_var_rescale(ptr nocapture noundef %0) unnamed_a
   %47 = load i32, ptr %0, align 8
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !103
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %.lr.ph, %35
   %50 = getelementptr inbounds i8, ptr %0, i64 120
@@ -8702,7 +8696,7 @@ define internal fastcc void @act_var_rescale(ptr nocapture noundef %0) unnamed_a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #21
+declare double @llvm.fmuladd.f64(double, double, double) #20
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @act_var_bump(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
@@ -8948,6 +8942,12 @@ order_update.exit59:                              ; preds = %.lr.ph.i53, %127, %
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #21
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #21
+
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #22
 
@@ -9003,9 +9003,9 @@ attributes #15 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vect
 attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #22 = { nofree nounwind }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -9091,8 +9091,8 @@ attributes #31 = { nounwind willreturn memory(read) }
 !69 = distinct !{!69, !5}
 !70 = distinct !{!70, !5}
 !71 = distinct !{!71, !5}
-!72 = !{i32 0, i32 2}
-!73 = !{i32 -1, i32 2}
+!72 = distinct !{!72, !5}
+!73 = distinct !{!73, !5}
 !74 = distinct !{!74, !5}
 !75 = distinct !{!75, !5}
 !76 = distinct !{!76, !5}
@@ -9121,5 +9121,3 @@ attributes #31 = { nounwind willreturn memory(read) }
 !99 = distinct !{!99, !5}
 !100 = distinct !{!100, !5}
 !101 = distinct !{!101, !5}
-!102 = distinct !{!102, !5}
-!103 = distinct !{!103, !5}

@@ -2060,7 +2060,7 @@ define internal fastcc void @cdma2k_message_decode(ptr noundef %0, ptr noundef %
   %170 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Tmsi_Zone, align 4
   %171 = add nsw i32 %168, -32
   %172 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %170, ptr noundef %0, i32 noundef %167, i32 noundef %171, i32 noundef 0) #4
-  %173 = trunc i32 %171 to i16
+  %173 = trunc nsw i32 %171 to i16
   %174 = add i16 %94, %173
   %175 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Tmsi_Code_Addr, align 4
   %176 = zext i16 %174 to i32
@@ -2072,7 +2072,7 @@ define internal fastcc void @cdma2k_message_decode(ptr noundef %0, ptr noundef %
 179:                                              ; preds = %164
   %180 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Tmsi_Code_Addr, align 4
   %181 = tail call ptr @proto_tree_add_bits_item(ptr noundef %80, i32 noundef %180, ptr noundef %0, i32 noundef %167, i32 noundef %168, i32 noundef 0) #4
-  %182 = trunc i32 %168 to i16
+  %182 = trunc nuw nsw i32 %168 to i16
   %183 = add i16 %94, %182
   store i16 %183, ptr %5, align 2
   br label %185
@@ -3143,7 +3143,7 @@ cdma2k_message_DATA_BURST_IND.exit:               ; preds = %602, %._crit_edge9.
   %914 = load i32, ptr @hf_cdma2k_For_Fch_Rc_Map, align 4
   %915 = zext i16 %910 to i32
   %916 = tail call ptr @proto_tree_add_bits_item(ptr noundef %902, i32 noundef %914, ptr noundef %0, i32 noundef %915, i32 noundef %913, i32 noundef 0) #4
-  %917 = trunc i32 %913 to i16
+  %917 = trunc nuw nsw i32 %913 to i16
   %918 = add i16 %910, %917
   br label %919
 
@@ -3163,7 +3163,7 @@ cdma2k_message_DATA_BURST_IND.exit:               ; preds = %602, %._crit_edge9.
   %928 = load i32, ptr @hf_cdma2k_Rev_Fch_Rc_Map, align 4
   %929 = zext i16 %924 to i32
   %930 = tail call ptr @proto_tree_add_bits_item(ptr noundef %902, i32 noundef %928, ptr noundef %0, i32 noundef %929, i32 noundef %927, i32 noundef 0) #4
-  %931 = trunc i32 %927 to i16
+  %931 = trunc nuw nsw i32 %927 to i16
   %932 = add i16 %924, %931
   br label %933
 
@@ -3201,7 +3201,7 @@ cdma2k_message_DATA_BURST_IND.exit:               ; preds = %602, %._crit_edge9.
   %958 = load i32, ptr @hf_cdma2k_For_Dcch_Rc_Map, align 4
   %959 = zext i16 %954 to i32
   %960 = tail call ptr @proto_tree_add_bits_item(ptr noundef %946, i32 noundef %958, ptr noundef %0, i32 noundef %959, i32 noundef %957, i32 noundef 0) #4
-  %961 = trunc i32 %957 to i16
+  %961 = trunc nuw nsw i32 %957 to i16
   %962 = add i16 %954, %961
   br label %963
 
@@ -3221,7 +3221,7 @@ cdma2k_message_DATA_BURST_IND.exit:               ; preds = %602, %._crit_edge9.
   %972 = load i32, ptr @hf_cdma2k_Rev_Dcch_Rc_Map, align 4
   %973 = zext i16 %968 to i32
   %974 = tail call ptr @proto_tree_add_bits_item(ptr noundef %946, i32 noundef %972, ptr noundef %0, i32 noundef %973, i32 noundef %971, i32 noundef 0) #4
-  %975 = trunc i32 %971 to i16
+  %975 = trunc nuw nsw i32 %971 to i16
   %976 = add i16 %968, %975
   br label %977
 
@@ -3524,7 +3524,7 @@ cdma2k_message_DATA_BURST_IND.exit:               ; preds = %602, %._crit_edge9.
   %1184 = zext i16 %1182 to i32
   %1185 = shl nuw nsw i32 %1178, 2
   %1186 = tail call ptr @proto_tree_add_bits_item(ptr noundef %709, i32 noundef %1183, ptr noundef %0, i32 noundef %1184, i32 noundef %1185, i32 noundef 0) #4
-  %1187 = trunc i32 %1185 to i16
+  %1187 = trunc nuw nsw i32 %1185 to i16
   %1188 = add i16 %1182, %1187
   br label %cdma2k_message_ORIGINATION.exit
 
@@ -3696,7 +3696,7 @@ cdma2k_message_ORIGINATION.exit:                  ; preds = %._crit_edge.i178, %
   %1314 = zext i16 %1310 to i32
   %1315 = mul nuw nsw i32 %1312, 3
   %1316 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1302, i32 noundef %1313, ptr noundef %0, i32 noundef %1314, i32 noundef %1315, i32 noundef 0) #4
-  %1317 = trunc i32 %1315 to i16
+  %1317 = trunc nuw nsw i32 %1315 to i16
   %1318 = add i16 %1310, %1317
   br label %1319
 
@@ -3716,7 +3716,7 @@ cdma2k_message_ORIGINATION.exit:                  ; preds = %._crit_edge.i178, %
   %1328 = zext i16 %1324 to i32
   %1329 = mul nuw nsw i32 %1326, 3
   %1330 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1302, i32 noundef %1327, ptr noundef %0, i32 noundef %1328, i32 noundef %1329, i32 noundef 0) #4
-  %1331 = trunc i32 %1329 to i16
+  %1331 = trunc nuw nsw i32 %1329 to i16
   %1332 = add i16 %1324, %1331
   br label %1333
 
@@ -3755,7 +3755,7 @@ cdma2k_message_ORIGINATION.exit:                  ; preds = %._crit_edge.i178, %
   %1358 = zext i16 %1354 to i32
   %1359 = mul nuw nsw i32 %1356, 3
   %1360 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1346, i32 noundef %1357, ptr noundef %0, i32 noundef %1358, i32 noundef %1359, i32 noundef 0) #4
-  %1361 = trunc i32 %1359 to i16
+  %1361 = trunc nuw nsw i32 %1359 to i16
   %1362 = add i16 %1354, %1361
   br label %1363
 
@@ -3775,7 +3775,7 @@ cdma2k_message_ORIGINATION.exit:                  ; preds = %._crit_edge.i178, %
   %1372 = zext i16 %1368 to i32
   %1373 = mul nuw nsw i32 %1370, 3
   %1374 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1346, i32 noundef %1371, ptr noundef %0, i32 noundef %1372, i32 noundef %1373, i32 noundef 0) #4
-  %1375 = trunc i32 %1373 to i16
+  %1375 = trunc nuw nsw i32 %1373 to i16
   %1376 = add i16 %1368, %1375
   br label %1377
 
@@ -3946,7 +3946,7 @@ cdma2k_message_ORIGINATION.exit:                  ; preds = %._crit_edge.i178, %
   %1501 = zext i16 %1499 to i32
   %1502 = shl nuw nsw i32 %1495, 2
   %1503 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1198, i32 noundef %1500, ptr noundef %0, i32 noundef %1501, i32 noundef %1502, i32 noundef 0) #4
-  %1504 = trunc i32 %1502 to i16
+  %1504 = trunc nuw nsw i32 %1502 to i16
   %1505 = add i16 %1499, %1504
   br label %cdma2k_message_PAGE_RESPONSE.exit
 
@@ -4287,7 +4287,7 @@ cdma2k_message_PAGE_RESPONSE.exit:                ; preds = %._crit_edge.i187, %
   %1735 = zext i8 %1731 to i32
   %1736 = add nuw nsw i32 %1735, 1
   %1737 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1548, i32 noundef %1733, ptr noundef %0, i32 noundef %1734, i32 noundef %1736, i32 noundef 0) #4
-  %1738 = trunc i32 %1736 to i16
+  %1738 = trunc nuw nsw i32 %1736 to i16
   %1739 = add i16 %1732, %1738
   %1740 = load i32, ptr @hf_cdma2k_Bcmc_Flow_Discriminator_Len, align 4
   %1741 = zext i16 %1739 to i32
@@ -7227,7 +7227,7 @@ cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit:     ; preds = %821, %.loopexit.i, 
 
 .lr.ph415:                                        ; preds = %1200
   %1201 = shl nuw nsw i32 %.0550, 1
-  %1202 = trunc i32 %.0550 to i16
+  %1202 = trunc nuw i32 %.0550 to i16
   br label %1203
 
 1203:                                             ; preds = %.lr.ph415, %1230

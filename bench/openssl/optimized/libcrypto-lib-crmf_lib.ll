@@ -68,7 +68,7 @@ return:                                           ; preds = %for.cond, %if.end, 
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CRMF_MSG_set1_regCtrl_regToken(ptr noundef readonly %msg, ptr noundef %in) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_regToken(ptr noundef readonly %msg, ptr noundef %in) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %msg, null
   %cmp1 = icmp eq ptr %in, null
@@ -94,7 +94,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp10, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull %msg, ptr noundef nonnull %call), !range !6
+  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull %msg, ptr noundef nonnull %call)
   %tobool.not = icmp eq i32 %call13, 0
   br i1 %tobool.not, label %err, label %return
 
@@ -115,7 +115,7 @@ declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 declare ptr @ASN1_STRING_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr nocapture noundef readonly %crm, ptr noundef %ctrl) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr nocapture noundef readonly %crm, ptr noundef %ctrl) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %crm, align 8
   %cmp1 = icmp eq ptr %0, null
@@ -191,7 +191,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.010, 1
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #7
   %cmp4 = icmp slt i32 %inc, %call.i
-  br i1 %cmp4, label %for.body, label %return, !llvm.loop !7
+  br i1 %cmp4, label %for.body, label %return, !llvm.loop !6
 
 for.body:                                         ; preds = %if.end, %for.cond
   %i.010 = phi i32 [ %inc, %for.cond ], [ 0, %if.end ]
@@ -212,7 +212,7 @@ return:                                           ; preds = %for.cond, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CRMF_MSG_set1_regCtrl_authenticator(ptr noundef readonly %msg, ptr noundef %in) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_authenticator(ptr noundef readonly %msg, ptr noundef %in) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %msg, null
   %cmp1 = icmp eq ptr %in, null
@@ -238,7 +238,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp10, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull %msg, ptr noundef nonnull %call), !range !6
+  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull %msg, ptr noundef nonnull %call)
   %tobool.not = icmp eq i32 %call13, 0
   br i1 %tobool.not, label %err, label %return
 
@@ -253,7 +253,7 @@ return:                                           ; preds = %if.end12, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CRMF_MSG_set0_SinglePubInfo(ptr noundef %spi, i32 noundef %method, ptr noundef %nm) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set0_SinglePubInfo(ptr noundef %spi, i32 noundef %method, ptr noundef %nm) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %spi, null
   %0 = icmp ugt i32 %method, 3
@@ -378,7 +378,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.010, 1
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #7
   %cmp4 = icmp slt i32 %inc, %call.i
-  br i1 %cmp4, label %for.body, label %return, !llvm.loop !8
+  br i1 %cmp4, label %for.body, label %return, !llvm.loop !7
 
 for.body:                                         ; preds = %if.end, %for.cond
   %i.010 = phi i32 [ %inc, %for.cond ], [ 0, %if.end ]
@@ -399,7 +399,7 @@ return:                                           ; preds = %for.cond, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CRMF_MSG_set1_regCtrl_pkiPublicationInfo(ptr noundef readonly %msg, ptr noundef %in) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_pkiPublicationInfo(ptr noundef readonly %msg, ptr noundef %in) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %msg, null
   %cmp1 = icmp eq ptr %in, null
@@ -425,7 +425,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp10, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull %msg, ptr noundef nonnull %call), !range !6
+  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull %msg, ptr noundef nonnull %call)
   %tobool.not = icmp eq i32 %call13, 0
   br i1 %tobool.not, label %err, label %return
 
@@ -463,7 +463,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.010, 1
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #7
   %cmp4 = icmp slt i32 %inc, %call.i
-  br i1 %cmp4, label %for.body, label %return, !llvm.loop !9
+  br i1 %cmp4, label %for.body, label %return, !llvm.loop !8
 
 for.body:                                         ; preds = %if.end, %for.cond
   %i.010 = phi i32 [ %inc, %for.cond ], [ 0, %if.end ]
@@ -484,7 +484,7 @@ return:                                           ; preds = %for.cond, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CRMF_MSG_set1_regCtrl_oldCertID(ptr noundef readonly %msg, ptr noundef %in) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_oldCertID(ptr noundef readonly %msg, ptr noundef %in) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %msg, null
   %cmp1 = icmp eq ptr %in, null
@@ -510,7 +510,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp10, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull %msg, ptr noundef nonnull %call), !range !6
+  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull %msg, ptr noundef nonnull %call)
   %tobool.not = icmp eq i32 %call13, 0
   br i1 %tobool.not, label %err, label %return
 
@@ -604,7 +604,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.010, 1
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #7
   %cmp4 = icmp slt i32 %inc, %call.i
-  br i1 %cmp4, label %for.body, label %return, !llvm.loop !10
+  br i1 %cmp4, label %for.body, label %return, !llvm.loop !9
 
 for.body:                                         ; preds = %if.end, %for.cond
   %i.010 = phi i32 [ %inc, %for.cond ], [ 0, %if.end ]
@@ -625,7 +625,7 @@ return:                                           ; preds = %for.cond, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CRMF_MSG_set1_regCtrl_protocolEncrKey(ptr noundef readonly %msg, ptr noundef %in) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regCtrl_protocolEncrKey(ptr noundef readonly %msg, ptr noundef %in) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %msg, null
   %cmp1 = icmp eq ptr %in, null
@@ -651,7 +651,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp10, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull %msg, ptr noundef nonnull %call), !range !6
+  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull %msg, ptr noundef nonnull %call)
   %tobool.not = icmp eq i32 %call13, 0
   br i1 %tobool.not, label %err, label %return
 
@@ -689,7 +689,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.010, 1
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #7
   %cmp4 = icmp slt i32 %inc, %call.i
-  br i1 %cmp4, label %for.body, label %return, !llvm.loop !11
+  br i1 %cmp4, label %for.body, label %return, !llvm.loop !10
 
 for.body:                                         ; preds = %if.end, %for.cond
   %i.010 = phi i32 [ %inc, %for.cond ], [ 0, %if.end ]
@@ -710,7 +710,7 @@ return:                                           ; preds = %for.cond, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CRMF_MSG_set1_regInfo_utf8Pairs(ptr noundef %msg, ptr noundef %in) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regInfo_utf8Pairs(ptr noundef %msg, ptr noundef %in) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %msg, null
   %cmp1 = icmp eq ptr %in, null
@@ -798,7 +798,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.010, 1
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #7
   %cmp4 = icmp slt i32 %inc, %call.i
-  br i1 %cmp4, label %for.body, label %return, !llvm.loop !12
+  br i1 %cmp4, label %for.body, label %return, !llvm.loop !11
 
 for.body:                                         ; preds = %if.end, %for.cond
   %i.010 = phi i32 [ %inc, %for.cond ], [ 0, %if.end ]
@@ -819,7 +819,7 @@ return:                                           ; preds = %for.cond, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CRMF_MSG_set1_regInfo_certReq(ptr noundef %msg, ptr noundef %in) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regInfo_certReq(ptr noundef %msg, ptr noundef %in) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %msg, null
   %cmp1 = icmp eq ptr %in, null
@@ -915,7 +915,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CRMF_MSG_set0_validity(ptr noundef readonly %crm, ptr noundef %notBefore, ptr noundef %notAfter) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set0_validity(ptr noundef readonly %crm, ptr noundef %notBefore, ptr noundef %notAfter) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %crm, null
   br i1 %cmp.i, label %OSSL_CRMF_MSG_get0_tmpl.exit.thread, label %lor.lhs.false.i
@@ -1062,7 +1062,7 @@ return:                                           ; preds = %crmf_asn1_get_int.e
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CRMF_MSG_set0_extensions(ptr noundef readonly %crm, ptr noundef %exts) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set0_extensions(ptr noundef readonly %crm, ptr noundef %exts) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %crm, null
   br i1 %cmp.i, label %OSSL_CRMF_MSG_get0_tmpl.exit.thread, label %lor.lhs.false.i
@@ -1121,7 +1121,7 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @X509_EXTENSION_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CRMF_MSG_push0_extension(ptr noundef readonly %crm, ptr noundef %ext) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_push0_extension(ptr noundef readonly %crm, ptr noundef %ext) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %crm, null
   br i1 %cmp.i, label %OSSL_CRMF_MSG_get0_tmpl.exit.thread, label %lor.lhs.false.i
@@ -1187,7 +1187,7 @@ declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CRMF_MSG_create_popo(i32 noundef %meth, ptr noundef %crm, ptr noundef %pkey, ptr noundef %digest, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSG_create_popo(i32 noundef %meth, ptr noundef %crm, ptr noundef %pkey, ptr noundef %digest, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %crm, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -1371,7 +1371,7 @@ declare ptr @ASN1_INTEGER_new() local_unnamed_addr #1
 declare void @OSSL_CRMF_POPO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CRMF_MSGS_verify_popo(ptr noundef %reqs, i32 noundef %rid, i32 noundef %acceptRAVerified, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_MSGS_verify_popo(ptr noundef %reqs, i32 noundef %rid, i32 noundef %acceptRAVerified, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %reqs, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -1639,7 +1639,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CRMF_CERTTEMPLATE_fill(ptr noundef %tmpl, ptr noundef %pubkey, ptr noundef %subject, ptr noundef %issuer, ptr noundef %serial) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CRMF_CERTTEMPLATE_fill(ptr noundef %tmpl, ptr noundef %pubkey, ptr noundef %subject, ptr noundef %issuer, ptr noundef %serial) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %tmpl, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1986,10 +1986,9 @@ attributes #7 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

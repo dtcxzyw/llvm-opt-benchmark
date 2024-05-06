@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.update_default_partition_oid = private unnamed_addr constant [29 x i8] c"update_default_partition_oid\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_partition_parent(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local range(i32 1, 0) i32 @get_partition_parent(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca [2 x %struct.ScanKeyData], align 16
   %4 = tail call ptr @table_open(i32 noundef 2611, i32 noundef 1) #5
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -191,7 +191,7 @@ define dso_local i32 @index_get_partition(ptr noundef %0, i32 noundef %1) local_
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %15
-  %26 = tail call i32 @get_partition_parent(i32 noundef %10, i1 noundef zeroext false), !range !5
+  %26 = tail call i32 @get_partition_parent(i32 noundef %10, i1 noundef zeroext false)
   %27 = icmp eq i32 %26, %1
   br i1 %27, label %.split31, label %28
 
@@ -333,7 +333,7 @@ list_head.exit:                                   ; preds = %11, %15
   %.1 = phi ptr [ %.02337, %26 ], [ %..i, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !5
 
 .loopexit.sink.split:                             ; preds = %39, %30
   %.sink = phi i8 [ 0, %30 ], [ 1, %39 ]
@@ -471,6 +471,5 @@ attributes #6 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 1, i32 0}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

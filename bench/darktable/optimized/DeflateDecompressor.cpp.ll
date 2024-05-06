@@ -169,13 +169,13 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %6 = alloca i64, align 8
   %7 = trunc i64 %2 to i32
   %8 = lshr i64 %2, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   %10 = trunc i64 %3 to i32
   %11 = lshr i64 %3, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = trunc i64 %4 to i32
   %14 = lshr i64 %4, 32
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   %16 = getelementptr inbounds i8, ptr %0, i64 36
   %17 = load i32, ptr %16, align 4, !tbaa !16
   %18 = lshr i32 %17, 3
@@ -203,7 +203,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
 32:                                               ; preds = %30, %5
   %33 = phi ptr [ %31, %30 ], [ %28, %5 ]
   %34 = mul nsw i32 %18, %7
-  %35 = mul nsw i32 %34, %9
+  %35 = mul nuw nsw i32 %34, %9
   %36 = icmp sgt i64 %2, -1
   tail call void @llvm.assume(i1 %36)
   %37 = icmp ne i32 %34, 0
@@ -242,7 +242,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %61 = getelementptr inbounds i8, ptr %51, i64 48
   %62 = load i32, ptr %61, align 8, !tbaa !100, !noalias !95
   %63 = ashr i32 %62, 2
-  %64 = mul nsw i32 %63, %60
+  %64 = mul nuw nsw i32 %63, %60
   %65 = icmp sgt i32 %58, -1
   call void @llvm.assume(i1 %65)
   %66 = icmp sgt i32 %60, -1
@@ -793,7 +793,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %407 = add nuw nsw i64 %145, %14
   %408 = icmp ult i64 %407, %97
   call void @llvm.assume(i1 %408)
-  %409 = trunc i64 %407 to i32
+  %409 = trunc nuw nsw i64 %407 to i32
   %410 = mul nsw i32 %63, %409
   %411 = add nuw nsw i32 %410, %58
   %412 = icmp ule i32 %411, %64
@@ -936,7 +936,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %503 = getelementptr inbounds i8, ptr %147, i64 %501
   %504 = load i8, ptr %503, align 1, !tbaa !88
   %505 = add nuw nsw i64 %501, %91
-  %506 = trunc i64 %505 to i32
+  %506 = trunc nuw i64 %505 to i32
   %507 = icmp ugt i32 %34, %506
   call void @llvm.assume(i1 %507)
   %508 = getelementptr inbounds i8, ptr %147, i64 %505
@@ -1148,7 +1148,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %654 = getelementptr inbounds i8, ptr %147, i64 %652
   %655 = load i8, ptr %654, align 1, !tbaa !88
   %656 = add nuw nsw i64 %652, %91
-  %657 = trunc i64 %656 to i32
+  %657 = trunc nuw i64 %656 to i32
   %658 = icmp ugt i32 %34, %657
   call void @llvm.assume(i1 %658)
   %659 = getelementptr inbounds i8, ptr %147, i64 %656
@@ -1373,7 +1373,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %811 = getelementptr inbounds i8, ptr %147, i64 %804
   %812 = load i8, ptr %811, align 1, !tbaa !88
   %813 = add nuw nsw i64 %804, %91
-  %814 = trunc i64 %813 to i32
+  %814 = trunc nuw i64 %813 to i32
   %815 = icmp ugt i32 %34, %814
   call void @llvm.assume(i1 %815)
   %816 = getelementptr inbounds i8, ptr %147, i64 %813
@@ -1420,7 +1420,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %847 = getelementptr inbounds i8, ptr %147, i64 %845
   %848 = load i8, ptr %847, align 1, !tbaa !88
   %849 = add nuw nsw i64 %845, %91
-  %850 = trunc i64 %849 to i32
+  %850 = trunc nuw i64 %849 to i32
   %851 = icmp ugt i32 %34, %850
   call void @llvm.assume(i1 %851)
   %852 = getelementptr inbounds i8, ptr %147, i64 %849
@@ -1459,7 +1459,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %880 = getelementptr inbounds i8, ptr %147, i64 %878
   %881 = load i8, ptr %880, align 1, !tbaa !88
   %882 = add nuw nsw i64 %878, %91
-  %883 = trunc i64 %882 to i32
+  %883 = trunc nuw i64 %882 to i32
   %884 = icmp ugt i32 %34, %883
   call void @llvm.assume(i1 %884)
   %885 = getelementptr inbounds i8, ptr %147, i64 %882

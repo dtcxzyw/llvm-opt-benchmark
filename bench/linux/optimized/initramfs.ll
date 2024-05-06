@@ -106,7 +106,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_populate_rootfs423, ptr @__UNIQUE_ID___addressable_wait_for_initramfs421, ptr @__setup_initramfs_async_setup, ptr @__setup_retain_initrd_param], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @retain_initrd_param(ptr nocapture noundef readonly %0) #0 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @retain_initrd_param(ptr nocapture noundef readonly %0) #0 section ".init.text" align 16 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %5
@@ -121,7 +121,7 @@ define internal noundef i32 @retain_initrd_param(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @initramfs_async_setup(ptr noundef %0) #1 section ".init.text" align 16 {
+define internal range(i32 0, 2) i32 @initramfs_async_setup(ptr noundef %0) #1 section ".init.text" align 16 {
   %2 = tail call i32 @kstrtobool(ptr noundef %0, ptr noundef nonnull @initramfs_async) #21
   %3 = icmp eq i32 %2, 0
   %4 = zext i1 %3 to i32
@@ -715,7 +715,7 @@ define internal noundef i32 @do_start() #8 section ".init.text" align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @do_collect() #12 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @do_collect() #12 section ".init.text" align 16 {
   %1 = load i64, ptr @remains, align 8
   %2 = load i64, ptr @byte_count, align 8
   %3 = tail call i64 @llvm.umin.i64(i64 %2, i64 %1)
@@ -748,7 +748,7 @@ define internal noundef i32 @do_collect() #12 section ".init.text" align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @do_header() #1 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @do_header() #1 section ".init.text" align 16 {
   %1 = load ptr, ptr @collected, align 8
   %2 = tail call i32 @bcmp(ptr noundef dereferenceable(6) %1, ptr noundef nonnull dereferenceable(6) @.str.15, i64 6)
   %3 = icmp ne i32 %2, 0
@@ -861,7 +861,7 @@ define internal noundef i32 @do_header() #1 section ".init.text" align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @do_skip() #8 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @do_skip() #8 section ".init.text" align 16 {
   %1 = load i64, ptr @this_header, align 8
   %2 = load i64, ptr @byte_count, align 8
   %3 = add i64 %2, %1
@@ -1016,7 +1016,7 @@ define internal noundef i32 @do_name() #1 section ".init.text" align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @do_copy() #1 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @do_copy() #1 section ".init.text" align 16 {
   %1 = alloca [2 x %struct.timespec64], align 16
   %2 = load i64, ptr @byte_count, align 8
   %3 = load i64, ptr @body_len, align 8

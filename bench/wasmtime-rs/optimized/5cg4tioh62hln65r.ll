@@ -3104,7 +3104,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h305b05dce1272371E.exit: ; 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @"_ZN9hashbrown3raw15Bucket$LT$T$GT$13to_base_index17h2d9dd962875614e9E"(ptr nocapture readonly align 8 %0, ptr %1) unnamed_addr #4 {
+define range(i64 -1537228672809129301, 1537228672809129302) i64 @"_ZN9hashbrown3raw15Bucket$LT$T$GT$13to_base_index17h2d9dd962875614e9E"(ptr nocapture readonly align 8 %0, ptr %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %3 to i64
@@ -3114,7 +3114,7 @@ define i64 @"_ZN9hashbrown3raw15Bucket$LT$T$GT$13to_base_index17h2d9dd962875614e
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @"_ZN9hashbrown3raw15Bucket$LT$T$GT$13to_base_index17h36abbc7bfd80705eE"(ptr nocapture readonly align 8 %0, ptr %1) unnamed_addr #4 {
+define range(i64 -288230376151711744, 288230376151711744) i64 @"_ZN9hashbrown3raw15Bucket$LT$T$GT$13to_base_index17h36abbc7bfd80705eE"(ptr nocapture readonly align 8 %0, ptr %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %3 to i64
@@ -3124,7 +3124,7 @@ define i64 @"_ZN9hashbrown3raw15Bucket$LT$T$GT$13to_base_index17h36abbc7bfd80705
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @"_ZN9hashbrown3raw15Bucket$LT$T$GT$13to_base_index17h7c763387a005c95eE"(ptr nocapture readonly align 8 %0, ptr %1) unnamed_addr #4 {
+define range(i64 -115292150460684697, 115292150460684698) i64 @"_ZN9hashbrown3raw15Bucket$LT$T$GT$13to_base_index17h7c763387a005c95eE"(ptr nocapture readonly align 8 %0, ptr %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %3 to i64

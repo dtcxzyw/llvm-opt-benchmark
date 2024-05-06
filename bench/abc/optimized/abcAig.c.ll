@@ -46,7 +46,7 @@ define noalias noundef ptr @Abc_AigAlloc(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %.lr.ph.i
   %5 = add nuw nsw i32 %.01116.i, 2
-  %6 = mul nsw i32 %5, %5
+  %6 = mul nuw nsw i32 %5, %5
   %.not.i = icmp ugt i32 %6, %2
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -859,7 +859,7 @@ Abc_AigRemoveFromLevelStructureR.exit:            ; preds = %152, %142, %156
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_AigCheck(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_AigCheck(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -1675,7 +1675,7 @@ define ptr @Abc_AigAnd(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2)
 
 20:                                               ; preds = %.lr.ph.i.i.i
   %21 = add nuw nsw i32 %.01116.i.i.i, 2
-  %22 = mul nsw i32 %21, %21
+  %22 = mul nuw nsw i32 %21, %21
   %.not.i.i.i = icmp ugt i32 %22, %18
   br i1 %.not.i.i.i, label %Abc_PrimeCudd.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
@@ -3955,7 +3955,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 declare void @Abc_NtkDeleteObj(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Abc_AigNodeHasComplFanoutEdge(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Abc_AigNodeHasComplFanoutEdge(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val, 0
@@ -4030,7 +4030,7 @@ Vec_IntFind.exit.thread:                          ; preds = %25, %10, %Vec_IntFi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_AigNodeHasComplFanoutEdgeTrav(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_AigNodeHasComplFanoutEdgeTrav(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 44
   %.val18 = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val18, 0
@@ -4293,7 +4293,7 @@ define void @Abc_AigPrintNode(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Abc_AigNodeIsAcyclic(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Abc_AigNodeIsAcyclic(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #7 {
   %3 = getelementptr i8, ptr %0, i64 28
   %.val41 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %.val41, 2

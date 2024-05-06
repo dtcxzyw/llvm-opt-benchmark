@@ -870,7 +870,7 @@ define hidden void @_ZN12thread_local17deallocate_bucket17he178fc7557cc5466E(ptr
   unreachable
 
 .body.i:                                          ; preds = %15
-  call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1e864d2b6a5d459E.llvm.1091148472540163290"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #29
+  call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1e864d2b6a5d459E.llvm.1091148472540163290"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3) #29
   resume { ptr, i32 } %18
 
 24:                                               ; preds = %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h390baeabf9dbc047E.exit.i.i"
@@ -1969,13 +1969,13 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h777a1204d808b0b3E
 
 "_ZN10ockam_node7runtime7RUNTIME28_$u7b$$u7b$closure$u7d$$u7d$17hdcb3524313b2030dE.exit": ; preds = %1
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %.sroa.04.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.04.i, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 80, i1 false), !noalias !211
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %.sroa.04.i, ptr noundef nonnull readonly align 8 dereferenceable(80) %3, i64 80, i1 false), !noalias !211
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3), !noalias !211
   store i32 0, ptr %0, align 8, !alias.scope !211
   %15 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 0, ptr %15, align 4, !alias.scope !211
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.04.i, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %16, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.04.i, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.04.i)
   ret void
 }
@@ -9591,7 +9591,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h67db8ef9c1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h745d546fb27542dfE"(ptr noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #3 {
+define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h745d546fb27542dfE"(ptr noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #3 {
   %3 = and i64 %1, 31
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1f03e945e5a0a55fE"(ptr noundef nonnull align 8 %4)
@@ -11025,7 +11025,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN87_$LT$std..sy
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17hf770ae801ecbd456E.llvm.1091148472540163290"(i64 noundef %0) unnamed_addr #3 {
+define hidden noundef range(i64 0, 4) i64 @"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17hf770ae801ecbd456E.llvm.1091148472540163290"(i64 noundef %0) unnamed_addr #3 {
   %2 = alloca [1 x { { i64, i64 }, { i64, i64 }, i64, i32, i32, i8, [7 x i8] }], align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8

@@ -77,7 +77,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.46 = private unnamed_addr constant [35 x i8] c"Invalid RelaxNG Validation Context\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_doctype_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_document_doctype_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -122,7 +122,7 @@ define hidden noundef i32 @dom_document_implementation_read(ptr nocapture nounde
 declare void @php_dom_create_implementation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_document_element_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_document_document_element_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -153,7 +153,7 @@ define hidden noundef i32 @dom_document_document_element_read(ptr noundef %0, pt
 declare ptr @xmlDocGetRootElement(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_encoding_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_document_encoding_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -203,7 +203,7 @@ define hidden noundef i32 @dom_document_encoding_read(ptr noundef %0, ptr nocapt
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_encoding_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_document_encoding_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -260,7 +260,7 @@ declare ptr @xmlStrdup(ptr noundef) local_unnamed_addr #1
 declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_standalone_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_document_standalone_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -284,7 +284,7 @@ define hidden noundef i32 @dom_document_standalone_read(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_standalone_write(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_document_standalone_write(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -323,7 +323,7 @@ define hidden noundef i32 @dom_document_standalone_write(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_version_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_document_version_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -370,7 +370,7 @@ define hidden noundef i32 @dom_document_version_read(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_version_write(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_document_version_write(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -689,7 +689,7 @@ define hidden noundef i32 @dom_document_substitue_entities_write(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_document_uri_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_document_document_uri_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -736,7 +736,7 @@ define hidden noundef i32 @dom_document_document_uri_read(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_document_uri_write(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_document_document_uri_write(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -4140,7 +4140,7 @@ define internal fastcc void @dom_load_html(ptr nocapture noundef readonly %0, pt
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %4, align 8
-  %41 = trunc i64 %16 to i32
+  %41 = trunc nuw nsw i64 %16 to i32
   %42 = call ptr @htmlCreateMemoryParserCtxt(ptr noundef %40, i32 noundef %41) #10
   br label %43
 

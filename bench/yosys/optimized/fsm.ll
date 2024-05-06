@@ -534,7 +534,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 159:                                              ; preds = %158
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #13
-  %.pre = trunc i8 %.055.lcssa to i1
+  %.pre = trunc nuw i8 %.055.lcssa to i1
   %brmerge = select i1 %.058.lcssa, i1 true, i1 %.pre
   br i1 %brmerge, label %._crit_edge150, label %202
 

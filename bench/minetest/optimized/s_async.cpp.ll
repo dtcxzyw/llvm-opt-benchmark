@@ -108,7 +108,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @.str.14 = private unnamed_addr constant [45 x i8] c"Initializer may not be registered after init\00", align 1
 @.str.15 = private unnamed_addr constant [117 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/minetest/minetest/src/script/cpp_api/s_async.cpp\00", align 1
 @__PRETTY_FUNCTION__._ZN11AsyncEngine24registerStateInitializerEPFvP9lua_StateiE = private unnamed_addr constant [61 x i8] c"void AsyncEngine::registerStateInitializer(StateInitializer)\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.16 = private unnamed_addr constant [28 x i8] c"AsyncEngine: using at most \00", align 1
 @.str.17 = private unnamed_addr constant [32 x i8] c" threads with automatic scaling\00", align 1
 @.str.18 = private unnamed_addr constant [13 x i8] c"AsyncWorker-\00", align 1
@@ -1152,7 +1152,7 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   br label %_Z4itosB5cxx11i.exit
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %10 = trunc i32 %__val.addr.0.lcssa.i.i.i to i8
+  %10 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %10, 48
   br label %_Z4itosB5cxx11i.exit
 

@@ -188,7 +188,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then6.i.i.i, %fo
   %15 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %16 = load ptr, ptr %15, align 8
   %call.i.i.i.i.i = call ptr @pack_basename(ptr noundef %16) #13
-  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i.i.i.i.i, ptr noundef nonnull dereferenceable(1) %arg.1.i.i.i) #15
+  %call2.i.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %arg.1.i.i.i) #15
   %tobool.not.i.i.i.i.i = icmp eq i32 %call2.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i, label %find_pack_by_name.exit.i.i.i.i, label %for.cond.i.i.i.i.i
 
@@ -502,7 +502,7 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 declare i32 @for_each_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @add_info_ref(ptr noundef %path, ptr noundef %oid, i32 %flag, ptr noundef %cb_data) #0 {
+define internal range(i32 -1, 1) i32 @add_info_ref(ptr noundef %path, ptr noundef %oid, i32 %flag, ptr noundef %cb_data) #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %call = tail call ptr @parse_object(ptr noundef %0, ptr noundef %oid) #13
@@ -648,7 +648,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 declare ptr @get_object_directory() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @write_pack_info_file(ptr noundef %uic) #0 {
+define internal range(i32 -1, 1) i32 @write_pack_info_file(ptr noundef %uic) #0 {
 entry:
   %0 = load i32, ptr @num_pack, align 4
   %cmp4 = icmp sgt i32 %0, 0
@@ -691,7 +691,7 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compare_info(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #5 {
+define internal range(i32 -2147483647, -2147483648) i32 @compare_info(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #5 {
 entry:
   %0 = load ptr, ptr %a_, align 8
   %old_num = getelementptr inbounds i8, ptr %0, i64 8

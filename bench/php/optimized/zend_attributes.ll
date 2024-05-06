@@ -168,7 +168,7 @@ define hidden void @validate_attribute(ptr nocapture noundef readonly %0, i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_get_attribute_value(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_get_attribute_value(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 28
   %6 = load i32, ptr %5, align 4
   %.not = icmp ugt i32 %6, %2
@@ -555,7 +555,7 @@ define ptr @zend_get_attribute_str(ptr noundef readonly %0, ptr nocapture nounde
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds i8, ptr %25, i64 24
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %30, ptr %1, i64 %2)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %30, ptr readonly %1, i64 %2)
   %.not29.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not29.i, label %get_attribute_str.exit, label %.critedge.i
 
@@ -680,7 +680,7 @@ define ptr @zend_get_parameter_attribute_str(ptr noundef readonly %0, ptr nocapt
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds i8, ptr %27, i64 24
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %32, ptr %1, i64 %2)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %32, ptr readonly %1, i64 %2)
   %.not29.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not29.i, label %get_attribute_str.exit, label %.critedge.i
 
@@ -708,7 +708,7 @@ define ptr @zend_get_attribute_target_names(i32 noundef %0) local_unnamed_addr #
 4:                                                ; preds = %1, %43
   %.pr = phi ptr [ null, %1 ], [ %44, %43 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %43 ]
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %6 = shl nuw nsw i32 1, %5
   %7 = and i32 %6, %0
   %.not168 = icmp eq i32 %7, 0

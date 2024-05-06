@@ -123,7 +123,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %31
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 1 %34, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %2, ptr nonnull align 1 %34, i64 %spec.select.i, i1 false)
   %.not83 = icmp ugt i64 %32, 2
   br i1 %.not83, label %35, label %fmap_readn.exit.thread
 
@@ -148,7 +148,7 @@ fmap_readn.exit.thread:                           ; preds = %28, %31, %fmap_read
   br i1 %.not26.i95, label %fmap_readn.exit97.thread, label %fmap_readn.exit97
 
 fmap_readn.exit97:                                ; preds = %38
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %3, ptr nonnull align 1 %41, i64 %spec.select.i94, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %3, ptr nonnull align 1 %41, i64 %spec.select.i94, i1 false)
   %.not84 = icmp ugt i64 %39, 6
   br i1 %.not84, label %42, label %fmap_readn.exit97.thread
 
@@ -339,7 +339,7 @@ fmap_readn.exit112.thread:                        ; preds = %80, %78
   br i1 %.not26.i115, label %fmap_readn.exit117.thread, label %fmap_readn.exit117
 
 fmap_readn.exit117:                               ; preds = %96
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %4, ptr nonnull align 1 %99, i64 %spec.select.i114, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %4, ptr nonnull align 1 %99, i64 %spec.select.i114, i1 false)
   %.not87 = icmp ugt i64 %97, 8
   br i1 %.not87, label %100, label %fmap_readn.exit117.thread
 

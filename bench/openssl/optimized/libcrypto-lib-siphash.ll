@@ -10,7 +10,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @SipHash_hash_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #1 {
+define range(i64 0, 4294967296) i64 @SipHash_hash_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #1 {
 entry:
   %hash_size = getelementptr inbounds i8, ptr %ctx, i64 44
   %0 = load i32, ptr %hash_size, align 4
@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @SipHash_set_hash_size(ptr nocapture noundef %ctx, i64 noundef %hash_size) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @SipHash_set_hash_size(ptr nocapture noundef %ctx, i64 noundef %hash_size) local_unnamed_addr #2 {
 entry:
   %cmp.i = icmp eq i64 %hash_size, 0
   %spec.store.select.i = select i1 %cmp.i, i64 16, i64 %hash_size
@@ -43,7 +43,7 @@ if.then10:                                        ; preds = %if.end
   %1 = load i64, ptr %v1, align 8
   %xor = xor i64 %1, 238
   store i64 %xor, ptr %v1, align 8
-  %conv11 = trunc i64 %spec.store.select.i to i32
+  %conv11 = trunc nuw i64 %spec.store.select.i to i32
   store i32 %conv11, ptr %hash_size2, align 4
   br label %return
 
@@ -384,7 +384,7 @@ return:                                           ; preds = %if.end165, %if.then
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @SipHash_Final(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out, i64 noundef %outlen) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @SipHash_Final(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out, i64 noundef %outlen) local_unnamed_addr #5 {
 entry:
   %0 = load i64, ptr %ctx, align 8
   %shl = shl i64 %0, 56
@@ -582,7 +582,7 @@ for.end116:                                       ; preds = %do.body86, %for.end
   %arrayidx150 = getelementptr inbounds i8, ptr %out, i64 6
   store i8 %conv148, ptr %arrayidx150, align 1
   %sum.shift = lshr i64 %xor119, 56
-  %conv154 = trunc i64 %sum.shift to i8
+  %conv154 = trunc nuw i64 %sum.shift to i8
   %arrayidx156 = getelementptr inbounds i8, ptr %out, i64 7
   store i8 %conv154, ptr %arrayidx156, align 1
   %16 = load i32, ptr %hash_size, align 4
@@ -655,7 +655,7 @@ for.end198:                                       ; preds = %do.body168, %if.end
   %arrayidx240 = getelementptr inbounds i8, ptr %out, i64 14
   store i8 %conv237, ptr %arrayidx240, align 1
   %sum.shift169 = lshr i64 %xor201, 56
-  %conv244 = trunc i64 %sum.shift169 to i8
+  %conv244 = trunc nuw i64 %sum.shift169 to i8
   %arrayidx247 = getelementptr inbounds i8, ptr %out, i64 15
   store i8 %conv244, ptr %arrayidx247, align 1
   br label %return

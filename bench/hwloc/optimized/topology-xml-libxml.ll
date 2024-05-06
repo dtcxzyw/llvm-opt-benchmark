@@ -40,14 +40,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.24 = private unnamed_addr constant [8 x i8] c"refname\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @hwloc_xml_libxml_component_init(i64 noundef %0) #0 {
+define internal range(i32 -1, 1) i32 @hwloc_xml_libxml_component_init(i64 noundef %0) #0 {
   %.not = icmp ne i64 %0, 0
   %spec.select = sext i1 %.not to i32
   ret i32 %spec.select
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hwloc_libxml_backend_init(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #1 {
+define internal range(i32 -1, 1) i32 @hwloc_libxml_backend_init(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #1 {
   tail call void @xmlCheckVersion(i32 noundef 20913) #10
   %.b.i = load i1, ptr @hwloc_libxml2_init_once.checked, align 4
   br i1 %.b.i, label %hwloc_libxml2_init_once.exit, label %5
@@ -134,7 +134,7 @@ hwloc_libxml2_cleanup.exit:                       ; preds = %25, %24, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hwloc_libxml_export_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 {
+define internal range(i32 -2147483648, 1) i32 @hwloc_libxml_export_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 {
   %5 = tail call ptr @__errno_location() #11
   store i32 0, ptr %5, align 4
   %6 = tail call fastcc ptr @hwloc__libxml2_prepare_export(ptr noundef %0, ptr noundef %1, i64 noundef %3)
@@ -166,7 +166,7 @@ hwloc_libxml2_cleanup.exit:                       ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hwloc_libxml_export_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #1 {
+define internal range(i32 -1, 1) i32 @hwloc_libxml_export_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #1 {
   %6 = tail call fastcc ptr @hwloc__libxml2_prepare_export(ptr noundef %0, ptr noundef %1, i64 noundef %4)
   tail call void @xmlDocDumpFormatMemoryEnc(ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @.str.16, i32 noundef 1) #10
   tail call void @xmlFreeDoc(ptr noundef %6) #10
@@ -435,7 +435,7 @@ hwloc_libxml2_cleanup.exit:                       ; preds = %111, %.loopexit, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hwloc_libxml_export_diff_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal range(i32 -2147483648, 1) i32 @hwloc_libxml_export_diff_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @__errno_location() #11
   store i32 0, ptr %4, align 4
   %5 = tail call fastcc ptr @hwloc__libxml2_prepare_export_diff(ptr noundef %0, ptr noundef %1)
@@ -467,7 +467,7 @@ hwloc_libxml2_cleanup.exit:                       ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hwloc_libxml_export_diff_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+define internal range(i32 -1, 1) i32 @hwloc_libxml_export_diff_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = tail call fastcc ptr @hwloc__libxml2_prepare_export_diff(ptr noundef %0, ptr noundef %1)
   tail call void @xmlDocDumpFormatMemoryEnc(ptr noundef %5, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @.str.16, i32 noundef 1) #10
   tail call void @xmlFreeDoc(ptr noundef %5) #10
@@ -505,7 +505,7 @@ declare ptr @xmlReadFile(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @xmlReadMemory(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hwloc_libxml_look_init(ptr nocapture noundef %0, ptr nocapture noundef %1) #1 {
+define internal range(i32 -1, 1) i32 @hwloc_libxml_look_init(ptr nocapture noundef %0, ptr nocapture noundef %1) #1 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -724,7 +724,7 @@ declare ptr @xmlGetProp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hwloc__libxml_import_next_attr(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #1 {
+define internal range(i32 -1, 1) i32 @hwloc__libxml_import_next_attr(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -832,7 +832,7 @@ define internal noundef i32 @hwloc__libxml_import_next_attr(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hwloc__libxml_import_find_child(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #1 {
+define internal range(i32 0, 2) i32 @hwloc__libxml_import_find_child(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -926,7 +926,7 @@ define internal void @hwloc__libxml_import_close_child(ptr nocapture readnone %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @hwloc__libxml_import_get_content(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #7 {
+define internal range(i32 -1, 2) i32 @hwloc__libxml_import_get_content(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24

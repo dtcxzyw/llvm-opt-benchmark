@@ -1509,7 +1509,7 @@ define i32 @cli_bcapi_matchicon(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %.not23.i, label %matchicon.exit, label %70
 
 70:                                               ; preds = %65
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %71 = select i1 %.not27, ptr @.str.2, ptr %7
   call void @cli_icongroupset_add(ptr noundef nonnull %71, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %50) #12
   %72 = select i1 %.not28, ptr @.str.2, ptr %8
@@ -1575,7 +1575,7 @@ define internal fastcc i32 @matchicon(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not23, label %30, label %26
 
 26:                                               ; preds = %21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %.not24 = icmp eq ptr %2, null
   %27 = select i1 %.not24, ptr @.str.2, ptr %2
   call void @cli_icongroupset_add(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %0) #12
@@ -2618,7 +2618,7 @@ intermediates_eval.exit.i:                        ; preds = %68, %.preheader.i.i
   br i1 %or.cond.i, label %120, label %140
 
 120:                                              ; preds = %116
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %21, ptr noundef nonnull dereferenceable(16) %4, i64 16)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %21, ptr noundef nonnull readonly dereferenceable(16) %4, i64 16)
   %.not114.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not114.i, label %140, label %121
 
@@ -2637,7 +2637,7 @@ intermediates_eval.exit.i:                        ; preds = %68, %.preheader.i.i
   br label %lsig_eval.exit
 
 130:                                              ; preds = %121
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull readonly align 1 dereferenceable(16) %4, i64 16, i1 false)
   %131 = load ptr, ptr %117, align 8
   %132 = load i32, ptr %131, align 4
   %133 = call i32 @cli_recursion_stack_push(ptr noundef nonnull %0, ptr noundef nonnull %127, i32 noundef %132, i1 noundef zeroext true, i32 noundef 0) #12

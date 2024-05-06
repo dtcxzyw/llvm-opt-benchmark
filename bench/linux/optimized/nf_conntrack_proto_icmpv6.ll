@@ -122,7 +122,7 @@ define dso_local noundef zeroext i1 @nf_conntrack_invert_icmpv6_tuple(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nf_conntrack_icmpv6_packet(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_icmpv6_packet(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %3, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 10
@@ -418,7 +418,7 @@ define dso_local void @nf_conntrack_icmpv6_init_net(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @icmpv6_tuple_to_nlattr(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @icmpv6_tuple_to_nlattr(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
@@ -476,7 +476,7 @@ define internal i32 @icmpv6_nlattr_tuple_size() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @icmpv6_nlattr_to_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #7 align 16 {
+define internal noundef range(i32 -22, 1) i32 @icmpv6_nlattr_to_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #7 align 16 {
   %4 = and i32 %2, 512
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %22, label %6

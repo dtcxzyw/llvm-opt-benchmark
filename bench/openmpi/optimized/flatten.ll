@@ -466,7 +466,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
 
 221:                                              ; preds = %2, %2
   %222 = load i32, ptr %19, align 4
-  %invariant.gep = getelementptr i8, ptr %19, i64 4
+  %invariant.gep = getelementptr inbounds i8, ptr %19, i64 4
   %223 = icmp sgt i32 %222, 0
   br i1 %223, label %.lr.ph.preheader, label %.loopexit
 
@@ -500,7 +500,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
 
 238:                                              ; preds = %233
   %239 = sub nsw i64 %.pre, %228
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %240 = load i32, ptr %gep, align 4
   %241 = add nsw i32 %240, -1
   %242 = sext i32 %241 to i64
@@ -1997,9 +1997,9 @@ flatlist_node_grow.exit897.us:                    ; preds = %.flatlist_node_grow
 .preheader944.us.us:                              ; preds = %.preheader944.lr.ph.split.us, %._crit_edge1012.split.us.us.us
   %.127931016.us.us = phi i64 [ %792, %._crit_edge1012.split.us.us.us ], [ 1, %.preheader944.lr.ph.split.us ]
   %.211015.us.us = phi i64 [ %791, %._crit_edge1012.split.us.us.us ], [ %.19.lcssa, %.preheader944.lr.ph.split.us ]
-  %751 = getelementptr i32, ptr %24, i64 %.127931016.us.us
-  %752 = getelementptr i8, ptr %751, i64 8
-  %753 = getelementptr i8, ptr %751, i64 4
+  %751 = getelementptr inbounds i32, ptr %24, i64 %.127931016.us.us
+  %752 = getelementptr inbounds i8, ptr %751, i64 8
+  %753 = getelementptr inbounds i8, ptr %751, i64 4
   br label %754
 
 754:                                              ; preds = %flatlist_node_grow.exit903.us.us.us, %.preheader944.us.us
@@ -2463,7 +2463,7 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
 
 987:                                              ; preds = %4, %4
   %988 = load i32, ptr %24, align 4
-  %invariant.gep = getelementptr i8, ptr %24, i64 4
+  %invariant.gep = getelementptr inbounds i8, ptr %24, i64 4
   %989 = icmp sgt i32 %988, 0
   br i1 %989, label %.lr.ph, label %.loopexit941
 
@@ -2502,7 +2502,7 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
   br i1 %1010, label %.thread1249, label %1060
 
 .thread1249:                                      ; preds = %995, %1005
-  %gep961 = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep961 = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %1011 = load i32, ptr %gep961, align 4
   %1012 = icmp sgt i32 %1011, 0
   br i1 %1012, label %1017, label %1013
@@ -2598,7 +2598,7 @@ flatlist_node_grow.exit909:                       ; preds = %.flatlist_node_grow
   %1061 = sub i64 %.pre1209, %1000
   %1062 = load ptr, ptr %996, align 8
   %1063 = call i32 @PMPI_Type_get_extent(ptr noundef %1062, ptr noundef nonnull %15, ptr noundef nonnull %16) #6
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %1064 = load i32, ptr %gep, align 4
   %1065 = icmp sgt i32 %1064, 1
   %1066 = icmp sgt i64 %1061, 0
@@ -2933,7 +2933,7 @@ define void @ADIOI_Optimize_flattened(ptr nocapture noundef %0) local_unnamed_ad
   %16 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8
   %18 = add nsw i64 %17, %15
-  %19 = getelementptr i8, ptr %14, i64 8
+  %19 = getelementptr inbounds i8, ptr %14, i64 8
   %20 = load i64, ptr %19, align 8
   %.not = icmp ne i64 %18, %20
   %21 = zext i1 %.not to i32
@@ -2968,7 +2968,7 @@ thread-pre-split:                                 ; preds = %31, %22
 
 thread-pre-split.thread:                          ; preds = %26, %thread-pre-split
   %36 = icmp eq i32 %.07183, -1
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %36, label %59, label %38
 
 38:                                               ; preds = %thread-pre-split.thread

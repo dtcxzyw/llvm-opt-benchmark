@@ -131,7 +131,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.125 = private unnamed_addr constant [5 x i8] c"NONE\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetErrHandlerFn(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSetErrHandlerFn(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -154,7 +154,7 @@ define noundef i32 @CVodeSetErrHandlerFn(ptr noundef writeonly %0, ptr noundef %
 declare void @cvProcessError(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetErrFile(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSetErrFile(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -173,7 +173,7 @@ define noundef i32 @CVodeSetErrFile(ptr noundef writeonly %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetIterType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeSetIterType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -201,7 +201,7 @@ define noundef i32 @CVodeSetIterType(ptr noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetUserData(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSetUserData(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -220,7 +220,7 @@ define noundef i32 @CVodeSetUserData(ptr noundef writeonly %0, ptr noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetMaxOrd(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeSetMaxOrd(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -263,7 +263,7 @@ define noundef i32 @CVodeSetMaxOrd(ptr noundef %0, i32 noundef %1) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetMaxNumSteps(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSetMaxNumSteps(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -290,7 +290,7 @@ define noundef i32 @CVodeSetMaxNumSteps(ptr noundef writeonly %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetMaxHnilWarns(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSetMaxHnilWarns(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -309,7 +309,7 @@ define noundef i32 @CVodeSetMaxHnilWarns(ptr noundef writeonly %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetStabLimDet(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeSetStabLimDet(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -342,7 +342,7 @@ define noundef i32 @CVodeSetStabLimDet(ptr noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetInitStep(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSetInitStep(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -361,7 +361,7 @@ define noundef i32 @CVodeSetInitStep(ptr noundef writeonly %0, double noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetMinStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeSetMinStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -408,7 +408,7 @@ define noundef i32 @CVodeSetMinStep(ptr noundef %0, double noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetMaxStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeSetMaxStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -456,7 +456,7 @@ define noundef i32 @CVodeSetMaxStep(ptr noundef %0, double noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetStopTime(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeSetStopTime(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -497,7 +497,7 @@ define noundef i32 @CVodeSetStopTime(ptr noundef %0, double noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetMaxErrTestFails(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSetMaxErrTestFails(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -516,7 +516,7 @@ define noundef i32 @CVodeSetMaxErrTestFails(ptr noundef writeonly %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetMaxConvFails(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSetMaxConvFails(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -535,7 +535,7 @@ define noundef i32 @CVodeSetMaxConvFails(ptr noundef writeonly %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetMaxNonlinIters(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSetMaxNonlinIters(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -554,7 +554,7 @@ define noundef i32 @CVodeSetMaxNonlinIters(ptr noundef writeonly %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetNonlinConvCoef(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSetNonlinConvCoef(ptr noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -573,7 +573,7 @@ define noundef i32 @CVodeSetNonlinConvCoef(ptr noundef writeonly %0, double noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetRootDirection(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeSetRootDirection(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -617,7 +617,7 @@ define noundef i32 @CVodeSetRootDirection(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetNoInactiveRootWarn(ptr noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSetNoInactiveRootWarn(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -636,7 +636,7 @@ define noundef i32 @CVodeSetNoInactiveRootWarn(ptr noundef writeonly %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetQuadErrCon(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSetQuadErrCon(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -655,7 +655,7 @@ define noundef i32 @CVodeSetQuadErrCon(ptr noundef writeonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetSensDQMethod(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeSetSensDQMethod(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -693,7 +693,7 @@ define noundef i32 @CVodeSetSensDQMethod(ptr noundef %0, i32 noundef %1, double 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetSensErrCon(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSetSensErrCon(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -712,7 +712,7 @@ define noundef i32 @CVodeSetSensErrCon(ptr noundef writeonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetSensMaxNonlinIters(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSetSensMaxNonlinIters(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -731,7 +731,7 @@ define noundef i32 @CVodeSetSensMaxNonlinIters(ptr noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetSensParams(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeSetSensParams(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -847,7 +847,7 @@ define noundef i32 @CVodeSetSensParams(ptr noundef %0, ptr noundef %1, ptr nound
   %indvars.iv73 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next74, %42 ]
   %43 = load ptr, ptr %33, align 8
   %44 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv73
-  %45 = trunc i64 %indvars.iv73 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv73 to i32
   store i32 %45, ptr %44, align 4
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
@@ -861,7 +861,7 @@ define noundef i32 @CVodeSetSensParams(ptr noundef %0, ptr noundef %1, ptr nound
 declare double @SUNRabs(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetQuadSensErrCon(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeSetQuadSensErrCon(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -900,7 +900,7 @@ define noundef i32 @CVodeSetQuadSensErrCon(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumSteps(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetNumSteps(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -920,7 +920,7 @@ define noundef i32 @CVodeGetNumSteps(ptr noundef readonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumRhsEvals(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetNumRhsEvals(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -940,7 +940,7 @@ define noundef i32 @CVodeGetNumRhsEvals(ptr noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumLinSolvSetups(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetNumLinSolvSetups(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -960,7 +960,7 @@ define noundef i32 @CVodeGetNumLinSolvSetups(ptr noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumErrTestFails(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetNumErrTestFails(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -980,7 +980,7 @@ define noundef i32 @CVodeGetNumErrTestFails(ptr noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetLastOrder(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetLastOrder(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1000,7 +1000,7 @@ define noundef i32 @CVodeGetLastOrder(ptr noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetCurrentOrder(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetCurrentOrder(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1020,7 +1020,7 @@ define noundef i32 @CVodeGetCurrentOrder(ptr noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumStabLimOrderReds(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetNumStabLimOrderReds(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1050,7 +1050,7 @@ define noundef i32 @CVodeGetNumStabLimOrderReds(ptr noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetActualInitStep(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetActualInitStep(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1070,7 +1070,7 @@ define noundef i32 @CVodeGetActualInitStep(ptr noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetLastStep(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetLastStep(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1090,7 +1090,7 @@ define noundef i32 @CVodeGetLastStep(ptr noundef readonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetCurrentStep(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetCurrentStep(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1110,7 +1110,7 @@ define noundef i32 @CVodeGetCurrentStep(ptr noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetCurrentTime(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetCurrentTime(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1130,7 +1130,7 @@ define noundef i32 @CVodeGetCurrentTime(ptr noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetTolScaleFactor(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetTolScaleFactor(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1150,7 +1150,7 @@ define noundef i32 @CVodeGetTolScaleFactor(ptr noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetErrWeights(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetErrWeights(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1172,7 +1172,7 @@ define noundef i32 @CVodeGetErrWeights(ptr noundef readonly %0, ptr noundef %1) 
 declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetEstLocalErrors(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetEstLocalErrors(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1192,7 +1192,7 @@ define noundef i32 @CVodeGetEstLocalErrors(ptr noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetWorkSpace(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetWorkSpace(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1215,7 +1215,7 @@ define noundef i32 @CVodeGetWorkSpace(ptr noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetIntegratorStats(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetIntegratorStats(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10) local_unnamed_addr #0 {
   %12 = icmp eq ptr %0, null
   br i1 %12, label %13, label %14
 
@@ -1262,7 +1262,7 @@ define noundef i32 @CVodeGetIntegratorStats(ptr noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumGEvals(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetNumGEvals(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1282,7 +1282,7 @@ define noundef i32 @CVodeGetNumGEvals(ptr noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetRootInfo(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetRootInfo(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1318,7 +1318,7 @@ define noundef i32 @CVodeGetRootInfo(ptr noundef readonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumNonlinSolvIters(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetNumNonlinSolvIters(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1338,7 +1338,7 @@ define noundef i32 @CVodeGetNumNonlinSolvIters(ptr noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumNonlinSolvConvFails(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetNumNonlinSolvConvFails(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1358,7 +1358,7 @@ define noundef i32 @CVodeGetNumNonlinSolvConvFails(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNonlinSolvStats(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetNonlinSolvStats(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1381,7 +1381,7 @@ define noundef i32 @CVodeGetNonlinSolvStats(ptr noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetQuadNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @CVodeGetQuadNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1411,7 +1411,7 @@ define noundef i32 @CVodeGetQuadNumRhsEvals(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetQuadNumErrTestFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @CVodeGetQuadNumErrTestFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1441,7 +1441,7 @@ define noundef i32 @CVodeGetQuadNumErrTestFails(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetQuadErrWeights(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @CVodeGetQuadErrWeights(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1477,7 +1477,7 @@ define noundef i32 @CVodeGetQuadErrWeights(ptr noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetQuadStats(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @CVodeGetQuadStats(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1510,7 +1510,7 @@ define noundef i32 @CVodeGetQuadStats(ptr noundef %0, ptr nocapture noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetQuadSensNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @CVodeGetQuadSensNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1540,7 +1540,7 @@ define noundef i32 @CVodeGetQuadSensNumRhsEvals(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetQuadSensNumErrTestFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @CVodeGetQuadSensNumErrTestFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1570,7 +1570,7 @@ define noundef i32 @CVodeGetQuadSensNumErrTestFails(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetQuadSensErrWeights(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @CVodeGetQuadSensErrWeights(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1621,7 +1621,7 @@ define noundef i32 @CVodeGetQuadSensErrWeights(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetQuadSensStats(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @CVodeGetQuadSensStats(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1654,7 +1654,7 @@ define noundef i32 @CVodeGetQuadSensStats(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetSensNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeGetSensNumRhsEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1684,7 +1684,7 @@ define noundef i32 @CVodeGetSensNumRhsEvals(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumRhsEvalsSens(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeGetNumRhsEvalsSens(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1714,7 +1714,7 @@ define noundef i32 @CVodeGetNumRhsEvalsSens(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetSensNumErrTestFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeGetSensNumErrTestFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1744,7 +1744,7 @@ define noundef i32 @CVodeGetSensNumErrTestFails(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetSensNumLinSolvSetups(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeGetSensNumLinSolvSetups(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1774,7 +1774,7 @@ define noundef i32 @CVodeGetSensNumLinSolvSetups(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetSensErrWeights(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeGetSensErrWeights(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1821,7 +1821,7 @@ define noundef i32 @CVodeGetSensErrWeights(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetSensStats(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeGetSensStats(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -1860,7 +1860,7 @@ define noundef i32 @CVodeGetSensStats(ptr noundef %0, ptr nocapture noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetSensNumNonlinSolvIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeGetSensNumNonlinSolvIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1890,7 +1890,7 @@ define noundef i32 @CVodeGetSensNumNonlinSolvIters(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetSensNumNonlinSolvConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeGetSensNumNonlinSolvConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1920,7 +1920,7 @@ define noundef i32 @CVodeGetSensNumNonlinSolvConvFails(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetStgrSensNumNonlinSolvIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeGetStgrSensNumNonlinSolvIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1970,7 +1970,7 @@ define noundef i32 @CVodeGetStgrSensNumNonlinSolvIters(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetStgrSensNumNonlinSolvConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeGetStgrSensNumNonlinSolvConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2020,7 +2020,7 @@ define noundef i32 @CVodeGetStgrSensNumNonlinSolvConvFails(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetSensNonlinSolvStats(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @CVodeGetSensNonlinSolvStats(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 

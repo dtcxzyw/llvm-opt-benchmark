@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [10 x ptr] [ptr @__UNIQUE_ID___addressable_cleanup_module498, ptr @__UNIQUE_ID___addressable_init_module497, ptr @__UNIQUE_ID_alias492, ptr @__UNIQUE_ID_alias493, ptr @__UNIQUE_ID_alias494, ptr @__UNIQUE_ID_alias495, ptr @__UNIQUE_ID_alias496, ptr @__UNIQUE_ID_author490, ptr @__UNIQUE_ID_description491, ptr @__UNIQUE_ID_license489], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @init_module() #0 section ".init.text" align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @init_module() #0 section ".init.text" align 16 {
   %1 = tail call i32 @xt_register_target(ptr noundef nonnull @mark_tg_reg) #4
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %7, label %3

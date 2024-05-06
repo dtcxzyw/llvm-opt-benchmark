@@ -397,7 +397,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_smsc_cma_copy_to(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture readnone %4) #0 {
+define range(i32 -1, 1) i32 @mca_smsc_cma_copy_to(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.iovec, align 8
   %7 = alloca %struct.iovec, align 8
   store ptr %1, ptr %6, align 8
@@ -444,7 +444,7 @@ define noundef i32 @mca_smsc_cma_copy_to(ptr nocapture noundef readonly %0, ptr 
 declare i64 @process_vm_writev(i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_smsc_cma_copy_from(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture readnone %4) #0 {
+define range(i32 -1, 1) i32 @mca_smsc_cma_copy_from(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.iovec, align 8
   %7 = alloca %struct.iovec, align 8
   store ptr %2, ptr %6, align 8

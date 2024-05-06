@@ -898,7 +898,7 @@ declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare void @slurm_list_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @jobcomp_p_set_location() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @jobcomp_p_set_location() local_unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 69), align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %5

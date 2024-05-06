@@ -1827,7 +1827,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN11user_solver6solver5checkEv(ptr noundef nonnull align 8 dereferenceable(492) %this) unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN11user_solver6solver5checkEv(ptr noundef nonnull align 8 dereferenceable(492) %this) unnamed_addr #3 align 2 {
 entry:
   %__args.addr.i = alloca ptr, align 8
   %__args.addr2.i = alloca ptr, align 8
@@ -3769,7 +3769,7 @@ _ZNK3euf13th_euf_solver12get_num_varsEv.exit:     ; preds = %for.cond, %if.end.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK3euf13th_euf_solver12get_num_varsEv.exit
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw i64 %indvars.iv to i32
   %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %3)
   %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull @.str.7)
   %4 = load ptr, ptr %m_var2enode.i, align 8

@@ -4030,8 +4030,8 @@ if.end11:                                         ; preds = %if.end.thread, %if.
   %22 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i23 = zext i32 %22 to i64
   %add.ptr.i24.idx = shl nuw nsw i64 %idx.ext.i23, 3
-  %23 = getelementptr i8, ptr %12, i64 %add.ptr.i24.idx
-  %add.ptr.i24.ptr = getelementptr i8, ptr %23, i64 32
+  %23 = getelementptr inbounds i8, ptr %12, i64 %add.ptr.i24.idx
+  %add.ptr.i24.ptr = getelementptr inbounds i8, ptr %23, i64 32
   %cmp.not113 = icmp eq i32 %22, 0
   br i1 %cmp.not113, label %if.end25.thread, label %for.body.preheader
 

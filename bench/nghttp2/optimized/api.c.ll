@@ -248,7 +248,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llhttp_get_status_code(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
+define range(i32 0, 65536) i32 @llhttp_get_status_code(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
 entry:
   %status_code = getelementptr inbounds i8, ptr %parser, i64 82
   %0 = load i16, ptr %status_code, align 2
@@ -1008,7 +1008,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_url(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @llhttp__on_url(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1063,7 +1063,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_status(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @llhttp__on_status(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1118,7 +1118,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_method(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @llhttp__on_method(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1173,7 +1173,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_version(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @llhttp__on_version(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1228,7 +1228,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_header_field(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @llhttp__on_header_field(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1283,7 +1283,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_header_value(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @llhttp__on_header_value(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1384,7 +1384,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_body(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @llhttp__on_body(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1439,7 +1439,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_chunk_extension_name(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @llhttp__on_chunk_extension_name(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1494,7 +1494,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_chunk_extension_value(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @llhttp__on_chunk_extension_value(ptr noundef %s, ptr noundef %p, ptr noundef %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8

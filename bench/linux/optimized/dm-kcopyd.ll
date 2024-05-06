@@ -79,7 +79,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dm_kcopyd_cl
 @llvm.compiler.used = appending global [12 x ptr] [ptr @__UNIQUE_ID___addressable_dm_kcopyd_client_create738, ptr @__UNIQUE_ID___addressable_dm_kcopyd_client_destroy743, ptr @__UNIQUE_ID___addressable_dm_kcopyd_client_flush744, ptr @__UNIQUE_ID___addressable_dm_kcopyd_copy734, ptr @__UNIQUE_ID___addressable_dm_kcopyd_do_callback737, ptr @__UNIQUE_ID___addressable_dm_kcopyd_prepare_callback736, ptr @__UNIQUE_ID___addressable_dm_kcopyd_zero735, ptr @__UNIQUE_ID_kcopyd_subjob_size_kb730, ptr @__UNIQUE_ID_kcopyd_subjob_size_kbtype729, ptr @__param_kcopyd_subjob_size_kb, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched201, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched40], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @dm_kcopyd_init() local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @dm_kcopyd_init() local_unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str, i32 noundef 3240, i32 noundef 8, i32 noundef 0, ptr noundef null) #9
   store ptr %1, ptr @_job_cache, align 8
   %2 = icmp eq ptr %1, null
@@ -441,7 +441,7 @@ define dso_local ptr @dm_kcopyd_client_create(ptr noundef %0) #2 align 16 {
   %33 = zext i32 %32 to i64
   %34 = add nuw nsw i64 %33, 4095
   %35 = lshr i64 %34, 12
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw nsw i64 %35 to i32
   %37 = getelementptr inbounds i8, ptr %3, i64 12
   %38 = getelementptr inbounds i8, ptr %3, i64 8
   %39 = icmp eq i32 %36, 0
@@ -1229,7 +1229,7 @@ define internal noundef i32 @run_complete_job(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @run_pages_job(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 -12, 2) i32 @run_pages_job(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 7

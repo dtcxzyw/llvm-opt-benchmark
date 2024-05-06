@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [45 x i8] c"AIG cannot be written because it has no POs.\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define i32 @Ioa_WriteAigerEncode(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @Ioa_WriteAigerEncode(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not11 = icmp ult i32 %2, 128
   br i1 %.not11, label %._crit_edge, label %.lr.ph.preheader
 
@@ -45,13 +45,13 @@ define i32 @Ioa_WriteAigerEncode(ptr nocapture noundef writeonly %0, i32 noundef
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %9 = trunc i64 %indvars.iv.next to i32
+  %9 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %.010.lcssa = phi i32 [ %1, %3 ], [ %9, %._crit_edge.loopexit ]
   %.0.lcssa = phi i32 [ %2, %3 ], [ %8, %._crit_edge.loopexit ]
-  %10 = trunc i32 %.0.lcssa to i8
+  %10 = trunc nuw i32 %.0.lcssa to i8
   %11 = add nsw i32 %.010.lcssa, 1
   %12 = sext i32 %.010.lcssa to i64
   %13 = getelementptr inbounds i8, ptr %0, i64 %12
@@ -199,7 +199,7 @@ Vec_StrGrow.exit.i12:                             ; preds = %46, %44
 
 Vec_StrPush.exit13:                               ; preds = %.Vec_StrGrow.exit10_crit_edge.i7, %Vec_StrGrow.exit.i12, %58
   %60 = phi ptr [ %.pre.i9, %.Vec_StrGrow.exit10_crit_edge.i7 ], [ %59, %58 ], [ %48, %Vec_StrGrow.exit.i12 ]
-  %61 = trunc i32 %.0.lcssa to i8
+  %61 = trunc nuw i32 %.0.lcssa to i8
   %62 = load i32, ptr %35, align 4
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %35, align 4
@@ -485,13 +485,13 @@ Vec_StrAlloc.exit:                                ; preds = %1, %7
   br i1 %.not.i37, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %17 = trunc i64 %indvars.iv.next.i to i32
+  %17 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %Ioa_WriteAigerEncode.exit
 
 Ioa_WriteAigerEncode.exit:                        ; preds = %Vec_StrAlloc.exit, %._crit_edge.loopexit.i
   %.010.lcssa.i = phi i32 [ 0, %Vec_StrAlloc.exit ], [ %17, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i32 [ %12, %Vec_StrAlloc.exit ], [ %16, %._crit_edge.loopexit.i ]
-  %18 = trunc i32 %.0.lcssa.i to i8
+  %18 = trunc nuw i32 %.0.lcssa.i to i8
   %19 = sext i32 %.010.lcssa.i to i64
   %20 = getelementptr inbounds i8, ptr %.promoted, i64 %19
   store i8 %18, ptr %20, align 1
@@ -535,13 +535,13 @@ Ioa_WriteAigerEncode.exit:                        ; preds = %Vec_StrAlloc.exit, 
   br i1 %.not.i44, label %._crit_edge.loopexit.i45, label %.lr.ph.i40, !llvm.loop !4
 
 ._crit_edge.loopexit.i45:                         ; preds = %.lr.ph.i40
-  %38 = trunc i64 %indvars.iv.next.i43 to i32
+  %38 = trunc nsw i64 %indvars.iv.next.i43 to i32
   br label %Ioa_WriteAigerEncode.exit48
 
 Ioa_WriteAigerEncode.exit48:                      ; preds = %.lr.ph, %._crit_edge.loopexit.i45
   %.010.lcssa.i46 = phi i32 [ %.02955, %.lr.ph ], [ %38, %._crit_edge.loopexit.i45 ]
   %.0.lcssa.i47 = phi i32 [ %32, %.lr.ph ], [ %37, %._crit_edge.loopexit.i45 ]
-  %39 = trunc i32 %.0.lcssa.i47 to i8
+  %39 = trunc nuw i32 %.0.lcssa.i47 to i8
   %40 = sext i32 %.010.lcssa.i46 to i64
   %41 = getelementptr inbounds i8, ptr %23, i64 %40
   store i8 %39, ptr %41, align 1
@@ -1119,7 +1119,7 @@ Vec_StrPush.exit23:                               ; preds = %.Vec_StrGrow.exit10
   %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %.preheader40 ]
   %.11531 = phi i32 [ %75, %71 ], [ %.11531.ph, %.preheader40 ]
   %72 = urem i32 %.11531, 10
-  %73 = trunc i32 %72 to i8
+  %73 = trunc nuw nsw i32 %72 to i8
   %74 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %indvars.iv
   store i8 %73, ptr %74, align 1
   %75 = udiv i32 %.11531, 10
@@ -1196,7 +1196,7 @@ Vec_StrPush.exit30:                               ; preds = %.Vec_StrGrow.exit10
   %106 = sext i32 %104 to i64
   %107 = getelementptr inbounds i8, ptr %103, i64 %106
   store i8 %80, ptr %107, align 1
-  %108 = trunc i64 %indvars.iv37 to i32
+  %108 = trunc nuw i64 %indvars.iv37 to i32
   %109 = icmp sgt i32 %108, 1
   br i1 %109, label %76, label %.loopexit, !llvm.loop !17
 
@@ -1700,13 +1700,13 @@ Vec_IntFree.exit:                                 ; preds = %Vec_StrFree.exit, %
   br i1 %.not.i201, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %177 = trunc i64 %indvars.iv.next.i to i32
+  %177 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %Ioa_WriteAigerEncode.exit
 
 Ioa_WriteAigerEncode.exit:                        ; preds = %150, %._crit_edge.loopexit.i
   %.010.lcssa.i = phi i32 [ %.0127232, %150 ], [ %177, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i32 [ %171, %150 ], [ %176, %._crit_edge.loopexit.i ]
-  %178 = trunc i32 %.0.lcssa.i to i8
+  %178 = trunc nuw i32 %.0.lcssa.i to i8
   %179 = add nsw i32 %.010.lcssa.i, 1
   %180 = sext i32 %.010.lcssa.i to i64
   %181 = getelementptr inbounds i8, ptr %135, i64 %180
@@ -1732,13 +1732,13 @@ Ioa_WriteAigerEncode.exit:                        ; preds = %150, %._crit_edge.l
   br i1 %.not.i208, label %._crit_edge.loopexit.i209, label %.lr.ph.i204, !llvm.loop !4
 
 ._crit_edge.loopexit.i209:                        ; preds = %.lr.ph.i204
-  %188 = trunc i64 %indvars.iv.next.i207 to i32
+  %188 = trunc nsw i64 %indvars.iv.next.i207 to i32
   br label %Ioa_WriteAigerEncode.exit212
 
 Ioa_WriteAigerEncode.exit212:                     ; preds = %Ioa_WriteAigerEncode.exit, %._crit_edge.loopexit.i209
   %.010.lcssa.i210 = phi i32 [ %179, %Ioa_WriteAigerEncode.exit ], [ %188, %._crit_edge.loopexit.i209 ]
   %.0.lcssa.i211 = phi i32 [ %182, %Ioa_WriteAigerEncode.exit ], [ %187, %._crit_edge.loopexit.i209 ]
-  %189 = trunc i32 %.0.lcssa.i211 to i8
+  %189 = trunc nuw i32 %.0.lcssa.i211 to i8
   %190 = add nsw i32 %.010.lcssa.i210, 1
   %191 = sext i32 %.010.lcssa.i210 to i64
   %192 = getelementptr inbounds i8, ptr %135, i64 %191

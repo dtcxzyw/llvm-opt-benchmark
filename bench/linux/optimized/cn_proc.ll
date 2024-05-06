@@ -790,7 +790,7 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #3
 declare dso_local i32 @cn_netlink_send_mult(ptr noundef, i16 noundef zeroext, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @cn_filter(ptr noundef readonly %0, ptr nocapture readnone %1, ptr noundef readonly %2) #5 align 16 {
+define internal range(i32 0, 2) i32 @cn_filter(ptr noundef readonly %0, ptr nocapture readnone %1, ptr noundef readonly %2) #5 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %32, label %5
 

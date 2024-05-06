@@ -142,7 +142,7 @@ declare i32 @fchmod(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.tm, align 8
   %3 = alloca %struct.tm, align 8
   %4 = alloca %struct.tm, align 8

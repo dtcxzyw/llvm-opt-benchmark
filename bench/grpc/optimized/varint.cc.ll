@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN9grpc_core12VarintLengthEm(i64 noundef %tail_value) local_unnamed_addr #0 {
+define noundef range(i64 2, 7) i64 @_ZN9grpc_core12VarintLengthEm(i64 noundef %tail_value) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %tail_value, 128
   br i1 %cmp, label %return, label %if.else

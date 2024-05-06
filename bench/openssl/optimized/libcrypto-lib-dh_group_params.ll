@@ -118,7 +118,7 @@ declare i32 @ossl_ffc_named_group_get_uid(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_ffc_named_group_get_keylength(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_dh_is_named_safe_prime_group(ptr noundef readonly %dh) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_dh_is_named_safe_prime_group(ptr noundef readonly %dh) local_unnamed_addr #2 {
 entry:
   %cmp.i = icmp eq ptr %dh, null
   br i1 %cmp.i, label %DH_get_nid.exit, label %if.end.i

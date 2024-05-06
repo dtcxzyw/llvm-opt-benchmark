@@ -502,7 +502,7 @@ if.then.i:                                        ; preds = %invoke.cont4
   br i1 %cmp4.i, label %if.end.i, label %if.then6.i, !prof !53
 
 if.then6.i:                                       ; preds = %if.then.i
-  %4 = trunc i64 %add.i to i8
+  %4 = trunc nuw nsw i64 %add.i to i8
   %conv.i40.i = sub nuw nsw i8 23, %4
   store i8 %conv.i40.i, ptr %arrayidx.i.i, align 1, !tbaa !26
   %arrayidx2.i.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 %add.i
@@ -1674,7 +1674,7 @@ if.then6.i.i:                                     ; preds = %if.else.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i: ; preds = %if.then6.i.i, %if.else.i.i, %sw.bb4.i.i, %if.then.i.i
-  %5 = trunc i64 %call.i.i to i8
+  %5 = trunc nuw nsw i64 %call.i.i to i8
   %conv.i.i.i = sub nuw nsw i8 23, %5
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 23
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i, align 1, !tbaa !26

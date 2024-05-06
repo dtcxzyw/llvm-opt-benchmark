@@ -138,7 +138,7 @@ define hidden void @_ZN10ockam_core7routing7address7Address11from_string17h5f38c
   %12 = extractvalue { ptr, i64 } %10, 1
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store ptr %11, ptr %8, align 8, !alias.scope !34, !noalias !35
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %12, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !34, !noalias !35
@@ -542,7 +542,7 @@ default.unreachable:                              ; preds = %906, %521, %223, %2
   br label %213
 
 212:                                              ; preds = %206
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %97, ptr noundef nonnull align 8 dereferenceable(296) %96, i64 296, i1 false), !alias.scope !61, !noalias !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(296) %97, ptr noundef nonnull readonly align 8 dereferenceable(296) %96, i64 296, i1 false), !alias.scope !61, !noalias !56
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %96), !noalias !56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %106, ptr noundef nonnull align 8 dereferenceable(296) %97, i64 296, i1 false), !noalias !56
   br label %216
@@ -2115,7 +2115,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   store i8 0, ptr %109, align 8, !noalias !68
   store i64 %.sroa.0195.0.i.i, ptr %95, align 8, !alias.scope !65, !noalias !275
   store ptr %.sroa.4196.0.i.i, ptr %.8..8..8..8..8..sroa_idx, align 8, !alias.scope !65, !noalias !275
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %.sroa.7197.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.7197.i.i, i64 224, i1 false), !noalias !275
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(224) %.sroa.7197.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.7197.i.i, i64 224, i1 false), !noalias !275
   store i8 1, ptr %107, align 1, !noalias !68
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %.sroa.7197.i.i)
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %.sroa.3.i.i)
@@ -2644,7 +2644,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br label %828
 
 827:                                              ; preds = %822
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0.i.i, i64 32, i1 false), !noalias !362
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0.i.i, i64 32, i1 false), !noalias !362
   store <2 x i64> %824, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !349, !noalias !362
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.sroa.0.i.i), !noalias !354
   invoke void @_ZN10ockam_node7context7context7Context19set_tracing_context17hfe19ab9a825f2e42E(ptr noalias noundef nonnull align 8 dereferenceable(240) %823, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %79)
@@ -3479,7 +3479,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
   %6 = extractvalue { ptr, i64 } %4, 1
   %7 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store ptr %5, ptr %0, align 8, !alias.scope !440, !noalias !448
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %6, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !440, !noalias !448
@@ -4586,7 +4586,7 @@ define hidden void @"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..F
   %6 = extractvalue { ptr, i64 } %4, 1
   %7 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store ptr %5, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8

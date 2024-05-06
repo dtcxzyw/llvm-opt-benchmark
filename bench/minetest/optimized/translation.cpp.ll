@@ -74,7 +74,7 @@ $_ZNSt10_HashtableINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEESt4pairIK
 @g_client_translations = dso_local local_unnamed_addr global ptr @_ZL19client_translations, align 8
 @.str = private unnamed_addr constant [2 x i32] [i32 124, i32 0], align 4
 @.str.2 = private unnamed_addr constant [14 x i8] c"# textdomain:\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.3 = private unnamed_addr constant [38 x i8] c"Invalid textdomain translation line \22\00", align 1
 @.str.4 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
 @.str.5 = private unnamed_addr constant [29 x i8] c"Malformed translation line \22\00", align 1

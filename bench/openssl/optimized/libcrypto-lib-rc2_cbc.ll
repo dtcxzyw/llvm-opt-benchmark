@@ -445,7 +445,7 @@ if.end376:                                        ; preds = %if.then298, %sw.bb3
   %conv386 = trunc i64 %shr384 to i8
   store i8 %conv386, ptr %incdec.ptr196, align 1
   %shr388 = lshr i64 %xor0.1, 24
-  %conv390 = trunc i64 %shr388 to i8
+  %conv390 = trunc nuw i64 %shr388 to i8
   store i8 %conv390, ptr %incdec.ptr200, align 1
   %conv393 = trunc i64 %xor1.1 to i8
   store i8 %conv393, ptr %incdec.ptr204, align 1
@@ -456,7 +456,7 @@ if.end376:                                        ; preds = %if.then298, %sw.bb3
   %conv401 = trunc i64 %shr399 to i8
   store i8 %conv401, ptr %incdec.ptr210, align 1
   %shr403 = lshr i64 %xor1.1, 24
-  %conv405 = trunc i64 %shr403 to i8
+  %conv405 = trunc nuw i64 %shr403 to i8
   br label %if.end407
 
 if.end407:                                        ; preds = %if.end376, %if.end

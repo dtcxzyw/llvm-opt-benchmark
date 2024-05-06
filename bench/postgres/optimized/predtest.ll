@@ -80,8 +80,8 @@ define internal fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %0, 
 
 11:                                               ; preds = %8, %3
   %.053 = phi ptr [ %10, %8 ], [ %0, %3 ]
-  %12 = call fastcc i32 @predicate_classify(ptr noundef %1, ptr noundef nonnull %5), !range !5
-  %13 = call fastcc i32 @predicate_classify(ptr noundef %.053, ptr noundef nonnull %4), !range !5
+  %12 = call fastcc i32 @predicate_classify(ptr noundef %1, ptr noundef nonnull %5)
+  %13 = call fastcc i32 @predicate_classify(ptr noundef %.053, ptr noundef nonnull %4)
   switch i32 %13, label %default.unreachable79 [
     i32 1, label %14
     i32 2, label %64
@@ -110,7 +110,7 @@ define internal fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %0, 
 
 22:                                               ; preds = %19
   %23 = call fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %.053, ptr noundef nonnull %21, i1 noundef zeroext %2)
-  br i1 %23, label %19, label %24, !llvm.loop !6
+  br i1 %23, label %19, label %24, !llvm.loop !5
 
 24:                                               ; preds = %22, %19
   %25 = getelementptr inbounds i8, ptr %5, i64 32
@@ -133,7 +133,7 @@ define internal fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %0, 
 
 34:                                               ; preds = %31
   %35 = call fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %.053, ptr noundef nonnull %33, i1 noundef zeroext %2)
-  br i1 %35, label %.thread, label %31, !llvm.loop !8
+  br i1 %35, label %.thread, label %31, !llvm.loop !7
 
 .thread:                                          ; preds = %34
   %36 = getelementptr inbounds i8, ptr %5, i64 32
@@ -159,7 +159,7 @@ define internal fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %0, 
 
 47:                                               ; preds = %44
   %48 = call fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef nonnull %46, ptr noundef %1, i1 noundef zeroext %2)
-  br i1 %48, label %49, label %44, !llvm.loop !9
+  br i1 %48, label %49, label %44, !llvm.loop !8
 
 49:                                               ; preds = %47, %44
   %50 = getelementptr inbounds i8, ptr %4, i64 32
@@ -182,7 +182,7 @@ define internal fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %0, 
 
 59:                                               ; preds = %56
   %60 = call fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef nonnull %58, ptr noundef %1, i1 noundef zeroext %2)
-  br i1 %60, label %61, label %56, !llvm.loop !10
+  br i1 %60, label %61, label %56, !llvm.loop !9
 
 61:                                               ; preds = %59, %56
   %62 = getelementptr inbounds i8, ptr %4, i64 32
@@ -224,7 +224,7 @@ define internal fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %0, 
 
 80:                                               ; preds = %77
   %81 = call fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef nonnull %75, ptr noundef nonnull %79, i1 noundef zeroext %2)
-  br i1 %81, label %82, label %77, !llvm.loop !11
+  br i1 %81, label %82, label %77, !llvm.loop !10
 
 82:                                               ; preds = %80
   %83 = load ptr, ptr %73, align 8
@@ -232,7 +232,7 @@ define internal fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %0, 
   %84 = load ptr, ptr %67, align 8
   %85 = call ptr %84(ptr noundef nonnull %4) #6
   %.not67 = icmp eq ptr %85, null
-  br i1 %.not67, label %.loopexit, label %74, !llvm.loop !12
+  br i1 %.not67, label %.loopexit, label %74, !llvm.loop !11
 
 .critedge:                                        ; preds = %77
   %86 = load ptr, ptr %73, align 8
@@ -254,7 +254,7 @@ define internal fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %0, 
 
 91:                                               ; preds = %.preheader
   %92 = call fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef nonnull %90, ptr noundef %1, i1 noundef zeroext %2)
-  br i1 %92, label %.preheader, label %93, !llvm.loop !13
+  br i1 %92, label %.preheader, label %93, !llvm.loop !12
 
 93:                                               ; preds = %91, %.preheader
   %94 = getelementptr inbounds i8, ptr %4, i64 32
@@ -284,7 +284,7 @@ define internal fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %0, 
 
 104:                                              ; preds = %101
   %105 = call fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %.053, ptr noundef nonnull %103, i1 noundef zeroext %2)
-  br i1 %105, label %101, label %106, !llvm.loop !14
+  br i1 %105, label %101, label %106, !llvm.loop !13
 
 106:                                              ; preds = %104, %101
   %107 = getelementptr inbounds i8, ptr %5, i64 32
@@ -307,7 +307,7 @@ define internal fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %0, 
 
 116:                                              ; preds = %113
   %117 = call fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %.053, ptr noundef nonnull %115, i1 noundef zeroext %2)
-  br i1 %117, label %118, label %113, !llvm.loop !15
+  br i1 %117, label %118, label %113, !llvm.loop !14
 
 118:                                              ; preds = %116, %113
   %119 = getelementptr inbounds i8, ptr %5, i64 32
@@ -499,8 +499,8 @@ define internal fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef %0, 
 
 11:                                               ; preds = %8, %3
   %.075 = phi ptr [ %10, %8 ], [ %0, %3 ]
-  %12 = call fastcc i32 @predicate_classify(ptr noundef %1, ptr noundef nonnull %5), !range !5
-  %13 = call fastcc i32 @predicate_classify(ptr noundef %.075, ptr noundef nonnull %4), !range !5
+  %12 = call fastcc i32 @predicate_classify(ptr noundef %1, ptr noundef nonnull %5)
+  %13 = call fastcc i32 @predicate_classify(ptr noundef %.075, ptr noundef nonnull %4)
   switch i32 %13, label %default.unreachable134 [
     i32 1, label %14
     i32 2, label %83
@@ -529,7 +529,7 @@ define internal fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef %0, 
 
 22:                                               ; preds = %19
   %23 = call fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef %.075, ptr noundef nonnull %21, i1 noundef zeroext %2)
-  br i1 %23, label %.thread, label %19, !llvm.loop !16
+  br i1 %23, label %.thread, label %19, !llvm.loop !15
 
 .thread:                                          ; preds = %22
   %24 = getelementptr inbounds i8, ptr %5, i64 32
@@ -555,7 +555,7 @@ define internal fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef %0, 
 
 35:                                               ; preds = %32
   %36 = call fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef nonnull %34, ptr noundef %1, i1 noundef zeroext %2)
-  br i1 %36, label %37, label %32, !llvm.loop !17
+  br i1 %36, label %37, label %32, !llvm.loop !16
 
 37:                                               ; preds = %35, %32
   %38 = getelementptr inbounds i8, ptr %4, i64 32
@@ -578,7 +578,7 @@ define internal fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef %0, 
 
 47:                                               ; preds = %44
   %48 = call fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef %.075, ptr noundef nonnull %46, i1 noundef zeroext %2)
-  br i1 %48, label %44, label %49, !llvm.loop !18
+  br i1 %48, label %44, label %49, !llvm.loop !17
 
 49:                                               ; preds = %47, %44
   %50 = getelementptr inbounds i8, ptr %5, i64 32
@@ -648,7 +648,7 @@ extract_not_arg.exit.thread:                      ; preds = %56, %54, %64, %52, 
 
 78:                                               ; preds = %75
   %79 = call fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef nonnull %77, ptr noundef %1, i1 noundef zeroext %2)
-  br i1 %79, label %80, label %75, !llvm.loop !19
+  br i1 %79, label %80, label %75, !llvm.loop !18
 
 80:                                               ; preds = %78, %75
   %81 = getelementptr inbounds i8, ptr %4, i64 32
@@ -678,7 +678,7 @@ extract_not_arg.exit.thread:                      ; preds = %56, %54, %64, %52, 
 
 91:                                               ; preds = %88
   %92 = call fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef %.075, ptr noundef nonnull %90, i1 noundef zeroext %2)
-  br i1 %92, label %88, label %93, !llvm.loop !20
+  br i1 %92, label %88, label %93, !llvm.loop !19
 
 93:                                               ; preds = %91, %88
   %94 = getelementptr inbounds i8, ptr %5, i64 32
@@ -716,7 +716,7 @@ extract_not_arg.exit.thread:                      ; preds = %56, %54, %64, %52, 
 
 111:                                              ; preds = %108
   %112 = call fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef nonnull %106, ptr noundef nonnull %110, i1 noundef zeroext %2)
-  br i1 %112, label %113, label %108, !llvm.loop !21
+  br i1 %112, label %113, label %108, !llvm.loop !20
 
 113:                                              ; preds = %111
   %114 = load ptr, ptr %104, align 8
@@ -724,7 +724,7 @@ extract_not_arg.exit.thread:                      ; preds = %56, %54, %64, %52, 
   %115 = load ptr, ptr %99, align 8
   %116 = call ptr %115(ptr noundef nonnull %4) #6
   %.not97 = icmp eq ptr %116, null
-  br i1 %.not97, label %.loopexit, label %105, !llvm.loop !22
+  br i1 %.not97, label %.loopexit, label %105, !llvm.loop !21
 
 .critedge:                                        ; preds = %108
   %117 = load ptr, ptr %104, align 8
@@ -800,7 +800,7 @@ extract_not_arg.exit109.thread:                   ; preds = %124, %122, %132, %1
 
 146:                                              ; preds = %143
   %147 = call fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef nonnull %145, ptr noundef %1, i1 noundef zeroext %2)
-  br i1 %147, label %143, label %148, !llvm.loop !23
+  br i1 %147, label %143, label %148, !llvm.loop !22
 
 148:                                              ; preds = %146, %143
   %149 = getelementptr inbounds i8, ptr %4, i64 32
@@ -875,7 +875,7 @@ extract_strong_not_arg.exit.thread:               ; preds = %155, %163, %153, %1
 
 180:                                              ; preds = %177
   %181 = call fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef %.075, ptr noundef nonnull %179, i1 noundef zeroext %2)
-  br i1 %181, label %182, label %177, !llvm.loop !24
+  br i1 %181, label %182, label %177, !llvm.loop !23
 
 182:                                              ; preds = %180, %177
   %183 = getelementptr inbounds i8, ptr %5, i64 32
@@ -898,7 +898,7 @@ extract_strong_not_arg.exit.thread:               ; preds = %155, %163, %153, %1
 
 192:                                              ; preds = %189
   %193 = call fastcc zeroext i1 @predicate_refuted_by_recurse(ptr noundef %.075, ptr noundef nonnull %191, i1 noundef zeroext %2)
-  br i1 %193, label %189, label %194, !llvm.loop !25
+  br i1 %193, label %189, label %194, !llvm.loop !24
 
 194:                                              ; preds = %192, %189
   %195 = getelementptr inbounds i8, ptr %5, i64 32
@@ -1092,7 +1092,7 @@ predicate_refuted_by_simple_clause.exit:          ; preds = %288, %287, %285, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @predicate_classify(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @predicate_classify(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   switch i32 %3, label %.critedge [
     i32 1, label %4
@@ -2352,7 +2352,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %127 = load i32, ptr %37, align 4
   %128 = sext i32 %127 to i64
   %129 = icmp slt i64 %indvars.iv.next, %128
-  br i1 %129, label %.lr.ph196, label %._crit_edge129.split, !llvm.loop !26
+  br i1 %129, label %.lr.ph196, label %._crit_edge129.split, !llvm.loop !25
 
 ._crit_edge129.split:                             ; preds = %.thread114, %.lr.ph
   %.1127.lcssa = phi i8 [ %.074139198, %.lr.ph ], [ %.3, %.thread114 ]
@@ -2425,7 +2425,7 @@ define internal void @InvalidateOprProofCacheCallBack(i64 %0, i32 %1, i32 %2) #0
   store i8 0, ptr %9, align 1
   %10 = call ptr @hash_seq_search(ptr noundef nonnull %4) #6
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -2460,26 +2460,25 @@ attributes #6 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 3}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}

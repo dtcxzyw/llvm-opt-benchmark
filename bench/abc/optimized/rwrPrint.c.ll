@@ -455,7 +455,7 @@ Rwr_GetBushSumOfVolumes.exit:                     ; preds = %52, %Rwr_GetBushVol
   %.0.lcssa.i37 = phi i32 [ 0, %Rwr_GetBushVolume.exit ], [ 0, %Rwr_GetBushVolume.exit.thread ], [ %.1.i35, %52 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.16, i32 noundef %.0.lcssa.i49, i32 noundef %54, i32 noundef %.0.lcssa.i37) #7
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %56, ptr %5, align 4
   call void @Extra_PrintBinary(ptr noundef %6, ptr noundef nonnull %5, i32 noundef 16) #7
   %fputc = call i32 @fputc(i32 10, ptr %6)
@@ -497,7 +497,7 @@ Rwr_GetBushSumOfVolumes.exit:                     ; preds = %52, %Rwr_GetBushVol
   %80 = and i32 %79, 255
   %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.10, i32 noundef %80) #7
   %82 = call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %6)
-  call void @Rwr_NodePrint_rec(ptr noundef %6, ptr noundef nonnull %.03141)
+  call void @Rwr_NodePrint_rec(ptr noundef %6, ptr noundef nonnull readonly %.03141)
   %fputc.i = call i32 @fputc(i32 10, ptr %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %83

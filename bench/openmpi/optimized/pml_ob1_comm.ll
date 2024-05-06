@@ -435,7 +435,7 @@ opal_obj_run_destructors.exit34:                  ; preds = %.lr.ph.i31, %opal_o
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @mca_pml_ob1_comm_init_size(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_comm_init_size(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = tail call noalias ptr @calloc(i64 noundef %1, i64 noundef 8) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %3, ptr %4, align 8

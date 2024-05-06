@@ -85,7 +85,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef signext i8 @_ZN6icu_759ScriptRun10sameScriptEii(i32 noundef %scriptOne, i32 noundef %scriptTwo) local_unnamed_addr #0 align 2 {
+define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_759ScriptRun10sameScriptEii(i32 noundef %scriptOne, i32 noundef %scriptTwo) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp slt i32 %scriptOne, 2
   %cmp1 = icmp slt i32 %scriptTwo, 2
@@ -97,7 +97,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef signext i8 @_ZN6icu_759ScriptRun4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(1064) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_759ScriptRun4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(1064) %this) local_unnamed_addr #2 align 2 {
 entry:
   %error = alloca i32, align 4
   %parenSP = getelementptr inbounds i8, ptr %this, i64 1060
@@ -148,7 +148,7 @@ if.then25:                                        ; preds = %if.then15
   %conv20 = zext i16 %8 to i32
   %sub27 = shl nuw nsw i32 %conv, 10
   %add29 = add nsw i32 %sub27, -56613888
-  %add31 = add nsw i32 %add29, %conv20
+  %add31 = add nuw nsw i32 %add29, %conv20
   store i32 %add, ptr %scriptEnd, align 4
   br label %if.end35
 

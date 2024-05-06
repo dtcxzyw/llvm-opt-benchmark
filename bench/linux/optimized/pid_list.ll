@@ -68,7 +68,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @trace_pid_list_set(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_set(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %65, label %4
 
@@ -189,7 +189,7 @@ define dso_local noundef i32 @trace_pid_list_set(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @trace_pid_list_clear(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_clear(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %43, label %4
 
@@ -262,7 +262,7 @@ define dso_local noundef i32 @trace_pid_list_clear(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @trace_pid_list_next(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_next(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %49, label %5
 
@@ -321,13 +321,13 @@ define dso_local noundef i32 @trace_pid_list_next(ptr noundef %0, i32 noundef %1
   br label %49
 
 39:                                               ; preds = %28
-  %40 = trunc i64 %17 to i32
+  %40 = trunc nuw nsw i64 %17 to i32
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %0, i64 noundef %12) #7
   %41 = icmp ugt i32 %40, 255
   br i1 %41, label %49, label %42
 
 42:                                               ; preds = %39
-  %43 = trunc i64 %23 to i32
+  %43 = trunc nuw nsw i64 %23 to i32
   %44 = shl nuw nsw i32 %40, 22
   %45 = shl nuw nsw i32 %43, 14
   %46 = and i32 %45, 4177920
@@ -342,7 +342,7 @@ define dso_local noundef i32 @trace_pid_list_next(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @trace_pid_list_first(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @trace_pid_list_first(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %35, label %4
 

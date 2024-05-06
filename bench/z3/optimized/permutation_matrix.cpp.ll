@@ -201,7 +201,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %16 = load ptr, ptr %m_rev44, align 8
   %arrayidx.i35 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw i64 %indvars.iv to i32
   store i32 %17, ptr %arrayidx.i35, align 4
   %18 = load ptr, ptr %this, align 8
   %arrayidx.i37 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
@@ -358,7 +358,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %16 = load ptr, ptr %m_rev44, align 8
   %arrayidx.i35 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw i64 %indvars.iv to i32
   store i32 %17, ptr %arrayidx.i35, align 4
   %18 = load ptr, ptr %this, align 8
   %arrayidx.i37 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
@@ -413,7 +413,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %0 = load ptr, ptr %m_rev, align 8
   %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw i64 %indvars.iv to i32
   store i32 %1, ptr %arrayidx.i, align 4
   %2 = load ptr, ptr %this, align 8
   %arrayidx.i18 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
@@ -553,7 +553,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %0 = load ptr, ptr %m_rev, align 8
   %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw i64 %indvars.iv to i32
   store i32 %1, ptr %arrayidx.i, align 4
   %2 = load ptr, ptr %this, align 8
   %arrayidx.i18 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv

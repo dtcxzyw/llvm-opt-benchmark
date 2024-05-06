@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @working_cluster_rec = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_reset_statistics(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_reset_statistics(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.slurm_msg, align 8
   %3 = alloca %struct.slurm_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %2) #2
@@ -57,7 +57,7 @@ declare i32 @slurm_send_recv_controller_msg(ptr noundef, ptr noundef, ptr nounde
 declare void @slurm_seterrno(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_get_statistics(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_get_statistics(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.slurm_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #2

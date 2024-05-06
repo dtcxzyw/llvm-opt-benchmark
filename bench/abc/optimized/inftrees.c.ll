@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @inflate_table.dext = internal unnamed_addr constant [32 x i16] [i16 16, i16 16, i16 16, i16 16, i16 17, i16 17, i16 18, i16 18, i16 19, i16 19, i16 20, i16 20, i16 21, i16 21, i16 22, i16 22, i16 23, i16 23, i16 24, i16 24, i16 25, i16 25, i16 26, i16 26, i16 27, i16 27, i16 28, i16 28, i16 29, i16 29, i16 64, i16 64], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @inflate_table(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
 .preheader265:
   %6 = alloca [16 x i16], align 16
   %7 = alloca [16 x i16], align 16
@@ -91,7 +91,7 @@ define hidden noundef i32 @inflate_table(i32 noundef %0, ptr nocapture noundef r
   br i1 %exitcond327.not, label %._crit_edge281, label %.lr.ph280, !llvm.loop !7
 
 ._crit_edge281.loopexit.split.loop.exit:          ; preds = %.lr.ph280
-  %31 = trunc i64 %indvars.iv321 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv321 to i32
   br label %._crit_edge281
 
 ._crit_edge281:                                   ; preds = %30, %._crit_edge281.loopexit.split.loop.exit, %21

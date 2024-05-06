@@ -401,8 +401,8 @@ _ZNK11ast_manager13proof_parents3endEv.exit:      ; preds = %invoke.cont14, %cal
   %cond.i30 = add i32 %sub.i29, %9
   %idx.ext.i = zext i32 %cond.i30 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %13 = getelementptr i8, ptr %call4, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %13, i64 32
+  %13 = getelementptr inbounds i8, ptr %call4, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %13, i64 32
   %cmp18.not83 = icmp eq i32 %cond.i30, 0
   br i1 %cmp18.not83, label %for.end, label %for.body
 

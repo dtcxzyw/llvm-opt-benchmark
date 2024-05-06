@@ -218,7 +218,7 @@ define hidden void @bfcp_add_address(ptr nocapture noundef readonly %0, i32 noun
   br i1 %.not, label %13, label %34
 
 13:                                               ; preds = %6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %1) #4
@@ -525,7 +525,7 @@ define hidden void @proto_reg_handoff_bfcp() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bfcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_bfcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %6 = icmp ult i32 %5, 12
   br i1 %6, label %dissect_bfcp_heur_check.exit.thread, label %7

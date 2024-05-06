@@ -22,7 +22,7 @@ entry:
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @slg_write(ptr nocapture readnone %b, ptr nocapture noundef readonly %in, i32 noundef %inl) #2 {
+define internal range(i32 0, -2147483648) i32 @slg_write(ptr nocapture readnone %b, ptr nocapture noundef readonly %in, i32 noundef %inl) #2 {
 entry:
   %cmp = icmp slt i32 %inl, 0
   br i1 %cmp, label %return, label %if.end
@@ -66,7 +66,7 @@ return:                                           ; preds = %if.end, %entry, %wh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @slg_puts(ptr nocapture readnone %bp, ptr nocapture noundef readonly %str) #2 {
+define internal range(i32 0, -2147483648) i32 @slg_puts(ptr nocapture readnone %bp, ptr nocapture noundef readonly %str) #2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #6
   %conv = trunc i64 %call to i32
@@ -82,7 +82,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end4.i:                                        ; preds = %if.end.i
   %conv5.i = and i64 %call, 2147483647
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %str, i64 %conv5.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr readonly align 1 %str, i64 %conv5.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 %conv5.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %while.cond.i
@@ -141,7 +141,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @slg_free(ptr noundef readnone %a) #2 {
+define internal range(i32 0, 2) i32 @slg_free(ptr noundef readnone %a) #2 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end

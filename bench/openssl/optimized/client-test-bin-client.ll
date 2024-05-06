@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [57 x i8] c"assertion failed: (size_t)BIO_write(in, buf, len) == len\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local i64 @time(ptr noundef writeonly %t) local_unnamed_addr #0 {
+define dso_local noundef i64 @time(ptr noundef writeonly %t) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %t, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -25,7 +25,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #1 {
+define dso_local noundef i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #1 {
 entry:
   tail call void @FuzzerSetRand() #4
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 258, ptr noundef null) #4
@@ -62,7 +62,7 @@ declare ptr @SSL_COMP_get_compression_methods() local_unnamed_addr #2
 declare void @OPENSSL_sk_sort(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerTestOneInput(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #1 {
+define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %tmp = alloca [1024 x i8], align 16
   %cmp = icmp eq i64 %len, 0

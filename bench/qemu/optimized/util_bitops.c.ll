@@ -125,7 +125,7 @@ if.then41:                                        ; preds = %found_first
 found_middle:                                     ; preds = %while.body, %while.body27, %found_first, %if.end5
   %result.4 = phi i64 [ %result.3, %found_first ], [ %and, %if.end5 ], [ %result.256, %while.body27 ], [ %result.147, %while.body ]
   %tmp.1 = phi i64 [ %and39, %found_first ], [ %and2, %if.end5 ], [ %5, %while.body27 ], [ %1, %while.body ]
-  %7 = tail call i64 @llvm.cttz.i64(i64 %tmp.1, i1 true), !range !8
+  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %tmp.1, i1 true)
   %add44 = add i64 %7, %result.4
   br label %return
 
@@ -187,7 +187,7 @@ if.end17:                                         ; preds = %while.body
   %add18 = add i64 %result.133, 64
   %sub19 = add i64 %size.addr.131, -64
   %tobool12.not = icmp ult i64 %sub19, 64
-  br i1 %tobool12.not, label %while.end, label %while.body, !llvm.loop !9
+  br i1 %tobool12.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end17, %if.end10
   %size.addr.1.lcssa = phi i64 [ %size.addr.0, %if.end10 ], [ %sub19, %if.end17 ]
@@ -217,7 +217,7 @@ found_middle:                                     ; preds = %while.body, %found_
   %result.3 = phi i64 [ %result.2, %found_first ], [ %and, %if.end5 ], [ %result.133, %while.body ]
   %tmp.1 = phi i64 [ %or23, %found_first ], [ %or, %if.end5 ], [ %1, %while.body ]
   %not28 = xor i64 %tmp.1, -1
-  %3 = tail call i64 @llvm.cttz.i64(i64 %not28, i1 false), !range !8
+  %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not28, i1 false)
   %add29 = add i64 %3, %result.3
   br label %return
 
@@ -256,14 +256,14 @@ while.body:                                       ; preds = %while.cond
   %arrayidx7 = getelementptr i64, ptr %addr, i64 %dec
   %1 = load i64, ptr %arrayidx7, align 8
   %tobool8.not = icmp eq i64 %1, 0
-  br i1 %tobool8.not, label %while.cond, label %found, !llvm.loop !10
+  br i1 %tobool8.not, label %while.cond, label %found, !llvm.loop !9
 
 found:                                            ; preds = %while.body, %if.then
   %words.1 = phi i64 [ %div10, %if.then ], [ %dec, %while.body ]
   %tmp.0 = phi i64 [ %and2, %if.then ], [ %1, %while.body ]
   %mul = shl nuw i64 %words.1, 6
   %sub10 = or disjoint i64 %mul, 63
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %tmp.0, i1 true), !range !8
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %tmp.0, i1 true)
   %sub11 = sub nuw nsw i64 %sub10, %2
   br label %return
 
@@ -292,6 +292,5 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i64 0, i64 65}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

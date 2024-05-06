@@ -267,7 +267,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare ptr @PyCapsule_GetPointer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_cjk_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @_cjk_exec(ptr noundef %module) #0 {
 entry:
   %mhname.i = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %mhname.i)
@@ -436,7 +436,7 @@ declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @PyMem_Calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @gb2312_encode(ptr nocapture readnone %state, ptr nocapture readnone %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 %flags) #5 {
+define internal range(i64 -1, 2) i64 @gb2312_encode(ptr nocapture readnone %state, ptr nocapture readnone %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 %flags) #5 {
 entry:
   %0 = load i64, ptr %inpos, align 8
   %cmp24 = icmp slt i64 %0, %inlen
@@ -477,7 +477,7 @@ do.body2:                                         ; preds = %PyUnicode_READ.exit
   br i1 %cmp3, label %return, label %do.body5
 
 do.body5:                                         ; preds = %do.body2
-  %conv = trunc i32 %retval.0.i to i8
+  %conv = trunc nuw nsw i32 %retval.0.i to i8
   %5 = load ptr, ptr %outbuf, align 8
   store i8 %conv, ptr %5, align 1
   br label %while.cond.backedge
@@ -537,7 +537,7 @@ land.lhs.true42:                                  ; preds = %land.lhs.true34
 
 do.body65:                                        ; preds = %land.lhs.true42
   %shr67 = lshr i16 %12, 8
-  %13 = trunc i16 %shr67 to i8
+  %13 = trunc nuw i16 %shr67 to i8
   %conv68 = or disjoint i8 %13, -128
   %14 = load ptr, ptr %outbuf, align 8
   store i8 %conv68, ptr %14, align 1
@@ -554,7 +554,7 @@ return:                                           ; preds = %do.body2, %if.end14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @gb2312_decode(ptr nocapture readnone %state, ptr nocapture readnone %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
+define internal range(i64 -4, 2) i64 @gb2312_decode(ptr nocapture readnone %state, ptr nocapture readnone %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
 entry:
   %cmp16 = icmp sgt i64 %inleft, 0
   br i1 %cmp16, label %while.body.preheader, label %return
@@ -634,7 +634,7 @@ return:                                           ; preds = %do.body, %do.body10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @gbk_encode(ptr nocapture readnone %state, ptr nocapture readnone %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 %flags) #5 {
+define internal range(i64 -1, 2) i64 @gbk_encode(ptr nocapture readnone %state, ptr nocapture readnone %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 %flags) #5 {
 entry:
   %0 = load i64, ptr %inpos, align 8
   %cmp35 = icmp slt i64 %0, %inlen
@@ -675,7 +675,7 @@ do.body2:                                         ; preds = %PyUnicode_READ.exit
   br i1 %cmp3, label %return, label %do.body5
 
 do.body5:                                         ; preds = %do.body2
-  %conv = trunc i32 %retval.0.i to i8
+  %conv = trunc nuw nsw i32 %retval.0.i to i8
   %5 = load ptr, ptr %outbuf, align 8
   store i8 %conv, ptr %5, align 1
   br label %while.cond.backedge
@@ -703,7 +703,7 @@ do.body19:                                        ; preds = %if.end14
   br i1 %cmp20, label %return, label %do.end24
 
 do.end24:                                         ; preds = %do.body19
-  %trunc = trunc i32 %retval.0.i to i16
+  %trunc = trunc nuw i32 %retval.0.i to i16
   switch i16 %trunc, label %land.lhs.true [
     i16 8212, label %do.body79.thread
     i16 8213, label %if.then30
@@ -751,14 +751,14 @@ land.lhs.true56:                                  ; preds = %land.lhs.true48
 do.body79.thread:                                 ; preds = %if.then30, %if.then34, %do.end24
   %code.0.ph = phi i16 [ -24150, %do.end24 ], [ -24156, %if.then34 ], [ -22460, %if.then30 ]
   %shr8131 = lshr i16 %code.0.ph, 8
-  %13 = trunc i16 %shr8131 to i8
+  %13 = trunc nuw i16 %shr8131 to i8
   %14 = load ptr, ptr %outbuf, align 8
   store i8 %13, ptr %14, align 1
   br label %do.body88
 
 do.body79:                                        ; preds = %land.lhs.true56
   %shr81 = lshr i16 %12, 8
-  %15 = trunc i16 %shr81 to i8
+  %15 = trunc nuw i16 %shr81 to i8
   %conv82 = or i8 %15, -128
   %16 = load ptr, ptr %outbuf, align 8
   store i8 %conv82, ptr %16, align 1
@@ -788,7 +788,7 @@ return:                                           ; preds = %do.body2, %if.end14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @gbk_decode(ptr nocapture readnone %state, ptr nocapture readnone %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
+define internal range(i64 -4, 2) i64 @gbk_decode(ptr nocapture readnone %state, ptr nocapture readnone %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
 entry:
   %cmp38 = icmp sgt i64 %inleft, 0
   br i1 %cmp38, label %while.body.preheader, label %return
@@ -939,7 +939,7 @@ return:                                           ; preds = %do.body, %do.body10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @gb18030_encode(ptr nocapture readnone %state, ptr nocapture readnone %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 %flags) #5 {
+define internal range(i64 -1, 2) i64 @gb18030_encode(ptr nocapture readnone %state, ptr nocapture readnone %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 %flags) #5 {
 entry:
   %0 = load i64, ptr %inpos, align 8
   %cmp88 = icmp slt i64 %0, %inlen
@@ -980,7 +980,7 @@ do.body2:                                         ; preds = %PyUnicode_READ.exit
   br i1 %cmp3, label %return, label %do.body5
 
 do.body5:                                         ; preds = %do.body2
-  %conv = trunc i32 %retval.0.i to i8
+  %conv = trunc nuw nsw i32 %retval.0.i to i8
   %5 = load ptr, ptr %outbuf, align 8
   store i8 %conv, ptr %5, align 1
   br label %while.cond.backedge
@@ -1010,21 +1010,21 @@ if.then17:                                        ; preds = %if.end14
 do.body25:                                        ; preds = %if.then17
   %sub18 = add i32 %retval.0.i, -65536
   %rem = urem i32 %sub18, 10
-  %9 = trunc i32 %rem to i8
+  %9 = trunc nuw nsw i32 %rem to i8
   %conv29 = or disjoint i8 %9, 48
   %10 = load ptr, ptr %outbuf, align 8
   %arrayidx30 = getelementptr i8, ptr %10, i64 3
   store i8 %conv29, ptr %arrayidx30, align 1
   %div = udiv i32 %sub18, 10
   %rem33 = urem i32 %div, 126
-  %11 = trunc i32 %rem33 to i8
+  %11 = trunc nuw nsw i32 %rem33 to i8
   %conv37 = add nuw nsw i8 %11, -127
   %12 = load ptr, ptr %outbuf, align 8
   %arrayidx38 = getelementptr i8, ptr %12, i64 2
   store i8 %conv37, ptr %arrayidx38, align 1
   %div40 = udiv i32 %sub18, 1260
   %rem42 = urem i32 %div40, 10
-  %13 = trunc i32 %rem42 to i8
+  %13 = trunc nuw nsw i32 %rem42 to i8
   %conv46 = or disjoint i8 %13, 48
   %14 = load ptr, ptr %outbuf, align 8
   %arrayidx47 = getelementptr i8, ptr %14, i64 1
@@ -1041,7 +1041,7 @@ do.body65:                                        ; preds = %if.end14
   br i1 %cmp66, label %return, label %do.end70
 
 do.end70:                                         ; preds = %do.body65
-  %trunc = trunc i32 %retval.0.i to i16
+  %trunc = trunc nuw i32 %retval.0.i to i16
   switch i16 %trunc, label %land.lhs.true [
     i16 8212, label %do.body238.thread
     i16 8213, label %if.then76
@@ -1150,21 +1150,21 @@ for.end:                                          ; preds = %land.lhs.true175
   %conv182 = zext i16 %28 to i32
   %add183 = add nsw i32 %sub181, %conv182
   %rem185 = urem i32 %add183, 10
-  %29 = trunc i32 %rem185 to i8
+  %29 = trunc nuw nsw i32 %rem185 to i8
   %conv189 = or disjoint i8 %29, 48
   %30 = load ptr, ptr %outbuf, align 8
   %arrayidx190 = getelementptr i8, ptr %30, i64 3
   store i8 %conv189, ptr %arrayidx190, align 1
   %div192 = udiv i32 %add183, 10
   %rem194 = urem i32 %div192, 126
-  %31 = trunc i32 %rem194 to i8
+  %31 = trunc nuw nsw i32 %rem194 to i8
   %conv198 = add nuw nsw i8 %31, -127
   %32 = load ptr, ptr %outbuf, align 8
   %arrayidx199 = getelementptr i8, ptr %32, i64 2
   store i8 %conv198, ptr %arrayidx199, align 1
   %div201 = udiv i32 %add183, 1260
   %rem203 = urem i32 %div201, 10
-  %33 = trunc i32 %rem203 to i8
+  %33 = trunc nuw nsw i32 %rem203 to i8
   %conv207 = or disjoint i8 %33, 48
   %34 = load ptr, ptr %outbuf, align 8
   %arrayidx208 = getelementptr i8, ptr %34, i64 1
@@ -1179,7 +1179,7 @@ for.end:                                          ; preds = %land.lhs.true175
 do.body238.thread:                                ; preds = %if.then76, %if.then80, %do.end70
   %code.0.ph = phi i16 [ -24150, %do.end70 ], [ -24156, %if.then80 ], [ -22460, %if.then76 ]
   %shr24080 = lshr i16 %code.0.ph, 8
-  %37 = trunc i16 %shr24080 to i8
+  %37 = trunc nuw i16 %shr24080 to i8
   %38 = load ptr, ptr %outbuf, align 8
   store i8 %37, ptr %38, align 1
   br label %do.body247
@@ -1187,7 +1187,7 @@ do.body238.thread:                                ; preds = %if.then76, %if.then
 do.body238:                                       ; preds = %land.lhs.true145, %land.lhs.true102
   %code.0 = phi i16 [ %20, %land.lhs.true102 ], [ %24, %land.lhs.true145 ]
   %shr240 = lshr i16 %code.0, 8
-  %39 = trunc i16 %shr240 to i8
+  %39 = trunc nuw i16 %shr240 to i8
   %conv241 = or i8 %39, -128
   %40 = load ptr, ptr %outbuf, align 8
   store i8 %conv241, ptr %40, align 1
@@ -1217,7 +1217,7 @@ return:                                           ; preds = %do.body2, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @gb18030_decode(ptr nocapture readnone %state, ptr nocapture readnone %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
+define internal range(i64 -4, 2) i64 @gb18030_decode(ptr nocapture readnone %state, ptr nocapture readnone %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
 entry:
   %cmp91 = icmp sgt i64 %inleft, 0
   br i1 %cmp91, label %while.body.preheader, label %return
@@ -1303,7 +1303,7 @@ if.then71:                                        ; preds = %if.end55
   br i1 %cmp80, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.then71
-  %11 = trunc i32 %add79 to i16
+  %11 = trunc nuw i32 %add79 to i16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.cond
@@ -1491,7 +1491,7 @@ return:                                           ; preds = %do.body, %do.body10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @hz_encode(ptr nocapture noundef %state, ptr nocapture readnone %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 %flags) #5 {
+define internal range(i64 -1, 2) i64 @hz_encode(ptr nocapture noundef %state, ptr nocapture readnone %codec, i32 noundef %kind, ptr nocapture noundef readonly %data, ptr nocapture noundef %inpos, i64 noundef %inlen, ptr nocapture noundef %outbuf, i64 noundef %outleft, i32 %flags) #5 {
 entry:
   %0 = load i64, ptr %inpos, align 8
   %cmp47 = icmp slt i64 %0, %inlen
@@ -1555,7 +1555,7 @@ do.body20:                                        ; preds = %do.body7, %if.then
   br i1 %cmp21, label %return, label %do.body25
 
 do.body25:                                        ; preds = %do.body20
-  %conv = trunc i32 %retval.0.i to i8
+  %conv = trunc nuw nsw i32 %retval.0.i to i8
   %9 = load ptr, ptr %outbuf, align 8
   store i8 %conv, ptr %9, align 1
   %10 = load i64, ptr %inpos, align 8
@@ -1637,7 +1637,7 @@ do.body115:                                       ; preds = %do.body109
   %arrayidx119 = getelementptr i8, ptr %20, i64 1
   store i8 123, ptr %arrayidx119, align 1
   %shr123 = lshr i16 %17, 8
-  %conv124 = trunc i16 %shr123 to i8
+  %conv124 = trunc nuw i16 %shr123 to i8
   %21 = load ptr, ptr %outbuf, align 8
   %arrayidx125 = getelementptr i8, ptr %21, i64 2
   store i8 %conv124, ptr %arrayidx125, align 1
@@ -1661,7 +1661,7 @@ do.body147:                                       ; preds = %if.end101
 
 do.body153:                                       ; preds = %do.body147
   %shr155 = lshr i16 %17, 8
-  %conv156 = trunc i16 %shr155 to i8
+  %conv156 = trunc nuw i16 %shr155 to i8
   %25 = load ptr, ptr %outbuf, align 8
   store i8 %conv156, ptr %25, align 1
   %conv162 = trunc i16 %17 to i8
@@ -1690,7 +1690,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @hz_encode_reset(ptr nocapture noundef %state, ptr nocapture readnone %codec, ptr nocapture noundef %outbuf, i64 noundef %outleft) #7 {
+define internal range(i64 -1, 1) i64 @hz_encode_reset(ptr nocapture noundef %state, ptr nocapture readnone %codec, ptr nocapture noundef %outbuf, i64 noundef %outleft) #7 {
 entry:
   %0 = load i8, ptr %state, align 1
   %cmp.not = icmp eq i8 %0, 0
@@ -1718,7 +1718,7 @@ return:                                           ; preds = %entry, %do.body6, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @hz_decode(ptr nocapture noundef %state, ptr nocapture readnone %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
+define internal range(i64 -4, 2) i64 @hz_decode(ptr nocapture noundef %state, ptr nocapture readnone %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
 entry:
   %cmp31 = icmp sgt i64 %inleft, 0
   br i1 %cmp31, label %while.body.preheader, label %return

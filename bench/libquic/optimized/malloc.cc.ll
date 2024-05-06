@@ -15,12 +15,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nounwind allocsize(0) uwtable
 define hidden noalias ptr @malloc(i64 noundef %size) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call fastcc noundef i32 @_ZL22should_fail_allocationv(), !range !7
+  %call = tail call fastcc noundef i32 @_ZL22should_fail_allocationv()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @__errno_location() #12
+  %call1 = tail call ptr @__errno_location() #13
   store i32 12, ptr %call1, align 4
   br label %return
 
@@ -28,7 +28,7 @@ lpad:                                             ; preds = %if.end
   %0 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__cxa_call_unexpected(ptr %1) #13
+  tail call void @__cxa_call_unexpected(ptr %1) #14
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -41,7 +41,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL22should_fail_allocationv() unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL22should_fail_allocationv() unnamed_addr #1 {
 entry:
   %endptr = alloca ptr, align 8
   %.b4 = load i1, ptr @_ZL7in_call, align 4
@@ -53,7 +53,7 @@ if.end:                                           ; preds = %entry
   br i1 %.b, label %if.end16, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call = tail call ptr @getenv(ptr noundef nonnull @.str) #14
+  %call = tail call ptr @getenv(ptr noundef nonnull @.str) #15
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end12, label %land.lhs.true
 
@@ -63,7 +63,7 @@ land.lhs.true:                                    ; preds = %if.then2
   br i1 %cmp3.not, label %if.end12, label %if.then4
 
 if.then4:                                         ; preds = %land.lhs.true
-  %call5 = call i64 @strtoull(ptr noundef nonnull %call, ptr noundef nonnull %endptr, i32 noundef 10) #14
+  %call5 = call i64 @strtoull(ptr noundef nonnull %call, ptr noundef nonnull %endptr, i32 noundef 10) #15
   store i64 %call5, ptr @_ZL21malloc_number_to_fail, align 8
   %1 = load ptr, ptr %endptr, align 8
   %2 = load i8, ptr %1, align 1
@@ -72,12 +72,12 @@ if.then4:                                         ; preds = %land.lhs.true
 
 if.then8:                                         ; preds = %if.then4
   store i1 true, ptr @_ZL15failure_enabled, align 1
-  %call9 = tail call i32 @atexit(ptr noundef nonnull @_ZL12exit_handlerv) #14
-  %call10 = tail call noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef nonnull @_ZL15cpp_new_handlerv) #14
+  %call9 = tail call i32 @atexit(ptr noundef nonnull @_ZL12exit_handlerv) #15
+  %call10 = tail call noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef nonnull @_ZL15cpp_new_handlerv) #15
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then4, %if.then8, %land.lhs.true, %if.then2
-  %call13 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #14
+  %call13 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #15
   %cmp14 = icmp ne ptr %call13, null
   %conv15 = zext i1 %cmp14 to i8
   store i8 %conv15, ptr @_ZL13break_on_fail, align 1
@@ -101,7 +101,7 @@ if.end19:                                         ; preds = %if.end16
   br i1 %or.cond, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %if.end19
-  %call26 = tail call i32 @raise(i32 noundef 5) #14
+  %call26 = tail call i32 @raise(i32 noundef 5) #15
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then25, %if.end19
@@ -125,12 +125,12 @@ declare void @__cxa_call_unexpected(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind allocsize(0,1) uwtable
 define hidden noalias ptr @calloc(i64 noundef %num_elems, i64 noundef %size) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call fastcc noundef i32 @_ZL22should_fail_allocationv(), !range !7
+  %call = tail call fastcc noundef i32 @_ZL22should_fail_allocationv()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @__errno_location() #12
+  %call1 = tail call ptr @__errno_location() #13
   store i32 12, ptr %call1, align 4
   br label %return
 
@@ -138,7 +138,7 @@ lpad:                                             ; preds = %if.end
   %0 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__cxa_call_unexpected(ptr %1) #13
+  tail call void @__cxa_call_unexpected(ptr %1) #14
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -155,12 +155,12 @@ declare ptr @__libc_calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind allocsize(1) uwtable
 define hidden ptr @realloc(ptr noundef %ptr, i64 noundef %size) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call fastcc noundef i32 @_ZL22should_fail_allocationv(), !range !7
+  %call = tail call fastcc noundef i32 @_ZL22should_fail_allocationv()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @__errno_location() #12
+  %call1 = tail call ptr @__errno_location() #13
   store i32 12, ptr %call1, align 4
   br label %return
 
@@ -168,7 +168,7 @@ lpad:                                             ; preds = %if.end
   %0 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   %1 = extractvalue { ptr, i32 } %0, 0
-  tail call void @__cxa_call_unexpected(ptr %1) #13
+  tail call void @__cxa_call_unexpected(ptr %1) #14
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -188,7 +188,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
 
-; Function Attrs: nounwind
+; Function Attrs: nofree nounwind
 declare i32 @atexit(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
@@ -204,7 +204,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call void @_exit(i32 noundef 88) #15
+  tail call void @_exit(i32 noundef 88) #16
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -212,19 +212,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef) local_unnamed_addr #8
+declare noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL15cpp_new_handlerv() #10 {
+define internal void @_ZL15cpp_new_handlerv() #11 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @raise(i32 noundef) local_unnamed_addr #8
+declare i32 @raise(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: noreturn
-declare void @_exit(i32 noundef) local_unnamed_addr #11
+declare void @_exit(i32 noundef) local_unnamed_addr #12
 
 attributes #0 = { mustprogress nounwind allocsize(0) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -234,14 +234,15 @@ attributes #4 = { mustprogress nounwind allocsize(0,1) uwtable "frame-pointer"="
 attributes #5 = { mustprogress nounwind allocsize(1) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind willreturn memory(none) }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn }
+attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind willreturn memory(none) }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 
@@ -252,4 +253,3 @@ attributes #15 = { noreturn }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}

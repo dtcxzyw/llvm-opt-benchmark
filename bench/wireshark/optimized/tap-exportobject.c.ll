@@ -37,7 +37,7 @@ define internal noundef zeroext i1 @list_exportobject_protocol(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @eo_tap_opt_add(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @eo_tap_opt_add(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @eo_opts, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5

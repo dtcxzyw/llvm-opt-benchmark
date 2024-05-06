@@ -49,7 +49,7 @@ define ptr @OSSL_HPKE_CTX_new(i32 noundef %mode, i48 %suite.coerce, i32 noundef 
 entry:
   %suite.sroa.0.0.extract.trunc = trunc i48 %suite.coerce to i32
   %suite.sroa.3.0.extract.shift = lshr i48 %suite.coerce, 32
-  %suite.sroa.3.0.extract.trunc = trunc i48 %suite.sroa.3.0.extract.shift to i16
+  %suite.sroa.3.0.extract.trunc = trunc nuw i48 %suite.sroa.3.0.extract.shift to i16
   %switch.i = icmp ugt i32 %mode, 3
   br i1 %switch.i, label %if.then, label %if.end
 
@@ -245,7 +245,7 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HPKE_CTX_set1_psk(ptr noundef %ctx, ptr noundef %pskid, ptr noundef %psk, i64 noundef %psklen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set1_psk(ptr noundef %ctx, ptr noundef %pskid, ptr noundef %psk, i64 noundef %psklen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %pskid, null
@@ -356,7 +356,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HPKE_CTX_set1_ikme(ptr noundef %ctx, ptr noundef %ikme, i64 noundef %ikmelen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set1_ikme(ptr noundef %ctx, ptr noundef %ikme, i64 noundef %ikmelen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %ikme, null
@@ -413,7 +413,7 @@ return:                                           ; preds = %if.end9, %if.end16,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_HPKE_CTX_set1_authpriv(ptr noundef %ctx, ptr noundef %priv) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set1_authpriv(ptr noundef %ctx, ptr noundef %priv) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %priv, null
@@ -469,7 +469,7 @@ return:                                           ; preds = %if.end9, %if.then8,
 declare ptr @EVP_PKEY_dup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HPKE_CTX_set1_authpub(ptr noundef %ctx, ptr noundef %pub, i64 noundef %publen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set1_authpub(ptr noundef %ctx, ptr noundef %pub, i64 noundef %publen) local_unnamed_addr #0 {
 entry:
   %lpublen = alloca i64, align 8
   store i64 0, ptr %lpublen, align 8
@@ -662,7 +662,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @EVP_PKEY_get_octet_string_param(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HPKE_CTX_get_seq(ptr noundef readonly %ctx, ptr noundef writeonly %seq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_CTX_get_seq(ptr noundef readonly %ctx, ptr noundef writeonly %seq) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %seq, null
@@ -687,7 +687,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HPKE_CTX_set_seq(ptr noundef %ctx, i64 noundef %seq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_CTX_set_seq(ptr noundef %ctx, i64 noundef %seq) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %if.end
@@ -721,7 +721,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HPKE_encap(ptr noundef %ctx, ptr noundef %enc, ptr noundef %enclen, ptr noundef %pub, i64 noundef %publen, ptr noundef %info, i64 noundef %infolen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_encap(ptr noundef %ctx, ptr noundef %enc, ptr noundef %enclen, ptr noundef %pub, i64 noundef %publen, ptr noundef %info, i64 noundef %infolen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %enc, null
@@ -784,7 +784,7 @@ if.end19:                                         ; preds = %if.end15
   %suite.coerce.0.copyload = load i48, ptr %suite, align 4
   %suite.sroa.0.0.extract.trunc.i.i.i = trunc i48 %suite.coerce.0.copyload to i16
   %suite.sroa.3.0.extract.shift.i.i.i = lshr i48 %suite.coerce.0.copyload, 32
-  %suite.sroa.3.0.extract.trunc.i.i.i = trunc i48 %suite.sroa.3.0.extract.shift.i.i.i to i16
+  %suite.sroa.3.0.extract.trunc.i.i.i = trunc nuw i48 %suite.sroa.3.0.extract.shift.i.i.i to i16
   %call.i.i.i = tail call ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %suite.sroa.0.0.extract.trunc.i.i.i) #5
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %OSSL_HPKE_get_public_encap_size.exit.thread, label %if.end.i.i.i
@@ -837,7 +837,7 @@ if.then26:                                        ; preds = %if.end24
   br label %return
 
 if.end27:                                         ; preds = %if.end24
-  %call28 = tail call fastcc i32 @hpke_encap(ptr noundef nonnull %ctx, ptr noundef nonnull %enc, ptr noundef nonnull %enclen, ptr noundef nonnull %pub, i64 noundef %publen), !range !4
+  %call28 = tail call fastcc i32 @hpke_encap(ptr noundef nonnull %ctx, ptr noundef nonnull %enc, ptr noundef nonnull %enclen, ptr noundef nonnull %pub, i64 noundef %publen)
   %cmp29.not.not = icmp eq i32 %call28, 0
   br i1 %cmp29.not.not, label %if.then30, label %if.end31
 
@@ -848,7 +848,7 @@ if.then30:                                        ; preds = %if.end27
   br label %return
 
 if.end31:                                         ; preds = %if.end27
-  %call32 = tail call fastcc i32 @hpke_do_middle(ptr noundef nonnull %ctx, ptr noundef %info, i64 noundef %infolen), !range !4
+  %call32 = tail call fastcc i32 @hpke_do_middle(ptr noundef nonnull %ctx, ptr noundef %info, i64 noundef %infolen)
   br label %return
 
 return:                                           ; preds = %if.end31, %if.then30, %if.then26, %if.then23, %if.then18, %if.then14, %if.then11, %if.then
@@ -861,7 +861,7 @@ define i64 @OSSL_HPKE_get_public_encap_size(i48 %suite.coerce) local_unnamed_add
 entry:
   %suite.sroa.0.0.extract.trunc.i.i = trunc i48 %suite.coerce to i16
   %suite.sroa.3.0.extract.shift.i.i = lshr i48 %suite.coerce, 32
-  %suite.sroa.3.0.extract.trunc.i.i = trunc i48 %suite.sroa.3.0.extract.shift.i.i to i16
+  %suite.sroa.3.0.extract.trunc.i.i = trunc nuw i48 %suite.sroa.3.0.extract.shift.i.i to i16
   %call.i.i = tail call ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %suite.sroa.0.0.extract.trunc.i.i) #5
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %1, label %if.end.i.i
@@ -895,7 +895,7 @@ hpke_expansion.exit:                              ; preds = %if.end4.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hpke_encap(ptr noundef %ctx, ptr noundef %enc, ptr noundef %enclen, ptr noundef %pub, i64 noundef %publen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hpke_encap(ptr noundef %ctx, ptr noundef %enc, ptr noundef %enclen, ptr noundef %pub, i64 noundef %publen) unnamed_addr #0 {
 entry:
   %params = alloca [3 x %struct.ossl_param_st], align 16
   %lsslen = alloca i64, align 8
@@ -1109,7 +1109,7 @@ return:                                           ; preds = %err, %if.then14, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hpke_do_middle(ptr nocapture noundef %ctx, ptr noundef %info, i64 noundef %infolen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hpke_do_middle(ptr nocapture noundef %ctx, ptr noundef %info, i64 noundef %infolen) unnamed_addr #0 {
 entry:
   %ks_context = alloca [512 x i8], align 16
   %secret = alloca [512 x i8], align 16
@@ -1244,14 +1244,14 @@ cond.end:                                         ; preds = %if.end41, %cond.fal
   %cond = phi i64 [ %call46, %cond.false ], [ 0, %if.end41 ]
   %13 = load i16, ptr %suite, align 4
   %14 = lshr i16 %13, 8
-  %conv50 = trunc i16 %14 to i8
+  %conv50 = trunc nuw i16 %14 to i8
   store i8 %conv50, ptr %suitebuf, align 1
   %conv56 = trunc i16 %13 to i8
   %arrayidx57 = getelementptr inbounds i8, ptr %suitebuf, i64 1
   store i8 %conv56, ptr %arrayidx57, align 1
   %15 = load i16, ptr %kdf_id, align 2
   %16 = lshr i16 %15, 8
-  %conv62 = trunc i16 %16 to i8
+  %conv62 = trunc nuw i16 %16 to i8
   %arrayidx63 = getelementptr inbounds i8, ptr %suitebuf, i64 2
   store i8 %conv62, ptr %arrayidx63, align 1
   %conv68 = trunc i16 %15 to i8
@@ -1259,7 +1259,7 @@ cond.end:                                         ; preds = %if.end41, %cond.fal
   store i8 %conv68, ptr %arrayidx69, align 1
   %17 = load i16, ptr %aead_id, align 4
   %18 = lshr i16 %17, 8
-  %conv74 = trunc i16 %18 to i8
+  %conv74 = trunc nuw i16 %18 to i8
   %arrayidx75 = getelementptr inbounds i8, ptr %suitebuf, i64 4
   store i8 %conv74, ptr %arrayidx75, align 1
   %conv80 = trunc i16 %17 to i8
@@ -1368,7 +1368,7 @@ return:                                           ; preds = %err, %if.then40, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HPKE_decap(ptr noundef %ctx, ptr noundef %enc, i64 noundef %enclen, ptr noundef %recippriv, ptr noundef %info, i64 noundef %infolen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_decap(ptr noundef %ctx, ptr noundef %enc, i64 noundef %enclen, ptr noundef %recippriv, ptr noundef %info, i64 noundef %infolen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ctx, null
   %cmp1 = icmp eq ptr %enc, null
@@ -1424,7 +1424,7 @@ if.end15:                                         ; preds = %if.end11
   %suite.coerce.0.copyload = load i48, ptr %suite, align 4
   %suite.sroa.0.0.extract.trunc.i.i.i = trunc i48 %suite.coerce.0.copyload to i16
   %suite.sroa.3.0.extract.shift.i.i.i = lshr i48 %suite.coerce.0.copyload, 32
-  %suite.sroa.3.0.extract.trunc.i.i.i = trunc i48 %suite.sroa.3.0.extract.shift.i.i.i to i16
+  %suite.sroa.3.0.extract.trunc.i.i.i = trunc nuw i48 %suite.sroa.3.0.extract.shift.i.i.i to i16
   %call.i.i.i = tail call ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %suite.sroa.0.0.extract.trunc.i.i.i) #5
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %OSSL_HPKE_get_public_encap_size.exit.thread, label %if.end.i.i.i
@@ -1473,7 +1473,7 @@ if.then22:                                        ; preds = %if.end20
   br label %return
 
 if.end23:                                         ; preds = %if.end20
-  %call24 = tail call fastcc i32 @hpke_decap(ptr noundef nonnull %ctx, ptr noundef nonnull %enc, i64 noundef %enclen, ptr noundef nonnull %recippriv), !range !4
+  %call24 = tail call fastcc i32 @hpke_decap(ptr noundef nonnull %ctx, ptr noundef nonnull %enc, i64 noundef %enclen, ptr noundef nonnull %recippriv)
   %cmp25.not.not = icmp eq i32 %call24, 0
   br i1 %cmp25.not.not, label %if.then26, label %if.end27
 
@@ -1484,7 +1484,7 @@ if.then26:                                        ; preds = %if.end23
   br label %return
 
 if.end27:                                         ; preds = %if.end23
-  %call28 = tail call fastcc i32 @hpke_do_middle(ptr noundef nonnull %ctx, ptr noundef %info, i64 noundef %infolen), !range !4
+  %call28 = tail call fastcc i32 @hpke_do_middle(ptr noundef nonnull %ctx, ptr noundef %info, i64 noundef %infolen)
   br label %return
 
 return:                                           ; preds = %if.end27, %if.then26, %if.then22, %if.then19, %if.then14, %if.then10, %if.then7, %if.then
@@ -1493,7 +1493,7 @@ return:                                           ; preds = %if.end27, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hpke_decap(ptr nocapture noundef %ctx, ptr noundef %enc, i64 noundef %enclen, ptr noundef %priv) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hpke_decap(ptr nocapture noundef %ctx, ptr noundef %enc, i64 noundef %enclen, ptr noundef %priv) unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %lsslen = alloca i64, align 8
@@ -1675,7 +1675,7 @@ return:                                           ; preds = %err, %if.then67, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HPKE_seal(ptr noundef %ctx, ptr noundef %ct, ptr noundef %ctlen, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %pt, i64 noundef %ptlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_seal(ptr noundef %ctx, ptr noundef %ct, ptr noundef %ctlen, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %pt, i64 noundef %ptlen) local_unnamed_addr #0 {
 entry:
   %seqbuf = alloca [12 x i8], align 1
   %cmp = icmp eq ptr %ctx, null
@@ -1762,7 +1762,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %shr.i = lshr i64 %seq_copy.020.i, 8
   %inc.i = add nuw nsw i64 %i.019.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
-  br i1 %exitcond.not.i, label %for.body9.i, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %for.body9.i, label %for.body.i, !llvm.loop !4
 
 for.body9.i:                                      ; preds = %for.body.i, %for.body9.i
   %i.121.i = phi i64 [ %inc16.i, %for.body9.i ], [ 0, %for.body.i ]
@@ -1774,7 +1774,7 @@ for.body9.i:                                      ; preds = %for.body.i, %for.bo
   store i8 %xor18.i, ptr %arrayidx12.i, align 1
   %inc16.i = add nuw nsw i64 %i.121.i, 1
   %exitcond22.not.i = icmp eq i64 %inc16.i, 12
-  br i1 %exitcond22.not.i, label %if.end23, label %for.body9.i, !llvm.loop !7
+  br i1 %exitcond22.not.i, label %if.end23, label %for.body9.i, !llvm.loop !6
 
 if.then22:                                        ; preds = %if.end20
   tail call void @ERR_new() #5
@@ -1783,7 +1783,7 @@ if.then22:                                        ; preds = %if.end20
   br label %return
 
 if.end23:                                         ; preds = %for.body9.i
-  %call25 = call fastcc i32 @hpke_aead_enc(ptr noundef %ctx, ptr noundef nonnull %seqbuf, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %pt, i64 noundef %ptlen, ptr noundef %ct, ptr noundef nonnull %ctlen), !range !4
+  %call25 = call fastcc i32 @hpke_aead_enc(ptr noundef %ctx, ptr noundef nonnull %seqbuf, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %pt, i64 noundef %ptlen, ptr noundef %ct, ptr noundef nonnull %ctlen)
   %cmp26.not.not = icmp eq i32 %call25, 0
   br i1 %cmp26.not.not, label %if.then27, label %if.else
 
@@ -1807,7 +1807,7 @@ return:                                           ; preds = %if.else, %if.then27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hpke_aead_enc(ptr nocapture noundef readonly %hctx, ptr noundef %iv, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %pt, i64 noundef %ptlen, ptr noundef %ct, ptr nocapture noundef %ctlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hpke_aead_enc(ptr nocapture noundef readonly %hctx, ptr noundef %iv, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %pt, i64 noundef %ptlen, ptr noundef %ct, ptr nocapture noundef %ctlen) unnamed_addr #0 {
 entry:
   %len = alloca i32, align 4
   %tag = alloca [16 x i8], align 16
@@ -1934,7 +1934,7 @@ if.end53:                                         ; preds = %if.end47
   %8 = load i64, ptr %ctlen, align 8
   %add = add i64 %8, %conv54
   store i64 %add, ptr %ctlen, align 8
-  %conv55 = trunc i64 %1 to i32
+  %conv55 = trunc nuw nsw i64 %1 to i32
   %call56 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %call, i32 noundef 16, i32 noundef %conv55, ptr noundef nonnull %tag) #5
   %cmp57.not = icmp eq i32 %call56, 1
   br i1 %cmp57.not, label %err, label %if.then59
@@ -1972,7 +1972,7 @@ return:                                           ; preds = %if.end9, %if.end67,
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HPKE_open(ptr noundef %ctx, ptr noundef %pt, ptr noundef %ptlen, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %ct, i64 noundef %ctlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_open(ptr noundef %ctx, ptr noundef %pt, ptr noundef %ptlen, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %ct, i64 noundef %ctlen) local_unnamed_addr #0 {
 entry:
   %seqbuf = alloca [12 x i8], align 1
   %cmp = icmp eq ptr %ctx, null
@@ -2059,7 +2059,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %shr.i = lshr i64 %seq_copy.020.i, 8
   %inc.i = add nuw nsw i64 %i.019.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 8
-  br i1 %exitcond.not.i, label %for.body9.i, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %for.body9.i, label %for.body.i, !llvm.loop !4
 
 for.body9.i:                                      ; preds = %for.body.i, %for.body9.i
   %i.121.i = phi i64 [ %inc16.i, %for.body9.i ], [ 0, %for.body.i ]
@@ -2071,7 +2071,7 @@ for.body9.i:                                      ; preds = %for.body.i, %for.bo
   store i8 %xor18.i, ptr %arrayidx12.i, align 1
   %inc16.i = add nuw nsw i64 %i.121.i, 1
   %exitcond22.not.i = icmp eq i64 %inc16.i, 12
-  br i1 %exitcond22.not.i, label %if.end23, label %for.body9.i, !llvm.loop !7
+  br i1 %exitcond22.not.i, label %if.end23, label %for.body9.i, !llvm.loop !6
 
 if.then22:                                        ; preds = %if.end20
   tail call void @ERR_new() #5
@@ -2080,7 +2080,7 @@ if.then22:                                        ; preds = %if.end20
   br label %return
 
 if.end23:                                         ; preds = %for.body9.i
-  %call25 = call fastcc i32 @hpke_aead_dec(ptr noundef %ctx, ptr noundef nonnull %seqbuf, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %ct, i64 noundef %ctlen, ptr noundef %pt, ptr noundef nonnull %ptlen), !range !4
+  %call25 = call fastcc i32 @hpke_aead_dec(ptr noundef %ctx, ptr noundef nonnull %seqbuf, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %ct, i64 noundef %ctlen, ptr noundef %pt, ptr noundef nonnull %ptlen)
   %cmp26.not.not = icmp eq i32 %call25, 0
   br i1 %cmp26.not.not, label %if.then27, label %if.end29
 
@@ -2104,7 +2104,7 @@ return:                                           ; preds = %if.end29, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hpke_aead_dec(ptr nocapture noundef readonly %hctx, ptr noundef %iv, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %ct, i64 noundef %ctlen, ptr noundef %pt, ptr nocapture noundef %ptlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hpke_aead_dec(ptr nocapture noundef readonly %hctx, ptr noundef %iv, ptr noundef %aad, i64 noundef %aadlen, ptr noundef %ct, i64 noundef %ctlen, ptr noundef %pt, ptr nocapture noundef %ptlen) unnamed_addr #0 {
 entry:
   %len = alloca i32, align 4
   store i32 0, ptr %len, align 4
@@ -2333,14 +2333,14 @@ if.then20:                                        ; preds = %if.end16
 if.end21:                                         ; preds = %if.end16
   %5 = load i16, ptr %suite, align 4
   %6 = lshr i16 %5, 8
-  %conv23 = trunc i16 %6 to i8
+  %conv23 = trunc nuw i16 %6 to i8
   store i8 %conv23, ptr %suitebuf, align 1
   %conv27 = trunc i16 %5 to i8
   %arrayidx28 = getelementptr inbounds i8, ptr %suitebuf, i64 1
   store i8 %conv27, ptr %arrayidx28, align 1
   %7 = load i16, ptr %kdf_id, align 2
   %8 = lshr i16 %7, 8
-  %conv33 = trunc i16 %8 to i8
+  %conv33 = trunc nuw i16 %8 to i8
   %arrayidx34 = getelementptr inbounds i8, ptr %suitebuf, i64 2
   store i8 %conv33, ptr %arrayidx34, align 1
   %conv39 = trunc i16 %7 to i8
@@ -2349,7 +2349,7 @@ if.end21:                                         ; preds = %if.end16
   %aead_id = getelementptr inbounds i8, ptr %ctx, i64 24
   %9 = load i16, ptr %aead_id, align 4
   %10 = lshr i16 %9, 8
-  %conv44 = trunc i16 %10 to i8
+  %conv44 = trunc nuw i16 %10 to i8
   %arrayidx45 = getelementptr inbounds i8, ptr %suitebuf, i64 4
   store i8 %conv44, ptr %arrayidx45, align 1
   %conv50 = trunc i16 %9 to i8
@@ -2383,7 +2383,7 @@ declare i32 @ossl_hpke_labeled_expand(ptr noundef, ptr noundef, i64 noundef, ptr
 declare void @EVP_KDF_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HPKE_keygen(i48 %suite.coerce, ptr noundef %pub, ptr noundef %publen, ptr noundef writeonly %priv, ptr noundef %ikm, i64 noundef %ikmlen, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_keygen(i48 %suite.coerce, ptr noundef %pub, ptr noundef %publen, ptr noundef writeonly %priv, ptr noundef %ikm, i64 noundef %ikmlen, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %skR = alloca ptr, align 8
   %params = alloca [3 x %struct.ossl_param_st], align 16
@@ -2412,7 +2412,7 @@ if.then:                                          ; preds = %lor.lhs.false2, %en
 
 if.end:                                           ; preds = %lor.lhs.false2
   %suite.sroa.3.0.extract.shift.i = lshr i48 %suite.coerce, 32
-  %suite.sroa.3.0.extract.trunc.i = trunc i48 %suite.sroa.3.0.extract.shift.i to i16
+  %suite.sroa.3.0.extract.trunc.i = trunc nuw i48 %suite.sroa.3.0.extract.shift.i to i16
   %call.i = tail call ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %suite.sroa.0.0.extract.trunc) #5
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then8, label %if.end.i
@@ -2565,11 +2565,11 @@ declare i32 @EVP_PKEY_generate(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_HPKE_suite_check(i48 %suite.coerce) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_suite_check(i48 %suite.coerce) local_unnamed_addr #0 {
 entry:
   %suite.sroa.0.0.extract.trunc.i = trunc i48 %suite.coerce to i16
   %suite.sroa.3.0.extract.shift.i = lshr i48 %suite.coerce, 32
-  %suite.sroa.3.0.extract.trunc.i = trunc i48 %suite.sroa.3.0.extract.shift.i to i16
+  %suite.sroa.3.0.extract.trunc.i = trunc nuw i48 %suite.sroa.3.0.extract.shift.i to i16
   %call.i = tail call ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %suite.sroa.0.0.extract.trunc.i) #5
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %hpke_suite_check.exit, label %if.end.i
@@ -2593,7 +2593,7 @@ hpke_suite_check.exit:                            ; preds = %if.end4.i, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_HPKE_get_grease_value(ptr noundef readonly %suite_in, ptr noundef writeonly %suite, ptr noundef %enc, ptr noundef %enclen, ptr noundef %ct, i64 noundef %ctlen, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_HPKE_get_grease_value(ptr noundef readonly %suite_in, ptr noundef writeonly %suite, ptr noundef %enc, ptr noundef %enclen, ptr noundef %ct, i64 noundef %ctlen, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %fakepriv = alloca ptr, align 8
   store ptr null, ptr %fakepriv, align 8
@@ -2711,7 +2711,7 @@ if.then22:                                        ; preds = %if.end20
   br label %return
 
 if.end23:                                         ; preds = %if.end20
-  %call25 = call i32 @OSSL_HPKE_keygen(i48 %chosen.sroa.0.0.insert.insert22, ptr noundef nonnull %enc, ptr noundef nonnull %enclen, ptr noundef nonnull %fakepriv, ptr noundef null, i64 noundef 0, ptr noundef %libctx, ptr noundef %propq), !range !4
+  %call25 = call i32 @OSSL_HPKE_keygen(i48 %chosen.sroa.0.0.insert.insert22, ptr noundef nonnull %enc, ptr noundef nonnull %enclen, ptr noundef nonnull %fakepriv, ptr noundef null, i64 noundef 0, ptr noundef %libctx, ptr noundef %propq)
   %cmp26.not.not = icmp eq i32 %call25, 0
   br i1 %cmp26.not.not, label %if.then27, label %if.end28
 
@@ -2755,7 +2755,7 @@ define i64 @OSSL_HPKE_get_ciphertext_size(i48 %suite.coerce, i64 noundef %clearl
 entry:
   %suite.sroa.0.0.extract.trunc.i.i = trunc i48 %suite.coerce to i16
   %suite.sroa.3.0.extract.shift.i.i = lshr i48 %suite.coerce, 32
-  %suite.sroa.3.0.extract.trunc.i.i = trunc i48 %suite.sroa.3.0.extract.shift.i.i to i16
+  %suite.sroa.3.0.extract.trunc.i.i = trunc nuw i48 %suite.sroa.3.0.extract.shift.i.i to i16
   %call.i.i = tail call ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %suite.sroa.0.0.extract.trunc.i.i) #5
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %1, label %if.end.i.i
@@ -2794,7 +2794,7 @@ define i64 @OSSL_HPKE_get_recommended_ikmelen(i48 %suite.coerce) local_unnamed_a
 entry:
   %suite.sroa.0.0.extract.trunc.i = trunc i48 %suite.coerce to i16
   %suite.sroa.3.0.extract.shift.i = lshr i48 %suite.coerce, 32
-  %suite.sroa.3.0.extract.trunc.i = trunc i48 %suite.sroa.3.0.extract.shift.i to i16
+  %suite.sroa.3.0.extract.trunc.i = trunc nuw i48 %suite.sroa.3.0.extract.shift.i to i16
   %call.i = tail call ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %suite.sroa.0.0.extract.trunc.i) #5
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end.i
@@ -2886,7 +2886,6 @@ attributes #6 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

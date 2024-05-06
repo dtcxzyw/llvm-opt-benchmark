@@ -79,7 +79,7 @@ $_ZNSt8_Rb_treeIN3gmx8SimdTypeESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_t
 @.str.24 = private unnamed_addr constant [8 x i8] c"map::at\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3gmx13simdSuggestedERKNS_7CpuInfoE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #0 {
+define noundef range(i32 0, 14) i32 @_ZN3gmx13simdSuggestedERKNS_7CpuInfoE(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 1
   br i1 %3, label %4, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203

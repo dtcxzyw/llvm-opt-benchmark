@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [29 x i8] c"final position out of bounds\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_utf8(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_utf8(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @luaL_checkversion_(ptr noundef %L, double noundef 5.040000e+02, i64 noundef 136) #2
   tail call void @lua_createtable(ptr noundef %L, i32 noundef 0, i32 noundef 6) #2
@@ -321,7 +321,7 @@ if.end.i.us:                                      ; preds = %for.body.i.us
   br i1 %tobool.not.i.us, label %for.end.loopexit.i.us, label %for.body.i.us, !llvm.loop !11
 
 for.end.loopexit.i.us:                            ; preds = %if.end.i.us
-  %7 = trunc i64 %indvars.iv.next.i.us to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.next.i.us to i32
   br label %for.end.i.us
 
 for.end.i.us:                                     ; preds = %for.end.loopexit.i.us, %for.cond.preheader.i.us
@@ -329,7 +329,7 @@ for.end.i.us:                                     ; preds = %for.end.loopexit.i.
   %res.0.lcssa.i.us = phi i32 [ 0, %for.cond.preheader.i.us ], [ %or.i.us, %for.end.loopexit.i.us ]
   %count.0.lcssa.i.us = phi i32 [ 0, %for.cond.preheader.i.us ], [ %7, %for.end.loopexit.i.us ]
   %and10.i.us = and i32 %c.0.lcssa.i.us, 63
-  %mul.i.us = mul nsw i32 %count.0.lcssa.i.us, 5
+  %mul.i.us = mul nuw nsw i32 %count.0.lcssa.i.us, 5
   %shl11.i.us = shl i32 %and10.i.us, %mul.i.us
   %or12.i.us = or i32 %shl11.i.us, %res.0.lcssa.i.us
   %cmp13.i.us = icmp ugt i32 %count.0.lcssa.i.us, 5
@@ -400,7 +400,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %tobool.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !11
 
 for.end.loopexit.i:                               ; preds = %if.end.i
-  %13 = trunc i64 %indvars.iv.next.i to i32
+  %13 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.cond.preheader.i
@@ -408,7 +408,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %res.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %or.i, %for.end.loopexit.i ]
   %count.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %13, %for.end.loopexit.i ]
   %and10.i = and i32 %c.0.lcssa.i, 63
-  %mul.i = mul nsw i32 %count.0.lcssa.i, 5
+  %mul.i = mul nuw nsw i32 %count.0.lcssa.i, 5
   %shl11.i = shl i32 %and10.i, %mul.i
   %or12.i = or i32 %shl11.i, %res.0.lcssa.i
   %cmp13.i = icmp ugt i32 %count.0.lcssa.i, 5
@@ -448,7 +448,7 @@ return:                                           ; preds = %if.end24.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @utfchar(ptr noundef %L) #0 {
+define internal noundef i32 @utfchar(ptr noundef %L) #0 {
 entry:
   %b = alloca %struct.luaL_Buffer, align 8
   %call = tail call i32 @lua_gettop(ptr noundef %L) #2
@@ -499,7 +499,7 @@ if.end:                                           ; preds = %for.end, %pushutfch
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @utflen(ptr noundef %L) #0 {
+define internal range(i32 1, 3) i32 @utflen(ptr noundef %L) #0 {
 entry:
   %len = alloca i64, align 8
   %call = call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef nonnull %len) #2
@@ -606,7 +606,7 @@ if.end.i.us:                                      ; preds = %for.body.i.us
   br i1 %tobool.not.i.us, label %for.end.loopexit.i.us, label %for.body.i.us, !llvm.loop !11
 
 for.end.loopexit.i.us:                            ; preds = %if.end.i.us
-  %8 = trunc i64 %indvars.iv.next.i.us to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.next.i.us to i32
   br label %for.end.i.us
 
 for.end.i.us:                                     ; preds = %for.end.loopexit.i.us, %for.cond.preheader.i.us
@@ -614,7 +614,7 @@ for.end.i.us:                                     ; preds = %for.end.loopexit.i.
   %res.0.lcssa.i.us = phi i32 [ 0, %for.cond.preheader.i.us ], [ %or.i.us, %for.end.loopexit.i.us ]
   %count.0.lcssa.i.us = phi i32 [ 0, %for.cond.preheader.i.us ], [ %8, %for.end.loopexit.i.us ]
   %and10.i.us = and i32 %c.0.lcssa.i.us, 63
-  %mul.i.us = mul nsw i32 %count.0.lcssa.i.us, 5
+  %mul.i.us = mul nuw nsw i32 %count.0.lcssa.i.us, 5
   %shl11.i.us = shl i32 %and10.i.us, %mul.i.us
   %or12.i.us = or i32 %shl11.i.us, %res.0.lcssa.i.us
   %cmp13.i.us = icmp ugt i32 %count.0.lcssa.i.us, 5
@@ -686,7 +686,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %tobool.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !11
 
 for.end.loopexit.i:                               ; preds = %if.end.i
-  %14 = trunc i64 %indvars.iv.next.i to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.cond.preheader.i
@@ -694,7 +694,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %res.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %or.i, %for.end.loopexit.i ]
   %count.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %14, %for.end.loopexit.i ]
   %and10.i = and i32 %c.0.lcssa.i, 63
-  %mul.i = mul nsw i32 %count.0.lcssa.i, 5
+  %mul.i = mul nuw nsw i32 %count.0.lcssa.i, 5
   %shl11.i = shl i32 %and10.i, %mul.i
   %or12.i = or i32 %shl11.i, %res.0.lcssa.i
   %cmp13.i = icmp ugt i32 %count.0.lcssa.i, 5
@@ -736,7 +736,7 @@ return:                                           ; preds = %if.end24.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @iter_codes(ptr noundef %L) #0 {
+define internal noundef i32 @iter_codes(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_toboolean(ptr noundef %L, i32 noundef 2) #2
   %call1 = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #2
@@ -862,7 +862,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %tobool.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !11
 
 for.end.loopexit.i:                               ; preds = %if.end.i
-  %6 = trunc i64 %indvars.iv.next.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.cond.preheader.i
@@ -870,7 +870,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %res.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %or.i, %for.end.loopexit.i ]
   %count.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %6, %for.end.loopexit.i ]
   %and10.i = and i32 %c.0.lcssa.i, 63
-  %mul.i = mul nsw i32 %count.0.lcssa.i, 5
+  %mul.i = mul nuw nsw i32 %count.0.lcssa.i, 5
   %shl11.i = shl i32 %and10.i, %mul.i
   %or12.i = or i32 %shl11.i, %res.0.lcssa.i
   %cmp13.i = icmp ugt i32 %count.0.lcssa.i, 5

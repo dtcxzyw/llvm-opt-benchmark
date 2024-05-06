@@ -47,7 +47,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fetch_test(i32 noundef %tst) #0 {
+define internal range(i32 0, 2) i32 @fetch_test(i32 noundef %tst) #0 {
 entry:
   %buf = alloca [32 x i8], align 16
   %call = tail call ptr @OSSL_LIB_CTX_new() #5
@@ -152,7 +152,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dummy_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #0 {
+define internal range(i32 0, 2) i32 @dummy_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #0 {
 entry:
   %buf = alloca [32 x i8], align 16
   %call = tail call ptr @OSSL_LIB_CTX_new_child(ptr noundef %handle, ptr noundef %in) #5
@@ -304,7 +304,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dummy_rand_get_ctx_params(ptr nocapture readnone %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @dummy_rand_get_ctx_params(ptr nocapture readnone %vctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.18) #5
   %cmp.not = icmp eq ptr %call, null

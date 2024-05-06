@@ -31,8 +31,8 @@ define void @_ZN9RSCoder16C2Ev(ptr nocapture noundef nonnull align 8 dereference
   %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.i
   store i32 %.01419.i, ptr %13, align 4
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr i32, ptr %14, i64 %indvars.iv.i
-  %16 = getelementptr i8, ptr %15, i64 262140
+  %15 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i
+  %16 = getelementptr inbounds i8, ptr %15, i64 262140
   store i32 %.01419.i, ptr %16, align 4
   %17 = shl i32 %.01419.i, 1
   %18 = icmp ugt i32 %17, 65535
@@ -81,8 +81,8 @@ define void @_ZN9RSCoder166gfInitEv(ptr nocapture noundef nonnull align 8 derefe
   %11 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
   store i32 %.01419, ptr %11, align 4
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr i32, ptr %12, i64 %indvars.iv
-  %14 = getelementptr i8, ptr %13, i64 262140
+  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds i8, ptr %13, i64 262140
   store i32 %.01419, ptr %14, align 4
   %15 = shl i32 %.01419, 1
   %16 = icmp ugt i32 %15, 65535

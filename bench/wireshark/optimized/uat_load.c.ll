@@ -1625,7 +1625,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i456, %869
   %979 = load i64, ptr %978, align 8
   %980 = add i64 %979, %spec.select.i
   store i64 %980, ptr %978, align 8
-  %981 = trunc i64 %spec.select.i to i32
+  %981 = trunc nuw nsw i64 %spec.select.i to i32
   br label %982
 
 982:                                              ; preds = %969, %964
@@ -3156,7 +3156,7 @@ define hidden void @uat_load_set_debug(i32 noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @uat_load_lex_init(ptr noundef writeonly %0) local_unnamed_addr #13 {
+define hidden range(i32 0, 2) i32 @uat_load_lex_init(ptr noundef writeonly %0) local_unnamed_addr #13 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -3181,7 +3181,7 @@ define hidden noundef i32 @uat_load_lex_init(ptr noundef writeonly %0) local_unn
 declare ptr @__errno_location() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @uat_load_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
+define hidden range(i32 0, 2) i32 @uat_load_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

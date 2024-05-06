@@ -28,7 +28,7 @@ define void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$
           to label %15 unwind label %13
 
 12:                                               ; preds = %15, %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h42d8c60fb28be8f6E.exit
 
 13:                                               ; preds = %11
@@ -116,7 +116,7 @@ define void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$
           to label %14 unwind label %12
 
 11:                                               ; preds = %14, %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %4, ptr noundef nonnull align 8 dereferenceable(328) %3, i64 328, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(328) %4, ptr noundef nonnull align 8 dereferenceable(328) %3, i64 328, i1 false)
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h728ee88dbe0c2149E.exit
 
 12:                                               ; preds = %10

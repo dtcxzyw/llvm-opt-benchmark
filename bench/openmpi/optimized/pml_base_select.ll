@@ -628,7 +628,7 @@ declare ptr @mca_base_component_to_string(ptr noundef) local_unnamed_addr #1
 declare i32 @PMIx_Put(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_base_pml_check_selected(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @mca_pml_base_pml_check_selected(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @ompi_pml_base_check_pml, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %.loopexit
@@ -653,7 +653,7 @@ define noundef i32 @mca_pml_base_pml_check_selected(ptr noundef %0, ptr nocaptur
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 40
   %14 = load i64, ptr %13, align 8
-  %15 = tail call fastcc i32 @mca_pml_base_pml_check_selected_impl(ptr noundef %0, i64 %14), !range !12
+  %15 = tail call fastcc i32 @mca_pml_base_pml_check_selected_impl(ptr noundef %0, i64 %14)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %9, label %.loopexit
 
@@ -662,7 +662,7 @@ define noundef i32 @mca_pml_base_pml_check_selected(ptr noundef %0, ptr nocaptur
   %18 = getelementptr inbounds i8, ptr %17, i64 40
   %19 = load i32, ptr %18, align 8
   %.sroa.0.0.insert.ext = zext i32 %19 to i64
-  %20 = tail call fastcc i32 @mca_pml_base_pml_check_selected_impl(ptr noundef %0, i64 %.sroa.0.0.insert.ext), !range !12
+  %20 = tail call fastcc i32 @mca_pml_base_pml_check_selected_impl(ptr noundef %0, i64 %.sroa.0.0.insert.ext)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %.preheader, %16, %3
@@ -671,7 +671,7 @@ define noundef i32 @mca_pml_base_pml_check_selected(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mca_pml_base_pml_check_selected_impl(ptr noundef %0, i64 %1) unnamed_addr #0 {
+define internal fastcc range(i32 -13, 1) i32 @mca_pml_base_pml_check_selected_impl(ptr noundef %0, i64 %1) unnamed_addr #0 {
   %3 = alloca %struct.opal_process_name_t, align 8
   %4 = alloca %struct.pmix_proc, align 4
   %5 = alloca ptr, align 8
@@ -701,7 +701,7 @@ define internal fastcc noundef i32 @mca_pml_base_pml_check_selected_impl(ptr nou
 
 22:                                               ; preds = %2
   %23 = lshr i64 %1, 32
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw i64 %23 to i32
   %25 = trunc i64 %1 to i32
   store ptr null, ptr %5, align 8
   %26 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %4, i32 noundef %25) #10
@@ -901,4 +901,3 @@ attributes #13 = { noreturn nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 -13, i32 1}

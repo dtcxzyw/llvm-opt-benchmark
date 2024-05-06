@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [21 x i8] c"CRL entry extensions\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_CRL_print_fp(ptr noundef %fp, ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_CRL_print_fp(ptr noundef %fp, ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #3
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #3

@@ -2254,7 +2254,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed5Hints3getINSt7__cxx1112basic_stri
   %27 = sub i64 %18, %12
   %28 = tail call i64 @llvm.smax.i64(i64 %27, i64 -2147483648)
   %29 = tail call i64 @llvm.smin.i64(i64 %28, i64 2147483647)
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nsw i64 %29 to i32
   br label %31
 
 31:                                               ; preds = %26, %21
@@ -2289,7 +2289,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed5Hints3getINSt7__cxx1112basic_stri
   %52 = sub i64 %12, %43
   %53 = tail call i64 @llvm.smax.i64(i64 %52, i64 -2147483648)
   %54 = tail call i64 @llvm.smin.i64(i64 %53, i64 2147483647)
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nsw i64 %54 to i32
   br label %56
 
 56:                                               ; preds = %51, %46
@@ -3393,7 +3393,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8rawspeed8CameraIdltERKS0_(pt
   %21 = sub i64 %8, %10
   %22 = tail call i64 @llvm.smax.i64(i64 %21, i64 -2147483648)
   %23 = tail call i64 @llvm.smin.i64(i64 %22, i64 2147483647)
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nsw i64 %23 to i32
   %25 = icmp slt i32 %24, 0
   %26 = icmp eq i32 %24, 0
   br i1 %26, label %27, label %68
@@ -3422,7 +3422,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8rawspeed8CameraIdltERKS0_(pt
   %42 = sub i64 %29, %31
   %43 = tail call i64 @llvm.smax.i64(i64 %42, i64 -2147483648)
   %44 = tail call i64 @llvm.smin.i64(i64 %43, i64 2147483647)
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nsw i64 %44 to i32
   %46 = icmp slt i32 %45, 0
   %47 = icmp eq i32 %45, 0
   br i1 %47, label %48, label %68

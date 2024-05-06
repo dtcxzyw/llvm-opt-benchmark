@@ -377,7 +377,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @md5_exec(ptr noundef %m) #0 {
+define internal range(i32 -1, 1) i32 @md5_exec(ptr noundef %m) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #3
   %call1 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %m, ptr noundef nonnull @md5_type_spec, ptr noundef null) #3

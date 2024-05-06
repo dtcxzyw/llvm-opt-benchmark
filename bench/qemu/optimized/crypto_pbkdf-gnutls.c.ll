@@ -21,7 +21,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @qcrypto_pbkdf2(i32 noundef %hash, ptr noundef %key, i64 noundef %nkey, ptr noundef %salt, i64 noundef %nsalt, i64 noundef %iterations, ptr noundef %out, i64 noundef %nout, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_pbkdf2(i32 noundef %hash, ptr noundef %key, i64 noundef %nkey, ptr noundef %salt, i64 noundef %nsalt, i64 noundef %iterations, ptr noundef %out, i64 noundef %nout, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %gkey = alloca %struct.gnutls_datum_t, align 8
   %gsalt = alloca %struct.gnutls_datum_t, align 8

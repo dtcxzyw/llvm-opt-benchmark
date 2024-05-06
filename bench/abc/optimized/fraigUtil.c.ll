@@ -199,17 +199,17 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %2
 declare void @Fraig_NodeVecFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Fraig_CheckTfi(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Fraig_CheckTfi(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr %4, align 8
-  %7 = tail call fastcc i32 @Fraig_CheckTfi_rec(ptr noundef %0, ptr noundef %2, ptr noundef %1), !range !7
+  %7 = tail call fastcc i32 @Fraig_CheckTfi_rec(ptr noundef %0, ptr noundef %2, ptr noundef %1)
   ret i32 %7
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @Fraig_CheckTfi_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @Fraig_CheckTfi_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = icmp eq ptr %1, null
   br i1 %5, label %._crit_edge, label %.lr.ph
@@ -248,7 +248,7 @@ define internal fastcc noundef i32 @Fraig_CheckTfi_rec(ptr noundef %0, ptr nound
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, -2
   %25 = inttoptr i64 %24 to ptr
-  %26 = tail call fastcc i32 @Fraig_CheckTfi_rec(ptr noundef nonnull %0, ptr noundef %25, ptr noundef nonnull %2), !range !7
+  %26 = tail call fastcc i32 @Fraig_CheckTfi_rec(ptr noundef nonnull %0, ptr noundef %25, ptr noundef nonnull %2)
   %.not22 = icmp eq i32 %26, 0
   br i1 %.not22, label %27, label %._crit_edge
 
@@ -258,7 +258,7 @@ define internal fastcc noundef i32 @Fraig_CheckTfi_rec(ptr noundef %0, ptr nound
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
-  %33 = tail call fastcc i32 @Fraig_CheckTfi_rec(ptr noundef nonnull %0, ptr noundef %32, ptr noundef nonnull %2), !range !7
+  %33 = tail call fastcc i32 @Fraig_CheckTfi_rec(ptr noundef nonnull %0, ptr noundef %32, ptr noundef nonnull %2)
   %.not23 = icmp eq i32 %33, 0
   br i1 %.not23, label %tailrecurse, label %._crit_edge
 
@@ -274,7 +274,7 @@ tailrecurse:                                      ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fraig_CheckTfi2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fraig_CheckTfi2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, 1
@@ -362,7 +362,7 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
   %41 = load i32, ptr %24, align 4
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %30, label %.preheader, !llvm.loop !8
+  br i1 %43, label %30, label %.preheader, !llvm.loop !7
 
 44:                                               ; preds = %.lr.ph26, %86
   %indvars.iv28 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next29, %86 ]
@@ -430,7 +430,7 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
   %87 = load i32, ptr %24, align 4
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next29, %88
-  br i1 %89, label %44, label %._crit_edge, !llvm.loop !9
+  br i1 %89, label %44, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %86, %Fraig_Dfs.exit, %.preheader
   tail call void @Fraig_NodeVecFree(ptr noundef nonnull %5) #15
@@ -458,7 +458,7 @@ define i32 @Fraig_BitStringCountOnes(ptr nocapture noundef readonly %0, i32 noun
   %10 = add nsw i32 %9, %.089
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.08.lcssa = phi i32 [ 0, %2 ], [ %10, %.lr.ph ]
@@ -591,7 +591,7 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
   %76 = load i32, ptr %24, align 4
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %28, label %._crit_edge, !llvm.loop !11
+  br i1 %78, label %28, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %75, %Fraig_Dfs.exit
   tail call void @Fraig_NodeVecFree(ptr noundef nonnull %5) #15
@@ -650,7 +650,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %.
   %fputc.i = tail call i32 @fputc(i32 %26, ptr %21)
   %27 = add nsw i32 %.017.i, -1
   %.not51 = icmp eq i32 %.017.i, 0
-  br i1 %.not51, label %select.unfold._crit_edge.i, label %select.unfold.i, !llvm.loop !12
+  br i1 %.not51, label %select.unfold._crit_edge.i, label %select.unfold.i, !llvm.loop !11
 
 select.unfold._crit_edge.i:                       ; preds = %select.unfold.i
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6)
@@ -667,7 +667,7 @@ select.unfold.i27:                                ; preds = %select.unfold.i27, 
   %fputc.i29 = tail call i32 @fputc(i32 %34, ptr %29)
   %35 = add nsw i32 %.017.i28, -1
   %.not52 = icmp eq i32 %.017.i28, 0
-  br i1 %.not52, label %select.unfold._crit_edge.i30, label %select.unfold.i27, !llvm.loop !12
+  br i1 %.not52, label %select.unfold._crit_edge.i30, label %select.unfold.i27, !llvm.loop !11
 
 .lr.ph19.split.i33:                               ; preds = %14
   %36 = getelementptr inbounds i8, ptr %17, i64 32
@@ -703,7 +703,7 @@ select.unfold.i36:                                ; preds = %select.unfold.i36, 
   %fputc.i38 = tail call i32 @fputc(i32 %59, ptr %54)
   %60 = add nsw i32 %.017.i37, -1
   %.not53 = icmp eq i32 %.017.i37, 0
-  br i1 %.not53, label %select.unfold._crit_edge.i39, label %select.unfold.i36, !llvm.loop !12
+  br i1 %.not53, label %select.unfold._crit_edge.i39, label %select.unfold.i36, !llvm.loop !11
 
 select.unfold._crit_edge.i39:                     ; preds = %select.unfold.i36
   %61 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6)
@@ -720,7 +720,7 @@ select.unfold.i45:                                ; preds = %select.unfold.i45, 
   %fputc.i47 = tail call i32 @fputc(i32 %67, ptr %62)
   %68 = add nsw i32 %.017.i46, -1
   %.not54 = icmp eq i32 %.017.i46, 0
-  br i1 %.not54, label %select.unfold._crit_edge.i30, label %select.unfold.i45, !llvm.loop !12
+  br i1 %.not54, label %select.unfold._crit_edge.i30, label %select.unfold.i45, !llvm.loop !11
 
 select.unfold._crit_edge.i30:                     ; preds = %select.unfold.i27, %select.unfold.i45
   %69 = getelementptr inbounds i8, ptr %17, i64 24
@@ -731,7 +731,7 @@ select.unfold._crit_edge.i30:                     ; preds = %select.unfold.i27, 
   %73 = load i32, ptr %10, align 4
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %14, label %._crit_edge, !llvm.loop !13
+  br i1 %75, label %14, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %select.unfold._crit_edge.i30, %2
   tail call void @Fraig_NodeVecFree(ptr noundef nonnull %6) #15
@@ -770,13 +770,13 @@ select.unfold.us:                                 ; preds = %.lr.ph.us, %select.
   %fputc.us = tail call i32 @fputc(i32 %19, ptr %0)
   %20 = add nsw i32 %.017.us, -1
   %.not = icmp eq i32 %.017.us, 0
-  br i1 %.not, label %select.unfold._crit_edge.us, label %select.unfold.us, !llvm.loop !12
+  br i1 %.not, label %select.unfold._crit_edge.us, label %select.unfold.us, !llvm.loop !11
 
 select.unfold._crit_edge.us:                      ; preds = %select.unfold.us
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw i64 %indvars.iv to i32
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph.us, label %._crit_edge, !llvm.loop !14
+  br i1 %22, label %.lr.ph.us, label %._crit_edge, !llvm.loop !13
 
 .lr.ph19.split:                                   ; preds = %.lr.ph19, %select.unfold._crit_edge
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %select.unfold._crit_edge ], [ %14, %.lr.ph19 ]
@@ -794,20 +794,20 @@ select.unfold:                                    ; preds = %.lr.ph19.split, %se
   %fputc = tail call i32 @fputc(i32 %28, ptr %0)
   %29 = add nsw i32 %.017, -1
   %30 = icmp sgt i32 %.017, 0
-  br i1 %30, label %select.unfold, label %select.unfold._crit_edge, !llvm.loop !12
+  br i1 %30, label %select.unfold, label %select.unfold._crit_edge, !llvm.loop !11
 
 select.unfold._crit_edge:                         ; preds = %select.unfold
   %indvars.iv.next23 = add nsw i64 %indvars.iv22, -1
-  %31 = trunc i64 %indvars.iv22 to i32
+  %31 = trunc nuw i64 %indvars.iv22 to i32
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph19.split, label %._crit_edge, !llvm.loop !14
+  br i1 %32, label %.lr.ph19.split, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %select.unfold._crit_edge.us, %select.unfold._crit_edge, %3
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Fraig_GetMaxLevel(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, -2147483648) i32 @Fraig_GetMaxLevel(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -834,7 +834,7 @@ define i32 @Fraig_GetMaxLevel(ptr nocapture noundef readonly %0) local_unnamed_a
   %.09. = tail call i32 @llvm.smax.i32(i32 %.0911, i32 %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %9, %1
   %.09.lcssa = phi i32 [ 0, %1 ], [ %.09., %9 ]
@@ -923,7 +923,7 @@ define i32 @Fraig_MappingUpdateLevel_rec(ptr noundef %0, ptr noundef %1, i32 nou
   %46 = getelementptr inbounds i8, ptr %.03645, i64 80
   %.036 = load ptr, ptr %46, align 8
   %.not42 = icmp eq ptr %.036, null
-  br i1 %.not42, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not42, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %15, %40, %13, %5
   %.0.in = phi ptr [ %14, %13 ], [ %6, %5 ], [ %30, %40 ], [ %30, %15 ], [ %30, %.preheader ], [ %30, %.lr.ph ]
@@ -963,7 +963,7 @@ define void @Fraig_MappingSetChoiceLevels(ptr noundef %0, i32 noundef %1) local_
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -997,7 +997,7 @@ define void @Fraig_ManReportChoices(ptr noundef %0) local_unnamed_addr #0 {
   %.09..i = tail call i32 @llvm.smax.i32(i32 %.0911.i, i32 %16)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Fraig_GetMaxLevel.exit, label %9, !llvm.loop !15
+  br i1 %exitcond.not.i, label %Fraig_GetMaxLevel.exit, label %9, !llvm.loop !14
 
 Fraig_GetMaxLevel.exit:                           ; preds = %9, %1
   %.09.lcssa.i = phi i32 [ 0, %1 ], [ %.09..i, %9 ]
@@ -1026,7 +1026,7 @@ Fraig_GetMaxLevel.exit:                           ; preds = %9, %1
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next.i25, %34
-  br i1 %35, label %.lr.ph.i23, label %Fraig_MappingSetChoiceLevels.exit, !llvm.loop !17
+  br i1 %35, label %.lr.ph.i23, label %Fraig_MappingSetChoiceLevels.exit, !llvm.loop !16
 
 Fraig_MappingSetChoiceLevels.exit:                ; preds = %.lr.ph.i23
   %36 = icmp sgt i32 %33, 0
@@ -1051,7 +1051,7 @@ Fraig_MappingSetChoiceLevels.exit:                ; preds = %.lr.ph.i23
   %.09..i31 = tail call i32 @llvm.smax.i32(i32 %.0911.i30, i32 %46)
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %wide.trip.count.i28
-  br i1 %exitcond.not.i33, label %Fraig_GetMaxLevel.exit34, label %39, !llvm.loop !15
+  br i1 %exitcond.not.i33, label %Fraig_GetMaxLevel.exit34, label %39, !llvm.loop !14
 
 Fraig_GetMaxLevel.exit34:                         ; preds = %39, %Fraig_GetMaxLevel.exit, %Fraig_MappingSetChoiceLevels.exit
   %.09.lcssa.i26 = phi i32 [ 0, %Fraig_MappingSetChoiceLevels.exit ], [ 0, %Fraig_GetMaxLevel.exit ], [ %.09..i31, %39 ]
@@ -1096,14 +1096,14 @@ Fraig_GetMaxLevel.exit34:                         ; preds = %39, %Fraig_GetMaxLe
   %65 = getelementptr inbounds i8, ptr %.037, i64 80
   %66 = load ptr, ptr %65, align 8
   %.not22 = icmp eq ptr %66, null
-  br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %54, %60
   %.2 = phi i32 [ %.02038, %60 ], [ %.02038, %54 ], [ %64, %.lr.ph ]
   %.1 = phi i32 [ %.01840, %60 ], [ %.01840, %54 ], [ %63, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %54, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %54, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit, %Fraig_GetMaxLevel.exit34
   %.020.lcssa = phi i32 [ 0, %Fraig_GetMaxLevel.exit34 ], [ %.2, %.loopexit ]
@@ -1114,7 +1114,7 @@ Fraig_GetMaxLevel.exit34:                         ; preds = %39, %Fraig_GetMaxLe
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fraig_NodeIsExorType(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fraig_NodeIsExorType(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -2
   %4 = inttoptr i64 %3 to ptr
@@ -1185,7 +1185,7 @@ define i32 @Fraig_NodeIsExorType(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fraig_NodeIsMuxType(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fraig_NodeIsMuxType(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -2
   %4 = inttoptr i64 %3 to ptr
@@ -1264,7 +1264,7 @@ define i32 @Fraig_NodeIsMuxType(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Fraig_NodeIsExor(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Fraig_NodeIsExor(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -1508,7 +1508,7 @@ Fraig_NodeIsExorType.exit:                        ; preds = %.lr.ph, %16, %20, %
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %Fraig_NodeIsExorType.exit, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %57, %Fraig_NodeIsExorType.exit ]
@@ -1613,7 +1613,7 @@ Fraig_NodeIsMuxType.exit:                         ; preds = %.lr.ph, %16, %20, %
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %Fraig_NodeIsMuxType.exit, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %61, %Fraig_NodeIsMuxType.exit ]
@@ -1621,7 +1621,7 @@ Fraig_NodeIsMuxType.exit:                         ; preds = %.lr.ph, %16, %20, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Fraig_NodeSimsContained(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Fraig_NodeSimsContained(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 104
@@ -1638,7 +1638,7 @@ define noundef i32 @Fraig_NodeSimsContained(ptr nocapture noundef readonly %0, p
 11:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
@@ -1668,7 +1668,7 @@ define noundef i32 @Fraig_NodeSimsContained(ptr nocapture noundef readonly %0, p
 25:                                               ; preds = %.lr.ph24
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
-  br i1 %exitcond33.not, label %.loopexit, label %.lr.ph24, !llvm.loop !23
+  br i1 %exitcond33.not, label %.loopexit, label %.lr.ph24, !llvm.loop !22
 
 .lr.ph24:                                         ; preds = %.lr.ph24.preheader, %25
   %indvars.iv29 = phi i64 [ 0, %.lr.ph24.preheader ], [ %indvars.iv.next30, %25 ]
@@ -1713,7 +1713,7 @@ define i32 @Fraig_CountPis(ptr nocapture noundef readonly %0, ptr noundef %1) lo
   %17 = add nsw i32 %16, %.011
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %7, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %17, %7 ]
@@ -1776,7 +1776,7 @@ define noundef i32 @Fraig_ManPrintRefs(ptr noundef %0) local_unnamed_addr #0 {
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %10, label %Abc_Clock.exit, !llvm.loop !25
+  br i1 %34, label %10, label %Abc_Clock.exit, !llvm.loop !24
 
 Abc_Clock.exit:                                   ; preds = %29, %1
   %.lcssa = phi i32 [ %7, %1 ], [ %32, %29 ]
@@ -1807,7 +1807,7 @@ Abc_Clock.exit:                                   ; preds = %29, %1
   %.1.lcssa = phi i32 [ %.4, %.loopexit76.loopexit ], [ %.086, %46 ]
   %45 = icmp slt i64 %indvars.iv.next100, %.pre-phi
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  br i1 %45, label %46, label %._crit_edge, !llvm.loop !26
+  br i1 %45, label %46, label %._crit_edge, !llvm.loop !25
 
 46:                                               ; preds = %.lr.ph87, %.loopexit76
   %47 = phi i32 [ %39, %.lr.ph87 ], [ %44, %.loopexit76 ]
@@ -1844,7 +1844,7 @@ Abc_Clock.exit:                                   ; preds = %29, %1
 61:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 .lr.ph.i:                                         ; preds = %61, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %61 ]
@@ -1873,7 +1873,7 @@ Abc_Clock.exit:                                   ; preds = %29, %1
 74:                                               ; preds = %.lr.ph24.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
-  br i1 %exitcond33.not.i, label %Fraig_NodeSimsContained.exit, label %.lr.ph24.i, !llvm.loop !23
+  br i1 %exitcond33.not.i, label %Fraig_NodeSimsContained.exit, label %.lr.ph24.i, !llvm.loop !22
 
 .lr.ph24.i:                                       ; preds = %74, %.lr.ph24.preheader.i
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph24.preheader.i ], [ %indvars.iv.next30.i, %74 ]
@@ -1904,7 +1904,7 @@ Fraig_NodeSimsContained.exit:                     ; preds = %74, %._crit_edge.i
 84:                                               ; preds = %.lr.ph.i64
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i65, 1
   %exitcond.not.i68 = icmp eq i64 %indvars.iv.next.i67, %wide.trip.count.i63
-  br i1 %exitcond.not.i68, label %._crit_edge.i53, label %.lr.ph.i64, !llvm.loop !22
+  br i1 %exitcond.not.i68, label %._crit_edge.i53, label %.lr.ph.i64, !llvm.loop !21
 
 .lr.ph.i64:                                       ; preds = %84, %.lr.ph.preheader.i62
   %indvars.iv.i65 = phi i64 [ 0, %.lr.ph.preheader.i62 ], [ %indvars.iv.next.i67, %84 ]
@@ -1933,7 +1933,7 @@ Fraig_NodeSimsContained.exit:                     ; preds = %74, %._crit_edge.i
 97:                                               ; preds = %.lr.ph24.i57
   %indvars.iv.next30.i60 = add nuw nsw i64 %indvars.iv29.i58, 1
   %exitcond33.not.i61 = icmp eq i64 %indvars.iv.next30.i60, %wide.trip.count32.i56
-  br i1 %exitcond33.not.i61, label %Fraig_NodeSimsContained.exit69, label %.lr.ph24.i57, !llvm.loop !23
+  br i1 %exitcond33.not.i61, label %Fraig_NodeSimsContained.exit69, label %.lr.ph24.i57, !llvm.loop !22
 
 .lr.ph24.i57:                                     ; preds = %97, %.lr.ph24.preheader.i55
   %indvars.iv29.i58 = phi i64 [ 0, %.lr.ph24.preheader.i55 ], [ %indvars.iv.next30.i60, %97 ]
@@ -1959,9 +1959,9 @@ Fraig_NodeSimsContained.exit69.thread:            ; preds = %.lr.ph.i64, %.lr.ph
   %.4 = phi i32 [ %spec.select, %Fraig_NodeSimsContained.exit ], [ %spec.select52, %Fraig_NodeSimsContained.exit69 ], [ %.180, %.lr.ph24.i57 ], [ %.180, %.lr.ph.i64 ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %107 = load i32, ptr %35, align 4
-  %108 = trunc i64 %indvars.iv.next97 to i32
+  %108 = trunc nuw i64 %indvars.iv.next97 to i32
   %109 = icmp sgt i32 %107, %108
-  br i1 %109, label %.lr.ph81, label %.loopexit76.loopexit, !llvm.loop !27
+  br i1 %109, label %.lr.ph81, label %.loopexit76.loopexit, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.loopexit76, %Abc_Clock.exit
   %.041.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.142.lcssa, %.loopexit76 ]
@@ -1975,7 +1975,7 @@ declare void @Fraig_NodeVecPush(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @Fraig_NodeIsImplification(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fraig_NodeIsInSupergate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Fraig_NodeIsInSupergate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
@@ -2003,10 +2003,10 @@ define i32 @Fraig_NodeIsInSupergate(ptr noundef %0, ptr noundef %1) local_unname
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 @Fraig_NodeIsInSupergate(ptr noundef %19, ptr noundef %1), !range !28
+  %20 = tail call i32 @Fraig_NodeIsInSupergate(ptr noundef %19, ptr noundef %1)
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 @Fraig_NodeIsInSupergate(ptr noundef %22, ptr noundef %1), !range !28
+  %23 = tail call i32 @Fraig_NodeIsInSupergate(ptr noundef %22, ptr noundef %1)
   %24 = icmp eq i32 %20, -1
   %25 = icmp eq i32 %23, -1
   %or.cond = select i1 %24, i1 true, i1 %25
@@ -2204,7 +2204,7 @@ define void @Fraig_NodeSetTravIdCurrent(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Fraig_NodeIsTravIdCurrent(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @Fraig_NodeIsTravIdCurrent(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 132
@@ -2215,7 +2215,7 @@ define i32 @Fraig_NodeIsTravIdCurrent(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Fraig_NodeIsTravIdPrevious(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @Fraig_NodeIsTravIdPrevious(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 132
@@ -2267,7 +2267,7 @@ attributes #15 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
@@ -2287,5 +2287,3 @@ attributes #15 = { nounwind }
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = !{i32 -1, i32 2}

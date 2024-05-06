@@ -52,13 +52,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @add_ncid_frame_cb.new_conn_id_frame = internal global [28 x i8] c"\18\01\01\083DUf\DE\AD\BE\EF\AB\CD\EF\01\122#EV\06\08\89\A1\B2\C3\D4", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -119,7 +119,7 @@ declare ptr @test_mk_file_path(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_ncid_frame(i32 noundef %fail) #1 {
+define internal range(i32 0, 2) i32 @test_ncid_frame(i32 noundef %fail) #1 {
 entry:
   %qtserv = alloca ptr, align 8
   %cssl = alloca ptr, align 8

@@ -777,7 +777,7 @@ is_usable_unique_index.exit.i:                    ; preds = %323
 
 372:                                              ; preds = %368
   store i32 %364, ptr %369, align 4
-  %373 = trunc i8 %.1121.i to i1
+  %373 = trunc nuw i8 %.1121.i to i1
   br i1 %373, label %374, label %375
 
 374:                                              ; preds = %372
@@ -807,7 +807,7 @@ is_usable_unique_index.exit.thread.i:             ; preds = %324, %379, %is_usab
   br i1 %382, label %.lr.ph125, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %is_usable_unique_index.exit.thread.i
-  %383 = trunc i8 %.3.i to i1
+  %383 = trunc nuw i8 %.3.i to i1
   call void @list_free(ptr noundef nonnull %286) #8
   br i1 %383, label %387, label %384
 

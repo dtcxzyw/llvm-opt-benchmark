@@ -187,7 +187,7 @@ define internal fastcc ptr @fetch_addr(ptr noundef %data, ptr nocapture noundef 
 entry:
   %entry_id = alloca [262 x i8], align 16
   %user = alloca %struct.hostcache_prune_data, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostname) #12
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %hostname) #12
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %call.i, i64 255)
   %tobool2.not8.i = icmp eq i64 %call.i, 0
   br i1 %tobool2.not8.i, label %create_hostcache_id.exit, label %while.body.i
@@ -494,7 +494,7 @@ cond.end.thread.i:                                ; preds = %if.end11
   br label %while.body.preheader.i
 
 cond.end.i:                                       ; preds = %if.end11
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostname) #12
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %hostname) #12
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %call.i, i64 255)
   %tobool2.not8.i = icmp eq i64 %call.i, 0
   br i1 %tobool2.not8.i, label %create_hostcache_id.exit, label %while.body.preheader.i
@@ -661,7 +661,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_resolv(ptr noundef %data, ptr noundef %hostname, i32 noundef %port, i1 noundef zeroext %allowDOH, ptr nocapture noundef writeonly %entry1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %data, ptr noundef %hostname, i32 noundef %port, i1 noundef zeroext %allowDOH, ptr nocapture noundef writeonly %entry1) local_unnamed_addr #0 {
 entry:
   %sa6.sroa.4.i.i = alloca [4 x i32], align 4
   %ipv6.i.i = alloca [16 x i8], align 16
@@ -805,7 +805,7 @@ lor.lhs.false67:                                  ; preds = %if.end64
 
 if.then70:                                        ; preds = %lor.lhs.false67, %if.end64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ipv4.i)
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostname) #12
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %hostname) #12
   %conv.i = trunc i32 %port to i16
   %call1.i = call zeroext i16 @htons(i16 noundef zeroext %conv.i) #13
   %call2.i = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull @.str.22, ptr noundef nonnull %ipv4.i) #11
@@ -837,10 +837,10 @@ if.end7.i:                                        ; preds = %if.end.i
   %add.ptr10.i = getelementptr inbounds i8, ptr %call5.i, i64 64
   %ai_canonname.i = getelementptr inbounds i8, ptr %call5.i, i64 24
   store ptr %add.ptr10.i, ptr %ai_canonname.i, align 8
-  %call12.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr10.i, ptr noundef nonnull dereferenceable(1) %hostname) #11
+  %call12.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr10.i, ptr noundef nonnull readonly dereferenceable(1) %hostname) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sa6.sroa.4.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ipv6.i.i)
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostname) #12
+  %call.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %hostname) #12
   %12 = load ptr, ptr @Curl_ccalloc, align 8
   %add1.i.i = add i64 %call.i.i, 77
   %call2.i.i = call ptr %12(i64 noundef 1, i64 noundef %add1.i.i) #11
@@ -879,7 +879,7 @@ if.end16.i:                                       ; preds = %if.end.i.i
   %add.ptr11.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 76
   %ai_canonname.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 24
   store ptr %add.ptr11.i.i, ptr %ai_canonname.i.i, align 8
-  %call13.i.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr11.i.i, ptr noundef nonnull dereferenceable(1) %hostname) #11
+  %call13.i.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr11.i.i, ptr noundef nonnull readonly dereferenceable(1) %hostname) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sa6.sroa.4.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ipv6.i.i)
   store ptr %call5.i, ptr %ai_next.i.i, align 8
@@ -1224,7 +1224,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @Curl_resolv(ptr noundef %data, ptr noundef %hostname, i32 noundef %port, i1 noundef zeroext true, ptr noundef nonnull %entry1), !range !13
+  %call = tail call i32 @Curl_resolv(ptr noundef %data, ptr noundef %hostname, i32 noundef %port, i1 noundef zeroext true, ptr noundef nonnull %entry1)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1362,7 +1362,7 @@ if.end8:                                          ; preds = %if.end8.critedge, %
 declare void @Curl_hash_clean(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_loadhostpairs(ptr noundef %data) local_unnamed_addr #0 {
+define hidden range(i32 0, 50) i32 @Curl_loadhostpairs(ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %entry_id = alloca [262 x i8], align 16
   %address = alloca [64 x i8], align 16
@@ -1547,7 +1547,7 @@ if.end100:                                        ; preds = %if.end97, %if.end84
   %addr_begin.0 = phi ptr [ %incdec.ptr98, %if.end97 ], [ %add.ptr78, %if.end84 ]
   %addr_end.1 = phi ptr [ %add.ptr92, %if.end97 ], [ %addr_end.0, %if.end84 ]
   %tobool104.not = icmp eq ptr %addr_end.1, %addr_begin.0
-  br i1 %tobool104.not, label %while.cond, label %if.end106, !llvm.loop !14
+  br i1 %tobool104.not, label %while.cond, label %if.end106, !llvm.loop !13
 
 if.end106:                                        ; preds = %if.end100
   store ptr %addr_end.0, ptr %end_ptr, align 8
@@ -1577,12 +1577,12 @@ if.then127:                                       ; preds = %land.lhs.true119
 
 if.end131:                                        ; preds = %if.end110
   %tobool132.not = icmp eq ptr %tail.0.ph, null
-  br i1 %tobool132.not, label %while.cond.outer.outer, label %if.then133, !llvm.loop !14
+  br i1 %tobool132.not, label %while.cond.outer.outer, label %if.then133, !llvm.loop !13
 
 if.then133:                                       ; preds = %if.end131
   %ai_next = getelementptr inbounds i8, ptr %tail.0.ph, i64 40
   store ptr %call114, ptr %ai_next, align 8
-  br label %while.cond.outer, !llvm.loop !14
+  br label %while.cond.outer, !llvm.loop !13
 
 err:                                              ; preds = %while.cond
   store ptr %addr_end.0149, ptr %end_ptr, align 8
@@ -1609,7 +1609,7 @@ cond.end.thread.i101:                             ; preds = %if.end143
   br label %while.body.preheader.i103
 
 cond.end.i119:                                    ; preds = %if.end143
-  %call.i120 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select97) #12
+  %call.i120 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select97) #12
   %spec.select.i121 = call i64 @llvm.umin.i64(i64 %call.i120, i64 255)
   %tobool2.not8.i122 = icmp eq i64 %call.i120, 0
   br i1 %tobool2.not8.i122, label %create_hostcache_id.exit123, label %while.body.preheader.i103
@@ -1745,7 +1745,7 @@ for.inc:                                          ; preds = %if.then42, %if.end3
   %next = getelementptr inbounds i8, ptr %hostp.0155, i64 8
   %hostp.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %hostp.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %entry
   store ptr null, ptr %resolve, align 8
@@ -1834,7 +1834,7 @@ declare void @Curl_conncache_remove_conn(ptr noundef, ptr noundef, i1 noundef ze
 declare void @Curl_disconnect(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_resolver_error(ptr noundef %data) local_unnamed_addr #0 {
+define hidden range(i32 5, 7) i32 @Curl_resolver_error(ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -1853,7 +1853,7 @@ entry:
 declare void @Curl_hash_clean_with_criterium(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @hostcache_timestamp_remove(ptr nocapture noundef %datap, ptr nocapture noundef readonly %hc) #6 {
+define internal range(i32 0, 2) i32 @hostcache_timestamp_remove(ptr nocapture noundef %datap, ptr nocapture noundef readonly %hc) #6 {
 entry:
   %timestamp = getelementptr inbounds i8, ptr %hc, i64 8
   %0 = load i64, ptr %timestamp, align 8
@@ -1949,6 +1949,5 @@ attributes #13 = { nounwind willreturn memory(none) }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i32 -1, i32 2}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}

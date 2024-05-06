@@ -160,7 +160,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.78 = private unnamed_addr constant [30 x i8] c"Unexpected address family: %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mca_btl_tcp_component_open() #0 {
+define internal range(i32 -16, 1) i32 @mca_btl_tcp_component_open() #0 {
   %1 = load i32, ptr getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i64 0, i32 16), align 8
   %2 = icmp sgt i32 %1, 65535
   br i1 %2, label %3, label %mca_btl_tcp_component_verify.exit
@@ -1637,7 +1637,7 @@ mca_btl_tcp_component_exchange.exit.thread33:     ; preds = %352
 
 374:                                              ; preds = %365
   %375 = load i32, ptr getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_btl_base_framework, i64 0, i32 11), align 4
-  %376 = trunc i64 %.04043.i to i32
+  %376 = trunc nuw i64 %.04043.i to i32
   %377 = getelementptr inbounds i8, ptr %361, i64 564
   %378 = load i16, ptr %377, align 4
   %379 = zext i16 %378 to i32
@@ -1963,7 +1963,7 @@ define internal fastcc ptr @split_and_resolve(ptr noundef %0, ptr noundef %1, i1
   br i1 %exitcond.not, label %._crit_edge.thread, label %31, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %31
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -2063,7 +2063,7 @@ define internal fastcc ptr @split_and_resolve(ptr noundef %0, ptr noundef %1, i1
   br i1 %exitcond107.not, label %._crit_edge85.thread, label %78, !llvm.loop !19
 
 ._crit_edge85.loopexit:                           ; preds = %78
-  %84 = trunc i64 %indvars.iv103 to i32
+  %84 = trunc nuw nsw i64 %indvars.iv103 to i32
   br label %._crit_edge85
 
 ._crit_edge85:                                    ; preds = %._crit_edge85.loopexit, %72

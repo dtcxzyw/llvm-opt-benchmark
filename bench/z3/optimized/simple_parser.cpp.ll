@@ -748,7 +748,7 @@ if.then5:                                         ; preds = %land.lhs.true.i.i.i
   %11 = load i64, ptr %m_value.i, align 8
   %op.sroa.0.0.extract.trunc = trunc i64 %11 to i32
   %op.sroa.5.0.extract.shift = lshr i64 %11, 32
-  %op.sroa.5.0.extract.trunc = trunc i64 %op.sroa.5.0.extract.shift to i32
+  %op.sroa.5.0.extract.trunc = trunc nuw i64 %op.sroa.5.0.extract.shift to i32
   store ptr null, ptr %args, align 8
   br label %while.cond
 
@@ -993,7 +993,7 @@ if.then27:                                        ; preds = %land.lhs.true.i.i.i
   %44 = load i64, ptr %m_value.i63, align 8
   %op.sroa.0.0.extract.trunc212 = trunc i64 %44 to i32
   %op.sroa.5.0.extract.shift213 = lshr i64 %44, 32
-  %op.sroa.5.0.extract.trunc214 = trunc i64 %op.sroa.5.0.extract.shift213 to i32
+  %op.sroa.5.0.extract.trunc214 = trunc nuw i64 %op.sroa.5.0.extract.shift213 to i32
   %m_manager29 = getelementptr inbounds i8, ptr %this, i64 8
   %45 = load ptr, ptr %m_manager29, align 8
   %call.i = tail call noundef ptr @_ZN11ast_manager6mk_appEiijPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %45, i32 noundef %op.sroa.0.0.extract.trunc212, i32 noundef %op.sroa.5.0.extract.trunc214, i32 noundef 0, ptr noundef null)

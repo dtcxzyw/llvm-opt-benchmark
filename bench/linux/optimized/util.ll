@@ -1425,7 +1425,7 @@ define dso_local i32 @ipcget(ptr noundef %0, ptr noundef %1, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @ipc_update_perm(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #6 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ipc_update_perm(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1676,7 +1676,7 @@ declare dso_local ptr @rht_bucket_nested(ptr noundef, i32 noundef) local_unnamed
 declare dso_local void @__audit_ipc_set_perm(i64 noundef, i32 noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sysvipc_proc_open(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 -12, 1) i32 @sysvipc_proc_open(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
   %3 = tail call ptr @__seq_open_private(ptr noundef %1, ptr noundef nonnull @sysvipc_proc_seqops, i32 noundef 24) #15
   %4 = icmp eq ptr %3, null
   br i1 %4, label %41, label %5

@@ -378,7 +378,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_mp4_box(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #5
   %8 = zext i32 %7 to i64
@@ -430,7 +430,7 @@ define internal fastcc noundef i32 @dissect_mp4_box(i32 noundef %0, ptr noundef 
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr %6, align 8
-  %40 = trunc i64 %.0153 to i32
+  %40 = trunc nuw nsw i64 %.0153 to i32
   call void @proto_item_set_len(ptr noundef %39, i32 noundef %40) #5
   %41 = sub nsw i32 %40, %.sink
   %42 = add i32 %0, 1
@@ -1179,7 +1179,7 @@ define internal fastcc void @dissect_mp4_elst_body(ptr noundef %0, i32 noundef %
   store i64 %44, ptr %6, align 8
   %45 = urem i64 %.056, %43
   %46 = udiv i32 1000000000, %38
-  %47 = trunc i64 %45 to i32
+  %47 = trunc nuw i64 %45 to i32
   %48 = mul i32 %46, %47
   store i32 %48, ptr %25, align 8
   %49 = call ptr @rel_time_to_str(ptr noundef %37, ptr noundef nonnull %6) #5
@@ -1220,7 +1220,7 @@ timescaled_val_to_str.exit:                       ; preds = %40, %42
   store i64 %66, ptr %5, align 8
   %67 = urem i64 %.054, %65
   %68 = udiv i32 1000000000, %60
-  %69 = trunc i64 %67 to i32
+  %69 = trunc nuw i64 %67 to i32
   %70 = mul i32 %68, %69
   store i32 %70, ptr %26, align 8
   %71 = call ptr @rel_time_to_str(ptr noundef %59, ptr noundef nonnull %5) #5

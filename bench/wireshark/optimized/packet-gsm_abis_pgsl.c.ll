@@ -233,7 +233,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_abis_pgsl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 1, 14) i32 @dissect_abis_pgsl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -613,7 +613,7 @@ define internal fastcc noundef ptr @get_egprs_data_block(ptr noundef %0, i32 nou
   br i1 %18, label %21, label %22
 
 21:                                               ; preds = %4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %13, ptr align 1 %20, i64 %12, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %13, ptr readonly align 1 %20, i64 %12, i1 false)
   br label %clone_aligned_buffer_lsbf.exit
 
 22:                                               ; preds = %4

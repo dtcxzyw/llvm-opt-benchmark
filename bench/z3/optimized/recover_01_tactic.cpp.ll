@@ -2664,8 +2664,8 @@ if.end:                                           ; preds = %_ZNK11ast_manager5i
 for.body.preheader:                               ; preds = %if.end
   %idx.ext.i = zext i32 %5 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %7 = getelementptr i8, ptr %c, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %7, i64 32
+  %7 = getelementptr inbounds i8, ptr %c, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %7, i64 32
   %m_args.i.ptr = getelementptr inbounds i8, ptr %c, i64 32
   br label %for.body
 
@@ -5645,8 +5645,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %4 to i64
   %add.ptr.i10.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %5 = getelementptr i8, ptr %3, i64 %add.ptr.i10.idx
-  %add.ptr.i10.ptr = getelementptr i8, ptr %5, i64 32
+  %5 = getelementptr inbounds i8, ptr %3, i64 %add.ptr.i10.idx
+  %add.ptr.i10.ptr = getelementptr inbounds i8, ptr %5, i64 32
   %cmp6.not68 = icmp eq i32 %4, 0
   br i1 %cmp6.not68, label %for.inc19, label %for.body7.preheader
 

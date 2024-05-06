@@ -867,7 +867,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @PyExc_SystemError = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [61 x i8] c"AST optimizer recursion depth mismatch (before=%d, after=%d)\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @PyExc_RecursionError = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [52 x i8] c"maximum recursion depth exceeded during compilation\00", align 1
 @PyExc_KeyboardInterrupt = external local_unnamed_addr global ptr, align 8
@@ -879,7 +879,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @fold_unaryop.ops = internal unnamed_addr constant [5 x ptr] [ptr null, ptr @PyNumber_Invert, ptr @unary_not, ptr @PyNumber_Positive, ptr @PyNumber_Negative], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyAST_Optimize(ptr nocapture noundef readonly %mod, ptr noundef %arena, i32 noundef %optimize, i32 noundef %ff_features) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyAST_Optimize(ptr nocapture noundef readonly %mod, ptr noundef %arena, i32 noundef %optimize, i32 noundef %ff_features) local_unnamed_addr #0 {
 entry:
   %state = alloca %struct._PyASTOptimizeState, align 4
   store i32 %optimize, ptr %state, align 4
@@ -909,7 +909,7 @@ if.end:                                           ; preds = %entry
 sw.bb.i:                                          ; preds = %if.end
   %v.i = getelementptr inbounds i8, ptr %mod, i64 8
   %5 = load ptr, ptr %v.i, align 8
-  %call.i = call fastcc i32 @astfold_body(ptr noundef %5, ptr noundef %arena, ptr noundef nonnull %state), !range !5
+  %call.i = call fastcc i32 @astfold_body(ptr noundef %5, ptr noundef %arena, ptr noundef nonnull %state)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %land.lhs.true
 
@@ -935,7 +935,7 @@ for.body.i:                                       ; preds = %sw.bb1.split.i, %fo
   br i1 %cmp7.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call9.i = call fastcc i32 @astfold_stmt(ptr noundef nonnull %9, ptr noundef %arena, ptr noundef nonnull %state), !range !5
+  %call9.i = call fastcc i32 @astfold_stmt(ptr noundef nonnull %9, ptr noundef %arena, ptr noundef nonnull %state)
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %return, label %land.lhs.true.for.inc_crit_edge.i
 
@@ -948,12 +948,12 @@ for.inc.i:                                        ; preds = %land.lhs.true.for.i
   %inc.i = add i32 %i.015.i, 1
   %conv.i = sext i32 %inc.i to i64
   %cmp5.i = icmp sgt i64 %10, %conv.i
-  br i1 %cmp5.i, label %for.body.i, label %land.lhs.true, !llvm.loop !6
+  br i1 %cmp5.i, label %for.body.i, label %land.lhs.true, !llvm.loop !5
 
 sw.bb13.i:                                        ; preds = %if.end
   %v14.i = getelementptr inbounds i8, ptr %mod, i64 8
   %11 = load ptr, ptr %v14.i, align 8
-  %call16.i = call fastcc i32 @astfold_expr(ptr noundef %11, ptr noundef %arena, ptr noundef nonnull %state), !range !5
+  %call16.i = call fastcc i32 @astfold_expr(ptr noundef %11, ptr noundef %arena, ptr noundef nonnull %state)
   %tobool17.not.i = icmp eq i32 %call16.i, 0
   br i1 %tobool17.not.i, label %return, label %land.lhs.true
 
@@ -978,7 +978,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @astfold_body(ptr noundef %stmts, ptr noundef %ctx_, ptr noundef %state) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @astfold_body(ptr noundef %stmts, ptr noundef %ctx_, ptr noundef %state) unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyAST_GetDocString(ptr noundef %stmts) #7
   %cmp.not = icmp eq ptr %call, null
@@ -1001,7 +1001,7 @@ for.body:                                         ; preds = %entry.split, %for.i
   br i1 %cmp6.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %call8 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %2, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call8 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %2, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not = icmp eq i32 %call8, 0
   br i1 %tobool.not, label %return, label %land.lhs.true.for.inc_crit_edge
 
@@ -1014,7 +1014,7 @@ for.inc:                                          ; preds = %land.lhs.true.for.i
   %inc = add i32 %i.020, 1
   %conv1 = sext i32 %inc to i64
   %cmp4 = icmp sgt i64 %3, %conv1
-  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %entry.split, %entry
   br i1 %cmp.not, label %land.lhs.true10, label %return
@@ -1057,7 +1057,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @astfold_stmt(ptr noundef readonly %node_, ptr noundef %ctx_, ptr noundef %state) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @astfold_stmt(ptr noundef readonly %node_, ptr noundef %ctx_, ptr noundef %state) unnamed_addr #0 {
 entry:
   %recursion_depth = getelementptr inbounds i8, ptr %state, i64 8
   %0 = load i32, ptr %recursion_depth, align 4
@@ -1138,25 +1138,25 @@ sw.bb.i:                                          ; preds = %land.lhs.true
   br i1 %cmp.not.i, label %for.inc, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb.i
-  %call.i = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %8, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call.i = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %8, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true.i, %sw.bb.i, %land.lhs.true, %for.body
   %inc9 = add i32 %i.0, 1
-  br label %for.cond, !llvm.loop !9
+  br label %for.cond, !llvm.loop !8
 
 for.end:                                          ; preds = %cond.end
   %args = getelementptr inbounds i8, ptr %node_, i64 16
   %9 = load ptr, ptr %args, align 8
-  %call11 = tail call fastcc i32 @astfold_arguments(ptr noundef %9, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call11 = tail call fastcc i32 @astfold_arguments(ptr noundef %9, ptr noundef %ctx_, ptr noundef %state)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %if.end14
 
 if.end14:                                         ; preds = %for.end
   %body = getelementptr inbounds i8, ptr %node_, i64 24
   %10 = load ptr, ptr %body, align 8
-  %call16 = tail call fastcc i32 @astfold_body(ptr noundef %10, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call16 = tail call fastcc i32 @astfold_body(ptr noundef %10, ptr noundef %ctx_, ptr noundef %state)
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %return, label %if.end19
 
@@ -1188,13 +1188,13 @@ for.body34:                                       ; preds = %cond.end30
   br i1 %cmp39.not, label %for.inc46, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %for.body34
-  %call42 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %13, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call42 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %13, ptr noundef %ctx_, ptr noundef %state)
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %return, label %for.inc46
 
 for.inc46:                                        ; preds = %for.body34, %land.lhs.true41
   %inc47 = add i32 %i20.0, 1
-  br label %for.cond23, !llvm.loop !10
+  br label %for.cond23, !llvm.loop !9
 
 for.end48:                                        ; preds = %cond.end30
   %ff_features = getelementptr inbounds i8, ptr %state, i64 4
@@ -1210,7 +1210,7 @@ if.then50:                                        ; preds = %for.end48
   br i1 %cmp52.not, label %sw.epilog, label %land.lhs.true54
 
 land.lhs.true54:                                  ; preds = %if.then50
-  %call57 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %15, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call57 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %15, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %return, label %sw.epilog
 
@@ -1253,25 +1253,25 @@ sw.bb.i428:                                       ; preds = %land.lhs.true85
   br i1 %cmp.not.i430, label %for.inc90, label %land.lhs.true.i431
 
 land.lhs.true.i431:                               ; preds = %sw.bb.i428
-  %call.i432 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %20, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call.i432 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %20, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not.i433 = icmp eq i32 %call.i432, 0
   br i1 %tobool.not.i433, label %return, label %for.inc90
 
 for.inc90:                                        ; preds = %land.lhs.true.i431, %sw.bb.i428, %land.lhs.true85, %for.body78
   %inc91 = add i32 %i63.0, 1
-  br label %for.cond67, !llvm.loop !11
+  br label %for.cond67, !llvm.loop !10
 
 for.end92:                                        ; preds = %cond.end74
   %args94 = getelementptr inbounds i8, ptr %node_, i64 16
   %21 = load ptr, ptr %args94, align 8
-  %call95 = tail call fastcc i32 @astfold_arguments(ptr noundef %21, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call95 = tail call fastcc i32 @astfold_arguments(ptr noundef %21, ptr noundef %ctx_, ptr noundef %state)
   %tobool96.not = icmp eq i32 %call95, 0
   br i1 %tobool96.not, label %return, label %if.end98
 
 if.end98:                                         ; preds = %for.end92
   %body100 = getelementptr inbounds i8, ptr %node_, i64 24
   %22 = load ptr, ptr %body100, align 8
-  %call101 = tail call fastcc i32 @astfold_body(ptr noundef %22, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call101 = tail call fastcc i32 @astfold_body(ptr noundef %22, ptr noundef %ctx_, ptr noundef %state)
   %tobool102.not = icmp eq i32 %call101, 0
   br i1 %tobool102.not, label %return, label %if.end104
 
@@ -1303,13 +1303,13 @@ for.body120:                                      ; preds = %cond.end116
   br i1 %cmp125.not, label %for.inc132, label %land.lhs.true127
 
 land.lhs.true127:                                 ; preds = %for.body120
-  %call128 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %25, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call128 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %25, ptr noundef %ctx_, ptr noundef %state)
   %tobool129.not = icmp eq i32 %call128, 0
   br i1 %tobool129.not, label %return, label %for.inc132
 
 for.inc132:                                       ; preds = %for.body120, %land.lhs.true127
   %inc133 = add i32 %i105.0, 1
-  br label %for.cond109, !llvm.loop !12
+  br label %for.cond109, !llvm.loop !11
 
 for.end134:                                       ; preds = %cond.end116
   %ff_features135 = getelementptr inbounds i8, ptr %state, i64 4
@@ -1325,7 +1325,7 @@ if.then138:                                       ; preds = %for.end134
   br i1 %cmp141.not, label %sw.epilog, label %land.lhs.true143
 
 land.lhs.true143:                                 ; preds = %if.then138
-  %call146 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %27, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call146 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %27, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool147.not = icmp eq i32 %call146, 0
   br i1 %tobool147.not, label %return, label %sw.epilog
 
@@ -1368,13 +1368,13 @@ sw.bb.i438:                                       ; preds = %land.lhs.true174
   br i1 %cmp.not.i440, label %for.inc179, label %land.lhs.true.i441
 
 land.lhs.true.i441:                               ; preds = %sw.bb.i438
-  %call.i442 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %32, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call.i442 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %32, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not.i443 = icmp eq i32 %call.i442, 0
   br i1 %tobool.not.i443, label %return, label %for.inc179
 
 for.inc179:                                       ; preds = %land.lhs.true.i441, %sw.bb.i438, %land.lhs.true174, %for.body167
   %inc180 = add i32 %i152.0, 1
-  br label %for.cond156, !llvm.loop !13
+  br label %for.cond156, !llvm.loop !12
 
 for.end181:                                       ; preds = %cond.end163
   %bases = getelementptr inbounds i8, ptr %node_, i64 16
@@ -1404,13 +1404,13 @@ for.body196:                                      ; preds = %cond.end192
   br i1 %cmp201.not, label %for.inc208, label %land.lhs.true203
 
 land.lhs.true203:                                 ; preds = %for.body196
-  %call204 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %35, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call204 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %35, ptr noundef %ctx_, ptr noundef %state)
   %tobool205.not = icmp eq i32 %call204, 0
   br i1 %tobool205.not, label %return, label %for.inc208
 
 for.inc208:                                       ; preds = %for.body196, %land.lhs.true203
   %inc209 = add i32 %i182.0, 1
-  br label %for.cond185, !llvm.loop !14
+  br label %for.cond185, !llvm.loop !13
 
 for.end210:                                       ; preds = %cond.end192
   %keywords = getelementptr inbounds i8, ptr %node_, i64 24
@@ -1442,18 +1442,18 @@ for.body225:                                      ; preds = %cond.end221
 land.lhs.true232:                                 ; preds = %for.body225
   %39 = getelementptr i8, ptr %38, i64 8
   %.val = load ptr, ptr %39, align 8
-  %call.i445 = tail call fastcc noundef i32 @astfold_expr(ptr noundef %.val, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call.i445 = tail call fastcc i32 @astfold_expr(ptr noundef %.val, ptr noundef %ctx_, ptr noundef %state)
   %tobool234.not = icmp eq i32 %call.i445, 0
   br i1 %tobool234.not, label %return, label %for.inc237
 
 for.inc237:                                       ; preds = %for.body225, %land.lhs.true232
   %inc238 = add i32 %i211.0, 1
-  br label %for.cond214, !llvm.loop !15
+  br label %for.cond214, !llvm.loop !14
 
 for.end239:                                       ; preds = %cond.end221
   %body241 = getelementptr inbounds i8, ptr %node_, i64 32
   %40 = load ptr, ptr %body241, align 8
-  %call242 = tail call fastcc i32 @astfold_body(ptr noundef %40, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call242 = tail call fastcc i32 @astfold_body(ptr noundef %40, ptr noundef %ctx_, ptr noundef %state)
   %tobool243.not = icmp eq i32 %call242, 0
   br i1 %tobool243.not, label %return, label %if.end245
 
@@ -1485,13 +1485,13 @@ for.body261:                                      ; preds = %cond.end257
   br i1 %cmp266.not, label %for.inc273, label %land.lhs.true268
 
 land.lhs.true268:                                 ; preds = %for.body261
-  %call269 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %43, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call269 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %43, ptr noundef %ctx_, ptr noundef %state)
   %tobool270.not = icmp eq i32 %call269, 0
   br i1 %tobool270.not, label %return, label %for.inc273
 
 for.inc273:                                       ; preds = %for.body261, %land.lhs.true268
   %inc274 = add i32 %i246.0, 1
-  br label %for.cond250, !llvm.loop !16
+  br label %for.cond250, !llvm.loop !15
 
 sw.bb276:                                         ; preds = %if.end
   %v277 = getelementptr inbounds i8, ptr %node_, i64 8
@@ -1500,7 +1500,7 @@ sw.bb276:                                         ; preds = %if.end
   br i1 %cmp278.not, label %sw.epilog, label %land.lhs.true280
 
 land.lhs.true280:                                 ; preds = %sw.bb276
-  %call283 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %44, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call283 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %44, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool284.not = icmp eq i32 %call283, 0
   br i1 %tobool284.not, label %return, label %sw.epilog
 
@@ -1532,13 +1532,13 @@ for.body302:                                      ; preds = %cond.end298
   br i1 %cmp307.not, label %for.inc314, label %land.lhs.true309
 
 land.lhs.true309:                                 ; preds = %for.body302
-  %call310 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %47, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call310 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %47, ptr noundef %ctx_, ptr noundef %state)
   %tobool311.not = icmp eq i32 %call310, 0
   br i1 %tobool311.not, label %return, label %for.inc314
 
 for.inc314:                                       ; preds = %for.body302, %land.lhs.true309
   %inc315 = add i32 %i288.0, 1
-  br label %for.cond291, !llvm.loop !17
+  br label %for.cond291, !llvm.loop !16
 
 sw.bb317:                                         ; preds = %if.end
   %v320 = getelementptr inbounds i8, ptr %node_, i64 8
@@ -1568,39 +1568,39 @@ for.body333:                                      ; preds = %cond.end329
   br i1 %cmp338.not, label %for.inc345, label %land.lhs.true340
 
 land.lhs.true340:                                 ; preds = %for.body333
-  %call341 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %50, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call341 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %50, ptr noundef %ctx_, ptr noundef %state)
   %tobool342.not = icmp eq i32 %call341, 0
   br i1 %tobool342.not, label %return, label %for.inc345
 
 for.inc345:                                       ; preds = %for.body333, %land.lhs.true340
   %inc346 = add i32 %i318.0, 1
-  br label %for.cond322, !llvm.loop !18
+  br label %for.cond322, !llvm.loop !17
 
 for.end347:                                       ; preds = %cond.end329
   %value349 = getelementptr inbounds i8, ptr %node_, i64 16
   %51 = load ptr, ptr %value349, align 8
-  %call350 = tail call fastcc i32 @astfold_expr(ptr noundef %51, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call350 = tail call fastcc i32 @astfold_expr(ptr noundef %51, ptr noundef %ctx_, ptr noundef %state)
   %tobool351.not = icmp eq i32 %call350, 0
   br i1 %tobool351.not, label %return, label %sw.epilog
 
 sw.bb354:                                         ; preds = %if.end
   %v355 = getelementptr inbounds i8, ptr %node_, i64 8
   %52 = load ptr, ptr %v355, align 8
-  %call356 = tail call fastcc i32 @astfold_expr(ptr noundef %52, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call356 = tail call fastcc i32 @astfold_expr(ptr noundef %52, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool357.not = icmp eq i32 %call356, 0
   br i1 %tobool357.not, label %return, label %if.end359
 
 if.end359:                                        ; preds = %sw.bb354
   %value361 = getelementptr inbounds i8, ptr %node_, i64 24
   %53 = load ptr, ptr %value361, align 8
-  %call362 = tail call fastcc i32 @astfold_expr(ptr noundef %53, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call362 = tail call fastcc i32 @astfold_expr(ptr noundef %53, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool363.not = icmp eq i32 %call362, 0
   br i1 %tobool363.not, label %return, label %sw.epilog
 
 sw.bb366:                                         ; preds = %if.end
   %v367 = getelementptr inbounds i8, ptr %node_, i64 8
   %54 = load ptr, ptr %v367, align 8
-  %call369 = tail call fastcc i32 @astfold_expr(ptr noundef %54, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call369 = tail call fastcc i32 @astfold_expr(ptr noundef %54, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool370.not = icmp eq i32 %call369, 0
   br i1 %tobool370.not, label %return, label %if.end372
 
@@ -1614,7 +1614,7 @@ if.end372:                                        ; preds = %sw.bb366
 if.then376:                                       ; preds = %if.end372
   %annotation = getelementptr inbounds i8, ptr %node_, i64 16
   %56 = load ptr, ptr %annotation, align 8
-  %call378 = tail call fastcc i32 @astfold_expr(ptr noundef %56, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call378 = tail call fastcc i32 @astfold_expr(ptr noundef %56, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool379.not = icmp eq i32 %call378, 0
   br i1 %tobool379.not, label %return, label %if.end382
 
@@ -1625,14 +1625,14 @@ if.end382:                                        ; preds = %if.then376, %if.end
   br i1 %cmp385.not, label %sw.epilog, label %land.lhs.true387
 
 land.lhs.true387:                                 ; preds = %if.end382
-  %call390 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %57, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call390 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %57, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool391.not = icmp eq i32 %call390, 0
   br i1 %tobool391.not, label %return, label %sw.epilog
 
 sw.bb394:                                         ; preds = %if.end
   %v395 = getelementptr inbounds i8, ptr %node_, i64 8
   %58 = load ptr, ptr %v395, align 8
-  %call396 = tail call fastcc i32 @astfold_expr(ptr noundef %58, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call396 = tail call fastcc i32 @astfold_expr(ptr noundef %58, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool397.not = icmp eq i32 %call396, 0
   br i1 %tobool397.not, label %return, label %if.end399
 
@@ -1675,32 +1675,32 @@ sw.bb.i449:                                       ; preds = %land.lhs.true422
   br i1 %cmp.not.i451, label %for.inc427, label %land.lhs.true.i452
 
 land.lhs.true.i452:                               ; preds = %sw.bb.i449
-  %call.i453 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %63, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call.i453 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %63, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not.i454 = icmp eq i32 %call.i453, 0
   br i1 %tobool.not.i454, label %return, label %for.inc427
 
 for.inc427:                                       ; preds = %land.lhs.true.i452, %sw.bb.i449, %land.lhs.true422, %for.body415
   %inc428 = add i32 %i400.0, 1
-  br label %for.cond404, !llvm.loop !19
+  br label %for.cond404, !llvm.loop !18
 
 for.end429:                                       ; preds = %cond.end411
   %value431 = getelementptr inbounds i8, ptr %node_, i64 24
   %64 = load ptr, ptr %value431, align 8
-  %call432 = tail call fastcc i32 @astfold_expr(ptr noundef %64, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call432 = tail call fastcc i32 @astfold_expr(ptr noundef %64, ptr noundef %ctx_, ptr noundef %state)
   %tobool433.not = icmp eq i32 %call432, 0
   br i1 %tobool433.not, label %return, label %sw.epilog
 
 sw.bb436:                                         ; preds = %if.end
   %v437 = getelementptr inbounds i8, ptr %node_, i64 8
   %65 = load ptr, ptr %v437, align 8
-  %call439 = tail call fastcc i32 @astfold_expr(ptr noundef %65, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call439 = tail call fastcc i32 @astfold_expr(ptr noundef %65, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool440.not = icmp eq i32 %call439, 0
   br i1 %tobool440.not, label %return, label %if.end442
 
 if.end442:                                        ; preds = %sw.bb436
   %iter = getelementptr inbounds i8, ptr %node_, i64 16
   %66 = load ptr, ptr %iter, align 8
-  %call444 = tail call fastcc i32 @astfold_expr(ptr noundef %66, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call444 = tail call fastcc i32 @astfold_expr(ptr noundef %66, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool445.not = icmp eq i32 %call444, 0
   br i1 %tobool445.not, label %return, label %if.end447
 
@@ -1732,13 +1732,13 @@ for.body463:                                      ; preds = %cond.end459
   br i1 %cmp468.not, label %for.inc475, label %land.lhs.true470
 
 land.lhs.true470:                                 ; preds = %for.body463
-  %call471 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %69, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call471 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %69, ptr noundef %ctx_, ptr noundef %state)
   %tobool472.not = icmp eq i32 %call471, 0
   br i1 %tobool472.not, label %return, label %for.inc475
 
 for.inc475:                                       ; preds = %for.body463, %land.lhs.true470
   %inc476 = add i32 %i448.0, 1
-  br label %for.cond452, !llvm.loop !20
+  br label %for.cond452, !llvm.loop !19
 
 for.end477:                                       ; preds = %cond.end459
   %orelse = getelementptr inbounds i8, ptr %node_, i64 32
@@ -1768,13 +1768,13 @@ for.body492:                                      ; preds = %cond.end488
   br i1 %cmp497.not, label %for.inc504, label %land.lhs.true499
 
 land.lhs.true499:                                 ; preds = %for.body492
-  %call500 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %72, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call500 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %72, ptr noundef %ctx_, ptr noundef %state)
   %tobool501.not = icmp eq i32 %call500, 0
   br i1 %tobool501.not, label %return, label %for.inc504
 
 for.inc504:                                       ; preds = %for.body492, %land.lhs.true499
   %inc505 = add i32 %i478.0, 1
-  br label %for.cond481, !llvm.loop !21
+  br label %for.cond481, !llvm.loop !20
 
 for.end506:                                       ; preds = %cond.end488
   %73 = load ptr, ptr %iter, align 8
@@ -1785,14 +1785,14 @@ for.end506:                                       ; preds = %cond.end488
 sw.bb513:                                         ; preds = %if.end
   %v514 = getelementptr inbounds i8, ptr %node_, i64 8
   %74 = load ptr, ptr %v514, align 8
-  %call516 = tail call fastcc i32 @astfold_expr(ptr noundef %74, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call516 = tail call fastcc i32 @astfold_expr(ptr noundef %74, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool517.not = icmp eq i32 %call516, 0
   br i1 %tobool517.not, label %return, label %if.end519
 
 if.end519:                                        ; preds = %sw.bb513
   %iter521 = getelementptr inbounds i8, ptr %node_, i64 16
   %75 = load ptr, ptr %iter521, align 8
-  %call522 = tail call fastcc i32 @astfold_expr(ptr noundef %75, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call522 = tail call fastcc i32 @astfold_expr(ptr noundef %75, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool523.not = icmp eq i32 %call522, 0
   br i1 %tobool523.not, label %return, label %if.end525
 
@@ -1824,13 +1824,13 @@ for.body541:                                      ; preds = %cond.end537
   br i1 %cmp546.not, label %for.inc553, label %land.lhs.true548
 
 land.lhs.true548:                                 ; preds = %for.body541
-  %call549 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %78, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call549 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %78, ptr noundef %ctx_, ptr noundef %state)
   %tobool550.not = icmp eq i32 %call549, 0
   br i1 %tobool550.not, label %return, label %for.inc553
 
 for.inc553:                                       ; preds = %for.body541, %land.lhs.true548
   %inc554 = add i32 %i526.0, 1
-  br label %for.cond530, !llvm.loop !22
+  br label %for.cond530, !llvm.loop !21
 
 for.end555:                                       ; preds = %cond.end537
   %orelse559 = getelementptr inbounds i8, ptr %node_, i64 32
@@ -1860,18 +1860,18 @@ for.body571:                                      ; preds = %cond.end567
   br i1 %cmp576.not, label %for.inc583, label %land.lhs.true578
 
 land.lhs.true578:                                 ; preds = %for.body571
-  %call579 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %81, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call579 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %81, ptr noundef %ctx_, ptr noundef %state)
   %tobool580.not = icmp eq i32 %call579, 0
   br i1 %tobool580.not, label %return, label %for.inc583
 
 for.inc583:                                       ; preds = %for.body571, %land.lhs.true578
   %inc584 = add i32 %i556.0, 1
-  br label %for.cond560, !llvm.loop !23
+  br label %for.cond560, !llvm.loop !22
 
 sw.bb586:                                         ; preds = %if.end
   %v587 = getelementptr inbounds i8, ptr %node_, i64 8
   %82 = load ptr, ptr %v587, align 8
-  %call588 = tail call fastcc i32 @astfold_expr(ptr noundef %82, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call588 = tail call fastcc i32 @astfold_expr(ptr noundef %82, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool589.not = icmp eq i32 %call588, 0
   br i1 %tobool589.not, label %return, label %if.end591
 
@@ -1903,13 +1903,13 @@ for.body607:                                      ; preds = %cond.end603
   br i1 %cmp612.not, label %for.inc619, label %land.lhs.true614
 
 land.lhs.true614:                                 ; preds = %for.body607
-  %call615 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %85, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call615 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %85, ptr noundef %ctx_, ptr noundef %state)
   %tobool616.not = icmp eq i32 %call615, 0
   br i1 %tobool616.not, label %return, label %for.inc619
 
 for.inc619:                                       ; preds = %for.body607, %land.lhs.true614
   %inc620 = add i32 %i592.0, 1
-  br label %for.cond596, !llvm.loop !24
+  br label %for.cond596, !llvm.loop !23
 
 for.end621:                                       ; preds = %cond.end603
   %orelse625 = getelementptr inbounds i8, ptr %node_, i64 24
@@ -1939,18 +1939,18 @@ for.body637:                                      ; preds = %cond.end633
   br i1 %cmp642.not, label %for.inc649, label %land.lhs.true644
 
 land.lhs.true644:                                 ; preds = %for.body637
-  %call645 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %88, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call645 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %88, ptr noundef %ctx_, ptr noundef %state)
   %tobool646.not = icmp eq i32 %call645, 0
   br i1 %tobool646.not, label %return, label %for.inc649
 
 for.inc649:                                       ; preds = %for.body637, %land.lhs.true644
   %inc650 = add i32 %i622.0, 1
-  br label %for.cond626, !llvm.loop !25
+  br label %for.cond626, !llvm.loop !24
 
 sw.bb652:                                         ; preds = %if.end
   %v653 = getelementptr inbounds i8, ptr %node_, i64 8
   %89 = load ptr, ptr %v653, align 8
-  %call655 = tail call fastcc i32 @astfold_expr(ptr noundef %89, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call655 = tail call fastcc i32 @astfold_expr(ptr noundef %89, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool656.not = icmp eq i32 %call655, 0
   br i1 %tobool656.not, label %return, label %if.end658
 
@@ -1982,13 +1982,13 @@ for.body674:                                      ; preds = %cond.end670
   br i1 %cmp679.not, label %for.inc686, label %land.lhs.true681
 
 land.lhs.true681:                                 ; preds = %for.body674
-  %call682 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %92, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call682 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %92, ptr noundef %ctx_, ptr noundef %state)
   %tobool683.not = icmp eq i32 %call682, 0
   br i1 %tobool683.not, label %return, label %for.inc686
 
 for.inc686:                                       ; preds = %for.body674, %land.lhs.true681
   %inc687 = add i32 %i659.0, 1
-  br label %for.cond663, !llvm.loop !26
+  br label %for.cond663, !llvm.loop !25
 
 for.end688:                                       ; preds = %cond.end670
   %orelse692 = getelementptr inbounds i8, ptr %node_, i64 24
@@ -2018,13 +2018,13 @@ for.body704:                                      ; preds = %cond.end700
   br i1 %cmp709.not, label %for.inc716, label %land.lhs.true711
 
 land.lhs.true711:                                 ; preds = %for.body704
-  %call712 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %95, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call712 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %95, ptr noundef %ctx_, ptr noundef %state)
   %tobool713.not = icmp eq i32 %call712, 0
   br i1 %tobool713.not, label %return, label %for.inc716
 
 for.inc716:                                       ; preds = %for.body704, %land.lhs.true711
   %inc717 = add i32 %i689.0, 1
-  br label %for.cond693, !llvm.loop !27
+  br label %for.cond693, !llvm.loop !26
 
 sw.bb719:                                         ; preds = %if.end
   %v722 = getelementptr inbounds i8, ptr %node_, i64 8
@@ -2055,7 +2055,7 @@ for.body734:                                      ; preds = %cond.end730
 
 land.lhs.true741:                                 ; preds = %for.body734
   %99 = load ptr, ptr %98, align 8
-  %call.i456 = tail call fastcc i32 @astfold_expr(ptr noundef %99, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call.i456 = tail call fastcc i32 @astfold_expr(ptr noundef %99, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not.i457 = icmp eq i32 %call.i456, 0
   br i1 %tobool.not.i457, label %return, label %if.end.i
 
@@ -2066,13 +2066,13 @@ if.end.i:                                         ; preds = %land.lhs.true741
   br i1 %cmp.not.i458, label %for.inc746, label %land.lhs.true.i459
 
 land.lhs.true.i459:                               ; preds = %if.end.i
-  %call2.i = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %100, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call2.i = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %100, ptr noundef %ctx_, ptr noundef %state)
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool3.not.i, label %return, label %for.inc746
 
 for.inc746:                                       ; preds = %land.lhs.true.i459, %if.end.i, %for.body734
   %inc747 = add i32 %i720.0, 1
-  br label %for.cond723, !llvm.loop !28
+  br label %for.cond723, !llvm.loop !27
 
 for.end748:                                       ; preds = %cond.end730
   %body752 = getelementptr inbounds i8, ptr %node_, i64 16
@@ -2102,13 +2102,13 @@ for.body764:                                      ; preds = %cond.end760
   br i1 %cmp769.not, label %for.inc776, label %land.lhs.true771
 
 land.lhs.true771:                                 ; preds = %for.body764
-  %call772 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %103, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call772 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %103, ptr noundef %ctx_, ptr noundef %state)
   %tobool773.not = icmp eq i32 %call772, 0
   br i1 %tobool773.not, label %return, label %for.inc776
 
 for.inc776:                                       ; preds = %for.body764, %land.lhs.true771
   %inc777 = add i32 %i749.0, 1
-  br label %for.cond753, !llvm.loop !29
+  br label %for.cond753, !llvm.loop !28
 
 sw.bb779:                                         ; preds = %if.end
   %v782 = getelementptr inbounds i8, ptr %node_, i64 8
@@ -2139,7 +2139,7 @@ for.body795:                                      ; preds = %cond.end791
 
 land.lhs.true802:                                 ; preds = %for.body795
   %107 = load ptr, ptr %106, align 8
-  %call.i461 = tail call fastcc i32 @astfold_expr(ptr noundef %107, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call.i461 = tail call fastcc i32 @astfold_expr(ptr noundef %107, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not.i462 = icmp eq i32 %call.i461, 0
   br i1 %tobool.not.i462, label %return, label %if.end.i463
 
@@ -2150,13 +2150,13 @@ if.end.i463:                                      ; preds = %land.lhs.true802
   br i1 %cmp.not.i465, label %for.inc807, label %land.lhs.true.i466
 
 land.lhs.true.i466:                               ; preds = %if.end.i463
-  %call2.i467 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %108, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call2.i467 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %108, ptr noundef %ctx_, ptr noundef %state)
   %tobool3.not.i468 = icmp eq i32 %call2.i467, 0
   br i1 %tobool3.not.i468, label %return, label %for.inc807
 
 for.inc807:                                       ; preds = %land.lhs.true.i466, %if.end.i463, %for.body795
   %inc808 = add i32 %i780.0, 1
-  br label %for.cond784, !llvm.loop !30
+  br label %for.cond784, !llvm.loop !29
 
 for.end809:                                       ; preds = %cond.end791
   %body813 = getelementptr inbounds i8, ptr %node_, i64 16
@@ -2186,13 +2186,13 @@ for.body825:                                      ; preds = %cond.end821
   br i1 %cmp830.not, label %for.inc837, label %land.lhs.true832
 
 land.lhs.true832:                                 ; preds = %for.body825
-  %call833 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %111, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call833 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %111, ptr noundef %ctx_, ptr noundef %state)
   %tobool834.not = icmp eq i32 %call833, 0
   br i1 %tobool834.not, label %return, label %for.inc837
 
 for.inc837:                                       ; preds = %for.body825, %land.lhs.true832
   %inc838 = add i32 %i810.0, 1
-  br label %for.cond814, !llvm.loop !31
+  br label %for.cond814, !llvm.loop !30
 
 sw.bb840:                                         ; preds = %if.end
   %v841 = getelementptr inbounds i8, ptr %node_, i64 8
@@ -2201,7 +2201,7 @@ sw.bb840:                                         ; preds = %if.end
   br i1 %cmp842.not, label %if.end850, label %land.lhs.true844
 
 land.lhs.true844:                                 ; preds = %sw.bb840
-  %call847 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %112, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call847 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %112, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool848.not = icmp eq i32 %call847, 0
   br i1 %tobool848.not, label %return, label %if.end850
 
@@ -2212,7 +2212,7 @@ if.end850:                                        ; preds = %land.lhs.true844, %
   br i1 %cmp852.not, label %sw.epilog, label %land.lhs.true854
 
 land.lhs.true854:                                 ; preds = %if.end850
-  %call857 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %113, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call857 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %113, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool858.not = icmp eq i32 %call857, 0
   br i1 %tobool858.not, label %return, label %sw.epilog
 
@@ -2244,13 +2244,13 @@ for.body877:                                      ; preds = %cond.end873
   br i1 %cmp882.not, label %for.inc889, label %land.lhs.true884
 
 land.lhs.true884:                                 ; preds = %for.body877
-  %call885 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %116, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call885 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %116, ptr noundef %ctx_, ptr noundef %state)
   %tobool886.not = icmp eq i32 %call885, 0
   br i1 %tobool886.not, label %return, label %for.inc889
 
 for.inc889:                                       ; preds = %for.body877, %land.lhs.true884
   %inc890 = add i32 %i862.0, 1
-  br label %for.cond866, !llvm.loop !32
+  br label %for.cond866, !llvm.loop !31
 
 for.end891:                                       ; preds = %cond.end873
   %handlers = getelementptr inbounds i8, ptr %node_, i64 16
@@ -2291,7 +2291,7 @@ sw.bb.i473:                                       ; preds = %land.lhs.true913
   br i1 %cmp.not.i474, label %if.end.i478, label %land.lhs.true.i475
 
 land.lhs.true.i475:                               ; preds = %sw.bb.i473
-  %call.i476 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %121, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call.i476 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %121, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not.i477 = icmp eq i32 %call.i476, 0
   br i1 %tobool.not.i477, label %return, label %if.end.i478
 
@@ -2317,7 +2317,7 @@ for.body.i:                                       ; preds = %if.end.i478.split, 
   br i1 %cmp8.not.i, label %for.inc.i, label %land.lhs.true10.i
 
 land.lhs.true10.i:                                ; preds = %for.body.i
-  %call11.i = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %125, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call11.i = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %125, ptr noundef %ctx_, ptr noundef %state)
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   br i1 %tobool12.not.i, label %return, label %land.lhs.true10.i.for.inc.i_crit_edge
 
@@ -2330,11 +2330,11 @@ for.inc.i:                                        ; preds = %land.lhs.true10.i.f
   %inc.i = add i32 %i.0.i602, 1
   %conv.i = sext i32 %inc.i to i64
   %cmp6.i = icmp sgt i64 %126, %conv.i
-  br i1 %cmp6.i, label %for.body.i, label %for.inc918, !llvm.loop !33
+  br i1 %cmp6.i, label %for.body.i, label %for.inc918, !llvm.loop !32
 
 for.inc918:                                       ; preds = %for.inc.i, %if.end.i478, %if.end.i478.split, %land.lhs.true913, %for.body906
   %inc919 = add i32 %i892.0, 1
-  br label %for.cond895, !llvm.loop !34
+  br label %for.cond895, !llvm.loop !33
 
 for.end920:                                       ; preds = %cond.end902
   %orelse924 = getelementptr inbounds i8, ptr %node_, i64 24
@@ -2364,13 +2364,13 @@ for.body936:                                      ; preds = %cond.end932
   br i1 %cmp941.not, label %for.inc948, label %land.lhs.true943
 
 land.lhs.true943:                                 ; preds = %for.body936
-  %call944 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %129, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call944 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %129, ptr noundef %ctx_, ptr noundef %state)
   %tobool945.not = icmp eq i32 %call944, 0
   br i1 %tobool945.not, label %return, label %for.inc948
 
 for.inc948:                                       ; preds = %for.body936, %land.lhs.true943
   %inc949 = add i32 %i921.0, 1
-  br label %for.cond925, !llvm.loop !35
+  br label %for.cond925, !llvm.loop !34
 
 for.end950:                                       ; preds = %cond.end932
   %finalbody = getelementptr inbounds i8, ptr %node_, i64 32
@@ -2400,13 +2400,13 @@ for.body965:                                      ; preds = %cond.end961
   br i1 %cmp970.not, label %for.inc977, label %land.lhs.true972
 
 land.lhs.true972:                                 ; preds = %for.body965
-  %call973 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %132, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call973 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %132, ptr noundef %ctx_, ptr noundef %state)
   %tobool974.not = icmp eq i32 %call973, 0
   br i1 %tobool974.not, label %return, label %for.inc977
 
 for.inc977:                                       ; preds = %for.body965, %land.lhs.true972
   %inc978 = add i32 %i951.0, 1
-  br label %for.cond954, !llvm.loop !36
+  br label %for.cond954, !llvm.loop !35
 
 sw.bb980:                                         ; preds = %if.end
   %v983 = getelementptr inbounds i8, ptr %node_, i64 8
@@ -2436,13 +2436,13 @@ for.body996:                                      ; preds = %cond.end992
   br i1 %cmp1001.not, label %for.inc1008, label %land.lhs.true1003
 
 land.lhs.true1003:                                ; preds = %for.body996
-  %call1004 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %135, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call1004 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %135, ptr noundef %ctx_, ptr noundef %state)
   %tobool1005.not = icmp eq i32 %call1004, 0
   br i1 %tobool1005.not, label %return, label %for.inc1008
 
 for.inc1008:                                      ; preds = %for.body996, %land.lhs.true1003
   %inc1009 = add i32 %i981.0, 1
-  br label %for.cond985, !llvm.loop !37
+  br label %for.cond985, !llvm.loop !36
 
 for.end1010:                                      ; preds = %cond.end992
   %handlers1014 = getelementptr inbounds i8, ptr %node_, i64 16
@@ -2483,7 +2483,7 @@ sw.bb.i482:                                       ; preds = %land.lhs.true1033
   br i1 %cmp.not.i484, label %if.end.i488, label %land.lhs.true.i485
 
 land.lhs.true.i485:                               ; preds = %sw.bb.i482
-  %call.i486 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %140, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call.i486 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %140, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not.i487 = icmp eq i32 %call.i486, 0
   br i1 %tobool.not.i487, label %return, label %if.end.i488
 
@@ -2509,7 +2509,7 @@ for.body.i498:                                    ; preds = %if.end.i488.split, 
   br i1 %cmp8.not.i501, label %for.inc.i505, label %land.lhs.true10.i502
 
 land.lhs.true10.i502:                             ; preds = %for.body.i498
-  %call11.i503 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %144, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call11.i503 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %144, ptr noundef %ctx_, ptr noundef %state)
   %tobool12.not.i504 = icmp eq i32 %call11.i503, 0
   br i1 %tobool12.not.i504, label %return, label %land.lhs.true10.i502.for.inc.i505_crit_edge
 
@@ -2522,11 +2522,11 @@ for.inc.i505:                                     ; preds = %land.lhs.true10.i50
   %inc.i506 = add i32 %i.0.i491597, 1
   %conv.i492 = sext i32 %inc.i506 to i64
   %cmp6.i497 = icmp sgt i64 %145, %conv.i492
-  br i1 %cmp6.i497, label %for.body.i498, label %for.inc1038, !llvm.loop !33
+  br i1 %cmp6.i497, label %for.body.i498, label %for.inc1038, !llvm.loop !32
 
 for.inc1038:                                      ; preds = %for.inc.i505, %if.end.i488, %if.end.i488.split, %land.lhs.true1033, %for.body1026
   %inc1039 = add i32 %i1011.0, 1
-  br label %for.cond1015, !llvm.loop !38
+  br label %for.cond1015, !llvm.loop !37
 
 for.end1040:                                      ; preds = %cond.end1022
   %orelse1044 = getelementptr inbounds i8, ptr %node_, i64 24
@@ -2556,13 +2556,13 @@ for.body1056:                                     ; preds = %cond.end1052
   br i1 %cmp1061.not, label %for.inc1068, label %land.lhs.true1063
 
 land.lhs.true1063:                                ; preds = %for.body1056
-  %call1064 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %148, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call1064 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %148, ptr noundef %ctx_, ptr noundef %state)
   %tobool1065.not = icmp eq i32 %call1064, 0
   br i1 %tobool1065.not, label %return, label %for.inc1068
 
 for.inc1068:                                      ; preds = %for.body1056, %land.lhs.true1063
   %inc1069 = add i32 %i1041.0, 1
-  br label %for.cond1045, !llvm.loop !39
+  br label %for.cond1045, !llvm.loop !38
 
 for.end1070:                                      ; preds = %cond.end1052
   %finalbody1074 = getelementptr inbounds i8, ptr %node_, i64 32
@@ -2592,18 +2592,18 @@ for.body1086:                                     ; preds = %cond.end1082
   br i1 %cmp1091.not, label %for.inc1098, label %land.lhs.true1093
 
 land.lhs.true1093:                                ; preds = %for.body1086
-  %call1094 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %151, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call1094 = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %151, ptr noundef %ctx_, ptr noundef %state)
   %tobool1095.not = icmp eq i32 %call1094, 0
   br i1 %tobool1095.not, label %return, label %for.inc1098
 
 for.inc1098:                                      ; preds = %for.body1086, %land.lhs.true1093
   %inc1099 = add i32 %i1071.0, 1
-  br label %for.cond1075, !llvm.loop !40
+  br label %for.cond1075, !llvm.loop !39
 
 sw.bb1101:                                        ; preds = %if.end
   %v1102 = getelementptr inbounds i8, ptr %node_, i64 8
   %152 = load ptr, ptr %v1102, align 8
-  %call1104 = tail call fastcc i32 @astfold_expr(ptr noundef %152, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call1104 = tail call fastcc i32 @astfold_expr(ptr noundef %152, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool1105.not = icmp eq i32 %call1104, 0
   br i1 %tobool1105.not, label %return, label %if.end1107
 
@@ -2614,21 +2614,21 @@ if.end1107:                                       ; preds = %sw.bb1101
   br i1 %cmp1109.not, label %sw.epilog, label %land.lhs.true1111
 
 land.lhs.true1111:                                ; preds = %if.end1107
-  %call1114 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %153, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call1114 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %153, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool1115.not = icmp eq i32 %call1114, 0
   br i1 %tobool1115.not, label %return, label %sw.epilog
 
 sw.bb1118:                                        ; preds = %if.end
   %v1119 = getelementptr inbounds i8, ptr %node_, i64 8
   %154 = load ptr, ptr %v1119, align 8
-  %call1121 = tail call fastcc i32 @astfold_expr(ptr noundef %154, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call1121 = tail call fastcc i32 @astfold_expr(ptr noundef %154, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool1122.not = icmp eq i32 %call1121, 0
   br i1 %tobool1122.not, label %return, label %sw.epilog
 
 sw.bb1125:                                        ; preds = %if.end
   %v1126 = getelementptr inbounds i8, ptr %node_, i64 8
   %155 = load ptr, ptr %v1126, align 8
-  %call1127 = tail call fastcc i32 @astfold_expr(ptr noundef %155, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call1127 = tail call fastcc i32 @astfold_expr(ptr noundef %155, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool1128.not = icmp eq i32 %call1127, 0
   br i1 %tobool1128.not, label %return, label %if.end1130
 
@@ -2661,7 +2661,7 @@ for.body1145:                                     ; preds = %cond.end1141
 
 land.lhs.true1152:                                ; preds = %for.body1145
   %159 = load ptr, ptr %158, align 8
-  %call.i508 = tail call fastcc i32 @astfold_pattern(ptr noundef %159, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call.i508 = tail call fastcc i32 @astfold_pattern(ptr noundef %159, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not.i509 = icmp eq i32 %call.i508, 0
   br i1 %tobool.not.i509, label %return, label %if.end.i510
 
@@ -2672,7 +2672,7 @@ if.end.i510:                                      ; preds = %land.lhs.true1152
   br i1 %cmp.not.i511, label %if.end5.i515, label %land.lhs.true.i512
 
 land.lhs.true.i512:                               ; preds = %if.end.i510
-  %call2.i513 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %160, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call2.i513 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %160, ptr noundef %ctx_, ptr noundef %state)
   %tobool3.not.i514 = icmp eq i32 %call2.i513, 0
   br i1 %tobool3.not.i514, label %return, label %if.end5.i515
 
@@ -2698,7 +2698,7 @@ for.body.i525:                                    ; preds = %if.end5.i515.split,
   br i1 %cmp10.not.i, label %for.inc.i528, label %land.lhs.true12.i
 
 land.lhs.true12.i:                                ; preds = %for.body.i525
-  %call13.i = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %164, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call13.i = tail call fastcc i32 @astfold_stmt(ptr noundef nonnull %164, ptr noundef %ctx_, ptr noundef %state)
   %tobool14.not.i = icmp eq i32 %call13.i, 0
   br i1 %tobool14.not.i, label %return, label %land.lhs.true12.i.for.inc.i528_crit_edge
 
@@ -2711,11 +2711,11 @@ for.inc.i528:                                     ; preds = %land.lhs.true12.i.f
   %inc.i529 = add i32 %i.0.i518592, 1
   %conv.i519 = sext i32 %inc.i529 to i64
   %cmp8.i = icmp sgt i64 %165, %conv.i519
-  br i1 %cmp8.i, label %for.body.i525, label %for.inc1157, !llvm.loop !41
+  br i1 %cmp8.i, label %for.body.i525, label %for.inc1157, !llvm.loop !40
 
 for.inc1157:                                      ; preds = %for.inc.i528, %if.end5.i515, %if.end5.i515.split, %for.body1145
   %inc1158 = add i32 %i1131.0, 1
-  br label %for.cond1134, !llvm.loop !42
+  br label %for.cond1134, !llvm.loop !41
 
 sw.epilog:                                        ; preds = %cond.end1141, %cond.end1082, %cond.end961, %cond.end821, %cond.end760, %cond.end700, %cond.end633, %cond.end567, %cond.end298, %cond.end257, %sw.bb1118, %if.end1107, %land.lhs.true1111, %if.end850, %land.lhs.true854, %for.end506, %for.end429, %if.end382, %land.lhs.true387, %if.end359, %for.end347, %sw.bb276, %land.lhs.true280, %for.end134, %land.lhs.true143, %if.then138, %for.end48, %land.lhs.true54, %if.then50, %if.end
   %166 = load i32, ptr %recursion_depth, align 4
@@ -2729,7 +2729,7 @@ return:                                           ; preds = %land.lhs.true.i512,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @astfold_expr(ptr nocapture noundef %node_, ptr noundef %ctx_, ptr nocapture noundef %state) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr nocapture noundef %node_, ptr noundef %ctx_, ptr nocapture noundef %state) unnamed_addr #0 {
 entry:
   %recursion_depth = getelementptr inbounds i8, ptr %state, i64 8
   %0 = load i32, ptr %recursion_depth, align 4
@@ -2804,25 +2804,25 @@ for.body:                                         ; preds = %cond.end
   br i1 %cmp5.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %call = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %6, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %6, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
   %inc9 = add i32 %i.0, 1
-  br label %for.cond, !llvm.loop !43
+  br label %for.cond, !llvm.loop !42
 
 sw.bb10:                                          ; preds = %if.end
   %v11 = getelementptr inbounds i8, ptr %node_, i64 8
   %7 = load ptr, ptr %v11, align 8
-  %call12 = tail call fastcc i32 @astfold_expr(ptr noundef %7, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call12 = tail call fastcc i32 @astfold_expr(ptr noundef %7, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %return, label %if.end15
 
 if.end15:                                         ; preds = %sw.bb10
   %right = getelementptr inbounds i8, ptr %node_, i64 24
   %8 = load ptr, ptr %right, align 8
-  %call17 = tail call fastcc i32 @astfold_expr(ptr noundef %8, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call17 = tail call fastcc i32 @astfold_expr(ptr noundef %8, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %return, label %if.end20
 
@@ -2834,7 +2834,7 @@ if.end20:                                         ; preds = %if.end15
 sw.bb25:                                          ; preds = %if.end
   %operand = getelementptr inbounds i8, ptr %node_, i64 16
   %9 = load ptr, ptr %operand, align 8
-  %call27 = tail call fastcc i32 @astfold_expr(ptr noundef %9, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call27 = tail call fastcc i32 @astfold_expr(ptr noundef %9, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %return, label %if.end30
 
@@ -2846,35 +2846,35 @@ if.end30:                                         ; preds = %sw.bb25
 sw.bb35:                                          ; preds = %if.end
   %v36 = getelementptr inbounds i8, ptr %node_, i64 8
   %10 = load ptr, ptr %v36, align 8
-  %call37 = tail call fastcc i32 @astfold_arguments(ptr noundef %10, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call37 = tail call fastcc i32 @astfold_arguments(ptr noundef %10, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %return, label %if.end40
 
 if.end40:                                         ; preds = %sw.bb35
   %body = getelementptr inbounds i8, ptr %node_, i64 16
   %11 = load ptr, ptr %body, align 8
-  %call42 = tail call fastcc i32 @astfold_expr(ptr noundef %11, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call42 = tail call fastcc i32 @astfold_expr(ptr noundef %11, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %return, label %sw.epilog
 
 sw.bb46:                                          ; preds = %if.end
   %v47 = getelementptr inbounds i8, ptr %node_, i64 8
   %12 = load ptr, ptr %v47, align 8
-  %call48 = tail call fastcc i32 @astfold_expr(ptr noundef %12, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call48 = tail call fastcc i32 @astfold_expr(ptr noundef %12, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %return, label %if.end51
 
 if.end51:                                         ; preds = %sw.bb46
   %body53 = getelementptr inbounds i8, ptr %node_, i64 16
   %13 = load ptr, ptr %body53, align 8
-  %call54 = tail call fastcc i32 @astfold_expr(ptr noundef %13, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call54 = tail call fastcc i32 @astfold_expr(ptr noundef %13, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %return, label %if.end57
 
 if.end57:                                         ; preds = %if.end51
   %orelse = getelementptr inbounds i8, ptr %node_, i64 24
   %14 = load ptr, ptr %orelse, align 8
-  %call59 = tail call fastcc i32 @astfold_expr(ptr noundef %14, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call59 = tail call fastcc i32 @astfold_expr(ptr noundef %14, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %return, label %sw.epilog
 
@@ -2906,13 +2906,13 @@ for.body78:                                       ; preds = %cond.end74
   br i1 %cmp83.not, label %for.inc90, label %land.lhs.true85
 
 land.lhs.true85:                                  ; preds = %for.body78
-  %call86 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %17, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call86 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %17, ptr noundef %ctx_, ptr noundef %state)
   %tobool87.not = icmp eq i32 %call86, 0
   br i1 %tobool87.not, label %return, label %for.inc90
 
 for.inc90:                                        ; preds = %for.body78, %land.lhs.true85
   %inc91 = add i32 %i64.0, 1
-  br label %for.cond67, !llvm.loop !44
+  br label %for.cond67, !llvm.loop !43
 
 for.end92:                                        ; preds = %cond.end74
   %values96 = getelementptr inbounds i8, ptr %node_, i64 16
@@ -2942,13 +2942,13 @@ for.body108:                                      ; preds = %cond.end104
   br i1 %cmp113.not, label %for.inc120, label %land.lhs.true115
 
 land.lhs.true115:                                 ; preds = %for.body108
-  %call116 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %20, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call116 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %20, ptr noundef %ctx_, ptr noundef %state)
   %tobool117.not = icmp eq i32 %call116, 0
   br i1 %tobool117.not, label %return, label %for.inc120
 
 for.inc120:                                       ; preds = %for.body108, %land.lhs.true115
   %inc121 = add i32 %i93.0, 1
-  br label %for.cond97, !llvm.loop !45
+  br label %for.cond97, !llvm.loop !44
 
 sw.bb123:                                         ; preds = %if.end
   %v126 = getelementptr inbounds i8, ptr %node_, i64 8
@@ -2978,18 +2978,18 @@ for.body138:                                      ; preds = %cond.end134
   br i1 %cmp143.not, label %for.inc150, label %land.lhs.true145
 
 land.lhs.true145:                                 ; preds = %for.body138
-  %call146 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %23, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call146 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %23, ptr noundef %ctx_, ptr noundef %state)
   %tobool147.not = icmp eq i32 %call146, 0
   br i1 %tobool147.not, label %return, label %for.inc150
 
 for.inc150:                                       ; preds = %for.body138, %land.lhs.true145
   %inc151 = add i32 %i124.0, 1
-  br label %for.cond127, !llvm.loop !46
+  br label %for.cond127, !llvm.loop !45
 
 sw.bb153:                                         ; preds = %if.end
   %v154 = getelementptr inbounds i8, ptr %node_, i64 8
   %24 = load ptr, ptr %v154, align 8
-  %call156 = tail call fastcc i32 @astfold_expr(ptr noundef %24, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call156 = tail call fastcc i32 @astfold_expr(ptr noundef %24, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool157.not = icmp eq i32 %call156, 0
   br i1 %tobool157.not, label %return, label %if.end159
 
@@ -3022,14 +3022,14 @@ for.body174:                                      ; preds = %cond.end170
 
 land.lhs.true181:                                 ; preds = %for.body174
   %28 = load ptr, ptr %27, align 8
-  %call.i = tail call fastcc i32 @astfold_expr(ptr noundef %28, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call.i = tail call fastcc i32 @astfold_expr(ptr noundef %28, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true181
   %iter.i = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %iter.i, align 8
-  %call1.i = tail call fastcc i32 @astfold_expr(ptr noundef %29, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call1.i = tail call fastcc i32 @astfold_expr(ptr noundef %29, ptr noundef %ctx_, ptr noundef %state)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %return, label %if.end4.i
 
@@ -3055,7 +3055,7 @@ for.body.i:                                       ; preds = %if.end4.i.split, %f
   br i1 %cmp8.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call10.i = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %33, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call10.i = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %33, ptr noundef %ctx_, ptr noundef %state)
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %return, label %land.lhs.true.i.for.inc.i_crit_edge
 
@@ -3068,7 +3068,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i.for
   %inc.i = add i32 %i.0.i406, 1
   %conv.i = sext i32 %inc.i to i64
   %cmp6.i = icmp sgt i64 %34, %conv.i
-  br i1 %cmp6.i, label %for.body.i, label %for.end.i, !llvm.loop !47
+  br i1 %cmp6.i, label %for.body.i, label %for.end.i, !llvm.loop !46
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end4.i.split, %if.end4.i
   %35 = load ptr, ptr %iter.i, align 8
@@ -3078,12 +3078,12 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end4
 
 for.inc186:                                       ; preds = %for.end.i, %for.body174
   %inc187 = add i32 %i160.0, 1
-  br label %for.cond163, !llvm.loop !48
+  br label %for.cond163, !llvm.loop !47
 
 sw.bb189:                                         ; preds = %if.end
   %v190 = getelementptr inbounds i8, ptr %node_, i64 8
   %36 = load ptr, ptr %v190, align 8
-  %call192 = tail call fastcc i32 @astfold_expr(ptr noundef %36, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call192 = tail call fastcc i32 @astfold_expr(ptr noundef %36, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool193.not = icmp eq i32 %call192, 0
   br i1 %tobool193.not, label %return, label %if.end195
 
@@ -3116,14 +3116,14 @@ for.body211:                                      ; preds = %cond.end207
 
 land.lhs.true218:                                 ; preds = %for.body211
   %40 = load ptr, ptr %39, align 8
-  %call.i257 = tail call fastcc i32 @astfold_expr(ptr noundef %40, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call.i257 = tail call fastcc i32 @astfold_expr(ptr noundef %40, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not.i258 = icmp eq i32 %call.i257, 0
   br i1 %tobool.not.i258, label %return, label %if.end.i259
 
 if.end.i259:                                      ; preds = %land.lhs.true218
   %iter.i260 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load ptr, ptr %iter.i260, align 8
-  %call1.i261 = tail call fastcc i32 @astfold_expr(ptr noundef %41, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call1.i261 = tail call fastcc i32 @astfold_expr(ptr noundef %41, ptr noundef %ctx_, ptr noundef %state)
   %tobool2.not.i262 = icmp eq i32 %call1.i261, 0
   br i1 %tobool2.not.i262, label %return, label %if.end4.i263
 
@@ -3149,7 +3149,7 @@ for.body.i278:                                    ; preds = %if.end4.i263.split,
   br i1 %cmp8.not.i281, label %for.inc.i285, label %land.lhs.true.i282
 
 land.lhs.true.i282:                               ; preds = %for.body.i278
-  %call10.i283 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %45, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call10.i283 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %45, ptr noundef %ctx_, ptr noundef %state)
   %tobool11.not.i284 = icmp eq i32 %call10.i283, 0
   br i1 %tobool11.not.i284, label %return, label %land.lhs.true.i282.for.inc.i285_crit_edge
 
@@ -3162,7 +3162,7 @@ for.inc.i285:                                     ; preds = %land.lhs.true.i282.
   %inc.i286 = add i32 %i.0.i266401, 1
   %conv.i267 = sext i32 %inc.i286 to i64
   %cmp6.i272 = icmp sgt i64 %46, %conv.i267
-  br i1 %cmp6.i272, label %for.body.i278, label %for.end.i273, !llvm.loop !47
+  br i1 %cmp6.i272, label %for.body.i278, label %for.end.i273, !llvm.loop !46
 
 for.end.i273:                                     ; preds = %for.inc.i285, %if.end4.i263.split, %if.end4.i263
   %47 = load ptr, ptr %iter.i260, align 8
@@ -3172,19 +3172,19 @@ for.end.i273:                                     ; preds = %for.inc.i285, %if.e
 
 for.inc223:                                       ; preds = %for.end.i273, %for.body211
   %inc224 = add i32 %i196.0, 1
-  br label %for.cond200, !llvm.loop !49
+  br label %for.cond200, !llvm.loop !48
 
 sw.bb226:                                         ; preds = %if.end
   %v227 = getelementptr inbounds i8, ptr %node_, i64 8
   %48 = load ptr, ptr %v227, align 8
-  %call228 = tail call fastcc i32 @astfold_expr(ptr noundef %48, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call228 = tail call fastcc i32 @astfold_expr(ptr noundef %48, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool229.not = icmp eq i32 %call228, 0
   br i1 %tobool229.not, label %return, label %if.end231
 
 if.end231:                                        ; preds = %sw.bb226
   %value = getelementptr inbounds i8, ptr %node_, i64 16
   %49 = load ptr, ptr %value, align 8
-  %call233 = tail call fastcc i32 @astfold_expr(ptr noundef %49, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call233 = tail call fastcc i32 @astfold_expr(ptr noundef %49, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool234.not = icmp eq i32 %call233, 0
   br i1 %tobool234.not, label %return, label %if.end236
 
@@ -3217,14 +3217,14 @@ for.body252:                                      ; preds = %cond.end248
 
 land.lhs.true259:                                 ; preds = %for.body252
   %53 = load ptr, ptr %52, align 8
-  %call.i288 = tail call fastcc i32 @astfold_expr(ptr noundef %53, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call.i288 = tail call fastcc i32 @astfold_expr(ptr noundef %53, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not.i289 = icmp eq i32 %call.i288, 0
   br i1 %tobool.not.i289, label %return, label %if.end.i290
 
 if.end.i290:                                      ; preds = %land.lhs.true259
   %iter.i291 = getelementptr inbounds i8, ptr %52, i64 8
   %54 = load ptr, ptr %iter.i291, align 8
-  %call1.i292 = tail call fastcc i32 @astfold_expr(ptr noundef %54, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call1.i292 = tail call fastcc i32 @astfold_expr(ptr noundef %54, ptr noundef %ctx_, ptr noundef %state)
   %tobool2.not.i293 = icmp eq i32 %call1.i292, 0
   br i1 %tobool2.not.i293, label %return, label %if.end4.i294
 
@@ -3250,7 +3250,7 @@ for.body.i309:                                    ; preds = %if.end4.i294.split,
   br i1 %cmp8.not.i312, label %for.inc.i316, label %land.lhs.true.i313
 
 land.lhs.true.i313:                               ; preds = %for.body.i309
-  %call10.i314 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %58, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call10.i314 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %58, ptr noundef %ctx_, ptr noundef %state)
   %tobool11.not.i315 = icmp eq i32 %call10.i314, 0
   br i1 %tobool11.not.i315, label %return, label %land.lhs.true.i313.for.inc.i316_crit_edge
 
@@ -3263,7 +3263,7 @@ for.inc.i316:                                     ; preds = %land.lhs.true.i313.
   %inc.i317 = add i32 %i.0.i297396, 1
   %conv.i298 = sext i32 %inc.i317 to i64
   %cmp6.i303 = icmp sgt i64 %59, %conv.i298
-  br i1 %cmp6.i303, label %for.body.i309, label %for.end.i304, !llvm.loop !47
+  br i1 %cmp6.i303, label %for.body.i309, label %for.end.i304, !llvm.loop !46
 
 for.end.i304:                                     ; preds = %for.inc.i316, %if.end4.i294.split, %if.end4.i294
   %60 = load ptr, ptr %iter.i291, align 8
@@ -3273,12 +3273,12 @@ for.end.i304:                                     ; preds = %for.inc.i316, %if.e
 
 for.inc264:                                       ; preds = %for.end.i304, %for.body252
   %inc265 = add i32 %i237.0, 1
-  br label %for.cond241, !llvm.loop !50
+  br label %for.cond241, !llvm.loop !49
 
 sw.bb267:                                         ; preds = %if.end
   %v268 = getelementptr inbounds i8, ptr %node_, i64 8
   %61 = load ptr, ptr %v268, align 8
-  %call270 = tail call fastcc i32 @astfold_expr(ptr noundef %61, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call270 = tail call fastcc i32 @astfold_expr(ptr noundef %61, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool271.not = icmp eq i32 %call270, 0
   br i1 %tobool271.not, label %return, label %if.end273
 
@@ -3311,14 +3311,14 @@ for.body289:                                      ; preds = %cond.end285
 
 land.lhs.true296:                                 ; preds = %for.body289
   %65 = load ptr, ptr %64, align 8
-  %call.i319 = tail call fastcc i32 @astfold_expr(ptr noundef %65, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call.i319 = tail call fastcc i32 @astfold_expr(ptr noundef %65, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not.i320 = icmp eq i32 %call.i319, 0
   br i1 %tobool.not.i320, label %return, label %if.end.i321
 
 if.end.i321:                                      ; preds = %land.lhs.true296
   %iter.i322 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load ptr, ptr %iter.i322, align 8
-  %call1.i323 = tail call fastcc i32 @astfold_expr(ptr noundef %66, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call1.i323 = tail call fastcc i32 @astfold_expr(ptr noundef %66, ptr noundef %ctx_, ptr noundef %state)
   %tobool2.not.i324 = icmp eq i32 %call1.i323, 0
   br i1 %tobool2.not.i324, label %return, label %if.end4.i325
 
@@ -3344,7 +3344,7 @@ for.body.i340:                                    ; preds = %if.end4.i325.split,
   br i1 %cmp8.not.i343, label %for.inc.i347, label %land.lhs.true.i344
 
 land.lhs.true.i344:                               ; preds = %for.body.i340
-  %call10.i345 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %70, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call10.i345 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %70, ptr noundef %ctx_, ptr noundef %state)
   %tobool11.not.i346 = icmp eq i32 %call10.i345, 0
   br i1 %tobool11.not.i346, label %return, label %land.lhs.true.i344.for.inc.i347_crit_edge
 
@@ -3357,7 +3357,7 @@ for.inc.i347:                                     ; preds = %land.lhs.true.i344.
   %inc.i348 = add i32 %i.0.i328391, 1
   %conv.i329 = sext i32 %inc.i348 to i64
   %cmp6.i334 = icmp sgt i64 %71, %conv.i329
-  br i1 %cmp6.i334, label %for.body.i340, label %for.end.i335, !llvm.loop !47
+  br i1 %cmp6.i334, label %for.body.i340, label %for.end.i335, !llvm.loop !46
 
 for.end.i335:                                     ; preds = %for.inc.i347, %if.end4.i325.split, %if.end4.i325
   %72 = load ptr, ptr %iter.i322, align 8
@@ -3367,12 +3367,12 @@ for.end.i335:                                     ; preds = %for.inc.i347, %if.e
 
 for.inc301:                                       ; preds = %for.end.i335, %for.body289
   %inc302 = add i32 %i274.0, 1
-  br label %for.cond278, !llvm.loop !51
+  br label %for.cond278, !llvm.loop !50
 
 sw.bb304:                                         ; preds = %if.end
   %v305 = getelementptr inbounds i8, ptr %node_, i64 8
   %73 = load ptr, ptr %v305, align 8
-  %call307 = tail call fastcc i32 @astfold_expr(ptr noundef %73, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call307 = tail call fastcc i32 @astfold_expr(ptr noundef %73, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool308.not = icmp eq i32 %call307, 0
   br i1 %tobool308.not, label %return, label %sw.epilog
 
@@ -3383,21 +3383,21 @@ sw.bb311:                                         ; preds = %if.end
   br i1 %cmp314.not, label %sw.epilog, label %land.lhs.true316
 
 land.lhs.true316:                                 ; preds = %sw.bb311
-  %call319 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %74, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call319 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %74, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool320.not = icmp eq i32 %call319, 0
   br i1 %tobool320.not, label %return, label %sw.epilog
 
 sw.bb323:                                         ; preds = %if.end
   %v324 = getelementptr inbounds i8, ptr %node_, i64 8
   %75 = load ptr, ptr %v324, align 8
-  %call326 = tail call fastcc i32 @astfold_expr(ptr noundef %75, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call326 = tail call fastcc i32 @astfold_expr(ptr noundef %75, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool327.not = icmp eq i32 %call326, 0
   br i1 %tobool327.not, label %return, label %sw.epilog
 
 sw.bb330:                                         ; preds = %if.end
   %v331 = getelementptr inbounds i8, ptr %node_, i64 8
   %76 = load ptr, ptr %v331, align 8
-  %call333 = tail call fastcc i32 @astfold_expr(ptr noundef %76, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call333 = tail call fastcc i32 @astfold_expr(ptr noundef %76, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool334.not = icmp eq i32 %call333, 0
   br i1 %tobool334.not, label %return, label %if.end336
 
@@ -3429,13 +3429,13 @@ for.body351:                                      ; preds = %cond.end347
   br i1 %cmp356.not, label %for.inc363, label %land.lhs.true358
 
 land.lhs.true358:                                 ; preds = %for.body351
-  %call359 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %79, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call359 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %79, ptr noundef %ctx_, ptr noundef %state)
   %tobool360.not = icmp eq i32 %call359, 0
   br i1 %tobool360.not, label %return, label %for.inc363
 
 for.inc363:                                       ; preds = %for.body351, %land.lhs.true358
   %inc364 = add i32 %i337.0, 1
-  br label %for.cond340, !llvm.loop !52
+  br label %for.cond340, !llvm.loop !51
 
 for.end365:                                       ; preds = %cond.end347
   %80 = getelementptr i8, ptr %node_, i64 16
@@ -3448,7 +3448,7 @@ for.end365:                                       ; preds = %cond.end347
 sw.bb370:                                         ; preds = %if.end
   %v371 = getelementptr inbounds i8, ptr %node_, i64 8
   %81 = load ptr, ptr %v371, align 8
-  %call372 = tail call fastcc i32 @astfold_expr(ptr noundef %81, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call372 = tail call fastcc i32 @astfold_expr(ptr noundef %81, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool373.not = icmp eq i32 %call372, 0
   br i1 %tobool373.not, label %return, label %if.end375
 
@@ -3480,13 +3480,13 @@ for.body391:                                      ; preds = %cond.end387
   br i1 %cmp396.not, label %for.inc403, label %land.lhs.true398
 
 land.lhs.true398:                                 ; preds = %for.body391
-  %call399 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %84, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call399 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %84, ptr noundef %ctx_, ptr noundef %state)
   %tobool400.not = icmp eq i32 %call399, 0
   br i1 %tobool400.not, label %return, label %for.inc403
 
 for.inc403:                                       ; preds = %for.body391, %land.lhs.true398
   %inc404 = add i32 %i376.0, 1
-  br label %for.cond380, !llvm.loop !53
+  br label %for.cond380, !llvm.loop !52
 
 for.end405:                                       ; preds = %cond.end387
   %keywords = getelementptr inbounds i8, ptr %node_, i64 24
@@ -3518,18 +3518,18 @@ for.body420:                                      ; preds = %cond.end416
 land.lhs.true427:                                 ; preds = %for.body420
   %value.i = getelementptr inbounds i8, ptr %87, i64 8
   %88 = load ptr, ptr %value.i, align 8
-  %call.i350 = tail call fastcc i32 @astfold_expr(ptr noundef %88, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call.i350 = tail call fastcc i32 @astfold_expr(ptr noundef %88, ptr noundef %ctx_, ptr noundef %state)
   %tobool.not.i351 = icmp eq i32 %call.i350, 0
   br i1 %tobool.not.i351, label %return, label %for.inc432
 
 for.inc432:                                       ; preds = %for.body420, %land.lhs.true427
   %inc433 = add i32 %i406.0, 1
-  br label %for.cond409, !llvm.loop !54
+  br label %for.cond409, !llvm.loop !53
 
 sw.bb435:                                         ; preds = %if.end
   %v436 = getelementptr inbounds i8, ptr %node_, i64 8
   %89 = load ptr, ptr %v436, align 8
-  %call438 = tail call fastcc i32 @astfold_expr(ptr noundef %89, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call438 = tail call fastcc i32 @astfold_expr(ptr noundef %89, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool439.not = icmp eq i32 %call438, 0
   br i1 %tobool439.not, label %return, label %if.end441
 
@@ -3540,7 +3540,7 @@ if.end441:                                        ; preds = %sw.bb435
   br i1 %cmp443.not, label %sw.epilog, label %land.lhs.true445
 
 land.lhs.true445:                                 ; preds = %if.end441
-  %call448 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %90, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call448 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %90, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool449.not = icmp eq i32 %call448, 0
   br i1 %tobool449.not, label %return, label %sw.epilog
 
@@ -3572,32 +3572,32 @@ for.body468:                                      ; preds = %cond.end464
   br i1 %cmp473.not, label %for.inc480, label %land.lhs.true475
 
 land.lhs.true475:                                 ; preds = %for.body468
-  %call476 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %93, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call476 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %93, ptr noundef %ctx_, ptr noundef %state)
   %tobool477.not = icmp eq i32 %call476, 0
   br i1 %tobool477.not, label %return, label %for.inc480
 
 for.inc480:                                       ; preds = %for.body468, %land.lhs.true475
   %inc481 = add i32 %i453.0, 1
-  br label %for.cond457, !llvm.loop !55
+  br label %for.cond457, !llvm.loop !54
 
 sw.bb483:                                         ; preds = %if.end
   %v484 = getelementptr inbounds i8, ptr %node_, i64 8
   %94 = load ptr, ptr %v484, align 8
-  %call486 = tail call fastcc i32 @astfold_expr(ptr noundef %94, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call486 = tail call fastcc i32 @astfold_expr(ptr noundef %94, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool487.not = icmp eq i32 %call486, 0
   br i1 %tobool487.not, label %return, label %sw.epilog
 
 sw.bb490:                                         ; preds = %if.end
   %v491 = getelementptr inbounds i8, ptr %node_, i64 8
   %95 = load ptr, ptr %v491, align 8
-  %call493 = tail call fastcc i32 @astfold_expr(ptr noundef %95, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call493 = tail call fastcc i32 @astfold_expr(ptr noundef %95, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool494.not = icmp eq i32 %call493, 0
   br i1 %tobool494.not, label %return, label %if.end496
 
 if.end496:                                        ; preds = %sw.bb490
   %slice = getelementptr inbounds i8, ptr %node_, i64 16
   %96 = load ptr, ptr %slice, align 8
-  %call498 = tail call fastcc i32 @astfold_expr(ptr noundef %96, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call498 = tail call fastcc i32 @astfold_expr(ptr noundef %96, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool499.not = icmp eq i32 %call498, 0
   br i1 %tobool499.not, label %return, label %if.end501
 
@@ -3609,7 +3609,7 @@ if.end501:                                        ; preds = %if.end496
 sw.bb506:                                         ; preds = %if.end
   %v507 = getelementptr inbounds i8, ptr %node_, i64 8
   %97 = load ptr, ptr %v507, align 8
-  %call509 = tail call fastcc i32 @astfold_expr(ptr noundef %97, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call509 = tail call fastcc i32 @astfold_expr(ptr noundef %97, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool510.not = icmp eq i32 %call509, 0
   br i1 %tobool510.not, label %return, label %sw.epilog
 
@@ -3620,7 +3620,7 @@ sw.bb513:                                         ; preds = %if.end
   br i1 %cmp515.not, label %if.end523, label %land.lhs.true517
 
 land.lhs.true517:                                 ; preds = %sw.bb513
-  %call520 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %98, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call520 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %98, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool521.not = icmp eq i32 %call520, 0
   br i1 %tobool521.not, label %return, label %if.end523
 
@@ -3631,7 +3631,7 @@ if.end523:                                        ; preds = %land.lhs.true517, %
   br i1 %cmp525.not, label %if.end533, label %land.lhs.true527
 
 land.lhs.true527:                                 ; preds = %if.end523
-  %call530 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %99, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call530 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %99, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool531.not = icmp eq i32 %call530, 0
   br i1 %tobool531.not, label %return, label %if.end533
 
@@ -3642,7 +3642,7 @@ if.end533:                                        ; preds = %land.lhs.true527, %
   br i1 %cmp535.not, label %sw.epilog, label %land.lhs.true537
 
 land.lhs.true537:                                 ; preds = %if.end533
-  %call540 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %100, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call540 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %100, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool541.not = icmp eq i32 %call540, 0
   br i1 %tobool541.not, label %return, label %sw.epilog
 
@@ -3674,13 +3674,13 @@ for.body560:                                      ; preds = %cond.end556
   br i1 %cmp565.not, label %for.inc572, label %land.lhs.true567
 
 land.lhs.true567:                                 ; preds = %for.body560
-  %call568 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %103, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call568 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %103, ptr noundef %ctx_, ptr noundef %state)
   %tobool569.not = icmp eq i32 %call568, 0
   br i1 %tobool569.not, label %return, label %for.inc572
 
 for.inc572:                                       ; preds = %for.body560, %land.lhs.true567
   %inc573 = add i32 %i545.0, 1
-  br label %for.cond549, !llvm.loop !56
+  br label %for.cond549, !llvm.loop !55
 
 sw.bb575:                                         ; preds = %if.end
   %v578 = getelementptr inbounds i8, ptr %node_, i64 8
@@ -3710,13 +3710,13 @@ for.body591:                                      ; preds = %cond.end587
   br i1 %cmp596.not, label %for.inc603, label %land.lhs.true598
 
 land.lhs.true598:                                 ; preds = %for.body591
-  %call599 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %106, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call599 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %106, ptr noundef %ctx_, ptr noundef %state)
   %tobool600.not = icmp eq i32 %call599, 0
   br i1 %tobool600.not, label %return, label %for.inc603
 
 for.inc603:                                       ; preds = %for.body591, %land.lhs.true598
   %inc604 = add i32 %i576.0, 1
-  br label %for.cond580, !llvm.loop !57
+  br label %for.cond580, !llvm.loop !56
 
 for.end605:                                       ; preds = %cond.end587
   %call606 = tail call fastcc i32 @fold_tuple(ptr noundef nonnull %node_, ptr noundef %ctx_)
@@ -3744,13 +3744,13 @@ if.then618:                                       ; preds = %land.lhs.true614
   %tobool620.not = icmp eq i32 %110, 0
   %conv621 = zext i1 %tobool620.not to i64
   %call622 = tail call ptr @PyBool_FromLong(i64 noundef %conv621) #7
-  %call623 = tail call fastcc i32 @make_const(ptr noundef nonnull %node_, ptr noundef %call622, ptr noundef %ctx_), !range !5
+  %call623 = tail call fastcc i32 @make_const(ptr noundef nonnull %node_, ptr noundef %call622, ptr noundef %ctx_)
   br label %return
 
 sw.bb625:                                         ; preds = %if.end
   %value627 = getelementptr inbounds i8, ptr %node_, i64 16
   %111 = load ptr, ptr %value627, align 8
-  %call628 = tail call fastcc i32 @astfold_expr(ptr noundef %111, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call628 = tail call fastcc i32 @astfold_expr(ptr noundef %111, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool629.not = icmp eq i32 %call628, 0
   br i1 %tobool629.not, label %return, label %sw.epilog
 
@@ -3774,7 +3774,7 @@ declare ptr @_PyAST_JoinedStr(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @astfold_arguments(ptr nocapture noundef readonly %node_, ptr noundef %ctx_, ptr nocapture noundef %state) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @astfold_arguments(ptr nocapture noundef readonly %node_, ptr noundef %ctx_, ptr nocapture noundef %state) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %node_, align 8
   %cmp = icmp eq ptr %0, null
@@ -3809,7 +3809,7 @@ if.then.i:                                        ; preds = %land.lhs.true
   br i1 %cmp.not.i, label %for.inc, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %call.i = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %5, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call.i = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %5, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %return, label %land.lhs.true.i.for.inc_crit_edge
 
@@ -3822,7 +3822,7 @@ for.inc:                                          ; preds = %land.lhs.true.i.for
   %inc = add i32 %i.0120, 1
   %conv = sext i32 %inc to i64
   %cmp2 = icmp sgt i64 %6, %conv
-  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !58
+  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !57
 
 for.end:                                          ; preds = %for.inc, %entry.split, %entry
   %args = getelementptr inbounds i8, ptr %node_, i64 8
@@ -3864,13 +3864,13 @@ if.then.i62:                                      ; preds = %land.lhs.true26
   br i1 %cmp.not.i64, label %for.inc31, label %land.lhs.true.i65
 
 land.lhs.true.i65:                                ; preds = %if.then.i62
-  %call.i66 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %11, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call.i66 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %11, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool2.not.i67 = icmp eq i32 %call.i66, 0
   br i1 %tobool2.not.i67, label %return, label %for.inc31
 
 for.inc31:                                        ; preds = %land.lhs.true.i65, %if.then.i62, %land.lhs.true26, %for.body19
   %inc32 = add i32 %i6.0, 1
-  br label %for.cond8, !llvm.loop !59
+  br label %for.cond8, !llvm.loop !58
 
 for.end33:                                        ; preds = %cond.end15
   %vararg = getelementptr inbounds i8, ptr %node_, i64 16
@@ -3891,7 +3891,7 @@ if.then.i74:                                      ; preds = %land.lhs.true36
   br i1 %cmp.not.i76, label %if.end41, label %land.lhs.true.i77
 
 land.lhs.true.i77:                                ; preds = %if.then.i74
-  %call.i78 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %14, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call.i78 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %14, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool2.not.i79 = icmp eq i32 %call.i78, 0
   br i1 %tobool2.not.i79, label %return, label %if.end41
 
@@ -3935,13 +3935,13 @@ if.then.i86:                                      ; preds = %land.lhs.true62
   br i1 %cmp.not.i88, label %for.inc67, label %land.lhs.true.i89
 
 land.lhs.true.i89:                                ; preds = %if.then.i86
-  %call.i90 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %19, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call.i90 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %19, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool2.not.i91 = icmp eq i32 %call.i90, 0
   br i1 %tobool2.not.i91, label %return, label %for.inc67
 
 for.inc67:                                        ; preds = %land.lhs.true.i89, %if.then.i86, %land.lhs.true62, %for.body55
   %inc68 = add i32 %i42.0, 1
-  br label %for.cond44, !llvm.loop !60
+  br label %for.cond44, !llvm.loop !59
 
 for.end69:                                        ; preds = %cond.end51
   %kw_defaults = getelementptr inbounds i8, ptr %node_, i64 32
@@ -3965,7 +3965,7 @@ for.body83:                                       ; preds = %for.end69.split, %f
   br i1 %cmp88.not, label %for.inc95, label %land.lhs.true90
 
 land.lhs.true90:                                  ; preds = %for.body83
-  %call91 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %23, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call91 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %23, ptr noundef %ctx_, ptr noundef %state)
   %tobool92.not = icmp eq i32 %call91, 0
   br i1 %tobool92.not, label %return, label %land.lhs.true90.for.inc95_crit_edge
 
@@ -3978,7 +3978,7 @@ for.inc95:                                        ; preds = %land.lhs.true90.for
   %inc96 = add i32 %i70.0125, 1
   %conv73 = sext i32 %inc96 to i64
   %cmp81 = icmp sgt i64 %24, %conv73
-  br i1 %cmp81, label %for.body83, label %for.end97, !llvm.loop !61
+  br i1 %cmp81, label %for.body83, label %for.end97, !llvm.loop !60
 
 for.end97:                                        ; preds = %for.inc95, %for.end69.split, %for.end69
   %kwarg = getelementptr inbounds i8, ptr %node_, i64 40
@@ -3999,7 +3999,7 @@ if.then.i98:                                      ; preds = %land.lhs.true100
   br i1 %cmp.not.i100, label %if.end105, label %land.lhs.true.i101
 
 land.lhs.true.i101:                               ; preds = %if.then.i98
-  %call.i102 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %27, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call.i102 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %27, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool2.not.i103 = icmp eq i32 %call.i102, 0
   br i1 %tobool2.not.i103, label %return, label %if.end105
 
@@ -4025,7 +4025,7 @@ for.body119:                                      ; preds = %if.end105.split, %f
   br i1 %cmp124.not, label %for.inc131, label %land.lhs.true126
 
 land.lhs.true126:                                 ; preds = %for.body119
-  %call127 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %31, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call127 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %31, ptr noundef %ctx_, ptr noundef %state)
   %tobool128.not = icmp eq i32 %call127, 0
   br i1 %tobool128.not, label %return, label %land.lhs.true126.for.inc131_crit_edge
 
@@ -4038,7 +4038,7 @@ for.inc131:                                       ; preds = %land.lhs.true126.fo
   %inc132 = add i32 %i106.0130, 1
   %conv109 = sext i32 %inc132 to i64
   %cmp117 = icmp sgt i64 %32, %conv109
-  br i1 %cmp117, label %for.body119, label %return, !llvm.loop !62
+  br i1 %cmp117, label %for.body119, label %return, !llvm.loop !61
 
 return:                                           ; preds = %land.lhs.true.i, %land.lhs.true.i65, %land.lhs.true.i89, %land.lhs.true90, %for.inc131, %land.lhs.true126, %if.end105, %if.end105.split, %land.lhs.true.i101, %land.lhs.true.i77
   %retval.0 = phi i32 [ 0, %land.lhs.true.i77 ], [ 0, %land.lhs.true.i101 ], [ 1, %if.end105 ], [ 1, %if.end105.split ], [ 0, %land.lhs.true126 ], [ 1, %for.inc131 ], [ 0, %land.lhs.true90 ], [ 0, %land.lhs.true.i89 ], [ 0, %land.lhs.true.i65 ], [ 0, %land.lhs.true.i ]
@@ -4046,7 +4046,7 @@ return:                                           ; preds = %land.lhs.true.i, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @fold_iter(ptr nocapture noundef %arg, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_iter(ptr nocapture noundef %arg, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %arg, align 8
   switch i32 %0, label %return [
@@ -4069,7 +4069,7 @@ cond.end.i:                                       ; preds = %if.then
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %2
-  br i1 %exitcond.not.i, label %entry.split.i, label %for.body.i, !llvm.loop !63
+  br i1 %exitcond.not.i, label %entry.split.i, label %for.body.i, !llvm.loop !62
 
 for.body.i:                                       ; preds = %cond.end.i, %for.cond.i
   %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %cond.end.i ]
@@ -4096,7 +4096,7 @@ for.body.i22:                                     ; preds = %for.cond.i20
   %7 = load i32, ptr %6, align 8
   %cmp4.not.i = icmp eq i32 %7, 20
   %inc.i24 = add i32 %i.0.i, 1
-  br i1 %cmp4.not.i, label %for.cond.i20, label %if.then.i, !llvm.loop !64
+  br i1 %cmp4.not.i, label %for.cond.i20, label %if.then.i, !llvm.loop !63
 
 cond.end11.i:                                     ; preds = %for.cond.i20
   %call.i = tail call ptr @PyTuple_New(i64 noundef %5) #7
@@ -4137,7 +4137,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %for.
   %conv19.i = sext i32 %inc38.i to i64
   %12 = load i64, ptr %1, align 8
   %cmp27.i = icmp sgt i64 %12, %conv19.i
-  br i1 %cmp27.i, label %for.body29.i, label %if.end2.i, !llvm.loop !65
+  br i1 %cmp27.i, label %for.body29.i, label %if.end2.i, !llvm.loop !64
 
 if.then13:                                        ; preds = %entry
   %v14 = getelementptr inbounds i8, ptr %arg, i64 8
@@ -4162,7 +4162,7 @@ for.body.i53:                                     ; preds = %for.cond.i28
   %16 = load i32, ptr %15, align 8
   %cmp4.not.i55 = icmp eq i32 %16, 20
   %inc.i56 = add i32 %i.0.i29, 1
-  br i1 %cmp4.not.i55, label %for.cond.i28, label %if.then.i, !llvm.loop !64
+  br i1 %cmp4.not.i55, label %for.cond.i28, label %if.then.i, !llvm.loop !63
 
 cond.end11.i32:                                   ; preds = %for.cond.i28
   %call.i33 = tail call ptr @PyTuple_New(i64 noundef %14) #7
@@ -4198,7 +4198,7 @@ _Py_NewRef.exit.i48:                              ; preds = %if.end.i.i.i47, %fo
   %conv19.i51 = sext i32 %inc38.i50 to i64
   %21 = load i64, ptr %13, align 8
   %cmp27.i52 = icmp sgt i64 %21, %conv19.i51
-  br i1 %cmp27.i52, label %for.body29.i40, label %do.body, !llvm.loop !65
+  br i1 %cmp27.i52, label %for.body29.i40, label %do.body, !llvm.loop !64
 
 make_const_tuple.exit59:                          ; preds = %if.then13
   %call30.i58 = tail call ptr @PyTuple_New(i64 noundef 0) #7
@@ -4276,7 +4276,7 @@ return:                                           ; preds = %for.body.i, %if.end
 declare ptr @PyFrozenSet_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @make_const(ptr nocapture noundef writeonly %node, ptr noundef %val, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @make_const(ptr nocapture noundef writeonly %node, ptr noundef %val, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %val, null
   br i1 %cmp, label %if.then, label %if.end2
@@ -4336,7 +4336,7 @@ declare void @PyErr_Clear() local_unnamed_addr #1
 declare i32 @_PyArena_AddPyObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @astfold_pattern(ptr nocapture noundef readonly %node_, ptr noundef %ctx_, ptr noundef %state) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @astfold_pattern(ptr nocapture noundef readonly %node_, ptr noundef %ctx_, ptr noundef %state) unnamed_addr #0 {
 entry:
   %recursion_depth = getelementptr inbounds i8, ptr %state, i64 8
   %0 = load i32, ptr %recursion_depth, align 4
@@ -4366,7 +4366,7 @@ if.end:                                           ; preds = %entry
 sw.bb:                                            ; preds = %if.end
   %v = getelementptr inbounds i8, ptr %node_, i64 8
   %4 = load ptr, ptr %v, align 8
-  %call = tail call fastcc i32 @astfold_expr(ptr noundef %4, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call = tail call fastcc i32 @astfold_expr(ptr noundef %4, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %sw.epilog
 
@@ -4398,13 +4398,13 @@ for.body:                                         ; preds = %cond.end
   br i1 %cmp10.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %call12 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %7, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call12 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %7, ptr noundef %ctx_, ptr noundef %state)
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
   %inc16 = add i32 %i.0, 1
-  br label %for.cond, !llvm.loop !66
+  br label %for.cond, !llvm.loop !65
 
 sw.bb17:                                          ; preds = %if.end
   %v20 = getelementptr inbounds i8, ptr %node_, i64 8
@@ -4434,13 +4434,13 @@ for.body32:                                       ; preds = %cond.end28
   br i1 %cmp37.not, label %for.inc44, label %land.lhs.true39
 
 land.lhs.true39:                                  ; preds = %for.body32
-  %call40 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %10, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call40 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %10, ptr noundef %ctx_, ptr noundef %state)
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %return, label %for.inc44
 
 for.inc44:                                        ; preds = %for.body32, %land.lhs.true39
   %inc45 = add i32 %i18.0, 1
-  br label %for.cond21, !llvm.loop !67
+  br label %for.cond21, !llvm.loop !66
 
 for.end46:                                        ; preds = %cond.end28
   %patterns50 = getelementptr inbounds i8, ptr %node_, i64 16
@@ -4470,18 +4470,18 @@ for.body62:                                       ; preds = %cond.end58
   br i1 %cmp67.not, label %for.inc74, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %for.body62
-  %call70 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %13, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call70 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %13, ptr noundef %ctx_, ptr noundef %state)
   %tobool71.not = icmp eq i32 %call70, 0
   br i1 %tobool71.not, label %return, label %for.inc74
 
 for.inc74:                                        ; preds = %for.body62, %land.lhs.true69
   %inc75 = add i32 %i47.0, 1
-  br label %for.cond51, !llvm.loop !68
+  br label %for.cond51, !llvm.loop !67
 
 sw.bb77:                                          ; preds = %if.end
   %v78 = getelementptr inbounds i8, ptr %node_, i64 8
   %14 = load ptr, ptr %v78, align 8
-  %call79 = tail call fastcc i32 @astfold_expr(ptr noundef %14, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call79 = tail call fastcc i32 @astfold_expr(ptr noundef %14, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool80.not = icmp eq i32 %call79, 0
   br i1 %tobool80.not, label %return, label %if.end82
 
@@ -4507,7 +4507,7 @@ for.body98:                                       ; preds = %if.end82.split, %fo
   br i1 %cmp103.not, label %for.inc110, label %land.lhs.true105
 
 land.lhs.true105:                                 ; preds = %for.body98
-  %call106 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %18, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call106 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %18, ptr noundef %ctx_, ptr noundef %state)
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %return, label %land.lhs.true105.for.inc110_crit_edge
 
@@ -4520,7 +4520,7 @@ for.inc110:                                       ; preds = %land.lhs.true105.fo
   %inc111 = add i32 %i83.081, 1
   %conv88 = sext i32 %inc111 to i64
   %cmp96 = icmp sgt i64 %19, %conv88
-  br i1 %cmp96, label %for.body98, label %for.end112, !llvm.loop !69
+  br i1 %cmp96, label %for.body98, label %for.end112, !llvm.loop !68
 
 for.end112:                                       ; preds = %for.inc110, %if.end82.split, %if.end82
   %kwd_patterns = getelementptr inbounds i8, ptr %node_, i64 32
@@ -4544,7 +4544,7 @@ for.body127:                                      ; preds = %for.end112.split85,
   br i1 %cmp132.not, label %for.inc139, label %land.lhs.true134
 
 land.lhs.true134:                                 ; preds = %for.body127
-  %call135 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %23, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call135 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %23, ptr noundef %ctx_, ptr noundef %state)
   %tobool136.not = icmp eq i32 %call135, 0
   br i1 %tobool136.not, label %return, label %land.lhs.true134.for.inc139_crit_edge
 
@@ -4557,7 +4557,7 @@ for.inc139:                                       ; preds = %land.lhs.true134.fo
   %inc140 = add i32 %i113.087, 1
   %conv117 = sext i32 %inc140 to i64
   %cmp125 = icmp sgt i64 %24, %conv117
-  br i1 %cmp125, label %for.body127, label %sw.epilog, !llvm.loop !70
+  br i1 %cmp125, label %for.body127, label %sw.epilog, !llvm.loop !69
 
 sw.bb143:                                         ; preds = %if.end
   %v144 = getelementptr inbounds i8, ptr %node_, i64 8
@@ -4566,7 +4566,7 @@ sw.bb143:                                         ; preds = %if.end
   br i1 %tobool145.not, label %sw.epilog, label %if.then146
 
 if.then146:                                       ; preds = %sw.bb143
-  %call149 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %25, ptr noundef %ctx_, ptr noundef nonnull %state), !range !5
+  %call149 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %25, ptr noundef %ctx_, ptr noundef nonnull %state)
   %tobool150.not = icmp eq i32 %call149, 0
   br i1 %tobool150.not, label %return, label %sw.epilog
 
@@ -4598,13 +4598,13 @@ for.body170:                                      ; preds = %cond.end166
   br i1 %cmp175.not, label %for.inc182, label %land.lhs.true177
 
 land.lhs.true177:                                 ; preds = %for.body170
-  %call178 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %28, ptr noundef %ctx_, ptr noundef %state), !range !5
+  %call178 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %28, ptr noundef %ctx_, ptr noundef %state)
   %tobool179.not = icmp eq i32 %call178, 0
   br i1 %tobool179.not, label %return, label %for.inc182
 
 for.inc182:                                       ; preds = %for.body170, %land.lhs.true177
   %inc183 = add i32 %i155.0, 1
-  br label %for.cond159, !llvm.loop !71
+  br label %for.cond159, !llvm.loop !70
 
 sw.epilog:                                        ; preds = %for.inc139, %cond.end58, %cond.end, %cond.end166, %for.end112, %for.end112.split85, %sw.bb143, %if.then146, %sw.bb, %if.end
   %29 = load i32, ptr %recursion_depth, align 4
@@ -4618,7 +4618,7 @@ return:                                           ; preds = %land.lhs.true105, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fold_binop(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_binop(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %buf.i.i = alloca [9 x i8], align 1
   %v = getelementptr inbounds i8, ptr %node, i64 8
@@ -4664,7 +4664,7 @@ cond.end.i:                                       ; preds = %land.lhs.true9
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %9
-  br i1 %exitcond.not.i, label %cond.false.i, label %for.body.i, !llvm.loop !63
+  br i1 %exitcond.not.i, label %cond.false.i, label %for.body.i, !llvm.loop !62
 
 for.body.i:                                       ; preds = %cond.end.i, %for.cond.i
   %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %cond.end.i ]
@@ -4755,7 +4755,7 @@ if.end11.us.i.i:                                  ; preds = %if.then8.us.i.i, %w
   %has_percents.1.us.i.i = phi i32 [ 1, %if.then8.us.i.i ], [ %has_percents.043.us.i.i, %while.body.us.i.i ]
   %pos.1.us.i.i = phi i64 [ %add9.us.i.i, %if.then8.us.i.i ], [ %add.us.i.i, %while.body.us.i.i ]
   %cmp.us.i.i = icmp slt i64 %pos.1.us.i.i, %fmt.val.i.i
-  br i1 %cmp.us.i.i, label %while.body.us.i.i, label %while.end.i.i, !llvm.loop !72
+  br i1 %cmp.us.i.i, label %while.body.us.i.i, label %while.end.i.i, !llvm.loop !71
 
 while.body.us56.i.i:                              ; preds = %while.body.lr.ph.i.i, %if.end11.us81.i.i
   %pos.044.us57.i.i = phi i64 [ %pos.1.us83.i.i, %if.end11.us81.i.i ], [ %pos.0.i, %while.body.lr.ph.i.i ]
@@ -4784,7 +4784,7 @@ if.end11.us81.i.i:                                ; preds = %if.then8.us79.i.i, 
   %has_percents.1.us82.i.i = phi i32 [ 1, %if.then8.us79.i.i ], [ %has_percents.043.us58.i.i, %while.body.us56.i.i ]
   %pos.1.us83.i.i = phi i64 [ %add9.us80.i.i, %if.then8.us79.i.i ], [ %add.us65.i.i, %while.body.us56.i.i ]
   %cmp.us84.i.i = icmp slt i64 %pos.1.us83.i.i, %fmt.val.i.i
-  br i1 %cmp.us84.i.i, label %while.body.us56.i.i, label %while.end.i.i, !llvm.loop !72
+  br i1 %cmp.us84.i.i, label %while.body.us56.i.i, label %while.end.i.i, !llvm.loop !71
 
 while.body.i.i:                                   ; preds = %while.body.lr.ph.i.i, %if.end11.i.i
   %pos.044.i.i = phi i64 [ %pos.1.i.i, %if.end11.i.i ], [ %pos.0.i, %while.body.lr.ph.i.i ]
@@ -4813,7 +4813,7 @@ if.end11.i.i:                                     ; preds = %if.then8.i.i, %whil
   %has_percents.1.i.i = phi i32 [ 1, %if.then8.i.i ], [ %has_percents.043.i.i, %while.body.i.i ]
   %pos.1.i.i = phi i64 [ %add9.i.i, %if.then8.i.i ], [ %add.i.i, %while.body.i.i ]
   %cmp.i.i = icmp slt i64 %pos.1.i.i, %fmt.val.i.i
-  br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !72
+  br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !71
 
 while.end.i.i:                                    ; preds = %if.end11.us81.i.i, %PyUnicode_READ.exit41.us76.i.i, %if.else.us64.i.i, %if.end11.us.i.i, %PyUnicode_READ.exit41.us.i.i, %if.else.us.i.i, %if.end11.i.i, %land.lhs.true.i.i, %if.else.i.i
   %has_percents.0.lcssa.i.i = phi i32 [ %has_percents.043.i.i, %if.else.i.i ], [ %has_percents.043.i.i, %land.lhs.true.i.i ], [ %has_percents.1.i.i, %if.end11.i.i ], [ %has_percents.043.us.i.i, %if.else.us.i.i ], [ %has_percents.043.us.i.i, %PyUnicode_READ.exit41.us.i.i ], [ %has_percents.1.us.i.i, %if.end11.us.i.i ], [ %has_percents.043.us58.i.i, %if.else.us64.i.i ], [ %has_percents.043.us58.i.i, %PyUnicode_READ.exit41.us76.i.i ], [ %has_percents.1.us82.i.i, %if.end11.us81.i.i ]
@@ -5236,7 +5236,7 @@ PyUnicode_READ_CHAR.exit81.i.i.i:                 ; preds = %PyUnicode_DATA.exit
   %inc21.i.i.i = add nsw i64 %pos.1.i.i.i, 1
   %inc23.i.i.i = add nuw nsw i32 %digits.0.i.i.i, 1
   %exitcond176.i.i.i = icmp eq i32 %inc23.i.i.i, 3
-  br i1 %exitcond176.i.i.i, label %parse_format.exit.thread.i, label %while.cond.i.i.i, !llvm.loop !73
+  br i1 %exitcond176.i.i.i, label %parse_format.exit.thread.i, label %while.cond.i.i.i, !llvm.loop !72
 
 if.end28.i.i.i:                                   ; preds = %while.cond.i.i.i, %while.end.i.i.i
   %width.1.i.i = phi i32 [ -1, %while.end.i.i.i ], [ %width.0.i.i, %while.cond.i.i.i ]
@@ -5370,7 +5370,7 @@ PyUnicode_READ_CHAR.exit159.i.i.i:                ; preds = %PyUnicode_DATA.exit
   %inc57.i.i.i = add nsw i64 %pos.3.i.i.i, 1
   %inc59.i.i.i = add nuw nsw i32 %digits42.0.i.i.i, 1
   %exitcond177.i.i.i = icmp eq i32 %inc59.i.i.i, 3
-  br i1 %exitcond177.i.i.i, label %parse_format.exit.thread.i, label %while.cond43.i.i.i, !llvm.loop !74
+  br i1 %exitcond177.i.i.i, label %parse_format.exit.thread.i, label %while.cond43.i.i.i, !llvm.loop !73
 
 if.end.i.i:                                       ; preds = %while.cond43.i.i.i, %PyUnicode_READ_CHAR.exit120.i.i.i, %if.end28.i.i.i
   %prec.1.i.i = phi i32 [ 0, %PyUnicode_READ_CHAR.exit120.i.i.i ], [ -1, %if.end28.i.i.i ], [ %prec.0.i.i, %while.cond43.i.i.i ]
@@ -5642,7 +5642,7 @@ return:                                           ; preds = %cond.end19.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @fold_unaryop(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_unaryop(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %v = getelementptr inbounds i8, ptr %node, i64 8
   %operand = getelementptr inbounds i8, ptr %node, i64 16
@@ -5757,7 +5757,7 @@ return:                                           ; preds = %if.then11, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @fold_compare(ptr readonly %node.16.val, ptr nocapture readonly %node.24.val, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_compare(ptr readonly %node.16.val, ptr nocapture readonly %node.24.val, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %node.16.val, null
   br i1 %cmp, label %cond.end, label %cond.false
@@ -5793,7 +5793,7 @@ return:                                           ; preds = %if.then, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @fold_subscr(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_subscr(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %v = getelementptr inbounds i8, ptr %node, i64 8
   %0 = load ptr, ptr %v, align 8
@@ -5866,7 +5866,7 @@ return:                                           ; preds = %if.end6.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @fold_tuple(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fold_tuple(ptr nocapture noundef %node, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load i32, ptr %ctx, align 8
@@ -5896,7 +5896,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %4 = load i32, ptr %3, align 8
   %cmp4.not.i = icmp eq i32 %4, 20
   %inc.i = add i32 %i.0.i, 1
-  br i1 %cmp4.not.i, label %for.cond.i, label %if.then.i, !llvm.loop !64
+  br i1 %cmp4.not.i, label %for.cond.i, label %if.then.i, !llvm.loop !63
 
 cond.end11.i:                                     ; preds = %for.cond.i
   %call.i = tail call ptr @PyTuple_New(i64 noundef %2) #7
@@ -5932,7 +5932,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %for.
   %conv19.i = sext i32 %inc38.i to i64
   %9 = load i64, ptr %1, align 8
   %cmp27.i = icmp sgt i64 %9, %conv19.i
-  br i1 %cmp27.i, label %for.body29.i, label %if.end2.i, !llvm.loop !65
+  br i1 %cmp27.i, label %for.body29.i, label %if.end2.i, !llvm.loop !64
 
 make_const_tuple.exit:                            ; preds = %if.end
   %call30.i = tail call ptr @PyTuple_New(i64 noundef 0) #7
@@ -6293,7 +6293,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp = icmp sgt i64 %call5, -1
   %cmp4 = icmp slt i64 %inc, %obj.val11
   %or.cond = select i1 %cmp, i1 %cmp4, i1 false
-  br i1 %or.cond, label %for.body, label %return, !llvm.loop !75
+  br i1 %or.cond, label %for.body, label %return, !llvm.loop !74
 
 return:                                           ; preds = %for.body, %if.then, %entry
   %retval.0 = phi i64 [ %limit, %entry ], [ %sub, %if.then ], [ %call5, %for.body ]
@@ -6360,74 +6360,73 @@ attributes #7 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
-!68 = distinct !{!68, !7}
-!69 = distinct !{!69, !7}
-!70 = distinct !{!70, !7}
-!71 = distinct !{!71, !7}
-!72 = distinct !{!72, !7}
-!73 = distinct !{!73, !7}
-!74 = distinct !{!74, !7}
-!75 = distinct !{!75, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}
+!36 = distinct !{!36, !6}
+!37 = distinct !{!37, !6}
+!38 = distinct !{!38, !6}
+!39 = distinct !{!39, !6}
+!40 = distinct !{!40, !6}
+!41 = distinct !{!41, !6}
+!42 = distinct !{!42, !6}
+!43 = distinct !{!43, !6}
+!44 = distinct !{!44, !6}
+!45 = distinct !{!45, !6}
+!46 = distinct !{!46, !6}
+!47 = distinct !{!47, !6}
+!48 = distinct !{!48, !6}
+!49 = distinct !{!49, !6}
+!50 = distinct !{!50, !6}
+!51 = distinct !{!51, !6}
+!52 = distinct !{!52, !6}
+!53 = distinct !{!53, !6}
+!54 = distinct !{!54, !6}
+!55 = distinct !{!55, !6}
+!56 = distinct !{!56, !6}
+!57 = distinct !{!57, !6}
+!58 = distinct !{!58, !6}
+!59 = distinct !{!59, !6}
+!60 = distinct !{!60, !6}
+!61 = distinct !{!61, !6}
+!62 = distinct !{!62, !6}
+!63 = distinct !{!63, !6}
+!64 = distinct !{!64, !6}
+!65 = distinct !{!65, !6}
+!66 = distinct !{!66, !6}
+!67 = distinct !{!67, !6}
+!68 = distinct !{!68, !6}
+!69 = distinct !{!69, !6}
+!70 = distinct !{!70, !6}
+!71 = distinct !{!71, !6}
+!72 = distinct !{!72, !6}
+!73 = distinct !{!73, !6}
+!74 = distinct !{!74, !6}

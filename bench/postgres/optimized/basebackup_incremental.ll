@@ -149,9 +149,9 @@ define internal void @manifest_process_file(ptr nocapture noundef readonly %0, p
   %28 = shl i64 %22, 1
   %29 = load ptr, ptr %15, align 8
   %30 = tail call i64 @llvm.umax.i64(i64 %28, i64 2)
-  %31 = tail call i64 @llvm.ctpop.i64(i64 %30), !range !5
+  %31 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %30)
   %32 = icmp ult i64 %31, 2
-  %33 = tail call i64 @llvm.ctlz.i64(i64 %30, i1 true), !range !5
+  %33 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %30, i1 true)
   %34 = sub nuw nsw i64 64, %33
   %35 = shl nuw i64 1, %34
   %.0.i.i.i.i.i = select i1 %32, i64 %30, i64 %35
@@ -171,9 +171,9 @@ backup_file_compute_size.exit.i.i.i:              ; preds = %27
   %41 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val.i.i.i, i64 noundef %36, i32 noundef 5) #12
   store ptr %41, ptr %15, align 8
   %42 = tail call i64 @llvm.umax.i64(i64 %.0.i.i.i.i.i, i64 2)
-  %43 = tail call i64 @llvm.ctpop.i64(i64 %42), !range !5
+  %43 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %42)
   %44 = icmp ult i64 %43, 2
-  %45 = tail call i64 @llvm.ctlz.i64(i64 %42, i1 true), !range !5
+  %45 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %42, i1 true)
   %46 = sub nuw nsw i64 64, %45
   %47 = shl nuw i64 1, %46
   %.0.i.i.i.i.i.i = select i1 %44, i64 %42, i64 %47
@@ -225,7 +225,7 @@ backup_file_update_parameters.exit.i.i.i:         ; preds = %backup_file_compute
   %70 = add i32 %.058.i.i.i, 1
   %71 = zext i32 %70 to i64
   %72 = icmp ugt i64 %22, %71
-  br i1 %72, label %.lr.ph.i.i.i, label %.lr.ph66.i.i.i.preheader, !llvm.loop !6
+  br i1 %72, label %.lr.ph.i.i.i, label %.lr.ph66.i.i.i.preheader, !llvm.loop !5
 
 .lr.ph66.i.i.i.preheader:                         ; preds = %69, %62, %.lr.ph.i.i.i
   %.04963.i.i.i.ph = phi i32 [ %.058.i.i.i, %.lr.ph.i.i.i ], [ %.058.i.i.i, %62 ], [ 0, %69 ]
@@ -271,7 +271,7 @@ backup_file_update_parameters.exit.i.i.i:         ; preds = %backup_file_compute
   %92 = add i32 %.164.i.i.i, 1
   %93 = zext i32 %92 to i64
   %94 = icmp ugt i64 %22, %93
-  br i1 %94, label %.lr.ph66.i.i.i, label %backup_file_grow.exit.i.i, !llvm.loop !8
+  br i1 %94, label %.lr.ph66.i.i.i, label %backup_file_grow.exit.i.i, !llvm.loop !7
 
 backup_file_grow.exit.i.i:                        ; preds = %89, %backup_file_update_parameters.exit.i.i.i
   tail call void @pfree(ptr noundef %29) #12
@@ -373,7 +373,7 @@ backup_file_distance.exit.i.i:                    ; preds = %112, %107
   %144 = getelementptr %struct.backup_file_entry, ptr %96, i64 %143
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.073138.i.i, ptr noundef nonnull align 8 dereferenceable(24) %144, i64 24, i1 false)
   %.not75.i.i = icmp eq i32 %142, %.069113.i.i
-  br i1 %.not75.i.i, label %.loopexit, label %.lr.ph140.i.i, !llvm.loop !9
+  br i1 %.not75.i.i, label %.loopexit, label %.lr.ph140.i.i, !llvm.loop !8
 
 145:                                              ; preds = %backup_file_distance.exit.i.i
   %146 = add i32 %.074112.i.i, 1
@@ -557,7 +557,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %.1176.us = phi i32 [ %42, %41 ], [ %.0175272.us, %39 ]
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond366.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count365
-  br i1 %exitcond366.not, label %._crit_edge.split.us, label %.thread.loopexit.us, !llvm.loop !10
+  br i1 %exitcond366.not, label %._crit_edge.split.us, label %.thread.loopexit.us, !llvm.loop !9
 
 ._crit_edge.split.us:                             ; preds = %45
   %46 = load i32, ptr %35, align 8
@@ -657,7 +657,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %.1176 = phi i32 [ %79, %78 ], [ %.0175272, %76 ]
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count360
-  br i1 %exitcond361.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond361.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %82, %._crit_edge.split.us
   %.0179.lcssa = phi i32 [ %46, %._crit_edge.split.us ], [ %.1180, %82 ]
@@ -704,13 +704,13 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %106 = load i32, ptr %90, align 8
   %107 = load i64, ptr %102, align 8
   %108 = lshr i64 %107, 32
-  %109 = trunc i64 %108 to i32
+  %109 = trunc nuw i64 %108 to i32
   %110 = trunc i64 %107 to i32
   %111 = load ptr, ptr %103, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 8
   %113 = load i64, ptr %112, align 8
   %114 = lshr i64 %113, 32
-  %115 = trunc i64 %114 to i32
+  %115 = trunc nuw i64 %114 to i32
   %116 = trunc i64 %113 to i32
   %117 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, i32 noundef %106, i32 noundef %109, i32 noundef %110, i32 noundef %115, i32 noundef %116) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 387, ptr noundef nonnull @__func__.PrepareForIncrementalBackup) #12
@@ -729,13 +729,13 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %124 = load i32, ptr %90, align 8
   %125 = load i64, ptr %120, align 8
   %126 = lshr i64 %125, 32
-  %127 = trunc i64 %126 to i32
+  %127 = trunc nuw i64 %126 to i32
   %128 = trunc i64 %125 to i32
   %129 = load ptr, ptr %121, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 8
   %131 = load i64, ptr %130, align 8
   %132 = lshr i64 %131, 32
-  %133 = trunc i64 %132 to i32
+  %133 = trunc nuw i64 %132 to i32
   %134 = trunc i64 %131 to i32
   %135 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, i32 noundef %124, i32 noundef %127, i32 noundef %128, i32 noundef %133, i32 noundef %134) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 397, ptr noundef nonnull @__func__.PrepareForIncrementalBackup) #12
@@ -760,11 +760,11 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %147 = load i32, ptr %90, align 8
   %148 = load i64, ptr %144, align 8
   %149 = lshr i64 %148, 32
-  %150 = trunc i64 %149 to i32
+  %150 = trunc nuw i64 %149 to i32
   %151 = trunc i64 %148 to i32
   %152 = load i64, ptr %87, align 8
   %153 = lshr i64 %152, 32
-  %154 = trunc i64 %153 to i32
+  %154 = trunc nuw i64 %153 to i32
   %155 = trunc i64 %152 to i32
   %156 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, i32 noundef %147, i32 noundef %150, i32 noundef %151, i32 noundef %154, i32 noundef %155) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 408, ptr noundef nonnull @__func__.PrepareForIncrementalBackup) #12
@@ -785,13 +785,13 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %165 = load i32, ptr %90, align 8
   %166 = load i64, ptr %161, align 8
   %167 = lshr i64 %166, 32
-  %168 = trunc i64 %167 to i32
+  %168 = trunc nuw i64 %167 to i32
   %169 = trunc i64 %166 to i32
   %170 = load ptr, ptr %162, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 16
   %172 = load i64, ptr %171, align 8
   %173 = lshr i64 %172, 32
-  %174 = trunc i64 %173 to i32
+  %174 = trunc nuw i64 %173 to i32
   %175 = trunc i64 %172 to i32
   %176 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %165, i32 noundef %168, i32 noundef %169, i32 noundef %174, i32 noundef %175) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 418, ptr noundef nonnull @__func__.PrepareForIncrementalBackup) #12
@@ -800,7 +800,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
 177:                                              ; preds = %140, %157
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
   %exitcond371.not = icmp eq i64 %indvars.iv.next368, %wide.trip.count370
-  br i1 %exitcond371.not, label %._crit_edge297, label %88, !llvm.loop !11
+  br i1 %exitcond371.not, label %._crit_edge297, label %88, !llvm.loop !10
 
 ._crit_edge297:                                   ; preds = %177, %._crit_edge.thread, %._crit_edge
   %.0175.lcssa396 = phi i32 [ 0, %._crit_edge.thread ], [ %.0175.lcssa, %._crit_edge ], [ %.0175.lcssa, %177 ]
@@ -835,14 +835,14 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %194 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #12
   %195 = load i64, ptr %182, align 8
   %196 = lshr i64 %195, 32
-  %197 = trunc i64 %196 to i32
+  %197 = trunc nuw i64 %196 to i32
   %198 = trunc i64 %195 to i32
   %199 = lshr i64 %186, 32
-  %200 = trunc i64 %199 to i32
+  %200 = trunc nuw i64 %199 to i32
   %201 = trunc i64 %186 to i32
   %202 = load i64, ptr %3, align 8
   %203 = lshr i64 %202, 32
-  %204 = trunc i64 %203 to i32
+  %204 = trunc nuw i64 %203 to i32
   %205 = trunc i64 %202 to i32
   %206 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.8, i32 noundef %197, i32 noundef %198, i32 noundef %200, i32 noundef %201, i32 noundef %204, i32 noundef %205) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 486, ptr noundef nonnull @__func__.PrepareForIncrementalBackup) #12
@@ -859,15 +859,15 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %213 = call i32 @errcode(i32 noundef 325) #12
   %214 = load i64, ptr %182, align 8
   %215 = lshr i64 %214, 32
-  %216 = trunc i64 %215 to i32
+  %216 = trunc nuw i64 %215 to i32
   %217 = trunc i64 %214 to i32
   %218 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %216, i32 noundef %217, i64 noundef %212) #12
   %219 = lshr i64 %186, 32
-  %220 = trunc i64 %219 to i32
+  %220 = trunc nuw i64 %219 to i32
   %221 = trunc i64 %186 to i32
   %222 = load i64, ptr %3, align 8
   %223 = lshr i64 %222, 32
-  %224 = trunc i64 %223 to i32
+  %224 = trunc nuw i64 %223 to i32
   %225 = trunc i64 %222 to i32
   %226 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10, i32 noundef %220, i32 noundef %221, i32 noundef %224, i32 noundef %225) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 501, ptr noundef nonnull @__func__.PrepareForIncrementalBackup) #12
@@ -937,10 +937,10 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %260 = call i32 @errcode(i32 noundef 325) #12
   %261 = load i32, ptr %242, align 8
   %262 = lshr i64 %spec.select208, 32
-  %263 = trunc i64 %262 to i32
+  %263 = trunc nuw i64 %262 to i32
   %264 = trunc i64 %spec.select208 to i32
   %265 = lshr i64 %.0186, 32
-  %266 = trunc i64 %265 to i32
+  %266 = trunc nuw i64 %265 to i32
   %267 = trunc i64 %.0186 to i32
   br i1 %258, label %268, label %270
 
@@ -953,7 +953,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   %271 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i32 noundef %261, i32 noundef %263, i32 noundef %264, i32 noundef %266, i32 noundef %267) #12
   %272 = load i64, ptr %4, align 8
   %273 = lshr i64 %272, 32
-  %274 = trunc i64 %273 to i32
+  %274 = trunc nuw i64 %273 to i32
   %275 = trunc i64 %272 to i32
   %276 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.13, i32 noundef %274, i32 noundef %275) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 580, ptr noundef nonnull @__func__.PrepareForIncrementalBackup) #12
@@ -1027,7 +1027,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
 
 .loopexit220:                                     ; preds = %.loopexit, %.lr.ph330
   %308 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %306, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #12
-  br i1 %308, label %.lr.ph330, label %._crit_edge331, !llvm.loop !12
+  br i1 %308, label %.lr.ph330, label %._crit_edge331, !llvm.loop !11
 
 .lr.ph330:                                        ; preds = %303, %.loopexit220
   %309 = load ptr, ptr %288, align 8
@@ -1057,7 +1057,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   call void @BlockRefTableMarkBlockModified(ptr noundef %318, ptr noundef nonnull %6, i32 noundef %319, i32 noundef %321) #12
   %indvars.iv.next375 = add nuw nsw i64 %indvars.iv374, 1
   %exitcond378.not = icmp eq i64 %indvars.iv.next375, %wide.trip.count377
-  br i1 %exitcond378.not, label %.loopexit, label %317, !llvm.loop !13
+  br i1 %exitcond378.not, label %.loopexit, label %317, !llvm.loop !12
 
 ._crit_edge331:                                   ; preds = %.loopexit220, %303
   call void @DestroyBlockRefTableReader(ptr noundef %306) #12
@@ -1160,7 +1160,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @GetFileBackupMethod(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @GetFileBackupMethod(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10) local_unnamed_addr #0 {
   %12 = alloca [131072 x i32], align 16
   %13 = alloca i32, align 4
   %14 = alloca %struct.RelFileLocator, align 4
@@ -1197,7 +1197,7 @@ define dso_local noundef i32 @GetFileBackupMethod(ptr nocapture noundef readonly
   %.01214.i.i = phi i32 [ %41, %39 ], [ %27, %20 ]
   %35 = getelementptr %struct.backup_file_entry, ptr %29, i64 %34, i32 1
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %1) #13
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull readonly dereferenceable(1) %1) #13
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %backup_file_lookup.exit, label %39
 
@@ -1249,7 +1249,7 @@ GetIncrementalFilePath.exit:                      ; preds = %49, %51
   %.01214.i.i67 = phi i32 [ %72, %70 ], [ %58, %GetIncrementalFilePath.exit ]
   %66 = getelementptr %struct.backup_file_entry, ptr %60, i64 %65, i32 1
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %.0.i) #13
+  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull readonly dereferenceable(1) %.0.i) #13
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %backup_file_lookup.exit, label %70
 
@@ -1280,7 +1280,7 @@ backup_file_lookup.exit:                          ; preds = %.lr.ph.i.i, %.lr.ph
 
 85:                                               ; preds = %83
   store i32 0, ptr %8, align 4
-  %86 = trunc i64 %17 to i32
+  %86 = trunc nuw nsw i64 %17 to i32
   br label %backup_file_lookup.exit69.thread.sink.split
 
 87:                                               ; preds = %backup_file_lookup.exit
@@ -1290,7 +1290,7 @@ backup_file_lookup.exit:                          ; preds = %.lr.ph.i.i, %.lr.ph
   br i1 %.not62, label %90, label %backup_file_lookup.exit69.thread
 
 90:                                               ; preds = %87
-  %91 = trunc i64 %17 to i32
+  %91 = trunc nuw i64 %17 to i32
   %92 = add i32 %89, %91
   %.not63 = icmp ugt i32 %6, 32767
   %93 = icmp ult i32 %92, %89
@@ -1329,7 +1329,7 @@ backup_file_lookup.exit:                          ; preds = %.lr.ph.i.i, %.lr.ph
   store i32 %109, ptr %110, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %106
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %105
   store i32 %99, ptr %8, align 4
@@ -1358,7 +1358,7 @@ declare i32 @BlockRefTableEntryGetBlocks(ptr noundef, i32 noundef, i32 noundef, 
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_block_numbers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @compare_block_numbers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ugt i32 %3, %4
@@ -1370,7 +1370,7 @@ define internal i32 @compare_block_numbers(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @GetIncrementalFileSize(i32 noundef %0) local_unnamed_addr #6 {
+define dso_local range(i64 12, 35201551949833) i64 @GetIncrementalFileSize(i32 noundef %0) local_unnamed_addr #6 {
   %2 = zext i32 %0 to i64
   %3 = mul nuw nsw i64 %2, 8196
   %4 = add nuw nsw i64 %3, 12
@@ -1443,13 +1443,12 @@ attributes #14 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

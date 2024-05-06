@@ -377,7 +377,7 @@ if.end:                                           ; preds = %dynamic_cast.end
   ret ptr %1
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #9
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -490,7 +490,7 @@ entry:
   %arrayidx5.i = getelementptr inbounds i8, ptr %b.i, i64 2
   store i8 %conv4.i, ptr %arrayidx5.i, align 1
   %shr6.i = lshr i32 %0, 24
-  %conv7.i = trunc i32 %shr6.i to i8
+  %conv7.i = trunc nuw i32 %shr6.i to i8
   %arrayidx8.i = getelementptr inbounds i8, ptr %b.i, i64 3
   store i8 %conv7.i, ptr %arrayidx8.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
@@ -512,7 +512,7 @@ entry:
   %arrayidx5.i15 = getelementptr inbounds i8, ptr %b.i8, i64 2
   store i8 %conv4.i14, ptr %arrayidx5.i15, align 1
   %shr6.i16 = lshr i32 %2, 24
-  %conv7.i17 = trunc i32 %shr6.i16 to i8
+  %conv7.i17 = trunc nuw i32 %shr6.i16 to i8
   %arrayidx8.i18 = getelementptr inbounds i8, ptr %b.i8, i64 3
   store i8 %conv7.i17, ptr %arrayidx8.i18, align 1
   %vtable.i.i.i19 = load ptr, ptr %os, align 8
@@ -534,7 +534,7 @@ entry:
   %arrayidx5.i28 = getelementptr inbounds i8, ptr %b.i21, i64 2
   store i8 %conv4.i27, ptr %arrayidx5.i28, align 1
   %shr6.i29 = lshr i32 %4, 24
-  %conv7.i30 = trunc i32 %shr6.i29 to i8
+  %conv7.i30 = trunc nuw i32 %shr6.i29 to i8
   %arrayidx8.i31 = getelementptr inbounds i8, ptr %b.i21, i64 3
   store i8 %conv7.i30, ptr %arrayidx8.i31, align 1
   %vtable.i.i.i32 = load ptr, ptr %os, align 8
@@ -556,7 +556,7 @@ entry:
   %arrayidx5.i41 = getelementptr inbounds i8, ptr %b.i34, i64 2
   store i8 %conv4.i40, ptr %arrayidx5.i41, align 1
   %shr6.i42 = lshr i32 %6, 24
-  %conv7.i43 = trunc i32 %shr6.i42 to i8
+  %conv7.i43 = trunc nuw i32 %shr6.i42 to i8
   %arrayidx8.i44 = getelementptr inbounds i8, ptr %b.i34, i64 3
   store i8 %conv7.i43, ptr %arrayidx8.i44, align 1
   %vtable.i.i.i45 = load ptr, ptr %os, align 8
@@ -578,7 +578,7 @@ entry:
   %arrayidx5.i54 = getelementptr inbounds i8, ptr %b.i47, i64 2
   store i8 %conv4.i53, ptr %arrayidx5.i54, align 1
   %shr6.i55 = lshr i32 %8, 24
-  %conv7.i56 = trunc i32 %shr6.i55 to i8
+  %conv7.i56 = trunc nuw i32 %shr6.i55 to i8
   %arrayidx8.i57 = getelementptr inbounds i8, ptr %b.i47, i64 3
   store i8 %conv7.i56, ptr %arrayidx8.i57, align 1
   %vtable.i.i.i58 = load ptr, ptr %os, align 8
@@ -600,7 +600,7 @@ entry:
   %arrayidx5.i67 = getelementptr inbounds i8, ptr %b.i60, i64 2
   store i8 %conv4.i66, ptr %arrayidx5.i67, align 1
   %shr6.i68 = lshr i32 %10, 24
-  %conv7.i69 = trunc i32 %shr6.i68 to i8
+  %conv7.i69 = trunc nuw i32 %shr6.i68 to i8
   %arrayidx8.i70 = getelementptr inbounds i8, ptr %b.i60, i64 3
   store i8 %conv7.i69, ptr %arrayidx8.i70, align 1
   %vtable.i.i.i71 = load ptr, ptr %os, align 8
@@ -622,7 +622,7 @@ entry:
   %arrayidx5.i80 = getelementptr inbounds i8, ptr %b.i73, i64 2
   store i8 %conv4.i79, ptr %arrayidx5.i80, align 1
   %shr6.i81 = lshr i32 %12, 24
-  %conv7.i82 = trunc i32 %shr6.i81 to i8
+  %conv7.i82 = trunc nuw i32 %shr6.i81 to i8
   %arrayidx8.i83 = getelementptr inbounds i8, ptr %b.i73, i64 3
   store i8 %conv7.i82, ptr %arrayidx8.i83, align 1
   %vtable.i.i.i84 = load ptr, ptr %os, align 8
@@ -644,7 +644,7 @@ entry:
   %arrayidx5.i93 = getelementptr inbounds i8, ptr %b.i86, i64 2
   store i8 %conv4.i92, ptr %arrayidx5.i93, align 1
   %shr6.i94 = lshr i32 %14, 24
-  %conv7.i95 = trunc i32 %shr6.i94 to i8
+  %conv7.i95 = trunc nuw i32 %shr6.i94 to i8
   %arrayidx8.i96 = getelementptr inbounds i8, ptr %b.i86, i64 3
   store i8 %conv7.i95, ptr %arrayidx8.i96, align 1
   %vtable.i.i.i97 = load ptr, ptr %os, align 8
@@ -766,7 +766,7 @@ attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree nounwind memory(read) }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }

@@ -2106,8 +2106,8 @@ if.then:                                          ; preds = %land.lhs.true
   %data = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %data, align 8
   %2 = zext nneg i32 %index to i64
-  %3 = getelementptr ptr, ptr %1, i64 %2
-  %arrayidx = getelementptr i8, ptr %3, i64 8
+  %3 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %arrayidx = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load ptr, ptr %4, align 8
   br label %return
@@ -2145,12 +2145,12 @@ if.then:                                          ; preds = %land.lhs.true5
   %data = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %data, align 8
   %3 = zext nneg i32 %localeIndex to i64
-  %4 = getelementptr ptr, ptr %2, i64 %3
-  %arrayidx = getelementptr i8, ptr %4, i64 8
+  %4 = getelementptr inbounds ptr, ptr %2, i64 %3
+  %arrayidx = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %arrayidx, align 8
   %6 = zext nneg i32 %ruleIndex to i64
-  %7 = getelementptr ptr, ptr %5, i64 %6
-  %arrayidx12 = getelementptr i8, ptr %7, i64 8
+  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %arrayidx12 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %arrayidx12, align 8
   br label %return
 

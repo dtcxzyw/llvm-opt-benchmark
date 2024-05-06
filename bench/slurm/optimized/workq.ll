@@ -905,7 +905,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @workq_add_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2038) i32 @workq_add_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 289, ptr noundef nonnull @__func__.workq_add_work) #8
   store i32 -767904750, ptr %6, align 8
@@ -1043,7 +1043,7 @@ declare ptr @list_pop(ptr noundef) local_unnamed_addr #1
 declare ptr @list_remove_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_find_worker(ptr noundef readnone %0, ptr noundef readnone %1) #6 {
+define internal range(i32 0, 2) i32 @_find_worker(ptr noundef readnone %0, ptr noundef readnone %1) #6 {
   %3 = icmp eq ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4

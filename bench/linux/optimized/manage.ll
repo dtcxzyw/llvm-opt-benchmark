@@ -303,7 +303,7 @@ define internal fastcc void @__synchronize_irq(ptr noundef %0) unnamed_addr #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_can_set_affinity(i32 noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 2) i32 @irq_can_set_affinity(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = tail call ptr @irq_to_desc(i32 noundef %0) #10
   %3 = icmp eq ptr %2, null
   br i1 %3, label %19, label %4
@@ -740,7 +740,7 @@ define dso_local i32 @irq_force_affinity(i32 noundef %0, ptr noundef %1) #1 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__irq_apply_affinity_hint(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__irq_apply_affinity_hint(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   store i64 0, ptr %4, align 8, !annotation !10
@@ -777,7 +777,7 @@ define dso_local noundef i32 @__irq_apply_affinity_hint(i32 noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @irq_set_affinity_notifier(i32 noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @irq_set_affinity_notifier(i32 noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call ptr @irq_to_desc(i32 noundef %0) #10
   %4 = tail call i32 @__SCT__might_resched() #10
   %5 = icmp eq ptr %3, null
@@ -1525,7 +1525,7 @@ define dso_local i32 @irq_set_irq_wake(i32 noundef %0, i32 noundef %1) #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @can_request_irq(i32 noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @can_request_irq(i32 noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   store i64 0, ptr %3, align 8, !annotation !10
@@ -1695,7 +1695,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 declare dso_local void @unmask_irq(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @irq_set_parent(i32 noundef %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @irq_set_parent(i32 noundef %0, i32 noundef %1) #1 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   store i64 0, ptr %3, align 8, !annotation !10

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [22 x i8] c"Unknown parameter %d\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_getparam_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @i915_getparam_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 9304
@@ -285,7 +285,7 @@ define dso_local i32 @i915_getparam_ioctl(ptr noundef %0, ptr nocapture noundef 
   %152 = getelementptr inbounds i8, ptr %151, i64 28
   %153 = load i64, ptr %152, align 4
   %154 = lshr i64 %153, 34
-  %155 = trunc i64 %154 to i32
+  %155 = trunc nuw nsw i64 %154 to i32
   %156 = and i32 %155, 1
   br label %.thread
 

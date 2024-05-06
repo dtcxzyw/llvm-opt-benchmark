@@ -111,7 +111,7 @@ declare void @php_libxml_node_decrement_resource(ptr noundef) local_unnamed_addr
 declare i32 @php_libxml_increment_node_ptr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_processinginstruction_target_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_processinginstruction_target_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -152,7 +152,7 @@ define hidden noundef i32 @dom_processinginstruction_target_read(ptr noundef %0,
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_processinginstruction_data_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_processinginstruction_data_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -173,7 +173,7 @@ define hidden noundef i32 @dom_processinginstruction_data_read(ptr noundef %0, p
 declare void @php_dom_get_content_into_zval(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_processinginstruction_data_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_processinginstruction_data_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6

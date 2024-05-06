@@ -1964,7 +1964,7 @@ define hidden void @zend_jit_check_funcs(ptr nocapture noundef readonly %0, i1 z
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %49
-  %68 = tail call fastcc i32 @zend_real_jit_func(ptr noundef nonnull %17, ptr noundef null, ptr noundef null), !range !4
+  %68 = tail call fastcc i32 @zend_real_jit_func(ptr noundef nonnull %17, ptr noundef null, ptr noundef null)
   br label %69
 
 69:                                               ; preds = %.loopexit, %67, %49, %37, %41, %.lr.ph
@@ -1977,7 +1977,7 @@ define hidden void @zend_jit_check_funcs(ptr nocapture noundef readonly %0, i1 z
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_real_jit_func(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @zend_real_jit_func(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._zend_ssa, align 8
   %5 = load ptr, ptr @dasm_ptr, align 8
   %6 = load ptr, ptr %5, align 8
@@ -1989,7 +1989,7 @@ define internal fastcc noundef i32 @zend_real_jit_func(ptr noundef %0, ptr nound
   %10 = load ptr, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), align 8
   %11 = load ptr, ptr %10, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
-  %12 = call fastcc i32 @zend_jit_op_array_analyze1(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4), !range !4
+  %12 = call fastcc i32 @zend_jit_op_array_analyze1(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %zend_jit_op_array_analyze2.exit
 
@@ -2013,7 +2013,7 @@ define internal fastcc noundef i32 @zend_real_jit_func(ptr noundef %0, ptr nound
   br label %zend_jit_collect_calls.exit
 
 25:                                               ; preds = %16
-  %26 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 152, i64 1) #33, !srcloc !5
+  %26 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 152, i64 1) #33, !srcloc !4
   %27 = extractvalue { i64, i64 } %26, 0
   %28 = extractvalue { i64, i64 } %26, 1
   %.not.not.i = icmp eq i64 %28, 0
@@ -2141,7 +2141,7 @@ thread-pre-split:                                 ; preds = %67, %zend_jit_colle
   br label %94
 
 94:                                               ; preds = %93, %90
-  %95 = call fastcc i32 @zend_jit(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2), !range !4
+  %95 = call fastcc i32 @zend_jit(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2)
   %.not58 = icmp eq i32 %95, 0
   br i1 %.not58, label %96, label %zend_jit_op_array_analyze2.exit
 
@@ -2282,7 +2282,7 @@ zend_jit_unprotect.exit:                          ; preds = %15, %18, %22
   br i1 %41, label %34, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %34, %.preheader
-  %42 = call fastcc i32 @zend_real_jit_func(ptr noundef nonnull %5, ptr noundef null, ptr noundef %1), !range !4
+  %42 = call fastcc i32 @zend_real_jit_func(ptr noundef nonnull %5, ptr noundef null, ptr noundef %1)
   br label %43
 
 43:                                               ; preds = %zend_jit_unprotect.exit, %._crit_edge
@@ -2393,7 +2393,7 @@ declare void @zend_shared_alloc_unlock() local_unnamed_addr #4
 declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zend_jit_trace_hot_root(ptr noundef %0, ptr noundef %1) #0 {
+define hidden range(i32 -1, 1) i32 @zend_jit_trace_hot_root(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [1024 x %struct._zend_jit_trace_rec], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -4290,7 +4290,7 @@ zend_jit_protect.exit:                            ; preds = %132, %136, %140
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zend_jit_trace_hot_side(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @zend_jit_trace_hot_side(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x %struct._zend_jit_trace_rec], align 16
   %5 = load ptr, ptr @zend_jit_traces, align 8
   %6 = load i32, ptr %5, align 8
@@ -4655,7 +4655,7 @@ zend_jit_trace_exit_is_bad.exit.thread:           ; preds = %198, %196
 220:                                              ; preds = %218
   %221 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
   %222 = load ptr, ptr %221, align 8
-  %223 = call i32 @zend_jit_trace_hot_root(ptr noundef nonnull %221, ptr noundef %222), !range !4
+  %223 = call i32 @zend_jit_trace_hot_root(ptr noundef nonnull %221, ptr noundef %222)
   br label %229
 
 224:                                              ; preds = %218, %181, %178
@@ -5784,7 +5784,7 @@ zend_jit_protect.exit:                            ; preds = %360, %363, %367
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zend_jit_trace_exit(i32 noundef %0, ptr nocapture noundef readonly %1) #0 {
+define hidden range(i32 -1, 2) i32 @zend_jit_trace_exit(i32 noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load i32, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 19), align 8
   %4 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
   %5 = load ptr, ptr %4, align 8
@@ -6476,7 +6476,7 @@ switch.edge316:                                   ; preds = %213
   br i1 %.not.i319.not, label %.sink.split330, label %413
 
 413:                                              ; preds = %402
-  %414 = tail call i32 @zend_jit_trace_hot_side(ptr noundef nonnull %4, i32 noundef %3, i32 noundef %0), !range !4
+  %414 = tail call i32 @zend_jit_trace_hot_side(ptr noundef nonnull %4, i32 noundef %3, i32 noundef %0)
   br label %424
 
 .sink.split330:                                   ; preds = %402, %380
@@ -6506,7 +6506,7 @@ switch.edge316:                                   ; preds = %213
 declare void @_efree(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_jit_op_array(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_jit_op_array(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zend_cfg, align 8
   %4 = alloca %struct._zend_cfg, align 8
   %5 = load ptr, ptr @dasm_ptr, align 8
@@ -6978,7 +6978,7 @@ zend_jit_build_cfg.exit.i:                        ; preds = %197
   br i1 %.not69.i, label %277, label %248
 
 248:                                              ; preds = %.loopexit78.i
-  %249 = load ptr, ptr @zend_jit_func_trace_counter_handler, align 8, !nonnull !6, !noundef !6
+  %249 = load ptr, ptr @zend_jit_func_trace_counter_handler, align 8, !nonnull !5, !noundef !5
   %250 = getelementptr inbounds i8, ptr %0, i64 4
   %251 = load i32, ptr %250, align 4
   %252 = and i32 %251, 256
@@ -7040,7 +7040,7 @@ zend_jit_setup_hot_trace_counters.exit:           ; preds = %155, %197, %277
 279:                                              ; preds = %7
   %280 = icmp eq i8 %8, 0
   tail call void @llvm.assume(i1 %280)
-  %281 = tail call fastcc i32 @zend_real_jit_func(ptr noundef %0, ptr noundef %1, ptr noundef null), !range !4
+  %281 = tail call fastcc i32 @zend_real_jit_func(ptr noundef %0, ptr noundef %1, ptr noundef null)
   br label %282
 
 282:                                              ; preds = %49, %62, %.loopexit66, %.loopexit, %2, %279, %zend_jit_setup_hot_trace_counters.exit, %zend_jit_setup_hot_counters.exit, %44, %29, %13
@@ -7058,7 +7058,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare void @zend_shared_alloc_register_xlat_entry(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_jit_script(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_jit_script(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct._zend_call_graph, align 8
   %3 = load ptr, ptr @dasm_ptr, align 8
   %4 = icmp eq ptr %3, null
@@ -7105,7 +7105,7 @@ define noundef i32 @zend_jit_script(ptr noundef %0) local_unnamed_addr #0 {
   %22 = load ptr, ptr %16, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
-  %25 = call i32 @zend_jit_op_array(ptr noundef %24, ptr noundef %0), !range !4
+  %25 = call i32 @zend_jit_op_array(ptr noundef %24, ptr noundef %0)
   %.not161 = icmp eq i32 %25, 0
   br i1 %.not161, label %17, label %zend_jit_op_array_analyze2.exit
 
@@ -7145,7 +7145,7 @@ define noundef i32 @zend_jit_script(ptr noundef %0) local_unnamed_addr #0 {
 
 43:                                               ; preds = %33
   %44 = getelementptr inbounds i8, ptr %42, i64 8
-  %45 = call fastcc i32 @zend_jit_op_array_analyze1(ptr noundef nonnull %38, ptr noundef %0, ptr noundef nonnull %44), !range !4
+  %45 = call fastcc i32 @zend_jit_op_array_analyze1(ptr noundef nonnull %38, ptr noundef %0, ptr noundef nonnull %44)
   %.not154 = icmp eq i32 %45, 0
   br i1 %.not154, label %46, label %zend_jit_op_array_analyze2.exit
 
@@ -7341,7 +7341,7 @@ define noundef i32 @zend_jit_script(ptr noundef %0) local_unnamed_addr #0 {
 145:                                              ; preds = %143, %140
   %146 = phi ptr [ %.pre236, %143 ], [ %135, %140 ]
   %147 = getelementptr inbounds i8, ptr %139, i64 8
-  %148 = call fastcc i32 @zend_jit(ptr noundef %146, ptr noundef nonnull %147, ptr noundef null), !range !4
+  %148 = call fastcc i32 @zend_jit(ptr noundef %146, ptr noundef nonnull %147, ptr noundef null)
   %.not148 = icmp eq i32 %148, 0
   br i1 %.not148, label %._crit_edge237, label %zend_jit_op_array_analyze2.exit
 
@@ -7551,7 +7551,7 @@ declare void @zend_build_call_graph(ptr noundef, ptr noundef, ptr noundef) local
 declare void @zend_analyze_call_graph(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_op_array_analyze1(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @zend_jit_op_array_analyze1(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   tail call void @zend_build_cfg(ptr noundef nonnull getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 24), ptr noundef %0, i32 noundef 1262485504, ptr noundef %2) #32
   %4 = load i32, ptr %2, align 8
   %5 = icmp sgt i32 %4, 100000
@@ -7627,7 +7627,7 @@ declare void @zend_init_func_return_info(ptr noundef, ptr noundef, ptr noundef) 
 declare void @zend_dump_op_array(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @zend_jit(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._zend_jit_ctx, align 8
   %5 = load i64, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 8), align 8
   %.not = icmp eq i64 %5, 0
@@ -7720,7 +7720,7 @@ define internal fastcc noundef i32 @zend_jit(ptr noundef %0, ptr noundef %1, ptr
   %61 = load i32, ptr %1, align 8
   %62 = shl nsw i32 %61, 1
   %63 = sext i32 %62 to i64
-  %64 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 4, i64 %63) #33, !srcloc !5
+  %64 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 4, i64 %63) #33, !srcloc !4
   %65 = extractvalue { i64, i64 } %64, 0
   %66 = extractvalue { i64, i64 } %64, 1
   %.not.not.i = icmp eq i64 %66, 0
@@ -7803,7 +7803,7 @@ define internal fastcc noundef i32 @zend_jit(ptr noundef %0, ptr noundef %1, ptr
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %90
   %.0198.lcssa.i = phi i32 [ 0, %90 ], [ %103, %.lr.ph.i ]
   %108 = sext i32 %.0198.lcssa.i to i64
-  %109 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 4, i64 %108) #33, !srcloc !5
+  %109 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 4, i64 %108) #33, !srcloc !4
   %110 = extractvalue { i64, i64 } %109, 0
   %111 = extractvalue { i64, i64 } %109, 1
   %.not220.not.i = icmp eq i64 %111, 0
@@ -7872,7 +7872,7 @@ zend_jit_start.exit:                              ; preds = %123, %125
   %146 = getelementptr inbounds i8, ptr %1, i64 40
   %147 = load i32, ptr %146, align 8
   %148 = sext i32 %147 to i64
-  %149 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 8, i64 %148) #33, !srcloc !5
+  %149 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 8, i64 %148) #33, !srcloc !4
   %150 = extractvalue { i64, i64 } %149, 0
   %151 = extractvalue { i64, i64 } %149, 1
   %.not.not.i5433 = icmp eq i64 %151, 0
@@ -9164,7 +9164,7 @@ switch.edge.i:                                    ; preds = %694
   %859 = icmp slt i32 %858, 0
   call void @llvm.assume(i1 %859)
   %860 = getelementptr inbounds i8, ptr %856, i64 24
-  %861 = load ptr, ptr %860, align 8, !nonnull !6, !noundef !6
+  %861 = load ptr, ptr %860, align 8, !nonnull !5, !noundef !5
   %862 = getelementptr inbounds i8, ptr %861, i64 8
   %863 = load i32, ptr %862, align 8
   %864 = icmp sgt i32 %863, -1
@@ -10040,7 +10040,7 @@ zend_jit_load_var.exit:                           ; preds = %1097, %1099
   br i1 %.not5285, label %1276, label %1273
 
 1273:                                             ; preds = %1269
-  %1274 = call fastcc i32 @zend_may_overflow(ptr noundef nonnull %1138, ptr noundef %1136, ptr noundef nonnull %0, ptr noundef nonnull %1), !range !7
+  %1274 = call fastcc i32 @zend_may_overflow(ptr noundef nonnull %1138, ptr noundef %1136, ptr noundef nonnull %0, ptr noundef nonnull %1)
   %1275 = icmp ne i32 %1274, 0
   br label %1276
 
@@ -11070,7 +11070,7 @@ zend_jit_next_is_send_result.exit:                ; preds = %1416, %1413, %1409,
   br i1 %or.cond5347, label %1869, label %1866
 
 1866:                                             ; preds = %1860
-  %1867 = call fastcc i32 @zend_may_overflow(ptr noundef nonnull %1138, ptr noundef nonnull %1135, ptr noundef nonnull %0, ptr noundef nonnull %1), !range !7
+  %1867 = call fastcc i32 @zend_may_overflow(ptr noundef nonnull %1138, ptr noundef nonnull %1135, ptr noundef nonnull %0, ptr noundef nonnull %1)
   %1868 = icmp ne i32 %1867, 0
   br label %1869
 
@@ -11088,7 +11088,7 @@ zend_jit_next_is_send_result.exit:                ; preds = %1416, %1413, %1409,
   %1880 = load i32, ptr %1879, align 8
   %1881 = load i32, ptr %1876, align 8
   %1882 = load i32, ptr %1878, align 4
-  %1883 = call fastcc i32 @zend_jit_math_helper(ptr noundef nonnull %4, ptr noundef nonnull %1138, i8 noundef zeroext %1874, i8 noundef zeroext %1875, i32 %1881, i64 noundef %1861, i32 noundef %.04328, i8 noundef zeroext %1877, i32 %1882, i64 noundef %1862, i32 noundef %.04307, i32 noundef %1880, i64 noundef %.2401055675575, i32 noundef %.04120, i32 noundef %.3402555665576, i32 noundef %1871, i32 noundef %1873), !range !7
+  %1883 = call fastcc i32 @zend_jit_math_helper(ptr noundef nonnull %4, ptr noundef nonnull %1138, i8 noundef zeroext %1874, i8 noundef zeroext %1875, i32 %1881, i64 noundef %1861, i32 noundef %.04328, i8 noundef zeroext %1877, i32 %1882, i64 noundef %1862, i32 noundef %.04307, i32 noundef %1880, i64 noundef %.2401055675575, i32 noundef %.04120, i32 noundef %.3402555665576, i32 noundef %1871, i32 noundef %1873)
   %.not24.i = icmp eq i32 %1883, 0
   br i1 %.not24.i, label %zend_jit_math.exit, label %1884
 
@@ -11596,7 +11596,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %2037, %2034, %2030,
   br i1 %or.cond5357, label %2179, label %2176
 
 2176:                                             ; preds = %.thread5592.thread
-  %2177 = call fastcc i32 @zend_may_overflow(ptr noundef nonnull %1138, ptr noundef nonnull %1135, ptr noundef nonnull %0, ptr noundef nonnull %1), !range !7
+  %2177 = call fastcc i32 @zend_may_overflow(ptr noundef nonnull %1138, ptr noundef nonnull %1135, ptr noundef nonnull %0, ptr noundef nonnull %1)
   %2178 = icmp ne i32 %2177, 0
   br label %2179
 
@@ -11605,7 +11605,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %2037, %2034, %2030,
   %2181 = zext i1 %2180 to i32
   %2182 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1138, ptr noundef nonnull %1135, ptr noundef nonnull %0, ptr noundef nonnull %1) #32
   %2183 = zext i1 %2182 to i32
-  %2184 = call fastcc i32 @zend_jit_assign_op(ptr noundef nonnull %4, ptr noundef nonnull %1138, i32 noundef %.04110, i32 noundef %.0412655916049, ptr noundef %2171, i32 noundef %.04310, ptr noundef %2172, i32 noundef %2181, i32 noundef %2183), !range !7
+  %2184 = call fastcc i32 @zend_jit_assign_op(ptr noundef nonnull %4, ptr noundef nonnull %1138, i32 noundef %.04110, i32 noundef %.0412655916049, ptr noundef %2171, i32 noundef %.04310, ptr noundef %2172, i32 noundef %2181, i32 noundef %2183)
   %.not5168 = icmp eq i32 %2184, 0
   br i1 %.not5168, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -12021,7 +12021,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %2037, %2034, %2030,
   %2413 = phi ptr [ null, %2402 ], [ null, %2400 ], [ null, %.thread5613 ], [ %spec.select5362, %2405 ]
   %2414 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1138, ptr noundef %1135, ptr noundef nonnull %0, ptr noundef nonnull %1) #32
   %2415 = zext i1 %2414 to i32
-  %2416 = call fastcc i32 @zend_jit_assign_dim_op(ptr noundef nonnull %4, ptr noundef nonnull %1138, i32 noundef %.0430856015610, i32 noundef %.04125, i64 noundef %2316, i32 noundef %.04311, i32 noundef %.04303, ptr noundef %2413, i8 noundef zeroext -1, i32 noundef %2415), !range !7
+  %2416 = call fastcc i32 @zend_jit_assign_dim_op(ptr noundef nonnull %4, ptr noundef nonnull %1138, i32 noundef %.0430856015610, i32 noundef %.04125, i64 noundef %2316, i32 noundef %.04311, i32 noundef %.04303, ptr noundef %2413, i8 noundef zeroext -1, i32 noundef %2415)
   %.not5152 = icmp eq i32 %2416, 0
   br i1 %.not5152, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -12221,7 +12221,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %2037, %2034, %2030,
   %.04293 = phi i32 [ %2508, %2507 ], [ -521143298, %2503 ], [ %2515, %2514 ], [ %spec.select5364, %2516 ], [ %2526, %2523 ], [ -486539265, %2520 ], [ -486539265, %2518 ]
   %2527 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1138, ptr noundef nonnull %1135, ptr noundef nonnull %0, ptr noundef nonnull %1) #32
   %2528 = zext i1 %2527 to i32
-  %2529 = call fastcc i32 @zend_jit_assign_dim(ptr noundef nonnull %4, ptr noundef nonnull %1138, i32 noundef %.041055618, i64 noundef %2442, i32 noundef %.04312, i32 noundef %.04293, i8 noundef zeroext -1, i32 noundef %2528), !range !7
+  %2529 = call fastcc i32 @zend_jit_assign_dim(ptr noundef nonnull %4, ptr noundef nonnull %1138, i32 noundef %.041055618, i64 noundef %2442, i32 noundef %.04312, i32 noundef %.04293, i8 noundef zeroext -1, i32 noundef %2528)
   %.not5131 = icmp eq i32 %2529, 0
   br i1 %.not5131, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -12430,7 +12430,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %2037, %2034, %2030,
   %.04003 = phi ptr [ %2552, %2551 ], [ null, %2640 ], [ %2639, %2643 ], [ null, %2635 ], [ null, %2626 ], [ null, %2624 ], [ null, %2621 ]
   %.03998 = phi i8 [ %2556, %2551 ], [ 0, %2640 ], [ %2646, %2643 ], [ 0, %2635 ], [ 0, %2626 ], [ 0, %2624 ], [ 0, %2621 ]
   %2648 = trunc i8 %.03998 to i1
-  %2649 = call fastcc i32 @zend_jit_incdec_obj(ptr noundef nonnull %4, ptr noundef nonnull %1138, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %1135, i32 noundef %.04028, i64 noundef %.04017, i1 noundef zeroext false, ptr noundef %.04003, i1 noundef zeroext %2648, i1 noundef zeroext %2550, i1 noundef zeroext false, ptr noundef null, i8 noundef zeroext -1), !range !7
+  %2649 = call fastcc i32 @zend_jit_incdec_obj(ptr noundef nonnull %4, ptr noundef nonnull %1138, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %1135, i32 noundef %.04028, i64 noundef %.04017, i1 noundef zeroext false, ptr noundef %.04003, i1 noundef zeroext %2648, i1 noundef zeroext %2550, i1 noundef zeroext false, ptr noundef null, i8 noundef zeroext -1)
   %.not5119 = icmp eq i32 %2649, 0
   br i1 %.not5119, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -12828,7 +12828,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %2037, %2034, %2030,
 2874:                                             ; preds = %2867, %.thread5637, %2862, %2864
   %2875 = phi ptr [ null, %2864 ], [ null, %2862 ], [ null, %.thread5637 ], [ %spec.select5369, %2867 ]
   %2876 = trunc i8 %.13999 to i1
-  %2877 = call fastcc i32 @zend_jit_assign_obj_op(ptr noundef nonnull %4, ptr noundef nonnull %1138, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %1135, i32 noundef %.14029, i64 noundef %.14018, i32 noundef %.04273, ptr noundef %2875, i1 noundef zeroext false, ptr noundef %.14004, i1 noundef zeroext %2876, i1 noundef zeroext %2720, i1 noundef zeroext false, ptr noundef null, i8 noundef zeroext -1), !range !7
+  %2877 = call fastcc i32 @zend_jit_assign_obj_op(ptr noundef nonnull %4, ptr noundef nonnull %1138, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %1135, i32 noundef %.14029, i64 noundef %.14018, i32 noundef %.04273, ptr noundef %2875, i1 noundef zeroext false, ptr noundef %.14004, i1 noundef zeroext %2876, i1 noundef zeroext %2720, i1 noundef zeroext false, ptr noundef null, i8 noundef zeroext -1)
   %.not5103 = icmp eq i32 %2877, 0
   br i1 %.not5103, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -13774,7 +13774,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %2037, %2034, %2030,
   br label %zend_jit_long_math.exitthread-pre-split
 
 3416:                                             ; preds = %1146, %1146, %1146
-  %3417 = call fastcc i32 @zend_jit_init_fcall(ptr noundef nonnull %4, ptr noundef nonnull %1138, i32 noundef %611, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %1136, i32 noundef %.24061, ptr noundef null, i32 noundef 0), !range !7
+  %3417 = call fastcc i32 @zend_jit_init_fcall(ptr noundef nonnull %4, ptr noundef nonnull %1138, i32 noundef %611, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %1136, i32 noundef %.24061, ptr noundef null, i32 noundef 0)
   %.not5024 = icmp eq i32 %3417, 0
   br i1 %.not5024, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -13911,7 +13911,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %2037, %2034, %2030,
 
 3494:                                             ; preds = %3486, %3490, %3478
   %3495 = phi i64 [ %3480, %3478 ], [ %3489, %3486 ], [ %3493, %3490 ]
-  %3496 = call fastcc i32 @zend_jit_send_val(ptr noundef nonnull %4, ptr noundef nonnull %1138, i32 noundef %.04248, i64 noundef %3495), !range !7
+  %3496 = call fastcc i32 @zend_jit_send_val(ptr noundef nonnull %4, ptr noundef nonnull %1138, i32 noundef %.04248, i64 noundef %3495)
   %.not5023 = icmp eq i32 %3496, 0
   br i1 %.not5023, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -16386,7 +16386,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %2037, %2034, %2030,
 
 4905:                                             ; preds = %4897, %4901, %4888
   %4906 = phi i64 [ %4890, %4888 ], [ %4900, %4897 ], [ %4904, %4901 ]
-  %4907 = call fastcc i32 @zend_jit_fetch_dim_read(ptr noundef nonnull %4, ptr noundef nonnull %1138, ptr noundef nonnull %1, ptr noundef nonnull %1135, i32 noundef %.04193, i64 noundef %4827, i1 noundef zeroext false, i32 noundef %.0431756945700, i32 noundef %.04116, i64 noundef %4906, i8 noundef zeroext -1), !range !7
+  %4907 = call fastcc i32 @zend_jit_fetch_dim_read(ptr noundef nonnull %4, ptr noundef nonnull %1138, ptr noundef nonnull %1, ptr noundef nonnull %1135, i32 noundef %.04193, i64 noundef %4827, i1 noundef zeroext false, i32 noundef %.0431756945700, i32 noundef %.04116, i64 noundef %4906, i8 noundef zeroext -1)
   %.not4916 = icmp eq i32 %4907, 0
   br i1 %.not4916, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -16554,7 +16554,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %2037, %2034, %2030,
 
 5002:                                             ; preds = %4994, %4998, %4985
   %5003 = phi i64 [ %4987, %4985 ], [ %4997, %4994 ], [ %5001, %4998 ]
-  %5004 = call fastcc i32 @zend_jit_fetch_dim(ptr noundef nonnull %4, ptr noundef nonnull %1138, i32 noundef %.040785704, i64 noundef %4934, i32 noundef %.04319, i64 noundef %5003, i8 noundef zeroext -1), !range !7
+  %5004 = call fastcc i32 @zend_jit_fetch_dim(ptr noundef nonnull %4, ptr noundef nonnull %1138, i32 noundef %.040785704, i64 noundef %4934, i32 noundef %.04319, i64 noundef %5003, i8 noundef zeroext -1)
   %.not4903 = icmp eq i32 %5004, 0
   br i1 %.not4903, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -16806,7 +16806,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %2037, %2034, %2030,
   %.04320 = phi i32 [ %5126, %5125 ], [ -521143298, %5121 ], [ %5133, %5132 ], [ %spec.select5399, %5134 ], [ %5145, %5142 ], [ -486539265, %5138 ], [ -486539265, %5136 ]
   %5146 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %1138, ptr noundef %1135, ptr noundef nonnull %0, ptr noundef nonnull %1) #32
   %5147 = zext i1 %5146 to i32
-  %5148 = call fastcc i32 @zend_jit_isset_isempty_dim(ptr noundef nonnull %4, ptr noundef nonnull %1138, i32 noundef %.04183, i64 noundef %5103, i1 noundef zeroext false, i32 noundef %.04320, i8 noundef zeroext -1, i32 noundef %5147, i8 noundef zeroext %.64055, i32 noundef %.64048, i32 noundef %.64041, ptr noundef null), !range !7
+  %5148 = call fastcc i32 @zend_jit_isset_isempty_dim(ptr noundef nonnull %4, ptr noundef nonnull %1138, i32 noundef %.04183, i64 noundef %5103, i1 noundef zeroext false, i32 noundef %.04320, i8 noundef zeroext -1, i32 noundef %5147, i8 noundef zeroext %.64055, i32 noundef %.64048, i32 noundef %.64041, ptr noundef null)
   %.not4892 = icmp eq i32 %5148, 0
   br i1 %.not4892, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -17102,7 +17102,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %2037, %2034, %2030,
   br label %zend_jit_long_math.exitthread-pre-split
 
 5315:                                             ; preds = %1146
-  %5316 = call fastcc i32 @zend_jit_recv(ptr noundef nonnull %4, ptr noundef nonnull %1138, ptr noundef nonnull %0), !range !7
+  %5316 = call fastcc i32 @zend_jit_recv(ptr noundef nonnull %4, ptr noundef nonnull %1138, ptr noundef nonnull %0)
   %.not4859 = icmp eq i32 %5316, 0
   br i1 %.not4859, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -17600,7 +17600,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %2037, %2034, %2030,
   br label %zend_jit_long_math.exitthread-pre-split
 
 5605:                                             ; preds = %1146
-  %5606 = call fastcc i32 @zend_jit_fetch_this(ptr noundef nonnull %4, ptr noundef nonnull %1138, ptr noundef nonnull %0, i1 noundef zeroext false), !range !7
+  %5606 = call fastcc i32 @zend_jit_fetch_this(ptr noundef nonnull %4, ptr noundef nonnull %1138, ptr noundef nonnull %0, i1 noundef zeroext false)
   %.not4835 = icmp eq i32 %5606, 0
   br i1 %.not4835, label %zend_jit_math.exit, label %zend_jit_long_math.exitthread-pre-split
 
@@ -18384,7 +18384,7 @@ zend_jit_next_is_send_result.exit5475:            ; preds = %2037, %2034, %2030,
   br i1 %.not5304, label %.thread5775, label %6019
 
 6019:                                             ; preds = %6014
-  %6020 = load ptr, ptr %6018, align 8, !nonnull !6, !noundef !6
+  %6020 = load ptr, ptr %6018, align 8, !nonnull !5, !noundef !5
   br label %select.unfold
 
 .thread5775:                                      ; preds = %5986, %5984, %5982, %6006, %6002, %5998, %6014
@@ -19561,7 +19561,7 @@ declare ptr @__errno_location() local_unnamed_addr #10
 declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_jit_config(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_jit_config(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %.not = icmp eq i32 %1, 1
   br i1 %.not, label %10, label %4
@@ -19779,7 +19779,7 @@ thread-pre-split72:                               ; preds = %63
   br i1 %.not64, label %92, label %95
 
 92:                                               ; preds = %86
-  %93 = tail call fastcc i32 @zend_jit_parse_config_num(i64 noundef %88), !range !4
+  %93 = tail call fastcc i32 @zend_jit_parse_config_num(i64 noundef %88)
   %.not65 = icmp eq i32 %93, 0
   br i1 %.not65, label %94, label %95
 
@@ -19804,7 +19804,7 @@ declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 n
 declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @zend_jit_parse_config_num(i64 noundef %0) unnamed_addr #12 {
+define internal fastcc range(i32 -1, 1) i32 @zend_jit_parse_config_num(i64 noundef %0) unnamed_addr #12 {
   %2 = icmp eq i64 %0, 0
   br i1 %2, label %.sink.split, label %3
 
@@ -19861,7 +19861,7 @@ define internal fastcc noundef i32 @zend_jit_parse_config_num(i64 noundef %0) un
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_jit_debug_config(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_jit_debug_config(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %2, 1
   br i1 %.not, label %10, label %4
 
@@ -19891,7 +19891,7 @@ define void @zend_jit_init() local_unnamed_addr #12 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_jit_check_support() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_jit_check_support() local_unnamed_addr #0 {
   %1 = tail call i32 @zend_vm_kind() #32
   store i32 %1, ptr @zend_jit_vm_kind, align 4
   switch i32 %1, label %.sink.split.sink.split [
@@ -21655,7 +21655,7 @@ zend_jit_trace_start.exit:                        ; preds = %293, %301
   %333 = getelementptr inbounds i8, ptr %40, i64 40
   %334 = load i32, ptr %333, align 8
   %335 = sext i32 %334 to i64
-  %336 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 8, i64 %335) #33, !srcloc !5
+  %336 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 8, i64 %335) #33, !srcloc !4
   %337 = extractvalue { i64, i64 } %336, 0
   %338 = extractvalue { i64, i64 } %336, 1
   %.not1059.not.i = icmp eq i64 %338, 0
@@ -21703,7 +21703,7 @@ zend_jit_trace_start.exit:                        ; preds = %293, %301
   call void @llvm.memset.p0.i64(ptr align 1 %.0996.i, i8 0, i64 %337, i1 false)
   %361 = load i32, ptr %333, align 8
   %362 = sext i32 %361 to i64
-  %363 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 8, i64 %362) #33, !srcloc !5
+  %363 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 8, i64 %362) #33, !srcloc !4
   %364 = extractvalue { i64, i64 } %363, 0
   %365 = extractvalue { i64, i64 } %363, 1
   %.not1061.not.i = icmp eq i64 %365, 0
@@ -22256,7 +22256,7 @@ zend_jit_var_supports_reg.exit1182.thread.i:      ; preds = %.preheader42.i1171.
 650:                                              ; preds = %633
   %651 = getelementptr inbounds i8, ptr %.0989.i, i64 8
   %652 = load ptr, ptr %651, align 8
-  %653 = call fastcc zeroext i1 @zend_jit_opline_supports_reg(ptr noundef %.0987.i, ptr noundef nonnull %40, ptr noundef %652, ptr noundef %.0981.i, ptr noundef nonnull %.0989.i)
+  %653 = call fastcc zeroext i1 @zend_jit_opline_supports_reg(ptr noundef %.0987.i, ptr noundef nonnull readonly %40, ptr noundef %652, ptr noundef %.0981.i, ptr noundef nonnull %.0989.i)
   br i1 %653, label %654, label %672
 
 654:                                              ; preds = %650
@@ -22328,7 +22328,7 @@ zend_jit_var_supports_reg.exit1182.thread.i:      ; preds = %.preheader42.i1171.
   %689 = load i32, ptr %688, align 4
   %690 = getelementptr inbounds i8, ptr %.0981.i, i64 24
   %691 = load i32, ptr %690, align 4
-  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %673, i32 noundef %689, i32 noundef %691, ptr noundef nonnull %.0996.i, ptr noundef nonnull %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
+  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %673, i32 noundef %689, i32 noundef %691, ptr noundef nonnull %.0996.i, ptr noundef nonnull readonly %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
   %692 = getelementptr inbounds i8, ptr %652, i64 29
   %693 = load i8, ptr %692, align 1
   %.not1100.i = icmp eq i8 %693, 8
@@ -22411,7 +22411,7 @@ zend_jit_var_supports_reg.exit1182.thread.i:      ; preds = %.preheader42.i1171.
   %725 = load i32, ptr %724, align 4
   %726 = getelementptr inbounds i8, ptr %.0981.i, i64 28
   %727 = load i32, ptr %726, align 4
-  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %710, i32 noundef %725, i32 noundef %727, ptr noundef nonnull %.0996.i, ptr noundef nonnull %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
+  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %710, i32 noundef %725, i32 noundef %727, ptr noundef nonnull %.0996.i, ptr noundef nonnull readonly %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
   %728 = getelementptr inbounds i8, ptr %652, i64 30
   %729 = load i8, ptr %728, align 2
   %.not1105.i = icmp eq i8 %729, 8
@@ -22477,7 +22477,7 @@ zend_jit_var_supports_reg.exit1182.thread.i:      ; preds = %.preheader42.i1171.
   %755 = load i32, ptr %754, align 4
   %756 = getelementptr inbounds i8, ptr %.0981.i, i64 32
   %757 = load i32, ptr %756, align 4
-  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %738, i32 noundef %755, i32 noundef %757, ptr noundef nonnull %.0996.i, ptr noundef nonnull %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
+  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %738, i32 noundef %755, i32 noundef %757, ptr noundef nonnull %.0996.i, ptr noundef nonnull readonly %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
   br label %.critedge1149.i
 
 .critedge1149.i:                                  ; preds = %.critedge1147.i, %751, %749, %744, %742, %740, %736
@@ -23107,7 +23107,7 @@ zend_jit_var_supports_reg.exit1239.thread.i:      ; preds = %.preheader42.i1228.
   %1061 = load i32, ptr %1060, align 4
   %1062 = getelementptr inbounds i8, ptr %.0981.i, i64 60
   %1063 = load i32, ptr %1062, align 4
-  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %1047, i32 noundef %1061, i32 noundef %1063, ptr noundef nonnull %.0996.i, ptr noundef nonnull %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
+  call fastcc void @zend_jit_trace_use_var(i32 noundef %.0963.i, i32 noundef %1047, i32 noundef %1061, i32 noundef %1063, ptr noundef nonnull %.0996.i, ptr noundef nonnull readonly %40, ptr noundef %316, ptr noundef %.0987.i, ptr noundef %.0985.i)
   %1064 = getelementptr inbounds i8, ptr %652, i64 61
   %1065 = load i8, ptr %1064, align 1
   %.not1129.i = icmp eq i8 %1065, 8
@@ -24585,7 +24585,7 @@ zend_jit_set_last_valid_opline.exit:              ; preds = %1825, %1829
   br i1 %1840, label %1841, label %1843
 
 1841:                                             ; preds = %1833
-  %1842 = call fastcc i32 @zend_jit_trace_opline_guard(ptr noundef nonnull %17, ptr noundef %1817), !range !7
+  %1842 = call fastcc i32 @zend_jit_trace_opline_guard(ptr noundef nonnull %17, ptr noundef %1817)
   br label %1846
 
 1843:                                             ; preds = %1833
@@ -25055,7 +25055,7 @@ zend_jit_stack_check.exit:                        ; preds = %1954, %1962
   %2123 = trunc i32 %2122 to i8
   %2124 = and i8 %2123, 63
   %2125 = add nsw i8 %2124, -1
-  %2126 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef %1817, i32 noundef %2098, i8 noundef zeroext %2125), !range !7
+  %2126 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef %1817, i32 noundef %2098, i8 noundef zeroext %2125)
   %.not11776 = icmp eq i32 %2126, 0
   br i1 %.not11776, label %zend_jit_stack_check.exit.thread, label %2127
 
@@ -25133,7 +25133,7 @@ zend_jit_stack_check.exit:                        ; preds = %1954, %1962
   %2165 = trunc nuw i64 %indvars.iv13168 to i32
   %2166 = shl i32 %2165, 4
   %2167 = add i32 %2166, 80
-  %2168 = call fastcc i32 @zend_jit_packed_guard(ptr noundef nonnull %17, ptr noundef %1817, i32 noundef %2167, i32 noundef %.09602), !range !7
+  %2168 = call fastcc i32 @zend_jit_packed_guard(ptr noundef nonnull %17, ptr noundef %1817, i32 noundef %2167, i32 noundef %.09602)
   %.not11781 = icmp eq i32 %2168, 0
   br i1 %.not11781, label %zend_jit_stack_check.exit.thread, label %2169
 
@@ -25252,7 +25252,7 @@ zend_jit_stack_check.exit:                        ; preds = %1954, %1962
   %2243 = add nsw i8 %2242, -1
   %2244 = shl i32 %.2965112856, 4
   %2245 = add i32 %2244, 80
-  %2246 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef %1817, i32 noundef %2245, i8 noundef zeroext %2243), !range !7
+  %2246 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef %1817, i32 noundef %2245, i8 noundef zeroext %2243)
   %.not11765 = icmp eq i32 %2246, 0
   br i1 %.not11765, label %zend_jit_stack_check.exit.thread, label %2247
 
@@ -25498,7 +25498,7 @@ zend_jit_load_var.exit:                           ; preds = %2265, %2267
   %2392 = trunc i32 %2391 to i8
   %2393 = and i8 %2392, 63
   %2394 = add nsw i8 %2393, -1
-  %2395 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef %1817, i32 noundef %2367, i8 noundef zeroext %2394), !range !7
+  %2395 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef %1817, i32 noundef %2367, i8 noundef zeroext %2394)
   %.not11758 = icmp eq i32 %2395, 0
   br i1 %.not11758, label %zend_jit_stack_check.exit.thread, label %2396
 
@@ -25936,7 +25936,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 2565:                                             ; preds = %2559
   %2566 = getelementptr inbounds i8, ptr %2505, i64 8
   %2567 = load i32, ptr %2566, align 8
-  %2568 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %2567, i8 noundef zeroext %2508), !range !7
+  %2568 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %2567, i8 noundef zeroext %2508)
   %.not11635 = icmp eq i32 %2568, 0
   br i1 %.not11635, label %zend_jit_stack_check.exit.thread, label %2569
 
@@ -26265,7 +26265,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
   br i1 %.not11651, label %2780, label %2777
 
 2777:                                             ; preds = %2773
-  %2778 = call fastcc i32 @zend_may_overflow(ptr noundef nonnull %2505, ptr noundef %.09620, ptr noundef %.09770, ptr noundef nonnull %40), !range !7
+  %2778 = call fastcc i32 @zend_may_overflow(ptr noundef nonnull %2505, ptr noundef %.09620, ptr noundef %.09770, ptr noundef nonnull %40)
   %2779 = icmp ne i32 %2778, 0
   br label %2780
 
@@ -26463,7 +26463,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 2889:                                             ; preds = %2886
   %2890 = getelementptr inbounds i8, ptr %2505, i64 8
   %2891 = load i32, ptr %2890, align 8
-  %2892 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %2891, i8 noundef zeroext %2508), !range !7
+  %2892 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %2891, i8 noundef zeroext %2508)
   %.not11605 = icmp eq i32 %2892, 0
   br i1 %.not11605, label %zend_jit_stack_check.exit.thread, label %2893
 
@@ -26669,7 +26669,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 3024:                                             ; preds = %3021
   %3025 = getelementptr inbounds i8, ptr %2505, i64 12
   %3026 = load i32, ptr %3025, align 4
-  %3027 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %3026, i8 noundef zeroext %spec.store.select), !range !7
+  %3027 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %3026, i8 noundef zeroext %spec.store.select)
   %.not11613 = icmp eq i32 %3027, 0
   br i1 %.not11613, label %zend_jit_stack_check.exit.thread, label %3028
 
@@ -27381,7 +27381,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 3459:                                             ; preds = %3456
   %3460 = getelementptr inbounds i8, ptr %2505, i64 8
   %3461 = load i32, ptr %3460, align 8
-  %3462 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %3461, i8 noundef zeroext %2508), !range !7
+  %3462 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %3461, i8 noundef zeroext %2508)
   %.not11572 = icmp eq i32 %3462, 0
   br i1 %.not11572, label %zend_jit_stack_check.exit.thread, label %3463
 
@@ -27550,7 +27550,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 3578:                                             ; preds = %3575
   %3579 = getelementptr inbounds i8, ptr %2505, i64 12
   %3580 = load i32, ptr %3579, align 4
-  %3581 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %3580, i8 noundef zeroext %spec.store.select), !range !7
+  %3581 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %3580, i8 noundef zeroext %spec.store.select)
   %.not11581 = icmp eq i32 %3581, 0
   br i1 %.not11581, label %zend_jit_stack_check.exit.thread, label %3582
 
@@ -27819,7 +27819,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
   br label %.thread12223
 
 3753:                                             ; preds = %3748
-  %3754 = call fastcc i32 @zend_may_overflow(ptr noundef nonnull %2505, ptr noundef %.09620, ptr noundef %.09770, ptr noundef nonnull %40), !range !7
+  %3754 = call fastcc i32 @zend_may_overflow(ptr noundef nonnull %2505, ptr noundef %.09620, ptr noundef %.09770, ptr noundef nonnull %40)
   %3755 = icmp ne i32 %3754, 0
   %brmerge.not = select i1 %.not11593, i1 %3755, i1 false
   %3756 = and i32 %.09442, 268436478
@@ -27873,7 +27873,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
   %3784 = zext i1 %3779 to i32
   %3785 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2505, ptr noundef %.09620, ptr noundef %.09770, ptr noundef nonnull %40) #32
   %3786 = zext i1 %3785 to i32
-  %3787 = call fastcc i32 @zend_jit_math(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %3780, i64 noundef %3781, i32 noundef %3782, i64 noundef %3783, i32 noundef %.39731, i32 noundef %.09442, i64 noundef %.29707, i32 noundef %3784, i32 noundef %3786), !range !7
+  %3787 = call fastcc i32 @zend_jit_math(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %3780, i64 noundef %3781, i32 noundef %3782, i64 noundef %3783, i32 noundef %.39731, i32 noundef %.09442, i64 noundef %.29707, i32 noundef %3784, i32 noundef %3786)
   %.not11595 = icmp eq i32 %3787, 0
   br i1 %.not11595, label %zend_jit_stack_check.exit.thread, label %3788
 
@@ -28006,7 +28006,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 3856:                                             ; preds = %3853
   %3857 = getelementptr inbounds i8, ptr %2505, i64 8
   %3858 = load i32, ptr %3857, align 8
-  %3859 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %3858, i8 noundef zeroext %2508), !range !7
+  %3859 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %3858, i8 noundef zeroext %2508)
   %.not11536 = icmp eq i32 %3859, 0
   br i1 %.not11536, label %zend_jit_stack_check.exit.thread, label %3860
 
@@ -28212,7 +28212,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 3991:                                             ; preds = %3988
   %3992 = getelementptr inbounds i8, ptr %2505, i64 12
   %3993 = load i32, ptr %3992, align 4
-  %3994 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %3993, i8 noundef zeroext %spec.store.select), !range !7
+  %3994 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %3993, i8 noundef zeroext %spec.store.select)
   %.not11544 = icmp eq i32 %3994, 0
   br i1 %.not11544, label %zend_jit_stack_check.exit.thread, label %3995
 
@@ -28446,7 +28446,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 4144:                                             ; preds = %4138
   %4145 = getelementptr inbounds i8, ptr %2505, i64 8
   %4146 = load i32, ptr %4145, align 8
-  %4147 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %4146, i8 noundef zeroext %2508), !range !7
+  %4147 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %4146, i8 noundef zeroext %2508)
   %.not11506 = icmp eq i32 %4147, 0
   br i1 %.not11506, label %zend_jit_stack_check.exit.thread, label %4148
 
@@ -28652,7 +28652,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 4279:                                             ; preds = %4276
   %4280 = getelementptr inbounds i8, ptr %2505, i64 12
   %4281 = load i32, ptr %4280, align 4
-  %4282 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %4281, i8 noundef zeroext %spec.store.select), !range !7
+  %4282 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %4281, i8 noundef zeroext %spec.store.select)
   %.not11514 = icmp eq i32 %4282, 0
   br i1 %.not11514, label %zend_jit_stack_check.exit.thread, label %4283
 
@@ -28864,7 +28864,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
   br i1 %or.cond11829, label %4426, label %4423
 
 4423:                                             ; preds = %4420
-  %4424 = call fastcc i32 @zend_may_overflow(ptr noundef nonnull %2505, ptr noundef %.09620, ptr noundef %.09770, ptr noundef nonnull %40), !range !7
+  %4424 = call fastcc i32 @zend_may_overflow(ptr noundef nonnull %2505, ptr noundef %.09620, ptr noundef %.09770, ptr noundef nonnull %40)
   %4425 = icmp ne i32 %4424, 0
   br label %4426
 
@@ -28873,7 +28873,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
   %4428 = zext i1 %4427 to i32
   %4429 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2505, ptr noundef %.09620, ptr noundef %.09770, ptr noundef nonnull %40) #32
   %4430 = zext i1 %4429 to i32
-  %4431 = call fastcc i32 @zend_jit_assign_op(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %4372, i32 noundef %.1973712661, ptr noundef %4417, i32 noundef %4368, ptr noundef %4418, i32 noundef %4428, i32 noundef %4430), !range !7
+  %4431 = call fastcc i32 @zend_jit_assign_op(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %4372, i32 noundef %.1973712661, ptr noundef %4417, i32 noundef %4368, ptr noundef %4418, i32 noundef %4428, i32 noundef %4430)
   %.not11527 = icmp eq i32 %4431, 0
   br i1 %.not11527, label %zend_jit_stack_check.exit.thread, label %4432
 
@@ -29225,7 +29225,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 4634:                                             ; preds = %4631
   %4635 = getelementptr inbounds i8, ptr %2505, i64 8
   %4636 = load i32, ptr %4635, align 8
-  %4637 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %4636, i8 noundef zeroext %2508), !range !7
+  %4637 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %4636, i8 noundef zeroext %2508)
   %.not11477 = icmp eq i32 %4637, 0
   br i1 %.not11477, label %zend_jit_stack_check.exit.thread, label %4638
 
@@ -29431,7 +29431,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 4769:                                             ; preds = %4766
   %4770 = getelementptr inbounds i8, ptr %2505, i64 12
   %4771 = load i32, ptr %4770, align 4
-  %4772 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %4771, i8 noundef zeroext %spec.store.select), !range !7
+  %4772 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %4771, i8 noundef zeroext %spec.store.select)
   %.not11486 = icmp eq i32 %4772, 0
   br i1 %.not11486, label %zend_jit_stack_check.exit.thread, label %4773
 
@@ -29630,7 +29630,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 4903:                                             ; preds = %4900
   %4904 = getelementptr inbounds i8, ptr %2505, i64 40
   %4905 = load i32, ptr %4904, align 8
-  %4906 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %4905, i8 noundef zeroext %spec.store.select208), !range !7
+  %4906 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %4905, i8 noundef zeroext %spec.store.select208)
   %.not11494 = icmp eq i32 %4906, 0
   br i1 %.not11494, label %zend_jit_stack_check.exit.thread, label %4907
 
@@ -29802,7 +29802,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
   %5020 = phi ptr [ null, %5007 ], [ null, %4998 ], [ %spec.select11838, %5010 ], [ null, %.thread12287 ]
   %5021 = call zeroext i1 @zend_may_throw_ex(ptr noundef nonnull %2505, ptr noundef %.09620, ptr noundef %.09770, ptr noundef nonnull %40, i32 noundef %5019, i32 noundef %5017) #32
   %5022 = zext i1 %5021 to i32
-  %5023 = call fastcc i32 @zend_jit_assign_dim_op(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %5019, i32 noundef %.0944712291, i64 noundef %5018, i32 noundef %5017, i32 noundef %.0972413313, ptr noundef %5020, i8 noundef zeroext %.09583, i32 noundef %5022), !range !7
+  %5023 = call fastcc i32 @zend_jit_assign_dim_op(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %5019, i32 noundef %.0944712291, i64 noundef %5018, i32 noundef %5017, i32 noundef %.0972413313, ptr noundef %5020, i8 noundef zeroext %.09583, i32 noundef %5022)
   %.not11500 = icmp eq i32 %5023, 0
   br i1 %.not11500, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12607
 
@@ -30060,7 +30060,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 5170:                                             ; preds = %5167
   %5171 = getelementptr inbounds i8, ptr %2505, i64 8
   %5172 = load i32, ptr %5171, align 8
-  %5173 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %5172, i8 noundef zeroext %2508), !range !7
+  %5173 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %5172, i8 noundef zeroext %2508)
   %.not11447 = icmp eq i32 %5173, 0
   br i1 %.not11447, label %zend_jit_stack_check.exit.thread, label %5174
 
@@ -30289,7 +30289,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
   %5325 = load i64, ptr %22, align 8
   %5326 = trunc i8 %.19686 to i1
   %5327 = trunc i8 %.29668 to i1
-  %5328 = call fastcc i32 @zend_jit_incdec_obj(ptr noundef nonnull %17, ptr noundef nonnull %2505, ptr noundef %.09770, ptr noundef nonnull %40, ptr noundef %.09620, i32 noundef %5324, i64 noundef %5325, i1 noundef zeroext %.19579, ptr noundef %.19696, i1 noundef zeroext %5326, i1 noundef zeroext %.09680.shrunk, i1 noundef zeroext %5327, ptr noundef %.09577, i8 noundef zeroext %.09583), !range !7
+  %5328 = call fastcc i32 @zend_jit_incdec_obj(ptr noundef nonnull %17, ptr noundef nonnull %2505, ptr noundef %.09770, ptr noundef nonnull %40, ptr noundef %.09620, i32 noundef %5324, i64 noundef %5325, i1 noundef zeroext %.19579, ptr noundef %.19696, i1 noundef zeroext %5326, i1 noundef zeroext %.09680.shrunk, i1 noundef zeroext %5327, ptr noundef %.09577, i8 noundef zeroext %.09583)
   %.not11460 = icmp eq i32 %5328, 0
   br i1 %.not11460, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12607
 
@@ -30671,7 +30671,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 5552:                                             ; preds = %5549
   %5553 = getelementptr inbounds i8, ptr %2505, i64 8
   %5554 = load i32, ptr %5553, align 8
-  %5555 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %5554, i8 noundef zeroext %2508), !range !7
+  %5555 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %5554, i8 noundef zeroext %2508)
   %.not11409 = icmp eq i32 %5555, 0
   br i1 %.not11409, label %zend_jit_stack_check.exit.thread, label %5556
 
@@ -30981,7 +30981,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 5751:                                             ; preds = %5748
   %5752 = getelementptr inbounds i8, ptr %2505, i64 40
   %5753 = load i32, ptr %5752, align 8
-  %5754 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %5753, i8 noundef zeroext %spec.store.select208), !range !7
+  %5754 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %5753, i8 noundef zeroext %spec.store.select208)
   %.not11427 = icmp eq i32 %5754, 0
   br i1 %.not11427, label %zend_jit_stack_check.exit.thread, label %5755
 
@@ -31125,7 +31125,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
   %5855 = phi ptr [ null, %5844 ], [ null, %5842 ], [ null, %.thread12311 ], [ %spec.select11850, %5847 ]
   %5856 = trunc i8 %.39688 to i1
   %5857 = trunc i8 %.49670 to i1
-  %5858 = call fastcc i32 @zend_jit_assign_obj_op(ptr noundef nonnull %17, ptr noundef nonnull %2505, ptr noundef %.09770, ptr noundef nonnull %40, ptr noundef %.09620, i32 noundef %5838, i64 noundef %5839, i32 noundef %.19725, ptr noundef %5855, i1 noundef zeroext %.39581, ptr noundef %.39698, i1 noundef zeroext %5856, i1 noundef zeroext %.19681.shrunk, i1 noundef zeroext %5857, ptr noundef %.09577, i8 noundef zeroext %.09583), !range !7
+  %5858 = call fastcc i32 @zend_jit_assign_obj_op(ptr noundef nonnull %17, ptr noundef nonnull %2505, ptr noundef %.09770, ptr noundef nonnull %40, ptr noundef %.09620, i32 noundef %5838, i64 noundef %5839, i32 noundef %.19725, ptr noundef %5855, i1 noundef zeroext %.39581, ptr noundef %.39698, i1 noundef zeroext %5856, i1 noundef zeroext %.19681.shrunk, i1 noundef zeroext %5857, ptr noundef %.09577, i8 noundef zeroext %.09583)
   %.not11432 = icmp eq i32 %5858, 0
   br i1 %.not11432, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12607
 
@@ -31383,7 +31383,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 6005:                                             ; preds = %6002
   %6006 = getelementptr inbounds i8, ptr %2505, i64 8
   %6007 = load i32, ptr %6006, align 8
-  %6008 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %6007, i8 noundef zeroext %2508), !range !7
+  %6008 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %6007, i8 noundef zeroext %2508)
   %.not11368 = icmp eq i32 %6008, 0
   br i1 %.not11368, label %zend_jit_stack_check.exit.thread, label %6009
 
@@ -31696,7 +31696,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 6207:                                             ; preds = %6204
   %6208 = getelementptr inbounds i8, ptr %2505, i64 40
   %6209 = load i32, ptr %6208, align 8
-  %6210 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %6209, i8 noundef zeroext %spec.store.select208), !range !7
+  %6210 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %6209, i8 noundef zeroext %spec.store.select208)
   %.not11386 = icmp eq i32 %6210, 0
   br i1 %.not11386, label %zend_jit_stack_check.exit.thread, label %6211
 
@@ -32074,7 +32074,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 6449:                                             ; preds = %6446
   %6450 = getelementptr inbounds i8, ptr %2505, i64 8
   %6451 = load i32, ptr %6450, align 8
-  %6452 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %6451, i8 noundef zeroext %2508), !range !7
+  %6452 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %6451, i8 noundef zeroext %2508)
   %.not11332 = icmp eq i32 %6452, 0
   br i1 %.not11332, label %zend_jit_stack_check.exit.thread, label %6453
 
@@ -32280,7 +32280,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 6584:                                             ; preds = %6581
   %6585 = getelementptr inbounds i8, ptr %2505, i64 12
   %6586 = load i32, ptr %6585, align 4
-  %6587 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %6586, i8 noundef zeroext %spec.store.select), !range !7
+  %6587 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %6586, i8 noundef zeroext %spec.store.select)
   %.not11341 = icmp eq i32 %6587, 0
   br i1 %.not11341, label %zend_jit_stack_check.exit.thread, label %6588
 
@@ -32482,7 +32482,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 6721:                                             ; preds = %6718
   %6722 = getelementptr inbounds i8, ptr %2505, i64 40
   %6723 = load i32, ptr %6722, align 8
-  %6724 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %6723, i8 noundef zeroext %spec.store.select208), !range !7
+  %6724 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %6723, i8 noundef zeroext %spec.store.select208)
   %.not11349 = icmp eq i32 %6724, 0
   br i1 %.not11349, label %zend_jit_stack_check.exit.thread, label %6725
 
@@ -32600,7 +32600,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
   %6810 = load i32, ptr %21, align 4
   %6811 = call zeroext i1 @zend_may_throw_ex(ptr noundef nonnull %2505, ptr noundef %.09620, ptr noundef %.09770, ptr noundef nonnull %40, i32 noundef %6808, i32 noundef %6810) #32
   %6812 = zext i1 %6811 to i32
-  %6813 = call fastcc i32 @zend_jit_assign_dim(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %6808, i64 noundef %6809, i32 noundef %6810, i32 noundef %.39727, i8 noundef zeroext %.09583, i32 noundef %6812), !range !7
+  %6813 = call fastcc i32 @zend_jit_assign_dim(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %6808, i64 noundef %6809, i32 noundef %6810, i32 noundef %.39727, i8 noundef zeroext %.09583, i32 noundef %6812)
   %.not11352 = icmp eq i32 %6813, 0
   br i1 %.not11352, label %zend_jit_stack_check.exit.thread, label %6814
 
@@ -32841,7 +32841,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 6954:                                             ; preds = %6951
   %6955 = getelementptr inbounds i8, ptr %2505, i64 12
   %6956 = load i32, ptr %6955, align 4
-  %6957 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %6956, i8 noundef zeroext %spec.store.select), !range !7
+  %6957 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %6956, i8 noundef zeroext %spec.store.select)
   %.not11284 = icmp eq i32 %6957, 0
   br i1 %.not11284, label %zend_jit_stack_check.exit.thread, label %6958
 
@@ -33079,7 +33079,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 7101:                                             ; preds = %7098
   %7102 = getelementptr inbounds i8, ptr %2505, i64 8
   %7103 = load i32, ptr %7102, align 8
-  %7104 = call fastcc i32 @zend_jit_scalar_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %7103), !range !7
+  %7104 = call fastcc i32 @zend_jit_scalar_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %7103)
   %.not11298 = icmp eq i32 %7104, 0
   br i1 %.not11298, label %zend_jit_stack_check.exit.thread, label %7105
 
@@ -33092,7 +33092,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 7108:                                             ; preds = %7096, %7098
   %7109 = getelementptr inbounds i8, ptr %2505, i64 8
   %7110 = load i32, ptr %7109, align 8
-  %7111 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %7110, i8 noundef zeroext %2508), !range !7
+  %7111 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %7110, i8 noundef zeroext %2508)
   %.not11295 = icmp eq i32 %7111, 0
   br i1 %.not11295, label %zend_jit_stack_check.exit.thread, label %7112
 
@@ -33822,7 +33822,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 7562:                                             ; preds = %7559
   %7563 = getelementptr inbounds i8, ptr %2505, i64 8
   %7564 = load i32, ptr %7563, align 8
-  %7565 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %7564, i8 noundef zeroext %2508), !range !7
+  %7565 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %7564, i8 noundef zeroext %2508)
   %.not11261 = icmp eq i32 %7565, 0
   br i1 %.not11261, label %zend_jit_stack_check.exit.thread, label %7566
 
@@ -34151,7 +34151,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
   %7782 = load i32, ptr %7781, align 8
   %7783 = getelementptr inbounds i8, ptr %.39761, i64 16
   %7784 = sub nsw i32 %.29614, %.09617
-  %7785 = call fastcc i32 @zend_jit_init_fcall(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %7780, ptr noundef %.09770, ptr noundef nonnull %40, ptr noundef %.09620, i32 noundef %7782, ptr noundef nonnull %7783, i32 noundef %7784), !range !7
+  %7785 = call fastcc i32 @zend_jit_init_fcall(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %7780, ptr noundef %.09770, ptr noundef nonnull %40, ptr noundef %.09620, i32 noundef %7782, ptr noundef nonnull %7783, i32 noundef %7784)
   %.not11250 = icmp eq i32 %7785, 0
   br i1 %.not11250, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12607
 
@@ -34263,7 +34263,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 7843:                                             ; preds = %7840
   %7844 = getelementptr inbounds i8, ptr %2505, i64 8
   %7845 = load i32, ptr %7844, align 8
-  %7846 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %7845, i8 noundef zeroext %2508), !range !7
+  %7846 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %7845, i8 noundef zeroext %2508)
   %.not11241 = icmp eq i32 %7846, 0
   br i1 %.not11241, label %zend_jit_stack_check.exit.thread, label %7847
 
@@ -34420,7 +34420,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 
 7956:                                             ; preds = %7948, %7952, %7940
   %7957 = phi i64 [ %7942, %7940 ], [ %7951, %7948 ], [ %7955, %7952 ]
-  %7958 = call fastcc i32 @zend_jit_send_val(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %7931, i64 noundef %7957), !range !7
+  %7958 = call fastcc i32 @zend_jit_send_val(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %7931, i64 noundef %7957)
   %.not11246 = icmp eq i32 %7958, 0
   br i1 %.not11246, label %zend_jit_stack_check.exit.thread, label %7959
 
@@ -34775,7 +34775,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 8158:                                             ; preds = %8155
   %8159 = getelementptr inbounds i8, ptr %2505, i64 8
   %8160 = load i32, ptr %8159, align 8
-  %8161 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %8160, i8 noundef zeroext %2508), !range !7
+  %8161 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %8160, i8 noundef zeroext %2508)
   %.not11221 = icmp eq i32 %8161, 0
   br i1 %.not11221, label %zend_jit_stack_check.exit.thread, label %8162
 
@@ -35303,7 +35303,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 8477:                                             ; preds = %8474
   %8478 = getelementptr inbounds i8, ptr %2505, i64 8
   %8479 = load i32, ptr %8478, align 8
-  %8480 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %8479, i8 noundef zeroext %2508), !range !7
+  %8480 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %8479, i8 noundef zeroext %2508)
   %.not11174 = icmp eq i32 %8480, 0
   br i1 %.not11174, label %zend_jit_stack_check.exit.thread, label %8481
 
@@ -35429,7 +35429,7 @@ zend_jit_load_var.exit12084:                      ; preds = %2428, %2430
 8569:                                             ; preds = %8566
   %8570 = getelementptr inbounds i8, ptr %2505, i64 12
   %8571 = load i32, ptr %8570, align 4
-  %8572 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %8571, i8 noundef zeroext %spec.store.select), !range !7
+  %8572 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %8571, i8 noundef zeroext %spec.store.select)
   %.not11179 = icmp eq i32 %8572, 0
   br i1 %.not11179, label %zend_jit_stack_check.exit.thread, label %8573
 
@@ -36218,7 +36218,7 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %8709, %8719
 9060:                                             ; preds = %9057
   %9061 = getelementptr inbounds i8, ptr %2505, i64 8
   %9062 = load i32, ptr %9061, align 8
-  %9063 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %9062, i8 noundef zeroext %2508), !range !7
+  %9063 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %9062, i8 noundef zeroext %2508)
   %.not11132 = icmp eq i32 %9063, 0
   br i1 %.not11132, label %zend_jit_stack_check.exit.thread, label %9064
 
@@ -36344,7 +36344,7 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %8709, %8719
 9152:                                             ; preds = %9149
   %9153 = getelementptr inbounds i8, ptr %2505, i64 12
   %9154 = load i32, ptr %9153, align 4
-  %9155 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %9154, i8 noundef zeroext %spec.store.select), !range !7
+  %9155 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %9154, i8 noundef zeroext %spec.store.select)
   %.not11137 = icmp eq i32 %9155, 0
   br i1 %.not11137, label %zend_jit_stack_check.exit.thread, label %9156
 
@@ -37114,7 +37114,7 @@ zend_jit_trace_get_exit_addr.exit12095:           ; preds = %9292, %9302
 9633:                                             ; preds = %9630
   %9634 = getelementptr inbounds i8, ptr %2505, i64 8
   %9635 = load i32, ptr %9634, align 8
-  %9636 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %9635, i8 noundef zeroext %2508), !range !7
+  %9636 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %9635, i8 noundef zeroext %2508)
   %.not11115 = icmp eq i32 %9636, 0
   br i1 %.not11115, label %zend_jit_stack_check.exit.thread, label %9637
 
@@ -37392,7 +37392,7 @@ zend_jit_trace_get_exit_addr.exit12095:           ; preds = %9292, %9302
 9809:                                             ; preds = %9806
   %9810 = getelementptr inbounds i8, ptr %2505, i64 8
   %9811 = load i32, ptr %9810, align 8
-  %9812 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %9811, i8 noundef zeroext %2508), !range !7
+  %9812 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %9811, i8 noundef zeroext %2508)
   %.not11095 = icmp eq i32 %9812, 0
   br i1 %.not11095, label %zend_jit_stack_check.exit.thread, label %9813
 
@@ -37544,7 +37544,7 @@ zend_jit_trace_get_exit_addr.exit12095:           ; preds = %9292, %9302
   %9917 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %2505, ptr noundef %.09620, ptr noundef nonnull %.09770, ptr noundef nonnull %40) #32
   %9918 = zext i1 %9917 to i32
   %9919 = getelementptr inbounds i8, ptr %.39761, i64 16
-  %9920 = call fastcc i32 @zend_jit_trace_handler(ptr noundef nonnull %17, ptr noundef nonnull %.09770, ptr noundef nonnull %2505, i32 noundef %9918, ptr noundef nonnull %9919), !range !7
+  %9920 = call fastcc i32 @zend_jit_trace_handler(ptr noundef nonnull %17, ptr noundef nonnull %.09770, ptr noundef nonnull %2505, i32 noundef %9918, ptr noundef nonnull %9919)
   %.not11109 = icmp eq i32 %9920, 0
   br i1 %.not11109, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12607
 
@@ -37936,7 +37936,7 @@ zend_ssa_cv_info.exit:                            ; preds = %10010, %9956, %9959
 10117:                                            ; preds = %10114
   %10118 = getelementptr inbounds i8, ptr %2505, i64 8
   %10119 = load i32, ptr %10118, align 8
-  %10120 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %10119, i8 noundef zeroext %2508), !range !7
+  %10120 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %10119, i8 noundef zeroext %2508)
   %.not11083 = icmp eq i32 %10120, 0
   br i1 %.not11083, label %zend_jit_stack_check.exit.thread, label %10121
 
@@ -38227,7 +38227,7 @@ zend_ssa_cv_info.exit:                            ; preds = %10010, %9956, %9959
 10308:                                            ; preds = %10305
   %10309 = getelementptr inbounds i8, ptr %2505, i64 8
   %10310 = load i32, ptr %10309, align 8
-  %10311 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %10310, i8 noundef zeroext %2508), !range !7
+  %10311 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %10310, i8 noundef zeroext %2508)
   %.not11066 = icmp eq i32 %10311, 0
   br i1 %.not11066, label %zend_jit_stack_check.exit.thread, label %10312
 
@@ -39001,7 +39001,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 10794:                                            ; preds = %10791
   %10795 = getelementptr inbounds i8, ptr %2505, i64 8
   %10796 = load i32, ptr %10795, align 8
-  %10797 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %10796, i8 noundef zeroext %2508), !range !7
+  %10797 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %10796, i8 noundef zeroext %2508)
   %.not11051 = icmp eq i32 %10797, 0
   br i1 %.not11051, label %zend_jit_stack_check.exit.thread, label %10798
 
@@ -39314,7 +39314,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 10994:                                            ; preds = %10990
   %10995 = getelementptr inbounds i8, ptr %2505, i64 8
   %10996 = load i32, ptr %10995, align 8
-  %10997 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %10996, i8 noundef zeroext %2508), !range !7
+  %10997 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %10996, i8 noundef zeroext %2508)
   %.not11035 = icmp eq i32 %10997, 0
   br i1 %.not11035, label %zend_jit_stack_check.exit.thread, label %10998
 
@@ -39708,7 +39708,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 11245:                                            ; preds = %11242
   %11246 = getelementptr inbounds i8, ptr %2505, i64 8
   %11247 = load i32, ptr %11246, align 8
-  %11248 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %11247, i8 noundef zeroext %2508), !range !7
+  %11248 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %11247, i8 noundef zeroext %2508)
   %.not11007 = icmp eq i32 %11248, 0
   br i1 %.not11007, label %zend_jit_stack_check.exit.thread, label %11249
 
@@ -39914,7 +39914,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 11380:                                            ; preds = %11377
   %11381 = getelementptr inbounds i8, ptr %2505, i64 12
   %11382 = load i32, ptr %11381, align 4
-  %11383 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %11382, i8 noundef zeroext %spec.store.select), !range !7
+  %11383 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %11382, i8 noundef zeroext %spec.store.select)
   %.not11016 = icmp eq i32 %11383, 0
   br i1 %.not11016, label %zend_jit_stack_check.exit.thread, label %11384
 
@@ -40159,7 +40159,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 
 11541:                                            ; preds = %11533, %11537, %11524
   %11542 = phi i64 [ %11526, %11524 ], [ %11536, %11533 ], [ %11540, %11537 ]
-  %11543 = call fastcc i32 @zend_jit_fetch_dim_read(ptr noundef nonnull %17, ptr noundef nonnull %2505, ptr noundef nonnull %40, ptr noundef nonnull %.09620, i32 noundef %11512, i64 noundef %11513, i1 noundef zeroext %11487, i32 noundef %11514, i32 noundef %.09439, i64 noundef %11542, i8 noundef zeroext %.09583), !range !7
+  %11543 = call fastcc i32 @zend_jit_fetch_dim_read(ptr noundef nonnull %17, ptr noundef nonnull %2505, ptr noundef nonnull %40, ptr noundef nonnull %.09620, i32 noundef %11512, i64 noundef %11513, i1 noundef zeroext %11487, i32 noundef %11514, i32 noundef %.09439, i64 noundef %11542, i8 noundef zeroext %.09583)
   %.not11027 = icmp eq i32 %11543, 0
   br i1 %.not11027, label %zend_jit_stack_check.exit.thread, label %11544
 
@@ -40391,7 +40391,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 11671:                                            ; preds = %11668
   %11672 = getelementptr inbounds i8, ptr %2505, i64 8
   %11673 = load i32, ptr %11672, align 8
-  %11674 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %11673, i8 noundef zeroext %2508), !range !7
+  %11674 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %11673, i8 noundef zeroext %2508)
   %.not10977 = icmp eq i32 %11674, 0
   br i1 %.not10977, label %zend_jit_stack_check.exit.thread, label %11675
 
@@ -40597,7 +40597,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 11806:                                            ; preds = %11803
   %11807 = getelementptr inbounds i8, ptr %2505, i64 12
   %11808 = load i32, ptr %11807, align 4
-  %11809 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %11808, i8 noundef zeroext %spec.store.select), !range !7
+  %11809 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %11808, i8 noundef zeroext %spec.store.select)
   %.not10986 = icmp eq i32 %11809, 0
   br i1 %.not10986, label %zend_jit_stack_check.exit.thread, label %11810
 
@@ -40759,7 +40759,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 
 11924:                                            ; preds = %11916, %11920, %11907
   %11925 = phi i64 [ %11909, %11907 ], [ %11919, %11916 ], [ %11923, %11920 ]
-  %11926 = call fastcc i32 @zend_jit_fetch_dim(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %11896, i64 noundef %11897, i32 noundef %11895, i64 noundef %11925, i8 noundef zeroext %.09583), !range !7
+  %11926 = call fastcc i32 @zend_jit_fetch_dim(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %11896, i64 noundef %11897, i32 noundef %11895, i64 noundef %11925, i8 noundef zeroext %.09583)
   %.not10992 = icmp eq i32 %11926, 0
   br i1 %.not10992, label %zend_jit_stack_check.exit.thread, label %11927
 
@@ -40975,7 +40975,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 12049:                                            ; preds = %12046
   %12050 = getelementptr inbounds i8, ptr %2505, i64 8
   %12051 = load i32, ptr %12050, align 8
-  %12052 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %12051, i8 noundef zeroext %2508), !range !7
+  %12052 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %12051, i8 noundef zeroext %2508)
   %.not10943 = icmp eq i32 %12052, 0
   br i1 %.not10943, label %zend_jit_stack_check.exit.thread, label %12053
 
@@ -41181,7 +41181,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 12184:                                            ; preds = %12181
   %12185 = getelementptr inbounds i8, ptr %2505, i64 12
   %12186 = load i32, ptr %12185, align 4
-  %12187 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %12186, i8 noundef zeroext %spec.store.select), !range !7
+  %12187 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %12186, i8 noundef zeroext %spec.store.select)
   %.not10952 = icmp eq i32 %12187, 0
   br i1 %.not10952, label %zend_jit_stack_check.exit.thread, label %12188
 
@@ -41478,7 +41478,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
   %12384 = load i64, ptr %22, align 8
   %12385 = call zeroext i1 @zend_may_throw_ex(ptr noundef nonnull %2505, ptr noundef nonnull %.09620, ptr noundef %.09770, ptr noundef nonnull %40, i32 noundef %12383, i32 noundef %12382) #32
   %12386 = zext i1 %12385 to i32
-  %12387 = call fastcc i32 @zend_jit_isset_isempty_dim(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %12383, i64 noundef %12384, i1 noundef zeroext %12356, i32 noundef %12382, i8 noundef zeroext %.09583, i32 noundef %12386, i8 noundef zeroext %.69751, i32 noundef -1, i32 noundef -1, ptr noundef %.59744), !range !7
+  %12387 = call fastcc i32 @zend_jit_isset_isempty_dim(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %12383, i64 noundef %12384, i1 noundef zeroext %12356, i32 noundef %12382, i8 noundef zeroext %.09583, i32 noundef %12386, i8 noundef zeroext %.69751, i32 noundef -1, i32 noundef -1, ptr noundef %.59744)
   %.not10962 = icmp eq i32 %12387, 0
   br i1 %.not10962, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12607
 
@@ -41758,7 +41758,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 12541:                                            ; preds = %12538
   %12542 = getelementptr inbounds i8, ptr %2505, i64 8
   %12543 = load i32, ptr %12542, align 8
-  %12544 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %12543, i8 noundef zeroext %2508), !range !7
+  %12544 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %12543, i8 noundef zeroext %2508)
   %.not10918 = icmp eq i32 %12544, 0
   br i1 %.not10918, label %zend_jit_stack_check.exit.thread, label %12545
 
@@ -42124,7 +42124,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
   br label %12703
 
 12769:                                            ; preds = %2542
-  %12770 = call fastcc i32 @zend_jit_recv(ptr noundef nonnull %17, ptr noundef nonnull %2505, ptr noundef %.09770), !range !7
+  %12770 = call fastcc i32 @zend_jit_recv(ptr noundef nonnull %17, ptr noundef nonnull %2505, ptr noundef %.09770)
   %.not10895 = icmp eq i32 %12770, 0
   br i1 %.not10895, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12607
 
@@ -42316,7 +42316,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 12871:                                            ; preds = %12868
   %12872 = getelementptr inbounds i8, ptr %2505, i64 8
   %12873 = load i32, ptr %12872, align 8
-  %12874 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %12873, i8 noundef zeroext %2508), !range !7
+  %12874 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %12873, i8 noundef zeroext %2508)
   %.not10888 = icmp eq i32 %12874, 0
   br i1 %.not10888, label %zend_jit_stack_check.exit.thread, label %12875
 
@@ -42607,7 +42607,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 13061:                                            ; preds = %13058
   %13062 = getelementptr inbounds i8, ptr %2505, i64 8
   %13063 = load i32, ptr %13062, align 8
-  %13064 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %13063, i8 noundef zeroext %2508), !range !7
+  %13064 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %13063, i8 noundef zeroext %2508)
   %.not10876 = icmp eq i32 %13064, 0
   br i1 %.not10876, label %zend_jit_stack_check.exit.thread, label %13065
 
@@ -42944,7 +42944,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 13281:                                            ; preds = %13278
   %13282 = getelementptr inbounds i8, ptr %2505, i64 8
   %13283 = load i32, ptr %13282, align 8
-  %13284 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %13283, i8 noundef zeroext %2508), !range !7
+  %13284 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %13283, i8 noundef zeroext %2508)
   %.not10862 = icmp eq i32 %13284, 0
   br i1 %.not10862, label %zend_jit_stack_check.exit.thread, label %13285
 
@@ -43144,7 +43144,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 13420:                                            ; preds = %13411, %13413, %13408, %13404
   %.99675 = phi i8 [ 1, %13413 ], [ 0, %13411 ], [ 0, %13408 ], [ 0, %13404 ]
   %13421 = trunc nuw i8 %.99675 to i1
-  %13422 = call fastcc i32 @zend_jit_fetch_this(ptr noundef nonnull %17, ptr noundef nonnull %2505, ptr noundef %.09770, i1 noundef zeroext %13421), !range !7
+  %13422 = call fastcc i32 @zend_jit_fetch_this(ptr noundef nonnull %17, ptr noundef nonnull %2505, ptr noundef %.09770, i1 noundef zeroext %13421)
   %.not10854 = icmp eq i32 %13422, 0
   br i1 %.not10854, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12607
 
@@ -43195,7 +43195,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 13444:                                            ; preds = %13438
   %13445 = getelementptr inbounds i8, ptr %2505, i64 8
   %13446 = load i32, ptr %13445, align 8
-  %13447 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %13446, i8 noundef zeroext %2508), !range !7
+  %13447 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %13446, i8 noundef zeroext %2508)
   %.not10848 = icmp eq i32 %13447, 0
   br i1 %.not10848, label %zend_jit_stack_check.exit.thread, label %13448
 
@@ -43412,7 +43412,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 13583:                                            ; preds = %13580
   %13584 = getelementptr inbounds i8, ptr %2505, i64 8
   %13585 = load i32, ptr %13584, align 8
-  %13586 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %13585, i8 noundef zeroext %2508), !range !7
+  %13586 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %13585, i8 noundef zeroext %2508)
   %.not10840 = icmp eq i32 %13586, 0
   br i1 %.not10840, label %zend_jit_stack_check.exit.thread, label %13587
 
@@ -43627,7 +43627,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 13721:                                            ; preds = %13718
   %13722 = getelementptr inbounds i8, ptr %2505, i64 8
   %13723 = load i32, ptr %13722, align 8
-  %13724 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %13723, i8 noundef zeroext %2508), !range !7
+  %13724 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %13723, i8 noundef zeroext %2508)
   %.not10826 = icmp eq i32 %13724, 0
   br i1 %.not10826, label %zend_jit_stack_check.exit.thread, label %13725
 
@@ -44106,7 +44106,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 14016:                                            ; preds = %14013
   %14017 = getelementptr inbounds i8, ptr %2505, i64 8
   %14018 = load i32, ptr %14017, align 8
-  %14019 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %14018, i8 noundef zeroext %2508), !range !7
+  %14019 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %14018, i8 noundef zeroext %2508)
   %.not10803 = icmp eq i32 %14019, 0
   br i1 %.not10803, label %zend_jit_stack_check.exit.thread, label %14020
 
@@ -44455,7 +44455,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 14237:                                            ; preds = %14234
   %14238 = getelementptr inbounds i8, ptr %2505, i64 12
   %14239 = load i32, ptr %14238, align 4
-  %14240 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %14239, i8 noundef zeroext %spec.store.select), !range !7
+  %14240 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %14239, i8 noundef zeroext %spec.store.select)
   %.not10787 = icmp eq i32 %14240, 0
   br i1 %.not10787, label %zend_jit_stack_check.exit.thread, label %14241
 
@@ -44591,7 +44591,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
   %14340 = load i32, ptr %14339, align 8
   %14341 = getelementptr inbounds i8, ptr %.39761, i64 16
   %14342 = sub nsw i32 %.29614, %.09617
-  %14343 = call fastcc i32 @zend_jit_init_closure_call(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %14338, ptr noundef %.09770, ptr noundef nonnull %40, ptr noundef %.09620, i32 noundef %14340, ptr noundef nonnull %14341, i32 noundef %14342), !range !7
+  %14343 = call fastcc i32 @zend_jit_init_closure_call(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %14338, ptr noundef %.09770, ptr noundef nonnull %40, ptr noundef %.09620, i32 noundef %14340, ptr noundef nonnull %14341, i32 noundef %14342)
   %.not10791 = icmp eq i32 %14343, 0
   br i1 %.not10791, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12607
 
@@ -44706,7 +44706,7 @@ zend_jit_trace_get_exit_addr.exit12120:           ; preds = %10554, %10564
 14400:                                            ; preds = %14397
   %14401 = getelementptr inbounds i8, ptr %2505, i64 12
   %14402 = load i32, ptr %14401, align 4
-  %14403 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %14402, i8 noundef zeroext %spec.store.select), !range !7
+  %14403 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef nonnull %2505, i32 noundef %14402, i8 noundef zeroext %spec.store.select)
   %.not10774 = icmp eq i32 %14403, 0
   br i1 %.not10774, label %zend_jit_stack_check.exit.thread, label %14404
 
@@ -45510,7 +45510,7 @@ thread-pre-split12594:                            ; preds = %.thread13349, %2539
   %14859 = call zeroext i1 @zend_may_throw_ex(ptr noundef %2505, ptr noundef %.09620, ptr noundef %.09770, ptr noundef nonnull %40, i32 noundef %14854, i32 noundef %14858) #32
   %14860 = zext i1 %14859 to i32
   %14861 = getelementptr inbounds i8, ptr %.39761, i64 16
-  %14862 = call fastcc i32 @zend_jit_trace_handler(ptr noundef nonnull %17, ptr noundef %.09770, ptr noundef %2505, i32 noundef %14860, ptr noundef nonnull %14861), !range !7
+  %14862 = call fastcc i32 @zend_jit_trace_handler(ptr noundef nonnull %17, ptr noundef %.09770, ptr noundef %2505, i32 noundef %14860, ptr noundef nonnull %14861)
   %.not11669 = icmp eq i32 %14862, 0
   br i1 %.not11669, label %zend_jit_stack_check.exit.thread, label %14863
 
@@ -45648,7 +45648,7 @@ thread-pre-split12604.thread:                     ; preds = %14872, %thread-pre-
 .critedge11962:                                   ; preds = %14933, %14927, %.critedge11964, %thread-pre-split12604.thread, %14914, %thread-pre-split12604, %thread-pre-split12604, %14912, %14919
   %14936 = load ptr, ptr %14867, align 8
   %14937 = getelementptr inbounds i8, ptr %2505, i64 32
-  %14938 = call fastcc i32 @zend_jit_init_fcall_guard(ptr noundef nonnull %17, i32 noundef 0, ptr noundef %14936, ptr noundef nonnull %14937), !range !7
+  %14938 = call fastcc i32 @zend_jit_init_fcall_guard(ptr noundef nonnull %17, i32 noundef 0, ptr noundef %14936, ptr noundef nonnull %14937)
   %.not11673 = icmp eq i32 %14938, 0
   br i1 %.not11673, label %zend_jit_stack_check.exit.thread, label %thread-pre-split12607
 
@@ -47876,7 +47876,7 @@ thread-pre-split12609:                            ; preds = %15044, %15072, %150
 16298:                                            ; preds = %16292
   %16299 = getelementptr inbounds i8, ptr %.09758, i64 24
   %16300 = load ptr, ptr %16299, align 8
-  %16301 = call fastcc i32 @zend_jit_trace_opline_guard(ptr noundef nonnull %17, ptr noundef %16300), !range !7
+  %16301 = call fastcc i32 @zend_jit_trace_opline_guard(ptr noundef nonnull %17, ptr noundef %16300)
   %.not10702 = icmp eq i32 %16301, 0
   br i1 %.not10702, label %zend_jit_stack_check.exit.thread, label %16302
 
@@ -48026,7 +48026,7 @@ thread-pre-split12609:                            ; preds = %15044, %15072, %150
   %16390 = trunc nuw i64 %indvars.iv13198 to i32
   %16391 = shl i32 %16390, 4
   %16392 = add i32 %16391, 80
-  %16393 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef %.09628, i32 noundef %16392, i8 noundef zeroext %16389), !range !7
+  %16393 = call fastcc i32 @zend_jit_type_guard(ptr noundef nonnull %17, ptr noundef %.09628, i32 noundef %16392, i8 noundef zeroext %16389)
   %.not10712 = icmp eq i32 %16393, 0
   br i1 %.not10712, label %zend_jit_stack_check.exit.thread, label %16394
 
@@ -49085,13 +49085,13 @@ zend_jit_trace_call_frame.exit12138:              ; preds = %.critedge11976
 
 .critedge204:                                     ; preds = %.preheader12753, %.preheader12753
   %16919 = getelementptr inbounds i8, ptr %.09758.pn, i64 24
-  %16920 = load ptr, ptr %16919, align 8, !nonnull !6, !noundef !6
+  %16920 = load ptr, ptr %16919, align 8, !nonnull !5, !noundef !5
   br label %16921
 
 16921:                                            ; preds = %.critedge204, %.critedge11985
   %.8 = phi ptr [ %.09628, %.critedge11985 ], [ %16920, %.critedge204 ]
   %16922 = lshr i32 %16865, 16
-  %16923 = call fastcc i32 @zend_jit_init_fcall_guard(ptr noundef nonnull %17, i32 noundef %16922, ptr noundef %16864, ptr noundef nonnull %.8), !range !7
+  %16923 = call fastcc i32 @zend_jit_init_fcall_guard(ptr noundef nonnull %17, i32 noundef %16922, ptr noundef %16864, ptr noundef nonnull %.8)
   %.not10682 = icmp eq i32 %16923, 0
   br i1 %.not10682, label %zend_jit_stack_check.exit.thread, label %.critedge11984
 
@@ -49638,7 +49638,7 @@ jit_set_Z_TYPE_INFO.exit.sink.split.i:            ; preds = %17173, %17163, %171
   %17195 = lshr exact i64 %17194, 5
   %17196 = trunc i64 %17195 to i32
   %17197 = trunc nuw i64 %indvars.iv13204 to i32
-  %17198 = call fastcc i32 @zend_jit_find_ssa_var(ptr noundef nonnull %.09767, i32 noundef %17196, i32 noundef %17197)
+  %17198 = call fastcc i32 @zend_jit_find_ssa_var(ptr noundef nonnull readonly %.09767, i32 noundef %17196, i32 noundef %17197)
   %17199 = icmp sgt i32 %17198, -1
   br i1 %17199, label %17200, label %17208
 
@@ -49906,7 +49906,7 @@ zend_jit_find_trace.exit:                         ; preds = %.lr.ph.i12159
   br i1 %.not9.i, label %17327, label %zend_jit_trace_setup_ret_counter.exit
 
 17327:                                            ; preds = %17321
-  %17328 = load ptr, ptr @zend_jit_ret_trace_counter_handler, align 8, !nonnull !6, !noundef !6
+  %17328 = load ptr, ptr @zend_jit_ret_trace_counter_handler, align 8, !nonnull !5, !noundef !5
   %17329 = getelementptr inbounds i8, ptr %17324, i64 16
   %17330 = load ptr, ptr %17329, align 8
   %.not10.i12166 = icmp eq ptr %17330, null
@@ -50021,7 +50021,7 @@ zend_jit_trace_setup_ret_counter.exit:            ; preds = %17340, %17321, %173
   br i1 %.not9.i12168, label %17388, label %zend_jit_trace_setup_ret_counter.exit12170
 
 17388:                                            ; preds = %17375
-  %17389 = load ptr, ptr @zend_jit_ret_trace_counter_handler, align 8, !nonnull !6, !noundef !6
+  %17389 = load ptr, ptr @zend_jit_ret_trace_counter_handler, align 8, !nonnull !5, !noundef !5
   %17390 = getelementptr inbounds i8, ptr %17385, i64 16
   %17391 = load ptr, ptr %17390, align 8
   %.not10.i12169 = icmp eq ptr %17391, null
@@ -51142,7 +51142,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa(ptr noundef %0, i32 nounde
   %.04016 = phi ptr [ %278, %287 ], [ %294, %289 ]
   %300 = getelementptr inbounds i8, ptr %.04016, i64 %.03875
   store ptr %300, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
-  %301 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 96, i64 1) #33, !srcloc !5
+  %301 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 96, i64 1) #33, !srcloc !4
   %302 = extractvalue { i64, i64 } %301, 0
   %303 = extractvalue { i64, i64 } %301, 1
   %.not4354.not = icmp eq i64 %303, 0
@@ -51192,7 +51192,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa(ptr noundef %0, i32 nounde
   tail call void @llvm.memset.p0.i64(ptr align 1 %.04035, i8 0, i64 %302, i1 false)
   %328 = getelementptr inbounds i8, ptr %.04035, i64 32
   store i32 4096, ptr %328, align 8
-  %329 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 64, i64 2) #33, !srcloc !5
+  %329 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 64, i64 2) #33, !srcloc !4
   %330 = extractvalue { i64, i64 } %329, 0
   %331 = extractvalue { i64, i64 } %329, 1
   %.not4356.not = icmp eq i64 %331, 0
@@ -51242,7 +51242,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa(ptr noundef %0, i32 nounde
   tail call void @llvm.memset.p0.i64(ptr align 1 %.04031, i8 0, i64 %330, i1 false)
   %356 = getelementptr inbounds i8, ptr %.04035, i64 8
   store ptr %.04031, ptr %356, align 8
-  %357 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 8, i64 2) #33, !srcloc !5
+  %357 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 8, i64 2) #33, !srcloc !4
   %358 = extractvalue { i64, i64 } %357, 0
   %359 = extractvalue { i64, i64 } %357, 1
   %.not4358.not = icmp eq i64 %359, 0
@@ -51292,7 +51292,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa(ptr noundef %0, i32 nounde
   tail call void @llvm.memset.p0.i64(ptr align 1 %.04030, i8 0, i64 %358, i1 false)
   %384 = getelementptr inbounds i8, ptr %.04035, i64 48
   store ptr %.04030, ptr %384, align 8
-  %385 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 4, i64 2) #33, !srcloc !5
+  %385 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 4, i64 2) #33, !srcloc !4
   %386 = extractvalue { i64, i64 } %385, 0
   %387 = extractvalue { i64, i64 } %385, 1
   %.not4360.not = icmp eq i64 %387, 0
@@ -51462,7 +51462,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa(ptr noundef %0, i32 nounde
   tail call void @llvm.memset.p0.i64(ptr align 4 %.04017, i8 -1, i64 %460, i1 false)
   %484 = add nsw i32 %.03919, 1
   %485 = sext i32 %484 to i64
-  %486 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 8, i64 %485) #33, !srcloc !5
+  %486 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 8, i64 %485) #33, !srcloc !4
   %487 = extractvalue { i64, i64 } %486, 0
   %488 = extractvalue { i64, i64 } %486, 1
   %.not4363.not = icmp eq i64 %488, 0
@@ -51580,7 +51580,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa(ptr noundef %0, i32 nounde
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %585 ]
   %.01193.i = phi ptr [ null, %.lr.ph.i ], [ %.0116.i, %585 ]
   %.01212.i = phi i32 [ %.03910, %.lr.ph.i ], [ %580, %585 ]
-  %542 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 128, i64 1) #33, !srcloc !5
+  %542 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 128, i64 1) #33, !srcloc !4
   %543 = extractvalue { i64, i64 } %542, 0
   %544 = extractvalue { i64, i64 } %542, 1
   %.not.not.i = icmp eq i64 %544, 0
@@ -51674,7 +51674,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa(ptr noundef %0, i32 nounde
   br i1 %.not.i4816, label %zend_jit_trace_add_call_phis.exit.preheader, label %590
 
 590:                                              ; preds = %586
-  %591 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 128, i64 1) #33, !srcloc !5
+  %591 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 128, i64 1) #33, !srcloc !4
   %592 = extractvalue { i64, i64 } %591, 0
   %593 = extractvalue { i64, i64 } %591, 1
   %.not117.not.i = icmp eq i64 %593, 0
@@ -52027,7 +52027,7 @@ zend_jit_trace_ret_frame.exit:                    ; preds = %715, %721, %731
   %766 = getelementptr inbounds i8, ptr %.04035, i64 40
   store i32 %.23912, ptr %766, align 8
   %767 = sext i32 %.23912 to i64
-  %768 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 48, i64 %767) #33, !srcloc !5
+  %768 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 48, i64 %767) #33, !srcloc !4
   %769 = extractvalue { i64, i64 } %768, 0
   %770 = extractvalue { i64, i64 } %768, 1
   %.not4365.not = icmp eq i64 %770, 0
@@ -52337,7 +52337,7 @@ zend_jit_trace_ret_frame.exit:                    ; preds = %715, %721, %731
   %942 = getelementptr inbounds i8, ptr %941, i64 8
   %943 = load i32, ptr %766, align 8
   %944 = sext i32 %943 to i64
-  %945 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 40, i64 %944) #33, !srcloc !5
+  %945 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 40, i64 %944) #33, !srcloc !4
   %946 = extractvalue { i64, i64 } %945, 0
   %947 = extractvalue { i64, i64 } %945, 1
   %.not4368.not = icmp eq i64 %947, 0
@@ -52423,7 +52423,7 @@ zend_jit_trace_ret_frame.exit:                    ; preds = %715, %721, %731
 
 993:                                              ; preds = %991
   %994 = trunc nuw nsw i64 %indvars.iv238 to i32
-  %995 = call fastcc i32 @zend_jit_trace_copy_ssa_var_info(ptr noundef nonnull %936, ptr noundef nonnull %942, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %994), !range !7
+  %995 = call fastcc i32 @zend_jit_trace_copy_ssa_var_info(ptr noundef nonnull %936, ptr noundef nonnull %942, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %994)
   %.not4707 = icmp eq i32 %995, 0
   br i1 %.not4707, label %996, label %1100
 
@@ -52684,7 +52684,7 @@ zend_jit_trace_ret_frame.exit:                    ; preds = %715, %721, %731
 
 1140:                                             ; preds = %1138
   %1141 = trunc nuw nsw i64 %indvars.iv235 to i32
-  %1142 = tail call fastcc i32 @zend_jit_trace_copy_ssa_var_info(ptr noundef %936, ptr noundef nonnull %942, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %1141), !range !7
+  %1142 = tail call fastcc i32 @zend_jit_trace_copy_ssa_var_info(ptr noundef %936, ptr noundef nonnull %942, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %1141)
   %.not4373 = icmp eq i32 %1142, 0
   br i1 %.not4373, label %1143, label %1183
 
@@ -52843,7 +52843,7 @@ zend_jit_trace_ret_frame.exit:                    ; preds = %715, %721, %731
 1217:                                             ; preds = %1215
   %1218 = getelementptr inbounds i8, ptr %.03853137, i64 68
   %1219 = load i32, ptr %1218, align 4
-  %1220 = call fastcc i32 @zend_jit_trace_copy_ssa_var_info(ptr noundef %936, ptr noundef nonnull %942, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %1219), !range !7
+  %1220 = call fastcc i32 @zend_jit_trace_copy_ssa_var_info(ptr noundef %936, ptr noundef nonnull %942, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %1219)
   %.not4699 = icmp eq i32 %1220, 0
   br i1 %.not4699, label %1221, label %1244
 
@@ -55392,7 +55392,7 @@ zend_jit_trace_call_frame.exit4824:               ; preds = %._crit_edge140, %12
 
 2620:                                             ; preds = %2614
   %2621 = getelementptr inbounds i8, ptr %2615, i64 40
-  %2622 = load ptr, ptr %2621, align 8, !nonnull !6, !noundef !6
+  %2622 = load ptr, ptr %2621, align 8, !nonnull !5, !noundef !5
   %2623 = add i32 %.pre272, -1
   %2624 = zext i32 %2623 to i64
   %2625 = getelementptr inbounds %struct._zend_arg_info, ptr %2622, i64 %2624
@@ -57955,7 +57955,7 @@ find_return_ssa_var.exit:                         ; preds = %.lr.ph.i4836, %._cr
 
 4141:                                             ; preds = %4139
   %4142 = trunc nuw nsw i64 %indvars.iv249 to i32
-  %4143 = call fastcc i32 @zend_jit_trace_copy_ssa_var_info(ptr noundef nonnull %4061, ptr noundef nonnull %4067, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %4142), !range !7
+  %4143 = call fastcc i32 @zend_jit_trace_copy_ssa_var_info(ptr noundef nonnull %4061, ptr noundef nonnull %4067, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %4142)
   %.not4437 = icmp eq i32 %4143, 0
   br i1 %.not4437, label %4144, label %4233
 
@@ -58208,7 +58208,7 @@ find_return_ssa_var.exit:                         ; preds = %.lr.ph.i4836, %._cr
 
 4280:                                             ; preds = %4277
   %4281 = trunc nuw nsw i64 %indvars.iv244 to i32
-  %4282 = call fastcc i32 @zend_jit_trace_copy_ssa_var_info(ptr noundef %4252, ptr noundef nonnull %4258, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %4281), !range !7
+  %4282 = call fastcc i32 @zend_jit_trace_copy_ssa_var_info(ptr noundef %4252, ptr noundef nonnull %4258, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %4281)
   %.not4428 = icmp eq i32 %4282, 0
   br i1 %.not4428, label %4283, label %4285
 
@@ -58235,7 +58235,7 @@ find_return_ssa_var.exit:                         ; preds = %.lr.ph.i4836, %._cr
 
 4292:                                             ; preds = %4289
   %4293 = trunc nuw i64 %indvars.iv246 to i32
-  %4294 = call fastcc i32 @zend_jit_trace_copy_ssa_var_info(ptr noundef %4252, ptr noundef nonnull %4258, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %4293), !range !7
+  %4294 = call fastcc i32 @zend_jit_trace_copy_ssa_var_info(ptr noundef %4252, ptr noundef nonnull %4258, ptr noundef %.04025, ptr noundef %.04035, i32 noundef %4293)
   %.not4426 = icmp eq i32 %4294, 0
   br i1 %.not4426, label %4295, label %4297
 
@@ -58693,7 +58693,7 @@ switch.edge:                                      ; preds = %4467
   br i1 %.not4404, label %4534, label %4532
 
 4532:                                             ; preds = %4530
-  %4533 = call fastcc i32 @is_checked_guard(ptr noundef nonnull %.04035, ptr noundef %.04025, i32 noundef %4515, i32 noundef %4496), !range !7
+  %4533 = call fastcc i32 @is_checked_guard(ptr noundef nonnull %.04035, ptr noundef %.04025, i32 noundef %4515, i32 noundef %4496)
   %.not4405 = icmp eq i32 %4533, 0
   br i1 %.not4405, label %4586, label %4534
 
@@ -58756,7 +58756,7 @@ switch.edge:                                      ; preds = %4467
   %4568 = getelementptr inbounds i8, ptr %4567, i64 4
   %4569 = load i32, ptr %4568, align 4
   %4570 = load i32, ptr %4495, align 4
-  %4571 = call fastcc i32 @is_checked_guard(ptr noundef nonnull %.04035, ptr noundef %.04025, i32 noundef %4569, i32 noundef %4570), !range !7
+  %4571 = call fastcc i32 @is_checked_guard(ptr noundef nonnull %.04035, ptr noundef %.04025, i32 noundef %4569, i32 noundef %4570)
   %.not4401 = icmp eq i32 %4571, 0
   br i1 %.not4401, label %4586, label %4572
 
@@ -59007,7 +59007,7 @@ zend_jit_find_trace.exit:                         ; preds = %4706, %4693, %._cri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_trace_opline_guard(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_trace_opline_guard(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct._ir_code_buffer, align 8
   %5 = tail call fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef null, i32 noundef 0)
@@ -59174,7 +59174,7 @@ zend_jit_set_last_valid_opline.exit:              ; preds = %13, %9, %89, %jit_C
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_type_guard(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_type_guard(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct._ir_code_buffer, align 8
   %7 = tail call fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %1, i32 noundef 0)
@@ -59292,7 +59292,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %15, %11, %zend_jit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_packed_guard(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_packed_guard(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct._ir_code_buffer, align 8
   %7 = tail call fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %1, i32 noundef 128)
@@ -62511,7 +62511,7 @@ zend_jit_store_var_if_necessary.exit:             ; preds = %1075, %1071, %1067,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @zend_may_overflow(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #17 {
+define internal fastcc range(i32 0, 2) i32 @zend_may_overflow(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #17 {
   %5 = getelementptr inbounds i8, ptr %3, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -65903,7 +65903,7 @@ switch.early.test148:                             ; preds = %166
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_math(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i32 noundef %9, i32 noundef %10) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_math(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i32 noundef %9, i32 noundef %10) unnamed_addr #0 {
   %12 = and i32 %2, 1
   %.not = icmp eq i32 %12, 0
   tail call void @llvm.assume(i1 %.not)
@@ -65922,7 +65922,7 @@ define internal fastcc noundef i32 @zend_jit_math(ptr noundef %0, ptr noundef %1
   %23 = load i32, ptr %22, align 8
   %24 = load i32, ptr %18, align 8
   %25 = load i32, ptr %21, align 4
-  %26 = tail call fastcc i32 @zend_jit_math_helper(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %15, i8 noundef zeroext %17, i32 %24, i64 noundef %3, i32 noundef %2, i8 noundef zeroext %20, i32 %25, i64 noundef %5, i32 noundef %4, i32 noundef %23, i64 noundef %8, i32 noundef %7, i32 noundef %6, i32 noundef %9, i32 noundef %10), !range !7
+  %26 = tail call fastcc i32 @zend_jit_math_helper(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %15, i8 noundef zeroext %17, i32 %24, i64 noundef %3, i32 noundef %2, i8 noundef zeroext %20, i32 %25, i64 noundef %5, i32 noundef %4, i32 noundef %23, i64 noundef %8, i32 noundef %7, i32 noundef %6, i32 noundef %9, i32 noundef %10)
   %.not24 = icmp eq i32 %26, 0
   br i1 %.not24, label %zend_jit_store_var_if_necessary.exit, label %27
 
@@ -66058,7 +66058,7 @@ define internal fastcc noundef zeroext i1 @zend_jit_supported_binary_op(i8 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_assign_op(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_op(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = getelementptr inbounds i8, ptr %1, i64 29
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 8
@@ -66390,7 +66390,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %173, %181
   %197 = getelementptr inbounds i8, ptr %1, i64 12
   %198 = load i32, ptr %18, align 8
   %199 = load i32, ptr %197, align 4
-  %200 = tail call fastcc i32 @zend_jit_math_helper(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %194, i8 noundef zeroext %195, i32 %198, i64 noundef %.0115, i32 noundef %2, i8 noundef zeroext %196, i32 %199, i64 noundef %34, i32 noundef %5, i32 noundef %198, i64 noundef %.0115, i32 noundef %3, i32 noundef %2, i32 noundef %7, i32 noundef %8), !range !7
+  %200 = tail call fastcc i32 @zend_jit_math_helper(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %194, i8 noundef zeroext %195, i32 %198, i64 noundef %.0115, i32 noundef %2, i8 noundef zeroext %196, i32 %199, i64 noundef %34, i32 noundef %5, i32 noundef %198, i64 noundef %.0115, i32 noundef %3, i32 noundef %2, i32 noundef %7, i32 noundef %8)
   br label %215
 
 201:                                              ; preds = %190, %190, %190, %190, %190, %190
@@ -66756,7 +66756,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %22, %148, %144, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_assign_dim_op(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i8 noundef zeroext %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_dim_op(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i8 noundef zeroext %8, i32 noundef %9) unnamed_addr #0 {
   %11 = alloca i64, align 8
   %12 = alloca %struct._ir_code_buffer, align 8
   %13 = alloca i32, align 4
@@ -67034,7 +67034,7 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %152, %162
 172:                                              ; preds = %zend_jit_trace_get_exit_addr.exit, %116
   %.0194 = phi ptr [ %171, %zend_jit_trace_get_exit_addr.exit ], [ null, %116 ]
   %173 = load i32, ptr %16, align 4
-  %174 = call fastcc i32 @zend_jit_fetch_dimension_address_inner(ptr noundef %0, ptr noundef %1, i32 noundef 2, i32 noundef %2, i32 noundef %5, i8 noundef zeroext %8, ptr noundef null, ptr noundef %.0194, ptr noundef null, i1 noundef zeroext false, i32 noundef %173, ptr noundef nonnull %117, ptr noundef nonnull %119, ptr noundef nonnull %15, ptr noundef null), !range !7
+  %174 = call fastcc i32 @zend_jit_fetch_dimension_address_inner(ptr noundef %0, ptr noundef %1, i32 noundef 2, i32 noundef %2, i32 noundef %5, i8 noundef zeroext %8, ptr noundef null, ptr noundef %.0194, ptr noundef null, i1 noundef zeroext false, i32 noundef %173, ptr noundef nonnull %117, ptr noundef nonnull %119, ptr noundef nonnull %15, ptr noundef null)
   %.not210 = icmp eq i32 %174, 0
   br i1 %.not210, label %zend_jit_trace_get_exit_addr.exit.thread, label %175
 
@@ -67258,7 +67258,7 @@ jit_CONST_FUNC.exit234:                           ; preds = %267, %278
   %299 = load i32, ptr %13, align 4
   %300 = load i32, ptr %297, align 8
   %301 = load i32, ptr %298, align 8
-  %302 = call fastcc i32 @zend_jit_math_helper(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %296, i8 noundef zeroext 8, i32 %300, i64 noundef %.0193.ph, i32 noundef %.3.ph, i8 noundef zeroext %spec.store.select, i32 %301, i64 noundef %53, i32 noundef %6, i32 noundef 0, i64 noundef %.0193.ph, i32 noundef %59, i32 noundef %.3.ph, i32 noundef 1, i32 noundef %299), !range !7
+  %302 = call fastcc i32 @zend_jit_math_helper(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %296, i8 noundef zeroext 8, i32 %300, i64 noundef %.0193.ph, i32 noundef %.3.ph, i8 noundef zeroext %spec.store.select, i32 %301, i64 noundef %53, i32 noundef %6, i32 noundef 0, i64 noundef %.0193.ph, i32 noundef %59, i32 noundef %.3.ph, i32 noundef 1, i32 noundef %299)
   %.not214 = icmp eq i32 %302, 0
   br i1 %.not214, label %zend_jit_trace_get_exit_addr.exit.thread, label %317
 
@@ -67529,7 +67529,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %142, %138, %jit_FRE
 declare zeroext i1 @zend_may_throw_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_incdec_obj(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i1 noundef zeroext %7, ptr noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, ptr noundef %12, i8 noundef zeroext %13) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_incdec_obj(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i1 noundef zeroext %7, ptr noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, ptr noundef %12, i8 noundef zeroext %13) unnamed_addr #0 {
   %15 = alloca i64, align 8
   %16 = alloca %struct._ir_code_buffer, align 8
   %17 = alloca i64, align 8
@@ -67611,14 +67611,14 @@ define internal fastcc noundef i32 @zend_jit_incdec_obj(ptr noundef %0, ptr noun
   %68 = icmp eq i8 %67, 4
   %69 = and i32 %5, 33554432
   %.not534 = icmp ne i32 %69, 0
-  %or.cond575.not810 = and i1 %.not534, %68
+  %or.cond575.not815 = and i1 %.not534, %68
   %70 = and i64 %6, 252
   %71 = icmp eq i64 %70, 56
-  %or.cond577 = and i1 %71, %or.cond575.not810
+  %or.cond577 = and i1 %71, %or.cond575.not815
   br i1 %or.cond577, label %72, label %74
 
 72:                                               ; preds = %65
-  %73 = tail call fastcc i64 @jit_ZVAL_INDIRECT_DEREF(ptr noundef %0, i64 noundef %6), !range !8
+  %73 = tail call fastcc i64 @jit_ZVAL_INDIRECT_DEREF(ptr noundef %0, i64 noundef %6)
   br label %74
 
 74:                                               ; preds = %72, %65
@@ -67709,15 +67709,15 @@ define internal fastcc noundef i32 @zend_jit_incdec_obj(ptr noundef %0, ptr noun
   br label %zend_jit_trace_get_exit_addr.exit
 
 zend_jit_trace_get_exit_addr.exit:                ; preds = %106, %116
-  %.lcssa835.sink = phi ptr [ %121, %116 ], [ %103, %106 ]
-  %.not537 = icmp eq ptr %.lcssa835.sink, null
+  %.lcssa840.sink = phi ptr [ %121, %116 ], [ %103, %106 ]
+  %.not537 = icmp eq ptr %.lcssa840.sink, null
   br i1 %.not537, label %zend_jit_trace_get_exit_addr.exit.thread, label %122
 
 122:                                              ; preds = %zend_jit_trace_get_exit_addr.exit
   %123 = shl i32 %88, 2
   %124 = and i32 %123, 124
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds i8, ptr %.lcssa835.sink, i64 %125
+  %126 = getelementptr inbounds i8, ptr %.lcssa840.sink, i64 %125
   %127 = call fastcc i32 @jit_Z_TYPE(ptr noundef %0, i64 noundef %.1)
   %128 = call i32 @ir_const_u8(ptr noundef %0, i8 noundef zeroext 8) #32
   %129 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 270, i32 noundef %127, i32 noundef %128) #32
@@ -67895,25 +67895,25 @@ jit_Z_PTR.exit:                                   ; preds = %223, %220, %212, %2
   %227 = icmp eq ptr %61, null
   %228 = icmp ne ptr %12, null
   %or.cond3 = and i1 %228, %227
-  br i1 %or.cond3, label %229, label %.thread742
+  br i1 %or.cond3, label %229, label %.thread747
 
 229:                                              ; preds = %jit_Z_PTR.exit
   %230 = getelementptr inbounds i8, ptr %12, i64 28
   %231 = load i32, ptr %230, align 4
   %232 = and i32 %231, 128
   %.not538 = icmp eq i32 %232, 0
-  br i1 %.not538, label %.thread742, label %233
+  br i1 %.not538, label %.thread747, label %233
 
 233:                                              ; preds = %229
   %234 = load ptr, ptr %59, align 8
   %235 = call fastcc ptr @zend_get_known_property_info(ptr noundef %2, ptr noundef nonnull %12, ptr noundef %58, i1 noundef zeroext %10, ptr noundef %234)
   %.not539 = icmp eq ptr %235, null
-  br i1 %.not539, label %.thread742, label %236
+  br i1 %.not539, label %.thread747, label %236
 
 236:                                              ; preds = %233
   %237 = and i32 %5, 134217728
   %.not540 = icmp eq i32 %237, 0
-  br i1 %.not540, label %238, label %.thread742
+  br i1 %.not540, label %238, label %.thread747
 
 238:                                              ; preds = %236
   %239 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
@@ -67936,7 +67936,7 @@ jit_Z_PTR.exit:                                   ; preds = %223, %220, %212, %2
   br label %260
 
 249:                                              ; preds = %241, %238
-  %250 = call fastcc i32 @zend_jit_class_guard(ptr noundef %0, ptr noundef %1, i32 noundef %.0487, ptr noundef nonnull %12), !range !7
+  %250 = call fastcc i32 @zend_jit_class_guard(ptr noundef %0, ptr noundef %1, i32 noundef %.0487, ptr noundef nonnull %12)
   %.not542 = icmp eq i32 %250, 0
   br i1 %.not542, label %zend_jit_trace_get_exit_addr.exit.thread, label %251
 
@@ -67960,12 +67960,12 @@ jit_Z_PTR.exit:                                   ; preds = %223, %220, %212, %2
   %261 = getelementptr inbounds i8, ptr %3, i64 72
   %262 = load ptr, ptr %261, align 8
   %.not543 = icmp eq ptr %262, null
-  br i1 %.not543, label %.thread742, label %263
+  br i1 %.not543, label %.thread747, label %263
 
 263:                                              ; preds = %260
   %264 = load i32, ptr %4, align 4
   %265 = icmp sgt i32 %264, -1
-  br i1 %265, label %266, label %.thread744
+  br i1 %265, label %266, label %.thread749
 
 266:                                              ; preds = %263
   %267 = zext nneg i32 %264 to i64
@@ -67987,16 +67987,16 @@ jit_Z_PTR.exit:                                   ; preds = %223, %220, %212, %2
   store i8 %280, ptr %278, align 4
   %.pr = load ptr, ptr %261, align 8
   %.not544 = icmp eq ptr %.pr, null
-  br i1 %.not544, label %.thread742, label %.thread744
+  br i1 %.not544, label %.thread747, label %.thread749
 
-.thread744:                                       ; preds = %263, %266
+.thread749:                                       ; preds = %263, %266
   %281 = phi ptr [ %.pr, %266 ], [ %262, %263 ]
   %282 = getelementptr inbounds i8, ptr %4, i64 12
   %283 = load i32, ptr %282, align 4
   %284 = icmp sgt i32 %283, -1
-  br i1 %284, label %285, label %.thread742
+  br i1 %284, label %285, label %.thread747
 
-285:                                              ; preds = %.thread744
+285:                                              ; preds = %.thread749
   %286 = zext nneg i32 %283 to i64
   %287 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %281, i64 %286
   %288 = load i32, ptr %287, align 8
@@ -68014,12 +68014,12 @@ jit_Z_PTR.exit:                                   ; preds = %223, %220, %212, %2
   %298 = load i8, ptr %297, align 4
   %299 = and i8 %298, -3
   store i8 %299, ptr %297, align 4
-  br label %.thread742
+  br label %.thread747
 
-.thread742:                                       ; preds = %260, %233, %266, %.thread744, %285, %236, %229, %jit_Z_PTR.exit
-  %.0481 = phi ptr [ %235, %236 ], [ %235, %285 ], [ %235, %.thread744 ], [ %235, %266 ], [ null, %233 ], [ null, %229 ], [ %61, %jit_Z_PTR.exit ], [ %235, %260 ]
-  %.0480.shrunk = phi i1 [ false, %236 ], [ false, %285 ], [ false, %.thread744 ], [ false, %266 ], [ %9, %233 ], [ %9, %229 ], [ %9, %jit_Z_PTR.exit ], [ false, %260 ]
-  %.0479 = phi ptr [ %12, %236 ], [ %12, %285 ], [ %12, %.thread744 ], [ %12, %266 ], [ %8, %233 ], [ %8, %229 ], [ %8, %jit_Z_PTR.exit ], [ %12, %260 ]
+.thread747:                                       ; preds = %260, %233, %266, %.thread749, %285, %236, %229, %jit_Z_PTR.exit
+  %.0481 = phi ptr [ %235, %236 ], [ %235, %285 ], [ %235, %.thread749 ], [ %235, %266 ], [ null, %233 ], [ null, %229 ], [ %61, %jit_Z_PTR.exit ], [ %235, %260 ]
+  %.0480.shrunk = phi i1 [ false, %236 ], [ false, %285 ], [ false, %.thread749 ], [ false, %266 ], [ %9, %233 ], [ %9, %229 ], [ %9, %jit_Z_PTR.exit ], [ false, %260 ]
+  %.0479 = phi ptr [ %12, %236 ], [ %12, %285 ], [ %12, %.thread749 ], [ %12, %266 ], [ %8, %233 ], [ %8, %229 ], [ %8, %jit_Z_PTR.exit ], [ %12, %260 ]
   %300 = zext nneg i8 %13 to i32
   switch i8 %13, label %301 [
     i8 -1, label %304
@@ -68027,13 +68027,13 @@ jit_Z_PTR.exit:                                   ; preds = %223, %220, %212, %2
     i8 0, label %304
   ]
 
-301:                                              ; preds = %.thread742
+301:                                              ; preds = %.thread747
   %302 = and i32 %5, 1023
   %303 = icmp eq i32 %302, 256
   br label %304
 
-304:                                              ; preds = %.thread742, %.thread742, %.thread742, %301
-  %305 = phi i1 [ false, %.thread742 ], [ %303, %301 ], [ false, %.thread742 ], [ false, %.thread742 ]
+304:                                              ; preds = %.thread747, %.thread747, %.thread747, %301
+  %305 = phi i1 [ false, %.thread747 ], [ %303, %301 ], [ false, %.thread747 ], [ false, %.thread747 ]
   %306 = icmp ne ptr %.0481, null
   br i1 %306, label %462, label %307
 
@@ -68209,24 +68209,24 @@ jit_ADD_OFFSET.exit608:                           ; preds = %372, %380
   %402 = load i64, ptr %397, align 8
   %403 = trunc i64 %402 to i32
   %404 = load ptr, ptr %0, align 8
-  %sext.i.i612 = shl i64 %402, 32
-  %405 = ashr exact i64 %sext.i.i612, 32
+  %sext.i.i613 = shl i64 %402, 32
+  %405 = ashr exact i64 %sext.i.i613, 32
   %406 = getelementptr inbounds %struct._ir_insn, ptr %404, i64 %405
   %407 = load i16, ptr %406, align 8
   %408 = icmp eq i16 %407, 1542
   call void @llvm.assume(i1 %408)
-  br label %jit_ADD_OFFSET.exit613
+  br label %jit_ADD_OFFSET.exit614
 
 409:                                              ; preds = %392
   %410 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %396) #32
   %411 = sext i32 %410 to i64
   store i64 %411, ptr %397, align 8
   store i32 4, ptr %398, align 8
-  br label %jit_ADD_OFFSET.exit613
+  br label %jit_ADD_OFFSET.exit614
 
-jit_ADD_OFFSET.exit613:                           ; preds = %401, %409
-  %.0.i.i610 = phi i32 [ %403, %401 ], [ %410, %409 ]
-  %412 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %345, i32 noundef %.0.i.i610) #32
+jit_ADD_OFFSET.exit614:                           ; preds = %401, %409
+  %.0.i.i611 = phi i32 [ %403, %401 ], [ %410, %409 ]
+  %412 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %345, i32 noundef %.0.i.i611) #32
   %413 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %412) #32
   %414 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %413) #32
   call void @_ir_IF_TRUE_cold(ptr noundef %0, i32 noundef %414) #32
@@ -68234,8 +68234,8 @@ jit_ADD_OFFSET.exit613:                           ; preds = %401, %409
   call void @_ir_IF_FALSE(ptr noundef %0, i32 noundef %414) #32
   br label %416
 
-416:                                              ; preds = %jit_ADD_OFFSET.exit613, %388
-  %.0496 = phi i32 [ %415, %jit_ADD_OFFSET.exit613 ], [ %387, %388 ]
+416:                                              ; preds = %jit_ADD_OFFSET.exit614, %388
+  %.0496 = phi i32 [ %415, %jit_ADD_OFFSET.exit614 ], [ %387, %388 ]
   %417 = load i32, ptr %346, align 4
   %418 = and i32 %417, -4
   %419 = zext i32 %418 to i64
@@ -68250,24 +68250,24 @@ jit_ADD_OFFSET.exit613:                           ; preds = %401, %409
   %426 = load i64, ptr %421, align 8
   %427 = trunc i64 %426 to i32
   %428 = load ptr, ptr %0, align 8
-  %sext.i.i617 = shl i64 %426, 32
-  %429 = ashr exact i64 %sext.i.i617, 32
+  %sext.i.i619 = shl i64 %426, 32
+  %429 = ashr exact i64 %sext.i.i619, 32
   %430 = getelementptr inbounds %struct._ir_insn, ptr %428, i64 %429
   %431 = load i16, ptr %430, align 8
   %432 = icmp eq i16 %431, 1542
   call void @llvm.assume(i1 %432)
-  br label %jit_ADD_OFFSET.exit618
+  br label %jit_ADD_OFFSET.exit620
 
 433:                                              ; preds = %416
   %434 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %420) #32
   %435 = sext i32 %434 to i64
   store i64 %435, ptr %421, align 8
   store i32 4, ptr %422, align 8
-  br label %jit_ADD_OFFSET.exit618
+  br label %jit_ADD_OFFSET.exit620
 
-jit_ADD_OFFSET.exit618:                           ; preds = %425, %433
-  %.0.i.i615 = phi i32 [ %427, %425 ], [ %434, %433 ]
-  %436 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %345, i32 noundef %.0.i.i615) #32
+jit_ADD_OFFSET.exit620:                           ; preds = %425, %433
+  %.0.i.i617 = phi i32 [ %427, %425 ], [ %434, %433 ]
+  %436 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %345, i32 noundef %.0.i.i617) #32
   %437 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %436) #32
   %438 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 272, i32 noundef %437, i32 noundef -1) #32
   %439 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %438) #32
@@ -68277,7 +68277,7 @@ jit_ADD_OFFSET.exit618:                           ; preds = %425, %433
   %441 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0487, i32 noundef %437) #32
   br i1 %305, label %691, label %442
 
-442:                                              ; preds = %jit_ADD_OFFSET.exit618
+442:                                              ; preds = %jit_ADD_OFFSET.exit620
   %443 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %328, i64 noundef 8) #32
   %444 = getelementptr inbounds i8, ptr %443, i64 8
   %445 = load i8, ptr %444, align 8
@@ -68316,8 +68316,8 @@ jit_Z_TYPE_ref.exit:                              ; preds = %447, %455
 462:                                              ; preds = %304
   %463 = load i32, ptr %.0481, align 8
   %464 = zext i32 %463 to i64
-  %.not.i619 = icmp eq i32 %463, 0
-  br i1 %.not.i619, label %jit_ADD_OFFSET.exit624, label %465
+  %.not.i621 = icmp eq i32 %463, 0
+  br i1 %.not.i621, label %jit_ADD_OFFSET.exit626, label %465
 
 465:                                              ; preds = %462
   %466 = getelementptr inbounds i8, ptr %0, i64 808
@@ -68331,29 +68331,29 @@ jit_Z_TYPE_ref.exit:                              ; preds = %447, %455
   %472 = load i64, ptr %467, align 8
   %473 = trunc i64 %472 to i32
   %474 = load ptr, ptr %0, align 8
-  %sext.i.i623 = shl i64 %472, 32
-  %475 = ashr exact i64 %sext.i.i623, 32
+  %sext.i.i625 = shl i64 %472, 32
+  %475 = ashr exact i64 %sext.i.i625, 32
   %476 = getelementptr inbounds %struct._ir_insn, ptr %474, i64 %475
   %477 = load i16, ptr %476, align 8
   %478 = icmp eq i16 %477, 1542
   call void @llvm.assume(i1 %478)
-  br label %jit_CONST_ADDR.exit.i620
+  br label %jit_CONST_ADDR.exit.i622
 
 479:                                              ; preds = %465
   %480 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %464) #32
   %481 = sext i32 %480 to i64
   store i64 %481, ptr %467, align 8
   store i32 4, ptr %468, align 8
-  br label %jit_CONST_ADDR.exit.i620
+  br label %jit_CONST_ADDR.exit.i622
 
-jit_CONST_ADDR.exit.i620:                         ; preds = %479, %471
-  %.0.i.i621 = phi i32 [ %473, %471 ], [ %480, %479 ]
-  %482 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0487, i32 noundef %.0.i.i621) #32
-  br label %jit_ADD_OFFSET.exit624
+jit_CONST_ADDR.exit.i622:                         ; preds = %479, %471
+  %.0.i.i623 = phi i32 [ %473, %471 ], [ %480, %479 ]
+  %482 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0487, i32 noundef %.0.i.i623) #32
+  br label %jit_ADD_OFFSET.exit626
 
-jit_ADD_OFFSET.exit624:                           ; preds = %462, %jit_CONST_ADDR.exit.i620
-  %.0.i622 = phi i32 [ %482, %jit_CONST_ADDR.exit.i620 ], [ %.0487, %462 ]
-  %483 = sext i32 %.0.i622 to i64
+jit_ADD_OFFSET.exit626:                           ; preds = %462, %jit_CONST_ADDR.exit.i622
+  %.0.i624 = phi i32 [ %482, %jit_CONST_ADDR.exit.i622 ], [ %.0487, %462 ]
+  %483 = sext i32 %.0.i624 to i64
   %484 = shl nsw i64 %483, 2
   %485 = or disjoint i64 %484, 3
   %486 = getelementptr inbounds i8, ptr %.0481, i64 48
@@ -68363,7 +68363,7 @@ jit_ADD_OFFSET.exit624:                           ; preds = %462, %jit_CONST_ADD
   %brmerge579.not = and i1 %305, %.not547
   br i1 %brmerge579.not, label %554, label %489
 
-489:                                              ; preds = %jit_ADD_OFFSET.exit624
+489:                                              ; preds = %jit_ADD_OFFSET.exit626
   %490 = load i8, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 2), align 2
   %491 = icmp eq i8 %490, 5
   br i1 %491, label %492, label %550
@@ -68373,22 +68373,22 @@ jit_ADD_OFFSET.exit624:                           ; preds = %462, %jit_CONST_ADD
   %494 = load ptr, ptr @zend_jit_traces, align 8
   %495 = getelementptr inbounds i8, ptr %494, i64 16
   %496 = load i32, ptr %495, align 8
-  %.not.i625 = icmp ugt i32 %496, %493
-  br i1 %.not.i625, label %521, label %497
+  %.not.i627 = icmp ugt i32 %496, %493
+  br i1 %.not.i627, label %521, label %497
 
 497:                                              ; preds = %492
   %498 = icmp ugt i32 %493, 511
-  br i1 %498, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i626
+  br i1 %498, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i628
 
-.preheader.i.i626:                                ; preds = %497
+.preheader.i.i628:                                ; preds = %497
   %499 = getelementptr inbounds i8, ptr %20, i64 8
   %500 = getelementptr inbounds i8, ptr %20, i64 16
-  %.pre12.i.i627 = load ptr, ptr @dasm_ptr, align 8
+  %.pre12.i.i629 = load ptr, ptr @dasm_ptr, align 8
   br label %501
 
-501:                                              ; preds = %511, %.preheader.i.i626
-  %502 = phi ptr [ %.pre12.i.i627, %.preheader.i.i626 ], [ %510, %511 ]
-  %503 = phi i32 [ %496, %.preheader.i.i626 ], [ %520, %511 ]
+501:                                              ; preds = %511, %.preheader.i.i628
+  %502 = phi ptr [ %.pre12.i.i629, %.preheader.i.i628 ], [ %510, %511 ]
+  %503 = phi i32 [ %496, %.preheader.i.i628 ], [ %520, %511 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
   %504 = load ptr, ptr @dasm_buf, align 8
@@ -68404,8 +68404,8 @@ jit_ADD_OFFSET.exit624:                           ; preds = %462, %jit_CONST_ADD
   store ptr %509, ptr %510, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
-  %.not.i.i628 = icmp eq ptr %508, null
-  br i1 %.not.i.i628, label %zend_jit_trace_get_exit_addr.exit.thread, label %511
+  %.not.i.i630 = icmp eq ptr %508, null
+  br i1 %.not.i.i630, label %zend_jit_trace_get_exit_addr.exit.thread, label %511
 
 511:                                              ; preds = %501
   %512 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -68419,8 +68419,8 @@ jit_ADD_OFFSET.exit624:                           ; preds = %462, %jit_CONST_ADD
   %519 = load i32, ptr %514, align 8
   %520 = add i32 %519, 32
   store i32 %520, ptr %514, align 8
-  %.not8.i.i629 = icmp ugt i32 %520, %493
-  br i1 %.not8.i.i629, label %zend_jit_trace_get_exit_addr.exit631, label %501
+  %.not8.i.i631 = icmp ugt i32 %520, %493
+  br i1 %.not8.i.i631, label %zend_jit_trace_get_exit_addr.exit633, label %501
 
 521:                                              ; preds = %492
   %522 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -68428,18 +68428,18 @@ jit_ADD_OFFSET.exit624:                           ; preds = %462, %jit_CONST_ADD
   %524 = zext nneg i32 %523 to i64
   %525 = getelementptr inbounds ptr, ptr %522, i64 %524
   %526 = load ptr, ptr %525, align 8
-  br label %zend_jit_trace_get_exit_addr.exit631
+  br label %zend_jit_trace_get_exit_addr.exit633
 
-zend_jit_trace_get_exit_addr.exit631:             ; preds = %511, %521
-  %.lcssa834.sink = phi ptr [ %526, %521 ], [ %508, %511 ]
-  %.not548 = icmp eq ptr %.lcssa834.sink, null
+zend_jit_trace_get_exit_addr.exit633:             ; preds = %511, %521
+  %.lcssa839.sink = phi ptr [ %526, %521 ], [ %508, %511 ]
+  %.not548 = icmp eq ptr %.lcssa839.sink, null
   br i1 %.not548, label %zend_jit_trace_get_exit_addr.exit.thread, label %527
 
-527:                                              ; preds = %zend_jit_trace_get_exit_addr.exit631
+527:                                              ; preds = %zend_jit_trace_get_exit_addr.exit633
   %528 = shl i32 %493, 2
   %529 = and i32 %528, 124
   %530 = zext nneg i32 %529 to i64
-  %531 = getelementptr inbounds i8, ptr %.lcssa834.sink, i64 %530
+  %531 = getelementptr inbounds i8, ptr %.lcssa839.sink, i64 %530
   %532 = call fastcc i32 @jit_Z_TYPE_INFO(ptr noundef %0, i64 noundef %485)
   %533 = ptrtoint ptr %531 to i64
   %534 = getelementptr inbounds i8, ptr %0, i64 808
@@ -68453,24 +68453,24 @@ zend_jit_trace_get_exit_addr.exit631:             ; preds = %511, %521
   %540 = load i64, ptr %535, align 8
   %541 = trunc i64 %540 to i32
   %542 = load ptr, ptr %0, align 8
-  %sext.i633 = shl i64 %540, 32
-  %543 = ashr exact i64 %sext.i633, 32
+  %sext.i635 = shl i64 %540, 32
+  %543 = ashr exact i64 %sext.i635, 32
   %544 = getelementptr inbounds %struct._ir_insn, ptr %542, i64 %543
   %545 = load i16, ptr %544, align 8
   %546 = icmp eq i16 %545, 1542
   call void @llvm.assume(i1 %546)
-  br label %jit_CONST_ADDR.exit634
+  br label %jit_CONST_ADDR.exit636
 
 547:                                              ; preds = %527
   %548 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %533) #32
   %549 = sext i32 %548 to i64
   store i64 %549, ptr %535, align 8
   store i32 4, ptr %536, align 8
-  br label %jit_CONST_ADDR.exit634
+  br label %jit_CONST_ADDR.exit636
 
-jit_CONST_ADDR.exit634:                           ; preds = %539, %547
-  %.0.i632 = phi i32 [ %541, %539 ], [ %548, %547 ]
-  call void @_ir_GUARD(ptr noundef %0, i32 noundef %532, i32 noundef %.0.i632) #32
+jit_CONST_ADDR.exit636:                           ; preds = %539, %547
+  %.0.i634 = phi i32 [ %541, %539 ], [ %548, %547 ]
+  call void @_ir_GUARD(ptr noundef %0, i32 noundef %532, i32 noundef %.0.i634) #32
   br label %554
 
 550:                                              ; preds = %489
@@ -68481,12 +68481,12 @@ jit_CONST_ADDR.exit634:                           ; preds = %539, %547
   call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %552) #32
   br label %554
 
-554:                                              ; preds = %jit_ADD_OFFSET.exit624, %jit_CONST_ADDR.exit634, %550
-  %.2498 = phi i32 [ 0, %jit_CONST_ADDR.exit634 ], [ %553, %550 ], [ 0, %jit_ADD_OFFSET.exit624 ]
+554:                                              ; preds = %jit_ADD_OFFSET.exit626, %jit_CONST_ADDR.exit636, %550
+  %.2498 = phi i32 [ 0, %jit_CONST_ADDR.exit636 ], [ %553, %550 ], [ 0, %jit_ADD_OFFSET.exit626 ]
   %555 = load i32, ptr %486, align 8
   %556 = and i32 %555, 33554431
   %.not549.not = icmp eq i32 %556, 0
-  br i1 %.not549.not, label %.thread749.thread, label %557
+  br i1 %.not549.not, label %.thread754.thread, label %557
 
 557:                                              ; preds = %554
   call fastcc void @jit_SET_EX_OPLINE(ptr noundef %0, ptr noundef %1)
@@ -68513,20 +68513,20 @@ jit_CONST_ADDR.exit634:                           ; preds = %539, %547
   %570 = load i64, ptr %565, align 8
   %571 = trunc i64 %570 to i32
   %572 = load ptr, ptr %0, align 8
-  %sext.i636 = shl i64 %570, 32
-  %573 = ashr exact i64 %sext.i636, 32
+  %sext.i638 = shl i64 %570, 32
+  %573 = ashr exact i64 %sext.i638, 32
   %574 = getelementptr inbounds %struct._ir_insn, ptr %572, i64 %573
   %575 = load i16, ptr %574, align 8
   %576 = icmp eq i16 %575, 1542
   call void @llvm.assume(i1 %576)
-  br label %jit_CONST_ADDR.exit637
+  br label %jit_CONST_ADDR.exit639
 
 577:                                              ; preds = %562
   %578 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %563) #32
   %579 = sext i32 %578 to i64
   store i64 %579, ptr %565, align 8
   store i32 4, ptr %566, align 8
-  br label %jit_CONST_ADDR.exit637
+  br label %jit_CONST_ADDR.exit639
 
 580:                                              ; preds = %558, %557
   %581 = load i32, ptr %.0481, align 8
@@ -68542,24 +68542,24 @@ jit_CONST_ADDR.exit634:                           ; preds = %539, %547
   %589 = load i64, ptr %584, align 8
   %590 = trunc i64 %589 to i32
   %591 = load ptr, ptr %0, align 8
-  %sext.i.i641 = shl i64 %589, 32
-  %592 = ashr exact i64 %sext.i.i641, 32
+  %sext.i.i643 = shl i64 %589, 32
+  %592 = ashr exact i64 %sext.i.i643, 32
   %593 = getelementptr inbounds %struct._ir_insn, ptr %591, i64 %592
   %594 = load i16, ptr %593, align 8
   %595 = icmp eq i16 %594, 1542
   call void @llvm.assume(i1 %595)
-  br label %jit_ADD_OFFSET.exit642
+  br label %jit_ADD_OFFSET.exit644
 
 596:                                              ; preds = %580
   %597 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 16) #32
   %598 = sext i32 %597 to i64
   store i64 %598, ptr %584, align 8
   store i32 4, ptr %585, align 8
-  br label %jit_ADD_OFFSET.exit642
+  br label %jit_ADD_OFFSET.exit644
 
-jit_ADD_OFFSET.exit642:                           ; preds = %588, %596
-  %.0.i.i639 = phi i32 [ %590, %588 ], [ %597, %596 ]
-  %599 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0487, i32 noundef %.0.i.i639) #32
+jit_ADD_OFFSET.exit644:                           ; preds = %588, %596
+  %.0.i.i641 = phi i32 [ %590, %588 ], [ %597, %596 ]
+  %599 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0487, i32 noundef %.0.i.i641) #32
   %600 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %599) #32
   %601 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %583, i64 noundef 248) #32
   %602 = getelementptr inbounds i8, ptr %601, i64 8
@@ -68567,37 +68567,37 @@ jit_ADD_OFFSET.exit642:                           ; preds = %588, %596
   %604 = icmp eq i8 %603, 4
   br i1 %604, label %605, label %613
 
-605:                                              ; preds = %jit_ADD_OFFSET.exit642
+605:                                              ; preds = %jit_ADD_OFFSET.exit644
   %606 = load i64, ptr %601, align 8
   %607 = trunc i64 %606 to i32
   %608 = load ptr, ptr %0, align 8
-  %sext.i.i646 = shl i64 %606, 32
-  %609 = ashr exact i64 %sext.i.i646, 32
+  %sext.i.i648 = shl i64 %606, 32
+  %609 = ashr exact i64 %sext.i.i648, 32
   %610 = getelementptr inbounds %struct._ir_insn, ptr %608, i64 %609
   %611 = load i16, ptr %610, align 8
   %612 = icmp eq i16 %611, 1542
   call void @llvm.assume(i1 %612)
-  br label %jit_ADD_OFFSET.exit647
+  br label %jit_ADD_OFFSET.exit649
 
-613:                                              ; preds = %jit_ADD_OFFSET.exit642
+613:                                              ; preds = %jit_ADD_OFFSET.exit644
   %614 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 248) #32
   %615 = sext i32 %614 to i64
   store i64 %615, ptr %601, align 8
   store i32 4, ptr %602, align 8
-  br label %jit_ADD_OFFSET.exit647
+  br label %jit_ADD_OFFSET.exit649
 
-jit_ADD_OFFSET.exit647:                           ; preds = %605, %613
-  %.0.i.i644 = phi i32 [ %607, %605 ], [ %614, %613 ]
-  %616 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %600, i32 noundef %.0.i.i644) #32
+jit_ADD_OFFSET.exit649:                           ; preds = %605, %613
+  %.0.i.i646 = phi i32 [ %607, %605 ], [ %614, %613 ]
+  %616 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %600, i32 noundef %.0.i.i646) #32
   %617 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %616) #32
   %618 = shl nuw nsw i64 %582, 31
   %619 = add nsw i64 %618, -85899345920
   %sext = ashr i64 %619, 32
   %620 = and i64 %sext, -8
-  %.not.i648 = icmp eq i64 %620, 0
-  br i1 %.not.i648, label %jit_ADD_OFFSET.exit653, label %621
+  %.not.i650 = icmp eq i64 %620, 0
+  br i1 %.not.i650, label %jit_ADD_OFFSET.exit655, label %621
 
-621:                                              ; preds = %jit_ADD_OFFSET.exit647
+621:                                              ; preds = %jit_ADD_OFFSET.exit649
   %622 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %583, i64 noundef %620) #32
   %623 = getelementptr inbounds i8, ptr %622, i64 8
   %624 = load i8, ptr %623, align 8
@@ -68608,42 +68608,42 @@ jit_ADD_OFFSET.exit647:                           ; preds = %605, %613
   %627 = load i64, ptr %622, align 8
   %628 = trunc i64 %627 to i32
   %629 = load ptr, ptr %0, align 8
-  %sext.i.i652 = shl i64 %627, 32
-  %630 = ashr exact i64 %sext.i.i652, 32
+  %sext.i.i654 = shl i64 %627, 32
+  %630 = ashr exact i64 %sext.i.i654, 32
   %631 = getelementptr inbounds %struct._ir_insn, ptr %629, i64 %630
   %632 = load i16, ptr %631, align 8
   %633 = icmp eq i16 %632, 1542
   call void @llvm.assume(i1 %633)
-  br label %jit_CONST_ADDR.exit.i649
+  br label %jit_CONST_ADDR.exit.i651
 
 634:                                              ; preds = %621
   %635 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %620) #32
   %636 = sext i32 %635 to i64
   store i64 %636, ptr %622, align 8
   store i32 4, ptr %623, align 8
-  br label %jit_CONST_ADDR.exit.i649
+  br label %jit_CONST_ADDR.exit.i651
 
-jit_CONST_ADDR.exit.i649:                         ; preds = %634, %626
-  %.0.i.i650 = phi i32 [ %628, %626 ], [ %635, %634 ]
-  %637 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %617, i32 noundef %.0.i.i650) #32
-  br label %jit_ADD_OFFSET.exit653
+jit_CONST_ADDR.exit.i651:                         ; preds = %634, %626
+  %.0.i.i652 = phi i32 [ %628, %626 ], [ %635, %634 ]
+  %637 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %617, i32 noundef %.0.i.i652) #32
+  br label %jit_ADD_OFFSET.exit655
 
-jit_ADD_OFFSET.exit653:                           ; preds = %jit_ADD_OFFSET.exit647, %jit_CONST_ADDR.exit.i649
-  %.0.i651 = phi i32 [ %637, %jit_CONST_ADDR.exit.i649 ], [ %617, %jit_ADD_OFFSET.exit647 ]
-  %638 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %.0.i651) #32
-  br label %jit_CONST_ADDR.exit637
+jit_ADD_OFFSET.exit655:                           ; preds = %jit_ADD_OFFSET.exit649, %jit_CONST_ADDR.exit.i651
+  %.0.i653 = phi i32 [ %637, %jit_CONST_ADDR.exit.i651 ], [ %617, %jit_ADD_OFFSET.exit649 ]
+  %638 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %.0.i653) #32
+  br label %jit_CONST_ADDR.exit639
 
-jit_CONST_ADDR.exit637:                           ; preds = %577, %569, %jit_ADD_OFFSET.exit653
-  %.0508 = phi i32 [ %638, %jit_ADD_OFFSET.exit653 ], [ %571, %569 ], [ %578, %577 ]
+jit_CONST_ADDR.exit639:                           ; preds = %577, %569, %jit_ADD_OFFSET.exit655
+  %.0508 = phi i32 [ %638, %jit_ADD_OFFSET.exit655 ], [ %571, %569 ], [ %578, %577 ]
   %639 = load i8, ptr %23, align 1
   %640 = icmp eq i8 %639, 0
   %641 = getelementptr inbounds i8, ptr %1, i64 28
   %642 = load i8, ptr %641, align 4
   %switch.tableidx = add nsw i8 %642, 124
   %643 = getelementptr inbounds i8, ptr %0, i64 808
-  br i1 %640, label %switch.lookup, label %switch.lookup851
+  br i1 %640, label %switch.lookup, label %switch.lookup856
 
-switch.lookup:                                    ; preds = %jit_CONST_ADDR.exit637
+switch.lookup:                                    ; preds = %jit_CONST_ADDR.exit639
   %644 = sext i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_jit_incdec_obj, i64 0, i64 %644
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -68658,8 +68658,8 @@ switch.lookup:                                    ; preds = %jit_CONST_ADDR.exit
   %651 = load i64, ptr %646, align 8
   %652 = trunc i64 %651 to i32
   %653 = load ptr, ptr %0, align 8
-  %sext.i.i655 = shl i64 %651, 32
-  %654 = ashr exact i64 %sext.i.i655, 32
+  %sext.i.i657 = shl i64 %651, 32
+  %654 = ashr exact i64 %sext.i.i657, 32
   %655 = getelementptr inbounds %struct._ir_insn, ptr %653, i64 %654
   %656 = load i16, ptr %655, align 8
   %657 = icmp eq i16 %656, 1601
@@ -68668,7 +68668,7 @@ switch.lookup:                                    ; preds = %jit_CONST_ADDR.exit
   %659 = load i16, ptr %658, align 2
   %660 = icmp eq i16 %659, 0
   call void @llvm.assume(i1 %660)
-  br label %jit_CONST_FUNC.exit656
+  br label %jit_CONST_FUNC.exit658
 
 661:                                              ; preds = %switch.lookup
   %662 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %645) #32
@@ -68678,30 +68678,30 @@ switch.lookup:                                    ; preds = %jit_CONST_ADDR.exit
   store i32 1601, ptr %665, align 8
   store i64 %664, ptr %646, align 8
   store i32 4, ptr %647, align 8
-  br label %jit_CONST_FUNC.exit656
+  br label %jit_CONST_FUNC.exit658
 
-jit_CONST_FUNC.exit656:                           ; preds = %650, %661
-  %.0.i.i654 = phi i32 [ %652, %650 ], [ %662, %661 ]
-  %666 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i654, i32 noundef %.0.i622, i32 noundef %.0508) #32
-  br label %.thread749
+jit_CONST_FUNC.exit658:                           ; preds = %650, %661
+  %.0.i.i656 = phi i32 [ %652, %650 ], [ %662, %661 ]
+  %666 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i656, i32 noundef %.0.i624, i32 noundef %.0508) #32
+  br label %.thread754
 
-switch.lookup851:                                 ; preds = %jit_CONST_ADDR.exit637
+switch.lookup856:                                 ; preds = %jit_CONST_ADDR.exit639
   %667 = sext i8 %switch.tableidx to i64
-  %switch.gep853 = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_jit_incdec_obj.39, i64 0, i64 %667
-  %switch.load854 = load ptr, ptr %switch.gep853, align 8
-  %668 = ptrtoint ptr %switch.load854 to i64
+  %switch.gep858 = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_jit_incdec_obj.39, i64 0, i64 %667
+  %switch.load859 = load ptr, ptr %switch.gep858, align 8
+  %668 = ptrtoint ptr %switch.load859 to i64
   %669 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %643, i64 noundef %668) #32
   %670 = getelementptr inbounds i8, ptr %669, i64 8
   %671 = load i8, ptr %670, align 8
   %672 = icmp eq i8 %671, 4
   br i1 %672, label %673, label %684
 
-673:                                              ; preds = %switch.lookup851
+673:                                              ; preds = %switch.lookup856
   %674 = load i64, ptr %669, align 8
   %675 = trunc i64 %674 to i32
   %676 = load ptr, ptr %0, align 8
-  %sext.i.i658 = shl i64 %674, 32
-  %677 = ashr exact i64 %sext.i.i658, 32
+  %sext.i.i660 = shl i64 %674, 32
+  %677 = ashr exact i64 %sext.i.i660, 32
   %678 = getelementptr inbounds %struct._ir_insn, ptr %676, i64 %677
   %679 = load i16, ptr %678, align 8
   %680 = icmp eq i16 %679, 1601
@@ -68710,9 +68710,9 @@ switch.lookup851:                                 ; preds = %jit_CONST_ADDR.exit
   %682 = load i16, ptr %681, align 2
   %683 = icmp eq i16 %682, 0
   call void @llvm.assume(i1 %683)
-  br label %jit_CONST_FUNC.exit659
+  br label %jit_CONST_FUNC.exit661
 
-684:                                              ; preds = %switch.lookup851
+684:                                              ; preds = %switch.lookup856
   %685 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %668) #32
   %686 = load ptr, ptr %0, align 8
   %687 = sext i32 %685 to i64
@@ -68720,57 +68720,57 @@ switch.lookup851:                                 ; preds = %jit_CONST_ADDR.exit
   store i32 1601, ptr %688, align 8
   store i64 %687, ptr %669, align 8
   store i32 4, ptr %670, align 8
-  br label %jit_CONST_FUNC.exit659
+  br label %jit_CONST_FUNC.exit661
 
-jit_CONST_FUNC.exit659:                           ; preds = %673, %684
-  %.0.i.i657 = phi i32 [ %675, %673 ], [ %685, %684 ]
+jit_CONST_FUNC.exit661:                           ; preds = %673, %684
+  %.0.i.i659 = phi i32 [ %675, %673 ], [ %685, %684 ]
   %689 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %.0483)
-  %690 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i657, i32 noundef %.0.i622, i32 noundef %.0508, i32 noundef %689) #32
-  br label %.thread749
+  %690 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i659, i32 noundef %.0.i624, i32 noundef %.0508, i32 noundef %689) #32
+  br label %.thread754
 
-691:                                              ; preds = %jit_ADD_OFFSET.exit618, %jit_Z_TYPE_ref.exit
-  %.1497 = phi i32 [ %440, %jit_ADD_OFFSET.exit618 ], [ %461, %jit_Z_TYPE_ref.exit ]
+691:                                              ; preds = %jit_ADD_OFFSET.exit620, %jit_Z_TYPE_ref.exit
+  %.1497 = phi i32 [ %440, %jit_ADD_OFFSET.exit620 ], [ %461, %jit_Z_TYPE_ref.exit ]
   %692 = sext i32 %441 to i64
   %693 = shl nsw i64 %692, 2
   %694 = or disjoint i64 %693, 3
-  br label %.thread749.thread
+  br label %.thread754.thread
 
-.thread749:                                       ; preds = %jit_CONST_FUNC.exit659, %jit_CONST_FUNC.exit656
+.thread754:                                       ; preds = %jit_CONST_FUNC.exit661, %jit_CONST_FUNC.exit658
   %695 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef 0) #32
   %.pre = load i32, ptr %486, align 8
-  %.pre825 = and i32 %.pre, 33554431
-  %.not552 = icmp eq i32 %.pre825, 0
-  br i1 %.not552, label %.thread749.thread, label %.thread793
+  %.pre830 = and i32 %.pre, 33554431
+  %.not552 = icmp eq i32 %.pre830, 0
+  br i1 %.not552, label %.thread754.thread, label %.thread798
 
-.thread749.thread:                                ; preds = %554, %691, %.thread749
-  %.0484764 = phi i64 [ %485, %.thread749 ], [ %694, %691 ], [ %485, %554 ]
-  %.0485763 = phi i1 [ true, %.thread749 ], [ false, %691 ], [ false, %554 ]
-  %.0488760 = phi i32 [ %.0.i622, %.thread749 ], [ %441, %691 ], [ %.0.i622, %554 ]
-  %.0489759 = phi i32 [ %695, %.thread749 ], [ 0, %691 ], [ 0, %554 ]
-  %.3499756 = phi i32 [ %.2498, %.thread749 ], [ %.1497, %691 ], [ %.2498, %554 ]
-  br i1 %305, label %696, label %.thread768
+.thread754.thread:                                ; preds = %554, %691, %.thread754
+  %.0484769 = phi i64 [ %485, %.thread754 ], [ %694, %691 ], [ %485, %554 ]
+  %.0485768 = phi i1 [ true, %.thread754 ], [ false, %691 ], [ false, %554 ]
+  %.0488765 = phi i32 [ %.0.i624, %.thread754 ], [ %441, %691 ], [ %.0.i624, %554 ]
+  %.0489764 = phi i32 [ %695, %.thread754 ], [ 0, %691 ], [ 0, %554 ]
+  %.3499761 = phi i32 [ %.2498, %.thread754 ], [ %.1497, %691 ], [ %.2498, %554 ]
+  br i1 %305, label %696, label %.thread773
 
-696:                                              ; preds = %.thread749.thread
+696:                                              ; preds = %.thread754.thread
   %697 = call fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %1, i32 noundef 0)
   %698 = load ptr, ptr @zend_jit_traces, align 8
   %699 = getelementptr inbounds i8, ptr %698, i64 16
   %700 = load i32, ptr %699, align 8
-  %.not.i660 = icmp ugt i32 %700, %697
-  br i1 %.not.i660, label %725, label %701
+  %.not.i662 = icmp ugt i32 %700, %697
+  br i1 %.not.i662, label %725, label %701
 
 701:                                              ; preds = %696
   %702 = icmp ugt i32 %697, 511
-  br i1 %702, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i661
+  br i1 %702, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i663
 
-.preheader.i.i661:                                ; preds = %701
+.preheader.i.i663:                                ; preds = %701
   %703 = getelementptr inbounds i8, ptr %18, i64 8
   %704 = getelementptr inbounds i8, ptr %18, i64 16
-  %.pre12.i.i662 = load ptr, ptr @dasm_ptr, align 8
+  %.pre12.i.i664 = load ptr, ptr @dasm_ptr, align 8
   br label %705
 
-705:                                              ; preds = %715, %.preheader.i.i661
-  %706 = phi ptr [ %.pre12.i.i662, %.preheader.i.i661 ], [ %714, %715 ]
-  %707 = phi i32 [ %700, %.preheader.i.i661 ], [ %724, %715 ]
+705:                                              ; preds = %715, %.preheader.i.i663
+  %706 = phi ptr [ %.pre12.i.i664, %.preheader.i.i663 ], [ %714, %715 ]
+  %707 = phi i32 [ %700, %.preheader.i.i663 ], [ %724, %715 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   %708 = load ptr, ptr @dasm_buf, align 8
@@ -68786,8 +68786,8 @@ jit_CONST_FUNC.exit659:                           ; preds = %673, %684
   store ptr %713, ptr %714, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
-  %.not.i.i663 = icmp eq ptr %712, null
-  br i1 %.not.i.i663, label %zend_jit_trace_get_exit_addr.exit.thread, label %715
+  %.not.i.i665 = icmp eq ptr %712, null
+  br i1 %.not.i.i665, label %zend_jit_trace_get_exit_addr.exit.thread, label %715
 
 715:                                              ; preds = %705
   %716 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -68801,8 +68801,8 @@ jit_CONST_FUNC.exit659:                           ; preds = %673, %684
   %723 = load i32, ptr %718, align 8
   %724 = add i32 %723, 32
   store i32 %724, ptr %718, align 8
-  %.not8.i.i664 = icmp ugt i32 %724, %697
-  br i1 %.not8.i.i664, label %zend_jit_trace_get_exit_addr.exit666, label %705
+  %.not8.i.i666 = icmp ugt i32 %724, %697
+  br i1 %.not8.i.i666, label %zend_jit_trace_get_exit_addr.exit668, label %705
 
 725:                                              ; preds = %696
   %726 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -68810,35 +68810,35 @@ jit_CONST_FUNC.exit659:                           ; preds = %673, %684
   %728 = zext nneg i32 %727 to i64
   %729 = getelementptr inbounds ptr, ptr %726, i64 %728
   %730 = load ptr, ptr %729, align 8
-  br label %zend_jit_trace_get_exit_addr.exit666
+  br label %zend_jit_trace_get_exit_addr.exit668
 
-zend_jit_trace_get_exit_addr.exit666:             ; preds = %715, %725
-  %.lcssa833.sink = phi ptr [ %730, %725 ], [ %712, %715 ]
-  %.not553 = icmp eq ptr %.lcssa833.sink, null
+zend_jit_trace_get_exit_addr.exit668:             ; preds = %715, %725
+  %.lcssa838.sink = phi ptr [ %730, %725 ], [ %712, %715 ]
+  %.not553 = icmp eq ptr %.lcssa838.sink, null
   br i1 %.not553, label %zend_jit_trace_get_exit_addr.exit.thread, label %731
 
-731:                                              ; preds = %zend_jit_trace_get_exit_addr.exit666
+731:                                              ; preds = %zend_jit_trace_get_exit_addr.exit668
   %732 = shl i32 %697, 2
   %733 = and i32 %732, 124
   %734 = zext nneg i32 %733 to i64
-  %735 = getelementptr inbounds i8, ptr %.lcssa833.sink, i64 %734
-  call fastcc void @jit_guard_Z_TYPE(ptr noundef %0, i64 noundef %.0484764, i8 noundef zeroext %13, ptr noundef nonnull %735)
+  %735 = getelementptr inbounds i8, ptr %.lcssa838.sink, i64 %734
+  call fastcc void @jit_guard_Z_TYPE(ptr noundef %0, i64 noundef %.0484769, i8 noundef zeroext %13, ptr noundef nonnull %735)
   %736 = shl nuw i32 1, %300
   %737 = or i32 %736, -1073741824
   %738 = and i32 %736, 1024
   %.not554 = icmp eq i32 %738, 0
-  br i1 %.not554, label %819, label %.thread768
+  br i1 %.not554, label %819, label %.thread773
 
-.thread768:                                       ; preds = %.thread749.thread, %731
-  %.0506771 = phi i32 [ %737, %731 ], [ -1073739778, %.thread749.thread ]
-  %739 = call fastcc i32 @jit_Z_TYPE(ptr noundef %0, i64 noundef %.0484764)
+.thread773:                                       ; preds = %.thread754.thread, %731
+  %.0506776 = phi i32 [ %737, %731 ], [ -1073739778, %.thread754.thread ]
+  %739 = call fastcc i32 @jit_Z_TYPE(ptr noundef %0, i64 noundef %.0484769)
   %740 = call i32 @ir_const_u8(ptr noundef %0, i8 noundef zeroext 10) #32
   %741 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 270, i32 noundef %739, i32 noundef %740) #32
   %742 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %741) #32
   call void @_ir_IF_FALSE(ptr noundef %0, i32 noundef %742) #32
   %743 = call i32 @_ir_END(ptr noundef %0) #32
   call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %742) #32
-  %744 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %.0484764)
+  %744 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %.0484769)
   %745 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %744) #32
   %746 = getelementptr inbounds i8, ptr %0, i64 808
   %747 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %746, i64 noundef 8) #32
@@ -68847,47 +68847,47 @@ zend_jit_trace_get_exit_addr.exit666:             ; preds = %715, %725
   %750 = icmp eq i8 %749, 4
   br i1 %750, label %751, label %759
 
-751:                                              ; preds = %.thread768
+751:                                              ; preds = %.thread773
   %752 = load i64, ptr %747, align 8
   %753 = trunc i64 %752 to i32
   %754 = load ptr, ptr %0, align 8
-  %sext.i.i672 = shl i64 %752, 32
-  %755 = ashr exact i64 %sext.i.i672, 32
+  %sext.i.i675 = shl i64 %752, 32
+  %755 = ashr exact i64 %sext.i.i675, 32
   %756 = getelementptr inbounds %struct._ir_insn, ptr %754, i64 %755
   %757 = load i16, ptr %756, align 8
   %758 = icmp eq i16 %757, 1542
   call void @llvm.assume(i1 %758)
-  br label %jit_ADD_OFFSET.exit673
+  br label %jit_ADD_OFFSET.exit676
 
-759:                                              ; preds = %.thread768
+759:                                              ; preds = %.thread773
   %760 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 8) #32
   %761 = sext i32 %760 to i64
   store i64 %761, ptr %747, align 8
   store i32 4, ptr %748, align 8
-  br label %jit_ADD_OFFSET.exit673
+  br label %jit_ADD_OFFSET.exit676
 
-jit_ADD_OFFSET.exit673:                           ; preds = %751, %759
-  %.0.i.i670 = phi i32 [ %753, %751 ], [ %760, %759 ]
-  %762 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %745, i32 noundef %.0.i.i670) #32
+jit_ADD_OFFSET.exit676:                           ; preds = %751, %759
+  %.0.i.i673 = phi i32 [ %753, %751 ], [ %760, %759 ]
+  %762 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %745, i32 noundef %.0.i.i673) #32
   %763 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %746, i64 noundef 24) #32
   %764 = getelementptr inbounds i8, ptr %763, i64 8
   %765 = load i8, ptr %764, align 8
   %766 = icmp eq i8 %765, 4
   br i1 %766, label %767, label %775
 
-767:                                              ; preds = %jit_ADD_OFFSET.exit673
+767:                                              ; preds = %jit_ADD_OFFSET.exit676
   %768 = load i64, ptr %763, align 8
   %769 = trunc i64 %768 to i32
   %770 = load ptr, ptr %0, align 8
-  %sext.i.i.i675 = shl i64 %768, 32
-  %771 = ashr exact i64 %sext.i.i.i675, 32
+  %sext.i.i.i678 = shl i64 %768, 32
+  %771 = ashr exact i64 %sext.i.i.i678, 32
   %772 = getelementptr inbounds %struct._ir_insn, ptr %770, i64 %771
   %773 = load i16, ptr %772, align 8
   %774 = icmp eq i16 %773, 1542
   call void @llvm.assume(i1 %774)
   br label %jit_if_TYPED_REF.exit
 
-775:                                              ; preds = %jit_ADD_OFFSET.exit673
+775:                                              ; preds = %jit_ADD_OFFSET.exit676
   %776 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 24) #32
   %777 = sext i32 %776 to i64
   store i64 %777, ptr %763, align 8
@@ -68895,8 +68895,8 @@ jit_ADD_OFFSET.exit673:                           ; preds = %751, %759
   br label %jit_if_TYPED_REF.exit
 
 jit_if_TYPED_REF.exit:                            ; preds = %767, %775
-  %.0.i.i.i674 = phi i32 [ %769, %767 ], [ %776, %775 ]
-  %778 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %745, i32 noundef %.0.i.i.i674) #32
+  %.0.i.i.i677 = phi i32 [ %769, %767 ], [ %776, %775 ]
+  %778 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %745, i32 noundef %.0.i.i.i677) #32
   %779 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %778) #32
   %780 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %779) #32
   call void @_ir_IF_FALSE(ptr noundef %0, i32 noundef %780) #32
@@ -68904,12 +68904,12 @@ jit_if_TYPED_REF.exit:                            ; preds = %767, %775
   call void @_ir_IF_TRUE_cold(ptr noundef %0, i32 noundef %780) #32
   %782 = getelementptr inbounds i8, ptr %1, i64 28
   %783 = load i8, ptr %782, align 4
-  %switch.tableidx856 = add nsw i8 %783, 124
-  %784 = sext i8 %switch.tableidx856 to i64
-  %switch.gep857 = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_jit_incdec_obj.40, i64 0, i64 %784
-  %switch.load858 = load ptr, ptr %switch.gep857, align 8
+  %switch.tableidx861 = add nsw i8 %783, 124
+  %784 = sext i8 %switch.tableidx861 to i64
+  %switch.gep862 = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_jit_incdec_obj.40, i64 0, i64 %784
+  %switch.load863 = load ptr, ptr %switch.gep862, align 8
   call fastcc void @jit_SET_EX_OPLINE(ptr noundef %0, ptr noundef nonnull %1)
-  %785 = ptrtoint ptr %switch.load858 to i64
+  %785 = ptrtoint ptr %switch.load863 to i64
   %786 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %746, i64 noundef %785) #32
   %787 = getelementptr inbounds i8, ptr %786, i64 8
   %788 = load i8, ptr %787, align 8
@@ -68920,8 +68920,8 @@ jit_if_TYPED_REF.exit:                            ; preds = %767, %775
   %791 = load i64, ptr %786, align 8
   %792 = trunc i64 %791 to i32
   %793 = load ptr, ptr %0, align 8
-  %sext.i.i677 = shl i64 %791, 32
-  %794 = ashr exact i64 %sext.i.i677, 32
+  %sext.i.i680 = shl i64 %791, 32
+  %794 = ashr exact i64 %sext.i.i680, 32
   %795 = getelementptr inbounds %struct._ir_insn, ptr %793, i64 %794
   %796 = load i16, ptr %795, align 8
   %797 = icmp eq i16 %796, 1601
@@ -68930,7 +68930,7 @@ jit_if_TYPED_REF.exit:                            ; preds = %767, %775
   %799 = load i16, ptr %798, align 2
   %800 = icmp eq i16 %799, 0
   call void @llvm.assume(i1 %800)
-  br label %jit_CONST_FUNC.exit678
+  br label %jit_CONST_FUNC.exit681
 
 801:                                              ; preds = %jit_if_TYPED_REF.exit
   %802 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %785) #32
@@ -68940,43 +68940,43 @@ jit_if_TYPED_REF.exit:                            ; preds = %767, %775
   store i32 1601, ptr %805, align 8
   store i64 %804, ptr %786, align 8
   store i32 4, ptr %787, align 8
-  br label %jit_CONST_FUNC.exit678
+  br label %jit_CONST_FUNC.exit681
 
-jit_CONST_FUNC.exit678:                           ; preds = %790, %801
-  %.0.i.i676 = phi i32 [ %792, %790 ], [ %802, %801 ]
+jit_CONST_FUNC.exit681:                           ; preds = %790, %801
+  %.0.i.i679 = phi i32 [ %792, %790 ], [ %802, %801 ]
   %806 = load i8, ptr %23, align 1
   %807 = icmp eq i8 %806, 0
   br i1 %807, label %810, label %808
 
-808:                                              ; preds = %jit_CONST_FUNC.exit678
+808:                                              ; preds = %jit_CONST_FUNC.exit681
   %809 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %.0483)
   br label %810
 
-810:                                              ; preds = %jit_CONST_FUNC.exit678, %808
-  %811 = phi i32 [ %809, %808 ], [ -1, %jit_CONST_FUNC.exit678 ]
-  %812 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i676, i32 noundef %745, i32 noundef %811) #32
-  %813 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.0489759) #32
+810:                                              ; preds = %jit_CONST_FUNC.exit681, %808
+  %811 = phi i32 [ %809, %808 ], [ -1, %jit_CONST_FUNC.exit681 ]
+  %812 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i679, i32 noundef %745, i32 noundef %811) #32
+  %813 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.0489764) #32
   call void @_ir_MERGE_2(ptr noundef nonnull %0, i32 noundef %743, i32 noundef %781) #32
-  %814 = call i32 @_ir_PHI_2(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0488760, i32 noundef %762) #32
+  %814 = call i32 @_ir_PHI_2(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0488765, i32 noundef %762) #32
   %815 = sext i32 %814 to i64
   %816 = shl nsw i64 %815, 2
   %817 = or disjoint i64 %816, 3
-  %818 = and i32 %.0506771, -1025
+  %818 = and i32 %.0506776, -1025
   br label %819
 
 819:                                              ; preds = %810, %731
   %.1507 = phi i32 [ %818, %810 ], [ %737, %731 ]
-  %.0505 = phi i64 [ %817, %810 ], [ %.0484764, %731 ]
-  %.1490 = phi i32 [ %813, %810 ], [ %.0489759, %731 ]
-  %.1486 = phi i1 [ true, %810 ], [ %.0485763, %731 ]
+  %.0505 = phi i64 [ %817, %810 ], [ %.0484769, %731 ]
+  %.1490 = phi i32 [ %813, %810 ], [ %.0489764, %731 ]
+  %.1486 = phi i1 [ true, %810 ], [ %.0485768, %731 ]
   %820 = and i32 %.1507, 16
   %.not555 = icmp eq i32 %820, 0
   %821 = and i32 %.1507, 1006
-  %.not559777 = icmp eq i32 %821, 0
-  br i1 %.not555, label %.thread773, label %822
+  %.not559782 = icmp eq i32 %821, 0
+  br i1 %.not555, label %.thread778, label %822
 
 822:                                              ; preds = %819
-  br i1 %.not559777, label %828, label %823
+  br i1 %.not559782, label %828, label %823
 
 823:                                              ; preds = %822
   %824 = call fastcc i32 @jit_Z_TYPE(ptr noundef %0, i64 noundef %.0505)
@@ -69021,8 +69021,8 @@ jit_set_Z_LVAL.exit:                              ; preds = %836
   %843 = icmp eq i64 %842, 56
   %844 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
   %845 = icmp ne ptr %844, null
-  %or.cond.i679 = select i1 %843, i1 %845, i1 false
-  br i1 %or.cond.i679, label %846, label %856
+  %or.cond.i682 = select i1 %843, i1 %845, i1 false
+  br i1 %or.cond.i682, label %846, label %856
 
 846:                                              ; preds = %841
   %847 = getelementptr inbounds i8, ptr %844, i64 60
@@ -69042,11 +69042,11 @@ jit_set_Z_LVAL.exit:                              ; preds = %836
   br label %jit_set_Z_TYPE_INFO.exitthread-pre-split
 
 jit_set_Z_TYPE_INFO.exitthread-pre-split:         ; preds = %834, %846, %856
-  %.pr772 = load i8, ptr %831, align 4
+  %.pr777 = load i8, ptr %831, align 4
   br label %jit_set_Z_TYPE_INFO.exit
 
 jit_set_Z_TYPE_INFO.exit:                         ; preds = %jit_set_Z_TYPE_INFO.exitthread-pre-split, %828
-  %858 = phi i8 [ %.pr772, %jit_set_Z_TYPE_INFO.exitthread-pre-split ], [ %832, %828 ]
+  %858 = phi i8 [ %.pr777, %jit_set_Z_TYPE_INFO.exitthread-pre-split ], [ %832, %828 ]
   %859 = and i8 %858, -3
   %switch.selectcmp = icmp eq i8 %859, -124
   %860 = select i1 %switch.selectcmp, i32 2855, i32 2856
@@ -69069,25 +69069,25 @@ jit_set_Z_TYPE_INFO.exit:                         ; preds = %jit_set_Z_TYPE_INFO
 869:                                              ; preds = %867
   %870 = and i64 %.0483, 3
   %871 = icmp eq i64 %870, 2
-  br i1 %871, label %jit_set_Z_LVAL.exit680.thread, label %jit_set_Z_LVAL.exit680
+  br i1 %871, label %jit_set_Z_LVAL.exit683.thread, label %jit_set_Z_LVAL.exit683
 
-jit_set_Z_LVAL.exit680.thread:                    ; preds = %869
+jit_set_Z_LVAL.exit683.thread:                    ; preds = %869
   call fastcc void @zend_jit_def_reg(ptr noundef %0, i64 noundef %.0483, i32 noundef %862)
   br label %889
 
-jit_set_Z_LVAL.exit680:                           ; preds = %869
+jit_set_Z_LVAL.exit683:                           ; preds = %869
   %872 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %.0483)
   call void @_ir_STORE(ptr noundef %0, i32 noundef %872, i32 noundef %862) #32
   %873 = icmp eq i64 %870, 1
   br i1 %873, label %874, label %889
 
-874:                                              ; preds = %jit_set_Z_LVAL.exit680
+874:                                              ; preds = %jit_set_Z_LVAL.exit683
   %875 = and i64 %.0483, 252
   %876 = icmp eq i64 %875, 56
   %877 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
   %878 = icmp ne ptr %877, null
-  %or.cond.i681 = select i1 %876, i1 %878, i1 false
-  br i1 %or.cond.i681, label %879, label %889
+  %or.cond.i684 = select i1 %876, i1 %878, i1 false
+  br i1 %or.cond.i684, label %879, label %889
 
 879:                                              ; preds = %874
   %880 = getelementptr inbounds i8, ptr %877, i64 60
@@ -69101,45 +69101,45 @@ jit_set_Z_LVAL.exit680:                           ; preds = %869
   %888 = icmp eq i8 %887, 4
   br i1 %888, label %891, label %889
 
-889:                                              ; preds = %jit_set_Z_LVAL.exit680.thread, %879, %874, %jit_set_Z_LVAL.exit680
+889:                                              ; preds = %jit_set_Z_LVAL.exit683.thread, %879, %874, %jit_set_Z_LVAL.exit683
   %890 = call i32 @ir_const_u32(ptr noundef %0, i32 noundef 4) #32
   call fastcc void @jit_set_Z_TYPE_INFO_ex(ptr noundef %0, i64 noundef %.0483, i32 noundef %890)
   br label %891
 
 891:                                              ; preds = %867, %jit_set_Z_TYPE_INFO.exit, %879, %889
   %892 = call i32 @_ir_END_LIST(ptr noundef %0, i32 noundef %.1490) #32
-  br i1 %.not559777, label %.thread797, label %893
+  br i1 %.not559782, label %.thread802, label %893
 
-.thread773:                                       ; preds = %819
-  br i1 %.not559777, label %.thread793, label %.thread782
+.thread778:                                       ; preds = %819
+  br i1 %.not559782, label %.thread798, label %.thread787
 
 893:                                              ; preds = %891
   %.not561 = icmp eq i32 %.0503, 0
-  br i1 %.not561, label %.thread782, label %894
+  br i1 %.not561, label %.thread787, label %894
 
 894:                                              ; preds = %893
   call void @_ir_IF_FALSE_cold(ptr noundef %0, i32 noundef %.0503) #32
-  br label %.thread782
+  br label %.thread787
 
-.thread782:                                       ; preds = %.thread773, %894, %893
-  %.0502779790 = phi i32 [ %864, %894 ], [ %864, %893 ], [ 0, %.thread773 ]
-  %.2491781789 = phi i32 [ %892, %894 ], [ %892, %893 ], [ %.1490, %.thread773 ]
-  %.not560786.pn.in = and i32 %.1507, 896
-  %.not560786.pn = icmp ne i32 %.not560786.pn.in, 0
-  %spec.select791 = or i1 %.not560786.pn, %.1486
+.thread787:                                       ; preds = %.thread778, %894, %893
+  %.0502784795 = phi i32 [ %864, %894 ], [ %864, %893 ], [ 0, %.thread778 ]
+  %.2491786794 = phi i32 [ %892, %894 ], [ %892, %893 ], [ %.1490, %.thread778 ]
+  %.not560791.pn.in = and i32 %.1507, 896
+  %.not560791.pn = icmp ne i32 %.not560791.pn.in, 0
+  %spec.select796 = or i1 %.not560791.pn, %.1486
   %895 = getelementptr inbounds i8, ptr %1, i64 28
   %896 = load i8, ptr %895, align 4
   %897 = and i8 %896, -2
   %switch588 = icmp eq i8 %897, -122
   br i1 %switch588, label %898, label %899
 
-898:                                              ; preds = %.thread782
+898:                                              ; preds = %.thread787
   call fastcc void @jit_ZVAL_COPY(ptr noundef %0, i64 noundef %.0483, i32 noundef -1, i64 noundef %.0505, i32 noundef %.1507, i1 noundef zeroext true)
-  %.pr792 = load i8, ptr %895, align 4
+  %.pr797 = load i8, ptr %895, align 4
   br label %899
 
-899:                                              ; preds = %.thread782, %898
-  %900 = phi i8 [ %896, %.thread782 ], [ %.pr792, %898 ]
+899:                                              ; preds = %.thread787, %898
+  %900 = phi i8 [ %896, %.thread787 ], [ %.pr797, %898 ]
   switch i8 %900, label %979 [
     i8 -123, label %952
     i8 -124, label %901
@@ -69163,8 +69163,8 @@ jit_set_Z_LVAL.exit680:                           ; preds = %869
   %910 = load i64, ptr %905, align 8
   %911 = trunc i64 %910 to i32
   %912 = load ptr, ptr %0, align 8
-  %sext.i.i684 = shl i64 %910, 32
-  %913 = ashr exact i64 %sext.i.i684, 32
+  %sext.i.i687 = shl i64 %910, 32
+  %913 = ashr exact i64 %sext.i.i687, 32
   %914 = getelementptr inbounds %struct._ir_insn, ptr %912, i64 %913
   %915 = load i16, ptr %914, align 8
   %916 = icmp eq i16 %915, 1601
@@ -69173,7 +69173,7 @@ jit_set_Z_LVAL.exit680:                           ; preds = %869
   %918 = load i16, ptr %917, align 2
   %919 = icmp eq i16 %918, 0
   call void @llvm.assume(i1 %919)
-  br label %jit_CONST_FUNC.exit685
+  br label %jit_CONST_FUNC.exit688
 
 920:                                              ; preds = %903
   %921 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_pre_inc to i64)) #32
@@ -69183,13 +69183,13 @@ jit_set_Z_LVAL.exit680:                           ; preds = %869
   store i32 1601, ptr %924, align 8
   store i64 %923, ptr %905, align 8
   store i32 4, ptr %906, align 8
-  br label %jit_CONST_FUNC.exit685
+  br label %jit_CONST_FUNC.exit688
 
-jit_CONST_FUNC.exit685:                           ; preds = %909, %920
-  %.0.i.i683 = phi i32 [ %911, %909 ], [ %921, %920 ]
+jit_CONST_FUNC.exit688:                           ; preds = %909, %920
+  %.0.i.i686 = phi i32 [ %911, %909 ], [ %921, %920 ]
   %925 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %.0505)
   %926 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %.0483)
-  %927 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i683, i32 noundef %925, i32 noundef %926) #32
+  %927 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i686, i32 noundef %925, i32 noundef %926) #32
   br label %1003
 
 928:                                              ; preds = %899, %901
@@ -69204,8 +69204,8 @@ jit_CONST_FUNC.exit685:                           ; preds = %909, %920
   %935 = load i64, ptr %930, align 8
   %936 = trunc i64 %935 to i32
   %937 = load ptr, ptr %0, align 8
-  %sext.i.i687 = shl i64 %935, 32
-  %938 = ashr exact i64 %sext.i.i687, 32
+  %sext.i.i690 = shl i64 %935, 32
+  %938 = ashr exact i64 %sext.i.i690, 32
   %939 = getelementptr inbounds %struct._ir_insn, ptr %937, i64 %938
   %940 = load i16, ptr %939, align 8
   %941 = icmp eq i16 %940, 1601
@@ -69214,7 +69214,7 @@ jit_CONST_FUNC.exit685:                           ; preds = %909, %920
   %943 = load i16, ptr %942, align 2
   %944 = icmp eq i16 %943, 0
   call void @llvm.assume(i1 %944)
-  br label %jit_CONST_FUNC.exit688
+  br label %jit_CONST_FUNC.exit691
 
 945:                                              ; preds = %928
   %946 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @increment_function to i64)) #32
@@ -69224,12 +69224,12 @@ jit_CONST_FUNC.exit685:                           ; preds = %909, %920
   store i32 1601, ptr %949, align 8
   store i64 %948, ptr %930, align 8
   store i32 4, ptr %931, align 8
-  br label %jit_CONST_FUNC.exit688
+  br label %jit_CONST_FUNC.exit691
 
-jit_CONST_FUNC.exit688:                           ; preds = %934, %945
-  %.0.i.i686 = phi i32 [ %936, %934 ], [ %946, %945 ]
+jit_CONST_FUNC.exit691:                           ; preds = %934, %945
+  %.0.i.i689 = phi i32 [ %936, %934 ], [ %946, %945 ]
   %950 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %.0505)
-  %951 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i686, i32 noundef %950) #32
+  %951 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i689, i32 noundef %950) #32
   br label %1003
 
 952:                                              ; preds = %899
@@ -69249,8 +69249,8 @@ jit_CONST_FUNC.exit688:                           ; preds = %934, %945
   %961 = load i64, ptr %956, align 8
   %962 = trunc i64 %961 to i32
   %963 = load ptr, ptr %0, align 8
-  %sext.i.i690 = shl i64 %961, 32
-  %964 = ashr exact i64 %sext.i.i690, 32
+  %sext.i.i693 = shl i64 %961, 32
+  %964 = ashr exact i64 %sext.i.i693, 32
   %965 = getelementptr inbounds %struct._ir_insn, ptr %963, i64 %964
   %966 = load i16, ptr %965, align 8
   %967 = icmp eq i16 %966, 1601
@@ -69259,7 +69259,7 @@ jit_CONST_FUNC.exit688:                           ; preds = %934, %945
   %969 = load i16, ptr %968, align 2
   %970 = icmp eq i16 %969, 0
   call void @llvm.assume(i1 %970)
-  br label %jit_CONST_FUNC.exit691
+  br label %jit_CONST_FUNC.exit694
 
 971:                                              ; preds = %954
   %972 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_pre_dec to i64)) #32
@@ -69269,13 +69269,13 @@ jit_CONST_FUNC.exit688:                           ; preds = %934, %945
   store i32 1601, ptr %975, align 8
   store i64 %974, ptr %956, align 8
   store i32 4, ptr %957, align 8
-  br label %jit_CONST_FUNC.exit691
+  br label %jit_CONST_FUNC.exit694
 
-jit_CONST_FUNC.exit691:                           ; preds = %960, %971
-  %.0.i.i689 = phi i32 [ %962, %960 ], [ %972, %971 ]
+jit_CONST_FUNC.exit694:                           ; preds = %960, %971
+  %.0.i.i692 = phi i32 [ %962, %960 ], [ %972, %971 ]
   %976 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %.0505)
   %977 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %.0483)
-  %978 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i689, i32 noundef %976, i32 noundef %977) #32
+  %978 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i692, i32 noundef %976, i32 noundef %977) #32
   br label %1003
 
 979:                                              ; preds = %899, %952
@@ -69290,8 +69290,8 @@ jit_CONST_FUNC.exit691:                           ; preds = %960, %971
   %986 = load i64, ptr %981, align 8
   %987 = trunc i64 %986 to i32
   %988 = load ptr, ptr %0, align 8
-  %sext.i.i693 = shl i64 %986, 32
-  %989 = ashr exact i64 %sext.i.i693, 32
+  %sext.i.i696 = shl i64 %986, 32
+  %989 = ashr exact i64 %sext.i.i696, 32
   %990 = getelementptr inbounds %struct._ir_insn, ptr %988, i64 %989
   %991 = load i16, ptr %990, align 8
   %992 = icmp eq i16 %991, 1601
@@ -69300,7 +69300,7 @@ jit_CONST_FUNC.exit691:                           ; preds = %960, %971
   %994 = load i16, ptr %993, align 2
   %995 = icmp eq i16 %994, 0
   call void @llvm.assume(i1 %995)
-  br label %jit_CONST_FUNC.exit694
+  br label %jit_CONST_FUNC.exit697
 
 996:                                              ; preds = %979
   %997 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @decrement_function to i64)) #32
@@ -69310,23 +69310,23 @@ jit_CONST_FUNC.exit691:                           ; preds = %960, %971
   store i32 1601, ptr %1000, align 8
   store i64 %999, ptr %981, align 8
   store i32 4, ptr %982, align 8
-  br label %jit_CONST_FUNC.exit694
+  br label %jit_CONST_FUNC.exit697
 
-jit_CONST_FUNC.exit694:                           ; preds = %985, %996
-  %.0.i.i692 = phi i32 [ %987, %985 ], [ %997, %996 ]
+jit_CONST_FUNC.exit697:                           ; preds = %985, %996
+  %.0.i.i695 = phi i32 [ %987, %985 ], [ %997, %996 ]
   %1001 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %.0505)
-  %1002 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i692, i32 noundef %1001) #32
+  %1002 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i695, i32 noundef %1001) #32
   br label %1003
 
-1003:                                             ; preds = %jit_CONST_FUNC.exit691, %jit_CONST_FUNC.exit694, %jit_CONST_FUNC.exit685, %jit_CONST_FUNC.exit688
-  %1004 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.2491781789) #32
-  br i1 %.not555, label %.thread793, label %.thread797
+1003:                                             ; preds = %jit_CONST_FUNC.exit694, %jit_CONST_FUNC.exit697, %jit_CONST_FUNC.exit688, %jit_CONST_FUNC.exit691
+  %1004 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.2491786794) #32
+  br i1 %.not555, label %.thread798, label %.thread802
 
-.thread797:                                       ; preds = %891, %1003
-  %.3803 = phi i1 [ %spec.select791, %1003 ], [ %.1486, %891 ]
-  %.3492802 = phi i32 [ %1004, %1003 ], [ %892, %891 ]
-  %.0502780801 = phi i32 [ %.0502779790, %1003 ], [ %864, %891 ]
-  call void @_ir_IF_TRUE_cold(ptr noundef %0, i32 noundef %.0502780801) #32
+.thread802:                                       ; preds = %891, %1003
+  %.3808 = phi i1 [ %spec.select796, %1003 ], [ %.1486, %891 ]
+  %.3492807 = phi i32 [ %1004, %1003 ], [ %892, %891 ]
+  %.0502785806 = phi i32 [ %.0502784795, %1003 ], [ %864, %891 ]
+  call void @_ir_IF_TRUE_cold(ptr noundef %0, i32 noundef %.0502785806) #32
   %1005 = getelementptr inbounds i8, ptr %1, i64 28
   %1006 = load i8, ptr %1005, align 4
   switch i8 %1006, label %1036 [
@@ -69334,7 +69334,7 @@ jit_CONST_FUNC.exit694:                           ; preds = %985, %996
     i8 -122, label %1007
   ]
 
-1007:                                             ; preds = %.thread797, %.thread797
+1007:                                             ; preds = %.thread802, %.thread802
   %1008 = call i32 @ir_const_i64(ptr noundef %0, i64 noundef 4890909195324358656) #32
   %1009 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %.0505)
   call void @_ir_STORE(ptr noundef %0, i32 noundef %1009, i32 noundef %1008) #32
@@ -69342,32 +69342,32 @@ jit_CONST_FUNC.exit694:                           ; preds = %985, %996
   call fastcc void @jit_set_Z_TYPE_INFO_ex(ptr noundef %0, i64 noundef %.0505, i32 noundef %1010)
   %1011 = load i8, ptr %1005, align 4
   %1012 = icmp eq i8 %1011, -124
-  br i1 %1012, label %1013, label %jit_set_Z_TYPE_INFO.exit697
+  br i1 %1012, label %1013, label %jit_set_Z_TYPE_INFO.exit701
 
 1013:                                             ; preds = %1007
   %1014 = load i8, ptr %23, align 1
   %.not565 = icmp eq i8 %1014, 0
-  br i1 %.not565, label %jit_set_Z_TYPE_INFO.exit697.thread, label %1015
+  br i1 %.not565, label %jit_set_Z_TYPE_INFO.exit701.thread, label %1015
 
 1015:                                             ; preds = %1013
   %1016 = call i32 @ir_const_i64(ptr noundef %0, i64 noundef 4890909195324358656) #32
   %1017 = and i64 %.0483, 3
   %1018 = icmp eq i64 %1017, 2
-  br i1 %1018, label %jit_set_Z_TYPE_INFO.exit697.sink.split.sink.split, label %jit_set_Z_LVAL.exit695
+  br i1 %1018, label %jit_set_Z_TYPE_INFO.exit701.sink.split.sink.split, label %jit_set_Z_LVAL.exit699
 
-jit_set_Z_LVAL.exit695:                           ; preds = %1015
+jit_set_Z_LVAL.exit699:                           ; preds = %1015
   %1019 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %.0483)
   call void @_ir_STORE(ptr noundef %0, i32 noundef %1019, i32 noundef %1016) #32
   %1020 = icmp eq i64 %1017, 1
-  br i1 %1020, label %1021, label %jit_set_Z_TYPE_INFO.exit697.sink.split
+  br i1 %1020, label %1021, label %jit_set_Z_TYPE_INFO.exit701.sink.split
 
-1021:                                             ; preds = %jit_set_Z_LVAL.exit695
+1021:                                             ; preds = %jit_set_Z_LVAL.exit699
   %1022 = and i64 %.0483, 252
   %1023 = icmp eq i64 %1022, 56
   %1024 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
   %1025 = icmp ne ptr %1024, null
-  %or.cond.i696 = select i1 %1023, i1 %1025, i1 false
-  br i1 %or.cond.i696, label %1026, label %jit_set_Z_TYPE_INFO.exit697.sink.split
+  %or.cond.i700 = select i1 %1023, i1 %1025, i1 false
+  br i1 %or.cond.i700, label %1026, label %jit_set_Z_TYPE_INFO.exit701.sink.split
 
 1026:                                             ; preds = %1021
   %1027 = getelementptr inbounds i8, ptr %1024, i64 60
@@ -69379,9 +69379,9 @@ jit_set_Z_LVAL.exit695:                           ; preds = %1015
   %1033 = getelementptr inbounds i8, ptr %1032, i64 1
   %1034 = load i8, ptr %1033, align 1
   %1035 = icmp eq i8 %1034, 5
-  br i1 %1035, label %jit_set_Z_TYPE_INFO.exit697, label %jit_set_Z_TYPE_INFO.exit697.sink.split
+  br i1 %1035, label %jit_set_Z_TYPE_INFO.exit701, label %jit_set_Z_TYPE_INFO.exit701.sink.split
 
-1036:                                             ; preds = %.thread797
+1036:                                             ; preds = %.thread802
   %1037 = call i32 @ir_const_i64(ptr noundef %0, i64 noundef -4332462841530417152) #32
   %1038 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %.0505)
   call void @_ir_STORE(ptr noundef %0, i32 noundef %1038, i32 noundef %1037) #32
@@ -69389,32 +69389,32 @@ jit_set_Z_LVAL.exit695:                           ; preds = %1015
   call fastcc void @jit_set_Z_TYPE_INFO_ex(ptr noundef %0, i64 noundef %.0505, i32 noundef %1039)
   %1040 = load i8, ptr %1005, align 4
   %1041 = icmp eq i8 %1040, -123
-  br i1 %1041, label %1042, label %jit_set_Z_TYPE_INFO.exit697
+  br i1 %1041, label %1042, label %jit_set_Z_TYPE_INFO.exit701
 
 1042:                                             ; preds = %1036
   %1043 = load i8, ptr %23, align 1
   %.not564 = icmp eq i8 %1043, 0
-  br i1 %.not564, label %jit_set_Z_TYPE_INFO.exit697.thread, label %1044
+  br i1 %.not564, label %jit_set_Z_TYPE_INFO.exit701.thread, label %1044
 
 1044:                                             ; preds = %1042
   %1045 = call i32 @ir_const_i64(ptr noundef %0, i64 noundef -4332462841530417152) #32
   %1046 = and i64 %.0483, 3
   %1047 = icmp eq i64 %1046, 2
-  br i1 %1047, label %jit_set_Z_TYPE_INFO.exit697.sink.split.sink.split, label %jit_set_Z_LVAL.exit698
+  br i1 %1047, label %jit_set_Z_TYPE_INFO.exit701.sink.split.sink.split, label %jit_set_Z_LVAL.exit703
 
-jit_set_Z_LVAL.exit698:                           ; preds = %1044
+jit_set_Z_LVAL.exit703:                           ; preds = %1044
   %1048 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %.0483)
   call void @_ir_STORE(ptr noundef %0, i32 noundef %1048, i32 noundef %1045) #32
   %1049 = icmp eq i64 %1046, 1
-  br i1 %1049, label %1050, label %jit_set_Z_TYPE_INFO.exit697.sink.split
+  br i1 %1049, label %1050, label %jit_set_Z_TYPE_INFO.exit701.sink.split
 
-1050:                                             ; preds = %jit_set_Z_LVAL.exit698
+1050:                                             ; preds = %jit_set_Z_LVAL.exit703
   %1051 = and i64 %.0483, 252
   %1052 = icmp eq i64 %1051, 56
   %1053 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
   %1054 = icmp ne ptr %1053, null
-  %or.cond.i699 = select i1 %1052, i1 %1054, i1 false
-  br i1 %or.cond.i699, label %1055, label %jit_set_Z_TYPE_INFO.exit697.sink.split
+  %or.cond.i704 = select i1 %1052, i1 %1054, i1 false
+  br i1 %or.cond.i704, label %1055, label %jit_set_Z_TYPE_INFO.exit701.sink.split
 
 1055:                                             ; preds = %1050
   %1056 = getelementptr inbounds i8, ptr %1053, i64 60
@@ -69426,24 +69426,24 @@ jit_set_Z_LVAL.exit698:                           ; preds = %1044
   %1062 = getelementptr inbounds i8, ptr %1061, i64 1
   %1063 = load i8, ptr %1062, align 1
   %1064 = icmp eq i8 %1063, 5
-  br i1 %1064, label %jit_set_Z_TYPE_INFO.exit697, label %jit_set_Z_TYPE_INFO.exit697.sink.split
+  br i1 %1064, label %jit_set_Z_TYPE_INFO.exit701, label %jit_set_Z_TYPE_INFO.exit701.sink.split
 
-jit_set_Z_TYPE_INFO.exit697.sink.split.sink.split: ; preds = %1044, %1015
+jit_set_Z_TYPE_INFO.exit701.sink.split.sink.split: ; preds = %1044, %1015
   %.sink = phi i32 [ %1016, %1015 ], [ %1045, %1044 ]
   call fastcc void @zend_jit_def_reg(ptr noundef %0, i64 noundef %.0483, i32 noundef %.sink)
-  br label %jit_set_Z_TYPE_INFO.exit697.sink.split
+  br label %jit_set_Z_TYPE_INFO.exit701.sink.split
 
-jit_set_Z_TYPE_INFO.exit697.sink.split:           ; preds = %jit_set_Z_TYPE_INFO.exit697.sink.split.sink.split, %jit_set_Z_LVAL.exit698, %1050, %1055, %jit_set_Z_LVAL.exit695, %1021, %1026
+jit_set_Z_TYPE_INFO.exit701.sink.split:           ; preds = %jit_set_Z_TYPE_INFO.exit701.sink.split.sink.split, %jit_set_Z_LVAL.exit703, %1050, %1055, %jit_set_Z_LVAL.exit699, %1021, %1026
   %1065 = call i32 @ir_const_u32(ptr noundef %0, i32 noundef 5) #32
   call fastcc void @jit_set_Z_TYPE_INFO_ex(ptr noundef %0, i64 noundef %.0483, i32 noundef %1065)
-  br label %jit_set_Z_TYPE_INFO.exit697
+  br label %jit_set_Z_TYPE_INFO.exit701
 
-jit_set_Z_TYPE_INFO.exit697:                      ; preds = %jit_set_Z_TYPE_INFO.exit697.sink.split, %1055, %1026, %1036, %1007
-  %.pr804 = load i8, ptr %23, align 1
-  %.not566 = icmp eq i8 %.pr804, 0
-  br i1 %.not566, label %jit_set_Z_TYPE_INFO.exit697.thread, label %1066
+jit_set_Z_TYPE_INFO.exit701:                      ; preds = %jit_set_Z_TYPE_INFO.exit701.sink.split, %1055, %1026, %1036, %1007
+  %.pr809 = load i8, ptr %23, align 1
+  %.not566 = icmp eq i8 %.pr809, 0
+  br i1 %.not566, label %jit_set_Z_TYPE_INFO.exit701.thread, label %1066
 
-1066:                                             ; preds = %jit_set_Z_TYPE_INFO.exit697
+1066:                                             ; preds = %jit_set_Z_TYPE_INFO.exit701
   %1067 = load i8, ptr %1005, align 4
   %1068 = icmp eq i8 %1067, -124
   br i1 %1068, label %1071, label %1069
@@ -69451,10 +69451,10 @@ jit_set_Z_TYPE_INFO.exit697:                      ; preds = %jit_set_Z_TYPE_INFO
 1069:                                             ; preds = %1066
   %1070 = icmp eq i8 %1067, -123
   %or.cond15 = and i1 %306, %1070
-  br i1 %or.cond15, label %1072, label %jit_set_Z_TYPE_INFO.exit697.thread
+  br i1 %or.cond15, label %1072, label %jit_set_Z_TYPE_INFO.exit701.thread
 
 1071:                                             ; preds = %1066
-  br i1 %306, label %1072, label %jit_set_Z_TYPE_INFO.exit697.thread
+  br i1 %306, label %1072, label %jit_set_Z_TYPE_INFO.exit701.thread
 
 1072:                                             ; preds = %1069, %1071
   %1073 = getelementptr inbounds i8, ptr %.0481, i64 48
@@ -69464,7 +69464,7 @@ jit_set_Z_TYPE_INFO.exit697:                      ; preds = %jit_set_Z_TYPE_INFO
   %1076 = and i32 %53, 268435472
   %1077 = icmp ne i32 %1076, 268435472
   %or.cond581 = select i1 %.not567, i1 true, i1 %1077
-  br i1 %or.cond581, label %jit_set_Z_TYPE_INFO.exit697.thread, label %1078
+  br i1 %or.cond581, label %jit_set_Z_TYPE_INFO.exit701.thread, label %1078
 
 1078:                                             ; preds = %1072
   %1079 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
@@ -69509,22 +69509,22 @@ jit_set_Z_TYPE_INFO.exit697:                      ; preds = %jit_set_Z_TYPE_INFO
   %1113 = load ptr, ptr @zend_jit_traces, align 8
   %1114 = getelementptr inbounds i8, ptr %1113, i64 16
   %1115 = load i32, ptr %1114, align 8
-  %.not.i701 = icmp ugt i32 %1115, %1112
-  br i1 %.not.i701, label %1140, label %1116
+  %.not.i706 = icmp ugt i32 %1115, %1112
+  br i1 %.not.i706, label %1140, label %1116
 
 1116:                                             ; preds = %1078
   %1117 = icmp ugt i32 %1112, 511
-  br i1 %1117, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i702
+  br i1 %1117, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i707
 
-.preheader.i.i702:                                ; preds = %1116
+.preheader.i.i707:                                ; preds = %1116
   %1118 = getelementptr inbounds i8, ptr %16, i64 8
   %1119 = getelementptr inbounds i8, ptr %16, i64 16
-  %.pre12.i.i703 = load ptr, ptr @dasm_ptr, align 8
+  %.pre12.i.i708 = load ptr, ptr @dasm_ptr, align 8
   br label %1120
 
-1120:                                             ; preds = %1130, %.preheader.i.i702
-  %1121 = phi ptr [ %.pre12.i.i703, %.preheader.i.i702 ], [ %1129, %1130 ]
-  %1122 = phi i32 [ %1115, %.preheader.i.i702 ], [ %1139, %1130 ]
+1120:                                             ; preds = %1130, %.preheader.i.i707
+  %1121 = phi ptr [ %.pre12.i.i708, %.preheader.i.i707 ], [ %1129, %1130 ]
+  %1122 = phi i32 [ %1115, %.preheader.i.i707 ], [ %1139, %1130 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   %1123 = load ptr, ptr @dasm_buf, align 8
@@ -69540,8 +69540,8 @@ jit_set_Z_TYPE_INFO.exit697:                      ; preds = %jit_set_Z_TYPE_INFO
   store ptr %1128, ptr %1129, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  %.not.i.i704 = icmp eq ptr %1127, null
-  br i1 %.not.i.i704, label %zend_jit_trace_get_exit_addr.exit.thread, label %1130
+  %.not.i.i709 = icmp eq ptr %1127, null
+  br i1 %.not.i.i709, label %zend_jit_trace_get_exit_addr.exit.thread, label %1130
 
 1130:                                             ; preds = %1120
   %1131 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -69555,8 +69555,8 @@ jit_set_Z_TYPE_INFO.exit697:                      ; preds = %jit_set_Z_TYPE_INFO
   %1138 = load i32, ptr %1133, align 8
   %1139 = add i32 %1138, 32
   store i32 %1139, ptr %1133, align 8
-  %.not8.i.i705 = icmp ugt i32 %1139, %1112
-  br i1 %.not8.i.i705, label %zend_jit_trace_get_exit_addr.exit707, label %1120
+  %.not8.i.i710 = icmp ugt i32 %1139, %1112
+  br i1 %.not8.i.i710, label %zend_jit_trace_get_exit_addr.exit712, label %1120
 
 1140:                                             ; preds = %1078
   %1141 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -69564,18 +69564,18 @@ jit_set_Z_TYPE_INFO.exit697:                      ; preds = %jit_set_Z_TYPE_INFO
   %1143 = zext nneg i32 %1142 to i64
   %1144 = getelementptr inbounds ptr, ptr %1141, i64 %1143
   %1145 = load ptr, ptr %1144, align 8
-  br label %zend_jit_trace_get_exit_addr.exit707
+  br label %zend_jit_trace_get_exit_addr.exit712
 
-zend_jit_trace_get_exit_addr.exit707:             ; preds = %1130, %1140
-  %.lcssa832.sink = phi ptr [ %1145, %1140 ], [ %1127, %1130 ]
-  %.not570 = icmp eq ptr %.lcssa832.sink, null
+zend_jit_trace_get_exit_addr.exit712:             ; preds = %1130, %1140
+  %.lcssa837.sink = phi ptr [ %1145, %1140 ], [ %1127, %1130 ]
+  %.not570 = icmp eq ptr %.lcssa837.sink, null
   br i1 %.not570, label %zend_jit_trace_get_exit_addr.exit.thread, label %1146
 
-1146:                                             ; preds = %zend_jit_trace_get_exit_addr.exit707
+1146:                                             ; preds = %zend_jit_trace_get_exit_addr.exit712
   %1147 = shl i32 %1112, 2
   %1148 = and i32 %1147, 124
   %1149 = zext nneg i32 %1148 to i64
-  %1150 = getelementptr inbounds i8, ptr %.lcssa832.sink, i64 %1149
+  %1150 = getelementptr inbounds i8, ptr %.lcssa837.sink, i64 %1149
   %1151 = load i32, ptr %1081, align 8
   %1152 = lshr i32 %1151, 4
   %1153 = add nsw i32 %1152, -5
@@ -69602,46 +69602,46 @@ zend_jit_trace_get_exit_addr.exit707:             ; preds = %1130, %1140
   %1170 = load i64, ptr %1165, align 8
   %1171 = trunc i64 %1170 to i32
   %1172 = load ptr, ptr %0, align 8
-  %sext.i709 = shl i64 %1170, 32
-  %1173 = ashr exact i64 %sext.i709, 32
+  %sext.i714 = shl i64 %1170, 32
+  %1173 = ashr exact i64 %sext.i714, 32
   %1174 = getelementptr inbounds %struct._ir_insn, ptr %1172, i64 %1173
   %1175 = load i16, ptr %1174, align 8
   %1176 = icmp eq i16 %1175, 1542
   call void @llvm.assume(i1 %1176)
-  br label %jit_CONST_ADDR.exit710
+  br label %jit_CONST_ADDR.exit715
 
 1177:                                             ; preds = %1146
   %1178 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %1163) #32
   %1179 = sext i32 %1178 to i64
   store i64 %1179, ptr %1165, align 8
   store i32 4, ptr %1166, align 8
-  br label %jit_CONST_ADDR.exit710
+  br label %jit_CONST_ADDR.exit715
 
-jit_CONST_ADDR.exit710:                           ; preds = %1169, %1177
-  %.0.i708 = phi i32 [ %1171, %1169 ], [ %1178, %1177 ]
-  call void @jit_SNAPSHOT(ptr noundef %0, i32 noundef %.0.i708)
-  call void @_ir_IJMP(ptr noundef %0, i32 noundef %.0.i708) #32
-  br label %.thread793
+jit_CONST_ADDR.exit715:                           ; preds = %1169, %1177
+  %.0.i713 = phi i32 [ %1171, %1169 ], [ %1178, %1177 ]
+  call void @jit_SNAPSHOT(ptr noundef %0, i32 noundef %.0.i713)
+  call void @_ir_IJMP(ptr noundef %0, i32 noundef %.0.i713) #32
+  br label %.thread798
 
-jit_set_Z_TYPE_INFO.exit697.thread:               ; preds = %1013, %1042, %jit_set_Z_TYPE_INFO.exit697, %1069, %1071, %1072
-  %1180 = call i32 @_ir_END_LIST(ptr noundef %0, i32 noundef %.3492802) #32
-  br label %.thread793
+jit_set_Z_TYPE_INFO.exit701.thread:               ; preds = %1013, %1042, %jit_set_Z_TYPE_INFO.exit701, %1069, %1071, %1072
+  %1180 = call i32 @_ir_END_LIST(ptr noundef %0, i32 noundef %.3492807) #32
+  br label %.thread798
 
-.thread793:                                       ; preds = %.thread773, %1003, %jit_set_Z_TYPE_INFO.exit697.thread, %jit_CONST_ADDR.exit710, %.thread749
-  %.3499755 = phi i32 [ %.2498, %.thread749 ], [ %.3499756, %jit_set_Z_TYPE_INFO.exit697.thread ], [ %.3499756, %jit_CONST_ADDR.exit710 ], [ %.3499756, %1003 ], [ %.3499756, %.thread773 ]
-  %.4493 = phi i32 [ %695, %.thread749 ], [ %1180, %jit_set_Z_TYPE_INFO.exit697.thread ], [ %.3492802, %jit_CONST_ADDR.exit710 ], [ %1004, %1003 ], [ %.1490, %.thread773 ]
-  %.4 = phi i1 [ true, %.thread749 ], [ %.3803, %jit_set_Z_TYPE_INFO.exit697.thread ], [ %.3803, %jit_CONST_ADDR.exit710 ], [ %spec.select791, %1003 ], [ %.1486, %.thread773 ]
-  %.not571 = icmp eq i32 %.3499755, 0
-  br i1 %.not571, label %1290, label %switch.lookup859
+.thread798:                                       ; preds = %.thread778, %1003, %jit_set_Z_TYPE_INFO.exit701.thread, %jit_CONST_ADDR.exit715, %.thread754
+  %.3499760 = phi i32 [ %.2498, %.thread754 ], [ %.3499761, %jit_set_Z_TYPE_INFO.exit701.thread ], [ %.3499761, %jit_CONST_ADDR.exit715 ], [ %.3499761, %1003 ], [ %.3499761, %.thread778 ]
+  %.4493 = phi i32 [ %695, %.thread754 ], [ %1180, %jit_set_Z_TYPE_INFO.exit701.thread ], [ %.3492807, %jit_CONST_ADDR.exit715 ], [ %1004, %1003 ], [ %.1490, %.thread778 ]
+  %.4 = phi i1 [ true, %.thread754 ], [ %.3808, %jit_set_Z_TYPE_INFO.exit701.thread ], [ %.3808, %jit_CONST_ADDR.exit715 ], [ %spec.select796, %1003 ], [ %.1486, %.thread778 ]
+  %.not571 = icmp eq i32 %.3499760, 0
+  br i1 %.not571, label %1290, label %switch.lookup864
 
-switch.lookup859:                                 ; preds = %.thread793
-  call void @_ir_MERGE_LIST(ptr noundef %0, i32 noundef %.3499755) #32
+switch.lookup864:                                 ; preds = %.thread798
+  call void @_ir_MERGE_LIST(ptr noundef %0, i32 noundef %.3499760) #32
   %1181 = getelementptr inbounds i8, ptr %1, i64 28
   %1182 = load i8, ptr %1181, align 4
-  %switch.tableidx860 = add nsw i8 %1182, 124
-  %1183 = sext i8 %switch.tableidx860 to i64
-  %switch.gep861 = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_jit_incdec_obj.41, i64 0, i64 %1183
-  %switch.load862 = load ptr, ptr %switch.gep861, align 8
+  %switch.tableidx865 = add nsw i8 %1182, 124
+  %1183 = sext i8 %switch.tableidx865 to i64
+  %switch.gep866 = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_jit_incdec_obj.41, i64 0, i64 %1183
+  %switch.load867 = load ptr, ptr %switch.gep866, align 8
   call fastcc void @jit_SET_EX_OPLINE(ptr noundef %0, ptr noundef nonnull %1)
   %1184 = getelementptr inbounds i8, ptr %0, i64 248
   %1185 = load i32, ptr %1184, align 8
@@ -69650,39 +69650,39 @@ switch.lookup859:                                 ; preds = %.thread793
   %1187 = getelementptr inbounds i8, ptr %0, i64 700
   %1188 = load i32, ptr %1187, align 4
   %1189 = icmp eq i32 %1188, 0
-  br i1 %1189, label %.loopexit.sink.split.i715, label %.preheader.i711
+  br i1 %1189, label %.loopexit.sink.split.i720, label %.preheader.i716
 
-.preheader.i711:                                  ; preds = %switch.lookup859
+.preheader.i716:                                  ; preds = %switch.lookup864
   %1190 = icmp eq i32 %1185, %1188
-  br i1 %1190, label %jit_FP.exit717, label %.lr.ph.i712
+  br i1 %1190, label %jit_FP.exit722, label %.lr.ph.i717
 
-.lr.ph.i712:                                      ; preds = %.preheader.i711
+.lr.ph.i717:                                      ; preds = %.preheader.i716
   %1191 = load ptr, ptr %0, align 8
   br label %1192
 
-1192:                                             ; preds = %1198, %.lr.ph.i712
-  %.015.i713 = phi i32 [ %1185, %.lr.ph.i712 ], [ %1200, %1198 ]
-  %1193 = sext i32 %.015.i713 to i64
+1192:                                             ; preds = %1198, %.lr.ph.i717
+  %.015.i718 = phi i32 [ %1185, %.lr.ph.i717 ], [ %1200, %1198 ]
+  %1193 = sext i32 %.015.i718 to i64
   %1194 = getelementptr inbounds %struct._ir_insn, ptr %1191, i64 %1193
   %1195 = load i8, ptr %1194, align 8
   %1196 = icmp ugt i8 %1195, 88
   %1197 = icmp eq i8 %1195, 69
-  %or.cond.i714 = or i1 %1196, %1197
-  br i1 %or.cond.i714, label %.loopexit.sink.split.i715, label %1198
+  %or.cond.i719 = or i1 %1196, %1197
+  br i1 %or.cond.i719, label %.loopexit.sink.split.i720, label %1198
 
 1198:                                             ; preds = %1192
   %1199 = getelementptr inbounds i8, ptr %1194, i64 4
   %1200 = load i32, ptr %1199, align 4
   %1201 = icmp eq i32 %1200, %1188
-  br i1 %1201, label %jit_FP.exit717, label %1192
+  br i1 %1201, label %jit_FP.exit722, label %1192
 
-.loopexit.sink.split.i715:                        ; preds = %1192, %switch.lookup859
+.loopexit.sink.split.i720:                        ; preds = %1192, %switch.lookup864
   %1202 = call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 14) #32
   store i32 %1202, ptr %1187, align 4
-  br label %jit_FP.exit717
+  br label %jit_FP.exit722
 
-jit_FP.exit717:                                   ; preds = %1198, %.preheader.i711, %.loopexit.sink.split.i715
-  %1203 = phi i32 [ %1185, %.preheader.i711 ], [ %1202, %.loopexit.sink.split.i715 ], [ %1188, %1198 ]
+jit_FP.exit722:                                   ; preds = %1198, %.preheader.i716, %.loopexit.sink.split.i720
+  %1203 = phi i32 [ %1185, %.preheader.i716 ], [ %1202, %.loopexit.sink.split.i720 ], [ %1188, %1198 ]
   %1204 = getelementptr inbounds i8, ptr %0, i64 808
   %1205 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %1204, i64 noundef 64) #32
   %1206 = getelementptr inbounds i8, ptr %1205, i64 8
@@ -69690,42 +69690,42 @@ jit_FP.exit717:                                   ; preds = %1198, %.preheader.i
   %1208 = icmp eq i8 %1207, 4
   br i1 %1208, label %1209, label %1217
 
-1209:                                             ; preds = %jit_FP.exit717
+1209:                                             ; preds = %jit_FP.exit722
   %1210 = load i64, ptr %1205, align 8
   %1211 = trunc i64 %1210 to i32
   %1212 = load ptr, ptr %0, align 8
-  %sext.i.i721 = shl i64 %1210, 32
-  %1213 = ashr exact i64 %sext.i.i721, 32
+  %sext.i.i726 = shl i64 %1210, 32
+  %1213 = ashr exact i64 %sext.i.i726, 32
   %1214 = getelementptr inbounds %struct._ir_insn, ptr %1212, i64 %1213
   %1215 = load i16, ptr %1214, align 8
   %1216 = icmp eq i16 %1215, 1542
   call void @llvm.assume(i1 %1216)
-  br label %jit_ADD_OFFSET.exit722
+  br label %jit_ADD_OFFSET.exit727
 
-1217:                                             ; preds = %jit_FP.exit717
+1217:                                             ; preds = %jit_FP.exit722
   %1218 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 64) #32
   %1219 = sext i32 %1218 to i64
   store i64 %1219, ptr %1205, align 8
   store i32 4, ptr %1206, align 8
-  br label %jit_ADD_OFFSET.exit722
+  br label %jit_ADD_OFFSET.exit727
 
-jit_ADD_OFFSET.exit722:                           ; preds = %1209, %1217
-  %.0.i.i719 = phi i32 [ %1211, %1209 ], [ %1218, %1217 ]
-  %1220 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %1203, i32 noundef %.0.i.i719) #32
+jit_ADD_OFFSET.exit727:                           ; preds = %1209, %1217
+  %.0.i.i724 = phi i32 [ %1211, %1209 ], [ %1218, %1217 ]
+  %1220 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %1203, i32 noundef %.0.i.i724) #32
   %1221 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %1220) #32
-  %1222 = ptrtoint ptr %switch.load862 to i64
+  %1222 = ptrtoint ptr %switch.load867 to i64
   %1223 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %1204, i64 noundef %1222) #32
   %1224 = getelementptr inbounds i8, ptr %1223, i64 8
   %1225 = load i8, ptr %1224, align 8
   %1226 = icmp eq i8 %1225, 4
   br i1 %1226, label %1227, label %1238
 
-1227:                                             ; preds = %jit_ADD_OFFSET.exit722
+1227:                                             ; preds = %jit_ADD_OFFSET.exit727
   %1228 = load i64, ptr %1223, align 8
   %1229 = trunc i64 %1228 to i32
   %1230 = load ptr, ptr %0, align 8
-  %sext.i.i724 = shl i64 %1228, 32
-  %1231 = ashr exact i64 %sext.i.i724, 32
+  %sext.i.i729 = shl i64 %1228, 32
+  %1231 = ashr exact i64 %sext.i.i729, 32
   %1232 = getelementptr inbounds %struct._ir_insn, ptr %1230, i64 %1231
   %1233 = load i16, ptr %1232, align 8
   %1234 = icmp eq i16 %1233, 1601
@@ -69734,9 +69734,9 @@ jit_ADD_OFFSET.exit722:                           ; preds = %1209, %1217
   %1236 = load i16, ptr %1235, align 2
   %1237 = icmp eq i16 %1236, 0
   call void @llvm.assume(i1 %1237)
-  br label %jit_CONST_FUNC.exit725
+  br label %jit_CONST_FUNC.exit730
 
-1238:                                             ; preds = %jit_ADD_OFFSET.exit722
+1238:                                             ; preds = %jit_ADD_OFFSET.exit727
   %1239 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %1222) #32
   %1240 = load ptr, ptr %0, align 8
   %1241 = sext i32 %1239 to i64
@@ -69744,15 +69744,15 @@ jit_ADD_OFFSET.exit722:                           ; preds = %1209, %1217
   store i32 1601, ptr %1242, align 8
   store i64 %1241, ptr %1223, align 8
   store i32 4, ptr %1224, align 8
-  br label %jit_CONST_FUNC.exit725
+  br label %jit_CONST_FUNC.exit730
 
-jit_CONST_FUNC.exit725:                           ; preds = %1227, %1238
-  %.0.i.i723 = phi i32 [ %1229, %1227 ], [ %1239, %1238 ]
+jit_CONST_FUNC.exit730:                           ; preds = %1227, %1238
+  %.0.i.i728 = phi i32 [ %1229, %1227 ], [ %1239, %1238 ]
   %1243 = ptrtoint ptr %58 to i64
   %1244 = icmp eq ptr %58, null
-  br i1 %1244, label %jit_CONST_ADDR.exit728, label %1245
+  br i1 %1244, label %jit_CONST_ADDR.exit733, label %1245
 
-1245:                                             ; preds = %jit_CONST_FUNC.exit725
+1245:                                             ; preds = %jit_CONST_FUNC.exit730
   %1246 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %1204, i64 noundef %1243) #32
   %1247 = getelementptr inbounds i8, ptr %1246, i64 8
   %1248 = load i8, ptr %1247, align 8
@@ -69763,31 +69763,31 @@ jit_CONST_FUNC.exit725:                           ; preds = %1227, %1238
   %1251 = load i64, ptr %1246, align 8
   %1252 = trunc i64 %1251 to i32
   %1253 = load ptr, ptr %0, align 8
-  %sext.i727 = shl i64 %1251, 32
-  %1254 = ashr exact i64 %sext.i727, 32
+  %sext.i732 = shl i64 %1251, 32
+  %1254 = ashr exact i64 %sext.i732, 32
   %1255 = getelementptr inbounds %struct._ir_insn, ptr %1253, i64 %1254
   %1256 = load i16, ptr %1255, align 8
   %1257 = icmp eq i16 %1256, 1542
   call void @llvm.assume(i1 %1257)
-  br label %jit_CONST_ADDR.exit728
+  br label %jit_CONST_ADDR.exit733
 
 1258:                                             ; preds = %1245
   %1259 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %1243) #32
   %1260 = sext i32 %1259 to i64
   store i64 %1260, ptr %1246, align 8
   store i32 4, ptr %1247, align 8
-  br label %jit_CONST_ADDR.exit728
+  br label %jit_CONST_ADDR.exit733
 
-jit_CONST_ADDR.exit728:                           ; preds = %jit_CONST_FUNC.exit725, %1250, %1258
-  %.0.i726 = phi i32 [ -1, %jit_CONST_FUNC.exit725 ], [ %1252, %1250 ], [ %1259, %1258 ]
+jit_CONST_ADDR.exit733:                           ; preds = %jit_CONST_FUNC.exit730, %1250, %1258
+  %.0.i731 = phi i32 [ -1, %jit_CONST_FUNC.exit730 ], [ %1252, %1250 ], [ %1259, %1258 ]
   %1261 = getelementptr inbounds i8, ptr %1, i64 20
   %1262 = load i32, ptr %1261, align 4
   %1263 = and i32 %1262, -4
   %1264 = zext i32 %1263 to i64
-  %.not.i729 = icmp eq i32 %1263, 0
-  br i1 %.not.i729, label %jit_ADD_OFFSET.exit734, label %1265
+  %.not.i734 = icmp eq i32 %1263, 0
+  br i1 %.not.i734, label %jit_ADD_OFFSET.exit739, label %1265
 
-1265:                                             ; preds = %jit_CONST_ADDR.exit728
+1265:                                             ; preds = %jit_CONST_ADDR.exit733
   %1266 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %1204, i64 noundef %1264) #32
   %1267 = getelementptr inbounds i8, ptr %1266, i64 8
   %1268 = load i8, ptr %1267, align 8
@@ -69798,45 +69798,45 @@ jit_CONST_ADDR.exit728:                           ; preds = %jit_CONST_FUNC.exit
   %1271 = load i64, ptr %1266, align 8
   %1272 = trunc i64 %1271 to i32
   %1273 = load ptr, ptr %0, align 8
-  %sext.i.i733 = shl i64 %1271, 32
-  %1274 = ashr exact i64 %sext.i.i733, 32
+  %sext.i.i738 = shl i64 %1271, 32
+  %1274 = ashr exact i64 %sext.i.i738, 32
   %1275 = getelementptr inbounds %struct._ir_insn, ptr %1273, i64 %1274
   %1276 = load i16, ptr %1275, align 8
   %1277 = icmp eq i16 %1276, 1542
   call void @llvm.assume(i1 %1277)
-  br label %jit_CONST_ADDR.exit.i730
+  br label %jit_CONST_ADDR.exit.i735
 
 1278:                                             ; preds = %1265
   %1279 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %1264) #32
   %1280 = sext i32 %1279 to i64
   store i64 %1280, ptr %1266, align 8
   store i32 4, ptr %1267, align 8
-  br label %jit_CONST_ADDR.exit.i730
+  br label %jit_CONST_ADDR.exit.i735
 
-jit_CONST_ADDR.exit.i730:                         ; preds = %1278, %1270
-  %.0.i.i731 = phi i32 [ %1272, %1270 ], [ %1279, %1278 ]
-  %1281 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %1221, i32 noundef %.0.i.i731) #32
-  br label %jit_ADD_OFFSET.exit734
+jit_CONST_ADDR.exit.i735:                         ; preds = %1278, %1270
+  %.0.i.i736 = phi i32 [ %1272, %1270 ], [ %1279, %1278 ]
+  %1281 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %1221, i32 noundef %.0.i.i736) #32
+  br label %jit_ADD_OFFSET.exit739
 
-jit_ADD_OFFSET.exit734:                           ; preds = %jit_CONST_ADDR.exit728, %jit_CONST_ADDR.exit.i730
-  %.0.i732 = phi i32 [ %1281, %jit_CONST_ADDR.exit.i730 ], [ %1221, %jit_CONST_ADDR.exit728 ]
+jit_ADD_OFFSET.exit739:                           ; preds = %jit_CONST_ADDR.exit733, %jit_CONST_ADDR.exit.i735
+  %.0.i737 = phi i32 [ %1281, %jit_CONST_ADDR.exit.i735 ], [ %1221, %jit_CONST_ADDR.exit733 ]
   %1282 = load i8, ptr %23, align 1
   %1283 = icmp eq i8 %1282, 0
   br i1 %1283, label %1286, label %1284
 
-1284:                                             ; preds = %jit_ADD_OFFSET.exit734
+1284:                                             ; preds = %jit_ADD_OFFSET.exit739
   %1285 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %.0483)
   br label %1286
 
-1286:                                             ; preds = %jit_ADD_OFFSET.exit734, %1284
-  %1287 = phi i32 [ %1285, %1284 ], [ -1, %jit_ADD_OFFSET.exit734 ]
-  %1288 = call i32 @_ir_CALL_4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i723, i32 noundef %.0487, i32 noundef %.0.i726, i32 noundef %.0.i732, i32 noundef %1287) #32
+1286:                                             ; preds = %jit_ADD_OFFSET.exit739, %1284
+  %1287 = phi i32 [ %1285, %1284 ], [ -1, %jit_ADD_OFFSET.exit739 ]
+  %1288 = call i32 @_ir_CALL_4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i728, i32 noundef %.0487, i32 noundef %.0.i731, i32 noundef %.0.i737, i32 noundef %1287) #32
   %1289 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.4493) #32
   br label %1290
 
-1290:                                             ; preds = %1286, %.thread793
-  %.5494 = phi i32 [ %1289, %1286 ], [ %.4493, %.thread793 ]
-  %.5 = phi i1 [ true, %1286 ], [ %.4, %.thread793 ]
+1290:                                             ; preds = %1286, %.thread798
+  %.5494 = phi i32 [ %1289, %1286 ], [ %.4493, %.thread798 ]
+  %.5 = phi i1 [ true, %1286 ], [ %.4, %.thread798 ]
   %.not572 = icmp eq i32 %.5494, 0
   br i1 %.not572, label %1292, label %1291
 
@@ -69871,8 +69871,8 @@ jit_FREE_OP.exit:                                 ; preds = %1292
 1303:                                             ; preds = %jit_FREE_OP.exit, %1302
   %1304 = getelementptr inbounds i8, ptr %0, i64 800
   %1305 = load i32, ptr %1304, align 8
-  %.not.i.i736 = icmp eq i32 %1305, 0
-  br i1 %.not.i.i736, label %1306, label %jit_EG_exception.exit.i
+  %.not.i.i741 = icmp eq i32 %1305, 0
+  br i1 %.not.i.i741, label %1306, label %jit_EG_exception.exit.i
 
 1306:                                             ; preds = %1303
   %1307 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50) to i64)) #32
@@ -69880,8 +69880,8 @@ jit_FREE_OP.exit:                                 ; preds = %1292
   br label %jit_EG_exception.exit.i
 
 jit_EG_exception.exit.i:                          ; preds = %1306, %1303
-  %.0.i.i737 = phi i32 [ %1307, %1306 ], [ %1305, %1303 ]
-  %1308 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i737) #32
+  %.0.i.i742 = phi i32 [ %1307, %1306 ], [ %1305, %1303 ]
+  %1308 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i742) #32
   %1309 = getelementptr inbounds i8, ptr %0, i64 864
   %1310 = load i32, ptr %1309, align 4
   %.not.i4.i = icmp eq i32 %1310, 0
@@ -69899,13 +69899,13 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
   call void @_ir_GUARD_NOT(ptr noundef nonnull %0, i32 noundef %1308, i32 noundef %.0.i5.i) #32
   br label %zend_jit_trace_get_exit_addr.exit.thread
 
-zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %96, %501, %705, %1120, %jit_FREE_OP.exit, %1116, %701, %497, %92, %1302, %zend_jit_check_exception.exit, %zend_jit_trace_get_exit_addr.exit707, %zend_jit_trace_get_exit_addr.exit666, %zend_jit_trace_get_exit_addr.exit631, %249, %zend_jit_trace_get_exit_addr.exit
-  %.0477 = phi i32 [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 0, %249 ], [ 0, %zend_jit_trace_get_exit_addr.exit631 ], [ 0, %zend_jit_trace_get_exit_addr.exit666 ], [ 0, %zend_jit_trace_get_exit_addr.exit707 ], [ 1, %zend_jit_check_exception.exit ], [ 1, %1302 ], [ 0, %92 ], [ 0, %497 ], [ 0, %701 ], [ 0, %1116 ], [ 1, %jit_FREE_OP.exit ], [ 0, %1120 ], [ 0, %705 ], [ 0, %501 ], [ 0, %96 ]
+zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %96, %501, %705, %1120, %jit_FREE_OP.exit, %1116, %701, %497, %92, %1302, %zend_jit_check_exception.exit, %zend_jit_trace_get_exit_addr.exit712, %zend_jit_trace_get_exit_addr.exit668, %zend_jit_trace_get_exit_addr.exit633, %249, %zend_jit_trace_get_exit_addr.exit
+  %.0477 = phi i32 [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 0, %249 ], [ 0, %zend_jit_trace_get_exit_addr.exit633 ], [ 0, %zend_jit_trace_get_exit_addr.exit668 ], [ 0, %zend_jit_trace_get_exit_addr.exit712 ], [ 1, %zend_jit_check_exception.exit ], [ 1, %1302 ], [ 0, %92 ], [ 0, %497 ], [ 0, %701 ], [ 0, %1116 ], [ 1, %jit_FREE_OP.exit ], [ 0, %1120 ], [ 0, %705 ], [ 0, %501 ], [ 0, %96 ]
   ret i32 %.0477
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_assign_obj_op(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, ptr noundef %14, i8 noundef zeroext %15) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_obj_op(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, ptr noundef %14, i8 noundef zeroext %15) unnamed_addr #0 {
   %17 = alloca i64, align 8
   %18 = alloca %struct._ir_code_buffer, align 8
   %19 = alloca i64, align 8
@@ -69960,14 +69960,14 @@ define internal fastcc noundef i32 @zend_jit_assign_obj_op(ptr noundef %0, ptr n
   %61 = icmp eq i8 %60, 4
   %62 = and i32 %5, 33554432
   %.not = icmp ne i32 %62, 0
-  %or.cond504.not705 = and i1 %.not, %61
+  %or.cond504.not709 = and i1 %.not, %61
   %63 = and i64 %6, 252
   %64 = icmp eq i64 %63, 56
-  %or.cond506 = and i1 %64, %or.cond504.not705
+  %or.cond506 = and i1 %64, %or.cond504.not709
   br i1 %or.cond506, label %65, label %67
 
 65:                                               ; preds = %58
-  %66 = tail call fastcc i64 @jit_ZVAL_INDIRECT_DEREF(ptr noundef %0, i64 noundef %6), !range !8
+  %66 = tail call fastcc i64 @jit_ZVAL_INDIRECT_DEREF(ptr noundef %0, i64 noundef %6)
   br label %67
 
 67:                                               ; preds = %65, %58
@@ -70058,15 +70058,15 @@ define internal fastcc noundef i32 @zend_jit_assign_obj_op(ptr noundef %0, ptr n
   br label %zend_jit_trace_get_exit_addr.exit
 
 zend_jit_trace_get_exit_addr.exit:                ; preds = %99, %109
-  %.lcssa728.sink = phi ptr [ %114, %109 ], [ %96, %99 ]
-  %.not462 = icmp eq ptr %.lcssa728.sink, null
+  %.lcssa732.sink = phi ptr [ %114, %109 ], [ %96, %99 ]
+  %.not462 = icmp eq ptr %.lcssa732.sink, null
   br i1 %.not462, label %zend_jit_trace_get_exit_addr.exit.thread, label %115
 
 115:                                              ; preds = %zend_jit_trace_get_exit_addr.exit
   %116 = shl i32 %81, 2
   %117 = and i32 %116, 124
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds i8, ptr %.lcssa728.sink, i64 %118
+  %119 = getelementptr inbounds i8, ptr %.lcssa732.sink, i64 %118
   %120 = call fastcc i32 @jit_Z_TYPE(ptr noundef %0, i64 noundef %.1)
   %121 = call i32 @ir_const_u8(ptr noundef %0, i8 noundef zeroext 8) #32
   %122 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 270, i32 noundef %120, i32 noundef %121) #32
@@ -70314,7 +70314,7 @@ jit_Z_PTR.exit:                                   ; preds = %236, %233, %225, %2
   br label %273
 
 262:                                              ; preds = %254, %251
-  %263 = call fastcc i32 @zend_jit_class_guard(ptr noundef %0, ptr noundef %1, i32 noundef %.0430, ptr noundef nonnull %14), !range !7
+  %263 = call fastcc i32 @zend_jit_class_guard(ptr noundef %0, ptr noundef %1, i32 noundef %.0430, ptr noundef nonnull %14)
   %.not467 = icmp eq i32 %263, 0
   br i1 %.not467, label %zend_jit_trace_get_exit_addr.exit.thread, label %264
 
@@ -70343,7 +70343,7 @@ jit_Z_PTR.exit:                                   ; preds = %236, %233, %225, %2
 276:                                              ; preds = %273
   %277 = load i32, ptr %4, align 4
   %278 = icmp sgt i32 %277, -1
-  br i1 %278, label %279, label %.thread667
+  br i1 %278, label %279, label %.thread671
 
 279:                                              ; preds = %276
   %280 = zext nneg i32 %277 to i64
@@ -70365,16 +70365,16 @@ jit_Z_PTR.exit:                                   ; preds = %236, %233, %225, %2
   store i8 %293, ptr %291, align 4
   %.pr = load ptr, ptr %274, align 8
   %.not469 = icmp eq ptr %.pr, null
-  br i1 %.not469, label %.thread, label %.thread667
+  br i1 %.not469, label %.thread, label %.thread671
 
-.thread667:                                       ; preds = %276, %279
+.thread671:                                       ; preds = %276, %279
   %294 = phi ptr [ %.pr, %279 ], [ %275, %276 ]
   %295 = getelementptr inbounds i8, ptr %4, i64 12
   %296 = load i32, ptr %295, align 4
   %297 = icmp sgt i32 %296, -1
   br i1 %297, label %298, label %.thread
 
-298:                                              ; preds = %.thread667
+298:                                              ; preds = %.thread671
   %299 = zext nneg i32 %296 to i64
   %300 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %294, i64 %299
   %301 = load i32, ptr %300, align 8
@@ -70394,10 +70394,10 @@ jit_Z_PTR.exit:                                   ; preds = %236, %233, %225, %2
   store i8 %312, ptr %310, align 4
   br label %.thread
 
-.thread:                                          ; preds = %273, %246, %279, %.thread667, %298, %249, %242, %jit_Z_PTR.exit
-  %.0426 = phi ptr [ %248, %249 ], [ %248, %298 ], [ %248, %.thread667 ], [ %248, %279 ], [ null, %246 ], [ null, %242 ], [ %54, %jit_Z_PTR.exit ], [ %248, %273 ]
-  %.0425.shrunk = phi i1 [ false, %249 ], [ false, %298 ], [ false, %.thread667 ], [ false, %279 ], [ %11, %246 ], [ %11, %242 ], [ %11, %jit_Z_PTR.exit ], [ false, %273 ]
-  %.0424 = phi ptr [ %14, %249 ], [ %14, %298 ], [ %14, %.thread667 ], [ %14, %279 ], [ %10, %246 ], [ %10, %242 ], [ %10, %jit_Z_PTR.exit ], [ %14, %273 ]
+.thread:                                          ; preds = %273, %246, %279, %.thread671, %298, %249, %242, %jit_Z_PTR.exit
+  %.0426 = phi ptr [ %248, %249 ], [ %248, %298 ], [ %248, %.thread671 ], [ %248, %279 ], [ null, %246 ], [ null, %242 ], [ %54, %jit_Z_PTR.exit ], [ %248, %273 ]
+  %.0425.shrunk = phi i1 [ false, %249 ], [ false, %298 ], [ false, %.thread671 ], [ false, %279 ], [ %11, %246 ], [ %11, %242 ], [ %11, %jit_Z_PTR.exit ], [ false, %273 ]
+  %.0424 = phi ptr [ %14, %249 ], [ %14, %298 ], [ %14, %.thread671 ], [ %14, %279 ], [ %10, %246 ], [ %10, %242 ], [ %10, %jit_Z_PTR.exit ], [ %14, %273 ]
   %313 = zext nneg i8 %15 to i32
   switch i8 %15, label %314 [
     i8 -1, label %317
@@ -70587,24 +70587,24 @@ jit_ADD_OFFSET.exit542:                           ; preds = %384, %392
   %414 = load i64, ptr %409, align 8
   %415 = trunc i64 %414 to i32
   %416 = load ptr, ptr %0, align 8
-  %sext.i.i546 = shl i64 %414, 32
-  %417 = ashr exact i64 %sext.i.i546, 32
+  %sext.i.i547 = shl i64 %414, 32
+  %417 = ashr exact i64 %sext.i.i547, 32
   %418 = getelementptr inbounds %struct._ir_insn, ptr %416, i64 %417
   %419 = load i16, ptr %418, align 8
   %420 = icmp eq i16 %419, 1542
   call void @llvm.assume(i1 %420)
-  br label %jit_ADD_OFFSET.exit547
+  br label %jit_ADD_OFFSET.exit548
 
 421:                                              ; preds = %404
   %422 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %408) #32
   %423 = sext i32 %422 to i64
   store i64 %423, ptr %409, align 8
   store i32 4, ptr %410, align 8
-  br label %jit_ADD_OFFSET.exit547
+  br label %jit_ADD_OFFSET.exit548
 
-jit_ADD_OFFSET.exit547:                           ; preds = %413, %421
-  %.0.i.i544 = phi i32 [ %415, %413 ], [ %422, %421 ]
-  %424 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %357, i32 noundef %.0.i.i544) #32
+jit_ADD_OFFSET.exit548:                           ; preds = %413, %421
+  %.0.i.i545 = phi i32 [ %415, %413 ], [ %422, %421 ]
+  %424 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %357, i32 noundef %.0.i.i545) #32
   %425 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %424) #32
   %426 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %425) #32
   call void @_ir_IF_TRUE_cold(ptr noundef %0, i32 noundef %426) #32
@@ -70612,8 +70612,8 @@ jit_ADD_OFFSET.exit547:                           ; preds = %413, %421
   call void @_ir_IF_FALSE(ptr noundef %0, i32 noundef %426) #32
   br label %428
 
-428:                                              ; preds = %jit_ADD_OFFSET.exit547, %400
-  %.0442 = phi i32 [ %427, %jit_ADD_OFFSET.exit547 ], [ %399, %400 ]
+428:                                              ; preds = %jit_ADD_OFFSET.exit548, %400
+  %.0442 = phi i32 [ %427, %jit_ADD_OFFSET.exit548 ], [ %399, %400 ]
   %429 = load i32, ptr %358, align 4
   %430 = and i32 %429, -4
   %431 = zext i32 %430 to i64
@@ -70628,24 +70628,24 @@ jit_ADD_OFFSET.exit547:                           ; preds = %413, %421
   %438 = load i64, ptr %433, align 8
   %439 = trunc i64 %438 to i32
   %440 = load ptr, ptr %0, align 8
-  %sext.i.i551 = shl i64 %438, 32
-  %441 = ashr exact i64 %sext.i.i551, 32
+  %sext.i.i553 = shl i64 %438, 32
+  %441 = ashr exact i64 %sext.i.i553, 32
   %442 = getelementptr inbounds %struct._ir_insn, ptr %440, i64 %441
   %443 = load i16, ptr %442, align 8
   %444 = icmp eq i16 %443, 1542
   call void @llvm.assume(i1 %444)
-  br label %jit_ADD_OFFSET.exit552
+  br label %jit_ADD_OFFSET.exit554
 
 445:                                              ; preds = %428
   %446 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %432) #32
   %447 = sext i32 %446 to i64
   store i64 %447, ptr %433, align 8
   store i32 4, ptr %434, align 8
-  br label %jit_ADD_OFFSET.exit552
+  br label %jit_ADD_OFFSET.exit554
 
-jit_ADD_OFFSET.exit552:                           ; preds = %437, %445
-  %.0.i.i549 = phi i32 [ %439, %437 ], [ %446, %445 ]
-  %448 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %357, i32 noundef %.0.i.i549) #32
+jit_ADD_OFFSET.exit554:                           ; preds = %437, %445
+  %.0.i.i551 = phi i32 [ %439, %437 ], [ %446, %445 ]
+  %448 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %357, i32 noundef %.0.i.i551) #32
   %449 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %448) #32
   %450 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 272, i32 noundef %449, i32 noundef -1) #32
   %451 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %450) #32
@@ -70655,7 +70655,7 @@ jit_ADD_OFFSET.exit552:                           ; preds = %437, %445
   %453 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0430, i32 noundef %449) #32
   br i1 %318, label %782, label %454
 
-454:                                              ; preds = %jit_ADD_OFFSET.exit552
+454:                                              ; preds = %jit_ADD_OFFSET.exit554
   %455 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %340, i64 noundef 8) #32
   %456 = getelementptr inbounds i8, ptr %455, i64 8
   %457 = load i8, ptr %456, align 8
@@ -70694,8 +70694,8 @@ jit_Z_TYPE_ref.exit:                              ; preds = %459, %467
 474:                                              ; preds = %317
   %475 = load i32, ptr %.0426, align 8
   %476 = zext i32 %475 to i64
-  %.not.i553 = icmp eq i32 %475, 0
-  br i1 %.not.i553, label %jit_ADD_OFFSET.exit558, label %477
+  %.not.i555 = icmp eq i32 %475, 0
+  br i1 %.not.i555, label %jit_ADD_OFFSET.exit560, label %477
 
 477:                                              ; preds = %474
   %478 = getelementptr inbounds i8, ptr %0, i64 808
@@ -70709,29 +70709,29 @@ jit_Z_TYPE_ref.exit:                              ; preds = %459, %467
   %484 = load i64, ptr %479, align 8
   %485 = trunc i64 %484 to i32
   %486 = load ptr, ptr %0, align 8
-  %sext.i.i557 = shl i64 %484, 32
-  %487 = ashr exact i64 %sext.i.i557, 32
+  %sext.i.i559 = shl i64 %484, 32
+  %487 = ashr exact i64 %sext.i.i559, 32
   %488 = getelementptr inbounds %struct._ir_insn, ptr %486, i64 %487
   %489 = load i16, ptr %488, align 8
   %490 = icmp eq i16 %489, 1542
   call void @llvm.assume(i1 %490)
-  br label %jit_CONST_ADDR.exit.i554
+  br label %jit_CONST_ADDR.exit.i556
 
 491:                                              ; preds = %477
   %492 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %476) #32
   %493 = sext i32 %492 to i64
   store i64 %493, ptr %479, align 8
   store i32 4, ptr %480, align 8
-  br label %jit_CONST_ADDR.exit.i554
+  br label %jit_CONST_ADDR.exit.i556
 
-jit_CONST_ADDR.exit.i554:                         ; preds = %491, %483
-  %.0.i.i555 = phi i32 [ %485, %483 ], [ %492, %491 ]
-  %494 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0430, i32 noundef %.0.i.i555) #32
-  br label %jit_ADD_OFFSET.exit558
+jit_CONST_ADDR.exit.i556:                         ; preds = %491, %483
+  %.0.i.i557 = phi i32 [ %485, %483 ], [ %492, %491 ]
+  %494 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0430, i32 noundef %.0.i.i557) #32
+  br label %jit_ADD_OFFSET.exit560
 
-jit_ADD_OFFSET.exit558:                           ; preds = %474, %jit_CONST_ADDR.exit.i554
-  %.0.i556 = phi i32 [ %494, %jit_CONST_ADDR.exit.i554 ], [ %.0430, %474 ]
-  %495 = sext i32 %.0.i556 to i64
+jit_ADD_OFFSET.exit560:                           ; preds = %474, %jit_CONST_ADDR.exit.i556
+  %.0.i558 = phi i32 [ %494, %jit_CONST_ADDR.exit.i556 ], [ %.0430, %474 ]
+  %495 = sext i32 %.0.i558 to i64
   %496 = shl nsw i64 %495, 2
   %497 = or disjoint i64 %496, 3
   %498 = getelementptr inbounds i8, ptr %.0426, i64 48
@@ -70741,7 +70741,7 @@ jit_ADD_OFFSET.exit558:                           ; preds = %474, %jit_CONST_ADD
   %brmerge508.not = and i1 %318, %.not473
   br i1 %brmerge508.not, label %566, label %501
 
-501:                                              ; preds = %jit_ADD_OFFSET.exit558
+501:                                              ; preds = %jit_ADD_OFFSET.exit560
   %502 = load i8, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 2), align 2
   %503 = icmp eq i8 %502, 5
   br i1 %503, label %504, label %562
@@ -70751,22 +70751,22 @@ jit_ADD_OFFSET.exit558:                           ; preds = %474, %jit_CONST_ADD
   %506 = load ptr, ptr @zend_jit_traces, align 8
   %507 = getelementptr inbounds i8, ptr %506, i64 16
   %508 = load i32, ptr %507, align 8
-  %.not.i559 = icmp ugt i32 %508, %505
-  br i1 %.not.i559, label %533, label %509
+  %.not.i561 = icmp ugt i32 %508, %505
+  br i1 %.not.i561, label %533, label %509
 
 509:                                              ; preds = %504
   %510 = icmp ugt i32 %505, 511
-  br i1 %510, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i560
+  br i1 %510, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i562
 
-.preheader.i.i560:                                ; preds = %509
+.preheader.i.i562:                                ; preds = %509
   %511 = getelementptr inbounds i8, ptr %20, i64 8
   %512 = getelementptr inbounds i8, ptr %20, i64 16
-  %.pre12.i.i561 = load ptr, ptr @dasm_ptr, align 8
+  %.pre12.i.i563 = load ptr, ptr @dasm_ptr, align 8
   br label %513
 
-513:                                              ; preds = %523, %.preheader.i.i560
-  %514 = phi ptr [ %.pre12.i.i561, %.preheader.i.i560 ], [ %522, %523 ]
-  %515 = phi i32 [ %508, %.preheader.i.i560 ], [ %532, %523 ]
+513:                                              ; preds = %523, %.preheader.i.i562
+  %514 = phi ptr [ %.pre12.i.i563, %.preheader.i.i562 ], [ %522, %523 ]
+  %515 = phi i32 [ %508, %.preheader.i.i562 ], [ %532, %523 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
   %516 = load ptr, ptr @dasm_buf, align 8
@@ -70782,8 +70782,8 @@ jit_ADD_OFFSET.exit558:                           ; preds = %474, %jit_CONST_ADD
   store ptr %521, ptr %522, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
-  %.not.i.i562 = icmp eq ptr %520, null
-  br i1 %.not.i.i562, label %zend_jit_trace_get_exit_addr.exit.thread, label %523
+  %.not.i.i564 = icmp eq ptr %520, null
+  br i1 %.not.i.i564, label %zend_jit_trace_get_exit_addr.exit.thread, label %523
 
 523:                                              ; preds = %513
   %524 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -70797,8 +70797,8 @@ jit_ADD_OFFSET.exit558:                           ; preds = %474, %jit_CONST_ADD
   %531 = load i32, ptr %526, align 8
   %532 = add i32 %531, 32
   store i32 %532, ptr %526, align 8
-  %.not8.i.i563 = icmp ugt i32 %532, %505
-  br i1 %.not8.i.i563, label %zend_jit_trace_get_exit_addr.exit565, label %513
+  %.not8.i.i565 = icmp ugt i32 %532, %505
+  br i1 %.not8.i.i565, label %zend_jit_trace_get_exit_addr.exit567, label %513
 
 533:                                              ; preds = %504
   %534 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -70806,18 +70806,18 @@ jit_ADD_OFFSET.exit558:                           ; preds = %474, %jit_CONST_ADD
   %536 = zext nneg i32 %535 to i64
   %537 = getelementptr inbounds ptr, ptr %534, i64 %536
   %538 = load ptr, ptr %537, align 8
-  br label %zend_jit_trace_get_exit_addr.exit565
+  br label %zend_jit_trace_get_exit_addr.exit567
 
-zend_jit_trace_get_exit_addr.exit565:             ; preds = %523, %533
-  %.lcssa727.sink = phi ptr [ %538, %533 ], [ %520, %523 ]
-  %.not474 = icmp eq ptr %.lcssa727.sink, null
+zend_jit_trace_get_exit_addr.exit567:             ; preds = %523, %533
+  %.lcssa731.sink = phi ptr [ %538, %533 ], [ %520, %523 ]
+  %.not474 = icmp eq ptr %.lcssa731.sink, null
   br i1 %.not474, label %zend_jit_trace_get_exit_addr.exit.thread, label %539
 
-539:                                              ; preds = %zend_jit_trace_get_exit_addr.exit565
+539:                                              ; preds = %zend_jit_trace_get_exit_addr.exit567
   %540 = shl i32 %505, 2
   %541 = and i32 %540, 124
   %542 = zext nneg i32 %541 to i64
-  %543 = getelementptr inbounds i8, ptr %.lcssa727.sink, i64 %542
+  %543 = getelementptr inbounds i8, ptr %.lcssa731.sink, i64 %542
   %544 = call fastcc i32 @jit_Z_TYPE_INFO(ptr noundef %0, i64 noundef %497)
   %545 = ptrtoint ptr %543 to i64
   %546 = getelementptr inbounds i8, ptr %0, i64 808
@@ -70831,24 +70831,24 @@ zend_jit_trace_get_exit_addr.exit565:             ; preds = %523, %533
   %552 = load i64, ptr %547, align 8
   %553 = trunc i64 %552 to i32
   %554 = load ptr, ptr %0, align 8
-  %sext.i567 = shl i64 %552, 32
-  %555 = ashr exact i64 %sext.i567, 32
+  %sext.i569 = shl i64 %552, 32
+  %555 = ashr exact i64 %sext.i569, 32
   %556 = getelementptr inbounds %struct._ir_insn, ptr %554, i64 %555
   %557 = load i16, ptr %556, align 8
   %558 = icmp eq i16 %557, 1542
   call void @llvm.assume(i1 %558)
-  br label %jit_CONST_ADDR.exit568
+  br label %jit_CONST_ADDR.exit570
 
 559:                                              ; preds = %539
   %560 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %545) #32
   %561 = sext i32 %560 to i64
   store i64 %561, ptr %547, align 8
   store i32 4, ptr %548, align 8
-  br label %jit_CONST_ADDR.exit568
+  br label %jit_CONST_ADDR.exit570
 
-jit_CONST_ADDR.exit568:                           ; preds = %551, %559
-  %.0.i566 = phi i32 [ %553, %551 ], [ %560, %559 ]
-  call void @_ir_GUARD(ptr noundef %0, i32 noundef %544, i32 noundef %.0.i566) #32
+jit_CONST_ADDR.exit570:                           ; preds = %551, %559
+  %.0.i568 = phi i32 [ %553, %551 ], [ %560, %559 ]
+  call void @_ir_GUARD(ptr noundef %0, i32 noundef %544, i32 noundef %.0.i568) #32
   br label %566
 
 562:                                              ; preds = %501
@@ -70859,12 +70859,12 @@ jit_CONST_ADDR.exit568:                           ; preds = %551, %559
   call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %564) #32
   br label %566
 
-566:                                              ; preds = %jit_ADD_OFFSET.exit558, %jit_CONST_ADDR.exit568, %562
-  %.2444 = phi i32 [ 0, %jit_CONST_ADDR.exit568 ], [ %565, %562 ], [ 0, %jit_ADD_OFFSET.exit558 ]
+566:                                              ; preds = %jit_ADD_OFFSET.exit560, %jit_CONST_ADDR.exit570, %562
+  %.2444 = phi i32 [ 0, %jit_CONST_ADDR.exit570 ], [ %565, %562 ], [ 0, %jit_ADD_OFFSET.exit560 ]
   %567 = load i32, ptr %498, align 8
   %568 = and i32 %567, 33554431
   %.not475 = icmp eq i32 %568, 0
-  br i1 %.not475, label %.thread671.thread, label %569
+  br i1 %.not475, label %.thread675.thread, label %569
 
 569:                                              ; preds = %566
   call fastcc void @jit_SET_EX_OPLINE(ptr noundef %0, ptr noundef %1)
@@ -70888,43 +70888,43 @@ jit_CONST_ADDR.exit568:                           ; preds = %551, %559
   %583 = load i64, ptr %578, align 8
   %584 = trunc i64 %583 to i32
   %585 = load ptr, ptr %0, align 8
-  %sext.i.i574 = shl i64 %583, 32
-  %586 = ashr exact i64 %sext.i.i574, 32
+  %sext.i.i577 = shl i64 %583, 32
+  %586 = ashr exact i64 %sext.i.i577, 32
   %587 = getelementptr inbounds %struct._ir_insn, ptr %585, i64 %586
   %588 = load i16, ptr %587, align 8
   %589 = icmp eq i16 %588, 1542
   call void @llvm.assume(i1 %589)
-  br label %jit_ADD_OFFSET.exit575
+  br label %jit_ADD_OFFSET.exit578
 
 590:                                              ; preds = %569
   %591 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 8) #32
   %592 = sext i32 %591 to i64
   store i64 %592, ptr %578, align 8
   store i32 4, ptr %579, align 8
-  br label %jit_ADD_OFFSET.exit575
+  br label %jit_ADD_OFFSET.exit578
 
-jit_ADD_OFFSET.exit575:                           ; preds = %582, %590
-  %.0.i.i572 = phi i32 [ %584, %582 ], [ %591, %590 ]
-  %593 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %576, i32 noundef %.0.i.i572) #32
+jit_ADD_OFFSET.exit578:                           ; preds = %582, %590
+  %.0.i.i575 = phi i32 [ %584, %582 ], [ %591, %590 ]
+  %593 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %576, i32 noundef %.0.i.i575) #32
   %594 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %577, i64 noundef 24) #32
   %595 = getelementptr inbounds i8, ptr %594, i64 8
   %596 = load i8, ptr %595, align 8
   %597 = icmp eq i8 %596, 4
   br i1 %597, label %598, label %606
 
-598:                                              ; preds = %jit_ADD_OFFSET.exit575
+598:                                              ; preds = %jit_ADD_OFFSET.exit578
   %599 = load i64, ptr %594, align 8
   %600 = trunc i64 %599 to i32
   %601 = load ptr, ptr %0, align 8
-  %sext.i.i.i577 = shl i64 %599, 32
-  %602 = ashr exact i64 %sext.i.i.i577, 32
+  %sext.i.i.i580 = shl i64 %599, 32
+  %602 = ashr exact i64 %sext.i.i.i580, 32
   %603 = getelementptr inbounds %struct._ir_insn, ptr %601, i64 %602
   %604 = load i16, ptr %603, align 8
   %605 = icmp eq i16 %604, 1542
   call void @llvm.assume(i1 %605)
   br label %jit_if_TYPED_REF.exit
 
-606:                                              ; preds = %jit_ADD_OFFSET.exit575
+606:                                              ; preds = %jit_ADD_OFFSET.exit578
   %607 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 24) #32
   %608 = sext i32 %607 to i64
   store i64 %608, ptr %594, align 8
@@ -70932,8 +70932,8 @@ jit_ADD_OFFSET.exit575:                           ; preds = %582, %590
   br label %jit_if_TYPED_REF.exit
 
 jit_if_TYPED_REF.exit:                            ; preds = %598, %606
-  %.0.i.i.i576 = phi i32 [ %600, %598 ], [ %607, %606 ]
-  %609 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %576, i32 noundef %.0.i.i.i576) #32
+  %.0.i.i.i579 = phi i32 [ %600, %598 ], [ %607, %606 ]
+  %609 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %576, i32 noundef %.0.i.i.i579) #32
   %610 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %609) #32
   %611 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %610) #32
   call void @_ir_IF_FALSE(ptr noundef %0, i32 noundef %611) #32
@@ -70949,8 +70949,8 @@ jit_if_TYPED_REF.exit:                            ; preds = %598, %606
   %618 = load i64, ptr %613, align 8
   %619 = trunc i64 %618 to i32
   %620 = load ptr, ptr %0, align 8
-  %sext.i.i579 = shl i64 %618, 32
-  %621 = ashr exact i64 %sext.i.i579, 32
+  %sext.i.i582 = shl i64 %618, 32
+  %621 = ashr exact i64 %sext.i.i582, 32
   %622 = getelementptr inbounds %struct._ir_insn, ptr %620, i64 %621
   %623 = load i16, ptr %622, align 8
   %624 = icmp eq i16 %623, 1601
@@ -70959,7 +70959,7 @@ jit_if_TYPED_REF.exit:                            ; preds = %598, %606
   %626 = load i16, ptr %625, align 2
   %627 = icmp eq i16 %626, 0
   call void @llvm.assume(i1 %627)
-  br label %jit_CONST_FUNC.exit580
+  br label %jit_CONST_FUNC.exit583
 
 628:                                              ; preds = %jit_if_TYPED_REF.exit
   %629 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_assign_op_to_typed_ref to i64)) #32
@@ -70969,10 +70969,10 @@ jit_if_TYPED_REF.exit:                            ; preds = %598, %606
   store i32 1601, ptr %632, align 8
   store i64 %631, ptr %613, align 8
   store i32 4, ptr %614, align 8
-  br label %jit_CONST_FUNC.exit580
+  br label %jit_CONST_FUNC.exit583
 
-jit_CONST_FUNC.exit580:                           ; preds = %617, %628
-  %.0.i.i578 = phi i32 [ %619, %617 ], [ %629, %628 ]
+jit_CONST_FUNC.exit583:                           ; preds = %617, %628
+  %.0.i.i581 = phi i32 [ %619, %617 ], [ %629, %628 ]
   %633 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %35)
   %634 = ptrtoint ptr %38 to i64
   %635 = icmp ne ptr %38, null
@@ -70983,12 +70983,12 @@ jit_CONST_FUNC.exit580:                           ; preds = %617, %628
   %639 = icmp eq i8 %638, 4
   br i1 %639, label %640, label %651
 
-640:                                              ; preds = %jit_CONST_FUNC.exit580
+640:                                              ; preds = %jit_CONST_FUNC.exit583
   %641 = load i64, ptr %636, align 8
   %642 = trunc i64 %641 to i32
   %643 = load ptr, ptr %0, align 8
-  %sext.i.i582 = shl i64 %641, 32
-  %644 = ashr exact i64 %sext.i.i582, 32
+  %sext.i.i585 = shl i64 %641, 32
+  %644 = ashr exact i64 %sext.i.i585, 32
   %645 = getelementptr inbounds %struct._ir_insn, ptr %643, i64 %644
   %646 = load i16, ptr %645, align 8
   %647 = icmp eq i16 %646, 1601
@@ -70997,9 +70997,9 @@ jit_CONST_FUNC.exit580:                           ; preds = %617, %628
   %649 = load i16, ptr %648, align 2
   %650 = icmp eq i16 %649, 0
   call void @llvm.assume(i1 %650)
-  br label %jit_CONST_FUNC.exit583
+  br label %jit_CONST_FUNC.exit586
 
-651:                                              ; preds = %jit_CONST_FUNC.exit580
+651:                                              ; preds = %jit_CONST_FUNC.exit583
   %652 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %634) #32
   %653 = load ptr, ptr %0, align 8
   %654 = sext i32 %652 to i64
@@ -71007,21 +71007,21 @@ jit_CONST_FUNC.exit580:                           ; preds = %617, %628
   store i32 1601, ptr %655, align 8
   store i64 %654, ptr %636, align 8
   store i32 4, ptr %637, align 8
-  br label %jit_CONST_FUNC.exit583
+  br label %jit_CONST_FUNC.exit586
 
-jit_CONST_FUNC.exit583:                           ; preds = %640, %651
-  %.0.i.i581 = phi i32 [ %642, %640 ], [ %652, %651 ]
-  %656 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i578, i32 noundef %576, i32 noundef %633, i32 noundef %.0.i.i581) #32
+jit_CONST_FUNC.exit586:                           ; preds = %640, %651
+  %.0.i.i584 = phi i32 [ %642, %640 ], [ %652, %651 ]
+  %656 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i581, i32 noundef %576, i32 noundef %633, i32 noundef %.0.i.i584) #32
   %657 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.1437) #32
   call void @_ir_MERGE_2(ptr noundef nonnull %0, i32 noundef %574, i32 noundef %612) #32
-  %658 = call i32 @_ir_PHI_2(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i556, i32 noundef %593) #32
+  %658 = call i32 @_ir_PHI_2(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i558, i32 noundef %593) #32
   %659 = sext i32 %658 to i64
   %660 = shl nsw i64 %659, 2
   %661 = or disjoint i64 %660, 3
   %.not476 = icmp eq ptr %.0424, null
   br i1 %.not476, label %683, label %662
 
-662:                                              ; preds = %jit_CONST_FUNC.exit583
+662:                                              ; preds = %jit_CONST_FUNC.exit586
   %663 = getelementptr inbounds i8, ptr %.0424, i64 28
   %664 = load i32, ptr %663, align 4
   %665 = and i32 %664, 128
@@ -71040,22 +71040,22 @@ jit_CONST_FUNC.exit583:                           ; preds = %640, %651
   %673 = load i64, ptr %668, align 8
   %674 = trunc i64 %673 to i32
   %675 = load ptr, ptr %0, align 8
-  %sext.i585 = shl i64 %673, 32
-  %676 = ashr exact i64 %sext.i585, 32
+  %sext.i588 = shl i64 %673, 32
+  %676 = ashr exact i64 %sext.i588, 32
   %677 = getelementptr inbounds %struct._ir_insn, ptr %675, i64 %676
   %678 = load i16, ptr %677, align 8
   %679 = icmp eq i16 %678, 1542
   call void @llvm.assume(i1 %679)
-  br label %jit_CONST_ADDR.exit586
+  br label %jit_CONST_ADDR.exit589
 
 680:                                              ; preds = %666
   %681 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %667) #32
   %682 = sext i32 %681 to i64
   store i64 %682, ptr %668, align 8
   store i32 4, ptr %669, align 8
-  br label %jit_CONST_ADDR.exit586
+  br label %jit_CONST_ADDR.exit589
 
-683:                                              ; preds = %662, %jit_CONST_FUNC.exit583
+683:                                              ; preds = %662, %jit_CONST_FUNC.exit586
   %684 = load i32, ptr %.0426, align 8
   %685 = zext i32 %684 to i64
   %686 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %577, i64 noundef 16) #32
@@ -71068,24 +71068,24 @@ jit_CONST_FUNC.exit583:                           ; preds = %640, %651
   %691 = load i64, ptr %686, align 8
   %692 = trunc i64 %691 to i32
   %693 = load ptr, ptr %0, align 8
-  %sext.i.i590 = shl i64 %691, 32
-  %694 = ashr exact i64 %sext.i.i590, 32
+  %sext.i.i593 = shl i64 %691, 32
+  %694 = ashr exact i64 %sext.i.i593, 32
   %695 = getelementptr inbounds %struct._ir_insn, ptr %693, i64 %694
   %696 = load i16, ptr %695, align 8
   %697 = icmp eq i16 %696, 1542
   call void @llvm.assume(i1 %697)
-  br label %jit_ADD_OFFSET.exit591
+  br label %jit_ADD_OFFSET.exit594
 
 698:                                              ; preds = %683
   %699 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 16) #32
   %700 = sext i32 %699 to i64
   store i64 %700, ptr %686, align 8
   store i32 4, ptr %687, align 8
-  br label %jit_ADD_OFFSET.exit591
+  br label %jit_ADD_OFFSET.exit594
 
-jit_ADD_OFFSET.exit591:                           ; preds = %690, %698
-  %.0.i.i588 = phi i32 [ %692, %690 ], [ %699, %698 ]
-  %701 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %.0430, i32 noundef %.0.i.i588) #32
+jit_ADD_OFFSET.exit594:                           ; preds = %690, %698
+  %.0.i.i591 = phi i32 [ %692, %690 ], [ %699, %698 ]
+  %701 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %.0430, i32 noundef %.0.i.i591) #32
   %702 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %701) #32
   %703 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %577, i64 noundef 248) #32
   %704 = getelementptr inbounds i8, ptr %703, i64 8
@@ -71093,37 +71093,37 @@ jit_ADD_OFFSET.exit591:                           ; preds = %690, %698
   %706 = icmp eq i8 %705, 4
   br i1 %706, label %707, label %715
 
-707:                                              ; preds = %jit_ADD_OFFSET.exit591
+707:                                              ; preds = %jit_ADD_OFFSET.exit594
   %708 = load i64, ptr %703, align 8
   %709 = trunc i64 %708 to i32
   %710 = load ptr, ptr %0, align 8
-  %sext.i.i595 = shl i64 %708, 32
-  %711 = ashr exact i64 %sext.i.i595, 32
+  %sext.i.i598 = shl i64 %708, 32
+  %711 = ashr exact i64 %sext.i.i598, 32
   %712 = getelementptr inbounds %struct._ir_insn, ptr %710, i64 %711
   %713 = load i16, ptr %712, align 8
   %714 = icmp eq i16 %713, 1542
   call void @llvm.assume(i1 %714)
-  br label %jit_ADD_OFFSET.exit596
+  br label %jit_ADD_OFFSET.exit599
 
-715:                                              ; preds = %jit_ADD_OFFSET.exit591
+715:                                              ; preds = %jit_ADD_OFFSET.exit594
   %716 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 248) #32
   %717 = sext i32 %716 to i64
   store i64 %717, ptr %703, align 8
   store i32 4, ptr %704, align 8
-  br label %jit_ADD_OFFSET.exit596
+  br label %jit_ADD_OFFSET.exit599
 
-jit_ADD_OFFSET.exit596:                           ; preds = %707, %715
-  %.0.i.i593 = phi i32 [ %709, %707 ], [ %716, %715 ]
-  %718 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %702, i32 noundef %.0.i.i593) #32
+jit_ADD_OFFSET.exit599:                           ; preds = %707, %715
+  %.0.i.i596 = phi i32 [ %709, %707 ], [ %716, %715 ]
+  %718 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %702, i32 noundef %.0.i.i596) #32
   %719 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %718) #32
   %720 = shl nuw nsw i64 %685, 31
   %721 = add nsw i64 %720, -85899345920
   %sext = ashr i64 %721, 32
   %722 = and i64 %sext, -8
-  %.not.i597 = icmp eq i64 %722, 0
-  br i1 %.not.i597, label %jit_ADD_OFFSET.exit602, label %723
+  %.not.i600 = icmp eq i64 %722, 0
+  br i1 %.not.i600, label %jit_ADD_OFFSET.exit605, label %723
 
-723:                                              ; preds = %jit_ADD_OFFSET.exit596
+723:                                              ; preds = %jit_ADD_OFFSET.exit599
   %724 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %577, i64 noundef %722) #32
   %725 = getelementptr inbounds i8, ptr %724, i64 8
   %726 = load i8, ptr %725, align 8
@@ -71134,45 +71134,45 @@ jit_ADD_OFFSET.exit596:                           ; preds = %707, %715
   %729 = load i64, ptr %724, align 8
   %730 = trunc i64 %729 to i32
   %731 = load ptr, ptr %0, align 8
-  %sext.i.i601 = shl i64 %729, 32
-  %732 = ashr exact i64 %sext.i.i601, 32
+  %sext.i.i604 = shl i64 %729, 32
+  %732 = ashr exact i64 %sext.i.i604, 32
   %733 = getelementptr inbounds %struct._ir_insn, ptr %731, i64 %732
   %734 = load i16, ptr %733, align 8
   %735 = icmp eq i16 %734, 1542
   call void @llvm.assume(i1 %735)
-  br label %jit_CONST_ADDR.exit.i598
+  br label %jit_CONST_ADDR.exit.i601
 
 736:                                              ; preds = %723
   %737 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %722) #32
   %738 = sext i32 %737 to i64
   store i64 %738, ptr %724, align 8
   store i32 4, ptr %725, align 8
-  br label %jit_CONST_ADDR.exit.i598
+  br label %jit_CONST_ADDR.exit.i601
 
-jit_CONST_ADDR.exit.i598:                         ; preds = %736, %728
-  %.0.i.i599 = phi i32 [ %730, %728 ], [ %737, %736 ]
-  %739 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %719, i32 noundef %.0.i.i599) #32
-  br label %jit_ADD_OFFSET.exit602
+jit_CONST_ADDR.exit.i601:                         ; preds = %736, %728
+  %.0.i.i602 = phi i32 [ %730, %728 ], [ %737, %736 ]
+  %739 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %719, i32 noundef %.0.i.i602) #32
+  br label %jit_ADD_OFFSET.exit605
 
-jit_ADD_OFFSET.exit602:                           ; preds = %jit_ADD_OFFSET.exit596, %jit_CONST_ADDR.exit.i598
-  %.0.i600 = phi i32 [ %739, %jit_CONST_ADDR.exit.i598 ], [ %719, %jit_ADD_OFFSET.exit596 ]
-  %740 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i600) #32
-  br label %jit_CONST_ADDR.exit586
+jit_ADD_OFFSET.exit605:                           ; preds = %jit_ADD_OFFSET.exit599, %jit_CONST_ADDR.exit.i601
+  %.0.i603 = phi i32 [ %739, %jit_CONST_ADDR.exit.i601 ], [ %719, %jit_ADD_OFFSET.exit599 ]
+  %740 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i603) #32
+  br label %jit_CONST_ADDR.exit589
 
-jit_CONST_ADDR.exit586:                           ; preds = %680, %672, %jit_ADD_OFFSET.exit602
-  %.0435 = phi i32 [ %740, %jit_ADD_OFFSET.exit602 ], [ %674, %672 ], [ %681, %680 ]
+jit_CONST_ADDR.exit589:                           ; preds = %680, %672, %jit_ADD_OFFSET.exit605
+  %.0435 = phi i32 [ %740, %jit_ADD_OFFSET.exit605 ], [ %674, %672 ], [ %681, %680 ]
   %741 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %577, i64 noundef ptrtoint (ptr @zend_jit_assign_op_to_typed_prop to i64)) #32
   %742 = getelementptr inbounds i8, ptr %741, i64 8
   %743 = load i8, ptr %742, align 8
   %744 = icmp eq i8 %743, 4
   br i1 %744, label %745, label %756
 
-745:                                              ; preds = %jit_CONST_ADDR.exit586
+745:                                              ; preds = %jit_CONST_ADDR.exit589
   %746 = load i64, ptr %741, align 8
   %747 = trunc i64 %746 to i32
   %748 = load ptr, ptr %0, align 8
-  %sext.i.i604 = shl i64 %746, 32
-  %749 = ashr exact i64 %sext.i.i604, 32
+  %sext.i.i607 = shl i64 %746, 32
+  %749 = ashr exact i64 %sext.i.i607, 32
   %750 = getelementptr inbounds %struct._ir_insn, ptr %748, i64 %749
   %751 = load i16, ptr %750, align 8
   %752 = icmp eq i16 %751, 1601
@@ -71181,9 +71181,9 @@ jit_CONST_ADDR.exit586:                           ; preds = %680, %672, %jit_ADD
   %754 = load i16, ptr %753, align 2
   %755 = icmp eq i16 %754, 0
   call void @llvm.assume(i1 %755)
-  br label %jit_CONST_FUNC.exit605
+  br label %jit_CONST_FUNC.exit608
 
-756:                                              ; preds = %jit_CONST_ADDR.exit586
+756:                                              ; preds = %jit_CONST_ADDR.exit589
   %757 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @zend_jit_assign_op_to_typed_prop to i64)) #32
   %758 = load ptr, ptr %0, align 8
   %759 = sext i32 %757 to i64
@@ -71191,10 +71191,10 @@ jit_CONST_ADDR.exit586:                           ; preds = %680, %672, %jit_ADD
   store i32 1601, ptr %760, align 8
   store i64 %759, ptr %741, align 8
   store i32 4, ptr %742, align 8
-  br label %jit_CONST_FUNC.exit605
+  br label %jit_CONST_FUNC.exit608
 
-jit_CONST_FUNC.exit605:                           ; preds = %745, %756
-  %.0.i.i603 = phi i32 [ %747, %745 ], [ %757, %756 ]
+jit_CONST_FUNC.exit608:                           ; preds = %745, %756
+  %.0.i.i606 = phi i32 [ %747, %745 ], [ %757, %756 ]
   %761 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %35)
   %762 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %577, i64 noundef %634) #32
   %763 = getelementptr inbounds i8, ptr %762, i64 8
@@ -71202,12 +71202,12 @@ jit_CONST_FUNC.exit605:                           ; preds = %745, %756
   %765 = icmp eq i8 %764, 4
   br i1 %765, label %766, label %777
 
-766:                                              ; preds = %jit_CONST_FUNC.exit605
+766:                                              ; preds = %jit_CONST_FUNC.exit608
   %767 = load i64, ptr %762, align 8
   %768 = trunc i64 %767 to i32
   %769 = load ptr, ptr %0, align 8
-  %sext.i.i607 = shl i64 %767, 32
-  %770 = ashr exact i64 %sext.i.i607, 32
+  %sext.i.i610 = shl i64 %767, 32
+  %770 = ashr exact i64 %sext.i.i610, 32
   %771 = getelementptr inbounds %struct._ir_insn, ptr %769, i64 %770
   %772 = load i16, ptr %771, align 8
   %773 = icmp eq i16 %772, 1601
@@ -71216,9 +71216,9 @@ jit_CONST_FUNC.exit605:                           ; preds = %745, %756
   %775 = load i16, ptr %774, align 2
   %776 = icmp eq i16 %775, 0
   call void @llvm.assume(i1 %776)
-  br label %.thread671
+  br label %.thread675
 
-777:                                              ; preds = %jit_CONST_FUNC.exit605
+777:                                              ; preds = %jit_CONST_FUNC.exit608
   %778 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %634) #32
   %779 = load ptr, ptr %0, align 8
   %780 = sext i32 %778 to i64
@@ -71226,53 +71226,53 @@ jit_CONST_FUNC.exit605:                           ; preds = %745, %756
   store i32 1601, ptr %781, align 8
   store i64 %780, ptr %762, align 8
   store i32 4, ptr %763, align 8
-  br label %.thread671
+  br label %.thread675
 
-782:                                              ; preds = %jit_ADD_OFFSET.exit552, %jit_Z_TYPE_ref.exit
-  %.1443 = phi i32 [ %452, %jit_ADD_OFFSET.exit552 ], [ %473, %jit_Z_TYPE_ref.exit ]
+782:                                              ; preds = %jit_ADD_OFFSET.exit554, %jit_Z_TYPE_ref.exit
+  %.1443 = phi i32 [ %452, %jit_ADD_OFFSET.exit554 ], [ %473, %jit_Z_TYPE_ref.exit ]
   %783 = sext i32 %453 to i64
   %784 = shl nsw i64 %783, 2
   %785 = or disjoint i64 %784, 3
-  br label %.thread671.thread
+  br label %.thread675.thread
 
-.thread671:                                       ; preds = %777, %766
-  %.0.i.i606 = phi i32 [ %768, %766 ], [ %778, %777 ]
-  %786 = call i32 @_ir_CALL_4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i603, i32 noundef %658, i32 noundef %.0435, i32 noundef %761, i32 noundef %.0.i.i606) #32
+.thread675:                                       ; preds = %777, %766
+  %.0.i.i609 = phi i32 [ %768, %766 ], [ %778, %777 ]
+  %786 = call i32 @_ir_CALL_4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i606, i32 noundef %658, i32 noundef %.0435, i32 noundef %761, i32 noundef %.0.i.i609) #32
   %787 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %657) #32
   %.pre = load i32, ptr %498, align 8
-  %.pre717 = and i32 %.pre, 33554431
-  %.not478 = icmp eq i32 %.pre717, 0
-  br i1 %.not478, label %.thread671.thread, label %993
+  %.pre721 = and i32 %.pre, 33554431
+  %.not478 = icmp eq i32 %.pre721, 0
+  br i1 %.not478, label %.thread675.thread, label %993
 
-.thread671.thread:                                ; preds = %566, %782, %.thread671
-  %.0427687 = phi i64 [ %661, %.thread671 ], [ %785, %782 ], [ %497, %566 ]
-  %.2685 = phi i1 [ true, %.thread671 ], [ %.1429, %782 ], [ %.1429, %566 ]
-  %.0434683 = phi i32 [ %658, %.thread671 ], [ %453, %782 ], [ %.0.i556, %566 ]
-  %.2438681 = phi i32 [ %787, %.thread671 ], [ %.1437, %782 ], [ %.1437, %566 ]
-  %.3445679 = phi i32 [ %.2444, %.thread671 ], [ %.1443, %782 ], [ %.2444, %566 ]
-  br i1 %318, label %788, label %.thread690
+.thread675.thread:                                ; preds = %566, %782, %.thread675
+  %.0427691 = phi i64 [ %661, %.thread675 ], [ %785, %782 ], [ %497, %566 ]
+  %.2689 = phi i1 [ true, %.thread675 ], [ %.1429, %782 ], [ %.1429, %566 ]
+  %.0434687 = phi i32 [ %658, %.thread675 ], [ %453, %782 ], [ %.0.i558, %566 ]
+  %.2438685 = phi i32 [ %787, %.thread675 ], [ %.1437, %782 ], [ %.1437, %566 ]
+  %.3445683 = phi i32 [ %.2444, %.thread675 ], [ %.1443, %782 ], [ %.2444, %566 ]
+  br i1 %318, label %788, label %.thread694
 
-788:                                              ; preds = %.thread671.thread
+788:                                              ; preds = %.thread675.thread
   %789 = call fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %1, i32 noundef 0)
   %790 = load ptr, ptr @zend_jit_traces, align 8
   %791 = getelementptr inbounds i8, ptr %790, i64 16
   %792 = load i32, ptr %791, align 8
-  %.not.i609 = icmp ugt i32 %792, %789
-  br i1 %.not.i609, label %817, label %793
+  %.not.i612 = icmp ugt i32 %792, %789
+  br i1 %.not.i612, label %817, label %793
 
 793:                                              ; preds = %788
   %794 = icmp ugt i32 %789, 511
-  br i1 %794, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i610
+  br i1 %794, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i613
 
-.preheader.i.i610:                                ; preds = %793
+.preheader.i.i613:                                ; preds = %793
   %795 = getelementptr inbounds i8, ptr %18, i64 8
   %796 = getelementptr inbounds i8, ptr %18, i64 16
-  %.pre12.i.i611 = load ptr, ptr @dasm_ptr, align 8
+  %.pre12.i.i614 = load ptr, ptr @dasm_ptr, align 8
   br label %797
 
-797:                                              ; preds = %807, %.preheader.i.i610
-  %798 = phi ptr [ %.pre12.i.i611, %.preheader.i.i610 ], [ %806, %807 ]
-  %799 = phi i32 [ %792, %.preheader.i.i610 ], [ %816, %807 ]
+797:                                              ; preds = %807, %.preheader.i.i613
+  %798 = phi ptr [ %.pre12.i.i614, %.preheader.i.i613 ], [ %806, %807 ]
+  %799 = phi i32 [ %792, %.preheader.i.i613 ], [ %816, %807 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   %800 = load ptr, ptr @dasm_buf, align 8
@@ -71288,8 +71288,8 @@ jit_CONST_FUNC.exit605:                           ; preds = %745, %756
   store ptr %805, ptr %806, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
-  %.not.i.i612 = icmp eq ptr %804, null
-  br i1 %.not.i.i612, label %zend_jit_trace_get_exit_addr.exit.thread, label %807
+  %.not.i.i615 = icmp eq ptr %804, null
+  br i1 %.not.i.i615, label %zend_jit_trace_get_exit_addr.exit.thread, label %807
 
 807:                                              ; preds = %797
   %808 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -71303,8 +71303,8 @@ jit_CONST_FUNC.exit605:                           ; preds = %745, %756
   %815 = load i32, ptr %810, align 8
   %816 = add i32 %815, 32
   store i32 %816, ptr %810, align 8
-  %.not8.i.i613 = icmp ugt i32 %816, %789
-  br i1 %.not8.i.i613, label %zend_jit_trace_get_exit_addr.exit615, label %797
+  %.not8.i.i616 = icmp ugt i32 %816, %789
+  br i1 %.not8.i.i616, label %zend_jit_trace_get_exit_addr.exit618, label %797
 
 817:                                              ; preds = %788
   %818 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -71312,35 +71312,35 @@ jit_CONST_FUNC.exit605:                           ; preds = %745, %756
   %820 = zext nneg i32 %819 to i64
   %821 = getelementptr inbounds ptr, ptr %818, i64 %820
   %822 = load ptr, ptr %821, align 8
-  br label %zend_jit_trace_get_exit_addr.exit615
+  br label %zend_jit_trace_get_exit_addr.exit618
 
-zend_jit_trace_get_exit_addr.exit615:             ; preds = %807, %817
-  %.lcssa726.sink = phi ptr [ %822, %817 ], [ %804, %807 ]
-  %.not479 = icmp eq ptr %.lcssa726.sink, null
+zend_jit_trace_get_exit_addr.exit618:             ; preds = %807, %817
+  %.lcssa730.sink = phi ptr [ %822, %817 ], [ %804, %807 ]
+  %.not479 = icmp eq ptr %.lcssa730.sink, null
   br i1 %.not479, label %zend_jit_trace_get_exit_addr.exit.thread, label %823
 
-823:                                              ; preds = %zend_jit_trace_get_exit_addr.exit615
+823:                                              ; preds = %zend_jit_trace_get_exit_addr.exit618
   %824 = shl i32 %789, 2
   %825 = and i32 %824, 124
   %826 = zext nneg i32 %825 to i64
-  %827 = getelementptr inbounds i8, ptr %.lcssa726.sink, i64 %826
-  call fastcc void @jit_guard_Z_TYPE(ptr noundef %0, i64 noundef %.0427687, i8 noundef zeroext %15, ptr noundef nonnull %827)
+  %827 = getelementptr inbounds i8, ptr %.lcssa730.sink, i64 %826
+  call fastcc void @jit_guard_Z_TYPE(ptr noundef %0, i64 noundef %.0427691, i8 noundef zeroext %15, ptr noundef nonnull %827)
   %828 = shl nuw i32 1, %313
   %829 = or i32 %828, -1073741824
   %830 = and i32 %828, 1024
   %.not480 = icmp eq i32 %830, 0
-  br i1 %.not480, label %924, label %.thread690
+  br i1 %.not480, label %924, label %.thread694
 
-.thread690:                                       ; preds = %.thread671.thread, %823
-  %.0431693 = phi i32 [ %829, %823 ], [ -1073739778, %.thread671.thread ]
-  %831 = call fastcc i32 @jit_Z_TYPE(ptr noundef %0, i64 noundef %.0427687)
+.thread694:                                       ; preds = %.thread675.thread, %823
+  %.0431697 = phi i32 [ %829, %823 ], [ -1073739778, %.thread675.thread ]
+  %831 = call fastcc i32 @jit_Z_TYPE(ptr noundef %0, i64 noundef %.0427691)
   %832 = call i32 @ir_const_u8(ptr noundef %0, i8 noundef zeroext 10) #32
   %833 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 270, i32 noundef %831, i32 noundef %832) #32
   %834 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %833) #32
   call void @_ir_IF_FALSE(ptr noundef %0, i32 noundef %834) #32
   %835 = call i32 @_ir_END(ptr noundef %0) #32
   call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %834) #32
-  %836 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %.0427687)
+  %836 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %.0427691)
   %837 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %836) #32
   %838 = getelementptr inbounds i8, ptr %0, i64 808
   %839 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %838, i64 noundef 8) #32
@@ -71349,56 +71349,56 @@ zend_jit_trace_get_exit_addr.exit615:             ; preds = %807, %817
   %842 = icmp eq i8 %841, 4
   br i1 %842, label %843, label %851
 
-843:                                              ; preds = %.thread690
+843:                                              ; preds = %.thread694
   %844 = load i64, ptr %839, align 8
   %845 = trunc i64 %844 to i32
   %846 = load ptr, ptr %0, align 8
-  %sext.i.i621 = shl i64 %844, 32
-  %847 = ashr exact i64 %sext.i.i621, 32
+  %sext.i.i625 = shl i64 %844, 32
+  %847 = ashr exact i64 %sext.i.i625, 32
   %848 = getelementptr inbounds %struct._ir_insn, ptr %846, i64 %847
   %849 = load i16, ptr %848, align 8
   %850 = icmp eq i16 %849, 1542
   call void @llvm.assume(i1 %850)
-  br label %jit_ADD_OFFSET.exit622
+  br label %jit_ADD_OFFSET.exit626
 
-851:                                              ; preds = %.thread690
+851:                                              ; preds = %.thread694
   %852 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 8) #32
   %853 = sext i32 %852 to i64
   store i64 %853, ptr %839, align 8
   store i32 4, ptr %840, align 8
-  br label %jit_ADD_OFFSET.exit622
+  br label %jit_ADD_OFFSET.exit626
 
-jit_ADD_OFFSET.exit622:                           ; preds = %843, %851
-  %.0.i.i619 = phi i32 [ %845, %843 ], [ %852, %851 ]
-  %854 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %837, i32 noundef %.0.i.i619) #32
+jit_ADD_OFFSET.exit626:                           ; preds = %843, %851
+  %.0.i.i623 = phi i32 [ %845, %843 ], [ %852, %851 ]
+  %854 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %837, i32 noundef %.0.i.i623) #32
   %855 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %838, i64 noundef 24) #32
   %856 = getelementptr inbounds i8, ptr %855, i64 8
   %857 = load i8, ptr %856, align 8
   %858 = icmp eq i8 %857, 4
   br i1 %858, label %859, label %867
 
-859:                                              ; preds = %jit_ADD_OFFSET.exit622
+859:                                              ; preds = %jit_ADD_OFFSET.exit626
   %860 = load i64, ptr %855, align 8
   %861 = trunc i64 %860 to i32
   %862 = load ptr, ptr %0, align 8
-  %sext.i.i.i624 = shl i64 %860, 32
-  %863 = ashr exact i64 %sext.i.i.i624, 32
+  %sext.i.i.i628 = shl i64 %860, 32
+  %863 = ashr exact i64 %sext.i.i.i628, 32
   %864 = getelementptr inbounds %struct._ir_insn, ptr %862, i64 %863
   %865 = load i16, ptr %864, align 8
   %866 = icmp eq i16 %865, 1542
   call void @llvm.assume(i1 %866)
-  br label %jit_if_TYPED_REF.exit625
+  br label %jit_if_TYPED_REF.exit629
 
-867:                                              ; preds = %jit_ADD_OFFSET.exit622
+867:                                              ; preds = %jit_ADD_OFFSET.exit626
   %868 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 24) #32
   %869 = sext i32 %868 to i64
   store i64 %869, ptr %855, align 8
   store i32 4, ptr %856, align 8
-  br label %jit_if_TYPED_REF.exit625
+  br label %jit_if_TYPED_REF.exit629
 
-jit_if_TYPED_REF.exit625:                         ; preds = %859, %867
-  %.0.i.i.i623 = phi i32 [ %861, %859 ], [ %868, %867 ]
-  %870 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %837, i32 noundef %.0.i.i.i623) #32
+jit_if_TYPED_REF.exit629:                         ; preds = %859, %867
+  %.0.i.i.i627 = phi i32 [ %861, %859 ], [ %868, %867 ]
+  %870 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %837, i32 noundef %.0.i.i.i627) #32
   %871 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %870) #32
   %872 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %871) #32
   call void @_ir_IF_FALSE(ptr noundef %0, i32 noundef %872) #32
@@ -71411,12 +71411,12 @@ jit_if_TYPED_REF.exit625:                         ; preds = %859, %867
   %877 = icmp eq i8 %876, 4
   br i1 %877, label %878, label %889
 
-878:                                              ; preds = %jit_if_TYPED_REF.exit625
+878:                                              ; preds = %jit_if_TYPED_REF.exit629
   %879 = load i64, ptr %874, align 8
   %880 = trunc i64 %879 to i32
   %881 = load ptr, ptr %0, align 8
-  %sext.i.i627 = shl i64 %879, 32
-  %882 = ashr exact i64 %sext.i.i627, 32
+  %sext.i.i631 = shl i64 %879, 32
+  %882 = ashr exact i64 %sext.i.i631, 32
   %883 = getelementptr inbounds %struct._ir_insn, ptr %881, i64 %882
   %884 = load i16, ptr %883, align 8
   %885 = icmp eq i16 %884, 1601
@@ -71425,9 +71425,9 @@ jit_if_TYPED_REF.exit625:                         ; preds = %859, %867
   %887 = load i16, ptr %886, align 2
   %888 = icmp eq i16 %887, 0
   call void @llvm.assume(i1 %888)
-  br label %jit_CONST_FUNC.exit628
+  br label %jit_CONST_FUNC.exit632
 
-889:                                              ; preds = %jit_if_TYPED_REF.exit625
+889:                                              ; preds = %jit_if_TYPED_REF.exit629
   %890 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_assign_op_to_typed_ref to i64)) #32
   %891 = load ptr, ptr %0, align 8
   %892 = sext i32 %890 to i64
@@ -71435,10 +71435,10 @@ jit_if_TYPED_REF.exit625:                         ; preds = %859, %867
   store i32 1601, ptr %893, align 8
   store i64 %892, ptr %874, align 8
   store i32 4, ptr %875, align 8
-  br label %jit_CONST_FUNC.exit628
+  br label %jit_CONST_FUNC.exit632
 
-jit_CONST_FUNC.exit628:                           ; preds = %878, %889
-  %.0.i.i626 = phi i32 [ %880, %878 ], [ %890, %889 ]
+jit_CONST_FUNC.exit632:                           ; preds = %878, %889
+  %.0.i.i630 = phi i32 [ %880, %878 ], [ %890, %889 ]
   %894 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %35)
   %895 = ptrtoint ptr %38 to i64
   %896 = icmp ne ptr %38, null
@@ -71449,12 +71449,12 @@ jit_CONST_FUNC.exit628:                           ; preds = %878, %889
   %900 = icmp eq i8 %899, 4
   br i1 %900, label %901, label %912
 
-901:                                              ; preds = %jit_CONST_FUNC.exit628
+901:                                              ; preds = %jit_CONST_FUNC.exit632
   %902 = load i64, ptr %897, align 8
   %903 = trunc i64 %902 to i32
   %904 = load ptr, ptr %0, align 8
-  %sext.i.i630 = shl i64 %902, 32
-  %905 = ashr exact i64 %sext.i.i630, 32
+  %sext.i.i634 = shl i64 %902, 32
+  %905 = ashr exact i64 %sext.i.i634, 32
   %906 = getelementptr inbounds %struct._ir_insn, ptr %904, i64 %905
   %907 = load i16, ptr %906, align 8
   %908 = icmp eq i16 %907, 1601
@@ -71463,9 +71463,9 @@ jit_CONST_FUNC.exit628:                           ; preds = %878, %889
   %910 = load i16, ptr %909, align 2
   %911 = icmp eq i16 %910, 0
   call void @llvm.assume(i1 %911)
-  br label %jit_CONST_FUNC.exit631
+  br label %jit_CONST_FUNC.exit635
 
-912:                                              ; preds = %jit_CONST_FUNC.exit628
+912:                                              ; preds = %jit_CONST_FUNC.exit632
   %913 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %895) #32
   %914 = load ptr, ptr %0, align 8
   %915 = sext i32 %913 to i64
@@ -71473,25 +71473,25 @@ jit_CONST_FUNC.exit628:                           ; preds = %878, %889
   store i32 1601, ptr %916, align 8
   store i64 %915, ptr %897, align 8
   store i32 4, ptr %898, align 8
-  br label %jit_CONST_FUNC.exit631
+  br label %jit_CONST_FUNC.exit635
 
-jit_CONST_FUNC.exit631:                           ; preds = %901, %912
-  %.0.i.i629 = phi i32 [ %903, %901 ], [ %913, %912 ]
-  %917 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i626, i32 noundef %837, i32 noundef %894, i32 noundef %.0.i.i629) #32
-  %918 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.2438681) #32
+jit_CONST_FUNC.exit635:                           ; preds = %901, %912
+  %.0.i.i633 = phi i32 [ %903, %901 ], [ %913, %912 ]
+  %917 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i630, i32 noundef %837, i32 noundef %894, i32 noundef %.0.i.i633) #32
+  %918 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.2438685) #32
   call void @_ir_MERGE_2(ptr noundef nonnull %0, i32 noundef %835, i32 noundef %873) #32
-  %919 = call i32 @_ir_PHI_2(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0434683, i32 noundef %854) #32
+  %919 = call i32 @_ir_PHI_2(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0434687, i32 noundef %854) #32
   %920 = sext i32 %919 to i64
   %921 = shl nsw i64 %920, 2
   %922 = or disjoint i64 %921, 3
-  %923 = and i32 %.0431693, -1025
+  %923 = and i32 %.0431697, -1025
   br label %924
 
-924:                                              ; preds = %jit_CONST_FUNC.exit631, %823
-  %.3439 = phi i32 [ %918, %jit_CONST_FUNC.exit631 ], [ %.2438681, %823 ]
-  %.0433 = phi i64 [ %922, %jit_CONST_FUNC.exit631 ], [ %.0427687, %823 ]
-  %.1432 = phi i32 [ %923, %jit_CONST_FUNC.exit631 ], [ %829, %823 ]
-  %.3 = phi i1 [ true, %jit_CONST_FUNC.exit631 ], [ %.2685, %823 ]
+924:                                              ; preds = %jit_CONST_FUNC.exit635, %823
+  %.3439 = phi i32 [ %918, %jit_CONST_FUNC.exit635 ], [ %.2438685, %823 ]
+  %.0433 = phi i64 [ %922, %jit_CONST_FUNC.exit635 ], [ %.0427691, %823 ]
+  %.1432 = phi i32 [ %923, %jit_CONST_FUNC.exit635 ], [ %829, %823 ]
+  %.3 = phi i1 [ true, %jit_CONST_FUNC.exit635 ], [ %.2689, %823 ]
   %925 = load i8, ptr %24, align 1
   %926 = and i8 %925, 6
   %.not481 = icmp eq i8 %926, 0
@@ -71520,10 +71520,10 @@ jit_CONST_FUNC.exit631:                           ; preds = %901, %912
   %.not496 = icmp ne i32 %927, 1
   %932 = and i32 %.1432, 1022
   %.not497 = icmp ne i32 %932, 128
-  %or.cond510.not706 = or i1 %.not497, %.not496
+  %or.cond510.not710 = or i1 %.not497, %.not496
   %933 = and i32 %7, 1022
   %934 = icmp eq i32 %933, 128
-  %or.cond512 = or i1 %934, %or.cond510.not706
+  %or.cond512 = or i1 %934, %or.cond510.not710
   %spec.select520 = or i1 %or.cond512, %.3
   br label %935
 
@@ -71534,7 +71534,7 @@ jit_CONST_FUNC.exit631:                           ; preds = %901, %912
   %938 = getelementptr inbounds i8, ptr %1, i64 40
   %939 = load i32, ptr %937, align 8
   %940 = load i32, ptr %938, align 8
-  %941 = call fastcc i32 @zend_jit_math_helper(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %936, i8 noundef zeroext 8, i32 %939, i64 noundef %.0433, i32 noundef %.1432, i8 noundef zeroext %spec.store.select, i32 %940, i64 noundef %35, i32 noundef %7, i32 noundef 0, i64 noundef %.0433, i32 noundef -1073739778, i32 noundef %.1432, i32 noundef 1, i32 noundef 0), !range !7
+  %941 = call fastcc i32 @zend_jit_math_helper(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %936, i8 noundef zeroext 8, i32 %939, i64 noundef %.0433, i32 noundef %.1432, i8 noundef zeroext %spec.store.select, i32 %940, i64 noundef %35, i32 noundef %7, i32 noundef 0, i64 noundef %.0433, i32 noundef -1073739778, i32 noundef %.1432, i32 noundef 1, i32 noundef 0)
   %.not498 = icmp eq i32 %941, 0
   br i1 %.not498, label %zend_jit_trace_get_exit_addr.exit.thread, label %988
 
@@ -71629,23 +71629,23 @@ jit_CONST_FUNC.exit631:                           ; preds = %901, %912
 988:                                              ; preds = %982, %976, %935
   %.8 = phi i1 [ true, %982 ], [ %.7, %976 ], [ %.4, %935 ]
   %989 = icmp ne i32 %.3439, 0
-  %990 = icmp ne i32 %.3445679, 0
+  %990 = icmp ne i32 %.3445683, 0
   %or.cond13 = select i1 %989, i1 true, i1 %990
-  br i1 %or.cond13, label %991, label %.thread699
+  br i1 %or.cond13, label %991, label %.thread703
 
 991:                                              ; preds = %988
   %992 = call i32 @_ir_END_LIST(ptr noundef %0, i32 noundef %.3439) #32
   br label %993
 
-993:                                              ; preds = %991, %.thread671
-  %.3445677 = phi i32 [ %.2444, %.thread671 ], [ %.3445679, %991 ]
-  %.4440 = phi i32 [ %787, %.thread671 ], [ %992, %991 ]
-  %.9 = phi i1 [ true, %.thread671 ], [ %.8, %991 ]
-  %.not499 = icmp eq i32 %.3445677, 0
+993:                                              ; preds = %991, %.thread675
+  %.3445681 = phi i32 [ %.2444, %.thread675 ], [ %.3445683, %991 ]
+  %.4440 = phi i32 [ %787, %.thread675 ], [ %992, %991 ]
+  %.9 = phi i1 [ true, %.thread675 ], [ %.8, %991 ]
+  %.not499 = icmp eq i32 %.3445681, 0
   br i1 %.not499, label %1117, label %994
 
 994:                                              ; preds = %993
-  call void @_ir_MERGE_LIST(ptr noundef %0, i32 noundef %.3445677) #32
+  call void @_ir_MERGE_LIST(ptr noundef %0, i32 noundef %.3445681) #32
   call fastcc void @jit_SET_EX_OPLINE(ptr noundef %0, ptr noundef %1)
   %995 = getelementptr inbounds i8, ptr %0, i64 248
   %996 = load i32, ptr %995, align 8
@@ -71654,39 +71654,39 @@ jit_CONST_FUNC.exit631:                           ; preds = %901, %912
   %998 = getelementptr inbounds i8, ptr %0, i64 700
   %999 = load i32, ptr %998, align 4
   %1000 = icmp eq i32 %999, 0
-  br i1 %1000, label %.loopexit.sink.split.i636, label %.preheader.i632
+  br i1 %1000, label %.loopexit.sink.split.i640, label %.preheader.i636
 
-.preheader.i632:                                  ; preds = %994
+.preheader.i636:                                  ; preds = %994
   %1001 = icmp eq i32 %996, %999
-  br i1 %1001, label %jit_FP.exit638, label %.lr.ph.i633
+  br i1 %1001, label %jit_FP.exit642, label %.lr.ph.i637
 
-.lr.ph.i633:                                      ; preds = %.preheader.i632
+.lr.ph.i637:                                      ; preds = %.preheader.i636
   %1002 = load ptr, ptr %0, align 8
   br label %1003
 
-1003:                                             ; preds = %1009, %.lr.ph.i633
-  %.015.i634 = phi i32 [ %996, %.lr.ph.i633 ], [ %1011, %1009 ]
-  %1004 = sext i32 %.015.i634 to i64
+1003:                                             ; preds = %1009, %.lr.ph.i637
+  %.015.i638 = phi i32 [ %996, %.lr.ph.i637 ], [ %1011, %1009 ]
+  %1004 = sext i32 %.015.i638 to i64
   %1005 = getelementptr inbounds %struct._ir_insn, ptr %1002, i64 %1004
   %1006 = load i8, ptr %1005, align 8
   %1007 = icmp ugt i8 %1006, 88
   %1008 = icmp eq i8 %1006, 69
-  %or.cond.i635 = or i1 %1007, %1008
-  br i1 %or.cond.i635, label %.loopexit.sink.split.i636, label %1009
+  %or.cond.i639 = or i1 %1007, %1008
+  br i1 %or.cond.i639, label %.loopexit.sink.split.i640, label %1009
 
 1009:                                             ; preds = %1003
   %1010 = getelementptr inbounds i8, ptr %1005, i64 4
   %1011 = load i32, ptr %1010, align 4
   %1012 = icmp eq i32 %1011, %999
-  br i1 %1012, label %jit_FP.exit638, label %1003
+  br i1 %1012, label %jit_FP.exit642, label %1003
 
-.loopexit.sink.split.i636:                        ; preds = %1003, %994
+.loopexit.sink.split.i640:                        ; preds = %1003, %994
   %1013 = call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 14) #32
   store i32 %1013, ptr %998, align 4
-  br label %jit_FP.exit638
+  br label %jit_FP.exit642
 
-jit_FP.exit638:                                   ; preds = %1009, %.preheader.i632, %.loopexit.sink.split.i636
-  %1014 = phi i32 [ %996, %.preheader.i632 ], [ %1013, %.loopexit.sink.split.i636 ], [ %999, %1009 ]
+jit_FP.exit642:                                   ; preds = %1009, %.preheader.i636, %.loopexit.sink.split.i640
+  %1014 = phi i32 [ %996, %.preheader.i636 ], [ %1013, %.loopexit.sink.split.i640 ], [ %999, %1009 ]
   %1015 = getelementptr inbounds i8, ptr %0, i64 808
   %1016 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %1015, i64 noundef 64) #32
   %1017 = getelementptr inbounds i8, ptr %1016, i64 8
@@ -71694,28 +71694,28 @@ jit_FP.exit638:                                   ; preds = %1009, %.preheader.i
   %1019 = icmp eq i8 %1018, 4
   br i1 %1019, label %1020, label %1028
 
-1020:                                             ; preds = %jit_FP.exit638
+1020:                                             ; preds = %jit_FP.exit642
   %1021 = load i64, ptr %1016, align 8
   %1022 = trunc i64 %1021 to i32
   %1023 = load ptr, ptr %0, align 8
-  %sext.i.i642 = shl i64 %1021, 32
-  %1024 = ashr exact i64 %sext.i.i642, 32
+  %sext.i.i646 = shl i64 %1021, 32
+  %1024 = ashr exact i64 %sext.i.i646, 32
   %1025 = getelementptr inbounds %struct._ir_insn, ptr %1023, i64 %1024
   %1026 = load i16, ptr %1025, align 8
   %1027 = icmp eq i16 %1026, 1542
   call void @llvm.assume(i1 %1027)
-  br label %jit_ADD_OFFSET.exit643
+  br label %jit_ADD_OFFSET.exit647
 
-1028:                                             ; preds = %jit_FP.exit638
+1028:                                             ; preds = %jit_FP.exit642
   %1029 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 64) #32
   %1030 = sext i32 %1029 to i64
   store i64 %1030, ptr %1016, align 8
   store i32 4, ptr %1017, align 8
-  br label %jit_ADD_OFFSET.exit643
+  br label %jit_ADD_OFFSET.exit647
 
-jit_ADD_OFFSET.exit643:                           ; preds = %1020, %1028
-  %.0.i.i640 = phi i32 [ %1022, %1020 ], [ %1029, %1028 ]
-  %1031 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %1014, i32 noundef %.0.i.i640) #32
+jit_ADD_OFFSET.exit647:                           ; preds = %1020, %1028
+  %.0.i.i644 = phi i32 [ %1022, %1020 ], [ %1029, %1028 ]
+  %1031 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %1014, i32 noundef %.0.i.i644) #32
   %1032 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %1031) #32
   %1033 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %1015, i64 noundef ptrtoint (ptr @zend_jit_assign_obj_op_helper to i64)) #32
   %1034 = getelementptr inbounds i8, ptr %1033, i64 8
@@ -71723,12 +71723,12 @@ jit_ADD_OFFSET.exit643:                           ; preds = %1020, %1028
   %1036 = icmp eq i8 %1035, 4
   br i1 %1036, label %1037, label %1048
 
-1037:                                             ; preds = %jit_ADD_OFFSET.exit643
+1037:                                             ; preds = %jit_ADD_OFFSET.exit647
   %1038 = load i64, ptr %1033, align 8
   %1039 = trunc i64 %1038 to i32
   %1040 = load ptr, ptr %0, align 8
-  %sext.i.i645 = shl i64 %1038, 32
-  %1041 = ashr exact i64 %sext.i.i645, 32
+  %sext.i.i649 = shl i64 %1038, 32
+  %1041 = ashr exact i64 %sext.i.i649, 32
   %1042 = getelementptr inbounds %struct._ir_insn, ptr %1040, i64 %1041
   %1043 = load i16, ptr %1042, align 8
   %1044 = icmp eq i16 %1043, 1601
@@ -71737,9 +71737,9 @@ jit_ADD_OFFSET.exit643:                           ; preds = %1020, %1028
   %1046 = load i16, ptr %1045, align 2
   %1047 = icmp eq i16 %1046, 0
   call void @llvm.assume(i1 %1047)
-  br label %jit_CONST_FUNC.exit646
+  br label %jit_CONST_FUNC.exit650
 
-1048:                                             ; preds = %jit_ADD_OFFSET.exit643
+1048:                                             ; preds = %jit_ADD_OFFSET.exit647
   %1049 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_assign_obj_op_helper to i64)) #32
   %1050 = load ptr, ptr %0, align 8
   %1051 = sext i32 %1049 to i64
@@ -71747,15 +71747,15 @@ jit_ADD_OFFSET.exit643:                           ; preds = %1020, %1028
   store i32 1601, ptr %1052, align 8
   store i64 %1051, ptr %1033, align 8
   store i32 4, ptr %1034, align 8
-  br label %jit_CONST_FUNC.exit646
+  br label %jit_CONST_FUNC.exit650
 
-jit_CONST_FUNC.exit646:                           ; preds = %1037, %1048
-  %.0.i.i644 = phi i32 [ %1039, %1037 ], [ %1049, %1048 ]
+jit_CONST_FUNC.exit650:                           ; preds = %1037, %1048
+  %.0.i.i648 = phi i32 [ %1039, %1037 ], [ %1049, %1048 ]
   %1053 = ptrtoint ptr %51 to i64
   %1054 = icmp eq ptr %51, null
-  br i1 %1054, label %jit_CONST_ADDR.exit649, label %1055
+  br i1 %1054, label %jit_CONST_ADDR.exit653, label %1055
 
-1055:                                             ; preds = %jit_CONST_FUNC.exit646
+1055:                                             ; preds = %jit_CONST_FUNC.exit650
   %1056 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %1015, i64 noundef %1053) #32
   %1057 = getelementptr inbounds i8, ptr %1056, i64 8
   %1058 = load i8, ptr %1057, align 8
@@ -71766,32 +71766,32 @@ jit_CONST_FUNC.exit646:                           ; preds = %1037, %1048
   %1061 = load i64, ptr %1056, align 8
   %1062 = trunc i64 %1061 to i32
   %1063 = load ptr, ptr %0, align 8
-  %sext.i648 = shl i64 %1061, 32
-  %1064 = ashr exact i64 %sext.i648, 32
+  %sext.i652 = shl i64 %1061, 32
+  %1064 = ashr exact i64 %sext.i652, 32
   %1065 = getelementptr inbounds %struct._ir_insn, ptr %1063, i64 %1064
   %1066 = load i16, ptr %1065, align 8
   %1067 = icmp eq i16 %1066, 1542
   call void @llvm.assume(i1 %1067)
-  br label %jit_CONST_ADDR.exit649
+  br label %jit_CONST_ADDR.exit653
 
 1068:                                             ; preds = %1055
   %1069 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %1053) #32
   %1070 = sext i32 %1069 to i64
   store i64 %1070, ptr %1056, align 8
   store i32 4, ptr %1057, align 8
-  br label %jit_CONST_ADDR.exit649
+  br label %jit_CONST_ADDR.exit653
 
-jit_CONST_ADDR.exit649:                           ; preds = %jit_CONST_FUNC.exit646, %1060, %1068
-  %.0.i647 = phi i32 [ -1, %jit_CONST_FUNC.exit646 ], [ %1062, %1060 ], [ %1069, %1068 ]
+jit_CONST_ADDR.exit653:                           ; preds = %jit_CONST_FUNC.exit650, %1060, %1068
+  %.0.i651 = phi i32 [ -1, %jit_CONST_FUNC.exit650 ], [ %1062, %1060 ], [ %1069, %1068 ]
   %1071 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %35)
   %1072 = getelementptr inbounds i8, ptr %1, i64 52
   %1073 = load i32, ptr %1072, align 4
   %1074 = and i32 %1073, -4
   %1075 = zext i32 %1074 to i64
-  %.not.i650 = icmp eq i32 %1074, 0
-  br i1 %.not.i650, label %jit_ADD_OFFSET.exit655, label %1076
+  %.not.i654 = icmp eq i32 %1074, 0
+  br i1 %.not.i654, label %jit_ADD_OFFSET.exit659, label %1076
 
-1076:                                             ; preds = %jit_CONST_ADDR.exit649
+1076:                                             ; preds = %jit_CONST_ADDR.exit653
   %1077 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %1015, i64 noundef %1075) #32
   %1078 = getelementptr inbounds i8, ptr %1077, i64 8
   %1079 = load i8, ptr %1078, align 8
@@ -71802,28 +71802,28 @@ jit_CONST_ADDR.exit649:                           ; preds = %jit_CONST_FUNC.exit
   %1082 = load i64, ptr %1077, align 8
   %1083 = trunc i64 %1082 to i32
   %1084 = load ptr, ptr %0, align 8
-  %sext.i.i654 = shl i64 %1082, 32
-  %1085 = ashr exact i64 %sext.i.i654, 32
+  %sext.i.i658 = shl i64 %1082, 32
+  %1085 = ashr exact i64 %sext.i.i658, 32
   %1086 = getelementptr inbounds %struct._ir_insn, ptr %1084, i64 %1085
   %1087 = load i16, ptr %1086, align 8
   %1088 = icmp eq i16 %1087, 1542
   call void @llvm.assume(i1 %1088)
-  br label %jit_CONST_ADDR.exit.i651
+  br label %jit_CONST_ADDR.exit.i655
 
 1089:                                             ; preds = %1076
   %1090 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %1075) #32
   %1091 = sext i32 %1090 to i64
   store i64 %1091, ptr %1077, align 8
   store i32 4, ptr %1078, align 8
-  br label %jit_CONST_ADDR.exit.i651
+  br label %jit_CONST_ADDR.exit.i655
 
-jit_CONST_ADDR.exit.i651:                         ; preds = %1089, %1081
-  %.0.i.i652 = phi i32 [ %1083, %1081 ], [ %1090, %1089 ]
-  %1092 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %1032, i32 noundef %.0.i.i652) #32
-  br label %jit_ADD_OFFSET.exit655
+jit_CONST_ADDR.exit.i655:                         ; preds = %1089, %1081
+  %.0.i.i656 = phi i32 [ %1083, %1081 ], [ %1090, %1089 ]
+  %1092 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %1032, i32 noundef %.0.i.i656) #32
+  br label %jit_ADD_OFFSET.exit659
 
-jit_ADD_OFFSET.exit655:                           ; preds = %jit_CONST_ADDR.exit649, %jit_CONST_ADDR.exit.i651
-  %.0.i653 = phi i32 [ %1092, %jit_CONST_ADDR.exit.i651 ], [ %1032, %jit_CONST_ADDR.exit649 ]
+jit_ADD_OFFSET.exit659:                           ; preds = %jit_CONST_ADDR.exit653, %jit_CONST_ADDR.exit.i655
+  %.0.i657 = phi i32 [ %1092, %jit_CONST_ADDR.exit.i655 ], [ %1032, %jit_CONST_ADDR.exit653 ]
   %1093 = ptrtoint ptr %38 to i64
   %1094 = icmp ne ptr %38, null
   call void @llvm.assume(i1 %1094)
@@ -71833,12 +71833,12 @@ jit_ADD_OFFSET.exit655:                           ; preds = %jit_CONST_ADDR.exit
   %1098 = icmp eq i8 %1097, 4
   br i1 %1098, label %1099, label %1110
 
-1099:                                             ; preds = %jit_ADD_OFFSET.exit655
+1099:                                             ; preds = %jit_ADD_OFFSET.exit659
   %1100 = load i64, ptr %1095, align 8
   %1101 = trunc i64 %1100 to i32
   %1102 = load ptr, ptr %0, align 8
-  %sext.i.i657 = shl i64 %1100, 32
-  %1103 = ashr exact i64 %sext.i.i657, 32
+  %sext.i.i661 = shl i64 %1100, 32
+  %1103 = ashr exact i64 %sext.i.i661, 32
   %1104 = getelementptr inbounds %struct._ir_insn, ptr %1102, i64 %1103
   %1105 = load i16, ptr %1104, align 8
   %1106 = icmp eq i16 %1105, 1601
@@ -71847,9 +71847,9 @@ jit_ADD_OFFSET.exit655:                           ; preds = %jit_CONST_ADDR.exit
   %1108 = load i16, ptr %1107, align 2
   %1109 = icmp eq i16 %1108, 0
   call void @llvm.assume(i1 %1109)
-  br label %jit_CONST_FUNC.exit658
+  br label %jit_CONST_FUNC.exit662
 
-1110:                                             ; preds = %jit_ADD_OFFSET.exit655
+1110:                                             ; preds = %jit_ADD_OFFSET.exit659
   %1111 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %1093) #32
   %1112 = load ptr, ptr %0, align 8
   %1113 = sext i32 %1111 to i64
@@ -71857,32 +71857,32 @@ jit_ADD_OFFSET.exit655:                           ; preds = %jit_CONST_ADDR.exit
   store i32 1601, ptr %1114, align 8
   store i64 %1113, ptr %1095, align 8
   store i32 4, ptr %1096, align 8
-  br label %jit_CONST_FUNC.exit658
+  br label %jit_CONST_FUNC.exit662
 
-jit_CONST_FUNC.exit658:                           ; preds = %1099, %1110
-  %.0.i.i656 = phi i32 [ %1101, %1099 ], [ %1111, %1110 ]
-  %1115 = call i32 @_ir_CALL_5(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i644, i32 noundef %.0430, i32 noundef %.0.i647, i32 noundef %1071, i32 noundef %.0.i653, i32 noundef %.0.i.i656) #32
+jit_CONST_FUNC.exit662:                           ; preds = %1099, %1110
+  %.0.i.i660 = phi i32 [ %1101, %1099 ], [ %1111, %1110 ]
+  %1115 = call i32 @_ir_CALL_5(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i648, i32 noundef %.0430, i32 noundef %.0.i651, i32 noundef %1071, i32 noundef %.0.i657, i32 noundef %.0.i.i660) #32
   %1116 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.4440) #32
   br label %1117
 
-1117:                                             ; preds = %jit_CONST_FUNC.exit658, %993
-  %.5441 = phi i32 [ %1116, %jit_CONST_FUNC.exit658 ], [ %.4440, %993 ]
-  %.10 = phi i1 [ true, %jit_CONST_FUNC.exit658 ], [ %.9, %993 ]
+1117:                                             ; preds = %jit_CONST_FUNC.exit662, %993
+  %.5441 = phi i32 [ %1116, %jit_CONST_FUNC.exit662 ], [ %.4440, %993 ]
+  %.10 = phi i1 [ true, %jit_CONST_FUNC.exit662 ], [ %.9, %993 ]
   %.not500 = icmp eq i32 %.5441, 0
-  br i1 %.not500, label %.thread699, label %1118
+  br i1 %.not500, label %.thread703, label %1118
 
 1118:                                             ; preds = %1117
   call void @_ir_MERGE_LIST(ptr noundef %0, i32 noundef %.5441) #32
-  br label %.thread699
+  br label %.thread703
 
-.thread699:                                       ; preds = %988, %1118, %1117
-  %.10703 = phi i1 [ %.10, %1118 ], [ %.10, %1117 ], [ %.8, %988 ]
+.thread703:                                       ; preds = %988, %1118, %1117
+  %.10707 = phi i1 [ %.10, %1118 ], [ %.10, %1117 ], [ %.8, %988 ]
   %1119 = load i8, ptr %24, align 1
   %1120 = and i8 %1119, 6
-  %.not.i659 = icmp eq i8 %1120, 0
-  br i1 %.not.i659, label %jit_FREE_OP.exit, label %1121
+  %.not.i663 = icmp eq i8 %1120, 0
+  br i1 %.not.i663, label %jit_FREE_OP.exit, label %1121
 
-1121:                                             ; preds = %.thread699
+1121:                                             ; preds = %.thread703
   %1122 = getelementptr inbounds i8, ptr %1, i64 40
   %1123 = load i32, ptr %1122, align 8
   %1124 = and i32 %7, 1984
@@ -71895,21 +71895,21 @@ jit_CONST_FUNC.exit658:                           ; preds = %1099, %1110
   call fastcc void @jit_ZVAL_PTR_DTOR(ptr noundef %0, i64 noundef %1128, i32 noundef %spec.select, i1 noundef zeroext false, ptr noundef nonnull %1)
   br label %jit_FREE_OP.exit
 
-jit_FREE_OP.exit:                                 ; preds = %.thread699, %1121
+jit_FREE_OP.exit:                                 ; preds = %.thread703, %1121
   %1129 = getelementptr inbounds i8, ptr %1, i64 29
   %1130 = load i8, ptr %1129, align 1
   %.not502 = icmp eq i8 %1130, 0
   %brmerge517 = or i1 %.not502, %13
   %brmerge518 = or i1 %brmerge517, %9
-  br i1 %brmerge518, label %jit_FREE_OP.exit661, label %1131
+  br i1 %brmerge518, label %jit_FREE_OP.exit665, label %1131
 
 1131:                                             ; preds = %jit_FREE_OP.exit
   %1132 = and i32 %5, 1073741824
   %.not503 = icmp ne i32 %1132, 0
-  %spec.select519 = select i1 %.not503, i1 true, i1 %.10703
+  %spec.select519 = select i1 %.not503, i1 true, i1 %.10707
   %1133 = and i8 %1130, 6
-  %.not.i660 = icmp eq i8 %1133, 0
-  br i1 %.not.i660, label %jit_FREE_OP.exit661, label %1134
+  %.not.i664 = icmp eq i8 %1133, 0
+  br i1 %.not.i664, label %jit_FREE_OP.exit665, label %1134
 
 1134:                                             ; preds = %1131
   %1135 = getelementptr inbounds i8, ptr %1, i64 8
@@ -71920,15 +71920,15 @@ jit_FREE_OP.exit:                                 ; preds = %.thread699, %1121
   call fastcc void @jit_ZVAL_PTR_DTOR(ptr noundef %0, i64 noundef %1139, i32 noundef %5, i1 noundef zeroext false, ptr noundef nonnull %1)
   br i1 %spec.select519, label %1140, label %zend_jit_trace_get_exit_addr.exit.thread
 
-jit_FREE_OP.exit661:                              ; preds = %1131, %jit_FREE_OP.exit
-  %.12 = phi i1 [ %.10703, %jit_FREE_OP.exit ], [ %spec.select519, %1131 ]
+jit_FREE_OP.exit665:                              ; preds = %1131, %jit_FREE_OP.exit
+  %.12 = phi i1 [ %.10707, %jit_FREE_OP.exit ], [ %spec.select519, %1131 ]
   br i1 %.12, label %1140, label %zend_jit_trace_get_exit_addr.exit.thread
 
-1140:                                             ; preds = %1134, %jit_FREE_OP.exit661
+1140:                                             ; preds = %1134, %jit_FREE_OP.exit665
   %1141 = getelementptr inbounds i8, ptr %0, i64 800
   %1142 = load i32, ptr %1141, align 8
-  %.not.i.i662 = icmp eq i32 %1142, 0
-  br i1 %.not.i.i662, label %1143, label %jit_EG_exception.exit.i
+  %.not.i.i666 = icmp eq i32 %1142, 0
+  br i1 %.not.i.i666, label %1143, label %jit_EG_exception.exit.i
 
 1143:                                             ; preds = %1140
   %1144 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50) to i64)) #32
@@ -71936,8 +71936,8 @@ jit_FREE_OP.exit661:                              ; preds = %1131, %jit_FREE_OP.
   br label %jit_EG_exception.exit.i
 
 jit_EG_exception.exit.i:                          ; preds = %1143, %1140
-  %.0.i.i663 = phi i32 [ %1144, %1143 ], [ %1142, %1140 ]
-  %1145 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i663) #32
+  %.0.i.i667 = phi i32 [ %1144, %1143 ], [ %1142, %1140 ]
+  %1145 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i667) #32
   %1146 = getelementptr inbounds i8, ptr %0, i64 864
   %1147 = load i32, ptr %1146, align 4
   %.not.i4.i = icmp eq i32 %1147, 0
@@ -71955,13 +71955,13 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
   call void @_ir_GUARD_NOT(ptr noundef nonnull %0, i32 noundef %1145, i32 noundef %.0.i5.i) #32
   br label %zend_jit_trace_get_exit_addr.exit.thread
 
-zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %89, %513, %797, %1134, %793, %509, %85, %jit_FREE_OP.exit661, %zend_jit_check_exception.exit, %935, %zend_jit_trace_get_exit_addr.exit615, %zend_jit_trace_get_exit_addr.exit565, %262, %zend_jit_trace_get_exit_addr.exit
-  %.0 = phi i32 [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 0, %262 ], [ 0, %zend_jit_trace_get_exit_addr.exit565 ], [ 0, %zend_jit_trace_get_exit_addr.exit615 ], [ 0, %935 ], [ 1, %zend_jit_check_exception.exit ], [ 1, %jit_FREE_OP.exit661 ], [ 0, %85 ], [ 0, %509 ], [ 0, %793 ], [ 1, %1134 ], [ 0, %797 ], [ 0, %513 ], [ 0, %89 ]
+zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %89, %513, %797, %1134, %793, %509, %85, %jit_FREE_OP.exit665, %zend_jit_check_exception.exit, %935, %zend_jit_trace_get_exit_addr.exit618, %zend_jit_trace_get_exit_addr.exit567, %262, %zend_jit_trace_get_exit_addr.exit
+  %.0 = phi i32 [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 0, %262 ], [ 0, %zend_jit_trace_get_exit_addr.exit567 ], [ 0, %zend_jit_trace_get_exit_addr.exit618 ], [ 0, %935 ], [ 1, %zend_jit_check_exception.exit ], [ 1, %jit_FREE_OP.exit665 ], [ 0, %85 ], [ 0, %509 ], [ 0, %793 ], [ 1, %1134 ], [ 0, %797 ], [ 0, %513 ], [ 0, %89 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_assign_obj(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef %13, i32 noundef %14) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_obj(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef %13, i32 noundef %14) unnamed_addr #0 {
   %16 = alloca i64, align 8
   %17 = alloca %struct._ir_code_buffer, align 8
   %18 = alloca i64, align 8
@@ -72033,14 +72033,14 @@ define internal fastcc noundef i32 @zend_jit_assign_obj(ptr noundef %0, ptr noun
   %66 = icmp eq i8 %65, 4
   %67 = and i32 %5, 33554432
   %.not331 = icmp ne i32 %67, 0
-  %or.cond367.not521 = and i1 %.not331, %66
+  %or.cond367.not523 = and i1 %.not331, %66
   %68 = and i64 %6, 252
   %69 = icmp eq i64 %68, 56
-  %or.cond369 = and i1 %69, %or.cond367.not521
+  %or.cond369 = and i1 %69, %or.cond367.not523
   br i1 %or.cond369, label %70, label %72
 
 70:                                               ; preds = %63
-  %71 = tail call fastcc i64 @jit_ZVAL_INDIRECT_DEREF(ptr noundef %0, i64 noundef %6), !range !8
+  %71 = tail call fastcc i64 @jit_ZVAL_INDIRECT_DEREF(ptr noundef %0, i64 noundef %6)
   br label %72
 
 72:                                               ; preds = %70, %63
@@ -72131,15 +72131,15 @@ define internal fastcc noundef i32 @zend_jit_assign_obj(ptr noundef %0, ptr noun
   br label %zend_jit_trace_get_exit_addr.exit
 
 zend_jit_trace_get_exit_addr.exit:                ; preds = %104, %114
-  %.lcssa535.sink = phi ptr [ %119, %114 ], [ %101, %104 ]
-  %.not335 = icmp eq ptr %.lcssa535.sink, null
+  %.lcssa537.sink = phi ptr [ %119, %114 ], [ %101, %104 ]
+  %.not335 = icmp eq ptr %.lcssa537.sink, null
   br i1 %.not335, label %zend_jit_trace_get_exit_addr.exit.thread, label %120
 
 120:                                              ; preds = %zend_jit_trace_get_exit_addr.exit
   %121 = shl i32 %86, 2
   %122 = and i32 %121, 124
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds i8, ptr %.lcssa535.sink, i64 %123
+  %124 = getelementptr inbounds i8, ptr %.lcssa537.sink, i64 %123
   %125 = call fastcc i32 @jit_Z_TYPE(ptr noundef %0, i64 noundef %.1)
   %126 = call i32 @ir_const_u8(ptr noundef %0, i8 noundef zeroext 8) #32
   %127 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 270, i32 noundef %125, i32 noundef %126) #32
@@ -72346,18 +72346,18 @@ jit_Z_PTR.exit:                                   ; preds = %236, %233, %225, %2
   %244 = load i32, ptr %243, align 4
   %245 = and i32 %244, 128
   %.not336 = icmp eq i32 %245, 0
-  br i1 %.not336, label %.thread491, label %246
+  br i1 %.not336, label %.thread493, label %246
 
 246:                                              ; preds = %242
   %247 = load ptr, ptr %57, align 8
   %248 = call fastcc ptr @zend_get_known_property_info(ptr noundef %2, ptr noundef nonnull %13, ptr noundef %56, i1 noundef zeroext %11, ptr noundef %247)
   %.not337 = icmp eq ptr %248, null
-  br i1 %.not337, label %.thread491, label %249
+  br i1 %.not337, label %.thread493, label %249
 
 249:                                              ; preds = %246
   %250 = and i32 %5, 134217728
   %.not338 = icmp eq i32 %250, 0
-  br i1 %.not338, label %251, label %.thread478
+  br i1 %.not338, label %251, label %.thread480
 
 251:                                              ; preds = %249
   %252 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
@@ -72380,7 +72380,7 @@ jit_Z_PTR.exit:                                   ; preds = %236, %233, %225, %2
   br label %273
 
 262:                                              ; preds = %254, %251
-  %263 = call fastcc i32 @zend_jit_class_guard(ptr noundef %0, ptr noundef %1, i32 noundef %.0313, ptr noundef nonnull %13), !range !7
+  %263 = call fastcc i32 @zend_jit_class_guard(ptr noundef %0, ptr noundef %1, i32 noundef %.0313, ptr noundef nonnull %13)
   %.not340 = icmp eq i32 %263, 0
   br i1 %.not340, label %zend_jit_trace_get_exit_addr.exit.thread, label %264
 
@@ -72404,12 +72404,12 @@ jit_Z_PTR.exit:                                   ; preds = %236, %233, %225, %2
   %274 = getelementptr inbounds i8, ptr %3, i64 72
   %275 = load ptr, ptr %274, align 8
   %.not341 = icmp eq ptr %275, null
-  br i1 %.not341, label %.thread478, label %276
+  br i1 %.not341, label %.thread480, label %276
 
 276:                                              ; preds = %273
   %277 = load i32, ptr %4, align 4
   %278 = icmp sgt i32 %277, -1
-  br i1 %278, label %279, label %.thread476
+  br i1 %278, label %279, label %.thread478
 
 279:                                              ; preds = %276
   %280 = zext nneg i32 %277 to i64
@@ -72431,16 +72431,16 @@ jit_Z_PTR.exit:                                   ; preds = %236, %233, %225, %2
   store i8 %293, ptr %291, align 4
   %.pr = load ptr, ptr %274, align 8
   %.not342 = icmp eq ptr %.pr, null
-  br i1 %.not342, label %.thread478, label %.thread476
+  br i1 %.not342, label %.thread480, label %.thread478
 
-.thread476:                                       ; preds = %276, %279
+.thread478:                                       ; preds = %276, %279
   %294 = phi ptr [ %.pr, %279 ], [ %275, %276 ]
   %295 = getelementptr inbounds i8, ptr %4, i64 12
   %296 = load i32, ptr %295, align 4
   %297 = icmp sgt i32 %296, -1
-  br i1 %297, label %298, label %.thread478
+  br i1 %297, label %298, label %.thread480
 
-298:                                              ; preds = %.thread476
+298:                                              ; preds = %.thread478
   %299 = zext nneg i32 %296 to i64
   %300 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %294, i64 %299
   %301 = load i32, ptr %300, align 8
@@ -72458,12 +72458,12 @@ jit_Z_PTR.exit:                                   ; preds = %236, %233, %225, %2
   %311 = load i8, ptr %310, align 4
   %312 = and i8 %311, -3
   store i8 %312, ptr %310, align 4
-  br label %.thread478
+  br label %.thread480
 
 313:                                              ; preds = %jit_Z_PTR.exit
-  br i1 %240, label %.thread491, label %.thread478
+  br i1 %240, label %.thread493, label %.thread480
 
-.thread491:                                       ; preds = %242, %246, %313
+.thread493:                                       ; preds = %242, %246, %313
   %314 = getelementptr inbounds i8, ptr %0, i64 248
   %315 = load i32, ptr %314, align 8
   %316 = icmp ne i32 %315, 0
@@ -72473,7 +72473,7 @@ jit_Z_PTR.exit:                                   ; preds = %236, %233, %225, %2
   %319 = icmp eq i32 %318, 0
   br i1 %319, label %.loopexit.sink.split.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.thread491
+.preheader.i:                                     ; preds = %.thread493
   %320 = icmp eq i32 %315, %318
   br i1 %320, label %jit_FP.exit, label %.lr.ph.i
 
@@ -72497,7 +72497,7 @@ jit_Z_PTR.exit:                                   ; preds = %236, %233, %225, %2
   %331 = icmp eq i32 %330, %318
   br i1 %331, label %jit_FP.exit, label %322
 
-.loopexit.sink.split.i:                           ; preds = %322, %.thread491
+.loopexit.sink.split.i:                           ; preds = %322, %.thread493
   %332 = call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 14) #32
   store i32 %332, ptr %317, align 4
   br label %jit_FP.exit
@@ -72623,24 +72623,24 @@ jit_ADD_OFFSET.exit392:                           ; preds = %378, %386
   %403 = load i64, ptr %398, align 8
   %404 = trunc i64 %403 to i32
   %405 = load ptr, ptr %0, align 8
-  %sext.i.i396 = shl i64 %403, 32
-  %406 = ashr exact i64 %sext.i.i396, 32
+  %sext.i.i397 = shl i64 %403, 32
+  %406 = ashr exact i64 %sext.i.i397, 32
   %407 = getelementptr inbounds %struct._ir_insn, ptr %405, i64 %406
   %408 = load i16, ptr %407, align 8
   %409 = icmp eq i16 %408, 1542
   call void @llvm.assume(i1 %409)
-  br label %jit_ADD_OFFSET.exit397
+  br label %jit_ADD_OFFSET.exit398
 
 410:                                              ; preds = %jit_ADD_OFFSET.exit392
   %411 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %397) #32
   %412 = sext i32 %411 to i64
   store i64 %412, ptr %398, align 8
   store i32 4, ptr %399, align 8
-  br label %jit_ADD_OFFSET.exit397
+  br label %jit_ADD_OFFSET.exit398
 
-jit_ADD_OFFSET.exit397:                           ; preds = %402, %410
-  %.0.i.i394 = phi i32 [ %404, %402 ], [ %411, %410 ]
-  %413 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %351, i32 noundef %.0.i.i394) #32
+jit_ADD_OFFSET.exit398:                           ; preds = %402, %410
+  %.0.i.i395 = phi i32 [ %404, %402 ], [ %411, %410 ]
+  %413 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %351, i32 noundef %.0.i.i395) #32
   %414 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %413) #32
   %415 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 272, i32 noundef %414, i32 noundef -1) #32
   %416 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %415) #32
@@ -72654,7 +72654,7 @@ jit_ADD_OFFSET.exit397:                           ; preds = %402, %410
   %422 = icmp eq i8 %421, 4
   br i1 %422, label %423, label %431
 
-423:                                              ; preds = %jit_ADD_OFFSET.exit397
+423:                                              ; preds = %jit_ADD_OFFSET.exit398
   %424 = load i64, ptr %419, align 8
   %425 = trunc i64 %424 to i32
   %426 = load ptr, ptr %0, align 8
@@ -72666,7 +72666,7 @@ jit_ADD_OFFSET.exit397:                           ; preds = %402, %410
   call void @llvm.assume(i1 %430)
   br label %jit_Z_TYPE_ref.exit
 
-431:                                              ; preds = %jit_ADD_OFFSET.exit397
+431:                                              ; preds = %jit_ADD_OFFSET.exit398
   %432 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 8) #32
   %433 = sext i32 %432 to i64
   store i64 %433, ptr %419, align 8
@@ -72710,24 +72710,24 @@ jit_Z_TYPE_ref.exit:                              ; preds = %423, %431
   %455 = load i64, ptr %450, align 8
   %456 = trunc i64 %455 to i32
   %457 = load ptr, ptr %0, align 8
-  %sext.i.i401 = shl i64 %455, 32
-  %458 = ashr exact i64 %sext.i.i401, 32
+  %sext.i.i403 = shl i64 %455, 32
+  %458 = ashr exact i64 %sext.i.i403, 32
   %459 = getelementptr inbounds %struct._ir_insn, ptr %457, i64 %458
   %460 = load i16, ptr %459, align 8
   %461 = icmp eq i16 %460, 1542
   call void @llvm.assume(i1 %461)
-  br label %jit_ADD_OFFSET.exit402
+  br label %jit_ADD_OFFSET.exit404
 
 462:                                              ; preds = %445
   %463 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %449) #32
   %464 = sext i32 %463 to i64
   store i64 %464, ptr %450, align 8
   store i32 4, ptr %451, align 8
-  br label %jit_ADD_OFFSET.exit402
+  br label %jit_ADD_OFFSET.exit404
 
-jit_ADD_OFFSET.exit402:                           ; preds = %454, %462
-  %.0.i.i399 = phi i32 [ %456, %454 ], [ %463, %462 ]
-  %465 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %351, i32 noundef %.0.i.i399) #32
+jit_ADD_OFFSET.exit404:                           ; preds = %454, %462
+  %.0.i.i401 = phi i32 [ %456, %454 ], [ %463, %462 ]
+  %465 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %351, i32 noundef %.0.i.i401) #32
   %466 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %465) #32
   %467 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %466) #32
   call void @_ir_IF_TRUE_cold(ptr noundef %0, i32 noundef %467) #32
@@ -72738,12 +72738,12 @@ jit_ADD_OFFSET.exit402:                           ; preds = %454, %462
   %471 = icmp eq i8 %470, 4
   br i1 %471, label %472, label %483
 
-472:                                              ; preds = %jit_ADD_OFFSET.exit402
+472:                                              ; preds = %jit_ADD_OFFSET.exit404
   %473 = load i64, ptr %468, align 8
   %474 = trunc i64 %473 to i32
   %475 = load ptr, ptr %0, align 8
-  %sext.i.i404 = shl i64 %473, 32
-  %476 = ashr exact i64 %sext.i.i404, 32
+  %sext.i.i406 = shl i64 %473, 32
+  %476 = ashr exact i64 %sext.i.i406, 32
   %477 = getelementptr inbounds %struct._ir_insn, ptr %475, i64 %476
   %478 = load i16, ptr %477, align 8
   %479 = icmp eq i16 %478, 1601
@@ -72752,9 +72752,9 @@ jit_ADD_OFFSET.exit402:                           ; preds = %454, %462
   %481 = load i16, ptr %480, align 2
   %482 = icmp eq i16 %481, 0
   call void @llvm.assume(i1 %482)
-  br label %jit_CONST_FUNC.exit405
+  br label %jit_CONST_FUNC.exit407
 
-483:                                              ; preds = %jit_ADD_OFFSET.exit402
+483:                                              ; preds = %jit_ADD_OFFSET.exit404
   %484 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_assign_to_typed_prop to i64)) #32
   %485 = load ptr, ptr %0, align 8
   %486 = sext i32 %484 to i64
@@ -72762,36 +72762,36 @@ jit_ADD_OFFSET.exit402:                           ; preds = %454, %462
   store i32 1601, ptr %487, align 8
   store i64 %486, ptr %468, align 8
   store i32 4, ptr %469, align 8
-  br label %jit_CONST_FUNC.exit405
+  br label %jit_CONST_FUNC.exit407
 
-jit_CONST_FUNC.exit405:                           ; preds = %472, %483
-  %.0.i.i403 = phi i32 [ %474, %472 ], [ %484, %483 ]
+jit_CONST_FUNC.exit407:                           ; preds = %472, %483
+  %.0.i.i405 = phi i32 [ %474, %472 ], [ %484, %483 ]
   %488 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %37)
   %489 = load i8, ptr %38, align 1
   %.not346 = icmp eq i8 %489, 0
   br i1 %.not346, label %492, label %490
 
-490:                                              ; preds = %jit_CONST_FUNC.exit405
+490:                                              ; preds = %jit_CONST_FUNC.exit407
   %491 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %.0311)
   br label %492
 
-492:                                              ; preds = %jit_CONST_FUNC.exit405, %490
-  %493 = phi i32 [ %491, %490 ], [ -1, %jit_CONST_FUNC.exit405 ]
-  %494 = call i32 @_ir_CALL_4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i403, i32 noundef %418, i32 noundef %466, i32 noundef %488, i32 noundef %493) #32
+492:                                              ; preds = %jit_CONST_FUNC.exit407, %490
+  %493 = phi i32 [ %491, %490 ], [ -1, %jit_CONST_FUNC.exit407 ]
+  %494 = call i32 @_ir_CALL_4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i405, i32 noundef %418, i32 noundef %466, i32 noundef %488, i32 noundef %493) #32
   %495 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.1316) #32
   call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %467) #32
   br label %.thread
 
-.thread478:                                       ; preds = %273, %279, %.thread476, %298, %249, %313
-  %.0308486 = phi ptr [ %9, %313 ], [ %13, %249 ], [ %13, %298 ], [ %13, %.thread476 ], [ %13, %279 ], [ %13, %273 ]
-  %.0309.shrunk485 = phi i1 [ %10, %313 ], [ false, %249 ], [ false, %298 ], [ false, %.thread476 ], [ false, %279 ], [ false, %273 ]
-  %.0310483 = phi ptr [ %59, %313 ], [ %248, %249 ], [ %248, %298 ], [ %248, %.thread476 ], [ %248, %279 ], [ %248, %273 ]
-  %496 = load i32, ptr %.0310483, align 8
+.thread480:                                       ; preds = %273, %279, %.thread478, %298, %249, %313
+  %.0308488 = phi ptr [ %9, %313 ], [ %13, %249 ], [ %13, %298 ], [ %13, %.thread478 ], [ %13, %279 ], [ %13, %273 ]
+  %.0309.shrunk487 = phi i1 [ %10, %313 ], [ false, %249 ], [ false, %298 ], [ false, %.thread478 ], [ false, %279 ], [ false, %273 ]
+  %.0310485 = phi ptr [ %59, %313 ], [ %248, %249 ], [ %248, %298 ], [ %248, %.thread478 ], [ %248, %279 ], [ %248, %273 ]
+  %496 = load i32, ptr %.0310485, align 8
   %497 = zext i32 %496 to i64
-  %.not.i406 = icmp eq i32 %496, 0
-  br i1 %.not.i406, label %jit_ADD_OFFSET.exit411, label %498
+  %.not.i408 = icmp eq i32 %496, 0
+  br i1 %.not.i408, label %jit_ADD_OFFSET.exit413, label %498
 
-498:                                              ; preds = %.thread478
+498:                                              ; preds = %.thread480
   %499 = getelementptr inbounds i8, ptr %0, i64 808
   %500 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %499, i64 noundef %497) #32
   %501 = getelementptr inbounds i8, ptr %500, i64 8
@@ -72803,62 +72803,62 @@ jit_CONST_FUNC.exit405:                           ; preds = %472, %483
   %505 = load i64, ptr %500, align 8
   %506 = trunc i64 %505 to i32
   %507 = load ptr, ptr %0, align 8
-  %sext.i.i410 = shl i64 %505, 32
-  %508 = ashr exact i64 %sext.i.i410, 32
+  %sext.i.i412 = shl i64 %505, 32
+  %508 = ashr exact i64 %sext.i.i412, 32
   %509 = getelementptr inbounds %struct._ir_insn, ptr %507, i64 %508
   %510 = load i16, ptr %509, align 8
   %511 = icmp eq i16 %510, 1542
   call void @llvm.assume(i1 %511)
-  br label %jit_CONST_ADDR.exit.i407
+  br label %jit_CONST_ADDR.exit.i409
 
 512:                                              ; preds = %498
   %513 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %497) #32
   %514 = sext i32 %513 to i64
   store i64 %514, ptr %500, align 8
   store i32 4, ptr %501, align 8
-  br label %jit_CONST_ADDR.exit.i407
+  br label %jit_CONST_ADDR.exit.i409
 
-jit_CONST_ADDR.exit.i407:                         ; preds = %512, %504
-  %.0.i.i408 = phi i32 [ %506, %504 ], [ %513, %512 ]
-  %515 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0313, i32 noundef %.0.i.i408) #32
-  br label %jit_ADD_OFFSET.exit411
+jit_CONST_ADDR.exit.i409:                         ; preds = %512, %504
+  %.0.i.i410 = phi i32 [ %506, %504 ], [ %513, %512 ]
+  %515 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0313, i32 noundef %.0.i.i410) #32
+  br label %jit_ADD_OFFSET.exit413
 
-jit_ADD_OFFSET.exit411:                           ; preds = %.thread478, %jit_CONST_ADDR.exit.i407
-  %.0.i409 = phi i32 [ %515, %jit_CONST_ADDR.exit.i407 ], [ %.0313, %.thread478 ]
-  %516 = sext i32 %.0.i409 to i64
+jit_ADD_OFFSET.exit413:                           ; preds = %.thread480, %jit_CONST_ADDR.exit.i409
+  %.0.i411 = phi i32 [ %515, %jit_CONST_ADDR.exit.i409 ], [ %.0313, %.thread480 ]
+  %516 = sext i32 %.0.i411 to i64
   %517 = shl nsw i64 %516, 2
   %518 = or disjoint i64 %517, 3
-  %.not347 = icmp eq ptr %.0308486, null
-  %brmerge370 = or i1 %.not347, %.0309.shrunk485
+  %.not347 = icmp eq ptr %.0308488, null
+  %brmerge370 = or i1 %.not347, %.0309.shrunk487
   br i1 %brmerge370, label %533, label %519
 
-519:                                              ; preds = %jit_ADD_OFFSET.exit411
-  %520 = getelementptr inbounds i8, ptr %.0308486, i64 28
+519:                                              ; preds = %jit_ADD_OFFSET.exit413
+  %520 = getelementptr inbounds i8, ptr %.0308488, i64 28
   %521 = load i32, ptr %520, align 4
   %522 = and i32 %521, 128
   %.not348 = icmp eq i32 %522, 0
   br i1 %.not348, label %533, label %523
 
 523:                                              ; preds = %519
-  %524 = getelementptr inbounds i8, ptr %.0308486, i64 280
+  %524 = getelementptr inbounds i8, ptr %.0308488, i64 280
   %525 = load ptr, ptr %524, align 8
   %.not349 = icmp eq ptr %525, null
   br i1 %.not349, label %526, label %533
 
 526:                                              ; preds = %523
-  %527 = getelementptr inbounds i8, ptr %.0308486, i64 288
+  %527 = getelementptr inbounds i8, ptr %.0308488, i64 288
   %528 = load ptr, ptr %527, align 8
   %.not350 = icmp eq ptr %528, null
   br i1 %.not350, label %529, label %533
 
 529:                                              ; preds = %526
-  %530 = getelementptr inbounds i8, ptr %.0310483, i64 4
+  %530 = getelementptr inbounds i8, ptr %.0310485, i64 4
   %531 = load i32, ptr %530, align 4
   %532 = and i32 %531, 128
   %.not351 = icmp eq i32 %532, 0
   br i1 %.not351, label %598, label %533
 
-533:                                              ; preds = %jit_ADD_OFFSET.exit411, %529, %526, %523, %519
+533:                                              ; preds = %jit_ADD_OFFSET.exit413, %529, %526, %523, %519
   %534 = load i8, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 2), align 2
   %535 = icmp eq i8 %534, 5
   br i1 %535, label %536, label %594
@@ -72868,22 +72868,22 @@ jit_ADD_OFFSET.exit411:                           ; preds = %.thread478, %jit_CO
   %538 = load ptr, ptr @zend_jit_traces, align 8
   %539 = getelementptr inbounds i8, ptr %538, i64 16
   %540 = load i32, ptr %539, align 8
-  %.not.i412 = icmp ugt i32 %540, %537
-  br i1 %.not.i412, label %565, label %541
+  %.not.i414 = icmp ugt i32 %540, %537
+  br i1 %.not.i414, label %565, label %541
 
 541:                                              ; preds = %536
   %542 = icmp ugt i32 %537, 511
-  br i1 %542, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i413
+  br i1 %542, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i415
 
-.preheader.i.i413:                                ; preds = %541
+.preheader.i.i415:                                ; preds = %541
   %543 = getelementptr inbounds i8, ptr %17, i64 8
   %544 = getelementptr inbounds i8, ptr %17, i64 16
-  %.pre12.i.i414 = load ptr, ptr @dasm_ptr, align 8
+  %.pre12.i.i416 = load ptr, ptr @dasm_ptr, align 8
   br label %545
 
-545:                                              ; preds = %555, %.preheader.i.i413
-  %546 = phi ptr [ %.pre12.i.i414, %.preheader.i.i413 ], [ %554, %555 ]
-  %547 = phi i32 [ %540, %.preheader.i.i413 ], [ %564, %555 ]
+545:                                              ; preds = %555, %.preheader.i.i415
+  %546 = phi ptr [ %.pre12.i.i416, %.preheader.i.i415 ], [ %554, %555 ]
+  %547 = phi i32 [ %540, %.preheader.i.i415 ], [ %564, %555 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   %548 = load ptr, ptr @dasm_buf, align 8
@@ -72899,8 +72899,8 @@ jit_ADD_OFFSET.exit411:                           ; preds = %.thread478, %jit_CO
   store ptr %553, ptr %554, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  %.not.i.i415 = icmp eq ptr %552, null
-  br i1 %.not.i.i415, label %zend_jit_trace_get_exit_addr.exit.thread, label %555
+  %.not.i.i417 = icmp eq ptr %552, null
+  br i1 %.not.i.i417, label %zend_jit_trace_get_exit_addr.exit.thread, label %555
 
 555:                                              ; preds = %545
   %556 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -72914,8 +72914,8 @@ jit_ADD_OFFSET.exit411:                           ; preds = %.thread478, %jit_CO
   %563 = load i32, ptr %558, align 8
   %564 = add i32 %563, 32
   store i32 %564, ptr %558, align 8
-  %.not8.i.i416 = icmp ugt i32 %564, %537
-  br i1 %.not8.i.i416, label %zend_jit_trace_get_exit_addr.exit418, label %545
+  %.not8.i.i418 = icmp ugt i32 %564, %537
+  br i1 %.not8.i.i418, label %zend_jit_trace_get_exit_addr.exit420, label %545
 
 565:                                              ; preds = %536
   %566 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -72923,18 +72923,18 @@ jit_ADD_OFFSET.exit411:                           ; preds = %.thread478, %jit_CO
   %568 = zext nneg i32 %567 to i64
   %569 = getelementptr inbounds ptr, ptr %566, i64 %568
   %570 = load ptr, ptr %569, align 8
-  br label %zend_jit_trace_get_exit_addr.exit418
+  br label %zend_jit_trace_get_exit_addr.exit420
 
-zend_jit_trace_get_exit_addr.exit418:             ; preds = %555, %565
-  %.lcssa534.sink = phi ptr [ %570, %565 ], [ %552, %555 ]
-  %.not352 = icmp eq ptr %.lcssa534.sink, null
+zend_jit_trace_get_exit_addr.exit420:             ; preds = %555, %565
+  %.lcssa536.sink = phi ptr [ %570, %565 ], [ %552, %555 ]
+  %.not352 = icmp eq ptr %.lcssa536.sink, null
   br i1 %.not352, label %zend_jit_trace_get_exit_addr.exit.thread, label %571
 
-571:                                              ; preds = %zend_jit_trace_get_exit_addr.exit418
+571:                                              ; preds = %zend_jit_trace_get_exit_addr.exit420
   %572 = shl i32 %537, 2
   %573 = and i32 %572, 124
   %574 = zext nneg i32 %573 to i64
-  %575 = getelementptr inbounds i8, ptr %.lcssa534.sink, i64 %574
+  %575 = getelementptr inbounds i8, ptr %.lcssa536.sink, i64 %574
   %576 = call fastcc i32 @jit_Z_TYPE_INFO(ptr noundef %0, i64 noundef %518)
   %577 = ptrtoint ptr %575 to i64
   %578 = getelementptr inbounds i8, ptr %0, i64 808
@@ -72948,24 +72948,24 @@ zend_jit_trace_get_exit_addr.exit418:             ; preds = %555, %565
   %584 = load i64, ptr %579, align 8
   %585 = trunc i64 %584 to i32
   %586 = load ptr, ptr %0, align 8
-  %sext.i420 = shl i64 %584, 32
-  %587 = ashr exact i64 %sext.i420, 32
+  %sext.i422 = shl i64 %584, 32
+  %587 = ashr exact i64 %sext.i422, 32
   %588 = getelementptr inbounds %struct._ir_insn, ptr %586, i64 %587
   %589 = load i16, ptr %588, align 8
   %590 = icmp eq i16 %589, 1542
   call void @llvm.assume(i1 %590)
-  br label %jit_CONST_ADDR.exit421
+  br label %jit_CONST_ADDR.exit423
 
 591:                                              ; preds = %571
   %592 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %577) #32
   %593 = sext i32 %592 to i64
   store i64 %593, ptr %579, align 8
   store i32 4, ptr %580, align 8
-  br label %jit_CONST_ADDR.exit421
+  br label %jit_CONST_ADDR.exit423
 
-jit_CONST_ADDR.exit421:                           ; preds = %583, %591
-  %.0.i419 = phi i32 [ %585, %583 ], [ %592, %591 ]
-  call void @_ir_GUARD(ptr noundef %0, i32 noundef %576, i32 noundef %.0.i419) #32
+jit_CONST_ADDR.exit423:                           ; preds = %583, %591
+  %.0.i421 = phi i32 [ %585, %583 ], [ %592, %591 ]
+  call void @_ir_GUARD(ptr noundef %0, i32 noundef %576, i32 noundef %.0.i421) #32
   br label %598
 
 594:                                              ; preds = %533
@@ -72976,9 +72976,9 @@ jit_CONST_ADDR.exit421:                           ; preds = %583, %591
   call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %596) #32
   br label %598
 
-598:                                              ; preds = %jit_CONST_ADDR.exit421, %594, %529
-  %.0317 = phi i32 [ 0, %jit_CONST_ADDR.exit421 ], [ %597, %594 ], [ 0, %529 ]
-  %599 = getelementptr inbounds i8, ptr %.0310483, i64 48
+598:                                              ; preds = %jit_CONST_ADDR.exit423, %594, %529
+  %.0317 = phi i32 [ 0, %jit_CONST_ADDR.exit423 ], [ %597, %594 ], [ 0, %529 ]
+  %599 = getelementptr inbounds i8, ptr %.0310485, i64 48
   %600 = load i32, ptr %599, align 8
   %601 = and i32 %600, 33554431
   %.not353 = icmp eq i32 %601, 0
@@ -72989,14 +72989,14 @@ jit_CONST_ADDR.exit421:                           ; preds = %583, %591
   br i1 %.not347, label %625, label %603
 
 603:                                              ; preds = %602
-  %604 = getelementptr inbounds i8, ptr %.0308486, i64 28
+  %604 = getelementptr inbounds i8, ptr %.0308488, i64 28
   %605 = load i32, ptr %604, align 4
   %606 = and i32 %605, 128
   %.not354 = icmp eq i32 %606, 0
   br i1 %.not354, label %625, label %607
 
 607:                                              ; preds = %603
-  %608 = ptrtoint ptr %.0310483 to i64
+  %608 = ptrtoint ptr %.0310485 to i64
   %609 = getelementptr inbounds i8, ptr %0, i64 808
   %610 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %609, i64 noundef %608) #32
   %611 = getelementptr inbounds i8, ptr %610, i64 8
@@ -73008,23 +73008,23 @@ jit_CONST_ADDR.exit421:                           ; preds = %583, %591
   %615 = load i64, ptr %610, align 8
   %616 = trunc i64 %615 to i32
   %617 = load ptr, ptr %0, align 8
-  %sext.i423 = shl i64 %615, 32
-  %618 = ashr exact i64 %sext.i423, 32
+  %sext.i425 = shl i64 %615, 32
+  %618 = ashr exact i64 %sext.i425, 32
   %619 = getelementptr inbounds %struct._ir_insn, ptr %617, i64 %618
   %620 = load i16, ptr %619, align 8
   %621 = icmp eq i16 %620, 1542
   call void @llvm.assume(i1 %621)
-  br label %jit_CONST_ADDR.exit424
+  br label %jit_CONST_ADDR.exit426
 
 622:                                              ; preds = %607
   %623 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %608) #32
   %624 = sext i32 %623 to i64
   store i64 %624, ptr %610, align 8
   store i32 4, ptr %611, align 8
-  br label %jit_CONST_ADDR.exit424
+  br label %jit_CONST_ADDR.exit426
 
 625:                                              ; preds = %603, %602
-  %626 = load i32, ptr %.0310483, align 8
+  %626 = load i32, ptr %.0310485, align 8
   %627 = zext i32 %626 to i64
   %628 = getelementptr inbounds i8, ptr %0, i64 808
   %629 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %628, i64 noundef 16) #32
@@ -73037,24 +73037,24 @@ jit_CONST_ADDR.exit421:                           ; preds = %583, %591
   %634 = load i64, ptr %629, align 8
   %635 = trunc i64 %634 to i32
   %636 = load ptr, ptr %0, align 8
-  %sext.i.i428 = shl i64 %634, 32
-  %637 = ashr exact i64 %sext.i.i428, 32
+  %sext.i.i430 = shl i64 %634, 32
+  %637 = ashr exact i64 %sext.i.i430, 32
   %638 = getelementptr inbounds %struct._ir_insn, ptr %636, i64 %637
   %639 = load i16, ptr %638, align 8
   %640 = icmp eq i16 %639, 1542
   call void @llvm.assume(i1 %640)
-  br label %jit_ADD_OFFSET.exit429
+  br label %jit_ADD_OFFSET.exit431
 
 641:                                              ; preds = %625
   %642 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 16) #32
   %643 = sext i32 %642 to i64
   store i64 %643, ptr %629, align 8
   store i32 4, ptr %630, align 8
-  br label %jit_ADD_OFFSET.exit429
+  br label %jit_ADD_OFFSET.exit431
 
-jit_ADD_OFFSET.exit429:                           ; preds = %633, %641
-  %.0.i.i426 = phi i32 [ %635, %633 ], [ %642, %641 ]
-  %644 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0313, i32 noundef %.0.i.i426) #32
+jit_ADD_OFFSET.exit431:                           ; preds = %633, %641
+  %.0.i.i428 = phi i32 [ %635, %633 ], [ %642, %641 ]
+  %644 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0313, i32 noundef %.0.i.i428) #32
   %645 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %644) #32
   %646 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %628, i64 noundef 248) #32
   %647 = getelementptr inbounds i8, ptr %646, i64 8
@@ -73062,37 +73062,37 @@ jit_ADD_OFFSET.exit429:                           ; preds = %633, %641
   %649 = icmp eq i8 %648, 4
   br i1 %649, label %650, label %658
 
-650:                                              ; preds = %jit_ADD_OFFSET.exit429
+650:                                              ; preds = %jit_ADD_OFFSET.exit431
   %651 = load i64, ptr %646, align 8
   %652 = trunc i64 %651 to i32
   %653 = load ptr, ptr %0, align 8
-  %sext.i.i433 = shl i64 %651, 32
-  %654 = ashr exact i64 %sext.i.i433, 32
+  %sext.i.i435 = shl i64 %651, 32
+  %654 = ashr exact i64 %sext.i.i435, 32
   %655 = getelementptr inbounds %struct._ir_insn, ptr %653, i64 %654
   %656 = load i16, ptr %655, align 8
   %657 = icmp eq i16 %656, 1542
   call void @llvm.assume(i1 %657)
-  br label %jit_ADD_OFFSET.exit434
+  br label %jit_ADD_OFFSET.exit436
 
-658:                                              ; preds = %jit_ADD_OFFSET.exit429
+658:                                              ; preds = %jit_ADD_OFFSET.exit431
   %659 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 248) #32
   %660 = sext i32 %659 to i64
   store i64 %660, ptr %646, align 8
   store i32 4, ptr %647, align 8
-  br label %jit_ADD_OFFSET.exit434
+  br label %jit_ADD_OFFSET.exit436
 
-jit_ADD_OFFSET.exit434:                           ; preds = %650, %658
-  %.0.i.i431 = phi i32 [ %652, %650 ], [ %659, %658 ]
-  %661 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %645, i32 noundef %.0.i.i431) #32
+jit_ADD_OFFSET.exit436:                           ; preds = %650, %658
+  %.0.i.i433 = phi i32 [ %652, %650 ], [ %659, %658 ]
+  %661 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %645, i32 noundef %.0.i.i433) #32
   %662 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %661) #32
   %663 = shl nuw nsw i64 %627, 31
   %664 = add nsw i64 %663, -85899345920
   %sext = ashr i64 %664, 32
   %665 = and i64 %sext, -8
-  %.not.i435 = icmp eq i64 %665, 0
-  br i1 %.not.i435, label %jit_ADD_OFFSET.exit440, label %666
+  %.not.i437 = icmp eq i64 %665, 0
+  br i1 %.not.i437, label %jit_ADD_OFFSET.exit442, label %666
 
-666:                                              ; preds = %jit_ADD_OFFSET.exit434
+666:                                              ; preds = %jit_ADD_OFFSET.exit436
   %667 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %628, i64 noundef %665) #32
   %668 = getelementptr inbounds i8, ptr %667, i64 8
   %669 = load i8, ptr %668, align 8
@@ -73103,33 +73103,33 @@ jit_ADD_OFFSET.exit434:                           ; preds = %650, %658
   %672 = load i64, ptr %667, align 8
   %673 = trunc i64 %672 to i32
   %674 = load ptr, ptr %0, align 8
-  %sext.i.i439 = shl i64 %672, 32
-  %675 = ashr exact i64 %sext.i.i439, 32
+  %sext.i.i441 = shl i64 %672, 32
+  %675 = ashr exact i64 %sext.i.i441, 32
   %676 = getelementptr inbounds %struct._ir_insn, ptr %674, i64 %675
   %677 = load i16, ptr %676, align 8
   %678 = icmp eq i16 %677, 1542
   call void @llvm.assume(i1 %678)
-  br label %jit_CONST_ADDR.exit.i436
+  br label %jit_CONST_ADDR.exit.i438
 
 679:                                              ; preds = %666
   %680 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %665) #32
   %681 = sext i32 %680 to i64
   store i64 %681, ptr %667, align 8
   store i32 4, ptr %668, align 8
-  br label %jit_CONST_ADDR.exit.i436
+  br label %jit_CONST_ADDR.exit.i438
 
-jit_CONST_ADDR.exit.i436:                         ; preds = %679, %671
-  %.0.i.i437 = phi i32 [ %673, %671 ], [ %680, %679 ]
-  %682 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %662, i32 noundef %.0.i.i437) #32
-  br label %jit_ADD_OFFSET.exit440
+jit_CONST_ADDR.exit.i438:                         ; preds = %679, %671
+  %.0.i.i439 = phi i32 [ %673, %671 ], [ %680, %679 ]
+  %682 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %662, i32 noundef %.0.i.i439) #32
+  br label %jit_ADD_OFFSET.exit442
 
-jit_ADD_OFFSET.exit440:                           ; preds = %jit_ADD_OFFSET.exit434, %jit_CONST_ADDR.exit.i436
-  %.0.i438 = phi i32 [ %682, %jit_CONST_ADDR.exit.i436 ], [ %662, %jit_ADD_OFFSET.exit434 ]
-  %683 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %.0.i438) #32
-  br label %jit_CONST_ADDR.exit424
+jit_ADD_OFFSET.exit442:                           ; preds = %jit_ADD_OFFSET.exit436, %jit_CONST_ADDR.exit.i438
+  %.0.i440 = phi i32 [ %682, %jit_CONST_ADDR.exit.i438 ], [ %662, %jit_ADD_OFFSET.exit436 ]
+  %683 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %.0.i440) #32
+  br label %jit_CONST_ADDR.exit426
 
-jit_CONST_ADDR.exit424:                           ; preds = %622, %614, %jit_ADD_OFFSET.exit440
-  %.0307 = phi i32 [ %683, %jit_ADD_OFFSET.exit440 ], [ %616, %614 ], [ %623, %622 ]
+jit_CONST_ADDR.exit426:                           ; preds = %622, %614, %jit_ADD_OFFSET.exit442
+  %.0307 = phi i32 [ %683, %jit_ADD_OFFSET.exit442 ], [ %616, %614 ], [ %623, %622 ]
   %684 = getelementptr inbounds i8, ptr %0, i64 808
   %685 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %684, i64 noundef ptrtoint (ptr @zend_jit_assign_to_typed_prop to i64)) #32
   %686 = getelementptr inbounds i8, ptr %685, i64 8
@@ -73137,12 +73137,12 @@ jit_CONST_ADDR.exit424:                           ; preds = %622, %614, %jit_ADD
   %688 = icmp eq i8 %687, 4
   br i1 %688, label %689, label %700
 
-689:                                              ; preds = %jit_CONST_ADDR.exit424
+689:                                              ; preds = %jit_CONST_ADDR.exit426
   %690 = load i64, ptr %685, align 8
   %691 = trunc i64 %690 to i32
   %692 = load ptr, ptr %0, align 8
-  %sext.i.i442 = shl i64 %690, 32
-  %693 = ashr exact i64 %sext.i.i442, 32
+  %sext.i.i444 = shl i64 %690, 32
+  %693 = ashr exact i64 %sext.i.i444, 32
   %694 = getelementptr inbounds %struct._ir_insn, ptr %692, i64 %693
   %695 = load i16, ptr %694, align 8
   %696 = icmp eq i16 %695, 1601
@@ -73151,9 +73151,9 @@ jit_CONST_ADDR.exit424:                           ; preds = %622, %614, %jit_ADD
   %698 = load i16, ptr %697, align 2
   %699 = icmp eq i16 %698, 0
   call void @llvm.assume(i1 %699)
-  br label %jit_CONST_FUNC.exit443
+  br label %jit_CONST_FUNC.exit445
 
-700:                                              ; preds = %jit_CONST_ADDR.exit424
+700:                                              ; preds = %jit_CONST_ADDR.exit426
   %701 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_assign_to_typed_prop to i64)) #32
   %702 = load ptr, ptr %0, align 8
   %703 = sext i32 %701 to i64
@@ -73161,56 +73161,56 @@ jit_CONST_ADDR.exit424:                           ; preds = %622, %614, %jit_ADD
   store i32 1601, ptr %704, align 8
   store i64 %703, ptr %685, align 8
   store i32 4, ptr %686, align 8
-  br label %jit_CONST_FUNC.exit443
+  br label %jit_CONST_FUNC.exit445
 
-jit_CONST_FUNC.exit443:                           ; preds = %689, %700
-  %.0.i.i441 = phi i32 [ %691, %689 ], [ %701, %700 ]
+jit_CONST_FUNC.exit445:                           ; preds = %689, %700
+  %.0.i.i443 = phi i32 [ %691, %689 ], [ %701, %700 ]
   %705 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %37)
   %706 = load i8, ptr %38, align 1
   %.not355 = icmp eq i8 %706, 0
   br i1 %.not355, label %709, label %707
 
-707:                                              ; preds = %jit_CONST_FUNC.exit443
+707:                                              ; preds = %jit_CONST_FUNC.exit445
   %708 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %.0311)
   br label %709
 
-709:                                              ; preds = %jit_CONST_FUNC.exit443, %707
-  %710 = phi i32 [ %708, %707 ], [ -1, %jit_CONST_FUNC.exit443 ]
-  %711 = call i32 @_ir_CALL_4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i441, i32 noundef %.0.i409, i32 noundef %.0307, i32 noundef %705, i32 noundef %710) #32
+709:                                              ; preds = %jit_CONST_FUNC.exit445, %707
+  %710 = phi i32 [ %708, %707 ], [ -1, %jit_CONST_FUNC.exit445 ]
+  %711 = call i32 @_ir_CALL_4(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i443, i32 noundef %.0.i411, i32 noundef %.0307, i32 noundef %705, i32 noundef %710) #32
   %712 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.1316) #32
   br label %713
 
 713:                                              ; preds = %598, %709
-  %.2506 = phi i32 [ %712, %709 ], [ %.1316, %598 ]
-  %714 = getelementptr inbounds i8, ptr %.0310483, i64 48
+  %.2508 = phi i32 [ %712, %709 ], [ %.1316, %598 ]
+  %714 = getelementptr inbounds i8, ptr %.0310485, i64 48
   %715 = load i32, ptr %714, align 8
   %716 = and i32 %715, 33554431
   %.not356 = icmp eq i32 %716, 0
   br i1 %.not356, label %.thread, label %734
 
 .thread:                                          ; preds = %441, %492, %713
-  %.0312509 = phi i64 [ %518, %713 ], [ %440, %492 ], [ %440, %441 ]
-  %.2507 = phi i32 [ %.2506, %713 ], [ %495, %492 ], [ %.1316, %441 ]
-  %.1318505 = phi i32 [ %.0317, %713 ], [ %437, %492 ], [ %437, %441 ]
+  %.0312511 = phi i64 [ %518, %713 ], [ %440, %492 ], [ %440, %441 ]
+  %.2509 = phi i32 [ %.2508, %713 ], [ %495, %492 ], [ %.1316, %441 ]
+  %.1318507 = phi i32 [ %.0317, %713 ], [ %437, %492 ], [ %437, %441 ]
   %717 = load i8, ptr %38, align 1
   %718 = icmp eq i8 %717, 0
   %719 = load i8, ptr %20, align 1
   br i1 %718, label %720, label %722
 
 720:                                              ; preds = %.thread
-  %721 = call fastcc i32 @zend_jit_assign_to_variable_call(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0312509, i8 noundef zeroext %719, i64 noundef %37, i32 noundef %7)
+  %721 = call fastcc i32 @zend_jit_assign_to_variable_call(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0312511, i8 noundef zeroext %719, i64 noundef %37, i32 noundef %7)
   %.not357 = icmp eq i32 %721, 0
   br i1 %.not357, label %zend_jit_trace_get_exit_addr.exit.thread, label %723
 
 722:                                              ; preds = %.thread
-  call fastcc void @zend_jit_assign_to_variable(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0312509, i64 noundef %.0312509, i32 noundef -1, i32 noundef -1, i8 noundef zeroext %719, i64 noundef %37, i32 noundef %7, i64 noundef %.0311, i64 noundef 0, i1 noundef zeroext false)
+  call fastcc void @zend_jit_assign_to_variable(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0312511, i64 noundef %.0312511, i32 noundef -1, i32 noundef -1, i8 noundef zeroext %719, i64 noundef %37, i32 noundef %7, i64 noundef %.0311, i64 noundef 0, i1 noundef zeroext false)
   br label %723
 
 723:                                              ; preds = %722, %720
-  %724 = icmp ne i32 %.2507, 0
-  %725 = icmp ne i32 %.1318505, 0
+  %724 = icmp ne i32 %.2509, 0
+  %725 = icmp ne i32 %.1318507, 0
   %or.cond7 = select i1 %724, i1 true, i1 %725
-  br i1 %or.cond7, label %726, label %.thread516
+  br i1 %or.cond7, label %726, label %.thread518
 
 726:                                              ; preds = %723
   %727 = load i8, ptr %20, align 1
@@ -73226,18 +73226,18 @@ jit_CONST_FUNC.exit443:                           ; preds = %689, %700
   br label %734
 
 732:                                              ; preds = %726
-  %733 = call i32 @_ir_END_LIST(ptr noundef %0, i32 noundef %.2507) #32
+  %733 = call i32 @_ir_END_LIST(ptr noundef %0, i32 noundef %.2509) #32
   br label %734
 
 734:                                              ; preds = %732, %730, %713
-  %.1318503 = phi i32 [ %.0317, %713 ], [ %.1318505, %730 ], [ %.1318505, %732 ]
-  %.3 = phi i32 [ %.2506, %713 ], [ %.2507, %730 ], [ %733, %732 ]
+  %.1318505 = phi i32 [ %.0317, %713 ], [ %.1318507, %730 ], [ %.1318507, %732 ]
+  %.3 = phi i32 [ %.2508, %713 ], [ %.2509, %730 ], [ %733, %732 ]
   %.0314 = phi i32 [ 0, %713 ], [ %731, %730 ], [ 0, %732 ]
-  %.not360 = icmp eq i32 %.1318503, 0
+  %.not360 = icmp eq i32 %.1318505, 0
   br i1 %.not360, label %841, label %735
 
 735:                                              ; preds = %734
-  call void @_ir_MERGE_LIST(ptr noundef %0, i32 noundef %.1318503) #32
+  call void @_ir_MERGE_LIST(ptr noundef %0, i32 noundef %.1318505) #32
   call fastcc void @jit_SET_EX_OPLINE(ptr noundef %0, ptr noundef %1)
   %736 = getelementptr inbounds i8, ptr %0, i64 248
   %737 = load i32, ptr %736, align 8
@@ -73246,39 +73246,39 @@ jit_CONST_FUNC.exit443:                           ; preds = %689, %700
   %739 = getelementptr inbounds i8, ptr %0, i64 700
   %740 = load i32, ptr %739, align 4
   %741 = icmp eq i32 %740, 0
-  br i1 %741, label %.loopexit.sink.split.i448, label %.preheader.i444
+  br i1 %741, label %.loopexit.sink.split.i450, label %.preheader.i446
 
-.preheader.i444:                                  ; preds = %735
+.preheader.i446:                                  ; preds = %735
   %742 = icmp eq i32 %737, %740
-  br i1 %742, label %jit_FP.exit450, label %.lr.ph.i445
+  br i1 %742, label %jit_FP.exit452, label %.lr.ph.i447
 
-.lr.ph.i445:                                      ; preds = %.preheader.i444
+.lr.ph.i447:                                      ; preds = %.preheader.i446
   %743 = load ptr, ptr %0, align 8
   br label %744
 
-744:                                              ; preds = %750, %.lr.ph.i445
-  %.015.i446 = phi i32 [ %737, %.lr.ph.i445 ], [ %752, %750 ]
-  %745 = sext i32 %.015.i446 to i64
+744:                                              ; preds = %750, %.lr.ph.i447
+  %.015.i448 = phi i32 [ %737, %.lr.ph.i447 ], [ %752, %750 ]
+  %745 = sext i32 %.015.i448 to i64
   %746 = getelementptr inbounds %struct._ir_insn, ptr %743, i64 %745
   %747 = load i8, ptr %746, align 8
   %748 = icmp ugt i8 %747, 88
   %749 = icmp eq i8 %747, 69
-  %or.cond.i447 = or i1 %748, %749
-  br i1 %or.cond.i447, label %.loopexit.sink.split.i448, label %750
+  %or.cond.i449 = or i1 %748, %749
+  br i1 %or.cond.i449, label %.loopexit.sink.split.i450, label %750
 
 750:                                              ; preds = %744
   %751 = getelementptr inbounds i8, ptr %746, i64 4
   %752 = load i32, ptr %751, align 4
   %753 = icmp eq i32 %752, %740
-  br i1 %753, label %jit_FP.exit450, label %744
+  br i1 %753, label %jit_FP.exit452, label %744
 
-.loopexit.sink.split.i448:                        ; preds = %744, %735
+.loopexit.sink.split.i450:                        ; preds = %744, %735
   %754 = call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 14) #32
   store i32 %754, ptr %739, align 4
-  br label %jit_FP.exit450
+  br label %jit_FP.exit452
 
-jit_FP.exit450:                                   ; preds = %750, %.preheader.i444, %.loopexit.sink.split.i448
-  %755 = phi i32 [ %737, %.preheader.i444 ], [ %754, %.loopexit.sink.split.i448 ], [ %740, %750 ]
+jit_FP.exit452:                                   ; preds = %750, %.preheader.i446, %.loopexit.sink.split.i450
+  %755 = phi i32 [ %737, %.preheader.i446 ], [ %754, %.loopexit.sink.split.i450 ], [ %740, %750 ]
   %756 = getelementptr inbounds i8, ptr %0, i64 808
   %757 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %756, i64 noundef 64) #32
   %758 = getelementptr inbounds i8, ptr %757, i64 8
@@ -73286,28 +73286,28 @@ jit_FP.exit450:                                   ; preds = %750, %.preheader.i4
   %760 = icmp eq i8 %759, 4
   br i1 %760, label %761, label %769
 
-761:                                              ; preds = %jit_FP.exit450
+761:                                              ; preds = %jit_FP.exit452
   %762 = load i64, ptr %757, align 8
   %763 = trunc i64 %762 to i32
   %764 = load ptr, ptr %0, align 8
-  %sext.i.i454 = shl i64 %762, 32
-  %765 = ashr exact i64 %sext.i.i454, 32
+  %sext.i.i456 = shl i64 %762, 32
+  %765 = ashr exact i64 %sext.i.i456, 32
   %766 = getelementptr inbounds %struct._ir_insn, ptr %764, i64 %765
   %767 = load i16, ptr %766, align 8
   %768 = icmp eq i16 %767, 1542
   call void @llvm.assume(i1 %768)
-  br label %jit_ADD_OFFSET.exit455
+  br label %jit_ADD_OFFSET.exit457
 
-769:                                              ; preds = %jit_FP.exit450
+769:                                              ; preds = %jit_FP.exit452
   %770 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 64) #32
   %771 = sext i32 %770 to i64
   store i64 %771, ptr %757, align 8
   store i32 4, ptr %758, align 8
-  br label %jit_ADD_OFFSET.exit455
+  br label %jit_ADD_OFFSET.exit457
 
-jit_ADD_OFFSET.exit455:                           ; preds = %761, %769
-  %.0.i.i452 = phi i32 [ %763, %761 ], [ %770, %769 ]
-  %772 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %755, i32 noundef %.0.i.i452) #32
+jit_ADD_OFFSET.exit457:                           ; preds = %761, %769
+  %.0.i.i454 = phi i32 [ %763, %761 ], [ %770, %769 ]
+  %772 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %755, i32 noundef %.0.i.i454) #32
   %773 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %772) #32
   %774 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %756, i64 noundef ptrtoint (ptr @zend_jit_assign_obj_helper to i64)) #32
   %775 = getelementptr inbounds i8, ptr %774, i64 8
@@ -73315,12 +73315,12 @@ jit_ADD_OFFSET.exit455:                           ; preds = %761, %769
   %777 = icmp eq i8 %776, 4
   br i1 %777, label %778, label %789
 
-778:                                              ; preds = %jit_ADD_OFFSET.exit455
+778:                                              ; preds = %jit_ADD_OFFSET.exit457
   %779 = load i64, ptr %774, align 8
   %780 = trunc i64 %779 to i32
   %781 = load ptr, ptr %0, align 8
-  %sext.i.i457 = shl i64 %779, 32
-  %782 = ashr exact i64 %sext.i.i457, 32
+  %sext.i.i459 = shl i64 %779, 32
+  %782 = ashr exact i64 %sext.i.i459, 32
   %783 = getelementptr inbounds %struct._ir_insn, ptr %781, i64 %782
   %784 = load i16, ptr %783, align 8
   %785 = icmp eq i16 %784, 1601
@@ -73329,9 +73329,9 @@ jit_ADD_OFFSET.exit455:                           ; preds = %761, %769
   %787 = load i16, ptr %786, align 2
   %788 = icmp eq i16 %787, 0
   call void @llvm.assume(i1 %788)
-  br label %jit_CONST_FUNC.exit458
+  br label %jit_CONST_FUNC.exit460
 
-789:                                              ; preds = %jit_ADD_OFFSET.exit455
+789:                                              ; preds = %jit_ADD_OFFSET.exit457
   %790 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_assign_obj_helper to i64)) #32
   %791 = load ptr, ptr %0, align 8
   %792 = sext i32 %790 to i64
@@ -73339,15 +73339,15 @@ jit_ADD_OFFSET.exit455:                           ; preds = %761, %769
   store i32 1601, ptr %793, align 8
   store i64 %792, ptr %774, align 8
   store i32 4, ptr %775, align 8
-  br label %jit_CONST_FUNC.exit458
+  br label %jit_CONST_FUNC.exit460
 
-jit_CONST_FUNC.exit458:                           ; preds = %778, %789
-  %.0.i.i456 = phi i32 [ %780, %778 ], [ %790, %789 ]
+jit_CONST_FUNC.exit460:                           ; preds = %778, %789
+  %.0.i.i458 = phi i32 [ %780, %778 ], [ %790, %789 ]
   %794 = ptrtoint ptr %56 to i64
   %795 = icmp eq ptr %56, null
-  br i1 %795, label %jit_CONST_ADDR.exit461, label %796
+  br i1 %795, label %jit_CONST_ADDR.exit463, label %796
 
-796:                                              ; preds = %jit_CONST_FUNC.exit458
+796:                                              ; preds = %jit_CONST_FUNC.exit460
   %797 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %756, i64 noundef %794) #32
   %798 = getelementptr inbounds i8, ptr %797, i64 8
   %799 = load i8, ptr %798, align 8
@@ -73358,32 +73358,32 @@ jit_CONST_FUNC.exit458:                           ; preds = %778, %789
   %802 = load i64, ptr %797, align 8
   %803 = trunc i64 %802 to i32
   %804 = load ptr, ptr %0, align 8
-  %sext.i460 = shl i64 %802, 32
-  %805 = ashr exact i64 %sext.i460, 32
+  %sext.i462 = shl i64 %802, 32
+  %805 = ashr exact i64 %sext.i462, 32
   %806 = getelementptr inbounds %struct._ir_insn, ptr %804, i64 %805
   %807 = load i16, ptr %806, align 8
   %808 = icmp eq i16 %807, 1542
   call void @llvm.assume(i1 %808)
-  br label %jit_CONST_ADDR.exit461
+  br label %jit_CONST_ADDR.exit463
 
 809:                                              ; preds = %796
   %810 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %794) #32
   %811 = sext i32 %810 to i64
   store i64 %811, ptr %797, align 8
   store i32 4, ptr %798, align 8
-  br label %jit_CONST_ADDR.exit461
+  br label %jit_CONST_ADDR.exit463
 
-jit_CONST_ADDR.exit461:                           ; preds = %jit_CONST_FUNC.exit458, %801, %809
-  %.0.i459 = phi i32 [ -1, %jit_CONST_FUNC.exit458 ], [ %803, %801 ], [ %810, %809 ]
+jit_CONST_ADDR.exit463:                           ; preds = %jit_CONST_FUNC.exit460, %801, %809
+  %.0.i461 = phi i32 [ -1, %jit_CONST_FUNC.exit460 ], [ %803, %801 ], [ %810, %809 ]
   %812 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %37)
   %813 = getelementptr inbounds i8, ptr %1, i64 20
   %814 = load i32, ptr %813, align 4
   %815 = and i32 %814, -4
   %816 = zext i32 %815 to i64
-  %.not.i462 = icmp eq i32 %815, 0
-  br i1 %.not.i462, label %jit_ADD_OFFSET.exit467, label %817
+  %.not.i464 = icmp eq i32 %815, 0
+  br i1 %.not.i464, label %jit_ADD_OFFSET.exit469, label %817
 
-817:                                              ; preds = %jit_CONST_ADDR.exit461
+817:                                              ; preds = %jit_CONST_ADDR.exit463
   %818 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %756, i64 noundef %816) #32
   %819 = getelementptr inbounds i8, ptr %818, i64 8
   %820 = load i8, ptr %819, align 8
@@ -73394,53 +73394,53 @@ jit_CONST_ADDR.exit461:                           ; preds = %jit_CONST_FUNC.exit
   %823 = load i64, ptr %818, align 8
   %824 = trunc i64 %823 to i32
   %825 = load ptr, ptr %0, align 8
-  %sext.i.i466 = shl i64 %823, 32
-  %826 = ashr exact i64 %sext.i.i466, 32
+  %sext.i.i468 = shl i64 %823, 32
+  %826 = ashr exact i64 %sext.i.i468, 32
   %827 = getelementptr inbounds %struct._ir_insn, ptr %825, i64 %826
   %828 = load i16, ptr %827, align 8
   %829 = icmp eq i16 %828, 1542
   call void @llvm.assume(i1 %829)
-  br label %jit_CONST_ADDR.exit.i463
+  br label %jit_CONST_ADDR.exit.i465
 
 830:                                              ; preds = %817
   %831 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %816) #32
   %832 = sext i32 %831 to i64
   store i64 %832, ptr %818, align 8
   store i32 4, ptr %819, align 8
-  br label %jit_CONST_ADDR.exit.i463
+  br label %jit_CONST_ADDR.exit.i465
 
-jit_CONST_ADDR.exit.i463:                         ; preds = %830, %822
-  %.0.i.i464 = phi i32 [ %824, %822 ], [ %831, %830 ]
-  %833 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %773, i32 noundef %.0.i.i464) #32
-  br label %jit_ADD_OFFSET.exit467
+jit_CONST_ADDR.exit.i465:                         ; preds = %830, %822
+  %.0.i.i466 = phi i32 [ %824, %822 ], [ %831, %830 ]
+  %833 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %773, i32 noundef %.0.i.i466) #32
+  br label %jit_ADD_OFFSET.exit469
 
-jit_ADD_OFFSET.exit467:                           ; preds = %jit_CONST_ADDR.exit461, %jit_CONST_ADDR.exit.i463
-  %.0.i465 = phi i32 [ %833, %jit_CONST_ADDR.exit.i463 ], [ %773, %jit_CONST_ADDR.exit461 ]
+jit_ADD_OFFSET.exit469:                           ; preds = %jit_CONST_ADDR.exit463, %jit_CONST_ADDR.exit.i465
+  %.0.i467 = phi i32 [ %833, %jit_CONST_ADDR.exit.i465 ], [ %773, %jit_CONST_ADDR.exit463 ]
   %834 = load i8, ptr %38, align 1
   %.not361 = icmp eq i8 %834, 0
   br i1 %.not361, label %837, label %835
 
-835:                                              ; preds = %jit_ADD_OFFSET.exit467
+835:                                              ; preds = %jit_ADD_OFFSET.exit469
   %836 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %.0311)
   br label %837
 
-837:                                              ; preds = %jit_ADD_OFFSET.exit467, %835
-  %838 = phi i32 [ %836, %835 ], [ -1, %jit_ADD_OFFSET.exit467 ]
-  %839 = call i32 @_ir_CALL_5(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i456, i32 noundef %.0313, i32 noundef %.0.i459, i32 noundef %812, i32 noundef %.0.i465, i32 noundef %838) #32
+837:                                              ; preds = %jit_ADD_OFFSET.exit469, %835
+  %838 = phi i32 [ %836, %835 ], [ -1, %jit_ADD_OFFSET.exit469 ]
+  %839 = call i32 @_ir_CALL_5(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i458, i32 noundef %.0313, i32 noundef %.0.i461, i32 noundef %812, i32 noundef %.0.i467, i32 noundef %838) #32
   %840 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.3) #32
   br label %841
 
 841:                                              ; preds = %837, %734
   %.4 = phi i32 [ %840, %837 ], [ %.3, %734 ]
   %.not362 = icmp eq i32 %.4, 0
-  br i1 %.not362, label %.thread516, label %842
+  br i1 %.not362, label %.thread518, label %842
 
 842:                                              ; preds = %841
   call void @_ir_MERGE_LIST(ptr noundef %0, i32 noundef %.4) #32
   %843 = load i8, ptr %20, align 1
   %844 = and i8 %843, 6
-  %.not.i468 = icmp eq i8 %844, 0
-  br i1 %.not.i468, label %jit_FREE_OP.exit, label %845
+  %.not.i470 = icmp eq i8 %844, 0
+  br i1 %.not.i470, label %jit_FREE_OP.exit, label %845
 
 845:                                              ; preds = %842
   %846 = getelementptr inbounds i8, ptr %1, i64 40
@@ -73457,42 +73457,42 @@ jit_ADD_OFFSET.exit467:                           ; preds = %jit_CONST_ADDR.exit
 
 jit_FREE_OP.exit:                                 ; preds = %842, %845
   %.not364 = icmp eq i32 %.0314, 0
-  br i1 %.not364, label %.thread516, label %853
+  br i1 %.not364, label %.thread518, label %853
 
 853:                                              ; preds = %jit_FREE_OP.exit
   %854 = call i32 @_ir_END(ptr noundef %0) #32
   call void @_ir_MERGE_2(ptr noundef %0, i32 noundef %854, i32 noundef %.0314) #32
-  br label %.thread516
+  br label %.thread518
 
-.thread516:                                       ; preds = %723, %jit_FREE_OP.exit, %853, %841
+.thread518:                                       ; preds = %723, %jit_FREE_OP.exit, %853, %841
   %855 = getelementptr inbounds i8, ptr %1, i64 29
   %856 = load i8, ptr %855, align 1
   %.not365 = icmp eq i8 %856, 0
   %brmerge372 = or i1 %.not365, %12
   %brmerge373 = or i1 %brmerge372, %8
   %857 = and i8 %856, 6
-  %.not.i469 = icmp eq i8 %857, 0
-  %or.cond522 = or i1 %.not.i469, %brmerge373
-  br i1 %or.cond522, label %jit_FREE_OP.exit470, label %858
+  %.not.i471 = icmp eq i8 %857, 0
+  %or.cond524 = or i1 %.not.i471, %brmerge373
+  br i1 %or.cond524, label %jit_FREE_OP.exit472, label %858
 
-858:                                              ; preds = %.thread516
+858:                                              ; preds = %.thread518
   %859 = getelementptr inbounds i8, ptr %1, i64 8
   %860 = load i32, ptr %859, align 8
   %861 = zext i32 %860 to i64
   %862 = shl nuw nsw i64 %861, 8
   %863 = or disjoint i64 %862, 57
   call fastcc void @jit_ZVAL_PTR_DTOR(ptr noundef %0, i64 noundef %863, i32 noundef %5, i1 noundef zeroext false, ptr noundef nonnull %1)
-  br label %jit_FREE_OP.exit470
+  br label %jit_FREE_OP.exit472
 
-jit_FREE_OP.exit470:                              ; preds = %858, %.thread516
+jit_FREE_OP.exit472:                              ; preds = %858, %.thread518
   %.not366 = icmp eq i32 %14, 0
   br i1 %.not366, label %zend_jit_trace_get_exit_addr.exit.thread, label %864
 
-864:                                              ; preds = %jit_FREE_OP.exit470
+864:                                              ; preds = %jit_FREE_OP.exit472
   %865 = getelementptr inbounds i8, ptr %0, i64 800
   %866 = load i32, ptr %865, align 8
-  %.not.i.i471 = icmp eq i32 %866, 0
-  br i1 %.not.i.i471, label %867, label %jit_EG_exception.exit.i
+  %.not.i.i473 = icmp eq i32 %866, 0
+  br i1 %.not.i.i473, label %867, label %jit_EG_exception.exit.i
 
 867:                                              ; preds = %864
   %868 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50) to i64)) #32
@@ -73500,8 +73500,8 @@ jit_FREE_OP.exit470:                              ; preds = %858, %.thread516
   br label %jit_EG_exception.exit.i
 
 jit_EG_exception.exit.i:                          ; preds = %867, %864
-  %.0.i.i472 = phi i32 [ %868, %867 ], [ %866, %864 ]
-  %869 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i472) #32
+  %.0.i.i474 = phi i32 [ %868, %867 ], [ %866, %864 ]
+  %869 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i474) #32
   %870 = getelementptr inbounds i8, ptr %0, i64 864
   %871 = load i32, ptr %870, align 4
   %.not.i4.i = icmp eq i32 %871, 0
@@ -73519,13 +73519,13 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
   call void @_ir_GUARD_NOT(ptr noundef nonnull %0, i32 noundef %869, i32 noundef %.0.i5.i) #32
   br label %zend_jit_trace_get_exit_addr.exit.thread
 
-zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %94, %545, %541, %90, %jit_FREE_OP.exit470, %zend_jit_check_exception.exit, %720, %zend_jit_trace_get_exit_addr.exit418, %262, %zend_jit_trace_get_exit_addr.exit
-  %.0 = phi i32 [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 0, %262 ], [ 0, %zend_jit_trace_get_exit_addr.exit418 ], [ 0, %720 ], [ 1, %zend_jit_check_exception.exit ], [ 1, %jit_FREE_OP.exit470 ], [ 0, %90 ], [ 0, %541 ], [ 0, %545 ], [ 0, %94 ]
+zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %94, %545, %541, %90, %jit_FREE_OP.exit472, %zend_jit_check_exception.exit, %720, %zend_jit_trace_get_exit_addr.exit420, %262, %zend_jit_trace_get_exit_addr.exit
+  %.0 = phi i32 [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 0, %262 ], [ 0, %zend_jit_trace_get_exit_addr.exit420 ], [ 0, %720 ], [ 1, %zend_jit_check_exception.exit ], [ 1, %jit_FREE_OP.exit472 ], [ 0, %90 ], [ 0, %541 ], [ 0, %545 ], [ 0, %94 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_assign_dim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_dim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
   %10 = alloca %struct._ir_code_buffer, align 8
   %11 = alloca i32, align 4
@@ -73834,7 +73834,7 @@ jit_STUB_FUNC_ADDR.exit:                          ; preds = %jit_CONST_ADDR.exit
   %189 = getelementptr inbounds i8, ptr %188, i64 4
   store i32 8, ptr %189, align 4
   %190 = load i32, ptr %14, align 4
-  %191 = call fastcc i32 @zend_jit_fetch_dimension_address_inner(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %2, i32 noundef %4, i8 noundef zeroext %6, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i32 noundef %190, ptr noundef nonnull %186, ptr noundef nonnull %188, ptr noundef nonnull %13, ptr noundef null), !range !7
+  %191 = call fastcc i32 @zend_jit_fetch_dimension_address_inner(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %2, i32 noundef %4, i8 noundef zeroext %6, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i32 noundef %190, ptr noundef nonnull %186, ptr noundef nonnull %188, ptr noundef nonnull %13, ptr noundef null)
   %.not151 = icmp eq i32 %191, 0
   br i1 %.not151, label %zend_jit_trace_get_exit_addr.exit.thread, label %192
 
@@ -74091,7 +74091,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %71, %67, %jit_FREE_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_scalar_type_guard(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_scalar_type_guard(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca %struct._ir_code_buffer, align 8
   %6 = tail call fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %1, i32 noundef 0)
@@ -74945,7 +74945,7 @@ zend_jit_store_var_if_necessary.exit:             ; preds = %15, %22, %25, %29, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_init_fcall(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_init_fcall(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = alloca %struct._ir_code_buffer, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 192
@@ -75910,7 +75910,7 @@ jit_CONST_ADDR.exit:                              ; preds = %130, %122, %65, %57
   br i1 %.not179, label %zend_jit_trace_get_exit_addr.exit.thread, label %538
 
 538:                                              ; preds = %jit_CONST_ADDR.exit
-  %539 = call fastcc i32 @zend_jit_needs_call_chain(ptr noundef %.1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %1, i32 noundef %6, ptr noundef %7), !range !7
+  %539 = call fastcc i32 @zend_jit_needs_call_chain(ptr noundef %.1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %1, i32 noundef %6, ptr noundef %7)
   %.not180 = icmp eq i32 %539, 0
   br i1 %.not180, label %541, label %540
 
@@ -75931,7 +75931,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %423, %419, %541, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_send_val(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_send_val(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct._ir_code_buffer, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 12
@@ -76332,7 +76332,7 @@ define internal fastcc void @zend_jit_send_ref(ptr noundef %0, ptr noundef %1, i
   br i1 %.not89, label %59, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call fastcc i64 @jit_ZVAL_INDIRECT_DEREF(ptr noundef %0, i64 noundef %15), !range !8
+  %26 = tail call fastcc i64 @jit_ZVAL_INDIRECT_DEREF(ptr noundef %0, i64 noundef %15)
   br label %59
 
 27:                                               ; preds = %3
@@ -76517,8 +76517,8 @@ jit_EMALLOC.exit:                                 ; preds = %107, %118
   %130 = load i64, ptr %125, align 8
   %131 = trunc i64 %130 to i32
   %132 = load ptr, ptr %0, align 8
-  %sext.i.i94 = shl i64 %130, 32
-  %133 = ashr exact i64 %sext.i.i94, 32
+  %sext.i.i95 = shl i64 %130, 32
+  %133 = ashr exact i64 %sext.i.i95, 32
   %134 = getelementptr inbounds %struct._ir_insn, ptr %132, i64 %133
   %135 = load i16, ptr %134, align 8
   %136 = icmp eq i16 %135, 1542
@@ -76547,24 +76547,24 @@ jit_ADD_OFFSET.exit:                              ; preds = %129, %137
   %147 = load i64, ptr %142, align 8
   %148 = trunc i64 %147 to i32
   %149 = load ptr, ptr %0, align 8
-  %sext.i.i97 = shl i64 %147, 32
-  %150 = ashr exact i64 %sext.i.i97, 32
+  %sext.i.i98 = shl i64 %147, 32
+  %150 = ashr exact i64 %sext.i.i98, 32
   %151 = getelementptr inbounds %struct._ir_insn, ptr %149, i64 %150
   %152 = load i16, ptr %151, align 8
   %153 = icmp eq i16 %152, 1542
   tail call void @llvm.assume(i1 %153)
-  br label %jit_ADD_OFFSET.exit98
+  br label %jit_ADD_OFFSET.exit99
 
 154:                                              ; preds = %jit_ADD_OFFSET.exit
   %155 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 24) #32
   %156 = sext i32 %155 to i64
   store i64 %156, ptr %142, align 8
   store i32 4, ptr %143, align 8
-  br label %jit_ADD_OFFSET.exit98
+  br label %jit_ADD_OFFSET.exit99
 
-jit_ADD_OFFSET.exit98:                            ; preds = %146, %154
-  %.0.i.i95 = phi i32 [ %148, %146 ], [ %155, %154 ]
-  %157 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %123, i32 noundef %.0.i.i95) #32
+jit_ADD_OFFSET.exit99:                            ; preds = %146, %154
+  %.0.i.i96 = phi i32 [ %148, %146 ], [ %155, %154 ]
+  %157 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %123, i32 noundef %.0.i.i96) #32
   tail call void @_ir_STORE(ptr noundef nonnull %0, i32 noundef %157, i32 noundef -1) #32
   %158 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %102, i64 noundef 8) #32
   %159 = getelementptr inbounds i8, ptr %158, i64 8
@@ -76572,19 +76572,19 @@ jit_ADD_OFFSET.exit98:                            ; preds = %146, %154
   %161 = icmp eq i8 %160, 4
   br i1 %161, label %162, label %170
 
-162:                                              ; preds = %jit_ADD_OFFSET.exit98
+162:                                              ; preds = %jit_ADD_OFFSET.exit99
   %163 = load i64, ptr %158, align 8
   %164 = trunc i64 %163 to i32
   %165 = load ptr, ptr %0, align 8
-  %sext.i.i101 = shl i64 %163, 32
-  %166 = ashr exact i64 %sext.i.i101, 32
+  %sext.i.i102 = shl i64 %163, 32
+  %166 = ashr exact i64 %sext.i.i102, 32
   %167 = getelementptr inbounds %struct._ir_insn, ptr %165, i64 %166
   %168 = load i16, ptr %167, align 8
   %169 = icmp eq i16 %168, 1542
   tail call void @llvm.assume(i1 %169)
   br label %173
 
-170:                                              ; preds = %jit_ADD_OFFSET.exit98
+170:                                              ; preds = %jit_ADD_OFFSET.exit99
   %171 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 8) #32
   %172 = sext i32 %171 to i64
   store i64 %172, ptr %158, align 8
@@ -76592,8 +76592,8 @@ jit_ADD_OFFSET.exit98:                            ; preds = %146, %154
   br label %173
 
 173:                                              ; preds = %170, %162
-  %.0.i.i99 = phi i32 [ %164, %162 ], [ %171, %170 ]
-  %174 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %123, i32 noundef %.0.i.i99) #32
+  %.0.i.i100 = phi i32 [ %164, %162 ], [ %171, %170 ]
+  %174 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %123, i32 noundef %.0.i.i100) #32
   %175 = sext i32 %174 to i64
   %176 = shl nsw i64 %175, 2
   %177 = or disjoint i64 %176, 3
@@ -76634,7 +76634,7 @@ jit_FREE_OP.exit:                                 ; preds = %.thread, %186
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_send_var(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_send_var(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct._ir_code_buffer, align 8
   %8 = alloca i64, align 8
@@ -78293,7 +78293,7 @@ jit_STUB_ADDR.exit:                               ; preds = %jit_CONST_FUNC.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_do_fcall(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_do_fcall(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca %struct._ir_code_buffer, align 8
   %9 = alloca i64, align 8
@@ -81269,7 +81269,7 @@ jit_set_Z_TYPE_INFO.exit:                         ; preds = %1536, %1546
 
 1574:                                             ; preds = %1573
   %1575 = getelementptr inbounds i8, ptr %.2, i64 80
-  %1576 = load ptr, ptr %1575, align 8, !nonnull !6, !noundef !6
+  %1576 = load ptr, ptr %1575, align 8, !nonnull !5, !noundef !5
   %1577 = ptrtoint ptr %1576 to i64
   %1578 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %319, i64 noundef %1577) #32
   %1579 = getelementptr inbounds i8, ptr %1578, i64 8
@@ -83133,7 +83133,7 @@ define internal fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_cmp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8, i32 noundef %9, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_cmp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8, i32 noundef %9, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13) unnamed_addr #0 {
   %15 = icmp eq i64 %4, %7
   br i1 %15, label %27, label %16
 
@@ -84868,7 +84868,7 @@ define internal fastcc void @zend_jit_trace_update_condition_ranges(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_identical(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8, i32 noundef %9, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_identical(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8, i32 noundef %9, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13) unnamed_addr #0 {
   %15 = getelementptr inbounds i8, ptr %1, i64 29
   %16 = load i8, ptr %15, align 1
   %17 = icmp ne i8 %16, 8
@@ -87267,7 +87267,7 @@ jit_set_Z_TYPE_INFO_ref.exit:                     ; preds = %373, %381
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_trace_handler(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_trace_handler(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct._ir_code_buffer, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 192
@@ -90094,7 +90094,7 @@ jit_STUB_ADDR.exit324:                            ; preds = %jit_CONST_ADDR.exit
 
 switch.edge:                                      ; preds = %530
   %533 = getelementptr inbounds i8, ptr %.0174, i64 24
-  %534 = load ptr, ptr %533, align 8, !nonnull !6, !noundef !6
+  %534 = load ptr, ptr %533, align 8, !nonnull !5, !noundef !5
   %535 = icmp eq i8 %532, 8
   br i1 %535, label %536, label %583
 
@@ -92557,7 +92557,7 @@ jit_CONST_ADDR.exit76:                            ; preds = %178, %186
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_fetch_dim_read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i64 noundef %5, i1 noundef zeroext %6, i32 noundef %7, i32 noundef %8, i64 noundef %9, i8 noundef zeroext %10) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_dim_read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i64 noundef %5, i1 noundef zeroext %6, i32 noundef %7, i32 noundef %8, i64 noundef %9, i8 noundef zeroext %10) unnamed_addr #0 {
   %12 = alloca i64, align 8
   %13 = alloca %struct._ir_code_buffer, align 8
   %14 = alloca i64, align 8
@@ -92597,12 +92597,12 @@ define internal fastcc noundef i32 @zend_jit_fetch_dim_read(ptr noundef %0, ptr 
   %45 = icmp eq i8 %19, 90
   %46 = load i8, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 2), align 2
   %47 = icmp ne i8 %46, 5
-  %or.cond.not593 = select i1 %45, i1 true, i1 %47
+  %or.cond.not594 = select i1 %45, i1 true, i1 %47
   %48 = and i32 %4, 1023
   %49 = tail call range(i32 0, 11) i32 @llvm.ctpop.i32(i32 %48)
   %50 = icmp eq i32 %49, 1
-  %or.cond587 = select i1 %or.cond.not593, i1 true, i1 %50
-  br i1 %or.cond587, label %._crit_edge, label %51
+  %or.cond588 = select i1 %or.cond.not594, i1 true, i1 %50
+  br i1 %or.cond588, label %._crit_edge, label %51
 
 51:                                               ; preds = %11
   %52 = tail call fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef nonnull %1, i32 noundef 4)
@@ -92667,12 +92667,12 @@ define internal fastcc noundef i32 @zend_jit_fetch_dim_read(ptr noundef %0, ptr 
   br label %zend_jit_trace_get_exit_addr.exit
 
 zend_jit_trace_get_exit_addr.exit:                ; preds = %70, %80
-  %.lcssa584.sink = phi ptr [ %85, %80 ], [ %67, %70 ]
+  %.lcssa585.sink = phi ptr [ %85, %80 ], [ %67, %70 ]
   %86 = shl i32 %52, 2
   %87 = and i32 %86, 124
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds i8, ptr %.lcssa584.sink, i64 %88
-  %.not393 = icmp eq ptr %.lcssa584.sink, null
+  %89 = getelementptr inbounds i8, ptr %.lcssa585.sink, i64 %88
+  %.not393 = icmp eq ptr %.lcssa585.sink, null
   br i1 %.not393, label %zend_jit_trace_get_exit_addr.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11, %zend_jit_trace_get_exit_addr.exit
@@ -92684,7 +92684,7 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %70, %80
   %or.cond4 = select i1 %91, i1 %93, i1 false
   %94 = icmp eq i32 %48, 128
   %or.cond463 = and i1 %94, %or.cond4
-  br i1 %or.cond463, label %95, label %.thread576
+  br i1 %or.cond463, label %95, label %.thread577
 
 95:                                               ; preds = %._crit_edge
   %96 = and i32 %7, 1967
@@ -92711,11 +92711,11 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %70, %80
   %109 = load i8, ptr %108, align 1
   %110 = and i8 %109, 6
   %.not395 = icmp eq i8 %110, 0
-  %.pre572 = load i8, ptr %18, align 4
+  %.pre573 = load i8, ptr %18, align 4
   br i1 %.not395, label %134, label %111
 
 111:                                              ; preds = %107
-  %112 = icmp eq i8 %.pre572, 98
+  %112 = icmp eq i8 %.pre573, 98
   br i1 %112, label %117, label %113
 
 113:                                              ; preds = %111
@@ -92731,7 +92731,7 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %70, %80
 117:                                              ; preds = %111
   %.old = and i32 %.0361, 960
   %.not397.old = icmp eq i32 %.old, 0
-  br i1 %.not397.old, label %.thread576, label %118
+  br i1 %.not397.old, label %.thread577, label %118
 
 118:                                              ; preds = %113, %117
   %119 = getelementptr inbounds i8, ptr %3, i64 36
@@ -92759,13 +92759,13 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %70, %80
   br label %134
 
 134:                                              ; preds = %118, %113, %127, %124, %107
-  %135 = phi i8 [ %.pre, %127 ], [ %.pre572, %124 ], [ %.pre572, %118 ], [ %.pre572, %107 ], [ %.pre572, %113 ]
+  %135 = phi i8 [ %.pre, %127 ], [ %.pre573, %124 ], [ %.pre573, %118 ], [ %.pre573, %107 ], [ %.pre573, %113 ]
   %.0367 = phi i1 [ true, %127 ], [ false, %124 ], [ false, %118 ], [ false, %107 ], [ false, %113 ]
   %136 = icmp eq i8 %135, 90
   %137 = and i32 %.0361, 2
   %.not398 = icmp eq i32 %137, 0
   %or.cond468 = and i1 %.not398, %136
-  br i1 %or.cond468, label %138, label %.thread576
+  br i1 %or.cond468, label %138, label %.thread577
 
 138:                                              ; preds = %134
   %139 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
@@ -92924,16 +92924,16 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %70, %80
   br label %zend_jit_trace_get_exit_addr.exit502
 
 zend_jit_trace_get_exit_addr.exit502:             ; preds = %230, %240
-  %.lcssa583.sink = phi ptr [ %245, %240 ], [ %227, %230 ]
+  %.lcssa584.sink = phi ptr [ %245, %240 ], [ %227, %230 ]
   %246 = shl i32 %207, 2
   %247 = and i32 %246, 124
   %248 = zext nneg i32 %247 to i64
-  %249 = getelementptr inbounds i8, ptr %.lcssa583.sink, i64 %248
-  %.not402 = icmp eq ptr %.lcssa583.sink, null
+  %249 = getelementptr inbounds i8, ptr %.lcssa584.sink, i64 %248
+  %.not402 = icmp eq ptr %.lcssa584.sink, null
   br i1 %.not402, label %zend_jit_trace_get_exit_addr.exit.thread, label %250
 
 250:                                              ; preds = %zend_jit_trace_get_exit_addr.exit502
-  br i1 %6, label %251, label %.thread576
+  br i1 %6, label %251, label %.thread577
 
 251:                                              ; preds = %250
   %252 = getelementptr inbounds i8, ptr %1, i64 8
@@ -92943,9 +92943,9 @@ zend_jit_trace_get_exit_addr.exit502:             ; preds = %230, %240
   %256 = zext i32 %255 to i64
   %257 = getelementptr inbounds %struct._zend_jit_trace_stack, ptr %140, i64 %256
   store i32 %.0381, ptr %257, align 4
-  br label %.thread576
+  br label %.thread577
 
-.thread576:                                       ; preds = %117, %134, %251, %250, %._crit_edge
+.thread577:                                       ; preds = %117, %134, %251, %250, %._crit_edge
   %.1368 = phi i1 [ %.0367, %251 ], [ %.0367, %250 ], [ %.0367, %134 ], [ false, %._crit_edge ], [ false, %117 ]
   %.1366 = phi i1 [ %.0365, %251 ], [ %.0365, %250 ], [ %.0365, %134 ], [ false, %._crit_edge ], [ %.0365, %117 ]
   %.0364 = phi ptr [ %249, %251 ], [ %249, %250 ], [ null, %134 ], [ null, %._crit_edge ], [ null, %117 ]
@@ -92954,7 +92954,7 @@ zend_jit_trace_get_exit_addr.exit502:             ; preds = %230, %240
   %.not403 = icmp eq i32 %258, 0
   br i1 %.not403, label %265, label %259
 
-259:                                              ; preds = %.thread576
+259:                                              ; preds = %.thread577
   %260 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %5)
   %261 = call fastcc i32 @jit_ZVAL_DEREF_ref(ptr noundef %0, i32 noundef %260)
   %262 = sext i32 %261 to i64
@@ -92962,8 +92962,8 @@ zend_jit_trace_get_exit_addr.exit502:             ; preds = %230, %240
   %264 = or disjoint i64 %263, 3
   br label %265
 
-265:                                              ; preds = %259, %.thread576
-  %.0358 = phi i64 [ %264, %259 ], [ %5, %.thread576 ]
+265:                                              ; preds = %259, %.thread577
+  %.0358 = phi i64 [ %264, %259 ], [ %5, %.thread577 ]
   %266 = and i32 %4, 128
   %.not404 = icmp eq i32 %266, 0
   br i1 %.not404, label %.thread, label %267
@@ -93084,11 +93084,11 @@ jit_Z_PTR.exit:                                   ; preds = %306, %317, %325, %3
   %.0.i503 = phi i32 [ %330, %328 ], [ -1, %306 ], [ %319, %317 ], [ %326, %325 ]
   %331 = and i32 %7, 943
   %.not408 = icmp eq i32 %331, 0
-  %.pre573.pre = load i8, ptr %18, align 4
+  %.pre574.pre = load i8, ptr %18, align 4
   br i1 %.not408, label %332, label %336
 
 332:                                              ; preds = %jit_Z_PTR.exit
-  %333 = icmp ne i8 %.pre573.pre, 90
+  %333 = icmp ne i8 %.pre574.pre, 90
   %334 = load i8, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 2), align 2
   %335 = icmp ne i8 %334, 5
   %or.cond7 = select i1 %333, i1 %335, i1 false
@@ -93099,9 +93099,9 @@ jit_Z_PTR.exit:                                   ; preds = %306, %317, %325, %3
 
 337:                                              ; preds = %336, %332
   %.0369 = phi i32 [ 1, %336 ], [ 0, %332 ]
-  %.not409 = icmp eq i8 %.pre573.pre, 90
+  %.not409 = icmp eq i8 %.pre574.pre, 90
   %338 = select i1 %.not409, i32 3, i32 0
-  %339 = call fastcc i32 @zend_jit_fetch_dimension_address_inner(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %338, i32 noundef %4, i32 noundef %7, i8 noundef zeroext %10, ptr noundef null, ptr noundef %.0364, ptr noundef %.0363, i1 noundef zeroext %.1366, i32 noundef %.0.i503, ptr noundef nonnull %268, ptr noundef nonnull %270, ptr noundef nonnull %16, ptr noundef nonnull %17), !range !7
+  %339 = call fastcc i32 @zend_jit_fetch_dimension_address_inner(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %338, i32 noundef %4, i32 noundef %7, i8 noundef zeroext %10, ptr noundef null, ptr noundef %.0364, ptr noundef %.0363, i1 noundef zeroext %.1366, i32 noundef %.0.i503, ptr noundef nonnull %268, ptr noundef nonnull %270, ptr noundef nonnull %16, ptr noundef nonnull %17)
   %.not410 = icmp eq i32 %339, 0
   br i1 %.not410, label %zend_jit_trace_get_exit_addr.exit.thread, label %340
 
@@ -93174,7 +93174,7 @@ jit_Z_PTR.exit:                                   ; preds = %306, %317, %325, %3
   %.1 = select i1 %or.cond473, i32 %.0359, i32 %387
   %388 = and i32 %4, 1048576
   %389 = icmp ne i32 %388, 0
-  %390 = call fastcc i64 @zend_jit_guard_fetch_result_type(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %349, i8 noundef zeroext %377, i1 noundef zeroext %389, i32 noundef %.1, i1 noundef zeroext %6), !range !9
+  %390 = call fastcc i64 @zend_jit_guard_fetch_result_type(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %349, i8 noundef zeroext %377, i1 noundef zeroext %389, i32 noundef %.1, i1 noundef zeroext %6)
   %.not420 = icmp eq i64 %390, 0
   br i1 %.not420, label %zend_jit_trace_get_exit_addr.exit.thread, label %391
 
@@ -93309,28 +93309,28 @@ jit_set_Z_TYPE_INFO.exit:                         ; preds = %432, %442
 
 .thread:                                          ; preds = %265
   %455 = and i32 %4, 895
-  %.not423546 = icmp eq i32 %455, 0
-  br i1 %.not423546, label %thread-pre-split.thread, label %.thread549
+  %.not423547 = icmp eq i32 %455, 0
+  br i1 %.not423547, label %thread-pre-split.thread, label %.thread550
 
 456:                                              ; preds = %453
   %.not424 = icmp eq i32 %.0371, 0
-  br i1 %.not424, label %.thread549, label %457
+  br i1 %.not424, label %.thread550, label %457
 
 457:                                              ; preds = %456
   call void @_ir_IF_FALSE_cold(ptr noundef %0, i32 noundef %.0371) #32
-  br label %.thread549
+  br label %.thread550
 
-.thread549:                                       ; preds = %.thread, %457, %456
+.thread550:                                       ; preds = %.thread, %457, %456
   %458 = phi i32 [ %454, %457 ], [ %454, %456 ], [ 0, %.thread ]
-  %.1370548553 = phi i32 [ %.0369, %457 ], [ %.0369, %456 ], [ 0, %.thread ]
+  %.1370549554 = phi i32 [ %.0369, %457 ], [ %.0369, %456 ], [ 0, %.thread ]
   %459 = load i8, ptr %18, align 4
   %.not425 = icmp eq i8 %459, 98
   %460 = and i32 %4, 64
   %.not426 = icmp eq i32 %460, 0
   %or.cond475 = or i1 %.not426, %.not425
-  br i1 %or.cond475, label %.thread554, label %461
+  br i1 %or.cond475, label %.thread555, label %461
 
-461:                                              ; preds = %.thread549
+461:                                              ; preds = %.thread550
   %462 = and i32 %4, 831
   %.not427 = icmp eq i32 %462, 0
   br i1 %.not427, label %488, label %463
@@ -93539,8 +93539,8 @@ jit_CONST_FUNC.exit516:                           ; preds = %549, %560
   %577 = load i64, ptr %572, align 8
   %578 = trunc i64 %577 to i32
   %579 = load ptr, ptr %0, align 8
-  %sext.i.i518 = shl i64 %577, 32
-  %580 = ashr exact i64 %sext.i.i518, 32
+  %sext.i.i519 = shl i64 %577, 32
+  %580 = ashr exact i64 %sext.i.i519, 32
   %581 = getelementptr inbounds %struct._ir_insn, ptr %579, i64 %580
   %582 = load i16, ptr %581, align 8
   %583 = icmp eq i16 %582, 1601
@@ -93549,7 +93549,7 @@ jit_CONST_FUNC.exit516:                           ; preds = %549, %560
   %585 = load i16, ptr %584, align 2
   %586 = icmp eq i16 %585, 0
   call void @llvm.assume(i1 %586)
-  br label %jit_CONST_FUNC.exit519
+  br label %jit_CONST_FUNC.exit520
 
 587:                                              ; preds = %570
   %588 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_fetch_dim_str_is_helper to i64)) #32
@@ -93559,43 +93559,43 @@ jit_CONST_FUNC.exit516:                           ; preds = %549, %560
   store i32 1601, ptr %591, align 8
   store i64 %590, ptr %572, align 8
   store i32 4, ptr %573, align 8
-  br label %jit_CONST_FUNC.exit519
+  br label %jit_CONST_FUNC.exit520
 
-jit_CONST_FUNC.exit519:                           ; preds = %576, %587
-  %.0.i.i517 = phi i32 [ %578, %576 ], [ %588, %587 ]
+jit_CONST_FUNC.exit520:                           ; preds = %576, %587
+  %.0.i.i518 = phi i32 [ %578, %576 ], [ %588, %587 ]
   %592 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %44)
   %593 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %9)
-  %594 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i517, i32 noundef %.0.i509, i32 noundef %592, i32 noundef %593) #32
+  %594 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i518, i32 noundef %.0.i509, i32 noundef %592, i32 noundef %593) #32
   br label %595
 
-595:                                              ; preds = %jit_CONST_FUNC.exit519, %567
+595:                                              ; preds = %jit_CONST_FUNC.exit520, %567
   %596 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %458) #32
   store i32 %596, ptr %16, align 4
   %597 = and i32 %4, 256
   %.not431 = icmp eq i32 %597, 0
   br i1 %.not431, label %711, label %599
 
-.thread554:                                       ; preds = %.thread549
+.thread555:                                       ; preds = %.thread550
   %598 = and i32 %4, 256
-  %.not431557 = icmp eq i32 %598, 0
-  br i1 %.not431557, label %711, label %.thread559
+  %.not431558 = icmp eq i32 %598, 0
+  br i1 %.not431558, label %711, label %.thread560
 
 599:                                              ; preds = %595
   %.not432 = icmp eq i32 %.3374, 0
-  br i1 %.not432, label %.thread559, label %600
+  br i1 %.not432, label %.thread560, label %600
 
 600:                                              ; preds = %599
   call void @_ir_IF_FALSE_cold(ptr noundef nonnull %0, i32 noundef %.3374) #32
-  br label %.thread559
+  br label %.thread560
 
-.thread559:                                       ; preds = %.thread554, %600, %599
-  %601 = phi i32 [ %458, %.thread554 ], [ %596, %600 ], [ %596, %599 ]
+.thread560:                                       ; preds = %.thread555, %600, %599
+  %601 = phi i32 [ %458, %.thread555 ], [ %596, %600 ], [ %596, %599 ]
   %602 = xor i32 %20, 639
   %603 = and i32 %602, %4
   %.not433 = icmp eq i32 %603, 0
   br i1 %.not433, label %628, label %604
 
-604:                                              ; preds = %.thread559
+604:                                              ; preds = %.thread560
   %.not434 = icmp eq ptr %.0363, null
   %605 = call fastcc i32 @jit_Z_TYPE(ptr noundef %0, i64 noundef %.0358)
   %606 = call i32 @ir_const_u8(ptr noundef %0, i8 noundef zeroext 8) #32
@@ -93615,24 +93615,24 @@ jit_CONST_FUNC.exit519:                           ; preds = %576, %587
   %616 = load i64, ptr %611, align 8
   %617 = trunc i64 %616 to i32
   %618 = load ptr, ptr %0, align 8
-  %sext.i.i521 = shl i64 %616, 32
-  %619 = ashr exact i64 %sext.i.i521, 32
+  %sext.i.i522 = shl i64 %616, 32
+  %619 = ashr exact i64 %sext.i.i522, 32
   %620 = getelementptr inbounds %struct._ir_insn, ptr %618, i64 %619
   %621 = load i16, ptr %620, align 8
   %622 = icmp eq i16 %621, 1542
   call void @llvm.assume(i1 %622)
-  br label %jit_guard_Z_TYPE.exit522
+  br label %jit_guard_Z_TYPE.exit523
 
 623:                                              ; preds = %608
   %624 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %609) #32
   %625 = sext i32 %624 to i64
   store i64 %625, ptr %611, align 8
   store i32 4, ptr %612, align 8
-  br label %jit_guard_Z_TYPE.exit522
+  br label %jit_guard_Z_TYPE.exit523
 
-jit_guard_Z_TYPE.exit522:                         ; preds = %615, %623
-  %.0.i.i520 = phi i32 [ %617, %615 ], [ %624, %623 ]
-  call void @_ir_GUARD(ptr noundef %0, i32 noundef %607, i32 noundef %.0.i.i520) #32
+jit_guard_Z_TYPE.exit523:                         ; preds = %615, %623
+  %.0.i.i521 = phi i32 [ %617, %615 ], [ %624, %623 ]
+  call void @_ir_GUARD(ptr noundef %0, i32 noundef %607, i32 noundef %.0.i.i521) #32
   br label %628
 
 626:                                              ; preds = %604
@@ -93640,8 +93640,8 @@ jit_guard_Z_TYPE.exit522:                         ; preds = %615, %623
   call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %627) #32
   br label %628
 
-628:                                              ; preds = %jit_guard_Z_TYPE.exit522, %626, %.thread559
-  %.6377 = phi i32 [ 0, %jit_guard_Z_TYPE.exit522 ], [ %627, %626 ], [ 0, %.thread559 ]
+628:                                              ; preds = %jit_guard_Z_TYPE.exit523, %626, %.thread560
+  %.6377 = phi i32 [ 0, %jit_guard_Z_TYPE.exit523 ], [ %627, %626 ], [ 0, %.thread560 ]
   call fastcc void @jit_SET_EX_OPLINE(ptr noundef %0, ptr noundef nonnull %1)
   %629 = load i8, ptr %33, align 2
   %630 = icmp eq i8 %629, 1
@@ -93712,8 +93712,8 @@ jit_CONST_ADDR.exit:                              ; preds = %658, %650, %661
   %671 = load i64, ptr %666, align 8
   %672 = trunc i64 %671 to i32
   %673 = load ptr, ptr %0, align 8
-  %sext.i.i525 = shl i64 %671, 32
-  %674 = ashr exact i64 %sext.i.i525, 32
+  %sext.i.i526 = shl i64 %671, 32
+  %674 = ashr exact i64 %sext.i.i526, 32
   %675 = getelementptr inbounds %struct._ir_insn, ptr %673, i64 %674
   %676 = load i16, ptr %675, align 8
   %677 = icmp eq i16 %676, 1601
@@ -93722,7 +93722,7 @@ jit_CONST_ADDR.exit:                              ; preds = %658, %650, %661
   %679 = load i16, ptr %678, align 2
   %680 = icmp eq i16 %679, 0
   call void @llvm.assume(i1 %680)
-  br label %jit_CONST_FUNC.exit526
+  br label %jit_CONST_FUNC.exit527
 
 681:                                              ; preds = %665
   %682 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_fetch_dim_obj_r_helper to i64)) #32
@@ -93732,7 +93732,7 @@ jit_CONST_ADDR.exit:                              ; preds = %658, %650, %661
   store i32 1601, ptr %685, align 8
   store i64 %684, ptr %666, align 8
   store i32 4, ptr %667, align 8
-  br label %jit_CONST_FUNC.exit526
+  br label %jit_CONST_FUNC.exit527
 
 686:                                              ; preds = %jit_CONST_ADDR.exit
   %687 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %664, i64 noundef ptrtoint (ptr @zend_jit_fetch_dim_obj_is_helper to i64)) #32
@@ -93745,8 +93745,8 @@ jit_CONST_ADDR.exit:                              ; preds = %658, %650, %661
   %692 = load i64, ptr %687, align 8
   %693 = trunc i64 %692 to i32
   %694 = load ptr, ptr %0, align 8
-  %sext.i.i528 = shl i64 %692, 32
-  %695 = ashr exact i64 %sext.i.i528, 32
+  %sext.i.i529 = shl i64 %692, 32
+  %695 = ashr exact i64 %sext.i.i529, 32
   %696 = getelementptr inbounds %struct._ir_insn, ptr %694, i64 %695
   %697 = load i16, ptr %696, align 8
   %698 = icmp eq i16 %697, 1601
@@ -93755,7 +93755,7 @@ jit_CONST_ADDR.exit:                              ; preds = %658, %650, %661
   %700 = load i16, ptr %699, align 2
   %701 = icmp eq i16 %700, 0
   call void @llvm.assume(i1 %701)
-  br label %jit_CONST_FUNC.exit526
+  br label %jit_CONST_FUNC.exit527
 
 702:                                              ; preds = %686
   %703 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_fetch_dim_obj_is_helper to i64)) #32
@@ -93765,20 +93765,20 @@ jit_CONST_ADDR.exit:                              ; preds = %658, %650, %661
   store i32 1601, ptr %706, align 8
   store i64 %705, ptr %687, align 8
   store i32 4, ptr %688, align 8
-  br label %jit_CONST_FUNC.exit526
+  br label %jit_CONST_FUNC.exit527
 
-jit_CONST_FUNC.exit526:                           ; preds = %702, %691, %681, %670
-  %.0.i.i524.sink = phi i32 [ %672, %670 ], [ %682, %681 ], [ %693, %691 ], [ %703, %702 ]
+jit_CONST_FUNC.exit527:                           ; preds = %702, %691, %681, %670
+  %.0.i.i525.sink = phi i32 [ %672, %670 ], [ %682, %681 ], [ %693, %691 ], [ %703, %702 ]
   %707 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %.0358)
   %708 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %9)
-  %709 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i524.sink, i32 noundef %707, i32 noundef %.0355, i32 noundef %708) #32
+  %709 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i525.sink, i32 noundef %707, i32 noundef %.0355, i32 noundef %708) #32
   %710 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %601) #32
   br label %711
 
-711:                                              ; preds = %.thread554, %jit_CONST_FUNC.exit526, %595
-  %712 = phi i32 [ %710, %jit_CONST_FUNC.exit526 ], [ %596, %595 ], [ %458, %.thread554 ]
-  %.7378 = phi i32 [ %.6377, %jit_CONST_FUNC.exit526 ], [ %.3374, %595 ], [ 0, %.thread554 ]
-  %.3 = phi i32 [ 1, %jit_CONST_FUNC.exit526 ], [ 1, %595 ], [ %.1370548553, %.thread554 ]
+711:                                              ; preds = %.thread555, %jit_CONST_FUNC.exit527, %595
+  %712 = phi i32 [ %710, %jit_CONST_FUNC.exit527 ], [ %596, %595 ], [ %458, %.thread555 ]
+  %.7378 = phi i32 [ %.6377, %jit_CONST_FUNC.exit527 ], [ %.3374, %595 ], [ 0, %.thread555 ]
+  %.3 = phi i32 [ 1, %jit_CONST_FUNC.exit527 ], [ 1, %595 ], [ %.1370549554, %.thread555 ]
   %713 = xor i32 %20, 639
   %714 = and i32 %713, %4
   %.not436 = icmp eq i32 %714, 0
@@ -93868,8 +93868,8 @@ jit_CONST_FUNC.exit526:                           ; preds = %702, %691, %681, %6
   %749 = load i64, ptr %744, align 8
   %750 = trunc i64 %749 to i32
   %751 = load ptr, ptr %0, align 8
-  %sext.i.i531 = shl i64 %749, 32
-  %752 = ashr exact i64 %sext.i.i531, 32
+  %sext.i.i532 = shl i64 %749, 32
+  %752 = ashr exact i64 %sext.i.i532, 32
   %753 = getelementptr inbounds %struct._ir_insn, ptr %751, i64 %752
   %754 = load i16, ptr %753, align 8
   %755 = icmp eq i16 %754, 1601
@@ -93878,7 +93878,7 @@ jit_CONST_FUNC.exit526:                           ; preds = %702, %691, %681, %6
   %757 = load i16, ptr %756, align 2
   %758 = icmp eq i16 %757, 0
   call void @llvm.assume(i1 %758)
-  br label %jit_CONST_FUNC.exit532
+  br label %jit_CONST_FUNC.exit533
 
 759:                                              ; preds = %741
   %760 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_invalid_array_access to i64)) #32
@@ -93888,15 +93888,15 @@ jit_CONST_FUNC.exit526:                           ; preds = %702, %691, %681, %6
   store i32 1601, ptr %763, align 8
   store i64 %762, ptr %744, align 8
   store i32 4, ptr %745, align 8
-  br label %jit_CONST_FUNC.exit532
+  br label %jit_CONST_FUNC.exit533
 
-jit_CONST_FUNC.exit532:                           ; preds = %748, %759
-  %.0.i.i530 = phi i32 [ %750, %748 ], [ %760, %759 ]
-  %764 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i530, i32 noundef %742) #32
+jit_CONST_FUNC.exit533:                           ; preds = %748, %759
+  %.0.i.i531 = phi i32 [ %750, %748 ], [ %760, %759 ]
+  %764 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i531, i32 noundef %742) #32
   br label %765
 
-765:                                              ; preds = %735, %735, %jit_CONST_FUNC.exit532
-  %.6 = phi i32 [ 1, %jit_CONST_FUNC.exit532 ], [ %.5, %735 ], [ %.5, %735 ]
+765:                                              ; preds = %735, %735, %jit_CONST_FUNC.exit533
+  %.6 = phi i32 [ 1, %jit_CONST_FUNC.exit533 ], [ %.5, %735 ], [ %.5, %735 ]
   %766 = and i64 %9, 3
   %767 = icmp eq i64 %766, 1
   br i1 %767, label %768, label %783
@@ -93906,8 +93906,8 @@ jit_CONST_FUNC.exit532:                           ; preds = %748, %759
   %770 = icmp eq i64 %769, 56
   %771 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
   %772 = icmp ne ptr %771, null
-  %or.cond.i533 = select i1 %770, i1 %772, i1 false
-  br i1 %or.cond.i533, label %773, label %783
+  %or.cond.i534 = select i1 %770, i1 %772, i1 false
+  br i1 %or.cond.i534, label %773, label %783
 
 773:                                              ; preds = %768
   %774 = getelementptr inbounds i8, ptr %771, i64 60
@@ -93919,20 +93919,20 @@ jit_CONST_FUNC.exit532:                           ; preds = %748, %759
   %780 = getelementptr inbounds i8, ptr %779, i64 1
   %781 = load i8, ptr %780, align 1
   %782 = icmp eq i8 %781, 1
-  br i1 %782, label %jit_set_Z_TYPE_INFO.exit534, label %783
+  br i1 %782, label %jit_set_Z_TYPE_INFO.exit535, label %783
 
 783:                                              ; preds = %773, %768, %765
   %784 = call i32 @ir_const_u32(ptr noundef %0, i32 noundef 1) #32
   call fastcc void @jit_set_Z_TYPE_INFO_ex(ptr noundef %0, i64 noundef %9, i32 noundef %784)
-  br label %jit_set_Z_TYPE_INFO.exit534
+  br label %jit_set_Z_TYPE_INFO.exit535
 
-jit_set_Z_TYPE_INFO.exit534:                      ; preds = %773, %783
+jit_set_Z_TYPE_INFO.exit535:                      ; preds = %773, %783
   %785 = call i32 @_ir_END_LIST(ptr noundef %0, i32 noundef %712) #32
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %715, %711, %453, %jit_set_Z_TYPE_INFO.exit534
-  %786 = phi i32 [ %785, %jit_set_Z_TYPE_INFO.exit534 ], [ %712, %715 ], [ %454, %453 ], [ %712, %711 ]
-  %.7 = phi i32 [ %.6, %jit_set_Z_TYPE_INFO.exit534 ], [ %.3, %715 ], [ %.0369, %453 ], [ %.3, %711 ]
+thread-pre-split:                                 ; preds = %715, %711, %453, %jit_set_Z_TYPE_INFO.exit535
+  %786 = phi i32 [ %785, %jit_set_Z_TYPE_INFO.exit535 ], [ %712, %715 ], [ %454, %453 ], [ %712, %711 ]
+  %.7 = phi i32 [ %.6, %jit_set_Z_TYPE_INFO.exit535 ], [ %.3, %715 ], [ %.0369, %453 ], [ %.3, %711 ]
   %.not450 = icmp eq i32 %786, 0
   br i1 %.not450, label %thread-pre-split.thread, label %787
 
@@ -93972,9 +93972,9 @@ jit_FREE_OP.exit:                                 ; preds = %787
   %802 = load i8, ptr %21, align 1
   %803 = and i8 %802, 6
   %.not458 = icmp eq i8 %803, 0
-  br i1 %.not458, label %select.unfold, label %jit_FREE_OP.exit537
+  br i1 %.not458, label %select.unfold, label %jit_FREE_OP.exit538
 
-jit_FREE_OP.exit537:                              ; preds = %801
+jit_FREE_OP.exit538:                              ; preds = %801
   %804 = and i32 %4, 918272
   %.not459 = icmp eq i32 %804, 0
   %805 = and i32 %4, 1073741824
@@ -93987,27 +93987,27 @@ jit_FREE_OP.exit537:                              ; preds = %801
   %810 = or disjoint i64 %809, 57
   call fastcc void @jit_ZVAL_PTR_DTOR(ptr noundef %0, i64 noundef %810, i32 noundef %4, i1 noundef zeroext false, ptr noundef nonnull %1)
   %.not461 = icmp eq i32 %.9, 0
-  %or.cond565 = select i1 %or.cond494, i1 %.not461, i1 false
-  br i1 %or.cond565, label %zend_jit_trace_get_exit_addr.exit.thread, label %.thread562
+  %or.cond566 = select i1 %or.cond494, i1 %.not461, i1 false
+  br i1 %or.cond566, label %zend_jit_trace_get_exit_addr.exit.thread, label %.thread563
 
 select.unfold:                                    ; preds = %799, %801
   %.not461.old = icmp eq i32 %.9, 0
-  br i1 %.not461.old, label %zend_jit_trace_get_exit_addr.exit.thread, label %.thread562
+  br i1 %.not461.old, label %zend_jit_trace_get_exit_addr.exit.thread, label %.thread563
 
-.thread562:                                       ; preds = %jit_FREE_OP.exit537, %select.unfold
+.thread563:                                       ; preds = %jit_FREE_OP.exit538, %select.unfold
   %811 = getelementptr inbounds i8, ptr %0, i64 800
   %812 = load i32, ptr %811, align 8
-  %.not.i.i538 = icmp eq i32 %812, 0
-  br i1 %.not.i.i538, label %813, label %jit_EG_exception.exit.i
+  %.not.i.i539 = icmp eq i32 %812, 0
+  br i1 %.not.i.i539, label %813, label %jit_EG_exception.exit.i
 
-813:                                              ; preds = %.thread562
+813:                                              ; preds = %.thread563
   %814 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50) to i64)) #32
   store i32 %814, ptr %811, align 8
   br label %jit_EG_exception.exit.i
 
-jit_EG_exception.exit.i:                          ; preds = %813, %.thread562
-  %.0.i.i539 = phi i32 [ %814, %813 ], [ %812, %.thread562 ]
-  %815 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i539) #32
+jit_EG_exception.exit.i:                          ; preds = %813, %.thread563
+  %.0.i.i540 = phi i32 [ %814, %813 ], [ %812, %.thread563 ]
+  %815 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i540) #32
   %816 = getelementptr inbounds i8, ptr %0, i64 864
   %817 = load i32, ptr %816, align 4
   %.not.i4.i = icmp eq i32 %817, 0
@@ -94033,13 +94033,13 @@ thread-pre-split.thread:                          ; preds = %.thread, %thread-pr
   call void @_ir_BEGIN(ptr noundef %0, i32 noundef 0) #32
   br label %zend_jit_trace_get_exit_addr.exit.thread
 
-zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %60, %220, %jit_FREE_OP.exit537, %216, %56, %zend_jit_check_exception.exit, %select.unfold, %822, %thread-pre-split.thread, %383, %337, %zend_jit_trace_get_exit_addr.exit502, %zend_jit_trace_get_exit_addr.exit
-  %.0357 = phi i32 [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 0, %zend_jit_trace_get_exit_addr.exit502 ], [ 0, %337 ], [ 0, %383 ], [ 1, %thread-pre-split.thread ], [ 1, %822 ], [ 1, %select.unfold ], [ 1, %zend_jit_check_exception.exit ], [ 0, %56 ], [ 0, %216 ], [ 1, %jit_FREE_OP.exit537 ], [ 0, %220 ], [ 0, %60 ]
+zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %60, %220, %jit_FREE_OP.exit538, %216, %56, %zend_jit_check_exception.exit, %select.unfold, %822, %thread-pre-split.thread, %383, %337, %zend_jit_trace_get_exit_addr.exit502, %zend_jit_trace_get_exit_addr.exit
+  %.0357 = phi i32 [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 0, %zend_jit_trace_get_exit_addr.exit502 ], [ 0, %337 ], [ 0, %383 ], [ 1, %thread-pre-split.thread ], [ 1, %822 ], [ 1, %select.unfold ], [ 1, %zend_jit_check_exception.exit ], [ 0, %56 ], [ 0, %216 ], [ 1, %jit_FREE_OP.exit538 ], [ 0, %220 ], [ 0, %60 ]
   ret i32 %.0357
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_fetch_dim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_dim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i8 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -94237,7 +94237,7 @@ jit_STUB_FUNC_ADDR.exit:                          ; preds = %84, %87
 
 108:                                              ; preds = %107, %104
   %109 = load i32, ptr %11, align 4
-  %110 = call fastcc i32 @zend_jit_fetch_dimension_address_inner(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.0114, i32 noundef %2, i32 noundef %4, i8 noundef zeroext %6, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i32 noundef %109, ptr noundef nonnull %36, ptr noundef nonnull %38, ptr noundef nonnull %9, ptr noundef null), !range !7
+  %110 = call fastcc i32 @zend_jit_fetch_dimension_address_inner(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.0114, i32 noundef %2, i32 noundef %4, i8 noundef zeroext %6, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i32 noundef %109, ptr noundef nonnull %36, ptr noundef nonnull %38, ptr noundef nonnull %9, ptr noundef null)
   %.not125 = icmp eq i32 %110, 0
   br i1 %.not125, label %277, label %111
 
@@ -94347,7 +94347,7 @@ jit_set_Z_TYPE_INFO.exit:                         ; preds = %122, %132
 162:                                              ; preds = %161, %159
   %163 = load i8, ptr %12, align 2
   switch i8 %163, label %194 [
-    i8 0, label %jit_CONST_ADDR.exit145
+    i8 0, label %jit_CONST_ADDR.exit146
     i8 1, label %164
   ]
 
@@ -94379,33 +94379,33 @@ jit_set_Z_TYPE_INFO.exit:                         ; preds = %122, %132
   %184 = load i64, ptr %179, align 8
   %185 = trunc i64 %184 to i32
   %186 = load ptr, ptr %0, align 8
-  %sext.i144 = shl i64 %184, 32
-  %187 = ashr exact i64 %sext.i144, 32
+  %sext.i145 = shl i64 %184, 32
+  %187 = ashr exact i64 %sext.i145, 32
   %188 = getelementptr inbounds %struct._ir_insn, ptr %186, i64 %187
   %189 = load i16, ptr %188, align 8
   %190 = icmp eq i16 %189, 1542
   call void @llvm.assume(i1 %190)
-  br label %jit_CONST_ADDR.exit145
+  br label %jit_CONST_ADDR.exit146
 
 191:                                              ; preds = %172
   %192 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %177) #32
   %193 = sext i32 %192 to i64
   store i64 %193, ptr %179, align 8
   store i32 4, ptr %180, align 8
-  br label %jit_CONST_ADDR.exit145
+  br label %jit_CONST_ADDR.exit146
 
 194:                                              ; preds = %162, %164
   %195 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %27)
-  br label %jit_CONST_ADDR.exit145
+  br label %jit_CONST_ADDR.exit146
 
-jit_CONST_ADDR.exit145:                           ; preds = %191, %183, %162, %194
+jit_CONST_ADDR.exit146:                           ; preds = %191, %183, %162, %194
   %.0 = phi i32 [ %195, %194 ], [ -1, %162 ], [ %185, %183 ], [ %192, %191 ]
   %196 = load i8, ptr %28, align 4
   %switch = icmp eq i8 %196, 87
   %197 = getelementptr inbounds i8, ptr %0, i64 808
   br i1 %switch, label %219, label %198
 
-198:                                              ; preds = %jit_CONST_ADDR.exit145
+198:                                              ; preds = %jit_CONST_ADDR.exit146
   %199 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %197, i64 noundef ptrtoint (ptr @zend_jit_fetch_dim_obj_w_helper to i64)) #32
   %200 = getelementptr inbounds i8, ptr %199, i64 8
   %201 = load i8, ptr %200, align 8
@@ -94416,8 +94416,8 @@ jit_CONST_ADDR.exit145:                           ; preds = %191, %183, %162, %1
   %204 = load i64, ptr %199, align 8
   %205 = trunc i64 %204 to i32
   %206 = load ptr, ptr %0, align 8
-  %sext.i.i147 = shl i64 %204, 32
-  %207 = ashr exact i64 %sext.i.i147, 32
+  %sext.i.i148 = shl i64 %204, 32
+  %207 = ashr exact i64 %sext.i.i148, 32
   %208 = getelementptr inbounds %struct._ir_insn, ptr %206, i64 %207
   %209 = load i16, ptr %208, align 8
   %210 = icmp eq i16 %209, 1601
@@ -94426,7 +94426,7 @@ jit_CONST_ADDR.exit145:                           ; preds = %191, %183, %162, %1
   %212 = load i16, ptr %211, align 2
   %213 = icmp eq i16 %212, 0
   call void @llvm.assume(i1 %213)
-  br label %jit_CONST_FUNC.exit148
+  br label %jit_CONST_FUNC.exit149
 
 214:                                              ; preds = %198
   %215 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_fetch_dim_obj_w_helper to i64)) #32
@@ -94436,9 +94436,9 @@ jit_CONST_ADDR.exit145:                           ; preds = %191, %183, %162, %1
   store i32 1601, ptr %218, align 8
   store i64 %217, ptr %199, align 8
   store i32 4, ptr %200, align 8
-  br label %jit_CONST_FUNC.exit148
+  br label %jit_CONST_FUNC.exit149
 
-219:                                              ; preds = %jit_CONST_ADDR.exit145
+219:                                              ; preds = %jit_CONST_ADDR.exit146
   %220 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %197, i64 noundef ptrtoint (ptr @zend_jit_fetch_dim_obj_rw_helper to i64)) #32
   %221 = getelementptr inbounds i8, ptr %220, i64 8
   %222 = load i8, ptr %221, align 8
@@ -94449,8 +94449,8 @@ jit_CONST_ADDR.exit145:                           ; preds = %191, %183, %162, %1
   %225 = load i64, ptr %220, align 8
   %226 = trunc i64 %225 to i32
   %227 = load ptr, ptr %0, align 8
-  %sext.i.i150 = shl i64 %225, 32
-  %228 = ashr exact i64 %sext.i.i150, 32
+  %sext.i.i151 = shl i64 %225, 32
+  %228 = ashr exact i64 %sext.i.i151, 32
   %229 = getelementptr inbounds %struct._ir_insn, ptr %227, i64 %228
   %230 = load i16, ptr %229, align 8
   %231 = icmp eq i16 %230, 1601
@@ -94459,7 +94459,7 @@ jit_CONST_ADDR.exit145:                           ; preds = %191, %183, %162, %1
   %233 = load i16, ptr %232, align 2
   %234 = icmp eq i16 %233, 0
   call void @llvm.assume(i1 %234)
-  br label %jit_CONST_FUNC.exit148
+  br label %jit_CONST_FUNC.exit149
 
 235:                                              ; preds = %219
   %236 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_fetch_dim_obj_rw_helper to i64)) #32
@@ -94469,21 +94469,21 @@ jit_CONST_ADDR.exit145:                           ; preds = %191, %183, %162, %1
   store i32 1601, ptr %239, align 8
   store i64 %238, ptr %220, align 8
   store i32 4, ptr %221, align 8
-  br label %jit_CONST_FUNC.exit148
+  br label %jit_CONST_FUNC.exit149
 
-jit_CONST_FUNC.exit148:                           ; preds = %235, %224, %214, %203
-  %.0.i.i149.sink = phi i32 [ %205, %203 ], [ %215, %214 ], [ %226, %224 ], [ %236, %235 ]
+jit_CONST_FUNC.exit149:                           ; preds = %235, %224, %214, %203
+  %.0.i.i150.sink = phi i32 [ %205, %203 ], [ %215, %214 ], [ %226, %224 ], [ %236, %235 ]
   %240 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %33)
   %241 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %5)
-  %242 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i149.sink, i32 noundef %240, i32 noundef %.0, i32 noundef %241) #32
+  %242 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i150.sink, i32 noundef %240, i32 noundef %.0, i32 noundef %241) #32
   br i1 %.not123, label %245, label %243
 
-243:                                              ; preds = %jit_CONST_FUNC.exit148
+243:                                              ; preds = %jit_CONST_FUNC.exit149
   %244 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %154) #32
   br label %245
 
-245:                                              ; preds = %jit_CONST_FUNC.exit148, %243, %153
-  %246 = phi i32 [ %154, %jit_CONST_FUNC.exit148 ], [ %244, %243 ], [ %154, %153 ]
+245:                                              ; preds = %jit_CONST_FUNC.exit149, %243, %153
+  %246 = phi i32 [ %154, %jit_CONST_FUNC.exit149 ], [ %244, %243 ], [ %154, %153 ]
   %247 = load i8, ptr %12, align 2
   %248 = and i8 %247, 6
   %.not133 = icmp eq i8 %248, 0
@@ -94511,13 +94511,13 @@ jit_CONST_FUNC.exit148:                           ; preds = %235, %224, %214, %2
 256:                                              ; preds = %255
   call void @_ir_MERGE_LIST(ptr noundef %0, i32 noundef %246) #32
   %.pre = load i8, ptr %12, align 2
-  %.pre154 = and i8 %.pre, 6
+  %.pre155 = and i8 %.pre, 6
   br label %257
 
 257:                                              ; preds = %256, %255
-  %.pre-phi = phi i8 [ %.pre154, %256 ], [ %248, %255 ]
-  %.not.i152 = icmp eq i8 %.pre-phi, 0
-  br i1 %.not.i152, label %jit_FREE_OP.exit, label %258
+  %.pre-phi = phi i8 [ %.pre155, %256 ], [ %248, %255 ]
+  %.not.i153 = icmp eq i8 %.pre-phi, 0
+  br i1 %.not.i153, label %jit_FREE_OP.exit, label %258
 
 258:                                              ; preds = %257
   %259 = getelementptr inbounds i8, ptr %1, i64 12
@@ -94545,8 +94545,8 @@ jit_FREE_OP.exit:                                 ; preds = %257, %258
   br label %jit_EG_exception.exit.i
 
 jit_EG_exception.exit.i:                          ; preds = %268, %265
-  %.0.i.i153 = phi i32 [ %269, %268 ], [ %267, %265 ]
-  %270 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i153) #32
+  %.0.i.i154 = phi i32 [ %269, %268 ], [ %267, %265 ]
+  %270 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i154) #32
   %271 = getelementptr inbounds i8, ptr %0, i64 864
   %272 = load i32, ptr %271, align 4
   %.not.i4.i = icmp eq i32 %272, 0
@@ -94570,7 +94570,7 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_isset_isempty_dim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i8 noundef zeroext %6, i32 noundef %7, i8 noundef zeroext %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_isset_isempty_dim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i8 noundef zeroext %6, i32 noundef %7, i8 noundef zeroext %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) unnamed_addr #0 {
   %13 = alloca i32, align 4
   store i32 0, ptr %13, align 4
   %14 = alloca [40 x i8], align 16
@@ -94709,7 +94709,7 @@ jit_Z_PTR.exit:                                   ; preds = %55, %66, %74, %77
 91:                                               ; preds = %89, %85, %81, %jit_Z_PTR.exit
   %.0198 = phi ptr [ null, %jit_Z_PTR.exit ], [ null, %81 ], [ null, %85 ], [ %., %89 ]
   %.0197 = phi ptr [ null, %jit_Z_PTR.exit ], [ null, %81 ], [ null, %85 ], [ %.234, %89 ]
-  %92 = call fastcc i32 @zend_jit_fetch_dimension_address_inner(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef %2, i32 noundef %5, i8 noundef zeroext %6, ptr noundef %.0197, ptr noundef %.0198, ptr noundef null, i1 noundef zeroext false, i32 noundef %.0.i, ptr noundef nonnull %14, ptr noundef null, ptr noundef nonnull %13, ptr noundef null), !range !7
+  %92 = call fastcc i32 @zend_jit_fetch_dimension_address_inner(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 6, i32 noundef %2, i32 noundef %5, i8 noundef zeroext %6, ptr noundef %.0197, ptr noundef %.0198, ptr noundef null, i1 noundef zeroext false, i32 noundef %.0.i, ptr noundef nonnull %14, ptr noundef null, ptr noundef nonnull %13, ptr noundef null)
   %.not213 = icmp eq i32 %92, 0
   br i1 %.not213, label %390, label %93
 
@@ -95310,7 +95310,7 @@ jit_set_Z_TYPE_INFO.exit263:                      ; preds = %373, %382
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_fetch_obj(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i1 noundef zeroext %7, ptr noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef %13, i32 noundef %14) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_obj(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i1 noundef zeroext %7, ptr noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef %13, i32 noundef %14) unnamed_addr #0 {
   %16 = alloca i64, align 8
   %17 = alloca %struct._ir_code_buffer, align 8
   %18 = alloca i64, align 8
@@ -95373,14 +95373,14 @@ define internal fastcc noundef i32 @zend_jit_fetch_obj(ptr noundef %0, ptr nound
   %58 = icmp eq i8 %57, 85
   %59 = and i32 %5, 33554432
   %.not661 = icmp ne i32 %59, 0
-  %or.cond700.not884 = and i1 %.not661, %58
+  %or.cond700.not894 = and i1 %.not661, %58
   %60 = and i64 %6, 252
   %61 = icmp eq i64 %60, 56
-  %or.cond702 = and i1 %61, %or.cond700.not884
+  %or.cond702 = and i1 %61, %or.cond700.not894
   br i1 %or.cond702, label %62, label %64
 
 62:                                               ; preds = %55
-  %63 = tail call fastcc i64 @jit_ZVAL_INDIRECT_DEREF(ptr noundef %0, i64 noundef %6), !range !8
+  %63 = tail call fastcc i64 @jit_ZVAL_INDIRECT_DEREF(ptr noundef %0, i64 noundef %6)
   br label %64
 
 64:                                               ; preds = %62, %55, %51
@@ -95471,15 +95471,15 @@ define internal fastcc noundef i32 @zend_jit_fetch_obj(ptr noundef %0, ptr nound
   br label %zend_jit_trace_get_exit_addr.exit
 
 zend_jit_trace_get_exit_addr.exit:                ; preds = %96, %106
-  %.lcssa903.sink = phi ptr [ %111, %106 ], [ %93, %96 ]
-  %.not668 = icmp eq ptr %.lcssa903.sink, null
+  %.lcssa913.sink = phi ptr [ %111, %106 ], [ %93, %96 ]
+  %.not668 = icmp eq ptr %.lcssa913.sink, null
   br i1 %.not668, label %zend_jit_trace_get_exit_addr.exit.thread, label %112
 
 112:                                              ; preds = %zend_jit_trace_get_exit_addr.exit
   %113 = shl i32 %78, 2
   %114 = and i32 %113, 124
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds i8, ptr %.lcssa903.sink, i64 %115
+  %116 = getelementptr inbounds i8, ptr %.lcssa913.sink, i64 %115
   %117 = call fastcc i32 @jit_Z_TYPE(ptr noundef %0, i64 noundef %.1)
   %118 = call i32 @ir_const_u8(ptr noundef %0, i8 noundef zeroext 8) #32
   %119 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 270, i32 noundef %117, i32 noundef %118) #32
@@ -95751,8 +95751,8 @@ jit_CONST_ADDR.exit726:                           ; preds = %266, %274
   %.0.i724 = phi i32 [ %268, %266 ], [ %275, %274 ]
   %277 = tail call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i721, i32 noundef %.0642, i32 noundef %.0.i724) #32
   %278 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
-  %.not885 = icmp eq ptr %278, null
-  br i1 %.not885, label %288, label %279
+  %.not895 = icmp eq ptr %278, null
+  br i1 %.not895, label %288, label %279
 
 279:                                              ; preds = %jit_CONST_ADDR.exit726
   %280 = getelementptr inbounds i8, ptr %278, i64 60
@@ -95772,8 +95772,8 @@ jit_CONST_ADDR.exit726:                           ; preds = %266, %274
 
 290:                                              ; preds = %137
   %291 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
-  %.not886 = icmp eq ptr %291, null
-  br i1 %.not886, label %301, label %292
+  %.not896 = icmp eq ptr %291, null
+  br i1 %.not896, label %301, label %292
 
 292:                                              ; preds = %290
   %293 = getelementptr inbounds i8, ptr %291, i64 60
@@ -95856,19 +95856,19 @@ jit_Z_PTR.exit:                                   ; preds = %329, %326, %318, %3
   %337 = load i32, ptr %336, align 4
   %338 = and i32 %337, 128
   %.not669 = icmp eq i32 %338, 0
-  br i1 %.not669, label %.thread865, label %339
+  br i1 %.not669, label %.thread875, label %339
 
 339:                                              ; preds = %335
   %340 = load ptr, ptr %43, align 8
   %341 = load ptr, ptr %45, align 8
   %342 = call fastcc ptr @zend_get_known_property_info(ptr noundef %2, ptr noundef nonnull %13, ptr noundef %340, i1 noundef zeroext %10, ptr noundef %341)
   %.not670 = icmp eq ptr %342, null
-  br i1 %.not670, label %.thread865, label %343
+  br i1 %.not670, label %.thread875, label %343
 
 343:                                              ; preds = %339
   %344 = and i32 %5, 134217728
   %.not671 = icmp eq i32 %344, 0
-  br i1 %.not671, label %345, label %.thread857
+  br i1 %.not671, label %345, label %.thread867
 
 345:                                              ; preds = %343
   %346 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
@@ -95891,7 +95891,7 @@ jit_Z_PTR.exit:                                   ; preds = %329, %326, %318, %3
   br label %367
 
 356:                                              ; preds = %348, %345
-  %357 = call fastcc i32 @zend_jit_class_guard(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.0631, ptr noundef nonnull %13), !range !7
+  %357 = call fastcc i32 @zend_jit_class_guard(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.0631, ptr noundef nonnull %13)
   %.not673 = icmp eq i32 %357, 0
   br i1 %.not673, label %zend_jit_trace_get_exit_addr.exit.thread, label %358
 
@@ -95914,12 +95914,12 @@ jit_Z_PTR.exit:                                   ; preds = %329, %326, %318, %3
 367:                                              ; preds = %361, %358, %352
   %368 = load ptr, ptr %25, align 8
   %.not674 = icmp eq ptr %368, null
-  br i1 %.not674, label %.thread857, label %369
+  br i1 %.not674, label %.thread867, label %369
 
 369:                                              ; preds = %367
   %370 = load i32, ptr %4, align 4
   %371 = icmp sgt i32 %370, -1
-  br i1 %371, label %372, label %.thread857
+  br i1 %371, label %372, label %.thread867
 
 372:                                              ; preds = %369
   %373 = zext nneg i32 %370 to i64
@@ -95939,12 +95939,12 @@ jit_Z_PTR.exit:                                   ; preds = %329, %326, %318, %3
   %385 = load i8, ptr %384, align 4
   %386 = and i8 %385, -3
   store i8 %386, ptr %384, align 4
-  br label %.thread857
+  br label %.thread867
 
 387:                                              ; preds = %jit_Z_PTR.exit
-  br i1 %333, label %.thread865, label %.thread857
+  br i1 %333, label %.thread875, label %.thread867
 
-.thread865:                                       ; preds = %335, %339, %387
+.thread875:                                       ; preds = %335, %339, %387
   %388 = getelementptr inbounds i8, ptr %0, i64 248
   %389 = load i32, ptr %388, align 8
   %390 = icmp ne i32 %389, 0
@@ -95954,7 +95954,7 @@ jit_Z_PTR.exit:                                   ; preds = %329, %326, %318, %3
   %393 = icmp eq i32 %392, 0
   br i1 %393, label %.loopexit.sink.split.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.thread865
+.preheader.i:                                     ; preds = %.thread875
   %394 = icmp eq i32 %389, %392
   br i1 %394, label %jit_FP.exit, label %.lr.ph.i
 
@@ -95978,7 +95978,7 @@ jit_Z_PTR.exit:                                   ; preds = %329, %326, %318, %3
   %405 = icmp eq i32 %404, %392
   br i1 %405, label %jit_FP.exit, label %396
 
-.loopexit.sink.split.i:                           ; preds = %396, %.thread865
+.loopexit.sink.split.i:                           ; preds = %396, %.thread875
   %406 = call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 14) #32
   store i32 %406, ptr %391, align 4
   br label %jit_FP.exit
@@ -96104,34 +96104,34 @@ jit_ADD_OFFSET.exit744:                           ; preds = %452, %460
   %477 = load i64, ptr %472, align 8
   %478 = trunc i64 %477 to i32
   %479 = load ptr, ptr %0, align 8
-  %sext.i.i748 = shl i64 %477, 32
-  %480 = ashr exact i64 %sext.i.i748, 32
+  %sext.i.i749 = shl i64 %477, 32
+  %480 = ashr exact i64 %sext.i.i749, 32
   %481 = getelementptr inbounds %struct._ir_insn, ptr %479, i64 %480
   %482 = load i16, ptr %481, align 8
   %483 = icmp eq i16 %482, 1542
   call void @llvm.assume(i1 %483)
-  br label %jit_ADD_OFFSET.exit749
+  br label %jit_ADD_OFFSET.exit750
 
 484:                                              ; preds = %jit_ADD_OFFSET.exit744
   %485 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %471) #32
   %486 = sext i32 %485 to i64
   store i64 %486, ptr %472, align 8
   store i32 4, ptr %473, align 8
-  br label %jit_ADD_OFFSET.exit749
+  br label %jit_ADD_OFFSET.exit750
 
-jit_ADD_OFFSET.exit749:                           ; preds = %476, %484
-  %.0.i.i746 = phi i32 [ %478, %476 ], [ %485, %484 ]
-  %487 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %425, i32 noundef %.0.i.i746) #32
+jit_ADD_OFFSET.exit750:                           ; preds = %476, %484
+  %.0.i.i747 = phi i32 [ %478, %476 ], [ %485, %484 ]
+  %487 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %425, i32 noundef %.0.i.i747) #32
   %488 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %487) #32
   %489 = load ptr, ptr %43, align 8
   %490 = getelementptr inbounds i8, ptr %1, i64 29
   %491 = load i8, ptr %490, align 1
   %492 = icmp eq i8 %491, 0
   %493 = load ptr, ptr %45, align 8
-  %.not.i750 = icmp eq ptr %8, null
-  br i1 %.not.i750, label %519, label %494
+  %.not.i751 = icmp eq ptr %8, null
+  br i1 %.not.i751, label %519, label %494
 
-494:                                              ; preds = %jit_ADD_OFFSET.exit749
+494:                                              ; preds = %jit_ADD_OFFSET.exit750
   %495 = getelementptr inbounds i8, ptr %8, i64 28
   %496 = load i32, ptr %495, align 4
   %497 = and i32 %496, 2
@@ -96156,7 +96156,7 @@ jit_ADD_OFFSET.exit749:                           ; preds = %476, %484
   br i1 %.not26.i, label %519, label %506
 
 506:                                              ; preds = %503
-  %507 = load ptr, ptr %505, align 8, !nonnull !6, !noundef !6
+  %507 = load ptr, ptr %505, align 8, !nonnull !5, !noundef !5
   %508 = load i32, ptr %507, align 8
   %.not27.i = icmp eq i32 %508, 0
   br i1 %.not27.i, label %519, label %509
@@ -96182,7 +96182,7 @@ jit_ADD_OFFSET.exit749:                           ; preds = %476, %484
   %.not30.i = icmp eq ptr %518, %8
   br i1 %.not30.i, label %zend_may_be_dynamic_property.exit, label %519
 
-519:                                              ; preds = %494, %jit_ADD_OFFSET.exit749, %500, %509, %506, %516, %515, %503
+519:                                              ; preds = %494, %jit_ADD_OFFSET.exit750, %500, %509, %506, %516, %515, %503
   %520 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 272, i32 noundef %488, i32 noundef -1) #32
   %521 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %520) #32
   %522 = getelementptr inbounds i8, ptr %1, i64 28
@@ -96212,8 +96212,8 @@ jit_ADD_OFFSET.exit749:                           ; preds = %476, %484
   %535 = load i64, ptr %530, align 8
   %536 = trunc i64 %535 to i32
   %537 = load ptr, ptr %0, align 8
-  %sext.i.i752 = shl i64 %535, 32
-  %538 = ashr exact i64 %sext.i.i752, 32
+  %sext.i.i753 = shl i64 %535, 32
+  %538 = ashr exact i64 %sext.i.i753, 32
   %539 = getelementptr inbounds %struct._ir_insn, ptr %537, i64 %538
   %540 = load i16, ptr %539, align 8
   %541 = icmp eq i16 %540, 1601
@@ -96222,7 +96222,7 @@ jit_ADD_OFFSET.exit749:                           ; preds = %476, %484
   %543 = load i16, ptr %542, align 2
   %544 = icmp eq i16 %543, 0
   call void @llvm.assume(i1 %544)
-  br label %jit_CONST_FUNC.exit753
+  br label %jit_CONST_FUNC.exit754
 
 545:                                              ; preds = %529
   %546 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_fetch_obj_r_dynamic to i64)) #32
@@ -96232,7 +96232,7 @@ jit_ADD_OFFSET.exit749:                           ; preds = %476, %484
   store i32 1601, ptr %549, align 8
   store i64 %548, ptr %530, align 8
   store i32 4, ptr %531, align 8
-  br label %jit_CONST_FUNC.exit753
+  br label %jit_CONST_FUNC.exit754
 
 550:                                              ; preds = %527
   %551 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %408, i64 noundef ptrtoint (ptr @zend_jit_fetch_obj_is_dynamic to i64)) #32
@@ -96245,8 +96245,8 @@ jit_ADD_OFFSET.exit749:                           ; preds = %476, %484
   %556 = load i64, ptr %551, align 8
   %557 = trunc i64 %556 to i32
   %558 = load ptr, ptr %0, align 8
-  %sext.i.i755 = shl i64 %556, 32
-  %559 = ashr exact i64 %sext.i.i755, 32
+  %sext.i.i756 = shl i64 %556, 32
+  %559 = ashr exact i64 %sext.i.i756, 32
   %560 = getelementptr inbounds %struct._ir_insn, ptr %558, i64 %559
   %561 = load i16, ptr %560, align 8
   %562 = icmp eq i16 %561, 1601
@@ -96255,7 +96255,7 @@ jit_ADD_OFFSET.exit749:                           ; preds = %476, %484
   %564 = load i16, ptr %563, align 2
   %565 = icmp eq i16 %564, 0
   call void @llvm.assume(i1 %565)
-  br label %jit_CONST_FUNC.exit753
+  br label %jit_CONST_FUNC.exit754
 
 566:                                              ; preds = %550
   %567 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_fetch_obj_is_dynamic to i64)) #32
@@ -96265,17 +96265,17 @@ jit_ADD_OFFSET.exit749:                           ; preds = %476, %484
   store i32 1601, ptr %570, align 8
   store i64 %569, ptr %551, align 8
   store i32 4, ptr %552, align 8
-  br label %jit_CONST_FUNC.exit753
+  br label %jit_CONST_FUNC.exit754
 
-jit_CONST_FUNC.exit753:                           ; preds = %566, %555, %545, %534
-  %.0.i.i751.sink = phi i32 [ %536, %534 ], [ %546, %545 ], [ %557, %555 ], [ %567, %566 ]
-  %571 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i751.sink, i32 noundef %.0631, i32 noundef %488) #32
+jit_CONST_FUNC.exit754:                           ; preds = %566, %555, %545, %534
+  %.0.i.i752.sink = phi i32 [ %536, %534 ], [ %546, %545 ], [ %557, %555 ], [ %567, %566 ]
+  %571 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i752.sink, i32 noundef %.0631, i32 noundef %488) #32
   %572 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.1634) #32
   br label %573
 
-573:                                              ; preds = %jit_CONST_FUNC.exit753, %525
-  %.0638 = phi i32 [ %526, %525 ], [ %467, %jit_CONST_FUNC.exit753 ]
-  %.2635 = phi i32 [ %.1634, %525 ], [ %572, %jit_CONST_FUNC.exit753 ]
+573:                                              ; preds = %jit_CONST_FUNC.exit754, %525
+  %.0638 = phi i32 [ %526, %525 ], [ %467, %jit_CONST_FUNC.exit754 ]
+  %.2635 = phi i32 [ %.1634, %525 ], [ %572, %jit_CONST_FUNC.exit754 ]
   call void @_ir_IF_FALSE(ptr noundef %0, i32 noundef %521) #32
   br label %zend_may_be_dynamic_property.exit
 
@@ -96322,10 +96322,10 @@ jit_Z_TYPE_ref.exit:                              ; preds = %579, %587
   %597 = getelementptr inbounds i8, ptr %1, i64 28
   %598 = load i8, ptr %597, align 4
   %599 = icmp eq i8 %598, 85
-  br i1 %599, label %600, label %.thread875
+  br i1 %599, label %600, label %.thread885
 
 600:                                              ; preds = %jit_Z_TYPE_ref.exit
-  %brmerge = or i1 %.not.i750, %9
+  %brmerge = or i1 %.not.i751, %9
   br i1 %brmerge, label %605, label %601
 
 601:                                              ; preds = %600
@@ -96333,7 +96333,7 @@ jit_Z_TYPE_ref.exit:                              ; preds = %579, %587
   %603 = load i32, ptr %602, align 4
   %604 = and i32 %603, 258
   %.not677 = icmp eq i32 %604, 0
-  br i1 %.not677, label %.thread875, label %605
+  br i1 %.not677, label %.thread885, label %605
 
 605:                                              ; preds = %600, %601
   %606 = load i32, ptr %426, align 4
@@ -96351,24 +96351,24 @@ jit_Z_TYPE_ref.exit:                              ; preds = %579, %587
   %616 = load i64, ptr %611, align 8
   %617 = trunc i64 %616 to i32
   %618 = load ptr, ptr %0, align 8
-  %sext.i.i760 = shl i64 %616, 32
-  %619 = ashr exact i64 %sext.i.i760, 32
+  %sext.i.i762 = shl i64 %616, 32
+  %619 = ashr exact i64 %sext.i.i762, 32
   %620 = getelementptr inbounds %struct._ir_insn, ptr %618, i64 %619
   %621 = load i16, ptr %620, align 8
   %622 = icmp eq i16 %621, 1542
   call void @llvm.assume(i1 %622)
-  br label %jit_ADD_OFFSET.exit761
+  br label %jit_ADD_OFFSET.exit763
 
 623:                                              ; preds = %605
   %624 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %610) #32
   %625 = sext i32 %624 to i64
   store i64 %625, ptr %611, align 8
   store i32 4, ptr %612, align 8
-  br label %jit_ADD_OFFSET.exit761
+  br label %jit_ADD_OFFSET.exit763
 
-jit_ADD_OFFSET.exit761:                           ; preds = %615, %623
-  %.0.i.i758 = phi i32 [ %617, %615 ], [ %624, %623 ]
-  %626 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %425, i32 noundef %.0.i.i758) #32
+jit_ADD_OFFSET.exit763:                           ; preds = %615, %623
+  %.0.i.i760 = phi i32 [ %617, %615 ], [ %624, %623 ]
+  %626 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %425, i32 noundef %.0.i.i760) #32
   %627 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %626) #32
   %628 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %627) #32
   call void @_ir_IF_TRUE_cold(ptr noundef %0, i32 noundef %628) #32
@@ -96378,28 +96378,28 @@ jit_ADD_OFFSET.exit761:                           ; preds = %615, %623
   %632 = icmp eq i8 %631, 4
   br i1 %632, label %633, label %641
 
-633:                                              ; preds = %jit_ADD_OFFSET.exit761
+633:                                              ; preds = %jit_ADD_OFFSET.exit763
   %634 = load i64, ptr %629, align 8
   %635 = trunc i64 %634 to i32
   %636 = load ptr, ptr %0, align 8
-  %sext.i.i765 = shl i64 %634, 32
-  %637 = ashr exact i64 %sext.i.i765, 32
+  %sext.i.i767 = shl i64 %634, 32
+  %637 = ashr exact i64 %sext.i.i767, 32
   %638 = getelementptr inbounds %struct._ir_insn, ptr %636, i64 %637
   %639 = load i16, ptr %638, align 8
   %640 = icmp eq i16 %639, 1542
   call void @llvm.assume(i1 %640)
-  br label %jit_ADD_OFFSET.exit766
+  br label %jit_ADD_OFFSET.exit768
 
-641:                                              ; preds = %jit_ADD_OFFSET.exit761
+641:                                              ; preds = %jit_ADD_OFFSET.exit763
   %642 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 4) #32
   %643 = sext i32 %642 to i64
   store i64 %643, ptr %629, align 8
   store i32 4, ptr %630, align 8
-  br label %jit_ADD_OFFSET.exit766
+  br label %jit_ADD_OFFSET.exit768
 
-jit_ADD_OFFSET.exit766:                           ; preds = %633, %641
-  %.0.i.i763 = phi i32 [ %635, %633 ], [ %642, %641 ]
-  %644 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %627, i32 noundef %.0.i.i763) #32
+jit_ADD_OFFSET.exit768:                           ; preds = %633, %641
+  %.0.i.i765 = phi i32 [ %635, %633 ], [ %642, %641 ]
+  %644 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %627, i32 noundef %.0.i.i765) #32
   %645 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 4, i32 noundef %644) #32
   %646 = call i32 @ir_const_u32(ptr noundef %0, i32 noundef 128) #32
   %647 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1069, i32 noundef %645, i32 noundef %646) #32
@@ -96429,28 +96429,28 @@ jit_ADD_OFFSET.exit766:                           ; preds = %633, %641
   %665 = icmp eq i8 %664, 4
   br i1 %665, label %666, label %674
 
-666:                                              ; preds = %jit_ADD_OFFSET.exit766
+666:                                              ; preds = %jit_ADD_OFFSET.exit768
   %667 = load i64, ptr %662, align 8
   %668 = trunc i64 %667 to i32
   %669 = load ptr, ptr %0, align 8
-  %sext.i.i772 = shl i64 %667, 32
-  %670 = ashr exact i64 %sext.i.i772, 32
+  %sext.i.i776 = shl i64 %667, 32
+  %670 = ashr exact i64 %sext.i.i776, 32
   %671 = getelementptr inbounds %struct._ir_insn, ptr %669, i64 %670
   %672 = load i16, ptr %671, align 8
   %673 = icmp eq i16 %672, 1542
   call void @llvm.assume(i1 %673)
-  br label %jit_ADD_OFFSET.exit773
+  br label %jit_ADD_OFFSET.exit777
 
-674:                                              ; preds = %jit_ADD_OFFSET.exit766
+674:                                              ; preds = %jit_ADD_OFFSET.exit768
   %675 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 12) #32
   %676 = sext i32 %675 to i64
   store i64 %676, ptr %662, align 8
   store i32 4, ptr %663, align 8
-  br label %jit_ADD_OFFSET.exit773
+  br label %jit_ADD_OFFSET.exit777
 
-jit_ADD_OFFSET.exit773:                           ; preds = %666, %674
-  %.0.i.i770 = phi i32 [ %668, %666 ], [ %675, %674 ]
-  %677 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %661, i32 noundef %.0.i.i770) #32
+jit_ADD_OFFSET.exit777:                           ; preds = %666, %674
+  %.0.i.i774 = phi i32 [ %668, %666 ], [ %675, %674 ]
+  %677 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %661, i32 noundef %.0.i.i774) #32
   %678 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 4, i32 noundef %677) #32
   %679 = call i32 @ir_const_u32(ptr noundef %0, i32 noundef 2) #32
   %680 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1069, i32 noundef %678, i32 noundef %679) #32
@@ -96468,12 +96468,12 @@ jit_ADD_OFFSET.exit773:                           ; preds = %666, %674
   %688 = icmp eq i8 %687, 4
   br i1 %688, label %689, label %700
 
-689:                                              ; preds = %jit_ADD_OFFSET.exit773
+689:                                              ; preds = %jit_ADD_OFFSET.exit777
   %690 = load i64, ptr %685, align 8
   %691 = trunc i64 %690 to i32
   %692 = load ptr, ptr %0, align 8
-  %sext.i.i775 = shl i64 %690, 32
-  %693 = ashr exact i64 %sext.i.i775, 32
+  %sext.i.i779 = shl i64 %690, 32
+  %693 = ashr exact i64 %sext.i.i779, 32
   %694 = getelementptr inbounds %struct._ir_insn, ptr %692, i64 %693
   %695 = load i16, ptr %694, align 8
   %696 = icmp eq i16 %695, 1601
@@ -96482,9 +96482,9 @@ jit_ADD_OFFSET.exit773:                           ; preds = %666, %674
   %698 = load i16, ptr %697, align 2
   %699 = icmp eq i16 %698, 0
   call void @llvm.assume(i1 %699)
-  br label %jit_CONST_FUNC.exit776
+  br label %jit_CONST_FUNC.exit780
 
-700:                                              ; preds = %jit_ADD_OFFSET.exit773
+700:                                              ; preds = %jit_ADD_OFFSET.exit777
   %701 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_readonly_property_modification_error to i64)) #32
   %702 = load ptr, ptr %0, align 8
   %703 = sext i32 %701 to i64
@@ -96492,11 +96492,11 @@ jit_ADD_OFFSET.exit773:                           ; preds = %666, %674
   store i32 1601, ptr %704, align 8
   store i64 %703, ptr %685, align 8
   store i32 4, ptr %686, align 8
-  br label %jit_CONST_FUNC.exit776
+  br label %jit_CONST_FUNC.exit780
 
-jit_CONST_FUNC.exit776:                           ; preds = %689, %700
-  %.0.i.i774 = phi i32 [ %691, %689 ], [ %701, %700 ]
-  %705 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i774, i32 noundef %627) #32
+jit_CONST_FUNC.exit780:                           ; preds = %689, %700
+  %.0.i.i778 = phi i32 [ %691, %689 ], [ %701, %700 ]
+  %705 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i778, i32 noundef %627) #32
   %706 = call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef 15) #32
   call fastcc void @jit_set_Z_TYPE_INFO_ex(ptr noundef nonnull %0, i64 noundef %24, i32 noundef %706)
   %707 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %660) #32
@@ -96505,7 +96505,7 @@ jit_CONST_FUNC.exit776:                           ; preds = %689, %700
     i32 1, label %732
   ]
 
-708:                                              ; preds = %jit_CONST_FUNC.exit776
+708:                                              ; preds = %jit_CONST_FUNC.exit780
   call void @_ir_IF_FALSE_cold(ptr noundef nonnull %0, i32 noundef %648) #32
   %709 = call i32 @_ir_END(ptr noundef nonnull %0) #32
   call void @_ir_MERGE_2(ptr noundef nonnull %0, i32 noundef %709, i32 noundef %684) #32
@@ -96520,8 +96520,8 @@ jit_CONST_FUNC.exit776:                           ; preds = %689, %700
   %715 = load i64, ptr %710, align 8
   %716 = trunc i64 %715 to i32
   %717 = load ptr, ptr %0, align 8
-  %sext.i.i778 = shl i64 %715, 32
-  %718 = ashr exact i64 %sext.i.i778, 32
+  %sext.i.i783 = shl i64 %715, 32
+  %718 = ashr exact i64 %sext.i.i783, 32
   %719 = getelementptr inbounds %struct._ir_insn, ptr %717, i64 %718
   %720 = load i16, ptr %719, align 8
   %721 = icmp eq i16 %720, 1601
@@ -96530,7 +96530,7 @@ jit_CONST_FUNC.exit776:                           ; preds = %689, %700
   %723 = load i16, ptr %722, align 2
   %724 = icmp eq i16 %723, 0
   call void @llvm.assume(i1 %724)
-  br label %jit_CONST_FUNC.exit779
+  br label %jit_CONST_FUNC.exit784
 
 725:                                              ; preds = %708
   %726 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @zend_jit_check_array_promotion to i64)) #32
@@ -96540,16 +96540,16 @@ jit_CONST_FUNC.exit776:                           ; preds = %689, %700
   store i32 1601, ptr %729, align 8
   store i64 %728, ptr %710, align 8
   store i32 4, ptr %711, align 8
-  br label %jit_CONST_FUNC.exit779
+  br label %jit_CONST_FUNC.exit784
 
-jit_CONST_FUNC.exit779:                           ; preds = %714, %725
-  %.0.i.i777 = phi i32 [ %716, %714 ], [ %726, %725 ]
-  %730 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i777, i32 noundef %574, i32 noundef %627) #32
+jit_CONST_FUNC.exit784:                           ; preds = %714, %725
+  %.0.i.i782 = phi i32 [ %716, %714 ], [ %726, %725 ]
+  %730 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i782, i32 noundef %574, i32 noundef %627) #32
   %731 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %707) #32
   call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %628) #32
-  br label %.thread875
+  br label %.thread885
 
-732:                                              ; preds = %jit_CONST_FUNC.exit776
+732:                                              ; preds = %jit_CONST_FUNC.exit780
   call void @_ir_IF_FALSE_cold(ptr noundef nonnull %0, i32 noundef %648) #32
   %733 = call i32 @_ir_END(ptr noundef nonnull %0) #32
   call void @_ir_MERGE_2(ptr noundef nonnull %0, i32 noundef %733, i32 noundef %684) #32
@@ -96563,8 +96563,8 @@ jit_CONST_FUNC.exit779:                           ; preds = %714, %725
   %739 = load i64, ptr %734, align 8
   %740 = trunc i64 %739 to i32
   %741 = load ptr, ptr %0, align 8
-  %sext.i.i781 = shl i64 %739, 32
-  %742 = ashr exact i64 %sext.i.i781, 32
+  %sext.i.i786 = shl i64 %739, 32
+  %742 = ashr exact i64 %sext.i.i786, 32
   %743 = getelementptr inbounds %struct._ir_insn, ptr %741, i64 %742
   %744 = load i16, ptr %743, align 8
   %745 = icmp eq i16 %744, 1601
@@ -96573,7 +96573,7 @@ jit_CONST_FUNC.exit779:                           ; preds = %714, %725
   %747 = load i16, ptr %746, align 2
   %748 = icmp eq i16 %747, 0
   call void @llvm.assume(i1 %748)
-  br label %jit_CONST_FUNC.exit782
+  br label %jit_CONST_FUNC.exit787
 
 749:                                              ; preds = %732
   %750 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @zend_jit_create_typed_ref to i64)) #32
@@ -96583,17 +96583,17 @@ jit_CONST_FUNC.exit779:                           ; preds = %714, %725
   store i32 1601, ptr %753, align 8
   store i64 %752, ptr %734, align 8
   store i32 4, ptr %735, align 8
-  br label %jit_CONST_FUNC.exit782
+  br label %jit_CONST_FUNC.exit787
 
-jit_CONST_FUNC.exit782:                           ; preds = %738, %749
-  %.0.i.i780 = phi i32 [ %740, %738 ], [ %750, %749 ]
+jit_CONST_FUNC.exit787:                           ; preds = %738, %749
+  %.0.i.i785 = phi i32 [ %740, %738 ], [ %750, %749 ]
   %754 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %24)
-  %755 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i780, i32 noundef %574, i32 noundef %627, i32 noundef %754) #32
+  %755 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i785, i32 noundef %574, i32 noundef %627, i32 noundef %754) #32
   %756 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %707) #32
   call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %628) #32
-  br label %.thread875
+  br label %.thread885
 
-757:                                              ; preds = %jit_CONST_FUNC.exit776
+757:                                              ; preds = %jit_CONST_FUNC.exit780
   %758 = icmp eq i32 %607, 0
   call void @llvm.assume(i1 %758)
   call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %628) #32
@@ -96601,17 +96601,17 @@ jit_CONST_FUNC.exit782:                           ; preds = %738, %749
   call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %648) #32
   %760 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %759) #32
   call void @_ir_MERGE_LIST(ptr noundef nonnull %0, i32 noundef %760) #32
-  br label %.thread875
+  br label %.thread885
 
-.thread857:                                       ; preds = %367, %369, %372, %343, %387
-  %.0621863 = phi ptr [ %8, %387 ], [ %13, %343 ], [ %13, %372 ], [ %13, %369 ], [ %13, %367 ]
-  %.0626861 = phi ptr [ %47, %387 ], [ %342, %343 ], [ %342, %372 ], [ %342, %369 ], [ %342, %367 ]
-  %761 = load i32, ptr %.0626861, align 8
+.thread867:                                       ; preds = %367, %369, %372, %343, %387
+  %.0621873 = phi ptr [ %8, %387 ], [ %13, %343 ], [ %13, %372 ], [ %13, %369 ], [ %13, %367 ]
+  %.0626871 = phi ptr [ %47, %387 ], [ %342, %343 ], [ %342, %372 ], [ %342, %369 ], [ %342, %367 ]
+  %761 = load i32, ptr %.0626871, align 8
   %762 = zext i32 %761 to i64
-  %.not.i783 = icmp eq i32 %761, 0
-  br i1 %.not.i783, label %jit_ADD_OFFSET.exit788, label %763
+  %.not.i788 = icmp eq i32 %761, 0
+  br i1 %.not.i788, label %jit_ADD_OFFSET.exit793, label %763
 
-763:                                              ; preds = %.thread857
+763:                                              ; preds = %.thread867
   %764 = getelementptr inbounds i8, ptr %0, i64 808
   %765 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %764, i64 noundef %762) #32
   %766 = getelementptr inbounds i8, ptr %765, i64 8
@@ -96623,36 +96623,36 @@ jit_CONST_FUNC.exit782:                           ; preds = %738, %749
   %770 = load i64, ptr %765, align 8
   %771 = trunc i64 %770 to i32
   %772 = load ptr, ptr %0, align 8
-  %sext.i.i787 = shl i64 %770, 32
-  %773 = ashr exact i64 %sext.i.i787, 32
+  %sext.i.i792 = shl i64 %770, 32
+  %773 = ashr exact i64 %sext.i.i792, 32
   %774 = getelementptr inbounds %struct._ir_insn, ptr %772, i64 %773
   %775 = load i16, ptr %774, align 8
   %776 = icmp eq i16 %775, 1542
   call void @llvm.assume(i1 %776)
-  br label %jit_CONST_ADDR.exit.i784
+  br label %jit_CONST_ADDR.exit.i789
 
 777:                                              ; preds = %763
   %778 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %762) #32
   %779 = sext i32 %778 to i64
   store i64 %779, ptr %765, align 8
   store i32 4, ptr %766, align 8
-  br label %jit_CONST_ADDR.exit.i784
+  br label %jit_CONST_ADDR.exit.i789
 
-jit_CONST_ADDR.exit.i784:                         ; preds = %777, %769
-  %.0.i.i785 = phi i32 [ %771, %769 ], [ %778, %777 ]
-  %780 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0631, i32 noundef %.0.i.i785) #32
-  br label %jit_ADD_OFFSET.exit788
+jit_CONST_ADDR.exit.i789:                         ; preds = %777, %769
+  %.0.i.i790 = phi i32 [ %771, %769 ], [ %778, %777 ]
+  %780 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0631, i32 noundef %.0.i.i790) #32
+  br label %jit_ADD_OFFSET.exit793
 
-jit_ADD_OFFSET.exit788:                           ; preds = %.thread857, %jit_CONST_ADDR.exit.i784
-  %.0.i786 = phi i32 [ %780, %jit_CONST_ADDR.exit.i784 ], [ %.0631, %.thread857 ]
-  %781 = sext i32 %.0.i786 to i64
+jit_ADD_OFFSET.exit793:                           ; preds = %.thread867, %jit_CONST_ADDR.exit.i789
+  %.0.i791 = phi i32 [ %780, %jit_CONST_ADDR.exit.i789 ], [ %.0631, %.thread867 ]
+  %781 = sext i32 %.0.i791 to i64
   %782 = shl nsw i64 %781, 2
   %783 = or disjoint i64 %782, 3
   %784 = load i8, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 2), align 2
   %785 = icmp eq i8 %784, 5
   br i1 %785, label %786, label %853
 
-786:                                              ; preds = %jit_ADD_OFFSET.exit788
+786:                                              ; preds = %jit_ADD_OFFSET.exit793
   %787 = getelementptr inbounds i8, ptr %1, i64 28
   %788 = load i8, ptr %787, align 4
   %789 = icmp eq i8 %788, 85
@@ -96671,22 +96671,22 @@ jit_ADD_OFFSET.exit788:                           ; preds = %.thread857, %jit_CO
   %797 = load ptr, ptr @zend_jit_traces, align 8
   %798 = getelementptr inbounds i8, ptr %797, i64 16
   %799 = load i32, ptr %798, align 8
-  %.not.i789 = icmp ugt i32 %799, %796
-  br i1 %.not.i789, label %824, label %800
+  %.not.i794 = icmp ugt i32 %799, %796
+  br i1 %.not.i794, label %824, label %800
 
 800:                                              ; preds = %795
   %801 = icmp ugt i32 %796, 511
-  br i1 %801, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i790
+  br i1 %801, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i795
 
-.preheader.i.i790:                                ; preds = %800
+.preheader.i.i795:                                ; preds = %800
   %802 = getelementptr inbounds i8, ptr %17, i64 8
   %803 = getelementptr inbounds i8, ptr %17, i64 16
-  %.pre12.i.i791 = load ptr, ptr @dasm_ptr, align 8
+  %.pre12.i.i796 = load ptr, ptr @dasm_ptr, align 8
   br label %804
 
-804:                                              ; preds = %814, %.preheader.i.i790
-  %805 = phi ptr [ %.pre12.i.i791, %.preheader.i.i790 ], [ %813, %814 ]
-  %806 = phi i32 [ %799, %.preheader.i.i790 ], [ %823, %814 ]
+804:                                              ; preds = %814, %.preheader.i.i795
+  %805 = phi ptr [ %.pre12.i.i796, %.preheader.i.i795 ], [ %813, %814 ]
+  %806 = phi i32 [ %799, %.preheader.i.i795 ], [ %823, %814 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   %807 = load ptr, ptr @dasm_buf, align 8
@@ -96702,8 +96702,8 @@ jit_ADD_OFFSET.exit788:                           ; preds = %.thread857, %jit_CO
   store ptr %812, ptr %813, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  %.not.i.i792 = icmp eq ptr %811, null
-  br i1 %.not.i.i792, label %zend_jit_trace_get_exit_addr.exit.thread, label %814
+  %.not.i.i797 = icmp eq ptr %811, null
+  br i1 %.not.i.i797, label %zend_jit_trace_get_exit_addr.exit.thread, label %814
 
 814:                                              ; preds = %804
   %815 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -96717,8 +96717,8 @@ jit_ADD_OFFSET.exit788:                           ; preds = %.thread857, %jit_CO
   %822 = load i32, ptr %817, align 8
   %823 = add i32 %822, 32
   store i32 %823, ptr %817, align 8
-  %.not8.i.i793 = icmp ugt i32 %823, %796
-  br i1 %.not8.i.i793, label %zend_jit_trace_get_exit_addr.exit795, label %804
+  %.not8.i.i798 = icmp ugt i32 %823, %796
+  br i1 %.not8.i.i798, label %zend_jit_trace_get_exit_addr.exit800, label %804
 
 824:                                              ; preds = %795
   %825 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -96726,18 +96726,18 @@ jit_ADD_OFFSET.exit788:                           ; preds = %.thread857, %jit_CO
   %827 = zext nneg i32 %826 to i64
   %828 = getelementptr inbounds ptr, ptr %825, i64 %827
   %829 = load ptr, ptr %828, align 8
-  br label %zend_jit_trace_get_exit_addr.exit795
+  br label %zend_jit_trace_get_exit_addr.exit800
 
-zend_jit_trace_get_exit_addr.exit795:             ; preds = %814, %824
-  %.lcssa902.sink = phi ptr [ %829, %824 ], [ %811, %814 ]
-  %.not678 = icmp eq ptr %.lcssa902.sink, null
+zend_jit_trace_get_exit_addr.exit800:             ; preds = %814, %824
+  %.lcssa912.sink = phi ptr [ %829, %824 ], [ %811, %814 ]
+  %.not678 = icmp eq ptr %.lcssa912.sink, null
   br i1 %.not678, label %zend_jit_trace_get_exit_addr.exit.thread, label %830
 
-830:                                              ; preds = %zend_jit_trace_get_exit_addr.exit795
+830:                                              ; preds = %zend_jit_trace_get_exit_addr.exit800
   %831 = shl i32 %796, 2
   %832 = and i32 %831, 124
   %833 = zext nneg i32 %832 to i64
-  %834 = getelementptr inbounds i8, ptr %.lcssa902.sink, i64 %833
+  %834 = getelementptr inbounds i8, ptr %.lcssa912.sink, i64 %833
   %835 = call fastcc i32 @jit_Z_TYPE_INFO(ptr noundef %0, i64 noundef %783)
   %836 = ptrtoint ptr %834 to i64
   %837 = getelementptr inbounds i8, ptr %0, i64 808
@@ -96751,27 +96751,27 @@ zend_jit_trace_get_exit_addr.exit795:             ; preds = %814, %824
   %843 = load i64, ptr %838, align 8
   %844 = trunc i64 %843 to i32
   %845 = load ptr, ptr %0, align 8
-  %sext.i797 = shl i64 %843, 32
-  %846 = ashr exact i64 %sext.i797, 32
+  %sext.i802 = shl i64 %843, 32
+  %846 = ashr exact i64 %sext.i802, 32
   %847 = getelementptr inbounds %struct._ir_insn, ptr %845, i64 %846
   %848 = load i16, ptr %847, align 8
   %849 = icmp eq i16 %848, 1542
   call void @llvm.assume(i1 %849)
-  br label %jit_CONST_ADDR.exit798
+  br label %jit_CONST_ADDR.exit803
 
 850:                                              ; preds = %830
   %851 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %836) #32
   %852 = sext i32 %851 to i64
   store i64 %852, ptr %838, align 8
   store i32 4, ptr %839, align 8
-  br label %jit_CONST_ADDR.exit798
+  br label %jit_CONST_ADDR.exit803
 
-jit_CONST_ADDR.exit798:                           ; preds = %842, %850
-  %.0.i796 = phi i32 [ %844, %842 ], [ %851, %850 ]
-  call void @_ir_GUARD(ptr noundef %0, i32 noundef %835, i32 noundef %.0.i796) #32
+jit_CONST_ADDR.exit803:                           ; preds = %842, %850
+  %.0.i801 = phi i32 [ %844, %842 ], [ %851, %850 ]
+  call void @_ir_GUARD(ptr noundef %0, i32 noundef %835, i32 noundef %.0.i801) #32
   br label %857
 
-853:                                              ; preds = %jit_ADD_OFFSET.exit788
+853:                                              ; preds = %jit_ADD_OFFSET.exit793
   %854 = call fastcc i32 @jit_Z_TYPE_INFO(ptr noundef %0, i64 noundef %783)
   %855 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %854) #32
   call void @_ir_IF_FALSE_cold(ptr noundef %0, i32 noundef %855) #32
@@ -96779,20 +96779,20 @@ jit_CONST_ADDR.exit798:                           ; preds = %842, %850
   call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %855) #32
   br label %857
 
-857:                                              ; preds = %jit_CONST_ADDR.exit798, %790, %853
-  %.2640 = phi i32 [ 0, %jit_CONST_ADDR.exit798 ], [ 0, %790 ], [ %856, %853 ]
-  %.0629 = phi i32 [ %835, %jit_CONST_ADDR.exit798 ], [ 0, %790 ], [ %854, %853 ]
+857:                                              ; preds = %jit_CONST_ADDR.exit803, %790, %853
+  %.2640 = phi i32 [ 0, %jit_CONST_ADDR.exit803 ], [ 0, %790 ], [ %856, %853 ]
+  %.0629 = phi i32 [ %835, %jit_CONST_ADDR.exit803 ], [ 0, %790 ], [ %854, %853 ]
   %858 = getelementptr inbounds i8, ptr %1, i64 28
   %859 = load i8, ptr %858, align 4
   %860 = icmp eq i8 %859, 85
-  br i1 %860, label %861, label %.thread875
+  br i1 %860, label %861, label %.thread885
 
 861:                                              ; preds = %857
-  %862 = getelementptr inbounds i8, ptr %.0626861, i64 4
+  %862 = getelementptr inbounds i8, ptr %.0626871, i64 4
   %863 = load i32, ptr %862, align 4
   %864 = and i32 %863, 128
   %.not679 = icmp eq i32 %864, 0
-  br i1 %.not679, label %.thread895, label %865
+  br i1 %.not679, label %.thread905, label %865
 
 865:                                              ; preds = %861
   %.not680 = icmp eq i32 %.0629, 0
@@ -96833,24 +96833,24 @@ jit_CONST_ADDR.exit798:                           ; preds = %842, %850
   %888 = load i64, ptr %883, align 8
   %889 = trunc i64 %888 to i32
   %890 = load ptr, ptr %0, align 8
-  %sext.i.i804 = shl i64 %888, 32
-  %891 = ashr exact i64 %sext.i.i804, 32
+  %sext.i.i811 = shl i64 %888, 32
+  %891 = ashr exact i64 %sext.i.i811, 32
   %892 = getelementptr inbounds %struct._ir_insn, ptr %890, i64 %891
   %893 = load i16, ptr %892, align 8
   %894 = icmp eq i16 %893, 1542
   call void @llvm.assume(i1 %894)
-  br label %jit_ADD_OFFSET.exit805
+  br label %jit_ADD_OFFSET.exit812
 
 895:                                              ; preds = %868
   %896 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 12) #32
   %897 = sext i32 %896 to i64
   store i64 %897, ptr %883, align 8
   store i32 4, ptr %884, align 8
-  br label %jit_ADD_OFFSET.exit805
+  br label %jit_ADD_OFFSET.exit812
 
-jit_ADD_OFFSET.exit805:                           ; preds = %887, %895
-  %.0.i.i802 = phi i32 [ %889, %887 ], [ %896, %895 ]
-  %898 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %881, i32 noundef %.0.i.i802) #32
+jit_ADD_OFFSET.exit812:                           ; preds = %887, %895
+  %.0.i.i809 = phi i32 [ %889, %887 ], [ %896, %895 ]
+  %898 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %881, i32 noundef %.0.i.i809) #32
   %899 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 4, i32 noundef %898) #32
   %900 = call i32 @ir_const_u32(ptr noundef %0, i32 noundef 2) #32
   %901 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1069, i32 noundef %899, i32 noundef %900) #32
@@ -96863,12 +96863,12 @@ jit_ADD_OFFSET.exit805:                           ; preds = %887, %895
   %906 = icmp eq i8 %905, 4
   br i1 %906, label %907, label %918
 
-907:                                              ; preds = %jit_ADD_OFFSET.exit805
+907:                                              ; preds = %jit_ADD_OFFSET.exit812
   %908 = load i64, ptr %903, align 8
   %909 = trunc i64 %908 to i32
   %910 = load ptr, ptr %0, align 8
-  %sext.i.i807 = shl i64 %908, 32
-  %911 = ashr exact i64 %sext.i.i807, 32
+  %sext.i.i814 = shl i64 %908, 32
+  %911 = ashr exact i64 %sext.i.i814, 32
   %912 = getelementptr inbounds %struct._ir_insn, ptr %910, i64 %911
   %913 = load i16, ptr %912, align 8
   %914 = icmp eq i16 %913, 1601
@@ -96879,7 +96879,7 @@ jit_ADD_OFFSET.exit805:                           ; preds = %887, %895
   call void @llvm.assume(i1 %917)
   br label %923
 
-918:                                              ; preds = %jit_ADD_OFFSET.exit805
+918:                                              ; preds = %jit_ADD_OFFSET.exit812
   %919 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_readonly_property_modification_error to i64)) #32
   %920 = load ptr, ptr %0, align 8
   %921 = sext i32 %919 to i64
@@ -96890,8 +96890,8 @@ jit_ADD_OFFSET.exit805:                           ; preds = %887, %895
   br label %923
 
 923:                                              ; preds = %918, %907
-  %.0.i.i806 = phi i32 [ %909, %907 ], [ %919, %918 ]
-  %924 = ptrtoint ptr %.0626861 to i64
+  %.0.i.i813 = phi i32 [ %909, %907 ], [ %919, %918 ]
+  %924 = ptrtoint ptr %.0626871 to i64
   %925 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %882, i64 noundef %924) #32
   %926 = getelementptr inbounds i8, ptr %925, i64 8
   %927 = load i8, ptr %926, align 8
@@ -96902,8 +96902,8 @@ jit_ADD_OFFSET.exit805:                           ; preds = %887, %895
   %930 = load i64, ptr %925, align 8
   %931 = trunc i64 %930 to i32
   %932 = load ptr, ptr %0, align 8
-  %sext.i810 = shl i64 %930, 32
-  %933 = ashr exact i64 %sext.i810, 32
+  %sext.i817 = shl i64 %930, 32
+  %933 = ashr exact i64 %sext.i817, 32
   %934 = getelementptr inbounds %struct._ir_insn, ptr %932, i64 %933
   %935 = load i16, ptr %934, align 8
   %936 = icmp eq i16 %935, 1542
@@ -96918,8 +96918,8 @@ jit_ADD_OFFSET.exit805:                           ; preds = %887, %895
   br label %940
 
 940:                                              ; preds = %937, %929
-  %.0.i809 = phi i32 [ %931, %929 ], [ %938, %937 ]
-  %941 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i806, i32 noundef %.0.i809) #32
+  %.0.i816 = phi i32 [ %931, %929 ], [ %938, %937 ]
+  %941 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i813, i32 noundef %.0.i816) #32
   %942 = call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef 15) #32
   call fastcc void @jit_set_Z_TYPE_INFO_ex(ptr noundef nonnull %0, i64 noundef %24, i32 noundef %942)
   %943 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %880) #32
@@ -96929,23 +96929,23 @@ jit_ADD_OFFSET.exit805:                           ; preds = %887, %895
   call void @_ir_STORE(ptr noundef nonnull %0, i32 noundef %898, i32 noundef %945) #32
   %.pr.pre = load i8, ptr %858, align 4
   %946 = icmp eq i8 %.pr.pre, 85
-  br i1 %946, label %.thread895, label %.thread875
+  br i1 %946, label %.thread905, label %.thread885
 
-.thread895:                                       ; preds = %861, %940
-  %.2.ph900 = phi i32 [ %.1630, %940 ], [ %.0629, %861 ]
-  %.4637.ph899 = phi i32 [ %943, %940 ], [ %.1634, %861 ]
+.thread905:                                       ; preds = %861, %940
+  %.2.ph910 = phi i32 [ %.1630, %940 ], [ %.0629, %861 ]
+  %.4637.ph909 = phi i32 [ %943, %940 ], [ %.1634, %861 ]
   %947 = getelementptr inbounds i8, ptr %1, i64 20
   %948 = load i32, ptr %947, align 4
   %949 = and i32 %948, 3
   %.not681 = icmp eq i32 %949, 0
-  br i1 %.not681, label %.thread875, label %950
+  br i1 %.not681, label %.thread885, label %950
 
-950:                                              ; preds = %.thread895
-  %951 = getelementptr inbounds i8, ptr %.0626861, i64 48
+950:                                              ; preds = %.thread905
+  %951 = getelementptr inbounds i8, ptr %.0626871, i64 48
   %952 = load i32, ptr %951, align 8
   %953 = and i32 %952, 33554431
   %.not682 = icmp eq i32 %953, 0
-  br i1 %.not682, label %.thread875, label %954
+  br i1 %.not682, label %.thread885, label %954
 
 954:                                              ; preds = %950
   %955 = icmp eq i32 %949, 2
@@ -96954,10 +96954,10 @@ jit_ADD_OFFSET.exit805:                           ; preds = %887, %895
 956:                                              ; preds = %954
   %957 = and i32 %952, 128
   %958 = icmp eq i32 %957, 0
-  br i1 %958, label %959, label %.thread875
+  br i1 %958, label %959, label %.thread885
 
 959:                                              ; preds = %956
-  %.not686 = icmp eq i32 %.2.ph900, 0
+  %.not686 = icmp eq i32 %.2.ph910, 0
   br i1 %.not686, label %960, label %962
 
 960:                                              ; preds = %959
@@ -96965,7 +96965,7 @@ jit_ADD_OFFSET.exit805:                           ; preds = %887, %895
   br label %962
 
 962:                                              ; preds = %960, %959
-  %.3 = phi i32 [ %.2.ph900, %959 ], [ %961, %960 ]
+  %.3 = phi i32 [ %.2.ph910, %959 ], [ %961, %960 ]
   %963 = call i32 @ir_const_u32(ptr noundef %0, i32 noundef -2) #32
   %964 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 274, i32 noundef %.3, i32 noundef %963) #32
   %965 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %964) #32
@@ -96982,8 +96982,8 @@ jit_ADD_OFFSET.exit805:                           ; preds = %887, %895
   %972 = load i64, ptr %967, align 8
   %973 = trunc i64 %972 to i32
   %974 = load ptr, ptr %0, align 8
-  %sext.i.i813 = shl i64 %972, 32
-  %975 = ashr exact i64 %sext.i.i813, 32
+  %sext.i.i821 = shl i64 %972, 32
+  %975 = ashr exact i64 %sext.i.i821, 32
   %976 = getelementptr inbounds %struct._ir_insn, ptr %974, i64 %975
   %977 = load i16, ptr %976, align 8
   %978 = icmp eq i16 %977, 1601
@@ -97005,8 +97005,8 @@ jit_ADD_OFFSET.exit805:                           ; preds = %887, %895
   br label %987
 
 987:                                              ; preds = %982, %971
-  %.0.i.i812 = phi i32 [ %973, %971 ], [ %983, %982 ]
-  %988 = ptrtoint ptr %.0626861 to i64
+  %.0.i.i820 = phi i32 [ %973, %971 ], [ %983, %982 ]
+  %988 = ptrtoint ptr %.0626871 to i64
   %989 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %966, i64 noundef %988) #32
   %990 = getelementptr inbounds i8, ptr %989, i64 8
   %991 = load i8, ptr %990, align 8
@@ -97017,32 +97017,32 @@ jit_ADD_OFFSET.exit805:                           ; preds = %887, %895
   %994 = load i64, ptr %989, align 8
   %995 = trunc i64 %994 to i32
   %996 = load ptr, ptr %0, align 8
-  %sext.i816 = shl i64 %994, 32
-  %997 = ashr exact i64 %sext.i816, 32
+  %sext.i824 = shl i64 %994, 32
+  %997 = ashr exact i64 %sext.i824, 32
   %998 = getelementptr inbounds %struct._ir_insn, ptr %996, i64 %997
   %999 = load i16, ptr %998, align 8
   %1000 = icmp eq i16 %999, 1542
   call void @llvm.assume(i1 %1000)
-  br label %jit_CONST_ADDR.exit817
+  br label %jit_CONST_ADDR.exit825
 
 1001:                                             ; preds = %987
   %1002 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %988) #32
   %1003 = sext i32 %1002 to i64
   store i64 %1003, ptr %989, align 8
   store i32 4, ptr %990, align 8
-  br label %jit_CONST_ADDR.exit817
+  br label %jit_CONST_ADDR.exit825
 
-jit_CONST_ADDR.exit817:                           ; preds = %993, %1001
-  %.0.i815 = phi i32 [ %995, %993 ], [ %1002, %1001 ]
-  %1004 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i812, i32 noundef %.0.i786, i32 noundef %.0.i815) #32
-  %1005 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.4637.ph899) #32
+jit_CONST_ADDR.exit825:                           ; preds = %993, %1001
+  %.0.i823 = phi i32 [ %995, %993 ], [ %1002, %1001 ]
+  %1004 = call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i820, i32 noundef %.0.i791, i32 noundef %.0.i823) #32
+  %1005 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.4637.ph909) #32
   call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %965) #32
-  br label %.thread875
+  br label %.thread885
 
 1006:                                             ; preds = %954
   %1007 = icmp eq i32 %949, 1
   call void @llvm.assume(i1 %1007)
-  %.not683 = icmp eq i32 %.2.ph900, 0
+  %.not683 = icmp eq i32 %.2.ph910, 0
   br i1 %.not683, label %1008, label %1010
 
 1008:                                             ; preds = %1006
@@ -97050,28 +97050,28 @@ jit_CONST_ADDR.exit817:                           ; preds = %993, %1001
   br label %1010
 
 1010:                                             ; preds = %1008, %1006
-  %.4 = phi i32 [ %.2.ph900, %1006 ], [ %1009, %1008 ]
+  %.4 = phi i32 [ %.2.ph910, %1006 ], [ %1009, %1008 ]
   %1011 = call i32 @ir_const_u32(ptr noundef %0, i32 noundef 266) #32
   %1012 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 270, i32 noundef %.4, i32 noundef %1011) #32
   %1013 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %1012) #32
   call void @_ir_IF_FALSE(ptr noundef %0, i32 noundef %1013) #32
-  %.not684 = icmp eq ptr %.0621863, null
+  %.not684 = icmp eq ptr %.0621873, null
   br i1 %.not684, label %1021, label %1014
 
 1014:                                             ; preds = %1010
-  %1015 = getelementptr inbounds i8, ptr %.0621863, i64 28
+  %1015 = getelementptr inbounds i8, ptr %.0621873, i64 28
   %1016 = load i32, ptr %1015, align 4
   %1017 = and i32 %1016, 128
   %.not685 = icmp eq i32 %1017, 0
   br i1 %.not685, label %1021, label %1018
 
 1018:                                             ; preds = %1014
-  %1019 = ptrtoint ptr %.0626861 to i64
+  %1019 = ptrtoint ptr %.0626871 to i64
   %1020 = call fastcc i32 @jit_CONST_ADDR(ptr noundef %0, i64 noundef %1019)
   br label %1080
 
 1021:                                             ; preds = %1014, %1010
-  %1022 = load i32, ptr %.0626861, align 8
+  %1022 = load i32, ptr %.0626871, align 8
   %1023 = zext i32 %1022 to i64
   %1024 = getelementptr inbounds i8, ptr %0, i64 808
   %1025 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %1024, i64 noundef 16) #32
@@ -97084,24 +97084,24 @@ jit_CONST_ADDR.exit817:                           ; preds = %993, %1001
   %1030 = load i64, ptr %1025, align 8
   %1031 = trunc i64 %1030 to i32
   %1032 = load ptr, ptr %0, align 8
-  %sext.i.i821 = shl i64 %1030, 32
-  %1033 = ashr exact i64 %sext.i.i821, 32
+  %sext.i.i829 = shl i64 %1030, 32
+  %1033 = ashr exact i64 %sext.i.i829, 32
   %1034 = getelementptr inbounds %struct._ir_insn, ptr %1032, i64 %1033
   %1035 = load i16, ptr %1034, align 8
   %1036 = icmp eq i16 %1035, 1542
   call void @llvm.assume(i1 %1036)
-  br label %jit_ADD_OFFSET.exit822
+  br label %jit_ADD_OFFSET.exit830
 
 1037:                                             ; preds = %1021
   %1038 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 16) #32
   %1039 = sext i32 %1038 to i64
   store i64 %1039, ptr %1025, align 8
   store i32 4, ptr %1026, align 8
-  br label %jit_ADD_OFFSET.exit822
+  br label %jit_ADD_OFFSET.exit830
 
-jit_ADD_OFFSET.exit822:                           ; preds = %1029, %1037
-  %.0.i.i819 = phi i32 [ %1031, %1029 ], [ %1038, %1037 ]
-  %1040 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0631, i32 noundef %.0.i.i819) #32
+jit_ADD_OFFSET.exit830:                           ; preds = %1029, %1037
+  %.0.i.i827 = phi i32 [ %1031, %1029 ], [ %1038, %1037 ]
+  %1040 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0631, i32 noundef %.0.i.i827) #32
   %1041 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %1040) #32
   %1042 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %1024, i64 noundef 248) #32
   %1043 = getelementptr inbounds i8, ptr %1042, i64 8
@@ -97109,37 +97109,37 @@ jit_ADD_OFFSET.exit822:                           ; preds = %1029, %1037
   %1045 = icmp eq i8 %1044, 4
   br i1 %1045, label %1046, label %1054
 
-1046:                                             ; preds = %jit_ADD_OFFSET.exit822
+1046:                                             ; preds = %jit_ADD_OFFSET.exit830
   %1047 = load i64, ptr %1042, align 8
   %1048 = trunc i64 %1047 to i32
   %1049 = load ptr, ptr %0, align 8
-  %sext.i.i826 = shl i64 %1047, 32
-  %1050 = ashr exact i64 %sext.i.i826, 32
+  %sext.i.i834 = shl i64 %1047, 32
+  %1050 = ashr exact i64 %sext.i.i834, 32
   %1051 = getelementptr inbounds %struct._ir_insn, ptr %1049, i64 %1050
   %1052 = load i16, ptr %1051, align 8
   %1053 = icmp eq i16 %1052, 1542
   call void @llvm.assume(i1 %1053)
-  br label %jit_ADD_OFFSET.exit827
+  br label %jit_ADD_OFFSET.exit835
 
-1054:                                             ; preds = %jit_ADD_OFFSET.exit822
+1054:                                             ; preds = %jit_ADD_OFFSET.exit830
   %1055 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 248) #32
   %1056 = sext i32 %1055 to i64
   store i64 %1056, ptr %1042, align 8
   store i32 4, ptr %1043, align 8
-  br label %jit_ADD_OFFSET.exit827
+  br label %jit_ADD_OFFSET.exit835
 
-jit_ADD_OFFSET.exit827:                           ; preds = %1046, %1054
-  %.0.i.i824 = phi i32 [ %1048, %1046 ], [ %1055, %1054 ]
-  %1057 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %1041, i32 noundef %.0.i.i824) #32
+jit_ADD_OFFSET.exit835:                           ; preds = %1046, %1054
+  %.0.i.i832 = phi i32 [ %1048, %1046 ], [ %1055, %1054 ]
+  %1057 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %1041, i32 noundef %.0.i.i832) #32
   %1058 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %1057) #32
   %1059 = shl nuw nsw i64 %1023, 31
   %1060 = add nsw i64 %1059, -85899345920
   %sext = ashr i64 %1060, 32
   %1061 = and i64 %sext, -8
-  %.not.i828 = icmp eq i64 %1061, 0
-  br i1 %.not.i828, label %jit_ADD_OFFSET.exit833, label %1062
+  %.not.i836 = icmp eq i64 %1061, 0
+  br i1 %.not.i836, label %jit_ADD_OFFSET.exit841, label %1062
 
-1062:                                             ; preds = %jit_ADD_OFFSET.exit827
+1062:                                             ; preds = %jit_ADD_OFFSET.exit835
   %1063 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %1024, i64 noundef %1061) #32
   %1064 = getelementptr inbounds i8, ptr %1063, i64 8
   %1065 = load i8, ptr %1064, align 8
@@ -97150,33 +97150,33 @@ jit_ADD_OFFSET.exit827:                           ; preds = %1046, %1054
   %1068 = load i64, ptr %1063, align 8
   %1069 = trunc i64 %1068 to i32
   %1070 = load ptr, ptr %0, align 8
-  %sext.i.i832 = shl i64 %1068, 32
-  %1071 = ashr exact i64 %sext.i.i832, 32
+  %sext.i.i840 = shl i64 %1068, 32
+  %1071 = ashr exact i64 %sext.i.i840, 32
   %1072 = getelementptr inbounds %struct._ir_insn, ptr %1070, i64 %1071
   %1073 = load i16, ptr %1072, align 8
   %1074 = icmp eq i16 %1073, 1542
   call void @llvm.assume(i1 %1074)
-  br label %jit_CONST_ADDR.exit.i829
+  br label %jit_CONST_ADDR.exit.i837
 
 1075:                                             ; preds = %1062
   %1076 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %1061) #32
   %1077 = sext i32 %1076 to i64
   store i64 %1077, ptr %1063, align 8
   store i32 4, ptr %1064, align 8
-  br label %jit_CONST_ADDR.exit.i829
+  br label %jit_CONST_ADDR.exit.i837
 
-jit_CONST_ADDR.exit.i829:                         ; preds = %1075, %1067
-  %.0.i.i830 = phi i32 [ %1069, %1067 ], [ %1076, %1075 ]
-  %1078 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %1058, i32 noundef %.0.i.i830) #32
-  br label %jit_ADD_OFFSET.exit833
+jit_CONST_ADDR.exit.i837:                         ; preds = %1075, %1067
+  %.0.i.i838 = phi i32 [ %1069, %1067 ], [ %1076, %1075 ]
+  %1078 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %1058, i32 noundef %.0.i.i838) #32
+  br label %jit_ADD_OFFSET.exit841
 
-jit_ADD_OFFSET.exit833:                           ; preds = %jit_ADD_OFFSET.exit827, %jit_CONST_ADDR.exit.i829
-  %.0.i831 = phi i32 [ %1078, %jit_CONST_ADDR.exit.i829 ], [ %1058, %jit_ADD_OFFSET.exit827 ]
-  %1079 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %.0.i831) #32
+jit_ADD_OFFSET.exit841:                           ; preds = %jit_ADD_OFFSET.exit835, %jit_CONST_ADDR.exit.i837
+  %.0.i839 = phi i32 [ %1078, %jit_CONST_ADDR.exit.i837 ], [ %1058, %jit_ADD_OFFSET.exit835 ]
+  %1079 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %.0.i839) #32
   br label %1080
 
-1080:                                             ; preds = %jit_ADD_OFFSET.exit833, %1018
-  %.0627 = phi i32 [ %1020, %1018 ], [ %1079, %jit_ADD_OFFSET.exit833 ]
+1080:                                             ; preds = %jit_ADD_OFFSET.exit841, %1018
+  %.0627 = phi i32 [ %1020, %1018 ], [ %1079, %jit_ADD_OFFSET.exit841 ]
   %1081 = getelementptr inbounds i8, ptr %0, i64 808
   %1082 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %1081, i64 noundef ptrtoint (ptr @zend_jit_create_typed_ref to i64)) #32
   %1083 = getelementptr inbounds i8, ptr %1082, i64 8
@@ -97188,8 +97188,8 @@ jit_ADD_OFFSET.exit833:                           ; preds = %jit_ADD_OFFSET.exit
   %1087 = load i64, ptr %1082, align 8
   %1088 = trunc i64 %1087 to i32
   %1089 = load ptr, ptr %0, align 8
-  %sext.i.i835 = shl i64 %1087, 32
-  %1090 = ashr exact i64 %sext.i.i835, 32
+  %sext.i.i843 = shl i64 %1087, 32
+  %1090 = ashr exact i64 %sext.i.i843, 32
   %1091 = getelementptr inbounds %struct._ir_insn, ptr %1089, i64 %1090
   %1092 = load i16, ptr %1091, align 8
   %1093 = icmp eq i16 %1092, 1601
@@ -97198,7 +97198,7 @@ jit_ADD_OFFSET.exit833:                           ; preds = %jit_ADD_OFFSET.exit
   %1095 = load i16, ptr %1094, align 2
   %1096 = icmp eq i16 %1095, 0
   call void @llvm.assume(i1 %1096)
-  br label %jit_CONST_FUNC.exit836
+  br label %jit_CONST_FUNC.exit844
 
 1097:                                             ; preds = %1080
   %1098 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_create_typed_ref to i64)) #32
@@ -97208,29 +97208,29 @@ jit_ADD_OFFSET.exit833:                           ; preds = %jit_ADD_OFFSET.exit
   store i32 1601, ptr %1101, align 8
   store i64 %1100, ptr %1082, align 8
   store i32 4, ptr %1083, align 8
-  br label %jit_CONST_FUNC.exit836
+  br label %jit_CONST_FUNC.exit844
 
-jit_CONST_FUNC.exit836:                           ; preds = %1086, %1097
-  %.0.i.i834 = phi i32 [ %1088, %1086 ], [ %1098, %1097 ]
+jit_CONST_FUNC.exit844:                           ; preds = %1086, %1097
+  %.0.i.i842 = phi i32 [ %1088, %1086 ], [ %1098, %1097 ]
   %1102 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %24)
-  %1103 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i834, i32 noundef %.0.i786, i32 noundef %.0627, i32 noundef %1102) #32
-  %1104 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.4637.ph899) #32
+  %1103 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i842, i32 noundef %.0.i791, i32 noundef %.0627, i32 noundef %1102) #32
+  %1104 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.4637.ph909) #32
   call void @_ir_IF_TRUE(ptr noundef nonnull %0, i32 noundef %1013) #32
-  br label %.thread875
+  br label %.thread885
 
-.thread875:                                       ; preds = %857, %940, %.thread895, %950, %956, %jit_CONST_ADDR.exit817, %jit_CONST_FUNC.exit836, %jit_Z_TYPE_ref.exit, %601, %jit_CONST_FUNC.exit782, %757, %jit_CONST_FUNC.exit779
-  %1105 = phi i1 [ true, %jit_CONST_ADDR.exit817 ], [ true, %956 ], [ true, %jit_CONST_FUNC.exit836 ], [ true, %950 ], [ true, %.thread895 ], [ true, %940 ], [ false, %jit_CONST_FUNC.exit779 ], [ false, %jit_CONST_FUNC.exit782 ], [ false, %757 ], [ false, %601 ], [ false, %jit_Z_TYPE_ref.exit ], [ true, %857 ]
-  %.0626862 = phi ptr [ %.0626861, %jit_CONST_ADDR.exit817 ], [ %.0626861, %956 ], [ %.0626861, %jit_CONST_FUNC.exit836 ], [ %.0626861, %950 ], [ %.0626861, %.thread895 ], [ %.0626861, %940 ], [ null, %jit_CONST_FUNC.exit779 ], [ null, %jit_CONST_FUNC.exit782 ], [ null, %757 ], [ null, %601 ], [ null, %jit_Z_TYPE_ref.exit ], [ %.0626861, %857 ]
-  %.3641 = phi i32 [ %.2640, %jit_CONST_ADDR.exit817 ], [ %.2640, %956 ], [ %.2640, %jit_CONST_FUNC.exit836 ], [ %.2640, %950 ], [ %.2640, %.thread895 ], [ %.2640, %940 ], [ %593, %jit_CONST_FUNC.exit779 ], [ %593, %jit_CONST_FUNC.exit782 ], [ %593, %757 ], [ %593, %601 ], [ %593, %jit_Z_TYPE_ref.exit ], [ %.2640, %857 ]
-  %.5 = phi i32 [ %1005, %jit_CONST_ADDR.exit817 ], [ %.4637.ph899, %956 ], [ %1104, %jit_CONST_FUNC.exit836 ], [ %.4637.ph899, %950 ], [ %.4637.ph899, %.thread895 ], [ %943, %940 ], [ %731, %jit_CONST_FUNC.exit779 ], [ %756, %jit_CONST_FUNC.exit782 ], [ %707, %757 ], [ %.3636, %601 ], [ %.3636, %jit_Z_TYPE_ref.exit ], [ %.1634, %857 ]
-  %.0632 = phi i32 [ %.0.i786, %jit_CONST_ADDR.exit817 ], [ %.0.i786, %956 ], [ %.0.i786, %jit_CONST_FUNC.exit836 ], [ %.0.i786, %950 ], [ %.0.i786, %.thread895 ], [ %.0.i786, %940 ], [ %574, %jit_CONST_FUNC.exit779 ], [ %574, %jit_CONST_FUNC.exit782 ], [ %574, %757 ], [ %574, %601 ], [ %574, %jit_Z_TYPE_ref.exit ], [ %.0.i786, %857 ]
-  %.0628 = phi i64 [ %783, %jit_CONST_ADDR.exit817 ], [ %783, %956 ], [ %783, %jit_CONST_FUNC.exit836 ], [ %783, %950 ], [ %783, %.thread895 ], [ %783, %940 ], [ %596, %jit_CONST_FUNC.exit779 ], [ %596, %jit_CONST_FUNC.exit782 ], [ %596, %757 ], [ %596, %601 ], [ %596, %jit_Z_TYPE_ref.exit ], [ %783, %857 ]
+.thread885:                                       ; preds = %857, %940, %.thread905, %950, %956, %jit_CONST_ADDR.exit825, %jit_CONST_FUNC.exit844, %jit_Z_TYPE_ref.exit, %601, %jit_CONST_FUNC.exit787, %757, %jit_CONST_FUNC.exit784
+  %1105 = phi i1 [ true, %jit_CONST_ADDR.exit825 ], [ true, %956 ], [ true, %jit_CONST_FUNC.exit844 ], [ true, %950 ], [ true, %.thread905 ], [ true, %940 ], [ false, %jit_CONST_FUNC.exit784 ], [ false, %jit_CONST_FUNC.exit787 ], [ false, %757 ], [ false, %601 ], [ false, %jit_Z_TYPE_ref.exit ], [ true, %857 ]
+  %.0626872 = phi ptr [ %.0626871, %jit_CONST_ADDR.exit825 ], [ %.0626871, %956 ], [ %.0626871, %jit_CONST_FUNC.exit844 ], [ %.0626871, %950 ], [ %.0626871, %.thread905 ], [ %.0626871, %940 ], [ null, %jit_CONST_FUNC.exit784 ], [ null, %jit_CONST_FUNC.exit787 ], [ null, %757 ], [ null, %601 ], [ null, %jit_Z_TYPE_ref.exit ], [ %.0626871, %857 ]
+  %.3641 = phi i32 [ %.2640, %jit_CONST_ADDR.exit825 ], [ %.2640, %956 ], [ %.2640, %jit_CONST_FUNC.exit844 ], [ %.2640, %950 ], [ %.2640, %.thread905 ], [ %.2640, %940 ], [ %593, %jit_CONST_FUNC.exit784 ], [ %593, %jit_CONST_FUNC.exit787 ], [ %593, %757 ], [ %593, %601 ], [ %593, %jit_Z_TYPE_ref.exit ], [ %.2640, %857 ]
+  %.5 = phi i32 [ %1005, %jit_CONST_ADDR.exit825 ], [ %.4637.ph909, %956 ], [ %1104, %jit_CONST_FUNC.exit844 ], [ %.4637.ph909, %950 ], [ %.4637.ph909, %.thread905 ], [ %943, %940 ], [ %731, %jit_CONST_FUNC.exit784 ], [ %756, %jit_CONST_FUNC.exit787 ], [ %707, %757 ], [ %.3636, %601 ], [ %.3636, %jit_Z_TYPE_ref.exit ], [ %.1634, %857 ]
+  %.0632 = phi i32 [ %.0.i791, %jit_CONST_ADDR.exit825 ], [ %.0.i791, %956 ], [ %.0.i791, %jit_CONST_FUNC.exit844 ], [ %.0.i791, %950 ], [ %.0.i791, %.thread905 ], [ %.0.i791, %940 ], [ %574, %jit_CONST_FUNC.exit784 ], [ %574, %jit_CONST_FUNC.exit787 ], [ %574, %757 ], [ %574, %601 ], [ %574, %jit_Z_TYPE_ref.exit ], [ %.0.i791, %857 ]
+  %.0628 = phi i64 [ %783, %jit_CONST_ADDR.exit825 ], [ %783, %956 ], [ %783, %jit_CONST_FUNC.exit844 ], [ %783, %950 ], [ %783, %.thread905 ], [ %783, %940 ], [ %596, %jit_CONST_FUNC.exit784 ], [ %596, %jit_CONST_FUNC.exit787 ], [ %596, %757 ], [ %596, %601 ], [ %596, %jit_Z_TYPE_ref.exit ], [ %783, %857 ]
   %1106 = getelementptr inbounds i8, ptr %1, i64 28
   %1107 = load i8, ptr %1106, align 4
   %1108 = icmp eq i8 %1107, 85
   br i1 %1108, label %1109, label %1123
 
-1109:                                             ; preds = %.thread875
+1109:                                             ; preds = %.thread885
   %1110 = icmp ne i32 %.0632, 0
   call void @llvm.assume(i1 %1110)
   %1111 = call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %24)
@@ -97253,7 +97253,7 @@ jit_CONST_FUNC.exit836:                           ; preds = %1086, %1097
   store i8 %1122, ptr %1120, align 4
   br label %1192
 
-1123:                                             ; preds = %.thread875
+1123:                                             ; preds = %.thread885
   %1124 = and i32 %.0, 268435456
   %1125 = icmp ne i32 %1124, 0
   %1126 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
@@ -97297,7 +97297,7 @@ jit_CONST_FUNC.exit836:                           ; preds = %1086, %1097
   %.not687 = icmp eq i8 %1158, 0
   %brmerge704 = or i1 %.not687, %11
   %spec.select = or i1 %brmerge704, %12
-  %spec.select881 = select i1 %spec.select, i32 0, i32 32
+  %spec.select891 = select i1 %spec.select, i32 0, i32 32
   %1159 = getelementptr inbounds i8, ptr %1, i64 31
   %1160 = load i8, ptr %1159, align 1
   %1161 = and i8 %1160, 6
@@ -97333,7 +97333,7 @@ jit_CONST_FUNC.exit836:                           ; preds = %1086, %1097
 
 1178:                                             ; preds = %1128, %1172, %1169, %1163
   %1179 = phi i1 [ false, %1172 ], [ true, %1169 ], [ true, %1163 ], [ true, %1128 ]
-  %1180 = call fastcc i64 @zend_jit_guard_fetch_result_type(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0628, i8 noundef zeroext %1155, i1 noundef zeroext true, i32 noundef %spec.select881, i1 noundef zeroext %12), !range !9
+  %1180 = call fastcc i64 @zend_jit_guard_fetch_result_type(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0628, i8 noundef zeroext %1155, i1 noundef zeroext true, i32 noundef %spec.select891, i1 noundef zeroext %12)
   %.not691 = icmp eq i64 %1180, 0
   br i1 %.not691, label %zend_jit_trace_get_exit_addr.exit.thread, label %1181
 
@@ -97408,8 +97408,8 @@ jit_CONST_FUNC.exit836:                           ; preds = %1086, %1097
   %1224 = load i64, ptr %1219, align 8
   %1225 = trunc i64 %1224 to i32
   %1226 = load ptr, ptr %0, align 8
-  %sext.i.i838 = shl i64 %1224, 32
-  %1227 = ashr exact i64 %sext.i.i838, 32
+  %sext.i.i847 = shl i64 %1224, 32
+  %1227 = ashr exact i64 %sext.i.i847, 32
   %1228 = getelementptr inbounds %struct._ir_insn, ptr %1226, i64 %1227
   %1229 = load i16, ptr %1228, align 8
   %1230 = icmp eq i16 %1229, 1601
@@ -97418,7 +97418,7 @@ jit_CONST_FUNC.exit836:                           ; preds = %1086, %1097
   %1232 = load i16, ptr %1231, align 2
   %1233 = icmp eq i16 %1232, 0
   call void @llvm.assume(i1 %1233)
-  br label %jit_CONST_FUNC.exit839
+  br label %jit_CONST_FUNC.exit848
 
 1234:                                             ; preds = %1218
   %1235 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_fetch_obj_w_slow to i64)) #32
@@ -97428,7 +97428,7 @@ jit_CONST_FUNC.exit836:                           ; preds = %1086, %1097
   store i32 1601, ptr %1238, align 8
   store i64 %1237, ptr %1219, align 8
   store i32 4, ptr %1220, align 8
-  br label %jit_CONST_FUNC.exit839
+  br label %jit_CONST_FUNC.exit848
 
 1239:                                             ; preds = %1215
   %1240 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %1217, i64 noundef ptrtoint (ptr @zend_jit_fetch_obj_r_slow to i64)) #32
@@ -97441,8 +97441,8 @@ jit_CONST_FUNC.exit836:                           ; preds = %1086, %1097
   %1245 = load i64, ptr %1240, align 8
   %1246 = trunc i64 %1245 to i32
   %1247 = load ptr, ptr %0, align 8
-  %sext.i.i841 = shl i64 %1245, 32
-  %1248 = ashr exact i64 %sext.i.i841, 32
+  %sext.i.i850 = shl i64 %1245, 32
+  %1248 = ashr exact i64 %sext.i.i850, 32
   %1249 = getelementptr inbounds %struct._ir_insn, ptr %1247, i64 %1248
   %1250 = load i16, ptr %1249, align 8
   %1251 = icmp eq i16 %1250, 1601
@@ -97451,7 +97451,7 @@ jit_CONST_FUNC.exit836:                           ; preds = %1086, %1097
   %1253 = load i16, ptr %1252, align 2
   %1254 = icmp eq i16 %1253, 0
   call void @llvm.assume(i1 %1254)
-  br label %jit_CONST_FUNC.exit839
+  br label %jit_CONST_FUNC.exit848
 
 1255:                                             ; preds = %1239
   %1256 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_fetch_obj_r_slow to i64)) #32
@@ -97461,7 +97461,7 @@ jit_CONST_FUNC.exit836:                           ; preds = %1086, %1097
   store i32 1601, ptr %1259, align 8
   store i64 %1258, ptr %1240, align 8
   store i32 4, ptr %1241, align 8
-  br label %jit_CONST_FUNC.exit839
+  br label %jit_CONST_FUNC.exit848
 
 1260:                                             ; preds = %1215
   %1261 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %1217, i64 noundef ptrtoint (ptr @zend_jit_fetch_obj_is_slow to i64)) #32
@@ -97474,8 +97474,8 @@ jit_CONST_FUNC.exit836:                           ; preds = %1086, %1097
   %1266 = load i64, ptr %1261, align 8
   %1267 = trunc i64 %1266 to i32
   %1268 = load ptr, ptr %0, align 8
-  %sext.i.i844 = shl i64 %1266, 32
-  %1269 = ashr exact i64 %sext.i.i844, 32
+  %sext.i.i853 = shl i64 %1266, 32
+  %1269 = ashr exact i64 %sext.i.i853, 32
   %1270 = getelementptr inbounds %struct._ir_insn, ptr %1268, i64 %1269
   %1271 = load i16, ptr %1270, align 8
   %1272 = icmp eq i16 %1271, 1601
@@ -97484,7 +97484,7 @@ jit_CONST_FUNC.exit836:                           ; preds = %1086, %1097
   %1274 = load i16, ptr %1273, align 2
   %1275 = icmp eq i16 %1274, 0
   call void @llvm.assume(i1 %1275)
-  br label %jit_CONST_FUNC.exit839
+  br label %jit_CONST_FUNC.exit848
 
 1276:                                             ; preds = %1260
   %1277 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_fetch_obj_is_slow to i64)) #32
@@ -97494,16 +97494,16 @@ jit_CONST_FUNC.exit836:                           ; preds = %1086, %1097
   store i32 1601, ptr %1280, align 8
   store i64 %1279, ptr %1261, align 8
   store i32 4, ptr %1262, align 8
-  br label %jit_CONST_FUNC.exit839
+  br label %jit_CONST_FUNC.exit848
 
-jit_CONST_FUNC.exit839:                           ; preds = %1276, %1265, %1255, %1244, %1234, %1223
-  %.0.i.i837.sink = phi i32 [ %1225, %1223 ], [ %1235, %1234 ], [ %1246, %1244 ], [ %1256, %1255 ], [ %1267, %1265 ], [ %1277, %1276 ]
-  %1281 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i837.sink, i32 noundef %.0631) #32
+jit_CONST_FUNC.exit848:                           ; preds = %1276, %1265, %1255, %1244, %1234, %1223
+  %.0.i.i846.sink = phi i32 [ %1225, %1223 ], [ %1235, %1234 ], [ %1246, %1244 ], [ %1256, %1255 ], [ %1267, %1265 ], [ %1277, %1276 ]
+  %1281 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i846.sink, i32 noundef %.0631) #32
   %1282 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %1193) #32
   br label %1283
 
-1283:                                             ; preds = %1212, %jit_CONST_FUNC.exit839
-  %.7 = phi i32 [ %1193, %1212 ], [ %1282, %jit_CONST_FUNC.exit839 ]
+1283:                                             ; preds = %1212, %jit_CONST_FUNC.exit848
+  %.7 = phi i32 [ %1193, %1212 ], [ %1282, %jit_CONST_FUNC.exit848 ]
   call void @_ir_MERGE_LIST(ptr noundef %0, i32 noundef %.7) #32
   %1284 = getelementptr inbounds i8, ptr %1, i64 29
   %1285 = load i8, ptr %1284, align 1
@@ -97556,8 +97556,8 @@ jit_CONST_FUNC.exit839:                           ; preds = %1276, %1265, %1255,
   %1313 = load i64, ptr %1308, align 8
   %1314 = trunc i64 %1313 to i32
   %1315 = load ptr, ptr %0, align 8
-  %sext.i.i849 = shl i64 %1313, 32
-  %1316 = ashr exact i64 %sext.i.i849, 32
+  %sext.i.i859 = shl i64 %1313, 32
+  %1316 = ashr exact i64 %sext.i.i859, 32
   %1317 = getelementptr inbounds %struct._ir_insn, ptr %1315, i64 %1316
   %1318 = load i16, ptr %1317, align 8
   %1319 = icmp eq i16 %1318, 1601
@@ -97566,7 +97566,7 @@ jit_CONST_FUNC.exit839:                           ; preds = %1276, %1265, %1255,
   %1321 = load i16, ptr %1320, align 2
   %1322 = icmp eq i16 %1321, 0
   call void @llvm.assume(i1 %1322)
-  br label %jit_CONST_FUNC.exit850
+  br label %jit_CONST_FUNC.exit860
 
 1323:                                             ; preds = %1292
   %1324 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_extract_helper to i64)) #32
@@ -97576,19 +97576,19 @@ jit_CONST_FUNC.exit839:                           ; preds = %1276, %1265, %1255,
   store i32 1601, ptr %1327, align 8
   store i64 %1326, ptr %1308, align 8
   store i32 4, ptr %1309, align 8
-  br label %jit_CONST_FUNC.exit850
+  br label %jit_CONST_FUNC.exit860
 
-jit_CONST_FUNC.exit850:                           ; preds = %1312, %1323
-  %.0.i.i848 = phi i32 [ %1314, %1312 ], [ %1324, %1323 ]
-  %1328 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i848, i32 noundef %1301) #32
+jit_CONST_FUNC.exit860:                           ; preds = %1312, %1323
+  %.0.i.i858 = phi i32 [ %1314, %1312 ], [ %1324, %1323 ]
+  %1328 = call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i858, i32 noundef %1301) #32
   %1329 = call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %1306) #32
   call void @_ir_MERGE_LIST(ptr noundef nonnull %0, i32 noundef %1329) #32
   br label %jit_FREE_OP.exit
 
 1330:                                             ; preds = %1288, %1286
   %1331 = and i8 %1285, 6
-  %.not.i851 = icmp eq i8 %1331, 0
-  %or.cond = or i1 %.not.i851, %12
+  %.not.i861 = icmp eq i8 %1331, 0
+  %or.cond = or i1 %.not.i861, %12
   br i1 %or.cond, label %jit_FREE_OP.exit, label %1332
 
 1332:                                             ; preds = %1330
@@ -97602,7 +97602,7 @@ jit_CONST_FUNC.exit850:                           ; preds = %1312, %1323
   call fastcc void @jit_ZVAL_PTR_DTOR(ptr noundef %0, i64 noundef %1338, i32 noundef %spec.select711, i1 noundef zeroext false, ptr noundef nonnull %1)
   br label %jit_FREE_OP.exit
 
-jit_FREE_OP.exit:                                 ; preds = %1332, %1283, %jit_CONST_FUNC.exit850, %1330
+jit_FREE_OP.exit:                                 ; preds = %1332, %1283, %jit_CONST_FUNC.exit860, %1330
   %1339 = load i8, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 2), align 2
   %1340 = icmp eq i8 %1339, 5
   %or.cond19 = and i1 %1105, %1340
@@ -97621,7 +97621,7 @@ jit_FREE_OP.exit:                                 ; preds = %1332, %1283, %jit_C
   br i1 %.not696, label %1351, label %1347
 
 1347:                                             ; preds = %1343
-  %1348 = getelementptr inbounds i8, ptr %.0626862, i64 48
+  %1348 = getelementptr inbounds i8, ptr %.0626872, i64 48
   %1349 = load i32, ptr %1348, align 8
   %1350 = and i32 %1349, 33554431
   %.not697 = icmp eq i32 %1350, 0
@@ -97634,8 +97634,8 @@ jit_FREE_OP.exit:                                 ; preds = %1332, %1283, %jit_C
   %.not699 = icmp eq i32 %14, 0
   %1354 = or i1 %.not699, %.not698
   %1355 = or i1 %1354, %10
-  %or.cond882 = or i1 %1355, %7
-  br i1 %or.cond882, label %zend_jit_trace_get_exit_addr.exit.thread, label %1357
+  %or.cond892 = or i1 %1355, %7
+  br i1 %or.cond892, label %zend_jit_trace_get_exit_addr.exit.thread, label %1357
 
 1356:                                             ; preds = %1347, %jit_FREE_OP.exit
   %.not699.old = icmp eq i32 %14, 0
@@ -97644,8 +97644,8 @@ jit_FREE_OP.exit:                                 ; preds = %1332, %1283, %jit_C
 1357:                                             ; preds = %1351, %1356
   %1358 = getelementptr inbounds i8, ptr %0, i64 800
   %1359 = load i32, ptr %1358, align 8
-  %.not.i.i852 = icmp eq i32 %1359, 0
-  br i1 %.not.i.i852, label %1360, label %jit_EG_exception.exit.i
+  %.not.i.i862 = icmp eq i32 %1359, 0
+  br i1 %.not.i.i862, label %1360, label %jit_EG_exception.exit.i
 
 1360:                                             ; preds = %1357
   %1361 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50) to i64)) #32
@@ -97653,8 +97653,8 @@ jit_FREE_OP.exit:                                 ; preds = %1332, %1283, %jit_C
   br label %jit_EG_exception.exit.i
 
 jit_EG_exception.exit.i:                          ; preds = %1360, %1357
-  %.0.i.i853 = phi i32 [ %1361, %1360 ], [ %1359, %1357 ]
-  %1362 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i853) #32
+  %.0.i.i863 = phi i32 [ %1361, %1360 ], [ %1359, %1357 ]
+  %1362 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i863) #32
   %1363 = getelementptr inbounds i8, ptr %0, i64 864
   %1364 = load i32, ptr %1363, align 4
   %.not.i4.i = icmp eq i32 %1364, 0
@@ -97672,8 +97672,8 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
   call void @_ir_GUARD_NOT(ptr noundef nonnull %0, i32 noundef %1362, i32 noundef %.0.i5.i) #32
   br label %zend_jit_trace_get_exit_addr.exit.thread
 
-zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %86, %804, %1351, %800, %82, %1356, %zend_jit_check_exception.exit, %1178, %zend_jit_trace_get_exit_addr.exit795, %356, %zend_jit_trace_get_exit_addr.exit
-  %.0618 = phi i32 [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 0, %356 ], [ 0, %zend_jit_trace_get_exit_addr.exit795 ], [ 0, %1178 ], [ 1, %zend_jit_check_exception.exit ], [ 1, %1356 ], [ 0, %82 ], [ 0, %800 ], [ 1, %1351 ], [ 0, %804 ], [ 0, %86 ]
+zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %86, %804, %1351, %800, %82, %1356, %zend_jit_check_exception.exit, %1178, %zend_jit_trace_get_exit_addr.exit800, %356, %zend_jit_trace_get_exit_addr.exit
+  %.0618 = phi i32 [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 0, %356 ], [ 0, %zend_jit_trace_get_exit_addr.exit800 ], [ 0, %1178 ], [ 1, %zend_jit_check_exception.exit ], [ 1, %1356 ], [ 0, %82 ], [ 0, %800 ], [ 1, %1351 ], [ 0, %804 ], [ 0, %86 ]
   ret i32 %.0618
 }
 
@@ -98146,8 +98146,8 @@ jit_Z_PTR.exit:                                   ; preds = %228, %238, %246, %2
   %271 = load i64, ptr %266, align 8
   %272 = trunc i64 %271 to i32
   %273 = load ptr, ptr %0, align 8
-  %sext.i.i167 = shl i64 %271, 32
-  %274 = ashr exact i64 %sext.i.i167, 32
+  %sext.i.i168 = shl i64 %271, 32
+  %274 = ashr exact i64 %sext.i.i168, 32
   %275 = getelementptr inbounds %struct._ir_insn, ptr %273, i64 %274
   %276 = load i16, ptr %275, align 8
   %277 = icmp eq i16 %276, 1601
@@ -98156,7 +98156,7 @@ jit_Z_PTR.exit:                                   ; preds = %228, %238, %246, %2
   %279 = load i16, ptr %278, align 2
   %280 = icmp eq i16 %279, 0
   tail call void @llvm.assume(i1 %280)
-  br label %jit_CONST_FUNC.exit168
+  br label %jit_CONST_FUNC.exit169
 
 281:                                              ; preds = %262
   %282 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @gc_possible_root to i64)) #32
@@ -98166,18 +98166,18 @@ jit_Z_PTR.exit:                                   ; preds = %228, %238, %246, %2
   store i32 1601, ptr %285, align 8
   store i64 %284, ptr %266, align 8
   store i32 4, ptr %267, align 8
-  br label %jit_CONST_FUNC.exit168
+  br label %jit_CONST_FUNC.exit169
 
-jit_CONST_FUNC.exit168:                           ; preds = %270, %281
-  %.0.i.i166 = phi i32 [ %272, %270 ], [ %282, %281 ]
-  %286 = tail call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i166, i32 noundef %.0.i164) #32
+jit_CONST_FUNC.exit169:                           ; preds = %270, %281
+  %.0.i.i167 = phi i32 [ %272, %270 ], [ %282, %281 ]
+  %286 = tail call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i167, i32 noundef %.0.i164) #32
   br label %287
 
-287:                                              ; preds = %jit_CONST_FUNC.exit168, %261
-  %.1 = phi i32 [ %265, %jit_CONST_FUNC.exit168 ], [ %.0, %261 ]
-  br i1 %.not136, label %.thread, label %.thread172
+287:                                              ; preds = %jit_CONST_FUNC.exit169, %261
+  %.1 = phi i32 [ %265, %jit_CONST_FUNC.exit169 ], [ %.0, %261 ]
+  br i1 %.not136, label %.thread, label %.thread174
 
-.thread172:                                       ; preds = %287
+.thread174:                                       ; preds = %287
   %288 = tail call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.1) #32
   tail call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %.0135) #32
   br label %291
@@ -98185,10 +98185,10 @@ jit_CONST_FUNC.exit168:                           ; preds = %270, %281
 289:                                              ; preds = %jit_CONST_ADDR.exit162
   %.pre = and i32 %2, 63
   %290 = icmp eq i32 %.pre, 0
-  br i1 %290, label %.thread176, label %291
+  br i1 %290, label %.thread178, label %291
 
-291:                                              ; preds = %.thread172, %289
-  %.2175 = phi i32 [ %288, %.thread172 ], [ 0, %289 ]
+291:                                              ; preds = %.thread174, %289
+  %.2177 = phi i32 [ %288, %.thread174 ], [ 0, %289 ]
   %292 = tail call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %15)
   tail call void @_ir_STORE(ptr noundef nonnull %0, i32 noundef %292, i32 noundef %219) #32
   %293 = tail call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef 266) #32
@@ -98196,21 +98196,21 @@ jit_CONST_FUNC.exit168:                           ; preds = %270, %281
   br label %.thread
 
 .thread:                                          ; preds = %287, %291
-  %.2171 = phi i32 [ %.2175, %291 ], [ %.1, %287 ]
-  %.not139 = icmp eq i32 %.2171, 0
-  br i1 %.not139, label %.thread176, label %294
+  %.2173 = phi i32 [ %.2177, %291 ], [ %.1, %287 ]
+  %.not139 = icmp eq i32 %.2173, 0
+  br i1 %.not139, label %.thread178, label %294
 
 294:                                              ; preds = %.thread
-  %295 = tail call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.2171) #32
+  %295 = tail call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.2173) #32
   tail call void @_ir_MERGE_LIST(ptr noundef nonnull %0, i32 noundef %295) #32
-  br label %.thread176
+  br label %.thread178
 
-.thread176:                                       ; preds = %289, %294, %.thread
+.thread178:                                       ; preds = %289, %294, %.thread
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_recv(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_recv(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca %struct._ir_code_buffer, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -99210,7 +99210,7 @@ define internal fastcc void @zend_jit_echo(ptr noundef %0, ptr noundef %1, i32 n
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %12, i64 24
   tail call fastcc void @jit_SET_EX_OPLINE(ptr noundef %0, ptr noundef nonnull %1)
-  %17 = load ptr, ptr @zend_write, align 8, !nonnull !6, !noundef !6
+  %17 = load ptr, ptr @zend_write, align 8, !nonnull !5, !noundef !5
   %18 = ptrtoint ptr %17 to i64
   %19 = getelementptr inbounds i8, ptr %0, i64 808
   %20 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %19, i64 noundef %18) #32
@@ -99343,7 +99343,7 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
   tail call fastcc void @jit_SET_EX_OPLINE(ptr noundef %0, ptr noundef nonnull %1)
   %89 = tail call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %86)
   %90 = tail call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %89) #32
-  %91 = load ptr, ptr @zend_write, align 8, !nonnull !6, !noundef !6
+  %91 = load ptr, ptr @zend_write, align 8, !nonnull !5, !noundef !5
   %92 = ptrtoint ptr %91 to i64
   %93 = getelementptr inbounds i8, ptr %0, i64 808
   %94 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %93, i64 noundef %92) #32
@@ -99356,8 +99356,8 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
   %99 = load i64, ptr %94, align 8
   %100 = trunc i64 %99 to i32
   %101 = load ptr, ptr %0, align 8
-  %sext.i.i43 = shl i64 %99, 32
-  %102 = ashr exact i64 %sext.i.i43, 32
+  %sext.i.i44 = shl i64 %99, 32
+  %102 = ashr exact i64 %sext.i.i44, 32
   %103 = getelementptr inbounds %struct._ir_insn, ptr %101, i64 %102
   %104 = load i16, ptr %103, align 8
   %105 = icmp eq i16 %104, 1601
@@ -99366,7 +99366,7 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
   %107 = load i16, ptr %106, align 2
   %108 = icmp eq i16 %107, 0
   tail call void @llvm.assume(i1 %108)
-  br label %jit_CONST_FUNC.exit44
+  br label %jit_CONST_FUNC.exit45
 
 109:                                              ; preds = %83
   %110 = tail call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %92) #32
@@ -99376,29 +99376,29 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
   store i32 1601, ptr %113, align 8
   store i64 %112, ptr %94, align 8
   store i32 4, ptr %95, align 8
-  br label %jit_CONST_FUNC.exit44
+  br label %jit_CONST_FUNC.exit45
 
-jit_CONST_FUNC.exit44:                            ; preds = %98, %109
-  %.0.i.i42 = phi i32 [ %100, %98 ], [ %110, %109 ]
+jit_CONST_FUNC.exit45:                            ; preds = %98, %109
+  %.0.i.i43 = phi i32 [ %100, %98 ], [ %110, %109 ]
   %114 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %93, i64 noundef 24) #32
   %115 = getelementptr inbounds i8, ptr %114, i64 8
   %116 = load i8, ptr %115, align 8
   %117 = icmp eq i8 %116, 4
   br i1 %117, label %118, label %126
 
-118:                                              ; preds = %jit_CONST_FUNC.exit44
+118:                                              ; preds = %jit_CONST_FUNC.exit45
   %119 = load i64, ptr %114, align 8
   %120 = trunc i64 %119 to i32
   %121 = load ptr, ptr %0, align 8
-  %sext.i.i47 = shl i64 %119, 32
-  %122 = ashr exact i64 %sext.i.i47, 32
+  %sext.i.i48 = shl i64 %119, 32
+  %122 = ashr exact i64 %sext.i.i48, 32
   %123 = getelementptr inbounds %struct._ir_insn, ptr %121, i64 %122
   %124 = load i16, ptr %123, align 8
   %125 = icmp eq i16 %124, 1542
   tail call void @llvm.assume(i1 %125)
   br label %jit_ADD_OFFSET.exit
 
-126:                                              ; preds = %jit_CONST_FUNC.exit44
+126:                                              ; preds = %jit_CONST_FUNC.exit45
   %127 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 24) #32
   %128 = sext i32 %127 to i64
   store i64 %128, ptr %114, align 8
@@ -99406,8 +99406,8 @@ jit_CONST_FUNC.exit44:                            ; preds = %98, %109
   br label %jit_ADD_OFFSET.exit
 
 jit_ADD_OFFSET.exit:                              ; preds = %118, %126
-  %.0.i.i45 = phi i32 [ %120, %118 ], [ %127, %126 ]
-  %129 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %90, i32 noundef %.0.i.i45) #32
+  %.0.i.i46 = phi i32 [ %120, %118 ], [ %127, %126 ]
+  %129 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %90, i32 noundef %.0.i.i46) #32
   %130 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %93, i64 noundef 16) #32
   %131 = getelementptr inbounds i8, ptr %130, i64 8
   %132 = load i8, ptr %131, align 8
@@ -99418,67 +99418,67 @@ jit_ADD_OFFSET.exit:                              ; preds = %118, %126
   %135 = load i64, ptr %130, align 8
   %136 = trunc i64 %135 to i32
   %137 = load ptr, ptr %0, align 8
-  %sext.i.i50 = shl i64 %135, 32
-  %138 = ashr exact i64 %sext.i.i50, 32
+  %sext.i.i51 = shl i64 %135, 32
+  %138 = ashr exact i64 %sext.i.i51, 32
   %139 = getelementptr inbounds %struct._ir_insn, ptr %137, i64 %138
   %140 = load i16, ptr %139, align 8
   %141 = icmp eq i16 %140, 1542
   tail call void @llvm.assume(i1 %141)
-  br label %jit_ADD_OFFSET.exit51
+  br label %jit_ADD_OFFSET.exit52
 
 142:                                              ; preds = %jit_ADD_OFFSET.exit
   %143 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 16) #32
   %144 = sext i32 %143 to i64
   store i64 %144, ptr %130, align 8
   store i32 4, ptr %131, align 8
-  br label %jit_ADD_OFFSET.exit51
+  br label %jit_ADD_OFFSET.exit52
 
-jit_ADD_OFFSET.exit51:                            ; preds = %134, %142
-  %.0.i.i48 = phi i32 [ %136, %134 ], [ %143, %142 ]
-  %145 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %90, i32 noundef %.0.i.i48) #32
+jit_ADD_OFFSET.exit52:                            ; preds = %134, %142
+  %.0.i.i49 = phi i32 [ %136, %134 ], [ %143, %142 ]
+  %145 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %90, i32 noundef %.0.i.i49) #32
   %146 = tail call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %145) #32
-  %147 = tail call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i42, i32 noundef %129, i32 noundef %146) #32
+  %147 = tail call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i.i43, i32 noundef %129, i32 noundef %146) #32
   %148 = load i8, ptr %4, align 1
   %149 = and i8 %148, 6
   %.not = icmp eq i8 %149, 0
   br i1 %.not, label %151, label %150
 
-150:                                              ; preds = %jit_ADD_OFFSET.exit51
+150:                                              ; preds = %jit_ADD_OFFSET.exit52
   tail call fastcc void @jit_ZVAL_PTR_DTOR(ptr noundef nonnull %0, i64 noundef %86, i32 noundef %2, i1 noundef zeroext false, ptr noundef nonnull %1)
   br label %151
 
-151:                                              ; preds = %150, %jit_ADD_OFFSET.exit51
+151:                                              ; preds = %150, %jit_ADD_OFFSET.exit52
   %152 = getelementptr inbounds i8, ptr %0, i64 800
   %153 = load i32, ptr %152, align 8
-  %.not.i.i52 = icmp eq i32 %153, 0
-  br i1 %.not.i.i52, label %154, label %jit_EG_exception.exit.i53
+  %.not.i.i53 = icmp eq i32 %153, 0
+  br i1 %.not.i.i53, label %154, label %jit_EG_exception.exit.i54
 
 154:                                              ; preds = %151
   %155 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50) to i64)) #32
   store i32 %155, ptr %152, align 8
-  br label %jit_EG_exception.exit.i53
+  br label %jit_EG_exception.exit.i54
 
-jit_EG_exception.exit.i53:                        ; preds = %154, %151
-  %.0.i.i54 = phi i32 [ %155, %154 ], [ %153, %151 ]
-  %156 = tail call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i54) #32
+jit_EG_exception.exit.i54:                        ; preds = %154, %151
+  %.0.i.i55 = phi i32 [ %155, %154 ], [ %153, %151 ]
+  %156 = tail call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i55) #32
   %157 = getelementptr inbounds i8, ptr %0, i64 864
   %158 = load i32, ptr %157, align 4
-  %.not.i4.i55 = icmp eq i32 %158, 0
-  br i1 %.not.i4.i55, label %159, label %zend_jit_check_exception.exit57
+  %.not.i4.i56 = icmp eq i32 %158, 0
+  br i1 %.not.i4.i56, label %159, label %zend_jit_check_exception.exit58
 
-159:                                              ; preds = %jit_EG_exception.exit.i53
+159:                                              ; preds = %jit_EG_exception.exit.i54
   %160 = load ptr, ptr @zend_jit_stub_handlers, align 16
   %161 = ptrtoint ptr %160 to i64
   %162 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %161) #32
   store i32 %162, ptr %157, align 4
-  br label %zend_jit_check_exception.exit57
+  br label %zend_jit_check_exception.exit58
 
-zend_jit_check_exception.exit57:                  ; preds = %jit_EG_exception.exit.i53, %159
-  %.0.i5.i56 = phi i32 [ %162, %159 ], [ %158, %jit_EG_exception.exit.i53 ]
-  tail call void @_ir_GUARD_NOT(ptr noundef nonnull %0, i32 noundef %156, i32 noundef %.0.i5.i56) #32
+zend_jit_check_exception.exit58:                  ; preds = %jit_EG_exception.exit.i54, %159
+  %.0.i5.i57 = phi i32 [ %162, %159 ], [ %158, %jit_EG_exception.exit.i54 ]
+  tail call void @_ir_GUARD_NOT(ptr noundef nonnull %0, i32 noundef %156, i32 noundef %.0.i5.i57) #32
   br label %163
 
-163:                                              ; preds = %9, %zend_jit_check_exception.exit, %zend_jit_check_exception.exit57
+163:                                              ; preds = %9, %zend_jit_check_exception.exit, %zend_jit_check_exception.exit58
   ret void
 }
 
@@ -100276,7 +100276,7 @@ define internal fastcc zeroext i1 @zend_jit_may_delay_fetch_this(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_fetch_this(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_this(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct._ir_code_buffer, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 16
@@ -100464,7 +100464,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %31, %27, %98, %99, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_switch(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_switch(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct._ir_code_buffer, align 8
   %8 = alloca i64, align 8
@@ -100495,7 +100495,7 @@ define internal fastcc noundef i32 @zend_jit_switch(ptr noundef %0, ptr noundef 
   %spec.select = icmp eq i8 %27, 0
   tail call void @llvm.assume(i1 %spec.select)
   %28 = getelementptr inbounds i8, ptr %4, i64 8
-  %29 = load ptr, ptr %28, align 8, !nonnull !6, !noundef !6
+  %29 = load ptr, ptr %28, align 8, !nonnull !5, !noundef !5
   br label %30
 
 30:                                               ; preds = %25, %5
@@ -103216,7 +103216,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %51, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_fe_fetch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_fe_fetch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = and i32 %2, 12582912
   %.not = icmp eq i32 %8, 0
@@ -103299,7 +103299,7 @@ jit_CONST_ADDR.exit:                              ; preds = %21, %29
 
 53:                                               ; preds = %45
   %54 = load i32, ptr %7, align 8
-  %55 = tail call fastcc i32 @zend_jit_packed_guard(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %54, i32 noundef %2), !range !7
+  %55 = tail call fastcc i32 @zend_jit_packed_guard(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %54, i32 noundef %2)
   %.not397 = icmp eq i32 %55, 0
   br i1 %.not397, label %791, label %56
 
@@ -103699,20 +103699,20 @@ jit_ADD_OFFSET.exit441:                           ; preds = %261, %269
   tail call void @_ir_MERGE_SET_OP(ptr noundef %0, i32 noundef %157, i32 noundef 2, i32 noundef %273) #32
   tail call void @_ir_PHI_SET_OP(ptr noundef %0, i32 noundef %158, i32 noundef 2, i32 noundef %205) #32
   tail call void @_ir_PHI_SET_OP(ptr noundef %0, i32 noundef %159, i32 noundef 2, i32 noundef %272) #32
-  br i1 %.not394, label %.thread, label %.thread532
+  br i1 %.not394, label %.thread, label %.thread534
 
-.thread532:                                       ; preds = %jit_ADD_OFFSET.exit441
+.thread534:                                       ; preds = %jit_ADD_OFFSET.exit441
   tail call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %.0374) #32
   br label %275
 
 274:                                              ; preds = %jit_ADD_OFFSET.exit
   br i1 %.not394, label %.thread, label %275
 
-275:                                              ; preds = %.thread532, %274
-  %.0370540 = phi i32 [ %158, %.thread532 ], [ %97, %274 ]
-  %.0372539 = phi i32 [ %159, %.thread532 ], [ 0, %274 ]
-  %.1538 = phi i32 [ %.0378, %.thread532 ], [ 0, %274 ]
-  %.1387537 = phi i32 [ %.0386, %.thread532 ], [ 0, %274 ]
+275:                                              ; preds = %.thread534, %274
+  %.0370542 = phi i32 [ %158, %.thread534 ], [ %97, %274 ]
+  %.0372541 = phi i32 [ %159, %.thread534 ], [ 0, %274 ]
+  %.1540 = phi i32 [ %.0378, %.thread534 ], [ 0, %274 ]
+  %.1387539 = phi i32 [ %.0386, %.thread534 ], [ 0, %274 ]
   %276 = tail call i32 @ir_fold1(ptr noundef %0, i32 noundef 1568, i32 noundef %97) #32
   %277 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %80, i64 noundef 16) #32
   %278 = getelementptr inbounds i8, ptr %277, i64 8
@@ -103848,19 +103848,19 @@ jit_CONST_ADDR.exit455:                           ; preds = %341, %349
 352:                                              ; preds = %333
   %353 = tail call i32 @_ir_IF(ptr noundef %0, i32 noundef %332) #32
   tail call void @_ir_IF_FALSE(ptr noundef %0, i32 noundef %353) #32
-  %354 = tail call i32 @_ir_END_LIST(ptr noundef %0, i32 noundef %.1387537) #32
+  %354 = tail call i32 @_ir_END_LIST(ptr noundef %0, i32 noundef %.1387539) #32
   tail call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %353) #32
   br label %358
 
 355:                                              ; preds = %jit_ADD_OFFSET.exit452
   %356 = tail call i32 @_ir_IF(ptr noundef %0, i32 noundef %332) #32
   tail call void @_ir_IF_FALSE(ptr noundef %0, i32 noundef %356) #32
-  %357 = tail call i32 @_ir_END_LIST(ptr noundef %0, i32 noundef %.1387537) #32
+  %357 = tail call i32 @_ir_END_LIST(ptr noundef %0, i32 noundef %.1387539) #32
   tail call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %356) #32
   br label %358
 
 358:                                              ; preds = %jit_CONST_ADDR.exit455, %352, %355
-  %.2388 = phi i32 [ %.1387537, %jit_CONST_ADDR.exit455 ], [ %354, %352 ], [ %357, %355 ]
+  %.2388 = phi i32 [ %.1387539, %jit_CONST_ADDR.exit455 ], [ %354, %352 ], [ %357, %355 ]
   %359 = tail call i32 @ir_const_u32(ptr noundef %0, i32 noundef 1) #32
   %360 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1048, i32 noundef %313, i32 noundef %359) #32
   %361 = icmp eq i8 %4, 42
@@ -103995,9 +103995,9 @@ jit_ADD_OFFSET.exit468:                           ; preds = %416, %424
   br label %.thread
 
 .thread:                                          ; preds = %274, %jit_ADD_OFFSET.exit441, %jit_ADD_OFFSET.exit468
-  %.0370531 = phi i32 [ %.0370540, %jit_ADD_OFFSET.exit468 ], [ %158, %jit_ADD_OFFSET.exit441 ], [ %97, %274 ]
-  %.0372530 = phi i32 [ %.0372539, %jit_ADD_OFFSET.exit468 ], [ %159, %jit_ADD_OFFSET.exit441 ], [ 0, %274 ]
-  %.1529 = phi i32 [ %.1538, %jit_ADD_OFFSET.exit468 ], [ %.0378, %jit_ADD_OFFSET.exit441 ], [ 0, %274 ]
+  %.0370533 = phi i32 [ %.0370542, %jit_ADD_OFFSET.exit468 ], [ %158, %jit_ADD_OFFSET.exit441 ], [ %97, %274 ]
+  %.0372532 = phi i32 [ %.0372541, %jit_ADD_OFFSET.exit468 ], [ %159, %jit_ADD_OFFSET.exit441 ], [ 0, %274 ]
+  %.1531 = phi i32 [ %.1540, %jit_ADD_OFFSET.exit468 ], [ %.0378, %jit_ADD_OFFSET.exit441 ], [ 0, %274 ]
   %.3 = phi i32 [ %.2388, %jit_ADD_OFFSET.exit468 ], [ %.0386, %jit_ADD_OFFSET.exit441 ], [ 0, %274 ]
   %.1385 = phi i32 [ %.0384, %jit_ADD_OFFSET.exit468 ], [ 0, %jit_ADD_OFFSET.exit441 ], [ 0, %274 ]
   %.0373 = phi i32 [ %314, %jit_ADD_OFFSET.exit468 ], [ 0, %jit_ADD_OFFSET.exit441 ], [ 0, %274 ]
@@ -104041,9 +104041,9 @@ jit_ADD_OFFSET.exit468:                           ; preds = %416, %424
   br i1 %.not, label %628, label %453
 
 453:                                              ; preds = %451
-  %454 = icmp ne i32 %.1529, 0
+  %454 = icmp ne i32 %.1531, 0
   tail call void @llvm.assume(i1 %454)
-  tail call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %.1529) #32
+  tail call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %.1531) #32
   %455 = load i32, ptr %57, align 8
   %456 = icmp ne i32 %455, 0
   tail call void @llvm.assume(i1 %456)
@@ -104114,7 +104114,7 @@ jit_ADD_OFFSET.exit479:                           ; preds = %480, %488
   %.0.i.i476 = phi i32 [ %482, %480 ], [ %489, %488 ]
   %491 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %472, i32 noundef %.0.i.i476) #32
   %492 = tail call i32 @ir_const_u32(ptr noundef %0, i32 noundef 1) #32
-  %493 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1048, i32 noundef %.0370531, i32 noundef %492) #32
+  %493 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1048, i32 noundef %.0370533, i32 noundef %492) #32
   tail call void @_ir_STORE(ptr noundef %0, i32 noundef %491, i32 noundef %493) #32
   %494 = and i32 %2, 8388608
   %.not403 = icmp eq i32 %494, 0
@@ -104148,7 +104148,7 @@ jit_ADD_OFFSET.exit479:                           ; preds = %480, %488
 
 511:                                              ; preds = %508, %500
   %.0.i.i480 = phi i32 [ %502, %500 ], [ %509, %508 ]
-  %512 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0372530, i32 noundef %.0.i.i480) #32
+  %512 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0372532, i32 noundef %.0.i.i480) #32
   %513 = tail call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %512) #32
   %514 = and i32 %2, 6291456
   %.not404 = icmp eq i32 %514, 0
@@ -104208,12 +104208,12 @@ jit_ADD_OFFSET.exit487:                           ; preds = %523, %531
   tail call fastcc void @jit_set_Z_TYPE_INFO_ex(ptr noundef %0, i64 noundef %452, i32 noundef %544)
   %545 = tail call i32 @_ir_END(ptr noundef %0) #32
   tail call void @_ir_MERGE_2(ptr noundef %0, i32 noundef %545, i32 noundef %540) #32
-  br i1 %.not404, label %jit_set_Z_TYPE_INFO.exit499, label %548
+  br i1 %.not404, label %jit_set_Z_TYPE_INFO.exit501, label %548
 
 546:                                              ; preds = %jit_ADD_OFFSET.exit479
   %547 = and i32 %2, 6291456
-  %.not404543 = icmp eq i32 %547, 0
-  br i1 %.not404543, label %jit_set_Z_TYPE_INFO.exit499, label %.critedge
+  %.not404545 = icmp eq i32 %547, 0
+  br i1 %.not404545, label %jit_set_Z_TYPE_INFO.exit501, label %.critedge
 
 548:                                              ; preds = %jit_ADD_OFFSET.exit487
   %549 = tail call i32 @_ir_END(ptr noundef %0) #32
@@ -104228,34 +104228,34 @@ jit_ADD_OFFSET.exit487:                           ; preds = %523, %531
   %555 = load i64, ptr %550, align 8
   %556 = trunc i64 %555 to i32
   %557 = load ptr, ptr %0, align 8
-  %sext.i.i490 = shl i64 %555, 32
-  %558 = ashr exact i64 %sext.i.i490, 32
+  %sext.i.i492 = shl i64 %555, 32
+  %558 = ashr exact i64 %sext.i.i492, 32
   %559 = getelementptr inbounds %struct._ir_insn, ptr %557, i64 %558
   %560 = load i16, ptr %559, align 8
   %561 = icmp eq i16 %560, 1542
   tail call void @llvm.assume(i1 %561)
-  br label %jit_ADD_OFFSET.exit491
+  br label %jit_ADD_OFFSET.exit493
 
 562:                                              ; preds = %548
   %563 = tail call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 16) #32
   %564 = sext i32 %563 to i64
   store i64 %564, ptr %550, align 8
   store i32 4, ptr %551, align 8
-  br label %jit_ADD_OFFSET.exit491
+  br label %jit_ADD_OFFSET.exit493
 
-jit_ADD_OFFSET.exit491:                           ; preds = %554, %562
-  %.0.i.i488 = phi i32 [ %556, %554 ], [ %563, %562 ]
-  %565 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0372530, i32 noundef %.0.i.i488) #32
+jit_ADD_OFFSET.exit493:                           ; preds = %554, %562
+  %.0.i.i490 = phi i32 [ %556, %554 ], [ %563, %562 ]
+  %565 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0372532, i32 noundef %.0.i.i490) #32
   %566 = tail call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 11, i32 noundef %565) #32
   %567 = and i64 %452, 3
   %568 = icmp eq i64 %567, 2
   br i1 %568, label %jit_set_Z_LVAL.exit.thread, label %jit_set_Z_LVAL.exit
 
-jit_set_Z_LVAL.exit.thread:                       ; preds = %jit_ADD_OFFSET.exit491
+jit_set_Z_LVAL.exit.thread:                       ; preds = %jit_ADD_OFFSET.exit493
   tail call fastcc void @zend_jit_def_reg(ptr noundef %0, i64 noundef %452, i32 noundef %566)
   br label %586
 
-jit_set_Z_LVAL.exit:                              ; preds = %jit_ADD_OFFSET.exit491
+jit_set_Z_LVAL.exit:                              ; preds = %jit_ADD_OFFSET.exit493
   %569 = tail call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %452)
   tail call void @_ir_STORE(ptr noundef %0, i32 noundef %569, i32 noundef %566) #32
   %570 = icmp eq i64 %567, 1
@@ -104266,8 +104266,8 @@ jit_set_Z_LVAL.exit:                              ; preds = %jit_ADD_OFFSET.exit
   %573 = icmp eq i64 %572, 56
   %574 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
   %575 = icmp ne ptr %574, null
-  %or.cond.i492 = select i1 %573, i1 %575, i1 false
-  br i1 %or.cond.i492, label %576, label %586
+  %or.cond.i494 = select i1 %573, i1 %575, i1 false
+  br i1 %or.cond.i494, label %576, label %586
 
 576:                                              ; preds = %571
   %577 = getelementptr inbounds i8, ptr %574, i64 60
@@ -104289,7 +104289,7 @@ jit_set_Z_LVAL.exit:                              ; preds = %jit_ADD_OFFSET.exit
 jit_set_Z_TYPE_INFO.exit:                         ; preds = %576, %586
   %588 = tail call i32 @_ir_END(ptr noundef %0) #32
   tail call void @_ir_MERGE_2(ptr noundef %0, i32 noundef %588, i32 noundef %549) #32
-  br label %jit_set_Z_TYPE_INFO.exit499
+  br label %jit_set_Z_TYPE_INFO.exit501
 
 .critedge:                                        ; preds = %546
   %589 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %80, i64 noundef 16) #32
@@ -104302,46 +104302,46 @@ jit_set_Z_TYPE_INFO.exit:                         ; preds = %576, %586
   %594 = load i64, ptr %589, align 8
   %595 = trunc i64 %594 to i32
   %596 = load ptr, ptr %0, align 8
-  %sext.i.i495 = shl i64 %594, 32
-  %597 = ashr exact i64 %sext.i.i495, 32
+  %sext.i.i497 = shl i64 %594, 32
+  %597 = ashr exact i64 %sext.i.i497, 32
   %598 = getelementptr inbounds %struct._ir_insn, ptr %596, i64 %597
   %599 = load i16, ptr %598, align 8
   %600 = icmp eq i16 %599, 1542
   tail call void @llvm.assume(i1 %600)
-  br label %jit_ADD_OFFSET.exit496
+  br label %jit_ADD_OFFSET.exit498
 
 601:                                              ; preds = %.critedge
   %602 = tail call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 16) #32
   %603 = sext i32 %602 to i64
   store i64 %603, ptr %589, align 8
   store i32 4, ptr %590, align 8
-  br label %jit_ADD_OFFSET.exit496
+  br label %jit_ADD_OFFSET.exit498
 
-jit_ADD_OFFSET.exit496:                           ; preds = %593, %601
-  %.0.i.i493 = phi i32 [ %595, %593 ], [ %602, %601 ]
-  %604 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0372530, i32 noundef %.0.i.i493) #32
+jit_ADD_OFFSET.exit498:                           ; preds = %593, %601
+  %.0.i.i495 = phi i32 [ %595, %593 ], [ %602, %601 ]
+  %604 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0372532, i32 noundef %.0.i.i495) #32
   %605 = tail call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 11, i32 noundef %604) #32
   %606 = and i64 %452, 3
   %607 = icmp eq i64 %606, 2
-  br i1 %607, label %jit_set_Z_LVAL.exit497.thread, label %jit_set_Z_LVAL.exit497
+  br i1 %607, label %jit_set_Z_LVAL.exit499.thread, label %jit_set_Z_LVAL.exit499
 
-jit_set_Z_LVAL.exit497.thread:                    ; preds = %jit_ADD_OFFSET.exit496
+jit_set_Z_LVAL.exit499.thread:                    ; preds = %jit_ADD_OFFSET.exit498
   tail call fastcc void @zend_jit_def_reg(ptr noundef %0, i64 noundef %452, i32 noundef %605)
   br label %625
 
-jit_set_Z_LVAL.exit497:                           ; preds = %jit_ADD_OFFSET.exit496
+jit_set_Z_LVAL.exit499:                           ; preds = %jit_ADD_OFFSET.exit498
   %608 = tail call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %452)
   tail call void @_ir_STORE(ptr noundef %0, i32 noundef %608, i32 noundef %605) #32
   %609 = icmp eq i64 %606, 1
   br i1 %609, label %610, label %625
 
-610:                                              ; preds = %jit_set_Z_LVAL.exit497
+610:                                              ; preds = %jit_set_Z_LVAL.exit499
   %611 = and i64 %452, 252
   %612 = icmp eq i64 %611, 56
   %613 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
   %614 = icmp ne ptr %613, null
-  %or.cond.i498 = select i1 %612, i1 %614, i1 false
-  br i1 %or.cond.i498, label %615, label %625
+  %or.cond.i500 = select i1 %612, i1 %614, i1 false
+  br i1 %or.cond.i500, label %615, label %625
 
 615:                                              ; preds = %610
   %616 = getelementptr inbounds i8, ptr %613, i64 60
@@ -104353,25 +104353,25 @@ jit_set_Z_LVAL.exit497:                           ; preds = %jit_ADD_OFFSET.exit
   %622 = getelementptr inbounds i8, ptr %621, i64 1
   %623 = load i8, ptr %622, align 1
   %624 = icmp eq i8 %623, 4
-  br i1 %624, label %jit_set_Z_TYPE_INFO.exit499, label %625
+  br i1 %624, label %jit_set_Z_TYPE_INFO.exit501, label %625
 
-625:                                              ; preds = %jit_set_Z_LVAL.exit497.thread, %615, %610, %jit_set_Z_LVAL.exit497
+625:                                              ; preds = %jit_set_Z_LVAL.exit499.thread, %615, %610, %jit_set_Z_LVAL.exit499
   %626 = tail call i32 @ir_const_u32(ptr noundef %0, i32 noundef 4) #32
   tail call fastcc void @jit_set_Z_TYPE_INFO_ex(ptr noundef %0, i64 noundef %452, i32 noundef %626)
-  br label %jit_set_Z_TYPE_INFO.exit499
+  br label %jit_set_Z_TYPE_INFO.exit501
 
-jit_set_Z_TYPE_INFO.exit499:                      ; preds = %jit_ADD_OFFSET.exit487, %625, %615, %jit_set_Z_TYPE_INFO.exit, %546
-  br i1 %.not394, label %.thread569, label %.thread572
+jit_set_Z_TYPE_INFO.exit501:                      ; preds = %jit_ADD_OFFSET.exit487, %625, %615, %jit_set_Z_TYPE_INFO.exit, %546
+  br i1 %.not394, label %.thread571, label %.thread574
 
-.thread572:                                       ; preds = %jit_set_Z_TYPE_INFO.exit499
+.thread574:                                       ; preds = %jit_set_Z_TYPE_INFO.exit501
   %627 = tail call i32 @_ir_END(ptr noundef %0) #32
   br label %629
 
 628:                                              ; preds = %451
-  br i1 %.not394, label %.thread569, label %629
+  br i1 %.not394, label %.thread571, label %629
 
-629:                                              ; preds = %.thread572, %628
-  %.0379575 = phi i32 [ %627, %.thread572 ], [ 0, %628 ]
+629:                                              ; preds = %.thread574, %628
+  %.0379577 = phi i32 [ %627, %.thread574 ], [ 0, %628 ]
   %630 = icmp ne i32 %.1385, 0
   tail call void @llvm.assume(i1 %630)
   tail call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %.1385) #32
@@ -104380,39 +104380,39 @@ jit_set_Z_TYPE_INFO.exit499:                      ; preds = %jit_ADD_OFFSET.exit
   tail call void @llvm.assume(i1 %632)
   %633 = load i32, ptr %60, align 4
   %634 = icmp eq i32 %633, 0
-  br i1 %634, label %.loopexit.sink.split.i504, label %.preheader.i500
+  br i1 %634, label %.loopexit.sink.split.i506, label %.preheader.i502
 
-.preheader.i500:                                  ; preds = %629
+.preheader.i502:                                  ; preds = %629
   %635 = icmp eq i32 %631, %633
-  br i1 %635, label %jit_FP.exit506, label %.lr.ph.i501
+  br i1 %635, label %jit_FP.exit508, label %.lr.ph.i503
 
-.lr.ph.i501:                                      ; preds = %.preheader.i500
+.lr.ph.i503:                                      ; preds = %.preheader.i502
   %636 = load ptr, ptr %0, align 8
   br label %637
 
-637:                                              ; preds = %643, %.lr.ph.i501
-  %.015.i502 = phi i32 [ %631, %.lr.ph.i501 ], [ %645, %643 ]
-  %638 = sext i32 %.015.i502 to i64
+637:                                              ; preds = %643, %.lr.ph.i503
+  %.015.i504 = phi i32 [ %631, %.lr.ph.i503 ], [ %645, %643 ]
+  %638 = sext i32 %.015.i504 to i64
   %639 = getelementptr inbounds %struct._ir_insn, ptr %636, i64 %638
   %640 = load i8, ptr %639, align 8
   %641 = icmp ugt i8 %640, 88
   %642 = icmp eq i8 %640, 69
-  %or.cond.i503 = or i1 %641, %642
-  br i1 %or.cond.i503, label %.loopexit.sink.split.i504, label %643
+  %or.cond.i505 = or i1 %641, %642
+  br i1 %or.cond.i505, label %.loopexit.sink.split.i506, label %643
 
 643:                                              ; preds = %637
   %644 = getelementptr inbounds i8, ptr %639, i64 4
   %645 = load i32, ptr %644, align 4
   %646 = icmp eq i32 %645, %633
-  br i1 %646, label %jit_FP.exit506, label %637
+  br i1 %646, label %jit_FP.exit508, label %637
 
-.loopexit.sink.split.i504:                        ; preds = %637, %629
+.loopexit.sink.split.i506:                        ; preds = %637, %629
   %647 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 14) #32
   store i32 %647, ptr %60, align 4
-  br label %jit_FP.exit506
+  br label %jit_FP.exit508
 
-jit_FP.exit506:                                   ; preds = %643, %.preheader.i500, %.loopexit.sink.split.i504
-  %648 = phi i32 [ %631, %.preheader.i500 ], [ %647, %.loopexit.sink.split.i504 ], [ %633, %643 ]
+jit_FP.exit508:                                   ; preds = %643, %.preheader.i502, %.loopexit.sink.split.i506
+  %648 = phi i32 [ %631, %.preheader.i502 ], [ %647, %.loopexit.sink.split.i506 ], [ %633, %643 ]
   %649 = load i32, ptr %7, align 8
   %650 = zext i32 %649 to i64
   %651 = add nuw nsw i64 %650, 12
@@ -104422,53 +104422,53 @@ jit_FP.exit506:                                   ; preds = %643, %.preheader.i5
   %655 = icmp eq i8 %654, 4
   br i1 %655, label %656, label %664
 
-656:                                              ; preds = %jit_FP.exit506
+656:                                              ; preds = %jit_FP.exit508
   %657 = load i64, ptr %652, align 8
   %658 = trunc i64 %657 to i32
   %659 = load ptr, ptr %0, align 8
-  %sext.i.i509 = shl i64 %657, 32
-  %660 = ashr exact i64 %sext.i.i509, 32
+  %sext.i.i511 = shl i64 %657, 32
+  %660 = ashr exact i64 %sext.i.i511, 32
   %661 = getelementptr inbounds %struct._ir_insn, ptr %659, i64 %660
   %662 = load i16, ptr %661, align 8
   %663 = icmp eq i16 %662, 1542
   tail call void @llvm.assume(i1 %663)
-  br label %jit_ADD_OFFSET.exit510
+  br label %jit_ADD_OFFSET.exit512
 
-664:                                              ; preds = %jit_FP.exit506
+664:                                              ; preds = %jit_FP.exit508
   %665 = tail call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %651) #32
   %666 = sext i32 %665 to i64
   store i64 %666, ptr %652, align 8
   store i32 4, ptr %653, align 8
-  br label %jit_ADD_OFFSET.exit510
+  br label %jit_ADD_OFFSET.exit512
 
-jit_ADD_OFFSET.exit510:                           ; preds = %656, %664
-  %.0.i.i507 = phi i32 [ %658, %656 ], [ %665, %664 ]
-  %667 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %648, i32 noundef %.0.i.i507) #32
+jit_ADD_OFFSET.exit512:                           ; preds = %656, %664
+  %.0.i.i509 = phi i32 [ %658, %656 ], [ %665, %664 ]
+  %667 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %648, i32 noundef %.0.i.i509) #32
   %668 = tail call i32 @ir_const_u32(ptr noundef %0, i32 noundef 1) #32
   %669 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1048, i32 noundef %.0371, i32 noundef %668) #32
   tail call void @_ir_STORE(ptr noundef %0, i32 noundef %667, i32 noundef %669) #32
   %670 = tail call i32 @ir_fold1(ptr noundef %0, i32 noundef 2848, i32 noundef %.0371) #32
   %671 = and i64 %452, 3
   %672 = icmp eq i64 %671, 2
-  br i1 %672, label %jit_set_Z_LVAL.exit511.thread, label %jit_set_Z_LVAL.exit511
+  br i1 %672, label %jit_set_Z_LVAL.exit513.thread, label %jit_set_Z_LVAL.exit513
 
-jit_set_Z_LVAL.exit511.thread:                    ; preds = %jit_ADD_OFFSET.exit510
+jit_set_Z_LVAL.exit513.thread:                    ; preds = %jit_ADD_OFFSET.exit512
   tail call fastcc void @zend_jit_def_reg(ptr noundef %0, i64 noundef %452, i32 noundef %670)
   br label %690
 
-jit_set_Z_LVAL.exit511:                           ; preds = %jit_ADD_OFFSET.exit510
+jit_set_Z_LVAL.exit513:                           ; preds = %jit_ADD_OFFSET.exit512
   %673 = tail call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %452)
   tail call void @_ir_STORE(ptr noundef %0, i32 noundef %673, i32 noundef %670) #32
   %674 = icmp eq i64 %671, 1
   br i1 %674, label %675, label %690
 
-675:                                              ; preds = %jit_set_Z_LVAL.exit511
+675:                                              ; preds = %jit_set_Z_LVAL.exit513
   %676 = and i64 %452, 252
   %677 = icmp eq i64 %676, 56
   %678 = load ptr, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 27), align 8
   %679 = icmp ne ptr %678, null
-  %or.cond.i512 = select i1 %677, i1 %679, i1 false
-  br i1 %or.cond.i512, label %680, label %690
+  %or.cond.i514 = select i1 %677, i1 %679, i1 false
+  br i1 %or.cond.i514, label %680, label %690
 
 680:                                              ; preds = %675
   %681 = getelementptr inbounds i8, ptr %678, i64 60
@@ -104480,43 +104480,43 @@ jit_set_Z_LVAL.exit511:                           ; preds = %jit_ADD_OFFSET.exit
   %687 = getelementptr inbounds i8, ptr %686, i64 1
   %688 = load i8, ptr %687, align 1
   %689 = icmp eq i8 %688, 4
-  br i1 %689, label %jit_set_Z_TYPE_INFO.exit513, label %690
+  br i1 %689, label %jit_set_Z_TYPE_INFO.exit515, label %690
 
-690:                                              ; preds = %jit_set_Z_LVAL.exit511.thread, %680, %675, %jit_set_Z_LVAL.exit511
+690:                                              ; preds = %jit_set_Z_LVAL.exit513.thread, %680, %675, %jit_set_Z_LVAL.exit513
   %691 = tail call i32 @ir_const_u32(ptr noundef %0, i32 noundef 4) #32
   tail call fastcc void @jit_set_Z_TYPE_INFO_ex(ptr noundef %0, i64 noundef %452, i32 noundef %691)
-  br label %jit_set_Z_TYPE_INFO.exit513
+  br label %jit_set_Z_TYPE_INFO.exit515
 
-jit_set_Z_TYPE_INFO.exit513:                      ; preds = %680, %690
-  br i1 %.not, label %.thread569, label %692
+jit_set_Z_TYPE_INFO.exit515:                      ; preds = %680, %690
+  br i1 %.not, label %.thread571, label %692
 
-692:                                              ; preds = %jit_set_Z_TYPE_INFO.exit513
+692:                                              ; preds = %jit_set_Z_TYPE_INFO.exit515
   %693 = tail call i32 @_ir_END(ptr noundef %0) #32
-  tail call void @_ir_MERGE_2(ptr noundef %0, i32 noundef %693, i32 noundef %.0379575) #32
-  %694 = tail call i32 @_ir_PHI_2(ptr noundef %0, i32 noundef 6, i32 noundef %.0373, i32 noundef %.0372530) #32
-  br label %.thread569
+  tail call void @_ir_MERGE_2(ptr noundef %0, i32 noundef %693, i32 noundef %.0379577) #32
+  %694 = tail call i32 @_ir_PHI_2(ptr noundef %0, i32 noundef 6, i32 noundef %.0373, i32 noundef %.0372532) #32
+  br label %.thread571
 
 695:                                              ; preds = %431
-  %696 = icmp ne i32 %.1529, 0
+  %696 = icmp ne i32 %.1531, 0
   %697 = icmp ne i32 %.1385, 0
   %or.cond10 = and i1 %696, %697
   br i1 %or.cond10, label %698, label %703
 
 698:                                              ; preds = %695
-  tail call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %.1529) #32
+  tail call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %.1531) #32
   %699 = tail call i32 @_ir_END(ptr noundef %0) #32
   tail call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %.1385) #32
   %700 = tail call i32 @_ir_END(ptr noundef %0) #32
   tail call void @_ir_MERGE_2(ptr noundef %0, i32 noundef %699, i32 noundef %700) #32
-  %701 = tail call i32 @_ir_PHI_2(ptr noundef %0, i32 noundef 4, i32 noundef %.0370531, i32 noundef %.0371) #32
-  %702 = tail call i32 @_ir_PHI_2(ptr noundef %0, i32 noundef 6, i32 noundef %.0372530, i32 noundef %.0373) #32
+  %701 = tail call i32 @_ir_PHI_2(ptr noundef %0, i32 noundef 4, i32 noundef %.0370533, i32 noundef %.0371) #32
+  %702 = tail call i32 @_ir_PHI_2(ptr noundef %0, i32 noundef 6, i32 noundef %.0372532, i32 noundef %.0373) #32
   br label %706
 
 703:                                              ; preds = %695
   br i1 %696, label %704, label %705
 
 704:                                              ; preds = %703
-  tail call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %.1529) #32
+  tail call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %.1531) #32
   br label %706
 
 705:                                              ; preds = %703
@@ -104525,46 +104525,46 @@ jit_set_Z_TYPE_INFO.exit513:                      ; preds = %680, %690
   br label %706
 
 706:                                              ; preds = %704, %705, %698
-  %.1381 = phi i32 [ %702, %698 ], [ %.0372530, %704 ], [ %.0373, %705 ]
-  %.0369 = phi i32 [ %701, %698 ], [ %.0370531, %704 ], [ %.0371, %705 ]
+  %.1381 = phi i32 [ %702, %698 ], [ %.0372532, %704 ], [ %.0373, %705 ]
+  %.0369 = phi i32 [ %701, %698 ], [ %.0370533, %704 ], [ %.0371, %705 ]
   %707 = load i32, ptr %57, align 8
   %708 = icmp ne i32 %707, 0
   tail call void @llvm.assume(i1 %708)
   %709 = load i32, ptr %60, align 4
   %710 = icmp eq i32 %709, 0
-  br i1 %710, label %.loopexit.sink.split.i518, label %.preheader.i514
+  br i1 %710, label %.loopexit.sink.split.i520, label %.preheader.i516
 
-.preheader.i514:                                  ; preds = %706
+.preheader.i516:                                  ; preds = %706
   %711 = icmp eq i32 %707, %709
-  br i1 %711, label %jit_FP.exit520, label %.lr.ph.i515
+  br i1 %711, label %jit_FP.exit522, label %.lr.ph.i517
 
-.lr.ph.i515:                                      ; preds = %.preheader.i514
+.lr.ph.i517:                                      ; preds = %.preheader.i516
   %712 = load ptr, ptr %0, align 8
   br label %713
 
-713:                                              ; preds = %719, %.lr.ph.i515
-  %.015.i516 = phi i32 [ %707, %.lr.ph.i515 ], [ %721, %719 ]
-  %714 = sext i32 %.015.i516 to i64
+713:                                              ; preds = %719, %.lr.ph.i517
+  %.015.i518 = phi i32 [ %707, %.lr.ph.i517 ], [ %721, %719 ]
+  %714 = sext i32 %.015.i518 to i64
   %715 = getelementptr inbounds %struct._ir_insn, ptr %712, i64 %714
   %716 = load i8, ptr %715, align 8
   %717 = icmp ugt i8 %716, 88
   %718 = icmp eq i8 %716, 69
-  %or.cond.i517 = or i1 %717, %718
-  br i1 %or.cond.i517, label %.loopexit.sink.split.i518, label %719
+  %or.cond.i519 = or i1 %717, %718
+  br i1 %or.cond.i519, label %.loopexit.sink.split.i520, label %719
 
 719:                                              ; preds = %713
   %720 = getelementptr inbounds i8, ptr %715, i64 4
   %721 = load i32, ptr %720, align 4
   %722 = icmp eq i32 %721, %709
-  br i1 %722, label %jit_FP.exit520, label %713
+  br i1 %722, label %jit_FP.exit522, label %713
 
-.loopexit.sink.split.i518:                        ; preds = %713, %706
+.loopexit.sink.split.i520:                        ; preds = %713, %706
   %723 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 14) #32
   store i32 %723, ptr %60, align 4
-  br label %jit_FP.exit520
+  br label %jit_FP.exit522
 
-jit_FP.exit520:                                   ; preds = %719, %.preheader.i514, %.loopexit.sink.split.i518
-  %724 = phi i32 [ %707, %.preheader.i514 ], [ %723, %.loopexit.sink.split.i518 ], [ %709, %719 ]
+jit_FP.exit522:                                   ; preds = %719, %.preheader.i516, %.loopexit.sink.split.i520
+  %724 = phi i32 [ %707, %.preheader.i516 ], [ %723, %.loopexit.sink.split.i520 ], [ %709, %719 ]
   %725 = load i32, ptr %7, align 8
   %726 = zext i32 %725 to i64
   %727 = add nuw nsw i64 %726, 12
@@ -104574,40 +104574,40 @@ jit_FP.exit520:                                   ; preds = %719, %.preheader.i5
   %731 = icmp eq i8 %730, 4
   br i1 %731, label %732, label %740
 
-732:                                              ; preds = %jit_FP.exit520
+732:                                              ; preds = %jit_FP.exit522
   %733 = load i64, ptr %728, align 8
   %734 = trunc i64 %733 to i32
   %735 = load ptr, ptr %0, align 8
-  %sext.i.i523 = shl i64 %733, 32
-  %736 = ashr exact i64 %sext.i.i523, 32
+  %sext.i.i525 = shl i64 %733, 32
+  %736 = ashr exact i64 %sext.i.i525, 32
   %737 = getelementptr inbounds %struct._ir_insn, ptr %735, i64 %736
   %738 = load i16, ptr %737, align 8
   %739 = icmp eq i16 %738, 1542
   tail call void @llvm.assume(i1 %739)
-  br label %jit_ADD_OFFSET.exit524
+  br label %jit_ADD_OFFSET.exit526
 
-740:                                              ; preds = %jit_FP.exit520
+740:                                              ; preds = %jit_FP.exit522
   %741 = tail call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %727) #32
   %742 = sext i32 %741 to i64
   store i64 %742, ptr %728, align 8
   store i32 4, ptr %729, align 8
-  br label %jit_ADD_OFFSET.exit524
+  br label %jit_ADD_OFFSET.exit526
 
-jit_ADD_OFFSET.exit524:                           ; preds = %732, %740
-  %.0.i.i521 = phi i32 [ %734, %732 ], [ %741, %740 ]
-  %743 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %724, i32 noundef %.0.i.i521) #32
+jit_ADD_OFFSET.exit526:                           ; preds = %732, %740
+  %.0.i.i523 = phi i32 [ %734, %732 ], [ %741, %740 ]
+  %743 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %724, i32 noundef %.0.i.i523) #32
   %744 = tail call i32 @ir_const_u32(ptr noundef %0, i32 noundef 1) #32
   %745 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1048, i32 noundef %.0369, i32 noundef %744) #32
   tail call void @_ir_STORE(ptr noundef %0, i32 noundef %743, i32 noundef %745) #32
-  br label %.thread569
+  br label %.thread571
 
-.thread569:                                       ; preds = %jit_set_Z_TYPE_INFO.exit499, %jit_set_Z_TYPE_INFO.exit513, %628, %692, %jit_ADD_OFFSET.exit524
-  %.2 = phi i32 [ %694, %692 ], [ 0, %628 ], [ %.1381, %jit_ADD_OFFSET.exit524 ], [ %.0373, %jit_set_Z_TYPE_INFO.exit513 ], [ %.0372530, %jit_set_Z_TYPE_INFO.exit499 ]
+.thread571:                                       ; preds = %jit_set_Z_TYPE_INFO.exit501, %jit_set_Z_TYPE_INFO.exit515, %628, %692, %jit_ADD_OFFSET.exit526
+  %.2 = phi i32 [ %694, %692 ], [ 0, %628 ], [ %.1381, %jit_ADD_OFFSET.exit526 ], [ %.0373, %jit_set_Z_TYPE_INFO.exit515 ], [ %.0372532, %jit_set_Z_TYPE_INFO.exit501 ]
   %746 = and i32 %2, 1048576
   %.not406 = icmp eq i32 %746, 0
   br i1 %.not406, label %747, label %754
 
-747:                                              ; preds = %.thread569
+747:                                              ; preds = %.thread571
   %748 = and i32 %2, 131072
   %.not405 = icmp eq i32 %748, 0
   %749 = lshr i32 %2, 10
@@ -104620,8 +104620,8 @@ jit_ADD_OFFSET.exit524:                           ; preds = %732, %740
   %spec.select411 = select i1 %.not407, i32 %spec.select, i32 %753
   br label %754
 
-754:                                              ; preds = %.thread569, %747
-  %.1383 = phi i32 [ %spec.select411, %747 ], [ -520093698, %.thread569 ]
+754:                                              ; preds = %.thread571, %747
+  %.1383 = phi i32 [ %spec.select411, %747 ], [ -520093698, %.thread571 ]
   %755 = sext i32 %.2 to i64
   %756 = shl nsw i64 %755, 2
   %757 = or disjoint i64 %756, 3
@@ -104692,7 +104692,7 @@ jit_ADD_OFFSET.exit524:                           ; preds = %732, %740
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_fetch_constant(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_constant(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i64 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
@@ -105033,7 +105033,7 @@ jit_STUB_ADDR.exit:                               ; preds = %jit_CONST_ADDR.exit
   %199 = sext i32 %166 to i64
   %200 = shl nsw i64 %199, 2
   %201 = or disjoint i64 %200, 3
-  %202 = tail call fastcc i64 @zend_jit_guard_fetch_result_type(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %201, i8 noundef zeroext %198, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext false), !range !9
+  %202 = tail call fastcc i64 @zend_jit_guard_fetch_result_type(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %201, i8 noundef zeroext %198, i1 noundef zeroext false, i32 noundef 0, i1 noundef zeroext false)
   %.not120 = icmp eq i64 %202, 0
   br i1 %.not120, label %zend_jit_store_var_if_necessary.exit, label %203
 
@@ -105094,7 +105094,7 @@ zend_jit_store_var_if_necessary.exit:             ; preds = %227, %223, %219, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_init_method_call(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr noundef %11, i32 noundef %12, i8 noundef signext %13, i8 noundef signext %14, i1 noundef zeroext %15) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_init_method_call(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i64 noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr noundef %11, i32 noundef %12, i8 noundef signext %13, i8 noundef signext %14, i1 noundef zeroext %15) unnamed_addr #0 {
   %17 = alloca i64, align 8
   %18 = alloca %struct._ir_code_buffer, align 8
   %19 = alloca i64, align 8
@@ -105680,63 +105680,63 @@ jit_ADD_OFFSET.exit:                              ; preds = %315, %323
   %337 = load i64, ptr %332, align 8
   %338 = trunc i64 %337 to i32
   %339 = load ptr, ptr %0, align 8
-  %sext.i.i335 = shl i64 %337, 32
-  %340 = ashr exact i64 %sext.i.i335, 32
+  %sext.i.i336 = shl i64 %337, 32
+  %340 = ashr exact i64 %sext.i.i336, 32
   %341 = getelementptr inbounds %struct._ir_insn, ptr %339, i64 %340
   %342 = load i16, ptr %341, align 8
   %343 = icmp eq i16 %342, 1542
   call void @llvm.assume(i1 %343)
-  br label %jit_ADD_OFFSET.exit336
+  br label %jit_ADD_OFFSET.exit337
 
 344:                                              ; preds = %jit_ADD_OFFSET.exit
   %345 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %331) #32
   %346 = sext i32 %345 to i64
   store i64 %346, ptr %332, align 8
   store i32 4, ptr %333, align 8
-  br label %jit_ADD_OFFSET.exit336
+  br label %jit_ADD_OFFSET.exit337
 
-jit_ADD_OFFSET.exit336:                           ; preds = %336, %344
-  %.0.i.i333 = phi i32 [ %338, %336 ], [ %345, %344 ]
-  %347 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %327, i32 noundef %.0.i.i333) #32
+jit_ADD_OFFSET.exit337:                           ; preds = %336, %344
+  %.0.i.i334 = phi i32 [ %338, %336 ], [ %345, %344 ]
+  %347 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %327, i32 noundef %.0.i.i334) #32
   %348 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %347) #32
   %349 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %348) #32
   call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %349) #32
   br label %443
 
 350:                                              ; preds = %288
-  br i1 %294, label %.loopexit.sink.split.i341, label %.preheader.i337
+  br i1 %294, label %.loopexit.sink.split.i342, label %.preheader.i338
 
-.preheader.i337:                                  ; preds = %350
+.preheader.i338:                                  ; preds = %350
   %351 = icmp eq i32 %290, %293
-  br i1 %351, label %jit_FP.exit343, label %.lr.ph.i338
+  br i1 %351, label %jit_FP.exit344, label %.lr.ph.i339
 
-.lr.ph.i338:                                      ; preds = %.preheader.i337
+.lr.ph.i339:                                      ; preds = %.preheader.i338
   %352 = load ptr, ptr %0, align 8
   br label %353
 
-353:                                              ; preds = %359, %.lr.ph.i338
-  %.015.i339 = phi i32 [ %290, %.lr.ph.i338 ], [ %361, %359 ]
-  %354 = sext i32 %.015.i339 to i64
+353:                                              ; preds = %359, %.lr.ph.i339
+  %.015.i340 = phi i32 [ %290, %.lr.ph.i339 ], [ %361, %359 ]
+  %354 = sext i32 %.015.i340 to i64
   %355 = getelementptr inbounds %struct._ir_insn, ptr %352, i64 %354
   %356 = load i8, ptr %355, align 8
   %357 = icmp ugt i8 %356, 88
   %358 = icmp eq i8 %356, 69
-  %or.cond.i340 = or i1 %357, %358
-  br i1 %or.cond.i340, label %.loopexit.sink.split.i341, label %359
+  %or.cond.i341 = or i1 %357, %358
+  br i1 %or.cond.i341, label %.loopexit.sink.split.i342, label %359
 
 359:                                              ; preds = %353
   %360 = getelementptr inbounds i8, ptr %355, i64 4
   %361 = load i32, ptr %360, align 4
   %362 = icmp eq i32 %361, %293
-  br i1 %362, label %jit_FP.exit343, label %353
+  br i1 %362, label %jit_FP.exit344, label %353
 
-.loopexit.sink.split.i341:                        ; preds = %353, %350
+.loopexit.sink.split.i342:                        ; preds = %353, %350
   %363 = call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 14) #32
   store i32 %363, ptr %292, align 4
-  br label %jit_FP.exit343
+  br label %jit_FP.exit344
 
-jit_FP.exit343:                                   ; preds = %359, %.preheader.i337, %.loopexit.sink.split.i341
-  %364 = phi i32 [ %290, %.preheader.i337 ], [ %363, %.loopexit.sink.split.i341 ], [ %293, %359 ]
+jit_FP.exit344:                                   ; preds = %359, %.preheader.i338, %.loopexit.sink.split.i342
+  %364 = phi i32 [ %290, %.preheader.i338 ], [ %363, %.loopexit.sink.split.i342 ], [ %293, %359 ]
   %365 = getelementptr inbounds i8, ptr %0, i64 808
   %366 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %365, i64 noundef 64) #32
   %367 = getelementptr inbounds i8, ptr %366, i64 8
@@ -105744,36 +105744,36 @@ jit_FP.exit343:                                   ; preds = %359, %.preheader.i3
   %369 = icmp eq i8 %368, 4
   br i1 %369, label %370, label %378
 
-370:                                              ; preds = %jit_FP.exit343
+370:                                              ; preds = %jit_FP.exit344
   %371 = load i64, ptr %366, align 8
   %372 = trunc i64 %371 to i32
   %373 = load ptr, ptr %0, align 8
-  %sext.i.i346 = shl i64 %371, 32
-  %374 = ashr exact i64 %sext.i.i346, 32
+  %sext.i.i347 = shl i64 %371, 32
+  %374 = ashr exact i64 %sext.i.i347, 32
   %375 = getelementptr inbounds %struct._ir_insn, ptr %373, i64 %374
   %376 = load i16, ptr %375, align 8
   %377 = icmp eq i16 %376, 1542
   call void @llvm.assume(i1 %377)
-  br label %jit_ADD_OFFSET.exit347
+  br label %jit_ADD_OFFSET.exit348
 
-378:                                              ; preds = %jit_FP.exit343
+378:                                              ; preds = %jit_FP.exit344
   %379 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 64) #32
   %380 = sext i32 %379 to i64
   store i64 %380, ptr %366, align 8
   store i32 4, ptr %367, align 8
-  br label %jit_ADD_OFFSET.exit347
+  br label %jit_ADD_OFFSET.exit348
 
-jit_ADD_OFFSET.exit347:                           ; preds = %370, %378
-  %.0.i.i344 = phi i32 [ %372, %370 ], [ %379, %378 ]
-  %381 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %364, i32 noundef %.0.i.i344) #32
+jit_ADD_OFFSET.exit348:                           ; preds = %370, %378
+  %.0.i.i345 = phi i32 [ %372, %370 ], [ %379, %378 ]
+  %381 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %364, i32 noundef %.0.i.i345) #32
   %382 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %381) #32
   %383 = getelementptr inbounds i8, ptr %1, i64 16
   %384 = load i32, ptr %383, align 8
   %385 = zext i32 %384 to i64
-  %.not.i348 = icmp eq i32 %384, 0
-  br i1 %.not.i348, label %jit_ADD_OFFSET.exit352, label %386
+  %.not.i349 = icmp eq i32 %384, 0
+  br i1 %.not.i349, label %jit_ADD_OFFSET.exit353, label %386
 
-386:                                              ; preds = %jit_ADD_OFFSET.exit347
+386:                                              ; preds = %jit_ADD_OFFSET.exit348
   %387 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %365, i64 noundef %385) #32
   %388 = getelementptr inbounds i8, ptr %387, i64 8
   %389 = load i8, ptr %388, align 8
@@ -105784,8 +105784,8 @@ jit_ADD_OFFSET.exit347:                           ; preds = %370, %378
   %392 = load i64, ptr %387, align 8
   %393 = trunc i64 %392 to i32
   %394 = load ptr, ptr %0, align 8
-  %sext.i.i351 = shl i64 %392, 32
-  %395 = ashr exact i64 %sext.i.i351, 32
+  %sext.i.i352 = shl i64 %392, 32
+  %395 = ashr exact i64 %sext.i.i352, 32
   %396 = getelementptr inbounds %struct._ir_insn, ptr %394, i64 %395
   %397 = load i16, ptr %396, align 8
   %398 = icmp eq i16 %397, 1542
@@ -105800,41 +105800,41 @@ jit_ADD_OFFSET.exit347:                           ; preds = %370, %378
   br label %jit_CONST_ADDR.exit.i
 
 jit_CONST_ADDR.exit.i:                            ; preds = %399, %391
-  %.0.i.i349 = phi i32 [ %393, %391 ], [ %400, %399 ]
-  %402 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %382, i32 noundef %.0.i.i349) #32
-  br label %jit_ADD_OFFSET.exit352
+  %.0.i.i350 = phi i32 [ %393, %391 ], [ %400, %399 ]
+  %402 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %382, i32 noundef %.0.i.i350) #32
+  br label %jit_ADD_OFFSET.exit353
 
-jit_ADD_OFFSET.exit352:                           ; preds = %jit_ADD_OFFSET.exit347, %jit_CONST_ADDR.exit.i
-  %.0.i350 = phi i32 [ %402, %jit_CONST_ADDR.exit.i ], [ %382, %jit_ADD_OFFSET.exit347 ]
-  %403 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %.0.i350) #32
+jit_ADD_OFFSET.exit353:                           ; preds = %jit_ADD_OFFSET.exit348, %jit_CONST_ADDR.exit.i
+  %.0.i351 = phi i32 [ %402, %jit_CONST_ADDR.exit.i ], [ %382, %jit_ADD_OFFSET.exit348 ]
+  %403 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %.0.i351) #32
   %404 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %365, i64 noundef 16) #32
   %405 = getelementptr inbounds i8, ptr %404, i64 8
   %406 = load i8, ptr %405, align 8
   %407 = icmp eq i8 %406, 4
   br i1 %407, label %408, label %416
 
-408:                                              ; preds = %jit_ADD_OFFSET.exit352
+408:                                              ; preds = %jit_ADD_OFFSET.exit353
   %409 = load i64, ptr %404, align 8
   %410 = trunc i64 %409 to i32
   %411 = load ptr, ptr %0, align 8
-  %sext.i.i356 = shl i64 %409, 32
-  %412 = ashr exact i64 %sext.i.i356, 32
+  %sext.i.i357 = shl i64 %409, 32
+  %412 = ashr exact i64 %sext.i.i357, 32
   %413 = getelementptr inbounds %struct._ir_insn, ptr %411, i64 %412
   %414 = load i16, ptr %413, align 8
   %415 = icmp eq i16 %414, 1542
   call void @llvm.assume(i1 %415)
-  br label %jit_ADD_OFFSET.exit357
+  br label %jit_ADD_OFFSET.exit358
 
-416:                                              ; preds = %jit_ADD_OFFSET.exit352
+416:                                              ; preds = %jit_ADD_OFFSET.exit353
   %417 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef 16) #32
   %418 = sext i32 %417 to i64
   store i64 %418, ptr %404, align 8
   store i32 4, ptr %405, align 8
-  br label %jit_ADD_OFFSET.exit357
+  br label %jit_ADD_OFFSET.exit358
 
-jit_ADD_OFFSET.exit357:                           ; preds = %408, %416
-  %.0.i.i354 = phi i32 [ %410, %408 ], [ %417, %416 ]
-  %419 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0269, i32 noundef %.0.i.i354) #32
+jit_ADD_OFFSET.exit358:                           ; preds = %408, %416
+  %.0.i.i355 = phi i32 [ %410, %408 ], [ %417, %416 ]
+  %419 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0269, i32 noundef %.0.i.i355) #32
   %420 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %419) #32
   %421 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 270, i32 noundef %403, i32 noundef %420) #32
   %422 = call i32 @_ir_IF(ptr noundef %0, i32 noundef %421) #32
@@ -105848,34 +105848,34 @@ jit_ADD_OFFSET.exit357:                           ; preds = %408, %416
   %429 = icmp eq i8 %428, 4
   br i1 %429, label %430, label %438
 
-430:                                              ; preds = %jit_ADD_OFFSET.exit357
+430:                                              ; preds = %jit_ADD_OFFSET.exit358
   %431 = load i64, ptr %426, align 8
   %432 = trunc i64 %431 to i32
   %433 = load ptr, ptr %0, align 8
-  %sext.i.i361 = shl i64 %431, 32
-  %434 = ashr exact i64 %sext.i.i361, 32
+  %sext.i.i363 = shl i64 %431, 32
+  %434 = ashr exact i64 %sext.i.i363, 32
   %435 = getelementptr inbounds %struct._ir_insn, ptr %433, i64 %434
   %436 = load i16, ptr %435, align 8
   %437 = icmp eq i16 %436, 1542
   call void @llvm.assume(i1 %437)
-  br label %jit_ADD_OFFSET.exit362
+  br label %jit_ADD_OFFSET.exit364
 
-438:                                              ; preds = %jit_ADD_OFFSET.exit357
+438:                                              ; preds = %jit_ADD_OFFSET.exit358
   %439 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %425) #32
   %440 = sext i32 %439 to i64
   store i64 %440, ptr %426, align 8
   store i32 4, ptr %427, align 8
-  br label %jit_ADD_OFFSET.exit362
+  br label %jit_ADD_OFFSET.exit364
 
-jit_ADD_OFFSET.exit362:                           ; preds = %430, %438
-  %.0.i.i359 = phi i32 [ %432, %430 ], [ %439, %438 ]
-  %441 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %382, i32 noundef %.0.i.i359) #32
+jit_ADD_OFFSET.exit364:                           ; preds = %430, %438
+  %.0.i.i361 = phi i32 [ %432, %430 ], [ %439, %438 ]
+  %441 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %382, i32 noundef %.0.i.i361) #32
   %442 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %441) #32
   br label %443
 
-443:                                              ; preds = %jit_ADD_OFFSET.exit362, %jit_ADD_OFFSET.exit336
-  %.0274 = phi i32 [ %349, %jit_ADD_OFFSET.exit336 ], [ %422, %jit_ADD_OFFSET.exit362 ]
-  %.0272 = phi i32 [ %348, %jit_ADD_OFFSET.exit336 ], [ %442, %jit_ADD_OFFSET.exit362 ]
+443:                                              ; preds = %jit_ADD_OFFSET.exit364, %jit_ADD_OFFSET.exit337
+  %.0274 = phi i32 [ %349, %jit_ADD_OFFSET.exit337 ], [ %422, %jit_ADD_OFFSET.exit364 ]
+  %.0272 = phi i32 [ %348, %jit_ADD_OFFSET.exit337 ], [ %442, %jit_ADD_OFFSET.exit364 ]
   %444 = call i32 @_ir_END(ptr noundef %0) #32
   call void @_ir_IF_FALSE_cold(ptr noundef %0, i32 noundef %.0274) #32
   call fastcc void @jit_SET_EX_OPLINE(ptr noundef %0, ptr noundef nonnull %1)
@@ -105896,24 +105896,24 @@ jit_ADD_OFFSET.exit362:                           ; preds = %430, %438
   %454 = load i64, ptr %449, align 8
   %455 = trunc i64 %454 to i32
   %456 = load ptr, ptr %0, align 8
-  %sext.i364 = shl i64 %454, 32
-  %457 = ashr exact i64 %sext.i364, 32
+  %sext.i366 = shl i64 %454, 32
+  %457 = ashr exact i64 %sext.i366, 32
   %458 = getelementptr inbounds %struct._ir_insn, ptr %456, i64 %457
   %459 = load i16, ptr %458, align 8
   %460 = icmp eq i16 %459, 1542
   call void @llvm.assume(i1 %460)
-  br label %jit_CONST_ADDR.exit365
+  br label %jit_CONST_ADDR.exit367
 
 461:                                              ; preds = %447
   %462 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 16) #32
   %463 = sext i32 %462 to i64
   store i64 %463, ptr %449, align 8
   store i32 4, ptr %450, align 8
-  br label %jit_CONST_ADDR.exit365
+  br label %jit_CONST_ADDR.exit367
 
-jit_CONST_ADDR.exit365:                           ; preds = %453, %461
-  %.0.i363 = phi i32 [ %455, %453 ], [ %462, %461 ]
-  %464 = call i32 @_ir_ALLOCA(ptr noundef nonnull %0, i32 noundef %.0.i363) #32
+jit_CONST_ADDR.exit367:                           ; preds = %453, %461
+  %.0.i365 = phi i32 [ %455, %453 ], [ %462, %461 ]
+  %464 = call i32 @_ir_ALLOCA(ptr noundef nonnull %0, i32 noundef %.0.i365) #32
   br label %468
 
 465:                                              ; preds = %443
@@ -105921,8 +105921,8 @@ jit_CONST_ADDR.exit365:                           ; preds = %453, %461
   %467 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1596, i32 noundef %466, i32 noundef 1) #32
   br label %468
 
-468:                                              ; preds = %465, %jit_CONST_ADDR.exit365
-  %.0276 = phi i32 [ %467, %465 ], [ %464, %jit_CONST_ADDR.exit365 ]
+468:                                              ; preds = %465, %jit_CONST_ADDR.exit367
+  %.0276 = phi i32 [ %467, %465 ], [ %464, %jit_CONST_ADDR.exit367 ]
   call void @_ir_STORE(ptr noundef nonnull %0, i32 noundef %.0276, i32 noundef %.0269) #32
   %469 = getelementptr inbounds i8, ptr %1, i64 29
   %470 = load i8, ptr %469, align 1
@@ -105943,8 +105943,8 @@ jit_CONST_ADDR.exit365:                           ; preds = %453, %461
   %479 = load i64, ptr %474, align 8
   %480 = trunc i64 %479 to i32
   %481 = load ptr, ptr %0, align 8
-  %sext.i.i367 = shl i64 %479, 32
-  %482 = ashr exact i64 %sext.i.i367, 32
+  %sext.i.i369 = shl i64 %479, 32
+  %482 = ashr exact i64 %sext.i.i369, 32
   %483 = getelementptr inbounds %struct._ir_insn, ptr %481, i64 %482
   %484 = load i16, ptr %483, align 8
   %485 = icmp eq i16 %484, 1601
@@ -105966,7 +105966,7 @@ jit_CONST_ADDR.exit365:                           ; preds = %453, %461
   br label %494
 
 494:                                              ; preds = %489, %478
-  %.0.i.i366 = phi i32 [ %480, %478 ], [ %490, %489 ]
+  %.0.i.i368 = phi i32 [ %480, %478 ], [ %490, %489 ]
   %495 = ptrtoint ptr %34 to i64
   %496 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %472, i64 noundef %495) #32
   %497 = getelementptr inbounds i8, ptr %496, i64 8
@@ -105978,24 +105978,24 @@ jit_CONST_ADDR.exit365:                           ; preds = %453, %461
   %501 = load i64, ptr %496, align 8
   %502 = trunc i64 %501 to i32
   %503 = load ptr, ptr %0, align 8
-  %sext.i370 = shl i64 %501, 32
-  %504 = ashr exact i64 %sext.i370, 32
+  %sext.i372 = shl i64 %501, 32
+  %504 = ashr exact i64 %sext.i372, 32
   %505 = getelementptr inbounds %struct._ir_insn, ptr %503, i64 %504
   %506 = load i16, ptr %505, align 8
   %507 = icmp eq i16 %506, 1542
   call void @llvm.assume(i1 %507)
-  br label %jit_CONST_ADDR.exit371
+  br label %jit_CONST_ADDR.exit373
 
 508:                                              ; preds = %494
   %509 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %495) #32
   %510 = sext i32 %509 to i64
   store i64 %510, ptr %496, align 8
   store i32 4, ptr %497, align 8
-  br label %jit_CONST_ADDR.exit371
+  br label %jit_CONST_ADDR.exit373
 
-jit_CONST_ADDR.exit371:                           ; preds = %500, %508
-  %.0.i369 = phi i32 [ %502, %500 ], [ %509, %508 ]
-  %511 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i366, i32 noundef %.0269, i32 noundef %.0.i369, i32 noundef %.0276) #32
+jit_CONST_ADDR.exit373:                           ; preds = %500, %508
+  %.0.i371 = phi i32 [ %502, %500 ], [ %509, %508 ]
+  %511 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i368, i32 noundef %.0269, i32 noundef %.0.i371, i32 noundef %.0276) #32
   br label %551
 
 512:                                              ; preds = %468
@@ -106009,8 +106009,8 @@ jit_CONST_ADDR.exit371:                           ; preds = %500, %508
   %518 = load i64, ptr %513, align 8
   %519 = trunc i64 %518 to i32
   %520 = load ptr, ptr %0, align 8
-  %sext.i.i373 = shl i64 %518, 32
-  %521 = ashr exact i64 %sext.i.i373, 32
+  %sext.i.i375 = shl i64 %518, 32
+  %521 = ashr exact i64 %sext.i.i375, 32
   %522 = getelementptr inbounds %struct._ir_insn, ptr %520, i64 %521
   %523 = load i16, ptr %522, align 8
   %524 = icmp eq i16 %523, 1601
@@ -106032,7 +106032,7 @@ jit_CONST_ADDR.exit371:                           ; preds = %500, %508
   br label %533
 
 533:                                              ; preds = %528, %517
-  %.0.i.i372 = phi i32 [ %519, %517 ], [ %529, %528 ]
+  %.0.i.i374 = phi i32 [ %519, %517 ], [ %529, %528 ]
   %534 = ptrtoint ptr %34 to i64
   %535 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %472, i64 noundef %534) #32
   %536 = getelementptr inbounds i8, ptr %535, i64 8
@@ -106044,28 +106044,28 @@ jit_CONST_ADDR.exit371:                           ; preds = %500, %508
   %540 = load i64, ptr %535, align 8
   %541 = trunc i64 %540 to i32
   %542 = load ptr, ptr %0, align 8
-  %sext.i376 = shl i64 %540, 32
-  %543 = ashr exact i64 %sext.i376, 32
+  %sext.i378 = shl i64 %540, 32
+  %543 = ashr exact i64 %sext.i378, 32
   %544 = getelementptr inbounds %struct._ir_insn, ptr %542, i64 %543
   %545 = load i16, ptr %544, align 8
   %546 = icmp eq i16 %545, 1542
   call void @llvm.assume(i1 %546)
-  br label %jit_CONST_ADDR.exit377
+  br label %jit_CONST_ADDR.exit379
 
 547:                                              ; preds = %533
   %548 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %534) #32
   %549 = sext i32 %548 to i64
   store i64 %549, ptr %535, align 8
   store i32 4, ptr %536, align 8
-  br label %jit_CONST_ADDR.exit377
+  br label %jit_CONST_ADDR.exit379
 
-jit_CONST_ADDR.exit377:                           ; preds = %539, %547
-  %.0.i375 = phi i32 [ %541, %539 ], [ %548, %547 ]
-  %550 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i372, i32 noundef %.0269, i32 noundef %.0.i375, i32 noundef %.0276) #32
+jit_CONST_ADDR.exit379:                           ; preds = %539, %547
+  %.0.i377 = phi i32 [ %541, %539 ], [ %548, %547 ]
+  %550 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i374, i32 noundef %.0269, i32 noundef %.0.i377, i32 noundef %.0276) #32
   br label %551
 
-551:                                              ; preds = %jit_CONST_ADDR.exit377, %jit_CONST_ADDR.exit371
-  %.0273 = phi i32 [ %550, %jit_CONST_ADDR.exit377 ], [ %511, %jit_CONST_ADDR.exit371 ]
+551:                                              ; preds = %jit_CONST_ADDR.exit379, %jit_CONST_ADDR.exit373
+  %.0273 = phi i32 [ %550, %jit_CONST_ADDR.exit379 ], [ %511, %jit_CONST_ADDR.exit373 ]
   %552 = call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 4) #32
   %553 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %552) #32
   %554 = load i32, ptr %445, align 8
@@ -106084,51 +106084,51 @@ jit_CONST_ADDR.exit377:                           ; preds = %539, %547
   %562 = load i64, ptr %557, align 8
   %563 = trunc i64 %562 to i32
   %564 = load ptr, ptr %0, align 8
-  %sext.i379 = shl i64 %562, 32
-  %565 = ashr exact i64 %sext.i379, 32
+  %sext.i381 = shl i64 %562, 32
+  %565 = ashr exact i64 %sext.i381, 32
   %566 = getelementptr inbounds %struct._ir_insn, ptr %564, i64 %565
   %567 = load i16, ptr %566, align 8
   %568 = icmp eq i16 %567, 1542
   call void @llvm.assume(i1 %568)
-  br label %jit_CONST_ADDR.exit380
+  br label %jit_CONST_ADDR.exit382
 
 569:                                              ; preds = %555
   %570 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 16) #32
   %571 = sext i32 %570 to i64
   store i64 %571, ptr %557, align 8
   store i32 4, ptr %558, align 8
-  br label %jit_CONST_ADDR.exit380
+  br label %jit_CONST_ADDR.exit382
 
-jit_CONST_ADDR.exit380:                           ; preds = %561, %569
-  %.0.i378 = phi i32 [ %563, %561 ], [ %570, %569 ]
-  call void @_ir_AFREE(ptr noundef nonnull %0, i32 noundef %.0.i378) #32
+jit_CONST_ADDR.exit382:                           ; preds = %561, %569
+  %.0.i380 = phi i32 [ %563, %561 ], [ %570, %569 ]
+  call void @_ir_AFREE(ptr noundef nonnull %0, i32 noundef %.0.i380) #32
   br label %572
 
-572:                                              ; preds = %jit_CONST_ADDR.exit380, %551
+572:                                              ; preds = %jit_CONST_ADDR.exit382, %551
   %573 = getelementptr inbounds i8, ptr %0, i64 864
   %574 = load i32, ptr %573, align 4
-  %.not.i381 = icmp eq i32 %574, 0
-  br i1 %.not.i381, label %575, label %jit_STUB_ADDR.exit383
+  %.not.i383 = icmp eq i32 %574, 0
+  br i1 %.not.i383, label %575, label %jit_STUB_ADDR.exit385
 
 575:                                              ; preds = %572
   %576 = load ptr, ptr @zend_jit_stub_handlers, align 16
   %577 = ptrtoint ptr %576 to i64
   %578 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %577) #32
   store i32 %578, ptr %573, align 4
-  br label %jit_STUB_ADDR.exit383
+  br label %jit_STUB_ADDR.exit385
 
-jit_STUB_ADDR.exit383:                            ; preds = %572, %575
-  %.0.i382 = phi i32 [ %578, %575 ], [ %574, %572 ]
-  call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %.0273, i32 noundef %.0.i382) #32
+jit_STUB_ADDR.exit385:                            ; preds = %572, %575
+  %.0.i384 = phi i32 [ %578, %575 ], [ %574, %572 ]
+  call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %.0273, i32 noundef %.0.i384) #32
   %579 = call i32 @_ir_END(ptr noundef nonnull %0) #32
   call void @_ir_MERGE_2(ptr noundef nonnull %0, i32 noundef %579, i32 noundef %444) #32
   %580 = call i32 @_ir_PHI_2(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0273, i32 noundef %.0272) #32
   %581 = call i32 @_ir_PHI_2(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %553, i32 noundef %.0269) #32
   br label %zend_jit_deopt_rload.exit316
 
-zend_jit_deopt_rload.exit316:                     ; preds = %83, %78, %jit_STUB_ADDR.exit383
-  %.0271 = phi i32 [ %580, %jit_STUB_ADDR.exit383 ], [ %.0.i, %78 ], [ %.0.i, %83 ]
-  %.1270 = phi i32 [ %581, %jit_STUB_ADDR.exit383 ], [ %.014.i313, %78 ], [ %84, %83 ]
+zend_jit_deopt_rload.exit316:                     ; preds = %83, %78, %jit_STUB_ADDR.exit385
+  %.0271 = phi i32 [ %580, %jit_STUB_ADDR.exit385 ], [ %.0.i, %78 ], [ %.0.i, %83 ]
+  %.1270 = phi i32 [ %581, %jit_STUB_ADDR.exit385 ], [ %.014.i313, %78 ], [ %84, %83 ]
   %.not295 = icmp eq ptr %.0265, null
   br i1 %.not295, label %598, label %582
 
@@ -106143,8 +106143,8 @@ zend_jit_deopt_rload.exit316:                     ; preds = %83, %78, %jit_STUB_
   %585 = getelementptr inbounds i8, ptr %.0265, i64 4
   %586 = load i32, ptr %585, align 4
   %587 = and i32 %586, 1024
-  %.not.i384 = icmp eq i32 %587, 0
-  br i1 %.not.i384, label %588, label %zend_jit_may_be_modified.exit.thread
+  %.not.i386 = icmp eq i32 %587, 0
+  br i1 %.not.i386, label %588, label %zend_jit_may_be_modified.exit.thread
 
 588:                                              ; preds = %584
   %589 = getelementptr inbounds i8, ptr %.0265, i64 152
@@ -106187,22 +106187,22 @@ zend_jit_may_be_modified.exit:                    ; preds = %582, %588
   %608 = load ptr, ptr @zend_jit_traces, align 8
   %609 = getelementptr inbounds i8, ptr %608, i64 16
   %610 = load i32, ptr %609, align 8
-  %.not.i386 = icmp ugt i32 %610, %607
-  br i1 %.not.i386, label %635, label %611
+  %.not.i388 = icmp ugt i32 %610, %607
+  br i1 %.not.i388, label %635, label %611
 
 611:                                              ; preds = %605
   %612 = icmp ugt i32 %607, 511
-  br i1 %612, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i387
+  br i1 %612, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i389
 
-.preheader.i.i387:                                ; preds = %611
+.preheader.i.i389:                                ; preds = %611
   %613 = getelementptr inbounds i8, ptr %18, i64 8
   %614 = getelementptr inbounds i8, ptr %18, i64 16
-  %.pre12.i.i388 = load ptr, ptr @dasm_ptr, align 8
+  %.pre12.i.i390 = load ptr, ptr @dasm_ptr, align 8
   br label %615
 
-615:                                              ; preds = %625, %.preheader.i.i387
-  %616 = phi ptr [ %.pre12.i.i388, %.preheader.i.i387 ], [ %624, %625 ]
-  %617 = phi i32 [ %610, %.preheader.i.i387 ], [ %634, %625 ]
+615:                                              ; preds = %625, %.preheader.i.i389
+  %616 = phi ptr [ %.pre12.i.i390, %.preheader.i.i389 ], [ %624, %625 ]
+  %617 = phi i32 [ %610, %.preheader.i.i389 ], [ %634, %625 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   %618 = load ptr, ptr @dasm_buf, align 8
@@ -106218,8 +106218,8 @@ zend_jit_may_be_modified.exit:                    ; preds = %582, %588
   store ptr %623, ptr %624, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
-  %.not.i.i389 = icmp eq ptr %622, null
-  br i1 %.not.i.i389, label %zend_jit_trace_get_exit_addr.exit.thread, label %625
+  %.not.i.i391 = icmp eq ptr %622, null
+  br i1 %.not.i.i391, label %zend_jit_trace_get_exit_addr.exit.thread, label %625
 
 625:                                              ; preds = %615
   %626 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -106233,8 +106233,8 @@ zend_jit_may_be_modified.exit:                    ; preds = %582, %588
   %633 = load i32, ptr %628, align 8
   %634 = add i32 %633, 32
   store i32 %634, ptr %628, align 8
-  %.not8.i.i390 = icmp ugt i32 %634, %607
-  br i1 %.not8.i.i390, label %zend_jit_trace_get_exit_addr.exit392, label %615
+  %.not8.i.i392 = icmp ugt i32 %634, %607
+  br i1 %.not8.i.i392, label %zend_jit_trace_get_exit_addr.exit394, label %615
 
 635:                                              ; preds = %605
   %636 = load ptr, ptr @zend_jit_exit_groups, align 8
@@ -106242,9 +106242,9 @@ zend_jit_may_be_modified.exit:                    ; preds = %582, %588
   %638 = zext nneg i32 %637 to i64
   %639 = getelementptr inbounds ptr, ptr %636, i64 %638
   %640 = load ptr, ptr %639, align 8
-  br label %zend_jit_trace_get_exit_addr.exit392
+  br label %zend_jit_trace_get_exit_addr.exit394
 
-zend_jit_trace_get_exit_addr.exit392:             ; preds = %625, %635
+zend_jit_trace_get_exit_addr.exit394:             ; preds = %625, %635
   %.lcssa85.sink = phi ptr [ %640, %635 ], [ %622, %625 ]
   %641 = shl i32 %607, 2
   %642 = and i32 %641, 124
@@ -106253,7 +106253,7 @@ zend_jit_trace_get_exit_addr.exit392:             ; preds = %625, %635
   %.not297 = icmp eq ptr %.lcssa85.sink, null
   br i1 %.not297, label %zend_jit_trace_get_exit_addr.exit.thread, label %645
 
-645:                                              ; preds = %zend_jit_trace_get_exit_addr.exit392
+645:                                              ; preds = %zend_jit_trace_get_exit_addr.exit394
   %646 = getelementptr inbounds i8, ptr %0, i64 768
   %647 = load ptr, ptr %646, align 8
   %648 = getelementptr inbounds i8, ptr %647, i64 72
@@ -106298,30 +106298,30 @@ zend_jit_trace_get_exit_addr.exit392:             ; preds = %625, %635
   %675 = load i64, ptr %670, align 8
   %676 = trunc i64 %675 to i32
   %677 = load ptr, ptr %0, align 8
-  %sext.i.i396 = shl i64 %675, 32
-  %678 = ashr exact i64 %sext.i.i396, 32
+  %sext.i.i398 = shl i64 %675, 32
+  %678 = ashr exact i64 %sext.i.i398, 32
   %679 = getelementptr inbounds %struct._ir_insn, ptr %677, i64 %678
   %680 = load i16, ptr %679, align 8
   %681 = icmp eq i16 %680, 1542
   call void @llvm.assume(i1 %681)
-  br label %jit_ADD_OFFSET.exit397
+  br label %jit_ADD_OFFSET.exit399
 
 682:                                              ; preds = %666
   %683 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 88) #32
   %684 = sext i32 %683 to i64
   store i64 %684, ptr %670, align 8
   store i32 4, ptr %671, align 8
-  br label %jit_ADD_OFFSET.exit397
+  br label %jit_ADD_OFFSET.exit399
 
-jit_ADD_OFFSET.exit397:                           ; preds = %674, %682
-  %.0.i.i394 = phi i32 [ %676, %674 ], [ %683, %682 ]
-  %685 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %.0271, i32 noundef %.0.i.i394) #32
+jit_ADD_OFFSET.exit399:                           ; preds = %674, %682
+  %.0.i.i396 = phi i32 [ %676, %674 ], [ %683, %682 ]
+  %685 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %.0271, i32 noundef %.0.i.i396) #32
   %686 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %685) #32
   %687 = ptrtoint ptr %668 to i64
   %688 = icmp eq ptr %668, null
   br i1 %688, label %705, label %689
 
-689:                                              ; preds = %jit_ADD_OFFSET.exit397
+689:                                              ; preds = %jit_ADD_OFFSET.exit399
   %690 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %669, i64 noundef %687) #32
   %691 = getelementptr inbounds i8, ptr %690, i64 8
   %692 = load i8, ptr %691, align 8
@@ -106332,8 +106332,8 @@ jit_ADD_OFFSET.exit397:                           ; preds = %674, %682
   %695 = load i64, ptr %690, align 8
   %696 = trunc i64 %695 to i32
   %697 = load ptr, ptr %0, align 8
-  %sext.i399 = shl i64 %695, 32
-  %698 = ashr exact i64 %sext.i399, 32
+  %sext.i401 = shl i64 %695, 32
+  %698 = ashr exact i64 %sext.i401, 32
   %699 = getelementptr inbounds %struct._ir_insn, ptr %697, i64 %698
   %700 = load i16, ptr %699, align 8
   %701 = icmp eq i16 %700, 1542
@@ -106347,9 +106347,9 @@ jit_ADD_OFFSET.exit397:                           ; preds = %674, %682
   store i32 4, ptr %691, align 8
   br label %705
 
-705:                                              ; preds = %702, %694, %jit_ADD_OFFSET.exit397
-  %.0.i398 = phi i32 [ -1, %jit_ADD_OFFSET.exit397 ], [ %696, %694 ], [ %703, %702 ]
-  %706 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 270, i32 noundef %686, i32 noundef %.0.i398) #32
+705:                                              ; preds = %702, %694, %jit_ADD_OFFSET.exit399
+  %.0.i400 = phi i32 [ -1, %jit_ADD_OFFSET.exit399 ], [ %696, %694 ], [ %703, %702 ]
+  %706 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 270, i32 noundef %686, i32 noundef %.0.i400) #32
   %707 = ptrtoint ptr %644 to i64
   %708 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %669, i64 noundef %707) #32
   %709 = getelementptr inbounds i8, ptr %708, i64 8
@@ -106361,24 +106361,24 @@ jit_ADD_OFFSET.exit397:                           ; preds = %674, %682
   %713 = load i64, ptr %708, align 8
   %714 = trunc i64 %713 to i32
   %715 = load ptr, ptr %0, align 8
-  %sext.i402 = shl i64 %713, 32
-  %716 = ashr exact i64 %sext.i402, 32
+  %sext.i404 = shl i64 %713, 32
+  %716 = ashr exact i64 %sext.i404, 32
   %717 = getelementptr inbounds %struct._ir_insn, ptr %715, i64 %716
   %718 = load i16, ptr %717, align 8
   %719 = icmp eq i16 %718, 1542
   call void @llvm.assume(i1 %719)
-  br label %jit_CONST_ADDR.exit403
+  br label %jit_CONST_ADDR.exit405
 
 720:                                              ; preds = %705
   %721 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %707) #32
   %722 = sext i32 %721 to i64
   store i64 %722, ptr %708, align 8
   store i32 4, ptr %709, align 8
-  br label %jit_CONST_ADDR.exit403
+  br label %jit_CONST_ADDR.exit405
 
-jit_CONST_ADDR.exit403:                           ; preds = %712, %720
-  %.0.i401 = phi i32 [ %714, %712 ], [ %721, %720 ]
-  call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %706, i32 noundef %.0.i401) #32
+jit_CONST_ADDR.exit405:                           ; preds = %712, %720
+  %.0.i403 = phi i32 [ %714, %712 ], [ %721, %720 ]
+  call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %706, i32 noundef %.0.i403) #32
   br label %zend_jit_may_be_modified.exit.thread
 
 723:                                              ; preds = %645, %663
@@ -106394,8 +106394,8 @@ jit_CONST_ADDR.exit403:                           ; preds = %712, %720
   %731 = load i64, ptr %726, align 8
   %732 = trunc i64 %731 to i32
   %733 = load ptr, ptr %0, align 8
-  %sext.i405 = shl i64 %731, 32
-  %734 = ashr exact i64 %sext.i405, 32
+  %sext.i407 = shl i64 %731, 32
+  %734 = ashr exact i64 %sext.i407, 32
   %735 = getelementptr inbounds %struct._ir_insn, ptr %733, i64 %734
   %736 = load i16, ptr %735, align 8
   %737 = icmp eq i16 %736, 1542
@@ -106410,8 +106410,8 @@ jit_CONST_ADDR.exit403:                           ; preds = %712, %720
   br label %741
 
 741:                                              ; preds = %738, %730
-  %.0.i404 = phi i32 [ %732, %730 ], [ %739, %738 ]
-  %742 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 270, i32 noundef %.0271, i32 noundef %.0.i404) #32
+  %.0.i406 = phi i32 [ %732, %730 ], [ %739, %738 ]
+  %742 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 270, i32 noundef %.0271, i32 noundef %.0.i406) #32
   %743 = ptrtoint ptr %644 to i64
   %744 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %725, i64 noundef %743) #32
   %745 = getelementptr inbounds i8, ptr %744, i64 8
@@ -106423,24 +106423,24 @@ jit_CONST_ADDR.exit403:                           ; preds = %712, %720
   %749 = load i64, ptr %744, align 8
   %750 = trunc i64 %749 to i32
   %751 = load ptr, ptr %0, align 8
-  %sext.i408 = shl i64 %749, 32
-  %752 = ashr exact i64 %sext.i408, 32
+  %sext.i410 = shl i64 %749, 32
+  %752 = ashr exact i64 %sext.i410, 32
   %753 = getelementptr inbounds %struct._ir_insn, ptr %751, i64 %752
   %754 = load i16, ptr %753, align 8
   %755 = icmp eq i16 %754, 1542
   call void @llvm.assume(i1 %755)
-  br label %jit_CONST_ADDR.exit409
+  br label %jit_CONST_ADDR.exit411
 
 756:                                              ; preds = %741
   %757 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %743) #32
   %758 = sext i32 %757 to i64
   store i64 %758, ptr %744, align 8
   store i32 4, ptr %745, align 8
-  br label %jit_CONST_ADDR.exit409
+  br label %jit_CONST_ADDR.exit411
 
-jit_CONST_ADDR.exit409:                           ; preds = %748, %756
-  %.0.i407 = phi i32 [ %750, %748 ], [ %757, %756 ]
-  call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %742, i32 noundef %.0.i407) #32
+jit_CONST_ADDR.exit411:                           ; preds = %748, %756
+  %.0.i409 = phi i32 [ %750, %748 ], [ %757, %756 ]
+  call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %742, i32 noundef %.0.i409) #32
   br label %zend_jit_may_be_modified.exit.thread
 
 759:                                              ; preds = %602, %599
@@ -106458,8 +106458,8 @@ jit_CONST_ADDR.exit409:                           ; preds = %748, %756
   %766 = load i64, ptr %761, align 8
   %767 = trunc i64 %766 to i32
   %768 = load ptr, ptr %0, align 8
-  %sext.i.i413 = shl i64 %766, 32
-  %769 = ashr exact i64 %sext.i.i413, 32
+  %sext.i.i415 = shl i64 %766, 32
+  %769 = ashr exact i64 %sext.i.i415, 32
   %770 = getelementptr inbounds %struct._ir_insn, ptr %768, i64 %769
   %771 = load i16, ptr %770, align 8
   %772 = icmp eq i16 %771, 1542
@@ -106474,8 +106474,8 @@ jit_CONST_ADDR.exit409:                           ; preds = %748, %756
   br label %.thread16
 
 .thread16:                                        ; preds = %773, %765
-  %.0.i.i411 = phi i32 [ %767, %765 ], [ %774, %773 ]
-  %776 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0271, i32 noundef %.0.i.i411) #32
+  %.0.i.i413 = phi i32 [ %767, %765 ], [ %774, %773 ]
+  %776 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %.0271, i32 noundef %.0.i.i413) #32
   %777 = call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 4, i32 noundef %776) #32
   %778 = call i32 @ir_const_u32(ptr noundef %0, i32 noundef 16) #32
   %779 = call i32 @ir_fold2(ptr noundef %0, i32 noundef 1069, i32 noundef %777, i32 noundef %778) #32
@@ -106483,8 +106483,8 @@ jit_CONST_ADDR.exit409:                           ; preds = %748, %756
   call void @_ir_IF_TRUE_cold(ptr noundef %0, i32 noundef %780) #32
   br label %784
 
-zend_jit_may_be_modified.exit.thread:             ; preds = %759, %594, %584, %582, %zend_jit_may_be_modified.exit, %jit_CONST_ADDR.exit409, %jit_CONST_ADDR.exit403
-  %.1266931 = phi ptr [ %.0265, %zend_jit_may_be_modified.exit ], [ %656, %jit_CONST_ADDR.exit409 ], [ %656, %jit_CONST_ADDR.exit403 ], [ %.0265, %582 ], [ %.0265, %584 ], [ %.0265, %594 ], [ %.0265, %759 ]
+zend_jit_may_be_modified.exit.thread:             ; preds = %759, %594, %584, %582, %zend_jit_may_be_modified.exit, %jit_CONST_ADDR.exit411, %jit_CONST_ADDR.exit405
+  %.1266931 = phi ptr [ %.0265, %zend_jit_may_be_modified.exit ], [ %656, %jit_CONST_ADDR.exit411 ], [ %656, %jit_CONST_ADDR.exit405 ], [ %.0265, %582 ], [ %.0265, %584 ], [ %.0265, %594 ], [ %.0265, %759 ]
   %781 = getelementptr inbounds i8, ptr %.1266931, i64 4
   %782 = load i32, ptr %781, align 4
   %783 = and i32 %782, 16
@@ -106514,8 +106514,8 @@ zend_jit_may_be_modified.exit.thread:             ; preds = %759, %594, %584, %5
   %795 = load i64, ptr %790, align 8
   %796 = trunc i64 %795 to i32
   %797 = load ptr, ptr %0, align 8
-  %sext.i.i416 = shl i64 %795, 32
-  %798 = ashr exact i64 %sext.i.i416, 32
+  %sext.i.i418 = shl i64 %795, 32
+  %798 = ashr exact i64 %sext.i.i418, 32
   %799 = getelementptr inbounds %struct._ir_insn, ptr %797, i64 %798
   %800 = load i16, ptr %799, align 8
   %801 = icmp eq i16 %800, 1601
@@ -106524,7 +106524,7 @@ zend_jit_may_be_modified.exit.thread:             ; preds = %759, %594, %584, %5
   %803 = load i16, ptr %802, align 2
   %804 = icmp eq i16 %803, 0
   call void @llvm.assume(i1 %804)
-  br label %jit_CONST_FUNC.exit417
+  br label %jit_CONST_FUNC.exit419
 
 805:                                              ; preds = %789
   %806 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_push_static_metod_call_frame_tmp to i64)) #32
@@ -106534,7 +106534,7 @@ zend_jit_may_be_modified.exit.thread:             ; preds = %759, %594, %584, %5
   store i32 1601, ptr %809, align 8
   store i64 %808, ptr %790, align 8
   store i32 4, ptr %791, align 8
-  br label %jit_CONST_FUNC.exit417
+  br label %jit_CONST_FUNC.exit419
 
 810:                                              ; preds = %784
   %811 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %788, i64 noundef ptrtoint (ptr @zend_jit_push_static_metod_call_frame to i64)) #32
@@ -106547,8 +106547,8 @@ zend_jit_may_be_modified.exit.thread:             ; preds = %759, %594, %584, %5
   %816 = load i64, ptr %811, align 8
   %817 = trunc i64 %816 to i32
   %818 = load ptr, ptr %0, align 8
-  %sext.i.i419 = shl i64 %816, 32
-  %819 = ashr exact i64 %sext.i.i419, 32
+  %sext.i.i421 = shl i64 %816, 32
+  %819 = ashr exact i64 %sext.i.i421, 32
   %820 = getelementptr inbounds %struct._ir_insn, ptr %818, i64 %819
   %821 = load i16, ptr %820, align 8
   %822 = icmp eq i16 %821, 1601
@@ -106557,7 +106557,7 @@ zend_jit_may_be_modified.exit.thread:             ; preds = %759, %594, %584, %5
   %824 = load i16, ptr %823, align 2
   %825 = icmp eq i16 %824, 0
   call void @llvm.assume(i1 %825)
-  br label %jit_CONST_FUNC.exit417
+  br label %jit_CONST_FUNC.exit419
 
 826:                                              ; preds = %810
   %827 = call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef ptrtoint (ptr @zend_jit_push_static_metod_call_frame to i64)) #32
@@ -106567,39 +106567,39 @@ zend_jit_may_be_modified.exit.thread:             ; preds = %759, %594, %584, %5
   store i32 1601, ptr %830, align 8
   store i64 %829, ptr %811, align 8
   store i32 4, ptr %812, align 8
-  br label %jit_CONST_FUNC.exit417
+  br label %jit_CONST_FUNC.exit419
 
-jit_CONST_FUNC.exit417:                           ; preds = %826, %815, %805, %794
-  %.0.i.i418.sink = phi i32 [ %796, %794 ], [ %806, %805 ], [ %817, %815 ], [ %827, %826 ]
+jit_CONST_FUNC.exit419:                           ; preds = %826, %815, %805, %794
+  %.0.i.i420.sink = phi i32 [ %796, %794 ], [ %806, %805 ], [ %817, %815 ], [ %827, %826 ]
   %831 = getelementptr inbounds i8, ptr %1, i64 20
   %832 = load i32, ptr %831, align 4
   %833 = call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef %832) #32
-  %834 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i418.sink, i32 noundef %.1270, i32 noundef %.0271, i32 noundef %833) #32
+  %834 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i420.sink, i32 noundef %.1270, i32 noundef %.0271, i32 noundef %833) #32
   %835 = load i8, ptr %785, align 1
   %836 = and i8 %835, 6
   %.not304 = icmp eq i8 %836, 0
   %brmerge311 = or i1 %.not304, %10
   br i1 %brmerge311, label %844, label %837
 
-837:                                              ; preds = %jit_CONST_FUNC.exit417
+837:                                              ; preds = %jit_CONST_FUNC.exit419
   %838 = getelementptr inbounds i8, ptr %0, i64 864
   %839 = load i32, ptr %838, align 4
-  %.not.i421 = icmp eq i32 %839, 0
-  br i1 %.not.i421, label %840, label %jit_STUB_ADDR.exit423
+  %.not.i423 = icmp eq i32 %839, 0
+  br i1 %.not.i423, label %840, label %jit_STUB_ADDR.exit425
 
 840:                                              ; preds = %837
   %841 = load ptr, ptr @zend_jit_stub_handlers, align 16
   %842 = ptrtoint ptr %841 to i64
   %843 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %842) #32
   store i32 %843, ptr %838, align 4
-  br label %jit_STUB_ADDR.exit423
+  br label %jit_STUB_ADDR.exit425
 
-jit_STUB_ADDR.exit423:                            ; preds = %837, %840
-  %.0.i422 = phi i32 [ %843, %840 ], [ %839, %837 ]
-  call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %834, i32 noundef %.0.i422) #32
+jit_STUB_ADDR.exit425:                            ; preds = %837, %840
+  %.0.i424 = phi i32 [ %843, %840 ], [ %839, %837 ]
+  call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %834, i32 noundef %.0.i424) #32
   br label %844
 
-844:                                              ; preds = %jit_STUB_ADDR.exit423, %jit_CONST_FUNC.exit417
+844:                                              ; preds = %jit_STUB_ADDR.exit425, %jit_CONST_FUNC.exit419
   call void @_ir_RSTORE(ptr noundef nonnull %0, i32 noundef 15, i32 noundef %834) #32
   br i1 %.not3011021, label %848, label %..thread33_crit_edge
 
@@ -106639,7 +106639,7 @@ jit_STUB_ADDR.exit423:                            ; preds = %837, %840
   store ptr null, ptr %855, align 8
   %856 = getelementptr inbounds i8, ptr %0, i64 690
   store i8 1, ptr %856, align 2
-  %857 = call fastcc i32 @zend_jit_needs_call_chain(ptr noundef %.1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %1, i32 noundef %6, ptr noundef %11), !range !7
+  %857 = call fastcc i32 @zend_jit_needs_call_chain(ptr noundef %.1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %1, i32 noundef %6, ptr noundef %11)
   %.not306 = icmp eq i32 %857, 0
   br i1 %.not306, label %859, label %858
 
@@ -106655,13 +106655,13 @@ jit_STUB_ADDR.exit423:                            ; preds = %837, %840
   store i32 %6, ptr %861, align 4
   br label %zend_jit_trace_get_exit_addr.exit.thread
 
-zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %147, %615, %.thread, %611, %143, %859, %858, %848, %zend_jit_trace_get_exit_addr.exit392, %zend_jit_trace_get_exit_addr.exit
-  %.0 = phi i32 [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 0, %zend_jit_trace_get_exit_addr.exit392 ], [ 0, %848 ], [ 1, %858 ], [ 1, %859 ], [ 0, %143 ], [ 0, %611 ], [ 0, %.thread ], [ 0, %615 ], [ 0, %147 ]
+zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %147, %615, %.thread, %611, %143, %859, %858, %848, %zend_jit_trace_get_exit_addr.exit394, %zend_jit_trace_get_exit_addr.exit
+  %.0 = phi i32 [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 0, %zend_jit_trace_get_exit_addr.exit394 ], [ 0, %848 ], [ 1, %858 ], [ 1, %859 ], [ 0, %143 ], [ 0, %611 ], [ 0, %.thread ], [ 0, %615 ], [ 0, %147 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_init_closure_call(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_init_closure_call(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = alloca %struct._ir_code_buffer, align 8
   %12 = alloca i64, align 8
@@ -107091,7 +107091,7 @@ jit_CONST_ADDR.exit107:                           ; preds = %243, %251
   br i1 %.not84, label %zend_jit_trace_get_exit_addr.exit.thread, label %260
 
 260:                                              ; preds = %258
-  %261 = call fastcc i32 @zend_jit_needs_call_chain(ptr noundef null, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %1, i32 noundef %6, ptr noundef %7), !range !7
+  %261 = call fastcc i32 @zend_jit_needs_call_chain(ptr noundef null, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %1, i32 noundef %6, ptr noundef %7)
   %.not85 = icmp eq i32 %261, 0
   br i1 %.not85, label %263, label %262
 
@@ -107294,44 +107294,44 @@ jit_CONST_ADDR.exit:                              ; preds = %jit_ADD_OFFSET.exit
   %97 = getelementptr inbounds i8, ptr %0, i64 700
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %98, 0
-  br i1 %99, label %.loopexit.sink.split.i63, label %.preheader.i59
+  br i1 %99, label %.loopexit.sink.split.i64, label %.preheader.i60
 
-.preheader.i59:                                   ; preds = %86
+.preheader.i60:                                   ; preds = %86
   %100 = icmp eq i32 %95, %98
-  br i1 %100, label %jit_FP.exit65, label %.lr.ph.i60
+  br i1 %100, label %jit_FP.exit66, label %.lr.ph.i61
 
-.lr.ph.i60:                                       ; preds = %.preheader.i59
+.lr.ph.i61:                                       ; preds = %.preheader.i60
   %101 = load ptr, ptr %0, align 8
   br label %102
 
-102:                                              ; preds = %108, %.lr.ph.i60
-  %.015.i61 = phi i32 [ %95, %.lr.ph.i60 ], [ %110, %108 ]
-  %103 = sext i32 %.015.i61 to i64
+102:                                              ; preds = %108, %.lr.ph.i61
+  %.015.i62 = phi i32 [ %95, %.lr.ph.i61 ], [ %110, %108 ]
+  %103 = sext i32 %.015.i62 to i64
   %104 = getelementptr inbounds %struct._ir_insn, ptr %101, i64 %103
   %105 = load i8, ptr %104, align 8
   %106 = icmp ugt i8 %105, 88
   %107 = icmp eq i8 %105, 69
-  %or.cond.i62 = or i1 %106, %107
-  br i1 %or.cond.i62, label %.loopexit.sink.split.i63, label %108
+  %or.cond.i63 = or i1 %106, %107
+  br i1 %or.cond.i63, label %.loopexit.sink.split.i64, label %108
 
 108:                                              ; preds = %102
   %109 = getelementptr inbounds i8, ptr %104, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = icmp eq i32 %110, %98
-  br i1 %111, label %jit_FP.exit65, label %102
+  br i1 %111, label %jit_FP.exit66, label %102
 
-.loopexit.sink.split.i63:                         ; preds = %102, %86
+.loopexit.sink.split.i64:                         ; preds = %102, %86
   %112 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 14) #32
   store i32 %112, ptr %97, align 4
-  br label %jit_FP.exit65
+  br label %jit_FP.exit66
 
-jit_FP.exit65:                                    ; preds = %108, %.preheader.i59, %.loopexit.sink.split.i63
-  %113 = phi i32 [ %95, %.preheader.i59 ], [ %112, %.loopexit.sink.split.i63 ], [ %98, %108 ]
+jit_FP.exit66:                                    ; preds = %108, %.preheader.i60, %.loopexit.sink.split.i64
+  %113 = phi i32 [ %95, %.preheader.i60 ], [ %112, %.loopexit.sink.split.i64 ], [ %98, %108 ]
   %114 = zext i32 %18 to i64
-  %.not.i66 = icmp eq i32 %18, 0
-  br i1 %.not.i66, label %jit_ADD_OFFSET.exit71, label %115
+  %.not.i67 = icmp eq i32 %18, 0
+  br i1 %.not.i67, label %jit_ADD_OFFSET.exit72, label %115
 
-115:                                              ; preds = %jit_FP.exit65
+115:                                              ; preds = %jit_FP.exit66
   %116 = getelementptr inbounds i8, ptr %0, i64 808
   %117 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %116, i64 noundef %114) #32
   %118 = getelementptr inbounds i8, ptr %117, i64 8
@@ -107343,34 +107343,34 @@ jit_FP.exit65:                                    ; preds = %108, %.preheader.i5
   %122 = load i64, ptr %117, align 8
   %123 = trunc i64 %122 to i32
   %124 = load ptr, ptr %0, align 8
-  %sext.i.i70 = shl i64 %122, 32
-  %125 = ashr exact i64 %sext.i.i70, 32
+  %sext.i.i71 = shl i64 %122, 32
+  %125 = ashr exact i64 %sext.i.i71, 32
   %126 = getelementptr inbounds %struct._ir_insn, ptr %124, i64 %125
   %127 = load i16, ptr %126, align 8
   %128 = icmp eq i16 %127, 1542
   tail call void @llvm.assume(i1 %128)
-  br label %jit_CONST_ADDR.exit.i67
+  br label %jit_CONST_ADDR.exit.i68
 
 129:                                              ; preds = %115
   %130 = tail call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %114) #32
   %131 = sext i32 %130 to i64
   store i64 %131, ptr %117, align 8
   store i32 4, ptr %118, align 8
-  br label %jit_CONST_ADDR.exit.i67
+  br label %jit_CONST_ADDR.exit.i68
 
-jit_CONST_ADDR.exit.i67:                          ; preds = %129, %121
-  %.0.i.i68 = phi i32 [ %123, %121 ], [ %130, %129 ]
-  %132 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %113, i32 noundef %.0.i.i68) #32
-  br label %jit_ADD_OFFSET.exit71
+jit_CONST_ADDR.exit.i68:                          ; preds = %129, %121
+  %.0.i.i69 = phi i32 [ %123, %121 ], [ %130, %129 ]
+  %132 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %113, i32 noundef %.0.i.i69) #32
+  br label %jit_ADD_OFFSET.exit72
 
-jit_ADD_OFFSET.exit71:                            ; preds = %jit_FP.exit65, %jit_CONST_ADDR.exit.i67
-  %.0.i69 = phi i32 [ %132, %jit_CONST_ADDR.exit.i67 ], [ %113, %jit_FP.exit65 ]
-  tail call void @_ir_STORE(ptr noundef %0, i32 noundef %.0.i69, i32 noundef %93) #32
+jit_ADD_OFFSET.exit72:                            ; preds = %jit_FP.exit66, %jit_CONST_ADDR.exit.i68
+  %.0.i70 = phi i32 [ %132, %jit_CONST_ADDR.exit.i68 ], [ %113, %jit_FP.exit66 ]
+  tail call void @_ir_STORE(ptr noundef %0, i32 noundef %.0.i70, i32 noundef %93) #32
   %133 = load i8, ptr %19, align 2
   %134 = icmp eq i8 %133, 8
   br i1 %134, label %135, label %142
 
-135:                                              ; preds = %jit_ADD_OFFSET.exit71
+135:                                              ; preds = %jit_ADD_OFFSET.exit72
   %136 = tail call fastcc i32 @jit_if_REFCOUNTED(ptr noundef %0, i64 noundef %89)
   tail call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %136) #32
   %137 = tail call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 4, i32 noundef %93) #32
@@ -107383,7 +107383,7 @@ jit_ADD_OFFSET.exit71:                            ; preds = %jit_FP.exit65, %jit
   tail call void @_ir_MERGE_2(ptr noundef %0, i32 noundef %141, i32 noundef %140) #32
   br label %142
 
-142:                                              ; preds = %jit_ADD_OFFSET.exit71, %135, %jit_CONST_ADDR.exit
+142:                                              ; preds = %jit_ADD_OFFSET.exit72, %135, %jit_CONST_ADDR.exit
   %143 = load i8, ptr %4, align 4
   %144 = icmp eq i8 %143, 56
   br i1 %144, label %145, label %225
@@ -107412,8 +107412,8 @@ jit_ADD_OFFSET.exit71:                            ; preds = %jit_FP.exit65, %jit
   %164 = load i64, ptr %159, align 8
   %165 = trunc i64 %164 to i32
   %166 = load ptr, ptr %0, align 8
-  %sext.i.i73 = shl i64 %164, 32
-  %167 = ashr exact i64 %sext.i.i73, 32
+  %sext.i.i74 = shl i64 %164, 32
+  %167 = ashr exact i64 %sext.i.i74, 32
   %168 = getelementptr inbounds %struct._ir_insn, ptr %166, i64 %167
   %169 = load i16, ptr %168, align 8
   %170 = icmp eq i16 %169, 1601
@@ -107435,7 +107435,7 @@ jit_ADD_OFFSET.exit71:                            ; preds = %jit_FP.exit65, %jit
   br label %jit_CONST_FUNC.exit
 
 jit_CONST_FUNC.exit:                              ; preds = %163, %174
-  %.0.i.i72 = phi i32 [ %165, %163 ], [ %175, %174 ]
+  %.0.i.i73 = phi i32 [ %165, %163 ], [ %175, %174 ]
   %179 = getelementptr inbounds i8, ptr %0, i64 248
   %180 = load i32, ptr %179, align 8
   %181 = icmp ne i32 %180, 0
@@ -107443,46 +107443,46 @@ jit_CONST_FUNC.exit:                              ; preds = %163, %174
   %182 = getelementptr inbounds i8, ptr %0, i64 700
   %183 = load i32, ptr %182, align 4
   %184 = icmp eq i32 %183, 0
-  br i1 %184, label %.loopexit.sink.split.i78, label %.preheader.i74
+  br i1 %184, label %.loopexit.sink.split.i79, label %.preheader.i75
 
-.preheader.i74:                                   ; preds = %jit_CONST_FUNC.exit
+.preheader.i75:                                   ; preds = %jit_CONST_FUNC.exit
   %185 = icmp eq i32 %180, %183
-  br i1 %185, label %jit_FP.exit80, label %.lr.ph.i75
+  br i1 %185, label %jit_FP.exit81, label %.lr.ph.i76
 
-.lr.ph.i75:                                       ; preds = %.preheader.i74
+.lr.ph.i76:                                       ; preds = %.preheader.i75
   %186 = load ptr, ptr %0, align 8
   br label %187
 
-187:                                              ; preds = %193, %.lr.ph.i75
-  %.015.i76 = phi i32 [ %180, %.lr.ph.i75 ], [ %195, %193 ]
-  %188 = sext i32 %.015.i76 to i64
+187:                                              ; preds = %193, %.lr.ph.i76
+  %.015.i77 = phi i32 [ %180, %.lr.ph.i76 ], [ %195, %193 ]
+  %188 = sext i32 %.015.i77 to i64
   %189 = getelementptr inbounds %struct._ir_insn, ptr %186, i64 %188
   %190 = load i8, ptr %189, align 8
   %191 = icmp ugt i8 %190, 88
   %192 = icmp eq i8 %190, 69
-  %or.cond.i77 = or i1 %191, %192
-  br i1 %or.cond.i77, label %.loopexit.sink.split.i78, label %193
+  %or.cond.i78 = or i1 %191, %192
+  br i1 %or.cond.i78, label %.loopexit.sink.split.i79, label %193
 
 193:                                              ; preds = %187
   %194 = getelementptr inbounds i8, ptr %189, i64 4
   %195 = load i32, ptr %194, align 4
   %196 = icmp eq i32 %195, %183
-  br i1 %196, label %jit_FP.exit80, label %187
+  br i1 %196, label %jit_FP.exit81, label %187
 
-.loopexit.sink.split.i78:                         ; preds = %187, %jit_CONST_FUNC.exit
+.loopexit.sink.split.i79:                         ; preds = %187, %jit_CONST_FUNC.exit
   %197 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 14) #32
   store i32 %197, ptr %182, align 4
-  br label %jit_FP.exit80
+  br label %jit_FP.exit81
 
-jit_FP.exit80:                                    ; preds = %193, %.preheader.i74, %.loopexit.sink.split.i78
-  %198 = phi i32 [ %180, %.preheader.i74 ], [ %197, %.loopexit.sink.split.i78 ], [ %183, %193 ]
+jit_FP.exit81:                                    ; preds = %193, %.preheader.i75, %.loopexit.sink.split.i79
+  %198 = phi i32 [ %180, %.preheader.i75 ], [ %197, %.loopexit.sink.split.i79 ], [ %183, %193 ]
   %199 = getelementptr inbounds i8, ptr %1, i64 8
   %200 = load i32, ptr %199, align 8
   %201 = zext i32 %200 to i64
-  %.not.i81 = icmp eq i32 %200, 0
-  br i1 %.not.i81, label %jit_ADD_OFFSET.exit86, label %202
+  %.not.i82 = icmp eq i32 %200, 0
+  br i1 %.not.i82, label %jit_ADD_OFFSET.exit87, label %202
 
-202:                                              ; preds = %jit_FP.exit80
+202:                                              ; preds = %jit_FP.exit81
   %203 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %158, i64 noundef %201) #32
   %204 = getelementptr inbounds i8, ptr %203, i64 8
   %205 = load i8, ptr %204, align 8
@@ -107493,39 +107493,39 @@ jit_FP.exit80:                                    ; preds = %193, %.preheader.i7
   %208 = load i64, ptr %203, align 8
   %209 = trunc i64 %208 to i32
   %210 = load ptr, ptr %0, align 8
-  %sext.i.i85 = shl i64 %208, 32
-  %211 = ashr exact i64 %sext.i.i85, 32
+  %sext.i.i86 = shl i64 %208, 32
+  %211 = ashr exact i64 %sext.i.i86, 32
   %212 = getelementptr inbounds %struct._ir_insn, ptr %210, i64 %211
   %213 = load i16, ptr %212, align 8
   %214 = icmp eq i16 %213, 1542
   tail call void @llvm.assume(i1 %214)
-  br label %jit_CONST_ADDR.exit.i82
+  br label %jit_CONST_ADDR.exit.i83
 
 215:                                              ; preds = %202
   %216 = tail call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %201) #32
   %217 = sext i32 %216 to i64
   store i64 %217, ptr %203, align 8
   store i32 4, ptr %204, align 8
-  br label %jit_CONST_ADDR.exit.i82
+  br label %jit_CONST_ADDR.exit.i83
 
-jit_CONST_ADDR.exit.i82:                          ; preds = %215, %207
-  %.0.i.i83 = phi i32 [ %209, %207 ], [ %216, %215 ]
-  %218 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %198, i32 noundef %.0.i.i83) #32
-  br label %jit_ADD_OFFSET.exit86
+jit_CONST_ADDR.exit.i83:                          ; preds = %215, %207
+  %.0.i.i84 = phi i32 [ %209, %207 ], [ %216, %215 ]
+  %218 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %198, i32 noundef %.0.i.i84) #32
+  br label %jit_ADD_OFFSET.exit87
 
-jit_ADD_OFFSET.exit86:                            ; preds = %jit_FP.exit80, %jit_CONST_ADDR.exit.i82
-  %.0.i84 = phi i32 [ %218, %jit_CONST_ADDR.exit.i82 ], [ %198, %jit_FP.exit80 ]
+jit_ADD_OFFSET.exit87:                            ; preds = %jit_FP.exit81, %jit_CONST_ADDR.exit.i83
+  %.0.i85 = phi i32 [ %218, %jit_CONST_ADDR.exit.i83 ], [ %198, %jit_FP.exit81 ]
   %219 = getelementptr inbounds i8, ptr %1, i64 20
   %220 = load i32, ptr %219, align 4
   %221 = tail call i32 @ir_const_u32(ptr noundef %0, i32 noundef %220) #32
-  %222 = tail call i32 @_ir_CALL_2(ptr noundef %0, i32 noundef 6, i32 noundef %.0.i.i72, i32 noundef %.0.i84, i32 noundef %221) #32
+  %222 = tail call i32 @_ir_CALL_2(ptr noundef %0, i32 noundef 6, i32 noundef %.0.i.i73, i32 noundef %.0.i85, i32 noundef %221) #32
   %223 = tail call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %157)
   tail call void @_ir_STORE(ptr noundef %0, i32 noundef %223, i32 noundef %222) #32
   %224 = tail call i32 @ir_const_u32(ptr noundef %0, i32 noundef 262) #32
   tail call fastcc void @jit_set_Z_TYPE_INFO_ex(ptr noundef %0, i64 noundef %157, i32 noundef %224)
   br label %225
 
-225:                                              ; preds = %jit_ADD_OFFSET.exit86, %142
+225:                                              ; preds = %jit_ADD_OFFSET.exit87, %142
   ret void
 }
 
@@ -108461,7 +108461,7 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_init_fcall_guard(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_init_fcall_guard(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct._ir_code_buffer, align 8
   %7 = load i8, ptr %2, align 8
@@ -109989,7 +109989,7 @@ define internal fastcc void @zend_jit_trace_setup_ret_counter(ptr nocapture noun
   br i1 %.not9, label %9, label %23
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr @zend_jit_ret_trace_counter_handler, align 8, !nonnull !6, !noundef !6
+  %10 = load ptr, ptr @zend_jit_ret_trace_counter_handler, align 8, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not10 = icmp eq ptr %12, null
@@ -110080,7 +110080,7 @@ define internal fastcc noundef nonnull ptr @zend_jit_trace_build_ssa(ptr noundef
   br i1 %13, label %14, label %zend_jit_op_array_analyze2.exit
 
 14:                                               ; preds = %1
-  %15 = tail call fastcc i32 @zend_jit_op_array_analyze1(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %11), !range !4
+  %15 = tail call fastcc i32 @zend_jit_op_array_analyze1(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %11)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %zend_jit_op_array_analyze2.exitthread-pre-split
 
@@ -110429,7 +110429,7 @@ zend_bitset_intersection.exit:                    ; preds = %.lr.ph.i, %65
   br i1 %.not241, label %132, label %88
 
 88:                                               ; preds = %81
-  %89 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 128, i64 1) #33, !srcloc !5
+  %89 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 128, i64 1) #33, !srcloc !4
   %90 = extractvalue { i64, i64 } %89, 0
   %91 = extractvalue { i64, i64 } %89, 1
   %.not.not = icmp eq i64 %91, 0
@@ -110534,7 +110534,7 @@ zend_bitset_intersection.exit:                    ; preds = %.lr.ph.i, %65
 declare i32 @zend_ssa_rename_op(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef i32 @zend_jit_trace_copy_ssa_var_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #21 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_trace_copy_ssa_var_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #21 {
   %6 = getelementptr inbounds i8, ptr %3, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %4 to i64
@@ -111255,7 +111255,7 @@ define internal fastcc void @zend_jit_trace_restrict_ssa_var_info(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @is_checked_guard(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #17 {
+define internal fastcc range(i32 0, 2) i32 @is_checked_guard(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #17 {
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
@@ -113187,7 +113187,7 @@ define internal fastcc zeroext i1 @zend_ssa_is_last_use(ptr nocapture noundef re
 
 70:                                               ; preds = %60
   %71 = getelementptr inbounds i8, ptr %61, i64 16
-  %72 = load ptr, ptr %71, align 8, !nonnull !6, !noundef !6
+  %72 = load ptr, ptr %71, align 8, !nonnull !5, !noundef !5
   %73 = getelementptr inbounds i8, ptr %72, i64 72
   br label %74
 
@@ -114119,7 +114119,7 @@ define internal fastcc void @zend_jit_def_reg(ptr noundef %0, i64 noundef %1, i3
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds i8, ptr %0, i64 776
-  %24 = load ptr, ptr %23, align 8, !nonnull !6, !noundef !6
+  %24 = load ptr, ptr %23, align 8, !nonnull !5, !noundef !5
   %sext = shl i64 %6, 32
   %25 = ashr exact i64 %sext, 32
   %26 = getelementptr inbounds %struct._zend_jit_reg_var, ptr %24, i64 %25
@@ -114260,7 +114260,7 @@ zend_jit_spilling_may_cause_conflict.exit.thread: ; preds = %30, %zend_jit_spill
   %99 = getelementptr inbounds i8, ptr %98, i64 64
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds %struct._zend_ssa_var, ptr %100, i64 %66, i32 5
-  %102 = load ptr, ptr %101, align 8, !nonnull !6, !noundef !6
+  %102 = load ptr, ptr %101, align 8, !nonnull !5, !noundef !5
   %103 = and i32 %68, -33
   store i32 %103, ptr %67, align 4
   %.pre139 = load ptr, ptr %23, align 8
@@ -115136,7 +115136,7 @@ define internal fastcc i32 @jit_Z_LVAL(ptr noundef %0, i64 noundef %1) unnamed_a
 8:                                                ; preds = %2
   %9 = lshr i64 %1, 2
   %10 = getelementptr inbounds i8, ptr %0, i64 776
-  %11 = load ptr, ptr %10, align 8, !nonnull !6, !noundef !6
+  %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %sext.i = shl i64 %9, 32
   %12 = ashr exact i64 %sext.i, 32
   %13 = getelementptr inbounds %struct._zend_jit_reg_var, ptr %11, i64 %12
@@ -115207,7 +115207,7 @@ define internal fastcc i32 @jit_Z_DVAL(ptr noundef %0, i64 noundef %1) unnamed_a
 8:                                                ; preds = %2
   %9 = lshr i64 %1, 2
   %10 = getelementptr inbounds i8, ptr %0, i64 776
-  %11 = load ptr, ptr %10, align 8, !nonnull !6, !noundef !6
+  %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %sext.i = shl i64 %9, 32
   %12 = ashr exact i64 %sext.i, 32
   %13 = getelementptr inbounds %struct._zend_jit_reg_var, ptr %11, i64 %12
@@ -116249,7 +116249,7 @@ define internal fastcc void @zend_jit_spill_store(ptr noundef %0, i64 noundef %1
 12:                                               ; preds = %5
   %13 = lshr i64 %1, 2
   %14 = getelementptr inbounds i8, ptr %0, i64 776
-  %15 = load ptr, ptr %14, align 8, !nonnull !6, !noundef !6
+  %15 = load ptr, ptr %14, align 8, !nonnull !5, !noundef !5
   %sext.i = shl i64 %13, 32
   %16 = ashr exact i64 %sext.i, 32
   %17 = getelementptr inbounds %struct._zend_jit_reg_var, ptr %15, i64 %16
@@ -116324,7 +116324,7 @@ jit_set_Z_LVAL.exit:                              ; preds = %21, %45
   tail call void @llvm.assume(i1 %64)
   %65 = lshr i64 %1, 2
   %66 = getelementptr inbounds i8, ptr %0, i64 776
-  %67 = load ptr, ptr %66, align 8, !nonnull !6, !noundef !6
+  %67 = load ptr, ptr %66, align 8, !nonnull !5, !noundef !5
   %sext.i27 = shl i64 %65, 32
   %68 = ashr exact i64 %sext.i27, 32
   %69 = getelementptr inbounds %struct._zend_jit_reg_var, ptr %67, i64 %68
@@ -116409,7 +116409,7 @@ declare i32 @ir_fold1(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr 
 declare void @_ir_IF_TRUE_cold(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zend_jit_undefined_op_helper(i32 noundef %0) #0 {
+define internal range(i32 0, 2) i32 @zend_jit_undefined_op_helper(i32 noundef %0) #0 {
   %2 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -118743,7 +118743,7 @@ define internal fastcc void @zend_jit_spill_store_inv(ptr noundef %0, i64 nounde
 11:                                               ; preds = %4
   %12 = lshr i64 %1, 2
   %13 = getelementptr inbounds i8, ptr %0, i64 776
-  %14 = load ptr, ptr %13, align 8, !nonnull !6, !noundef !6
+  %14 = load ptr, ptr %13, align 8, !nonnull !5, !noundef !5
   %sext.i = shl i64 %12, 32
   %15 = ashr exact i64 %sext.i, 32
   %16 = getelementptr inbounds %struct._zend_jit_reg_var, ptr %14, i64 %15
@@ -118829,7 +118829,7 @@ jit_set_Z_LVAL.exit:                              ; preds = %20, %44
   tail call void @llvm.assume(i1 %70)
   %71 = lshr i64 %1, 2
   %72 = getelementptr inbounds i8, ptr %0, i64 776
-  %73 = load ptr, ptr %72, align 8, !nonnull !6, !noundef !6
+  %73 = load ptr, ptr %72, align 8, !nonnull !5, !noundef !5
   %sext.i33 = shl i64 %71, 32
   %74 = ashr exact i64 %sext.i33, 32
   %75 = getelementptr inbounds %struct._zend_jit_reg_var, ptr %73, i64 %74
@@ -118991,7 +118991,7 @@ declare void @zend_hash_merge(ptr noundef, ptr noundef, ptr noundef, i1 noundef 
 declare void @zval_add_ref(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_math_helper(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 %4, i64 noundef %5, i32 noundef %6, i8 noundef zeroext %7, i32 %8, i64 noundef %9, i32 noundef %10, i32 noundef %11, i64 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_math_helper(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 %4, i64 noundef %5, i32 noundef %6, i8 noundef zeroext %7, i32 %8, i64 noundef %9, i32 noundef %10, i32 noundef %11, i64 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) unnamed_addr #0 {
   %18 = icmp eq i64 %5, %9
   %.pre = and i64 %5, 3
   br i1 %18, label %._crit_edge, label %19
@@ -119177,7 +119177,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
 
 122:                                              ; preds = %117, %115
   %.0384 = phi i32 [ 0, %115 ], [ %121, %117 ]
-  %123 = call fastcc i32 @zend_jit_math_long_long(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15), !range !7
+  %123 = call fastcc i32 @zend_jit_math_long_long(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15)
   %.not438 = icmp eq i32 %123, 0
   br i1 %.not438, label %508, label %124
 
@@ -119277,7 +119277,7 @@ zend_jit_use_reg.exit:                            ; preds = %zend_jit_use_reg.ex
 164:                                              ; preds = %162, %141
   %165 = phi i32 [ 0, %141 ], [ %163, %162 ]
   %.3 = phi i32 [ 0, %141 ], [ %.2, %162 ]
-  %166 = call fastcc i32 @zend_jit_math_long_long(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15), !range !7
+  %166 = call fastcc i32 @zend_jit_math_long_long(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %5, i64 noundef %9, i64 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15)
   %.not428 = icmp eq i32 %166, 0
   br i1 %.not428, label %508, label %167
 
@@ -120006,7 +120006,7 @@ zend_jit_load_reg.exit:                           ; preds = %478, %480
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_math_long_long(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_math_long_long(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = alloca %struct._ir_code_buffer, align 8
   %12 = alloca i64, align 8
@@ -122328,7 +122328,7 @@ declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) #4
 declare i32 @_ir_CALL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_fetch_dimension_address_inner(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9, i32 noundef %10, ptr noundef %11, ptr nocapture noundef %12, ptr nocapture noundef %13, ptr nocapture noundef %14) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_dimension_address_inner(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9, i32 noundef %10, ptr noundef %11, ptr nocapture noundef %12, ptr nocapture noundef %13, ptr nocapture noundef %14) unnamed_addr #0 {
   %16 = alloca i64, align 8
   %17 = alloca %struct._ir_code_buffer, align 8
   %18 = alloca i64, align 8
@@ -126356,7 +126356,7 @@ undef_result_after_exception.exit:                ; preds = %182, %178, %171, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zend_jit_fetch_dim_isset_helper(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @zend_jit_fetch_dim_isset_helper(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
@@ -128429,7 +128429,7 @@ define internal fastcc ptr @zend_get_known_property_info(ptr nocapture noundef r
   br i1 %.not55, label %.thread, label %38
 
 38:                                               ; preds = %.loopexit
-  %39 = load ptr, ptr %37, align 8, !nonnull !6, !noundef !6
+  %39 = load ptr, ptr %37, align 8, !nonnull !5, !noundef !5
   %40 = load i32, ptr %39, align 8
   %.not56 = icmp eq i32 %40, 0
   br i1 %.not56, label %.thread, label %41
@@ -128480,7 +128480,7 @@ define internal fastcc ptr @zend_get_known_property_info(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @jit_ZVAL_INDIRECT_DEREF(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 3, 0) i64 @jit_ZVAL_INDIRECT_DEREF(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 808
   %5 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %4, i64 noundef 8) #32
@@ -128612,7 +128612,7 @@ define internal void @zend_jit_invalid_property_incdec(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_class_guard(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_class_guard(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct._ir_code_buffer, align 8
   %7 = tail call fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %1, i32 noundef 0)
@@ -129334,7 +129334,7 @@ define internal void @zend_jit_pre_inc_obj_helper(ptr noundef %0, ptr noundef %1
 
 22:                                               ; preds = %19
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11) #32
-          to label %._crit_edge [label %24], !srcloc !10
+          to label %._crit_edge [label %24], !srcloc !6
 
 ._crit_edge:                                      ; preds = %22
   %.pre = load i8, ptr %13, align 8
@@ -129596,7 +129596,7 @@ define internal void @zend_jit_pre_dec_obj_helper(ptr noundef %0, ptr noundef %1
 
 22:                                               ; preds = %19
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11) #32
-          to label %._crit_edge [label %24], !srcloc !11
+          to label %._crit_edge [label %24], !srcloc !7
 
 ._crit_edge:                                      ; preds = %22
   %.pre = load i8, ptr %13, align 8
@@ -129858,7 +129858,7 @@ define internal void @zend_jit_post_inc_obj_helper(ptr noundef %0, ptr noundef %
   %23 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 4, ptr %23, align 8
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11) #32
-          to label %._crit_edge [label %25], !srcloc !10
+          to label %._crit_edge [label %25], !srcloc !6
 
 ._crit_edge:                                      ; preds = %21
   %.pre = load i8, ptr %13, align 8
@@ -130105,7 +130105,7 @@ define internal void @zend_jit_post_dec_obj_helper(ptr noundef %0, ptr noundef %
   %23 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 4, ptr %23, align 8
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11) #32
-          to label %._crit_edge [label %25], !srcloc !11
+          to label %._crit_edge [label %25], !srcloc !7
 
 ._crit_edge:                                      ; preds = %21
   %.pre = load i8, ptr %13, align 8
@@ -130986,7 +130986,7 @@ define internal void @zend_jit_assign_to_typed_prop(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_assign_to_variable_call(ptr noundef %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_to_variable_call(ptr noundef %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca %struct._ir_code_buffer, align 8
   %9 = and i32 %5, 1
@@ -134860,7 +134860,7 @@ define internal fastcc void @zend_jit_update_regs(ptr noundef %0, i32 noundef %1
 .thread:                                          ; preds = %12, %18
   %19 = lshr i64 %2, 2
   %20 = getelementptr inbounds i8, ptr %0, i64 776
-  %21 = load ptr, ptr %20, align 8, !nonnull !6, !noundef !6
+  %21 = load ptr, ptr %20, align 8, !nonnull !5, !noundef !5
   %sext.i = shl i64 %19, 32
   %22 = ashr exact i64 %sext.i, 32
   %23 = getelementptr inbounds %struct._zend_jit_reg_var, ptr %21, i64 %22
@@ -135402,7 +135402,7 @@ _zend_jit_init_func_run_time_cache.exit:          ; preds = %42, %44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_jit_push_call_frame(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_push_call_frame(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
   %10 = alloca %struct._ir_code_buffer, align 8
   %11 = icmp ne i32 %6, -1
@@ -136787,7 +136787,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %251, %247, %zend_ji
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zend_jit_needs_call_chain(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef readonly %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_needs_call_chain(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef readonly %7) unnamed_addr #0 {
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %44, label %9
 
@@ -139181,7 +139181,7 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zend_jit_jmp_frameless_helper(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 1, 3) i32 @zend_jit_jmp_frameless_helper(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 10), align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @zend_hash_find_known_hash(ptr noundef %3, ptr noundef %4) #32
@@ -139292,7 +139292,7 @@ define internal fastcc noundef zeroext i1 @zend_jit_may_avoid_refcounting(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @zend_jit_guard_fetch_result_type(ptr noundef %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc range(i64 3, 1) i64 @zend_jit_guard_fetch_result_type(ptr noundef %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca %struct._ir_code_buffer, align 8
   %10 = alloca i64, align 8
@@ -143365,7 +143365,7 @@ define internal noalias noundef ptr @zend_jit_rope_end(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zend_jit_find_ssa_var(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @zend_jit_find_ssa_var(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
@@ -144849,7 +144849,7 @@ define internal fastcc void @zend_jit_tail_handler(ptr noundef %0, ptr noundef %
   ]
 
 8:                                                ; preds = %5, %5, %5, %5
-  %9 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  %9 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %10 = ptrtoint ptr %9 to i64
   %11 = getelementptr inbounds i8, ptr %0, i64 808
   %12 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %11, i64 noundef %10) #32
@@ -145771,7 +145771,7 @@ switch.early.test:                                ; preds = %99
 
 137:                                              ; preds = %126
   %138 = getelementptr inbounds i8, ptr %128, i64 16
-  %139 = load ptr, ptr %138, align 8, !nonnull !6, !noundef !6
+  %139 = load ptr, ptr %138, align 8, !nonnull !5, !noundef !5
   %140 = getelementptr inbounds i8, ptr %139, i64 72
   br label %141
 
@@ -146382,7 +146382,7 @@ define internal void @zend_jit_touch_vm_stack_data(ptr nocapture readnone %0) #0
 declare i32 @_Unwind_Backtrace(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zend_jit_unwind_cb(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 0, 6) i32 @zend_jit_unwind_cb(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = tail call i64 @_Unwind_GetCFA(ptr noundef %0) #32
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %1, align 8
@@ -146457,7 +146457,7 @@ jit_CONST_FUNC.exit:                              ; preds = %13, %24
   br label %84
 
 32:                                               ; preds = %1
-  %33 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 53), align 8, !nonnull !6, !noundef !6
+  %33 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 53), align 8, !nonnull !5, !noundef !5
   %34 = ptrtoint ptr %33 to i64
   %35 = getelementptr inbounds i8, ptr %0, i64 808
   %36 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %35, i64 noundef %34) #32
@@ -149046,7 +149046,7 @@ jit_LOAD_IP.exit:                                 ; preds = %89, %.preheader.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zend_jit_hybrid_runtime_jit_stub(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @zend_jit_hybrid_runtime_jit_stub(ptr noundef %0) #0 {
   %2 = load i32, ptr @zend_jit_vm_kind, align 4
   %.not = icmp eq i32 %2, 4
   br i1 %.not, label %3, label %28
@@ -149099,7 +149099,7 @@ jit_CONST_FUNC.exit:                              ; preds = %9, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zend_jit_hybrid_profile_jit_stub(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @zend_jit_hybrid_profile_jit_stub(ptr noundef %0) #0 {
   %2 = load i32, ptr @zend_jit_vm_kind, align 4
   %.not = icmp eq i32 %2, 4
   br i1 %.not, label %3, label %158
@@ -149395,7 +149395,7 @@ jit_ADD_OFFSET.exit59:                            ; preds = %145, %153
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zend_jit_hybrid_func_hot_counter_stub(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @zend_jit_hybrid_func_hot_counter_stub(ptr noundef %0) #0 {
   %2 = load i32, ptr @zend_jit_vm_kind, align 4
   %3 = icmp eq i32 %2, 4
   %4 = load i64, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 14), align 8
@@ -149416,7 +149416,7 @@ define internal noundef i32 @zend_jit_hybrid_func_hot_counter_stub(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zend_jit_hybrid_loop_hot_counter_stub(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @zend_jit_hybrid_loop_hot_counter_stub(ptr noundef %0) #0 {
   %2 = load i32, ptr @zend_jit_vm_kind, align 4
   %3 = icmp eq i32 %2, 4
   %4 = load i64, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 13), align 8
@@ -149437,7 +149437,7 @@ define internal noundef i32 @zend_jit_hybrid_loop_hot_counter_stub(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zend_jit_hybrid_func_trace_counter_stub(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @zend_jit_hybrid_func_trace_counter_stub(ptr noundef %0) #0 {
   %2 = load i32, ptr @zend_jit_vm_kind, align 4
   %3 = icmp eq i32 %2, 4
   %4 = load i64, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 14), align 8
@@ -149458,7 +149458,7 @@ define internal noundef i32 @zend_jit_hybrid_func_trace_counter_stub(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zend_jit_hybrid_ret_trace_counter_stub(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @zend_jit_hybrid_ret_trace_counter_stub(ptr noundef %0) #0 {
   %2 = load i32, ptr @zend_jit_vm_kind, align 4
   %3 = icmp eq i32 %2, 4
   %4 = load i64, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 15), align 8
@@ -149479,7 +149479,7 @@ define internal noundef i32 @zend_jit_hybrid_ret_trace_counter_stub(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zend_jit_hybrid_loop_trace_counter_stub(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @zend_jit_hybrid_loop_trace_counter_stub(ptr noundef %0) #0 {
   %2 = load i32, ptr @zend_jit_vm_kind, align 4
   %3 = icmp eq i32 %2, 4
   %4 = load i64, ptr getelementptr inbounds (%struct._zend_jit_globals, ptr @jit_globals, i64 0, i32 13), align 8
@@ -149507,7 +149507,7 @@ define internal noundef i32 @zend_jit_trace_halt_stub(ptr noundef %0) #0 {
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @zend_jit_halt_op, align 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !6, !noundef !6
+  %6 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
   %7 = ptrtoint ptr %6 to i64
   %8 = getelementptr inbounds i8, ptr %0, i64 808
   %9 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %8, i64 noundef %7) #32
@@ -150437,7 +150437,7 @@ zend_jit_unprotect.exit:                          ; preds = %16, %19, %23
   %42 = getelementptr inbounds i8, ptr %41, i64 152
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %.1, align 8
-  %44 = call fastcc i32 @zend_real_jit_func(ptr noundef %4, ptr noundef null, ptr noundef null), !range !4
+  %44 = call fastcc i32 @zend_real_jit_func(ptr noundef %4, ptr noundef null, ptr noundef null)
   br label %45
 
 45:                                               ; preds = %zend_jit_unprotect.exit, %.loopexit
@@ -151156,7 +151156,7 @@ _zend_jit_orig_opline_handler.exit:               ; preds = %184, %.preheader.i.
   tail call void @_ir_IJMP(ptr noundef %0, i32 noundef %192) #32
   tail call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %149) #32
   %193 = load ptr, ptr @zend_jit_halt_op, align 8
-  %194 = load ptr, ptr %193, align 8, !nonnull !6, !noundef !6
+  %194 = load ptr, ptr %193, align 8, !nonnull !5, !noundef !5
   %195 = ptrtoint ptr %194 to i64
   %196 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %23, i64 noundef %195) #32
   %197 = getelementptr inbounds i8, ptr %196, i64 8
@@ -151524,11 +151524,7 @@ attributes #41 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{i64 2829407, i64 2829428}
-!6 = !{}
-!7 = !{i32 0, i32 2}
-!8 = !{i64 3, i64 0}
-!9 = !{i64 3, i64 1}
-!10 = !{i64 2764499, i64 2764514}
-!11 = !{i64 2766162, i64 2766177}
+!4 = !{i64 2829407, i64 2829428}
+!5 = !{}
+!6 = !{i64 2764499, i64 2764514}
+!7 = !{i64 2766162, i64 2766177}

@@ -93,7 +93,7 @@ pmix_tma_free.exit:                               ; preds = %26, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_hash_table_init2(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define range(i32 -29, 1) i32 @pmix_hash_table_init2(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
@@ -149,7 +149,7 @@ pmix_tma_calloc.exit:                             ; preds = %17, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_hash_table_init(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i32 -29, 1) i32 @pmix_hash_table_init(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -246,7 +246,7 @@ define noundef i32 @pmix_hash_table_remove_all(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @pmix_hash_table_get_value_uint32(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
+define range(i32 -46, 1) i32 @pmix_hash_table_get_value_uint32(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 176
@@ -289,7 +289,7 @@ define noundef i32 @pmix_hash_table_get_value_uint32(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_hash_table_set_value_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define i32 @pmix_hash_table_set_value_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -335,7 +335,7 @@ define noundef i32 @pmix_hash_table_set_value_uint32(ptr noundef %0, i32 noundef
   br i1 %.not29, label %30, label %28
 
 28:                                               ; preds = %._crit_edge
-  %29 = tail call fastcc i32 @pmix_hash_grow(ptr noundef nonnull %0), !range !6
+  %29 = tail call fastcc i32 @pmix_hash_grow(ptr noundef nonnull %0)
   %.not30 = icmp eq i32 %29, 0
   br i1 %.not30, label %30, label %37
 
@@ -361,7 +361,7 @@ define noundef i32 @pmix_hash_table_set_value_uint32(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pmix_hash_grow(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 -29, 1) i32 @pmix_hash_grow(ptr noundef %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -399,16 +399,16 @@ pmix_tma_calloc.exit:                             ; preds = %20, %24
   br i1 %26, label %pmix_tma_free.exit, label %.preheader
 
 .preheader:                                       ; preds = %pmix_tma_calloc.exit
-  %.not42 = icmp eq i64 %7, 0
-  br i1 %.not42, label %._crit_edge, label %.lr.ph
+  %.not44 = icmp eq i64 %7, 0
+  br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %27 = getelementptr inbounds i8, ptr %0, i64 176
   br label %28
 
 28:                                               ; preds = %.lr.ph, %43
-  %.03741 = phi i64 [ 0, %.lr.ph ], [ %44, %43 ]
-  %29 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %5, i64 %.03741
+  %.03743 = phi i64 [ 0, %.lr.ph ], [ %44, %43 ]
+  %29 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %5, i64 %.03743
   %30 = load i32, ptr %29, align 8
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %43, label %31
@@ -436,9 +436,9 @@ pmix_tma_calloc.exit:                             ; preds = %20, %24
   br label %43
 
 43:                                               ; preds = %28, %42
-  %44 = add nuw i64 %.03741, 1
+  %44 = add nuw i64 %.03743, 1
   %exitcond.not = icmp eq i64 %44, %7
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %43, %.preheader
   store ptr %.0.i, ptr %4, align 8
@@ -471,7 +471,7 @@ pmix_tma_free.exit:                               ; preds = %57, %54, %pmix_tma_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_hash_table_remove_value_uint32(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -46, 1) i32 @pmix_hash_table_remove_value_uint32(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 176
@@ -574,7 +574,7 @@ pmix_hash_table_remove_elt_at.exit:               ; preds = %.loopexit.i, %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @pmix_hash_table_get_value_uint64(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
+define range(i32 -46, 1) i32 @pmix_hash_table_get_value_uint64(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 176
@@ -616,7 +616,7 @@ define noundef i32 @pmix_hash_table_get_value_uint64(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_hash_table_set_value_uint64(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define i32 @pmix_hash_table_set_value_uint64(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -661,7 +661,7 @@ define noundef i32 @pmix_hash_table_set_value_uint64(ptr noundef %0, i64 noundef
   br i1 %.not29, label %29, label %27
 
 27:                                               ; preds = %._crit_edge
-  %28 = tail call fastcc i32 @pmix_hash_grow(ptr noundef nonnull %0), !range !6
+  %28 = tail call fastcc i32 @pmix_hash_grow(ptr noundef nonnull %0)
   %.not30 = icmp eq i32 %28, 0
   br i1 %.not30, label %29, label %36
 
@@ -687,7 +687,7 @@ define noundef i32 @pmix_hash_table_set_value_uint64(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_hash_table_remove_value_uint64(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i32 -46, 1) i32 @pmix_hash_table_remove_value_uint64(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 176
@@ -789,7 +789,7 @@ pmix_hash_table_remove_elt_at.exit:               ; preds = %.loopexit.i, %19
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @pmix_hash_table_get_value_ptr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
+define range(i32 -46, 1) i32 @pmix_hash_table_get_value_ptr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 176
@@ -808,7 +808,7 @@ define noundef i32 @pmix_hash_table_get_value_ptr(ptr nocapture noundef %0, ptr 
   %12 = add i64 %8, %11
   %13 = add nuw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %13, %2
-  br i1 %exitcond.not.i, label %pmix_hash_hash_key_ptr.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %pmix_hash_hash_key_ptr.exit, label %.lr.ph.i, !llvm.loop !7
 
 pmix_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %4
   %.07.lcssa.i = phi i64 [ 0, %4 ], [ %12, %.lr.ph.i ]
@@ -856,7 +856,7 @@ pmix_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_hash_table_set_value_ptr(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define i32 @pmix_hash_table_set_value_ptr(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
@@ -879,7 +879,7 @@ define noundef i32 @pmix_hash_table_set_value_ptr(ptr noundef %0, ptr nocapture 
   %14 = add i64 %10, %13
   %15 = add nuw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %15, %2
-  br i1 %exitcond.not.i, label %pmix_hash_hash_key_ptr.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %pmix_hash_hash_key_ptr.exit, label %.lr.ph.i, !llvm.loop !7
 
 pmix_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %4
   %.07.lcssa.i = phi i64 [ 0, %4 ], [ %14, %.lr.ph.i ]
@@ -888,8 +888,8 @@ pmix_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %4
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %18, i64 %16
   %20 = load i32, ptr %19, align 8
-  %.not46 = icmp eq i32 %20, 0
-  br i1 %.not46, label %._crit_edge, label %.lr.ph
+  %.not47 = icmp eq i32 %20, 0
+  br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %47, %pmix_hash_hash_key_ptr.exit
   %.lcssa = phi ptr [ %19, %pmix_hash_hash_key_ptr.exit ], [ %50, %47 ]
@@ -925,7 +925,7 @@ pmix_tma_malloc.exit:                             ; preds = %21, %23
   br i1 %.not41, label %36, label %34
 
 34:                                               ; preds = %pmix_tma_malloc.exit
-  %35 = tail call fastcc i32 @pmix_hash_grow(ptr noundef nonnull %0), !range !6
+  %35 = tail call fastcc i32 @pmix_hash_grow(ptr noundef nonnull %0)
   %.not42 = icmp eq i32 %35, 0
   br i1 %.not42, label %36, label %52
 
@@ -934,7 +934,7 @@ pmix_tma_malloc.exit:                             ; preds = %21, %23
 
 .lr.ph:                                           ; preds = %pmix_hash_hash_key_ptr.exit, %47
   %37 = phi ptr [ %50, %47 ], [ %19, %pmix_hash_hash_key_ptr.exit ]
-  %spec.store.select47 = phi i64 [ %spec.store.select, %47 ], [ %16, %pmix_hash_hash_key_ptr.exit ]
+  %spec.store.select48 = phi i64 [ %spec.store.select, %47 ], [ %16, %pmix_hash_hash_key_ptr.exit ]
   %38 = getelementptr inbounds i8, ptr %37, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, %2
@@ -953,7 +953,7 @@ pmix_tma_malloc.exit:                             ; preds = %21, %23
   br label %52
 
 47:                                               ; preds = %.lr.ph, %41
-  %48 = add i64 %spec.store.select47, 1
+  %48 = add i64 %spec.store.select48, 1
   %49 = icmp eq i64 %48, %6
   %spec.store.select = select i1 %49, i64 0, i64 %48
   %50 = getelementptr inbounds %struct.pmix_hash_element_t, ptr %18, i64 %spec.store.select
@@ -989,7 +989,7 @@ define noundef i32 @pmix_hash_table_remove_value_ptr(ptr nocapture noundef %0, p
   %11 = add i64 %7, %10
   %12 = add nuw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %12, %2
-  br i1 %exitcond.not.i, label %pmix_hash_hash_key_ptr.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %pmix_hash_hash_key_ptr.exit, label %.lr.ph.i, !llvm.loop !7
 
 pmix_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %3
   %.07.lcssa.i = phi i64 [ 0, %3 ], [ %11, %.lr.ph.i ]
@@ -1097,7 +1097,7 @@ pmix_hash_table_remove_elt_at.exit:               ; preds = %.loopexit.i, %30
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @pmix_hash_table_get_first_key_uint32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @pmix_hash_table_get_first_key_uint32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %0, i64 128
   %.val.i = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 136
@@ -1108,7 +1108,7 @@ define noundef i32 @pmix_hash_table_get_first_key_uint32(ptr nocapture noundef r
 7:                                                ; preds = %.lr.ph.i.i
   %8 = add nuw i64 %.0131.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %8, %.val5.i
-  br i1 %exitcond.not.i.i, label %pmix_hash_table_get_next_key_uint32.exit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %pmix_hash_table_get_next_key_uint32.exit, label %.lr.ph.i.i, !llvm.loop !8
 
 .lr.ph.i.i:                                       ; preds = %4, %7
   %.0131.i.i = phi i64 [ %8, %7 ], [ 0, %4 ]
@@ -1133,7 +1133,7 @@ pmix_hash_table_get_next_key_uint32.exit:         ; preds = %7, %4, %pmix_hash_t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @pmix_hash_table_get_next_key_uint32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @pmix_hash_table_get_next_key_uint32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
   %6 = getelementptr i8, ptr %0, i64 128
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 136
@@ -1157,7 +1157,7 @@ define noundef i32 @pmix_hash_table_get_next_key_uint32(ptr nocapture noundef re
 18:                                               ; preds = %.lr.ph.i
   %19 = add i64 %.0131.i, 1
   %exitcond.not.i = icmp eq i64 %19, %.val5
-  br i1 %exitcond.not.i, label %pmix_hash_table_get_next_elt.exit.thread, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %pmix_hash_table_get_next_elt.exit.thread, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %15, %18
   %.0131.i = phi i64 [ %19, %18 ], [ %16, %15 ]
@@ -1182,7 +1182,7 @@ pmix_hash_table_get_next_elt.exit.thread:         ; preds = %18, %15, %pmix_hash
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @pmix_hash_table_get_first_key_ptr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @pmix_hash_table_get_first_key_ptr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
   %6 = getelementptr i8, ptr %0, i64 128
   %.val.i = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 136
@@ -1193,7 +1193,7 @@ define noundef i32 @pmix_hash_table_get_first_key_ptr(ptr nocapture noundef read
 8:                                                ; preds = %.lr.ph.i.i
   %9 = add nuw i64 %.0131.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %9, %.val6.i
-  br i1 %exitcond.not.i.i, label %pmix_hash_table_get_next_key_ptr.exit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %pmix_hash_table_get_next_key_ptr.exit, label %.lr.ph.i.i, !llvm.loop !8
 
 .lr.ph.i.i:                                       ; preds = %5, %8
   %.0131.i.i = phi i64 [ %9, %8 ], [ 0, %5 ]
@@ -1221,7 +1221,7 @@ pmix_hash_table_get_next_key_ptr.exit:            ; preds = %8, %5, %pmix_hash_t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @pmix_hash_table_get_next_key_ptr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @pmix_hash_table_get_next_key_ptr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #2 {
   %7 = getelementptr i8, ptr %0, i64 128
   %.val = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %0, i64 136
@@ -1245,7 +1245,7 @@ define noundef i32 @pmix_hash_table_get_next_key_ptr(ptr nocapture noundef reado
 19:                                               ; preds = %.lr.ph.i
   %20 = add i64 %.0131.i, 1
   %exitcond.not.i = icmp eq i64 %20, %.val6
-  br i1 %exitcond.not.i, label %pmix_hash_table_get_next_elt.exit.thread, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %pmix_hash_table_get_next_elt.exit.thread, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %16, %19
   %.0131.i = phi i64 [ %20, %19 ], [ %17, %16 ]
@@ -1273,7 +1273,7 @@ pmix_hash_table_get_next_elt.exit.thread:         ; preds = %19, %16, %pmix_hash
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @pmix_hash_table_get_first_key_uint64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @pmix_hash_table_get_first_key_uint64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %0, i64 128
   %.val.i = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 136
@@ -1284,7 +1284,7 @@ define noundef i32 @pmix_hash_table_get_first_key_uint64(ptr nocapture noundef r
 7:                                                ; preds = %.lr.ph.i.i
   %8 = add nuw i64 %.0131.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %8, %.val5.i
-  br i1 %exitcond.not.i.i, label %pmix_hash_table_get_next_key_uint64.exit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %pmix_hash_table_get_next_key_uint64.exit, label %.lr.ph.i.i, !llvm.loop !8
 
 .lr.ph.i.i:                                       ; preds = %4, %7
   %.0131.i.i = phi i64 [ %8, %7 ], [ 0, %4 ]
@@ -1309,7 +1309,7 @@ pmix_hash_table_get_next_key_uint64.exit:         ; preds = %7, %4, %pmix_hash_t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @pmix_hash_table_get_next_key_uint64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @pmix_hash_table_get_next_key_uint64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
   %6 = getelementptr i8, ptr %0, i64 128
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 136
@@ -1333,7 +1333,7 @@ define noundef i32 @pmix_hash_table_get_next_key_uint64(ptr nocapture noundef re
 18:                                               ; preds = %.lr.ph.i
   %19 = add i64 %.0131.i, 1
   %exitcond.not.i = icmp eq i64 %19, %.val5
-  br i1 %exitcond.not.i, label %pmix_hash_table_get_next_elt.exit.thread, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %pmix_hash_table_get_next_elt.exit.thread, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %15, %18
   %.0131.i = phi i64 [ %19, %18 ], [ %16, %15 ]
@@ -1369,7 +1369,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @pmix_hash_hash_elt_uint32(ptr nocapture noundef readonly %0) #8 {
+define internal range(i64 0, 4294967296) i64 @pmix_hash_hash_elt_uint32(ptr nocapture noundef readonly %0) #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -1436,7 +1436,7 @@ define internal i64 @pmix_hash_hash_elt_ptr(ptr nocapture noundef readonly %0) #
   %10 = add i64 %6, %9
   %11 = add nuw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %11, %3
-  br i1 %exitcond.not.i, label %pmix_hash_hash_key_ptr.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %pmix_hash_hash_key_ptr.exit, label %.lr.ph.i, !llvm.loop !7
 
 pmix_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %1
   %.07.lcssa.i = phi i64 [ 0, %1 ], [ %10, %.lr.ph.i ]
@@ -1477,7 +1477,6 @@ attributes #15 = { nounwind allocsize(0) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -29, i32 1}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

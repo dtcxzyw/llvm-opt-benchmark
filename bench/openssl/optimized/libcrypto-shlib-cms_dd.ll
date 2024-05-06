@@ -72,7 +72,7 @@ declare ptr @ossl_cms_DigestAlgorithm_init_bio(ptr noundef, ptr noundef) local_u
 declare ptr @ossl_cms_get0_cmsctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cms_DigestedData_do_final(ptr nocapture noundef readonly %cms, ptr noundef %chain, i32 noundef %verify) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_DigestedData_do_final(ptr nocapture noundef readonly %cms, ptr noundef %chain, i32 noundef %verify) local_unnamed_addr #0 {
 entry:
   %md = alloca [64 x i8], align 16
   %mdlen = alloca i32, align 4

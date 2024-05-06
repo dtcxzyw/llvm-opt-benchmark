@@ -1369,7 +1369,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit92: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6google8protobuf8compiler14DiskSourceTree21DiskFileToVirtualFileESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS5_SaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 %disk_file.coerce0, ptr %disk_file.coerce1, ptr noundef %virtual_file, ptr noundef %shadowing_disk_file) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 4) i32 @_ZN6google8protobuf8compiler14DiskSourceTree21DiskFileToVirtualFileESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS5_SaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 %disk_file.coerce0, ptr %disk_file.coerce1, ptr noundef %virtual_file, ptr noundef %shadowing_disk_file) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %canonical_disk_file = alloca %"class.std::__cxx11::basic_string", align 8
   call fastcc void @_ZN6google8protobuf8compilerL16CanonicalizePathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %canonical_disk_file, i64 %disk_file.coerce0, ptr %disk_file.coerce1)

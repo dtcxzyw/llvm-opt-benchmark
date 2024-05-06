@@ -190,7 +190,7 @@ define internal i32 @dissect_kt(ptr noundef %0, ptr nocapture noundef readonly %
   %32 = udiv i64 %31, 1000000000
   store i64 %32, ptr %7, align 8
   %33 = urem i64 %31, 1000000000
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw nsw i64 %33 to i32
   store i32 %34, ptr %13, align 8
   %35 = load i32, ptr @hf_kt_ts, align 4
   %36 = call ptr @proto_tree_add_time(ptr noundef %26, i32 noundef %35, ptr noundef %0, i32 noundef %30, i32 noundef 8, ptr noundef nonnull %7) #3
@@ -229,7 +229,7 @@ define internal i32 @dissect_kt(ptr noundef %0, ptr nocapture noundef readonly %
   %59 = udiv i64 %58, 1000000000
   store i64 %59, ptr %6, align 8
   %60 = urem i64 %58, 1000000000
-  %61 = trunc i64 %60 to i32
+  %61 = trunc nuw nsw i64 %60 to i32
   store i32 %61, ptr %12, align 8
   %62 = load i32, ptr @hf_kt_ts, align 4
   %63 = call ptr @proto_tree_add_time(ptr noundef %26, i32 noundef %62, ptr noundef %0, i32 noundef %41, i32 noundef 8, ptr noundef nonnull %6) #3

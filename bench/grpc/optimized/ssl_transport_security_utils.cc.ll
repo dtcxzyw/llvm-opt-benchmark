@@ -86,7 +86,7 @@ declare ptr @ERR_error_string_n(i32 noundef, ptr noundef, i64 noundef) local_unn
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN9grpc_core10DoSslWriteEP6ssl_stPhm(ptr noundef %ssl, ptr noundef %unprotected_bytes, i64 noundef %unprotected_bytes_size) local_unnamed_addr #4 {
+define noundef range(i32 0, 8) i32 @_ZN9grpc_core10DoSslWriteEP6ssl_stPhm(ptr noundef %ssl, ptr noundef %unprotected_bytes, i64 noundef %unprotected_bytes_size) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ugt i64 %unprotected_bytes_size, 2147483647
   br i1 %cmp, label %if.then, label %do.end
@@ -97,7 +97,7 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @ERR_clear_error()
-  %conv = trunc i64 %unprotected_bytes_size to i32
+  %conv = trunc nuw i64 %unprotected_bytes_size to i32
   %call = tail call i32 @SSL_write(ptr noundef %ssl, ptr noundef %unprotected_bytes, i32 noundef %conv)
   %cmp1 = icmp slt i32 %call, 0
   br i1 %cmp1, label %if.then2, label %return
@@ -164,7 +164,7 @@ declare i32 @SSL_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @SSL_get_error(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN9grpc_core9DoSslReadEP6ssl_stPhPm(ptr noundef %ssl, ptr noundef %unprotected_bytes, ptr nocapture noundef %unprotected_bytes_size) local_unnamed_addr #4 {
+define noundef range(i32 0, 11) i32 @_ZN9grpc_core9DoSslReadEP6ssl_stPhPm(ptr noundef %ssl, ptr noundef %unprotected_bytes, ptr nocapture noundef %unprotected_bytes_size) local_unnamed_addr #4 {
 entry:
   %details.i = alloca [256 x i8], align 16
   %0 = load i64, ptr %unprotected_bytes_size, align 8
@@ -257,7 +257,7 @@ return:                                           ; preds = %if.end7, %_ZN9grpc_
 declare i32 @SSL_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN9grpc_core19SslProtectorProtectEPKhmRmPhP6ssl_stP6bio_stPmS3_S8_(ptr nocapture noundef readonly %unprotected_bytes, i64 noundef %buffer_size, ptr nocapture noundef nonnull align 8 dereferenceable(8) %buffer_offset, ptr noundef %buffer, ptr noundef %ssl, ptr noundef %network_io, ptr nocapture noundef %unprotected_bytes_size, ptr noundef %protected_output_frames, ptr nocapture noundef %protected_output_frames_size) local_unnamed_addr #4 {
+define noundef range(i32 0, 8) i32 @_ZN9grpc_core19SslProtectorProtectEPKhmRmPhP6ssl_stP6bio_stPmS3_S8_(ptr nocapture noundef readonly %unprotected_bytes, i64 noundef %buffer_size, ptr nocapture noundef nonnull align 8 dereferenceable(8) %buffer_offset, ptr noundef %buffer, ptr noundef %ssl, ptr noundef %network_io, ptr nocapture noundef %unprotected_bytes_size, ptr noundef %protected_output_frames, ptr nocapture noundef %protected_output_frames_size) local_unnamed_addr #4 {
 entry:
   %call = tail call i64 @BIO_pending(ptr noundef %network_io)
   %conv = trunc i64 %call to i32
@@ -275,7 +275,7 @@ if.then3:                                         ; preds = %if.then
   unreachable
 
 do.end:                                           ; preds = %if.then
-  %conv4 = trunc i64 %0 to i32
+  %conv4 = trunc nuw i64 %0 to i32
   %call5 = tail call i32 @BIO_read(ptr noundef %network_io, ptr noundef %protected_output_frames, i32 noundef %conv4)
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %if.then7, label %if.end8
@@ -308,7 +308,7 @@ if.then12:                                        ; preds = %if.end10
 
 if.end13:                                         ; preds = %if.end10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %unprotected_bytes, i64 %sub, i1 false)
-  %call15 = tail call noundef i32 @_ZN9grpc_core10DoSslWriteEP6ssl_stPhm(ptr noundef %ssl, ptr noundef %buffer, i64 noundef %buffer_size), !range !6
+  %call15 = tail call noundef i32 @_ZN9grpc_core10DoSslWriteEP6ssl_stPhm(ptr noundef %ssl, ptr noundef %buffer, i64 noundef %buffer_size)
   %cmp16.not = icmp eq i32 %call15, 0
   br i1 %cmp16.not, label %do.body19, label %return
 
@@ -322,7 +322,7 @@ if.then23:                                        ; preds = %do.body19
   unreachable
 
 do.end25:                                         ; preds = %do.body19
-  %conv26 = trunc i64 %5 to i32
+  %conv26 = trunc nuw i64 %5 to i32
   %call27 = tail call i32 @BIO_read(ptr noundef %network_io, ptr noundef %protected_output_frames, i32 noundef %conv26)
   %cmp28 = icmp slt i32 %call27, 0
   br i1 %cmp28, label %if.then29, label %if.end30
@@ -351,14 +351,14 @@ declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN9grpc_core24SslProtectorProtectFlushERmPhP6ssl_stP6bio_stS1_PmS6_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %buffer_offset, ptr noundef %buffer, ptr noundef %ssl, ptr noundef %network_io, ptr noundef %protected_output_frames, ptr nocapture noundef %protected_output_frames_size, ptr nocapture noundef writeonly %still_pending_size) local_unnamed_addr #4 {
+define noundef range(i32 0, 8) i32 @_ZN9grpc_core24SslProtectorProtectFlushERmPhP6ssl_stP6bio_stS1_PmS6_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %buffer_offset, ptr noundef %buffer, ptr noundef %ssl, ptr noundef %network_io, ptr noundef %protected_output_frames, ptr nocapture noundef %protected_output_frames_size, ptr nocapture noundef writeonly %still_pending_size) local_unnamed_addr #4 {
 entry:
   %0 = load i64, ptr %buffer_offset, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call noundef i32 @_ZN9grpc_core10DoSslWriteEP6ssl_stPhm(ptr noundef %ssl, ptr noundef %buffer, i64 noundef %0), !range !6
+  %call = tail call noundef i32 @_ZN9grpc_core10DoSslWriteEP6ssl_stPhm(ptr noundef %ssl, ptr noundef %buffer, i64 noundef %0)
   %cmp1.not = icmp eq i32 %call, 0
   br i1 %cmp1.not, label %if.end, label %return
 
@@ -392,7 +392,7 @@ if.then17:                                        ; preds = %do.body13
   unreachable
 
 do.end19:                                         ; preds = %do.body13
-  %conv20 = trunc i64 %2 to i32
+  %conv20 = trunc nuw i64 %2 to i32
   %call21 = tail call i32 @BIO_read(ptr noundef %network_io, ptr noundef %protected_output_frames, i32 noundef %conv20)
   %cmp22 = icmp slt i32 %call21, 1
   br i1 %cmp22, label %if.then23, label %if.end24
@@ -424,10 +424,10 @@ return:                                           ; preds = %do.end, %if.then, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN9grpc_core21SslProtectorUnprotectEPKhP6ssl_stP6bio_stPmPhS6_(ptr noundef %protected_frames_bytes, ptr noundef %ssl, ptr noundef %network_io, ptr nocapture noundef %protected_frames_bytes_size, ptr noundef %unprotected_bytes, ptr nocapture noundef %unprotected_bytes_size) local_unnamed_addr #4 {
+define noundef range(i32 0, 11) i32 @_ZN9grpc_core21SslProtectorUnprotectEPKhP6ssl_stP6bio_stPmPhS6_(ptr noundef %protected_frames_bytes, ptr noundef %ssl, ptr noundef %network_io, ptr nocapture noundef %protected_frames_bytes_size, ptr noundef %unprotected_bytes, ptr nocapture noundef %unprotected_bytes_size) local_unnamed_addr #4 {
 entry:
   %0 = load i64, ptr %unprotected_bytes_size, align 8
-  %call = tail call noundef i32 @_ZN9grpc_core9DoSslReadEP6ssl_stPhPm(ptr noundef %ssl, ptr noundef %unprotected_bytes, ptr noundef nonnull %unprotected_bytes_size), !range !7
+  %call = tail call noundef i32 @_ZN9grpc_core9DoSslReadEP6ssl_stPhPm(ptr noundef %ssl, ptr noundef %unprotected_bytes, ptr noundef nonnull %unprotected_bytes_size)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -453,7 +453,7 @@ if.then5:                                         ; preds = %if.end3
   unreachable
 
 do.end:                                           ; preds = %if.end3
-  %conv = trunc i64 %2 to i32
+  %conv = trunc nuw i64 %2 to i32
   %call7 = tail call i32 @BIO_write(ptr noundef %network_io, ptr noundef %protected_frames_bytes, i32 noundef %conv)
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %if.then9, label %if.end10
@@ -465,7 +465,7 @@ if.then9:                                         ; preds = %do.end
 if.end10:                                         ; preds = %do.end
   %conv11 = zext nneg i32 %call7 to i64
   store i64 %conv11, ptr %protected_frames_bytes_size, align 8
-  %call12 = tail call noundef i32 @_ZN9grpc_core9DoSslReadEP6ssl_stPhPm(ptr noundef %ssl, ptr noundef %add.ptr, ptr noundef nonnull %unprotected_bytes_size), !range !7
+  %call12 = tail call noundef i32 @_ZN9grpc_core9DoSslReadEP6ssl_stPhPm(ptr noundef %ssl, ptr noundef %add.ptr, ptr noundef nonnull %unprotected_bytes_size)
   %cmp13 = icmp eq i32 %call12, 0
   br i1 %cmp13, label %if.then14, label %return
 
@@ -516,5 +516,3 @@ attributes #10 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 8}
-!7 = !{i32 0, i32 11}

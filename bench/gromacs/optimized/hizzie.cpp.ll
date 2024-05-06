@@ -133,7 +133,7 @@ define void @_Z9set_histpP7t_atomsPA3_fP8t_symtabff(ptr nocapture noundef readon
   %indvars.iv.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i, %44 ]
   %40 = getelementptr inbounds ptr, ptr @_ZZ9set_histpP7t_atomsPA3_fP8t_symtabffE8prot_acc, i64 %indvars.iv.i
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %39) #14
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %39) #14
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %_ZL10in_stringsPciPPKc.exit, label %44
 
@@ -166,7 +166,7 @@ _ZL10in_stringsPciPPKc.exit.thread:               ; preds = %44, %46, %_ZL10in_s
   %indvars.iv.i140 = phi i64 [ 0, %_ZL10in_stringsPciPPKc.exit.thread ], [ %indvars.iv.next.i141, %54 ]
   %50 = getelementptr inbounds ptr, ptr @_ZZ9set_histpP7t_atomsPA3_fP8t_symtabffE8prot_don, i64 %indvars.iv.i140
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) %49) #14
+  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull readonly dereferenceable(1) %49) #14
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %_ZL10in_stringsPciPPKc.exit145, label %54
 

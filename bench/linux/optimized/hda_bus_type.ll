@@ -146,7 +146,7 @@ define internal i32 @hda_bus_match(ptr noundef %0, ptr noundef %1) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hda_uevent(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal range(i32 -12, 1) i32 @hda_uevent(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !8

@@ -191,7 +191,7 @@ define hidden void @clean_module_constants(i32 noundef %0) local_unnamed_addr #0
 declare void @zend_hash_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @clean_module_constant(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @clean_module_constant(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds i8, ptr %3, i64 12
@@ -250,7 +250,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %27 = tail call ptr %26(ptr noundef nonnull @.str.18, i64 noundef 7, i1 noundef zeroext true) #11
   %28 = getelementptr inbounds i8, ptr %23, i64 16
   store ptr %27, ptr %28, align 8
-  %29 = call i32 @zend_register_constant(ptr noundef nonnull %23), !range !4
+  %29 = call i32 @zend_register_constant(ptr noundef nonnull %23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
   store i64 2, ptr %22, align 8
@@ -262,7 +262,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %33 = tail call ptr %32(ptr noundef nonnull @.str.19, i64 noundef 9, i1 noundef zeroext true) #11
   %34 = getelementptr inbounds i8, ptr %22, i64 16
   store ptr %33, ptr %34, align 8
-  %35 = call i32 @zend_register_constant(ptr noundef nonnull %22), !range !4
+  %35 = call i32 @zend_register_constant(ptr noundef nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
   store i64 4, ptr %21, align 8
@@ -274,7 +274,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %39 = tail call ptr %38(ptr noundef nonnull @.str.20, i64 noundef 7, i1 noundef zeroext true) #11
   %40 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %39, ptr %40, align 8
-  %41 = call i32 @zend_register_constant(ptr noundef nonnull %21), !range !4
+  %41 = call i32 @zend_register_constant(ptr noundef nonnull %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
   store i64 8, ptr %20, align 8
@@ -286,7 +286,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %45 = tail call ptr %44(ptr noundef nonnull @.str.21, i64 noundef 8, i1 noundef zeroext true) #11
   %46 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %45, ptr %46, align 8
-  %47 = call i32 @zend_register_constant(ptr noundef nonnull %20), !range !4
+  %47 = call i32 @zend_register_constant(ptr noundef nonnull %20)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   store i64 16, ptr %19, align 8
@@ -298,7 +298,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %51 = tail call ptr %50(ptr noundef nonnull @.str.22, i64 noundef 12, i1 noundef zeroext true) #11
   %52 = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %51, ptr %52, align 8
-  %53 = call i32 @zend_register_constant(ptr noundef nonnull %19), !range !4
+  %53 = call i32 @zend_register_constant(ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   store i64 32, ptr %18, align 8
@@ -310,7 +310,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %57 = tail call ptr %56(ptr noundef nonnull @.str.23, i64 noundef 14, i1 noundef zeroext true) #11
   %58 = getelementptr inbounds i8, ptr %18, i64 16
   store ptr %57, ptr %58, align 8
-  %59 = call i32 @zend_register_constant(ptr noundef nonnull %18), !range !4
+  %59 = call i32 @zend_register_constant(ptr noundef nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   store i64 64, ptr %17, align 8
@@ -322,7 +322,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %63 = tail call ptr %62(ptr noundef nonnull @.str.24, i64 noundef 15, i1 noundef zeroext true) #11
   %64 = getelementptr inbounds i8, ptr %17, i64 16
   store ptr %63, ptr %64, align 8
-  %65 = call i32 @zend_register_constant(ptr noundef nonnull %17), !range !4
+  %65 = call i32 @zend_register_constant(ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   store i64 128, ptr %16, align 8
@@ -334,7 +334,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %69 = tail call ptr %68(ptr noundef nonnull @.str.25, i64 noundef 17, i1 noundef zeroext true) #11
   %70 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %69, ptr %70, align 8
-  %71 = call i32 @zend_register_constant(ptr noundef nonnull %16), !range !4
+  %71 = call i32 @zend_register_constant(ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   store i64 256, ptr %15, align 8
@@ -346,7 +346,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %75 = tail call ptr %74(ptr noundef nonnull @.str.26, i64 noundef 12, i1 noundef zeroext true) #11
   %76 = getelementptr inbounds i8, ptr %15, i64 16
   store ptr %75, ptr %76, align 8
-  %77 = call i32 @zend_register_constant(ptr noundef nonnull %15), !range !4
+  %77 = call i32 @zend_register_constant(ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   store i64 512, ptr %14, align 8
@@ -358,7 +358,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %81 = tail call ptr %80(ptr noundef nonnull @.str.27, i64 noundef 14, i1 noundef zeroext true) #11
   %82 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %81, ptr %82, align 8
-  %83 = call i32 @zend_register_constant(ptr noundef nonnull %14), !range !4
+  %83 = call i32 @zend_register_constant(ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   store i64 1024, ptr %13, align 8
@@ -370,7 +370,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %87 = tail call ptr %86(ptr noundef nonnull @.str.28, i64 noundef 13, i1 noundef zeroext true) #11
   %88 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %87, ptr %88, align 8
-  %89 = call i32 @zend_register_constant(ptr noundef nonnull %13), !range !4
+  %89 = call i32 @zend_register_constant(ptr noundef nonnull %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   store i64 2048, ptr %12, align 8
@@ -382,7 +382,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %93 = tail call ptr %92(ptr noundef nonnull @.str.29, i64 noundef 8, i1 noundef zeroext true) #11
   %94 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %93, ptr %94, align 8
-  %95 = call i32 @zend_register_constant(ptr noundef nonnull %12), !range !4
+  %95 = call i32 @zend_register_constant(ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   store i64 4096, ptr %11, align 8
@@ -394,7 +394,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %99 = tail call ptr %98(ptr noundef nonnull @.str.30, i64 noundef 19, i1 noundef zeroext true) #11
   %100 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %99, ptr %100, align 8
-  %101 = call i32 @zend_register_constant(ptr noundef nonnull %11), !range !4
+  %101 = call i32 @zend_register_constant(ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store i64 8192, ptr %10, align 8
@@ -406,7 +406,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %105 = tail call ptr %104(ptr noundef nonnull @.str.31, i64 noundef 12, i1 noundef zeroext true) #11
   %106 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %105, ptr %106, align 8
-  %107 = call i32 @zend_register_constant(ptr noundef nonnull %10), !range !4
+  %107 = call i32 @zend_register_constant(ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store i64 16384, ptr %9, align 8
@@ -418,7 +418,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %111 = tail call ptr %110(ptr noundef nonnull @.str.32, i64 noundef 17, i1 noundef zeroext true) #11
   %112 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %111, ptr %112, align 8
-  %113 = call i32 @zend_register_constant(ptr noundef nonnull %9), !range !4
+  %113 = call i32 @zend_register_constant(ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store i64 32767, ptr %8, align 8
@@ -430,7 +430,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %117 = tail call ptr %116(ptr noundef nonnull @.str.33, i64 noundef 5, i1 noundef zeroext true) #11
   %118 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %117, ptr %118, align 8
-  %119 = call i32 @zend_register_constant(ptr noundef nonnull %8), !range !4
+  %119 = call i32 @zend_register_constant(ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   store i64 1, ptr %7, align 8
@@ -442,7 +442,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %123 = tail call ptr %122(ptr noundef nonnull @.str.34, i64 noundef 30, i1 noundef zeroext true) #11
   %124 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %123, ptr %124, align 8
-  %125 = call i32 @zend_register_constant(ptr noundef nonnull %7), !range !4
+  %125 = call i32 @zend_register_constant(ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store i64 2, ptr %6, align 8
@@ -454,7 +454,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %129 = tail call ptr %128(ptr noundef nonnull @.str.35, i64 noundef 27, i1 noundef zeroext true) #11
   %130 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %129, ptr %130, align 8
-  %131 = call i32 @zend_register_constant(ptr noundef nonnull %6), !range !4
+  %131 = call i32 @zend_register_constant(ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %132 = getelementptr inbounds i8, ptr %5, i64 8
@@ -465,7 +465,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %135 = tail call ptr %134(ptr noundef nonnull @.str.36, i64 noundef 16, i1 noundef zeroext true) #11
   %136 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %135, ptr %136, align 8
-  %137 = call i32 @zend_register_constant(ptr noundef nonnull %5), !range !4
+  %137 = call i32 @zend_register_constant(ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %138 = getelementptr inbounds i8, ptr %4, i64 8
@@ -476,7 +476,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %141 = tail call ptr %140(ptr noundef nonnull @.str.37, i64 noundef 16, i1 noundef zeroext true) #11
   %142 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %141, ptr %142, align 8
-  %143 = call i32 @zend_register_constant(ptr noundef nonnull %4), !range !4
+  %143 = call i32 @zend_register_constant(ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %144 = getelementptr inbounds i8, ptr %3, i64 8
@@ -487,7 +487,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %147 = tail call ptr %146(ptr noundef nonnull @.str, i64 noundef 4, i1 noundef zeroext true) #11
   %148 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %147, ptr %148, align 8
-  %149 = call i32 @zend_register_constant(ptr noundef nonnull %3), !range !4
+  %149 = call i32 @zend_register_constant(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %150 = getelementptr inbounds i8, ptr %2, i64 8
@@ -498,7 +498,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %153 = tail call ptr %152(ptr noundef nonnull @.str.1, i64 noundef 5, i1 noundef zeroext true) #11
   %154 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %153, ptr %154, align 8
-  %155 = call i32 @zend_register_constant(ptr noundef nonnull %2), !range !4
+  %155 = call i32 @zend_register_constant(ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   %156 = getelementptr inbounds i8, ptr %1, i64 8
@@ -509,7 +509,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   %159 = tail call ptr %158(ptr noundef nonnull @.str.2, i64 noundef 4, i1 noundef zeroext true) #11
   %160 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %159, ptr %160, align 8
-  %161 = call i32 @zend_register_constant(ptr noundef nonnull %1), !range !4
+  %161 = call i32 @zend_register_constant(ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   %162 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 12), align 8
   %163 = tail call ptr @zend_hash_str_find(ptr noundef %162, ptr noundef nonnull @.str, i64 noundef 4) #11
@@ -517,7 +517,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   br i1 %.not, label %166, label %164
 
 164:                                              ; preds = %0
-  %165 = load ptr, ptr %163, align 8, !nonnull !5, !noundef !5
+  %165 = load ptr, ptr %163, align 8, !nonnull !4, !noundef !4
   br label %166
 
 166:                                              ; preds = %0, %164
@@ -529,7 +529,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   br i1 %.not25, label %171, label %169
 
 169:                                              ; preds = %166
-  %170 = load ptr, ptr %168, align 8, !nonnull !5, !noundef !5
+  %170 = load ptr, ptr %168, align 8, !nonnull !4, !noundef !4
   br label %171
 
 171:                                              ; preds = %166, %169
@@ -541,7 +541,7 @@ define hidden void @zend_register_standard_constants() local_unnamed_addr #0 {
   br i1 %.not26, label %176, label %174
 
 174:                                              ; preds = %171
-  %175 = load ptr, ptr %173, align 8, !nonnull !5, !noundef !5
+  %175 = load ptr, ptr %173, align 8, !nonnull !4, !noundef !4
   br label %176
 
 176:                                              ; preds = %171, %174
@@ -577,12 +577,12 @@ define void @zend_register_null_constant(ptr noundef %0, i64 noundef %1, i32 nou
   %14 = tail call ptr %11(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %13) #11
   %15 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %14, ptr %15, align 8
-  %16 = call i32 @zend_register_constant(ptr noundef nonnull %5), !range !4
+  %16 = call i32 @zend_register_constant(ptr noundef nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_register_constant(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_register_constant(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
@@ -679,7 +679,7 @@ define noundef i32 @zend_register_constant(ptr nocapture noundef readonly %0) lo
 
 53:                                               ; preds = %51, %49
   %54 = phi ptr [ %50, %49 ], [ %52, %51 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   store ptr %54, ptr %2, align 8
   %55 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 13, ptr %55, align 8
@@ -820,7 +820,7 @@ define void @zend_register_bool_constant(ptr noundef %0, i64 noundef %1, i1 noun
   %16 = tail call ptr %13(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %15) #11
   %17 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %16, ptr %17, align 8
-  %18 = call i32 @zend_register_constant(ptr noundef nonnull %6), !range !4
+  %18 = call i32 @zend_register_constant(ptr noundef nonnull %6)
   ret void
 }
 
@@ -841,7 +841,7 @@ define void @zend_register_long_constant(ptr noundef %0, i64 noundef %1, i64 nou
   %15 = tail call ptr %12(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %14) #11
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %15, ptr %16, align 8
-  %17 = call i32 @zend_register_constant(ptr noundef nonnull %6), !range !4
+  %17 = call i32 @zend_register_constant(ptr noundef nonnull %6)
   ret void
 }
 
@@ -862,7 +862,7 @@ define void @zend_register_double_constant(ptr noundef %0, i64 noundef %1, doubl
   %15 = tail call ptr %12(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %14) #11
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %15, ptr %16, align 8
-  %17 = call i32 @zend_register_constant(ptr noundef nonnull %6), !range !4
+  %17 = call i32 @zend_register_constant(ptr noundef nonnull %6)
   ret void
 }
 
@@ -890,7 +890,7 @@ define void @zend_register_stringl_constant(ptr noundef %0, i64 noundef %1, ptr 
   %22 = tail call ptr %21(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %10) #11
   %23 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %22, ptr %23, align 8
-  %24 = call i32 @zend_register_constant(ptr noundef nonnull %7), !range !4
+  %24 = call i32 @zend_register_constant(ptr noundef nonnull %7)
   ret void
 }
 
@@ -920,7 +920,7 @@ define void @zend_register_string_constant(ptr noundef %0, i64 noundef %1, ptr n
   %22 = tail call ptr %21(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %10) #11
   %23 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %22, ptr %23, align 8
-  %24 = call i32 @zend_register_constant(ptr noundef nonnull %6), !range !4
+  %24 = call i32 @zend_register_constant(ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 }
@@ -1095,7 +1095,7 @@ define ptr @zend_get_constant_str(ptr noundef %0, i64 noundef %1) local_unnamed_
   br i1 %.not.i, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
+  %6 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   br label %zend_get_constant_str_impl.exit
 
 7:                                                ; preds = %2
@@ -1125,7 +1125,7 @@ define ptr @zend_get_constant(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %3, align 8, !nonnull !5, !noundef !5
+  %5 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   br label %zend_get_constant_impl.exit
 
 6:                                                ; preds = %1
@@ -1319,7 +1319,7 @@ thread-pre-split:                                 ; preds = %24
   br label %.thread118
 
 84:                                               ; preds = %76
-  %85 = load ptr, ptr %77, align 8, !nonnull !5, !noundef !5
+  %85 = load ptr, ptr %77, align 8, !nonnull !4, !noundef !4
   %86 = getelementptr inbounds i8, ptr %85, i64 12
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, 1
@@ -1557,7 +1557,7 @@ define ptr @zend_get_constant_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br i1 %.not188, label %74, label %72
 
 72:                                               ; preds = %65
-  %73 = load ptr, ptr %71, align 8, !nonnull !5, !noundef !5
+  %73 = load ptr, ptr %71, align 8, !nonnull !4, !noundef !4
   br label %74
 
 74:                                               ; preds = %65, %72
@@ -1660,7 +1660,7 @@ zend_get_constant_str_impl.exit.thread208:        ; preds = %106, %97, %84, %77,
 
 zend_get_constant_str_impl.exit.thread.sink.split: ; preds = %102, %90, %79
   %.sink = phi ptr [ %81, %79 ], [ %91, %90 ], [ %103, %102 ]
-  %112 = load ptr, ptr %.sink, align 8, !nonnull !5, !noundef !5
+  %112 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   br label %zend_get_constant_str_impl.exit.thread
 
 zend_get_constant_str_impl.exit.thread:           ; preds = %zend_get_constant_str_impl.exit.thread.sink.split, %104, %92, %82, %76, %zend_get_constant_str_impl.exit
@@ -1727,7 +1727,7 @@ define internal fastcc noundef ptr @zend_get_halt_offset_constant(ptr nocapture 
   br i1 %.not18, label %14, label %12
 
 12:                                               ; preds = %6
-  %13 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
+  %13 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
   br label %14
 
 14:                                               ; preds = %6, %12
@@ -1786,5 +1786,4 @@ attributes #13 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{}
+!4 = !{}

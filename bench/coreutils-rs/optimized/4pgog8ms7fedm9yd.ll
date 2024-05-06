@@ -18,7 +18,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h5ab850eafb805c54E(p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden i8 @_ZN4core3ops8function6FnOnce9call_once17h8536a26384770171E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17h8536a26384770171E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ne ptr %1, null

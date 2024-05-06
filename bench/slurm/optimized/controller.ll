@@ -5539,7 +5539,7 @@ define internal noalias noundef ptr @_slurmctld_signal_hand(ptr nocapture readno
 24:                                               ; preds = %23, %20
   %25 = call i64 @time(ptr noundef null) #19
   store i64 %25, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
-  %26 = call i32 @slurmctld_shutdown(), !range !31
+  %26 = call i32 @slurmctld_shutdown()
   br label %53
 
 27:                                               ; preds = %18
@@ -5555,7 +5555,7 @@ define internal noalias noundef ptr @_slurmctld_signal_hand(ptr nocapture readno
   store i1 true, ptr @reconfig, align 1
   %32 = call i64 @time(ptr noundef null) #19
   store i64 %32, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
-  %33 = call i32 @slurmctld_shutdown(), !range !31
+  %33 = call i32 @slurmctld_shutdown()
   br label %53
 
 34:                                               ; preds = %18
@@ -5570,7 +5570,7 @@ define internal noalias noundef ptr @_slurmctld_signal_hand(ptr nocapture readno
 38:                                               ; preds = %37, %34
   %39 = call i64 @time(ptr noundef null) #19
   store i64 %39, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
-  %40 = call i32 @slurmctld_shutdown(), !range !31
+  %40 = call i32 @slurmctld_shutdown()
   store i1 true, ptr @dump_core, align 1
   br label %53
 
@@ -5634,7 +5634,7 @@ define internal noalias noundef ptr @_purge_files_thread(ptr nocapture readnone 
 .loopexit:                                        ; preds = %26, %18
   %7 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
   %.not8 = icmp eq i64 %7, 0
-  br i1 %.not8, label %.lr.ph14, label %._crit_edge, !llvm.loop !32
+  br i1 %.not8, label %.lr.ph14, label %._crit_edge, !llvm.loop !31
 
 .lr.ph14:                                         ; preds = %.preheader, %.loopexit
   %8 = call i32 @pthread_cond_wait(ptr noundef nonnull @purge_thread_cond, ptr noundef nonnull @purge_thread_lock) #19
@@ -5685,7 +5685,7 @@ define internal noalias noundef ptr @_purge_files_thread(ptr nocapture readnone 
   %30 = call ptr @list_dequeue(ptr noundef %29) #19
   store ptr %30, ptr %2, align 8
   %.not11 = icmp eq ptr %30, null
-  br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %31 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @purge_thread_lock) #19
@@ -5735,7 +5735,7 @@ define internal noalias noundef ptr @_acct_update_thread(ptr nocapture readnone 
   %12 = tail call i32 @list_delete_all(ptr noundef %11, ptr noundef nonnull @_acct_update_list_for_each, ptr noundef null) #19
   %13 = load i64, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 11), align 8
   %.not8 = icmp eq i64 %13, 0
-  br i1 %.not8, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %.not8, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %10, %.preheader
   %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 2)) #19
@@ -5857,7 +5857,7 @@ define dso_local void @notify_parent_of_success() local_unnamed_addr #4 {
   br label %.lr.ph.split.us.backedge
 
 .lr.ph.split.us.backedge:                         ; preds = %32, %29
-  br label %.lr.ph.split.us, !llvm.loop !35
+  br label %.lr.ph.split.us, !llvm.loop !34
 
 33:                                               ; preds = %.split29.us, %24
   %34 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.66) #19
@@ -6002,7 +6002,7 @@ define internal fastcc void @_close_ports() unnamed_addr #4 {
   %7 = load i32, ptr @listen_nports, align 4
   %8 = sext i32 %7 to i64
   %9 = icmp slt i64 %indvars.iv.next, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !36
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   tail call void @slurm_xfree(ptr noundef nonnull @listen_fds) #19
@@ -6319,7 +6319,7 @@ define internal void @_resize_qos() #4 {
 32:                                               ; preds = %30, %27
   %33 = tail call ptr @list_next(ptr noundef %3) #19
   %.not14 = icmp eq ptr %33, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %32, %2
   tail call void @list_iterator_destroy(ptr noundef %3) #19
@@ -6411,7 +6411,7 @@ define internal void @_remove_qos(ptr noundef readonly %0) #4 {
 .backedge:                                        ; preds = %18, %7
   %19 = tail call ptr @list_next(ptr noundef %4) #19
   %.not14 = icmp eq ptr %19, null
-  br i1 %.not14, label %._crit_edge, label %7, !llvm.loop !38
+  br i1 %.not14, label %._crit_edge, label %7, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.backedge, %3
   tail call void @list_iterator_destroy(ptr noundef %4) #19
@@ -6820,7 +6820,7 @@ define internal fastcc void @_init_tres() unnamed_addr #4 {
   %.2 = phi ptr [ %.073143, %122 ], [ %.1, %121 ], [ %.073143, %105 ]
   %124 = tail call ptr @list_pop(ptr noundef %7) #19
   %.not83 = icmp eq ptr %124, null
-  br i1 %.not83, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not83, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %123, %28
   %.073.lcssa = phi ptr [ null, %28 ], [ %.2, %123 ]
@@ -7028,7 +7028,7 @@ define internal noalias noundef ptr @_assoc_cache_mgr(ptr nocapture readnone %0)
 64:                                               ; preds = %60, %62, %63
   %65 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @assoc_cache_mutex) #19
   %.not74 = icmp eq i32 %65, 0
-  br i1 %.not74, label %29, label %66, !llvm.loop !40
+  br i1 %.not74, label %29, label %66, !llvm.loop !39
 
 66:                                               ; preds = %64
   %67 = tail call ptr @__errno_location() #20
@@ -7186,7 +7186,7 @@ _update_job_tres.exit:                            ; preds = %92, %97
 142:                                              ; preds = %131, %140, %137, %128
   %143 = call ptr @list_next(ptr noundef %81) #19
   %.not60 = icmp eq ptr %143, null
-  br i1 %.not60, label %._crit_edge, label %85, !llvm.loop !41
+  br i1 %.not60, label %._crit_edge, label %85, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %142, %79
   call void @list_iterator_destroy(ptr noundef %81) #19
@@ -7269,7 +7269,7 @@ _update_job_tres.exit:                            ; preds = %92, %97
   %180 = call i32 @part_update_assoc_lists(ptr noundef nonnull %155, ptr noundef null) #19
   %181 = call ptr @list_next(ptr noundef %151) #19
   %.not62 = icmp eq ptr %181, null
-  br i1 %.not62, label %._crit_edge86, label %154, !llvm.loop !42
+  br i1 %.not62, label %._crit_edge86, label %154, !llvm.loop !41
 
 ._crit_edge86:                                    ; preds = %179, %150
   call void @list_iterator_destroy(ptr noundef %151) #19
@@ -7442,7 +7442,7 @@ define dso_local void @set_cluster_tres(i1 noundef zeroext %0) local_unnamed_add
   %58 = add nuw nsw i32 %8, 1
   %59 = load i32, ptr @g_tres_count, align 4
   %60 = icmp ult i32 %58, %59
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %57, %6
   %.053.lcssa = phi ptr [ null, %6 ], [ %.154, %57 ]
@@ -7548,7 +7548,7 @@ define dso_local void @set_cluster_tres(i1 noundef zeroext %0) local_unnamed_add
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %114 = zext i16 %113 to i64
   %115 = icmp ult i64 %indvars.iv.next.i, %114
-  br i1 %115, label %99, label %_set_node_billing_tres.exit, !llvm.loop !44
+  br i1 %115, label %99, label %_set_node_billing_tres.exit, !llvm.loop !43
 
 _set_node_billing_tres.exit:                      ; preds = %112, %90
   %.016.lcssa.i = phi double [ 0.000000e+00, %90 ], [ %.1.i, %112 ]
@@ -7583,7 +7583,7 @@ _set_node_billing_tres.exit:                      ; preds = %112, %90
   store i32 %133, ptr %2, align 4
   %134 = call ptr @next_node(ptr noundef nonnull %2) #19
   %.not = icmp eq ptr %134, null
-  br i1 %.not, label %._crit_edge78.loopexit, label %64, !llvm.loop !45
+  br i1 %.not, label %._crit_edge78.loopexit, label %64, !llvm.loop !44
 
 ._crit_edge78.loopexit:                           ; preds = %131
   %135 = sext i32 %.1 to i64
@@ -7698,7 +7698,7 @@ declare void @set_partition_tres(i1 noundef zeroext) local_unnamed_addr #2
 declare void @assoc_mgr_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @slurmctld_shutdown() local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @slurmctld_shutdown() local_unnamed_addr #4 {
   %1 = tail call i32 @get_sched_log_level() #19
   %2 = icmp sgt i32 %1, 4
   br i1 %2, label %3, label %4
@@ -7921,7 +7921,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #2
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_find_node_event(ptr nocapture noundef readonly %0, ptr noundef %1) #4 {
+define internal range(i32 0, 2) i32 @_find_node_event(ptr nocapture noundef readonly %0, ptr noundef %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @xstrcmp(ptr noundef %4, ptr noundef %1) #19
@@ -8783,7 +8783,7 @@ attributes #23 = { cold }
 !28 = distinct !{!28, !8}
 !29 = distinct !{!29, !8}
 !30 = distinct !{!30, !8}
-!31 = !{i32 -1, i32 1}
+!31 = distinct !{!31, !8}
 !32 = distinct !{!32, !8}
 !33 = distinct !{!33, !8}
 !34 = distinct !{!34, !8}
@@ -8797,4 +8797,3 @@ attributes #23 = { cold }
 !42 = distinct !{!42, !8}
 !43 = distinct !{!43, !8}
 !44 = distinct !{!44, !8}
-!45 = distinct !{!45, !8}

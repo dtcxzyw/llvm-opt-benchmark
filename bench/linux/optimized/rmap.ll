@@ -877,7 +877,7 @@ define internal void @perf_trace_migration_pte(ptr noundef %0, i64 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__anon_vma_prepare(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @__anon_vma_prepare(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @__SCT__might_resched() #17
@@ -4332,7 +4332,7 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal i32 @folio_not_mapped(ptr noundef %0) #9 align 16 {
+define internal range(i32 0, 2) i32 @folio_not_mapped(ptr noundef %0) #9 align 16 {
   %2 = load volatile i64, ptr %0, align 8
   %3 = and i64 %2, 64
   %4 = icmp eq i64 %3, 0

@@ -76,7 +76,7 @@ declare dso_local i32 @memblock_phys_free(i64 noundef, i64 noundef) local_unname
 declare dso_local void @free_pages(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @efi_memmap_alloc(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @efi_memmap_alloc(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 section ".init.text" align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %9
@@ -140,7 +140,7 @@ define dso_local i32 @efi_memmap_alloc(i32 noundef %0, ptr nocapture noundef %1)
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i64 @__efi_memmap_alloc_late(i64 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i64 0, -63) i64 @__efi_memmap_alloc_late(i64 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = add i64 %0, -1
   %3 = lshr i64 %2, 12
   %4 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %3, i32 -1) #6, !srcloc !5
@@ -179,7 +179,7 @@ declare dso_local void @efi_memmap_unmap() local_unnamed_addr #2 section ".init.
 declare dso_local i32 @__efi_memmap_init(ptr noundef) local_unnamed_addr #2 section ".init.text"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: read)
-define dso_local i32 @efi_memmap_split_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 section ".init.text" align 16 {
+define dso_local range(i32 0, 4) i32 @efi_memmap_split_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 section ".init.text" align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24

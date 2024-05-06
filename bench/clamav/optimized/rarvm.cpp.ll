@@ -262,7 +262,7 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   %indvars.iv.i = phi i64 [ 0, %73 ], [ %indvars.iv.next.i, %86 ]
   %.01821.i = phi i32 [ %84, %73 ], [ %93, %86 ]
   %.01920.i = phi i32 [ %85, %73 ], [ %94, %86 ]
-  %gep.i = getelementptr i8, ptr %78, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds i8, ptr %78, i64 %indvars.iv.i
   %87 = load i8, ptr %gep.i, align 1
   %88 = trunc i32 %.01821.i to i8
   %89 = and i8 %87, %88
@@ -428,13 +428,13 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %.preheader, %6
 
 .lr.ph316:                                        ; preds = %.lr.ph316.preheader, %.lr.ph316
   %indvars.iv362 = phi i64 [ %168, %.lr.ph316.preheader ], [ %indvars.iv.next363, %.lr.ph316 ]
-  %170 = getelementptr i8, ptr %137, i64 %indvars.iv362
-  %171 = getelementptr i8, ptr %170, i64 1
+  %170 = getelementptr inbounds i8, ptr %137, i64 %indvars.iv362
+  %171 = getelementptr inbounds i8, ptr %170, i64 1
   %172 = load i8, ptr %171, align 1
   %173 = load i8, ptr %170, align 1
   %174 = add i8 %173, %172
   store i8 %174, ptr %170, align 1
-  %175 = getelementptr i8, ptr %170, i64 2
+  %175 = getelementptr inbounds i8, ptr %170, i64 2
   %176 = load i8, ptr %175, align 1
   %177 = add i8 %176, %172
   store i8 %177, ptr %175, align 1
@@ -787,14 +787,14 @@ define void @_ZN5RarVM21FilterItanium_SetBitsEPhjjj(ptr nocapture noundef nonnul
   %11 = xor i32 %10, -1
   %12 = shl i32 %2, %7
   %13 = zext nneg i32 %6 to i64
-  %invariant.gep = getelementptr i8, ptr %1, i64 %13
+  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 %13
   br label %14
 
 14:                                               ; preds = %5, %14
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %14 ]
   %.01821 = phi i32 [ %11, %5 ], [ %21, %14 ]
   %.01920 = phi i32 [ %12, %5 ], [ %22, %14 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
   %15 = load i8, ptr %gep, align 1
   %16 = trunc i32 %.01821 to i8
   %17 = and i8 %15, %16

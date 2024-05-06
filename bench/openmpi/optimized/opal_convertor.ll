@@ -213,7 +213,7 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
   br i1 %.not67, label %45, label %40
 
 40:                                               ; preds = %35
-  %41 = trunc i64 %indvars.iv to i32
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
   %42 = shl nuw nsw i32 1, %41
   %43 = load i32, ptr %12, align 8
   %44 = or i32 %43, %42
@@ -237,7 +237,7 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
   %49 = getelementptr inbounds i64, ptr %13, i64 %indvars.iv77
   %50 = load i64, ptr %49, align 8
   %51 = icmp ugt i64 %50, 1
-  %52 = trunc i64 %indvars.iv77 to i32
+  %52 = trunc nuw nsw i64 %indvars.iv77 to i32
   %53 = shl nuw nsw i32 1, %52
   %54 = select i1 %51, i32 %53, i32 0
   %.1 = or i32 %54, %.072
@@ -261,7 +261,7 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
 62:                                               ; preds = %59, %62
   %indvars.iv81 = phi i64 [ 4, %59 ], [ %indvars.iv.next82, %62 ]
   %63 = load i32, ptr %12, align 8
-  %64 = trunc i64 %indvars.iv81 to i32
+  %64 = trunc nuw nsw i64 %indvars.iv81 to i32
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %63, %65
   %.not66 = icmp eq i32 %66, 0
@@ -436,7 +436,7 @@ define i32 @opal_convertor_pack(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %69
 
 52:                                               ; preds = %30
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw i64 %indvars.iv to i32
   store i64 %.079, ptr %32, align 8
   %54 = load ptr, ptr %31, align 8
   %55 = icmp eq ptr %54, null
@@ -556,7 +556,7 @@ define i32 @opal_convertor_unpack(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %61
 
 48:                                               ; preds = %30
-  %49 = trunc i64 %indvars.iv to i32
+  %49 = trunc nuw i64 %indvars.iv to i32
   store i64 %.067, ptr %32, align 8
   %50 = load ptr, ptr %29, align 8
   %51 = load ptr, ptr %31, align 8
@@ -1635,7 +1635,7 @@ define void @opal_datatype_dump_stack(ptr noundef %0, i32 noundef %1, ptr nocapt
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 16
   %12 = load i64, ptr %11, align 8
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.15, i32 noundef %13, i32 noundef %8, i64 noundef %10, i64 noundef %12) #11
   %14 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %14, -1

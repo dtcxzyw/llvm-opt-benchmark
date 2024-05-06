@@ -597,7 +597,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb22PhysicalColumnDataScan7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #2 align 2 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb22PhysicalColumnDataScan7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %input, align 8, !tbaa !59
   %collection = getelementptr inbounds i8, ptr %this, i64 128
@@ -1401,7 +1401,7 @@ _ZNSt10unique_ptrIN6duckdb19ExpressionScanStateESt14default_deleteIS1_EED2Ev.exi
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb9Allocator3GetERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb22PhysicalExpressionScan7ExecuteERNS_16ExecutionContextERNS_9DataChunkES4_RNS_19GlobalOperatorStateERNS_13OperatorStateE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %context, ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture nonnull readnone align 8 %gstate, ptr noundef nonnull align 8 dereferenceable(8) %state_p) unnamed_addr #2 align 2 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb22PhysicalExpressionScan7ExecuteERNS_16ExecutionContextERNS_9DataChunkES4_RNS_19GlobalOperatorStateERNS_13OperatorStateE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %context, ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture nonnull readnone align 8 %gstate, ptr noundef nonnull align 8 dereferenceable(8) %state_p) unnamed_addr #2 align 2 {
 entry:
   %expression_index = getelementptr inbounds i8, ptr %state_p, i64 8
   %count.i = getelementptr inbounds i8, ptr %chunk, i64 24
@@ -2557,7 +2557,7 @@ _ZNSt10unique_ptrIN6duckdb31PositionalScanGlobalSourceStateESt14default_deleteIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb22PhysicalPositionalScan7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(24) %context, ptr noundef nonnull align 8 dereferenceable(64) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #2 align 2 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb22PhysicalPositionalScan7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(24) %context, ptr noundef nonnull align 8 dereferenceable(64) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #2 align 2 {
 entry:
   %local_state = getelementptr inbounds i8, ptr %input, i64 8
   %0 = load ptr, ptr %local_state, align 8, !tbaa !194
@@ -3982,7 +3982,7 @@ _ZNSt10unique_ptrIN6duckdb26TableScanGlobalSourceStateESt14default_deleteIS1_EED
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb17PhysicalTableScan7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #2 align 2 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb17PhysicalTableScan7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #2 align 2 {
 entry:
   %data = alloca %"struct.duckdb::TableFunctionInput", align 8
   %0 = load ptr, ptr %input, align 8, !tbaa !59

@@ -4110,7 +4110,7 @@ if.end14.i:                                       ; preds = %if.end10.i
   %pendingsize.i = getelementptr inbounds i8, ptr %self, i64 48
   store i64 %call4.i, ptr %pendingsize.i, align 8
   %pending.i = getelementptr inbounds i8, ptr %self, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %pending.i, ptr nonnull align 1 %call11.i, i64 %call4.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %pending.i, ptr nonnull align 1 %call11.i, i64 %call4.i, i1 false)
   %state17.i = getelementptr inbounds i8, ptr %self, i64 24
   %7 = load i64, ptr %statebytes.i, align 8
   store i64 %7, ptr %state17.i, align 8

@@ -1853,7 +1853,7 @@ define internal i32 @dissect_lbmr(ptr noundef %0, ptr noundef %1, ptr noundef %2
 30:                                               ; preds = %29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
   %31 = getelementptr %struct.lbmr_tag_entry_t, ptr %28, i64 %indvars.iv.i
-  %32 = tail call fastcc i32 @lbmr_match_packet(ptr noundef %1, ptr noundef %31), !range !7
+  %32 = tail call fastcc i32 @lbmr_match_packet(ptr noundef readonly %1, ptr noundef %31)
   %.not7.i = icmp eq i32 %32, 0
   br i1 %.not7.i, label %29, label %lbmr_tag_find.exit
 
@@ -2068,7 +2068,7 @@ proto_item_set_generated.exit:                    ; preds = %80, %77, %71, %.thr
   %.1.i = phi i32 [ %161, %158 ], [ %156, %144 ]
   %.199.i = add i32 %.pn.i, %.098103.i
   %.not101.i = icmp eq i16 %.197.i, 0
-  br i1 %.not101.i, label %dissect_lbmr_pser.exit, label %.lr.ph.i328, !llvm.loop !8
+  br i1 %.not101.i, label %dissect_lbmr_pser.exit, label %.lr.ph.i328, !llvm.loop !7
 
 167:                                              ; preds = %proto_item_set_generated.exit
   %168 = tail call i32 @lbmr_dissect_umq_qmgmt(ptr noundef %.0301, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %84)
@@ -2177,7 +2177,7 @@ dissect_lbmr_tnwg_interest_rec.exit.i.i:          ; preds = %224, %.lr.ph.i.i
   %240 = add i32 %.04.i.i, %217
   %241 = add i16 %.0272.i.i, -1
   %.not.i.i = icmp eq i16 %241, 0
-  br i1 %.not.i.i, label %dissect_lbmr_tnwg_interest.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %dissect_lbmr_tnwg_interest.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !8
 
 dissect_lbmr_tnwg_interest.exit.loopexit.i:       ; preds = %dissect_lbmr_tnwg_interest_rec.exit.i.i
   %242 = add i32 %240, 8
@@ -2263,7 +2263,7 @@ dissect_lbmr_tnwg_interest.exit.loopexit.i:       ; preds = %dissect_lbmr_tnwg_i
   %301 = add nuw nsw i32 %.0262.i, 4
   %302 = add nuw i16 %.03.i, 1
   %exitcond.not.i333 = icmp eq i16 %302, %286
-  br i1 %exitcond.not.i333, label %._crit_edge.loopexit.i, label %.lr.ph.i332, !llvm.loop !10
+  br i1 %exitcond.not.i333, label %._crit_edge.loopexit.i, label %.lr.ph.i332, !llvm.loop !9
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i332
   %303 = shl nuw nsw i32 %298, 2
@@ -2435,7 +2435,7 @@ dissect_lbmr_tnwg_interest.exit.loopexit.i:       ; preds = %dissect_lbmr_tnwg_i
   %433 = sub nsw i32 %.04849.i.i, %.046.i.i
   %434 = add i32 %.046.i.i, %.04750.i.i
   %435 = icmp sgt i32 %433, 0
-  br i1 %435, label %.lr.ph.i.i338, label %dissect_lbmr_rctxinfo_rec.exit.i, !llvm.loop !11
+  br i1 %435, label %.lr.ph.i.i338, label %dissect_lbmr_rctxinfo_rec.exit.i, !llvm.loop !10
 
 dissect_lbmr_rctxinfo_rec.exit.i:                 ; preds = %431, %.lr.ph.i335
   %.0.lcssa.i.i = phi i32 [ 4, %.lr.ph.i335 ], [ %432, %431 ]
@@ -2444,7 +2444,7 @@ dissect_lbmr_rctxinfo_rec.exit.i:                 ; preds = %431, %.lr.ph.i335
   %437 = add i32 %.0.lcssa.i.i, %.027.i
   %438 = add i16 %.02325.i, -1
   %.not.i336 = icmp eq i16 %438, 0
-  br i1 %.not.i336, label %dissect_lbmr_pser.exit, label %.lr.ph.i335, !llvm.loop !12
+  br i1 %.not.i336, label %dissect_lbmr_pser.exit, label %.lr.ph.i335, !llvm.loop !11
 
 439:                                              ; preds = %proto_item_set_generated.exit
   %440 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %96, ptr noundef nonnull @ei_lbmr_analysis_invalid_value, ptr noundef nonnull @.str.791, i32 noundef %62) #7
@@ -2667,7 +2667,7 @@ proto_item_set_generated.exit341:                 ; preds = %499, %496, %491, %.
   %543 = add i32 %531, %.04.i
   %544 = add i32 %531, %.0173.i
   %.not.i343 = icmp eq i8 %528, 0
-  br i1 %.not.i343, label %dissect_lbmr_qqrs.exit, label %527, !llvm.loop !13
+  br i1 %.not.i343, label %dissect_lbmr_qqrs.exit, label %527, !llvm.loop !12
 
 dissect_lbmr_qqrs.exit:                           ; preds = %527
   call void @proto_item_set_len(ptr noundef %522, i32 noundef %543) #7
@@ -2782,7 +2782,7 @@ dissect_lbmr_qqrs.exit:                           ; preds = %527
   %622 = add i32 %.1117.i.i, 4
   %623 = add i32 %.1109116.i.i, 4
   %.not113.i.i = icmp eq i16 %608, 0
-  br i1 %.not113.i.i, label %624, label %607, !llvm.loop !14
+  br i1 %.not113.i.i, label %624, label %607, !llvm.loop !13
 
 624:                                              ; preds = %607
   %625 = zext nneg i16 %606 to i32
@@ -2850,7 +2850,7 @@ dissect_lbmr_qqrs.exit:                           ; preds = %527
   %668 = add i32 %.3121.i.i, 12
   %669 = add i32 %.3111120.i.i, 12
   %.not115.i.i = icmp eq i16 %636, 0
-  br i1 %.not115.i.i, label %670, label %635, !llvm.loop !15
+  br i1 %.not115.i.i, label %670, label %635, !llvm.loop !14
 
 670:                                              ; preds = %635
   %671 = zext i16 %634 to i32
@@ -2867,7 +2867,7 @@ dissect_lbmr_qir_entry.exit.i:                    ; preds = %670, %628
   %674 = add i32 %.4.i.i, %.024.i
   %675 = add i32 %.4.i.i, %.01723.i
   %.not.i348 = icmp eq i16 %554, 0
-  br i1 %.not.i348, label %dissect_lbmr_qirs.exit, label %553, !llvm.loop !16
+  br i1 %.not.i348, label %dissect_lbmr_qirs.exit, label %553, !llvm.loop !15
 
 dissect_lbmr_qirs.exit:                           ; preds = %dissect_lbmr_qir_entry.exit.i
   call void @proto_item_set_len(ptr noundef %548, i32 noundef %674) #7
@@ -2941,7 +2941,7 @@ dissect_lbmr_tqr.exit.us.i:                       ; preds = %dissect_lbmr_tqr.ex
   %711 = add i32 %695, %.04.us.i
   %712 = add i32 %695, %.0233.us.i
   %.not25.us.i = icmp eq i8 %692, 0
-  br i1 %.not25.us.i, label %dissect_lbmr_tqrs.exit, label %dissect_lbmr_tqr.exit.us.i, !llvm.loop !17
+  br i1 %.not25.us.i, label %dissect_lbmr_tqrs.exit, label %dissect_lbmr_tqr.exit.us.i, !llvm.loop !16
 
 dissect_lbmr_tqr.exit.i:                          ; preds = %dissect_lbmr_tqr.exit.i, %dissect_lbmr_tqr.exit.preheader.i
   %.04.i352 = phi i32 [ %738, %dissect_lbmr_tqr.exit.i ], [ 0, %dissect_lbmr_tqr.exit.preheader.i ]
@@ -2983,7 +2983,7 @@ dissect_lbmr_tqr.exit.i:                          ; preds = %dissect_lbmr_tqr.ex
   %738 = add i32 %719, %.04.i352
   %739 = add i32 %719, %.0233.i
   %.not25.i = icmp eq i8 %713, 0
-  br i1 %.not25.i, label %dissect_lbmr_tqrs.exit, label %dissect_lbmr_tqr.exit.i, !llvm.loop !17
+  br i1 %.not25.i, label %dissect_lbmr_tqrs.exit, label %dissect_lbmr_tqr.exit.i, !llvm.loop !16
 
 dissect_lbmr_tqrs.exit:                           ; preds = %dissect_lbmr_tqr.exit.us.i, %dissect_lbmr_tqr.exit.i
   %.02210.i = phi ptr [ %682, %dissect_lbmr_tqr.exit.i ], [ %687, %dissect_lbmr_tqr.exit.us.i ]
@@ -3610,7 +3610,7 @@ dissect_lbmr_tir_entry.exit.i:                    ; preds = %1087, %1084, %1081,
   %1092 = add i32 %1091, %.0183.i
   %1093 = add i32 %1091, %.04.i357
   %.not.i359 = icmp eq i16 %784, 0
-  br i1 %.not.i359, label %dissect_lbmr_tirs.exit, label %783, !llvm.loop !18
+  br i1 %.not.i359, label %dissect_lbmr_tirs.exit, label %783, !llvm.loop !17
 
 dissect_lbmr_tirs.exit:                           ; preds = %dissect_lbmr_tir_entry.exit.i
   call void @proto_item_set_len(ptr noundef %743, i32 noundef %1093) #7
@@ -3680,7 +3680,7 @@ dissect_lbmr_tirs.exit:                           ; preds = %dissect_lbmr_tir_en
   %1137 = add i32 %.0282.i, %1121
   %1138 = add nuw nsw i32 %.0291.i, 1
   %exitcond.not.i367 = icmp eq i32 %1138, %1110
-  br i1 %exitcond.not.i367, label %dissect_lbmr_tmb.exit.loopexit, label %.lr.ph.i363, !llvm.loop !19
+  br i1 %exitcond.not.i367, label %dissect_lbmr_tmb.exit.loopexit, label %.lr.ph.i363, !llvm.loop !18
 
 dissect_lbmr_tmb.exit.loopexit:                   ; preds = %.lr.ph.i363
   %1139 = add i32 %1136, 4
@@ -3836,7 +3836,7 @@ dissect_lbmr_tmb.exit:                            ; preds = %1096, %dissect_lbmr
   %1252 = add i32 %.0.i372, %.03940.i
   %1253 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1252) #7
   %1254 = icmp sgt i32 %1253, 0
-  br i1 %1254, label %.lr.ph.i371, label %dissect_lbmr_options.exit, !llvm.loop !20
+  br i1 %1254, label %.lr.ph.i371, label %dissect_lbmr_options.exit, !llvm.loop !19
 
 dissect_lbmr_options.exit:                        ; preds = %1250, %1144
   %.038.lcssa.i = phi i32 [ 0, %1144 ], [ %1251, %1250 ]
@@ -4308,7 +4308,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_lbmr_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @test_lbmr_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.lbmr_tag_entry_t, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 280
   %7 = load i32, ptr %6, align 8
@@ -4350,7 +4350,7 @@ define internal noundef i32 @test_lbmr_packet(ptr noundef %0, ptr noundef %1, pt
 19:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
   %20 = getelementptr %struct.lbmr_tag_entry_t, ptr %17, i64 %indvars.iv.i
-  %21 = tail call fastcc i32 @lbmr_match_packet(ptr noundef %1, ptr noundef %20), !range !7
+  %21 = tail call fastcc i32 @lbmr_match_packet(ptr noundef readonly %1, ptr noundef %20)
   %.not7.i = icmp eq i32 %21, 0
   br i1 %.not7.i, label %18, label %44
 
@@ -4386,7 +4386,7 @@ define internal noundef i32 @test_lbmr_packet(ptr noundef %0, ptr noundef %1, pt
   %40 = load i32, ptr @lbmr_uc_address_host, align 4
   %41 = getelementptr inbounds i8, ptr %5, i64 64
   store i32 %40, ptr %41, align 8
-  %42 = call fastcc i32 @lbmr_match_packet(ptr noundef nonnull %1, ptr noundef nonnull %5), !range !7
+  %42 = call fastcc i32 @lbmr_match_packet(ptr noundef nonnull %1, ptr noundef nonnull %5)
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %.thread, label %46
 
@@ -4469,7 +4469,7 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr nocapture
   %20 = getelementptr inbounds i8, ptr %.0100, i64 8
   %.0 = load ptr, ptr %20, align 8
   %.not84 = icmp eq ptr %.0, null
-  br i1 %.not84, label %.loopexit88, label %.lr.ph101, !llvm.loop !21
+  br i1 %.not84, label %.loopexit88, label %.lr.ph101, !llvm.loop !20
 
 .loopexit88:                                      ; preds = %.lr.ph101, %8, %4
   %21 = getelementptr inbounds i8, ptr %1, i64 24
@@ -4516,7 +4516,7 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr nocapture
   %47 = getelementptr inbounds i8, ptr %.080104, i64 24
   %.080 = load ptr, ptr %47, align 8
   %.not85 = icmp eq ptr %.080, null
-  br i1 %.not85, label %.loopexit87, label %.lr.ph105, !llvm.loop !22
+  br i1 %.not85, label %.loopexit87, label %.lr.ph105, !llvm.loop !21
 
 .loopexit87:                                      ; preds = %.lr.ph105, %24, %.loopexit88
   %48 = getelementptr inbounds i8, ptr %1, i64 40
@@ -4553,7 +4553,7 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr nocapture
   %66 = getelementptr inbounds i8, ptr %.082108, i64 16
   %.082 = load ptr, ptr %66, align 8
   %.not86 = icmp eq ptr %.082, null
-  br i1 %.not86, label %.loopexit, label %.lr.ph109, !llvm.loop !23
+  br i1 %.not86, label %.loopexit, label %.lr.ph109, !llvm.loop !22
 
 67:                                               ; preds = %2
   %68 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4586,7 +4586,7 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr nocapture
   %83 = getelementptr inbounds i8, ptr %.08193, i64 8
   %.081 = load ptr, ptr %83, align 8
   %.not = icmp eq ptr %.081, null
-  br i1 %.not, label %.loopexit90, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %.loopexit90, label %.lr.ph, !llvm.loop !23
 
 .loopexit90:                                      ; preds = %.lr.ph, %71, %67
   %84 = getelementptr inbounds i8, ptr %1, i64 24
@@ -4633,14 +4633,14 @@ define internal fastcc void @lbmr_tap_queue_packet(ptr noundef %0, ptr nocapture
   %110 = getelementptr inbounds i8, ptr %.07996, i64 24
   %.079 = load ptr, ptr %110, align 8
   %.not83 = icmp eq ptr %.079, null
-  br i1 %.not83, label %.loopexit, label %.lr.ph97, !llvm.loop !25
+  br i1 %.not83, label %.loopexit, label %.lr.ph97, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph97, %.lr.ph109, %87, %51, %2, %.loopexit90, %.loopexit87
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @lbmr_match_packet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @lbmr_match_packet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 2
@@ -4932,7 +4932,7 @@ define internal fastcc i32 @dissect_lbmr_tnwg_opts(ptr noundef %0, i32 noundef %
   %104 = add i32 %.1, %.04
   %105 = add i32 %.1, %.0382
   %106 = icmp sgt i32 %103, 3
-  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %102, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %104, %102 ]
@@ -5397,7 +5397,7 @@ define internal fastcc i32 @dissect_lbmr_tir_options(ptr noundef %0, i32 noundef
   %384 = add i32 %.0414420, %29
   %385 = sub nsw i32 %.0415419, %29
   %386 = icmp sgt i32 %385, 0
-  br i1 %386, label %.lr.ph, label %.loopexit, !llvm.loop !27
+  br i1 %386, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %382, %4, %31
   %.0 = phi i32 [ %.0413421, %31 ], [ %7, %4 ], [ %7, %382 ]
@@ -5835,7 +5835,7 @@ attributes #8 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
@@ -5855,4 +5855,3 @@ attributes #8 = { nounwind willreturn memory(read) }
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}

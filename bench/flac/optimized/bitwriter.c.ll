@@ -57,7 +57,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @FLAC__bitwriter_init(ptr nocapture noundef writeonly %bw) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_init(ptr nocapture noundef writeonly %bw) local_unnamed_addr #4 {
 entry:
   %bits = getelementptr inbounds i8, ptr %bw, i64 24
   store i32 0, ptr %bits, align 8
@@ -86,7 +86,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitwriter_get_write_crc16(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %crc) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_get_write_crc16(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %crc) local_unnamed_addr #7 {
 entry:
   %bits.i = getelementptr inbounds i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits.i, align 8
@@ -176,7 +176,7 @@ return:                                           ; preds = %if.end7.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden noundef i32 @FLAC__bitwriter_get_buffer(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef writeonly %bytes) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_get_buffer(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef writeonly %bytes) local_unnamed_addr #2 {
 entry:
   %bits = getelementptr inbounds i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits, align 8
@@ -274,7 +274,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitwriter_get_write_crc8(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %crc) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_get_write_crc8(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %crc) local_unnamed_addr #7 {
 entry:
   %bits.i = getelementptr inbounds i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits.i, align 8
@@ -366,7 +366,7 @@ return:                                           ; preds = %if.end7.i.i, %if.en
 declare zeroext i8 @FLAC__crc8(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i32 @FLAC__bitwriter_is_byte_aligned(ptr nocapture noundef readonly %bw) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_is_byte_aligned(ptr nocapture noundef readonly %bw) local_unnamed_addr #10 {
 entry:
   %bits = getelementptr inbounds i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits, align 8
@@ -392,7 +392,7 @@ entry:
 declare i64 @llvm.bswap.i64(i64) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitwriter_write_zeroes(ptr nocapture noundef %bw, i32 noundef %bits) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_zeroes(ptr nocapture noundef %bw, i32 noundef %bits) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq i32 %bits, 0
   br i1 %cmp, label %return, label %if.end
@@ -511,7 +511,7 @@ return:                                           ; preds = %if.end7.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden noundef i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %bw, i32 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %bw, i32 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ugt i32 %bits, 31
   %shr = lshr i32 %val, %bits
@@ -520,7 +520,7 @@ entry:
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %val, i32 noundef %bits), !range !6
+  %call = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %val, i32 noundef %bits)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -529,7 +529,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define internal fastcc noundef i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %val, i32 noundef %bits) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %val, i32 noundef %bits) unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %bw, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -653,26 +653,26 @@ return:                                           ; preds = %if.end7.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden noundef i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %bw, i32 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %bw, i32 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i32 %bits, 32
   %shl = shl nsw i32 -1, %bits
   %not = xor i32 %shl, -1
   %and = select i1 %cmp, i32 %not, i32 -1
   %val.addr.0 = and i32 %and, %val
-  %call = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %val.addr.0, i32 noundef %bits), !range !6
+  %call = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %val.addr.0, i32 noundef %bits)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden noundef i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %bw, i64 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %bw, i64 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ugt i32 %bits, 32
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %shr = lshr i64 %val, 32
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw i64 %shr to i32
   %sub = add i32 %bits, -32
   %cmp.i = icmp ugt i32 %sub, 31
   %shr.i = lshr i32 %conv, %sub
@@ -681,13 +681,13 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.i, label %FLAC__bitwriter_write_raw_uint32.exit, label %return
 
 FLAC__bitwriter_write_raw_uint32.exit:            ; preds = %if.then
-  %call.i = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv, i32 noundef %sub), !range !6
+  %call.i = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv, i32 noundef %sub)
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %FLAC__bitwriter_write_raw_uint32.exit
   %conv1 = trunc i64 %val to i32
-  %call2 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv1, i32 noundef 32), !range !6
+  %call2 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv1, i32 noundef 32)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -699,7 +699,7 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond.i10, label %if.end.i12, label %return
 
 if.end.i12:                                       ; preds = %if.else
-  %call.i13 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv4, i32 noundef %bits), !range !6
+  %call.i13 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv4, i32 noundef %bits)
   br label %return
 
 return:                                           ; preds = %if.then, %if.end.i12, %if.else, %FLAC__bitwriter_write_raw_uint32.exit, %land.rhs
@@ -708,7 +708,7 @@ return:                                           ; preds = %if.then, %if.end.i1
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden noundef i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %bw, i64 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %bw, i64 noundef %val, i32 noundef %bits) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i32 %bits, 64
   %sh_prom = zext nneg i32 %bits to i64
@@ -721,7 +721,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %uval.0, 32
-  %conv.i = trunc i64 %shr.i to i32
+  %conv.i = trunc nuw i64 %shr.i to i32
   %sub.i = add i32 %bits, -32
   %cmp.i.i = icmp ugt i32 %sub.i, 31
   %shr.i.i = lshr i32 %conv.i, %sub.i
@@ -730,13 +730,13 @@ if.then.i:                                        ; preds = %entry
   br i1 %or.cond.i.i, label %FLAC__bitwriter_write_raw_uint32.exit.i, label %FLAC__bitwriter_write_raw_uint64.exit
 
 FLAC__bitwriter_write_raw_uint32.exit.i:          ; preds = %if.then.i
-  %call.i.i = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv.i, i32 noundef %sub.i), !range !6
+  %call.i.i = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv.i, i32 noundef %sub.i)
   %tobool.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i, label %FLAC__bitwriter_write_raw_uint64.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %FLAC__bitwriter_write_raw_uint32.exit.i
   %conv1.i = trunc i64 %uval.0 to i32
-  %call2.i = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv1.i, i32 noundef 32), !range !6
+  %call2.i = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv1.i, i32 noundef 32)
   br label %FLAC__bitwriter_write_raw_uint64.exit
 
 if.else.i:                                        ; preds = %entry
@@ -748,7 +748,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %or.cond.i10.i, label %if.end.i12.i, label %FLAC__bitwriter_write_raw_uint64.exit
 
 if.end.i12.i:                                     ; preds = %if.else.i
-  %call.i13.i = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv4.i, i32 noundef %bits), !range !6
+  %call.i13.i = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv4.i, i32 noundef %bits)
   br label %FLAC__bitwriter_write_raw_uint64.exit
 
 FLAC__bitwriter_write_raw_uint64.exit:            ; preds = %if.then.i, %FLAC__bitwriter_write_raw_uint32.exit.i, %land.rhs.i, %if.else.i, %if.end.i12.i
@@ -757,30 +757,30 @@ FLAC__bitwriter_write_raw_uint64.exit:            ; preds = %if.then.i, %FLAC__b
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden noundef i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef %bw, i32 noundef %val) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef %bw, i32 noundef %val) local_unnamed_addr #2 {
 entry:
   %and = and i32 %val, 255
-  %call = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %and, i32 noundef 8), !range !6
+  %call = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %and, i32 noundef 8)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %shr = lshr i32 %val, 8
   %and1 = and i32 %shr, 255
-  %call2 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %and1, i32 noundef 8), !range !6
+  %call2 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %and1, i32 noundef 8)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %shr6 = lshr i32 %val, 16
   %and7 = and i32 %shr6, 255
-  %call8 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %and7, i32 noundef 8), !range !6
+  %call8 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %and7, i32 noundef 8)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end5
   %shr12 = lshr i32 %val, 24
-  %call13 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %shr12, i32 noundef 8), !range !6
+  %call13 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %shr12, i32 noundef 8)
   br label %return
 
 return:                                           ; preds = %if.end11, %if.end5, %if.end, %entry
@@ -789,7 +789,7 @@ return:                                           ; preds = %if.end11, %if.end5,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitwriter_write_byte_block(ptr noundef %bw, ptr nocapture noundef readonly %vals, i32 noundef %nvals) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_byte_block(ptr noundef %bw, ptr nocapture noundef readonly %vals, i32 noundef %nvals) local_unnamed_addr #7 {
 entry:
   %capacity = getelementptr inbounds i8, ptr %bw, i64 16
   %0 = load i32, ptr %capacity, align 8
@@ -851,14 +851,14 @@ for.body.preheader:                               ; preds = %if.end
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr inbounds i8, ptr %vals, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %5 to i32
-  %call3 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv, i32 noundef 8), !range !6
+  %call3 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv, i32 noundef 8)
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %return, label %for.cond
 
@@ -868,7 +868,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef %bw, i32 noundef %val) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_unary_unsigned(ptr noundef %bw, i32 noundef %val) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ult i32 %val, 32
   br i1 %cmp, label %if.then, label %if.else
@@ -878,13 +878,13 @@ if.then:                                          ; preds = %entry
   br label %return.sink.split
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call i32 @FLAC__bitwriter_write_zeroes(ptr noundef %bw, i32 noundef %val), !range !6
+  %call1 = tail call i32 @FLAC__bitwriter_write_zeroes(ptr noundef %bw, i32 noundef %val)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.else, %if.then
   %.sink = phi i32 [ %inc, %if.then ], [ 1, %if.else ]
-  %call2 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef 1, i32 noundef %.sink), !range !6
+  %call2 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef 1, i32 noundef %.sink)
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.else
@@ -893,7 +893,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitwriter_write_rice_signed_block(ptr nocapture noundef %bw, ptr nocapture noundef readonly %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_rice_signed_block(ptr nocapture noundef %bw, ptr nocapture noundef readonly %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #7 {
 entry:
   %shl = shl nsw i32 -1, %parameter
   %sub = sub i32 31, %parameter
@@ -1166,7 +1166,7 @@ if.end148:                                        ; preds = %if.else134, %if.the
   %storemerge172 = phi i32 [ 0, %if.else134 ], [ 32, %if.then129 ]
   %sub151 = add i32 %msbits.0209, -32
   %cmp123 = icmp ugt i32 %sub151, 64
-  br i1 %cmp123, label %while.body125, label %if.then155, !llvm.loop !8
+  br i1 %cmp123, label %while.body125, label %if.then155, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end120
   %sub152 = sub i32 32, %reass.sub
@@ -1291,7 +1291,7 @@ if.end246:                                        ; preds = %if.end246.sink.spli
   %incdec.ptr = getelementptr inbounds i8, ptr %vals.addr.0217, i64 4
   %dec = add i32 %nvals.addr.0213, -1
   %tobool33.not = icmp eq i32 %dec, 0
-  br i1 %tobool33.not, label %while.end247, label %while.body, !llvm.loop !9
+  br i1 %tobool33.not, label %while.end247, label %while.body, !llvm.loop !8
 
 while.end247:                                     ; preds = %if.end246, %if.end32
   %wide_accum.1.lcssa = phi i64 [ %wide_accum.0, %if.end32 ], [ %wide_accum.10, %if.end246 ]
@@ -1337,7 +1337,7 @@ return:                                           ; preds = %if.end7.i189, %if.e
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden i32 @FLAC__bitwriter_write_utf8_uint32(ptr noundef %bw, i32 noundef %val) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_utf8_uint32(ptr noundef %bw, i32 noundef %val) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp sgt i32 %val, -1
   br i1 %cmp.not, label %if.end, label %return
@@ -1347,7 +1347,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  %call = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %val, i32 noundef 8), !range !6
+  %call = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %val, i32 noundef 8)
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -1357,10 +1357,10 @@ if.else:                                          ; preds = %if.end
 if.then4:                                         ; preds = %if.else
   %shr = lshr i32 %val, 6
   %or = or disjoint i32 %shr, 192
-  %call5 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or, i32 noundef 8), !range !6
+  %call5 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or, i32 noundef 8)
   %and7 = and i32 %val, 63
   %or8 = or disjoint i32 %and7, 128
-  %call9 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or8, i32 noundef 8), !range !6
+  %call9 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or8, i32 noundef 8)
   %and10 = and i32 %call9, %call5
   br label %return
 
@@ -1371,15 +1371,15 @@ if.else11:                                        ; preds = %if.else
 if.then13:                                        ; preds = %if.else11
   %shr14 = lshr i32 %val, 12
   %or15 = or disjoint i32 %shr14, 224
-  %call16 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or15, i32 noundef 8), !range !6
+  %call16 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or15, i32 noundef 8)
   %shr18 = lshr i32 %val, 6
   %and19 = and i32 %shr18, 63
   %or20 = or disjoint i32 %and19, 128
-  %call21 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or20, i32 noundef 8), !range !6
+  %call21 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or20, i32 noundef 8)
   %and22 = and i32 %call21, %call16
   %and23 = and i32 %val, 63
   %or24 = or disjoint i32 %and23, 128
-  %call25 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or24, i32 noundef 8), !range !6
+  %call25 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or24, i32 noundef 8)
   %and26 = and i32 %and22, %call25
   br label %return
 
@@ -1390,20 +1390,20 @@ if.else27:                                        ; preds = %if.else11
 if.then29:                                        ; preds = %if.else27
   %shr30 = lshr i32 %val, 18
   %or31 = or disjoint i32 %shr30, 240
-  %call32 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or31, i32 noundef 8), !range !6
+  %call32 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or31, i32 noundef 8)
   %shr34 = lshr i32 %val, 12
   %and35 = and i32 %shr34, 63
   %or36 = or disjoint i32 %and35, 128
-  %call37 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or36, i32 noundef 8), !range !6
+  %call37 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or36, i32 noundef 8)
   %and38 = and i32 %call37, %call32
   %shr39 = lshr i32 %val, 6
   %and40 = and i32 %shr39, 63
   %or41 = or disjoint i32 %and40, 128
-  %call42 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or41, i32 noundef 8), !range !6
+  %call42 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or41, i32 noundef 8)
   %and43 = and i32 %and38, %call42
   %and44 = and i32 %val, 63
   %or45 = or disjoint i32 %and44, 128
-  %call46 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or45, i32 noundef 8), !range !6
+  %call46 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or45, i32 noundef 8)
   %and47 = and i32 %and43, %call46
   br label %return
 
@@ -1414,55 +1414,55 @@ if.else48:                                        ; preds = %if.else27
 if.then50:                                        ; preds = %if.else48
   %shr51 = lshr i32 %val, 24
   %or52 = or disjoint i32 %shr51, 248
-  %call53 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or52, i32 noundef 8), !range !6
+  %call53 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or52, i32 noundef 8)
   %shr55 = lshr i32 %val, 18
   %and56 = and i32 %shr55, 63
   %or57 = or disjoint i32 %and56, 128
-  %call58 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or57, i32 noundef 8), !range !6
+  %call58 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or57, i32 noundef 8)
   %and59 = and i32 %call58, %call53
   %shr60 = lshr i32 %val, 12
   %and61 = and i32 %shr60, 63
   %or62 = or disjoint i32 %and61, 128
-  %call63 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or62, i32 noundef 8), !range !6
+  %call63 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or62, i32 noundef 8)
   %and64 = and i32 %and59, %call63
   %shr65 = lshr i32 %val, 6
   %and66 = and i32 %shr65, 63
   %or67 = or disjoint i32 %and66, 128
-  %call68 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or67, i32 noundef 8), !range !6
+  %call68 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or67, i32 noundef 8)
   %and69 = and i32 %and64, %call68
   %and70 = and i32 %val, 63
   %or71 = or disjoint i32 %and70, 128
-  %call72 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or71, i32 noundef 8), !range !6
+  %call72 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or71, i32 noundef 8)
   %and73 = and i32 %and69, %call72
   br label %return
 
 if.else74:                                        ; preds = %if.else48
   %shr75 = lshr i32 %val, 30
   %or76 = or disjoint i32 %shr75, 252
-  %call77 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or76, i32 noundef 8), !range !6
+  %call77 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or76, i32 noundef 8)
   %shr79 = lshr i32 %val, 24
   %and80 = and i32 %shr79, 63
   %or81 = or disjoint i32 %and80, 128
-  %call82 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or81, i32 noundef 8), !range !6
+  %call82 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or81, i32 noundef 8)
   %and83 = and i32 %call82, %call77
   %shr84 = lshr i32 %val, 18
   %and85 = and i32 %shr84, 63
   %or86 = or disjoint i32 %and85, 128
-  %call87 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or86, i32 noundef 8), !range !6
+  %call87 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or86, i32 noundef 8)
   %and88 = and i32 %and83, %call87
   %shr89 = lshr i32 %val, 12
   %and90 = and i32 %shr89, 63
   %or91 = or disjoint i32 %and90, 128
-  %call92 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or91, i32 noundef 8), !range !6
+  %call92 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or91, i32 noundef 8)
   %and93 = and i32 %and88, %call92
   %shr94 = lshr i32 %val, 6
   %and95 = and i32 %shr94, 63
   %or96 = or disjoint i32 %and95, 128
-  %call97 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or96, i32 noundef 8), !range !6
+  %call97 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or96, i32 noundef 8)
   %and98 = and i32 %and93, %call97
   %and99 = and i32 %val, 63
   %or100 = or disjoint i32 %and99, 128
-  %call101 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or100, i32 noundef 8), !range !6
+  %call101 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or100, i32 noundef 8)
   %and102 = and i32 %and98, %call101
   br label %return
 
@@ -1472,7 +1472,7 @@ return:                                           ; preds = %if.then13, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden i32 @FLAC__bitwriter_write_utf8_uint64(ptr noundef %bw, i64 noundef %val) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_utf8_uint64(ptr noundef %bw, i64 noundef %val) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp ult i64 %val, 68719476736
   br i1 %cmp.not, label %if.end, label %return
@@ -1482,8 +1482,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  %conv = trunc i64 %val to i32
-  %call = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv, i32 noundef 8), !range !6
+  %conv = trunc nuw nsw i64 %val to i32
+  %call = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv, i32 noundef 8)
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -1492,13 +1492,13 @@ if.else:                                          ; preds = %if.end
 
 if.then5:                                         ; preds = %if.else
   %shr = lshr i64 %val, 6
-  %conv6 = trunc i64 %shr to i32
+  %conv6 = trunc nuw nsw i64 %shr to i32
   %or = or disjoint i32 %conv6, 192
-  %call7 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or, i32 noundef 8), !range !6
-  %0 = trunc i64 %val to i32
+  %call7 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or, i32 noundef 8)
+  %0 = trunc nuw i64 %val to i32
   %conv10 = and i32 %0, 63
   %or11 = or disjoint i32 %conv10, 128
-  %call12 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or11, i32 noundef 8), !range !6
+  %call12 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or11, i32 noundef 8)
   %and13 = and i32 %call12, %call7
   br label %return
 
@@ -1508,18 +1508,18 @@ if.else14:                                        ; preds = %if.else
 
 if.then17:                                        ; preds = %if.else14
   %shr18 = lshr i64 %val, 12
-  %conv19 = trunc i64 %shr18 to i32
+  %conv19 = trunc nuw nsw i64 %shr18 to i32
   %or20 = or disjoint i32 %conv19, 224
-  %call21 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or20, i32 noundef 8), !range !6
-  %1 = trunc i64 %val to i32
+  %call21 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or20, i32 noundef 8)
+  %1 = trunc nuw i64 %val to i32
   %2 = lshr i32 %1, 6
   %conv25 = and i32 %2, 63
   %or26 = or disjoint i32 %conv25, 128
-  %call27 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or26, i32 noundef 8), !range !6
+  %call27 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or26, i32 noundef 8)
   %and28 = and i32 %call27, %call21
   %conv30 = and i32 %1, 63
   %or31 = or disjoint i32 %conv30, 128
-  %call32 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or31, i32 noundef 8), !range !6
+  %call32 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or31, i32 noundef 8)
   %and33 = and i32 %and28, %call32
   br label %return
 
@@ -1529,23 +1529,23 @@ if.else34:                                        ; preds = %if.else14
 
 if.then37:                                        ; preds = %if.else34
   %shr38 = lshr i64 %val, 18
-  %conv39 = trunc i64 %shr38 to i32
+  %conv39 = trunc nuw nsw i64 %shr38 to i32
   %or40 = or disjoint i32 %conv39, 240
-  %call41 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or40, i32 noundef 8), !range !6
-  %3 = trunc i64 %val to i32
+  %call41 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or40, i32 noundef 8)
+  %3 = trunc nuw i64 %val to i32
   %4 = lshr i32 %3, 12
   %conv45 = and i32 %4, 63
   %or46 = or disjoint i32 %conv45, 128
-  %call47 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or46, i32 noundef 8), !range !6
+  %call47 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or46, i32 noundef 8)
   %and48 = and i32 %call47, %call41
   %5 = lshr i32 %3, 6
   %conv51 = and i32 %5, 63
   %or52 = or disjoint i32 %conv51, 128
-  %call53 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or52, i32 noundef 8), !range !6
+  %call53 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or52, i32 noundef 8)
   %and54 = and i32 %and48, %call53
   %conv56 = and i32 %3, 63
   %or57 = or disjoint i32 %conv56, 128
-  %call58 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or57, i32 noundef 8), !range !6
+  %call58 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or57, i32 noundef 8)
   %and59 = and i32 %and54, %call58
   br label %return
 
@@ -1555,28 +1555,28 @@ if.else60:                                        ; preds = %if.else34
 
 if.then63:                                        ; preds = %if.else60
   %shr64 = lshr i64 %val, 24
-  %conv65 = trunc i64 %shr64 to i32
+  %conv65 = trunc nuw nsw i64 %shr64 to i32
   %or66 = or disjoint i32 %conv65, 248
-  %call67 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or66, i32 noundef 8), !range !6
-  %6 = trunc i64 %val to i32
+  %call67 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or66, i32 noundef 8)
+  %6 = trunc nuw i64 %val to i32
   %7 = lshr i32 %6, 18
   %conv71 = and i32 %7, 63
   %or72 = or disjoint i32 %conv71, 128
-  %call73 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or72, i32 noundef 8), !range !6
+  %call73 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or72, i32 noundef 8)
   %and74 = and i32 %call73, %call67
   %8 = lshr i32 %6, 12
   %conv77 = and i32 %8, 63
   %or78 = or disjoint i32 %conv77, 128
-  %call79 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or78, i32 noundef 8), !range !6
+  %call79 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or78, i32 noundef 8)
   %and80 = and i32 %and74, %call79
   %9 = lshr i32 %6, 6
   %conv83 = and i32 %9, 63
   %or84 = or disjoint i32 %conv83, 128
-  %call85 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or84, i32 noundef 8), !range !6
+  %call85 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or84, i32 noundef 8)
   %and86 = and i32 %and80, %call85
   %conv88 = and i32 %6, 63
   %or89 = or disjoint i32 %conv88, 128
-  %call90 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or89, i32 noundef 8), !range !6
+  %call90 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or89, i32 noundef 8)
   %and91 = and i32 %and86, %call90
   br label %return
 
@@ -1586,67 +1586,67 @@ if.else92:                                        ; preds = %if.else60
 
 if.then95:                                        ; preds = %if.else92
   %shr96 = lshr i64 %val, 30
-  %conv97 = trunc i64 %shr96 to i32
+  %conv97 = trunc nuw nsw i64 %shr96 to i32
   %or98 = or disjoint i32 %conv97, 252
-  %call99 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or98, i32 noundef 8), !range !6
-  %10 = trunc i64 %val to i32
+  %call99 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or98, i32 noundef 8)
+  %10 = trunc nuw i64 %val to i32
   %11 = lshr i32 %10, 24
   %conv103 = and i32 %11, 63
   %or104 = or disjoint i32 %conv103, 128
-  %call105 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or104, i32 noundef 8), !range !6
+  %call105 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or104, i32 noundef 8)
   %and106 = and i32 %call105, %call99
   %12 = lshr i32 %10, 18
   %conv109 = and i32 %12, 63
   %or110 = or disjoint i32 %conv109, 128
-  %call111 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or110, i32 noundef 8), !range !6
+  %call111 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or110, i32 noundef 8)
   %and112 = and i32 %and106, %call111
   %13 = lshr i32 %10, 12
   %conv115 = and i32 %13, 63
   %or116 = or disjoint i32 %conv115, 128
-  %call117 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or116, i32 noundef 8), !range !6
+  %call117 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or116, i32 noundef 8)
   %and118 = and i32 %and112, %call117
   %14 = lshr i32 %10, 6
   %conv121 = and i32 %14, 63
   %or122 = or disjoint i32 %conv121, 128
-  %call123 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or122, i32 noundef 8), !range !6
+  %call123 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or122, i32 noundef 8)
   %and124 = and i32 %and118, %call123
   %conv126 = and i32 %10, 63
   %or127 = or disjoint i32 %conv126, 128
-  %call128 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or127, i32 noundef 8), !range !6
+  %call128 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or127, i32 noundef 8)
   %and129 = and i32 %and124, %call128
   br label %return
 
 if.else130:                                       ; preds = %if.else92
-  %call131 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef 254, i32 noundef 8), !range !6
+  %call131 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef 254, i32 noundef 8)
   %shr133 = lshr i64 %val, 30
-  %conv135 = trunc i64 %shr133 to i32
+  %conv135 = trunc nuw nsw i64 %shr133 to i32
   %or136 = or disjoint i32 %conv135, 128
-  %call137 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or136, i32 noundef 8), !range !6
+  %call137 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or136, i32 noundef 8)
   %and138 = and i32 %call137, %call131
   %15 = trunc i64 %val to i32
   %16 = lshr i32 %15, 24
   %conv141 = and i32 %16, 63
   %or142 = or disjoint i32 %conv141, 128
-  %call143 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or142, i32 noundef 8), !range !6
+  %call143 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or142, i32 noundef 8)
   %and144 = and i32 %and138, %call143
   %17 = lshr i32 %15, 18
   %conv147 = and i32 %17, 63
   %or148 = or disjoint i32 %conv147, 128
-  %call149 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or148, i32 noundef 8), !range !6
+  %call149 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or148, i32 noundef 8)
   %and150 = and i32 %and144, %call149
   %18 = lshr i32 %15, 12
   %conv153 = and i32 %18, 63
   %or154 = or disjoint i32 %conv153, 128
-  %call155 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or154, i32 noundef 8), !range !6
+  %call155 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or154, i32 noundef 8)
   %and156 = and i32 %and150, %call155
   %19 = lshr i32 %15, 6
   %conv159 = and i32 %19, 63
   %or160 = or disjoint i32 %conv159, 128
-  %call161 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or160, i32 noundef 8), !range !6
+  %call161 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or160, i32 noundef 8)
   %and162 = and i32 %and156, %call161
   %conv164 = and i32 %15, 63
   %or165 = or disjoint i32 %conv164, 128
-  %call166 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or165, i32 noundef 8), !range !6
+  %call166 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %or165, i32 noundef 8)
   %and167 = and i32 %and162, %call166
   br label %return
 
@@ -1656,7 +1656,7 @@ return:                                           ; preds = %if.then17, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr nocapture noundef %bw) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr nocapture noundef %bw) local_unnamed_addr #7 {
 entry:
   %bits = getelementptr inbounds i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits, align 8
@@ -1666,7 +1666,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub nuw nsw i32 8, %and
-  %call = tail call i32 @FLAC__bitwriter_write_zeroes(ptr noundef nonnull %bw, i32 noundef %sub), !range !6
+  %call = tail call i32 @FLAC__bitwriter_write_zeroes(ptr noundef nonnull %bw, i32 noundef %sub)
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -1710,7 +1710,6 @@ attributes #17 = { nounwind allocsize(1) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

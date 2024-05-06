@@ -479,7 +479,7 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 define internal noundef ptr @fd_progress(ptr nocapture readnone %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  %4 = tail call i32 @ompi_comm_start_detector(ptr noundef nonnull @ompi_mpi_comm_world), !range !7
+  %4 = tail call i32 @ompi_comm_start_detector(ptr noundef nonnull @ompi_mpi_comm_world)
   %.not = icmp eq i32 %4, 0
   %5 = load i8, ptr @opal_uses_threads, align 1
   %6 = trunc i8 %5 to i1
@@ -519,7 +519,7 @@ opal_thread_add_fetch_32.exit3.preheader:         ; preds = %15, %17
 opal_thread_add_fetch_32.exit3:                   ; preds = %opal_thread_add_fetch_32.exit3.preheader, %opal_thread_add_fetch_32.exit3
   %21 = load volatile i32, ptr @fd_thread_active, align 4
   %22 = icmp eq i32 %21, 1
-  br i1 %22, label %opal_thread_add_fetch_32.exit3, label %23, !llvm.loop !8
+  br i1 %22, label %opal_thread_add_fetch_32.exit3, label %23, !llvm.loop !7
 
 23:                                               ; preds = %opal_thread_add_fetch_32.exit3
   %24 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 8), align 8
@@ -536,7 +536,7 @@ opal_thread_add_fetch_32.exit3:                   ; preds = %opal_thread_add_fet
   %30 = call i32 %29(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null) #10
   %31 = load volatile i32, ptr @fd_thread_active, align 4
   %.not1 = icmp eq i32 %31, 0
-  br i1 %.not1, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not1, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
   %32 = load ptr, ptr %2, align 8
@@ -582,7 +582,7 @@ define noundef i32 @ompi_comm_failure_detector_finalize() local_unnamed_addr #0 
 
 .loopexit:                                        ; preds = %10
   %.not24 = icmp eq i32 %11, -2
-  br i1 %.not24, label %._crit_edge, label %.lr.ph.preheader, !llvm.loop !10
+  br i1 %.not24, label %._crit_edge, label %.lr.ph.preheader, !llvm.loop !9
 
 .lr.ph.preheader:                                 ; preds = %4, %.loopexit
   %5 = phi i32 [ %11, %.loopexit ], [ %.pr, %4 ]
@@ -601,7 +601,7 @@ define noundef i32 @ompi_comm_failure_detector_finalize() local_unnamed_addr #0 
 10:                                               ; preds = %8, %.lr.ph
   %11 = phi i32 [ %.pre, %8 ], [ %5, %.lr.ph ]
   %12 = icmp eq i32 %5, %11
-  br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   %13 = load volatile i32, ptr @fd_thread_active, align 4
@@ -689,7 +689,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %19, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_comm_failure_detector_start() local_unnamed_addr #0 {
+define range(i32 -7, 1) i32 @ompi_comm_failure_detector_start() local_unnamed_addr #0 {
   %1 = load i32, ptr @comm_heartbeat_recv_cb_type, align 4
   %2 = icmp eq i32 %1, -1
   br i1 %2, label %opal_thread_add_fetch_32.exit, label %3
@@ -716,7 +716,7 @@ define noundef i32 @ompi_comm_failure_detector_start() local_unnamed_addr #0 {
   br label %opal_thread_add_fetch_32.exit
 
 15:                                               ; preds = %3
-  %16 = tail call i32 @ompi_comm_start_detector(ptr noundef nonnull @ompi_mpi_comm_world), !range !7
+  %16 = tail call i32 @ompi_comm_start_detector(ptr noundef nonnull @ompi_mpi_comm_world)
   br label %opal_thread_add_fetch_32.exit
 
 opal_thread_add_fetch_32.exit:                    ; preds = %11, %9, %0, %15
@@ -725,7 +725,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %11, %9, %0, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_comm_start_detector(ptr noundef readnone %0) local_unnamed_addr #0 {
+define range(i32 -7, 1) i32 @ompi_comm_start_detector(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %.not = icmp eq ptr %0, @ompi_mpi_comm_world
   br i1 %.not, label %3, label %53
@@ -918,7 +918,7 @@ define internal fastcc void @fd_heartbeat_send(ptr noundef %0) unnamed_addr #0 {
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i32 %48(ptr noundef %46, ptr noundef %50, ptr noundef nonnull %37, i64 noundef %42, ptr noundef %43, ptr noundef %44, i64 noundef 4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @fd_heartbeat_rdma_cb, ptr noundef %41, ptr noundef null) #10
   %52 = icmp eq i32 %51, -2
-  br i1 %52, label %40, label %53, !llvm.loop !12
+  br i1 %52, label %40, label %53, !llvm.loop !11
 
 53:                                               ; preds = %40
   %54 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1529,9 +1529,8 @@ attributes #12 = { nounwind allocsize(0,1) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -7, i32 1}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

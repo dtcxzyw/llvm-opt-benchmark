@@ -178,7 +178,7 @@ declare hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17h5ad8c6440318f04
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.3460146688810921702(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.3460146688810921702(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

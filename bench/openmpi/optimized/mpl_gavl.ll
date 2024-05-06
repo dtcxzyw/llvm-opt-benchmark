@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @MPL_gavl_tree_create(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 16) i32 @MPL_gavl_tree_create(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call noalias noundef dereferenceable_or_null(552) ptr @calloc(i64 noundef 1, i64 noundef 552) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -21,7 +21,7 @@ define noundef i32 @MPL_gavl_tree_create(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MPL_gavl_tree_insert(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 16) i32 @MPL_gavl_tree_insert(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   tail call fastcc void @gavl_tree_remove_nodes(ptr noundef %0, i64 noundef %5, i64 noundef %2, i32 noundef 0)
   %6 = tail call noalias noundef dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #6

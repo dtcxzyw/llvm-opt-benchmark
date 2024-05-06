@@ -339,7 +339,7 @@ define dso_local zeroext i1 @netlink_policy_dump_loop(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef i32 @netlink_policy_dump_attr_size_estimate(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 49) i32 @netlink_policy_dump_attr_size_estimate(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = load i8, ptr %0, align 8
   switch i8 %2, label %8 [
     i8 6, label %7
@@ -794,7 +794,7 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netlink_policy_dump_write(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @netlink_policy_dump_write(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = getelementptr inbounds i8, ptr %0, i64 192

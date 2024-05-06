@@ -891,18 +891,18 @@ _print_jag_prec.exit:                             ; preds = %191, %._crit_edge.i
 
 .lr.ph.i192:                                      ; preds = %.preheader.i, %_get_freq.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %371 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.53) #20
+  %371 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.53) #20
   %.not.i.i = icmp eq ptr %371, null
   br i1 %.not.i.i, label %372, label %374
 
 372:                                              ; preds = %.lr.ph.i192
-  %373 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.54) #20
+  %373 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.54) #20
   %.not8.i.i = icmp eq ptr %373, null
   br i1 %.not8.i.i, label %_get_freq.exit.i, label %374
 
 374:                                              ; preds = %372, %.lr.ph.i192
   %.0.i.i = phi double [ 1.000000e+00, %.lr.ph.i192 ], [ 1.000000e+03, %372 ]
-  %375 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 58) #20
+  %375 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 58) #20
   %.not9.i.i = icmp eq ptr %375, null
   br i1 %.not9.i.i, label %_get_freq.exit.i, label %376
 
@@ -964,7 +964,7 @@ _get_sys_interface_freq_line.exit:                ; preds = %368, %.sink.split.i
   br i1 %.not.i193, label %393, label %395
 
 393:                                              ; preds = %_get_sys_interface_freq_line.exit
-  %394 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %15, ptr noundef nonnull @.str.57, ptr noundef nonnull %9) #17
+  %394 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %15, ptr noundef nonnull @.str.57, ptr noundef nonnull %9) #17
   %.pre.i = load i32, ptr %9, align 4
   br label %395
 
@@ -1032,7 +1032,7 @@ _update_weighted_freq.exit:                       ; preds = %395, %406
   %441 = load i64, ptr %440, align 8
   %442 = load i64, ptr %419, align 8
   %443 = udiv i64 %442, 1000
-  %444 = uitofp i64 %443 to double
+  %444 = uitofp nneg i64 %443 to double
   %445 = load i64, ptr %321, align 8
   %446 = load i64, ptr %325, align 8
   %447 = getelementptr inbounds i8, ptr %419, i64 16
@@ -1139,7 +1139,7 @@ _update_weighted_freq.exit:                       ; preds = %395, %406
 
 506:                                              ; preds = %498
   %507 = udiv i64 %499, 1000
-  %508 = uitofp i64 %507 to double
+  %508 = uitofp nneg i64 %507 to double
   br label %509
 
 509:                                              ; preds = %506, %498
@@ -1701,7 +1701,7 @@ _init_tres.exit.i:                                ; preds = %.lr.ph.i.i, %111
 
 148:                                              ; preds = %142
   %149 = load i32, ptr %139, align 4
-  %150 = call fastcc i32 @_is_a_lwp(i32 noundef %149), !range !15
+  %150 = call fastcc i32 @_is_a_lwp(i32 noundef %149)
   %.not20.i.i = icmp eq i32 %150, 0
   br i1 %.not20.i.i, label %153, label %151
 
@@ -1994,7 +1994,7 @@ _set_smaps_file.exit.i:                           ; preds = %229, %228, %226
 240:                                              ; preds = %238
   %241 = call i32 @slurm_xstrncmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.38, i64 noundef 4) #17
   %.not31.i.i = icmp eq i32 %241, 0
-  br i1 %.not31.i.i, label %.preheader.i.i, label %238, !llvm.loop !16
+  br i1 %.not31.i.i, label %.preheader.i.i, label %238, !llvm.loop !15
 
 .preheader.i.i:                                   ; preds = %240
   %242 = tail call ptr @__ctype_b_loc() #19
@@ -2004,7 +2004,7 @@ _set_smaps_file.exit.i:                           ; preds = %229, %228, %226
 244:                                              ; preds = %245
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i35.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i36.i, 128
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %245, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %245, !llvm.loop !16
 
 245:                                              ; preds = %244, %.preheader.i.i
   %indvars.iv.i35.i = phi i64 [ 4, %.preheader.i.i ], [ %indvars.iv.next.i36.i, %244 ]
@@ -2030,7 +2030,7 @@ _set_smaps_file.exit.i:                           ; preds = %229, %228, %226
 
 .loopexit.i.i:                                    ; preds = %244, %256, %252
   %.1.i.i = phi i64 [ %258, %256 ], [ %.022.ph.i.i, %252 ], [ %.022.ph.i.i, %244 ]
-  br label %.outer.i.i, !llvm.loop !16
+  br label %.outer.i.i, !llvm.loop !15
 
 259:                                              ; preds = %238
   %260 = call i32 @ferror(ptr noundef nonnull %231) #17
@@ -2119,7 +2119,7 @@ _get_pss.exit.i:                                  ; preds = %259, %_set_smaps_fi
 
 295:                                              ; preds = %290
   %296 = load i32, ptr %139, align 4
-  %297 = call fastcc i32 @_is_a_lwp(i32 noundef %296), !range !15
+  %297 = call fastcc i32 @_is_a_lwp(i32 noundef %296)
   %.not.i37.i = icmp eq i32 %297, 0
   br i1 %.not.i37.i, label %300, label %298
 
@@ -2186,7 +2186,7 @@ _handle_stats.exit:                               ; preds = %97, %.sink.split14.
   %314 = load i32, ptr %62, align 4
   %315 = sext i32 %314 to i64
   %316 = icmp slt i64 %indvars.iv.next, %315
-  br i1 %316, label %69, label %._crit_edge, !llvm.loop !18
+  br i1 %316, label %69, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_handle_stats.exit, %.preheader
   call void @slurm_xfree(ptr noundef nonnull %63) #17
@@ -2302,7 +2302,7 @@ declare ptr @slurm_list_next(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @_find_prec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 0, 2) i32 @_find_prec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
@@ -2335,7 +2335,7 @@ define internal noundef i32 @_reset_visited(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_list_find_prec_by_pid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 0, 2) i32 @_list_find_prec_by_pid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i8, ptr %0, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %10, label %5
@@ -2360,7 +2360,7 @@ declare void @slurm_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_list_dequeue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_list_find_prec_by_ppid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 0, 2) i32 @_list_find_prec_by_ppid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i8, ptr %0, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %10, label %5
@@ -2411,7 +2411,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_is_a_lwp(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @_is_a_lwp(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [4096 x i8], align 16
   store ptr null, ptr %2, align 8
@@ -2615,7 +2615,6 @@ attributes #20 = { nounwind willreturn memory(read) }
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = !{i32 -1, i32 2}
+!15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}

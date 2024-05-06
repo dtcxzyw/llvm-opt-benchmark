@@ -755,7 +755,7 @@ define internal fastcc void @zend_bad_property_access(i32 %.4.val, ptr nocapture
 declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @zend_check_property_access(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_check_property_access(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -3606,7 +3606,7 @@ define void @zend_std_write_dimension(ptr noundef %0, ptr noundef readonly %1, p
 declare void @zend_call_known_instance_method_with_2_params(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @zend_std_has_dimension(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define range(i32 0, 2) i32 @zend_std_has_dimension(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7063,7 +7063,7 @@ define ptr @zend_std_get_class_name(ptr nocapture noundef readonly %0) #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_std_cast_object_tostring(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #0 {
+define range(i32 -1, 1) i32 @zend_std_cast_object_tostring(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   switch i32 %2, label %41 [
     i32 6, label %5
@@ -7145,7 +7145,7 @@ define noundef i32 @zend_std_cast_object_tostring(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_std_get_closure(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr noundef writeonly %3, i1 zeroext %4) #0 {
+define range(i32 -1, 1) i32 @zend_std_get_closure(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr noundef writeonly %3, i1 zeroext %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 64

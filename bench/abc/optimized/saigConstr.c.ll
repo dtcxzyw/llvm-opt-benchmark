@@ -715,7 +715,7 @@ define internal fastcc void @Vec_PtrRemove(ptr nocapture noundef %0, ptr noundef
 
 7:                                                ; preds = %10, %2
   %indvars.iv = phi i64 [ %11, %10 ], [ %6, %2 ]
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw i64 %indvars.iv to i32
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %16
 
@@ -757,7 +757,7 @@ define internal fastcc void @Vec_PtrRemove(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Saig_ManDupCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define range(i32 -1, 2) i32 @Saig_ManDupCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
@@ -1333,10 +1333,10 @@ Vec_VecFree.exit222:                              ; preds = %179
   br i1 %.not.i223, label %Abc_UtilStrsav.exit, label %187
 
 187:                                              ; preds = %.critedge4.thread
-  %188 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %186) #18
+  %188 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %186) #18
   %189 = add i64 %188, 1
   %190 = tail call noalias ptr @malloc(i64 noundef %189) #16
-  %191 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %190, ptr noundef nonnull dereferenceable(1) %186) #17
+  %191 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %190, ptr noundef nonnull readonly dereferenceable(1) %186) #17
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %.critedge4.thread, %187
@@ -1708,10 +1708,10 @@ define ptr @Saig_ManDupFoldConstrs(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #18
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #18
   %10 = add i64 %9, 1
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #16
-  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %7) #17
+  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %7) #17
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %8
@@ -2024,7 +2024,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %7, %1
 14:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.i
-  %16 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %16, ptr %15, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2047,7 +2047,7 @@ Vec_IntRemove.exit.thread:                        ; preds = %20
   br label %35
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i9
-  %22 = trunc i64 %indvars.iv.i11 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i11 to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %Vec_IntAlloc.exit.i, %._crit_edge.loopexit.i
@@ -2073,9 +2073,9 @@ Vec_IntRemove.exit.thread:                        ; preds = %20
   %30 = getelementptr inbounds i32, ptr %11, i64 %29
   store i32 %28, ptr %30, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
-  %31 = trunc i64 %indvars.iv.next35.i to i32
+  %31 = trunc nuw i64 %indvars.iv.next35.i to i32
   %32 = icmp sgt i32 %.val, %31
-  %33 = trunc i64 %indvars.iv34.i to i32
+  %33 = trunc nuw i64 %indvars.iv34.i to i32
   br i1 %32, label %26, label %._crit_edge30.i, !llvm.loop !31
 
 ._crit_edge30.i:                                  ; preds = %26, %.preheader.i

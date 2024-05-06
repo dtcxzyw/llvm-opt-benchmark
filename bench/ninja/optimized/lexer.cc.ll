@@ -423,7 +423,7 @@ define dso_local void @_ZN5Lexer11UnreadTokenEv(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN5Lexer9ReadTokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #8 align 2 {
+define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   br label %4
@@ -1006,7 +1006,7 @@ define dso_local void @_ZN5Lexer13EatWhitespaceEv(ptr nocapture noundef nonnull 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN5Lexer9PeekTokenENS_5TokenE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
-  %3 = tail call noundef i32 @_ZN5Lexer9ReadTokenEv(ptr noundef nonnull align 8 dereferenceable(48) %0), !range !13
+  %3 = tail call noundef i32 @_ZN5Lexer9ReadTokenEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %4 = icmp eq i32 %3, %1
   br i1 %4, label %9, label %5
 
@@ -1367,7 +1367,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit112: ;
   %97 = getelementptr inbounds i8, ptr %.291, i64 1
   %98 = load i8, ptr %97, align 1
   %.not101.not = icmp eq i8 %98, 32
-  br i1 %.not101.not, label %.preheader, label %.backedge, !llvm.loop !14
+  br i1 %.not101.not, label %.preheader, label %.backedge, !llvm.loop !13
 
 99:                                               ; preds = %78
   %100 = getelementptr inbounds i8, ptr %.089169, i64 2
@@ -1423,7 +1423,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit112: ;
   %126 = getelementptr inbounds i8, ptr %.4, i64 1
   %127 = load i8, ptr %126, align 1
   %128 = icmp eq i8 %127, 32
-  br i1 %128, label %.preheader126, label %.backedge, !llvm.loop !14
+  br i1 %128, label %.preheader126, label %.backedge, !llvm.loop !13
 
 .preheader128:                                    ; preds = %120, %.preheader128
   %.5 = phi ptr [ %129, %.preheader128 ], [ %121, %120 ]
@@ -1450,7 +1450,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit112: ;
 
 thread-pre-split.backedge:                        ; preds = %136, %118, %113, %105, %103, %54, %46
   %.089.ph.be = phi ptr [ %137, %136 ], [ %119, %118 ], [ %106, %105 ], [ %104, %103 ], [ %107, %113 ], [ %50, %54 ], [ %40, %46 ]
-  br label %thread-pre-split, !llvm.loop !14
+  br label %thread-pre-split, !llvm.loop !13
 
 141:                                              ; preds = %55
   %spec.select.idx = select i1 %2, i64 0, i64 2
@@ -1692,5 +1692,4 @@ attributes #16 = { noreturn nounwind }
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i32 0, i32 16}
-!14 = distinct !{!14, !6}
+!13 = distinct !{!13, !6}

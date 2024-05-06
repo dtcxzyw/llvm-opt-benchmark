@@ -1172,13 +1172,13 @@ define internal fastcc i64 @calc_transition(ptr nocapture noundef readonly %0, i
   %34 = trunc i64 %33 to i32
   %.neg = sdiv i32 %34, -100
   %35 = srem i32 %34, 100
-  %36 = trunc i32 %30 to i16
+  %36 = trunc nsw i32 %30 to i16
   %37 = mul nsw i16 %36, 26
   %.lhs.trunc = add nsw i16 %37, 24
   %38 = sdiv i16 %.lhs.trunc, 10
   %narrow = add nsw i16 %38, 1
   %39 = sext i16 %narrow to i32
-  %.lhs.trunc55 = trunc i32 %35 to i8
+  %.lhs.trunc55 = trunc nsw i32 %35 to i8
   %40 = sdiv i8 %.lhs.trunc55, 4
   %.sext56 = sext i8 %40 to i32
   %41 = sdiv i32 %34, 400

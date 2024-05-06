@@ -377,7 +377,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @xr17v35x_get_divisor(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #4 align 16 {
+define internal range(i32 0, 268435456) i32 @xr17v35x_get_divisor(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   %5 = load i32, ptr %4, align 8
   %6 = lshr i32 %1, 1

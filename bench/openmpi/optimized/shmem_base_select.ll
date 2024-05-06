@@ -41,7 +41,7 @@ define noalias ptr @opal_shmem_base_best_runnable_component_name() local_unnamed
   br label %7
 
 7:                                                ; preds = %0, %5
-  %8 = call fastcc i32 @opal_shmem_base_runtime_query(ptr noundef nonnull %2, ptr noundef nonnull %1), !range !4
+  %8 = call fastcc i32 @opal_shmem_base_runtime_query(ptr noundef nonnull %2, ptr noundef nonnull %1)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %23
 
@@ -84,7 +84,7 @@ declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @opal_shmem_base_runtime_query(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -13, 1) i32 @opal_shmem_base_runtime_query(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr null, ptr %3, align 8
@@ -192,7 +192,7 @@ define internal fastcc noundef i32 @opal_shmem_base_runtime_query(ptr nocapture 
   %54 = getelementptr inbounds i8, ptr %.02228, i64 16
   %.022 = load volatile ptr, ptr %54, align 8
   %.not = icmp eq ptr %.022, getelementptr inbounds (%struct.mca_base_framework_t, ptr @opal_shmem_base_framework, i64 0, i32 12, i32 1)
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %53, %15
   %55 = load ptr, ptr %1, align 8
@@ -243,7 +243,7 @@ define i32 @opal_shmem_base_select() local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   store ptr null, ptr %2, align 8
-  %3 = call fastcc i32 @opal_shmem_base_runtime_query(ptr noundef nonnull %2, ptr noundef nonnull %1), !range !4
+  %3 = call fastcc i32 @opal_shmem_base_runtime_query(ptr noundef nonnull %2, ptr noundef nonnull %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %10
 
@@ -276,6 +276,5 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -13, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

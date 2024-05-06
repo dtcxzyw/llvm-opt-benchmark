@@ -322,7 +322,7 @@ uv__spawn_and_init_child.exit.thread:             ; preds = %._crit_edge
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %87
-  call fastcc void @uv__process_child_init(ptr noundef nonnull %2, i32 noundef %spec.store.select, ptr noundef nonnull %.096172, i32 noundef %75)
+  call fastcc void @uv__process_child_init(ptr noundef nonnull readonly %2, i32 noundef %spec.store.select, ptr noundef nonnull %.096172, i32 noundef %75)
   unreachable
 
 91:                                               ; preds = %87
@@ -631,7 +631,7 @@ declare void @uv__free(ptr noundef) local_unnamed_addr #1
 declare i32 @uv__close_nocheckstdio(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_process_kill(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_process_kill(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @kill(i32 noundef %4, i32 noundef %1) #12
@@ -650,7 +650,7 @@ uv_kill.exit:                                     ; preds = %2, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_kill(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_kill(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @kill(i32 noundef %0, i32 noundef %1) #12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4

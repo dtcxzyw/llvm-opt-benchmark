@@ -24,7 +24,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.inc, label %if.then7
 
 if.then7:                                         ; preds = %for.body
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nuw nsw i64 %indvars.iv to i32
   %call8 = tail call i32 @BN_set_bit(ptr noundef %call2, i32 noundef %0) #2
   %cmp9 = icmp eq i32 %call8, 0
   br i1 %cmp9, label %err, label %for.inc

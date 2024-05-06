@@ -442,7 +442,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr nocapture noundef readonly %0, ptr 
 .preheader101.us:                                 ; preds = %.preheader101.us.preheader, %._crit_edge.us
   %.1109.us = phi i32 [ %80, %._crit_edge.us ], [ %.0.lcssa, %.preheader101.us.preheader ]
   %.076108.us = phi i32 [ %81, %._crit_edge.us ], [ 0, %.preheader101.us.preheader ]
-  %59 = mul nsw i32 %.076108.us, %34
+  %59 = mul nuw nsw i32 %.076108.us, %34
   %60 = add nsw i32 %59, %32
   br label %61
 
@@ -525,7 +525,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr nocapture noundef readonly %0, ptr 
 .preheader99.us:                                  ; preds = %._crit_edge.us118, %.preheader99.lr.ph.split.us
   %.3116.us = phi i32 [ %.1.lcssa, %.preheader99.lr.ph.split.us ], [ %123, %._crit_edge.us118 ]
   %.177115.us = phi i32 [ 0, %.preheader99.lr.ph.split.us ], [ %124, %._crit_edge.us118 ]
-  %102 = mul nsw i32 %.177115.us, %34
+  %102 = mul nuw nsw i32 %.177115.us, %34
   br label %103
 
 103:                                              ; preds = %.preheader99.us, %121
@@ -579,7 +579,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr nocapture noundef readonly %0, ptr 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us127
   %.5126.us = phi i32 [ %149, %._crit_edge.us127 ], [ %.3.lcssa, %.preheader.lr.ph ]
   %.278125.us = phi i32 [ %150, %._crit_edge.us127 ], [ %3, %.preheader.lr.ph ]
-  %128 = mul nsw i32 %.278125.us, %34
+  %128 = mul nuw nsw i32 %.278125.us, %34
   %129 = add nsw i32 %128, %32
   br label %130
 
@@ -1125,7 +1125,7 @@ define noalias noundef ptr @Abc_CexTransformTempor(ptr nocapture noundef readonl
   %.052.us = phi i32 [ 0, %.preheader48.lr.ph.split.us ], [ %34, %._crit_edge.us ]
   %.04051.us = phi i32 [ %3, %.preheader48.lr.ph.split.us ], [ %56, %._crit_edge.us ]
   %34 = add nuw nsw i32 %.052.us, 1
-  %35 = mul nsw i32 %34, %1
+  %35 = mul nuw nsw i32 %34, %1
   br label %36
 
 36:                                               ; preds = %.preheader48.us, %54
@@ -1650,11 +1650,11 @@ define i32 @Abc_CexCountOnes(ptr nocapture noundef readonly %0) local_unnamed_ad
   %.09 = phi i32 [ 0, %.lr.ph ], [ %15, %11 ]
   %12 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
-  %14 = tail call i32 @llvm.ctpop.i32(i32 %13), !range !32
+  %14 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %13)
   %15 = add nuw nsw i32 %14, %.09
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %11, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %15, %11 ]
@@ -1729,5 +1729,4 @@ attributes #17 = { nounwind willreturn memory(read) }
 !29 = !{!"llvm.loop.unswitch.partial.disable"}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
-!32 = !{i32 0, i32 33}
-!33 = distinct !{!33, !5}
+!32 = distinct !{!32, !5}

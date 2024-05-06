@@ -635,7 +635,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.arg_get_exclusive = private unnamed_addr constant [6 x ptr] [ptr @.str.94, ptr @.str.136, ptr @.str.136, ptr @.str.137, ptr @.str.138, ptr @.str.139], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @_foreach_data_switches(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define range(i32 1, 5) i32 @_foreach_data_switches(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -967,7 +967,7 @@ define void @slurm_reset_all_options(ptr noundef %0, i1 noundef zeroext %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @slurm_process_option_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_process_option_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %.preheader
@@ -1050,7 +1050,7 @@ declare void @fatal(ptr noundef, ...) local_unnamed_addr #2
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_process_option(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_process_option(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = zext i1 %3 to i8
   %.not = icmp eq ptr %0, null
@@ -1397,7 +1397,7 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 
 ; Function Attrs: nounwind uwtable
 define void @slurm_process_option_or_exit(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = tail call i32 @slurm_process_option(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4), !range !11
+  %6 = tail call i32 @slurm_process_option(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %8, label %7
 
@@ -1499,7 +1499,7 @@ define void @slurm_print_set_options(ptr noundef %0) local_unnamed_addr #0 {
 36:                                               ; preds = %.split, %19, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not12 = icmp eq i64 %indvars.iv.next, 160
-  br i1 %.not12, label %.split17.us, label %.splitthread-pre-split, !llvm.loop !12
+  br i1 %.not12, label %.split17.us, label %.splitthread-pre-split, !llvm.loop !11
 
 .split17.us:                                      ; preds = %36, %.split.us
   %37 = call i32 @get_log_level() #23
@@ -1544,7 +1544,7 @@ define zeroext i1 @slurm_option_set_by_cli(ptr noundef readonly %0, i32 noundef 
 7:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cond = icmp eq i64 %indvars.iv.next, 160
-  br i1 %cond, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %cond, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .preheader:                                       ; preds = %2, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %2 ]
@@ -1596,7 +1596,7 @@ define zeroext i1 @slurm_option_set_by_data(ptr noundef readonly %0, i32 noundef
 7:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cond = icmp eq i64 %indvars.iv.next, 160
-  br i1 %cond, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %cond, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %2, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %2 ]
@@ -1641,7 +1641,7 @@ define zeroext i1 @slurm_option_set_by_env(ptr noundef readonly %0, i32 noundef 
 7:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cond = icmp eq i64 %indvars.iv.next, 160
-  br i1 %cond, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %cond, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %2, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %2 ]
@@ -1685,7 +1685,7 @@ define ptr @slurm_option_get(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 8:                                                ; preds = %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 160
-  br i1 %.not.i, label %_find_option_idx.exit.thread, label %3, !llvm.loop !17
+  br i1 %.not.i, label %_find_option_idx.exit.thread, label %3, !llvm.loop !16
 
 _find_option_idx.exit:                            ; preds = %3
   %9 = and i64 %indvars.iv.i, 2147483648
@@ -1722,7 +1722,7 @@ define zeroext i1 @slurm_option_isset(ptr nocapture noundef readonly %0, ptr nou
 8:                                                ; preds = %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 160
-  br i1 %.not.i, label %_find_option_idx.exit.thread, label %3, !llvm.loop !17
+  br i1 %.not.i, label %_find_option_idx.exit.thread, label %3, !llvm.loop !16
 
 _find_option_idx.exit:                            ; preds = %3
   %9 = and i64 %indvars.iv.i, 2147483648
@@ -1763,7 +1763,7 @@ define i32 @slurm_option_set(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 
 10:                                               ; preds = %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 160
-  br i1 %.not.i, label %_find_option_idx.exit.thread, label %5, !llvm.loop !17
+  br i1 %.not.i, label %_find_option_idx.exit.thread, label %5, !llvm.loop !16
 
 _find_option_idx.exit:                            ; preds = %5
   %11 = and i64 %indvars.iv.i, 2147483648
@@ -1893,7 +1893,7 @@ define noundef zeroext i1 @slurm_option_reset(ptr noundef %0, ptr noundef %1) lo
 8:                                                ; preds = %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 160
-  br i1 %.not.i, label %_find_option_idx.exit.thread, label %3, !llvm.loop !17
+  br i1 %.not.i, label %_find_option_idx.exit.thread, label %3, !llvm.loop !16
 
 _find_option_idx.exit:                            ; preds = %3
   %9 = and i64 %indvars.iv.i, 2147483648
@@ -1955,7 +1955,7 @@ define noundef zeroext i1 @slurm_option_get_next_set(ptr noundef %0, ptr nocaptu
   %17 = add i64 %8, 1
   store i64 %17, ptr %3, align 8
   %exitcond.not = icmp eq i64 %17, 160
-  br i1 %exitcond.not, label %.critedge.thread, label %7, !llvm.loop !18
+  br i1 %exitcond.not, label %.critedge.thread, label %7, !llvm.loop !17
 
 .critedge:                                        ; preds = %15
   %18 = icmp ugt i64 %8, 159
@@ -1983,7 +1983,7 @@ define noundef zeroext i1 @slurm_option_get_next_set(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @validate_hint_option(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @validate_hint_option(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2001,7 +2001,7 @@ define noundef i32 @validate_hint_option(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cond.i = icmp eq i64 %indvars.iv.next.i, 160
-  br i1 %cond.i, label %.preheader.i85.preheader, label %.preheader.i, !llvm.loop !14
+  br i1 %cond.i, label %.preheader.i85.preheader, label %.preheader.i, !llvm.loop !13
 
 .preheader.i:                                     ; preds = %7, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %7 ]
@@ -2036,7 +2036,7 @@ slurm_option_set_by_cli.exit:                     ; preds = %17
 24:                                               ; preds = %.preheader.i52
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %cond.i55 = icmp eq i64 %indvars.iv.next.i54, 160
-  br i1 %cond.i55, label %.preheader.i60.preheader, label %.preheader.i52, !llvm.loop !14
+  br i1 %cond.i55, label %.preheader.i60.preheader, label %.preheader.i52, !llvm.loop !13
 
 .preheader.i52:                                   ; preds = %slurm_option_set_by_cli.exit, %24
   %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i54, %24 ], [ 0, %slurm_option_set_by_cli.exit ]
@@ -2065,7 +2065,7 @@ slurm_option_set_by_cli.exit58:                   ; preds = %30
 37:                                               ; preds = %.preheader.i60
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
   %cond.i63 = icmp eq i64 %indvars.iv.next.i62, 160
-  br i1 %cond.i63, label %.preheader.i68.preheader, label %.preheader.i60, !llvm.loop !14
+  br i1 %cond.i63, label %.preheader.i68.preheader, label %.preheader.i60, !llvm.loop !13
 
 .preheader.i60:                                   ; preds = %.preheader.i60.preheader, %37
   %indvars.iv.i61 = phi i64 [ %indvars.iv.next.i62, %37 ], [ 0, %.preheader.i60.preheader ]
@@ -2094,7 +2094,7 @@ slurm_option_set_by_cli.exit66:                   ; preds = %43
 50:                                               ; preds = %.preheader.i68
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
   %cond.i71 = icmp eq i64 %indvars.iv.next.i70, 160
-  br i1 %cond.i71, label %.preheader.i76.preheader, label %.preheader.i68, !llvm.loop !14
+  br i1 %cond.i71, label %.preheader.i76.preheader, label %.preheader.i68, !llvm.loop !13
 
 .preheader.i68:                                   ; preds = %.preheader.i68.preheader, %50
   %indvars.iv.i69 = phi i64 [ %indvars.iv.next.i70, %50 ], [ 0, %.preheader.i68.preheader ]
@@ -2123,7 +2123,7 @@ slurm_option_set_by_cli.exit74:                   ; preds = %56
 63:                                               ; preds = %.preheader.i76
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
   %cond.i79 = icmp eq i64 %indvars.iv.next.i78, 160
-  br i1 %cond.i79, label %.preheader.i85.preheader, label %.preheader.i76, !llvm.loop !14
+  br i1 %cond.i79, label %.preheader.i85.preheader, label %.preheader.i76, !llvm.loop !13
 
 .preheader.i76:                                   ; preds = %.preheader.i76.preheader, %63
   %indvars.iv.i77 = phi i64 [ %indvars.iv.next.i78, %63 ], [ 0, %.preheader.i76.preheader ]
@@ -2178,7 +2178,7 @@ slurm_option_set_by_cli.exit82:                   ; preds = %69
 88:                                               ; preds = %83
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 160
-  br i1 %.not.i.i, label %slurm_option_reset.exit, label %83, !llvm.loop !17
+  br i1 %.not.i.i, label %slurm_option_reset.exit, label %83, !llvm.loop !16
 
 _find_option_idx.exit.i:                          ; preds = %83
   %89 = and i64 %indvars.iv.i.i, 2147483648
@@ -2204,7 +2204,7 @@ _find_option_idx.exit.i:                          ; preds = %83
 100:                                              ; preds = %.preheader.i85
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
   %cond.i88 = icmp eq i64 %indvars.iv.next.i87, 160
-  br i1 %cond.i88, label %.preheader.i121.preheader, label %.preheader.i85, !llvm.loop !14
+  br i1 %cond.i88, label %.preheader.i121.preheader, label %.preheader.i85, !llvm.loop !13
 
 .preheader.i85:                                   ; preds = %.preheader.i85.preheader, %100
   %indvars.iv.i86 = phi i64 [ %indvars.iv.next.i87, %100 ], [ 0, %.preheader.i85.preheader ]
@@ -2248,7 +2248,7 @@ slurm_option_set_by_cli.exit91:                   ; preds = %109
 120:                                              ; preds = %.preheader
   %indvars.iv.next.i.i94 = add nuw nsw i64 %indvars.iv.i.i92, 1
   %.not.i.i95 = icmp eq i64 %indvars.iv.next.i.i94, 160
-  br i1 %.not.i.i95, label %slurm_option_reset.exit98.preheader, label %.preheader, !llvm.loop !17
+  br i1 %.not.i.i95, label %slurm_option_reset.exit98.preheader, label %.preheader, !llvm.loop !16
 
 _find_option_idx.exit.i96:                        ; preds = %.preheader
   %121 = and i64 %indvars.iv.i.i92, 2147483648
@@ -2286,7 +2286,7 @@ slurm_option_reset.exit98:                        ; preds = %slurm_option_reset.
 136:                                              ; preds = %slurm_option_reset.exit98
   %indvars.iv.next.i.i101 = add nuw nsw i64 %indvars.iv.i.i99, 1
   %.not.i.i102 = icmp eq i64 %indvars.iv.next.i.i101, 160
-  br i1 %.not.i.i102, label %slurm_option_reset.exit105.preheader, label %slurm_option_reset.exit98, !llvm.loop !17
+  br i1 %.not.i.i102, label %slurm_option_reset.exit105.preheader, label %slurm_option_reset.exit98, !llvm.loop !16
 
 _find_option_idx.exit.i103:                       ; preds = %slurm_option_reset.exit98
   %137 = and i64 %indvars.iv.i.i99, 2147483648
@@ -2324,7 +2324,7 @@ slurm_option_reset.exit105:                       ; preds = %slurm_option_reset.
 152:                                              ; preds = %slurm_option_reset.exit105
   %indvars.iv.next.i.i108 = add nuw nsw i64 %indvars.iv.i.i106, 1
   %.not.i.i109 = icmp eq i64 %indvars.iv.next.i.i108, 160
-  br i1 %.not.i.i109, label %slurm_option_reset.exit112, label %slurm_option_reset.exit105, !llvm.loop !17
+  br i1 %.not.i.i109, label %slurm_option_reset.exit112, label %slurm_option_reset.exit105, !llvm.loop !16
 
 _find_option_idx.exit.i110:                       ; preds = %slurm_option_reset.exit105
   %153 = and i64 %indvars.iv.i.i106, 2147483648
@@ -2368,7 +2368,7 @@ slurm_option_reset.exit112:                       ; preds = %152, %_find_option_
 171:                                              ; preds = %166
   %indvars.iv.next.i.i115 = add nuw nsw i64 %indvars.iv.i.i113, 1
   %.not.i.i116 = icmp eq i64 %indvars.iv.next.i.i115, 160
-  br i1 %.not.i.i116, label %slurm_option_reset.exit119, label %166, !llvm.loop !17
+  br i1 %.not.i.i116, label %slurm_option_reset.exit119, label %166, !llvm.loop !16
 
 _find_option_idx.exit.i117:                       ; preds = %166
   %172 = and i64 %indvars.iv.i.i113, 2147483648
@@ -2411,7 +2411,7 @@ slurm_option_reset.exit119:                       ; preds = %171, %_find_option_
 190:                                              ; preds = %.preheader.i121
   %indvars.iv.next.i123 = add nuw nsw i64 %indvars.iv.i122, 1
   %cond.i124 = icmp eq i64 %indvars.iv.next.i123, 160
-  br i1 %cond.i124, label %.preheader.i129.preheader, label %.preheader.i121, !llvm.loop !14
+  br i1 %cond.i124, label %.preheader.i129.preheader, label %.preheader.i121, !llvm.loop !13
 
 .preheader.i121:                                  ; preds = %.preheader.i121.preheader, %190
   %indvars.iv.i122 = phi i64 [ %indvars.iv.next.i123, %190 ], [ 0, %.preheader.i121.preheader ]
@@ -2446,7 +2446,7 @@ slurm_option_set_by_cli.exit127:                  ; preds = %199
 206:                                              ; preds = %.preheader.i129
   %indvars.iv.next.i131 = add nuw nsw i64 %indvars.iv.i130, 1
   %cond.i132 = icmp eq i64 %indvars.iv.next.i131, 160
-  br i1 %cond.i132, label %.preheader.i137.preheader, label %.preheader.i129, !llvm.loop !14
+  br i1 %cond.i132, label %.preheader.i137.preheader, label %.preheader.i129, !llvm.loop !13
 
 .preheader.i129:                                  ; preds = %.preheader.i129.preheader, %206
   %indvars.iv.i130 = phi i64 [ %indvars.iv.next.i131, %206 ], [ 0, %.preheader.i129.preheader ]
@@ -2481,7 +2481,7 @@ slurm_option_set_by_cli.exit135:                  ; preds = %215
 222:                                              ; preds = %.preheader.i137
   %indvars.iv.next.i139 = add nuw nsw i64 %indvars.iv.i138, 1
   %cond.i140 = icmp eq i64 %indvars.iv.next.i139, 160
-  br i1 %cond.i140, label %.preheader.i145.preheader, label %.preheader.i137, !llvm.loop !14
+  br i1 %cond.i140, label %.preheader.i145.preheader, label %.preheader.i137, !llvm.loop !13
 
 .preheader.i137:                                  ; preds = %.preheader.i137.preheader, %222
   %indvars.iv.i138 = phi i64 [ %indvars.iv.next.i139, %222 ], [ 0, %.preheader.i137.preheader ]
@@ -2516,7 +2516,7 @@ slurm_option_set_by_cli.exit143:                  ; preds = %231
 238:                                              ; preds = %.preheader.i145
   %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i146, 1
   %cond.i148 = icmp eq i64 %indvars.iv.next.i147, 160
-  br i1 %cond.i148, label %slurm_option_set_by_cli.exit151.thread, label %.preheader.i145, !llvm.loop !14
+  br i1 %cond.i148, label %slurm_option_set_by_cli.exit151.thread, label %.preheader.i145, !llvm.loop !13
 
 .preheader.i145:                                  ; preds = %.preheader.i145.preheader, %238
   %indvars.iv.i146 = phi i64 [ %indvars.iv.next.i147, %238 ], [ 0, %.preheader.i145.preheader ]
@@ -2566,7 +2566,7 @@ slurm_option_set_by_cli.exit151:                  ; preds = %247
 259:                                              ; preds = %254
   %indvars.iv.next.i.i154 = add nuw nsw i64 %indvars.iv.i.i152, 1
   %.not.i.i155 = icmp eq i64 %indvars.iv.next.i.i154, 160
-  br i1 %.not.i.i155, label %slurm_option_reset.exit, label %254, !llvm.loop !17
+  br i1 %.not.i.i155, label %slurm_option_reset.exit, label %254, !llvm.loop !16
 
 _find_option_idx.exit.i156:                       ; preds = %254
   %260 = and i64 %indvars.iv.i.i152, 2147483648
@@ -2875,7 +2875,7 @@ define void @validate_options_salloc_sbatch_srun(ptr noundef %0) local_unnamed_a
 17:                                               ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cond.i.i = icmp eq i64 %indvars.iv.next.i.i, 160
-  br i1 %cond.i.i, label %.preheader.i55.preheader.i, label %.preheader.i.i, !llvm.loop !14
+  br i1 %cond.i.i, label %.preheader.i55.preheader.i, label %.preheader.i.i, !llvm.loop !13
 
 .preheader.i.i:                                   ; preds = %1, %17
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %17 ], [ 0, %1 ]
@@ -2921,7 +2921,7 @@ slurm_option_set_by_cli.exit.thread.i:            ; preds = %16, %13
 38:                                               ; preds = %.preheader.i55.i
   %indvars.iv.next.i57.i = add nuw nsw i64 %indvars.iv.i56.i, 1
   %cond.i58.i = icmp eq i64 %indvars.iv.next.i57.i, 160
-  br i1 %cond.i58.i, label %.preheader.i63.preheader.i, label %.preheader.i55.i, !llvm.loop !14
+  br i1 %cond.i58.i, label %.preheader.i63.preheader.i, label %.preheader.i55.i, !llvm.loop !13
 
 .preheader.i55.i:                                 ; preds = %38, %.preheader.i55.preheader.i
   %indvars.iv.i56.i = phi i64 [ %indvars.iv.next.i57.i, %38 ], [ 0, %.preheader.i55.preheader.i ]
@@ -2967,7 +2967,7 @@ slurm_option_set_by_cli.exit61.thread.i:          ; preds = %37, %slurm_option_s
 59:                                               ; preds = %.preheader.i63.i
   %indvars.iv.next.i65.i = add nuw nsw i64 %indvars.iv.i64.i, 1
   %cond.i66.i = icmp eq i64 %indvars.iv.next.i65.i, 160
-  br i1 %cond.i66.i, label %.preheader.i68.preheader.i, label %.preheader.i63.i, !llvm.loop !16
+  br i1 %cond.i66.i, label %.preheader.i68.preheader.i, label %.preheader.i63.i, !llvm.loop !15
 
 .preheader.i63.i:                                 ; preds = %59, %.preheader.i63.preheader.i
   %indvars.iv.i64.i = phi i64 [ %indvars.iv.next.i65.i, %59 ], [ 0, %.preheader.i63.preheader.i ]
@@ -3006,7 +3006,7 @@ slurm_option_set_by_env.exit.thread.i:            ; preds = %58, %slurm_option_s
 75:                                               ; preds = %.preheader.i68.i
   %indvars.iv.next.i70.i = add nuw nsw i64 %indvars.iv.i69.i, 1
   %cond.i71.i = icmp eq i64 %indvars.iv.next.i70.i, 160
-  br i1 %cond.i71.i, label %slurm_option_set_by_env.exit74.i, label %.preheader.i68.i, !llvm.loop !16
+  br i1 %cond.i71.i, label %slurm_option_set_by_env.exit74.i, label %.preheader.i68.i, !llvm.loop !15
 
 .preheader.i68.i:                                 ; preds = %75, %.preheader.i68.preheader.i
   %indvars.iv.i69.i = phi i64 [ %indvars.iv.next.i70.i, %75 ], [ 0, %.preheader.i68.preheader.i ]
@@ -3095,7 +3095,7 @@ slurm_option_set_by_env.exit74.i:                 ; preds = %75, %84, %81, %74, 
 108:                                              ; preds = %103
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 160
-  br i1 %.not.i.i.i, label %slurm_option_reset.exit.i, label %103, !llvm.loop !17
+  br i1 %.not.i.i.i, label %slurm_option_reset.exit.i, label %103, !llvm.loop !16
 
 _find_option_idx.exit.i.i:                        ; preds = %103
   %109 = and i64 %indvars.iv.i.i.i, 2147483648
@@ -3153,7 +3153,7 @@ _find_option_idx.exit.i.i:                        ; preds = %103
 134:                                              ; preds = %129
   %indvars.iv.next.i.i78.i = add nuw nsw i64 %indvars.iv.i.i76.i, 1
   %.not.i.i79.i = icmp eq i64 %indvars.iv.next.i.i78.i, 160
-  br i1 %.not.i.i79.i, label %slurm_option_reset.exit.i, label %129, !llvm.loop !17
+  br i1 %.not.i.i79.i, label %slurm_option_reset.exit.i, label %129, !llvm.loop !16
 
 _find_option_idx.exit.i80.i:                      ; preds = %129
   %135 = and i64 %indvars.iv.i.i76.i, 2147483648
@@ -3212,7 +3212,7 @@ slurm_option_reset.exit.i:                        ; preds = %108, %134, %147, %_
 158:                                              ; preds = %.preheader.i84.i
   %indvars.iv.next.i86.i = add nuw nsw i64 %indvars.iv.i85.i, 1
   %cond.i87.i = icmp eq i64 %indvars.iv.next.i86.i, 160
-  br i1 %cond.i87.i, label %.preheader.i92.i.preheader, label %.preheader.i84.i, !llvm.loop !14
+  br i1 %cond.i87.i, label %.preheader.i92.i.preheader, label %.preheader.i84.i, !llvm.loop !13
 
 .preheader.i84.i:                                 ; preds = %.preheader.i84.i.preheader, %158
   %indvars.iv.i85.i = phi i64 [ %indvars.iv.next.i86.i, %158 ], [ 0, %.preheader.i84.i.preheader ]
@@ -3260,7 +3260,7 @@ slurm_option_set_by_cli.exit90.thread.thread.i:   ; preds = %157, %154
 178:                                              ; preds = %.preheader.i92.i
   %indvars.iv.next.i94.i = add nuw nsw i64 %indvars.iv.i93.i, 1
   %cond.i95.i = icmp eq i64 %indvars.iv.next.i94.i, 160
-  br i1 %cond.i95.i, label %.preheader.i100.i.preheader, label %.preheader.i92.i, !llvm.loop !16
+  br i1 %cond.i95.i, label %.preheader.i100.i.preheader, label %.preheader.i92.i, !llvm.loop !15
 
 .preheader.i92.i:                                 ; preds = %.preheader.i92.i.preheader, %178
   %indvars.iv.i93.i = phi i64 [ %indvars.iv.next.i94.i, %178 ], [ 0, %.preheader.i92.i.preheader ]
@@ -3302,7 +3302,7 @@ slurm_option_set_by_env.exit98.thread.thread.i:   ; preds = %177, %slurm_option_
 194:                                              ; preds = %.preheader.i100.i
   %indvars.iv.next.i102.i = add nuw nsw i64 %indvars.iv.i101.i, 1
   %cond.i103.i = icmp eq i64 %indvars.iv.next.i102.i, 160
-  br i1 %cond.i103.i, label %.preheader.i108.i.preheader, label %.preheader.i100.i, !llvm.loop !14
+  br i1 %cond.i103.i, label %.preheader.i108.i.preheader, label %.preheader.i100.i, !llvm.loop !13
 
 .preheader.i100.i:                                ; preds = %.preheader.i100.i.preheader, %194
   %indvars.iv.i101.i = phi i64 [ %indvars.iv.next.i102.i, %194 ], [ 0, %.preheader.i100.i.preheader ]
@@ -3350,7 +3350,7 @@ slurm_option_set_by_cli.exit106.thread.thread.i:  ; preds = %193, %slurm_option_
 214:                                              ; preds = %.preheader.i108.i
   %indvars.iv.next.i110.i = add nuw nsw i64 %indvars.iv.i109.i, 1
   %cond.i111.i = icmp eq i64 %indvars.iv.next.i110.i, 160
-  br i1 %cond.i111.i, label %.preheader.i116.i.preheader, label %.preheader.i108.i, !llvm.loop !16
+  br i1 %cond.i111.i, label %.preheader.i116.i.preheader, label %.preheader.i108.i, !llvm.loop !15
 
 .preheader.i108.i:                                ; preds = %.preheader.i108.i.preheader, %214
   %indvars.iv.i109.i = phi i64 [ %indvars.iv.next.i110.i, %214 ], [ 0, %.preheader.i108.i.preheader ]
@@ -3392,7 +3392,7 @@ slurm_option_set_by_env.exit114.thread.thread.i:  ; preds = %213, %slurm_option_
 230:                                              ; preds = %.preheader.i116.i
   %indvars.iv.next.i118.i = add nuw nsw i64 %indvars.iv.i117.i, 1
   %cond.i119.i = icmp eq i64 %indvars.iv.next.i118.i, 160
-  br i1 %cond.i119.i, label %.preheader.i124.i.preheader, label %.preheader.i116.i, !llvm.loop !14
+  br i1 %cond.i119.i, label %.preheader.i124.i.preheader, label %.preheader.i116.i, !llvm.loop !13
 
 .preheader.i116.i:                                ; preds = %.preheader.i116.i.preheader, %230
   %indvars.iv.i117.i = phi i64 [ %indvars.iv.next.i118.i, %230 ], [ 0, %.preheader.i116.i.preheader ]
@@ -3440,7 +3440,7 @@ slurm_option_set_by_cli.exit122.thread.thread.i:  ; preds = %229, %slurm_option_
 250:                                              ; preds = %.preheader.i124.i
   %indvars.iv.next.i126.i = add nuw nsw i64 %indvars.iv.i125.i, 1
   %cond.i127.i = icmp eq i64 %indvars.iv.next.i126.i, 160
-  br i1 %cond.i127.i, label %.preheader.i132.i.preheader, label %.preheader.i124.i, !llvm.loop !16
+  br i1 %cond.i127.i, label %.preheader.i132.i.preheader, label %.preheader.i124.i, !llvm.loop !15
 
 .preheader.i124.i:                                ; preds = %.preheader.i124.i.preheader, %250
   %indvars.iv.i125.i = phi i64 [ %indvars.iv.next.i126.i, %250 ], [ 0, %.preheader.i124.i.preheader ]
@@ -3482,7 +3482,7 @@ slurm_option_set_by_env.exit130.thread.thread.i:  ; preds = %249, %slurm_option_
 266:                                              ; preds = %.preheader.i132.i
   %indvars.iv.next.i134.i = add nuw nsw i64 %indvars.iv.i133.i, 1
   %cond.i135.i = icmp eq i64 %indvars.iv.next.i134.i, 160
-  br i1 %cond.i135.i, label %.preheader.i140.i.preheader, label %.preheader.i132.i, !llvm.loop !14
+  br i1 %cond.i135.i, label %.preheader.i140.i.preheader, label %.preheader.i132.i, !llvm.loop !13
 
 .preheader.i132.i:                                ; preds = %.preheader.i132.i.preheader, %266
   %indvars.iv.i133.i = phi i64 [ %indvars.iv.next.i134.i, %266 ], [ 0, %.preheader.i132.i.preheader ]
@@ -3530,7 +3530,7 @@ slurm_option_set_by_cli.exit138.thread.thread.i:  ; preds = %265, %slurm_option_
 286:                                              ; preds = %.preheader.i140.i
   %indvars.iv.next.i142.i = add nuw nsw i64 %indvars.iv.i141.i, 1
   %cond.i143.i = icmp eq i64 %indvars.iv.next.i142.i, 160
-  br i1 %cond.i143.i, label %_validate_ntasks_per_gpu.exit.preheader, label %.preheader.i140.i, !llvm.loop !16
+  br i1 %cond.i143.i, label %_validate_ntasks_per_gpu.exit.preheader, label %.preheader.i140.i, !llvm.loop !15
 
 .preheader.i140.i:                                ; preds = %.preheader.i140.i.preheader, %286
   %indvars.iv.i141.i = phi i64 [ %indvars.iv.next.i142.i, %286 ], [ 0, %.preheader.i140.i.preheader ]
@@ -3572,7 +3572,7 @@ _validate_ntasks_per_gpu.exit:                    ; preds = %_validate_ntasks_pe
 303:                                              ; preds = %_validate_ntasks_per_gpu.exit
   %indvars.iv.next.i.i.i12 = add nuw nsw i64 %indvars.iv.i.i.i10, 1
   %.not.i.i.i13 = icmp eq i64 %indvars.iv.next.i.i.i12, 160
-  br i1 %.not.i.i.i13, label %slurm_option_isset.exit.thread.i.preheader, label %_validate_ntasks_per_gpu.exit, !llvm.loop !17
+  br i1 %.not.i.i.i13, label %slurm_option_isset.exit.thread.i.preheader, label %_validate_ntasks_per_gpu.exit, !llvm.loop !16
 
 _find_option_idx.exit.i.i20:                      ; preds = %_validate_ntasks_per_gpu.exit
   %304 = and i64 %indvars.iv.i.i.i10, 2147483648
@@ -3607,7 +3607,7 @@ slurm_option_isset.exit.thread.i:                 ; preds = %slurm_option_isset.
 316:                                              ; preds = %slurm_option_isset.exit.thread.i
   %indvars.iv.next.i.i12.i = add nuw nsw i64 %indvars.iv.i.i10.i, 1
   %.not.i.i13.i = icmp eq i64 %indvars.iv.next.i.i12.i, 160
-  br i1 %.not.i.i13.i, label %_validate_spec_cores_options.exit.preheader, label %slurm_option_isset.exit.thread.i, !llvm.loop !17
+  br i1 %.not.i.i13.i, label %_validate_spec_cores_options.exit.preheader, label %slurm_option_isset.exit.thread.i, !llvm.loop !16
 
 _find_option_idx.exit.i15.i:                      ; preds = %slurm_option_isset.exit.thread.i
   %317 = and i64 %indvars.iv.i.i10.i, 2147483648
@@ -3634,7 +3634,7 @@ slurm_option_isset.exit18.i:                      ; preds = %318
 327:                                              ; preds = %.preheader.i.i14
   %indvars.iv.next.i.i16 = add nuw nsw i64 %indvars.iv.i.i15, 1
   %cond.i.i17 = icmp eq i64 %indvars.iv.next.i.i16, 160
-  br i1 %cond.i.i17, label %slurm_option_set_by_cli.exit.i, label %.preheader.i.i14, !llvm.loop !14
+  br i1 %cond.i.i17, label %slurm_option_set_by_cli.exit.i, label %.preheader.i.i14, !llvm.loop !13
 
 .preheader.i.i14:                                 ; preds = %327, %325
   %indvars.iv.i.i15 = phi i64 [ %indvars.iv.next.i.i16, %327 ], [ 0, %325 ]
@@ -3664,7 +3664,7 @@ slurm_option_set_by_cli.exit.i:                   ; preds = %327, %337, %333
 341:                                              ; preds = %.preheader.i21.i
   %indvars.iv.next.i23.i = add nuw nsw i64 %indvars.iv.i22.i, 1
   %cond.i24.i = icmp eq i64 %indvars.iv.next.i23.i, 160
-  br i1 %cond.i24.i, label %.preheader.i29.i.preheader, label %.preheader.i21.i, !llvm.loop !14
+  br i1 %cond.i24.i, label %.preheader.i29.i.preheader, label %.preheader.i21.i, !llvm.loop !13
 
 .preheader.i21.i:                                 ; preds = %341, %slurm_option_set_by_cli.exit.i
   %indvars.iv.i22.i = phi i64 [ %indvars.iv.next.i23.i, %341 ], [ 0, %slurm_option_set_by_cli.exit.i ]
@@ -3698,7 +3698,7 @@ slurm_option_set_by_cli.exit27.i:                 ; preds = %347
 355:                                              ; preds = %.preheader.i29.i
   %indvars.iv.next.i31.i = add nuw nsw i64 %indvars.iv.i30.i, 1
   %cond.i32.i = icmp eq i64 %indvars.iv.next.i31.i, 160
-  br i1 %cond.i32.i, label %slurm_option_set_by_env.exit.i, label %.preheader.i29.i, !llvm.loop !16
+  br i1 %cond.i32.i, label %slurm_option_set_by_env.exit.i, label %.preheader.i29.i, !llvm.loop !15
 
 .preheader.i29.i:                                 ; preds = %.preheader.i29.i.preheader, %355
   %indvars.iv.i30.i = phi i64 [ %indvars.iv.next.i31.i, %355 ], [ 0, %.preheader.i29.i.preheader ]
@@ -3722,7 +3722,7 @@ slurm_option_set_by_env.exit.i:                   ; preds = %355, %361
 365:                                              ; preds = %.preheader.i34.i
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i35.i, 1
   %cond.i37.i = icmp eq i64 %indvars.iv.next.i36.i, 160
-  br i1 %cond.i37.i, label %slurm_option_set_by_env.exit40.thread.i, label %.preheader.i34.i, !llvm.loop !16
+  br i1 %cond.i37.i, label %slurm_option_set_by_env.exit40.thread.i, label %.preheader.i34.i, !llvm.loop !15
 
 .preheader.i34.i:                                 ; preds = %365, %slurm_option_set_by_env.exit.i
   %indvars.iv.i35.i = phi i64 [ %indvars.iv.next.i36.i, %365 ], [ 0, %slurm_option_set_by_env.exit.i ]
@@ -3743,7 +3743,7 @@ slurm_option_set_by_env.exit40.i:                 ; preds = %.preheader.i34.i
 375:                                              ; preds = %.preheader.i42.i
   %indvars.iv.next.i44.i = add nuw nsw i64 %indvars.iv.i43.i, 1
   %cond.i45.i = icmp eq i64 %indvars.iv.next.i44.i, 160
-  br i1 %cond.i45.i, label %slurm_option_set_by_cli.exit48.i, label %.preheader.i42.i, !llvm.loop !14
+  br i1 %cond.i45.i, label %slurm_option_set_by_cli.exit48.i, label %.preheader.i42.i, !llvm.loop !13
 
 .preheader.i42.i:                                 ; preds = %slurm_option_set_by_env.exit40.i, %375
   %indvars.iv.i43.i = phi i64 [ %indvars.iv.next.i44.i, %375 ], [ 0, %slurm_option_set_by_env.exit40.i ]
@@ -3774,7 +3774,7 @@ slurm_option_set_by_cli.exit48.i:                 ; preds = %375, %385, %381
 390:                                              ; preds = %.preheader.i50.i
   %indvars.iv.next.i52.i = add nuw nsw i64 %indvars.iv.i51.i, 1
   %cond.i53.i = icmp eq i64 %indvars.iv.next.i52.i, 160
-  br i1 %cond.i53.i, label %slurm_option_set_by_cli.exit56.i, label %.preheader.i50.i, !llvm.loop !14
+  br i1 %cond.i53.i, label %slurm_option_set_by_cli.exit56.i, label %.preheader.i50.i, !llvm.loop !13
 
 .preheader.i50.i:                                 ; preds = %390, %slurm_option_set_by_cli.exit48.i
   %indvars.iv.i51.i = phi i64 [ %indvars.iv.next.i52.i, %390 ], [ 0, %slurm_option_set_by_cli.exit48.i ]
@@ -3837,7 +3837,7 @@ _validate_spec_cores_options.exit:                ; preds = %_validate_spec_core
 419:                                              ; preds = %_validate_spec_cores_options.exit
   %indvars.iv.next.i.i.i24 = add nuw nsw i64 %indvars.iv.i.i.i22, 1
   %.not.i.i.i25 = icmp eq i64 %indvars.iv.next.i.i.i24, 160
-  br i1 %.not.i.i.i25, label %_validate_threads_per_core_option.exit, label %_validate_spec_cores_options.exit, !llvm.loop !17
+  br i1 %.not.i.i.i25, label %_validate_threads_per_core_option.exit, label %_validate_spec_cores_options.exit, !llvm.loop !16
 
 _find_option_idx.exit.i.i27:                      ; preds = %_validate_spec_cores_options.exit
   %420 = and i64 %indvars.iv.i.i.i22, 2147483648
@@ -3869,7 +3869,7 @@ slurm_option_isset.exit.i30:                      ; preds = %421
 432:                                              ; preds = %.preheader.i
   %indvars.iv.next.i.i24.i = add nuw nsw i64 %indvars.iv.i.i22.i, 1
   %.not.i.i25.i = icmp eq i64 %indvars.iv.next.i.i24.i, 160
-  br i1 %.not.i.i25.i, label %slurm_option_isset.exit30.thread.i, label %.preheader.i, !llvm.loop !17
+  br i1 %.not.i.i25.i, label %slurm_option_isset.exit30.thread.i, label %.preheader.i, !llvm.loop !16
 
 _find_option_idx.exit.i27.i:                      ; preds = %.preheader.i
   %433 = and i64 %indvars.iv.i.i22.i, 2147483648
@@ -3995,7 +3995,7 @@ _validate_threads_per_core_option.exit:           ; preds = %419, %_find_option_
 490:                                              ; preds = %.preheader.i.i33
   %indvars.iv.next.i.i35 = add nuw nsw i64 %indvars.iv.i.i34, 1
   %cond.i.i36 = icmp eq i64 %indvars.iv.next.i.i35, 160
-  br i1 %cond.i.i36, label %slurm_option_set_by_cli.exit.i37, label %.preheader.i.i33, !llvm.loop !14
+  br i1 %cond.i.i36, label %slurm_option_set_by_cli.exit.i37, label %.preheader.i.i33, !llvm.loop !13
 
 .preheader.i.i33:                                 ; preds = %.preheader.i.i33.preheader, %490
   %indvars.iv.i.i34 = phi i64 [ %indvars.iv.next.i.i35, %490 ], [ 0, %.preheader.i.i33.preheader ]
@@ -4042,7 +4042,7 @@ slurm_option_set_by_cli.exit.thread.i57:          ; preds = %489, %486
 512:                                              ; preds = %.preheader.i20.i
   %indvars.iv.next.i22.i = add nuw nsw i64 %indvars.iv.i21.i, 1
   %cond.i23.i = icmp eq i64 %indvars.iv.next.i22.i, 160
-  br i1 %cond.i23.i, label %slurm_option_set_by_cli.exit26.i, label %.preheader.i20.i, !llvm.loop !14
+  br i1 %cond.i23.i, label %slurm_option_set_by_cli.exit26.i, label %.preheader.i20.i, !llvm.loop !13
 
 .preheader.i20.i:                                 ; preds = %512, %slurm_option_set_by_cli.exit.i37
   %indvars.iv.i21.i = phi i64 [ %indvars.iv.next.i22.i, %512 ], [ 0, %slurm_option_set_by_cli.exit.i37 ]
@@ -4090,7 +4090,7 @@ slurm_option_set_by_cli.exit26.thread.i:          ; preds = %511, %slurm_option_
 535:                                              ; preds = %.preheader.i28.i
   %indvars.iv.next.i30.i = add nuw nsw i64 %indvars.iv.i29.i, 1
   %cond.i31.i = icmp eq i64 %indvars.iv.next.i30.i, 160
-  br i1 %cond.i31.i, label %slurm_option_set_by_cli.exit34.i, label %.preheader.i28.i, !llvm.loop !14
+  br i1 %cond.i31.i, label %slurm_option_set_by_cli.exit34.i, label %.preheader.i28.i, !llvm.loop !13
 
 .preheader.i28.i:                                 ; preds = %535, %slurm_option_set_by_cli.exit26.i
   %indvars.iv.i29.i = phi i64 [ %indvars.iv.next.i30.i, %535 ], [ 0, %slurm_option_set_by_cli.exit26.i ]
@@ -4147,7 +4147,7 @@ slurm_option_set_by_cli.exit34.i:                 ; preds = %535, %548, %544, %5
 563:                                              ; preds = %.preheader.i36.i
   %indvars.iv.next.i38.i = add nuw nsw i64 %indvars.iv.i37.i, 1
   %cond.i39.i = icmp eq i64 %indvars.iv.next.i38.i, 160
-  br i1 %cond.i39.i, label %.preheader.i52.i.preheader, label %.preheader.i36.i, !llvm.loop !14
+  br i1 %cond.i39.i, label %.preheader.i52.i.preheader, label %.preheader.i36.i, !llvm.loop !13
 
 .preheader.i36.i:                                 ; preds = %558, %563
   %indvars.iv.i37.i = phi i64 [ %indvars.iv.next.i38.i, %563 ], [ 0, %558 ]
@@ -4191,7 +4191,7 @@ slurm_option_set_by_cli.exit42.i:                 ; preds = %572
 583:                                              ; preds = %.preheader144.i
   %indvars.iv.next.i.i.i51 = add nuw nsw i64 %indvars.iv.i.i.i49, 1
   %.not.i.i.i52 = icmp eq i64 %indvars.iv.next.i.i.i51, 160
-  br i1 %.not.i.i.i52, label %slurm_option_reset.exit.i53.preheader, label %.preheader144.i, !llvm.loop !17
+  br i1 %.not.i.i.i52, label %slurm_option_reset.exit.i53.preheader, label %.preheader144.i, !llvm.loop !16
 
 _find_option_idx.exit.i.i54:                      ; preds = %.preheader144.i
   %584 = and i64 %indvars.iv.i.i.i49, 2147483648
@@ -4229,7 +4229,7 @@ slurm_option_reset.exit.i53:                      ; preds = %slurm_option_reset.
 599:                                              ; preds = %slurm_option_reset.exit.i53
   %indvars.iv.next.i.i46.i = add nuw nsw i64 %indvars.iv.i.i44.i, 1
   %.not.i.i47.i = icmp eq i64 %indvars.iv.next.i.i46.i, 160
-  br i1 %.not.i.i47.i, label %slurm_option_reset.exit50.i, label %slurm_option_reset.exit.i53, !llvm.loop !17
+  br i1 %.not.i.i47.i, label %slurm_option_reset.exit50.i, label %slurm_option_reset.exit.i53, !llvm.loop !16
 
 _find_option_idx.exit.i48.i:                      ; preds = %slurm_option_reset.exit.i53
   %600 = and i64 %indvars.iv.i.i44.i, 2147483648
@@ -4263,7 +4263,7 @@ slurm_option_set_by_cli.exit42.thread.thread.i:   ; preds = %562, %559
 614:                                              ; preds = %.preheader.i52.i
   %indvars.iv.next.i54.i = add nuw nsw i64 %indvars.iv.i53.i, 1
   %cond.i55.i = icmp eq i64 %indvars.iv.next.i54.i, 160
-  br i1 %cond.i55.i, label %.preheader.i74.i.preheader, label %.preheader.i52.i, !llvm.loop !14
+  br i1 %cond.i55.i, label %.preheader.i74.i.preheader, label %.preheader.i52.i, !llvm.loop !13
 
 .preheader.i52.i:                                 ; preds = %.preheader.i52.i.preheader, %614
   %indvars.iv.i53.i = phi i64 [ %indvars.iv.next.i54.i, %614 ], [ 0, %.preheader.i52.i.preheader ]
@@ -4307,7 +4307,7 @@ slurm_option_set_by_cli.exit58.i:                 ; preds = %623
 634:                                              ; preds = %.preheader142.i
   %indvars.iv.next.i.i61.i = add nuw nsw i64 %indvars.iv.i.i59.i, 1
   %.not.i.i62.i = icmp eq i64 %indvars.iv.next.i.i61.i, 160
-  br i1 %.not.i.i62.i, label %slurm_option_reset.exit65.i.preheader, label %.preheader142.i, !llvm.loop !17
+  br i1 %.not.i.i62.i, label %slurm_option_reset.exit65.i.preheader, label %.preheader142.i, !llvm.loop !16
 
 _find_option_idx.exit.i63.i:                      ; preds = %.preheader142.i
   %635 = and i64 %indvars.iv.i.i59.i, 2147483648
@@ -4345,7 +4345,7 @@ slurm_option_reset.exit65.i:                      ; preds = %slurm_option_reset.
 650:                                              ; preds = %slurm_option_reset.exit65.i
   %indvars.iv.next.i.i68.i = add nuw nsw i64 %indvars.iv.i.i66.i, 1
   %.not.i.i69.i = icmp eq i64 %indvars.iv.next.i.i68.i, 160
-  br i1 %.not.i.i69.i, label %slurm_option_reset.exit50.i, label %slurm_option_reset.exit65.i, !llvm.loop !17
+  br i1 %.not.i.i69.i, label %slurm_option_reset.exit50.i, label %slurm_option_reset.exit65.i, !llvm.loop !16
 
 _find_option_idx.exit.i70.i:                      ; preds = %slurm_option_reset.exit65.i
   %651 = and i64 %indvars.iv.i.i66.i, 2147483648
@@ -4379,7 +4379,7 @@ slurm_option_set_by_cli.exit58.thread.thread.i:   ; preds = %613, %slurm_option_
 665:                                              ; preds = %.preheader.i74.i
   %indvars.iv.next.i76.i = add nuw nsw i64 %indvars.iv.i75.i, 1
   %cond.i77.i = icmp eq i64 %indvars.iv.next.i76.i, 160
-  br i1 %cond.i77.i, label %.preheader.i96.i.preheader, label %.preheader.i74.i, !llvm.loop !14
+  br i1 %cond.i77.i, label %.preheader.i96.i.preheader, label %.preheader.i74.i, !llvm.loop !13
 
 .preheader.i74.i:                                 ; preds = %.preheader.i74.i.preheader, %665
   %indvars.iv.i75.i = phi i64 [ %indvars.iv.next.i76.i, %665 ], [ 0, %.preheader.i74.i.preheader ]
@@ -4423,7 +4423,7 @@ slurm_option_set_by_cli.exit80.i:                 ; preds = %674
 685:                                              ; preds = %.preheader140.i
   %indvars.iv.next.i.i83.i = add nuw nsw i64 %indvars.iv.i.i81.i, 1
   %.not.i.i84.i = icmp eq i64 %indvars.iv.next.i.i83.i, 160
-  br i1 %.not.i.i84.i, label %slurm_option_reset.exit87.i.preheader, label %.preheader140.i, !llvm.loop !17
+  br i1 %.not.i.i84.i, label %slurm_option_reset.exit87.i.preheader, label %.preheader140.i, !llvm.loop !16
 
 _find_option_idx.exit.i85.i:                      ; preds = %.preheader140.i
   %686 = and i64 %indvars.iv.i.i81.i, 2147483648
@@ -4461,7 +4461,7 @@ slurm_option_reset.exit87.i:                      ; preds = %slurm_option_reset.
 701:                                              ; preds = %slurm_option_reset.exit87.i
   %indvars.iv.next.i.i90.i = add nuw nsw i64 %indvars.iv.i.i88.i, 1
   %.not.i.i91.i = icmp eq i64 %indvars.iv.next.i.i90.i, 160
-  br i1 %.not.i.i91.i, label %slurm_option_reset.exit50.i, label %slurm_option_reset.exit87.i, !llvm.loop !17
+  br i1 %.not.i.i91.i, label %slurm_option_reset.exit50.i, label %slurm_option_reset.exit87.i, !llvm.loop !16
 
 _find_option_idx.exit.i92.i:                      ; preds = %slurm_option_reset.exit87.i
   %702 = and i64 %indvars.iv.i.i88.i, 2147483648
@@ -4495,7 +4495,7 @@ slurm_option_set_by_cli.exit80.thread.thread.i:   ; preds = %664, %slurm_option_
 716:                                              ; preds = %.preheader.i96.i
   %indvars.iv.next.i98.i = add nuw nsw i64 %indvars.iv.i97.i, 1
   %cond.i99.i = icmp eq i64 %indvars.iv.next.i98.i, 160
-  br i1 %cond.i99.i, label %slurm_option_set_by_env.exit.i39, label %.preheader.i96.i, !llvm.loop !16
+  br i1 %cond.i99.i, label %slurm_option_set_by_env.exit.i39, label %.preheader.i96.i, !llvm.loop !15
 
 .preheader.i96.i:                                 ; preds = %.preheader.i96.i.preheader, %716
   %indvars.iv.i97.i = phi i64 [ %indvars.iv.next.i98.i, %716 ], [ 0, %.preheader.i96.i.preheader ]
@@ -4535,7 +4535,7 @@ slurm_option_set_by_env.exit.thread.i55:          ; preds = %715, %slurm_option_
 733:                                              ; preds = %.preheader.i101.i
   %indvars.iv.next.i103.i = add nuw nsw i64 %indvars.iv.i102.i, 1
   %cond.i104.i = icmp eq i64 %indvars.iv.next.i103.i, 160
-  br i1 %cond.i104.i, label %slurm_option_set_by_env.exit107.i, label %.preheader.i101.i, !llvm.loop !16
+  br i1 %cond.i104.i, label %slurm_option_set_by_env.exit107.i, label %.preheader.i101.i, !llvm.loop !15
 
 .preheader.i101.i:                                ; preds = %733, %slurm_option_set_by_env.exit.i39
   %indvars.iv.i102.i = phi i64 [ %indvars.iv.next.i103.i, %733 ], [ 0, %slurm_option_set_by_env.exit.i39 ]
@@ -4576,7 +4576,7 @@ slurm_option_set_by_env.exit107.thread.i:         ; preds = %732, %slurm_option_
 751:                                              ; preds = %.preheader.i109.i
   %indvars.iv.next.i111.i = add nuw nsw i64 %indvars.iv.i110.i, 1
   %cond.i112.i = icmp eq i64 %indvars.iv.next.i111.i, 160
-  br i1 %cond.i112.i, label %slurm_option_set_by_env.exit115.i, label %.preheader.i109.i, !llvm.loop !16
+  br i1 %cond.i112.i, label %slurm_option_set_by_env.exit115.i, label %.preheader.i109.i, !llvm.loop !15
 
 .preheader.i109.i:                                ; preds = %751, %slurm_option_set_by_env.exit107.i
   %indvars.iv.i110.i = phi i64 [ %indvars.iv.next.i111.i, %751 ], [ 0, %slurm_option_set_by_env.exit107.i ]
@@ -4640,7 +4640,7 @@ slurm_option_reset.exit50.i:                      ; preds = %599, %650, %701, %s
 778:                                              ; preds = %.preheader.i43
   %indvars.iv.next.i.i118.i = add nuw nsw i64 %indvars.iv.i.i116.i, 1
   %.not.i.i119.i = icmp eq i64 %indvars.iv.next.i.i118.i, 160
-  br i1 %.not.i.i119.i, label %slurm_option_isset.exit.thread.i44.preheader, label %.preheader.i43, !llvm.loop !17
+  br i1 %.not.i.i119.i, label %slurm_option_isset.exit.thread.i44.preheader, label %.preheader.i43, !llvm.loop !16
 
 _find_option_idx.exit.i120.i:                     ; preds = %.preheader.i43
   %779 = and i64 %indvars.iv.i.i116.i, 2147483648
@@ -4680,7 +4680,7 @@ slurm_option_isset.exit.thread.i44:               ; preds = %slurm_option_isset.
 794:                                              ; preds = %slurm_option_isset.exit.thread.i44
   %indvars.iv.next.i.i124.i = add nuw nsw i64 %indvars.iv.i.i122.i, 1
   %.not.i.i125.i = icmp eq i64 %indvars.iv.next.i.i124.i, 160
-  br i1 %.not.i.i125.i, label %_validate_memory_options.exit, label %slurm_option_isset.exit.thread.i44, !llvm.loop !17
+  br i1 %.not.i.i125.i, label %_validate_memory_options.exit, label %slurm_option_isset.exit.thread.i44, !llvm.loop !16
 
 _find_option_idx.exit.i127.i:                     ; preds = %slurm_option_isset.exit.thread.i44
   %795 = and i64 %indvars.iv.i.i122.i, 2147483648
@@ -4728,7 +4728,7 @@ _validate_memory_options.exit:                    ; preds = %794, %slurm_option_
 810:                                              ; preds = %.preheader.i.i59
   %indvars.iv.next.i.i61 = add nuw nsw i64 %indvars.iv.i.i60, 1
   %cond.i.i62 = icmp eq i64 %indvars.iv.next.i.i61, 160
-  br i1 %cond.i.i62, label %.preheader.i5.preheader.i, label %.preheader.i.i59, !llvm.loop !14
+  br i1 %cond.i.i62, label %.preheader.i5.preheader.i, label %.preheader.i.i59, !llvm.loop !13
 
 .preheader.i.i59:                                 ; preds = %.preheader.i.i59.preheader, %810
   %indvars.iv.i.i60 = phi i64 [ %indvars.iv.next.i.i61, %810 ], [ 0, %.preheader.i.i59.preheader ]
@@ -4773,7 +4773,7 @@ slurm_option_set_by_cli.exit.thread.i66:          ; preds = %809, %806
 830:                                              ; preds = %.preheader.i5.i
   %indvars.iv.next.i7.i = add nuw nsw i64 %indvars.iv.i6.i, 1
   %cond.i8.i = icmp eq i64 %indvars.iv.next.i7.i, 160
-  br i1 %cond.i8.i, label %_validate_share_options.exit, label %.preheader.i5.i, !llvm.loop !14
+  br i1 %cond.i8.i, label %_validate_share_options.exit, label %.preheader.i5.i, !llvm.loop !13
 
 .preheader.i5.i:                                  ; preds = %830, %.preheader.i5.preheader.i
   %indvars.iv.i6.i = phi i64 [ %indvars.iv.next.i7.i, %830 ], [ 0, %.preheader.i5.preheader.i ]
@@ -4953,7 +4953,7 @@ _validate_share_options.exit:                     ; preds = %830, %slurm_option_
 909:                                              ; preds = %904
   %indvars.iv.next.i.i.i70 = add nuw nsw i64 %indvars.iv.i.i.i68, 1
   %.not.i.i.i71 = icmp eq i64 %indvars.iv.next.i.i.i70, 160
-  br i1 %.not.i.i.i71, label %slurm_option_isset.exit.thread.i72, label %904, !llvm.loop !17
+  br i1 %.not.i.i.i71, label %slurm_option_isset.exit.thread.i72, label %904, !llvm.loop !16
 
 _find_option_idx.exit.i.i74:                      ; preds = %904
   %910 = and i64 %indvars.iv.i.i.i68, 2147483648
@@ -4985,7 +4985,7 @@ slurm_option_isset.exit.i77:                      ; preds = %911
 922:                                              ; preds = %.preheader.i78
   %indvars.iv.next.i.i39.i = add nuw nsw i64 %indvars.iv.i.i37.i, 1
   %.not.i.i40.i = icmp eq i64 %indvars.iv.next.i.i39.i, 160
-  br i1 %.not.i.i40.i, label %slurm_option_isset.exit.thread.i72, label %.preheader.i78, !llvm.loop !17
+  br i1 %.not.i.i40.i, label %slurm_option_isset.exit.thread.i72, label %.preheader.i78, !llvm.loop !16
 
 _find_option_idx.exit.i42.i:                      ; preds = %.preheader.i78
   %923 = and i64 %indvars.iv.i.i37.i, 2147483648
@@ -5029,7 +5029,7 @@ slurm_option_isset.exit.thread.i72:               ; preds = %909, %922, %slurm_o
 940:                                              ; preds = %.preheader.i.i.i
   %indvars.iv.next.i.i48.i = add nuw nsw i64 %indvars.iv.i.i47.i, 1
   %cond.i.i.i = icmp eq i64 %indvars.iv.next.i.i48.i, 160
-  br i1 %cond.i.i.i, label %.preheader.i41.i.i.preheader, label %.preheader.i.i.i, !llvm.loop !14
+  br i1 %cond.i.i.i, label %.preheader.i41.i.i.preheader, label %.preheader.i.i.i, !llvm.loop !13
 
 .preheader.i.i.i:                                 ; preds = %slurm_option_isset.exit.thread.i72, %940
   %indvars.iv.i.i47.i = phi i64 [ %indvars.iv.next.i.i48.i, %940 ], [ 0, %slurm_option_isset.exit.thread.i72 ]
@@ -5064,7 +5064,7 @@ slurm_option_set_by_cli.exit.i.i:                 ; preds = %949
 956:                                              ; preds = %.preheader.i33.i.i
   %indvars.iv.next.i35.i.i = add nuw nsw i64 %indvars.iv.i34.i.i, 1
   %cond.i36.i.i = icmp eq i64 %indvars.iv.next.i35.i.i, 160
-  br i1 %cond.i36.i.i, label %.preheader.i41.i.i.preheader, label %.preheader.i33.i.i, !llvm.loop !14
+  br i1 %cond.i36.i.i, label %.preheader.i41.i.i.preheader, label %.preheader.i33.i.i, !llvm.loop !13
 
 .preheader.i33.i.i:                               ; preds = %slurm_option_set_by_cli.exit.i.i, %956
   %indvars.iv.i34.i.i = phi i64 [ %indvars.iv.next.i35.i.i, %956 ], [ 0, %slurm_option_set_by_cli.exit.i.i ]
@@ -5094,7 +5094,7 @@ slurm_option_set_by_cli.exit39.i.i:               ; preds = %962
 970:                                              ; preds = %.preheader.i41.i.i
   %indvars.iv.next.i43.i.i = add nuw nsw i64 %indvars.iv.i42.i.i, 1
   %cond.i44.i.i = icmp eq i64 %indvars.iv.next.i43.i.i, 160
-  br i1 %cond.i44.i.i, label %slurm_option_set_by_cli.exit47.thread.i.i, label %.preheader.i41.i.i, !llvm.loop !14
+  br i1 %cond.i44.i.i, label %slurm_option_set_by_cli.exit47.thread.i.i, label %.preheader.i41.i.i, !llvm.loop !13
 
 .preheader.i41.i.i:                               ; preds = %.preheader.i41.i.i.preheader, %970
   %indvars.iv.i42.i.i = phi i64 [ %indvars.iv.next.i43.i.i, %970 ], [ 0, %.preheader.i41.i.i.preheader ]
@@ -5126,7 +5126,7 @@ slurm_option_set_by_cli.exit47.i.i:               ; preds = %979
 986:                                              ; preds = %.preheader.i49.i.i
   %indvars.iv.next.i51.i.i = add nuw nsw i64 %indvars.iv.i50.i.i, 1
   %cond.i52.i.i = icmp eq i64 %indvars.iv.next.i51.i.i, 160
-  br i1 %cond.i52.i.i, label %slurm_option_set_by_cli.exit47.thread.i.i, label %.preheader.i49.i.i, !llvm.loop !16
+  br i1 %cond.i52.i.i, label %slurm_option_set_by_cli.exit47.thread.i.i, label %.preheader.i49.i.i, !llvm.loop !15
 
 .preheader.i49.i.i:                               ; preds = %slurm_option_set_by_cli.exit47.i.i, %986
   %indvars.iv.i50.i.i = phi i64 [ %indvars.iv.next.i51.i.i, %986 ], [ 0, %slurm_option_set_by_cli.exit47.i.i ]
@@ -5175,7 +5175,7 @@ slurm_option_set_by_cli.exit47.thread.i.i:        ; preds = %970, %986, %slurm_o
 1009:                                             ; preds = %.preheader.i54.i.i
   %indvars.iv.next.i56.i.i = add nuw nsw i64 %indvars.iv.i55.i.i, 1
   %cond.i57.i.i = icmp eq i64 %indvars.iv.next.i56.i.i, 160
-  br i1 %cond.i57.i.i, label %slurm_option_set_by_env.exit60.thread.i.i, label %.preheader.i54.i.i, !llvm.loop !16
+  br i1 %cond.i57.i.i, label %slurm_option_set_by_env.exit60.thread.i.i, label %.preheader.i54.i.i, !llvm.loop !15
 
 .preheader.i54.i.i:                               ; preds = %slurm_option_set_by_cli.exit47.thread.i.i, %1009
   %indvars.iv.i55.i.i = phi i64 [ %indvars.iv.next.i56.i.i, %1009 ], [ 0, %slurm_option_set_by_cli.exit47.thread.i.i ]
@@ -5201,7 +5201,7 @@ slurm_option_set_by_env.exit60.i.i:               ; preds = %1015
 1021:                                             ; preds = %.preheader.i62.i.i
   %indvars.iv.next.i64.i.i = add nuw nsw i64 %indvars.iv.i63.i.i, 1
   %cond.i65.i.i = icmp eq i64 %indvars.iv.next.i64.i.i, 160
-  br i1 %cond.i65.i.i, label %slurm_option_set_by_env.exit60.thread.i.i, label %.preheader.i62.i.i, !llvm.loop !16
+  br i1 %cond.i65.i.i, label %slurm_option_set_by_env.exit60.thread.i.i, label %.preheader.i62.i.i, !llvm.loop !15
 
 .preheader.i62.i.i:                               ; preds = %slurm_option_set_by_env.exit60.i.i, %1021
   %indvars.iv.i63.i.i = phi i64 [ %indvars.iv.next.i64.i.i, %1021 ], [ 0, %slurm_option_set_by_env.exit60.i.i ]
@@ -5241,7 +5241,7 @@ slurm_option_set_by_env.exit60.thread.i.i:        ; preds = %1009, %1021, %1030,
 1038:                                             ; preds = %.preheader.i70.i.i
   %indvars.iv.next.i72.i.i = add nuw nsw i64 %indvars.iv.i71.i.i, 1
   %cond.i73.i.i = icmp eq i64 %indvars.iv.next.i72.i.i, 160
-  br i1 %cond.i73.i.i, label %_validate_cpus_per_task.exit.i, label %.preheader.i70.i.i, !llvm.loop !16
+  br i1 %cond.i73.i.i, label %_validate_cpus_per_task.exit.i, label %.preheader.i70.i.i, !llvm.loop !15
 
 .preheader.i70.i.i:                               ; preds = %slurm_option_set_by_env.exit60.thread.i.i, %1038
   %indvars.iv.i71.i.i = phi i64 [ %indvars.iv.next.i72.i.i, %1038 ], [ 0, %slurm_option_set_by_env.exit60.thread.i.i ]
@@ -5267,7 +5267,7 @@ slurm_option_set_by_env.exit76.i.i:               ; preds = %1044
 1050:                                             ; preds = %.preheader.i78.i.i
   %indvars.iv.next.i80.i.i = add nuw nsw i64 %indvars.iv.i79.i.i, 1
   %cond.i81.i.i = icmp eq i64 %indvars.iv.next.i80.i.i, 160
-  br i1 %cond.i81.i.i, label %_validate_cpus_per_task.exit.i, label %.preheader.i78.i.i, !llvm.loop !14
+  br i1 %cond.i81.i.i, label %_validate_cpus_per_task.exit.i, label %.preheader.i78.i.i, !llvm.loop !13
 
 .preheader.i78.i.i:                               ; preds = %slurm_option_set_by_env.exit76.i.i, %1050
   %indvars.iv.i79.i.i = phi i64 [ %indvars.iv.next.i80.i.i, %1050 ], [ 0, %slurm_option_set_by_env.exit76.i.i ]
@@ -5351,7 +5351,7 @@ _validate_cpus_per_task.exit.i:                   ; preds = %1038, %1050, %1066,
   %1088 = load ptr, ptr %10, align 8
   %1089 = icmp ne ptr %1088, null
   %1090 = select i1 %1087, i1 %1089, i1 false
-  br i1 %1090, label %1074, label %_validate_tres_per_task.exit, !llvm.loop !19
+  br i1 %1090, label %1074, label %_validate_tres_per_task.exit, !llvm.loop !18
 
 _validate_tres_per_task.exit:                     ; preds = %.backedge.i.i, %_validate_cpus_per_task.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -5367,7 +5367,7 @@ _validate_tres_per_task.exit:                     ; preds = %.backedge.i.i, %_va
 1093:                                             ; preds = %.preheader.i.i80
   %indvars.iv.next.i.i82 = add nuw nsw i64 %indvars.iv.i.i81, 1
   %cond.i.i83 = icmp eq i64 %indvars.iv.next.i.i82, 160
-  br i1 %cond.i.i83, label %.preheader.i31.i.preheader, label %.preheader.i.i80, !llvm.loop !14
+  br i1 %cond.i.i83, label %.preheader.i31.i.preheader, label %.preheader.i.i80, !llvm.loop !13
 
 .preheader.i.i80:                                 ; preds = %_validate_tres_per_task.exit, %1093
   %indvars.iv.i.i81 = phi i64 [ %indvars.iv.next.i.i82, %1093 ], [ 0, %_validate_tres_per_task.exit ]
@@ -5402,7 +5402,7 @@ slurm_option_set_by_cli.exit.i110:                ; preds = %1102
 1109:                                             ; preds = %.preheader.i31.i
   %indvars.iv.next.i33.i = add nuw nsw i64 %indvars.iv.i32.i, 1
   %cond.i34.i = icmp eq i64 %indvars.iv.next.i33.i, 160
-  br i1 %cond.i34.i, label %slurm_option_set_by_cli.exit37.i, label %.preheader.i31.i, !llvm.loop !14
+  br i1 %cond.i34.i, label %slurm_option_set_by_cli.exit37.i, label %.preheader.i31.i, !llvm.loop !13
 
 .preheader.i31.i:                                 ; preds = %.preheader.i31.i.preheader, %1109
   %indvars.iv.i32.i = phi i64 [ %indvars.iv.next.i33.i, %1109 ], [ 0, %.preheader.i31.i.preheader ]
@@ -5439,7 +5439,7 @@ slurm_option_set_by_cli.exit37.i:                 ; preds = %1109, %1122, %1118,
 1128:                                             ; preds = %.preheader.i39.i
   %indvars.iv.next.i41.i = add nuw nsw i64 %indvars.iv.i40.i, 1
   %cond.i42.i = icmp eq i64 %indvars.iv.next.i41.i, 160
-  br i1 %cond.i42.i, label %.preheader.i44.i.preheader, label %.preheader.i39.i, !llvm.loop !16
+  br i1 %cond.i42.i, label %.preheader.i44.i.preheader, label %.preheader.i39.i, !llvm.loop !15
 
 .preheader.i39.i:                                 ; preds = %1128, %slurm_option_set_by_cli.exit37.i
   %indvars.iv.i40.i = phi i64 [ %indvars.iv.next.i41.i, %1128 ], [ 0, %slurm_option_set_by_cli.exit37.i ]
@@ -5468,7 +5468,7 @@ slurm_option_set_by_env.exit.i108:                ; preds = %1134
 1140:                                             ; preds = %.preheader.i44.i
   %indvars.iv.next.i46.i = add nuw nsw i64 %indvars.iv.i45.i, 1
   %cond.i47.i = icmp eq i64 %indvars.iv.next.i46.i, 160
-  br i1 %cond.i47.i, label %slurm_option_set_by_env.exit50.i, label %.preheader.i44.i, !llvm.loop !16
+  br i1 %cond.i47.i, label %slurm_option_set_by_env.exit50.i, label %.preheader.i44.i, !llvm.loop !15
 
 .preheader.i44.i:                                 ; preds = %.preheader.i44.i.preheader, %1140
   %indvars.iv.i45.i = phi i64 [ %indvars.iv.next.i46.i, %1140 ], [ 0, %.preheader.i44.i.preheader ]
@@ -5494,7 +5494,7 @@ slurm_option_set_by_env.exit.i108:                ; preds = %1134
 1153:                                             ; preds = %.preheader.i52.i111
   %indvars.iv.next.i54.i113 = add nuw nsw i64 %indvars.iv.i53.i112, 1
   %cond.i55.i114 = icmp eq i64 %indvars.iv.next.i54.i113, 160
-  br i1 %cond.i55.i114, label %slurm_option_set_by_cli.exit58.i115, label %.preheader.i52.i111, !llvm.loop !14
+  br i1 %cond.i55.i114, label %slurm_option_set_by_cli.exit58.i115, label %.preheader.i52.i111, !llvm.loop !13
 
 .preheader.i52.i111:                              ; preds = %_validate_tres_per_task.exit, %1153
   %indvars.iv.i53.i112 = phi i64 [ %indvars.iv.next.i54.i113, %1153 ], [ 0, %_validate_tres_per_task.exit ]
@@ -5531,7 +5531,7 @@ slurm_option_set_by_cli.exit58.i115:              ; preds = %1153, %1166, %1162,
 1171:                                             ; preds = %.preheader.i60.i
   %indvars.iv.next.i62.i = add nuw nsw i64 %indvars.iv.i61.i, 1
   %cond.i63.i = icmp eq i64 %indvars.iv.next.i62.i, 160
-  br i1 %cond.i63.i, label %slurm_option_set_by_env.exit50.i, label %.preheader.i60.i, !llvm.loop !16
+  br i1 %cond.i63.i, label %slurm_option_set_by_env.exit50.i, label %.preheader.i60.i, !llvm.loop !15
 
 .preheader.i60.i:                                 ; preds = %1171, %slurm_option_set_by_cli.exit58.i115
   %indvars.iv.i61.i = phi i64 [ %indvars.iv.next.i62.i, %1171 ], [ 0, %slurm_option_set_by_cli.exit58.i115 ]
@@ -5578,7 +5578,7 @@ slurm_option_set_by_env.exit50.i:                 ; preds = %1140, %1171, %1177,
 1189:                                             ; preds = %.preheader.i68.i103
   %indvars.iv.next.i70.i105 = add nuw nsw i64 %indvars.iv.i69.i104, 1
   %cond.i71.i106 = icmp eq i64 %indvars.iv.next.i70.i105, 160
-  br i1 %cond.i71.i106, label %slurm_option_set_by_cli.exit74.thread.i, label %.preheader.i68.i103, !llvm.loop !14
+  br i1 %cond.i71.i106, label %slurm_option_set_by_cli.exit74.thread.i, label %.preheader.i68.i103, !llvm.loop !13
 
 .preheader.i68.i103:                              ; preds = %1189, %.preheader.i68.preheader.i102
   %indvars.iv.i69.i104 = phi i64 [ %indvars.iv.next.i70.i105, %1189 ], [ 0, %.preheader.i68.preheader.i102 ]
@@ -5633,7 +5633,7 @@ slurm_option_set_by_cli.exit74.i:                 ; preds = %1198
 1210:                                             ; preds = %.preheader.i76.i
   %indvars.iv.next.i78.i = add nuw nsw i64 %indvars.iv.i77.i, 1
   %cond.i79.i = icmp eq i64 %indvars.iv.next.i78.i, 160
-  br i1 %cond.i79.i, label %slurm_option_set_by_env.exit82.thread.i, label %.preheader.i76.i, !llvm.loop !16
+  br i1 %cond.i79.i, label %slurm_option_set_by_env.exit82.thread.i, label %.preheader.i76.i, !llvm.loop !15
 
 .preheader.i76.i:                                 ; preds = %1206, %1210
   %indvars.iv.i77.i = phi i64 [ %indvars.iv.next.i78.i, %1210 ], [ 0, %1206 ]
@@ -5685,7 +5685,7 @@ slurm_option_set_by_env.exit82.i:                 ; preds = %1216
 1227:                                             ; preds = %.preheader.i84.i89
   %indvars.iv.next.i86.i91 = add nuw nsw i64 %indvars.iv.i85.i90, 1
   %cond.i87.i92 = icmp eq i64 %indvars.iv.next.i86.i91, 160
-  br i1 %cond.i87.i92, label %slurm_option_set_by_env.exit90.thread.i, label %.preheader.i84.i89, !llvm.loop !16
+  br i1 %cond.i87.i92, label %slurm_option_set_by_env.exit90.thread.i, label %.preheader.i84.i89, !llvm.loop !15
 
 .preheader.i84.i89:                               ; preds = %.thread166.i, %1227
   %indvars.iv.i85.i90 = phi i64 [ %indvars.iv.next.i86.i91, %1227 ], [ 0, %.thread166.i ]
@@ -5751,7 +5751,7 @@ slurm_option_set_by_env.exit90.i:                 ; preds = %1233
 1256:                                             ; preds = %1251
   %indvars.iv.next.i.i.i97 = add nuw nsw i64 %indvars.iv.i.i.i95, 1
   %.not.i.i.i98 = icmp eq i64 %indvars.iv.next.i.i.i97, 160
-  br i1 %.not.i.i.i98, label %_validate_cpus_per_tres.exit, label %1251, !llvm.loop !17
+  br i1 %.not.i.i.i98, label %_validate_cpus_per_tres.exit, label %1251, !llvm.loop !16
 
 _find_option_idx.exit.i.i99:                      ; preds = %1251
   %1257 = and i64 %indvars.iv.i.i.i95, 2147483648
@@ -5794,7 +5794,7 @@ slurm_option_set_by_env.exit90.thread.thread.i:   ; preds = %slurm_option_set_by
 1271:                                             ; preds = %.preheader.i93.i
   %indvars.iv.next.i95.i = add nuw nsw i64 %indvars.iv.i94.i, 1
   %cond.i96.i = icmp eq i64 %indvars.iv.next.i95.i, 160
-  br i1 %cond.i96.i, label %_validate_cpus_per_tres.exit, label %.preheader.i93.i, !llvm.loop !14
+  br i1 %cond.i96.i, label %_validate_cpus_per_tres.exit, label %.preheader.i93.i, !llvm.loop !13
 
 .preheader.i93.i:                                 ; preds = %1271, %.preheader.i93.preheader.i
   %indvars.iv.i94.i = phi i64 [ %indvars.iv.next.i95.i, %1271 ], [ 0, %.preheader.i93.preheader.i ]
@@ -5855,7 +5855,7 @@ slurm_option_set_by_cli.exit99.i:                 ; preds = %1280
 1299:                                             ; preds = %1294
   %indvars.iv.next.i.i102.i = add nuw nsw i64 %indvars.iv.i.i100.i, 1
   %.not.i.i103.i = icmp eq i64 %indvars.iv.next.i.i102.i, 160
-  br i1 %.not.i.i103.i, label %slurm_option_reset.exit106.i, label %1294, !llvm.loop !17
+  br i1 %.not.i.i103.i, label %slurm_option_reset.exit106.i, label %1294, !llvm.loop !16
 
 _find_option_idx.exit.i104.i:                     ; preds = %1294
   %1300 = and i64 %indvars.iv.i.i100.i, 2147483648
@@ -6051,7 +6051,7 @@ _validate_nodelist.exit:                          ; preds = %1326, %1359, %1362,
 1392:                                             ; preds = %.preheader.i.i124
   %indvars.iv.next.i.i126 = add nuw nsw i64 %indvars.iv.i.i125, 1
   %cond.i.i127 = icmp eq i64 %indvars.iv.next.i.i126, 160
-  br i1 %cond.i.i127, label %slurm_option_set_by_env.exit.thread.i128, label %.preheader.i.i124, !llvm.loop !16
+  br i1 %cond.i.i127, label %slurm_option_set_by_env.exit.thread.i128, label %.preheader.i.i124, !llvm.loop !15
 
 .preheader.i.i124:                                ; preds = %1388, %1392
   %indvars.iv.i.i125 = phi i64 [ %indvars.iv.next.i.i126, %1392 ], [ 0, %1388 ]
@@ -6125,7 +6125,7 @@ _validate_arbitrary.exit:                         ; preds = %_validate_nodelist.
 1424:                                             ; preds = %1417
   %1425 = load ptr, ptr %3, align 8
   %1426 = call zeroext i1 @gres_is_shared_name(ptr noundef %1425) #23
-  br i1 %1426, label %_validate_gres_flags.exit, label %1417, !llvm.loop !20
+  br i1 %1426, label %_validate_gres_flags.exit, label %1417, !llvm.loop !19
 
 .critedge.i132:                                   ; preds = %1417
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.444) #24
@@ -6188,7 +6188,7 @@ define ptr @slurm_option_get_argv_str(i32 noundef %0, ptr noundef readonly %1) l
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.36, ptr noundef %11) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %3, align 8
@@ -6262,7 +6262,7 @@ define noundef ptr @slurm_opt_create_job_desc(ptr noundef %0, i1 noundef zeroext
 44:                                               ; preds = %.preheader427
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 160
-  br i1 %.not.i.i, label %slurm_option_isset.exit.thread, label %.preheader427, !llvm.loop !17
+  br i1 %.not.i.i, label %slurm_option_isset.exit.thread, label %.preheader427, !llvm.loop !16
 
 _find_option_idx.exit.i:                          ; preds = %.preheader427
   %45 = and i64 %indvars.iv.i.i, 2147483648
@@ -6423,7 +6423,7 @@ slurm_option_isset.exit.thread:                   ; preds = %44, %slurm_option_i
 138:                                              ; preds = %.preheader426
   %indvars.iv.next.i.i382 = add nuw nsw i64 %indvars.iv.i.i380, 1
   %.not.i.i383 = icmp eq i64 %indvars.iv.next.i.i382, 160
-  br i1 %.not.i.i383, label %slurm_option_isset.exit388.thread, label %.preheader426, !llvm.loop !17
+  br i1 %.not.i.i383, label %slurm_option_isset.exit388.thread, label %.preheader426, !llvm.loop !16
 
 _find_option_idx.exit.i385:                       ; preds = %.preheader426
   %139 = and i64 %indvars.iv.i.i380, 2147483648
@@ -6496,7 +6496,7 @@ slurm_option_isset.exit388.thread:                ; preds = %138, %_find_option_
 176:                                              ; preds = %.preheader425
   %indvars.iv.next.i.i391 = add nuw nsw i64 %indvars.iv.i.i389, 1
   %.not.i.i392 = icmp eq i64 %indvars.iv.next.i.i391, 160
-  br i1 %.not.i.i392, label %slurm_option_isset.exit397.thread, label %.preheader425, !llvm.loop !17
+  br i1 %.not.i.i392, label %slurm_option_isset.exit397.thread, label %.preheader425, !llvm.loop !16
 
 _find_option_idx.exit.i394:                       ; preds = %.preheader425
   %177 = and i64 %indvars.iv.i.i389, 2147483648
@@ -6696,7 +6696,7 @@ slurm_option_isset.exit397.thread:                ; preds = %176, %_find_option_
 283:                                              ; preds = %278
   %indvars.iv.next.i.i400 = add nuw nsw i64 %indvars.iv.i.i398, 1
   %.not.i.i401 = icmp eq i64 %indvars.iv.next.i.i400, 160
-  br i1 %.not.i.i401, label %slurm_option_isset.exit406.thread, label %278, !llvm.loop !17
+  br i1 %.not.i.i401, label %slurm_option_isset.exit406.thread, label %278, !llvm.loop !16
 
 _find_option_idx.exit.i403:                       ; preds = %278
   %284 = and i64 %indvars.iv.i.i398, 2147483648
@@ -6855,7 +6855,7 @@ slurm_option_isset.exit406.thread:                ; preds = %283, %_find_option_
   %365 = load i32, ptr %349, align 8
   %366 = sext i32 %365 to i64
   %367 = icmp slt i64 %indvars.iv.next, %366
-  br i1 %367, label %358, label %._crit_edge, !llvm.loop !22
+  br i1 %367, label %358, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %358, %351
   %.lcssa = phi i32 [ %355, %351 ], [ %365, %358 ]
@@ -6976,7 +6976,7 @@ slurm_option_isset.exit406.thread:                ; preds = %283, %_find_option_
 433:                                              ; preds = %.preheader
   %indvars.iv.next.i.i409 = add nuw nsw i64 %indvars.iv.i.i407, 1
   %.not.i.i410 = icmp eq i64 %indvars.iv.next.i.i409, 160
-  br i1 %.not.i.i410, label %slurm_option_isset.exit415.thread, label %.preheader, !llvm.loop !17
+  br i1 %.not.i.i410, label %slurm_option_isset.exit415.thread, label %.preheader, !llvm.loop !16
 
 _find_option_idx.exit.i412:                       ; preds = %.preheader
   %434 = and i64 %indvars.iv.i.i407, 2147483648
@@ -7461,7 +7461,7 @@ define void @suggest_completion(ptr noundef readonly %0, ptr noundef %1) local_u
   %52 = load i32, ptr %51, align 8
   %.not39.us = icmp eq i32 %52, 0
   %or.cond69 = select i1 %.not.us, i1 %.not39.us, i1 false
-  br i1 %or.cond69, label %.split52.us, label %.critedge.us, !llvm.loop !23
+  br i1 %or.cond69, label %.split52.us, label %.critedge.us, !llvm.loop !22
 
 .critedge:                                        ; preds = %.critedge.preheader, %.split
   %53 = phi i32 [ %88, %.split ], [ %30, %.critedge.preheader ]
@@ -7550,7 +7550,7 @@ define void @suggest_completion(ptr noundef readonly %0, ptr noundef %1) local_u
   %88 = load i32, ptr %87, align 8
   %.not39 = icmp eq i32 %88, 0
   %or.cond70 = select i1 %.not, i1 %.not39, i1 false
-  br i1 %or.cond70, label %.split52.us, label %.critedge, !llvm.loop !23
+  br i1 %or.cond70, label %.split52.us, label %.critedge, !llvm.loop !22
 
 .split52.us:                                      ; preds = %.split.us.split, %.split, %.split.us.split.preheader, %.split.preheader, %.split.us
   %89 = load ptr, ptr %3, align 8
@@ -7610,7 +7610,7 @@ define internal void @arg_reset__unknown_(ptr nocapture readnone %0) #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_accel_bind_type(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_accel_bind_type(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -7776,7 +7776,7 @@ define internal void @arg_reset_account(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @arg_set_acctg_freq(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_acctg_freq(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 328
   tail call void @slurm_xfree(ptr noundef nonnull %3) #23
   %4 = tail call ptr @xstrdup(ptr noundef %1) #23
@@ -7813,7 +7813,7 @@ define internal void @arg_reset_acctg_freq(ptr noundef nonnull %0) #0 {
 declare i32 @validate_acctg_freq(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_alloc_nodelist(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_alloc_nodelist(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -7872,7 +7872,7 @@ define internal void @arg_reset_alloc_nodelist(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_array_inx(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_array_inx(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -7984,7 +7984,7 @@ define internal ptr @arg_get_argv(ptr nocapture noundef readonly %0) #0 {
   %11 = load i32, ptr %3, align 8
   %12 = sext i32 %11 to i64
   %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %7, label %._crit_edge.loopexit, !llvm.loop !24
+  br i1 %13, label %7, label %._crit_edge.loopexit, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %7
   %.pre = load ptr, ptr %2, align 8
@@ -8015,7 +8015,7 @@ define internal void @arg_reset_argv(ptr noundef %0) #0 {
   %9 = load i32, ptr %2, align 8
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv.next, %10
-  br i1 %11, label %6, label %._crit_edge, !llvm.loop !25
+  br i1 %11, label %6, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %6, %1
   %12 = getelementptr inbounds i8, ptr %0, i64 72
@@ -8069,7 +8069,7 @@ define internal void @arg_reset_autocomplete(ptr nocapture readnone %0) #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_batch_features(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_batch_features(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -8148,7 +8148,7 @@ define internal void @arg_reset_batch_features(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_bcast(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_bcast(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -8218,7 +8218,7 @@ define internal void @arg_reset_bcast(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_bcast_exclude(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_bcast_exclude(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -8283,7 +8283,7 @@ define internal void @arg_reset_bcast_exclude(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_begin(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_begin(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i64 @parse_time(ptr noundef %1, i32 noundef 0) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 568
   store i64 %3, ptr %4, align 8
@@ -8687,7 +8687,7 @@ define internal void @arg_reset_comment(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_compress(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_compress(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9097,7 +9097,7 @@ define internal void @arg_reset_cores_per_socket(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_cpu_bind(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_cpu_bind(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9159,7 +9159,7 @@ define internal void @arg_reset_cpu_bind(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_cpu_freq(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_cpu_freq(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 648
   %4 = getelementptr inbounds i8, ptr %0, i64 652
   %5 = getelementptr inbounds i8, ptr %0, i64 656
@@ -9451,7 +9451,7 @@ define internal void @arg_reset_cpus_per_task(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_deadline(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_deadline(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i64 @parse_time(ptr noundef %1, i32 noundef 0) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 672
   store i64 %3, ptr %4, align 8
@@ -9525,7 +9525,7 @@ define internal void @arg_reset_deadline(ptr nocapture noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_debugger_test(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_debugger_test(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9578,7 +9578,7 @@ define internal void @arg_reset_debugger_test(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_delay_boot(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_delay_boot(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @time_str2secs(ptr noundef %1) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 680
   store i32 %3, ptr %4, align 8
@@ -9664,7 +9664,7 @@ define internal void @arg_reset_delay_boot(ptr nocapture noundef nonnull writeon
 declare void @secs2time_str(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_data_environment(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_data_environment(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call i32 @data_get_type(ptr noundef %1) #23
   %.not = icmp eq i32 %4, 3
   br i1 %.not, label %5, label %.sink.split
@@ -9724,7 +9724,7 @@ declare ptr @env_array_create() local_unnamed_addr #1
 declare i32 @data_dict_for_each_const(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_parse_env(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 1, 5) i32 @_parse_env(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = call i32 @data_get_string_converted(ptr noundef %1, ptr noundef nonnull %4) #23
@@ -9777,7 +9777,7 @@ define internal void @arg_reset_dependency(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_disable_status(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_disable_status(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9830,7 +9830,7 @@ define internal void @arg_reset_disable_status(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_distribution(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_distribution(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = tail call i32 @verify_dist_type(ptr noundef %1, ptr noundef nonnull %3) #23
   %5 = getelementptr inbounds i8, ptr %0, i64 252
@@ -9925,7 +9925,7 @@ declare i32 @verify_dist_type(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @set_distribution(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_epilog(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_epilog(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -9984,7 +9984,7 @@ define internal void @arg_reset_epilog(ptr nocapture noundef nonnull readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_efname(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_efname(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -10085,7 +10085,7 @@ define internal void @arg_reset_efname(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_exact(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_exact(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -10170,7 +10170,7 @@ define internal void @arg_reset_exclude(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_exclusive(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_exclusive(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -10428,7 +10428,7 @@ define internal void @arg_reset_shared(ptr nocapture noundef %0) #11 {
 declare zeroext i1 @data_get_bool(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_export(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_export(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -10499,7 +10499,7 @@ define internal void @arg_reset_export(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_external_launcher(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_external_launcher(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -10584,7 +10584,7 @@ define internal void @arg_reset_extra(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_extra_node_info(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_extra_node_info(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -10671,7 +10671,7 @@ define internal void @arg_reset_extra_node_info(ptr nocapture noundef writeonly 
 declare zeroext i1 @verify_socket_core_thread_count(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_get_user_env(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_get_user_env(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %6
@@ -10836,7 +10836,7 @@ define internal void @arg_reset_get_user_env(ptr nocapture noundef writeonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_gid(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_gid(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @getuid() #23
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %.sink.split
@@ -10918,7 +10918,7 @@ declare i32 @getuid() local_unnamed_addr #14
 declare i32 @gid_from_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_gpu_bind(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_gpu_bind(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 384
   tail call void @slurm_xfree(ptr noundef nonnull %3) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 704
@@ -11010,7 +11010,7 @@ define internal void @arg_reset_gpu_bind(ptr noundef %0) #0 {
 declare i32 @tres_bind_verify_cmdline(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_gpu_freq(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_gpu_freq(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 392
   tail call void @slurm_xfree(ptr noundef nonnull %3) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 712
@@ -11261,7 +11261,7 @@ define internal void @arg_reset_gpus_per_task(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_gres(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_gres(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.170) #23
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -11391,7 +11391,7 @@ declare void @print_gres_help() local_unnamed_addr #1
 declare ptr @gres_prepend_tres_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_gres_flags(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_gres_flags(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -11461,7 +11461,7 @@ define internal noundef i32 @arg_set_gres_flags(ptr nocapture noundef %0, ptr no
   store i64 %30, ptr %5, align 8
   %31 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.30, ptr noundef nonnull %4) #23
   %.not23 = icmp eq ptr %31, null
-  br i1 %.not23, label %._crit_edge, label %12, !llvm.loop !26
+  br i1 %.not23, label %._crit_edge, label %12, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %28, %8
   call void @slurm_xfree(ptr noundef nonnull %3) #23
@@ -11520,7 +11520,7 @@ define internal i32 @arg_set_data_gres_flags(ptr nocapture noundef %0, ptr nound
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %4, align 8
-  %16 = call i32 @arg_set_gres_flags(ptr noundef %0, ptr noundef %15), !range !11
+  %16 = call i32 @arg_set_gres_flags(ptr noundef %0, ptr noundef %15)
   %.not13 = icmp eq i32 %16, 0
   br i1 %.not13, label %24, label %17
 
@@ -11672,7 +11672,7 @@ define internal void @arg_reset_help(ptr nocapture readnone %0) #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_het_group(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_het_group(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -11794,7 +11794,7 @@ define internal void @arg_reset_hold(ptr nocapture noundef nonnull writeonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_ignore_pbs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_ignore_pbs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -11847,7 +11847,7 @@ define internal void @arg_reset_ignore_pbs(ptr nocapture noundef readonly %0) #1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_immediate(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_immediate(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -11888,7 +11888,7 @@ define internal void @arg_reset_immediate(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_ifname(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_ifname(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12005,7 +12005,7 @@ define internal void @arg_reset_ifname(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_interactive(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_interactive(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12058,7 +12058,7 @@ define internal void @arg_reset_interactive(ptr nocapture noundef nonnull readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_jobid(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_jobid(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -12169,7 +12169,7 @@ define internal void @arg_reset_job_name(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_kill_command(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_kill_command(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
@@ -12237,7 +12237,7 @@ declare i32 @sig_name2num(ptr noundef) local_unnamed_addr #1
 declare ptr @sig_num2name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_kill_on_bad_exit(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_kill_on_bad_exit(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12299,7 +12299,7 @@ define internal void @arg_reset_kill_on_bad_exit(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_kill_on_invalid_dep(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_kill_on_invalid_dep(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.12) #23
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %8
@@ -12394,7 +12394,7 @@ define internal void @arg_reset_kill_on_invalid_dep(ptr nocapture noundef %0) #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_labelio(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_labelio(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12479,7 +12479,7 @@ define internal void @arg_reset_licenses(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_mail_type(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_mail_type(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = tail call zeroext i16 @parse_mail_type(ptr noundef %1) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 584
   %5 = load i16, ptr %4, align 8
@@ -12593,7 +12593,7 @@ define internal void @arg_reset_mail_user(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_max_threads(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_max_threads(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -12690,7 +12690,7 @@ define internal void @arg_reset_mcs_label(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_mem(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_mem(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   store i64 %3, ptr %4, align 8
@@ -12778,7 +12778,7 @@ declare i64 @str_to_mbytes(ptr noundef) local_unnamed_addr #1
 declare ptr @mbytes_to_str(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @arg_set_mem_bind(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_mem_bind(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @slurm_xfree(ptr noundef nonnull %3) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 208
@@ -12908,7 +12908,7 @@ declare i32 @slurm_verify_mem_bind(ptr noundef, ptr noundef, ptr noundef) local_
 declare ptr @slurm_xstr_mem_bind_type(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_mem_per_cpu(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_mem_per_cpu(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 432
   store i64 %3, ptr %4, align 8
@@ -12981,7 +12981,7 @@ define internal void @arg_reset_mem_per_cpu(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_mem_per_gpu(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_mem_per_gpu(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 440
   store i64 %3, ptr %4, align 8
@@ -13132,7 +13132,7 @@ define internal void @arg_reset_pn_min_cpus(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_mpi_type(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_mpi_type(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13191,7 +13191,7 @@ define internal void @arg_reset_mpi_type(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_msg_timeout(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_msg_timeout(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13250,7 +13250,7 @@ define internal void @arg_reset_msg_timeout(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_multi_prog(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_multi_prog(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13335,7 +13335,7 @@ define internal void @arg_reset_network(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_nice(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_nice(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -13439,7 +13439,7 @@ declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 declare i64 @llvm.abs.i64(i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_no_alloc(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_no_alloc(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13506,7 +13506,7 @@ define internal noundef i32 @arg_set_no_bell(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_no_kill(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_no_kill(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -13682,7 +13682,7 @@ define internal void @arg_reset_no_shell(ptr nocapture noundef readonly %0) #11 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_no_requeue(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_no_requeue(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13699,7 +13699,7 @@ define internal noundef i32 @arg_set_no_requeue(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_data_no_requeue(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_data_no_requeue(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -13839,7 +13839,7 @@ define internal void @arg_reset_nodelist(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @arg_set_nodes(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_nodes(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = getelementptr inbounds i8, ptr %0, i64 140
   %5 = getelementptr inbounds i8, ptr %0, i64 144
@@ -13977,7 +13977,7 @@ define internal void @arg_reset_nodes(ptr nocapture noundef writeonly %0) #13 {
 declare zeroext i1 @verify_node_count(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_parse_nodes_counts(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 1, 5) i32 @_parse_nodes_counts(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -14484,7 +14484,7 @@ define internal void @arg_reset_ntasks_per_tres(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_open_mode(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_open_mode(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %3
 
@@ -14603,7 +14603,7 @@ define internal void @arg_reset_open_mode(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_ofname(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_ofname(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -14848,7 +14848,7 @@ define internal noundef i32 @arg_set_data_oversubscribe(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_parsable(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_parsable(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -15054,7 +15054,7 @@ define internal void @arg_reset_prefer(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_preserve_env(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_preserve_env(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -15107,7 +15107,7 @@ define internal void @arg_reset_preserve_env(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_priority(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_priority(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.285) #23
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %6
@@ -15244,7 +15244,7 @@ define internal void @arg_reset_priority(ptr nocapture noundef nonnull writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_profile(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_profile(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @acct_gather_profile_from_string(ptr noundef %1) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   store i32 %3, ptr %4, align 8
@@ -15311,7 +15311,7 @@ declare i32 @acct_gather_profile_from_string(ptr noundef) local_unnamed_addr #1
 declare ptr @acct_gather_profile_to_string(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_prolog(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_prolog(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -15370,7 +15370,7 @@ define internal void @arg_reset_prolog(ptr nocapture noundef nonnull readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_propagate(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_propagate(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -15475,7 +15475,7 @@ define internal void @arg_reset_propagate(ptr nocapture noundef readonly %0) #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_pty(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_pty(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -15647,7 +15647,7 @@ define internal void @arg_reset_quiet(ptr nocapture noundef nonnull writeonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_quit_on_intr(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_quit_on_intr(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -15731,7 +15731,7 @@ define internal void @arg_reset_reboot(ptr nocapture noundef nonnull writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_relative(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_relative(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -15788,7 +15788,7 @@ define internal void @arg_reset_relative(ptr nocapture noundef readonly %0) #11 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_requeue(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_requeue(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -15805,7 +15805,7 @@ define internal noundef i32 @arg_set_requeue(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_data_requeue(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_data_requeue(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -15854,7 +15854,7 @@ define internal void @arg_reset_reservation(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_resv_port_cnt(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_resv_port_cnt(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -15928,7 +15928,7 @@ define internal void @arg_reset_resv_port_cnt(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_send_libs(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_send_libs(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -16004,7 +16004,7 @@ define internal void @arg_reset_send_libs(ptr nocapture noundef readonly %0) #0 
 declare i32 @parse_send_libs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_signal(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_signal(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 318
   %4 = getelementptr inbounds i8, ptr %0, i64 320
   %5 = getelementptr inbounds i8, ptr %0, i64 316
@@ -16091,7 +16091,7 @@ declare i32 @get_signal_opts(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 declare ptr @signal_opts_to_cmdline(i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_slurmd_debug(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_slurmd_debug(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @getuid() #23
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -16634,7 +16634,7 @@ define internal void @arg_reset_switches(ptr nocapture noundef writeonly %0) #13
 declare ptr @xstrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_task_epilog(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_task_epilog(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -16693,7 +16693,7 @@ define internal void @arg_reset_task_epilog(ptr nocapture noundef nonnull readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_task_prolog(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_task_prolog(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -16752,7 +16752,7 @@ define internal void @arg_reset_task_prolog(ptr nocapture noundef nonnull readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_test_only(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_test_only(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -16784,7 +16784,7 @@ define internal noundef i32 @arg_set_test_only(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_data_test_only(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_data_test_only(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -17048,7 +17048,7 @@ define internal void @arg_reset_threads_per_core(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_time_limit(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_time_limit(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @time_str2mins(ptr noundef %1) #23
   %4 = icmp eq i32 %3, -2
   br i1 %4, label %5, label %7
@@ -17166,7 +17166,7 @@ declare i32 @time_str2mins(ptr noundef) local_unnamed_addr #1
 declare void @mins2time_str(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_time_min(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_time_min(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @time_str2mins(ptr noundef %1) #23
   %4 = icmp eq i32 %3, -2
   br i1 %4, label %5, label %7
@@ -17280,7 +17280,7 @@ define internal void @arg_reset_time_min(ptr nocapture noundef nonnull writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_pn_min_tmp_disk(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_pn_min_tmp_disk(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 456
   store i64 %3, ptr %4, align 8
@@ -17353,7 +17353,7 @@ define internal void @arg_reset_pn_min_tmp_disk(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_tree_width(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_tree_width(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -17490,7 +17490,7 @@ define internal void @arg_reset_tres_per_task(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_uid(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_uid(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @getuid() #23
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %.sink.split
@@ -17569,7 +17569,7 @@ define internal void @arg_reset_uid(ptr nocapture noundef nonnull writeonly %0) 
 declare i32 @uid_from_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_unbuffered(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_unbuffered(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -17746,7 +17746,7 @@ define internal void @arg_reset_version(ptr nocapture readnone %0) #10 {
 declare void @print_slurm_version() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_umask(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_umask(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -17928,7 +17928,7 @@ define internal void @arg_reset_usage(ptr nocapture readnone %0) #10 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_wait(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_wait(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -17981,7 +17981,7 @@ define internal void @arg_reset_wait(ptr nocapture noundef readonly %0) #11 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_wait_all_nodes(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_wait_all_nodes(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
@@ -18168,7 +18168,7 @@ define internal void @arg_reset_wait_all_nodes(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_wait_srun(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_wait_srun(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -18259,7 +18259,7 @@ define internal void @arg_reset_wckey(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_whole(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
+define internal range(i32 -1, 1) i32 @arg_set_whole(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -18312,7 +18312,7 @@ define internal void @arg_reset_whole(ptr nocapture noundef nonnull readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_wrap(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_wrap(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -18500,9 +18500,9 @@ attributes #27 = { cold }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = !{i32 -1, i32 1}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.partial.disable"}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.unswitch.partial.disable"}
+!13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
@@ -18515,4 +18515,3 @@ attributes #27 = { cold }
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}

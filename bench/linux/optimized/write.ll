@@ -403,7 +403,7 @@ define dso_local void @nfs_join_page_group(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfs_writepages(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @nfs_writepages(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.nfs_pageio_descriptor, align 8
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #16
@@ -807,7 +807,7 @@ define dso_local void @nfs_mark_request_commit(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @nfs_write_need_commit(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 2) i32 @nfs_write_need_commit(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
@@ -981,7 +981,7 @@ define dso_local i32 @nfs_scan_commit(ptr nocapture noundef readnone %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfs_flush_incompatible(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @nfs_flush_incompatible(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 168
@@ -1318,7 +1318,7 @@ define internal fastcc ptr @nfs_folio_find_head_request(ptr noundef %0) unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfs_wb_folio(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @nfs_wb_folio(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.nfs_pageio_descriptor, align 8
   %4 = alloca %struct.writeback_control, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1584,7 +1584,7 @@ define dso_local i32 @nfs_wb_folio(ptr noundef %0, ptr noundef %1) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs_key_timeout_notify(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -13, 1) i32 @nfs_key_timeout_notify(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = tail call zeroext i1 @nfs_ctx_key_to_expire(ptr noundef %4, ptr noundef %1)
@@ -4063,7 +4063,7 @@ define dso_local i32 @nfs_migrate_folio(ptr noundef %0, ptr noundef %1, ptr noun
 declare dso_local i32 @migrate_folio(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @nfs_init_writepagecache() local_unnamed_addr #7 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @nfs_init_writepagecache() local_unnamed_addr #7 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str.1, i32 noundef 896, i32 noundef 0, i32 noundef 8192, ptr noundef null) #16
   store ptr %1, ptr @nfs_wdata_cachep, align 8
   %2 = icmp eq ptr %1, null

@@ -1333,8 +1333,8 @@ invoke.cont2:                                     ; preds = %entry
   %1 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %2 = getelementptr i8, ptr %a, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %2, i64 32
+  %2 = getelementptr inbounds i8, ptr %a, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %2, i64 32
   %cmp.not16 = icmp eq i32 %1, 0
   br i1 %cmp.not16, label %for.cond14.preheader, label %for.body.lr.ph
 

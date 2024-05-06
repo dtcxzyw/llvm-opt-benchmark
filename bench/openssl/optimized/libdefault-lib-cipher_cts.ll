@@ -69,7 +69,7 @@ return:                                           ; preds = %for.cond, %if.then
 declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cipher_cbc_cts_block_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_cbc_cts_block_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %inl, 16
   %cmp1 = icmp ult i64 %outsize, %inl
@@ -526,7 +526,7 @@ if.then31:                                        ; preds = %if.end27
   %add.ptr4040 = getelementptr inbounds i8, ptr %out.addr.0, i64 16
   br label %for.body.i41
 
-for.body.i41:                                     ; preds = %for.body.i41, %if.then31
+for.body.i41:                                     ; preds = %if.then31, %for.body.i41
   %i.07.i42 = phi i64 [ %inc.i47, %for.body.i41 ], [ 0, %if.then31 ]
   %arrayidx.i43 = getelementptr inbounds i8, ptr %ct_mid, i64 %i.07.i42
   %8 = load i8, ptr %arrayidx.i43, align 1

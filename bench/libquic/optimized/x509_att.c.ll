@@ -17,7 +17,7 @@ entry:
 declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509at_get_attr_by_NID(ptr noundef %x, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @X509at_get_attr_by_NID(ptr noundef %x, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #4
   %cmp = icmp eq ptr %call, null
@@ -49,7 +49,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp9.i, label %return.loopexit.split.loop.exit.i, label %for.cond.i, !llvm.loop !7
 
 return.loopexit.split.loop.exit.i:                ; preds = %for.body.i
-  %3 = trunc i64 %indvars.iv.next.i to i32
+  %3 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %return
 
 return:                                           ; preds = %for.cond.i, %return.loopexit.split.loop.exit.i, %if.end, %entry
@@ -60,7 +60,7 @@ return:                                           ; preds = %for.cond.i, %return
 declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509at_get_attr_by_OBJ(ptr noundef %sk, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @X509at_get_attr_by_OBJ(ptr noundef %sk, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %sk, null
   br i1 %cmp, label %return, label %if.end
@@ -87,7 +87,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp9, label %return.loopexit.split.loop.exit, label %for.cond, !llvm.loop !7
 
 return.loopexit.split.loop.exit:                  ; preds = %for.body
-  %3 = trunc i64 %indvars.iv.next to i32
+  %3 = trunc nsw i64 %indvars.iv.next to i32
   br label %return
 
 return:                                           ; preds = %for.cond, %return.loopexit.split.loop.exit, %entry
@@ -241,7 +241,7 @@ X509_ATTRIBUTE_set1_object.exit.i:                ; preds = %if.end4.i
   br i1 %cmp4.i.not.i, label %err.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %X509_ATTRIBUTE_set1_object.exit.i
-  %call8.i = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %call.i, i32 noundef %type, ptr noundef %bytes, i32 noundef %len), !range !9
+  %call8.i = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %call.i, i32 noundef %type, ptr noundef %bytes, i32 noundef %len)
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %err.i, label %if.end
 
@@ -293,7 +293,7 @@ X509_ATTRIBUTE_set1_object.exit:                  ; preds = %if.end4
   br i1 %cmp4.i.not, label %err, label %if.end7
 
 if.end7:                                          ; preds = %X509_ATTRIBUTE_set1_object.exit
-  %call8 = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %ret.0, i32 noundef %atrtype, ptr noundef %data, i32 noundef %len), !range !9
+  %call8 = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %ret.0, i32 noundef %atrtype, ptr noundef %data, i32 noundef %len)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %err, label %if.end11
 
@@ -355,7 +355,7 @@ X509_ATTRIBUTE_set1_object.exit.i:                ; preds = %if.end.i
   br i1 %cmp4.i.not.i, label %err.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %X509_ATTRIBUTE_set1_object.exit.i
-  %call8.i = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %call.i4, i32 noundef %type, ptr noundef %bytes, i32 noundef %len), !range !9
+  %call8.i = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %call.i4, i32 noundef %type, ptr noundef %bytes, i32 noundef %len)
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %err.i, label %if.end
 
@@ -423,7 +423,7 @@ X509_ATTRIBUTE_set1_object.exit.i:                ; preds = %if.end.i
   br i1 %cmp4.i.not.i, label %err.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %X509_ATTRIBUTE_set1_object.exit.i
-  %call8.i = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %call.i4, i32 noundef %type, ptr noundef %bytes, i32 noundef %len), !range !9
+  %call8.i = tail call i32 @X509_ATTRIBUTE_set1_data(ptr noundef nonnull %call.i4, i32 noundef %type, ptr noundef %bytes, i32 noundef %len)
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %err.i, label %if.end
 
@@ -496,7 +496,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp9.i, label %X509at_get_attr_by_OBJ.exit, label %for.cond.i, !llvm.loop !7
 
 X509at_get_attr_by_OBJ.exit:                      ; preds = %for.body.i
-  %3 = trunc i64 %indvars.iv.next.i to i32
+  %3 = trunc nsw i64 %indvars.iv.next.i to i32
   %cmp = icmp eq i32 %3, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -715,7 +715,7 @@ return:                                           ; preds = %X509_ATTRIBUTE_coun
 declare ptr @X509_ATTRIBUTE_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_ATTRIBUTE_set1_object(ptr noundef %attr, ptr noundef %obj) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_object(ptr noundef %attr, ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %attr, null
   %cmp1 = icmp eq ptr %obj, null
@@ -737,7 +737,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_ATTRIBUTE_set1_data(ptr noundef %attr, i32 noundef %attrtype, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_data(ptr noundef %attr, i32 noundef %attrtype, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %attr, null
   br i1 %tobool.not, label %return, label %if.end
@@ -930,4 +930,3 @@ attributes #4 = { nounwind }
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 0, i32 2}

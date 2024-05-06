@@ -647,7 +647,7 @@ define dso_local void @ieee80211_txq_set_params(ptr nocapture noundef %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_txq_setup_flows(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ieee80211_txq_setup_flows(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
@@ -1016,7 +1016,7 @@ define dso_local noundef zeroext i1 @ieee80211_tx_prepare_skb(ptr noundef %0, pt
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ieee80211_tx_prepare(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 3) i32 @ieee80211_tx_prepare(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 1256
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 40
@@ -1451,7 +1451,7 @@ ieee80211_aggr_check.exit:                        ; preds = %94, %99, %104, %109
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @invoke_tx_handlers(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = tail call fastcc i32 @invoke_tx_handlers_early(ptr noundef %0), !range !38
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %6
@@ -1522,7 +1522,7 @@ define dso_local void @ieee80211_xmit(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ieee80211_skb_resize(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @ieee80211_skb_resize(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 1256
   %6 = load ptr, ptr %5, align 8
   switch i32 %3, label %.thread1 [
@@ -2529,7 +2529,7 @@ declare dso_local ptr @skb_pull(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare dso_local void @consume_skb(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_lookup_ra_sta(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -67, 1) i32 @ieee80211_lookup_ra_sta(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4056
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %72 [
@@ -4459,7 +4459,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ieee80211_xmit_fast_finish(ptr nocapture noundef %0, ptr nocapture noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ieee80211_xmit_fast_finish(ptr nocapture noundef %0, ptr nocapture noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = getelementptr inbounds i8, ptr %6, i64 200
@@ -6461,7 +6461,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 declare dso_local zeroext i1 @ieee80211_is_our_addr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal fastcc noundef i32 @ieee80211_tx_h_select_key(ptr nocapture noundef %0) unnamed_addr #10 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ieee80211_tx_h_select_key(ptr nocapture noundef %0) unnamed_addr #10 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 40
   %4 = getelementptr inbounds i8, ptr %2, i64 200
@@ -6808,7 +6808,7 @@ define internal fastcc noundef i32 @ieee80211_tx_h_select_key(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ieee80211_tx_h_rate_ctrl(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ieee80211_tx_h_rate_ctrl(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.ieee80211_tx_rate_control, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
@@ -7178,7 +7178,7 @@ define internal fastcc noundef i32 @ieee80211_tx_h_rate_ctrl(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @invoke_tx_handlers_late(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_late(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -11917,7 +11917,7 @@ define dso_local ptr @ieee80211_get_buffered_bc(ptr noundef %0, ptr noundef %1) 
   %72 = and i32 %70, -8
   %73 = or disjoint i32 %72, %71
   store i32 %73, ptr %69, align 4
-  %74 = call fastcc i32 @invoke_tx_handlers(ptr noundef nonnull %3), !range !38
+  %74 = call fastcc i32 @invoke_tx_handlers(ptr noundef nonnull %3)
   %75 = icmp eq i32 %74, 0
   %76 = select i1 %75, ptr %33, ptr null
   br label %.thread
@@ -11930,7 +11930,7 @@ define dso_local ptr @ieee80211_get_buffered_bc(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_reserve_tid(ptr noundef %0, i8 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -114, 1) i32 @ieee80211_reserve_tid(ptr noundef %0, i8 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -2680
   %4 = getelementptr i8, ptr %0, i64 -2600
   %5 = load ptr, ptr %4, align 8
@@ -12289,7 +12289,7 @@ define dso_local void @ieee80211_tx_skb_tid(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_tx_control_port(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4, i16 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -67, 1) i32 @ieee80211_tx_control_port(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4, i16 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 align 16 {
   %10 = alloca ptr, align 8
   %11 = getelementptr i8, ptr %1, i64 2304
   %12 = getelementptr i8, ptr %1, i64 3560
@@ -12447,7 +12447,7 @@ define dso_local noundef i32 @ieee80211_tx_control_port(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_probe_mesh_link(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ieee80211_probe_mesh_link(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr i8, ptr %1, i64 3560
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 96
@@ -12777,7 +12777,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 sect
 declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @invoke_tx_handlers_early(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @invoke_tx_handlers_early(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -13782,7 +13782,7 @@ declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @INET_ECN_set_ce(ptr noundef %0) unnamed_addr #18 align 16 {
+define internal fastcc range(i32 0, 2) i32 @INET_ECN_set_ce(ptr noundef %0) unnamed_addr #18 align 16 {
   %2 = alloca %struct.vlan_hdr, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load i16, ptr %3, align 8

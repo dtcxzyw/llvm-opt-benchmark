@@ -763,7 +763,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @on_stream_close_callback(ptr noundef %session, i32 noundef %stream_id, i32 noundef %error_code, ptr nocapture noundef readonly %user_data) #0 {
+define internal range(i32 -902, 1) i32 @on_stream_close_callback(ptr noundef %session, i32 noundef %stream_id, i32 noundef %error_code, ptr nocapture noundef readonly %user_data) #0 {
 entry:
   %stream_data = getelementptr inbounds i8, ptr %user_data, i64 24
   %0 = load ptr, ptr %stream_data, align 8

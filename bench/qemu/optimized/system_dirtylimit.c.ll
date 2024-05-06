@@ -1135,7 +1135,7 @@ out:                                              ; preds = %if.end, %if.then
 declare i64 @qdict_get_int(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @dirtylimit_throttle_time_per_round() local_unnamed_addr #1 {
+define dso_local range(i64 0, -9223372036854775808) i64 @dirtylimit_throttle_time_per_round() local_unnamed_addr #1 {
 entry:
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13

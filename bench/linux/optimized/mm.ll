@@ -78,7 +78,7 @@ define internal i32 @mm_prepare_data(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @mm_reply_size(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
+define internal range(i32 72, 149) i32 @mm_reply_size(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -88,7 +88,7 @@ define internal i32 @mm_reply_size(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mm_fill_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -90, 1) i32 @mm_fill_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -210,7 +210,7 @@ define internal noundef i32 @mm_fill_reply(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @ethnl_set_mm_validate(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
+define internal range(i32 -95, 2) i32 @ethnl_set_mm_validate(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 760
   %5 = load ptr, ptr %4, align 8
@@ -543,7 +543,7 @@ declare dso_local i32 @ethnl_ops_begin(ptr noundef) local_unnamed_addr #5
 declare dso_local void @ethnl_ops_complete(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @mm_put_stats(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @mm_put_stats(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8

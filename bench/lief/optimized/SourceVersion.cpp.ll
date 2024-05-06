@@ -112,7 +112,7 @@ define void @_ZN4LIEF5MachO13SourceVersionC2ERKNS0_7details22source_version_comm
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = lshr i64 %9, 40
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   store i32 %11, ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 60
   %13 = load i64, ptr %8, align 8

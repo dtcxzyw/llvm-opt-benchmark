@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [49 x i8] c"Layout type: \22%s\22 not recognized. Use one of:%s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @gvlayout_select(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 300, 1000) i32 @gvlayout_select(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @gvplugin_load(ptr noundef %0, i32 noundef 1, ptr noundef %1, ptr noundef null) #2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %18, label %4
@@ -41,7 +41,7 @@ define noundef i32 @gvlayout_select(ptr noundef %0, ptr noundef %1) local_unname
 declare ptr @gvplugin_load(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @gvLayoutJobs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @gvLayoutJobs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @agbindrec(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 408, i32 noundef 1) #2
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8

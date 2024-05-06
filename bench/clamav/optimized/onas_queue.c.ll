@@ -181,7 +181,7 @@ declare extern_weak void @__pthread_unwind_next(ptr noundef) local_unnamed_addr 
 declare void @__pthread_register_cancel(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @onas_queue_event(ptr noundef %0) local_unnamed_addr #4 {
+define dso_local range(i32 0, 21) i32 @onas_queue_event(ptr noundef %0) local_unnamed_addr #4 {
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %2 = icmp eq ptr %calloc.i, null
   br i1 %2, label %16, label %3
@@ -222,7 +222,7 @@ declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @onas_scan_queue_start(ptr noundef readonly %0) local_unnamed_addr #4 {
+define dso_local range(i32 0, 23) i32 @onas_scan_queue_start(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = alloca %union.pthread_attr_t, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3

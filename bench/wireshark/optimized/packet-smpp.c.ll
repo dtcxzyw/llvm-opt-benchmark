@@ -1418,7 +1418,7 @@ declare void @ssl_dissector_add(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_smpp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_smpp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call fastcc i32 @test_smpp(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %31, label %6
@@ -1534,7 +1534,7 @@ declare i32 @find_tap_id(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_smpp(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_smpp(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #9
   %3 = icmp slt i32 %2, 16
   br i1 %3, label %18, label %4
@@ -4613,7 +4613,7 @@ get_smpp_data.exit:                               ; preds = %5, %10
 
 51:                                               ; preds = %49
   %52 = shl nuw nsw i32 %.050, 3
-  %53 = trunc i32 %52 to i16
+  %53 = trunc nuw nsw i32 %52 to i16
   %.lhs.trunc = add nsw i16 %53, -8
   %54 = srem i16 %.lhs.trunc, 7
   %narrow = sub nsw i16 6, %54

@@ -239,11 +239,11 @@ define void @_ZN14VrmlTranslator6Buffer5CloseEv(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN14VrmlTranslator10UTF8Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #2 align 2 {
+define noundef range(i32 0, 2097152) i32 @_ZN14VrmlTranslator10UTF8Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #2 align 2 {
   br label %2
 
 2:                                                ; preds = %5, %1
-  %3 = tail call noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0), !range !5
+  %3 = tail call noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %4 = icmp ugt i32 %3, 127
   br i1 %4, label %5, label %.critedge.thread
 
@@ -252,7 +252,7 @@ define noundef i32 @_ZN14VrmlTranslator10UTF8Buffer4ReadEv(ptr noundef nonnull a
   %7 = icmp ne i32 %6, 192
   %8 = icmp ne i32 %3, 65536
   %or.cond3 = and i1 %8, %7
-  br i1 %or.cond3, label %2, label %.critedge, !llvm.loop !6
+  br i1 %or.cond3, label %2, label %.critedge, !llvm.loop !5
 
 .critedge:                                        ; preds = %5
   %9 = icmp eq i32 %3, 65536
@@ -264,10 +264,10 @@ define noundef i32 @_ZN14VrmlTranslator10UTF8Buffer4ReadEv(ptr noundef nonnull a
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %10
-  %14 = tail call noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0), !range !5
+  %14 = tail call noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %15 = and i32 %14, 63
-  %16 = tail call noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0), !range !5
-  %17 = tail call noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0), !range !5
+  %16 = tail call noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
+  %17 = tail call noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %18 = and i32 %17, 63
   %19 = shl nuw nsw i32 %3, 6
   %20 = and i32 %19, 448
@@ -285,9 +285,9 @@ define noundef i32 @_ZN14VrmlTranslator10UTF8Buffer4ReadEv(ptr noundef nonnull a
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = tail call noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0), !range !5
+  %31 = tail call noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %32 = and i32 %31, 63
-  %33 = tail call noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0), !range !5
+  %33 = tail call noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %34 = and i32 %33, 63
   %35 = shl nuw nsw i32 %3, 6
   %36 = and i32 %35, 960
@@ -301,7 +301,7 @@ define noundef i32 @_ZN14VrmlTranslator10UTF8Buffer4ReadEv(ptr noundef nonnull a
   br i1 %41, label %42, label %.critedge.thread
 
 42:                                               ; preds = %40
-  %43 = tail call noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0), !range !5
+  %43 = tail call noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %44 = and i32 %43, 63
   %45 = shl nuw nsw i32 %3, 6
   %46 = and i32 %45, 1984
@@ -359,7 +359,7 @@ define noundef ptr @_ZN14VrmlTranslator6Buffer9GetStringEii(ptr noundef nonnull 
   store i32 %21, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %23 = load ptr, ptr %0, align 8
@@ -534,7 +534,7 @@ define void @_ZN14VrmlTranslator6BufferD0Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #2 align 2 {
+define noundef range(i32 0, 65537) i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -737,7 +737,7 @@ define noalias noundef ptr @_Z24coco_string_create_upperPKw(ptr noundef readonly
   store i32 %spec.select, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %15 = ashr exact i64 %4, 32
@@ -779,7 +779,7 @@ define noalias noundef ptr @_Z24coco_string_create_lowerPKw(ptr noundef readonly
   store i32 %spec.select.i, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %6
-  br i1 %exitcond.not.i, label %_Z24coco_string_create_lowerPKwii.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_Z24coco_string_create_lowerPKwii.exit, label %.lr.ph.i, !llvm.loop !9
 
 _Z24coco_string_create_lowerPKwii.exit:           ; preds = %.lr.ph.i, %2
   %sext = shl i64 %3, 32
@@ -825,7 +825,7 @@ define noalias noundef ptr @_Z24coco_string_create_lowerPKwii(ptr noundef readon
   store i32 %spec.select, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %16 = sext i32 %2 to i64
@@ -898,7 +898,7 @@ define noundef nonnull ptr @_Z25coco_string_create_appendPKww(ptr noundef %0, i3
   br i1 %.not.i, label %_Z18coco_string_lengthPKw.exit.thread, label %_Z18coco_string_lengthPKw.exit
 
 _Z18coco_string_lengthPKw.exit:                   ; preds = %2
-  %3 = tail call i64 @wcslen(ptr noundef nonnull %0) #24
+  %3 = tail call i64 @wcslen(ptr noundef nonnull readonly %0) #24
   %.fr13 = freeze i64 %3
   %4 = trunc i64 %.fr13 to i32
   %5 = shl i64 %.fr13, 32
@@ -1084,7 +1084,7 @@ define noundef i32 @_Z21coco_string_comparetoPKwS0_(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_Z16coco_string_hashPKw(ptr noundef readonly %0) local_unnamed_addr #11 {
+define noundef range(i32 0, -2147483648) i32 @_Z16coco_string_hashPKw(ptr noundef readonly %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %.preheader
 
@@ -1102,7 +1102,7 @@ define noundef i32 @_Z16coco_string_hashPKw(ptr noundef readonly %0) local_unnam
   %6 = getelementptr inbounds i8, ptr %.0814, i64 4
   %7 = load i32, ptr %6, align 4
   %.not12 = icmp eq i32 %7, 0
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %5, %.lr.ph ]
@@ -1149,7 +1149,7 @@ define noalias noundef nonnull ptr @_Z18coco_string_createPKc(ptr noundef readon
   store i32 %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread.thread, %.thread
   %14 = phi ptr [ %2, %.thread.thread ], [ %8, %.thread ], [ %8, %.lr.ph ]
@@ -1170,7 +1170,7 @@ define noalias noundef nonnull ptr @_Z23coco_string_create_charPKw(ptr noundef r
   br i1 %.not.i, label %_Z18coco_string_lengthPKw.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @wcslen(ptr noundef nonnull %0) #24
+  %3 = tail call i64 @wcslen(ptr noundef nonnull readonly %0) #24
   %4 = trunc i64 %3 to i32
   br label %_Z18coco_string_lengthPKw.exit
 
@@ -1195,7 +1195,7 @@ _Z18coco_string_lengthPKw.exit:                   ; preds = %1, %2
   store i8 %11, ptr %12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_Z18coco_string_lengthPKw.exit
   %13 = sext i32 %.0.i to i64
@@ -1473,7 +1473,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #2 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1636,7 +1636,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
 12:                                               ; preds = %.critedge, %12
   %indvars.iv = phi i64 [ 36, %.critedge ], [ %indvars.iv.next, %12 ]
   %13 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 4
   store i32 1, ptr %15, align 4
@@ -1648,12 +1648,12 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store ptr %13, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 39
-  br i1 %exitcond.not, label %.preheader70, label %12, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader70, label %12, !llvm.loop !13
 
 .preheader70:                                     ; preds = %12, %.preheader70
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.preheader70 ], [ 40, %12 ]
   %20 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  %21 = trunc i64 %indvars.iv79 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv79 to i32
   store i32 %21, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %20, i64 4
   store i32 1, ptr %22, align 4
@@ -1665,7 +1665,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store ptr %20, ptr %25, align 8
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, 43
-  br i1 %exitcond82.not, label %.critedge45, label %.preheader70, !llvm.loop !15
+  br i1 %exitcond82.not, label %.critedge45, label %.preheader70, !llvm.loop !14
 
 .critedge45:                                      ; preds = %.preheader70
   %27 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
@@ -1683,7 +1683,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
 33:                                               ; preds = %.critedge45, %33
   %indvars.iv83 = phi i64 [ 58, %.critedge45 ], [ %indvars.iv.next84, %33 ]
   %34 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  %35 = trunc i64 %indvars.iv83 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv83 to i32
   store i32 %35, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %34, i64 4
   store i32 1, ptr %36, align 4
@@ -1695,12 +1695,12 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store ptr %34, ptr %39, align 8
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 86
-  br i1 %exitcond86.not, label %.preheader69, label %33, !llvm.loop !16
+  br i1 %exitcond86.not, label %.preheader69, label %33, !llvm.loop !15
 
 .preheader69:                                     ; preds = %33, %.preheader69
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.preheader69 ], [ 87, %33 ]
   %41 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  %42 = trunc i64 %indvars.iv87 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv87 to i32
   store i32 %42, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %41, i64 4
   store i32 1, ptr %43, align 4
@@ -1712,12 +1712,12 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store ptr %41, ptr %46, align 8
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 91
-  br i1 %exitcond90.not, label %.preheader68, label %.preheader69, !llvm.loop !17
+  br i1 %exitcond90.not, label %.preheader68, label %.preheader69, !llvm.loop !16
 
 .preheader68:                                     ; preds = %.preheader69, %.preheader68
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %.preheader68 ], [ 94, %.preheader69 ]
   %48 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  %49 = trunc i64 %indvars.iv91 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv91 to i32
   store i32 %49, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %48, i64 4
   store i32 1, ptr %50, align 4
@@ -1729,7 +1729,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store ptr %48, ptr %53, align 8
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next92, 123
-  br i1 %exitcond94.not, label %.critedge47, label %.preheader68, !llvm.loop !18
+  br i1 %exitcond94.not, label %.critedge47, label %.preheader68, !llvm.loop !17
 
 .critedge47:                                      ; preds = %.preheader68
   %55 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
@@ -1770,12 +1770,12 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store ptr %68, ptr %74, align 8
   %76 = add nuw nsw i32 %.976, 1
   %exitcond95.not = icmp eq i32 %76, 65536
-  br i1 %exitcond95.not, label %.preheader, label %67, !llvm.loop !19
+  br i1 %exitcond95.not, label %.preheader, label %67, !llvm.loop !18
 
 .preheader:                                       ; preds = %67, %.preheader
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.preheader ], [ 49, %67 ]
   %77 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-  %78 = trunc i64 %indvars.iv96 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv96 to i32
   store i32 %78, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %77, i64 4
   store i32 35, ptr %79, align 4
@@ -1787,7 +1787,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   store ptr %77, ptr %82, align 8
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, 58
-  br i1 %exitcond99.not, label %84, label %.preheader, !llvm.loop !20
+  br i1 %exitcond99.not, label %84, label %.preheader, !llvm.loop !19
 
 84:                                               ; preds = %.preheader
   %85 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
@@ -2351,7 +2351,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit65:      ; preds = %352, %347, %320, %_
   %370 = getelementptr inbounds i8, ptr %367, i64 65536
   %371 = icmp ugt ptr %368, %370
   %or.cond.i.i = select i1 %369, i1 true, i1 %371
-  br i1 %or.cond.i.i, label %.critedge.i.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i, !llvm.loop !21
+  br i1 %or.cond.i.i, label %.critedge.i.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i, !llvm.loop !20
 
 _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i: ; preds = %.critedge.i.i
   %.pre.i67 = load ptr, ptr %169, align 8
@@ -2403,12 +2403,12 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnul
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %.0710) #22
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
-  br i1 %exitcond.not, label %12, label %3, !llvm.loop !23
+  br i1 %exitcond.not, label %12, label %3, !llvm.loop !22
 
 12:                                               ; preds = %._crit_edge
   %13 = load ptr, ptr %2, align 8
@@ -2443,12 +2443,12 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnu
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.0710) #20
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
-  br i1 %exitcond.not, label %9, label %3, !llvm.loop !25
+  br i1 %exitcond.not, label %9, label %3, !llvm.loop !24
 
 9:                                                ; preds = %._crit_edge
   %10 = load ptr, ptr %2, align 8
@@ -2486,12 +2486,12 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD0Ev(ptr noundef nonnu
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.0710.i) #20
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %9, label %3, !llvm.loop !25
+  br i1 %exitcond.not.i, label %9, label %3, !llvm.loop !24
 
 9:                                                ; preds = %._crit_edge.i
   %10 = load ptr, ptr %2, align 8
@@ -2530,12 +2530,12 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD0Ev(ptr noundef nonnul
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %.0710.i) #22
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %12, label %3, !llvm.loop !23
+  br i1 %exitcond.not.i, label %12, label %3, !llvm.loop !22
 
 12:                                               ; preds = %._crit_edge.i
   %13 = load ptr, ptr %2, align 8
@@ -2573,7 +2573,7 @@ define void @_ZN14VrmlTranslator7ScannerC2EPKw(ptr noundef nonnull align 8 deref
   br i1 %.not.i.i, label %_Z18coco_string_lengthPKw.exit.i, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i64 @wcslen(ptr noundef nonnull %1) #24
+  %12 = tail call i64 @wcslen(ptr noundef nonnull readonly %1) #24
   %13 = trunc i64 %12 to i32
   br label %_Z18coco_string_lengthPKw.exit.i
 
@@ -2601,7 +2601,7 @@ _Z18coco_string_lengthPKw.exit.i:                 ; preds = %11, %9
   store i8 %20, ptr %21, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.noexc
   %22 = sext i32 %.0.i.i to i64
@@ -2743,7 +2743,7 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr nocapture noundef nonnull align
   tail call void @free(ptr noundef nonnull %3) #22
   store ptr %5, ptr %0, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %6 = getelementptr inbounds i8, ptr %0, i64 96
@@ -2791,12 +2791,12 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr nocapture noundef nonnull align
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(32) %.0710.i) #22
   %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %30, label %21, !llvm.loop !23
+  br i1 %exitcond.not.i, label %30, label %21, !llvm.loop !22
 
 30:                                               ; preds = %._crit_edge.i
   %31 = load ptr, ptr %20, align 8
@@ -2827,12 +2827,12 @@ _ZN14VrmlTranslator10KeywordMapD2Ev.exit:         ; preds = %30, %33
   %41 = load ptr, ptr %40, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.0710.i9) #20
   %.not.i10 = icmp eq ptr %41, null
-  br i1 %.not.i10, label %._crit_edge.i11, label %.lr.ph.i8, !llvm.loop !24
+  br i1 %.not.i10, label %._crit_edge.i11, label %.lr.ph.i8, !llvm.loop !23
 
 ._crit_edge.i11:                                  ; preds = %.lr.ph.i8, %36
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 128
-  br i1 %exitcond.not.i13, label %42, label %36, !llvm.loop !25
+  br i1 %exitcond.not.i13, label %42, label %36, !llvm.loop !24
 
 42:                                               ; preds = %._crit_edge.i11
   %43 = load ptr, ptr %35, align 8
@@ -2901,7 +2901,7 @@ _Z18coco_string_createPKw.exit.i:                 ; preds = %5, %3
   %24 = getelementptr inbounds i8, ptr %.0814.i, i64 4
   %25 = load i32, ptr %24, align 4
   %.not12.i = icmp eq i32 %25, 0
-  br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %23, %.lr.ph.i ]
@@ -3041,7 +3041,7 @@ define noundef ptr @_ZN14VrmlTranslator7Scanner11CreateTokenEv(ptr nocapture nou
   %19 = getelementptr inbounds i8, ptr %16, i64 65536
   %20 = icmp ugt ptr %17, %19
   %or.cond.i = select i1 %18, i1 true, i1 %20
-  br i1 %or.cond.i, label %.critedge.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit, !llvm.loop !21
+  br i1 %or.cond.i, label %.critedge.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit, !llvm.loop !20
 
 _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit: ; preds = %.critedge.i
   %.pre = load ptr, ptr %5, align 8
@@ -3464,7 +3464,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit14:      ; preds = %108, %134, %139
   %142 = phi i32 [ %109, %108 ], [ %135, %134 ], [ %135, %139 ]
   %143 = phi i8 [ %102, %108 ], [ %136, %134 ], [ %136, %139 ]
   %144 = icmp eq i32 %142, 10
-  br i1 %144, label %._crit_edge, label %101, !llvm.loop !27
+  br i1 %144, label %._crit_edge, label %101, !llvm.loop !26
 
 _ZN14VrmlTranslator7Scanner6NextChEv.exit10:      ; preds = %101, %98, %92, %62
   %145 = phi i1 [ true, %98 ], [ true, %92 ], [ true, %62 ], [ false, %101 ]
@@ -3493,7 +3493,7 @@ define void @_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv(ptr nocapture nounde
   %13 = getelementptr inbounds i8, ptr %10, i64 65536
   %14 = icmp ugt ptr %11, %13
   %or.cond = select i1 %12, i1 true, i1 %14
-  br i1 %or.cond, label %.critedge, label %._crit_edge, !llvm.loop !21
+  br i1 %or.cond, label %.critedge, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.critedge, %1
   %15 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
@@ -3556,7 +3556,7 @@ define void @_ZN14VrmlTranslator7Scanner9AppendValEPNS_5TokenE(ptr nocapture nou
   %29 = getelementptr inbounds i8, ptr %26, i64 65536
   %30 = icmp ugt ptr %27, %29
   %or.cond.i = select i1 %28, i1 true, i1 %30
-  br i1 %or.cond.i, label %.critedge.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit, !llvm.loop !21
+  br i1 %or.cond.i, label %.critedge.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit, !llvm.loop !20
 
 _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit: ; preds = %.critedge.i
   %.pre = load ptr, ptr %11, align 8
@@ -3611,7 +3611,7 @@ tailrecurse:                                      ; preds = %47, %1
   br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit
 
 _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge, %tailrecurse
-  %9 = phi i32 [ %.pre, %tailrecurse ], [ %.be428, %_ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge ]
+  %9 = phi i32 [ %.pre, %tailrecurse ], [ %.be429, %_ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge ]
   switch i32 %9, label %.loopexit [
     i32 32, label %.critedge
     i32 10, label %.critedge
@@ -3634,8 +3634,8 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %_ZN14VrmlTranslator
   br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge
 
 _ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge: ; preds = %12, %39, %44
-  %.be428 = phi i32 [ %14, %12 ], [ %40, %39 ], [ %40, %44 ]
-  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit, !llvm.loop !28
+  %.be429 = phi i32 [ %14, %12 ], [ %40, %39 ], [ %40, %44 ]
+  br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit, !llvm.loop !27
 
 16:                                               ; preds = %.critedge
   %17 = load ptr, ptr %4, align 8
@@ -3723,7 +3723,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge: ; preds = %12, %39, %44
   %66 = getelementptr inbounds i8, ptr %63, i64 65536
   %67 = icmp ugt ptr %64, %66
   %or.cond.i.i = select i1 %65, i1 true, i1 %67
-  br i1 %or.cond.i.i, label %.critedge.i.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i, !llvm.loop !21
+  br i1 %or.cond.i.i, label %.critedge.i.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i, !llvm.loop !20
 
 _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i: ; preds = %.critedge.i.i
   %.pre.i230 = load ptr, ptr %52, align 8
@@ -3779,7 +3779,7 @@ _ZN14VrmlTranslator7Scanner11CreateTokenEv.exit:  ; preds = %.loopexit, %_ZN14Vr
   %92 = getelementptr inbounds i8, ptr %.011.i, i64 8
   %.0.i = load ptr, ptr %92, align 8
   %cond.i = icmp eq ptr %.0.i, null
-  br i1 %cond.i, label %_ZN14VrmlTranslator11StartStates5stateEi.exit.thread, label %.lr.ph.i, !llvm.loop !29
+  br i1 %cond.i, label %_ZN14VrmlTranslator11StartStates5stateEi.exit.thread, label %.lr.ph.i, !llvm.loop !28
 
 _ZN14VrmlTranslator11StartStates5stateEi.exit.thread: ; preds = %91, %_ZN14VrmlTranslator7Scanner11CreateTokenEv.exit
   %93 = getelementptr inbounds i8, ptr %0, i64 108
@@ -3798,20 +3798,20 @@ _ZN14VrmlTranslator11StartStates5stateEi.exit:    ; preds = %.lr.ph.i
     i32 0, label %117
     i32 1, label %.preheader
     i32 2, label %225
-    i32 3, label %.preheader337
+    i32 3, label %.preheader338
     i32 4, label %236
-    i32 5, label %.preheader339
+    i32 5, label %.preheader340
     i32 6, label %248
     i32 7, label %257
-    i32 8, label %.preheader338
-    i32 9, label %.preheader341
+    i32 8, label %.preheader339
+    i32 9, label %.preheader342
     i32 10, label %272
     i32 11, label %281
-    i32 12, label %.preheader340
+    i32 12, label %.preheader341
     i32 13, label %291
     i32 14, label %300
-    i32 15, label %.preheader342
-    i32 16, label %.preheader343
+    i32 15, label %.preheader343
+    i32 16, label %.preheader344
     i32 17, label %380
     i32 18, label %388
     i32 19, label %406
@@ -3830,7 +3830,7 @@ _ZN14VrmlTranslator11StartStates5stateEi.exit:    ; preds = %.lr.ph.i
     i32 32, label %502
     i32 33, label %504
     i32 34, label %512
-    i32 35, label %.preheader344
+    i32 35, label %.preheader345
     i32 36, label %518
     i32 37, label %525
     i32 38, label %535
@@ -3849,75 +3849,75 @@ _ZN14VrmlTranslator11StartStates5stateEi.exit:    ; preds = %.lr.ph.i
     i32 51, label %667
   ]
 
-.preheader344.sink.split:                         ; preds = %525, %518
+.preheader345.sink.split:                         ; preds = %525, %518
+  tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
+  br label %.preheader345
+
+.preheader345:                                    ; preds = %.preheader345.sink.split, %_ZN14VrmlTranslator11StartStates5stateEi.exit
+  %97 = load i32, ptr %2, align 8
+  %98 = add i32 %97, -48
+  %or.cond197355 = icmp ult i32 %98, 10
+  br i1 %or.cond197355, label %.lr.ph, label %._crit_edge
+
+.preheader344.sink.split:                         ; preds = %590, %593, %575, %577, %559, %559, %559, %559, %561, %563, %563, %563, %563, %563, %493, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %430, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %388, %391
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %.preheader344
 
 .preheader344:                                    ; preds = %.preheader344.sink.split, %_ZN14VrmlTranslator11StartStates5stateEi.exit
-  %97 = load i32, ptr %2, align 8
-  %98 = add i32 %97, -48
-  %or.cond197354 = icmp ult i32 %98, 10
-  br i1 %or.cond197354, label %.lr.ph, label %._crit_edge
+  %99 = getelementptr inbounds i8, ptr %0, i64 104
+  %100 = getelementptr inbounds i8, ptr %0, i64 96
+  %.pre397 = load i32, ptr %2, align 8
+  br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit253
 
-.preheader343.sink.split:                         ; preds = %590, %593, %575, %577, %559, %559, %559, %559, %561, %563, %563, %563, %563, %563, %493, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %430, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %388, %391
+.preheader343.sink.split:                         ; preds = %300, %291
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %.preheader343
 
 .preheader343:                                    ; preds = %.preheader343.sink.split, %_ZN14VrmlTranslator11StartStates5stateEi.exit
-  %99 = getelementptr inbounds i8, ptr %0, i64 104
-  %100 = getelementptr inbounds i8, ptr %0, i64 96
-  %.pre396 = load i32, ptr %2, align 8
-  br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit252
+  %101 = load i32, ptr %2, align 8
+  %102 = add i32 %101, -48
+  %or.cond147356 = icmp ult i32 %102, 10
+  br i1 %or.cond147356, label %.lr.ph357, label %._crit_edge358
 
-.preheader342.sink.split:                         ; preds = %300, %291
+.preheader342.sink.split:                         ; preds = %521, %._crit_edge
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %.preheader342
 
 .preheader342:                                    ; preds = %.preheader342.sink.split, %_ZN14VrmlTranslator11StartStates5stateEi.exit
-  %101 = load i32, ptr %2, align 8
-  %102 = add i32 %101, -48
-  %or.cond147355 = icmp ult i32 %102, 10
-  br i1 %or.cond147355, label %.lr.ph356, label %._crit_edge357
+  %103 = load i32, ptr %2, align 8
+  %104 = add i32 %103, -48
+  %or.cond141359 = icmp ult i32 %104, 10
+  br i1 %or.cond141359, label %.lr.ph360, label %._crit_edge361
 
-.preheader341.sink.split:                         ; preds = %521, %._crit_edge
+.preheader341.sink.split:                         ; preds = %281, %272
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %.preheader341
 
 .preheader341:                                    ; preds = %.preheader341.sink.split, %_ZN14VrmlTranslator11StartStates5stateEi.exit
-  %103 = load i32, ptr %2, align 8
-  %104 = add i32 %103, -48
-  %or.cond141358 = icmp ult i32 %104, 10
-  br i1 %or.cond141358, label %.lr.ph359, label %._crit_edge360
+  %105 = load i32, ptr %2, align 8
+  %106 = add i32 %105, -48
+  %or.cond144363 = icmp ult i32 %106, 10
+  br i1 %or.cond144363, label %.lr.ph364, label %._crit_edge365
 
-.preheader340.sink.split:                         ; preds = %281, %272
+.preheader340.sink.split:                         ; preds = %667, %236
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %.preheader340
 
 .preheader340:                                    ; preds = %.preheader340.sink.split, %_ZN14VrmlTranslator11StartStates5stateEi.exit
-  %105 = load i32, ptr %2, align 8
-  %106 = add i32 %105, -48
-  %or.cond144362 = icmp ult i32 %106, 10
-  br i1 %or.cond144362, label %.lr.ph363, label %._crit_edge364
+  %107 = load i32, ptr %2, align 8
+  %108 = add i32 %107, -48
+  %or.cond137366 = icmp ult i32 %108, 10
+  br i1 %or.cond137366, label %.lr.ph367, label %._crit_edge368
 
-.preheader339.sink.split:                         ; preds = %667, %236
+.preheader339.sink.split:                         ; preds = %257, %248
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %.preheader339
 
 .preheader339:                                    ; preds = %.preheader339.sink.split, %_ZN14VrmlTranslator11StartStates5stateEi.exit
-  %107 = load i32, ptr %2, align 8
-  %108 = add i32 %107, -48
-  %or.cond137365 = icmp ult i32 %108, 10
-  br i1 %or.cond137365, label %.lr.ph366, label %._crit_edge367
-
-.preheader338.sink.split:                         ; preds = %257, %248
-  tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
-  br label %.preheader338
-
-.preheader338:                                    ; preds = %.preheader338.sink.split, %_ZN14VrmlTranslator11StartStates5stateEi.exit
   %109 = load i32, ptr %2, align 8
   %110 = add i32 %109, -48
-  %or.cond140369 = icmp ult i32 %110, 10
-  br i1 %or.cond140369, label %.lr.ph370, label %._crit_edge371
+  %or.cond140370 = icmp ult i32 %110, 10
+  br i1 %or.cond140370, label %.lr.ph371, label %._crit_edge372
 
 .preheader.sink.split:                            ; preds = %626, %631, %631, %632, %624, %624, %624, %624, %603, %608, %608, %609, %601, %601, %601, %601, %537, %543, %543, %544, %535, %535, %535, %535
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
@@ -3926,7 +3926,7 @@ _ZN14VrmlTranslator11StartStates5stateEi.exit:    ; preds = %.lr.ph.i
 .preheader:                                       ; preds = %.preheader.sink.split, %_ZN14VrmlTranslator11StartStates5stateEi.exit
   %111 = getelementptr inbounds i8, ptr %0, i64 104
   %112 = getelementptr inbounds i8, ptr %0, i64 96
-  %.pre398 = load i32, ptr %2, align 8
+  %.pre399 = load i32, ptr %2, align 8
   br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit
 
 113:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit
@@ -3944,7 +3944,7 @@ _ZN14VrmlTranslator11StartStates5stateEi.exit:    ; preds = %.lr.ph.i
   br label %672
 
 _ZN14VrmlTranslator7Scanner5AddChEv.exit:         ; preds = %_ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge, %.preheader
-  %121 = phi i32 [ %.pre398, %.preheader ], [ %.be, %_ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge ]
+  %121 = phi i32 [ %.pre399, %.preheader ], [ %.be, %_ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge ]
   switch i32 %121, label %122 [
     i32 38, label %130
     i32 37, label %130
@@ -3956,14 +3956,14 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit:         ; preds = %_ZN14VrmlTranslator
   %123 = and i32 %121, -4
   %or.cond126 = icmp eq i32 %123, 40
   %124 = icmp eq i32 %121, 45
-  %or.cond259 = or i1 %124, %or.cond126
+  %or.cond260 = or i1 %124, %or.cond126
   %125 = add i32 %121, -47
   %or.cond127 = icmp ult i32 %125, 44
-  %or.cond265 = or i1 %or.cond127, %or.cond259
+  %or.cond266 = or i1 %or.cond127, %or.cond260
   %126 = add i32 %121, -94
   %or.cond128 = icmp ult i32 %126, 29
-  %or.cond266 = or i1 %or.cond128, %or.cond265
-  br i1 %or.cond266, label %130, label %127
+  %or.cond267 = or i1 %or.cond128, %or.cond266
+  br i1 %or.cond267, label %130, label %127
 
 127:                                              ; preds = %122
   switch i32 %121, label %128 [
@@ -4004,17 +4004,17 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit:         ; preds = %_ZN14VrmlTranslator
 144:                                              ; preds = %133
   tail call void @_ZdaPv(ptr noundef nonnull %140) #20
   %.pre4.pre.i = load i32, ptr %96, align 4
-  %.pre399.pre = load i32, ptr %2, align 8
+  %.pre400.pre = load i32, ptr %2, align 8
   br label %145
 
 145:                                              ; preds = %144, %133
-  %.pre399 = phi i32 [ %.pre399.pre, %144 ], [ %121, %133 ]
+  %.pre400 = phi i32 [ %.pre400.pre, %144 ], [ %121, %133 ]
   %.pre4.i = phi i32 [ %.pre4.pre.i, %144 ], [ %131, %133 ]
   store ptr %139, ptr %112, align 8
   br label %146
 
 146:                                              ; preds = %145, %._crit_edge.i232
-  %147 = phi i32 [ %121, %._crit_edge.i232 ], [ %.pre399, %145 ]
+  %147 = phi i32 [ %121, %._crit_edge.i232 ], [ %.pre400, %145 ]
   %148 = phi i32 [ %131, %._crit_edge.i232 ], [ %.pre4.i, %145 ]
   %149 = phi ptr [ %.pre.i233, %._crit_edge.i232 ], [ %139, %145 ]
   %150 = add nsw i32 %148, 1
@@ -4113,7 +4113,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge: ; preds = %155, %182, %187
   %206 = load ptr, ptr %205, align 8
   %207 = load i32, ptr %199, align 4
   %.not1213.i.i = icmp eq i32 %207, 0
-  br i1 %.not1213.i.i, label %._crit_edge.i.i235, label %.lr.ph.i.i
+  br i1 %.not1213.i.i, label %._crit_edge.i.i236, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %190, %.lr.ph.i.i
   %208 = phi i32 [ %212, %.lr.ph.i.i ], [ %207, %190 ]
@@ -4124,64 +4124,64 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge: ; preds = %155, %182, %187
   %211 = getelementptr inbounds i8, ptr %.0814.i.i, i64 4
   %212 = load i32, ptr %211, align 4
   %.not12.i.i = icmp eq i32 %212, 0
-  br i1 %.not12.i.i, label %._crit_edge.i.i235, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not12.i.i, label %._crit_edge.i.i236, label %.lr.ph.i.i, !llvm.loop !10
 
-._crit_edge.i.i235:                               ; preds = %.lr.ph.i.i, %190
+._crit_edge.i.i236:                               ; preds = %.lr.ph.i.i, %190
   %.0.lcssa.i.i = phi i32 [ 0, %190 ], [ %210, %.lr.ph.i.i ]
   %spec.select.i.i = tail call i32 @llvm.abs.i32(i32 %.0.lcssa.i.i, i1 true)
   %213 = and i32 %spec.select.i.i, 127
   %214 = zext nneg i32 %213 to i64
   %215 = getelementptr inbounds ptr, ptr %206, i64 %214
-  %.09.i236 = load ptr, ptr %215, align 8
-  %cond10.i237 = icmp eq ptr %.09.i236, null
-  br i1 %cond10.i237, label %_Z18coco_string_deleteRPw.exit, label %.lr.ph.i238
+  %.09.i237 = load ptr, ptr %215, align 8
+  %cond10.i238 = icmp eq ptr %.09.i237, null
+  br i1 %cond10.i238, label %_Z18coco_string_deleteRPw.exit, label %.lr.ph.i239
 
-.lr.ph.i238:                                      ; preds = %._crit_edge.i.i235, %220
-  %.011.i239 = phi ptr [ %.0.i240, %220 ], [ %.09.i236, %._crit_edge.i.i235 ]
-  %216 = getelementptr inbounds i8, ptr %.011.i239, i64 8
+.lr.ph.i239:                                      ; preds = %._crit_edge.i.i236, %220
+  %.011.i240 = phi ptr [ %.0.i241, %220 ], [ %.09.i237, %._crit_edge.i.i236 ]
+  %216 = getelementptr inbounds i8, ptr %.011.i240, i64 8
   %217 = load ptr, ptr %216, align 8
-  %218 = tail call i32 @wcscmp(ptr noundef %217, ptr noundef nonnull %199) #24
+  %218 = tail call i32 @wcscmp(ptr noundef readonly %217, ptr noundef nonnull readonly %199) #24
   %219 = icmp eq i32 %218, 0
-  br i1 %219, label %.critedge.i242, label %220
+  br i1 %219, label %.critedge.i243, label %220
 
-220:                                              ; preds = %.lr.ph.i238
-  %221 = getelementptr inbounds i8, ptr %.011.i239, i64 24
-  %.0.i240 = load ptr, ptr %221, align 8
-  %cond.i241 = icmp eq ptr %.0.i240, null
-  br i1 %cond.i241, label %_Z18coco_string_deleteRPw.exit, label %.lr.ph.i238, !llvm.loop !30
+220:                                              ; preds = %.lr.ph.i239
+  %221 = getelementptr inbounds i8, ptr %.011.i240, i64 24
+  %.0.i241 = load ptr, ptr %221, align 8
+  %cond.i242 = icmp eq ptr %.0.i241, null
+  br i1 %cond.i242, label %_Z18coco_string_deleteRPw.exit, label %.lr.ph.i239, !llvm.loop !29
 
-.critedge.i242:                                   ; preds = %.lr.ph.i238
-  %222 = getelementptr inbounds i8, ptr %.011.i239, i64 16
+.critedge.i243:                                   ; preds = %.lr.ph.i239
+  %222 = getelementptr inbounds i8, ptr %.011.i240, i64 16
   %223 = load i32, ptr %222, align 8
   br label %_Z18coco_string_deleteRPw.exit
 
-_Z18coco_string_deleteRPw.exit:                   ; preds = %220, %._crit_edge.i.i235, %.critedge.i242
-  %224 = phi i32 [ %223, %.critedge.i242 ], [ %204, %._crit_edge.i.i235 ], [ %204, %220 ]
+_Z18coco_string_deleteRPw.exit:                   ; preds = %220, %._crit_edge.i.i236, %.critedge.i243
+  %224 = phi i32 [ %223, %.critedge.i243 ], [ %204, %._crit_edge.i.i236 ], [ %204, %220 ]
   store i32 %224, ptr %203, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %199) #20
   br label %672
 
 225:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %522
   %226 = load i32, ptr %2, align 8
-  %.fr387 = freeze i32 %226
-  %227 = add i32 %.fr387, -48
+  %.fr388 = freeze i32 %226
+  %227 = add i32 %.fr388, -48
   %or.cond130 = icmp ult i32 %227, 10
-  br i1 %or.cond130, label %.preheader337.sink.split, label %switch.early.test
+  br i1 %or.cond130, label %.preheader338.sink.split, label %switch.early.test
 
 switch.early.test:                                ; preds = %225
-  switch i32 %.fr387, label %228 [
-    i32 102, label %.preheader337.sink.split
-    i32 101, label %.preheader337.sink.split
-    i32 100, label %.preheader337.sink.split
-    i32 99, label %.preheader337.sink.split
-    i32 98, label %.preheader337.sink.split
-    i32 97, label %.preheader337.sink.split
-    i32 70, label %.preheader337.sink.split
-    i32 69, label %.preheader337.sink.split
-    i32 68, label %.preheader337.sink.split
-    i32 67, label %.preheader337.sink.split
-    i32 66, label %.preheader337.sink.split
-    i32 65, label %.preheader337.sink.split
+  switch i32 %.fr388, label %228 [
+    i32 102, label %.preheader338.sink.split
+    i32 101, label %.preheader338.sink.split
+    i32 100, label %.preheader338.sink.split
+    i32 99, label %.preheader338.sink.split
+    i32 98, label %.preheader338.sink.split
+    i32 97, label %.preheader338.sink.split
+    i32 70, label %.preheader338.sink.split
+    i32 69, label %.preheader338.sink.split
+    i32 68, label %.preheader338.sink.split
+    i32 67, label %.preheader338.sink.split
+    i32 66, label %.preheader338.sink.split
+    i32 65, label %.preheader338.sink.split
   ]
 
 228:                                              ; preds = %switch.early.test
@@ -4191,34 +4191,34 @@ switch.early.test:                                ; preds = %225
   store i32 %230, ptr %231, align 8
   br label %672
 
-.preheader337.sink.split:                         ; preds = %225, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.preheader337, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321, %switch.early.test321
+.preheader338.sink.split:                         ; preds = %225, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.preheader338, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
-  br label %.preheader337
+  br label %.preheader338
 
-.preheader337:                                    ; preds = %.preheader337.sink.split, %_ZN14VrmlTranslator11StartStates5stateEi.exit
+.preheader338:                                    ; preds = %.preheader338.sink.split, %_ZN14VrmlTranslator11StartStates5stateEi.exit
   %232 = load i32, ptr %2, align 8
-  %.fr388 = freeze i32 %232
-  %233 = add i32 %.fr388, -48
+  %.fr389 = freeze i32 %232
+  %233 = add i32 %.fr389, -48
   %or.cond133 = icmp ult i32 %233, 10
-  br i1 %or.cond133, label %.preheader337.sink.split, label %switch.early.test321
+  br i1 %or.cond133, label %.preheader338.sink.split, label %switch.early.test322
 
-switch.early.test321:                             ; preds = %.preheader337
-  switch i32 %.fr388, label %234 [
-    i32 102, label %.preheader337.sink.split
-    i32 101, label %.preheader337.sink.split
-    i32 100, label %.preheader337.sink.split
-    i32 99, label %.preheader337.sink.split
-    i32 98, label %.preheader337.sink.split
-    i32 97, label %.preheader337.sink.split
-    i32 70, label %.preheader337.sink.split
-    i32 69, label %.preheader337.sink.split
-    i32 68, label %.preheader337.sink.split
-    i32 67, label %.preheader337.sink.split
-    i32 66, label %.preheader337.sink.split
-    i32 65, label %.preheader337.sink.split
+switch.early.test322:                             ; preds = %.preheader338
+  switch i32 %.fr389, label %234 [
+    i32 102, label %.preheader338.sink.split
+    i32 101, label %.preheader338.sink.split
+    i32 100, label %.preheader338.sink.split
+    i32 99, label %.preheader338.sink.split
+    i32 98, label %.preheader338.sink.split
+    i32 97, label %.preheader338.sink.split
+    i32 70, label %.preheader338.sink.split
+    i32 69, label %.preheader338.sink.split
+    i32 68, label %.preheader338.sink.split
+    i32 67, label %.preheader338.sink.split
+    i32 66, label %.preheader338.sink.split
+    i32 65, label %.preheader338.sink.split
   ]
 
-234:                                              ; preds = %switch.early.test321
+234:                                              ; preds = %switch.early.test322
   %235 = load ptr, ptr %75, align 8
   store i32 2, ptr %235, align 8
   br label %672
@@ -4227,7 +4227,7 @@ switch.early.test321:                             ; preds = %.preheader337
   %237 = load i32, ptr %2, align 8
   %238 = add i32 %237, -48
   %or.cond136 = icmp ult i32 %238, 10
-  br i1 %or.cond136, label %.preheader339.sink.split, label %239
+  br i1 %or.cond136, label %.preheader340.sink.split, label %239
 
 239:                                              ; preds = %236
   %240 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4236,25 +4236,25 @@ switch.early.test321:                             ; preds = %.preheader337
   store i32 %241, ptr %242, align 8
   br label %672
 
-.lr.ph366:                                        ; preds = %.preheader339, %.lr.ph366
+.lr.ph367:                                        ; preds = %.preheader340, %.lr.ph367
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   %243 = load i32, ptr %2, align 8
   %244 = add i32 %243, -48
   %or.cond137 = icmp ult i32 %244, 10
-  br i1 %or.cond137, label %.lr.ph366, label %._crit_edge367
+  br i1 %or.cond137, label %.lr.ph367, label %._crit_edge368
 
-._crit_edge367:                                   ; preds = %.lr.ph366, %.preheader339
-  %.lcssa347 = phi i32 [ %107, %.preheader339 ], [ %243, %.lr.ph366 ]
-  switch i32 %.lcssa347, label %246 [
+._crit_edge368:                                   ; preds = %.lr.ph367, %.preheader340
+  %.lcssa348 = phi i32 [ %107, %.preheader340 ], [ %243, %.lr.ph367 ]
+  switch i32 %.lcssa348, label %246 [
     i32 69, label %245
     i32 101, label %245
   ]
 
-245:                                              ; preds = %._crit_edge367, %._crit_edge367
+245:                                              ; preds = %._crit_edge368, %._crit_edge368
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %248
 
-246:                                              ; preds = %._crit_edge367
+246:                                              ; preds = %._crit_edge368
   %247 = load ptr, ptr %75, align 8
   store i32 3, ptr %247, align 8
   br label %672
@@ -4263,7 +4263,7 @@ switch.early.test321:                             ; preds = %.preheader337
   %249 = load i32, ptr %2, align 8
   %250 = add i32 %249, -48
   %or.cond138 = icmp ult i32 %250, 10
-  br i1 %or.cond138, label %.preheader338.sink.split, label %251
+  br i1 %or.cond138, label %.preheader339.sink.split, label %251
 
 251:                                              ; preds = %248
   switch i32 %249, label %253 [
@@ -4286,7 +4286,7 @@ switch.early.test321:                             ; preds = %.preheader337
   %258 = load i32, ptr %2, align 8
   %259 = add i32 %258, -48
   %or.cond139 = icmp ult i32 %259, 10
-  br i1 %or.cond139, label %.preheader338.sink.split, label %260
+  br i1 %or.cond139, label %.preheader339.sink.split, label %260
 
 260:                                              ; preds = %257
   %261 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4295,37 +4295,37 @@ switch.early.test321:                             ; preds = %.preheader337
   store i32 %262, ptr %263, align 8
   br label %672
 
-.lr.ph370:                                        ; preds = %.preheader338, %.lr.ph370
+.lr.ph371:                                        ; preds = %.preheader339, %.lr.ph371
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   %264 = load i32, ptr %2, align 8
   %265 = add i32 %264, -48
   %or.cond140 = icmp ult i32 %265, 10
-  br i1 %or.cond140, label %.lr.ph370, label %._crit_edge371
+  br i1 %or.cond140, label %.lr.ph371, label %._crit_edge372
 
-._crit_edge371:                                   ; preds = %.lr.ph370, %.preheader338
+._crit_edge372:                                   ; preds = %.lr.ph371, %.preheader339
   %266 = load ptr, ptr %75, align 8
   store i32 3, ptr %266, align 8
   br label %672
 
-.lr.ph359:                                        ; preds = %.preheader341, %.lr.ph359
+.lr.ph360:                                        ; preds = %.preheader342, %.lr.ph360
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   %267 = load i32, ptr %2, align 8
   %268 = add i32 %267, -48
   %or.cond141 = icmp ult i32 %268, 10
-  br i1 %or.cond141, label %.lr.ph359, label %._crit_edge360
+  br i1 %or.cond141, label %.lr.ph360, label %._crit_edge361
 
-._crit_edge360:                                   ; preds = %.lr.ph359, %.preheader341
-  %.lcssa348 = phi i32 [ %103, %.preheader341 ], [ %267, %.lr.ph359 ]
-  switch i32 %.lcssa348, label %270 [
+._crit_edge361:                                   ; preds = %.lr.ph360, %.preheader342
+  %.lcssa349 = phi i32 [ %103, %.preheader342 ], [ %267, %.lr.ph360 ]
+  switch i32 %.lcssa349, label %270 [
     i32 69, label %269
     i32 101, label %269
   ]
 
-269:                                              ; preds = %._crit_edge360, %._crit_edge360
+269:                                              ; preds = %._crit_edge361, %._crit_edge361
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %272
 
-270:                                              ; preds = %._crit_edge360
+270:                                              ; preds = %._crit_edge361
   %271 = load ptr, ptr %75, align 8
   store i32 3, ptr %271, align 8
   br label %672
@@ -4334,7 +4334,7 @@ switch.early.test321:                             ; preds = %.preheader337
   %273 = load i32, ptr %2, align 8
   %274 = add i32 %273, -48
   %or.cond142 = icmp ult i32 %274, 10
-  br i1 %or.cond142, label %.preheader340.sink.split, label %275
+  br i1 %or.cond142, label %.preheader341.sink.split, label %275
 
 275:                                              ; preds = %272
   switch i32 %273, label %277 [
@@ -4357,7 +4357,7 @@ switch.early.test321:                             ; preds = %.preheader337
   %282 = load i32, ptr %2, align 8
   %283 = add i32 %282, -48
   %or.cond143 = icmp ult i32 %283, 10
-  br i1 %or.cond143, label %.preheader340.sink.split, label %284
+  br i1 %or.cond143, label %.preheader341.sink.split, label %284
 
 284:                                              ; preds = %281
   %285 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4366,14 +4366,14 @@ switch.early.test321:                             ; preds = %.preheader337
   store i32 %286, ptr %287, align 8
   br label %672
 
-.lr.ph363:                                        ; preds = %.preheader340, %.lr.ph363
+.lr.ph364:                                        ; preds = %.preheader341, %.lr.ph364
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   %288 = load i32, ptr %2, align 8
   %289 = add i32 %288, -48
   %or.cond144 = icmp ult i32 %289, 10
-  br i1 %or.cond144, label %.lr.ph363, label %._crit_edge364
+  br i1 %or.cond144, label %.lr.ph364, label %._crit_edge365
 
-._crit_edge364:                                   ; preds = %.lr.ph363, %.preheader340
+._crit_edge365:                                   ; preds = %.lr.ph364, %.preheader341
   %290 = load ptr, ptr %75, align 8
   store i32 3, ptr %290, align 8
   br label %672
@@ -4386,7 +4386,7 @@ switch.early.test321:                             ; preds = %.preheader337
   %292 = load i32, ptr %2, align 8
   %293 = add i32 %292, -48
   %or.cond145 = icmp ult i32 %293, 10
-  br i1 %or.cond145, label %.preheader342.sink.split, label %294
+  br i1 %or.cond145, label %.preheader343.sink.split, label %294
 
 294:                                              ; preds = %291
   switch i32 %292, label %296 [
@@ -4409,7 +4409,7 @@ switch.early.test321:                             ; preds = %.preheader337
   %301 = load i32, ptr %2, align 8
   %302 = add i32 %301, -48
   %or.cond146 = icmp ult i32 %302, 10
-  br i1 %or.cond146, label %.preheader342.sink.split, label %303
+  br i1 %or.cond146, label %.preheader343.sink.split, label %303
 
 303:                                              ; preds = %300
   %304 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4418,40 +4418,40 @@ switch.early.test321:                             ; preds = %.preheader337
   store i32 %305, ptr %306, align 8
   br label %672
 
-.lr.ph356:                                        ; preds = %.preheader342, %.lr.ph356
+.lr.ph357:                                        ; preds = %.preheader343, %.lr.ph357
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   %307 = load i32, ptr %2, align 8
   %308 = add i32 %307, -48
   %or.cond147 = icmp ult i32 %308, 10
-  br i1 %or.cond147, label %.lr.ph356, label %._crit_edge357
+  br i1 %or.cond147, label %.lr.ph357, label %._crit_edge358
 
-._crit_edge357:                                   ; preds = %.lr.ph356, %.preheader342
+._crit_edge358:                                   ; preds = %.lr.ph357, %.preheader343
   %309 = load ptr, ptr %75, align 8
   store i32 3, ptr %309, align 8
   br label %672
 
-_ZN14VrmlTranslator7Scanner5AddChEv.exit252:      ; preds = %_ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge, %.preheader343
-  %310 = phi i32 [ %.pre396, %.preheader343 ], [ %.be424, %_ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge ]
+_ZN14VrmlTranslator7Scanner5AddChEv.exit253:      ; preds = %_ZN14VrmlTranslator7Scanner5AddChEv.exit253.backedge, %.preheader344
+  %310 = phi i32 [ %.pre397, %.preheader344 ], [ %.be425, %_ZN14VrmlTranslator7Scanner5AddChEv.exit253.backedge ]
   %311 = icmp slt i32 %310, 34
   br i1 %311, label %315, label %312
 
-312:                                              ; preds = %_ZN14VrmlTranslator7Scanner5AddChEv.exit252
+312:                                              ; preds = %_ZN14VrmlTranslator7Scanner5AddChEv.exit253
   %.not = icmp ne i32 %310, 34
   %313 = icmp ult i32 %310, 92
   %or.cond148 = and i1 %.not, %313
   %314 = add nsw i32 %310, -93
   %or.cond149 = icmp ult i32 %314, 65443
-  %or.cond271 = select i1 %or.cond148, i1 true, i1 %or.cond149
-  br i1 %or.cond271, label %315, label %375
+  %or.cond272 = select i1 %or.cond148, i1 true, i1 %or.cond149
+  br i1 %or.cond272, label %315, label %375
 
-315:                                              ; preds = %312, %_ZN14VrmlTranslator7Scanner5AddChEv.exit252
+315:                                              ; preds = %312, %_ZN14VrmlTranslator7Scanner5AddChEv.exit253
   %316 = load i32, ptr %96, align 4
   %317 = load i32, ptr %99, align 8
-  %.not.i243 = icmp slt i32 %316, %317
-  br i1 %.not.i243, label %._crit_edge.i249, label %318
+  %.not.i244 = icmp slt i32 %316, %317
+  br i1 %.not.i244, label %._crit_edge.i250, label %318
 
-._crit_edge.i249:                                 ; preds = %315
-  %.pre.i251 = load ptr, ptr %100, align 8
+._crit_edge.i250:                                 ; preds = %315
+  %.pre.i252 = load ptr, ptr %100, align 8
   br label %331
 
 318:                                              ; preds = %315
@@ -4471,20 +4471,20 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit252:      ; preds = %_ZN14VrmlTranslator
 
 329:                                              ; preds = %318
   tail call void @_ZdaPv(ptr noundef nonnull %325) #20
-  %.pre4.pre.i244 = load i32, ptr %96, align 4
-  %.pre397.pre = load i32, ptr %2, align 8
+  %.pre4.pre.i245 = load i32, ptr %96, align 4
+  %.pre398.pre = load i32, ptr %2, align 8
   br label %330
 
 330:                                              ; preds = %329, %318
-  %.pre397 = phi i32 [ %.pre397.pre, %329 ], [ %310, %318 ]
-  %.pre4.i245 = phi i32 [ %.pre4.pre.i244, %329 ], [ %316, %318 ]
+  %.pre398 = phi i32 [ %.pre398.pre, %329 ], [ %310, %318 ]
+  %.pre4.i246 = phi i32 [ %.pre4.pre.i245, %329 ], [ %316, %318 ]
   store ptr %324, ptr %100, align 8
   br label %331
 
-331:                                              ; preds = %330, %._crit_edge.i249
-  %332 = phi i32 [ %310, %._crit_edge.i249 ], [ %.pre397, %330 ]
-  %333 = phi i32 [ %316, %._crit_edge.i249 ], [ %.pre4.i245, %330 ]
-  %334 = phi ptr [ %.pre.i251, %._crit_edge.i249 ], [ %324, %330 ]
+331:                                              ; preds = %330, %._crit_edge.i250
+  %332 = phi i32 [ %310, %._crit_edge.i250 ], [ %.pre398, %330 ]
+  %333 = phi i32 [ %316, %._crit_edge.i250 ], [ %.pre4.i246, %330 ]
+  %334 = phi ptr [ %.pre.i252, %._crit_edge.i250 ], [ %324, %330 ]
   %335 = add nsw i32 %333, 1
   store i32 %335, ptr %96, align 4
   %336 = sext i32 %333 to i64
@@ -4500,11 +4500,11 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit252:      ; preds = %_ZN14VrmlTranslator
   store i32 %342, ptr %2, align 8
   %343 = add nsw i32 %338, -1
   store i32 %343, ptr %3, align 8
-  br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge
+  br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit253.backedge
 
-_ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge: ; preds = %340, %367, %372
-  %.be424 = phi i32 [ %342, %340 ], [ %368, %367 ], [ %368, %372 ]
-  br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit252
+_ZN14VrmlTranslator7Scanner5AddChEv.exit253.backedge: ; preds = %340, %367, %372
+  %.be425 = phi i32 [ %342, %340 ], [ %368, %367 ], [ %368, %372 ]
+  br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit253
 
 344:                                              ; preds = %331
   %345 = load ptr, ptr %4, align 8
@@ -4531,11 +4531,11 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge: ; preds = %340, %367, %372
   %361 = getelementptr inbounds i8, ptr %360, i64 32
   %362 = load ptr, ptr %361, align 8
   %363 = tail call noundef i32 %362(ptr noundef nonnull align 8 dereferenceable(49) %359)
-  %.not.i.i246 = icmp eq i32 %363, 10
-  br i1 %.not.i.i246, label %._crit_edge.i.i247, label %364
+  %.not.i.i247 = icmp eq i32 %363, 10
+  br i1 %.not.i.i247, label %._crit_edge.i.i248, label %364
 
-._crit_edge.i.i247:                               ; preds = %358
-  %.pre.i.i248 = load i32, ptr %2, align 8
+._crit_edge.i.i248:                               ; preds = %358
+  %.pre.i.i249 = load i32, ptr %2, align 8
   br label %367
 
 364:                                              ; preds = %358
@@ -4544,24 +4544,24 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge: ; preds = %340, %367, %372
   store i32 %366, ptr %2, align 8
   br label %367
 
-367:                                              ; preds = %364, %._crit_edge.i.i247, %344
-  %368 = phi i32 [ %.pre.i.i248, %._crit_edge.i.i247 ], [ %366, %364 ], [ %354, %344 ]
+367:                                              ; preds = %364, %._crit_edge.i.i248, %344
+  %368 = phi i32 [ %.pre.i.i249, %._crit_edge.i.i248 ], [ %366, %364 ], [ %354, %344 ]
   %369 = load i8, ptr %7, align 8
   %370 = zext i8 %369 to i32
   %371 = icmp eq i32 %368, %370
-  br i1 %371, label %372, label %_ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge
+  br i1 %371, label %372, label %_ZN14VrmlTranslator7Scanner5AddChEv.exit253.backedge
 
 372:                                              ; preds = %367
   %373 = load i32, ptr %8, align 8
   %374 = add nsw i32 %373, 1
   store i32 %374, ptr %8, align 8
   store i32 0, ptr %6, align 4
-  br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge
+  br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit253.backedge
 
 375:                                              ; preds = %312
   switch i32 %310, label %376 [
-    i32 34, label %.sink.split409
-    i32 92, label %.sink.split410
+    i32 34, label %.sink.split410
+    i32 92, label %.sink.split411
   ]
 
 376:                                              ; preds = %375
@@ -4573,13 +4573,13 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit252.backedge: ; preds = %340, %367, %372
 
 380:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %564
   %381 = load i32, ptr %2, align 8
-  %.fr384 = freeze i32 %381
-  %382 = add i32 %.fr384, -48
+  %.fr385 = freeze i32 %381
+  %382 = add i32 %.fr385, -48
   %or.cond150 = icmp ult i32 %382, 10
-  br i1 %or.cond150, label %383, label %switch.early.test322
+  br i1 %or.cond150, label %383, label %switch.early.test323
 
-switch.early.test322:                             ; preds = %380
-  switch i32 %.fr384, label %384 [
+switch.early.test323:                             ; preds = %380
+  switch i32 %.fr385, label %384 [
     i32 102, label %383
     i32 101, label %383
     i32 100, label %383
@@ -4594,11 +4594,11 @@ switch.early.test322:                             ; preds = %380
     i32 65, label %383
   ]
 
-383:                                              ; preds = %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %switch.early.test322, %380
+383:                                              ; preds = %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %380
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %388
 
-384:                                              ; preds = %switch.early.test322
+384:                                              ; preds = %switch.early.test323
   %385 = getelementptr inbounds i8, ptr %0, i64 40
   %386 = load i32, ptr %385, align 8
   %387 = load ptr, ptr %75, align 8
@@ -4607,31 +4607,31 @@ switch.early.test322:                             ; preds = %380
 
 388:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %383
   %389 = load i32, ptr %2, align 8
-  %.fr385 = freeze i32 %389
-  %390 = icmp slt i32 %.fr385, 34
-  br i1 %390, label %.preheader343.sink.split, label %391
+  %.fr386 = freeze i32 %389
+  %390 = icmp slt i32 %.fr386, 34
+  br i1 %390, label %.preheader344.sink.split, label %391
 
 391:                                              ; preds = %388
-  %.not122 = icmp ne i32 %.fr385, 34
-  %392 = icmp ult i32 %.fr385, 48
+  %.not122 = icmp ne i32 %.fr386, 34
+  %392 = icmp ult i32 %.fr386, 48
   %or.cond153 = and i1 %.not122, %392
-  %393 = insertelement <4 x i32> poison, i32 %.fr385, i64 0
+  %393 = insertelement <4 x i32> poison, i32 %.fr386, i64 0
   %394 = shufflevector <4 x i32> %393, <4 x i32> poison, <4 x i32> zeroinitializer
-  %.fr419 = freeze <4 x i32> %394
-  %395 = add <4 x i32> %.fr419, <i32 -58, i32 -71, i32 -93, i32 -103>
+  %.fr420 = freeze <4 x i32> %394
+  %395 = add <4 x i32> %.fr420, <i32 -58, i32 -71, i32 -93, i32 -103>
   %396 = icmp ult <4 x i32> %395, <i32 7, i32 21, i32 4, i32 65433>
   %397 = bitcast <4 x i1> %396 to i4
   %398 = icmp ne i4 %397, 0
-  %op.rdx418 = or i1 %or.cond153, %398
-  br i1 %op.rdx418, label %.preheader343.sink.split, label %399
+  %op.rdx419 = or i1 %or.cond153, %398
+  br i1 %op.rdx419, label %.preheader344.sink.split, label %399
 
 399:                                              ; preds = %391
-  %400 = add nsw i32 %.fr385, -48
+  %400 = add nsw i32 %.fr386, -48
   %or.cond158 = icmp ult i32 %400, 10
-  br i1 %or.cond158, label %401, label %switch.early.test323
+  br i1 %or.cond158, label %401, label %switch.early.test324
 
-switch.early.test323:                             ; preds = %399
-  switch i32 %.fr385, label %402 [
+switch.early.test324:                             ; preds = %399
+  switch i32 %.fr386, label %402 [
     i32 102, label %401
     i32 101, label %401
     i32 100, label %401
@@ -4644,15 +4644,15 @@ switch.early.test323:                             ; preds = %399
     i32 67, label %401
     i32 66, label %401
     i32 65, label %401
-    i32 34, label %.sink.split409
-    i32 92, label %.sink.split410
+    i32 34, label %.sink.split410
+    i32 92, label %.sink.split411
   ]
 
-401:                                              ; preds = %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %switch.early.test323, %399
+401:                                              ; preds = %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %399
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %571
 
-402:                                              ; preds = %switch.early.test323
+402:                                              ; preds = %switch.early.test324
   %403 = getelementptr inbounds i8, ptr %0, i64 40
   %404 = load i32, ptr %403, align 8
   %405 = load ptr, ptr %75, align 8
@@ -4661,13 +4661,13 @@ switch.early.test323:                             ; preds = %399
 
 406:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %565
   %407 = load i32, ptr %2, align 8
-  %.fr380 = freeze i32 %407
-  %408 = add i32 %.fr380, -48
+  %.fr381 = freeze i32 %407
+  %408 = add i32 %.fr381, -48
   %or.cond161 = icmp ult i32 %408, 10
-  br i1 %or.cond161, label %409, label %switch.early.test324
+  br i1 %or.cond161, label %409, label %switch.early.test325
 
-switch.early.test324:                             ; preds = %406
-  switch i32 %.fr380, label %410 [
+switch.early.test325:                             ; preds = %406
+  switch i32 %.fr381, label %410 [
     i32 102, label %409
     i32 101, label %409
     i32 100, label %409
@@ -4682,11 +4682,11 @@ switch.early.test324:                             ; preds = %406
     i32 65, label %409
   ]
 
-409:                                              ; preds = %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %switch.early.test324, %406
+409:                                              ; preds = %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %406
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %414
 
-410:                                              ; preds = %switch.early.test324
+410:                                              ; preds = %switch.early.test325
   %411 = getelementptr inbounds i8, ptr %0, i64 40
   %412 = load i32, ptr %411, align 8
   %413 = load ptr, ptr %75, align 8
@@ -4695,13 +4695,13 @@ switch.early.test324:                             ; preds = %406
 
 414:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %409
   %415 = load i32, ptr %2, align 8
-  %.fr381 = freeze i32 %415
-  %416 = add i32 %.fr381, -48
+  %.fr382 = freeze i32 %415
+  %416 = add i32 %.fr382, -48
   %or.cond164 = icmp ult i32 %416, 10
-  br i1 %or.cond164, label %417, label %switch.early.test325
+  br i1 %or.cond164, label %417, label %switch.early.test326
 
-switch.early.test325:                             ; preds = %414
-  switch i32 %.fr381, label %418 [
+switch.early.test326:                             ; preds = %414
+  switch i32 %.fr382, label %418 [
     i32 102, label %417
     i32 101, label %417
     i32 100, label %417
@@ -4716,11 +4716,11 @@ switch.early.test325:                             ; preds = %414
     i32 65, label %417
   ]
 
-417:                                              ; preds = %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %switch.early.test325, %414
+417:                                              ; preds = %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %414
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %422
 
-418:                                              ; preds = %switch.early.test325
+418:                                              ; preds = %switch.early.test326
   %419 = getelementptr inbounds i8, ptr %0, i64 40
   %420 = load i32, ptr %419, align 8
   %421 = load ptr, ptr %75, align 8
@@ -4729,13 +4729,13 @@ switch.early.test325:                             ; preds = %414
 
 422:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %417
   %423 = load i32, ptr %2, align 8
-  %.fr382 = freeze i32 %423
-  %424 = add i32 %.fr382, -48
+  %.fr383 = freeze i32 %423
+  %424 = add i32 %.fr383, -48
   %or.cond167 = icmp ult i32 %424, 10
-  br i1 %or.cond167, label %425, label %switch.early.test326
+  br i1 %or.cond167, label %425, label %switch.early.test327
 
-switch.early.test326:                             ; preds = %422
-  switch i32 %.fr382, label %426 [
+switch.early.test327:                             ; preds = %422
+  switch i32 %.fr383, label %426 [
     i32 102, label %425
     i32 101, label %425
     i32 100, label %425
@@ -4750,11 +4750,11 @@ switch.early.test326:                             ; preds = %422
     i32 65, label %425
   ]
 
-425:                                              ; preds = %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %switch.early.test326, %422
+425:                                              ; preds = %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %switch.early.test327, %422
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %430
 
-426:                                              ; preds = %switch.early.test326
+426:                                              ; preds = %switch.early.test327
   %427 = getelementptr inbounds i8, ptr %0, i64 40
   %428 = load i32, ptr %427, align 8
   %429 = load ptr, ptr %75, align 8
@@ -4763,28 +4763,28 @@ switch.early.test326:                             ; preds = %422
 
 430:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %425
   %431 = load i32, ptr %2, align 8
-  %.fr383 = freeze i32 %431
-  %432 = add i32 %.fr383, -48
+  %.fr384 = freeze i32 %431
+  %432 = add i32 %.fr384, -48
   %or.cond170 = icmp ult i32 %432, 10
-  br i1 %or.cond170, label %.preheader343.sink.split, label %switch.early.test327
+  br i1 %or.cond170, label %.preheader344.sink.split, label %switch.early.test328
 
-switch.early.test327:                             ; preds = %430
-  switch i32 %.fr383, label %433 [
-    i32 102, label %.preheader343.sink.split
-    i32 101, label %.preheader343.sink.split
-    i32 100, label %.preheader343.sink.split
-    i32 99, label %.preheader343.sink.split
-    i32 98, label %.preheader343.sink.split
-    i32 97, label %.preheader343.sink.split
-    i32 70, label %.preheader343.sink.split
-    i32 69, label %.preheader343.sink.split
-    i32 68, label %.preheader343.sink.split
-    i32 67, label %.preheader343.sink.split
-    i32 66, label %.preheader343.sink.split
-    i32 65, label %.preheader343.sink.split
+switch.early.test328:                             ; preds = %430
+  switch i32 %.fr384, label %433 [
+    i32 102, label %.preheader344.sink.split
+    i32 101, label %.preheader344.sink.split
+    i32 100, label %.preheader344.sink.split
+    i32 99, label %.preheader344.sink.split
+    i32 98, label %.preheader344.sink.split
+    i32 97, label %.preheader344.sink.split
+    i32 70, label %.preheader344.sink.split
+    i32 69, label %.preheader344.sink.split
+    i32 68, label %.preheader344.sink.split
+    i32 67, label %.preheader344.sink.split
+    i32 66, label %.preheader344.sink.split
+    i32 65, label %.preheader344.sink.split
   ]
 
-433:                                              ; preds = %switch.early.test327
+433:                                              ; preds = %switch.early.test328
   %434 = getelementptr inbounds i8, ptr %0, i64 40
   %435 = load i32, ptr %434, align 8
   %436 = load ptr, ptr %75, align 8
@@ -4793,13 +4793,13 @@ switch.early.test327:                             ; preds = %430
 
 437:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %566
   %438 = load i32, ptr %2, align 8
-  %.fr372 = freeze i32 %438
-  %439 = add i32 %.fr372, -48
+  %.fr373 = freeze i32 %438
+  %439 = add i32 %.fr373, -48
   %or.cond173 = icmp ult i32 %439, 10
-  br i1 %or.cond173, label %440, label %switch.early.test328
+  br i1 %or.cond173, label %440, label %switch.early.test329
 
-switch.early.test328:                             ; preds = %437
-  switch i32 %.fr372, label %441 [
+switch.early.test329:                             ; preds = %437
+  switch i32 %.fr373, label %441 [
     i32 102, label %440
     i32 101, label %440
     i32 100, label %440
@@ -4814,11 +4814,11 @@ switch.early.test328:                             ; preds = %437
     i32 65, label %440
   ]
 
-440:                                              ; preds = %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %switch.early.test328, %437
+440:                                              ; preds = %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %437
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %445
 
-441:                                              ; preds = %switch.early.test328
+441:                                              ; preds = %switch.early.test329
   %442 = getelementptr inbounds i8, ptr %0, i64 40
   %443 = load i32, ptr %442, align 8
   %444 = load ptr, ptr %75, align 8
@@ -4827,13 +4827,13 @@ switch.early.test328:                             ; preds = %437
 
 445:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %440
   %446 = load i32, ptr %2, align 8
-  %.fr373 = freeze i32 %446
-  %447 = add i32 %.fr373, -48
+  %.fr374 = freeze i32 %446
+  %447 = add i32 %.fr374, -48
   %or.cond176 = icmp ult i32 %447, 10
-  br i1 %or.cond176, label %448, label %switch.early.test329
+  br i1 %or.cond176, label %448, label %switch.early.test330
 
-switch.early.test329:                             ; preds = %445
-  switch i32 %.fr373, label %449 [
+switch.early.test330:                             ; preds = %445
+  switch i32 %.fr374, label %449 [
     i32 102, label %448
     i32 101, label %448
     i32 100, label %448
@@ -4848,11 +4848,11 @@ switch.early.test329:                             ; preds = %445
     i32 65, label %448
   ]
 
-448:                                              ; preds = %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %switch.early.test329, %445
+448:                                              ; preds = %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %445
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %453
 
-449:                                              ; preds = %switch.early.test329
+449:                                              ; preds = %switch.early.test330
   %450 = getelementptr inbounds i8, ptr %0, i64 40
   %451 = load i32, ptr %450, align 8
   %452 = load ptr, ptr %75, align 8
@@ -4861,13 +4861,13 @@ switch.early.test329:                             ; preds = %445
 
 453:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %448
   %454 = load i32, ptr %2, align 8
-  %.fr374 = freeze i32 %454
-  %455 = add i32 %.fr374, -48
+  %.fr375 = freeze i32 %454
+  %455 = add i32 %.fr375, -48
   %or.cond179 = icmp ult i32 %455, 10
-  br i1 %or.cond179, label %456, label %switch.early.test330
+  br i1 %or.cond179, label %456, label %switch.early.test331
 
-switch.early.test330:                             ; preds = %453
-  switch i32 %.fr374, label %457 [
+switch.early.test331:                             ; preds = %453
+  switch i32 %.fr375, label %457 [
     i32 102, label %456
     i32 101, label %456
     i32 100, label %456
@@ -4882,11 +4882,11 @@ switch.early.test330:                             ; preds = %453
     i32 65, label %456
   ]
 
-456:                                              ; preds = %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %switch.early.test330, %453
+456:                                              ; preds = %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %453
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %461
 
-457:                                              ; preds = %switch.early.test330
+457:                                              ; preds = %switch.early.test331
   %458 = getelementptr inbounds i8, ptr %0, i64 40
   %459 = load i32, ptr %458, align 8
   %460 = load ptr, ptr %75, align 8
@@ -4895,13 +4895,13 @@ switch.early.test330:                             ; preds = %453
 
 461:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %456
   %462 = load i32, ptr %2, align 8
-  %.fr375 = freeze i32 %462
-  %463 = add i32 %.fr375, -48
+  %.fr376 = freeze i32 %462
+  %463 = add i32 %.fr376, -48
   %or.cond182 = icmp ult i32 %463, 10
-  br i1 %or.cond182, label %464, label %switch.early.test331
+  br i1 %or.cond182, label %464, label %switch.early.test332
 
-switch.early.test331:                             ; preds = %461
-  switch i32 %.fr375, label %465 [
+switch.early.test332:                             ; preds = %461
+  switch i32 %.fr376, label %465 [
     i32 102, label %464
     i32 101, label %464
     i32 100, label %464
@@ -4916,11 +4916,11 @@ switch.early.test331:                             ; preds = %461
     i32 65, label %464
   ]
 
-464:                                              ; preds = %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %switch.early.test331, %461
+464:                                              ; preds = %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %461
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %469
 
-465:                                              ; preds = %switch.early.test331
+465:                                              ; preds = %switch.early.test332
   %466 = getelementptr inbounds i8, ptr %0, i64 40
   %467 = load i32, ptr %466, align 8
   %468 = load ptr, ptr %75, align 8
@@ -4929,13 +4929,13 @@ switch.early.test331:                             ; preds = %461
 
 469:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %464
   %470 = load i32, ptr %2, align 8
-  %.fr376 = freeze i32 %470
-  %471 = add i32 %.fr376, -48
+  %.fr377 = freeze i32 %470
+  %471 = add i32 %.fr377, -48
   %or.cond185 = icmp ult i32 %471, 10
-  br i1 %or.cond185, label %472, label %switch.early.test332
+  br i1 %or.cond185, label %472, label %switch.early.test333
 
-switch.early.test332:                             ; preds = %469
-  switch i32 %.fr376, label %473 [
+switch.early.test333:                             ; preds = %469
+  switch i32 %.fr377, label %473 [
     i32 102, label %472
     i32 101, label %472
     i32 100, label %472
@@ -4950,11 +4950,11 @@ switch.early.test332:                             ; preds = %469
     i32 65, label %472
   ]
 
-472:                                              ; preds = %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %switch.early.test332, %469
+472:                                              ; preds = %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %469
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %477
 
-473:                                              ; preds = %switch.early.test332
+473:                                              ; preds = %switch.early.test333
   %474 = getelementptr inbounds i8, ptr %0, i64 40
   %475 = load i32, ptr %474, align 8
   %476 = load ptr, ptr %75, align 8
@@ -4963,13 +4963,13 @@ switch.early.test332:                             ; preds = %469
 
 477:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %472
   %478 = load i32, ptr %2, align 8
-  %.fr377 = freeze i32 %478
-  %479 = add i32 %.fr377, -48
+  %.fr378 = freeze i32 %478
+  %479 = add i32 %.fr378, -48
   %or.cond188 = icmp ult i32 %479, 10
-  br i1 %or.cond188, label %480, label %switch.early.test333
+  br i1 %or.cond188, label %480, label %switch.early.test334
 
-switch.early.test333:                             ; preds = %477
-  switch i32 %.fr377, label %481 [
+switch.early.test334:                             ; preds = %477
+  switch i32 %.fr378, label %481 [
     i32 102, label %480
     i32 101, label %480
     i32 100, label %480
@@ -4984,11 +4984,11 @@ switch.early.test333:                             ; preds = %477
     i32 65, label %480
   ]
 
-480:                                              ; preds = %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %switch.early.test333, %477
+480:                                              ; preds = %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %477
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %485
 
-481:                                              ; preds = %switch.early.test333
+481:                                              ; preds = %switch.early.test334
   %482 = getelementptr inbounds i8, ptr %0, i64 40
   %483 = load i32, ptr %482, align 8
   %484 = load ptr, ptr %75, align 8
@@ -4997,13 +4997,13 @@ switch.early.test333:                             ; preds = %477
 
 485:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %480
   %486 = load i32, ptr %2, align 8
-  %.fr378 = freeze i32 %486
-  %487 = add i32 %.fr378, -48
+  %.fr379 = freeze i32 %486
+  %487 = add i32 %.fr379, -48
   %or.cond191 = icmp ult i32 %487, 10
-  br i1 %or.cond191, label %488, label %switch.early.test334
+  br i1 %or.cond191, label %488, label %switch.early.test335
 
-switch.early.test334:                             ; preds = %485
-  switch i32 %.fr378, label %489 [
+switch.early.test335:                             ; preds = %485
+  switch i32 %.fr379, label %489 [
     i32 102, label %488
     i32 101, label %488
     i32 100, label %488
@@ -5018,11 +5018,11 @@ switch.early.test334:                             ; preds = %485
     i32 65, label %488
   ]
 
-488:                                              ; preds = %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %switch.early.test334, %485
+488:                                              ; preds = %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %switch.early.test335, %485
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %493
 
-489:                                              ; preds = %switch.early.test334
+489:                                              ; preds = %switch.early.test335
   %490 = getelementptr inbounds i8, ptr %0, i64 40
   %491 = load i32, ptr %490, align 8
   %492 = load ptr, ptr %75, align 8
@@ -5031,39 +5031,39 @@ switch.early.test334:                             ; preds = %485
 
 493:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %488
   %494 = load i32, ptr %2, align 8
-  %.fr379 = freeze i32 %494
-  %495 = add i32 %.fr379, -48
+  %.fr380 = freeze i32 %494
+  %495 = add i32 %.fr380, -48
   %or.cond194 = icmp ult i32 %495, 10
-  br i1 %or.cond194, label %.preheader343.sink.split, label %switch.early.test335
+  br i1 %or.cond194, label %.preheader344.sink.split, label %switch.early.test336
 
-switch.early.test335:                             ; preds = %493
-  switch i32 %.fr379, label %496 [
-    i32 102, label %.preheader343.sink.split
-    i32 101, label %.preheader343.sink.split
-    i32 100, label %.preheader343.sink.split
-    i32 99, label %.preheader343.sink.split
-    i32 98, label %.preheader343.sink.split
-    i32 97, label %.preheader343.sink.split
-    i32 70, label %.preheader343.sink.split
-    i32 69, label %.preheader343.sink.split
-    i32 68, label %.preheader343.sink.split
-    i32 67, label %.preheader343.sink.split
-    i32 66, label %.preheader343.sink.split
-    i32 65, label %.preheader343.sink.split
+switch.early.test336:                             ; preds = %493
+  switch i32 %.fr380, label %496 [
+    i32 102, label %.preheader344.sink.split
+    i32 101, label %.preheader344.sink.split
+    i32 100, label %.preheader344.sink.split
+    i32 99, label %.preheader344.sink.split
+    i32 98, label %.preheader344.sink.split
+    i32 97, label %.preheader344.sink.split
+    i32 70, label %.preheader344.sink.split
+    i32 69, label %.preheader344.sink.split
+    i32 68, label %.preheader344.sink.split
+    i32 67, label %.preheader344.sink.split
+    i32 66, label %.preheader344.sink.split
+    i32 65, label %.preheader344.sink.split
   ]
 
-496:                                              ; preds = %switch.early.test335
+496:                                              ; preds = %switch.early.test336
   %497 = getelementptr inbounds i8, ptr %0, i64 40
   %498 = load i32, ptr %497, align 8
   %499 = load ptr, ptr %75, align 8
   store i32 %498, ptr %499, align 8
   br label %672
 
-.sink.split409:                                   ; preds = %switch.early.test323, %375, %596, %585
+.sink.split410:                                   ; preds = %switch.early.test324, %375, %596, %585
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %500
 
-500:                                              ; preds = %.sink.split409, %_ZN14VrmlTranslator11StartStates5stateEi.exit
+500:                                              ; preds = %.sink.split410, %_ZN14VrmlTranslator11StartStates5stateEi.exit
   %501 = load ptr, ptr %75, align 8
   store i32 4, ptr %501, align 8
   br label %672
@@ -5094,17 +5094,17 @@ switch.early.test335:                             ; preds = %493
   store i32 6, ptr %513, align 8
   br label %672
 
-.lr.ph:                                           ; preds = %.preheader344, %.lr.ph
+.lr.ph:                                           ; preds = %.preheader345, %.lr.ph
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   %514 = load i32, ptr %2, align 8
   %515 = add i32 %514, -48
   %or.cond197 = icmp ult i32 %515, 10
   br i1 %or.cond197, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader344
-  %.lcssa350 = phi i32 [ %97, %.preheader344 ], [ %514, %.lr.ph ]
-  switch i32 %.lcssa350, label %516 [
-    i32 46, label %.preheader341.sink.split
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader345
+  %.lcssa351 = phi i32 [ %97, %.preheader345 ], [ %514, %.lr.ph ]
+  switch i32 %.lcssa351, label %516 [
+    i32 46, label %.preheader342.sink.split
     i32 69, label %.sink.split
     i32 101, label %.sink.split
   ]
@@ -5118,13 +5118,13 @@ switch.early.test335:                             ; preds = %493
   %519 = load i32, ptr %2, align 8
   %520 = add i32 %519, -48
   %or.cond198 = icmp ult i32 %520, 10
-  br i1 %or.cond198, label %.preheader344.sink.split, label %521
+  br i1 %or.cond198, label %.preheader345.sink.split, label %521
 
 521:                                              ; preds = %518
   switch i32 %519, label %523 [
     i32 88, label %522
     i32 120, label %522
-    i32 46, label %.preheader341.sink.split
+    i32 46, label %.preheader342.sink.split
     i32 69, label %.sink.split
     i32 101, label %.sink.split
   ]
@@ -5142,7 +5142,7 @@ switch.early.test335:                             ; preds = %493
   %526 = load i32, ptr %2, align 8
   %527 = add i32 %526, -49
   %or.cond199 = icmp ult i32 %527, 9
-  br i1 %or.cond199, label %.preheader344.sink.split, label %528
+  br i1 %or.cond199, label %.preheader345.sink.split, label %528
 
 528:                                              ; preds = %525
   switch i32 %526, label %531 [
@@ -5178,17 +5178,17 @@ switch.early.test335:                             ; preds = %493
   %538 = and i32 %536, -4
   %or.cond201 = icmp eq i32 %538, 40
   %539 = icmp eq i32 %536, 45
-  %or.cond260 = or i1 %539, %or.cond201
+  %or.cond261 = or i1 %539, %or.cond201
   %540 = add i32 %536, -47
   %or.cond202 = icmp ult i32 %540, 3
-  %or.cond305 = or i1 %or.cond202, %or.cond260
+  %or.cond306 = or i1 %or.cond202, %or.cond261
   %541 = add i32 %536, -52
   %or.cond203 = icmp ult i32 %541, 39
-  %or.cond306 = or i1 %or.cond203, %or.cond305
+  %or.cond307 = or i1 %or.cond203, %or.cond306
   %542 = add i32 %536, -94
   %or.cond204 = icmp ult i32 %542, 29
-  %or.cond307 = or i1 %or.cond204, %or.cond306
-  br i1 %or.cond307, label %.preheader.sink.split, label %543
+  %or.cond308 = or i1 %or.cond204, %or.cond307
+  br i1 %or.cond308, label %.preheader.sink.split, label %543
 
 543:                                              ; preds = %537
   switch i32 %536, label %544 [
@@ -5202,7 +5202,7 @@ switch.early.test335:                             ; preds = %493
   br i1 %or.cond205, label %.preheader.sink.split, label %546
 
 546:                                              ; preds = %544
-  switch i32 %536, label %_Z18coco_string_deleteRPw.exit253 [
+  switch i32 %536, label %_Z18coco_string_deleteRPw.exit254 [
     i32 51, label %547
     i32 50, label %548
   ]
@@ -5215,7 +5215,7 @@ switch.early.test335:                             ; preds = %493
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %624
 
-_Z18coco_string_deleteRPw.exit253:                ; preds = %546
+_Z18coco_string_deleteRPw.exit254:                ; preds = %546
   %549 = load ptr, ptr %75, align 8
   store i32 1, ptr %549, align 8
   %550 = getelementptr inbounds i8, ptr %0, i64 96
@@ -5231,31 +5231,31 @@ _Z18coco_string_deleteRPw.exit253:                ; preds = %546
   tail call void @_ZdaPv(ptr noundef nonnull %553) #20
   br label %672
 
-.sink.split410:                                   ; preds = %switch.early.test323, %375, %596, %585
+.sink.split411:                                   ; preds = %switch.early.test324, %375, %596, %585
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %559
 
-559:                                              ; preds = %.sink.split410, %_ZN14VrmlTranslator11StartStates5stateEi.exit
+559:                                              ; preds = %.sink.split411, %_ZN14VrmlTranslator11StartStates5stateEi.exit
   %560 = load i32, ptr %2, align 8
   switch i32 %560, label %561 [
-    i32 34, label %.preheader343.sink.split
-    i32 39, label %.preheader343.sink.split
-    i32 48, label %.preheader343.sink.split
-    i32 92, label %.preheader343.sink.split
+    i32 34, label %.preheader344.sink.split
+    i32 39, label %.preheader344.sink.split
+    i32 48, label %.preheader344.sink.split
+    i32 92, label %.preheader344.sink.split
   ]
 
 561:                                              ; preds = %559
   %562 = add i32 %560, -97
   %or.cond206 = icmp ult i32 %562, 2
-  br i1 %or.cond206, label %.preheader343.sink.split, label %563
+  br i1 %or.cond206, label %.preheader344.sink.split, label %563
 
 563:                                              ; preds = %561
   switch i32 %560, label %567 [
-    i32 102, label %.preheader343.sink.split
-    i32 110, label %.preheader343.sink.split
-    i32 114, label %.preheader343.sink.split
-    i32 116, label %.preheader343.sink.split
-    i32 118, label %.preheader343.sink.split
+    i32 102, label %.preheader344.sink.split
+    i32 110, label %.preheader344.sink.split
+    i32 114, label %.preheader344.sink.split
+    i32 116, label %.preheader344.sink.split
+    i32 118, label %.preheader344.sink.split
     i32 120, label %564
     i32 117, label %565
     i32 85, label %566
@@ -5282,13 +5282,13 @@ _Z18coco_string_deleteRPw.exit253:                ; preds = %546
 
 571:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %401
   %572 = load i32, ptr %2, align 8
-  %.fr386 = freeze i32 %572
-  %573 = add i32 %.fr386, -48
+  %.fr387 = freeze i32 %572
+  %573 = add i32 %.fr387, -48
   %or.cond207 = icmp ult i32 %573, 10
-  br i1 %or.cond207, label %574, label %switch.early.test336
+  br i1 %or.cond207, label %574, label %switch.early.test337
 
-switch.early.test336:                             ; preds = %571
-  switch i32 %.fr386, label %575 [
+switch.early.test337:                             ; preds = %571
+  switch i32 %.fr387, label %575 [
     i32 102, label %574
     i32 101, label %574
     i32 100, label %574
@@ -5303,32 +5303,32 @@ switch.early.test336:                             ; preds = %571
     i32 65, label %574
   ]
 
-574:                                              ; preds = %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %switch.early.test336, %571
+574:                                              ; preds = %switch.early.test337, %switch.early.test337, %switch.early.test337, %switch.early.test337, %switch.early.test337, %switch.early.test337, %switch.early.test337, %switch.early.test337, %switch.early.test337, %switch.early.test337, %switch.early.test337, %switch.early.test337, %571
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %590
 
-575:                                              ; preds = %switch.early.test336
-  %576 = icmp slt i32 %.fr386, 34
-  br i1 %576, label %.preheader343.sink.split, label %577
+575:                                              ; preds = %switch.early.test337
+  %576 = icmp slt i32 %.fr387, 34
+  br i1 %576, label %.preheader344.sink.split, label %577
 
 577:                                              ; preds = %575
-  %.not123 = icmp ne i32 %.fr386, 34
-  %578 = icmp ult i32 %.fr386, 48
+  %.not123 = icmp ne i32 %.fr387, 34
+  %578 = icmp ult i32 %.fr387, 48
   %or.cond210 = and i1 %.not123, %578
-  %579 = insertelement <4 x i32> poison, i32 %.fr386, i64 0
+  %579 = insertelement <4 x i32> poison, i32 %.fr387, i64 0
   %580 = shufflevector <4 x i32> %579, <4 x i32> poison, <4 x i32> zeroinitializer
-  %.fr420 = freeze <4 x i32> %580
-  %581 = add <4 x i32> %.fr420, <i32 -58, i32 -71, i32 -93, i32 -103>
+  %.fr421 = freeze <4 x i32> %580
+  %581 = add <4 x i32> %.fr421, <i32 -58, i32 -71, i32 -93, i32 -103>
   %582 = icmp ult <4 x i32> %581, <i32 7, i32 21, i32 4, i32 65433>
   %583 = bitcast <4 x i1> %582 to i4
   %584 = icmp ne i4 %583, 0
   %op.rdx = or i1 %or.cond210, %584
-  br i1 %op.rdx, label %.preheader343.sink.split, label %585
+  br i1 %op.rdx, label %.preheader344.sink.split, label %585
 
 585:                                              ; preds = %577
-  switch i32 %.fr386, label %586 [
-    i32 34, label %.sink.split409
-    i32 92, label %.sink.split410
+  switch i32 %.fr387, label %586 [
+    i32 34, label %.sink.split410
+    i32 92, label %.sink.split411
   ]
 
 586:                                              ; preds = %585
@@ -5341,7 +5341,7 @@ switch.early.test336:                             ; preds = %571
 590:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit, %574
   %591 = load i32, ptr %2, align 8
   %592 = icmp slt i32 %591, 34
-  br i1 %592, label %.preheader343.sink.split, label %593
+  br i1 %592, label %.preheader344.sink.split, label %593
 
 593:                                              ; preds = %590
   %.not124 = icmp ne i32 %591, 34
@@ -5349,13 +5349,13 @@ switch.early.test336:                             ; preds = %571
   %or.cond215 = and i1 %.not124, %594
   %595 = add nsw i32 %591, -93
   %or.cond216 = icmp ult i32 %595, 65443
-  %or.cond314 = select i1 %or.cond215, i1 true, i1 %or.cond216
-  br i1 %or.cond314, label %.preheader343.sink.split, label %596
+  %or.cond315 = select i1 %or.cond215, i1 true, i1 %or.cond216
+  br i1 %or.cond315, label %.preheader344.sink.split, label %596
 
 596:                                              ; preds = %593
   switch i32 %591, label %597 [
-    i32 34, label %.sink.split409
-    i32 92, label %.sink.split410
+    i32 34, label %.sink.split410
+    i32 92, label %.sink.split411
   ]
 
 597:                                              ; preds = %596
@@ -5378,14 +5378,14 @@ switch.early.test336:                             ; preds = %571
   %604 = and i32 %602, -4
   %or.cond218 = icmp eq i32 %604, 40
   %605 = icmp eq i32 %602, 45
-  %or.cond261 = or i1 %605, %or.cond218
+  %or.cond262 = or i1 %605, %or.cond218
   %606 = add i32 %602, -47
   %or.cond219 = icmp ult i32 %606, 44
-  %or.cond316 = or i1 %or.cond219, %or.cond261
+  %or.cond317 = or i1 %or.cond219, %or.cond262
   %607 = add i32 %602, -94
   %or.cond220 = icmp ult i32 %607, 29
-  %or.cond317 = or i1 %or.cond220, %or.cond316
-  br i1 %or.cond317, label %.preheader.sink.split, label %608
+  %or.cond318 = or i1 %or.cond220, %or.cond317
+  br i1 %or.cond318, label %.preheader.sink.split, label %608
 
 608:                                              ; preds = %603
   switch i32 %602, label %609 [
@@ -5400,13 +5400,13 @@ switch.early.test336:                             ; preds = %571
 
 611:                                              ; preds = %609
   %612 = icmp eq i32 %602, 46
-  br i1 %612, label %613, label %_Z18coco_string_deleteRPw.exit254
+  br i1 %612, label %613, label %_Z18coco_string_deleteRPw.exit255
 
 613:                                              ; preds = %611
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %647
 
-_Z18coco_string_deleteRPw.exit254:                ; preds = %611
+_Z18coco_string_deleteRPw.exit255:                ; preds = %611
   %614 = load ptr, ptr %75, align 8
   store i32 1, ptr %614, align 8
   %615 = getelementptr inbounds i8, ptr %0, i64 96
@@ -5435,14 +5435,14 @@ _Z18coco_string_deleteRPw.exit254:                ; preds = %611
   %627 = and i32 %625, -4
   %or.cond223 = icmp eq i32 %627, 40
   %628 = icmp eq i32 %625, 45
-  %or.cond262 = or i1 %628, %or.cond223
+  %or.cond263 = or i1 %628, %or.cond223
   %629 = add i32 %625, -47
   %or.cond224 = icmp ult i32 %629, 44
-  %or.cond319 = or i1 %or.cond224, %or.cond262
+  %or.cond320 = or i1 %or.cond224, %or.cond263
   %630 = add i32 %625, -94
   %or.cond225 = icmp ult i32 %630, 29
-  %or.cond320 = or i1 %or.cond225, %or.cond319
-  br i1 %or.cond320, label %.preheader.sink.split, label %631
+  %or.cond321 = or i1 %or.cond225, %or.cond320
+  br i1 %or.cond321, label %.preheader.sink.split, label %631
 
 631:                                              ; preds = %626
   switch i32 %625, label %632 [
@@ -5457,13 +5457,13 @@ _Z18coco_string_deleteRPw.exit254:                ; preds = %611
 
 634:                                              ; preds = %632
   %635 = icmp eq i32 %625, 46
-  br i1 %635, label %636, label %_Z18coco_string_deleteRPw.exit255
+  br i1 %635, label %636, label %_Z18coco_string_deleteRPw.exit256
 
 636:                                              ; preds = %634
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %504
 
-_Z18coco_string_deleteRPw.exit255:                ; preds = %634
+_Z18coco_string_deleteRPw.exit256:                ; preds = %634
   %637 = load ptr, ptr %75, align 8
   store i32 1, ptr %637, align 8
   %638 = getelementptr inbounds i8, ptr %0, i64 96
@@ -5530,14 +5530,14 @@ _Z18coco_string_deleteRPw.exit255:                ; preds = %634
   %668 = load i32, ptr %2, align 8
   %669 = add i32 %668, -48
   %or.cond228 = icmp ult i32 %669, 10
-  br i1 %or.cond228, label %.preheader339.sink.split, label %670
+  br i1 %or.cond228, label %.preheader340.sink.split, label %670
 
 670:                                              ; preds = %667
   %671 = load ptr, ptr %75, align 8
   store i32 17, ptr %671, align 8
   br label %672
 
-672:                                              ; preds = %670, %665, %663, %661, %659, %657, %655, %651, %_Z18coco_string_deleteRPw.exit255, %_Z18coco_string_deleteRPw.exit254, %597, %586, %567, %_Z18coco_string_deleteRPw.exit253, %531, %523, %516, %512, %508, %502, %500, %496, %489, %481, %473, %465, %457, %449, %441, %433, %426, %418, %410, %402, %384, %376, %._crit_edge357, %303, %296, %._crit_edge364, %284, %277, %270, %._crit_edge371, %260, %253, %246, %239, %234, %228, %_Z18coco_string_deleteRPw.exit, %117, %113, %_ZN14VrmlTranslator11StartStates5stateEi.exit
+672:                                              ; preds = %670, %665, %663, %661, %659, %657, %655, %651, %_Z18coco_string_deleteRPw.exit256, %_Z18coco_string_deleteRPw.exit255, %597, %586, %567, %_Z18coco_string_deleteRPw.exit254, %531, %523, %516, %512, %508, %502, %500, %496, %489, %481, %473, %465, %457, %449, %441, %433, %426, %418, %410, %402, %384, %376, %._crit_edge358, %303, %296, %._crit_edge365, %284, %277, %270, %._crit_edge372, %260, %253, %246, %239, %234, %228, %_Z18coco_string_deleteRPw.exit, %117, %113, %_ZN14VrmlTranslator11StartStates5stateEi.exit
   %673 = load ptr, ptr %75, align 8
   tail call void @_ZN14VrmlTranslator7Scanner9AppendValEPNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %673)
   %674 = load ptr, ptr %75, align 8
@@ -5565,7 +5565,7 @@ define linkonce_odr noundef i32 @_ZN14VrmlTranslator10KeywordMap3getEPKwi(ptr no
   %10 = getelementptr inbounds i8, ptr %.0814.i, i64 4
   %11 = load i32, ptr %10, align 4
   %.not12.i = icmp eq i32 %11, 0
-  br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %9, %.lr.ph.i ]
@@ -5585,7 +5585,7 @@ _Z16coco_string_hashPKw.exit:                     ; preds = %3, %._crit_edge.i
   %.011 = phi ptr [ %.0, %19 ], [ %.09, %_Z16coco_string_hashPKw.exit ]
   %15 = getelementptr inbounds i8, ptr %.011, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @wcscmp(ptr noundef %16, ptr noundef %1) #24
+  %17 = tail call i32 @wcscmp(ptr noundef readonly %16, ptr noundef readonly %1) #24
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.critedge, label %19
 
@@ -5593,7 +5593,7 @@ _Z16coco_string_hashPKw.exit:                     ; preds = %3, %._crit_edge.i
   %20 = getelementptr inbounds i8, ptr %.011, i64 24
   %.0 = load ptr, ptr %20, align 8
   %cond = icmp eq ptr %.0, null
-  br i1 %cond, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %cond, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .critedge:                                        ; preds = %.lr.ph
   %21 = getelementptr inbounds i8, ptr %.011, i64 16
@@ -5649,7 +5649,7 @@ define noundef ptr @_ZN14VrmlTranslator7Scanner4PeekEv(ptr noundef nonnull align
   %12 = load i32, ptr %9, align 8
   %13 = load i32, ptr %7, align 4
   %14 = icmp sgt i32 %12, %13
-  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !31
+  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !30
 
 15:                                               ; preds = %.preheader1, %15
   %16 = phi ptr [ %3, %.preheader1 ], [ %18, %15 ]
@@ -5658,7 +5658,7 @@ define noundef ptr @_ZN14VrmlTranslator7Scanner4PeekEv(ptr noundef nonnull align
   store ptr %18, ptr %2, align 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, %8
-  br i1 %20, label %15, label %.loopexit, !llvm.loop !32
+  br i1 %20, label %15, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %15, %.preheader
   %21 = phi ptr [ %9, %.preheader ], [ %18, %15 ]
@@ -5714,31 +5714,30 @@ attributes #25 = { nounwind allocsize(0) }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 65537}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}

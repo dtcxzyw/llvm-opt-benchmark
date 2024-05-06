@@ -26,7 +26,7 @@ define void @Init_emacs_mule() local_unnamed_addr #0 {
 declare i32 @rb_enc_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 -2147483647, -2147483648) i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i64
@@ -174,7 +174,7 @@ select.unfold:                                    ; preds = %9, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @code_to_mbclen(i32 noundef %0, ptr nocapture readnone %1) #3 {
+define internal range(i32 -400, 5) i32 @code_to_mbclen(i32 noundef %0, ptr nocapture readnone %1) #3 {
   %3 = icmp ult i32 %0, 128
   br i1 %3, label %10, label %4
 
@@ -205,7 +205,7 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr noundef %2)
 
 4:                                                ; preds = %3
   %5 = lshr i32 %0, 24
-  %6 = trunc i32 %5 to i8
+  %6 = trunc nuw i32 %5 to i8
   %7 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %6, ptr %1, align 1
   br label %8
@@ -264,7 +264,7 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr noundef %2)
   %36 = ptrtoint ptr %1 to i64
   %37 = sub i64 %35, %36
   %.not29 = icmp eq i64 %37, %34
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nsw i64 %37 to i32
   %.024 = select i1 %.not29, i32 %38, i32 -400
   ret i32 %.024
 }
@@ -395,7 +395,7 @@ declare i32 @onigenc_ascii_get_case_fold_codes_by_str(i32 noundef, ptr noundef, 
 declare i32 @onigenc_minimum_property_name_to_ctype(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr nocapture readnone %2) #3 {
+define internal range(i32 0, 2) i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr nocapture readnone %2) #3 {
   %4 = icmp ult i32 %0, 128
   br i1 %4, label %5, label %code_to_mbclen.exit
 

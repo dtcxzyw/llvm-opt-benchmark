@@ -2911,7 +2911,7 @@ _ZNSt12_Vector_baseIN6casadi6MatrixINS0_6SXElemEEESaIS3_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi10SymbolicQr8init_memEPv(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi10SymbolicQr8init_memEPv(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i32 @_ZNK6casadi14LinsolInternal8init_memEPv(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit13
@@ -3192,7 +3192,7 @@ declare noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 de
 declare noundef i64 @_ZNK6casadi8Function7nnz_outEx(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi10SymbolicQr5nfactEPvPKd(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #4 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi10SymbolicQr5nfactEPvPKd(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 72
@@ -3278,7 +3278,7 @@ declare noundef i64 @_ZNK6casadi8Function5n_outEv(ptr noundef nonnull align 8 de
 declare noundef i32 @_ZNK6casadi8FunctionclEPPKdPPdPxS4_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi10SymbolicQr5solveEPvPKdPdxb(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i64 noundef %4, i1 noundef zeroext %5) unnamed_addr #4 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi10SymbolicQr5solveEPvPKdPdxb(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i64 noundef %4, i1 noundef zeroext %5) unnamed_addr #4 align 2 {
   %.v = select i1 %5, i64 200, i64 192
   %7 = getelementptr inbounds i8, ptr %0, i64 %.v
   %8 = getelementptr inbounds i8, ptr %1, i64 64

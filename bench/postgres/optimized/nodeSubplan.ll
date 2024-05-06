@@ -303,7 +303,7 @@ ExecProcNode.exit.i.i:                            ; preds = %132, %126
   br i1 %163, label %slot_getsomeattrs.exit.i.i.i, label %slot_getattr.exit.i.i
 
 slot_getsomeattrs.exit.i.i.i:                     ; preds = %.lr.ph96.i.i
-  %164 = trunc i64 %indvars.iv100.i.i to i32
+  %164 = trunc nuw nsw i64 %indvars.iv100.i.i to i32
   call void @slot_getsomeattrs_int(ptr noundef nonnull %.07397.i.i, i32 noundef %164) #7
   br label %slot_getattr.exit.i.i
 
@@ -892,7 +892,7 @@ ExecProcNode.exit.i:                              ; preds = %430, %.thread.i
   %489 = getelementptr %struct.ParamExecData, ptr %487, i64 %488
   %490 = load ptr, ptr %435, align 8
   %491 = getelementptr inbounds i8, ptr %489, i64 16
-  %492 = trunc i64 %indvars.iv237.i56 to i32
+  %492 = trunc nuw i64 %indvars.iv237.i56 to i32
   %493 = icmp sgt i32 %492, 0
   br i1 %493, label %494, label %561
 
@@ -1089,7 +1089,7 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   br i1 %604, label %slot_getsomeattrs.exit.i156.i, label %slot_getattr.exit157.i
 
 slot_getsomeattrs.exit.i156.i:                    ; preds = %.lr.ph217.i
-  %605 = trunc i64 %indvars.iv244.i to i32
+  %605 = trunc nuw nsw i64 %indvars.iv244.i to i32
   call void @slot_getsomeattrs_int(ptr noundef nonnull %.0221.i, i32 noundef %605) #7
   br label %slot_getattr.exit157.i
 
@@ -1854,7 +1854,7 @@ ExecProcNode.exit118.us:                          ; preds = %85, %slot_getattr.e
   store ptr null, ptr %119, align 8
   %120 = load ptr, ptr %50, align 8
   %121 = getelementptr inbounds i8, ptr %119, i64 16
-  %122 = trunc i64 %indvars.iv194 to i32
+  %122 = trunc nuw i64 %indvars.iv194 to i32
   %123 = icmp sgt i32 %122, 0
   br i1 %123, label %124, label %192
 

@@ -372,7 +372,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 define dso_local i32 @poll_fd(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.fd_data, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  %5 = call i32 @fds_add(ptr noundef nonnull %4, i32 noundef %0, i32 noundef 1, i32 noundef %1), !range !5
+  %5 = call i32 @fds_add(ptr noundef nonnull %4, i32 noundef %0, i32 noundef 1, i32 noundef %1)
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %fds_free.exit, label %.preheader
 
@@ -464,7 +464,7 @@ fds_free.exit:                                    ; preds = %35, %34, %3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fds_add(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fds_add(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %1, 0
   br i1 %5, label %8, label %.preheader
 
@@ -769,7 +769,7 @@ realloc_polldata.exit:                            ; preds = %61
 
 67:                                               ; preds = %65, %52
   %68 = phi i64 [ %62, %65 ], [ %53, %52 ]
-  %69 = mul nsw i32 %.089, 1000
+  %69 = mul nuw nsw i32 %.089, 1000
   %spec.select121 = select i1 %49, i32 %69, i32 %.089
   %.not154 = icmp eq i64 %68, 0
   br i1 %.not154, label %.preheader136, label %.lr.ph147
@@ -1450,4 +1450,3 @@ attributes #28 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}

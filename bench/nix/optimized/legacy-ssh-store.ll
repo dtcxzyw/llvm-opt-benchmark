@@ -2209,7 +2209,7 @@ define internal fastcc void @"_ZN3nix8make_refINS_4PoolINS_14LegacySSHStore10Con
   store ptr @"_ZNSt17_Function_handlerIFN3nix3refINS0_14LegacySSHStore10ConnectionEEEvEZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKSt3mapISB_SB_St4lessISB_ESaISt4pairISC_SB_EEEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %10, align 8, !noalias !10
   %13 = getelementptr inbounds i8, ptr %3, i64 16
   %14 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !noalias !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !noalias !10
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_14LegacySSHStore10ConnectionEEEEZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_RKSt3mapISD_SD_St4lessISD_ESaISt4pairISE_SD_EEEE3$_1E9_M_invokeERKSt9_Any_dataS6_", ptr %14, align 8, !noalias !10
   store ptr @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_14LegacySSHStore10ConnectionEEEEZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_RKSt3mapISD_SD_St4lessISD_ESaISt4pairISE_SD_EEEE3$_1E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation", ptr %13, align 8, !noalias !10
   invoke void @_ZN3nix4PoolINS_14LegacySSHStore10ConnectionEEC2EmRKSt8functionIFNS_3refIS2_EEvEERKS4_IFbRKS6_EE(ptr noundef nonnull align 8 dereferenceable(192) %8, i64 noundef %9, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)

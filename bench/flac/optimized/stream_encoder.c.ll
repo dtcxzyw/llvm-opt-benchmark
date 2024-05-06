@@ -906,8 +906,8 @@ if.end27.i:                                       ; preds = %if.end14.i
   %body.i = getelementptr inbounds i8, ptr %page.i, i64 16
   %78 = load ptr, ptr %body.i, align 8
   %79 = zext nneg i32 %div37.i to i64
-  %80 = getelementptr i8, ptr %78, i64 %79
-  %add.ptr.i = getelementptr i8, ptr %80, i64 17
+  %80 = getelementptr inbounds i8, ptr %78, i64 %79
+  %add.ptr.i = getelementptr inbounds i8, ptr %80, i64 17
   %md5sum.i = getelementptr inbounds i8, ptr %52, i64 2144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %md5sum.i, i64 16, i1 false)
   %sub.i = add i32 %add19.i, -4
@@ -926,8 +926,8 @@ if.then42.i:                                      ; preds = %if.end27.i
 if.end45.i:                                       ; preds = %if.end27.i
   %83 = load ptr, ptr %body.i, align 8
   %84 = zext nneg i32 %div3538.i to i64
-  %85 = getelementptr i8, ptr %83, i64 %84
-  %arrayidx.i = getelementptr i8, ptr %85, i64 17
+  %85 = getelementptr inbounds i8, ptr %83, i64 %84
+  %arrayidx.i = getelementptr inbounds i8, ptr %85, i64 17
   %86 = load i8, ptr %arrayidx.i, align 1
   %87 = and i8 %86, -16
   %shr.i = lshr i64 %58, 32
@@ -942,13 +942,13 @@ if.end45.i:                                       ; preds = %if.end27.i
   %conv66.i = trunc i64 %shr64.i to i8
   %conv69.i = trunc i64 %58 to i8
   store i8 %or.i, ptr %arrayidx.i, align 1
-  %b.sroa.6.0.add.ptr73.sroa_idx.i = getelementptr i8, ptr %85, i64 18
+  %b.sroa.6.0.add.ptr73.sroa_idx.i = getelementptr inbounds i8, ptr %85, i64 18
   store i8 %conv58.i, ptr %b.sroa.6.0.add.ptr73.sroa_idx.i, align 1
-  %b.sroa.8.0.add.ptr73.sroa_idx.i = getelementptr i8, ptr %85, i64 19
+  %b.sroa.8.0.add.ptr73.sroa_idx.i = getelementptr inbounds i8, ptr %85, i64 19
   store i8 %conv62.i, ptr %b.sroa.8.0.add.ptr73.sroa_idx.i, align 1
-  %b.sroa.10.0.add.ptr73.sroa_idx.i = getelementptr i8, ptr %85, i64 20
+  %b.sroa.10.0.add.ptr73.sroa_idx.i = getelementptr inbounds i8, ptr %85, i64 20
   store i8 %conv66.i, ptr %b.sroa.10.0.add.ptr73.sroa_idx.i, align 1
-  %b.sroa.12.0.add.ptr73.sroa_idx.i = getelementptr i8, ptr %85, i64 21
+  %b.sroa.12.0.add.ptr73.sroa_idx.i = getelementptr inbounds i8, ptr %85, i64 21
   store i8 %conv69.i, ptr %b.sroa.12.0.add.ptr73.sroa_idx.i, align 1
   %div7639.i = lshr i32 %add.i, 3
   %add78.i = add nuw nsw i32 %div7639.i, 23
@@ -975,18 +975,18 @@ if.end86.i:                                       ; preds = %if.end45.i
   %conv107.i = trunc i32 %60 to i8
   %91 = load ptr, ptr %body.i, align 8
   %92 = zext nneg i32 %div7639.i to i64
-  %93 = getelementptr i8, ptr %91, i64 %92
-  %add.ptr111.i = getelementptr i8, ptr %93, i64 17
+  %93 = getelementptr inbounds i8, ptr %91, i64 %92
+  %add.ptr111.i = getelementptr inbounds i8, ptr %93, i64 17
   store i8 %conv89.i, ptr %add.ptr111.i, align 1
-  %b.sroa.6.0.add.ptr111.sroa_idx.i = getelementptr i8, ptr %93, i64 18
+  %b.sroa.6.0.add.ptr111.sroa_idx.i = getelementptr inbounds i8, ptr %93, i64 18
   store i8 %conv93.i, ptr %b.sroa.6.0.add.ptr111.sroa_idx.i, align 1
-  %b.sroa.8.0.add.ptr111.sroa_idx.i = getelementptr i8, ptr %93, i64 19
+  %b.sroa.8.0.add.ptr111.sroa_idx.i = getelementptr inbounds i8, ptr %93, i64 19
   store i8 %conv96.i, ptr %b.sroa.8.0.add.ptr111.sroa_idx.i, align 1
-  %b.sroa.10.0.add.ptr111.sroa_idx.i = getelementptr i8, ptr %93, i64 20
+  %b.sroa.10.0.add.ptr111.sroa_idx.i = getelementptr inbounds i8, ptr %93, i64 20
   store i8 %conv100.i, ptr %b.sroa.10.0.add.ptr111.sroa_idx.i, align 1
-  %b.sroa.12.0.add.ptr111.sroa_idx.i = getelementptr i8, ptr %93, i64 21
+  %b.sroa.12.0.add.ptr111.sroa_idx.i = getelementptr inbounds i8, ptr %93, i64 21
   store i8 %conv104.i, ptr %b.sroa.12.0.add.ptr111.sroa_idx.i, align 1
-  %b.sroa.14.0.add.ptr111.sroa_idx.i = getelementptr i8, ptr %93, i64 22
+  %b.sroa.14.0.add.ptr111.sroa_idx.i = getelementptr inbounds i8, ptr %93, i64 22
   store i8 %conv107.i, ptr %b.sroa.14.0.add.ptr111.sroa_idx.i, align 1
   %94 = load ptr, ptr %encoder, align 8
   %streaminfo_offset114.i = getelementptr inbounds i8, ptr %94, i64 624
@@ -4988,7 +4988,7 @@ if.end122:                                        ; preds = %if.then119, %if.the
   %mutex_work_queue124 = getelementptr inbounds i8, ptr %54, i64 2864
   %call125 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue124) #24
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %crc.i)
-  %call.i = call fastcc i32 @process_subframes_(ptr noundef nonnull %encoder, ptr noundef %48)
+  %call.i = call fastcc i32 @process_subframes_(ptr noundef nonnull readonly %encoder, ptr noundef %48)
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %process_frame_thread_inner_.exit, label %land.lhs.true3.i
 
@@ -7745,7 +7745,7 @@ if.end175:                                        ; preds = %if.then172, %if.the
   %mutex_work_queue177 = getelementptr inbounds i8, ptr %66, i64 2864
   %call178 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue177) #24
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %crc.i)
-  %call.i = call fastcc i32 @process_subframes_(ptr noundef nonnull %args, ptr noundef %60)
+  %call.i = call fastcc i32 @process_subframes_(ptr noundef nonnull readonly %args, ptr noundef %60)
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %process_frame_thread_inner_.exit, label %land.lhs.true3.i
 
@@ -9580,7 +9580,7 @@ if.end8.i:                                        ; preds = %if.else5.i, %if.the
   %residual14.i = getelementptr inbounds i8, ptr %50, i64 72
   store ptr %44, ptr %residual14.i, align 8
   %52 = load ptr, ptr %private_, align 8
-  %call.i = call fastcc i32 @find_best_partition_order_(ptr noundef %52, ptr noundef nonnull %threadtask, ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %sub.i, i32 noundef %fixed_order.0234, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %49, ptr noundef nonnull %data.i162)
+  %call.i = call fastcc i32 @find_best_partition_order_(ptr noundef %52, ptr noundef nonnull readonly %threadtask, ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %sub.i, i32 noundef %fixed_order.0234, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %49, ptr noundef nonnull %data.i162)
   %order18.i = getelementptr inbounds i8, ptr %50, i64 32
   store i32 %fixed_order.0234, ptr %order18.i, align 8
   %cmp2149.not.i = icmp eq i32 %fixed_order.0234, 0
@@ -10139,7 +10139,7 @@ if.end52.i:                                       ; preds = %if.end52.i.sink.spl
   %residual58.i = getelementptr inbounds i8, ptr %131, i64 432
   store ptr %125, ptr %residual58.i, align 8
   %139 = load ptr, ptr %private_, align 8
-  %call62.i = call fastcc i32 @find_best_partition_order_(ptr noundef %139, ptr noundef nonnull %threadtask, ptr noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %sub.i184, i32 noundef %lpc_order.0253, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %130, ptr noundef nonnull %data.i188)
+  %call62.i = call fastcc i32 @find_best_partition_order_(ptr noundef %139, ptr noundef nonnull readonly %threadtask, ptr noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %sub.i184, i32 noundef %lpc_order.0253, i32 noundef %cond, i32 noundef %min_partition_order, i32 noundef %max_partition_order, i32 noundef %subframe_bps, i32 noundef %130, ptr noundef nonnull %data.i188)
   %order64.i = getelementptr inbounds i8, ptr %131, i64 32
   store i32 %lpc_order.0253, ptr %order64.i, align 8
   %qlp_coeff_precision66.i = getelementptr inbounds i8, ptr %131, i64 36

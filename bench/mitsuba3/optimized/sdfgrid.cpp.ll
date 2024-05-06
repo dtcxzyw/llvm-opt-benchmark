@@ -21365,8 +21365,8 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   %108 = phi i1 [ true, %102 ], [ false, %123 ]
   %indvars.iv78.i = phi i64 [ 0, %102 ], [ 1, %123 ]
   %109 = shl nuw nsw i64 %indvars.iv78.i, 2
-  %invariant.gep.i = getelementptr i32, ptr %106, i64 %109
-  %invariant.gep86.i = getelementptr i32, ptr %107, i64 %indvars.iv78.i
+  %invariant.gep.i = getelementptr inbounds i32, ptr %106, i64 %109
+  %invariant.gep86.i = getelementptr inbounds i32, ptr %107, i64 %indvars.iv78.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %122, %.preheader70.i
@@ -21374,8 +21374,8 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   %indvars.iv75.i = phi i64 [ 0, %.preheader70.i ], [ 1, %122 ]
   %111 = shl nuw nsw i64 %indvars.iv75.i, 1
   %112 = or disjoint i64 %111, %109
-  %invariant.gep81.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv75.i
-  %gep.i = getelementptr i32, ptr %invariant.gep86.i, i64 %111
+  %invariant.gep81.i = getelementptr inbounds i32, ptr %invariant.gep.i, i64 %indvars.iv75.i
+  %gep.i = getelementptr inbounds i32, ptr %invariant.gep86.i, i64 %111
   br label %113
 
 113:                                              ; preds = %113, %.preheader.i
@@ -21388,11 +21388,11 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   store i32 %115, ptr %117, align 4, !alias.scope !868
   %118 = add nsw i32 %indvars.iv.i.sroa.phi.sroa.speculated, %.sroa.0391.4.vec.extract
   %119 = shl nuw nsw i64 %indvars.iv.i, 1
-  %gep82.i = getelementptr i32, ptr %invariant.gep81.i, i64 %119
+  %gep82.i = getelementptr inbounds i32, ptr %invariant.gep81.i, i64 %119
   store i32 %118, ptr %gep82.i, align 4, !alias.scope !868
   %120 = add nsw i32 %indvars.iv.i.sroa.phi.sroa.speculated, %.sroa.0391.8.vec.extract
   %121 = shl nuw nsw i64 %indvars.iv.i, 2
-  %gep85.i = getelementptr i32, ptr %gep.i, i64 %121
+  %gep85.i = getelementptr inbounds i32, ptr %gep.i, i64 %121
   store i32 %120, ptr %gep85.i, align 4, !alias.scope !868
   br i1 %114, label %113, label %122, !llvm.loop !871
 

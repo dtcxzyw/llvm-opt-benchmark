@@ -80,7 +80,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_virtio_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_user_blk_handle_config_change(ptr noundef %dev) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_user_blk_handle_config_change(ptr noundef %dev) #0 {
 entry:
   %blkcfg = alloca %struct.virtio_blk_config, align 8
   %local_err = alloca ptr, align 8

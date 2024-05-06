@@ -58,7 +58,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ossl_v3_group_ac = external constant %struct.v3_ext_method, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509V3_EXT_add(ptr noundef %ext) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509V3_EXT_add(ptr noundef %ext) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @ext_list, align 8
   %cmp = icmp eq ptr %0, null
@@ -208,7 +208,7 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_EXTENSION_get_object(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509V3_EXT_add_list(ptr noundef %extlist) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509V3_EXT_add_list(ptr noundef %extlist) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %extlist, align 8
   %cmp.not5 = icmp eq i32 %0, -1
@@ -251,7 +251,7 @@ return:                                           ; preds = %for.cond, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509V3_EXT_add_alias(i32 noundef %nid_to, i32 noundef %nid_from) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509V3_EXT_add_alias(i32 noundef %nid_to, i32 noundef %nid_from) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.v3_ext_method, align 8
   %t.i = alloca ptr, align 8
@@ -589,7 +589,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_EXTENSION_get_critical(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509V3_add1_i2d(ptr nocapture noundef %x, i32 noundef %nid, ptr noundef %value, i32 noundef %crit, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr nocapture noundef %x, i32 noundef %nid, ptr noundef %value, i32 noundef %crit, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i64 %flags, 15
   %cmp.not = icmp eq i64 %and, 1

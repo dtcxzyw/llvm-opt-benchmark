@@ -198,7 +198,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @lua_getstack(ptr noundef readonly %L, i32 noundef %level, ptr nocapture noundef writeonly %ar) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @lua_getstack(ptr noundef readonly %L, i32 noundef %level, ptr nocapture noundef writeonly %ar) local_unnamed_addr #4 {
 entry:
   %cmp = icmp slt i32 %level, 0
   br i1 %cmp, label %return, label %if.end
@@ -617,7 +617,7 @@ if.end:                                           ; preds = %if.then2.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lua_getinfo(ptr noundef %L, ptr noundef readonly %what, ptr noundef %ar) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @lua_getinfo(ptr noundef %L, ptr noundef readonly %what, ptr noundef %ar) local_unnamed_addr #5 {
 entry:
   %v.i = alloca %struct.TValue, align 8
   %0 = load i8, ptr %what, align 1
@@ -921,7 +921,7 @@ land.lhs.true.i.i:                                ; preds = %sw.bb31.i
 
 getfuncname.exit.i:                               ; preds = %land.lhs.true.i.i
   %45 = load ptr, ptr %previous.i.i, align 8
-  %call.i.i = tail call fastcc ptr @funcnamefromcall(ptr noundef %L, ptr noundef %45, ptr noundef nonnull %name.i)
+  %call.i.i = tail call fastcc ptr @funcnamefromcall(ptr noundef readonly %L, ptr noundef %45, ptr noundef nonnull writeonly %name.i)
   store ptr %call.i.i, ptr %namewhat.i, align 8
   %cmp34.i = icmp eq ptr %call.i.i, null
   br i1 %cmp34.i, label %if.then36.i, label %for.inc.i
@@ -1142,7 +1142,7 @@ lor.lhs.false.i.i.i27.i:                          ; preds = %if.else.i.i24.i
   br i1 %cmp2.i.i.i29.i, label %getbaseline.exit.i.i44.i, label %if.else.i.i.i30.i
 
 if.else.i.i.i30.i:                                ; preds = %lor.lhs.false.i.i.i27.i
-  %80 = trunc i64 %indvars.iv.i to i32
+  %80 = trunc nuw nsw i64 %indvars.iv.i to i32
   %div14.i.i.i.i23 = lshr i32 %80, 7
   %81 = zext nneg i32 %div14.i.i.i.i23 to i64
   %82 = add nsw i64 %81, -1
@@ -1197,7 +1197,7 @@ nextline.exit60.i:                                ; preds = %while.body.i.i50.i,
   call void @luaH_setint(ptr noundef %L, ptr noundef %call.i, i64 noundef %conv16.i, ptr noundef nonnull %v.i) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %90 = load i32, ptr %sizelineinfo.i, align 4
-  %91 = trunc i64 %indvars.iv.next.i to i32
+  %91 = trunc nuw i64 %indvars.iv.next.i to i32
   %cmp13.i = icmp sgt i32 %90, %91
   br i1 %cmp13.i, label %for.body.i, label %collectvalidlines.exit, !llvm.loop !11
 
@@ -1301,7 +1301,7 @@ for.inc.i14:                                      ; preds = %for.body.i12
   br i1 %cmp.i, label %for.body.i12, label %formatvarinfo.exit, !llvm.loop !13
 
 instack.exit:                                     ; preds = %for.body.i12
-  %10 = trunc i64 %indvars.iv.i13 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.i13 to i32
   %cmp = icmp sgt i32 %10, -1
   br i1 %cmp, label %if.end10, label %formatvarinfo.exit
 
@@ -1441,7 +1441,7 @@ if.then11:                                        ; preds = %if.else6
 sw.bb.i:                                          ; preds = %if.then11, %if.then11
   %shr1.i = lshr i32 %6, 7
   %and2.i = and i32 %shr1.i, 255
-  %call.i = tail call fastcc ptr @getobjname(ptr noundef nonnull %3, i32 noundef %sub.i, i32 noundef %and2.i, ptr noundef %name)
+  %call.i = tail call fastcc ptr @getobjname(ptr noundef nonnull %3, i32 noundef %sub.i, i32 noundef %and2.i, ptr noundef writeonly %name)
   br label %return
 
 sw.bb3.i:                                         ; preds = %if.then11
@@ -1523,9 +1523,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  call void @llvm.va_start(ptr nonnull %argp)
+  call void @llvm.va_start.p0(ptr nonnull %argp)
   %call = call ptr @luaO_pushvfstring(ptr noundef nonnull %L, ptr noundef %fmt, ptr noundef nonnull %argp) #13
-  call void @llvm.va_end(ptr nonnull %argp)
+  call void @llvm.va_end.p0(ptr nonnull %argp)
   %callstatus = getelementptr inbounds i8, ptr %0, i64 62
   %3 = load i16, ptr %callstatus, align 2
   %4 = and i16 %3, 2
@@ -1832,16 +1832,10 @@ declare hidden void @luaD_throw(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 declare hidden void @luaC_step(ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 declare hidden ptr @luaO_pushvfstring(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
-
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @luaG_tracecall(ptr noundef %L) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @luaG_tracecall(ptr noundef %L) local_unnamed_addr #5 {
 entry:
   %ci1 = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %ci1, align 8
@@ -1883,7 +1877,7 @@ return:                                           ; preds = %entry, %if.else, %i
 declare hidden void @luaD_hookcall(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @luaG_traceexec(ptr noundef %L, ptr noundef %pc) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @luaG_traceexec(ptr noundef %L, ptr noundef %pc) local_unnamed_addr #5 {
 entry:
   %ci1 = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %ci1, align 8
@@ -2018,7 +2012,7 @@ for.cond.i:                                       ; preds = %if.end8.i, %for.con
 if.end8.i:                                        ; preds = %for.cond.i
   %conv.i = sext i8 %21 to i32
   %add.i = add nsw i32 %delta.0.i, %conv.i
-  %22 = trunc i64 %indvars.iv.next.i to i32
+  %22 = trunc nsw i64 %indvars.iv.next.i to i32
   %cmp9.i = icmp eq i32 %sub, %22
   br i1 %cmp9.i, label %changedline.exit, label %for.cond.i
 
@@ -2357,7 +2351,7 @@ sw.bb7:                                           ; preds = %if.then2
   %shr9 = lshr i32 %2, 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pc.addr.i24)
   store i32 %0, ptr %pc.addr.i24, align 4
-  %call.i = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef nonnull %pc.addr.i24, i32 noundef %shr9, ptr noundef %name)
+  %call.i = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef nonnull %pc.addr.i24, i32 noundef %shr9, ptr noundef writeonly %name)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i26, label %land.lhs.true.i
 
@@ -2470,7 +2464,7 @@ kname.exit.i:                                     ; preds = %if.then.i.i, %if.th
 if.else.i:                                        ; preds = %sw.bb19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pc.addr.i.i)
   store i32 %0, ptr %pc.addr.i.i, align 4
-  %call.i.i = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef nonnull %pc.addr.i.i, i32 noundef %shr.i53, ptr noundef %name)
+  %call.i.i = call fastcc ptr @basicgetobjname(ptr noundef nonnull %p, ptr noundef nonnull %pc.addr.i.i, i32 noundef %shr.i53, ptr noundef writeonly %name)
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.then.i6.i, label %land.lhs.true.i.i
 
@@ -2588,7 +2582,7 @@ sw.epilog.i:                                      ; preds = %for.body.i
 if.then48.i:                                      ; preds = %sw.epilog.i, %sw.default.i, %sw.bb22.i, %sw.bb18.i
   %12 = sext i32 %jmptarget.07.i to i64
   %cmp.i.i = icmp slt i64 %indvars.iv.i, %12
-  %13 = trunc i64 %indvars.iv.i to i32
+  %13 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.pc.i.i = select i1 %cmp.i.i, i32 -1, i32 %13
   br label %for.inc.i
 
@@ -2692,6 +2686,12 @@ return:                                           ; preds = %findsetreg.exit, %i
   %retval.0 = phi ptr [ %retval.0.i40, %kname.exit43 ], [ %retval.0.i33, %kname.exit ], [ @.str.17, %sw.bb11 ], [ null, %findsetreg.exit.thread ], [ null, %findsetreg.exit ], [ null, %if.then2 ], [ null, %sw.bb ], [ @.str.22, %tailrecurse ]
   ret ptr %retval.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

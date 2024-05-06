@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [13 x i8] c" Master-Key:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SSL_SESSION_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_SESSION_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #2
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #2
@@ -54,7 +54,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 106, i64 noundef 0, ptr noundef %fp) #2
-  %call3 = tail call i32 @SSL_SESSION_print(ptr noundef nonnull %call1, ptr noundef %x), !range !4
+  %call3 = tail call i32 @SSL_SESSION_print(ptr noundef nonnull %call1, ptr noundef %x)
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #2
   br label %return
 
@@ -76,7 +76,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SSL_SESSION_print(ptr noundef %bp, ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %bp, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %comp = alloca ptr, align 8
   %cmp = icmp eq ptr %x, null
@@ -149,7 +149,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %i.089, 1
   %6 = load i64, ptr %session_id_length, align 8
   %cmp51 = icmp ult i64 %inc, %6
-  br i1 %cmp51, label %for.body, label %for.end, !llvm.loop !5
+  br i1 %cmp51, label %for.body, label %for.end, !llvm.loop !4
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.089 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -179,7 +179,7 @@ for.cond64:                                       ; preds = %for.body67
   %inc76 = add nuw i64 %i.191, 1
   %9 = load i64, ptr %sid_ctx_length, align 8
   %cmp65 = icmp ult i64 %inc76, %9
-  br i1 %cmp65, label %for.body67, label %for.end77, !llvm.loop !7
+  br i1 %cmp65, label %for.body67, label %for.end77, !llvm.loop !6
 
 for.body67:                                       ; preds = %for.body67.lr.ph, %for.cond64
   %i.191 = phi i64 [ 0, %for.body67.lr.ph ], [ %inc76, %for.cond64 ]
@@ -217,7 +217,7 @@ for.cond91:                                       ; preds = %for.body94
   %inc103 = add nuw i64 %i.293, 1
   %12 = load i64, ptr %master_key_length, align 8
   %cmp92 = icmp ult i64 %inc103, %12
-  br i1 %cmp92, label %for.body94, label %for.end104, !llvm.loop !8
+  br i1 %cmp92, label %for.body94, label %for.end104, !llvm.loop !7
 
 for.body94:                                       ; preds = %for.body94.lr.ph, %for.cond91
   %i.293 = phi i64 [ 0, %for.body94.lr.ph ], [ %inc103, %for.cond91 ]
@@ -417,7 +417,7 @@ declare i32 @ssl_cipher_get_evp(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare ptr @X509_verify_cert_error_string(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SSL_SESSION_print_keylog(ptr noundef %bp, ptr noundef readonly %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_SESSION_print_keylog(ptr noundef %bp, ptr noundef readonly %x) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %err, label %if.end
@@ -457,7 +457,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %i.019, 1
   %3 = load i64, ptr %session_id_length, align 8
   %cmp13 = icmp ult i64 %inc, %3
-  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !8
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.019 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -486,7 +486,7 @@ for.cond24:                                       ; preds = %for.body28
   %inc37 = add nuw i64 %i.121, 1
   %6 = load i64, ptr %master_key_length, align 8
   %cmp26 = icmp ult i64 %inc37, %6
-  br i1 %cmp26, label %for.body28, label %for.end38, !llvm.loop !10
+  br i1 %cmp26, label %for.body28, label %for.end38, !llvm.loop !9
 
 for.body28:                                       ; preds = %for.body28.lr.ph, %for.cond24
   %i.121 = phi i64 [ 0, %for.body28.lr.ph ], [ %inc37, %for.cond24 ]
@@ -520,10 +520,9 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

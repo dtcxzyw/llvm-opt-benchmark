@@ -786,7 +786,7 @@ if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i9
-  %11 = trunc i64 %.sroa.speculated.i.i to i8
+  %11 = trunc nuw nsw i64 %.sroa.speculated.i.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %11
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %tmpl_s, i64 23
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !tbaa !24

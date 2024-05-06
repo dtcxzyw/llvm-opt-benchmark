@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [10 x i8] c"lz4 -d -q\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_support_filter_lz4(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, -19) i32 @archive_read_support_filter_lz4(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_read_register_bidder(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull @lz4_bidder_vtable) #2
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
@@ -30,7 +30,7 @@ declare i32 @__archive_read_register_bidder(ptr noundef, ptr noundef, ptr nounde
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lz4_reader_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal range(i32 0, 49) i32 @lz4_reader_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = call ptr @__archive_read_filter_ahead(ptr noundef %1, i64 noundef 11, ptr noundef nonnull %3) #2
   %5 = icmp eq ptr %4, null

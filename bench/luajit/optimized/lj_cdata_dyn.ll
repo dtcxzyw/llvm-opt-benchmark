@@ -116,7 +116,7 @@ if.else:                                          ; preds = %entry
   %conv11.i = trunc i64 %sub.ptr.sub.i to i16
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 -8
   store i16 %conv11.i, ptr %add.ptr.i, align 4
-  %conv12.i = trunc i32 %add.i9 to i16
+  %conv12.i = trunc nuw i32 %add.i9 to i16
   %extra14.i = getelementptr inbounds i8, ptr %4, i64 -6
   store i16 %conv12.i, ptr %extra14.i, align 2
   %len.i = getelementptr inbounds i8, ptr %4, i64 -4
@@ -400,7 +400,7 @@ while.end:                                        ; preds = %if.end12, %collect_
   %shr.lcssa = phi i32 [ %shr125, %collect_attrib ], [ %shr, %if.end12 ]
   %15 = load i64, ptr %key, align 8
   %shr14 = ashr i64 %15, 47
-  %conv15 = trunc i64 %shr14 to i32
+  %conv15 = trunc nsw i64 %shr14 to i32
   %cmp16 = icmp ult i32 %conv15, -14
   br i1 %cmp16, label %if.then18, label %if.else55
 

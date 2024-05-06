@@ -10729,19 +10729,19 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DffLegalizePass8tr
 
 8:                                                ; preds = %2
   %9 = and i32 %6, 1
-  %10 = shl i32 %6, 1
+  %10 = shl nuw nsw i32 %6, 1
   %11 = and i32 %10, 4
   %spec.select.i = or disjoint i32 %11, %9
   %12 = lshr i32 %6, 1
   %13 = and i32 %12, 2
   %.1.i = or disjoint i32 %spec.select.i, %13
-  %14 = shl i32 %6, 4
+  %14 = shl nuw nsw i32 %6, 4
   %15 = and i32 %14, 256
   %.2.i = or disjoint i32 %.1.i, %15
-  %16 = shl i32 %6, 5
+  %16 = shl nuw nsw i32 %6, 5
   %17 = and i32 %16, 1024
   %.3.i = or disjoint i32 %.2.i, %17
-  %18 = shl i32 %6, 3
+  %18 = shl nuw nsw i32 %6, 3
   %19 = and i32 %18, 512
   %.4.i = or disjoint i32 %.3.i, %19
   %20 = lshr i32 %6, 4
@@ -10859,19 +10859,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass21emulate_split_s
   %61 = alloca %"class.std::allocator", align 1
   %62 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr noundef nonnull align 8 dereferenceable(856) %1)
   %63 = and i32 %62, 1
-  %64 = shl i32 %62, 1
+  %64 = shl nuw nsw i32 %62, 1
   %65 = and i32 %64, 4
   %spec.select.i = or disjoint i32 %65, %63
   %66 = lshr i32 %62, 1
   %67 = and i32 %66, 2
   %.1.i = or disjoint i32 %spec.select.i, %67
-  %68 = shl i32 %62, 4
+  %68 = shl nuw nsw i32 %62, 4
   %69 = and i32 %68, 256
   %.2.i = or disjoint i32 %.1.i, %69
-  %70 = shl i32 %62, 5
+  %70 = shl nuw nsw i32 %62, 5
   %71 = and i32 %70, 1024
   %.3.i = or disjoint i32 %.2.i, %71
-  %72 = shl i32 %62, 3
+  %72 = shl nuw nsw i32 %62, 3
   %73 = and i32 %72, 512
   %.4.i = or disjoint i32 %.3.i, %73
   %74 = lshr i32 %62, 4
@@ -14944,7 +14944,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit313:                ; preds = %1511, %1508, %1496,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0) unnamed_addr #4 align 2 {
+define internal fastcc noundef range(i32 1, 1025) i32 @_ZN12_GLOBAL__N_115DffLegalizePass12get_initmaskERN5Yosys6FfDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 768
   %3 = getelementptr inbounds i8, ptr %0, i64 776
   %4 = load ptr, ptr %3, align 8

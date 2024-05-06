@@ -278,7 +278,7 @@ if.end5:                                          ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN2EA4StdC7StrlcpyEPcPKcm(ptr nocapture noundef writeonly %pDestination, ptr noundef %pSource, i64 noundef %nDestCapacity) local_unnamed_addr #0 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZN2EA4StdC7StrlcpyEPcPKcm(ptr nocapture noundef writeonly %pDestination, ptr noundef %pSource, i64 noundef %nDestCapacity) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %nDestCapacity, 0
   %or.cond = icmp ult i64 %nDestCapacity, 2
@@ -333,7 +333,7 @@ if.end14:                                         ; preds = %do.body, %while.con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN2EA4StdC7StrlcpyEPDsPKDsm(ptr nocapture noundef writeonly %pDestination, ptr noundef %pSource, i64 noundef %nDestCapacity) local_unnamed_addr #0 {
+define dso_local noundef range(i64 -4611686018427387905, 4611686018427387903) i64 @_ZN2EA4StdC7StrlcpyEPDsPKDsm(ptr nocapture noundef writeonly %pDestination, ptr noundef %pSource, i64 noundef %nDestCapacity) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %nDestCapacity, 0
   %or.cond = icmp ult i64 %nDestCapacity, 2
@@ -389,7 +389,7 @@ if.end14:                                         ; preds = %do.body, %while.con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN2EA4StdC7StrlcpyEPDiPKDim(ptr nocapture noundef writeonly %pDestination, ptr noundef %pSource, i64 noundef %nDestCapacity) local_unnamed_addr #0 {
+define dso_local noundef range(i64 -2305843009213693953, 2305843009213693951) i64 @_ZN2EA4StdC7StrlcpyEPDiPKDim(ptr nocapture noundef writeonly %pDestination, ptr noundef %pSource, i64 noundef %nDestCapacity) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %nDestCapacity, 0
   %or.cond = icmp ult i64 %nDestCapacity, 2
@@ -2150,12 +2150,12 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.end.thread
 
 cond.end:                                         ; preds = %entry
-  %call.i15 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pSource) #29
+  %call.i15 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pSource) #29
   br label %if.end9
 
 cond.end.thread:                                  ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pDestination) #29
-  %call.i1517 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pSource) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pDestination) #29
+  %call.i1517 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pSource) #29
   %add18 = add i64 %call.i1517, %call.i
   %cmp19 = icmp ult i64 %add18, %nDestCapacity
   %add.ptr = getelementptr inbounds i8, ptr %pDestination, i64 %call.i
@@ -2191,7 +2191,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define dso_local noundef i64 @_ZN2EA4StdC7StrlcatEPDsPKDsm(ptr noundef %pDestination, ptr noundef %pSource, i64 noundef %nDestCapacity) local_unnamed_addr #6 {
+define dso_local noundef range(i64 -9223372036854775808, 9223372036854775807) i64 @_ZN2EA4StdC7StrlcatEPDsPKDsm(ptr noundef %pDestination, ptr noundef %pSource, i64 noundef %nDestCapacity) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i64 %nDestCapacity, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -2338,7 +2338,7 @@ if.end9:                                          ; preds = %if.else, %if.then4,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define dso_local noundef i64 @_ZN2EA4StdC6StrlenEPKDs(ptr noundef %pString) local_unnamed_addr #6 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN2EA4StdC6StrlenEPKDs(ptr noundef %pString) local_unnamed_addr #6 {
 entry:
   %0 = ptrtoint ptr %pString to i64
   %and14 = and i64 %0, 7
@@ -3224,7 +3224,7 @@ while.end:                                        ; preds = %while.cond
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZN2EA4StdC7StrxfrmEPcPKcm(ptr nocapture noundef writeonly %pDest, ptr nocapture noundef readonly %pSource, i64 noundef %n) local_unnamed_addr #11 {
 entry:
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pSource) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pSource) #29
   %cmp.not = icmp eq i64 %n, 0
   br i1 %cmp.not, label %if.end5, label %while.cond.i
 
@@ -3268,7 +3268,7 @@ if.end5:                                          ; preds = %_ZN2EA4StdC7Strncpy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define dso_local noundef i64 @_ZN2EA4StdC7StrxfrmEPDsPKDsm(ptr nocapture noundef writeonly %pDest, ptr noundef %pSource, i64 noundef %n) local_unnamed_addr #6 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN2EA4StdC7StrxfrmEPDsPKDsm(ptr nocapture noundef writeonly %pDest, ptr noundef %pSource, i64 noundef %n) local_unnamed_addr #6 {
 entry:
   %0 = ptrtoint ptr %pSource to i64
   %and14.i = and i64 %0, 7
@@ -3399,14 +3399,14 @@ if.then:                                          ; preds = %_ZN2EA4StdC6StrlenE
 while.cond.i:                                     ; preds = %while.body.i, %if.then
   %indvar.i = phi i64 [ %indvar.next.i, %while.body.i ], [ 0, %if.then ]
   %n.addr.0.i = phi i64 [ %dec.i, %while.body.i ], [ %n, %if.then ]
-  %s.0.i = phi ptr [ %incdec.ptr.i8, %while.body.i ], [ %pSource, %if.then ]
+  %s.0.i = phi ptr [ %incdec.ptr.i9, %while.body.i ], [ %pSource, %if.then ]
   %d.0.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %pDest, %if.then ]
   %dec.i = add i64 %n.addr.0.i, -1
-  %tobool.not.i7 = icmp eq i64 %dec.i, 0
-  br i1 %tobool.not.i7, label %_ZN2EA4StdC7StrncpyEPDiPKDim.exit, label %while.body.i
+  %tobool.not.i8 = icmp eq i64 %dec.i, 0
+  br i1 %tobool.not.i8, label %_ZN2EA4StdC7StrncpyEPDiPKDim.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i8 = getelementptr inbounds i8, ptr %s.0.i, i64 4
+  %incdec.ptr.i9 = getelementptr inbounds i8, ptr %s.0.i, i64 4
   %1 = load i32, ptr %s.0.i, align 4
   %incdec.ptr1.i = getelementptr i8, ptr %d.0.i, i64 4
   store i32 %1, ptr %d.0.i, align 4
@@ -3446,7 +3446,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pString) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pString) #29
   %add = add i64 %call.i, 1
   %call1 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   br label %while.cond.i
@@ -4265,7 +4265,7 @@ return:                                           ; preds = %for.cond.for.end_cr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN2EA4StdC7StrcspnEPKDsS2_(ptr noundef %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN2EA4StdC7StrcspnEPKDsS2_(ptr noundef %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
 entry:
   %0 = load i16, ptr %pString1, align 2
   %tobool.not12 = icmp eq i16 %0, 0
@@ -4316,7 +4316,7 @@ return:                                           ; preds = %for.cond.for.end_cr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN2EA4StdC7StrcspnEPKDiS2_(ptr noundef %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZN2EA4StdC7StrcspnEPKDiS2_(ptr noundef %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
 entry:
   %0 = load i32, ptr %pString1, align 4
   %tobool.not12 = icmp eq i32 %0, 0
@@ -4615,7 +4615,7 @@ return:                                           ; preds = %for.end, %for.body,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN2EA4StdC6StrspnEPKDsS2_(ptr noundef %pString, ptr nocapture noundef readonly %pSubString) local_unnamed_addr #8 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN2EA4StdC6StrspnEPKDsS2_(ptr noundef %pString, ptr nocapture noundef readonly %pSubString) local_unnamed_addr #8 {
 entry:
   %0 = load i16, ptr %pString, align 2
   %tobool.not12 = icmp eq i16 %0, 0
@@ -4659,7 +4659,7 @@ return:                                           ; preds = %for.end, %for.body,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN2EA4StdC6StrspnEPKDiS2_(ptr noundef %pString, ptr nocapture noundef readonly %pSubString) local_unnamed_addr #8 {
+define dso_local noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZN2EA4StdC6StrspnEPKDiS2_(ptr noundef %pString, ptr nocapture noundef readonly %pSubString) local_unnamed_addr #8 {
 entry:
   %0 = load i32, ptr %pString, align 4
   %tobool.not12 = icmp eq i32 %0, 0
@@ -5073,7 +5073,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s1) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %s1) #29
   %cmp.not9 = icmp eq i64 %call.i, 0
   br i1 %cmp.not9, label %return, label %while.body.preheader
 
@@ -5265,7 +5265,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s1) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %s1) #29
   %cmp.not11 = icmp eq i64 %call.i, 0
   br i1 %cmp.not11, label %return, label %while.body.preheader
 
@@ -5702,7 +5702,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pString) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pString) #29
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -5711,7 +5711,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %call.i8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pSuffix) #29
+  %call.i8 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pSuffix) #29
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
@@ -5933,7 +5933,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pString) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pString) #29
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -5942,7 +5942,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %call.i7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pSuffix) #29
+  %call.i7 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pSuffix) #29
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
@@ -5954,7 +5954,7 @@ if.then6:                                         ; preds = %if.end4
   %add.ptr = getelementptr inbounds i8, ptr %pString, i64 %stringLength.addr.0
   %idx.neg = sub i64 0, %suffixLength.addr.0
   %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %call.i8 = tail call noundef i32 @strcasecmp(ptr noundef %add.ptr7, ptr noundef %pSuffix) #31
+  %call.i8 = tail call noundef i32 @strcasecmp(ptr noundef readonly %add.ptr7, ptr noundef readonly %pSuffix) #31
   %cmp9 = icmp eq i32 %call.i8, 0
   br label %return
 
@@ -6148,7 +6148,7 @@ return:                                           ; preds = %_ZN2EA4StdC7Tolower
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC7StricmpEPKDsS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -65535, 65536) i32 @_ZN2EA4StdC7StricmpEPKDsS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
 entry:
   br label %while.cond
 
@@ -6283,7 +6283,7 @@ return:                                           ; preds = %_ZN2EA4StdC7Tolower
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC7StricmpEPKDiS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN2EA4StdC7StricmpEPKDiS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
 entry:
   br label %while.cond
 
@@ -7146,7 +7146,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZN2EA4StdC6StrrevEPc(ptr noundef returned %pString) local_unnamed_addr #11 {
 entry:
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pString) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pString) #29
   %add.ptr = getelementptr inbounds i8, ptr %pString, i64 %call.i
   %p2.010 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
   %cmp11 = icmp ugt ptr %p2.010, %pString
@@ -7302,7 +7302,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %tobool1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pString.addr.0) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pString.addr.0) #29
   %add.ptr = getelementptr inbounds i8, ptr %pString.addr.0, i64 %call.i
   br label %while.cond4
 
@@ -7521,7 +7521,7 @@ entry:
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC6StrcmpEPKDsS2_(ptr noundef %pString1, ptr noundef %pString2) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -65535, 65536) i32 @_ZN2EA4StdC6StrcmpEPKDsS2_(ptr noundef %pString1, ptr noundef %pString2) local_unnamed_addr #8 {
 entry:
   %0 = ptrtoint ptr %pString1 to i64
   %1 = ptrtoint ptr %pString2 to i64
@@ -7605,7 +7605,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC6StrcmpEPKDiS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN2EA4StdC6StrcmpEPKDiS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
 entry:
   br label %while.cond
 
@@ -7644,7 +7644,7 @@ entry:
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC7StrncmpEPKDsS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -65535, 65536) i32 @_ZN2EA4StdC7StrncmpEPKDsS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
 entry:
   %inc = add i64 %n, 1
   br label %while.cond
@@ -7681,7 +7681,7 @@ return:                                           ; preds = %while.cond, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC7StrncmpEPKDiS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN2EA4StdC7StrncmpEPKDiS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
 entry:
   %inc = add i64 %n, 1
   br label %while.cond
@@ -7720,7 +7720,7 @@ return:                                           ; preds = %while.cond, %if.els
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC8StrnicmpEPKcS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -255, 256) i32 @_ZN2EA4StdC8StrnicmpEPKcS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
 entry:
   %inc = add i64 %n, 1
   br label %while.cond
@@ -7763,7 +7763,7 @@ return:                                           ; preds = %while.cond, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC8StrnicmpEPKDsS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -65535, 65536) i32 @_ZN2EA4StdC8StrnicmpEPKDsS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
 entry:
   %inc = add i64 %n, 1
   br label %while.cond
@@ -7824,7 +7824,7 @@ return:                                           ; preds = %while.cond, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC8StrnicmpEPKDiS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN2EA4StdC8StrnicmpEPKDiS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
 entry:
   %inc = add i64 %n, 1
   br label %while.cond
@@ -8503,12 +8503,12 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN2EA4StdC7StrcollEPKcS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #4 {
 entry:
-  %call.i = tail call noundef i32 @strcmp(ptr noundef nonnull dereferenceable(1) %pString1, ptr noundef nonnull dereferenceable(1) %pString2) #31
+  %call.i = tail call noundef i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %pString1, ptr noundef nonnull readonly dereferenceable(1) %pString2) #31
   ret i32 %call.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC7StrcollEPKDsS2_(ptr noundef %pString1, ptr noundef %pString2) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -65535, 65536) i32 @_ZN2EA4StdC7StrcollEPKDsS2_(ptr noundef %pString1, ptr noundef %pString2) local_unnamed_addr #8 {
 entry:
   %0 = ptrtoint ptr %pString1 to i64
   %1 = ptrtoint ptr %pString2 to i64
@@ -8592,7 +8592,7 @@ _ZN2EA4StdC6StrcmpEPKDsS2_.exit:                  ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC7StrcollEPKDiS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN2EA4StdC7StrcollEPKDiS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
 entry:
   br label %while.cond.i
 
@@ -8623,12 +8623,12 @@ _ZN2EA4StdC6StrcmpEPKDiS2_.exit:                  ; preds = %while.body.i, %whil
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN2EA4StdC8StrncollEPKcS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #4 {
 entry:
-  %call.i = tail call noundef i32 @strncmp(ptr noundef %pString1, ptr noundef %pString2, i64 noundef %n) #31
+  %call.i = tail call noundef i32 @strncmp(ptr noundef readonly %pString1, ptr noundef readonly %pString2, i64 noundef %n) #31
   ret i32 %call.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC8StrncollEPKDsS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -65535, 65536) i32 @_ZN2EA4StdC8StrncollEPKDsS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
 entry:
   %inc.i = add i64 %n, 1
   br label %while.cond.i
@@ -8665,7 +8665,7 @@ _ZN2EA4StdC7StrncmpEPKDsS2_m.exit:                ; preds = %while.cond.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC8StrncollEPKDiS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN2EA4StdC8StrncollEPKDiS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
 entry:
   %inc.i = add i64 %n, 1
   br label %while.cond.i
@@ -8703,12 +8703,12 @@ _ZN2EA4StdC7StrncmpEPKDiS2_m.exit:                ; preds = %while.cond.i, %if.e
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define dso_local noundef i32 @_ZN2EA4StdC8StricollEPKcS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #15 {
 entry:
-  %call.i = tail call noundef i32 @strcasecmp(ptr noundef %pString1, ptr noundef %pString2) #31
+  %call.i = tail call noundef i32 @strcasecmp(ptr noundef readonly %pString1, ptr noundef readonly %pString2) #31
   ret i32 %call.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC8StricollEPKDsS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -65535, 65536) i32 @_ZN2EA4StdC8StricollEPKDsS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
 entry:
   br label %while.cond.i
 
@@ -8762,7 +8762,7 @@ _ZN2EA4StdC7StricmpEPKDsS2_.exit:                 ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC8StricollEPKDiS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN2EA4StdC8StricollEPKDiS2_(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2) local_unnamed_addr #8 {
 entry:
   br label %while.cond.i
 
@@ -8815,7 +8815,7 @@ _ZN2EA4StdC7StricmpEPKDiS2_.exit:                 ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC9StrnicollEPKcS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -255, 256) i32 @_ZN2EA4StdC9StrnicollEPKcS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
 entry:
   %inc.i = add i64 %n, 1
   br label %while.cond.i
@@ -8858,7 +8858,7 @@ _ZN2EA4StdC8StrnicmpEPKcS2_m.exit:                ; preds = %while.cond.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC9StrnicollEPKDsS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -65535, 65536) i32 @_ZN2EA4StdC9StrnicollEPKDsS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
 entry:
   %inc.i = add i64 %n, 1
   br label %while.cond.i
@@ -8919,7 +8919,7 @@ _ZN2EA4StdC8StrnicmpEPKDsS2_m.exit:               ; preds = %while.cond.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC9StrnicollEPKDiS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN2EA4StdC9StrnicollEPKDiS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %n) local_unnamed_addr #8 {
 entry:
   %inc.i = add i64 %n, 1
   br label %while.cond.i
@@ -9049,7 +9049,7 @@ if.then23:                                        ; preds = %for.body
 
 if.then25:                                        ; preds = %if.then23
   %idx.ext = sext i32 %nDigitCount to i64
-  %add.ptr27.ptr = getelementptr inbounds i8, ptr %p.0, i64 %idx.ext
+  %add.ptr27.ptr = getelementptr i8, ptr %p.0, i64 %idx.ext
   %6 = load i8, ptr %add.ptr27.ptr, align 1
   %cmp29 = icmp sgt i8 %6, 52
   br i1 %cmp29, label %do.body.preheader, label %if.end40
@@ -10794,7 +10794,7 @@ while.body7:                                      ; preds = %if.end, %while.body
   %9 = phi i32 [ %12, %while.body7 ], [ %7, %if.end ]
   %dTotal.055 = phi double [ %10, %while.body7 ], [ 0.000000e+00, %if.end ]
   %pValue.addr.254 = phi ptr [ %incdec.ptr8, %while.body7 ], [ %pValue.addr.1, %if.end ]
-  %conv = uitofp i32 %9 to double
+  %conv = uitofp nneg i32 %9 to double
   %10 = tail call double @llvm.fmuladd.f64(double %dTotal.055, double 1.000000e+01, double %conv)
   %incdec.ptr8 = getelementptr inbounds i8, ptr %pValue.addr.254, i64 4
   %11 = load i32, ptr %pValue.addr.254, align 4
@@ -10823,7 +10823,7 @@ while.body18:                                     ; preds = %while.cond13.prehea
   %dMultiplier.063 = phi double [ %mul, %while.body18 ], [ 1.000000e+00, %while.cond13.preheader ]
   %dTotal.162 = phi double [ %17, %while.body18 ], [ %dTotal.0.lcssa, %while.cond13.preheader ]
   %mul = fmul double %dMultiplier.063, 1.000000e-01
-  %conv20 = uitofp i32 %16 to double
+  %conv20 = uitofp nneg i32 %16 to double
   %17 = tail call double @llvm.fmuladd.f64(double %conv20, double %mul, double %dTotal.162)
   %pValue.addr.3 = getelementptr inbounds i8, ptr %pValue.addr.364, i64 4
   %c.2 = load i32, ptr %pValue.addr.364, align 4
@@ -11699,29 +11699,29 @@ if.end4:                                          ; preds = %if.then1
   br i1 %or.cond, label %while.cond.preheader, label %if.end23
 
 if.end4.thread:                                   ; preds = %if.then1
-  %cmp5176 = icmp slt i32 %nPrecision, 1
-  br i1 %cmp5176, label %while.end, label %if.end23
+  %cmp5175 = icmp slt i32 %nPrecision, 1
+  br i1 %cmp5175, label %while.end, label %if.end23
 
 while.cond.preheader:                             ; preds = %if.end4
-  %cmp8.not139 = icmp slt i32 %conv, 10
-  br i1 %cmp8.not139, label %while.end, label %while.body
+  %cmp8.not138 = icmp slt i32 %conv, 10
+  br i1 %cmp8.not138, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
-  %nLimit.0141 = phi i32 [ %mul, %while.body ], [ 10, %while.cond.preheader ]
-  %nDigits.0140 = phi i32 [ %inc, %while.body ], [ 1, %while.cond.preheader ]
-  %mul = mul nuw nsw i32 %nLimit.0141, 10
-  %inc = add nuw nsw i32 %nDigits.0140, 1
+  %nLimit.0140 = phi i32 [ %mul, %while.body ], [ 10, %while.cond.preheader ]
+  %nDigits.0139 = phi i32 [ %inc, %while.body ], [ 1, %while.cond.preheader ]
+  %mul = mul nuw nsw i32 %nLimit.0140, 10
+  %inc = add nuw nsw i32 %nDigits.0139, 1
   %cmp8.not = icmp sgt i32 %mul, %conv
   br i1 %cmp8.not, label %while.end.loopexit, label %while.body, !llvm.loop !224
 
 while.end.loopexit:                               ; preds = %while.body
-  %inc.neg = xor i32 %nDigits.0140, -1
+  %inc.neg = xor i32 %nDigits.0139, -1
   br label %while.end
 
 while.end:                                        ; preds = %if.end4.thread, %while.end.loopexit, %while.cond.preheader
-  %nExponent.0179182 = phi i32 [ %conv, %while.cond.preheader ], [ %conv, %while.end.loopexit ], [ 0, %if.end4.thread ]
+  %nExponent.0178181 = phi i32 [ %conv, %while.cond.preheader ], [ %conv, %while.end.loopexit ], [ 0, %if.end4.thread ]
   %nDigits.0.lcssa.neg = phi i32 [ -1, %while.cond.preheader ], [ %inc.neg, %while.end.loopexit ], [ -1, %if.end4.thread ]
-  %sub = sub nsw i32 0, %nExponent.0179182
+  %sub = sub nsw i32 0, %nExponent.0178181
   %conv9 = sitofp i32 %sub to double
   %call10 = tail call double @pow(double noundef 1.000000e+01, double noundef %conv9) #29
   %mul11 = fmul double %call10, %dValue
@@ -11732,15 +11732,15 @@ while.end:                                        ; preds = %if.end4.thread, %wh
   br i1 %tobool15.not, label %return, label %if.then16
 
 if.then16:                                        ; preds = %while.end
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %pResult) #29
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pResult) #29
   %add.ptr = getelementptr inbounds i8, ptr %pResult, i64 %call.i
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 101, ptr %add.ptr, align 1
-  %cmp18 = icmp slt i32 %nExponent.0179182, 0
+  %cmp18 = icmp slt i32 %nExponent.0178181, 0
   %cond = select i1 %cmp18, i8 45, i8 43
   %incdec.ptr19 = getelementptr inbounds i8, ptr %add.ptr, i64 2
   store i8 %cond, ptr %incdec.ptr, align 1
-  %2 = tail call i32 @llvm.abs.i32(i32 %nExponent.0179182, i1 true)
+  %2 = tail call i32 @llvm.abs.i32(i32 %nExponent.0178181, i1 true)
   %conv.i = zext nneg i32 %2 to i64
   %cmp17.i.i.i = icmp ult i32 %2, 10
   br i1 %cmp17.i.i.i, label %while.end.thread.i.i, label %if.end.i.i.i
@@ -11755,19 +11755,19 @@ if.end.i.i.i:                                     ; preds = %if.then16
   br i1 %cmp1.i.i.i, label %while.end.i.i.thread, label %if.end3.i.i.i
 
 while.end.i.i.thread:                             ; preds = %if.end.i.i.i
-  %arrayidx.i.i111 = getelementptr inbounds i8, ptr %add.ptr, i64 4
-  store i8 0, ptr %arrayidx.i.i111, align 1
+  %arrayidx.i.i110 = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  store i8 0, ptr %arrayidx.i.i110, align 1
   br label %if.else.i.i
 
 if.end3.i.i.i:                                    ; preds = %if.end.i.i.i
   %cmp4.i.i.i = icmp ult i32 %2, 1000
-  br i1 %cmp4.i.i.i, label %_ZN2EA4StdCL8digits10Em.exit.i.i, label %if.then8.i.i.i
+  br i1 %cmp4.i.i.i, label %_ZN2EA4StdCL8digits10Em.exit.i.i, label %if.end6.i.i.i
 
-if.then8.i.i.i:                                   ; preds = %if.end3.i.i.i
+if.end6.i.i.i:                                    ; preds = %if.end3.i.i.i
   %cmp9.i.i.i = icmp ult i32 %2, 100000000
-  br i1 %cmp9.i.i.i, label %if.then10.i.i.i, label %if.then23.i.i.i
+  br i1 %cmp9.i.i.i, label %if.then10.i.i.i, label %if.end21.i.i.i
 
-if.then10.i.i.i:                                  ; preds = %if.then8.i.i.i
+if.then10.i.i.i:                                  ; preds = %if.end6.i.i.i
   %cmp11.i.i.i = icmp ult i32 %2, 1000000
   br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.end17.i.i.i
 
@@ -11785,13 +11785,13 @@ if.end17.i.i.i:                                   ; preds = %if.then10.i.i.i
   %add20.i.i.i = select i1 %cmp18.i.i.i, i32 8, i32 7
   br label %_ZN2EA4StdCL8digits10Em.exit.i.i
 
-if.then23.i.i.i:                                  ; preds = %if.then8.i.i.i
+if.end21.i.i.i:                                   ; preds = %if.end6.i.i.i
   %cmp24.i.i.i = icmp ugt i32 %2, 999999999
   %add26.i.i.i = select i1 %cmp24.i.i.i, i32 10, i32 9
   br label %_ZN2EA4StdCL8digits10Em.exit.i.i
 
-_ZN2EA4StdCL8digits10Em.exit.i.i:                 ; preds = %if.then23.i.i.i, %if.end17.i.i.i, %if.end15.i.i.i, %if.then12.i.i.i, %if.end3.i.i.i
-  %retval.0.i.i.i = phi i32 [ %add.i.i.i, %if.end15.i.i.i ], [ %add20.i.i.i, %if.end17.i.i.i ], [ %add26.i.i.i, %if.then23.i.i.i ], [ 4, %if.then12.i.i.i ], [ 3, %if.end3.i.i.i ]
+_ZN2EA4StdCL8digits10Em.exit.i.i:                 ; preds = %if.end21.i.i.i, %if.end17.i.i.i, %if.end15.i.i.i, %if.then12.i.i.i, %if.end3.i.i.i
+  %retval.0.i.i.i = phi i32 [ %add.i.i.i, %if.end15.i.i.i ], [ %add20.i.i.i, %if.end17.i.i.i ], [ %add26.i.i.i, %if.end21.i.i.i ], [ 4, %if.then12.i.i.i ], [ 3, %if.end3.i.i.i ]
   %sub.i.i = add nsw i32 %retval.0.i.i.i, -1
   %idxprom.i.i = zext nneg i32 %retval.0.i.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %incdec.ptr19, i64 %idxprom.i.i
@@ -11832,21 +11832,21 @@ if.then.i.i:                                      ; preds = %while.end.i.i, %whi
   br label %_ZN2EA4StdCL12X64toaCommonEmPcib.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i.thread, %while.end.i.i
-  %nValue.addr.0.lcssa.i.i117 = phi i64 [ %conv.i, %while.end.i.i.thread ], [ %div.i.i, %while.end.i.i ]
-  %next.0.lcssa.i.i116 = phi i32 [ 1, %while.end.i.i.thread ], [ %sub8.i.i, %while.end.i.i ]
-  %conv15.i.i = trunc nuw nsw i64 %nValue.addr.0.lcssa.i.i117 to i32
+  %nValue.addr.0.lcssa.i.i116 = phi i64 [ %conv.i, %while.end.i.i.thread ], [ %div.i.i, %while.end.i.i ]
+  %next.0.lcssa.i.i115 = phi i32 [ 1, %while.end.i.i.thread ], [ %sub8.i.i, %while.end.i.i ]
+  %conv15.i.i = trunc nuw nsw i64 %nValue.addr.0.lcssa.i.i116 to i32
   %mul16.i.i = shl nuw nsw i32 %conv15.i.i, 1
   %add17.i.i = or disjoint i32 %mul16.i.i, 1
   %idxprom18.i.i = zext nneg i32 %add17.i.i to i64
   %arrayidx19.i.i = getelementptr inbounds [201 x i8], ptr @_ZZN2EA4StdC14X64toaCommon10EmPcE6digits, i64 0, i64 %idxprom18.i.i
   %5 = load i8, ptr %arrayidx19.i.i, align 1
-  %idxprom20.i.i = zext i32 %next.0.lcssa.i.i116 to i64
+  %idxprom20.i.i = zext i32 %next.0.lcssa.i.i115 to i64
   %arrayidx21.i.i = getelementptr inbounds i8, ptr %incdec.ptr19, i64 %idxprom20.i.i
   store i8 %5, ptr %arrayidx21.i.i, align 1
   %idxprom22.i.i = zext nneg i32 %mul16.i.i to i64
   %arrayidx23.i.i = getelementptr inbounds [201 x i8], ptr @_ZZN2EA4StdC14X64toaCommon10EmPcE6digits, i64 0, i64 %idxprom22.i.i
   %6 = load i8, ptr %arrayidx23.i.i, align 2
-  %sub24.i.i = add i32 %next.0.lcssa.i.i116, -1
+  %sub24.i.i = add i32 %next.0.lcssa.i.i115, -1
   br label %_ZN2EA4StdCL12X64toaCommonEmPcib.exit
 
 _ZN2EA4StdCL12X64toaCommonEmPcib.exit:            ; preds = %if.then.i.i, %if.else.i.i
@@ -11899,19 +11899,19 @@ land.rhs.preheader:                               ; preds = %if.end55
   %11 = add nuw i32 %nPositionResult.1, %9
   %12 = call i32 @llvm.usub.sat.i32(i32 %nResultCapacity, i32 %nPositionResult.1)
   %wide.trip.count = zext nneg i32 %12 to i64
-  %wide.trip.count153 = zext nneg i32 %9 to i64
+  %wide.trip.count152 = zext nneg i32 %9 to i64
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %if.end73
-  %indvars.iv146 = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next147, %if.end73 ]
+  %indvars.iv145 = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next146, %if.end73 ]
   %indvars.iv = phi i64 [ %10, %land.rhs.preheader ], [ %indvars.iv.next, %if.end73 ]
-  %arrayidx60 = getelementptr inbounds i8, ptr %bufferTemp, i64 %indvars.iv146
+  %arrayidx60 = getelementptr inbounds i8, ptr %bufferTemp, i64 %indvars.iv145
   %13 = load i8, ptr %arrayidx60, align 1
   %tobool61.not = icmp eq i8 %13, 0
-  br i1 %tobool61.not, label %if.end81.loopexit.split.loop.exit191, label %for.body
+  br i1 %tobool61.not, label %if.end81.loopexit.split.loop.exit190, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %exitcond.not = icmp eq i64 %indvars.iv146, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv145, %wide.trip.count
   br i1 %exitcond.not, label %if.then63, label %if.end73
 
 if.then63:                                        ; preds = %for.body
@@ -11922,21 +11922,21 @@ if.then63:                                        ; preds = %for.body
   br label %return
 
 if.end73:                                         ; preds = %for.body
-  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
+  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx79 = getelementptr inbounds i8, ptr %pResult, i64 %indvars.iv
   store i8 %13, ptr %arrayidx79, align 1
-  %exitcond154.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count153
-  br i1 %exitcond154.not, label %if.end81, label %land.rhs, !llvm.loop !225
+  %exitcond153.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count152
+  br i1 %exitcond153.not, label %if.end81, label %land.rhs, !llvm.loop !225
 
-if.end81.loopexit.split.loop.exit191:             ; preds = %land.rhs
+if.end81.loopexit.split.loop.exit190:             ; preds = %land.rhs
   %16 = trunc nuw nsw i64 %indvars.iv to i32
-  %17 = trunc nuw nsw i64 %indvars.iv146 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv145 to i32
   br label %if.end81
 
-if.end81:                                         ; preds = %if.end73, %if.end81.loopexit.split.loop.exit191, %if.end55
-  %nPositionTemp.1 = phi i32 [ 0, %if.end55 ], [ %17, %if.end81.loopexit.split.loop.exit191 ], [ %9, %if.end73 ]
-  %nPositionResult.3 = phi i32 [ %nPositionResult.1, %if.end55 ], [ %16, %if.end81.loopexit.split.loop.exit191 ], [ %11, %if.end73 ]
+if.end81:                                         ; preds = %if.end73, %if.end81.loopexit.split.loop.exit190, %if.end55
+  %nPositionTemp.1 = phi i32 [ 0, %if.end55 ], [ %17, %if.end81.loopexit.split.loop.exit190 ], [ %9, %if.end73 ]
+  %nPositionResult.3 = phi i32 [ %nPositionResult.1, %if.end55 ], [ %16, %if.end81.loopexit.split.loop.exit190 ], [ %11, %if.end73 ]
   %idxprom82 = zext i32 %nPositionTemp.1 to i64
   %arrayidx83 = getelementptr inbounds i8, ptr %bufferTemp, i64 %idxprom82
   %18 = load i8, ptr %arrayidx83, align 1
@@ -11945,7 +11945,7 @@ if.end81:                                         ; preds = %if.end73, %if.end81
 
 while.cond86:                                     ; preds = %if.end81, %if.end96
   %19 = phi i8 [ %.pre, %if.end96 ], [ %18, %if.end81 ]
-  %indvars.iv155 = phi i64 [ %indvars.iv.next156.pre-phi, %if.end96 ], [ %idxprom82, %if.end81 ]
+  %indvars.iv154 = phi i64 [ %indvars.iv.next155.pre-phi, %if.end96 ], [ %idxprom82, %if.end81 ]
   %nFirstTrailingZeroPosition.0 = phi i32 [ %nFirstTrailingZeroPosition.1, %if.end96 ], [ %nPositionTemp.1, %if.end81 ]
   switch i8 %19, label %if.then95 [
     i8 0, label %while.end98
@@ -11953,18 +11953,18 @@ while.cond86:                                     ; preds = %if.end81, %if.end96
   ]
 
 while.cond86.if.end96_crit_edge:                  ; preds = %while.cond86
-  %.pre174 = add nuw nsw i64 %indvars.iv155, 1
+  %.pre173 = add nuw nsw i64 %indvars.iv154, 1
   br label %if.end96
 
 if.then95:                                        ; preds = %while.cond86
-  %20 = add nuw nsw i64 %indvars.iv155, 1
+  %20 = add nuw nsw i64 %indvars.iv154, 1
   %21 = trunc nuw i64 %20 to i32
   br label %if.end96
 
 if.end96:                                         ; preds = %while.cond86.if.end96_crit_edge, %if.then95
-  %indvars.iv.next156.pre-phi = phi i64 [ %.pre174, %while.cond86.if.end96_crit_edge ], [ %20, %if.then95 ]
+  %indvars.iv.next155.pre-phi = phi i64 [ %.pre173, %while.cond86.if.end96_crit_edge ], [ %20, %if.then95 ]
   %nFirstTrailingZeroPosition.1 = phi i32 [ %nFirstTrailingZeroPosition.0, %while.cond86.if.end96_crit_edge ], [ %21, %if.then95 ]
-  %arrayidx88.phi.trans.insert = getelementptr inbounds i8, ptr %bufferTemp, i64 %indvars.iv.next156.pre-phi
+  %arrayidx88.phi.trans.insert = getelementptr inbounds i8, ptr %bufferTemp, i64 %indvars.iv.next155.pre-phi
   %.pre = load i8, ptr %arrayidx88.phi.trans.insert, align 1
   br label %while.cond86, !llvm.loop !226
 
@@ -11995,15 +11995,15 @@ if.end113:                                        ; preds = %if.then101
 
 for.body121.preheader:                            ; preds = %if.end113
   %24 = add nsw i64 %idxprom115, 1
-  %wide.trip.count162 = zext nneg i32 %nResultCapacity to i64
+  %wide.trip.count161 = zext nneg i32 %nResultCapacity to i64
   br label %for.body121
 
 for.body121:                                      ; preds = %for.body121.preheader, %if.end133
-  %indvars.iv159 = phi i64 [ %24, %for.body121.preheader ], [ %indvars.iv.next160, %if.end133 ]
-  %nPrecision.addr.0128 = phi i32 [ %nPrecision, %for.body121.preheader ], [ %dec, %if.end133 ]
-  %i.1126 = phi i32 [ %9, %for.body121.preheader ], [ %inc138, %if.end133 ]
-  %exitcond163.not = icmp eq i64 %indvars.iv159, %wide.trip.count162
-  br i1 %exitcond163.not, label %if.then123, label %if.end133
+  %indvars.iv158 = phi i64 [ %24, %for.body121.preheader ], [ %indvars.iv.next159, %if.end133 ]
+  %nPrecision.addr.0127 = phi i32 [ %nPrecision, %for.body121.preheader ], [ %dec, %if.end133 ]
+  %i.1125 = phi i32 [ %9, %for.body121.preheader ], [ %inc138, %if.end133 ]
+  %exitcond162.not = icmp eq i64 %indvars.iv158, %wide.trip.count161
+  br i1 %exitcond162.not, label %if.then123, label %if.end133
 
 if.then123:                                       ; preds = %for.body121
   %25 = zext nneg i32 %nResultCapacity to i64
@@ -12013,56 +12013,56 @@ if.then123:                                       ; preds = %for.body121
   br label %return
 
 if.end133:                                        ; preds = %for.body121
-  %indvars.iv.next160 = add nsw i64 %indvars.iv159, 1
-  %arrayidx136 = getelementptr inbounds i8, ptr %pResult, i64 %indvars.iv159
+  %indvars.iv.next159 = add nsw i64 %indvars.iv158, 1
+  %arrayidx136 = getelementptr inbounds i8, ptr %pResult, i64 %indvars.iv158
   store i8 48, ptr %arrayidx136, align 1
-  %dec = add nsw i32 %nPrecision.addr.0128, -1
-  %inc138 = add i32 %i.1126, 1
-  %exitcond164.not = icmp eq i32 %inc138, 0
-  br i1 %exitcond164.not, label %if.end140, label %for.body121, !llvm.loop !227
+  %dec = add nsw i32 %nPrecision.addr.0127, -1
+  %inc138 = add i32 %i.1125, 1
+  %exitcond163.not = icmp eq i32 %inc138, 0
+  br i1 %exitcond163.not, label %if.end140, label %for.body121, !llvm.loop !227
 
 if.end140:                                        ; preds = %if.end133
-  %27 = trunc nsw i64 %indvars.iv.next160 to i32
-  %cmp142129 = icmp sgt i32 %nPrecision.addr.0128, 1
-  br i1 %cmp142129, label %land.rhs145.preheader, label %if.end186
+  %27 = trunc nsw i64 %indvars.iv.next159 to i32
+  %cmp142128 = icmp sgt i32 %nPrecision.addr.0127, 1
+  br i1 %cmp142128, label %land.rhs145.preheader, label %if.end186
 
 land.rhs145.preheader:                            ; preds = %if.end113, %if.end140
-  %nPrecision.addr.1187 = phi i32 [ %dec, %if.end140 ], [ %nPrecision, %if.end113 ]
-  %nPositionResult.5186 = phi i32 [ %27, %if.end140 ], [ %inc114, %if.end113 ]
-  %28 = sext i32 %nPositionResult.5186 to i64
-  %smax172 = call i32 @llvm.smax.i32(i32 %nPositionResult.5186, i32 %nResultCapacity)
-  %29 = sub i32 %smax172, %nPositionResult.5186
+  %nPrecision.addr.1186 = phi i32 [ %dec, %if.end140 ], [ %nPrecision, %if.end113 ]
+  %nPositionResult.5185 = phi i32 [ %27, %if.end140 ], [ %inc114, %if.end113 ]
+  %28 = sext i32 %nPositionResult.5185 to i64
+  %smax171 = call i32 @llvm.smax.i32(i32 %nPositionResult.5185, i32 %nResultCapacity)
+  %29 = sub i32 %smax171, %nPositionResult.5185
   br label %land.rhs145
 
 land.rhs145:                                      ; preds = %land.rhs145.preheader, %if.end175
-  %indvars.iv167 = phi i64 [ %idxprom82, %land.rhs145.preheader ], [ %indvars.iv.next168, %if.end175 ]
-  %indvars.iv165 = phi i64 [ %28, %land.rhs145.preheader ], [ %indvars.iv.next166, %if.end175 ]
-  %i.2132 = phi i32 [ 0, %land.rhs145.preheader ], [ %inc183, %if.end175 ]
-  %arrayidx147 = getelementptr inbounds i8, ptr %bufferTemp, i64 %indvars.iv167
+  %indvars.iv166 = phi i64 [ %idxprom82, %land.rhs145.preheader ], [ %indvars.iv.next167, %if.end175 ]
+  %indvars.iv164 = phi i64 [ %28, %land.rhs145.preheader ], [ %indvars.iv.next165, %if.end175 ]
+  %i.2131 = phi i32 [ 0, %land.rhs145.preheader ], [ %inc183, %if.end175 ]
+  %arrayidx147 = getelementptr inbounds i8, ptr %bufferTemp, i64 %indvars.iv166
   %30 = load i8, ptr %arrayidx147, align 1
   %tobool148.not = icmp eq i8 %30, 0
   br i1 %tobool148.not, label %if.end186.loopexit, label %for.body150
 
 for.body150:                                      ; preds = %land.rhs145
-  %exitcond173.not = icmp eq i32 %i.2132, %29
-  br i1 %exitcond173.not, label %if.then152, label %if.end175
+  %exitcond172.not = icmp eq i32 %i.2131, %29
+  br i1 %exitcond172.not, label %if.then152, label %if.end175
 
 if.then152:                                       ; preds = %for.body150
-  %31 = trunc nsw i64 %indvars.iv165 to i32
-  %cond159 = add i64 %indvars.iv165, 4294967295
+  %31 = trunc nsw i64 %indvars.iv164 to i32
+  %cond159 = add i64 %indvars.iv164, 4294967295
   %idxprom160 = and i64 %cond159, 4294967295
   %arrayidx161 = getelementptr inbounds i8, ptr %pResult, i64 %idxprom160
   store i8 0, ptr %arrayidx161, align 1
-  %cmp164137 = icmp sgt i32 %31, 2
-  br i1 %cmp164137, label %land.rhs165.preheader, label %return
+  %cmp164136 = icmp sgt i32 %31, 2
+  br i1 %cmp164136, label %land.rhs165.preheader, label %return
 
 land.rhs165.preheader:                            ; preds = %if.then152
-  %dec163136 = add nsw i32 %31, -2
+  %dec163135 = add nsw i32 %31, -2
   br label %land.rhs165
 
 land.rhs165:                                      ; preds = %land.rhs165.preheader, %while.body171
-  %dec163138 = phi i32 [ %dec163, %while.body171 ], [ %dec163136, %land.rhs165.preheader ]
-  %idxprom166 = zext nneg i32 %dec163138 to i64
+  %dec163137 = phi i32 [ %dec163, %while.body171 ], [ %dec163135, %land.rhs165.preheader ]
+  %idxprom166 = zext nneg i32 %dec163137 to i64
   %arrayidx167 = getelementptr inbounds i8, ptr %pResult, i64 %idxprom166
   %32 = load i8, ptr %arrayidx167, align 1
   %cmp169 = icmp eq i8 %32, 48
@@ -12070,25 +12070,25 @@ land.rhs165:                                      ; preds = %land.rhs165.prehead
 
 while.body171:                                    ; preds = %land.rhs165
   store i8 0, ptr %arrayidx167, align 1
-  %dec163 = add nsw i32 %dec163138, -1
-  %cmp164 = icmp sgt i32 %dec163138, 1
+  %dec163 = add nsw i32 %dec163137, -1
+  %cmp164 = icmp sgt i32 %dec163137, 1
   br i1 %cmp164, label %land.rhs165, label %return, !llvm.loop !228
 
 if.end175:                                        ; preds = %for.body150
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %indvars.iv.next166 = add nsw i64 %indvars.iv165, 1
-  %arrayidx181 = getelementptr inbounds i8, ptr %pResult, i64 %indvars.iv165
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
+  %indvars.iv.next165 = add nsw i64 %indvars.iv164, 1
+  %arrayidx181 = getelementptr inbounds i8, ptr %pResult, i64 %indvars.iv164
   store i8 %30, ptr %arrayidx181, align 1
-  %inc183 = add nuw nsw i32 %i.2132, 1
-  %cmp142 = icmp slt i32 %inc183, %nPrecision.addr.1187
-  %33 = trunc nuw i64 %indvars.iv.next168 to i32
+  %inc183 = add nuw nsw i32 %i.2131, 1
+  %cmp142 = icmp slt i32 %inc183, %nPrecision.addr.1186
+  %33 = trunc nuw i64 %indvars.iv.next167 to i32
   %cmp144 = icmp sgt i32 %nFirstTrailingZeroPosition.0, %33
   %or.cond105 = select i1 %cmp142, i1 %cmp144, i1 false
   br i1 %or.cond105, label %land.rhs145, label %if.end186.loopexit, !llvm.loop !229
 
 if.end186.loopexit:                               ; preds = %land.rhs145, %if.end175
-  %indvars.iv165.lcssa.sink = phi i64 [ %indvars.iv.next166, %if.end175 ], [ %indvars.iv165, %land.rhs145 ]
-  %34 = trunc i64 %indvars.iv165.lcssa.sink to i32
+  %indvars.iv164.lcssa.sink = phi i64 [ %indvars.iv.next165, %if.end175 ], [ %indvars.iv164, %land.rhs145 ]
+  %34 = trunc i64 %indvars.iv164.lcssa.sink to i32
   br label %if.end186
 
 if.end186:                                        ; preds = %if.end186.loopexit, %if.end140, %while.end98, %if.end81
@@ -12153,29 +12153,29 @@ if.end4:                                          ; preds = %if.then1
   br i1 %or.cond, label %while.cond.preheader, label %if.end23
 
 if.end4.thread:                                   ; preds = %if.then1
-  %cmp5172 = icmp slt i32 %nPrecision, 1
-  br i1 %cmp5172, label %while.end, label %if.end23
+  %cmp5173 = icmp slt i32 %nPrecision, 1
+  br i1 %cmp5173, label %while.end, label %if.end23
 
 while.cond.preheader:                             ; preds = %if.end4
-  %cmp8.not129 = icmp slt i32 %conv, 10
-  br i1 %cmp8.not129, label %while.end, label %while.body
+  %cmp8.not130 = icmp slt i32 %conv, 10
+  br i1 %cmp8.not130, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
-  %nLimit.0131 = phi i32 [ %mul, %while.body ], [ 10, %while.cond.preheader ]
-  %nDigits.0130 = phi i32 [ %inc, %while.body ], [ 1, %while.cond.preheader ]
-  %mul = mul nuw nsw i32 %nLimit.0131, 10
-  %inc = add nuw nsw i32 %nDigits.0130, 1
+  %nLimit.0132 = phi i32 [ %mul, %while.body ], [ 10, %while.cond.preheader ]
+  %nDigits.0131 = phi i32 [ %inc, %while.body ], [ 1, %while.cond.preheader ]
+  %mul = mul nuw nsw i32 %nLimit.0132, 10
+  %inc = add nuw nsw i32 %nDigits.0131, 1
   %cmp8.not = icmp sgt i32 %mul, %conv
   br i1 %cmp8.not, label %while.end.loopexit, label %while.body, !llvm.loop !230
 
 while.end.loopexit:                               ; preds = %while.body
-  %inc.neg = xor i32 %nDigits.0130, -1
+  %inc.neg = xor i32 %nDigits.0131, -1
   br label %while.end
 
 while.end:                                        ; preds = %if.end4.thread, %while.end.loopexit, %while.cond.preheader
-  %nExponent.0175178 = phi i32 [ %conv, %while.cond.preheader ], [ %conv, %while.end.loopexit ], [ 0, %if.end4.thread ]
+  %nExponent.0176179 = phi i32 [ %conv, %while.cond.preheader ], [ %conv, %while.end.loopexit ], [ 0, %if.end4.thread ]
   %nDigits.0.lcssa.neg = phi i32 [ -1, %while.cond.preheader ], [ %inc.neg, %while.end.loopexit ], [ -1, %if.end4.thread ]
-  %sub = sub nsw i32 0, %nExponent.0175178
+  %sub = sub nsw i32 0, %nExponent.0176179
   %conv9 = sitofp i32 %sub to double
   %call10 = tail call double @pow(double noundef 1.000000e+01, double noundef %conv9) #29
   %mul11 = fmul double %call10, %dValue
@@ -12193,8 +12193,8 @@ if.then16:                                        ; preds = %while.end
 
 for.body.i.preheader:                             ; preds = %if.then16
   %3 = load i16, ptr %pResult, align 2
-  %cmp.i133 = icmp eq i16 %3, 0
-  br i1 %cmp.i133, label %_ZN2EA4StdC6StrlenEPKDs.exit, label %for.inc.i
+  %cmp.i134 = icmp eq i16 %3, 0
+  br i1 %cmp.i134, label %_ZN2EA4StdC6StrlenEPKDs.exit, label %for.inc.i
 
 for.body.i:                                       ; preds = %for.inc.i
   %4 = load i16, ptr %incdec.ptr.i, align 2
@@ -12202,8 +12202,8 @@ for.body.i:                                       ; preds = %for.inc.i
   br i1 %cmp.i, label %_ZN2EA4StdC6StrlenEPKDs.exit, label %for.inc.i, !llvm.loop !54
 
 for.inc.i:                                        ; preds = %for.body.i.preheader, %for.body.i
-  %pu.sroa.0.016.i134 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %pResult, %for.body.i.preheader ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %pu.sroa.0.016.i134, i64 2
+  %pu.sroa.0.016.i135 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %pResult, %for.body.i.preheader ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %pu.sroa.0.016.i135, i64 2
   %5 = ptrtoint ptr %incdec.ptr.i to i64
   %and.i = and i64 %5, 7
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -12242,11 +12242,11 @@ _ZN2EA4StdC6StrlenEPKDs.exit:                     ; preds = %for.body.i, %for.bo
   %add.ptr = getelementptr inbounds i8, ptr %pResult, i64 %retval.0.in.i
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   store i16 101, ptr %add.ptr, align 2
-  %cmp18 = icmp slt i32 %nExponent.0175178, 0
+  %cmp18 = icmp slt i32 %nExponent.0176179, 0
   %cond = select i1 %cmp18, i16 45, i16 43
   %incdec.ptr19 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   store i16 %cond, ptr %incdec.ptr, align 2
-  %11 = tail call i32 @llvm.abs.i32(i32 %nExponent.0175178, i1 true)
+  %11 = tail call i32 @llvm.abs.i32(i32 %nExponent.0176179, i1 true)
   %conv.i = zext nneg i32 %11 to i64
   br label %do.body.i.i
 
@@ -12316,19 +12316,19 @@ land.rhs.preheader:                               ; preds = %if.end55
   %19 = add nuw i32 %nPositionResult.1, %17
   %20 = call i32 @llvm.usub.sat.i32(i32 %nResultCapacity, i32 %nPositionResult.1)
   %wide.trip.count = zext nneg i32 %20 to i64
-  %wide.trip.count149 = zext nneg i32 %17 to i64
+  %wide.trip.count150 = zext nneg i32 %17 to i64
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %if.end73
-  %indvars.iv142 = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next143, %if.end73 ]
+  %indvars.iv143 = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next144, %if.end73 ]
   %indvars.iv = phi i64 [ %18, %land.rhs.preheader ], [ %indvars.iv.next, %if.end73 ]
-  %arrayidx60 = getelementptr inbounds i8, ptr %bufferTemp, i64 %indvars.iv142
+  %arrayidx60 = getelementptr inbounds i8, ptr %bufferTemp, i64 %indvars.iv143
   %21 = load i8, ptr %arrayidx60, align 1
   %tobool61.not = icmp eq i8 %21, 0
-  br i1 %tobool61.not, label %if.end82.loopexit.split.loop.exit190, label %for.body
+  br i1 %tobool61.not, label %if.end82.loopexit.split.loop.exit191, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %exitcond.not = icmp eq i64 %indvars.iv142, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv143, %wide.trip.count
   br i1 %exitcond.not, label %if.then63, label %if.end73
 
 if.then63:                                        ; preds = %for.body
@@ -12338,22 +12338,22 @@ if.then63:                                        ; preds = %for.body
   br label %return.sink.split
 
 if.end73:                                         ; preds = %for.body
-  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %conv77 = sext i8 %21 to i16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx80 = getelementptr inbounds i16, ptr %pResult, i64 %indvars.iv
   store i16 %conv77, ptr %arrayidx80, align 2
-  %exitcond150.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count149
-  br i1 %exitcond150.not, label %if.end82, label %land.rhs, !llvm.loop !231
+  %exitcond151.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count150
+  br i1 %exitcond151.not, label %if.end82, label %land.rhs, !llvm.loop !231
 
-if.end82.loopexit.split.loop.exit190:             ; preds = %land.rhs
+if.end82.loopexit.split.loop.exit191:             ; preds = %land.rhs
   %24 = trunc nuw nsw i64 %indvars.iv to i32
-  %25 = trunc nuw nsw i64 %indvars.iv142 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv143 to i32
   br label %if.end82
 
-if.end82:                                         ; preds = %if.end73, %if.end82.loopexit.split.loop.exit190, %if.end55
-  %nPositionTemp.1 = phi i32 [ 0, %if.end55 ], [ %25, %if.end82.loopexit.split.loop.exit190 ], [ %17, %if.end73 ]
-  %nPositionResult.3 = phi i32 [ %nPositionResult.1, %if.end55 ], [ %24, %if.end82.loopexit.split.loop.exit190 ], [ %19, %if.end73 ]
+if.end82:                                         ; preds = %if.end73, %if.end82.loopexit.split.loop.exit191, %if.end55
+  %nPositionTemp.1 = phi i32 [ 0, %if.end55 ], [ %25, %if.end82.loopexit.split.loop.exit191 ], [ %17, %if.end73 ]
+  %nPositionResult.3 = phi i32 [ %nPositionResult.1, %if.end55 ], [ %24, %if.end82.loopexit.split.loop.exit191 ], [ %19, %if.end73 ]
   %idxprom83 = zext i32 %nPositionTemp.1 to i64
   %arrayidx84 = getelementptr inbounds i8, ptr %bufferTemp, i64 %idxprom83
   %26 = load i8, ptr %arrayidx84, align 1
@@ -12362,7 +12362,7 @@ if.end82:                                         ; preds = %if.end73, %if.end82
 
 while.cond87:                                     ; preds = %if.end82, %if.end97
   %27 = phi i8 [ %.pre, %if.end97 ], [ %26, %if.end82 ]
-  %indvars.iv151 = phi i64 [ %indvars.iv.next152.pre-phi, %if.end97 ], [ %idxprom83, %if.end82 ]
+  %indvars.iv152 = phi i64 [ %indvars.iv.next153.pre-phi, %if.end97 ], [ %idxprom83, %if.end82 ]
   %nFirstTrailingZeroPosition.0 = phi i32 [ %nFirstTrailingZeroPosition.1, %if.end97 ], [ %nPositionTemp.1, %if.end82 ]
   switch i8 %27, label %if.then96 [
     i8 0, label %while.end99
@@ -12370,18 +12370,18 @@ while.cond87:                                     ; preds = %if.end82, %if.end97
   ]
 
 while.cond87.if.end97_crit_edge:                  ; preds = %while.cond87
-  %.pre170 = add nuw nsw i64 %indvars.iv151, 1
+  %.pre171 = add nuw nsw i64 %indvars.iv152, 1
   br label %if.end97
 
 if.then96:                                        ; preds = %while.cond87
-  %28 = add nuw nsw i64 %indvars.iv151, 1
+  %28 = add nuw nsw i64 %indvars.iv152, 1
   %29 = trunc nuw i64 %28 to i32
   br label %if.end97
 
 if.end97:                                         ; preds = %while.cond87.if.end97_crit_edge, %if.then96
-  %indvars.iv.next152.pre-phi = phi i64 [ %.pre170, %while.cond87.if.end97_crit_edge ], [ %28, %if.then96 ]
+  %indvars.iv.next153.pre-phi = phi i64 [ %.pre171, %while.cond87.if.end97_crit_edge ], [ %28, %if.then96 ]
   %nFirstTrailingZeroPosition.1 = phi i32 [ %nFirstTrailingZeroPosition.0, %while.cond87.if.end97_crit_edge ], [ %29, %if.then96 ]
-  %arrayidx89.phi.trans.insert = getelementptr inbounds i8, ptr %bufferTemp, i64 %indvars.iv.next152.pre-phi
+  %arrayidx89.phi.trans.insert = getelementptr inbounds i8, ptr %bufferTemp, i64 %indvars.iv.next153.pre-phi
   %.pre = load i8, ptr %arrayidx89.phi.trans.insert, align 1
   br label %while.cond87, !llvm.loop !232
 
@@ -12411,15 +12411,15 @@ if.end114:                                        ; preds = %if.then102
 
 for.body122.preheader:                            ; preds = %if.end114
   %32 = add nsw i64 %idxprom116, 1
-  %wide.trip.count158 = zext nneg i32 %nResultCapacity to i64
+  %wide.trip.count159 = zext nneg i32 %nResultCapacity to i64
   br label %for.body122
 
 for.body122:                                      ; preds = %for.body122.preheader, %if.end134
-  %indvars.iv155 = phi i64 [ %32, %for.body122.preheader ], [ %indvars.iv.next156, %if.end134 ]
-  %nPrecision.addr.0118 = phi i32 [ %nPrecision, %for.body122.preheader ], [ %dec, %if.end134 ]
-  %i.1116 = phi i32 [ %17, %for.body122.preheader ], [ %inc139, %if.end134 ]
-  %exitcond159.not = icmp eq i64 %indvars.iv155, %wide.trip.count158
-  br i1 %exitcond159.not, label %if.then124, label %if.end134
+  %indvars.iv156 = phi i64 [ %32, %for.body122.preheader ], [ %indvars.iv.next157, %if.end134 ]
+  %nPrecision.addr.0119 = phi i32 [ %nPrecision, %for.body122.preheader ], [ %dec, %if.end134 ]
+  %i.1117 = phi i32 [ %17, %for.body122.preheader ], [ %inc139, %if.end134 ]
+  %exitcond160.not = icmp eq i64 %indvars.iv156, %wide.trip.count159
+  br i1 %exitcond160.not, label %if.then124, label %if.end134
 
 if.then124:                                       ; preds = %for.body122
   %33 = zext nneg i32 %nResultCapacity to i64
@@ -12428,56 +12428,56 @@ if.then124:                                       ; preds = %for.body122
   br label %return.sink.split
 
 if.end134:                                        ; preds = %for.body122
-  %indvars.iv.next156 = add nsw i64 %indvars.iv155, 1
-  %arrayidx137 = getelementptr inbounds i16, ptr %pResult, i64 %indvars.iv155
+  %indvars.iv.next157 = add nsw i64 %indvars.iv156, 1
+  %arrayidx137 = getelementptr inbounds i16, ptr %pResult, i64 %indvars.iv156
   store i16 48, ptr %arrayidx137, align 2
-  %dec = add nsw i32 %nPrecision.addr.0118, -1
-  %inc139 = add i32 %i.1116, 1
-  %exitcond160.not = icmp eq i32 %inc139, 0
-  br i1 %exitcond160.not, label %if.end141, label %for.body122, !llvm.loop !233
+  %dec = add nsw i32 %nPrecision.addr.0119, -1
+  %inc139 = add i32 %i.1117, 1
+  %exitcond161.not = icmp eq i32 %inc139, 0
+  br i1 %exitcond161.not, label %if.end141, label %for.body122, !llvm.loop !233
 
 if.end141:                                        ; preds = %if.end134
-  %35 = trunc nsw i64 %indvars.iv.next156 to i32
-  %cmp143119 = icmp sgt i32 %nPrecision.addr.0118, 1
-  br i1 %cmp143119, label %land.rhs146.preheader, label %if.end188
+  %35 = trunc nsw i64 %indvars.iv.next157 to i32
+  %cmp143120 = icmp sgt i32 %nPrecision.addr.0119, 1
+  br i1 %cmp143120, label %land.rhs146.preheader, label %if.end188
 
 land.rhs146.preheader:                            ; preds = %if.end114, %if.end141
-  %nPrecision.addr.1183 = phi i32 [ %dec, %if.end141 ], [ %nPrecision, %if.end114 ]
-  %nPositionResult.5182 = phi i32 [ %35, %if.end141 ], [ %inc115, %if.end114 ]
-  %36 = sext i32 %nPositionResult.5182 to i64
-  %smax168 = call i32 @llvm.smax.i32(i32 %nPositionResult.5182, i32 %nResultCapacity)
-  %37 = sub i32 %smax168, %nPositionResult.5182
+  %nPrecision.addr.1184 = phi i32 [ %dec, %if.end141 ], [ %nPrecision, %if.end114 ]
+  %nPositionResult.5183 = phi i32 [ %35, %if.end141 ], [ %inc115, %if.end114 ]
+  %36 = sext i32 %nPositionResult.5183 to i64
+  %smax169 = call i32 @llvm.smax.i32(i32 %nPositionResult.5183, i32 %nResultCapacity)
+  %37 = sub i32 %smax169, %nPositionResult.5183
   br label %land.rhs146
 
 land.rhs146:                                      ; preds = %land.rhs146.preheader, %if.end176
-  %indvars.iv163 = phi i64 [ %idxprom83, %land.rhs146.preheader ], [ %indvars.iv.next164, %if.end176 ]
-  %indvars.iv161 = phi i64 [ %36, %land.rhs146.preheader ], [ %indvars.iv.next162, %if.end176 ]
-  %i.2122 = phi i32 [ 0, %land.rhs146.preheader ], [ %inc185, %if.end176 ]
-  %arrayidx148 = getelementptr inbounds i8, ptr %bufferTemp, i64 %indvars.iv163
+  %indvars.iv164 = phi i64 [ %idxprom83, %land.rhs146.preheader ], [ %indvars.iv.next165, %if.end176 ]
+  %indvars.iv162 = phi i64 [ %36, %land.rhs146.preheader ], [ %indvars.iv.next163, %if.end176 ]
+  %i.2123 = phi i32 [ 0, %land.rhs146.preheader ], [ %inc185, %if.end176 ]
+  %arrayidx148 = getelementptr inbounds i8, ptr %bufferTemp, i64 %indvars.iv164
   %38 = load i8, ptr %arrayidx148, align 1
   %tobool149.not = icmp eq i8 %38, 0
   br i1 %tobool149.not, label %if.end188.loopexit, label %for.body151
 
 for.body151:                                      ; preds = %land.rhs146
-  %exitcond169.not = icmp eq i32 %i.2122, %37
-  br i1 %exitcond169.not, label %if.then153, label %if.end176
+  %exitcond170.not = icmp eq i32 %i.2123, %37
+  br i1 %exitcond170.not, label %if.then153, label %if.end176
 
 if.then153:                                       ; preds = %for.body151
-  %39 = trunc nsw i64 %indvars.iv161 to i32
-  %cond160 = add i64 %indvars.iv161, 4294967295
+  %39 = trunc nsw i64 %indvars.iv162 to i32
+  %cond160 = add i64 %indvars.iv162, 4294967295
   %idxprom161 = and i64 %cond160, 4294967295
   %arrayidx162 = getelementptr inbounds i16, ptr %pResult, i64 %idxprom161
   store i16 0, ptr %arrayidx162, align 2
-  %cmp165127 = icmp sgt i32 %39, 2
-  br i1 %cmp165127, label %land.rhs166.preheader, label %return
+  %cmp165128 = icmp sgt i32 %39, 2
+  br i1 %cmp165128, label %land.rhs166.preheader, label %return
 
 land.rhs166.preheader:                            ; preds = %if.then153
-  %dec164126 = add nsw i32 %39, -2
+  %dec164127 = add nsw i32 %39, -2
   br label %land.rhs166
 
 land.rhs166:                                      ; preds = %land.rhs166.preheader, %while.body172
-  %dec164128 = phi i32 [ %dec164, %while.body172 ], [ %dec164126, %land.rhs166.preheader ]
-  %idxprom167 = zext nneg i32 %dec164128 to i64
+  %dec164129 = phi i32 [ %dec164, %while.body172 ], [ %dec164127, %land.rhs166.preheader ]
+  %idxprom167 = zext nneg i32 %dec164129 to i64
   %arrayidx168 = getelementptr inbounds i16, ptr %pResult, i64 %idxprom167
   %40 = load i16, ptr %arrayidx168, align 2
   %cmp170 = icmp eq i16 %40, 48
@@ -12485,26 +12485,26 @@ land.rhs166:                                      ; preds = %land.rhs166.prehead
 
 while.body172:                                    ; preds = %land.rhs166
   store i16 0, ptr %arrayidx168, align 2
-  %dec164 = add nsw i32 %dec164128, -1
-  %cmp165 = icmp sgt i32 %dec164128, 1
+  %dec164 = add nsw i32 %dec164129, -1
+  %cmp165 = icmp sgt i32 %dec164129, 1
   br i1 %cmp165, label %land.rhs166, label %return, !llvm.loop !234
 
 if.end176:                                        ; preds = %for.body151
-  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %conv180 = sext i8 %38 to i16
-  %indvars.iv.next162 = add nsw i64 %indvars.iv161, 1
-  %arrayidx183 = getelementptr inbounds i16, ptr %pResult, i64 %indvars.iv161
+  %indvars.iv.next163 = add nsw i64 %indvars.iv162, 1
+  %arrayidx183 = getelementptr inbounds i16, ptr %pResult, i64 %indvars.iv162
   store i16 %conv180, ptr %arrayidx183, align 2
-  %inc185 = add nuw nsw i32 %i.2122, 1
-  %cmp143 = icmp slt i32 %inc185, %nPrecision.addr.1183
-  %41 = trunc nuw i64 %indvars.iv.next164 to i32
+  %inc185 = add nuw nsw i32 %i.2123, 1
+  %cmp143 = icmp slt i32 %inc185, %nPrecision.addr.1184
+  %41 = trunc nuw i64 %indvars.iv.next165 to i32
   %cmp145 = icmp sgt i32 %nFirstTrailingZeroPosition.0, %41
   %or.cond105 = select i1 %cmp143, i1 %cmp145, i1 false
   br i1 %or.cond105, label %land.rhs146, label %if.end188.loopexit, !llvm.loop !235
 
 if.end188.loopexit:                               ; preds = %land.rhs146, %if.end176
-  %indvars.iv161.lcssa.sink = phi i64 [ %indvars.iv.next162, %if.end176 ], [ %indvars.iv161, %land.rhs146 ]
-  %42 = trunc i64 %indvars.iv161.lcssa.sink to i32
+  %indvars.iv162.lcssa.sink = phi i64 [ %indvars.iv.next163, %if.end176 ], [ %indvars.iv162, %land.rhs146 ]
+  %42 = trunc i64 %indvars.iv162.lcssa.sink to i32
   br label %if.end188
 
 if.end188:                                        ; preds = %if.end188.loopexit, %if.end141, %while.end99, %if.end82

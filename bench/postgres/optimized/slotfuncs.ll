@@ -730,10 +730,10 @@ define dso_local i64 @pg_replication_slot_advance(ptr noundef %0) local_unnamed_
   call void @llvm.assume(i1 %50)
   %51 = call i32 @errcode(i32 noundef 325) #11
   %52 = lshr i64 %.0, 32
-  %53 = trunc i64 %52 to i32
+  %53 = trunc nuw i64 %52 to i32
   %54 = trunc i64 %.0 to i32
   %55 = lshr i64 %.02127, 32
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw i64 %55 to i32
   %57 = trunc i64 %.02127 to i32
   %58 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, i32 noundef %53, i32 noundef %54, i32 noundef %56, i32 noundef %57) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 651, ptr noundef nonnull @__func__.pg_replication_slot_advance) #11

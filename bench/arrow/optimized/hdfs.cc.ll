@@ -1212,7 +1212,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %total_bytes.0226 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end54 ]
   %nbytes.addr.0225 = phi i64 [ %nbytes, %while.body.lr.ph ], [ %sub, %if.end54 ]
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %nbytes.addr.0225, i64 2147483647)
-  %conv = trunc i64 %.sroa.speculated to i32
+  %conv = trunc nuw nsw i64 %.sroa.speculated to i32
   %31 = load ptr, ptr %driver_, align 8
   %32 = load ptr, ptr %fs_, align 8
   %33 = load ptr, ptr %file_, align 8
@@ -3549,7 +3549,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %buffer.addr.057 = phi ptr [ %buffer, %while.body.lr.ph ], [ %add.ptr, %while.end26 ]
   %nbytes.addr.056 = phi i64 [ %nbytes, %while.body.lr.ph ], [ %sub, %while.end26 ]
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %nbytes.addr.056, i64 2147483647)
-  %conv = trunc i64 %.sroa.speculated to i32
+  %conv = trunc nuw nsw i64 %.sroa.speculated to i32
   %1 = load ptr, ptr %driver_, align 8
   %2 = load ptr, ptr %fs_, align 8
   %3 = load ptr, ptr %file_, align 8
@@ -9251,7 +9251,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = tail call ptr @__cxa_begin_catch(ptr %4) #21
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i29
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #21
@@ -9263,11 +9263,11 @@ lpad17:                                           ; preds = %invoke.cont19
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i29:                                      ; preds = %lpad
+if.then.i32:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #22
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %if.then.i29, %if.end.thread
+invoke.cont19:                                    ; preds = %if.then.i32, %if.end.thread
   invoke void @__cxa_rethrow() #25
           to label %unreachable unwind label %lpad17
 

@@ -543,7 +543,7 @@ define void @_ZN22edit_mutualcorrsDialogC2EP7QWidgetP21EditMutualCorrsPlugin(ptr
 
 20:                                               ; preds = %19
   %.sroa.2.0.extract.shift = lshr i64 %18, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %.sroa.0.0.extract.trunc = trunc i64 %18 to i32
   %21 = getelementptr inbounds i8, ptr %1, i64 40
   %22 = load ptr, ptr %21, align 8

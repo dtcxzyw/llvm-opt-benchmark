@@ -618,7 +618,7 @@ for.body51:                                       ; preds = %for.body51.preheade
   %arrayidx57 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords, i64 0, i64 %idxprom56
   store ptr %13, ptr %arrayidx57, align 8
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %14 = trunc i64 %indvars.iv83 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv83 to i32
   %15 = and i64 %indvars.iv.next84, 4294967295
   %exitcond86.not = icmp eq i64 %15, 8
   br i1 %exitcond86.not, label %for.end, label %for.body51, !llvm.loop !13
@@ -707,7 +707,7 @@ for.body103:                                      ; preds = %for.body103.prehead
   %arrayidx110 = getelementptr inbounds [8 x ptr], ptr %mColors, i64 0, i64 %idxprom109
   store ptr %23, ptr %arrayidx110, align 8
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %24 = trunc i64 %indvars.iv94 to i32
+  %24 = trunc nuw nsw i64 %indvars.iv94 to i32
   %25 = and i64 %indvars.iv.next95, 4294967295
   %exitcond98.not = icmp eq i64 %25, 8
   br i1 %exitcond98.not, label %for.end113, label %for.body103, !llvm.loop !15

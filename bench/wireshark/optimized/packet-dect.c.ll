@@ -1782,7 +1782,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr nocapture
   br i1 %exitcond.not, label %.split.loop.exit175, label %55
 
 .split.loop.exit175:                              ; preds = %46
-  %47 = trunc i64 %indvars.iv to i32
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %55, %.split.loop.exit175
@@ -1861,7 +1861,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr nocapture
   %86 = zext nneg i32 %.zext45.i to i64
   %87 = getelementptr i8, ptr %6, i64 %86
   %88 = load i8, ptr %87, align 1
-  %89 = trunc i32 %84 to i8
+  %89 = trunc nuw i32 %84 to i8
   %90 = or i8 %88, %89
   %91 = xor i8 %89, -1
   %92 = and i8 %88, %91

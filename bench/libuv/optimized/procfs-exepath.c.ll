@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [15 x i8] c"/proc/self/exe\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @uv_exepath(ptr noundef %buffer, ptr noundef %size) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_exepath(ptr noundef %buffer, ptr noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %buffer, null
   %cmp1 = icmp eq ptr %size, null

@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hexbyte.hextable = internal unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BIO_hexdump(ptr noundef %bio, ptr nocapture noundef readonly %data, i64 noundef %len, i32 noundef %indent) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BIO_hexdump(ptr noundef %bio, ptr nocapture noundef readonly %data, i64 noundef %len, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %buf.i1 = alloca [5 x i8], align 4
   %buf.i = alloca [10 x i8], align 1

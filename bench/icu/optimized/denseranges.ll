@@ -77,7 +77,7 @@ if.then21:                                        ; preds = %for.body
 
 while.cond.i:                                     ; preds = %land.rhs.i, %if.then21
   %indvars.iv.i = phi i64 [ %9, %land.rhs.i ], [ %7, %if.then21 ]
-  %8 = trunc i64 %indvars.iv.i to i32
+  %8 = trunc nuw i64 %indvars.iv.i to i32
   %cmp.i = icmp sgt i32 %8, 0
   br i1 %cmp.i, label %land.rhs.i, label %while.end.i
 
@@ -218,7 +218,7 @@ land.lhs.true.i.us:                               ; preds = %for.body.i.us
   %cmp9.i.us = icmp slt i32 %18, %minValue.09.i.us
   %or.cond.i.us = select i1 %cmp5.i.us, i1 true, i1 %cmp9.i.us
   %spec.select.i.us = select i1 %or.cond.i.us, i32 %18, i32 %minValue.09.i.us
-  %19 = trunc i64 %indvars.iv.i53.us to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i53.us to i32
   %spec.select7.i.us = select i1 %or.cond.i.us, i32 %19, i32 %minIndex.010.i.us
   br label %for.inc.i.us
 

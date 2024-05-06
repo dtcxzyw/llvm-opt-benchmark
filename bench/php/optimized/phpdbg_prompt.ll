@@ -279,7 +279,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.193 = private unnamed_addr constant [8 x i8] c"%s:#%lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_exec(ptr nocapture noundef readonly %0) #0 {
+define hidden range(i32 -1, 1) i32 @phpdbg_do_exec(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 56
@@ -411,7 +411,7 @@ phpdbg_clean.exit21:                              ; preds = %56, %59
   br label %75
 
 62:                                               ; preds = %phpdbg_clean.exit
-  %63 = tail call i32 @phpdbg_compile(), !range !4
+  %63 = tail call i32 @phpdbg_compile()
   br label %75
 
 64:                                               ; preds = %15
@@ -746,7 +746,7 @@ define hidden noundef i32 @phpdbg_do_stdin(ptr nocapture noundef readonly %0) #0
 
 147:                                              ; preds = %141, %140
   %148 = phi ptr [ %.pre220, %141 ], [ null, %140 ]
-  %149 = call i32 @phpdbg_compile_stdin(ptr noundef %148), !range !4
+  %149 = call i32 @phpdbg_compile_stdin(ptr noundef %148)
   %150 = icmp eq i32 %149, -1
   br i1 %150, label %151, label %154
 
@@ -830,7 +830,7 @@ phpdbg_clean.exit:                                ; preds = %17, %21
   br i1 %7, label %33, label %26
 
 26:                                               ; preds = %25
-  %27 = call i32 @phpdbg_compile(), !range !4
+  %27 = call i32 @phpdbg_compile()
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %29, label %33
 
@@ -1006,7 +1006,7 @@ phpdbg_clean.exit:                                ; preds = %17, %21
 92:                                               ; preds = %.loopexit395
   %93 = icmp ugt i64 %indvars.iv, 3
   %94 = trunc nuw nsw i64 %indvars.iv to i32
-  %95 = call i32 @llvm.ctpop.i32(i32 %94), !range !5
+  %95 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %94)
   %96 = icmp ult i32 %95, 2
   %or.cond230 = select i1 %93, i1 %96, i1 false
   br i1 %or.cond230, label %97, label %101
@@ -1724,7 +1724,7 @@ define hidden noundef i32 @phpdbg_do_ev(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_until(ptr nocapture readnone %0) #0 {
+define hidden range(i32 0, 4) i32 @phpdbg_do_until(ptr nocapture readnone %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load i8, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 30), align 8
   %4 = trunc i8 %3 to i1
@@ -1818,7 +1818,7 @@ phpdbg_skip_line_helper.exit:                     ; preds = %36
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_finish(ptr nocapture readnone %0) #0 {
+define hidden range(i32 0, 5) i32 @phpdbg_do_finish(ptr nocapture readnone %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load i8, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 30), align 8
   %4 = trunc i8 %3 to i1
@@ -1934,7 +1934,7 @@ phpdbg_seek_to_end.exit:                          ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_leave(ptr nocapture readnone %0) #0 {
+define hidden range(i32 0, 6) i32 @phpdbg_do_leave(ptr nocapture readnone %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load i8, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 30), align 8
   %4 = trunc i8 %3 to i1
@@ -2770,7 +2770,7 @@ define hidden noundef i32 @phpdbg_do_register(ptr nocapture noundef readonly %0)
   br i1 %.not30, label %21, label %13
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %12, align 8, !nonnull !6, !noundef !6
+  %14 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   store ptr %14, ptr %2, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 13, ptr %15, align 8
@@ -2913,7 +2913,7 @@ define hidden noundef i32 @phpdbg_do_watch(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_next(ptr nocapture readnone %0) #0 {
+define hidden range(i32 0, 4) i32 @phpdbg_do_next(ptr nocapture readnone %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load i8, ptr getelementptr inbounds (%struct._zend_phpdbg_globals, ptr @phpdbg_globals, i64 0, i32 30), align 8
   %4 = trunc i8 %3 to i1
@@ -3462,7 +3462,7 @@ declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @php_build_argv(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_compile() local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phpdbg_compile() local_unnamed_addr #0 {
   %1 = alloca %struct._zend_file_handle, align 8
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
@@ -3528,7 +3528,7 @@ declare i32 @phpdbg_mixed_read(i32 noundef, ptr noundef, i32 noundef, i32 nounde
 declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_compile_stdin(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phpdbg_compile_stdin(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load ptr, ptr @zend_compile_string, align 8
   %4 = tail call ptr %3(ptr noundef %0, ptr noundef nonnull @.str.79, i32 noundef 2) #24
@@ -3588,7 +3588,7 @@ define hidden noundef i32 @phpdbg_compile_stdin(ptr noundef %0) local_unnamed_ad
   br i1 %.not52, label %31, label %29
 
 29:                                               ; preds = %22
-  %30 = load ptr, ptr %28, align 8, !nonnull !6, !noundef !6
+  %30 = load ptr, ptr %28, align 8, !nonnull !4, !noundef !4
   br label %31
 
 31:                                               ; preds = %22, %29
@@ -4412,7 +4412,7 @@ declare i32 @phpdbg_stack_execute(ptr noundef, i1 noundef zeroext) local_unnamed
 declare void @phpdbg_stack_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @phpdbg_call_register(i32 %.0.val, ptr readonly %.72.val) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @phpdbg_call_register(i32 %.0.val, ptr readonly %.72.val) unnamed_addr #0 {
   %1 = alloca %struct._zval_struct, align 8
   %2 = alloca %struct._zend_fcall_info, align 8
   %3 = alloca %struct._zval_struct, align 8
@@ -5809,6 +5809,4 @@ attributes #30 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{i32 0, i32 32}
-!6 = !{}
+!4 = !{}

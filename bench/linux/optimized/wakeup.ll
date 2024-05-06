@@ -232,7 +232,7 @@ declare dso_local i32 @device_set_wakeup_enable(ptr noundef, i1 noundef zeroext)
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_register_wakeup_handler(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @acpi_register_wakeup_handler(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = load i32, ptr @acpi_sci_irq, align 4
   %5 = icmp ne i32 %4, -1
   %6 = icmp eq i32 %4, %0

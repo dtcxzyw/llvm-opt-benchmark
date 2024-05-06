@@ -237,90 +237,90 @@ if.end23:                                         ; preds = %if.then17, %if.end1
   %offset_minutes.1 = phi i32 [ %offset_minutes.0.neg, %if.then17 ], [ %div, %if.end13 ]
   %offset_seconds.1 = phi i32 [ %sub21, %if.then17 ], [ %rem, %if.end13 ]
   %div24.lhs.trunc = trunc i32 %offset_minutes.1 to i16
-  %div2459 = sdiv i16 %div24.lhs.trunc, 60
-  %rem2560 = srem i16 %div24.lhs.trunc, 60
+  %div2460 = sdiv i16 %div24.lhs.trunc, 60
+  %rem2561 = srem i16 %div24.lhs.trunc, 60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %buf, ptr noundef nonnull align 1 dereferenceable(9) @_ZN4absl13time_internal4cctz12_GLOBAL__N_116kFixedZonePrefixE, i64 9, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buf, i64 9
   %incdec.ptr = getelementptr inbounds i8, ptr %buf, i64 10
   store i8 %cond, ptr %add.ptr.i.i.i.i.i.i.i, align 1
-  %div.i.lhs.trunc = trunc i16 %div2459 to i8
-  %div.i61 = sdiv i8 %div.i.lhs.trunc, 10
-  %idxprom.i = sext i8 %div.i61 to i64
+  %div.i.lhs.trunc = trunc i16 %div2460 to i8
+  %div.i62 = sdiv i8 %div.i.lhs.trunc, 10
+  %idxprom.i = sext i8 %div.i62 to i64
   %arrayidx.i = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %buf, i64 11
   store i8 %6, ptr %incdec.ptr, align 2
-  %rem1.i62 = srem i8 %div.i.lhs.trunc, 10
-  %idxprom2.i = sext i8 %rem1.i62 to i64
+  %rem1.i63 = srem i8 %div.i.lhs.trunc, 10
+  %idxprom2.i = sext i8 %rem1.i63 to i64
   %arrayidx3.i = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i
   %7 = load i8, ptr %arrayidx3.i, align 1
   %incdec.ptr4.i = getelementptr inbounds i8, ptr %buf, i64 12
   store i8 %7, ptr %incdec.ptr.i, align 1
   %incdec.ptr28 = getelementptr inbounds i8, ptr %buf, i64 13
   store i8 58, ptr %incdec.ptr4.i, align 4
-  %div.i33.lhs.trunc = trunc i16 %rem2560 to i8
-  %div.i3363 = sdiv i8 %div.i33.lhs.trunc, 10
-  %idxprom.i35 = sext i8 %div.i3363 to i64
+  %div.i33.lhs.trunc = trunc nsw i16 %rem2561 to i8
+  %div.i3364 = sdiv i8 %div.i33.lhs.trunc, 10
+  %idxprom.i35 = sext i8 %div.i3364 to i64
   %arrayidx.i36 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i35
   %8 = load i8, ptr %arrayidx.i36, align 1
   %incdec.ptr.i37 = getelementptr inbounds i8, ptr %buf, i64 14
   store i8 %8, ptr %incdec.ptr28, align 1
-  %rem1.i3864 = srem i8 %div.i33.lhs.trunc, 10
-  %idxprom2.i39 = sext i8 %rem1.i3864 to i64
+  %rem1.i3865 = srem i8 %div.i33.lhs.trunc, 10
+  %idxprom2.i39 = sext i8 %rem1.i3865 to i64
   %arrayidx3.i40 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i39
   %9 = load i8, ptr %arrayidx3.i40, align 1
   %incdec.ptr4.i41 = getelementptr inbounds i8, ptr %buf, i64 15
   store i8 %9, ptr %incdec.ptr.i37, align 2
   %incdec.ptr30 = getelementptr inbounds i8, ptr %buf, i64 16
   store i8 58, ptr %incdec.ptr4.i41, align 1
-  %div.i42.lhs.trunc = trunc i32 %offset_seconds.1 to i8
-  %div.i4265 = sdiv i8 %div.i42.lhs.trunc, 10
-  %idxprom.i44 = sext i8 %div.i4265 to i64
+  %div.i42.lhs.trunc = trunc nsw i32 %offset_seconds.1 to i8
+  %div.i4266 = sdiv i8 %div.i42.lhs.trunc, 10
+  %idxprom.i44 = sext i8 %div.i4266 to i64
   %arrayidx.i45 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i44
   %10 = load i8, ptr %arrayidx.i45, align 1
   %incdec.ptr.i46 = getelementptr inbounds i8, ptr %buf, i64 17
   store i8 %10, ptr %incdec.ptr30, align 16
-  %rem1.i4766 = srem i8 %div.i42.lhs.trunc, 10
-  %idxprom2.i48 = sext i8 %rem1.i4766 to i64
+  %rem1.i4767 = srem i8 %div.i42.lhs.trunc, 10
+  %idxprom2.i48 = sext i8 %rem1.i4767 to i64
   %arrayidx3.i49 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i48
   %11 = load i8, ptr %arrayidx3.i49, align 1
   %incdec.ptr4.i50 = getelementptr inbounds i8, ptr %buf, i64 18
   store i8 %11, ptr %incdec.ptr.i46, align 1
   store i8 0, ptr %incdec.ptr4.i50, align 2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34) #9
-  %call.i55 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
-          to label %call.i.noexc54 unwind label %lpad35
+  %call.i56 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
+          to label %call.i.noexc55 unwind label %lpad35
 
-call.i.noexc54:                                   ; preds = %if.end23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i55, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34)
-          to label %.noexc56 unwind label %lpad35
+call.i.noexc55:                                   ; preds = %if.end23
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i56, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34)
+          to label %.noexc57 unwind label %lpad35
 
-.noexc56:                                         ; preds = %call.i.noexc54
-  %call.i.i51 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #9
-  %add.ptr.i52 = getelementptr inbounds i8, ptr %buf, i64 %call.i.i51
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %buf, ptr noundef nonnull %add.ptr.i52)
-          to label %return unwind label %lpad.i53
+.noexc57:                                         ; preds = %call.i.noexc55
+  %call.i.i52 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #9
+  %add.ptr.i53 = getelementptr inbounds i8, ptr %buf, i64 %call.i.i52
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %buf, ptr noundef nonnull %add.ptr.i53)
+          to label %return unwind label %lpad.i54
 
-lpad.i53:                                         ; preds = %.noexc56
+lpad.i54:                                         ; preds = %.noexc57
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #9
   br label %eh.resume
 
-lpad35:                                           ; preds = %call.i.noexc54, %if.end23
+lpad35:                                           ; preds = %call.i.noexc55, %if.end23
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
-return:                                           ; preds = %.noexc56, %.noexc30, %.noexc
-  %ref.tmp34.sink = phi ptr [ %ref.tmp2, %.noexc ], [ %ref.tmp10, %.noexc30 ], [ %ref.tmp34, %.noexc56 ]
+return:                                           ; preds = %.noexc57, %.noexc30, %.noexc
+  %ref.tmp34.sink = phi ptr [ %ref.tmp2, %.noexc ], [ %ref.tmp10, %.noexc30 ], [ %ref.tmp34, %.noexc57 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34.sink) #9
   ret void
 
-eh.resume:                                        ; preds = %lpad35, %lpad.i53, %lpad11, %lpad.i27, %lpad, %lpad.i
-  %ref.tmp34.sink67 = phi ptr [ %ref.tmp2, %lpad.i ], [ %ref.tmp2, %lpad ], [ %ref.tmp10, %lpad.i27 ], [ %ref.tmp10, %lpad11 ], [ %ref.tmp34, %lpad.i53 ], [ %ref.tmp34, %lpad35 ]
-  %.pn = phi { ptr, i32 } [ %1, %lpad.i ], [ %2, %lpad ], [ %4, %lpad.i27 ], [ %5, %lpad11 ], [ %12, %lpad.i53 ], [ %13, %lpad35 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34.sink67) #9
+eh.resume:                                        ; preds = %lpad35, %lpad.i54, %lpad11, %lpad.i27, %lpad, %lpad.i
+  %ref.tmp34.sink68 = phi ptr [ %ref.tmp2, %lpad.i ], [ %ref.tmp2, %lpad ], [ %ref.tmp10, %lpad.i27 ], [ %ref.tmp10, %lpad11 ], [ %ref.tmp34, %lpad.i54 ], [ %ref.tmp34, %lpad35 ]
+  %.pn = phi { ptr, i32 } [ %1, %lpad.i ], [ %2, %lpad ], [ %4, %lpad.i27 ], [ %5, %lpad11 ], [ %12, %lpad.i54 ], [ %13, %lpad35 ]
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34.sink68) #9
   resume { ptr, i32 } %.pn
 }
 

@@ -564,7 +564,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %26 = getelementptr inbounds i8, ptr %7, i64 48
   %27 = load i32, ptr %26, align 8, !tbaa !135, !noalias !130
   %28 = ashr i32 %27, 1
-  %29 = mul nsw i32 %28, %25
+  %29 = mul nuw nsw i32 %28, %25
   %30 = icmp sgt i32 %23, -1
   tail call void @llvm.assume(i1 %30)
   %31 = icmp sgt i32 %25, -1
@@ -1164,7 +1164,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %433)
   %434 = add nsw i32 %421, -11
   %435 = shl i64 %423, 11
-  %436 = trunc i64 %414 to i32
+  %436 = trunc nuw nsw i64 %414 to i32
   %437 = load ptr, ptr %111, align 8, !tbaa !156
   %438 = load ptr, ptr %110, align 8, !tbaa !157
   %439 = ptrtoint ptr %437 to i64
@@ -1172,7 +1172,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %441 = sub i64 %439, %440
   %442 = ashr exact i64 %441, 2
   %443 = add nsw i64 %442, -1
-  %444 = trunc i64 %414 to i16
+  %444 = trunc nuw nsw i64 %414 to i16
   %445 = icmp ugt i64 %443, 11
   br i1 %445, label %446, label %.loopexit50
 
@@ -1198,7 +1198,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %461 = icmp ne i32 %450, 0
   tail call void @llvm.assume(i1 %461)
   %462 = lshr i64 %449, 63
-  %463 = trunc i64 %462 to i32
+  %463 = trunc nuw nsw i64 %462 to i32
   %464 = add nsw i32 %450, -1
   %465 = shl i64 %449, 1
   %466 = shl nsw i32 %454, 1
@@ -1279,7 +1279,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %516 = sub nuw nsw i32 64, %514
   %517 = zext nneg i32 %516 to i64
   %518 = lshr i64 %502, %517
-  %519 = trunc i64 %518 to i32
+  %519 = trunc nuw nsw i64 %518 to i32
   %520 = sub nsw i32 %503, %514
   %521 = zext nneg i8 %500 to i64
   %522 = shl i64 %502, %521
@@ -1527,7 +1527,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %697)
   %698 = add nsw i32 %685, -11
   %699 = shl i64 %687, 11
-  %700 = trunc i64 %678 to i32
+  %700 = trunc nuw nsw i64 %678 to i32
   %701 = load ptr, ptr %111, align 8, !tbaa !156
   %702 = load ptr, ptr %110, align 8, !tbaa !157
   %703 = ptrtoint ptr %701 to i64
@@ -1535,7 +1535,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %705 = sub i64 %703, %704
   %706 = ashr exact i64 %705, 2
   %707 = add nsw i64 %706, -1
-  %708 = trunc i64 %678 to i16
+  %708 = trunc nuw nsw i64 %678 to i16
   %709 = icmp ugt i64 %707, 11
   br i1 %709, label %710, label %.loopexit
 
@@ -1561,7 +1561,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %725 = icmp ne i32 %714, 0
   tail call void @llvm.assume(i1 %725)
   %726 = lshr i64 %713, 63
-  %727 = trunc i64 %726 to i32
+  %727 = trunc nuw nsw i64 %726 to i32
   %728 = add nsw i32 %714, -1
   %729 = shl i64 %713, 1
   %730 = shl nsw i32 %718, 1
@@ -1726,7 +1726,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %26 = getelementptr inbounds i8, ptr %7, i64 48
   %27 = load i32, ptr %26, align 8, !tbaa !135, !noalias !168
   %28 = ashr i32 %27, 1
-  %29 = mul nsw i32 %28, %25
+  %29 = mul nuw nsw i32 %28, %25
   %30 = icmp sgt i32 %23, -1
   tail call void @llvm.assume(i1 %30)
   %31 = icmp sgt i32 %25, -1
@@ -2072,7 +2072,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %106)
   %255 = icmp ult i64 %254, %116
   tail call void @llvm.assume(i1 %255)
-  %256 = trunc i64 %254 to i32
+  %256 = trunc nuw nsw i64 %254 to i32
   %257 = mul nsw i32 %28, %256
   %258 = add nuw nsw i32 %257, %23
   %259 = icmp ule i32 %258, %29
@@ -2346,7 +2346,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %444)
   %445 = add nsw i32 %432, -11
   %446 = shl i64 %434, 11
-  %447 = trunc i64 %424 to i32
+  %447 = trunc nuw nsw i64 %424 to i32
   %448 = getelementptr inbounds i8, ptr %.sroa.phi.sroa.speculated, i64 24
   %449 = getelementptr inbounds i8, ptr %.sroa.phi.sroa.speculated, i64 32
   %450 = load ptr, ptr %449, align 8, !tbaa !156
@@ -2356,7 +2356,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %454 = sub i64 %452, %453
   %455 = ashr exact i64 %454, 2
   %456 = add nsw i64 %455, -1
-  %457 = trunc i64 %424 to i16
+  %457 = trunc nuw nsw i64 %424 to i16
   %458 = icmp ugt i64 %456, 11
   br i1 %458, label %459, label %.loopexit61
 
@@ -2383,7 +2383,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %475 = icmp ne i32 %464, 0
   tail call void @llvm.assume(i1 %475)
   %476 = lshr i64 %463, 63
-  %477 = trunc i64 %476 to i32
+  %477 = trunc nuw nsw i64 %476 to i32
   %478 = add nsw i32 %464, -1
   %479 = shl i64 %463, 1
   %480 = shl nsw i32 %468, 1
@@ -2467,7 +2467,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %533 = sub nuw nsw i32 64, %531
   %534 = zext nneg i32 %533 to i64
   %535 = lshr i64 %518, %534
-  %536 = trunc i64 %535 to i32
+  %536 = trunc nuw nsw i64 %535 to i32
   %537 = sub nsw i32 %519, %531
   %538 = zext nneg i8 %516 to i64
   %539 = shl i64 %518, %538
@@ -2733,7 +2733,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %724)
   %725 = add nsw i32 %712, -11
   %726 = shl i64 %714, 11
-  %727 = trunc i64 %704 to i32
+  %727 = trunc nuw nsw i64 %704 to i32
   %728 = getelementptr inbounds i8, ptr %.sroa.phi48.sroa.speculated, i64 24
   %729 = getelementptr inbounds i8, ptr %.sroa.phi48.sroa.speculated, i64 32
   %730 = load ptr, ptr %729, align 8, !tbaa !156
@@ -2743,7 +2743,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %734 = sub i64 %732, %733
   %735 = ashr exact i64 %734, 2
   %736 = add nsw i64 %735, -1
-  %737 = trunc i64 %704 to i16
+  %737 = trunc nuw nsw i64 %704 to i16
   %738 = icmp ugt i64 %736, 11
   br i1 %738, label %739, label %.loopexit
 
@@ -2770,7 +2770,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %755 = icmp ne i32 %744, 0
   tail call void @llvm.assume(i1 %755)
   %756 = lshr i64 %743, 63
-  %757 = trunc i64 %756 to i32
+  %757 = trunc nuw nsw i64 %756 to i32
   %758 = add nsw i32 %744, -1
   %759 = shl i64 %743, 1
   %760 = shl nsw i32 %748, 1
@@ -2938,7 +2938,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %28 = getelementptr inbounds i8, ptr %9, i64 48
   %29 = load i32, ptr %28, align 8, !tbaa !135, !noalias !186
   %30 = ashr i32 %29, 1
-  %31 = mul nsw i32 %30, %27
+  %31 = mul nuw nsw i32 %30, %27
   %32 = icmp sgt i32 %25, -1
   tail call void @llvm.assume(i1 %32)
   %33 = icmp sgt i32 %27, -1
@@ -3556,7 +3556,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %446)
   %447 = add nsw i32 %434, -11
   %448 = shl i64 %436, 11
-  %449 = trunc i64 %426 to i32
+  %449 = trunc nuw nsw i64 %426 to i32
   %450 = getelementptr inbounds i8, ptr %289, i64 24
   %451 = getelementptr inbounds i8, ptr %289, i64 32
   %452 = load ptr, ptr %451, align 8, !tbaa !156
@@ -3566,7 +3566,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %456 = sub i64 %454, %455
   %457 = ashr exact i64 %456, 2
   %458 = add nsw i64 %457, -1
-  %459 = trunc i64 %426 to i16
+  %459 = trunc nuw nsw i64 %426 to i16
   %460 = icmp ugt i64 %458, 11
   br i1 %460, label %461, label %.loopexit50
 
@@ -3593,7 +3593,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %477 = icmp ne i32 %466, 0
   tail call void @llvm.assume(i1 %477)
   %478 = lshr i64 %465, 63
-  %479 = trunc i64 %478 to i32
+  %479 = trunc nuw nsw i64 %478 to i32
   %480 = add nsw i32 %466, -1
   %481 = shl i64 %465, 1
   %482 = shl nsw i32 %470, 1
@@ -3677,7 +3677,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %535 = sub nuw nsw i32 64, %533
   %536 = zext nneg i32 %535 to i64
   %537 = lshr i64 %520, %536
-  %538 = trunc i64 %537 to i32
+  %538 = trunc nuw nsw i64 %537 to i32
   %539 = sub nsw i32 %521, %533
   %540 = zext nneg i8 %518 to i64
   %541 = shl i64 %520, %540
@@ -3946,7 +3946,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %730)
   %731 = add nsw i32 %718, -11
   %732 = shl i64 %720, 11
-  %733 = trunc i64 %710 to i32
+  %733 = trunc nuw nsw i64 %710 to i32
   %734 = getelementptr inbounds i8, ptr %573, i64 24
   %735 = getelementptr inbounds i8, ptr %573, i64 32
   %736 = load ptr, ptr %735, align 8, !tbaa !156
@@ -3956,7 +3956,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %740 = sub i64 %738, %739
   %741 = ashr exact i64 %740, 2
   %742 = add nsw i64 %741, -1
-  %743 = trunc i64 %710 to i16
+  %743 = trunc nuw nsw i64 %710 to i16
   %744 = icmp ugt i64 %742, 11
   br i1 %744, label %745, label %.loopexit
 
@@ -3983,7 +3983,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %761 = icmp ne i32 %750, 0
   tail call void @llvm.assume(i1 %761)
   %762 = lshr i64 %749, 63
-  %763 = trunc i64 %762 to i32
+  %763 = trunc nuw nsw i64 %762 to i32
   %764 = add nsw i32 %750, -1
   %765 = shl i64 %749, 1
   %766 = shl nsw i32 %754, 1
@@ -4153,7 +4153,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %28 = getelementptr inbounds i8, ptr %9, i64 48
   %29 = load i32, ptr %28, align 8, !tbaa !135, !noalias !211
   %30 = ashr i32 %29, 1
-  %31 = mul nsw i32 %30, %27
+  %31 = mul nuw nsw i32 %30, %27
   %32 = icmp sgt i32 %25, -1
   tail call void @llvm.assume(i1 %32)
   %33 = icmp sgt i32 %27, -1
@@ -4763,7 +4763,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %437)
   %438 = add nsw i32 %425, -11
   %439 = shl i64 %427, 11
-  %440 = trunc i64 %417 to i32
+  %440 = trunc nuw nsw i64 %417 to i32
   %441 = getelementptr inbounds i8, ptr %280, i64 24
   %442 = getelementptr inbounds i8, ptr %280, i64 32
   %443 = load ptr, ptr %442, align 8, !tbaa !156
@@ -4773,7 +4773,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %447 = sub i64 %445, %446
   %448 = ashr exact i64 %447, 2
   %449 = add nsw i64 %448, -1
-  %450 = trunc i64 %417 to i16
+  %450 = trunc nuw nsw i64 %417 to i16
   %451 = icmp ugt i64 %449, 11
   br i1 %451, label %452, label %.loopexit51
 
@@ -4800,7 +4800,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %468 = icmp ne i32 %457, 0
   tail call void @llvm.assume(i1 %468)
   %469 = lshr i64 %456, 63
-  %470 = trunc i64 %469 to i32
+  %470 = trunc nuw nsw i64 %469 to i32
   %471 = add nsw i32 %457, -1
   %472 = shl i64 %456, 1
   %473 = shl nsw i32 %461, 1
@@ -4884,7 +4884,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %526 = sub nuw nsw i32 64, %524
   %527 = zext nneg i32 %526 to i64
   %528 = lshr i64 %511, %527
-  %529 = trunc i64 %528 to i32
+  %529 = trunc nuw nsw i64 %528 to i32
   %530 = sub nsw i32 %512, %524
   %531 = zext nneg i8 %509 to i64
   %532 = shl i64 %511, %531
@@ -5153,7 +5153,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %721)
   %722 = add nsw i32 %709, -11
   %723 = shl i64 %711, 11
-  %724 = trunc i64 %701 to i32
+  %724 = trunc nuw nsw i64 %701 to i32
   %725 = getelementptr inbounds i8, ptr %564, i64 24
   %726 = getelementptr inbounds i8, ptr %564, i64 32
   %727 = load ptr, ptr %726, align 8, !tbaa !156
@@ -5163,7 +5163,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %731 = sub i64 %729, %730
   %732 = ashr exact i64 %731, 2
   %733 = add nsw i64 %732, -1
-  %734 = trunc i64 %701 to i16
+  %734 = trunc nuw nsw i64 %701 to i16
   %735 = icmp ugt i64 %733, 11
   br i1 %735, label %736, label %.loopexit
 
@@ -5190,7 +5190,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %752 = icmp ne i32 %741, 0
   tail call void @llvm.assume(i1 %752)
   %753 = lshr i64 %740, 63
-  %754 = trunc i64 %753 to i32
+  %754 = trunc nuw nsw i64 %753 to i32
   %755 = add nsw i32 %741, -1
   %756 = shl i64 %740, 1
   %757 = shl nsw i32 %745, 1
@@ -5362,7 +5362,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %28 = getelementptr inbounds i8, ptr %9, i64 48
   %29 = load i32, ptr %28, align 8, !tbaa !135, !noalias !234
   %30 = ashr i32 %29, 1
-  %31 = mul nsw i32 %30, %27
+  %31 = mul nuw nsw i32 %30, %27
   %32 = icmp sgt i32 %25, -1
   tail call void @llvm.assume(i1 %32)
   %33 = icmp sgt i32 %27, -1
@@ -5730,7 +5730,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %108)
   %275 = icmp ult i64 %274, %119
   tail call void @llvm.assume(i1 %275)
-  %276 = trunc i64 %274 to i32
+  %276 = trunc nuw nsw i64 %274 to i32
   %277 = mul nsw i32 %30, %276
   %278 = add nuw nsw i32 %277, %25
   %279 = icmp ule i32 %278, %31
@@ -5993,7 +5993,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %457)
   %458 = add nsw i32 %445, -11
   %459 = shl i64 %447, 11
-  %460 = trunc i64 %437 to i32
+  %460 = trunc nuw nsw i64 %437 to i32
   %461 = getelementptr inbounds i8, ptr %.sroa.phi.sroa.speculated, i64 24
   %462 = getelementptr inbounds i8, ptr %.sroa.phi.sroa.speculated, i64 32
   %463 = load ptr, ptr %462, align 8, !tbaa !156
@@ -6003,7 +6003,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %467 = sub i64 %465, %466
   %468 = ashr exact i64 %467, 2
   %469 = add nsw i64 %468, -1
-  %470 = trunc i64 %437 to i16
+  %470 = trunc nuw nsw i64 %437 to i16
   %471 = icmp ugt i64 %469, 11
   br i1 %471, label %472, label %.loopexit89
 
@@ -6030,7 +6030,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %488 = icmp ne i32 %477, 0
   tail call void @llvm.assume(i1 %488)
   %489 = lshr i64 %476, 63
-  %490 = trunc i64 %489 to i32
+  %490 = trunc nuw nsw i64 %489 to i32
   %491 = add nsw i32 %477, -1
   %492 = shl i64 %476, 1
   %493 = shl nsw i32 %481, 1
@@ -6114,7 +6114,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %546 = sub nuw nsw i32 64, %544
   %547 = zext nneg i32 %546 to i64
   %548 = lshr i64 %531, %547
-  %549 = trunc i64 %548 to i32
+  %549 = trunc nuw nsw i64 %548 to i32
   %550 = sub nsw i32 %532, %544
   %551 = zext nneg i8 %529 to i64
   %552 = shl i64 %531, %551
@@ -6376,7 +6376,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %733)
   %734 = add nsw i32 %721, -11
   %735 = shl i64 %723, 11
-  %736 = trunc i64 %714 to i32
+  %736 = trunc nuw nsw i64 %714 to i32
   %737 = load ptr, ptr %155, align 8, !tbaa !156
   %738 = load ptr, ptr %154, align 8, !tbaa !157
   %739 = ptrtoint ptr %737 to i64
@@ -6384,7 +6384,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %741 = sub i64 %739, %740
   %742 = ashr exact i64 %741, 2
   %743 = add nsw i64 %742, -1
-  %744 = trunc i64 %714 to i16
+  %744 = trunc nuw nsw i64 %714 to i16
   %745 = icmp ugt i64 %743, 11
   br i1 %745, label %746, label %.loopexit104
 
@@ -6410,7 +6410,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %761 = icmp ne i32 %750, 0
   tail call void @llvm.assume(i1 %761)
   %762 = lshr i64 %749, 63
-  %763 = trunc i64 %762 to i32
+  %763 = trunc nuw nsw i64 %762 to i32
   %764 = add nsw i32 %750, -1
   %765 = shl i64 %749, 1
   %766 = shl nsw i32 %754, 1
@@ -6491,7 +6491,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %816 = sub nuw nsw i32 64, %814
   %817 = zext nneg i32 %816 to i64
   %818 = lshr i64 %802, %817
-  %819 = trunc i64 %818 to i32
+  %819 = trunc nuw nsw i64 %818 to i32
   %820 = sub nsw i32 %803, %814
   %821 = zext nneg i8 %800 to i64
   %822 = shl i64 %802, %821
@@ -6735,7 +6735,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %993)
   %994 = add nsw i32 %981, -11
   %995 = shl i64 %983, 11
-  %996 = trunc i64 %974 to i32
+  %996 = trunc nuw nsw i64 %974 to i32
   %997 = load ptr, ptr %124, align 8, !tbaa !156
   %998 = load ptr, ptr %123, align 8, !tbaa !157
   %999 = ptrtoint ptr %997 to i64
@@ -6743,7 +6743,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %1001 = sub i64 %999, %1000
   %1002 = ashr exact i64 %1001, 2
   %1003 = add nsw i64 %1002, -1
-  %1004 = trunc i64 %974 to i16
+  %1004 = trunc nuw nsw i64 %974 to i16
   %1005 = icmp ugt i64 %1003, 11
   br i1 %1005, label %1006, label %.loopexit97
 
@@ -6769,7 +6769,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %1021 = icmp ne i32 %1010, 0
   tail call void @llvm.assume(i1 %1021)
   %1022 = lshr i64 %1009, 63
-  %1023 = trunc i64 %1022 to i32
+  %1023 = trunc nuw nsw i64 %1022 to i32
   %1024 = add nsw i32 %1010, -1
   %1025 = shl i64 %1009, 1
   %1026 = shl nsw i32 %1014, 1
@@ -7097,7 +7097,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %1252)
   %1253 = add nsw i32 %1240, -11
   %1254 = shl i64 %1242, 11
-  %1255 = trunc i64 %1232 to i32
+  %1255 = trunc nuw nsw i64 %1232 to i32
   %1256 = getelementptr inbounds i8, ptr %.sroa.phi76.sroa.speculated, i64 24
   %1257 = getelementptr inbounds i8, ptr %.sroa.phi76.sroa.speculated, i64 32
   %1258 = load ptr, ptr %1257, align 8, !tbaa !156
@@ -7107,7 +7107,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %1262 = sub i64 %1260, %1261
   %1263 = ashr exact i64 %1262, 2
   %1264 = add nsw i64 %1263, -1
-  %1265 = trunc i64 %1232 to i16
+  %1265 = trunc nuw nsw i64 %1232 to i16
   %1266 = icmp ugt i64 %1264, 11
   br i1 %1266, label %1267, label %.loopexit
 
@@ -7134,7 +7134,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %1283 = icmp ne i32 %1272, 0
   tail call void @llvm.assume(i1 %1283)
   %1284 = lshr i64 %1271, 63
-  %1285 = trunc i64 %1284 to i32
+  %1285 = trunc nuw nsw i64 %1284 to i32
   %1286 = add nsw i32 %1272, -1
   %1287 = shl i64 %1271, 1
   %1288 = shl nsw i32 %1276, 1
@@ -7304,7 +7304,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %30 = getelementptr inbounds i8, ptr %11, i64 48
   %31 = load i32, ptr %30, align 8, !tbaa !135, !noalias !254
   %32 = ashr i32 %31, 1
-  %33 = mul nsw i32 %32, %29
+  %33 = mul nuw nsw i32 %32, %29
   %34 = icmp sgt i32 %27, -1
   tail call void @llvm.assume(i1 %34)
   %35 = icmp sgt i32 %29, -1
@@ -7923,7 +7923,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %448)
   %449 = add nsw i32 %436, -11
   %450 = shl i64 %438, 11
-  %451 = trunc i64 %428 to i32
+  %451 = trunc nuw nsw i64 %428 to i32
   %452 = getelementptr inbounds i8, ptr %291, i64 24
   %453 = getelementptr inbounds i8, ptr %291, i64 32
   %454 = load ptr, ptr %453, align 8, !tbaa !156
@@ -7933,7 +7933,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %458 = sub i64 %456, %457
   %459 = ashr exact i64 %458, 2
   %460 = add nsw i64 %459, -1
-  %461 = trunc i64 %428 to i16
+  %461 = trunc nuw nsw i64 %428 to i16
   %462 = icmp ugt i64 %460, 11
   br i1 %462, label %463, label %.loopexit79
 
@@ -7960,7 +7960,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %479 = icmp ne i32 %468, 0
   tail call void @llvm.assume(i1 %479)
   %480 = lshr i64 %467, 63
-  %481 = trunc i64 %480 to i32
+  %481 = trunc nuw nsw i64 %480 to i32
   %482 = add nsw i32 %468, -1
   %483 = shl i64 %467, 1
   %484 = shl nsw i32 %472, 1
@@ -8044,7 +8044,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %537 = sub nuw nsw i32 64, %535
   %538 = zext nneg i32 %537 to i64
   %539 = lshr i64 %522, %538
-  %540 = trunc i64 %539 to i32
+  %540 = trunc nuw nsw i64 %539 to i32
   %541 = sub nsw i32 %523, %535
   %542 = zext nneg i8 %520 to i64
   %543 = shl i64 %522, %542
@@ -8313,7 +8313,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %732)
   %733 = add nsw i32 %720, -11
   %734 = shl i64 %722, 11
-  %735 = trunc i64 %712 to i32
+  %735 = trunc nuw nsw i64 %712 to i32
   %736 = getelementptr inbounds i8, ptr %575, i64 24
   %737 = getelementptr inbounds i8, ptr %575, i64 32
   %738 = load ptr, ptr %737, align 8, !tbaa !156
@@ -8323,7 +8323,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %742 = sub i64 %740, %741
   %743 = ashr exact i64 %742, 2
   %744 = add nsw i64 %743, -1
-  %745 = trunc i64 %712 to i16
+  %745 = trunc nuw nsw i64 %712 to i16
   %746 = icmp ugt i64 %744, 11
   br i1 %746, label %747, label %.loopexit93
 
@@ -8350,7 +8350,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %763 = icmp ne i32 %752, 0
   tail call void @llvm.assume(i1 %763)
   %764 = lshr i64 %751, 63
-  %765 = trunc i64 %764 to i32
+  %765 = trunc nuw nsw i64 %764 to i32
   %766 = add nsw i32 %752, -1
   %767 = shl i64 %751, 1
   %768 = shl nsw i32 %756, 1
@@ -8434,7 +8434,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %821 = sub nuw nsw i32 64, %819
   %822 = zext nneg i32 %821 to i64
   %823 = lshr i64 %806, %822
-  %824 = trunc i64 %823 to i32
+  %824 = trunc nuw nsw i64 %823 to i32
   %825 = sub nsw i32 %807, %819
   %826 = zext nneg i8 %804 to i64
   %827 = shl i64 %806, %826
@@ -8702,7 +8702,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %1015)
   %1016 = add nsw i32 %1003, -11
   %1017 = shl i64 %1005, 11
-  %1018 = trunc i64 %995 to i32
+  %1018 = trunc nuw nsw i64 %995 to i32
   %1019 = getelementptr inbounds i8, ptr %858, i64 24
   %1020 = getelementptr inbounds i8, ptr %858, i64 32
   %1021 = load ptr, ptr %1020, align 8, !tbaa !156
@@ -8712,7 +8712,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %1025 = sub i64 %1023, %1024
   %1026 = ashr exact i64 %1025, 2
   %1027 = add nsw i64 %1026, -1
-  %1028 = trunc i64 %995 to i16
+  %1028 = trunc nuw nsw i64 %995 to i16
   %1029 = icmp ugt i64 %1027, 11
   br i1 %1029, label %1030, label %.loopexit86
 
@@ -8739,7 +8739,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %1046 = icmp ne i32 %1035, 0
   tail call void @llvm.assume(i1 %1046)
   %1047 = lshr i64 %1034, 63
-  %1048 = trunc i64 %1047 to i32
+  %1048 = trunc nuw nsw i64 %1047 to i32
   %1049 = add nsw i32 %1035, -1
   %1050 = shl i64 %1034, 1
   %1051 = shl nsw i32 %1039, 1
@@ -9072,7 +9072,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %1283)
   %1284 = add nsw i32 %1271, -11
   %1285 = shl i64 %1273, 11
-  %1286 = trunc i64 %1263 to i32
+  %1286 = trunc nuw nsw i64 %1263 to i32
   %1287 = getelementptr inbounds i8, ptr %1126, i64 24
   %1288 = getelementptr inbounds i8, ptr %1126, i64 32
   %1289 = load ptr, ptr %1288, align 8, !tbaa !156
@@ -9082,7 +9082,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %1293 = sub i64 %1291, %1292
   %1294 = ashr exact i64 %1293, 2
   %1295 = add nsw i64 %1294, -1
-  %1296 = trunc i64 %1263 to i16
+  %1296 = trunc nuw nsw i64 %1263 to i16
   %1297 = icmp ugt i64 %1295, 11
   br i1 %1297, label %1298, label %.loopexit
 
@@ -9109,7 +9109,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %1314 = icmp ne i32 %1303, 0
   tail call void @llvm.assume(i1 %1314)
   %1315 = lshr i64 %1302, 63
-  %1316 = trunc i64 %1315 to i32
+  %1316 = trunc nuw nsw i64 %1315 to i32
   %1317 = add nsw i32 %1303, -1
   %1318 = shl i64 %1302, 1
   %1319 = shl nsw i32 %1307, 1
@@ -9281,7 +9281,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %30 = getelementptr inbounds i8, ptr %11, i64 48
   %31 = load i32, ptr %30, align 8, !tbaa !135, !noalias !281
   %32 = ashr i32 %31, 1
-  %33 = mul nsw i32 %32, %29
+  %33 = mul nuw nsw i32 %32, %29
   %34 = icmp sgt i32 %27, -1
   tail call void @llvm.assume(i1 %34)
   %35 = icmp sgt i32 %29, -1
@@ -9888,7 +9888,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %436)
   %437 = add nsw i32 %424, -11
   %438 = shl i64 %426, 11
-  %439 = trunc i64 %416 to i32
+  %439 = trunc nuw nsw i64 %416 to i32
   %440 = getelementptr inbounds i8, ptr %279, i64 24
   %441 = getelementptr inbounds i8, ptr %279, i64 32
   %442 = load ptr, ptr %441, align 8, !tbaa !156
@@ -9898,7 +9898,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %446 = sub i64 %444, %445
   %447 = ashr exact i64 %446, 2
   %448 = add nsw i64 %447, -1
-  %449 = trunc i64 %416 to i16
+  %449 = trunc nuw nsw i64 %416 to i16
   %450 = icmp ugt i64 %448, 11
   br i1 %450, label %451, label %.loopexit80
 
@@ -9925,7 +9925,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %467 = icmp ne i32 %456, 0
   tail call void @llvm.assume(i1 %467)
   %468 = lshr i64 %455, 63
-  %469 = trunc i64 %468 to i32
+  %469 = trunc nuw nsw i64 %468 to i32
   %470 = add nsw i32 %456, -1
   %471 = shl i64 %455, 1
   %472 = shl nsw i32 %460, 1
@@ -10009,7 +10009,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %525 = sub nuw nsw i32 64, %523
   %526 = zext nneg i32 %525 to i64
   %527 = lshr i64 %510, %526
-  %528 = trunc i64 %527 to i32
+  %528 = trunc nuw nsw i64 %527 to i32
   %529 = sub nsw i32 %511, %523
   %530 = zext nneg i8 %508 to i64
   %531 = shl i64 %510, %530
@@ -10282,7 +10282,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %723)
   %724 = add nsw i32 %711, -11
   %725 = shl i64 %713, 11
-  %726 = trunc i64 %703 to i32
+  %726 = trunc nuw nsw i64 %703 to i32
   %727 = getelementptr inbounds i8, ptr %566, i64 24
   %728 = getelementptr inbounds i8, ptr %566, i64 32
   %729 = load ptr, ptr %728, align 8, !tbaa !156
@@ -10292,7 +10292,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %733 = sub i64 %731, %732
   %734 = ashr exact i64 %733, 2
   %735 = add nsw i64 %734, -1
-  %736 = trunc i64 %703 to i16
+  %736 = trunc nuw nsw i64 %703 to i16
   %737 = icmp ugt i64 %735, 11
   br i1 %737, label %738, label %.loopexit94
 
@@ -10319,7 +10319,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %754 = icmp ne i32 %743, 0
   tail call void @llvm.assume(i1 %754)
   %755 = lshr i64 %742, 63
-  %756 = trunc i64 %755 to i32
+  %756 = trunc nuw nsw i64 %755 to i32
   %757 = add nsw i32 %743, -1
   %758 = shl i64 %742, 1
   %759 = shl nsw i32 %747, 1
@@ -10403,7 +10403,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %812 = sub nuw nsw i32 64, %810
   %813 = zext nneg i32 %812 to i64
   %814 = lshr i64 %797, %813
-  %815 = trunc i64 %814 to i32
+  %815 = trunc nuw nsw i64 %814 to i32
   %816 = sub nsw i32 %798, %810
   %817 = zext nneg i8 %795 to i64
   %818 = shl i64 %797, %817
@@ -10671,7 +10671,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %1006)
   %1007 = add nsw i32 %994, -11
   %1008 = shl i64 %996, 11
-  %1009 = trunc i64 %986 to i32
+  %1009 = trunc nuw nsw i64 %986 to i32
   %1010 = getelementptr inbounds i8, ptr %849, i64 24
   %1011 = getelementptr inbounds i8, ptr %849, i64 32
   %1012 = load ptr, ptr %1011, align 8, !tbaa !156
@@ -10681,7 +10681,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %1016 = sub i64 %1014, %1015
   %1017 = ashr exact i64 %1016, 2
   %1018 = add nsw i64 %1017, -1
-  %1019 = trunc i64 %986 to i16
+  %1019 = trunc nuw nsw i64 %986 to i16
   %1020 = icmp ugt i64 %1018, 11
   br i1 %1020, label %1021, label %.loopexit87
 
@@ -10708,7 +10708,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %1037 = icmp ne i32 %1026, 0
   tail call void @llvm.assume(i1 %1037)
   %1038 = lshr i64 %1025, 63
-  %1039 = trunc i64 %1038 to i32
+  %1039 = trunc nuw nsw i64 %1038 to i32
   %1040 = add nsw i32 %1026, -1
   %1041 = shl i64 %1025, 1
   %1042 = shl nsw i32 %1030, 1
@@ -11041,7 +11041,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   tail call void @llvm.assume(i1 %1274)
   %1275 = add nsw i32 %1262, -11
   %1276 = shl i64 %1264, 11
-  %1277 = trunc i64 %1254 to i32
+  %1277 = trunc nuw nsw i64 %1254 to i32
   %1278 = getelementptr inbounds i8, ptr %1117, i64 24
   %1279 = getelementptr inbounds i8, ptr %1117, i64 32
   %1280 = load ptr, ptr %1279, align 8, !tbaa !156
@@ -11051,7 +11051,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %1284 = sub i64 %1282, %1283
   %1285 = ashr exact i64 %1284, 2
   %1286 = add nsw i64 %1285, -1
-  %1287 = trunc i64 %1254 to i16
+  %1287 = trunc nuw nsw i64 %1254 to i16
   %1288 = icmp ugt i64 %1286, 11
   br i1 %1288, label %1289, label %.loopexit
 
@@ -11078,7 +11078,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   %1305 = icmp ne i32 %1294, 0
   tail call void @llvm.assume(i1 %1305)
   %1306 = lshr i64 %1293, 63
-  %1307 = trunc i64 %1306 to i32
+  %1307 = trunc nuw nsw i64 %1306 to i32
   %1308 = add nsw i32 %1294, -1
   %1309 = shl i64 %1293, 1
   %1310 = shl nsw i32 %1298, 1

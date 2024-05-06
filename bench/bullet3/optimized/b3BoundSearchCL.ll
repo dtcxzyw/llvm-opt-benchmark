@@ -1423,7 +1423,7 @@ if.then16:                                        ; preds = %for.body6.cont
   %5 = load ptr, ptr %m_data.i49, align 8
   %idxprom.i50 = sext i32 %cond-lvalue14.sroa.speculate.load.cond.false11 to i64
   %arrayidx.i51 = getelementptr inbounds i32, ptr %5, i64 %idxprom.i50
-  %6 = trunc i64 %indvars.iv209 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv209 to i32
   store i32 %6, ptr %arrayidx.i51, align 4
   br label %for.inc18
 
@@ -1454,7 +1454,7 @@ if.then38:                                        ; preds = %cond.end35
   %10 = load ptr, ptr %m_data.i58, align 8
   %idxprom.i59 = sext i32 %9 to i64
   %arrayidx.i60 = getelementptr inbounds i32, ptr %10, i64 %idxprom.i59
-  %11 = trunc i64 %indvars.iv204 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv204 to i32
   store i32 %11, ptr %arrayidx.i60, align 4
   br label %for.inc42
 
@@ -1615,7 +1615,7 @@ for.body6.i.cont:                                 ; preds = %for.body6.i, %for.b
 if.then16.i:                                      ; preds = %for.body6.i.cont
   %idxprom.i50.i = sext i32 %cond-lvalue14.i.sroa.speculate.load.cond.false11.i to i64
   %arrayidx.i51.i = getelementptr inbounds i32, ptr %15, i64 %idxprom.i50.i
-  %19 = trunc i64 %indvars.iv189 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv189 to i32
   store i32 %19, ptr %arrayidx.i51.i, align 4
   br label %for.inc18.i
 
@@ -1660,7 +1660,7 @@ cond.end35.i:                                     ; preds = %cond.false33.i, %fo
 if.then38.i:                                      ; preds = %cond.end35.i
   %idxprom.i59.i = sext i32 %24 to i64
   %arrayidx.i60.i = getelementptr inbounds i32, ptr %14, i64 %idxprom.i59.i
-  %25 = trunc i64 %indvars.iv194 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv194 to i32
   store i32 %25, ptr %arrayidx.i60.i, align 4
   br label %for.inc42.i
 

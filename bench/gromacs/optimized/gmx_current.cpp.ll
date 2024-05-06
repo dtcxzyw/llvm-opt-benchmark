@@ -1985,33 +1985,33 @@ _ZL7calc_mj10t_topology7PbcTypePA3_fbiPKiS2_PfS5_S5_.exit.i: ; preds = %525, %.n
   %799 = fpext float %797 to double
   %800 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %798, ptr noundef nonnull @.str.98, double noundef %799) #18
   %801 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %344, ptr noundef nonnull @.str.127, double noundef %799) #16
-  %wide.trip.count.i334.i = and i64 %indvars.iv.next.i127, 4294967295
-  br label %.lr.ph.i335.i
+  %wide.trip.count.i335.i = and i64 %indvars.iv.next.i127, 4294967295
+  br label %.lr.ph.i336.i
 
-.lr.ph.i335.i:                                    ; preds = %815, %.noexc151
-  %indvars.iv.i336.i = phi i64 [ 0, %.noexc151 ], [ %indvars.iv.next.i337.i, %815 ]
-  %802 = getelementptr inbounds float, ptr %.1497.i, i64 %indvars.iv.i336.i
+.lr.ph.i336.i:                                    ; preds = %815, %.noexc151
+  %indvars.iv.i337.i = phi i64 [ 0, %.noexc151 ], [ %indvars.iv.next.i338.i, %815 ]
+  %802 = getelementptr inbounds float, ptr %.1497.i, i64 %indvars.iv.i337.i
   %803 = load float, ptr %802, align 4
   %804 = fcmp une float %803, 0.000000e+00
   br i1 %804, label %805, label %815
 
-805:                                              ; preds = %.lr.ph.i335.i
+805:                                              ; preds = %.lr.ph.i336.i
   %806 = fdiv float %797, %803
-  %807 = getelementptr inbounds float, ptr %.1501.i, i64 %indvars.iv.i336.i
+  %807 = getelementptr inbounds float, ptr %.1501.i, i64 %indvars.iv.i337.i
   %808 = load float, ptr %807, align 4
   %809 = fmul float %806, %808
   store float %809, ptr %807, align 4
-  %810 = getelementptr inbounds float, ptr %.1519.i, i64 %indvars.iv.i336.i
+  %810 = getelementptr inbounds float, ptr %.1519.i, i64 %indvars.iv.i337.i
   %811 = load float, ptr %810, align 4
   %812 = fpext float %811 to double
   %813 = fpext float %809 to double
   %814 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %344, ptr noundef nonnull @.str.128, double noundef %812, double noundef %813) #16
   br label %815
 
-815:                                              ; preds = %805, %.lr.ph.i335.i
-  %indvars.iv.next.i337.i = add nuw nsw i64 %indvars.iv.i336.i, 1
-  %exitcond.not.i338.i = icmp eq i64 %indvars.iv.next.i337.i, %wide.trip.count.i334.i
-  br i1 %exitcond.not.i338.i, label %_ZL10calc_mjdspP8_IO_FILEfPfS1_iPKf.exit.i, label %.lr.ph.i335.i, !llvm.loop !27
+815:                                              ; preds = %805, %.lr.ph.i336.i
+  %indvars.iv.next.i338.i = add nuw nsw i64 %indvars.iv.i337.i, 1
+  %exitcond.not.i339.i = icmp eq i64 %indvars.iv.next.i338.i, %wide.trip.count.i335.i
+  br i1 %exitcond.not.i339.i, label %_ZL10calc_mjdspP8_IO_FILEfPfS1_iPKf.exit.i, label %.lr.ph.i336.i, !llvm.loop !27
 
 _ZL10calc_mjdspP8_IO_FILEfPfS1_iPKf.exit.i:       ; preds = %815
   %816 = fdiv double 1.000000e+00, %791

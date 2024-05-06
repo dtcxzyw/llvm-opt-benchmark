@@ -132,7 +132,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev22ExposureContrastOpDataE
 @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpDataD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpDataD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpData20ConvertStringToStyleEPKc(ptr noundef %str) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 6) i32 @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpData20ConvertStringToStyleEPKc(ptr noundef %str) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -319,7 +319,7 @@ switch.lookup:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpData12ConvertStyleENS_21ExposureContrastStyleENS_18TransformDirectionE(i32 noundef %style, i32 noundef %dir) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 6) i32 @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpData12ConvertStyleENS_21ExposureContrastStyleENS_18TransformDirectionE(i32 noundef %style, i32 noundef %dir) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -452,7 +452,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpData12ConvertStyleENS0_5StyleE(i32 noundef %style) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 3) i32 @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpData12ConvertStyleENS0_5StyleE(i32 noundef %style) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2013,8 +2013,8 @@ entry:
 switch.lookup:                                    ; preds = %entry
   %1 = shl nuw nsw i32 %type, 4
   %2 = zext nneg i32 %1 to i64
-  %3 = getelementptr i8, ptr %this, i64 %2
-  %m_gamma = getelementptr i8, ptr %3, i64 176
+  %3 = getelementptr inbounds i8, ptr %this, i64 %2
+  %m_gamma = getelementptr inbounds i8, ptr %3, i64 176
   %4 = load ptr, ptr %m_gamma, align 8
   %m_isDynamic.i3 = getelementptr inbounds i8, ptr %4, i64 12
   %5 = load i8, ptr %m_isDynamic.i3, align 4
@@ -2724,7 +2724,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData12getDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData12getDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_style = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i32, ptr %m_style, align 8

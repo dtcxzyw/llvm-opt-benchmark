@@ -172,7 +172,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %10, %9
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @opal_cstring_to_int(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define range(i32 -5, 1) i32 @opal_cstring_to_int(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
   %3 = alloca ptr, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %23, label %5
@@ -226,14 +226,14 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef i32 @opal_cstring_to_bool(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define range(i32 -5, 1) i32 @opal_cstring_to_bool(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 25
-  %4 = tail call fastcc i32 @opal_str_to_bool_impl(ptr noundef nonnull %3, ptr noundef %1), !range !6
+  %4 = tail call fastcc i32 @opal_str_to_bool_impl(ptr noundef nonnull %3, ptr noundef %1)
   ret i32 %4
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc noundef i32 @opal_str_to_bool_impl(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #8 {
+define internal fastcc range(i32 -5, 1) i32 @opal_str_to_bool_impl(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %.preheader
 
@@ -252,7 +252,7 @@ define internal fastcc noundef i32 @opal_str_to_bool_impl(ptr noundef readonly %
   %11 = and i32 %10, 8192
   %.not17 = icmp eq i32 %11, 0
   %12 = getelementptr inbounds i8, ptr %.0, i64 1
-  br i1 %.not17, label %13, label %5, !llvm.loop !7
+  br i1 %.not17, label %13, label %5, !llvm.loop !6
 
 13:                                               ; preds = %5
   %.not18 = icmp eq i8 %6, 0
@@ -302,7 +302,7 @@ define internal fastcc noundef i32 @opal_str_to_bool_impl(ptr noundef readonly %
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
 define zeroext i1 @opal_str_to_bool(ptr noundef %0) local_unnamed_addr #8 {
   %2 = alloca i8, align 1
-  %3 = call fastcc i32 @opal_str_to_bool_impl(ptr noundef %0, ptr noundef nonnull %2), !range !6
+  %3 = call fastcc i32 @opal_str_to_bool_impl(ptr noundef %0, ptr noundef nonnull %2)
   %4 = load i8, ptr %2, align 1
   %5 = trunc i8 %4 to i1
   ret i1 %5
@@ -344,5 +344,4 @@ attributes #14 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -5, i32 1}
-!7 = distinct !{!7, !5}
+!6 = distinct !{!6, !5}

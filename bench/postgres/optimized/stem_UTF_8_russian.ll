@@ -161,7 +161,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_7_3 = internal constant [2 x i8] c"\D0\BD", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @russian_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @russian_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -448,7 +448,7 @@ r_verb.exit:                                      ; preds = %123, %r_adjectival.
   %133 = load i32, ptr %5, align 4
   %134 = sub i32 %133, %92
   store i32 %134, ptr %2, align 8
-  %135 = tail call fastcc i32 @r_noun(ptr noundef nonnull %0), !range !4
+  %135 = tail call fastcc i32 @r_noun(ptr noundef nonnull %0)
   %136 = icmp slt i32 %135, 0
   br i1 %136, label %r_derivational.exit, label %.sink.split.i
 
@@ -590,7 +590,7 @@ declare i32 @skip_utf8(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local
 declare i32 @slice_from_s(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_noun(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_noun(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -649,4 +649,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483648, i32 2}

@@ -76,7 +76,7 @@ adjust.exit.i:                                    ; preds = %adjust.exit.sink.sp
   %indvars.iv.i = phi i64 [ %29, %.lr.ph.i ], [ %32, %38 ]
   %31 = phi i32 [ %.promoted99.i, %.lr.ph.i ], [ %41, %38 ]
   %32 = add nsw i64 %indvars.iv.i, -1
-  %33 = trunc i64 %indvars.iv.i to i32
+  %33 = trunc nuw i64 %indvars.iv.i to i32
   %34 = icmp slt i32 %33, 1
   br i1 %34, label %35, label %38
 
@@ -131,12 +131,12 @@ adjust.exit.i:                                    ; preds = %adjust.exit.sink.sp
   %indvars.iv138.i26 = phi i64 [ %indvars.iv.next139.i, %54 ], [ %48, %.lr.ph.preheader ]
   %59 = phi i32 [ %60, %54 ], [ %44, %.lr.ph.preheader ]
   %60 = sub nsw i32 %59, %58
-  %61 = trunc i64 %indvars.iv138.i26 to i32
+  %61 = trunc nuw i64 %indvars.iv138.i26 to i32
   %62 = icmp sgt i32 %61, 10
   br i1 %62, label %.loopexit75.i.sink.split, label %54, !llvm.loop !8
 
 ..loopexit75.i_crit_edge28:                       ; preds = %54
-  %63 = trunc i64 %indvars.iv.next139.i to i32
+  %63 = trunc nuw i64 %indvars.iv.next139.i to i32
   br label %.loopexit75.i.sink.split
 
 .loopexit75.i.sink.split:                         ; preds = %.lr.ph, %..loopexit75.i_crit_edge28

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @fdt_create_with_flags(ptr nocapture noundef writeonly %buf, i32 noundef %bufsize, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -18, 1) i32 @fdt_create_with_flags(ptr nocapture noundef writeonly %buf, i32 noundef %bufsize, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %bufsize, 48
   br i1 %cmp, label %return, label %if.end
@@ -36,14 +36,14 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @fdt_create(ptr nocapture noundef writeonly %buf, i32 noundef %bufsize) local_unnamed_addr #0 {
+define dso_local range(i32 -18, 1) i32 @fdt_create(ptr nocapture noundef writeonly %buf, i32 noundef %bufsize) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp slt i32 %bufsize, 48
   br i1 %cmp.i, label %fdt_create_with_flags.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %conv.i = zext nneg i32 %bufsize to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %buf, i8 0, i64 %conv.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 1 %buf, i8 0, i64 %conv.i, i1 false)
   store i32 302117423, ptr %buf, align 4
   %last_comp_version.i.i = getelementptr inbounds i8, ptr %buf, i64 24
   store i32 0, ptr %last_comp_version.i.i, align 4
@@ -328,7 +328,7 @@ if.end7:                                          ; preds = %if.end
   %or26.i21 = tail call noundef i64 @llvm.bswap.i64(i64 %size)
   %size10 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 %or26.i21, ptr %size10, align 8
-  %conv13 = trunc i64 %add to i32
+  %conv13 = trunc nuw i64 %add to i32
   %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %conv13)
   store i32 %rev.i.i, ptr %off_dt_struct, align 4
   br label %return
@@ -432,7 +432,7 @@ if.end.i:                                         ; preds = %if.end.i.i
 
 if.end:                                           ; preds = %if.end.i
   %add.ptr.i = getelementptr i8, ptr %fdt, i64 %conv.i
-  %conv13.i = trunc i64 %add.i to i32
+  %conv13.i = trunc nuw i64 %add.i to i32
   %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %conv13.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   store i32 %rev.i.i.i, ptr %off_dt_struct.i, align 4
@@ -612,7 +612,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp10.i, label %return, label %fdt_grab_space_.exit
 
 fdt_grab_space_.exit:                             ; preds = %lor.lhs.false.i
-  %conv14.i = trunc i64 %add.i to i32
+  %conv14.i = trunc nuw i64 %add.i to i32
   %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %conv14.i)
   store i32 %rev.i.i.i, ptr %size_dt_struct.i, align 4
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i25.i, 24
@@ -784,7 +784,7 @@ if.end:                                           ; preds = %if.end.i
   br i1 %cmp10.i, label %return, label %fdt_grab_space_.exit
 
 fdt_grab_space_.exit:                             ; preds = %if.end
-  %conv14.i = trunc i64 %add.i to i32
+  %conv14.i = trunc nuw i64 %add.i to i32
   %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %conv14.i)
   store i32 %rev.i.i.i, ptr %size_dt_struct.i, align 4
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i25.i, 24
@@ -1025,7 +1025,7 @@ lor.lhs.false.i:                                  ; preds = %if.end8
   br i1 %cmp10.i, label %if.then13, label %fdt_grab_space_.exit
 
 fdt_grab_space_.exit:                             ; preds = %lor.lhs.false.i
-  %conv14.i = trunc i64 %add.i to i32
+  %conv14.i = trunc nuw i64 %add.i to i32
   %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %conv14.i)
   store i32 %rev.i.i.i, ptr %size_dt_struct.i, align 4
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i25.i, 24
@@ -1060,7 +1060,7 @@ if.then15:                                        ; preds = %if.then13
   %47 = load i8, ptr %arrayidx8.i.i72, align 1
   %conv9.i.i73 = zext i8 %47 to i32
   %or10.i.i74 = or disjoint i32 %or7.i.i71, %conv9.i.i73
-  %call1.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #9
+  %call1.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #9
   %48 = trunc i64 %call1.i to i32
   %conv.neg.i = xor i32 %48, -1
   %sub.i = add i32 %or10.i.i74, %conv.neg.i
@@ -1348,7 +1348,7 @@ if.end:                                           ; preds = %if.end.i
   br i1 %cmp10.i, label %return, label %fdt_grab_space_.exit
 
 fdt_grab_space_.exit:                             ; preds = %if.end
-  %conv14.i = trunc i64 %add.i to i32
+  %conv14.i = trunc nuw i64 %add.i to i32
   %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %conv14.i)
   store i32 %rev.i.i.i, ptr %size_dt_struct.i, align 4
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i25.i, 24

@@ -851,7 +851,7 @@ define hidden void @ir_hashtab_free(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ir_unique_const_addr(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @ir_unique_const_addr(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1108,7 +1108,7 @@ define hidden i32 @ir_const_u64(ptr nocapture noundef %0, i64 noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ir_const_bool(ptr nocapture noundef readnone %0, i1 noundef zeroext %1) local_unnamed_addr #8 {
+define hidden noundef range(i32 -3, -1) i32 @ir_const_bool(ptr nocapture noundef readnone %0, i1 noundef zeroext %1) local_unnamed_addr #8 {
   %3 = select i1 %1, i32 -3, i32 -2
   ret i32 %3
 }
@@ -7106,7 +7106,7 @@ define hidden noundef i32 @ir_mem_unmap(ptr noundef %0, i64 noundef %1) local_un
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ir_mem_protect(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ir_mem_protect(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @mprotect(ptr noundef %0, i64 noundef %1, i32 noundef 5) #20
   %.not = icmp eq i32 %3, 0
   %. = zext i1 %.not to i32
@@ -7117,7 +7117,7 @@ define hidden i32 @ir_mem_protect(ptr noundef %0, i64 noundef %1) local_unnamed_
 declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ir_mem_unprotect(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ir_mem_unprotect(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @mprotect(ptr noundef %0, i64 noundef %1, i32 noundef 3) #20
   %.not = icmp eq i32 %3, 0
   %. = zext i1 %.not to i32
@@ -7359,8 +7359,8 @@ ir_emit_N.exit:                                   ; preds = %._crit_edge.i
   %66 = load i32, ptr %65, align 4
   %67 = load ptr, ptr %0, align 8
   %68 = getelementptr inbounds %struct._ir_insn, ptr %67, i64 %46
-  %69 = getelementptr i32, ptr %68, i64 %indvars.iv38
-  %70 = getelementptr i8, ptr %69, i64 8
+  %69 = getelementptr inbounds i32, ptr %68, i64 %indvars.iv38
+  %70 = getelementptr inbounds i8, ptr %69, i64 8
   store i32 %66, ptr %70, align 4
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
@@ -8720,8 +8720,8 @@ ir_emit_N.exit:                                   ; preds = %79, %55
   %121 = getelementptr inbounds i8, ptr %120, i64 4
   %122 = load i32, ptr %121, align 4
   %123 = getelementptr inbounds %struct._ir_insn, ptr %116, i64 %100
-  %124 = getelementptr i32, ptr %123, i64 %indvars.iv
-  %125 = getelementptr i8, ptr %124, i64 8
+  %124 = getelementptr inbounds i32, ptr %123, i64 %indvars.iv
+  %125 = getelementptr inbounds i8, ptr %124, i64 8
   store i32 %122, ptr %125, align 4
   store i32 98, ptr %121, align 4
   %126 = load i16, ptr %114, align 2

@@ -2119,7 +2119,7 @@ define dso_local void @locks_copy_lock(ptr noundef %0, ptr noundef %1) #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @locks_delete_block(ptr noundef %0) #1 align 16 {
+define dso_local range(i32 -2, 1) i32 @locks_delete_block(ptr noundef %0) #1 align 16 {
   %2 = load volatile ptr, ptr %0, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !43
   %3 = icmp eq ptr %2, null
@@ -3857,7 +3857,7 @@ define internal fastcc i32 @posix_lock_inode(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @lease_modify(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @lease_modify(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = icmp ult i32 %1, 3
   br i1 %4, label %5, label %locks_delete_lock_ctx.exit
 
@@ -4961,7 +4961,7 @@ define dso_local void @lease_get_mtime(ptr noundef %0, ptr nocapture noundef wri
 declare dso_local { i64, i64 } @current_time(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @fcntl_getlease(ptr noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 256) i32 @fcntl_getlease(ptr noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.list_head, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
@@ -6136,7 +6136,7 @@ define dso_local i32 @locks_lock_inode_wait(ptr noundef %0, ptr noundef %1) #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_flock(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_flock(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -6146,7 +6146,7 @@ define dso_local i64 @__x64_sys_flock(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_flock(i64 noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_flock(i64 noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.file_lock, align 8
   %4 = trunc i64 %0 to i32
   %5 = trunc i64 %1 to i32
@@ -6302,7 +6302,7 @@ define internal fastcc i64 @__se_sys_flock(i64 noundef %0, i64 noundef %1) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_flock(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_flock(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -6472,7 +6472,7 @@ thread-pre-split:                                 ; preds = %7
   %70 = getelementptr inbounds i8, ptr %5, i64 80
   store i32 1, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %5, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef writeonly align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   %72 = icmp ult i16 %.pr, 3
   br i1 %72, label %73, label %flock_to_posix_lock.exit.thread
 
@@ -6727,7 +6727,7 @@ define dso_local i32 @fcntl_setlk(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %70 = getelementptr inbounds i8, ptr %6, i64 80
   store i32 1, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %6, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef writeonly align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   %72 = icmp ult i16 %19, 3
   br i1 %72, label %73, label %flock_to_posix_lock.exit.thread
 
@@ -8418,7 +8418,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #0
 declare dso_local i32 @make_vfsuid(ptr noundef, ptr noundef, i32) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal fastcc i32 @check_conflicting_open(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #12 align 16 {
+define internal fastcc range(i32 -11, 1) i32 @check_conflicting_open(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #12 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = and i32 %2, 2052
@@ -8482,7 +8482,7 @@ declare dso_local void @fasync_free(ptr noundef) local_unnamed_addr #0
 declare dso_local void @schedule() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @flock_lock_inode(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -12, 2) i32 @flock_lock_inode(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
   store ptr %3, ptr %3, align 8

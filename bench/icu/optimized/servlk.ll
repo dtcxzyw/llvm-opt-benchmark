@@ -892,7 +892,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_759LocaleKey8fallbackEv(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_759LocaleKey8fallbackEv(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #1 align 2 {
 entry:
   %_currentID = getelementptr inbounds i8, ptr %this, i64 208
   %fUnion.i = getelementptr inbounds i8, ptr %this, i64 216
@@ -970,7 +970,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_759LocaleKey12isFallbackOfERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(64) %id) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759LocaleKey12isFallbackOfERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(64) %id) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.icu_75::UnicodeString", align 8
   call void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %temp, ptr noundef nonnull align 8 dereferenceable(64) %id)

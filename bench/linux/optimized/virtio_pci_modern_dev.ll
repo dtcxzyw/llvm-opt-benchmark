@@ -789,13 +789,13 @@ define dso_local void @vp_modern_set_features(ptr nocapture noundef readonly %0,
   tail call void @iowrite32(i32 noundef %6, ptr noundef %7) #4
   tail call void @iowrite32(i32 noundef 1, ptr noundef %5) #4
   %8 = lshr i64 %1, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   tail call void @iowrite32(i32 noundef %9, ptr noundef %7) #4
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vp_modern_generation(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 0, 256) i32 @vp_modern_generation(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 21
@@ -824,7 +824,7 @@ define dso_local void @vp_modern_set_status(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vp_modern_get_queue_reset(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local range(i32 0, 65536) i32 @vp_modern_get_queue_reset(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 22
@@ -911,21 +911,21 @@ define dso_local void @vp_modern_queue_address(ptr nocapture noundef readonly %0
   %11 = trunc i64 %2 to i32
   tail call void @iowrite32(i32 noundef %11, ptr noundef %9) #4
   %12 = lshr i64 %2, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   tail call void @iowrite32(i32 noundef %13, ptr noundef %10) #4
   %14 = getelementptr inbounds i8, ptr %7, i64 40
   %15 = getelementptr inbounds i8, ptr %7, i64 44
   %16 = trunc i64 %3 to i32
   tail call void @iowrite32(i32 noundef %16, ptr noundef %14) #4
   %17 = lshr i64 %3, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   tail call void @iowrite32(i32 noundef %18, ptr noundef %15) #4
   %19 = getelementptr inbounds i8, ptr %7, i64 48
   %20 = getelementptr inbounds i8, ptr %7, i64 52
   %21 = trunc i64 %4 to i32
   tail call void @iowrite32(i32 noundef %21, ptr noundef %19) #4
   %22 = lshr i64 %4, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   tail call void @iowrite32(i32 noundef %23, ptr noundef %20) #4
   ret void
 }

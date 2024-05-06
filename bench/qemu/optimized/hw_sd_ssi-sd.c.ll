@@ -507,7 +507,7 @@ declare zeroext i1 @sdbus_receive_ready(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.bswap.i32(i32) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal noundef i32 @ssi_sd_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #4 {
+define internal range(i32 -22, 1) i32 @ssi_sd_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #4 {
 entry:
   %mode = getelementptr inbounds i8, ptr %opaque, i64 176
   %0 = load i32, ptr %mode, align 8

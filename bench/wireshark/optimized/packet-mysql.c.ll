@@ -2108,7 +2108,7 @@ define internal i32 @dissect_mysql_pdu(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %69
-  %74 = tail call fastcc i32 @mysql_dissect_error_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %49)
+  %74 = tail call fastcc i32 @mysql_dissect_error_packet(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %49)
   br label %mysql_dissect_greeting.exit
 
 75:                                               ; preds = %69
@@ -2692,7 +2692,7 @@ mysql_set_prepared_stmt_id.exit.i.i:              ; preds = %336, %327
 
 378:                                              ; preds = %349
   %379 = getelementptr inbounds i8, ptr %.0132, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %379, ptr noundef nonnull align 8 dereferenceable(24) %363, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %379, ptr noundef nonnull readonly align 8 dereferenceable(24) %363, i64 24, i1 false)
   br label %mysql_set_field_metas.exit.i.i
 
 mysql_set_field_metas.exit.i.i:                   ; preds = %378, %349, %mysql_set_prepared_stmt_id.exit.i.i
@@ -3301,7 +3301,7 @@ tvb_get_fle.exit.i.i:                             ; preds = %637, %635, %632, %6
 mysql_set_field_metas.exit.sink.split.i.i:        ; preds = %688, %664
   %.sink115.i.i = phi ptr [ %689, %688 ], [ %666, %664 ]
   %690 = getelementptr inbounds i8, ptr %.0132, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %690, ptr noundef nonnull align 8 dereferenceable(24) %.sink115.i.i, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %690, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sink115.i.i, i64 24, i1 false)
   br label %mysql_set_field_metas.exit.i306.i
 
 mysql_set_field_metas.exit.i306.i:                ; preds = %mysql_set_field_metas.exit.sink.split.i.i, %684, %680, %678, %664
@@ -3432,7 +3432,7 @@ mysql_set_remaining_field_packet_count.exit97.i.i: ; preds = %723, %722
 738:                                              ; preds = %595
   %739 = tail call ptr @val_to_str(i32 noundef 14, ptr noundef nonnull @state_vals, ptr noundef nonnull @.str.1131) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.1130, ptr noundef %739) #8
-  %740 = tail call fastcc i32 @mysql_dissect_field_packet(ptr noundef %0, ptr noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %.0132, ptr noundef nonnull %.0)
+  %740 = tail call fastcc i32 @mysql_dissect_field_packet(ptr noundef %0, ptr noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %.0132, ptr noundef nonnull readonly %.0)
   %741 = getelementptr i8, ptr %1, i64 80
   %.val276.i = load ptr, ptr %741, align 8
   %742 = getelementptr i8, ptr %.val276.i, i64 50
@@ -3509,7 +3509,7 @@ mysql_set_remaining_field_packet_count.exit315.i: ; preds = %758, %755
 768:                                              ; preds = %595, %595
   %769 = tail call ptr @val_to_str(i32 noundef %225, ptr noundef nonnull @state_vals, ptr noundef nonnull @.str.1131) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.1130, ptr noundef %769) #8
-  %770 = tail call fastcc i32 @mysql_dissect_field_packet(ptr noundef %0, ptr noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %.0132, ptr noundef nonnull %.0)
+  %770 = tail call fastcc i32 @mysql_dissect_field_packet(ptr noundef %0, ptr noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %.0132, ptr noundef nonnull readonly %.0)
   %771 = getelementptr i8, ptr %1, i64 80
   %.val277.i = load ptr, ptr %771, align 8
   %772 = getelementptr i8, ptr %.val277.i, i64 50
@@ -3564,7 +3564,7 @@ mysql_dec_remaining_field_packet_count.exit322.i: ; preds = %768
 794:                                              ; preds = %595
   %795 = tail call ptr @val_to_str(i32 noundef 15, ptr noundef nonnull @state_vals, ptr noundef nonnull @.str.1131) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.1130, ptr noundef %795) #8
-  %796 = tail call fastcc i32 @mysql_dissect_field_packet(ptr noundef %0, ptr noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %.0132, ptr noundef nonnull %.0)
+  %796 = tail call fastcc i32 @mysql_dissect_field_packet(ptr noundef %0, ptr noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %.0132, ptr noundef nonnull readonly %.0)
   %797 = getelementptr i8, ptr %1, i64 80
   %.val278.i = load ptr, ptr %797, align 8
   %798 = getelementptr i8, ptr %.val278.i, i64 50
@@ -5092,7 +5092,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1485, %1482, %1478
   %1564 = getelementptr i16, ptr %1563, i64 %indvars.iv.i
   %1565 = load i16, ptr %1564, align 2
   %1566 = trunc i16 %1565 to i8
-  %1567 = call fastcc signext i8 @mysql_dissect_exec_param(ptr noundef %1132, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, i8 noundef zeroext %1566, ptr noundef %1), !range !19
+  %1567 = call fastcc signext i8 @mysql_dissect_exec_param(ptr noundef %1132, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, i8 noundef zeroext %1566, ptr noundef %1)
   %.not417.i = icmp eq i8 %1567, 0
   br i1 %.not417.i, label %._crit_edge.loopexit.i, label %1559
 
@@ -6145,7 +6145,7 @@ add_session_tracker_entry_to_tree.exit:           ; preds = %tvb_get_fle.exit124
   %296 = sext i32 %295 to i64
   %297 = sub i64 %.1124142, %296
   %.not94 = icmp eq i64 %297, 0
-  br i1 %.not94, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %.not94, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 298:                                              ; preds = %64
   br i1 %69, label %299, label %323
@@ -6399,7 +6399,7 @@ add_extended_meta_entry_to_tree.exit:             ; preds = %80, %83, %86
   %92 = sext i32 %90 to i64
   %93 = sub i64 %.157, %92
   %.not104 = icmp eq i64 %93, 0
-  br i1 %.not104, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not104, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %add_extended_meta_entry_to_tree.exit, %tvb_get_fle.exit, %24, %10
   %.1 = phi i32 [ %20, %24 ], [ %20, %10 ], [ %52, %tvb_get_fle.exit ], [ %91, %add_extended_meta_entry_to_tree.exit ]
@@ -6555,7 +6555,7 @@ define internal fastcc i32 @my_tvb_strsize(ptr noundef %0, i32 noundef %1) unnam
 declare i32 @tvb_strnlen(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @tvb_get_fle(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 1, 10) i32 @tvb_get_fle(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %6
@@ -7118,7 +7118,7 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef signext i8 @mysql_dissect_exec_param(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 2) i8 @mysql_dissect_exec_param(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mysql_exec_param, align 4
   %8 = load i32, ptr %2, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %7, ptr noundef %1, i32 noundef %8, i32 noundef 2, i32 noundef 0) #8
@@ -7172,7 +7172,7 @@ define internal fastcc noundef signext i8 @mysql_dissect_exec_param(ptr noundef 
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %37, %36, %26
   %.029 = phi i8 [ 1, %26 ], [ 1, %36 ], [ 0, %37 ]
@@ -7247,7 +7247,6 @@ attributes #10 = { noreturn nounwind }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = !{i8 0, i8 2}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}

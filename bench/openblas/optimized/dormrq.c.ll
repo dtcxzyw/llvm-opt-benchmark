@@ -235,7 +235,7 @@ define void @dormrq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 138:                                              ; preds = %135
   %139 = load i32, ptr %11, align 4, !tbaa !3
-  %140 = mul nsw i32 %126, %38
+  %140 = mul nuw nsw i32 %126, %38
   %141 = add nuw nsw i32 %140, 4160
   %142 = icmp slt i32 %139, %141
   br i1 %142, label %143, label %.thread23

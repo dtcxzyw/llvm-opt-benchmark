@@ -75,7 +75,7 @@ _ZN9grpc_core8internal15check_bios_dataEPKc.exit: ; preds = %if.then, %land.rhs.
 if.end:                                           ; preds = %_ZN9grpc_core8internal15check_bios_dataEPKc.exit, %entry
   tail call void @gpr_mu_unlock(ptr noundef nonnull @_ZL4g_mu)
   %1 = load i8, ptr @_ZL22g_is_on_compute_engine, align 1
-  %tobool1 = trunc i8 %1 to i1
+  %tobool1 = trunc nuw i8 %1 to i1
   ret i1 %tobool1
 }
 

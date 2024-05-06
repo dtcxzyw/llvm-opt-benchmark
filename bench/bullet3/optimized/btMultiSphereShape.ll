@@ -435,7 +435,7 @@ for.body.i:                                       ; preds = %for.end, %for.body.
   %35 = load float, ptr %arrayidx10.i.i72, align 8
   %36 = tail call noundef float @llvm.fmuladd.f32(float %35, float %vec.sroa.15.0, float %34)
   %cmp2.i = fcmp ogt float %36, %maxDot1.09.i
-  %37 = trunc i64 %indvars.iv.i to i32
+  %37 = trunc nuw nsw i64 %indvars.iv.i to i32
   %ptIndex.1.i = select i1 %cmp2.i, i32 %37, i32 %ptIndex.08.i
   %maxDot1.1.i = select i1 %cmp2.i, float %36, float %maxDot1.09.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -606,7 +606,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %34 = load float, ptr %arrayidx10.i.i, align 8
   %35 = tail call noundef float @llvm.fmuladd.f32(float %34, float %30, float %33)
   %cmp2.i = fcmp ogt float %35, %maxDot1.09.i
-  %36 = trunc i64 %indvars.iv.i to i32
+  %36 = trunc nuw nsw i64 %indvars.iv.i to i32
   %ptIndex.1.i = select i1 %cmp2.i, i32 %36, i32 %ptIndex.08.i
   %maxDot1.1.i = select i1 %cmp2.i, float %35, float %maxDot1.09.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -748,8 +748,8 @@ cond.true:                                        ; preds = %_ZNK21btConvexInter
   %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 32
   %6 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %serializer, i64 noundef 20, i32 noundef %3)
-  %cmp23 = icmp sgt i32 %3, 0
-  br i1 %cmp23, label %for.body.lr.ph, label %for.end
+  %cmp24 = icmp sgt i32 %3, 0
+  br i1 %cmp24, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %cond.true
   %m_oldPtr = getelementptr inbounds i8, ptr %call9, i64 8
@@ -760,7 +760,7 @@ for.body.lr.ph:                                   ; preds = %cond.true
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit ]
-  %memPtr.024 = phi ptr [ %7, %for.body.lr.ph ], [ %incdec.ptr, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit ]
+  %memPtr.025 = phi ptr [ %7, %for.body.lr.ph ], [ %incdec.ptr, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit ]
   %8 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %8, i64 %indvars.iv
   br label %for.body.i
@@ -769,7 +769,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i18 = getelementptr inbounds [4 x float], ptr %arrayidx.i, i64 0, i64 %indvars.iv.i
   %9 = load float, ptr %arrayidx.i18, align 4
-  %arrayidx4.i = getelementptr inbounds [4 x float], ptr %memPtr.024, i64 0, i64 %indvars.iv.i
+  %arrayidx4.i = getelementptr inbounds [4 x float], ptr %memPtr.025, i64 0, i64 %indvars.iv.i
   store float %9, ptr %arrayidx4.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -779,10 +779,10 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %for.body.i
   %10 = load ptr, ptr %m_data.i19, align 8
   %arrayidx.i21 = getelementptr inbounds float, ptr %10, i64 %indvars.iv
   %11 = load float, ptr %arrayidx.i21, align 4
-  %m_radius = getelementptr inbounds i8, ptr %memPtr.024, i64 16
+  %m_radius = getelementptr inbounds i8, ptr %memPtr.025, i64 16
   store float %11, ptr %m_radius, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %memPtr.024, i64 20
+  %incdec.ptr = getelementptr inbounds i8, ptr %memPtr.025, i64 20
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 

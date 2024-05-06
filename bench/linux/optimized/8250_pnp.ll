@@ -77,7 +77,7 @@ define dso_local void @serial8250_pnp_exit() local_unnamed_addr #0 align 16 {
 declare dso_local void @pnp_unregister_driver(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @serial_pnp_probe(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -19, 1) i32 @serial_pnp_probe(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.uart_8250_port, align 8
   call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %3) #5
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -368,7 +368,7 @@ declare dso_local i32 @device_property_read_u32_array(ptr noundef, ptr noundef, 
 declare dso_local void @serial8250_unregister_port(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @serial_pnp_suspend(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @serial_pnp_suspend(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -387,7 +387,7 @@ define internal noundef i32 @serial_pnp_suspend(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @serial_pnp_resume(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @serial_pnp_resume(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

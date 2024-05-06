@@ -3195,7 +3195,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN14CombineVisitor6CFuncsESaIS1_E
   %9 = load ptr, ptr %.052, align 8
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZSt8_DestroyIN14CombineVisitor6CFuncsEEvPT_.exit.i.i.i, %.lr.ph
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph, %_ZSt8_DestroyIN14CombineVisitor6CFuncsEEvPT_.exit.i.i.i
   %.05.i.i.i.idx = phi i64 [ %.05.i.i.i.add, %_ZSt8_DestroyIN14CombineVisitor6CFuncsEEvPT_.exit.i.i.i ], [ 0, %.lr.ph ]
   %.05.i.i.i.ptr = getelementptr inbounds i8, ptr %9, i64 %.05.i.i.i.idx
   %10 = getelementptr inbounds i8, ptr %.05.i.i.i.ptr, i64 24
@@ -3561,7 +3561,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt6vectorIP8AstCCallSaIS2_EESaIS
   %9 = load ptr, ptr %.028, align 8
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZSt8_DestroyISt6vectorIP8AstCCallSaIS2_EEEvPT_.exit.i.i.i, %.lr.ph
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph, %_ZSt8_DestroyISt6vectorIP8AstCCallSaIS2_EEEvPT_.exit.i.i.i
   %.05.i.i.i.idx = phi i64 [ %.05.i.i.i.add, %_ZSt8_DestroyISt6vectorIP8AstCCallSaIS2_EEEvPT_.exit.i.i.i ], [ 0, %.lr.ph ]
   %.05.i.i.i.ptr = getelementptr inbounds i8, ptr %9, i64 %.05.i.i.i.idx
   %10 = load ptr, ptr %.05.i.i.i.ptr, align 8
@@ -4636,12 +4636,12 @@ _ZNSt7__cxx114listIP8AstCFuncSaIS2_EE6spliceESt20_List_const_iteratorIS2_ERS4_.e
 
 199:                                              ; preds = %.lr.ph.i.i.i.i
   %200 = icmp eq ptr %99, %.0710.i.i.i.i
-  %spec.select18.i.i.i = or i1 %200, %198
+  %spec.select.i.i.i = or i1 %200, %198
   br label %201
 
 201:                                              ; preds = %199, %.noexc48
   %.0.lcssa.i17.i.i.i = phi ptr [ %99, %.noexc48 ], [ %.0710.i.i.i.i, %199 ]
-  %202 = phi i1 [ true, %.noexc48 ], [ %spec.select18.i.i.i, %199 ]
+  %202 = phi i1 [ true, %.noexc48 ], [ %spec.select.i.i.i, %199 ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %202, ptr noundef nonnull %193, ptr noundef nonnull %.0.lcssa.i17.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %99) #16
   %203 = load i64, ptr %103, align 8
   %204 = add i64 %203, 1

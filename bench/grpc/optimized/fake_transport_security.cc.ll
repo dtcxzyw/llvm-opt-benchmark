@@ -286,7 +286,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %incoming_frame.i = getelementptr inbounds i8, ptr %self, i64 32
-  %call.i = call fastcc noundef i32 @_ZL21tsi_fake_frame_decodePKhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %received_bytes, ptr noundef nonnull %consumed_bytes_size, ptr noundef nonnull %incoming_frame.i, ptr noundef %error), !range !6
+  %call.i = call fastcc noundef i32 @_ZL21tsi_fake_frame_decodePKhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %received_bytes, ptr noundef nonnull %consumed_bytes_size, ptr noundef nonnull %incoming_frame.i, ptr noundef %error)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %return
 
@@ -300,14 +300,14 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.en
   %arrayidx.i.i = getelementptr inbounds [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %indvars.iv.i.i
   %6 = load ptr, ptr %arrayidx.i.i, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
-  %call3.i.i = tail call i32 @strncmp(ptr noundef nonnull %add.ptr.i, ptr noundef %6, i64 noundef %call.i.i) #11
+  %call3.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i, ptr noundef %6, i64 noundef %call.i.i) #11
   %cmp4.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %cmp4.i.i, label %if.end10.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !6
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 109, i32 noundef 2, ptr noundef nonnull @.str.10)
@@ -323,7 +323,7 @@ if.then8.i:                                       ; preds = %if.then6.i.i, %for.
   br label %return
 
 if.end10.i:                                       ; preds = %for.body.i.i
-  %7 = trunc i64 %indvars.iv.i.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp11.not.i = icmp eq i32 %sub.i, %7
   br i1 %cmp11.not.i, label %if.end15.i, label %if.then12.i
 
@@ -522,7 +522,7 @@ _ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i: ; preds = %if.then6.i.i
   store i8 %conv10.i.i.i, ptr %29, align 1
   %31 = load ptr, ptr %outgoing_frame.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %31, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr align 1 %retval.0.i.i, i64 %call6.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %retval.0.i.i, i64 %call6.i, i1 false)
   store i64 0, ptr %offset.i2637.i, align 8
   store i32 1, ptr %needs_draining.i, align 8
   %32 = tail call i32 @llvm.smin.i32(i32 %24, i32 2)
@@ -582,7 +582,7 @@ if.end2.i.i:                                      ; preds = %if.end18.i, %if.end
   br i1 %cmp3.i.i, label %if.then20, label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end2.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr95, ptr align 1 %add.ptr.i27.i, i64 %sub.i41.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr95, ptr align 1 %add.ptr.i27.i, i64 %sub.i41.i, i1 false)
   store i64 0, ptr %offset.i2637.i, align 8
   store i32 0, ptr %needs_draining.i, align 8
   store i64 0, ptr %size.i2536.i, align 8
@@ -613,7 +613,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
   br label %if.end30
 
 if.then20:                                        ; preds = %if.end2.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr95, ptr align 1 %add.ptr.i27.i, i64 %sub94, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr95, ptr align 1 %add.ptr.i27.i, i64 %sub94, i1 false)
   %46 = load i64, ptr %offset.i2637.i, align 8
   %add.i29.i = add i64 %46, %sub94
   store i64 %add.i29.i, ptr %offset.i2637.i, align 8
@@ -628,7 +628,7 @@ if.then20:                                        ; preds = %if.end2.i.i
   %add.ptr = getelementptr inbounds i8, ptr %call24, i64 %19
   %50 = load i32, ptr %needs_incoming_message.i38, align 8
   %tobool.not.i39 = icmp eq i32 %50, 0
-  br i1 %tobool.not.i39, label %lor.lhs.false.i42, label %if.end30, !llvm.loop !8
+  br i1 %tobool.not.i39, label %lor.lhs.false.i42, label %if.end30, !llvm.loop !7
 
 if.end30:                                         ; preds = %if.then20, %lor.lhs.false.i42, %if.end17, %if.else.i, %if.end31.i
   %offset.088 = phi i64 [ %offset.093, %if.else.i ], [ %offset.093, %if.end31.i ], [ 0, %if.end17 ], [ %19, %if.then20 ], [ %offset.093, %lor.lhs.false.i42 ]
@@ -674,7 +674,7 @@ if.then8.i61:                                     ; preds = %if.end5.i
   %call9.i = tail call ptr @gpr_malloc(i64 noundef %sub35)
   %unused_bytes10.i = getelementptr inbounds i8, ptr %call.i.i59, i64 8
   store ptr %call9.i, ptr %unused_bytes10.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call9.i, ptr align 1 %spec.select, i64 %sub35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call9.i, ptr readonly align 1 %spec.select, i64 %sub35, i1 false)
   br label %if.then42
 
 if.then42:                                        ; preds = %if.then8.i61, %if.end5.i
@@ -697,7 +697,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare ptr @gpr_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL21tsi_fake_frame_decodePKhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %incoming_bytes, ptr nocapture noundef %incoming_bytes_size, ptr nocapture noundef %frame, ptr noundef %error) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 8) i32 @_ZL21tsi_fake_frame_decodePKhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %incoming_bytes, ptr nocapture noundef %incoming_bytes_size, ptr nocapture noundef %frame, ptr noundef %error) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %incoming_bytes_size, align 8
   %needs_draining = getelementptr inbounds i8, ptr %frame, i64 32
@@ -967,7 +967,7 @@ if.end2.i:                                        ; preds = %entry
   br i1 %cmp3.i, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %0, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %0, i1 false)
   %5 = load i64, ptr %offset.i, align 8
   %add.i = add i64 %5, %0
   store i64 %add.i, ptr %offset.i, align 8
@@ -978,7 +978,7 @@ if.then3:                                         ; preds = %if.end2.i
   br label %return
 
 if.end5:                                          ; preds = %if.end2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %sub.i, i1 false)
   store i64 0, ptr %offset.i, align 8
   store i32 0, ptr %needs_draining, align 8
   store i64 0, ptr %size.i, align 8
@@ -1015,7 +1015,7 @@ if.then11:                                        ; preds = %if.end9
   %conv10.i = trunc i64 %9 to i8
   store i8 %conv10.i, ptr %frame_header, align 1
   store i64 4, ptr %written_in_frame_size, align 8
-  %call13 = call fastcc noundef i32 @_ZL21tsi_fake_frame_decodePKhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %frame_header, ptr noundef nonnull %written_in_frame_size, ptr noundef nonnull %protect_frame, ptr noundef null), !range !6
+  %call13 = call fastcc noundef i32 @_ZL21tsi_fake_frame_decodePKhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %frame_header, ptr noundef nonnull %written_in_frame_size, ptr noundef nonnull %protect_frame, ptr noundef null)
   %cmp14.not = icmp eq i32 %call13, 4
   br i1 %cmp14.not, label %if.end18, label %if.then15
 
@@ -1025,7 +1025,7 @@ if.then15:                                        ; preds = %if.then11
   br label %return
 
 if.end18:                                         ; preds = %if.then11, %if.end9
-  %call19 = call fastcc noundef i32 @_ZL21tsi_fake_frame_decodePKhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %unprotected_bytes, ptr noundef %unprotected_bytes_size, ptr noundef nonnull %protect_frame, ptr noundef null), !range !6
+  %call19 = call fastcc noundef i32 @_ZL21tsi_fake_frame_decodePKhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %unprotected_bytes, ptr noundef %unprotected_bytes_size, ptr noundef nonnull %protect_frame, ptr noundef null)
   %cmp20.not = icmp eq i32 %call19, 0
   br i1 %cmp20.not, label %if.end25, label %if.then21
 
@@ -1054,7 +1054,7 @@ if.end2.i35:                                      ; preds = %if.end29
   br i1 %cmp3.i36, label %15, label %_ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43.thread
 
 _ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit43.thread: ; preds = %if.end2.i35
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %protected_output_frames.addr.060, ptr align 1 %14, i64 %13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %protected_output_frames.addr.060, ptr align 1 %14, i64 %13, i1 false)
   store i64 0, ptr %offset, align 8
   store i32 0, ptr %needs_draining, align 8
   store i64 0, ptr %size, align 8
@@ -1064,7 +1064,7 @@ _ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11c
   br label %return
 
 15:                                               ; preds = %if.end2.i35
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %protected_output_frames.addr.060, ptr align 1 %14, i64 %sub33, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %protected_output_frames.addr.060, ptr align 1 %14, i64 %sub33, i1 false)
   %16 = load i64, ptr %offset, align 8
   %add.i41 = add i64 %16, %sub33
   store i64 %add.i41, ptr %offset, align 8
@@ -1079,7 +1079,7 @@ return:                                           ; preds = %15, %_ZL21tsi_fake_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL28fake_protector_protect_flushP19tsi_frame_protectorPhPmS2_(ptr nocapture noundef %self, ptr nocapture noundef writeonly %protected_output_frames, ptr nocapture noundef %protected_output_frames_size, ptr nocapture noundef writeonly %still_pending_size) #7 {
+define internal noundef range(i32 0, 8) i32 @_ZL28fake_protector_protect_flushP19tsi_frame_protectorPhPmS2_(ptr nocapture noundef %self, ptr nocapture noundef writeonly %protected_output_frames, ptr nocapture noundef %protected_output_frames_size, ptr nocapture noundef writeonly %still_pending_size) #7 {
 entry:
   %protect_frame = getelementptr inbounds i8, ptr %self, i64 8
   %needs_draining = getelementptr inbounds i8, ptr %self, i64 40
@@ -1138,7 +1138,7 @@ if.end2.i:                                        ; preds = %if.end.thread, %if.
   br i1 %cmp3.i, label %11, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %sub.i23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %sub.i23, i1 false)
   store i64 %sub.i23, ptr %protected_output_frames_size, align 8
   store i64 0, ptr %offset.i22, align 8
   store i32 0, ptr %needs_draining, align 8
@@ -1146,7 +1146,7 @@ if.end7.i:                                        ; preds = %if.end2.i
   br label %_ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
 11:                                               ; preds = %if.end2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %protected_output_frames, ptr align 1 %add.ptr.i, i64 %9, i1 false)
   %12 = load i64, ptr %protected_output_frames_size, align 8
   %13 = load i64, ptr %offset.i22, align 8
   %add.i = add i64 %13, %12
@@ -1198,7 +1198,7 @@ if.end2.i:                                        ; preds = %if.then, %if.then1
   br i1 %cmp3.i, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.end2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %unprotected_bytes, ptr nonnull align 1 %add.ptr.i, i64 %sub, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %unprotected_bytes, ptr nonnull align 1 %add.ptr.i, i64 %sub, i1 false)
   %7 = load i64, ptr %offset, align 8
   %add.i = add i64 %7, %sub
   store i64 %add.i, ptr %offset, align 8
@@ -1209,7 +1209,7 @@ if.then6:                                         ; preds = %if.end2.i
   br label %return
 
 if.end9:                                          ; preds = %if.end2.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %unprotected_bytes, ptr nonnull align 1 %add.ptr.i, i64 %sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %unprotected_bytes, ptr nonnull align 1 %add.ptr.i, i64 %sub.i, i1 false)
   store i64 0, ptr %offset, align 8
   store i32 0, ptr %needs_draining, align 8
   store i64 0, ptr %size.i, align 8
@@ -1223,7 +1223,7 @@ if.end9:                                          ; preds = %if.end2.i
 
 if.end13:                                         ; preds = %entry, %if.end9
   %unprotected_bytes.addr.057 = phi ptr [ %add.ptr53, %if.end9 ], [ %unprotected_bytes, %entry ]
-  %call14 = tail call fastcc noundef i32 @_ZL21tsi_fake_frame_decodePKhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %protected_frames_bytes, ptr noundef %protected_frames_bytes_size, ptr noundef nonnull %unprotect_frame, ptr noundef null), !range !6
+  %call14 = tail call fastcc noundef i32 @_ZL21tsi_fake_frame_decodePKhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %protected_frames_bytes, ptr noundef %protected_frames_bytes_size, ptr noundef nonnull %unprotect_frame, ptr noundef null)
   %cmp15.not = icmp eq i32 %call14, 0
   br i1 %cmp15.not, label %if.end20, label %if.then16
 
@@ -1256,7 +1256,7 @@ if.end2.i32:                                      ; preds = %if.end24
   br i1 %cmp3.i33, label %15, label %_ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40.thread
 
 _ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40.thread: ; preds = %if.end2.i32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %unprotected_bytes.addr.057, ptr nonnull align 1 %add.ptr.i34, i64 %sub.i29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %unprotected_bytes.addr.057, ptr nonnull align 1 %add.ptr.i34, i64 %sub.i29, i1 false)
   store i64 0, ptr %offset25, align 8
   store i32 0, ptr %needs_draining, align 8
   store i64 0, ptr %size.i27, align 8
@@ -1266,7 +1266,7 @@ _ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11c
   br label %return
 
 15:                                               ; preds = %if.end2.i32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %unprotected_bytes.addr.057, ptr nonnull align 1 %add.ptr.i34, i64 %sub30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %unprotected_bytes.addr.057, ptr nonnull align 1 %add.ptr.i34, i64 %sub30, i1 false)
   %16 = load i64, ptr %offset25, align 8
   %add.i38 = add i64 %16, %sub30
   store i64 %add.i38, ptr %offset25, align 8
@@ -1310,7 +1310,7 @@ _ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit5: ; preds = %_ZL23tsi_fake_fr
 declare noundef ptr @_Z20tsi_result_to_string10tsi_result(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL37fake_zero_copy_grpc_protector_protectP28tsi_zero_copy_grpc_protectorP17grpc_slice_bufferS2_(ptr noundef readonly %self, ptr noundef %unprotected_slices, ptr noundef %protected_slices) #0 {
+define internal noundef range(i32 0, 3) i32 @_ZL37fake_zero_copy_grpc_protector_protectP28tsi_zero_copy_grpc_protectorP17grpc_slice_bufferS2_(ptr noundef readonly %self, ptr noundef %unprotected_slices, ptr noundef %protected_slices) #0 {
 entry:
   %slice = alloca %struct.grpc_slice, align 8
   %cmp = icmp eq ptr %self, null
@@ -1367,7 +1367,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @grpc_slice_buffer_move_first(ptr noundef nonnull %unprotected_slices, i64 noundef %sub, ptr noundef %protected_slices)
   %5 = load i64, ptr %length, align 8
   %cmp4.not = icmp eq i64 %5, 0
-  br i1 %cmp4.not, label %return, label %while.body, !llvm.loop !9
+  br i1 %cmp4.not, label %return, label %while.body, !llvm.loop !8
 
 return:                                           ; preds = %while.body, %while.cond.preheader, %entry
   %retval.0 = phi i32 [ 2, %entry ], [ 0, %while.cond.preheader ], [ 0, %while.body ]
@@ -1375,7 +1375,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL39fake_zero_copy_grpc_protector_unprotectP28tsi_zero_copy_grpc_protectorP17grpc_slice_bufferS2_Pi(ptr noundef %self, ptr noundef %protected_slices, ptr noundef %unprotected_slices, ptr noundef writeonly %min_progress_size) #0 {
+define internal noundef range(i32 0, 9) i32 @_ZL39fake_zero_copy_grpc_protector_unprotectP28tsi_zero_copy_grpc_protectorP17grpc_slice_bufferS2_Pi(ptr noundef %self, ptr noundef %protected_slices, ptr noundef %unprotected_slices, ptr noundef writeonly %min_progress_size) #0 {
 entry:
   %frame_size_buffer.i = alloca [4 x i8], align 4
   %cmp = icmp eq ptr %self, null
@@ -1489,7 +1489,7 @@ if.end20:                                         ; preds = %if.end14
   tail call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %header_sb)
   %13 = load i64, ptr %length, align 8
   %cmp5 = icmp ugt i64 %13, 3
-  br i1 %cmp5, label %while.body, label %while.end, !llvm.loop !10
+  br i1 %cmp5, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end20, %if.end14, %if.end
   %.lcssa = phi i64 [ %0, %if.end ], [ %1, %if.end14 ], [ %13, %if.end20 ]
@@ -1536,7 +1536,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZL44fake_zero_copy_grpc_protector_max_frame_sizeP28tsi_zero_copy_grpc_protectorPm(ptr noundef readonly %self, ptr noundef writeonly %max_frame_size) #6 {
+define internal noundef range(i32 0, 3) i32 @_ZL44fake_zero_copy_grpc_protector_max_frame_sizeP28tsi_zero_copy_grpc_protectorPm(ptr noundef readonly %self, ptr noundef writeonly %max_frame_size) #6 {
 entry:
   %cmp = icmp eq ptr %self, null
   %cmp1 = icmp eq ptr %max_frame_size, null
@@ -1599,8 +1599,7 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 8}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

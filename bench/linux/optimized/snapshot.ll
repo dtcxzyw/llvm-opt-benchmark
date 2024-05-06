@@ -289,7 +289,7 @@ define dso_local void @swsusp_unset_page_free(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @swsusp_page_is_forbidden(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 0, 2) i32 @swsusp_page_is_forbidden(ptr noundef %0) local_unnamed_addr #3 align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @forbidden_pages_map, align 8
@@ -332,7 +332,7 @@ define dso_local i32 @swsusp_page_is_forbidden(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @create_basic_memory_bitmaps() local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @create_basic_memory_bitmaps() local_unnamed_addr #3 align 16 {
   %1 = alloca ptr, align 8
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @forbidden_pages_map, align 8
@@ -3111,7 +3111,7 @@ define dso_local void @clear_or_poison_free_pages() local_unnamed_addr #3 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i32 @snapshot_additional_pages(ptr nocapture noundef readonly %0) local_unnamed_addr #9 align 16 {
+define dso_local range(i32 0, -1) i32 @snapshot_additional_pages(ptr nocapture noundef readonly %0) local_unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load i64, ptr %2, align 16
   %4 = add i64 %3, 32767
@@ -3712,7 +3712,7 @@ define dso_local void @swsusp_free() local_unnamed_addr #3 align 16 {
 declare dso_local void @__free_pages(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @hibernate_preallocate_memory() local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @hibernate_preallocate_memory() local_unnamed_addr #3 align 16 {
   %1 = alloca ptr, align 8
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
@@ -4342,7 +4342,7 @@ declare dso_local i64 @shrink_all_memory(i64 noundef) local_unnamed_addr #8
 declare dso_local void @swsusp_show_speed(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @swsusp_save() local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @swsusp_save() local_unnamed_addr #3 align 16 {
   %1 = alloca ptr, align 8
   %2 = alloca i32, align 4
   %3 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #21
@@ -5121,7 +5121,7 @@ define dso_local noundef i32 @swsusp_save() local_unnamed_addr #3 align 16 {
 declare dso_local void @drain_local_pages(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i64 @snapshot_get_image_size() local_unnamed_addr #10 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @snapshot_get_image_size() local_unnamed_addr #10 align 16 {
   %1 = load i32, ptr @nr_copy_pages, align 4
   %2 = load i32, ptr @nr_meta_pages, align 4
   %3 = add i32 %1, 1
@@ -7527,7 +7527,7 @@ define dso_local void @snapshot_write_finalize(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @snapshot_image_loaded(ptr nocapture noundef readonly %0) local_unnamed_addr #12 align 16 {
+define dso_local range(i32 0, 2) i32 @snapshot_image_loaded(ptr nocapture noundef readonly %0) local_unnamed_addr #12 align 16 {
   %2 = load i32, ptr @nr_copy_pages, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %12, label %4
@@ -7551,7 +7551,7 @@ define dso_local i32 @snapshot_image_loaded(ptr nocapture noundef readonly %0) l
 declare dso_local ptr @memblock_alloc_try_nid(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @memory_bm_find_bit(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @memory_bm_find_bit(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #3 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 48

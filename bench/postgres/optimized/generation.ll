@@ -375,9 +375,9 @@ dlist_push_head.exit.i:                           ; preds = %38, %22
   br i1 %84, label %85, label %91
 
 85:                                               ; preds = %76
-  %86 = tail call i64 @llvm.ctpop.i64(i64 %83), !range !8
+  %86 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %83)
   %87 = icmp ult i64 %86, 2
-  %88 = tail call i64 @llvm.ctlz.i64(i64 %83, i1 true), !range !8
+  %88 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %83, i1 true)
   %89 = sub nuw nsw i64 64, %88
   %90 = shl nuw nsw i64 1, %89
   %.0.i.i = select i1 %87, i64 %83, i64 %90
@@ -721,7 +721,7 @@ define dso_local noundef zeroext i1 @GenerationIsEmpty(ptr noundef readonly %0) 
   %9 = getelementptr inbounds i8, ptr %.sroa.0.012, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not10 = icmp eq ptr %10, %2
-  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8, %1
   %.not10.lcssa = phi i1 [ true, %1 ], [ %7, %8 ], [ %7, %.lr.ph ]
@@ -769,7 +769,7 @@ define dso_local void @GenerationStats(ptr noundef %0, ptr noundef readonly %1, 
   %30 = getelementptr inbounds i8, ptr %.sroa.0.048, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not44 = icmp eq ptr %31, %7
-  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.040.lcssa = phi i64 [ 0, %5 ], [ %29, %.lr.ph ]
@@ -863,6 +863,5 @@ attributes #16 = { noreturn nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i64 0, i64 65}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

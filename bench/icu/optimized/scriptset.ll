@@ -40,7 +40,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_759ScriptSetC2ERKS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %other) unnamed_addr #3 align 2 {
 entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %this, ptr noundef nonnull align 4 dereferenceable(28) %other, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %this, ptr noundef nonnull readonly align 4 dereferenceable(28) %other, i64 28, i1 false)
   ret void
 }
 
@@ -86,7 +86,7 @@ return:                                           ; preds = %return.loopexit, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef signext i8 @_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this, i32 noundef %script, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #3 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this, i32 noundef %script, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -268,7 +268,7 @@ if.end:                                           ; preds = %for.body.i, %entry,
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_759ScriptSet10intersectsERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %other) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759ScriptSet10intersectsERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %other) local_unnamed_addr #5 align 2 {
 entry:
   br label %for.body
 
@@ -293,7 +293,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_759ScriptSet8containsERKS0_(ptr noundef nonnull align 4 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %other) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759ScriptSet8containsERKS0_(ptr noundef nonnull align 4 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %other) local_unnamed_addr #7 align 2 {
 entry:
   %t = alloca %"class.icu_75::ScriptSet", align 4
   call void @_ZN6icu_759ScriptSetC1ERKS0_(ptr noundef nonnull align 4 dereferenceable(28) %t, ptr noundef nonnull align 4 dereferenceable(28) %this)
@@ -408,7 +408,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_759ScriptSet10nextSetBitEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this, i32 noundef %fromIndex) local_unnamed_addr #5 align 2 {
+define noundef range(i32 -1, 224) i32 @_ZNK6icu_759ScriptSet10nextSetBitEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this, i32 noundef %fromIndex) local_unnamed_addr #5 align 2 {
 entry:
   %or.cond = icmp ult i32 %fromIndex, 224
   br i1 %or.cond, label %for.body, label %return
@@ -446,7 +446,7 @@ return:                                           ; preds = %_ZNK6icu_759ScriptS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_759ScriptSet7isEmptyEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759ScriptSet7isEmptyEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #5 align 2 {
 entry:
   br label %for.body
 
@@ -578,7 +578,7 @@ define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet12pa
 entry:
   %oneScriptName = alloca %"class.icu_75::UnicodeString", align 8
   %buf = alloca [40 x i8], align 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %this, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(28) %this, i8 0, i64 28, i1 false)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.end, label %return
@@ -888,7 +888,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @uhash_equalsScriptSet_75(ptr nocapture readonly %key1.coerce, ptr nocapture readonly %key2.coerce) local_unnamed_addr #5 {
+define signext range(i8 0, 2) i8 @uhash_equalsScriptSet_75(ptr nocapture readonly %key1.coerce, ptr nocapture readonly %key2.coerce) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %key1.coerce, align 4
   %1 = load i32, ptr %key2.coerce, align 4

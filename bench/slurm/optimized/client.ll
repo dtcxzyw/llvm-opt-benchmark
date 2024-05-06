@@ -77,7 +77,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.56 = private unnamed_addr constant [56 x i8] c"mpi/pmi2: cmd not properly terminated in client request\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @is_pmi11() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @is_pmi11() local_unnamed_addr #0 {
   %1 = load i32, ptr @pmi_version, align 4
   %2 = icmp eq i32 %1, 1
   %3 = load i32, ptr @pmi_subversion, align 4
@@ -88,7 +88,7 @@ define i32 @is_pmi11() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @is_pmi20() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @is_pmi20() local_unnamed_addr #0 {
   %1 = load i32, ptr @pmi_version, align 4
   %2 = icmp eq i32 %1, 2
   %3 = load i32, ptr @pmi_subversion, align 4
@@ -99,7 +99,7 @@ define i32 @is_pmi20() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define noundef i32 @get_pmi_version(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @get_pmi_version(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = load i32, ptr @pmi_version, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -116,7 +116,7 @@ define noundef i32 @get_pmi_version(ptr nocapture noundef writeonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_pmi_version(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @set_pmi_version(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq i32 %0, 1
   %4 = icmp eq i32 %1, 1
   %or.cond = and i1 %3, %4
@@ -284,7 +284,7 @@ define ptr @client_req_init(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %.critedge.i
 
 .critedge.loopexit69.i:                           ; preds = %33, %30, %30
-  %50 = trunc i64 %indvars.iv.i to i32
+  %50 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %46, %.critedge.loopexit69.i, %.critedge.loopexit.split.loop.exit.i, %41, %38
@@ -339,7 +339,7 @@ define void @client_req_free(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @client_req_parse_body(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @client_req_parse_body(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
@@ -377,7 +377,7 @@ define noundef i32 @client_req_parse_body(ptr noundef %0) local_unnamed_addr #2 
 
 .critedge:                                        ; preds = %17
   %21 = getelementptr inbounds i8, ptr %14, i64 %15
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nsw i64 %indvars.iv to i32
   %.not55 = icmp sgt i32 %13, %22
   br i1 %.not55, label %25, label %23
 
@@ -433,11 +433,11 @@ define noundef i32 @client_req_parse_body(ptr noundef %0) local_unnamed_addr #2 
   br i1 %.not56, label %.critedge2, label %39, !llvm.loop !10
 
 .critedge2.loopexit.split.loop.exit:              ; preds = %39
-  %49 = trunc i64 %indvars.iv81 to i32
+  %49 = trunc nsw i64 %indvars.iv81 to i32
   br label %.critedge2
 
 .critedge2.loopexit.split.loop.exit92:            ; preds = %41
-  %50 = trunc i64 %indvars.iv81 to i32
+  %50 = trunc nsw i64 %indvars.iv81 to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %45, %.critedge2.loopexit.split.loop.exit, %.critedge2.loopexit.split.loop.exit92, %31
@@ -607,7 +607,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   br i1 %.not204, label %.preheader, label %.lr.ph
 
 .preheader.loopexit:                              ; preds = %96
-  %57 = trunc i64 %indvars.iv.next to i32
+  %57 = trunc nuw i64 %indvars.iv.next to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %46
@@ -638,7 +638,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   br i1 %.not167, label %74, label %71
 
 71:                                               ; preds = %64, %.lr.ph
-  %72 = trunc i64 %indvars.iv224 to i32
+  %72 = trunc nuw nsw i64 %indvars.iv224 to i32
   %73 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.14, i32 noundef %72) #11
   br label %323
 
@@ -669,7 +669,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   br i1 %.not169, label %96, label %93
 
 93:                                               ; preds = %86, %74
-  %94 = trunc i64 %indvars.iv224 to i32
+  %94 = trunc nuw nsw i64 %indvars.iv224 to i32
   %95 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.16, i32 noundef %94) #11
   br label %323
 
@@ -767,7 +767,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %160 = load i32, ptr %2, align 4
   %161 = sub i32 %160, %159
   %162 = load i32, ptr %20, align 8
-  %163 = trunc i64 %indvars.iv243 to i32
+  %163 = trunc nuw nsw i64 %indvars.iv243 to i32
   %164 = xor i32 %163, -1
   %165 = add i32 %162, %164
   %166 = mul i32 %165, 3
@@ -831,7 +831,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   br i1 %.not165, label %201, label %198
 
 198:                                              ; preds = %191, %185
-  %199 = trunc i64 %indvars.iv231 to i32
+  %199 = trunc nuw nsw i64 %indvars.iv231 to i32
   %200 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.25, i32 noundef %199) #11
   br label %323
 
@@ -851,7 +851,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   br i1 %210, label %185, label %._crit_edge.loopexit, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %201
-  %211 = trunc i64 %indvars.iv.next230 to i32
+  %211 = trunc nsw i64 %indvars.iv.next230 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %176, %._crit_edge.loopexit, %178
@@ -966,7 +966,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   br i1 %.not160, label %281, label %278
 
 278:                                              ; preds = %271, %265
-  %279 = trunc i64 %indvars.iv238 to i32
+  %279 = trunc nuw nsw i64 %indvars.iv238 to i32
   %280 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.30, i32 noundef %279) #11
   br label %323
 
@@ -979,7 +979,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   %287 = getelementptr inbounds ptr, ptr %286, i64 %indvars.iv238
   store ptr %285, ptr %287, align 8
   %288 = load ptr, ptr %9, align 8
-  %289 = trunc i64 %267 to i32
+  %289 = trunc nsw i64 %267 to i32
   %290 = add i32 %289, 2
   %291 = sext i32 %290 to i64
   %292 = getelementptr inbounds ptr, ptr %288, i64 %291
@@ -999,7 +999,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   br i1 %.not162, label %305, label %302
 
 302:                                              ; preds = %295, %281
-  %303 = trunc i64 %indvars.iv238 to i32
+  %303 = trunc nuw nsw i64 %indvars.iv238 to i32
   %304 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.32, i32 noundef %303) #11
   br label %323
 
@@ -1020,7 +1020,7 @@ define ptr @client_req_parse_spawn_req(ptr nocapture noundef readonly %0) local_
   br i1 %315, label %265, label %.loopexit.loopexit, !llvm.loop !14
 
 .loopexit.loopexit:                               ; preds = %305
-  %316 = trunc i64 %indvars.iv.next237 to i32
+  %316 = trunc nsw i64 %indvars.iv.next237 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %251, %.loopexit.loopexit, %252, %230
@@ -1213,7 +1213,7 @@ client_req_get_int.exit46:                        ; preds = %45, %client_req_get
 69:                                               ; preds = %.lr.ph, %client_req_get_str.exit54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %client_req_get_str.exit54 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = trunc i64 %indvars.iv.next to i32
+  %70 = trunc nuw nsw i64 %indvars.iv.next to i32
   %71 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.37, i32 noundef %70) #11
   %72 = load ptr, ptr %66, align 8
   %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv
@@ -1322,7 +1322,7 @@ client_req_get_int.exit62:                        ; preds = %97, %._crit_edge, %
 
 126:                                              ; preds = %.lr.ph99, %client_req_get_str.exit78
   %indvars.iv118 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next119, %client_req_get_str.exit78 ]
-  %127 = trunc i64 %indvars.iv118 to i32
+  %127 = trunc nuw nsw i64 %indvars.iv118 to i32
   %128 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.39, i32 noundef %127) #11
   %129 = load ptr, ptr %118, align 8
   %130 = getelementptr inbounds ptr, ptr %129, i64 %indvars.iv118
@@ -1566,7 +1566,7 @@ define ptr @client_resp_new() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @client_resp_send(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @client_resp_send(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca [7 x i8], align 1
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #12
@@ -1763,7 +1763,7 @@ define void @client_resp_free(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @send_kvs_fence_resp_to_clients(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define i32 @send_kvs_fence_resp_to_clients(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 529, ptr noundef nonnull @__func__.client_resp_new) #11
@@ -1867,12 +1867,12 @@ _str_replace.exit31:                              ; preds = %35, %29
   %42 = shl nuw nsw i64 %indvars.iv, 1
   %43 = getelementptr inbounds i32, ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4
-  %45 = call i32 @client_resp_send(ptr noundef %5, i32 noundef %44), !range !22
+  %45 = call i32 @client_resp_send(ptr noundef %5, i32 noundef %44)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr getelementptr inbounds (%struct.pmi2_job_info, ptr @job_info, i64 0, i32 5), align 4
   %47 = zext i32 %46 to i64
   %48 = icmp ult i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %39
   %.0.lcssa = phi i32 [ %0, %39 ], [ %45, %.lr.ph ]
@@ -1941,5 +1941,4 @@ attributes #13 = { nounwind willreturn memory(none) }
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
-!22 = !{i32 -1, i32 1}
-!23 = distinct !{!23, !7}
+!22 = distinct !{!22, !7}

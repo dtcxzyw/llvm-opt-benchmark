@@ -621,7 +621,7 @@ declare dso_local i32 @vmf_insert_pfn_prot(ptr noundef, i64 noundef, i64 noundef
 declare dso_local void @down_write(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vdso_fault(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #3 align 16 {
+define internal noundef range(i32 0, 3) i32 @vdso_fault(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1104

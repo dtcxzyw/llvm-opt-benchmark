@@ -673,7 +673,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
 
 214:                                              ; preds = %.preheader39
   %215 = shl nuw nsw i64 %207, 60
-  %216 = trunc i64 %207 to i32
+  %216 = trunc nuw nsw i64 %207 to i32
   br label %217
 
 217:                                              ; preds = %292, %214
@@ -1085,7 +1085,7 @@ declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_sample(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @i915_sample(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 116
   %3 = load volatile i8, ptr %2, align 4, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
@@ -1647,7 +1647,7 @@ define internal noundef i32 @i915_pmu_event_init(ptr nocapture noundef %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_pmu_event_add(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @i915_pmu_event_add(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 304
@@ -1762,10 +1762,10 @@ define internal void @i915_pmu_event_start(ptr noundef %0, i32 %1) #0 align 16 {
   br i1 %54, label %55, label %72
 
 55:                                               ; preds = %52
-  %56 = trunc i64 %53 to i32
+  %56 = trunc nuw nsw i64 %53 to i32
   %57 = and i32 %56, 15
   %58 = lshr i64 %53, 12
-  %59 = trunc i64 %58 to i8
+  %59 = trunc nuw i64 %58 to i8
   %60 = lshr i64 %53, 4
   %61 = trunc i64 %60 to i8
   %62 = tail call ptr @intel_engine_lookup_user(ptr noundef %9, i8 noundef zeroext %59, i8 noundef zeroext %61) #12
@@ -1895,7 +1895,7 @@ define internal void @i915_pmu_event_stop(ptr noundef %0, i32 noundef %1) #0 ali
 
 52:                                               ; preds = %47
   %53 = lshr i64 %50, 12
-  %54 = trunc i64 %53 to i8
+  %54 = trunc nuw i64 %53 to i8
   %55 = lshr i64 %50, 4
   %56 = trunc i64 %55 to i8
   %57 = tail call ptr @intel_engine_lookup_user(ptr noundef %31, i8 noundef zeroext %54, i8 noundef zeroext %56) #12
@@ -1909,7 +1909,7 @@ define internal void @i915_pmu_event_stop(ptr noundef %0, i32 noundef %1) #0 ali
   br i1 %63, label %64, label %72
 
 64:                                               ; preds = %52
-  %65 = trunc i64 %50 to i32
+  %65 = trunc nuw nsw i64 %50 to i32
   %66 = and i32 %65, 15
   %67 = getelementptr inbounds i8, ptr %57, i64 544
   %68 = shl nuw nsw i32 1, %66
@@ -2156,7 +2156,7 @@ declare void @llvm.assume(i1 noundef) #7
 declare dso_local void @__cpuhp_remove_state(i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @i915_pmu_format_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #8 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @i915_pmu_format_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %5) #12
@@ -2168,7 +2168,7 @@ define internal noundef i64 @i915_pmu_format_show(ptr nocapture readnone %0, ptr
 declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @cpumask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @cpumask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = load i32, ptr @nr_cpu_ids, align 4
   %5 = tail call i32 @bitmap_print_to_pagebuf(i1 noundef zeroext true, ptr noundef %2, ptr noundef nonnull @i915_pmu_cpumask, i32 noundef %4) #12
   %6 = sext i32 %5 to i64
@@ -2206,7 +2206,7 @@ declare dso_local i64 @intel_runtime_pm_get(ptr noundef) local_unnamed_addr #4
 declare dso_local void @intel_runtime_pm_put_unchecked(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal fastcc noundef i32 @config_status(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #10 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @config_status(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #10 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 9304
   %4 = load ptr, ptr %3, align 8
   %5 = lshr i64 %1, 60
@@ -2274,7 +2274,7 @@ declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_a
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @i915_pmu_event_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #8 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @i915_pmu_event_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.29, i64 noundef %5) #12
@@ -2286,7 +2286,7 @@ define internal noundef i64 @i915_pmu_event_show(ptr nocapture readnone %0, ptr 
 declare dso_local i64 @perf_event_sysfs_show(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @engine_event_init(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @engine_event_init(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -9408
@@ -2388,7 +2388,7 @@ define internal fastcc i64 @__i915_pmu_event_read(ptr %.152.val, i64 %.224.val) 
 3:                                                ; preds = %0
   %4 = getelementptr i8, ptr %.152.val, i64 -9408
   %5 = lshr i64 %.224.val, 12
-  %6 = trunc i64 %5 to i8
+  %6 = trunc nuw i64 %5 to i8
   %7 = lshr i64 %.224.val, 4
   %8 = trunc i64 %7 to i8
   %9 = tail call ptr @intel_engine_lookup_user(ptr noundef %4, i8 noundef zeroext %6, i8 noundef zeroext %8) #12

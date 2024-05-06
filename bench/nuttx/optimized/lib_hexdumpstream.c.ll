@@ -144,7 +144,7 @@ bin2hex.exit.loopexit:                            ; preds = %.lr.ph.i
 
 bin2hex.exit:                                     ; preds = %bin2hex.exit.loopexit, %9
   %35 = phi i32 [ %.pre29, %bin2hex.exit.loopexit ], [ %10, %9 ]
-  %36 = trunc i64 %spec.select.i to i32
+  %36 = trunc nuw nsw i64 %spec.select.i to i32
   %37 = getelementptr inbounds i8, ptr %.028, i64 %spec.select.i
   %38 = sub nsw i32 %.02627, %36
   %39 = shl nuw nsw i32 %36, 1

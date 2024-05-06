@@ -231,7 +231,7 @@ declare dso_local i32 @acpi_ut_check_address_range(i8 noundef zeroext, i64 nound
 declare dso_local i32 @acpi_ut_release_mutex(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_decode_pld_buffer(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) #3 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_decode_pld_buffer(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) #3 align 16 {
   %4 = alloca i64, align 8
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %2, null
@@ -271,7 +271,7 @@ define dso_local noundef i32 @acpi_decode_pld_buffer(ptr noundef readonly %0, i6
   %29 = getelementptr inbounds i8, ptr %16, i64 3
   store i8 %28, ptr %29, align 1
   %30 = lshr i32 %19, 24
-  %31 = trunc i32 %30 to i8
+  %31 = trunc nuw i32 %30 to i8
   %32 = getelementptr inbounds i8, ptr %16, i64 4
   store i8 %31, ptr %32, align 4
   %33 = getelementptr i8, ptr %0, i64 4
@@ -280,7 +280,7 @@ define dso_local noundef i32 @acpi_decode_pld_buffer(ptr noundef readonly %0, i6
   %36 = getelementptr inbounds i8, ptr %16, i64 6
   store i16 %35, ptr %36, align 2
   %37 = lshr i32 %34, 16
-  %38 = trunc i32 %37 to i16
+  %38 = trunc nuw i32 %37 to i16
   %39 = getelementptr inbounds i8, ptr %16, i64 8
   store i16 %38, ptr %39, align 8
   %40 = getelementptr i8, ptr %0, i64 8
@@ -328,7 +328,7 @@ define dso_local noundef i32 @acpi_decode_pld_buffer(ptr noundef readonly %0, i6
   %73 = getelementptr inbounds i8, ptr %16, i64 19
   store i8 %72, ptr %73, align 1
   %74 = lshr i32 %41, 31
-  %75 = trunc i32 %74 to i8
+  %75 = trunc nuw nsw i32 %74 to i8
   %76 = getelementptr inbounds i8, ptr %16, i64 20
   store i8 %75, ptr %76, align 4
   %77 = getelementptr i8, ptr %0, i64 12
@@ -374,7 +374,7 @@ define dso_local noundef i32 @acpi_decode_pld_buffer(ptr noundef readonly %0, i6
   %108 = getelementptr inbounds i8, ptr %16, i64 30
   store i16 %107, ptr %108, align 2
   %109 = lshr i32 %106, 16
-  %110 = trunc i32 %109 to i16
+  %110 = trunc nuw i32 %109 to i16
   %111 = getelementptr inbounds i8, ptr %16, i64 32
   store i16 %110, ptr %111, align 8
   br label %112

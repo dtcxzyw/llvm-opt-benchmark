@@ -35,7 +35,7 @@ define dso_local void @__init_ldsem(ptr noundef %0, ptr nocapture noundef readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ldsem_down_read(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 section ".sched.text" align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ldsem_down_read(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 section ".sched.text" align 16 {
   %3 = alloca %struct.ldsem_waiter, align 8
   %4 = tail call i32 @__SCT__might_resched() #5
   %5 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 1, ptr elementtype(i64) %0) #5, !srcloc !5
@@ -215,7 +215,7 @@ define dso_local noundef i32 @ldsem_down_read(ptr noundef %0, i64 noundef %1) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ldsem_down_read_trylock(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ldsem_down_read_trylock(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = load volatile i64, ptr %0, align 8
   %3 = icmp sgt i64 %2, -1
   br i1 %3, label %.lr.ph, label %.thread
@@ -247,7 +247,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ldsem_down_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 section ".sched.text" align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ldsem_down_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 section ".sched.text" align 16 {
   %3 = alloca %struct.ldsem_waiter, align 8
   %4 = tail call i32 @__SCT__might_resched() #5
   %5 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 -4294967295, ptr elementtype(i64) %0) #5, !srcloc !5
@@ -380,7 +380,7 @@ define dso_local noundef i32 @ldsem_down_write(ptr noundef %0, i64 noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ldsem_down_write_trylock(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ldsem_down_write_trylock(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = load volatile i64, ptr %0, align 8
   %3 = and i64 %2, 4294967295
   %4 = icmp eq i64 %3, 0

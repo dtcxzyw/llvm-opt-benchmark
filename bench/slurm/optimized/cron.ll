@@ -1095,7 +1095,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unpack_cron_entry(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8

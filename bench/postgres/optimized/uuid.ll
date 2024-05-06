@@ -144,7 +144,7 @@ define dso_local i64 @uuid_out(ptr nocapture noundef readonly %0) local_unnamed_
 6:                                                ; preds = %1, %11
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %11 ]
   %.025 = phi ptr [ %5, %1 ], [ %24, %11 ]
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = and i32 %7, 13
   switch i32 %8, label %11 [
     i32 8, label %9
@@ -220,35 +220,35 @@ declare void @pq_sendbytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @uuid_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @uuid_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %7, i64 noundef 16) #14
+  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #14
   %.lobit = lshr i32 %8, 31
   %9 = zext nneg i32 %.lobit to i64
   ret i64 %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @uuid_le(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @uuid_le(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %7, i64 noundef 16) #14
+  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #14
   %9 = icmp slt i32 %8, 1
   %10 = zext i1 %9 to i64
   ret i64 %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @uuid_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @uuid_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -262,35 +262,35 @@ define dso_local i64 @uuid_eq(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @uuid_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @uuid_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %7, i64 noundef 16) #14
+  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #14
   %9 = icmp sgt i32 %8, -1
   %10 = zext i1 %9 to i64
   ret i64 %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @uuid_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @uuid_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %7, i64 noundef 16) #14
+  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #14
   %9 = icmp sgt i32 %8, 0
   %10 = zext i1 %9 to i64
   ret i64 %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @uuid_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 0, 2) i64 @uuid_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -304,14 +304,14 @@ define dso_local i64 @uuid_ne(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @uuid_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @uuid_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %7, i64 noundef 16) #14
+  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #14
   %9 = sext i32 %8 to i64
   ret i64 %9
 }
@@ -359,7 +359,7 @@ define dso_local noundef i64 @uuid_sortsupport(ptr nocapture noundef readonly %0
 define internal i32 @uuid_fast_cmp(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #3 {
   %4 = inttoptr i64 %0 to ptr
   %5 = inttoptr i64 %1 to ptr
-  %6 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %5, i64 noundef 16) #14
+  %6 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %5, i64 noundef 16) #14
   ret i32 %6
 }
 
@@ -483,7 +483,7 @@ define internal noundef zeroext i1 @uuid_abbrev_abort(i32 noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @uuid_hash(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @uuid_hash(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

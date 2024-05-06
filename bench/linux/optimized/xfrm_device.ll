@@ -17,7 +17,7 @@ define dso_local void @xfrm_dev_init() local_unnamed_addr #0 section ".init.text
 declare dso_local i32 @register_netdevice_notifier(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xfrm_dev_event(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal range(i32 0, 32771) i32 @xfrm_dev_event(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #2 align 16 {
   %4 = load ptr, ptr %2, align 8
   switch i64 %1, label %28 [
     i64 5, label %5

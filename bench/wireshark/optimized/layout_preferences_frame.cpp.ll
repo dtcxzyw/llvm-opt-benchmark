@@ -4228,8 +4228,8 @@ switch.lookup:                                    ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = zext nneg i32 %7 to i64
-  %11 = getelementptr i8, ptr %9, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 16
+  %11 = getelementptr inbounds i8, ptr %9, i64 %10
+  %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40) %13, i1 noundef zeroext true)
   br label %14
@@ -5087,7 +5087,7 @@ _ZNK7QString6toUIntEPbi.exit:                     ; preds = %2
   br i1 %9, label %10, label %_ZNK7QString6toUIntEPbi.exit.thread
 
 10:                                               ; preds = %_ZNK7QString6toUIntEPbi.exit
-  %11 = trunc i64 %8 to i32
+  %11 = trunc nuw i64 %8 to i32
   %12 = getelementptr inbounds i8, ptr %0, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 @prefs_set_uint_value(ptr noundef %13, i32 noundef %11, i32 noundef 1)

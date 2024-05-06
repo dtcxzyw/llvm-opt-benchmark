@@ -95,7 +95,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @BIO_meth_set_recvmmsg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkt_split_dgram_recvmmsg(ptr noundef %bio, ptr noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 noundef %flags, ptr noundef %msgs_processed) #0 {
+define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %bio, ptr noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 noundef %flags, ptr noundef %msgs_processed) #0 {
 entry:
   %hdr = alloca %struct.quic_pkt_hdr_st, align 8
   %pkt = alloca %struct.PACKET, align 8

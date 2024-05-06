@@ -659,7 +659,7 @@ land.lhs.true2:                                   ; preds = %entry
   %len = getelementptr inbounds i8, ptr %s, i64 56
   %1 = load i32, ptr %len, align 8
   %add = add nsw i32 %1, 1
-  %call3 = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !4
+  %call3 = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool4.not = icmp eq i8 %call3, 0
   br i1 %tobool4.not, label %if.end, label %if.then
 
@@ -679,7 +679,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %capacity, i32 noundef %desiredCapacityHint, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %capacity, i32 noundef %desiredCapacityHint, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -794,7 +794,7 @@ return:                                           ; preds = %_ZN6icu_7515MaybeSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7510CharString11lastIndexOfEc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this, i8 noundef signext %c) local_unnamed_addr #6 align 2 {
+define noundef range(i32 -1, 2147483647) i32 @_ZNK6icu_7510CharString11lastIndexOfEc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this, i8 noundef signext %c) local_unnamed_addr #6 align 2 {
 entry:
   %len = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %len, align 8
@@ -814,7 +814,7 @@ for.body:                                         ; preds = %for.cond
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %conv
   %4 = load i8, ptr %arrayidx.i, align 1
   %cmp4 = icmp eq i8 %4, %c
-  br i1 %cmp4, label %return.split.loop.exit4, label %for.cond, !llvm.loop !5
+  br i1 %cmp4, label %return.split.loop.exit4, label %for.cond, !llvm.loop !4
 
 return.split.loop.exit4:                          ; preds = %for.body
   %indvars.le = trunc i64 %indvars.iv.next to i32
@@ -853,7 +853,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %cmp7, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %return, label %for.body, !llvm.loop !7
+  br i1 %or.cond, label %return, label %for.body, !llvm.loop !6
 
 return:                                           ; preds = %for.body, %if.end, %entry
   %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ %cmp7, %for.body ]
@@ -887,7 +887,7 @@ entry:
   %len = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %len, align 8
   %add = add nsw i32 %0, 2
-  %call = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !4
+  %call = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -1005,7 +1005,7 @@ lpad:                                             ; preds = %if.then42
 if.else44:                                        ; preds = %land.lhs.true36, %if.else25
   %add46 = add nuw i32 %sLength.addr.0, 1
   %add47 = add i32 %add46, %2
-  %call48 = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add47, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !4
+  %call48 = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add47, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool49.not = icmp eq i8 %call48, 0
   br i1 %tobool49.not, label %return, label %do.body
 
@@ -1074,7 +1074,7 @@ if.then:                                          ; preds = %entry
   %len.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %len.i, align 8
   %add.i = add nsw i32 %0, 2
-  %call.i = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add.i, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !4
+  %call.i = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add.i, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %tobool.not.i = icmp eq i8 %call.i, 0
   br i1 %tobool.not.i, label %_ZN6icu_7510CharString6appendEcR10UErrorCode.exit, label %if.then.i
 
@@ -1110,7 +1110,7 @@ if.then6:                                         ; preds = %if.end4
   %len.i13 = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load i32, ptr %len.i13, align 8
   %add.i14 = add nsw i32 %6, 2
-  %call.i15 = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add.i14, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !4
+  %call.i15 = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add.i14, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %tobool.not.i16 = icmp eq i8 %call.i15, 0
   br i1 %tobool.not.i16, label %return, label %if.then.i17
 
@@ -1141,7 +1141,7 @@ while.body:                                       ; preds = %while.cond
   %rem = srem i32 %number.addr.0, 10
   %11 = load i32, ptr %len.i24, align 8
   %add.i25 = add nsw i32 %11, 2
-  %call.i26 = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add.i25, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !4
+  %call.i26 = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add.i25, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %tobool.not.i27 = icmp eq i8 %call.i26, 0
   br i1 %tobool.not.i27, label %_ZN6icu_7510CharString6appendEcR10UErrorCode.exit34, label %if.then.i28
 
@@ -1168,7 +1168,7 @@ _ZN6icu_7510CharString6appendEcR10UErrorCode.exit34: ; preds = %while.body, %if.
   %18 = load i32, ptr %status, align 4
   %cmp.i35 = icmp slt i32 %18, 1
   %indvars.iv.next48 = add i64 %indvars.iv47, -1
-  br i1 %cmp.i35, label %while.cond, label %return, !llvm.loop !8
+  br i1 %cmp.i35, label %while.cond, label %return, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
   %19 = load i32, ptr %len.i24, align 8
@@ -1196,7 +1196,7 @@ while.body20:                                     ; preds = %while.body20.prehea
   store i8 %24, ptr %arrayidx25, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp19 = icmp slt i64 %indvars.iv.next51, %indvars.iv.next
-  br i1 %cmp19, label %while.body20, label %return, !llvm.loop !9
+  br i1 %cmp19, label %while.body20, label %return, !llvm.loop !8
 
 return:                                           ; preds = %_ZN6icu_7510CharString6appendEcR10UErrorCode.exit34, %while.body20, %while.end, %if.then.i17, %if.then6, %_ZN6icu_7510CharString6appendEcR10UErrorCode.exit
   ret ptr %this
@@ -1239,7 +1239,7 @@ if.end8:                                          ; preds = %if.end
   %add10 = add i32 %add, %2
   %add12 = add i32 %desiredCapacityHint, 1
   %add13 = add i32 %add12, %2
-  %call14 = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add10, i32 noundef %add13, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !4
+  %call14 = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add10, i32 noundef %add13, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool15.not = icmp eq i8 %call14, 0
   br i1 %tobool15.not, label %if.end27, label %if.then16
 
@@ -1314,7 +1314,7 @@ if.end5.i:                                        ; preds = %if.end.i
   %5 = load i32, ptr %len.i, align 8
   %add.i = add i32 %cond.i, 1
   %add6.i = add i32 %add.i, %5
-  %call7.i = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add6.i, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !4
+  %call7.i = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add6.i, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool8.not.i = icmp eq i8 %call7.i, 0
   br i1 %tobool8.not.i, label %_ZN6icu_7510CharString20appendInvariantCharsEPKDsiR10UErrorCode.exit, label %if.then9.i
 
@@ -1358,7 +1358,7 @@ if.end5:                                          ; preds = %if.end
   %1 = load i32, ptr %len, align 8
   %add = add i32 %ucharsLen, 1
   %add6 = add i32 %add, %1
-  %call7 = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add6, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !4
+  %call7 = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add6, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool8.not = icmp eq i8 %call7, 0
   br i1 %tobool8.not, label %return, label %if.then9
 
@@ -1411,7 +1411,7 @@ land.lhs.true:                                    ; preds = %if.end4
 
 if.then13:                                        ; preds = %land.lhs.true
   %add.i = add nuw nsw i32 %1, 2
-  %call.i = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add.i, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !4
+  %call.i = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add.i, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool.not.i = icmp eq i8 %call.i, 0
   br i1 %tobool.not.i, label %if.end16, label %if.then.i
 
@@ -1468,7 +1468,7 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
 
 if.then:                                          ; preds = %land.lhs.true2
   %add.i = add nuw nsw i32 %1, 2
-  %call.i = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add.i, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !range !4
+  %call.i = tail call noundef signext i8 @_ZN6icu_7510CharString14ensureCapacityEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %add.i, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %tobool.not.i = icmp eq i8 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.then.i
 
@@ -1525,9 +1525,8 @@ attributes #17 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i8 0, i8 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

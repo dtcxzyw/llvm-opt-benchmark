@@ -24454,7 +24454,7 @@ switch.edge9292:                                  ; preds = %10633
 13968:                                            ; preds = %.loopexit9835
   %13969 = getelementptr inbounds i8, ptr %.3, i64 40
   %13970 = load i64, ptr %13969, align 8
-  %13971 = call fastcc i32 @match_ref(i64 noundef %13970, i32 noundef %13925, ptr noundef nonnull %.3, ptr noundef %5, ptr noundef nonnull %7), !range !4
+  %13971 = call fastcc i32 @match_ref(i64 noundef %13970, i32 noundef %13925, ptr noundef nonnull %.3, ptr noundef %5, ptr noundef nonnull %7)
   %.not8521 = icmp eq i32 %13971, 0
   br i1 %.not8521, label %13986, label %13972
 
@@ -24553,7 +24553,7 @@ switch.edge9292:                                  ; preds = %10633
   %.9710906 = phi i32 [ 1, %.lr.ph10908 ], [ %14038, %14034 ]
   %14018 = load i64, ptr %13994, align 8
   %14019 = load i32, ptr %14015, align 8
-  %14020 = call fastcc i32 @match_ref(i64 noundef %14018, i32 noundef %14019, ptr noundef nonnull %.3, ptr noundef %5, ptr noundef nonnull %8), !range !4
+  %14020 = call fastcc i32 @match_ref(i64 noundef %14018, i32 noundef %14019, ptr noundef nonnull %.3, ptr noundef %5, ptr noundef nonnull %8)
   %.not8517 = icmp eq i32 %14020, 0
   br i1 %.not8517, label %14034, label %14021
 
@@ -24642,7 +24642,7 @@ switch.edge9292:                                  ; preds = %10633
   %14055 = load i64, ptr %14054, align 8
   %14056 = getelementptr inbounds i8, ptr %15773, i64 64
   %14057 = load i32, ptr %14056, align 8
-  %14058 = call fastcc i32 @match_ref(i64 noundef %14055, i32 noundef %14057, ptr noundef nonnull %15773, ptr noundef nonnull %5, ptr noundef nonnull %9), !range !4
+  %14058 = call fastcc i32 @match_ref(i64 noundef %14055, i32 noundef %14057, ptr noundef nonnull %15773, ptr noundef nonnull %5, ptr noundef nonnull %9)
   %.not9243 = icmp eq i32 %14058, 0
   br i1 %.not9243, label %14073, label %14059
 
@@ -24719,7 +24719,7 @@ switch.edge9292:                                  ; preds = %10633
   %.9810911 = phi i32 [ %14040, %.lr.ph10914 ], [ %14111, %14106 ]
   %14094 = load i64, ptr %13994, align 8
   %14095 = load i32, ptr %14092, align 8
-  %14096 = call fastcc i32 @match_ref(i64 noundef %14094, i32 noundef %14095, ptr noundef nonnull %.3, ptr noundef %5, ptr noundef nonnull %10), !range !4
+  %14096 = call fastcc i32 @match_ref(i64 noundef %14094, i32 noundef %14095, ptr noundef nonnull %.3, ptr noundef %5, ptr noundef nonnull %10)
   %.not8513 = icmp eq i32 %14096, 0
   br i1 %.not8513, label %14106, label %14097
 
@@ -24833,7 +24833,7 @@ switch.edge9292:                                  ; preds = %10633
   %.9911290 = phi i32 [ %14141, %.lr.ph11292 ], [ %14152, %14145 ]
   %14146 = load i64, ptr %14143, align 8
   %14147 = load i32, ptr %14144, align 8
-  %14148 = call fastcc i32 @match_ref(i64 noundef %14146, i32 noundef %14147, ptr noundef nonnull %15773, ptr noundef %5, ptr noundef nonnull %11), !range !4
+  %14148 = call fastcc i32 @match_ref(i64 noundef %14146, i32 noundef %14147, ptr noundef nonnull %15773, ptr noundef %5, ptr noundef nonnull %11)
   %14149 = load i64, ptr %11, align 8
   %14150 = load ptr, ptr %14136, align 8
   %14151 = getelementptr inbounds i8, ptr %14150, i64 %14149
@@ -27478,8 +27478,8 @@ thread-pre-split9442:                             ; preds = %14917
   %15718 = getelementptr inbounds i8, ptr %15711, i64 1
   %15719 = load i8, ptr %15718, align 1
   %15720 = zext i8 %15719 to i64
-  %15721 = getelementptr i8, ptr %15711, i64 %15716
-  %15722 = getelementptr i8, ptr %15721, i64 %15720
+  %15721 = getelementptr inbounds i8, ptr %15711, i64 %15716
+  %15722 = getelementptr inbounds i8, ptr %15721, i64 %15720
   store ptr %15722, ptr %.3, align 8
   br label %.preheader9856.backedge
 
@@ -27978,7 +27978,7 @@ declare i32 @_pcre2_xclass_8(i32 noundef, ptr noundef, i32 noundef) local_unname
 declare ptr @_pcre2_extuni_8(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @match_ref(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #5 {
   %6 = getelementptr inbounds i8, ptr %2, i64 128
   %7 = load i64, ptr %6, align 8
   %.not = icmp ugt i64 %7, %0
@@ -28667,4 +28667,3 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}

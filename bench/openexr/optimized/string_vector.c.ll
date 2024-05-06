@@ -99,7 +99,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @exr_attr_string_vector_destroy(ptr noundef %ctxt, ptr noundef %sv) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @exr_attr_string_vector_destroy(ptr noundef %ctxt, ptr noundef %sv) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end

@@ -33,7 +33,7 @@ if.end:                                           ; preds = %land.lhs.true2, %la
 if.then.i:                                        ; preds = %if.end
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 62)
   store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(62) %call2.i, ptr noundef nonnull align 16 dereferenceable(62) @__const._Z29alts_crypter_process_in_placeP12alts_crypterPhmmPmPPc.error_msg, i64 62, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(62) %call2.i, ptr noundef nonnull readonly align 16 dereferenceable(62) @__const._Z29alts_crypter_process_in_placeP12alts_crypterPhmmPmPPc.error_msg, i64 62, i1 false)
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.end, %if.then

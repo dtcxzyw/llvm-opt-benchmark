@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [4 x i8] c"%lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ValidateFormat(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @ValidateFormat(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [16 x i32], align 16
@@ -461,7 +461,7 @@ declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -475,7 +475,7 @@ define noundef i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1, i32 noun
   %spec.store.select19 = select i1 %or.cond, i32 256, i32 %4
   %15 = sub nsw i32 %2, %spec.store.select19
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
-  %16 = call i32 @ValidateFormat(ptr noundef %1, i32 noundef %spec.store.select, ptr noundef nonnull %8), !range !4
+  %16 = call i32 @ValidateFormat(ptr noundef %1, i32 noundef %spec.store.select, ptr noundef nonnull %8)
   %.not = icmp eq i32 %16, 0
   %.not518 = icmp slt i32 %15, 1
   br i1 %.not, label %21, label %17
@@ -1255,7 +1255,7 @@ CharInSet.exit:                                   ; preds = %.lr.ph.i, %236, %.c
 
 334:                                              ; preds = %331
   store i8 0, ptr %332, align 1
-  %335 = call i64 %.1488(ptr noundef nonnull %10, ptr noundef null, i32 noundef %.5478) #10, !callees !5
+  %335 = call i64 %.1488(ptr noundef nonnull %10, ptr noundef null, i32 noundef %.5478) #10, !callees !4
   %336 = and i32 %.6500, 4
   %337 = icmp ne i32 %336, 0
   %338 = icmp slt i64 %335, 0
@@ -1818,5 +1818,4 @@ attributes #14 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2, i32 1}
-!5 = !{ptr @strtoll, ptr @strtoull}
+!4 = !{ptr @strtoll, ptr @strtoull}

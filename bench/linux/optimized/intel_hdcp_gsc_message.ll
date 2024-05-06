@@ -811,7 +811,7 @@ define dso_local i32 @intel_hdcp_gsc_verify_mprime(ptr noundef %0, ptr noundef r
   store i32 200713, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %21, i64 8
   store i32 0, ptr %25, align 8
-  %26 = trunc i64 %20 to i32
+  %26 = trunc nuw nsw i64 %20 to i32
   %27 = add nsw i32 %26, -16
   %28 = getelementptr inbounds i8, ptr %21, i64 12
   store i32 %27, ptr %28, align 4

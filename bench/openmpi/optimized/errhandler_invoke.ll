@@ -254,7 +254,7 @@ define i32 @ompi_errhandler_request_invoke(i32 noundef %0, ptr noundef %1, ptr n
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 11:                                               ; preds = %7
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = and i64 %indvars.iv, 4294967295
   %14 = getelementptr inbounds ptr, ptr %1, i64 %13
   %15 = load ptr, ptr %14, align 8

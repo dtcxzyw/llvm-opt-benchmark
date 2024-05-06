@@ -1393,7 +1393,7 @@ yypop_buffer_state.exit:                          ; preds = %296, %293, %274
   %681 = getelementptr inbounds i8, ptr %679, i64 %680
   store ptr %681, ptr %56, align 8
   %682 = call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %1)
-  %683 = call fastcc i32 @yy_try_NUL_trans(i32 noundef %682, ptr noundef nonnull %1), !range !4
+  %683 = call fastcc i32 @yy_try_NUL_trans(i32 noundef %682, ptr noundef nonnull %1)
   %684 = load ptr, ptr %61, align 8
   %.not388 = icmp eq i32 %683, 0
   br i1 %.not388, label %.outer.backedge, label %685
@@ -1426,7 +1426,7 @@ yypop_buffer_state.exit:                          ; preds = %296, %293, %274
   %693 = load ptr, ptr %1, align 8
   %694 = getelementptr inbounds i8, ptr %693, i64 16
   %695 = load i32, ptr %694, align 8
-  call void @yara_yyerror(ptr noundef nonnull %1, ptr noundef %693, ptr noundef nonnull @.str.29)
+  call void @yara_yyerror(ptr noundef nonnull readonly %1, ptr noundef %693, ptr noundef nonnull @.str.29)
   store i32 %695, ptr %694, align 8
   %696 = getelementptr inbounds i8, ptr %693, i64 24
   call void @longjmp(ptr noundef nonnull %696, i32 noundef 1) #31
@@ -1535,7 +1535,7 @@ yypop_buffer_state.exit:                          ; preds = %296, %293, %274
   %745 = load ptr, ptr %1, align 8
   %746 = getelementptr inbounds i8, ptr %745, i64 16
   %747 = load i32, ptr %746, align 8
-  call void @yara_yyerror(ptr noundef nonnull %1, ptr noundef %745, ptr noundef nonnull @.str.30)
+  call void @yara_yyerror(ptr noundef nonnull readonly %1, ptr noundef %745, ptr noundef nonnull @.str.30)
   store i32 %747, ptr %746, align 8
   %748 = getelementptr inbounds i8, ptr %745, i64 24
   call void @longjmp(ptr noundef nonnull %748, i32 noundef 1) #31
@@ -1630,7 +1630,7 @@ yypop_buffer_state.exit:                          ; preds = %296, %293, %274
   %790 = load ptr, ptr %1, align 8
   %791 = getelementptr inbounds i8, ptr %790, i64 16
   %792 = load i32, ptr %791, align 8
-  call void @yara_yyerror(ptr noundef nonnull %1, ptr noundef %790, ptr noundef nonnull @.str.31)
+  call void @yara_yyerror(ptr noundef nonnull readonly %1, ptr noundef %790, ptr noundef nonnull @.str.31)
   store i32 %792, ptr %791, align 8
   %793 = getelementptr inbounds i8, ptr %790, i64 24
   call void @longjmp(ptr noundef nonnull %793, i32 noundef 1) #31
@@ -1676,7 +1676,7 @@ yypop_buffer_state.exit:                          ; preds = %296, %293, %274
   %815 = load ptr, ptr %1, align 8
   %816 = getelementptr inbounds i8, ptr %815, i64 16
   %817 = load i32, ptr %816, align 8
-  call void @yara_yyerror(ptr noundef nonnull %1, ptr noundef %815, ptr noundef nonnull @.str.31)
+  call void @yara_yyerror(ptr noundef nonnull readonly %1, ptr noundef %815, ptr noundef nonnull @.str.31)
   store i32 %817, ptr %816, align 8
   %818 = getelementptr inbounds i8, ptr %815, i64 24
   call void @longjmp(ptr noundef nonnull %818, i32 noundef 1) #31
@@ -1823,7 +1823,7 @@ yyrestart.exit.i:                                 ; preds = %..thread.i_crit_edg
   %904 = load ptr, ptr %1, align 8
   %905 = getelementptr inbounds i8, ptr %904, i64 16
   %906 = load i32, ptr %905, align 8
-  call void @yara_yyerror(ptr noundef nonnull %1, ptr noundef %904, ptr noundef nonnull @.str.32)
+  call void @yara_yyerror(ptr noundef nonnull readonly %1, ptr noundef %904, ptr noundef nonnull @.str.32)
   store i32 %906, ptr %905, align 8
   %907 = getelementptr inbounds i8, ptr %904, i64 24
   call void @longjmp(ptr noundef nonnull %907, i32 noundef 1) #31
@@ -1960,7 +1960,7 @@ define internal fastcc void @yyensure_buffer_stack(ptr nocapture noundef %0) unn
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
-  tail call void @yara_yyerror(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull @.str.33)
+  tail call void @yara_yyerror(ptr noundef nonnull readonly %0, ptr noundef %7, ptr noundef nonnull @.str.33)
   store i32 %9, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   tail call void @longjmp(ptr noundef nonnull %10, i32 noundef 1) #31
@@ -1995,7 +1995,7 @@ define internal fastcc void @yyensure_buffer_stack(ptr nocapture noundef %0) unn
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8
-  tail call void @yara_yyerror(ptr noundef nonnull %0, ptr noundef %25, ptr noundef nonnull @.str.33)
+  tail call void @yara_yyerror(ptr noundef nonnull readonly %0, ptr noundef %25, ptr noundef nonnull @.str.33)
   store i32 %27, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 24
   tail call void @longjmp(ptr noundef nonnull %28, i32 noundef 1) #31
@@ -2022,7 +2022,7 @@ define noundef ptr @yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr nocaptu
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
-  tail call void @yara_yyerror(ptr noundef nonnull %2, ptr noundef %6, ptr noundef nonnull @.str.18)
+  tail call void @yara_yyerror(ptr noundef nonnull readonly %2, ptr noundef %6, ptr noundef nonnull @.str.18)
   store i32 %8, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 24
   tail call void @longjmp(ptr noundef nonnull %9, i32 noundef 1) #31
@@ -2043,7 +2043,7 @@ define noundef ptr @yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr nocaptu
   %17 = load ptr, ptr %2, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 8
-  tail call void @yara_yyerror(ptr noundef nonnull %2, ptr noundef %17, ptr noundef nonnull @.str.18)
+  tail call void @yara_yyerror(ptr noundef nonnull readonly %2, ptr noundef %17, ptr noundef nonnull @.str.18)
   store i32 %19, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 24
   tail call void @longjmp(ptr noundef nonnull %20, i32 noundef 1) #31
@@ -2165,7 +2165,7 @@ define void @yypush_buffer_state(ptr noundef %0, ptr nocapture noundef %1) local
 4:                                                ; preds = %2
   tail call fastcc void @yyensure_buffer_stack(ptr noundef %1)
   %5 = getelementptr inbounds i8, ptr %1, i64 40
-  %6 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
+  %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds ptr, ptr %6, i64 %8
@@ -2456,7 +2456,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #9 {
+define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #9 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [219 x i16], ptr @yy_accept, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -2939,7 +2939,7 @@ define noundef ptr @yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr nocapture
   %16 = load ptr, ptr %2, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8
-  tail call void @yara_yyerror(ptr noundef nonnull %2, ptr noundef %16, ptr noundef nonnull @.str.19)
+  tail call void @yara_yyerror(ptr noundef nonnull readonly %2, ptr noundef %16, ptr noundef nonnull @.str.19)
   store i32 %18, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 24
   tail call void @longjmp(ptr noundef nonnull %19, i32 noundef 1) #31
@@ -2968,7 +2968,7 @@ define noundef ptr @yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr nocapture
   store i32 0, ptr %29, align 8
   tail call fastcc void @yyensure_buffer_stack(ptr noundef %2)
   %30 = getelementptr inbounds i8, ptr %2, i64 40
-  %31 = load ptr, ptr %30, align 8, !nonnull !5, !noundef !5
+  %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds i8, ptr %2, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = getelementptr inbounds ptr, ptr %31, i64 %33
@@ -3070,7 +3070,7 @@ define noundef ptr @yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
-  tail call void @yara_yyerror(ptr noundef nonnull %2, ptr noundef %10, ptr noundef nonnull @.str.20)
+  tail call void @yara_yyerror(ptr noundef nonnull readonly %2, ptr noundef %10, ptr noundef nonnull @.str.20)
   store i32 %12, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 24
   tail call void @longjmp(ptr noundef nonnull %13, i32 noundef 1) #31
@@ -3090,7 +3090,7 @@ define noundef ptr @yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef
   %19 = load ptr, ptr %2, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8
-  tail call void @yara_yyerror(ptr noundef nonnull %2, ptr noundef %19, ptr noundef nonnull @.str.21)
+  tail call void @yara_yyerror(ptr noundef nonnull readonly %2, ptr noundef %19, ptr noundef nonnull @.str.21)
   store i32 %21, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 24
   tail call void @longjmp(ptr noundef nonnull %22, i32 noundef 1) #31
@@ -3205,7 +3205,7 @@ define void @yyset_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) loc
   %11 = load ptr, ptr %1, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8
-  tail call void @yara_yyerror(ptr noundef nonnull %1, ptr noundef %11, ptr noundef nonnull @.str.22)
+  tail call void @yara_yyerror(ptr noundef nonnull readonly %1, ptr noundef %11, ptr noundef nonnull @.str.22)
   store i32 %13, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   tail call void @longjmp(ptr noundef nonnull %14, i32 noundef 1) #31
@@ -3236,7 +3236,7 @@ define void @yyset_column(i32 noundef %0, ptr nocapture noundef readonly %1) loc
   %11 = load ptr, ptr %1, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8
-  tail call void @yara_yyerror(ptr noundef nonnull %1, ptr noundef %11, ptr noundef nonnull @.str.23)
+  tail call void @yara_yyerror(ptr noundef nonnull readonly %1, ptr noundef %11, ptr noundef nonnull @.str.23)
   store i32 %13, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   tail call void @longjmp(ptr noundef nonnull %14, i32 noundef 1) #31
@@ -3291,7 +3291,7 @@ define void @yyset_lval(ptr noundef %0, ptr nocapture noundef writeonly %1) loca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @yylex_init(ptr noundef writeonly %0) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @yylex_init(ptr noundef writeonly %0) local_unnamed_addr #16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -3319,7 +3319,7 @@ declare ptr @__errno_location() local_unnamed_addr #17
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @yylex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @yylex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -3641,5 +3641,4 @@ attributes #35 = { nounwind returns_twice }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -32768, i32 32768}
-!5 = !{}
+!4 = !{}

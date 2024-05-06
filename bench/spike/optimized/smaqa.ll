@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z16fast_rv32i_smaqaP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_smaqaP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -142,10 +142,10 @@ define noundef i64 @_Z16fast_rv32i_smaqaP11processor_t6insn_tm(ptr nocapture nou
   %43 = xor i64 %42, -1
   %44 = and i64 %40, %43
   %45 = udiv i64 %41, %44
-  %46 = trunc i64 %45 to i32
+  %46 = trunc nuw i64 %45 to i32
   %47 = and i64 %27, %40
   %48 = udiv i64 %47, %44
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw i64 %48 to i32
   %sext48 = shl i32 %46, 24
   %50 = ashr exact i32 %sext48, 24
   %sext49 = shl i32 %49, 24
@@ -305,7 +305,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %60, %61
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18logged_rv32i_smaqaP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_smaqaP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -371,10 +371,10 @@ define noundef i64 @_Z18logged_rv32i_smaqaP11processor_t6insn_tm(ptr noundef %0,
   %43 = xor i64 %42, -1
   %44 = and i64 %40, %43
   %45 = udiv i64 %41, %44
-  %46 = trunc i64 %45 to i32
+  %46 = trunc nuw i64 %45 to i32
   %47 = and i64 %27, %40
   %48 = udiv i64 %47, %44
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw i64 %48 to i32
   %sext51 = shl i32 %46, 24
   %50 = ashr exact i32 %sext51, 24
   %sext52 = shl i32 %49, 24
@@ -634,7 +634,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z16fast_rv32e_smaqaP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_smaqaP11processor_t6insn_tm(ptr nocapture noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -748,10 +748,10 @@ define noundef i64 @_Z16fast_rv32e_smaqaP11processor_t6insn_tm(ptr nocapture nou
   %64 = xor i64 %63, -1
   %65 = and i64 %61, %64
   %66 = udiv i64 %62, %65
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   %68 = and i64 %48, %61
   %69 = udiv i64 %68, %65
-  %70 = trunc i64 %69 to i32
+  %70 = trunc nuw i64 %69 to i32
   %sext58 = shl i32 %67, 24
   %71 = ashr exact i32 %sext58, 24
   %sext59 = shl i32 %70, 24
@@ -945,7 +945,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %81, %82
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18logged_rv32e_smaqaP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_smaqaP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 1125899906842624
@@ -1059,10 +1059,10 @@ define noundef i64 @_Z18logged_rv32e_smaqaP11processor_t6insn_tm(ptr noundef %0,
   %64 = xor i64 %63, -1
   %65 = and i64 %61, %64
   %66 = udiv i64 %62, %65
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   %68 = and i64 %48, %61
   %69 = udiv i64 %68, %65
-  %70 = trunc i64 %69 to i32
+  %70 = trunc nuw i64 %69 to i32
   %sext61 = shl i32 %67, 24
   %71 = ashr exact i32 %sext61, 24
   %sext62 = shl i32 %70, 24

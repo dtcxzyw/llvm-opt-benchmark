@@ -365,7 +365,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @evp_md_ctx_free_algctx(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @evp_md_ctx_free_algctx(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
 entry:
   %algctx = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load ptr, ptr %algctx, align 8
@@ -667,7 +667,7 @@ if.then100:                                       ; preds = %if.then93
   br label %return
 
 if.else102:                                       ; preds = %cleanup_old_md_data.exit
-  %call103 = tail call i32 @evp_md_ctx_free_algctx(ptr noundef nonnull %ctx), !range !4
+  %call103 = tail call i32 @evp_md_ctx_free_algctx(ptr noundef nonnull %ctx)
   %tobool104.not = icmp eq i32 %call103, 0
   br i1 %tobool104.not, label %return, label %if.end107
 
@@ -1468,7 +1468,7 @@ if.then.i:                                        ; preds = %land.lhs.true7.i
   br label %EVP_MD_CTX_set_params.exit
 
 if.end.i:                                         ; preds = %land.lhs.true7.i, %land.lhs.true5.i, %land.lhs.true.i, %if.end11
-  %9 = load ptr, ptr %digest, align 8, !nonnull !5, !noundef !5
+  %9 = load ptr, ptr %digest, align 8, !nonnull !4, !noundef !4
   %set_ctx_params.i = getelementptr inbounds i8, ptr %9, i64 200
   %10 = load ptr, ptr %set_ctx_params.i, align 8
   %cmp18.not.i = icmp eq ptr %10, null
@@ -2133,7 +2133,7 @@ declare i32 @ENGINE_init(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_Digest(ptr noundef %data, i64 noundef %count, ptr noundef %md, ptr noundef %size, ptr noundef %type, ptr noundef %impl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_Digest(ptr noundef %data, i64 noundef %count, ptr noundef %md, ptr noundef %size, ptr noundef %type, ptr noundef %impl) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str, i32 noundef 132) #7
   %cmp = icmp eq ptr %call.i, null
@@ -2181,7 +2181,7 @@ return:                                           ; preds = %entry, %EVP_MD_CTX_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_Q_digest(ptr noundef %libctx, ptr noundef %name, ptr noundef %propq, ptr noundef %data, i64 noundef %datalen, ptr noundef %md, ptr noundef writeonly %mdlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_Q_digest(ptr noundef %libctx, ptr noundef %name, ptr noundef %propq, ptr noundef %data, i64 noundef %datalen, ptr noundef %md, ptr noundef writeonly %mdlen) local_unnamed_addr #0 {
 entry:
   %temp = alloca i32, align 4
   %call.i = tail call ptr @evp_generic_fetch(ptr noundef %libctx, i32 noundef 1, ptr noundef %name, ptr noundef %propq, ptr noundef nonnull @evp_md_from_algorithm, ptr noundef nonnull @evp_md_up_ref, ptr noundef nonnull @evp_md_free) #7
@@ -2190,7 +2190,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %call1 = call i32 @EVP_Digest(ptr noundef %data, i64 noundef %datalen, ptr noundef %md, ptr noundef nonnull %temp, ptr noundef nonnull %call.i, ptr noundef null), !range !4
+  %call1 = call i32 @EVP_Digest(ptr noundef %data, i64 noundef %datalen, ptr noundef %md, ptr noundef nonnull %temp, ptr noundef nonnull %call.i, ptr noundef null)
   %origin.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %0 = load i32, ptr %origin.i, align 8
   %cmp1.not.i = icmp eq i32 %0, 0
@@ -2463,7 +2463,7 @@ return:                                           ; preds = %if.end17, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EVP_MD_CTX_ctrl(ptr noundef %ctx, i32 noundef %cmd, i32 noundef %p1, ptr noundef %p2) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @EVP_MD_CTX_ctrl(ptr noundef %ctx, i32 noundef %cmd, i32 noundef %p1, ptr noundef %p2) local_unnamed_addr #0 {
 entry:
   %sz = alloca i64, align 8
   %params = alloca [2 x %struct.ossl_param_st], align 16
@@ -2967,7 +2967,7 @@ if.then98:                                        ; preds = %sw.bb96
 for.inc:                                          ; preds = %for.cond, %if.then15, %sw.bb, %if.then21, %sw.bb19, %if.then28, %sw.bb26, %if.then35, %sw.bb33, %if.then42, %sw.bb40, %if.then49, %sw.bb47, %if.then55, %sw.bb53, %if.then62, %sw.bb60, %if.then68, %sw.bb66, %if.then74, %sw.bb72, %if.then80, %sw.bb78, %if.then86, %sw.bb84, %if.then92, %sw.bb90, %if.then98, %sw.bb96
   %fncnt.1 = phi i32 [ %fncnt.0, %if.then98 ], [ %fncnt.0, %sw.bb96 ], [ %fncnt.0, %if.then92 ], [ %fncnt.0, %sw.bb90 ], [ %fncnt.0, %if.then86 ], [ %fncnt.0, %sw.bb84 ], [ %fncnt.0, %if.then80 ], [ %fncnt.0, %sw.bb78 ], [ %fncnt.0, %if.then74 ], [ %fncnt.0, %sw.bb72 ], [ %fncnt.0, %if.then68 ], [ %fncnt.0, %sw.bb66 ], [ %fncnt.0, %if.then62 ], [ %fncnt.0, %sw.bb60 ], [ %inc58, %if.then55 ], [ %fncnt.0, %sw.bb53 ], [ %fncnt.0, %if.then49 ], [ %fncnt.0, %sw.bb47 ], [ %inc45, %if.then42 ], [ %fncnt.0, %sw.bb40 ], [ %inc38, %if.then35 ], [ %fncnt.0, %sw.bb33 ], [ %inc31, %if.then28 ], [ %fncnt.0, %sw.bb26 ], [ %inc24, %if.then21 ], [ %fncnt.0, %sw.bb19 ], [ %inc, %if.then15 ], [ %fncnt.0, %sw.bb ], [ %fncnt.0, %for.cond ]
   %incdec.ptr = getelementptr inbounds i8, ptr %fns.0, i64 16
-  br label %for.cond, !llvm.loop !6
+  br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond
   switch i32 %fncnt.0, label %lor.lhs.false.i101 [
@@ -3284,7 +3284,6 @@ attributes #8 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

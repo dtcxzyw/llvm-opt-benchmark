@@ -369,7 +369,7 @@ define dso_local void @nlmsvc_locks_init_private(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nlmsvc_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 812974081) i32 @nlmsvc_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6) local_unnamed_addr #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %1, i64 152
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -945,7 +945,7 @@ define internal fastcc void @nlmsvc_remove_block(ptr noundef %0) unnamed_addr #2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nlmsvc_defer_lock_rqst(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 33554432, 812974081) i32 @nlmsvc_defer_lock_rqst(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 104
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, 1
@@ -1039,7 +1039,7 @@ nlmsvc_insert_block_locked.exit:                  ; preds = %27, %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nlmsvc_testlock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef readnone %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 67108865) i32 @nlmsvc_testlock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef readnone %5) local_unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -1111,7 +1111,7 @@ declare dso_local i32 @vfs_test_lock(ptr noundef, ptr noundef) local_unnamed_add
 declare dso_local void @locks_release_private(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nlmsvc_unlock(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 33554433) i32 @nlmsvc_unlock(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i32 @nlmsvc_cancel_blocked(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !19
   %5 = getelementptr inbounds i8, ptr %2, i64 184
   %6 = getelementptr inbounds i8, ptr %2, i64 268
@@ -1148,7 +1148,7 @@ define dso_local i32 @nlmsvc_unlock(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nlmsvc_cancel_blocked(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 67108865) i32 @nlmsvc_cancel_blocked(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = tail call zeroext i1 @locks_in_grace(ptr noundef %0) #9
   br i1 %4, label %35, label %5
 
@@ -1420,7 +1420,7 @@ define internal void @nlmsvc_notify_blocked(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nlmsvc_grant_deferred(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 -37, 1) i32 @nlmsvc_grant_deferred(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @nlm_blocked_lock) #9
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = getelementptr inbounds i8, ptr %0, i64 88

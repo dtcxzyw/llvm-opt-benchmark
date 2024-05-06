@@ -590,7 +590,7 @@ declare ptr @register_custom_dissector_table(ptr noundef, ptr noundef, i32 nound
 declare i32 @g_int64_equal(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cose_msg_tagged(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -1, -2147483648) i32 @dissect_cose_msg_tagged(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 408
@@ -2194,7 +2194,7 @@ define internal fastcc void @dissect_header_map(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph56:                                         ; preds = %.loopexit, %44
   %.055 = phi i64 [ %45, %44 ], [ 0, %.loopexit ]
-  %48 = call fastcc i32 @dissect_header_pair(ptr noundef %0, ptr noundef %22, ptr noundef %1, ptr noundef %2, ptr noundef %20, ptr noundef %4), !range !12
+  %48 = call fastcc i32 @dissect_header_pair(ptr noundef %0, ptr noundef %22, ptr noundef %1, ptr noundef %2, ptr noundef %20, ptr noundef %4)
   %.not52 = icmp eq i32 %48, 0
   br i1 %.not52, label %._crit_edge, label %44
 
@@ -2297,7 +2297,7 @@ define internal fastcc ptr @get_header_value(ptr noundef %0, ptr noundef %1, ptr
 declare i32 @wscbor_skip_next_item(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_header_pair(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_header_pair(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %struct.cose_param_key_t, align 8
@@ -2750,7 +2750,7 @@ dissect_cose_recipient.exit:                      ; preds = %.lr.ph, %dissect_ci
   %49 = add nuw i64 %.022, 1
   %50 = load i64, ptr %16, align 8
   %51 = icmp ult i64 %49, %50
-  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %dissect_cose_recipient.exit, %13, %4
   %52 = load i32, ptr %3, align 4
@@ -2811,7 +2811,7 @@ define internal fastcc void @dissect_value_cosex509(ptr noundef %0, ptr noundef 
   %20 = add nuw i64 %.025, 1
   %21 = load i64, ptr %18, align 8
   %22 = icmp ult i64 %20, %21
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 23:                                               ; preds = %5
   %24 = getelementptr inbounds i8, ptr %11, i64 8
@@ -2979,6 +2979,5 @@ attributes #10 = { noreturn nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 0, i32 2}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}

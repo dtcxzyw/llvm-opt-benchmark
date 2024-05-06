@@ -2363,7 +2363,7 @@ define internal fastcc void @_init_grp_used_tres_run_secs(i64 noundef %0) unname
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %23, i64 392
   %74 = load i32, ptr %73, align 8
-  call fastcc void @_handle_qos_tres_run_secs(ptr noundef null, ptr noundef nonnull %5, i32 noundef %74, ptr noundef %47)
+  call fastcc void @_handle_qos_tres_run_secs(ptr noundef null, ptr noundef nonnull readonly %5, i32 noundef %74, ptr noundef %47)
   %75 = getelementptr inbounds i8, ptr %23, i64 664
   %76 = load ptr, ptr %75, align 8
   %.not.i = icmp eq ptr %76, null
@@ -2378,7 +2378,7 @@ define internal fastcc void @_init_grp_used_tres_run_secs(i64 noundef %0) unname
 
 81:                                               ; preds = %77
   %82 = load i32, ptr %73, align 8
-  call fastcc void @_handle_qos_tres_run_secs(ptr noundef null, ptr noundef nonnull %5, i32 noundef %82, ptr noundef %79)
+  call fastcc void @_handle_qos_tres_run_secs(ptr noundef null, ptr noundef nonnull readonly %5, i32 noundef %82, ptr noundef %79)
   br label %83
 
 83:                                               ; preds = %81, %77, %._crit_edge
@@ -2388,7 +2388,7 @@ define internal fastcc void @_init_grp_used_tres_run_secs(i64 noundef %0) unname
 .lr.ph.i:                                         ; preds = %83, %.lr.ph.i
   %.020.i = phi ptr [ %88, %.lr.ph.i ], [ %72, %83 ]
   %84 = load i32, ptr %73, align 8
-  call fastcc void @_handle_assoc_tres_run_secs(ptr noundef null, ptr noundef nonnull %5, i32 noundef %84, ptr noundef nonnull %.020.i)
+  call fastcc void @_handle_assoc_tres_run_secs(ptr noundef null, ptr noundef nonnull readonly %5, i32 noundef %84, ptr noundef nonnull %.020.i)
   %85 = getelementptr inbounds i8, ptr %.020.i, i64 312
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 72
@@ -3351,12 +3351,12 @@ define void @priority_p_job_end(ptr noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %1, %4, %7
   %11 = load i64, ptr @g_last_ran, align 8
   %12 = tail call i64 @time(ptr noundef null) #15
-  %13 = tail call fastcc i32 @_apply_new_usage(ptr noundef %0, i64 noundef %11, i64 noundef %12, i1 noundef zeroext true), !range !25
+  %13 = tail call fastcc i32 @_apply_new_usage(ptr noundef %0, i64 noundef %11, i64 noundef %12, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.assoc_mgr_lock_t, align 4
   %6 = load i32, ptr @slurmctld_tres_cnt, align 4
   %7 = zext i32 %6 to i64
@@ -3486,7 +3486,7 @@ define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef
   %73 = load i32, ptr @slurmctld_tres_cnt, align 4
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %.lr.ph, label %.loopexit186, !llvm.loop !26
+  br i1 %75, label %.lr.ph, label %.loopexit186, !llvm.loop !25
 
 76:                                               ; preds = %54
   %77 = tail call i32 @get_log_level() #15
@@ -3581,7 +3581,7 @@ define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef
 123:                                              ; preds = %112, %112, %115
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %112, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %112, !llvm.loop !26
 
 .loopexit:                                        ; preds = %123, %.preheader, %105
   %124 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3708,7 +3708,7 @@ define internal fastcc noundef i32 @_apply_new_usage(ptr noundef %0, i64 noundef
   %196 = getelementptr inbounds i8, ptr %195, i64 72
   %197 = load ptr, ptr %196, align 8
   %.not173 = icmp eq ptr %197, null
-  br i1 %.not173, label %._crit_edge, label %164, !llvm.loop !28
+  br i1 %.not173, label %._crit_edge, label %164, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %193, %.thread
   call void @assoc_mgr_unlock(ptr noundef nonnull %5) #15
@@ -3755,7 +3755,7 @@ define noundef zeroext i1 @decay_apply_new_usage(ptr noundef %0, ptr nocapture n
 19:                                               ; preds = %16
   %20 = load i64, ptr @g_last_ran, align 8
   %21 = load i64, ptr %1, align 8
-  %22 = tail call fastcc i32 @_apply_new_usage(ptr noundef nonnull %0, i64 noundef %20, i64 noundef %21, i1 noundef zeroext false), !range !25
+  %22 = tail call fastcc i32 @_apply_new_usage(ptr noundef nonnull %0, i64 noundef %20, i64 noundef %21, i1 noundef zeroext false)
   %.not14 = icmp eq i32 %22, 0
   br i1 %.not14, label %24, label %23
 
@@ -3886,7 +3886,7 @@ define internal noundef i32 @_decay_apply_new_usage_and_weighted_factors(ptr nou
 19:                                               ; preds = %16
   %20 = load i64, ptr @g_last_ran, align 8
   %21 = load i64, ptr %1, align 8
-  %22 = tail call fastcc i32 @_apply_new_usage(ptr noundef nonnull %0, i64 noundef %20, i64 noundef %21, i1 noundef zeroext false), !range !25
+  %22 = tail call fastcc i32 @_apply_new_usage(ptr noundef nonnull %0, i64 noundef %20, i64 noundef %21, i1 noundef zeroext false)
   %.not14.i = icmp eq i32 %22, 0
   br i1 %.not14.i, label %decay_apply_new_usage.exit.thread, label %decay_apply_new_usage.exit
 
@@ -4633,7 +4633,7 @@ define internal fastcc void @_reset_usage() unnamed_addr #0 {
   store x86_fp80 0xK00000000000000000000, ptr %15, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph31
   %16 = load ptr, ptr %7, align 8
@@ -4657,7 +4657,7 @@ define internal fastcc void @_reset_usage() unnamed_addr #0 {
 23:                                               ; preds = %22, %20, %._crit_edge
   %24 = call ptr @list_next(ptr noundef %4) #15
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !30
+  br i1 %.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !29
 
 ._crit_edge32:                                    ; preds = %23, %2
   call void @list_iterator_destroy(ptr noundef %4) #15
@@ -4690,7 +4690,7 @@ define internal fastcc void @_reset_usage() unnamed_addr #0 {
   store x86_fp80 0xK00000000000000000000, ptr %37, align 16
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
-  br i1 %exitcond46.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !31
+  br i1 %exitcond46.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !30
 
 ._crit_edge36:                                    ; preds = %.lr.ph35, %.lr.ph39
   %38 = load ptr, ptr %29, align 8
@@ -4698,7 +4698,7 @@ define internal fastcc void @_reset_usage() unnamed_addr #0 {
   store double 0.000000e+00, ptr %39, align 16
   %40 = call ptr @list_next(ptr noundef %26) #15
   %.not25 = icmp eq ptr %40, null
-  br i1 %.not25, label %._crit_edge40, label %.lr.ph39, !llvm.loop !32
+  br i1 %.not25, label %._crit_edge40, label %.lr.ph39, !llvm.loop !31
 
 ._crit_edge40:                                    ; preds = %._crit_edge36, %._crit_edge32
   call void @list_iterator_destroy(ptr noundef %26) #15
@@ -4882,7 +4882,7 @@ define internal fastcc void @_set_children_usage_efctv(ptr noundef %0) unnamed_a
 .backedge:                                        ; preds = %10, %15
   %14 = tail call ptr @list_next(ptr noundef %5) #15
   %.not11 = icmp eq ptr %14, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 15:                                               ; preds = %.lr.ph
   tail call void @priority_p_set_assoc_usage(ptr noundef nonnull %7)
@@ -5052,7 +5052,7 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly %0, 
   %52 = load i32, ptr @slurmctld_tres_cnt, align 4
   %53 = sext i32 %52 to i64
   %54 = icmp slt i64 %indvars.iv.next45, %53
-  br i1 %54, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !34
+  br i1 %54, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !33
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %102
   %indvars.iv = phi i64 [ %indvars.iv.next, %102 ], [ 0, %.lr.ph ]
@@ -5127,7 +5127,7 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly %0, 
   %103 = load i32, ptr @slurmctld_tres_cnt, align 4
   %104 = sext i32 %103 to i64
   %105 = icmp slt i64 %indvars.iv.next, %104
-  br i1 %105, label %.lr.ph.split, label %.loopexit, !llvm.loop !34
+  br i1 %105, label %.lr.ph.split, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %102, %51, %4, %5
   ret void
@@ -5213,7 +5213,7 @@ define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly %0
   %51 = load i32, ptr @slurmctld_tres_cnt, align 4
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next44, %52
-  br i1 %53, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !35
+  br i1 %53, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !34
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %101
   %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 0, %.lr.ph ]
@@ -5288,7 +5288,7 @@ define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly %0
   %102 = load i32, ptr @slurmctld_tres_cnt, align 4
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next, %103
-  br i1 %104, label %.lr.ph.split, label %.loopexit, !llvm.loop !35
+  br i1 %104, label %.lr.ph.split, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %101, %50, %4
   ret void
@@ -5371,7 +5371,7 @@ attributes #17 = { nounwind willreturn memory(none) }
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
-!25 = !{i32 0, i32 2}
+!25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
@@ -5381,4 +5381,3 @@ attributes #17 = { nounwind willreturn memory(none) }
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}

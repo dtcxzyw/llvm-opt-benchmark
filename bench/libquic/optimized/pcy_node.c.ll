@@ -212,7 +212,7 @@ entry:
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @policy_node_match(ptr nocapture noundef readonly %lvl, ptr nocapture noundef readonly %node, ptr noundef %oid) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @policy_node_match(ptr nocapture noundef readonly %lvl, ptr nocapture noundef readonly %node, ptr noundef %oid) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %node, align 8
   %flags = getelementptr inbounds i8, ptr %lvl, i64 24

@@ -74,7 +74,7 @@ define ptr @cs_etree(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr
 
 .lr.ph76.us.preheader:                            ; preds = %.lr.ph79.split.us
   %38 = sext i32 %34 to i64
-  %39 = trunc i64 %indvars.iv85 to i32
+  %39 = trunc nuw nsw i64 %indvars.iv85 to i32
   br label %.lr.ph76.us
 
 .loopexit.us:                                     ; preds = %._crit_edge.us.us, %.lr.ph79.split.us
@@ -142,8 +142,8 @@ define ptr @cs_etree(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr
 
 .lr.ph76.preheader:                               ; preds = %.lr.ph79.split
   %65 = sext i32 %61 to i64
-  %.pre98 = trunc i64 %indvars.iv91 to i32
-  %66 = trunc i64 %indvars.iv91 to i32
+  %.pre98 = trunc nuw nsw i64 %indvars.iv91 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv91 to i32
   br label %.lr.ph76
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %._crit_edge

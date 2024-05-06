@@ -184,7 +184,7 @@ define internal i32 @dissect_moldudp64(ptr noundef %0, ptr noundef %1, ptr nound
   %45 = icmp slt i32 %44, 0
   %46 = zext i16 %41 to i32
   %.not.i = icmp slt i32 %44, %46
-  %47 = trunc i32 %44 to i16
+  %47 = trunc nuw i32 %44 to i16
   %spec.select.i = select i1 %.not.i, i16 %47, i16 %41
   %.043.i = select i1 %45, i16 0, i16 %spec.select.i
   %48 = zext i16 %.043.i to i32

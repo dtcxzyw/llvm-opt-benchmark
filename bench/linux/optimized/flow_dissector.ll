@@ -2949,7 +2949,7 @@ define dso_local i32 @flow_get_u32_dst(ptr nocapture noundef readonly %0) #7 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @flow_hash_from_keys(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 1, 0) i32 @flow_hash_from_keys(ptr noundef %0) #0 align 16 {
   %2 = alloca i64, align 8
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @__flow_hash_secret_init.___once_key, i1 false) #12
           to label %7 [label %3], !srcloc !27
@@ -3091,7 +3091,7 @@ define dso_local void @make_flow_keys_digest(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__skb_get_hash_symmetric(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 1, 0) i32 @__skb_get_hash_symmetric(ptr noundef %0) #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.flow_keys, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #12
@@ -3238,7 +3238,7 @@ define dso_local void @__skb_get_hash(ptr noundef %0) #0 align 16 {
   br label %8
 
 8:                                                ; preds = %7, %1
-  %9 = call fastcc i32 @___skb_get_hash(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @hashrnd), !range !29
+  %9 = call fastcc i32 @___skb_get_hash(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @hashrnd)
   %10 = getelementptr inbounds i8, ptr %3, i64 36
   %11 = load i32, ptr %10, align 4
   %12 = icmp ne i32 %11, 0
@@ -3259,7 +3259,7 @@ define dso_local void @__skb_get_hash(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @___skb_get_hash(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #8 align 16 {
+define internal fastcc range(i32 1, 0) i32 @___skb_get_hash(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #8 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(80) %1, i8 0, i64 80, i1 false)
   %4 = tail call zeroext i1 @__skb_flow_dissect(ptr noundef null, ptr noundef %0, ptr noundef nonnull @flow_keys_dissector, ptr noundef %1, ptr noundef null, i16 noundef zeroext 0, i32 noundef 0, i32 noundef 0, i32 noundef 2)
   %5 = getelementptr inbounds i8, ptr %1, i64 2
@@ -3358,17 +3358,17 @@ thread-pre-split:                                 ; preds = %14, %20, %.loopexit
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @skb_get_hash_perturb(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 1, 0) i32 @skb_get_hash_perturb(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.flow_keys, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !19
-  %4 = call fastcc i32 @___skb_get_hash(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %1), !range !29
+  %4 = call fastcc i32 @___skb_get_hash(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #12
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__skb_get_poff(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 65596) i32 @__skb_get_poff(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i8, align 1
   %6 = load i16, ptr %2, align 4
   %7 = zext i16 %6 to i32
@@ -3460,7 +3460,7 @@ define dso_local i32 @__skb_get_poff(ptr noundef %0, ptr noundef readonly %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @skb_get_poff(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 65596) i32 @skb_get_poff(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.flow_keys_basic, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, i8 0, i64 12, i1 false)
@@ -3475,7 +3475,7 @@ define dso_local i32 @skb_get_poff(ptr noundef %0) local_unnamed_addr #0 align 1
   %9 = getelementptr inbounds i8, ptr %0, i64 116
   %10 = load i32, ptr %9, align 4
   %11 = sub i32 %8, %10
-  %12 = call i32 @__skb_get_poff(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %2, i32 noundef %11), !range !30
+  %12 = call i32 @__skb_get_poff(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %2, i32 noundef %11), !range !29
   br label %13
 
 13:                                               ; preds = %4, %1
@@ -3485,7 +3485,7 @@ define dso_local i32 @skb_get_poff(ptr noundef %0) local_unnamed_addr #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__get_hash_from_flowi6(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 1, 0) i32 @__get_hash_from_flowi6(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(80) %1, i8 0, i64 80, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 44
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3515,7 +3515,7 @@ define dso_local i32 @__get_hash_from_flowi6(ptr nocapture noundef readonly %0, 
   %21 = load i8, ptr %20, align 2
   %22 = getelementptr inbounds i8, ptr %1, i64 10
   store i8 %21, ptr %22, align 2
-  %23 = tail call i32 @flow_hash_from_keys(ptr noundef %1), !range !29
+  %23 = tail call i32 @flow_hash_from_keys(ptr noundef %1)
   ret i32 %23
 }
 
@@ -3615,5 +3615,4 @@ attributes #13 = { nounwind memory(read) }
 !26 = !{i64 2161333797, i64 2161333608, i64 2161333658, i64 2161333704, i64 2161333732}
 !27 = !{i64 1009492, i64 1009515, i64 2148494262, i64 2148494283, i64 2148494309, i64 2148494342, i64 2148494376, i64 2148494400}
 !28 = distinct !{!28, !12, !13}
-!29 = !{i32 1, i32 0}
-!30 = !{i32 0, i32 65596}
+!29 = !{i32 0, i32 65596}

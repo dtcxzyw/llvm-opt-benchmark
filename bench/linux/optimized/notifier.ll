@@ -501,7 +501,7 @@ define internal i32 @notifier_call_chain(ptr noundef %0, i64 noundef %1, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @atomic_notifier_chain_register(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @atomic_notifier_chain_register(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #10
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = tail call fastcc i32 @notifier_chain_register(ptr noundef %4, ptr noundef %1, i1 noundef zeroext false), !range !24
@@ -513,7 +513,7 @@ define dso_local noundef i32 @atomic_notifier_chain_register(ptr noundef %0, ptr
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #0 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @notifier_chain_register(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -17, 1) i32 @notifier_chain_register(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %6
@@ -627,7 +627,7 @@ define internal fastcc noundef i32 @notifier_chain_register(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @atomic_notifier_chain_register_unique_prio(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @atomic_notifier_chain_register_unique_prio(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #10
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = tail call fastcc i32 @notifier_chain_register(ptr noundef %4, ptr noundef %1, i1 noundef zeroext true), !range !24
@@ -636,7 +636,7 @@ define dso_local noundef i32 @atomic_notifier_chain_register_unique_prio(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @atomic_notifier_chain_unregister(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @atomic_notifier_chain_unregister(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #10
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -716,7 +716,7 @@ define dso_local noundef i32 @atomic_notifier_chain_unregister(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @notifier_chain_unregister(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -2, 1) i32 @notifier_chain_unregister(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5
@@ -876,7 +876,7 @@ define dso_local zeroext i1 @atomic_notifier_call_chain_is_empty(ptr noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @blocking_notifier_chain_register(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @blocking_notifier_chain_register(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = load i32, ptr @system_state, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %8, !prof !12
@@ -899,7 +899,7 @@ define dso_local noundef i32 @blocking_notifier_chain_register(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @blocking_notifier_chain_register_unique_prio(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @blocking_notifier_chain_register_unique_prio(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = load i32, ptr @system_state, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %8, !prof !12
@@ -922,7 +922,7 @@ define dso_local noundef i32 @blocking_notifier_chain_register_unique_prio(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @blocking_notifier_chain_unregister(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @blocking_notifier_chain_unregister(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = load i32, ptr @system_state, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %8, !prof !12
@@ -1265,13 +1265,13 @@ define dso_local i32 @blocking_notifier_call_chain(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @raw_notifier_chain_register(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @raw_notifier_chain_register(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call fastcc i32 @notifier_chain_register(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false), !range !24
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @raw_notifier_chain_unregister(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @raw_notifier_chain_unregister(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5
@@ -1423,7 +1423,7 @@ define dso_local i32 @raw_notifier_call_chain(ptr noundef %0, i64 noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @srcu_notifier_chain_register(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @srcu_notifier_chain_register(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = load i32, ptr @system_state, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %8, !prof !12
@@ -1452,7 +1452,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #0
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @srcu_notifier_chain_unregister(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @srcu_notifier_chain_unregister(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = load i32, ptr @system_state, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %8, !prof !12
@@ -1681,7 +1681,7 @@ define dso_local i32 @notify_die(i32 noundef %0, ptr noundef %1, ptr noundef %2,
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @register_die_notifier(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @register_die_notifier(ptr noundef %0) #1 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @die_chain) #10
   %3 = tail call fastcc i32 @notifier_chain_register(ptr noundef nonnull getelementptr inbounds (%struct.atomic_notifier_head, ptr @die_chain, i64 0, i32 1), ptr noundef %0, i1 noundef zeroext false), !range !24
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @die_chain, i64 noundef %2) #10
@@ -1689,7 +1689,7 @@ define dso_local noundef i32 @register_die_notifier(ptr noundef %0) #1 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @unregister_die_notifier(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @unregister_die_notifier(ptr noundef %0) #1 align 16 {
   %2 = tail call i32 @atomic_notifier_chain_unregister(ptr noundef nonnull @die_chain, ptr noundef %0), !range !42
   ret i32 %2
 }

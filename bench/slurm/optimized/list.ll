@@ -208,7 +208,7 @@ define void @list_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @list_is_empty(ptr noundef %0) #0 {
+define range(i32 0, 2) i32 @list_is_empty(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %2) #9
   %.not = icmp eq i32 %3, 0
@@ -1166,7 +1166,7 @@ _list_node_destroy.exit:                          ; preds = %40, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @list_delete_first(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define range(i32 -1, 2) i32 @list_delete_first(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %5) #9
@@ -1301,7 +1301,7 @@ _list_node_destroy.exit:                          ; preds = %37, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @list_delete_ptr(ptr noundef %0, ptr noundef readnone %1) #0 {
+define range(i32 0, 2) i32 @list_delete_ptr(ptr noundef %0, ptr noundef readnone %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #9
@@ -2927,7 +2927,7 @@ _list_node_destroy.exit:                          ; preds = %13, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @list_delete_item(ptr nocapture noundef readonly %0) #0 {
+define range(i32 0, 2) i32 @list_delete_item(ptr nocapture noundef readonly %0) #0 {
   %2 = tail call ptr @list_remove(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3

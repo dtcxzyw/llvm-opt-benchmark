@@ -60,7 +60,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_lcidm() #0 {
+define internal range(i32 0, 2) i32 @test_lcidm() #0 {
 entry:
   %lcid_1 = alloca %struct.quic_conn_id_st, align 1
   %lcid_dummy = alloca %struct.quic_conn_id_st, align 1

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [52 x i8] c"FSG: .SECT%d RVA:%x VSize:%x ROffset: %x, RSize:%x\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unfsg_200(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @unfsg_200(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.cli_exe_section, align 4
   %10 = tail call i32 @cli_unfsg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef null, ptr noundef null) #2
   %.not = icmp eq i32 %10, 0
@@ -43,7 +43,7 @@ declare i32 @cli_rebuildpe(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   store ptr %0, ptr %10, align 8
@@ -156,8 +156,8 @@ define noundef i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   br i1 %.not101, label %58, label %50
 
 50:                                               ; preds = %.lr.ph118
-  %51 = getelementptr %struct.cli_exe_section, ptr %4, i64 %indvars.iv125
-  %52 = getelementptr i8, ptr %51, i64 36
+  %51 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv125
+  %52 = getelementptr inbounds i8, ptr %51, i64 36
   %53 = load i32, ptr %52, align 4
   %54 = load i32, ptr %51, align 4
   %55 = sub i32 %53, %54

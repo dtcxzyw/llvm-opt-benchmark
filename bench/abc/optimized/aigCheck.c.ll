@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [52 x i8] c"Aig_ManCheck: The number of created nodes is wrong.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4

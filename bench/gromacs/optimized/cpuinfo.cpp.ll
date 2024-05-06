@@ -4432,7 +4432,7 @@ _ZNSt12_Vector_baseIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_M_allocateEm.exit.i.
   br i1 %1634, label %1635, label %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i.us.i.i
 
 1635:                                             ; preds = %_ZNSt12_Vector_baseIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_M_allocateEm.exit.i.i.i.us.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1632, ptr align 4 %.sroa.074.0.i, i64 %1621, i1 false), !noalias !24
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 4 %1632, ptr align 4 %.sroa.074.0.i, i64 %1621, i1 false), !noalias !24
   br label %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i.us.i.i
 
 _ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i.us.i.i: ; preds = %1635, %_ZNSt12_Vector_baseIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_M_allocateEm.exit.i.i.i.us.i.i
@@ -4565,7 +4565,7 @@ _ZNSt12_Vector_baseIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_M_allocateEm.exit.i.
   br i1 %1676, label %1677, label %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i22.i.i
 
 1677:                                             ; preds = %_ZNSt12_Vector_baseIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_M_allocateEm.exit.i.i.i21.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1674, ptr align 4 %.sroa.074.2.i, i64 %1662, i1 false), !noalias !24
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 4 %1674, ptr align 4 %.sroa.074.2.i, i64 %1662, i1 false), !noalias !24
   br label %_ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i22.i.i
 
 _ZNSt6vectorIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i22.i.i: ; preds = %1677, %_ZNSt12_Vector_baseIN3gmx12_GLOBAL__N_18ApicInfoESaIS2_EE11_M_allocateEm.exit.i.i.i21.i.i
@@ -4940,8 +4940,8 @@ _ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11e
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %.sroa.037.0.i
   %30 = icmp eq ptr %4, %.sroa.3.0.i
-  %or.cond.i = select i1 %29, i1 %30, i1 false
-  br i1 %or.cond.i, label %31, label %.critedge.i
+  %or.cond = select i1 %29, i1 %30, i1 false
+  br i1 %or.cond, label %31, label %.critedge.i
 
 31:                                               ; preds = %_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11equal_rangeERKS2_.exit
   invoke void @_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.041.i)

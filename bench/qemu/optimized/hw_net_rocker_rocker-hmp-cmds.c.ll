@@ -693,7 +693,7 @@ if.end96:                                         ; preds = %if.then92, %land.lh
   br i1 %tobool97.not, label %if.end105, label %if.then98
 
 if.then98:                                        ; preds = %if.end96
-  %tobool99 = trunc i8 %set.0 to i1
+  %tobool99 = trunc nuw i8 %set.0 to i1
   br i1 %tobool99, label %if.end102, label %if.then100
 
 if.then100:                                       ; preds = %if.then98
@@ -715,7 +715,7 @@ if.end105:                                        ; preds = %if.end102, %if.end9
   br i1 %tobool106.not, label %if.end114, label %if.then107
 
 if.then107:                                       ; preds = %if.end105
-  %tobool108 = trunc i8 %set.2 to i1
+  %tobool108 = trunc nuw i8 %set.2 to i1
   br i1 %tobool108, label %if.end111, label %if.then109
 
 if.then109:                                       ; preds = %if.then107

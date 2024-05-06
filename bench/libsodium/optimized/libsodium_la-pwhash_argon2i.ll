@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local i32 @crypto_pwhash_argon2i(ptr noundef nonnull %out, i64 noundef %outlen, ptr noundef nonnull %passwd, i64 noundef %passwdlen, ptr noundef nonnull %salt, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef %alg) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @crypto_pwhash_argon2i(ptr noundef nonnull %out, i64 noundef %outlen, ptr noundef nonnull %passwd, i64 noundef %passwdlen, ptr noundef nonnull %salt, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef %alg) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %out, i8 0, i64 %outlen, i1 false)
   %cmp = icmp ugt i64 %outlen, 4294967295
@@ -200,7 +200,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare i32 @_sodium_argon2i_hash_raw(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local i32 @crypto_pwhash_argon2i_str(ptr noundef nonnull %out, ptr noundef nonnull %passwd, i64 noundef %passwdlen, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @crypto_pwhash_argon2i_str(ptr noundef nonnull %out, ptr noundef nonnull %passwd, i64 noundef %passwdlen, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
 entry:
   %salt = alloca [16 x i8], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %out, i8 0, i64 128, i1 false)
@@ -246,7 +246,7 @@ declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare i32 @_sodium_argon2i_hash_encoded(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local noundef i32 @crypto_pwhash_argon2i_str_verify(ptr noundef nonnull %str, ptr noundef nonnull %passwd, i64 noundef %passwdlen) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @crypto_pwhash_argon2i_str_verify(ptr noundef nonnull %str, ptr noundef nonnull %passwd, i64 noundef %passwdlen) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %passwdlen, 4294967295
   br i1 %cmp, label %if.then, label %if.end4
@@ -279,14 +279,14 @@ return:                                           ; preds = %if.end4, %if.end12,
 declare i32 @_sodium_argon2i_verify(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local i32 @crypto_pwhash_argon2i_str_needs_rehash(ptr noundef nonnull %str, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @crypto_pwhash_argon2i_str_needs_rehash(ptr noundef nonnull %str, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc i32 @_needs_rehash(ptr noundef nonnull %str, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef 1), !range !5
+  %call = tail call fastcc i32 @_needs_rehash(ptr noundef nonnull %str, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc i32 @_needs_rehash(ptr noundef %str, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef %type) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @_needs_rehash(ptr noundef %str, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef %type) unnamed_addr #1 {
 entry:
   %ctx = alloca %struct.Argon2_Context, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #10
@@ -364,9 +364,9 @@ return:                                           ; preds = %if.end, %if.end24, 
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local i32 @crypto_pwhash_argon2id_str_needs_rehash(ptr noundef nonnull %str, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @crypto_pwhash_argon2id_str_needs_rehash(ptr noundef nonnull %str, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc i32 @_needs_rehash(ptr noundef nonnull %str, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef 2), !range !5
+  %call = tail call fastcc i32 @_needs_rehash(ptr noundef nonnull %str, i64 noundef %opslimit, i64 noundef %memlimit, i32 noundef 2)
   ret i32 %call
 }
 
@@ -401,4 +401,3 @@ attributes #11 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 2}

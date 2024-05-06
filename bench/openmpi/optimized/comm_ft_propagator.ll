@@ -26,7 +26,7 @@ define noundef i32 @ompi_comm_failure_propagator_register_params() local_unnamed
 declare i32 @mca_base_var_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_failure_propagator_init() local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @ompi_comm_failure_propagator_init() local_unnamed_addr #0 {
   %1 = load i8, ptr @comm_rbcast_enable, align 1
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %10
@@ -53,7 +53,7 @@ define i32 @ompi_comm_failure_propagator_init() local_unnamed_addr #0 {
 declare i32 @ompi_comm_rbcast_register_cb_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ompi_comm_failure_propagator_local(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @ompi_comm_failure_propagator_local(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i64, ptr %3, align 4
   %5 = tail call ptr @ompi_proc_for_name(i64 %4) #2

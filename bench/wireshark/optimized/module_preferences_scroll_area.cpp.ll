@@ -5289,7 +5289,7 @@ _ZNK7QString6toUIntEPbi.exit:                     ; preds = %12
   br i1 %18, label %19, label %_ZNK7QString6toUIntEPbi.exit.thread
 
 19:                                               ; preds = %_ZNK7QString6toUIntEPbi.exit
-  %20 = trunc i64 %17 to i32
+  %20 = trunc nuw i64 %17 to i32
   %21 = call i32 @prefs_set_uint_value(ptr noundef nonnull %9, i32 noundef %20, i32 noundef 1)
   br label %_ZNK7QString6toUIntEPbi.exit.thread
 

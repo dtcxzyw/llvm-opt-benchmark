@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID_option_zero_cd424, ptr @__UNIQUE_ID_option_zero_cdtype423, ptr @__param_option_zero_cd], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @option_ms_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @option_ms_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(36) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 36) #5
   %4 = icmp eq ptr %3, null

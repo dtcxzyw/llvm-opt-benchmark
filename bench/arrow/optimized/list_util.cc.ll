@@ -198,7 +198,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %min_offset.sroa.0.089.i.i = phi i32 [ %min_offset.sroa.0.1.i.i, %for.inc.i.i ], [ undef, %for.cond.preheader.i.i ]
   %arrayidx3.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i, i64 %i.091.i.i
   %23 = load i32, ptr %arrayidx3.i.i, align 4
-  %tobool.i.i.i.i = trunc i8 %min_offset.sroa.7.090.i.i to i1
+  %tobool.i.i.i.i = trunc nuw i8 %min_offset.sroa.7.090.i.i to i1
   br i1 %tobool.i.i.i.i, label %if.then5.i.i, label %if.else.i.i
 
 if.then5.i.i:                                     ; preds = %for.body.i.i
@@ -253,7 +253,7 @@ if.else25.i.i:                                    ; preds = %if.end.i37
 
 if.then.i.i.i:                                    ; preds = %if.else25.i.i
   %conv4.i.i.i = trunc i64 %17 to i32
-  %conv6.i.i.i = trunc i64 %rem.i.i.i to i32
+  %conv6.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %sub.i.i.i = sub nsw i32 8, %conv6.i.i.i
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %conv4.i.i.i)
   store i32 %.sroa.speculated.i.i.i, ptr %current_num_bits_.i.i.i, align 8
@@ -308,7 +308,7 @@ for.body38.i.i:                                   ; preds = %for.cond34.preheade
   %min_offset.sroa.0.378.i.i = phi i32 [ %min_offset.sroa.0.4.i.i, %for.inc66.i.i ], [ %min_offset.sroa.0.284.i.i, %for.cond34.preheader.i.i ]
   %arrayidx40.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i, i64 %i33.080.i.i
   %31 = load i32, ptr %arrayidx40.i.i, align 4
-  %tobool.i.i33.i.i = trunc i8 %min_offset.sroa.7.379.i.i to i1
+  %tobool.i.i33.i.i = trunc nuw i8 %min_offset.sroa.7.379.i.i to i1
   br i1 %tobool.i.i33.i.i, label %if.then42.i.i, label %if.else55.i.i
 
 if.then42.i.i:                                    ; preds = %for.body38.i.i
@@ -345,7 +345,7 @@ for.inc66.i.i:                                    ; preds = %if.then58.i.i, %if.
 if.end69.i.i:                                     ; preds = %while.body.loopexit.i.i, %for.inc.i.i
   %min_offset.sroa.0.5.i.i = phi i32 [ %min_offset.sroa.0.1.i.i, %for.inc.i.i ], [ %min_offset.sroa.0.3.lcssa.i.i, %while.body.loopexit.i.i ]
   %min_offset.sroa.7.5.i.i = phi i8 [ %min_offset.sroa.7.1.i.i, %for.inc.i.i ], [ %min_offset.sroa.7.3.lcssa.i.i, %while.body.loopexit.i.i ]
-  %tobool.i.i.i.i.i = trunc i8 %min_offset.sroa.7.5.i.i to i1
+  %tobool.i.i.i.i.i = trunc nuw i8 %min_offset.sroa.7.5.i.i to i1
   br i1 %tobool.i.i.i.i.i, label %_ZNSt8optionalIlE7emplaceIJiEEENSt9enable_ifIX18is_constructible_vIlDpT_EERlE4typeEDpOS3_.exit.i.i.i, label %if.then10.i
 
 _ZNSt8optionalIlE7emplaceIJiEEENSt9enable_ifIX18is_constructible_vIlDpT_EERlE4typeEDpOS3_.exit.i.i.i: ; preds = %if.end69.i.i
@@ -428,7 +428,7 @@ if.else.i17.i:                                    ; preds = %if.end13.i
 if.then.i.i30.i:                                  ; preds = %if.else.i17.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i23.i, i64 1
   %conv6.i.i31.i = trunc i64 %40 to i32
-  %conv8.i.i.i = trunc i64 %rem.i.i24.i to i32
+  %conv8.i.i.i = trunc nsw i64 %rem.i.i24.i to i32
   %.sroa.speculated.i.i32.i = call i32 @llvm.smin.i32(i32 %conv8.i.i.i, i32 %conv6.i.i31.i)
   store i32 %.sroa.speculated.i.i32.i, ptr %current_num_bits_.i.i21.i, align 8
   %conv12.i.i.i = sub nsw i64 8, %rem.i.i24.i
@@ -558,7 +558,7 @@ for.body.i.i169:                                  ; preds = %for.cond.preheader.
   %min_offset.sroa.0.068.i.i = phi i64 [ %min_offset.sroa.0.1.i.i176, %for.inc.i.i175 ], [ undef, %for.cond.preheader.i.i168 ]
   %arrayidx3.i.i170 = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i56, i64 %i.070.i.i
   %57 = load i64, ptr %arrayidx3.i.i170, align 8
-  %tobool.i.i.i.i171 = trunc i8 %min_offset.sroa.7.069.i.i to i1
+  %tobool.i.i.i.i171 = trunc nuw i8 %min_offset.sroa.7.069.i.i to i1
   br i1 %tobool.i.i.i.i171, label %if.then5.i.i182, label %if.else.i.i172
 
 if.then5.i.i182:                                  ; preds = %for.body.i.i169
@@ -613,7 +613,7 @@ if.else25.i.i60:                                  ; preds = %if.end.i52
 
 if.then.i.i.i150:                                 ; preds = %if.else25.i.i60
   %conv4.i.i.i151 = trunc i64 %51 to i32
-  %conv6.i.i.i152 = trunc i64 %rem.i.i.i67 to i32
+  %conv6.i.i.i152 = trunc nsw i64 %rem.i.i.i67 to i32
   %sub.i.i.i153 = sub nsw i32 8, %conv6.i.i.i152
   %.sroa.speculated.i.i.i154 = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i153, i32 %conv4.i.i.i151)
   store i32 %.sroa.speculated.i.i.i154, ptr %current_num_bits_.i.i.i64, align 8
@@ -668,7 +668,7 @@ for.body38.i.i130:                                ; preds = %for.cond34.preheade
   %min_offset.sroa.0.357.i.i = phi i64 [ %min_offset.sroa.0.4.i.i137, %for.inc66.i.i136 ], [ %min_offset.sroa.0.263.i.i, %for.cond34.preheader.i.i72 ]
   %arrayidx40.i.i131 = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i56, i64 %i33.059.i.i
   %65 = load i64, ptr %arrayidx40.i.i131, align 8
-  %tobool.i.i33.i.i132 = trunc i8 %min_offset.sroa.7.358.i.i to i1
+  %tobool.i.i33.i.i132 = trunc nuw i8 %min_offset.sroa.7.358.i.i to i1
   br i1 %tobool.i.i33.i.i132, label %if.then42.i.i143, label %if.else55.i.i133
 
 if.then42.i.i143:                                 ; preds = %for.body38.i.i130
@@ -714,7 +714,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_
   %retval.sroa.0.0.i.i = phi i64 [ %min_offset.sroa.0.1.i.i176, %for.inc.i.i175 ], [ %min_offset.sroa.0.3.lcssa.i.i76, %while.body.loopexit.i.i75 ]
   %retval.sroa.6.0.i.i = phi i8 [ %min_offset.sroa.7.1.i.i177, %for.inc.i.i175 ], [ %min_offset.sroa.7.3.lcssa.i.i77, %while.body.loopexit.i.i75 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %reader.i.i46)
-  %tobool.i.i5.i = trunc i8 %retval.sroa.6.0.i.i to i1
+  %tobool.i.i5.i = trunc nuw i8 %retval.sroa.6.0.i.i to i1
   br i1 %tobool.i.i5.i, label %if.end13.i84, label %_ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIlEESt4pairIllERKNS_9ArraySpanE.exit
 
 if.end13.i84:                                     ; preds = %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.i, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.i
@@ -786,7 +786,7 @@ if.else.i17.i90:                                  ; preds = %if.end13.i84
 if.then.i.i29.i:                                  ; preds = %if.else.i17.i90
   %incdec.ptr.i.i.i110 = getelementptr inbounds i8, ptr %add.ptr.i.i23.i97, i64 1
   %conv6.i.i30.i = trunc i64 %74 to i32
-  %conv8.i.i.i111 = trunc i64 %rem.i.i24.i98 to i32
+  %conv8.i.i.i111 = trunc nsw i64 %rem.i.i24.i98 to i32
   %.sroa.speculated.i.i31.i = call i32 @llvm.smin.i32(i32 %conv8.i.i.i111, i32 %conv6.i.i30.i)
   store i32 %.sroa.speculated.i.i31.i, ptr %current_num_bits_.i.i21.i94, align 8
   %conv12.i.i.i112 = sub nsw i64 8, %rem.i.i24.i98
@@ -1184,7 +1184,7 @@ if.end.i.i:                                       ; preds = %sw.bb5
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %conv4.i.i.i = trunc i64 %5 to i32
-  %conv6.i.i.i = trunc i64 %rem.i.i.i to i32
+  %conv6.i.i.i = trunc nsw i64 %rem.i.i.i to i32
   %sub.i8.i.i = sub nsw i32 8, %conv6.i.i.i
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i8.i.i, i32 %conv4.i.i.i)
   store i32 %.sroa.speculated.i.i.i, ptr %current_num_bits_.i.i.i, align 8
@@ -1290,7 +1290,7 @@ if.end.i.i16:                                     ; preds = %sw.bb8
 
 if.then.i.i.i31:                                  ; preds = %if.end.i.i16
   %conv4.i.i.i32 = trunc i64 %21 to i32
-  %conv6.i.i.i33 = trunc i64 %rem.i.i.i23 to i32
+  %conv6.i.i.i33 = trunc nsw i64 %rem.i.i.i23 to i32
   %sub.i.i.i34 = sub nsw i32 8, %conv6.i.i.i33
   %.sroa.speculated.i.i.i35 = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i34, i32 %conv4.i.i.i32)
   store i32 %.sroa.speculated.i.i.i35, ptr %current_num_bits_.i.i.i20, align 8
@@ -1405,7 +1405,7 @@ if.end.i.i61:                                     ; preds = %sw.bb11
 
 if.then.i.i.i85:                                  ; preds = %if.end.i.i61
   %conv4.i.i.i86 = trunc i64 %32 to i32
-  %conv6.i.i.i87 = trunc i64 %rem.i.i.i68 to i32
+  %conv6.i.i.i87 = trunc nsw i64 %rem.i.i.i68 to i32
   %sub.i.i.i88 = sub nsw i32 8, %conv6.i.i.i87
   %.sroa.speculated.i.i.i89 = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i88, i32 %conv4.i.i.i86)
   store i32 %.sroa.speculated.i.i.i89, ptr %current_num_bits_.i.i.i65, align 8
@@ -1609,7 +1609,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.end.i
   %conv4.i.i = trunc i64 %3 to i32
-  %conv6.i.i = trunc i64 %rem.i.i to i32
+  %conv6.i.i = trunc nsw i64 %rem.i.i to i32
   %sub.i8.i = sub nsw i32 8, %conv6.i.i
   %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i8.i, i32 %conv4.i.i)
   store i32 %.sroa.speculated.i.i, ptr %current_num_bits_.i.i, align 8
@@ -1833,15 +1833,15 @@ entry:
   br i1 %tobool.not, label %entry.if.then10_crit_edge, label %if.then
 
 entry.if.then10_crit_edge:                        ; preds = %entry
-  %remaining_.i11.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
-  %remaining_.promoted.i.pre = load i64, ptr %remaining_.i11.phi.trans.insert, align 8
+  %remaining_.i13.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
+  %remaining_.promoted.i.pre = load i64, ptr %remaining_.i13.phi.trans.insert, align 8
   br label %if.then10
 
 if.then:                                          ; preds = %entry
   %current_word_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %current_word_.i, align 8
-  %2 = tail call i64 @llvm.cttz.i64(i64 %1, i1 false), !range !29
-  %cast.i.i.i = trunc i64 %2 to i32
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 false)
+  %cast.i.i.i = trunc nuw nsw i64 %2 to i32
   %cmp.not.i = icmp sgt i32 %0, %cast.i.i.i
   %remaining_11.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %remaining_11.i, align 8
@@ -1862,8 +1862,8 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit: ; preds = 
   %4 = load i64, ptr %length_.i.i, align 8
   %sub.i.i = sub nsw i64 %4, %sub12.i
   %not.i = xor i64 %shr.i.i, -1
-  %5 = tail call i64 @llvm.cttz.i64(i64 %not.i, i1 false), !range !29
-  %cast.i.i7.i = trunc i64 %5 to i32
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i, i1 false)
+  %cast.i.i7.i = trunc nuw nsw i64 %5 to i32
   %shr.i9.i = lshr i64 %shr.i.i, %5
   store i64 %shr.i9.i, ptr %current_word_.i, align 8
   %6 = add nuw nsw i32 %cast.i.i7.i, %cast.i.i.i
@@ -1881,9 +1881,9 @@ if.end8:                                          ; preds = %_ZN5arrow8internal1
 
 if.then10:                                        ; preds = %entry.if.then10_crit_edge, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit.thread, %if.end8
   %remaining_.promoted.i = phi i64 [ %remaining_.promoted.i.pre, %entry.if.then10_crit_edge ], [ %sub.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit.thread ], [ %sub23.i, %if.end8 ]
-  %remaining_.i11 = getelementptr inbounds i8, ptr %this, i64 16
-  %cmp15.i = icmp sgt i64 %remaining_.promoted.i, 63
-  br i1 %cmp15.i, label %while.body.lr.ph.i, label %while.end.i
+  %remaining_.i13 = getelementptr inbounds i8, ptr %this, i64 16
+  %cmp16.i = icmp sgt i64 %remaining_.promoted.i, 63
+  br i1 %cmp16.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.then10
   %this.promoted.i = load ptr, ptr %this, align 8
@@ -1892,13 +1892,13 @@ while.body.lr.ph.i:                               ; preds = %if.then10
 
 while.body.i:                                     ; preds = %if.end.i16, %while.body.lr.ph.i
   %7 = phi i64 [ %remaining_.promoted.i, %while.body.lr.ph.i ], [ %sub12.i17, %if.end.i16 ]
-  %add.ptr.i1416.i = phi ptr [ %this.promoted.i, %while.body.lr.ph.i ], [ %add.ptr.i.i, %if.end.i16 ]
-  %word.0.copyload.i.i = load i64, ptr %add.ptr.i1416.i, align 1
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i1416.i, i64 8
+  %add.ptr.i1517.i = phi ptr [ %this.promoted.i, %while.body.lr.ph.i ], [ %add.ptr.i.i, %if.end.i16 ]
+  %word.0.copyload.i.i = load i64, ptr %add.ptr.i1517.i, align 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i1517.i, i64 8
   store ptr %add.ptr.i.i, ptr %this, align 8
   store i64 %word.0.copyload.i.i, ptr %current_word_.i14, align 8
-  %8 = tail call i64 @llvm.cttz.i64(i64 %word.0.copyload.i.i, i1 false), !range !29
-  %cast.i.i.i15 = trunc i64 %8 to i32
+  %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.copyload.i.i, i1 false)
+  %cast.i.i.i15 = trunc nuw nsw i64 %8 to i32
   %cmp5.i = icmp ult i32 %cast.i.i.i15, 64
   br i1 %cmp5.i, label %if.then.i18, label %if.end.i16
 
@@ -1912,9 +1912,9 @@ if.then.i18:                                      ; preds = %while.body.i
 
 if.end.i16:                                       ; preds = %while.body.i
   %sub12.i17 = add nsw i64 %7, -64
-  store i64 %sub12.i17, ptr %remaining_.i11, align 8
+  store i64 %sub12.i17, ptr %remaining_.i13, align 8
   %cmp.i = icmp sgt i64 %7, 127
-  br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !30
+  br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !29
 
 while.end.i:                                      ; preds = %if.end.i16, %if.then10
   %.pr = phi i64 [ %remaining_.promoted.i, %if.then10 ], [ %sub12.i17, %if.end.i16 ]
@@ -1940,20 +1940,20 @@ if.then15.i:                                      ; preds = %while.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %word.i.i)
   %current_word_18.i = getelementptr inbounds i8, ptr %this, i64 24
   %conv20.i = trunc i64 %.pr to i32
-  %10 = tail call i64 @llvm.cttz.i64(i64 %and.i.i, i1 false), !range !29
-  %cast.i.i7.i12 = trunc i64 %10 to i32
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %cast.i.i7.i12, i32 %conv20.i)
-  %sh_prom.i8.i = zext nneg i32 %.sroa.speculated.i to i64
-  %shr.i9.i13 = lshr i64 %and.i.i, %sh_prom.i8.i
-  store i64 %shr.i9.i13, ptr %current_word_18.i, align 8
+  %10 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i.i, i1 false)
+  %cast.i.i8.i = trunc nuw nsw i64 %10 to i32
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %cast.i.i8.i, i32 %conv20.i)
+  %sh_prom.i9.i = zext nneg i32 %.sroa.speculated.i to i64
+  %shr.i10.i = lshr i64 %and.i.i, %sh_prom.i9.i
+  store i64 %shr.i10.i, ptr %current_word_18.i, align 8
   %sub31.i = sub nsw i32 %conv20.i, %.sroa.speculated.i
   store i32 %sub31.i, ptr %current_num_bits_, align 8
-  %sub34.i = sub nsw i64 %.pr, %sh_prom.i8.i
+  %sub34.i = sub nsw i64 %.pr, %sh_prom.i9.i
   br label %if.end35.sink.split.i
 
 if.end35.sink.split.i:                            ; preds = %if.then15.i, %if.then.i18
   %sub34.sink.i = phi i64 [ %sub34.i, %if.then15.i ], [ %sub10.i, %if.then.i18 ]
-  store i64 %sub34.sink.i, ptr %remaining_.i11, align 8
+  store i64 %sub34.sink.i, ptr %remaining_.i13, align 8
   br label %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit
 
 _ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit: ; preds = %while.end.i, %if.end35.sink.split.i
@@ -2042,8 +2042,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %not = xor i64 %0, -1
-  %1 = tail call i64 @llvm.cttz.i64(i64 %not, i1 false), !range !29
-  %cast.i.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not, i1 false)
+  %cast.i.i = trunc nuw nsw i64 %1 to i32
   %remaining_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %remaining_, align 8
   %sub = sub nsw i64 %2, %1
@@ -2086,13 +2086,13 @@ while.body:                                       ; preds = %while.cond
   store ptr %add.ptr.i, ptr %this, align 8
   store i64 %word.0.copyload.i, ptr %current_word_, align 8
   %not24 = xor i64 %word.0.copyload.i, -1
-  %7 = tail call i64 @llvm.cttz.i64(i64 %not24, i1 false), !range !29
-  %cast.i.i15 = trunc i64 %7 to i32
+  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not24, i1 false)
+  %cast.i.i15 = trunc nuw nsw i64 %7 to i32
   %add = add nuw nsw i64 %7, %len.1
   %sub29 = sub nuw nsw i64 %6, %7
   store i64 %sub29, ptr %remaining_17, align 8
   %cmp30 = icmp ult i32 %cast.i.i15, 64
-  br i1 %cmp30, label %if.then31, label %while.cond, !llvm.loop !31
+  br i1 %cmp30, label %if.then31, label %while.cond, !llvm.loop !30
 
 if.then31:                                        ; preds = %while.body
   %shr.i17 = lshr i64 %word.0.copyload.i, %7
@@ -2125,11 +2125,11 @@ if.then40:                                        ; preds = %while.end
   %conv45 = trunc i64 %6 to i32
   %current_num_bits_46 = getelementptr inbounds i8, ptr %this, i64 32
   %not49 = xor i64 %and.i, -1
-  %8 = tail call i64 @llvm.cttz.i64(i64 %not49, i1 true), !range !29
-  %cast.i.i19 = trunc i64 %8 to i32
-  %shr.i21 = lshr i64 %and.i, %8
-  store i64 %shr.i21, ptr %current_word_, align 8
-  %sub55 = sub nsw i32 %conv45, %cast.i.i19
+  %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not49, i1 true)
+  %cast.i.i20 = trunc nuw nsw i64 %8 to i32
+  %shr.i22 = lshr i64 %and.i, %8
+  store i64 %shr.i22, ptr %current_word_, align 8
+  %sub55 = sub nsw i32 %conv45, %cast.i.i20
   store i32 %sub55, ptr %current_num_bits_46, align 8
   %sub58 = sub nsw i64 %6, %8
   store i64 %sub58, ptr %remaining_17, align 8
@@ -2162,8 +2162,8 @@ entry.if.then10_crit_edge:                        ; preds = %entry
 if.then:                                          ; preds = %entry
   %current_word_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %current_word_.i, align 8
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !29
-  %cast.i.i.i = trunc i64 %2 to i32
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 false)
+  %cast.i.i.i = trunc nuw nsw i64 %2 to i32
   %cmp.not.i = icmp sgt i32 %0, %cast.i.i.i
   %remaining_11.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %remaining_11.i, align 8
@@ -2181,8 +2181,8 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit: ; preds = 
   %shl.i.i = shl i64 %1, %2
   %sub12.i = sub nsw i64 %3, %2
   %not.i = xor i64 %shl.i.i, -1
-  %4 = tail call i64 @llvm.ctlz.i64(i64 %not.i, i1 false), !range !29
-  %cast.i.i7.i = trunc i64 %4 to i32
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %not.i, i1 false)
+  %cast.i.i7.i = trunc nuw nsw i64 %4 to i32
   %shl.i9.i = shl i64 %shl.i.i, %4
   store i64 %shl.i9.i, ptr %current_word_.i, align 8
   %5 = add nuw nsw i32 %cast.i.i7.i, %cast.i.i.i
@@ -2201,42 +2201,42 @@ if.end8:                                          ; preds = %_ZN5arrow8internal1
 if.then10:                                        ; preds = %entry.if.then10_crit_edge, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit.thread, %if.end8
   %remaining_.promoted.i = phi i64 [ %remaining_.promoted.i.pre, %entry.if.then10_crit_edge ], [ %sub.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit.thread ], [ %sub23.i, %if.end8 ]
   %remaining_.i14 = getelementptr inbounds i8, ptr %this, i64 16
-  %cmp15.i = icmp sgt i64 %remaining_.promoted.i, 63
-  br i1 %cmp15.i, label %while.body.lr.ph.i, label %while.end.i
+  %cmp16.i = icmp sgt i64 %remaining_.promoted.i, 63
+  br i1 %cmp16.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.then10
   %this.promoted.i = load ptr, ptr %this, align 8
-  %current_word_.i17 = getelementptr inbounds i8, ptr %this, i64 24
+  %current_word_.i15 = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.body.i
 
-while.body.i:                                     ; preds = %if.end.i19, %while.body.lr.ph.i
-  %6 = phi i64 [ %remaining_.promoted.i, %while.body.lr.ph.i ], [ %sub12.i20, %if.end.i19 ]
-  %add.ptr.i1416.i = phi ptr [ %this.promoted.i, %while.body.lr.ph.i ], [ %add.ptr.i.i, %if.end.i19 ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i1416.i, i64 -8
+while.body.i:                                     ; preds = %if.end.i17, %while.body.lr.ph.i
+  %6 = phi i64 [ %remaining_.promoted.i, %while.body.lr.ph.i ], [ %sub12.i18, %if.end.i17 ]
+  %add.ptr.i1517.i = phi ptr [ %this.promoted.i, %while.body.lr.ph.i ], [ %add.ptr.i.i, %if.end.i17 ]
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i1517.i, i64 -8
   store ptr %add.ptr.i.i, ptr %this, align 8
   %word.0.copyload.i.i = load i64, ptr %add.ptr.i.i, align 1
-  store i64 %word.0.copyload.i.i, ptr %current_word_.i17, align 8
-  %7 = tail call i64 @llvm.ctlz.i64(i64 %word.0.copyload.i.i, i1 false), !range !29
-  %cast.i.i.i18 = trunc i64 %7 to i32
-  %cmp5.i = icmp ult i32 %cast.i.i.i18, 64
-  br i1 %cmp5.i, label %if.then.i21, label %if.end.i19
+  store i64 %word.0.copyload.i.i, ptr %current_word_.i15, align 8
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %word.0.copyload.i.i, i1 false)
+  %cast.i.i.i16 = trunc nuw nsw i64 %7 to i32
+  %cmp5.i = icmp ult i32 %cast.i.i.i16, 64
+  br i1 %cmp5.i, label %if.then.i19, label %if.end.i17
 
-if.then.i21:                                      ; preds = %while.body.i
-  %shl.i.i22 = shl i64 %word.0.copyload.i.i, %7
-  store i64 %shl.i.i22, ptr %current_word_.i17, align 8
-  %sub.i23 = sub nuw nsw i32 64, %cast.i.i.i18
-  store i32 %sub.i23, ptr %current_num_bits_, align 8
+if.then.i19:                                      ; preds = %while.body.i
+  %shl.i.i20 = shl i64 %word.0.copyload.i.i, %7
+  store i64 %shl.i.i20, ptr %current_word_.i15, align 8
+  %sub.i21 = sub nuw nsw i32 64, %cast.i.i.i16
+  store i32 %sub.i21, ptr %current_num_bits_, align 8
   %sub10.i = sub nuw nsw i64 %6, %7
   br label %if.end35.sink.split.i
 
-if.end.i19:                                       ; preds = %while.body.i
-  %sub12.i20 = add nsw i64 %6, -64
-  store i64 %sub12.i20, ptr %remaining_.i14, align 8
+if.end.i17:                                       ; preds = %while.body.i
+  %sub12.i18 = add nsw i64 %6, -64
+  store i64 %sub12.i18, ptr %remaining_.i14, align 8
   %cmp.i = icmp sgt i64 %6, 127
-  br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !32
+  br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !31
 
-while.end.i:                                      ; preds = %if.end.i19, %if.then10
-  %.pr = phi i64 [ %remaining_.promoted.i, %if.then10 ], [ %sub12.i20, %if.end.i19 ]
+while.end.i:                                      ; preds = %if.end.i17, %if.then10
+  %.pr = phi i64 [ %remaining_.promoted.i, %if.then10 ], [ %sub12.i18, %if.end.i17 ]
   %cmp14.i = icmp sgt i64 %.pr, 0
   br i1 %cmp14.i, label %if.then15.i, label %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit
 
@@ -2262,19 +2262,19 @@ if.then15.i:                                      ; preds = %while.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %word.i.i)
   %current_word_18.i = getelementptr inbounds i8, ptr %this, i64 24
   %conv20.i = trunc i64 %.pr to i32
-  %10 = tail call i64 @llvm.ctlz.i64(i64 %and.i.i, i1 false), !range !29
-  %cast.i.i7.i15 = trunc i64 %10 to i32
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %cast.i.i7.i15, i32 %conv20.i)
-  %sh_prom.i8.i = zext nneg i32 %.sroa.speculated.i to i64
-  %shl.i9.i16 = shl i64 %and.i.i, %sh_prom.i8.i
-  store i64 %shl.i9.i16, ptr %current_word_18.i, align 8
+  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i.i, i1 false)
+  %cast.i.i8.i = trunc nuw nsw i64 %10 to i32
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %cast.i.i8.i, i32 %conv20.i)
+  %sh_prom.i9.i = zext nneg i32 %.sroa.speculated.i to i64
+  %shl.i10.i = shl i64 %and.i.i, %sh_prom.i9.i
+  store i64 %shl.i10.i, ptr %current_word_18.i, align 8
   %sub31.i = sub nsw i32 %conv20.i, %.sroa.speculated.i
   store i32 %sub31.i, ptr %current_num_bits_, align 8
-  %sub34.i = sub nsw i64 %.pr, %sh_prom.i8.i
+  %sub34.i = sub nsw i64 %.pr, %sh_prom.i9.i
   br label %if.end35.sink.split.i
 
-if.end35.sink.split.i:                            ; preds = %if.then15.i, %if.then.i21
-  %sub34.sink.i = phi i64 [ %sub34.i, %if.then15.i ], [ %sub10.i, %if.then.i21 ]
+if.end35.sink.split.i:                            ; preds = %if.then15.i, %if.then.i19
+  %sub34.sink.i = phi i64 [ %sub34.i, %if.then15.i ], [ %sub10.i, %if.then.i19 ]
   store i64 %sub34.sink.i, ptr %remaining_.i14, align 8
   br label %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit
 
@@ -2307,20 +2307,20 @@ if.then28:                                        ; preds = %if.else25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %word.i)
   store i64 0, ptr %word.i, align 8
   %shr.i.i = lshr i64 %sub23.i, 3
-  %and.i.i26 = and i64 %sub23.i, 7
-  %cmp.i.i = icmp ne i64 %and.i.i26, 0
+  %and.i.i24 = and i64 %sub23.i, 7
+  %cmp.i.i = icmp ne i64 %and.i.i24, 0
   %conv.i.i = zext i1 %cmp.i.i to i64
   %add.i.i = add nuw nsw i64 %shr.i.i, %conv.i.i
   %13 = load ptr, ptr %this, align 8
   %idx.neg.i = sub nsw i64 0, %add.i.i
-  %add.ptr.i27 = getelementptr inbounds i8, ptr %13, i64 %idx.neg.i
-  store ptr %add.ptr.i27, ptr %this, align 8
+  %add.ptr.i25 = getelementptr inbounds i8, ptr %13, i64 %idx.neg.i
+  store ptr %add.ptr.i25, ptr %this, align 8
   %add.ptr2.i = getelementptr inbounds i8, ptr %word.i, i64 8
   %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %idx.neg.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr4.i, ptr align 1 %add.ptr.i27, i64 %add.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr4.i, ptr align 1 %add.ptr.i25, i64 %add.i.i, i1 false)
   %14 = load i64, ptr %word.i, align 8
-  %sub.i28 = sub nuw nsw i64 64, %sub23.i
-  %notmask.i.i = shl nsw i64 -1, %sub.i28
+  %sub.i26 = sub nuw nsw i64 64, %sub23.i
+  %notmask.i.i = shl nsw i64 -1, %sub.i26
   %and.i = and i64 %14, %notmask.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %word.i)
   store i64 %and.i, ptr %current_word_.i, align 8
@@ -2335,15 +2335,15 @@ if.end40:                                         ; preds = %if.then28, %if.then
   br i1 %tobool42.not, label %return, label %if.end50
 
 if.end50:                                         ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit, %if.else, %if.end40
-  %len.048 = phi i64 [ %4, %if.else ], [ %4, %if.end40 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ]
+  %len.046 = phi i64 [ %4, %if.else ], [ %4, %if.end40 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ]
   %pos.1 = phi i64 [ %sub12.i, %if.else ], [ %sub12.i, %if.end40 ], [ %11, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ]
   %call51 = tail call noundef i64 @_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13CountNextOnesEv(ptr noundef nonnull align 8 dereferenceable(36) %this)
-  %add = add nsw i64 %call51, %len.048
-  %sub.i35 = sub nsw i64 %pos.1, %add
+  %add = add nsw i64 %call51, %len.046
+  %sub.i33 = sub nsw i64 %pos.1, %add
   br label %return
 
 return:                                           ; preds = %if.end40, %if.else25, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit, %if.end50
-  %retval.sroa.0.0 = phi i64 [ %sub.i35, %if.end50 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ], [ %sub23.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit ], [ %sub23.i, %if.else25 ], [ %sub23.i, %if.end40 ]
+  %retval.sroa.0.0 = phi i64 [ %sub.i33, %if.end50 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ], [ %sub23.i, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit ], [ %sub23.i, %if.else25 ], [ %sub23.i, %if.end40 ]
   %retval.sroa.6.0 = phi i64 [ %add, %if.end50 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE13SkipNextZerosEv.exit ], [ %4, %_ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit ], [ %4, %if.else25 ], [ %4, %if.end40 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
@@ -2361,8 +2361,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %not = xor i64 %0, -1
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %not, i1 false), !range !29
-  %cast.i.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %not, i1 false)
+  %cast.i.i = trunc nuw nsw i64 %1 to i32
   %remaining_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %remaining_, align 8
   %sub = sub nsw i64 %2, %1
@@ -2405,13 +2405,13 @@ while.body:                                       ; preds = %while.cond
   %word.0.copyload.i = load i64, ptr %add.ptr.i, align 1
   store i64 %word.0.copyload.i, ptr %current_word_, align 8
   %not24 = xor i64 %word.0.copyload.i, -1
-  %7 = tail call i64 @llvm.ctlz.i64(i64 %not24, i1 false), !range !29
-  %cast.i.i15 = trunc i64 %7 to i32
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %not24, i1 false)
+  %cast.i.i15 = trunc nuw nsw i64 %7 to i32
   %add = add nuw nsw i64 %7, %len.1
   %sub29 = sub nuw nsw i64 %6, %7
   store i64 %sub29, ptr %remaining_17, align 8
   %cmp30 = icmp ult i32 %cast.i.i15, 64
-  br i1 %cmp30, label %if.then31, label %while.cond, !llvm.loop !33
+  br i1 %cmp30, label %if.then31, label %while.cond, !llvm.loop !32
 
 if.then31:                                        ; preds = %while.body
   %shl.i17 = shl i64 %word.0.copyload.i, %7
@@ -2447,11 +2447,11 @@ if.then40:                                        ; preds = %while.end
   %conv45 = trunc i64 %6 to i32
   %current_num_bits_46 = getelementptr inbounds i8, ptr %this, i64 32
   %not49 = xor i64 %and.i, -1
-  %9 = tail call i64 @llvm.ctlz.i64(i64 %not49, i1 false), !range !29
-  %cast.i.i19 = trunc i64 %9 to i32
-  %shl.i21 = shl i64 %and.i, %9
-  store i64 %shl.i21, ptr %current_word_, align 8
-  %sub55 = sub nsw i32 %conv45, %cast.i.i19
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %not49, i1 false)
+  %cast.i.i20 = trunc nuw nsw i64 %9 to i32
+  %shl.i22 = shl i64 %and.i, %9
+  store i64 %shl.i22, ptr %current_word_, align 8
+  %sub55 = sub nsw i32 %conv45, %cast.i.i20
   store i32 %sub55, ptr %current_num_bits_46, align 8
   %sub58 = sub nsw i64 %6, %9
   store i64 %sub58, ptr %remaining_17, align 8
@@ -2472,11 +2472,11 @@ entry:
   %ss.i = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ss.i)
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !34
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !33
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
-  %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !34
+  %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !33
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
-          to label %invoke.cont1.i unwind label %lpad.i, !noalias !34
+          to label %invoke.cont1.i unwind label %lpad.i, !noalias !33
 
 invoke.cont1.i:                                   ; preds = %entry
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ss.i)
@@ -2650,11 +2650,11 @@ entry:
   %ss.i = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ss.i)
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !37
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !36
   %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
-  %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !37
+  %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !36
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
-          to label %invoke.cont.i unwind label %lpad.i, !noalias !37
+          to label %invoke.cont.i unwind label %lpad.i, !noalias !36
 
 invoke.cont.i:                                    ; preds = %entry
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ss.i)
@@ -2746,14 +2746,13 @@ attributes #14 = { noreturn nounwind }
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
 !28 = distinct !{!28, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
-!29 = !{i64 0, i64 65}
+!29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN5arrow4util13StringBuilderIJRA61_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: %agg.result"}
-!36 = distinct !{!36, !"_ZN5arrow4util13StringBuilderIJRA61_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN5arrow4util13StringBuilderIJRA65_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: %agg.result"}
-!39 = distinct !{!39, !"_ZN5arrow4util13StringBuilderIJRA65_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN5arrow4util13StringBuilderIJRA61_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: %agg.result"}
+!35 = distinct !{!35, !"_ZN5arrow4util13StringBuilderIJRA61_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN5arrow4util13StringBuilderIJRA65_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: %agg.result"}
+!38 = distinct !{!38, !"_ZN5arrow4util13StringBuilderIJRA65_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}

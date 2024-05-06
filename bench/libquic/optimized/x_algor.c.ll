@@ -78,7 +78,7 @@ entry:
 declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_ALGOR_set0(ptr noundef %alg, ptr noundef %aobj, i32 noundef %ptype, ptr noundef %pval) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_ALGOR_set0(ptr noundef %alg, ptr noundef %aobj, i32 noundef %ptype, ptr noundef %pval) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %alg, null
   br i1 %tobool.not, label %return, label %if.end

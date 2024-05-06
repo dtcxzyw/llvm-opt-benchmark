@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i64 @f16_to_i32(i16 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp slt i16 %0, 0
   %5 = lshr i16 %0, 10
-  %6 = trunc i16 %5 to i8
+  %6 = trunc nuw nsw i16 %5 to i8
   %7 = and i8 %6, 31
   %8 = and i16 %0, 1023
   %9 = zext nneg i16 %8 to i64

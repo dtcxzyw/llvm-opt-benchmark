@@ -450,7 +450,7 @@ define hidden void @zend_signal_init() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0, %13
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %13 ]
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %5 = call i32 @sigaction(i32 noundef %4, ptr noundef null, ptr noundef nonnull %1) #9
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %13
@@ -515,7 +515,7 @@ zend_signal_globals_ctor.exit:                    ; preds = %2
 
 22:                                               ; preds = %32, %zend_signal_globals_ctor.exit
   %indvars.iv.i = phi i64 [ 1, %zend_signal_globals_ctor.exit ], [ %indvars.iv.next.i, %32 ]
-  %23 = trunc i64 %indvars.iv.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   %24 = call i32 @sigaction(i32 noundef %23, ptr noundef null, ptr noundef nonnull %1) #9
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %32

@@ -27,7 +27,7 @@ if.end15.i:
   store i64 %and8.i, ptr %arrayidx10.i, align 16
   %h.i = getelementptr inbounds i8, ptr %state, i64 24
   %arrayidx16.i = getelementptr i8, ptr %key, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %h.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %h.i, i8 0, i64 24, i1 false)
   %pad.i = getelementptr inbounds i8, ptr %state, i64 48
   %0 = load <2 x i64>, ptr %arrayidx16.i, align 1
   store <2 x i64> %0, ptr %pad.i, align 16
@@ -185,7 +185,7 @@ entry:
   store i64 %and8.i, ptr %arrayidx10.i, align 8
   %h.i = getelementptr inbounds i8, ptr %state, i64 24
   %arrayidx16.i = getelementptr i8, ptr %key, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %h.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %h.i, i8 0, i64 24, i1 false)
   %arrayidx16.val.i = load i64, ptr %arrayidx16.i, align 1
   %pad.i = getelementptr inbounds i8, ptr %state, i64 48
   store i64 %arrayidx16.val.i, ptr %pad.i, align 8

@@ -42,7 +42,7 @@ define i64 @curl_getdate(ptr noundef %p, ptr nocapture noundef readnone %now) lo
 entry:
   %parsed = alloca i64, align 8
   store i64 -1, ptr %parsed, align 8
-  %call = call fastcc i32 @parsedate(ptr noundef %p, ptr noundef nonnull %parsed), !range !4
+  %call = call fastcc i32 @parsedate(ptr noundef %p, ptr noundef nonnull %parsed)
   %cmp = icmp eq i32 %call, 0
   %0 = load i64, ptr %parsed, align 8
   %cmp1 = icmp eq i64 %0, -1
@@ -52,7 +52,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parsedate(ptr noundef %date, ptr nocapture noundef writeonly %output) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parsedate(ptr noundef %date, ptr nocapture noundef writeonly %output) unnamed_addr #0 {
 entry:
   %end = alloca ptr, align 8
   %0 = load i8, ptr %date, align 1
@@ -92,7 +92,7 @@ while.body.i:                                     ; preds = %while.body, %while.
   %10 = add i8 %9, -65
   %11 = icmp ult i8 %10, 26
   %or.cond11.i = or i1 %11, %or.cond9.i
-  br i1 %or.cond11.i, label %skip.exit, label %while.body.i, !llvm.loop !5
+  br i1 %or.cond11.i, label %skip.exit, label %while.body.i, !llvm.loop !4
 
 skip.exit:                                        ; preds = %while.body.i, %while.body
   %.pre-phi234 = phi i8 [ %4, %while.body ], [ %10, %while.body.i ]
@@ -127,7 +127,7 @@ while.body35:                                     ; preds = %land.lhs.true27, %l
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
   %inc = add nuw nsw i64 %len.0, 1
   %.pre233 = load i8, ptr %incdec.ptr, align 1
-  br label %while.cond15, !llvm.loop !7
+  br label %while.cond15, !llvm.loop !6
 
 while.end:                                        ; preds = %land.lhs.true27, %lor.lhs.false23, %land.rhs31
   %cmp36.not = icmp eq i64 %len.0, 12
@@ -166,7 +166,7 @@ if.end10.i:                                       ; preds = %land.lhs.true.i, %f
   %incdec.ptr.i96 = getelementptr inbounds i8, ptr %what.19.i, i64 8
   %inc.i = add nuw nsw i32 %i.08.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 7
-  br i1 %exitcond.not.i, label %if.end45, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %if.end45, label %for.body.i, !llvm.loop !7
 
 if.end45:                                         ; preds = %if.end10.i, %if.else.i, %if.then38
   %wdaynum.1 = phi i32 [ %wdaynum.0221, %if.then38 ], [ -1, %if.else.i ], [ -1, %if.end10.i ]
@@ -189,7 +189,7 @@ if.end3.i:                                        ; preds = %for.body.i99
   %incdec.ptr.i102 = getelementptr inbounds i8, ptr %what.05.i, i64 8
   %inc.i103 = add nuw nsw i32 %i.04.i, 1
   %exitcond.not.i104 = icmp eq i32 %inc.i103, 12
-  br i1 %exitcond.not.i104, label %if.end56, label %for.body.i99, !llvm.loop !9
+  br i1 %exitcond.not.i104, label %if.end56, label %for.body.i99, !llvm.loop !8
 
 if.end56:                                         ; preds = %if.end3.i, %if.then50, %if.end45
   %monnum.1 = phi i32 [ %monnum.0220, %if.end45 ], [ -1, %if.then50 ], [ -1, %if.end3.i ]
@@ -214,7 +214,7 @@ if.end9.i:                                        ; preds = %land.lhs.true.i113,
   %incdec.ptr.i109 = getelementptr inbounds i8, ptr %what.09.i, i64 12
   %inc.i110 = add nuw nsw i32 %i.08.i107, 1
   %exitcond.not.i111 = icmp eq i32 %inc.i110, 69
-  br i1 %exitcond.not.i111, label %return, label %for.body.i106, !llvm.loop !10
+  br i1 %exitcond.not.i111, label %return, label %for.body.i106, !llvm.loop !9
 
 checktz.exit:                                     ; preds = %land.lhs.true.i113
   %offset.i = getelementptr inbounds i8, ptr %what.09.i, i64 8
@@ -473,7 +473,7 @@ if.end201:                                        ; preds = %if.end195, %if.end1
   %tobool = icmp ne i8 %38, 0
   %cmp = icmp ult i32 %part.0219, 5
   %39 = select i1 %tobool, i1 %cmp, i1 false
-  br i1 %39, label %while.body, label %while.end203, !llvm.loop !11
+  br i1 %39, label %while.body, label %while.end203, !llvm.loop !10
 
 while.end203:                                     ; preds = %if.end201, %entry
   %hournum.0.lcssa = phi i32 [ -1, %entry ], [ %hournum.3, %if.end201 ]
@@ -555,7 +555,7 @@ define hidden i64 @Curl_getdate_capped(ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %parsed = alloca i64, align 8
   store i64 -1, ptr %parsed, align 8
-  %call = call fastcc i32 @parsedate(ptr noundef %p, ptr noundef nonnull %parsed), !range !4
+  %call = call fastcc i32 @parsedate(ptr noundef %p, ptr noundef nonnull %parsed)
   %cond = icmp eq i32 %call, 0
   %0 = load i64, ptr %parsed, align 8
   %cmp = icmp eq i64 %0, -1
@@ -565,7 +565,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_gmtime(i64 noundef %intime, ptr noundef %store) local_unnamed_addr #0 {
+define hidden range(i32 0, 44) i32 @Curl_gmtime(i64 noundef %intime, ptr noundef %store) local_unnamed_addr #0 {
 entry:
   %intime.addr = alloca i64, align 8
   store i64 %intime, ptr %intime.addr, align 8
@@ -607,11 +607,10 @@ attributes #8 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

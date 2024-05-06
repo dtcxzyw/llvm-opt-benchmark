@@ -636,12 +636,12 @@ define dso_local i64 @bit(ptr nocapture noundef readonly %0) local_unnamed_addr 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bittypmodin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bittypmodin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
-  %6 = tail call fastcc i32 @anybit_typmodin(ptr noundef %5, ptr noundef nonnull @__func__.bit), !range !17
+  %6 = tail call fastcc i32 @anybit_typmodin(ptr noundef %5, ptr noundef nonnull @__func__.bit)
   %7 = zext nneg i32 %6 to i64
   ret i64 %7
 }
@@ -649,7 +649,7 @@ define dso_local i64 @bittypmodin(ptr nocapture noundef readonly %0) local_unnam
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @anybit_typmodin(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 1, 83886081) i32 @anybit_typmodin(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = call ptr @ArrayGetIntegerTypmods(ptr noundef %0, ptr noundef nonnull %3) #13
   %5 = load i32, ptr %3, align 4
@@ -840,7 +840,7 @@ define dso_local noundef i64 @varbit_in(ptr nocapture noundef readonly %0) local
   %spec.select100.idx = zext i1 %58 to i64
   %spec.select100 = getelementptr i8, ptr %.075, i64 %spec.select100.idx
   %59 = getelementptr i8, ptr %.1, i64 1
-  br label %.preheader, !llvm.loop !18
+  br label %.preheader, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.preheader107, %83
   %60 = phi i8 [ %85, %83 ], [ %45, %.preheader107 ]
@@ -903,7 +903,7 @@ define dso_local noundef i64 @varbit_in(ptr nocapture noundef readonly %0) local
   %84 = getelementptr i8, ptr %.2114, i64 1
   %85 = load i8, ptr %84, align 1
   %.not = icmp eq i8 %85, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %83, %.preheader, %.preheader107
   %86 = ptrtoint ptr %40 to i64
@@ -1122,12 +1122,12 @@ define dso_local i64 @varbit(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @varbittypmodin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @varbittypmodin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
-  %6 = tail call fastcc i32 @anybit_typmodin(ptr noundef %5, ptr noundef nonnull @__func__.varbit), !range !17
+  %6 = tail call fastcc i32 @anybit_typmodin(ptr noundef %5, ptr noundef nonnull @__func__.varbit)
   %7 = zext nneg i32 %6 to i64
   ret i64 %7
 }
@@ -1155,7 +1155,7 @@ anybit_typmodout.exit:                            ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @biteq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @biteq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1215,7 +1215,7 @@ bit_cmp.exit:                                     ; preds = %1
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bitne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @bitne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1273,7 +1273,7 @@ bit_cmp.exit:                                     ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bitlt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @bitlt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1292,7 +1292,7 @@ define dso_local i64 @bitlt(ptr nocapture noundef readonly %0) local_unnamed_add
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull %16, ptr noundef nonnull %17, i64 noundef %19) #12
+  %20 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %17, i64 noundef %19) #12
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %bit_cmp.exit
 
@@ -1337,7 +1337,7 @@ bit_cmp.exit:                                     ; preds = %1, %22, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bitle(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @bitle(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1356,7 +1356,7 @@ define dso_local i64 @bitle(ptr nocapture noundef readonly %0) local_unnamed_add
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull %16, ptr noundef nonnull %17, i64 noundef %19) #12
+  %20 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %17, i64 noundef %19) #12
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %bit_cmp.exit
 
@@ -1401,7 +1401,7 @@ bit_cmp.exit:                                     ; preds = %1, %22, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bitgt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @bitgt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1420,7 +1420,7 @@ define dso_local i64 @bitgt(ptr nocapture noundef readonly %0) local_unnamed_add
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull %16, ptr noundef nonnull %17, i64 noundef %19) #12
+  %20 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %17, i64 noundef %19) #12
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %bit_cmp.exit
 
@@ -1465,7 +1465,7 @@ bit_cmp.exit:                                     ; preds = %1, %22, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bitge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @bitge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1484,7 +1484,7 @@ define dso_local i64 @bitge(ptr nocapture noundef readonly %0) local_unnamed_add
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull %16, ptr noundef nonnull %17, i64 noundef %19) #12
+  %20 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %17, i64 noundef %19) #12
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %bit_cmp.exit
 
@@ -1529,7 +1529,7 @@ bit_cmp.exit:                                     ; preds = %1, %22, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bitcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bitcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1548,7 +1548,7 @@ define dso_local i64 @bitcmp(ptr nocapture noundef readonly %0) local_unnamed_ad
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull %16, ptr noundef nonnull %17, i64 noundef %19) #12
+  %20 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %17, i64 noundef %19) #12
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %bit_cmp.exit
 
@@ -1692,7 +1692,7 @@ define internal fastcc noundef ptr @bit_catenate(ptr nocapture noundef readonly 
   %58 = zext i8 %57 to i32
   %59 = lshr i32 %58, %48
   %60 = load i8, ptr %.04145, align 1
-  %61 = trunc i32 %59 to i8
+  %61 = trunc nuw i32 %59 to i8
   %62 = or i8 %60, %61
   store i8 %62, ptr %.04145, align 1
   %63 = getelementptr i8, ptr %.04145, i64 1
@@ -1718,7 +1718,7 @@ define internal fastcc noundef ptr @bit_catenate(ptr nocapture noundef readonly 
   %78 = zext nneg i32 %77 to i64
   %79 = getelementptr i8, ptr %1, i64 %78
   %80 = icmp ult ptr %75, %79
-  br i1 %80, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %80, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %74, %47, %45, %37
   ret ptr %18
@@ -1862,7 +1862,7 @@ define internal fastcc noundef ptr @bitsubstring(ptr noundef readonly %0, i32 no
   %74 = getelementptr i8, ptr %.05766, i64 1
   %75 = add nuw nsw i32 %.05965, 1
   %exitcond.not = icmp eq i32 %75, %33
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %56, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %56, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %73
   %.pre = load i32, ptr %35, align 4
@@ -2006,7 +2006,7 @@ define dso_local i64 @bit_bit_count(ptr nocapture noundef readonly %0) local_unn
 declare i64 @pg_popcount(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bitlength(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bitlength(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2018,7 +2018,7 @@ define dso_local i64 @bitlength(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bitoctetlength(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bitoctetlength(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2095,7 +2095,7 @@ define dso_local noundef i64 @bit_and(ptr nocapture noundef readonly %0) local_u
   %40 = zext i32 %39 to i64
   %41 = add nsw i64 %40, -4
   %42 = icmp ugt i64 %41, %36
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %43 = ptrtoint ptr %22 to i64
@@ -2167,7 +2167,7 @@ define dso_local noundef i64 @bit_or(ptr nocapture noundef readonly %0) local_un
   %40 = zext i32 %39 to i64
   %41 = add nsw i64 %40, -4
   %42 = icmp ugt i64 %41, %36
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %43 = ptrtoint ptr %22 to i64
@@ -2239,7 +2239,7 @@ define dso_local noundef i64 @bitxor(ptr nocapture noundef readonly %0) local_un
   %40 = zext i32 %39 to i64
   %41 = add nsw i64 %40, -4
   %42 = icmp ugt i64 %41, %36
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %43 = ptrtoint ptr %22 to i64
@@ -2285,7 +2285,7 @@ define dso_local noundef i64 @bitnot(ptr nocapture noundef readonly %0) local_un
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr i8, ptr %5, i64 %28
   %30 = icmp ult ptr %25, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !25
+  br i1 %30, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !24
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %9, align 4
@@ -2502,7 +2502,7 @@ define dso_local i64 @bitshiftleft(ptr nocapture noundef readonly %0) #0 {
   %113 = getelementptr i8, ptr %.08495, i64 1
   %114 = getelementptr i8, ptr %5, i64 %.pre-phi107
   %115 = icmp ult ptr %100, %114
-  br i1 %115, label %95, label %.preheader.loopexit, !llvm.loop !26
+  br i1 %115, label %95, label %.preheader.loopexit, !llvm.loop !25
 
 .lr.ph99:                                         ; preds = %.preheader, %.lr.ph99
   %.198 = phi ptr [ %116, %.lr.ph99 ], [ %.084.lcssa, %.preheader ]
@@ -2513,7 +2513,7 @@ define dso_local i64 @bitshiftleft(ptr nocapture noundef readonly %0) #0 {
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr i8, ptr %20, i64 %119
   %121 = icmp ult ptr %116, %120
-  br i1 %121, label %.lr.ph99, label %.loopexit93, !llvm.loop !27
+  br i1 %121, label %.lr.ph99, label %.loopexit93, !llvm.loop !26
 
 .loopexit93:                                      ; preds = %.lr.ph99, %89, %76, %.preheader, %.lr.ph101.preheader, %51, %41, %.lr.ph.preheader, %10
   %.0 = phi i64 [ %15, %10 ], [ %21, %.lr.ph.preheader ], [ %21, %41 ], [ %21, %51 ], [ %21, %.lr.ph101.preheader ], [ %21, %.preheader ], [ %21, %76 ], [ %21, %89 ], [ %21, %.lr.ph99 ]
@@ -2671,7 +2671,7 @@ define dso_local i64 @bitshiftright(ptr nocapture noundef readonly %0) #0 {
   %91 = zext i8 %90 to i32
   %92 = lshr i32 %91, %54
   %93 = load i8, ptr %.090106, align 1
-  %94 = trunc i32 %92 to i8
+  %94 = trunc nuw nsw i32 %92 to i8
   %95 = or i8 %93, %94
   store i8 %95, ptr %.090106, align 1
   %96 = getelementptr i8, ptr %.090106, i64 1
@@ -2699,7 +2699,7 @@ define dso_local i64 @bitshiftright(ptr nocapture noundef readonly %0) #0 {
   %109 = getelementptr i8, ptr %.089107, i64 1
   %110 = getelementptr i8, ptr %20, i64 %.pre-phi114
   %111 = icmp ult ptr %96, %110
-  br i1 %111, label %89, label %.loopexit, !llvm.loop !28
+  br i1 %111, label %89, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %107, %83, %77
   %112 = phi i32 [ %.pre111, %77 ], [ %23, %83 ], [ %108, %107 ]
@@ -2757,7 +2757,7 @@ define dso_local noundef i64 @bitfromint4(ptr nocapture noundef readonly %0) loc
 
 .lr.ph:                                           ; preds = %1
   %.lobit = ashr i32 %4, 31
-  %18 = trunc i32 %.lobit to i8
+  %18 = trunc nsw i32 %.lobit to i8
   %umax = tail call i32 @llvm.umax.i32(i32 %8, i32 -2147483640)
   %19 = add nsw i32 %umax, 2147483633
   %20 = sub i32 %19, %16
@@ -2805,7 +2805,7 @@ define dso_local noundef i64 @bitfromint4(ptr nocapture noundef readonly %0) loc
   %42 = getelementptr i8, ptr %.24552, i64 1
   store i8 %41, ptr %.24552, align 1
   %43 = icmp ugt i32 %.253, 15
-  br i1 %43, label %.lr.ph55, label %._crit_edge56, !llvm.loop !29
+  br i1 %43, label %.lr.ph55, label %._crit_edge56, !llvm.loop !28
 
 ._crit_edge56:                                    ; preds = %.lr.ph55, %37
   %.245.lcssa = phi ptr [ %.144, %37 ], [ %42, %.lr.ph55 ]
@@ -2826,7 +2826,7 @@ define dso_local noundef i64 @bitfromint4(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bittoint4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bittoint4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2862,7 +2862,7 @@ define dso_local i64 @bittoint4(ptr nocapture noundef readonly %0) local_unnamed
   %23 = or disjoint i32 %20, %22
   %24 = getelementptr i8, ptr %.015, i64 1
   %exitcond.not = icmp eq ptr %24, %18
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   %.013.lcssa = phi i32 [ 0, %13 ], [ %23, %.lr.ph ]
@@ -2901,7 +2901,7 @@ define dso_local noundef i64 @bitfromint8(ptr nocapture noundef readonly %0) loc
 
 .lr.ph:                                           ; preds = %1
   %.lobit = ashr i64 %3, 63
-  %17 = trunc i64 %.lobit to i8
+  %17 = trunc nsw i64 %.lobit to i8
   %umax = tail call i32 @llvm.umax.i32(i32 %7, i32 -2147483640)
   %18 = add nsw i32 %umax, 2147483633
   %19 = sub i32 %18, %15
@@ -2955,10 +2955,10 @@ define dso_local noundef i64 @bitfromint8(ptr nocapture noundef readonly %0) loc
   %43 = getelementptr i8, ptr %.24552, i64 1
   store i8 %42, ptr %.24552, align 1
   %44 = icmp ugt i64 %indvars.iv, 15
-  br i1 %44, label %.lr.ph55, label %._crit_edge56.loopexit, !llvm.loop !31
+  br i1 %44, label %.lr.ph55, label %._crit_edge56.loopexit, !llvm.loop !30
 
 ._crit_edge56.loopexit:                           ; preds = %.lr.ph55
-  %45 = trunc i64 %indvars.iv.next to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge56
 
 ._crit_edge56:                                    ; preds = %._crit_edge56.loopexit, %38
@@ -3017,7 +3017,7 @@ define dso_local i64 @bittoint8(ptr nocapture noundef readonly %0) local_unnamed
   %23 = or disjoint i64 %20, %22
   %24 = getelementptr i8, ptr %.015, i64 1
   %exitcond.not = icmp eq ptr %24, %18
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   %.013.lcssa = phi i64 [ 0, %13 ], [ %23, %.lr.ph ]
@@ -3032,7 +3032,7 @@ define dso_local i64 @bittoint8(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bitposition(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bitposition(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3103,11 +3103,11 @@ define dso_local i64 @bitposition(ptr nocapture noundef readonly %0) local_unnam
 49:                                               ; preds = %.preheader, %.critedge.thread
   %.083103 = phi i32 [ 0, %.preheader ], [ %108, %.critedge.thread ]
   %50 = lshr i32 255, %.083103
-  %51 = trunc i32 %50 to i8
+  %51 = trunc nuw i32 %50 to i8
   %52 = ashr exact i32 -256, %.083103
   %53 = trunc i32 %52 to i8
   %54 = lshr i32 %41, %.083103
-  %55 = trunc i32 %54 to i8
+  %55 = trunc nuw i32 %54 to i8
   %56 = sub nuw nsw i32 8, %.083103
   %57 = shl i32 %23, %56
   %58 = trunc i32 %57 to i8
@@ -3186,7 +3186,7 @@ define dso_local i64 @bitposition(ptr nocapture noundef readonly %0) local_unnam
   %98 = and i32 %96, %97
   %99 = icmp eq i32 %98, 0
   %100 = getelementptr i8, ptr %.08298, i64 1
-  br i1 %99, label %59, label %.critedge.thread, !llvm.loop !33
+  br i1 %99, label %59, label %.critedge.thread, !llvm.loop !32
 
 .critedge:                                        ; preds = %80
   %101 = lshr i32 254, %56
@@ -3204,13 +3204,13 @@ define dso_local i64 @bitposition(ptr nocapture noundef readonly %0) local_unnam
 .critedge.thread:                                 ; preds = %93, %88, %68, %73, %.critedge
   %108 = add nuw nsw i32 %.083103, 1
   %exitcond.not = icmp eq i32 %108, 8
-  br i1 %exitcond.not, label %109, label %49, !llvm.loop !34
+  br i1 %exitcond.not, label %109, label %49, !llvm.loop !33
 
 109:                                              ; preds = %.critedge.thread
   %110 = add i32 %.076105, 1
   %111 = sext i32 %110 to i64
   %112 = icmp ugt i64 %31, %111
-  br i1 %112, label %.preheader, label %.loopexit, !llvm.loop !35
+  br i1 %112, label %.preheader, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %109, %18, %16, %1, %.critedge.thread111
   %.075 = phi i64 [ %107, %.critedge.thread111 ], [ 0, %1 ], [ 1, %16 ], [ 0, %18 ], [ 0, %109 ]
@@ -3282,7 +3282,7 @@ define dso_local noundef i64 @bitsetbit(ptr nocapture noundef readonly %0) local
   %44 = and i64 %39, 268435455
   %45 = getelementptr i8, ptr %33, i64 %44
   %46 = load i8, ptr %45, align 1
-  %47 = trunc i32 %43 to i8
+  %47 = trunc nuw i32 %43 to i8
   %48 = or i8 %46, %47
   %49 = xor i8 %47, -1
   %50 = and i8 %46, %49
@@ -3293,7 +3293,7 @@ define dso_local noundef i64 @bitsetbit(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bitgetbit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bitgetbit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3413,7 +3413,7 @@ attributes #14 = { cold nounwind }
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"pq_writeint32: argument 0"}
 !16 = distinct !{!16, !"pq_writeint32"}
-!17 = !{i32 1, i32 83886081}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
@@ -3431,4 +3431,3 @@ attributes #14 = { cold nounwind }
 !32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}

@@ -839,7 +839,7 @@ Abc_Clock.exit:
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = call i32 @Proof_MarkUsed_rec(ptr noundef %0, i32 noundef %10)
+  %13 = call i32 @Proof_MarkUsed_rec(ptr noundef readonly %0, i32 noundef %10)
   %14 = add nsw i32 %13, %.014.i
   %.val.pre.i = load i32, ptr %5, align 4
   br label %15
@@ -1329,7 +1329,7 @@ define noalias noundef ptr @Sat_ProofCollectCore(ptr nocapture noundef readonly 
   br i1 %32, label %.thread, label %34
 
 .thread:                                          ; preds = %22, %27
-  %33 = tail call noundef i32 @llvm.smax.i32(i32 %.174, i32 %26)
+  %33 = tail call i32 @llvm.smax.i32(i32 %.174, i32 %26)
   br label %34
 
 34:                                               ; preds = %27, %.thread
@@ -1585,7 +1585,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #11
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp sgt i32 %3, %4

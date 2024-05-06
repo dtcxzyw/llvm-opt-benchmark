@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [48 x i8] c"byd: Unrecognized Z: pkt = %02x %02x %02x %02x\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @byd_detect(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -19, 1) i32 @byd_detect(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [4 x i8], align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
@@ -83,7 +83,7 @@ declare dso_local i32 @ps2_command(ptr noundef, ptr noundef, i32 noundef) local_
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @byd_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @byd_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [4 x i8], align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -256,7 +256,7 @@ define internal void @byd_disconnect(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @byd_reconnect(ptr noundef %0) #0 align 16 {
+define internal range(i32 -19, 1) i32 @byd_reconnect(ptr noundef %0) #0 align 16 {
   %2 = alloca [4 x i8], align 4
   br label %3
 
@@ -322,7 +322,7 @@ define internal i32 @byd_reconnect(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @byd_process_byte(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 0, 3) i32 @byd_process_byte(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 232
@@ -376,7 +376,7 @@ define internal noundef i32 @byd_process_byte(ptr nocapture noundef readonly %0)
   %32 = load volatile i64, ptr @jiffies, align 64
   %33 = sub i64 %.0..0..0..0., %32
   %34 = lshr i64 %33, 63
-  %35 = trunc i64 %34 to i8
+  %35 = trunc nuw nsw i64 %34 to i8
   store i8 %35, ptr %25, align 2
   %36 = getelementptr i8, ptr %0, i64 233
   %37 = load i8, ptr %36, align 1

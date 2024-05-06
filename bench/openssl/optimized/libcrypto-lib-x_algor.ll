@@ -91,7 +91,7 @@ entry:
 declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_ALGOR_set0(ptr noundef %alg, ptr noundef %aobj, i32 noundef %ptype, ptr noundef %pval) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509_ALGOR_set0(ptr noundef %alg, ptr noundef %aobj, i32 noundef %ptype, ptr noundef %pval) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %alg, null
   br i1 %cmp, label %return, label %if.end
@@ -339,7 +339,7 @@ declare i32 @OBJ_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ASN1_TYPE_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_ALGOR_copy(ptr noundef %dest, ptr noundef readonly %src) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509_ALGOR_copy(ptr noundef %dest, ptr noundef readonly %src) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %src, null
   %cmp1 = icmp eq ptr %dest, null
@@ -412,7 +412,7 @@ declare ptr @OBJ_dup(ptr noundef) local_unnamed_addr #2
 declare i32 @ASN1_TYPE_set1(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_x509_algor_new_from_md(ptr nocapture noundef writeonly %palg, ptr noundef %md) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_x509_algor_new_from_md(ptr nocapture noundef writeonly %palg, ptr noundef %md) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %md, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -504,7 +504,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @ASN1_TYPE_unpack_sequence(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_x509_algor_md_to_mgf1(ptr nocapture noundef %palg, ptr noundef %mgf1md) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_x509_algor_md_to_mgf1(ptr nocapture noundef %palg, ptr noundef %mgf1md) local_unnamed_addr #1 {
 entry:
   %stmp = alloca ptr, align 8
   store ptr null, ptr %stmp, align 8

@@ -104,7 +104,7 @@ $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
 @.str.12 = private unnamed_addr constant [21 x i8] c"Server shutting down\00", align 1
 @.str.13 = private unnamed_addr constant [77 x i8] c"The server has experienced an internal error.  You will now be disconnected.\00", align 1
 @.str.14 = private unnamed_addr constant [2 x i8] c":\00", align 1
-@rawstream = external thread_local global %class.LogStream, align 8
+@rawstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @g_gamecallback = external local_unnamed_addr global ptr, align 8
 @.str.15 = private unnamed_addr constant [10 x i8] c"LANG_CODE\00", align 1
 @.str.16 = private unnamed_addr constant [8 x i8] c"address\00", align 1
@@ -784,7 +784,7 @@ ehcleanup:                                        ; preds = %if.then.i.i19, %_ZN
 declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiClient22l_display_chat_messageEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiClient22l_display_chat_messageEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cec.addr.i = alloca ptr, align 8
   %__dnew.i.i.i = alloca i64, align 8
@@ -1247,7 +1247,7 @@ entry:
 declare void @_ZN6Client17clearOutChatQueueEv(ptr noundef nonnull align 8 dereferenceable(1746)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiClient18l_get_player_namesEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiClient18l_get_player_namesEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %plist = alloca %"class.std::set", align 8
@@ -1410,7 +1410,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiClient15l_show_formspecEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiClient15l_show_formspecEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i38 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -1896,7 +1896,7 @@ declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @gettext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiClient10l_get_metaEP9lua_State(ptr noundef %L) #5 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiClient10l_get_metaEP9lua_State(ptr noundef %L) #5 align 2 {
 entry:
   %pos_ok = alloca i8, align 1
   %call = tail call i48 @_Z10read_v3s16P9lua_Statei(ptr noundef %L, i32 noundef 1)
@@ -2027,7 +2027,7 @@ declare void @_ZNK7Address15serializeStringB5cxx11Ev(ptr dead_on_unwind writable
 declare void @lua_pushinteger(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiClient14l_get_item_defEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiClient14l_get_item_defEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noundef ptr @_ZN10ModApiBase10getGameDefEP9lua_State(ptr noundef %L)
@@ -2133,7 +2133,7 @@ declare noundef ptr @_ZN10ModApiBase10getGameDefEP9lua_State(ptr noundef) local_
 declare void @_Z25push_item_definition_fullP9lua_StateRK14ItemDefinition(ptr noundef, ptr noundef nonnull align 8 dereferenceable(918)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12ModApiClient14l_get_node_defEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN12ModApiClient14l_get_node_defEP9lua_State(ptr noundef %L) #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noundef ptr @_ZN10ModApiBase10getGameDefEP9lua_State(ptr noundef %L)

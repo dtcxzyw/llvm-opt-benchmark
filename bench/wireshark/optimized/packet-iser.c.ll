@@ -153,7 +153,7 @@ declare void @prefs_register_range_preference(ptr noundef, ptr noundef, ptr noun
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 29) i32 @dissect_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %6 = icmp ult i32 %5, 76
   br i1 %6, label %.thread59, label %7
@@ -268,7 +268,7 @@ define internal noundef i32 @dissect_packet(ptr noundef %0, ptr noundef %1, ptr 
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_iser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_iser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %6 = icmp ult i32 %5, 76
   br i1 %6, label %34, label %7
@@ -315,7 +315,7 @@ define internal noundef i32 @dissect_iser(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not28, label %34, label %32
 
 32:                                               ; preds = %27
-  %33 = tail call i32 @dissect_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr poison), !range !4
+  %33 = tail call i32 @dissect_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr poison)
   br label %34
 
 34:                                               ; preds = %27, %24, %21, %17, %4, %32
@@ -363,4 +363,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 29}

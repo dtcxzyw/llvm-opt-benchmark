@@ -52,7 +52,7 @@ define noundef i64 @stream_stride_delta(ptr nocapture noundef readnone %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stream_read_bit(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stream_read_bit(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %4, label %._crit_edge
@@ -407,7 +407,7 @@ stream_skip.exit:                                 ; preds = %3, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @stream_flush(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define range(i64 0, 64) i64 @stream_flush(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8
   %3 = sub i64 0, %2
   %4 = and i64 %3, 63

@@ -321,7 +321,7 @@ entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (%"class.mygame::Vec3DefaultTypeInternal", ptr @_ZN6mygame23_Vec3_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr @_ZN6mygame23_Vec3_default_instance_E, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.mygame::Vec3DefaultTypeInternal", ptr @_ZN6mygame23_Vec3_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) getelementptr inbounds (%"class.mygame::Vec3DefaultTypeInternal", ptr @_ZN6mygame23_Vec3_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), i8 0, i64 16, i1 false)
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN6mygame23_Vec3_default_instance_E)
   ret void
 }
@@ -365,7 +365,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZN6mygame6personC2Ev.exit:                       ; preds = %entry, %if.then.i.i.i.i
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.mygame::personDefaultTypeInternal", ptr @_ZN6mygame25_person_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.mygame::personDefaultTypeInternal", ptr @_ZN6mygame25_person_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 16), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) getelementptr inbounds (%"class.mygame::personDefaultTypeInternal", ptr @_ZN6mygame25_person_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 16), i8 0, i64 16, i1 false)
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN6mygame25_person_default_instance_E)
   ret void
 }
@@ -402,7 +402,7 @@ entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (%"class.mygame::rect32DefaultTypeInternal", ptr @_ZN6mygame25_rect32_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr @_ZN6mygame25_rect32_default_instance_E, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (%"class.mygame::rect32DefaultTypeInternal", ptr @_ZN6mygame25_rect32_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) getelementptr inbounds (%"class.mygame::rect32DefaultTypeInternal", ptr @_ZN6mygame25_rect32_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), i8 0, i64 20, i1 false)
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN6mygame25_rect32_default_instance_E)
   ret void
 }
@@ -2090,7 +2090,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv.i.i = trunc i64 %1 to i32
   %or.i.i.i = or i32 %conv.i.i, 1
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true), !range !9
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
   %xor.i.i.i.i = xor i32 %2, 31
   %mul.i.i.i = mul nuw nsw i32 %xor.i.i.i.i, 9
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
@@ -2113,7 +2113,7 @@ if.then8:                                         ; preds = %if.end
 
 if.else.i.i:                                      ; preds = %if.then8
   %or.i.i.i6 = or i32 %3, 1
-  %4 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i6, i1 true), !range !9
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i6, i1 true)
   %xor.i.i.i.i7 = xor i32 %4, 31
   %mul.i.i.i8 = mul nuw nsw i32 %xor.i.i.i.i7, 9
   %add.i.i.i9 = add nuw nsw i32 %mul.i.i.i8, 73
@@ -2663,7 +2663,7 @@ delete.notnull.i.i:                               ; preds = %for.body.i
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i: ; preds = %delete.notnull.i.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !9
 
 for.end.loopexit.i:                               ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i
   %.pre.i = load ptr, ptr %rep_.i, align 8
@@ -2876,7 +2876,7 @@ call.i.i.i4.i.noexc:                              ; preds = %if.then.i15.i.i.i
 invoke.cont46:                                    ; preds = %invoke.cont43, %call.i.i.i4.i.noexc
   %x_.i = getelementptr inbounds i8, ptr %call44, i64 16
   %x_3.i = getelementptr inbounds i8, ptr %23, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %x_.i, ptr noundef nonnull align 8 dereferenceable(12) %x_3.i, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %x_.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %x_3.i, i64 12, i1 false)
   br label %invoke.cont50
 
 lpad45:                                           ; preds = %call.i.i.i4.i.noexc, %if.then.i15.i.i.i
@@ -3104,7 +3104,7 @@ delete.notnull.i.i.i:                             ; preds = %for.body.i.i
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i: ; preds = %delete.notnull.i.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !9
 
 for.end.loopexit.i.i:                             ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i
   %.pre.i.i = load ptr, ptr %rep_.i.i, align 8
@@ -3364,7 +3364,7 @@ if.then.i3.i.i.i.i.i:                             ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE5ClearEPS4_.exit.i.i: ; preds = %if.then.i3.i.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i, %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !10
 
 do.end.i.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6WeaponEE5ClearEPS4_.exit.i.i
   store i32 0, ptr %current_size_.i.i, align 8
@@ -3413,7 +3413,7 @@ if.then.i3.i.i.i.i.i18:                           ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE5ClearEPS4_.exit.i.i: ; preds = %if.then.i3.i.i.i.i.i18, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i15, %do.body.i.i9
   %exitcond.not.i.i19 = icmp eq i64 %indvars.iv.next.i.i11, %wide.trip.count.i.i8
-  br i1 %exitcond.not.i.i19, label %do.end.i.i20, label %do.body.i.i9, !llvm.loop !12
+  br i1 %exitcond.not.i.i19, label %do.end.i.i20, label %do.body.i.i9, !llvm.loop !11
 
 do.end.i.i20:                                     ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE5ClearEPS4_.exit.i.i
   store i32 0, ptr %current_size_.i.i3, align 8
@@ -3731,7 +3731,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5Ar
   store ptr %retval.i.0.i.i, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr %call.i.sink8.i.i.i, ptr %pos_.i, align 8
   br label %_ZN6mygame7Monster21_internal_mutable_posEv.exit
 
@@ -3980,7 +3980,7 @@ if.end105:                                        ; preds = %if.then6.i.i85, %if
 
 while.cond.backedge:                              ; preds = %if.end165, %do.cond169, %if.end124, %do.cond, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %if.end105, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54, %_ZN6mygame7Monster27_internal_mutable_inventoryB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6mygame7Monster22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN6mygame4Vec3EEEPKcPT_S7_.exit, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN6mygame6WeaponEEEPKcPT_S7_.exit179
   %ptr.addr.0.be = phi ptr [ %call180, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %call5.i165, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN6mygame6WeaponEEEPKcPT_S7_.exit179 ], [ %retval.0.i.i84267, %if.end105 ], [ %call84, %_ZN6mygame7Monster27_internal_mutable_inventoryB5cxx11Ev.exit ], [ %call61, %_ZN6mygame7Monster22_internal_mutable_nameB5cxx11Ev.exit ], [ %33, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54 ], [ %29, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %call5.i, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN6mygame4Vec3EEEPKcPT_S7_.exit ], [ %retval.0.i.i34.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %retval.0.i.i48.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit54.thread ], [ %call5.i115, %do.cond ], [ %call5.i115, %if.end124 ], [ %call5.i204, %do.cond169 ], [ %call5.i204, %if.end165 ]
-  br label %while.cond, !llvm.loop !13
+  br label %while.cond, !llvm.loop !12
 
 sw.bb109:                                         ; preds = %if.end
   %conv111 = and i32 %tag.0259, 255
@@ -4115,7 +4115,7 @@ if.end124:                                        ; preds = %if.end8.i117
 do.cond:                                          ; preds = %if.end124
   %70 = load i8, ptr %call5.i115, align 1
   %cmp.i130 = icmp eq i8 %70, 58
-  br i1 %cmp.i130, label %do.body, label %while.cond.backedge, !llvm.loop !14
+  br i1 %cmp.i130, label %do.body, label %while.cond.backedge, !llvm.loop !13
 
 sw.bb131:                                         ; preds = %if.end
   %conv133 = and i32 %tag.0259, 255
@@ -4289,7 +4289,7 @@ if.end165:                                        ; preds = %if.end8.i206
 do.cond169:                                       ; preds = %if.end165
   %97 = load i8, ptr %call5.i204, align 1
   %cmp.i220 = icmp eq i8 %97, 74
-  br i1 %cmp.i220, label %do.body157, label %while.cond.backedge, !llvm.loop !15
+  br i1 %cmp.i220, label %do.body157, label %while.cond.backedge, !llvm.loop !14
 
 handle_unusual:                                   ; preds = %if.end, %sw.bb148, %sw.bb131, %sw.bb109, %sw.bb92, %sw.bb74, %sw.bb52, %sw.bb35, %sw.bb18, %sw.bb
   %and = and i32 %tag.0259, 7
@@ -4424,7 +4424,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
   %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
-  br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !16
+  br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !15
 
 do.end.i.i:                                       ; preds = %do.body.i.i
   %conv15.i.i = trunc nuw nsw i32 %shr11.i.i to i8
@@ -4787,7 +4787,7 @@ do.body.i.i165:                                   ; preds = %do.body.i.i165, %if
   %shr11.i.i169 = lshr i32 %value.addr.i.0.i167, 7
   %incdec.ptr12.i.i170 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i166, i64 1
   %cmp13.i.i171 = icmp ugt i32 %value.addr.i.0.i167, 16383
-  br i1 %cmp13.i.i171, label %do.body.i.i165, label %do.end.i.i172, !llvm.loop !16
+  br i1 %cmp13.i.i171, label %do.body.i.i165, label %do.end.i.i172, !llvm.loop !15
 
 do.end.i.i172:                                    ; preds = %do.body.i.i165
   %conv15.i.i173 = trunc nuw nsw i32 %shr11.i.i169 to i8
@@ -4800,7 +4800,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit182: ; p
   %call3.i117 = tail call noundef ptr @_ZNK6mygame6Weapon18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull %retval.i.0.i175, ptr noundef nonnull %stream)
   %inc = add nuw i32 %i.0263, 1
   %exitcond.not = icmp eq i32 %inc, %29
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit182, %if.end43
   %target.addr.6.lcssa = phi ptr [ %target.addr.5, %if.end43 ], [ %call3.i117, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit182 ]
@@ -4863,7 +4863,7 @@ do.body.i.i202:                                   ; preds = %do.body.i.i202, %if
   %shr11.i.i206 = lshr i32 %value.addr.i.0.i204, 7
   %incdec.ptr12.i.i207 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i203, i64 1
   %cmp13.i.i208 = icmp ugt i32 %value.addr.i.0.i204, 16383
-  br i1 %cmp13.i.i208, label %do.body.i.i202, label %do.end.i.i209, !llvm.loop !16
+  br i1 %cmp13.i.i208, label %do.body.i.i202, label %do.end.i.i209, !llvm.loop !15
 
 do.end.i.i209:                                    ; preds = %do.body.i.i202
   %conv15.i.i210 = trunc nuw nsw i32 %shr11.i.i206 to i8
@@ -4945,7 +4945,7 @@ do.body.i.i242:                                   ; preds = %do.body.i.i242, %if
   %shr11.i.i246 = lshr i32 %value.addr.i.0.i244, 7
   %incdec.ptr12.i.i247 = getelementptr inbounds i8, ptr %ptr.addr.i.0.i243, i64 1
   %cmp13.i.i248 = icmp ugt i32 %value.addr.i.0.i244, 16383
-  br i1 %cmp13.i.i248, label %do.body.i.i242, label %do.end.i.i249, !llvm.loop !16
+  br i1 %cmp13.i.i248, label %do.body.i.i242, label %do.end.i.i249, !llvm.loop !15
 
 do.end.i.i249:                                    ; preds = %do.body.i.i242
   %conv15.i.i250 = trunc nuw nsw i32 %shr11.i.i246 to i8
@@ -4958,7 +4958,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit259: ; p
   %call3.i88 = tail call noundef ptr @_ZNK6mygame4Vec318_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull %retval.i.0.i252, ptr noundef nonnull %stream)
   %inc65 = add nuw i32 %i55.0267, 1
   %exitcond270.not = icmp eq i32 %inc65, %41
-  br i1 %exitcond270.not, label %for.end66, label %for.body60, !llvm.loop !18
+  br i1 %exitcond270.not, label %for.end66, label %for.body60, !llvm.loop !17
 
 for.end66:                                        ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit259, %if.end54
   %target.addr.8.lcssa = phi ptr [ %target.addr.7, %if.end54 ], [ %call3.i88, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit259 ]
@@ -5010,7 +5010,7 @@ for.body:                                         ; preds = %entry, %_ZN6google8
 if.then.i.i:                                      ; preds = %for.body
   %conv.i.i.i.i = trunc i64 %4 to i32
   %or.i.i.i.i.i = or i32 %conv.i.i.i.i, 1
-  %5 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i.i.i, i1 true), !range !9
+  %5 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i = xor i32 %5, 31
   %mul.i.i.i.i.i = mul nuw nsw i32 %xor.i.i.i.i.i.i, 9
   %add.i.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i.i, 73
@@ -5033,7 +5033,7 @@ if.then8.i.i:                                     ; preds = %if.end.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then8.i.i
   %or.i.i.i6.i.i = or i32 %6, 1
-  %7 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i6.i.i, i1 true), !range !9
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i6.i.i, i1 true)
   %xor.i.i.i.i7.i.i = xor i32 %7, 31
   %mul.i.i.i8.i.i = mul nuw nsw i32 %xor.i.i.i.i7.i.i, 9
   %add.i.i.i9.i.i = add nuw nsw i32 %mul.i.i.i8.i.i, 73
@@ -5072,7 +5072,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT
   %conv.i.pre-phi.i = phi i32 [ %.pre.i, %if.then15.i.i ], [ %conv.i.i.i, %if.end18.i.i ]
   %retval.0.i.i = phi i64 [ %call17.i.i, %if.then15.i.i ], [ %total_size.1.i.i, %if.end18.i.i ]
   %or.i.i.i = or i32 %conv.i.pre-phi.i, 1
-  %11 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true), !range !9
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
   %xor.i.i.i.i = xor i32 %11, 31
   %mul.i.i.i = mul nuw nsw i32 %xor.i.i.i.i, 9
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
@@ -5140,7 +5140,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.
   %conv.i.pre-phi.i41 = phi i32 [ %.pre.i40, %if.then21.i.i ], [ %conv.i.i.i50, %if.end24.i.i ]
   %retval.0.i.i42 = phi i64 [ %call23.i.i, %if.then21.i.i ], [ %total_size.2.i.i, %if.end24.i.i ]
   %or.i.i.i43 = or i32 %conv.i.pre-phi.i41, 1
-  %20 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i43, i1 true), !range !9
+  %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i43, i1 true)
   %xor.i.i.i.i44 = xor i32 %20, 31
   %mul.i.i.i45 = mul nuw nsw i32 %xor.i.i.i.i44, 9
   %add.i.i.i46 = add nuw nsw i32 %mul.i.i.i45, 73
@@ -5164,7 +5164,7 @@ for.end30:                                        ; preds = %_ZN6google8protobuf
 if.then:                                          ; preds = %for.end30
   %conv.i.i = trunc i64 %22 to i32
   %or.i.i.i53 = or i32 %conv.i.i, 1
-  %23 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i53, i1 true), !range !9
+  %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i53, i1 true)
   %xor.i.i.i.i54 = xor i32 %23, 31
   %mul.i.i.i55 = mul nuw nsw i32 %xor.i.i.i.i54, 9
   %add.i.i.i56 = add nuw nsw i32 %mul.i.i.i55, 73
@@ -5187,7 +5187,7 @@ if.end:                                           ; preds = %if.then, %for.end30
 if.then40:                                        ; preds = %if.end
   %conv.i.i62 = trunc i64 %25 to i32
   %or.i.i.i63 = or i32 %conv.i.i62, 1
-  %26 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i63, i1 true), !range !9
+  %26 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i63, i1 true)
   %xor.i.i.i.i64 = xor i32 %26, 31
   %mul.i.i.i65 = mul nuw nsw i32 %xor.i.i.i.i64, 9
   %add.i.i.i66 = add nuw nsw i32 %mul.i.i.i65, 73
@@ -5245,7 +5245,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame4Vec3EEEmRKT_.
   %conv.i.pre-phi.i89 = phi i32 [ %.pre.i88, %if.then21.i.i85 ], [ %conv.i.i.i99, %if.end24.i.i98 ]
   %retval.0.i.i90 = phi i64 [ %call23.i.i87, %if.then21.i.i85 ], [ %total_size.2.i.i81, %if.end24.i.i98 ]
   %or.i.i.i91 = or i32 %conv.i.pre-phi.i89, 1
-  %34 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i91, i1 true), !range !9
+  %34 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i91, i1 true)
   %xor.i.i.i.i92 = xor i32 %34, 31
   %mul.i.i.i93 = mul nuw nsw i32 %xor.i.i.i.i92, 9
   %add.i.i.i94 = add nuw nsw i32 %mul.i.i.i93, 73
@@ -5275,7 +5275,7 @@ if.then53:                                        ; preds = %if.end51
 if.then.i.i107:                                   ; preds = %if.then53
   %conv.i.i.i.i108 = trunc i64 %38 to i32
   %or.i.i.i.i.i109 = or i32 %conv.i.i.i.i108, 1
-  %39 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i.i.i109, i1 true), !range !9
+  %39 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i.i109, i1 true)
   %xor.i.i.i.i.i.i110 = xor i32 %39, 31
   %mul.i.i.i.i.i111 = mul nuw nsw i32 %xor.i.i.i.i.i.i110, 9
   %add.i.i.i.i.i112 = add nuw nsw i32 %mul.i.i.i.i.i111, 73
@@ -5298,7 +5298,7 @@ if.then8.i.i121:                                  ; preds = %if.end.i.i117
 
 if.else.i.i.i.i123:                               ; preds = %if.then8.i.i121
   %or.i.i.i6.i.i124 = or i32 %40, 1
-  %41 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i6.i.i124, i1 true), !range !9
+  %41 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i6.i.i124, i1 true)
   %xor.i.i.i.i7.i.i125 = xor i32 %41, 31
   %mul.i.i.i8.i.i126 = mul nuw nsw i32 %xor.i.i.i.i7.i.i125, 9
   %add.i.i.i9.i.i127 = add nuw nsw i32 %mul.i.i.i8.i.i126, 73
@@ -5337,7 +5337,7 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN6mygame6WeaponEEEmRKT
   %conv.i.pre-phi.i142 = phi i32 [ %.pre.i141, %if.then15.i.i138 ], [ %conv.i.i.i152, %if.end18.i.i151 ]
   %retval.0.i.i143 = phi i64 [ %call17.i.i140, %if.then15.i.i138 ], [ %total_size.1.i.i134, %if.end18.i.i151 ]
   %or.i.i.i144 = or i32 %conv.i.pre-phi.i142, 1
-  %45 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i144, i1 true), !range !9
+  %45 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i144, i1 true)
   %xor.i.i.i.i145 = xor i32 %45, 31
   %mul.i.i.i146 = mul nuw nsw i32 %xor.i.i.i.i145, 9
   %add.i.i.i147 = add nuw nsw i32 %mul.i.i.i146, 73
@@ -5361,7 +5361,7 @@ if.then60:                                        ; preds = %if.end57
 
 if.else.i.i:                                      ; preds = %if.then60
   %or.i.i.i155 = or i32 %46, 1
-  %47 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i155, i1 true), !range !9
+  %47 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i155, i1 true)
   %xor.i.i.i.i156 = xor i32 %47, 31
   %mul.i.i.i157 = mul nuw nsw i32 %xor.i.i.i.i156, 9
   %add.i.i.i158 = add nuw nsw i32 %mul.i.i.i157, 73
@@ -5388,7 +5388,7 @@ if.then68:                                        ; preds = %if.end65
 
 if.else.i.i163:                                   ; preds = %if.then68
   %or.i.i.i164 = or i32 %49, 1
-  %50 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i164, i1 true), !range !9
+  %50 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i164, i1 true)
   %xor.i.i.i.i165 = xor i32 %50, 31
   %mul.i.i.i166 = mul nuw nsw i32 %xor.i.i.i.i165, 9
   %add.i.i.i167 = add nuw nsw i32 %mul.i.i.i166, 73
@@ -5415,7 +5415,7 @@ if.then76:                                        ; preds = %if.end73
 
 if.else.i.i173:                                   ; preds = %if.then76
   %or.i.i.i174 = or i32 %52, 1
-  %53 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i174, i1 true), !range !9
+  %53 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i174, i1 true)
   %xor.i.i.i.i175 = xor i32 %53, 31
   %mul.i.i.i176 = mul nuw nsw i32 %xor.i.i.i.i175, 9
   %add.i.i.i177 = add nuw nsw i32 %mul.i.i.i176, 73
@@ -5654,7 +5654,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5Ar
   store ptr %retval.i.0.i.i33, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr %call.i.sink8.i.i.i, ptr %pos_.i, align 8
   %.pre = load ptr, ptr %pos_.i.i, align 8
   br label %_ZN6mygame7Monster21_internal_mutable_posEv.exit
@@ -6044,7 +6044,7 @@ delete.notnull.i.i:                               ; preds = %for.body.i
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i: ; preds = %delete.notnull.i.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !18
 
 for.end.loopexit.i:                               ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i
   %.pre.i = load ptr, ptr %rep_.i, align 8
@@ -6237,7 +6237,7 @@ delete.notnull.i.i.i:                             ; preds = %for.body.i.i
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i: ; preds = %delete.notnull.i.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !18
 
 for.end.loopexit.i.i:                             ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame7MonsterEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i
   %.pre.i.i = load ptr, ptr %rep_.i.i, align 8
@@ -6312,7 +6312,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   tail call void @_ZN6mygame7Monster5ClearEv(ptr noundef nonnull align 8 dereferenceable(112) %2)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !19
 
 do.end.i.i:                                       ; preds = %do.body.i.i
   store i32 0, ptr %current_size_.i.i, align 8
@@ -6545,11 +6545,11 @@ if.end17:                                         ; preds = %if.end8.i
 do.cond:                                          ; preds = %if.end17
   %31 = load i8, ptr %call5.i, align 1
   %cmp.i20 = icmp eq i8 %31, 10
-  br i1 %cmp.i20, label %do.body, label %while.cond.backedge, !llvm.loop !21
+  br i1 %cmp.i20, label %do.body, label %while.cond.backedge, !llvm.loop !20
 
 while.cond.backedge:                              ; preds = %if.end17, %do.cond, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
   %ptr.addr.0.be = phi ptr [ %call29, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %call5.i, %do.cond ], [ %call5.i, %if.end17 ]
-  br label %while.cond, !llvm.loop !22
+  br label %while.cond, !llvm.loop !21
 
 handle_unusual:                                   ; preds = %if.end
   %and = and i32 %tag.045, 7
@@ -6691,7 +6691,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
   %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
-  br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !16
+  br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !15
 
 do.end.i.i:                                       ; preds = %do.body.i.i
   %conv15.i.i = trunc nuw nsw i32 %shr11.i.i to i8
@@ -6704,7 +6704,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   %call3.i13 = tail call noundef ptr @_ZNK6mygame7Monster18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull %retval.i.0.i, ptr noundef nonnull %stream)
   %inc = add nuw i32 %i.016, 1
   %exitcond.not = icmp eq i32 %inc, %0
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, %entry
   %target.addr.0.lcssa = phi ptr [ %target, %entry ], [ %call3.i13, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit ]
@@ -6749,7 +6749,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call.i = tail call noundef i64 @_ZNK6mygame7Monster12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(112) %2)
   %conv.i.i = trunc i64 %call.i to i32
   %or.i.i.i = or i32 %conv.i.i, 1
-  %3 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true), !range !9
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
   %xor.i.i.i.i = xor i32 %3, 31
   %mul.i.i.i = mul nuw nsw i32 %xor.i.i.i.i, 9
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
@@ -6903,7 +6903,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   %2 = load ptr, ptr %arrayidx.i.i.i, align 8
   tail call void @_ZN6mygame7Monster5ClearEv(ptr noundef nonnull align 8 dereferenceable(112) %2)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %do.end.i.i.i, label %do.body.i.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i.i, label %do.end.i.i.i, label %do.body.i.i.i, !llvm.loop !19
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
   store i32 0, ptr %current_size_.i.i.i, align 8
@@ -6974,7 +6974,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   %2 = load ptr, ptr %arrayidx.i.i.i, align 8
   tail call void @_ZN6mygame7Monster5ClearEv(ptr noundef nonnull align 8 dereferenceable(112) %2)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %do.end.i.i.i, label %do.body.i.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i.i, label %do.end.i.i.i, label %do.body.i.i.i, !llvm.loop !19
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
   store i32 0, ptr %current_size_.i.i.i, align 8
@@ -7622,7 +7622,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit65.thread: ; preds = %if.the
 
 while.cond.backedge:                              ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit65.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit46.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit27.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit27, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit46, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit65, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
   %ptr.addr.0.be = phi ptr [ %call75, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %24, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit65 ], [ %20, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit46 ], [ %16, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit27 ], [ %12, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %retval.0.i.i7.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %retval.0.i.i21.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit27.thread ], [ %retval.0.i.i40.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit46.thread ], [ %retval.0.i.i59.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit65.thread ]
-  br label %while.cond, !llvm.loop !24
+  br label %while.cond, !llvm.loop !23
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit65: ; preds = %if.end.i.i49
   %call.i.i.i57 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %retval.0.i95, i32 noundef %add.i.i54)
@@ -8008,7 +8008,7 @@ if.then:                                          ; preds = %entry
 
 if.else.i.i:                                      ; preds = %if.then
   %or.i.i.i = or i32 %0, 1
-  %1 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true), !range !9
+  %1 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
   %xor.i.i.i.i = xor i32 %1, 31
   %mul.i.i.i = mul nuw nsw i32 %xor.i.i.i.i, 9
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
@@ -8030,7 +8030,7 @@ if.then7:                                         ; preds = %if.end
 
 if.else.i.i9:                                     ; preds = %if.then7
   %or.i.i.i10 = or i32 %3, 1
-  %4 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i10, i1 true), !range !9
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i10, i1 true)
   %xor.i.i.i.i11 = xor i32 %4, 31
   %mul.i.i.i12 = mul nuw nsw i32 %xor.i.i.i.i11, 9
   %add.i.i.i13 = add nuw nsw i32 %mul.i.i.i12, 73
@@ -8057,7 +8057,7 @@ if.then15:                                        ; preds = %if.end12
 
 if.else.i.i19:                                    ; preds = %if.then15
   %or.i.i.i20 = or i32 %6, 1
-  %7 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i20, i1 true), !range !9
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i20, i1 true)
   %xor.i.i.i.i21 = xor i32 %7, 31
   %mul.i.i.i22 = mul nuw nsw i32 %xor.i.i.i.i21, 9
   %add.i.i.i23 = add nuw nsw i32 %mul.i.i.i22, 73
@@ -8084,7 +8084,7 @@ if.then23:                                        ; preds = %if.end20
 
 if.else.i.i29:                                    ; preds = %if.then23
   %or.i.i.i30 = or i32 %9, 1
-  %10 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i30, i1 true), !range !9
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i30, i1 true)
   %xor.i.i.i.i31 = xor i32 %10, 31
   %mul.i.i.i32 = mul nuw nsw i32 %xor.i.i.i.i31, 9
   %add.i.i.i33 = add nuw nsw i32 %mul.i.i.i32, 73
@@ -8790,7 +8790,7 @@ if.then.i3.i.i.i.i.i:                             ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE5ClearEPS4_.exit.i.i: ; preds = %if.then.i3.i.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i, %do.body.i.i
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !25
+  br i1 %exitcond.not.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !24
 
 do.end.i.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE5ClearEPS4_.exit.i.i
   store i32 0, ptr %current_size_.i.i, align 8
@@ -8966,11 +8966,11 @@ if.end17:                                         ; preds = %if.end8.i
 do.cond:                                          ; preds = %if.end17
   %20 = load i8, ptr %call5.i, align 1
   %cmp.i21 = icmp eq i8 %20, 10
-  br i1 %cmp.i21, label %do.body, label %while.cond.backedge, !llvm.loop !26
+  br i1 %cmp.i21, label %do.body, label %while.cond.backedge, !llvm.loop !25
 
 while.cond.backedge:                              ; preds = %if.end17, %do.cond, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
   %ptr.addr.0.be = phi ptr [ %call29, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %call5.i, %do.cond ], [ %call5.i, %if.end17 ]
-  br label %while.cond, !llvm.loop !27
+  br label %while.cond, !llvm.loop !26
 
 handle_unusual:                                   ; preds = %if.end
   %and = and i32 %tag.046, 7
@@ -9112,7 +9112,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
   %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
-  br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !16
+  br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !15
 
 do.end.i.i:                                       ; preds = %do.body.i.i
   %conv15.i.i = trunc nuw nsw i32 %shr11.i.i to i8
@@ -9125,7 +9125,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   %call3.i13 = tail call noundef ptr @_ZNK6mygame6rect3218_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %retval.i.0.i, ptr noundef nonnull %stream)
   %inc = add nuw i32 %i.016, 1
   %exitcond.not = icmp eq i32 %inc, %0
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !27
 
 for.end:                                          ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, %entry
   %target.addr.0.lcssa = phi ptr [ %target, %entry ], [ %call3.i13, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit ]
@@ -9170,7 +9170,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call.i = tail call noundef i64 @_ZNK6mygame6rect3212ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
   %conv.i.i = trunc i64 %call.i to i32
   %or.i.i.i = or i32 %conv.i.i, 1
-  %3 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true), !range !9
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
   %xor.i.i.i.i = xor i32 %3, 31
   %mul.i.i.i = mul nuw nsw i32 %xor.i.i.i.i, 9
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
@@ -9347,7 +9347,7 @@ if.then.i3.i.i.i.i.i.i:                           ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE5ClearEPS4_.exit.i.i.i: ; preds = %if.then.i3.i.i.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i.i, %do.body.i.i.i
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %do.end.i.i.i, label %do.body.i.i.i, !llvm.loop !25
+  br i1 %exitcond.not.i.i.i, label %do.end.i.i.i, label %do.body.i.i.i, !llvm.loop !24
 
 do.end.i.i.i:                                     ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE5ClearEPS4_.exit.i.i.i
   store i32 0, ptr %current_size_.i.i.i, align 8
@@ -9441,7 +9441,7 @@ if.then.i3.i.i.i.i.i.i:                           ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE5ClearEPS4_.exit.i.i.i: ; preds = %if.then.i3.i.i.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i.i, %do.body.i.i.i
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %do.end.i.i.i, label %do.body.i.i.i, !llvm.loop !25
+  br i1 %exitcond.not.i.i.i, label %do.end.i.i.i, label %do.body.i.i.i, !llvm.loop !24
 
 do.end.i.i.i:                                     ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE5ClearEPS4_.exit.i.i.i
   store i32 0, ptr %current_size_.i.i.i, align 8
@@ -10073,7 +10073,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32.thread: ; preds = %if.the
 
 while.cond.backedge:                              ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %if.then64, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6mygame6person22_internal_mutable_nameB5cxx11Ev.exit
   %ptr.addr.0.be = phi ptr [ %call74, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %add.ptr, %if.then64 ], [ %22, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32 ], [ %call27, %_ZN6mygame6person22_internal_mutable_nameB5cxx11Ev.exit ], [ %12, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %retval.0.i.i10.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %retval.0.i.i26.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32.thread ]
-  br label %while.cond, !llvm.loop !29
+  br label %while.cond, !llvm.loop !28
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit32: ; preds = %if.end.i.i16
   %call.i.i.i24 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %retval.0.i61, i32 noundef %add.i.i21)
@@ -10405,7 +10405,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv.i.i = trunc i64 %1 to i32
   %or.i.i.i = or i32 %conv.i.i, 1
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true), !range !9
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
   %xor.i.i.i.i = xor i32 %2, 31
   %mul.i.i.i = mul nuw nsw i32 %xor.i.i.i.i, 9
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
@@ -10428,7 +10428,7 @@ if.then8:                                         ; preds = %if.end
 
 if.else.i.i:                                      ; preds = %if.then8
   %or.i.i.i8 = or i32 %3, 1
-  %4 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i8, i1 true), !range !9
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i8, i1 true)
   %xor.i.i.i.i9 = xor i32 %4, 31
   %mul.i.i.i10 = mul nuw nsw i32 %xor.i.i.i.i9, 9
   %add.i.i.i11 = add nuw nsw i32 %mul.i.i.i10, 73
@@ -10455,7 +10455,7 @@ if.then16:                                        ; preds = %if.end13
 
 if.else.i.i15:                                    ; preds = %if.then16
   %or.i.i.i16 = or i32 %6, 1
-  %7 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i16, i1 true), !range !9
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i16, i1 true)
   %xor.i.i.i.i17 = xor i32 %7, 31
   %mul.i.i.i18 = mul nuw nsw i32 %xor.i.i.i.i17, 9
   %add.i.i.i19 = add nuw nsw i32 %mul.i.i.i18, 73
@@ -10990,7 +10990,7 @@ delete.notnull.i.i:                               ; preds = %for.body.i
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i: ; preds = %delete.notnull.i.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !29
 
 for.end.loopexit.i:                               ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i
   %.pre.i = load ptr, ptr %rep_.i, align 8
@@ -11183,7 +11183,7 @@ delete.notnull.i.i.i:                             ; preds = %for.body.i.i
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i: ; preds = %delete.notnull.i.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !30
+  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !29
 
 for.end.loopexit.i.i:                             ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i
   %.pre.i.i = load ptr, ptr %rep_.i.i, align 8
@@ -11294,7 +11294,7 @@ if.then.i3.i.i.i.i.i:                             ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE5ClearEPS4_.exit.i.i: ; preds = %if.then.i3.i.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i, %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !31
+  br i1 %exitcond.not.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !30
 
 do.end.i.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE5ClearEPS4_.exit.i.i
   store i32 0, ptr %current_size_.i.i, align 8
@@ -11527,11 +11527,11 @@ if.end17:                                         ; preds = %if.end8.i
 do.cond:                                          ; preds = %if.end17
   %31 = load i8, ptr %call5.i, align 1
   %cmp.i20 = icmp eq i8 %31, 10
-  br i1 %cmp.i20, label %do.body, label %while.cond.backedge, !llvm.loop !32
+  br i1 %cmp.i20, label %do.body, label %while.cond.backedge, !llvm.loop !31
 
 while.cond.backedge:                              ; preds = %if.end17, %do.cond, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
   %ptr.addr.0.be = phi ptr [ %call29, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %call5.i, %do.cond ], [ %call5.i, %if.end17 ]
-  br label %while.cond, !llvm.loop !33
+  br label %while.cond, !llvm.loop !32
 
 handle_unusual:                                   ; preds = %if.end
   %and = and i32 %tag.045, 7
@@ -11673,7 +11673,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %shr11.i.i = lshr i32 %value.addr.i.0.i, 7
   %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.i, i64 1
   %cmp13.i.i = icmp ugt i32 %value.addr.i.0.i, 16383
-  br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !16
+  br i1 %cmp13.i.i, label %do.body.i.i, label %do.end.i.i, !llvm.loop !15
 
 do.end.i.i:                                       ; preds = %do.body.i.i
   %conv15.i.i = trunc nuw nsw i32 %shr11.i.i to i8
@@ -11686,7 +11686,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   %call3.i13 = tail call noundef ptr @_ZNK6mygame6person18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %retval.i.0.i, ptr noundef nonnull %stream)
   %inc = add nuw i32 %i.016, 1
   %exitcond.not = icmp eq i32 %inc, %0
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !34
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !33
 
 for.end:                                          ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, %entry
   %target.addr.0.lcssa = phi ptr [ %target, %entry ], [ %call3.i13, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit ]
@@ -11772,7 +11772,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %conv.i.i.i = trunc i64 %1 to i32
   %or.i.i.i.i = or i32 %conv.i.i.i, 1
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i.i, i1 true), !range !9
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i, i1 true)
   %xor.i.i.i.i.i = xor i32 %2, 31
   %mul.i.i.i.i = mul nuw nsw i32 %xor.i.i.i.i.i, 9
   %add.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i, 73
@@ -11795,7 +11795,7 @@ if.then8.i:                                       ; preds = %if.end.i
 
 if.else.i.i.i:                                    ; preds = %if.then8.i
   %or.i.i.i8.i = or i32 %3, 1
-  %4 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i8.i, i1 true), !range !9
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i8.i, i1 true)
   %xor.i.i.i.i9.i = xor i32 %4, 31
   %mul.i.i.i10.i = mul nuw nsw i32 %xor.i.i.i.i9.i, 9
   %add.i.i.i11.i = add nuw nsw i32 %mul.i.i.i10.i, 73
@@ -11822,7 +11822,7 @@ if.then16.i:                                      ; preds = %if.end13.i
 
 if.else.i.i15.i:                                  ; preds = %if.then16.i
   %or.i.i.i16.i = or i32 %6, 1
-  %7 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i.i16.i, i1 true), !range !9
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i16.i, i1 true)
   %xor.i.i.i.i17.i = xor i32 %7, 31
   %mul.i.i.i18.i = mul nuw nsw i32 %xor.i.i.i.i17.i, 9
   %add.i.i.i19.i = add nuw nsw i32 %mul.i.i.i18.i, 73
@@ -11866,7 +11866,7 @@ _ZNK6mygame6person12ByteSizeLongEv.exit:          ; preds = %if.then30.i, %if.en
   %conv.i.pre-phi = phi i32 [ %.pre, %if.then30.i ], [ %conv.i.i, %if.end33.i ]
   %retval.0.i = phi i64 [ %call32.i, %if.then30.i ], [ %total_size.3.i, %if.end33.i ]
   %or.i.i = or i32 %conv.i.pre-phi, 1
-  %12 = tail call i32 @llvm.ctlz.i32(i32 %or.i.i, i1 true), !range !9
+  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i, i1 true)
   %xor.i.i.i = xor i32 %12, 31
   %mul.i.i = mul nuw nsw i32 %xor.i.i.i, 9
   %add.i.i = add nuw nsw i32 %mul.i.i, 73
@@ -12029,7 +12029,7 @@ if.then.i3.i.i.i.i.i.i:                           ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE5ClearEPS4_.exit.i.i.i: ; preds = %if.then.i3.i.i.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i.i, %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i.i
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %do.end.i.i.i, label %do.body.i.i.i, !llvm.loop !31
+  br i1 %exitcond.not.i.i.i, label %do.end.i.i.i, label %do.body.i.i.i, !llvm.loop !30
 
 do.end.i.i.i:                                     ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE5ClearEPS4_.exit.i.i.i
   store i32 0, ptr %current_size_.i.i.i, align 8
@@ -12136,7 +12136,7 @@ if.then.i3.i.i.i.i.i.i:                           ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE5ClearEPS4_.exit.i.i.i: ; preds = %if.then.i3.i.i.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i.i.i.i, %_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.i.i.i.i.i
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %do.end.i.i.i, label %do.body.i.i.i, !llvm.loop !31
+  br i1 %exitcond.not.i.i.i, label %do.end.i.i.i, label %do.body.i.i.i, !llvm.loop !30
 
 do.end.i.i.i:                                     ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6personEE5ClearEPS4_.exit.i.i.i
   store i32 0, ptr %current_size_.i.i.i, align 8
@@ -12359,7 +12359,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame4Vec3EEEPT_PS1_.exit: ;
   store ptr %.sink, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call.i.sink8, align 8
   %x_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.sink8
 }
 
@@ -12632,7 +12632,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6rect32EEEPT_PS1_.exit:
   store ptr %.sink, ptr %_internal_metadata_.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr %call.i.sink8, align 8
   %x_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %x_.i.i.i, i8 0, i64 20, i1 false)
   ret ptr %call.i.sink8
 }
 
@@ -12780,7 +12780,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6personEEEPT_PS1_.exit:
   %name_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink11, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i.i, align 8
   %id_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink11, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %id_.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.sink11
 }
 
@@ -12864,7 +12864,7 @@ entry:
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8
   %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.i.i
 }
 
@@ -12898,7 +12898,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5Ar
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call.i.sink8.i.i, align 8
   %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.sink8.i.i
 }
 
@@ -13084,7 +13084,7 @@ entry:
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8
   %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %x_.i.i.i.i.i, i8 0, i64 20, i1 false)
   ret ptr %call.i.i.i
 }
 
@@ -13118,7 +13118,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame6rect32EEEPT_PNS0_5
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr %call.i.sink8.i.i, align 8
   %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %x_.i.i.i.i.i, i8 0, i64 20, i1 false)
   ret ptr %call.i.sink8.i.i
 }
 
@@ -13210,7 +13210,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN6mygame6personEJEEEPT_PS1_DpOT0_.
   %name_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %name_.i.i.i.i, align 8
   %id_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %id_.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %id_.i.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.i
 }
 
@@ -13658,7 +13658,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE16NewFromPrototy
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %rep_, align 8
   %elements18 = getelementptr inbounds i8, ptr %10, i64 8
   %current_size_19 = getelementptr inbounds i8, ptr %this, i64 8
@@ -13751,7 +13751,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE16NewFromProto
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %x_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   %10 = load ptr, ptr %rep_, align 8
   %elements18 = getelementptr inbounds i8, ptr %10, i64 8
   %current_size_19 = getelementptr inbounds i8, ptr %this, i64 8
@@ -13899,7 +13899,7 @@ _ZN6mygame4Vec3D2Ev.exit.i:                       ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE6DeleteEPS4_PNS0_5ArenaE.exit: ; preds = %for.body, %_ZN6mygame4Vec3D2Ev.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !35
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !34
 
 for.end.loopexit:                                 ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE6DeleteEPS4_PNS0_5ArenaE.exit
   %.pre = load ptr, ptr %rep_, align 8
@@ -13953,7 +13953,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   tail call void @_ZN6mygame6Weapon9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !36
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !35
 
 for.end.i:                                        ; preds = %for.body.i, %if.end
   %8 = load ptr, ptr %this, align 8
@@ -13975,7 +13975,7 @@ for.body8.i:                                      ; preds = %for.body8.i.prehead
   %indvars.iv.next9 = add nsw i64 %indvars.iv8, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next9 to i32
   %exitcond11.not = icmp eq i32 %0, %lftr.wideiv
-  br i1 %exitcond11.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6WeaponEE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !37
+  br i1 %exitcond11.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6WeaponEE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !36
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6WeaponEE11TypeHandlerEEEvPPvSA_ii.exit: ; preds = %for.body8.i, %for.end.i
   %11 = load i32, ptr %current_size_4.i, align 8
@@ -14032,7 +14032,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   tail call void @_ZN6mygame4Vec39MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !38
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !37
 
 for.end.i:                                        ; preds = %for.body.i, %if.end
   %8 = load ptr, ptr %this, align 8
@@ -14054,14 +14054,14 @@ for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, 
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i.i.us, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.us, align 8
   %x_.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.i.i.i.us, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i.us, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i.i.i.i.us, i8 0, i64 16, i1 false)
   tail call void @_ZN6mygame4Vec39MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %arrayidx15.i.us = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv13
   store ptr %call.i.i.i.i.us, ptr %arrayidx15.i.us, align 8
   %indvars.iv.next14 = add nsw i64 %indvars.iv13, 1
   %lftr.wideiv16 = trunc i64 %indvars.iv.next14 to i32
   %exitcond17.not = icmp eq i32 %0, %lftr.wideiv16
-  br i1 %exitcond17.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i.us, !llvm.loop !39
+  br i1 %exitcond17.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i.us, !llvm.loop !38
 
 for.body8.i:                                      ; preds = %for.body8.i.lr.ph, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
   %indvars.iv9 = phi i64 [ %indvars.iv.next10, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ], [ %9, %for.body8.i.lr.ph ]
@@ -14081,14 +14081,14 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call2.i8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   tail call void @_ZN6mygame4Vec39MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %call2.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %11)
   %arrayidx15.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv9
   store ptr %call2.i8.i.i.i, ptr %arrayidx15.i, align 8
   %indvars.iv.next10 = add nsw i64 %indvars.iv9, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next10 to i32
   %exitcond12.not = icmp eq i32 %0, %lftr.wideiv
-  br i1 %exitcond12.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !39
+  br i1 %exitcond12.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !38
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEvPPvSA_ii.exit: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i, %for.body8.i.us, %for.end.i
   %13 = load i32, ptr %current_size_4.i, align 8
@@ -14143,7 +14143,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   tail call void @_ZN6mygame7Monster9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !40
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !39
 
 for.end.i:                                        ; preds = %for.body.i, %if.end
   %8 = load ptr, ptr %this, align 8
@@ -14165,7 +14165,7 @@ for.body8.i:                                      ; preds = %for.body8.i.prehead
   %indvars.iv.next9 = add nsw i64 %indvars.iv8, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next9 to i32
   %exitcond11.not = icmp eq i32 %0, %lftr.wideiv
-  br i1 %exitcond11.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame7MonsterEE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !41
+  br i1 %exitcond11.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame7MonsterEE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !40
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame7MonsterEE11TypeHandlerEEEvPPvSA_ii.exit: ; preds = %for.body8.i, %for.end.i
   %11 = load i32, ptr %current_size_4.i, align 8
@@ -14270,7 +14270,7 @@ _ZN6mygame6rect32D2Ev.exit.i:                     ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE6DeleteEPS4_PNS0_5ArenaE.exit: ; preds = %for.body, %_ZN6mygame6rect32D2Ev.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !42
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !41
 
 for.end.loopexit:                                 ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE6DeleteEPS4_PNS0_5ArenaE.exit
   %.pre = load ptr, ptr %rep_, align 8
@@ -14322,7 +14322,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   tail call void @_ZN6mygame6rect329MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !43
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !42
 
 for.end.i:                                        ; preds = %for.body.i, %if.end
   %8 = load ptr, ptr %this, align 8
@@ -14344,14 +14344,14 @@ for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, 
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i.i.us, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.us, align 8
   %x_.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.i.i.i.us, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i.i.us, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %x_.i.i.i.i.i.i.us, i8 0, i64 20, i1 false)
   tail call void @_ZN6mygame6rect329MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(40) %10)
   %arrayidx15.i.us = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv13
   store ptr %call.i.i.i.i.us, ptr %arrayidx15.i.us, align 8
   %indvars.iv.next14 = add nsw i64 %indvars.iv13, 1
   %lftr.wideiv16 = trunc i64 %indvars.iv.next14 to i32
   %exitcond17.not = icmp eq i32 %0, %lftr.wideiv16
-  br i1 %exitcond17.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i.us, !llvm.loop !44
+  br i1 %exitcond17.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i.us, !llvm.loop !43
 
 for.body8.i:                                      ; preds = %for.body8.i.lr.ph, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
   %indvars.iv9 = phi i64 [ %indvars.iv.next10, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ], [ %9, %for.body8.i.lr.ph ]
@@ -14371,14 +14371,14 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr %call2.i8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %x_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   tail call void @_ZN6mygame6rect329MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %call2.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %11)
   %arrayidx15.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv9
   store ptr %call2.i8.i.i.i, ptr %arrayidx15.i, align 8
   %indvars.iv.next10 = add nsw i64 %indvars.iv9, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next10 to i32
   %exitcond12.not = icmp eq i32 %0, %lftr.wideiv
-  br i1 %exitcond12.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !44
+  br i1 %exitcond12.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !43
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvPPvSA_ii.exit: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i, %for.body8.i.us, %for.end.i
   %13 = load i32, ptr %current_size_4.i, align 8
@@ -14433,7 +14433,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   tail call void @_ZN6mygame6person9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !45
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !44
 
 for.end.i:                                        ; preds = %for.body.i, %if.end
   %8 = load ptr, ptr %this, align 8
@@ -14455,7 +14455,7 @@ for.body8.i:                                      ; preds = %for.body8.i.prehead
   %indvars.iv.next9 = add nsw i64 %indvars.iv8, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next9 to i32
   %exitcond11.not = icmp eq i32 %0, %lftr.wideiv
-  br i1 %exitcond11.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6personEE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !46
+  br i1 %exitcond11.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6personEE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !45
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6personEE11TypeHandlerEEEvPPvSA_ii.exit: ; preds = %for.body8.i, %for.end.i
   %11 = load i32, ptr %current_size_4.i, align 8
@@ -14531,7 +14531,7 @@ attributes #25 = { noreturn }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 33}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
@@ -14568,4 +14568,3 @@ attributes #25 = { noreturn }
 !43 = distinct !{!43, !6}
 !44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
-!46 = distinct !{!46, !6}

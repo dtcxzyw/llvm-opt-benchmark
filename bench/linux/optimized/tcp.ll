@@ -445,7 +445,7 @@ declare dso_local void @sk_stream_write_space(ptr noundef) #2
 declare dso_local i32 @tcp_sync_mss(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcp_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 0, 16384) i32 @tcp_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -743,7 +743,7 @@ define dso_local i32 @tcp_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcp_ioctl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i32 -515, 1) i32 @tcp_ioctl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   switch i32 %1, label %99 [
     i32 21531, label %4
     i32 35077, label %54
@@ -3792,7 +3792,7 @@ declare dso_local i32 @sock_cmsg_send(ptr noundef, ptr noundef, ptr noundef) loc
 declare dso_local zeroext i1 @sk_page_frag_refill(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tcp_downgrade_zcopy_pure(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @tcp_downgrade_zcopy_pure(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 188
@@ -4954,7 +4954,7 @@ define dso_local void @tcp_update_recv_tstamps(ptr nocapture noundef readonly %0
 declare dso_local { i64, i64 } @ns_to_timespec64(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcp_mmap(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @tcp_mmap(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 6
@@ -6199,7 +6199,7 @@ define dso_local void @tcp_shutdown(ptr noundef %0, i32 noundef %1) #0 align 16 
 declare dso_local void @tcp_send_fin(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i32 @tcp_orphan_count_sum() local_unnamed_addr #10 align 16 {
+define dso_local range(i32 0, -2147483648) i32 @tcp_orphan_count_sum() local_unnamed_addr #10 align 16 {
   %1 = load i64, ptr @__cpu_possible_mask, align 8
   br label %2
 
@@ -8036,7 +8036,7 @@ __tcp_cleanup_rbuf.exit:                          ; preds = %.thread8.i, %78, %.
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local noundef i32 @tcp_sock_set_syncnt(ptr noundef %0, i32 noundef %1) #11 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcp_sock_set_syncnt(ptr noundef %0, i32 noundef %1) #11 align 16 {
   %3 = add i32 %1, -128
   %4 = icmp ult i32 %3, -127
   br i1 %4, label %8, label %5
@@ -8053,7 +8053,7 @@ define dso_local noundef i32 @tcp_sock_set_syncnt(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local noundef i32 @tcp_sock_set_user_timeout(ptr noundef %0, i32 noundef %1) #11 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcp_sock_set_user_timeout(ptr noundef %0, i32 noundef %1) #11 align 16 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %6, label %4
 
@@ -8068,7 +8068,7 @@ define dso_local noundef i32 @tcp_sock_set_user_timeout(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcp_sock_set_keepidle_locked(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcp_sock_set_keepidle_locked(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = add i32 %1, -32768
   %4 = icmp ult i32 %3, -32767
   br i1 %4, label %33, label %5
@@ -8115,7 +8115,7 @@ define dso_local noundef i32 @tcp_sock_set_keepidle_locked(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcp_sock_set_keepidle(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcp_sock_set_keepidle(ptr noundef %0, i32 noundef %1) #0 align 16 {
   tail call void @lock_sock_nested(ptr noundef %0, i32 noundef 0) #22
   %3 = add i32 %1, -32768
   %4 = icmp ult i32 %3, -32767
@@ -8164,7 +8164,7 @@ define dso_local noundef i32 @tcp_sock_set_keepidle(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local noundef i32 @tcp_sock_set_keepintvl(ptr noundef %0, i32 noundef %1) #11 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcp_sock_set_keepintvl(ptr noundef %0, i32 noundef %1) #11 align 16 {
   %3 = add i32 %1, -32768
   %4 = icmp ult i32 %3, -32767
   br i1 %4, label %8, label %5
@@ -8181,7 +8181,7 @@ define dso_local noundef i32 @tcp_sock_set_keepintvl(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local noundef i32 @tcp_sock_set_keepcnt(ptr noundef %0, i32 noundef %1) #11 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcp_sock_set_keepcnt(ptr noundef %0, i32 noundef %1) #11 align 16 {
   %3 = add i32 %1, -128
   %4 = icmp ult i32 %3, -127
   br i1 %4, label %8, label %5
@@ -8198,7 +8198,7 @@ define dso_local noundef i32 @tcp_sock_set_keepcnt(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local noundef i32 @tcp_set_window_clamp(ptr noundef %0, i32 noundef %1) local_unnamed_addr #12 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcp_set_window_clamp(ptr noundef %0, i32 noundef %1) local_unnamed_addr #12 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %10
 
@@ -8762,7 +8762,7 @@ define dso_local i32 @do_tcp_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   br i1 %254, label %255, label %390
 
 255:                                              ; preds = %251
-  %256 = call fastcc i32 @tcp_repair_options_est(ptr noundef %0, ptr %3, i8 %4, i32 noundef %5), !range !98
+  %256 = call fastcc i32 @tcp_repair_options_est(ptr noundef %0, ptr %3, i8 %4, i32 noundef %5)
   br label %390
 
 257:                                              ; preds = %148
@@ -8773,7 +8773,7 @@ define dso_local i32 @do_tcp_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
 
 260:                                              ; preds = %148
   %261 = load i32, ptr %7, align 4
-  %262 = call i32 @tcp_sock_set_keepidle_locked(ptr noundef %0, i32 noundef %261), !range !99
+  %262 = call i32 @tcp_sock_set_keepidle_locked(ptr noundef %0, i32 noundef %261), !range !98
   br label %390
 
 263:                                              ; preds = %148
@@ -8792,7 +8792,7 @@ define dso_local i32 @do_tcp_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
 
 272:                                              ; preds = %148
   %273 = load i32, ptr %7, align 4
-  %274 = call i32 @tcp_set_window_clamp(ptr noundef %0, i32 noundef %273), !range !99
+  %274 = call i32 @tcp_set_window_clamp(ptr noundef %0, i32 noundef %273), !range !98
   br label %390
 
 275:                                              ; preds = %148
@@ -8926,7 +8926,7 @@ define dso_local i32 @do_tcp_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   br label %390
 
 366:                                              ; preds = %148
-  %367 = call fastcc i32 @tcp_repair_set_window(ptr noundef %0, ptr %3, i8 %4, i32 noundef %5), !range !99
+  %367 = call fastcc i32 @tcp_repair_set_window(ptr noundef %0, ptr %3, i8 %4, i32 noundef %5), !range !98
   br label %390
 
 368:                                              ; preds = %148
@@ -9036,7 +9036,7 @@ declare dso_local i32 @tcp_fastopen_reset_cipher(ptr noundef, ptr noundef, ptr n
 declare dso_local void @tcp_send_window_probe(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tcp_repair_options_est(ptr noundef %0, ptr %1, i8 %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -27, 1) i32 @tcp_repair_options_est(ptr noundef %0, ptr %1, i8 %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.tcp_repair_opt, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
   %6 = getelementptr inbounds i8, ptr %5, i64 4
@@ -9129,7 +9129,7 @@ define internal fastcc noundef i32 @tcp_repair_options_est(ptr noundef %0, ptr %
 
 60:                                               ; preds = %57, %46, %32, %26, %19
   %61 = icmp ugt i32 %21, 7
-  br i1 %61, label %.split.us, label %.loopexit, !llvm.loop !100
+  br i1 %61, label %.split.us, label %.loopexit, !llvm.loop !99
 
 .thread:                                          ; preds = %8, %104
   %62 = phi i64 [ %66, %104 ], [ 0, %8 ]
@@ -9202,7 +9202,7 @@ define internal fastcc noundef i32 @tcp_repair_options_est(ptr noundef %0, ptr %
 
 104:                                              ; preds = %101, %91, %78, %71, %.thread
   %105 = icmp ugt i32 %67, 7
-  br i1 %105, label %.thread, label %.loopexit, !llvm.loop !100
+  br i1 %105, label %.thread, label %.loopexit, !llvm.loop !99
 
 .loopexit:                                        ; preds = %73, %89, %99, %104, %60, %40, %29, %23, %.split.us, %4
   %106 = phi i32 [ 0, %4 ], [ -27, %40 ], [ 0, %60 ], [ -22, %23 ], [ -22, %29 ], [ -14, %.split.us ], [ -27, %73 ], [ 0, %104 ], [ -22, %99 ], [ -22, %89 ]
@@ -9214,7 +9214,7 @@ define internal fastcc noundef i32 @tcp_repair_options_est(ptr noundef %0, ptr %
 declare dso_local void @tcp_fastopen_init_key_once(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tcp_repair_set_window(ptr nocapture noundef %0, ptr %1, i8 %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @tcp_repair_set_window(ptr nocapture noundef %0, ptr %1, i8 %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.tcp_repair_window, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #22
   %6 = getelementptr inbounds i8, ptr %0, i64 1439
@@ -9294,7 +9294,7 @@ define internal fastcc void @tcp_enable_tx_delay() unnamed_addr #0 align 16 {
           to label %1 [label %6], !srcloc !17
 
 1:                                                ; preds = %0
-  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @tcp_enable_tx_delay.__tcp_tx_delay_enabled, i32 1, i32 0, ptr nonnull elementtype(i32) @tcp_enable_tx_delay.__tcp_tx_delay_enabled) #22, !srcloc !101
+  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @tcp_enable_tx_delay.__tcp_tx_delay_enabled, i32 1, i32 0, ptr nonnull elementtype(i32) @tcp_enable_tx_delay.__tcp_tx_delay_enabled) #22, !srcloc !100
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %6
 
@@ -9667,7 +9667,7 @@ define dso_local void @tcp_get_info(ptr noundef %0, ptr noundef %1) #0 align 16 
   %240 = add i64 %239, %223
   %241 = add nuw nsw i64 %222, 1
   %242 = icmp eq i64 %241, 4
-  br i1 %242, label %243, label %221, !llvm.loop !102
+  br i1 %242, label %243, label %221, !llvm.loop !101
 
 243:                                              ; preds = %237
   %244 = getelementptr inbounds i8, ptr %1, i64 168
@@ -9908,7 +9908,7 @@ define dso_local ptr @tcp_get_timestamping_opt_stats(ptr noundef %0, ptr nocaptu
   %60 = add i64 %59, %43
   %61 = add nuw nsw i64 %42, 1
   %62 = icmp eq i64 %61, 4
-  br i1 %62, label %63, label %41, !llvm.loop !102
+  br i1 %62, label %63, label %41, !llvm.loop !101
 
 63:                                               ; preds = %57
   %64 = getelementptr inbounds i8, ptr %31, i64 16
@@ -10390,7 +10390,7 @@ define dso_local i32 @do_tcp_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   %131 = add i32 %130, %127
   %132 = add i8 %126, -1
   %133 = icmp eq i8 %132, 0
-  br i1 %133, label %.loopexit, label %.preheader, !llvm.loop !103
+  br i1 %133, label %.loopexit, label %.preheader, !llvm.loop !102
 
 .loopexit:                                        ; preds = %.preheader, %123, %119
   %134 = phi i32 [ 0, %119 ], [ 1, %123 ], [ %131, %.preheader ]
@@ -11528,7 +11528,7 @@ define internal fastcc i32 @tcp_zerocopy_receive(ptr noundef %0, ptr nocapture n
   %142 = sub i32 %137, %139
   %143 = getelementptr i8, ptr %136, i64 16
   %144 = icmp eq i32 %142, 0
-  br i1 %144, label %.loopexit67, label %.preheader66, !llvm.loop !104
+  br i1 %144, label %.loopexit67, label %.preheader66, !llvm.loop !103
 
 .loopexit67:                                      ; preds = %141, %.preheader66, %133
   %145 = phi i32 [ 0, %133 ], [ 0, %141 ], [ %137, %.preheader66 ]
@@ -11635,7 +11635,7 @@ thread-pre-split:                                 ; preds = %148, %157
   %213 = add i32 %192, %189
   %214 = getelementptr i8, ptr %190, i64 16
   %215 = icmp slt i32 %213, %163
-  br i1 %215, label %.preheader63, label %.loopexit64, !llvm.loop !105
+  br i1 %215, label %.preheader63, label %.loopexit64, !llvm.loop !104
 
 .loopexit64:                                      ; preds = %212, %208, %187, %183
   %216 = phi i32 [ 0, %183 ], [ 0, %187 ], [ %213, %212 ], [ %189, %208 ]
@@ -11836,7 +11836,7 @@ thread-pre-split:                                 ; preds = %148, %157
   br label %327
 
 326:                                              ; preds = %318
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef writeonly align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %327
 
 327:                                              ; preds = %326, %322
@@ -11860,7 +11860,7 @@ thread-pre-split:                                 ; preds = %148, %157
   br label %tcp_update_recv_tstamps.exit
 
 341:                                              ; preds = %327
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %285, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef writeonly align 8 dereferenceable(16) %285, i8 0, i64 16, i1 false)
   br label %tcp_update_recv_tstamps.exit
 
 tcp_update_recv_tstamps.exit:                     ; preds = %337, %341
@@ -11916,7 +11916,7 @@ tcp_update_recv_tstamps.exit:                     ; preds = %337, %341
   %375 = sub i32 %371, %373
   %376 = getelementptr i8, ptr %370, i64 16
   %377 = icmp eq i32 %375, 0
-  br i1 %377, label %.loopexit, label %.preheader60, !llvm.loop !104
+  br i1 %377, label %.loopexit, label %.preheader60, !llvm.loop !103
 
 .loopexit:                                        ; preds = %374, %367
   %378 = phi ptr [ %368, %367 ], [ %376, %374 ]
@@ -12000,7 +12000,7 @@ thread-pre-split49:                               ; preds = %.loopexit, %.lr.ph
   %429 = add i32 %408, %405
   %430 = getelementptr i8, ptr %406, i64 16
   %431 = icmp slt i32 %429, %379
-  br i1 %431, label %.preheader, label %432, !llvm.loop !105
+  br i1 %431, label %.preheader, label %432, !llvm.loop !104
 
 432:                                              ; preds = %428, %424
   %433 = phi i32 [ %405, %424 ], [ %429, %428 ]
@@ -12013,7 +12013,7 @@ thread-pre-split49:                               ; preds = %.loopexit, %.lr.ph
 
 .thread52:                                        ; preds = %403, %399, %432
   %436 = load ptr, ptr %380, align 8
-  call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09prefetcht0 ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 6*32+ 8)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09prefetchw ${1:P}\0A6651:\0A.popsection\0A", "i,*m,~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i8) %436) #22, !srcloc !106
+  call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09prefetcht0 ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 6*32+ 8)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09prefetchw ${1:P}\0A6651:\0A.popsection\0A", "i,*m,~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i8) %436) #22, !srcloc !105
   %437 = add i32 %295, 1
   %438 = zext i32 %295 to i64
   %439 = getelementptr [32 x ptr], ptr %10, i64 0, i64 %438
@@ -12225,7 +12225,7 @@ define dso_local i32 @tcp_getsockopt(ptr noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcp_md5_alloc_sigpool() local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @tcp_md5_alloc_sigpool() local_unnamed_addr #0 align 16 {
   %1 = tail call i32 @tcp_sigpool_alloc_ahash(ptr noundef nonnull @.str.6, i64 noundef 60) #22
   %2 = icmp sgt i32 %1, -1
   br i1 %2, label %3, label %4
@@ -12293,7 +12293,7 @@ declare dso_local void @sg_init_one(ptr noundef, ptr noundef, i32 noundef) local
 declare dso_local i32 @crypto_ahash_update(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tcp_inbound_md5_hash(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6) #0 align 16 {
+define dso_local noundef range(i32 0, 22) i32 @tcp_inbound_md5_hash(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6) #0 align 16 {
   %8 = alloca [16 x i8], align 16
   %9 = alloca [6 x i8], align 1
   %10 = alloca [6 x i8], align 1
@@ -12321,7 +12321,7 @@ define dso_local noundef i32 @tcp_inbound_md5_hash(ptr noundef %0, ptr noundef %
   %23 = getelementptr inbounds i8, ptr %22, i64 432
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 504
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %25, ptr elementtype(i64) %25) #22, !srcloc !107
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %25, ptr elementtype(i64) %25) #22, !srcloc !106
   %26 = getelementptr inbounds i8, ptr %1, i64 192
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %1, i64 178
@@ -12479,7 +12479,7 @@ define dso_local noundef i32 @tcp_inbound_md5_hash(ptr noundef %0, ptr noundef %
   %124 = getelementptr inbounds i8, ptr %123, i64 432
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr i8, ptr %125, i64 512
-  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %126, ptr elementtype(i64) %126) #22, !srcloc !108
+  call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %126, ptr elementtype(i64) %126) #22, !srcloc !107
   %127 = getelementptr inbounds i8, ptr %1, i64 192
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %1, i64 178
@@ -12809,7 +12809,7 @@ define dso_local void @tcp_done(ptr noundef %0) #0 align 16 {
   %13 = getelementptr inbounds i8, ptr %12, i64 424
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 56
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %15, ptr elementtype(i64) %15) #22, !srcloc !109
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %15, ptr elementtype(i64) %15) #22, !srcloc !108
   br label %16
 
 16:                                               ; preds = %10, %7
@@ -13076,7 +13076,7 @@ define dso_local noundef i32 @tcp_abort(ptr noundef %0, i32 noundef %1) #0 align
 70:                                               ; preds = %63
   %71 = getelementptr inbounds i8, ptr %0, i64 544
   store volatile i32 %1, ptr %71, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !110
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !109
   tail call void @sk_error_report(ptr noundef %0) #22
   %72 = load volatile i8, ptr %4, align 2
   %73 = zext nneg i8 %72 to i32
@@ -13111,7 +13111,7 @@ declare dso_local zeroext i1 @inet_csk_reqsk_queue_drop(ptr noundef, ptr noundef
 declare dso_local void @inet_twsk_deschedule_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @set_thash_entries(ptr noundef %0) #15 section ".init.text" align 16 {
+define internal range(i32 0, 2) i32 @set_thash_entries(ptr noundef %0) #15 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -13158,7 +13158,7 @@ define dso_local void @tcp_init() local_unnamed_addr #15 section ".init.text" al
   %20 = add i32 %13, 1
   %21 = load i32, ptr getelementptr inbounds (%struct.inet_hashinfo, ptr @tcp_hashinfo, i64 0, i32 2), align 16
   %22 = icmp ugt i32 %20, %21
-  br i1 %22, label %23, label %12, !llvm.loop !111
+  br i1 %22, label %23, label %12, !llvm.loop !110
 
 23:                                               ; preds = %12
   %24 = tail call i32 @inet_ehash_locks_alloc(ptr noundef nonnull @tcp_hashinfo) #22
@@ -13201,7 +13201,7 @@ define dso_local void @tcp_init() local_unnamed_addr #15 section ".init.text" al
   %47 = load i32, ptr getelementptr inbounds (%struct.inet_hashinfo, ptr @tcp_hashinfo, i64 0, i32 8), align 8
   %48 = zext i32 %47 to i64
   %49 = icmp ult i64 %46, %48
-  br i1 %49, label %36, label %50, !llvm.loop !112
+  br i1 %49, label %36, label %50, !llvm.loop !111
 
 50:                                               ; preds = %36
   store i8 0, ptr getelementptr inbounds (%struct.inet_hashinfo, ptr @tcp_hashinfo, i64 0, i32 11), align 8
@@ -13243,8 +13243,8 @@ define dso_local void @tcp_init() local_unnamed_addr #15 section ".init.text" al
   br i1 %73, label %75, label %74, !prof !13
 
 74:                                               ; preds = %50
-  tail call void asm sideeffect "1250: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1250b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1250) #22, !srcloc !113
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 4786, i32 0, i64 12) #22, !srcloc !114
+  tail call void asm sideeffect "1250: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1250b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1250) #22, !srcloc !112
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 4786, i32 0, i64 12) #22, !srcloc !113
   unreachable
 
 75:                                               ; preds = %50
@@ -13536,7 +13536,7 @@ define internal fastcc i32 @tcp_peek_sndq(ptr noundef %0, ptr noundef %1) unname
   %17 = add i32 %16, %10
   %18 = tail call ptr @rb_next(ptr noundef nonnull %9) #22
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.loopexit9, label %8, !llvm.loop !115
+  br i1 %19, label %.loopexit9, label %8, !llvm.loop !114
 
 .loopexit9:                                       ; preds = %15, %2
   %20 = phi i32 [ 0, %2 ], [ %17, %15 ]
@@ -13563,7 +13563,7 @@ define internal fastcc i32 @tcp_peek_sndq(ptr noundef %0, ptr noundef %1) unname
   %35 = add i32 %34, %28
   %36 = load ptr, ptr %27, align 8
   %37 = icmp eq ptr %36, %21
-  br i1 %37, label %.loopexit, label %26, !llvm.loop !116
+  br i1 %37, label %.loopexit, label %26, !llvm.loop !115
 
 .loopexit:                                        ; preds = %8, %26, %33, %.loopexit9
   %38 = phi i32 [ %20, %.loopexit9 ], [ %35, %33 ], [ %31, %26 ], [ %13, %8 ]
@@ -14095,22 +14095,21 @@ attributes #27 = { cold noreturn nounwind }
 !95 = !{i64 2161917527, i64 2161917333, i64 2161917383, i64 2161917429, i64 2161917457}
 !96 = !{i64 2147928933, i64 2147928972, i64 2147928993, i64 2147929030, i64 2147929053, i64 2147929062, i64 2147929136}
 !97 = distinct !{!97, !22, !23}
-!98 = !{i32 -27, i32 1}
-!99 = !{i32 -22, i32 1}
-!100 = distinct !{!100, !22, !23}
-!101 = !{i64 2161927224, i64 2161927263, i64 2161927284, i64 2161927321, i64 2161927344, i64 2161927353}
+!98 = !{i32 -22, i32 1}
+!99 = distinct !{!99, !22, !23}
+!100 = !{i64 2161927224, i64 2161927263, i64 2161927284, i64 2161927321, i64 2161927344, i64 2161927353}
+!101 = distinct !{!101, !22, !23}
 !102 = distinct !{!102, !22, !23}
 !103 = distinct !{!103, !22, !23}
 !104 = distinct !{!104, !22, !23}
-!105 = distinct !{!105, !22, !23}
-!106 = !{i64 2149676377, i64 2149676405, i64 2149676411, i64 2149676427, i64 2149676443, i64 2149676470, i64 2149676798, i64 2149676120, i64 2149676804, i64 2149676852, i64 2149676916, i64 2149676980, i64 2149677037, i64 2149676201, i64 2149676226, i64 2149677244, i64 2149677373, i64 2149677305, i64 2149677387, i64 2149676318}
-!107 = !{i64 2162298054}
-!108 = !{i64 2162315008}
-!109 = !{i64 2162356548}
-!110 = !{i64 2162363806}
+!105 = !{i64 2149676377, i64 2149676405, i64 2149676411, i64 2149676427, i64 2149676443, i64 2149676470, i64 2149676798, i64 2149676120, i64 2149676804, i64 2149676852, i64 2149676916, i64 2149676980, i64 2149677037, i64 2149676201, i64 2149676226, i64 2149677244, i64 2149677373, i64 2149677305, i64 2149677387, i64 2149676318}
+!106 = !{i64 2162298054}
+!107 = !{i64 2162315008}
+!108 = !{i64 2162356548}
+!109 = !{i64 2162363806}
+!110 = distinct !{!110, !22, !23}
 !111 = distinct !{!111, !22, !23}
-!112 = distinct !{!112, !22, !23}
-!113 = !{i64 2162861471, i64 2162861275, i64 2162861327, i64 2162861373, i64 2162861401}
-!114 = !{i64 2162861548, i64 2162861577, i64 2162861623, i64 2162861681, i64 2162861735, i64 2162861789, i64 2162861844, i64 2162861875}
+!112 = !{i64 2162861471, i64 2162861275, i64 2162861327, i64 2162861373, i64 2162861401}
+!113 = !{i64 2162861548, i64 2162861577, i64 2162861623, i64 2162861681, i64 2162861735, i64 2162861789, i64 2162861844, i64 2162861875}
+!114 = distinct !{!114, !22, !23}
 !115 = distinct !{!115, !22, !23}
-!116 = distinct !{!116, !22, !23}

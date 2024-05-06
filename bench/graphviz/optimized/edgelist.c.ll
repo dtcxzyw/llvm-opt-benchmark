@@ -77,7 +77,7 @@ define internal void @freeItem(ptr nocapture noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmpItem(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #3 {
+define internal range(i32 -1, 2) i32 @cmpItem(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #3 {
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = icmp ugt ptr %5, %6

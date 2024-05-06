@@ -3049,7 +3049,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb13PhysicalLimit4SinkERNS_16ExecutionContextERNS_9DataChunkERNS_17OperatorSinkInputE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #0 align 2 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb13PhysicalLimit4SinkERNS_16ExecutionContextERNS_9DataChunkERNS_17OperatorSinkInputE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #0 align 2 {
 entry:
   %max_element = alloca i64, align 8
   %local_state = getelementptr inbounds i8, ptr %input, i64 8
@@ -3163,7 +3163,7 @@ _ZNSt10unique_ptrIN6duckdb16LimitSourceStateESt14default_deleteIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb13PhysicalLimit7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #0 align 2 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb13PhysicalLimit7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #0 align 2 {
 entry:
   %sink_state = getelementptr inbounds i8, ptr %this, i64 72
   %call = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_15GlobalSinkStateESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %sink_state)
@@ -3953,7 +3953,7 @@ _ZNSt10unique_ptrIN6duckdb25LimitPercentOperatorStateESt14default_deleteIS1_EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb20PhysicalLimitPercent7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb20PhysicalLimitPercent7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp15 = alloca %"class.std::allocator.86", align 1
@@ -5928,7 +5928,7 @@ _ZN6duckdb10unique_ptrINS_13SampleOptionsESt14default_deleteIS1_ELb1EE13AssertNo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb23PhysicalReservoirSample4SinkERNS_16ExecutionContextERNS_9DataChunkERNS_17OperatorSinkInputE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb23PhysicalReservoirSample4SinkERNS_16ExecutionContextERNS_9DataChunkERNS_17OperatorSinkInputE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %input, align 8, !tbaa !264
   %sample = getelementptr inbounds i8, ptr %0, i64 56
@@ -6044,7 +6044,7 @@ _ZN6duckdb10unique_ptrINS_14BlockingSampleESt14default_deleteIS1_ELb1EE13AssertN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb23PhysicalReservoirSample7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture nonnull readnone align 8 %input) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 2) i8 @_ZNK6duckdb23PhysicalReservoirSample7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture nonnull readnone align 8 %input) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sample_chunk = alloca %"class.duckdb::unique_ptr.657", align 8
   %sink_state = getelementptr inbounds i8, ptr %this, i64 72
@@ -7989,7 +7989,7 @@ _ZNSt10unique_ptrIN6duckdb25StreamingLimitGlobalStateESt14default_deleteIS1_EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK6duckdb22PhysicalStreamingLimit7ExecuteERNS_16ExecutionContextERNS_9DataChunkES4_RNS_19GlobalOperatorStateERNS_13OperatorStateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(161) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %context, ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull align 8 dereferenceable(8) %gstate_p, ptr nocapture noundef nonnull align 8 dereferenceable(8) %state_p) unnamed_addr #0 align 2 {
+define noundef zeroext range(i8 0, 3) i8 @_ZNK6duckdb22PhysicalStreamingLimit7ExecuteERNS_16ExecutionContextERNS_9DataChunkES4_RNS_19GlobalOperatorStateERNS_13OperatorStateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(161) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %context, ptr noundef nonnull align 8 dereferenceable(64) %input, ptr noundef nonnull align 8 dereferenceable(64) %chunk, ptr nocapture noundef nonnull align 8 dereferenceable(8) %gstate_p, ptr nocapture noundef nonnull align 8 dereferenceable(8) %state_p) unnamed_addr #0 align 2 {
 entry:
   %current_offset = alloca i64, align 8
   %max_element = alloca i64, align 8

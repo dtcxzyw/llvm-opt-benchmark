@@ -171,7 +171,7 @@ define dso_local void @pci_update_resource(ptr noundef %0, i32 noundef %1) local
 86:                                               ; preds = %82
   %87 = load i64, ptr %3, align 8
   %88 = lshr i64 %87, 32
-  %89 = trunc i64 %88 to i32
+  %89 = trunc nuw i64 %88 to i32
   %90 = add i32 %59, 4
   %91 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef %90, i32 noundef %89) #5
   %92 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %90, ptr noundef nonnull %5) #5
@@ -203,7 +203,7 @@ define dso_local void @pci_update_resource(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_claim_resource(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pci_claim_resource(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 920
   %4 = sext i32 %1 to i64
   %5 = getelementptr [11 x %struct.resource], ptr %3, i64 0, i64 %4
@@ -299,7 +299,7 @@ define weak dso_local i64 @pcibios_align_resource(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_assign_resource(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @pci_assign_resource(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 920
   %4 = sext i32 %1 to i64
   %5 = getelementptr %struct.resource, ptr %3, i64 %4
@@ -446,7 +446,7 @@ define internal fastcc i32 @_pci_assign_resource(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @pci_revert_fw_address(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @pci_revert_fw_address(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = tail call ptr @pci_resource_name(ptr noundef %1, i32 noundef %2) #5
   %6 = tail call i64 @pcibios_retrieve_fw_addr(ptr noundef %1, i32 noundef %2)
   %7 = icmp eq i64 %6, 0
@@ -718,7 +718,7 @@ declare dso_local i32 @pci_rebar_set_size(ptr noundef, i32 noundef, i32 noundef)
 declare dso_local i32 @pci_reassign_bridge_resources(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_enable_resources(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @pci_enable_resources(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #5
   store i16 0, ptr %3, align 2, !annotation !5

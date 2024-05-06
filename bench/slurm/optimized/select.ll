@@ -157,7 +157,7 @@ define i32 @select_string_to_plugin_id(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @select_char2coord(i8 noundef signext %0) local_unnamed_addr #2 {
+define range(i32 -1, 36) i32 @select_char2coord(i8 noundef signext %0) local_unnamed_addr #2 {
   %2 = sext i8 %0 to i32
   %3 = add i8 %0, -48
   %or.cond = icmp ult i8 %3, 10
@@ -261,7 +261,7 @@ define noundef i32 @select_g_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %32
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %34 = trunc i64 %indvars.iv.next61 to i32
+  %34 = trunc nuw i64 %indvars.iv.next61 to i32
   %35 = icmp sgt i32 %28, %34
   %36 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %29, i64 %indvars.iv60
   %37 = load ptr, ptr %36, align 8
@@ -433,7 +433,7 @@ define internal noundef i32 @_load_plugins(ptr noundef %0, ptr nocapture noundef
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @select_running_linear_based() local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @select_running_linear_based() local_unnamed_addr #7 {
   %1 = load ptr, ptr @ops, align 8
   %2 = load i32, ptr @select_context_default, align 4
   %3 = sext i32 %2 to i64
@@ -723,7 +723,7 @@ define i32 @select_get_plugin_id_pos(i32 noundef %0) local_unnamed_addr #9 {
   br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !12
 
 ._crit_edge.loopexit.split.loop.exit11:           ; preds = %5
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %._crit_edge.loopexit.split.loop.exit11, %1
@@ -954,7 +954,7 @@ define i32 @select_g_select_nodeinfo_pack(ptr noundef readonly %0, ptr noundef %
 declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @select_g_select_nodeinfo_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @select_g_select_nodeinfo_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -994,7 +994,7 @@ define noundef i32 @select_g_select_nodeinfo_unpack(ptr nocapture noundef writeo
   br i1 %exitcond.not.i, label %select_get_plugin_id_pos.exit.thread.preheader, label %17, !llvm.loop !12
 
 select_get_plugin_id_pos.exit:                    ; preds = %17
-  %23 = trunc i64 %indvars.iv.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %select_get_plugin_id_pos.exit.thread.preheader, label %70
 
@@ -1064,7 +1064,7 @@ select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_i
   br i1 %exitcond.not.i34, label %select_get_plugin_id_pos.exit36.thread.preheader, label %48, !llvm.loop !12
 
 select_get_plugin_id_pos.exit36:                  ; preds = %48
-  %54 = trunc i64 %indvars.iv.i32 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.i32 to i32
   %55 = icmp eq i32 %54, -1
   br i1 %55, label %select_get_plugin_id_pos.exit36.thread.preheader, label %70
 
@@ -1432,7 +1432,7 @@ define i32 @select_g_select_jobinfo_pack(ptr noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @select_g_select_jobinfo_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @select_g_select_jobinfo_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1472,7 +1472,7 @@ define noundef i32 @select_g_select_jobinfo_unpack(ptr nocapture noundef writeon
   br i1 %exitcond.not.i, label %select_get_plugin_id_pos.exit.thread.preheader, label %17, !llvm.loop !12
 
 select_get_plugin_id_pos.exit:                    ; preds = %17
-  %23 = trunc i64 %indvars.iv.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %select_get_plugin_id_pos.exit.thread.preheader, label %70
 
@@ -1542,7 +1542,7 @@ select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_i
   br i1 %exitcond.not.i34, label %select_get_plugin_id_pos.exit36.thread.preheader, label %48, !llvm.loop !12
 
 select_get_plugin_id_pos.exit36:                  ; preds = %48
-  %54 = trunc i64 %indvars.iv.i32 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.i32 to i32
   %55 = icmp eq i32 %54, -1
   br i1 %55, label %select_get_plugin_id_pos.exit36.thread.preheader, label %70
 

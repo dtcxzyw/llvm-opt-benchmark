@@ -321,7 +321,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 declare ptr @ompi_comm_print_cid(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @adapt_module_enable(ptr nocapture noundef writeonly %0, ptr noundef %1) #1 {
+define internal range(i32 -1, 1) i32 @adapt_module_enable(ptr nocapture noundef writeonly %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 328
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 176

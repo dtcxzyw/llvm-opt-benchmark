@@ -98,7 +98,7 @@ define hidden i32 @mbedtls_x509write_crt_set_serial(ptr noundef %0, ptr noundef 
 declare i32 @mbedtls_mpi_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @mbedtls_x509write_crt_set_validity(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define hidden range(i32 -10240, 1) i32 @mbedtls_x509write_crt_set_validity(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %.not = icmp eq i64 %4, 14
   br i1 %.not, label %5, label %14
@@ -316,7 +316,7 @@ define hidden i32 @mbedtls_x509write_crt_set_key_usage(ptr noundef %0, i32 nound
   %9 = trunc i32 %1 to i8
   store i8 %9, ptr %4, align 1
   %10 = lshr i32 %1, 8
-  %11 = trunc i32 %10 to i8
+  %11 = trunc nuw i32 %10 to i8
   %12 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 %11, ptr %12, align 1
   %13 = call i32 @mbedtls_asn1_write_named_bitstring(ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 9) #8

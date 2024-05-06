@@ -250,7 +250,7 @@ define dso_local void @usb_destroy_configuration(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @usb_get_configuration(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [32 x i8], align 16
   %3 = alloca [32 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 168
@@ -1506,7 +1506,7 @@ default.unreachable323:                           ; preds = %.thread324
   %735 = load i8, ptr %734, align 2
   %736 = zext i8 %735 to i32
   tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.49, ptr noundef nonnull %733, i32 noundef %730, i32 noundef %90, i32 noundef %307, i32 noundef %334, i32 noundef %736, i32 noundef %727) #11
-  %737 = trunc i32 %727 to i16
+  %737 = trunc nuw i32 %727 to i16
   %738 = getelementptr inbounds i8, ptr %497, i64 13
   store i16 %737, ptr %738, align 1
   %.pre318 = load i8, ptr %600, align 1

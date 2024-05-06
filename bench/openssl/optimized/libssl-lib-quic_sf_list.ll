@@ -91,7 +91,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_sframe_list_insert(ptr nocapture noundef %fl, ptr nocapture noundef readonly %range, ptr noundef %pkt, ptr noundef %data, i32 noundef %fin) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_sframe_list_insert(ptr nocapture noundef %fl, ptr nocapture noundef readonly %range, ptr noundef %pkt, ptr noundef %data, i32 noundef %fin) local_unnamed_addr #2 {
 entry:
   %offset = getelementptr inbounds i8, ptr %fl, i64 32
   %0 = load i64, ptr %offset, align 8
@@ -125,7 +125,7 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end7:                                          ; preds = %if.then2.i, %if.end.i
   %range4.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %range4.i, ptr noundef nonnull align 8 dereferenceable(16) %range, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %range4.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %range, i64 16, i1 false)
   %pkt5.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %pkt, ptr %pkt5.i, align 8
   %data6.i = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -177,7 +177,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 
 if.end.i72:                                       ; preds = %if.then2.i.i, %if.end.i.i
   %range4.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %range4.i.i, ptr noundef nonnull align 8 dereferenceable(16) %range, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %range4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %range, i64 16, i1 false)
   %pkt5.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store ptr %pkt, ptr %pkt5.i.i, align 8
   %data6.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
@@ -240,7 +240,7 @@ if.then2.i77:                                     ; preds = %if.end.i75
 
 stream_frame_new.exit82:                          ; preds = %if.end.i75, %if.then2.i77
   %range4.i79 = getelementptr inbounds i8, ptr %call.i73, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %range4.i79, ptr noundef nonnull align 8 dereferenceable(16) %range, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %range4.i79, ptr noundef nonnull readonly align 8 dereferenceable(16) %range, i64 16, i1 false)
   %pkt5.i80 = getelementptr inbounds i8, ptr %call.i73, i64 32
   store ptr %pkt, ptr %pkt5.i80, align 8
   %data6.i81 = getelementptr inbounds i8, ptr %call.i73, i64 40
@@ -439,7 +439,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ossl_sframe_list_peek(ptr nocapture noundef readonly %fl, ptr nocapture noundef %iter, ptr nocapture noundef writeonly %range, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %fin) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_sframe_list_peek(ptr nocapture noundef readonly %fl, ptr nocapture noundef %iter, ptr nocapture noundef writeonly %range, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %fin) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %iter, align 8
   %cmp = icmp eq ptr %0, null
@@ -526,7 +526,7 @@ return:                                           ; preds = %cond.end39, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_sframe_list_drop_frames(ptr nocapture noundef %fl, i64 noundef %limit) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_sframe_list_drop_frames(ptr nocapture noundef %fl, i64 noundef %limit) local_unnamed_addr #2 {
 entry:
   %offset = getelementptr inbounds i8, ptr %fl, i64 32
   %0 = load i64, ptr %offset, align 8
@@ -619,7 +619,7 @@ return:                                           ; preds = %entry, %lor.rhs, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ossl_sframe_list_lock_head(ptr nocapture noundef %fl, ptr nocapture noundef writeonly %range, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %fin) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_sframe_list_lock_head(ptr nocapture noundef %fl, ptr nocapture noundef writeonly %range, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %fin) local_unnamed_addr #3 {
 entry:
   %head_locked = getelementptr inbounds i8, ptr %fl, i64 40
   %0 = load i32, ptr %head_locked, align 8
@@ -712,7 +712,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_sframe_list_move_data(ptr nocapture noundef %fl, ptr nocapture noundef readonly %write_at_cb, ptr noundef %cb_arg) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_sframe_list_move_data(ptr nocapture noundef %fl, ptr nocapture noundef readonly %write_at_cb, ptr noundef %cb_arg) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %fl, align 8
   %offset = getelementptr inbounds i8, ptr %fl, i64 32

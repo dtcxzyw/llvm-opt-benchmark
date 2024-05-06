@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @compiler_globals = external local_unnamed_addr global %struct._zend_compiler_globals, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_multibyte_set_functions(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_multibyte_set_functions(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -144,7 +144,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @zend_ini_string(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_multibyte_set_script_encoding_by_string(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_multibyte_set_script_encoding_by_string(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr null, ptr %3, align 8
@@ -232,7 +232,7 @@ define ptr @zend_multibyte_get_encoding_name(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @zend_multibyte_check_lexer_compatibility(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @zend_multibyte_check_lexer_compatibility(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds (%struct._zend_multibyte_functions, ptr @multibyte_functions, i64 0, i32 3), align 8
   %3 = tail call zeroext i1 %2(ptr noundef %0) #12
   %4 = zext i1 %3 to i32

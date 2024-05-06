@@ -414,7 +414,7 @@ declare ptr @If_ManStart(ptr noundef) local_unnamed_addr #1
 declare void @If_ManSetupSetAll(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Lpk_NodeHasChanged(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Lpk_NodeHasChanged(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8240040
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
@@ -467,7 +467,7 @@ define noundef i32 @Lpk_NodeHasChanged(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Lpk_ExploreCut(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Lpk_ExploreCut(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
 Kit_DsdNtkRoot.exit:
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
@@ -655,7 +655,7 @@ Kit_DsdNtkRoot.exit:
   %123 = getelementptr inbounds i8, ptr %122, i64 20
   %124 = load i32, ptr %123, align 4
   %125 = lshr i32 %124, 12
-  %126 = uitofp i32 %125 to float
+  %126 = uitofp nneg i32 %125 to float
   %127 = load ptr, ptr %79, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 8
   %129 = load ptr, ptr %128, align 8
@@ -906,7 +906,7 @@ declare void @If_ManCleanCutData(ptr noundef) local_unnamed_addr #1
 declare ptr @Abc_NodeFromIf_rec(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Lpk_ResynthesizeNode(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Lpk_ResynthesizeNode(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
@@ -1223,7 +1223,7 @@ Abc_Clock.exit89:                                 ; preds = %Abc_Clock.exit87, %
   %200 = getelementptr inbounds i8, ptr %83, i64 12
   %201 = load float, ptr %200, align 4
   %202 = fpext float %201 to double
-  %203 = trunc i64 %indvars.iv119 to i32
+  %203 = trunc nuw nsw i64 %indvars.iv119 to i32
   %204 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %203, i32 noundef %193, i32 noundef %143, i32 noundef %195, i32 noundef %197, i32 noundef %199, double noundef %202)
   %205 = load ptr, ptr @stdout, align 8
   call void @Kit_DsdPrint(ptr noundef %205, ptr noundef nonnull %157) #16
@@ -1249,7 +1249,7 @@ Abc_Clock.exit89:                                 ; preds = %Abc_Clock.exit87, %
 Abc_Clock.exit91:                                 ; preds = %208, %211
   %.0.i90.neg = phi i64 [ %.neg98, %211 ], [ 1, %208 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %214 = call i32 @Lpk_ExploreCut(ptr noundef nonnull %0, ptr noundef nonnull %83, ptr noundef nonnull %157), !range !17
+  %214 = call i32 @Lpk_ExploreCut(ptr noundef nonnull %0, ptr noundef nonnull %83, ptr noundef nonnull %157)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %215 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #16
   %216 = icmp slt i32 %215, 0
@@ -1283,7 +1283,7 @@ Abc_Clock.exit93:                                 ; preds = %Abc_Clock.exit91, %
   %227 = load i32, ptr %63, align 4
   %228 = sext i32 %227 to i64
   %229 = icmp slt i64 %indvars.iv.next120, %228
-  br i1 %229, label %79, label %.loopexit, !llvm.loop !18
+  br i1 %229, label %79, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %Abc_Clock.exit93, %79, %226, %57, %Abc_Clock.exit83
   %.0 = phi i32 [ 0, %Abc_Clock.exit83 ], [ 1, %57 ], [ 1, %226 ], [ 1, %79 ], [ 1, %Abc_Clock.exit93 ]
@@ -1372,7 +1372,7 @@ declare i32 @Kit_CreateCloudFromTruth(ptr noundef, ptr noundef, i32 noundef, ptr
 declare void @Kit_TruthCofSupports(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Lpk_ResynthesizeNodeNew(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Lpk_ResynthesizeNodeNew(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
@@ -1552,7 +1552,7 @@ Abc_Clock.exit139:                                ; preds = %35, %38
   %116 = and i32 %115, 63
   %117 = zext nneg i32 %116 to i64
   %118 = icmp ult i64 %indvars.iv.next, %117
-  br i1 %118, label %103, label %._crit_edge, !llvm.loop !19
+  br i1 %118, label %103, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %103, %.preheader
   %119 = load ptr, ptr %11, align 8
@@ -1587,7 +1587,7 @@ Abc_Clock.exit139:                                ; preds = %35, %38
   %137 = and i32 %136, 63
   %138 = zext nneg i32 %137 to i64
   %139 = icmp ult i64 %indvars.iv.next192, %138
-  br i1 %139, label %124, label %._crit_edge167, !llvm.loop !20
+  br i1 %139, label %124, label %._crit_edge167, !llvm.loop !19
 
 ._crit_edge167:                                   ; preds = %124, %._crit_edge
   %.lcssa = phi i32 [ %121, %._crit_edge ], [ %136, %124 ]
@@ -1696,7 +1696,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %193 = and i32 %192, 63
   %194 = zext nneg i32 %193 to i64
   %195 = icmp ult i64 %indvars.iv.next195, %194
-  br i1 %195, label %151, label %._crit_edge171, !llvm.loop !21
+  br i1 %195, label %151, label %._crit_edge171, !llvm.loop !20
 
 ._crit_edge171:                                   ; preds = %Vec_PtrPush.exit, %145
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -1794,7 +1794,7 @@ Abc_Clock.exit147:                                ; preds = %Abc_Clock.exit145, 
   %244 = getelementptr inbounds i8, ptr %94, i64 12
   %245 = load float, ptr %244, align 4
   %246 = fpext float %245 to double
-  %247 = trunc i64 %indvars.iv200 to i32
+  %247 = trunc nuw nsw i64 %indvars.iv200 to i32
   %248 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %247, i32 noundef %237, i32 noundef %235, i32 noundef %239, i32 noundef %241, i32 noundef %243, double noundef %246)
   %249 = load ptr, ptr %79, align 8
   %250 = getelementptr i8, ptr %249, i64 4
@@ -1821,7 +1821,7 @@ Abc_Clock.exit147:                                ; preds = %Abc_Clock.exit145, 
   %.val128 = load i32, ptr %262, align 4
   %263 = sext i32 %.val128 to i64
   %264 = icmp slt i64 %indvars.iv.next198, %263
-  br i1 %264, label %.lr.ph175, label %.critedge, !llvm.loop !22
+  br i1 %264, label %.lr.ph175, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %.lr.ph175, %232
   %putchar = call i32 @putchar(i32 10)
@@ -1969,7 +1969,7 @@ Abc_Clock.exit151:                                ; preds = %316, %319
   %354 = load i32, ptr %70, align 4
   %355 = sext i32 %354 to i64
   %356 = icmp slt i64 %indvars.iv.next201, %355
-  br i1 %356, label %90, label %.loopexit, !llvm.loop !23
+  br i1 %356, label %90, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %90, %353, %64, %349, %Abc_Clock.exit137
   %.0 = phi i32 [ 0, %Abc_Clock.exit137 ], [ 1, %349 ], [ 1, %64 ], [ 1, %353 ], [ 1, %90 ]
@@ -1979,7 +1979,7 @@ Abc_Clock.exit151:                                ; preds = %316, %319
 declare ptr @Lpk_Decompose(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Lpk_Resynthesize(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Lpk_Resynthesize(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -2056,7 +2056,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %38 = add nsw i32 %37, -1
   %storemerge.in = mul nsw i32 %38, %34
   %39 = icmp sgt i32 %storemerge.in, 15
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store i32 %38, ptr %1, align 4
@@ -2134,7 +2134,7 @@ Vec_VecAlloc.exit.i:                              ; preds = %65, %53
   store ptr %calloc.i.i, ptr %72, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_VecStart.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %Vec_VecStart.exit, label %.lr.ph.i, !llvm.loop !24
 
 Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecAlloc.exit.i
   %73 = getelementptr inbounds i8, ptr %63, i64 4
@@ -2247,7 +2247,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %113, %102
   %indvars.iv.next.i256 = add nsw i64 %indvars.iv.i254, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i256 to i32
   %exitcond.not.i257 = icmp eq i32 %101, %lftr.wideiv.i
-  br i1 %exitcond.not.i257, label %._crit_edge.i, label %118, !llvm.loop !26
+  br i1 %exitcond.not.i257, label %._crit_edge.i, label %118, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %118, %Vec_PtrGrow.exit.i
   store i32 %101, ptr %99, align 4
@@ -2342,7 +2342,7 @@ Vec_VecExpand.exit:                               ; preds = %._crit_edge.i, %95,
   br i1 %158, label %Extra_ProgressBarUpdate.exit, label %159
 
 159:                                              ; preds = %155, %154
-  %160 = trunc i64 %indvars.iv to i32
+  %160 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %.1, i32 noundef %160, ptr noundef null) #16
   br label %Extra_ProgressBarUpdate.exit
 
@@ -2408,11 +2408,11 @@ Lpk_NodeHasChanged.exit:                          ; preds = %183, %164, %Extra_P
   br i1 %.not219, label %195, label %193
 
 193:                                              ; preds = %Lpk_NodeHasChanged.exit
-  %194 = call i32 @Lpk_ResynthesizeNode(ptr noundef nonnull %57), !range !17
+  %194 = call i32 @Lpk_ResynthesizeNode(ptr noundef nonnull %57)
   br label %Lpk_NodeHasChanged.exit.thread
 
 195:                                              ; preds = %Lpk_NodeHasChanged.exit
-  %196 = call i32 @Lpk_ResynthesizeNodeNew(ptr noundef nonnull %57), !range !17
+  %196 = call i32 @Lpk_ResynthesizeNodeNew(ptr noundef nonnull %57)
   br label %Lpk_NodeHasChanged.exit.thread
 
 Lpk_NodeHasChanged.exit.thread:                   ; preds = %179, %.preheader.i, %136, %130, %195, %193, %141
@@ -2422,7 +2422,7 @@ Lpk_NodeHasChanged.exit.thread:                   ; preds = %179, %.preheader.i,
   %.val = load i32, ptr %198, align 4
   %199 = sext i32 %.val to i64
   %200 = icmp slt i64 %indvars.iv.next, %199
-  br i1 %200, label %130, label %.critedge, !llvm.loop !27
+  br i1 %200, label %130, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %151, %Lpk_NodeHasChanged.exit.thread, %126
   %201 = load i32, ptr %90, align 4
@@ -2526,7 +2526,7 @@ Lpk_NodeHasChanged.exit.thread:                   ; preds = %179, %.preheader.i,
   br i1 %.not239, label %269, label %266
 
 266:                                              ; preds = %262
-  %267 = trunc i64 %indvars.iv296 to i32
+  %267 = trunc nuw nsw i64 %indvars.iv296 to i32
   %268 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %267, i32 noundef %265)
   %.pre305 = load i32, ptr %35, align 4
   br label %269
@@ -2536,7 +2536,7 @@ Lpk_NodeHasChanged.exit.thread:                   ; preds = %179, %.preheader.i,
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %271 = sext i32 %270 to i64
   %.not224.not = icmp slt i64 %indvars.iv296, %271
-  br i1 %.not224.not, label %262, label %._crit_edge294, !llvm.loop !28
+  br i1 %.not224.not, label %262, label %._crit_edge294, !llvm.loop !27
 
 ._crit_edge294:                                   ; preds = %269, %221
   %putchar225 = call i32 @putchar(i32 10)
@@ -2758,7 +2758,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #16
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -2777,7 +2777,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -2803,19 +2803,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
@@ -2849,8 +2849,8 @@ attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nofree nounwind }
 attributes #11 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -2880,7 +2880,7 @@ attributes #18 = { nounwind willreturn memory(read) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 0, i32 2}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
@@ -2891,4 +2891,3 @@ attributes #18 = { nounwind willreturn memory(read) }
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}

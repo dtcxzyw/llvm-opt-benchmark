@@ -499,7 +499,7 @@ if.end33:                                         ; preds = %if.end26, %if.end15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN3net18QuicFlowController21WindowUpdateThresholdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i64 0, -9223372036854775808) i64 @_ZN3net18QuicFlowController21WindowUpdateThresholdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
   %receive_window_size_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i64, ptr %receive_window_size_, align 8

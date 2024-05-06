@@ -463,7 +463,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br label %.loopexit16
 
 235:                                              ; preds = %221
-  %236 = trunc i64 %223 to i32
+  %236 = trunc nsw i64 %223 to i32
   call void @llvm.assume(i1 true) [ "align"(ptr %184, i64 64) ]
   %237 = sub nsw i64 %223, %201
   %238 = add nsw i64 %223, %201
@@ -920,7 +920,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !76
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

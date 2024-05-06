@@ -51,7 +51,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.riscv_cpu_register_gdb_regs_for_features = private unnamed_addr constant [3 x ptr] [ptr @.str.4, ptr @.str.5, ptr @.str.5], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @riscv_cpu_gdb_read_register(ptr noundef %cs, ptr noundef %mem_buf, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local range(i32 0, 9) i32 @riscv_cpu_gdb_read_register(ptr noundef %cs, ptr noundef %mem_buf, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %to_quad.i = alloca i64, align 8
   %to_long.i = alloca i32, align 4
@@ -112,7 +112,7 @@ return:                                           ; preds = %if.else, %sw.bb7, %
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @riscv_cpu_gdb_write_register(ptr noundef %cs, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local range(i32 4, 9) i32 @riscv_cpu_gdb_write_register(ptr noundef %cs, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
   %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
@@ -365,7 +365,7 @@ if.end21:                                         ; preds = %riscv_gen_dynamic_c
 declare void @gdb_register_coprocessor(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @riscv_gdb_get_fpu(ptr nocapture noundef readonly %env, ptr noundef %buf, i32 noundef %n) #0 {
+define internal range(i32 0, 9) i32 @riscv_gdb_get_fpu(ptr nocapture noundef readonly %env, ptr noundef %buf, i32 noundef %n) #0 {
 entry:
   %to_long.i = alloca i32, align 4
   %to_quad.i = alloca i64, align 8
@@ -414,7 +414,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @riscv_gdb_set_fpu(ptr nocapture noundef writeonly %env, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) #3 {
+define internal range(i32 0, 9) i32 @riscv_gdb_set_fpu(ptr nocapture noundef writeonly %env, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) #3 {
 entry:
   %cmp = icmp slt i32 %n, 32
   br i1 %cmp, label %if.then, label %return
@@ -512,7 +512,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @riscv_gdb_get_virtual(ptr nocapture readnone %cs, ptr noundef %buf, i32 noundef %n) #0 {
+define internal range(i32 0, 9) i32 @riscv_gdb_get_virtual(ptr nocapture readnone %cs, ptr noundef %buf, i32 noundef %n) #0 {
 entry:
   %to_quad.i = alloca i64, align 8
   %cmp = icmp eq i32 %n, 0
@@ -531,7 +531,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @riscv_gdb_set_virtual(ptr nocapture readnone %cs, ptr nocapture readnone %mem_buf, i32 noundef %n) #5 {
+define internal noundef range(i32 0, 9) i32 @riscv_gdb_set_virtual(ptr nocapture readnone %cs, ptr nocapture readnone %mem_buf, i32 noundef %n) #5 {
 entry:
   %cmp = icmp eq i32 %n, 0
   %. = select i1 %cmp, i32 8, i32 0
@@ -539,7 +539,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @riscv_gdb_get_csr(ptr noundef %env, ptr noundef %buf, i32 noundef %n) #0 {
+define internal range(i32 0, 9) i32 @riscv_gdb_get_csr(ptr noundef %env, ptr noundef %buf, i32 noundef %n) #0 {
 entry:
   %to_quad.i = alloca i64, align 8
   %val = alloca i64, align 8
@@ -566,7 +566,7 @@ return:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @riscv_gdb_set_csr(ptr noundef %env, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) #0 {
+define internal range(i32 0, 9) i32 @riscv_gdb_set_csr(ptr noundef %env, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) #0 {
 entry:
   %cmp = icmp slt i32 %n, 4096
   br i1 %cmp, label %if.then, label %if.end4

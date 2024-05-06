@@ -118,7 +118,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @vt_waitactive(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -4, 1) i32 @vt_waitactive(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
   %3 = alloca %struct.vt_event_wait, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #7
@@ -1315,7 +1315,7 @@ define internal fastcc void @vt_disallocate_all() unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @vt_disallocate(i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @vt_disallocate(i32 noundef %0) unnamed_addr #0 align 16 {
   tail call void @console_lock() #7
   %2 = zext nneg i32 %0 to i64
   %3 = getelementptr [63 x %struct.vc], ptr @vc_cons, i64 0, i64 %2
@@ -1534,7 +1534,7 @@ define internal fastcc i32 @vt_resizex(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @vt_event_wait_ioctl(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @vt_event_wait_ioctl(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
   %3 = alloca %struct.vt_event_wait, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #7
@@ -1694,7 +1694,7 @@ define dso_local void @vc_SAK(ptr nocapture noundef readonly %0) local_unnamed_a
 declare dso_local void @__do_SAK(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @vt_compat_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @vt_compat_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.compat_unimapdesc, align 8
   %5 = alloca %struct.console_font_op, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 584
@@ -2117,7 +2117,7 @@ declare dso_local i64 @ksys_ioperm(i64 noundef, i64 noundef, i32 noundef) local_
 declare dso_local i32 @kbd_rate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @vt_kdsetmode(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @vt_kdsetmode(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
   switch i64 %1, label %21 [
     i64 1, label %4
     i64 2, label %3

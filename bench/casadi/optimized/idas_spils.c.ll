@@ -54,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.48 = private unnamed_addr constant [23 x i8] c"IDAAspilsJacTimesVecBS\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetGSType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @IDASpilsSetGSType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -103,7 +103,7 @@ define noundef i32 @IDASpilsSetGSType(ptr noundef %0, i32 noundef %1) local_unna
 declare void @IDAProcessError(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetMaxRestarts(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @IDASpilsSetMaxRestarts(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -149,7 +149,7 @@ define noundef i32 @IDASpilsSetMaxRestarts(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetMaxl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @IDASpilsSetMaxl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -189,7 +189,7 @@ define noundef i32 @IDASpilsSetMaxl(ptr noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetEpsLin(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @IDASpilsSetEpsLin(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -234,7 +234,7 @@ define noundef i32 @IDASpilsSetEpsLin(ptr noundef %0, double noundef %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetIncrementFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @IDASpilsSetIncrementFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -271,7 +271,7 @@ define noundef i32 @IDASpilsSetIncrementFactor(ptr noundef %0, double noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDASpilsSetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -302,7 +302,7 @@ define noundef i32 @IDASpilsSetPreconditioner(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetJacTimesVecFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDASpilsSetJacTimesVecFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -341,7 +341,7 @@ define noundef i32 @IDASpilsSetJacTimesVecFn(ptr noundef %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDASpilsGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -415,7 +415,7 @@ define noundef i32 @IDASpilsGetWorkSpace(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsGetNumPrecEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDASpilsGetNumPrecEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -445,7 +445,7 @@ define noundef i32 @IDASpilsGetNumPrecEvals(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsGetNumPrecSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDASpilsGetNumPrecSolves(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -475,7 +475,7 @@ define noundef i32 @IDASpilsGetNumPrecSolves(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsGetNumLinIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDASpilsGetNumLinIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -505,7 +505,7 @@ define noundef i32 @IDASpilsGetNumLinIters(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsGetNumConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDASpilsGetNumConvFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -535,7 +535,7 @@ define noundef i32 @IDASpilsGetNumConvFails(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsGetNumJtimesEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDASpilsGetNumJtimesEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -565,7 +565,7 @@ define noundef i32 @IDASpilsGetNumJtimesEvals(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsGetNumResEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDASpilsGetNumResEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -595,7 +595,7 @@ define noundef i32 @IDASpilsGetNumResEvals(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsGetLastFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @IDASpilsGetLastFlag(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -728,7 +728,7 @@ define i32 @IDASpilsPSolve(ptr nocapture noundef readonly %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsDQJtimes(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, double noundef %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @IDASpilsDQJtimes(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, double noundef %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %7, i64 1632
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
@@ -812,7 +812,7 @@ declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetGSTypeB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDASpilsSetGSTypeB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -903,7 +903,7 @@ IDASpilsSetGSType.exit:                           ; preds = %37, %36, %33, %30, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetMaxRestartsB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDASpilsSetMaxRestartsB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -993,7 +993,7 @@ IDASpilsSetMaxRestarts.exit:                      ; preds = %37, %36, %33, %30, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetEpsLinB(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDASpilsSetEpsLinB(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1082,7 +1082,7 @@ IDASpilsSetEpsLin.exit:                           ; preds = %38, %37, %33, %30, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetMaxlB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDASpilsSetMaxlB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1166,7 +1166,7 @@ IDASpilsSetMaxl.exit:                             ; preds = %35, %34, %30, %25, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetIncrementFactorB(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDASpilsSetIncrementFactorB(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1247,7 +1247,7 @@ IDASpilsSetIncrementFactor.exit:                  ; preds = %34, %33, %30, %25, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetPreconditionerB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -1458,7 +1458,7 @@ define internal i32 @IDAAspilsPrecSetupB(double noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetPreconditionerBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDASpilsSetPreconditionerBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -1713,7 +1713,7 @@ define internal i32 @IDAAspilsPrecSetupBS(double noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetJacTimesVecFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1871,7 +1871,7 @@ define internal i32 @IDAAspilsJacTimesVecB(double noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpilsSetJacTimesVecFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDASpilsSetJacTimesVecFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 

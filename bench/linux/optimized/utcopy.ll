@@ -66,7 +66,7 @@ define dso_local i32 @acpi_ut_copy_iobject_to_eobject(ptr noundef %0, ptr nocapt
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @acpi_ut_copy_isimple_to_esimple(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 16) i32 @acpi_ut_copy_isimple_to_esimple(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
   store i64 0, ptr %3, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %72, label %6
@@ -190,7 +190,7 @@ define internal fastcc noundef i32 @acpi_ut_copy_isimple_to_esimple(ptr noundef 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ut_copy_eobject_to_iobject(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 16) i32 @acpi_ut_copy_eobject_to_iobject(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = load i32, ptr %0, align 8
@@ -226,7 +226,7 @@ define dso_local i32 @acpi_ut_copy_eobject_to_iobject(ptr nocapture noundef read
   %20 = load ptr, ptr %17, align 8
   %21 = getelementptr %union.acpi_object, ptr %20, i64 %19
   %22 = getelementptr ptr, ptr %13, i64 %19
-  %23 = tail call i32 @acpi_ut_copy_eobject_to_iobject(ptr noundef %21, ptr noundef %22), !range !5
+  %23 = tail call i32 @acpi_ut_copy_eobject_to_iobject(ptr noundef %21, ptr noundef %22)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %28, label %25
 
@@ -590,7 +590,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare dso_local i32 @acpi_ut_walk_package_tree(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_ut_copy_ielement_to_eelement(i8 noundef zeroext %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal noundef range(i32 0, 4098) i32 @acpi_ut_copy_ielement_to_eelement(i8 noundef zeroext %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   %6 = getelementptr inbounds i8, ptr %2, i64 16

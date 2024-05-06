@@ -62,7 +62,7 @@ define hidden void @mbedtls_ecdh_init(ptr nocapture noundef writeonly %0) local_
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecdh_setup(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 -20096, 1) i32 @mbedtls_ecdh_setup(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   store i8 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %3, align 8

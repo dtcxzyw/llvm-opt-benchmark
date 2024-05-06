@@ -997,7 +997,7 @@ while.end.i:                                      ; preds = %while.cond.i117
   br label %show.exit
 
 if.else.i:                                        ; preds = %if.then136
-  %call8.i = call i32 @puts(ptr noundef nonnull dereferenceable(1) %91)
+  %call8.i = call i32 @puts(ptr noundef nonnull readonly dereferenceable(1) %91)
   br label %show.exit
 
 show.exit:                                        ; preds = %while.end.i, %if.else.i
@@ -1033,7 +1033,7 @@ while.end.i132:                                   ; preds = %while.cond.i124
   br label %for.inc566
 
 if.else.i122:                                     ; preds = %show.exit
-  %call8.i123 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %127)
+  %call8.i123 = call i32 @puts(ptr noundef nonnull readonly dereferenceable(1) %127)
   br label %for.inc566
 
 if.end140:                                        ; preds = %if.end121.tail
@@ -1081,7 +1081,7 @@ while.end.i147:                                   ; preds = %while.cond.i139
   br label %for.inc566
 
 if.else.i137:                                     ; preds = %if.then149
-  %call8.i138 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %91)
+  %call8.i138 = call i32 @puts(ptr noundef nonnull readonly dereferenceable(1) %91)
   br label %for.inc566
 
 do.body.i.i:                                      ; preds = %do.body.i.i.preheader, %do.cond.i.i
@@ -2648,7 +2648,7 @@ while.end.i:                                      ; preds = %while.cond.i
   br label %show.exit
 
 if.else.i:                                        ; preds = %if.then1
-  %call8.i = call i32 @puts(ptr noundef nonnull dereferenceable(1) %call3)
+  %call8.i = call i32 @puts(ptr noundef nonnull readonly dereferenceable(1) %call3)
   br label %show.exit
 
 show.exit:                                        ; preds = %while.end.i, %if.else.i
@@ -2685,7 +2685,7 @@ while.end.i14:                                    ; preds = %while.cond.i6
   br label %return
 
 if.else.i4:                                       ; preds = %if.else
-  %call8.i5 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %arg)
+  %call8.i5 = call i32 @puts(ptr noundef nonnull readonly dereferenceable(1) %arg)
   br label %return
 
 return:                                           ; preds = %if.else.i4, %while.end.i14, %show_default.exit, %show.exit
@@ -3009,7 +3009,7 @@ while.end.i:                                      ; preds = %while.cond.i
   br label %show.exit
 
 if.else.i:                                        ; preds = %if.end
-  %call8.i = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) %call1)
+  %call8.i = tail call i32 @puts(ptr noundef nonnull readonly dereferenceable(1) %call1)
   br label %show.exit
 
 show.exit:                                        ; preds = %while.end.i, %if.else.i
@@ -3051,7 +3051,7 @@ if.end7.i.preheader:                              ; preds = %land.lhs.true.i, %i
 if.end7.i:                                        ; preds = %if.end7.i.preheader, %if.end21.i
   %5 = phi ptr [ %7, %if.end21.i ], [ @.str.39, %if.end7.i.preheader ]
   %incdec.ptr10.i = phi ptr [ %incdec.ptr.i, %if.end21.i ], [ getelementptr inbounds ([29 x ptr], ptr @is_rev_argument.rev_args, i64 0, i64 1), %if.end7.i.preheader ]
-  %call9.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arg, ptr noundef nonnull dereferenceable(1) %5) #16
+  %call9.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %arg, ptr noundef nonnull dereferenceable(1) %5) #16
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %is_rev_argument.exit, label %lor.lhs.false.i
 
@@ -3067,7 +3067,7 @@ lor.lhs.false.i:                                  ; preds = %if.end7.i
 
 land.lhs.true16.i:                                ; preds = %lor.lhs.false.i
   %conv17.i = ashr exact i64 %sub.i, 32
-  %call18.i = tail call i32 @strncmp(ptr noundef nonnull %arg, ptr noundef nonnull %5, i64 noundef %conv17.i) #16
+  %call18.i = tail call i32 @strncmp(ptr noundef nonnull readonly %arg, ptr noundef nonnull %5, i64 noundef %conv17.i) #16
   %tobool19.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool19.not.i, label %is_rev_argument.exit, label %if.end21.i
 
@@ -3113,7 +3113,7 @@ while.end.i:                                      ; preds = %while.cond.i
   br label %return
 
 if.else.i:                                        ; preds = %if.then4
-  %call8.i = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) %arg)
+  %call8.i = tail call i32 @puts(ptr noundef nonnull readonly dereferenceable(1) %arg)
   br label %return
 
 return:                                           ; preds = %if.else.i, %while.end.i, %is_rev_argument.exit, %entry
@@ -3468,7 +3468,7 @@ while.end.i:                                      ; preds = %while.cond.i
   br label %show.exit
 
 if.else.i:                                        ; preds = %if.end
-  %call8.i = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) %arg)
+  %call8.i = tail call i32 @puts(ptr noundef nonnull readonly dereferenceable(1) %arg)
   br label %show.exit
 
 show.exit:                                        ; preds = %while.end.i, %if.else.i

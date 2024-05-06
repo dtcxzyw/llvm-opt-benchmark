@@ -633,7 +633,7 @@ entry:
 declare ptr @evp_generic_fetch_from_prov(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_SIGNATURE_is_a(ptr noundef readonly %signature, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_SIGNATURE_is_a(ptr noundef readonly %signature, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %signature, null
   br i1 %cmp.not, label %land.end, label %land.rhs

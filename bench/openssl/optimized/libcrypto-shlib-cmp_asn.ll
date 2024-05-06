@@ -512,7 +512,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CMP_ITAV_push0_stack_item(ptr noundef %itav_sk_p, ptr noundef %itav) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_ITAV_push0_stack_item(ptr noundef %itav_sk_p, ptr noundef %itav) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %itav_sk_p, null
   %cmp1 = icmp eq ptr %itav, null
@@ -611,7 +611,7 @@ declare void @X509_free(ptr noundef) #2
 declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CMP_ITAV_get0_caCerts(ptr noundef readonly %itav, ptr noundef writeonly %out) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_caCerts(ptr noundef readonly %itav, ptr noundef writeonly %out) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %itav, null
   %cmp1 = icmp eq ptr %out, null
@@ -692,7 +692,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CMP_ITAV_get0_rootCaCert(ptr noundef readonly %itav, ptr noundef writeonly %out) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_rootCaCert(ptr noundef readonly %itav, ptr noundef writeonly %out) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %itav, null
   %cmp1 = icmp eq ptr %out, null
@@ -789,7 +789,7 @@ return:                                           ; preds = %entry, %err, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OSSL_CMP_ITAV_get0_rootCaKeyUpdate(ptr noundef readonly %itav, ptr noundef writeonly %newWithNew, ptr noundef writeonly %newWithOld, ptr noundef writeonly %oldWithNew) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_rootCaKeyUpdate(ptr noundef readonly %itav, ptr noundef writeonly %newWithNew, ptr noundef writeonly %newWithOld, ptr noundef writeonly %oldWithNew) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %itav, null
   %cmp1 = icmp eq ptr %newWithNew, null
@@ -1484,7 +1484,7 @@ declare ptr @X509_REQ_it() #2
 declare ptr @GENERAL_NAME_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossl_cmp_msg_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef %exarg) #1 {
+define internal range(i32 0, 2) i32 @ossl_cmp_msg_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef %exarg) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   switch i32 %operation, label %sw.epilog [

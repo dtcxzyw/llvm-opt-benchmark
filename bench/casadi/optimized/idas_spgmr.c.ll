@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [99 x i8] c"Warning: at t = %lg, poor iterative algorithm performance. Linear convergence failure rate is %le.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpgmr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -4, 1) i32 @IDASpgmr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -220,7 +220,7 @@ define internal noundef i32 @IDASpgmrInit(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IDASpgmrSetup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal range(i32 -1, 2) i32 @IDASpgmrSetup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 1632
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 208
@@ -258,7 +258,7 @@ define internal i32 @IDASpgmrSetup(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IDASpgmrSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -1, 2) i32 @IDASpgmrSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca double, align 8
@@ -381,7 +381,7 @@ define internal noundef i32 @IDASpgmrSolve(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IDASpgmrPerf(ptr noundef %0, i32 noundef %1) #0 {
+define internal range(i32 0, 2) i32 @IDASpgmrPerf(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1632
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i32 %1, 0
@@ -546,7 +546,7 @@ declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @SpgmrMalloc(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDASpgmrB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDASpgmrB(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -618,7 +618,7 @@ define noundef i32 @IDASpgmrB(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   %32 = getelementptr inbounds i8, ptr %.028.lcssa, i64 80
   store ptr @IDASpgmrFreeB, ptr %32, align 8
   %33 = load ptr, ptr %27, align 8
-  %34 = tail call i32 @IDASpgmr(ptr noundef %33, i32 noundef %2), !range !6
+  %34 = tail call i32 @IDASpgmr(ptr noundef %33, i32 noundef %2)
   %.not33 = icmp eq i32 %34, 0
   br i1 %.not33, label %36, label %35
 
@@ -672,4 +672,3 @@ attributes #8 = { nounwind allocsize(0) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -4, i32 1}

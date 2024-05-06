@@ -195,7 +195,7 @@ define i32 @jobacct_storage_g_job_start(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_storage_g_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @acct_storage_g_init() local_unnamed_addr #0 {
   %1 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @plugin_context_lock) #6
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
@@ -1455,7 +1455,7 @@ declare i32 @list_count(ptr noundef) local_unnamed_addr #1
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_desc_submit_time(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @_sort_desc_submit_time(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 328

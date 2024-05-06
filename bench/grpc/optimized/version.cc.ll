@@ -7,13 +7,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [6 x i8] c"grand\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @grpc_version_string() local_unnamed_addr #0 {
+define noundef nonnull ptr @grpc_version_string() local_unnamed_addr #0 {
 entry:
   ret ptr @.str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @grpc_g_stands_for() local_unnamed_addr #0 {
+define noundef nonnull ptr @grpc_g_stands_for() local_unnamed_addr #0 {
 entry:
   ret ptr @.str.1
 }

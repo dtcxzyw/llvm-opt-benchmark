@@ -2331,20 +2331,20 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   %13 = getelementptr inbounds i8, ptr %10, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = or i8 %14, 32
-  switch i8 %15, label %.lr.ph519.preheader [
-    i8 120, label %.lr.ph510
-    i8 111, label %.lr.ph500
+  switch i8 %15, label %.lr.ph520.preheader [
+    i8 120, label %.lr.ph511
+    i8 111, label %.lr.ph501
     i8 98, label %.lr.ph
   ]
 
 .preheader:                                       ; preds = %2
-  %.not524 = icmp eq i64 %8, 0
-  br i1 %.not524, label %.thread715, label %.lr.ph519.preheader
+  %.not525 = icmp eq i64 %8, 0
+  br i1 %.not525, label %.thread716, label %.lr.ph520.preheader
 
-.lr.ph519.preheader:                              ; preds = %12, %.preheader
-  br label %.lr.ph519
+.lr.ph520.preheader:                              ; preds = %12, %.preheader
+  br label %.lr.ph520
 
-.thread715:                                       ; preds = %.preheader
+.thread716:                                       ; preds = %.preheader
   %16 = getelementptr inbounds i8, ptr %6, i64 24
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, -1024
@@ -2352,13 +2352,13 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   store i16 %19, ptr %16, align 8
   br label %.critedge
 
-.lr.ph510:                                        ; preds = %12, %86
-  %.sroa.0119.0509 = phi i64 [ %.sroa.0119.1, %86 ], [ 0, %12 ]
-  %.sroa.26.0508 = phi i64 [ %.sroa.26.1, %86 ], [ 0, %12 ]
-  %.0213507 = phi i32 [ %.1214, %86 ], [ 0, %12 ]
-  %.0222506 = phi i8 [ %.2224, %86 ], [ 0, %12 ]
-  %.0227505 = phi i64 [ %87, %86 ], [ 2, %12 ]
-  %20 = getelementptr inbounds i8, ptr %10, i64 %.0227505
+.lr.ph511:                                        ; preds = %12, %86
+  %.sroa.0119.0510 = phi i64 [ %.sroa.0119.1, %86 ], [ 0, %12 ]
+  %.sroa.26.0509 = phi i64 [ %.sroa.26.1, %86 ], [ 0, %12 ]
+  %.0213508 = phi i32 [ %.1214, %86 ], [ 0, %12 ]
+  %.0222507 = phi i8 [ %.2224, %86 ], [ 0, %12 ]
+  %.0227506 = phi i64 [ %87, %86 ], [ 2, %12 ]
+  %20 = getelementptr inbounds i8, ptr %10, i64 %.0227506
   %21 = load i8, ptr %20, align 1
   %22 = or i8 %21, 32
   switch i8 %22, label %71 [
@@ -2368,13 +2368,13 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
     i8 108, label %67
   ]
 
-23:                                               ; preds = %.lr.ph510
-  %24 = trunc i64 %.0227505 to i32
+23:                                               ; preds = %.lr.ph511
+  %24 = trunc i64 %.0227506 to i32
   %25 = trunc i64 %8 to i32
   %26 = add nsw i32 %25, -2
   %27 = icmp eq i32 %26, %24
-  %sext393 = shl i64 %.0227505, 32
-  %28 = ashr exact i64 %sext393, 32
+  %sext394 = shl i64 %.0227506, 32
+  %28 = ashr exact i64 %sext394, 32
   br i1 %27, label %29, label %._crit_edge.i
 
 29:                                               ; preds = %23
@@ -2386,8 +2386,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   br i1 %34, label %read_int_suffix.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %23, %29
-  %sext394 = shl i64 %8, 32
-  %35 = ashr exact i64 %sext394, 32
+  %sext395 = shl i64 %8, 32
+  %35 = ashr exact i64 %sext395, 32
   %36 = add nsw i64 %28, 1
   %37 = getelementptr inbounds i8, ptr %10, i64 %36
   %38 = load i8, ptr %37, align 1
@@ -2415,11 +2415,11 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   %exitcond.not.i19.i = icmp eq i64 %49, %35
   br i1 %exitcond.not.i19.i, label %read_int_suffix.exit, label %.lr.ph.i16.i, !llvm.loop !12
 
-50:                                               ; preds = %.lr.ph510
-  %sext391 = shl i64 %.0227505, 32
-  %51 = ashr exact i64 %sext391, 32
-  %sext392 = shl i64 %8, 32
-  %52 = ashr exact i64 %sext392, 32
+50:                                               ; preds = %.lr.ph511
+  %sext392 = shl i64 %.0227506, 32
+  %51 = ashr exact i64 %sext392, 32
+  %sext393 = shl i64 %8, 32
+  %52 = ashr exact i64 %sext393, 32
   %53 = add nsw i64 %51, 1
   %54 = getelementptr inbounds i8, ptr %10, i64 %53
   %55 = load i8, ptr %54, align 1
@@ -2447,18 +2447,18 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   %exitcond.not.i.i268 = icmp eq i64 %66, %52
   br i1 %exitcond.not.i.i268, label %read_int_suffix.exit, label %.lr.ph.i.i265, !llvm.loop !12
 
-67:                                               ; preds = %.lr.ph510
+67:                                               ; preds = %.lr.ph511
   %68 = trunc i64 %8 to i32
-  %69 = trunc i64 %.0227505 to i32
+  %69 = trunc i64 %.0227506 to i32
   %70 = add nsw i32 %68, -1
   %.not.i262 = icmp eq i32 %70, %69
   %..i263 = select i1 %.not.i262, i32 64, i32 -1
   br label %read_int_suffix.exit
 
-71:                                               ; preds = %.lr.ph510
-  %72 = icmp ugt i64 %.sroa.0119.0509, 1152921504606846975
-  %spec.select = select i1 %72, i8 1, i8 %.0222506
-  %73 = tail call { i64, i64 } @i128_shl64(i64 %.sroa.0119.0509, i64 %.sroa.26.0508, i64 noundef 4) #8
+71:                                               ; preds = %.lr.ph511
+  %72 = icmp ugt i64 %.sroa.0119.0510, 1152921504606846975
+  %spec.select = select i1 %72, i8 1, i8 %.0222507
+  %73 = tail call { i64, i64 } @i128_shl64(i64 %.sroa.0119.0510, i64 %.sroa.26.0509, i64 noundef 4) #8
   %74 = extractvalue { i64, i64 } %73, 0
   %75 = extractvalue { i64, i64 } %73, 1
   %76 = sext i8 %21 to i64
@@ -2470,25 +2470,25 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   %82 = tail call { i64, i64 } @i128_add64(i64 %74, i64 %75, i64 noundef %81) #8
   %83 = extractvalue { i64, i64 } %82, 0
   %84 = extractvalue { i64, i64 } %82, 1
-  %85 = add nsw i32 %.0213507, 1
+  %85 = add nsw i32 %.0213508, 1
   br label %86
 
-86:                                               ; preds = %.lr.ph510, %71
-  %.2224 = phi i8 [ %spec.select, %71 ], [ %.0222506, %.lr.ph510 ]
-  %.1214 = phi i32 [ %85, %71 ], [ %.0213507, %.lr.ph510 ]
-  %.sroa.26.1 = phi i64 [ %84, %71 ], [ %.sroa.26.0508, %.lr.ph510 ]
-  %.sroa.0119.1 = phi i64 [ %83, %71 ], [ %.sroa.0119.0509, %.lr.ph510 ]
-  %87 = add nuw i64 %.0227505, 1
-  %exitcond609.not = icmp eq i64 %87, %8
-  br i1 %exitcond609.not, label %read_int_suffix.exit, label %.lr.ph510, !llvm.loop !13
+86:                                               ; preds = %.lr.ph511, %71
+  %.2224 = phi i8 [ %spec.select, %71 ], [ %.0222507, %.lr.ph511 ]
+  %.1214 = phi i32 [ %85, %71 ], [ %.0213508, %.lr.ph511 ]
+  %.sroa.26.1 = phi i64 [ %84, %71 ], [ %.sroa.26.0509, %.lr.ph511 ]
+  %.sroa.0119.1 = phi i64 [ %83, %71 ], [ %.sroa.0119.0510, %.lr.ph511 ]
+  %87 = add nuw i64 %.0227506, 1
+  %exitcond610.not = icmp eq i64 %87, %8
+  br i1 %exitcond610.not, label %read_int_suffix.exit, label %.lr.ph511, !llvm.loop !13
 
-.lr.ph500:                                        ; preds = %12, %199
-  %.sroa.0119.2499 = phi i64 [ %.sroa.0119.3, %199 ], [ 0, %12 ]
-  %.sroa.26.2498 = phi i64 [ %.sroa.26.3, %199 ], [ 0, %12 ]
-  %.0216497 = phi i32 [ %.1217, %199 ], [ 0, %12 ]
-  %.3225496 = phi i8 [ %.5, %199 ], [ 0, %12 ]
-  %.0229495 = phi i64 [ %200, %199 ], [ 2, %12 ]
-  %88 = getelementptr inbounds i8, ptr %10, i64 %.0229495
+.lr.ph501:                                        ; preds = %12, %199
+  %.sroa.0119.2500 = phi i64 [ %.sroa.0119.3, %199 ], [ 0, %12 ]
+  %.sroa.26.2499 = phi i64 [ %.sroa.26.3, %199 ], [ 0, %12 ]
+  %.0216498 = phi i32 [ %.1217, %199 ], [ 0, %12 ]
+  %.3225497 = phi i8 [ %.5, %199 ], [ 0, %12 ]
+  %.0229496 = phi i64 [ %200, %199 ], [ 2, %12 ]
+  %88 = getelementptr inbounds i8, ptr %10, i64 %.0229496
   %89 = load i8, ptr %88, align 1
   %90 = sext i8 %89 to i32
   %91 = or i32 %90, 32
@@ -2499,8 +2499,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
     i32 127, label %199
   ]
 
-92:                                               ; preds = %.lr.ph500
-  %93 = trunc i64 %.0229495 to i32
+92:                                               ; preds = %.lr.ph501
+  %93 = trunc i64 %.0229496 to i32
   %94 = trunc i64 %8 to i32
   %95 = or i8 %89, 32
   switch i8 %95, label %read_int_suffix.exit [
@@ -2510,10 +2510,10 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   ]
 
 96:                                               ; preds = %92
-  %sext389 = shl i64 %.0229495, 32
-  %97 = ashr exact i64 %sext389, 32
-  %sext390 = shl i64 %8, 32
-  %98 = ashr exact i64 %sext390, 32
+  %sext390 = shl i64 %.0229496, 32
+  %97 = ashr exact i64 %sext390, 32
+  %sext391 = shl i64 %8, 32
+  %98 = ashr exact i64 %sext391, 32
   %99 = add nsw i64 %97, 1
   %100 = getelementptr inbounds i8, ptr %10, i64 %99
   %101 = load i8, ptr %100, align 1
@@ -2550,8 +2550,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
 115:                                              ; preds = %92
   %116 = add nsw i32 %94, -2
   %117 = icmp eq i32 %116, %93
-  %sext387 = shl i64 %.0229495, 32
-  %118 = ashr exact i64 %sext387, 32
+  %sext388 = shl i64 %.0229496, 32
+  %118 = ashr exact i64 %sext388, 32
   br i1 %117, label %119, label %._crit_edge.i270
 
 119:                                              ; preds = %115
@@ -2563,8 +2563,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   br i1 %124, label %read_int_suffix.exit, label %._crit_edge.i270
 
 ._crit_edge.i270:                                 ; preds = %115, %119
-  %sext388 = shl i64 %8, 32
-  %125 = ashr exact i64 %sext388, 32
+  %sext389 = shl i64 %8, 32
+  %125 = ashr exact i64 %sext389, 32
   %126 = add nsw i64 %118, 1
   %127 = getelementptr inbounds i8, ptr %10, i64 %126
   %128 = load i8, ptr %127, align 1
@@ -2592,8 +2592,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   %exitcond.not.i19.i276 = icmp eq i64 %139, %125
   br i1 %exitcond.not.i19.i276, label %read_int_suffix.exit, label %.lr.ph.i16.i273, !llvm.loop !12
 
-140:                                              ; preds = %.lr.ph500, %.lr.ph500
-  %141 = trunc i64 %.0229495 to i32
+140:                                              ; preds = %.lr.ph501, %.lr.ph501
+  %141 = trunc i64 %.0229496 to i32
   %142 = trunc i64 %8 to i32
   %143 = or i8 %89, 32
   switch i8 %143, label %read_int_suffix.exit [
@@ -2603,10 +2603,10 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   ]
 
 144:                                              ; preds = %140
-  %sext385 = shl i64 %.0229495, 32
-  %145 = ashr exact i64 %sext385, 32
-  %sext386 = shl i64 %8, 32
-  %146 = ashr exact i64 %sext386, 32
+  %sext386 = shl i64 %.0229496, 32
+  %145 = ashr exact i64 %sext386, 32
+  %sext387 = shl i64 %8, 32
+  %146 = ashr exact i64 %sext387, 32
   %147 = add nsw i64 %145, 1
   %148 = getelementptr inbounds i8, ptr %10, i64 %147
   %149 = load i8, ptr %148, align 1
@@ -2643,8 +2643,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
 163:                                              ; preds = %140
   %164 = add nsw i32 %142, -2
   %165 = icmp eq i32 %164, %141
-  %sext383 = shl i64 %.0229495, 32
-  %166 = ashr exact i64 %sext383, 32
+  %sext384 = shl i64 %.0229496, 32
+  %166 = ashr exact i64 %sext384, 32
   br i1 %165, label %167, label %._crit_edge.i285
 
 167:                                              ; preds = %163
@@ -2656,8 +2656,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   br i1 %172, label %read_int_suffix.exit, label %._crit_edge.i285
 
 ._crit_edge.i285:                                 ; preds = %163, %167
-  %sext384 = shl i64 %8, 32
-  %173 = ashr exact i64 %sext384, 32
+  %sext385 = shl i64 %8, 32
+  %173 = ashr exact i64 %sext385, 32
   %174 = add nsw i64 %166, 1
   %175 = getelementptr inbounds i8, ptr %10, i64 %174
   %176 = load i8, ptr %175, align 1
@@ -2685,10 +2685,10 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   %exitcond.not.i19.i291 = icmp eq i64 %187, %173
   br i1 %exitcond.not.i19.i291, label %read_int_suffix.exit, label %.lr.ph.i16.i288, !llvm.loop !12
 
-188:                                              ; preds = %.lr.ph500
-  %189 = icmp ugt i64 %.sroa.0119.2499, 2305843009213693951
-  %spec.select251 = select i1 %189, i8 1, i8 %.3225496
-  %190 = tail call { i64, i64 } @i128_shl64(i64 %.sroa.0119.2499, i64 %.sroa.26.2498, i64 noundef 3) #8
+188:                                              ; preds = %.lr.ph501
+  %189 = icmp ugt i64 %.sroa.0119.2500, 2305843009213693951
+  %spec.select251 = select i1 %189, i8 1, i8 %.3225497
+  %190 = tail call { i64, i64 } @i128_shl64(i64 %.sroa.0119.2500, i64 %.sroa.26.2499, i64 noundef 3) #8
   %191 = extractvalue { i64, i64 } %190, 0
   %192 = extractvalue { i64, i64 } %190, 1
   %193 = add nsw i32 %90, -48
@@ -2696,25 +2696,25 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   %195 = tail call { i64, i64 } @i128_add64(i64 %191, i64 %192, i64 noundef %194) #8
   %196 = extractvalue { i64, i64 } %195, 0
   %197 = extractvalue { i64, i64 } %195, 1
-  %198 = add nsw i32 %.0216497, 1
+  %198 = add nsw i32 %.0216498, 1
   br label %199
 
-199:                                              ; preds = %.lr.ph500, %188
-  %.5 = phi i8 [ %spec.select251, %188 ], [ %.3225496, %.lr.ph500 ]
-  %.1217 = phi i32 [ %198, %188 ], [ %.0216497, %.lr.ph500 ]
-  %.sroa.26.3 = phi i64 [ %197, %188 ], [ %.sroa.26.2498, %.lr.ph500 ]
-  %.sroa.0119.3 = phi i64 [ %196, %188 ], [ %.sroa.0119.2499, %.lr.ph500 ]
-  %200 = add nuw i64 %.0229495, 1
-  %exitcond608.not = icmp eq i64 %200, %8
-  br i1 %exitcond608.not, label %read_int_suffix.exit, label %.lr.ph500, !llvm.loop !14
+199:                                              ; preds = %.lr.ph501, %188
+  %.5 = phi i8 [ %spec.select251, %188 ], [ %.3225497, %.lr.ph501 ]
+  %.1217 = phi i32 [ %198, %188 ], [ %.0216498, %.lr.ph501 ]
+  %.sroa.26.3 = phi i64 [ %197, %188 ], [ %.sroa.26.2499, %.lr.ph501 ]
+  %.sroa.0119.3 = phi i64 [ %196, %188 ], [ %.sroa.0119.2500, %.lr.ph501 ]
+  %200 = add nuw i64 %.0229496, 1
+  %exitcond609.not = icmp eq i64 %200, %8
+  br i1 %exitcond609.not, label %read_int_suffix.exit, label %.lr.ph501, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %12, %312
-  %.sroa.0119.4491 = phi i64 [ %.sroa.0119.5, %312 ], [ 0, %12 ]
-  %.sroa.26.4490 = phi i64 [ %.sroa.26.5, %312 ], [ 0, %12 ]
-  %.0219489 = phi i32 [ %.1220, %312 ], [ 0, %12 ]
-  %.6488 = phi i8 [ %.8, %312 ], [ 0, %12 ]
-  %.0230487 = phi i64 [ %313, %312 ], [ 2, %12 ]
-  %201 = getelementptr inbounds i8, ptr %10, i64 %.0230487
+  %.sroa.0119.4492 = phi i64 [ %.sroa.0119.5, %312 ], [ 0, %12 ]
+  %.sroa.26.4491 = phi i64 [ %.sroa.26.5, %312 ], [ 0, %12 ]
+  %.0219490 = phi i32 [ %.1220, %312 ], [ 0, %12 ]
+  %.6489 = phi i8 [ %.8, %312 ], [ 0, %12 ]
+  %.0230488 = phi i64 [ %313, %312 ], [ 2, %12 ]
+  %201 = getelementptr inbounds i8, ptr %10, i64 %.0230488
   %202 = load i8, ptr %201, align 1
   %203 = sext i8 %202 to i32
   %204 = or i32 %203, 32
@@ -2726,7 +2726,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   ]
 
 205:                                              ; preds = %.lr.ph
-  %206 = trunc i64 %.0230487 to i32
+  %206 = trunc i64 %.0230488 to i32
   %207 = trunc i64 %8 to i32
   %208 = or i8 %202, 32
   switch i8 %208, label %read_int_suffix.exit [
@@ -2736,10 +2736,10 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   ]
 
 209:                                              ; preds = %205
-  %sext381 = shl i64 %.0230487, 32
-  %210 = ashr exact i64 %sext381, 32
-  %sext382 = shl i64 %8, 32
-  %211 = ashr exact i64 %sext382, 32
+  %sext382 = shl i64 %.0230488, 32
+  %210 = ashr exact i64 %sext382, 32
+  %sext383 = shl i64 %8, 32
+  %211 = ashr exact i64 %sext383, 32
   %212 = add nsw i64 %210, 1
   %213 = getelementptr inbounds i8, ptr %10, i64 %212
   %214 = load i8, ptr %213, align 1
@@ -2776,8 +2776,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
 228:                                              ; preds = %205
   %229 = add nsw i32 %207, -2
   %230 = icmp eq i32 %229, %206
-  %sext379 = shl i64 %.0230487, 32
-  %231 = ashr exact i64 %sext379, 32
+  %sext380 = shl i64 %.0230488, 32
+  %231 = ashr exact i64 %sext380, 32
   br i1 %230, label %232, label %._crit_edge.i300
 
 232:                                              ; preds = %228
@@ -2789,8 +2789,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   br i1 %237, label %read_int_suffix.exit, label %._crit_edge.i300
 
 ._crit_edge.i300:                                 ; preds = %228, %232
-  %sext380 = shl i64 %8, 32
-  %238 = ashr exact i64 %sext380, 32
+  %sext381 = shl i64 %8, 32
+  %238 = ashr exact i64 %sext381, 32
   %239 = add nsw i64 %231, 1
   %240 = getelementptr inbounds i8, ptr %10, i64 %239
   %241 = load i8, ptr %240, align 1
@@ -2819,7 +2819,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   br i1 %exitcond.not.i19.i306, label %read_int_suffix.exit, label %.lr.ph.i16.i303, !llvm.loop !12
 
 253:                                              ; preds = %.lr.ph, %.lr.ph
-  %254 = trunc i64 %.0230487 to i32
+  %254 = trunc i64 %.0230488 to i32
   %255 = trunc i64 %8 to i32
   %256 = or i8 %202, 32
   switch i8 %256, label %read_int_suffix.exit [
@@ -2829,10 +2829,10 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   ]
 
 257:                                              ; preds = %253
-  %sext377 = shl i64 %.0230487, 32
-  %258 = ashr exact i64 %sext377, 32
-  %sext378 = shl i64 %8, 32
-  %259 = ashr exact i64 %sext378, 32
+  %sext378 = shl i64 %.0230488, 32
+  %258 = ashr exact i64 %sext378, 32
+  %sext379 = shl i64 %8, 32
+  %259 = ashr exact i64 %sext379, 32
   %260 = add nsw i64 %258, 1
   %261 = getelementptr inbounds i8, ptr %10, i64 %260
   %262 = load i8, ptr %261, align 1
@@ -2869,7 +2869,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
 276:                                              ; preds = %253
   %277 = add nsw i32 %255, -2
   %278 = icmp eq i32 %277, %254
-  %sext = shl i64 %.0230487, 32
+  %sext = shl i64 %.0230488, 32
   %279 = ashr exact i64 %sext, 32
   br i1 %278, label %280, label %._crit_edge.i315
 
@@ -2882,8 +2882,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   br i1 %285, label %read_int_suffix.exit, label %._crit_edge.i315
 
 ._crit_edge.i315:                                 ; preds = %276, %280
-  %sext376 = shl i64 %8, 32
-  %286 = ashr exact i64 %sext376, 32
+  %sext377 = shl i64 %8, 32
+  %286 = ashr exact i64 %sext377, 32
   %287 = add nsw i64 %279, 1
   %288 = getelementptr inbounds i8, ptr %10, i64 %287
   %289 = load i8, ptr %288, align 1
@@ -2912,10 +2912,10 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   br i1 %exitcond.not.i19.i321, label %read_int_suffix.exit, label %.lr.ph.i16.i318, !llvm.loop !12
 
 301:                                              ; preds = %.lr.ph
-  %302 = add nsw i32 %.0219489, 1
-  %303 = icmp slt i64 %.sroa.0119.4491, 0
-  %spec.select252 = select i1 %303, i8 1, i8 %.6488
-  %304 = tail call { i64, i64 } @i128_shl64(i64 %.sroa.0119.4491, i64 %.sroa.26.4490, i64 noundef 1) #8
+  %302 = add nsw i32 %.0219490, 1
+  %303 = icmp slt i64 %.sroa.0119.4492, 0
+  %spec.select252 = select i1 %303, i8 1, i8 %.6489
+  %304 = tail call { i64, i64 } @i128_shl64(i64 %.sroa.0119.4492, i64 %.sroa.26.4491, i64 noundef 1) #8
   %305 = extractvalue { i64, i64 } %304, 0
   %306 = extractvalue { i64, i64 } %304, 1
   %307 = add nsw i32 %203, -48
@@ -2926,20 +2926,20 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   br label %312
 
 312:                                              ; preds = %.lr.ph, %301
-  %.8 = phi i8 [ %spec.select252, %301 ], [ %.6488, %.lr.ph ]
-  %.1220 = phi i32 [ %302, %301 ], [ %.0219489, %.lr.ph ]
-  %.sroa.26.5 = phi i64 [ %311, %301 ], [ %.sroa.26.4490, %.lr.ph ]
-  %.sroa.0119.5 = phi i64 [ %310, %301 ], [ %.sroa.0119.4491, %.lr.ph ]
-  %313 = add nuw i64 %.0230487, 1
+  %.8 = phi i8 [ %spec.select252, %301 ], [ %.6489, %.lr.ph ]
+  %.1220 = phi i32 [ %302, %301 ], [ %.0219490, %.lr.ph ]
+  %.sroa.26.5 = phi i64 [ %311, %301 ], [ %.sroa.26.4491, %.lr.ph ]
+  %.sroa.0119.5 = phi i64 [ %310, %301 ], [ %.sroa.0119.4492, %.lr.ph ]
+  %313 = add nuw i64 %.0230488, 1
   %exitcond.not = icmp eq i64 %313, %8
   br i1 %exitcond.not, label %read_int_suffix.exit, label %.lr.ph, !llvm.loop !15
 
-.lr.ph519:                                        ; preds = %.lr.ph519.preheader, %425
-  %.sroa.0119.6518 = phi i64 [ %.sroa.0119.7, %425 ], [ 0, %.lr.ph519.preheader ]
-  %.sroa.26.6517 = phi i64 [ %.sroa.26.7, %425 ], [ 0, %.lr.ph519.preheader ]
-  %.9516 = phi i8 [ %.10, %425 ], [ 0, %.lr.ph519.preheader ]
-  %.0228515 = phi i64 [ %426, %425 ], [ 0, %.lr.ph519.preheader ]
-  %314 = getelementptr inbounds i8, ptr %10, i64 %.0228515
+.lr.ph520:                                        ; preds = %.lr.ph520.preheader, %425
+  %.sroa.0119.6519 = phi i64 [ %.sroa.0119.7, %425 ], [ 0, %.lr.ph520.preheader ]
+  %.sroa.26.6518 = phi i64 [ %.sroa.26.7, %425 ], [ 0, %.lr.ph520.preheader ]
+  %.9517 = phi i8 [ %.10, %425 ], [ 0, %.lr.ph520.preheader ]
+  %.0228516 = phi i64 [ %426, %425 ], [ 0, %.lr.ph520.preheader ]
+  %314 = getelementptr inbounds i8, ptr %10, i64 %.0228516
   %315 = load i8, ptr %314, align 1
   %316 = sext i8 %315 to i32
   %317 = or i32 %316, 32
@@ -2950,8 +2950,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
     i32 127, label %425
   ]
 
-318:                                              ; preds = %.lr.ph519
-  %319 = trunc i64 %.0228515 to i32
+318:                                              ; preds = %.lr.ph520
+  %319 = trunc i64 %.0228516 to i32
   %320 = trunc i64 %8 to i32
   %321 = or i8 %315, 32
   switch i8 %321, label %read_int_suffix.exit [
@@ -2961,10 +2961,10 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   ]
 
 322:                                              ; preds = %318
-  %sext401 = shl i64 %.0228515, 32
-  %323 = ashr exact i64 %sext401, 32
-  %sext402 = shl i64 %8, 32
-  %324 = ashr exact i64 %sext402, 32
+  %sext402 = shl i64 %.0228516, 32
+  %323 = ashr exact i64 %sext402, 32
+  %sext403 = shl i64 %8, 32
+  %324 = ashr exact i64 %sext403, 32
   %325 = add nsw i64 %323, 1
   %326 = getelementptr inbounds i8, ptr %10, i64 %325
   %327 = load i8, ptr %326, align 1
@@ -3001,8 +3001,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
 341:                                              ; preds = %318
   %342 = add nsw i32 %320, -2
   %343 = icmp eq i32 %342, %319
-  %sext399 = shl i64 %.0228515, 32
-  %344 = ashr exact i64 %sext399, 32
+  %sext400 = shl i64 %.0228516, 32
+  %344 = ashr exact i64 %sext400, 32
   br i1 %343, label %345, label %._crit_edge.i330
 
 345:                                              ; preds = %341
@@ -3014,8 +3014,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   br i1 %350, label %read_int_suffix.exit, label %._crit_edge.i330
 
 ._crit_edge.i330:                                 ; preds = %341, %345
-  %sext400 = shl i64 %8, 32
-  %351 = ashr exact i64 %sext400, 32
+  %sext401 = shl i64 %8, 32
+  %351 = ashr exact i64 %sext401, 32
   %352 = add nsw i64 %344, 1
   %353 = getelementptr inbounds i8, ptr %10, i64 %352
   %354 = load i8, ptr %353, align 1
@@ -3043,8 +3043,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   %exitcond.not.i19.i336 = icmp eq i64 %365, %351
   br i1 %exitcond.not.i19.i336, label %read_int_suffix.exit, label %.lr.ph.i16.i333, !llvm.loop !12
 
-366:                                              ; preds = %.lr.ph519, %.lr.ph519
-  %367 = trunc i64 %.0228515 to i32
+366:                                              ; preds = %.lr.ph520, %.lr.ph520
+  %367 = trunc i64 %.0228516 to i32
   %368 = trunc i64 %8 to i32
   %369 = or i8 %315, 32
   switch i8 %369, label %read_int_suffix.exit [
@@ -3054,10 +3054,10 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   ]
 
 370:                                              ; preds = %366
-  %sext397 = shl i64 %.0228515, 32
-  %371 = ashr exact i64 %sext397, 32
-  %sext398 = shl i64 %8, 32
-  %372 = ashr exact i64 %sext398, 32
+  %sext398 = shl i64 %.0228516, 32
+  %371 = ashr exact i64 %sext398, 32
+  %sext399 = shl i64 %8, 32
+  %372 = ashr exact i64 %sext399, 32
   %373 = add nsw i64 %371, 1
   %374 = getelementptr inbounds i8, ptr %10, i64 %373
   %375 = load i8, ptr %374, align 1
@@ -3094,8 +3094,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
 389:                                              ; preds = %366
   %390 = add nsw i32 %368, -2
   %391 = icmp eq i32 %390, %367
-  %sext395 = shl i64 %.0228515, 32
-  %392 = ashr exact i64 %sext395, 32
+  %sext396 = shl i64 %.0228516, 32
+  %392 = ashr exact i64 %sext396, 32
   br i1 %391, label %393, label %._crit_edge.i345
 
 393:                                              ; preds = %389
@@ -3107,8 +3107,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   br i1 %398, label %read_int_suffix.exit, label %._crit_edge.i345
 
 ._crit_edge.i345:                                 ; preds = %389, %393
-  %sext396 = shl i64 %8, 32
-  %399 = ashr exact i64 %sext396, 32
+  %sext397 = shl i64 %8, 32
+  %399 = ashr exact i64 %sext397, 32
   %400 = add nsw i64 %392, 1
   %401 = getelementptr inbounds i8, ptr %10, i64 %400
   %402 = load i8, ptr %401, align 1
@@ -3136,8 +3136,8 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   %exitcond.not.i19.i351 = icmp eq i64 %413, %399
   br i1 %exitcond.not.i19.i351, label %read_int_suffix.exit, label %.lr.ph.i16.i348, !llvm.loop !12
 
-414:                                              ; preds = %.lr.ph519
-  %415 = tail call { i64, i64 } @i128_mult64(i64 %.sroa.0119.6518, i64 %.sroa.26.6517, i64 noundef 10) #8
+414:                                              ; preds = %.lr.ph520
+  %415 = tail call { i64, i64 } @i128_mult64(i64 %.sroa.0119.6519, i64 %.sroa.26.6518, i64 noundef 10) #8
   %416 = extractvalue { i64, i64 } %415, 0
   %417 = extractvalue { i64, i64 } %415, 1
   %418 = add nsw i32 %316, -48
@@ -3145,29 +3145,29 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #
   %420 = tail call { i64, i64 } @i128_add64(i64 %416, i64 %417, i64 noundef %419) #8
   %421 = extractvalue { i64, i64 } %420, 0
   %422 = extractvalue { i64, i64 } %420, 1
-  %423 = trunc nuw i8 %.9516 to i1
-  %424 = icmp ule i64 %.sroa.0119.6518, %421
-  %or.cond.not404 = select i1 %423, i1 true, i1 %424
-  %spec.select254 = select i1 %or.cond.not404, i8 %.9516, i8 1
+  %423 = trunc nuw i8 %.9517 to i1
+  %424 = icmp ule i64 %.sroa.0119.6519, %421
+  %or.cond.not405 = select i1 %423, i1 true, i1 %424
+  %spec.select254 = select i1 %or.cond.not405, i8 %.9517, i8 1
   br label %425
 
-425:                                              ; preds = %414, %.lr.ph519
-  %.10 = phi i8 [ %.9516, %.lr.ph519 ], [ %spec.select254, %414 ]
-  %.sroa.26.7 = phi i64 [ %.sroa.26.6517, %.lr.ph519 ], [ %422, %414 ]
-  %.sroa.0119.7 = phi i64 [ %.sroa.0119.6518, %.lr.ph519 ], [ %421, %414 ]
-  %426 = add nuw i64 %.0228515, 1
-  %exitcond610.not = icmp eq i64 %426, %8
-  br i1 %exitcond610.not, label %read_int_suffix.exit, label %.lr.ph519, !llvm.loop !16
+425:                                              ; preds = %414, %.lr.ph520
+  %.10 = phi i8 [ %.9517, %.lr.ph520 ], [ %spec.select254, %414 ]
+  %.sroa.26.7 = phi i64 [ %.sroa.26.6518, %.lr.ph520 ], [ %422, %414 ]
+  %.sroa.0119.7 = phi i64 [ %.sroa.0119.6519, %.lr.ph520 ], [ %421, %414 ]
+  %426 = add nuw i64 %.0228516, 1
+  %exitcond611.not = icmp eq i64 %426, %8
+  br i1 %exitcond611.not, label %read_int_suffix.exit, label %.lr.ph520, !llvm.loop !16
 
 read_int_suffix.exit:                             ; preds = %312, %294, %.lr.ph.i16.i318, %267, %.lr.ph.i.i325, %246, %.lr.ph.i16.i303, %219, %.lr.ph.i.i310, %199, %181, %.lr.ph.i16.i288, %154, %.lr.ph.i.i295, %133, %.lr.ph.i16.i273, %106, %.lr.ph.i.i280, %86, %60, %.lr.ph.i.i265, %43, %.lr.ph.i16.i, %425, %407, %.lr.ph.i16.i348, %380, %.lr.ph.i.i355, %359, %.lr.ph.i16.i333, %332, %.lr.ph.i.i340, %.preheader.i14.i346, %._crit_edge.i345, %393, %387, %.preheader.i.i354, %370, %366, %.preheader.i14.i331, %._crit_edge.i330, %345, %339, %.preheader.i.i339, %322, %318, %.preheader.i14.i316, %._crit_edge.i315, %280, %274, %.preheader.i.i324, %257, %253, %.preheader.i14.i301, %._crit_edge.i300, %232, %226, %.preheader.i.i309, %209, %205, %.preheader.i14.i286, %._crit_edge.i285, %167, %161, %.preheader.i.i294, %144, %140, %.preheader.i14.i271, %._crit_edge.i270, %119, %113, %.preheader.i.i279, %96, %92, %67, %.preheader.i.i264, %50, %.preheader.i14.i, %._crit_edge.i, %29
-  %.11 = phi i8 [ %.0222506, %29 ], [ %.0222506, %._crit_edge.i ], [ %.0222506, %.preheader.i14.i ], [ %.0222506, %50 ], [ %.0222506, %.preheader.i.i264 ], [ %.0222506, %67 ], [ %.3225496, %92 ], [ %.3225496, %96 ], [ %.3225496, %.preheader.i.i279 ], [ %.3225496, %113 ], [ %.3225496, %119 ], [ %.3225496, %._crit_edge.i270 ], [ %.3225496, %.preheader.i14.i271 ], [ %.3225496, %140 ], [ %.3225496, %144 ], [ %.3225496, %.preheader.i.i294 ], [ %.3225496, %161 ], [ %.3225496, %167 ], [ %.3225496, %._crit_edge.i285 ], [ %.3225496, %.preheader.i14.i286 ], [ %.6488, %205 ], [ %.6488, %209 ], [ %.6488, %.preheader.i.i309 ], [ %.6488, %226 ], [ %.6488, %232 ], [ %.6488, %._crit_edge.i300 ], [ %.6488, %.preheader.i14.i301 ], [ %.6488, %253 ], [ %.6488, %257 ], [ %.6488, %.preheader.i.i324 ], [ %.6488, %274 ], [ %.6488, %280 ], [ %.6488, %._crit_edge.i315 ], [ %.6488, %.preheader.i14.i316 ], [ %.9516, %318 ], [ %.9516, %322 ], [ %.9516, %.preheader.i.i339 ], [ %.9516, %339 ], [ %.9516, %345 ], [ %.9516, %._crit_edge.i330 ], [ %.9516, %.preheader.i14.i331 ], [ %.9516, %366 ], [ %.9516, %370 ], [ %.9516, %.preheader.i.i354 ], [ %.9516, %387 ], [ %.9516, %393 ], [ %.9516, %._crit_edge.i345 ], [ %.9516, %.preheader.i14.i346 ], [ %.9516, %.lr.ph.i.i340 ], [ %.9516, %332 ], [ %.9516, %.lr.ph.i16.i333 ], [ %.9516, %359 ], [ %.9516, %.lr.ph.i.i355 ], [ %.9516, %380 ], [ %.9516, %.lr.ph.i16.i348 ], [ %.9516, %407 ], [ %.10, %425 ], [ %.0222506, %.lr.ph.i16.i ], [ %.0222506, %43 ], [ %.0222506, %.lr.ph.i.i265 ], [ %.0222506, %60 ], [ %.2224, %86 ], [ %.3225496, %.lr.ph.i.i280 ], [ %.3225496, %106 ], [ %.3225496, %.lr.ph.i16.i273 ], [ %.3225496, %133 ], [ %.3225496, %.lr.ph.i.i295 ], [ %.3225496, %154 ], [ %.3225496, %.lr.ph.i16.i288 ], [ %.3225496, %181 ], [ %.5, %199 ], [ %.6488, %.lr.ph.i.i310 ], [ %.6488, %219 ], [ %.6488, %.lr.ph.i16.i303 ], [ %.6488, %246 ], [ %.6488, %.lr.ph.i.i325 ], [ %.6488, %267 ], [ %.6488, %.lr.ph.i16.i318 ], [ %.6488, %294 ], [ %.8, %312 ]
-  %.2221 = phi i32 [ 0, %29 ], [ 0, %._crit_edge.i ], [ 0, %.preheader.i14.i ], [ 0, %50 ], [ 0, %.preheader.i.i264 ], [ 0, %67 ], [ 0, %92 ], [ 0, %96 ], [ 0, %.preheader.i.i279 ], [ 0, %113 ], [ 0, %119 ], [ 0, %._crit_edge.i270 ], [ 0, %.preheader.i14.i271 ], [ 0, %140 ], [ 0, %144 ], [ 0, %.preheader.i.i294 ], [ 0, %161 ], [ 0, %167 ], [ 0, %._crit_edge.i285 ], [ 0, %.preheader.i14.i286 ], [ %.0219489, %205 ], [ %.0219489, %209 ], [ %.0219489, %.preheader.i.i309 ], [ %.0219489, %226 ], [ %.0219489, %232 ], [ %.0219489, %._crit_edge.i300 ], [ %.0219489, %.preheader.i14.i301 ], [ %.0219489, %253 ], [ %.0219489, %257 ], [ %.0219489, %.preheader.i.i324 ], [ %.0219489, %274 ], [ %.0219489, %280 ], [ %.0219489, %._crit_edge.i315 ], [ %.0219489, %.preheader.i14.i316 ], [ 0, %318 ], [ 0, %322 ], [ 0, %.preheader.i.i339 ], [ 0, %339 ], [ 0, %345 ], [ 0, %._crit_edge.i330 ], [ 0, %.preheader.i14.i331 ], [ 0, %366 ], [ 0, %370 ], [ 0, %.preheader.i.i354 ], [ 0, %387 ], [ 0, %393 ], [ 0, %._crit_edge.i345 ], [ 0, %.preheader.i14.i346 ], [ 0, %.lr.ph.i.i340 ], [ 0, %332 ], [ 0, %.lr.ph.i16.i333 ], [ 0, %359 ], [ 0, %.lr.ph.i.i355 ], [ 0, %380 ], [ 0, %.lr.ph.i16.i348 ], [ 0, %407 ], [ 0, %425 ], [ 0, %.lr.ph.i16.i ], [ 0, %43 ], [ 0, %.lr.ph.i.i265 ], [ 0, %60 ], [ 0, %86 ], [ 0, %.lr.ph.i.i280 ], [ 0, %106 ], [ 0, %.lr.ph.i16.i273 ], [ 0, %133 ], [ 0, %.lr.ph.i.i295 ], [ 0, %154 ], [ 0, %.lr.ph.i16.i288 ], [ 0, %181 ], [ 0, %199 ], [ %.0219489, %.lr.ph.i.i310 ], [ %.0219489, %219 ], [ %.0219489, %.lr.ph.i16.i303 ], [ %.0219489, %246 ], [ %.0219489, %.lr.ph.i.i325 ], [ %.0219489, %267 ], [ %.0219489, %.lr.ph.i16.i318 ], [ %.0219489, %294 ], [ %.1220, %312 ]
-  %.2218 = phi i32 [ 0, %29 ], [ 0, %._crit_edge.i ], [ 0, %.preheader.i14.i ], [ 0, %50 ], [ 0, %.preheader.i.i264 ], [ 0, %67 ], [ %.0216497, %92 ], [ %.0216497, %96 ], [ %.0216497, %.preheader.i.i279 ], [ %.0216497, %113 ], [ %.0216497, %119 ], [ %.0216497, %._crit_edge.i270 ], [ %.0216497, %.preheader.i14.i271 ], [ %.0216497, %140 ], [ %.0216497, %144 ], [ %.0216497, %.preheader.i.i294 ], [ %.0216497, %161 ], [ %.0216497, %167 ], [ %.0216497, %._crit_edge.i285 ], [ %.0216497, %.preheader.i14.i286 ], [ 0, %205 ], [ 0, %209 ], [ 0, %.preheader.i.i309 ], [ 0, %226 ], [ 0, %232 ], [ 0, %._crit_edge.i300 ], [ 0, %.preheader.i14.i301 ], [ 0, %253 ], [ 0, %257 ], [ 0, %.preheader.i.i324 ], [ 0, %274 ], [ 0, %280 ], [ 0, %._crit_edge.i315 ], [ 0, %.preheader.i14.i316 ], [ 0, %318 ], [ 0, %322 ], [ 0, %.preheader.i.i339 ], [ 0, %339 ], [ 0, %345 ], [ 0, %._crit_edge.i330 ], [ 0, %.preheader.i14.i331 ], [ 0, %366 ], [ 0, %370 ], [ 0, %.preheader.i.i354 ], [ 0, %387 ], [ 0, %393 ], [ 0, %._crit_edge.i345 ], [ 0, %.preheader.i14.i346 ], [ 0, %.lr.ph.i.i340 ], [ 0, %332 ], [ 0, %.lr.ph.i16.i333 ], [ 0, %359 ], [ 0, %.lr.ph.i.i355 ], [ 0, %380 ], [ 0, %.lr.ph.i16.i348 ], [ 0, %407 ], [ 0, %425 ], [ 0, %.lr.ph.i16.i ], [ 0, %43 ], [ 0, %.lr.ph.i.i265 ], [ 0, %60 ], [ 0, %86 ], [ %.0216497, %.lr.ph.i.i280 ], [ %.0216497, %106 ], [ %.0216497, %.lr.ph.i16.i273 ], [ %.0216497, %133 ], [ %.0216497, %.lr.ph.i.i295 ], [ %.0216497, %154 ], [ %.0216497, %.lr.ph.i16.i288 ], [ %.0216497, %181 ], [ %.1217, %199 ], [ 0, %.lr.ph.i.i310 ], [ 0, %219 ], [ 0, %.lr.ph.i16.i303 ], [ 0, %246 ], [ 0, %.lr.ph.i.i325 ], [ 0, %267 ], [ 0, %.lr.ph.i16.i318 ], [ 0, %294 ], [ 0, %312 ]
-  %.2215 = phi i32 [ %.0213507, %29 ], [ %.0213507, %._crit_edge.i ], [ %.0213507, %.preheader.i14.i ], [ %.0213507, %50 ], [ %.0213507, %.preheader.i.i264 ], [ %.0213507, %67 ], [ 0, %92 ], [ 0, %96 ], [ 0, %.preheader.i.i279 ], [ 0, %113 ], [ 0, %119 ], [ 0, %._crit_edge.i270 ], [ 0, %.preheader.i14.i271 ], [ 0, %140 ], [ 0, %144 ], [ 0, %.preheader.i.i294 ], [ 0, %161 ], [ 0, %167 ], [ 0, %._crit_edge.i285 ], [ 0, %.preheader.i14.i286 ], [ 0, %205 ], [ 0, %209 ], [ 0, %.preheader.i.i309 ], [ 0, %226 ], [ 0, %232 ], [ 0, %._crit_edge.i300 ], [ 0, %.preheader.i14.i301 ], [ 0, %253 ], [ 0, %257 ], [ 0, %.preheader.i.i324 ], [ 0, %274 ], [ 0, %280 ], [ 0, %._crit_edge.i315 ], [ 0, %.preheader.i14.i316 ], [ 0, %318 ], [ 0, %322 ], [ 0, %.preheader.i.i339 ], [ 0, %339 ], [ 0, %345 ], [ 0, %._crit_edge.i330 ], [ 0, %.preheader.i14.i331 ], [ 0, %366 ], [ 0, %370 ], [ 0, %.preheader.i.i354 ], [ 0, %387 ], [ 0, %393 ], [ 0, %._crit_edge.i345 ], [ 0, %.preheader.i14.i346 ], [ 0, %.lr.ph.i.i340 ], [ 0, %332 ], [ 0, %.lr.ph.i16.i333 ], [ 0, %359 ], [ 0, %.lr.ph.i.i355 ], [ 0, %380 ], [ 0, %.lr.ph.i16.i348 ], [ 0, %407 ], [ 0, %425 ], [ %.0213507, %.lr.ph.i16.i ], [ %.0213507, %43 ], [ %.0213507, %.lr.ph.i.i265 ], [ %.0213507, %60 ], [ %.1214, %86 ], [ 0, %.lr.ph.i.i280 ], [ 0, %106 ], [ 0, %.lr.ph.i16.i273 ], [ 0, %133 ], [ 0, %.lr.ph.i.i295 ], [ 0, %154 ], [ 0, %.lr.ph.i16.i288 ], [ 0, %181 ], [ 0, %199 ], [ 0, %.lr.ph.i.i310 ], [ 0, %219 ], [ 0, %.lr.ph.i16.i303 ], [ 0, %246 ], [ 0, %.lr.ph.i.i325 ], [ 0, %267 ], [ 0, %.lr.ph.i16.i318 ], [ 0, %294 ], [ 0, %312 ]
+  %.11 = phi i8 [ %.0222507, %29 ], [ %.0222507, %._crit_edge.i ], [ %.0222507, %.preheader.i14.i ], [ %.0222507, %50 ], [ %.0222507, %.preheader.i.i264 ], [ %.0222507, %67 ], [ %.3225497, %92 ], [ %.3225497, %96 ], [ %.3225497, %.preheader.i.i279 ], [ %.3225497, %113 ], [ %.3225497, %119 ], [ %.3225497, %._crit_edge.i270 ], [ %.3225497, %.preheader.i14.i271 ], [ %.3225497, %140 ], [ %.3225497, %144 ], [ %.3225497, %.preheader.i.i294 ], [ %.3225497, %161 ], [ %.3225497, %167 ], [ %.3225497, %._crit_edge.i285 ], [ %.3225497, %.preheader.i14.i286 ], [ %.6489, %205 ], [ %.6489, %209 ], [ %.6489, %.preheader.i.i309 ], [ %.6489, %226 ], [ %.6489, %232 ], [ %.6489, %._crit_edge.i300 ], [ %.6489, %.preheader.i14.i301 ], [ %.6489, %253 ], [ %.6489, %257 ], [ %.6489, %.preheader.i.i324 ], [ %.6489, %274 ], [ %.6489, %280 ], [ %.6489, %._crit_edge.i315 ], [ %.6489, %.preheader.i14.i316 ], [ %.9517, %318 ], [ %.9517, %322 ], [ %.9517, %.preheader.i.i339 ], [ %.9517, %339 ], [ %.9517, %345 ], [ %.9517, %._crit_edge.i330 ], [ %.9517, %.preheader.i14.i331 ], [ %.9517, %366 ], [ %.9517, %370 ], [ %.9517, %.preheader.i.i354 ], [ %.9517, %387 ], [ %.9517, %393 ], [ %.9517, %._crit_edge.i345 ], [ %.9517, %.preheader.i14.i346 ], [ %.9517, %.lr.ph.i.i340 ], [ %.9517, %332 ], [ %.9517, %.lr.ph.i16.i333 ], [ %.9517, %359 ], [ %.9517, %.lr.ph.i.i355 ], [ %.9517, %380 ], [ %.9517, %.lr.ph.i16.i348 ], [ %.9517, %407 ], [ %.10, %425 ], [ %.0222507, %.lr.ph.i16.i ], [ %.0222507, %43 ], [ %.0222507, %.lr.ph.i.i265 ], [ %.0222507, %60 ], [ %.2224, %86 ], [ %.3225497, %.lr.ph.i.i280 ], [ %.3225497, %106 ], [ %.3225497, %.lr.ph.i16.i273 ], [ %.3225497, %133 ], [ %.3225497, %.lr.ph.i.i295 ], [ %.3225497, %154 ], [ %.3225497, %.lr.ph.i16.i288 ], [ %.3225497, %181 ], [ %.5, %199 ], [ %.6489, %.lr.ph.i.i310 ], [ %.6489, %219 ], [ %.6489, %.lr.ph.i16.i303 ], [ %.6489, %246 ], [ %.6489, %.lr.ph.i.i325 ], [ %.6489, %267 ], [ %.6489, %.lr.ph.i16.i318 ], [ %.6489, %294 ], [ %.8, %312 ]
+  %.2221 = phi i32 [ 0, %29 ], [ 0, %._crit_edge.i ], [ 0, %.preheader.i14.i ], [ 0, %50 ], [ 0, %.preheader.i.i264 ], [ 0, %67 ], [ 0, %92 ], [ 0, %96 ], [ 0, %.preheader.i.i279 ], [ 0, %113 ], [ 0, %119 ], [ 0, %._crit_edge.i270 ], [ 0, %.preheader.i14.i271 ], [ 0, %140 ], [ 0, %144 ], [ 0, %.preheader.i.i294 ], [ 0, %161 ], [ 0, %167 ], [ 0, %._crit_edge.i285 ], [ 0, %.preheader.i14.i286 ], [ %.0219490, %205 ], [ %.0219490, %209 ], [ %.0219490, %.preheader.i.i309 ], [ %.0219490, %226 ], [ %.0219490, %232 ], [ %.0219490, %._crit_edge.i300 ], [ %.0219490, %.preheader.i14.i301 ], [ %.0219490, %253 ], [ %.0219490, %257 ], [ %.0219490, %.preheader.i.i324 ], [ %.0219490, %274 ], [ %.0219490, %280 ], [ %.0219490, %._crit_edge.i315 ], [ %.0219490, %.preheader.i14.i316 ], [ 0, %318 ], [ 0, %322 ], [ 0, %.preheader.i.i339 ], [ 0, %339 ], [ 0, %345 ], [ 0, %._crit_edge.i330 ], [ 0, %.preheader.i14.i331 ], [ 0, %366 ], [ 0, %370 ], [ 0, %.preheader.i.i354 ], [ 0, %387 ], [ 0, %393 ], [ 0, %._crit_edge.i345 ], [ 0, %.preheader.i14.i346 ], [ 0, %.lr.ph.i.i340 ], [ 0, %332 ], [ 0, %.lr.ph.i16.i333 ], [ 0, %359 ], [ 0, %.lr.ph.i.i355 ], [ 0, %380 ], [ 0, %.lr.ph.i16.i348 ], [ 0, %407 ], [ 0, %425 ], [ 0, %.lr.ph.i16.i ], [ 0, %43 ], [ 0, %.lr.ph.i.i265 ], [ 0, %60 ], [ 0, %86 ], [ 0, %.lr.ph.i.i280 ], [ 0, %106 ], [ 0, %.lr.ph.i16.i273 ], [ 0, %133 ], [ 0, %.lr.ph.i.i295 ], [ 0, %154 ], [ 0, %.lr.ph.i16.i288 ], [ 0, %181 ], [ 0, %199 ], [ %.0219490, %.lr.ph.i.i310 ], [ %.0219490, %219 ], [ %.0219490, %.lr.ph.i16.i303 ], [ %.0219490, %246 ], [ %.0219490, %.lr.ph.i.i325 ], [ %.0219490, %267 ], [ %.0219490, %.lr.ph.i16.i318 ], [ %.0219490, %294 ], [ %.1220, %312 ]
+  %.2218 = phi i32 [ 0, %29 ], [ 0, %._crit_edge.i ], [ 0, %.preheader.i14.i ], [ 0, %50 ], [ 0, %.preheader.i.i264 ], [ 0, %67 ], [ %.0216498, %92 ], [ %.0216498, %96 ], [ %.0216498, %.preheader.i.i279 ], [ %.0216498, %113 ], [ %.0216498, %119 ], [ %.0216498, %._crit_edge.i270 ], [ %.0216498, %.preheader.i14.i271 ], [ %.0216498, %140 ], [ %.0216498, %144 ], [ %.0216498, %.preheader.i.i294 ], [ %.0216498, %161 ], [ %.0216498, %167 ], [ %.0216498, %._crit_edge.i285 ], [ %.0216498, %.preheader.i14.i286 ], [ 0, %205 ], [ 0, %209 ], [ 0, %.preheader.i.i309 ], [ 0, %226 ], [ 0, %232 ], [ 0, %._crit_edge.i300 ], [ 0, %.preheader.i14.i301 ], [ 0, %253 ], [ 0, %257 ], [ 0, %.preheader.i.i324 ], [ 0, %274 ], [ 0, %280 ], [ 0, %._crit_edge.i315 ], [ 0, %.preheader.i14.i316 ], [ 0, %318 ], [ 0, %322 ], [ 0, %.preheader.i.i339 ], [ 0, %339 ], [ 0, %345 ], [ 0, %._crit_edge.i330 ], [ 0, %.preheader.i14.i331 ], [ 0, %366 ], [ 0, %370 ], [ 0, %.preheader.i.i354 ], [ 0, %387 ], [ 0, %393 ], [ 0, %._crit_edge.i345 ], [ 0, %.preheader.i14.i346 ], [ 0, %.lr.ph.i.i340 ], [ 0, %332 ], [ 0, %.lr.ph.i16.i333 ], [ 0, %359 ], [ 0, %.lr.ph.i.i355 ], [ 0, %380 ], [ 0, %.lr.ph.i16.i348 ], [ 0, %407 ], [ 0, %425 ], [ 0, %.lr.ph.i16.i ], [ 0, %43 ], [ 0, %.lr.ph.i.i265 ], [ 0, %60 ], [ 0, %86 ], [ %.0216498, %.lr.ph.i.i280 ], [ %.0216498, %106 ], [ %.0216498, %.lr.ph.i16.i273 ], [ %.0216498, %133 ], [ %.0216498, %.lr.ph.i.i295 ], [ %.0216498, %154 ], [ %.0216498, %.lr.ph.i16.i288 ], [ %.0216498, %181 ], [ %.1217, %199 ], [ 0, %.lr.ph.i.i310 ], [ 0, %219 ], [ 0, %.lr.ph.i16.i303 ], [ 0, %246 ], [ 0, %.lr.ph.i.i325 ], [ 0, %267 ], [ 0, %.lr.ph.i16.i318 ], [ 0, %294 ], [ 0, %312 ]
+  %.2215 = phi i32 [ %.0213508, %29 ], [ %.0213508, %._crit_edge.i ], [ %.0213508, %.preheader.i14.i ], [ %.0213508, %50 ], [ %.0213508, %.preheader.i.i264 ], [ %.0213508, %67 ], [ 0, %92 ], [ 0, %96 ], [ 0, %.preheader.i.i279 ], [ 0, %113 ], [ 0, %119 ], [ 0, %._crit_edge.i270 ], [ 0, %.preheader.i14.i271 ], [ 0, %140 ], [ 0, %144 ], [ 0, %.preheader.i.i294 ], [ 0, %161 ], [ 0, %167 ], [ 0, %._crit_edge.i285 ], [ 0, %.preheader.i14.i286 ], [ 0, %205 ], [ 0, %209 ], [ 0, %.preheader.i.i309 ], [ 0, %226 ], [ 0, %232 ], [ 0, %._crit_edge.i300 ], [ 0, %.preheader.i14.i301 ], [ 0, %253 ], [ 0, %257 ], [ 0, %.preheader.i.i324 ], [ 0, %274 ], [ 0, %280 ], [ 0, %._crit_edge.i315 ], [ 0, %.preheader.i14.i316 ], [ 0, %318 ], [ 0, %322 ], [ 0, %.preheader.i.i339 ], [ 0, %339 ], [ 0, %345 ], [ 0, %._crit_edge.i330 ], [ 0, %.preheader.i14.i331 ], [ 0, %366 ], [ 0, %370 ], [ 0, %.preheader.i.i354 ], [ 0, %387 ], [ 0, %393 ], [ 0, %._crit_edge.i345 ], [ 0, %.preheader.i14.i346 ], [ 0, %.lr.ph.i.i340 ], [ 0, %332 ], [ 0, %.lr.ph.i16.i333 ], [ 0, %359 ], [ 0, %.lr.ph.i.i355 ], [ 0, %380 ], [ 0, %.lr.ph.i16.i348 ], [ 0, %407 ], [ 0, %425 ], [ %.0213508, %.lr.ph.i16.i ], [ %.0213508, %43 ], [ %.0213508, %.lr.ph.i.i265 ], [ %.0213508, %60 ], [ %.1214, %86 ], [ 0, %.lr.ph.i.i280 ], [ 0, %106 ], [ 0, %.lr.ph.i16.i273 ], [ 0, %133 ], [ 0, %.lr.ph.i.i295 ], [ 0, %154 ], [ 0, %.lr.ph.i16.i288 ], [ 0, %181 ], [ 0, %199 ], [ 0, %.lr.ph.i.i310 ], [ 0, %219 ], [ 0, %.lr.ph.i16.i303 ], [ 0, %246 ], [ 0, %.lr.ph.i.i325 ], [ 0, %267 ], [ 0, %.lr.ph.i16.i318 ], [ 0, %294 ], [ 0, %312 ]
   %.0210 = phi i32 [ 64, %29 ], [ -1, %._crit_edge.i ], [ 0, %.preheader.i14.i ], [ -1, %50 ], [ 0, %.preheader.i.i264 ], [ %..i263, %67 ], [ -1, %92 ], [ -1, %96 ], [ 0, %.preheader.i.i279 ], [ %..i278, %113 ], [ 64, %119 ], [ -1, %._crit_edge.i270 ], [ 0, %.preheader.i14.i271 ], [ -1, %140 ], [ -1, %144 ], [ 0, %.preheader.i.i294 ], [ %..i293, %161 ], [ 64, %167 ], [ -1, %._crit_edge.i285 ], [ 0, %.preheader.i14.i286 ], [ -1, %205 ], [ -1, %209 ], [ 0, %.preheader.i.i309 ], [ %..i308, %226 ], [ 64, %232 ], [ -1, %._crit_edge.i300 ], [ 0, %.preheader.i14.i301 ], [ -1, %253 ], [ -1, %257 ], [ 0, %.preheader.i.i324 ], [ %..i323, %274 ], [ 64, %280 ], [ -1, %._crit_edge.i315 ], [ 0, %.preheader.i14.i316 ], [ -1, %318 ], [ -1, %322 ], [ 0, %.preheader.i.i339 ], [ %..i338, %339 ], [ 64, %345 ], [ -1, %._crit_edge.i330 ], [ 0, %.preheader.i14.i331 ], [ -1, %366 ], [ -1, %370 ], [ 0, %.preheader.i.i354 ], [ %..i353, %387 ], [ 64, %393 ], [ -1, %._crit_edge.i345 ], [ 0, %.preheader.i14.i346 ], [ %337, %332 ], [ %330, %.lr.ph.i.i340 ], [ %364, %359 ], [ %357, %.lr.ph.i16.i333 ], [ %385, %380 ], [ %378, %.lr.ph.i.i355 ], [ %412, %407 ], [ %405, %.lr.ph.i16.i348 ], [ 0, %425 ], [ %48, %43 ], [ %41, %.lr.ph.i16.i ], [ %65, %60 ], [ %58, %.lr.ph.i.i265 ], [ 0, %86 ], [ %111, %106 ], [ %104, %.lr.ph.i.i280 ], [ %138, %133 ], [ %131, %.lr.ph.i16.i273 ], [ %159, %154 ], [ %152, %.lr.ph.i.i295 ], [ %186, %181 ], [ %179, %.lr.ph.i16.i288 ], [ 0, %199 ], [ %224, %219 ], [ %217, %.lr.ph.i.i310 ], [ %251, %246 ], [ %244, %.lr.ph.i16.i303 ], [ %272, %267 ], [ %265, %.lr.ph.i.i325 ], [ %299, %294 ], [ %292, %.lr.ph.i16.i318 ], [ 0, %312 ]
   %.0208 = phi i1 [ true, %29 ], [ true, %._crit_edge.i ], [ true, %.preheader.i14.i ], [ false, %50 ], [ false, %.preheader.i.i264 ], [ false, %67 ], [ true, %92 ], [ true, %96 ], [ true, %.preheader.i.i279 ], [ true, %113 ], [ true, %119 ], [ true, %._crit_edge.i270 ], [ true, %.preheader.i14.i271 ], [ false, %140 ], [ false, %144 ], [ false, %.preheader.i.i294 ], [ false, %161 ], [ false, %167 ], [ false, %._crit_edge.i285 ], [ false, %.preheader.i14.i286 ], [ true, %205 ], [ true, %209 ], [ true, %.preheader.i.i309 ], [ true, %226 ], [ true, %232 ], [ true, %._crit_edge.i300 ], [ true, %.preheader.i14.i301 ], [ false, %253 ], [ false, %257 ], [ false, %.preheader.i.i324 ], [ false, %274 ], [ false, %280 ], [ false, %._crit_edge.i315 ], [ false, %.preheader.i14.i316 ], [ true, %318 ], [ true, %322 ], [ true, %.preheader.i.i339 ], [ true, %339 ], [ true, %345 ], [ true, %._crit_edge.i330 ], [ true, %.preheader.i14.i331 ], [ false, %366 ], [ false, %370 ], [ false, %.preheader.i.i354 ], [ false, %387 ], [ false, %393 ], [ false, %._crit_edge.i345 ], [ false, %.preheader.i14.i346 ], [ true, %.lr.ph.i.i340 ], [ true, %332 ], [ true, %.lr.ph.i16.i333 ], [ true, %359 ], [ false, %.lr.ph.i.i355 ], [ false, %380 ], [ false, %.lr.ph.i16.i348 ], [ false, %407 ], [ false, %425 ], [ true, %.lr.ph.i16.i ], [ true, %43 ], [ false, %.lr.ph.i.i265 ], [ false, %60 ], [ true, %86 ], [ true, %.lr.ph.i.i280 ], [ true, %106 ], [ true, %.lr.ph.i16.i273 ], [ true, %133 ], [ false, %.lr.ph.i.i295 ], [ false, %154 ], [ false, %.lr.ph.i16.i288 ], [ false, %181 ], [ true, %199 ], [ true, %.lr.ph.i.i310 ], [ true, %219 ], [ true, %.lr.ph.i16.i303 ], [ true, %246 ], [ false, %.lr.ph.i.i325 ], [ false, %267 ], [ false, %.lr.ph.i16.i318 ], [ false, %294 ], [ true, %312 ]
-  %.sroa.26.8 = phi i64 [ %.sroa.26.0508, %29 ], [ %.sroa.26.0508, %._crit_edge.i ], [ %.sroa.26.0508, %.preheader.i14.i ], [ %.sroa.26.0508, %50 ], [ %.sroa.26.0508, %.preheader.i.i264 ], [ %.sroa.26.0508, %67 ], [ %.sroa.26.2498, %92 ], [ %.sroa.26.2498, %96 ], [ %.sroa.26.2498, %.preheader.i.i279 ], [ %.sroa.26.2498, %113 ], [ %.sroa.26.2498, %119 ], [ %.sroa.26.2498, %._crit_edge.i270 ], [ %.sroa.26.2498, %.preheader.i14.i271 ], [ %.sroa.26.2498, %140 ], [ %.sroa.26.2498, %144 ], [ %.sroa.26.2498, %.preheader.i.i294 ], [ %.sroa.26.2498, %161 ], [ %.sroa.26.2498, %167 ], [ %.sroa.26.2498, %._crit_edge.i285 ], [ %.sroa.26.2498, %.preheader.i14.i286 ], [ %.sroa.26.4490, %205 ], [ %.sroa.26.4490, %209 ], [ %.sroa.26.4490, %.preheader.i.i309 ], [ %.sroa.26.4490, %226 ], [ %.sroa.26.4490, %232 ], [ %.sroa.26.4490, %._crit_edge.i300 ], [ %.sroa.26.4490, %.preheader.i14.i301 ], [ %.sroa.26.4490, %253 ], [ %.sroa.26.4490, %257 ], [ %.sroa.26.4490, %.preheader.i.i324 ], [ %.sroa.26.4490, %274 ], [ %.sroa.26.4490, %280 ], [ %.sroa.26.4490, %._crit_edge.i315 ], [ %.sroa.26.4490, %.preheader.i14.i316 ], [ %.sroa.26.6517, %318 ], [ %.sroa.26.6517, %322 ], [ %.sroa.26.6517, %.preheader.i.i339 ], [ %.sroa.26.6517, %339 ], [ %.sroa.26.6517, %345 ], [ %.sroa.26.6517, %._crit_edge.i330 ], [ %.sroa.26.6517, %.preheader.i14.i331 ], [ %.sroa.26.6517, %366 ], [ %.sroa.26.6517, %370 ], [ %.sroa.26.6517, %.preheader.i.i354 ], [ %.sroa.26.6517, %387 ], [ %.sroa.26.6517, %393 ], [ %.sroa.26.6517, %._crit_edge.i345 ], [ %.sroa.26.6517, %.preheader.i14.i346 ], [ %.sroa.26.6517, %.lr.ph.i.i340 ], [ %.sroa.26.6517, %332 ], [ %.sroa.26.6517, %.lr.ph.i16.i333 ], [ %.sroa.26.6517, %359 ], [ %.sroa.26.6517, %.lr.ph.i.i355 ], [ %.sroa.26.6517, %380 ], [ %.sroa.26.6517, %.lr.ph.i16.i348 ], [ %.sroa.26.6517, %407 ], [ %.sroa.26.7, %425 ], [ %.sroa.26.0508, %.lr.ph.i16.i ], [ %.sroa.26.0508, %43 ], [ %.sroa.26.0508, %.lr.ph.i.i265 ], [ %.sroa.26.0508, %60 ], [ %.sroa.26.1, %86 ], [ %.sroa.26.2498, %.lr.ph.i.i280 ], [ %.sroa.26.2498, %106 ], [ %.sroa.26.2498, %.lr.ph.i16.i273 ], [ %.sroa.26.2498, %133 ], [ %.sroa.26.2498, %.lr.ph.i.i295 ], [ %.sroa.26.2498, %154 ], [ %.sroa.26.2498, %.lr.ph.i16.i288 ], [ %.sroa.26.2498, %181 ], [ %.sroa.26.3, %199 ], [ %.sroa.26.4490, %.lr.ph.i.i310 ], [ %.sroa.26.4490, %219 ], [ %.sroa.26.4490, %.lr.ph.i16.i303 ], [ %.sroa.26.4490, %246 ], [ %.sroa.26.4490, %.lr.ph.i.i325 ], [ %.sroa.26.4490, %267 ], [ %.sroa.26.4490, %.lr.ph.i16.i318 ], [ %.sroa.26.4490, %294 ], [ %.sroa.26.5, %312 ]
-  %.sroa.0119.8 = phi i64 [ %.sroa.0119.0509, %29 ], [ %.sroa.0119.0509, %._crit_edge.i ], [ %.sroa.0119.0509, %.preheader.i14.i ], [ %.sroa.0119.0509, %50 ], [ %.sroa.0119.0509, %.preheader.i.i264 ], [ %.sroa.0119.0509, %67 ], [ %.sroa.0119.2499, %92 ], [ %.sroa.0119.2499, %96 ], [ %.sroa.0119.2499, %.preheader.i.i279 ], [ %.sroa.0119.2499, %113 ], [ %.sroa.0119.2499, %119 ], [ %.sroa.0119.2499, %._crit_edge.i270 ], [ %.sroa.0119.2499, %.preheader.i14.i271 ], [ %.sroa.0119.2499, %140 ], [ %.sroa.0119.2499, %144 ], [ %.sroa.0119.2499, %.preheader.i.i294 ], [ %.sroa.0119.2499, %161 ], [ %.sroa.0119.2499, %167 ], [ %.sroa.0119.2499, %._crit_edge.i285 ], [ %.sroa.0119.2499, %.preheader.i14.i286 ], [ %.sroa.0119.4491, %205 ], [ %.sroa.0119.4491, %209 ], [ %.sroa.0119.4491, %.preheader.i.i309 ], [ %.sroa.0119.4491, %226 ], [ %.sroa.0119.4491, %232 ], [ %.sroa.0119.4491, %._crit_edge.i300 ], [ %.sroa.0119.4491, %.preheader.i14.i301 ], [ %.sroa.0119.4491, %253 ], [ %.sroa.0119.4491, %257 ], [ %.sroa.0119.4491, %.preheader.i.i324 ], [ %.sroa.0119.4491, %274 ], [ %.sroa.0119.4491, %280 ], [ %.sroa.0119.4491, %._crit_edge.i315 ], [ %.sroa.0119.4491, %.preheader.i14.i316 ], [ %.sroa.0119.6518, %318 ], [ %.sroa.0119.6518, %322 ], [ %.sroa.0119.6518, %.preheader.i.i339 ], [ %.sroa.0119.6518, %339 ], [ %.sroa.0119.6518, %345 ], [ %.sroa.0119.6518, %._crit_edge.i330 ], [ %.sroa.0119.6518, %.preheader.i14.i331 ], [ %.sroa.0119.6518, %366 ], [ %.sroa.0119.6518, %370 ], [ %.sroa.0119.6518, %.preheader.i.i354 ], [ %.sroa.0119.6518, %387 ], [ %.sroa.0119.6518, %393 ], [ %.sroa.0119.6518, %._crit_edge.i345 ], [ %.sroa.0119.6518, %.preheader.i14.i346 ], [ %.sroa.0119.6518, %.lr.ph.i.i340 ], [ %.sroa.0119.6518, %332 ], [ %.sroa.0119.6518, %.lr.ph.i16.i333 ], [ %.sroa.0119.6518, %359 ], [ %.sroa.0119.6518, %.lr.ph.i.i355 ], [ %.sroa.0119.6518, %380 ], [ %.sroa.0119.6518, %.lr.ph.i16.i348 ], [ %.sroa.0119.6518, %407 ], [ %.sroa.0119.7, %425 ], [ %.sroa.0119.0509, %.lr.ph.i16.i ], [ %.sroa.0119.0509, %43 ], [ %.sroa.0119.0509, %.lr.ph.i.i265 ], [ %.sroa.0119.0509, %60 ], [ %.sroa.0119.1, %86 ], [ %.sroa.0119.2499, %.lr.ph.i.i280 ], [ %.sroa.0119.2499, %106 ], [ %.sroa.0119.2499, %.lr.ph.i16.i273 ], [ %.sroa.0119.2499, %133 ], [ %.sroa.0119.2499, %.lr.ph.i.i295 ], [ %.sroa.0119.2499, %154 ], [ %.sroa.0119.2499, %.lr.ph.i16.i288 ], [ %.sroa.0119.2499, %181 ], [ %.sroa.0119.3, %199 ], [ %.sroa.0119.4491, %.lr.ph.i.i310 ], [ %.sroa.0119.4491, %219 ], [ %.sroa.0119.4491, %.lr.ph.i16.i303 ], [ %.sroa.0119.4491, %246 ], [ %.sroa.0119.4491, %.lr.ph.i.i325 ], [ %.sroa.0119.4491, %267 ], [ %.sroa.0119.4491, %.lr.ph.i16.i318 ], [ %.sroa.0119.4491, %294 ], [ %.sroa.0119.5, %312 ]
+  %.sroa.26.8 = phi i64 [ %.sroa.26.0509, %29 ], [ %.sroa.26.0509, %._crit_edge.i ], [ %.sroa.26.0509, %.preheader.i14.i ], [ %.sroa.26.0509, %50 ], [ %.sroa.26.0509, %.preheader.i.i264 ], [ %.sroa.26.0509, %67 ], [ %.sroa.26.2499, %92 ], [ %.sroa.26.2499, %96 ], [ %.sroa.26.2499, %.preheader.i.i279 ], [ %.sroa.26.2499, %113 ], [ %.sroa.26.2499, %119 ], [ %.sroa.26.2499, %._crit_edge.i270 ], [ %.sroa.26.2499, %.preheader.i14.i271 ], [ %.sroa.26.2499, %140 ], [ %.sroa.26.2499, %144 ], [ %.sroa.26.2499, %.preheader.i.i294 ], [ %.sroa.26.2499, %161 ], [ %.sroa.26.2499, %167 ], [ %.sroa.26.2499, %._crit_edge.i285 ], [ %.sroa.26.2499, %.preheader.i14.i286 ], [ %.sroa.26.4491, %205 ], [ %.sroa.26.4491, %209 ], [ %.sroa.26.4491, %.preheader.i.i309 ], [ %.sroa.26.4491, %226 ], [ %.sroa.26.4491, %232 ], [ %.sroa.26.4491, %._crit_edge.i300 ], [ %.sroa.26.4491, %.preheader.i14.i301 ], [ %.sroa.26.4491, %253 ], [ %.sroa.26.4491, %257 ], [ %.sroa.26.4491, %.preheader.i.i324 ], [ %.sroa.26.4491, %274 ], [ %.sroa.26.4491, %280 ], [ %.sroa.26.4491, %._crit_edge.i315 ], [ %.sroa.26.4491, %.preheader.i14.i316 ], [ %.sroa.26.6518, %318 ], [ %.sroa.26.6518, %322 ], [ %.sroa.26.6518, %.preheader.i.i339 ], [ %.sroa.26.6518, %339 ], [ %.sroa.26.6518, %345 ], [ %.sroa.26.6518, %._crit_edge.i330 ], [ %.sroa.26.6518, %.preheader.i14.i331 ], [ %.sroa.26.6518, %366 ], [ %.sroa.26.6518, %370 ], [ %.sroa.26.6518, %.preheader.i.i354 ], [ %.sroa.26.6518, %387 ], [ %.sroa.26.6518, %393 ], [ %.sroa.26.6518, %._crit_edge.i345 ], [ %.sroa.26.6518, %.preheader.i14.i346 ], [ %.sroa.26.6518, %.lr.ph.i.i340 ], [ %.sroa.26.6518, %332 ], [ %.sroa.26.6518, %.lr.ph.i16.i333 ], [ %.sroa.26.6518, %359 ], [ %.sroa.26.6518, %.lr.ph.i.i355 ], [ %.sroa.26.6518, %380 ], [ %.sroa.26.6518, %.lr.ph.i16.i348 ], [ %.sroa.26.6518, %407 ], [ %.sroa.26.7, %425 ], [ %.sroa.26.0509, %.lr.ph.i16.i ], [ %.sroa.26.0509, %43 ], [ %.sroa.26.0509, %.lr.ph.i.i265 ], [ %.sroa.26.0509, %60 ], [ %.sroa.26.1, %86 ], [ %.sroa.26.2499, %.lr.ph.i.i280 ], [ %.sroa.26.2499, %106 ], [ %.sroa.26.2499, %.lr.ph.i16.i273 ], [ %.sroa.26.2499, %133 ], [ %.sroa.26.2499, %.lr.ph.i.i295 ], [ %.sroa.26.2499, %154 ], [ %.sroa.26.2499, %.lr.ph.i16.i288 ], [ %.sroa.26.2499, %181 ], [ %.sroa.26.3, %199 ], [ %.sroa.26.4491, %.lr.ph.i.i310 ], [ %.sroa.26.4491, %219 ], [ %.sroa.26.4491, %.lr.ph.i16.i303 ], [ %.sroa.26.4491, %246 ], [ %.sroa.26.4491, %.lr.ph.i.i325 ], [ %.sroa.26.4491, %267 ], [ %.sroa.26.4491, %.lr.ph.i16.i318 ], [ %.sroa.26.4491, %294 ], [ %.sroa.26.5, %312 ]
+  %.sroa.0119.8 = phi i64 [ %.sroa.0119.0510, %29 ], [ %.sroa.0119.0510, %._crit_edge.i ], [ %.sroa.0119.0510, %.preheader.i14.i ], [ %.sroa.0119.0510, %50 ], [ %.sroa.0119.0510, %.preheader.i.i264 ], [ %.sroa.0119.0510, %67 ], [ %.sroa.0119.2500, %92 ], [ %.sroa.0119.2500, %96 ], [ %.sroa.0119.2500, %.preheader.i.i279 ], [ %.sroa.0119.2500, %113 ], [ %.sroa.0119.2500, %119 ], [ %.sroa.0119.2500, %._crit_edge.i270 ], [ %.sroa.0119.2500, %.preheader.i14.i271 ], [ %.sroa.0119.2500, %140 ], [ %.sroa.0119.2500, %144 ], [ %.sroa.0119.2500, %.preheader.i.i294 ], [ %.sroa.0119.2500, %161 ], [ %.sroa.0119.2500, %167 ], [ %.sroa.0119.2500, %._crit_edge.i285 ], [ %.sroa.0119.2500, %.preheader.i14.i286 ], [ %.sroa.0119.4492, %205 ], [ %.sroa.0119.4492, %209 ], [ %.sroa.0119.4492, %.preheader.i.i309 ], [ %.sroa.0119.4492, %226 ], [ %.sroa.0119.4492, %232 ], [ %.sroa.0119.4492, %._crit_edge.i300 ], [ %.sroa.0119.4492, %.preheader.i14.i301 ], [ %.sroa.0119.4492, %253 ], [ %.sroa.0119.4492, %257 ], [ %.sroa.0119.4492, %.preheader.i.i324 ], [ %.sroa.0119.4492, %274 ], [ %.sroa.0119.4492, %280 ], [ %.sroa.0119.4492, %._crit_edge.i315 ], [ %.sroa.0119.4492, %.preheader.i14.i316 ], [ %.sroa.0119.6519, %318 ], [ %.sroa.0119.6519, %322 ], [ %.sroa.0119.6519, %.preheader.i.i339 ], [ %.sroa.0119.6519, %339 ], [ %.sroa.0119.6519, %345 ], [ %.sroa.0119.6519, %._crit_edge.i330 ], [ %.sroa.0119.6519, %.preheader.i14.i331 ], [ %.sroa.0119.6519, %366 ], [ %.sroa.0119.6519, %370 ], [ %.sroa.0119.6519, %.preheader.i.i354 ], [ %.sroa.0119.6519, %387 ], [ %.sroa.0119.6519, %393 ], [ %.sroa.0119.6519, %._crit_edge.i345 ], [ %.sroa.0119.6519, %.preheader.i14.i346 ], [ %.sroa.0119.6519, %.lr.ph.i.i340 ], [ %.sroa.0119.6519, %332 ], [ %.sroa.0119.6519, %.lr.ph.i16.i333 ], [ %.sroa.0119.6519, %359 ], [ %.sroa.0119.6519, %.lr.ph.i.i355 ], [ %.sroa.0119.6519, %380 ], [ %.sroa.0119.6519, %.lr.ph.i16.i348 ], [ %.sroa.0119.6519, %407 ], [ %.sroa.0119.7, %425 ], [ %.sroa.0119.0510, %.lr.ph.i16.i ], [ %.sroa.0119.0510, %43 ], [ %.sroa.0119.0510, %.lr.ph.i.i265 ], [ %.sroa.0119.0510, %60 ], [ %.sroa.0119.1, %86 ], [ %.sroa.0119.2500, %.lr.ph.i.i280 ], [ %.sroa.0119.2500, %106 ], [ %.sroa.0119.2500, %.lr.ph.i16.i273 ], [ %.sroa.0119.2500, %133 ], [ %.sroa.0119.2500, %.lr.ph.i.i295 ], [ %.sroa.0119.2500, %154 ], [ %.sroa.0119.2500, %.lr.ph.i16.i288 ], [ %.sroa.0119.2500, %181 ], [ %.sroa.0119.3, %199 ], [ %.sroa.0119.4492, %.lr.ph.i.i310 ], [ %.sroa.0119.4492, %219 ], [ %.sroa.0119.4492, %.lr.ph.i16.i303 ], [ %.sroa.0119.4492, %246 ], [ %.sroa.0119.4492, %.lr.ph.i.i325 ], [ %.sroa.0119.4492, %267 ], [ %.sroa.0119.4492, %.lr.ph.i16.i318 ], [ %.sroa.0119.4492, %294 ], [ %.sroa.0119.5, %312 ]
   %.2215.fr = freeze i32 %.2215
   %427 = trunc nuw i8 %.11 to i1
   br i1 %427, label %428, label %431
@@ -3183,8 +3183,8 @@ read_int_suffix.exit:                             ; preds = %312, %294, %.lr.ph.
   %433 = load i16, ptr %432, align 8
   %434 = and i16 %433, -1024
   %435 = icmp sgt i32 %.2215.fr, 0
-  %spec.select828 = select i1 %435, i16 512, i16 0
-  %436 = or disjoint i16 %434, %spec.select828
+  %spec.select829 = select i1 %435, i16 512, i16 0
+  %436 = or disjoint i16 %434, %spec.select829
   %437 = or disjoint i16 %436, 1
   store i16 %437, ptr %432, align 8
   %.not240 = icmp eq i32 %.0210, 0
@@ -3195,11 +3195,11 @@ read_int_suffix.exit:                             ; preds = %312, %294, %.lr.ph.
   br i1 %439, label %443, label %is_power_of_two.exit
 
 is_power_of_two.exit:                             ; preds = %438
-  %440 = tail call i32 @llvm.ctpop.i32(i32 %.0210), !range !17
+  %440 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %.0210)
   %441 = icmp ult i32 %440, 2
   %442 = icmp ult i32 %.0210, 129
   %or.cond.not = and i1 %442, %441
-  br i1 %or.cond.not, label %.thread368, label %443
+  br i1 %or.cond.not, label %.thread369, label %443
 
 443:                                              ; preds = %is_power_of_two.exit, %438
   %444 = load i64, ptr %4, align 8
@@ -3223,7 +3223,7 @@ is_power_of_two.exit:                             ; preds = %438
   br label %528
 
 453:                                              ; preds = %447, %446
-  %.2215623642662682 = phi i32 [ %.2215.fr, %447 ], [ 0, %446 ]
+  %.2215624643663683 = phi i32 [ %.2215.fr, %447 ], [ 0, %446 ]
   %.1 = phi i32 [ %448, %447 ], [ 0, %446 ]
   %.not242 = icmp eq i32 %.2218, 0
   br i1 %.not242, label %460, label %454
@@ -3240,7 +3240,7 @@ is_power_of_two.exit:                             ; preds = %438
   br label %528
 
 460:                                              ; preds = %454, %453
-  %.2218622643659683695 = phi i32 [ %.2218, %454 ], [ 0, %453 ]
+  %.2218623644660684696 = phi i32 [ %.2218, %454 ], [ 0, %453 ]
   %.2 = phi i32 [ %455, %454 ], [ %.1, %453 ]
   %.not243 = icmp eq i32 %.2221, 0
   br i1 %.not243, label %466, label %461
@@ -3256,18 +3256,18 @@ is_power_of_two.exit:                             ; preds = %438
   br label %528
 
 466:                                              ; preds = %461, %460
-  %.2221621644656684694714 = phi i32 [ %.2221, %461 ], [ 0, %460 ]
+  %.2221622645657685695715 = phi i32 [ %.2221, %461 ], [ 0, %460 ]
   %.3 = phi i32 [ %.2221, %461 ], [ %.2, %460 ]
   %.not244 = icmp eq i32 %.3, 0
   %467 = tail call i32 @llvm.smax.i32(i32 %.3, i32 8)
-  br i1 %.not244, label %.critedge, label %is_power_of_two.exit361
+  br i1 %.not244, label %.critedge, label %is_power_of_two.exit362
 
-is_power_of_two.exit361:                          ; preds = %466
-  %468 = tail call i32 @llvm.ctpop.i32(i32 %467), !range !17
+is_power_of_two.exit362:                          ; preds = %466
+  %468 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %467)
   %469 = icmp ult i32 %468, 2
-  br i1 %469, label %.thread368, label %470
+  br i1 %469, label %.thread369, label %470
 
-470:                                              ; preds = %is_power_of_two.exit361
+470:                                              ; preds = %is_power_of_two.exit362
   %471 = add nsw i32 %467, -1
   %472 = lshr i32 %471, 1
   %473 = or i32 %472, %471
@@ -3284,54 +3284,54 @@ is_power_of_two.exit361:                          ; preds = %466
   store i16 %483, ptr %432, align 8
   br i1 %.0208, label %485, label %488
 
-.thread368:                                       ; preds = %is_power_of_two.exit361, %is_power_of_two.exit
-  %.2215623642661 = phi i32 [ %.2215.fr, %is_power_of_two.exit ], [ %.2215623642662682, %is_power_of_two.exit361 ]
-  %.2218622643658 = phi i32 [ %.2218, %is_power_of_two.exit ], [ %.2218622643659683695, %is_power_of_two.exit361 ]
-  %.2221621644655 = phi i32 [ %.2221, %is_power_of_two.exit ], [ %.2221621644656684694714, %is_power_of_two.exit361 ]
-  %.4371 = phi i32 [ %.0210, %is_power_of_two.exit ], [ %467, %is_power_of_two.exit361 ]
+.thread369:                                       ; preds = %is_power_of_two.exit362, %is_power_of_two.exit
+  %.2215624643662 = phi i32 [ %.2215.fr, %is_power_of_two.exit ], [ %.2215624643663683, %is_power_of_two.exit362 ]
+  %.2218623644659 = phi i32 [ %.2218, %is_power_of_two.exit ], [ %.2218623644660684696, %is_power_of_two.exit362 ]
+  %.2221622645656 = phi i32 [ %.2221, %is_power_of_two.exit ], [ %.2221622645657685695715, %is_power_of_two.exit362 ]
+  %.4372 = phi i32 [ %.0210, %is_power_of_two.exit ], [ %467, %is_power_of_two.exit362 ]
   %484 = or disjoint i16 %434, 1
   store i16 %484, ptr %432, align 8
   br i1 %.0208, label %485, label %488
 
-485:                                              ; preds = %470, %.thread368
-  %.4371743 = phi i32 [ %482, %470 ], [ %.4371, %.thread368 ]
-  %.2221621644655740 = phi i32 [ %.2221621644656684694714, %470 ], [ %.2221621644655, %.thread368 ]
-  %.2218622643658738 = phi i32 [ %.2218622643659683695, %470 ], [ %.2218622643658, %.thread368 ]
-  %.2215623642661736 = phi i32 [ %.2215623642662682, %470 ], [ %.2215623642661, %.thread368 ]
-  %486 = zext i32 %.4371743 to i64
+485:                                              ; preds = %470, %.thread369
+  %.4372744 = phi i32 [ %482, %470 ], [ %.4372, %.thread369 ]
+  %.2221622645656741 = phi i32 [ %.2221622645657685695715, %470 ], [ %.2221622645656, %.thread369 ]
+  %.2218623644659739 = phi i32 [ %.2218623644660684696, %470 ], [ %.2218623644659, %.thread369 ]
+  %.2215624643662737 = phi i32 [ %.2215624643663683, %470 ], [ %.2215624643662, %.thread369 ]
+  %486 = zext i32 %.4372744 to i64
   %487 = tail call ptr @type_int_unsigned_by_bitsize(i64 noundef %486) #8
   br label %513
 
-488:                                              ; preds = %470, %.thread368
-  %.4371742 = phi i32 [ %482, %470 ], [ %.4371, %.thread368 ]
-  %.2221621644655741 = phi i32 [ %.2221621644656684694714, %470 ], [ %.2221621644655, %.thread368 ]
-  %.2218622643658739 = phi i32 [ %.2218622643659683695, %470 ], [ %.2218622643658, %.thread368 ]
-  %.2215623642661737 = phi i32 [ %.2215623642662682, %470 ], [ %.2215623642661, %.thread368 ]
-  %489 = zext i32 %.4371742 to i64
+488:                                              ; preds = %470, %.thread369
+  %.4372743 = phi i32 [ %482, %470 ], [ %.4372, %.thread369 ]
+  %.2221622645656742 = phi i32 [ %.2221622645657685695715, %470 ], [ %.2221622645656, %.thread369 ]
+  %.2218623644659740 = phi i32 [ %.2218623644660684696, %470 ], [ %.2218623644659, %.thread369 ]
+  %.2215624643662738 = phi i32 [ %.2215624643663683, %470 ], [ %.2215624643662, %.thread369 ]
+  %489 = zext i32 %.4372743 to i64
   %490 = tail call ptr @type_int_signed_by_bitsize(i64 noundef %489) #8
   br label %513
 
-.critedge:                                        ; preds = %.thread715, %466
-  %.sroa.0119.8628638670679699709729 = phi i64 [ 0, %.thread715 ], [ %.sroa.0119.8, %466 ]
-  %.sroa.26.8627639667680698710728 = phi i64 [ 0, %.thread715 ], [ %.sroa.26.8, %466 ]
-  %.0208625640663681697711727 = phi i1 [ false, %.thread715 ], [ %.0208, %466 ]
-  %.2215623642662682696712726 = phi i32 [ 0, %.thread715 ], [ %.2215623642662682, %466 ]
-  %.2218622643659683695713725 = phi i32 [ 0, %.thread715 ], [ %.2218622643659683695, %466 ]
-  %.2221621644656684694714724 = phi i32 [ 0, %.thread715 ], [ %.2221621644656684694714, %466 ]
+.critedge:                                        ; preds = %.thread716, %466
+  %.sroa.0119.8629639671680700710730 = phi i64 [ 0, %.thread716 ], [ %.sroa.0119.8, %466 ]
+  %.sroa.26.8628640668681699711729 = phi i64 [ 0, %.thread716 ], [ %.sroa.26.8, %466 ]
+  %.0208626641664682698712728 = phi i1 [ false, %.thread716 ], [ %.0208, %466 ]
+  %.2215624643663683697713727 = phi i32 [ 0, %.thread716 ], [ %.2215624643663683, %466 ]
+  %.2218623644660684696714726 = phi i32 [ 0, %.thread716 ], [ %.2218623644660684696, %466 ]
+  %.2221622645657685695715725 = phi i32 [ 0, %.thread716 ], [ %.2221622645657685695715, %466 ]
   %491 = load ptr, ptr @type_cint, align 8
   %492 = tail call i32 @type_size(ptr noundef %491) #8
   %493 = shl i32 %492, 3
-  store i64 %.sroa.0119.8628638670679699709729, ptr %3, align 8
+  store i64 %.sroa.0119.8629639671680700710730, ptr %3, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %.sroa.26.8627639667680698710728, ptr %.sroa.26.0..sroa_idx, align 8
+  store i64 %.sroa.26.8628640668681699711729, ptr %.sroa.26.0..sroa_idx, align 8
   %494 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 0, ptr %494, align 8
-  %spec.select829 = select i1 %.0208625640663681697711727, i32 8, i32 3
+  %spec.select830 = select i1 %.0208626641664682698712728, i32 8, i32 3
   br label %495
 
 495:                                              ; preds = %.critedge, %507
-  %.0209523 = phi i32 [ 0, %.critedge ], [ %508, %507 ]
-  %496 = add nuw nsw i32 %.0209523, %spec.select829
+  %.0209524 = phi i32 [ 0, %.critedge ], [ %508, %507 ]
+  %496 = add nuw nsw i32 %.0209524, %spec.select830
   %497 = tail call i32 @type_kind_bitsize(i32 noundef %496) #8
   %498 = icmp slt i32 %497, %493
   br i1 %498, label %507, label %499
@@ -3343,7 +3343,7 @@ is_power_of_two.exit361:                          ; preds = %466
 
 501:                                              ; preds = %499
   %502 = sext i32 %497 to i64
-  br i1 %.0208625640663681697711727, label %503, label %505
+  br i1 %.0208626641664682698712728, label %503, label %505
 
 503:                                              ; preds = %501
   %504 = tail call ptr @type_int_unsigned_by_bitsize(i64 noundef %502) #8
@@ -3354,36 +3354,36 @@ is_power_of_two.exit361:                          ; preds = %466
   br label %509
 
 507:                                              ; preds = %499, %495
-  %508 = add nuw nsw i32 %.0209523, 1
-  %exitcond611.not = icmp eq i32 %508, 5
-  br i1 %exitcond611.not, label %.thread373, label %495, !llvm.loop !18
+  %508 = add nuw nsw i32 %.0209524, 1
+  %exitcond612.not = icmp eq i32 %508, 5
+  br i1 %exitcond612.not, label %.thread374, label %495, !llvm.loop !17
 
 509:                                              ; preds = %503, %505
   %.0211 = phi ptr [ %504, %503 ], [ %506, %505 ]
   %.not247 = icmp eq ptr %.0211, null
-  br i1 %.not247, label %.thread373, label %513
+  br i1 %.not247, label %.thread374, label %513
 
-.thread373:                                       ; preds = %507, %509
+.thread374:                                       ; preds = %507, %509
   %510 = load ptr, ptr @type_cuint, align 8
   %511 = load ptr, ptr @type_cint, align 8
-  %512 = select i1 %.0208625640663681697711727, ptr %510, ptr %511
+  %512 = select i1 %.0208626641664682698712728, ptr %510, ptr %511
   br label %513
 
-513:                                              ; preds = %485, %488, %509, %.thread373
-  %.sroa.0119.8628638668 = phi i64 [ %.sroa.0119.8628638670679699709729, %509 ], [ %.sroa.0119.8628638670679699709729, %.thread373 ], [ %.sroa.0119.8, %485 ], [ %.sroa.0119.8, %488 ]
-  %.sroa.26.8627639665 = phi i64 [ %.sroa.26.8627639667680698710728, %509 ], [ %.sroa.26.8627639667680698710728, %.thread373 ], [ %.sroa.26.8, %485 ], [ %.sroa.26.8, %488 ]
-  %.2215623642660 = phi i32 [ %.2215623642662682696712726, %509 ], [ %.2215623642662682696712726, %.thread373 ], [ %.2215623642661736, %485 ], [ %.2215623642661737, %488 ]
-  %.2218622643657 = phi i32 [ %.2218622643659683695713725, %509 ], [ %.2218622643659683695713725, %.thread373 ], [ %.2218622643658738, %485 ], [ %.2218622643658739, %488 ]
-  %.2221621644654 = phi i32 [ %.2221621644656684694714724, %509 ], [ %.2221621644656684694714724, %.thread373 ], [ %.2221621644655740, %485 ], [ %.2221621644655741, %488 ]
-  %.0208626 = phi i1 [ %.0208625640663681697711727, %509 ], [ %.0208625640663681697711727, %.thread373 ], [ true, %485 ], [ false, %488 ]
-  %.not366 = phi i1 [ true, %509 ], [ true, %.thread373 ], [ false, %485 ], [ false, %488 ]
-  %.4364 = phi i32 [ 0, %509 ], [ 0, %.thread373 ], [ %.4371743, %485 ], [ %.4371742, %488 ]
-  %.1212 = phi ptr [ %.0211, %509 ], [ %512, %.thread373 ], [ %487, %485 ], [ %490, %488 ]
+513:                                              ; preds = %485, %488, %509, %.thread374
+  %.sroa.0119.8629639669 = phi i64 [ %.sroa.0119.8629639671680700710730, %509 ], [ %.sroa.0119.8629639671680700710730, %.thread374 ], [ %.sroa.0119.8, %485 ], [ %.sroa.0119.8, %488 ]
+  %.sroa.26.8628640666 = phi i64 [ %.sroa.26.8628640668681699711729, %509 ], [ %.sroa.26.8628640668681699711729, %.thread374 ], [ %.sroa.26.8, %485 ], [ %.sroa.26.8, %488 ]
+  %.2215624643661 = phi i32 [ %.2215624643663683697713727, %509 ], [ %.2215624643663683697713727, %.thread374 ], [ %.2215624643662737, %485 ], [ %.2215624643662738, %488 ]
+  %.2218623644658 = phi i32 [ %.2218623644660684696714726, %509 ], [ %.2218623644660684696714726, %.thread374 ], [ %.2218623644659739, %485 ], [ %.2218623644659740, %488 ]
+  %.2221622645655 = phi i32 [ %.2221622645657685695715725, %509 ], [ %.2221622645657685695715725, %.thread374 ], [ %.2221622645656741, %485 ], [ %.2221622645656742, %488 ]
+  %.0208627 = phi i1 [ %.0208626641664682698712728, %509 ], [ %.0208626641664682698712728, %.thread374 ], [ true, %485 ], [ false, %488 ]
+  %.not367 = phi i1 [ true, %509 ], [ true, %.thread374 ], [ false, %485 ], [ false, %488 ]
+  %.4365 = phi i32 [ 0, %509 ], [ 0, %.thread374 ], [ %.4372744, %485 ], [ %.4372743, %488 ]
+  %.1212 = phi ptr [ %.0211, %509 ], [ %512, %.thread374 ], [ %487, %485 ], [ %490, %488 ]
   %514 = getelementptr inbounds i8, ptr %6, i64 32
   %515 = load i32, ptr %.1212, align 8
-  store i64 %.sroa.0119.8628638668, ptr %514, align 8
+  store i64 %.sroa.0119.8629639669, ptr %514, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
-  store i64 %.sroa.26.8627639665, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
+  store i64 %.sroa.26.8628640666, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 48
   store i32 %515, ptr %.sroa.2.0..sroa_idx, align 8
   %516 = load i32, ptr %.1212, align 8
@@ -3391,23 +3391,23 @@ is_power_of_two.exit361:                          ; preds = %466
   br i1 %517, label %527, label %518
 
 518:                                              ; preds = %513
-  %.not248 = icmp eq i32 %.2215623642660, 0
+  %.not248 = icmp eq i32 %.2215624643661, 0
   %spec.store.select = select i1 %.not248, i64 10, i64 16
-  %.not249 = icmp eq i32 %.2218622643657, 0
+  %.not249 = icmp eq i32 %.2218623644658, 0
   %spec.store.select5 = select i1 %.not249, i64 %spec.store.select, i64 8
-  %.not250 = icmp eq i32 %.2221621644654, 0
+  %.not250 = icmp eq i32 %.2221622645655, 0
   %spec.store.select6 = select i1 %.not250, i64 %spec.store.select5, i64 2
-  %519 = tail call ptr @i128_to_string(i64 %.sroa.0119.8628638668, i64 %.sroa.26.8627639665, i64 noundef %spec.store.select6, i1 noundef zeroext true) #8
+  %519 = tail call ptr @i128_to_string(i64 %.sroa.0119.8629639669, i64 %.sroa.26.8628640666, i64 noundef %spec.store.select6, i1 noundef zeroext true) #8
   %520 = load i64, ptr %4, align 8
-  br i1 %.not366, label %523, label %521
+  br i1 %.not367, label %523, label %521
 
 521:                                              ; preds = %518
-  %522 = select i1 %.0208626, i32 117, i32 105
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %520, ptr noundef nonnull @.str.14, ptr noundef %519, i32 noundef %522, i32 noundef %.4364) #8
+  %522 = select i1 %.0208627, i32 117, i32 105
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %520, ptr noundef nonnull @.str.14, ptr noundef %519, i32 noundef %522, i32 noundef %.4365) #8
   br label %525
 
 523:                                              ; preds = %518
-  %524 = select i1 %.0208626, ptr @.str.16, ptr @.str.17
+  %524 = select i1 %.0208627, ptr @.str.16, ptr @.str.17
   tail call void (i64, ptr, ...) @sema_error_at(i64 %520, ptr noundef nonnull @.str.15, ptr noundef %519, ptr noundef nonnull %524) #8
   br label %525
 
@@ -4898,7 +4898,7 @@ define internal ptr @parse_expr_block(ptr noundef %0, ptr nocapture readnone %1)
   store i32 %phi.call, ptr %.01922, align 4
   %18 = getelementptr inbounds i8, ptr %8, i64 8
   %19 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 54) #8
-  br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.critedge, %2
   %20 = getelementptr inbounds i8, ptr %5, i64 8
@@ -5024,7 +5024,7 @@ define internal ptr @parse_generic_expr(ptr noundef %0, ptr noundef %1) #1 {
   %50 = getelementptr inbounds ptr, ptr %48, i64 %49
   store ptr %14, ptr %50, align 8
   %51 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
-  br i1 %51, label %13, label %52, !llvm.loop !20
+  br i1 %51, label %13, label %52, !llvm.loop !19
 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds i8, ptr %0, i64 40
@@ -5424,7 +5424,7 @@ define internal ptr @parse_string_literal(ptr noundef %0, ptr nocapture readnone
   tail call void @advance(ptr noundef nonnull %0) #8
   %16 = load i32, ptr %10, align 8
   %17 = icmp eq i32 %16, 76
-  br i1 %17, label %13, label %.outer._crit_edge, !llvm.loop !21
+  br i1 %17, label %13, label %.outer._crit_edge, !llvm.loop !20
 
 .outer:                                           ; preds = %13
   %18 = add i64 %14, %.041.ph46
@@ -5439,7 +5439,7 @@ define internal ptr @parse_string_literal(ptr noundef %0, ptr nocapture readnone
   tail call void @advance(ptr noundef nonnull %0) #8
   %24 = load i32, ptr %10, align 8
   %25 = icmp eq i32 %24, 76
-  br i1 %25, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !21
+  br i1 %25, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !20
 
 .outer._crit_edge:                                ; preds = %.outer, %15, %2
   %.041.ph.lcssa = phi i64 [ %9, %2 ], [ %.041.ph46, %15 ], [ %18, %.outer ]
@@ -5651,7 +5651,7 @@ define internal ptr @parse_bytes_expr(ptr noundef %0, ptr nocapture readnone %1)
   tail call void @advance(ptr noundef nonnull %0) #8
   %13 = load i32, ptr %3, align 8
   %14 = icmp eq i32 %13, 80
-  br i1 %14, label %8, label %.outer._crit_edge, !llvm.loop !22
+  br i1 %14, label %8, label %.outer._crit_edge, !llvm.loop !21
 
 15:                                               ; preds = %8
   %16 = add i32 %.0.ph111, %11
@@ -5736,7 +5736,7 @@ base64_to_sextet.exit.i:                          ; preds = %33, %45, %base64_to
 
 46:                                               ; preds = %45
   %47 = icmp eq ptr %34, %.ptr53
-  br i1 %47, label %parse_base64.exit, label %33, !llvm.loop !23
+  br i1 %47, label %parse_base64.exit, label %33, !llvm.loop !22
 
 base64_to_sextet.exit34.i:                        ; preds = %59, %base64_to_sextet.exit.i
   %.2.i = phi ptr [ %34, %base64_to_sextet.exit.i ], [ %48, %59 ]
@@ -5769,7 +5769,7 @@ base64_to_sextet.exit34.i:                        ; preds = %59, %base64_to_sext
     i8 43, label %.preheader.i
     i8 47, label %.preheader.i.loopexit
     i8 61, label %.preheader.i.loopexit301
-  ], !llvm.loop !24
+  ], !llvm.loop !23
 
 .preheader.i.loopexit:                            ; preds = %59
   br label %.preheader.i
@@ -5813,7 +5813,7 @@ base64_to_sextet.exit39.i:                        ; preds = %72, %.preheader.i
     i8 43, label %base64_to_sextet.exit44.preheader.i
     i8 47, label %base64_to_sextet.exit44.preheader.i.loopexit
     i8 61, label %base64_to_sextet.exit44.preheader.i.loopexit300
-  ], !llvm.loop !25
+  ], !llvm.loop !24
 
 base64_to_sextet.exit44.preheader.i.loopexit:     ; preds = %72
   br label %base64_to_sextet.exit44.preheader.i
@@ -5858,7 +5858,7 @@ base64_to_sextet.exit44.i:                        ; preds = %86, %base64_to_sext
     i8 43, label %.loopexit.i.loopexit
     i8 47, label %.loopexit.i.loopexit299
     i8 61, label %.loopexit.i
-  ], !llvm.loop !26
+  ], !llvm.loop !25
 
 .loopexit.i.loopexit:                             ; preds = %86
   br label %.loopexit.i
@@ -5911,7 +5911,7 @@ base64_to_sextet.exit44.i:                        ; preds = %86, %base64_to_sext
 110:                                              ; preds = %107, %105
   %.327.i = phi ptr [ %109, %107 ], [ %.226.i, %105 ]
   %111 = icmp ult ptr %75, %.ptr53
-  br i1 %111, label %.preheader48.i, label %parse_base64.exit, !llvm.loop !27
+  br i1 %111, label %.preheader48.i, label %parse_base64.exit, !llvm.loop !26
 
 112:                                              ; preds = %21
   %113 = icmp sgt i64 %25, 3
@@ -5941,7 +5941,7 @@ base64_to_sextet.exit44.i:                        ; preds = %86, %base64_to_sext
 
 124:                                              ; preds = %116
   %125 = icmp eq ptr %117, %.ptr53
-  br i1 %125, label %parse_base64.exit, label %116, !llvm.loop !28
+  br i1 %125, label %parse_base64.exit, label %116, !llvm.loop !27
 
 .preheader.i45:                                   ; preds = %116, %.preheader.i45
   %.2.i46 = phi ptr [ %126, %.preheader.i45 ], [ %117, %116 ]
@@ -5952,7 +5952,7 @@ base64_to_sextet.exit44.i:                        ; preds = %86, %base64_to_sext
   %130 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %129
   %131 = load i8, ptr %130, align 1
   %132 = icmp slt i8 %131, 1
-  br i1 %132, label %.preheader.i45, label %133, !llvm.loop !29
+  br i1 %132, label %.preheader.i45, label %133, !llvm.loop !28
 
 133:                                              ; preds = %.preheader.i45
   %134 = add nsw i8 %131, -1
@@ -5962,13 +5962,13 @@ base64_to_sextet.exit44.i:                        ; preds = %86, %base64_to_sext
   %138 = getelementptr inbounds i8, ptr %.0919.i, i64 1
   store i8 %137, ptr %.0919.i, align 1
   %139 = icmp ult ptr %126, %.ptr53
-  br i1 %139, label %.preheader12.i, label %parse_base64.exit, !llvm.loop !30
+  br i1 %139, label %.preheader12.i, label %parse_base64.exit, !llvm.loop !29
 
 parse_base64.exit:                                ; preds = %133, %110, %124, %46, %112, %27
   tail call void @advance(ptr noundef nonnull %0) #8
   %140 = load i32, ptr %3, align 8
   %141 = icmp eq i32 %140, 80
-  br i1 %141, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !22
+  br i1 %141, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !21
 
 .outer._crit_edge:                                ; preds = %parse_base64.exit, %12, %2
   %.040.ph.lcssa = phi ptr [ null, %2 ], [ %.040.ph110, %12 ], [ %18, %parse_base64.exit ]
@@ -6745,7 +6745,7 @@ define internal ptr @parse_ct_defined(ptr noundef %0, ptr nocapture readnone %1)
   %52 = getelementptr inbounds ptr, ptr %50, i64 %51
   store ptr %16, ptr %52, align 8
   %53 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
-  br i1 %53, label %13, label %54, !llvm.loop !31
+  br i1 %53, label %13, label %54, !llvm.loop !30
 
 54:                                               ; preds = %47
   %55 = load i32, ptr %6, align 8
@@ -7684,7 +7684,7 @@ attributes #9 = { noreturn nounwind }
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
-!17 = !{i32 0, i32 32}
+!17 = distinct !{!17, !8}
 !18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
@@ -7698,4 +7698,3 @@ attributes #9 = { noreturn nounwind }
 !28 = distinct !{!28, !8}
 !29 = distinct !{!29, !8}
 !30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}

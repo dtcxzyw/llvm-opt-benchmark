@@ -253,7 +253,7 @@ if.end.i:                                         ; preds = %if.then
   %sent_cb4.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %sent_cb, ptr %sent_cb4.i, align 8
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data.i, ptr align 1 %data, i64 %size, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data.i, ptr readonly align 1 %data, i64 %size, i1 false)
   %2 = load i32, ptr %nq_count.i, align 4
   %inc.i = add i32 %2, 1
   store i32 %inc.i, ptr %nq_count.i, align 4
@@ -308,7 +308,7 @@ if.end.i22:                                       ; preds = %if.then3
   %sent_cb4.i29 = getelementptr inbounds i8, ptr %call.i24, i64 32
   store ptr %sent_cb, ptr %sent_cb4.i29, align 8
   %data.i30 = getelementptr inbounds i8, ptr %call.i24, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data.i30, ptr align 1 %data, i64 %size, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data.i30, ptr readonly align 1 %data, i64 %size, i1 false)
   %8 = load i32, ptr %nq_count.i17, align 4
   %inc.i31 = add i32 %8, 1
   store i32 %inc.i31, ptr %nq_count.i17, align 4

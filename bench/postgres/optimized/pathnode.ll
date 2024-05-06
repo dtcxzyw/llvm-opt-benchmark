@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @compare_path_costs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @compare_path_costs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %21
 
@@ -80,7 +80,7 @@ define dso_local noundef i32 @compare_path_costs(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @compare_fractional_path_costs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @compare_fractional_path_costs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #0 {
   %4 = fcmp ole double %2, 0.000000e+00
   %5 = fcmp oge double %2, 1.000000e+00
   %or.cond = or i1 %4, %5
@@ -626,7 +626,7 @@ define dso_local void @add_path(ptr nocapture noundef %0, ptr noundef %1) local_
   br i1 %144, label %compare_path_costs_fuzzily.exit.thread149, label %145
 
 145:                                              ; preds = %143
-  %146 = tail call fastcc i32 @compare_path_costs_fuzzily(ptr noundef nonnull %1, ptr noundef nonnull %29, double noundef 0x3FF000000006DF38), !range !7
+  %146 = tail call fastcc i32 @compare_path_costs_fuzzily(ptr noundef nonnull %1, ptr noundef nonnull %29, double noundef 0x3FF000000006DF38)
   %147 = icmp eq i32 %146, 1
   br i1 %147, label %compare_path_costs_fuzzily.exit.thread155, label %compare_path_costs_fuzzily.exit.thread149
 
@@ -785,7 +785,7 @@ compare_path_costs_fuzzily.exit.thread149:        ; preds = %compare_path_costs_
   %228 = add i32 %.sroa.5.1, 1
   %.not120 = icmp ne ptr %.sroa.0.1, null
   %or.cond175.not = select i1 %227, i1 %.not120, i1 false
-  br i1 %or.cond175.not, label %20, label %.thread, !llvm.loop !8
+  br i1 %or.cond175.not, label %20, label %.thread, !llvm.loop !7
 
 .thread:                                          ; preds = %226, %20
   %.2103.ph = phi i32 [ %.1102, %226 ], [ %.0101162, %20 ]
@@ -816,7 +816,7 @@ compare_path_costs_fuzzily.exit.thread149:        ; preds = %compare_path_costs_
 declare void @ProcessInterrupts() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @compare_path_costs_fuzzily(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2) unnamed_addr #5 {
+define internal fastcc range(i32 0, 4) i32 @compare_path_costs_fuzzily(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 56
@@ -1167,7 +1167,7 @@ define dso_local void @add_partial_path(ptr nocapture noundef %0, ptr noundef %1
   %44 = add i32 %.sroa.5.1, 1
   %.not41 = icmp ne ptr %.sroa.0.1, null
   %or.cond.not = select i1 %43, i1 %.not41, i1 false
-  br i1 %or.cond.not, label %10, label %.thread, !llvm.loop !9
+  br i1 %or.cond.not, label %10, label %.thread, !llvm.loop !8
 
 .thread:                                          ; preds = %42, %10
   %.236.ph = phi i32 [ %.135, %42 ], [ %.03462, %10 ]
@@ -6014,7 +6014,7 @@ define internal fastcc ptr @reparameterize_pathlist_by_child(ptr noundef %0, ptr
   %16 = load i32, ptr %4, align 4
   %17 = sext i32 %16 to i64
   %.not = icmp slt i64 %indvars.iv.next, %17
-  br i1 %.not, label %7, label %.loopexit, !llvm.loop !10
+  br i1 %.not, label %7, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %14, %3, %13
   %.0 = phi ptr [ null, %13 ], [ null, %3 ], [ %15, %14 ]
@@ -6064,7 +6064,6 @@ attributes #10 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 4}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

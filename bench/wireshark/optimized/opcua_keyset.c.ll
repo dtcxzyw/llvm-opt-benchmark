@@ -101,7 +101,7 @@ define hidden void @ua_keysets_sort() local_unnamed_addr #4 {
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @keyset_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @keyset_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = icmp eq i64 %3, %4
@@ -146,9 +146,9 @@ define hidden void @ua_keysets_dump() local_unnamed_addr #4 {
   %5 = getelementptr %struct.ua_keyset, ptr %4, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8
   %7 = lshr i64 %6, 32
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw i64 %7 to i32
   %9 = trunc i64 %6 to i32
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw i64 %indvars.iv to i32
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %10, i64 noundef %6, i32 noundef %8, i32 noundef %9)
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %10)
   %13 = getelementptr inbounds i8, ptr %5, i64 8

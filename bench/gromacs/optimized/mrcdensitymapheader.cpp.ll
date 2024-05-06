@@ -82,7 +82,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN3gmx25numberOfExpectedDataItemsERKNS_19MrcDensityMapHeaderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1040) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN3gmx25numberOfExpectedDataItemsERKNS_19MrcDensityMapHeaderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1040) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.gmx::InternalError", align 8
   %3 = alloca %"class.gmx::ExceptionInitializer", align 8
   %4 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -150,8 +150,8 @@ _ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread: ; pred
   br label %25
 
 21:                                               ; preds = %1
-  %22 = mul nsw i32 %.1.val.i.i.i.i.i.i, %.029.val32.i.i.i.i.i.i
-  %23 = mul nsw i32 %22, %.2.val.i.i.i.i.i.i
+  %22 = mul nuw nsw i32 %.1.val.i.i.i.i.i.i, %.029.val32.i.i.i.i.i.i
+  %23 = mul nuw nsw i32 %22, %.2.val.i.i.i.i.i.i
   %24 = zext nneg i32 %23 to i64
   ret i64 %24
 

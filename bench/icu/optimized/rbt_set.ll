@@ -464,7 +464,7 @@ for.body25.us:                                    ; preds = %for.body18.us, %for
 
 if.else.us:                                       ; preds = %for.body25.us
   %7 = load ptr, ptr %ruleVector, align 8
-  %8 = trunc i64 %indvars.iv91 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv91 to i32
   %call45.us = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef %8)
           to label %invoke.cont44.us unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
@@ -487,7 +487,7 @@ if.then30.us:                                     ; preds = %for.body25.us
 
 if.then36.us:                                     ; preds = %if.then30.us
   %10 = load ptr, ptr %ruleVector, align 8
-  %11 = trunc i64 %indvars.iv91 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv91 to i32
   %call39.us = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef %11)
           to label %invoke.cont38.us unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
@@ -513,7 +513,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %invoke.co
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont13
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %invoke.cont13 ]
   %12 = load ptr, ptr %ruleVector, align 8
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   %call12 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef %13)
           to label %invoke.cont11 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -591,7 +591,7 @@ for.cond101.preheader:                            ; preds = %invoke.cont93, %for
 
 for.body92:                                       ; preds = %for.cond88.preheader, %invoke.cont93
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %invoke.cont93 ], [ 0, %for.cond88.preheader ]
-  %19 = trunc i64 %indvars.iv100 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv100 to i32
   %call94 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %v, i32 noundef %19)
           to label %invoke.cont93 unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -798,7 +798,7 @@ declare noundef signext i8 @_ZNK6icu_7519TransliterationRule17matchesIndexValueE
 declare void @_ZN6icu_757UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7522TransliterationRuleSet13transliterateERNS_11ReplaceableER14UTransPositiona(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1056) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr noundef nonnull align 4 dereferenceable(16) %pos, i8 noundef signext %incremental) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522TransliterationRuleSet13transliterateERNS_11ReplaceableER14UTransPositiona(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1056) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr noundef nonnull align 4 dereferenceable(16) %pos, i8 noundef signext %incremental) local_unnamed_addr #0 align 2 {
 entry:
   %start = getelementptr inbounds i8, ptr %pos, i64 8
   %0 = load i32, ptr %start, align 4

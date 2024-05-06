@@ -519,7 +519,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_KEYMGMT_is_a(ptr noundef readonly %keymgmt, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_KEYMGMT_is_a(ptr noundef readonly %keymgmt, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %keymgmt, null
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -710,7 +710,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @evp_keymgmt_has_load(ptr noundef readonly %keymgmt) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @evp_keymgmt_has_load(ptr noundef readonly %keymgmt) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %keymgmt, null
   br i1 %cmp.not, label %land.end, label %land.rhs

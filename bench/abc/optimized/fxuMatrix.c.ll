@@ -26,7 +26,7 @@ define noalias noundef ptr @Fxu_MatrixAllocate() local_unnamed_addr #0 {
 
 3:                                                ; preds = %.lr.ph.i
   %4 = add nuw nsw i32 %.01116.i, 2
-  %5 = mul nsw i32 %4, %4
+  %5 = mul nuw nsw i32 %4, %4
   %.not.i = icmp ugt i32 %5, %1
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 

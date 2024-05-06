@@ -267,7 +267,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @decompress_single(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4, ptr nocapture noundef readonly %5) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @decompress_single(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4, ptr nocapture noundef readonly %5) unnamed_addr #0 section ".init.text" align 16 {
   %7 = tail call i64 @zstd_dctx_workspace_bound() #6
   %8 = tail call noalias ptr @vmalloc(i64 noundef %7) #7
   %9 = tail call ptr @zstd_init_dctx(ptr noundef %8, i64 noundef %7) #6
@@ -318,7 +318,7 @@ declare dso_local noalias ptr @vmalloc(i64 noundef) local_unnamed_addr #3
 declare dso_local i64 @zstd_get_frame_header(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @handle_zstd_error(i64 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @handle_zstd_error(i64 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = tail call i32 @zstd_get_error_code(i64 noundef %0) #6
   %4 = tail call i32 @zstd_is_error(i64 noundef %0) #6
   %5 = icmp eq i32 %4, 0

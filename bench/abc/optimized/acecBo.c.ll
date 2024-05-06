@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [7 x i8] c"Found!\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Acec_DetectBoothXorMux(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Acec_DetectBoothXorMux(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -172,7 +172,7 @@ declare i32 @Gia_ObjRecognizeExor(ptr noundef, ptr noundef, ptr noundef) local_u
 declare ptr @Gia_ObjRecognizeMux(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Acec_DetectBoothXorFanin(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Acec_DetectBoothXorFanin(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %.val64 = load i64, ptr %1, align 4
   %4 = and i64 %.val64, 536870911
   %5 = icmp eq i64 %4, 536870911
@@ -210,7 +210,7 @@ define noundef i32 @Acec_DetectBoothXorFanin(ptr nocapture noundef readonly %0, 
   %24 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %10, i64 %23
   %25 = sub nsw i64 0, %20
   %26 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %14, i64 %25
-  %27 = tail call i32 @Acec_DetectBoothXorMux(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %2), !range !4
+  %27 = tail call i32 @Acec_DetectBoothXorMux(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef %2)
   %.not51 = icmp eq i32 %27, 0
   %28 = load i64, ptr %10, align 4
   br i1 %.not51, label %43, label %29
@@ -242,7 +242,7 @@ define noundef i32 @Acec_DetectBoothXorFanin(ptr nocapture noundef readonly %0, 
   %49 = and i64 %48, 536870911
   %50 = sub nsw i64 0, %49
   %51 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %14, i64 %50
-  %52 = tail call i32 @Acec_DetectBoothXorMux(ptr noundef %0, ptr noundef nonnull %46, ptr noundef nonnull %51, ptr noundef %2), !range !4
+  %52 = tail call i32 @Acec_DetectBoothXorMux(ptr noundef %0, ptr noundef nonnull %46, ptr noundef nonnull %51, ptr noundef %2)
   %.not52 = icmp eq i32 %52, 0
   %53 = load i64, ptr %10, align 4
   %54 = lshr i64 %53, 32
@@ -269,7 +269,7 @@ define noundef i32 @Acec_DetectBoothXorFanin(ptr nocapture noundef readonly %0, 
   %69 = and i64 %68, 536870911
   %70 = sub nsw i64 0, %69
   %71 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %14, i64 %70
-  %72 = tail call i32 @Acec_DetectBoothXorMux(ptr noundef %0, ptr noundef nonnull %57, ptr noundef nonnull %71, ptr noundef %2), !range !4
+  %72 = tail call i32 @Acec_DetectBoothXorMux(ptr noundef %0, ptr noundef nonnull %57, ptr noundef nonnull %71, ptr noundef %2)
   %.not53 = icmp eq i32 %72, 0
   %73 = load i64, ptr %10, align 4
   br i1 %.not53, label %87, label %74
@@ -301,7 +301,7 @@ define noundef i32 @Acec_DetectBoothXorFanin(ptr nocapture noundef readonly %0, 
   %94 = and i64 %93, 536870911
   %95 = sub nsw i64 0, %94
   %96 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %14, i64 %95
-  %97 = tail call i32 @Acec_DetectBoothXorMux(ptr noundef %0, ptr noundef nonnull %91, ptr noundef nonnull %96, ptr noundef %2), !range !4
+  %97 = tail call i32 @Acec_DetectBoothXorMux(ptr noundef %0, ptr noundef nonnull %91, ptr noundef nonnull %96, ptr noundef %2)
   %.not54 = icmp eq i32 %97, 0
   br i1 %.not54, label %120, label %98
 
@@ -344,7 +344,7 @@ define noundef i32 @Acec_DetectBoothXorFanin(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Acec_DetectBoothOne(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Acec_DetectBoothOne(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = call i32 @Gia_ObjRecognizeExor(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
@@ -362,7 +362,7 @@ define noundef i32 @Acec_DetectBoothOne(ptr nocapture noundef readonly %0, ptr n
   %14 = and i64 %13, -2
   %15 = inttoptr i64 %14 to ptr
   store ptr %15, ptr %5, align 8
-  %16 = call i32 @Acec_DetectBoothXorFanin(ptr noundef %0, ptr noundef %11, ptr noundef %2), !range !4
+  %16 = call i32 @Acec_DetectBoothXorFanin(ptr noundef %0, ptr noundef %11, ptr noundef %2)
   %.not9 = icmp eq i32 %16, 0
   %.pre = load ptr, ptr %5, align 8
   br i1 %.not9, label %27, label %17
@@ -381,7 +381,7 @@ define noundef i32 @Acec_DetectBoothOne(ptr nocapture noundef readonly %0, ptr n
   br i1 %26, label %41, label %27
 
 27:                                               ; preds = %17, %7
-  %28 = call i32 @Acec_DetectBoothXorFanin(ptr noundef %0, ptr noundef %.pre, ptr noundef %2), !range !4
+  %28 = call i32 @Acec_DetectBoothXorFanin(ptr noundef %0, ptr noundef %.pre, ptr noundef %2)
   %.not10 = icmp eq i32 %28, 0
   br i1 %.not10, label %40, label %29
 
@@ -408,7 +408,7 @@ define noundef i32 @Acec_DetectBoothOne(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Acec_DetectBoothTwoXor(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Acec_DetectBoothTwoXor(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %.val28 = load i64, ptr %1, align 4
@@ -515,7 +515,7 @@ define noundef i32 @Acec_DetectBoothTwoXor(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Acec_DetectBoothTwo(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Acec_DetectBoothTwo(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = call i32 @Gia_ObjRecognizeExor(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
@@ -533,13 +533,13 @@ define noundef i32 @Acec_DetectBoothTwo(ptr nocapture noundef readonly %0, ptr n
   %14 = and i64 %13, -2
   %15 = inttoptr i64 %14 to ptr
   store ptr %15, ptr %5, align 8
-  %16 = call i32 @Acec_DetectBoothTwoXor(ptr noundef %0, ptr noundef %11, ptr noundef %2), !range !4
+  %16 = call i32 @Acec_DetectBoothTwoXor(ptr noundef %0, ptr noundef %11, ptr noundef %2)
   %.not9 = icmp eq i32 %16, 0
   %17 = load ptr, ptr %5, align 8
   br i1 %.not9, label %18, label %.sink.split
 
 18:                                               ; preds = %7
-  %19 = call i32 @Acec_DetectBoothTwoXor(ptr noundef %0, ptr noundef %17, ptr noundef %2), !range !4
+  %19 = call i32 @Acec_DetectBoothTwoXor(ptr noundef %0, ptr noundef %17, ptr noundef %2)
   %.not10 = icmp eq i32 %19, 0
   br i1 %.not10, label %29, label %20
 
@@ -619,7 +619,7 @@ define void @Acec_DetectBoothTest(ptr nocapture noundef readonly %0) local_unnam
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
   store ptr %31, ptr %5, align 8
-  %32 = call i32 @Acec_DetectBoothXorFanin(ptr noundef nonnull %0, ptr noundef %27, ptr noundef nonnull %6), !range !4
+  %32 = call i32 @Acec_DetectBoothXorFanin(ptr noundef nonnull readonly %0, ptr noundef %27, ptr noundef nonnull %6)
   %.not9.i = icmp eq i32 %32, 0
   %.pre.i = load ptr, ptr %5, align 8
   br i1 %.not9.i, label %41, label %33
@@ -636,7 +636,7 @@ define void @Acec_DetectBoothTest(ptr nocapture noundef readonly %0) local_unnam
   br i1 %40, label %Acec_DetectBoothOne.exit, label %41
 
 41:                                               ; preds = %33, %23
-  %42 = call i32 @Acec_DetectBoothXorFanin(ptr noundef nonnull %0, ptr noundef %.pre.i, ptr noundef nonnull %6), !range !4
+  %42 = call i32 @Acec_DetectBoothXorFanin(ptr noundef nonnull readonly %0, ptr noundef %.pre.i, ptr noundef nonnull %6)
   %.not10.i = icmp eq i32 %42, 0
   br i1 %.not10.i, label %53, label %43
 
@@ -678,13 +678,13 @@ Acec_DetectBoothOne.exit:                         ; preds = %33, %43
   %62 = and i64 %61, -2
   %63 = inttoptr i64 %62 to ptr
   store ptr %63, ptr %3, align 8
-  %64 = call i32 @Acec_DetectBoothTwoXor(ptr noundef nonnull %0, ptr noundef %59, ptr noundef nonnull %6), !range !4
+  %64 = call i32 @Acec_DetectBoothTwoXor(ptr noundef nonnull readonly %0, ptr noundef %59, ptr noundef nonnull writeonly %6)
   %.not9.i17 = icmp eq i32 %64, 0
   %65 = load ptr, ptr %3, align 8
   br i1 %.not9.i17, label %66, label %Acec_DetectBoothTwo.exit
 
 66:                                               ; preds = %55
-  %67 = call i32 @Acec_DetectBoothTwoXor(ptr noundef nonnull %0, ptr noundef %65, ptr noundef nonnull %6), !range !4
+  %67 = call i32 @Acec_DetectBoothTwoXor(ptr noundef nonnull readonly %0, ptr noundef %65, ptr noundef nonnull writeonly %6)
   %.not10.i20 = icmp eq i32 %67, 0
   br i1 %.not10.i20, label %Acec_DetectBoothTwo.exit.thread, label %68
 
@@ -725,7 +725,7 @@ Acec_DetectBoothTwo.exit:                         ; preds = %55, %68
   %84 = load i32, ptr %8, align 8
   %85 = sext i32 %84 to i64
   %86 = icmp slt i64 %indvars.iv.next, %85
-  br i1 %86, label %15, label %.critedge, !llvm.loop !5
+  br i1 %86, label %15, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %15, %83, %1
   ret void
@@ -901,15 +901,15 @@ Vec_IntPush.exit74:                               ; preds = %.Vec_IntGrow.exit10
 78:                                               ; preds = %16, %Vec_IntPush.exit74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %79, label %16, !llvm.loop !7
+  br i1 %exitcond.not, label %79, label %16, !llvm.loop !6
 
 79:                                               ; preds = %78
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next91, 3
-  br i1 %exitcond93.not, label %80, label %11, !llvm.loop !8
+  br i1 %exitcond93.not, label %80, label %11, !llvm.loop !7
 
 80:                                               ; preds = %79
-  br i1 %8, label %7, label %81, !llvm.loop !9
+  br i1 %8, label %7, label %81, !llvm.loop !8
 
 81:                                               ; preds = %80
   %.val = load i32, ptr %4, align 4
@@ -986,7 +986,7 @@ Vec_IntPush.exit74:                               ; preds = %.Vec_IntGrow.exit10
   %.1 = phi i32 [ %118, %115 ], [ %.06079, %.lr.ph ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
-  br i1 %exitcond100.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond100.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %121
   %.pre = load i32, ptr %1, align 16
@@ -1049,7 +1049,7 @@ Vec_IntPush.exit74:                               ; preds = %.Vec_IntGrow.exit10
 158:                                              ; preds = %153, %157
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, 3
-  br i1 %exitcond104.not, label %159, label %153, !llvm.loop !11
+  br i1 %exitcond104.not, label %159, label %153, !llvm.loop !10
 
 159:                                              ; preds = %158
   %160 = add nsw i32 %.06282, 1
@@ -1059,7 +1059,7 @@ Vec_IntPush.exit74:                               ; preds = %.Vec_IntGrow.exit10
   %.163 = phi i32 [ %.06282, %93 ], [ %160, %159 ]
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %._crit_edge87, label %93, !llvm.loop !12
+  br i1 %exitcond109.not, label %._crit_edge87, label %93, !llvm.loop !11
 
 ._crit_edge87:                                    ; preds = %161, %81
   %.062.lcssa = phi i32 [ 0, %81 ], [ %.163, %161 ]
@@ -1123,12 +1123,11 @@ attributes #12 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

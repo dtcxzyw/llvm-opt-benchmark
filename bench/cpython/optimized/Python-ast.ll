@@ -502,7 +502,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.387 = private unnamed_addr constant [45 x i8] c"%.400s got multiple values for argument '%U'\00", align 1
 @PyType_Type = external global %struct._typeobject, align 8
 @.str.388 = private unnamed_addr constant [15 x i8] c"s(O){OOOOOOOs}\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @PyExc_RecursionError = external local_unnamed_addr global ptr, align 8
 @.str.389 = private unnamed_addr constant [57 x i8] c"maximum recursion depth exceeded during ast construction\00", align 1
 @.str.390 = private unnamed_addr constant [49 x i8] c"Module field \22body\22 must be a list, not a %.200s\00", align 1
@@ -10720,12 +10720,12 @@ if.end.i.i149.i:                                  ; preds = %for.body78.i
   br label %_Py_NewRef.exit150.i
 
 _Py_NewRef.exit150.i:                             ; preds = %if.end.i.i149.i, %for.body78.i
-  %call84.i = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.391), !range !8
+  %call84.i = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.391)
   %tobool85.not.i = icmp eq i32 %call84.i, 0
   br i1 %tobool85.not.i, label %if.end87.i, label %failed.i
 
 if.end87.i:                                       ; preds = %_Py_NewRef.exit150.i
-  %call88.i = call fastcc i32 @obj2ast_type_ignore(ptr noundef nonnull %ast.i, ptr noundef nonnull %47, ptr noundef nonnull %val79.i, ptr noundef %arena), !range !9
+  %call88.i = call fastcc i32 @obj2ast_type_ignore(ptr noundef nonnull %ast.i, ptr noundef nonnull %47, ptr noundef nonnull %val79.i, ptr noundef %arena)
   %49 = load ptr, ptr %0, align 8
   %c_recursion_remaining.i.i151.i = getelementptr inbounds i8, ptr %49, i64 44
   %50 = load i32, ptr %c_recursion_remaining.i.i151.i, align 4
@@ -10768,7 +10768,7 @@ if.end95.i:                                       ; preds = %if.end91.i
   store ptr %56, ptr %arrayidx97.i, align 8
   %inc99.i = add nuw nsw i64 %i62.0233.i, 1
   %exitcond239.not.i = icmp eq i64 %inc99.i, %.val136.i
-  br i1 %exitcond239.not.i, label %do.body101.i, label %for.body78.i, !llvm.loop !10
+  br i1 %exitcond239.not.i, label %do.body101.i, label %for.body78.i, !llvm.loop !8
 
 do.body101.i:                                     ; preds = %if.end95.i, %for.cond76.preheader.i
   %57 = load ptr, ptr %tmp.i, align 8
@@ -10961,7 +10961,7 @@ if.end167.i:                                      ; preds = %if.end163.i
   store ptr %82, ptr %arrayidx169.i, align 8
   %inc171.i = add nuw nsw i64 %i134.0229.i, 1
   %exitcond237.not.i = icmp eq i64 %inc171.i, %.val138.i
-  br i1 %exitcond237.not.i, label %do.body173.i, label %for.body150.i, !llvm.loop !11
+  br i1 %exitcond237.not.i, label %do.body173.i, label %for.body150.i, !llvm.loop !9
 
 do.body173.i:                                     ; preds = %if.end167.i, %_Py_asdl_stmt_seq_new.exit179.i
   %83 = load ptr, ptr %tmp.i, align 8
@@ -11022,7 +11022,7 @@ if.then198.i:                                     ; preds = %if.end196.i
   br label %obj2ast_mod.exit.thread
 
 if.else.i:                                        ; preds = %if.end196.i
-  %call200.i = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.399), !range !8
+  %call200.i = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.399)
   %tobool201.not.i = icmp eq i32 %call200.i, 0
   br i1 %tobool201.not.i, label %if.end203.i, label %failed.i
 
@@ -11140,7 +11140,7 @@ if.end.i.i205.i:                                  ; preds = %for.body257.i
   br label %_Py_NewRef.exit206.i
 
 _Py_NewRef.exit206.i:                             ; preds = %if.end.i.i205.i, %for.body257.i
-  %call263.i = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.401), !range !8
+  %call263.i = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.401)
   %tobool264.not.i = icmp eq i32 %call263.i, 0
   br i1 %tobool264.not.i, label %if.end266.i, label %failed.i
 
@@ -11188,7 +11188,7 @@ if.end274.i:                                      ; preds = %if.end270.i
   store ptr %117, ptr %arrayidx276.i, align 8
   %inc278.i = add nuw nsw i64 %i241.0227.i, 1
   %exitcond.not.i = icmp eq i64 %inc278.i, %.val140.i
-  br i1 %exitcond.not.i, label %do.body280.i, label %for.body257.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %do.body280.i, label %for.body257.i, !llvm.loop !10
 
 do.body280.i:                                     ; preds = %if.end274.i, %for.cond255.preheader.i
   %118 = load ptr, ptr %tmp.i, align 8
@@ -11230,7 +11230,7 @@ if.then293.i:                                     ; preds = %if.end291.i
   br label %obj2ast_mod.exit.thread
 
 if.else294.i:                                     ; preds = %if.end291.i
-  %call296.i = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.401), !range !8
+  %call296.i = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.401)
   %tobool297.not.i = icmp eq i32 %call296.i, 0
   br i1 %tobool297.not.i, label %if.end299.i, label %failed.i
 
@@ -14678,7 +14678,7 @@ if.end5:                                          ; preds = %for.body
   store ptr %call2, ptr %arrayidx.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %if.end5, %for.cond.preheader
   %_fields = getelementptr inbounds i8, ptr %state, i64 1152
@@ -14754,7 +14754,7 @@ if.end5:                                          ; preds = %for.body
   store ptr %call2, ptr %arrayidx.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %if.end5, %for.cond.preheader
   %_attributes = getelementptr inbounds i8, ptr %state, i64 1144
@@ -15003,7 +15003,7 @@ for.inc:                                          ; preds = %Py_DECREF.exit
   store i64 %inc, ptr %i, align 8
   %args.val23 = load i64, ptr %7, align 8
   %cmp21 = icmp slt i64 %inc, %args.val23
-  br i1 %cmp21, label %for.body, label %for.end, !llvm.loop !15
+  br i1 %cmp21, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %res.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %call26, %for.inc ]
@@ -15019,7 +15019,7 @@ if.then31:                                        ; preds = %for.end
 while.cond:                                       ; preds = %if.end50
   %call32 = call i32 @PyDict_Next(ptr noundef nonnull %kw, ptr noundef nonnull %i, ptr noundef nonnull %key, ptr noundef nonnull %value) #6
   %tobool33.not = icmp eq i32 %call32, 0
-  br i1 %tobool33.not, label %cleanup, label %while.body, !llvm.loop !16
+  br i1 %tobool33.not, label %cleanup, label %while.body, !llvm.loop !14
 
 while.body:                                       ; preds = %if.then31, %while.cond
   %14 = load ptr, ptr %fields, align 8
@@ -15056,7 +15056,7 @@ if.end50:                                         ; preds = %while.body, %if.end
   %22 = load ptr, ptr %value, align 8
   %call51 = call i32 @PyObject_SetAttr(ptr noundef %self, ptr noundef %21, ptr noundef %22) #6
   %cmp52 = icmp slt i32 %call51, 0
-  br i1 %cmp52, label %cleanup, label %while.cond, !llvm.loop !16
+  br i1 %cmp52, label %cleanup, label %while.cond, !llvm.loop !14
 
 cleanup:                                          ; preds = %for.body, %Py_DECREF.exit, %if.end50, %while.cond, %while.body, %if.then38, %if.then31, %for.end, %if.then6, %if.end, %if.then45, %if.then14
   %res.2 = phi i32 [ -1, %if.end ], [ -1, %if.then6 ], [ -1, %if.then14 ], [ -1, %if.then45 ], [ %res.0.lcssa, %for.end ], [ %res.0.lcssa, %if.then31 ], [ %call51, %if.end50 ], [ %call51, %while.cond ], [ %call34, %while.body ], [ -1, %if.then38 ], [ -1, %for.body ], [ %call26, %Py_DECREF.exit ]
@@ -19353,7 +19353,7 @@ ast2obj_cmpop.exit:                               ; preds = %sw.bb.i654, %if.end
   store ptr %retval.0.i652, ptr %arrayidx.i, align 8
   %inc407 = add nuw nsw i64 %i.0699, 1
   %exitcond.not = icmp eq i64 %inc407, %145
-  br i1 %exitcond.not, label %if.end410, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %if.end410, label %for.body, !llvm.loop !15
 
 if.end410:                                        ; preds = %ast2obj_cmpop.exit, %cond.end.thread, %for.cond.preheader
   %call399704708 = phi ptr [ %call399, %for.cond.preheader ], [ %call399701, %cond.end.thread ], [ %call399, %ast2obj_cmpop.exit ]
@@ -24165,7 +24165,7 @@ return:                                           ; preds = %if.end.i.i9, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_Py_EnterRecursiveCall(ptr noundef %where) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_Py_EnterRecursiveCall(ptr noundef %where) unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -24394,7 +24394,7 @@ if.then24:                                        ; preds = %if.end22
   br label %return
 
 if.else25:                                        ; preds = %if.end22
-  %call27 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.406), !range !8
+  %call27 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.406)
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.end30, label %failed
 
@@ -24470,7 +24470,7 @@ do.end57:                                         ; preds = %do.body51, %if.then
   br label %if.end75
 
 if.else58:                                        ; preds = %if.end47
-  %call60 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.406), !range !8
+  %call60 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.406)
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %if.end63, label %failed
 
@@ -24547,7 +24547,7 @@ do.end91:                                         ; preds = %do.body85, %if.then
   br label %if.end109
 
 if.else92:                                        ; preds = %if.end80
-  %call94 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.406), !range !8
+  %call94 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.406)
   %tobool95.not = icmp eq i32 %call94, 0
   br i1 %tobool95.not, label %if.end97, label %failed
 
@@ -24611,7 +24611,7 @@ if.then122:                                       ; preds = %if.end120
   br label %return
 
 if.else123:                                       ; preds = %if.end120
-  %call125 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.409), !range !8
+  %call125 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.409)
   %tobool126.not = icmp eq i32 %call125, 0
   br i1 %tobool126.not, label %if.end128, label %failed
 
@@ -24666,13 +24666,13 @@ if.then147:                                       ; preds = %if.end145
   br label %return
 
 if.else148:                                       ; preds = %if.end145
-  %call150 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.409), !range !8
+  %call150 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.409)
   %tobool151.not = icmp eq i32 %call150, 0
   br i1 %tobool151.not, label %if.end153, label %failed
 
 if.end153:                                        ; preds = %if.else148
   %61 = load ptr, ptr %tmp, align 8
-  %call154 = call fastcc i32 @obj2ast_arguments(ptr noundef nonnull %state, ptr noundef %61, ptr noundef nonnull %args, ptr noundef %arena), !range !9
+  %call154 = call fastcc i32 @obj2ast_arguments(ptr noundef nonnull %state, ptr noundef %61, ptr noundef nonnull %args, ptr noundef %arena)
   %62 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1660 = getelementptr inbounds i8, ptr %62, i64 44
   %63 = load i32, ptr %c_recursion_remaining.i.i1660, align 4
@@ -24769,7 +24769,7 @@ if.end.i.i:                                       ; preds = %for.body
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i.i
-  %call194 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.409), !range !8
+  %call194 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.409)
   %tobool195.not = icmp eq i32 %call194, 0
   br i1 %tobool195.not, label %if.end197, label %failed
 
@@ -24817,7 +24817,7 @@ if.end205:                                        ; preds = %if.end201
   store ptr %86, ptr %arrayidx206, align 8
   %inc = add nuw nsw i64 %i.02323, 1
   %exitcond2401.not = icmp eq i64 %inc, %.val1649
-  br i1 %exitcond2401.not, label %do.body207, label %for.body, !llvm.loop !18
+  br i1 %exitcond2401.not, label %do.body207, label %for.body, !llvm.loop !16
 
 do.body207:                                       ; preds = %if.end205, %for.cond.preheader
   %87 = load ptr, ptr %tmp, align 8
@@ -24907,7 +24907,7 @@ if.end.i.i1670:                                   ; preds = %for.body244
   br label %_Py_NewRef.exit1671
 
 _Py_NewRef.exit1671:                              ; preds = %for.body244, %if.end.i.i1670
-  %call250 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.409), !range !8
+  %call250 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.409)
   %tobool251.not = icmp eq i32 %call250, 0
   br i1 %tobool251.not, label %if.end253, label %failed
 
@@ -24955,7 +24955,7 @@ if.end261:                                        ; preds = %if.end257
   store ptr %109, ptr %arrayidx263, align 8
   %inc265 = add nuw nsw i64 %i228.02325, 1
   %exitcond2402.not = icmp eq i64 %inc265, %.val1647
-  br i1 %exitcond2402.not, label %do.body267, label %for.body244, !llvm.loop !19
+  br i1 %exitcond2402.not, label %do.body267, label %for.body244, !llvm.loop !17
 
 do.body267:                                       ; preds = %if.end261, %for.cond242.preheader
   %110 = load ptr, ptr %tmp, align 8
@@ -25018,7 +25018,7 @@ do.end289:                                        ; preds = %do.body283, %if.the
   br label %if.end307
 
 if.else290:                                       ; preds = %if.end278
-  %call292 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.409), !range !8
+  %call292 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.409)
   %tobool293.not = icmp eq i32 %call292, 0
   br i1 %tobool293.not, label %if.end295, label %failed
 
@@ -25094,7 +25094,7 @@ do.end323:                                        ; preds = %do.body317, %if.the
   br label %if.end341
 
 if.else324:                                       ; preds = %if.end312
-  %call326 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.409), !range !8
+  %call326 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.409)
   %tobool327.not = icmp eq i32 %call326, 0
   br i1 %tobool327.not, label %if.end329, label %failed
 
@@ -25197,12 +25197,12 @@ if.end.i.i1683:                                   ; preds = %for.body372
   br label %_Py_NewRef.exit1684
 
 _Py_NewRef.exit1684:                              ; preds = %for.body372, %if.end.i.i1683
-  %call378 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.409), !range !8
+  %call378 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.409)
   %tobool379.not = icmp eq i32 %call378, 0
   br i1 %tobool379.not, label %if.end381, label %failed
 
 if.end381:                                        ; preds = %_Py_NewRef.exit1684
-  %call382 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %143, ptr noundef nonnull %val373, ptr noundef %arena), !range !9
+  %call382 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %143, ptr noundef nonnull %val373, ptr noundef %arena)
   %145 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1685 = getelementptr inbounds i8, ptr %145, i64 44
   %146 = load i32, ptr %c_recursion_remaining.i.i1685, align 4
@@ -25245,7 +25245,7 @@ if.end389:                                        ; preds = %if.end385
   store ptr %152, ptr %arrayidx391, align 8
   %inc393 = add nuw nsw i64 %i356.02327, 1
   %exitcond2403.not = icmp eq i64 %inc393, %.val1645
-  br i1 %exitcond2403.not, label %do.body395, label %for.body372, !llvm.loop !20
+  br i1 %exitcond2403.not, label %do.body395, label %for.body372, !llvm.loop !18
 
 do.body395:                                       ; preds = %if.end389, %for.cond370.preheader
   %153 = load ptr, ptr %tmp, align 8
@@ -25309,7 +25309,7 @@ if.then426:                                       ; preds = %if.end424
   br label %return
 
 if.else427:                                       ; preds = %if.end424
-  %call429 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.418), !range !8
+  %call429 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.418)
   %tobool430.not = icmp eq i32 %call429, 0
   br i1 %tobool430.not, label %if.end432, label %failed
 
@@ -25364,13 +25364,13 @@ if.then451:                                       ; preds = %if.end449
   br label %return
 
 if.else452:                                       ; preds = %if.end449
-  %call454 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.418), !range !8
+  %call454 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.418)
   %tobool455.not = icmp eq i32 %call454, 0
   br i1 %tobool455.not, label %if.end457, label %failed
 
 if.end457:                                        ; preds = %if.else452
   %176 = load ptr, ptr %tmp, align 8
-  %call458 = call fastcc i32 @obj2ast_arguments(ptr noundef nonnull %state, ptr noundef %176, ptr noundef nonnull %args414, ptr noundef %arena), !range !9
+  %call458 = call fastcc i32 @obj2ast_arguments(ptr noundef nonnull %state, ptr noundef %176, ptr noundef nonnull %args414, ptr noundef %arena)
   %177 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1689 = getelementptr inbounds i8, ptr %177, i64 44
   %178 = load i32, ptr %c_recursion_remaining.i.i1689, align 4
@@ -25467,7 +25467,7 @@ if.end.i.i1696:                                   ; preds = %for.body500
   br label %_Py_NewRef.exit1697
 
 _Py_NewRef.exit1697:                              ; preds = %for.body500, %if.end.i.i1696
-  %call506 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.418), !range !8
+  %call506 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.418)
   %tobool507.not = icmp eq i32 %call506, 0
   br i1 %tobool507.not, label %if.end509, label %failed
 
@@ -25515,7 +25515,7 @@ if.end517:                                        ; preds = %if.end513
   store ptr %201, ptr %arrayidx519, align 8
   %inc521 = add nuw nsw i64 %i484.02317, 1
   %exitcond2398.not = icmp eq i64 %inc521, %.val1643
-  br i1 %exitcond2398.not, label %do.body523, label %for.body500, !llvm.loop !21
+  br i1 %exitcond2398.not, label %do.body523, label %for.body500, !llvm.loop !19
 
 do.body523:                                       ; preds = %if.end517, %for.cond498.preheader
   %202 = load ptr, ptr %tmp, align 8
@@ -25605,7 +25605,7 @@ if.end.i.i1705:                                   ; preds = %for.body560
   br label %_Py_NewRef.exit1706
 
 _Py_NewRef.exit1706:                              ; preds = %for.body560, %if.end.i.i1705
-  %call566 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.418), !range !8
+  %call566 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.418)
   %tobool567.not = icmp eq i32 %call566, 0
   br i1 %tobool567.not, label %if.end569, label %failed
 
@@ -25653,7 +25653,7 @@ if.end577:                                        ; preds = %if.end573
   store ptr %224, ptr %arrayidx579, align 8
   %inc581 = add nuw nsw i64 %i544.02319, 1
   %exitcond2399.not = icmp eq i64 %inc581, %.val1641
-  br i1 %exitcond2399.not, label %do.body583, label %for.body560, !llvm.loop !22
+  br i1 %exitcond2399.not, label %do.body583, label %for.body560, !llvm.loop !20
 
 do.body583:                                       ; preds = %if.end577, %for.cond558.preheader
   %225 = load ptr, ptr %tmp, align 8
@@ -25716,7 +25716,7 @@ do.end605:                                        ; preds = %do.body599, %if.the
   br label %if.end623
 
 if.else606:                                       ; preds = %if.end594
-  %call608 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.418), !range !8
+  %call608 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.418)
   %tobool609.not = icmp eq i32 %call608, 0
   br i1 %tobool609.not, label %if.end611, label %failed
 
@@ -25792,7 +25792,7 @@ do.end639:                                        ; preds = %do.body633, %if.the
   br label %if.end657
 
 if.else640:                                       ; preds = %if.end628
-  %call642 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.418), !range !8
+  %call642 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.418)
   %tobool643.not = icmp eq i32 %call642, 0
   br i1 %tobool643.not, label %if.end645, label %failed
 
@@ -25895,12 +25895,12 @@ if.end.i.i1718:                                   ; preds = %for.body688
   br label %_Py_NewRef.exit1719
 
 _Py_NewRef.exit1719:                              ; preds = %for.body688, %if.end.i.i1718
-  %call694 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.418), !range !8
+  %call694 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.418)
   %tobool695.not = icmp eq i32 %call694, 0
   br i1 %tobool695.not, label %if.end697, label %failed
 
 if.end697:                                        ; preds = %_Py_NewRef.exit1719
-  %call698 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %258, ptr noundef nonnull %val689, ptr noundef %arena), !range !9
+  %call698 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %258, ptr noundef nonnull %val689, ptr noundef %arena)
   %260 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1720 = getelementptr inbounds i8, ptr %260, i64 44
   %261 = load i32, ptr %c_recursion_remaining.i.i1720, align 4
@@ -25943,7 +25943,7 @@ if.end705:                                        ; preds = %if.end701
   store ptr %267, ptr %arrayidx707, align 8
   %inc709 = add nuw nsw i64 %i672.02321, 1
   %exitcond2400.not = icmp eq i64 %inc709, %.val1639
-  br i1 %exitcond2400.not, label %do.body711, label %for.body688, !llvm.loop !23
+  br i1 %exitcond2400.not, label %do.body711, label %for.body688, !llvm.loop !21
 
 do.body711:                                       ; preds = %if.end705, %for.cond686.preheader
   %268 = load ptr, ptr %tmp, align 8
@@ -26007,7 +26007,7 @@ if.then739:                                       ; preds = %if.end737
   br label %return
 
 if.else740:                                       ; preds = %if.end737
-  %call742 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.427), !range !8
+  %call742 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.427)
   %tobool743.not = icmp eq i32 %call742, 0
   br i1 %tobool743.not, label %if.end745, label %failed
 
@@ -26110,7 +26110,7 @@ if.end.i.i1729:                                   ; preds = %for.body788
   br label %_Py_NewRef.exit1730
 
 _Py_NewRef.exit1730:                              ; preds = %for.body788, %if.end.i.i1729
-  %call794 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.427), !range !8
+  %call794 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.427)
   %tobool795.not = icmp eq i32 %call794, 0
   br i1 %tobool795.not, label %if.end797, label %failed
 
@@ -26158,7 +26158,7 @@ if.end805:                                        ; preds = %if.end801
   store ptr %307, ptr %arrayidx807, align 8
   %inc809 = add nuw nsw i64 %i772.02307, 1
   %exitcond2393.not = icmp eq i64 %inc809, %.val1637
-  br i1 %exitcond2393.not, label %do.body811, label %for.body788, !llvm.loop !24
+  br i1 %exitcond2393.not, label %do.body811, label %for.body788, !llvm.loop !22
 
 do.body811:                                       ; preds = %if.end805, %for.cond786.preheader
   %308 = load ptr, ptr %tmp, align 8
@@ -26248,12 +26248,12 @@ if.end.i.i1738:                                   ; preds = %for.body848
   br label %_Py_NewRef.exit1739
 
 _Py_NewRef.exit1739:                              ; preds = %for.body848, %if.end.i.i1738
-  %call854 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.427), !range !8
+  %call854 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.427)
   %tobool855.not = icmp eq i32 %call854, 0
   br i1 %tobool855.not, label %if.end857, label %failed
 
 if.end857:                                        ; preds = %_Py_NewRef.exit1739
-  %call858 = call fastcc i32 @obj2ast_keyword(ptr noundef %state, ptr noundef nonnull %321, ptr noundef nonnull %val849, ptr noundef %arena), !range !9
+  %call858 = call fastcc i32 @obj2ast_keyword(ptr noundef %state, ptr noundef nonnull %321, ptr noundef nonnull %val849, ptr noundef %arena)
   %323 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1740 = getelementptr inbounds i8, ptr %323, i64 44
   %324 = load i32, ptr %c_recursion_remaining.i.i1740, align 4
@@ -26296,7 +26296,7 @@ if.end865:                                        ; preds = %if.end861
   store ptr %330, ptr %arrayidx867, align 8
   %inc869 = add nuw nsw i64 %i832.02309, 1
   %exitcond2394.not = icmp eq i64 %inc869, %.val1635
-  br i1 %exitcond2394.not, label %do.body871, label %for.body848, !llvm.loop !25
+  br i1 %exitcond2394.not, label %do.body871, label %for.body848, !llvm.loop !23
 
 do.body871:                                       ; preds = %if.end865, %for.cond846.preheader
   %331 = load ptr, ptr %tmp, align 8
@@ -26386,7 +26386,7 @@ if.end.i.i1747:                                   ; preds = %for.body908
   br label %_Py_NewRef.exit1748
 
 _Py_NewRef.exit1748:                              ; preds = %for.body908, %if.end.i.i1747
-  %call914 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.427), !range !8
+  %call914 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.427)
   %tobool915.not = icmp eq i32 %call914, 0
   br i1 %tobool915.not, label %if.end917, label %failed
 
@@ -26434,7 +26434,7 @@ if.end925:                                        ; preds = %if.end921
   store ptr %353, ptr %arrayidx927, align 8
   %inc929 = add nuw nsw i64 %i892.02311, 1
   %exitcond2395.not = icmp eq i64 %inc929, %.val1633
-  br i1 %exitcond2395.not, label %do.body931, label %for.body908, !llvm.loop !26
+  br i1 %exitcond2395.not, label %do.body931, label %for.body908, !llvm.loop !24
 
 do.body931:                                       ; preds = %if.end925, %for.cond906.preheader
   %354 = load ptr, ptr %tmp, align 8
@@ -26524,7 +26524,7 @@ if.end.i.i1756:                                   ; preds = %for.body968
   br label %_Py_NewRef.exit1757
 
 _Py_NewRef.exit1757:                              ; preds = %for.body968, %if.end.i.i1756
-  %call974 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.427), !range !8
+  %call974 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.427)
   %tobool975.not = icmp eq i32 %call974, 0
   br i1 %tobool975.not, label %if.end977, label %failed
 
@@ -26572,7 +26572,7 @@ if.end985:                                        ; preds = %if.end981
   store ptr %376, ptr %arrayidx987, align 8
   %inc989 = add nuw nsw i64 %i952.02313, 1
   %exitcond2396.not = icmp eq i64 %inc989, %.val1631
-  br i1 %exitcond2396.not, label %do.body991, label %for.body968, !llvm.loop !27
+  br i1 %exitcond2396.not, label %do.body991, label %for.body968, !llvm.loop !25
 
 do.body991:                                       ; preds = %if.end985, %for.cond966.preheader
   %377 = load ptr, ptr %tmp, align 8
@@ -26662,12 +26662,12 @@ if.end.i.i1765:                                   ; preds = %for.body1028
   br label %_Py_NewRef.exit1766
 
 _Py_NewRef.exit1766:                              ; preds = %for.body1028, %if.end.i.i1765
-  %call1034 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.427), !range !8
+  %call1034 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.427)
   %tobool1035.not = icmp eq i32 %call1034, 0
   br i1 %tobool1035.not, label %if.end1037, label %failed
 
 if.end1037:                                       ; preds = %_Py_NewRef.exit1766
-  %call1038 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %390, ptr noundef nonnull %val1029, ptr noundef %arena), !range !9
+  %call1038 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %390, ptr noundef nonnull %val1029, ptr noundef %arena)
   %392 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1767 = getelementptr inbounds i8, ptr %392, i64 44
   %393 = load i32, ptr %c_recursion_remaining.i.i1767, align 4
@@ -26710,7 +26710,7 @@ if.end1045:                                       ; preds = %if.end1041
   store ptr %399, ptr %arrayidx1047, align 8
   %inc1049 = add nuw nsw i64 %i1012.02315, 1
   %exitcond2397.not = icmp eq i64 %inc1049, %.val1629
-  br i1 %exitcond2397.not, label %do.body1051, label %for.body1028, !llvm.loop !28
+  br i1 %exitcond2397.not, label %do.body1051, label %for.body1028, !llvm.loop !26
 
 do.body1051:                                      ; preds = %if.end1045, %for.cond1026.preheader
   %400 = load ptr, ptr %tmp, align 8
@@ -26792,7 +26792,7 @@ do.end1084:                                       ; preds = %do.body1078, %if.th
   br label %if.end1102
 
 if.else1085:                                      ; preds = %if.end1073
-  %call1087 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.438), !range !8
+  %call1087 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.438)
   %tobool1088.not = icmp eq i32 %call1087, 0
   br i1 %tobool1088.not, label %if.end1090, label %failed
 
@@ -26932,7 +26932,7 @@ if.end.i.i1778:                                   ; preds = %for.body1144
   br label %_Py_NewRef.exit1779
 
 _Py_NewRef.exit1779:                              ; preds = %for.body1144, %if.end.i.i1778
-  %call1150 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.440), !range !8
+  %call1150 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.440)
   %tobool1151.not = icmp eq i32 %call1150, 0
   br i1 %tobool1151.not, label %if.end1153, label %failed
 
@@ -26980,7 +26980,7 @@ if.end1161:                                       ; preds = %if.end1157
   store ptr %442, ptr %arrayidx1163, align 8
   %inc1165 = add nuw nsw i64 %i1128.02305, 1
   %exitcond2392.not = icmp eq i64 %inc1165, %.val1627
-  br i1 %exitcond2392.not, label %do.body1167, label %for.body1144, !llvm.loop !29
+  br i1 %exitcond2392.not, label %do.body1167, label %for.body1144, !llvm.loop !27
 
 do.body1167:                                      ; preds = %if.end1161, %for.cond1142.preheader
   %443 = load ptr, ptr %tmp, align 8
@@ -27106,7 +27106,7 @@ if.end.i.i1795:                                   ; preds = %for.body1218
   br label %_Py_NewRef.exit1796
 
 _Py_NewRef.exit1796:                              ; preds = %for.body1218, %if.end.i.i1795
-  %call1224 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.443), !range !8
+  %call1224 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.443)
   %tobool1225.not = icmp eq i32 %call1224, 0
   br i1 %tobool1225.not, label %if.end1227, label %failed
 
@@ -27154,7 +27154,7 @@ if.end1235:                                       ; preds = %if.end1231
   store ptr %469, ptr %arrayidx1237, align 8
   %inc1239 = add nuw nsw i64 %i1202.02303, 1
   %exitcond2391.not = icmp eq i64 %inc1239, %.val1625
-  br i1 %exitcond2391.not, label %do.body1241, label %for.body1218, !llvm.loop !30
+  br i1 %exitcond2391.not, label %do.body1241, label %for.body1218, !llvm.loop !28
 
 do.body1241:                                      ; preds = %if.end1235, %for.cond1216.preheader
   %470 = load ptr, ptr %tmp, align 8
@@ -27196,7 +27196,7 @@ if.then1254:                                      ; preds = %if.end1252
   br label %return
 
 if.else1255:                                      ; preds = %if.end1252
-  %call1257 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.443), !range !8
+  %call1257 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.443)
   %tobool1258.not = icmp eq i32 %call1257, 0
   br i1 %tobool1258.not, label %if.end1260, label %failed
 
@@ -27272,7 +27272,7 @@ do.end1288:                                       ; preds = %do.body1282, %if.th
   br label %if.end1306
 
 if.else1289:                                      ; preds = %if.end1277
-  %call1291 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.443), !range !8
+  %call1291 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.443)
   %tobool1292.not = icmp eq i32 %call1291, 0
   br i1 %tobool1292.not, label %if.end1294, label %failed
 
@@ -27347,7 +27347,7 @@ if.then1327:                                      ; preds = %if.end1325
   br label %return
 
 if.else1328:                                      ; preds = %if.end1325
-  %call1330 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.447), !range !8
+  %call1330 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.447)
   %tobool1331.not = icmp eq i32 %call1330, 0
   br i1 %tobool1331.not, label %if.end1333, label %failed
 
@@ -27450,12 +27450,12 @@ if.end.i.i1810:                                   ; preds = %for.body1376
   br label %_Py_NewRef.exit1811
 
 _Py_NewRef.exit1811:                              ; preds = %for.body1376, %if.end.i.i1810
-  %call1382 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.447), !range !8
+  %call1382 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.447)
   %tobool1383.not = icmp eq i32 %call1382, 0
   br i1 %tobool1383.not, label %if.end1385, label %failed
 
 if.end1385:                                       ; preds = %_Py_NewRef.exit1811
-  %call1386 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %517, ptr noundef nonnull %val1377, ptr noundef %arena), !range !9
+  %call1386 = call fastcc i32 @obj2ast_type_param(ptr noundef %state, ptr noundef nonnull %517, ptr noundef nonnull %val1377, ptr noundef %arena)
   %519 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1812 = getelementptr inbounds i8, ptr %519, i64 44
   %520 = load i32, ptr %c_recursion_remaining.i.i1812, align 4
@@ -27498,7 +27498,7 @@ if.end1393:                                       ; preds = %if.end1389
   store ptr %526, ptr %arrayidx1395, align 8
   %inc1397 = add nuw nsw i64 %i1360.02301, 1
   %exitcond2390.not = icmp eq i64 %inc1397, %.val1623
-  br i1 %exitcond2390.not, label %do.body1399, label %for.body1376, !llvm.loop !31
+  br i1 %exitcond2390.not, label %do.body1399, label %for.body1376, !llvm.loop !29
 
 do.body1399:                                      ; preds = %if.end1393, %for.cond1374.preheader
   %527 = load ptr, ptr %tmp, align 8
@@ -27540,7 +27540,7 @@ if.then1412:                                      ; preds = %if.end1410
   br label %return
 
 if.else1413:                                      ; preds = %if.end1410
-  %call1415 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.447), !range !8
+  %call1415 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.447)
   %tobool1416.not = icmp eq i32 %call1415, 0
   br i1 %tobool1416.not, label %if.end1418, label %failed
 
@@ -27615,7 +27615,7 @@ if.then1449:                                      ; preds = %if.end1447
   br label %return
 
 if.else1450:                                      ; preds = %if.end1447
-  %call1452 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.452), !range !8
+  %call1452 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.452)
   %tobool1453.not = icmp eq i32 %call1452, 0
   br i1 %tobool1453.not, label %if.end1455, label %failed
 
@@ -27670,7 +27670,7 @@ if.then1474:                                      ; preds = %if.end1472
   br label %return
 
 if.else1475:                                      ; preds = %if.end1472
-  %call1477 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.452), !range !8
+  %call1477 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.452)
   %tobool1478.not = icmp eq i32 %call1477, 0
   br i1 %tobool1478.not, label %if.end1480, label %failed
 
@@ -27725,7 +27725,7 @@ if.then1499:                                      ; preds = %if.end1497
   br label %return
 
 if.else1500:                                      ; preds = %if.end1497
-  %call1502 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.452), !range !8
+  %call1502 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.452)
   %tobool1503.not = icmp eq i32 %call1502, 0
   br i1 %tobool1503.not, label %if.end1505, label %failed
 
@@ -27801,7 +27801,7 @@ if.then1537:                                      ; preds = %if.end1535
   br label %return
 
 if.else1538:                                      ; preds = %if.end1535
-  %call1540 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.456), !range !8
+  %call1540 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.456)
   %tobool1541.not = icmp eq i32 %call1540, 0
   br i1 %tobool1541.not, label %if.end1543, label %failed
 
@@ -27856,7 +27856,7 @@ if.then1562:                                      ; preds = %if.end1560
   br label %return
 
 if.else1563:                                      ; preds = %if.end1560
-  %call1565 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.456), !range !8
+  %call1565 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.456)
   %tobool1566.not = icmp eq i32 %call1565, 0
   br i1 %tobool1566.not, label %if.end1568, label %failed
 
@@ -27932,7 +27932,7 @@ do.end1596:                                       ; preds = %do.body1590, %if.th
   br label %if.end1614
 
 if.else1597:                                      ; preds = %if.end1585
-  %call1599 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.456), !range !8
+  %call1599 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.456)
   %tobool1600.not = icmp eq i32 %call1599, 0
   br i1 %tobool1600.not, label %if.end1602, label %failed
 
@@ -27987,7 +27987,7 @@ if.then1621:                                      ; preds = %if.end1619
   br label %return
 
 if.else1622:                                      ; preds = %if.end1619
-  %call1624 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.456), !range !8
+  %call1624 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.456)
   %tobool1625.not = icmp eq i32 %call1624, 0
   br i1 %tobool1625.not, label %if.end1627, label %failed
 
@@ -28064,7 +28064,7 @@ if.then1660:                                      ; preds = %if.end1658
   br label %return
 
 if.else1661:                                      ; preds = %if.end1658
-  %call1663 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.460), !range !8
+  %call1663 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.460)
   %tobool1664.not = icmp eq i32 %call1663, 0
   br i1 %tobool1664.not, label %if.end1666, label %failed
 
@@ -28119,7 +28119,7 @@ if.then1685:                                      ; preds = %if.end1683
   br label %return
 
 if.else1686:                                      ; preds = %if.end1683
-  %call1688 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.460), !range !8
+  %call1688 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.460)
   %tobool1689.not = icmp eq i32 %call1688, 0
   br i1 %tobool1689.not, label %if.end1691, label %failed
 
@@ -28222,7 +28222,7 @@ if.end.i.i1839:                                   ; preds = %for.body1734
   br label %_Py_NewRef.exit1840
 
 _Py_NewRef.exit1840:                              ; preds = %for.body1734, %if.end.i.i1839
-  %call1740 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.460), !range !8
+  %call1740 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.460)
   %tobool1741.not = icmp eq i32 %call1740, 0
   br i1 %tobool1741.not, label %if.end1743, label %failed
 
@@ -28270,7 +28270,7 @@ if.end1751:                                       ; preds = %if.end1747
   store ptr %661, ptr %arrayidx1753, align 8
   %inc1755 = add nuw nsw i64 %i1718.02297, 1
   %exitcond2388.not = icmp eq i64 %inc1755, %.val1621
-  br i1 %exitcond2388.not, label %do.body1757, label %for.body1734, !llvm.loop !32
+  br i1 %exitcond2388.not, label %do.body1757, label %for.body1734, !llvm.loop !30
 
 do.body1757:                                      ; preds = %if.end1751, %for.cond1732.preheader
   %662 = load ptr, ptr %tmp, align 8
@@ -28360,7 +28360,7 @@ if.end.i.i1848:                                   ; preds = %for.body1794
   br label %_Py_NewRef.exit1849
 
 _Py_NewRef.exit1849:                              ; preds = %for.body1794, %if.end.i.i1848
-  %call1800 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.460), !range !8
+  %call1800 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.460)
   %tobool1801.not = icmp eq i32 %call1800, 0
   br i1 %tobool1801.not, label %if.end1803, label %failed
 
@@ -28408,7 +28408,7 @@ if.end1811:                                       ; preds = %if.end1807
   store ptr %684, ptr %arrayidx1813, align 8
   %inc1815 = add nuw nsw i64 %i1778.02299, 1
   %exitcond2389.not = icmp eq i64 %inc1815, %.val1619
-  br i1 %exitcond2389.not, label %do.body1817, label %for.body1794, !llvm.loop !33
+  br i1 %exitcond2389.not, label %do.body1817, label %for.body1794, !llvm.loop !31
 
 do.body1817:                                      ; preds = %if.end1811, %for.cond1792.preheader
   %685 = load ptr, ptr %tmp, align 8
@@ -28471,7 +28471,7 @@ do.end1839:                                       ; preds = %do.body1833, %if.th
   br label %if.end1857
 
 if.else1840:                                      ; preds = %if.end1828
-  %call1842 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.460), !range !8
+  %call1842 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.460)
   %tobool1843.not = icmp eq i32 %call1842, 0
   br i1 %tobool1843.not, label %if.end1845, label %failed
 
@@ -28547,7 +28547,7 @@ if.then1880:                                      ; preds = %if.end1878
   br label %return
 
 if.else1881:                                      ; preds = %if.end1878
-  %call1883 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.467), !range !8
+  %call1883 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.467)
   %tobool1884.not = icmp eq i32 %call1883, 0
   br i1 %tobool1884.not, label %if.end1886, label %failed
 
@@ -28602,7 +28602,7 @@ if.then1905:                                      ; preds = %if.end1903
   br label %return
 
 if.else1906:                                      ; preds = %if.end1903
-  %call1908 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.467), !range !8
+  %call1908 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.467)
   %tobool1909.not = icmp eq i32 %call1908, 0
   br i1 %tobool1909.not, label %if.end1911, label %failed
 
@@ -28705,7 +28705,7 @@ if.end.i.i1863:                                   ; preds = %for.body1954
   br label %_Py_NewRef.exit1864
 
 _Py_NewRef.exit1864:                              ; preds = %for.body1954, %if.end.i.i1863
-  %call1960 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.467), !range !8
+  %call1960 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.467)
   %tobool1961.not = icmp eq i32 %call1960, 0
   br i1 %tobool1961.not, label %if.end1963, label %failed
 
@@ -28753,7 +28753,7 @@ if.end1971:                                       ; preds = %if.end1967
   store ptr %742, ptr %arrayidx1973, align 8
   %inc1975 = add nuw nsw i64 %i1938.02293, 1
   %exitcond2386.not = icmp eq i64 %inc1975, %.val1617
-  br i1 %exitcond2386.not, label %do.body1977, label %for.body1954, !llvm.loop !34
+  br i1 %exitcond2386.not, label %do.body1977, label %for.body1954, !llvm.loop !32
 
 do.body1977:                                      ; preds = %if.end1971, %for.cond1952.preheader
   %743 = load ptr, ptr %tmp, align 8
@@ -28843,7 +28843,7 @@ if.end.i.i1872:                                   ; preds = %for.body2014
   br label %_Py_NewRef.exit1873
 
 _Py_NewRef.exit1873:                              ; preds = %for.body2014, %if.end.i.i1872
-  %call2020 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.467), !range !8
+  %call2020 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.467)
   %tobool2021.not = icmp eq i32 %call2020, 0
   br i1 %tobool2021.not, label %if.end2023, label %failed
 
@@ -28891,7 +28891,7 @@ if.end2031:                                       ; preds = %if.end2027
   store ptr %765, ptr %arrayidx2033, align 8
   %inc2035 = add nuw nsw i64 %i1998.02295, 1
   %exitcond2387.not = icmp eq i64 %inc2035, %.val1615
-  br i1 %exitcond2387.not, label %do.body2037, label %for.body2014, !llvm.loop !35
+  br i1 %exitcond2387.not, label %do.body2037, label %for.body2014, !llvm.loop !33
 
 do.body2037:                                      ; preds = %if.end2031, %for.cond2012.preheader
   %766 = load ptr, ptr %tmp, align 8
@@ -28954,7 +28954,7 @@ do.end2059:                                       ; preds = %do.body2053, %if.th
   br label %if.end2077
 
 if.else2060:                                      ; preds = %if.end2048
-  %call2062 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.467), !range !8
+  %call2062 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.467)
   %tobool2063.not = icmp eq i32 %call2062, 0
   br i1 %tobool2063.not, label %if.end2065, label %failed
 
@@ -29030,7 +29030,7 @@ if.then2097:                                      ; preds = %if.end2095
   br label %return
 
 if.else2098:                                      ; preds = %if.end2095
-  %call2100 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.474), !range !8
+  %call2100 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.474)
   %tobool2101.not = icmp eq i32 %call2100, 0
   br i1 %tobool2101.not, label %if.end2103, label %failed
 
@@ -29133,7 +29133,7 @@ if.end.i.i1885:                                   ; preds = %for.body2146
   br label %_Py_NewRef.exit1886
 
 _Py_NewRef.exit1886:                              ; preds = %for.body2146, %if.end.i.i1885
-  %call2152 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.474), !range !8
+  %call2152 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.474)
   %tobool2153.not = icmp eq i32 %call2152, 0
   br i1 %tobool2153.not, label %if.end2155, label %failed
 
@@ -29181,7 +29181,7 @@ if.end2163:                                       ; preds = %if.end2159
   store ptr %814, ptr %arrayidx2165, align 8
   %inc2167 = add nuw nsw i64 %i2130.02289, 1
   %exitcond2384.not = icmp eq i64 %inc2167, %.val1613
-  br i1 %exitcond2384.not, label %do.body2169, label %for.body2146, !llvm.loop !36
+  br i1 %exitcond2384.not, label %do.body2169, label %for.body2146, !llvm.loop !34
 
 do.body2169:                                      ; preds = %if.end2163, %for.cond2144.preheader
   %815 = load ptr, ptr %tmp, align 8
@@ -29271,7 +29271,7 @@ if.end.i.i1894:                                   ; preds = %for.body2206
   br label %_Py_NewRef.exit1895
 
 _Py_NewRef.exit1895:                              ; preds = %for.body2206, %if.end.i.i1894
-  %call2212 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.474), !range !8
+  %call2212 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.474)
   %tobool2213.not = icmp eq i32 %call2212, 0
   br i1 %tobool2213.not, label %if.end2215, label %failed
 
@@ -29319,7 +29319,7 @@ if.end2223:                                       ; preds = %if.end2219
   store ptr %837, ptr %arrayidx2225, align 8
   %inc2227 = add nuw nsw i64 %i2190.02291, 1
   %exitcond2385.not = icmp eq i64 %inc2227, %.val1611
-  br i1 %exitcond2385.not, label %do.body2229, label %for.body2206, !llvm.loop !37
+  br i1 %exitcond2385.not, label %do.body2229, label %for.body2206, !llvm.loop !35
 
 do.body2229:                                      ; preds = %if.end2223, %for.cond2204.preheader
   %838 = load ptr, ptr %tmp, align 8
@@ -29380,7 +29380,7 @@ if.then2256:                                      ; preds = %if.end2254
   br label %return
 
 if.else2257:                                      ; preds = %if.end2254
-  %call2259 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.480), !range !8
+  %call2259 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.480)
   %tobool2260.not = icmp eq i32 %call2259, 0
   br i1 %tobool2260.not, label %if.end2262, label %failed
 
@@ -29483,7 +29483,7 @@ if.end.i.i1905:                                   ; preds = %for.body2305
   br label %_Py_NewRef.exit1906
 
 _Py_NewRef.exit1906:                              ; preds = %for.body2305, %if.end.i.i1905
-  %call2311 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.480), !range !8
+  %call2311 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.480)
   %tobool2312.not = icmp eq i32 %call2311, 0
   br i1 %tobool2312.not, label %if.end2314, label %failed
 
@@ -29531,7 +29531,7 @@ if.end2322:                                       ; preds = %if.end2318
   store ptr %874, ptr %arrayidx2324, align 8
   %inc2326 = add nuw nsw i64 %i2289.02285, 1
   %exitcond2382.not = icmp eq i64 %inc2326, %.val1609
-  br i1 %exitcond2382.not, label %do.body2328, label %for.body2305, !llvm.loop !38
+  br i1 %exitcond2382.not, label %do.body2328, label %for.body2305, !llvm.loop !36
 
 do.body2328:                                      ; preds = %if.end2322, %for.cond2303.preheader
   %875 = load ptr, ptr %tmp, align 8
@@ -29621,7 +29621,7 @@ if.end.i.i1914:                                   ; preds = %for.body2365
   br label %_Py_NewRef.exit1915
 
 _Py_NewRef.exit1915:                              ; preds = %for.body2365, %if.end.i.i1914
-  %call2371 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.480), !range !8
+  %call2371 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.480)
   %tobool2372.not = icmp eq i32 %call2371, 0
   br i1 %tobool2372.not, label %if.end2374, label %failed
 
@@ -29669,7 +29669,7 @@ if.end2382:                                       ; preds = %if.end2378
   store ptr %897, ptr %arrayidx2384, align 8
   %inc2386 = add nuw nsw i64 %i2349.02287, 1
   %exitcond2383.not = icmp eq i64 %inc2386, %.val1607
-  br i1 %exitcond2383.not, label %do.body2388, label %for.body2365, !llvm.loop !39
+  br i1 %exitcond2383.not, label %do.body2388, label %for.body2365, !llvm.loop !37
 
 do.body2388:                                      ; preds = %if.end2382, %for.cond2363.preheader
   %898 = load ptr, ptr %tmp, align 8
@@ -29778,12 +29778,12 @@ if.end.i.i1923:                                   ; preds = %for.body2438
   br label %_Py_NewRef.exit1924
 
 _Py_NewRef.exit1924:                              ; preds = %for.body2438, %if.end.i.i1923
-  %call2444 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.486), !range !8
+  %call2444 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.486)
   %tobool2445.not = icmp eq i32 %call2444, 0
   br i1 %tobool2445.not, label %if.end2447, label %failed
 
 if.end2447:                                       ; preds = %_Py_NewRef.exit1924
-  %call2448 = call fastcc i32 @obj2ast_withitem(ptr noundef %state, ptr noundef nonnull %916, ptr noundef nonnull %val2439, ptr noundef %arena), !range !9
+  %call2448 = call fastcc i32 @obj2ast_withitem(ptr noundef %state, ptr noundef nonnull %916, ptr noundef nonnull %val2439, ptr noundef %arena)
   %918 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1925 = getelementptr inbounds i8, ptr %918, i64 44
   %919 = load i32, ptr %c_recursion_remaining.i.i1925, align 4
@@ -29826,7 +29826,7 @@ if.end2455:                                       ; preds = %if.end2451
   store ptr %925, ptr %arrayidx2457, align 8
   %inc2459 = add nuw nsw i64 %i2422.02281, 1
   %exitcond2380.not = icmp eq i64 %inc2459, %.val1605
-  br i1 %exitcond2380.not, label %do.body2461, label %for.body2438, !llvm.loop !40
+  br i1 %exitcond2380.not, label %do.body2461, label %for.body2438, !llvm.loop !38
 
 do.body2461:                                      ; preds = %if.end2455, %for.cond2436.preheader
   %926 = load ptr, ptr %tmp, align 8
@@ -29916,7 +29916,7 @@ if.end.i.i1932:                                   ; preds = %for.body2498
   br label %_Py_NewRef.exit1933
 
 _Py_NewRef.exit1933:                              ; preds = %for.body2498, %if.end.i.i1932
-  %call2504 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.486), !range !8
+  %call2504 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.486)
   %tobool2505.not = icmp eq i32 %call2504, 0
   br i1 %tobool2505.not, label %if.end2507, label %failed
 
@@ -29964,7 +29964,7 @@ if.end2515:                                       ; preds = %if.end2511
   store ptr %948, ptr %arrayidx2517, align 8
   %inc2519 = add nuw nsw i64 %i2482.02283, 1
   %exitcond2381.not = icmp eq i64 %inc2519, %.val1603
-  br i1 %exitcond2381.not, label %do.body2521, label %for.body2498, !llvm.loop !41
+  br i1 %exitcond2381.not, label %do.body2521, label %for.body2498, !llvm.loop !39
 
 do.body2521:                                      ; preds = %if.end2515, %for.cond2496.preheader
   %949 = load ptr, ptr %tmp, align 8
@@ -30027,7 +30027,7 @@ do.end2543:                                       ; preds = %do.body2537, %if.th
   br label %if.end2561
 
 if.else2544:                                      ; preds = %if.end2532
-  %call2546 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.486), !range !8
+  %call2546 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.486)
   %tobool2547.not = icmp eq i32 %call2546, 0
   br i1 %tobool2547.not, label %if.end2549, label %failed
 
@@ -30171,12 +30171,12 @@ if.end.i.i1947:                                   ; preds = %for.body2606
   br label %_Py_NewRef.exit1948
 
 _Py_NewRef.exit1948:                              ; preds = %for.body2606, %if.end.i.i1947
-  %call2612 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.491), !range !8
+  %call2612 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.491)
   %tobool2613.not = icmp eq i32 %call2612, 0
   br i1 %tobool2613.not, label %if.end2615, label %failed
 
 if.end2615:                                       ; preds = %_Py_NewRef.exit1948
-  %call2616 = call fastcc i32 @obj2ast_withitem(ptr noundef %state, ptr noundef nonnull %977, ptr noundef nonnull %val2607, ptr noundef %arena), !range !9
+  %call2616 = call fastcc i32 @obj2ast_withitem(ptr noundef %state, ptr noundef nonnull %977, ptr noundef nonnull %val2607, ptr noundef %arena)
   %979 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1949 = getelementptr inbounds i8, ptr %979, i64 44
   %980 = load i32, ptr %c_recursion_remaining.i.i1949, align 4
@@ -30219,7 +30219,7 @@ if.end2623:                                       ; preds = %if.end2619
   store ptr %986, ptr %arrayidx2625, align 8
   %inc2627 = add nuw nsw i64 %i2590.02277, 1
   %exitcond2378.not = icmp eq i64 %inc2627, %.val1601
-  br i1 %exitcond2378.not, label %do.body2629, label %for.body2606, !llvm.loop !42
+  br i1 %exitcond2378.not, label %do.body2629, label %for.body2606, !llvm.loop !40
 
 do.body2629:                                      ; preds = %if.end2623, %for.cond2604.preheader
   %987 = load ptr, ptr %tmp, align 8
@@ -30309,7 +30309,7 @@ if.end.i.i1956:                                   ; preds = %for.body2666
   br label %_Py_NewRef.exit1957
 
 _Py_NewRef.exit1957:                              ; preds = %for.body2666, %if.end.i.i1956
-  %call2672 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.491), !range !8
+  %call2672 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.491)
   %tobool2673.not = icmp eq i32 %call2672, 0
   br i1 %tobool2673.not, label %if.end2675, label %failed
 
@@ -30357,7 +30357,7 @@ if.end2683:                                       ; preds = %if.end2679
   store ptr %1009, ptr %arrayidx2685, align 8
   %inc2687 = add nuw nsw i64 %i2650.02279, 1
   %exitcond2379.not = icmp eq i64 %inc2687, %.val1599
-  br i1 %exitcond2379.not, label %do.body2689, label %for.body2666, !llvm.loop !43
+  br i1 %exitcond2379.not, label %do.body2689, label %for.body2666, !llvm.loop !41
 
 do.body2689:                                      ; preds = %if.end2683, %for.cond2664.preheader
   %1010 = load ptr, ptr %tmp, align 8
@@ -30420,7 +30420,7 @@ do.end2711:                                       ; preds = %do.body2705, %if.th
   br label %if.end2729
 
 if.else2712:                                      ; preds = %if.end2700
-  %call2714 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.491), !range !8
+  %call2714 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.491)
   %tobool2715.not = icmp eq i32 %call2714, 0
   br i1 %tobool2715.not, label %if.end2717, label %failed
 
@@ -30516,7 +30516,7 @@ if.then2747:                                      ; preds = %if.end2745
   br label %return
 
 if.else2748:                                      ; preds = %if.end2745
-  %call2750 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.496), !range !8
+  %call2750 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.496)
   %tobool2751.not = icmp eq i32 %call2750, 0
   br i1 %tobool2751.not, label %if.end2753, label %failed
 
@@ -30619,12 +30619,12 @@ if.end.i.i1979:                                   ; preds = %for.body2796
   br label %_Py_NewRef.exit1980
 
 _Py_NewRef.exit1980:                              ; preds = %for.body2796, %if.end.i.i1979
-  %call2802 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.496), !range !8
+  %call2802 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.496)
   %tobool2803.not = icmp eq i32 %call2802, 0
   br i1 %tobool2803.not, label %if.end2805, label %failed
 
 if.end2805:                                       ; preds = %_Py_NewRef.exit1980
-  %call2806 = call fastcc i32 @obj2ast_match_case(ptr noundef %state, ptr noundef nonnull %1047, ptr noundef nonnull %val2797, ptr noundef %arena), !range !9
+  %call2806 = call fastcc i32 @obj2ast_match_case(ptr noundef %state, ptr noundef nonnull %1047, ptr noundef nonnull %val2797, ptr noundef %arena)
   %1049 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1981 = getelementptr inbounds i8, ptr %1049, i64 44
   %1050 = load i32, ptr %c_recursion_remaining.i.i1981, align 4
@@ -30667,7 +30667,7 @@ if.end2813:                                       ; preds = %if.end2809
   store ptr %1056, ptr %arrayidx2815, align 8
   %inc2817 = add nuw nsw i64 %i2780.02275, 1
   %exitcond2377.not = icmp eq i64 %inc2817, %.val1597
-  br i1 %exitcond2377.not, label %do.body2819, label %for.body2796, !llvm.loop !44
+  br i1 %exitcond2377.not, label %do.body2819, label %for.body2796, !llvm.loop !42
 
 do.body2819:                                      ; preds = %if.end2813, %for.cond2794.preheader
   %1057 = load ptr, ptr %tmp, align 8
@@ -30749,7 +30749,7 @@ do.end2852:                                       ; preds = %do.body2846, %if.th
   br label %if.end2870
 
 if.else2853:                                      ; preds = %if.end2841
-  %call2855 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.499), !range !8
+  %call2855 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.499)
   %tobool2856.not = icmp eq i32 %call2855, 0
   br i1 %tobool2856.not, label %if.end2858, label %failed
 
@@ -30825,7 +30825,7 @@ do.end2886:                                       ; preds = %do.body2880, %if.th
   br label %if.end2904
 
 if.else2887:                                      ; preds = %if.end2875
-  %call2889 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.499), !range !8
+  %call2889 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.499)
   %tobool2890.not = icmp eq i32 %call2889, 0
   br i1 %tobool2890.not, label %if.end2892, label %failed
 
@@ -30968,7 +30968,7 @@ if.end.i.i1996:                                   ; preds = %for.body2948
   br label %_Py_NewRef.exit1997
 
 _Py_NewRef.exit1997:                              ; preds = %for.body2948, %if.end.i.i1996
-  %call2954 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.501), !range !8
+  %call2954 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.501)
   %tobool2955.not = icmp eq i32 %call2954, 0
   br i1 %tobool2955.not, label %if.end2957, label %failed
 
@@ -31016,7 +31016,7 @@ if.end2965:                                       ; preds = %if.end2961
   store ptr %1110, ptr %arrayidx2967, align 8
   %inc2969 = add nuw nsw i64 %i2932.02267, 1
   %exitcond2373.not = icmp eq i64 %inc2969, %.val1595
-  br i1 %exitcond2373.not, label %do.body2971, label %for.body2948, !llvm.loop !45
+  br i1 %exitcond2373.not, label %do.body2971, label %for.body2948, !llvm.loop !43
 
 do.body2971:                                      ; preds = %if.end2965, %for.cond2946.preheader
   %1111 = load ptr, ptr %tmp, align 8
@@ -31106,12 +31106,12 @@ if.end.i.i2005:                                   ; preds = %for.body3008
   br label %_Py_NewRef.exit2006
 
 _Py_NewRef.exit2006:                              ; preds = %for.body3008, %if.end.i.i2005
-  %call3014 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.501), !range !8
+  %call3014 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.501)
   %tobool3015.not = icmp eq i32 %call3014, 0
   br i1 %tobool3015.not, label %if.end3017, label %failed
 
 if.end3017:                                       ; preds = %_Py_NewRef.exit2006
-  %call3018 = call fastcc i32 @obj2ast_excepthandler(ptr noundef %state, ptr noundef nonnull %1124, ptr noundef nonnull %val3009, ptr noundef %arena), !range !9
+  %call3018 = call fastcc i32 @obj2ast_excepthandler(ptr noundef %state, ptr noundef nonnull %1124, ptr noundef nonnull %val3009, ptr noundef %arena)
   %1126 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2007 = getelementptr inbounds i8, ptr %1126, i64 44
   %1127 = load i32, ptr %c_recursion_remaining.i.i2007, align 4
@@ -31154,7 +31154,7 @@ if.end3025:                                       ; preds = %if.end3021
   store ptr %1133, ptr %arrayidx3027, align 8
   %inc3029 = add nuw nsw i64 %i2992.02269, 1
   %exitcond2374.not = icmp eq i64 %inc3029, %.val1593
-  br i1 %exitcond2374.not, label %do.body3031, label %for.body3008, !llvm.loop !46
+  br i1 %exitcond2374.not, label %do.body3031, label %for.body3008, !llvm.loop !44
 
 do.body3031:                                      ; preds = %if.end3025, %for.cond3006.preheader
   %1134 = load ptr, ptr %tmp, align 8
@@ -31244,7 +31244,7 @@ if.end.i.i2014:                                   ; preds = %for.body3068
   br label %_Py_NewRef.exit2015
 
 _Py_NewRef.exit2015:                              ; preds = %for.body3068, %if.end.i.i2014
-  %call3074 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.501), !range !8
+  %call3074 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.501)
   %tobool3075.not = icmp eq i32 %call3074, 0
   br i1 %tobool3075.not, label %if.end3077, label %failed
 
@@ -31292,7 +31292,7 @@ if.end3085:                                       ; preds = %if.end3081
   store ptr %1156, ptr %arrayidx3087, align 8
   %inc3089 = add nuw nsw i64 %i3052.02271, 1
   %exitcond2375.not = icmp eq i64 %inc3089, %.val1591
-  br i1 %exitcond2375.not, label %do.body3091, label %for.body3068, !llvm.loop !47
+  br i1 %exitcond2375.not, label %do.body3091, label %for.body3068, !llvm.loop !45
 
 do.body3091:                                      ; preds = %if.end3085, %for.cond3066.preheader
   %1157 = load ptr, ptr %tmp, align 8
@@ -31382,7 +31382,7 @@ if.end.i.i2023:                                   ; preds = %for.body3128
   br label %_Py_NewRef.exit2024
 
 _Py_NewRef.exit2024:                              ; preds = %for.body3128, %if.end.i.i2023
-  %call3134 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.501), !range !8
+  %call3134 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.501)
   %tobool3135.not = icmp eq i32 %call3134, 0
   br i1 %tobool3135.not, label %if.end3137, label %failed
 
@@ -31430,7 +31430,7 @@ if.end3145:                                       ; preds = %if.end3141
   store ptr %1179, ptr %arrayidx3147, align 8
   %inc3149 = add nuw nsw i64 %i3112.02273, 1
   %exitcond2376.not = icmp eq i64 %inc3149, %.val1589
-  br i1 %exitcond2376.not, label %do.body3151, label %for.body3128, !llvm.loop !48
+  br i1 %exitcond2376.not, label %do.body3151, label %for.body3128, !llvm.loop !46
 
 do.body3151:                                      ; preds = %if.end3145, %for.cond3126.preheader
   %1180 = load ptr, ptr %tmp, align 8
@@ -31562,7 +31562,7 @@ if.end.i.i2036:                                   ; preds = %for.body3203
   br label %_Py_NewRef.exit2037
 
 _Py_NewRef.exit2037:                              ; preds = %for.body3203, %if.end.i.i2036
-  %call3209 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.510), !range !8
+  %call3209 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.510)
   %tobool3210.not = icmp eq i32 %call3209, 0
   br i1 %tobool3210.not, label %if.end3212, label %failed
 
@@ -31610,7 +31610,7 @@ if.end3220:                                       ; preds = %if.end3216
   store ptr %1206, ptr %arrayidx3222, align 8
   %inc3224 = add nuw nsw i64 %i3187.02259, 1
   %exitcond2369.not = icmp eq i64 %inc3224, %.val1587
-  br i1 %exitcond2369.not, label %do.body3226, label %for.body3203, !llvm.loop !49
+  br i1 %exitcond2369.not, label %do.body3226, label %for.body3203, !llvm.loop !47
 
 do.body3226:                                      ; preds = %if.end3220, %for.cond3201.preheader
   %1207 = load ptr, ptr %tmp, align 8
@@ -31700,12 +31700,12 @@ if.end.i.i2045:                                   ; preds = %for.body3263
   br label %_Py_NewRef.exit2046
 
 _Py_NewRef.exit2046:                              ; preds = %for.body3263, %if.end.i.i2045
-  %call3269 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.510), !range !8
+  %call3269 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.510)
   %tobool3270.not = icmp eq i32 %call3269, 0
   br i1 %tobool3270.not, label %if.end3272, label %failed
 
 if.end3272:                                       ; preds = %_Py_NewRef.exit2046
-  %call3273 = call fastcc i32 @obj2ast_excepthandler(ptr noundef %state, ptr noundef nonnull %1220, ptr noundef nonnull %val3264, ptr noundef %arena), !range !9
+  %call3273 = call fastcc i32 @obj2ast_excepthandler(ptr noundef %state, ptr noundef nonnull %1220, ptr noundef nonnull %val3264, ptr noundef %arena)
   %1222 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2047 = getelementptr inbounds i8, ptr %1222, i64 44
   %1223 = load i32, ptr %c_recursion_remaining.i.i2047, align 4
@@ -31748,7 +31748,7 @@ if.end3280:                                       ; preds = %if.end3276
   store ptr %1229, ptr %arrayidx3282, align 8
   %inc3284 = add nuw nsw i64 %i3247.02261, 1
   %exitcond2370.not = icmp eq i64 %inc3284, %.val1585
-  br i1 %exitcond2370.not, label %do.body3286, label %for.body3263, !llvm.loop !50
+  br i1 %exitcond2370.not, label %do.body3286, label %for.body3263, !llvm.loop !48
 
 do.body3286:                                      ; preds = %if.end3280, %for.cond3261.preheader
   %1230 = load ptr, ptr %tmp, align 8
@@ -31838,7 +31838,7 @@ if.end.i.i2054:                                   ; preds = %for.body3323
   br label %_Py_NewRef.exit2055
 
 _Py_NewRef.exit2055:                              ; preds = %for.body3323, %if.end.i.i2054
-  %call3329 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.510), !range !8
+  %call3329 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.510)
   %tobool3330.not = icmp eq i32 %call3329, 0
   br i1 %tobool3330.not, label %if.end3332, label %failed
 
@@ -31886,7 +31886,7 @@ if.end3340:                                       ; preds = %if.end3336
   store ptr %1252, ptr %arrayidx3342, align 8
   %inc3344 = add nuw nsw i64 %i3307.02263, 1
   %exitcond2371.not = icmp eq i64 %inc3344, %.val1583
-  br i1 %exitcond2371.not, label %do.body3346, label %for.body3323, !llvm.loop !51
+  br i1 %exitcond2371.not, label %do.body3346, label %for.body3323, !llvm.loop !49
 
 do.body3346:                                      ; preds = %if.end3340, %for.cond3321.preheader
   %1253 = load ptr, ptr %tmp, align 8
@@ -31976,7 +31976,7 @@ if.end.i.i2063:                                   ; preds = %for.body3383
   br label %_Py_NewRef.exit2064
 
 _Py_NewRef.exit2064:                              ; preds = %for.body3383, %if.end.i.i2063
-  %call3389 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.510), !range !8
+  %call3389 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.510)
   %tobool3390.not = icmp eq i32 %call3389, 0
   br i1 %tobool3390.not, label %if.end3392, label %failed
 
@@ -32024,7 +32024,7 @@ if.end3400:                                       ; preds = %if.end3396
   store ptr %1275, ptr %arrayidx3402, align 8
   %inc3404 = add nuw nsw i64 %i3367.02265, 1
   %exitcond2372.not = icmp eq i64 %inc3404, %.val1581
-  br i1 %exitcond2372.not, label %do.body3406, label %for.body3383, !llvm.loop !52
+  br i1 %exitcond2372.not, label %do.body3406, label %for.body3383, !llvm.loop !50
 
 do.body3406:                                      ; preds = %if.end3400, %for.cond3381.preheader
   %1276 = load ptr, ptr %tmp, align 8
@@ -32108,7 +32108,7 @@ if.then3431:                                      ; preds = %if.end3429
   br label %return
 
 if.else3432:                                      ; preds = %if.end3429
-  %call3434 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.519), !range !8
+  %call3434 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.519)
   %tobool3435.not = icmp eq i32 %call3434, 0
   br i1 %tobool3435.not, label %if.end3437, label %failed
 
@@ -32184,7 +32184,7 @@ do.end3465:                                       ; preds = %do.body3459, %if.th
   br label %if.end3483
 
 if.else3466:                                      ; preds = %if.end3454
-  %call3468 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.519), !range !8
+  %call3468 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.519)
   %tobool3469.not = icmp eq i32 %call3468, 0
   br i1 %tobool3469.not, label %if.end3471, label %failed
 
@@ -32307,12 +32307,12 @@ if.end.i.i2087:                                   ; preds = %for.body3525
   br label %_Py_NewRef.exit2088
 
 _Py_NewRef.exit2088:                              ; preds = %for.body3525, %if.end.i.i2087
-  %call3531 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.521), !range !8
+  %call3531 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.521)
   %tobool3532.not = icmp eq i32 %call3531, 0
   br i1 %tobool3532.not, label %if.end3534, label %failed
 
 if.end3534:                                       ; preds = %_Py_NewRef.exit2088
-  %call3535 = call fastcc i32 @obj2ast_alias(ptr noundef %state, ptr noundef nonnull %1318, ptr noundef nonnull %val3526, ptr noundef %arena), !range !9
+  %call3535 = call fastcc i32 @obj2ast_alias(ptr noundef %state, ptr noundef nonnull %1318, ptr noundef nonnull %val3526, ptr noundef %arena)
   %1320 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2089 = getelementptr inbounds i8, ptr %1320, i64 44
   %1321 = load i32, ptr %c_recursion_remaining.i.i2089, align 4
@@ -32355,7 +32355,7 @@ if.end3542:                                       ; preds = %if.end3538
   store ptr %1327, ptr %arrayidx3544, align 8
   %inc3546 = add nuw nsw i64 %i3509.02257, 1
   %exitcond2368.not = icmp eq i64 %inc3546, %.val1579
-  br i1 %exitcond2368.not, label %do.body3548, label %for.body3525, !llvm.loop !53
+  br i1 %exitcond2368.not, label %do.body3548, label %for.body3525, !llvm.loop !51
 
 do.body3548:                                      ; preds = %if.end3542, %for.cond3523.preheader
   %1328 = load ptr, ptr %tmp, align 8
@@ -32454,7 +32454,7 @@ do.end3582:                                       ; preds = %do.body3576, %if.th
   br label %if.end3600
 
 if.else3583:                                      ; preds = %if.end3571
-  %call3585 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.523), !range !8
+  %call3585 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.523)
   %tobool3586.not = icmp eq i32 %call3585, 0
   br i1 %tobool3586.not, label %if.end3588, label %failed
 
@@ -32557,12 +32557,12 @@ if.end.i.i2106:                                   ; preds = %for.body3631
   br label %_Py_NewRef.exit2107
 
 _Py_NewRef.exit2107:                              ; preds = %for.body3631, %if.end.i.i2106
-  %call3637 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.523), !range !8
+  %call3637 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.523)
   %tobool3638.not = icmp eq i32 %call3637, 0
   br i1 %tobool3638.not, label %if.end3640, label %failed
 
 if.end3640:                                       ; preds = %_Py_NewRef.exit2107
-  %call3641 = call fastcc i32 @obj2ast_alias(ptr noundef %state, ptr noundef nonnull %1355, ptr noundef nonnull %val3632, ptr noundef %arena), !range !9
+  %call3641 = call fastcc i32 @obj2ast_alias(ptr noundef %state, ptr noundef nonnull %1355, ptr noundef nonnull %val3632, ptr noundef %arena)
   %1357 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i2108 = getelementptr inbounds i8, ptr %1357, i64 44
   %1358 = load i32, ptr %c_recursion_remaining.i.i2108, align 4
@@ -32605,7 +32605,7 @@ if.end3648:                                       ; preds = %if.end3644
   store ptr %1364, ptr %arrayidx3650, align 8
   %inc3652 = add nuw nsw i64 %i3615.02255, 1
   %exitcond2367.not = icmp eq i64 %inc3652, %.val1577
-  br i1 %exitcond2367.not, label %do.body3654, label %for.body3631, !llvm.loop !54
+  br i1 %exitcond2367.not, label %do.body3654, label %for.body3631, !llvm.loop !52
 
 do.body3654:                                      ; preds = %if.end3648, %for.cond3629.preheader
   %1365 = load ptr, ptr %tmp, align 8
@@ -32668,7 +32668,7 @@ do.end3676:                                       ; preds = %do.body3670, %if.th
   br label %if.end3694
 
 if.else3677:                                      ; preds = %if.end3665
-  %call3679 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.523), !range !8
+  %call3679 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.523)
   %tobool3680.not = icmp eq i32 %call3679, 0
   br i1 %tobool3680.not, label %if.end3682, label %failed
 
@@ -32813,7 +32813,7 @@ if.end.i.i2125:                                   ; preds = %for.body3737
   br label %_Py_NewRef.exit2126
 
 _Py_NewRef.exit2126:                              ; preds = %for.body3737, %if.end.i.i2125
-  %call3743 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.527), !range !8
+  %call3743 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.527)
   %tobool3744.not = icmp eq i32 %call3743, 0
   br i1 %tobool3744.not, label %if.end3746, label %failed
 
@@ -32861,7 +32861,7 @@ if.end3754:                                       ; preds = %if.end3750
   store ptr %1403, ptr %arrayidx3756, align 8
   %inc3758 = add nuw nsw i64 %i3721.02253, 1
   %exitcond2366.not = icmp eq i64 %inc3758, %.val1575
-  br i1 %exitcond2366.not, label %do.body3760, label %for.body3737, !llvm.loop !55
+  br i1 %exitcond2366.not, label %do.body3760, label %for.body3737, !llvm.loop !53
 
 do.body3760:                                      ; preds = %if.end3754, %for.cond3735.preheader
   %1404 = load ptr, ptr %tmp, align 8
@@ -32987,7 +32987,7 @@ if.end.i.i2142:                                   ; preds = %for.body3809
   br label %_Py_NewRef.exit2143
 
 _Py_NewRef.exit2143:                              ; preds = %for.body3809, %if.end.i.i2142
-  %call3815 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.530), !range !8
+  %call3815 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.530)
   %tobool3816.not = icmp eq i32 %call3815, 0
   br i1 %tobool3816.not, label %if.end3818, label %failed
 
@@ -33035,7 +33035,7 @@ if.end3826:                                       ; preds = %if.end3822
   store ptr %1430, ptr %arrayidx3828, align 8
   %inc3830 = add nuw nsw i64 %i3793.02251, 1
   %exitcond.not = icmp eq i64 %inc3830, %.val1573
-  br i1 %exitcond.not, label %do.body3832, label %for.body3809, !llvm.loop !56
+  br i1 %exitcond.not, label %do.body3832, label %for.body3809, !llvm.loop !54
 
 do.body3832:                                      ; preds = %if.end3826, %for.cond3807.preheader
   %1431 = load ptr, ptr %tmp, align 8
@@ -33113,7 +33113,7 @@ if.then3857:                                      ; preds = %if.end3855
   br label %return
 
 if.else3858:                                      ; preds = %if.end3855
-  %call3860 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.533), !range !8
+  %call3860 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.533)
   %tobool3861.not = icmp eq i32 %call3860, 0
   br i1 %tobool3861.not, label %if.end3863, label %failed
 
@@ -33294,7 +33294,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_type_ignore(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_type_ignore(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %tag = alloca ptr, align 8
@@ -33429,7 +33429,7 @@ if.then30:                                        ; preds = %if.end28
   br label %return
 
 if.else31:                                        ; preds = %if.end28
-  %call33 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.619), !range !8
+  %call33 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.619)
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.end36, label %failed
 
@@ -33690,7 +33690,7 @@ if.then24:                                        ; preds = %if.end22
   br label %return
 
 if.else25:                                        ; preds = %if.end22
-  %call27 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.623), !range !8
+  %call27 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.623)
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.end30, label %failed
 
@@ -33766,7 +33766,7 @@ do.end57:                                         ; preds = %do.body51, %if.then
   br label %if.end75
 
 if.else58:                                        ; preds = %if.end47
-  %call60 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.623), !range !8
+  %call60 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.623)
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %if.end63, label %failed
 
@@ -33843,7 +33843,7 @@ do.end91:                                         ; preds = %do.body85, %if.then
   br label %if.end109
 
 if.else92:                                        ; preds = %if.end80
-  %call94 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.623), !range !8
+  %call94 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.623)
   %tobool95.not = icmp eq i32 %call94, 0
   br i1 %tobool95.not, label %if.end97, label %failed
 
@@ -33907,7 +33907,7 @@ if.then122:                                       ; preds = %if.end120
   br label %return
 
 if.else123:                                       ; preds = %if.end120
-  %call125 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.626), !range !8
+  %call125 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.626)
   %tobool126.not = icmp eq i32 %call125, 0
   br i1 %tobool126.not, label %if.end128, label %failed
 
@@ -34010,7 +34010,7 @@ if.end.i.i:                                       ; preds = %for.body
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i.i
-  %call169 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.626), !range !8
+  %call169 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.626)
   %tobool170.not = icmp eq i32 %call169, 0
   br i1 %tobool170.not, label %if.end172, label %failed
 
@@ -34058,7 +34058,7 @@ if.end180:                                        ; preds = %if.end176
   store ptr %77, ptr %arrayidx181, align 8
   %inc = add nuw nsw i64 %i.01383, 1
   %exitcond1411.not = icmp eq i64 %inc, %.val1041
-  br i1 %exitcond1411.not, label %do.body182, label %for.body, !llvm.loop !57
+  br i1 %exitcond1411.not, label %do.body182, label %for.body, !llvm.loop !55
 
 do.body182:                                       ; preds = %if.end180, %for.cond.preheader
   %78 = load ptr, ptr %tmp, align 8
@@ -34119,7 +34119,7 @@ if.then206:                                       ; preds = %if.end204
   br label %return
 
 if.else207:                                       ; preds = %if.end204
-  %call209 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.630), !range !8
+  %call209 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.630)
   %tobool210.not = icmp eq i32 %call209, 0
   br i1 %tobool210.not, label %if.end212, label %failed
 
@@ -34174,7 +34174,7 @@ if.then231:                                       ; preds = %if.end229
   br label %return
 
 if.else232:                                       ; preds = %if.end229
-  %call234 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.630), !range !8
+  %call234 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.630)
   %tobool235.not = icmp eq i32 %call234, 0
   br i1 %tobool235.not, label %if.end237, label %failed
 
@@ -34249,7 +34249,7 @@ if.then268:                                       ; preds = %if.end266
   br label %return
 
 if.else269:                                       ; preds = %if.end266
-  %call271 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.633), !range !8
+  %call271 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.633)
   %tobool272.not = icmp eq i32 %call271, 0
   br i1 %tobool272.not, label %if.end274, label %failed
 
@@ -34304,7 +34304,7 @@ if.then293:                                       ; preds = %if.end291
   br label %return
 
 if.else294:                                       ; preds = %if.end291
-  %call296 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.633), !range !8
+  %call296 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.633)
   %tobool297.not = icmp eq i32 %call296, 0
   br i1 %tobool297.not, label %if.end299, label %failed
 
@@ -34359,7 +34359,7 @@ if.then318:                                       ; preds = %if.end316
   br label %return
 
 if.else319:                                       ; preds = %if.end316
-  %call321 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.633), !range !8
+  %call321 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.633)
   %tobool322.not = icmp eq i32 %call321, 0
   br i1 %tobool322.not, label %if.end324, label %failed
 
@@ -34435,7 +34435,7 @@ if.then355:                                       ; preds = %if.end353
   br label %return
 
 if.else356:                                       ; preds = %if.end353
-  %call358 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.637), !range !8
+  %call358 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.637)
   %tobool359.not = icmp eq i32 %call358, 0
   br i1 %tobool359.not, label %if.end361, label %failed
 
@@ -34490,7 +34490,7 @@ if.then380:                                       ; preds = %if.end378
   br label %return
 
 if.else381:                                       ; preds = %if.end378
-  %call383 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.637), !range !8
+  %call383 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.637)
   %tobool384.not = icmp eq i32 %call383, 0
   br i1 %tobool384.not, label %if.end386, label %failed
 
@@ -34565,13 +34565,13 @@ if.then416:                                       ; preds = %if.end414
   br label %return
 
 if.else417:                                       ; preds = %if.end414
-  %call419 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.640), !range !8
+  %call419 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.640)
   %tobool420.not = icmp eq i32 %call419, 0
   br i1 %tobool420.not, label %if.end422, label %failed
 
 if.end422:                                        ; preds = %if.else417
   %171 = load ptr, ptr %tmp, align 8
-  %call423 = call fastcc i32 @obj2ast_arguments(ptr noundef nonnull %state, ptr noundef %171, ptr noundef nonnull %args, ptr noundef %arena), !range !9
+  %call423 = call fastcc i32 @obj2ast_arguments(ptr noundef nonnull %state, ptr noundef %171, ptr noundef nonnull %args, ptr noundef %arena)
   %172 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1069 = getelementptr inbounds i8, ptr %172, i64 44
   %173 = load i32, ptr %c_recursion_remaining.i.i1069, align 4
@@ -34620,7 +34620,7 @@ if.then441:                                       ; preds = %if.end439
   br label %return
 
 if.else442:                                       ; preds = %if.end439
-  %call444 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.640), !range !8
+  %call444 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.640)
   %tobool445.not = icmp eq i32 %call444, 0
   br i1 %tobool445.not, label %if.end447, label %failed
 
@@ -34695,7 +34695,7 @@ if.then478:                                       ; preds = %if.end476
   br label %return
 
 if.else479:                                       ; preds = %if.end476
-  %call481 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.643), !range !8
+  %call481 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.643)
   %tobool482.not = icmp eq i32 %call481, 0
   br i1 %tobool482.not, label %if.end484, label %failed
 
@@ -34750,7 +34750,7 @@ if.then503:                                       ; preds = %if.end501
   br label %return
 
 if.else504:                                       ; preds = %if.end501
-  %call506 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.643), !range !8
+  %call506 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.643)
   %tobool507.not = icmp eq i32 %call506, 0
   br i1 %tobool507.not, label %if.end509, label %failed
 
@@ -34805,7 +34805,7 @@ if.then528:                                       ; preds = %if.end526
   br label %return
 
 if.else529:                                       ; preds = %if.end526
-  %call531 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.643), !range !8
+  %call531 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.643)
   %tobool532.not = icmp eq i32 %call531, 0
   br i1 %tobool532.not, label %if.end534, label %failed
 
@@ -34929,7 +34929,7 @@ if.end.i.i1084:                                   ; preds = %for.body589
   br label %_Py_NewRef.exit1085
 
 _Py_NewRef.exit1085:                              ; preds = %for.body589, %if.end.i.i1084
-  %call595 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.647), !range !8
+  %call595 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.647)
   %tobool596.not = icmp eq i32 %call595, 0
   br i1 %tobool596.not, label %if.end598, label %failed
 
@@ -34977,7 +34977,7 @@ if.end606:                                        ; preds = %if.end602
   store ptr %245, ptr %arrayidx608, align 8
   %inc610 = add nuw nsw i64 %i573.01379, 1
   %exitcond1409.not = icmp eq i64 %inc610, %.val1039
-  br i1 %exitcond1409.not, label %do.body612, label %for.body589, !llvm.loop !58
+  br i1 %exitcond1409.not, label %do.body612, label %for.body589, !llvm.loop !56
 
 do.body612:                                       ; preds = %if.end606, %for.cond587.preheader
   %246 = load ptr, ptr %tmp, align 8
@@ -35067,7 +35067,7 @@ if.end.i.i1093:                                   ; preds = %for.body649
   br label %_Py_NewRef.exit1094
 
 _Py_NewRef.exit1094:                              ; preds = %for.body649, %if.end.i.i1093
-  %call655 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.647), !range !8
+  %call655 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.647)
   %tobool656.not = icmp eq i32 %call655, 0
   br i1 %tobool656.not, label %if.end658, label %failed
 
@@ -35115,7 +35115,7 @@ if.end666:                                        ; preds = %if.end662
   store ptr %268, ptr %arrayidx668, align 8
   %inc670 = add nuw nsw i64 %i633.01381, 1
   %exitcond1410.not = icmp eq i64 %inc670, %.val1037
-  br i1 %exitcond1410.not, label %do.body672, label %for.body649, !llvm.loop !59
+  br i1 %exitcond1410.not, label %do.body672, label %for.body649, !llvm.loop !57
 
 do.body672:                                       ; preds = %if.end666, %for.cond647.preheader
   %269 = load ptr, ptr %tmp, align 8
@@ -35243,7 +35243,7 @@ if.end.i.i1104:                                   ; preds = %for.body720
   br label %_Py_NewRef.exit1105
 
 _Py_NewRef.exit1105:                              ; preds = %for.body720, %if.end.i.i1104
-  %call726 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.652), !range !8
+  %call726 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.652)
   %tobool727.not = icmp eq i32 %call726, 0
   br i1 %tobool727.not, label %if.end729, label %failed
 
@@ -35291,7 +35291,7 @@ if.end737:                                        ; preds = %if.end733
   store ptr %295, ptr %arrayidx739, align 8
   %inc741 = add nuw nsw i64 %i704.01377, 1
   %exitcond1408.not = icmp eq i64 %inc741, %.val1035
-  br i1 %exitcond1408.not, label %do.body743, label %for.body720, !llvm.loop !60
+  br i1 %exitcond1408.not, label %do.body743, label %for.body720, !llvm.loop !58
 
 do.body743:                                       ; preds = %if.end737, %for.cond718.preheader
   %296 = load ptr, ptr %tmp, align 8
@@ -35369,7 +35369,7 @@ if.then767:                                       ; preds = %if.end765
   br label %return
 
 if.else768:                                       ; preds = %if.end765
-  %call770 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.655), !range !8
+  %call770 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.655)
   %tobool771.not = icmp eq i32 %call770, 0
   br i1 %tobool771.not, label %if.end773, label %failed
 
@@ -35472,12 +35472,12 @@ if.end.i.i1119:                                   ; preds = %for.body816
   br label %_Py_NewRef.exit1120
 
 _Py_NewRef.exit1120:                              ; preds = %for.body816, %if.end.i.i1119
-  %call822 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.655), !range !8
+  %call822 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.655)
   %tobool823.not = icmp eq i32 %call822, 0
   br i1 %tobool823.not, label %if.end825, label %failed
 
 if.end825:                                        ; preds = %_Py_NewRef.exit1120
-  %call826 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %322, ptr noundef nonnull %val817, ptr noundef %arena), !range !9
+  %call826 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %322, ptr noundef nonnull %val817, ptr noundef %arena)
   %324 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1121 = getelementptr inbounds i8, ptr %324, i64 44
   %325 = load i32, ptr %c_recursion_remaining.i.i1121, align 4
@@ -35520,7 +35520,7 @@ if.end833:                                        ; preds = %if.end829
   store ptr %331, ptr %arrayidx835, align 8
   %inc837 = add nuw nsw i64 %i800.01375, 1
   %exitcond1407.not = icmp eq i64 %inc837, %.val1033
-  br i1 %exitcond1407.not, label %do.body839, label %for.body816, !llvm.loop !61
+  br i1 %exitcond1407.not, label %do.body839, label %for.body816, !llvm.loop !59
 
 do.body839:                                       ; preds = %if.end833, %for.cond814.preheader
   %332 = load ptr, ptr %tmp, align 8
@@ -35581,7 +35581,7 @@ if.then865:                                       ; preds = %if.end863
   br label %return
 
 if.else866:                                       ; preds = %if.end863
-  %call868 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.659), !range !8
+  %call868 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.659)
   %tobool869.not = icmp eq i32 %call868, 0
   br i1 %tobool869.not, label %if.end871, label %failed
 
@@ -35684,12 +35684,12 @@ if.end.i.i1130:                                   ; preds = %for.body914
   br label %_Py_NewRef.exit1131
 
 _Py_NewRef.exit1131:                              ; preds = %for.body914, %if.end.i.i1130
-  %call920 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.659), !range !8
+  %call920 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.659)
   %tobool921.not = icmp eq i32 %call920, 0
   br i1 %tobool921.not, label %if.end923, label %failed
 
 if.end923:                                        ; preds = %_Py_NewRef.exit1131
-  %call924 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %359, ptr noundef nonnull %val915, ptr noundef %arena), !range !9
+  %call924 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %359, ptr noundef nonnull %val915, ptr noundef %arena)
   %361 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1132 = getelementptr inbounds i8, ptr %361, i64 44
   %362 = load i32, ptr %c_recursion_remaining.i.i1132, align 4
@@ -35732,7 +35732,7 @@ if.end931:                                        ; preds = %if.end927
   store ptr %368, ptr %arrayidx933, align 8
   %inc935 = add nuw nsw i64 %i898.01373, 1
   %exitcond1406.not = icmp eq i64 %inc935, %.val1031
-  br i1 %exitcond1406.not, label %do.body937, label %for.body914, !llvm.loop !62
+  br i1 %exitcond1406.not, label %do.body937, label %for.body914, !llvm.loop !60
 
 do.body937:                                       ; preds = %if.end931, %for.cond912.preheader
   %369 = load ptr, ptr %tmp, align 8
@@ -35793,7 +35793,7 @@ if.then963:                                       ; preds = %if.end961
   br label %return
 
 if.else964:                                       ; preds = %if.end961
-  %call966 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.663), !range !8
+  %call966 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.663)
   %tobool967.not = icmp eq i32 %call966, 0
   br i1 %tobool967.not, label %if.end969, label %failed
 
@@ -35848,7 +35848,7 @@ if.then988:                                       ; preds = %if.end986
   br label %return
 
 if.else989:                                       ; preds = %if.end986
-  %call991 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.663), !range !8
+  %call991 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.663)
   %tobool992.not = icmp eq i32 %call991, 0
   br i1 %tobool992.not, label %if.end994, label %failed
 
@@ -35951,12 +35951,12 @@ if.end.i.i1143:                                   ; preds = %for.body1037
   br label %_Py_NewRef.exit1144
 
 _Py_NewRef.exit1144:                              ; preds = %for.body1037, %if.end.i.i1143
-  %call1043 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.663), !range !8
+  %call1043 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.663)
   %tobool1044.not = icmp eq i32 %call1043, 0
   br i1 %tobool1044.not, label %if.end1046, label %failed
 
 if.end1046:                                       ; preds = %_Py_NewRef.exit1144
-  %call1047 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %405, ptr noundef nonnull %val1038, ptr noundef %arena), !range !9
+  %call1047 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %405, ptr noundef nonnull %val1038, ptr noundef %arena)
   %407 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1145 = getelementptr inbounds i8, ptr %407, i64 44
   %408 = load i32, ptr %c_recursion_remaining.i.i1145, align 4
@@ -35999,7 +35999,7 @@ if.end1054:                                       ; preds = %if.end1050
   store ptr %414, ptr %arrayidx1056, align 8
   %inc1058 = add nuw nsw i64 %i1021.01371, 1
   %exitcond1405.not = icmp eq i64 %inc1058, %.val1029
-  br i1 %exitcond1405.not, label %do.body1060, label %for.body1037, !llvm.loop !63
+  br i1 %exitcond1405.not, label %do.body1060, label %for.body1037, !llvm.loop !61
 
 do.body1060:                                      ; preds = %if.end1054, %for.cond1035.preheader
   %415 = load ptr, ptr %tmp, align 8
@@ -36061,7 +36061,7 @@ if.then1086:                                      ; preds = %if.end1084
   br label %return
 
 if.else1087:                                      ; preds = %if.end1084
-  %call1089 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.668), !range !8
+  %call1089 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.668)
   %tobool1090.not = icmp eq i32 %call1089, 0
   br i1 %tobool1090.not, label %if.end1092, label %failed
 
@@ -36164,12 +36164,12 @@ if.end.i.i1154:                                   ; preds = %for.body1135
   br label %_Py_NewRef.exit1155
 
 _Py_NewRef.exit1155:                              ; preds = %for.body1135, %if.end.i.i1154
-  %call1141 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.668), !range !8
+  %call1141 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.668)
   %tobool1142.not = icmp eq i32 %call1141, 0
   br i1 %tobool1142.not, label %if.end1144, label %failed
 
 if.end1144:                                       ; preds = %_Py_NewRef.exit1155
-  %call1145 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %443, ptr noundef nonnull %val1136, ptr noundef %arena), !range !9
+  %call1145 = call fastcc i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef nonnull %443, ptr noundef nonnull %val1136, ptr noundef %arena)
   %445 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1156 = getelementptr inbounds i8, ptr %445, i64 44
   %446 = load i32, ptr %c_recursion_remaining.i.i1156, align 4
@@ -36212,7 +36212,7 @@ if.end1152:                                       ; preds = %if.end1148
   store ptr %452, ptr %arrayidx1154, align 8
   %inc1156 = add nuw nsw i64 %i1119.01369, 1
   %exitcond1404.not = icmp eq i64 %inc1156, %.val1027
-  br i1 %exitcond1404.not, label %do.body1158, label %for.body1135, !llvm.loop !64
+  br i1 %exitcond1404.not, label %do.body1158, label %for.body1135, !llvm.loop !62
 
 do.body1158:                                      ; preds = %if.end1152, %for.cond1133.preheader
   %453 = load ptr, ptr %tmp, align 8
@@ -36273,7 +36273,7 @@ if.then1183:                                      ; preds = %if.end1181
   br label %return
 
 if.else1184:                                      ; preds = %if.end1181
-  %call1186 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.672), !range !8
+  %call1186 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.672)
   %tobool1187.not = icmp eq i32 %call1186, 0
   br i1 %tobool1187.not, label %if.end1189, label %failed
 
@@ -36368,7 +36368,7 @@ do.end1229:                                       ; preds = %do.body1223, %if.th
   br label %if.end1247
 
 if.else1230:                                      ; preds = %if.end1218
-  %call1232 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.673), !range !8
+  %call1232 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.673)
   %tobool1233.not = icmp eq i32 %call1232, 0
   br i1 %tobool1233.not, label %if.end1235, label %failed
 
@@ -36460,7 +36460,7 @@ if.then1266:                                      ; preds = %if.end1264
   br label %return
 
 if.else1267:                                      ; preds = %if.end1264
-  %call1269 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.675), !range !8
+  %call1269 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.675)
   %tobool1270.not = icmp eq i32 %call1269, 0
   br i1 %tobool1270.not, label %if.end1272, label %failed
 
@@ -36534,7 +36534,7 @@ if.then1303:                                      ; preds = %if.end1301
   br label %return
 
 if.else1304:                                      ; preds = %if.end1301
-  %call1306 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.677), !range !8
+  %call1306 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.677)
   %tobool1307.not = icmp eq i32 %call1306, 0
   br i1 %tobool1307.not, label %if.end1309, label %failed
 
@@ -36637,7 +36637,7 @@ if.end.i.i1179:                                   ; preds = %for.body1352
   br label %_Py_NewRef.exit1180
 
 _Py_NewRef.exit1180:                              ; preds = %for.body1352, %if.end.i.i1179
-  %call1358 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.677), !range !8
+  %call1358 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.677)
   %tobool1359.not = icmp eq i32 %call1358, 0
   br i1 %tobool1359.not, label %if.end1361, label %failed
 
@@ -36685,7 +36685,7 @@ if.end1369:                                       ; preds = %if.end1365
   store i32 %532, ptr %arrayidx1371, align 4
   %inc1373 = add nuw nsw i64 %i1336.01365, 1
   %exitcond1402.not = icmp eq i64 %inc1373, %.val1025
-  br i1 %exitcond1402.not, label %do.body1375, label %for.body1352, !llvm.loop !65
+  br i1 %exitcond1402.not, label %do.body1375, label %for.body1352, !llvm.loop !63
 
 do.body1375:                                      ; preds = %if.end1369, %for.cond1350.preheader
   %533 = load ptr, ptr %tmp, align 8
@@ -36775,7 +36775,7 @@ if.end.i.i1188:                                   ; preds = %for.body1412
   br label %_Py_NewRef.exit1189
 
 _Py_NewRef.exit1189:                              ; preds = %for.body1412, %if.end.i.i1188
-  %call1418 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.677), !range !8
+  %call1418 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.677)
   %tobool1419.not = icmp eq i32 %call1418, 0
   br i1 %tobool1419.not, label %if.end1421, label %failed
 
@@ -36823,7 +36823,7 @@ if.end1429:                                       ; preds = %if.end1425
   store ptr %555, ptr %arrayidx1431, align 8
   %inc1433 = add nuw nsw i64 %i1396.01367, 1
   %exitcond1403.not = icmp eq i64 %inc1433, %.val1023
-  br i1 %exitcond1403.not, label %do.body1435, label %for.body1412, !llvm.loop !66
+  br i1 %exitcond1403.not, label %do.body1435, label %for.body1412, !llvm.loop !64
 
 do.body1435:                                      ; preds = %if.end1429, %for.cond1410.preheader
   %556 = load ptr, ptr %tmp, align 8
@@ -36884,7 +36884,7 @@ if.then1460:                                      ; preds = %if.end1458
   br label %return
 
 if.else1461:                                      ; preds = %if.end1458
-  %call1463 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.683), !range !8
+  %call1463 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.683)
   %tobool1464.not = icmp eq i32 %call1463, 0
   br i1 %tobool1464.not, label %if.end1466, label %failed
 
@@ -36987,7 +36987,7 @@ if.end.i.i1199:                                   ; preds = %for.body1509
   br label %_Py_NewRef.exit1200
 
 _Py_NewRef.exit1200:                              ; preds = %for.body1509, %if.end.i.i1199
-  %call1515 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.683), !range !8
+  %call1515 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.683)
   %tobool1516.not = icmp eq i32 %call1515, 0
   br i1 %tobool1516.not, label %if.end1518, label %failed
 
@@ -37035,7 +37035,7 @@ if.end1526:                                       ; preds = %if.end1522
   store ptr %592, ptr %arrayidx1528, align 8
   %inc1530 = add nuw nsw i64 %i1493.01361, 1
   %exitcond1400.not = icmp eq i64 %inc1530, %.val1021
-  br i1 %exitcond1400.not, label %do.body1532, label %for.body1509, !llvm.loop !67
+  br i1 %exitcond1400.not, label %do.body1532, label %for.body1509, !llvm.loop !65
 
 do.body1532:                                      ; preds = %if.end1526, %for.cond1507.preheader
   %593 = load ptr, ptr %tmp, align 8
@@ -37125,12 +37125,12 @@ if.end.i.i1208:                                   ; preds = %for.body1569
   br label %_Py_NewRef.exit1209
 
 _Py_NewRef.exit1209:                              ; preds = %for.body1569, %if.end.i.i1208
-  %call1575 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.683), !range !8
+  %call1575 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.683)
   %tobool1576.not = icmp eq i32 %call1575, 0
   br i1 %tobool1576.not, label %if.end1578, label %failed
 
 if.end1578:                                       ; preds = %_Py_NewRef.exit1209
-  %call1579 = call fastcc i32 @obj2ast_keyword(ptr noundef %state, ptr noundef nonnull %606, ptr noundef nonnull %val1570, ptr noundef %arena), !range !9
+  %call1579 = call fastcc i32 @obj2ast_keyword(ptr noundef %state, ptr noundef nonnull %606, ptr noundef nonnull %val1570, ptr noundef %arena)
   %608 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i1210 = getelementptr inbounds i8, ptr %608, i64 44
   %609 = load i32, ptr %c_recursion_remaining.i.i1210, align 4
@@ -37173,7 +37173,7 @@ if.end1586:                                       ; preds = %if.end1582
   store ptr %615, ptr %arrayidx1588, align 8
   %inc1590 = add nuw nsw i64 %i1553.01363, 1
   %exitcond1401.not = icmp eq i64 %inc1590, %.val1019
-  br i1 %exitcond1401.not, label %do.body1592, label %for.body1569, !llvm.loop !68
+  br i1 %exitcond1401.not, label %do.body1592, label %for.body1569, !llvm.loop !66
 
 do.body1592:                                      ; preds = %if.end1586, %for.cond1567.preheader
   %616 = load ptr, ptr %tmp, align 8
@@ -37234,7 +37234,7 @@ if.then1617:                                      ; preds = %if.end1615
   br label %return
 
 if.else1618:                                      ; preds = %if.end1615
-  %call1620 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.689), !range !8
+  %call1620 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.689)
   %tobool1621.not = icmp eq i32 %call1620, 0
   br i1 %tobool1621.not, label %if.end1623, label %failed
 
@@ -37289,7 +37289,7 @@ if.then1642:                                      ; preds = %if.end1640
   br label %return
 
 if.else1643:                                      ; preds = %if.end1640
-  %call1645 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.689), !range !8
+  %call1645 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.689)
   %tobool1646.not = icmp eq i32 %call1645, 0
   br i1 %tobool1646.not, label %if.end1648, label %failed
 
@@ -37365,7 +37365,7 @@ do.end1676:                                       ; preds = %do.body1670, %if.th
   br label %if.end1694
 
 if.else1677:                                      ; preds = %if.end1665
-  %call1679 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.689), !range !8
+  %call1679 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.689)
   %tobool1680.not = icmp eq i32 %call1679, 0
   br i1 %tobool1680.not, label %if.end1682, label %failed
 
@@ -37489,7 +37489,7 @@ if.end.i.i1223:                                   ; preds = %for.body1737
   br label %_Py_NewRef.exit1224
 
 _Py_NewRef.exit1224:                              ; preds = %for.body1737, %if.end.i.i1223
-  %call1743 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.692), !range !8
+  %call1743 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.692)
   %tobool1744.not = icmp eq i32 %call1743, 0
   br i1 %tobool1744.not, label %if.end1746, label %failed
 
@@ -37537,7 +37537,7 @@ if.end1754:                                       ; preds = %if.end1750
   store ptr %678, ptr %arrayidx1756, align 8
   %inc1758 = add nuw nsw i64 %i1721.01359, 1
   %exitcond1399.not = icmp eq i64 %inc1758, %.val1017
-  br i1 %exitcond1399.not, label %do.body1760, label %for.body1737, !llvm.loop !69
+  br i1 %exitcond1399.not, label %do.body1760, label %for.body1737, !llvm.loop !67
 
 do.body1760:                                      ; preds = %if.end1754, %for.cond1735.preheader
   %679 = load ptr, ptr %tmp, align 8
@@ -37615,7 +37615,7 @@ if.then1785:                                      ; preds = %if.end1783
   br label %return
 
 if.else1786:                                      ; preds = %if.end1783
-  %call1788 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.695), !range !8
+  %call1788 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.695)
   %tobool1789.not = icmp eq i32 %call1788, 0
   br i1 %tobool1789.not, label %if.end1791, label %failed
 
@@ -37709,7 +37709,7 @@ do.end1819:                                       ; preds = %do.body1813, %if.th
   br label %if.end1837
 
 if.else1820:                                      ; preds = %if.end1808
-  %call1822 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.695), !range !8
+  %call1822 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.695)
   %tobool1823.not = icmp eq i32 %call1822, 0
   br i1 %tobool1823.not, label %if.end1825, label %failed
 
@@ -37783,7 +37783,7 @@ if.then1856:                                      ; preds = %if.end1854
   br label %return
 
 if.else1857:                                      ; preds = %if.end1854
-  %call1859 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.697), !range !8
+  %call1859 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.697)
   %tobool1860.not = icmp eq i32 %call1859, 0
   br i1 %tobool1860.not, label %if.end1862, label %failed
 
@@ -37838,7 +37838,7 @@ if.then1881:                                      ; preds = %if.end1879
   br label %return
 
 if.else1882:                                      ; preds = %if.end1879
-  %call1884 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.697), !range !8
+  %call1884 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.697)
   %tobool1885.not = icmp eq i32 %call1884, 0
   br i1 %tobool1885.not, label %if.end1887, label %failed
 
@@ -37893,7 +37893,7 @@ if.then1906:                                      ; preds = %if.end1904
   br label %return
 
 if.else1907:                                      ; preds = %if.end1904
-  %call1909 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.697), !range !8
+  %call1909 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.697)
   %tobool1910.not = icmp eq i32 %call1909, 0
   br i1 %tobool1910.not, label %if.end1912, label %failed
 
@@ -37969,7 +37969,7 @@ if.then1944:                                      ; preds = %if.end1942
   br label %return
 
 if.else1945:                                      ; preds = %if.end1942
-  %call1947 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.701), !range !8
+  %call1947 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.701)
   %tobool1948.not = icmp eq i32 %call1947, 0
   br i1 %tobool1948.not, label %if.end1950, label %failed
 
@@ -38024,7 +38024,7 @@ if.then1969:                                      ; preds = %if.end1967
   br label %return
 
 if.else1970:                                      ; preds = %if.end1967
-  %call1972 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.701), !range !8
+  %call1972 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.701)
   %tobool1973.not = icmp eq i32 %call1972, 0
   br i1 %tobool1973.not, label %if.end1975, label %failed
 
@@ -38079,7 +38079,7 @@ if.then1994:                                      ; preds = %if.end1992
   br label %return
 
 if.else1995:                                      ; preds = %if.end1992
-  %call1997 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.701), !range !8
+  %call1997 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.701)
   %tobool1998.not = icmp eq i32 %call1997, 0
   br i1 %tobool1998.not, label %if.end2000, label %failed
 
@@ -38155,7 +38155,7 @@ if.then2032:                                      ; preds = %if.end2030
   br label %return
 
 if.else2033:                                      ; preds = %if.end2030
-  %call2035 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.705), !range !8
+  %call2035 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.705)
   %tobool2036.not = icmp eq i32 %call2035, 0
   br i1 %tobool2036.not, label %if.end2038, label %failed
 
@@ -38210,7 +38210,7 @@ if.then2057:                                      ; preds = %if.end2055
   br label %return
 
 if.else2058:                                      ; preds = %if.end2055
-  %call2060 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.705), !range !8
+  %call2060 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.705)
   %tobool2061.not = icmp eq i32 %call2060, 0
   br i1 %tobool2061.not, label %if.end2063, label %failed
 
@@ -38285,7 +38285,7 @@ if.then2094:                                      ; preds = %if.end2092
   br label %return
 
 if.else2095:                                      ; preds = %if.end2092
-  %call2097 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.708), !range !8
+  %call2097 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.708)
   %tobool2098.not = icmp eq i32 %call2097, 0
   br i1 %tobool2098.not, label %if.end2100, label %failed
 
@@ -38340,7 +38340,7 @@ if.then2119:                                      ; preds = %if.end2117
   br label %return
 
 if.else2120:                                      ; preds = %if.end2117
-  %call2122 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.708), !range !8
+  %call2122 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.708)
   %tobool2123.not = icmp eq i32 %call2122, 0
   br i1 %tobool2123.not, label %if.end2125, label %failed
 
@@ -38463,7 +38463,7 @@ if.end.i.i1269:                                   ; preds = %for.body2181
   br label %_Py_NewRef.exit1270
 
 _Py_NewRef.exit1270:                              ; preds = %for.body2181, %if.end.i.i1269
-  %call2187 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.711), !range !8
+  %call2187 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.711)
   %tobool2188.not = icmp eq i32 %call2187, 0
   br i1 %tobool2188.not, label %if.end2190, label %failed
 
@@ -38511,7 +38511,7 @@ if.end2198:                                       ; preds = %if.end2194
   store ptr %848, ptr %arrayidx2200, align 8
   %inc2202 = add nuw nsw i64 %i2165.01357, 1
   %exitcond1398.not = icmp eq i64 %inc2202, %.val1015
-  br i1 %exitcond1398.not, label %do.body2204, label %for.body2181, !llvm.loop !70
+  br i1 %exitcond1398.not, label %do.body2204, label %for.body2181, !llvm.loop !68
 
 do.body2204:                                      ; preds = %if.end2198, %for.cond2179.preheader
   %849 = load ptr, ptr %tmp, align 8
@@ -38553,7 +38553,7 @@ if.then2217:                                      ; preds = %if.end2215
   br label %return
 
 if.else2218:                                      ; preds = %if.end2215
-  %call2220 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.711), !range !8
+  %call2220 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.711)
   %tobool2221.not = icmp eq i32 %call2220, 0
   br i1 %tobool2221.not, label %if.end2223, label %failed
 
@@ -38675,7 +38675,7 @@ if.end.i.i1280:                                   ; preds = %for.body2279
   br label %_Py_NewRef.exit1281
 
 _Py_NewRef.exit1281:                              ; preds = %for.body2279, %if.end.i.i1280
-  %call2285 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.715), !range !8
+  %call2285 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.715)
   %tobool2286.not = icmp eq i32 %call2285, 0
   br i1 %tobool2286.not, label %if.end2288, label %failed
 
@@ -38723,7 +38723,7 @@ if.end2296:                                       ; preds = %if.end2292
   store ptr %885, ptr %arrayidx2298, align 8
   %inc2300 = add nuw nsw i64 %i2263.01355, 1
   %exitcond.not = icmp eq i64 %inc2300, %.val1013
-  br i1 %exitcond.not, label %do.body2302, label %for.body2279, !llvm.loop !71
+  br i1 %exitcond.not, label %do.body2302, label %for.body2279, !llvm.loop !69
 
 do.body2302:                                      ; preds = %if.end2296, %for.cond2277.preheader
   %886 = load ptr, ptr %tmp, align 8
@@ -38765,7 +38765,7 @@ if.then2315:                                      ; preds = %if.end2313
   br label %return
 
 if.else2316:                                      ; preds = %if.end2313
-  %call2318 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.715), !range !8
+  %call2318 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.715)
   %tobool2319.not = icmp eq i32 %call2318, 0
   br i1 %tobool2319.not, label %if.end2321, label %failed
 
@@ -38860,7 +38860,7 @@ do.end2360:                                       ; preds = %do.body2354, %if.th
   br label %if.end2378
 
 if.else2361:                                      ; preds = %if.end2349
-  %call2363 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.718), !range !8
+  %call2363 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.718)
   %tobool2364.not = icmp eq i32 %call2363, 0
   br i1 %tobool2364.not, label %if.end2366, label %failed
 
@@ -38936,7 +38936,7 @@ do.end2394:                                       ; preds = %do.body2388, %if.th
   br label %if.end2412
 
 if.else2395:                                      ; preds = %if.end2383
-  %call2397 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.718), !range !8
+  %call2397 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.718)
   %tobool2398.not = icmp eq i32 %call2397, 0
   br i1 %tobool2398.not, label %if.end2400, label %failed
 
@@ -39012,7 +39012,7 @@ do.end2428:                                       ; preds = %do.body2422, %if.th
   br label %if.end2446
 
 if.else2429:                                      ; preds = %if.end2417
-  %call2431 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.718), !range !8
+  %call2431 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.718)
   %tobool2432.not = icmp eq i32 %call2431, 0
   br i1 %tobool2432.not, label %if.end2434, label %failed
 
@@ -39117,7 +39117,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 declare i32 @_Py_CheckRecursiveCall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_int(ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_int(ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -39152,7 +39152,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_identifier(ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_identifier(ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -39197,7 +39197,7 @@ return:                                           ; preds = %obj2ast_object.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_arguments(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_arguments(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %vararg = alloca ptr, align 8
@@ -39316,7 +39316,7 @@ _Py_EnterRecursiveCall.exit:                      ; preds = %_Py_NewRef.exit
   br i1 %tobool2.i.i.not, label %if.end26, label %failed
 
 if.end26:                                         ; preds = %_Py_NewRef.exit, %_Py_EnterRecursiveCall.exit
-  %call27 = call fastcc i32 @obj2ast_arg(ptr noundef %state, ptr noundef nonnull %11, ptr noundef nonnull %val, ptr noundef %arena), !range !9
+  %call27 = call fastcc i32 @obj2ast_arg(ptr noundef %state, ptr noundef nonnull %11, ptr noundef nonnull %val, ptr noundef %arena)
   %15 = load ptr, ptr %8, align 8
   %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %15, i64 44
   %16 = load i32, ptr %c_recursion_remaining.i.i, align 4
@@ -39359,7 +39359,7 @@ if.end34:                                         ; preds = %if.end30
   store ptr %22, ptr %arrayidx35, align 8
   %inc = add nuw nsw i64 %i.0214, 1
   %exitcond.not = icmp eq i64 %inc, %.val146
-  br i1 %exitcond.not, label %do.body, label %for.body, !llvm.loop !72
+  br i1 %exitcond.not, label %do.body, label %for.body, !llvm.loop !70
 
 do.body:                                          ; preds = %if.end34, %_Py_asdl_arg_seq_new.exit
   %23 = load ptr, ptr %tmp, align 8
@@ -39464,7 +39464,7 @@ _Py_EnterRecursiveCall.exit163:                   ; preds = %_Py_NewRef.exit155
   br i1 %tobool2.i.i161.not, label %if.end78, label %failed
 
 if.end78:                                         ; preds = %_Py_NewRef.exit155, %_Py_EnterRecursiveCall.exit163
-  %call79 = call fastcc i32 @obj2ast_arg(ptr noundef %state, ptr noundef nonnull %37, ptr noundef nonnull %val70, ptr noundef %arena), !range !9
+  %call79 = call fastcc i32 @obj2ast_arg(ptr noundef %state, ptr noundef nonnull %37, ptr noundef nonnull %val70, ptr noundef %arena)
   %41 = load ptr, ptr %34, align 8
   %c_recursion_remaining.i.i164 = getelementptr inbounds i8, ptr %41, i64 44
   %42 = load i32, ptr %c_recursion_remaining.i.i164, align 4
@@ -39507,7 +39507,7 @@ if.end86:                                         ; preds = %if.end82
   store ptr %48, ptr %arrayidx88, align 8
   %inc90 = add nuw nsw i64 %i53.0216, 1
   %exitcond227.not = icmp eq i64 %inc90, %.val144
-  br i1 %exitcond227.not, label %do.body92, label %for.body69, !llvm.loop !73
+  br i1 %exitcond227.not, label %do.body92, label %for.body69, !llvm.loop !71
 
 do.body92:                                        ; preds = %if.end86, %for.cond67.preheader
   %49 = load ptr, ptr %tmp, align 8
@@ -39570,13 +39570,13 @@ do.end113:                                        ; preds = %do.body107, %if.the
   br label %if.end130
 
 if.else:                                          ; preds = %if.end103
-  %call115 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.538), !range !8
+  %call115 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.538)
   %tobool116.not = icmp eq i32 %call115, 0
   br i1 %tobool116.not, label %if.end118, label %failed
 
 if.end118:                                        ; preds = %if.else
   %56 = load ptr, ptr %tmp, align 8
-  %call119 = call fastcc i32 @obj2ast_arg(ptr noundef nonnull %state, ptr noundef %56, ptr noundef nonnull %vararg, ptr noundef %arena), !range !9
+  %call119 = call fastcc i32 @obj2ast_arg(ptr noundef nonnull %state, ptr noundef %56, ptr noundef nonnull %vararg, ptr noundef %arena)
   %57 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %58 = load ptr, ptr %57, align 8
   %c_recursion_remaining.i.i166 = getelementptr inbounds i8, ptr %58, i64 44
@@ -39675,12 +39675,12 @@ if.end.i.i173:                                    ; preds = %for.body161
   br label %_Py_NewRef.exit174
 
 _Py_NewRef.exit174:                               ; preds = %for.body161, %if.end.i.i173
-  %call167 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.538), !range !8
+  %call167 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.538)
   %tobool168.not = icmp eq i32 %call167, 0
   br i1 %tobool168.not, label %if.end170, label %failed
 
 if.end170:                                        ; preds = %_Py_NewRef.exit174
-  %call171 = call fastcc i32 @obj2ast_arg(ptr noundef %state, ptr noundef nonnull %74, ptr noundef nonnull %val162, ptr noundef %arena), !range !9
+  %call171 = call fastcc i32 @obj2ast_arg(ptr noundef %state, ptr noundef nonnull %74, ptr noundef nonnull %val162, ptr noundef %arena)
   %76 = load ptr, ptr %71, align 8
   %c_recursion_remaining.i.i175 = getelementptr inbounds i8, ptr %76, i64 44
   %77 = load i32, ptr %c_recursion_remaining.i.i175, align 4
@@ -39723,7 +39723,7 @@ if.end178:                                        ; preds = %if.end174
   store ptr %83, ptr %arrayidx180, align 8
   %inc182 = add nuw nsw i64 %i145.0218, 1
   %exitcond228.not = icmp eq i64 %inc182, %.val142
-  br i1 %exitcond228.not, label %do.body184, label %for.body161, !llvm.loop !74
+  br i1 %exitcond228.not, label %do.body184, label %for.body161, !llvm.loop !72
 
 do.body184:                                       ; preds = %if.end178, %for.cond159.preheader
   %84 = load ptr, ptr %tmp, align 8
@@ -39814,7 +39814,7 @@ if.end.i.i182:                                    ; preds = %for.body221
   br label %_Py_NewRef.exit183
 
 _Py_NewRef.exit183:                               ; preds = %for.body221, %if.end.i.i182
-  %call227 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.538), !range !8
+  %call227 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.538)
   %tobool228.not = icmp eq i32 %call227, 0
   br i1 %tobool228.not, label %if.end230, label %failed
 
@@ -39862,7 +39862,7 @@ if.end238:                                        ; preds = %if.end234
   store ptr %107, ptr %arrayidx240, align 8
   %inc242 = add nuw nsw i64 %i205.0220, 1
   %exitcond229.not = icmp eq i64 %inc242, %.val140
-  br i1 %exitcond229.not, label %do.body244, label %for.body221, !llvm.loop !75
+  br i1 %exitcond229.not, label %do.body244, label %for.body221, !llvm.loop !73
 
 do.body244:                                       ; preds = %if.end238, %for.cond219.preheader
   %108 = load ptr, ptr %tmp, align 8
@@ -39925,13 +39925,13 @@ do.end266:                                        ; preds = %do.body260, %if.the
   br label %if.end284
 
 if.else267:                                       ; preds = %if.end255
-  %call269 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.538), !range !8
+  %call269 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.538)
   %tobool270.not = icmp eq i32 %call269, 0
   br i1 %tobool270.not, label %if.end272, label %failed
 
 if.end272:                                        ; preds = %if.else267
   %115 = load ptr, ptr %tmp, align 8
-  %call273 = call fastcc i32 @obj2ast_arg(ptr noundef nonnull %state, ptr noundef %115, ptr noundef nonnull %kwarg, ptr noundef %arena), !range !9
+  %call273 = call fastcc i32 @obj2ast_arg(ptr noundef nonnull %state, ptr noundef %115, ptr noundef nonnull %kwarg, ptr noundef %arena)
   %116 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %117 = load ptr, ptr %116, align 8
   %c_recursion_remaining.i.i186 = getelementptr inbounds i8, ptr %117, i64 44
@@ -40030,7 +40030,7 @@ if.end.i.i193:                                    ; preds = %for.body315
   br label %_Py_NewRef.exit194
 
 _Py_NewRef.exit194:                               ; preds = %for.body315, %if.end.i.i193
-  %call321 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.538), !range !8
+  %call321 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.538)
   %tobool322.not = icmp eq i32 %call321, 0
   br i1 %tobool322.not, label %if.end324, label %failed
 
@@ -40078,7 +40078,7 @@ if.end332:                                        ; preds = %if.end328
   store ptr %142, ptr %arrayidx334, align 8
   %inc336 = add nuw nsw i64 %i299.0222, 1
   %exitcond230.not = icmp eq i64 %inc336, %.val138
-  br i1 %exitcond230.not, label %do.body338, label %for.body315, !llvm.loop !76
+  br i1 %exitcond230.not, label %do.body338, label %for.body315, !llvm.loop !74
 
 do.body338:                                       ; preds = %if.end332, %for.cond313.preheader
   %143 = load ptr, ptr %tmp, align 8
@@ -40157,7 +40157,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_string(ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_string(ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -40202,7 +40202,7 @@ return:                                           ; preds = %obj2ast_object.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_type_param(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_type_param(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %col_offset = alloca i32, align 4
@@ -40334,7 +40334,7 @@ if.then24:                                        ; preds = %if.end22
   br label %return
 
 if.else25:                                        ; preds = %if.end22
-  %call27 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.554), !range !8
+  %call27 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.554)
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.end30, label %failed
 
@@ -40389,7 +40389,7 @@ if.then49:                                        ; preds = %if.end47
   br label %return
 
 if.else50:                                        ; preds = %if.end47
-  %call52 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.554), !range !8
+  %call52 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.554)
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %if.end55, label %failed
 
@@ -40444,7 +40444,7 @@ if.then74:                                        ; preds = %if.end72
   br label %return
 
 if.else75:                                        ; preds = %if.end72
-  %call77 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.554), !range !8
+  %call77 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.554)
   %tobool78.not = icmp eq i32 %call77, 0
   br i1 %tobool78.not, label %if.end80, label %failed
 
@@ -40508,7 +40508,7 @@ if.then105:                                       ; preds = %if.end103
   br label %return
 
 if.else106:                                       ; preds = %if.end103
-  %call108 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.559), !range !8
+  %call108 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.559)
   %tobool109.not = icmp eq i32 %call108, 0
   br i1 %tobool109.not, label %if.end111, label %failed
 
@@ -40584,7 +40584,7 @@ do.end138:                                        ; preds = %do.body132, %if.the
   br label %if.end156
 
 if.else139:                                       ; preds = %if.end128
-  %call141 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.559), !range !8
+  %call141 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.559)
   %tobool142.not = icmp eq i32 %call141, 0
   br i1 %tobool142.not, label %if.end144, label %failed
 
@@ -40659,7 +40659,7 @@ if.then175:                                       ; preds = %if.end173
   br label %return
 
 if.else176:                                       ; preds = %if.end173
-  %call178 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.561), !range !8
+  %call178 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.561)
   %tobool179.not = icmp eq i32 %call178, 0
   br i1 %tobool179.not, label %if.end181, label %failed
 
@@ -40733,7 +40733,7 @@ if.then212:                                       ; preds = %if.end210
   br label %return
 
 if.else213:                                       ; preds = %if.end210
-  %call215 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.563), !range !8
+  %call215 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.563)
   %tobool216.not = icmp eq i32 %call215, 0
   br i1 %tobool216.not, label %if.end218, label %failed
 
@@ -40812,7 +40812,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_keyword(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_keyword(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %value = alloca ptr, align 8
@@ -41028,7 +41028,7 @@ if.then54:                                        ; preds = %if.end52
   br label %return
 
 if.else55:                                        ; preds = %if.end52
-  %call57 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.565), !range !8
+  %call57 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.565)
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %if.end60, label %failed
 
@@ -41083,7 +41083,7 @@ if.then79:                                        ; preds = %if.end77
   br label %return
 
 if.else80:                                        ; preds = %if.end77
-  %call82 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.565), !range !8
+  %call82 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.565)
   %tobool83.not = icmp eq i32 %call82, 0
   br i1 %tobool83.not, label %if.end85, label %failed
 
@@ -41160,7 +41160,7 @@ do.end113:                                        ; preds = %do.body107, %if.the
   br label %if.end131
 
 if.else114:                                       ; preds = %if.end102
-  %call116 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.565), !range !8
+  %call116 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.565)
   %tobool117.not = icmp eq i32 %call116, 0
   br i1 %tobool117.not, label %if.end119, label %failed
 
@@ -41237,7 +41237,7 @@ do.end147:                                        ; preds = %do.body141, %if.the
   br label %if.end165
 
 if.else148:                                       ; preds = %if.end136
-  %call150 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.565), !range !8
+  %call150 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.565)
   %tobool151.not = icmp eq i32 %call150, 0
   br i1 %tobool151.not, label %if.end153, label %failed
 
@@ -41312,7 +41312,7 @@ return:                                           ; preds = %if.then1.i.i93, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_operator(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_operator(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
 entry:
   %Add_type = getelementptr inbounds i8, ptr %state, i64 32
   %0 = load ptr, ptr %Add_type, align 8
@@ -41493,7 +41493,7 @@ return:                                           ; preds = %if.end79, %if.end72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_withitem(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_withitem(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %context_expr = alloca ptr, align 8
@@ -41606,7 +41606,7 @@ do.end29:                                         ; preds = %do.body23, %if.then
   br label %if.end47
 
 if.else30:                                        ; preds = %if.end19
-  %call32 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.571), !range !8
+  %call32 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.571)
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %if.end35, label %failed
 
@@ -41678,7 +41678,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_match_case(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_match_case(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %pattern = alloca ptr, align 8
@@ -41722,7 +41722,7 @@ _Py_EnterRecursiveCall.exit.if.end6_crit_edge:    ; preds = %_Py_EnterRecursiveC
 
 if.end6:                                          ; preds = %_Py_EnterRecursiveCall.exit.if.end6_crit_edge, %if.else
   %6 = phi ptr [ %.pre, %_Py_EnterRecursiveCall.exit.if.end6_crit_edge ], [ %1, %if.else ]
-  %call7 = call fastcc i32 @obj2ast_pattern(ptr noundef nonnull %state, ptr noundef %6, ptr noundef nonnull %pattern, ptr noundef %arena), !range !9
+  %call7 = call fastcc i32 @obj2ast_pattern(ptr noundef nonnull %state, ptr noundef %6, ptr noundef nonnull %pattern, ptr noundef %arena)
   %7 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %7, i64 44
   %8 = load i32, ptr %c_recursion_remaining.i.i, align 4
@@ -41792,7 +41792,7 @@ do.end29:                                         ; preds = %do.body23, %if.then
   br label %if.end47
 
 if.else30:                                        ; preds = %if.end19
-  %call32 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.573), !range !8
+  %call32 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.573)
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %if.end35, label %failed
 
@@ -41952,7 +41952,7 @@ if.end87:                                         ; preds = %if.end83
   store ptr %43, ptr %arrayidx88, align 8
   %inc = add nuw nsw i64 %i.066, 1
   %exitcond.not = icmp eq i64 %inc, %.val44
-  br i1 %exitcond.not, label %do.body89, label %for.body, !llvm.loop !77
+  br i1 %exitcond.not, label %do.body89, label %for.body, !llvm.loop !75
 
 do.body89:                                        ; preds = %if.end87, %for.cond.preheader
   %44 = load ptr, ptr %tmp, align 8
@@ -42011,7 +42011,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_excepthandler(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_excepthandler(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %col_offset = alloca i32, align 4
@@ -42142,7 +42142,7 @@ if.then24:                                        ; preds = %if.end22
   br label %return
 
 if.else25:                                        ; preds = %if.end22
-  %call27 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.608), !range !8
+  %call27 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.608)
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.end30, label %failed
 
@@ -42218,7 +42218,7 @@ do.end57:                                         ; preds = %do.body51, %if.then
   br label %if.end75
 
 if.else58:                                        ; preds = %if.end47
-  %call60 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.608), !range !8
+  %call60 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.608)
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %if.end63, label %failed
 
@@ -42295,7 +42295,7 @@ do.end91:                                         ; preds = %do.body85, %if.then
   br label %if.end109
 
 if.else92:                                        ; preds = %if.end80
-  %call94 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.608), !range !8
+  %call94 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.608)
   %tobool95.not = icmp eq i32 %call94, 0
   br i1 %tobool95.not, label %if.end97, label %failed
 
@@ -42380,7 +42380,7 @@ do.end131:                                        ; preds = %do.body125, %if.the
   br label %if.end149
 
 if.else132:                                       ; preds = %if.end120
-  %call134 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.610), !range !8
+  %call134 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.610)
   %tobool135.not = icmp eq i32 %call134, 0
   br i1 %tobool135.not, label %if.end137, label %failed
 
@@ -42456,7 +42456,7 @@ do.end165:                                        ; preds = %do.body159, %if.the
   br label %if.end183
 
 if.else166:                                       ; preds = %if.end154
-  %call168 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.610), !range !8
+  %call168 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.610)
   %tobool169.not = icmp eq i32 %call168, 0
   br i1 %tobool169.not, label %if.end171, label %failed
 
@@ -42559,7 +42559,7 @@ if.end.i.i:                                       ; preds = %for.body
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i.i
-  %call212 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.610), !range !8
+  %call212 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.610)
   %tobool213.not = icmp eq i32 %call212, 0
   br i1 %tobool213.not, label %if.end215, label %failed
 
@@ -42607,7 +42607,7 @@ if.end223:                                        ; preds = %if.end219
   store ptr %88, ptr %arrayidx224, align 8
   %inc = add nuw nsw i64 %i.0135, 1
   %exitcond.not = icmp eq i64 %inc, %.val104
-  br i1 %exitcond.not, label %do.body225, label %for.body, !llvm.loop !78
+  br i1 %exitcond.not, label %do.body225, label %for.body, !llvm.loop !76
 
 do.body225:                                       ; preds = %if.end223, %for.cond.preheader
   %89 = load ptr, ptr %tmp, align 8
@@ -42696,7 +42696,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_alias(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_alias(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %asname = alloca ptr, align 8
@@ -42848,7 +42848,7 @@ do.end29:                                         ; preds = %do.body23, %if.then
   br label %if.end47
 
 if.else30:                                        ; preds = %if.end19
-  %call32 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.615), !range !8
+  %call32 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.615)
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %if.end35, label %failed
 
@@ -42903,7 +42903,7 @@ if.then54:                                        ; preds = %if.end52
   br label %return
 
 if.else55:                                        ; preds = %if.end52
-  %call57 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.615), !range !8
+  %call57 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.615)
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %if.end60, label %failed
 
@@ -42958,7 +42958,7 @@ if.then79:                                        ; preds = %if.end77
   br label %return
 
 if.else80:                                        ; preds = %if.end77
-  %call82 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.615), !range !8
+  %call82 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.615)
   %tobool83.not = icmp eq i32 %call82, 0
   br i1 %tobool83.not, label %if.end85, label %failed
 
@@ -43035,7 +43035,7 @@ do.end113:                                        ; preds = %do.body107, %if.the
   br label %if.end131
 
 if.else114:                                       ; preds = %if.end102
-  %call116 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.615), !range !8
+  %call116 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.615)
   %tobool117.not = icmp eq i32 %call116, 0
   br i1 %tobool117.not, label %if.end119, label %failed
 
@@ -43112,7 +43112,7 @@ do.end147:                                        ; preds = %do.body141, %if.the
   br label %if.end165
 
 if.else148:                                       ; preds = %if.end136
-  %call150 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.615), !range !8
+  %call150 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.615)
   %tobool151.not = icmp eq i32 %call150, 0
   br i1 %tobool151.not, label %if.end153, label %failed
 
@@ -43195,7 +43195,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #1
 declare i32 @_PyArena_AddPyObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_arg(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_arg(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %annotation = alloca ptr, align 8
@@ -43348,7 +43348,7 @@ do.end29:                                         ; preds = %do.body23, %if.then
   br label %if.end47
 
 if.else30:                                        ; preds = %if.end19
-  %call32 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.549), !range !8
+  %call32 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.549)
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %if.end35, label %failed
 
@@ -43424,7 +43424,7 @@ do.end63:                                         ; preds = %do.body57, %if.then
   br label %if.end81
 
 if.else64:                                        ; preds = %if.end52
-  %call66 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.549), !range !8
+  %call66 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.549)
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %if.end69, label %failed
 
@@ -43479,7 +43479,7 @@ if.then88:                                        ; preds = %if.end86
   br label %return
 
 if.else89:                                        ; preds = %if.end86
-  %call91 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.549), !range !8
+  %call91 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.549)
   %tobool92.not = icmp eq i32 %call91, 0
   br i1 %tobool92.not, label %if.end94, label %failed
 
@@ -43534,7 +43534,7 @@ if.then113:                                       ; preds = %if.end111
   br label %return
 
 if.else114:                                       ; preds = %if.end111
-  %call116 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.549), !range !8
+  %call116 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.549)
   %tobool117.not = icmp eq i32 %call116, 0
   br i1 %tobool117.not, label %if.end119, label %failed
 
@@ -43611,7 +43611,7 @@ do.end147:                                        ; preds = %do.body141, %if.the
   br label %if.end165
 
 if.else148:                                       ; preds = %if.end136
-  %call150 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.549), !range !8
+  %call150 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.549)
   %tobool151.not = icmp eq i32 %call150, 0
   br i1 %tobool151.not, label %if.end153, label %failed
 
@@ -43688,7 +43688,7 @@ do.end181:                                        ; preds = %do.body175, %if.the
   br label %if.end199
 
 if.else182:                                       ; preds = %if.end170
-  %call184 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.549), !range !8
+  %call184 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.549)
   %tobool185.not = icmp eq i32 %call184, 0
   br i1 %tobool185.not, label %if.end187, label %failed
 
@@ -43764,7 +43764,7 @@ return:                                           ; preds = %if.then1.i.i102, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_pattern(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_pattern(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %col_offset = alloca i32, align 4
@@ -43905,7 +43905,7 @@ if.then24:                                        ; preds = %if.end22
   br label %return
 
 if.else25:                                        ; preds = %if.end22
-  %call27 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.577), !range !8
+  %call27 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.577)
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.end30, label %failed
 
@@ -43960,7 +43960,7 @@ if.then49:                                        ; preds = %if.end47
   br label %return
 
 if.else50:                                        ; preds = %if.end47
-  %call52 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.577), !range !8
+  %call52 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.577)
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %if.end55, label %failed
 
@@ -44015,7 +44015,7 @@ if.then74:                                        ; preds = %if.end72
   br label %return
 
 if.else75:                                        ; preds = %if.end72
-  %call77 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.577), !range !8
+  %call77 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.577)
   %tobool78.not = icmp eq i32 %call77, 0
   br i1 %tobool78.not, label %if.end80, label %failed
 
@@ -44079,7 +44079,7 @@ if.then105:                                       ; preds = %if.end103
   br label %return
 
 if.else106:                                       ; preds = %if.end103
-  %call108 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.582), !range !8
+  %call108 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.582)
   %tobool109.not = icmp eq i32 %call108, 0
   br i1 %tobool109.not, label %if.end111, label %failed
 
@@ -44153,7 +44153,7 @@ if.then142:                                       ; preds = %if.end140
   br label %return
 
 if.else143:                                       ; preds = %if.end140
-  %call145 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.584), !range !8
+  %call145 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.584)
   %tobool146.not = icmp eq i32 %call145, 0
   br i1 %tobool146.not, label %if.end148, label %failed
 
@@ -44292,12 +44292,12 @@ if.end.i.i:                                       ; preds = %for.body
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i.i
-  %call200 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.586), !range !8
+  %call200 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.586)
   %tobool201.not = icmp eq i32 %call200, 0
   br i1 %tobool201.not, label %if.end203, label %failed
 
 if.end203:                                        ; preds = %_Py_NewRef.exit
-  %call204 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %86, ptr noundef nonnull %val, ptr noundef %arena), !range !9
+  %call204 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %86, ptr noundef nonnull %val, ptr noundef %arena)
   %88 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i367 = getelementptr inbounds i8, ptr %88, i64 44
   %89 = load i32, ptr %c_recursion_remaining.i.i367, align 4
@@ -44340,7 +44340,7 @@ if.end211:                                        ; preds = %if.end207
   store ptr %95, ptr %arrayidx212, align 8
   %inc = add nuw nsw i64 %i.0503, 1
   %exitcond515.not = icmp eq i64 %inc, %.val349
-  br i1 %exitcond515.not, label %do.body213, label %for.body, !llvm.loop !79
+  br i1 %exitcond515.not, label %do.body213, label %for.body, !llvm.loop !77
 
 do.body213:                                       ; preds = %if.end211, %for.cond.preheader
   %96 = load ptr, ptr %tmp, align 8
@@ -44466,7 +44466,7 @@ if.end.i.i377:                                    ; preds = %for.body262
   br label %_Py_NewRef.exit378
 
 _Py_NewRef.exit378:                               ; preds = %for.body262, %if.end.i.i377
-  %call268 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.589), !range !8
+  %call268 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.589)
   %tobool269.not = icmp eq i32 %call268, 0
   br i1 %tobool269.not, label %if.end271, label %failed
 
@@ -44514,7 +44514,7 @@ if.end279:                                        ; preds = %if.end275
   store ptr %122, ptr %arrayidx281, align 8
   %inc283 = add nuw nsw i64 %i246.0499, 1
   %exitcond513.not = icmp eq i64 %inc283, %.val347
-  br i1 %exitcond513.not, label %do.body285, label %for.body262, !llvm.loop !80
+  br i1 %exitcond513.not, label %do.body285, label %for.body262, !llvm.loop !78
 
 do.body285:                                       ; preds = %if.end279, %for.cond260.preheader
   %123 = load ptr, ptr %tmp, align 8
@@ -44604,12 +44604,12 @@ if.end.i.i386:                                    ; preds = %for.body322
   br label %_Py_NewRef.exit387
 
 _Py_NewRef.exit387:                               ; preds = %for.body322, %if.end.i.i386
-  %call328 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.589), !range !8
+  %call328 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.589)
   %tobool329.not = icmp eq i32 %call328, 0
   br i1 %tobool329.not, label %if.end331, label %failed
 
 if.end331:                                        ; preds = %_Py_NewRef.exit387
-  %call332 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %136, ptr noundef nonnull %val323, ptr noundef %arena), !range !9
+  %call332 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %136, ptr noundef nonnull %val323, ptr noundef %arena)
   %138 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i388 = getelementptr inbounds i8, ptr %138, i64 44
   %139 = load i32, ptr %c_recursion_remaining.i.i388, align 4
@@ -44652,7 +44652,7 @@ if.end339:                                        ; preds = %if.end335
   store ptr %145, ptr %arrayidx341, align 8
   %inc343 = add nuw nsw i64 %i306.0501, 1
   %exitcond514.not = icmp eq i64 %inc343, %.val345
-  br i1 %exitcond514.not, label %do.body345, label %for.body322, !llvm.loop !81
+  br i1 %exitcond514.not, label %do.body345, label %for.body322, !llvm.loop !79
 
 do.body345:                                       ; preds = %if.end339, %for.cond320.preheader
   %146 = load ptr, ptr %tmp, align 8
@@ -44715,7 +44715,7 @@ do.end366:                                        ; preds = %do.body360, %if.the
   br label %if.end384
 
 if.else367:                                       ; preds = %if.end356
-  %call369 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.589), !range !8
+  %call369 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.589)
   %tobool370.not = icmp eq i32 %call369, 0
   br i1 %tobool370.not, label %if.end372, label %failed
 
@@ -44811,7 +44811,7 @@ if.then403:                                       ; preds = %if.end401
   br label %return
 
 if.else404:                                       ; preds = %if.end401
-  %call406 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.594), !range !8
+  %call406 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.594)
   %tobool407.not = icmp eq i32 %call406, 0
   br i1 %tobool407.not, label %if.end409, label %failed
 
@@ -44914,12 +44914,12 @@ if.end.i.i403:                                    ; preds = %for.body452
   br label %_Py_NewRef.exit404
 
 _Py_NewRef.exit404:                               ; preds = %for.body452, %if.end.i.i403
-  %call458 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.594), !range !8
+  %call458 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.594)
   %tobool459.not = icmp eq i32 %call458, 0
   br i1 %tobool459.not, label %if.end461, label %failed
 
 if.end461:                                        ; preds = %_Py_NewRef.exit404
-  %call462 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %183, ptr noundef nonnull %val453, ptr noundef %arena), !range !9
+  %call462 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %183, ptr noundef nonnull %val453, ptr noundef %arena)
   %185 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i405 = getelementptr inbounds i8, ptr %185, i64 44
   %186 = load i32, ptr %c_recursion_remaining.i.i405, align 4
@@ -44962,7 +44962,7 @@ if.end469:                                        ; preds = %if.end465
   store ptr %192, ptr %arrayidx471, align 8
   %inc473 = add nuw nsw i64 %i436.0493, 1
   %exitcond510.not = icmp eq i64 %inc473, %.val343
-  br i1 %exitcond510.not, label %do.body475, label %for.body452, !llvm.loop !82
+  br i1 %exitcond510.not, label %do.body475, label %for.body452, !llvm.loop !80
 
 do.body475:                                       ; preds = %if.end469, %for.cond450.preheader
   %193 = load ptr, ptr %tmp, align 8
@@ -45052,7 +45052,7 @@ if.end.i.i412:                                    ; preds = %for.body512
   br label %_Py_NewRef.exit413
 
 _Py_NewRef.exit413:                               ; preds = %for.body512, %if.end.i.i412
-  %call518 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.594), !range !8
+  %call518 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.594)
   %tobool519.not = icmp eq i32 %call518, 0
   br i1 %tobool519.not, label %if.end521, label %failed
 
@@ -45100,7 +45100,7 @@ if.end529:                                        ; preds = %if.end525
   store ptr %215, ptr %arrayidx531, align 8
   %inc533 = add nuw nsw i64 %i496.0495, 1
   %exitcond511.not = icmp eq i64 %inc533, %.val341
-  br i1 %exitcond511.not, label %do.body535, label %for.body512, !llvm.loop !83
+  br i1 %exitcond511.not, label %do.body535, label %for.body512, !llvm.loop !81
 
 do.body535:                                       ; preds = %if.end529, %for.cond510.preheader
   %216 = load ptr, ptr %tmp, align 8
@@ -45190,12 +45190,12 @@ if.end.i.i421:                                    ; preds = %for.body572
   br label %_Py_NewRef.exit422
 
 _Py_NewRef.exit422:                               ; preds = %for.body572, %if.end.i.i421
-  %call578 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.594), !range !8
+  %call578 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.594)
   %tobool579.not = icmp eq i32 %call578, 0
   br i1 %tobool579.not, label %if.end581, label %failed
 
 if.end581:                                        ; preds = %_Py_NewRef.exit422
-  %call582 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %229, ptr noundef nonnull %val573, ptr noundef %arena), !range !9
+  %call582 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %229, ptr noundef nonnull %val573, ptr noundef %arena)
   %231 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i423 = getelementptr inbounds i8, ptr %231, i64 44
   %232 = load i32, ptr %c_recursion_remaining.i.i423, align 4
@@ -45238,7 +45238,7 @@ if.end589:                                        ; preds = %if.end585
   store ptr %238, ptr %arrayidx591, align 8
   %inc593 = add nuw nsw i64 %i556.0497, 1
   %exitcond512.not = icmp eq i64 %inc593, %.val339
-  br i1 %exitcond512.not, label %do.body595, label %for.body572, !llvm.loop !84
+  br i1 %exitcond512.not, label %do.body595, label %for.body572, !llvm.loop !82
 
 do.body595:                                       ; preds = %if.end589, %for.cond570.preheader
   %239 = load ptr, ptr %tmp, align 8
@@ -45320,7 +45320,7 @@ do.end628:                                        ; preds = %do.body622, %if.the
   br label %if.end646
 
 if.else629:                                       ; preds = %if.end617
-  %call631 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.601), !range !8
+  %call631 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.601)
   %tobool632.not = icmp eq i32 %call631, 0
   br i1 %tobool632.not, label %if.end634, label %failed
 
@@ -45433,13 +45433,13 @@ do.end674:                                        ; preds = %do.body668, %if.the
   br label %if.end692
 
 if.else675:                                       ; preds = %if.end663
-  %call677 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.602), !range !8
+  %call677 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.602)
   %tobool678.not = icmp eq i32 %call677, 0
   br i1 %tobool678.not, label %if.end680, label %failed
 
 if.end680:                                        ; preds = %if.else675
   %266 = load ptr, ptr %tmp, align 8
-  %call681 = call fastcc i32 @obj2ast_pattern(ptr noundef nonnull %state, ptr noundef %266, ptr noundef nonnull %pattern, ptr noundef %arena), !range !9
+  %call681 = call fastcc i32 @obj2ast_pattern(ptr noundef nonnull %state, ptr noundef %266, ptr noundef nonnull %pattern, ptr noundef %arena)
   %267 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i435 = getelementptr inbounds i8, ptr %267, i64 44
   %268 = load i32, ptr %c_recursion_remaining.i.i435, align 4
@@ -45509,7 +45509,7 @@ do.end708:                                        ; preds = %do.body702, %if.the
   br label %if.end726
 
 if.else709:                                       ; preds = %if.end697
-  %call711 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.602), !range !8
+  %call711 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.602)
   %tobool712.not = icmp eq i32 %call711, 0
   br i1 %tobool712.not, label %if.end714, label %failed
 
@@ -45652,12 +45652,12 @@ if.end.i.i448:                                    ; preds = %for.body769
   br label %_Py_NewRef.exit449
 
 _Py_NewRef.exit449:                               ; preds = %for.body769, %if.end.i.i448
-  %call775 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.604), !range !8
+  %call775 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.604)
   %tobool776.not = icmp eq i32 %call775, 0
   br i1 %tobool776.not, label %if.end778, label %failed
 
 if.end778:                                        ; preds = %_Py_NewRef.exit449
-  %call779 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %298, ptr noundef nonnull %val770, ptr noundef %arena), !range !9
+  %call779 = call fastcc i32 @obj2ast_pattern(ptr noundef %state, ptr noundef nonnull %298, ptr noundef nonnull %val770, ptr noundef %arena)
   %300 = load ptr, ptr %3, align 8
   %c_recursion_remaining.i.i450 = getelementptr inbounds i8, ptr %300, i64 44
   %301 = load i32, ptr %c_recursion_remaining.i.i450, align 4
@@ -45700,7 +45700,7 @@ if.end786:                                        ; preds = %if.end782
   store ptr %307, ptr %arrayidx788, align 8
   %inc790 = add nuw nsw i64 %i753.0491, 1
   %exitcond.not = icmp eq i64 %inc790, %.val337
-  br i1 %exitcond.not, label %do.body792, label %for.body769, !llvm.loop !85
+  br i1 %exitcond.not, label %do.body792, label %for.body769, !llvm.loop !83
 
 do.body792:                                       ; preds = %if.end786, %for.cond767.preheader
   %308 = load ptr, ptr %tmp, align 8
@@ -45783,7 +45783,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_boolop(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_boolop(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
 entry:
   %And_type = getelementptr inbounds i8, ptr %state, i64 48
   %0 = load ptr, ptr %And_type, align 8
@@ -45821,7 +45821,7 @@ return:                                           ; preds = %if.end2, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_unaryop(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_unaryop(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
 entry:
   %Invert_type = getelementptr inbounds i8, ptr %state, i64 496
   %0 = load ptr, ptr %Invert_type, align 8
@@ -45885,7 +45885,7 @@ return:                                           ; preds = %if.end16, %if.end9,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_comprehension(ptr noundef %state, ptr noundef %obj, ptr nocapture noundef writeonly %out, ptr noundef %arena) unnamed_addr #0 {
 entry:
   %tmp = alloca ptr, align 8
   %target = alloca ptr, align 8
@@ -46095,7 +46095,7 @@ if.end.i.i:                                       ; preds = %for.body
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %for.body, %if.end.i.i
-  %call68 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.723), !range !8
+  %call68 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.723)
   %tobool69.not = icmp eq i32 %call68, 0
   br i1 %tobool69.not, label %if.end71, label %failed
 
@@ -46143,7 +46143,7 @@ if.end79:                                         ; preds = %if.end75
   store ptr %42, ptr %arrayidx80, align 8
   %inc = add nuw nsw i64 %i.072, 1
   %exitcond.not = icmp eq i64 %inc, %.val48
-  br i1 %exitcond.not, label %do.body81, label %for.body, !llvm.loop !86
+  br i1 %exitcond.not, label %do.body81, label %for.body, !llvm.loop !84
 
 do.body81:                                        ; preds = %if.end79, %for.cond.preheader
   %43 = load ptr, ptr %tmp, align 8
@@ -46185,7 +46185,7 @@ if.then94:                                        ; preds = %if.end92
   br label %return
 
 if.else95:                                        ; preds = %if.end92
-  %call97 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.723), !range !8
+  %call97 = call fastcc i32 @_Py_EnterRecursiveCall(ptr noundef nonnull @.str.723)
   %tobool98.not = icmp eq i32 %call97, 0
   br i1 %tobool98.not, label %if.end100, label %failed
 
@@ -46260,7 +46260,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 declare ptr @_Py_asdl_int_seq_new(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_cmpop(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_cmpop(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
 entry:
   %Eq_type = getelementptr inbounds i8, ptr %state, i64 304
   %0 = load ptr, ptr %Eq_type, align 8
@@ -46402,7 +46402,7 @@ return:                                           ; preds = %if.end58, %if.end51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @obj2ast_expr_context(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @obj2ast_expr_context(ptr nocapture noundef readonly %state, ptr noundef %obj, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
 entry:
   %Load_type = getelementptr inbounds i8, ptr %state, i64 592
   %0 = load ptr, ptr %Load_type, align 8
@@ -46476,8 +46476,8 @@ attributes #6 = { nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 2}
-!9 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
@@ -46553,5 +46553,3 @@ attributes #6 = { nounwind }
 !82 = distinct !{!82, !6}
 !83 = distinct !{!83, !6}
 !84 = distinct !{!84, !6}
-!85 = distinct !{!85, !6}
-!86 = distinct !{!86, !6}

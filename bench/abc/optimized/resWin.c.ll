@@ -218,7 +218,7 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %44
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Res_WinCollectLeavesAndNodes(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Res_WinCollectLeavesAndNodes(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -1305,7 +1305,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Res_WinComputeRoots(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Res_WinComputeRoots(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -1397,7 +1397,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Res_WinMarkPaths_rec(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Res_WinMarkPaths_rec(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %.val2.i = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %0, i64 16
   %.val3.i = load i32, ptr %4, align 8
@@ -1476,13 +1476,13 @@ define i32 @Res_WinMarkPaths_rec(ptr noundef readonly %0, ptr noundef %1, i32 no
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds ptr, ptr %.val29.val.val, i64 %42
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call i32 @Res_WinMarkPaths_rec(ptr noundef %44, ptr noundef %1, i32 noundef %2), !range !19
+  %45 = tail call i32 @Res_WinMarkPaths_rec(ptr noundef %44, ptr noundef %1, i32 noundef %2)
   %46 = or i32 %45, %.042
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val28 = load i32, ptr %34, align 4
   %47 = sext i32 %.val28 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %37, label %.critedge, !llvm.loop !20
+  br i1 %48, label %37, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %37
   %.not26 = icmp eq i32 %46, 0
@@ -1661,7 +1661,7 @@ Abc_NtkIncrementTravId.exit33:                    ; preds = %Abc_NtkIncrementTra
   %.val17 = load i32, ptr %68, align 4
   %69 = sext i32 %.val17 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %.lr.ph, label %.critedge.preheader, !llvm.loop !21
+  br i1 %70, label %.lr.ph, label %.critedge.preheader, !llvm.loop !20
 
 .critedge:                                        ; preds = %.lr.ph38, %.critedge
   %indvars.iv40 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next41, %.critedge ]
@@ -1672,14 +1672,14 @@ Abc_NtkIncrementTravId.exit33:                    ; preds = %Abc_NtkIncrementTra
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %0, align 8
   %76 = load i32, ptr %54, align 8
-  %77 = tail call i32 @Res_WinMarkPaths_rec(ptr noundef %74, ptr noundef %75, i32 noundef %76), !range !19
+  %77 = tail call i32 @Res_WinMarkPaths_rec(ptr noundef %74, ptr noundef %75, i32 noundef %76)
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %78 = load ptr, ptr %50, align 8
   %79 = getelementptr i8, ptr %78, i64 4
   %.val = load i32, ptr %79, align 4
   %80 = sext i32 %.val to i64
   %81 = icmp slt i64 %indvars.iv.next41, %80
-  br i1 %81, label %.critedge, label %.critedge2, !llvm.loop !22
+  br i1 %81, label %.critedge, label %.critedge2, !llvm.loop !21
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   ret void
@@ -1731,7 +1731,7 @@ define void @Res_WinFinalizeRoots_rec(ptr noundef %0, ptr nocapture noundef %1) 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = sext i32 %.val18.pre.pre to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %6, label %.critedge.loopexit, !llvm.loop !23
+  br i1 %25, label %6, label %.critedge.loopexit, !llvm.loop !22
 
 .critedge.loopexit:                               ; preds = %23, %6
   %.0.lcssa.ph.in = phi i64 [ %indvars.iv, %6 ], [ %indvars.iv.next, %23 ]
@@ -1767,7 +1767,7 @@ define void @Res_WinFinalizeRoots_rec(ptr noundef %0, ptr nocapture noundef %1) 
 35:                                               ; preds = %36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %36, !llvm.loop !24
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %36, !llvm.loop !23
 
 36:                                               ; preds = %35, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
@@ -1861,14 +1861,14 @@ Vec_PtrPush.exit.i:                               ; preds = %62, %Vec_PtrGrow.ex
   %.val = load i32, ptr %3, align 4
   %77 = sext i32 %.val to i64
   %78 = icmp slt i64 %indvars.iv.next35, %77
-  br i1 %78, label %69, label %.critedge2, !llvm.loop !25
+  br i1 %78, label %69, label %.critedge2, !llvm.loop !24
 
 .critedge2:                                       ; preds = %69, %36, %.preheader, %Vec_PtrPush.exit.i
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Res_WinFinalizeRoots(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Res_WinFinalizeRoots(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %.val7 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %2, i64 16
@@ -2046,7 +2046,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %42, %40
   %.val19 = load i32, ptr %58, align 4
   %69 = sext i32 %.val19 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %61, label %.critedge, !llvm.loop !26
+  br i1 %70, label %61, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %61, %57
   %71 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2220,7 +2220,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
   %.val26 = load i32, ptr %45, align 4
   %46 = sext i32 %.val26 to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph, label %.critedge.preheader, !llvm.loop !27
+  br i1 %47, label %.lr.ph, label %.critedge.preheader, !llvm.loop !26
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %.critedge ], [ 0, %.critedge.preheader ]
@@ -2248,7 +2248,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
   %.val25 = load i32, ptr %61, align 4
   %62 = sext i32 %.val25 to i64
   %63 = icmp slt i64 %indvars.iv.next46, %62
-  br i1 %63, label %.critedge, label %.critedge2, !llvm.loop !28
+  br i1 %63, label %.critedge, label %.critedge2, !llvm.loop !27
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %64 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2281,14 +2281,14 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %1, %Vec_IntFill.exi
   %.val = load i32, ptr %79, align 4
   %80 = sext i32 %.val to i64
   %81 = icmp slt i64 %indvars.iv.next49, %80
-  br i1 %81, label %72, label %.critedge4, !llvm.loop !29
+  br i1 %81, label %72, label %.critedge4, !llvm.loop !28
 
 .critedge4:                                       ; preds = %72, %.critedge2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Res_WinIsTrivial(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Res_WinIsTrivial(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -2311,7 +2311,7 @@ define i32 @Res_WinIsTrivial(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Res_WinCompute(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Res_WinCompute(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %5, align 8
@@ -2396,7 +2396,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %46 = sext i32 %44 to i64
   %47 = getelementptr inbounds ptr, ptr %43, i64 %46
   store ptr %0, ptr %47, align 8
-  %48 = tail call i32 @Res_WinCollectLeavesAndNodes(ptr noundef nonnull %3), !range !19
+  %48 = tail call i32 @Res_WinCollectLeavesAndNodes(ptr noundef nonnull %3)
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %Res_WinFinalizeRoots.exit.thread, label %49
 
@@ -2406,7 +2406,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %51, label %52, label %Res_WinFinalizeRoots.exit.thread
 
 52:                                               ; preds = %49
-  %53 = tail call i32 @Res_WinComputeRoots(ptr noundef nonnull %3), !range !19
+  %53 = tail call i32 @Res_WinComputeRoots(ptr noundef nonnull %3)
   %.not17 = icmp eq i32 %53, 0
   br i1 %.not17, label %Res_WinFinalizeRoots.exit.thread, label %54
 
@@ -2595,7 +2595,7 @@ attributes #10 = { nounwind allocsize(1) }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = !{i32 0, i32 2}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
@@ -2605,4 +2605,3 @@ attributes #10 = { nounwind allocsize(1) }
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}

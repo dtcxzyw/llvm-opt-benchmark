@@ -101,7 +101,7 @@ define dso_local i32 @lzma_index_decoder(ptr noundef %0, ptr noundef %1, i64 nou
 declare i32 @lzma_strm_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @index_decoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
+define internal range(i32 0, 12) i32 @index_decoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, ptrtoint (ptr @index_decoder_init to i64)
@@ -471,7 +471,7 @@ define internal void @index_decoder_end(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @index_decoder_memconfig(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) #0 {
+define internal range(i32 0, 7) i32 @index_decoder_memconfig(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = tail call i64 @lzma_index_memusage(i64 noundef 1, i64 noundef %6) #5

@@ -76,7 +76,7 @@ define internal fastcc i32 @nbc_allgather_init(ptr noundef %0, i32 noundef %1, p
   br i1 %switch142, label %26, label %23
 
 23:                                               ; preds = %17
-  %24 = tail call i32 @llvm.ctpop.i32(i32 %.val143.val), !range !4
+  %24 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.val143.val)
   %.not133 = icmp ult i32 %24, 2
   %25 = icmp eq i32 %22, 2
   %or.cond3 = select i1 %25, i1 %.not133, i1 false
@@ -160,7 +160,7 @@ NBC_Copy.exit.thread:                             ; preds = %30, %26
   %54 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not.i.i = icmp eq ptr %55, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread175, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.i.i, label %opal_obj_new.exit.thread175, label %.lr.ph.i.i, !llvm.loop !4
 
 opal_obj_new.exit.thread175:                      ; preds = %.lr.ph.i.i, %49
   br i1 %or.cond6, label %83, label %56
@@ -213,7 +213,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %67, %70
   %81 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %82 = load ptr, ptr %81, align 8
   %.not.i148 = icmp eq ptr %82, null
-  br i1 %.not.i148, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i148, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %75
   tail call void @free(ptr noundef %44) #9
@@ -260,7 +260,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %75
 103:                                              ; preds = %101, %95
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %95, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit, label %95, !llvm.loop !7
 
 104:                                              ; preds = %83
   %105 = icmp sgt i32 %.val143.val, 1
@@ -278,7 +278,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %75
   %112 = shl i32 %.0372.i, 1
   %.139.i = select i1 %123, i32 %.0381.i, i32 %124
   %113 = icmp slt i32 %112, %.val143.val
-  br i1 %113, label %114, label %.loopexit, !llvm.loop !9
+  br i1 %113, label %114, label %.loopexit, !llvm.loop !8
 
 114:                                              ; preds = %111, %.lr.ph.i151
   %.0372.i = phi i32 [ 1, %.lr.ph.i151 ], [ %112, %111 ]
@@ -343,7 +343,7 @@ opal_thread_add_fetch_32.exit154:                 ; preds = %129, %132
   %143 = getelementptr inbounds i8, ptr %.07.i157, i64 8
   %144 = load ptr, ptr %143, align 8
   %.not.i158 = icmp eq ptr %144, null
-  br i1 %.not.i158, label %opal_obj_run_destructors.exit159, label %.lr.ph.i156, !llvm.loop !7
+  br i1 %.not.i158, label %opal_obj_run_destructors.exit159, label %.lr.ph.i156, !llvm.loop !6
 
 opal_obj_run_destructors.exit159:                 ; preds = %.lr.ph.i156, %137
   tail call void @free(ptr noundef %44) #9
@@ -391,7 +391,7 @@ opal_thread_add_fetch_32.exit161:                 ; preds = %149, %152
   %163 = getelementptr inbounds i8, ptr %.07.i164, i64 8
   %164 = load ptr, ptr %163, align 8
   %.not.i165 = icmp eq ptr %164, null
-  br i1 %.not.i165, label %opal_obj_run_destructors.exit166, label %.lr.ph.i163, !llvm.loop !7
+  br i1 %.not.i165, label %opal_obj_run_destructors.exit166, label %.lr.ph.i163, !llvm.loop !6
 
 opal_obj_run_destructors.exit166:                 ; preds = %.lr.ph.i163, %157
   tail call void @free(ptr noundef %44) #9
@@ -439,7 +439,7 @@ opal_thread_add_fetch_32.exit168:                 ; preds = %170, %173
   %184 = getelementptr inbounds i8, ptr %.07.i171, i64 8
   %185 = load ptr, ptr %184, align 8
   %.not.i172 = icmp eq ptr %185, null
-  br i1 %.not.i172, label %opal_obj_run_destructors.exit173, label %.lr.ph.i170, !llvm.loop !7
+  br i1 %.not.i172, label %opal_obj_run_destructors.exit173, label %.lr.ph.i170, !llvm.loop !6
 
 opal_obj_run_destructors.exit173:                 ; preds = %.lr.ph.i170, %178
   tail call void @free(ptr noundef %44) #9
@@ -530,7 +530,7 @@ ompi_comm_remote_size.exit:                       ; preds = %10, %17
   %34 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i, label %.preheader, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.i.i, label %.preheader, label %.lr.ph.i.i, !llvm.loop !4
 
 .preheader:                                       ; preds = %.lr.ph.i.i, %29
   %36 = icmp sgt i32 %22, 0
@@ -546,7 +546,7 @@ ompi_comm_remote_size.exit:                       ; preds = %10, %17
 40:                                               ; preds = %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !9
 
 41:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
@@ -594,7 +594,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %49, %52
   %63 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not.i69 = icmp eq ptr %64, null
-  br i1 %.not.i69, label %opal_obj_new.exit.thread.sink.split, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i69, label %opal_obj_new.exit.thread.sink.split, label %.lr.ph.i, !llvm.loop !6
 
 65:                                               ; preds = %41
   %66 = tail call i32 @NBC_Sched_send(ptr noundef %0, i8 noundef signext 0, i64 noundef %39, ptr noundef %2, i32 noundef %44, ptr noundef nonnull %24, i1 noundef zeroext false) #9
@@ -638,7 +638,7 @@ opal_thread_add_fetch_32.exit71:                  ; preds = %70, %73
   %84 = getelementptr inbounds i8, ptr %.07.i74, i64 8
   %85 = load ptr, ptr %84, align 8
   %.not.i75 = icmp eq ptr %85, null
-  br i1 %.not.i75, label %opal_obj_new.exit.thread.sink.split, label %.lr.ph.i73, !llvm.loop !7
+  br i1 %.not.i75, label %opal_obj_new.exit.thread.sink.split, label %.lr.ph.i73, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %40, %.preheader
   %86 = tail call i32 @NBC_Sched_commit(ptr noundef nonnull %24) #9
@@ -682,7 +682,7 @@ opal_thread_add_fetch_32.exit78:                  ; preds = %90, %93
   %104 = getelementptr inbounds i8, ptr %.07.i81, i64 8
   %105 = load ptr, ptr %104, align 8
   %.not.i82 = icmp eq ptr %105, null
-  br i1 %.not.i82, label %opal_obj_new.exit.thread.sink.split, label %.lr.ph.i80, !llvm.loop !7
+  br i1 %.not.i82, label %opal_obj_new.exit.thread.sink.split, label %.lr.ph.i80, !llvm.loop !6
 
 106:                                              ; preds = %._crit_edge
   %107 = tail call i32 @NBC_Schedule_request(ptr noundef nonnull %24, ptr noundef %6, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %7, ptr noundef null) #9
@@ -726,7 +726,7 @@ opal_thread_add_fetch_32.exit85:                  ; preds = %111, %114
   %125 = getelementptr inbounds i8, ptr %.07.i88, i64 8
   %126 = load ptr, ptr %125, align 8
   %.not.i89 = icmp eq ptr %126, null
-  br i1 %.not.i89, label %opal_obj_new.exit.thread.sink.split, label %.lr.ph.i87, !llvm.loop !7
+  br i1 %.not.i89, label %opal_obj_new.exit.thread.sink.split, label %.lr.ph.i87, !llvm.loop !6
 
 opal_obj_new.exit.thread.sink.split:              ; preds = %.lr.ph.i, %.lr.ph.i73, %.lr.ph.i80, %.lr.ph.i87, %119, %98, %78, %57
   %.057.ph = phi i32 [ %45, %57 ], [ %66, %78 ], [ %86, %98 ], [ %107, %119 ], [ %107, %.lr.ph.i87 ], [ %86, %.lr.ph.i80 ], [ %66, %.lr.ph.i73 ], [ %45, %.lr.ph.i ]
@@ -818,10 +818,9 @@ attributes #11 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 33}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

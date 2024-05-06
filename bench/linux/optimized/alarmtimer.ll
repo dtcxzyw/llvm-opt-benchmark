@@ -945,7 +945,7 @@ define dso_local i64 @alarm_forward_now(ptr nocapture noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @alarm_clock_getres(i32 %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @alarm_clock_getres(i32 %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @rtcdev_lock) #12
   %4 = load ptr, ptr @rtcdev, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @rtcdev_lock, i64 noundef %3) #12
@@ -966,7 +966,7 @@ define internal noundef i32 @alarm_clock_getres(i32 %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @alarm_clock_get_timespec(i32 noundef %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @alarm_clock_get_timespec(i32 noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @rtcdev_lock) #12
   %4 = load ptr, ptr @rtcdev, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @rtcdev_lock, i64 noundef %3) #12
@@ -1012,7 +1012,7 @@ define internal i64 @alarm_clock_get_ktime(i32 noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @alarm_timer_create(ptr noundef %0) #1 align 16 {
+define internal noundef range(i32 -95, 1) i32 @alarm_timer_create(ptr noundef %0) #1 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @rtcdev_lock) #12
   %3 = load ptr, ptr @rtcdev, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @rtcdev_lock, i64 noundef %2) #12
@@ -1457,7 +1457,7 @@ declare ptr @llvm.frameaddress.p0(i32 immarg) #7
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #0 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @alarmtimer_fired(ptr noundef %0) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @alarmtimer_fired(ptr noundef %0) #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -32
   %3 = getelementptr i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
@@ -1595,7 +1595,7 @@ declare dso_local void @hrtimer_start_range_ns(ptr noundef, i64 noundef, i64 nou
 declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @alarm_handle_timer(ptr noundef %0, i64 %1) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @alarm_handle_timer(ptr noundef %0, i64 %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -120
   %4 = getelementptr i8, ptr %0, i64 -88
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #12
@@ -1928,7 +1928,7 @@ alarm_try_to_cancel.exit:                         ; preds = %35, %39, %52, %56
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @alarm_timer_nsleep_restart(ptr nocapture noundef readonly %0) #1 section ".sched.text" align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @alarm_timer_nsleep_restart(ptr nocapture noundef readonly %0) #1 section ".sched.text" align 16 {
   %2 = alloca %struct.alarm, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -2043,7 +2043,7 @@ declare dso_local void @set_normalized_timespec64(ptr noundef, i64 noundef, i64 
 declare dso_local i32 @class_interface_register(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @alarmtimer_rtc_add_device(ptr noundef %0) #1 align 16 {
+define internal noundef range(i32 -16, 1) i32 @alarmtimer_rtc_add_device(ptr noundef %0) #1 align 16 {
   %2 = alloca %struct.platform_device_info, align 8
   %3 = load ptr, ptr @rtcdev, align 8
   %4 = icmp eq ptr %3, null
@@ -2193,7 +2193,7 @@ define internal i32 @alarmtimer_suspend(ptr noundef %0) #1 align 16 {
 
 30:                                               ; preds = %20
   %31 = load i64, ptr %21, align 8
-  %32 = trunc i64 %11 to i32
+  %32 = trunc nuw nsw i64 %11 to i32
   br label %33
 
 33:                                               ; preds = %30, %20, %.preheader

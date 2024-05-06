@@ -227,7 +227,7 @@ declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_xot_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -2147483648, 65540) i32 @get_xot_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #2
   %6 = icmp slt i32 %5, 4
   br i1 %6, label %12, label %7

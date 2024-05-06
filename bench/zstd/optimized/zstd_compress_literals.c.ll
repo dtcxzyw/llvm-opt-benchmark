@@ -60,7 +60,7 @@ return:                                           ; preds = %entry, %sw.epilog
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ZSTD_compressRleLiteralsBlock(ptr nocapture noundef writeonly %dst, i64 %dstCapacity, ptr nocapture noundef readonly %src, i64 noundef %srcSize) local_unnamed_addr #0 {
+define range(i64 2, 5) i64 @ZSTD_compressRleLiteralsBlock(ptr nocapture noundef writeonly %dst, i64 %dstCapacity, ptr nocapture noundef readonly %src, i64 noundef %srcSize) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %srcSize, 31
   %add = select i1 %cmp, i32 2, i32 1
@@ -164,7 +164,7 @@ default.unreachable123:                           ; preds = %if.end90, %do.end17
 
 sw.epilog.i:                                      ; preds = %sw.bb24.i, %sw.bb20.i, %sw.bb.i
   %add.ptr.i = getelementptr inbounds i8, ptr %dst, i64 %conv5.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %src, i64 %srcSize, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i, ptr readonly align 1 %src, i64 %srcSize, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -219,7 +219,7 @@ sw.bb24.i74:                                      ; preds = %do.end17.i73
 
 sw.epilog.i77:                                    ; preds = %sw.bb24.i74, %sw.bb20.i80, %sw.bb.i83
   %add.ptr.i78 = getelementptr inbounds i8, ptr %dst, i64 %conv5.i70
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i78, ptr align 1 %src, i64 %srcSize, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i78, ptr readonly align 1 %src, i64 %srcSize, i1 false)
   br label %return
 
 do.body15:                                        ; preds = %if.end
@@ -304,7 +304,7 @@ sw.bb24.i103:                                     ; preds = %do.end17.i102
 
 sw.epilog.i106:                                   ; preds = %sw.bb24.i103, %sw.bb20.i109, %sw.bb.i112
   %add.ptr.i107 = getelementptr inbounds i8, ptr %dst, i64 %conv5.i99
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i107, ptr align 1 %src, i64 %srcSize, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i107, ptr readonly align 1 %src, i64 %srcSize, i1 false)
   br label %return
 
 if.end73:                                         ; preds = %do.end29
@@ -334,7 +334,7 @@ for.body.i:                                       ; preds = %lor.lhs.false79, %f
 
 if.then82:                                        ; preds = %for.cond.i, %lor.lhs.false79, %if.then76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %nextHuf, ptr noundef nonnull align 8 dereferenceable(2064) %prevHuf, i64 2064, i1 false)
-  %call83 = call i64 @ZSTD_compressRleLiteralsBlock(ptr noundef %dst, i64 poison, ptr noundef %src, i64 noundef %srcSize), !range !7
+  %call83 = call i64 @ZSTD_compressRleLiteralsBlock(ptr noundef %dst, i64 poison, ptr noundef %src, i64 noundef %srcSize)
   br label %return
 
 if.end85:                                         ; preds = %for.body.i, %if.end73
@@ -428,4 +428,3 @@ attributes #5 = { nounwind }
 !4 = !{ptr @HUF_compress1X_repeat, ptr @HUF_compress4X_repeat}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 2, i64 5}

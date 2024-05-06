@@ -188,7 +188,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.1 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ts_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ts_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %password = alloca ptr, align 8
   %md = alloca ptr, align 8
@@ -560,7 +560,7 @@ if.end109:                                        ; preds = %if.then106
 
 if.end114:                                        ; preds = %if.end109
   %11 = load ptr, ptr %md, align 8
-  %call115 = call fastcc i32 @query_command(ptr noundef %data.0, ptr noundef %digest.0, ptr noundef %11, ptr noundef %policy.0, i32 noundef %no_nonce.0, i32 noundef %cert.0, ptr noundef %in.0, ptr noundef %out.0, i32 noundef %text.0), !range !8
+  %call115 = call fastcc i32 @query_command(ptr noundef %data.0, ptr noundef %digest.0, ptr noundef %11, ptr noundef %policy.0, i32 noundef %no_nonce.0, i32 noundef %cert.0, ptr noundef %in.0, ptr noundef %out.0, i32 noundef %text.0)
   %lnot.ext = xor i32 %call115, 1
   br label %end
 
@@ -584,7 +584,7 @@ if.end126:                                        ; preds = %if.end121
 if.end126.split:                                  ; preds = %if.end126
   %12 = load ptr, ptr %password, align 8
   %13 = load ptr, ptr %md, align 8
-  %call13459 = call fastcc i32 @reply_command(ptr noundef nonnull %call.i, ptr noundef %section.0, ptr noundef %engine.0, ptr noundef %queryfile.0, ptr noundef %12, ptr noundef %inkey.0, ptr noundef %13, ptr noundef %signer.0, ptr noundef %chain.0, ptr noundef %policy.0, ptr noundef nonnull %in.0, i32 noundef %token_in.0, ptr noundef %out.0, i32 noundef %token_out.0, i32 noundef %text.0), !range !8
+  %call13459 = call fastcc i32 @reply_command(ptr noundef nonnull %call.i, ptr noundef %section.0, ptr noundef %engine.0, ptr noundef %queryfile.0, ptr noundef %12, ptr noundef %inkey.0, ptr noundef %13, ptr noundef %signer.0, ptr noundef %chain.0, ptr noundef %policy.0, ptr noundef nonnull %in.0, i32 noundef %token_in.0, ptr noundef %out.0, i32 noundef %token_out.0, i32 noundef %text.0)
   br label %if.end133
 
 if.then128:                                       ; preds = %if.end126
@@ -594,7 +594,7 @@ if.then128:                                       ; preds = %if.end126
 if.then128.split:                                 ; preds = %if.then128
   %14 = load ptr, ptr %password, align 8
   %15 = load ptr, ptr %md, align 8
-  %call13460 = call fastcc i32 @reply_command(ptr noundef nonnull %call.i, ptr noundef %section.0, ptr noundef %engine.0, ptr noundef %queryfile.0, ptr noundef %14, ptr noundef %inkey.0, ptr noundef %15, ptr noundef %signer.0, ptr noundef %chain.0, ptr noundef %policy.0, ptr noundef null, i32 noundef 0, ptr noundef %out.0, i32 noundef %token_out.0, i32 noundef %text.0), !range !8
+  %call13460 = call fastcc i32 @reply_command(ptr noundef nonnull %call.i, ptr noundef %section.0, ptr noundef %engine.0, ptr noundef %queryfile.0, ptr noundef %14, ptr noundef %inkey.0, ptr noundef %15, ptr noundef %signer.0, ptr noundef %chain.0, ptr noundef %policy.0, ptr noundef null, i32 noundef 0, ptr noundef %out.0, i32 noundef %token_out.0, i32 noundef %text.0)
   br label %if.end133
 
 if.end133:                                        ; preds = %if.then128.split, %if.end126.split
@@ -682,7 +682,7 @@ declare i32 @app_passwd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @app_load_modules(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @query_command(ptr noundef %data, ptr noundef %digest, ptr noundef %md, ptr noundef %policy, i32 noundef %no_nonce, i32 noundef %cert, ptr noundef %in, ptr noundef %out, i32 noundef %text) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @query_command(ptr noundef %data, ptr noundef %digest, ptr noundef %md, ptr noundef %policy, i32 noundef %no_nonce, i32 noundef %cert, ptr noundef %in, ptr noundef %out, i32 noundef %text) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %in, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -764,7 +764,7 @@ end:                                              ; preds = %if.end27, %if.else2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @reply_command(ptr noundef %conf, ptr noundef %section, ptr noundef %engine, ptr noundef %queryfile, ptr noundef %passin, ptr noundef %inkey, ptr noundef %md, ptr noundef %signer, ptr noundef %chain, ptr noundef %policy, ptr noundef %in, i32 noundef %token_in, ptr noundef %out, i32 noundef %token_out, i32 noundef %text) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @reply_command(ptr noundef %conf, ptr noundef %section, ptr noundef %engine, ptr noundef %queryfile, ptr noundef %passin, ptr noundef %inkey, ptr noundef %md, ptr noundef %signer, ptr noundef %chain, ptr noundef %policy, ptr noundef %in, i32 noundef %token_in, ptr noundef %out, i32 noundef %token_out, i32 noundef %text) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %in, null
   br i1 %cmp.not, label %if.else7, label %if.then
@@ -1425,7 +1425,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %conv15.i = zext nneg i32 %call11.i to i64
   %call16.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call3.i, ptr noundef nonnull %buffer.i, i64 noundef %conv15.i) #7
   %tobool17.not.i = icmp eq i32 %call16.i, 0
-  br i1 %tobool17.not.i, label %create_digest.exit.thread27, label %while.cond.i, !llvm.loop !9
+  br i1 %tobool17.not.i, label %create_digest.exit.thread27, label %while.cond.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %while.cond.i
   %call20.i = call i32 @EVP_DigestFinal(ptr noundef nonnull %call3.i, ptr noundef %call7.i, ptr noundef null) #7
@@ -1610,7 +1610,7 @@ land.rhs:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end, label %land.rhs, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %land.rhs, !llvm.loop !9
 
 for.end.split.loop.exit17:                        ; preds = %land.rhs
   %1 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1968,6 +1968,5 @@ attributes #7 = { nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

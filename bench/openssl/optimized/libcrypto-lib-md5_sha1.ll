@@ -68,7 +68,7 @@ declare i32 @MD5_Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @SHA1_Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_md5_sha1_ctrl(ptr noundef %mctx, i32 noundef %cmd, i32 noundef %mslen, ptr noundef %ms) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @ossl_md5_sha1_ctrl(ptr noundef %mctx, i32 noundef %cmd, i32 noundef %mslen, ptr noundef %ms) local_unnamed_addr #0 {
 entry:
   %padtmp = alloca [48 x i8], align 16
   %md5tmp = alloca [16 x i8], align 16

@@ -23,7 +23,7 @@ define void @"_ZN78_$LT$html5ever..serialize..SerializeOpts$u20$as$u20$core..def
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @_ZN9html5ever9serialize7tagname17h7b0bd583a5ac5e76E(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define noundef range(i64 1, 0) i64 @_ZN9html5ever9serialize7tagname17h7b0bd583a5ac5e76E(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = alloca ptr, align 8

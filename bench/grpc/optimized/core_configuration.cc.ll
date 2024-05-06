@@ -1572,7 +1572,7 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2
 arraydestroy.body.i33:                            ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i, %arraydestroy.body.i33
   %arraydestroy.elementPast.idx.i = phi i64 [ %arraydestroy.elementPast.add.i, %arraydestroy.body.i33 ], [ 528, %_ZNSt6vectorISt10unique_ptrIN9grpc_core17HandshakerFactoryESt14default_deleteIS2_EESaIS5_EED2Ev.exit.i ]
   %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -32
-  %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %this, i64 %arraydestroy.elementPast.idx.i
+  %arraydestroy.element.ptr.i = getelementptr i8, ptr %this, i64 %arraydestroy.elementPast.idx.i
   %manager_.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr.i, i64 16
   %27 = load ptr, ptr %manager_.i.i.i.i, align 16
   tail call void %27(i1 noundef zeroext true, ptr noundef nonnull %arraydestroy.element.ptr.i, ptr noundef nonnull %arraydestroy.element.ptr.i) #15

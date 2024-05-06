@@ -104,7 +104,7 @@ define dso_local noundef ptr @php_quot_print_decode(ptr nocapture noundef readon
 44:                                               ; preds = %36
   %45 = shl nuw nsw i32 %32, 4
   %46 = or disjoint i32 %41, %45
-  %47 = trunc i32 %46 to i8
+  %47 = trunc nuw i32 %46 to i8
   %48 = getelementptr inbounds i8, ptr %.0111152, i64 1
   store i8 %47, ptr %.0111152, align 1
   %49 = add i64 %.0108153, 1

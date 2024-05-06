@@ -1942,7 +1942,7 @@ Wlc_ObjFaninId.exit50:                            ; preds = %Wlc_ObjFaninId.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Wlc_NtkCreateLevels(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define range(i32 -2147483647, -2147483648) i32 @Wlc_NtkCreateLevels(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 784
   %3 = getelementptr i8, ptr %0, i64 648
   %.val39 = load i32, ptr %3, align 8
@@ -2803,7 +2803,7 @@ Vec_IntStart.exit:
   %10 = phi i1 [ true, %.preheader.i ], [ false, %.backedge.backedge ]
   %indvars.iv22.i = phi i64 [ 0, %.preheader.i ], [ 1, %.backedge.backedge ]
   %11 = trunc nuw nsw i64 %indvars.iv22.i to i32
-  tail call void @Wlc_NtkMarkCone(ptr noundef nonnull %0, i32 noundef %11, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  tail call void @Wlc_NtkMarkCone(ptr noundef nonnull readonly %0, i32 noundef %11, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %.val1618.i = load i32, ptr %8, align 8
   %12 = icmp sgt i32 %.val1618.i, 1
   br i1 %12, label %.lr.ph.i.preheader, label %.critedge.i.thread
@@ -5255,7 +5255,7 @@ Wlc_ObjFanin1.exit801:                            ; preds = %Wlc_ObjFanin0.exit7
   br i1 %1342, label %1343, label %1361
 
 1343:                                             ; preds = %1341
-  tail call void @Wlc_NtkMarkCone(ptr noundef nonnull %0, i32 noundef -1, i32 noundef -1, i32 noundef 1, i32 noundef 0)
+  tail call void @Wlc_NtkMarkCone(ptr noundef nonnull readonly %0, i32 noundef -1, i32 noundef -1, i32 noundef 1, i32 noundef 0)
   %.val.i802 = load i32, ptr %1324, align 4
   %1344 = icmp sgt i32 %.val.i802, 0
   br i1 %1344, label %.lr.ph.i810, label %.critedge.i803
@@ -6269,7 +6269,7 @@ define void @Wlc_NtkPrintNodes(ptr nocapture noundef readonly %0, i32 noundef %1
 define void @Wlc_NtkPrintStats(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = load ptr, ptr %0, align 8
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, ptr noundef %5)
-  tail call void @Wlc_NtkMarkCone(ptr noundef nonnull %0, i32 noundef -1, i32 noundef -1, i32 noundef 1, i32 noundef 0)
+  tail call void @Wlc_NtkMarkCone(ptr noundef nonnull readonly %0, i32 noundef -1, i32 noundef -1, i32 noundef 1, i32 noundef 0)
   %7 = getelementptr i8, ptr %0, i64 20
   %.val.i = load i32, ptr %7, align 4
   %8 = icmp sgt i32 %.val.i, 0
@@ -6691,10 +6691,10 @@ define noundef ptr @Wlc_ReduceMarkedInitStr(ptr nocapture noundef readonly %0, p
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
+  %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #28
   %5 = add i64 %4, 1
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #26
-  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %1) #25
+  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %1) #25
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %3
@@ -7570,10 +7570,10 @@ Vec_IntDup.exit:                                  ; preds = %70, %75
   br i1 %.not58, label %92, label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %84
-  %87 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #28
+  %87 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %86) #28
   %88 = add i64 %87, 1
   %89 = tail call noalias ptr @malloc(i64 noundef %88) #26
-  %90 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %86) #25
+  %90 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull readonly dereferenceable(1) %86) #25
   %91 = getelementptr inbounds i8, ptr %29, i64 128
   store ptr %89, ptr %91, align 8
   br label %92
@@ -7595,10 +7595,10 @@ Vec_IntFree.exit:                                 ; preds = %92, %94
   br i1 %.not59, label %102, label %Abc_UtilStrsav.exit76
 
 Abc_UtilStrsav.exit76:                            ; preds = %Vec_IntFree.exit
-  %97 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %96) #28
+  %97 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %96) #28
   %98 = add i64 %97, 1
   %99 = tail call noalias ptr @malloc(i64 noundef %98) #26
-  %100 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) %96) #25
+  %100 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull readonly dereferenceable(1) %96) #25
   %101 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %99, ptr %101, align 8
   br label %102
@@ -8232,10 +8232,10 @@ Vec_IntDup.exit:                                  ; preds = %263, %265
   br i1 %.not140, label %281, label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_IntDup.exit
-  %276 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %275) #28
+  %276 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %275) #28
   %277 = add i64 %276, 1
   %278 = tail call noalias ptr @malloc(i64 noundef %277) #26
-  %279 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %278, ptr noundef nonnull dereferenceable(1) %275) #25
+  %279 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %278, ptr noundef nonnull readonly dereferenceable(1) %275) #25
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Abc_UtilStrsav.exit, %261
@@ -8251,10 +8251,10 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_IntDup.exit
   br i1 %.not142, label %289, label %Abc_UtilStrsav.exit187
 
 Abc_UtilStrsav.exit187:                           ; preds = %281
-  %284 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %283) #28
+  %284 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %283) #28
   %285 = add i64 %284, 1
   %286 = tail call noalias ptr @malloc(i64 noundef %285) #26
-  %287 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(1) %283) #25
+  %287 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull readonly dereferenceable(1) %283) #25
   %288 = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %286, ptr %288, align 8
   br label %289
@@ -8831,10 +8831,10 @@ Wlc_NtkCleanMarks.exit:                           ; preds = %201, %197
   br i1 %.not132, label %214, label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Wlc_NtkCleanMarks.exit
-  %209 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %208) #28
+  %209 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %208) #28
   %210 = add i64 %209, 1
   %211 = tail call noalias ptr @malloc(i64 noundef %210) #26
-  %212 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %211, ptr noundef nonnull dereferenceable(1) %208) #25
+  %212 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %211, ptr noundef nonnull readonly dereferenceable(1) %208) #25
   %213 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %211, ptr %213, align 8
   br label %214
@@ -9498,10 +9498,10 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %136
   br i1 %.not, label %144, label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_IntFree.exit
-  %139 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %138) #28
+  %139 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %138) #28
   %140 = add i64 %139, 1
   %141 = tail call noalias ptr @malloc(i64 noundef %140) #26
-  %142 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) %138) #25
+  %142 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull readonly dereferenceable(1) %138) #25
   %143 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %141, ptr %143, align 8
   br label %144

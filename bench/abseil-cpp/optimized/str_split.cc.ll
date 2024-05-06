@@ -152,7 +152,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
   br i1 %tobool.not.i.i.i.i, label %return, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %call.i.i.i.i.i, ptr nonnull %3, i64 %2)
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %call.i.i.i.i.i, ptr nonnull readonly %3, i64 %2)
   %cmp16.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %cmp16.i.i.i.i, label %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, label %if.end19.i.i.i.i
 
@@ -293,7 +293,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %if.end.i, %for.inc.
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %text.coerce1, i64 %__pos.addr.07.i.i.i.i
   %2 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %conv.i.i.i.i.i = sext i8 %2 to i32
-  %call.i.i.i.i.i = tail call ptr @memchr(ptr noundef %1, i32 noundef %conv.i.i.i.i.i, i64 noundef %0) #10
+  %call.i.i.i.i.i = tail call ptr @memchr(ptr noundef readonly %1, i32 noundef %conv.i.i.i.i.i, i64 noundef %0) #10
   %tobool2.not.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %tobool2.not.i.i.i.i, label %for.inc.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111AnyOfPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i
 

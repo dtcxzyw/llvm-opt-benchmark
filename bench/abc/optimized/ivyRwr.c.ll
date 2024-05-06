@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [43 x i8] c"Ivy_ManRewritePre(): The check has failed.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Ivy_ManRewritePre(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ivy_ManRewritePre(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
@@ -300,7 +300,7 @@ Abc_Clock.exit166.i:                              ; preds = %155, %.thread.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   %158 = load i16, ptr %133, align 4
   %159 = sext i16 %158 to i32
-  %160 = call i32 @Ivy_NodeGetTruth_rec(ptr noundef nonnull %85, ptr noundef nonnull %135, i32 noundef %159)
+  %160 = call i32 @Ivy_NodeGetTruth_rec(ptr noundef nonnull readonly %85, ptr noundef nonnull readonly %135, i32 noundef %159)
   %161 = and i32 %160, 65535
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %162 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #12

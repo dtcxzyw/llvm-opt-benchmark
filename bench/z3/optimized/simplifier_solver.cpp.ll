@@ -6544,8 +6544,8 @@ if.then20:                                        ; preds = %invoke.cont18
   %23 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %23 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %24 = getelementptr i8, ptr %6, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %24, i64 32
+  %24 = getelementptr inbounds i8, ptr %6, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %24, i64 32
   %cmp33.not110 = icmp eq i32 %23, 0
   br i1 %cmp33.not110, label %for.inc99, label %for.body34.lr.ph
 
@@ -6723,8 +6723,8 @@ if.then52:                                        ; preds = %invoke.cont50
   %53 = load i32, ptr %m_num_args.i71, align 8
   %idx.ext.i72 = zext i32 %53 to i64
   %add.ptr.i73.idx = shl nuw nsw i64 %idx.ext.i72, 3
-  %54 = getelementptr i8, ptr %45, i64 %add.ptr.i73.idx
-  %add.ptr.i73.ptr = getelementptr i8, ptr %54, i64 32
+  %54 = getelementptr inbounds i8, ptr %45, i64 %add.ptr.i73.idx
+  %add.ptr.i73.ptr = getelementptr inbounds i8, ptr %54, i64 32
   %cmp69.not112 = icmp eq i32 %53, 0
   br i1 %cmp69.not112, label %for.inc99, label %for.body70.lr.ph
 

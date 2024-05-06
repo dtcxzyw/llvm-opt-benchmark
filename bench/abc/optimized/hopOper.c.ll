@@ -1271,7 +1271,7 @@ define ptr @Hop_Miter(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_ad
   store ptr %17, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %21 = load i32, ptr %3, align 4
-  %22 = trunc i64 %indvars.iv.next to i32
+  %22 = trunc nuw i64 %indvars.iv.next to i32
   %23 = icmp sgt i32 %21, %22
   br i1 %23, label %7, label %._crit_edge, !llvm.loop !6
 

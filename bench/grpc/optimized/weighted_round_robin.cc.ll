@@ -570,7 +570,7 @@ $_ZTIN9grpc_core8JsonArgsE = comdat any
 @.str.25 = private unnamed_addr constant [55 x i8] c"[WRR %p] replacing previous pending subchannel list %p\00", align 1
 @.str.26 = private unnamed_addr constant [47 x i8] c"[WRR %p] replacing previous subchannel list %p\00", align 1
 @.str.27 = private unnamed_addr constant [21 x i8] c"empty address list: \00", align 1
-@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
+@_ZN9grpc_core20PerCpuShardingHelper6state_E = external thread_local local_unnamed_addr global %"struct.grpc_core::PerCpuShardingHelper::State", align 2
 @_ZTVSt23_Sp_counted_ptr_inplaceIN9grpc_core29EndpointAddressesListIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt23_Sp_counted_ptr_inplaceIN9grpc_core29EndpointAddressesListIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN9grpc_core29EndpointAddressesListIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN9grpc_core29EndpointAddressesListIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN9grpc_core29EndpointAddressesListIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN9grpc_core29EndpointAddressesListIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN9grpc_core29EndpointAddressesListIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTSSt23_Sp_counted_ptr_inplaceIN9grpc_core29EndpointAddressesListIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [107 x i8] c"St23_Sp_counted_ptr_inplaceIN9grpc_core29EndpointAddressesListIteratorESaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [52 x i8] c"St16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
@@ -622,7 +622,7 @@ $_ZTIN9grpc_core8JsonArgsE = comdat any
 @_ZTIN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelData10OobWatcherE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelData10OobWatcherE, ptr @_ZTIN9grpc_core23OobBackendMetricWatcherE }, align 8
 @.str.39 = private unnamed_addr constant [104 x i8] c"[WRR %p] subchannel %s: qps=%f, eps=%f, utilization=%f: error_util_penalty=%f, weight=%f (not updating)\00", align 1
 @.str.40 = private unnamed_addr constant [156 x i8] c"[WRR %p] subchannel %s: qps=%f, eps=%f, utilization=%f error_util_penalty=%f : setting weight=%f weight_=%f now=%s last_update_time_=%s non_empty_since_=%s\00", align 1
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @.str.41 = private unnamed_addr constant [23 x i8] c"subchannel_ == nullptr\00", align 1
 @.str.42 = private unnamed_addr constant [24 x i8] c"subchannel() != nullptr\00", align 1
 @.str.43 = private unnamed_addr constant [61 x i8] c"[WRR %p] Subchannel %p reported %s; requesting re-resolution\00", align 1
@@ -663,7 +663,7 @@ $_ZTIN9grpc_core8JsonArgsE = comdat any
 @_ZTSSt23_Sp_counted_ptr_inplaceIN9grpc_core21StaticStrideSchedulerESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [99 x i8] c"St23_Sp_counted_ptr_inplaceIN9grpc_core21StaticStrideSchedulerESaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTISt23_Sp_counted_ptr_inplaceIN9grpc_core21StaticStrideSchedulerESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceIN9grpc_core21StaticStrideSchedulerESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @.str.71 = private unnamed_addr constant [31 x i8] c"[WRR %p picker %p] timer fired\00", align 1
-@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN9grpc_core4Fork16support_enabled_E = external local_unnamed_addr global %"struct.std::atomic", align 1
 @_ZTVN9grpc_core7ExecCtxE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN9grpc_core7ExecCtxE, ptr @_ZN9grpc_core7ExecCtxD2Ev, ptr @_ZN9grpc_core7ExecCtxD0Ev, ptr @_ZN9grpc_core7ExecCtx18CheckReadyToFinishEv] }, comdat, align 8
 @_ZTSN9grpc_core7ExecCtxE = linkonce_odr constant [21 x i8] c"N9grpc_core7ExecCtxE\00", comdat, align 1
@@ -674,7 +674,7 @@ $_ZTIN9grpc_core8JsonArgsE = comdat any
 @_ZTSN9grpc_core9Timestamp6SourceE = linkonce_odr constant [30 x i8] c"N9grpc_core9Timestamp6SourceE\00", comdat, align 1
 @_ZTIN9grpc_core9Timestamp6SourceE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp6SourceE }, comdat, align 8
 @_ZTIN9grpc_core9Timestamp12ScopedSourceE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN9grpc_core9Timestamp12ScopedSourceE, ptr @_ZTIN9grpc_core9Timestamp6SourceE }, comdat, align 8
-@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local global ptr, align 8
+@_ZN9grpc_core7ExecCtx9exec_ctx_E = external thread_local local_unnamed_addr global ptr, align 8
 @"_ZTSZZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6Picker33BuildSchedulerAndStartTimerLockedEvEN3$_1clEvEUlvE_" = internal constant [111 x i8] c"ZZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6Picker33BuildSchedulerAndStartTimerLockedEvEN3$_1clEvEUlvE_\00", align 1
 @"_ZTIZZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6Picker33BuildSchedulerAndStartTimerLockedEvEN3$_1clEvEUlvE_" = internal constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @"_ZTSZZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin6Picker33BuildSchedulerAndStartTimerLockedEvEN3$_1clEvEUlvE_" }, align 8
 @.str.72 = private unnamed_addr constant [36 x i8] c"[WRR %p picker %p] cancelling timer\00", align 1
@@ -4188,7 +4188,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i.i.
   br i1 %cmp6.i.i.i.i.i.i.i.i, label %cond.end.i.i.i.i.i.i.i, label %cond.end.i.thread.i.i.i.i.i.i
 
 _ZZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin12UpdateLockedENS_19LoadBalancingPolicy10UpdateArgsEENK15AddressLessThanclERKNS_17EndpointAddressesES7_.exit.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i
-  %call10.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %call.val.i.i.i.i.i.i, ptr noundef nonnull %call3.val.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i.i.i) #34
+  %call10.i.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly %call.val.i.i.i.i.i.i, ptr noundef nonnull readonly %call3.val.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i.i.i.i.i) #34
   %cmp11.i.i.i.i.i.i.i.i = icmp slt i32 %call10.i.i.i.i.i.i.i.i, 0
   br i1 %cmp11.i.i.i.i.i.i.i.i, label %cond.end.i.i.i.i.i.i.i, label %cond.end.i.thread.i.i.i.i.i.i
 
@@ -4239,7 +4239,7 @@ if.then.i9.i.i.i.i.i.i.i:                         ; preds = %if.end12.i.i.i.i.i.
 
 _ZZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin12UpdateLockedENS_19LoadBalancingPolicy10UpdateArgsEENK15AddressLessThanclERKNS_17EndpointAddressesES7_.exit16.i.i.i.i.i.i.i: ; preds = %if.end12.i.i.i.i.i.i.i
   %conv.i13.i.i.i.i.i.i.i = zext i32 %6 to i64
-  %call10.i14.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %call15.val.i.i.i.i.i.i.i, ptr noundef nonnull %call.val.i.i.i.i.i.i, i64 noundef %conv.i13.i.i.i.i.i.i.i) #34
+  %call10.i14.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly %call15.val.i.i.i.i.i.i.i, ptr noundef nonnull readonly %call.val.i.i.i.i.i.i, i64 noundef %conv.i13.i.i.i.i.i.i.i) #34
   %cmp11.i15.i.i.i.i.i.i.i = icmp slt i32 %call10.i14.i.i.i.i.i.i.i, 0
   br i1 %cmp11.i15.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin12UpdateLockedENS0_19LoadBalancingPolicy10UpdateArgsEE3$_0JRKNS0_17EndpointAddressesEEENSt13invoke_resultIT_JDpT0_EE4typeEOSC_DpOSD_.exit"
 
@@ -4264,7 +4264,7 @@ if.then.i.i11.i.i.i.i.i.i:                        ; preds = %lor.rhs.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %lor.rhs.i.i.i.i.i.i.i
   %conv.i.i13.i.i.i.i.i.i = zext i32 %8 to i64
-  %call10.i.i14.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull %call.val.i.i.i.i.i.i, ptr noundef nonnull %call4.val.i.i.i.i.i.i.i, i64 noundef %conv.i.i13.i.i.i.i.i.i) #34
+  %call10.i.i14.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly %call.val.i.i.i.i.i.i, ptr noundef nonnull readonly %call4.val.i.i.i.i.i.i.i, i64 noundef %conv.i.i13.i.i.i.i.i.i) #34
   %cmp11.i.i15.i.i.i.i.i.i = icmp slt i32 %call10.i.i14.i.i.i.i.i.i, 0
   br label %lor.end.i.i.i.i.i.i.i
 
@@ -5220,7 +5220,7 @@ if.end24.i.i.i.i:                                 ; preds = %invoke.cont23.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end24.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
   %18 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 64
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
@@ -5260,12 +5260,12 @@ cond.true.i.i.i.i.i.i.i:                          ; preds = %_ZNKSt6vectorIN9grp
 _ZNSt12_Vector_baseIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i.i, %_ZNKSt6vectorIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %cond.i12.i.i.i.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i ], [ %call5.i.i.i.i.i8.i.i.i.i, %cond.true.i.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ManualConstructor", ptr %cond.i12.i.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i.i.i.i.i, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %add.ptr.i.i.i.i.i.i, i8 0, i64 64, i1 false)
   %cmp.i.i.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt12_Vector_baseIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE11_M_allocateEm.exit.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i.i.i.i.i, ptr align 8 %this.val10.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %cond.i12.i.i.i.i.i.i, ptr align 8 %this.val10.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i.i.i.i
 
 _ZNSt6vectorIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core17ManualConstructorINS0_12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelDataEEESaIS5_EE11_M_allocateEm.exit.i.i.i.i.i.i
@@ -10735,7 +10735,7 @@ if.then23.i.i.i.i.i:                              ; preds = %invoke.cont21.i.i.i
   %29 = load ptr, ptr %0, align 8
   store ptr null, ptr %0, align 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i2.i17.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %invoke.cont26.i.i.i.i.i unwind label %ehcleanup.i.i.i.i.i
 
@@ -13034,7 +13034,7 @@ if.end12.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i
   %call15.val.i.i.i.i.i.i.i = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i, align 8
   %3 = getelementptr i8, ptr %__j.sroa.0.0.i.i.i.i.i.i.i, i64 40
   %call15.val4.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %call16.i.i.i.i.i.i.i = tail call fastcc noundef zeroext i1 @_ZZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin12UpdateLockedENS_19LoadBalancingPolicy10UpdateArgsEENK25EndpointAddressesLessThanclERKNS_17EndpointAddressesES7_(ptr %call15.val.i.i.i.i.i.i.i, ptr %call15.val4.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %args)
+  %call16.i.i.i.i.i.i.i = tail call fastcc noundef zeroext i1 @_ZZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin12UpdateLockedENS_19LoadBalancingPolicy10UpdateArgsEENK25EndpointAddressesLessThanclERKNS_17EndpointAddressesES7_(ptr %call15.val.i.i.i.i.i.i.i, ptr %call15.val4.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %args)
   br i1 %call16.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin12UpdateLockedENS0_19LoadBalancingPolicy10UpdateArgsEE3$_0JRKNS0_17EndpointAddressesEEENSt13invoke_resultIT_JDpT0_EE4typeEOSC_DpOSD_.exit"
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end12.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
@@ -18760,7 +18760,7 @@ if.then23.i.i.i.i.i:                              ; preds = %invoke.cont21.i.i.i
   %29 = load ptr, ptr %0, align 8
   store ptr null, ptr %0, align 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i8 0, i64 32, i1 false)
   %call.i.i2.i17.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %invoke.cont26.i.i.i.i.i unwind label %ehcleanup.i.i.i.i.i
 

@@ -232,14 +232,14 @@ define hidden void @_ZN5ceres8internal10LineSearch6CreateENS_14LineSearchTypeERK
 _ZNSt10unique_ptrIN5ceres8internal16ArmijoLineSearchESt14default_deleteIS2_EED2Ev.exit: ; preds = %4
   %11 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25, !noalias !4
   %12 = getelementptr inbounds i8, ptr %11, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull align 8 dereferenceable(80) %2, i64 80, i1 false), !noalias !4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %12, ptr noundef nonnull readonly align 8 dereferenceable(80) %2, i64 80, i1 false), !noalias !4
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal16ArmijoLineSearchE, i64 0, i32 0, i64 2), ptr %11, align 8, !noalias !4
   br label %48
 
 _ZNSt10unique_ptrIN5ceres8internal15WolfeLineSearchESt14default_deleteIS2_EED2Ev.exit: ; preds = %4
   %13 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25, !noalias !7
   %14 = getelementptr inbounds i8, ptr %13, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %2, i64 80, i1 false), !noalias !7
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %14, ptr noundef nonnull readonly align 8 dereferenceable(80) %2, i64 80, i1 false), !noalias !7
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal15WolfeLineSearchE, i64 0, i32 0, i64 2), ptr %13, align 8, !noalias !7
   br label %48
 
@@ -827,7 +827,7 @@ define hidden noundef double @_ZNK5ceres8internal18LineSearchFunction21Direction
   %19 = load <2 x i64>, ptr %18, align 16
   %20 = and <2 x i64> %19, <i64 9223372036854775807, i64 9223372036854775807>
   %21 = bitcast <2 x i64> %20 to <2 x double>
-  %invariant.gep.i.i.i.i.i.i = getelementptr i8, ptr %7, i64 48
+  %invariant.gep.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
   %22 = icmp ugt i64 %3, 7
   br i1 %22, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
@@ -841,7 +841,7 @@ define hidden noundef double @_ZNK5ceres8internal18LineSearchFunction21Direction
   %25 = and <2 x i64> %24, <i64 9223372036854775807, i64 9223372036854775807>
   %26 = bitcast <2 x i64> %25 to <2 x double>
   %27 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07275.i.i.i.i.i.i, <2 x double> %26) #26, !srcloc !20
-  %gep.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i
+  %gep.i.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i
   %28 = load <2 x i64>, ptr %gep.i.i.i.i.i.i, align 16
   %29 = and <2 x i64> %28, <i64 9223372036854775807, i64 9223372036854775807>
   %30 = bitcast <2 x i64> %29 to <2 x double>
@@ -1921,7 +1921,7 @@ _ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EED2Ev.exit: ; preds 
 define hidden void @_ZN5ceres8internal16ArmijoLineSearchC2ERKNS0_10LineSearch7OptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal10LineSearchE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %3, ptr noundef nonnull readonly align 8 dereferenceable(80) %1, i64 80, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal16ArmijoLineSearchE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
@@ -2215,7 +2215,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   %125 = load <2 x i64>, ptr %124, align 16
   %126 = and <2 x i64> %125, <i64 9223372036854775807, i64 9223372036854775807>
   %127 = bitcast <2 x i64> %126 to <2 x double>
-  %invariant.gep.i.i.i.i.i.i.i = getelementptr i8, ptr %113, i64 48
+  %invariant.gep.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %113, i64 48
   %128 = icmp ugt i64 %109, 7
   br i1 %128, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
@@ -2229,7 +2229,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   %131 = and <2 x i64> %130, <i64 9223372036854775807, i64 9223372036854775807>
   %132 = bitcast <2 x i64> %131 to <2 x double>
   %133 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07275.i.i.i.i.i.i.i, <2 x double> %132) #26, !srcloc !20
-  %gep.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
+  %gep.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
   %134 = load <2 x i64>, ptr %gep.i.i.i.i.i.i.i, align 16
   %135 = and <2 x i64> %134, <i64 9223372036854775807, i64 9223372036854775807>
   %136 = bitcast <2 x i64> %135 to <2 x double>
@@ -2709,7 +2709,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit15: ; preds = %.lr.ph.i.i.
 define hidden void @_ZN5ceres8internal15WolfeLineSearchC2ERKNS0_10LineSearch7OptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal10LineSearchE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(80) %3, ptr noundef nonnull readonly align 8 dereferenceable(80) %1, i64 80, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal15WolfeLineSearchE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
@@ -3326,7 +3326,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch15Bracketi
   %42 = load <2 x i64>, ptr %41, align 16
   %43 = and <2 x i64> %42, <i64 9223372036854775807, i64 9223372036854775807>
   %44 = bitcast <2 x i64> %43 to <2 x double>
-  %invariant.gep.i.i.i.i.i.i.i = getelementptr i8, ptr %30, i64 48
+  %invariant.gep.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 48
   %45 = icmp ugt i64 %26, 7
   br i1 %45, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
@@ -3340,7 +3340,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch15Bracketi
   %48 = and <2 x i64> %47, <i64 9223372036854775807, i64 9223372036854775807>
   %49 = bitcast <2 x i64> %48 to <2 x double>
   %50 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07275.i.i.i.i.i.i.i, <2 x double> %49) #26, !srcloc !20
-  %gep.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
+  %gep.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
   %51 = load <2 x i64>, ptr %gep.i.i.i.i.i.i.i, align 16
   %52 = and <2 x i64> %51, <i64 9223372036854775807, i64 9223372036854775807>
   %53 = bitcast <2 x i64> %52 to <2 x double>
@@ -4391,7 +4391,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch9ZoomPhase
   %162 = load <2 x i64>, ptr %161, align 16
   %163 = and <2 x i64> %162, <i64 9223372036854775807, i64 9223372036854775807>
   %164 = bitcast <2 x i64> %163 to <2 x double>
-  %invariant.gep.i.i.i.i.i.i.i = getelementptr i8, ptr %150, i64 48
+  %invariant.gep.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %150, i64 48
   %165 = icmp ugt i64 %146, 7
   br i1 %165, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
@@ -4405,7 +4405,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch9ZoomPhase
   %168 = and <2 x i64> %167, <i64 9223372036854775807, i64 9223372036854775807>
   %169 = bitcast <2 x i64> %168 to <2 x double>
   %170 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07275.i.i.i.i.i.i.i, <2 x double> %169) #26, !srcloc !20
-  %gep.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
+  %gep.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
   %171 = load <2 x i64>, ptr %gep.i.i.i.i.i.i.i, align 16
   %172 = and <2 x i64> %171, <i64 9223372036854775807, i64 9223372036854775807>
   %173 = bitcast <2 x i64> %172 to <2 x double>
@@ -5403,9 +5403,9 @@ _ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2
   %73 = getelementptr inbounds i8, ptr %24, i64 8
   %74 = load ptr, ptr %73, align 8
   tail call void @free(ptr noundef %74) #23
-  br label %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit35
+  br label %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit37
 
-75:                                               ; preds = %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit35
+75:                                               ; preds = %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit37
   %76 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -5413,9 +5413,9 @@ _ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2
 
 77:                                               ; preds = %67
   tail call void @_ZdlPv(ptr noundef nonnull %23) #27
-  br label %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit35
+  br label %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit37
 
-_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit35: ; preds = %77, %.thread
+_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %77, %.thread
   invoke void @__cxa_rethrow() #29
           to label %82 unwind label %75
 
@@ -5429,7 +5429,7 @@ _ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2
   tail call void @__clang_call_terminate(ptr %81) #24
   unreachable
 
-82:                                               ; preds = %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit35
+82:                                               ; preds = %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit37
   unreachable
 }
 
@@ -5595,9 +5595,9 @@ _ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2
   %76 = getelementptr inbounds i8, ptr %25, i64 8
   %77 = load ptr, ptr %76, align 8
   tail call void @free(ptr noundef %77) #23
-  br label %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit36
+  br label %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit38
 
-78:                                               ; preds = %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit36
+78:                                               ; preds = %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit38
   %79 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -5605,9 +5605,9 @@ _ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2
 
 80:                                               ; preds = %70
   tail call void @_ZdlPv(ptr noundef nonnull %24) #27
-  br label %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit36
+  br label %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit38
 
-_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit36: ; preds = %80, %.thread
+_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit38: ; preds = %80, %.thread
   invoke void @__cxa_rethrow() #29
           to label %85 unwind label %78
 
@@ -5621,7 +5621,7 @@ _ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2
   tail call void @__clang_call_terminate(ptr %84) #24
   unreachable
 
-85:                                               ; preds = %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit36
+85:                                               ; preds = %_ZNSt12_Vector_baseIN5ceres8internal14FunctionSampleESaIS2_EE13_M_deallocateEPS2_m.exit38
   unreachable
 }
 

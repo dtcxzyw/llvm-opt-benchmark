@@ -2078,7 +2078,7 @@ invoke.cont:                                      ; preds = %entry
 
 for.cond6.preheader:                              ; preds = %for.cond.cleanup9, %invoke.cont
   %indvars.iv61 = phi i32 [ -1, %invoke.cont ], [ %indvars.iv.next62, %for.cond.cleanup9 ]
-  %1 = trunc i32 %indvars.iv61 to i16
+  %1 = trunc nsw i32 %indvars.iv61 to i16
   br label %for.cond11.preheader
 
 lpad:                                             ; preds = %entry
@@ -2090,7 +2090,7 @@ for.cond11.preheader:                             ; preds = %invoke.cont21.2, %f
   %indvars.iv = phi i32 [ -1, %for.cond6.preheader ], [ %indvars.iv.next, %invoke.cont21.2 ]
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %voxel_area.i) #24
   store i16 %1, ptr %voxel_area.i, align 2, !tbaa !45
-  %3 = trunc i32 %indvars.iv to i16
+  %3 = trunc nsw i32 %indvars.iv to i16
   store i16 %3, ptr %ref.tmp16.sroa.8.0.voxel_area.i.sroa_idx, align 2, !tbaa !45
   store i16 -1, ptr %ref.tmp16.sroa.9.0.voxel_area.i.sroa_idx, align 2, !tbaa !45
   store i16 %1, ptr %MaxEdge.i.i, align 2, !tbaa !45

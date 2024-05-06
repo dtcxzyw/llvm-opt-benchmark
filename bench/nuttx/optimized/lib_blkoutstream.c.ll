@@ -40,7 +40,7 @@ declare i32 @close_blockdriver(ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @lib_blkoutstream_open(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @lib_blkoutstream_open(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = icmp eq ptr %0, null

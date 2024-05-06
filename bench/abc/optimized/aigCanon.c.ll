@@ -54,7 +54,7 @@ define noalias noundef ptr @Aig_RManStart() local_unnamed_addr #0 {
 
 6:                                                ; preds = %.lr.ph.i
   %7 = add nuw nsw i32 %.01116.i, 2
-  %8 = mul nsw i32 %7, %7
+  %8 = mul nuw nsw i32 %7, %7
   %.not.i = icmp ugt i32 %8, %4
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -145,7 +145,7 @@ Aig_RManTableHash.exit:                           ; preds = %.lr.ph.i, %3
 
 select.unfold.i:                                  ; preds = %28, %24
   %indvars.iv.i16 = phi i64 [ %23, %24 ], [ %29, %28 ]
-  %26 = trunc i64 %indvars.iv.i16 to i32
+  %26 = trunc nuw i64 %indvars.iv.i16 to i32
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %28, label %Kit_TruthIsEqual.exit.thread
 
@@ -199,7 +199,7 @@ Abc_Clock.exit:
 
 11:                                               ; preds = %.lr.ph.i
   %12 = add nuw nsw i32 %.01116.i, 2
-  %13 = mul nsw i32 %12, %12
+  %13 = mul nuw nsw i32 %12, %12
   %.not.i = icmp ugt i32 %13, %9
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -319,7 +319,7 @@ Aig_RManTableLookup.exit:                         ; preds = %Kit_TruthIsEqual.ex
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Aig_RManTableFindOrAdd(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Aig_RManTableFindOrAdd(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -369,7 +369,7 @@ Aig_RManTableHash.exit.i:                         ; preds = %.lr.ph.i.i, %3
 
 select.unfold.i.i:                                ; preds = %28, %24
   %indvars.iv.i16.i = phi i64 [ %23, %24 ], [ %29, %28 ]
-  %26 = trunc i64 %indvars.iv.i16.i to i32
+  %26 = trunc nuw i64 %indvars.iv.i16.i to i32
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %28, label %Aig_RManTableLookup.exit
 
@@ -475,7 +475,7 @@ define void @Aig_RManStop(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 5, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %23 = getelementptr inbounds [13 x i32], ptr %21, i64 0, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %25, i32 noundef %24)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %0, align 8
@@ -590,7 +590,7 @@ define void @Aig_RManSortNums(ptr nocapture noundef %0, i32 noundef %1) local_un
   %indvars.iv32 = phi i64 [ 0, %.lr.ph27.preheader ], [ %indvars.iv.next33, %._crit_edge ]
   %indvars.iv = phi i64 [ 1, %.lr.ph27.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %5 = trunc i64 %indvars.iv32 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv32 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -602,7 +602,7 @@ define void @Aig_RManSortNums(ptr nocapture noundef %0, i32 noundef %1) local_un
   %9 = getelementptr inbounds i32, ptr %0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %7, %10
-  %12 = trunc i64 %indvars.iv29 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv29 to i32
   %spec.select = select i1 %11, i32 %12, i32 %.02124
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count
@@ -635,16 +635,16 @@ define void @Aig_RManPrintSigs(ptr nocapture noundef readonly %0, i32 noundef %1
 
 .split.us.us:                                     ; preds = %.split.us.us.preheader, %.split22.us.us
   %indvars.iv28 = phi i64 [ 0, %.split.us.us.preheader ], [ %indvars.iv.next29, %.split22.us.us ]
-  %4 = trunc i64 %indvars.iv28 to i32
+  %4 = trunc nuw nsw i64 %indvars.iv28 to i32
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %4)
   %6 = shl nuw nsw i64 %indvars.iv28, 1
-  %invariant.gep = getelementptr %struct.Aig_VSig_t_, ptr %0, i64 %6
+  %invariant.gep = getelementptr inbounds %struct.Aig_VSig_t_, ptr %0, i64 %6
   br label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.split.us.us
   %7 = phi i1 [ false, %._crit_edge.us.us ], [ true, %.split.us.us ]
   %indvars.iv25 = phi i64 [ 1, %._crit_edge.us.us ], [ 0, %.split.us.us ]
-  %gep = getelementptr %struct.Aig_VSig_t_, ptr %invariant.gep, i64 %indvars.iv25
+  %gep = getelementptr inbounds %struct.Aig_VSig_t_, ptr %invariant.gep, i64 %indvars.iv25
   %8 = load i32, ptr %gep, align 4
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %8)
   %putchar18.us.us = tail call i32 @putchar(i32 40)
@@ -694,7 +694,7 @@ define void @Aig_RManComputeVSigs(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 12:                                               ; preds = %.lr.ph, %Aig_RManSortNums.exit60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Aig_RManSortNums.exit60 ]
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @Kit_TruthCofactor0New(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %13) #16
   br i1 %9, label %select.unfold.i, label %Kit_TruthCountOnes.exit
 
@@ -739,7 +739,7 @@ Kit_TruthCountOnes.exit:                          ; preds = %select.unfold.i, %1
 .lr.ph.preheader.i:                               ; preds = %Kit_TruthCountOnes.exit, %._crit_edge.i
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %._crit_edge.i ], [ 0, %Kit_TruthCountOnes.exit ]
   %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i35, %._crit_edge.i ], [ 1, %Kit_TruthCountOnes.exit ]
-  %40 = trunc i64 %indvars.iv32.i to i32
+  %40 = trunc nuw nsw i64 %indvars.iv32.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -751,7 +751,7 @@ Kit_TruthCountOnes.exit:                          ; preds = %select.unfold.i, %1
   %44 = getelementptr inbounds i32, ptr %39, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = icmp sgt i32 %42, %45
-  %47 = trunc i64 %indvars.iv29.i to i32
+  %47 = trunc nuw nsw i64 %indvars.iv29.i to i32
   %spec.select.i34 = select i1 %46, i32 %47, i32 %.02124.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count.i
@@ -815,7 +815,7 @@ Kit_TruthCountOnes.exit43:                        ; preds = %select.unfold.i39, 
 .lr.ph.preheader.i47:                             ; preds = %Kit_TruthCountOnes.exit43, %._crit_edge.i57
   %indvars.iv32.i48 = phi i64 [ %indvars.iv.next33.i50, %._crit_edge.i57 ], [ 0, %Kit_TruthCountOnes.exit43 ]
   %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i58, %._crit_edge.i57 ], [ 1, %Kit_TruthCountOnes.exit43 ]
-  %79 = trunc i64 %indvars.iv32.i48 to i32
+  %79 = trunc nuw nsw i64 %indvars.iv32.i48 to i32
   br label %.lr.ph.i51
 
 .lr.ph.i51:                                       ; preds = %.lr.ph.i51, %.lr.ph.preheader.i47
@@ -827,7 +827,7 @@ Kit_TruthCountOnes.exit43:                        ; preds = %select.unfold.i39, 
   %83 = getelementptr inbounds i32, ptr %78, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = icmp sgt i32 %81, %84
-  %86 = trunc i64 %indvars.iv29.i52 to i32
+  %86 = trunc nuw nsw i64 %indvars.iv29.i52 to i32
   %spec.select.i54 = select i1 %85, i32 %86, i32 %.02124.i53
   %indvars.iv.next30.i55 = add nuw nsw i64 %indvars.iv29.i52, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next30.i55, %wide.trip.count.i
@@ -862,7 +862,7 @@ declare void @Kit_TruthCountOnesInCofs0(ptr noundef, i32 noundef, ptr noundef) l
 declare void @Kit_TruthCofactor1New(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define noundef i32 @Aig_RManVarsAreUnique(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Aig_RManVarsAreUnique(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   %smax = add nsw i32 %3, -1
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -989,7 +989,7 @@ define i32 @Aig_RManSemiCanonicize(ptr noundef %0, ptr noundef %1, i32 noundef %
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %12 = shl nuw nsw i64 %indvars.iv.next104, 1
   %13 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %4, i64 %12
-  %14 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %11, ptr noundef nonnull dereferenceable(4) %13, i64 noundef 4) #18
+  %14 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(4) %11, ptr noundef nonnull readonly dereferenceable(4) %13, i64 noundef 4) #18
   %15 = icmp slt i32 %14, 1
   br i1 %15, label %27, label %16
 
@@ -1011,7 +1011,7 @@ define i32 @Aig_RManSemiCanonicize(ptr noundef %0, ptr noundef %1, i32 noundef %
   %25 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %4, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %23, ptr noundef nonnull align 4 dereferenceable(52) %25, i64 52, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %25, ptr noundef nonnull align 4 dereferenceable(52) %7, i64 52, i1 false)
-  %26 = trunc i64 %indvars.iv103 to i32
+  %26 = trunc nuw nsw i64 %indvars.iv103 to i32
   tail call void @Kit_TruthSwapAdjacentVars(ptr noundef %.17394.us, ptr noundef %.18091.us, i32 noundef %2, i32 noundef %26) #16
   br label %27
 
@@ -1039,12 +1039,12 @@ define i32 @Aig_RManSemiCanonicize(ptr noundef %0, ptr noundef %1, i32 noundef %
   %29 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %4, i64 %28
   %30 = or disjoint i64 %28, 1
   %31 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %4, i64 %30
-  %32 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %29, ptr noundef nonnull dereferenceable(4) %31, i64 noundef 4) #18
+  %32 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(4) %29, ptr noundef nonnull readonly dereferenceable(4) %31, i64 noundef 4) #18
   %33 = icmp slt i32 %32, 1
   br i1 %33, label %38, label %34
 
 34:                                               ; preds = %.lr.ph
-  %35 = trunc i64 %indvars.iv to i32
+  %35 = trunc nuw nsw i64 %indvars.iv to i32
   %36 = shl nuw i32 1, %35
   %37 = or i32 %.089, %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %7, ptr noundef nonnull align 4 dereferenceable(52) %29, i64 52, i1 false)
@@ -1363,7 +1363,7 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %4
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
   %86 = shl nuw nsw i64 %indvars.iv.next.i51, 1
   %87 = getelementptr inbounds %struct.Aig_VSig_t_, ptr %80, i64 %86
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %85, ptr noundef nonnull dereferenceable(4) %87, i64 4)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %85, ptr noundef nonnull readonly dereferenceable(4) %87, i64 4)
   %88 = icmp eq i32 %bcmp.i, 0
   br i1 %88, label %Aig_RManVarsAreUnique.exit, label %82, !llvm.loop !21
 
@@ -1374,7 +1374,7 @@ Aig_RManVarsAreUnique.exit:                       ; preds = %82, %83
   %91 = add nsw i32 %90, %.08.i
   store i32 %91, ptr %89, align 4
   %92 = getelementptr inbounds i8, ptr %79, i64 568
-  %93 = tail call i32 @Aig_RManTableFindOrAdd(ptr noundef %79, ptr noundef nonnull %92, i32 noundef %20), !range !31
+  %93 = tail call i32 @Aig_RManTableFindOrAdd(ptr noundef %79, ptr noundef nonnull %92, i32 noundef %20)
   %.not45 = icmp eq i32 %93, 0
   br i1 %.not45, label %97, label %94
 
@@ -1408,7 +1408,7 @@ Aig_RManVarsAreUnique.exit:                       ; preds = %82, %83
   store i8 %105, ptr %106, align 1
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %30
-  br i1 %exitcond74.not, label %._crit_edge61, label %103, !llvm.loop !32
+  br i1 %exitcond74.not, label %._crit_edge61, label %103, !llvm.loop !31
 
 ._crit_edge61:                                    ; preds = %103
   %107 = getelementptr inbounds i8, ptr %.pre, i64 1592
@@ -1433,7 +1433,7 @@ Aig_RManVarsAreUnique.exit:                       ; preds = %82, %83
 115:                                              ; preds = %.lr.ph64, %112
   %116 = add nuw nsw i32 %.262, 1
   %exitcond75.not = icmp eq i32 %116, %20
-  br i1 %exitcond75.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !33
+  br i1 %exitcond75.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !32
 
 ._crit_edge65:                                    ; preds = %115, %._crit_edge61.thread, %._crit_edge61
   br i1 %exitcond.not.i.not, label %117, label %Kit_TruthIsEqual.exit
@@ -1447,7 +1447,7 @@ Aig_RManVarsAreUnique.exit:                       ; preds = %82, %83
 
 select.unfold.i53:                                ; preds = %124, %117
   %indvars.iv.i54 = phi i64 [ %121, %117 ], [ %125, %124 ]
-  %122 = trunc i64 %indvars.iv.i54 to i32
+  %122 = trunc nuw i64 %indvars.iv.i54 to i32
   %123 = icmp sgt i32 %122, 0
   br i1 %123, label %124, label %Kit_TruthIsEqual.exit
 
@@ -1555,6 +1555,5 @@ attributes #18 = { nounwind willreturn memory(read) }
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = !{i32 0, i32 2}
+!31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}

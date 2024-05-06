@@ -135,7 +135,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @aeResizeSetSize(ptr nocapture noundef %eventLoop, i32 noundef %setsize) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @aeResizeSetSize(ptr nocapture noundef %eventLoop, i32 noundef %setsize) local_unnamed_addr #0 {
 entry:
   %setsize1 = getelementptr inbounds i8, ptr %eventLoop, i64 4
   %0 = load i32, ptr %setsize1, align 4
@@ -239,7 +239,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @aeCreateFileEvent(ptr nocapture noundef %eventLoop, i32 noundef %fd, i32 noundef %mask, ptr noundef %proc, ptr noundef %clientData) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @aeCreateFileEvent(ptr nocapture noundef %eventLoop, i32 noundef %fd, i32 noundef %mask, ptr noundef %proc, ptr noundef %clientData) local_unnamed_addr #0 {
 entry:
   %ee.i = alloca %struct.epoll_event, align 4
   %setsize = getelementptr inbounds i8, ptr %eventLoop, i64 4
@@ -389,7 +389,7 @@ for.cond.preheader:                               ; preds = %aeApiDelEvent.exit
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %9, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw i64 %indvars.iv to i32
   %cmp15 = icmp sgt i32 %11, 0
   br i1 %cmp15, label %for.body, label %for.end
 
@@ -514,7 +514,7 @@ return:                                           ; preds = %entry, %if.end9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @aeDeleteTimeEvent(ptr nocapture noundef readonly %eventLoop, i64 noundef %id) local_unnamed_addr #9 {
+define dso_local range(i32 -1, 1) i32 @aeDeleteTimeEvent(ptr nocapture noundef readonly %eventLoop, i64 noundef %id) local_unnamed_addr #9 {
 entry:
   %timeEventHead = getelementptr inbounds i8, ptr %eventLoop, i64 32
   %te.05 = load ptr, ptr %timeEventHead, align 8
@@ -633,7 +633,7 @@ usUntilEarliestTimer.exit:                        ; preds = %if.end6.i
 if.then27:                                        ; preds = %usUntilEarliestTimer.exit
   %div = udiv i64 %spec.select11.i, 1000000
   %rem = urem i64 %spec.select11.i, 1000000
-  %12 = trunc i64 %rem to i32
+  %12 = trunc nuw nsw i64 %rem to i32
   %13 = add nuw nsw i32 %12, 999
   %14 = udiv i32 %13, 1000
   %15 = trunc i64 %div to i32

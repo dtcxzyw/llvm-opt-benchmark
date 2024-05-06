@@ -32,7 +32,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %1 = load ptr, ptr %xops.0.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
-  %call3.i = tail call i32 @strncmp(ptr noundef %name, ptr noundef %1, i64 noundef %call.i) #9
+  %call3.i = tail call i32 @strncmp(ptr noundef readonly %name, ptr noundef %1, i64 noundef %call.i) #9
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.then, label %for.cond.i, !llvm.loop !5
 
@@ -56,7 +56,7 @@ return:                                           ; preds = %if.end, %if.then
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @pt_listxattr(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %path, ptr nocapture noundef readonly %name, ptr noundef writeonly %value, i64 noundef %size) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pt_listxattr(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %path, ptr nocapture noundef readonly %name, ptr noundef writeonly %value, i64 noundef %size) local_unnamed_addr #2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #9
   %tobool.not = icmp eq ptr %value, null
@@ -154,7 +154,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %3 = load ptr, ptr %xops.0.i, align 8
   %call.i46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %call3.i = tail call i32 @strncmp(ptr noundef %orig_value.051, ptr noundef %3, i64 noundef %call.i46) #9
+  %call3.i = tail call i32 @strncmp(ptr noundef readonly %orig_value.051, ptr noundef %3, i64 noundef %call.i46) #9
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.end16, label %for.cond.i, !llvm.loop !5
 
@@ -242,7 +242,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %1 = load ptr, ptr %xops.0.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
-  %call3.i = tail call i32 @strncmp(ptr noundef %name, ptr noundef %1, i64 noundef %call.i) #9
+  %call3.i = tail call i32 @strncmp(ptr noundef readonly %name, ptr noundef %1, i64 noundef %call.i) #9
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.then, label %for.cond.i, !llvm.loop !5
 
@@ -279,7 +279,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %1 = load ptr, ptr %xops.0.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
-  %call3.i = tail call i32 @strncmp(ptr noundef %name, ptr noundef %1, i64 noundef %call.i) #9
+  %call3.i = tail call i32 @strncmp(ptr noundef readonly %name, ptr noundef %1, i64 noundef %call.i) #9
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.then, label %for.cond.i, !llvm.loop !5
 
@@ -333,7 +333,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @local_setxattr_nofollow(ptr noundef %ctx, ptr noundef %path, ptr noundef %name, ptr noundef %value, i64 noundef %size, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @local_setxattr_nofollow(ptr noundef %ctx, ptr noundef %path, ptr noundef %name, ptr noundef %value, i64 noundef %size, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @g_path_get_dirname(ptr noundef %path) #10
   %call1 = tail call noalias ptr @g_path_get_basename(ptr noundef %path) #10
@@ -362,8 +362,8 @@ declare i32 @fsetxattrat_nofollow(i32 noundef, ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @pt_setxattr(ptr noundef %ctx, ptr noundef %path, ptr noundef %name, ptr noundef %value, i64 noundef %size, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %call = tail call i64 @local_setxattr_nofollow(ptr noundef %ctx, ptr noundef %path, ptr noundef %name, ptr noundef %value, i64 noundef %size, i32 noundef %flags), !range !8
-  %conv = trunc i64 %call to i32
+  %call = tail call i64 @local_setxattr_nofollow(ptr noundef %ctx, ptr noundef %path, ptr noundef %name, ptr noundef %value, i64 noundef %size, i32 noundef %flags)
+  %conv = trunc nsw i64 %call to i32
   ret i32 %conv
 }
 
@@ -460,4 +460,3 @@ attributes #12 = { nounwind allocsize(0) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i64 -2147483648, i64 2147483648}

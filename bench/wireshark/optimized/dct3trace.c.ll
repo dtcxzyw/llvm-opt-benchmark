@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @dct3trace_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dct3trace_open(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @dct3trace_open(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = load ptr, ptr %0, align 8
@@ -97,17 +97,17 @@ declare ptr @file_gets(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dct3trace_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @dct3trace_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #7
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call fastcc i32 @dct3trace_get_packet(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !4
+  %10 = tail call fastcc i32 @dct3trace_get_packet(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dct3trace_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @dct3trace_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #7
@@ -116,7 +116,7 @@ define internal noundef i32 @dct3trace_seek_read(ptr nocapture noundef readonly 
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = tail call fastcc i32 @dct3trace_get_packet(ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !4
+  %13 = tail call fastcc i32 @dct3trace_get_packet(ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %14
 
 14:                                               ; preds = %6, %11
@@ -141,7 +141,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dct3trace_get_packet(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dct3trace_get_packet(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca [23 x i8], align 16
   %8 = alloca i32, align 4
@@ -240,7 +240,7 @@ define internal fastcc noundef i32 @dct3trace_get_packet(ptr noundef %0, ptr noc
   %.not91 = icmp eq ptr %47, null
   %48 = zext i1 %.not91 to i32
   store i32 %48, ptr %12, align 8
-  %49 = call fastcc i32 @xml_get_int(ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.3, ptr noundef %3, ptr noundef %4), !range !4
+  %49 = call fastcc i32 @xml_get_int(ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.3, ptr noundef %3, ptr noundef %4)
   %.not92 = icmp eq i32 %49, 0
   br i1 %.not92, label %.loopexit, label %50
 
@@ -250,7 +250,7 @@ define internal fastcc noundef i32 @dct3trace_get_packet(ptr noundef %0, ptr noc
   br i1 %.not93, label %52, label %72
 
 52:                                               ; preds = %50
-  %53 = call fastcc i32 @xml_get_int(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.4, ptr noundef %3, ptr noundef %4), !range !4
+  %53 = call fastcc i32 @xml_get_int(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.4, ptr noundef %3, ptr noundef %4)
   %.not94 = icmp eq i32 %53, 0
   br i1 %.not94, label %.loopexit, label %54
 
@@ -258,14 +258,14 @@ define internal fastcc noundef i32 @dct3trace_get_packet(ptr noundef %0, ptr noc
   %55 = load i32, ptr %9, align 4
   %56 = trunc i32 %55 to i16
   store i16 %56, ptr %13, align 2
-  %57 = call fastcc i32 @xml_get_int(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.5, ptr noundef %3, ptr noundef %4), !range !4
+  %57 = call fastcc i32 @xml_get_int(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.5, ptr noundef %3, ptr noundef %4)
   %.not95 = icmp eq i32 %57, 0
   br i1 %.not95, label %.loopexit, label %58
 
 58:                                               ; preds = %54
   %59 = load i32, ptr %9, align 4
   store i32 %59, ptr %14, align 8
-  %60 = call fastcc i32 @xml_get_int(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef %3, ptr noundef %4), !range !4
+  %60 = call fastcc i32 @xml_get_int(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef %3, ptr noundef %4)
   %.not96 = icmp eq i32 %60, 0
   br i1 %.not96, label %.loopexit, label %61
 
@@ -273,7 +273,7 @@ define internal fastcc noundef i32 @dct3trace_get_packet(ptr noundef %0, ptr noc
   %62 = load i32, ptr %9, align 4
   %63 = trunc i32 %62 to i8
   store i8 %63, ptr %15, align 1
-  %64 = call fastcc i32 @xml_get_int(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef %3, ptr noundef %4), !range !4
+  %64 = call fastcc i32 @xml_get_int(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef %3, ptr noundef %4)
   %.not97 = icmp eq i32 %64, 0
   br i1 %.not97, label %.loopexit, label %65
 
@@ -281,7 +281,7 @@ define internal fastcc noundef i32 @dct3trace_get_packet(ptr noundef %0, ptr noc
   %66 = load i32, ptr %9, align 4
   %67 = trunc i32 %66 to i8
   store i8 %67, ptr %16, align 4
-  %68 = call fastcc i32 @xml_get_int(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.8, ptr noundef %3, ptr noundef %4), !range !4
+  %68 = call fastcc i32 @xml_get_int(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.8, ptr noundef %3, ptr noundef %4)
   %.not98 = icmp eq i32 %68, 0
   br i1 %.not98, label %.loopexit, label %69
 
@@ -308,7 +308,7 @@ define internal fastcc noundef i32 @dct3trace_get_packet(ptr noundef %0, ptr noc
 
 .outer.backedge:                                  ; preds = %117, %116, %72
   %.076.ph.be = phi i32 [ %.076, %72 ], [ 1, %116 ], [ 0, %117 ]
-  br label %.outer, !llvm.loop !5
+  br label %.outer, !llvm.loop !4
 
 78:                                               ; preds = %72
   %79 = getelementptr i8, ptr %77, i64 6
@@ -351,7 +351,7 @@ hc2b.exit.thread.i:                               ; preds = %hc2b.exit.i, %89
   %93 = getelementptr i8, ptr %.01925.i, i64 1
   %94 = load i8, ptr %93, align 1
   %.not.i = icmp eq i8 %94, 0
-  br i1 %.not.i, label %hex2bin.exit, label %82, !llvm.loop !7
+  br i1 %.not.i, label %hex2bin.exit, label %82, !llvm.loop !6
 
 95:                                               ; preds = %hc2b.exit.i
   %96 = icmp eq ptr %.017.ph29.i, %11
@@ -382,7 +382,7 @@ hc2b.exit.thread.i:                               ; preds = %hc2b.exit.i, %89
   %107 = getelementptr i8, ptr %.01925.i, i64 1
   %108 = load i8, ptr %107, align 1
   %.not24.i = icmp eq i8 %108, 0
-  br i1 %.not24.i, label %hex2bin.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not24.i, label %hex2bin.exit, label %.lr.ph.i, !llvm.loop !6
 
 hex2bin.exit:                                     ; preds = %.outer.i, %hc2b.exit.thread.i, %78
   %.017.ph.lcssa23.i = phi ptr [ %.075.ph.ph.ph, %78 ], [ %.017.ph29.i, %hc2b.exit.thread.i ], [ %.118.i, %.outer.i ]
@@ -390,7 +390,7 @@ hex2bin.exit:                                     ; preds = %.outer.i, %hc2b.exi
   %110 = sub i64 %109, %18
   %111 = trunc i64 %110 to i32
   %112 = icmp eq i32 %111, -1
-  br i1 %112, label %hex2bin.exit.thread, label %.outer.outer, !llvm.loop !5
+  br i1 %112, label %hex2bin.exit.thread, label %.outer.outer, !llvm.loop !4
 
 hex2bin.exit.thread:                              ; preds = %hex2bin.exit, %95
   %113 = getelementptr inbounds i8, ptr %1, i64 64
@@ -402,16 +402,16 @@ hex2bin.exit.thread:                              ; preds = %hex2bin.exit, %95
 
 116:                                              ; preds = %45
   %.not87 = icmp eq i32 %.076, 0
-  br i1 %.not87, label %117, label %.outer.backedge, !llvm.loop !5
+  br i1 %.not87, label %117, label %.outer.backedge, !llvm.loop !4
 
 117:                                              ; preds = %116
   %.not89 = icmp eq i32 %rhsv, 540175420
-  br i1 %.not89, label %118, label %.outer.backedge, !llvm.loop !5
+  br i1 %.not89, label %118, label %.outer.backedge, !llvm.loop !4
 
 118:                                              ; preds = %117
   %119 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.9) #8
   %.not90 = icmp eq ptr %119, null
-  br i1 %.not90, label %19, label %120, !llvm.loop !5
+  br i1 %.not90, label %19, label %120, !llvm.loop !4
 
 120:                                              ; preds = %118
   %121 = load i8, ptr %10, align 4
@@ -467,7 +467,7 @@ hc2b.exit.thread.i109:                            ; preds = %hc2b.exit.i114, %13
   %140 = getelementptr i8, ptr %.01925.i106, i64 1
   %141 = load i8, ptr %140, align 1
   %.not.i110 = icmp eq i8 %141, 0
-  br i1 %.not.i110, label %hex2bin.exit122, label %129, !llvm.loop !7
+  br i1 %.not.i110, label %hex2bin.exit122, label %129, !llvm.loop !6
 
 142:                                              ; preds = %hc2b.exit.i114
   %143 = icmp eq ptr %.017.ph29.i104, %11
@@ -498,7 +498,7 @@ hc2b.exit.thread.i109:                            ; preds = %hc2b.exit.i114, %13
   %154 = getelementptr i8, ptr %.01925.i106, i64 1
   %155 = load i8, ptr %154, align 1
   %.not24.i120 = icmp eq i8 %155, 0
-  br i1 %.not24.i120, label %hex2bin.exit122, label %.lr.ph.i102, !llvm.loop !7
+  br i1 %.not24.i120, label %hex2bin.exit122, label %.lr.ph.i102, !llvm.loop !6
 
 hex2bin.exit122:                                  ; preds = %.outer.i116, %hc2b.exit.thread.i109, %123
   %.017.ph.lcssa23.i112 = phi ptr [ %125, %123 ], [ %.017.ph29.i104, %hc2b.exit.thread.i109 ], [ %.118.i118, %.outer.i116 ]
@@ -524,7 +524,7 @@ hex2bin.exit122.thread:                           ; preds = %hex2bin.exit122, %1
   %167 = or disjoint i8 %166, 1
   %168 = getelementptr i8, ptr %125, i64 -1
   store i8 %167, ptr %168, align 1
-  br label %.outer.outer.outer, !llvm.loop !5
+  br label %.outer.outer.outer, !llvm.loop !4
 
 169:                                              ; preds = %19
   %170 = call i32 @file_error(ptr noundef %0, ptr noundef %4) #7
@@ -551,7 +551,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @xml_get_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @xml_get_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [32 x i8], align 16
   %8 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %2) #8
@@ -686,7 +686,6 @@ attributes #9 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

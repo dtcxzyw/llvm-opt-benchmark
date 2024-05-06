@@ -995,7 +995,7 @@ dissect_gadu_gadu_stringz_cp1250.exit.i266:       ; preds = %236, %gadu_gadu_sta
   br i1 %cond.i, label %278, label %dissect_gadu_gadu_user_data.exit
 
 278:                                              ; preds = %273
-  %279 = tail call fastcc i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0, i32 noundef 9), !range !7
+  %279 = tail call fastcc i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0, i32 noundef 9)
   br label %dissect_gadu_gadu_user_data.exit
 
 280:                                              ; preds = %25
@@ -1017,7 +1017,7 @@ dissect_gadu_gadu_stringz_cp1250.exit.i266:       ; preds = %236, %gadu_gadu_sta
   br i1 %or.cond.i, label %293, label %dissect_gadu_gadu_user_data.exit
 
 293:                                              ; preds = %280
-  %294 = tail call fastcc i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0, i32 noundef 15), !range !7
+  %294 = tail call fastcc i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0, i32 noundef 15)
   br label %dissect_gadu_gadu_user_data.exit
 
 295:                                              ; preds = %25
@@ -1047,7 +1047,7 @@ dissect_gadu_gadu_stringz_cp1250.exit.i266:       ; preds = %236, %gadu_gadu_sta
   %308 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %306, ptr noundef %0, i32 noundef %.01.i, i32 noundef %307, i32 noundef 42) #2
   %309 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %reass.sub.i, i32 noundef -1, i8 noundef zeroext 0) #2
   %310 = icmp sgt i32 %309, 0
-  br i1 %310, label %.lr.ph.i273, label %dissect_gadu_gadu_user_data.exit, !llvm.loop !8
+  br i1 %310, label %.lr.ph.i273, label %dissect_gadu_gadu_user_data.exit, !llvm.loop !7
 
 311:                                              ; preds = %25
   %312 = load ptr, ptr %5, align 8
@@ -1380,7 +1380,7 @@ dissect_gadu_gadu_send_msg.exit:                  ; preds = %proto_item_set_gene
   %461 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %459, ptr noundef %0, i32 noundef %.01.i292, i32 noundef %460, i32 noundef 42) #2
   %462 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %reass.sub.i293, i32 noundef -1, i8 noundef zeroext 0) #2
   %463 = icmp sgt i32 %462, 0
-  br i1 %463, label %.lr.ph.i291, label %dissect_gadu_gadu_user_data.exit, !llvm.loop !9
+  br i1 %463, label %.lr.ph.i291, label %dissect_gadu_gadu_user_data.exit, !llvm.loop !8
 
 464:                                              ; preds = %322
   %465 = tail call ptr @try_val_to_str(i32 noundef %13, ptr noundef nonnull @gadu_gadu_packets_type_send) #2
@@ -1435,7 +1435,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_gadu_gadu_login(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 30, 94) i32 @dissect_gadu_gadu_login(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1488,7 +1488,7 @@ proto_item_set_generated.exit:                    ; preds = %proto_item_set_gene
   store i8 %27, ptr %28, align 1
   %29 = add nuw nsw i32 %.010.i, 1
   %.not.i37 = icmp eq i64 %26, 0
-  br i1 %.not.i37, label %_tvb_memcpy_reverse.exit, label %proto_item_set_generated.exit, !llvm.loop !10
+  br i1 %.not.i37, label %_tvb_memcpy_reverse.exit, label %proto_item_set_generated.exit, !llvm.loop !9
 
 _tvb_memcpy_reverse.exit:                         ; preds = %proto_item_set_generated.exit
   %30 = load i32, ptr @hf_gadu_gadu_login_hash, align 4
@@ -1528,7 +1528,7 @@ dissect_gadu_gadu_login_protocol.exit:            ; preds = %_tvb_memcpy_reverse
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gadu_gadu_login70(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 31, 95) i32 @dissect_gadu_gadu_login70(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.270) #2
@@ -1551,7 +1551,7 @@ define internal fastcc i32 @dissect_gadu_gadu_login70(ptr noundef %0, ptr nounde
 gadu_gadu_create_conversation.exit:               ; preds = %3, %11
   %15 = load i32, ptr @hf_gadu_gadu_login_uin, align 4
   %16 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %7) #2
-  %17 = tail call fastcc i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %2, i32 noundef 12), !range !11
+  %17 = tail call fastcc i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %2, i32 noundef 12)
   %18 = load i32, ptr @hf_gadu_gadu_login_status, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef -2147483648) #2
   %20 = add nuw nsw i32 %17, 4
@@ -1593,7 +1593,7 @@ dissect_gadu_gadu_login_protocol.exit:            ; preds = %gadu_gadu_create_co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gadu_gadu_login80(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 81, 84) i32 @dissect_gadu_gadu_login80(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.271) #2
@@ -1617,7 +1617,7 @@ gadu_gadu_create_conversation.exit:               ; preds = %3, %10
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
   %16 = load i32, ptr @hf_gadu_gadu_login80_lang, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0) #2
-  %18 = tail call fastcc i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %2, i32 noundef 14), !range !11
+  %18 = tail call fastcc i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %2, i32 noundef 14)
   %19 = load i32, ptr @hf_gadu_gadu_login_status, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #2
   %21 = add nuw nsw i32 %18, 4
@@ -1664,7 +1664,7 @@ define internal fastcc noundef i32 @dissect_gadu_gadu_notify105(ptr noundef %0, 
   call void @proto_item_set_len(ptr noundef %29, i32 noundef %30) #2
   %31 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %27) #2
   %32 = icmp sgt i32 %31, 1
-  br i1 %32, label %10, label %._crit_edge, !llvm.loop !12
+  br i1 %32, label %10, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %10, %3
   %.0.lcssa = phi i32 [ 8, %3 ], [ %27, %10 ]
@@ -1903,7 +1903,7 @@ define internal fastcc void @dissect_gadu_gadu_dcc7_id_abort(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gadu_gadu_userlist_request80(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 9, -2147483633) i32 @dissect_gadu_gadu_userlist_request80(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.291) #2
@@ -1933,7 +1933,7 @@ proto_item_set_generated.exit:                    ; preds = %3, %11, %14
   br i1 %cond, label %18, label %20
 
 18:                                               ; preds = %proto_item_set_generated.exit
-  %19 = tail call fastcc i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 9), !range !7
+  %19 = tail call fastcc i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 9)
   br label %20
 
 20:                                               ; preds = %proto_item_set_generated.exit, %18
@@ -1942,7 +1942,7 @@ proto_item_set_generated.exit:                    ; preds = %3, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gadu_gadu_userlist_request100(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 9, -2147483633) i32 @dissect_gadu_gadu_userlist_request100(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.292) #2
@@ -1962,7 +1962,7 @@ define internal fastcc i32 @dissect_gadu_gadu_userlist_request100(ptr noundef %0
   br i1 %or.cond, label %17, label %19
 
 17:                                               ; preds = %3
-  %18 = tail call fastcc i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 15), !range !7
+  %18 = tail call fastcc i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 15)
   br label %19
 
 19:                                               ; preds = %17, %3
@@ -1987,7 +1987,7 @@ declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef z
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 9, -2147483633) i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #2
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %18, label %7
@@ -2039,7 +2039,7 @@ declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef)
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 77, 80) i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #2
   %6 = load i32, ptr @hf_gadu_gadu_login_hash_type, align 4
@@ -2059,7 +2059,7 @@ define internal fastcc i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr nou
   store i8 %10, ptr %11, align 1
   %12 = add i32 %.010.i, 1
   %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %_tvb_memcpy_reverse.exit, label %.preheader, !llvm.loop !10
+  br i1 %.not.i, label %_tvb_memcpy_reverse.exit, label %.preheader, !llvm.loop !9
 
 _tvb_memcpy_reverse.exit:                         ; preds = %.preheader
   %13 = load i32, ptr @hf_gadu_gadu_login_hash, align 4
@@ -2070,7 +2070,7 @@ _tvb_memcpy_reverse.exit:                         ; preds = %.preheader
 16:                                               ; preds = %18
   %17 = add nuw nsw i32 %.040, 1
   %exitcond42.not = icmp eq i32 %17, 64
-  br i1 %exitcond42.not, label %.loopexit, label %18, !llvm.loop !13
+  br i1 %exitcond42.not, label %.loopexit, label %18, !llvm.loop !11
 
 18:                                               ; preds = %_tvb_memcpy_reverse.exit, %16
   %.040 = phi i32 [ 4, %_tvb_memcpy_reverse.exit ], [ %17, %16 ]
@@ -2093,7 +2093,7 @@ _tvb_memcpy_reverse.exit:                         ; preds = %.preheader
 28:                                               ; preds = %30
   %29 = add nuw nsw i32 %.139, 1
   %exitcond.not = icmp eq i32 %29, 64
-  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !12
 
 30:                                               ; preds = %25, %28
   %.139 = phi i32 [ 20, %25 ], [ %29, %28 ]
@@ -2137,7 +2137,7 @@ define internal fastcc noundef i32 @dissect_gadu_gadu_notify_common(ptr noundef 
   %13 = add i32 %.01, 5
   %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %13) #2
   %15 = icmp sgt i32 %14, 4
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 8, %2 ], [ %13, %.lr.ph ]
@@ -2167,12 +2167,10 @@ attributes #2 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 9, i32 -2147483633}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 77, i32 80}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}

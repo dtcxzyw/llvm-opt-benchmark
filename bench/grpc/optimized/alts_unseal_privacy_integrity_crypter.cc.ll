@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const._ZL12unseal_checkP12alts_crypterPKhmmPmPPc.error_msg = private unnamed_addr constant [46 x i8] c"data_size is smaller than num_overhead_bytes.\00", align 16
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z26alts_unseal_crypter_createP17gsec_aead_crypterbmPP12alts_crypterPPc(ptr noundef %gc, i1 noundef zeroext %is_client, i64 noundef %overflow_size, ptr noundef writeonly %crypter, ptr noundef %error_details) local_unnamed_addr #0 {
+define noundef range(i32 0, 10) i32 @_Z26alts_unseal_crypter_createP17gsec_aead_crypterbmPP12alts_crypterPPc(ptr noundef %gc, i1 noundef zeroext %is_client, i64 noundef %overflow_size, ptr noundef writeonly %crypter, ptr noundef %error_details) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %crypter, null
   br i1 %cmp, label %if.then, label %if.end
@@ -22,7 +22,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 20)
   store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %call2.i, ptr noundef nonnull align 16 dereferenceable(20) @__const._Z26alts_unseal_crypter_createP17gsec_aead_crypterbmPP12alts_crypterPPc.error_msg, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %call2.i, ptr noundef nonnull readonly align 16 dereferenceable(20) @__const._Z26alts_unseal_crypter_createP17gsec_aead_crypterbmPP12alts_crypterPPc.error_msg, i64 20, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -68,7 +68,7 @@ if.then3.i:                                       ; preds = %if.end.i
 if.then.i.i:                                      ; preds = %if.then3.i
   %call2.i.i = tail call ptr @gpr_malloc(i64 noundef 46)
   store ptr %call2.i.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(46) %call2.i.i, ptr noundef nonnull align 16 dereferenceable(46) @__const._ZL12unseal_checkP12alts_crypterPKhmmPmPPc.error_msg, i64 46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(46) %call2.i.i, ptr noundef nonnull readonly align 16 dereferenceable(46) @__const._ZL12unseal_checkP12alts_crypterPKhmmPmPPc.error_msg, i64 46, i1 false)
   br label %return
 
 if.end:                                           ; preds = %if.end.i

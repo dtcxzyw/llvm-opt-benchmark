@@ -94,7 +94,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.55 = private unnamed_addr constant [8 x i8] c"locator\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_SIGNATURE_it() #0 {
+define noundef nonnull ptr @OCSP_SIGNATURE_it() #0 {
 entry:
   ret ptr @OCSP_SIGNATURE_it.local_it
 }
@@ -136,7 +136,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_CERTID_it() #0 {
+define noundef nonnull ptr @OCSP_CERTID_it() #0 {
 entry:
   ret ptr @OCSP_CERTID_it.local_it
 }
@@ -170,7 +170,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_ONEREQ_it() #0 {
+define noundef nonnull ptr @OCSP_ONEREQ_it() #0 {
 entry:
   ret ptr @OCSP_ONEREQ_it.local_it
 }
@@ -204,7 +204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_REQINFO_it() #0 {
+define noundef nonnull ptr @OCSP_REQINFO_it() #0 {
 entry:
   ret ptr @OCSP_REQINFO_it.local_it
 }
@@ -238,7 +238,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_REQUEST_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @OCSP_REQUEST_it() local_unnamed_addr #0 {
 entry:
   ret ptr @OCSP_REQUEST_it.local_it
 }
@@ -272,7 +272,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_RESPBYTES_it() #0 {
+define noundef nonnull ptr @OCSP_RESPBYTES_it() #0 {
 entry:
   ret ptr @OCSP_RESPBYTES_it.local_it
 }
@@ -306,7 +306,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_RESPONSE_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @OCSP_RESPONSE_it() local_unnamed_addr #0 {
 entry:
   ret ptr @OCSP_RESPONSE_it.local_it
 }
@@ -340,7 +340,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_RESPID_it() #0 {
+define noundef nonnull ptr @OCSP_RESPID_it() #0 {
 entry:
   ret ptr @OCSP_RESPID_it.local_it
 }
@@ -374,7 +374,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_REVOKEDINFO_it() #0 {
+define noundef nonnull ptr @OCSP_REVOKEDINFO_it() #0 {
 entry:
   ret ptr @OCSP_REVOKEDINFO_it.local_it
 }
@@ -408,7 +408,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_CERTSTATUS_it() #0 {
+define noundef nonnull ptr @OCSP_CERTSTATUS_it() #0 {
 entry:
   ret ptr @OCSP_CERTSTATUS_it.local_it
 }
@@ -442,7 +442,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_SINGLERESP_it() #0 {
+define noundef nonnull ptr @OCSP_SINGLERESP_it() #0 {
 entry:
   ret ptr @OCSP_SINGLERESP_it.local_it
 }
@@ -476,7 +476,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_RESPDATA_it() #0 {
+define noundef nonnull ptr @OCSP_RESPDATA_it() #0 {
 entry:
   ret ptr @OCSP_RESPDATA_it.local_it
 }
@@ -510,7 +510,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_BASICRESP_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @OCSP_BASICRESP_it() local_unnamed_addr #0 {
 entry:
   ret ptr @OCSP_BASICRESP_it.local_it
 }
@@ -544,7 +544,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_CRLID_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @OCSP_CRLID_it() local_unnamed_addr #0 {
 entry:
   ret ptr @OCSP_CRLID_it.local_it
 }
@@ -578,7 +578,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @OCSP_SERVICELOC_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @OCSP_SERVICELOC_it() local_unnamed_addr #0 {
 entry:
   ret ptr @OCSP_SERVICELOC_it.local_it
 }

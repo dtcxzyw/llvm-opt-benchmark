@@ -1342,7 +1342,7 @@ declare void @cairo_stroke(ptr noundef) local_unnamed_addr #5
 declare void @dt_guides_draw(ptr noundef, float noundef, float noundef, float noundef, float noundef, float noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @button_released(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define noundef range(i32 0, 2) i32 @button_released(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds i8, ptr %0, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !6
   %8 = getelementptr inbounds i8, ptr %7, i64 56
@@ -1360,7 +1360,7 @@ define noundef i32 @button_released(ptr nocapture noundef readonly %0, double no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @button_pressed(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = getelementptr inbounds i8, ptr %0, i64 280
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   %10 = getelementptr inbounds i8, ptr %9, i64 144
@@ -1459,7 +1459,7 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
 declare void @dt_control_queue_redraw_center(...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @mouse_moved(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define noundef range(i32 0, 2) i32 @mouse_moved(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds i8, ptr %0, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !6
   %8 = getelementptr inbounds i8, ptr %7, i64 56

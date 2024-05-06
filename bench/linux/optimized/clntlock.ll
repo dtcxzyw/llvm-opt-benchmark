@@ -201,7 +201,7 @@ define dso_local i32 @nlmclnt_dequeue_block(ptr nocapture noundef %0) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nlmclnt_wait(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -512, 1) i32 @nlmclnt_wait(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %46, label %6
@@ -295,7 +295,7 @@ declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #2
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nlmclnt_grant(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 16777217) i32 @nlmclnt_grant(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   tail call void @_raw_spin_lock(ptr noundef nonnull @nlm_blocked_lock) #11
   %4 = load ptr, ptr @nlm_blocked, align 8

@@ -92,7 +92,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [9 x i8] c"%s%s(%d)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @init() local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
@@ -157,7 +157,7 @@ define dso_local noundef i32 @init() local_unnamed_addr #0 {
 26:                                               ; preds = %24
   %27 = load ptr, ptr %7, align 8
   %28 = load i32, ptr %9, align 4
-  %29 = call fastcc i32 @_handle_config_features(ptr noundef %27, i32 noundef %28), !range !7
+  %29 = call fastcc i32 @_handle_config_features(ptr noundef %27, i32 noundef %28)
   %.not16.i = icmp eq i32 %29, 0
   br i1 %.not16.i, label %30, label %_read_config_file.exit
 
@@ -169,7 +169,7 @@ define dso_local noundef i32 @init() local_unnamed_addr #0 {
 32:                                               ; preds = %30
   %33 = load ptr, ptr %7, align 8
   %34 = load i32, ptr %9, align 4
-  %35 = call fastcc i32 @_handle_config_features(ptr noundef %33, i32 noundef %34), !range !7
+  %35 = call fastcc i32 @_handle_config_features(ptr noundef %33, i32 noundef %34)
   %.not18.i = icmp eq i32 %35, 0
   br i1 %.not18.i, label %36, label %_read_config_file.exit
 
@@ -203,7 +203,7 @@ define dso_local noundef i32 @init() local_unnamed_addr #0 {
 44:                                               ; preds = %42, %.preheader.i.i
   %.1.i.i = phi i32 [ %43, %42 ], [ %.012.i.i, %.preheader.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  br label %.preheader.i.i, !llvm.loop !8
+  br label %.preheader.i.i, !llvm.loop !7
 
 45:                                               ; preds = %.preheader.i.i
   %46 = add nsw i32 %.012.i.i, 1
@@ -236,7 +236,7 @@ define dso_local noundef i32 @init() local_unnamed_addr #0 {
 59:                                               ; preds = %.lr.ph.i.i
   %60 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #10
   %.not17.i.i = icmp eq ptr %60, null
-  br i1 %.not17.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not17.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %59, %45
   call void @slurm_xfree(ptr noundef nonnull %4) #10
@@ -288,7 +288,7 @@ _make_uid_array.exit.i:                           ; preds = %._crit_edge.i.i, %3
 76:                                               ; preds = %74, %72
   %77 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #10
   %.not.i24.i = icmp eq ptr %77, null
-  br i1 %.not.i24.i, label %_exclusive_register.exit.i, label %.lr.ph.i23.i, !llvm.loop !11
+  br i1 %.not.i24.i, label %_exclusive_register.exit.i, label %.lr.ph.i23.i, !llvm.loop !10
 
 _exclusive_register.exit.i:                       ; preds = %76, %.lr.ph.i
   call void @slurm_xfree(ptr noundef nonnull %1) #10
@@ -300,7 +300,7 @@ _exclusive_register.exit.i:                       ; preds = %76, %.lr.ph.i
   %79 = load i32, ptr %9, align 4
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next.i, %80
-  br i1 %81, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !12
+  br i1 %81, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %_exclusive_register.exit.i, %61
   %82 = call i32 @s_p_get_uint32(ptr noundef nonnull @boot_time, ptr noundef nonnull @.str.14, ptr noundef %18) #10
@@ -385,7 +385,7 @@ define dso_local zeroext i1 @node_features_p_changeable_feature(ptr noundef %0) 
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_cmp_features(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_cmp_features(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @xstrcmp(ptr noundef %3, ptr noundef %1) #10
   %.not = icmp eq i32 %4, 0
@@ -394,7 +394,7 @@ define internal i32 @_cmp_features(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @node_features_p_job_valid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2030) i32 @node_features_p_job_valid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %3
 
@@ -445,7 +445,7 @@ define dso_local noundef i32 @node_features_p_job_valid(ptr noundef %0, ptr noun
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_foreach_feature(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_foreach_feature(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @xstrstr(ptr noundef %1, ptr noundef %3) #10
   %.not = icmp ne ptr %4, null
@@ -498,7 +498,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @node_features_p_node_set(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -601,7 +601,7 @@ _feature_set_state.exit:                          ; preds = %27, %37
 41:                                               ; preds = %_feature_set_state.exit, %18, %21
   %42 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #10
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %.loopexit, label %15, !llvm.loop !13
+  br i1 %.not, label %.loopexit, label %15, !llvm.loop !12
 
 .loopexit:                                        ; preds = %41, %1, %.loopexit13
   %.0 = phi i32 [ -1, %.loopexit13 ], [ 0, %1 ], [ 0, %41 ]
@@ -746,7 +746,7 @@ define internal noundef i32 @_foreach_helper_get_modes(ptr nocapture noundef rea
   call void @list_append(ptr noundef %10, ptr noundef %27) #10
   %28 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef nonnull %3) #10
   %.not5.i = icmp eq ptr %28, null
-  br i1 %.not5.i, label %_feature_get_state.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not5.i, label %_feature_get_state.exit, label %.lr.ph.i, !llvm.loop !13
 
 _feature_get_state.exit:                          ; preds = %.lr.ph.i, %2, %25
   call void @slurm_xfree(ptr noundef nonnull %4) #10
@@ -895,7 +895,7 @@ define dso_local ptr @node_features_p_node_xlate(ptr noundef %0, ptr noundef %1,
   call void @list_append(ptr noundef %41, ptr noundef %44) #10
   %45 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #10
   %.not32 = icmp eq ptr %45, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %40
   call void @slurm_xfree(ptr noundef nonnull %5) #10
@@ -925,7 +925,7 @@ define dso_local ptr @node_features_p_node_xlate(ptr noundef %0, ptr noundef %1,
 54:                                               ; preds = %50, %.lr.ph42, %52
   %55 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #10
   %.not33 = icmp eq ptr %55, null
-  br i1 %.not33, label %._crit_edge43, label %.lr.ph42, !llvm.loop !16
+  br i1 %.not33, label %._crit_edge43, label %.lr.ph42, !llvm.loop !15
 
 ._crit_edge43:                                    ; preds = %54, %._crit_edge
   call void @slurm_xfree(ptr noundef nonnull %5) #10
@@ -965,7 +965,7 @@ define dso_local ptr @node_features_p_node_xlate(ptr noundef %0, ptr noundef %1,
 declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_cmp_str(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_cmp_str(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @xstrcmp(ptr noundef %0, ptr noundef %1) #10
   %.not = icmp eq i32 %3, 0
   %4 = zext i1 %.not to i32
@@ -1128,7 +1128,7 @@ define dso_local void @node_features_p_get_config(ptr noundef %0) local_unnamed_
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %3, align 8
@@ -1241,7 +1241,7 @@ define dso_local noundef zeroext i1 @node_features_p_user_update(i32 noundef %0)
 6:                                                ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !17
 
 7:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
@@ -1325,7 +1325,7 @@ declare i32 @s_p_parse_file(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 declare i32 @s_p_get_array(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_handle_config_features(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_handle_config_features(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = icmp sgt i32 %1, 0
@@ -1402,7 +1402,7 @@ switch.early.test31.i:                            ; preds = %.lr.ph.i
   %30 = getelementptr inbounds i8, ptr %.022, i64 %indvars.iv.next.i
   %31 = load i8, ptr %30, align 1
   %.not22.i = icmp eq i8 %31, 0
-  br i1 %.not22.i, label %_is_feature_valid.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not22.i, label %_is_feature_valid.exit, label %.lr.ph.i, !llvm.loop !18
 
 .loopexit:                                        ; preds = %12, %switch.early.test.i, %switch.early.test31.i
   call void @slurm_seterrno(i32 noundef 2029) #10
@@ -1465,13 +1465,13 @@ _is_feature_valid.exit:                           ; preds = %29, %.preheader.i
 60:                                               ; preds = %55, %35, %44, %41
   %61 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #10
   %.not = icmp eq ptr %61, null
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %60, %.lr.ph25
   call void @slurm_xfree(ptr noundef nonnull %3) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit17, label %.lr.ph25, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit17, label %.lr.ph25, !llvm.loop !20
 
 .loopexit17.sink.split:                           ; preds = %.loopexit, %57
   call void @slurm_xfree(ptr noundef nonnull %3) #10
@@ -1489,7 +1489,7 @@ declare i32 @s_p_get_uint32(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @s_p_hashtbl_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_parse_feature(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -1, 2) i32 @_parse_feature(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
@@ -1546,7 +1546,7 @@ define internal noundef i32 @_parse_exclusives(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_parse_feature_node(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -1, 2) i32 @_parse_feature_node(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = tail call zeroext i1 @running_in_slurmctld() #10
   br i1 %7, label %29, label %8
 
@@ -1590,7 +1590,7 @@ define internal noundef i32 @_parse_feature_node(ptr nocapture noundef writeonly
   br label %31
 
 29:                                               ; preds = %16, %8, %6
-  %30 = tail call i32 @_parse_feature(ptr noundef %0, i32 poison, ptr poison, ptr noundef null, ptr noundef %4, ptr noundef %5), !range !22
+  %30 = tail call i32 @_parse_feature(ptr noundef %0, i32 poison, ptr poison, ptr noundef null, ptr noundef %4, ptr noundef %5)
   br label %31
 
 31:                                               ; preds = %29, %25
@@ -1627,7 +1627,7 @@ declare i32 @job_features_set2str(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @list_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_count_exclusivity(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_count_exclusivity(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.excl_count_t, align 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1677,7 +1677,7 @@ switch.early.test:                                ; preds = %9
 .backedge:                                        ; preds = %9, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %19, %26
   %17 = tail call ptr @xstrstr(ptr noundef nonnull %11, ptr noundef %0) #10
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !21
 
 18:                                               ; preds = %switch.early.test
   %.not30 = icmp eq ptr %.037, %3
@@ -1735,7 +1735,7 @@ define internal noundef i32 @_foreach_check_duplicates(ptr noundef %0, ptr nound
 declare ptr @bitmap2node_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_reconcile_job_features(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_reconcile_job_features(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.build_valid_feature_set_args_t, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1799,7 +1799,7 @@ define internal noundef i32 @_reconcile_job_features(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_build_valid_feature_set(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @_build_valid_feature_set(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1876,20 +1876,18 @@ attributes #13 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 -1, i32 1}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = !{i32 -1, i32 2}
-!23 = distinct !{!23, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}

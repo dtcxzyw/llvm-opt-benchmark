@@ -956,7 +956,7 @@ lpad4:                                            ; preds = %call5.i.i.i.i.i.i.i
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN6duckdb10SetColumns4SizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define noundef range(i64 -384307168202282325, 384307168202282326) i64 @_ZN6duckdb10SetColumns4SizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !37
   %tobool.not = icmp eq ptr %0, null

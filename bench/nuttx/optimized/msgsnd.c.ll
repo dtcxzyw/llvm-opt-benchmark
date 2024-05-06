@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_readytorun = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @msgsnd(i32 noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @msgsnd(i32 noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %up_irq_restore.exit.thread, label %7
@@ -106,7 +106,7 @@ list_remove_head.exit:                            ; preds = %msgsnd_wait.exit.th
   %50 = getelementptr inbounds i8, ptr %46, i64 8
   store ptr %49, ptr %50, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
-  %51 = trunc i64 %2 to i16
+  %51 = trunc nuw i64 %2 to i16
   %52 = getelementptr inbounds i8, ptr %45, i64 16
   store i16 %51, ptr %52, align 8
   %53 = load i64, ptr %1, align 8

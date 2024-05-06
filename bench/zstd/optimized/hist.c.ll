@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @HIST_isError(i64 noundef %code) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @HIST_isError(i64 noundef %code) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i64 %code, -120
   %conv.i = zext i1 %cmp.i to i32
@@ -78,7 +78,7 @@ return:                                           ; preds = %for.body, %if.then
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @HIST_countFast_wksp(ptr nocapture noundef %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, ptr noundef %workSpace, i64 noundef %workSpaceSize) local_unnamed_addr #1 {
+define range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr nocapture noundef %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, ptr noundef %workSpace, i64 noundef %workSpaceSize) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %sourceSize, 1500
   br i1 %cmp, label %if.then, label %if.end
@@ -147,7 +147,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %cmp3, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end2
-  %call7 = tail call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %count, ptr noundef %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, i32 noundef 0, ptr noundef %workSpace), !range !8
+  %call7 = tail call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %count, ptr noundef %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, i32 noundef 0, ptr noundef %workSpace)
   br label %return
 
 return:                                           ; preds = %if.then.i, %HIST_count_simple.exit.loopexit, %if.end2, %if.end, %if.end6
@@ -156,7 +156,7 @@ return:                                           ; preds = %if.then.i, %HIST_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @HIST_count_parallel_wksp(ptr nocapture noundef writeonly %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef readonly %source, i64 noundef %sourceSize, i32 noundef %check, ptr nocapture noundef %workSpace) unnamed_addr #1 {
+define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(ptr nocapture noundef writeonly %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef readonly %source, i64 noundef %sourceSize, i32 noundef %check, ptr nocapture noundef %workSpace) unnamed_addr #1 {
 entry:
   %add.ptr.ptr = getelementptr i8, ptr %source, i64 %sourceSize
   %0 = load i32, ptr %maxSymbolValuePtr, align 4
@@ -307,7 +307,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i32 %inc82, ptr %arrayidx81, align 4
   %ip.0 = getelementptr inbounds i8, ptr %source.pn78, i64 20
   %cmp = icmp ult ptr %ip.0, %add.ptr5.ptr
-  br i1 %cmp, label %while.body, label %while.cond84.preheader, !llvm.loop !9
+  br i1 %cmp, label %while.body, label %while.cond84.preheader, !llvm.loop !8
 
 while.body87:                                     ; preds = %while.cond84.preheader, %while.body87
   %ip.182 = phi ptr [ %incdec.ptr, %while.body87 ], [ %source.pn.lcssa, %while.cond84.preheader ]
@@ -319,7 +319,7 @@ while.body87:                                     ; preds = %while.cond84.prehea
   %inc90 = add i32 %30, 1
   store i32 %inc90, ptr %arrayidx89, align 4
   %cmp85 = icmp ult ptr %incdec.ptr, %add.ptr.ptr
-  br i1 %cmp85, label %while.body87, label %for.body.preheader, !llvm.loop !10
+  br i1 %cmp85, label %while.body87, label %for.body.preheader, !llvm.loop !9
 
 for.body.preheader:                               ; preds = %while.body87, %while.cond84.preheader
   br label %for.body
@@ -342,7 +342,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %spec.select = tail call i32 @llvm.umax.i32(i32 %add104, i32 %max.083)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %while.cond114, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %while.cond114, label %for.body, !llvm.loop !10
 
 while.cond114:                                    ; preds = %for.body, %while.cond114
   %maxSymbolValue.0 = phi i32 [ %dec, %while.cond114 ], [ 255, %for.body ]
@@ -351,7 +351,7 @@ while.cond114:                                    ; preds = %for.body, %while.co
   %35 = load i32, ptr %arrayidx116, align 4
   %tobool117.not = icmp eq i32 %35, 0
   %dec = add i32 %maxSymbolValue.0, -1
-  br i1 %tobool117.not, label %while.cond114, label %while.end119, !llvm.loop !12
+  br i1 %tobool117.not, label %while.cond114, label %while.end119, !llvm.loop !11
 
 while.end119:                                     ; preds = %while.cond114
   %tobool120.not = icmp eq i32 %check, 0
@@ -374,7 +374,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @HIST_count_wksp(ptr nocapture noundef %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, ptr noundef %workSpace, i64 noundef %workSpaceSize) local_unnamed_addr #1 {
+define range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr nocapture noundef %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, ptr noundef %workSpace, i64 noundef %workSpaceSize) local_unnamed_addr #1 {
 entry:
   %0 = ptrtoint ptr %workSpace to i64
   %and = and i64 %0, 3
@@ -391,7 +391,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end2
-  %call = tail call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %count, ptr noundef nonnull %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, i32 noundef 1, ptr noundef %workSpace), !range !8
+  %call = tail call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %count, ptr noundef nonnull %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, i32 noundef 1, ptr noundef %workSpace)
   br label %return
 
 if.end5:                                          ; preds = %if.end2
@@ -449,7 +449,7 @@ HIST_count_simple.exit.loopexit.i:                ; preds = %for.body.i.i
   br label %return
 
 if.end6.i:                                        ; preds = %if.end5
-  %call7.i = tail call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %count, ptr noundef nonnull %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, i32 noundef 0, ptr noundef %workSpace), !range !8
+  %call7.i = tail call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %count, ptr noundef nonnull %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, i32 noundef 0, ptr noundef %workSpace)
   br label %return
 
 return:                                           ; preds = %if.end6.i, %HIST_count_simple.exit.loopexit.i, %if.then.i.i, %if.end, %entry, %if.then4
@@ -458,7 +458,7 @@ return:                                           ; preds = %if.end6.i, %HIST_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @HIST_countFast(ptr nocapture noundef %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize) local_unnamed_addr #1 {
+define range(i64 -66, 4294967296) i64 @HIST_countFast(ptr nocapture noundef %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize) local_unnamed_addr #1 {
 entry:
   %tmpCounters = alloca [1024 x i32], align 16
   %cmp.i = icmp ult i64 %sourceSize, 1500
@@ -518,7 +518,7 @@ HIST_count_simple.exit.loopexit.i:                ; preds = %for.body.i.i
   br label %HIST_countFast_wksp.exit
 
 if.end2.i:                                        ; preds = %entry
-  %call7.i = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %count, ptr noundef %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, i32 noundef 0, ptr noundef nonnull %tmpCounters), !range !8
+  %call7.i = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %count, ptr noundef %maxSymbolValuePtr, ptr noundef %source, i64 noundef %sourceSize, i32 noundef 0, ptr noundef nonnull %tmpCounters)
   br label %HIST_countFast_wksp.exit
 
 HIST_countFast_wksp.exit:                         ; preds = %if.then.i.i, %HIST_count_simple.exit.loopexit.i, %if.end2.i
@@ -527,7 +527,7 @@ HIST_countFast_wksp.exit:                         ; preds = %if.then.i.i, %HIST_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @HIST_count(ptr nocapture noundef %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define range(i64 -66, 4294967296) i64 @HIST_count(ptr nocapture noundef %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %tmpCounters = alloca [1024 x i32], align 16
   %0 = load i32, ptr %maxSymbolValuePtr, align 4
@@ -535,7 +535,7 @@ entry:
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %entry
-  %call.i = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %count, ptr noundef nonnull %maxSymbolValuePtr, ptr noundef %src, i64 noundef %srcSize, i32 noundef 1, ptr noundef nonnull %tmpCounters), !range !8
+  %call.i = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %count, ptr noundef nonnull %maxSymbolValuePtr, ptr noundef %src, i64 noundef %srcSize, i32 noundef 1, ptr noundef nonnull %tmpCounters)
   br label %HIST_count_wksp.exit
 
 if.end5.i:                                        ; preds = %entry
@@ -593,7 +593,7 @@ HIST_count_simple.exit.loopexit.i.i:              ; preds = %for.body.i.i.i
   br label %HIST_count_wksp.exit
 
 if.end6.i.i:                                      ; preds = %if.end5.i
-  %call7.i.i = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %count, ptr noundef nonnull %maxSymbolValuePtr, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0, ptr noundef nonnull %tmpCounters), !range !8
+  %call7.i.i = call fastcc i64 @HIST_count_parallel_wksp(ptr noundef %count, ptr noundef nonnull %maxSymbolValuePtr, ptr noundef %src, i64 noundef %srcSize, i32 noundef 0, ptr noundef nonnull %tmpCounters)
   br label %HIST_count_wksp.exit
 
 HIST_count_wksp.exit:                             ; preds = %if.then4.i, %if.then.i.i.i, %HIST_count_simple.exit.loopexit.i.i, %if.end6.i.i
@@ -623,8 +623,7 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i64 -48, i64 4294967296}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

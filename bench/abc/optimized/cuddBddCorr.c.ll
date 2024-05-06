@@ -23,7 +23,7 @@ define double @Cudd_bddCorrelation(ptr noundef %0, ptr noundef %1, ptr noundef %
 declare ptr @st__init_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @CorrelCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @CorrelCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, %4

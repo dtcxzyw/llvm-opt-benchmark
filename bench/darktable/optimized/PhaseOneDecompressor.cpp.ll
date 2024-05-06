@@ -487,7 +487,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %16 = getelementptr inbounds i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !114, !noalias !108
   %18 = ashr i32 %17, 1
-  %19 = mul nsw i32 %18, %15
+  %19 = mul nuw nsw i32 %18, %15
   %20 = icmp sgt i32 %13, -1
   tail call void @llvm.assume(i1 %20)
   %21 = icmp sgt i32 %15, -1
@@ -623,9 +623,9 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %103 = phi i32 [ 16, %.thread ], [ 4, %81 ]
   %104 = phi i64 [ %68, %.thread ], [ %83, %81 ]
   %105 = lshr i64 %104, 48
-  %106 = trunc i64 %105 to i32
+  %106 = trunc nuw nsw i64 %105 to i32
   store i32 %106, ptr %4, align 4, !tbaa !105
-  %107 = trunc i64 %105 to i16
+  %107 = trunc nuw i64 %105 to i16
   br label %108
 
 108:                                              ; preds = %102, %88
@@ -827,11 +827,11 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
 
 235:                                              ; preds = %228
   %236 = lshr i64 %229, 48
-  %237 = trunc i64 %236 to i32
+  %237 = trunc nuw nsw i64 %236 to i32
   %238 = add nsw i32 %230, -16
   %239 = getelementptr inbounds [2 x i32], ptr %4, i64 0, i64 %231
   store i32 %237, ptr %239, align 4, !tbaa !105
-  %240 = trunc i64 %236 to i16
+  %240 = trunc nuw i64 %236 to i16
   br label %259
 
 241:                                              ; preds = %228

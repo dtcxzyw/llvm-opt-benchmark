@@ -201,7 +201,7 @@ for.body28:                                       ; preds = %for.body28.preheade
   br i1 %tobool31.not, label %for.inc36, label %if.then32
 
 if.then32:                                        ; preds = %for.body28
-  %6 = trunc i64 %indvars.iv24 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv24 to i32
   tail call void @evmap_signal_active_(ptr noundef %arg, i32 noundef %6, i32 noundef %5) #7
   br label %for.inc36
 
@@ -227,7 +227,7 @@ do.end48:                                         ; preds = %if.then43, %do.body
 declare i32 @event_priority_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evsig_ensure_saved_(ptr nocapture noundef %sig, i32 noundef %evsignal) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evsig_ensure_saved_(ptr nocapture noundef %sig, i32 noundef %evsignal) local_unnamed_addr #0 {
 entry:
   %sh_old_max = getelementptr inbounds i8, ptr %sig, i64 664
   %0 = load i32, ptr %sh_old_max, align 8
@@ -285,7 +285,7 @@ declare void @event_warn(ptr noundef, ...) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evsig_set_handler_(ptr nocapture noundef %base, i32 noundef %evsignal, ptr noundef %handler) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evsig_set_handler_(ptr nocapture noundef %base, i32 noundef %evsignal, ptr noundef %handler) local_unnamed_addr #0 {
 entry:
   %sa = alloca %struct.sigaction, align 8
   %sh_old_max.i = getelementptr inbounds i8, ptr %base, i64 704
@@ -386,7 +386,7 @@ declare i32 @sigfillset(ptr noundef) local_unnamed_addr #4
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evsig_restore_handler_(ptr nocapture noundef readonly %base, i32 noundef %evsignal) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evsig_restore_handler_(ptr nocapture noundef readonly %base, i32 noundef %evsignal) local_unnamed_addr #0 {
 entry:
   %sh_old_max = getelementptr inbounds i8, ptr %base, i64 704
   %0 = load i32, ptr %sh_old_max, align 8
@@ -454,7 +454,7 @@ land.lhs.true:                                    ; preds = %for.body
 
 if.end.i:                                         ; preds = %land.lhs.true
   store ptr null, ptr %arrayidx, align 8
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i = tail call i32 @sigaction(i32 noundef %5, ptr noundef nonnull %4, ptr noundef null) #7
   %cmp5.i = icmp eq i32 %call.i, -1
   br i1 %cmp5.i, label %if.then6.i, label %evsig_restore_handler_.exit
@@ -571,7 +571,7 @@ evsig_free_globals_locks.exit:                    ; preds = %entry, %do.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evsig_global_setup_locks_(i32 noundef %enable_locks) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evsig_global_setup_locks_(i32 noundef %enable_locks) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @evsig_base_lock, align 8
   %call = tail call ptr @evthread_setup_global_lock_(ptr noundef %0, i32 noundef 0, i32 noundef %enable_locks) #7
@@ -599,7 +599,7 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare void @evmap_signal_active_(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @evsig_add(ptr noundef %base, i32 noundef %evsignal, i16 signext %old, i16 signext %events, ptr nocapture readnone %p) #0 {
+define internal range(i32 -1, 1) i32 @evsig_add(ptr noundef %base, i32 noundef %evsignal, i16 signext %old, i16 signext %events, ptr nocapture readnone %p) #0 {
 entry:
   %sig1 = getelementptr inbounds i8, ptr %base, i64 40
   %0 = load ptr, ptr @evsig_base_lock, align 8
@@ -654,7 +654,7 @@ if.then16:                                        ; preds = %do.body14
   br label %do.end18
 
 do.end18:                                         ; preds = %do.body14, %if.then16
-  %call19 = tail call i32 @evsig_set_handler_(ptr noundef nonnull %base, i32 noundef %evsignal, ptr noundef nonnull @evsig_handler), !range !9
+  %call19 = tail call i32 @evsig_set_handler_(ptr noundef nonnull %base, i32 noundef %evsignal, ptr noundef nonnull @evsig_handler)
   %cmp20 = icmp eq i32 %call19, -1
   br i1 %cmp20, label %do.body31, label %if.end22
 
@@ -706,7 +706,7 @@ return:                                           ; preds = %if.then41, %do.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @evsig_del(ptr nocapture noundef %base, i32 noundef %evsignal, i16 signext %old, i16 signext %events, ptr nocapture readnone %p) #0 {
+define internal range(i32 -1, 1) i32 @evsig_del(ptr nocapture noundef %base, i32 noundef %evsignal, i16 signext %old, i16 signext %events, ptr nocapture readnone %p) #0 {
 entry:
   %0 = load i32, ptr @event_debug_logging_mask_, align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -851,4 +851,3 @@ attributes #9 = { nounwind willreturn memory(none) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 -1, i32 1}

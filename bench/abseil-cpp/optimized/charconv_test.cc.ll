@@ -12464,11 +12464,11 @@ _ZN7testing15AssertionResultD2Ev.exit94:          ; preds = %if.end38, %_ZNKSt14
   store ptr null, ptr %message_.i91, align 8
   %27 = load i64, ptr %d, align 8
   %.lobit = lshr i64 %27, 63
-  %frombool = trunc i64 %.lobit to i8
+  %frombool = trunc nuw nsw i64 %.lobit to i8
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i95 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i95, align 8
-  %tobool.i96 = trunc i64 %.lobit to i1
+  %tobool.i96 = trunc nuw i64 %.lobit to i1
   br i1 %tobool.i96, label %_ZN7testing15AssertionResultD2Ev.exit110, label %if.else46
 
 ehcleanup39:                                      ; preds = %_ZN7testing7MessageD2Ev.exit90, %lpad27
@@ -12901,11 +12901,11 @@ _ZN7testing15AssertionResultD2Ev.exit187:         ; preds = %if.end127, %_ZNKSt1
   store ptr null, ptr %message_.i184, align 8
   %72 = load i32, ptr %f, align 4
   %.lobit440 = lshr i32 %72, 31
-  %frombool133 = trunc i32 %.lobit440 to i8
+  %frombool133 = trunc nuw nsw i32 %.lobit440 to i8
   store i8 %frombool133, ptr %gtest_ar_129, align 8
   %message_.i189 = getelementptr inbounds i8, ptr %gtest_ar_129, i64 8
   store ptr null, ptr %message_.i189, align 8
-  %tobool.i190 = trunc i32 %.lobit440 to i1
+  %tobool.i190 = trunc nuw i32 %.lobit440 to i1
   br i1 %tobool.i190, label %_ZN7testing15AssertionResultD2Ev.exit204, label %if.else137
 
 ehcleanup128:                                     ; preds = %_ZN7testing7MessageD2Ev.exit183, %lpad116
@@ -15562,11 +15562,11 @@ _ZN7testing15AssertionResultD2Ev.exit94:          ; preds = %if.end38, %_ZNKSt14
   store ptr null, ptr %message_.i91, align 8
   %27 = load i64, ptr %d, align 8
   %.lobit = lshr i64 %27, 63
-  %frombool = trunc i64 %.lobit to i8
+  %frombool = trunc nuw nsw i64 %.lobit to i8
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i95 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i95, align 8
-  %tobool.i96 = trunc i64 %.lobit to i1
+  %tobool.i96 = trunc nuw i64 %.lobit to i1
   br i1 %tobool.i96, label %_ZN7testing15AssertionResultD2Ev.exit110, label %if.else45
 
 ehcleanup39:                                      ; preds = %_ZN7testing7MessageD2Ev.exit90, %lpad27
@@ -15999,11 +15999,11 @@ _ZN7testing15AssertionResultD2Ev.exit190:         ; preds = %if.end126, %_ZNKSt1
   store ptr null, ptr %message_.i187, align 8
   %72 = load i32, ptr %f, align 4
   %.lobit445 = lshr i32 %72, 31
-  %frombool131 = trunc i32 %.lobit445 to i8
+  %frombool131 = trunc nuw nsw i32 %.lobit445 to i8
   store i8 %frombool131, ptr %gtest_ar_128, align 8
   %message_.i192 = getelementptr inbounds i8, ptr %gtest_ar_128, i64 8
   store ptr null, ptr %message_.i192, align 8
-  %tobool.i193 = trunc i32 %.lobit445 to i1
+  %tobool.i193 = trunc nuw i32 %.lobit445 to i1
   br i1 %tobool.i193, label %_ZN7testing15AssertionResultD2Ev.exit207, label %if.else135
 
 ehcleanup127:                                     ; preds = %_ZN7testing7MessageD2Ev.exit186, %lpad115
@@ -19208,10 +19208,10 @@ invoke.cont70:                                    ; preds = %_ZN7testing15Assert
 invoke.cont76:                                    ; preds = %invoke.cont70
   %29 = load i64, ptr %negative_from_chars_double, align 8
   %.lobit = lshr i64 %29, 63
-  %frombool82 = trunc i64 %.lobit to i8
+  %frombool82 = trunc nuw nsw i64 %.lobit to i8
   store i8 %frombool82, ptr %gtest_ar_79, align 8
   store ptr null, ptr %message_.i63, align 8
-  %tobool.i64 = trunc i64 %.lobit to i1
+  %tobool.i64 = trunc nuw i64 %.lobit to i1
   br i1 %tobool.i64, label %_ZN7testing15AssertionResultD2Ev.exit78, label %if.else86
 
 ehcleanup69:                                      ; preds = %_ZN7testing7MessageD2Ev.exit57, %lpad54
@@ -20020,10 +20020,10 @@ invoke.cont70:                                    ; preds = %_ZN7testing15Assert
 invoke.cont76:                                    ; preds = %invoke.cont70
   %29 = load i32, ptr %negative_from_chars_float, align 4
   %.lobit = lshr i32 %29, 31
-  %frombool82 = trunc i32 %.lobit to i8
+  %frombool82 = trunc nuw nsw i32 %.lobit to i8
   store i8 %frombool82, ptr %gtest_ar_79, align 8
   store ptr null, ptr %message_.i63, align 8
-  %tobool.i64 = trunc i32 %.lobit to i1
+  %tobool.i64 = trunc nuw i32 %.lobit to i1
   br i1 %tobool.i64, label %_ZN7testing15AssertionResultD2Ev.exit78, label %if.else86
 
 ehcleanup69:                                      ; preds = %_ZN7testing7MessageD2Ev.exit57, %lpad54
@@ -20424,12 +20424,12 @@ entry:
   %ref.tmp2 = alloca %"class.std::function.37", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEZN12_GLOBAL__N_137FromChars_HexdecimalDoubleLimits_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataOi", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEZN12_GLOBAL__N_137FromChars_HexdecimalDoubleLimits_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %_M_manager.i.i1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   %_M_invoker.i2 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp2, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFdiEZN12_GLOBAL__N_137FromChars_HexdecimalDoubleLimits_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_dataOi", ptr %_M_invoker.i2, align 8
   store ptr @"_ZNSt17_Function_handlerIFdiEZN12_GLOBAL__N_137FromChars_HexdecimalDoubleLimits_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %_M_manager.i.i1, align 8
   invoke fastcc void @_ZN12_GLOBAL__N_124TestOverflowAndUnderflowIdEEvRKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEERKS1_IFT_iEEii(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i32 noundef -1074, i32 noundef 1023)
@@ -22018,12 +22018,12 @@ entry:
   %ref.tmp2 = alloca %"class.std::function.45", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEZN12_GLOBAL__N_136FromChars_HexdecimalFloatLimits_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataOi", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEZN12_GLOBAL__N_136FromChars_HexdecimalFloatLimits_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %_M_manager.i.i1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   %_M_invoker.i2 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp2, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFfiEZN12_GLOBAL__N_136FromChars_HexdecimalFloatLimits_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_dataOi", ptr %_M_invoker.i2, align 8
   store ptr @"_ZNSt17_Function_handlerIFfiEZN12_GLOBAL__N_136FromChars_HexdecimalFloatLimits_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %_M_manager.i.i1, align 8
   invoke fastcc void @_ZN12_GLOBAL__N_124TestOverflowAndUnderflowIfEEvRKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEERKS1_IFT_iEEii(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i32 noundef -149, i32 noundef 127)
@@ -24154,12 +24154,12 @@ entry:
   %ref.tmp2 = alloca %"class.std::function.37", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEZN12_GLOBAL__N_134FromChars_DecimalDoubleLimits_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataOi", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEZN12_GLOBAL__N_134FromChars_DecimalDoubleLimits_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %_M_manager.i.i1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   %_M_invoker.i2 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp2, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFdiEZN12_GLOBAL__N_134FromChars_DecimalDoubleLimits_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_dataOi", ptr %_M_invoker.i2, align 8
   store ptr @"_ZNSt17_Function_handlerIFdiEZN12_GLOBAL__N_134FromChars_DecimalDoubleLimits_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %_M_manager.i.i1, align 8
   invoke fastcc void @_ZN12_GLOBAL__N_124TestOverflowAndUnderflowIdEEvRKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEERKS1_IFT_iEEii(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i32 noundef -323, i32 noundef 308)
@@ -24366,12 +24366,12 @@ entry:
   %ref.tmp2 = alloca %"class.std::function.45", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEZN12_GLOBAL__N_133FromChars_DecimalFloatLimits_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataOi", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEZN12_GLOBAL__N_133FromChars_DecimalFloatLimits_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %_M_manager.i.i1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   %_M_invoker.i2 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp2, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFfiEZN12_GLOBAL__N_133FromChars_DecimalFloatLimits_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_dataOi", ptr %_M_invoker.i2, align 8
   store ptr @"_ZNSt17_Function_handlerIFfiEZN12_GLOBAL__N_133FromChars_DecimalFloatLimits_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %_M_manager.i.i1, align 8
   invoke fastcc void @_ZN12_GLOBAL__N_124TestOverflowAndUnderflowIfEEvRKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEERKS1_IFT_iEEii(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i32 noundef -45, i32 noundef 38)

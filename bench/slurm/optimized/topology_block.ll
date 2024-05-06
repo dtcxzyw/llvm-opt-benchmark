@@ -180,7 +180,7 @@ define noundef i32 @topology_p_topology_free(ptr noundef %0) local_unnamed_addr 
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @topology_p_get(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @topology_p_get(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   switch i32 %0, label %35 [
     i32 0, label %3
     i32 1, label %33
@@ -502,7 +502,7 @@ declare i32 @slurm_hostset_within(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @slurm_hostset_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @topology_p_topology_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

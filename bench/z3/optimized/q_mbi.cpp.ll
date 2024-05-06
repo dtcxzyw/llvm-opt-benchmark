@@ -3036,8 +3036,8 @@ for.body.preheader:                               ; preds = %land.lhs.true
   store ptr null, ptr %m_nodes.i.i, align 8
   %idx.ext.i = zext i32 %23 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %26 = getelementptr i8, ptr %e, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %26, i64 32
+  %26 = getelementptr inbounds i8, ptr %e, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %26, i64 32
   %m_args.i.ptr = getelementptr inbounds i8, ptr %e, i64 32
   br label %for.body
 
@@ -9541,8 +9541,8 @@ land.lhs.true:                                    ; preds = %land.rhs.i30
 
 for.body27.preheader:                             ; preds = %invoke.cont12, %land.lhs.true
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i.i.i, 3
-  %28 = getelementptr i8, ptr %call9, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %28, i64 32
+  %28 = getelementptr inbounds i8, ptr %call9, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %28, i64 32
   br label %for.body27
 
 for.body27:                                       ; preds = %for.body27.preheader, %if.end45

@@ -630,7 +630,7 @@ define internal i64 @gen12_pte_encode(i64 noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @gen8_pte_encode(i64 noundef %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
+define internal noundef range(i64 16, 0) i64 @gen8_pte_encode(i64 noundef %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
   %4 = or i64 %0, 3
   %5 = and i32 %2, 1
   %6 = icmp eq i32 %5, 0
@@ -1882,7 +1882,7 @@ declare dso_local void @fill_page_dma(ptr noundef, i64 noundef, i32 noundef) loc
 declare dso_local void @__set_pd_entry(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @gen8_pde_encode(i64 noundef %0, i32 noundef %1) #3 align 16 {
+define internal noundef range(i64 3, 0) i64 @gen8_pde_encode(i64 noundef %0, i32 noundef %1) #3 align 16 {
   %3 = icmp eq i32 %1, 0
   %4 = select i1 %3, i64 27, i64 3
   %5 = or i64 %4, %0

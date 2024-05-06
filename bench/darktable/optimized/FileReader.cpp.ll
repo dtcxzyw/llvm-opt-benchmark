@@ -145,7 +145,7 @@ define hidden void @_ZNK8rawspeed10FileReader8readFileEv(ptr dead_on_unwind noal
 
 49:                                               ; preds = %29
   %50 = load ptr, ptr %25, align 8, !tbaa !15, !nonnull !14, !noundef !14
-  %51 = trunc i64 %11 to i32
+  %51 = trunc nuw i64 %11 to i32
   %52 = ptrtoint ptr %23 to i64
   store i64 %52, ptr %0, align 8, !tbaa !19
   %53 = getelementptr inbounds i8, ptr %0, i64 8

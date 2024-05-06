@@ -120,7 +120,7 @@ define i32 @prte_init_minimum() local_unnamed_addr #0 {
 9:                                                ; preds = %3
   %10 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 15), align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %1)
-  %11 = call i32 @stat(ptr noundef %10, ptr noundef nonnull %1) #11
+  %11 = call i32 @stat(ptr noundef readonly %10, ptr noundef nonnull %1) #11
   %12 = icmp eq i32 %11, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1)
   br i1 %12, label %13, label %16
@@ -215,7 +215,7 @@ define void @prte_preload_default_mca_params() local_unnamed_addr #0 {
   %12 = getelementptr inbounds i8, ptr %3, i64 48
   store i32 1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %13, i8 0, i64 64, i1 false)
   %14 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i = icmp eq ptr %15, null
@@ -246,7 +246,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10
   %24 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 1, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %25, i8 0, i64 64, i1 false)
   %26 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %27 = load ptr, ptr %26, align 8
   %.not6.i112 = icmp eq ptr %27, null
@@ -277,7 +277,7 @@ pmix_obj_run_constructors.exit116:                ; preds = %.lr.ph.i113, %22
   %36 = getelementptr inbounds i8, ptr %5, i64 48
   store i32 1, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %37, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %37, i8 0, i64 64, i1 false)
   %38 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %39 = load ptr, ptr %38, align 8
   %.not6.i117 = icmp eq ptr %39, null

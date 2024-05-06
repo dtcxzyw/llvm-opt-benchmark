@@ -63,7 +63,7 @@ define internal noundef ptr @devcgroup_css_alloc(ptr nocapture readnone %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @devcgroup_online(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @devcgroup_online(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   tail call void @mutex_lock(ptr noundef nonnull @devcgroup_mutex) #9
@@ -181,7 +181,7 @@ define internal void @devcgroup_css_free(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @devcgroup_check_permission(i16 noundef signext %0, i32 noundef %1, i32 noundef %2, i16 noundef signext %3) #0 align 16 {
+define dso_local range(i32 -1, 1) i32 @devcgroup_check_permission(i16 noundef signext %0, i32 noundef %1, i32 noundef %2, i16 noundef signext %3) #0 align 16 {
   tail call void @__rcu_read_lock() #9
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !10
   %6 = inttoptr i64 %5 to ptr
@@ -438,7 +438,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @dev_exceptions_copy(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @dev_exceptions_copy(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %.loopexit, label %5
@@ -1377,7 +1377,7 @@ define internal fastcc void @dev_exception_rm(ptr noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @parent_has_perm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 16 {
+define internal fastcc range(i32 0, 2) i32 @parent_has_perm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1644,7 +1644,7 @@ define internal fastcc noundef i32 @parent_has_perm(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @dev_exception_add(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @dev_exception_add(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = tail call dereferenceable_or_null(48) ptr @kmemdup(ptr noundef %1, i64 noundef 48, i32 noundef 3264) #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread6, label %5

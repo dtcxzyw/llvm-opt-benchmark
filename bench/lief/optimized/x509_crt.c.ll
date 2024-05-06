@@ -147,7 +147,7 @@ define internal fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef %0, 
   br i1 %23, label %197, label %24
 
 24:                                               ; preds = %.critedge
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(616) %22, i8 0, i64 616, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(616) %22, i8 0, i64 616, i1 false)
   %25 = load ptr, ptr %21, align 8
   br label %.critedge.thread
 
@@ -397,7 +397,7 @@ x509_get_version.exit.i:                          ; preds = %73, %66
 
 145:                                              ; preds = %136
   %146 = getelementptr inbounds i8, ptr %.129, i64 376
-  %147 = call fastcc i32 @x509_get_uid(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %146, i32 noundef 1), !range !6
+  %147 = call fastcc i32 @x509_get_uid(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %146, i32 noundef 1)
   %.not156.i = icmp eq i32 %147, 0
   br i1 %.not156.i, label %._crit_edge.i, label %148
 
@@ -417,7 +417,7 @@ x509_get_version.exit.i:                          ; preds = %73, %66
 
 152:                                              ; preds = %149
   %153 = getelementptr inbounds i8, ptr %.129, i64 400
-  %154 = call fastcc i32 @x509_get_uid(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %153, i32 noundef 2), !range !6
+  %154 = call fastcc i32 @x509_get_uid(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %153, i32 noundef 2)
   %.not157.i = icmp eq i32 %154, 0
   br i1 %.not157.i, label %156, label %155
 
@@ -632,7 +632,7 @@ define hidden i32 @mbedtls_x509_crt_parse(ptr noundef %0, ptr noundef %1, i64 no
 
 .outer.loopexit:                                  ; preds = %20
   %27 = icmp ugt i64 %22, 1
-  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !7
+  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.loopexit
   %.036.ph79 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.03665, %.outer.loopexit ]
@@ -657,7 +657,7 @@ define hidden i32 @mbedtls_x509_crt_parse(ptr noundef %0, ptr noundef %1, i64 no
   %spec.select54 = select i1 %33, i32 %.sink112, i32 %.03764
   %.036.be = add nsw i32 %.03665, 1
   %34 = icmp ugt i64 %.041.be, 1
-  br i1 %34, label %18, label %.outer._crit_edge, !llvm.loop !7
+  br i1 %34, label %18, label %.outer._crit_edge, !llvm.loop !6
 
 .outer._crit_edge:                                ; preds = %.backedge, %18
   %.037.lcssa = phi i32 [ %spec.select54, %.backedge ], [ %.03764, %18 ]
@@ -718,7 +718,7 @@ declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_a
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509_crt_parse_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -10624, -2147483648) i32 @mbedtls_x509_crt_parse_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.stat, align 8
@@ -756,7 +756,7 @@ define hidden i32 @mbedtls_x509_crt_parse_path(ptr noundef %0, ptr noundef %1) l
   %21 = load i32, ptr %10, align 8
   %22 = and i32 %21, 61440
   %23 = icmp eq i32 %22, 32768
-  br i1 %23, label %24, label %11, !llvm.loop !8
+  br i1 %23, label %24, label %11, !llvm.loop !7
 
 24:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -783,7 +783,7 @@ mbedtls_x509_crt_parse_file.exit:                 ; preds = %24, %26
   %33 = icmp slt i32 %.0.i, 0
   %.1.v = select i1 %33, i32 1, i32 %.0.i
   %.1 = add nuw nsw i32 %.1.v, %.016.ph
-  br label %.outer, !llvm.loop !8
+  br label %.outer, !llvm.loop !7
 
 34:                                               ; preds = %17, %13, %11
   %.2 = phi i32 [ %.016.ph, %11 ], [ -10624, %13 ], [ -10496, %17 ]
@@ -1230,7 +1230,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   %178 = getelementptr inbounds i8, ptr %168, i64 %175
   store ptr %178, ptr %6, align 8
   %179 = getelementptr inbounds i8, ptr %3, i64 448
-  %180 = call fastcc i32 @x509_info_subject_alt_name(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %179, ptr noundef %2), !range !9
+  %180 = call fastcc i32 @x509_info_subject_alt_name(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %179, ptr noundef %2)
   %.not235 = icmp eq i32 %180, 0
   br i1 %.not235, label %._crit_edge, label %245
 
@@ -1265,7 +1265,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   store ptr %191, ptr %6, align 8
   %192 = getelementptr inbounds i8, ptr %3, i64 560
   %193 = load i8, ptr %192, align 8
-  %194 = call fastcc i32 @x509_info_cert_type(ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext %193), !range !9
+  %194 = call fastcc i32 @x509_info_cert_type(ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext %193)
   %.not238 = icmp eq i32 %194, 0
   br i1 %.not238, label %._crit_edge250, label %245
 
@@ -1300,7 +1300,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   store ptr %205, ptr %6, align 8
   %206 = getelementptr inbounds i8, ptr %3, i64 524
   %207 = load i32, ptr %206, align 4
-  %208 = call fastcc i32 @x509_info_key_usage(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %207), !range !9
+  %208 = call fastcc i32 @x509_info_key_usage(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %207)
   %.not241 = icmp eq i32 %208, 0
   br i1 %.not241, label %._crit_edge252, label %245
 
@@ -1334,7 +1334,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   %219 = getelementptr inbounds i8, ptr %.pre258.pre261, i64 %216
   store ptr %219, ptr %6, align 8
   %220 = getelementptr inbounds i8, ptr %3, i64 528
-  %221 = call fastcc i32 @x509_info_ext_key_usage(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %220), !range !9
+  %221 = call fastcc i32 @x509_info_ext_key_usage(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %220)
   %.not244 = icmp eq i32 %221, 0
   br i1 %.not244, label %._crit_edge254, label %245
 
@@ -1368,7 +1368,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   %232 = getelementptr inbounds i8, ptr %.pre258, i64 %229
   store ptr %232, ptr %6, align 8
   %233 = getelementptr inbounds i8, ptr %3, i64 480
-  %234 = call fastcc i32 @x509_info_cert_policies(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %233), !range !9
+  %234 = call fastcc i32 @x509_info_cert_policies(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %233)
   %.not247 = icmp eq i32 %234, 0
   br i1 %.not247, label %._crit_edge256, label %245
 
@@ -1413,7 +1413,7 @@ declare ptr @mbedtls_pk_get_name(ptr noundef) local_unnamed_addr #2
 declare i64 @mbedtls_pk_get_bitlen(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @x509_info_subject_alt_name(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.mbedtls_x509_subject_alternative_name, align 8
   %6 = load i64, ptr %1, align 8
   %7 = load ptr, ptr %0, align 8
@@ -1469,7 +1469,7 @@ define internal fastcc noundef i32 @x509_info_subject_alt_name(ptr nocapture nou
   %.0122.be.in = getelementptr inbounds i8, ptr %.0122181, i64 24
   %.0122.be = load ptr, ptr %.0122.be.in, align 8
   %.not = icmp eq ptr %.0122.be, null
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !8
 
 26:                                               ; preds = %15
   %27 = load i32, ptr %5, align 8
@@ -1624,7 +1624,7 @@ define internal fastcc noundef i32 @x509_info_subject_alt_name(ptr nocapture nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @x509_info_cert_type(ptr nocapture noundef %0, ptr nocapture noundef %1, i8 noundef zeroext %2) unnamed_addr #7 {
+define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocapture noundef %0, ptr nocapture noundef %1, i8 noundef zeroext %2) unnamed_addr #7 {
   %4 = load i64, ptr %1, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = zext i8 %2 to i32
@@ -1820,7 +1820,7 @@ define internal fastcc noundef i32 @x509_info_cert_type(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @x509_info_key_usage(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #7 {
   %4 = load i64, ptr %1, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = and i32 %2, 128
@@ -2039,7 +2039,7 @@ define internal fastcc noundef i32 @x509_info_key_usage(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @x509_info_ext_key_usage(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -10624, 1) i32 @x509_info_ext_key_usage(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i64, ptr %1, align 8
   %6 = load ptr, ptr %0, align 8
@@ -2080,7 +2080,7 @@ define internal fastcc noundef i32 @x509_info_ext_key_usage(ptr nocapture nounde
   %18 = getelementptr inbounds i8, ptr %.02033, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %15, %3
   %.022.lcssa = phi i64 [ %5, %3 ], [ %16, %15 ]
@@ -2095,7 +2095,7 @@ define internal fastcc noundef i32 @x509_info_ext_key_usage(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @x509_info_cert_policies(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_policies(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i64, ptr %1, align 8
   %6 = load ptr, ptr %0, align 8
@@ -2136,7 +2136,7 @@ define internal fastcc noundef i32 @x509_info_cert_policies(ptr nocapture nounde
   %18 = getelementptr inbounds i8, ptr %.02033, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %15, %3
   %.022.lcssa = phi i64 [ %5, %3 ], [ %16, %15 ]
@@ -2189,7 +2189,7 @@ define hidden i32 @mbedtls_x509_crt_verify_info(ptr nocapture noundef writeonly 
   %21 = getelementptr inbounds i8, ptr %.03450, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %23, label %5, !llvm.loop !13
+  br i1 %.not, label %23, label %5, !llvm.loop !11
 
 23:                                               ; preds = %19
   %.not43 = icmp eq i32 %.136, 0
@@ -2221,7 +2221,7 @@ define hidden i32 @mbedtls_x509_crt_verify_info(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mbedtls_x509_crt_check_key_usage(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden range(i32 -10240, 1) i32 @mbedtls_x509_crt_check_key_usage(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 512
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
@@ -2250,7 +2250,7 @@ define hidden i32 @mbedtls_x509_crt_check_key_usage(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_x509_crt_check_extended_key_usage(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #9 {
+define hidden range(i32 -10240, 1) i32 @mbedtls_x509_crt_check_extended_key_usage(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 512
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2048
@@ -2290,7 +2290,7 @@ define hidden noundef i32 @mbedtls_x509_crt_check_extended_key_usage(ptr nocaptu
   %22 = getelementptr inbounds i8, ptr %.01319, i64 24
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %.loopexit, label %10, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.critedge, %19, %14, %3
   %.0 = phi i32 [ 0, %3 ], [ -10240, %.critedge ], [ 0, %19 ], [ 0, %14 ]
@@ -2298,7 +2298,7 @@ define hidden noundef i32 @mbedtls_x509_crt_check_extended_key_usage(ptr nocaptu
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_x509_crt_is_revoked(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @mbedtls_x509_crt_is_revoked(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %1, i64 216
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = getelementptr inbounds i8, ptr %0, i64 72
@@ -2328,7 +2328,7 @@ define hidden noundef i32 @mbedtls_x509_crt_is_revoked(ptr nocapture noundef rea
   %18 = getelementptr inbounds i8, ptr %.013, i64 96
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.critedge, label %6, !llvm.loop !15
+  br i1 %.not, label %.critedge, label %6, !llvm.loop !13
 
 .critedge:                                        ; preds = %6, %17, %12
   %.09 = phi i32 [ 1, %12 ], [ 0, %17 ], [ 0, %6 ]
@@ -2361,7 +2361,7 @@ define internal fastcc i32 @x509_crt_verify_restartable_ca_cb(ptr noundef %0, pt
   store i32 -1, ptr %18, align 8
   %19 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %19, 10
-  br i1 %exitcond.not.i, label %x509_crt_verify_chain_reset.exit, label %16, !llvm.loop !16
+  br i1 %exitcond.not.i, label %x509_crt_verify_chain_reset.exit, label %16, !llvm.loop !14
 
 x509_crt_verify_chain_reset.exit:                 ; preds = %16
   %20 = getelementptr inbounds i8, ptr %15, i64 160
@@ -2374,7 +2374,7 @@ x509_crt_verify_chain_reset.exit:                 ; preds = %16
   br i1 %.not, label %x509_crt_verify_name.exit, label %23
 
 23:                                               ; preds = %22
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
+  %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #17
   %25 = getelementptr inbounds i8, ptr %0, i64 512
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 32
@@ -2393,7 +2393,7 @@ x509_crt_verify_chain_reset.exit:                 ; preds = %16
   br i1 %33, label %x509_crt_check_san.exit.i, label %x509_crt_check_san.exit.thread.i
 
 x509_crt_check_san.exit.i:                        ; preds = %30
-  %34 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef nonnull %.02030.i, ptr noundef nonnull %4, i64 noundef %24), !range !17
+  %34 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef nonnull readonly %.02030.i, ptr noundef nonnull readonly %4, i64 noundef %24)
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %x509_crt_verify_name.exit, label %x509_crt_check_san.exit.thread.i
 
@@ -2401,7 +2401,7 @@ x509_crt_check_san.exit.thread.i:                 ; preds = %x509_crt_check_san.
   %36 = getelementptr inbounds i8, ptr %.02030.i, i64 24
   %37 = load ptr, ptr %36, align 8
   %cond.i = icmp eq ptr %37, null
-  br i1 %cond.i, label %x509_crt_verify_name.exit, label %30, !llvm.loop !18
+  br i1 %cond.i, label %x509_crt_verify_name.exit, label %30, !llvm.loop !15
 
 38:                                               ; preds = %23
   %39 = getelementptr inbounds i8, ptr %0, i64 224
@@ -2423,7 +2423,7 @@ x509_crt_check_san.exit.thread.i:                 ; preds = %x509_crt_check_san.
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.031.i, i64 24
-  %48 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef nonnull %47, ptr noundef nonnull %4, i64 noundef %24), !range !17
+  %48 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef nonnull %47, ptr noundef nonnull readonly %4, i64 noundef %24)
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %x509_crt_verify_name.exit, label %.critedge.i
 
@@ -2431,7 +2431,7 @@ x509_crt_check_san.exit.thread.i:                 ; preds = %x509_crt_check_san.
   %50 = getelementptr inbounds i8, ptr %.031.i, i64 48
   %51 = load ptr, ptr %50, align 8
   %cond26.i = icmp eq ptr %51, null
-  br i1 %cond26.i, label %x509_crt_verify_name.exit, label %40, !llvm.loop !19
+  br i1 %cond26.i, label %x509_crt_verify_name.exit, label %40, !llvm.loop !16
 
 x509_crt_verify_name.exit:                        ; preds = %x509_crt_check_san.exit.i, %x509_crt_check_san.exit.thread.i, %46, %.critedge.i, %22
   %.1 = phi i32 [ 0, %22 ], [ 4, %.critedge.i ], [ 0, %46 ], [ 4, %x509_crt_check_san.exit.thread.i ], [ 0, %x509_crt_check_san.exit.i ]
@@ -2598,7 +2598,7 @@ x509_profile_check_pk_alg.exit.thread.i:          ; preds = %x509_profile_check_
 131:                                              ; preds = %128
   %132 = getelementptr inbounds i8, ptr %.042.i, i64 160
   %133 = getelementptr inbounds i8, ptr %.042.i, i64 224
-  %134 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull %132, ptr noundef nonnull %133), !range !17
+  %134 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull readonly %132, ptr noundef nonnull readonly %133)
   %.not.i55.i = icmp eq i32 %134, 0
   br i1 %.not.i55.i, label %.preheader.i.i, label %x509_crt_check_ee_locally_trusted.exit.thread.i
 
@@ -2630,7 +2630,7 @@ x509_profile_check_pk_alg.exit.thread.i:          ; preds = %x509_profile_check_
   %148 = getelementptr inbounds i8, ptr %.014.i.i, i64 608
   %149 = load ptr, ptr %148, align 8
   %.not12.i.i = icmp eq ptr %149, null
-  br i1 %.not12.i.i, label %x509_crt_check_ee_locally_trusted.exit.thread.i, label %138, !llvm.loop !20
+  br i1 %.not12.i.i, label %x509_crt_check_ee_locally_trusted.exit.thread.i, label %138, !llvm.loop !17
 
 x509_crt_check_ee_locally_trusted.exit.thread.i:  ; preds = %147, %.preheader.i.i, %131, %128
   %150 = getelementptr inbounds i8, ptr %.042.i, i64 160
@@ -2762,7 +2762,7 @@ x509_crt_check_ee_locally_trusted.exit.thread.i:  ; preds = %147, %.preheader.i.
 215:                                              ; preds = %212, %.lr.ph.i.i.i.i.i
   %216 = add nuw i64 %.01925.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %216, %198
-  br i1 %exitcond.not.i.i.i.i.i, label %x509_string_cmp.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !21
+  br i1 %exitcond.not.i.i.i.i.i, label %x509_string_cmp.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !18
 
 x509_string_cmp.exit.i.i.i:                       ; preds = %215, %202, %188
   %217 = getelementptr inbounds i8, ptr %.01828.i.i.i, i64 56
@@ -2780,7 +2780,7 @@ x509_string_cmp.exit.i.i.i:                       ; preds = %215, %202, %188
   %226 = icmp ne ptr %223, null
   %227 = icmp ne ptr %225, null
   %228 = select i1 %226, i1 true, i1 %227
-  br i1 %228, label %.lr.ph.i18.i.i, label %x509_name_cmp.exit.i.i, !llvm.loop !22
+  br i1 %228, label %.lr.ph.i18.i.i, label %x509_name_cmp.exit.i.i, !llvm.loop !19
 
 x509_name_cmp.exit.i.i:                           ; preds = %221
   br i1 %.not9.i.i.i.i, label %.thread.i.i.i.i, label %229
@@ -2879,7 +2879,7 @@ x509_crt_check_parent.exit.thread.i.i.i:          ; preds = %x509_string_cmp.exi
   %277 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 608
   %278 = load ptr, ptr %277, align 8
   %cond.i.i.i = icmp eq ptr %278, null
-  br i1 %cond.i.i.i, label %x509_crt_find_parent_in.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
+  br i1 %cond.i.i.i, label %x509_crt_find_parent_in.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !20
 
 x509_crt_find_parent_in.exit.i.i:                 ; preds = %x509_crt_check_parent.exit.thread.i.i.i
   %.not17.i.i = icmp eq ptr %.131.i.i.i, null
@@ -2907,7 +2907,7 @@ x509_crt_find_parent_in.exit.i.thread22.i:        ; preds = %x509_crt_find_paren
 
 284:                                              ; preds = %x509_crt_find_parent_in.exit.i.thread22.i
   %285 = getelementptr inbounds i8, ptr %.042.i, i64 224
-  %286 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull %150, ptr noundef nonnull %285), !range !17
+  %286 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull %150, ptr noundef nonnull %285)
   %287 = icmp eq i32 %286, 0
   %288 = zext i1 %287 to i32
   %spec.select.i = add i32 %.0.i39, %288
@@ -3104,7 +3104,7 @@ x509_profile_check_key.exit.thread.i:             ; preds = %x509_profile_check_
 380:                                              ; preds = %377, %.lr.ph.i.i.i.i
   %381 = add nuw i64 %.01925.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %381, %363
-  br i1 %exitcond.not.i.i.i.i, label %x509_string_cmp.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !21
+  br i1 %exitcond.not.i.i.i.i, label %x509_string_cmp.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
 
 x509_string_cmp.exit.i.i:                         ; preds = %380, %367, %353
   %382 = getelementptr inbounds i8, ptr %.01828.i.i, i64 56
@@ -3122,13 +3122,13 @@ x509_string_cmp.exit.i.i:                         ; preds = %380, %367, %353
   %391 = icmp ne ptr %388, null
   %392 = icmp ne ptr %390, null
   %393 = select i1 %391, i1 true, i1 %392
-  br i1 %393, label %.lr.ph.i63.i, label %x509_name_cmp.exit.i, !llvm.loop !22
+  br i1 %393, label %.lr.ph.i63.i, label %x509_name_cmp.exit.i, !llvm.loop !19
 
 x509_name_cmp.exit.thread.i:                      ; preds = %x509_string_cmp.exit.i.i, %361, %360, %359, %336, %331, %328, %.lr.ph.i63.i, %377, %.lr.ph.i.i.i.i, %320
   %394 = getelementptr inbounds i8, ptr %.04193.i.i, i64 408
   %395 = load ptr, ptr %394, align 8
   %.not.i60.i = icmp eq ptr %395, null
-  br i1 %.not.i60.i, label %x509_crt_verifycrl.exit.i, label %320, !llvm.loop !24
+  br i1 %.not.i60.i, label %x509_crt_verifycrl.exit.i, label %320, !llvm.loop !21
 
 x509_name_cmp.exit.i:                             ; preds = %386
   %396 = load i32, ptr %316, align 8
@@ -3311,7 +3311,7 @@ x509_profile_check_key.exit.i.i:                  ; preds = %449, %437
   %489 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 96
   %490 = load ptr, ptr %489, align 8
   %.not.i64.i.i = icmp eq ptr %490, null
-  br i1 %.not.i64.i.i, label %.outer.i.i, label %477, !llvm.loop !15
+  br i1 %.not.i64.i.i, label %.outer.i.i, label %477, !llvm.loop !13
 
 mbedtls_x509_crt_is_revoked.exit.i.i:             ; preds = %483
   %491 = or i32 %.5.i.i, 2
@@ -3321,7 +3321,7 @@ mbedtls_x509_crt_is_revoked.exit.i.i:             ; preds = %483
   %492 = getelementptr inbounds i8, ptr %.04193.i.i, i64 408
   %493 = load ptr, ptr %492, align 8
   %.not92.i.i = icmp eq ptr %493, null
-  br i1 %.not92.i.i, label %x509_crt_verifycrl.exit.i, label %.lr.ph.i59.i, !llvm.loop !24
+  br i1 %.not92.i.i, label %x509_crt_verifycrl.exit.i, label %.lr.ph.i59.i, !llvm.loop !21
 
 x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %x509_name_cmp.exit.thread.i, %mbedtls_x509_crt_is_revoked.exit.i.i, %467, %433, %mbedtls_x509_crt_check_key_usage.exit.i.i, %314
   %.0.i61.i = phi i32 [ 0, %314 ], [ %402, %mbedtls_x509_crt_check_key_usage.exit.i.i ], [ %434, %433 ], [ %468, %467 ], [ %491, %mbedtls_x509_crt_is_revoked.exit.i.i ], [ %.042.ph96.i.i, %x509_name_cmp.exit.thread.i ], [ %.5.i.i, %.outer.i.i ]
@@ -3367,7 +3367,7 @@ x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %x509_n
   %505 = load i32, ptr %gep.i, align 8
   %506 = or i32 %505, %503
   %.not.us.wide.i = icmp eq i64 %504, 0
-  br i1 %.not.us.wide.i, label %.loopexit, label %502, !llvm.loop !25
+  br i1 %.not.us.wide.i, label %.loopexit, label %502, !llvm.loop !22
 
 .lr.ph.split.i:                                   ; preds = %513, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i64 [ %500, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %513 ]
@@ -3390,7 +3390,7 @@ x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %x509_n
   %516 = or i32 %515, %514
   store i32 %516, ptr %5, align 4
   %.not.i42 = icmp eq i32 %indvars.i, 0
-  br i1 %.not.i42, label %.loopexit20, label %.lr.ph.split.i, !llvm.loop !25
+  br i1 %.not.i42, label %.loopexit20, label %.lr.ph.split.i, !llvm.loop !22
 
 x509_crt_verify_chain.exit:                       ; preds = %.lr.ph.split.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -3461,7 +3461,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.04968, i64 noundef 64) #16
   tail call void @free(ptr noundef nonnull %.04968) #16
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader66
   %10 = getelementptr inbounds i8, ptr %.051, i64 272
@@ -3476,7 +3476,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.15070, i64 noundef 64) #16
   tail call void @free(ptr noundef nonnull %.15070) #16
   %.not57 = icmp eq ptr %13, null
-  br i1 %.not57, label %._crit_edge73, label %.lr.ph72, !llvm.loop !27
+  br i1 %.not57, label %._crit_edge73, label %.lr.ph72, !llvm.loop !24
 
 ._crit_edge73:                                    ; preds = %.lr.ph72, %._crit_edge
   %14 = getelementptr inbounds i8, ptr %.051, i64 552
@@ -3491,7 +3491,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.075, i64 noundef 32) #16
   tail call void @free(ptr noundef nonnull %.075) #16
   %.not58 = icmp eq ptr %17, null
-  br i1 %.not58, label %._crit_edge78, label %.lr.ph77, !llvm.loop !28
+  br i1 %.not58, label %._crit_edge78, label %.lr.ph77, !llvm.loop !25
 
 ._crit_edge78:                                    ; preds = %.lr.ph77, %._crit_edge73
   %18 = getelementptr inbounds i8, ptr %.051, i64 472
@@ -3506,7 +3506,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.180, i64 noundef 32) #16
   tail call void @free(ptr noundef nonnull %.180) #16
   %.not59 = icmp eq ptr %21, null
-  br i1 %.not59, label %._crit_edge83, label %.lr.ph82, !llvm.loop !29
+  br i1 %.not59, label %._crit_edge83, label %.lr.ph82, !llvm.loop !26
 
 ._crit_edge83:                                    ; preds = %.lr.ph82, %._crit_edge78
   %22 = getelementptr inbounds i8, ptr %.051, i64 504
@@ -3521,7 +3521,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.285, i64 noundef 32) #16
   tail call void @free(ptr noundef nonnull %.285) #16
   %.not60 = icmp eq ptr %25, null
-  br i1 %.not60, label %._crit_edge88, label %.lr.ph87, !llvm.loop !30
+  br i1 %.not60, label %._crit_edge88, label %.lr.ph87, !llvm.loop !27
 
 ._crit_edge88:                                    ; preds = %.lr.ph87, %._crit_edge83
   %26 = getelementptr inbounds i8, ptr %.051, i64 24
@@ -3546,7 +3546,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   %35 = getelementptr inbounds i8, ptr %.051, i64 608
   %36 = load ptr, ptr %35, align 8
   %.not63 = icmp eq ptr %36, null
-  br i1 %.not63, label %.preheader, label %.preheader66, !llvm.loop !31
+  br i1 %.not63, label %.preheader, label %.preheader66, !llvm.loop !28
 
 .preheader:                                       ; preds = %34, %40
   %.152 = phi ptr [ %38, %40 ], [ %0, %34 ]
@@ -3562,7 +3562,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
 
 40:                                               ; preds = %.preheader, %39
   %.not65 = icmp eq ptr %38, null
-  br i1 %.not65, label %.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %.not65, label %.loopexit, label %.preheader, !llvm.loop !29
 
 .loopexit:                                        ; preds = %40, %1
   ret void
@@ -3621,7 +3621,7 @@ define internal fastcc i32 @x509_get_dates(ptr noundef %0, ptr noundef %1, ptr n
 declare i32 @mbedtls_pk_parse_subpubkey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_get_uid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147475072) i32 @x509_get_uid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, %1
   br i1 %6, label %20, label %7
@@ -3790,7 +3790,7 @@ define internal fastcc i32 @x509_get_crt_ext(ptr noundef %0, ptr noundef %1, ptr
 .backedge:                                        ; preds = %256, %x509_get_basic_constraints.exit, %x509_get_key_usage.exit, %x509_get_ext_key_usage.exit, %x509_get_subject_alt_name.exit, %x509_get_ns_cert_type.exit, %248, %x509_get_certificate_policies.exit, %252, %x509_get_basic_constraints.exit.thread, %x509_get_key_usage.exit.thread, %x509_get_subject_alt_name.exit.thread159, %x509_get_ns_cert_type.exit.thread, %136, %81, %84
   %82 = load ptr, ptr %0, align 8
   %83 = icmp ult ptr %82, %27
-  br i1 %83, label %45, label %._crit_edge, !llvm.loop !33
+  br i1 %83, label %45, label %._crit_edge, !llvm.loop !30
 
 84:                                               ; preds = %73
   store ptr %70, ptr %0, align 8
@@ -3931,7 +3931,7 @@ x509_get_key_usage.exit.thread148:                ; preds = %119
   store i32 %131, ptr %41, align 4
   %132 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %132, %invariant.umin.i
-  br i1 %exitcond.not.i, label %x509_get_key_usage.exit.thread, label %124, !llvm.loop !34
+  br i1 %exitcond.not.i, label %x509_get_key_usage.exit.thread, label %124, !llvm.loop !31
 
 x509_get_key_usage.exit.thread:                   ; preds = %124
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
@@ -4021,7 +4021,7 @@ x509_get_ext_key_usage.exit:                      ; preds = %134
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %.04265.i, i64 noundef 32) #16
   call void @free(ptr noundef nonnull %.04265.i) #16
   %.not56.i = icmp eq ptr %163, null
-  br i1 %.not56.i, label %._crit_edge68.i, label %.lr.ph67.i, !llvm.loop !35
+  br i1 %.not56.i, label %._crit_edge68.i, label %.lr.ph67.i, !llvm.loop !32
 
 ._crit_edge68.i:                                  ; preds = %.lr.ph67.i, %160
   store ptr null, ptr %38, align 8
@@ -4058,7 +4058,7 @@ x509_get_ext_key_usage.exit:                      ; preds = %134
   %179 = getelementptr inbounds i8, ptr %178, i64 %176
   store ptr %179, ptr %0, align 8
   %180 = icmp ult ptr %179, %52
-  br i1 %180, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !36
+  br i1 %180, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %173, %.preheader.i
   %.043.lcssa.i = phi ptr [ %37, %.preheader.i ], [ %.1.i, %173 ]
@@ -4232,7 +4232,7 @@ x509_get_ns_cert_type.exit:                       ; preds = %183
 241:                                              ; preds = %237, %226
   %242 = phi ptr [ %240, %237 ], [ %231, %226 ]
   %.not61.i = icmp eq ptr %242, %208
-  br i1 %.not61.i, label %.preheader.i135, label %.thread174, !llvm.loop !37
+  br i1 %.not61.i, label %.preheader.i135, label %.thread174, !llvm.loop !34
 
 243:                                              ; preds = %.preheader.i135
   %244 = getelementptr inbounds i8, ptr %.043.i, i64 24
@@ -4319,7 +4319,7 @@ declare i32 @mbedtls_pk_get_type(ptr noundef) local_unnamed_addr #2
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @x509_crt_check_cn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #9 {
+define internal fastcc range(i32 -1, 1) i32 @x509_crt_check_cn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, %2
@@ -4352,10 +4352,10 @@ define internal fastcc noundef i32 @x509_crt_check_cn(ptr nocapture noundef read
 18:                                               ; preds = %15, %.lr.ph.i
   %19 = add nuw i64 %.01925.i, 1
   %exitcond.not.i = icmp eq i64 %19, %2
-  br i1 %exitcond.not.i, label %x509_check_wildcard.exit, label %.lr.ph.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %x509_check_wildcard.exit, label %.lr.ph.i, !llvm.loop !18
 
 x509_memcasecmp.exit:                             ; preds = %15, %.lr.ph.i, %3
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #17
   %21 = icmp ult i64 %5, 3
   br i1 %21, label %x509_check_wildcard.exit, label %22
 
@@ -4384,7 +4384,7 @@ x509_memcasecmp.exit:                             ; preds = %15, %.lr.ph.i, %3
 33:                                               ; preds = %.lr.ph.i10
   %34 = add nuw i64 %.01926.i, 1
   %exitcond.not.i11 = icmp eq i64 %34, %20
-  br i1 %exitcond.not.i11, label %x509_check_wildcard.exit, label %.lr.ph.i10, !llvm.loop !38
+  br i1 %exitcond.not.i11, label %x509_check_wildcard.exit, label %.lr.ph.i10, !llvm.loop !35
 
 35:                                               ; preds = %.lr.ph.i10
   %36 = getelementptr inbounds i8, ptr %1, i64 %.01926.i
@@ -4418,7 +4418,7 @@ x509_memcasecmp.exit:                             ; preds = %15, %.lr.ph.i, %3
 50:                                               ; preds = %47, %.lr.ph.i.i
   %51 = add nuw i64 %.01925.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %51, %39
-  br i1 %exitcond.not.i.i, label %x509_check_wildcard.exit, label %.lr.ph.i.i, !llvm.loop !21
+  br i1 %exitcond.not.i.i, label %x509_check_wildcard.exit, label %.lr.ph.i.i, !llvm.loop !18
 
 x509_check_wildcard.exit:                         ; preds = %18, %33, %47, %.lr.ph.i.i, %50, %38, %35, %x509_memcasecmp.exit, %22, %26, %7
   %.0 = phi i32 [ 0, %7 ], [ -1, %26 ], [ -1, %22 ], [ -1, %x509_memcasecmp.exit ], [ -1, %35 ], [ -1, %38 ], [ -1, %47 ], [ -1, %.lr.ph.i.i ], [ 0, %50 ], [ -1, %33 ], [ 0, %18 ]
@@ -4430,7 +4430,7 @@ declare i32 @mbedtls_x509_time_is_past(ptr noundef) local_unnamed_addr #2
 declare i32 @mbedtls_x509_time_is_future(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @x509_name_cmp(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #9 {
+define internal fastcc range(i32 -1, 1) i32 @x509_name_cmp(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #9 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = or i1 %3, %4
@@ -4541,7 +4541,7 @@ define internal fastcc noundef i32 @x509_name_cmp(ptr noundef readonly %0, ptr n
 60:                                               ; preds = %57, %.lr.ph.i.i
   %61 = add nuw i64 %.01925.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %61, %43
-  br i1 %exitcond.not.i.i, label %x509_string_cmp.exit, label %.lr.ph.i.i, !llvm.loop !21
+  br i1 %exitcond.not.i.i, label %x509_string_cmp.exit, label %.lr.ph.i.i, !llvm.loop !18
 
 x509_string_cmp.exit:                             ; preds = %60, %47, %33
   %62 = getelementptr inbounds i8, ptr %.01828, i64 56
@@ -4559,7 +4559,7 @@ x509_string_cmp.exit:                             ; preds = %60, %47, %33
   %71 = icmp ne ptr %68, null
   %72 = icmp ne ptr %70, null
   %73 = select i1 %71, i1 true, i1 %72
-  br i1 %73, label %.lr.ph, label %x509_string_cmp.exit.thread, !llvm.loop !22
+  br i1 %73, label %.lr.ph, label %x509_string_cmp.exit.thread, !llvm.loop !19
 
 x509_string_cmp.exit.thread:                      ; preds = %.lr.ph, %16, %11, %8, %x509_string_cmp.exit, %66, %40, %39, %41, %57, %.lr.ph.i.i, %2
   %.019 = phi i32 [ 0, %2 ], [ -1, %.lr.ph.i.i ], [ -1, %57 ], [ -1, %.lr.ph ], [ -1, %16 ], [ -1, %11 ], [ -1, %8 ], [ -1, %x509_string_cmp.exit ], [ 0, %66 ], [ -1, %40 ], [ -1, %39 ], [ -1, %41 ]
@@ -4615,10 +4615,10 @@ attributes #17 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -2147483648, i32 2147475072}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -10624, i32 1}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
@@ -4626,7 +4626,7 @@ attributes #17 = { nounwind willreturn memory(read) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i32 -1, i32 1}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
@@ -4645,6 +4645,3 @@ attributes #17 = { nounwind willreturn memory(read) }
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}

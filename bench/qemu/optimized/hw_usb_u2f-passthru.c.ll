@@ -343,7 +343,7 @@ while.end.loopexit.i:                             ; preds = %while.body.i
 while.end.i:                                      ; preds = %while.end.loopexit.i, %if.end.i
   %6 = phi i8 [ %0, %if.end.i ], [ %.pre.i, %while.end.loopexit.i ]
   %index.0.lcssa.i = phi i32 [ %rem.i.i, %if.end.i ], [ %next_index.023.i, %while.end.loopexit.i ]
-  %conv8.i = trunc i32 %index.0.lcssa.i to i8
+  %conv8.i = trunc nuw nsw i32 %index.0.lcssa.i to i8
   store i8 %conv8.i, ptr %current_transactions_end.i, align 1
   %dec.i = add i8 %6, -1
   store i8 %dec.i, ptr %current_transactions_num, align 2
@@ -473,7 +473,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
   %nonce8.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %data.i, ptr noundef nonnull dereferenceable(8) %nonce8.i.i, i64 8)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %data.i, ptr noundef nonnull readonly dereferenceable(8) %nonce8.i.i, i64 8)
   %cmp9.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i, label %for.inc.i.i
 
@@ -615,7 +615,7 @@ while.end.loopexit.i.i:                           ; preds = %while.body.i.i
 while.end.i.i:                                    ; preds = %while.end.loopexit.i.i, %if.end.i.i
   %22 = phi i8 [ %17, %if.end.i.i ], [ %.pre.i.i, %while.end.loopexit.i.i ]
   %index.0.lcssa.i.i = phi i32 [ %rem.i.i35.i, %if.end.i.i ], [ %next_index.023.i.i, %while.end.loopexit.i.i ]
-  %conv8.i.i = trunc i32 %index.0.lcssa.i.i to i8
+  %conv8.i.i = trunc nuw nsw i32 %index.0.lcssa.i.i to i8
   store i8 %conv8.i.i, ptr %current_transactions_end.i.i, align 1
   %dec.i.i = add i8 %22, -1
   store i8 %dec.i.i, ptr %current_transactions_num.i.i25.i, align 2

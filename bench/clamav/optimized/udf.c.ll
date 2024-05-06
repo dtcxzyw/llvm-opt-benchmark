@@ -1023,8 +1023,8 @@ findFileEntries.exit:                             ; preds = %411
   %451 = getelementptr i8, ptr %441, i64 172
   %.val28.i = load i32, ptr %451, align 1
   %452 = zext i32 %.val27.i to i64
-  %453 = getelementptr i8, ptr %441, i64 %452
-  %454 = getelementptr i8, ptr %453, i64 176
+  %453 = getelementptr inbounds i8, ptr %441, i64 %452
+  %454 = getelementptr inbounds i8, ptr %453, i64 176
   %.val29.i = load i32, ptr %436, align 1
   %455 = getelementptr i8, ptr %443, i64 18
   %.val30.i = load i8, ptr %455, align 1
@@ -1052,7 +1052,7 @@ extractFile.exit.thread33.i:                      ; preds = %449
   br i1 %.not52.i.i, label %463, label %extractFile.exit.thread.sink.split.i
 
 463:                                              ; preds = %462
-  %464 = getelementptr i8, ptr %453, i64 180
+  %464 = getelementptr inbounds i8, ptr %453, i64 180
   %465 = load i32, ptr %464, align 1
   %466 = add i32 %465, %456
   %467 = mul i32 %466, %.val29.i
@@ -1063,14 +1063,14 @@ extractFile.exit.thread33.i:                      ; preds = %449
   br i1 %.not50.i.i, label %469, label %extractFile.exit.thread.sink.split.i
 
 469:                                              ; preds = %468
-  %470 = getelementptr i8, ptr %453, i64 184
+  %470 = getelementptr inbounds i8, ptr %453, i64 184
   %471 = load i16, ptr %470, align 1
   %472 = load i16, ptr %438, align 1
   %.not51.i.i = icmp eq i16 %471, %472
   br i1 %.not51.i.i, label %473, label %extractFile.exit.thread.sink.split.i
 
 473:                                              ; preds = %469
-  %474 = getelementptr i8, ptr %453, i64 180
+  %474 = getelementptr inbounds i8, ptr %453, i64 180
   %475 = load i32, ptr %474, align 1
   %476 = add i32 %475, %456
   %477 = mul i32 %476, %.val29.i
@@ -1082,15 +1082,15 @@ extractFile.exit.thread33.i:                      ; preds = %449
   br i1 %.not.i.i305, label %480, label %extractFile.exit.thread.sink.split.i
 
 480:                                              ; preds = %479
-  %481 = getelementptr i8, ptr %453, i64 192
+  %481 = getelementptr inbounds i8, ptr %453, i64 192
   %482 = load i16, ptr %481, align 1
   %483 = load i16, ptr %438, align 1
   %.not49.i.i = icmp eq i16 %482, %483
   br i1 %.not49.i.i, label %484, label %extractFile.exit.thread.sink.split.i
 
 484:                                              ; preds = %480
-  %485 = getelementptr i8, ptr %453, i64 188
-  %486 = getelementptr i8, ptr %453, i64 180
+  %485 = getelementptr inbounds i8, ptr %453, i64 188
+  %486 = getelementptr inbounds i8, ptr %453, i64 180
   %487 = load i32, ptr %485, align 1
   %488 = add i32 %487, %456
   %489 = mul i32 %488, %.val29.i

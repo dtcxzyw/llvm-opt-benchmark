@@ -30,7 +30,7 @@ entry:
 declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_kx_client_session_keys(ptr noundef writeonly %rx, ptr noundef writeonly %tx, ptr noundef nonnull %client_pk, ptr noundef nonnull %client_sk, ptr noundef nonnull %server_pk) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_kx_client_session_keys(ptr noundef writeonly %rx, ptr noundef writeonly %tx, ptr noundef nonnull %client_pk, ptr noundef nonnull %client_sk, ptr noundef nonnull %server_pk) local_unnamed_addr #0 {
 entry:
   %h = alloca %struct.crypto_generichash_blake2b_state, align 64
   %q = alloca [32 x i8], align 16
@@ -99,7 +99,7 @@ declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @crypto_generichash_final(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_kx_server_session_keys(ptr noundef writeonly %rx, ptr noundef writeonly %tx, ptr noundef nonnull %server_pk, ptr noundef nonnull %server_sk, ptr noundef nonnull %client_pk) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_kx_server_session_keys(ptr noundef writeonly %rx, ptr noundef writeonly %tx, ptr noundef nonnull %server_pk, ptr noundef nonnull %server_sk, ptr noundef nonnull %client_pk) local_unnamed_addr #0 {
 entry:
   %h = alloca %struct.crypto_generichash_blake2b_state, align 64
   %q = alloca [32 x i8], align 16

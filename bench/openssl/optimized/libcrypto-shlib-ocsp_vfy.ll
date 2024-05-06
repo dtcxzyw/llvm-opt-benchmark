@@ -21,7 +21,7 @@ entry:
   %chain = alloca ptr, align 8
   store ptr null, ptr %chain, align 8
   %responderId.i = getelementptr inbounds i8, ptr %bs, i64 8
-  %call.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %certs, ptr noundef nonnull %responderId.i)
+  %call.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %certs, ptr noundef nonnull readonly %responderId.i)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true
 
@@ -33,7 +33,7 @@ if.end.i:                                         ; preds = %entry
 land.lhs.true.i:                                  ; preds = %if.end.i
   %certs2.i = getelementptr inbounds i8, ptr %bs, i64 72
   %0 = load ptr, ptr %certs2.i, align 8
-  %call3.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef nonnull %responderId.i)
+  %call3.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef nonnull readonly %responderId.i)
   %tobool.not.i = icmp eq ptr %call3.i, null
   br i1 %tobool.not.i, label %if.then, label %if.end4
 
@@ -147,7 +147,7 @@ if.end5.i20:                                      ; preds = %for.cond.i.i, %if.t
 
 if.then11.i:                                      ; preds = %if.end5.i20
   %call13.i = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef 1) #3
-  %call14.i = call fastcc i32 @ocsp_match_issuerid(ptr noundef %call13.i, ptr noundef %caid.0.ph.i, ptr noundef %bs.val), !range !6
+  %call14.i = call fastcc i32 @ocsp_match_issuerid(ptr noundef %call13.i, ptr noundef %caid.0.ph.i, ptr noundef %bs.val)
   %cmp15.i = icmp slt i32 %call14.i, 0
   br i1 %cmp15.i, label %end, label %if.end17.i
 
@@ -174,7 +174,7 @@ land.lhs.true.i.i:                                ; preds = %if.then19.i
   br label %if.end36
 
 ocsp_check_issuer.exit:                           ; preds = %if.end5.i20, %if.end17.i
-  %call25.i = call fastcc i32 @ocsp_match_issuerid(ptr noundef %call7.i, ptr noundef %caid.0.ph.i, ptr noundef %bs.val), !range !6
+  %call25.i = call fastcc i32 @ocsp_match_issuerid(ptr noundef %call7.i, ptr noundef %caid.0.ph.i, ptr noundef %bs.val)
   %cmp34.not = icmp eq i32 %call25.i, 0
   br i1 %cmp34.not, label %if.end36, label %end
 
@@ -370,17 +370,17 @@ declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_resp_get0_signer(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %signer, ptr noundef %extra_certs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_resp_get0_signer(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %signer, ptr noundef %extra_certs) local_unnamed_addr #0 {
 entry:
   %responderId.i = getelementptr inbounds i8, ptr %bs, i64 8
-  %call.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %extra_certs, ptr noundef nonnull %responderId.i)
+  %call.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %extra_certs, ptr noundef nonnull readonly %responderId.i)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.end.i, label %ocsp_find_signer.exit
 
 if.end.i:                                         ; preds = %entry
   %certs2.i = getelementptr inbounds i8, ptr %bs, i64 72
   %0 = load ptr, ptr %certs2.i, align 8
-  %call3.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef nonnull %responderId.i)
+  %call3.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef nonnull readonly %responderId.i)
   %tobool.not.i = icmp ne ptr %call3.i, null
   %1 = zext i1 %tobool.not.i to i32
   br label %ocsp_find_signer.exit
@@ -393,7 +393,7 @@ ocsp_find_signer.exit:                            ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_request_verify(ptr noundef %req, ptr noundef %certs, ptr noundef %store, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_request_verify(ptr noundef %req, ptr noundef %certs, ptr noundef %store, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %optionalSignature = getelementptr inbounds i8, ptr %req, i64 32
   %0 = load ptr, ptr %optionalSignature, align 8
@@ -579,7 +579,7 @@ for.inc:                                          ; preds = %for.body, %if.end19
   %inc = add nuw nsw i32 %i.014, 1
   %call7 = call i32 @OPENSSL_sk_num(ptr noundef %certs) #3
   %cmp8 = icmp slt i32 %inc, %call7
-  br i1 %cmp8, label %for.body, label %return, !llvm.loop !7
+  br i1 %cmp8, label %for.body, label %return, !llvm.loop !6
 
 return:                                           ; preds = %if.end19, %if.end16, %if.then12, %for.inc, %if.end4, %if.end, %if.then
   %retval.0 = phi ptr [ %call, %if.then ], [ null, %if.end ], [ null, %if.end4 ], [ %call10, %if.end19 ], [ null, %if.end16 ], [ null, %if.then12 ], [ null, %for.inc ]
@@ -595,7 +595,7 @@ declare i32 @X509_pubkey_digest(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ocsp_match_issuerid(ptr noundef %cert, ptr noundef readonly %cid, ptr noundef %sresp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @ocsp_match_issuerid(ptr noundef %cert, ptr noundef readonly %cid, ptr noundef %sresp) unnamed_addr #0 {
 entry:
   %name = alloca [50 x i8], align 16
   %md = alloca [64 x i8], align 16
@@ -689,13 +689,13 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.029, 1
   %call47 = tail call i32 @OPENSSL_sk_num(ptr noundef %sresp) #3
   %cmp48 = icmp slt i32 %inc, %call47
-  br i1 %cmp48, label %for.body, label %return, !llvm.loop !8
+  br i1 %cmp48, label %for.body, label %return, !llvm.loop !7
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.029 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
   %call51 = tail call ptr @OPENSSL_sk_value(ptr noundef %sresp, i32 noundef %i.029) #3
   %5 = load ptr, ptr %call51, align 8
-  %call52 = tail call fastcc i32 @ocsp_match_issuerid(ptr noundef %cert, ptr noundef %5, ptr noundef null), !range !6
+  %call52 = tail call fastcc i32 @ocsp_match_issuerid(ptr noundef %cert, ptr noundef %5, ptr noundef null)
   %cmp53 = icmp slt i32 %call52, 1
   br i1 %cmp53, label %return, label %for.cond
 
@@ -750,6 +750,5 @@ attributes #3 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -1, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

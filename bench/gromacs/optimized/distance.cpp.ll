@@ -3888,7 +3888,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_18Distance12analyzeFr
           to label %71 unwind label %.loopexit.split.us.split.us
 
 71:                                               ; preds = %69
-  %72 = mul nsw i32 %.03959.us.us, 3
+  %72 = mul nuw nsw i32 %.03959.us.us, 3
   invoke void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %72, i32 noundef 3, ptr noundef nonnull %9, i1 noundef zeroext %70)
           to label %73 unwind label %.loopexit.split.us.split.us
 
@@ -4000,7 +4000,7 @@ _ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit:   ; preds = %.loopexit, %97
           to label %116 unwind label %.loopexit.split
 
 116:                                              ; preds = %114
-  %117 = mul nsw i32 %.03959, 3
+  %117 = mul nuw nsw i32 %.03959, 3
   invoke void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %117, i32 noundef 3, ptr noundef nonnull %9, i1 noundef zeroext %115)
           to label %118 unwind label %.loopexit.split
 

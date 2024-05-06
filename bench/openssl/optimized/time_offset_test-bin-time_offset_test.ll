@@ -49,7 +49,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_offset(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_offset(i32 noundef %idx) #0 {
 entry:
   %at = alloca %struct.asn1_string_st, align 8
   %day = alloca i32, align 4

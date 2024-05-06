@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @getpwbuf_r(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8, ptr nocapture noundef writeonly %9) local_unnamed_addr #0 {
+define range(i32 0, 35) i32 @getpwbuf_r(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8, ptr nocapture noundef writeonly %9) local_unnamed_addr #0 {
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #3
   %12 = add i64 %11, 1
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #3

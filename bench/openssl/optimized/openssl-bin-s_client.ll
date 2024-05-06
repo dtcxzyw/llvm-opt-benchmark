@@ -4311,7 +4311,7 @@ if.end1968:                                       ; preds = %while.end1966, %lan
   store ptr %call1001, ptr %user_data, align 8
   store ptr %call29, ptr %buf2.i, align 8
   store i64 8192, ptr %bufmax3.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buflen.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %buflen.i, i8 0, i64 16, i1 false)
   store i32 %spec.select695, ptr %mode4.i, align 8
   store i32 0, ptr %isfin.i, align 4
   br label %for.cond1969

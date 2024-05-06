@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @free_type = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define i32 @OBJ_NAME_init() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OBJ_NAME_init() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @init, ptr noundef nonnull @o_names_init_ossl_) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -271,7 +271,7 @@ return:                                           ; preds = %if.end2, %if.end, %
 declare i32 @CRYPTO_THREAD_read_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OBJ_NAME_add(ptr noundef %name, i32 noundef %type, ptr noundef %data) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OBJ_NAME_add(ptr noundef %name, i32 noundef %type, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @init, ptr noundef nonnull @o_names_init_ossl_) #7
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -362,7 +362,7 @@ return:                                           ; preds = %if.end, %entry, %un
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OBJ_NAME_remove(ptr noundef %name, i32 noundef %type) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OBJ_NAME_remove(ptr noundef %name, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %on = alloca %struct.obj_name_st, align 8
   %call.i = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @init, ptr noundef nonnull @o_names_init_ossl_) #7
@@ -611,7 +611,7 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   %name = getelementptr inbounds i8, ptr %onp, i64 8
   %1 = load ptr, ptr %name, align 8
-  %call = tail call i32 @OBJ_NAME_remove(ptr noundef %1, i32 noundef %.pre), !range !7
+  %call = tail call i32 @OBJ_NAME_remove(ptr noundef %1, i32 noundef %.pre)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end, %entry, %if.then3
@@ -770,4 +770,3 @@ attributes #8 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}

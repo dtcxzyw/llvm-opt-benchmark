@@ -1097,7 +1097,7 @@ define dso_local void @ip_tunnel_unneed_metadata() #0 align 16 {
 declare dso_local void @static_key_slow_dec(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local noundef zeroext i16 @ip_tunnel_parse_protocol(ptr nocapture noundef readonly %0) #6 align 16 {
+define dso_local noundef zeroext range(i16 -8826, 9) i16 @ip_tunnel_parse_protocol(ptr nocapture noundef readonly %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 180

@@ -475,7 +475,7 @@ define ptr @php_random_engine_common_clone_object(ptr noundef %0) #0 {
   %13 = getelementptr inbounds i8, ptr %7, i64 -8
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull align 1 %11, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %14, ptr nonnull readonly align 1 %11, i64 %15, i1 false)
   store ptr %14, ptr %13, align 8
   br label %16
 
@@ -575,7 +575,7 @@ define i64 @php_random_range(ptr nocapture readonly %0, ptr %1, i64 noundef %2, 
   br label %php_random_range64.exit
 
 49:                                               ; preds = %4
-  %50 = trunc i64 %5 to i32
+  %50 = trunc nuw i64 %5 to i32
   %51 = getelementptr inbounds i8, ptr %0, i64 8
   br label %52
 
@@ -963,7 +963,7 @@ php_random_default_status.exit8:                  ; preds = %17, %19
   %24 = sitofp i64 %0 to double
   %25 = fsub double %23, %24
   %26 = fadd double %25, 1.000000e+00
-  %27 = uitofp i64 %22 to double
+  %27 = uitofp nneg i64 %22 to double
   %28 = fmul double %27, 0x3E00000000000000
   %29 = fmul double %26, %28
   %30 = fptoui double %29 to i64
@@ -994,7 +994,7 @@ php_mt_srand.exit:                                ; preds = %1, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @php_rand() local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @php_rand() local_unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds (%struct._php_random_algo, ptr @php_random_algo_mt19937, i64 0, i32 1), align 8
   %2 = load ptr, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 2), align 8
   %3 = load i8, ptr getelementptr inbounds (%struct._zend_random_globals, ptr @random_globals, i64 0, i32 3), align 8
@@ -1326,7 +1326,7 @@ php_random_default_status.exit8.i:                ; preds = %60, %58
   %65 = sitofp i64 %38 to double
   %66 = fsub double %64, %65
   %67 = fadd double %66, 1.000000e+00
-  %68 = uitofp i64 %63 to double
+  %68 = uitofp nneg i64 %63 to double
   %69 = fmul double %68, 0x3E00000000000000
   %70 = fmul double %67, %69
   %71 = fptoui double %70 to i64
@@ -1509,7 +1509,7 @@ php_random_default_status.exit8.i:                ; preds = %57, %55
   %62 = sitofp i64 %37 to double
   %63 = fsub double %61, %62
   %64 = fadd double %63, 1.000000e+00
-  %65 = uitofp i64 %60 to double
+  %65 = uitofp nneg i64 %60 to double
   %66 = fmul double %65, 0x3E00000000000000
   %67 = fmul double %64, %66
   %68 = fptoui double %67 to i64
@@ -1571,7 +1571,7 @@ php_random_default_status.exit8.i116:             ; preds = %85, %83
   %90 = sitofp i64 %38 to double
   %91 = fsub double %89, %90
   %92 = fadd double %91, 1.000000e+00
-  %93 = uitofp i64 %88 to double
+  %93 = uitofp nneg i64 %88 to double
   %94 = fmul double %93, 0x3E00000000000000
   %95 = fmul double %92, %94
   %96 = fptoui double %95 to i64

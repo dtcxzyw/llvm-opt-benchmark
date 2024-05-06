@@ -4,16 +4,16 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden ptr @FLAC__memory_alloc_aligned(i64 noundef %bytes, ptr nocapture noundef writeonly %aligned_address) local_unnamed_addr #0 {
+define hidden noundef ptr @FLAC__memory_alloc_aligned(i64 noundef %bytes, ptr nocapture noundef writeonly %aligned_address) local_unnamed_addr #0 {
 entry:
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %bytes, i64 1)
-  %call.i = tail call noalias ptr @malloc(i64 noundef %spec.select.i) #6
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i) #6
   store ptr %call.i, ptr %aligned_address, align 8
   ret ptr %call.i
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %elements, ptr nocapture noundef %unaligned_pointer, ptr nocapture noundef writeonly %aligned_pointer) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %elements, ptr nocapture noundef %unaligned_pointer, ptr nocapture noundef writeonly %aligned_pointer) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %elements, 4611686018427387903
   br i1 %cmp, label %return, label %if.end
@@ -21,7 +21,7 @@ entry:
 if.end:                                           ; preds = %entry
   %mul = shl nuw i64 %elements, 2
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul, i64 1)
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i) #6
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i.i) #6
   %cmp1 = icmp eq ptr %call.i.i, null
   br i1 %cmp1, label %return, label %if.else
 
@@ -48,7 +48,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden i32 @FLAC__memory_alloc_aligned_uint32_array(i64 noundef %elements, ptr nocapture noundef %unaligned_pointer, ptr nocapture noundef writeonly %aligned_pointer) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_uint32_array(i64 noundef %elements, ptr nocapture noundef %unaligned_pointer, ptr nocapture noundef writeonly %aligned_pointer) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %elements, 4611686018427387903
   br i1 %cmp, label %return, label %if.end
@@ -56,7 +56,7 @@ entry:
 if.end:                                           ; preds = %entry
   %mul = shl nuw i64 %elements, 2
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul, i64 1)
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i) #6
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i.i) #6
   %cmp1 = icmp eq ptr %call.i.i, null
   br i1 %cmp1, label %return, label %if.else
 
@@ -80,7 +80,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden i32 @FLAC__memory_alloc_aligned_int64_array(i64 noundef %elements, ptr nocapture noundef %unaligned_pointer, ptr nocapture noundef writeonly %aligned_pointer) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_int64_array(i64 noundef %elements, ptr nocapture noundef %unaligned_pointer, ptr nocapture noundef writeonly %aligned_pointer) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %elements, 2305843009213693951
   br i1 %cmp, label %return, label %if.end
@@ -88,7 +88,7 @@ entry:
 if.end:                                           ; preds = %entry
   %mul = shl nuw i64 %elements, 3
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul, i64 1)
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i) #6
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i.i) #6
   %cmp1 = icmp eq ptr %call.i.i, null
   br i1 %cmp1, label %return, label %if.else
 
@@ -112,7 +112,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden i32 @FLAC__memory_alloc_aligned_uint64_array(i64 noundef %elements, ptr nocapture noundef %unaligned_pointer, ptr nocapture noundef writeonly %aligned_pointer) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_uint64_array(i64 noundef %elements, ptr nocapture noundef %unaligned_pointer, ptr nocapture noundef writeonly %aligned_pointer) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %elements, 2305843009213693951
   br i1 %cmp, label %return, label %if.end
@@ -120,7 +120,7 @@ entry:
 if.end:                                           ; preds = %entry
   %mul = shl nuw i64 %elements, 3
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul, i64 1)
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i) #6
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i.i) #6
   %cmp1 = icmp eq ptr %call.i.i, null
   br i1 %cmp1, label %return, label %if.else
 
@@ -144,7 +144,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden i32 @FLAC__memory_alloc_aligned_real_array(i64 noundef %elements, ptr nocapture noundef %unaligned_pointer, ptr nocapture noundef writeonly %aligned_pointer) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_real_array(i64 noundef %elements, ptr nocapture noundef %unaligned_pointer, ptr nocapture noundef writeonly %aligned_pointer) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i64 %elements, 4611686018427387903
   br i1 %cmp, label %return, label %if.end
@@ -152,7 +152,7 @@ entry:
 if.end:                                           ; preds = %entry
   %mul = shl nuw i64 %elements, 2
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %mul, i64 1)
-  %call.i.i = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i) #6
+  %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i.i) #6
   %cmp1 = icmp eq ptr %call.i.i, null
   br i1 %cmp1, label %return, label %if.else
 
@@ -176,7 +176,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable
-define hidden noalias ptr @safe_malloc_mul_2op_p(i64 noundef %size1, i64 noundef %size2) local_unnamed_addr #3 {
+define hidden noalias noundef ptr @safe_malloc_mul_2op_p(i64 noundef %size1, i64 noundef %size2) local_unnamed_addr #3 {
 entry:
   %tobool = icmp ne i64 %size1, 0
   %tobool1 = icmp ne i64 %size2, 0

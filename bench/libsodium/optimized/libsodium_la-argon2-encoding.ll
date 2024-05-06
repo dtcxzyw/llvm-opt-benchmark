@@ -414,7 +414,7 @@ u32_to_string.exit110:                            ; preds = %do.body.i97
   %arrayidx.i103.le = getelementptr [10 x i8], ptr %tmp.i96, i64 0, i64 %dec.i102
   %sub35 = add i64 %sub25, -3
   %sub.i108 = sub i64 11, %i.0.i99
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %tmp38, ptr nonnull align 1 %arrayidx.i103.le, i64 %sub.i108, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %tmp38, ptr nonnull align 1 %arrayidx.i103.le, i64 %sub.i108, i1 false)
   %arrayidx6.i109 = getelementptr i8, ptr %tmp38, i64 %sub.i108
   store i8 0, ptr %arrayidx6.i109, align 1
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %tmp.i96)
@@ -457,7 +457,7 @@ u32_to_string.exit125:                            ; preds = %do.body.i112
   %arrayidx.i118.le = getelementptr [10 x i8], ptr %tmp.i111, i64 0, i64 %dec.i117
   %sub60 = add i64 %sub50, -3
   %sub.i123 = sub i64 11, %i.0.i114
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %tmp63, ptr nonnull align 1 %arrayidx.i118.le, i64 %sub.i123, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %tmp63, ptr nonnull align 1 %arrayidx.i118.le, i64 %sub.i123, i1 false)
   %arrayidx6.i124 = getelementptr i8, ptr %tmp63, i64 %sub.i123
   store i8 0, ptr %arrayidx6.i124, align 1
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %tmp.i111)
@@ -500,7 +500,7 @@ u32_to_string.exit140:                            ; preds = %do.body.i127
   %arrayidx.i133.le = getelementptr [10 x i8], ptr %tmp.i126, i64 0, i64 %dec.i132
   %sub85 = add i64 %sub75, -3
   %sub.i138 = sub i64 11, %i.0.i129
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %tmp88, ptr nonnull align 1 %arrayidx.i133.le, i64 %sub.i138, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %tmp88, ptr nonnull align 1 %arrayidx.i133.le, i64 %sub.i138, i1 false)
   %arrayidx6.i139 = getelementptr i8, ptr %tmp88, i64 %sub.i138
   store i8 0, ptr %arrayidx6.i139, align 1
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %tmp.i126)

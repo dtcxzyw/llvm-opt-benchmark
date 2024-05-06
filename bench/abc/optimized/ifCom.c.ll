@@ -73,7 +73,7 @@ declare ptr @If_LibLutDup(ptr noundef) local_unnamed_addr #2
 declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @If_CommandReadLut(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @If_CommandReadLut(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #5
   %5 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #5
   %6 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #5
@@ -163,7 +163,7 @@ define internal noundef i32 @If_CommandReadLut(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @If_CommandPrintLut(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @If_CommandPrintLut(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #5
   %5 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #5
   %6 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #5
@@ -207,7 +207,7 @@ define internal noundef i32 @If_CommandPrintLut(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @If_CommandReadBox(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @If_CommandReadBox(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #5
   %5 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #5
   %6 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #5
@@ -310,7 +310,7 @@ define internal noundef i32 @If_CommandReadBox(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @If_CommandPrintBox(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @If_CommandPrintBox(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #5
   %5 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #5
   %6 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #5

@@ -60,7 +60,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @event_test() #1 {
+define internal range(i32 0, 2) i32 @event_test() #1 {
 entry:
   %e3 = alloca %struct.ossl_event_st, align 8
   %ep = alloca ptr, align 8

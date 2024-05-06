@@ -377,7 +377,7 @@ while.end:                                        ; preds = %if.end27, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN2EA4StdC12UTF8CharSizeEPKc(ptr nocapture noundef readonly %p) local_unnamed_addr #1 {
+define dso_local noundef range(i64 1, 7) i64 @_ZN2EA4StdC12UTF8CharSizeEPKc(ptr nocapture noundef readonly %p) local_unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %p, align 1
   %cmp = icmp ult i8 %0, -62
@@ -410,7 +410,7 @@ return:                                           ; preds = %if.else12, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN2EA4StdC12UTF8CharSizeEDs(i16 noundef zeroext %c) local_unnamed_addr #2 {
+define dso_local noundef range(i64 1, 4) i64 @_ZN2EA4StdC12UTF8CharSizeEDs(i16 noundef zeroext %c) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i16 %c, 128
   %cmp2 = icmp ult i16 %c, 2048
@@ -420,7 +420,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN2EA4StdC12UTF8CharSizeEDi(i32 noundef zeroext %c) local_unnamed_addr #2 {
+define dso_local noundef range(i64 1, 7) i64 @_ZN2EA4StdC12UTF8CharSizeEDi(i32 noundef zeroext %c) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i32 %c, 128
   br i1 %cmp, label %return, label %if.else

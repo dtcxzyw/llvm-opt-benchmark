@@ -2263,9 +2263,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit568:       ; preds = %445, %448
   %453 = trunc nuw nsw i64 %indvars.iv1138 to i32
   %454 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %444, ptr noundef nonnull @.str.138, i32 noundef %453) #19
   %455 = load ptr, ptr %415, align 8
-  %456 = getelementptr i32, ptr %455, i64 %indvars.iv1138
+  %456 = getelementptr inbounds i32, ptr %455, i64 %indvars.iv1138
   %457 = load i32, ptr %456, align 4
-  %458 = getelementptr i8, ptr %456, i64 4
+  %458 = getelementptr inbounds i8, ptr %456, i64 4
   %459 = load i32, ptr %458, align 4
   %460 = icmp slt i32 %457, %459
   br i1 %460, label %.lr.ph1005.preheader, label %.loopexit
@@ -2283,8 +2283,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit568:       ; preds = %445, %448
   %466 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %444, ptr noundef nonnull @.str.139, i32 noundef %465) #19
   %indvars.iv.next1136 = add nsw i64 %indvars.iv1135, 1
   %467 = load ptr, ptr %415, align 8
-  %468 = getelementptr i32, ptr %467, i64 %indvars.iv1138
-  %469 = getelementptr i8, ptr %468, i64 4
+  %468 = getelementptr inbounds i32, ptr %467, i64 %indvars.iv1138
+  %469 = getelementptr inbounds i8, ptr %468, i64 4
   %470 = load i32, ptr %469, align 4
   %471 = sext i32 %470 to i64
   %472 = icmp slt i64 %indvars.iv.next1136, %471
@@ -3857,7 +3857,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit663:       ; preds = %989, %992
 .lr.ph1025:                                       ; preds = %.lr.ph1029
   %999 = sub nsw i32 1, %995
   %1000 = sitofp i32 %999 to double
-  %1001 = mul nsw i32 %.114661027, 3
+  %1001 = mul nuw nsw i32 %.114661027, 3
   %1002 = uitofp nneg i32 %1001 to double
   %1003 = call double @llvm.fmuladd.f64(double %1000, double 1.500000e+00, double %1002)
   %1004 = fptrunc double %1003 to float
@@ -3878,7 +3878,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit663:       ; preds = %989, %992
 .lr.ph1021:                                       ; preds = %.lr.ph1025.split
   %1013 = sub nsw i32 1, %1011
   %1014 = sitofp i32 %1013 to double
-  %1015 = mul nsw i32 %.64811023, 3
+  %1015 = mul nuw nsw i32 %.64811023, 3
   %1016 = uitofp nneg i32 %1015 to double
   %1017 = call double @llvm.fmuladd.f64(double %1014, double 1.500000e+00, double %1016)
   %1018 = fptrunc double %1017 to float
@@ -3903,7 +3903,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit663:       ; preds = %989, %992
 1031:                                             ; preds = %1020
   %1032 = sub nsw i32 1, %1022
   %1033 = sitofp i32 %1032 to double
-  %1034 = mul nsw i32 %.04741019, 3
+  %1034 = mul nuw nsw i32 %.04741019, 3
   %1035 = uitofp nneg i32 %1034 to double
   %1036 = call double @llvm.fmuladd.f64(double %1033, double 1.500000e+00, double %1035)
   %1037 = fptrunc double %1036 to float
@@ -5196,7 +5196,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %22, %25
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL11comp_minimaPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
+define internal noundef range(i32 -1, 2) i32 @_ZL11comp_minimaPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load float, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8

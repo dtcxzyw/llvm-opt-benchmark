@@ -39,7 +39,7 @@ define internal i32 @ged_driver_init() #0 section ".init.text" align 16 {
 declare dso_local i32 @__platform_driver_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ged_probe(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ged_probe(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = tail call noalias dereferenceable_or_null(24) ptr @devm_kmalloc(ptr noundef %2, i64 noundef 24, i32 noundef 3520) #9
   %4 = icmp eq ptr %3, null
@@ -157,7 +157,7 @@ declare dso_local zeroext i1 @is_acpi_device_node(ptr noundef) local_unnamed_add
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_ged_request_interrupt(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @acpi_ged_request_interrupt(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.resource, align 8
   %5 = alloca [5 x i8], align 1

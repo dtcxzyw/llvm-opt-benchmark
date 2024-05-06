@@ -321,7 +321,7 @@ Vec_IntPush.exit115:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %140, ptr %96, align 4
   %141 = sext i32 %116 to i64
   %142 = getelementptr inbounds i32, ptr %139, i64 %141
-  %143 = trunc i64 %indvars.iv138 to i32
+  %143 = trunc nuw nsw i64 %indvars.iv138 to i32
   store i32 %143, ptr %142, align 4
   br label %144
 

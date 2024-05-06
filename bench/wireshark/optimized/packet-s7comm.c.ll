@@ -3291,7 +3291,7 @@ define hidden void @proto_reg_handoff_s7comm() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_s7comm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_s7comm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   %6 = icmp ult i32 %5, 10
   br i1 %6, label %166, label %7
@@ -4825,7 +4825,7 @@ define internal fastcc void @s7comm_decode_plc_controls_updownload(ptr noundef %
   %22 = load i32, ptr @hf_s7comm_data_blockcontrol_unknown1, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #7
   %24 = add nuw nsw i32 %6, 8
-  %25 = tail call fastcc i32 @s7comm_decode_plc_controls_filename(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef %24), !range !13
+  %25 = tail call fastcc i32 @s7comm_decode_plc_controls_filename(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef %24)
   %26 = icmp ugt i16 %4, 18
   br i1 %26, label %27, label %144
 
@@ -4872,7 +4872,7 @@ define internal fastcc void @s7comm_decode_plc_controls_updownload(ptr noundef %
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %48
-  %61 = tail call fastcc i32 @s7comm_decode_plc_controls_filename(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef %58), !range !13
+  %61 = tail call fastcc i32 @s7comm_decode_plc_controls_filename(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef %58)
   br label %144
 
 62:                                               ; preds = %48
@@ -4917,7 +4917,7 @@ define internal fastcc void @s7comm_decode_plc_controls_updownload(ptr noundef %
   %87 = add nuw nsw i32 %6, 8
   %88 = load i32, ptr @hf_s7comm_data_blockcontrol_unknown1, align 4
   %89 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %88, ptr noundef %0, i32 noundef %81, i32 noundef 4, i32 noundef 0) #7
-  %90 = tail call fastcc i32 @s7comm_decode_plc_controls_filename(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef %87), !range !13
+  %90 = tail call fastcc i32 @s7comm_decode_plc_controls_filename(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef %87)
   br label %144
 
 91:                                               ; preds = %73
@@ -4987,7 +4987,7 @@ define internal fastcc void @s7comm_decode_plc_controls_updownload(ptr noundef %
   %133 = add nuw nsw i32 %6, 8
   %134 = load i32, ptr @hf_s7comm_data_blockcontrol_unknown1, align 4
   %135 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %134, ptr noundef %0, i32 noundef %127, i32 noundef 4, i32 noundef 0) #7
-  %136 = call fastcc i32 @s7comm_decode_plc_controls_filename(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef %133), !range !13
+  %136 = call fastcc i32 @s7comm_decode_plc_controls_filename(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef %133)
   br label %144
 
 137:                                              ; preds = %114
@@ -5216,7 +5216,7 @@ define internal fastcc void @s7comm_decode_pi_service(ptr noundef %0, ptr nounde
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %89, ptr noundef nonnull @.str.2128, ptr noundef %91) #7
   %92 = add i32 %.0291295, 8
   %exitcond.not = icmp eq i32 %83, %47
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %87, %44
   %93 = load ptr, ptr %52, align 8
@@ -5877,7 +5877,7 @@ define internal fastcc void @s7comm_decode_response_write_data(ptr noundef %0, p
   %14 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %13, ptr noundef %0, i32 noundef %.01719, i32 noundef 1, i32 noundef %11) #7
   %15 = add i32 %.01719, 1
   %exitcond.not = icmp eq i32 %10, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -5888,7 +5888,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @s7comm_decode_plc_controls_filename(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 19, 286) i32 @s7comm_decode_plc_controls_filename(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #7
@@ -6032,7 +6032,7 @@ define internal fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, pt
   %27 = add i32 %26, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %14, %8
   %28 = tail call ptr @wmem_strbuf_get_str(ptr noundef %11) #7
@@ -6142,7 +6142,7 @@ define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr 
   %.1 = add i32 %36, %40
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %22
-  br i1 %exitcond.not, label %.thread, label %34, !llvm.loop !17
+  br i1 %exitcond.not, label %.thread, label %34, !llvm.loop !16
 
 41:                                               ; preds = %18
   %42 = and i8 %4, -3
@@ -6338,7 +6338,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %32, ptr noundef %0, i32 noundef %31, i32 noundef 2, i32 noundef 0) #7
   %34 = add i32 %.0252, 4
   %exitcond259.not = icmp eq i32 %25, %19
-  br i1 %exitcond259.not, label %.thread, label %.lr.ph253, !llvm.loop !18
+  br i1 %exitcond259.not, label %.thread, label %.lr.ph253, !llvm.loop !17
 
 35:                                               ; preds = %9
   switch i8 %3, label %251 [
@@ -6396,7 +6396,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %
   %65 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %64, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef 0) #7
   %66 = add i32 %.2250, 4
   %exitcond.not = icmp eq i32 %55, %50
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !18
 
 67:                                               ; preds = %9
   switch i8 %3, label %251 [
@@ -6542,7 +6542,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %
   %171 = getelementptr inbounds i8, ptr %158, i64 4
   %172 = load i32, ptr %171, align 4
   %173 = load i32, ptr %158, align 8
-  %174 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 30, ptr noundef nonnull @.str.2362, ptr noundef %163, i32 noundef %165, i32 noundef %168, i32 noundef %170, i32 noundef %172, i32 noundef %173, i32 noundef %155) #7
+  %174 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %13, i64 noundef 30, ptr noundef nonnull @.str.2362, ptr noundef %163, i32 noundef %165, i32 noundef %168, i32 noundef %170, i32 noundef %172, i32 noundef %173, i32 noundef %155) #7
   br label %s7comm_get_timestring_from_s7time.exit
 
 s7comm_get_timestring_from_s7time.exit:           ; preds = %102, %159
@@ -6583,7 +6583,7 @@ s7comm_get_timestring_from_s7time.exit:           ; preds = %102, %159
   %201 = getelementptr inbounds i8, ptr %188, i64 4
   %202 = load i32, ptr %201, align 4
   %203 = load i32, ptr %188, align 8
-  %204 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 30, ptr noundef nonnull @.str.2362, ptr noundef %193, i32 noundef %195, i32 noundef %198, i32 noundef %200, i32 noundef %202, i32 noundef %203, i32 noundef %185) #7
+  %204 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %13, i64 noundef 30, ptr noundef nonnull @.str.2362, ptr noundef %193, i32 noundef %195, i32 noundef %198, i32 noundef %200, i32 noundef %202, i32 noundef %203, i32 noundef %185) #7
   br label %s7comm_get_timestring_from_s7time.exit246
 
 s7comm_get_timestring_from_s7time.exit246:        ; preds = %s7comm_get_timestring_from_s7time.exit, %189
@@ -6841,7 +6841,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr 
   %indvars.iv.next247.pre-phi = phi i32 [ %.pre, %._crit_edge255 ], [ %109, %111 ], [ %109, %110 ]
   %.1222.us = lshr i8 %.0221228.us, 1
   %exitcond249.not = icmp eq i32 %indvars.iv.next247.pre-phi, 8
-  br i1 %exitcond249.not, label %102, label %104, !llvm.loop !20
+  br i1 %exitcond249.not, label %102, label %104, !llvm.loop !19
 
 113:                                              ; preds = %102, %94
   %114 = load i32, ptr @hf_s7comm_cpu_alarm_message_state, align 4
@@ -6916,7 +6916,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr 
   %157 = sub i32 %.5.us, %.1231.us
   tail call void @proto_item_set_len(ptr noundef %42, i32 noundef %157) #7
   %exitcond254.not = icmp eq i32 %43, %35
-  br i1 %exitcond254.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %exitcond254.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %158 = icmp eq i8 %3, 2
@@ -6940,7 +6940,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr 
   %169 = add i32 %.1231.us233, 1
   tail call void @proto_item_set_len(ptr noundef %162, i32 noundef 1) #7
   %exitcond245.not = icmp eq i32 %163, %35
-  br i1 %exitcond245.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !21
+  br i1 %exitcond245.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !20
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %indvars.iv = phi i32 [ %174, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
@@ -6952,7 +6952,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %173, ptr noundef nonnull @.str.2306, i32 noundef %174) #7
   tail call void @proto_item_set_len(ptr noundef %173, i32 noundef 0) #7
   %exitcond.not = icmp eq i32 %174, %35
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %156, %29
   %.1.lcssa = phi i32 [ %37, %29 ], [ %.5.us, %156 ], [ %169, %.lr.ph.split.split.us ], [ %37, %.lr.ph.split.split ]
@@ -7080,7 +7080,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_query_response(ptr nounde
   br i1 %94, label %.backedge.backedge, label %.loopexit
 
 .backedge.backedge:                               ; preds = %93, %91
-  br label %.backedge, !llvm.loop !22
+  br label %.backedge, !llvm.loop !21
 
 .loopexit:                                        ; preds = %91, %93, %3
   %.2 = phi i32 [ %26, %3 ], [ %.1, %93 ], [ %.1, %91 ]
@@ -8214,7 +8214,7 @@ tailrecurse:                                      ; preds = %666, %6
   %.184.i = phi i32 [ %418, %417 ], [ %398, %.lr.ph.i ]
   %.1.i59 = phi i32 [ %419, %417 ], [ %404, %.lr.ph.i ]
   %426 = icmp sgt i32 %.1.i59, 16
-  br i1 %426, label %.lr.ph.i, label %s7comm_decode_ud_tis_istack.exit, !llvm.loop !23
+  br i1 %426, label %.lr.ph.i, label %s7comm_decode_ud_tis_istack.exit, !llvm.loop !22
 
 427:                                              ; preds = %8
   %428 = icmp eq i8 %.tr99, 1
@@ -8484,7 +8484,7 @@ make_registerflag_string.exit.i:                  ; preds = %591, %588
   %595 = call ptr @proto_tree_add_bitmask(ptr noundef %549, ptr noundef %0, i32 noundef %557, i32 noundef %593, i32 noundef %594, ptr noundef nonnull @s7comm_diagdata_registerflag_fields, i32 noundef 0) #7
   %.1.i66 = add i32 %.2.i65, 2
   %exitcond.not.i = icmp eq i32 %592, %.071.i
-  br i1 %exitcond.not.i, label %s7comm_decode_ud_tis_blockstat.exit, label %.lr.ph.i64, !llvm.loop !24
+  br i1 %exitcond.not.i, label %s7comm_decode_ud_tis_blockstat.exit, label %.lr.ph.i64, !llvm.loop !23
 
 596:                                              ; preds = %522
   %597 = load i32, ptr @hf_s7comm_diagdata_req_startaddr_awl, align 4
@@ -8528,7 +8528,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   %615 = tail call fastcc i32 @s7comm_decode_ud_tis_item_address(ptr noundef %0, i32 noundef %.02934.i, ptr noundef %13, i16 noundef zeroext %.035.i, ptr noundef nonnull @.str.2322)
   %616 = add nuw i16 %.035.i, 1
   %exitcond41.not.i = icmp eq i16 %616, %610
-  br i1 %exitcond41.not.i, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph36.i, !llvm.loop !25
+  br i1 %exitcond41.not.i, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph36.i, !llvm.loop !24
 
 617:                                              ; preds = %608
   %618 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.tr102) #7
@@ -8545,7 +8545,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   %623 = tail call fastcc i32 @s7comm_decode_ud_tis_item_value(ptr noundef %0, i32 noundef %.13032.i, ptr noundef %13, i16 noundef zeroext %.133.i, ptr noundef nonnull @.str.2323)
   %624 = add nuw i16 %.133.i, 1
   %exitcond.not.i69 = icmp eq i16 %624, %618
-  br i1 %exitcond.not.i69, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph.i68, !llvm.loop !26
+  br i1 %exitcond.not.i69, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph.i68, !llvm.loop !25
 
 625:                                              ; preds = %8, %8, %8, %8, %8, %8
   %626 = icmp eq i8 %.tr99, 1
@@ -8651,7 +8651,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   %680 = tail call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %679, ptr noundef %0, i32 noundef %678, i32 noundef 2, i32 noundef 0) #7
   %681 = add i32 %.2.i73209, 4
   %exitcond.not = icmp eq i32 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph, !llvm.loop !26
 
 682:                                              ; preds = %667
   %683 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.tr102) #7
@@ -8706,7 +8706,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   %710 = tail call fastcc i32 @s7comm_decode_ud_tis_item_address(ptr noundef %0, i32 noundef %.05261.i, ptr noundef %13, i16 noundef zeroext %.05162.i, ptr noundef nonnull @.str.2350)
   %711 = add nuw i16 %.05162.i, 1
   %exitcond77.not.i = icmp eq i16 %711, %705
-  br i1 %exitcond77.not.i, label %.lr.ph68.i, label %.lr.ph64.i, !llvm.loop !28
+  br i1 %exitcond77.not.i, label %.lr.ph68.i, label %.lr.ph64.i, !llvm.loop !27
 
 .lr.ph68.i:                                       ; preds = %.lr.ph64.i, %.lr.ph68.i
   %.167.i = phi i16 [ %713, %.lr.ph68.i ], [ 0, %.lr.ph64.i ]
@@ -8714,7 +8714,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   %712 = tail call fastcc i32 @s7comm_decode_ud_tis_item_value(ptr noundef %0, i32 noundef %.15366.i, ptr noundef %13, i16 noundef zeroext %.167.i, ptr noundef nonnull @.str.2351)
   %713 = add nuw i16 %.167.i, 1
   %exitcond78.not.i = icmp eq i16 %713, %705
-  br i1 %exitcond78.not.i, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph68.i, !llvm.loop !29
+  br i1 %exitcond78.not.i, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph68.i, !llvm.loop !28
 
 714:                                              ; preds = %703
   %715 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.tr102) #7
@@ -8741,7 +8741,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %721, ptr noundef nonnull @.str.2126, i32 noundef %728, ptr noundef %729) #7
   %730 = add i32 %.25458.i, 1
   %exitcond.not.i78 = icmp eq i32 %728, %717
-  br i1 %exitcond.not.i78, label %._crit_edge.i, label %.lr.ph.i76, !llvm.loop !30
+  br i1 %exitcond.not.i78, label %._crit_edge.i, label %.lr.ph.i76, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i76
   %731 = and i32 %717, 1
@@ -8775,7 +8775,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   %743 = tail call fastcc i32 @s7comm_decode_ud_tis_item_address(ptr noundef %0, i32 noundef %.05261.i92, ptr noundef %13, i16 noundef zeroext %.05162.i91, ptr noundef nonnull @.str.2352)
   %744 = add nuw i16 %.05162.i91, 1
   %exitcond77.not.i93 = icmp eq i16 %744, %738
-  br i1 %exitcond77.not.i93, label %.lr.ph68.i94, label %.lr.ph64.i90, !llvm.loop !31
+  br i1 %exitcond77.not.i93, label %.lr.ph68.i94, label %.lr.ph64.i90, !llvm.loop !30
 
 .lr.ph68.i94:                                     ; preds = %.lr.ph64.i90, %.lr.ph68.i94
   %.167.i95 = phi i16 [ %746, %.lr.ph68.i94 ], [ 0, %.lr.ph64.i90 ]
@@ -8783,7 +8783,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   %745 = tail call fastcc i32 @s7comm_decode_ud_tis_item_value(ptr noundef %0, i32 noundef %.15366.i96, ptr noundef %13, i16 noundef zeroext %.167.i95, ptr noundef nonnull @.str.2353)
   %746 = add nuw i16 %.167.i95, 1
   %exitcond78.not.i97 = icmp eq i16 %746, %738
-  br i1 %exitcond78.not.i97, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph68.i94, !llvm.loop !32
+  br i1 %exitcond78.not.i97, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph68.i94, !llvm.loop !31
 
 747:                                              ; preds = %736
   %748 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.tr102) #7
@@ -8810,7 +8810,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %754, ptr noundef nonnull @.str.2126, i32 noundef %761, ptr noundef %762) #7
   %763 = add i32 %.25458.i84, 1
   %exitcond.not.i85 = icmp eq i32 %761, %750
-  br i1 %exitcond.not.i85, label %._crit_edge.i86, label %.lr.ph.i82, !llvm.loop !33
+  br i1 %exitcond.not.i85, label %._crit_edge.i86, label %.lr.ph.i82, !llvm.loop !32
 
 ._crit_edge.i86:                                  ; preds = %.lr.ph.i82
   %764 = and i32 %750, 1
@@ -9139,7 +9139,7 @@ define internal fastcc noundef i32 @s7comm_decode_message_service_ar_send_args(p
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.2386, i32 noundef %35, i32 noundef %36) #7
   %37 = add i32 %.05660.us, 8
   %exitcond77.not = icmp eq i32 %35, %9
-  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !34
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !33
 
 .lr.ph.split.us62:                                ; preds = %.lr.ph, %.lr.ph.split.us62
   %indvars.iv = phi i32 [ %42, %.lr.ph.split.us62 ], [ 0, %.lr.ph ]
@@ -9154,7 +9154,7 @@ define internal fastcc noundef i32 @s7comm_decode_message_service_ar_send_args(p
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %43, ptr noundef %0, i32 noundef %.05660.us64, i32 noundef 1, i32 noundef 0) #7
   %45 = add i32 %.05660.us64, 1
   %exitcond.not = icmp eq i32 %42, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us62, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us62, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us62, %.lr.ph.split.us
   %.056.lcssa = phi i32 [ %37, %.lr.ph.split.us ], [ %45, %.lr.ph.split.us62 ]
@@ -9214,7 +9214,7 @@ attributes #8 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i32 19, i32 286}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
@@ -9235,4 +9235,3 @@ attributes #8 = { nounwind willreturn memory(read) }
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}

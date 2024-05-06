@@ -27,8 +27,8 @@ target triple = "x86_64-unknown-linux-gnu"
 $_ZNSt8_Rb_treeIhSt4pairIKhPKcESt10_Select1stIS4_ESt4lessIhESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E = comdat any
 
 @_ZZN6hermes2vm18buildMetadataTableEvE4flag = internal global %"struct.std::once_flag" zeroinitializer, align 4
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN6hermes2vm8Metadata13metadataTableE = external local_unnamed_addr global %"struct.std::array.5", align 8
 @_ZN6hermes2vm6VTable11vtableArrayE = external local_unnamed_addr global %"struct.std::array.6", align 8
 

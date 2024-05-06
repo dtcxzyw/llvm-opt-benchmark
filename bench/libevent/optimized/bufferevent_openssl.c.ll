@@ -326,7 +326,7 @@ entry:
 declare i32 @BIO_meth_set_ctrl(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bio_bufferevent_ctrl(ptr noundef %b, i32 noundef %cmd, i64 noundef %num, ptr nocapture readnone %ptr) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @bio_bufferevent_ctrl(ptr noundef %b, i32 noundef %cmd, i64 noundef %num, ptr nocapture readnone %ptr) #0 {
 entry:
   %call = tail call ptr @BIO_get_data(ptr noundef %b) #4
   switch i32 %cmd, label %sw.default [
@@ -383,7 +383,7 @@ entry:
 declare i32 @BIO_meth_set_destroy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bio_bufferevent_free(ptr noundef %b) #0 {
+define internal range(i32 0, 2) i32 @bio_bufferevent_free(ptr noundef %b) #0 {
 entry:
   %tobool.not = icmp eq ptr %b, null
   br i1 %tobool.not, label %return, label %if.end
@@ -485,7 +485,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @SSL_pending_wrap(ptr noundef %ssl) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @SSL_pending_wrap(ptr noundef %ssl) #0 {
 entry:
   %call = tail call i32 @SSL_pending(ptr noundef %ssl) #4
   %conv = sext i32 %call to i64
@@ -505,7 +505,7 @@ declare void @SSL_set_connect_state(ptr noundef) #1
 declare void @SSL_set_accept_state(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @SSL_handshake_is_ok(i32 noundef %err) #3 {
+define internal range(i32 0, 2) i32 @SSL_handshake_is_ok(i32 noundef %err) #3 {
 entry:
   %cmp = icmp eq i32 %err, 1
   %conv = zext i1 %cmp to i32
@@ -513,7 +513,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @SSL_is_want_read(i32 noundef %err) #3 {
+define internal range(i32 0, 2) i32 @SSL_is_want_read(i32 noundef %err) #3 {
 entry:
   %cmp = icmp eq i32 %err, 2
   %conv = zext i1 %cmp to i32
@@ -521,7 +521,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @SSL_is_want_write(i32 noundef %err) #3 {
+define internal range(i32 0, 2) i32 @SSL_is_want_write(i32 noundef %err) #3 {
 entry:
   %cmp = icmp eq i32 %err, 3
   %conv = zext i1 %cmp to i32
@@ -548,7 +548,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @be_openssl_bio_set_fd(ptr nocapture noundef readonly %bev_ssl, i32 noundef %fd) #0 {
+define internal range(i32 -1, 1) i32 @be_openssl_bio_set_fd(ptr nocapture noundef readonly %bev_ssl, i32 noundef %fd) #0 {
 entry:
   %underlying = getelementptr inbounds i8, ptr %bev_ssl, i64 520
   %0 = load ptr, ptr %underlying, align 8

@@ -248,7 +248,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %3
   %20 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 -1, ptr %20, align 4, !alias.scope !7
   %21 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false), !alias.scope !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false), !alias.scope !7
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
 22:                                               ; preds = %14
@@ -263,7 +263,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %3
 28:                                               ; preds = %22
   store i32 -1, ptr %0, align 8, !alias.scope !7
   store i32 -1, ptr %26, align 4, !alias.scope !7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !7
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
 29:                                               ; preds = %22
@@ -920,7 +920,7 @@ define void @_ZN14ProtoTreeModel13findFirstHfidEi(ptr dead_on_unwind noalias noc
 24:                                               ; preds = %18
   store i32 -1, ptr %0, align 8, !alias.scope !18
   store i32 -1, ptr %22, align 4, !alias.scope !18
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false), !alias.scope !18
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false), !alias.scope !18
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
 25:                                               ; preds = %18
@@ -1036,7 +1036,7 @@ define void @_ZN14ProtoTreeModel20findFieldInformationEP16FieldInformation(ptr d
 30:                                               ; preds = %24
   store i32 -1, ptr %0, align 8, !alias.scope !25
   store i32 -1, ptr %28, align 4, !alias.scope !25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !alias.scope !25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !alias.scope !25
   br label %_ZNK14ProtoTreeModel18indexFromProtoNodeEP9ProtoNode.exit
 
 31:                                               ; preds = %24

@@ -755,7 +755,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i: ; preds = %138
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %143, i64 32
   store i64 %134, ptr %.sroa.5.0..sroa_idx, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %144, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %144, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i67, label %.noexc3.thread.i.i.i, label %148
 
 .noexc3.thread.i.i.i:                             ; preds = %.noexc71
@@ -1410,7 +1410,7 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i78: ; preds = %_ZNSt6vectorIlS
 
 .loopexit:                                        ; preds = %.lr.ph, %174, %.loopexit109
   %199 = getelementptr inbounds i8, ptr %20, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   %200 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
           to label %201 unwind label %197
 
@@ -4213,7 +4213,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviPN5faiss5IndexE
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %.val6, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   %8 = getelementptr inbounds i8, ptr %7, i64 40
   %9 = getelementptr inbounds i8, ptr %.val6, i64 40
   %10 = getelementptr inbounds i8, ptr %.val6, i64 48
@@ -4222,7 +4222,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviPN5faiss5IndexE
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %11, %12
   br i1 %.not.i.i.i.i.i.i.i.i, label %.noexc3.thread.i.i.i, label %19
 
@@ -4772,7 +4772,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviPKN5faiss5Index
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %.val6, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %7, ptr noundef nonnull readonly align 8 dereferenceable(72) %.val6, i64 72, i1 false)
   store ptr %7, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZNK5faiss14IndexShardsIVF6searchElPKflPfPlPKNS1_16SearchParametersEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 

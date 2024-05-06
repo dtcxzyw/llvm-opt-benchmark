@@ -60,13 +60,13 @@ define { i16, i16 } @"_ZN93_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i64 @_ZN14cranelift_isle10trie_again10TupleIndex5index17h9f7d1c5bea4311f4E(i8 %0) unnamed_addr #0 {
+define range(i64 0, 256) i64 @_ZN14cranelift_isle10trie_again10TupleIndex5index17h9f7d1c5bea4311f4E(i8 %0) unnamed_addr #0 {
   %2 = zext i8 %0 to i64
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %0) unnamed_addr #0 {
+define range(i64 0, 65536) i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %0) unnamed_addr #0 {
   %2 = zext i16 %0 to i64
   ret i64 %2
 }
@@ -725,7 +725,7 @@ default.unreachable8:                             ; preds = %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i8 @_ZN14cranelift_isle10trie_again4Rule11may_overlap17h424ce9b23cf6a705E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define range(i8 0, 3) i8 @_ZN14cranelift_isle10trie_again4Rule11may_overlap17h424ce9b23cf6a705E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} }, align 8
   %4 = alloca { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } }, align 8
   %5 = icmp ne ptr %0, null
@@ -1822,7 +1822,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$cranelift_isle..trie_again..Binding
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN79_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b9f8e2b4bdac807E"(ptr nocapture readonly align 2 %0, ptr nocapture readonly align 2 %1) unnamed_addr #5 {
+define hidden range(i8 -1, 2) i8 @"_ZN79_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b9f8e2b4bdac807E"(ptr nocapture readonly align 2 %0, ptr nocapture readonly align 2 %1) unnamed_addr #5 {
   %3 = load i16, ptr %0, align 2, !noundef !3
   %4 = load i16, ptr %1, align 2, !noundef !3
   %5 = icmp ult i16 %3, %4
@@ -2135,7 +2135,7 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$cranelift_isle..trie_again..Constra
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN80_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5fde06ec686167f1E"(ptr nocapture readonly align 16 %0, ptr nocapture readonly align 16 %1) unnamed_addr #5 {
+define hidden range(i8 -1, 2) i8 @"_ZN80_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5fde06ec686167f1E"(ptr nocapture readonly align 16 %0, ptr nocapture readonly align 16 %1) unnamed_addr #5 {
   %3 = load i8, ptr %0, align 16, !range !9, !noundef !3
   %4 = load i8, ptr %1, align 16, !range !9, !noundef !3
   switch i8 %3, label %5 [

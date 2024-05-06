@@ -306,21 +306,21 @@ cond.true.i:                                      ; preds = %if.then
 if.else:                                          ; preds = %entry
   %fStamp.i1 = getelementptr inbounds i8, ptr %this, i64 132
   %2 = load i32, ptr %fStamp.i1, align 4
-  %fFields.i5 = getelementptr inbounds i8, ptr %this, i64 12
-  %3 = load i32, ptr %fFields.i5, align 4
+  %fFields.i6 = getelementptr inbounds i8, ptr %this, i64 12
+  %3 = load i32, ptr %fFields.i6, align 4
   %4 = mul i32 %3, 60
   %5 = add i32 %4, -60
-  %cmp.i2.inv.inv = icmp sgt i32 %2, 0
-  %mul = select i1 %cmp.i2.inv.inv, i32 %5, i32 0
-  %arrayidx.i8 = getelementptr inbounds i8, ptr %this, i64 136
-  %6 = load i32, ptr %arrayidx.i8, align 8
-  %arrayidx3.i13 = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i32, ptr %arrayidx3.i13, align 8
-  %cmp.i9.inv = icmp slt i32 %6, 1
+  %cmp.i3.inv.inv = icmp sgt i32 %2, 0
+  %mul = select i1 %cmp.i3.inv.inv, i32 %5, i32 0
+  %arrayidx.i10 = getelementptr inbounds i8, ptr %this, i64 136
+  %6 = load i32, ptr %arrayidx.i10, align 8
+  %arrayidx3.i15 = getelementptr inbounds i8, ptr %this, i64 16
+  %7 = load i32, ptr %arrayidx3.i15, align 8
+  %cmp.i11.inv = icmp slt i32 %6, 1
   %8 = add i32 %7, -2636
   %fEpochYear = getelementptr inbounds i8, ptr %this, i64 620
   %9 = load i32, ptr %fEpochYear, align 4
-  %sub5.neg = select i1 %cmp.i9.inv, i32 -2635, i32 %8
+  %sub5.neg = select i1 %cmp.i11.inv, i32 -2635, i32 %8
   %add = add i32 %sub5.neg, %mul
   %sub6 = sub i32 %add, %9
   br label %if.end
@@ -372,7 +372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515ChineseCalendar23handleComputeMonthStartEiia(ptr noundef nonnull align 8 dereferenceable(632) %this, i32 noundef %eyear, i32 noundef %month, i8 noundef signext %useMonth) unnamed_addr #0 align 2 {
+define noundef range(i32 -2145043061, 2147483647) i32 @_ZNK6icu_7515ChineseCalendar23handleComputeMonthStartEiia(ptr noundef nonnull align 8 dereferenceable(632) %this, i32 noundef %eyear, i32 noundef %month, i8 noundef signext %useMonth) unnamed_addr #0 align 2 {
 entry:
   %m = alloca double, align 8
   %status = alloca i32, align 4
@@ -1066,7 +1066,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515ChineseCalendar14majorSolarTermEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %this, i32 noundef %days) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1, 13) i32 @_ZNK6icu_7515ChineseCalendar14majorSolarTermEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %this, i32 noundef %days) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rawOffset.i = alloca i32, align 4
   %dstOffset.i = alloca i32, align 4
@@ -1155,7 +1155,7 @@ _ZNK6icu_7515ChineseCalendar12daysToMillisEd.exit: ; preds = %if.then3.i, %if.en
 declare noundef double @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv(ptr noundef nonnull align 8 dereferenceable(129)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7515ChineseCalendar19hasNoMajorSolarTermEi(ptr noundef nonnull align 8 dereferenceable(632) %this, i32 noundef %newMoon) unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7515ChineseCalendar19hasNoMajorSolarTermEi(ptr noundef nonnull align 8 dereferenceable(632) %this, i32 noundef %newMoon) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 464
@@ -1177,7 +1177,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7515ChineseCalendar18isLeapMonthBetweenEii(ptr noundef nonnull align 8 dereferenceable(632) %this, i32 noundef %newMoon1, i32 noundef %newMoon2) unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7515ChineseCalendar18isLeapMonthBetweenEii(ptr noundef nonnull align 8 dereferenceable(632) %this, i32 noundef %newMoon1, i32 noundef %newMoon2) unnamed_addr #0 align 2 {
 entry:
   %cmp.not3 = icmp slt i32 %newMoon2, %newMoon1
   br i1 %cmp.not3, label %return, label %while.body
@@ -1386,18 +1386,18 @@ if.then78:                                        ; preds = %land.end
   store i8 1, ptr %fIsSet.i, align 4
   %18 = load i32, ptr %yearOfCycle, align 4
   %add91 = add nsw i32 %18, 1
-  %arrayidx.i57 = getelementptr inbounds i8, ptr %this, i64 16
-  store i32 %add91, ptr %arrayidx.i57, align 8
-  %arrayidx3.i59 = getelementptr inbounds i8, ptr %this, i64 136
-  store i32 1, ptr %arrayidx3.i59, align 8
-  %arrayidx5.i61 = getelementptr inbounds i8, ptr %this, i64 109
-  store i8 1, ptr %arrayidx5.i61, align 1
-  %arrayidx.i63 = getelementptr inbounds i8, ptr %this, i64 32
-  store i32 %add87, ptr %arrayidx.i63, align 8
-  %arrayidx3.i65 = getelementptr inbounds i8, ptr %this, i64 152
-  store i32 1, ptr %arrayidx3.i65, align 8
-  %arrayidx5.i67 = getelementptr inbounds i8, ptr %this, i64 113
-  store i8 1, ptr %arrayidx5.i67, align 1
+  %arrayidx.i60 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 %add91, ptr %arrayidx.i60, align 8
+  %arrayidx3.i62 = getelementptr inbounds i8, ptr %this, i64 136
+  store i32 1, ptr %arrayidx3.i62, align 8
+  %arrayidx5.i64 = getelementptr inbounds i8, ptr %this, i64 109
+  store i8 1, ptr %arrayidx5.i64, align 1
+  %arrayidx.i66 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 %add87, ptr %arrayidx.i66, align 8
+  %arrayidx3.i68 = getelementptr inbounds i8, ptr %this, i64 152
+  store i32 1, ptr %arrayidx3.i68, align 8
+  %arrayidx5.i70 = getelementptr inbounds i8, ptr %this, i64 113
+  store i8 1, ptr %arrayidx5.i70, align 1
   %vtable93 = load ptr, ptr %this, align 8
   %vfn94 = getelementptr inbounds i8, ptr %vtable93, i64 496
   %19 = load ptr, ptr %vfn94, align 8
@@ -1415,12 +1415,12 @@ if.then97:                                        ; preds = %if.then78
 if.end102:                                        ; preds = %if.then97, %if.then78
   %theNewYear92.0 = phi i32 [ %call101, %if.then97 ], [ %call95, %if.then78 ]
   %add104 = sub i32 %add17, %theNewYear92.0
-  %arrayidx.i69 = getelementptr inbounds i8, ptr %this, i64 36
-  store i32 %add104, ptr %arrayidx.i69, align 4
-  %arrayidx3.i71 = getelementptr inbounds i8, ptr %this, i64 156
-  store i32 1, ptr %arrayidx3.i71, align 4
-  %arrayidx5.i73 = getelementptr inbounds i8, ptr %this, i64 114
-  store i8 1, ptr %arrayidx5.i73, align 2
+  %arrayidx.i72 = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 %add104, ptr %arrayidx.i72, align 4
+  %arrayidx3.i74 = getelementptr inbounds i8, ptr %this, i64 156
+  store i32 1, ptr %arrayidx3.i74, align 4
+  %arrayidx5.i76 = getelementptr inbounds i8, ptr %this, i64 114
+  store i8 1, ptr %arrayidx5.i76, align 2
   br label %if.end105
 
 if.end105:                                        ; preds = %if.end102, %land.end
@@ -1858,7 +1858,7 @@ for.body:                                         ; preds = %lor.lhs.false5, %fo
   br i1 %cmp16, label %if.then17, label %for.inc
 
 if.then17:                                        ; preds = %for.body
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 2, i32 noundef %5)
   tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 22, i32 noundef 1)
   br label %return

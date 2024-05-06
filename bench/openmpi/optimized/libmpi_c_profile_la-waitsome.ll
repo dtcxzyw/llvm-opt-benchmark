@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Waitsome = weak alias i32 (i32, ptr, ptr, ptr, ptr), ptr @PMPI_Waitsome
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Waitsome(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define range(i32 0, 19) i32 @PMPI_Waitsome(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = load i8, ptr @ompi_mpi_param_check, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %41

@@ -480,7 +480,7 @@ if.end36.i:                                       ; preds = %if.end21.i
   br i1 %cmp12.i, label %for.body.i, label %_ZN4node6crypto17ClientHelloParser14ParseExtensionEtPKhm.exit, !llvm.loop !5
 
 sw.bb39.i:                                        ; preds = %if.end63
-  %conv40.i = trunc i64 %add56 to i16
+  %conv40.i = trunc nuw i64 %add56 to i16
   store i16 %conv40.i, ptr %tls_ticket_size_.i, align 8
   %add.ptr41.i = getelementptr inbounds i8, ptr %add.ptr64, i64 %add56
   store ptr %add.ptr41.i, ptr %tls_ticket_.i, align 8

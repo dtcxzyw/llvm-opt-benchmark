@@ -343,7 +343,7 @@ define dso_local void @CheckAttributeNamesTypes(ptr noundef %0, i8 noundef signe
   %15 = getelementptr [6 x ptr], ptr @SysAtt, i64 0, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 4
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %12) #12
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %12) #12
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %SystemAttributeByName.exit, label %13
 
@@ -1035,126 +1035,126 @@ define dso_local void @InsertPgClassTuple(ptr noundef %0, ptr nocapture noundef 
   %47 = getelementptr inbounds i8, ptr %9, i64 112
   %48 = getelementptr inbounds i8, ptr %6, i64 104
   %49 = load <2 x i8>, ptr %47, align 4
-  %50 = and <2 x i8> %49, <i8 1, i8 1>
-  %51 = zext nneg <2 x i8> %50 to <2 x i64>
-  store <2 x i64> %51, ptr %48, align 8
-  %52 = getelementptr inbounds i8, ptr %9, i64 114
-  %53 = load i8, ptr %52, align 2
-  %54 = sext i8 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %6, i64 120
-  store i64 %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %9, i64 115
-  %57 = load i8, ptr %56, align 1
-  %58 = sext i8 %57 to i64
-  %59 = getelementptr inbounds i8, ptr %6, i64 128
-  store i64 %58, ptr %59, align 16
-  %60 = getelementptr inbounds i8, ptr %9, i64 116
-  %61 = load i16, ptr %60, align 4
-  %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds i8, ptr %6, i64 136
-  store i64 %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %9, i64 118
-  %65 = load i16, ptr %64, align 2
-  %66 = sext i16 %65 to i64
-  %67 = getelementptr inbounds i8, ptr %6, i64 144
-  store i64 %66, ptr %67, align 16
-  %68 = getelementptr inbounds i8, ptr %9, i64 120
-  %69 = load i8, ptr %68, align 4
-  %70 = and i8 %69, 1
-  %71 = zext nneg i8 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %6, i64 152
-  store i64 %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %9, i64 121
-  %74 = load i8, ptr %73, align 1
-  %75 = and i8 %74, 1
-  %76 = zext nneg i8 %75 to i64
-  %77 = getelementptr inbounds i8, ptr %6, i64 160
-  store i64 %76, ptr %77, align 16
-  %78 = getelementptr inbounds i8, ptr %9, i64 123
-  %79 = load i8, ptr %78, align 1
-  %80 = and i8 %79, 1
-  %81 = zext nneg i8 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %6, i64 176
-  store i64 %81, ptr %82, align 16
-  %83 = getelementptr inbounds i8, ptr %9, i64 124
-  %84 = load i8, ptr %83, align 4
-  %85 = and i8 %84, 1
-  %86 = zext nneg i8 %85 to i64
-  %87 = getelementptr inbounds i8, ptr %6, i64 184
-  store i64 %86, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %9, i64 122
-  %89 = load i8, ptr %88, align 2
-  %90 = and i8 %89, 1
-  %91 = zext nneg i8 %90 to i64
-  %92 = getelementptr inbounds i8, ptr %6, i64 168
-  store i64 %91, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %9, i64 125
-  %94 = load i8, ptr %93, align 1
-  %95 = and i8 %94, 1
-  %96 = zext nneg i8 %95 to i64
-  %97 = getelementptr inbounds i8, ptr %6, i64 192
-  store i64 %96, ptr %97, align 16
-  %98 = getelementptr inbounds i8, ptr %9, i64 126
-  %99 = load i8, ptr %98, align 2
-  %100 = sext i8 %99 to i64
-  %101 = getelementptr inbounds i8, ptr %6, i64 200
-  store i64 %100, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %9, i64 127
-  %103 = load i8, ptr %102, align 1
-  %104 = and i8 %103, 1
-  %105 = zext nneg i8 %104 to i64
-  %106 = getelementptr inbounds i8, ptr %6, i64 208
-  store i64 %105, ptr %106, align 16
-  %107 = getelementptr inbounds i8, ptr %9, i64 128
-  %108 = load i32, ptr %107, align 4
-  %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr %6, i64 216
-  store i64 %109, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %9, i64 132
-  %112 = load i32, ptr %111, align 4
-  %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds i8, ptr %6, i64 224
-  store i64 %113, ptr %114, align 16
-  %115 = getelementptr inbounds i8, ptr %9, i64 136
-  %116 = load i32, ptr %115, align 4
-  %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds i8, ptr %6, i64 232
-  store i64 %117, ptr %118, align 8
+  %.mask = and <2 x i8> %49, <i8 1, i8 1>
+  %50 = zext nneg <2 x i8> %.mask to <2 x i64>
+  store <2 x i64> %50, ptr %48, align 8
+  %51 = getelementptr inbounds i8, ptr %9, i64 114
+  %52 = load i8, ptr %51, align 2
+  %53 = sext i8 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %6, i64 120
+  store i64 %53, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %9, i64 115
+  %56 = load i8, ptr %55, align 1
+  %57 = sext i8 %56 to i64
+  %58 = getelementptr inbounds i8, ptr %6, i64 128
+  store i64 %57, ptr %58, align 16
+  %59 = getelementptr inbounds i8, ptr %9, i64 116
+  %60 = load i16, ptr %59, align 4
+  %61 = sext i16 %60 to i64
+  %62 = getelementptr inbounds i8, ptr %6, i64 136
+  store i64 %61, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %9, i64 118
+  %64 = load i16, ptr %63, align 2
+  %65 = sext i16 %64 to i64
+  %66 = getelementptr inbounds i8, ptr %6, i64 144
+  store i64 %65, ptr %66, align 16
+  %67 = getelementptr inbounds i8, ptr %9, i64 120
+  %68 = load i8, ptr %67, align 4
+  %69 = and i8 %68, 1
+  %70 = zext nneg i8 %69 to i64
+  %71 = getelementptr inbounds i8, ptr %6, i64 152
+  store i64 %70, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %9, i64 121
+  %73 = load i8, ptr %72, align 1
+  %74 = and i8 %73, 1
+  %75 = zext nneg i8 %74 to i64
+  %76 = getelementptr inbounds i8, ptr %6, i64 160
+  store i64 %75, ptr %76, align 16
+  %77 = getelementptr inbounds i8, ptr %9, i64 123
+  %78 = load i8, ptr %77, align 1
+  %79 = and i8 %78, 1
+  %80 = zext nneg i8 %79 to i64
+  %81 = getelementptr inbounds i8, ptr %6, i64 176
+  store i64 %80, ptr %81, align 16
+  %82 = getelementptr inbounds i8, ptr %9, i64 124
+  %83 = load i8, ptr %82, align 4
+  %84 = and i8 %83, 1
+  %85 = zext nneg i8 %84 to i64
+  %86 = getelementptr inbounds i8, ptr %6, i64 184
+  store i64 %85, ptr %86, align 8
+  %87 = getelementptr inbounds i8, ptr %9, i64 122
+  %88 = load i8, ptr %87, align 2
+  %89 = and i8 %88, 1
+  %90 = zext nneg i8 %89 to i64
+  %91 = getelementptr inbounds i8, ptr %6, i64 168
+  store i64 %90, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %9, i64 125
+  %93 = load i8, ptr %92, align 1
+  %94 = and i8 %93, 1
+  %95 = zext nneg i8 %94 to i64
+  %96 = getelementptr inbounds i8, ptr %6, i64 192
+  store i64 %95, ptr %96, align 16
+  %97 = getelementptr inbounds i8, ptr %9, i64 126
+  %98 = load i8, ptr %97, align 2
+  %99 = sext i8 %98 to i64
+  %100 = getelementptr inbounds i8, ptr %6, i64 200
+  store i64 %99, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %9, i64 127
+  %102 = load i8, ptr %101, align 1
+  %103 = and i8 %102, 1
+  %104 = zext nneg i8 %103 to i64
+  %105 = getelementptr inbounds i8, ptr %6, i64 208
+  store i64 %104, ptr %105, align 16
+  %106 = getelementptr inbounds i8, ptr %9, i64 128
+  %107 = load i32, ptr %106, align 4
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds i8, ptr %6, i64 216
+  store i64 %108, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %9, i64 132
+  %111 = load i32, ptr %110, align 4
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds i8, ptr %6, i64 224
+  store i64 %112, ptr %113, align 16
+  %114 = getelementptr inbounds i8, ptr %9, i64 136
+  %115 = load i32, ptr %114, align 4
+  %116 = zext i32 %115 to i64
+  %117 = getelementptr inbounds i8, ptr %6, i64 232
+  store i64 %116, ptr %117, align 8
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %121, label %119
+  br i1 %.not, label %120, label %118
 
-119:                                              ; preds = %5
-  %120 = getelementptr inbounds i8, ptr %6, i64 240
-  store i64 %3, ptr %120, align 16
-  br label %123
+118:                                              ; preds = %5
+  %119 = getelementptr inbounds i8, ptr %6, i64 240
+  store i64 %3, ptr %119, align 16
+  br label %122
 
-121:                                              ; preds = %5
-  %122 = getelementptr inbounds i8, ptr %7, i64 30
-  store i8 1, ptr %122, align 2
-  br label %123
+120:                                              ; preds = %5
+  %121 = getelementptr inbounds i8, ptr %7, i64 30
+  store i8 1, ptr %121, align 2
+  br label %122
 
-123:                                              ; preds = %121, %119
+122:                                              ; preds = %120, %118
   %.not39 = icmp eq i64 %4, 0
-  br i1 %.not39, label %126, label %124
+  br i1 %.not39, label %125, label %123
 
-124:                                              ; preds = %123
-  %125 = getelementptr inbounds i8, ptr %6, i64 248
-  store i64 %4, ptr %125, align 8
-  br label %128
+123:                                              ; preds = %122
+  %124 = getelementptr inbounds i8, ptr %6, i64 248
+  store i64 %4, ptr %124, align 8
+  br label %127
 
-126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %7, i64 31
-  store i8 1, ptr %127, align 1
-  br label %128
+125:                                              ; preds = %122
+  %126 = getelementptr inbounds i8, ptr %7, i64 31
+  store i8 1, ptr %126, align 1
+  br label %127
 
-128:                                              ; preds = %126, %124
-  %129 = getelementptr inbounds i8, ptr %7, i64 32
-  store i8 1, ptr %129, align 16
-  %130 = getelementptr inbounds i8, ptr %0, i64 64
-  %131 = load ptr, ptr %130, align 8
-  %132 = call ptr @heap_form_tuple(ptr noundef %131, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
-  call void @CatalogTupleInsert(ptr noundef %0, ptr noundef %132) #11
-  call void @heap_freetuple(ptr noundef %132) #11
+127:                                              ; preds = %125, %123
+  %128 = getelementptr inbounds i8, ptr %7, i64 32
+  store i8 1, ptr %128, align 16
+  %129 = getelementptr inbounds i8, ptr %0, i64 64
+  %130 = load ptr, ptr %129, align 8
+  %131 = call ptr @heap_form_tuple(ptr noundef %130, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
+  call void @CatalogTupleInsert(ptr noundef %0, ptr noundef %131) #11
+  call void @heap_freetuple(ptr noundef %131) #11
   ret void
 }
 
@@ -1346,7 +1346,7 @@ define dso_local i32 @heap_create_with_catalog(ptr noundef %0, i32 noundef %1, i
   %98 = call { i64, i32 } @TypeCreate(i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %.1, i8 noundef signext %10, i32 noundef %6, i16 noundef signext -1, i8 noundef signext 99, i8 noundef signext 67, i1 noundef zeroext false, i8 noundef signext 44, i32 noundef 2290, i32 noundef 2291, i32 noundef 2402, i32 noundef 2403, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i32 noundef %97, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext 100, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0) #11
   %.fca.0.extract42 = extractvalue { i64, i32 } %98, 0
   %.sroa.050.sroa.2.0.extract.shift = lshr i64 %.fca.0.extract42, 32
-  %.sroa.050.sroa.2.0.extract.trunc = trunc i64 %.sroa.050.sroa.2.0.extract.shift to i32
+  %.sroa.050.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.050.sroa.2.0.extract.shift to i32
   %.not177 = icmp eq ptr %20, null
   br i1 %.not177, label %100, label %99
 
@@ -1408,7 +1408,7 @@ AddNewRelationTuple.exit:                         ; preds = %103, %114
   %125 = load ptr, ptr %122, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 8
   store i32 -1, ptr %126, align 8
-  call void @InsertPgClassTuple(ptr noundef %29, ptr noundef nonnull %105, i32 noundef %.1, i64 noundef %108, i64 noundef %15)
+  call void @InsertPgClassTuple(ptr noundef %29, ptr noundef nonnull readonly %105, i32 noundef %.1, i64 noundef %108, i64 noundef %15)
   %127 = load ptr, ptr %122, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %24)
@@ -1433,7 +1433,7 @@ AddNewRelationTuple.exit:                         ; preds = %103, %114
   store i32 1259, ptr %23, align 4
   store i32 %.1, ptr %132, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %138 = trunc i64 %indvars.iv.next.i to i32
+  %138 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   store i32 %138, ptr %133, align 4
   store i32 1247, ptr %24, align 4
   %139 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %134, i64 0, i64 %indvars.iv.i
@@ -2156,7 +2156,7 @@ define dso_local void @RelationClearMissing(ptr nocapture noundef readonly %0) l
   br i1 %.not21, label %20, label %24
 
 20:                                               ; preds = %17
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %22)
   %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, i32 noundef %21, i32 noundef %6) #11
@@ -3146,7 +3146,7 @@ list_length.exit:                                 ; preds = %8
   br i1 %exitcond.not, label %._crit_edge.thread, label %29, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %29
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %21
@@ -3481,7 +3481,7 @@ list_length.exit:                                 ; preds = %101, %102
   %113 = load ptr, ptr %112, align 8
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %114 = getelementptr inbounds i8, ptr %111, i64 16
-  %115 = trunc i64 %indvars.iv.next224 to i32
+  %115 = trunc nuw i64 %indvars.iv.next224 to i32
   br label %.outer
 
 .outer:                                           ; preds = %136, %108
@@ -3619,7 +3619,7 @@ declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @list_cookedconstr_attnum_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -65535, 65536) i32 @list_cookedconstr_attnum_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i16, ptr %4, align 8

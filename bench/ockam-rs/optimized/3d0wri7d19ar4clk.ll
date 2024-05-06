@@ -599,11 +599,11 @@ define hidden void @_ZN10ockam_core5error5inner9ErrorData3new17h0277680a646a8bea
 9:                                                ; preds = %8
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN4core3ptr49drop_in_place$LT$ockam_node..error..NodeError$GT$17h69f4cf550099294dE.llvm.9869116895621829908"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2) #34
+  tail call void @"_ZN4core3ptr49drop_in_place$LT$ockam_node..error..NodeError$GT$17h69f4cf550099294dE.llvm.9869116895621829908"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2) #34
   resume { ptr, i32 } %10
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h0cfe18fe1fe33e85E.llvm.9869116895621829908.exit": ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false)
   tail call void @_ZN10ockam_core5error5inner9ErrorData9new_inner17h4c69759be750ce49E(ptr noalias nocapture noundef nonnull sret({ { { { { ptr, i64 }, i64 } }, i32, i32 }, { ptr, ptr }, { ptr, [2 x i64] }, { { ptr, i64 }, i64 }, { i32, i8, i8, [2 x i8] } }) align 8 dereferenceable(104) %0, i64 %1, ptr noundef nonnull align 1 %6, ptr nonnull @anon.5241c23f8b0cbaa9bf87a561e7c65f37.24.llvm.9869116895621829908, ptr noalias noundef nonnull readonly align 1 @anon.5241c23f8b0cbaa9bf87a561e7c65f37.19.llvm.9869116895621829908, i64 28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   ret void
 }
@@ -4050,7 +4050,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h80689d84f3ee7740E.llvm.9869116895621829908"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #10 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h80689d84f3ee7740E.llvm.9869116895621829908"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #10 {
   %3 = load i64, ptr %0, align 8, !noundef !14
   %4 = load i64, ptr %1, align 8, !noundef !14
   %5 = icmp ult i64 %3, %4
@@ -4067,7 +4067,7 @@ define hidden noundef i64 @_ZN4core3cmp6min_by17h06264d8e20c71f6fE.llvm.98691168
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17h983685f9d1f937dbE.llvm.9869116895621829908(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #12 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once17h983685f9d1f937dbE.llvm.9869116895621829908(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #12 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !875)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !878)
   %3 = load i64, ptr %0, align 8, !alias.scope !875, !noalias !878, !noundef !14
@@ -4130,7 +4130,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h4f422acd2099ce2
   store <2 x i64> %9, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 16, !alias.scope !899, !noalias !902
   store <2 x i64> %5, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 16, !alias.scope !899, !noalias !902
   %.sroa.0.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !899, !noalias !902
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(24) %.sroa.0.sroa.9.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !899, !noalias !902
   tail call void @llvm.experimental.noalias.scope.decl(metadata !904)
   %10 = load ptr, ptr %1, align 8, !alias.scope !904, !noalias !907, !nonnull !14, !noundef !14
   %11 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4269,11 +4269,11 @@ define hidden { ptr, ptr } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$
 6:                                                ; preds = %5
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @"_ZN4core3ptr49drop_in_place$LT$ockam_node..error..NodeError$GT$17h69f4cf550099294dE.llvm.9869116895621829908"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #34
+  tail call void @"_ZN4core3ptr49drop_in_place$LT$ockam_node..error..NodeError$GT$17h69f4cf550099294dE.llvm.9869116895621829908"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0) #34
   resume { ptr, i32 } %7
 
 "_ZN146_$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$u20$as$u20$core..convert..From$LT$E$GT$$GT$4from17h9afc39ce73cce7a6E.llvm.9869116895621829908.exit": ; preds = %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 40, i1 false)
   %8 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %9 = insertvalue { ptr, ptr } %8, ptr @anon.5241c23f8b0cbaa9bf87a561e7c65f37.24.llvm.9869116895621829908, 1
   ret { ptr, ptr } %9
@@ -6743,7 +6743,7 @@ declare { i64, i64 } @_ZN3std3sys4unix4rand19hashmap_random_keys17hf96c2af96e9c9
 declare hidden void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17hf9dbe0d452e50691E(ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #22
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.9869116895621829908(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #23 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.9869116895621829908(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #23 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

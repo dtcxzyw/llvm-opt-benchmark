@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [4 x i8] c"CMS\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_stream(ptr nocapture noundef writeonly %boundary, ptr noundef %cms) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_stream(ptr nocapture noundef writeonly %boundary, ptr noundef %cms) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @CMS_get0_content(ptr noundef %cms) #2
   %cmp = icmp eq ptr %call, null

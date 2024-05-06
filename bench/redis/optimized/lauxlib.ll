@@ -322,7 +322,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @luaL_newmetatable(ptr noundef %L, ptr noundef %tname) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 2) i32 @luaL_newmetatable(ptr noundef %L, ptr noundef %tname) local_unnamed_addr #0 {
 entry:
   tail call void @lua_getfield(ptr noundef %L, i32 noundef -10000, ptr noundef %tname) #16
   %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef -1) #16
@@ -534,7 +534,7 @@ cond.end:                                         ; preds = %cond.false, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @luaL_getmetafield(ptr noundef %L, i32 noundef %obj, ptr noundef %event) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 2) i32 @luaL_getmetafield(ptr noundef %L, i32 noundef %obj, ptr noundef %event) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @lua_getmetatable(ptr noundef %L, i32 noundef %obj) #16
   %tobool.not = icmp eq i32 %call, 0
@@ -567,7 +567,7 @@ declare void @lua_rawget(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @lua_remove(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @luaL_callmeta(ptr noundef %L, i32 noundef %obj, ptr noundef %event) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 2) i32 @luaL_callmeta(ptr noundef %L, i32 noundef %obj, ptr noundef %event) local_unnamed_addr #0 {
 entry:
   %0 = add i32 %obj, -1
   %or.cond = icmp ult i32 %0, -10000

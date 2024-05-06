@@ -4338,7 +4338,7 @@ _ZN5Yosys5RTLIL4Cell16rewrite_sigspecsIN12_GLOBAL__N_115SplitnetsWorkerEEEvRT_.e
   %1255 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Process *>::entry_t", ptr %1254, i64 %indvars.iv.next228.i, i32 0, i32 1
   %1256 = load ptr, ptr %1255, align 8
   %1257 = getelementptr inbounds i8, ptr %1256, i64 72
-  invoke fastcc void @_ZN5Yosys5RTLIL8CaseRule16rewrite_sigspecsIN12_GLOBAL__N_115SplitnetsWorkerEEEvRT_(ptr noundef nonnull align 8 dereferenceable(128) %1257, ptr noundef nonnull align 8 dereferenceable(48) %28)
+  invoke fastcc void @_ZN5Yosys5RTLIL8CaseRule16rewrite_sigspecsIN12_GLOBAL__N_115SplitnetsWorkerEEEvRT_(ptr noundef nonnull readonly align 8 dereferenceable(128) %1257, ptr noundef nonnull align 8 dereferenceable(48) %28)
           to label %.noexc375 unwind label %.loopexit.split-lp1420.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc375:                                        ; preds = %1253

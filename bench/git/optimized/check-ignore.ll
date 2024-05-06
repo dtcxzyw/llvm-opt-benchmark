@@ -66,7 +66,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.33 = private unnamed_addr constant [11 x i8] c"%c%c%c%s%c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_check_ignore(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmd_check_ignore(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %_swap_buffer.i.i = alloca [24 x i8], align 16
   %buf.i = alloca %struct.strbuf, align 8

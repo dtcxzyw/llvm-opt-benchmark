@@ -267,7 +267,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit24:          ; preds = %entry.if.end16_crit
   br i1 %cmp2, label %do.body, label %if.end, !llvm.loop !8
 
 if.else:                                          ; preds = %entry
-  %conv10 = trunc i64 %value to i8
+  %conv10 = trunc nuw nsw i64 %value to i8
   %m_size.i25 = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load i64, ptr %m_size.i25, align 8
   %m_allocated.i26 = getelementptr inbounds i8, ptr %this, i64 8
@@ -1616,7 +1616,7 @@ if.then.i:                                        ; preds = %invoke.cont38, %.no
 .noexc:                                           ; preds = %if.then.i
   %sub.i = sub i32 %symbol.addr.011.i, %shl12.i
   %inc.i = add nuw nsw i32 %k.addr.010.i, 1
-  %shl.i = shl i32 2, %k.addr.010.i
+  %shl.i = shl nuw i32 2, %k.addr.010.i
   %cmp.not.i = icmp ult i32 %sub.i, %shl.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i, !llvm.loop !18
 
@@ -1834,7 +1834,7 @@ _ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit23: ; preds = %for.body.i10
 if.then.i:                                        ; preds = %_ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit23
   store i64 %add.i19, ptr %m_allocated.i, align 8
   %5 = icmp ugt i64 %add.i19, 2305843009213693951
-  %6 = shl i64 %add.i19, 3
+  %6 = shl nuw i64 %add.i19, 3
   %7 = select i1 %5, i64 -1, i64 %6
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #7
   %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
@@ -1988,7 +1988,7 @@ _ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit23: ; preds = %for.body.i10
 if.then.i:                                        ; preds = %_ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit23
   store i64 %add.i19, ptr %m_allocated.i, align 8
   %5 = icmp ugt i64 %add.i19, 2305843009213693951
-  %6 = shl i64 %add.i19, 3
+  %6 = shl nuw i64 %add.i19, 3
   %7 = select i1 %5, i64 -1, i64 %6
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #7
   %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
@@ -2488,7 +2488,7 @@ _ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit97: ; preds = %if.then.i79, %if.e
 if.then.i99:                                      ; preds = %_ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit97
   store i64 %value.0.i36, ptr %m_allocated.i, align 8
   %51 = icmp ugt i64 %value.0.i36, 2305843009213693951
-  %52 = shl nsw i64 %value.0.i36, 3
+  %52 = shl nuw nsw i64 %value.0.i36, 3
   %53 = select i1 %51, i64 -1, i64 %52
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %53) #7
   %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
@@ -2856,7 +2856,7 @@ _ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit100: ; preds = %if.then.i82, %if.
 if.then.i102:                                     ; preds = %_ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit100
   store i64 %value.0.i39, ptr %m_allocated.i, align 8
   %51 = icmp ugt i64 %value.0.i39, 2305843009213693951
-  %52 = shl nsw i64 %value.0.i39, 3
+  %52 = shl nuw nsw i64 %value.0.i39, 3
   %53 = select i1 %51, i64 -1, i64 %52
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %53) #7
   %m_size.i = getelementptr inbounds i8, ptr %data, i64 16
@@ -3221,7 +3221,7 @@ if.end:                                           ; preds = %_ZNK5o3dgc12BinaryS
 if.then.i54:                                      ; preds = %if.end
   store i64 %value.0.i33, ptr %m_allocated.i, align 8
   %35 = icmp ugt i64 %value.0.i33, 2305843009213693951
-  %36 = shl nsw i64 %value.0.i33, 3
+  %36 = shl nuw nsw i64 %value.0.i33, 3
   %37 = select i1 %35, i64 -1, i64 %36
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %37) #7
   %m_size.i = getelementptr inbounds i8, ptr %data, i64 16

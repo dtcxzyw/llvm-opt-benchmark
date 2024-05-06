@@ -660,11 +660,11 @@ define internal noundef i64 @initialize(i32 noundef %0, ptr noundef %1, i64 noun
   %24 = getelementptr inbounds i8, ptr %9, i64 8
   %25 = load i64, ptr %24, align 8
   %.not22 = icmp eq i64 %25, 36
-  %spec.select24 = select i1 %.not22, i64 0, i64 %25
+  %spec.select23 = select i1 %.not22, i64 0, i64 %25
   br label %26
 
 26:                                               ; preds = %20, %3
-  %.018 = phi i64 [ 0, %3 ], [ %spec.select24, %20 ]
+  %.018 = phi i64 [ 0, %3 ], [ %spec.select23, %20 ]
   %.1 = phi i64 [ 4, %3 ], [ %spec.select, %20 ]
   %27 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.24, i64 noundef %.1) #8
   %28 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.10, i64 noundef %.018) #8
@@ -700,8 +700,8 @@ rb_long2num_inline.exit:                          ; preds = %rb_num2ulong_inline
 
 41:                                               ; preds = %rb_long2num_inline.exit
   %42 = and i64 %39, 1
-  %.not.i26 = icmp eq i64 %42, 0
-  br i1 %.not.i26, label %45, label %43
+  %.not.i25 = icmp eq i64 %42, 0
+  br i1 %.not.i25, label %45, label %43
 
 43:                                               ; preds = %41
   %44 = call i64 @rb_fix2int(i64 noundef %39) #8
@@ -712,8 +712,8 @@ rb_long2num_inline.exit:                          ; preds = %rb_num2ulong_inline
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %43, %45
-  %.0.i27 = phi i64 [ %44, %43 ], [ %46, %45 ]
-  %47 = shl i64 %.0.i27, 1
+  %.0.i26 = phi i64 [ %44, %43 ], [ %46, %45 ]
+  %47 = shl i64 %.0.i26, 1
   %48 = and i64 %47, 8589934590
   %49 = or disjoint i64 %48, 1
   br label %50
@@ -725,22 +725,22 @@ rb_num2int_inline.exit:                           ; preds = %43, %45
   %53 = call i64 @rb_fiddle_type_ensure(i64 noundef %52) #8
   store i64 %53, ptr %6, align 8
   %54 = and i64 %53, 1
-  %.not.i28 = icmp eq i64 %54, 0
-  br i1 %.not.i28, label %57, label %55
+  %.not.i27 = icmp eq i64 %54, 0
+  br i1 %.not.i27, label %57, label %55
 
 55:                                               ; preds = %50
   %56 = call i64 @rb_fix2int(i64 noundef %53) #8
-  br label %rb_num2int_inline.exit30
+  br label %rb_num2int_inline.exit29
 
 57:                                               ; preds = %50
   %58 = call i64 @rb_num2int(i64 noundef %53) #8
-  br label %rb_num2int_inline.exit30
+  br label %rb_num2int_inline.exit29
 
-rb_num2int_inline.exit30:                         ; preds = %55, %57
-  %.0.i29 = phi i64 [ %56, %55 ], [ %58, %57 ]
-  %59 = trunc i64 %.0.i29 to i32
+rb_num2int_inline.exit29:                         ; preds = %55, %57
+  %.0.i28 = phi i64 [ %56, %55 ], [ %58, %57 ]
+  %59 = trunc i64 %.0.i28 to i32
   %60 = call ptr @rb_fiddle_int_to_ffi_type(i32 noundef %59) #8
-  %sext = shl i64 %.0.i29, 32
+  %sext = shl i64 %.0.i28, 32
   %61 = ashr exact i64 %sext, 31
   %62 = or disjoint i64 %61, 1
   store i64 %62, ptr %6, align 8
@@ -751,14 +751,14 @@ rb_num2int_inline.exit30:                         ; preds = %55, %57
   %67 = or i1 %66, %65
   br i1 %67, label %.critedge.i.i, label %68
 
-68:                                               ; preds = %rb_num2int_inline.exit30
+68:                                               ; preds = %rb_num2int_inline.exit29
   %69 = inttoptr i64 %63 to ptr
   %70 = load i64, ptr %69, align 8
   %71 = and i64 %70, 31
   %.not.i.i = icmp eq i64 %71, 7
   br i1 %.not.i.i, label %Check_Type.exit.i, label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %68, %rb_num2int_inline.exit30
+.critedge.i.i:                                    ; preds = %68, %rb_num2int_inline.exit29
   call void @rb_unexpected_type(i64 noundef %63, i32 noundef 7) #9
   unreachable
 
@@ -843,10 +843,10 @@ rb_num2int_inline.exit.i:                         ; preds = %101, %99
   br i1 %104, label %105, label %110
 
 105:                                              ; preds = %rb_num2int_inline.exit.i
-  %106 = trunc i64 %indvars.iv.i to i32
+  %106 = trunc nuw nsw i64 %indvars.iv.i to i32
   %107 = add nsw i32 %81, -1
-  %.not.i31 = icmp eq i32 %107, %106
-  br i1 %.not.i31, label %normalize_argument_types.exit, label %108
+  %.not.i30 = icmp eq i32 %107, %106
+  br i1 %.not.i30, label %normalize_argument_types.exit, label %108
 
 108:                                              ; preds = %105
   %109 = load i64, ptr @rb_eArgError, align 8
@@ -864,7 +864,7 @@ rb_num2int_inline.exit.i:                         ; preds = %101, %99
   br i1 %exitcond.not.i, label %normalize_argument_types.exit, label %90, !llvm.loop !11
 
 normalize_argument_types.exit:                    ; preds = %110, %105, %85
-  %.not23 = phi i64 [ 0, %85 ], [ 20, %105 ], [ 0, %110 ]
+  %.0 = phi i64 [ 0, %85 ], [ 20, %105 ], [ 0, %110 ]
   call void @rb_obj_freeze_inline(i64 noundef %87) #8
   store i64 %87, ptr %5, align 8
   %115 = load i64, ptr %4, align 8
@@ -875,7 +875,7 @@ normalize_argument_types.exit:                    ; preds = %110, %105, %85
   %120 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.14, i64 noundef %119) #8
   %121 = load i64, ptr %7, align 8
   %122 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.6, i64 noundef %121) #8
-  %123 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.9, i64 noundef %.not23) #8
+  %123 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.9, i64 noundef %.0) #8
   %124 = call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @function_data_type) #8
   %125 = getelementptr inbounds i8, ptr %124, i64 8
   store ptr null, ptr %125, align 8

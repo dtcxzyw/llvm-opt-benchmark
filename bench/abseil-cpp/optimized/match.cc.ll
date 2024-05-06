@@ -176,22 +176,22 @@ return:                                           ; preds = %if.else, %_ZNKSt17b
 define dso_local noundef zeroext i1 @_ZN4absl18EndsWithIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %text.coerce0, ptr %text.coerce1, i64 %suffix.coerce0, ptr %suffix.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp ult i64 %text.coerce0, %suffix.coerce0
-  br i1 %cmp.not, label %land.end, label %land.rhs
+  br i1 %cmp.not, label %land.end, label %land.rhs.i
 
-land.rhs:                                         ; preds = %entry
+land.rhs.i:                                       ; preds = %entry
   %sub = sub i64 %text.coerce0, %suffix.coerce0
   %add.ptr.i = getelementptr inbounds i8, ptr %text.coerce1, i64 %sub
   %call5.i = invoke noundef i32 @_ZN4absl16strings_internal10memcasecmpEPKcS2_m(ptr noundef %add.ptr.i, ptr noundef %suffix.coerce1, i64 noundef %suffix.coerce0)
           to label %_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_.exit unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %land.rhs
+terminate.lpad.i:                                 ; preds = %land.rhs.i
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   tail call void @__clang_call_terminate(ptr %1) #9
   unreachable
 
-_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds = %land.rhs
+_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds = %land.rhs.i
   %cmp6.i = icmp eq i32 %call5.i, 0
   br label %land.end
 
@@ -200,7 +200,7 @@ land.end:                                         ; preds = %_ZN4absl16EqualsIgn
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { i64, ptr } @_ZN4absl23FindLongestCommonPrefixESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %a.coerce0, ptr %a.coerce1, i64 %b.coerce0, ptr nocapture readonly %b.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %b.coerce0, i64 %a.coerce0)
@@ -254,7 +254,7 @@ do.body:                                          ; preds = %entry, %if.end47
   br i1 %cmp41.not, label %if.end47, label %if.then43
 
 if.then43:                                        ; preds = %do.body
-  %3 = tail call i64 @llvm.cttz.i64(i64 %xor40, i1 true), !range !9
+  %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor40, i1 true)
   %shr = lshr i64 %3, 3
   %add46 = or disjoint i64 %shr, %count.3
   br label %return
@@ -263,7 +263,7 @@ if.end47:                                         ; preds = %do.body
   %add48 = add i64 %count.3, 8
   %add49 = add i64 %count.3, 16
   %cmp50 = icmp ult i64 %add49, %.sroa.speculated
-  br i1 %cmp50, label %do.body, label %do.end, !llvm.loop !10
+  br i1 %cmp50, label %do.body, label %do.end, !llvm.loop !9
 
 do.end:                                           ; preds = %if.end47
   %sub = add i64 %.sroa.speculated, -8
@@ -276,7 +276,7 @@ do.end:                                           ; preds = %if.end47
   br i1 %cmp58.not, label %return, label %if.then60
 
 if.then60:                                        ; preds = %do.end
-  %4 = tail call i64 @llvm.cttz.i64(i64 %xor57, i1 true), !range !9
+  %4 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %xor57, i1 true)
   %shr62 = lshr i64 %4, 3
   %add64 = add i64 %shr62, %sub
   br label %return
@@ -288,7 +288,7 @@ return:                                           ; preds = %do.end, %while.end,
   ret { i64, ptr } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { i64, ptr } @_ZN4absl23FindLongestCommonSuffixESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %a.coerce0, ptr %a.coerce1, i64 %b.coerce0, ptr nocapture readonly %b.coerce1) local_unnamed_addr #5 {
 entry:
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %b.coerce0, i64 %a.coerce0)
@@ -316,7 +316,7 @@ land.rhs:                                         ; preds = %if.end, %while.body
 while.body:                                       ; preds = %land.rhs
   %inc = add nuw i64 %count.016, 1
   %exitcond.not = icmp eq i64 %inc, %.sroa.speculated
-  br i1 %exitcond.not, label %return, label %land.rhs, !llvm.loop !11
+  br i1 %exitcond.not, label %return, label %land.rhs, !llvm.loop !10
 
 return:                                           ; preds = %land.rhs, %while.body, %entry
   %retval.sroa.3.0 = phi ptr [ null, %entry ], [ %scevgep, %while.body ], [ %add.ptr.pn15, %land.rhs ]
@@ -342,8 +342,8 @@ attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -361,6 +361,5 @@ attributes #10 = { nounwind }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i64 0, i64 65}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}

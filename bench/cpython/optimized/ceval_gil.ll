@@ -882,7 +882,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [32 x i8] c"PyMUTEX_FINI(gil->mutex) failed\00", align 1
 @.str.7 = private unnamed_addr constant [37 x i8] c"PyCOND_FINI(gil->switch_cond) failed\00", align 1
 @.str.8 = private unnamed_addr constant [39 x i8] c"PyMUTEX_FINI(gil->switch_mutex) failed\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.9 = private unnamed_addr constant [173 x i8] c"the function must be called with the GIL held, after Python initialization and before Python finalization, but the GIL is released (the current Python thread state is NULL)\00", align 1
 @__func__.take_gil = private unnamed_addr constant [9 x i8] c"take_gil\00", align 1
 @.str.10 = private unnamed_addr constant [32 x i8] c"PyMUTEX_LOCK(gil->mutex) failed\00", align 1
@@ -923,7 +923,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @_PyEval_ThreadsInitialized() local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @_PyEval_ThreadsInitialized() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
   %cmp = icmp eq ptr %0, null
@@ -948,7 +948,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @PyEval_ThreadsInitialized() local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @PyEval_ThreadsInitialized() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
   %cmp.i = icmp eq ptr %0, null
@@ -1744,7 +1744,7 @@ if.end:                                           ; preds = %_Py_atomic_compare_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyEval_AddPendingCall(ptr noundef %interp, ptr noundef %func, ptr noundef %arg, i32 noundef %flags) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @_PyEval_AddPendingCall(ptr noundef %interp, ptr noundef %func, ptr noundef %arg, i32 noundef %flags) local_unnamed_addr #3 {
 entry:
   %pending1 = getelementptr inbounds i8, ptr %interp, i64 88
   %and = and i32 %flags, 1
@@ -1820,7 +1820,7 @@ SIGNAL_PENDING_CALLS.exit:                        ; preds = %_Py_atomic_compare_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Py_AddPendingCall(ptr noundef %func, ptr noundef %arg) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @Py_AddPendingCall(ptr noundef %func, ptr noundef %arg) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
   %1 = cmpxchg ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 1, i32 1, i32 0), i8 0, i8 1 seq_cst seq_cst, align 1
@@ -1892,7 +1892,7 @@ define hidden void @_Py_FinishPendingCalls(ptr noundef %tstate) local_unnamed_ad
 entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
-  %call = tail call fastcc i32 @make_pending_calls(ptr noundef %0), !range !7
+  %call = tail call fastcc i32 @make_pending_calls(ptr noundef %0)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1908,7 +1908,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @make_pending_calls(ptr noundef %interp) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @make_pending_calls(ptr noundef %interp) unnamed_addr #3 {
 entry:
   %pending1 = getelementptr inbounds i8, ptr %interp, i64 88
   %mutex = getelementptr inbounds i8, ptr %interp, i64 92
@@ -1965,7 +1965,7 @@ _Py_atomic_compare_exchange_uintptr.exit.i.i:     ; preds = %do.body.preheader.i
   br i1 %13, label %UNSIGNAL_PENDING_CALLS.exit, label %_Py_atomic_compare_exchange_uintptr.exit.i.i
 
 UNSIGNAL_PENDING_CALLS.exit:                      ; preds = %_Py_atomic_compare_exchange_uintptr.exit.i.i, %PyMutex_Unlock.exit15, %do.body.preheader.i.i
-  %call = tail call fastcc i32 @_make_pending_calls(ptr noundef nonnull %pending1), !range !7
+  %call = tail call fastcc i32 @_make_pending_calls(ptr noundef nonnull %pending1)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end7, label %if.then5
 
@@ -2000,7 +2000,7 @@ if.end7:                                          ; preds = %UNSIGNAL_PENDING_CA
   br i1 %or.cond, label %if.then12, label %if.end18
 
 if.then12:                                        ; preds = %if.end7
-  %call13 = tail call fastcc i32 @_make_pending_calls(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 1)), !range !7
+  %call13 = tail call fastcc i32 @_make_pending_calls(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 22, i32 1))
   %cmp14.not = icmp eq i32 %call13, 0
   br i1 %cmp14.not, label %if.end18, label %if.then15
 
@@ -2043,7 +2043,7 @@ declare void @_PyErr_ChainExceptions1(ptr noundef) local_unnamed_addr #4
 declare void @_PyErr_Print(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyEval_MakePendingCalls(ptr noundef %tstate) local_unnamed_addr #3 {
+define dso_local i32 @_PyEval_MakePendingCalls(ptr noundef %tstate) local_unnamed_addr #3 {
 entry:
   %call.i = tail call i64 @PyThread_get_thread_ident() #15
   %0 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
@@ -2116,7 +2116,7 @@ _Py_atomic_compare_exchange_uintptr.exit.i8.i:    ; preds = %do.body.preheader.i
 if.end5:                                          ; preds = %if.end.i, %_Py_set_eval_breaker_bit.exit.i, %land.lhs.true, %entry
   %interp6 = getelementptr inbounds i8, ptr %tstate, i64 16
   %21 = load ptr, ptr %interp6, align 8
-  %call7 = tail call fastcc i32 @make_pending_calls(ptr noundef %21), !range !7
+  %call7 = tail call fastcc i32 @make_pending_calls(ptr noundef %21)
   %cmp8.not = icmp ne i32 %call7, 0
   %. = sext i1 %cmp8.not to i32
   br label %return
@@ -2127,7 +2127,7 @@ return:                                           ; preds = %_Py_atomic_compare_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Py_MakePendingCalls() local_unnamed_addr #3 {
+define dso_local i32 @Py_MakePendingCalls() local_unnamed_addr #3 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -2163,7 +2163,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_Py_HandlePending(ptr noundef %tstate) local_unnamed_addr #3 {
+define hidden range(i32 -1, 1) i32 @_Py_HandlePending(ptr noundef %tstate) local_unnamed_addr #3 {
 entry:
   %interp1 = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp1, align 8
@@ -2235,7 +2235,7 @@ if.end4:                                          ; preds = %if.end.i19, %_Py_se
   br i1 %tobool.i22.not, label %if.end11, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %call7 = tail call fastcc i32 @make_pending_calls(ptr noundef nonnull %0), !range !7
+  %call7 = tail call fastcc i32 @make_pending_calls(ptr noundef nonnull %0)
   %cmp8.not = icmp eq i32 %call7, 0
   br i1 %cmp8.not, label %if.end11, label %return
 
@@ -2434,7 +2434,7 @@ declare void @_PyMutex_LockSlow(ptr noundef) local_unnamed_addr #4
 declare void @_PyMutex_UnlockSlow(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_make_pending_calls(ptr noundef %pending) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @_make_pending_calls(ptr noundef %pending) unnamed_addr #3 {
 entry:
   %mutex = getelementptr inbounds i8, ptr %pending, i64 4
   %first.i.i = getelementptr inbounds i8, ptr %pending, i64 784
@@ -2446,7 +2446,7 @@ entry:
 for.cond:                                         ; preds = %if.end5
   %inc = add nuw nsw i32 %i.08, 1
   %exitcond.not = icmp eq i32 %inc, 32
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.08 = phi i32 [ 0, %entry ], [ %inc, %for.cond ]
@@ -2569,5 +2569,4 @@ attributes #17 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 1}
-!8 = distinct !{!8, !6}
+!7 = distinct !{!7, !6}

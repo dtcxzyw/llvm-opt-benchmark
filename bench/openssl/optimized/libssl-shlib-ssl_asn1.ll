@@ -468,7 +468,7 @@ if.end27:                                         ; preds = %if.end20
   %or33 = or disjoint i64 %or, 50331648
   %cipher_id = getelementptr inbounds i8, ptr %ret.0, i64 776
   store i64 %or33, ptr %cipher_id, align 8
-  %conv34 = trunc i64 %or33 to i32
+  %conv34 = trunc nuw nsw i64 %or33 to i32
   %call35 = call ptr @ssl3_get_cipher_by_id(i32 noundef %conv34) #5
   %cipher36 = getelementptr inbounds i8, ptr %ret.0, i64 768
   store ptr %call35, ptr %cipher36, align 8
@@ -496,7 +496,7 @@ if.end9.i:                                        ; preds = %if.end.i
   %data.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %data.i, align 8
   %conv11.i = zext nneg i32 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %session_id, ptr align 1 %12, i64 %conv11.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %session_id, ptr align 1 %12, i64 %conv11.i, i1 false)
   %13 = load i32, ptr %10, align 8
   %conv13.i = sext i32 %13 to i64
   br label %if.end45
@@ -523,7 +523,7 @@ if.end9.i124:                                     ; preds = %if.end.i120
   %data.i125 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %data.i125, align 8
   %conv11.i126 = zext nneg i32 %15 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %master_key, ptr align 1 %16, i64 %conv11.i126, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %master_key, ptr align 1 %16, i64 %conv11.i126, i1 false)
   %17 = load i32, ptr %14, align 8
   %conv13.i127 = sext i32 %17 to i64
   br label %if.end51
@@ -605,7 +605,7 @@ if.end9.i139:                                     ; preds = %if.end.i135
   %data.i140 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %data.i140, align 8
   %conv11.i141 = zext nneg i32 %29 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %sid_ctx, ptr align 1 %30, i64 %conv11.i141, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %sid_ctx, ptr align 1 %30, i64 %conv11.i141, i1 false)
   %31 = load i32, ptr %28, align 8
   %conv13.i142 = sext i32 %31 to i64
   br label %if.end104
@@ -621,7 +621,7 @@ if.end104:                                        ; preds = %if.end9.i139, %lor.
   %ext = getelementptr inbounds i8, ptr %ret.0, i64 824
   %tlsext_hostname = getelementptr inbounds i8, ptr %call1.i, i64 88
   %33 = load ptr, ptr %tlsext_hostname, align 8
-  %call107 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %ext, ptr noundef %33), !range !4
+  %call107 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %ext, ptr noundef %33)
   %tobool108.not = icmp eq i32 %call107, 0
   br i1 %tobool108.not, label %err, label %if.end110
 
@@ -629,7 +629,7 @@ if.end110:                                        ; preds = %if.end104
   %psk_identity_hint = getelementptr inbounds i8, ptr %ret.0, i64 672
   %psk_identity_hint111 = getelementptr inbounds i8, ptr %call1.i, i64 120
   %34 = load ptr, ptr %psk_identity_hint111, align 8
-  %call112 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %psk_identity_hint, ptr noundef %34), !range !4
+  %call112 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %psk_identity_hint, ptr noundef %34)
   %tobool113.not = icmp eq i32 %call112, 0
   br i1 %tobool113.not, label %err, label %if.end115
 
@@ -637,7 +637,7 @@ if.end115:                                        ; preds = %if.end110
   %psk_identity = getelementptr inbounds i8, ptr %ret.0, i64 680
   %psk_identity116 = getelementptr inbounds i8, ptr %call1.i, i64 128
   %35 = load ptr, ptr %psk_identity116, align 8
-  %call117 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %psk_identity, ptr noundef %35), !range !4
+  %call117 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %psk_identity, ptr noundef %35)
   %tobool118.not = icmp eq i32 %call117, 0
   br i1 %tobool118.not, label %err, label %if.end120
 
@@ -698,7 +698,7 @@ if.end155:                                        ; preds = %if.end140, %if.end1
   %srp_username = getelementptr inbounds i8, ptr %ret.0, i64 888
   %srp_username156 = getelementptr inbounds i8, ptr %call1.i, i64 136
   %48 = load ptr, ptr %srp_username156, align 8
-  %call157 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %srp_username, ptr noundef %48), !range !4
+  %call157 = call fastcc i32 @ssl_session_strndup(ptr noundef nonnull %srp_username, ptr noundef %48)
   %tobool158.not = icmp eq i32 %call157, 0
   br i1 %tobool158.not, label %err, label %if.end160
 
@@ -840,7 +840,7 @@ declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 declare ptr @d2i_PUBKEY_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_session_strndup(ptr nocapture noundef %pdst, ptr noundef readonly %src) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_session_strndup(ptr nocapture noundef %pdst, ptr noundef readonly %src) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pdst, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 231) #5
@@ -907,4 +907,3 @@ attributes #6 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

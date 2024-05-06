@@ -175,7 +175,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @resolve_undo_clear_index(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @checkout_fast_forward(ptr noundef %r, ptr noundef %head, ptr noundef %remote, i32 noundef %overwrite_ignore) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @checkout_fast_forward(ptr noundef %r, ptr noundef %head, ptr noundef %remote, i32 noundef %overwrite_ignore) local_unnamed_addr #0 {
 entry:
   %opts = alloca %struct.unpack_trees_options, align 8
   %t = alloca [8 x %struct.tree_desc], align 16

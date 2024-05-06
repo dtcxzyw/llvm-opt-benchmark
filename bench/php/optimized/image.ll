@@ -369,7 +369,7 @@ switch.lookup:                                    ; preds = %.thread191
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_getimagetype(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 20) i32 @php_getimagetype(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.php_avif_stream, align 8
   %5 = alloca [12 x i8], align 1
   %.not = icmp eq ptr %2, null
@@ -521,7 +521,7 @@ define i32 @php_getimagetype(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   br i1 %41, label %48, label %42
 
 42:                                               ; preds = %39, %37
-  %43 = call fastcc i32 @php_get_wbmp(ptr noundef %0, ptr noundef null, i32 noundef 1), !range !4
+  %43 = call fastcc i32 @php_get_wbmp(ptr noundef %0, ptr noundef null, i32 noundef 1)
   %.not76 = icmp eq i32 %43, 0
   br i1 %.not76, label %44, label %48
 
@@ -533,7 +533,7 @@ define i32 @php_getimagetype(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   br label %48
 
 46:                                               ; preds = %44
-  %47 = call fastcc i32 @php_get_xbm(ptr noundef %0, ptr noundef null), !range !5
+  %47 = call fastcc i32 @php_get_xbm(ptr noundef %0, ptr noundef null)
   %.not77 = icmp eq i32 %47, 0
   %.78 = select i1 %.not77, i32 0, i32 16
   br label %48
@@ -550,7 +550,7 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 declare i32 @_php_stream_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @php_get_wbmp(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 16) i32 @php_get_wbmp(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @_php_stream_seek(ptr noundef %0, i64 noundef 0, i32 noundef 0) #13
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %.loopexit
@@ -630,7 +630,7 @@ define internal fastcc noundef i32 @php_get_wbmp(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @php_get_xbm(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 17) i32 @php_get_xbm(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
@@ -873,7 +873,7 @@ define internal fastcc void @php_getimagesize_from_any(ptr noundef %0, ptr nound
   %78 = load ptr, ptr %19, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 24
   call void @llvm.lifetime.start.p0(i64 59, ptr nonnull %18)
-  %80 = call i32 @php_getimagetype(ptr noundef nonnull %.0107, ptr noundef nonnull %79, ptr noundef null), !range !6
+  %80 = call i32 @php_getimagetype(ptr noundef nonnull %.0107, ptr noundef nonnull %79, ptr noundef null)
   switch i32 %80, label %.thread.i [
     i32 1, label %81
     i32 2, label %95
@@ -1546,7 +1546,7 @@ php_handle_iff.exit.i:                            ; preds = %458, %455, %427, %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %461 = call noalias dereferenceable_or_null(16) ptr @_ecalloc(i64 noundef 1, i64 noundef 16) #16
   store ptr %461, ptr %9, align 8
-  %462 = call fastcc i32 @php_get_wbmp(ptr noundef nonnull %.0107, ptr noundef nonnull %9, i32 noundef 0), !range !4
+  %462 = call fastcc i32 @php_get_wbmp(ptr noundef nonnull %.0107, ptr noundef nonnull %9, i32 noundef 0)
   %.not.i79.i = icmp eq i32 %462, 0
   br i1 %.not.i79.i, label %463, label %php_handle_wbmp.exit.i
 
@@ -1561,7 +1561,7 @@ php_handle_wbmp.exit.i:                           ; preds = %463, %460
 
 464:                                              ; preds = %77
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %465 = call fastcc i32 @php_get_xbm(ptr noundef nonnull %.0107, ptr noundef nonnull %8), !range !5
+  %465 = call fastcc i32 @php_get_xbm(ptr noundef nonnull %.0107, ptr noundef nonnull %8)
   %466 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %585
@@ -2758,6 +2758,3 @@ attributes #17 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 16}
-!5 = !{i32 0, i32 17}
-!6 = !{i32 0, i32 20}

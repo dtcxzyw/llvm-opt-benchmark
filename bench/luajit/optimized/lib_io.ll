@@ -1557,7 +1557,7 @@ io_tofile.exit.i:                                 ; preds = %io_tofilep.exit.i.i
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call9.i = tail call fastcc ptr @io_file_open(ptr noundef nonnull %L, ptr noundef nonnull @.str.14)
+  %call9.i = tail call fastcc ptr @io_file_open(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.14)
   %.pre.i = load ptr, ptr %top.i, align 8
   br label %if.end.i
 
@@ -1638,7 +1638,7 @@ io_tofile.exit.i:                                 ; preds = %io_tofilep.exit.i.i
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call9.i = tail call fastcc ptr @io_file_open(ptr noundef nonnull %L, ptr noundef nonnull @.str.16)
+  %call9.i = tail call fastcc ptr @io_file_open(ptr noundef nonnull %L, ptr noundef nonnull readonly @.str.16)
   %.pre.i = load ptr, ptr %top.i, align 8
   br label %if.end.i
 

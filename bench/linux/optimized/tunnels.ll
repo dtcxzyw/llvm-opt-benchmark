@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [22 x i8] c"include/net/netlink.h\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ethnl_tunnel_info_doit(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @ethnl_tunnel_info_doit(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %struct.ethnl_req_info, align 8

@@ -693,7 +693,7 @@ declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 declare i32 @setlogmask(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @syslog_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @syslog_exec(ptr noundef %module) #0 {
 entry:
   %call = tail call i32 @PyModule_AddIntConstant(ptr noundef %module, ptr noundef nonnull @.str.26, i64 noundef 0) #4
   %cmp = icmp slt i32 %call, 0

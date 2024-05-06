@@ -193,7 +193,7 @@ opal_obj_run_destructors.exit28:                  ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_coll_sm_init_query(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
+define range(i32 -2, 1) i32 @mca_coll_sm_init_query(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 5), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
@@ -346,7 +346,7 @@ declare zeroext i1 @ompi_group_have_remote_peers(ptr noundef) local_unnamed_addr
 declare ptr @ompi_comm_print_cid(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sm_module_enable(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal range(i32 -1, 1) i32 @sm_module_enable(ptr nocapture readnone %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 328
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 176
@@ -503,7 +503,7 @@ define noundef i32 @ompi_coll_sm_lazy_enable(ptr nocapture noundef %0, ptr nound
   %67 = trunc i64 %indvars.iv258 to i32
   %68 = add i32 %67, -1
   %69 = sdiv i32 %68, %66
-  %70 = trunc i64 %indvars.iv258 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv258 to i32
   %71 = mul nsw i32 %66, %70
   %72 = add nsw i32 %71, 1
   %.not218 = icmp slt i32 %72, %.val.val
@@ -937,7 +937,7 @@ ompi_group_peer_lookup.exit64.i:                  ; preds = %158, %156, %142, %.
   store ptr %307, ptr %308, align 8
   %309 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 2), align 4
   %310 = sext i32 %309 to i64
-  %311 = getelementptr %struct.opal_hwloc_base_memory_segment_t, ptr %15, i64 %indvars.iv268
+  %311 = getelementptr inbounds %struct.opal_hwloc_base_memory_segment_t, ptr %15, i64 %indvars.iv268
   %312 = getelementptr inbounds i8, ptr %311, i64 8
   store i64 %310, ptr %312, align 8
   %313 = load ptr, ptr %49, align 8
@@ -949,8 +949,8 @@ ompi_group_peer_lookup.exit64.i:                  ; preds = %158, %156, %142, %.
   store ptr %318, ptr %311, align 8
   %319 = load i32, ptr getelementptr inbounds (%struct.mca_coll_sm_component_t, ptr @mca_coll_sm_component, i64 0, i32 5), align 8
   %320 = sext i32 %319 to i64
-  %321 = getelementptr i8, ptr %311, i64 16
-  %322 = getelementptr i8, ptr %311, i64 24
+  %321 = getelementptr inbounds i8, ptr %311, i64 16
+  %322 = getelementptr inbounds i8, ptr %311, i64 24
   store i64 %320, ptr %322, align 8
   %323 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %313, i64 %indvars.iv266, i32 1
   %324 = load ptr, ptr %323, align 8
@@ -964,7 +964,7 @@ ompi_group_peer_lookup.exit64.i:                  ; preds = %158, %156, %142, %.
   br i1 %328, label %299, label %._crit_edge243.loopexit, !llvm.loop !13
 
 ._crit_edge243.loopexit:                          ; preds = %299
-  %329 = trunc i64 %indvars.iv.next269 to i32
+  %329 = trunc nuw i64 %indvars.iv.next269 to i32
   br label %._crit_edge243
 
 ._crit_edge243:                                   ; preds = %._crit_edge243.loopexit, %.loopexit226

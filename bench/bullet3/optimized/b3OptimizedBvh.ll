@@ -268,22 +268,22 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6expandERKS0_.exit: ; preds = %if.t
   %26 = load ptr, ptr %m_data.i22, align 16
   %m_escapeIndexOrTriangleIndex.i = getelementptr inbounds i8, ptr %26, i64 12
   %27 = load i32, ptr %m_escapeIndexOrTriangleIndex.i, align 4
-  %cmp.i24 = icmp sgt i32 %27, -1
+  %cmp.i26 = icmp sgt i32 %27, -1
   %sub.i = sub nsw i32 0, %27
-  %spec.select = select i1 %cmp.i24, i32 1, i32 %sub.i
+  %spec.select = select i1 %cmp.i26, i32 1, i32 %sub.i
   %m_subtreeSize = getelementptr inbounds i8, ptr %18, i64 16
   store i32 %spec.select, ptr %m_subtreeSize, align 16
   br label %if.end42
 
 if.end42:                                         ; preds = %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6expandERKS0_.exit, %land.lhs.true, %if.end
-  %m_size.i27 = getelementptr inbounds i8, ptr %this, i64 220
-  %28 = load i32, ptr %m_size.i27, align 4
+  %m_size.i30 = getelementptr inbounds i8, ptr %this, i64 220
+  %28 = load i32, ptr %m_size.i30, align 4
   %m_subtreeHeaderCount = getelementptr inbounds i8, ptr %this, i64 248
   store i32 %28, ptr %m_subtreeHeaderCount, align 8
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %29 = load ptr, ptr %m_data.i.i, align 16
-  %tobool.not.i.i28 = icmp eq ptr %29, null
-  br i1 %tobool.not.i.i28, label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE5clearEv.exit, label %if.then.i.i
+  %tobool.not.i.i31 = icmp eq ptr %29, null
+  br i1 %tobool.not.i.i31, label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE5clearEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end42
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 168
@@ -296,42 +296,42 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   br label %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE5clearEv.exit
 
 _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE5clearEv.exit: ; preds = %if.end42, %if.then.i.i, %if.then3.i.i
-  %m_size.i.i29 = getelementptr inbounds i8, ptr %this, i64 148
+  %m_size.i.i32 = getelementptr inbounds i8, ptr %this, i64 148
   %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 168
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 16
-  store i32 0, ptr %m_size.i.i29, align 4
-  %m_capacity.i.i30 = getelementptr inbounds i8, ptr %this, i64 152
-  store i32 0, ptr %m_capacity.i.i30, align 8
-  %m_data.i.i31 = getelementptr inbounds i8, ptr %this, i64 96
-  %31 = load ptr, ptr %m_data.i.i31, align 16
-  %tobool.not.i.i32 = icmp eq ptr %31, null
-  br i1 %tobool.not.i.i32, label %_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE5clearEv.exit, label %if.then.i.i33
+  store i32 0, ptr %m_size.i.i32, align 4
+  %m_capacity.i.i33 = getelementptr inbounds i8, ptr %this, i64 152
+  store i32 0, ptr %m_capacity.i.i33, align 8
+  %m_data.i.i34 = getelementptr inbounds i8, ptr %this, i64 96
+  %31 = load ptr, ptr %m_data.i.i34, align 16
+  %tobool.not.i.i35 = icmp eq ptr %31, null
+  br i1 %tobool.not.i.i35, label %_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE5clearEv.exit, label %if.then.i.i36
 
-if.then.i.i33:                                    ; preds = %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE5clearEv.exit
-  %m_ownsMemory.i.i34 = getelementptr inbounds i8, ptr %this, i64 104
-  %32 = load i8, ptr %m_ownsMemory.i.i34, align 8
-  %tobool2.i.i35 = trunc i8 %32 to i1
-  br i1 %tobool2.i.i35, label %if.then3.i.i39, label %_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE5clearEv.exit
+if.then.i.i36:                                    ; preds = %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE5clearEv.exit
+  %m_ownsMemory.i.i37 = getelementptr inbounds i8, ptr %this, i64 104
+  %32 = load i8, ptr %m_ownsMemory.i.i37, align 8
+  %tobool2.i.i38 = trunc i8 %32 to i1
+  br i1 %tobool2.i.i38, label %if.then3.i.i42, label %_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE5clearEv.exit
 
-if.then3.i.i39:                                   ; preds = %if.then.i.i33
+if.then3.i.i42:                                   ; preds = %if.then.i.i36
   call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %31)
   br label %_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE5clearEv.exit
 
-_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE5clearEv.exit: ; preds = %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE5clearEv.exit, %if.then.i.i33, %if.then3.i.i39
-  %m_size.i.i36 = getelementptr inbounds i8, ptr %this, i64 84
-  %m_ownsMemory.i1.i37 = getelementptr inbounds i8, ptr %this, i64 104
-  store i8 1, ptr %m_ownsMemory.i1.i37, align 8
-  store ptr null, ptr %m_data.i.i31, align 16
-  store i32 0, ptr %m_size.i.i36, align 4
-  %m_capacity.i.i38 = getelementptr inbounds i8, ptr %this, i64 88
-  store i32 0, ptr %m_capacity.i.i38, align 8
+_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE5clearEv.exit: ; preds = %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE5clearEv.exit, %if.then.i.i36, %if.then3.i.i42
+  %m_size.i.i39 = getelementptr inbounds i8, ptr %this, i64 84
+  %m_ownsMemory.i1.i40 = getelementptr inbounds i8, ptr %this, i64 104
+  store i8 1, ptr %m_ownsMemory.i1.i40, align 8
+  store ptr null, ptr %m_data.i.i34, align 16
+  store i32 0, ptr %m_size.i.i39, align 4
+  %m_capacity.i.i41 = getelementptr inbounds i8, ptr %this, i64 88
+  store i32 0, ptr %m_capacity.i.i41, align 8
   ret void
 
 eh.resume:                                        ; preds = %lpad9, %lpad
-  %callback8.sink40 = phi ptr [ %callback8, %lpad9 ], [ %callback, %lpad ]
+  %callback8.sink43 = phi ptr [ %callback8, %lpad9 ], [ %callback, %lpad ]
   %.pn = phi { ptr, i32 } [ %13, %lpad9 ], [ %5, %lpad ]
-  call void @_ZN31b3InternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %callback8.sink40) #10
+  call void @_ZN31b3InternalTriangleIndexCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %callback8.sink43) #10
   resume { ptr, i32 } %.pn
 }
 
@@ -694,7 +694,7 @@ if.else81:                                        ; preds = %for.body
   %m_escapeIndexOrTriangleIndex.i182 = getelementptr inbounds i8, ptr %arrayidx.i181, i64 12
   %74 = load i32, ptr %m_escapeIndexOrTriangleIndex.i182, align 4
   %arrayidx.i186 = getelementptr i8, ptr %arrayidx.i181, i64 16
-  %75 = trunc i64 %indvars.iv230 to i32
+  %75 = trunc nsw i64 %indvars.iv230 to i32
   %add91 = sub i32 %75, %74
   %idxprom.i189 = sext i32 %add91 to i64
   %arrayidx.i190 = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %2, i64 %idxprom.i189

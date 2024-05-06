@@ -659,7 +659,7 @@ define internal void @card_remove_first(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pnp_register_card_driver(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @pnp_register_card_driver(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -794,7 +794,7 @@ declare dso_local i32 @device_create_file(ptr noundef, ptr noundef) local_unname
 declare dso_local void @device_remove_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @name_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @name_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 800
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %4) #8
   %6 = sext i32 %5 to i64

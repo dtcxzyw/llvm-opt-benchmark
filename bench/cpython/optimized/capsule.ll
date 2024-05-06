@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @PyType_Type = external global %struct._typeobject, align 8
 @.str.15 = private unnamed_addr constant [10 x i8] c"PyCapsule\00", align 1
 @PyCapsule_Type__doc__ = internal constant [417 x i8] c"Capsule objects let you wrap a C \22void *\22 pointer in a Python\0Aobject.  They're a way of passing data through the Python interpreter\0Awithout creating your own custom type.\0A\0ACapsules are used for communication between extension modules.\0AThey provide a way for an extension module to export a C interface\0Ato other extension modules, so that extension modules can use the\0APython import mechanism to link to one another.\0A\00", align 16
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.16 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
 @.str.17 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.18 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
@@ -75,7 +75,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyCapsule_IsValid(ptr noundef readonly %op, ptr noundef readonly %name) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @PyCapsule_IsValid(ptr noundef readonly %op, ptr noundef readonly %name) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq ptr %op, null
   br i1 %cmp.not, label %land.end, label %land.lhs.true
@@ -105,7 +105,7 @@ if.then.i:                                        ; preds = %land.rhs
   br label %name_matches.exit
 
 if.end.i:                                         ; preds = %land.rhs
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %name) #8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %name) #8
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br label %name_matches.exit
 
@@ -146,7 +146,7 @@ if.end:                                           ; preds = %if.end.i
   br i1 %or.cond.i, label %if.end.i5, label %name_matches.exit
 
 if.end.i5:                                        ; preds = %if.end
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %2) #8
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull readonly dereferenceable(1) %2) #8
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %return, label %return.sink.split
 
@@ -265,7 +265,7 @@ return:                                           ; preds = %_is_legal_capsule.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyCapsule_SetPointer(ptr noundef %op, ptr noundef %pointer) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyCapsule_SetPointer(ptr noundef %op, ptr noundef %pointer) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %op, null
   br i1 %tobool.not.i, label %_is_legal_capsule.exit.thread, label %lor.lhs.false.i
@@ -306,7 +306,7 @@ return:                                           ; preds = %_is_legal_capsule.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyCapsule_SetName(ptr noundef %op, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyCapsule_SetName(ptr noundef %op, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %op, null
   br i1 %tobool.not.i, label %_is_legal_capsule.exit.thread, label %lor.lhs.false.i
@@ -339,7 +339,7 @@ return:                                           ; preds = %_is_legal_capsule.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyCapsule_SetDestructor(ptr noundef %op, ptr noundef %destructor) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyCapsule_SetDestructor(ptr noundef %op, ptr noundef %destructor) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %op, null
   br i1 %tobool.not.i, label %_is_legal_capsule.exit.thread, label %lor.lhs.false.i
@@ -372,7 +372,7 @@ return:                                           ; preds = %_is_legal_capsule.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyCapsule_SetContext(ptr noundef %op, ptr noundef %context) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyCapsule_SetContext(ptr noundef %op, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %op, null
   br i1 %tobool.not.i, label %_is_legal_capsule.exit.thread, label %lor.lhs.false.i
@@ -405,7 +405,7 @@ return:                                           ; preds = %_is_legal_capsule.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyCapsule_SetTraverse(ptr noundef %op, ptr noundef %traverse_func, ptr noundef %clear_func) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyCapsule_SetTraverse(ptr noundef %op, ptr noundef %traverse_func, ptr noundef %clear_func) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %op, null
   br i1 %tobool.not.i, label %_is_legal_capsule.exit.thread, label %lor.lhs.false.i
@@ -573,7 +573,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true1.i
   br i1 %or.cond.i.i, label %if.end.i.i, label %PyCapsule_IsValid.exit
 
 if.end.i.i:                                       ; preds = %land.rhs.i
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %name) #8
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %name) #8
   %tobool2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool2.not.i.i, label %if.then.i, label %if.then.i.sink.split
 

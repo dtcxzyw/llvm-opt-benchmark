@@ -2118,7 +2118,7 @@ entry:
 declare double @uprv_getUTCtime_75() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone15useDaylightTimeEv(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517RuleBasedTimeZone15useDaylightTimeEv(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #1 align 2 {
 entry:
   %status = alloca i32, align 4
   %raw = alloca i32, align 4
@@ -2137,7 +2137,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = call noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone8findNextEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %call, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %time, ptr noundef nonnull align 8 dereferenceable(8) %from, ptr noundef nonnull align 8 dereferenceable(8) %to), !range !11
+  %call2 = call noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone8findNextEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %call, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %time, ptr noundef nonnull align 8 dereferenceable(8) %from, ptr noundef nonnull align 8 dereferenceable(8) %to)
   %tobool.not = icmp eq i8 %call2, 0
   br i1 %tobool.not, label %if.end6, label %land.lhs.true
 
@@ -2156,7 +2156,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone8findNextEdaRdRPNS_12TimeZoneRuleES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %transitionTime, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %fromRule, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %toRule) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517RuleBasedTimeZone8findNextEdaRdRPNS_12TimeZoneRuleES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %transitionTime, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %fromRule, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %toRule) local_unnamed_addr #1 align 2 {
 entry:
   %start0 = alloca double, align 8
   %start1 = alloca double, align 8
@@ -2262,7 +2262,7 @@ while.cond:                                       ; preds = %while.body.preheade
   %call5179 = phi ptr [ %call51, %while.body ], [ %call5173, %while.body.preheader ]
   %idx.06978 = phi i32 [ %dec60, %while.body ], [ %dec, %while.body.preheader ]
   %cmp49 = icmp sgt i32 %idx.06978, 1
-  br i1 %cmp49, label %while.body, label %while.end.loopexit, !llvm.loop !12
+  br i1 %cmp49, label %while.body, label %while.end.loopexit, !llvm.loop !11
 
 while.body:                                       ; preds = %while.cond
   %dec60 = add nsw i32 %idx.06978, -1
@@ -2273,7 +2273,7 @@ while.body:                                       ; preds = %while.cond
   %cmp57 = fcmp oeq double %14, %base
   %or.cond56 = and i1 %tobool.not, %cmp57
   %or.cond57 = or i1 %cmp53, %or.cond56
-  br i1 %or.cond57, label %while.end.loopexit, label %while.cond, !llvm.loop !12
+  br i1 %or.cond57, label %while.end.loopexit, label %while.cond, !llvm.loop !11
 
 while.end.loopexit:                               ; preds = %while.cond, %while.body, %while.body.preheader
   %prev.0.lcssa.ph = phi ptr [ %call9, %while.body.preheader ], [ %call5179, %while.body ], [ %call5179, %while.cond ]
@@ -2309,7 +2309,7 @@ if.then83:                                        ; preds = %land.lhs.true77
   br i1 %tobool84.not.ph, label %if.else86, label %return
 
 if.else86:                                        ; preds = %if.then83
-  %call88 = call noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone8findNextEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %result.sroa.0.1.ph, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %transitionTime, ptr noundef nonnull align 8 dereferenceable(8) %fromRule, ptr noundef nonnull align 8 dereferenceable(8) %toRule), !range !11
+  %call88 = call noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone8findNextEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %result.sroa.0.1.ph, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %transitionTime, ptr noundef nonnull align 8 dereferenceable(8) %fromRule, ptr noundef nonnull align 8 dereferenceable(8) %toRule)
   br label %return
 
 if.end89:                                         ; preds = %land.lhs.true77, %if.then71
@@ -2324,7 +2324,7 @@ return:                                           ; preds = %if.then17, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone14inDaylightTimeEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %date, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517RuleBasedTimeZone14inDaylightTimeEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %date, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %raw = alloca i32, align 4
   %dst = alloca i32, align 4
@@ -2348,7 +2348,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone12hasSameRulesERKNS_8TimeZoneE(ptr noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517RuleBasedTimeZone12hasSameRulesERKNS_8TimeZoneE(ptr noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end
@@ -2480,7 +2480,7 @@ return:                                           ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone17getNextTransitionEdaRNS_18TimeZoneTransitionE(ptr nocapture noundef nonnull align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517RuleBasedTimeZone17getNextTransitionEdaRNS_18TimeZoneTransitionE(ptr nocapture noundef nonnull align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #1 align 2 {
 if.end.i:
   %status = alloca i32, align 4
   %transitionTime = alloca double, align 8
@@ -2504,7 +2504,7 @@ _ZNK6icu_7517RuleBasedTimeZone13completeConstER10UErrorCode.exit: ; preds = %if.
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZNK6icu_7517RuleBasedTimeZone13completeConstER10UErrorCode.exit
-  %call2 = call noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone8findNextEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %transitionTime, ptr noundef nonnull align 8 dereferenceable(8) %fromRule, ptr noundef nonnull align 8 dereferenceable(8) %toRule), !range !11
+  %call2 = call noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone8findNextEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %transitionTime, ptr noundef nonnull align 8 dereferenceable(8) %fromRule, ptr noundef nonnull align 8 dereferenceable(8) %toRule)
   %tobool3.not = icmp eq i8 %call2, 0
   br i1 %tobool3.not, label %return, label %if.then4
 
@@ -2529,7 +2529,7 @@ declare void @_ZN6icu_7518TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr no
 declare void @_ZN6icu_7518TimeZoneTransition5setToERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone21getPreviousTransitionEdaRNS_18TimeZoneTransitionE(ptr nocapture noundef nonnull align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517RuleBasedTimeZone21getPreviousTransitionEdaRNS_18TimeZoneTransitionE(ptr nocapture noundef nonnull align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #1 align 2 {
 if.end.i:
   %status = alloca i32, align 4
   %transitionTime = alloca double, align 8
@@ -2553,7 +2553,7 @@ _ZNK6icu_7517RuleBasedTimeZone13completeConstER10UErrorCode.exit: ; preds = %if.
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZNK6icu_7517RuleBasedTimeZone13completeConstER10UErrorCode.exit
-  %call2 = call noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone8findPrevEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %transitionTime, ptr noundef nonnull align 8 dereferenceable(8) %fromRule, ptr noundef nonnull align 8 dereferenceable(8) %toRule), !range !11
+  %call2 = call noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone8findPrevEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %transitionTime, ptr noundef nonnull align 8 dereferenceable(8) %fromRule, ptr noundef nonnull align 8 dereferenceable(8) %toRule)
   %tobool3.not = icmp eq i8 %call2, 0
   br i1 %tobool3.not, label %return, label %if.then4
 
@@ -2572,7 +2572,7 @@ return:                                           ; preds = %if.end, %_ZNK6icu_7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone8findPrevEdaRdRPNS_12TimeZoneRuleES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %transitionTime, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %fromRule, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %toRule) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517RuleBasedTimeZone8findPrevEdaRdRPNS_12TimeZoneRuleES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, double noundef %base, i8 noundef signext %inclusive, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %transitionTime, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %fromRule, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %toRule) local_unnamed_addr #1 align 2 {
 entry:
   %start0 = alloca double, align 8
   %start1 = alloca double, align 8
@@ -2686,7 +2686,7 @@ while.body:                                       ; preds = %while.body, %while.
   %dec61 = add nsw i32 %idx.071, -1
   %cmp50 = icmp slt i32 %idx.071, 1
   %or.cond75.not = or i1 %cmp50, %or.cond69
-  br i1 %or.cond75.not, label %while.end, label %while.body, !llvm.loop !13
+  br i1 %or.cond75.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %if.else49
   %result.sroa.0.0.copyload28 = phi double [ %4, %if.else49 ], [ %12, %while.body ]
@@ -2713,7 +2713,7 @@ land.lhs.true73:                                  ; preds = %if.then67
   br i1 %cmp78, label %if.then79, label %if.end82
 
 if.then79:                                        ; preds = %land.lhs.true73
-  %call81 = call noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone8findPrevEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %result.sroa.0.1.ph, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %transitionTime, ptr noundef nonnull align 8 dereferenceable(8) %fromRule, ptr noundef nonnull align 8 dereferenceable(8) %toRule), !range !11
+  %call81 = call noundef signext i8 @_ZNK6icu_7517RuleBasedTimeZone8findPrevEdaRdRPNS_12TimeZoneRuleES4_(ptr noundef nonnull align 8 dereferenceable(105) %this, double noundef %result.sroa.0.1.ph, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %transitionTime, ptr noundef nonnull align 8 dereferenceable(8) %fromRule, ptr noundef nonnull align 8 dereferenceable(8) %toRule)
   br label %return
 
 if.end82:                                         ; preds = %land.lhs.true73, %if.then67
@@ -2797,7 +2797,7 @@ while.body:                                       ; preds = %if.then3, %while.bo
   %cmp6 = icmp slt i64 %indvars.iv.next, %7
   %cmp7 = icmp sgt i32 %4, %indvars28
   %8 = and i1 %cmp6, %cmp7
-  br i1 %8, label %while.body, label %if.end11, !llvm.loop !14
+  br i1 %8, label %while.body, label %if.end11, !llvm.loop !13
 
 if.end11:                                         ; preds = %while.body, %if.then3, %if.end
   %9 = phi i32 [ %3, %if.end ], [ %3, %if.then3 ], [ %6, %while.body ]
@@ -2833,7 +2833,7 @@ while.body23:                                     ; preds = %while.body23.prehea
   %cmp19 = icmp sgt i32 %14, %15
   %cmp21 = icmp slt i32 %inc25, %11
   %16 = select i1 %cmp19, i1 %cmp21, i1 false
-  br i1 %16, label %while.body23, label %if.end31, !llvm.loop !15
+  br i1 %16, label %while.body23, label %if.end31, !llvm.loop !14
 
 if.end31:                                         ; preds = %while.body23, %if.then15, %if.end11
   %cnt.3 = phi i32 [ %cnt.1, %if.end11 ], [ %cnt.1, %if.then15 ], [ %15, %while.body23 ]
@@ -2958,8 +2958,7 @@ attributes #14 = { noreturn nounwind }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i8 0, i8 2}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}

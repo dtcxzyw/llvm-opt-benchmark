@@ -30,7 +30,7 @@ declare i64 @rb_define_module(ptr noundef) local_unnamed_addr #1
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @test_st_update(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @test_st_update(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_hash_tbl(i64 noundef %0, ptr noundef nonnull @.str.3, i32 noundef 22) #2
   %4 = tail call i32 @rb_st_update(ptr noundef %3, i64 noundef %1, ptr noundef nonnull @update_func, i64 noundef 0) #2
   %.not = icmp eq i32 %4, 0
@@ -43,7 +43,7 @@ declare i32 @rb_st_update(ptr noundef, i64 noundef, ptr noundef, i64 noundef) lo
 declare ptr @rb_hash_tbl(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @update_func(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 %2, i32 noundef %3) #0 {
+define internal range(i32 0, 3) i32 @update_func(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 %2, i32 noundef %3) #0 {
   %.not = icmp eq i32 %3, 0
   %5 = select i1 %.not, i32 1, i32 2
   %6 = load i64, ptr %0, align 8

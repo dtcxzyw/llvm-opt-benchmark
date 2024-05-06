@@ -339,7 +339,7 @@ define internal noundef i64 @inetsock_cleanup(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @rsock_revlookup_flag(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @rsock_revlookup_flag(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   switch i64 %0, label %4 [
     i64 20, label %.sink.split
     i64 0, label %3
@@ -544,7 +544,7 @@ define internal i64 @ip_addr(i32 noundef %0, ptr nocapture noundef readonly %1, 
 
 12:                                               ; preds = %3
   %13 = load i64, ptr %1, align 8
-  %14 = call i32 @rsock_revlookup_flag(i64 noundef %13, ptr noundef nonnull %6), !range !12
+  %14 = call i32 @rsock_revlookup_flag(i64 noundef %13, ptr noundef nonnull %6)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %19
 
@@ -591,7 +591,7 @@ define internal i64 @ip_peeraddr(i32 noundef %0, ptr nocapture noundef readonly 
 
 12:                                               ; preds = %3
   %13 = load i64, ptr %1, align 8
-  %14 = call i32 @rsock_revlookup_flag(i64 noundef %13, ptr noundef nonnull %6), !range !12
+  %14 = call i32 @rsock_revlookup_flag(i64 noundef %13, ptr noundef nonnull %6)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %19
 
@@ -644,7 +644,7 @@ define internal i64 @ip_s_getaddress(i64 %0, i64 noundef %1) #0 {
   %9 = zext i32 %7 to i64
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr align 1 %11, i64 %9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %3, ptr readonly align 1 %11, i64 %9, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %2, %8
@@ -750,4 +750,3 @@ attributes #8 = { cold noreturn nounwind }
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"rbimpl_rstring_getmem: argument 0"}
 !11 = distinct !{!11, !"rbimpl_rstring_getmem"}
-!12 = !{i32 0, i32 2}

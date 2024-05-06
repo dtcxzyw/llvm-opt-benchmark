@@ -32,17 +32,17 @@ define noundef ptr @Amap_OutputStructAlloc(ptr noundef %0, ptr noundef readonly 
   br i1 %.not.i, label %Amap_OuputStrsav.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #8
+  %18 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %16) #8
   %19 = trunc i64 %18 to i32
   %20 = add i32 %19, 1
   %21 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %0, i32 noundef %20) #7
-  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %16) #7
+  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %16) #7
   br label %Amap_OuputStrsav.exit
 
 Amap_OuputStrsav.exit:                            ; preds = %17, %14, %7
   %23 = phi ptr [ null, %7 ], [ %21, %17 ], [ null, %14 ]
   store ptr %23, ptr %12, align 8
-  %24 = trunc i32 %8 to i16
+  %24 = trunc nuw nsw i32 %8 to i16
   %25 = getelementptr inbounds i8, ptr %12, i64 10
   store i16 %24, ptr %25, align 2
   ret ptr %12
@@ -198,17 +198,17 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not.i.i, label %Amap_OutputStructAlloc.exit, label %72
 
 72:                                               ; preds = %69
-  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #8
+  %73 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %71) #8
   %74 = trunc i64 %73 to i32
   %75 = add i32 %74, 1
   %76 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %2, i32 noundef %75) #7
-  %77 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %76, ptr noundef nonnull dereferenceable(1) %71) #7
+  %77 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %76, ptr noundef nonnull readonly dereferenceable(1) %71) #7
   br label %Amap_OutputStructAlloc.exit
 
 Amap_OutputStructAlloc.exit:                      ; preds = %62, %69, %72
   %78 = phi ptr [ null, %62 ], [ %76, %72 ], [ null, %69 ]
   store ptr %78, ptr %67, align 8
-  %79 = trunc i32 %63 to i16
+  %79 = trunc nuw nsw i32 %63 to i16
   %80 = getelementptr inbounds i8, ptr %67, i64 10
   store i16 %79, ptr %80, align 2
   %81 = load i32, ptr %25, align 8
@@ -327,17 +327,17 @@ Vec_PtrGrow.exit.i128:                            ; preds = %91, %89
   br i1 %.not.i.i131, label %Amap_OutputStructAlloc.exit132, label %142
 
 142:                                              ; preds = %139
-  %143 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %141) #8
+  %143 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %141) #8
   %144 = trunc i64 %143 to i32
   %145 = add i32 %144, 1
   %146 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %2, i32 noundef %145) #7
-  %147 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull dereferenceable(1) %141) #7
+  %147 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull readonly dereferenceable(1) %141) #7
   br label %Amap_OutputStructAlloc.exit132
 
 Amap_OutputStructAlloc.exit132:                   ; preds = %132, %139, %142
   %148 = phi ptr [ null, %132 ], [ %146, %142 ], [ null, %139 ]
   store ptr %148, ptr %137, align 8
-  %149 = trunc i32 %133 to i16
+  %149 = trunc nuw nsw i32 %133 to i16
   %150 = getelementptr inbounds i8, ptr %137, i64 10
   store i16 %149, ptr %150, align 2
   %151 = load ptr, ptr %117, align 8
@@ -369,7 +369,7 @@ Amap_OutputStructAlloc.exit132:                   ; preds = %132, %139, %142
   %170 = and i32 %169, 1
   %171 = load i64, ptr %168, align 8
   %172 = lshr i64 %171, 63
-  %173 = trunc i64 %172 to i32
+  %173 = trunc nuw nsw i64 %172 to i32
   %174 = icmp ne i32 %170, %173
   %175 = getelementptr inbounds i8, ptr %168, i64 40
   %176 = load i32, ptr %175, align 8
@@ -488,17 +488,17 @@ Vec_PtrPush.exit139:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not.i.i141, label %Amap_OutputStructAlloc.exit142, label %233
 
 233:                                              ; preds = %230
-  %234 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %232) #8
+  %234 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %232) #8
   %235 = trunc i64 %234 to i32
   %236 = add i32 %235, 1
   %237 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %2, i32 noundef %236) #7
-  %238 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %237, ptr noundef nonnull dereferenceable(1) %232) #7
+  %238 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %237, ptr noundef nonnull readonly dereferenceable(1) %232) #7
   br label %Amap_OutputStructAlloc.exit142
 
 Amap_OutputStructAlloc.exit142:                   ; preds = %223, %230, %233
   %239 = phi ptr [ null, %223 ], [ %237, %233 ], [ null, %230 ]
   store ptr %239, ptr %228, align 8
-  %240 = trunc i32 %224 to i16
+  %240 = trunc nuw nsw i32 %224 to i16
   %241 = getelementptr inbounds i8, ptr %228, i64 10
   store i16 %240, ptr %241, align 2
   %242 = load i32, ptr %184, align 8
@@ -609,11 +609,11 @@ Vec_PtrGrow.exit.i148:                            ; preds = %252, %250
   br i1 %.not.i.i151, label %Amap_OutputStructAlloc.exit152, label %294
 
 294:                                              ; preds = %291
-  %295 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %293) #8
+  %295 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %293) #8
   %296 = trunc i64 %295 to i32
   %297 = add i32 %296, 1
   %298 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %2, i32 noundef %297) #7
-  %299 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %298, ptr noundef nonnull dereferenceable(1) %293) #7
+  %299 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %298, ptr noundef nonnull readonly dereferenceable(1) %293) #7
   br label %Amap_OutputStructAlloc.exit152
 
 Amap_OutputStructAlloc.exit152:                   ; preds = %284, %291, %294
@@ -651,11 +651,11 @@ Amap_OutputStructAlloc.exit152:                   ; preds = %284, %291, %294
   br i1 %.not.i.i154, label %Amap_OutputStructAlloc.exit155, label %318
 
 318:                                              ; preds = %315
-  %319 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %317) #8
+  %319 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %317) #8
   %320 = trunc i64 %319 to i32
   %321 = add i32 %320, 1
   %322 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %2, i32 noundef %321) #7
-  %323 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %322, ptr noundef nonnull dereferenceable(1) %317) #7
+  %323 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %322, ptr noundef nonnull readonly dereferenceable(1) %317) #7
   br label %Amap_OutputStructAlloc.exit155
 
 Amap_OutputStructAlloc.exit155:                   ; preds = %308, %315, %318
@@ -666,7 +666,7 @@ Amap_OutputStructAlloc.exit155:                   ; preds = %308, %315, %318
 325:                                              ; preds = %Amap_OutputStructAlloc.exit155, %Amap_OutputStructAlloc.exit152
   %.sink194 = phi i32 [ %309, %Amap_OutputStructAlloc.exit155 ], [ %285, %Amap_OutputStructAlloc.exit152 ]
   %.sink193 = phi ptr [ %313, %Amap_OutputStructAlloc.exit155 ], [ %289, %Amap_OutputStructAlloc.exit152 ]
-  %326 = trunc i32 %.sink194 to i16
+  %326 = trunc nuw nsw i32 %.sink194 to i16
   %327 = getelementptr inbounds i8, ptr %.sink193, i64 10
   store i16 %326, ptr %327, align 2
   %.val109 = load i32, ptr %4, align 4
@@ -734,7 +734,7 @@ Vec_PtrPush.exit162:                              ; preds = %.Vec_PtrGrow.exit11
 
 354:                                              ; preds = %267
   %355 = lshr i64 %.val120, 63
-  %356 = trunc i64 %355 to i32
+  %356 = trunc nuw nsw i64 %355 to i32
   %357 = and i32 %.val119, 1
   %358 = icmp ne i32 %357, %356
   %359 = getelementptr inbounds i8, ptr %272, i64 40

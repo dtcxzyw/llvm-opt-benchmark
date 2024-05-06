@@ -333,7 +333,7 @@ phpdbg_btree_find_closest.exit.thread:            ; preds = %17, %1, %phpdbg_btr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_btree_insert_or_update(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define hidden range(i32 -1, 1) i32 @phpdbg_btree_insert_or_update(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
@@ -441,7 +441,7 @@ declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #4
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_btree_delete(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %.05873 = load ptr, ptr %3, align 8
   %4 = icmp eq ptr %.05873, null

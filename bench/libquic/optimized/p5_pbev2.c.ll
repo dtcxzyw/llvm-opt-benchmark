@@ -665,7 +665,7 @@ if.end73:                                         ; preds = %if.end64
   %21 = load ptr, ptr %data76, align 8
   %22 = load i32, ptr %20, align 8
   %conv80 = sext i32 %22 to i64
-  %conv81 = trunc i64 %call48 to i32
+  %conv81 = trunc nuw i64 %call48 to i32
   %call82 = call i32 @PKCS5_PBKDF2_HMAC_SHA1(ptr noundef %pass_raw, i64 noundef %pass_raw_len, ptr noundef %21, i64 noundef %conv80, i32 noundef %conv81, i64 noundef %conv17, ptr noundef nonnull %key) #4
   %tobool.not = icmp eq i32 %call82, 0
   br i1 %tobool.not, label %err, label %if.end84

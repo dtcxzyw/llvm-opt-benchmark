@@ -62,7 +62,7 @@ define internal noundef i32 @poll_idle(ptr noundef %0, ptr noundef %1, i32 nound
 .preheader:                                       ; preds = %13, %21
   %18 = phi i32 [ %22, %21 ], [ 0, %13 ]
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !8
-  %19 = add i32 %18, 1
+  %19 = add nuw nsw i32 %18, 1
   %20 = icmp ult i32 %18, 200
   br i1 %20, label %21, label %26
 

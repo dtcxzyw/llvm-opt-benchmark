@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_chacha20_poly1305_init(ptr nocapture noundef writeonly %ctx, ptr nocapture noundef readonly %key, i64 noundef %key_len, i64 noundef %tag_len) #1 {
+define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_init(ptr nocapture noundef writeonly %ctx, ptr nocapture noundef readonly %key, i64 noundef %key_len, i64 noundef %tag_len) #1 {
 entry:
   %cmp = icmp eq i64 %tag_len, 0
   %spec.store.select = select i1 %cmp, i64 16, i64 %tag_len
@@ -45,7 +45,7 @@ if.end6:                                          ; preds = %if.end3
 
 if.end9:                                          ; preds = %if.end6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %call, ptr noundef nonnull align 1 dereferenceable(32) %key, i64 32, i1 false)
-  %conv = trunc i64 %spec.store.select to i8
+  %conv = trunc nuw nsw i64 %spec.store.select to i8
   %tag_len11 = getelementptr inbounds i8, ptr %call, i64 32
   store i8 %conv, ptr %tag_len11, align 1
   %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -68,7 +68,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_chacha20_poly1305_seal(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
+define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_seal(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
 entry:
   %cmp.not = icmp eq i64 %nonce_len, 12
   br i1 %cmp.not, label %if.end, label %if.then
@@ -89,7 +89,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_chacha20_poly1305_open(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
+define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_open(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
 entry:
   %cmp.not = icmp eq i64 %nonce_len, 12
   br i1 %cmp.not, label %if.end, label %if.then
@@ -123,7 +123,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @seal_impl(ptr nocapture noundef readonly %poly1305_update, ptr %ctx.8.val, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @seal_impl(ptr nocapture noundef readonly %poly1305_update, ptr %ctx.8.val, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) unnamed_addr #1 {
 entry:
   %poly1305_key.i = alloca [32 x i8], align 16
   %ctx.i = alloca [512 x i8], align 16
@@ -249,7 +249,7 @@ declare void @CRYPTO_poly1305_finish(ptr noundef, ptr noundef) local_unnamed_add
 declare void @CRYPTO_poly1305_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @open_impl(ptr nocapture noundef readonly %poly1305_update, ptr %ctx.8.val, ptr noundef %out, ptr nocapture noundef writeonly %out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @open_impl(ptr nocapture noundef readonly %poly1305_update, ptr %ctx.8.val, ptr noundef %out, ptr nocapture noundef writeonly %out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) unnamed_addr #1 {
 entry:
   %poly1305_key.i = alloca [32 x i8], align 16
   %ctx.i = alloca [512 x i8], align 16
@@ -307,7 +307,7 @@ return:                                           ; preds = %if.end14, %if.then1
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_chacha20_poly1305_old_seal(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr nocapture noundef readonly %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
+define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_old_seal(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr nocapture noundef readonly %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
 entry:
   %nonce_96 = alloca [12 x i8], align 4
   %cmp.not = icmp eq i64 %nonce_len, 8
@@ -333,7 +333,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_chacha20_poly1305_old_open(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 %max_out_len, ptr nocapture noundef readonly %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
+define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_old_open(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 %max_out_len, ptr nocapture noundef readonly %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
 entry:
   %nonce_96 = alloca [12 x i8], align 4
   %cmp.not = icmp eq i64 %nonce_len, 8

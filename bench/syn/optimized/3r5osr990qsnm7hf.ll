@@ -4981,12 +4981,12 @@ define void @"_ZN3syn8generics7parsing77_$LT$impl$u20$syn..parse..Parse$u20$for$
   br i1 %17, label %20, label %19
 
 19:                                               ; preds = %15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !alias.scope !759
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %18, ptr noundef nonnull readonly align 8 dereferenceable(40) %10, i64 40, i1 false), !alias.scope !759
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he350305581fd5b7aE.exit"
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false), !alias.scope !759
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %18, ptr noundef nonnull readonly align 8 dereferenceable(24) %21, i64 24, i1 false), !alias.scope !759
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he350305581fd5b7aE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17he350305581fd5b7aE.exit": ; preds = %19, %20

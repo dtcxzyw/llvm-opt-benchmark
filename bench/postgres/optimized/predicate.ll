@@ -396,7 +396,7 @@ CreatePredXact.exit:                              ; preds = %._crit_edge, %dlist
   store ptr %106, ptr %107, align 8
   %108 = load ptr, ptr %90, align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false)
   %110 = load ptr, ptr %90, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 128
   store ptr %111, ptr %111, align 8
@@ -765,7 +765,7 @@ define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr nocapture 
   br i1 %.not32, label %.thread.loopexit.split.loop.exit, label %.lr.ph44, !llvm.loop !12
 
 .thread.loopexit.split.loop.exit:                 ; preds = %33
-  %36 = trunc i64 %indvars.iv.next to i32
+  %36 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.thread
 
 .thread:                                          ; preds = %14, %.lr.ph44, %.thread.loopexit.split.loop.exit, %3, %23, %19, %17
@@ -1054,7 +1054,7 @@ CreatePredXact.exit.thread:                       ; preds = %13, %CreatePredXact
   %narrow.i.i = select i1 %86, i32 0, i32 %87
   %88 = shl i32 %79, 10
   %89 = or disjoint i32 %88, 4
-  %.tr8.i.i.i = trunc i64 %67 to i32
+  %.tr8.i.i.i = trunc nuw nsw i64 %67 to i32
   %90 = shl nuw i32 %.tr8.i.i.i, 10
   %91 = or disjoint i32 %90, 4
   %92 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %89, i32 noundef %91) #12
@@ -1093,7 +1093,7 @@ SerialPagePrecedesLogically.exit.i.i:             ; preds = %93, %85, %81
   br i1 %.022.i.i, label %105, label %.critedge.i.i
 
 105:                                              ; preds = %104
-  %106 = trunc i64 %67 to i32
+  %106 = trunc nuw nsw i64 %67 to i32
   %107 = load ptr, ptr @serialControl, align 8
   store i32 %106, ptr %107, align 4
   %108 = tail call zeroext i1 @LWLockAcquire(ptr noundef %74, i32 noundef 0) #12
@@ -1104,7 +1104,7 @@ SerialPagePrecedesLogically.exit.i.i:             ; preds = %93, %85, %81
   %.129.i.i = phi i64 [ %112, %.lr.ph.i.i ], [ %.023.i.i, %105 ]
   %109 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @SerialSlruCtlData, i64 noundef %.129.i.i) #12
   %110 = icmp ugt i64 %.129.i.i, 4194302
-  %111 = add i64 %.129.i.i, 1
+  %111 = add nuw nsw i64 %.129.i.i, 1
   %112 = select i1 %110, i64 0, i64 %111
   %.not27.i.i = icmp eq i64 %112, %67
   br i1 %.not27.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
@@ -1260,7 +1260,7 @@ ReleasePredXact.exit:                             ; preds = %154, %162
   %189 = getelementptr i8, ptr %19, i64 -24
   store ptr %188, ptr %189, align 8
   %190 = getelementptr i8, ptr %19, i64 -16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %190, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %190, i8 0, i64 16, i1 false)
   %191 = getelementptr i8, ptr %19, i64 60
   store i32 0, ptr %191, align 4
   %192 = load i8, ptr @XactReadOnly, align 1
@@ -1676,7 +1676,7 @@ PredicateLockExists.exit:                         ; preds = %1
 
 PredicateLockExists.exit.thread:                  ; preds = %1, %PredicateLockExists.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %0, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %7, i64 8
   %15 = getelementptr inbounds i8, ptr %7, i64 12
   %16 = getelementptr inbounds i8, ptr %7, i64 4
@@ -4717,7 +4717,7 @@ define internal fastcc noundef zeroext i1 @XidIsConcurrent(i32 noundef %0) unnam
   br label %.lr.ph.i
 
 .preheader.loopexit.i:                            ; preds = %40
-  %19 = trunc i64 %indvars.iv.next.i to i32
+  %19 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.loopexit.i, %10
@@ -6075,7 +6075,7 @@ CreatePredXact.exit.thread:                       ; preds = %9, %CreatePredXact.
   %47 = getelementptr i8, ptr %15, i64 -24
   store ptr %46, ptr %47, align 8
   %48 = getelementptr i8, ptr %15, i64 -16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   %49 = getelementptr i8, ptr %15, i64 48
   store i32 %0, ptr %49, align 8
   %50 = load i32, ptr %36, align 4

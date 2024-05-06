@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [30 x i8] c"Bad t = %g for interpolation.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeAdjInit(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeAdjInit(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -212,7 +212,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @CVAhermiteMalloc(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, 2) i32 @CVAhermiteMalloc(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2192
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 448
@@ -885,7 +885,7 @@ define internal noundef i32 @CVAhermiteStorePnt(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @CVApolynomialMalloc(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, 2) i32 @CVApolynomialMalloc(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2192
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 448
@@ -1098,7 +1098,7 @@ define internal void @CVApolynomialFree(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @CVApolynomialGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 2192
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 96
@@ -1621,7 +1621,7 @@ define internal noundef i32 @CVApolynomialStorePnt(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeAdjReInit(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @CVodeAdjReInit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -3380,9 +3380,9 @@ CVAckpntInit.exit.thread152:                      ; preds = %136, %.critedge.i, 
 
 .loopexit.i146:                                   ; preds = %634, %.preheader433.i, %.loopexit436.i
   %638 = getelementptr inbounds i8, ptr %248, i64 544
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %638, ptr noundef nonnull align 8 dereferenceable(112) %221, i64 112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %638, ptr noundef nonnull readonly align 8 dereferenceable(112) %221, i64 112, i1 false)
   %639 = getelementptr inbounds i8, ptr %248, i64 656
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %639, ptr noundef nonnull align 8 dereferenceable(48) %222, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %639, ptr noundef nonnull readonly align 8 dereferenceable(48) %222, i64 48, i1 false)
   %640 = load i32, ptr %208, align 8
   %.not407595.i = icmp slt i32 %640, 0
   br i1 %.not407595.i, label %645, label %.lr.ph597.i
@@ -3392,7 +3392,7 @@ CVAckpntInit.exit.thread152:                      ; preds = %136, %.critedge.i, 
   %642 = add nuw i32 %640, 1
   %643 = zext i32 %642 to i64
   %644 = shl nuw nsw i64 %643, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %641, ptr noundef nonnull align 8 dereferenceable(1) %223, i64 %644, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %641, ptr noundef nonnull readonly align 8 dereferenceable(1) %223, i64 %644, i1 false)
   br label %645
 
 .loopexit154.sink.split:                          ; preds = %.lr.ph476.i, %311, %.lr.ph496.i, %384, %.lr.ph527.i, %487, %.lr.ph568.i, %.lr.ph602.i, %.loopexit438.i, %484, %.loopexit443.i, %381, %._crit_edge492.i, %307, %.preheader.i148, %.preheader450.i
@@ -3512,7 +3512,7 @@ declare i32 @CVodeGetDky(ptr noundef, double noundef, i32 noundef, ptr noundef) 
 declare i32 @CVode(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeCreateB(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @CVodeCreateB(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -4616,7 +4616,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br i1 %.not153.us.us, label %159, label %157
 
 157:                                              ; preds = %.split221.us.split.us
-  %158 = tail call fastcc i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %.0133177), !range !75
+  %158 = tail call fastcc i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %.0133177)
   %.not154.us.us = icmp eq i32 %158, 0
   br i1 %.not154.us.us, label %159, label %.critedge163
 
@@ -4627,7 +4627,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br i1 %.not153.us.us, label %162, label %160
 
 160:                                              ; preds = %.split221.us.split.split.us
-  %161 = tail call fastcc i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %.0133177), !range !75
+  %161 = tail call fastcc i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %.0133177)
   %.not154.us.us233 = icmp eq i32 %161, 0
   br i1 %.not154.us.us233, label %162, label %.critedge163
 
@@ -4641,7 +4641,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br i1 %.not153, label %.lr.ph213.preheader, label %164
 
 164:                                              ; preds = %.split221
-  %165 = call fastcc i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %.1134), !range !75
+  %165 = call fastcc i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %.1134)
   %.not154 = icmp eq i32 %165, 0
   br i1 %.not154, label %.lr.ph213.preheader, label %.critedge163
 
@@ -4697,7 +4697,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   %194 = getelementptr inbounds i8, ptr %.2137211, i64 120
   %195 = load ptr, ptr %194, align 8
   %.not155 = icmp eq ptr %195, null
-  br i1 %.not155, label %._crit_edge214, label %.lr.ph213, !llvm.loop !76
+  br i1 %.not155, label %._crit_edge214, label %.lr.ph213, !llvm.loop !75
 
 .thread:                                          ; preds = %181
   %196 = load i32, ptr %.2137211, align 8
@@ -4720,7 +4720,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   %203 = getelementptr inbounds i8, ptr %.3138217, i64 120
   %204 = load ptr, ptr %203, align 8
   %.not157.not = icmp eq ptr %204, null
-  br i1 %.not157.not, label %.critedge163, label %.lr.ph218, !llvm.loop !77
+  br i1 %.not157.not, label %.critedge163, label %.lr.ph218, !llvm.loop !76
 
 205:                                              ; preds = %.lr.ph218
   %206 = getelementptr inbounds i8, ptr %.1134, i64 816
@@ -4735,7 +4735,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
 declare double @SUNRabs(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @CVAdataStore(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -106, 1) i32 @CVAdataStore(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2192
   %5 = load ptr, ptr %4, align 8
@@ -4875,7 +4875,7 @@ define internal fastcc noundef i32 @CVAdataStore(ptr noundef %0, ptr noundef %1)
   %93 = load i32, ptr %53, align 8
   %94 = sext i32 %93 to i64
   %.not.not.i = icmp slt i64 %indvars.iv.i, %94
-  br i1 %.not.not.i, label %88, label %._crit_edge.i, !llvm.loop !78
+  br i1 %.not.not.i, label %88, label %._crit_edge.i, !llvm.loop !77
 
 ._crit_edge.i:                                    ; preds = %88, %42
   %.lcssa180.i = phi i32 [ %52, %42 ], [ %93, %88 ]
@@ -4920,7 +4920,7 @@ define internal fastcc noundef i32 @CVAdataStore(ptr noundef %0, ptr noundef %1)
   %115 = load i32, ptr %53, align 8
   %116 = sext i32 %115 to i64
   %.not158.not.i = icmp slt i64 %indvars.iv211.i, %116
-  br i1 %.not158.not.i, label %110, label %._crit_edge186.i, !llvm.loop !79
+  br i1 %.not158.not.i, label %110, label %._crit_edge186.i, !llvm.loop !78
 
 ._crit_edge186.i:                                 ; preds = %110, %.preheader177.i
   %.lcssa179.i = phi i32 [ %107, %.preheader177.i ], [ %115, %110 ]
@@ -4979,7 +4979,7 @@ define internal fastcc noundef i32 @CVAdataStore(ptr noundef %0, ptr noundef %1)
   %146 = load i32, ptr %53, align 8
   %147 = sext i32 %146 to i64
   %.not163.not.i = icmp slt i64 %indvars.iv214.i, %147
-  br i1 %.not163.not.i, label %.lr.ph190.i, label %._crit_edge191.i, !llvm.loop !80
+  br i1 %.not163.not.i, label %.lr.ph190.i, label %._crit_edge191.i, !llvm.loop !79
 
 ._crit_edge191.i:                                 ; preds = %.lr.ph190.i, %.preheader174.i
   %.lcssa178.i = phi i32 [ %137, %.preheader174.i ], [ %146, %.lr.ph190.i ]
@@ -5001,7 +5001,7 @@ define internal fastcc noundef i32 @CVAdataStore(ptr noundef %0, ptr noundef %1)
   %157 = load i32, ptr %129, align 4
   %158 = sext i32 %157 to i64
   %159 = icmp slt i64 %indvars.iv.next218.i, %158
-  br i1 %159, label %.preheader174.i, label %.loopexit176.i, !llvm.loop !81
+  br i1 %159, label %.preheader174.i, label %.loopexit176.i, !llvm.loop !80
 
 .loopexit176.i:                                   ; preds = %156, %.preheader175.i, %126
   %160 = getelementptr inbounds i8, ptr %1, i64 344
@@ -5044,7 +5044,7 @@ define internal fastcc noundef i32 @CVAdataStore(ptr noundef %0, ptr noundef %1)
   %179 = load i32, ptr %53, align 8
   %180 = sext i32 %179 to i64
   %.not162.not.i = icmp slt i64 %indvars.iv220.i, %180
-  br i1 %.not162.not.i, label %.lr.ph196.i, label %._crit_edge197.i, !llvm.loop !82
+  br i1 %.not162.not.i, label %.lr.ph196.i, label %._crit_edge197.i, !llvm.loop !81
 
 ._crit_edge197.i:                                 ; preds = %.lr.ph196.i, %.preheader172.i
   %.lcssa.i = phi i32 [ %170, %.preheader172.i ], [ %179, %.lr.ph196.i ]
@@ -5066,7 +5066,7 @@ define internal fastcc noundef i32 @CVAdataStore(ptr noundef %0, ptr noundef %1)
   %190 = load i32, ptr %162, align 4
   %191 = sext i32 %190 to i64
   %192 = icmp slt i64 %indvars.iv.next224.i, %191
-  br i1 %192, label %.preheader172.i, label %.loopexit.i, !llvm.loop !83
+  br i1 %192, label %.preheader172.i, label %.loopexit.i, !llvm.loop !82
 
 .loopexit.i:                                      ; preds = %189, %.preheader173.i, %.loopexit176.i
   %193 = getelementptr inbounds i8, ptr %1, i64 544
@@ -5086,7 +5086,7 @@ define internal fastcc noundef i32 @CVAdataStore(ptr noundef %0, ptr noundef %1)
   store double %199, ptr %200, align 8
   %indvars.iv.next227.i = add nuw nsw i64 %indvars.iv226.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next227.i, 14
-  br i1 %exitcond.not.i, label %.preheader171.i, label %197, !llvm.loop !84
+  br i1 %exitcond.not.i, label %.preheader171.i, label %197, !llvm.loop !83
 
 .preheader.i:                                     ; preds = %205
   %201 = load i32, ptr %53, align 8
@@ -5108,7 +5108,7 @@ define internal fastcc noundef i32 @CVAdataStore(ptr noundef %0, ptr noundef %1)
   store double %207, ptr %208, align 8
   %indvars.iv.next230.i = add nuw nsw i64 %indvars.iv229.i, 1
   %exitcond232.not.i = icmp eq i64 %indvars.iv.next230.i, 6
-  br i1 %exitcond232.not.i, label %.preheader.i, label %205, !llvm.loop !85
+  br i1 %exitcond232.not.i, label %.preheader.i, label %205, !llvm.loop !84
 
 209:                                              ; preds = %209, %.lr.ph204.i
   %indvars.iv233.i = phi i64 [ 0, %.lr.ph204.i ], [ %indvars.iv.next234.i, %209 ]
@@ -5118,7 +5118,7 @@ define internal fastcc noundef i32 @CVAdataStore(ptr noundef %0, ptr noundef %1)
   store double %211, ptr %212, align 8
   %indvars.iv.next234.i = add nuw nsw i64 %indvars.iv233.i, 1
   %exitcond236.not.i = icmp eq i64 %indvars.iv.next234.i, %wide.trip.count.i
-  br i1 %exitcond236.not.i, label %._crit_edge205.i, label %209, !llvm.loop !86
+  br i1 %exitcond236.not.i, label %._crit_edge205.i, label %209, !llvm.loop !85
 
 ._crit_edge205.i:                                 ; preds = %209, %.preheader.i
   %213 = getelementptr inbounds i8, ptr %0, i64 1704
@@ -5178,7 +5178,7 @@ CVAckpntGet.exit:                                 ; preds = %._crit_edge205.i, %
   %250 = fneg double %249
   %251 = select i1 %231, double %249, double %250
   %252 = fcmp ogt double %251, 0.000000e+00
-  br i1 %252, label %234, label %253, !llvm.loop !87
+  br i1 %252, label %234, label %253, !llvm.loop !86
 
 253:                                              ; preds = %239
   %254 = getelementptr inbounds i8, ptr %5, i64 156
@@ -5197,7 +5197,7 @@ CVAckpntGet.exit.thread:                          ; preds = %234, %38, %29, %22,
 declare i32 @CVodeSetStopTime(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @CVodeGetB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -5471,7 +5471,7 @@ attributes #9 = { nounwind allocsize(0) }
 !72 = !{}
 !73 = distinct !{!73, !5}
 !74 = distinct !{!74, !5}
-!75 = !{i32 -106, i32 1}
+!75 = distinct !{!75, !5}
 !76 = distinct !{!76, !5}
 !77 = distinct !{!77, !5}
 !78 = distinct !{!78, !5}
@@ -5483,4 +5483,3 @@ attributes #9 = { nounwind allocsize(0) }
 !84 = distinct !{!84, !5}
 !85 = distinct !{!85, !5}
 !86 = distinct !{!86, !5}
-!87 = distinct !{!87, !5}

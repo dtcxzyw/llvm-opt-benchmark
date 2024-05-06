@@ -1730,7 +1730,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   br i1 %22, label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit, label %23
 
 23:                                               ; preds = %.noexc20
-  %24 = getelementptr inbounds i8, ptr %19, i64 %17
+  %24 = getelementptr i8, ptr %19, i64 %17
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %21, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
 
@@ -1933,7 +1933,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   br i1 %22, label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit, label %23
 
 23:                                               ; preds = %.noexc20
-  %24 = getelementptr inbounds i8, ptr %19, i64 %17
+  %24 = getelementptr i8, ptr %19, i64 %17
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %21, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
 

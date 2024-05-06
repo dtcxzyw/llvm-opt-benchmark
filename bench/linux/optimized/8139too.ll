@@ -1817,7 +1817,7 @@ define internal void @rtl8139_set_rx_mode(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rtl8139_set_mac_address(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 -99, 1) i32 @rtl8139_set_mac_address(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 2
@@ -2008,7 +2008,7 @@ define internal noundef i32 @rtl8139_set_features(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtl8139_interrupt(i32 %0, ptr noundef %1) #2 align 16 {
+define internal range(i32 0, 2) i32 @rtl8139_interrupt(i32 %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr i8, ptr %1, i64 2304
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %1, i64 2880
@@ -2729,7 +2729,7 @@ define internal void @rtl8139_get_wol(ptr noundef %0, ptr nocapture noundef writ
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rtl8139_set_wol(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @rtl8139_set_wol(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2888
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %4, 4
@@ -2833,7 +2833,7 @@ define internal void @rtl8139_get_ethtool_stats(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @rtl8139_get_sset_count(ptr nocapture readnone %0, i32 noundef %1) #12 align 16 {
+define internal noundef range(i32 -95, 5) i32 @rtl8139_get_sset_count(ptr nocapture readnone %0, i32 noundef %1) #12 align 16 {
   %3 = icmp eq i32 %1, 1
   %4 = select i1 %3, i32 4, i32 -95
   ret i32 %4

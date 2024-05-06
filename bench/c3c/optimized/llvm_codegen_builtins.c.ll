@@ -936,9 +936,9 @@ define dso_local void @llvm_emit_builtin_call(ptr noundef %0, ptr noundef %1, pt
   %156 = getelementptr inbounds i8, ptr %31, i64 16
   %157 = load ptr, ptr %156, align 16
   %158 = trunc i64 %142 to i32
-  %159 = call fastcc i32 @ordering_to_llvm(i32 noundef %158), !range !15
+  %159 = call fastcc i32 @ordering_to_llvm(i32 noundef %158)
   %160 = trunc i64 %146 to i32
-  %161 = call fastcc i32 @ordering_to_llvm(i32 noundef %160), !range !15
+  %161 = call fastcc i32 @ordering_to_llvm(i32 noundef %160)
   %162 = call ptr @LLVMBuildAtomicCmpXchg(ptr noundef %152, ptr noundef %153, ptr noundef %155, ptr noundef %157, i32 noundef %159, i32 noundef %161, i32 noundef 0) #8
   %.not801 = icmp eq i64 %150, 0
   br i1 %.not801, label %168, label %163
@@ -1053,7 +1053,7 @@ define dso_local void @llvm_emit_builtin_call(ptr noundef %0, ptr noundef %1, pt
   store ptr %222, ptr %223, align 8
   %indvars.iv.next871 = add nuw nsw i64 %indvars.iv870, 1
   %exitcond873.not = icmp eq i64 %indvars.iv.next871, 3
-  br i1 %exitcond873.not, label %224, label %219, !llvm.loop !16
+  br i1 %exitcond873.not, label %224, label %219, !llvm.loop !15
 
 224:                                              ; preds = %219
   %225 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1265,7 +1265,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   store ptr %342, ptr %343, align 8
   %indvars.iv.next867 = add nuw nsw i64 %indvars.iv866, 1
   %exitcond869.not = icmp eq i64 %indvars.iv.next867, %wide.trip.count
-  br i1 %exitcond869.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond869.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %333
   %344 = phi ptr [ %28, %333 ], [ %337, %.lr.ph ]
@@ -1536,7 +1536,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   store ptr %489, ptr %490, align 8
   %indvars.iv.next863 = add nuw nsw i64 %indvars.iv862, 1
   %exitcond865.not = icmp eq i64 %indvars.iv.next863, 4
-  br i1 %exitcond865.not, label %491, label %486, !llvm.loop !18
+  br i1 %exitcond865.not, label %491, label %486, !llvm.loop !17
 
 491:                                              ; preds = %486
   %492 = getelementptr inbounds i8, ptr %0, i64 216
@@ -1597,7 +1597,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   store ptr %522, ptr %523, align 8
   %indvars.iv.next859 = add nuw nsw i64 %indvars.iv858, 1
   %exitcond861.not = icmp eq i64 %indvars.iv.next859, 4
-  br i1 %exitcond861.not, label %524, label %519, !llvm.loop !19
+  br i1 %exitcond861.not, label %524, label %519, !llvm.loop !18
 
 524:                                              ; preds = %519
   %525 = getelementptr inbounds i8, ptr %0, i64 216
@@ -1657,7 +1657,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   store ptr %554, ptr %555, align 8
   %indvars.iv.next855 = add nuw nsw i64 %indvars.iv854, 1
   %exitcond857.not = icmp eq i64 %indvars.iv.next855, 4
-  br i1 %exitcond857.not, label %556, label %551, !llvm.loop !20
+  br i1 %exitcond857.not, label %556, label %551, !llvm.loop !19
 
 556:                                              ; preds = %551
   %557 = getelementptr inbounds i8, ptr %0, i64 216
@@ -1719,7 +1719,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   store ptr %588, ptr %589, align 8
   %indvars.iv.next851 = add nuw nsw i64 %indvars.iv850, 1
   %exitcond853.not = icmp eq i64 %indvars.iv.next851, 4
-  br i1 %exitcond853.not, label %590, label %585, !llvm.loop !21
+  br i1 %exitcond853.not, label %590, label %585, !llvm.loop !20
 
 590:                                              ; preds = %585
   %591 = getelementptr inbounds i8, ptr %0, i64 216
@@ -1765,7 +1765,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   store ptr %613, ptr %614, align 8
   %indvars.iv.next847 = add nuw nsw i64 %indvars.iv846, 1
   %exitcond849.not = icmp eq i64 %indvars.iv.next847, 4
-  br i1 %exitcond849.not, label %615, label %610, !llvm.loop !22
+  br i1 %exitcond849.not, label %615, label %610, !llvm.loop !21
 
 615:                                              ; preds = %610
   %616 = getelementptr inbounds i8, ptr %0, i64 216
@@ -1824,7 +1824,7 @@ llvm_emit_veccomp.exit:                           ; preds = %247, %251, %255, %2
   store ptr %645, ptr %646, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %647, label %642, !llvm.loop !23
+  br i1 %exitcond.not, label %647, label %642, !llvm.loop !22
 
 647:                                              ; preds = %642
   %648 = load ptr, ptr @type_int, align 8
@@ -2568,7 +2568,7 @@ define internal fastcc void @llvm_emit_syscall(ptr noundef %0, ptr noundef %1, p
   store ptr %11, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %13, %.thread, %7
   %.not310 = phi i1 [ true, %.thread ], [ true, %7 ], [ %.not3, %13 ]
@@ -2606,7 +2606,7 @@ define internal fastcc void @llvm_emit_syscall(ptr noundef %0, ptr noundef %1, p
   call void @scratch_buffer_append(ptr noundef nonnull @.str.50) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %llvm_syscall_write_regs_to_scratch.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %llvm_syscall_write_regs_to_scratch.exit, label %.lr.ph.i, !llvm.loop !24
 
 28:                                               ; preds = %22
   br i1 %.not310, label %llvm_syscall_write_regs_to_scratch.exit, label %.lr.ph.preheader.i46
@@ -2624,7 +2624,7 @@ define internal fastcc void @llvm_emit_syscall(ptr noundef %0, ptr noundef %1, p
   call void @scratch_buffer_append(ptr noundef nonnull @.str.50) #8
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, %wide.trip.count.i47
-  br i1 %exitcond.not.i51, label %llvm_syscall_write_regs_to_scratch.exit, label %.lr.ph.i48, !llvm.loop !25
+  br i1 %exitcond.not.i51, label %llvm_syscall_write_regs_to_scratch.exit, label %.lr.ph.i48, !llvm.loop !24
 
 llvm_syscall_write_regs_to_scratch.exit:          ; preds = %.lr.ph.i48, %.lr.ph.i, %28, %25
   %31 = call ptr @scratch_buffer_to_string() #8
@@ -2651,7 +2651,7 @@ llvm_syscall_write_regs_to_scratch.exit:          ; preds = %.lr.ph.i48, %.lr.ph
   call void @scratch_buffer_append(ptr noundef nonnull @.str.50) #8
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, %wide.trip.count.i55
-  br i1 %exitcond.not.i59, label %llvm_syscall_write_regs_to_scratch.exit60, label %.lr.ph.i56, !llvm.loop !25
+  br i1 %exitcond.not.i59, label %llvm_syscall_write_regs_to_scratch.exit60, label %.lr.ph.i56, !llvm.loop !24
 
 llvm_syscall_write_regs_to_scratch.exit60:        ; preds = %.lr.ph.i56
   %39 = icmp eq i32 %.08, 7
@@ -2689,7 +2689,7 @@ llvm_syscall_write_regs_to_scratch.exit60:        ; preds = %.lr.ph.i56
   call void @scratch_buffer_append(ptr noundef nonnull @.str.50) #8
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i63
-  br i1 %exitcond.not.i67, label %llvm_syscall_write_regs_to_scratch.exit68, label %.lr.ph.i64, !llvm.loop !25
+  br i1 %exitcond.not.i67, label %llvm_syscall_write_regs_to_scratch.exit68, label %.lr.ph.i64, !llvm.loop !24
 
 llvm_syscall_write_regs_to_scratch.exit68:        ; preds = %.lr.ph.i64, %50
   call void @scratch_buffer_append(ptr noundef nonnull @.str.47) #8
@@ -2875,7 +2875,7 @@ define internal fastcc void @llvm_emit_gather(ptr noundef %0, ptr noundef %1, pt
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %15, label %10, !llvm.loop !26
+  br i1 %exitcond.not, label %15, label %10, !llvm.loop !25
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2954,7 +2954,7 @@ define internal fastcc void @llvm_emit_scatter(ptr noundef %0, ptr noundef %1, p
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %15, label %10, !llvm.loop !27
+  br i1 %exitcond.not, label %15, label %10, !llvm.loop !26
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 16
@@ -3034,7 +3034,7 @@ define internal fastcc void @llvm_emit_masked_store(ptr noundef %0, ptr noundef 
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %15, label %10, !llvm.loop !28
+  br i1 %exitcond.not, label %15, label %10, !llvm.loop !27
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 16
@@ -3114,7 +3114,7 @@ define internal fastcc void @llvm_emit_masked_load(ptr noundef %0, ptr noundef %
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %15, label %10, !llvm.loop !29
+  br i1 %exitcond.not, label %15, label %10, !llvm.loop !28
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %5, i64 16
@@ -3204,7 +3204,7 @@ declare ptr @LLVMConstVector(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @LLVMBuildAtomicCmpXchg(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ordering_to_llvm(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 8) i32 @ordering_to_llvm(i32 noundef %0) unnamed_addr #0 {
   %2 = icmp ult i32 %0, 7
   br i1 %2, label %switch.lookup, label %3
 
@@ -3484,7 +3484,7 @@ attributes #10 = { nounwind allocsize(0) }
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
-!15 = !{i32 0, i32 8}
+!15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
 !18 = distinct !{!18, !8}
@@ -3498,4 +3498,3 @@ attributes #10 = { nounwind allocsize(0) }
 !26 = distinct !{!26, !8}
 !27 = distinct !{!27, !8}
 !28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}

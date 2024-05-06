@@ -458,7 +458,7 @@ define dso_local i32 @WaitLatch(ptr noundef %0, i32 noundef %1, i64 noundef %2, 
   %13 = and i32 %1, 8
   %.not7 = icmp eq i32 %13, 0
   %14 = select i1 %.not7, i64 -1, i64 %2
-  %15 = call i32 @WaitEventSetWait(ptr noundef %8, i64 noundef %14, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %3), !range !5
+  %15 = call i32 @WaitEventSetWait(ptr noundef %8, i64 noundef %14, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %3)
   %16 = icmp eq i32 %15, 0
   %17 = getelementptr inbounds i8, ptr %5, i64 4
   %18 = load i32, ptr %17, align 4
@@ -549,7 +549,7 @@ define dso_local void @ModifyWaitEvent(ptr nocapture noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @WaitEventSetWait(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, -1) i32 @WaitEventSetWait(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca [1024 x i8], align 16
   %8 = alloca %struct.timespec, align 8
@@ -596,7 +596,7 @@ define dso_local i32 @WaitEventSetWait(ptr nocapture noundef readonly %0, i64 no
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %25, i64 4
   store i32 1, ptr %29, align 4
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !5
   %.pr = load ptr, ptr %17, align 8
   %.not46 = icmp eq ptr %.pr, null
   br i1 %.not46, label %.thread, label %30
@@ -863,7 +863,7 @@ drain.exit.i:                                     ; preds = %92, %81
   %149 = icmp ult ptr %146, %148
   %150 = icmp slt i32 %.156.i, %3
   %151 = select i1 %149, i1 %150, i1 false
-  br i1 %151, label %.lr.ph.i, label %WaitEventSetWaitBlock.exit, !llvm.loop !7
+  br i1 %151, label %.lr.ph.i, label %WaitEventSetWaitBlock.exit, !llvm.loop !6
 
 WaitEventSetWaitBlock.exit:                       ; preds = %.thread73.i, %49, %56, %58
   %.053.i = phi i32 [ 0, %49 ], [ -1, %56 ], [ 0, %58 ], [ %.156.i, %.thread73.i ]
@@ -903,7 +903,7 @@ WaitEventSetWaitBlock.exit:                       ; preds = %.thread73.i, %49, %
 
 171:                                              ; preds = %159, %157
   %.2 = phi i64 [ %169, %159 ], [ %.13759, %157 ]
-  br i1 %158, label %24, label %.loopexit, !llvm.loop !9
+  br i1 %158, label %24, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %159, %155, %171, %.thread53
   %.1 = phi i32 [ 1, %.thread53 ], [ %.053.i, %171 ], [ 0, %159 ], [ 0, %155 ]
@@ -914,7 +914,7 @@ WaitEventSetWaitBlock.exit:                       ; preds = %.thread73.i, %49, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @WaitLatchOrSocket(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 152) i32 @WaitLatchOrSocket(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.WaitEvent, align 8
   %7 = load ptr, ptr @CurrentResourceOwner, align 8
   %8 = tail call ptr @CreateWaitEventSet(ptr noundef %7, i32 noundef 3)
@@ -1003,7 +1003,7 @@ define dso_local i32 @WaitLatchOrSocket(ptr noundef %0, i32 noundef %1, i32 noun
   br label %52
 
 52:                                               ; preds = %50, %48
-  %53 = call i32 @WaitEventSetWait(ptr noundef %8, i64 noundef %spec.select, ptr noundef nonnull %6, i32 noundef 1, i32 noundef %4), !range !5
+  %53 = call i32 @WaitEventSetWait(ptr noundef %8, i64 noundef %spec.select, ptr noundef nonnull %6, i32 noundef 1, i32 noundef %4)
   %54 = getelementptr inbounds i8, ptr %6, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = load ptr, ptr %8, align 8
@@ -1030,14 +1030,14 @@ FreeWaitEventSet.exit:                            ; preds = %52, %57
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SetLatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !10
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   %2 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %16
 
 3:                                                ; preds = %1
   store i32 1, ptr %0, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !10
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not6 = icmp eq i32 %5, 0
@@ -1073,7 +1073,7 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @ResetLatch(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
   ret void
 }
 
@@ -1247,11 +1247,10 @@ attributes #17 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 -1}
-!6 = !{i64 2149767163}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{i64 2149756926}
-!11 = !{i64 2149757022}
-!12 = !{i64 2149757154}
+!5 = !{i64 2149767163}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = !{i64 2149756926}
+!10 = !{i64 2149757022}
+!11 = !{i64 2149757154}

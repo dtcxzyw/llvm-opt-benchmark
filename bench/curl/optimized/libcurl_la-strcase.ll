@@ -25,7 +25,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @curl_strequal(ptr noundef readonly %first, ptr noundef readonly %second) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @curl_strequal(ptr noundef readonly %first, ptr noundef readonly %second) local_unnamed_addr #1 {
 entry:
   %tobool = icmp ne ptr %first, null
   %tobool1 = icmp ne ptr %second, null
@@ -83,7 +83,7 @@ return:                                           ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @curl_strnequal(ptr noundef readonly %first, ptr noundef readonly %second, i64 noundef %max) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @curl_strnequal(ptr noundef readonly %first, ptr noundef readonly %second, i64 noundef %max) local_unnamed_addr #1 {
 entry:
   %tobool = icmp ne ptr %first, null
   %tobool1 = icmp ne ptr %second, null
@@ -265,7 +265,7 @@ while.body:                                       ; preds = %entry, %while.body
   %tobool7.not = icmp eq i8 %0, 0
   %tobool10.not = icmp eq i8 %1, 0
   %or.cond13 = select i1 %tobool7.not, i1 true, i1 %tobool10.not
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %or.cond13, label %return, label %while.body
 
 if.else:                                          ; preds = %entry

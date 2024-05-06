@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main() local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
 entry:
   %line.i16 = alloca i32, align 4
   %file.i17 = alloca ptr, align 8
@@ -209,14 +209,14 @@ _ZL9TestPrintv.exit:                              ; preds = %for.body.i14
   call void @ERR_put_error(i32 noundef 32, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str.9, i32 noundef 131)
   %call.i18 = call i32 @ERR_get_error_line(ptr noundef nonnull %file.i17, ptr noundef nonnull %line.i16)
   %22 = load ptr, ptr %file.i17, align 8
-  %call1.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #7
+  %call1.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #7
   %cmp.i.i = icmp ult i64 %call1.i.i, 11
   br i1 %cmp.i.i, label %_ZL12TestPutMacrov.exit, label %_ZL9HasSuffixPKcS0_.exit.i
 
 _ZL9HasSuffixPKcS0_.exit.i:                       ; preds = %_ZL9TestPrintv.exit
   %add.ptr.i.i = getelementptr inbounds i8, ptr %22, i64 %call1.i.i
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -11
-  %call3.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr2.i.i, ptr noundef nonnull dereferenceable(12) @.str.10) #7
+  %call3.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr2.i.i, ptr noundef nonnull dereferenceable(12) @.str.10) #7
   %cmp4.i.i = icmp eq i32 %call3.i.i, 0
   %23 = load i32, ptr %line.i16, align 4
   %cmp.not.i19 = icmp eq i32 %23, 131

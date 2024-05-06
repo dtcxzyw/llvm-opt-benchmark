@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.wc_Sha = type { i32, i32, i32, [16 x i32], [5 x i32], ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_InitSha_ex(ptr noundef writeonly %sha, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha_ex(ptr noundef writeonly %sha, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %sha, null
   br i1 %cmp, label %return, label %if.end
@@ -31,7 +31,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_ShaUpdate(ptr noundef %sha, ptr noundef readonly %data, i32 noundef %len) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_ShaUpdate(ptr noundef %sha, ptr noundef readonly %data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %sha, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1210,7 +1210,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @wc_ShaFinalRaw(ptr noundef %sha, ptr noundef writeonly %hash) local_unnamed_addr #4 {
+define range(i32 -173, 1) i32 @wc_ShaFinalRaw(ptr noundef %sha, ptr noundef writeonly %hash) local_unnamed_addr #4 {
 entry:
   %digest = alloca [5 x i32], align 16
   %cmp = icmp eq ptr %sha, null
@@ -1257,7 +1257,7 @@ return:                                           ; preds = %entry, %ByteReverse
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @wc_ShaFinal(ptr noundef %sha, ptr noundef writeonly %hash) local_unnamed_addr #4 {
+define range(i32 -192, 1) i32 @wc_ShaFinal(ptr noundef %sha, ptr noundef writeonly %hash) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %sha, null
   %cmp1 = icmp eq ptr %hash, null
@@ -1411,7 +1411,7 @@ return:                                           ; preds = %if.end, %entry, %By
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_InitSha(ptr noundef writeonly %sha) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha(ptr noundef writeonly %sha) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %sha, null
   br i1 %cmp.i, label %wc_InitSha_ex.exit, label %if.end.i
@@ -1442,7 +1442,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @wc_ShaGetHash(ptr noundef readonly %sha, ptr noundef %hash) local_unnamed_addr #4 {
+define i32 @wc_ShaGetHash(ptr noundef readonly %sha, ptr noundef %hash) local_unnamed_addr #4 {
 entry:
   %tmpSha = alloca [1 x %struct.wc_Sha], align 16
   %cmp = icmp eq ptr %sha, null
@@ -1451,8 +1451,8 @@ entry:
   br i1 %or.cond, label %return, label %if.then3
 
 if.then3:                                         ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %tmpSha, ptr noundef nonnull align 8 dereferenceable(104) %sha, i64 104, i1 false)
-  %call5 = call i32 @wc_ShaFinal(ptr noundef nonnull %tmpSha, ptr noundef nonnull %hash), !range !8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(104) %tmpSha, ptr noundef nonnull readonly align 8 dereferenceable(104) %sha, i64 104, i1 false)
+  %call5 = call i32 @wc_ShaFinal(ptr noundef nonnull %tmpSha, ptr noundef nonnull %hash)
   br label %return
 
 return:                                           ; preds = %if.then3, %entry
@@ -1461,7 +1461,7 @@ return:                                           ; preds = %if.then3, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_ShaCopy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #3 {
+define range(i32 -173, 1) i32 @wc_ShaCopy(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %src, null
   %cmp1 = icmp eq ptr %dst, null
@@ -1505,4 +1505,3 @@ attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -192, i32 1}

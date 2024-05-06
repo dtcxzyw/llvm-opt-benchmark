@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @puts(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @puts(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = tail call ptr @lib_get_stream(i32 noundef 1) #3
   tail call void @flockfile(ptr noundef %3)

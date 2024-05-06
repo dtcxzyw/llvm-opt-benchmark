@@ -236,7 +236,7 @@ define internal fastcc double @asum_compute(i64 noundef %0, ptr noundef %1, i64 
   br i1 %133, label %.loopexit, label %.preheader, !llvm.loop !16
 
 134:                                              ; preds = %7
-  %135 = mul nsw i64 %2, %0
+  %135 = mul nuw nsw i64 %2, %0
   %136 = icmp sgt i64 %135, 0
   br i1 %136, label %.preheader8, label %.loopexit
 

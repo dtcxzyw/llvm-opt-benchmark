@@ -484,7 +484,7 @@ Fxu_MatrixComputeSinglesOneCollect.exit:          ; preds = %154, %13, %._crit_e
 198:                                              ; preds = %189, %183
   %.169 = phi i32 [ %.068106, %183 ], [ %194, %189 ]
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 3
-  %199 = trunc i64 %indvars.iv.next130 to i32
+  %199 = trunc nuw i64 %indvars.iv.next130 to i32
   %200 = icmp sgt i32 %.val, %199
   br i1 %200, label %183, label %._crit_edge110, !llvm.loop !11
 
@@ -500,23 +500,23 @@ Fxu_MatrixComputeSinglesOneCollect.exit:          ; preds = %154, %13, %._crit_e
   br i1 %202, label %.lr.ph121, label %._crit_edge122
 
 .lr.ph121:                                        ; preds = %201
-  %invariant.gep123 = getelementptr i8, ptr %.pre, i64 8
-  %invariant.gep125 = getelementptr i8, ptr %.pre, i64 16
+  %invariant.gep123 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %invariant.gep125 = getelementptr inbounds i8, ptr %.pre, i64 16
   br label %203
 
 203:                                              ; preds = %.lr.ph121, %203
   %indvars.iv132 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next133, %203 ]
   %204 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv132
   %205 = load ptr, ptr %204, align 8
-  %gep124 = getelementptr ptr, ptr %invariant.gep123, i64 %indvars.iv132
+  %gep124 = getelementptr inbounds ptr, ptr %invariant.gep123, i64 %indvars.iv132
   %206 = load ptr, ptr %gep124, align 8
-  %gep126 = getelementptr ptr, ptr %invariant.gep125, i64 %indvars.iv132
+  %gep126 = getelementptr inbounds ptr, ptr %invariant.gep125, i64 %indvars.iv132
   %207 = load ptr, ptr %gep126, align 8
   %208 = ptrtoint ptr %207 to i64
   %209 = trunc i64 %208 to i32
   tail call void @Fxu_MatrixAddSingle(ptr noundef %0, ptr noundef %205, ptr noundef %206, i32 noundef %209) #9
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 3
-  %210 = trunc i64 %indvars.iv.next133 to i32
+  %210 = trunc nuw i64 %indvars.iv.next133 to i32
   %211 = icmp sgt i32 %.val81, %210
   br i1 %211, label %203, label %._crit_edge122.thread, !llvm.loop !12
 

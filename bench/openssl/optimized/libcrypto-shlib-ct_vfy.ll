@@ -103,7 +103,7 @@ if.end23:                                         ; preds = %if.end19
   br i1 %tobool26.not, label %end, label %if.end28
 
 if.end28:                                         ; preds = %if.end23
-  %call29 = tail call fastcc i32 @sct_ctx_update(ptr noundef nonnull %call20, ptr noundef nonnull %sctx, ptr noundef nonnull %sct), !range !4
+  %call29 = tail call fastcc i32 @sct_ctx_update(ptr noundef nonnull %call20, ptr noundef nonnull %sctx, ptr noundef nonnull %sct)
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %end, label %if.end32
 
@@ -145,7 +145,7 @@ declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 declare i32 @EVP_DigestVerifyInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @sct_ctx_update(ptr noundef %ctx, ptr nocapture noundef readonly %sctx, ptr nocapture noundef readonly %sct) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sct_ctx_update(ptr noundef %ctx, ptr nocapture noundef readonly %sctx, ptr nocapture noundef readonly %sct) unnamed_addr #0 {
 entry:
   %tmpbuf = alloca [12 x i8], align 1
   %entry_type = getelementptr inbounds i8, ptr %sct, i64 88
@@ -305,4 +305,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

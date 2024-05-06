@@ -3452,7 +3452,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$alloc..vec..Vec$LT$glob..Pat
   %.07.i.i = phi i64 [ %8, %.lr.ph.i.i ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %3, i64 0, i64 %.07.i.i
   %8 = add nuw i64 %.07.i.i, 1
-  tail call void @"_ZN4core3ptr34drop_in_place$LT$glob..Pattern$GT$17h3d4ca2959791725fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %7), !noalias !1643
+  tail call void @"_ZN4core3ptr34drop_in_place$LT$glob..Pattern$GT$17h3d4ca2959791725fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %7), !noalias !1643
   %9 = icmp eq i64 %8, %5
   br i1 %9, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h914de66af3003d14E.llvm.8271848126233039021.exit", label %.lr.ph.i.i
 
@@ -6988,7 +6988,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %.07.i = phi i64 [ %8, %.lr.ph.i ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }], ptr %3, i64 0, i64 %.07.i
   %8 = add nuw i64 %.07.i, 1
-  tail call void @"_ZN4core3ptr34drop_in_place$LT$glob..Pattern$GT$17h3d4ca2959791725fE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %7)
+  tail call void @"_ZN4core3ptr34drop_in_place$LT$glob..Pattern$GT$17h3d4ca2959791725fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %7)
   %9 = icmp eq i64 %8, %5
   br i1 %9, label %"_ZN4core3ptr44drop_in_place$LT$$u5b$glob..Pattern$u5d$$GT$17h8a4951cba5fe54e0E.llvm.8271848126233039021.exit", label %.lr.ph.i
 

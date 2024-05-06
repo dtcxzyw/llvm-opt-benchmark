@@ -196,7 +196,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZNKSt4hashIN4cvc59ProofRuleEEclES1_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, i32 noundef %rule) local_unnamed_addr #3 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZNKSt4hashIN4cvc59ProofRuleEEclES1_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, i32 noundef %rule) local_unnamed_addr #3 align 2 {
 entry:
   %conv = zext i32 %rule to i64
   ret i64 %conv

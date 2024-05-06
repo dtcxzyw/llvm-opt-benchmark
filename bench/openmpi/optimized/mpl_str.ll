@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [11 x i8] c"%s.%u.%u%c\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @MPL_strncpy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @MPL_strncpy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %18, label %5
 
@@ -101,7 +101,7 @@ define ptr @MPL_strsep(ptr nocapture noundef %0, ptr nocapture noundef readonly 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv35
   store i8 0, ptr %16, align 1
-  %17 = getelementptr i8, ptr %16, i64 1
+  %17 = getelementptr inbounds i8, ptr %16, i64 1
   br label %.sink.split
 
 ._crit_edge:                                      ; preds = %9
@@ -121,7 +121,7 @@ define ptr @MPL_strsep(ptr nocapture noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @MPL_strnapp(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @MPL_strnapp(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = trunc i64 %2 to i32
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %.critedge.thread

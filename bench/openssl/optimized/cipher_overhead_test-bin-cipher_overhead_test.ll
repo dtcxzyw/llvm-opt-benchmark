@@ -20,7 +20,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cipher_overhead() #0 {
+define internal range(i32 0, 2) i32 @cipher_overhead() #0 {
 entry:
   %mac = alloca i64, align 8
   %in = alloca i64, align 8

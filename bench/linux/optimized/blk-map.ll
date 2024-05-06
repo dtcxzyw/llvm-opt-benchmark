@@ -54,7 +54,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_blk_rq_map_k
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_blk_rq_append_bio424, ptr @__UNIQUE_ID___addressable_blk_rq_map_kern429, ptr @__UNIQUE_ID___addressable_blk_rq_map_user426, ptr @__UNIQUE_ID___addressable_blk_rq_map_user_io427, ptr @__UNIQUE_ID___addressable_blk_rq_map_user_iov425, ptr @__UNIQUE_ID___addressable_blk_rq_unmap_user428], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @blk_rq_append_bio(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @blk_rq_append_bio(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -1095,7 +1095,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly %0, ptr noundef %
 .thread77:                                        ; preds = %553, %.thread.split, %429, %423, %193, %189, %.loopexit82
   %562 = phi ptr [ %183, %.loopexit82 ], [ %183, %189 ], [ %183, %193 ], [ %405, %423 ], [ %405, %429 ], [ %405, %.thread.split ], [ %405, %553 ]
   %563 = phi i32 [ %415, %.loopexit82 ], [ -12, %189 ], [ -12, %193 ], [ %541, %553 ], [ -22, %.thread.split ], [ -12, %429 ], [ -12, %423 ]
-  %564 = call i32 @blk_rq_unmap_user(ptr noundef %562), !range !19
+  %564 = call i32 @blk_rq_unmap_user(ptr noundef %562)
   br label %.thread49
 
 .thread49:                                        ; preds = %62, %144, %143, %68, %52, %39, %46, %.thread77
@@ -1117,7 +1117,7 @@ declare dso_local i64 @iov_iter_alignment(ptr noundef) local_unnamed_addr #4
 declare dso_local i64 @iov_iter_gap_alignment(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @blk_rq_unmap_user(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -14, 1) i32 @blk_rq_unmap_user(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.iov_iter, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit4, label %4
@@ -1141,7 +1141,7 @@ define dso_local i32 @blk_rq_unmap_user(ptr noundef %0) #0 align 16 {
   br i1 %15, label %16, label %81
 
 16:                                               ; preds = %12
-  %17 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !20
+  %17 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !19
   %18 = inttoptr i64 %17 to ptr
   %19 = getelementptr inbounds i8, ptr %18, i64 1192
   %20 = load ptr, ptr %19, align 8
@@ -1217,7 +1217,7 @@ define dso_local i32 @blk_rq_unmap_user(ptr noundef %0) #0 align 16 {
   switch i32 %73, label %.loopexit.loopexit [
     i32 0, label %31
     i32 2, label %.loopexit
-  ], !llvm.loop !21
+  ], !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %53
   br label %.loopexit
@@ -1283,7 +1283,7 @@ define dso_local i32 @blk_rq_unmap_user(ptr noundef %0) #0 align 16 {
 
 106:                                              ; preds = %105, %104
   %107 = icmp eq ptr %99, null
-  br i1 %107, label %.loopexit4, label %6, !llvm.loop !22
+  br i1 %107, label %.loopexit4, label %6, !llvm.loop !21
 
 .loopexit4:                                       ; preds = %106, %1
   %108 = phi i32 [ 0, %1 ], [ %98, %106 ]
@@ -1454,7 +1454,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %34, label %112, label %35
 
 35:                                               ; preds = %24
-  %36 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !20
+  %36 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !19
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 32
@@ -1525,7 +1525,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   %80 = sub i32 %69, %73
   %81 = add nuw nsw i32 %66, 1
   %82 = icmp eq i32 %81, %51
-  br i1 %82, label %.loopexit, label %.split.us, !llvm.loop !23
+  br i1 %82, label %.loopexit, label %.split.us, !llvm.loop !22
 
 .split:                                           ; preds = %.split.preheader, %105
   %83 = phi i32 [ %109, %105 ], [ 0, %.split.preheader ]
@@ -1560,7 +1560,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   %108 = sub i32 %86, %90
   %109 = add nuw nsw i32 %83, 1
   %110 = icmp eq i32 %109, %51
-  br i1 %110, label %.loopexit, label %.split, !llvm.loop !23
+  br i1 %110, label %.loopexit, label %.split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %105, %.split, %77, %.split.us, %.thread36, %58
   %111 = getelementptr inbounds i8, ptr %54, i64 56
@@ -1677,7 +1677,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   store i32 %171, ptr %166, align 8
   %172 = tail call i32 @blk_rq_append_bio(ptr noundef %1, ptr noundef nonnull %160), !range !13
   %173 = icmp eq i32 %172, 0
-  br i1 %173, label %175, label %174, !prof !24
+  br i1 %173, label %175, label %174, !prof !23
 
 174:                                              ; preds = %165
   tail call void @bio_uninit(ptr noundef nonnull %160) #8
@@ -1821,7 +1821,7 @@ define internal void @bio_copy_kern_endio_read(ptr noundef %0) #0 align 16 {
   %49 = load i16, ptr %2, align 8
   %50 = zext i16 %49 to i32
   %51 = icmp ult i32 %36, %50
-  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %25, %1
   tail call void @bio_free_pages(ptr noundef %0) #8
@@ -1890,10 +1890,9 @@ attributes #10 = { nounwind memory(none) }
 !16 = !{!"branch_weights", i32 2000, i32 2002}
 !17 = distinct !{!17, !6, !7}
 !18 = distinct !{!18, !6, !7}
-!19 = !{i32 -14, i32 1}
-!20 = !{i64 2148202368}
+!19 = !{i64 2148202368}
+!20 = distinct !{!20, !6, !7}
 !21 = distinct !{!21, !6, !7}
 !22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
-!24 = !{!"branch_weights", i32 2000, i32 1}
-!25 = distinct !{!25, !6, !7}
+!23 = !{!"branch_weights", i32 2000, i32 1}
+!24 = distinct !{!24, !6, !7}

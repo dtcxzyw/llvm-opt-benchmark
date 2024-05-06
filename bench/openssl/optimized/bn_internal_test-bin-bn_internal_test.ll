@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [2 x i8] c"b\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_CTX_new() #2
   store ptr %call, ptr @ctx, align 8
@@ -49,7 +49,7 @@ declare ptr @BN_CTX_new() local_unnamed_addr #1
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_is_prime_enhanced() #0 {
+define internal range(i32 0, 2) i32 @test_is_prime_enhanced() #0 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -91,7 +91,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_is_composite_enhanced(i32 noundef %id) #0 {
+define internal range(i32 0, 2) i32 @test_is_composite_enhanced(i32 noundef %id) #0 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4

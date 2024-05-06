@@ -487,7 +487,7 @@ define internal fastcc void @chacha20_block(ptr nocapture noundef readonly %0, p
   %179 = getelementptr inbounds i8, ptr %1, i64 %178
   store i8 %177, ptr %179, align 1
   %180 = lshr i32 %169, 24
-  %181 = trunc i32 %180 to i8
+  %181 = trunc nuw i32 %180 to i8
   %182 = or disjoint i64 %167, 3
   %183 = getelementptr inbounds i8, ptr %1, i64 %182
   store i8 %181, ptr %183, align 1
@@ -533,7 +533,7 @@ define hidden noundef i32 @mbedtls_chacha20_crypt(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_chacha20_self_test(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @mbedtls_chacha20_self_test(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.mbedtls_chacha20_context, align 16
   %3 = alloca [381 x i8], align 16
   %.not20 = icmp eq i32 %0, 0
@@ -553,7 +553,7 @@ define hidden noundef i32 @mbedtls_chacha20_self_test(i32 noundef %0) local_unna
   br i1 %.not20, label %16, label %13
 
 13:                                               ; preds = %.backedge
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %14)
   br label %16
 
@@ -580,7 +580,7 @@ define hidden noundef i32 @mbedtls_chacha20_self_test(i32 noundef %0) local_unna
   store i32 %23, ptr %11, align 4
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #10
   store i64 64, ptr %5, align 16
-  %24 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %2, i64 noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %3)
+  %24 = call i32 @mbedtls_chacha20_update(ptr noundef nonnull %2, i64 noundef %20, ptr noundef nonnull readonly %21, ptr noundef nonnull writeonly %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 136) #10
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2)
   %25 = getelementptr inbounds [2 x [375 x i8]], ptr @test_output, i64 0, i64 %indvars.iv

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [5 x i8] c"%02X\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @MPL_str_get_string_arg(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 7) i32 @MPL_str_get_string_arg(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %3, 1
   %6 = icmp eq ptr %0, null
   %or.cond = or i1 %6, %5
@@ -32,7 +32,7 @@ define i32 @MPL_str_get_string_arg(ptr noundef readonly %0, ptr noundef readonly
 
 first_token.exit:                                 ; preds = %.preheader.i, %next_token.exit61
   %.014 = phi ptr [ %.1, %next_token.exit61 ], [ %.0.i, %.preheader.i ]
-  %10 = tail call fastcc i32 @compare_token(ptr noundef nonnull %.014, ptr noundef %1), !range !6
+  %10 = tail call fastcc i32 @compare_token(ptr noundef nonnull %.014, ptr noundef %1)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %.preheader.i.i, label %.preheader.i.i45
 
@@ -76,7 +76,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
   %.1.i = phi ptr [ %spec.select.i, %21 ], [ %20, %.preheader37.i ]
   %26 = load i8, ptr %.1.i, align 1
   %27 = icmp eq i8 %26, 0
-  br i1 %27, label %next_token.exit, label %.preheader37.i, !llvm.loop !7
+  br i1 %27, label %next_token.exit, label %.preheader37.i, !llvm.loop !6
 
 28:                                               ; preds = %.preheader.i.i
   %29 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
@@ -98,7 +98,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
 31:                                               ; preds = %.preheader.i19
   %32 = getelementptr inbounds i8, ptr %.2.i, i64 1
   %.pr.i = load i8, ptr %32, align 1
-  br label %.preheader.i19, !llvm.loop !8
+  br label %.preheader.i19, !llvm.loop !7
 
 .preheader.i31.i:                                 ; preds = %.preheader.i31.i.preheader, %34
   %.0.i32.i = phi ptr [ %35, %34 ], [ %.0.i32.i.ph, %.preheader.i31.i.preheader ]
@@ -117,7 +117,7 @@ next_token.exit.loopexit:                         ; preds = %.preheader.i31.i
 
 next_token.exit:                                  ; preds = %.preheader.i.i, %25, %.preheader.i31.i, %next_token.exit.loopexit, %15
   %.022.i = phi ptr [ null, %15 ], [ null, %next_token.exit.loopexit ], [ %.0.i32.i, %.preheader.i31.i ], [ null, %25 ], [ null, %.preheader.i.i ]
-  %36 = tail call fastcc i32 @compare_token(ptr noundef %.022.i, ptr noundef nonnull @.str), !range !6
+  %36 = tail call fastcc i32 @compare_token(ptr noundef %.022.i, ptr noundef nonnull @.str)
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %next_token.exit61
 
@@ -165,7 +165,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %25
   %.1.i32 = phi ptr [ %spec.select.i31, %49 ], [ %48, %.preheader37.i29 ]
   %54 = load i8, ptr %.1.i32, align 1
   %55 = icmp eq i8 %54, 0
-  br i1 %55, label %token_copy.exit, label %.preheader37.i29, !llvm.loop !7
+  br i1 %55, label %token_copy.exit, label %.preheader37.i29, !llvm.loop !6
 
 56:                                               ; preds = %.preheader.i.i20
   %57 = getelementptr inbounds i8, ptr %.0.i.i21, i64 1
@@ -187,7 +187,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %25
 59:                                               ; preds = %.preheader.i33
   %60 = getelementptr inbounds i8, ptr %.2.i34, i64 1
   %.pr.i35 = load i8, ptr %60, align 1
-  br label %.preheader.i33, !llvm.loop !8
+  br label %.preheader.i33, !llvm.loop !7
 
 .preheader.i31.i26:                               ; preds = %.preheader.i31.i26.preheader, %62
   %.0.i32.i27 = phi ptr [ %63, %62 ], [ %.0.i32.i27.ph, %.preheader.i31.i26.preheader ]
@@ -260,7 +260,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
   %79 = getelementptr inbounds i8, ptr %.045.i, i64 1
   %80 = add nsw i32 %.0.i40, -1
   %.not60.i = icmp eq i32 %80, 0
-  br i1 %.not60.i, label %.sink.split.i, label %.preheader62.i, !llvm.loop !9
+  br i1 %.not60.i, label %.sink.split.i, label %.preheader62.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %.preheader.i43, %84
   %81 = phi i8 [ %88, %84 ], [ %67, %.preheader.i43 ]
@@ -280,7 +280,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
   %88 = load i8, ptr %86, align 1
   %.off.i = add i8 %88, -35
   %switch.i = icmp ult i8 %.off.i, 2
-  br i1 %switch.i, label %.critedge.i44, label %.lr.ph.i, !llvm.loop !10
+  br i1 %switch.i, label %.critedge.i44, label %.lr.ph.i, !llvm.loop !9
 
 .critedge.i44:                                    ; preds = %84, %.lr.ph.i, %.preheader.i43
   %.146.lcssa.i = phi ptr [ %2, %.preheader.i43 ], [ %.14668.i, %.lr.ph.i ], [ %85, %84 ]
@@ -337,7 +337,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
   %.1.i57 = phi ptr [ %spec.select.i56, %98 ], [ %97, %.preheader37.i54 ]
   %103 = load i8, ptr %.1.i57, align 1
   %104 = icmp eq i8 %103, 0
-  br i1 %104, label %token_copy.exit, label %.preheader37.i54, !llvm.loop !7
+  br i1 %104, label %token_copy.exit, label %.preheader37.i54, !llvm.loop !6
 
 105:                                              ; preds = %.preheader.i.i45
   %106 = getelementptr inbounds i8, ptr %.0.i.i46, i64 1
@@ -359,7 +359,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
 108:                                              ; preds = %.preheader.i58
   %109 = getelementptr inbounds i8, ptr %.2.i59, i64 1
   %.pr.i60 = load i8, ptr %109, align 1
-  br label %.preheader.i58, !llvm.loop !8
+  br label %.preheader.i58, !llvm.loop !7
 
 .preheader.i31.i51:                               ; preds = %.preheader.i31.i51.preheader, %111
   %.0.i32.i52 = phi ptr [ %112, %111 ], [ %.0.i32.i52.ph, %.preheader.i31.i51.preheader ]
@@ -376,7 +376,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
 next_token.exit61:                                ; preds = %.preheader.i31.i51, %next_token.exit
   %.1 = phi ptr [ %.022.i, %next_token.exit ], [ %.0.i32.i52, %.preheader.i31.i51 ]
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %token_copy.exit, label %first_token.exit, !llvm.loop !11
+  br i1 %.not, label %token_copy.exit, label %first_token.exit, !llvm.loop !10
 
 token_copy.exit:                                  ; preds = %.preheader.i, %92, %next_token.exit61, %.preheader.i.i45, %102, %.preheader.i31.i51, %.preheader.i.i20, %53, %.preheader.i31.i26, %43, %38, %.sink.split.i, %next_token.exit36, %4
   %.0 = phi i32 [ 4, %4 ], [ 4, %next_token.exit36 ], [ %.049.ph.i, %.sink.split.i ], [ 4, %38 ], [ 4, %43 ], [ 4, %.preheader.i31.i26 ], [ 4, %53 ], [ 4, %.preheader.i.i20 ], [ 4, %.preheader.i31.i51 ], [ 4, %102 ], [ 4, %.preheader.i.i45 ], [ 4, %next_token.exit61 ], [ 4, %92 ], [ 4, %.preheader.i ]
@@ -384,7 +384,7 @@ token_copy.exit:                                  ; preds = %.preheader.i, %92, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @compare_token(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @compare_token(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -486,7 +486,7 @@ define internal fastcc i32 @compare_token(ptr noundef readonly %0, ptr noundef r
   %47 = icmp ult i8 %46, 2
   %48 = or i1 %47, %45
   %or.cond64 = or i1 %.not, %48
-  br i1 %or.cond64, label %.critedge, label %.lr.ph, !llvm.loop !12
+  br i1 %or.cond64, label %.critedge, label %.lr.ph, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader
   %.lcssa73 = phi i8 [ %6, %.preheader ], [ %.pr68, %.lr.ph ]
@@ -517,7 +517,7 @@ define internal fastcc i32 @compare_token(ptr noundef readonly %0, ptr noundef r
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @MPL_str_get_binary_arg(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #2 {
+define range(i32 0, 7) i32 @MPL_str_get_binary_arg(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #2 {
   %6 = alloca [3 x i8], align 1
   %7 = alloca i32, align 4
   %8 = icmp slt i32 %3, 1
@@ -539,7 +539,7 @@ define noundef i32 @MPL_str_get_binary_arg(ptr noundef readonly %0, ptr noundef 
 
 first_token.exit:                                 ; preds = %.preheader.i, %next_token.exit58
   %.015 = phi ptr [ %.1, %next_token.exit58 ], [ %.0.i, %.preheader.i ]
-  %13 = tail call fastcc i32 @compare_token(ptr noundef nonnull %.015, ptr noundef %1), !range !6
+  %13 = tail call fastcc i32 @compare_token(ptr noundef nonnull %.015, ptr noundef %1)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.preheader.i.i, label %.preheader.i.i42
 
@@ -583,7 +583,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
   %.1.i = phi ptr [ %spec.select.i, %24 ], [ %23, %.preheader37.i ]
   %29 = load i8, ptr %.1.i, align 1
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %next_token.exit, label %.preheader37.i, !llvm.loop !7
+  br i1 %30, label %next_token.exit, label %.preheader37.i, !llvm.loop !6
 
 31:                                               ; preds = %.preheader.i.i
   %32 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
@@ -605,7 +605,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
 34:                                               ; preds = %.preheader.i20
   %35 = getelementptr inbounds i8, ptr %.2.i, i64 1
   %.pr.i = load i8, ptr %35, align 1
-  br label %.preheader.i20, !llvm.loop !8
+  br label %.preheader.i20, !llvm.loop !7
 
 .preheader.i31.i:                                 ; preds = %.preheader.i31.i.preheader, %37
   %.0.i32.i = phi ptr [ %38, %37 ], [ %.0.i32.i.ph, %.preheader.i31.i.preheader ]
@@ -624,7 +624,7 @@ next_token.exit.loopexit:                         ; preds = %.preheader.i31.i
 
 next_token.exit:                                  ; preds = %.preheader.i.i, %28, %.preheader.i31.i, %next_token.exit.loopexit, %18
   %.022.i = phi ptr [ null, %18 ], [ null, %next_token.exit.loopexit ], [ %.0.i32.i, %.preheader.i31.i ], [ null, %28 ], [ null, %.preheader.i.i ]
-  %39 = tail call fastcc i32 @compare_token(ptr noundef %.022.i, ptr noundef nonnull @.str), !range !6
+  %39 = tail call fastcc i32 @compare_token(ptr noundef %.022.i, ptr noundef nonnull @.str)
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %next_token.exit58
 
@@ -672,7 +672,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %28
   %.1.i33 = phi ptr [ %spec.select.i32, %52 ], [ %51, %.preheader37.i30 ]
   %57 = load i8, ptr %.1.i33, align 1
   %58 = icmp eq i8 %57, 0
-  br i1 %58, label %first_token.exit.thread, label %.preheader37.i30, !llvm.loop !7
+  br i1 %58, label %first_token.exit.thread, label %.preheader37.i30, !llvm.loop !6
 
 59:                                               ; preds = %.preheader.i.i21
   %60 = getelementptr inbounds i8, ptr %.0.i.i22, i64 1
@@ -694,7 +694,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %28
 62:                                               ; preds = %.preheader.i34
   %63 = getelementptr inbounds i8, ptr %.2.i35, i64 1
   %.pr.i36 = load i8, ptr %63, align 1
-  br label %.preheader.i34, !llvm.loop !8
+  br label %.preheader.i34, !llvm.loop !7
 
 .preheader.i31.i27:                               ; preds = %.preheader.i31.i27.preheader, %65
   %.0.i32.i28 = phi ptr [ %66, %65 ], [ %.0.i32.i28.ph, %.preheader.i31.i27.preheader ]
@@ -759,7 +759,7 @@ next_token.exit37:                                ; preds = %.preheader.i31.i27
   %87 = getelementptr inbounds i8, ptr %.033.i, i64 1
   %88 = add nuw nsw i32 %.0.i40, 1
   %89 = add nsw i32 %.032.i, -1
-  br label %73, !llvm.loop !13
+  br label %73, !llvm.loop !12
 
 .critedge.i41:                                    ; preds = %75, %73, %73
   store i32 %.0.i40, ptr %4, align 4
@@ -823,7 +823,7 @@ decode_buffer.exit:                               ; preds = %78, %next_token.exi
   %.1.i54 = phi ptr [ %spec.select.i53, %103 ], [ %102, %.preheader37.i51 ]
   %108 = load i8, ptr %.1.i54, align 1
   %109 = icmp eq i8 %108, 0
-  br i1 %109, label %first_token.exit.thread, label %.preheader37.i51, !llvm.loop !7
+  br i1 %109, label %first_token.exit.thread, label %.preheader37.i51, !llvm.loop !6
 
 110:                                              ; preds = %.preheader.i.i42
   %111 = getelementptr inbounds i8, ptr %.0.i.i43, i64 1
@@ -845,7 +845,7 @@ decode_buffer.exit:                               ; preds = %78, %next_token.exi
 113:                                              ; preds = %.preheader.i55
   %114 = getelementptr inbounds i8, ptr %.2.i56, i64 1
   %.pr.i57 = load i8, ptr %114, align 1
-  br label %.preheader.i55, !llvm.loop !8
+  br label %.preheader.i55, !llvm.loop !7
 
 .preheader.i31.i48:                               ; preds = %.preheader.i31.i48.preheader, %116
   %.0.i32.i49 = phi ptr [ %117, %116 ], [ %.0.i32.i49.ph, %.preheader.i31.i48.preheader ]
@@ -862,7 +862,7 @@ decode_buffer.exit:                               ; preds = %78, %next_token.exi
 next_token.exit58:                                ; preds = %.preheader.i31.i48, %next_token.exit
   %.1 = phi ptr [ %.022.i, %next_token.exit ], [ %.0.i32.i49, %.preheader.i31.i48 ]
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %first_token.exit.thread, label %first_token.exit, !llvm.loop !14
+  br i1 %.not, label %first_token.exit.thread, label %first_token.exit, !llvm.loop !13
 
 first_token.exit.thread:                          ; preds = %.preheader.i, %97, %next_token.exit58, %.preheader.i.i42, %107, %.preheader.i31.i48, %.preheader.i.i21, %56, %.preheader.i31.i27, %46, %41, %5, %decode_buffer.exit
   %.0 = phi i32 [ %.031.i, %decode_buffer.exit ], [ 4, %5 ], [ 4, %41 ], [ 4, %46 ], [ 4, %.preheader.i31.i27 ], [ 4, %56 ], [ 4, %.preheader.i.i21 ], [ 4, %.preheader.i31.i48 ], [ 4, %107 ], [ 4, %.preheader.i.i42 ], [ 4, %next_token.exit58 ], [ 4, %97 ], [ 4, %.preheader.i ]
@@ -872,7 +872,7 @@ first_token.exit.thread:                          ; preds = %.preheader.i, %97, 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
 define i32 @MPL_str_get_int_arg(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
   %4 = alloca [12 x i8], align 1
-  %5 = call i32 @MPL_str_get_string_arg(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 12), !range !15
+  %5 = call i32 @MPL_str_get_string_arg(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 12)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %9
 
@@ -889,7 +889,7 @@ define i32 @MPL_str_get_int_arg(ptr noundef %0, ptr noundef %1, ptr nocapture no
 declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @MPL_str_add_string(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @MPL_str_add_string(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 36) #9
@@ -951,7 +951,7 @@ define noundef i32 @MPL_str_add_string(ptr nocapture noundef %0, ptr nocapture n
   %23 = getelementptr inbounds i8, ptr %.02947.i, i64 1
   %.030.i = add nsw i32 %.131.i, -1
   %.not.i = icmp eq i32 %.030.i, 0
-  br i1 %.not.i, label %quoted_printf.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %quoted_printf.exit, label %.lr.ph.i, !llvm.loop !14
 
 24:                                               ; preds = %.lr.ph.i
   store i8 34, ptr %.03249.i, align 1
@@ -1042,7 +1042,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @MPL_str_get_string(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @MPL_str_get_string(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %first_token.exit.thread, label %5
 
@@ -1126,7 +1126,7 @@ first_token.exit:                                 ; preds = %.preheader.i
   %28 = getelementptr inbounds i8, ptr %.045.i, i64 1
   %29 = add nsw i32 %.0.i17, -1
   %.not60.i = icmp eq i32 %29, 0
-  br i1 %.not60.i, label %token_copy.exit, label %.preheader62.i, !llvm.loop !9
+  br i1 %.not60.i, label %token_copy.exit, label %.preheader62.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %.preheader.i18, %33
   %30 = phi i8 [ %37, %33 ], [ %16, %.preheader.i18 ]
@@ -1146,7 +1146,7 @@ first_token.exit:                                 ; preds = %.preheader.i
   %37 = load i8, ptr %35, align 1
   %.off.i = add i8 %37, -35
   %switch.i = icmp ult i8 %.off.i, 2
-  br i1 %switch.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %switch.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !9
 
 .critedge.i:                                      ; preds = %33, %.lr.ph.i
   %.146.lcssa.i.ph = phi ptr [ %34, %33 ], [ %.14668.i, %.lr.ph.i ]
@@ -1206,7 +1206,7 @@ token_copy.exit:                                  ; preds = %27, %.critedge.i
   %.1.i = phi ptr [ %spec.select.i24, %48 ], [ %47, %.preheader37.i ]
   %53 = load i8, ptr %.1.i, align 1
   %54 = icmp eq i8 %53, 0
-  br i1 %54, label %next_token.exit, label %.preheader37.i, !llvm.loop !7
+  br i1 %54, label %next_token.exit, label %.preheader37.i, !llvm.loop !6
 
 55:                                               ; preds = %.preheader.i.i19
   %56 = getelementptr inbounds i8, ptr %.0.i.i20, i64 1
@@ -1228,7 +1228,7 @@ token_copy.exit:                                  ; preds = %27, %.critedge.i
 58:                                               ; preds = %.preheader.i25
   %59 = getelementptr inbounds i8, ptr %.2.i26, i64 1
   %.pr.i = load i8, ptr %59, align 1
-  br label %.preheader.i25, !llvm.loop !8
+  br label %.preheader.i25, !llvm.loop !7
 
 .preheader.i31.i:                                 ; preds = %.preheader.i31.i.preheader, %61
   %.0.i32.i = phi ptr [ %62, %61 ], [ %.0.i32.i.ph, %.preheader.i31.i.preheader ]
@@ -1256,7 +1256,7 @@ first_token.exit.thread:                          ; preds = %.preheader.i, %7, %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @MPL_str_add_string_arg(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 6) i32 @MPL_str_add_string_arg(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %90, label %6
 
@@ -1322,7 +1322,7 @@ define noundef i32 @MPL_str_add_string_arg(ptr nocapture noundef %0, ptr noundef
   %25 = getelementptr inbounds i8, ptr %.02947.i, i64 1
   %.030.i = add nsw i32 %.131.i, -1
   %.not.i = icmp eq i32 %.030.i, 0
-  br i1 %.not.i, label %quoted_printf.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %quoted_printf.exit, label %.lr.ph.i, !llvm.loop !14
 
 26:                                               ; preds = %.lr.ph.i
   store i8 34, ptr %.03249.i, align 1
@@ -1427,7 +1427,7 @@ quoted_printf.exit:                               ; preds = %22, %17, %29, %26, 
   %63 = getelementptr inbounds i8, ptr %.02947.i66, i64 1
   %.030.i75 = add nsw i32 %.131.i73, -1
   %.not.i76 = icmp eq i32 %.030.i75, 0
-  br i1 %.not.i76, label %quoted_printf.exit78, label %.lr.ph.i63, !llvm.loop !16
+  br i1 %.not.i76, label %quoted_printf.exit78, label %.lr.ph.i63, !llvm.loop !14
 
 64:                                               ; preds = %.lr.ph.i63
   store i8 34, ptr %.03249.i69, align 1
@@ -1486,10 +1486,10 @@ quoted_printf.exit78:                             ; preds = %60, %55, %67, %64, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @MPL_str_add_int_arg(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 6) i32 @MPL_str_add_int_arg(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [12 x i8], align 1
   %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 12, ptr noundef nonnull @.str.5, i32 noundef %3) #8
-  %7 = call i32 @MPL_str_add_string_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5), !range !17
+  %7 = call i32 @MPL_str_add_string_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   ret i32 %7
 }
 
@@ -1560,7 +1560,7 @@ define noundef i32 @MPL_str_add_binary_arg(ptr nocapture noundef %0, ptr noundef
   %26 = getelementptr inbounds i8, ptr %.02947.i, i64 1
   %.030.i = add nsw i32 %.131.i, -1
   %.not.i = icmp eq i32 %.030.i, 0
-  br i1 %.not.i, label %quoted_printf.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %quoted_printf.exit, label %.lr.ph.i, !llvm.loop !14
 
 27:                                               ; preds = %.lr.ph.i
   store i8 34, ptr %.03249.i, align 1
@@ -1646,7 +1646,7 @@ quoted_printf.exit:                               ; preds = %23, %18, %30, %27, 
   %67 = icmp ne i32 %66, 0
   %68 = icmp ne i32 %63, 0
   %69 = select i1 %67, i1 %68, i1 false
-  br i1 %69, label %.lr.ph.i49, label %._crit_edge.loopexit.i, !llvm.loop !18
+  br i1 %69, label %.lr.ph.i49, label %._crit_edge.loopexit.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i:                           ; preds = %60
   br i1 %67, label %select.unfold, label %encode_buffer.exit
@@ -1718,7 +1718,7 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 -1, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -1727,7 +1727,4 @@ attributes #9 = { nounwind willreturn memory(read) }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = !{i32 0, i32 7}
-!16 = distinct !{!16, !5}
-!17 = !{i32 0, i32 6}
-!18 = distinct !{!18, !5}
+!15 = distinct !{!15, !5}

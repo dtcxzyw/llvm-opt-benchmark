@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @perm_2 = internal unnamed_addr constant [16 x i8] c"\00\01\04\05\02\08\06\09\03\0C\0A\07\0D\0B\0E\0F", align 256
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @zfp_decode_block_int64_2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_decode_block_int64_2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca [16 x i64], align 256
   %4 = alloca [16 x i64], align 256
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -706,9 +706,9 @@ decode_few_ints_prec_uint64.exit:                 ; preds = %.loopexit.i34, %74
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @zfp_decode_block_strided_int64_2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_decode_block_strided_int64_2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i64], align 256
-  %6 = call i64 @zfp_decode_block_int64_2(ptr noundef %0, ptr noundef nonnull %5), !range !17
+  %6 = call i64 @zfp_decode_block_int64_2(ptr noundef %0, ptr noundef nonnull %5)
   %7 = shl nsw i64 %2, 2
   %8 = sub nsw i64 %3, %7
   br label %.preheader.i
@@ -742,9 +742,9 @@ scatter_int64_2.exit:                             ; preds = %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @zfp_decode_partial_block_strided_int64_2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_decode_partial_block_strided_int64_2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [16 x i64], align 256
-  %8 = call i64 @zfp_decode_block_int64_2(ptr noundef %0, ptr noundef nonnull %7), !range !17
+  %8 = call i64 @zfp_decode_block_int64_2(ptr noundef %0, ptr noundef nonnull %7)
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %scatter_partial_int64_2.exit, label %.preheader.lr.ph.i
 
@@ -828,4 +828,3 @@ attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !14 = !{!15}
 !15 = distinct !{!15, !13, !"decode_few_ints_prec_uint64: argument 1"}
 !16 = !{!12, !15}
-!17 = !{i64 0, i64 4294967296}

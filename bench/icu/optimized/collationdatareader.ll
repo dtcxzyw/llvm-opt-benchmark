@@ -528,7 +528,7 @@ land.lhs.true8:                                   ; preds = %if.end6
 land.lhs.true12:                                  ; preds = %land.lhs.true8
   %version = getelementptr inbounds i8, ptr %tailoring, i64 328
   %info = getelementptr inbounds i8, ptr %inBytes, i64 4
-  %call13 = tail call noundef signext i8 @_ZN6icu_7519CollationDataReader12isAcceptableEPvPKcS3_PK9UDataInfo(ptr noundef nonnull %version, ptr poison, ptr poison, ptr noundef nonnull %info), !range !4
+  %call13 = tail call noundef signext i8 @_ZN6icu_7519CollationDataReader12isAcceptableEPvPKcS3_PK9UDataInfo(ptr noundef nonnull %version, ptr poison, ptr poison, ptr noundef nonnull %info)
   %tobool14.not = icmp eq i8 %call13, 0
   br i1 %tobool14.not, label %if.then15, label %if.end16
 
@@ -682,7 +682,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.then75, label %land.rhs, !llvm.loop !5
+  br i1 %exitcond.not, label %if.then75, label %land.rhs, !llvm.loop !4
 
 while.end:                                        ; preds = %land.rhs
   %13 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1158,7 +1158,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call260 = call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEii(ptr noundef nonnull align 8 dereferenceable(200) %41, i32 noundef %42, i32 noundef %43)
   %inc261 = add nuw nsw i32 %i.0484, 1
   %exitcond491.not = icmp eq i32 %inc261, %call256
-  br i1 %exitcond491.not, label %for.cond262.preheader, label %for.body, !llvm.loop !7
+  br i1 %exitcond491.not, label %for.cond262.preheader, label %for.body, !llvm.loop !6
 
 for.body265:                                      ; preds = %for.cond262.preheader, %for.inc275
   %indvars.iv492 = phi i32 [ 55296, %for.cond262.preheader ], [ %indvars.iv.next493, %for.inc275 ]
@@ -1178,7 +1178,7 @@ for.inc275:                                       ; preds = %for.body265, %if.th
   %indvars.iv.next493 = add nuw nsw i32 %indvars.iv492, 1
   %add277 = add nuw nsw i32 %c.0485, 1024
   %exitcond495.not = icmp eq i32 %indvars.iv.next493, 56320
-  br i1 %exitcond495.not, label %for.end278, label %for.body265, !llvm.loop !8
+  br i1 %exitcond495.not, label %for.end278, label %for.body265, !llvm.loop !7
 
 for.end278:                                       ; preds = %for.inc275
   %46 = load ptr, ptr %unsafeBackwardSet266, align 8
@@ -1528,7 +1528,7 @@ return:                                           ; preds = %land.lhs.true443, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef signext i8 @_ZN6icu_7519CollationDataReader12isAcceptableEPvPKcS3_PK9UDataInfo(ptr noundef writeonly %context, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %pInfo) local_unnamed_addr #6 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7519CollationDataReader12isAcceptableEPvPKcS3_PK9UDataInfo(ptr noundef writeonly %context, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %pInfo) local_unnamed_addr #6 align 2 {
 entry:
   %2 = load i16, ptr %pInfo, align 2
   %cmp = icmp ugt i16 %2, 19
@@ -1695,8 +1695,7 @@ attributes #12 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i8 0, i8 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

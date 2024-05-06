@@ -24,7 +24,7 @@ define dso_local noundef nonnull ptr @archive_entry_strmode(ptr noundef %0) loca
   br i1 %.not, label %11, label %.sink.split
 
 switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc i32 %6 to i16
+  %switch.maskindex = trunc nuw i32 %6 to i16
   %switch.shifted = lshr i16 2731, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %8
@@ -41,7 +41,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %11
 
 11:                                               ; preds = %.sink.split, %8
-  %invariant.gep = getelementptr i8, ptr %0, i64 1265
+  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 1265
   br label %12
 
 12:                                               ; preds = %11, %17
@@ -53,7 +53,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not40, label %16, label %17
 
 16:                                               ; preds = %12
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
   store i8 45, ptr %gep, align 1
   br label %17
 

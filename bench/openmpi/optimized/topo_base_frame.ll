@@ -92,7 +92,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_topo_base_neighbor_count(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 -5, 1) i32 @mca_topo_base_neighbor_count(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 224
   %6 = load i32, ptr %5, align 8

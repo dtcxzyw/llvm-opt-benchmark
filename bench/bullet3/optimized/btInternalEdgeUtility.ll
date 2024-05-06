@@ -2741,7 +2741,7 @@ for.cond39.preheader:                             ; preds = %if.end15, %for.cond
   %40 = load float, ptr %arrayidx5.i105, align 4
   %arrayidx11.i108 = getelementptr inbounds i8, ptr %arrayidx44, i64 8
   %41 = load float, ptr %arrayidx11.i108, align 4
-  %42 = trunc i64 %indvars.iv528 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv528 to i32
   br label %for.body41
 
 for.body41:                                       ; preds = %for.cond39.preheader, %for.inc
@@ -2767,7 +2767,7 @@ if.then53:                                        ; preds = %for.body41
   %arrayidx55 = getelementptr inbounds [3 x i32], ptr %sharedVertsA, i64 0, i64 %idxprom54
   store i32 %42, ptr %arrayidx55, align 4
   %arrayidx57 = getelementptr inbounds [3 x i32], ptr %sharedVertsB, i64 0, i64 %idxprom54
-  %48 = trunc i64 %indvars.iv to i32
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %48, ptr %arrayidx57, align 4
   %inc = add nsw i32 %numshared.1522, 1
   %cmp58 = icmp sgt i32 %numshared.1522, 1
@@ -3818,7 +3818,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   store i32 %26, ptr %arrayidx.i74, align 4
   %28 = load ptr, ptr %m_data9.i, align 8
   %arrayidx.i77 = getelementptr inbounds i32, ptr %28, i64 %idxprom.i70
-  %29 = trunc i64 %indvars.iv90 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv90 to i32
   store i32 %29, ptr %arrayidx.i77, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93

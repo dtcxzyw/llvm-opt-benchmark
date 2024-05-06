@@ -8455,7 +8455,7 @@ target triple = "x86_64-pc-linux-gnu"
 @gsm_map_dialogue_MAP_ProviderAbortInfo_sequence = internal constant [3 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_gsm_map_dialogue_map_ProviderAbortReason, i8 0, i32 10, i32 4, ptr @dissect_gsm_map_dialogue_MAP_ProviderAbortReason }, %struct._ber_sequence_t { ptr @hf_gsm_map_dialogue_extensionContainer, i8 0, i32 16, i32 5, ptr @dissect_gsm_map_ExtensionContainer }, %struct._ber_sequence_t zeroinitializer], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i8 @dissect_cbs_data_coding_scheme(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 6) i8 @dissect_cbs_data_coding_scheme(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = zext i16 %3 to i32
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #5
   %7 = zext i8 %6 to i32
@@ -9265,7 +9265,7 @@ define hidden i32 @dissect_gsm_map_ss_USSD_DataCodingScheme(i1 noundef zeroext %
   %13 = load i32, ptr @ett_gsm_map_cbs_data_coding, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
   %15 = load ptr, ptr %7, align 8
-  %16 = call zeroext i8 @dissect_cbs_data_coding_scheme(ptr noundef %15, ptr poison, ptr noundef %14, i16 noundef zeroext 0), !range !4
+  %16 = call zeroext i8 @dissect_cbs_data_coding_scheme(ptr noundef %15, ptr poison, ptr noundef %14, i16 noundef zeroext 0)
   br label %17
 
 17:                                               ; preds = %6, %10
@@ -10987,7 +10987,7 @@ define internal void @gsm_map_stat_init(ptr noundef %0) #0 {
   call void @stat_tap_init_table_row(ptr noundef %18, i32 noundef %.02026, i32 noundef 10, ptr noundef nonnull %2) #5
   %28 = add nuw nsw i32 %.02026, 1
   %exitcond.not = icmp eq i32 %28, 256
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !5
+  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !4
 
 .loopexit:                                        ; preds = %27, %13, %16
   ret void
@@ -11124,7 +11124,7 @@ define internal void @gsm_map_stat_reset(ptr noundef %0) #0 {
   %6 = add nuw i32 %.08, 1
   %7 = load i32, ptr %2, align 4
   %8 = icmp ult i32 %6, %7
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -19962,7 +19962,6 @@ attributes #6 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i8 0, i8 6}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

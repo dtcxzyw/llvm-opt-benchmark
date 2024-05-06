@@ -514,7 +514,7 @@ if.end376:                                        ; preds = %if.then298, %sw.bb3
   %xor0.1 = phi i64 [ %xor0.0.lcssa, %for.end295 ], [ %or312, %sw.bb370 ], [ %or312, %if.then298 ]
   %xor1.1 = phi i64 [ %xor1.0.lcssa, %for.end295 ], [ %or327, %sw.bb370 ], [ %or327, %if.then298 ]
   %shr377 = lshr i64 %xor0.1, 24
-  %conv379 = trunc i64 %shr377 to i8
+  %conv379 = trunc nuw i64 %shr377 to i8
   store i8 %conv379, ptr %iv, align 1
   %shr381 = lshr i64 %xor0.1, 16
   %conv383 = trunc i64 %shr381 to i8
@@ -525,7 +525,7 @@ if.end376:                                        ; preds = %if.then298, %sw.bb3
   %conv390 = trunc i64 %xor0.1 to i8
   store i8 %conv390, ptr %incdec.ptr201, align 1
   %shr392 = lshr i64 %xor1.1, 24
-  %conv394 = trunc i64 %shr392 to i8
+  %conv394 = trunc nuw i64 %shr392 to i8
   store i8 %conv394, ptr %incdec.ptr205, align 1
   %shr396 = lshr i64 %xor1.1, 16
   %conv398 = trunc i64 %shr396 to i8
@@ -566,7 +566,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %conv10 = trunc i64 %and to i32
+  %conv10 = trunc nuw nsw i64 %and to i32
   %3 = add i32 %2, %conv10
   %add = sub i32 1, %3
   %conv13 = zext i32 %add to i64
@@ -599,7 +599,7 @@ if.then25:                                        ; preds = %if.end
   br label %if.end37
 
 if.else31:                                        ; preds = %if.end
-  %conv32 = trunc i64 %and20 to i32
+  %conv32 = trunc nuw nsw i64 %and20 to i32
   %7 = add i32 %6, %conv32
   %add35 = sub i32 1, %7
   %conv36 = zext i32 %add35 to i64
@@ -625,7 +625,7 @@ if.then44:                                        ; preds = %if.end37
   br label %if.end56
 
 if.else50:                                        ; preds = %if.end37
-  %conv51 = trunc i64 %and39 to i32
+  %conv51 = trunc nuw nsw i64 %and39 to i32
   %9 = add i32 %8, %conv51
   %add54 = sub i32 1, %9
   %conv55 = zext i32 %add54 to i64
@@ -652,7 +652,7 @@ if.then65:                                        ; preds = %if.end56
   br label %if.end77
 
 if.else71:                                        ; preds = %if.end56
-  %conv72 = trunc i64 %and60 to i32
+  %conv72 = trunc nuw nsw i64 %and60 to i32
   %11 = add i32 %10, %conv72
   %add75 = sub i32 1, %11
   %conv76 = zext i32 %add75 to i64
@@ -682,7 +682,7 @@ if.then89:                                        ; preds = %if.end77
   br label %if.end101
 
 if.else95:                                        ; preds = %if.end77
-  %conv96 = trunc i64 %and84 to i32
+  %conv96 = trunc nuw nsw i64 %and84 to i32
   %13 = add i32 %12, %conv96
   %add99 = sub i32 1, %13
   %conv100 = zext i32 %add99 to i64
@@ -715,7 +715,7 @@ if.then114:                                       ; preds = %if.end101
   br label %if.end126
 
 if.else120:                                       ; preds = %if.end101
-  %conv121 = trunc i64 %and109 to i32
+  %conv121 = trunc nuw nsw i64 %and109 to i32
   %17 = add i32 %16, %conv121
   %add124 = sub i32 1, %17
   %conv125 = zext i32 %add124 to i64
@@ -741,7 +741,7 @@ if.then134:                                       ; preds = %if.end126
   br label %if.end146
 
 if.else140:                                       ; preds = %if.end126
-  %conv141 = trunc i64 %and129 to i32
+  %conv141 = trunc nuw nsw i64 %and129 to i32
   %19 = add i32 %18, %conv141
   %add144 = sub i32 1, %19
   %conv145 = zext i32 %add144 to i64
@@ -768,7 +768,7 @@ if.then155:                                       ; preds = %if.end146
   br label %if.end167
 
 if.else161:                                       ; preds = %if.end146
-  %conv162 = trunc i64 %and150 to i32
+  %conv162 = trunc nuw nsw i64 %and150 to i32
   %21 = add i32 %20, %conv162
   %add165 = sub i32 1, %21
   %conv166 = zext i32 %add165 to i64
@@ -798,7 +798,7 @@ if.then179:                                       ; preds = %if.end167
   br label %if.end191
 
 if.else185:                                       ; preds = %if.end167
-  %conv186 = trunc i64 %and174 to i32
+  %conv186 = trunc nuw nsw i64 %and174 to i32
   %23 = add i32 %22, %conv186
   %add189 = sub i32 1, %23
   %conv190 = zext i32 %add189 to i64
@@ -831,7 +831,7 @@ if.then204:                                       ; preds = %if.end191
   br label %if.end216
 
 if.else210:                                       ; preds = %if.end191
-  %conv211 = trunc i64 %and199 to i32
+  %conv211 = trunc nuw nsw i64 %and199 to i32
   %27 = add i32 %26, %conv211
   %add214 = sub i32 1, %27
   %conv215 = zext i32 %add214 to i64
@@ -857,7 +857,7 @@ if.then224:                                       ; preds = %if.end216
   br label %if.end236
 
 if.else230:                                       ; preds = %if.end216
-  %conv231 = trunc i64 %and219 to i32
+  %conv231 = trunc nuw nsw i64 %and219 to i32
   %29 = add i32 %28, %conv231
   %add234 = sub i32 1, %29
   %conv235 = zext i32 %add234 to i64
@@ -884,7 +884,7 @@ if.then245:                                       ; preds = %if.end236
   br label %if.end257
 
 if.else251:                                       ; preds = %if.end236
-  %conv252 = trunc i64 %and240 to i32
+  %conv252 = trunc nuw nsw i64 %and240 to i32
   %31 = add i32 %30, %conv252
   %add255 = sub i32 1, %31
   %conv256 = zext i32 %add255 to i64
@@ -914,7 +914,7 @@ if.then269:                                       ; preds = %if.end257
   br label %if.end281
 
 if.else275:                                       ; preds = %if.end257
-  %conv276 = trunc i64 %and264 to i32
+  %conv276 = trunc nuw nsw i64 %and264 to i32
   %33 = add i32 %32, %conv276
   %add279 = sub i32 1, %33
   %conv280 = zext i32 %add279 to i64
@@ -947,7 +947,7 @@ if.then294:                                       ; preds = %if.end281
   br label %if.end306
 
 if.else300:                                       ; preds = %if.end281
-  %conv301 = trunc i64 %and289 to i32
+  %conv301 = trunc nuw nsw i64 %and289 to i32
   %37 = add i32 %36, %conv301
   %add304 = sub i32 1, %37
   %conv305 = zext i32 %add304 to i64
@@ -973,7 +973,7 @@ if.then314:                                       ; preds = %if.end306
   br label %if.end326
 
 if.else320:                                       ; preds = %if.end306
-  %conv321 = trunc i64 %and309 to i32
+  %conv321 = trunc nuw nsw i64 %and309 to i32
   %39 = add i32 %38, %conv321
   %add324 = sub i32 1, %39
   %conv325 = zext i32 %add324 to i64
@@ -1000,7 +1000,7 @@ if.then335:                                       ; preds = %if.end326
   br label %if.end347
 
 if.else341:                                       ; preds = %if.end326
-  %conv342 = trunc i64 %and330 to i32
+  %conv342 = trunc nuw nsw i64 %and330 to i32
   %41 = add i32 %40, %conv342
   %add345 = sub i32 1, %41
   %conv346 = zext i32 %add345 to i64
@@ -1030,7 +1030,7 @@ if.then359:                                       ; preds = %if.end347
   br label %if.end371
 
 if.else365:                                       ; preds = %if.end347
-  %conv366 = trunc i64 %and354 to i32
+  %conv366 = trunc nuw nsw i64 %and354 to i32
   %43 = add i32 %42, %conv366
   %add369 = sub i32 1, %43
   %conv370 = zext i32 %add369 to i64
@@ -1063,7 +1063,7 @@ if.then384:                                       ; preds = %if.end371
   br label %if.end396
 
 if.else390:                                       ; preds = %if.end371
-  %conv391 = trunc i64 %and379 to i32
+  %conv391 = trunc nuw nsw i64 %and379 to i32
   %47 = add i32 %46, %conv391
   %add394 = sub i32 1, %47
   %conv395 = zext i32 %add394 to i64
@@ -1089,7 +1089,7 @@ if.then404:                                       ; preds = %if.end396
   br label %if.end416
 
 if.else410:                                       ; preds = %if.end396
-  %conv411 = trunc i64 %and399 to i32
+  %conv411 = trunc nuw nsw i64 %and399 to i32
   %49 = add i32 %48, %conv411
   %add414 = sub i32 1, %49
   %conv415 = zext i32 %add414 to i64
@@ -1116,7 +1116,7 @@ if.then425:                                       ; preds = %if.end416
   br label %if.end437
 
 if.else431:                                       ; preds = %if.end416
-  %conv432 = trunc i64 %and420 to i32
+  %conv432 = trunc nuw nsw i64 %and420 to i32
   %51 = add i32 %50, %conv432
   %add435 = sub i32 1, %51
   %conv436 = zext i32 %add435 to i64
@@ -1146,7 +1146,7 @@ if.then449:                                       ; preds = %if.end437
   br label %if.end461
 
 if.else455:                                       ; preds = %if.end437
-  %conv456 = trunc i64 %and444 to i32
+  %conv456 = trunc nuw nsw i64 %and444 to i32
   %53 = add i32 %52, %conv456
   %add459 = sub i32 1, %53
   %conv460 = zext i32 %add459 to i64
@@ -1179,7 +1179,7 @@ if.then474:                                       ; preds = %if.end461
   br label %if.end486
 
 if.else480:                                       ; preds = %if.end461
-  %conv481 = trunc i64 %and469 to i32
+  %conv481 = trunc nuw nsw i64 %and469 to i32
   %57 = add i32 %56, %conv481
   %add484 = sub i32 1, %57
   %conv485 = zext i32 %add484 to i64
@@ -1205,7 +1205,7 @@ if.then494:                                       ; preds = %if.end486
   br label %if.end506
 
 if.else500:                                       ; preds = %if.end486
-  %conv501 = trunc i64 %and489 to i32
+  %conv501 = trunc nuw nsw i64 %and489 to i32
   %59 = add i32 %58, %conv501
   %add504 = sub i32 1, %59
   %conv505 = zext i32 %add504 to i64
@@ -1232,7 +1232,7 @@ if.then515:                                       ; preds = %if.end506
   br label %if.end527
 
 if.else521:                                       ; preds = %if.end506
-  %conv522 = trunc i64 %and510 to i32
+  %conv522 = trunc nuw nsw i64 %and510 to i32
   %61 = add i32 %60, %conv522
   %add525 = sub i32 1, %61
   %conv526 = zext i32 %add525 to i64
@@ -1262,7 +1262,7 @@ if.then539:                                       ; preds = %if.end527
   br label %if.end551
 
 if.else545:                                       ; preds = %if.end527
-  %conv546 = trunc i64 %and534 to i32
+  %conv546 = trunc nuw nsw i64 %and534 to i32
   %63 = add i32 %62, %conv546
   %add549 = sub i32 1, %63
   %conv550 = zext i32 %add549 to i64
@@ -1295,7 +1295,7 @@ if.then564:                                       ; preds = %if.end551
   br label %if.end576
 
 if.else570:                                       ; preds = %if.end551
-  %conv571 = trunc i64 %and559 to i32
+  %conv571 = trunc nuw nsw i64 %and559 to i32
   %67 = add i32 %66, %conv571
   %add574 = sub i32 1, %67
   %conv575 = zext i32 %add574 to i64
@@ -1321,7 +1321,7 @@ if.then584:                                       ; preds = %if.end576
   br label %if.end596
 
 if.else590:                                       ; preds = %if.end576
-  %conv591 = trunc i64 %and579 to i32
+  %conv591 = trunc nuw nsw i64 %and579 to i32
   %69 = add i32 %68, %conv591
   %add594 = sub i32 1, %69
   %conv595 = zext i32 %add594 to i64
@@ -1348,7 +1348,7 @@ if.then605:                                       ; preds = %if.end596
   br label %if.end617
 
 if.else611:                                       ; preds = %if.end596
-  %conv612 = trunc i64 %and600 to i32
+  %conv612 = trunc nuw nsw i64 %and600 to i32
   %71 = add i32 %70, %conv612
   %add615 = sub i32 1, %71
   %conv616 = zext i32 %add615 to i64
@@ -1378,7 +1378,7 @@ if.then629:                                       ; preds = %if.end617
   br label %if.end641
 
 if.else635:                                       ; preds = %if.end617
-  %conv636 = trunc i64 %and624 to i32
+  %conv636 = trunc nuw nsw i64 %and624 to i32
   %73 = add i32 %72, %conv636
   %add639 = sub i32 1, %73
   %conv640 = zext i32 %add639 to i64
@@ -1411,7 +1411,7 @@ if.then654:                                       ; preds = %if.end641
   br label %if.end666
 
 if.else660:                                       ; preds = %if.end641
-  %conv661 = trunc i64 %and649 to i32
+  %conv661 = trunc nuw nsw i64 %and649 to i32
   %77 = add i32 %76, %conv661
   %add664 = sub i32 1, %77
   %conv665 = zext i32 %add664 to i64
@@ -1437,7 +1437,7 @@ if.then674:                                       ; preds = %if.end666
   br label %if.end686
 
 if.else680:                                       ; preds = %if.end666
-  %conv681 = trunc i64 %and669 to i32
+  %conv681 = trunc nuw nsw i64 %and669 to i32
   %79 = add i32 %78, %conv681
   %add684 = sub i32 1, %79
   %conv685 = zext i32 %add684 to i64
@@ -1464,7 +1464,7 @@ if.then695:                                       ; preds = %if.end686
   br label %if.end707
 
 if.else701:                                       ; preds = %if.end686
-  %conv702 = trunc i64 %and690 to i32
+  %conv702 = trunc nuw nsw i64 %and690 to i32
   %81 = add i32 %80, %conv702
   %add705 = sub i32 1, %81
   %conv706 = zext i32 %add705 to i64
@@ -1492,7 +1492,7 @@ if.then719:                                       ; preds = %if.end707
   br label %if.end731
 
 if.else725:                                       ; preds = %if.end707
-  %conv726 = trunc i64 %and714 to i32
+  %conv726 = trunc nuw nsw i64 %and714 to i32
   %83 = add i32 %82, %conv726
   %add729 = sub i32 1, %83
   %conv730 = zext i32 %add729 to i64
@@ -1521,7 +1521,7 @@ if.then744:                                       ; preds = %if.end731
   br label %if.end756
 
 if.else750:                                       ; preds = %if.end731
-  %conv751 = trunc i64 %and739 to i32
+  %conv751 = trunc nuw nsw i64 %and739 to i32
   %87 = add i32 %86, %conv751
   %add754 = sub i32 1, %87
   %conv755 = zext i32 %add754 to i64

@@ -69,7 +69,7 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
 
 26:                                               ; preds = %.lr.ph.i
   %27 = load ptr, ptr %.sroa.0.04.i, align 8, !noalias !7, !nonnull !4, !align !6, !noundef !4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %10, ptr nonnull %27, i64 %12), !alias.scope !11
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %10, ptr nonnull readonly %27, i64 %12), !alias.scope !11
   %28 = icmp eq i32 %bcmp.i.i, 0
   br i1 %28, label %30, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i"
 

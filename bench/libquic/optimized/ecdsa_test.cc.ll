@@ -53,7 +53,7 @@ $__clang_call_terminate = comdat any
 @str.1 = private unnamed_addr constant [6 x i8] c"\0APASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %digest.i = alloca [20 x i8], align 16
   %wrong_digest.i = alloca [20 x i8], align 16
@@ -232,7 +232,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont81.i
           to label %call5.i.i.i.i1.i.i.noexc.i unwind label %lpad84.i
 
 call5.i.i.i.i1.i.i.noexc.i:                       ; preds = %if.then.i.i.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i71.i, i64 %conv83.i
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i.i71.i, i64 %conv83.i
   store i8 0, ptr %call5.i.i.i.i1.i.i71.i, align 1
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i71.i, i64 1
   %sub.i.i.i.i.i.i = add nsw i64 %conv83.i, -1
@@ -301,7 +301,7 @@ if.then.i.i.i.i.i73.i:                            ; preds = %if.then.i.i
   br i1 %cmp.i.i.i.i.i.i.i76.i, label %invoke.cont98.i, label %if.then.i.i.i.i.i.i.i.i.i77.i
 
 if.then.i.i.i.i.i.i.i.i.i77.i:                    ; preds = %if.then.i.i.i.i.i73.i
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.i.i.i.i.i.i, i64 %sub.i.i
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr i8, ptr %__first.addr.0.i.i.i.i.i.i, i64 %sub.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i74.i, i8 0, i64 %sub.i.i.i.i.i75.i, i1 false)
   br label %invoke.cont98.i
 
@@ -765,7 +765,7 @@ invoke.cont24:                                    ; preds = %if.end22
 
 if.then26:                                        ; preds = %invoke.cont24
   %7 = load ptr, ptr @stderr, align 8
-  %conv = trunc i64 %order_len to i32
+  %conv = trunc nuw nsw i64 %order_len to i32
   %conv27 = trunc i64 %call25 to i32
   %conv28 = trunc i64 %6 to i32
   %call30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.15, i32 noundef %conv, i32 noundef %conv27, i32 noundef %conv28) #20

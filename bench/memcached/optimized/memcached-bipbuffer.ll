@@ -97,7 +97,7 @@ entry:
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @bipbuf_is_empty(ptr nocapture noundef readonly %me) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @bipbuf_is_empty(ptr nocapture noundef readonly %me) local_unnamed_addr #0 {
 entry:
   %a_start = getelementptr inbounds i8, ptr %me, i64 8
   %0 = load i32, ptr %a_start, align 8

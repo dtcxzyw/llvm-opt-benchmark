@@ -762,7 +762,7 @@ define dso_local i32 @avc_get_hash_stats(ptr noundef %0) local_unnamed_addr #1 a
 declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @slow_avc_audit(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @slow_avc_audit(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #1 align 16 {
   %9 = alloca %struct.common_audit_data, align 8
   %10 = alloca %struct.selinux_audit_data, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #21
@@ -1083,7 +1083,7 @@ define internal void @avc_audit_post_callback(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @avc_add_callback(ptr noundef %0, i32 noundef %1) local_unnamed_addr #8 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @avc_add_callback(ptr noundef %0, i32 noundef %1) local_unnamed_addr #8 section ".init.text" align 16 {
   %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 24) #23
   %5 = icmp eq ptr %4, null
@@ -1200,7 +1200,7 @@ define dso_local i32 @avc_ss_reset(i32 noundef %0) local_unnamed_addr #1 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @avc_has_extended_perms(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @avc_has_extended_perms(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #1 align 16 {
   %8 = alloca %struct.av_decision, align 4
   %9 = alloca %struct.extended_perms_decision, align 8
   %10 = alloca %struct.extended_perms_data, align 4
@@ -1963,7 +1963,7 @@ define internal fastcc void @avc_update_node(i32 noundef %0, i32 noundef %1, i8 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @avc_denied(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -13, 1) i32 @avc_denied(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #1 align 16 {
   %9 = and i32 %6, 1
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %22
@@ -1992,7 +1992,7 @@ define internal fastcc noundef i32 @avc_denied(i32 noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define dso_local noundef i32 @avc_has_perm_noaudit(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #10 align 16 {
+define dso_local noundef range(i32 -13, 1) i32 @avc_has_perm_noaudit(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #10 align 16 {
   %7 = icmp eq i32 %3, 0
   br i1 %7, label %8, label %9, !prof !10
 
@@ -2073,7 +2073,7 @@ define dso_local noundef i32 @avc_has_perm_noaudit(i32 noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @avc_perm_nonode(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -13, 1) i32 @avc_perm_nonode(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 align 16 {
   %7 = alloca %struct.avc_xperms_node, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false), !annotation !11
@@ -2095,7 +2095,7 @@ define internal fastcc noundef i32 @avc_perm_nonode(i32 noundef %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @avc_has_perm(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @avc_has_perm(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 align 16 {
   %6 = alloca %struct.av_decision, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !annotation !11
@@ -2469,7 +2469,7 @@ define internal fastcc ptr @avc_alloc_node() unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @avc_xperms_populate(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @avc_xperms_populate(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = load i16, ptr %1, align 8
   %4 = icmp eq i16 %3, 0
   br i1 %4, label %62, label %5

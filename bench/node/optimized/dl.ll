@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [9 x i8] c"no error\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_dlopen(ptr noundef %filename, ptr nocapture noundef %lib) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @uv_dlopen(ptr noundef %filename, ptr nocapture noundef %lib) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dlerror() #4
   %errmsg = getelementptr inbounds i8, ptr %lib, i64 8
@@ -70,7 +70,7 @@ declare void @uv__free(ptr noundef) local_unnamed_addr #2
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_dlsym(ptr nocapture noundef %lib, ptr noundef %name, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @uv_dlsym(ptr nocapture noundef %lib, ptr noundef %name, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dlerror() #4
   %0 = load ptr, ptr %lib, align 8

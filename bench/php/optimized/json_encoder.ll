@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [35 x i8] c"Failed calling %s::jsonSerialize()\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @php_json_escape_string(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @php_json_escape_string(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca [32 x i8], align 16
   %7 = alloca i64, align 8
   %8 = alloca double, align 8
@@ -120,7 +120,7 @@ define hidden noundef i32 @php_json_escape_string(ptr noundef %0, ptr noundef %1
   %.0877 = phi i64 [ %40, %39 ], [ %46, %41 ]
   %.0876 = phi ptr [ %37, %39 ], [ %45, %41 ]
   %42 = urem i64 %.0877, 10
-  %43 = trunc i64 %42 to i8
+  %43 = trunc nuw nsw i64 %42 to i8
   %44 = or disjoint i8 %43, 48
   %45 = getelementptr inbounds i8, ptr %.0876, i64 -1
   store i8 %44, ptr %45, align 1
@@ -141,7 +141,7 @@ define hidden noundef i32 @php_json_escape_string(ptr noundef %0, ptr noundef %1
   %.0875 = phi i64 [ %36, %49 ], [ %55, %50 ]
   %.0874 = phi ptr [ %37, %49 ], [ %54, %50 ]
   %51 = urem i64 %.0875, 10
-  %52 = trunc i64 %51 to i8
+  %52 = trunc nuw nsw i64 %51 to i8
   %53 = or disjoint i8 %52, 48
   %54 = getelementptr inbounds i8, ptr %.0874, i64 -1
   store i8 %53, ptr %54, align 1
@@ -1456,7 +1456,7 @@ declare i32 @php_next_utf8_char(ptr noundef, i64 noundef, ptr noundef, ptr nound
 declare void @llvm.assume(i1 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @php_json_encode_zval(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @php_json_encode_zval(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca [32 x i8], align 16
@@ -1596,7 +1596,7 @@ define hidden i32 @php_json_encode_zval(ptr noundef %0, ptr noundef %1, i32 noun
   %.0219 = phi i64 [ %65, %64 ], [ %71, %66 ]
   %.0218 = phi ptr [ %62, %64 ], [ %70, %66 ]
   %67 = urem i64 %.0219, 10
-  %68 = trunc i64 %67 to i8
+  %68 = trunc nuw nsw i64 %67 to i8
   %69 = or disjoint i8 %68, 48
   %70 = getelementptr inbounds i8, ptr %.0218, i64 -1
   store i8 %69, ptr %70, align 1
@@ -1617,7 +1617,7 @@ define hidden i32 @php_json_encode_zval(ptr noundef %0, ptr noundef %1, i32 noun
   %.0217 = phi i64 [ %61, %74 ], [ %80, %75 ]
   %.0216 = phi ptr [ %62, %74 ], [ %79, %75 ]
   %76 = urem i64 %.0217, 10
-  %77 = trunc i64 %76 to i8
+  %77 = trunc nuw nsw i64 %76 to i8
   %78 = or disjoint i8 %77, 48
   %79 = getelementptr inbounds i8, ptr %.0216, i64 -1
   store i8 %78, ptr %79, align 1
@@ -1712,7 +1712,7 @@ define hidden i32 @php_json_encode_zval(ptr noundef %0, ptr noundef %1, i32 noun
   %123 = getelementptr inbounds i8, ptr %122, i64 24
   %124 = getelementptr inbounds i8, ptr %122, i64 16
   %125 = load i64, ptr %124, align 8
-  %126 = tail call i32 @php_json_escape_string(ptr noundef %0, ptr noundef nonnull %123, i64 noundef %125, i32 noundef %2, ptr noundef %3), !range !4
+  %126 = tail call i32 @php_json_escape_string(ptr noundef %0, ptr noundef nonnull %123, i64 noundef %125, i32 noundef %2, ptr noundef %3)
   br label %289
 
 127:                                              ; preds = %9
@@ -1936,11 +1936,11 @@ define hidden i32 @php_json_encode_zval(ptr noundef %0, ptr noundef %1, i32 noun
   %233 = load i32, ptr %137, align 4
   %234 = and i32 %233, -65
   store i32 %234, ptr %137, align 4
-  %235 = call fastcc i32 @php_json_encode_array(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2, ptr noundef %3), !range !4
+  %235 = call fastcc i32 @php_json_encode_array(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2, ptr noundef %3)
   br label %240
 
 236:                                              ; preds = %228, %226
-  %237 = call i32 @php_json_encode_zval(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2, ptr noundef %3), !range !4
+  %237 = call i32 @php_json_encode_zval(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2, ptr noundef %3)
   %238 = load i32, ptr %137, align 4
   %239 = and i32 %238, -65
   store i32 %239, ptr %137, align 4
@@ -1966,7 +1966,7 @@ php_json_encode_serializable_object.exit:         ; preds = %141, %153, %200, %2
   br i1 %.not, label %247, label %245
 
 245:                                              ; preds = %241
-  %246 = tail call fastcc i32 @php_json_encode_serializable_enum(ptr noundef %0, ptr noundef nonnull %.0223, i32 noundef %2, ptr noundef %3), !range !4
+  %246 = tail call fastcc i32 @php_json_encode_serializable_enum(ptr noundef %0, ptr noundef nonnull %.0223, i32 noundef %2, ptr noundef %3)
   br label %289
 
 .loopexit267:                                     ; preds = %9
@@ -1991,7 +1991,7 @@ php_json_encode_serializable_object.exit:         ; preds = %141, %153, %200, %2
   br label %256
 
 256:                                              ; preds = %247, %253
-  %257 = call fastcc i32 @php_json_encode_array(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %2, ptr noundef %3), !range !4
+  %257 = call fastcc i32 @php_json_encode_array(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %2, ptr noundef %3)
   %258 = getelementptr inbounds i8, ptr %8, i64 9
   %259 = load i8, ptr %258, align 1
   %.not250 = icmp eq i8 %259, 0
@@ -2064,7 +2064,7 @@ php_json_encode_serializable_object.exit:         ; preds = %141, %153, %200, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @php_json_encode_serializable_enum(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @php_json_encode_serializable_enum(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -2114,7 +2114,7 @@ define internal fastcc i32 @php_json_encode_serializable_enum(ptr noundef %0, pt
   %32 = icmp ne i32 %31, 0
   tail call void @llvm.assume(i1 %32)
   %33 = getelementptr inbounds i8, ptr %5, i64 56
-  %34 = tail call i32 @php_json_encode_zval(ptr noundef %0, ptr noundef nonnull %33, i32 noundef %2, ptr noundef %3), !range !4
+  %34 = tail call i32 @php_json_encode_zval(ptr noundef %0, ptr noundef nonnull %33, i32 noundef %2, ptr noundef %3)
   br label %35
 
 35:                                               ; preds = %28, %21
@@ -2123,7 +2123,7 @@ define internal fastcc i32 @php_json_encode_serializable_enum(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @php_json_encode_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @php_json_encode_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8
@@ -2494,7 +2494,7 @@ php_json_pretty_print_indent.exit:                ; preds = %185, %161, %.prehea
   %196 = getelementptr inbounds i8, ptr %195, i64 24
   %197 = getelementptr inbounds i8, ptr %195, i64 16
   %198 = load i64, ptr %197, align 8
-  %199 = tail call i32 @php_json_escape_string(ptr noundef %0, ptr noundef nonnull %196, i64 noundef %198, i32 noundef %122, ptr noundef nonnull %3), !range !4
+  %199 = tail call i32 @php_json_escape_string(ptr noundef %0, ptr noundef nonnull %196, i64 noundef %198, i32 noundef %122, ptr noundef nonnull %3)
   %200 = icmp ne i32 %199, -1
   %or.cond818 = or i1 %.not750, %200
   br i1 %or.cond818, label %221, label %201
@@ -2604,7 +2604,7 @@ php_json_pretty_print_indent.exit:                ; preds = %185, %161, %.prehea
   br label %php_json_pretty_print_char.exit834
 
 php_json_pretty_print_char.exit834:               ; preds = %227, %242
-  %249 = tail call i32 @php_json_encode_zval(ptr noundef nonnull %0, ptr noundef %141, i32 noundef %2, ptr noundef nonnull %3), !range !4
+  %249 = tail call i32 @php_json_encode_zval(ptr noundef nonnull %0, ptr noundef %141, i32 noundef %2, ptr noundef nonnull %3)
   %250 = icmp eq i32 %249, -1
   %or.cond819 = and i1 %.not750, %250
   br i1 %or.cond819, label %251, label %php_json_pretty_print_char.exit834._crit_edge
@@ -3188,7 +3188,7 @@ php_json_determine_array_type.exit.thread:        ; preds = %38, %25, %21, %13, 
 php_json_pretty_print_indent.exit872:             ; preds = %504, %480, %.preheader.i862
   %514 = getelementptr inbounds i8, ptr %.1647, i64 16
   %515 = load i64, ptr %514, align 8
-  %516 = call i32 @php_json_escape_string(ptr noundef %0, ptr noundef nonnull %455, i64 noundef %515, i32 noundef %376, ptr noundef nonnull %3), !range !4
+  %516 = call i32 @php_json_escape_string(ptr noundef %0, ptr noundef nonnull %455, i64 noundef %515, i32 noundef %376, ptr noundef nonnull %3)
   %517 = icmp ne i32 %516, -1
   %or.cond820 = or i1 %.not799, %517
   br i1 %or.cond820, label %648, label %518
@@ -3381,7 +3381,7 @@ php_json_pretty_print_indent.exit891:             ; preds = %576, %552, %.prehea
   %.0683 = phi i64 [ %602, %601 ], [ %608, %603 ]
   %.0682 = phi ptr [ %378, %601 ], [ %607, %603 ]
   %604 = urem i64 %.0683, 10
-  %605 = trunc i64 %604 to i8
+  %605 = trunc nuw nsw i64 %604 to i8
   %606 = or disjoint i8 %605, 48
   %607 = getelementptr inbounds i8, ptr %.0682, i64 -1
   store i8 %606, ptr %607, align 1
@@ -3402,7 +3402,7 @@ php_json_pretty_print_indent.exit891:             ; preds = %576, %552, %.prehea
   %.0681 = phi i64 [ %.0648, %611 ], [ %617, %612 ]
   %.0679 = phi ptr [ %378, %611 ], [ %616, %612 ]
   %613 = urem i64 %.0681, 10
-  %614 = trunc i64 %613 to i8
+  %614 = trunc nuw nsw i64 %613 to i8
   %615 = or disjoint i8 %614, 48
   %616 = getelementptr inbounds i8, ptr %.0679, i64 -1
   store i8 %615, ptr %616, align 1
@@ -3541,7 +3541,7 @@ php_json_pretty_print_indent.exit891:             ; preds = %576, %552, %.prehea
   br label %php_json_pretty_print_indent.exit853
 
 php_json_pretty_print_indent.exit853:             ; preds = %443, %419, %669, %654, %.preheader.i843
-  %676 = call i32 @php_json_encode_zval(ptr noundef %0, ptr noundef %.0638, i32 noundef %2, ptr noundef nonnull %3), !range !4
+  %676 = call i32 @php_json_encode_zval(ptr noundef %0, ptr noundef %.0638, i32 noundef %2, ptr noundef nonnull %3)
   %677 = icmp eq i32 %676, -1
   %or.cond821 = and i1 %.not799, %677
   br i1 %or.cond821, label %678, label %694
@@ -3960,4 +3960,3 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

@@ -130,7 +130,7 @@ define dso_local void @InitMaterializedSRF(ptr nocapture noundef readonly %0, i3
   %43 = load i32, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %41, i64 40
   %45 = load ptr, ptr %44, align 8
-  %46 = call fastcc i32 @internal_get_result_type(i32 noundef %43, ptr noundef %45, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %3), !range !5
+  %46 = call fastcc i32 @internal_get_result_type(i32 noundef %43, ptr noundef %45, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %3)
   %.not19 = icmp eq i32 %46, 1
   br i1 %.not19, label %50, label %47
 
@@ -181,7 +181,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_call_result_type(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @get_call_result_type(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -189,7 +189,7 @@ define dso_local i32 @get_call_result_type(ptr nocapture noundef readonly %0, pt
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call fastcc i32 @internal_get_result_type(i32 noundef %6, ptr noundef %8, ptr noundef %10, ptr noundef %1, ptr noundef %2), !range !5
+  %11 = tail call fastcc i32 @internal_get_result_type(i32 noundef %6, ptr noundef %8, ptr noundef %10, ptr noundef %1, ptr noundef %2)
   ret i32 %11
 }
 
@@ -302,7 +302,7 @@ define dso_local void @end_MultiFuncCall(ptr nocapture noundef readonly %0, ptr 
 declare void @UnregisterExprContextCallback(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct.polymorphic_actuals, align 4
   %7 = alloca %struct.polymorphic_actuals, align 4
   %8 = zext i32 %0 to i64
@@ -415,7 +415,7 @@ define internal fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef
   %.1.i = phi i1 [ %.0120184.i, %31 ], [ true, %41 ], [ true, %40 ], [ true, %39 ], [ true, %38 ], [ true, %37 ], [ true, %36 ], [ true, %35 ], [ true, %34 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !6
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %42
   br i1 %.1.i, label %43, label %.loopexit
@@ -472,7 +472,7 @@ define internal fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef
   br i1 %.not171.i, label %65, label %96
 
 65:                                               ; preds = %64
-  %66 = trunc i64 %indvars.iv224.i to i32
+  %66 = trunc nuw nsw i64 %indvars.iv224.i to i32
   %67 = tail call i32 @get_call_expr_argtype(ptr noundef nonnull %1, i32 noundef %66) #9
   %.not172.i = icmp eq i32 %67, 0
   br i1 %.not172.i, label %.loopexit108, label %96
@@ -482,7 +482,7 @@ define internal fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef
   br i1 %.not169.i, label %69, label %96
 
 69:                                               ; preds = %68
-  %70 = trunc i64 %indvars.iv224.i to i32
+  %70 = trunc nuw nsw i64 %indvars.iv224.i to i32
   %71 = tail call i32 @get_call_expr_argtype(ptr noundef nonnull %1, i32 noundef %70) #9
   %.not170.i = icmp eq i32 %71, 0
   br i1 %.not170.i, label %.loopexit108, label %96
@@ -492,7 +492,7 @@ define internal fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef
   br i1 %.not167.i, label %73, label %96
 
 73:                                               ; preds = %72
-  %74 = trunc i64 %indvars.iv224.i to i32
+  %74 = trunc nuw nsw i64 %indvars.iv224.i to i32
   %75 = tail call i32 @get_call_expr_argtype(ptr noundef nonnull %1, i32 noundef %74) #9
   %.not168.i = icmp eq i32 %75, 0
   br i1 %.not168.i, label %.loopexit108, label %96
@@ -502,7 +502,7 @@ define internal fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef
   br i1 %.not165.i, label %77, label %96
 
 77:                                               ; preds = %76
-  %78 = trunc i64 %indvars.iv224.i to i32
+  %78 = trunc nuw nsw i64 %indvars.iv224.i to i32
   %79 = tail call i32 @get_call_expr_argtype(ptr noundef nonnull %1, i32 noundef %78) #9
   %.not166.i = icmp eq i32 %79, 0
   br i1 %.not166.i, label %.loopexit108, label %96
@@ -512,7 +512,7 @@ define internal fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef
   br i1 %.not163.i, label %81, label %96
 
 81:                                               ; preds = %80
-  %82 = trunc i64 %indvars.iv224.i to i32
+  %82 = trunc nuw nsw i64 %indvars.iv224.i to i32
   %83 = tail call i32 @get_call_expr_argtype(ptr noundef nonnull %1, i32 noundef %82) #9
   %.not164.i = icmp eq i32 %83, 0
   br i1 %.not164.i, label %.loopexit108, label %96
@@ -522,7 +522,7 @@ define internal fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef
   br i1 %.not161.i, label %85, label %96
 
 85:                                               ; preds = %84
-  %86 = trunc i64 %indvars.iv224.i to i32
+  %86 = trunc nuw nsw i64 %indvars.iv224.i to i32
   %87 = tail call i32 @get_call_expr_argtype(ptr noundef nonnull %1, i32 noundef %86) #9
   %.not162.i = icmp eq i32 %87, 0
   br i1 %.not162.i, label %.loopexit108, label %96
@@ -532,7 +532,7 @@ define internal fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef
   br i1 %.not159.i, label %89, label %96
 
 89:                                               ; preds = %88
-  %90 = trunc i64 %indvars.iv224.i to i32
+  %90 = trunc nuw nsw i64 %indvars.iv224.i to i32
   %91 = tail call i32 @get_call_expr_argtype(ptr noundef nonnull %1, i32 noundef %90) #9
   %.not160.i = icmp eq i32 %91, 0
   br i1 %.not160.i, label %.loopexit108, label %96
@@ -542,7 +542,7 @@ define internal fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef
   br i1 %.not157.i, label %93, label %96
 
 93:                                               ; preds = %92
-  %94 = trunc i64 %indvars.iv224.i to i32
+  %94 = trunc nuw nsw i64 %indvars.iv224.i to i32
   %95 = tail call i32 @get_call_expr_argtype(ptr noundef nonnull %1, i32 noundef %94) #9
   %.not158.i = icmp eq i32 %95, 0
   br i1 %.not158.i, label %.loopexit108, label %96
@@ -558,7 +558,7 @@ define internal fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef
   %104 = phi i32 [ %60, %65 ], [ %60, %64 ], [ %60, %69 ], [ %60, %68 ], [ %60, %73 ], [ %60, %72 ], [ %60, %77 ], [ %60, %76 ], [ %83, %81 ], [ %60, %80 ], [ %60, %85 ], [ %60, %84 ], [ %60, %89 ], [ %60, %88 ], [ %60, %93 ], [ %60, %92 ], [ %60, %53 ]
   %indvars.iv.next225.i = add nuw nsw i64 %indvars.iv224.i, 1
   %exitcond228.not.i = icmp eq i64 %indvars.iv.next225.i, %wide.trip.count227.i
-  br i1 %exitcond228.not.i, label %._crit_edge198.i, label %53, !llvm.loop !8
+  br i1 %exitcond228.not.i, label %._crit_edge198.i, label %53, !llvm.loop !7
 
 ._crit_edge198.i:                                 ; preds = %96
   store i32 %102, ptr %49, align 4
@@ -800,7 +800,7 @@ define internal fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef
 200:                                              ; preds = %196, %192, %188, %184, %180, %176, %172, %168, %164
   %indvars.iv.next230.i = add nuw nsw i64 %indvars.iv229.i, 1
   %exitcond233.not.i = icmp eq i64 %indvars.iv.next230.i, %wide.trip.count.i
-  br i1 %exitcond233.not.i, label %.loopexit, label %164, !llvm.loop !9
+  br i1 %exitcond233.not.i, label %.loopexit, label %164, !llvm.loop !8
 
 .loopexit:                                        ; preds = %200, %._crit_edge.i, %25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -952,7 +952,7 @@ get_type_func_class.exit.thread:                  ; preds = %232, %select.unfold
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_expr_result_type(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @get_expr_result_type(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge104, label %4
 
@@ -968,14 +968,14 @@ define dso_local i32 @get_expr_result_type(ptr noundef %0, ptr noundef %1, ptr n
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = tail call fastcc i32 @internal_get_result_type(i32 noundef %8, ptr noundef nonnull %0, ptr noundef null, ptr noundef %1, ptr noundef %2), !range !5
+  %9 = tail call fastcc i32 @internal_get_result_type(i32 noundef %8, ptr noundef nonnull %0, ptr noundef null, ptr noundef %1, ptr noundef %2)
   br label %get_type_func_class.exit.thread
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @get_opcode(i32 noundef %12) #9
-  %14 = tail call fastcc i32 @internal_get_result_type(i32 noundef %13, ptr noundef nonnull %0, ptr noundef null, ptr noundef %1, ptr noundef %2), !range !5
+  %14 = tail call fastcc i32 @internal_get_result_type(i32 noundef %13, ptr noundef nonnull %0, ptr noundef null, ptr noundef %1, ptr noundef %2)
   br label %get_type_func_class.exit.thread
 
 15:                                               ; preds = %4
@@ -1050,7 +1050,7 @@ list_length.exit.split.split:                     ; preds = %list_length.exit, %
   tail call void @TupleDescInitEntryCollation(ptr noundef %26, i16 noundef signext %.082, i32 noundef %58) #9
   %59 = add i16 %.082, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %list_length.exit.split.split, !llvm.loop !10
+  br label %list_length.exit.split.split, !llvm.loop !9
 
 .thread:                                          ; preds = %40, %45, %list_length.exit
   %.not101 = icmp eq ptr %1, null
@@ -1209,15 +1209,15 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 declare ptr @lookup_rowtype_tupdesc_copy(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_func_result_type(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %2), !range !5
+define dso_local range(i32 0, 5) i32 @get_func_result_type(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call fastcc i32 @internal_get_result_type(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_expr_result_tupdesc(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = call i32 @get_expr_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3), !range !5
+  %4 = call i32 @get_expr_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3)
   %5 = add nsw i32 %4, -1
   %or.cond = icmp ult i32 %5, 2
   br i1 %or.cond, label %6, label %8
@@ -1487,7 +1487,7 @@ define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = icmp uge i64 %indvars.iv.next, %14
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %77, label %15, !llvm.loop !11
+  br i1 %exitcond, label %77, label %15, !llvm.loop !10
 
 77:                                               ; preds = %75
   store i32 %70, ptr %8, align 4
@@ -1647,7 +1647,7 @@ define dso_local zeroext i1 @resolve_polymorphic_argtypes(i32 noundef %0, ptr no
 132:                                              ; preds = %.sink.split282, %122
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
-  br i1 %exitcond252.not, label %.loopexit, label %122, !llvm.loop !12
+  br i1 %exitcond252.not, label %.loopexit, label %122, !llvm.loop !11
 
 .loopexit:                                        ; preds = %62, %58, %54, %50, %46, %42, %38, %34, %132, %4, %77
   %133 = phi i1 [ %76, %77 ], [ true, %4 ], [ %76, %132 ], [ %22, %34 ], [ %22, %38 ], [ %22, %42 ], [ %22, %46 ], [ %22, %50 ], [ %22, %54 ], [ %22, %58 ], [ %22, %62 ]
@@ -1998,7 +1998,7 @@ define dso_local i32 @get_func_arg_info(ptr noundef %0, ptr nocapture noundef wr
   store ptr %79, ptr %81, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %70, %62
   %82 = call i64 @SysCacheGetAttr(i32 noundef 45, ptr noundef %0, i16 noundef signext 22, ptr noundef nonnull %5) #9
@@ -2085,7 +2085,7 @@ declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, p
 declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_func_trftypes(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @get_func_trftypes(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = call i64 @SysCacheGetAttr(i32 noundef 45, ptr noundef %0, i16 noundef signext 25, ptr noundef nonnull %3) #9
   %5 = load i8, ptr %3, align 1
@@ -2271,7 +2271,7 @@ define dso_local i32 @get_func_input_arg_names(i64 noundef %0, i64 noundef %1, p
   %60 = load i32, ptr %4, align 4
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next60, %61
-  br i1 %62, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %62, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %76
   %63 = phi i32 [ %77, %76 ], [ %50, %.lr.ph ]
@@ -2307,10 +2307,10 @@ define dso_local i32 @get_func_input_arg_names(i64 noundef %0, i64 noundef %1, p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
+  br i1 %79, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph.split.us
-  %80 = trunc i64 %indvars.iv.next60 to i32
+  %80 = trunc nuw nsw i64 %indvars.iv.next60 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %76, %46, %._crit_edge.loopexit, %43, %3
@@ -2454,7 +2454,7 @@ define dso_local ptr @get_func_result_name(i32 noundef %0) local_unnamed_addr #0
   %.1 = phi i32 [ %.03855, %.lr.ph ], [ 1, %63 ], [ %.03855, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %66, %54, %63, %56, %51, %9, %11
   %.2 = phi ptr [ null, %11 ], [ null, %9 ], [ null, %51 ], [ %.140, %66 ], [ null, %54 ], [ null, %63 ], [ null, %56 ]
@@ -2692,7 +2692,7 @@ define dso_local ptr @build_function_result_tupdesc_d(i8 noundef signext %0, i64
   %.174 = phi i32 [ %.07399, %.lr.ph ], [ %.pre-phi, %91 ], [ %.07399, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %93
   %94 = icmp slt i32 %.174, 2
@@ -2719,7 +2719,7 @@ define dso_local ptr @build_function_result_tupdesc_d(i8 noundef signext %0, i64
   %103 = load i32, ptr %102, align 4
   call void @TupleDescInitEntry(ptr noundef %97, i16 noundef signext %99, ptr noundef %101, i32 noundef %103, i32 noundef -1, i32 noundef 0) #9
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph103, !llvm.loop !17
+  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph103, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph103, %96, %._crit_edge, %65, %4
   %.075 = phi ptr [ null, %4 ], [ null, %65 ], [ null, %._crit_edge ], [ %97, %96 ], [ %97, %.lr.ph103 ]
@@ -2822,7 +2822,7 @@ list_length.exit:                                 ; preds = %9
 28:                                               ; preds = %21, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %28, %.preheader
   %29 = getelementptr inbounds i8, ptr %10, i64 4
@@ -2942,7 +2942,7 @@ define dso_local i32 @extract_variadic_args(ptr nocapture noundef readonly %0, i
   %40 = load i32, ptr %9, align 4
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next81, %41
-  br i1 %42, label %.lr.ph70, label %.loopexit, !llvm.loop !19
+  br i1 %42, label %.lr.ph70, label %.loopexit, !llvm.loop !18
 
 43:                                               ; preds = %6
   %44 = getelementptr inbounds i8, ptr %0, i64 30
@@ -2966,7 +2966,7 @@ define dso_local i32 @extract_variadic_args(ptr nocapture noundef readonly %0, i
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %.lr.ph ]
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   %57 = add i32 %56, %1
   %58 = sext i32 %57 to i64
   %59 = getelementptr [0 x %struct.NullableDatum], ptr %55, i64 0, i64 %58
@@ -2989,11 +2989,11 @@ define dso_local i32 @extract_variadic_args(ptr nocapture noundef readonly %0, i
 70:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %71 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %71, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !20
+  br i1 %71, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %104
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %104 ], [ 0, %.lr.ph ]
-  %72 = trunc i64 %indvars.iv77 to i32
+  %72 = trunc nuw nsw i64 %indvars.iv77 to i32
   %73 = add i32 %72, %1
   %74 = sext i32 %73 to i64
   %75 = getelementptr [0 x %struct.NullableDatum], ptr %55, i64 0, i64 %74
@@ -3054,7 +3054,7 @@ define dso_local i32 @extract_variadic_args(ptr nocapture noundef readonly %0, i
 104:                                              ; preds = %97
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %105 = icmp slt i64 %indvars.iv.next78, %48
-  br i1 %105, label %.lr.ph.split, label %.loopexit, !llvm.loop !20
+  br i1 %105, label %.lr.ph.split, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %70, %104, %.lr.ph70, %43, %22
   %106 = phi i32 [ %37, %22 ], [ %47, %43 ], [ %40, %.lr.ph70 ], [ %47, %104 ], [ %47, %70 ]
@@ -3134,19 +3134,18 @@ attributes #9 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 5}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}

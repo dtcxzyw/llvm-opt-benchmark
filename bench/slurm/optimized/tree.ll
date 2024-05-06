@@ -555,7 +555,7 @@ declare void @slurm_free_buf(ptr noundef) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @tree_msg_to_srun(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tree_msg_to_srun(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (%struct.pmi2_tree_info, ptr @tree_info, i64 0, i32 7), align 8
   %4 = tail call i32 @slurm_open_stream(ptr noundef %3, i1 noundef zeroext true) #7
   %5 = icmp slt i32 %4, 0
@@ -582,7 +582,7 @@ declare i64 @slurm_msg_sendto(i32 noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tree_msg_to_srun_with_resp(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   store i32 %0, ptr %4, align 4
@@ -859,7 +859,7 @@ define noundef i32 @tree_msg_to_srun_with_resp(i32 noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tree_msg_to_spawned_sruns(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tree_msg_to_spawned_sruns(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.sockaddr_storage, align 8
   %4 = load i32, ptr @spawned_srun_ports_size, align 4
   %.not19 = icmp eq i32 %4, 0
@@ -1070,7 +1070,7 @@ define internal i32 @_handle_kvs_fence(i32 %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_handle_kvs_fence_resp(i32 %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_handle_kvs_fence_resp(i32 %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -1264,7 +1264,7 @@ define internal i32 @_handle_spawn(i32 noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_handle_spawn_resp(i32 %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_handle_spawn_resp(i32 %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

@@ -813,7 +813,7 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr nocapture noundef
 85:                                               ; preds = %.thread15
   %86 = getelementptr inbounds i8, ptr %80, i64 680
   %87 = load i32, ptr %86, align 8
-  %88 = trunc i64 %78 to i32
+  %88 = trunc nuw nsw i64 %78 to i32
   %89 = tail call i32 @dquot_quota_on_mount(ptr noundef %0, ptr noundef nonnull %83, i32 noundef %87, i32 noundef %88) #9
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %92, label %91
@@ -958,7 +958,7 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr nocapture noundef
   br i1 %170, label %174, label %171
 
 171:                                              ; preds = %166
-  %172 = trunc i64 %167 to i32
+  %172 = trunc nuw nsw i64 %167 to i32
   %173 = tail call i32 @dquot_quota_off(ptr noundef %0, i32 noundef %172) #9
   br label %174
 
@@ -1271,7 +1271,7 @@ define dso_local i32 @ext4_init_orphan_info(ptr noundef %0) local_unnamed_addr #
 
 52:                                               ; preds = %.loopexit7, %47
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit7 ], [ 0, %47 ]
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = call ptr @ext4_bread(ptr noundef null, ptr noundef %23, i32 noundef %53, i32 noundef 0) #9
   %55 = load ptr, ptr %42, align 8
   %56 = getelementptr %struct.ext4_orphan_block, ptr %55, i64 %indvars.iv, i32 1
@@ -1513,7 +1513,7 @@ declare dso_local void @__ext4_error(ptr noundef, ptr noundef, i32 noundef, i1 n
 declare dso_local void @iput(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local noundef i32 @ext4_orphan_file_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #6 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ext4_orphan_file_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

@@ -19734,7 +19734,7 @@ init.check:                                       ; preds = %if.then1307
   br i1 %tobool1308.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZL20ShowDemoWindowTablesvE5items, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) @_ZZL20ShowDemoWindowTablesvE5items, i8 0, i64 16, i1 false)
   %188 = call i32 @__cxa_atexit(ptr nonnull @_ZN8ImVectorIN12_GLOBAL__N_16MyItemEED2Ev, ptr nonnull @_ZZL20ShowDemoWindowTablesvE5items, ptr nonnull @__dso_handle) #29
   call void @__cxa_guard_release(ptr nonnull @_ZGVZL20ShowDemoWindowTablesvE5items) #29
   br label %init.end
@@ -20446,7 +20446,7 @@ init.check1478:                                   ; preds = %if.end1476
   br i1 %tobool1479.not, label %init.end1483, label %init1480
 
 init1480:                                         ; preds = %init.check1478
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZL20ShowDemoWindowTablesvE5items_0, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) @_ZZL20ShowDemoWindowTablesvE5items_0, i8 0, i64 16, i1 false)
   %229 = call i32 @__cxa_atexit(ptr nonnull @_ZN8ImVectorIN12_GLOBAL__N_16MyItemEED2Ev, ptr nonnull @_ZZL20ShowDemoWindowTablesvE5items_0, ptr nonnull @__dso_handle) #29
   call void @__cxa_guard_release(ptr nonnull @_ZGVZL20ShowDemoWindowTablesvE5items_0) #29
   br label %init.end1483

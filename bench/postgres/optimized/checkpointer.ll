@@ -1370,7 +1370,7 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr nocapture noundef re
 53:                                               ; preds = %47, %.lr.ph.i
   %.126.i = phi i32 [ %52, %47 ], [ %.02527.i, %.lr.ph.i ]
   %54 = getelementptr inbounds i8, ptr %44, i64 32
-  %55 = trunc i64 %indvars.iv.i to i32
+  %55 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %55, ptr %54, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %56 = load ptr, ptr @CheckpointerShmem, align 8

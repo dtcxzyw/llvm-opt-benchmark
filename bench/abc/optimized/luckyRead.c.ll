@@ -283,7 +283,7 @@ Abc_TruthReadHex.exit.i.loopexit.us:              ; preds = %Abc_TruthReadHexDig
 
 ._crit_edge.loopexit.i:                           ; preds = %108, %99
   %.us-phi = phi i64 [ %indvars.iv.next21.i.us, %99 ], [ %indvars.iv.next21.i, %108 ]
-  %112 = trunc i64 %.us-phi to i32
+  %112 = trunc nuw i64 %.us-phi to i32
   br label %._crit_edge.i13
 
 ._crit_edge.i13:                                  ; preds = %._crit_edge.loopexit.i, %.preheader.i9

@@ -1190,7 +1190,7 @@ do.body:                                          ; preds = %entry, %qmp_query_v
   br i1 %tobool.not.i.i, label %vnc_init_basic_info_from_remote_addr.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %do.body
-  call fastcc void @vnc_init_basic_info(ptr noundef nonnull %call.i.i, ptr noundef %call.i, ptr noundef nonnull %err.i)
+  call fastcc void @vnc_init_basic_info(ptr noundef nonnull %call.i.i, ptr noundef writeonly %call.i, ptr noundef nonnull %err.i)
   call void @qapi_free_SocketAddress(ptr noundef nonnull %call.i.i) #23
   br label %vnc_init_basic_info_from_remote_addr.exit.i
 
@@ -1878,7 +1878,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %vd.07.i = phi ptr [ %vd.0.i, %for.inc.i ], [ %0, %for.cond.preheader.i ]
   %id1.i = getelementptr inbounds i8, ptr %vd.07.i, i64 284936
   %1 = load ptr, ptr %id1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %1) #26
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %1) #26
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %if.end, label %for.inc.i
 
@@ -2618,7 +2618,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %tobool1.not.i.i, label %vnc_init_basic_info_from_server_addr.exit.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  call fastcc void @vnc_init_basic_info(ptr noundef nonnull %call.i.i, ptr noundef %call.i, ptr noundef nonnull %err.i)
+  call fastcc void @vnc_init_basic_info(ptr noundef nonnull %call.i.i, ptr noundef writeonly %call.i, ptr noundef nonnull %err.i)
   call void @qapi_free_SocketAddress(ptr noundef nonnull %call.i.i) #23
   br label %vnc_init_basic_info_from_server_addr.exit.i
 
@@ -5277,7 +5277,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %vd.07.i = phi ptr [ %vd.0.i, %for.inc.i ], [ %0, %for.cond.preheader.i ]
   %id1.i = getelementptr inbounds i8, ptr %vd.07.i, i64 284936
   %1 = load ptr, ptr %id1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %1) #26
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %1) #26
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %return, label %for.inc.i
 
@@ -5412,7 +5412,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %vd.07.i = phi ptr [ %vd.0.i, %for.inc.i ], [ %0, %for.cond.preheader.i ]
   %id1.i = getelementptr inbounds i8, ptr %vd.07.i, i64 284936
   %1 = load ptr, ptr %id1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %1) #26
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %1) #26
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %if.end, label %for.inc.i
 
@@ -5466,7 +5466,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %vd.07.i = phi ptr [ %vd.0.i, %for.inc.i ], [ %0, %for.cond.preheader.i ]
   %id1.i = getelementptr inbounds i8, ptr %vd.07.i, i64 284936
   %1 = load ptr, ptr %id1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %1) #26
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %1) #26
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %if.end, label %for.inc.i
 
@@ -5645,7 +5645,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %vd.07.i = phi ptr [ %vd.0.i, %for.inc.i ], [ %0, %for.cond.preheader.i ]
   %id1.i = getelementptr inbounds i8, ptr %vd.07.i, i64 284936
   %1 = load ptr, ptr %id1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %1) #26
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %1) #26
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %vnc_display_find.exit.thread122, label %for.inc.i
 
@@ -6579,7 +6579,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %vd.07.i = phi ptr [ %vd.0.i, %for.inc.i ], [ %0, %for.cond.preheader.i ]
   %id1.i = getelementptr inbounds i8, ptr %vd.07.i, i64 284936
   %1 = load ptr, ptr %id1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %1) #26
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %id, ptr noundef nonnull dereferenceable(1) %1) #26
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %if.end, label %for.inc.i
 
@@ -6799,7 +6799,7 @@ if.end65:                                         ; preds = %if.then52, %if.else
   br i1 %tobool.not.i.i, label %vnc_init_basic_info_from_remote_addr.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end65
-  call fastcc void @vnc_init_basic_info(ptr noundef nonnull %call.i.i, ptr noundef %call.i95, ptr noundef nonnull %err.i)
+  call fastcc void @vnc_init_basic_info(ptr noundef nonnull %call.i.i, ptr noundef writeonly %call.i95, ptr noundef nonnull %err.i)
   call void @qapi_free_SocketAddress(ptr noundef nonnull %call.i.i) #23
   br label %vnc_init_basic_info_from_remote_addr.exit.i
 
@@ -6950,7 +6950,7 @@ entry.tail.i:                                     ; preds = %entry
   br i1 %3, label %is_help_option.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %entry.tail.i, %entry
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %str, ptr noundef nonnull dereferenceable(5) @.str.439) #26
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %str, ptr noundef nonnull dereferenceable(5) @.str.439) #26
   %tobool2.not.i = icmp ne i32 %call1.i, 0
   br label %is_help_option.exit
 
@@ -11457,7 +11457,7 @@ cond.false39.i.i:                                 ; preds = %do.body.i.i
   br i1 %cmp44.i.i, label %if.end.i, label %if.end46.i.i
 
 if.end46.i.i:                                     ; preds = %cond.false39.i.i, %cond.true33.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %guest.i.i, ptr noundef nonnull align 8 dereferenceable(16) %tv.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %guest.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %tv.i, i64 16, i1 false)
   br i1 %cmp1384.i.i, label %for.cond52.preheader.lr.ph.i.i, label %if.end.i
 
 for.cond52.preheader.lr.ph.i.i:                   ; preds = %if.end46.i.i
@@ -11778,7 +11778,7 @@ if.end.i.i:                                       ; preds = %if.then125.i
   %45 = load i32, ptr %idx.i.i, align 8
   %idxprom.i.i = sext i32 %45 to i64
   %arrayidx.i.i = getelementptr [10 x %struct.timeval], ptr %arrayidx3.i.i.i, i64 0, i64 %idxprom.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %tv.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %tv.i, i64 16, i1 false)
   %46 = load i32, ptr %idx.i.i, align 8
   %add.i.i = add i32 %46, 1
   %conv.i78.i = sext i32 %add.i.i to i64

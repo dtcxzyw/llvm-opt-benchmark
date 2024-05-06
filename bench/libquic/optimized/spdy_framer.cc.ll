@@ -1558,7 +1558,7 @@ if.then.i.i:                                      ; preds = %if.then.i77
   %10 = load ptr, ptr %current_frame_buffer_.i.i, align 8
   %11 = load i64, ptr %len_.i.i.i78, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 %11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i, ptr align 1 %data.addr.0, i64 %.sroa.speculated.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i, ptr readonly align 1 %data.addr.0, i64 %.sroa.speculated.i.i, i1 false)
   %12 = load i64, ptr %len_.i.i.i78, align 8
   %add.i.i.i = add i64 %12, %.sroa.speculated.i.i
   store i64 %add.i.i.i, ptr %len_.i.i.i78, align 8
@@ -1910,7 +1910,7 @@ if.then6:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.then6
   %4 = load ptr, ptr %current_frame_buffer_, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %.sroa.speculated.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %.sroa.speculated.i, i1 false)
   %5 = load i64, ptr %len_.i, align 8
   %add.i.i = add i64 %5, %.sroa.speculated.i
   store i64 %add.i.i, ptr %len_.i, align 8
@@ -2262,7 +2262,7 @@ if.then.i:                                        ; preds = %if.then4
   %len_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i64, ptr %len_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %.sroa.speculated.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %.sroa.speculated.i, i1 false)
   %3 = load i64, ptr %len_.i.i, align 8
   %add.i.i = add i64 %3, %.sroa.speculated.i
   store i64 %add.i.i, ptr %len_.i.i, align 8
@@ -2909,7 +2909,7 @@ if.then.i:                                        ; preds = %if.then
   %len_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i64, ptr %len_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %.sroa.speculated.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %.sroa.speculated.i, i1 false)
   %3 = load i64, ptr %len_.i.i, align 8
   %add.i.i = add i64 %3, %.sroa.speculated.i
   store i64 %add.i.i, ptr %len_.i.i, align 8
@@ -3033,7 +3033,7 @@ if.then22:                                        ; preds = %if.then20
 if.else24:                                        ; preds = %while.body
   %6 = load ptr, ptr %settings_scratch_, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr, i64 %.sroa.speculated, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %add.ptr, i64 %.sroa.speculated, i1 false)
   %7 = load i64, ptr %len_.i, align 8
   %add.i = add i64 %7, %.sroa.speculated
   store i64 %add.i, ptr %len_.i, align 8
@@ -3497,7 +3497,7 @@ if.then8:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.then8
   %3 = load ptr, ptr %current_frame_buffer_, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %.sroa.speculated.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %.sroa.speculated.i, i1 false)
   %4 = load i64, ptr %len_.i, align 8
   %add.i.i = add i64 %4, %.sroa.speculated.i
   store i64 %add.i.i, ptr %len_.i, align 8
@@ -3656,7 +3656,7 @@ if.then8:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.then8
   %3 = load ptr, ptr %current_frame_buffer_, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %.sroa.speculated.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %.sroa.speculated.i, i1 false)
   %4 = load i64, ptr %len_.i, align 8
   %add.i.i = add i64 %4, %.sroa.speculated.i
   store i64 %add.i.i, ptr %len_.i, align 8
@@ -3843,7 +3843,7 @@ if.end7:                                          ; preds = %_ZNKSt14default_del
   %len_.i5 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %len_.i5, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %data, i64 %.sroa.speculated, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %data, i64 %.sroa.speculated, i1 false)
   %10 = load i64, ptr %len_.i5, align 8
   %add.i = add i64 %10, %.sroa.speculated
   store i64 %add.i, ptr %len_.i5, align 8
@@ -4010,7 +4010,7 @@ if.then.i:                                        ; preds = %entry
   %len_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i64, ptr %len_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %data, i64 %.sroa.speculated.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr readonly align 1 %data, i64 %.sroa.speculated.i, i1 false)
   %3 = load i64, ptr %len_.i.i, align 8
   %add.i.i = add i64 %3, %.sroa.speculated.i
   store i64 %add.i.i, ptr %len_.i.i, align 8
@@ -4765,7 +4765,7 @@ if.then:                                          ; preds = %entry
   %len_.i = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load i64, ptr %len_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %1, i64 %.sroa.speculated, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr readonly align 1 %1, i64 %.sroa.speculated, i1 false)
   %4 = load i64, ptr %len_.i, align 8
   %add.i = add i64 %4, %.sroa.speculated
   store i64 %add.i, ptr %len_.i, align 8
@@ -6479,17 +6479,17 @@ _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit: ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
   %list_.i.i = getelementptr inbounds i8, ptr %headers, i64 56
-  %it.sroa.0.0328 = load ptr, ptr %list_.i.i, align 8
-  %cmp.i.not329 = icmp eq ptr %it.sroa.0.0328, %list_.i.i
-  br i1 %cmp.i.not329, label %if.end224, label %for.body.lr.ph
+  %it.sroa.0.0330 = load ptr, ptr %list_.i.i, align 8
+  %cmp.i.not331 = icmp eq ptr %it.sroa.0.0330, %list_.i.i
+  br i1 %cmp.i.not331, label %if.end224, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit
   %2 = getelementptr inbounds i8, ptr %ref.tmp43, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc211
-  %it.sroa.0.0333 = phi ptr [ %it.sroa.0.0328, %for.body.lr.ph ], [ %it.sroa.0.0, %for.inc211 ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0333, i64 16
+  %it.sroa.0.0335 = phi ptr [ %it.sroa.0.0330, %for.body.lr.ph ], [ %it.sroa.0.0, %for.inc211 ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0335, i64 16
   %call8 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i39)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i40)
@@ -6532,7 +6532,7 @@ _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit56: ; preds = %for.bo
   br i1 %call14, label %if.then, label %if.else132
 
 if.then:                                          ; preds = %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit56
-  %second = getelementptr inbounds i8, ptr %it.sroa.0.0333, i64 32
+  %second = getelementptr inbounds i8, ptr %it.sroa.0.0335, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cookie_data, ptr noundef nonnull align 8 dereferenceable(16) %second, i64 16, i1 false)
   br label %for.cond16
 
@@ -6571,38 +6571,38 @@ while.body:                                       ; preds = %invoke.cont18, %inv
           to label %while.cond unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !11
 
 lpad.loopexit:                                    ; preds = %for.body.i63, %lor.lhs.false.i, %for.inc.i
-  %lpad.loopexit271 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup131
-
-lpad.loopexit.split-lp.loopexit:                  ; preds = %for.inc.i89, %lor.lhs.false.i87, %for.body.i84
   %lpad.loopexit273 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup131
 
+lpad.loopexit.split-lp.loopexit:                  ; preds = %for.inc.i89, %lor.lhs.false.i87, %for.body.i84
+  %lpad.loopexit275 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup131
+
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.cond28, %for.body32
-  %lpad.loopexit276 = landingpad { ptr, i32 }
+  %lpad.loopexit278 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup131
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body, %lor.rhs, %land.rhs, %while.cond
-  %lpad.loopexit279 = landingpad { ptr, i32 }
+  %lpad.loopexit281 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup131
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.end, %for.end, %if.then42, %if.then48, %if.end54, %invoke.cont60, %if.end68, %invoke.cont44, %if.end.i, %for.cond.preheader.i, %land.rhs.i, %cond.true.i.i.i.i, %if.else, %if.end.i73, %for.cond.preheader.i75, %land.rhs.i82, %cond.true.i.i.i
   %cookie_values.sroa.0.2.ph.ph.ph.ph.ph = phi ptr [ %cookie_values.sroa.0.1, %while.end ], [ %cookie_values.sroa.0.1, %for.end ], [ %cookie_values.sroa.0.1, %if.else ], [ %cookie_values.sroa.0.1, %if.end.i73 ], [ %cookie_values.sroa.0.1, %for.cond.preheader.i75 ], [ %cookie_values.sroa.0.1, %land.rhs.i82 ], [ %cookie_values.sroa.0.1, %cond.true.i.i.i ], [ %cookie_values.sroa.0.5, %invoke.cont60 ], [ %cookie_values.sroa.0.6, %if.end68 ], [ %cookie_values.sroa.0.1, %if.then42 ], [ %cookie_values.sroa.0.1, %invoke.cont44 ], [ %cookie_values.sroa.0.1, %if.end.i ], [ %cookie_values.sroa.0.1, %for.cond.preheader.i ], [ %cookie_values.sroa.0.1, %land.rhs.i ], [ %cookie_values.sroa.0.1, %if.then48 ], [ %cookie_values.sroa.0.1, %cond.true.i.i.i.i ], [ %cookie_values.sroa.0.4, %if.end54 ]
-  %lpad.loopexit282 = landingpad { ptr, i32 }
+  %lpad.loopexit284 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup131
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %call32.i.i128.noexc, %call25.i.i125.noexc, %call24.i.i124.noexc, %.noexc130, %for.end.i122
-  %lpad.loopexit285 = landingpad { ptr, i32 }
+  %lpad.loopexit287 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup131
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i.invoke
-  %lpad.loopexit.split-lp286 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp288 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup131
 
@@ -7008,8 +7008,8 @@ call32.i.i128.noexc:                              ; preds = %call25.i.i125.noexc
 _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit135: ; preds = %call32.i.i128.noexc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i112)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i113)
-  %cmp76326.not = icmp eq ptr %cookie_values.sroa.14.1, %cookie_values.sroa.0.1
-  br i1 %cmp76326.not, label %for.end130, label %for.body77.lr.ph
+  %cmp76328.not = icmp eq ptr %cookie_values.sroa.14.1, %cookie_values.sroa.0.1
+  br i1 %cmp76328.not, label %for.end130, label %for.body77.lr.ph
 
 for.body77.lr.ph:                                 ; preds = %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit135
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cookie_values.sroa.14.1 to i64
@@ -7022,9 +7022,9 @@ for.body77.lr.ph:                                 ; preds = %_ZN3netL12WriteLeng
   br label %for.body77
 
 for.body77:                                       ; preds = %for.body77.lr.ph, %invoke.cont126
-  %i73.0327 = phi i64 [ 0, %for.body77.lr.ph ], [ %inc129, %invoke.cont126 ]
+  %i73.0329 = phi i64 [ 0, %for.body77.lr.ph ], [ %inc129, %invoke.cont126 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cookie) #23
-  %cmp78 = icmp eq i64 %i73.0327, 0
+  %cmp78 = icmp eq i64 %i73.0329, 0
   br i1 %cmp78, label %land.lhs.true, label %if.else97
 
 land.lhs.true:                                    ; preds = %for.body77
@@ -7064,8 +7064,8 @@ lpad94:                                           ; preds = %invoke.cont93
   br label %ehcleanup127
 
 if.else97:                                        ; preds = %for.body77
-  %cmp100 = icmp ult i64 %i73.0327, %sub99
-  %add.ptr.i = getelementptr inbounds %"class.base::BasicStringPiece", ptr %cookie_values.sroa.0.1, i64 %i73.0327
+  %cmp100 = icmp ult i64 %i73.0329, %sub99
+  %add.ptr.i = getelementptr inbounds %"class.base::BasicStringPiece", ptr %cookie_values.sroa.0.1, i64 %i73.0329
   br i1 %cmp100, label %if.then101, label %if.else112
 
 if.then101:                                       ; preds = %if.else97
@@ -7162,7 +7162,7 @@ call32.i164.noexc:                                ; preds = %call25.i161.noexc
 
 invoke.cont126:                                   ; preds = %call32.i164.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cookie) #23
-  %inc129 = add nuw i64 %i73.0327, 1
+  %inc129 = add nuw i64 %i73.0329, 1
   %exitcond.not = icmp eq i64 %inc129, %umax
   br i1 %exitcond.not, label %for.end130, label %for.body77, !llvm.loop !24
 
@@ -7181,7 +7181,7 @@ if.then.i.i.i173:                                 ; preds = %for.end130
 
 ehcleanup131:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %ehcleanup127
   %cookie_values.sroa.0.8 = phi ptr [ %cookie_values.sroa.0.1, %ehcleanup127 ], [ %cookie_values.sroa.0.1, %lpad.loopexit ], [ %cookie_values.sroa.0.1, %lpad.loopexit.split-lp.loopexit ], [ %cookie_values.sroa.0.1, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cookie_values.sroa.0.1, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cookie_values.sroa.0.2.ph.ph.ph.ph.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cookie_values.sroa.0.1, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %cookie_values.sroa.0.1, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %ehcleanup127 ], [ %lpad.loopexit271, %lpad.loopexit ], [ %lpad.loopexit273, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit276, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit279, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit282, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit285, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp286, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn35.pn = phi { ptr, i32 } [ %.pn35, %ehcleanup127 ], [ %lpad.loopexit273, %lpad.loopexit ], [ %lpad.loopexit275, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit278, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit281, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit284, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit287, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp288, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i174 = icmp eq ptr %cookie_values.sroa.0.8, null
   br i1 %tobool.not.i.i.i174, label %_ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EED2Ev.exit176, label %if.then.i.i.i175
 
@@ -7258,7 +7258,7 @@ lor.rhs191:                                       ; preds = %lor.lhs.false186
   br i1 %call195, label %if.then197, label %if.else203
 
 if.then197:                                       ; preds = %lor.lhs.false186, %lor.lhs.false181, %lor.lhs.false176, %lor.lhs.false171, %lor.lhs.false166, %lor.lhs.false161, %lor.lhs.false156, %lor.lhs.false151, %lor.lhs.false146, %lor.lhs.false141, %lor.lhs.false, %if.else132, %lor.rhs191
-  %second199 = getelementptr inbounds i8, ptr %it.sroa.0.0333, i64 32
+  %second199 = getelementptr inbounds i8, ptr %it.sroa.0.0335, i64 32
   %call200 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second199)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i192)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i193)
@@ -7299,14 +7299,14 @@ _ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit210: ; preds = %for.b
   br label %for.inc211
 
 if.else203:                                       ; preds = %lor.rhs191
-  %second205 = getelementptr inbounds i8, ptr %it.sroa.0.0333, i64 32
+  %second205 = getelementptr inbounds i8, ptr %it.sroa.0.0335, i64 32
   %call206 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %second205)
   call fastcc void @_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s(i64 noundef %call206, ptr noundef nonnull %z)
   call fastcc void @_ZN3netL6WriteZERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10ZDataClassEP10z_stream_s(ptr noundef nonnull align 8 dereferenceable(16) %second205, i32 noundef 2, ptr noundef nonnull %z)
   br label %for.inc211
 
 for.inc211:                                       ; preds = %if.then.i.i.i173, %for.end130, %if.else203, %_ZN3netL12WriteLengthZEmjNS_10ZDataClassEP10z_stream_s.exit210
-  %it.sroa.0.0 = load ptr, ptr %it.sroa.0.0333, align 8
+  %it.sroa.0.0 = load ptr, ptr %it.sroa.0.0335, align 8
   %cmp.i.not = icmp eq ptr %it.sroa.0.0, %list_.i.i
   br i1 %cmp.i.not, label %if.end224, label %for.body, !llvm.loop !25
 

@@ -1104,7 +1104,7 @@ if.end15.i.i:                                     ; preds = %for.cond.i.i
 
 if.then23.i.i:                                    ; preds = %if.end15.i.i
   %and.i.i.i = zext nneg i16 %12 to i32
-  %13 = tail call i32 @llvm.ctlz.i32(i32 %and.i.i.i, i1 true), !range !10
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %and.i.i.i, i1 true)
   %sub.i.i = xor i32 %13, 31
   %conv.i.i = zext nneg i32 %sub.i.i to i64
   %rawItems_.i.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -112
@@ -1622,27 +1622,27 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24, !noalias !11
+  %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24, !noalias !10
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !11
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !10
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8proxygen16ByteEventTrackerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !11
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8proxygen16ByteEventTrackerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !10
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1592
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8proxygen16ByteEventTrackerE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !11
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8proxygen16ByteEventTrackerE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !10
   %bytesWritten_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   %m_header.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesWritten_.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !11
-  store ptr %m_header.i1.i.i.i.i.i.i.i.i.i, ptr %m_header.i1.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesWritten_.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !10
+  store ptr %m_header.i1.i.i.i.i.i.i.i.i.i, ptr %m_header.i1.i.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %prev_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 48
-  store ptr %m_header.i1.i.i.i.i.i.i.i.i.i, ptr %prev_.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
+  store ptr %m_header.i1.i.i.i.i.i.i.i.i.i, ptr %prev_.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !10
   %callback_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
-  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %callback_.i.i.i.i.i.i.i.i, align 8, !noalias !11
-  store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !11
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.tmp, align 8, !alias.scope !11
+  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %callback_.i.i.i.i.i.i.i.i, align 8, !noalias !10
+  store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !10
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.tmp, align 8, !alias.scope !10
   invoke void @_ZN8proxygen11HTTPSession19setByteEventTrackerESt10shared_ptrINS_16ByteEventTrackerEE(ptr noundef nonnull align 8 dereferenceable(2504) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -1941,7 +1941,7 @@ if.end.i.i:                                       ; preds = %dynamic_cast.notnul
   %2 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(48) %current.04.i.i)
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %return, label %dynamic_cast.notnull.i.i, !llvm.loop !14
+  br i1 %tobool.not.i.i, label %return, label %dynamic_cast.notnull.i.i, !llvm.loop !13
 
 if.then:                                          ; preds = %dynamic_cast.notnull.i.i
   %vtable3 = load ptr, ptr %1, align 8
@@ -2533,7 +2533,7 @@ if.end8.i.i.i:                                    ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.end8.i.i.i, %if.then.i, %while.body.i
   %cmp.i.not.i = icmp eq ptr %1, %waitingForReplaySafety_
-  br i1 %cmp.i.not.i, label %while.end.i, label %while.body.i, !llvm.loop !15
+  br i1 %cmp.i.not.i, label %while.end.i, label %while.body.i, !llvm.loop !14
 
 while.end.i:                                      ; preds = %if.end.i
   %.pre.i = load ptr, ptr %__to_destroy.i, align 8
@@ -2545,7 +2545,7 @@ while.body.i.i.i.i:                               ; preds = %while.end.i, %while
   %6 = load ptr, ptr %__cur.05.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i) #22
   %cmp.not.i.i.i.i = icmp eq ptr %6, %__to_destroy.i
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5folly14AsyncTransport20ReplaySafetyCallbackESaIS4_EE6removeERKS4_.exit, label %while.body.i.i.i.i, !llvm.loop !16
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5folly14AsyncTransport20ReplaySafetyCallbackESaIS4_EE6removeERKS4_.exit, label %while.body.i.i.i.i, !llvm.loop !15
 
 _ZNSt7__cxx114listIPN5folly14AsyncTransport20ReplaySafetyCallbackESaIS4_EE6removeERKS4_.exit: ; preds = %while.body.i.i.i.i, %entry, %while.end.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__to_destroy.i)
@@ -2739,10 +2739,10 @@ declare noundef ptr @_ZThn1584_N8proxygen11HTTPSession16newExTransactionEPNS_22H
 define linkonce_odr void @_ZThn1584_NK8proxygen11HTTPSession19getSecurityProtocolB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %this) unnamed_addr #9 comdat align 2 {
 entry:
   %sock_.i = getelementptr inbounds i8, ptr %this, i64 416
-  %0 = load ptr, ptr %sock_.i, align 8, !noalias !17
-  %vtable.i = load ptr, ptr %0, align 8, !noalias !17
+  %0 = load ptr, ptr %sock_.i, align 8, !noalias !16
+  %vtable.i = load ptr, ptr %0, align 8, !noalias !16
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 224
-  %1 = load ptr, ptr %vfn.i, align 8, !noalias !17
+  %1 = load ptr, ptr %vfn.i, align 8, !noalias !16
   tail call void %1(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %0)
   ret void
 }
@@ -2840,7 +2840,7 @@ if.end8.i.i.i.i:                                  ; preds = %if.then.i.i
 
 if.end.i.i:                                       ; preds = %if.end8.i.i.i.i, %if.then.i.i, %while.body.i.i
   %cmp.i.not.i.i = icmp eq ptr %1, %waitingForReplaySafety_.i
-  br i1 %cmp.i.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !15
+  br i1 %cmp.i.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !14
 
 while.end.i.i:                                    ; preds = %if.end.i.i
   %.pre.i.i = load ptr, ptr %__to_destroy.i.i, align 8
@@ -2852,7 +2852,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.end.i.i, %whi
   %6 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i) #22
   %cmp.not.i.i.i.i.i = icmp eq ptr %6, %__to_destroy.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN8proxygen11HTTPSession28removeWaitingForReplaySafetyEPN5folly14AsyncTransport20ReplaySafetyCallbackE.exit, label %while.body.i.i.i.i.i, !llvm.loop !16
+  br i1 %cmp.not.i.i.i.i.i, label %_ZN8proxygen11HTTPSession28removeWaitingForReplaySafetyEPN5folly14AsyncTransport20ReplaySafetyCallbackE.exit, label %while.body.i.i.i.i.i, !llvm.loop !15
 
 _ZN8proxygen11HTTPSession28removeWaitingForReplaySafetyEPN5folly14AsyncTransport20ReplaySafetyCallbackE.exit: ; preds = %while.body.i.i.i.i.i, %entry, %while.end.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__to_destroy.i.i)
@@ -2935,9 +2935,9 @@ entry:
 ; Function Attrs: uwtable
 define linkonce_odr void @_ZThn1584_N8proxygen11HTTPSession15getHTTPPriorityEh(ptr noalias sret(%"class.folly::Optional.225") align 8 %agg.result, ptr noundef %this, i8 noundef zeroext %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store i8 0, ptr %agg.result, align 8, !alias.scope !20
+  store i8 0, ptr %agg.result, align 8, !alias.scope !19
   %hasValue.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i8 0, ptr %hasValue.i.i.i, align 8, !alias.scope !20
+  store i8 0, ptr %hasValue.i.i.i, align 8, !alias.scope !19
   ret void
 }
 
@@ -3207,11 +3207,11 @@ lpad:                                             ; preds = %invoke.cont3, %invo
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn1584_NK8proxygen11HTTPSession18getConnectionTokenB5cxx11Ev(ptr noalias sret(%"class.folly::Optional.34") align 8 %agg.result, ptr noundef %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %hasValue.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store i8 0, ptr %hasValue.i.i.i, align 8, !alias.scope !23
+  store i8 0, ptr %hasValue.i.i.i, align 8, !alias.scope !22
   %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -128
-  %0 = load i8, ptr %hasValue.i.i.i.i, align 8, !noalias !23
+  %0 = load i8, ptr %hasValue.i.i.i.i, align 8, !noalias !22
   %tobool.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i, label %invoke.cont.i.i, label %_ZNK8proxygen11HTTPSession18getConnectionTokenB5cxx11Ev.exit
 
@@ -3221,18 +3221,18 @@ invoke.cont.i.i:                                  ; preds = %entry
           to label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIJRKS6_EEEvDpOT_.exit.i.i unwind label %lpad.i.i
 
 _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIJRKS6_EEEvDpOT_.exit.i.i: ; preds = %invoke.cont.i.i
-  store i8 1, ptr %hasValue.i.i.i, align 8, !alias.scope !23
+  store i8 1, ptr %hasValue.i.i.i, align 8, !alias.scope !22
   br label %_ZNK8proxygen11HTTPSession18getConnectionTokenB5cxx11Ev.exit
 
 lpad.i.i:                                         ; preds = %invoke.cont.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = load i8, ptr %hasValue.i.i.i, align 8, !alias.scope !23
+  %2 = load i8, ptr %hasValue.i.i.i, align 8, !alias.scope !22
   %tobool.i.i7.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i7.i.i, label %if.then.i.i8.i.i, label %terminate.lpad.body.i
 
 if.then.i.i8.i.i:                                 ; preds = %lpad.i.i
-  store i8 0, ptr %hasValue.i.i.i, align 8, !alias.scope !23
+  store i8 0, ptr %hasValue.i.i.i, align 8, !alias.scope !22
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #21
   br label %terminate.lpad.body.i
 
@@ -3559,13 +3559,13 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %div5.i = lshr i64 %targetCapacity.07.i, 1
   %add.i = add i64 %div5.i, %targetCapacity.07.i
   %cmp3.i = icmp ult i64 %add.i, %add
-  br i1 %cmp3.i, label %while.body.i, label %if.end.i.i, !llvm.loop !26
+  br i1 %cmp3.i, label %while.body.i, label %if.end.i.i, !llvm.loop !25
 
 if.end.i.i:                                       ; preds = %while.body.i, %if.end.i
   %targetCapacity.0.lcssa.i = phi i64 [ %2, %if.end.i ], [ %add.i, %while.body.i ]
   %mul.i.i = mul i64 %targetCapacity.0.lcssa.i, 41
-  %call.i.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i.i) #24, !noalias !27
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call.i.i.i, i8 0, i64 %mul.i.i, i1 false), !noalias !27
+  %call.i.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i.i) #24, !noalias !26
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call.i.i.i, i8 0, i64 %mul.i.i, i1 false), !noalias !26
   %cmp2.not.i.i = icmp eq i64 %0, 0
   %.pre24.i.i = load ptr, ptr %this, align 8
   br i1 %cmp2.not.i.i, label %if.end21.i.i, label %for.body.preheader.i.i
@@ -3592,7 +3592,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %inc.i.i = add nuw i64 %i.023.i.i, 1
   %3 = load i64, ptr %length_, align 8
   %cmp20.i.i = icmp ult i64 %inc.i.i, %3
-  br i1 %cmp20.i.i, label %for.body.i.i, label %if.end21.loopexit.i.i, !llvm.loop !30
+  br i1 %cmp20.i.i, label %for.body.i.i, label %if.end21.loopexit.i.i, !llvm.loop !29
 
 if.end21.loopexit.i.i:                            ; preds = %for.body.i.i
   %.pre.i.i = load ptr, ptr %this, align 8
@@ -3694,13 +3694,13 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %div5.i = lshr i64 %targetCapacity.07.i, 1
   %add.i = add i64 %div5.i, %targetCapacity.07.i
   %cmp3.i = icmp ult i64 %add.i, %add
-  br i1 %cmp3.i, label %while.body.i, label %if.end.i.i, !llvm.loop !26
+  br i1 %cmp3.i, label %while.body.i, label %if.end.i.i, !llvm.loop !25
 
 if.end.i.i:                                       ; preds = %while.body.i, %if.end.i
   %targetCapacity.0.lcssa.i = phi i64 [ %2, %if.end.i ], [ %add.i, %while.body.i ]
   %mul.i.i = mul i64 %targetCapacity.0.lcssa.i, 41
-  %call.i.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i.i) #24, !noalias !31
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call.i.i.i, i8 0, i64 %mul.i.i, i1 false), !noalias !31
+  %call.i.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i.i) #24, !noalias !30
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call.i.i.i, i8 0, i64 %mul.i.i, i1 false), !noalias !30
   %cmp2.not.i.i = icmp eq i64 %0, 0
   %.pre24.i.i = load ptr, ptr %this, align 8
   br i1 %cmp2.not.i.i, label %if.end21.i.i, label %for.body.preheader.i.i
@@ -3727,7 +3727,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %inc.i.i = add nuw i64 %i.023.i.i, 1
   %3 = load i64, ptr %length_, align 8
   %cmp20.i.i = icmp ult i64 %inc.i.i, %3
-  br i1 %cmp20.i.i, label %for.body.i.i, label %if.end21.loopexit.i.i, !llvm.loop !30
+  br i1 %cmp20.i.i, label %for.body.i.i, label %if.end21.loopexit.i.i, !llvm.loop !29
 
 if.end21.loopexit.i.i:                            ; preds = %for.body.i.i
   %.pre.i.i = load ptr, ptr %this, align 8
@@ -4220,27 +4220,26 @@ attributes #25 = { noreturn }
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = !{i32 0, i32 33}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZSt11make_sharedIN8proxygen16ByteEventTrackerEJPNS0_11HTTPSessionEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
-!13 = distinct !{!13, !"_ZSt11make_sharedIN8proxygen16ByteEventTrackerEJPNS0_11HTTPSessionEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZSt11make_sharedIN8proxygen16ByteEventTrackerEJPNS0_11HTTPSessionEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
+!12 = distinct !{!12, !"_ZSt11make_sharedIN8proxygen16ByteEventTrackerEJPNS0_11HTTPSessionEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNK8proxygen11HTTPSession19getSecurityProtocolB5cxx11Ev: %agg.result"}
-!19 = distinct !{!19, !"_ZNK8proxygen11HTTPSession19getSecurityProtocolB5cxx11Ev"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN8proxygen11HTTPSession15getHTTPPriorityEh: %agg.result"}
-!22 = distinct !{!22, !"_ZN8proxygen11HTTPSession15getHTTPPriorityEh"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZNK8proxygen11HTTPSession18getConnectionTokenB5cxx11Ev: %agg.result"}
-!25 = distinct !{!25, !"_ZNK8proxygen11HTTPSession18getConnectionTokenB5cxx11Ev"}
-!26 = distinct !{!26, !8}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZSt11make_uniqueIA_hENSt8__detail9_MakeUniqIT_E7__arrayEm: %agg.result"}
-!29 = distinct !{!29, !"_ZSt11make_uniqueIA_hENSt8__detail9_MakeUniqIT_E7__arrayEm"}
-!30 = distinct !{!30, !8}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZSt11make_uniqueIA_hENSt8__detail9_MakeUniqIT_E7__arrayEm: %agg.result"}
-!33 = distinct !{!33, !"_ZSt11make_uniqueIA_hENSt8__detail9_MakeUniqIT_E7__arrayEm"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZNK8proxygen11HTTPSession19getSecurityProtocolB5cxx11Ev: %agg.result"}
+!18 = distinct !{!18, !"_ZNK8proxygen11HTTPSession19getSecurityProtocolB5cxx11Ev"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN8proxygen11HTTPSession15getHTTPPriorityEh: %agg.result"}
+!21 = distinct !{!21, !"_ZN8proxygen11HTTPSession15getHTTPPriorityEh"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZNK8proxygen11HTTPSession18getConnectionTokenB5cxx11Ev: %agg.result"}
+!24 = distinct !{!24, !"_ZNK8proxygen11HTTPSession18getConnectionTokenB5cxx11Ev"}
+!25 = distinct !{!25, !8}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZSt11make_uniqueIA_hENSt8__detail9_MakeUniqIT_E7__arrayEm: %agg.result"}
+!28 = distinct !{!28, !"_ZSt11make_uniqueIA_hENSt8__detail9_MakeUniqIT_E7__arrayEm"}
+!29 = distinct !{!29, !8}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZSt11make_uniqueIA_hENSt8__detail9_MakeUniqIT_E7__arrayEm: %agg.result"}
+!32 = distinct !{!32, !"_ZSt11make_uniqueIA_hENSt8__detail9_MakeUniqIT_E7__arrayEm"}

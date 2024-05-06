@@ -1817,7 +1817,7 @@ entry:
   %tcpi_delivery_rate_app_limited = getelementptr inbounds i8, ptr %this, i64 6
   %bf.load = load i16, ptr %tcpi_delivery_rate_app_limited, align 2
   %1 = lshr i16 %bf.load, 8
-  %2 = trunc i16 %1 to i8
+  %2 = trunc nuw i16 %1 to i8
   %frombool = and i8 %2, 1
   %frombool.sink = select i1 %tobool.not.not.i.i, i8 %frombool, i8 0
   %.sink = zext i1 %tobool.not.not.i.i to i8

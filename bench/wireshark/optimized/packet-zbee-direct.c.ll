@@ -1026,7 +1026,7 @@ zbd_parse_uat_hexline.exit43:                     ; preds = %82, %87, %96, %.lr.
   %102 = or i32 %.037.i34, %.037.i
   %103 = getelementptr %struct.uat_key_record_s, ptr %25, i64 %indvars.iv, i32 2
   %104 = load ptr, ptr %103, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %105 = icmp eq ptr %104, null
   br i1 %105, label %zbd_parse_uat_hexline.exit67, label %106
 
@@ -2055,7 +2055,7 @@ create_auth_string.exit.i.i.i:                    ; preds = %107
 try_decrypt.exit.thread.i:                        ; preds = %create_auth_string.exit.i.i.i
   %.mask.i.i.i = and i32 %92, 65535
   %115 = zext nneg i32 %.mask.i.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 16 %13, i64 %115, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %53, ptr nonnull align 16 %13, i64 %115, i1 false)
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %14)
@@ -2110,7 +2110,7 @@ create_auth_string.exit.i30.i.i:                  ; preds = %124
 try_decrypt.exit.i:                               ; preds = %create_auth_string.exit.i30.i.i
   %.mask.i32.i.i = and i32 %92, 65535
   %130 = zext nneg i32 %.mask.i32.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 16 %10, i64 %130, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %53, ptr nonnull align 16 %10, i64 %130, i1 false)
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %11)
@@ -2230,7 +2230,7 @@ create_auth_string.exit.i.i:                      ; preds = %165
 .thread68.i:                                      ; preds = %create_auth_string.exit.i.i
   %.mask.i.i = and i32 %148, 65535
   %172 = zext nneg i32 %.mask.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 16 %7, i64 %172, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %53, ptr nonnull align 16 %7, i64 %172, i1 false)
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %8)

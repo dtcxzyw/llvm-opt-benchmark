@@ -323,7 +323,7 @@ monotonic.i.i:                                    ; preds = %if.then.i, %if.then
   %retval.i.0 = phi ptr [ %arrayidx15.i, %if.then.i ], [ %arrayidx54.i, %if.then27.i ], [ %arrayidx136.i, %if.then71.i ], [ %call141.i, %for.end.i ]
   %10 = load atomic i64, ptr %retval.i.0 monotonic, align 8, !noalias !6
   %shr.i69 = lshr i64 %10, 48
-  %conv.i70 = trunc i64 %shr.i69 to i32
+  %conv.i70 = trunc nuw nsw i64 %shr.i69 to i32
   %metadata.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %conv.i70, ptr %metadata.i, align 8, !alias.scope !9
   %slab.i = getelementptr inbounds i8, ptr %agg.result, i64 17

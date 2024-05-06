@@ -207,7 +207,7 @@ entry:
 declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @CRYPTO_set_thread_local(i32 noundef %index, ptr noundef %value, ptr noundef %destructor) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @CRYPTO_set_thread_local(i32 noundef %index, ptr noundef %value, ptr noundef %destructor) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @pthread_once(ptr noundef nonnull @g_thread_local_init_once, ptr noundef nonnull @thread_local_init) #7
   %cmp.not.i = icmp eq i32 %call.i, 0

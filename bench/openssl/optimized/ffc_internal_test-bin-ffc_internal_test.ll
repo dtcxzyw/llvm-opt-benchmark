@@ -107,7 +107,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ffc_params_validate_pq_test() #0 {
+define internal range(i32 0, 2) i32 @ffc_params_validate_pq_test() #0 {
 entry:
   %res = alloca i32, align 4
   %params = alloca %struct.ffc_params_st, align 8
@@ -215,7 +215,7 @@ err:                                              ; preds = %if.end61, %if.end53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ffc_params_validate_g_unverified_test() #0 {
+define internal range(i32 0, 2) i32 @ffc_params_validate_g_unverified_test() #0 {
 entry:
   %res = alloca i32, align 4
   %params = alloca %struct.ffc_params_st, align 8
@@ -298,7 +298,7 @@ err:                                              ; preds = %if.end39, %if.end31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ffc_params_gen_test() #0 {
+define internal range(i32 0, 2) i32 @ffc_params_gen_test() #0 {
 entry:
   %res = alloca i32, align 4
   %params = alloca %struct.ffc_params_st, align 8
@@ -327,7 +327,7 @@ err:                                              ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ffc_params_gen_canonicalg_test() #0 {
+define internal range(i32 0, 2) i32 @ffc_params_gen_canonicalg_test() #0 {
 entry:
   %res = alloca i32, align 4
   %params = alloca %struct.ffc_params_st, align 8
@@ -367,7 +367,7 @@ err:                                              ; preds = %if.end8, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ffc_params_fips186_2_gen_validate_test() #0 {
+define internal range(i32 0, 2) i32 @ffc_params_fips186_2_gen_validate_test() #0 {
 entry:
   %res = alloca i32, align 4
   %params = alloca %struct.ffc_params_st, align 8
@@ -437,7 +437,7 @@ err:                                              ; preds = %if.end35, %if.end30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ffc_public_validate_test() #0 {
+define internal range(i32 0, 2) i32 @ffc_public_validate_test() #0 {
 entry:
   %res = alloca i32, align 4
   store i32 -1, ptr %res, align 4
@@ -667,7 +667,7 @@ err:                                              ; preds = %if.end164, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ffc_private_validate_test() #0 {
+define internal range(i32 0, 2) i32 @ffc_private_validate_test() #0 {
 entry:
   %res = alloca i32, align 4
   store i32 -1, ptr %res, align 4
@@ -822,7 +822,7 @@ err:                                              ; preds = %if.end103, %if.end9
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ffc_private_gen_test(i32 %index) #0 {
+define internal range(i32 0, 2) i32 @ffc_private_gen_test(i32 %index) #0 {
 entry:
   %res = alloca i32, align 4
   store i32 -1, ptr %res, align 4
@@ -946,7 +946,7 @@ err:                                              ; preds = %if.end77, %if.end72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ffc_params_copy_test() #0 {
+define internal range(i32 0, 2) i32 @ffc_params_copy_test() #0 {
 entry:
   %copy = alloca %struct.ffc_params_st, align 8
   call void @ossl_ffc_params_init(ptr noundef nonnull %copy) #2

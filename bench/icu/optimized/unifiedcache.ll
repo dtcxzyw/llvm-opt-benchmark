@@ -39,7 +39,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7518ucache_compareKeysE8UElementS0_(ptr %key1.coerce, ptr %key2.coerce) #0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7518ucache_compareKeysE8UElementS0_(ptr %key1.coerce, ptr %key2.coerce) #0 {
 entry:
   %vtable.i = load ptr, ptr %key1.coerce, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
@@ -381,11 +381,11 @@ if.then.i.i:                                      ; preds = %entry
 
 while.cond:                                       ; preds = %entry, %invoke.cont
   %call = invoke noundef signext i8 @_ZNK6icu_7512UnifiedCache6_flushEa(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 noundef signext 0)
-          to label %invoke.cont unwind label %lpad, !range !4
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.cond
   %tobool.not = icmp eq i8 %call, 0
-  br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !5
+  br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !4
 
 lpad:                                             ; preds = %while.cond
   %1 = landingpad { ptr, i32 }
@@ -399,7 +399,7 @@ while.end:                                        ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7512UnifiedCache6_flushEa(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 noundef signext %all) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7512UnifiedCache6_flushEa(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 noundef signext %all) local_unnamed_addr #0 align 2 {
 entry:
   %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fHashtable, align 8
@@ -499,7 +499,7 @@ for.inc.us:                                       ; preds = %delete.notnull.i.us
   %result.1.us = phi i8 [ %result.021.us, %_ZNK6icu_7512UnifiedCache12_isEvictableEPK12UHashElement.exit.us ], [ 1, %if.then6.us ], [ 1, %delete.notnull.i.us ], [ 1, %if.else.i.us ], [ %result.021.us, %if.end.us ], [ %result.021.us, %lor.rhs.i.us ]
   %inc.us = add nuw nsw i32 %i.020.us, 1
   %exitcond26.not = icmp eq i32 %inc.us, %call
-  br i1 %exitcond26.not, label %for.end, label %for.body.us, !llvm.loop !7
+  br i1 %exitcond26.not, label %for.end, label %for.body.us, !llvm.loop !6
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %result.021 = phi i8 [ 1, %for.inc ], [ 0, %for.body.lr.ph ]
@@ -552,7 +552,7 @@ if.else.i:                                        ; preds = %if.then.i9
 for.inc:                                          ; preds = %if.else.i, %delete.notnull.i, %if.end
   %inc = add nuw nsw i32 %i.020, 1
   %exitcond.not = icmp eq i32 %inc, %call
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %_ZNK6icu_7512UnifiedCache12_nextElementEv.exit, %for.inc.us, %_ZNK6icu_7512UnifiedCache12_nextElementEv.exit.us, %entry
   %result.0.lcssa = phi i8 [ 0, %entry ], [ %result.021.us, %_ZNK6icu_7512UnifiedCache12_nextElementEv.exit.us ], [ %result.1.us, %for.inc.us ], [ %result.021, %_ZNK6icu_7512UnifiedCache12_nextElementEv.exit ], [ 1, %for.inc ]
@@ -710,7 +710,7 @@ for.inc:                                          ; preds = %lor.rhs.i, %if.end6
   %maxItemsToEvict.1 = phi i32 [ %dec, %_ZNK6icu_7512UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit ], [ %maxItemsToEvict.024, %_ZNK6icu_7512UnifiedCache12_isEvictableEPK12UHashElement.exit ], [ %maxItemsToEvict.024, %if.end6 ], [ %maxItemsToEvict.024, %lor.rhs.i ]
   %inc14 = add nuw nsw i32 %i.023, 1
   %exitcond.not = icmp eq i32 %inc14, 10
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %_ZNK6icu_7512UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit, %_ZNK6icu_7512UnifiedCache12_nextElementEv.exit, %for.inc, %entry
   ret void
@@ -727,11 +727,11 @@ entry:
 
 while.cond.i:                                     ; preds = %entry, %invoke.cont.i
   %call.i = invoke noundef signext i8 @_ZNK6icu_7512UnifiedCache6_flushEa(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 noundef signext 0)
-          to label %invoke.cont.i unwind label %lpad.i, !range !4
+          to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %while.cond.i
   %tobool.not.i = icmp eq i8 %call.i, 0
-  br i1 %tobool.not.i, label %invoke.cont, label %while.cond.i, !llvm.loop !5
+  br i1 %tobool.not.i, label %invoke.cont, label %while.cond.i, !llvm.loop !4
 
 lpad.i:                                           ; preds = %while.cond.i
   %1 = landingpad { ptr, i32 }
@@ -756,7 +756,7 @@ if.then.i.i.cont:                                 ; preds = %if.then.i.i.invoke
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %call = invoke noundef signext i8 @_ZNK6icu_7512UnifiedCache6_flushEa(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 noundef signext 1)
-          to label %invoke.cont3 unwind label %terminate.lpad, !range !4
+          to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   %call1.i.i.i3 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #14
@@ -841,7 +841,7 @@ return:                                           ; preds = %entry, %if.then
 declare ptr @uhash_nextElement_75(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7512UnifiedCache12_isEvictableEPK12UHashElement(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %element) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7512UnifiedCache12_isEvictableEPK12UHashElement(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %element) local_unnamed_addr #0 align 2 {
 entry:
   %key = getelementptr inbounds i8, ptr %element, i64 16
   %0 = load ptr, ptr %key, align 8
@@ -1260,7 +1260,7 @@ cleanup:                                          ; preds = %if.then2.i9.i, %if.
 declare ptr @uhash_find_75(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7512UnifiedCache11_inProgressEPK12UHashElement(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %element) local_unnamed_addr #8 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7512UnifiedCache11_inProgressEPK12UHashElement(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %element) local_unnamed_addr #8 align 2 {
 _ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE.exit.i:
   %key.i = getelementptr inbounds i8, ptr %element, i64 16
   %0 = load ptr, ptr %key.i, align 8
@@ -1430,7 +1430,7 @@ _ZNK6icu_7512UnifiedCache13removeSoftRefEPKNS_12SharedObjectE.exit: ; preds = %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7512UnifiedCache5_pollERKNS_12CacheKeyBaseERPKNS_12SharedObjectER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(13) %key, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7512UnifiedCache5_pollERKNS_12CacheKeyBaseERPKNS_12SharedObjectER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(13) %key, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lock = alloca %"class.std::unique_lock", align 8
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
@@ -1516,7 +1516,7 @@ while.body:                                       ; preds = %if.then2.i.i, %_ZNK
 invoke.cont4:                                     ; preds = %while.body
   %14 = load ptr, ptr %fHashtable, align 8
   %call7 = invoke ptr @uhash_find_75(ptr noundef %14, ptr noundef nonnull %key)
-          to label %while.cond unwind label %lpad.loopexit, !llvm.loop !9
+          to label %while.cond unwind label %lpad.loopexit, !llvm.loop !8
 
 lpad.loopexit:                                    ; preds = %while.body, %invoke.cont4
   %lpad.loopexit28 = landingpad { ptr, i32 }
@@ -1667,7 +1667,7 @@ declare void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noun
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7512UnifiedCache4_getERKNS_12CacheKeyBaseERPKNS_12SharedObjectEPKvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(13) %key, ptr nocapture noundef nonnull align 8 dereferenceable(8) %value, ptr noundef %creationContext, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
 entry:
-  %call = tail call noundef signext i8 @_ZNK6icu_7512UnifiedCache5_pollERKNS_12CacheKeyBaseERPKNS_12SharedObjectER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(13) %key, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !4
+  %call = tail call noundef signext i8 @_ZNK6icu_7512UnifiedCache5_pollERKNS_12CacheKeyBaseERPKNS_12SharedObjectER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(13) %key, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %tobool.not = icmp eq i8 %call, 0
   br i1 %tobool.not, label %if.end3, label %if.then
 
@@ -1779,7 +1779,7 @@ if.end3:                                          ; preds = %if.then, %if.then2,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_7512UnifiedCache11_inProgressEPKNS_12SharedObjectE10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef readnone %theValue, i32 noundef %creationStatus) local_unnamed_addr #10 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7512UnifiedCache11_inProgressEPKNS_12SharedObjectE10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef readnone %theValue, i32 noundef %creationStatus) local_unnamed_addr #10 align 2 {
 entry:
   %fNoValue = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %fNoValue, align 8
@@ -1875,9 +1875,8 @@ attributes #16 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i8 0, i8 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

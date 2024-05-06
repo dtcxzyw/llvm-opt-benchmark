@@ -1180,7 +1180,7 @@ declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unname
 declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @expush(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @expush(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #22
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
@@ -1325,7 +1325,7 @@ declare ptr @vmstrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @expop(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @expop(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1446,10 +1446,10 @@ define void @exinit() local_unnamed_addr #9 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @excomp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @excomp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 856
   %7 = load i32, ptr %6, align 8
-  %8 = tail call i32 @expush(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3), !range !4
+  %8 = tail call i32 @expush(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %41
 
@@ -1466,11 +1466,11 @@ define noundef i32 @excomp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 48
   store ptr %4, ptr %18, align 8
-  %19 = tail call i32 @ex_parse(), !range !5
+  %19 = tail call i32 @ex_parse()
   %20 = load ptr, ptr %12, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 44
   store i32 0, ptr %21, align 4
-  %22 = tail call i32 @expop(ptr noundef nonnull %0), !range !4
+  %22 = tail call i32 @expop(ptr noundef nonnull %0)
   store i32 %7, ptr %6, align 8
   %23 = load i32, ptr getelementptr inbounds (%struct.Exstate_s, ptr @expr, i64 0, i32 9), align 8
   %.not25 = icmp eq i32 %23, 0
@@ -1518,7 +1518,7 @@ define noundef i32 @excomp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ex_parse() local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   %1 = alloca [200 x i16], align 16
   %2 = alloca [200 x %union.EX_STYPE], align 16
   %3 = load i32, ptr @ex_debug, align 4
@@ -2084,7 +2084,7 @@ yy_reduce_print.exit._crit_edge:                  ; preds = %yy_reduce_print.exi
 233:                                              ; preds = %231
   %234 = load ptr, ptr %212, align 8
   %235 = getelementptr inbounds i8, ptr %234, i64 80
-  %236 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %235, ptr noundef nonnull dereferenceable(6) @.str.21) #26
+  %236 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %235, ptr noundef nonnull dereferenceable(6) @.str.21) #26
   %237 = icmp eq i32 %236, 0
   br i1 %237, label %.loopexit1006, label %238
 
@@ -5434,7 +5434,7 @@ extypename.exit940:                               ; preds = %1889, %1896
   store i32 80, ptr %2117, align 8
   %2121 = load ptr, ptr @expr, align 8
   %2122 = getelementptr inbounds i8, ptr %2121, i64 80
-  %2123 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2122, ptr noundef nonnull dereferenceable(6) @.str.21) #26
+  %2123 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2122, ptr noundef nonnull dereferenceable(6) @.str.21) #26
   %2124 = icmp eq i32 %2123, 0
   br i1 %2124, label %2149, label %2125
 
@@ -5892,7 +5892,7 @@ yydestruct.exit967:                               ; preds = %.lr.ph1019.split, %
   %2370 = phi i32 [ 0, %.lr.ph1019.split ], [ %.pre1085, %2355 ]
   %2371 = getelementptr inbounds i8, ptr %.61018, i64 -2
   %.not906 = icmp eq ptr %2371, %.3
-  br i1 %.not906, label %._crit_edge, label %.lr.ph1019.split, !llvm.loop !6
+  br i1 %.not906, label %._crit_edge, label %.lr.ph1019.split, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %yydestruct.exit967, %yydestruct.exit957.thread
   %.not907 = icmp eq ptr %.3, %1
@@ -6036,7 +6036,7 @@ declare void @vmclose(ptr noundef) local_unnamed_addr #1
 declare void @vmclear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @exisAssign(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @exisAssign(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 61
@@ -6121,7 +6121,7 @@ define internal fastcc void @checkName(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmpKey(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #10 {
+define internal range(i32 -1, 2) i32 @cmpKey(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #10 {
   %5 = load i64, ptr %1, align 8
   %6 = load i64, ptr %2, align 8
   %7 = icmp slt i64 %5, %6
@@ -7901,7 +7901,5 @@ attributes #29 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{i32 0, i32 3}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.partial.disable"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.unswitch.partial.disable"}

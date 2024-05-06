@@ -3403,8 +3403,8 @@ _ZN22DDBalanceRegionHandlerC2EPK9t_commrec.exit:  ; preds = %195, %261, %264
   %273 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %272, ptr %273, align 8
   call void @_Z8do_forceP8_IO_FILEPK9t_commrecPK14gmx_multisim_tRK10t_inputrecRKN3gmx18MDModulesNotifiersEPNSA_3AwhEP10gmx_enfrotPNSA_10ImdSessionEP6pull_tlP6t_nrnbP13gmx_wallcyclePK14gmx_localtop_tPA3_KfNSA_19ArrayRefWithPaddingINSA_11BasicVectorIfEEEENSA_8ArrayRefISY_EEPK9history_tPNSA_16ForceBuffersViewEPA3_fPK9t_mdatomsP14gmx_enerdata_tNS10_IST_EEP10t_forcerecRKNSA_21MdrunScheduleWorkloadEPNSA_19VirtualSitesHandlerEPfdP9gmx_edsamP24CpuPpLongRangeNonbondedsRK22DDBalanceRegionHandler(ptr noundef %211, ptr noundef %213, ptr noundef %215, ptr noundef nonnull align 8 dereferenceable(856) %216, ptr noundef nonnull align 1 %218, ptr noundef null, ptr noundef %220, ptr noundef %222, ptr noundef %224, i64 noundef %5, ptr noundef %226, ptr noundef %228, ptr noundef %230, ptr noundef nonnull %231, ptr noundef nonnull %21, ptr noundef nonnull byval(%"class.gmx::ArrayRef.321") align 8 %22, ptr noundef nonnull %247, ptr noundef nonnull %248, ptr noundef nonnull %16, ptr noundef %250, ptr noundef %252, ptr noundef nonnull byval(%"class.gmx::ArrayRef.406") align 8 %23, ptr noundef nonnull %255, ptr noundef nonnull align 1 dereferenceable(52) %256, ptr noundef %257, ptr noundef %2, double noundef %258, ptr noundef null, ptr noundef %260, ptr noundef nonnull align 8 dereferenceable(16) %24)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %17, i8 0, i64 36, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %17, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
   %274 = load ptr, ptr %212, align 8
   %275 = getelementptr inbounds i8, ptr %274, i64 48
   %276 = load i32, ptr %275, align 8
@@ -3646,7 +3646,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZNSt6vect
   %431 = phi <2 x float> [ %429, %420 ], [ %419, %373 ]
   %432 = getelementptr inbounds i8, ptr %3, i64 28
   store <2 x float> %431, ptr %432, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %18, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %18, i8 0, i64 36, i1 false)
   %433 = load ptr, ptr %169, align 8
   %434 = getelementptr inbounds i8, ptr %433, i64 8
   %435 = load i32, ptr %434, align 8
@@ -3690,7 +3690,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZNSt6vect
   %459 = getelementptr inbounds i8, ptr %1, i64 980
   %460 = getelementptr inbounds i8, ptr %1, i64 984
   %461 = getelementptr inbounds i8, ptr %1, i64 988
-  call fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi(ptr noundef %454, ptr noundef nonnull %455, ptr noundef %457, ptr %458, ptr noundef nonnull %459, ptr noundef nonnull %460, ptr noundef nonnull %461)
+  call fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi(ptr noundef %454, ptr noundef nonnull readonly %455, ptr noundef readonly %457, ptr %458, ptr noundef nonnull %459, ptr noundef nonnull %460, ptr noundef nonnull %461)
   br label %462
 
 462:                                              ; preds = %449, %453
@@ -7086,7 +7086,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %285, %_ZL14print_em
 321:                                              ; preds = %297, %293
   %.1411 = phi i32 [ %.0410831, %293 ], [ %300, %297 ]
   %322 = zext nneg i32 %.1411 to i64
-  %323 = mul i64 %indvars.iv956, 3
+  %323 = mul nuw nsw i64 %indvars.iv956, 3
   br label %324
 
 324:                                              ; preds = %321, %_ZNSt14_Bit_referenceaSEb.exit
@@ -7094,7 +7094,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %285, %_ZL14print_em
   %325 = load ptr, ptr %292, align 8
   %326 = getelementptr inbounds [3 x i32], ptr %325, i64 %322, i64 %indvars.iv
   %327 = load i32, ptr %326, align 4
-  %328 = add i64 %indvars.iv, %323
+  %328 = add nuw nsw i64 %indvars.iv, %323
   %329 = lshr i64 %328, 6
   %.zext = and i64 %329, 67108863
   %330 = getelementptr inbounds i64, ptr %.sroa.0679.0, i64 %.zext
@@ -10374,7 +10374,7 @@ _ZL14print_em_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingP13gmx_wallcy
   %299 = getelementptr inbounds i8, ptr %298, i64 720
   %300 = getelementptr inbounds i8, ptr %9, i64 912
   %301 = load ptr, ptr %300, align 8
-  invoke fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi(ptr noundef %297, ptr noundef nonnull %299, ptr noundef %39, ptr %301, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef nonnull %66)
+  invoke fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi(ptr noundef %297, ptr noundef nonnull readonly %299, ptr noundef readonly %39, ptr %301, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef nonnull %66)
           to label %302 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 302:                                              ; preds = %294

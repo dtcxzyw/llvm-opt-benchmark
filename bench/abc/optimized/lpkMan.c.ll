@@ -67,7 +67,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i, %1
 
 27:                                               ; preds = %.preheader26.us.us.i, %27
   %indvars.iv64.i = phi i64 [ 0, %.preheader26.us.us.i ], [ %indvars.iv.next65.i, %27 ]
-  %28 = trunc i64 %indvars.iv64.i to i32
+  %28 = trunc nuw nsw i64 %indvars.iv64.i to i32
   %29 = and i32 %37, %28
   %.not.us.us.i = icmp ne i32 %29, 0
   %spec.select.i = sext i1 %.not.us.us.i to i32
@@ -244,7 +244,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
 
 113:                                              ; preds = %.critedge, %113
   %indvars.iv70 = phi i64 [ 1, %.critedge ], [ %indvars.iv.next71, %113 ]
-  %114 = trunc i64 %indvars.iv70 to i32
+  %114 = trunc nuw nsw i64 %indvars.iv70 to i32
   %115 = shl i32 %114, %112
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds i32, ptr %110, i64 %116
@@ -264,7 +264,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
 
 124:                                              ; preds = %119, %124
   %indvars.iv74 = phi i64 [ 1, %119 ], [ %indvars.iv.next75, %124 ]
-  %125 = trunc i64 %indvars.iv74 to i32
+  %125 = trunc nuw nsw i64 %indvars.iv74 to i32
   %126 = shl i32 %125, %112
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds i32, ptr %122, i64 %127
@@ -284,7 +284,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
 
 135:                                              ; preds = %130, %135
   %indvars.iv78 = phi i64 [ 1, %130 ], [ %indvars.iv.next79, %135 ]
-  %136 = trunc i64 %indvars.iv78 to i32
+  %136 = trunc nuw nsw i64 %indvars.iv78 to i32
   %137 = shl i32 %136, %112
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds i32, ptr %133, i64 %138

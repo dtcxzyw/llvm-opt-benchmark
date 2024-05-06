@@ -41,13 +41,13 @@ target triple = "x86_64-pc-linux-gnu"
 @lxb_encoding_range_index_gb18030 = external local_unnamed_addr constant [207 x %struct.lxb_encoding_range_index_t], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_default(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @lxb_encoding_decode_utf_8(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !4
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_default(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call i32 @lxb_encoding_decode_utf_8(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_utf_8(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %2 to i64
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 60
@@ -637,7 +637,7 @@ define hidden noundef i32 @lxb_encoding_decode_undefined(ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_big5(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1095,7 +1095,7 @@ define hidden noundef i32 @lxb_encoding_decode_big5(ptr noundef %0, ptr nocaptur
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_euc_jp(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_jp(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1517,7 +1517,7 @@ define hidden noundef i32 @lxb_encoding_decode_euc_jp(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_euc_kr(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_kr(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1854,13 +1854,13 @@ define hidden noundef i32 @lxb_encoding_decode_euc_kr(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_gbk(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @lxb_encoding_decode_gb18030(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !4
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gbk(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call i32 @lxb_encoding_decode_gb18030(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_gb18030(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 57
@@ -2500,7 +2500,7 @@ lxb_encoding_decode_gb18030_range.exit:           ; preds = %323, %327, %329, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_ibm866(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_ibm866(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -2599,7 +2599,7 @@ define hidden noundef i32 @lxb_encoding_decode_ibm866(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 0, ptr %5, align 4
@@ -3262,7 +3262,7 @@ define hidden noundef i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_iso_8859_10(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_10(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -3361,7 +3361,7 @@ define hidden noundef i32 @lxb_encoding_decode_iso_8859_10(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_iso_8859_13(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_13(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -3460,7 +3460,7 @@ define hidden noundef i32 @lxb_encoding_decode_iso_8859_13(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_iso_8859_14(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_14(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -3559,7 +3559,7 @@ define hidden noundef i32 @lxb_encoding_decode_iso_8859_14(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_iso_8859_15(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_15(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -3658,7 +3658,7 @@ define hidden noundef i32 @lxb_encoding_decode_iso_8859_15(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_iso_8859_16(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_16(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -3757,7 +3757,7 @@ define hidden noundef i32 @lxb_encoding_decode_iso_8859_16(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_iso_8859_2(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_2(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -3856,7 +3856,7 @@ define hidden noundef i32 @lxb_encoding_decode_iso_8859_2(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_iso_8859_3(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_3(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -3955,7 +3955,7 @@ define hidden noundef i32 @lxb_encoding_decode_iso_8859_3(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_iso_8859_4(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_4(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4054,7 +4054,7 @@ define hidden noundef i32 @lxb_encoding_decode_iso_8859_4(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_iso_8859_5(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_5(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4153,7 +4153,7 @@ define hidden noundef i32 @lxb_encoding_decode_iso_8859_5(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_iso_8859_6(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_6(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4252,7 +4252,7 @@ define hidden noundef i32 @lxb_encoding_decode_iso_8859_6(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_iso_8859_7(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_7(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4351,7 +4351,7 @@ define hidden noundef i32 @lxb_encoding_decode_iso_8859_7(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_iso_8859_8(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_8(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4450,7 +4450,7 @@ define hidden noundef i32 @lxb_encoding_decode_iso_8859_8(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_iso_8859_8_i(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_8_i(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4549,7 +4549,7 @@ define hidden noundef i32 @lxb_encoding_decode_iso_8859_8_i(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_koi8_r(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_koi8_r(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4648,7 +4648,7 @@ define hidden noundef i32 @lxb_encoding_decode_koi8_r(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_koi8_u(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_koi8_u(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -4747,7 +4747,7 @@ define hidden noundef i32 @lxb_encoding_decode_koi8_u(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_shift_jis(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_shift_jis(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -5136,13 +5136,13 @@ switch.early.test:                                ; preds = %75
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_utf_16be(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call fastcc i32 @lxb_encoding_decode_utf_16(ptr noundef %0, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2), !range !4
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_16be(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call fastcc i32 @lxb_encoding_decode_utf_16(ptr noundef %0, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @lxb_encoding_decode_utf_16(ptr nocapture noundef %0, i1 noundef zeroext %1, ptr nocapture noundef %2, ptr noundef readnone %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr nocapture noundef %0, i1 noundef zeroext %1, ptr nocapture noundef %2, ptr noundef readnone %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 57
@@ -5447,8 +5447,8 @@ define internal fastcc noundef i32 @lxb_encoding_decode_utf_16(ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_utf_16le(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call fastcc i32 @lxb_encoding_decode_utf_16(ptr noundef %0, i1 noundef zeroext false, ptr noundef %1, ptr noundef %2), !range !4
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_16le(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call fastcc i32 @lxb_encoding_decode_utf_16(ptr noundef %0, i1 noundef zeroext false, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
@@ -5456,7 +5456,7 @@ define hidden noundef i32 @lxb_encoding_decode_utf_16le(ptr nocapture noundef %0
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_macintosh(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_macintosh(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -5561,7 +5561,7 @@ define hidden noundef i32 @lxb_encoding_decode_replacement(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_windows_1250(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1250(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -5660,7 +5660,7 @@ define hidden noundef i32 @lxb_encoding_decode_windows_1250(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_windows_1251(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1251(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -5759,7 +5759,7 @@ define hidden noundef i32 @lxb_encoding_decode_windows_1251(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_windows_1252(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1252(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -5858,7 +5858,7 @@ define hidden noundef i32 @lxb_encoding_decode_windows_1252(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_windows_1253(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1253(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -5957,7 +5957,7 @@ define hidden noundef i32 @lxb_encoding_decode_windows_1253(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_windows_1254(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1254(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -6056,7 +6056,7 @@ define hidden noundef i32 @lxb_encoding_decode_windows_1254(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_windows_1255(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1255(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -6155,7 +6155,7 @@ define hidden noundef i32 @lxb_encoding_decode_windows_1255(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_windows_1256(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1256(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -6254,7 +6254,7 @@ define hidden noundef i32 @lxb_encoding_decode_windows_1256(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_windows_1257(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1257(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -6353,7 +6353,7 @@ define hidden noundef i32 @lxb_encoding_decode_windows_1257(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_windows_1258(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1258(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -6452,7 +6452,7 @@ define hidden noundef i32 @lxb_encoding_decode_windows_1258(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_windows_874(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_874(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -6551,7 +6551,7 @@ define hidden noundef i32 @lxb_encoding_decode_windows_874(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_x_mac_cyrillic(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_x_mac_cyrillic(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %4, %2
   br i1 %5, label %.lr.ph, label %.loopexit
@@ -6650,7 +6650,7 @@ define hidden noundef i32 @lxb_encoding_decode_x_mac_cyrillic(ptr nocapture noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_encoding_decode_x_user_defined(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @lxb_encoding_decode_x_user_defined(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %1, align 8
   %6 = icmp ult ptr %5, %2
@@ -8607,7 +8607,7 @@ lxb_encoding_decode_utf_16_single.exit:           ; preds = %13, %27, %32, %34, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @lxb_encoding_decode_valid_utf_8_single(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 33554432) i32 @lxb_encoding_decode_valid_utf_8_single(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
@@ -8723,7 +8723,7 @@ define hidden i32 @lxb_encoding_decode_valid_utf_8_single(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i8 @lxb_encoding_decode_utf_8_length(i8 noundef zeroext %0) local_unnamed_addr #5 {
+define hidden zeroext range(i8 0, 5) i8 @lxb_encoding_decode_utf_8_length(i8 noundef zeroext %0) local_unnamed_addr #5 {
   %2 = zext i8 %0 to i32
   %3 = icmp sgt i8 %0, -1
   br i1 %3, label %13, label %4
@@ -9067,7 +9067,7 @@ define hidden i32 @lxb_encoding_decode_x_mac_cyrillic_single(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @lxb_encoding_decode_x_user_defined_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #6 {
+define hidden range(i32 0, 63488) i32 @lxb_encoding_decode_x_user_defined_single(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #6 {
   %4 = load ptr, ptr %1, align 8
   %5 = load i8, ptr %4, align 1
   %6 = getelementptr inbounds i8, ptr %4, i64 1
@@ -9094,4 +9094,3 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 16}

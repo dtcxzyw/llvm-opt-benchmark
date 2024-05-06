@@ -212,8 +212,8 @@ entry:
   %0 = load i32, ptr %m_size.i, align 4
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %1 = getelementptr i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 20
+  %1 = getelementptr inbounds i8, ptr %this, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 20
   %cmp.not5.not = icmp eq i32 %0, 0
   br i1 %cmp.not5.not, label %return, label %for.body.preheader
 
@@ -242,8 +242,8 @@ entry:
   %0 = load i32, ptr %m_size.i, align 4
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %1 = getelementptr i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 20
+  %1 = getelementptr inbounds i8, ptr %this, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 20
   %cmp.not5.not = icmp eq i32 %0, 0
   br i1 %cmp.not5.not, label %return, label %for.body.preheader
 
@@ -307,7 +307,7 @@ for.body6:                                        ; preds = %for.body6.lr.ph, %f
   %3 = load i32, ptr %arrayidx9, align 4
   store i32 %3, ptr %arrayidx12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond19.not = icmp eq i32 %0, %lftr.wideiv
   br i1 %exitcond19.not, label %for.end15, label %for.body6, !llvm.loop !7
@@ -405,8 +405,8 @@ entry:
   %0 = load i32, ptr %m_size.i, align 4
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %1 = getelementptr i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 20
+  %1 = getelementptr inbounds i8, ptr %this, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 20
   %cmp.not11.not = icmp eq i32 %0, 0
   br i1 %cmp.not11.not, label %return, label %for.body.lr.ph
 
@@ -459,7 +459,7 @@ entry:
   %m_lits = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %conv, ptr %m_lits, align 4
   %shr = lshr i64 %offset, 32
-  %conv3 = trunc i64 %shr to i32
+  %conv3 = trunc nuw i64 %shr to i32
   %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %conv3, ptr %arrayidx7, align 4
   ret void
@@ -500,7 +500,7 @@ if.then7:                                         ; preds = %entry, %_Z13dealloc
   %bf.clear3.i = and i32 %bf.load.i, -1073741824
   %bf.set4.i = or disjoint i32 %bf.clear3.i, %bf.shl.i
   %m_lits.i = getelementptr inbounds i8, ptr %call8, i64 20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_lits.i, ptr align 4 %lits, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_lits.i, ptr readonly align 4 %lits, i64 %mul.i, i1 false)
   %bf.set.i.i = or disjoint i32 %bf.set4.i, 1073725441
   store i32 %bf.set.i.i, ptr %m_removed.i, align 4
   %cmp4.not.i.i.i.i = icmp eq i32 %num_lits, 0
@@ -696,7 +696,7 @@ _ZN6id_gen2mkEv.exit:                             ; preds = %if.then.i, %_ZN6vec
   %bf.set22.i = or disjoint i32 %bf.set4.i, 1073725440
   store i32 %bf.set22.i, ptr %m_removed.i, align 4
   %m_lits.i = getelementptr inbounds i8, ptr %call2, i64 20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_lits.i, ptr align 4 %lits, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_lits.i, ptr readonly align 4 %lits, i64 %mul.i, i1 false)
   %bf.set.i.i = or i32 %bf.set4.i, 1073725441
   store i32 %bf.set.i.i, ptr %m_removed.i, align 4
   %cmp4.not.i.i.i.i = icmp eq i32 %num_lits, 0
@@ -970,7 +970,7 @@ _ZN6id_gen2mkEv.exit:                             ; preds = %if.then.i, %_ZN6vec
   %m_lits.i = getelementptr inbounds i8, ptr %call3, i64 20
   %conv23.i = zext i32 %7 to i64
   %mul.i17 = shl nuw nsw i64 %conv23.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_lits.i, ptr nonnull align 4 %m_lits, i64 %mul.i17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %m_lits.i, ptr nonnull readonly align 4 %m_lits, i64 %mul.i17, i1 false)
   %bf.set.i.i = or i32 %bf.set4.i, 1073725441
   store i32 %bf.set.i.i, ptr %m_removed.i, align 4
   %cmp4.not.i.i.i.i = icmp eq i32 %7, 0

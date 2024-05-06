@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   switch i32 %3, label %ddWindow2.exit [
     i32 8, label %5
     i32 9, label %21
@@ -94,9 +94,9 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %41, label %42, label %ddWindow2.exit
 
 42:                                               ; preds = %.preheader.i
-  %43 = tail call fastcc i32 @ddPermuteWindow3(ptr noundef %0, i32 noundef %.012.i), !range !6
+  %43 = tail call fastcc i32 @ddPermuteWindow3(ptr noundef %0, i32 noundef %.012.i)
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %ddWindow2.exit, label %.preheader.i, !llvm.loop !7
+  br i1 %44, label %ddWindow2.exit, label %.preheader.i, !llvm.loop !6
 
 45:                                               ; preds = %4
   %46 = sub nsw i32 %2, %1
@@ -153,28 +153,28 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %68, label %69, label %ddWindow2.exit
 
 69:                                               ; preds = %.preheader.i.i
-  %70 = tail call fastcc i32 @ddPermuteWindow3(ptr noundef %0, i32 noundef %.012.i.i), !range !6
+  %70 = tail call fastcc i32 @ddPermuteWindow3(ptr noundef %0, i32 noundef %.012.i.i)
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %ddWindow2.exit, label %.preheader.i.i, !llvm.loop !7
+  br i1 %71, label %ddWindow2.exit, label %.preheader.i.i, !llvm.loop !6
 
 72:                                               ; preds = %.lr.ph.i
   %73 = add nsw i32 %.01217.i, 1
   %74 = add nsw i32 %.01217.i, 3
   %75 = icmp slt i32 %74, %2
-  br i1 %75, label %.lr.ph.i, label %ddWindow2.exit, !llvm.loop !8
+  br i1 %75, label %.lr.ph.i, label %ddWindow2.exit, !llvm.loop !7
 
 .lr.ph.i:                                         ; preds = %.preheader.i22, %72
   %.01217.i = phi i32 [ %73, %72 ], [ %1, %.preheader.i22 ]
-  %76 = tail call fastcc i32 @ddPermuteWindow4(ptr noundef %0, i32 noundef %.01217.i), !range !9
+  %76 = tail call fastcc i32 @ddPermuteWindow4(ptr noundef %0, i32 noundef %.01217.i)
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %ddWindow2.exit, label %72
 
 78:                                               ; preds = %4
-  %79 = tail call fastcc i32 @ddWindowConv2(ptr noundef %0, i32 noundef %1, i32 noundef %2), !range !10
+  %79 = tail call fastcc i32 @ddWindowConv2(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %ddWindow2.exit
 
 80:                                               ; preds = %4
-  %81 = tail call fastcc i32 @ddWindowConv3(ptr noundef %0, i32 noundef %1, i32 noundef %2), !range !10
+  %81 = tail call fastcc i32 @ddWindowConv3(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %ddWindow2.exit
 
 82:                                               ; preds = %4
@@ -183,7 +183,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %82
-  %86 = tail call fastcc i32 @ddWindowConv3(ptr noundef %0, i32 noundef %1, i32 noundef %2), !range !10
+  %86 = tail call fastcc i32 @ddWindowConv3(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %ddWindow2.exit
 
 87:                                               ; preds = %82
@@ -219,7 +219,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
 103:                                              ; preds = %.lr.ph139.us.i
   %104 = trunc i64 %indvars.iv143.i to i32
   %105 = add i32 %104, %1
-  %106 = tail call fastcc i32 @ddPermuteWindow4(ptr noundef %0, i32 noundef %105), !range !9
+  %106 = tail call fastcc i32 @ddPermuteWindow4(ptr noundef %0, i32 noundef %105)
   switch i32 %106, label %.split141.us.i [
     i32 1, label %.thread.us.i
     i32 7, label %171
@@ -252,7 +252,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %107
-  %110 = getelementptr i8, ptr %101, i64 8
+  %110 = getelementptr inbounds i8, ptr %101, i64 8
   store i32 1, ptr %110, align 4
   br label %111
 
@@ -265,7 +265,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %113
-  %116 = getelementptr i8, ptr %101, i64 8
+  %116 = getelementptr inbounds i8, ptr %101, i64 8
   store i32 1, ptr %116, align 4
   br label %117
 
@@ -274,7 +274,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
-  %120 = getelementptr i8, ptr %101, i64 4
+  %120 = getelementptr inbounds i8, ptr %101, i64 4
   store i32 1, ptr %120, align 4
   br label %121
 
@@ -293,7 +293,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %126, label %127, label %129
 
 127:                                              ; preds = %125
-  %128 = getelementptr i8, ptr %101, i64 12
+  %128 = getelementptr inbounds i8, ptr %101, i64 12
   store i32 1, ptr %128, align 4
   br label %129
 
@@ -302,7 +302,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %129
-  %132 = getelementptr i8, ptr %101, i64 8
+  %132 = getelementptr inbounds i8, ptr %101, i64 8
   store i32 1, ptr %132, align 4
   br label %133
 
@@ -311,7 +311,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %133
-  %136 = getelementptr i8, ptr %101, i64 4
+  %136 = getelementptr inbounds i8, ptr %101, i64 4
   store i32 1, ptr %136, align 4
   br label %137
 
@@ -336,7 +336,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %144, label %145, label %147
 
 145:                                              ; preds = %143
-  %146 = getelementptr i8, ptr %101, i64 12
+  %146 = getelementptr inbounds i8, ptr %101, i64 12
   store i32 1, ptr %146, align 4
   br label %147
 
@@ -345,7 +345,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %148, label %149, label %151
 
 149:                                              ; preds = %147
-  %150 = getelementptr i8, ptr %101, i64 8
+  %150 = getelementptr inbounds i8, ptr %101, i64 8
   store i32 1, ptr %150, align 4
   br label %151
 
@@ -364,7 +364,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %155, label %156, label %158
 
 156:                                              ; preds = %154
-  %157 = getelementptr i8, ptr %101, i64 12
+  %157 = getelementptr inbounds i8, ptr %101, i64 12
   store i32 1, ptr %157, align 4
   br label %158
 
@@ -377,7 +377,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159
-  %162 = getelementptr i8, ptr %101, i64 12
+  %162 = getelementptr inbounds i8, ptr %101, i64 12
   store i32 1, ptr %162, align 4
   br label %163
 
@@ -386,7 +386,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %164, label %165, label %167
 
 165:                                              ; preds = %163
-  %166 = getelementptr i8, ptr %101, i64 4
+  %166 = getelementptr inbounds i8, ptr %101, i64 4
   store i32 1, ptr %166, align 4
   br label %167
 
@@ -405,7 +405,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %172, label %173, label %175
 
 173:                                              ; preds = %171
-  %174 = getelementptr i8, ptr %101, i64 4
+  %174 = getelementptr inbounds i8, ptr %101, i64 4
   store i32 1, ptr %174, align 4
   br label %175
 
@@ -433,7 +433,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
 .lr.ph139.us.i.backedge:                          ; preds = %178, %._crit_edge.us.i
   %indvars.iv143.i.be = phi i64 [ %indvars.iv.next144.i, %178 ], [ 0, %._crit_edge.us.i ]
   %.0138.us.i.be = phi i32 [ %.2.us.i, %178 ], [ 0, %._crit_edge.us.i ]
-  br label %.lr.ph139.us.i, !llvm.loop !11
+  br label %.lr.ph139.us.i, !llvm.loop !8
 
 ._crit_edge.us.i:                                 ; preds = %178
   %.not.us.i = icmp eq i32 %.2.us.i, 0
@@ -445,7 +445,7 @@ define noundef i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i32 nounde
   store i32 1, ptr %179, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i, %89
-  br i1 %exitcond.not.i26, label %.lr.ph139.us.preheader.i, label %.lr.ph.i25, !llvm.loop !12
+  br i1 %exitcond.not.i26, label %.lr.ph139.us.preheader.i, label %.lr.ph.i25, !llvm.loop !9
 
 .split141.us.i:                                   ; preds = %103
   tail call void @free(ptr noundef nonnull %91) #5
@@ -461,7 +461,7 @@ ddWindow2.exit:                                   ; preds = %.lr.ph.i, %72, %66,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ddWindowConv2(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ddWindowConv2(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = sub nsw i32 %2, %1
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %tailrecurse, label %6
@@ -487,7 +487,7 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
   store i32 1, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond.not, label %14, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not, label %14, label %.preheader, !llvm.loop !10
 
 14:                                               ; preds = %.preheader
   %15 = getelementptr inbounds i8, ptr %0, i64 228
@@ -545,7 +545,7 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %40
-  %43 = getelementptr i8, ptr %23, i64 4
+  %43 = getelementptr inbounds i8, ptr %23, i64 4
   store i32 1, ptr %43, align 4
   br label %44
 
@@ -573,7 +573,7 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
 .backedge:                                        ; preds = %48, %49
   %indvars.iv80.be = phi i64 [ %indvars.iv.next81, %48 ], [ 0, %49 ]
   %.05578.be = phi i32 [ %.2, %48 ], [ 0, %49 ]
-  br label %22, !llvm.loop !14
+  br label %22, !llvm.loop !11
 
 49:                                               ; preds = %48
   %.not = icmp eq i32 %.2, 0
@@ -589,13 +589,13 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ddWindowConv3(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = sub nsw i32 %2, %1
   %5 = icmp slt i32 %4, 2
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %3
-  %7 = tail call fastcc i32 @ddWindowConv2(ptr noundef %0, i32 noundef %1, i32 noundef %2), !range !10
+  %7 = tail call fastcc i32 @ddWindowConv2(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %51
 
 8:                                                ; preds = %3
@@ -635,7 +635,7 @@ define internal fastcc noundef i32 @ddWindowConv3(ptr noundef %0, i32 noundef %1
 22:                                               ; preds = %.lr.ph75.us
   %23 = trunc i64 %indvars.iv79 to i32
   %24 = add i32 %23, %1
-  %25 = tail call fastcc i32 @ddPermuteWindow3(ptr noundef %0, i32 noundef %24), !range !6
+  %25 = tail call fastcc i32 @ddPermuteWindow3(ptr noundef %0, i32 noundef %24)
   switch i32 %25, label %.split77.us [
     i32 1, label %.thread.us
     i32 2, label %42
@@ -650,7 +650,7 @@ define internal fastcc noundef i32 @ddWindowConv3(ptr noundef %0, i32 noundef %1
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
-  %29 = getelementptr i8, ptr %20, i64 8
+  %29 = getelementptr inbounds i8, ptr %20, i64 8
   store i32 1, ptr %29, align 4
   br label %30
 
@@ -663,7 +663,7 @@ define internal fastcc noundef i32 @ddWindowConv3(ptr noundef %0, i32 noundef %1
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
-  %34 = getelementptr i8, ptr %20, i64 8
+  %34 = getelementptr inbounds i8, ptr %20, i64 8
   store i32 1, ptr %34, align 4
   br label %35
 
@@ -672,7 +672,7 @@ define internal fastcc noundef i32 @ddWindowConv3(ptr noundef %0, i32 noundef %1
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %35
-  %38 = getelementptr i8, ptr %20, i64 4
+  %38 = getelementptr inbounds i8, ptr %20, i64 4
   store i32 1, ptr %38, align 4
   br label %39
 
@@ -691,7 +691,7 @@ define internal fastcc noundef i32 @ddWindowConv3(ptr noundef %0, i32 noundef %1
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = getelementptr i8, ptr %20, i64 4
+  %45 = getelementptr inbounds i8, ptr %20, i64 4
   store i32 1, ptr %45, align 4
   br label %46
 
@@ -719,7 +719,7 @@ define internal fastcc noundef i32 @ddWindowConv3(ptr noundef %0, i32 noundef %1
 .lr.ph75.us.backedge:                             ; preds = %49, %._crit_edge.us
   %indvars.iv79.be = phi i64 [ %indvars.iv.next80, %49 ], [ 0, %._crit_edge.us ]
   %.074.us.be = phi i32 [ %.2.us, %49 ], [ 0, %._crit_edge.us ]
-  br label %.lr.ph75.us, !llvm.loop !15
+  br label %.lr.ph75.us, !llvm.loop !12
 
 ._crit_edge.us:                                   ; preds = %49
   %.not.us = icmp eq i32 %.2.us, 0
@@ -731,7 +731,7 @@ define internal fastcc noundef i32 @ddWindowConv3(ptr noundef %0, i32 noundef %1
   store i32 1, ptr %50, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph75.us.preheader, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.lr.ph75.us.preheader, label %.lr.ph, !llvm.loop !13
 
 .split77.us:                                      ; preds = %22
   tail call void @free(ptr noundef nonnull %12) #5
@@ -755,7 +755,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ddPermuteWindow3(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 7) i32 @ddPermuteWindow3(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 228
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 304
@@ -862,7 +862,7 @@ default.unreachable73:                            ; preds = %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ddPermuteWindow4(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 228
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 304
@@ -1411,14 +1411,11 @@ attributes #6 = { nounwind allocsize(0) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 7}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 25}
-!10 = !{i32 0, i32 2}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

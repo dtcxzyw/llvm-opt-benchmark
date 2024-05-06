@@ -1275,7 +1275,7 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %.noexc374
   br i1 %.0245, label %413, label %415
 
 413:                                              ; preds = %412
-  %414 = trunc i8 %.1249 to i1
+  %414 = trunc nuw i8 %.1249 to i1
   %.not311 = xor i1 %2, true
   %brmerge312 = or i1 %.not311, %414
   br i1 %brmerge312, label %548, label %416
@@ -1666,7 +1666,7 @@ _ZN8nanobind6objectD2Ev.exit392:                  ; preds = %514, %537, %534, %5
   br i1 %brmerge317.demorgan, label %549, label %_ZN8nanobind3strD2Ev.exit396
 
 549:                                              ; preds = %548
-  %550 = trunc i8 %.1249 to i1
+  %550 = trunc nuw i8 %.1249 to i1
   br i1 %550, label %551, label %_ZN8nanobind3strD2Ev.exit396
 
 551:                                              ; preds = %549
@@ -3493,7 +3493,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %1, %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi(ptr noundef %0, ptr nocapture noundef %1, i32 %2) #8 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 -1, 1) i32 @_ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_objectP10bufferinfoi(ptr noundef %0, ptr nocapture noundef %1, i32 %2) #8 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -3558,7 +3558,7 @@ define internal noundef i32 @_ZN8nanobind6detailL19nd_ndarray_tpbufferEP7_object
   br label %37
 
 switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc i32 %17 to i8
+  %switch.maskindex = trunc nuw i32 %17 to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split
@@ -3570,7 +3570,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %37
 
 switch.hole_check77:                              ; preds = %19
-  %switch.maskindex79 = trunc i32 %24 to i8
+  %switch.maskindex79 = trunc nuw i32 %24 to i8
   %switch.shifted80 = lshr i8 -117, %switch.maskindex79
   %switch.lobit81 = trunc i8 %switch.shifted80 to i1
   br i1 %switch.lobit81, label %switch.lookup78, label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit56.sink.split

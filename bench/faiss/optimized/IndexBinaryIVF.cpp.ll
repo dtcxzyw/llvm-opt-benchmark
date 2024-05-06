@@ -1254,7 +1254,7 @@ define void @_ZNK5faiss14IndexBinaryIVF22search_and_reconstructElPKhlPiPlPhPKNS_
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %.05183.us = phi i64 [ %119, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %94 = mul nsw i64 %.05183.us, %3
+  %94 = mul nuw nsw i64 %.05183.us, %3
   br label %95
 
 95:                                               ; preds = %.preheader.us, %117

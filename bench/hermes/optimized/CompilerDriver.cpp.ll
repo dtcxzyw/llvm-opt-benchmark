@@ -8800,7 +8800,7 @@ if.then:                                          ; preds = %entry, %_ZNSt3mapIj
   %_M_storage.i.i.i.i.i7 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
   store i32 %__k.val, ptr %_M_storage.i.i.i.i.i7, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %second.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %call7.i = tail call fastcc { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjSt6vectorIN12_GLOBAL__N_115ModuleInSegmentESaIS4_EEESt10_Select1stIS7_ESt4lessIjESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i13, i32 %__k.val)
   %3 = extractvalue { ptr, ptr } %call7.i, 0
   %4 = extractvalue { ptr, ptr } %call7.i, 1

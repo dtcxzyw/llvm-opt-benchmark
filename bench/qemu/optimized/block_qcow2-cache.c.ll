@@ -108,7 +108,7 @@ while.body4:                                      ; preds = %land.rhs, %land.lhs
   br i1 %cmp3, label %land.rhs, label %while.end19, !llvm.loop !5
 
 while.end:                                        ; preds = %can_clean_entry.exit
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nsw i64 %indvars.iv to i32
   %cmp741 = icmp sgt i32 %3, %12
   br i1 %cmp741, label %land.rhs8.preheader, label %if.end
 
@@ -233,7 +233,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = tail call i32 @llvm.ctpop.i32(i32 %table_size), !range !9
+  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %table_size)
   %or.cond19 = icmp eq i32 %1, 1
   br i1 %or.cond19, label %if.end3, label %if.else2
 
@@ -323,7 +323,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
@@ -347,7 +347,7 @@ for.end:                                          ; preds = %for.cond, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_cache_write(ptr noundef %bs, ptr noundef %c) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_write(ptr noundef %bs, ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -399,7 +399,7 @@ trace_qcow2_cache_flush.exit:                     ; preds = %entry, %land.lhs.tr
 for.body:                                         ; preds = %trace_qcow2_cache_flush.exit, %for.body
   %i.010 = phi i32 [ %inc, %for.body ], [ 0, %trace_qcow2_cache_flush.exit ]
   %result.09 = phi i32 [ %spec.select, %for.body ], [ 0, %trace_qcow2_cache_flush.exit ]
-  %call3 = tail call fastcc i32 @qcow2_cache_entry_flush(ptr noundef %bs, ptr noundef nonnull %c, i32 noundef %i.010), !range !11
+  %call3 = tail call fastcc i32 @qcow2_cache_entry_flush(ptr noundef %bs, ptr noundef nonnull %c, i32 noundef %i.010)
   %cmp4 = icmp slt i32 %call3, 0
   %cmp6 = icmp ne i32 %result.09, -28
   %or.cond = select i1 %cmp4, i1 %cmp6, i1 false
@@ -407,7 +407,7 @@ for.body:                                         ; preds = %trace_qcow2_cache_f
   %inc = add nuw nsw i32 %i.010, 1
   %9 = load i32, ptr %size, align 8
   %cmp1 = icmp slt i32 %inc, %9
-  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %trace_qcow2_cache_flush.exit
   %result.0.lcssa = phi i32 [ 0, %trace_qcow2_cache_flush.exit ], [ %spec.select, %for.body ]
@@ -417,7 +417,7 @@ for.end:                                          ; preds = %for.body, %trace_qc
 declare ptr @qemu_coroutine_self() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qcow2_cache_entry_flush(ptr noundef %bs, ptr noundef %c, i32 noundef %i) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @qcow2_cache_entry_flush(ptr noundef %bs, ptr noundef %c, i32 noundef %i) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -481,7 +481,7 @@ trace_qcow2_cache_entry_flush.exit:               ; preds = %if.end, %land.lhs.t
   br i1 %tobool5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %trace_qcow2_cache_entry_flush.exit
-  %call.i51 = tail call i32 @qcow2_cache_write(ptr noundef nonnull %bs, ptr noundef nonnull %11), !range !11
+  %call.i51 = tail call i32 @qcow2_cache_write(ptr noundef nonnull %bs, ptr noundef nonnull %11)
   %cmp.i52 = icmp eq i32 %call.i51, 0
   br i1 %cmp.i52, label %if.then.i, label %return
 
@@ -617,7 +617,7 @@ return:                                           ; preds = %if.then.i, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcow2_cache_flush(ptr noundef %bs, ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @qcow2_cache_write(ptr noundef %bs, ptr noundef %c), !range !11
+  %call = tail call i32 @qcow2_cache_write(ptr noundef %bs, ptr noundef %c)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end5
 
@@ -637,7 +637,7 @@ if.end5:                                          ; preds = %if.then, %entry
 declare i32 @bdrv_flush(ptr noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_cache_set_dependency(ptr noundef %bs, ptr nocapture noundef %c, ptr noundef %dependency) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_set_dependency(ptr noundef %bs, ptr nocapture noundef %c, ptr noundef %dependency) local_unnamed_addr #0 {
 entry:
   %depends = getelementptr inbounds i8, ptr %dependency, i64 8
   %0 = load ptr, ptr %depends, align 8
@@ -645,7 +645,7 @@ entry:
   br i1 %tobool.not, label %if.end2, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i.i = tail call i32 @qcow2_cache_write(ptr noundef %bs, ptr noundef nonnull %0), !range !11
+  %call.i.i = tail call i32 @qcow2_cache_write(ptr noundef %bs, ptr noundef nonnull %0)
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i, label %qcow2_cache_flush.exit.i, label %return
 
@@ -672,7 +672,7 @@ if.end2:                                          ; preds = %qcow2_cache_flush_d
   br i1 %or.cond, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end2
-  %call.i.i12 = tail call i32 @qcow2_cache_write(ptr noundef %bs, ptr noundef nonnull %3), !range !11
+  %call.i.i12 = tail call i32 @qcow2_cache_write(ptr noundef %bs, ptr noundef nonnull %3)
   %cmp.i.i13 = icmp eq i32 %call.i.i12, 0
   br i1 %cmp.i.i13, label %qcow2_cache_flush.exit.i15, label %return
 
@@ -707,9 +707,9 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_cache_empty(ptr noundef %bs, ptr noundef %c) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_empty(ptr noundef %bs, ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @qcow2_cache_write(ptr noundef %bs, ptr noundef %c), !range !11
+  %call.i = tail call i32 @qcow2_cache_write(ptr noundef %bs, ptr noundef %c)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %qcow2_cache_flush.exit, label %return
 
@@ -753,7 +753,7 @@ if.end4:                                          ; preds = %for.body
   %6 = load i32, ptr %size, align 8
   %7 = sext i32 %6 to i64
   %cmp1 = icmp slt i64 %indvars.iv.next, %7
-  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %if.end4, %for.cond.preheader.for.end_crit_edge
   %conv3.i.pre-phi = phi i64 [ %.pre, %for.cond.preheader.for.end_crit_edge ], [ %7, %if.end4 ]
@@ -797,14 +797,14 @@ return:                                           ; preds = %entry, %qcow2_cache
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_cache_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr nocapture noundef writeonly %table) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr nocapture noundef writeonly %table) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @qcow2_cache_do_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr noundef %table, i1 noundef zeroext true), !range !11
+  %call = tail call fastcc i32 @qcow2_cache_do_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr noundef %table, i1 noundef zeroext true)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qcow2_cache_do_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr nocapture noundef writeonly %table, i1 noundef zeroext %read_from_disk) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @qcow2_cache_do_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr nocapture noundef writeonly %table, i1 noundef zeroext %read_from_disk) unnamed_addr #0 {
 entry:
   %_now.i.i92 = alloca %struct.timeval, align 8
   %_now.i.i74 = alloca %struct.timeval, align 8
@@ -927,7 +927,7 @@ if.end24:                                         ; preds = %land.lhs.true, %if.
   %cmp26 = icmp eq i32 %inc, %11
   %spec.store.select = select i1 %cmp26, i32 0, i32 %inc
   %cmp30.not = icmp eq i32 %spec.store.select, %conv12
-  br i1 %cmp30.not, label %do.end, label %do.body, !llvm.loop !14
+  br i1 %cmp30.not, label %do.end, label %do.body, !llvm.loop !12
 
 do.end:                                           ; preds = %if.end24
   %cmp32 = icmp eq i32 %min_lru_index.1, -1
@@ -976,7 +976,7 @@ if.else.i.i69:                                    ; preds = %if.then.i.i67
 
 trace_qcow2_cache_get_replace_entry.exit:         ; preds = %if.end35, %land.lhs.true5.i.i64, %if.then8.i.i70, %if.else.i.i69
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i60)
-  %call40 = tail call fastcc i32 @qcow2_cache_entry_flush(ptr noundef %bs, ptr noundef nonnull %c, i32 noundef %min_lru_index.1), !range !11
+  %call40 = tail call fastcc i32 @qcow2_cache_entry_flush(ptr noundef %bs, ptr noundef nonnull %c, i32 noundef %min_lru_index.1)
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %return, label %if.end44
 
@@ -1122,9 +1122,9 @@ return:                                           ; preds = %if.end67, %trace_qc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_cache_get_empty(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr nocapture noundef writeonly %table) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_get_empty(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr nocapture noundef writeonly %table) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @qcow2_cache_do_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr noundef %table, i1 noundef zeroext false), !range !11
+  %call = tail call fastcc i32 @qcow2_cache_do_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr noundef %table, i1 noundef zeroext false)
   ret i32 %call
 }
 
@@ -1260,7 +1260,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
@@ -1434,10 +1434,8 @@ attributes #14 = { nounwind allocsize(0,1) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 33}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 -2147483648, i32 1}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}

@@ -146,17 +146,17 @@ $_ZTI23FogShaderConstantSetter = comdat any
 @.str.22 = private unnamed_addr constant [6 x i8] c"vsync\00", align 1
 @.str.23 = private unnamed_addr constant [13 x i8] c"antialiasing\00", align 1
 @.str.24 = private unnamed_addr constant [5 x i8] c"fsaa\00", align 1
-@tracestream = external thread_local global %class.LogStream, align 8
+@tracestream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.25 = private unnamed_addr constant [7 x i8] c"client\00", align 1
 @.str.26 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 @.str.27 = private unnamed_addr constant [8 x i8] c"shaders\00", align 1
 @.str.28 = private unnamed_addr constant [9 x i8] c"Irrlicht\00", align 1
 @_ZN7porting10path_shareB5cxx11E = external local_unnamed_addr global %"class.std::__cxx11::basic_string", align 8
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.29 = private unnamed_addr constant [11 x i8] c"Using the \00", align 1
 @.str.30 = private unnamed_addr constant [14 x i8] c" video driver\00", align 1
 @.str.31 = private unnamed_addr constant [29 x i8] c"/textures/base/pack/logo.png\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.32 = private unnamed_addr constant [26 x i8] c"Could not load icon file.\00", align 1
 @g_fontengine = external local_unnamed_addr global ptr, align 8
 @.str.33 = private unnamed_addr constant [12 x i8] c"menu_clouds\00", align 1
@@ -200,7 +200,7 @@ $_ZTI23FogShaderConstantSetter = comdat any
 @_ZTI21IShaderConstantSetter = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS21IShaderConstantSetter }, comdat, align 8
 @_ZTI23FogShaderConstantSetter = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS23FogShaderConstantSetter, ptr @_ZTI21IShaderConstantSetter }, comdat, align 8
 @.str.54 = private unnamed_addr constant [13 x i8] c"video_driver\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.55 = private unnamed_addr constant [33 x i8] c"Invalid video_driver specified: \00", align 1
 @.str.56 = private unnamed_addr constant [10 x i8] c"1.9.0mt15\00", align 1
 @.str.58 = private unnamed_addr constant [26 x i8] c"Failed to initialize the \00", align 1
@@ -2147,22 +2147,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit707: ; preds = %if
   %PrivateData32.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 72
   store ptr %192, ptr %PrivateData32.i.i, align 8, !tbaa !103
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %OGLES2ShaderPath.i74, ptr noundef nonnull align 8 dereferenceable(32) %OGLES2ShaderPath)
-          to label %invoke.cont238 unwind label %lpad.i77
+          to label %invoke.cont238 unwind label %lpad.i78
 
-lpad.i77:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit707
+lpad.i78:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit707
   %193 = landingpad { ptr, i32 }
           cleanup
   %194 = load ptr, ptr %OGLES2ShaderPath.i74, align 8, !tbaa !11
-  %cmp.i.i.i.i.i78 = icmp eq ptr %194, %183
-  br i1 %cmp.i.i.i.i.i78, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i79, label %if.then.i.i.i.i
+  %cmp.i.i.i.i.i79 = icmp eq ptr %194, %183
+  br i1 %cmp.i.i.i.i.i79, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i80, label %if.then.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i79: ; preds = %lpad.i77
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i80: ; preds = %lpad.i78
   %195 = load i64, ptr %_M_string_length.i.i.i.i.i75, align 8, !tbaa !14
-  %cmp3.i.i.i.i.i80 = icmp ult i64 %195, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i80)
+  %cmp3.i.i.i.i.i81 = icmp ult i64 %195, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i81)
   br label %ehcleanup290
 
-if.then.i.i.i.i:                                  ; preds = %lpad.i77
+if.then.i.i.i.i:                                  ; preds = %lpad.i78
   call void @_ZdlPv(ptr noundef %194) #26
   br label %ehcleanup290
 
@@ -2866,8 +2866,8 @@ lpad272:                                          ; preds = %invoke.cont281, %in
           cleanup
   br label %ehcleanup290
 
-ehcleanup290:                                     ; preds = %lpad237, %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i79, %lpad272, %if.then.i.i.i.i867, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i868, %ehcleanup234, %lpad.i787
-  %.pn329 = phi { ptr, i32 } [ %.pn325.pn.pn, %ehcleanup234 ], [ %eh.lpad-body756, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i868 ], [ %eh.lpad-body756, %if.then.i.i.i.i867 ], [ %280, %lpad272 ], [ %240, %lpad.i787 ], [ %276, %lpad237 ], [ %193, %if.then.i.i.i.i ], [ %193, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i79 ]
+ehcleanup290:                                     ; preds = %lpad237, %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i80, %lpad272, %if.then.i.i.i.i867, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i868, %ehcleanup234, %lpad.i787
+  %.pn329 = phi { ptr, i32 } [ %.pn325.pn.pn, %ehcleanup234 ], [ %eh.lpad-body756, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i868 ], [ %eh.lpad-body756, %if.then.i.i.i.i867 ], [ %280, %lpad272 ], [ %240, %lpad.i787 ], [ %276, %lpad237 ], [ %193, %if.then.i.i.i.i ], [ %193, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i80 ]
   %281 = load ptr, ptr %rel_path, align 8, !tbaa !11
   %cmp.i.i.i872 = icmp eq ptr %281, %120
   br i1 %cmp.i.i.i872, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i875, label %if.then.i.i873
@@ -3612,7 +3612,7 @@ if.then:                                          ; preds = %entry
   %call4 = tail call i64 @_ZNK13RenderingCore14getVirtualSizeEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %retval.sroa.0.0.extract.trunc = trunc i64 %call4 to i32
   %retval.sroa.3.0.extract.shift = lshr i64 %call4, 32
-  %retval.sroa.3.0.extract.trunc = trunc i64 %retval.sroa.3.0.extract.shift to i32
+  %retval.sroa.3.0.extract.trunc = trunc nuw i64 %retval.sroa.3.0.extract.shift to i32
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4195,7 +4195,7 @@ if.then.i.i:                                      ; preds = %cond.end.i
   %call4.i.i = tail call i64 @_ZNK13RenderingCore14getVirtualSizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %retval.sroa.0.0.extract.trunc.i.i = trunc i64 %call4.i.i to i32
   %retval.sroa.3.0.extract.shift.i.i = lshr i64 %call4.i.i, 32
-  %retval.sroa.3.0.extract.trunc.i.i = trunc i64 %retval.sroa.3.0.extract.shift.i.i to i32
+  %retval.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %retval.sroa.3.0.extract.shift.i.i to i32
   br label %_ZN15RenderingEngine13getWindowSizeEv.exit
 
 if.end.i.i:                                       ; preds = %cond.end.i
@@ -6070,17 +6070,17 @@ entry:
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fog_color, align 4, !tbaa !64
   %shr.i.i = lshr i32 %agg.tmp.sroa.0.0.copyload, 16
   %and.i.i = and i32 %shr.i.i, 255
-  %conv.i = uitofp i32 %and.i.i to float
+  %conv.i = uitofp nneg i32 %and.i.i to float
   %mul.i = fmul nsz float %conv.i, 0x3F70101020000000
   %shr.i11.i = lshr i32 %agg.tmp.sroa.0.0.copyload, 8
   %and.i12.i = and i32 %shr.i11.i, 255
-  %conv3.i = uitofp i32 %and.i12.i to float
+  %conv3.i = uitofp nneg i32 %and.i12.i to float
   %mul4.i = fmul nsz float %conv3.i, 0x3F70101020000000
   %and.i13.i = and i32 %agg.tmp.sroa.0.0.copyload, 255
-  %conv6.i = uitofp i32 %and.i13.i to float
+  %conv6.i = uitofp nneg i32 %and.i13.i to float
   %mul7.i = fmul nsz float %conv6.i, 0x3F70101020000000
   %shr.i14.i = lshr i32 %agg.tmp.sroa.0.0.copyload, 24
-  %conv9.i = uitofp i32 %shr.i14.i to float
+  %conv9.i = uitofp nneg i32 %shr.i14.i to float
   %mul10.i = fmul nsz float %conv9.i, 0x3F70101020000000
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %array.i) #25
   store float %mul.i, ptr %array.i, align 16, !tbaa !24

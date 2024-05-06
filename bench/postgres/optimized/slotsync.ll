@@ -1400,11 +1400,11 @@ drop_local_obsolete_slots.exit:                   ; preds = %230, %.lr.ph.i, %ge
   %252 = call i32 @errcode(i32 noundef 325) #15
   %253 = load i64, ptr %245, align 8
   %254 = lshr i64 %253, 32
-  %255 = trunc i64 %254 to i32
+  %255 = trunc nuw i64 %254 to i32
   %256 = trunc i64 %253 to i32
   %257 = load ptr, ptr %240, align 8
   %258 = lshr i64 %244, 32
-  %259 = trunc i64 %258 to i32
+  %259 = trunc nuw i64 %258 to i32
   %260 = trunc i64 %244 to i32
   %261 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, i32 noundef %255, i32 noundef %256, ptr noundef %257, i32 noundef %259, i32 noundef %260) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 500, ptr noundef nonnull @__func__.synchronize_one_slot) #15
@@ -1487,7 +1487,7 @@ drop_local_obsolete_slots.exit:                   ; preds = %230, %.lr.ph.i, %ge
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %.thread80.i
-  %296 = call fastcc zeroext i1 @update_and_persist_local_synced_slot(ptr noundef nonnull %240, i32 noundef %243)
+  %296 = call fastcc zeroext i1 @update_and_persist_local_synced_slot(ptr noundef nonnull readonly %240, i32 noundef %243)
   br label %382
 
 297:                                              ; preds = %.thread80.i
@@ -1506,18 +1506,18 @@ drop_local_obsolete_slots.exit:                   ; preds = %230, %.lr.ph.i, %ge
   %307 = load ptr, ptr %240, align 8
   %308 = load i64, ptr %305, align 8
   %309 = lshr i64 %308, 32
-  %310 = trunc i64 %309 to i32
+  %310 = trunc nuw i64 %309 to i32
   %311 = trunc i64 %308 to i32
   %312 = load i64, ptr %304, align 8
   %313 = lshr i64 %312, 32
-  %314 = trunc i64 %313 to i32
+  %314 = trunc nuw i64 %313 to i32
   %315 = trunc i64 %312 to i32
   %316 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35, ptr noundef %307, i32 noundef %310, i32 noundef %311, i32 noundef %314, i32 noundef %315) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 582, ptr noundef nonnull @__func__.synchronize_one_slot) #15
   unreachable
 
 317:                                              ; preds = %297
-  %318 = call fastcc zeroext i1 @update_local_synced_slot(ptr noundef nonnull %240, i32 noundef %243)
+  %318 = call fastcc zeroext i1 @update_local_synced_slot(ptr noundef nonnull readonly %240, i32 noundef %243)
   br i1 %318, label %319, label %382
 
 319:                                              ; preds = %317
@@ -1641,7 +1641,7 @@ reserve_wal_for_local_slot.exit.i:                ; preds = %364
   %379 = load ptr, ptr @MainLWLockArray, align 8
   %380 = getelementptr i8, ptr %379, i64 512
   call void @LWLockRelease(ptr noundef %380) #15
-  %381 = call fastcc zeroext i1 @update_and_persist_local_synced_slot(ptr noundef nonnull %240, i32 noundef %243)
+  %381 = call fastcc zeroext i1 @update_and_persist_local_synced_slot(ptr noundef nonnull readonly %240, i32 noundef %243)
   br label %382
 
 382:                                              ; preds = %376, %319, %317, %295
@@ -1888,13 +1888,13 @@ define internal fastcc noundef zeroext i1 @update_and_persist_local_synced_slot(
   %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, ptr noundef %18) #15
   %20 = load i64, ptr %4, align 8
   %21 = lshr i64 %20, 32
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   %23 = trunc i64 %20 to i32
   %24 = getelementptr inbounds i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8
   %26 = load i64, ptr %6, align 8
   %27 = lshr i64 %26, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   %29 = trunc i64 %26 to i32
   %30 = getelementptr inbounds i8, ptr %3, i64 100
   %31 = load i32, ptr %30, align 4

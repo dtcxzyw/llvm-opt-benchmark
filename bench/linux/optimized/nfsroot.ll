@@ -71,7 +71,7 @@ define internal noundef i32 @nfs_root_setup(ptr noundef %0) #0 section ".init.te
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @nfs_root_data(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @nfs_root_data(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 section ".init.text" align 16 {
   %3 = load i32, ptr @root_server_addr, align 4
   store i32 %3, ptr @servaddr, align 4
   %4 = icmp eq i32 %3, -1
@@ -82,7 +82,7 @@ define dso_local noundef i32 @nfs_root_data(ptr nocapture noundef writeonly %0, 
   br label %11
 
 7:                                                ; preds = %2
-  %8 = tail call fastcc i32 @root_nfs_data() #13, !range !5
+  %8 = tail call fastcc i32 @root_nfs_data() #13
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %11, label %10
 
@@ -100,10 +100,10 @@ define dso_local noundef i32 @nfs_root_data(ptr nocapture noundef writeonly %0, 
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @root_nfs_data() unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @root_nfs_data() unnamed_addr #0 section ".init.text" align 16 {
   %1 = alloca [30 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %1) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(30) %1, i8 0, i64 30, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(30) %1, i8 0, i64 30, i1 false), !annotation !5
   %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 11), align 8
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(1025) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 1025) #14
   %4 = icmp eq ptr %3, null
@@ -116,7 +116,7 @@ define internal fastcc noundef i32 @root_nfs_data() unnamed_addr #0 section ".in
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call fastcc i32 @root_nfs_parse_options(ptr noundef nonnull @root_server_path, ptr noundef nonnull %3) #13, !range !5
+  %9 = tail call fastcc i32 @root_nfs_parse_options(ptr noundef nonnull @root_server_path, ptr noundef nonnull %3) #13
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %34
 
@@ -126,18 +126,18 @@ define internal fastcc noundef i32 @root_nfs_data() unnamed_addr #0 section ".in
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call fastcc i32 @root_nfs_parse_options(ptr noundef nonnull @nfs_root_parms, ptr noundef nonnull %3) #13, !range !5
+  %15 = tail call fastcc i32 @root_nfs_parse_options(ptr noundef nonnull @nfs_root_parms, ptr noundef nonnull %3) #13
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %34
 
 17:                                               ; preds = %14, %11
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 30, ptr noundef nonnull @.str.2, ptr noundef nonnull @servaddr) #11
-  %19 = call fastcc i32 @root_nfs_cat(ptr noundef nonnull %1) #13, !range !5
+  %19 = call fastcc i32 @root_nfs_cat(ptr noundef nonnull %1) #13
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %34
 
 21:                                               ; preds = %17
-  %22 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !7
+  %22 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !6
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds i8, ptr %23, i64 1872
   %25 = load ptr, ptr %24, align 16
@@ -187,7 +187,7 @@ declare dso_local i32 @root_nfs_parse_addr(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @root_nfs_parse_options(ptr noundef %0, ptr noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @root_nfs_parse_options(ptr noundef %0, ptr noundef %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = call ptr @strsep(ptr noundef nonnull %3, ptr noundef nonnull @.str.8) #11
@@ -216,7 +216,7 @@ define internal fastcc noundef i32 @root_nfs_parse_options(ptr noundef %0, ptr n
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %16
-  %20 = call fastcc i32 @root_nfs_cat(ptr noundef nonnull %14) #13, !range !5
+  %20 = call fastcc i32 @root_nfs_cat(ptr noundef nonnull %14) #13
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %23
 
@@ -232,7 +232,7 @@ define internal fastcc noundef i32 @root_nfs_parse_options(ptr noundef %0, ptr n
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @root_nfs_cat(ptr noundef %0) unnamed_addr #7 section ".init.text" align 16 {
+define internal fastcc range(i32 -1, 1) i32 @root_nfs_cat(ptr noundef %0) unnamed_addr #7 section ".init.text" align 16 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @nfs_root_options) #11
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %12, label %4
@@ -302,6 +302,5 @@ attributes #15 = { nounwind memory(none) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = !{i32 -1, i32 1}
-!6 = !{!"auto-init"}
-!7 = !{i64 2149064345}
+!5 = !{!"auto-init"}
+!6 = !{i64 2149064345}

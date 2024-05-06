@@ -506,8 +506,8 @@ if.end.i139.i:                                    ; preds = %if.then60.i
 
 if.end61.i:                                       ; preds = %if.end53.i
   %call45.val48.i = load ptr, ptr %10, align 8
-  %arrayidx.i54.i = getelementptr i8, ptr %call45.val48.i, i64 8
-  store ptr %call57.i, ptr %arrayidx.i54.i, align 8
+  %arrayidx.i55.i = getelementptr i8, ptr %call45.val48.i, i64 8
+  store ptr %call57.i, ptr %arrayidx.i55.i, align 8
   %c_cflag.i = getelementptr inbounds i8, ptr %mode.i, i64 8
   %14 = load i32, ptr %c_cflag.i, align 4
   %conv65.i = zext i32 %14 to i64
@@ -529,8 +529,8 @@ if.end.i130.i:                                    ; preds = %if.then69.i
 
 if.end70.i:                                       ; preds = %if.end61.i
   %call45.val49.i = load ptr, ptr %10, align 8
-  %arrayidx.i55.i = getelementptr i8, ptr %call45.val49.i, i64 16
-  store ptr %call66.i, ptr %arrayidx.i55.i, align 8
+  %arrayidx.i56.i = getelementptr i8, ptr %call45.val49.i, i64 16
+  store ptr %call66.i, ptr %arrayidx.i56.i, align 8
   %17 = load i32, ptr %c_lflag.i, align 4
   %conv75.i = zext i32 %17 to i64
   %call76.i = call ptr @PyLong_FromLong(i64 noundef %conv75.i) #4
@@ -551,8 +551,8 @@ if.end.i121.i:                                    ; preds = %if.then79.i
 
 if.end80.i:                                       ; preds = %if.end70.i
   %call45.val50.i = load ptr, ptr %10, align 8
-  %arrayidx.i56.i = getelementptr i8, ptr %call45.val50.i, i64 24
-  store ptr %call76.i, ptr %arrayidx.i56.i, align 8
+  %arrayidx.i57.i = getelementptr i8, ptr %call45.val50.i, i64 24
+  store ptr %call76.i, ptr %arrayidx.i57.i, align 8
   %conv84.i = zext i32 %call4.i to i64
   %call85.i = call ptr @PyLong_FromLong(i64 noundef %conv84.i) #4
   %cmp86.i = icmp eq ptr %call85.i, null
@@ -572,8 +572,8 @@ if.end.i112.i:                                    ; preds = %if.then88.i
 
 if.end89.i:                                       ; preds = %if.end80.i
   %call45.val51.i = load ptr, ptr %10, align 8
-  %arrayidx.i57.i = getelementptr i8, ptr %call45.val51.i, i64 32
-  store ptr %call85.i, ptr %arrayidx.i57.i, align 8
+  %arrayidx.i58.i = getelementptr i8, ptr %call45.val51.i, i64 32
+  store ptr %call85.i, ptr %arrayidx.i58.i, align 8
   %conv93.i = zext i32 %call5.i to i64
   %call94.i = call ptr @PyLong_FromLong(i64 noundef %conv93.i) #4
   %cmp95.i = icmp eq ptr %call94.i, null
@@ -593,11 +593,11 @@ if.end.i103.i:                                    ; preds = %if.then97.i
 
 if.end98.i:                                       ; preds = %if.end89.i
   %call45.val52.i = load ptr, ptr %10, align 8
-  %arrayidx.i58.i = getelementptr i8, ptr %call45.val52.i, i64 40
-  store ptr %call94.i, ptr %arrayidx.i58.i, align 8
+  %arrayidx.i59.i = getelementptr i8, ptr %call45.val52.i, i64 40
+  store ptr %call94.i, ptr %arrayidx.i59.i, align 8
   %call45.val53.i = load ptr, ptr %10, align 8
-  %arrayidx.i59.i = getelementptr i8, ptr %call45.val53.i, i64 48
-  store ptr %call6.i, ptr %arrayidx.i59.i, align 8
+  %arrayidx.i60.i = getelementptr i8, ptr %call45.val53.i, i64 48
+  store ptr %call6.i, ptr %arrayidx.i60.i, align 8
   br label %termios_tcgetattr_impl.exit
 
 err.sink.split.i:                                 ; preds = %if.end.i103.i, %if.end.i112.i, %if.end.i121.i, %if.end.i130.i, %if.end.i139.i, %if.end.i148.i
@@ -1473,7 +1473,7 @@ declare i64 @PySequence_Size(ptr noundef) local_unnamed_addr #1
 declare ptr @PySequence_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @termios_exec(ptr noundef %mod) #0 {
+define internal range(i32 -1, 1) i32 @termios_exec(ptr noundef %mod) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #4
   %call1 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef null) #4

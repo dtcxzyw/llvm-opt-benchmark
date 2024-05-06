@@ -135,7 +135,7 @@ define i32 @mca_coll_sm_barrier_intra(ptr noundef %0, ptr noundef %1) local_unna
 
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %63 = trunc i64 %indvars.iv to i32
+  %63 = trunc nuw i64 %indvars.iv to i32
   %64 = mul i32 %61, %63
   %65 = zext i32 %64 to i64
   %66 = getelementptr inbounds i32, ptr %.043, i64 %65

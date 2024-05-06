@@ -65,7 +65,7 @@ while.end:                                        ; preds = %while.cond.preheade
 declare void @sodium_misuse() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind ssp memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @sodium_hex2bin(ptr nocapture noundef nonnull writeonly %bin, i64 noundef %bin_maxlen, ptr noundef %hex, i64 noundef %hex_len, ptr noundef readonly %ignore, ptr noundef writeonly %bin_len, ptr noundef writeonly %hex_end) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @sodium_hex2bin(ptr nocapture noundef nonnull writeonly %bin, i64 noundef %bin_maxlen, ptr noundef %hex, i64 noundef %hex_len, ptr noundef readonly %ignore, ptr noundef writeonly %bin_len, ptr noundef writeonly %hex_end) local_unnamed_addr #2 {
 entry:
   %cmp5479.not = icmp eq i64 %hex_len, 0
   br i1 %cmp5479.not, label %if.end63.thread.thread, label %while.body.lr.ph.lr.ph
@@ -112,7 +112,7 @@ if.end41.us:                                      ; preds = %if.end28.split.us10
   %and31.us = and i32 %shr.us91, %conv2.us89
   %or35.us = or i32 %and34.us, %and31.us
   %cmp43.us = icmp eq i8 %state.056.us, 0
-  %or35.tr.us = trunc i32 %or35.us to i8
+  %or35.tr.us = trunc nuw i32 %or35.us to i8
   br i1 %cmp43.us, label %if.then45.us, label %if.else.us
 
 if.else.us:                                       ; preds = %if.end41.us
@@ -188,7 +188,7 @@ if.end41:                                         ; preds = %if.end28.split.us
   %and31 = and i32 %shr.us, %conv2.us
   %or35 = or i32 %and34, %and31
   %cmp43 = icmp eq i8 %state.0.ph83, 0
-  %or35.tr = trunc i32 %or35 to i8
+  %or35.tr = trunc nuw i32 %or35 to i8
   br i1 %cmp43, label %if.then45, label %if.else
 
 if.then45:                                        ; preds = %if.end41
@@ -307,8 +307,8 @@ sodium_base64_check_variant.exit:                 ; preds = %entry
   %and13 = and i64 %sub12, %conv
   %sub14 = sub nsw i64 4, %and13
   %2 = and i64 %sub, 3
-  %.not8 = icmp eq i64 %2, 0
-  %mul15 = select i1 %.not8, i64 0, i64 %sub14
+  %.not = icmp eq i64 %2, 0
+  %mul15 = select i1 %.not, i64 0, i64 %sub14
   %add = or disjoint i64 %mul, 1
   %add16 = add i64 %add, %mul15
   ret i64 %add16
@@ -434,9 +434,9 @@ while.end26:                                      ; preds = %while.cond.loopexit
   br i1 %cmp27.not, label %if.end76, label %if.then29
 
 if.then29:                                        ; preds = %while.end26
-  %3 = trunc i64 %sub20 to i32
+  %3 = trunc nuw i64 %sub20 to i32
   %sh_prom31 = sub nuw nsw i32 6, %3
-  %shl32 = shl i32 %conv, %sh_prom31
+  %shl32 = shl nuw nsw i32 %conv, %sh_prom31
   %and33 = and i32 %shl32, 63
   %sub.i46 = add nuw nsw i32 %and33, 65510
   %shr.i47 = lshr i32 %sub.i46, 8
@@ -528,9 +528,9 @@ while.end63:                                      ; preds = %while.cond40.loopex
   br i1 %cmp64.not, label %if.end76, label %if.then66
 
 if.then66:                                        ; preds = %while.end63
-  %9 = trunc i64 %sub54 to i32
+  %9 = trunc nuw i64 %sub54 to i32
   %sh_prom68 = sub nuw nsw i32 6, %9
-  %shl69 = shl i32 %conv47, %sh_prom68
+  %shl69 = shl nuw nsw i32 %conv47, %sh_prom68
   %and70 = and i32 %shl69, 63
   %sub.i104 = add nuw nsw i32 %and70, 65510
   %shr.i105 = lshr i32 %sub.i104, 8
@@ -599,7 +599,7 @@ do.body.preheader:                                ; preds = %while.body80.prehea
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local noundef i32 @sodium_base642bin(ptr nocapture noundef nonnull writeonly %bin, i64 noundef %bin_maxlen, ptr noundef %b64, i64 noundef %b64_len, ptr noundef readonly %ignore, ptr noundef writeonly %bin_len, ptr noundef writeonly %b64_end, i32 noundef %variant) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sodium_base642bin(ptr nocapture noundef nonnull writeonly %bin, i64 noundef %bin_maxlen, ptr noundef %b64, i64 noundef %b64_len, ptr noundef readonly %ignore, ptr noundef writeonly %bin_len, ptr noundef writeonly %b64_end, i32 noundef %variant) local_unnamed_addr #0 {
 entry:
   %and.i = and i32 %variant, -7
   %cmp.not.i = icmp eq i32 %and.i, 1
@@ -627,7 +627,7 @@ if.then18.us:                                     ; preds = %if.end14.split.us.u
   br i1 %cmp19.not.us, label %if.end23.us, label %if.then21
 
 if.end23.us:                                      ; preds = %if.then18.us
-  %sh_prom.us = trunc i64 %sub.us to i32
+  %sh_prom.us = trunc nuw nsw i64 %sub.us to i32
   %shr.us = lshr i32 %add.us, %sh_prom.us
   %conv25.us = trunc i32 %shr.us to i8
   %inc26.us = add nuw i64 %bin_pos.0.ph138.us, 1
@@ -809,7 +809,7 @@ if.then21:                                        ; preds = %if.then18, %if.then
   br label %while.end
 
 if.end23:                                         ; preds = %if.then18
-  %sh_prom = trunc i64 %sub to i32
+  %sh_prom = trunc nuw nsw i64 %sub to i32
   %shr = lshr i32 %add, %sh_prom
   %conv25 = trunc i32 %shr to i8
   %inc26 = add nuw i64 %bin_pos.0.ph138, 1
@@ -844,7 +844,7 @@ while.end.loopexit219.split.loop.exit248:         ; preds = %if.then12
 while.end:                                        ; preds = %if.end28, %if.then5, %land.lhs.true, %if.end28.us, %if.then5.us.us, %land.lhs.true.us.us, %while.end.loopexit219.split.loop.exit248, %while.end.loopexit.split.loop.exit259, %if.then21
   %bin_pos.0.ph105 = phi i64 [ %.us-phi145, %if.then21 ], [ %bin_pos.0.ph138.us, %while.end.loopexit.split.loop.exit259 ], [ %bin_pos.0.ph138, %while.end.loopexit219.split.loop.exit248 ], [ %bin_pos.0.ph138.us, %land.lhs.true.us.us ], [ %bin_pos.0.ph138.us, %if.then5.us.us ], [ %bin_pos.1.us, %if.end28.us ], [ %bin_pos.0.ph138, %land.lhs.true ], [ %bin_pos.0.ph138, %if.then5 ], [ %bin_pos.1, %if.end28 ]
   %b64_pos.0101 = phi i64 [ %.us-phi148, %if.then21 ], [ %umax200.le, %while.end.loopexit.split.loop.exit259 ], [ %umax.le, %while.end.loopexit219.split.loop.exit248 ], [ %b64_pos.0.ph137.us, %if.then5.us.us ], [ %b64_pos.0107.us.us, %land.lhs.true.us.us ], [ %inc29.us, %if.end28.us ], [ %b64_pos.0.ph137, %if.then5 ], [ %b64_pos.0107, %land.lhs.true ], [ %inc29, %if.end28 ]
-  %cmp40 = phi i1 [ true, %if.then21 ], [ false, %while.end.loopexit.split.loop.exit259 ], [ false, %while.end.loopexit219.split.loop.exit248 ], [ false, %land.lhs.true.us.us ], [ false, %if.then5.us.us ], [ false, %if.end28.us ], [ false, %land.lhs.true ], [ false, %if.then5 ], [ false, %if.end28 ]
+  %cmp40.not = phi i1 [ true, %if.then21 ], [ false, %while.end.loopexit.split.loop.exit259 ], [ false, %while.end.loopexit219.split.loop.exit248 ], [ false, %land.lhs.true.us.us ], [ false, %if.then5.us.us ], [ false, %if.end28.us ], [ false, %land.lhs.true ], [ false, %if.then5 ], [ false, %if.end28 ]
   %acc.1 = phi i32 [ %.us-phi147, %if.then21 ], [ %acc.0.ph139.us, %while.end.loopexit.split.loop.exit259 ], [ %acc.0.ph139, %while.end.loopexit219.split.loop.exit248 ], [ %acc.0.ph139.us, %land.lhs.true.us.us ], [ %acc.0.ph139.us, %if.then5.us.us ], [ %add.us, %if.end28.us ], [ %acc.0.ph139, %land.lhs.true ], [ %acc.0.ph139, %if.then5 ], [ %add, %if.end28 ]
   %acc_len.2 = phi i64 [ %.us-phi146, %if.then21 ], [ %acc_len.0.ph140.us, %while.end.loopexit.split.loop.exit259 ], [ %acc_len.0.ph140, %while.end.loopexit219.split.loop.exit248 ], [ %acc_len.0.ph140.us, %land.lhs.true.us.us ], [ %acc_len.0.ph140.us, %if.then5.us.us ], [ %acc_len.1.us, %if.end28.us ], [ %acc_len.0.ph140, %land.lhs.true ], [ %acc_len.0.ph140, %if.then5 ], [ %acc_len.1, %if.end28 ]
   %cmp30 = icmp ugt i64 %acc_len.2, 4
@@ -853,15 +853,15 @@ while.end:                                        ; preds = %if.end28, %if.then5
 lor.lhs.false:                                    ; preds = %while.cond.preheader, %while.end
   %acc_len.2213 = phi i64 [ %acc_len.2, %while.end ], [ 0, %while.cond.preheader ]
   %acc.1212 = phi i32 [ %acc.1, %while.end ], [ 0, %while.cond.preheader ]
-  %cmp40211 = phi i1 [ %cmp40, %while.end ], [ false, %while.cond.preheader ]
+  %cmp40.not211 = phi i1 [ %cmp40.not, %while.end ], [ false, %while.cond.preheader ]
   %b64_pos.0101210 = phi i64 [ %b64_pos.0101, %while.end ], [ 0, %while.cond.preheader ]
   %bin_pos.0.ph105209 = phi i64 [ %bin_pos.0.ph105, %while.end ], [ 0, %while.cond.preheader ]
-  %sh_prom32 = trunc i64 %acc_len.2213 to i32
+  %sh_prom32 = trunc nuw nsw i64 %acc_len.2213 to i32
   %notmask = shl nsw i32 -1, %sh_prom32
   %sub34 = xor i32 %notmask, -1
   %and35 = and i32 %acc.1212, %sub34
   %cmp36.not = icmp ne i32 %and35, 0
-  %brmerge = or i1 %cmp40211, %cmp36.not
+  %brmerge = or i1 %cmp40.not211, %cmp36.not
   br i1 %brmerge, label %if.end69, label %land.lhs.true42
 
 land.lhs.true42:                                  ; preds = %lor.lhs.false
@@ -919,7 +919,7 @@ if.then4.i:                                       ; preds = %if.end.i
 
 if.else.i:                                        ; preds = %if.end.i
   %conv.i = sext i8 %42 to i32
-  %call7.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %ignore, i32 noundef %conv.i) #8
+  %call7.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %ignore, i32 noundef %conv.i) #8
   %cmp8.i = icmp eq ptr %call7.i, null
   br i1 %cmp8.i, label %return.sink.split.i, label %if.end13.i
 

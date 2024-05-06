@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @checksumBaseOffsets = internal unnamed_addr constant [32 x i32] [i32 1528772329, i32 -1202562720, i32 44781738, i32 501640490, i32 2046772858, i32 -1682311005, i32 561937618, i32 -2082390740, i32 -120305841, i32 -476137104, i32 1120316950, i32 -1724770566, i32 2064202589, i32 -1730478276, i32 -149385174, i32 186424539, i32 -443582901, i32 410400444, i32 1568357297, i32 -415373346, i32 -1832990343, i32 -861486926, i32 810158457, i32 -2052439084, i32 2016486843, i32 1823009442, i32 -469243194, i32 1264385086, i32 -1614836618, i32 365568190, i32 -221601837, i32 -1784948906], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local zeroext i16 @pg_checksum_page(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i32], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 4
@@ -73,7 +73,7 @@ pg_checksum_block.exit:                           ; preds = %.preheader.i
   store i16 %5, ptr %4, align 4
   %27 = xor i32 %26, %1
   %28 = urem i32 %27, 65535
-  %29 = trunc i32 %28 to i16
+  %29 = trunc nuw i32 %28 to i16
   %30 = add nuw i16 %29, 1
   ret i16 %30
 }

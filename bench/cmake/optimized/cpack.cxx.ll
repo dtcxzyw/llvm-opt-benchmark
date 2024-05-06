@@ -842,7 +842,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #5 sect
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i8, align 1
@@ -12028,7 +12028,7 @@ _ZNSt14_Function_base13_Base_managerIZN21cmCommandLineArgumentIFbRKNSt7__cxx1112
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_1E9_M_invokeERKSt9_Any_dataS7_OS9_OSB_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) #3 align 2 {
-  tail call fastcc void @"_ZZ4mainENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefile"(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call fastcc void @"_ZZ4mainENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefile"(ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
   ret i1 true
 }
 
@@ -12059,7 +12059,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112b
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefileEZ4mainE3$_2E9_M_invokeERKSt9_Any_dataS7_OS9_OSB_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) #3 align 2 {
-  tail call fastcc void @"_ZZ4mainENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefile"(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  tail call fastcc void @"_ZZ4mainENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP5cmakeP10cmMakefile"(ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
   ret i1 true
 }
 
@@ -12327,7 +12327,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKNSt7__cxx1112b
   br label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZ4mainE3$_5E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4

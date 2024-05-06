@@ -239,7 +239,7 @@ define void @Tim_ManSetPreviousTravIdBoxOutputs(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Tim_ManIsCiTravIdCurrent(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Tim_ManIsCiTravIdCurrent(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -253,7 +253,7 @@ define i32 @Tim_ManIsCiTravIdCurrent(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Tim_ManIsCoTravIdCurrent(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Tim_ManIsCoTravIdCurrent(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64

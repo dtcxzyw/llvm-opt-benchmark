@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [15 x i8] c"id-aes256-wrap\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_RecipientInfo_kari_get0_alg(ptr nocapture noundef readonly %ri, ptr noundef writeonly %palg, ptr noundef writeonly %pukm) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_get0_alg(ptr nocapture noundef readonly %ri, ptr noundef writeonly %palg, ptr noundef writeonly %pukm) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 1
@@ -88,7 +88,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_RecipientInfo_kari_get0_orig_id(ptr nocapture noundef readonly %ri, ptr noundef writeonly %pubalg, ptr noundef writeonly %pubkey, ptr noundef writeonly %keyid, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_get0_orig_id(ptr nocapture noundef readonly %ri, ptr noundef writeonly %pubalg, ptr noundef writeonly %pubkey, ptr noundef writeonly %keyid, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 1
@@ -254,7 +254,7 @@ declare i32 @ossl_cms_ias_cert_cmp(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @ossl_cms_keyid_cert_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @CMS_RecipientEncryptedKey_get0_id(ptr nocapture noundef readonly %rek, ptr noundef writeonly %keyid, ptr noundef writeonly %tm, ptr noundef writeonly %other, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @CMS_RecipientEncryptedKey_get0_id(ptr nocapture noundef readonly %rek, ptr noundef writeonly %keyid, ptr noundef writeonly %tm, ptr noundef writeonly %other, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %rek, align 8
   %1 = load i32, ptr %0, align 8
@@ -392,7 +392,7 @@ return:                                           ; preds = %entry, %if.then4, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_RecipientInfo_kari_set0_pkey_and_peer(ptr nocapture noundef readonly %ri, ptr noundef %pk, ptr noundef %peer) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_set0_pkey_and_peer(ptr nocapture noundef readonly %ri, ptr noundef %pk, ptr noundef %peer) local_unnamed_addr #0 {
 entry:
   %d = getelementptr inbounds i8, ptr %ri, i64 8
   %0 = load ptr, ptr %d, align 8
@@ -456,7 +456,7 @@ declare ptr @X509_get0_pubkey(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_PKEY_derive_set_peer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_RecipientInfo_kari_set0_pkey(ptr nocapture noundef readonly %ri, ptr noundef %pk) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_set0_pkey(ptr nocapture noundef readonly %ri, ptr noundef %pk) local_unnamed_addr #0 {
 entry:
   %d.i = getelementptr inbounds i8, ptr %ri, i64 8
   %0 = load ptr, ptr %d.i, align 8
@@ -515,7 +515,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_RecipientInfo_kari_decrypt(ptr noundef %cms, ptr noundef %ri, ptr nocapture noundef readonly %rek) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_kari_decrypt(ptr noundef %cms, ptr noundef %ri, ptr nocapture noundef readonly %rek) local_unnamed_addr #0 {
 entry:
   %cek = alloca ptr, align 8
   %ceklen = alloca i64, align 8
@@ -533,7 +533,7 @@ if.end:                                           ; preds = %entry
   %conv = sext i32 %1 to i64
   %d = getelementptr inbounds i8, ptr %ri, i64 8
   %3 = load ptr, ptr %d, align 8
-  %call2 = call fastcc i32 @cms_kek_cipher(ptr noundef nonnull %cek, ptr noundef nonnull %ceklen, ptr noundef %2, i64 noundef %conv, ptr noundef %3, i32 noundef 0), !range !4
+  %call2 = call fastcc i32 @cms_kek_cipher(ptr noundef nonnull %cek, ptr noundef nonnull %ceklen, ptr noundef %2, i64 noundef %conv, ptr noundef %3, i32 noundef 0)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end.err_crit_edge, label %if.end5
 
@@ -564,7 +564,7 @@ err:                                              ; preds = %if.end.err_crit_edg
 declare i32 @ossl_cms_env_asn1_ctrl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cms_kek_cipher(ptr nocapture noundef writeonly %pout, ptr nocapture noundef writeonly %poutlen, ptr noundef %in, i64 noundef %inlen, ptr nocapture noundef %kari, i32 noundef %enc) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_kek_cipher(ptr nocapture noundef writeonly %pout, ptr nocapture noundef writeonly %poutlen, ptr noundef %in, i64 noundef %inlen, ptr nocapture noundef %kari, i32 noundef %enc) unnamed_addr #0 {
 entry:
   %kek = alloca [64 x i8], align 16
   %keklen = alloca i64, align 8
@@ -647,7 +647,7 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cms_RecipientInfo_kari_init(ptr nocapture noundef %ri, ptr noundef %recip, ptr noundef %recipPubKey, ptr noundef %originator, ptr noundef %originatorPrivKey, i32 noundef %flags, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_RecipientInfo_kari_init(ptr nocapture noundef %ri, ptr noundef %recip, ptr noundef %recipPubKey, ptr noundef %originator, ptr noundef %originatorPrivKey, i32 noundef %flags, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %ekey.i = alloca ptr, align 8
   %call = tail call ptr @CMS_KeyAgreeRecipientInfo_it() #5
@@ -798,7 +798,7 @@ if.else71:                                        ; preds = %if.end55
   br i1 %tobool75.not, label %return, label %if.end78
 
 if.end78:                                         ; preds = %if.else71, %if.end65
-  %call79 = tail call fastcc i32 @cms_kari_set_originator_private_key(ptr noundef nonnull %call1, ptr noundef nonnull %originatorPrivKey), !range !4
+  %call79 = tail call fastcc i32 @cms_kari_set_originator_private_key(ptr noundef nonnull %call1, ptr noundef nonnull %originatorPrivKey)
   %tobool80.not = icmp eq i32 %call79, 0
   br i1 %tobool80.not, label %return, label %if.end83
 
@@ -832,7 +832,7 @@ declare i32 @ossl_cms_set1_ias(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @ASN1_OCTET_STRING_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cms_kari_set_originator_private_key(ptr nocapture noundef %kari, ptr noundef %originatorPrivKey) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_kari_set_originator_private_key(ptr nocapture noundef %kari, ptr noundef %originatorPrivKey) unnamed_addr #0 {
 entry:
   %cms_ctx = getelementptr inbounds i8, ptr %kari, i64 56
   %0 = load ptr, ptr %cms_ctx, align 8
@@ -864,7 +864,7 @@ if.end10:                                         ; preds = %err, %if.then9
 declare i32 @EVP_PKEY_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cms_RecipientInfo_kari_encrypt(ptr noundef %cms, ptr noundef %ri) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_RecipientInfo_kari_encrypt(ptr noundef %cms, ptr noundef %ri) local_unnamed_addr #0 {
 entry:
   %kekcipher.i = alloca ptr, align 8
   %enckey = alloca ptr, align 8
@@ -1018,7 +1018,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 if.end29:                                         ; preds = %for.body
   %12 = load ptr, ptr %key, align 8
   %13 = load i64, ptr %keylen, align 8
-  %call30 = call fastcc i32 @cms_kek_cipher(ptr noundef nonnull %enckey, ptr noundef nonnull %enckeylen, ptr noundef %12, i64 noundef %13, ptr noundef nonnull %1, i32 noundef 1), !range !4
+  %call30 = call fastcc i32 @cms_kek_cipher(ptr noundef nonnull %enckey, ptr noundef nonnull %enckeylen, ptr noundef %12, i64 noundef %13, ptr noundef nonnull %1, i32 noundef 1)
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %return, label %if.end33
 
@@ -1032,7 +1032,7 @@ if.end33:                                         ; preds = %if.end29
   %inc = add nuw nsw i32 %i.021, 1
   %call22 = call i32 @OPENSSL_sk_num(ptr noundef %2) #5
   %cmp23 = icmp slt i32 %inc, %call22
-  br i1 %cmp23, label %for.body, label %return, !llvm.loop !5
+  br i1 %cmp23, label %for.body, label %return, !llvm.loop !4
 
 return:                                           ; preds = %for.body, %if.end29, %if.end33, %for.cond.preheader, %cms_wrap_init.exit.thread, %if.end16, %if.then6, %cms_wrap_init.exit, %if.then
   %retval.0 = phi i32 [ 0, %if.then ], [ 0, %cms_wrap_init.exit ], [ 0, %if.then6 ], [ 0, %if.end16 ], [ 0, %cms_wrap_init.exit.thread ], [ 1, %for.cond.preheader ], [ 0, %for.body ], [ 0, %if.end29 ], [ 1, %if.end33 ]
@@ -1106,6 +1106,5 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

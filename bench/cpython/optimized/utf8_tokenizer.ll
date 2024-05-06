@@ -66,7 +66,7 @@ declare void @_PyTokenizer_Free(ptr noundef) local_unnamed_addr #1
 declare ptr @_PyTokenizer_new_string(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @tok_underflow_string(ptr nocapture noundef %tok) #2 {
+define internal range(i32 0, 2) i32 @tok_underflow_string(ptr nocapture noundef %tok) #2 {
 entry:
   %inp = getelementptr inbounds i8, ptr %tok, i64 16
   %0 = load ptr, ptr %inp, align 8

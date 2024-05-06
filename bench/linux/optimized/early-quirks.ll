@@ -93,8 +93,8 @@ define internal fastcc void @early_pci_scan_bus(i32 noundef %0) unnamed_addr #0 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @check_dev_quirk(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
-  %4 = trunc i32 %0 to i8
+define internal fastcc range(i32 -1, 1) i32 @check_dev_quirk(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+  %4 = trunc nuw i32 %0 to i8
   %5 = trunc i32 %1 to i8
   %6 = trunc i32 %2 to i8
   %7 = tail call zeroext i16 @read_pci_config_16(i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext 10) #4
@@ -499,7 +499,7 @@ declare dso_local i32 @read_pci_config(i8 noundef zeroext, i8 noundef zeroext, i
 declare dso_local void @write_pci_config(i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @ati_ixp4x0_rev(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 0, 256) i32 @ati_ixp4x0_rev(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = trunc i32 %0 to i8
   %5 = trunc i32 %1 to i8
   %6 = trunc i32 %2 to i8
@@ -545,7 +545,7 @@ define internal fastcc void @intel_graphics_stolen(i32 noundef %0, i32 noundef %
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i64 @i830_stolen_size(i32 %0, i32 %1, i32 %2) #0 section ".init.text" align 16 {
+define internal noundef range(i64 0, 8388609) i64 @i830_stolen_size(i32 %0, i32 %1, i32 %2) #0 section ".init.text" align 16 {
   %4 = tail call zeroext i16 @read_pci_config_16(i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 82) #4
   %5 = and i16 %4, 112
   %6 = zext nneg i16 %5 to i32
@@ -597,7 +597,7 @@ define internal i64 @i830_stolen_base(i32 %0, i32 %1, i32 %2, i64 noundef %3) #0
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i64 @i830_tseg_size() unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i64 0, 1048577) i64 @i830_tseg_size() unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call zeroext i8 @read_pci_config_byte(i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext -111) #4
   %2 = zext i8 %1 to i32
   %3 = and i32 %2, 1
@@ -621,7 +621,7 @@ define internal i64 @i845_stolen_base(i32 %0, i32 %1, i32 %2, i64 noundef %3) #0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i64 @i845_tseg_size() unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i64 0, 1048577) i64 @i845_tseg_size() unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call zeroext i8 @read_pci_config_byte(i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext -98) #4
   %2 = zext i8 %1 to i32
   %3 = and i32 %2, 1
@@ -653,7 +653,7 @@ define internal fastcc noundef i64 @i845_tseg_size() unnamed_addr #0 section ".i
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i64 @gen3_stolen_size(i32 %0, i32 %1, i32 %2) #0 section ".init.text" align 16 {
+define internal noundef range(i64 0, 369098753) i64 @gen3_stolen_size(i32 %0, i32 %1, i32 %2) #0 section ".init.text" align 16 {
   %4 = tail call zeroext i16 @read_pci_config_16(i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 82) #4
   %5 = and i16 %4, 240
   %6 = zext nneg i16 %5 to i32
@@ -741,7 +741,7 @@ define internal i64 @i85x_stolen_base(i32 %0, i32 %1, i32 %2, i64 noundef %3) #0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i64 @i865_stolen_base(i32 %0, i32 %1, i32 %2, i64 %3) #0 section ".init.text" align 16 {
+define internal range(i64 0, 4295950337) i64 @i865_stolen_base(i32 %0, i32 %1, i32 %2, i64 %3) #0 section ".init.text" align 16 {
   %5 = tail call zeroext i16 @read_pci_config_16(i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext -60) #4
   %6 = zext i16 %5 to i64
   %7 = shl nuw nsw i64 %6, 16
@@ -751,7 +751,7 @@ define internal i64 @i865_stolen_base(i32 %0, i32 %1, i32 %2, i64 %3) #0 section
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i64 @gen3_stolen_base(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 %3) #0 section ".init.text" align 16 {
+define internal range(i64 0, 4293918721) i64 @gen3_stolen_base(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 %3) #0 section ".init.text" align 16 {
   %5 = trunc i32 %0 to i8
   %6 = trunc i32 %1 to i8
   %7 = trunc i32 %2 to i8
@@ -762,7 +762,7 @@ define internal i64 @gen3_stolen_base(i32 noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i64 @gen6_stolen_size(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 section ".init.text" align 16 {
+define internal range(i64 0, 1040187393) i64 @gen6_stolen_size(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 section ".init.text" align 16 {
   %4 = trunc i32 %0 to i8
   %5 = trunc i32 %1 to i8
   %6 = trunc i32 %2 to i8
@@ -775,7 +775,7 @@ define internal i64 @gen6_stolen_size(i32 noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i64 @gen8_stolen_size(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 section ".init.text" align 16 {
+define internal range(i64 0, 8556380161) i64 @gen8_stolen_size(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 section ".init.text" align 16 {
   %4 = trunc i32 %0 to i8
   %5 = trunc i32 %1 to i8
   %6 = trunc i32 %2 to i8
@@ -787,7 +787,7 @@ define internal i64 @gen8_stolen_size(i32 noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i64 @chv_stolen_size(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 section ".init.text" align 16 {
+define internal range(i64 0, 18014398543036417) i64 @chv_stolen_size(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 section ".init.text" align 16 {
   %4 = trunc i32 %0 to i8
   %5 = trunc i32 %1 to i8
   %6 = trunc i32 %2 to i8
@@ -827,7 +827,7 @@ define internal i64 @chv_stolen_size(i32 noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i64 @gen9_stolen_size(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 section ".init.text" align 16 {
+define internal range(i64 0, 8556380161) i64 @gen9_stolen_size(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 section ".init.text" align 16 {
   %4 = trunc i32 %0 to i8
   %5 = trunc i32 %1 to i8
   %6 = trunc i32 %2 to i8

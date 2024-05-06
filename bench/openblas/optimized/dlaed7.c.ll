@@ -116,7 +116,7 @@ define void @dlaed7_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %90 = and i64 %86, 2
   %91 = icmp eq i64 %90, 0
   %92 = select i1 %91, i32 1, i32 %89
-  %93 = mul nsw i32 %92, %85
+  %93 = mul nuw nsw i32 %92, %85
   %94 = icmp ult i64 %86, 4
   br i1 %94, label %.loopexit12, label %.preheader11, !llvm.loop !7
 
@@ -159,7 +159,7 @@ define void @dlaed7_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %121 = and i64 %117, 2
   %122 = icmp eq i64 %121, 0
   %123 = select i1 %122, i32 1, i32 %120
-  %124 = mul nsw i32 %123, %116
+  %124 = mul nuw nsw i32 %123, %116
   %125 = icmp ult i64 %117, 4
   br i1 %125, label %.loopexit9, label %.preheader, !llvm.loop !7
 

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [4 x i8] c"exe\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base18GetParentProcessIdEi(i32 noundef %process) local_unnamed_addr #0 {
+define dso_local noundef range(i32 1, 0) i32 @_ZN4base18GetParentProcessIdEi(i32 noundef %process) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i64 @_ZN4base8internal31ReadProcStatsAndGetFieldAsInt64EiNS0_15ProcStatsFieldsE(i32 noundef %process, i32 noundef 3)
   %conv = trunc i64 %call to i32

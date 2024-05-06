@@ -2509,7 +2509,7 @@ entry:
   store i32 1, ptr %dayOfYear.i, align 4
   %dayOfYearFormat.i = getelementptr inbounds i8, ptr %date, i64 32
   %isAm.i = getelementptr inbounds i8, ptr %date, i64 52
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %dayOfYearFormat.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %dayOfYearFormat.i, i8 0, i64 20, i1 false)
   store i8 1, ptr %isAm.i, align 4
   %timezoneId.i = getelementptr inbounds i8, ptr %date, i64 56
   store i64 -1, ptr %timezoneId.i, align 8
@@ -2518,7 +2518,7 @@ entry:
   %isHourOfHalfDay.i = getelementptr inbounds i8, ptr %date, i64 65
   store i8 0, ptr %isHourOfHalfDay.i, align 1
   %dayOfMonthValues.i = getelementptr inbounds i8, ptr %date, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %dayOfMonthValues.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %dayOfMonthValues.i, i8 0, i64 48, i1 false)
   %_M_str.i = getelementptr inbounds i8, ptr %input, i64 8
   %0 = load ptr, ptr %_M_str.i, align 8
   store ptr %0, ptr %cur, align 8

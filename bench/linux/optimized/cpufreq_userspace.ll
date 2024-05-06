@@ -47,7 +47,7 @@ define internal void @cpufreq_gov_userspace_exit() #1 section ".exit.text" align
 declare dso_local void @cpufreq_unregister_governor(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cpufreq_userspace_policy_init(ptr nocapture noundef writeonly %0) #3 align 16 {
+define internal noundef range(i32 -12, 1) i32 @cpufreq_userspace_policy_init(ptr nocapture noundef writeonly %0) #3 align 16 {
   %2 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 40) #8
   %4 = icmp eq ptr %3, null
@@ -149,7 +149,7 @@ define internal void @cpufreq_userspace_policy_limits(ptr noundef %0) #3 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @show_speed(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_speed(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %4) #7

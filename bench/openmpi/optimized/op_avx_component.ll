@@ -141,7 +141,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i32 @avx_component_init_query(i1 zeroext %0, i1 zeroext %1) #2 {
+define internal range(i32 -8, 1) i32 @avx_component_init_query(i1 zeroext %0, i1 zeroext %1) #2 {
   %3 = load i32, ptr getelementptr inbounds (%struct.ompi_op_avx_component_t, ptr @mca_op_avx_component, i64 0, i32 2), align 4
   %4 = icmp eq i32 %3, 0
   %. = select i1 %4, i32 -8, i32 0

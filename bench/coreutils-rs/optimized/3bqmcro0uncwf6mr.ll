@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.86d54012cb870a8520e91705433272dd.8 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.86d54012cb870a8520e91705433272dd.6, [16 x i8] c"\1B\00\00\00\00\00\00\00\EC\00\00\009\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 0, 41) i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = ptrtoint ptr %.0.val to i64

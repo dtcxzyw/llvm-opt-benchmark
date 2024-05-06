@@ -201,7 +201,7 @@ define dso_local void @drmm_add_final_kfree(ptr noundef %0, ptr noundef %1) loca
 declare dso_local i64 @ksize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__drmm_add_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @__drmm_add_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = icmp eq ptr %2, null
   %6 = select i1 %5, i64 0, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -282,7 +282,7 @@ define dso_local noundef i32 @__drmm_add_action(ptr noundef %0, ptr noundef %1, 
 declare dso_local ptr @kstrdup_const(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__drmm_add_action_or_reset(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @__drmm_add_action_or_reset(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = tail call i32 @__drmm_add_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3), !range !19
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %8, label %7

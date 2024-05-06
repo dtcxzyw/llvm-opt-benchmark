@@ -492,7 +492,7 @@ define dso_local i64 @pg_walfile_name_offset(ptr nocapture noundef readonly %0) 
   %23 = udiv i64 %18, %22
   %24 = trunc i64 %23 to i32
   %25 = urem i64 %18, %22
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   %27 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 64, ptr noundef nonnull @.str.39, i32 noundef %19, i32 noundef %24, i32 noundef %26) #9
   %28 = call ptr @cstring_to_text(ptr noundef nonnull %2) #9
   %29 = ptrtoint ptr %28 to i64
@@ -550,7 +550,7 @@ define dso_local i64 @pg_walfile_name(ptr nocapture noundef readonly %0) local_u
   %19 = udiv i64 %14, %18
   %20 = trunc i64 %19 to i32
   %21 = urem i64 %14, %18
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw i64 %21 to i32
   %23 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 64, ptr noundef nonnull @.str.39, i32 noundef %15, i32 noundef %20, i32 noundef %22) #9
   %24 = call ptr @cstring_to_text(ptr noundef nonnull %2) #9
   %25 = ptrtoint ptr %24 to i64
@@ -588,12 +588,12 @@ define dso_local i64 @pg_split_walfile_name(ptr noundef %0) local_unnamed_addr #
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #11
+  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %14) #11
   %21 = icmp eq i64 %20, 24
   br i1 %21, label %IsXLogFileName.exit, label %IsXLogFileName.exit.thread
 
 IsXLogFileName.exit:                              ; preds = %._crit_edge
-  %22 = tail call i64 @strspn(ptr noundef nonnull %14, ptr noundef nonnull @.str.40) #11
+  %22 = tail call i64 @strspn(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.40) #11
   %23 = icmp eq i64 %22, 24
   br i1 %23, label %27, label %IsXLogFileName.exit.thread
 
@@ -609,7 +609,7 @@ IsXLogFileName.exit.thread:                       ; preds = %._crit_edge, %IsXLo
   %28 = load i32, ptr @wal_segment_size, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %29 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.39, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  %29 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.39, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
   %30 = load i32, ptr %2, align 4
   %31 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
@@ -730,7 +730,7 @@ define dso_local noundef i64 @pg_wal_replay_resume(ptr nocapture noundef readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_is_wal_replay_paused(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_is_wal_replay_paused(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #9
   br i1 %2, label %8, label %3
 
@@ -802,7 +802,7 @@ define dso_local i64 @pg_last_xact_replay_timestamp(ptr nocapture noundef writeo
 declare i64 @GetLatestXTime() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_is_in_recovery(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_is_in_recovery(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #9
   %3 = zext i1 %2 to i64
   ret i64 %3
@@ -823,7 +823,7 @@ declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 
 declare i64 @pg_lsn_mi(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_promote(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_promote(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %.not19 = icmp eq i64 %3, 0

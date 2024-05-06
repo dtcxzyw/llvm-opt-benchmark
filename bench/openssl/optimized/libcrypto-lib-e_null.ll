@@ -9,19 +9,19 @@ target triple = "x86_64-unknown-linux-gnu"
 @n_cipher = internal constant %struct.evp_cipher_st { i32 0, i32 1, i32 0, i32 0, i64 0, i32 1, ptr @null_init_key, ptr @null_cipher, ptr null, i32 0, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @EVP_enc_null() local_unnamed_addr #0 {
+define noundef nonnull ptr @EVP_enc_null() local_unnamed_addr #0 {
 entry:
   ret ptr @n_cipher
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @null_init_key(ptr nocapture readnone %ctx, ptr nocapture readnone %key, ptr nocapture readnone %iv, i32 %enc) #0 {
+define internal noundef i32 @null_init_key(ptr nocapture readnone %ctx, ptr nocapture readnone %key, ptr nocapture readnone %iv, i32 %enc) #0 {
 entry:
   ret i32 1
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @null_cipher(ptr nocapture readnone %ctx, ptr noundef writeonly %out, ptr noundef readonly %in, i64 noundef %inl) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal noundef i32 @null_cipher(ptr nocapture readnone %ctx, ptr noundef writeonly %out, ptr noundef readonly %in, i64 noundef %inl) #1 {
 entry:
   %cmp.not = icmp eq ptr %in, %out
   br i1 %cmp.not, label %if.end, label %if.then
@@ -38,7 +38,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

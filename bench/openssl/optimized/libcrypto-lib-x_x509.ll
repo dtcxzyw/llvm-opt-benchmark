@@ -115,7 +115,7 @@ entry:
 declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_x509_set0_libctx(ptr noundef %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_x509_set0_libctx(ptr noundef %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %x, null
   br i1 %cmp.not, label %if.end11, label %if.then
@@ -333,18 +333,18 @@ if.end.i35:                                       ; preds = %if.end
   %3 = load ptr, ptr %aux.i36, align 8
   %call3.i37 = tail call i32 @i2d_X509_CERT_AUX(ptr noundef %3, ptr noundef null) #6
   %cmp4.i38 = icmp slt i32 %call3.i37, 0
-  br i1 %cmp4.i38, label %return, label %i2d_x509_aux_internal.exit45.thread67
+  br i1 %cmp4.i38, label %return, label %i2d_x509_aux_internal.exit45.thread70
 
-i2d_x509_aux_internal.exit45.thread67:            ; preds = %if.end.i35
+i2d_x509_aux_internal.exit45.thread70:            ; preds = %if.end.i35
   %add.i40 = add nuw nsw i32 %call3.i37, %call1.i.i28
   br label %if.end5
 
 i2d_x509_aux_internal.exit45:                     ; preds = %if.end
   br i1 %cmp1.i32, label %return, label %if.end5
 
-if.end5:                                          ; preds = %i2d_x509_aux_internal.exit45.thread67, %i2d_x509_aux_internal.exit45
-  %retval.0.i4170 = phi i32 [ %add.i40, %i2d_x509_aux_internal.exit45.thread67 ], [ %call1.i.i28, %i2d_x509_aux_internal.exit45 ]
-  %conv = zext nneg i32 %retval.0.i4170 to i64
+if.end5:                                          ; preds = %i2d_x509_aux_internal.exit45.thread70, %i2d_x509_aux_internal.exit45
+  %retval.0.i4173 = phi i32 [ %add.i40, %i2d_x509_aux_internal.exit45.thread70 ], [ %call1.i.i28, %i2d_x509_aux_internal.exit45 ]
+  %conv = zext nneg i32 %retval.0.i4173 to i64
   %call6 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv, ptr noundef nonnull @.str.2, i32 noundef 274) #6
   store ptr %call6, ptr %tmp, align 8
   store ptr %call6, ptr %pp, align 8
@@ -352,38 +352,38 @@ if.end5:                                          ; preds = %i2d_x509_aux_intern
   br i1 %cmp7, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end5
-  %call1.i15.i47 = call i32 @ASN1_item_i2d(ptr noundef %a, ptr noundef nonnull %tmp, ptr noundef nonnull @X509_it.local_it) #6
-  %cmp1.i51 = icmp slt i32 %call1.i15.i47, 1
-  %or.cond.i53 = or i1 %cmp2.i, %cmp1.i51
-  br i1 %or.cond.i53, label %i2d_x509_aux_internal.exit64, label %if.end.i54
+  %call1.i15.i48 = call i32 @ASN1_item_i2d(ptr noundef %a, ptr noundef nonnull %tmp, ptr noundef nonnull @X509_it.local_it) #6
+  %cmp1.i52 = icmp slt i32 %call1.i15.i48, 1
+  %or.cond.i54 = or i1 %cmp2.i, %cmp1.i52
+  br i1 %or.cond.i54, label %i2d_x509_aux_internal.exit67, label %if.end.i55
 
-if.end.i54:                                       ; preds = %if.end10
-  %aux.i55 = getelementptr inbounds i8, ptr %a, i64 336
-  %4 = load ptr, ptr %aux.i55, align 8
-  %call3.i56 = call i32 @i2d_X509_CERT_AUX(ptr noundef %4, ptr noundef nonnull %tmp) #6
-  %cmp4.i57 = icmp slt i32 %call3.i56, 0
-  br i1 %cmp4.i57, label %i2d_x509_aux_internal.exit64.thread, label %i2d_x509_aux_internal.exit64.thread74
+if.end.i55:                                       ; preds = %if.end10
+  %aux.i56 = getelementptr inbounds i8, ptr %a, i64 336
+  %4 = load ptr, ptr %aux.i56, align 8
+  %call3.i57 = call i32 @i2d_X509_CERT_AUX(ptr noundef %4, ptr noundef nonnull %tmp) #6
+  %cmp4.i58 = icmp slt i32 %call3.i57, 0
+  br i1 %cmp4.i58, label %i2d_x509_aux_internal.exit67.thread, label %i2d_x509_aux_internal.exit67.thread77
 
-i2d_x509_aux_internal.exit64.thread:              ; preds = %if.end.i54
+i2d_x509_aux_internal.exit67.thread:              ; preds = %if.end.i55
   store ptr %call6, ptr %tmp, align 8
   br label %if.then14
 
-i2d_x509_aux_internal.exit64.thread74:            ; preds = %if.end.i54
-  %add.i59 = add nuw nsw i32 %call3.i56, %call1.i15.i47
+i2d_x509_aux_internal.exit67.thread77:            ; preds = %if.end.i55
+  %add.i60 = add nuw nsw i32 %call3.i57, %call1.i15.i48
   br label %return
 
-i2d_x509_aux_internal.exit64:                     ; preds = %if.end10
-  br i1 %cmp1.i51, label %if.then14, label %return
+i2d_x509_aux_internal.exit67:                     ; preds = %if.end10
+  br i1 %cmp1.i52, label %if.then14, label %return
 
-if.then14:                                        ; preds = %i2d_x509_aux_internal.exit64.thread, %i2d_x509_aux_internal.exit64
-  %retval.0.i6073 = phi i32 [ %call3.i56, %i2d_x509_aux_internal.exit64.thread ], [ %call1.i15.i47, %i2d_x509_aux_internal.exit64 ]
+if.then14:                                        ; preds = %i2d_x509_aux_internal.exit67.thread, %i2d_x509_aux_internal.exit67
+  %retval.0.i6176 = phi i32 [ %call3.i57, %i2d_x509_aux_internal.exit67.thread ], [ %call1.i15.i48, %i2d_x509_aux_internal.exit67 ]
   %5 = load ptr, ptr %pp, align 8
   call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.2, i32 noundef 281) #6
   store ptr null, ptr %pp, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.end.i35, %i2d_x509_aux_internal.exit64.thread74, %if.end9.i21, %if.then7.i, %cond.end.i, %entry.split, %i2d_x509_aux_internal.exit64, %if.then14, %if.end5, %i2d_x509_aux_internal.exit45
-  %retval.0 = phi i32 [ %call1.i.i28, %i2d_x509_aux_internal.exit45 ], [ -1, %if.end5 ], [ %retval.0.i6073, %if.then14 ], [ %call1.i15.i47, %i2d_x509_aux_internal.exit64 ], [ %call1.i.i, %entry.split ], [ %add.i22, %if.end9.i21 ], [ %call1.i15.i, %cond.end.i ], [ %call3.i19, %if.then7.i ], [ %add.i59, %i2d_x509_aux_internal.exit64.thread74 ], [ %call3.i37, %if.end.i35 ], [ %spec.select, %if.end.i ]
+return:                                           ; preds = %if.end.i, %if.end.i35, %i2d_x509_aux_internal.exit67.thread77, %if.end9.i21, %if.then7.i, %cond.end.i, %entry.split, %i2d_x509_aux_internal.exit67, %if.then14, %if.end5, %i2d_x509_aux_internal.exit45
+  %retval.0 = phi i32 [ %call1.i.i28, %i2d_x509_aux_internal.exit45 ], [ -1, %if.end5 ], [ %retval.0.i6176, %if.then14 ], [ %call1.i15.i48, %i2d_x509_aux_internal.exit67 ], [ %call1.i.i, %entry.split ], [ %add.i22, %if.end9.i21 ], [ %call1.i15.i, %cond.end.i ], [ %call3.i19, %if.then7.i ], [ %add.i60, %i2d_x509_aux_internal.exit67.thread77 ], [ %call3.i37, %if.end.i35 ], [ %spec.select, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -468,7 +468,7 @@ declare ptr @ASN1_BIT_STRING_it() #2
 declare ptr @X509_EXTENSION_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @x509_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef %exarg) #1 {
+define internal range(i32 0, 2) i32 @x509_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef %exarg) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   switch i32 %operation, label %sw.epilog [

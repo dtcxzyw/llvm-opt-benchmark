@@ -504,7 +504,7 @@ define dso_local noundef zeroext i1 @_ZN17RealDiskInterface7MakeDirERKNSt7__cxx1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN17RealDiskInterface8ReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN17RealDiskInterface8ReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = tail call noundef i32 @_Z8ReadFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS4_S7_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef %3)
   %switch.selectcmp = icmp eq i32 %5, -2
   %switch.select = select i1 %switch.selectcmp, i32 1, i32 2
@@ -516,7 +516,7 @@ define dso_local noundef i32 @_ZN17RealDiskInterface8ReadFileERKNSt7__cxx1112bas
 declare noundef i32 @_Z8ReadFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS4_S7_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN17RealDiskInterface10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN17RealDiskInterface10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #13
   %4 = tail call i32 @remove(ptr noundef %3) #13
   %5 = icmp slt i32 %4, 0

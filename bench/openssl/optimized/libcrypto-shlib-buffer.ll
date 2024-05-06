@@ -119,7 +119,7 @@ if.then13:                                        ; preds = %if.end11
   br label %return
 
 if.end14:                                         ; preds = %if.end11
-  %3 = trunc i64 %len to i32
+  %3 = trunc nuw i64 %len to i32
   %div.lhs.trunc = add nuw nsw i32 %3, 3
   %div35 = udiv i32 %div.lhs.trunc, 3
   %4 = shl nuw i32 %div35, 2
@@ -233,7 +233,7 @@ if.then17:                                        ; preds = %if.end15
   br label %return
 
 if.end18:                                         ; preds = %if.end15
-  %4 = trunc i64 %len to i32
+  %4 = trunc nuw i64 %len to i32
   %div.lhs.trunc = add nuw nsw i32 %4, 3
   %div41 = udiv i32 %div.lhs.trunc, 3
   %5 = shl nuw i32 %div41, 2

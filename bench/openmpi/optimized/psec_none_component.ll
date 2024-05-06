@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_none_module = external global %struct.pmix_psec_module_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @component_open() #0 {
+define internal range(i32 -1, 1) i32 @component_open() #0 {
   %1 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %2 = tail call i32 @pmix_mca_base_var_find(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef null) #5

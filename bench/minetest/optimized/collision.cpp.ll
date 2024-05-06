@@ -116,7 +116,7 @@ $_ZNSt6vectorI19NearbyCollisionInfoSaIS0_EE17_M_realloc_insertIJRP12ActiveObject
 @g_profiler = external local_unnamed_addr global ptr, align 8
 @.str.14 = private unnamed_addr constant [30 x i8] c"Server: collisionMoveSimple()\00", align 1
 @.str.15 = private unnamed_addr constant [30 x i8] c"Client: collisionMoveSimple()\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.16 = private unnamed_addr constant [76 x i8] c"collisionMoveSimple: maximum step interval exceeded, lost movement details!\00", align 1
 @.str.17 = private unnamed_addr constant [32 x i8] c"Server: collision collect boxes\00", align 1
 @.str.18 = private unnamed_addr constant [32 x i8] c"Client: collision collect boxes\00", align 1
@@ -353,7 +353,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %staticbox, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %movingbox, <2 x float> %speed.coerce0, float %speed.coerce1, ptr nocapture noundef %dtime) local_unnamed_addr #5 {
+define dso_local noundef range(i32 -1, 3) i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %staticbox, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %movingbox, <2 x float> %speed.coerce0, float %speed.coerce1, ptr nocapture noundef %dtime) local_unnamed_addr #5 {
 entry:
   %MaxEdge = getelementptr inbounds i8, ptr %movingbox, i64 12
   %0 = load float, ptr %MaxEdge, align 4

@@ -488,7 +488,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7511ICU_Utility12parseIntegerERKNS_13UnicodeStringERii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %rule, ptr nocapture noundef nonnull align 4 dereferenceable(4) %pos, i32 noundef %limit) local_unnamed_addr #1 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZN6icu_7511ICU_Utility12parseIntegerERKNS_13UnicodeStringERii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %rule, ptr nocapture noundef nonnull align 4 dereferenceable(4) %pos, i32 noundef %limit) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %pos, align 4
   %cmp = icmp slt i32 %0, %limit
@@ -702,7 +702,7 @@ sw.bb8:                                           ; preds = %_ZNK6icu_7513Unicod
 sw.bb10:                                          ; preds = %for.body
   %14 = load i32, ptr %pos.addr, align 4
   store i32 %14, ptr %p, align 4
-  %call11 = call noundef i32 @_ZN6icu_7511ICU_Utility12parseIntegerERKNS_13UnicodeStringERii(ptr noundef nonnull align 8 dereferenceable(64) %rule, ptr noundef nonnull align 4 dereferenceable(4) %p, i32 noundef %limit), !range !6
+  %call11 = call noundef i32 @_ZN6icu_7511ICU_Utility12parseIntegerERKNS_13UnicodeStringERii(ptr noundef nonnull align 8 dereferenceable(64) %rule, ptr noundef nonnull align 4 dereferenceable(4) %p, i32 noundef %limit)
   %idxprom = sext i32 %intCount.050 to i64
   %arrayidx = getelementptr inbounds i32, ptr %parsedInts, i64 %idxprom
   store i32 %call11, ptr %arrayidx, align 4
@@ -762,7 +762,7 @@ for.inc:                                          ; preds = %sw.bb8, %if.end15, 
   %cond.i = select i1 %cmp.i.i, i32 %27, i32 %shr.i.i
   %28 = sext i32 %cond.i to i64
   %cmp = icmp slt i64 %indvars.iv.next, %28
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !7
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !6
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load i32, ptr %pos.addr, align 4
@@ -886,7 +886,7 @@ if.end22:                                         ; preds = %if.then8.invoke
   %14 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %14, i32 %shr.i.i
   %cmp = icmp slt i32 %add, %cond.i
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end22, %invoke.cont14, %entry
   %p.0.lcssa = phi i32 [ %0, %entry ], [ %p.025, %invoke.cont14 ], [ %add, %if.end22 ]
@@ -909,7 +909,7 @@ declare signext i8 @u_isIDPart_75(i32 noundef) local_unnamed_addr #5
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7511ICU_Utility11parseNumberERKNS_13UnicodeStringERia(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 4 dereferenceable(4) %pos, i8 noundef signext %radix) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, -2147483648) i32 @_ZN6icu_7511ICU_Utility11parseNumberERKNS_13UnicodeStringERia(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 4 dereferenceable(4) %pos, i8 noundef signext %radix) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %pos, align 4
   %fUnion.i.i = getelementptr inbounds i8, ptr %text, i64 8
@@ -950,7 +950,7 @@ if.end6:                                          ; preds = %if.end
   %6 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %6, i32 %shr.i.i
   %cmp = icmp slt i32 %inc, %cond.i
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !9
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end6, %while.body
   %p.0.lcssa.ph = phi i32 [ %inc, %if.end6 ], [ %p.018, %while.body ]
@@ -993,7 +993,6 @@ attributes #10 = { noreturn nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 -2147483648}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

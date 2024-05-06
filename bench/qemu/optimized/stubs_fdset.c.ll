@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define dso_local i32 @monitor_fdset_dup_fd_add(i64 noundef %fdset_id, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef i32 @monitor_fdset_dup_fd_add(i64 noundef %fdset_id, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @__errno_location() #3
   store i32 38, ptr %call, align 4
@@ -15,7 +15,7 @@ entry:
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @monitor_fdset_dup_fd_find(i32 noundef %dup_fd) local_unnamed_addr #2 {
+define dso_local noundef i64 @monitor_fdset_dup_fd_find(i32 noundef %dup_fd) local_unnamed_addr #2 {
 entry:
   ret i64 -1
 }

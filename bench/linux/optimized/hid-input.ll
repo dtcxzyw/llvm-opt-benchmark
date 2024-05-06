@@ -856,7 +856,7 @@ define dso_local i32 @hidinput_count_leds(ptr noundef readonly %0) #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @hidinput_connect(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 7080
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 7168
@@ -2012,7 +2012,7 @@ define internal void @hidinput_close(ptr nocapture noundef readonly %0) #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hidinput_setkeycode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @hidinput_setkeycode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 664
   %5 = load ptr, ptr %4, align 8
   %6 = tail call fastcc ptr @hidinput_locate_usage(ptr noundef %5, ptr noundef %1, ptr noundef null)
@@ -2134,7 +2134,7 @@ define internal noundef i32 @hidinput_setkeycode(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hidinput_getkeycode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @hidinput_getkeycode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 664
   %5 = load ptr, ptr %4, align 8
@@ -2707,7 +2707,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
 
 147:                                              ; preds = %71
   %148 = and i32 %72, 240
-  %149 = trunc i32 %148 to i8
+  %149 = trunc nuw i32 %148 to i8
   switch i8 %149, label %175 [
     i8 -128, label %150
     i8 -96, label %167
@@ -4922,7 +4922,7 @@ define internal fastcc void @hid_map_usage(ptr %.24.val, ptr nocapture noundef w
 22:                                               ; preds = %11
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %3, ptr %23, align 4
-  %24 = trunc i32 %4 to i16
+  %24 = trunc nuw nsw i32 %4 to i16
   %25 = getelementptr inbounds i8, ptr %0, i64 14
   store i16 %24, ptr %25, align 2
   store i32 %12, ptr %2, align 4

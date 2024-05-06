@@ -143,7 +143,7 @@ define dso_local zeroext i1 @uuid_is_valid(ptr nocapture noundef readonly %0) #2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @guid_parse(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @guid_parse(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   br label %3
 
 3:                                                ; preds = %19, %2
@@ -212,7 +212,7 @@ define dso_local noundef i32 @guid_parse(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @uuid_parse(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @uuid_parse(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   br label %3
 
 3:                                                ; preds = %19, %2

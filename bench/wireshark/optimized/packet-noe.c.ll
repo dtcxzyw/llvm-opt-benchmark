@@ -719,7 +719,7 @@ define internal i32 @dissect_noe(ptr noundef %0, ptr nocapture noundef readonly 
 
 decode_utf8.exit.i:                               ; preds = %99, %84, %71, %61, %57, %._crit_edge.thread.i
   %.sink.i.i = phi i64 [ %58, %57 ], [ %81, %71 ], [ %114, %99 ], [ %96, %84 ], [ %68, %61 ], [ %54, %._crit_edge.thread.i ]
-  %115 = trunc i64 %.sink.i.i to i32
+  %115 = trunc nuw nsw i64 %.sink.i.i to i32
   %116 = icmp ult i32 %115, 33
   br i1 %116, label %decode_utf8.exit.thread.i, label %switch.early.test.i.i
 

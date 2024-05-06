@@ -367,7 +367,7 @@ define dso_local void @mtl_uncore_cpu_init() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snb_pci2phy_map_init(i32 noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -25, 1) i32 @snb_pci2phy_map_init(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = tail call ptr @pci_get_device(i32 noundef 32902, i32 noundef %0, ptr noundef null) #10
   %3 = icmp eq ptr %2, null
   br i1 %3, label %20, label %4
@@ -425,7 +425,7 @@ declare dso_local void @pci_dev_put(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snb_uncore_pci_init() local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @snb_uncore_pci_init() local_unnamed_addr #1 align 16 {
   br label %1
 
 1:                                                ; preds = %snb_pci2phy_map_init.exit.thread, %0
@@ -482,7 +482,7 @@ snb_pci2phy_map_init.exit.thread:                 ; preds = %snb_pci2phy_map_ini
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ivb_uncore_pci_init() local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @ivb_uncore_pci_init() local_unnamed_addr #1 align 16 {
   br label %1
 
 1:                                                ; preds = %snb_pci2phy_map_init.exit.thread, %0
@@ -539,7 +539,7 @@ snb_pci2phy_map_init.exit.thread:                 ; preds = %snb_pci2phy_map_ini
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @hsw_uncore_pci_init() local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @hsw_uncore_pci_init() local_unnamed_addr #1 align 16 {
   br label %1
 
 1:                                                ; preds = %snb_pci2phy_map_init.exit.thread, %0
@@ -596,7 +596,7 @@ snb_pci2phy_map_init.exit.thread:                 ; preds = %snb_pci2phy_map_ini
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bdw_uncore_pci_init() local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @bdw_uncore_pci_init() local_unnamed_addr #1 align 16 {
   br label %1
 
 1:                                                ; preds = %snb_pci2phy_map_init.exit.thread, %0
@@ -653,7 +653,7 @@ snb_pci2phy_map_init.exit.thread:                 ; preds = %snb_pci2phy_map_ini
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @skl_uncore_pci_init() local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @skl_uncore_pci_init() local_unnamed_addr #1 align 16 {
   br label %1
 
 1:                                                ; preds = %snb_pci2phy_map_init.exit.thread, %0
@@ -825,7 +825,7 @@ define internal void @snb_uncore_msr_enable_event(ptr nocapture readnone %0, ptr
   %12 = or i64 %11, 4194304
   %13 = trunc i64 %12 to i32
   %14 = lshr i64 %11, 32
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %10, i32 %13, i32 %15) #10, !srcloc !7
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #10
           to label %22 [label %16], !srcloc !6
@@ -1166,7 +1166,7 @@ define internal void @snb_uncore_imc_enable_event(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @snb_uncore_imc_read_counter(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal range(i64 0, 4294967296) i64 @snb_uncore_imc_read_counter(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 480
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 384
@@ -1192,7 +1192,7 @@ declare dso_local ptr @ioremap(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snb_uncore_imc_event_init(ptr nocapture noundef %0) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @snb_uncore_imc_event_init(ptr nocapture noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 360
   %3 = getelementptr inbounds i8, ptr %0, i64 216
   %4 = getelementptr inbounds i8, ptr %0, i64 224
@@ -1258,7 +1258,7 @@ define internal noundef i32 @snb_uncore_imc_event_init(ptr nocapture noundef %0)
   store i32 -1, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 448
   store i32 -1, ptr %45, align 8
-  %46 = trunc i64 %5 to i8
+  %46 = trunc nuw i64 %5 to i8
   switch i8 %46, label %57 [
     i8 1, label %51
     i8 2, label %47
@@ -1357,7 +1357,7 @@ define internal void @nhm_uncore_msr_enable_event(ptr nocapture readnone %0, ptr
   %12 = or i64 %11, 4194304
   %13 = trunc i64 %12 to i32
   %14 = lshr i64 %11, 32
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %10, i32 %13, i32 %15) #10, !srcloc !7
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #10
           to label %22 [label %16], !srcloc !6
@@ -1398,7 +1398,7 @@ define internal void @tgl_uncore_imc_freerunning_init_box(ptr nocapture noundef 
 declare dso_local i64 @uncore_mmio_read_counter(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @uncore_freerunning_hw_config(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #8 align 16 {
+define internal range(i32 -22, 1) i32 @uncore_freerunning_hw_config(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 224
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 255

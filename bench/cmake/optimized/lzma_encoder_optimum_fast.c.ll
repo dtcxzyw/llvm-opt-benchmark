@@ -80,10 +80,10 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
   br i1 %.not155.us, label %48, label %36
 
 36:                                               ; preds = %.preheader.us
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   %38 = sub i64 %.val170.us, %.val171.us
-  %39 = call i64 @llvm.cttz.i64(i64 %38, i1 true), !range !5
-  %40 = trunc i64 %39 to i32
+  %39 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %38, i1 true)
+  %40 = trunc nuw nsw i64 %39 to i32
   %41 = lshr i32 %40, 3
   %42 = add i32 %41, %37
   %43 = call i32 @llvm.umin.i32(i32 %42, i32 %spec.select178)
@@ -97,7 +97,7 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
 44:                                               ; preds = %..loopexit_crit_edge.us
   %45 = icmp ugt i32 %.0137.us, %.0145189.us
   %spec.select.us = call i32 @llvm.umax.i32(i32 %.0137.us, i32 %.0145189.us)
-  %46 = trunc i64 %indvars.iv238 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv238 to i32
   %spec.select157.us = select i1 %45, i32 %46, i32 %.0143190.us
   br label %47
 
@@ -106,12 +106,12 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
   %.1144.us = phi i32 [ %.0143190.us, %.preheader183.split.us ], [ %spec.select157.us, %44 ]
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next239, 4
-  br i1 %exitcond.not, label %.split194.us, label %.preheader183.split.us, !llvm.loop !6
+  br i1 %exitcond.not, label %.split194.us, label %.preheader183.split.us, !llvm.loop !5
 
 48:                                               ; preds = %.preheader.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %49 = icmp ult i64 %indvars.iv.next, %29
-  br i1 %49, label %.preheader.us, label %..loopexit_crit_edge.us, !llvm.loop !8
+  br i1 %49, label %.preheader.us, label %..loopexit_crit_edge.us, !llvm.loop !7
 
 .preheader183.split:                              ; preds = %.preheader183
   %.not156 = icmp ult i32 %spec.select178, %.fr228
@@ -135,12 +135,12 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
   %.1144.us206 = phi i32 [ %.0143190.us198, %.preheader183.split.split.us ], [ %spec.select157.us204, %.preheader.us207 ]
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %exitcond248.not = icmp eq i64 %indvars.iv.next246, 4
-  br i1 %exitcond248.not, label %.split194.us, label %.preheader183.split.split.us, !llvm.loop !6
+  br i1 %exitcond248.not, label %.split194.us, label %.preheader183.split.split.us, !llvm.loop !5
 
 .preheader.us207:                                 ; preds = %.preheader183.split.split.us
   %55 = icmp ugt i32 %spec.select178, %.0145189.us199
   %spec.select.us203 = call i32 @llvm.umax.i32(i32 %spec.select178, i32 %.0145189.us199)
-  %56 = trunc i64 %indvars.iv245 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv245 to i32
   %spec.select157.us204 = select i1 %55, i32 %56, i32 %.0143190.us198
   br label %54
 
@@ -182,7 +182,7 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
 68:                                               ; preds = %.preheader183.split.split
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next242, 4
-  br i1 %exitcond244.not, label %.split194.us, label %.preheader183.split.split, !llvm.loop !6
+  br i1 %exitcond244.not, label %.split194.us, label %.preheader183.split.split, !llvm.loop !5
 
 .split194.us:                                     ; preds = %47, %68, %54
   %.us-phi195 = phi i32 [ %.1146.us205, %54 ], [ 0, %68 ], [ %.1146.us, %47 ]
@@ -254,7 +254,7 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
   %indvars = trunc i64 %indvars.iv.next250 to i32
   store i32 %indvars, ptr %5, align 4
   %104 = icmp ugt i32 %indvars, 1
-  br i1 %104, label %.lr.ph, label %.critedge, !llvm.loop !9
+  br i1 %104, label %.lr.ph, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph, %98, %103, %85
   %.1141.lcssa = phi i32 [ %.0140, %85 ], [ %95, %103 ], [ %.1141214, %98 ], [ %.1141214, %.lr.ph ]
@@ -366,7 +366,7 @@ mf_skip.exit175:                                  ; preds = %115, %111, %109
 157:                                              ; preds = %158
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
   %exitcond256.not = icmp eq i64 %indvars.iv.next253, 4
-  br i1 %exitcond256.not, label %165, label %158, !llvm.loop !10
+  br i1 %exitcond256.not, label %165, label %158, !llvm.loop !9
 
 158:                                              ; preds = %153, %157
   %indvars.iv252 = phi i64 [ 0, %153 ], [ %indvars.iv.next253, %157 ]
@@ -433,9 +433,8 @@ attributes #5 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}

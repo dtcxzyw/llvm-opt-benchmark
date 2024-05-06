@@ -312,7 +312,7 @@ define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 nounde
 
 37:                                               ; preds = %30, %.lr.ph
   %.2 = phi ptr [ %31, %30 ], [ %.152, %.lr.ph ]
-  %38 = trunc i8 %.04051 to i1
+  %38 = trunc nuw i8 %.04051 to i1
   br i1 %38, label %43, label %39
 
 39:                                               ; preds = %37
@@ -337,7 +337,7 @@ define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 nounde
 
 ._crit_edge.split:                                ; preds = %43
   call void @PQclear(ptr noundef %24) #6
-  %50 = trunc i8 %.141 to i1
+  %50 = trunc nuw i8 %.141 to i1
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %._crit_edge.split

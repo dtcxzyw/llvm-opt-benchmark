@@ -57,7 +57,7 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..
   %.val2.i = load ptr, ptr %7, align 8, !alias.scope !9, !noalias !6, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %.val.i = load ptr, ptr %8, align 8, !alias.scope !6, !noalias !9, !nonnull !4, !noundef !4
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %.val.i, ptr nonnull %.val2.i, i64 %.val1.i), !alias.scope !11, !noalias !15
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i, ptr nonnull readonly %.val2.i, i64 %.val1.i), !alias.scope !11, !noalias !15
   %9 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %9, label %10, label %"_ZN57_$LT$text_edit..Indel$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3947c3c8df988a3bE.llvm.4584440205186026580.exit"
 
@@ -92,7 +92,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h644959b7ab94519
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %4, ptr %8, align 8, !alias.scope !16, !noalias !19
   %9 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !alias.scope !16, !noalias !19
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !alias.scope !16, !noalias !19
   ret void
 }
 
@@ -100,12 +100,12 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h644959b7ab94519
 define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h919d7effdab95110E.llvm.4584440205186026580(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { { { { ptr, [1 x i64] } }, ptr }, { { { ptr, [1 x i64] } }, ptr }, {} }, i64, i64, i64 }) align 8 dereferenceable(88) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noalias noundef align 8 dereferenceable(48) %2, i64 noundef %3) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !alias.scope !24, !noalias !26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %5, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !alias.scope !24, !noalias !26
   store ptr %2, ptr %0, align 8, !alias.scope !28, !noalias !29
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %6, align 8, !alias.scope !28, !noalias !29
   %7 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !28, !noalias !29
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false), !alias.scope !28, !noalias !29
   ret void
 }
 
@@ -177,7 +177,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.val2.i.i.i = load ptr, ptr %25, align 8, !alias.scope !61, !noalias !60, !nonnull !4, !noundef !4
   %26 = getelementptr inbounds i8, ptr %7, i64 8
   %.val.i.i.i6 = load ptr, ptr %26, align 8, !alias.scope !60, !noalias !61, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val.i.i.i6, ptr nonnull %.val2.i.i.i, i64 %.val1.i.i.i), !alias.scope !62, !noalias !66
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i.i.i6, ptr nonnull readonly %.val2.i.i.i, i64 %.val1.i.i.i), !alias.scope !62, !noalias !66
   %27 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %28 = getelementptr inbounds i8, ptr %7, i64 24
   %29 = load i32, ptr %28, align 8, !alias.scope !53, !noalias !54
@@ -279,7 +279,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.val2.i.i.i = load ptr, ptr %30, align 8, !alias.scope !104, !noalias !103, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds i8, ptr %11, i64 8
   %.val.i.i.i6 = load ptr, ptr %31, align 8, !alias.scope !103, !noalias !104, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val.i.i.i6, ptr nonnull %.val2.i.i.i, i64 %.val1.i.i.i), !alias.scope !105, !noalias !109
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i.i.i6, ptr nonnull readonly %.val2.i.i.i, i64 %.val1.i.i.i), !alias.scope !105, !noalias !109
   %32 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %33 = getelementptr inbounds i8, ptr %11, i64 24
   %34 = load i32, ptr %33, align 8, !alias.scope !96, !noalias !97
@@ -416,7 +416,7 @@ define hidden noundef zeroext i1 @"_ZN76_$LT$F$u20$as$u20$itertools..adaptors..c
   %.val2.i.i.i = load ptr, ptr %8, align 8, !alias.scope !139, !noalias !142, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %.val.i.i.i = load ptr, ptr %9, align 8, !alias.scope !136, !noalias !141, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val.i.i.i, ptr nonnull %.val2.i.i.i, i64 %.val1.i.i.i), !alias.scope !143, !noalias !147
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i.i.i, ptr nonnull readonly %.val2.i.i.i, i64 %.val1.i.i.i), !alias.scope !143, !noalias !147
   %10 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %10, label %11, label %"_ZN9text_edit8TextEdit5union28_$u7b$$u7b$closure$u7d$$u7d$17h68bf06f5a1a9281fE.llvm.4584440205186026580.exit"
 
@@ -602,7 +602,7 @@ define hidden noundef zeroext i1 @"_ZN9text_edit8TextEdit5union28_$u7b$$u7b$clos
   %.val2.i.i = load ptr, ptr %8, align 8, !alias.scope !177, !noalias !180, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %.val.i.i = load ptr, ptr %9, align 8, !alias.scope !174, !noalias !179, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val.i.i, ptr nonnull %.val2.i.i, i64 %.val1.i.i), !alias.scope !181, !noalias !185
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i.i, ptr nonnull readonly %.val2.i.i, i64 %.val1.i.i), !alias.scope !181, !noalias !185
   %10 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %10, label %11, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h68f73048d81c99a6E.llvm.4584440205186026580.exit.thread"
 
@@ -667,7 +667,7 @@ define hidden noundef zeroext i1 @_ZN9text_edit14check_disjoint17h4e257f456acce6
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 1, ptr %16, align 8, !alias.scope !217, !noalias !218
   %17 = getelementptr inbounds i8, ptr %1, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !alias.scope !217, !noalias !218
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !alias.scope !217, !noalias !218
   %18 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h67c631b630dfbec7E.llvm.4584440205186026580(ptr noalias noundef nonnull align 8 dereferenceable(88) %1)
   %19 = xor i1 %18, true
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %1)
@@ -739,7 +739,7 @@ define hidden noundef zeroext i1 @_ZN9text_edit14check_disjoint17hd8f2997517cbdf
   %.val2.i.i.i.i = load ptr, ptr %26, align 8, !alias.scope !258, !noalias !259, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds i8, ptr %7, i64 8
   %.val.i.i.i6.i = load ptr, ptr %27, align 8, !alias.scope !256, !noalias !257, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %.val.i.i.i6.i, ptr nonnull %.val2.i.i.i.i, i64 %.val1.i.i.i.i), !alias.scope !260, !noalias !264
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val.i.i.i6.i, ptr nonnull readonly %.val2.i.i.i.i, i64 %.val1.i.i.i.i), !alias.scope !260, !noalias !264
   %28 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   %29 = getelementptr inbounds i8, ptr %7, i64 24
   %30 = load i32, ptr %29, align 8, !alias.scope !247, !noalias !248
@@ -820,7 +820,7 @@ define hidden void @"_ZN9text_edit15coalesce_indels28_$u7b$$u7b$closure$u7d$$u7d
   %33 = getelementptr inbounds i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !265, !noalias !270, !nonnull !4, !noundef !4
   %35 = getelementptr inbounds i8, ptr %34, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %15, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 1 %15, i64 %17, i1 false)
   %36 = load i64, ptr %18, align 8, !alias.scope !265, !noalias !270, !noundef !4
   %37 = add i64 %36, %17
   store i64 %37, ptr %18, align 8, !alias.scope !265, !noalias !270
@@ -891,7 +891,7 @@ define hidden noundef zeroext i1 @"_ZN57_$LT$text_edit..Indel$u20$as$u20$core..c
   %.val2 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %.val, ptr nonnull %.val2, i64 %.val1), !alias.scope !287
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.val2, i64 %.val1), !alias.scope !287
   %7 = icmp eq i32 %bcmp.i.i, 0
   br i1 %7, label %8, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h605f41053ae798cbE.exit.thread"
 

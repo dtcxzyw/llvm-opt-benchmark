@@ -69,7 +69,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @seed_src_generate(ptr nocapture noundef readonly %vseed, ptr nocapture noundef writeonly %out, i64 noundef %outlen, i32 noundef %strength, i32 %prediction_resistance, ptr nocapture readnone %adin, i64 %adin_len) #0 {
+define internal range(i32 0, 2) i32 @seed_src_generate(ptr nocapture noundef readonly %vseed, ptr nocapture noundef writeonly %out, i64 noundef %outlen, i32 noundef %strength, i32 %prediction_resistance, ptr nocapture readnone %adin, i64 %adin_len) #0 {
 entry:
   %state = getelementptr inbounds i8, ptr %vseed, i64 8
   %0 = load i32, ptr %state, align 8
@@ -118,7 +118,7 @@ return:                                           ; preds = %if.end11, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @seed_src_reseed(ptr nocapture noundef readonly %vseed, i32 %prediction_resistance, ptr nocapture readnone %ent, i64 %ent_len, ptr nocapture readnone %adin, i64 %adin_len) #0 {
+define internal range(i32 0, 2) i32 @seed_src_reseed(ptr nocapture noundef readonly %vseed, i32 %prediction_resistance, ptr nocapture readnone %ent, i64 %ent_len, ptr nocapture readnone %adin, i64 %adin_len) #0 {
 entry:
   %state = getelementptr inbounds i8, ptr %vseed, i64 8
   %0 = load i32, ptr %state, align 8
@@ -164,7 +164,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @seed_src_get_ctx_params(ptr nocapture noundef readonly %vseed, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @seed_src_get_ctx_params(ptr nocapture noundef readonly %vseed, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #5
   %cmp.not = icmp eq ptr %call, null

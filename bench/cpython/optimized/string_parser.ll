@@ -257,7 +257,7 @@ while.end.i:                                      ; preds = %if.end43.i, %if.the
   br i1 %or.cond1.i, label %if.then52.i, label %if.end58.i
 
 if.then52.i:                                      ; preds = %while.end.i
-  %call53.i = call fastcc i32 @warn_invalid_escape_sequence(ptr noundef %p, ptr noundef nonnull %18, ptr noundef nonnull %t), !range !9
+  %call53.i = call fastcc i32 @warn_invalid_escape_sequence(ptr noundef %p, ptr noundef nonnull %18, ptr noundef nonnull %t)
   %cmp54.i = icmp slt i32 %call53.i, 0
   br i1 %cmp54.i, label %if.then56.i, label %if.end58.i
 
@@ -345,7 +345,7 @@ while.body:                                       ; preds = %if.end, %if.end35
   %bytesmode.059 = phi i32 [ %bytesmode.1, %if.end35 ], [ 0, %if.end ]
   %quote.058 = phi i32 [ %quote.1, %if.end35 ], [ %conv2, %if.end ]
   %s.057 = phi ptr [ %s.1, %if.end35 ], [ %call, %if.end ]
-  %3 = trunc i32 %quote.058 to i8
+  %3 = trunc nuw i32 %quote.058 to i8
   %trunc = and i8 %3, -33
   switch i8 %trunc, label %if.end36.loopexit [
     i8 66, label %if.end35
@@ -368,7 +368,7 @@ if.end35:                                         ; preds = %while.body, %if.end
   %tobool7.not = icmp eq i32 %bytesmode.1, 0
   %tobool8.not = icmp eq i32 %rawmode.1, 0
   %4 = select i1 %tobool7.not, i1 true, i1 %tobool8.not
-  br i1 %4, label %while.body, label %if.end36.loopexit, !llvm.loop !10
+  br i1 %4, label %while.body, label %if.end36.loopexit, !llvm.loop !9
 
 if.end36.loopexit:                                ; preds = %if.end35, %while.body
   %s.2.ph = phi ptr [ %s.057, %while.body ], [ %s.1, %if.end35 ]
@@ -477,7 +477,7 @@ for.cond:                                         ; preds = %for.body
   %incdec.ptr104 = getelementptr i8, ptr %ch.062, i64 1
   %16 = load i8, ptr %incdec.ptr104, align 1
   %tobool90.not = icmp eq i8 %16, 0
-  br i1 %tobool90.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %tobool90.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %17 = phi i8 [ %16, %for.cond ], [ %15, %for.cond.preheader ]
@@ -539,7 +539,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %col_offset, i64 noundef %end_lineno, i64 noundef %end_col_offset, ptr nocapture readnone %errmsg, ...) unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %va)
+  call void @llvm.va_start.p0(ptr nonnull %va)
   %cmp = icmp eq i64 %col_offset, -5
   %add = add nsw i64 %col_offset, 1
   %cond = select i1 %cmp, i64 -5, i64 %add
@@ -547,7 +547,7 @@ entry:
   %add4 = add nsw i64 %end_col_offset, 1
   %cond6 = select i1 %cmp1, i64 -5, i64 %add4
   %call = call ptr @_PyPegen_raise_error_known_location(ptr noundef %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %cond, i64 noundef %end_lineno, i64 noundef %cond6, ptr noundef nonnull @.str.2, ptr noundef nonnull %va) #7
-  call void @llvm.va_end(ptr nonnull %va)
+  call void @llvm.va_end.p0(ptr nonnull %va)
   ret void
 }
 
@@ -567,7 +567,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call3 = call fastcc i32 @warn_invalid_escape_sequence(ptr noundef %p, ptr noundef nonnull %0, ptr noundef %t), !range !9
+  %call3 = call fastcc i32 @warn_invalid_escape_sequence(ptr noundef %p, ptr noundef nonnull %0, ptr noundef %t)
   %cmp4 = icmp slt i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %return
 
@@ -598,7 +598,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare ptr @_PyUnicode_DecodeUnicodeEscapeInternal(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @warn_invalid_escape_sequence(ptr noundef %p, ptr noundef %first_invalid_escape, ptr noundef %t) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @warn_invalid_escape_sequence(ptr noundef %p, ptr noundef %first_invalid_escape, ptr noundef %t) unnamed_addr #0 {
 entry:
   %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %0 = load i32, ptr %call_invalid_rules, align 4
@@ -721,15 +721,15 @@ declare void @PyErr_Clear() local_unnamed_addr #1
 
 declare ptr @_PyPegen_raise_error(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
 declare ptr @_PyPegen_raise_error_known_location(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
-
 declare ptr @_PyBytes_DecodeEscape(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
@@ -761,6 +761,5 @@ attributes #8 = { nounwind willreturn memory(read) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 -1, i32 1}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}

@@ -233,16 +233,16 @@ $_ZTVN7rocksdb14VectorIteratorE = comdat any
 
 @_ZTVN7rocksdb32FragmentedRangeTombstoneIteratorE = unnamed_addr constant { [27 x ptr] } { [27 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb32FragmentedRangeTombstoneIteratorD2Ev, ptr @_ZN7rocksdb32FragmentedRangeTombstoneIteratorD0Ev, ptr @_ZN7rocksdb32FragmentedRangeTombstoneIterator20SetRangeDelReadSeqnoEm, ptr @_ZNK7rocksdb32FragmentedRangeTombstoneIterator5ValidEv, ptr @_ZN7rocksdb32FragmentedRangeTombstoneIterator11SeekToFirstEv, ptr @_ZN7rocksdb32FragmentedRangeTombstoneIterator10SeekToLastEv, ptr @_ZN7rocksdb32FragmentedRangeTombstoneIterator4SeekERKNS_5SliceE, ptr @_ZN7rocksdb32FragmentedRangeTombstoneIterator11SeekForPrevERKNS_5SliceE, ptr @_ZN7rocksdb32FragmentedRangeTombstoneIterator4NextEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE16NextAndGetResultEPNS_13IterateResultE, ptr @_ZN7rocksdb32FragmentedRangeTombstoneIterator4PrevEv, ptr @_ZNK7rocksdb32FragmentedRangeTombstoneIterator3keyEv, ptr @_ZNK7rocksdb20InternalIteratorBaseINS_5SliceEE8user_keyEv, ptr @_ZNK7rocksdb32FragmentedRangeTombstoneIterator5valueEv, ptr @_ZNK7rocksdb32FragmentedRangeTombstoneIterator6statusEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE12PrepareValueEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE20MayBeOutOfLowerBoundEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE21UpperBoundCheckResultEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE17SetPinnedItersMgrEPNS_22PinnedIteratorsManagerE, ptr @_ZNK7rocksdb32FragmentedRangeTombstoneIterator11IsKeyPinnedEv, ptr @_ZNK7rocksdb32FragmentedRangeTombstoneIterator13IsValuePinnedEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE11GetPropertyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS8_, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE17GetReadaheadStateEPNS_17ReadaheadFileInfoE, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE17SetReadaheadStateEPNS_17ReadaheadFileInfoE, ptr @_ZNK7rocksdb20InternalIteratorBaseINS_5SliceEE24IsDeleteRangeSentinelKeyEv] }, align 8
 @_ZTVN7rocksdb21InternalKeyComparatorE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb21InternalKeyComparatorD2Ev, ptr @_ZN7rocksdb21InternalKeyComparatorD0Ev, ptr @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_] }, comdat, align 8
-@_ZN7rocksdb10perf_levelE = external thread_local global i8, align 1
-@_ZN7rocksdb12perf_contextE = external thread_local global %"struct.rocksdb::PerfContext", align 8
+@_ZN7rocksdb10perf_levelE = external thread_local local_unnamed_addr global i8, align 1
+@_ZN7rocksdb12perf_contextE = external thread_local local_unnamed_addr global %"struct.rocksdb::PerfContext", align 8
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.2 = private unnamed_addr constant [24 x i8] c"vector::_M_range_insert\00", align 1
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @.str.3 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 @_ZTVN7rocksdb14VectorIteratorE = linkonce_odr unnamed_addr constant { [27 x ptr] } { [27 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb14VectorIteratorD2Ev, ptr @_ZN7rocksdb14VectorIteratorD0Ev, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE20SetRangeDelReadSeqnoEm, ptr @_ZNK7rocksdb14VectorIterator5ValidEv, ptr @_ZN7rocksdb14VectorIterator11SeekToFirstEv, ptr @_ZN7rocksdb14VectorIterator10SeekToLastEv, ptr @_ZN7rocksdb14VectorIterator4SeekERKNS_5SliceE, ptr @_ZN7rocksdb14VectorIterator11SeekForPrevERKNS_5SliceE, ptr @_ZN7rocksdb14VectorIterator4NextEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE16NextAndGetResultEPNS_13IterateResultE, ptr @_ZN7rocksdb14VectorIterator4PrevEv, ptr @_ZNK7rocksdb14VectorIterator3keyEv, ptr @_ZNK7rocksdb20InternalIteratorBaseINS_5SliceEE8user_keyEv, ptr @_ZNK7rocksdb14VectorIterator5valueEv, ptr @_ZNK7rocksdb14VectorIterator6statusEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE12PrepareValueEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE20MayBeOutOfLowerBoundEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE21UpperBoundCheckResultEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE17SetPinnedItersMgrEPNS_22PinnedIteratorsManagerE, ptr @_ZNK7rocksdb14VectorIterator11IsKeyPinnedEv, ptr @_ZNK7rocksdb14VectorIterator13IsValuePinnedEv, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE11GetPropertyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS8_, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE17GetReadaheadStateEPNS_17ReadaheadFileInfoE, ptr @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEE17SetReadaheadStateEPNS_17ReadaheadFileInfoE, ptr @_ZNK7rocksdb20InternalIteratorBaseINS_5SliceEE24IsDeleteRangeSentinelKeyEv] }, comdat, align 8
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 
 @_ZN7rocksdb28FragmentedRangeTombstoneListC1ESt10unique_ptrINS_20InternalIteratorBaseINS_5SliceEEESt14default_deleteIS4_EERKNS_21InternalKeyComparatorEbRKSt6vectorImSaImEE = unnamed_addr alias void (ptr, ptr, ptr, i1, ptr), ptr @_ZN7rocksdb28FragmentedRangeTombstoneListC2ESt10unique_ptrINS_20InternalIteratorBaseINS_5SliceEEESt14default_deleteIS4_EERKNS_21InternalKeyComparatorEbRKSt6vectorImSaImEE
 @_ZN7rocksdb32FragmentedRangeTombstoneIteratorC1EPNS_28FragmentedRangeTombstoneListERKNS_21InternalKeyComparatorEmPKNS_5SliceEm = unnamed_addr alias void (ptr, ptr, ptr, i64, ptr, i64), ptr @_ZN7rocksdb32FragmentedRangeTombstoneIteratorC2EPNS_28FragmentedRangeTombstoneListERKNS_21InternalKeyComparatorEmPKNS_5SliceEm
@@ -8531,7 +8531,7 @@ lpad.i.i:                                         ; preds = %_ZNSt12_Vector_base
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = call ptr @__cxa_begin_catch(ptr %6) #18
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i29
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #18
@@ -8592,11 +8592,11 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i29:                                      ; preds = %lpad.i.i
+if.then.i32:                                      ; preds = %lpad.i.i
   call void @_ZdlPv(ptr noundef nonnull %cond.i17) #21
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %if.then.i29, %if.end.thread
+invoke.cont21:                                    ; preds = %if.then.i32, %if.end.thread
   invoke void @__cxa_rethrow() #19
           to label %unreachable unwind label %lpad19
 

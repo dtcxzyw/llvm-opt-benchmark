@@ -975,7 +975,7 @@ _ZN12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.ex
   br i1 %or.cond.i.i, label %.lr.ph.i, label %_ZN12_GLOBAL__N_124dispatchFreeEnergyKernelEN3gmx8ArrayRefIKSt10unique_ptrI8t_nblistSt14default_deleteIS3_EEEERKNS0_19ArrayRefWithPaddingIKNS0_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS0_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS0_12StepWorkloadEP6t_nrnb.exit
 
 .lr.ph.i:                                         ; preds = %_ZN12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.i, %168, %164
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %28, ptr noundef nonnull align 1 dereferenceable(20) %16, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %28, ptr noundef nonnull readonly align 1 dereferenceable(20) %16, i64 20, i1 false)
   store i8 0, ptr %68, align 1
   store i8 0, ptr %69, align 1
   %177 = load i32, ptr %27, align 4

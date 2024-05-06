@@ -247,7 +247,7 @@ _ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder4SpecENS0_12
   unreachable
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %72
-  call void @llvm.memset.p0.i64(ptr align 4 %77, i8 0, i64 %73, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 4 %77, i8 0, i64 %73, i1 false)
   %.val15.i.pre = load i64, ptr %64, align 8
   %.pre = trunc i64 %.val15.i.pre to i32
   br label %_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder4SpecENS0_12StdAllocatorIS5_EEEC2EmRKS7_.exit.thread.i.i

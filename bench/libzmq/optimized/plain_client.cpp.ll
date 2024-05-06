@@ -70,7 +70,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq14plain_client_t22next_handshake_commandEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14plain_client_t22next_handshake_commandEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
 entry:
   %_state = getelementptr inbounds i8, ptr %this, i64 1496
   %0 = load i32, ptr %_state, align 8
@@ -227,7 +227,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %if.then, label %land.lhs.true6
 
 if.then:                                          ; preds = %land.lhs.true
-  %call4 = tail call noundef i32 @_ZN3zmq14plain_client_t15process_welcomeEPKhm(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr poison, i64 noundef %call2), !range !4
+  %call4 = tail call noundef i32 @_ZN3zmq14plain_client_t15process_welcomeEPKhm(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr poison, i64 noundef %call2)
   br label %if.end24
 
 if.else:                                          ; preds = %entry
@@ -253,7 +253,7 @@ land.lhs.true13:                                  ; preds = %land.lhs.true6, %if
   br i1 %tobool15.not, label %if.then16, label %if.end24.thread
 
 if.then16:                                        ; preds = %land.lhs.true13
-  %call17 = tail call noundef i32 @_ZN3zmq14plain_client_t13process_errorEPKhm(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr noundef %call, i64 noundef %call2), !range !4
+  %call17 = tail call noundef i32 @_ZN3zmq14plain_client_t13process_errorEPKhm(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr noundef %call, i64 noundef %call2)
   br label %if.end24
 
 if.end24.thread:                                  ; preds = %if.else11, %land.lhs.true13
@@ -314,7 +314,7 @@ declare noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenc
 declare noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq14plain_client_t15process_welcomeEPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(1504) %this, ptr nocapture readnone %cmd_data_, i64 noundef %data_size_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14plain_client_t15process_welcomeEPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(1504) %this, ptr nocapture readnone %cmd_data_, i64 noundef %data_size_) local_unnamed_addr #0 align 2 {
 entry:
   %_state = getelementptr inbounds i8, ptr %this, i64 1496
   %0 = load i32, ptr %_state, align 8
@@ -401,7 +401,7 @@ return:                                           ; preds = %if.then7, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq14plain_client_t13process_errorEPKhm(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr noundef %cmd_data_, i64 noundef %data_size_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14plain_client_t13process_errorEPKhm(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr noundef %cmd_data_, i64 noundef %data_size_) local_unnamed_addr #0 align 2 {
 entry:
   %_state = getelementptr inbounds i8, ptr %this, i64 1496
   %0 = load i32, ptr %_state, align 8
@@ -488,7 +488,7 @@ declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3zmq14plain_client_t6statusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1504) %this) unnamed_addr #7 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK3zmq14plain_client_t6statusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1504) %this) unnamed_addr #7 align 2 {
 entry:
   %_state = getelementptr inbounds i8, ptr %this, i64 1496
   %0 = load i32, ptr %_state, align 8
@@ -570,4 +570,3 @@ attributes #13 = { cold }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

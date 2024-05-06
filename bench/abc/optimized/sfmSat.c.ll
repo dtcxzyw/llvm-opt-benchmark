@@ -1046,7 +1046,7 @@ define i64 @Sfm_ComputeInterpolant(ptr nocapture noundef %0) local_unnamed_addr 
   br i1 %25, label %.lr.ph.preheader.i, label %Abc_TtClear.exit
 
 .lr.ph.preheader.i:                               ; preds = %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %24, i8 0, i64 %27, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %24, i8 0, i64 %27, i1 false)
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %1, %.lr.ph.preheader.i
@@ -1392,7 +1392,7 @@ Vec_IntPush.exit124:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %25, label %.lr.ph.preheader.i125, label %Abc_TtFill.exit
 
 .lr.ph.preheader.i125:                            ; preds = %205
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %33, i8 -1, i64 %27, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(1) %33, i8 -1, i64 %27, i1 false)
   br label %Abc_TtFill.exit
 
 Abc_TtFill.exit:                                  ; preds = %205, %.lr.ph.preheader.i125
@@ -1716,7 +1716,7 @@ declare i32 @sat_solver_nvars(ptr noundef) local_unnamed_addr #1
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Sfm_ComputeInterpolantInt(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Sfm_ComputeInterpolantInt(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
@@ -2241,7 +2241,7 @@ define i64 @Sfm_ComputeInterpolant2(ptr nocapture noundef %0) local_unnamed_addr
   %4 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
-  %5 = call i32 @Sfm_ComputeInterpolantInt(ptr noundef %0, ptr noundef nonnull %2), !range !29
+  %5 = call i32 @Sfm_ComputeInterpolantInt(ptr noundef %0, ptr noundef nonnull %2)
   switch i32 %5, label %7 [
     i32 0, label %53
     i32 1, label %6
@@ -2375,7 +2375,7 @@ define internal fastcc i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, i32 noun
   %25 = xor i64 %24, %.tr4754
   %26 = and i64 %20, %25
   %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %.preheader, label %tailrecurse, !llvm.loop !30
+  br i1 %.not, label %.preheader, label %tailrecurse, !llvm.loop !29
 
 tailrecurse:                                      ; preds = %14, %23, %.preheader.tailrecurse_crit_edge
   %.pre-phi59 = phi i64 [ %.pre58, %.preheader.tailrecurse_crit_edge ], [ %16, %23 ], [ %16, %14 ]
@@ -2676,5 +2676,4 @@ attributes #12 = { nounwind allocsize(0) }
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = !{i32 -1, i32 2}
-!30 = distinct !{!30, !5}
+!29 = distinct !{!29, !5}

@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @EVP_MD_size(ptr nocapture noundef readonly %md) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @EVP_MD_size(ptr nocapture noundef readonly %md) local_unnamed_addr #0 {
 entry:
   %md_size = getelementptr inbounds i8, ptr %md, i64 4
   %0 = load i32, ptr %md_size, align 4
@@ -32,7 +32,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @EVP_MD_block_size(ptr nocapture noundef readonly %md) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @EVP_MD_block_size(ptr nocapture noundef readonly %md) local_unnamed_addr #0 {
 entry:
   %block_size = getelementptr inbounds i8, ptr %md, i64 40
   %0 = load i32, ptr %block_size, align 8
@@ -100,7 +100,7 @@ if.then10:                                        ; preds = %if.end
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ctx, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ctx, i8 0, i64 32, i1 false)
   ret i32 1
 }
 
@@ -161,7 +161,7 @@ return:                                           ; preds = %entry, %EVP_MD_CTX_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_MD_CTX_copy_ex(ptr nocapture noundef %out, ptr noundef readonly %in) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @EVP_MD_CTX_copy_ex(ptr nocapture noundef %out, ptr noundef readonly %in) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %in, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -224,7 +224,7 @@ if.then10.i:                                      ; preds = %if.end.i
   br label %EVP_MD_CTX_cleanup.exit
 
 EVP_MD_CTX_cleanup.exit:                          ; preds = %if.end.i, %if.then10.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false)
   %9 = load ptr, ptr %in, align 8
   store ptr %9, ptr %out, align 8
   %md_data10 = getelementptr inbounds i8, ptr %in, i64 8
@@ -325,7 +325,7 @@ if.then10.i42:                                    ; preds = %if.end.i39
   br label %EVP_MD_CTX_cleanup.exit44
 
 EVP_MD_CTX_cleanup.exit44:                        ; preds = %if.end.i39, %if.then10.i42
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end31, %if.then37, %EVP_MD_CTX_cleanup.exit44, %if.then23, %if.then
@@ -339,15 +339,15 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_MD_CTX_copy(ptr nocapture noundef %out, ptr noundef %in) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @EVP_MD_CTX_copy(ptr nocapture noundef %out, ptr noundef %in) local_unnamed_addr #5 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false)
-  %call = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef %out, ptr noundef %in), !range !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false)
+  %call = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef %out, ptr noundef %in)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_DigestInit_ex(ptr noundef %ctx, ptr noundef %type, ptr nocapture noundef readnone %engine) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @EVP_DigestInit_ex(ptr noundef %ctx, ptr noundef %type, ptr nocapture noundef readnone %engine) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %cmp.not = icmp eq ptr %0, %type
@@ -402,10 +402,10 @@ return:                                           ; preds = %if.end18, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_DigestInit(ptr noundef %ctx, ptr noundef %type) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @EVP_DigestInit(ptr noundef %ctx, ptr noundef %type) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr inbounds i8, ptr %ctx, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %cmp.not.i = icmp ne ptr %type, null
   tail call void @llvm.assume(i1 %cmp.not.i)
   store ptr %type, ptr %ctx, align 8
@@ -536,16 +536,16 @@ if.then10.i:                                      ; preds = %if.end.i
   br label %EVP_MD_CTX_cleanup.exit
 
 EVP_MD_CTX_cleanup.exit:                          ; preds = %if.end.i, %if.then10.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ctx, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %ctx, i8 0, i64 32, i1 false)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_Digest(ptr noundef %data, i64 noundef %count, ptr noundef %out_md, ptr noundef writeonly %out_size, ptr noundef %type, ptr nocapture noundef readnone %impl) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @EVP_Digest(ptr noundef %data, i64 noundef %count, ptr noundef %out_md, ptr noundef writeonly %out_size, ptr noundef %type, ptr nocapture noundef readnone %impl) local_unnamed_addr #5 {
 entry:
   %ctx = alloca %struct.env_md_ctx_st, align 8
   %0 = getelementptr inbounds i8, ptr %ctx, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %cmp.not.i = icmp ne ptr %type, null
   tail call void @llvm.assume(i1 %cmp.not.i)
   store ptr %type, ptr %ctx, align 8
@@ -654,7 +654,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @EVP_MD_CTX_size(ptr noundef readonly %ctx) local_unnamed_addr #9 {
+define hidden range(i64 0, 4294967296) i64 @EVP_MD_CTX_size(ptr noundef readonly %ctx) local_unnamed_addr #9 {
 entry:
   %cmp.i = icmp ne ptr %ctx, null
   tail call void @llvm.assume(i1 %cmp.i)
@@ -666,7 +666,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @EVP_MD_CTX_block_size(ptr noundef readonly %ctx) local_unnamed_addr #9 {
+define hidden range(i64 0, 4294967296) i64 @EVP_MD_CTX_block_size(ptr noundef readonly %ctx) local_unnamed_addr #9 {
 entry:
   %cmp.i = icmp ne ptr %ctx, null
   tail call void @llvm.assume(i1 %cmp.i)
@@ -724,4 +724,3 @@ attributes #14 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}

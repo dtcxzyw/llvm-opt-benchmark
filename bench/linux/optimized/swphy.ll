@@ -17,7 +17,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_swphy_read_r
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_swphy_read_reg437, ptr @__UNIQUE_ID___addressable_swphy_validate_state434], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @swphy_validate_state(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @swphy_validate_state(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load i32, ptr %0, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %9, label %4
@@ -44,7 +44,7 @@ define dso_local noundef i32 @swphy_validate_state(ptr nocapture noundef readonl
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @swphy_read_reg(i32 noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local range(i32 -1, 65536) i32 @swphy_read_reg(i32 noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = icmp sgt i32 %0, 29
   br i1 %3, label %65, label %4, !prof !5
 

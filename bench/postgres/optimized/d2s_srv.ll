@@ -14,7 +14,7 @@ define dso_local i32 @double_to_shortest_decimal_bufn(double noundef %0, ptr noc
   %4 = icmp slt i64 %3, 0
   %5 = and i64 %3, 4503599627370495
   %6 = lshr i64 %3, 52
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw nsw i64 %6 to i32
   %8 = and i32 %7, 2047
   %9 = icmp eq i32 %8, 2047
   br i1 %9, label %13, label %10
@@ -30,7 +30,7 @@ define dso_local i32 @double_to_shortest_decimal_bufn(double noundef %0, ptr noc
   br i1 %.not, label %.thread, label %14
 
 14:                                               ; preds = %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %1, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
   br label %copy_special_str.exit
 
 .thread:                                          ; preds = %10, %13
@@ -470,12 +470,12 @@ decimalLength.exit.i:                             ; preds = %227, %225, %223, %2
   %248 = urem i32 %247, 10000
   %249 = udiv i32 %247, 10000
   %250 = urem i32 %249, 10000
-  %.lhs.trunc123.i.i = trunc i32 %248 to i16
+  %.lhs.trunc123.i.i = trunc nuw nsw i32 %248 to i16
   %251 = urem i16 %.lhs.trunc123.i.i, 100
   %252 = shl nuw nsw i16 %251, 1
   %253 = udiv i16 %.lhs.trunc123.i.i, 100
   %254 = shl nuw nsw i16 %253, 1
-  %.lhs.trunc127.i.i = trunc i32 %250 to i16
+  %.lhs.trunc127.i.i = trunc nuw nsw i32 %250 to i16
   %255 = urem i16 %.lhs.trunc127.i.i, 100
   %256 = shl nuw nsw i16 %255, 1
   %257 = udiv i16 %.lhs.trunc127.i.i, 100
@@ -554,7 +554,7 @@ decimalLength.exit.i:                             ; preds = %227, %225, %223, %2
   br i1 %306, label %307, label %323
 
 307:                                              ; preds = %._crit_edge.i.i
-  %.lhs.trunc.i.i = trunc i32 %.0113.lcssa.i.i to i16
+  %.lhs.trunc.i.i = trunc nuw i32 %.0113.lcssa.i.i to i16
   %308 = urem i16 %.lhs.trunc.i.i, 100
   %309 = shl nuw nsw i16 %308, 1
   %310 = udiv i16 %.lhs.trunc.i.i, 100
@@ -597,7 +597,7 @@ decimalLength.exit.i:                             ; preds = %227, %225, %223, %2
   br label %343
 
 338:                                              ; preds = %323
-  %339 = trunc i32 %.1114.i.i to i8
+  %339 = trunc nuw i32 %.1114.i.i to i8
   %340 = or disjoint i8 %339, 48
   %341 = sext i32 %.0.i140.i to i64
   %342 = getelementptr i8, ptr %236, i64 %341
@@ -679,7 +679,7 @@ decimalLength.exit.i:                             ; preds = %227, %225, %223, %2
 to_chars_df.exit.i:                               ; preds = %377, %373
   %.4.i.i = phi i32 [ %376, %373 ], [ %spec.select.i.i, %377 ]
   %.lobit = lshr i64 %3, 63
-  %380 = trunc i64 %.lobit to i32
+  %380 = trunc nuw nsw i64 %.lobit to i32
   %381 = add i32 %.4.i.i, %380
   br label %copy_special_str.exit
 
@@ -720,12 +720,12 @@ to_chars_df.exit.i:                               ; preds = %377, %373
   %397 = urem i32 %396, 10000
   %398 = udiv i32 %396, 10000
   %399 = urem i32 %398, 10000
-  %.lhs.trunc143.i = trunc i32 %397 to i16
+  %.lhs.trunc143.i = trunc nuw nsw i32 %397 to i16
   %400 = urem i16 %.lhs.trunc143.i, 100
   %401 = shl nuw nsw i16 %400, 1
   %402 = udiv i16 %.lhs.trunc143.i, 100
   %403 = shl nuw nsw i16 %402, 1
-  %.lhs.trunc147.i = trunc i32 %399 to i16
+  %.lhs.trunc147.i = trunc nuw nsw i32 %399 to i16
   %404 = urem i16 %.lhs.trunc147.i, 100
   %405 = shl nuw nsw i16 %404, 1
   %406 = udiv i16 %.lhs.trunc147.i, 100
@@ -804,7 +804,7 @@ to_chars_df.exit.i:                               ; preds = %377, %373
   br i1 %455, label %456, label %472
 
 456:                                              ; preds = %._crit_edge.i24
-  %.lhs.trunc.i = trunc i32 %.0133.lcssa.i to i16
+  %.lhs.trunc.i = trunc nuw i32 %.0133.lcssa.i to i16
   %457 = urem i16 %.lhs.trunc.i, 100
   %458 = shl nuw nsw i16 %457, 1
   %459 = udiv i16 %.lhs.trunc.i, 100
@@ -847,7 +847,7 @@ to_chars_df.exit.i:                               ; preds = %377, %373
   br label %490
 
 487:                                              ; preds = %472
-  %488 = trunc i32 %.1134.i to i8
+  %488 = trunc nuw i32 %.1134.i to i8
   %489 = or disjoint i8 %488, 48
   br label %490
 
@@ -893,7 +893,7 @@ to_chars_df.exit.i:                               ; preds = %377, %373
   %513 = getelementptr i8, ptr @DIGIT_TABLE, i64 %512
   %514 = load i16, ptr %513, align 2
   store i16 %514, ptr %509, align 1
-  %515 = trunc i32 %507 to i8
+  %515 = trunc nuw nsw i32 %507 to i8
   %516 = or disjoint i8 %515, 48
   %517 = add i32 %.1.i, 4
   %518 = sext i32 %517 to i64

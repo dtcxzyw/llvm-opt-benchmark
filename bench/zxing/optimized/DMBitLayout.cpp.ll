@@ -122,7 +122,7 @@ define void @_ZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEii(pt
   br i1 %exitcond.not.i.i, label %64, label %46, !llvm.loop !11
 
 64:                                               ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(64) %10, i64 64, i1 false), !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(64) %10, i64 64, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !4
   br label %65
 
@@ -217,7 +217,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i.i:             ; preds = %69
   br i1 %exitcond.not.i65.i, label %111, label %93, !llvm.loop !11
 
 111:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i64.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false), !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !4
   br label %112
 
@@ -300,7 +300,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i73.i:           ; preds = %116
   br i1 %exitcond.not.i87.i, label %154, label %136, !llvm.loop !11
 
 154:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i86.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %13, ptr noundef nonnull align 4 dereferenceable(64) %8, i64 64, i1 false), !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %13, ptr noundef nonnull align 4 dereferenceable(64) %8, i64 64, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !4
   br label %155
 
@@ -379,7 +379,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i95.i:           ; preds = %159
   br i1 %exitcond.not.i109.i, label %195, label %177, !llvm.loop !11
 
 195:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i108.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(64) %7, i64 64, i1 false), !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(64) %7, i64 64, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !4
   br label %196
 
@@ -511,7 +511,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i117.i:          ; preds = %200
   br i1 %exitcond.not.i133.i, label %259, label %233, !llvm.loop !29
 
 259:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i132.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %15, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false), !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %15, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !4
   br label %260
 
@@ -653,7 +653,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i140.i:          ; preds = %264
   br i1 %exitcond.not.i163.i, label %333, label %307, !llvm.loop !29
 
 333:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i162.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %16, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false), !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %16, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !4
   br label %334
 
@@ -1228,7 +1228,7 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %.noexc7, %_ZNSt6vec
   br i1 %exitcond.not.i.i, label %151, label %133, !llvm.loop !49
 
 151:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %10, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false), !noalias !42
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %10, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false), !noalias !42
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !42
   store i8 0, ptr %.sroa.021.0, align 1
   br label %152
@@ -1318,7 +1318,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i.i:             ; preds = %152
   br i1 %exitcond.not.i65.i, label %198, label %180, !llvm.loop !49
 
 198:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i64.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(64) %8, i64 64, i1 false), !noalias !42
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(64) %8, i64 64, i1 false), !noalias !42
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !42
   store i8 0, ptr %.sroa.021.0, align 1
   br label %199
@@ -1396,7 +1396,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i71.i:           ; preds = %199
   br i1 %exitcond.not.i85.i, label %241, label %223, !llvm.loop !49
 
 241:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i84.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %7, i64 64, i1 false), !noalias !42
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %7, i64 64, i1 false), !noalias !42
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !42
   store i8 0, ptr %.sroa.021.0, align 1
   br label %242
@@ -1470,7 +1470,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i91.i:           ; preds = %242
   br i1 %exitcond.not.i105.i, label %282, label %264, !llvm.loop !49
 
 282:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i104.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %13, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false), !noalias !42
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %13, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false), !noalias !42
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !42
   store i8 0, ptr %.sroa.021.0, align 1
   br label %283
@@ -1597,7 +1597,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i111.i:          ; preds = %283
   br i1 %exitcond.not.i127.i, label %346, label %320, !llvm.loop !66
 
 346:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i126.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false), !noalias !42
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false), !noalias !42
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !42
   store i8 0, ptr %.sroa.021.2, align 1
   br label %347
@@ -1734,7 +1734,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i132.i:          ; preds = %347
   br i1 %exitcond.not.i155.i, label %420, label %394, !llvm.loop !66
 
 420:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i154.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %15, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false), !noalias !42
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %15, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false), !noalias !42
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !42
   store i8 0, ptr %.sroa.021.4, align 1
   br label %421

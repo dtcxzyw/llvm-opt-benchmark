@@ -185,7 +185,7 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
   %.088.lcssa = phi i32 [ %.088114, %45 ], [ %.088115, %72 ]
   %77 = shl i32 %.088.lcssa, 7
   %78 = ashr i32 %77, 31
-  %79 = trunc i32 %78 to i8
+  %79 = trunc nsw i32 %78 to i8
   store i8 %79, ptr %33, align 1
   %80 = lshr i32 %.088.lcssa, 16
   %81 = trunc i32 %80 to i8

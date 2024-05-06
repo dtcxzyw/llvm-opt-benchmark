@@ -65,7 +65,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_connect(i32 noundef %sock, ptr noundef %addr, i32 noundef %options) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_connect(i32 noundef %sock, ptr noundef %addr, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %on = alloca i32, align 4
   store i32 1, ptr %on, align 4
@@ -169,7 +169,7 @@ declare i32 @BIO_ADDR_sockaddr_size(ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_sock_should_retry(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_bind(i32 noundef %sock, ptr noundef %addr, i32 noundef %options) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_bind(i32 noundef %sock, ptr noundef %addr, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %on = alloca i32, align 4
   store i32 1, ptr %on, align 4
@@ -230,7 +230,7 @@ return:                                           ; preds = %if.end6, %if.then11
 declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_listen(i32 noundef %sock, ptr noundef %addr, i32 noundef %options) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_listen(i32 noundef %sock, ptr noundef %addr, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %on = alloca i32, align 4
   %socktype = alloca i32, align 4
@@ -339,7 +339,7 @@ if.then41:                                        ; preds = %if.then35
   br label %return
 
 if.end44:                                         ; preds = %if.then35, %if.end31
-  %call45 = call i32 @BIO_bind(i32 noundef %sock, ptr noundef %addr, i32 noundef %options), !range !4
+  %call45 = call i32 @BIO_bind(i32 noundef %sock, ptr noundef %addr, i32 noundef %options)
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %return, label %if.end48
 
@@ -429,7 +429,7 @@ declare ptr @BIO_ADDR_sockaddr_noconst(ptr noundef) local_unnamed_addr #1
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_closesocket(i32 noundef %sock) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_closesocket(i32 noundef %sock) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %sock, 0
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -458,4 +458,3 @@ attributes #5 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

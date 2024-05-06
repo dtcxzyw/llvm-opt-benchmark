@@ -1100,7 +1100,7 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_guc_capture_getnullheader(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_getnullheader(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1000
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 3088
@@ -1149,7 +1149,7 @@ define dso_local noundef i32 @intel_guc_capture_getnullheader(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_guc_capture_print_engine_node(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_guc_capture_print_engine_node(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [2 x ptr], align 16
   %4 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
@@ -1216,7 +1216,7 @@ define dso_local noundef i32 @intel_guc_capture_print_engine_node(ptr noundef %0
   %43 = getelementptr [3 x %struct.gcap_reg_list_info], ptr %33, i64 0, i64 %40
   %44 = load i32, ptr %43, align 8
   tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %44) #13
-  %45 = trunc i64 %40 to i32
+  %45 = trunc nuw nsw i64 %40 to i32
   switch i32 %45, label %76 [
     i32 2, label %54
     i32 1, label %46
@@ -1878,7 +1878,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %85 = getelementptr i8, ptr %83, i64 %84
   %86 = load i64, ptr %85, align 1
   %87 = lshr i64 %86, 32
-  %88 = trunc i64 %87 to i32
+  %88 = trunc nuw i64 %87 to i32
   %89 = add i32 %58, 8
   store i32 %89, ptr %47, align 8
   br label %149
@@ -2901,7 +2901,7 @@ define dso_local void @intel_guc_capture_destroy(ptr nocapture noundef %0) local
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_guc_capture_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -3453,7 +3453,7 @@ declare dso_local zeroext i1 @intel_guc_check_log_buf_overflow(ptr noundef, i32 
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @guc_capture_log_get_register(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 1) i32 @guc_capture_log_get_register(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3974,7 +3974,7 @@ define internal fastcc ptr @guc_capture_clone_node(ptr nocapture noundef readonl
   store i32 %84, ptr %85, align 4
   %86 = load i32, ptr %77, align 8
   store i32 %86, ptr %74, align 8
-  %87 = trunc i64 %69 to i32
+  %87 = trunc nuw nsw i64 %69 to i32
   switch i32 %87, label %94 [
     i32 1, label %88
     i32 2, label %90

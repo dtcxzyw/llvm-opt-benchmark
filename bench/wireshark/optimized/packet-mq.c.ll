@@ -2723,7 +2723,7 @@ declare void @ssl_dissector_add(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mq_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_mq_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   %6 = icmp ugt i32 %5, 3
   br i1 %6, label %7, label %dissect_mq_heur.exit
@@ -2754,7 +2754,7 @@ dissect_mq_heur.exit:                             ; preds = %4, %7, %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mq_heur_nontcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_mq_heur_nontcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   %6 = icmp ugt i32 %5, 3
   br i1 %6, label %7, label %dissect_mq_heur.exit
@@ -2783,7 +2783,7 @@ dissect_mq_heur.exit:                             ; preds = %4, %7, %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mq_heur_ssl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_mq_heur_ssl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
@@ -3118,7 +3118,7 @@ dissect_mq_md.exit:                               ; preds = %136, %.thread.i, %1
   br i1 %or.cond24, label %143, label %145
 
 143:                                              ; preds = %dissect_mq_md.exit
-  %144 = call fastcc i32 @dissect_mq_gmo(ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef %140, ptr noundef nonnull %5), !range !4
+  %144 = call fastcc i32 @dissect_mq_gmo(ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef %140, ptr noundef nonnull %5)
   br label %147
 
 145:                                              ; preds = %dissect_mq_md.exit
@@ -3582,7 +3582,7 @@ define internal fastcc noundef i32 @dissect_mq_od(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_mq_md(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 365) i32 @dissect_mq_md(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #7
   %7 = icmp sgt i32 %6, 3
   br i1 %7, label %9, label %.thread
@@ -3768,7 +3768,7 @@ define internal fastcc noundef i32 @dissect_mq_md(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_mq_gmo(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 113) i32 @dissect_mq_gmo(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #7
   %7 = icmp sgt i32 %6, 3
   br i1 %7, label %9, label %.thread
@@ -4825,7 +4825,7 @@ dissect_mq_addCR_colinfo.exit2542:                ; preds = %269, %277
   %390 = add i32 %378, 4
   %391 = tail call fastcc i32 @dissect_mq_fopa(ptr noundef %0, ptr noundef %.12390, i32 noundef %390, ptr noundef nonnull %8)
   %392 = add i32 %391, %390
-  %393 = tail call fastcc i32 @dissect_mq_fcmi(ptr noundef %0, ptr noundef %.12390, i32 noundef %392, ptr noundef nonnull %8), !range !5
+  %393 = tail call fastcc i32 @dissect_mq_fcmi(ptr noundef %0, ptr noundef %.12390, i32 noundef %392, ptr noundef nonnull %8)
   %394 = add i32 %392, %393
   br label %thread-pre-split2572
 
@@ -5150,7 +5150,7 @@ dissect_mq_addCR_colinfo.exit2542:                ; preds = %269, %277
   %579 = tail call ptr @proto_tree_add_item(ptr noundef %558, i32 noundef %575, ptr noundef %0, i32 noundef %577, i32 noundef 4, i32 noundef %578) #7
   %580 = add nuw nsw i32 %.024182624, 1
   %exitcond2644.not = icmp eq i32 %580, %550
-  br i1 %exitcond2644.not, label %._crit_edge2627, label %.lr.ph2626, !llvm.loop !6
+  br i1 %exitcond2644.not, label %._crit_edge2627, label %.lr.ph2626, !llvm.loop !4
 
 ._crit_edge2627:                                  ; preds = %.lr.ph2626, %571
   %581 = load i8, ptr %44, align 2
@@ -5192,7 +5192,7 @@ dissect_mq_addCR_colinfo.exit2542:                ; preds = %269, %277
   %598 = add i32 %596, -2001
   %599 = icmp ult i32 %598, -2000
   %or.cond2536 = select i1 %597, i1 %599, i1 false
-  br i1 %or.cond2536, label %.lr.ph2631, label %.critedge, !llvm.loop !8
+  br i1 %or.cond2536, label %.lr.ph2631, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph2631, %.lr.ph2636
   %.02423.lcssa = phi i32 [ %590, %.lr.ph2636 ], [ %596, %.lr.ph2631 ]
@@ -5219,7 +5219,7 @@ dissect_mq_addCR_colinfo.exit2542:                ; preds = %269, %277
 612:                                              ; preds = %607, %609
   %613 = add nuw nsw i32 %.024222634, 1
   %exitcond2645.not = icmp eq i32 %613, %553
-  br i1 %exitcond2645.not, label %._crit_edge2637, label %.lr.ph2636, !llvm.loop !9
+  br i1 %exitcond2645.not, label %._crit_edge2637, label %.lr.ph2636, !llvm.loop !7
 
 ._crit_edge2637:                                  ; preds = %612, %.preheader
   %.not2507 = icmp eq i32 %556, 0
@@ -5726,13 +5726,13 @@ dissect_mq_addCR_colinfo.exit2548:                ; preds = %820, %822
 957:                                              ; preds = %936, %955
   %958 = phi i32 [ %956, %955 ], [ 0, %936 ]
   store i32 %958, ptr %9, align 4
-  %959 = tail call fastcc i32 @dissect_mq_md(ptr noundef %0, ptr noundef %.12390, i32 noundef %952, ptr noundef nonnull %8, i32 noundef 1), !range !10
+  %959 = tail call fastcc i32 @dissect_mq_md(ptr noundef %0, ptr noundef %.12390, i32 noundef %952, ptr noundef nonnull %8, i32 noundef 1)
   %.not2493 = icmp eq i32 %959, 0
   br i1 %.not2493, label %972, label %960
 
 960:                                              ; preds = %957
   %961 = add nuw nsw i32 %959, %952
-  %962 = tail call fastcc i32 @dissect_mq_gmo(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.12390, i32 noundef %961, ptr noundef nonnull %8), !range !4
+  %962 = tail call fastcc i32 @dissect_mq_gmo(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.12390, i32 noundef %961, ptr noundef nonnull %8)
   %963 = add nuw nsw i32 %962, %961
   %964 = call fastcc i32 @dissect_mq_pmo(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.12390, i32 noundef %963, ptr noundef nonnull %8, ptr noundef nonnull %4)
   %965 = add i32 %963, %964
@@ -5846,7 +5846,7 @@ dissect_mq_addCR_colinfo.exit2548:                ; preds = %820, %822
   %1035 = add i32 %.024102621, 20
   %1036 = add nuw nsw i32 %.024092622, 1
   %exitcond2643.not = icmp eq i32 %1036, %1009
-  br i1 %exitcond2643.not, label %._crit_edge, label %.lr.ph2623, !llvm.loop !11
+  br i1 %exitcond2643.not, label %._crit_edge, label %.lr.ph2623, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph2623, %1013
   %1037 = add i32 %1012, %974
@@ -6017,7 +6017,7 @@ thread-pre-split2567:                             ; preds = %1063
   ]
 
 1132:                                             ; preds = %1112, %1112, %1112, %1112, %1112, %1112, %1112
-  %1133 = tail call fastcc i32 @dissect_mq_xid(ptr noundef %0, ptr noundef %.12390, ptr noundef nonnull %8, i32 noundef %1130), !range !12
+  %1133 = tail call fastcc i32 @dissect_mq_xid(ptr noundef %0, ptr noundef %.12390, ptr noundef nonnull %8, i32 noundef %1130)
   %1134 = add nuw nsw i32 %1133, %1130
   br label %thread-pre-split2572
 
@@ -6082,7 +6082,7 @@ thread-pre-split2570:                             ; preds = %1135
 .lr.ph:                                           ; preds = %1159, %1170
   %.72618 = phi i32 [ %1171, %1170 ], [ %1165, %1159 ]
   %.024082617 = phi i32 [ %1172, %1170 ], [ 0, %1159 ]
-  %1169 = tail call fastcc i32 @dissect_mq_xid(ptr noundef %0, ptr noundef %.12390, ptr noundef %8, i32 noundef %.72618), !range !12
+  %1169 = tail call fastcc i32 @dissect_mq_xid(ptr noundef %0, ptr noundef %.12390, ptr noundef %8, i32 noundef %.72618)
   %.not2490 = icmp eq i32 %1169, 0
   br i1 %.not2490, label %thread-pre-split2572, label %1170
 
@@ -6090,7 +6090,7 @@ thread-pre-split2570:                             ; preds = %1135
   %1171 = add i32 %1169, %.72618
   %1172 = add nuw nsw i32 %.024082617, 1
   %exitcond.not = icmp eq i32 %1172, %1161
-  br i1 %exitcond.not, label %thread-pre-split2572, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %thread-pre-split2572, label %.lr.ph, !llvm.loop !9
 
 thread-pre-split2572:                             ; preds = %.lr.ph, %1170, %399, %906, %189, %348, %389, %619, %977, %933, %1156, %1159, %1152, %1109, %1106, %898, %403, %541, %360, %317, %343, %400, %1154, %1132
   %.62376.ph = phi ptr [ %1115, %1154 ], [ %1115, %1132 ], [ %.12371, %1106 ], [ %.12371, %1109 ], [ %1115, %1156 ], [ %1115, %1159 ], [ %.52375, %1152 ], [ %916, %933 ], [ %943, %977 ], [ %832, %898 ], [ %558, %619 ], [ %.12371, %400 ], [ %.12371, %403 ], [ %.32373, %541 ], [ %.22372, %389 ], [ %362, %360 ], [ %350, %348 ], [ %.12371, %317 ], [ %330, %343 ], [ %194, %189 ], [ %.12371, %906 ], [ %.12371, %399 ], [ %1115, %1170 ], [ %1115, %.lr.ph ]
@@ -6370,13 +6370,13 @@ dissect_mq_addCR_colinfo.exit2550:                ; preds = %1269, %1275
   %.11 = phi i32 [ %.10, %1260 ], [ %.10, %thread-pre-split2595 ], [ %.11.ph, %.sink.split ]
   %1310 = call fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef %1, ptr noundef %.12390, i32 noundef %.11, ptr noundef nonnull %8, ptr noundef nonnull %4)
   %1311 = add i32 %1310, %.11
-  %1312 = call fastcc i32 @dissect_mq_md(ptr noundef %0, ptr noundef %.12390, i32 noundef %1311, ptr noundef nonnull %8, i32 noundef 1), !range !10
+  %1312 = call fastcc i32 @dissect_mq_md(ptr noundef %0, ptr noundef %.12390, i32 noundef %1311, ptr noundef nonnull %8, i32 noundef 1)
   %.not2522 = icmp eq i32 %1312, 0
   br i1 %.not2522, label %1335, label %1313
 
 1313:                                             ; preds = %1309
   %1314 = add i32 %1311, %1312
-  %1315 = call fastcc i32 @dissect_mq_gmo(ptr noundef %0, ptr noundef %1, ptr noundef %.12390, i32 noundef %1314, ptr noundef nonnull %8), !range !4
+  %1315 = call fastcc i32 @dissect_mq_gmo(ptr noundef %0, ptr noundef %1, ptr noundef %.12390, i32 noundef %1314, ptr noundef nonnull %8)
   %.not2523 = icmp eq i32 %1315, 0
   br i1 %.not2523, label %1316, label %1318
 
@@ -6490,7 +6490,7 @@ dissect_mq_addCR_colinfo.exit2550:                ; preds = %1269, %1275
 1373:                                             ; preds = %1355, %1354
   %.122382 = phi ptr [ %1357, %1355 ], [ %.112381, %1354 ]
   %1374 = add i32 %.13, 104
-  %1375 = call fastcc i32 @dissect_mq_md(ptr noundef %0, ptr noundef %.12390, i32 noundef %1374, ptr noundef nonnull %8, i32 noundef 1), !range !10
+  %1375 = call fastcc i32 @dissect_mq_md(ptr noundef %0, ptr noundef %.12390, i32 noundef %1374, ptr noundef nonnull %8, i32 noundef 1)
   %1376 = add i32 %1375, %1374
   %1377 = add nuw nsw i32 %1375, 104
   %1378 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1376) #7
@@ -7284,7 +7284,7 @@ thread-pre-split2608:                             ; preds = %1504, %1514
   %1986 = call ptr @proto_tree_add_item(ptr noundef %1980, i32 noundef %1984, ptr noundef %0, i32 noundef %1969, i32 noundef %1967, i32 noundef %1985) #7
   %1987 = add i32 %1978, %.123642638
   %1988 = icmp slt i32 %1987, %1950
-  br i1 %1988, label %1965, label %.loopexit, !llvm.loop !14
+  br i1 %1988, label %1965, label %.loopexit, !llvm.loop !10
 
 1989:                                             ; preds = %1595
   %1990 = load i32, ptr @hf_mq_head_flags, align 4
@@ -7526,7 +7526,7 @@ define internal fastcc noundef i32 @dissect_mq_or(ptr noundef %0, ptr noundef %1
   %23 = add i32 %.02427, 96
   %24 = add nuw nsw i32 %.02328, 1
   %exitcond.not = icmp eq i32 %24, %3
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !11
 
 .loopexit:                                        ; preds = %12, %.preheader, %7, %6
   %.0 = phi i32 [ 0, %6 ], [ 0, %7 ], [ %8, %.preheader ], [ %8, %12 ]
@@ -7568,7 +7568,7 @@ define internal fastcc noundef i32 @dissect_mq_rr(ptr noundef %0, ptr noundef %1
   %23 = add i32 %.02427, 8
   %24 = add nuw nsw i32 %.02328, 1
   %exitcond.not = icmp eq i32 %24, %3
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !12
 
 .loopexit:                                        ; preds = %12, %.preheader, %7, %6
   %.0 = phi i32 [ 0, %6 ], [ 0, %7 ], [ %8, %.preheader ], [ %8, %12 ]
@@ -7837,7 +7837,7 @@ define internal fastcc i32 @dissect_mq_pmr(ptr noundef %0, ptr noundef %1, i32 n
   %.5 = phi i32 [ %58, %54 ], [ %.4, %53 ]
   %60 = add nuw nsw i32 %.065, 1
   %exitcond.not = icmp eq i32 %60, %3
-  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !13
 
 .loopexit:                                        ; preds = %59, %.preheader, %21, %7
   %.053 = phi i32 [ 0, %7 ], [ 0, %21 ], [ %22, %.preheader ], [ %22, %59 ]
@@ -7987,7 +7987,7 @@ define internal fastcc i32 @dissect_mq_fopa(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_mq_fcmi(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9) i32 @dissect_mq_fcmi(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #7
   %6 = icmp sgt i32 %5, 3
   br i1 %6, label %8, label %.thread
@@ -8058,7 +8058,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_mq_xid(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 520) i32 @dissect_mq_xid(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #7
   %6 = icmp sgt i32 %5, 5
   br i1 %6, label %7, label %41
@@ -8482,17 +8482,13 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 113}
-!5 = !{i32 0, i32 9}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i32 0, i32 365}
-!11 = distinct !{!11, !7}
-!12 = !{i32 0, i32 520}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

@@ -477,7 +477,7 @@ define internal zeroext i16 @esrt_attr_is_visible(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @fw_resource_count_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_resource_count_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = load ptr, ptr @esrt, align 8
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %5) #11
@@ -489,7 +489,7 @@ define internal noundef i64 @fw_resource_count_show(ptr nocapture readnone %0, p
 declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @fw_resource_count_max_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_resource_count_max_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = load ptr, ptr @esrt, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
@@ -499,7 +499,7 @@ define internal noundef i64 @fw_resource_count_max_show(ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @fw_resource_version_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_resource_version_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = load ptr, ptr @esrt, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -560,7 +560,7 @@ define internal noundef i64 @fw_class_show(ptr nocapture noundef readonly %0, pt
 declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @fw_type_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_type_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 4
@@ -570,7 +570,7 @@ define internal noundef i64 @fw_type_show(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @fw_version_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_version_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 20
   %5 = load i32, ptr %4, align 4
@@ -580,7 +580,7 @@ define internal noundef i64 @fw_version_show(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @lowest_supported_fw_version_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @lowest_supported_fw_version_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i32, ptr %4, align 4
@@ -590,7 +590,7 @@ define internal noundef i64 @lowest_supported_fw_version_show(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @capsule_flags_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @capsule_flags_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 28
   %5 = load i32, ptr %4, align 4
@@ -600,7 +600,7 @@ define internal noundef i64 @capsule_flags_show(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @last_attempt_version_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @last_attempt_version_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 4
@@ -610,7 +610,7 @@ define internal noundef i64 @last_attempt_version_show(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @last_attempt_status_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @last_attempt_status_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 36
   %5 = load i32, ptr %4, align 4

@@ -355,7 +355,7 @@ define void @ADIOI_Calc_file_realms_user_size(ptr nocapture noundef readonly %0,
   %12 = sext i32 %11 to i64
   %13 = sext i32 %1 to i64
   %14 = srem i64 %13, %12
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nsw i64 %14 to i32
   %16 = sub i32 %1, %15
   %.not.i = icmp eq i64 %14, 0
   %17 = select i1 %.not.i, i32 0, i32 %11
@@ -475,7 +475,7 @@ define i32 @ADIOI_Agg_idx(i32 noundef %0, ptr nocapture noundef readonly %1) loc
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge.loopexit.split.loop.exit13:           ; preds = %.lr.ph
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %._crit_edge.loopexit.split.loop.exit13, %2

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [42 x i8] c"Scale factor should not be less than zero\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define nonnull ptr @YGConfigNew() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @YGConfigNew() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #5
   %call1 = invoke noundef ptr @_ZN8facebook4yoga16getDefaultLoggerEv()
@@ -53,7 +53,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define nonnull ptr @YGConfigGetDefault() local_unnamed_addr #0 {
+define noundef nonnull ptr @YGConfigGetDefault() local_unnamed_addr #0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN8facebook4yoga6Config10getDefaultEv()
   ret ptr %call
@@ -71,7 +71,7 @@ entry:
 declare void @_ZN8facebook4yoga6Config17setUseWebDefaultsEb(ptr noundef nonnull align 8 dereferenceable(48), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define zeroext i1 @YGConfigGetUseWebDefaults(ptr noundef nonnull %config) local_unnamed_addr #0 {
+define noundef zeroext i1 @YGConfigGetUseWebDefaults(ptr noundef nonnull %config) local_unnamed_addr #0 {
 entry:
   %call1 = tail call noundef zeroext i1 @_ZNK8facebook4yoga6Config14useWebDefaultsEv(ptr noundef nonnull align 8 dereferenceable(48) %config)
   ret i1 %call1
@@ -93,7 +93,7 @@ declare void @_ZN8facebook4yoga21assertFatalWithConfigEPKNS0_6ConfigEbPKc(ptr no
 declare void @_ZN8facebook4yoga6Config19setPointScaleFactorEf(ptr noundef nonnull align 8 dereferenceable(48), float noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define float @YGConfigGetPointScaleFactor(ptr noundef nonnull %config) local_unnamed_addr #0 {
+define noundef float @YGConfigGetPointScaleFactor(ptr noundef nonnull %config) local_unnamed_addr #0 {
 entry:
   %call1 = tail call noundef float @_ZNK8facebook4yoga6Config19getPointScaleFactorEv(ptr noundef nonnull align 8 dereferenceable(48) %config)
   ret float %call1
@@ -111,7 +111,7 @@ entry:
 declare void @_ZN8facebook4yoga6Config9setErrataENS0_6ErrataE(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @YGConfigGetErrata(ptr noundef nonnull %config) local_unnamed_addr #0 {
+define noundef i32 @YGConfigGetErrata(ptr noundef nonnull %config) local_unnamed_addr #0 {
 entry:
   %call1 = tail call noundef i32 @_ZNK8facebook4yoga6Config9getErrataEv(ptr noundef nonnull align 8 dereferenceable(48) %config)
   ret i32 %call1
@@ -150,7 +150,7 @@ entry:
 declare void @_ZN8facebook4yoga6Config10setContextEPv(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @YGConfigGetContext(ptr noundef nonnull %config) local_unnamed_addr #0 {
+define noundef ptr @YGConfigGetContext(ptr noundef nonnull %config) local_unnamed_addr #0 {
 entry:
   %call1 = tail call noundef ptr @_ZNK8facebook4yoga6Config10getContextEv(ptr noundef nonnull align 8 dereferenceable(48) %config)
   ret ptr %call1
@@ -169,7 +169,7 @@ entry:
 declare void @_ZN8facebook4yoga6Config29setExperimentalFeatureEnabledENS0_19ExperimentalFeatureEb(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define zeroext i1 @YGConfigIsExperimentalFeatureEnabled(ptr noundef nonnull %config, i32 noundef %feature) local_unnamed_addr #0 {
+define noundef zeroext i1 @YGConfigIsExperimentalFeatureEnabled(ptr noundef nonnull %config, i32 noundef %feature) local_unnamed_addr #0 {
 entry:
   %conv.i = trunc i32 %feature to i8
   %call2 = tail call noundef zeroext i1 @_ZNK8facebook4yoga6Config28isExperimentalFeatureEnabledENS0_19ExperimentalFeatureE(ptr noundef nonnull align 8 dereferenceable(48) %config, i8 noundef zeroext %conv.i)

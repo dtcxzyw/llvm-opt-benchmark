@@ -142,7 +142,7 @@ declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @load_pkey_pem(ptr noundef %file, ptr noundef %libctx) local_unnamed_addr #0 {
+define noundef ptr @load_pkey_pem(ptr noundef %file, ptr noundef %libctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 74, ptr noundef nonnull @.str.1, ptr noundef %file) #2
   %tobool.not = icmp eq i32 %call, 0

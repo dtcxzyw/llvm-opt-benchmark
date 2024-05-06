@@ -301,7 +301,7 @@ define dso_local void @rate_control_rate_update(ptr noundef %0, ptr noundef %1, 
 declare dso_local void @drv_sta_rc_update(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_rate_control_register(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -114, 1) i32 @ieee80211_rate_control_register(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1383,7 +1383,7 @@ rate_control_send_low.exit.thread:                ; preds = %84, %41, %37, %93, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @rate_control_set_rates(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @rate_control_set_rates(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca [10 x i8], align 1
   %6 = alloca [8 x i16], align 16
@@ -1653,7 +1653,7 @@ declare dso_local void @ieee80211_sta_set_expected_throughput(ptr noundef, i32 n
 declare dso_local i32 @sta_get_expected_throughput(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ieee80211_init_rate_ctrl_alg(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ieee80211_init_rate_ctrl_alg(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @rtnl_is_locked() #14
   %4 = icmp ne i32 %3, 0
   %5 = load i1, ptr @ieee80211_init_rate_ctrl_alg.__already_done, align 1
@@ -2161,8 +2161,8 @@ define internal fastcc void @rate_idx_match_mask(ptr nocapture noundef %0, ptr n
   br i1 %61, label %67, label %62
 
 62:                                               ; preds = %57
-  %63 = trunc i64 %52 to i8
-  %64 = trunc i64 %58 to i8
+  %63 = trunc nsw i64 %52 to i8
+  %64 = trunc nuw nsw i64 %58 to i8
   %65 = shl nsw i8 %63, 4
   %66 = add nuw i8 %65, %64
   br label %356

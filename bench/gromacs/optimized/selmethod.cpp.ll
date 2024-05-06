@@ -115,7 +115,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @__const._Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE.smtable_def = private unnamed_addr constant [40 x %struct.t_register_method] [%struct.t_register_method { ptr null, ptr @sm_cog }, %struct.t_register_method { ptr null, ptr @sm_com }, %struct.t_register_method { ptr null, ptr @sm_all }, %struct.t_register_method { ptr null, ptr @sm_none }, %struct.t_register_method { ptr null, ptr @sm_atomnr }, %struct.t_register_method { ptr null, ptr @sm_resnr }, %struct.t_register_method { ptr @.str.43, ptr @sm_resnr }, %struct.t_register_method { ptr null, ptr @sm_resindex }, %struct.t_register_method { ptr @.str.44, ptr @sm_resindex }, %struct.t_register_method { ptr null, ptr @sm_molindex }, %struct.t_register_method { ptr @.str.45, ptr @sm_molindex }, %struct.t_register_method { ptr @.str.46, ptr @sm_molindex }, %struct.t_register_method { ptr null, ptr @sm_atomname }, %struct.t_register_method { ptr @.str.47, ptr @sm_atomname }, %struct.t_register_method { ptr null, ptr @sm_pdbatomname }, %struct.t_register_method { ptr @.str.48, ptr @sm_pdbatomname }, %struct.t_register_method { ptr null, ptr @sm_atomtype }, %struct.t_register_method { ptr @.str.49, ptr @sm_atomtype }, %struct.t_register_method { ptr null, ptr @sm_resname }, %struct.t_register_method { ptr null, ptr @sm_insertcode }, %struct.t_register_method { ptr null, ptr @sm_chain }, %struct.t_register_method { ptr null, ptr @sm_mass }, %struct.t_register_method { ptr null, ptr @sm_charge }, %struct.t_register_method { ptr null, ptr @sm_altloc }, %struct.t_register_method { ptr null, ptr @sm_occupancy }, %struct.t_register_method { ptr null, ptr @sm_betafactor }, %struct.t_register_method { ptr @.str.50, ptr @sm_betafactor }, %struct.t_register_method { ptr null, ptr @sm_x }, %struct.t_register_method { ptr null, ptr @sm_y }, %struct.t_register_method { ptr null, ptr @sm_z }, %struct.t_register_method { ptr null, ptr @sm_distance }, %struct.t_register_method { ptr @.str.51, ptr @sm_distance }, %struct.t_register_method { ptr null, ptr @sm_mindistance }, %struct.t_register_method { ptr @.str.52, ptr @sm_mindistance }, %struct.t_register_method { ptr null, ptr @sm_within }, %struct.t_register_method { ptr null, ptr @sm_insolidangle }, %struct.t_register_method { ptr null, ptr @sm_same }, %struct.t_register_method { ptr null, ptr @sm_merge }, %struct.t_register_method { ptr null, ptr @sm_plus }, %struct.t_register_method { ptr null, ptr @sm_permute }], align 16
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z26gmx_ana_selmethod_registerPN3gmx26SelectionParserSymbolTableEPKcP19gmx_ana_selmethod_t(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_Z26gmx_ana_selmethod_registerPN3gmx26SelectionParserSymbolTableEPKcP19gmx_ana_selmethod_t(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 256
@@ -1206,7 +1206,7 @@ declare noundef zeroext i1 @_ZNK3gmx29SelectionParserSymbolIteratoreqERKS0_(ptr 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx29SelectionParserSymbolIteratordeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE(ptr noundef %0) local_unnamed_addr #0 {
+define noundef range(i32 -1, 1) i32 @_Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE(ptr noundef %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %1, %13
@@ -1221,11 +1221,11 @@ define noundef i32 @_Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionPars
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %5, align 8
-  %10 = tail call noundef i32 @_Z26gmx_ana_selmethod_registerPN3gmx26SelectionParserSymbolTableEPKcP19gmx_ana_selmethod_t(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %5), !range !11
+  %10 = tail call noundef i32 @_Z26gmx_ana_selmethod_registerPN3gmx26SelectionParserSymbolTableEPKcP19gmx_ana_selmethod_t(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %5)
   br label %13
 
 11:                                               ; preds = %2
-  %12 = tail call noundef i32 @_Z26gmx_ana_selmethod_registerPN3gmx26SelectionParserSymbolTableEPKcP19gmx_ana_selmethod_t(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %5), !range !11
+  %12 = tail call noundef i32 @_Z26gmx_ana_selmethod_registerPN3gmx26SelectionParserSymbolTableEPKcP19gmx_ana_selmethod_t(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %5)
   br label %13
 
 13:                                               ; preds = %11, %8
@@ -1234,7 +1234,7 @@ define noundef i32 @_Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionPars
   %spec.select = select i1 %.not, i8 %.01214, i8 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
-  br i1 %exitcond.not, label %14, label %2, !llvm.loop !12
+  br i1 %exitcond.not, label %14, label %2, !llvm.loop !11
 
 14:                                               ; preds = %13
   %15 = and i8 %spec.select, 1
@@ -1278,5 +1278,4 @@ attributes #14 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 -1, i32 1}
-!12 = distinct !{!12, !6}
+!11 = distinct !{!11, !6}

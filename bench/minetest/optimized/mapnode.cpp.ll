@@ -233,7 +233,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i8 @_ZNK7MapNode14getWallMountedEPK14NodeDefManager(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr nocapture noundef readonly %nodemgr) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext range(i8 0, 8) i8 @_ZNK7MapNode14getWallMountedEPK14NodeDefManager(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr nocapture noundef readonly %nodemgr) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4, !tbaa !52
   %conv.i.i = zext i16 %0 to i64
@@ -3734,7 +3734,7 @@ cleanup36:                                        ; preds = %if.end28, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i8 @_ZNK7MapNode12getNeighborsEN3irr4core8vector3dIsEEP3Map(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, i48 %p.coerce, ptr noundef %map) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i8 0, 64) i8 @_ZNK7MapNode12getNeighborsEN3irr4core8vector3dIsEEP3Map(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, i48 %p.coerce, ptr noundef %map) local_unnamed_addr #7 align 2 {
 entry:
   %m_nodedef.i = getelementptr inbounds i8, ptr %map, i64 136
   %0 = load ptr, ptr %m_nodedef.i, align 8, !tbaa !186
@@ -3777,7 +3777,7 @@ if.then:                                          ; preds = %_ZNK14NodeDefManage
   %p2.sroa.18.0.extract.shift = lshr i48 %p.coerce, 16
   %p2.sroa.18.0.extract.trunc = trunc i48 %p2.sroa.18.0.extract.shift to i16
   %p2.sroa.22.0.extract.shift = lshr i48 %p.coerce, 32
-  %p2.sroa.22.0.extract.trunc = trunc i48 %p2.sroa.22.0.extract.shift to i16
+  %p2.sroa.22.0.extract.trunc = trunc nuw i48 %p2.sroa.22.0.extract.shift to i16
   %inc = add i16 %p2.sroa.18.0.extract.trunc, 1
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %this, align 4, !tbaa.struct !199
   %p2.sroa.22.0.insert.shift144 = and i48 %p.coerce, -4294967296
@@ -4075,7 +4075,7 @@ if.else:                                          ; preds = %if.end
   %param2.i71 = getelementptr inbounds i8, ptr %this, i64 3
   %9 = load i8, ptr %param2.i71, align 1, !tbaa !47
   %10 = and i8 %9, -8
-  %11 = trunc i16 %level to i8
+  %11 = trunc nuw nsw i16 %level to i8
   %conv20 = or disjoint i8 %10, %11
   store i8 %conv20, ptr %param2.i71, align 1, !tbaa !47
   br label %cleanup
@@ -4110,7 +4110,7 @@ if.end44:                                         ; preds = %if.then35, %if.else
   %param2.i73 = getelementptr inbounds i8, ptr %this, i64 3
   %15 = load i8, ptr %param2.i73, align 1, !tbaa !47
   %16 = and i8 %15, -128
-  %17 = trunc i16 %level.addr.0 to i8
+  %17 = trunc nuw i16 %level.addr.0 to i8
   %18 = and i8 %17, 127
   %conv51 = or disjoint i8 %16, %18
   store i8 %conv51, ptr %param2.i73, align 1, !tbaa !47
@@ -4255,7 +4255,7 @@ if.else.i:                                        ; preds = %if.end.i24
   %param2.i71.i = getelementptr inbounds i8, ptr %this, i64 3
   %20 = load i8, ptr %param2.i71.i, align 1, !tbaa !47
   %21 = and i8 %20, -8
-  %22 = trunc i16 %add4 to i8
+  %22 = trunc nuw nsw i16 %add4 to i8
   %conv20.i = or disjoint i8 %21, %22
   store i8 %conv20.i, ptr %param2.i71.i, align 1, !tbaa !47
   br label %_ZN7MapNode8setLevelEPK14NodeDefManagers.exit
@@ -4290,7 +4290,7 @@ if.end44.i:                                       ; preds = %if.then35.i, %if.el
   %param2.i73.i = getelementptr inbounds i8, ptr %this, i64 3
   %26 = load i8, ptr %param2.i73.i, align 1, !tbaa !47
   %27 = and i8 %26, -128
-  %28 = trunc i16 %level.addr.0.i to i8
+  %28 = trunc nuw i16 %level.addr.0.i to i8
   %29 = and i8 %28, 127
   %conv51.i = or disjoint i8 %27, %29
   store i8 %conv51.i, ptr %param2.i73.i, align 1, !tbaa !47
@@ -4302,7 +4302,7 @@ _ZN7MapNode8setLevelEPK14NodeDefManagers.exit:    ; preds = %if.end44.i, %if.els
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN7MapNode16serializedLengthEh(i8 noundef zeroext %version) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 5) i32 @_ZN7MapNode16serializedLengthEh(i8 noundef zeroext %version) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
@@ -5099,7 +5099,7 @@ invoke.cont43.preheader:                          ; preds = %_ZN6BufferIhEC2Ej.e
 vector.scevcheck:                                 ; preds = %invoke.cont43.preheader
   %11 = add nsw i64 %wide.trip.count, -1
   %12 = icmp ugt i64 %11, 2147483647
-  %13 = trunc i64 %11 to i32
+  %13 = trunc nuw i64 %11 to i32
   %14 = xor i32 %mul34, -1
   %15 = icmp ult i32 %14, %13
   %16 = xor i32 %mul37, -1

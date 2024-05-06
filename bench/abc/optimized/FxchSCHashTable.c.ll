@@ -676,7 +676,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Fxch_SCHashTableEntryCompare(ptr nocapture noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @Fxch_SCHashTableEntryCompare(ptr nocapture noundef %0, ptr nocapture readonly %.8.val, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
@@ -1118,7 +1118,7 @@ define i32 @Fxch_SCHashTableRemove(ptr nocapture noundef %0, ptr nocapture nound
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !13
 
 ._crit_edge.split.loop.exit174:                   ; preds = %37
-  %42 = trunc i64 %indvars.iv to i32
+  %42 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %41, %._crit_edge.split.loop.exit174

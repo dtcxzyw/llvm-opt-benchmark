@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_oom_adj(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @set_oom_adj(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [16 x i8], align 16
   %3 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str, i32 noundef 1) #6
   %4 = icmp slt i32 %3, 0
@@ -64,7 +64,7 @@ define noundef i32 @set_oom_adj(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %34, label %29
 
 29:                                               ; preds = %28
-  %30 = mul nsw i32 %0, 15
+  %30 = mul nuw nsw i32 %0, 15
   %31 = udiv i32 %30, 1000
   br label %34
 

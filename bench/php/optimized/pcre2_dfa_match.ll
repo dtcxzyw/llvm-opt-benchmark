@@ -2512,8 +2512,8 @@ switch.edge:                                      ; preds = %switch.lookup, %155
   %613 = load i8, ptr %612, align 1
   %614 = zext i8 %613 to i64
   %615 = or disjoint i64 %611, %614
-  %616 = getelementptr i8, ptr %362, i64 %615
-  %617 = getelementptr i8, ptr %616, i64 1
+  %616 = getelementptr inbounds i8, ptr %362, i64 %615
+  %617 = getelementptr inbounds i8, ptr %616, i64 1
   %618 = load i8, ptr %617, align 1
   %619 = icmp eq i8 %618, 120
   br i1 %619, label %.lr.ph3352, label %._crit_edge3353
@@ -2559,8 +2559,8 @@ switch.edge:                                      ; preds = %switch.lookup, %155
   %646 = load i8, ptr %645, align 1
   %647 = zext i8 %646 to i64
   %648 = or disjoint i64 %644, %647
-  %649 = getelementptr i8, ptr %362, i64 %648
-  %650 = getelementptr i8, ptr %649, i64 1
+  %649 = getelementptr inbounds i8, ptr %362, i64 %648
+  %650 = getelementptr inbounds i8, ptr %649, i64 1
   %651 = load i8, ptr %650, align 1
   %652 = icmp eq i8 %651, 120
   br i1 %652, label %.lr.ph3347, label %._crit_edge3348
@@ -7825,7 +7825,7 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
   br i1 %3458, label %3459, label %3463
 
 3459:                                             ; preds = %3446
-  %3460 = call fastcc i32 @more_workspace(ptr noundef nonnull %17, i32 noundef 4, ptr noundef %0), !range !4
+  %3460 = call fastcc i32 @more_workspace(ptr noundef nonnull %17, i32 noundef 4, ptr noundef %0)
   %.not2924 = icmp eq i32 %3460, 0
   br i1 %.not2924, label %3461, label %more_workspace.exit.thread
 
@@ -7951,7 +7951,7 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
   br i1 %3543, label %3544, label %3548
 
 3544:                                             ; preds = %3539
-  %3545 = call fastcc i32 @more_workspace(ptr noundef nonnull %18, i32 noundef 2000, ptr noundef nonnull %0), !range !4
+  %3545 = call fastcc i32 @more_workspace(ptr noundef nonnull %18, i32 noundef 2000, ptr noundef nonnull %0)
   %.not2919 = icmp eq i32 %3545, 0
   br i1 %.not2919, label %3546, label %more_workspace.exit.thread
 
@@ -8325,7 +8325,7 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
   br i1 %3737, label %3738, label %3742
 
 3738:                                             ; preds = %3734
-  %3739 = call fastcc i32 @more_workspace(ptr noundef nonnull %19, i32 noundef 4, ptr noundef %0), !range !4
+  %3739 = call fastcc i32 @more_workspace(ptr noundef nonnull %19, i32 noundef 4, ptr noundef %0)
   %.not2915 = icmp eq i32 %3739, 0
   br i1 %.not2915, label %3740, label %more_workspace.exit.thread
 
@@ -8731,7 +8731,7 @@ declare ptr @_pcre2_extuni_8(i32 noundef, ptr noundef, ptr noundef, ptr noundef,
 declare i32 @_pcre2_xclass_8(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @more_workspace(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -63, 1) i32 @more_workspace(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -8946,4 +8946,3 @@ attributes #7 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -63, i32 1}

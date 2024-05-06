@@ -141,7 +141,7 @@ RSTRING_PTR.exit:                                 ; preds = %33, %39
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %40
 
 40:                                               ; preds = %RSTRING_PTR.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %35, ptr align 1 %.sroa.2.0.i, i64 %34, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %35, ptr readonly align 1 %.sroa.2.0.i, i64 %34, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit, %40
@@ -244,7 +244,7 @@ declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #4
 declare i64 @rb_protect(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @unixsock_connect_internal(i64 noundef %0) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @unixsock_connect_internal(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 12
   %4 = load i32, ptr %3, align 4
@@ -717,7 +717,7 @@ define internal i64 @unix_recv_io(i32 noundef %0, ptr noundef %1, i64 noundef %2
 
 87:                                               ; preds = %85
   %88 = load i64, ptr @rb_eSocket, align 8
-  %89 = trunc i64 %83 to i32
+  %89 = trunc nuw nsw i64 %83 to i32
   call void (i64, ptr, ...) @rb_raise(i64 noundef %88, ptr noundef nonnull @.str.20, i32 noundef %89, i32 noundef 16) #7
   unreachable
 
@@ -747,7 +747,7 @@ define internal i64 @unix_recv_io(i32 noundef %0, ptr noundef %1, i64 noundef %2
 
 100:                                              ; preds = %98
   %101 = load i64, ptr @rb_eSocket, align 8
-  %102 = trunc i64 %83 to i32
+  %102 = trunc nuw nsw i64 %83 to i32
   call void (i64, ptr, ...) @rb_raise(i64 noundef %101, ptr noundef nonnull @.str.23, i32 noundef %102, i32 noundef 20) #7
   unreachable
 

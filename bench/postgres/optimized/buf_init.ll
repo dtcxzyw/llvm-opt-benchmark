@@ -93,11 +93,11 @@ define dso_local void @InitBufferPool() local_unnamed_addr #0 {
   %43 = getelementptr inbounds i8, ptr %40, i64 28
   store i32 -1, ptr %43, align 4
   %44 = getelementptr inbounds i8, ptr %40, i64 20
-  %45 = trunc i64 %indvars.iv to i32
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %45, ptr %44, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = getelementptr inbounds i8, ptr %40, i64 32
-  %47 = trunc i64 %indvars.iv.next to i32
+  %47 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %47, ptr %46, align 4
   %48 = getelementptr inbounds i8, ptr %40, i64 36
   call void @LWLockInitialize(ptr noundef nonnull %48, i32 noundef 61) #2

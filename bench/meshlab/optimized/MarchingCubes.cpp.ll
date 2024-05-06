@@ -49,7 +49,7 @@ define noundef i32 @_ZN6Square11CornerIndexEii(i32 noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6Square9EdgeIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 4) i32 @_ZN6Square9EdgeIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   switch i32 %0, label %5 [
     i32 0, label %3
     i32 1, label %4
@@ -242,7 +242,7 @@ define void @_ZN4Cube15FactorEdgeIndexEiRiS0_S0_(i32 noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN4Cube9FaceIndexEiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 6) i32 @_ZN4Cube9FaceIndexEiii(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp slt i32 %0, 0
   br i1 %4, label %12, label %5
 
@@ -882,7 +882,7 @@ _ZN6Square11EdgeCornersEiRiS0_.exit:              ; preds = %_ZN6Square15FactorE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZN15MarchingSquares8GetIndexEPKdd(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #2 align 2 {
+define noundef zeroext range(i8 0, 16) i8 @_ZN15MarchingSquares8GetIndexEPKdd(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %0, align 8
   %4 = fcmp olt double %3, %1
   %.0 = zext i1 %4 to i8
@@ -905,7 +905,7 @@ define noundef zeroext i8 @_ZN15MarchingSquares8GetIndexEPKdd(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZN15MarchingSquares8GetIndexEPKff(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #2 align 2 {
+define noundef zeroext range(i8 0, 16) i8 @_ZN15MarchingSquares8GetIndexEPKff(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load float, ptr %0, align 4
   %4 = fcmp olt float %3, %1
   %.0 = zext i1 %4 to i8
@@ -1387,7 +1387,7 @@ define noundef zeroext i8 @_ZN13MarchingCubes8GetIndexEPKdd(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKddi(ptr nocapture noundef readonly %0, double noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKddi(ptr nocapture noundef readonly %0, double noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %.sroa.0 = alloca double, align 16
   %.sroa.7 = alloca <2 x double>, align 16
   %.sroa.19 = alloca double, align 8
@@ -1403,41 +1403,41 @@ define noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKddi(ptr nocapture 
   ]
 
 .preheader126.preheader:                          ; preds = %3
-  %invariant.gep187 = getelementptr i8, ptr %0, i64 32
+  %invariant.gep187 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load double, ptr %invariant.gep187, align 8
   store double %4, ptr %.sroa.0, align 16
-  %gep.c = getelementptr i8, ptr %0, i64 40
+  %gep.c = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load <2 x double>, ptr %gep.c, align 8
   %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   store <2 x double> %6, ptr %.sroa.7, align 16
-  %gep186.c.c = getelementptr i8, ptr %0, i64 56
+  %gep186.c.c = getelementptr inbounds i8, ptr %0, i64 56
   br label %.thread111.sink.split
 
 .preheader120.preheader:                          ; preds = %3
-  %invariant.gep193 = getelementptr i8, ptr %0, i64 16
+  %invariant.gep193 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load double, ptr %invariant.gep193, align 8
   store double %7, ptr %.sroa.0, align 16
-  %gep192.c = getelementptr i8, ptr %0, i64 48
+  %gep192.c = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load double, ptr %gep192.c, align 8
   store double %8, ptr %.sroa.7, align 16
-  %gep194.c = getelementptr i8, ptr %0, i64 24
+  %gep194.c = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load double, ptr %gep194.c, align 8
   %.sroa.7.8..sroa_idx232 = getelementptr inbounds i8, ptr %.sroa.7, i64 8
   store double %9, ptr %.sroa.7.8..sroa_idx232, align 8
-  %gep192.c.c = getelementptr i8, ptr %0, i64 56
+  %gep192.c.c = getelementptr inbounds i8, ptr %0, i64 56
   br label %.thread111.sink.split
 
 .preheader:                                       ; preds = %3
-  %invariant.gep197 = getelementptr double, ptr %0, i64 0
+  %invariant.gep197 = getelementptr inbounds double, ptr %0, i64 0
   %10 = load double, ptr %invariant.gep197, align 8
   store double %10, ptr %.sroa.0, align 8
-  %gep198.c = getelementptr i8, ptr %invariant.gep197, i64 32
+  %gep198.c = getelementptr inbounds i8, ptr %invariant.gep197, i64 32
   %11 = load double, ptr %gep198.c, align 8
   store double %11, ptr %.sroa.7, align 8
-  %invariant.gep197.c = getelementptr double, ptr %0, i64 2
+  %invariant.gep197.c = getelementptr inbounds double, ptr %0, i64 2
   %12 = load double, ptr %invariant.gep197.c, align 8
   store double %12, ptr %.sroa.7.8.gep.sroa_idx234, align 8
-  %gep198.c.c = getelementptr i8, ptr %invariant.gep197.c, i64 32
+  %gep198.c.c = getelementptr inbounds i8, ptr %invariant.gep197.c, i64 32
   %13 = load double, ptr %gep198.c.c, align 8
   store double %13, ptr %.sroa.19, align 8
   br label %.thread111
@@ -1462,24 +1462,24 @@ define noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKddi(ptr nocapture 
 .preheader117:                                    ; preds = %3
   %24 = load double, ptr %0, align 8
   store double %24, ptr %.sroa.0, align 16
-  %gep196.c = getelementptr i8, ptr %0, i64 32
+  %gep196.c = getelementptr inbounds i8, ptr %0, i64 32
   %25 = load double, ptr %gep196.c, align 8
   store double %25, ptr %.sroa.7, align 16
-  %invariant.gep195.c = getelementptr i8, ptr %0, i64 8
+  %invariant.gep195.c = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load double, ptr %invariant.gep195.c, align 8
   %.sroa.7.8..sroa_idx233 = getelementptr inbounds i8, ptr %.sroa.7, i64 8
   store double %26, ptr %.sroa.7.8..sroa_idx233, align 8
-  %gep196.c.c = getelementptr i8, ptr %0, i64 40
+  %gep196.c.c = getelementptr inbounds i8, ptr %0, i64 40
   br label %.thread111.sink.split
 
 .preheader123:                                    ; preds = %3
   %27 = load double, ptr %0, align 8
   store double %27, ptr %.sroa.0, align 16
-  %invariant.gep.c = getelementptr i8, ptr %0, i64 8
+  %invariant.gep.c = getelementptr inbounds i8, ptr %0, i64 8
   %28 = load <2 x double>, ptr %invariant.gep.c, align 8
   %29 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   store <2 x double> %29, ptr %.sroa.7, align 16
-  %gep188.c.c = getelementptr i8, ptr %0, i64 24
+  %gep188.c.c = getelementptr inbounds i8, ptr %0, i64 24
   br label %.thread111.sink.split
 
 .thread111.sink.split:                            ; preds = %.preheader117, %.preheader120.preheader, %.preheader123, %.preheader126.preheader
@@ -1510,7 +1510,7 @@ define noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKddi(ptr nocapture 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN13MarchingCubes11IsAmbiguousEPKddi(ptr nocapture noundef readonly %0, double noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKddi(ptr noundef %0, double noundef %1, i32 noundef %2), !range !9
+  %4 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKddi(ptr noundef %0, double noundef %1, i32 noundef %2)
   %5 = icmp eq i8 %4, 5
   %6 = icmp eq i8 %4, 10
   %7 = or i1 %5, %6
@@ -1519,7 +1519,7 @@ define noundef zeroext i1 @_ZN13MarchingCubes11IsAmbiguousEPKddi(ptr nocapture n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEPKddi(ptr nocapture noundef readonly %0, double noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKddi(ptr noundef %0, double noundef %1, i32 noundef %2), !range !9
+  %4 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKddi(ptr noundef %0, double noundef %1, i32 noundef %2)
   %5 = icmp ne i8 %4, 0
   %6 = icmp ne i8 %4, 15
   %.not3.i = and i1 %5, %6
@@ -1651,7 +1651,7 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr nocaptur
   %44 = shl i32 %.040, 1
   %45 = add nuw nsw i32 %.03239, 1
   %exitcond.not = icmp eq i32 %45, 12
-  br i1 %exitcond.not, label %.preheader.lr.ph, label %40, !llvm.loop !10
+  br i1 %exitcond.not, label %.preheader.lr.ph, label %40, !llvm.loop !9
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvars.iv48 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next49, %.preheader ]
@@ -1682,7 +1682,7 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr nocaptur
   %60 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %indvars.iv.next
   %61 = load i32, ptr %60, align 4
   %.not35 = icmp eq i32 %61, -1
-  br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %62 = trunc nuw i64 %indvars.iv.next49 to i32
@@ -1844,7 +1844,7 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKddPi(ptr nocapture 
   store i32 %39, ptr %40, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %41, label %36, !llvm.loop !12
+  br i1 %exitcond.not, label %41, label %36, !llvm.loop !11
 
 41:                                               ; preds = %36
   %42 = add nuw nsw i32 %.01723, 1
@@ -1852,7 +1852,7 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKddPi(ptr nocapture 
   %43 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %indvars.iv.next28
   %44 = load i32, ptr %43, align 4
   %.not19 = icmp eq i32 %44, -1
-  br i1 %.not19, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %.not19, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %41, %3
   %.018 = phi i32 [ 0, %3 ], [ %42, %41 ]
@@ -1899,7 +1899,7 @@ define noundef zeroext i8 @_ZN13MarchingCubes8GetIndexEPKff(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr nocapture noundef readonly %0, float noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr nocapture noundef readonly %0, float noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %.sroa.0 = alloca [2 x double], align 16
   %.sroa.8 = alloca [2 x double], align 16
   switch i32 %2, label %.thread111 [
@@ -1912,18 +1912,18 @@ define noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr nocapture 
   ]
 
 .preheader126.preheader:                          ; preds = %3
-  %invariant.gep187 = getelementptr i8, ptr %0, i64 16
-  %gep = getelementptr float, ptr %invariant.gep187, i64 0
+  %invariant.gep187 = getelementptr inbounds i8, ptr %0, i64 16
+  %gep = getelementptr inbounds float, ptr %invariant.gep187, i64 0
   %4 = load float, ptr %gep, align 4
-  %gep186.c = getelementptr i8, ptr %gep, i64 8
+  %gep186.c = getelementptr inbounds i8, ptr %gep, i64 8
   %5 = load float, ptr %gep186.c, align 4
   %6 = insertelement <2 x float> poison, float %4, i64 0
   %7 = insertelement <2 x float> %6, float %5, i64 1
   %8 = fpext <2 x float> %7 to <2 x double>
   store <2 x double> %8, ptr %.sroa.0, align 16
-  %gep.c = getelementptr float, ptr %invariant.gep187, i64 1
+  %gep.c = getelementptr inbounds float, ptr %invariant.gep187, i64 1
   %9 = load float, ptr %gep.c, align 4
-  %gep186.c.c = getelementptr i8, ptr %gep.c, i64 8
+  %gep186.c.c = getelementptr inbounds i8, ptr %gep.c, i64 8
   %10 = load float, ptr %gep186.c.c, align 4
   %11 = insertelement <2 x float> poison, float %9, i64 0
   %12 = insertelement <2 x float> %11, float %10, i64 1
@@ -1932,18 +1932,18 @@ define noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr nocapture 
   br label %.thread111
 
 .preheader120.preheader:                          ; preds = %3
-  %invariant.gep193 = getelementptr i8, ptr %0, i64 8
-  %gep194 = getelementptr float, ptr %invariant.gep193, i64 0
+  %invariant.gep193 = getelementptr inbounds i8, ptr %0, i64 8
+  %gep194 = getelementptr inbounds float, ptr %invariant.gep193, i64 0
   %14 = load float, ptr %gep194, align 4
-  %gep192.c = getelementptr i8, ptr %gep194, i64 16
+  %gep192.c = getelementptr inbounds i8, ptr %gep194, i64 16
   %15 = load float, ptr %gep192.c, align 4
   %16 = insertelement <2 x float> poison, float %14, i64 0
   %17 = insertelement <2 x float> %16, float %15, i64 1
   %18 = fpext <2 x float> %17 to <2 x double>
   store <2 x double> %18, ptr %.sroa.0, align 16
-  %gep194.c = getelementptr float, ptr %invariant.gep193, i64 1
+  %gep194.c = getelementptr inbounds float, ptr %invariant.gep193, i64 1
   %19 = load float, ptr %gep194.c, align 4
-  %gep192.c.c = getelementptr i8, ptr %gep194.c, i64 16
+  %gep192.c.c = getelementptr inbounds i8, ptr %gep194.c, i64 16
   %20 = load float, ptr %gep192.c.c, align 4
   %21 = insertelement <2 x float> poison, float %19, i64 0
   %22 = insertelement <2 x float> %21, float %20, i64 1
@@ -1952,17 +1952,17 @@ define noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr nocapture 
   br label %.thread111
 
 .preheader:                                       ; preds = %3
-  %invariant.gep197 = getelementptr float, ptr %0, i64 0
+  %invariant.gep197 = getelementptr inbounds float, ptr %0, i64 0
   %24 = load float, ptr %invariant.gep197, align 4
-  %gep198.c = getelementptr i8, ptr %invariant.gep197, i64 16
+  %gep198.c = getelementptr inbounds i8, ptr %invariant.gep197, i64 16
   %25 = load float, ptr %gep198.c, align 4
   %26 = insertelement <2 x float> poison, float %24, i64 0
   %27 = insertelement <2 x float> %26, float %25, i64 1
   %28 = fpext <2 x float> %27 to <2 x double>
   store <2 x double> %28, ptr %.sroa.0, align 16
-  %invariant.gep197.c = getelementptr float, ptr %0, i64 2
+  %invariant.gep197.c = getelementptr inbounds float, ptr %0, i64 2
   %29 = load float, ptr %invariant.gep197.c, align 4
-  %gep198.c.c = getelementptr i8, ptr %invariant.gep197.c, i64 16
+  %gep198.c.c = getelementptr inbounds i8, ptr %invariant.gep197.c, i64 16
   %30 = load float, ptr %gep198.c.c, align 4
   %31 = insertelement <2 x float> poison, float %29, i64 0
   %32 = insertelement <2 x float> %31, float %30, i64 1
@@ -1992,17 +1992,17 @@ define noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr nocapture 
   br label %.thread111
 
 .preheader117:                                    ; preds = %3
-  %invariant.gep195 = getelementptr float, ptr %0, i64 0
+  %invariant.gep195 = getelementptr inbounds float, ptr %0, i64 0
   %50 = load float, ptr %invariant.gep195, align 4
-  %gep196.c = getelementptr i8, ptr %invariant.gep195, i64 16
+  %gep196.c = getelementptr inbounds i8, ptr %invariant.gep195, i64 16
   %51 = load float, ptr %gep196.c, align 4
   %52 = insertelement <2 x float> poison, float %50, i64 0
   %53 = insertelement <2 x float> %52, float %51, i64 1
   %54 = fpext <2 x float> %53 to <2 x double>
   store <2 x double> %54, ptr %.sroa.0, align 16
-  %invariant.gep195.c = getelementptr float, ptr %0, i64 1
+  %invariant.gep195.c = getelementptr inbounds float, ptr %0, i64 1
   %55 = load float, ptr %invariant.gep195.c, align 4
-  %gep196.c.c = getelementptr i8, ptr %invariant.gep195.c, i64 16
+  %gep196.c.c = getelementptr inbounds i8, ptr %invariant.gep195.c, i64 16
   %56 = load float, ptr %gep196.c.c, align 4
   %57 = insertelement <2 x float> poison, float %55, i64 0
   %58 = insertelement <2 x float> %57, float %56, i64 1
@@ -2011,17 +2011,17 @@ define noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr nocapture 
   br label %.thread111
 
 .preheader123:                                    ; preds = %3
-  %invariant.gep = getelementptr float, ptr %0, i64 0
+  %invariant.gep = getelementptr inbounds float, ptr %0, i64 0
   %60 = load float, ptr %invariant.gep, align 4
-  %gep188.c = getelementptr i8, ptr %invariant.gep, i64 8
+  %gep188.c = getelementptr inbounds i8, ptr %invariant.gep, i64 8
   %61 = load float, ptr %gep188.c, align 4
   %62 = insertelement <2 x float> poison, float %60, i64 0
   %63 = insertelement <2 x float> %62, float %61, i64 1
   %64 = fpext <2 x float> %63 to <2 x double>
   store <2 x double> %64, ptr %.sroa.0, align 16
-  %invariant.gep.c = getelementptr float, ptr %0, i64 1
+  %invariant.gep.c = getelementptr inbounds float, ptr %0, i64 1
   %65 = load float, ptr %invariant.gep.c, align 4
-  %gep188.c.c = getelementptr i8, ptr %invariant.gep.c, i64 8
+  %gep188.c.c = getelementptr inbounds i8, ptr %invariant.gep.c, i64 8
   %66 = load float, ptr %gep188.c.c, align 4
   %67 = insertelement <2 x float> poison, float %65, i64 0
   %68 = insertelement <2 x float> %67, float %66, i64 1
@@ -2052,7 +2052,7 @@ define noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEhi(i8 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEhi(i8 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %.sroa.0 = alloca i32, align 16
   %.sroa.7 = alloca i32, align 4
   %.sroa.14 = alloca i32, align 8
@@ -2106,7 +2106,7 @@ _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
   %17 = shl nuw i32 1, %16
   %18 = and i32 %17, %8
   store i32 %18, ptr %indvars.iv177.sroa.phi209, align 4
-  br i1 %9, label %.preheader, label %.thread111, !llvm.loop !14
+  br i1 %9, label %.preheader, label %.thread111, !llvm.loop !13
 
 .preheader114:                                    ; preds = %.preheader115, %.preheader114
   %19 = phi i1 [ true, %.preheader115 ], [ false, %.preheader114 ]
@@ -2125,7 +2125,7 @@ _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
   %28 = shl nuw i32 1, %27
   %29 = and i32 %28, %7
   store i32 %29, ptr %indvars.iv171.sroa.phi212, align 4
-  br i1 %19, label %.preheader114, label %.thread111, !llvm.loop !15
+  br i1 %19, label %.preheader114, label %.thread111, !llvm.loop !14
 
 .preheader117:                                    ; preds = %.preheader118, %.preheader117
   %30 = phi i1 [ true, %.preheader118 ], [ false, %.preheader117 ]
@@ -2143,7 +2143,7 @@ _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
   %38 = shl nuw i32 1, %37
   %39 = and i32 %38, %6
   store i32 %39, ptr %indvars.iv165.sroa.phi215, align 4
-  br i1 %30, label %.preheader117, label %.thread111, !llvm.loop !16
+  br i1 %30, label %.preheader117, label %.thread111, !llvm.loop !15
 
 .preheader120:                                    ; preds = %.preheader121, %.preheader120
   %40 = phi i1 [ true, %.preheader121 ], [ false, %.preheader120 ]
@@ -2162,7 +2162,7 @@ _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
   %49 = shl nuw i32 1, %48
   %50 = and i32 %49, %5
   store i32 %50, ptr %indvars.iv159.sroa.phi218, align 4
-  br i1 %40, label %.preheader120, label %.thread111, !llvm.loop !17
+  br i1 %40, label %.preheader120, label %.thread111, !llvm.loop !16
 
 .preheader123:                                    ; preds = %.preheader124, %.preheader123
   %51 = phi i1 [ true, %.preheader124 ], [ false, %.preheader123 ]
@@ -2181,7 +2181,7 @@ _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
   %60 = shl nuw i32 1, %59
   %61 = and i32 %60, %4
   store i32 %61, ptr %indvars.iv153.sroa.phi221, align 4
-  br i1 %51, label %.preheader123, label %.thread111, !llvm.loop !18
+  br i1 %51, label %.preheader123, label %.thread111, !llvm.loop !17
 
 .preheader126:                                    ; preds = %.preheader127, %.preheader126
   %62 = phi i1 [ true, %.preheader127 ], [ false, %.preheader126 ]
@@ -2200,7 +2200,7 @@ _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
   %71 = shl nuw i32 1, %70
   %72 = and i32 %71, %3
   store i32 %72, ptr %indvars.iv147.sroa.phi224, align 4
-  br i1 %62, label %.preheader126, label %.thread111, !llvm.loop !19
+  br i1 %62, label %.preheader126, label %.thread111, !llvm.loop !18
 
 .thread111:                                       ; preds = %.preheader126, %.preheader123, %.preheader120, %.preheader117, %.preheader114, %.preheader, %2
   %.sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 16
@@ -2223,7 +2223,7 @@ _ZN4Cube15FactorFaceIndexEiRiS0_S0_.exit.preheader: ; preds = %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN13MarchingCubes11IsAmbiguousEPKffi(ptr nocapture noundef readonly %0, float noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr noundef %0, float noundef %1, i32 noundef %2), !range !9
+  %4 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr noundef %0, float noundef %1, i32 noundef %2)
   %5 = icmp eq i8 %4, 5
   %6 = icmp eq i8 %4, 10
   %7 = or i1 %5, %6
@@ -2232,7 +2232,7 @@ define noundef zeroext i1 @_ZN13MarchingCubes11IsAmbiguousEPKffi(ptr nocapture n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN13MarchingCubes11IsAmbiguousEhi(i8 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEhi(i8 noundef zeroext %0, i32 noundef %1), !range !9
+  %3 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEhi(i8 noundef zeroext %0, i32 noundef %1)
   %4 = icmp eq i8 %3, 5
   %5 = icmp eq i8 %3, 10
   %6 = or i1 %4, %5
@@ -2275,7 +2275,7 @@ define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEPKff(ptr nocapture nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEPKffi(ptr nocapture noundef readonly %0, float noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr noundef %0, float noundef %1, i32 noundef %2), !range !9
+  %4 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEPKffi(ptr noundef %0, float noundef %1, i32 noundef %2)
   %5 = icmp ne i8 %4, 0
   %6 = icmp ne i8 %4, 15
   %.not3.i = and i1 %5, %6
@@ -2284,7 +2284,7 @@ define noundef zeroext i1 @_ZN13MarchingCubes8HasRootsEPKffi(ptr nocapture nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN13MarchingCubes12HasFaceRootsEhi(i8 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEhi(i8 noundef zeroext %0, i32 noundef %1), !range !9
+  %3 = tail call noundef zeroext i8 @_ZN13MarchingCubes12GetFaceIndexEhi(i8 noundef zeroext %0, i32 noundef %1)
   %4 = icmp ne i8 %3, 0
   %5 = icmp ne i8 %3, 15
   %.not3.i = and i1 %4, %5
@@ -2404,7 +2404,7 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKffP8Triangle(ptr nocaptur
   %33 = shl i32 %.040, 1
   %34 = add nuw nsw i32 %.03239, 1
   %exitcond.not = icmp eq i32 %34, 12
-  br i1 %exitcond.not, label %.preheader.lr.ph, label %29, !llvm.loop !20
+  br i1 %exitcond.not, label %.preheader.lr.ph, label %29, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvars.iv48 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next49, %.preheader ]
@@ -2435,7 +2435,7 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKffP8Triangle(ptr nocaptur
   %49 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %23, i64 %indvars.iv.next
   %50 = load i32, ptr %49, align 4
   %.not35 = icmp eq i32 %50, -1
-  br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %51 = trunc nuw i64 %indvars.iv.next49 to i32
@@ -2590,7 +2590,7 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKffPi(ptr nocapture 
   store i32 %27, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %29, label %24, !llvm.loop !22
+  br i1 %exitcond.not.i, label %29, label %24, !llvm.loop !21
 
 29:                                               ; preds = %24
   %30 = add nuw nsw i32 %.01521.i, 1
@@ -2598,7 +2598,7 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKffPi(ptr nocapture 
   %31 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %23, i64 %indvars.iv.next26.i
   %32 = load i32, ptr %31, align 4
   %.not17.i = icmp eq i32 %32, -1
-  br i1 %.not17.i, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %.not17.i, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit, label %.preheader.i, !llvm.loop !22
 
 _ZN13MarchingCubes18AddTriangleIndicesEiPi.exit:  ; preds = %29, %3, %3
   %.016.i = phi i32 [ 0, %3 ], [ 0, %3 ], [ %30, %29 ]
@@ -2627,7 +2627,7 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEiPi(i32 noundef %0, p
   store i32 %7, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %9, label %4, !llvm.loop !22
+  br i1 %exitcond.not, label %9, label %4, !llvm.loop !21
 
 9:                                                ; preds = %4
   %10 = add nuw nsw i32 %.01521, 1
@@ -2635,7 +2635,7 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEiPi(i32 noundef %0, p
   %11 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %3, i64 %indvars.iv.next26
   %12 = load i32, ptr %11, align 4
   %.not17 = icmp eq i32 %12, -1
-  br i1 %.not17, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %.not17, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %9, %2, %2
   %.016 = phi i32 [ 0, %2 ], [ 0, %2 ], [ %10, %9 ]
@@ -2670,7 +2670,7 @@ attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i8 0, i8 16}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
@@ -2684,4 +2684,3 @@ attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}

@@ -51,7 +51,7 @@ define noundef ptr @agstrcanon(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0) #9
+  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0) #9
   br label %8
 
 6:                                                ; preds = %2
@@ -434,7 +434,7 @@ is_escape.exit:                                   ; preds = %54, %54, %54, %54, 
 
 ; Function Attrs: nounwind uwtable
 define ptr @agcanonStr(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
+  %2 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #10
   %3 = shl i64 %2, 1
   %4 = add i64 %3, 2
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %4, i64 8192)
@@ -464,7 +464,7 @@ getoutputbuffer.exit:                             ; preds = %1
   br i1 %.not.i, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0.i10, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0) #9
+  %14 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %.0.i10, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0) #9
   br label %agstrcanon.exit
 
 15:                                               ; preds = %11
@@ -478,7 +478,7 @@ agstrcanon.exit:                                  ; preds = %7, %15, %13, %getou
 
 ; Function Attrs: nounwind uwtable
 define ptr @agcanon(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #10
   %4 = shl i64 %3, 1
   %5 = add i64 %4, 2
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %5, i64 8192)
@@ -507,7 +507,7 @@ getoutputbuffer.exit:                             ; preds = %2
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0.i11, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0) #9
+  %14 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %.0.i11, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0) #9
   br label %getoutputbuffer.exit.thread
 
 15:                                               ; preds = %12
@@ -548,12 +548,12 @@ define i32 @agwrite(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 15:                                               ; preds = %13, %9, %4, %2
   tail call fastcc void @set_attrwf(ptr noundef %0, i1 noundef zeroext true)
-  %16 = tail call fastcc i32 @write_hdr(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true), !range !4
+  %16 = tail call fastcc i32 @write_hdr(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %write_trl.exit.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call fastcc i32 @write_body(ptr noundef %0, ptr noundef %1), !range !4
+  %19 = tail call fastcc i32 @write_body(ptr noundef %0, ptr noundef %1)
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %write_trl.exit.thread, label %21
 
@@ -663,7 +663,7 @@ define internal fastcc void @set_attrwf(ptr noundef %0, i1 noundef zeroext %1) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @write_hdr(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @write_hdr(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   br i1 %2, label %6, label %4
 
 4:                                                ; preds = %3
@@ -802,21 +802,21 @@ define internal fastcc noundef i32 @write_hdr(ptr noundef %0, ptr noundef %1, i1
 65:                                               ; preds = %61
   %66 = getelementptr inbounds i8, ptr %64, i64 32
   %67 = load ptr, ptr %66, align 8
-  %68 = tail call fastcc i32 @write_dict(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %67, i1 noundef zeroext %2), !range !4
+  %68 = tail call fastcc i32 @write_dict(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %67, i1 noundef zeroext %2)
   %69 = icmp eq i32 %68, -1
   br i1 %69, label %indent.exit, label %70
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds i8, ptr %64, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call fastcc i32 @write_dict(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef %72, i1 noundef zeroext %2), !range !4
+  %73 = tail call fastcc i32 @write_dict(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef %72, i1 noundef zeroext %2)
   %74 = icmp eq i32 %73, -1
   br i1 %74, label %indent.exit, label %75
 
 75:                                               ; preds = %70
   %76 = getelementptr inbounds i8, ptr %64, i64 24
   %77 = load ptr, ptr %76, align 8
-  %78 = tail call fastcc i32 @write_dict(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef %77, i1 noundef zeroext %2), !range !4
+  %78 = tail call fastcc i32 @write_dict(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef %77, i1 noundef zeroext %2)
   %79 = icmp eq i32 %78, -1
   br i1 %79, label %indent.exit, label %write_dicts.exit
 
@@ -832,8 +832,8 @@ indent.exit:                                      ; preds = %.lr.ph.i, %75, %70,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @write_body(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call fastcc i32 @write_subgs(ptr noundef %0, ptr noundef %1), !range !4
+define internal fastcc range(i32 -1, 1) i32 @write_body(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = tail call fastcc i32 @write_subgs(ptr noundef %0, ptr noundef %1)
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %write_node.exit.thread, label %5
 
@@ -889,7 +889,7 @@ define internal fastcc noundef i32 @write_body(ptr noundef %0, ptr noundef %1) u
   br i1 %30, label %write_node.exit.thread, label %24
 
 .loopexit.i:                                      ; preds = %24, %18
-  %31 = tail call fastcc i32 @write_nodename(ptr noundef nonnull %.046101, ptr noundef %1), !range !4
+  %31 = tail call fastcc i32 @write_nodename(ptr noundef nonnull %.046101, ptr noundef %1)
   %32 = icmp eq i32 %31, -1
   br i1 %32, label %write_node.exit.thread, label %33
 
@@ -900,7 +900,7 @@ define internal fastcc noundef i32 @write_body(ptr noundef %0, ptr noundef %1) u
   br i1 %.not.i, label %35, label %write_node.exit
 
 35:                                               ; preds = %33
-  %36 = tail call fastcc i32 @write_nondefault_attrs(ptr noundef nonnull %.046101, ptr noundef %1, ptr noundef %19), !range !4
+  %36 = tail call fastcc i32 @write_nondefault_attrs(ptr noundef nonnull %.046101, ptr noundef %1, ptr noundef %19)
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %write_node.exit.thread, label %write_node.exit
 
@@ -977,7 +977,7 @@ write_node.exit:                                  ; preds = %33, %35
   br i1 %77, label %write_node.exit.thread, label %71
 
 .loopexit.i55:                                    ; preds = %71, %65
-  %78 = tail call fastcc i32 @write_nodename(ptr noundef %62, ptr noundef %1), !range !4
+  %78 = tail call fastcc i32 @write_nodename(ptr noundef %62, ptr noundef %1)
   %79 = icmp eq i32 %78, -1
   br i1 %79, label %write_node.exit.thread, label %80
 
@@ -988,7 +988,7 @@ write_node.exit:                                  ; preds = %33, %35
   br i1 %.not.i57, label %82, label %write_node.exit67
 
 82:                                               ; preds = %80
-  %83 = tail call fastcc i32 @write_nondefault_attrs(ptr noundef nonnull %62, ptr noundef %1, ptr noundef %66), !range !4
+  %83 = tail call fastcc i32 @write_nondefault_attrs(ptr noundef nonnull %62, ptr noundef %1, ptr noundef %66)
   %84 = icmp eq i32 %83, -1
   br i1 %84, label %write_node.exit.thread, label %write_node.exit67
 
@@ -1152,13 +1152,13 @@ irrelevant_subgraph.exit.thread88:                ; preds = %.loopexit.i83, %irr
   br i1 %162, label %write_node.exit.thread, label %156
 
 .loopexit.i69:                                    ; preds = %156, %140
-  %163 = tail call fastcc i32 @write_nodename(ptr noundef %147, ptr noundef %1), !range !4
+  %163 = tail call fastcc i32 @write_nodename(ptr noundef %147, ptr noundef %1)
   %164 = icmp eq i32 %163, -1
   br i1 %164, label %write_node.exit.thread, label %165
 
 165:                                              ; preds = %.loopexit.i69
   %166 = load ptr, ptr @Tailport, align 8
-  %167 = tail call fastcc i32 @write_port(ptr noundef nonnull %.04498, ptr noundef %1, ptr noundef %166), !range !4
+  %167 = tail call fastcc i32 @write_port(ptr noundef nonnull %.04498, ptr noundef %1, ptr noundef %166)
   %168 = icmp eq i32 %167, -1
   br i1 %168, label %write_node.exit.thread, label %169
 
@@ -1177,13 +1177,13 @@ irrelevant_subgraph.exit.thread88:                ; preds = %.loopexit.i83, %irr
   br i1 %176, label %write_node.exit.thread, label %177
 
 177:                                              ; preds = %169
-  %178 = tail call fastcc i32 @write_nodename(ptr noundef %151, ptr noundef %1), !range !4
+  %178 = tail call fastcc i32 @write_nodename(ptr noundef %151, ptr noundef %1)
   %179 = icmp eq i32 %178, -1
   br i1 %179, label %write_node.exit.thread, label %180
 
 180:                                              ; preds = %177
   %181 = load ptr, ptr @Headport, align 8
-  %182 = tail call fastcc i32 @write_port(ptr noundef nonnull %.04498, ptr noundef %1, ptr noundef %181), !range !4
+  %182 = tail call fastcc i32 @write_port(ptr noundef nonnull %.04498, ptr noundef %1, ptr noundef %181)
   %183 = icmp eq i32 %182, -1
   br i1 %183, label %write_node.exit.thread, label %184
 
@@ -1194,7 +1194,7 @@ irrelevant_subgraph.exit.thread88:                ; preds = %.loopexit.i83, %irr
   br i1 %.not29.i, label %186, label %189
 
 186:                                              ; preds = %184
-  %187 = tail call fastcc i32 @write_nondefault_attrs(ptr noundef nonnull %.04498, ptr noundef %1, ptr noundef %141), !range !4
+  %187 = tail call fastcc i32 @write_nondefault_attrs(ptr noundef nonnull %.04498, ptr noundef %1, ptr noundef %141)
   %188 = icmp eq i32 %187, -1
   br i1 %188, label %write_node.exit.thread, label %write_edge.exit
 
@@ -1298,7 +1298,7 @@ declare ptr @agstrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @_write_canonstr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
   %6 = shl i64 %5, 1
   %7 = add i64 %6, 2
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %7, i64 8192)
@@ -1331,7 +1331,7 @@ getoutputbuffer.exit.i:                           ; preds = %10
   br i1 %.not.i.i, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0.i10.i, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %2) #9
+  %18 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull writeonly dereferenceable(1) %.0.i10.i, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %2) #9
   br label %agcanonStr.exit
 
 19:                                               ; preds = %15
@@ -1381,7 +1381,7 @@ declare i32 @agstrfree(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @agdatadict(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_dict(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @write_dict(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   br i1 %4, label %8, label %6
 
 6:                                                ; preds = %5
@@ -1629,7 +1629,7 @@ indent.exit:                                      ; preds = %87, %82, %indent.ex
 declare ptr @dtview(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @write_subgs(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @write_subgs(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @agfstsubg(ptr noundef %0) #9
   %.not15 = icmp eq ptr %3, null
   br i1 %.not15, label %write_trl.exit.thread, label %.lr.ph
@@ -1640,16 +1640,16 @@ define internal fastcc noundef i32 @write_subgs(ptr noundef %0, ptr noundef %1) 
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %.lr.ph
-  %6 = tail call fastcc i32 @write_subgs(ptr noundef nonnull %.016, ptr noundef %1), !range !4
+  %6 = tail call fastcc i32 @write_subgs(ptr noundef nonnull %.016, ptr noundef %1)
   br label %29
 
 7:                                                ; preds = %.lr.ph
-  %8 = tail call fastcc i32 @write_hdr(ptr noundef nonnull %.016, ptr noundef %1, i1 noundef zeroext false), !range !4
+  %8 = tail call fastcc i32 @write_hdr(ptr noundef nonnull %.016, ptr noundef %1, i1 noundef zeroext false)
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %write_trl.exit.thread, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call fastcc i32 @write_body(ptr noundef nonnull %.016, ptr noundef %1), !range !4
+  %11 = tail call fastcc i32 @write_body(ptr noundef nonnull %.016, ptr noundef %1)
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %write_trl.exit.thread, label %13
 
@@ -1901,7 +1901,7 @@ declare ptr @agnxtin(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @agraphof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @write_nodename(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @write_nodename(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [30 x i8], align 16
   %4 = tail call ptr @agnameof(ptr noundef %0) #9
   %5 = tail call ptr @agraphof(ptr noundef %0) #9
@@ -1938,7 +1938,7 @@ define internal fastcc noundef i32 @write_nodename(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @write_nondefault_attrs(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @write_nondefault_attrs(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = and i32 %4, 2
   %switch.not = icmp eq i32 %5, 0
@@ -2164,7 +2164,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare ptr @agsubedge(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @write_port(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @write_port(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_write_canonstr.exit.thread, label %4
 
@@ -2205,7 +2205,7 @@ define internal fastcc noundef i32 @write_port(ptr noundef %0, ptr noundef %1, p
 
 24:                                               ; preds = %22
   store i8 0, ptr %23, align 1
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
+  %25 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #10
   %26 = shl i64 %25, 1
   %27 = add i64 %26, 2
   %spec.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %27, i64 8192)
@@ -2252,7 +2252,7 @@ _write_canonstr.exit:                             ; preds = %getoutputbuffer.exi
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds i8, ptr %23, i64 1
-  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #10
+  %46 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %45) #10
   %47 = shl i64 %46, 1
   %48 = add i64 %47, 2
   %spec.select.i.i.i31 = tail call i64 @llvm.umax.i64(i64 %48, i64 8192)
@@ -2292,7 +2292,7 @@ _write_canonstr.exit40:                           ; preds = %getoutputbuffer.exi
   br label %76
 
 61:                                               ; preds = %22
-  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
+  %62 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #10
   %63 = shl i64 %62, 1
   %64 = add i64 %63, 2
   %spec.select.i.i.i41 = tail call i64 @llvm.umax.i64(i64 %64, i64 8192)
@@ -2364,4 +2364,3 @@ attributes #11 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

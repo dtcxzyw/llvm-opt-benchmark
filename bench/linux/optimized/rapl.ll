@@ -293,7 +293,7 @@ declare dso_local ptr @x86_match_cpu(ptr noundef) local_unnamed_addr #1
 declare dso_local i64 @perf_msr_probe(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @init_rapl_pmus() unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @init_rapl_pmus() unnamed_addr #0 section ".init.text" align 16 {
   %1 = load i32, ptr @__max_logical_packages, align 4
   %2 = load i32, ptr @__max_die_per_package, align 4
   %3 = mul i32 %2, %1
@@ -338,7 +338,7 @@ define internal fastcc noundef i32 @init_rapl_pmus() unnamed_addr #0 section ".i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rapl_cpu_online(i32 noundef %0) #2 align 16 {
+define internal noundef range(i32 -12, 1) i32 @rapl_cpu_online(i32 noundef %0) #2 align 16 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
@@ -578,7 +578,7 @@ declare void @llvm.assume(i1 noundef) #4
 declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rapl_pmu_event_init(ptr nocapture noundef %0) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @rapl_pmu_event_init(ptr nocapture noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load i64, ptr %3, align 8
@@ -612,7 +612,7 @@ define internal noundef i32 @rapl_pmu_event_init(ptr nocapture noundef %0) #2 al
 23:                                               ; preds = %17
   %24 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 6, i64 %5) #9, !srcloc !20
   %25 = and i64 %24, %4
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw nsw i64 %25 to i32
   %27 = add nsw i32 %26, -1
   %28 = load i32, ptr @rapl_cntr_mask, align 4
   %29 = shl nuw nsw i32 1, %27
@@ -1019,7 +1019,7 @@ define internal void @rapl_pmu_event_read(ptr noundef %0) #2 align 16 {
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rapl_get_attr_cpumask(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @rapl_get_attr_cpumask(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = load i32, ptr @nr_cpu_ids, align 4
   %5 = tail call i32 @bitmap_print_to_pagebuf(i1 noundef zeroext true, ptr noundef %2, ptr noundef nonnull @rapl_cpu_mask, i32 noundef %4) #9
   %6 = sext i32 %5 to i64
@@ -1057,7 +1057,7 @@ declare dso_local noalias ptr @kmalloc_node_trace(ptr noundef, i32 noundef, i32 
 declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rapl_hrtimer_handle(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @rapl_hrtimer_handle(ptr noundef %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -48
   %3 = getelementptr i8, ptr %0, i64 -44
   %4 = load i32, ptr %3, align 4

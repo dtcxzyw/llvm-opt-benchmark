@@ -98,7 +98,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nf_conntrack_tcp_packet(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -4, 2) i32 @nf_conntrack_tcp_packet(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca [40 x i8], align 16
   %7 = alloca %struct.tcphdr, align 4
   %8 = alloca %struct.ip_ct_tcp_state, align 4
@@ -1812,7 +1812,7 @@ define dso_local void @nf_conntrack_tcp_init_net(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tcp_to_nlattr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i1 noundef zeroext %3) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @tcp_to_nlattr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -1906,7 +1906,7 @@ define internal noundef i32 @tcp_to_nlattr(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nlattr_to_tcp(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @nlattr_to_tcp(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [6 x ptr], align 16
   %4 = getelementptr i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -2083,7 +2083,7 @@ declare dso_local zeroext i1 @nf_ct_delete(ptr noundef, i32 noundef, i32 noundef
 declare dso_local i32 @nf_ct_seq_offset(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nf_tcp_log_invalid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5, ...) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 3) i32 @nf_tcp_log_invalid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5, ...) unnamed_addr #0 align 16 {
   %7 = alloca %struct.va_format, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
   %9 = getelementptr inbounds i8, ptr %1, i64 136

@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [28 x i8] c"There is no parameter line.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @satoko_parse_dimacs(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @satoko_parse_dimacs(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.2)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %file_open.exit.thread, label %6

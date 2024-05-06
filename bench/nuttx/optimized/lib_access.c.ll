@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @access(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @access(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %3)
   %.not = icmp eq i32 %4, 0
@@ -38,7 +38,7 @@ define i32 @access(ptr nocapture noundef readonly %0, i32 noundef %1) local_unna
 declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @faccessat(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @faccessat(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.stat, align 8
   %6 = alloca [256 x i8], align 16
   %7 = call i32 @lib_getfullpath(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %6, i64 noundef 256) #5
@@ -53,7 +53,7 @@ define i32 @faccessat(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 nounde
 
 12:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
-  %13 = call i32 @stat(ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %13 = call i32 @stat(ptr noundef nonnull readonly %6, ptr noundef nonnull %5)
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %access.exit
 

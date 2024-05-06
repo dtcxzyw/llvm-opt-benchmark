@@ -30,7 +30,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_poly1305(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_poly1305(i32 noundef %idx) #0 {
 entry:
   %poly1305 = alloca %struct.poly1305_context, align 8
   %test = alloca %struct.TESTDATA, align 8

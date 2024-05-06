@@ -1200,7 +1200,7 @@ _ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i86, label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
 
 if.then.i.i.i.i.i86:                              ; preds = %_ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i, ptr align 8 %intersections.sroa.0.4205, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %cond.i12.i.i, ptr align 8 %intersections.sroa.0.4205, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
 
 _ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %if.then.i.i.i.i.i86, %_ZNSt12_Vector_baseIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE11_M_allocateEm.exit.i.i

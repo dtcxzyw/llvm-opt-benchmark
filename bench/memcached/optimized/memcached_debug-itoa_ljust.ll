@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @lut = internal unnamed_addr constant [201 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define dso_local nonnull ptr @itoa_u32(i32 noundef %u, ptr noundef writeonly %p) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @itoa_u32(i32 noundef %u, ptr noundef writeonly %p) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %u, 99999999
   br i1 %cmp, label %if.then, label %if.else
@@ -14,10 +14,10 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp.i = icmp ult i32 %u, 1000000000
   %div.i = udiv i32 %u, 100000000
-  br i1 %cmp.i, label %if.end16.thread52, label %sw.bb.i
+  br i1 %cmp.i, label %if.end16.thread53, label %sw.bb.i
 
-if.end16.thread52:                                ; preds = %if.then
-  %0 = trunc i32 %div.i to i8
+if.end16.thread53:                                ; preds = %if.then
+  %0 = trunc nuw nsw i32 %div.i to i8
   %conv.i = or disjoint i8 %0, 48
   store i8 %conv.i, ptr %p, align 1
   br label %sw.bb1.i
@@ -31,10 +31,10 @@ if.then2:                                         ; preds = %if.else
   br i1 %cmp.i10, label %if.end16.thread, label %sw.bb20.i
 
 if.end16.thread:                                  ; preds = %if.then2
-  %1 = trunc i32 %u to i8
-  %conv.i13 = or disjoint i8 %1, 48
-  store i8 %conv.i13, ptr %p, align 1
-  %add.ptr.i.i14 = getelementptr inbounds i8, ptr %p, i64 1
+  %1 = trunc nuw i32 %u to i8
+  %conv.i14 = or disjoint i8 %1, 48
+  store i8 %conv.i14, ptr %p, align 1
+  %add.ptr.i.i15 = getelementptr inbounds i8, ptr %p, i64 1
   br label %itoa.exit
 
 if.else4:                                         ; preds = %if.else
@@ -42,17 +42,17 @@ if.else4:                                         ; preds = %if.else
   br i1 %cmp5, label %if.then6, label %if.else8
 
 if.then6:                                         ; preds = %if.else4
-  %cmp.i16 = icmp ult i32 %u, 1000
-  br i1 %cmp.i16, label %if.end16.thread76, label %sw.bb14.i
+  %cmp.i17 = icmp ult i32 %u, 1000
+  br i1 %cmp.i17, label %if.end16.thread77, label %sw.bb14.i
 
-if.end16.thread76:                                ; preds = %if.then6
-  %div.i19.lhs.trunc = trunc i32 %u to i16
-  %div.i1980 = udiv i16 %div.i19.lhs.trunc, 100
-  %div.i19.zext = zext nneg i16 %div.i1980 to i32
-  %2 = trunc i16 %div.i1980 to i8
-  %conv.i20 = or disjoint i8 %2, 48
-  store i8 %conv.i20, ptr %p, align 1
-  %add.ptr.i.i21 = getelementptr inbounds i8, ptr %p, i64 1
+if.end16.thread77:                                ; preds = %if.then6
+  %div.i20.lhs.trunc = trunc nuw i32 %u to i16
+  %div.i2081 = udiv i16 %div.i20.lhs.trunc, 100
+  %div.i20.zext = zext nneg i16 %div.i2081 to i32
+  %2 = trunc nuw i16 %div.i2081 to i8
+  %conv.i21 = or disjoint i8 %2, 48
+  store i8 %conv.i21, ptr %p, align 1
+  %add.ptr.i.i22 = getelementptr inbounds i8, ptr %p, i64 1
   br label %sw.bb17.i
 
 if.else8:                                         ; preds = %if.else4
@@ -60,27 +60,27 @@ if.else8:                                         ; preds = %if.else4
   br i1 %cmp9, label %if.then10, label %if.else12
 
 if.then10:                                        ; preds = %if.else8
-  %cmp.i23 = icmp ult i32 %u, 100000
-  br i1 %cmp.i23, label %if.end16.thread68, label %sw.bb8.i
+  %cmp.i24 = icmp ult i32 %u, 100000
+  br i1 %cmp.i24, label %if.end16.thread69, label %sw.bb8.i
 
-if.end16.thread68:                                ; preds = %if.then10
-  %div.i26 = udiv i32 %u, 10000
-  %3 = trunc i32 %div.i26 to i8
-  %conv.i27 = or disjoint i8 %3, 48
-  store i8 %conv.i27, ptr %p, align 1
-  %add.ptr.i.i28 = getelementptr inbounds i8, ptr %p, i64 1
+if.end16.thread69:                                ; preds = %if.then10
+  %div.i27 = udiv i32 %u, 10000
+  %3 = trunc nuw i32 %div.i27 to i8
+  %conv.i28 = or disjoint i8 %3, 48
+  store i8 %conv.i28, ptr %p, align 1
+  %add.ptr.i.i29 = getelementptr inbounds i8, ptr %p, i64 1
   br label %sw.bb11.i
 
 if.else12:                                        ; preds = %if.else8
-  %cmp.i30 = icmp ult i32 %u, 10000000
-  br i1 %cmp.i30, label %if.end16.thread60, label %sw.bb2.i
+  %cmp.i31 = icmp ult i32 %u, 10000000
+  br i1 %cmp.i31, label %if.end16.thread61, label %sw.bb2.i
 
-if.end16.thread60:                                ; preds = %if.else12
-  %div.i33 = udiv i32 %u, 1000000
-  %4 = trunc i32 %div.i33 to i8
-  %conv.i34 = add nuw nsw i8 %4, 48
-  store i8 %conv.i34, ptr %p, align 1
-  %add.ptr.i.i35 = getelementptr inbounds i8, ptr %p, i64 1
+if.end16.thread61:                                ; preds = %if.else12
+  %div.i34 = udiv i32 %u, 1000000
+  %4 = trunc nuw i32 %div.i34 to i8
+  %conv.i35 = add nuw nsw i8 %4, 48
+  store i8 %conv.i35, ptr %p, align 1
+  %add.ptr.i.i36 = getelementptr inbounds i8, ptr %p, i64 1
   br label %sw.bb5.i
 
 sw.bb.i:                                          ; preds = %if.then
@@ -90,8 +90,8 @@ sw.bb.i:                                          ; preds = %if.then
   store i16 %5, ptr %p, align 1
   br label %sw.bb1.i
 
-sw.bb1.i:                                         ; preds = %if.end16.thread52, %sw.bb.i
-  %.sink = phi i64 [ 1, %if.end16.thread52 ], [ 2, %sw.bb.i ]
+sw.bb1.i:                                         ; preds = %if.end16.thread53, %sw.bb.i
+  %.sink = phi i64 [ 1, %if.end16.thread53 ], [ 2, %sw.bb.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %p, i64 %.sink
   %mul.neg.i = mul i32 %div.i, -100000000
   %sub.i = add i32 %mul.neg.i, %u
@@ -108,10 +108,10 @@ sw.bb2.i:                                         ; preds = %if.else12, %sw.bb1.
   %add.ptr.i25.i = getelementptr inbounds i8, ptr %p.addr.1.i, i64 2
   br label %sw.bb5.i
 
-sw.bb5.i:                                         ; preds = %if.end16.thread60, %sw.bb2.i
-  %p.addr.2.i = phi ptr [ %add.ptr.i25.i, %sw.bb2.i ], [ %add.ptr.i.i35, %if.end16.thread60 ]
-  %d.addr.1.i = phi i32 [ %div3.i, %sw.bb2.i ], [ %div.i33, %if.end16.thread60 ]
-  %u.addr.1.i = phi i32 [ %u.addr.0.i, %sw.bb2.i ], [ %u, %if.end16.thread60 ]
+sw.bb5.i:                                         ; preds = %if.end16.thread61, %sw.bb2.i
+  %p.addr.2.i = phi ptr [ %add.ptr.i25.i, %sw.bb2.i ], [ %add.ptr.i.i36, %if.end16.thread61 ]
+  %d.addr.1.i = phi i32 [ %div3.i, %sw.bb2.i ], [ %div.i34, %if.end16.thread61 ]
+  %u.addr.1.i = phi i32 [ %u.addr.0.i, %sw.bb2.i ], [ %u, %if.end16.thread61 ]
   %mul6.neg.i = mul i32 %d.addr.1.i, -1000000
   %sub7.i = add i32 %mul6.neg.i, %u.addr.1.i
   br label %sw.bb8.i
@@ -127,10 +127,10 @@ sw.bb8.i:                                         ; preds = %if.then10, %sw.bb5.
   %add.ptr.i28.i = getelementptr inbounds i8, ptr %p.addr.3.i, i64 2
   br label %sw.bb11.i
 
-sw.bb11.i:                                        ; preds = %if.end16.thread68, %sw.bb8.i
-  %p.addr.4.i = phi ptr [ %add.ptr.i28.i, %sw.bb8.i ], [ %add.ptr.i.i28, %if.end16.thread68 ]
-  %d.addr.2.i = phi i32 [ %div9.i, %sw.bb8.i ], [ %div.i26, %if.end16.thread68 ]
-  %u.addr.3.i = phi i32 [ %u.addr.2.i, %sw.bb8.i ], [ %u, %if.end16.thread68 ]
+sw.bb11.i:                                        ; preds = %if.end16.thread69, %sw.bb8.i
+  %p.addr.4.i = phi ptr [ %add.ptr.i28.i, %sw.bb8.i ], [ %add.ptr.i.i29, %if.end16.thread69 ]
+  %d.addr.2.i = phi i32 [ %div9.i, %sw.bb8.i ], [ %div.i27, %if.end16.thread69 ]
+  %u.addr.3.i = phi i32 [ %u.addr.2.i, %sw.bb8.i ], [ %u, %if.end16.thread69 ]
   %mul12.neg.i = mul i32 %d.addr.2.i, -10000
   %sub13.i = add i32 %mul12.neg.i, %u.addr.3.i
   br label %sw.bb14.i
@@ -146,10 +146,10 @@ sw.bb14.i:                                        ; preds = %if.then6, %sw.bb11.
   %add.ptr.i31.i = getelementptr inbounds i8, ptr %p.addr.5.i, i64 2
   br label %sw.bb17.i
 
-sw.bb17.i:                                        ; preds = %if.end16.thread76, %sw.bb14.i
-  %p.addr.6.i = phi ptr [ %add.ptr.i31.i, %sw.bb14.i ], [ %add.ptr.i.i21, %if.end16.thread76 ]
-  %d.addr.3.i = phi i32 [ %div15.i, %sw.bb14.i ], [ %div.i19.zext, %if.end16.thread76 ]
-  %u.addr.5.i = phi i32 [ %u.addr.4.i, %sw.bb14.i ], [ %u, %if.end16.thread76 ]
+sw.bb17.i:                                        ; preds = %if.end16.thread77, %sw.bb14.i
+  %p.addr.6.i = phi ptr [ %add.ptr.i31.i, %sw.bb14.i ], [ %add.ptr.i.i22, %if.end16.thread77 ]
+  %d.addr.3.i = phi i32 [ %div15.i, %sw.bb14.i ], [ %div.i20.zext, %if.end16.thread77 ]
+  %u.addr.5.i = phi i32 [ %u.addr.4.i, %sw.bb14.i ], [ %u, %if.end16.thread77 ]
   %mul18.neg.i = mul i32 %d.addr.3.i, -100
   %sub19.i = add i32 %mul18.neg.i, %u.addr.5.i
   br label %sw.bb20.i
@@ -165,13 +165,13 @@ sw.bb20.i:                                        ; preds = %if.then2, %sw.bb17.
   br label %itoa.exit
 
 itoa.exit:                                        ; preds = %if.end16.thread, %sw.bb20.i
-  %p.addr.8.i = phi ptr [ %add.ptr.i34.i, %sw.bb20.i ], [ %add.ptr.i.i14, %if.end16.thread ]
+  %p.addr.8.i = phi ptr [ %add.ptr.i34.i, %sw.bb20.i ], [ %add.ptr.i.i15, %if.end16.thread ]
   store i8 0, ptr %p.addr.8.i, align 1
   ret ptr %p.addr.8.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define dso_local nonnull ptr @itoa_32(i32 noundef %i, ptr noundef writeonly %p) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @itoa_32(i32 noundef %i, ptr noundef writeonly %p) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %i, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -191,10 +191,10 @@ if.end:                                           ; preds = %if.then, %entry
 if.then.i:                                        ; preds = %if.end
   %cmp.i.i = icmp ult i32 %u.0, 1000000000
   %div.i.i = udiv i32 %u.0, 100000000
-  br i1 %cmp.i.i, label %if.end16.thread52.i, label %sw.bb.i.i
+  br i1 %cmp.i.i, label %if.end16.thread53.i, label %sw.bb.i.i
 
-if.end16.thread52.i:                              ; preds = %if.then.i
-  %0 = trunc i32 %div.i.i to i8
+if.end16.thread53.i:                              ; preds = %if.then.i
+  %0 = trunc nuw nsw i32 %div.i.i to i8
   %conv.i.i = or disjoint i8 %0, 48
   store i8 %conv.i.i, ptr %p.addr.0, align 1
   br label %sw.bb1.i.i
@@ -208,10 +208,10 @@ if.then2.i:                                       ; preds = %if.else.i
   br i1 %cmp.i10.i, label %if.end16.thread.i, label %sw.bb20.i.i
 
 if.end16.thread.i:                                ; preds = %if.then2.i
-  %1 = trunc i32 %u.0 to i8
-  %conv.i13.i = or disjoint i8 %1, 48
-  store i8 %conv.i13.i, ptr %p.addr.0, align 1
-  %add.ptr.i.i14.i = getelementptr inbounds i8, ptr %p.addr.0, i64 1
+  %1 = trunc nuw i32 %u.0 to i8
+  %conv.i14.i = or disjoint i8 %1, 48
+  store i8 %conv.i14.i, ptr %p.addr.0, align 1
+  %add.ptr.i.i15.i = getelementptr inbounds i8, ptr %p.addr.0, i64 1
   br label %itoa_u32.exit
 
 if.else4.i:                                       ; preds = %if.else.i
@@ -219,17 +219,17 @@ if.else4.i:                                       ; preds = %if.else.i
   br i1 %cmp5.i, label %if.then6.i, label %if.else8.i
 
 if.then6.i:                                       ; preds = %if.else4.i
-  %cmp.i16.i = icmp ult i32 %u.0, 1000
-  br i1 %cmp.i16.i, label %if.end16.thread76.i, label %sw.bb14.i.i
+  %cmp.i17.i = icmp ult i32 %u.0, 1000
+  br i1 %cmp.i17.i, label %if.end16.thread77.i, label %sw.bb14.i.i
 
-if.end16.thread76.i:                              ; preds = %if.then6.i
-  %div.i19.lhs.trunc.i = trunc i32 %u.0 to i16
-  %div.i1980.i = udiv i16 %div.i19.lhs.trunc.i, 100
-  %div.i19.zext.i = zext nneg i16 %div.i1980.i to i32
-  %2 = trunc i16 %div.i1980.i to i8
-  %conv.i20.i = or disjoint i8 %2, 48
-  store i8 %conv.i20.i, ptr %p.addr.0, align 1
-  %add.ptr.i.i21.i = getelementptr inbounds i8, ptr %p.addr.0, i64 1
+if.end16.thread77.i:                              ; preds = %if.then6.i
+  %div.i20.lhs.trunc.i = trunc nuw i32 %u.0 to i16
+  %div.i2081.i = udiv i16 %div.i20.lhs.trunc.i, 100
+  %div.i20.zext.i = zext nneg i16 %div.i2081.i to i32
+  %2 = trunc nuw i16 %div.i2081.i to i8
+  %conv.i21.i = or disjoint i8 %2, 48
+  store i8 %conv.i21.i, ptr %p.addr.0, align 1
+  %add.ptr.i.i22.i = getelementptr inbounds i8, ptr %p.addr.0, i64 1
   br label %sw.bb17.i.i
 
 if.else8.i:                                       ; preds = %if.else4.i
@@ -237,27 +237,27 @@ if.else8.i:                                       ; preds = %if.else4.i
   br i1 %cmp9.i, label %if.then10.i, label %if.else12.i
 
 if.then10.i:                                      ; preds = %if.else8.i
-  %cmp.i23.i = icmp ult i32 %u.0, 100000
-  br i1 %cmp.i23.i, label %if.end16.thread68.i, label %sw.bb8.i.i
+  %cmp.i24.i = icmp ult i32 %u.0, 100000
+  br i1 %cmp.i24.i, label %if.end16.thread69.i, label %sw.bb8.i.i
 
-if.end16.thread68.i:                              ; preds = %if.then10.i
-  %div.i26.i = udiv i32 %u.0, 10000
-  %3 = trunc i32 %div.i26.i to i8
-  %conv.i27.i = or disjoint i8 %3, 48
-  store i8 %conv.i27.i, ptr %p.addr.0, align 1
-  %add.ptr.i.i28.i = getelementptr inbounds i8, ptr %p.addr.0, i64 1
+if.end16.thread69.i:                              ; preds = %if.then10.i
+  %div.i27.i = udiv i32 %u.0, 10000
+  %3 = trunc nuw i32 %div.i27.i to i8
+  %conv.i28.i = or disjoint i8 %3, 48
+  store i8 %conv.i28.i, ptr %p.addr.0, align 1
+  %add.ptr.i.i29.i = getelementptr inbounds i8, ptr %p.addr.0, i64 1
   br label %sw.bb11.i.i
 
 if.else12.i:                                      ; preds = %if.else8.i
-  %cmp.i30.i = icmp ult i32 %u.0, 10000000
-  br i1 %cmp.i30.i, label %if.end16.thread60.i, label %sw.bb2.i.i
+  %cmp.i31.i = icmp ult i32 %u.0, 10000000
+  br i1 %cmp.i31.i, label %if.end16.thread61.i, label %sw.bb2.i.i
 
-if.end16.thread60.i:                              ; preds = %if.else12.i
-  %div.i33.i = udiv i32 %u.0, 1000000
-  %4 = trunc i32 %div.i33.i to i8
-  %conv.i34.i = add nuw nsw i8 %4, 48
-  store i8 %conv.i34.i, ptr %p.addr.0, align 1
-  %add.ptr.i.i35.i = getelementptr inbounds i8, ptr %p.addr.0, i64 1
+if.end16.thread61.i:                              ; preds = %if.else12.i
+  %div.i34.i = udiv i32 %u.0, 1000000
+  %4 = trunc nuw i32 %div.i34.i to i8
+  %conv.i35.i = add nuw nsw i8 %4, 48
+  store i8 %conv.i35.i, ptr %p.addr.0, align 1
+  %add.ptr.i.i36.i = getelementptr inbounds i8, ptr %p.addr.0, i64 1
   br label %sw.bb5.i.i
 
 sw.bb.i.i:                                        ; preds = %if.then.i
@@ -267,8 +267,8 @@ sw.bb.i.i:                                        ; preds = %if.then.i
   store i16 %5, ptr %p.addr.0, align 1
   br label %sw.bb1.i.i
 
-sw.bb1.i.i:                                       ; preds = %sw.bb.i.i, %if.end16.thread52.i
-  %.sink.i = phi i64 [ 1, %if.end16.thread52.i ], [ 2, %sw.bb.i.i ]
+sw.bb1.i.i:                                       ; preds = %sw.bb.i.i, %if.end16.thread53.i
+  %.sink.i = phi i64 [ 1, %if.end16.thread53.i ], [ 2, %sw.bb.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %p.addr.0, i64 %.sink.i
   %mul.neg.i.i = mul nsw i32 %div.i.i, -100000000
   %sub.i.i = add i32 %mul.neg.i.i, %u.0
@@ -285,10 +285,10 @@ sw.bb2.i.i:                                       ; preds = %sw.bb1.i.i, %if.els
   %add.ptr.i25.i.i = getelementptr inbounds i8, ptr %p.addr.1.i.i, i64 2
   br label %sw.bb5.i.i
 
-sw.bb5.i.i:                                       ; preds = %sw.bb2.i.i, %if.end16.thread60.i
-  %p.addr.2.i.i = phi ptr [ %add.ptr.i25.i.i, %sw.bb2.i.i ], [ %add.ptr.i.i35.i, %if.end16.thread60.i ]
-  %d.addr.1.i.i = phi i32 [ %div3.i.i, %sw.bb2.i.i ], [ %div.i33.i, %if.end16.thread60.i ]
-  %u.addr.1.i.i = phi i32 [ %u.addr.0.i.i, %sw.bb2.i.i ], [ %u.0, %if.end16.thread60.i ]
+sw.bb5.i.i:                                       ; preds = %sw.bb2.i.i, %if.end16.thread61.i
+  %p.addr.2.i.i = phi ptr [ %add.ptr.i25.i.i, %sw.bb2.i.i ], [ %add.ptr.i.i36.i, %if.end16.thread61.i ]
+  %d.addr.1.i.i = phi i32 [ %div3.i.i, %sw.bb2.i.i ], [ %div.i34.i, %if.end16.thread61.i ]
+  %u.addr.1.i.i = phi i32 [ %u.addr.0.i.i, %sw.bb2.i.i ], [ %u.0, %if.end16.thread61.i ]
   %mul6.neg.i.i = mul i32 %d.addr.1.i.i, -1000000
   %sub7.i.i = add i32 %mul6.neg.i.i, %u.addr.1.i.i
   br label %sw.bb8.i.i
@@ -304,10 +304,10 @@ sw.bb8.i.i:                                       ; preds = %sw.bb5.i.i, %if.the
   %add.ptr.i28.i.i = getelementptr inbounds i8, ptr %p.addr.3.i.i, i64 2
   br label %sw.bb11.i.i
 
-sw.bb11.i.i:                                      ; preds = %sw.bb8.i.i, %if.end16.thread68.i
-  %p.addr.4.i.i = phi ptr [ %add.ptr.i28.i.i, %sw.bb8.i.i ], [ %add.ptr.i.i28.i, %if.end16.thread68.i ]
-  %d.addr.2.i.i = phi i32 [ %div9.i.i, %sw.bb8.i.i ], [ %div.i26.i, %if.end16.thread68.i ]
-  %u.addr.3.i.i = phi i32 [ %u.addr.2.i.i, %sw.bb8.i.i ], [ %u.0, %if.end16.thread68.i ]
+sw.bb11.i.i:                                      ; preds = %sw.bb8.i.i, %if.end16.thread69.i
+  %p.addr.4.i.i = phi ptr [ %add.ptr.i28.i.i, %sw.bb8.i.i ], [ %add.ptr.i.i29.i, %if.end16.thread69.i ]
+  %d.addr.2.i.i = phi i32 [ %div9.i.i, %sw.bb8.i.i ], [ %div.i27.i, %if.end16.thread69.i ]
+  %u.addr.3.i.i = phi i32 [ %u.addr.2.i.i, %sw.bb8.i.i ], [ %u.0, %if.end16.thread69.i ]
   %mul12.neg.i.i = mul i32 %d.addr.2.i.i, -10000
   %sub13.i.i = add i32 %mul12.neg.i.i, %u.addr.3.i.i
   br label %sw.bb14.i.i
@@ -323,10 +323,10 @@ sw.bb14.i.i:                                      ; preds = %sw.bb11.i.i, %if.th
   %add.ptr.i31.i.i = getelementptr inbounds i8, ptr %p.addr.5.i.i, i64 2
   br label %sw.bb17.i.i
 
-sw.bb17.i.i:                                      ; preds = %sw.bb14.i.i, %if.end16.thread76.i
-  %p.addr.6.i.i = phi ptr [ %add.ptr.i31.i.i, %sw.bb14.i.i ], [ %add.ptr.i.i21.i, %if.end16.thread76.i ]
-  %d.addr.3.i.i = phi i32 [ %div15.i.i, %sw.bb14.i.i ], [ %div.i19.zext.i, %if.end16.thread76.i ]
-  %u.addr.5.i.i = phi i32 [ %u.addr.4.i.i, %sw.bb14.i.i ], [ %u.0, %if.end16.thread76.i ]
+sw.bb17.i.i:                                      ; preds = %sw.bb14.i.i, %if.end16.thread77.i
+  %p.addr.6.i.i = phi ptr [ %add.ptr.i31.i.i, %sw.bb14.i.i ], [ %add.ptr.i.i22.i, %if.end16.thread77.i ]
+  %d.addr.3.i.i = phi i32 [ %div15.i.i, %sw.bb14.i.i ], [ %div.i20.zext.i, %if.end16.thread77.i ]
+  %u.addr.5.i.i = phi i32 [ %u.addr.4.i.i, %sw.bb14.i.i ], [ %u.0, %if.end16.thread77.i ]
   %mul18.neg.i.i = mul i32 %d.addr.3.i.i, -100
   %sub19.i.i = add i32 %mul18.neg.i.i, %u.addr.5.i.i
   br label %sw.bb20.i.i
@@ -342,29 +342,29 @@ sw.bb20.i.i:                                      ; preds = %sw.bb17.i.i, %if.th
   br label %itoa_u32.exit
 
 itoa_u32.exit:                                    ; preds = %if.end16.thread.i, %sw.bb20.i.i
-  %p.addr.8.i.i = phi ptr [ %add.ptr.i34.i.i, %sw.bb20.i.i ], [ %add.ptr.i.i14.i, %if.end16.thread.i ]
+  %p.addr.8.i.i = phi ptr [ %add.ptr.i34.i.i, %sw.bb20.i.i ], [ %add.ptr.i.i15.i, %if.end16.thread.i ]
   store i8 0, ptr %p.addr.8.i.i, align 1
   ret ptr %p.addr.8.i.i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define dso_local nonnull ptr @itoa_u64(i64 noundef %u, ptr noundef %p) local_unnamed_addr #1 {
+define dso_local noundef nonnull ptr @itoa_u64(i64 noundef %u, ptr noundef %p) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %u, 4294967296
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %conv = trunc i64 %u to i32
+  %conv = trunc nuw i64 %u to i32
   %cmp.i = icmp ugt i32 %conv, 99999999
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
   %cmp.i.i = icmp ult i32 %conv, 1000000000
   %div.i.i = udiv i32 %conv, 100000000
-  br i1 %cmp.i.i, label %if.end16.thread52.i, label %sw.bb.i.i
+  br i1 %cmp.i.i, label %if.end16.thread53.i, label %sw.bb.i.i
 
-if.end16.thread52.i:                              ; preds = %if.then.i
-  %0 = trunc i32 %div.i.i to i8
+if.end16.thread53.i:                              ; preds = %if.then.i
+  %0 = trunc nuw nsw i32 %div.i.i to i8
   %conv.i.i = or disjoint i8 %0, 48
   store i8 %conv.i.i, ptr %p, align 1
   br label %sw.bb1.i.i
@@ -378,10 +378,10 @@ if.then2.i:                                       ; preds = %if.else.i
   br i1 %cmp.i10.i, label %if.end16.thread.i, label %sw.bb20.i.i
 
 if.end16.thread.i:                                ; preds = %if.then2.i
-  %1 = trunc i64 %u to i8
-  %conv.i13.i = or disjoint i8 %1, 48
-  store i8 %conv.i13.i, ptr %p, align 1
-  %add.ptr.i.i14.i = getelementptr inbounds i8, ptr %p, i64 1
+  %1 = trunc nuw i64 %u to i8
+  %conv.i14.i = or disjoint i8 %1, 48
+  store i8 %conv.i14.i, ptr %p, align 1
+  %add.ptr.i.i15.i = getelementptr inbounds i8, ptr %p, i64 1
   br label %common.ret
 
 if.else4.i:                                       ; preds = %if.else.i
@@ -389,17 +389,17 @@ if.else4.i:                                       ; preds = %if.else.i
   br i1 %cmp5.i, label %if.then6.i, label %if.else8.i
 
 if.then6.i:                                       ; preds = %if.else4.i
-  %cmp.i16.i = icmp ult i32 %conv, 1000
-  br i1 %cmp.i16.i, label %if.end16.thread76.i, label %sw.bb14.i.i
+  %cmp.i17.i = icmp ult i32 %conv, 1000
+  br i1 %cmp.i17.i, label %if.end16.thread77.i, label %sw.bb14.i.i
 
-if.end16.thread76.i:                              ; preds = %if.then6.i
-  %div.i19.lhs.trunc.i = trunc i64 %u to i16
-  %div.i1980.i = udiv i16 %div.i19.lhs.trunc.i, 100
-  %div.i19.zext.i = zext nneg i16 %div.i1980.i to i32
-  %2 = trunc i16 %div.i1980.i to i8
-  %conv.i20.i = or disjoint i8 %2, 48
-  store i8 %conv.i20.i, ptr %p, align 1
-  %add.ptr.i.i21.i = getelementptr inbounds i8, ptr %p, i64 1
+if.end16.thread77.i:                              ; preds = %if.then6.i
+  %div.i20.lhs.trunc.i = trunc nuw i64 %u to i16
+  %div.i2081.i = udiv i16 %div.i20.lhs.trunc.i, 100
+  %div.i20.zext.i = zext nneg i16 %div.i2081.i to i32
+  %2 = trunc nuw i16 %div.i2081.i to i8
+  %conv.i21.i = or disjoint i8 %2, 48
+  store i8 %conv.i21.i, ptr %p, align 1
+  %add.ptr.i.i22.i = getelementptr inbounds i8, ptr %p, i64 1
   br label %sw.bb17.i.i
 
 if.else8.i:                                       ; preds = %if.else4.i
@@ -407,27 +407,27 @@ if.else8.i:                                       ; preds = %if.else4.i
   br i1 %cmp9.i, label %if.then10.i, label %if.else12.i
 
 if.then10.i:                                      ; preds = %if.else8.i
-  %cmp.i23.i = icmp ult i32 %conv, 100000
-  br i1 %cmp.i23.i, label %if.end16.thread68.i, label %sw.bb8.i.i
+  %cmp.i24.i = icmp ult i32 %conv, 100000
+  br i1 %cmp.i24.i, label %if.end16.thread69.i, label %sw.bb8.i.i
 
-if.end16.thread68.i:                              ; preds = %if.then10.i
-  %div.i26.i = udiv i32 %conv, 10000
-  %3 = trunc i32 %div.i26.i to i8
-  %conv.i27.i = or disjoint i8 %3, 48
-  store i8 %conv.i27.i, ptr %p, align 1
-  %add.ptr.i.i28.i = getelementptr inbounds i8, ptr %p, i64 1
+if.end16.thread69.i:                              ; preds = %if.then10.i
+  %div.i27.i = udiv i32 %conv, 10000
+  %3 = trunc nuw i32 %div.i27.i to i8
+  %conv.i28.i = or disjoint i8 %3, 48
+  store i8 %conv.i28.i, ptr %p, align 1
+  %add.ptr.i.i29.i = getelementptr inbounds i8, ptr %p, i64 1
   br label %sw.bb11.i.i
 
 if.else12.i:                                      ; preds = %if.else8.i
-  %cmp.i30.i = icmp ult i32 %conv, 10000000
-  br i1 %cmp.i30.i, label %if.end16.thread60.i, label %sw.bb2.i.i
+  %cmp.i31.i = icmp ult i32 %conv, 10000000
+  br i1 %cmp.i31.i, label %if.end16.thread61.i, label %sw.bb2.i.i
 
-if.end16.thread60.i:                              ; preds = %if.else12.i
-  %div.i33.i = udiv i32 %conv, 1000000
-  %4 = trunc i32 %div.i33.i to i8
-  %conv.i34.i = add nuw nsw i8 %4, 48
-  store i8 %conv.i34.i, ptr %p, align 1
-  %add.ptr.i.i35.i = getelementptr inbounds i8, ptr %p, i64 1
+if.end16.thread61.i:                              ; preds = %if.else12.i
+  %div.i34.i = udiv i32 %conv, 1000000
+  %4 = trunc nuw i32 %div.i34.i to i8
+  %conv.i35.i = add nuw nsw i8 %4, 48
+  store i8 %conv.i35.i, ptr %p, align 1
+  %add.ptr.i.i36.i = getelementptr inbounds i8, ptr %p, i64 1
   br label %sw.bb5.i.i
 
 sw.bb.i.i:                                        ; preds = %if.then.i
@@ -437,8 +437,8 @@ sw.bb.i.i:                                        ; preds = %if.then.i
   store i16 %5, ptr %p, align 1
   br label %sw.bb1.i.i
 
-sw.bb1.i.i:                                       ; preds = %sw.bb.i.i, %if.end16.thread52.i
-  %.sink.i = phi i64 [ 1, %if.end16.thread52.i ], [ 2, %sw.bb.i.i ]
+sw.bb1.i.i:                                       ; preds = %sw.bb.i.i, %if.end16.thread53.i
+  %.sink.i = phi i64 [ 1, %if.end16.thread53.i ], [ 2, %sw.bb.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %p, i64 %.sink.i
   %mul.neg.i.i = mul i32 %div.i.i, -100000000
   %sub.i.i = add i32 %mul.neg.i.i, %conv
@@ -455,10 +455,10 @@ sw.bb2.i.i:                                       ; preds = %sw.bb1.i.i, %if.els
   %add.ptr.i25.i.i = getelementptr inbounds i8, ptr %p.addr.1.i.i, i64 2
   br label %sw.bb5.i.i
 
-sw.bb5.i.i:                                       ; preds = %sw.bb2.i.i, %if.end16.thread60.i
-  %p.addr.2.i.i = phi ptr [ %add.ptr.i25.i.i, %sw.bb2.i.i ], [ %add.ptr.i.i35.i, %if.end16.thread60.i ]
-  %d.addr.1.i.i = phi i32 [ %div3.i.i, %sw.bb2.i.i ], [ %div.i33.i, %if.end16.thread60.i ]
-  %u.addr.1.i.i = phi i32 [ %u.addr.0.i.i, %sw.bb2.i.i ], [ %conv, %if.end16.thread60.i ]
+sw.bb5.i.i:                                       ; preds = %sw.bb2.i.i, %if.end16.thread61.i
+  %p.addr.2.i.i = phi ptr [ %add.ptr.i25.i.i, %sw.bb2.i.i ], [ %add.ptr.i.i36.i, %if.end16.thread61.i ]
+  %d.addr.1.i.i = phi i32 [ %div3.i.i, %sw.bb2.i.i ], [ %div.i34.i, %if.end16.thread61.i ]
+  %u.addr.1.i.i = phi i32 [ %u.addr.0.i.i, %sw.bb2.i.i ], [ %conv, %if.end16.thread61.i ]
   %mul6.neg.i.i = mul i32 %d.addr.1.i.i, -1000000
   %sub7.i.i = add i32 %mul6.neg.i.i, %u.addr.1.i.i
   br label %sw.bb8.i.i
@@ -474,10 +474,10 @@ sw.bb8.i.i:                                       ; preds = %sw.bb5.i.i, %if.the
   %add.ptr.i28.i.i = getelementptr inbounds i8, ptr %p.addr.3.i.i, i64 2
   br label %sw.bb11.i.i
 
-sw.bb11.i.i:                                      ; preds = %sw.bb8.i.i, %if.end16.thread68.i
-  %p.addr.4.i.i = phi ptr [ %add.ptr.i28.i.i, %sw.bb8.i.i ], [ %add.ptr.i.i28.i, %if.end16.thread68.i ]
-  %d.addr.2.i.i = phi i32 [ %div9.i.i, %sw.bb8.i.i ], [ %div.i26.i, %if.end16.thread68.i ]
-  %u.addr.3.i.i = phi i32 [ %u.addr.2.i.i, %sw.bb8.i.i ], [ %conv, %if.end16.thread68.i ]
+sw.bb11.i.i:                                      ; preds = %sw.bb8.i.i, %if.end16.thread69.i
+  %p.addr.4.i.i = phi ptr [ %add.ptr.i28.i.i, %sw.bb8.i.i ], [ %add.ptr.i.i29.i, %if.end16.thread69.i ]
+  %d.addr.2.i.i = phi i32 [ %div9.i.i, %sw.bb8.i.i ], [ %div.i27.i, %if.end16.thread69.i ]
+  %u.addr.3.i.i = phi i32 [ %u.addr.2.i.i, %sw.bb8.i.i ], [ %conv, %if.end16.thread69.i ]
   %mul12.neg.i.i = mul i32 %d.addr.2.i.i, -10000
   %sub13.i.i = add i32 %mul12.neg.i.i, %u.addr.3.i.i
   br label %sw.bb14.i.i
@@ -493,10 +493,10 @@ sw.bb14.i.i:                                      ; preds = %sw.bb11.i.i, %if.th
   %add.ptr.i31.i.i = getelementptr inbounds i8, ptr %p.addr.5.i.i, i64 2
   br label %sw.bb17.i.i
 
-sw.bb17.i.i:                                      ; preds = %sw.bb14.i.i, %if.end16.thread76.i
-  %p.addr.6.i.i = phi ptr [ %add.ptr.i31.i.i, %sw.bb14.i.i ], [ %add.ptr.i.i21.i, %if.end16.thread76.i ]
-  %d.addr.3.i.i = phi i32 [ %div15.i.i, %sw.bb14.i.i ], [ %div.i19.zext.i, %if.end16.thread76.i ]
-  %u.addr.5.i.i = phi i32 [ %u.addr.4.i.i, %sw.bb14.i.i ], [ %conv, %if.end16.thread76.i ]
+sw.bb17.i.i:                                      ; preds = %sw.bb14.i.i, %if.end16.thread77.i
+  %p.addr.6.i.i = phi ptr [ %add.ptr.i31.i.i, %sw.bb14.i.i ], [ %add.ptr.i.i22.i, %if.end16.thread77.i ]
+  %d.addr.3.i.i = phi i32 [ %div15.i.i, %sw.bb14.i.i ], [ %div.i20.zext.i, %if.end16.thread77.i ]
+  %u.addr.5.i.i = phi i32 [ %u.addr.4.i.i, %sw.bb14.i.i ], [ %conv, %if.end16.thread77.i ]
   %mul18.neg.i.i = mul i32 %d.addr.3.i.i, -100
   %sub19.i.i = add i32 %mul18.neg.i.i, %u.addr.5.i.i
   br label %sw.bb20.i.i
@@ -512,7 +512,7 @@ sw.bb20.i.i:                                      ; preds = %sw.bb17.i.i, %if.th
   br label %common.ret
 
 common.ret:                                       ; preds = %sw.bb20.i.i, %if.end16.thread.i, %if.end
-  %p.addr.8.i.i.sink = phi ptr [ %add.ptr.i34.i, %if.end ], [ %add.ptr.i34.i.i, %sw.bb20.i.i ], [ %add.ptr.i.i14.i, %if.end16.thread.i ]
+  %p.addr.8.i.i.sink = phi ptr [ %add.ptr.i34.i, %if.end ], [ %add.ptr.i34.i.i, %sw.bb20.i.i ], [ %add.ptr.i.i15.i, %if.end16.thread.i ]
   store i8 0, ptr %p.addr.8.i.i.sink, align 1
   ret ptr %p.addr.8.i.i.sink
 
@@ -523,7 +523,7 @@ if.end:                                           ; preds = %entry
   %sub = add i64 %mul.neg, %u
   %conv4 = trunc i64 %sub to i32
   %div5 = udiv i32 %conv4, 100000000
-  %10 = trunc i32 %div5 to i8
+  %10 = trunc nuw nsw i32 %div5 to i8
   %conv6 = add nuw nsw i8 %10, 48
   store i8 %conv6, ptr %call3, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %call3, i64 1
@@ -562,7 +562,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nofree nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define dso_local nonnull ptr @itoa_64(i64 noundef %i, ptr noundef %p) local_unnamed_addr #1 {
+define dso_local noundef nonnull ptr @itoa_64(i64 noundef %i, ptr noundef %p) local_unnamed_addr #1 {
 entry:
   %cmp = icmp slt i64 %i, 0
   br i1 %cmp, label %if.then, label %if.end

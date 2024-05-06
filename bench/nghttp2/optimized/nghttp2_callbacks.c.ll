@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @nghttp2_session_callbacks_new(ptr nocapture noundef writeonly %callbacks_ptr) local_unnamed_addr #0 {
+define noundef range(i32 -901, 1) i32 @nghttp2_session_callbacks_new(ptr nocapture noundef writeonly %callbacks_ptr) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(184) ptr @calloc(i64 noundef 1, i64 noundef 184) #5
   store ptr %call, ptr %callbacks_ptr, align 8

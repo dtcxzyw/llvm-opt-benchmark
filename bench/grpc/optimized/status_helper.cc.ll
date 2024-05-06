@@ -711,7 +711,7 @@ if.end16.i:                                       ; preds = %if.end12.i
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
   %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %__val.lobit = lshr i64 %__val, 63
-  %conv = trunc i64 %__val.lobit to i32
+  %conv = trunc nuw nsw i64 %__val.lobit to i32
   %add2 = add i32 %retval.0.i, %conv
   %conv3 = zext i32 %add2 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
@@ -784,7 +784,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -3312,14 +3312,14 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4absl12lts_20230
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %args.coerce1, i64 32
   %sub.i.i.i.i.i = add i64 %args.coerce0, -32
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 8
-  br i1 %cmp.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %land.rhs.i18.i.i.i.i, label %if.end.i.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i
+land.rhs.i18.i.i.i.i:                             ; preds = %if.then.i.i.i.i
   %bcmp.i19.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %add.ptr.i.i.i.i.i, ptr noundef nonnull dereferenceable(8) @.str.45, i64 8)
   %cmp.i.i.i.i.i.i = icmp eq i32 %bcmp.i19.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then7.i.i.i.i, label %if.end.i.i.i.i
 
-if.then7.i.i.i.i:                                 ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
+if.then7.i.i.i.i:                                 ; preds = %land.rhs.i18.i.i.i.i
   %0 = load ptr, ptr %ptr.coerce, align 8
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 8
@@ -3382,7 +3382,7 @@ _ZNSt19_Optional_base_implIN4absl12lts_202308024CordESt14_Optional_baseIS2_Lb0EL
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i, align 8
   br label %"_ZSt6invokeIRKZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS2_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSH_DpOSI_.exit"
 
-if.end.i.i.i.i:                                   ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %if.then.i.i.i.i
+if.end.i.i.i.i:                                   ; preds = %land.rhs.i18.i.i.i.i, %if.then.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload_storage.i.i.i.i) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %fragment.i.i.i.i.i)
   %11 = load i8, ptr %args1, align 8, !noalias !54
@@ -4091,7 +4091,7 @@ if.end.i.i.i.i.i:                                 ; preds = %entry
 
 upb_Arena_Malloc.exit.i.i.i.i:                    ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %call2.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %8, %if.end.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i.i.i, ptr align 1 %args.coerce1, i64 %args.coerce0, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i.i.i.i.i, ptr readonly align 1 %args.coerce1, i64 %args.coerce0, i1 false)
   store ptr %retval.0.i.i.i.i.i, ptr %call.i.i.i.i, align 1
   %value.sroa.5.0.add.ptr.i.i.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store i64 %args.coerce0, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i.i.i.i.i, align 1

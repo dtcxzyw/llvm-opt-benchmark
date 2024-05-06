@@ -103,8 +103,8 @@ cond.false16:                                     ; preds = %cond.false13
 cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -257,8 +257,8 @@ cond.false16:                                     ; preds = %cond.false13
 cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -419,8 +419,8 @@ cond.false16:                                     ; preds = %cond.false13
 cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -589,8 +589,8 @@ cond.false16:                                     ; preds = %cond.false13
 cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -932,8 +932,8 @@ cond.false16:                                     ; preds = %cond.false13
 cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1252,7 +1252,7 @@ if.end279:                                        ; preds = %do.end275, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @ucase_addStringCaseClosure_75(ptr noundef readonly %s, i32 noundef %length, ptr nocapture noundef readonly %sa) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @ucase_addStringCaseClosure_75(ptr noundef readonly %s, i32 noundef %length, ptr nocapture noundef readonly %sa) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   %0 = add i32 %length, -4
@@ -1417,7 +1417,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7523FullCaseFoldingIterator4nextERNS_13UnicodeStringE(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(64) %full) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -56613888, 10559488) i32 @_ZN6icu_7523FullCaseFoldingIterator4nextERNS_13UnicodeStringE(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(64) %full) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %0 = load ptr, ptr %this, align 8
@@ -1467,7 +1467,7 @@ if.end13:                                         ; preds = %if.end
 
 while.cond:                                       ; preds = %land.rhs, %if.end13
   %indvars.iv = phi i64 [ %11, %land.rhs ], [ %9, %if.end13 ]
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw i64 %indvars.iv to i32
   %cmp15 = icmp sgt i32 %10, 0
   br i1 %cmp15, label %land.rhs, label %while.end
 
@@ -1527,7 +1527,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ucase_getType_75(i32 noundef %c) local_unnamed_addr #3 {
+define range(i32 0, 4) i32 @ucase_getType_75(i32 noundef %c) local_unnamed_addr #3 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -1558,8 +1558,8 @@ cond.false16:                                     ; preds = %cond.false13
 cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1589,7 +1589,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ucase_getTypeOrIgnorable_75(i32 noundef %c) local_unnamed_addr #3 {
+define range(i32 0, 8) i32 @ucase_getTypeOrIgnorable_75(i32 noundef %c) local_unnamed_addr #3 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -1620,8 +1620,8 @@ cond.false16:                                     ; preds = %cond.false13
 cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1651,7 +1651,7 @@ cond.end39:                                       ; preds = %cond.end39.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @ucase_isSoftDotted_75(i32 noundef %c) local_unnamed_addr #3 {
+define signext range(i8 0, 2) i8 @ucase_isSoftDotted_75(i32 noundef %c) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp ult i32 %c, 55296
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
@@ -1682,8 +1682,8 @@ cond.false16.i:                                   ; preds = %cond.false13.i
 cond.false19.i:                                   ; preds = %cond.false16.i
   %shr20.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20.i to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23.i = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23.i = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %2 to i32
   %shr25.i = lshr i32 %c, 5
@@ -1734,7 +1734,7 @@ _ZL10getDotTypei.exit:                            ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @ucase_isCaseSensitive_75(i32 noundef %c) local_unnamed_addr #3 {
+define signext range(i8 0, 2) i8 @ucase_isCaseSensitive_75(i32 noundef %c) local_unnamed_addr #3 {
 entry:
   %cmp = icmp ult i32 %c, 55296
   br i1 %cmp, label %cond.true, label %cond.false
@@ -1765,8 +1765,8 @@ cond.false16:                                     ; preds = %cond.false13
 cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -1806,7 +1806,7 @@ if.else:                                          ; preds = %cond.end39
   %add.ptr = getelementptr inbounds i16, ptr @_ZL22ucase_props_exceptions, i64 %idx.ext
   %8 = load i16, ptr %add.ptr, align 2
   %9 = lshr i16 %8, 11
-  %10 = trunc i16 %9 to i8
+  %10 = trunc nuw nsw i16 %9 to i8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -1816,7 +1816,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @ucase_getCaseLocale_75(ptr nocapture noundef readonly %locale) local_unnamed_addr #4 {
+define range(i32 1, 7) i32 @ucase_getCaseLocale_75(ptr nocapture noundef readonly %locale) local_unnamed_addr #4 {
 entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %locale, i64 1
   %0 = load i8, ptr %locale, align 1
@@ -2205,8 +2205,8 @@ cond.false16:                                     ; preds = %cond.false13
 cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -2313,7 +2313,7 @@ cond.false16.i.i:                                 ; preds = %cond.false13.i.i
 cond.false19.i.i:                                 ; preds = %cond.false16.i.i
   %shr20.i.i = lshr i32 %call.i, 11
   %7 = zext nneg i32 %shr20.i.i to i64
-  %gep.i = getelementptr i16, ptr getelementptr inbounds (<{ [13128 x i16], [20 x i16] }>, ptr @_ZL21ucase_props_trieIndex, i64 0, i32 0, i64 2080), i64 %7
+  %gep.i = getelementptr inbounds i16, ptr getelementptr inbounds (<{ [13128 x i16], [20 x i16] }>, ptr @_ZL21ucase_props_trieIndex, i64 0, i32 0, i64 2080), i64 %7
   %8 = load i16, ptr %gep.i, align 2
   %conv24.i.i = zext i16 %8 to i32
   %shr25.i.i = lshr i32 %call.i, 5
@@ -2459,7 +2459,7 @@ cond.false16.i.i112:                              ; preds = %cond.false13.i.i110
 cond.false19.i.i114:                              ; preds = %cond.false16.i.i112
   %shr20.i.i115 = lshr i32 %call.i103, 11
   %15 = zext nneg i32 %shr20.i.i115 to i64
-  %gep.i116 = getelementptr i16, ptr getelementptr inbounds (<{ [13128 x i16], [20 x i16] }>, ptr @_ZL21ucase_props_trieIndex, i64 0, i32 0, i64 2080), i64 %15
+  %gep.i116 = getelementptr inbounds i16, ptr getelementptr inbounds (<{ [13128 x i16], [20 x i16] }>, ptr @_ZL21ucase_props_trieIndex, i64 0, i32 0, i64 2080), i64 %15
   %16 = load i16, ptr %gep.i116, align 2
   %conv24.i.i117 = zext i16 %16 to i32
   %shr25.i.i118 = lshr i32 %call.i103, 5
@@ -2556,7 +2556,7 @@ cond.false16.i.i165:                              ; preds = %cond.false13.i.i163
 cond.false19.i.i167:                              ; preds = %cond.false16.i.i165
   %shr20.i.i168 = lshr i32 %call.i154, 11
   %23 = zext nneg i32 %shr20.i.i168 to i64
-  %gep.i169 = getelementptr i16, ptr getelementptr inbounds (<{ [13128 x i16], [20 x i16] }>, ptr @_ZL21ucase_props_trieIndex, i64 0, i32 0, i64 2080), i64 %23
+  %gep.i169 = getelementptr inbounds i16, ptr getelementptr inbounds (<{ [13128 x i16], [20 x i16] }>, ptr @_ZL21ucase_props_trieIndex, i64 0, i32 0, i64 2080), i64 %23
   %24 = load i16, ptr %gep.i169, align 2
   %conv24.i.i170 = zext i16 %24 to i32
   %shr25.i.i171 = lshr i32 %call.i154, 5
@@ -2619,12 +2619,12 @@ if.else101:                                       ; preds = %if.else98
   br i1 %cmp102, label %land.lhs.true103, label %if.end153
 
 land.lhs.true103:                                 ; preds = %land.lhs.true, %if.else101
-  %call104 = tail call fastcc noundef signext i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef %iter, ptr noundef %context, i8 noundef signext 1), !range !17
+  %call104 = tail call fastcc noundef signext i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef %iter, ptr noundef %context, i8 noundef signext 1)
   %tobool105.not = icmp eq i8 %call104, 0
   br i1 %tobool105.not, label %land.lhs.true106, label %if.end153
 
 land.lhs.true106:                                 ; preds = %land.lhs.true103
-  %call107 = tail call fastcc noundef signext i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef %iter, ptr noundef %context, i8 noundef signext -1), !range !17
+  %call107 = tail call fastcc noundef signext i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef %iter, ptr noundef %context, i8 noundef signext -1)
   %tobool108.not = icmp eq i8 %call107, 0
   br i1 %tobool108.not, label %if.end153, label %return
 
@@ -2740,7 +2740,7 @@ return:                                           ; preds = %for.body.i106, %_ZL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef readonly %iter, ptr noundef %context, i8 noundef signext %dir) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL23isFollowedByCasedLetterPFiPvaES_a(ptr noundef readonly %iter, ptr noundef %context, i8 noundef signext %dir) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %iter, null
   br i1 %cmp, label %return, label %for.cond
@@ -2781,7 +2781,7 @@ cond.false16.i:                                   ; preds = %cond.false13.i
 cond.false19.i:                                   ; preds = %cond.false16.i
   %shr20.i = lshr i32 %call, 11
   %0 = zext nneg i32 %shr20.i to i64
-  %gep = getelementptr i16, ptr getelementptr inbounds (<{ [13128 x i16], [20 x i16] }>, ptr @_ZL21ucase_props_trieIndex, i64 0, i32 0, i64 2080), i64 %0
+  %gep = getelementptr inbounds i16, ptr getelementptr inbounds (<{ [13128 x i16], [20 x i16] }>, ptr @_ZL21ucase_props_trieIndex, i64 0, i32 0, i64 2080), i64 %0
   %1 = load i16, ptr %gep, align 2
   %conv24.i = zext i16 %1 to i32
   %shr25.i = lshr i32 %call, 5
@@ -2807,7 +2807,7 @@ ucase_getTypeOrIgnorable_75.exit:                 ; preds = %cond.false13.i, %co
   %4 = load i16, ptr %arrayidx42.i, align 2
   %5 = and i16 %4, 7
   %tobool.not = icmp ult i16 %5, 4
-  br i1 %tobool.not, label %if.else, label %for.cond, !llvm.loop !18
+  br i1 %tobool.not, label %if.else, label %for.cond, !llvm.loop !17
 
 if.else:                                          ; preds = %ucase_getTypeOrIgnorable_75.exit
   %cmp4.not = icmp ne i16 %5, 0
@@ -2859,8 +2859,8 @@ cond.false16:                                     ; preds = %cond.false13
 cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -2963,7 +2963,7 @@ cond.false16.i.i:                                 ; preds = %cond.false13.i.i
 cond.false19.i.i:                                 ; preds = %cond.false16.i.i
   %shr20.i.i = lshr i32 %call.i, 11
   %8 = zext nneg i32 %shr20.i.i to i64
-  %gep.i = getelementptr i16, ptr getelementptr inbounds (<{ [13128 x i16], [20 x i16] }>, ptr @_ZL21ucase_props_trieIndex, i64 0, i32 0, i64 2080), i64 %8
+  %gep.i = getelementptr inbounds i16, ptr getelementptr inbounds (<{ [13128 x i16], [20 x i16] }>, ptr @_ZL21ucase_props_trieIndex, i64 0, i32 0, i64 2080), i64 %8
   %9 = load i16, ptr %gep.i, align 2
   %conv24.i.i = zext i16 %9 to i32
   %shr25.i.i = lshr i32 %call.i, 5
@@ -3011,7 +3011,7 @@ _ZL10getDotTypei.exit.i:                          ; preds = %if.else.i.i, %if.th
   switch i32 %retval.0.i.i, label %if.else68 [
     i32 32, label %return
     i32 96, label %for.cond.i
-  ], !llvm.loop !19
+  ], !llvm.loop !18
 
 if.else68:                                        ; preds = %for.cond.i, %_ZL10getDotTypei.exit.i, %if.else61
   %cmp69 = icmp eq i32 %c, 1415
@@ -3213,8 +3213,8 @@ cond.false16:                                     ; preds = %cond.false13
 cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -3416,8 +3416,8 @@ cond.false16:                                     ; preds = %cond.false13
 cond.false19:                                     ; preds = %cond.false16
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23 = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -3636,7 +3636,7 @@ return:                                           ; preds = %if.else68, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isULowercase_75(i32 noundef %c) local_unnamed_addr #3 {
+define signext range(i8 0, 2) i8 @u_isULowercase_75(i32 noundef %c) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp ult i32 %c, 55296
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
@@ -3667,8 +3667,8 @@ cond.false16.i:                                   ; preds = %cond.false13.i
 cond.false19.i:                                   ; preds = %cond.false16.i
   %shr20.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20.i to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23.i = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23.i = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %2 to i32
   %shr25.i = lshr i32 %c, 5
@@ -3699,7 +3699,7 @@ ucase_getType_75.exit:                            ; preds = %cond.false13.i, %co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext i8 @u_isUUppercase_75(i32 noundef %c) local_unnamed_addr #3 {
+define signext range(i8 0, 2) i8 @u_isUUppercase_75(i32 noundef %c) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp ult i32 %c, 55296
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
@@ -3730,8 +3730,8 @@ cond.false16.i:                                   ; preds = %cond.false13.i
 cond.false19.i:                                   ; preds = %cond.false16.i
   %shr20.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20.i to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23.i = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23.i = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %2 to i32
   %shr25.i = lshr i32 %c, 5
@@ -3790,7 +3790,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucase_hasBinaryProperty_75(i32 noundef %c, i32 noundef %which) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ucase_hasBinaryProperty_75(i32 noundef %c, i32 noundef %which) local_unnamed_addr #0 {
 entry:
   %resultString = alloca ptr, align 8
   switch i32 %which, label %return [
@@ -3836,8 +3836,8 @@ cond.false16.i:                                   ; preds = %cond.false13.i
 cond.false19.i:                                   ; preds = %cond.false16.i
   %shr20.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20.i to i64
-  %1 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
-  %arrayidx23.i = getelementptr i8, ptr %1, i64 4160
+  %1 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %0
+  %arrayidx23.i = getelementptr inbounds i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %2 to i32
   %shr25.i = lshr i32 %c, 5
@@ -3896,8 +3896,8 @@ cond.false16.i17:                                 ; preds = %cond.false13.i15
 cond.false19.i19:                                 ; preds = %cond.false16.i17
   %shr20.i20 = lshr i32 %c, 11
   %7 = zext nneg i32 %shr20.i20 to i64
-  %8 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %7
-  %arrayidx23.i21 = getelementptr i8, ptr %8, i64 4160
+  %8 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %7
+  %arrayidx23.i21 = getelementptr inbounds i8, ptr %8, i64 4160
   %9 = load i16, ptr %arrayidx23.i21, align 2
   %conv24.i22 = zext i16 %9 to i32
   %shr25.i23 = lshr i32 %c, 5
@@ -3956,8 +3956,8 @@ cond.false16.i.i:                                 ; preds = %cond.false13.i.i
 cond.false19.i.i:                                 ; preds = %cond.false16.i.i
   %shr20.i.i = lshr i32 %c, 11
   %14 = zext nneg i32 %shr20.i.i to i64
-  %15 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %14
-  %arrayidx23.i.i = getelementptr i8, ptr %15, i64 4160
+  %15 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %14
+  %arrayidx23.i.i = getelementptr inbounds i8, ptr %15, i64 4160
   %16 = load i16, ptr %arrayidx23.i.i, align 2
   %conv24.i.i = zext i16 %16 to i32
   %shr25.i.i = lshr i32 %c, 5
@@ -4036,8 +4036,8 @@ cond.false16.i51:                                 ; preds = %cond.false13.i49
 cond.false19.i53:                                 ; preds = %cond.false16.i51
   %shr20.i54 = lshr i32 %c, 11
   %23 = zext nneg i32 %shr20.i54 to i64
-  %24 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %23
-  %arrayidx23.i55 = getelementptr i8, ptr %24, i64 4160
+  %24 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %23
+  %arrayidx23.i55 = getelementptr inbounds i8, ptr %24, i64 4160
   %25 = load i16, ptr %arrayidx23.i55, align 2
   %conv24.i56 = zext i16 %25 to i32
   %shr25.i57 = lshr i32 %c, 5
@@ -4077,7 +4077,7 @@ if.else.i:                                        ; preds = %cond.end39.i
   %add.ptr.i = getelementptr inbounds i16, ptr @_ZL22ucase_props_exceptions, i64 %idx.ext.i
   %31 = load i16, ptr %add.ptr.i, align 2
   %32 = lshr i16 %31, 11
-  %33 = trunc i16 %32 to i8
+  %33 = trunc nuw nsw i16 %32 to i8
   br label %ucase_isCaseSensitive_75.exit
 
 ucase_isCaseSensitive_75.exit:                    ; preds = %if.then.i, %if.else.i
@@ -4116,8 +4116,8 @@ cond.false16.i83:                                 ; preds = %cond.false13.i81
 cond.false19.i85:                                 ; preds = %cond.false16.i83
   %shr20.i86 = lshr i32 %c, 11
   %34 = zext nneg i32 %shr20.i86 to i64
-  %35 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %34
-  %arrayidx23.i87 = getelementptr i8, ptr %35, i64 4160
+  %35 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %34
+  %arrayidx23.i87 = getelementptr inbounds i8, ptr %35, i64 4160
   %36 = load i16, ptr %arrayidx23.i87, align 2
   %conv24.i88 = zext i16 %36 to i32
   %shr25.i89 = lshr i32 %c, 5
@@ -4176,8 +4176,8 @@ cond.false16.i117:                                ; preds = %cond.false13.i115
 cond.false19.i119:                                ; preds = %cond.false16.i117
   %shr20.i120 = lshr i32 %c, 11
   %41 = zext nneg i32 %shr20.i120 to i64
-  %42 = getelementptr i16, ptr @_ZL21ucase_props_trieIndex, i64 %41
-  %arrayidx23.i121 = getelementptr i8, ptr %42, i64 4160
+  %42 = getelementptr inbounds i16, ptr @_ZL21ucase_props_trieIndex, i64 %41
+  %arrayidx23.i121 = getelementptr inbounds i8, ptr %42, i64 4160
   %43 = load i16, ptr %arrayidx23.i121, align 2
   %conv24.i122 = zext i16 %43 to i32
   %shr25.i123 = lshr i32 %c, 5
@@ -4213,13 +4213,13 @@ sw.bb22:                                          ; preds = %entry
   br label %return
 
 sw.bb27:                                          ; preds = %entry
-  %call.i = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull %resultString, i32 noundef 1, i8 noundef signext 1)
+  %call.i = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull writeonly %resultString, i32 noundef 1, i8 noundef signext 1)
   %cmp29 = icmp sgt i32 %call.i, -1
   %conv31 = zext i1 %cmp29 to i32
   br label %return
 
 sw.bb32:                                          ; preds = %entry
-  %call.i145 = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull %resultString, i32 noundef 1, i8 noundef signext 0)
+  %call.i145 = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull writeonly %resultString, i32 noundef 1, i8 noundef signext 0)
   %cmp34 = icmp sgt i32 %call.i145, -1
   %conv36 = zext i1 %cmp34 to i32
   br label %return
@@ -4230,12 +4230,12 @@ sw.bb37:                                          ; preds = %entry
   br i1 %cmp39, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb37
-  %call.i146 = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull %resultString, i32 noundef 1, i8 noundef signext 1)
+  %call.i146 = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull writeonly %resultString, i32 noundef 1, i8 noundef signext 1)
   %cmp41 = icmp sgt i32 %call.i146, -1
   br i1 %cmp41, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false
-  %call.i147 = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull %resultString, i32 noundef 1, i8 noundef signext 0)
+  %call.i147 = call fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %c, ptr noundef null, ptr noundef null, ptr noundef nonnull writeonly %resultString, i32 noundef 1, i8 noundef signext 0)
   %cmp43 = icmp sgt i32 %call.i147, -1
   %49 = zext i1 %cmp43 to i32
   br label %return
@@ -4275,6 +4275,5 @@ attributes #6 = { nounwind }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = !{i8 0, i8 2}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}

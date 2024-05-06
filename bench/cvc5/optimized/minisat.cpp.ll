@@ -795,7 +795,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN4cvc58internal4prop16MinisatSatSolver13toSatVariableEi(i32 noundef %var) local_unnamed_addr #10 align 2 {
+define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN4cvc58internal4prop16MinisatSatSolver13toSatVariableEi(i32 noundef %var) local_unnamed_addr #10 align 2 {
 entry:
   %conv = sext i32 %var to i64
   ret i64 %conv
@@ -838,7 +838,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal4prop16MinisatSatSolver17toSatLiteralValueENS0_7Minisat5lboolE(i8 %res.coerce) local_unnamed_addr #10 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN4cvc58internal4prop16MinisatSatSolver17toSatLiteralValueENS0_7Minisat5lboolE(i8 %res.coerce) local_unnamed_addr #10 align 2 {
 entry:
   %cmp.i = icmp eq i8 %res.coerce, 0
   %and53.i1 = and i8 %res.coerce, 2
@@ -1489,7 +1489,7 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit11: ; preds = %cleanup, %for.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN4cvc58internal4prop16MinisatSatSolver6newVarEbb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, i1 noundef zeroext %isTheoryAtom, i1 noundef zeroext %canErase) unnamed_addr #3 align 2 {
+define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN4cvc58internal4prop16MinisatSatSolver6newVarEbb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, i1 noundef zeroext %isTheoryAtom, i1 noundef zeroext %canErase) unnamed_addr #3 align 2 {
 entry:
   %d_minisat = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_minisat, align 8
@@ -1501,7 +1501,7 @@ entry:
 declare noundef i32 @_ZN4cvc58internal7Minisat10SimpSolver6newVarEbbbb(ptr noundef nonnull align 8 dereferenceable(1108), i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal4prop16MinisatSatSolver5solveERm(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %resource) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 3) i32 @_ZN4cvc58internal4prop16MinisatSatSolver5solveERm(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %resource) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   tail call void @_ZN4cvc58internal4prop16MinisatSatSolver12setupOptionsEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
   %0 = load i64, ptr %resource, align 8
@@ -1564,7 +1564,7 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEE5clearEb.exit.i.i: ; preds = %for.cond.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal4prop16MinisatSatSolver5solveEv(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN4cvc58internal4prop16MinisatSatSolver5solveEv(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal4prop16MinisatSatSolver12setupOptionsEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
   %d_minisat = getelementptr inbounds i8, ptr %this, i64 24
@@ -1598,7 +1598,7 @@ _ZN4cvc58internal7Minisat10SimpSolver5solveEbb.exit: ; preds = %entry, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal4prop16MinisatSatSolver5solveERKSt6vectorINS1_10SatLiteralESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %assumptions) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 3) i32 @_ZN4cvc58internal4prop16MinisatSatSolver5solveERKSt6vectorINS1_10SatLiteralESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %assumptions) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc58internal4prop16MinisatSatSolver12setupOptionsEv(ptr noundef nonnull align 8 dereferenceable(168) %this)
   %d_minisat = getelementptr inbounds i8, ptr %this, i64 24
@@ -1995,7 +1995,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal4prop16MinisatSatSolver5valueENS1_10SatLiteralE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, i64 %l.coerce) unnamed_addr #14 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN4cvc58internal4prop16MinisatSatSolver5valueENS1_10SatLiteralE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, i64 %l.coerce) unnamed_addr #14 align 2 {
 entry:
   %d_minisat = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_minisat, align 8
@@ -2021,7 +2021,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal4prop16MinisatSatSolver10modelValueENS1_10SatLiteralE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, i64 %l.coerce) unnamed_addr #14 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN4cvc58internal4prop16MinisatSatSolver10modelValueENS1_10SatLiteralE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, i64 %l.coerce) unnamed_addr #14 align 2 {
 entry:
   %d_minisat = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_minisat, align 8

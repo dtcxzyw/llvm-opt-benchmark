@@ -30,7 +30,7 @@ define void @Dsd_CheckCacheAllocate(i32 noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %.lr.ph.i
   %6 = add nuw nsw i32 %.01116.i, 2
-  %7 = mul nsw i32 %6, %6
+  %7 = mul nuw nsw i32 %6, %6
   %.not.i = icmp ugt i32 %7, %3
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
 

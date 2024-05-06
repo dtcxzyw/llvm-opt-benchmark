@@ -87,7 +87,7 @@ entry:
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @is_empty_ref_iterator(ptr nocapture noundef readonly %ref_iterator) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @is_empty_ref_iterator(ptr nocapture noundef readonly %ref_iterator) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %ref_iterator, align 8
   %cmp = icmp eq ptr %0, @empty_ref_iterator_vtable
@@ -190,7 +190,7 @@ return:                                           ; preds = %if.end15, %if.then4
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @overlay_iterator_select(ptr noundef readonly %front, ptr noundef readonly %back, ptr nocapture readnone %cb_data) #7 {
+define internal range(i32 -1, 7) i32 @overlay_iterator_select(ptr noundef readonly %front, ptr noundef readonly %back, ptr nocapture readnone %cb_data) #7 {
 entry:
   %tobool.not = icmp eq ptr %back, null
   %tobool1.not = icmp eq ptr %front, null
@@ -490,7 +490,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @merge_ref_iterator_abort(ptr nocapture noundef %ref_iterator) #0 {
+define internal range(i32 -2, 0) i32 @merge_ref_iterator_abort(ptr nocapture noundef %ref_iterator) #0 {
 entry:
   %iter0 = getelementptr inbounds i8, ptr %ref_iterator, i64 40
   %0 = load ptr, ptr %iter0, align 8

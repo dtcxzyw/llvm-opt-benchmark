@@ -2001,7 +2001,7 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #2
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @uds_sa_subfunction_to_type(i8 noundef zeroext %0) unnamed_addr #3 {
+define internal fastcc range(i32 0, 255) i32 @uds_sa_subfunction_to_type(i8 noundef zeroext %0) unnamed_addr #3 {
   %2 = and i8 %0, 127
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %13, label %4
@@ -2910,7 +2910,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 374:                                              ; preds = %363
   %375 = load i32, ptr %19, align 4
   %376 = trunc i32 %375 to i8
-  %377 = call fastcc i32 @uds_sa_subfunction_to_type(i8 noundef zeroext %376), !range !10
+  %377 = call fastcc i32 @uds_sa_subfunction_to_type(i8 noundef zeroext %376)
   %trunc1106 = trunc nuw i32 %377 to i8
   br i1 %79, label %378, label %395
 
@@ -3360,7 +3360,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %679 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %678, ptr noundef %0, i32 noundef %.61198, i32 noundef 1, i32 noundef 0) #9
   %680 = add i32 %.61198, 1
   %exitcond.not = icmp eq i32 %680, %60
-  br i1 %exitcond.not, label %.thread1182, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.thread1182, label %.lr.ph, !llvm.loop !10
 
 681:                                              ; preds = %190
   %682 = load i32, ptr @hf_uds_dddi_subfunction_no_suppress, align 4
@@ -3410,7 +3410,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %705, ptr noundef nonnull @.str.735, i32 noundef %706, i32 noundef %707, i32 noundef %708) #9
   %709 = add i32 %.7, 8
   %.not1097 = icmp ugt i32 %709, %60
-  br i1 %.not1097, label %.loopexit, label %693, !llvm.loop !12
+  br i1 %.not1097, label %.loopexit, label %693, !llvm.loop !11
 
 710:                                              ; preds = %688
   %711 = load i32, ptr @hf_uds_dddi_dyn_defined_data_identifier, align 4
@@ -3438,7 +3438,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %729 = add i32 %728, %726
   %730 = add i32 %729, %727
   %.not1096 = icmp ugt i32 %730, %60
-  br i1 %.not1096, label %.loopexit, label %717, !llvm.loop !13
+  br i1 %.not1096, label %.loopexit, label %717, !llvm.loop !12
 
 731:                                              ; preds = %688
   %732 = icmp ugt i32 %60, 3
@@ -4167,14 +4167,14 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr nocapture noun
   %65 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0478, i32 noundef %3, i32 noundef 0, i32 noundef 0)
   %66 = add i32 %65, 4
   %.not437 = icmp ugt i32 %66, %5
-  br i1 %.not437, label %.loopexit, label %.lr.ph479, !llvm.loop !14
+  br i1 %.not437, label %.loopexit, label %.lr.ph479, !llvm.loop !13
 
 .lr.ph475:                                        ; preds = %.preheader, %.lr.ph475
   %.1474 = phi i32 [ %67, %.lr.ph475 ], [ 2, %.preheader ]
   %67 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.1474, i32 noundef %3, i32 noundef 0, i32 noundef 0)
   %68 = add i32 %67, 4
   %.not436 = icmp ugt i32 %68, %5
-  br i1 %.not436, label %.loopexit, label %.lr.ph475, !llvm.loop !15
+  br i1 %.not436, label %.loopexit, label %.lr.ph475, !llvm.loop !14
 
 69:                                               ; preds = %40
   %70 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 2, i32 noundef %3, i32 noundef 0, i32 noundef 0)
@@ -4270,7 +4270,7 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr nocapture noun
   %122 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.5470, i32 noundef %3, i32 noundef 1, i32 noundef 1)
   %123 = add i32 %122, 6
   %.not434 = icmp ugt i32 %123, %5
-  br i1 %.not434, label %.loopexit, label %.lr.ph471, !llvm.loop !16
+  br i1 %.not434, label %.loopexit, label %.lr.ph471, !llvm.loop !15
 
 124:                                              ; preds = %.lr.ph467, %dissect_uds_dtc_and_fault_detection_counter_record.exit
   %125 = phi i32 [ 6, %.lr.ph467 ], [ %170, %dissect_uds_dtc_and_fault_detection_counter_record.exit ]
@@ -4388,7 +4388,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %160, %uds_lo
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %170 = add i32 %125, 4
   %.not433 = icmp ugt i32 %170, %5
-  br i1 %.not433, label %.loopexit, label %124, !llvm.loop !17
+  br i1 %.not433, label %.loopexit, label %124, !llvm.loop !16
 
 171:                                              ; preds = %40
   %172 = load i32, ptr @hf_uds_rdtci_dtc_ext_data_rec_no, align 4
@@ -4415,7 +4415,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %160, %uds_lo
   %184 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.7462, i32 noundef %3, i32 noundef 0, i32 noundef 0)
   %185 = add i32 %184, 4
   %.not432 = icmp ugt i32 %185, %5
-  br i1 %.not432, label %.loopexit, label %.lr.ph463, !llvm.loop !18
+  br i1 %.not432, label %.loopexit, label %.lr.ph463, !llvm.loop !17
 
 186:                                              ; preds = %40
   %187 = load i32, ptr @hf_uds_rdtci_memory_selection, align 4
@@ -4460,7 +4460,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %160, %uds_lo
   %212 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.8458, i32 noundef %3, i32 noundef 0, i32 noundef 0)
   %213 = add i32 %212, 4
   %.not431 = icmp ugt i32 %213, %5
-  br i1 %.not431, label %.loopexit, label %.lr.ph459, !llvm.loop !19
+  br i1 %.not431, label %.loopexit, label %.lr.ph459, !llvm.loop !18
 
 214:                                              ; preds = %40
   %215 = load i32, ptr @hf_uds_rdtci_functional_group_id, align 4
@@ -4485,7 +4485,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %160, %uds_lo
   %228 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.9454, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %229 = add i32 %228, 5
   %.not430 = icmp ugt i32 %229, %5
-  br i1 %.not430, label %.loopexit, label %.lr.ph455, !llvm.loop !20
+  br i1 %.not430, label %.loopexit, label %.lr.ph455, !llvm.loop !19
 
 230:                                              ; preds = %40
   %231 = load i32, ptr @hf_uds_rdtci_functional_group_id, align 4
@@ -4507,7 +4507,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %160, %uds_lo
   %241 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.10450, i32 noundef %3, i32 noundef 0, i32 noundef 0)
   %242 = add i32 %241, 4
   %.not429 = icmp ugt i32 %242, %5
-  br i1 %.not429, label %.loopexit, label %.lr.ph451, !llvm.loop !21
+  br i1 %.not429, label %.loopexit, label %.lr.ph451, !llvm.loop !20
 
 243:                                              ; preds = %40
   %244 = load i32, ptr @hf_uds_rdtci_functional_group_id, align 4
@@ -4532,7 +4532,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %160, %uds_lo
   %257 = call fastcc i32 @dissect_uds_dtc_and_status_record(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.11448, i32 noundef %3, i32 noundef 0, i32 noundef 0)
   %258 = add i32 %257, 4
   %.not428 = icmp ugt i32 %258, %5
-  br i1 %.not428, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not428, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 259:                                              ; preds = %40
   %260 = icmp ugt i32 %5, 2
@@ -5398,7 +5398,7 @@ attributes #11 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 255}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
@@ -5410,4 +5410,3 @@ attributes #11 = { nounwind willreturn memory(read) }
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}

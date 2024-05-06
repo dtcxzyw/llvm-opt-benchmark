@@ -595,11 +595,11 @@ define internal i32 @dissect_adwin(ptr noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 19:                                               ; preds = %7
-  call fastcc void @dissect_UDPH1_generic(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %18, ptr noundef nonnull %5, ptr noundef nonnull @.str.416)
+  call fastcc void @dissect_UDPH1_generic(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %18, ptr noundef nonnull writeonly %5, ptr noundef nonnull @.str.416)
   br label %dissect_UDPH1_new.exit
 
 20:                                               ; preds = %7
-  call fastcc void @dissect_UDPH1_generic(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %18, ptr noundef nonnull %5, ptr noundef nonnull @.str.420)
+  call fastcc void @dissect_UDPH1_generic(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %18, ptr noundef nonnull writeonly %5, ptr noundef nonnull @.str.420)
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %dissect_UDPH1_new.exit, label %21
 

@@ -155,7 +155,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node25MapStaticCodeToLargePagesEv() local_unnamed_addr #3 {
+define dso_local noundef range(i32 -1, 14) i32 @_ZN4node25MapStaticCodeToLargePagesEv() local_unnamed_addr #3 {
 entry:
   %__dnew.i25 = alloca i64, align 8
   %__dnew.i21 = alloca i64, align 8
@@ -697,7 +697,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare i32 @dl_iterate_phdr(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN4node12_GLOBAL__N_111FindMappingEP12dl_phdr_infomPv(ptr nocapture noundef readonly %info, i64 %0, ptr noundef %data) #3 {
+define internal noundef range(i32 0, 2) i32 @_ZN4node12_GLOBAL__N_111FindMappingEP12dl_phdr_infomPv(ptr nocapture noundef readonly %info, i64 %0, ptr noundef %data) #3 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
@@ -2419,7 +2419,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %4 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %4, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

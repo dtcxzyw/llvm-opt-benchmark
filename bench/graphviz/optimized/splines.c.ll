@@ -2510,7 +2510,7 @@ convert_sides_to_points.exit.thread.i:            ; preds = %80, %78, %convert_s
   %169 = getelementptr inbounds i8, ptr %107, i64 %.idx122.i
   %170 = getelementptr inbounds i8, ptr %169, i64 56
   %171 = load ptr, ptr %170, align 8
-  call void @clip_and_install(ptr noundef nonnull %107, ptr noundef %171, ptr noundef nonnull %9, i64 noundef 7, ptr noundef %5)
+  call void @clip_and_install(ptr noundef nonnull %107, ptr noundef %171, ptr noundef nonnull %9, i64 noundef 7, ptr noundef readonly %5)
   %172 = add nuw nsw i32 %.0111130.i, 1
   %exitcond.not.i = icmp eq i32 %172, %2
   br i1 %exitcond.not.i, label %selfRight.exit, label %104
@@ -2762,7 +2762,7 @@ convert_sides_to_points.exit.thread.i76:          ; preds = %226, %224, %convert
   %316 = getelementptr inbounds i8, ptr %253, i64 %.idx122.i99
   %317 = getelementptr inbounds i8, ptr %316, i64 56
   %318 = load ptr, ptr %317, align 8
-  call void @clip_and_install(ptr noundef nonnull %253, ptr noundef %318, ptr noundef nonnull %8, i64 noundef 7, ptr noundef %5)
+  call void @clip_and_install(ptr noundef nonnull %253, ptr noundef %318, ptr noundef nonnull %8, i64 noundef 7, ptr noundef readonly %5)
   %319 = add nuw nsw i32 %.0111130.i87, 1
   %exitcond.not.i100 = icmp eq i32 %319, %2
   br i1 %exitcond.not.i100, label %selfLeft.exit, label %250
@@ -3004,7 +3004,7 @@ convert_sides_to_points.exit.thread.i119:         ; preds = %convert_sides_to_po
   %459 = getelementptr inbounds i8, ptr %397, i64 %.idx120.i130
   %460 = getelementptr inbounds i8, ptr %459, i64 56
   %461 = load ptr, ptr %460, align 8
-  call void @clip_and_install(ptr noundef nonnull %397, ptr noundef %461, ptr noundef nonnull %7, i64 noundef 7, ptr noundef %5)
+  call void @clip_and_install(ptr noundef nonnull %397, ptr noundef %461, ptr noundef nonnull %7, i64 noundef 7, ptr noundef readonly %5)
   %462 = add nuw nsw i32 %.0109130.i, 1
   %exitcond.not.i131 = icmp eq i32 %462, %2
   br i1 %exitcond.not.i131, label %selfBottom.exit, label %394
@@ -3397,7 +3397,7 @@ define void @makePortLabels(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %14, label %28, label %15
 
 15:                                               ; preds = %11
-  %16 = tail call i32 @place_portlabel(ptr noundef nonnull %0, i1 noundef zeroext true), !range !4
+  %16 = tail call i32 @place_portlabel(ptr noundef nonnull %0, i1 noundef zeroext true)
   %.not16 = icmp eq i32 %16, 0
   br i1 %.not16, label %28, label %17
 
@@ -3430,7 +3430,7 @@ define void @makePortLabels(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %35, label %49, label %36
 
 36:                                               ; preds = %32
-  %37 = tail call i32 @place_portlabel(ptr noundef nonnull %0, i1 noundef zeroext false), !range !4
+  %37 = tail call i32 @place_portlabel(ptr noundef nonnull %0, i1 noundef zeroext false)
   %.not18 = icmp eq i32 %37, 0
   br i1 %.not18, label %49, label %38
 
@@ -3454,7 +3454,7 @@ define void @makePortLabels(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @place_portlabel(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @place_portlabel(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca [4 x %struct.pointf_s], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -4011,4 +4011,3 @@ attributes #21 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

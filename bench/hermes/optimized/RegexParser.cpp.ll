@@ -4058,8 +4058,8 @@ if.end22:                                         ; preds = %if.then.i.i.i.i.i, 
   br label %return.sink.split
 
 if.end24:                                         ; preds = %if.end12
-  %Capacity.i37 = getelementptr inbounds i8, ptr %this, i64 12
-  %8 = load i32, ptr %Capacity.i37, align 4
+  %Capacity.i38 = getelementptr inbounds i8, ptr %this, i64 12
+  %8 = load i32, ptr %Capacity.i38, align 4
   %cmp26 = icmp ult i32 %8, %5
   br i1 %cmp26, label %if.then27, label %if.else
 
@@ -4071,19 +4071,19 @@ if.then27:                                        ; preds = %if.end24
 
 if.else:                                          ; preds = %if.end24
   %tobool30.not = icmp eq i32 %6, 0
-  br i1 %tobool30.not, label %if.end37, label %if.then.i.i.i.i.i46
+  br i1 %tobool30.not, label %if.end37, label %if.then.i.i.i.i.i47
 
-if.then.i.i.i.i.i46:                              ; preds = %if.else
+if.then.i.i.i.i.i47:                              ; preds = %if.else
   %add.ptr.idx = shl nuw nsw i64 %conv.i32, 1
   %9 = load ptr, ptr %this, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %9, ptr align 2 %0, i64 %add.ptr.idx, i1 false)
   br label %if.end37
 
-if.end37:                                         ; preds = %if.then.i.i.i.i.i46, %if.else, %if.then27
-  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ 0, %if.else ], [ %conv.i32, %if.then.i.i.i.i.i46 ]
+if.end37:                                         ; preds = %if.then.i.i.i.i.i47, %if.else, %if.then27
+  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ 0, %if.else ], [ %conv.i32, %if.then.i.i.i.i.i47 ]
   %10 = load i32, ptr %Size.i29, align 8
-  %conv.i50 = zext i32 %10 to i64
-  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i50
+  %conv.i51 = zext i32 %10 to i64
+  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i51
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE18uninitialized_moveIPDsS3_EEvT_S4_T0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end37
@@ -4092,7 +4092,7 @@ if.then.i.i:                                      ; preds = %if.end37
   %add.ptr39 = getelementptr inbounds i8, ptr %11, i64 %add.ptr39.idx
   %12 = load ptr, ptr %this, align 8
   %add.ptr42 = getelementptr inbounds i16, ptr %12, i64 %CurSize.0
-  %13 = sub nsw i64 %conv.i50, %CurSize.0
+  %13 = sub nsw i64 %conv.i51, %CurSize.0
   %gepdiff = shl nsw i64 %13, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 2 %add.ptr39, i64 %gepdiff, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE18uninitialized_moveIPDsS3_EEvT_S4_T0_.exit
@@ -11897,9 +11897,9 @@ if.end28.i.i.if.then.i.i.i_crit_edge.i:           ; preds = %if.end28.i.i.i
 if.then.i.i.i.i:                                  ; preds = %if.end28.i.i.if.then.i.i.i_crit_edge.i, %if.end13.i.i.i
   %10 = phi ptr [ %.pre.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i ], [ %add.ptr.i.i.i.i.i.i, %if.end13.i.i.i ]
   %11 = phi i32 [ %.pre.i.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i ], [ %9, %if.end13.i.i.i ]
-  %conv.i34.i.i.i = zext i32 %11 to i64
+  %conv.i35.i.i.i = zext i32 %11 to i64
   %12 = load ptr, ptr %codePointSet_, align 8
-  %gepdiff.i.i.i = shl nuw nsw i64 %conv.i34.i.i.i, 3
+  %gepdiff.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 4 %12, i64 %gepdiff.i.i.i, i1 false)
   br label %cond.end.thread71
 
@@ -12111,9 +12111,9 @@ if.end28.i.i.if.then.i.i.i_crit_edge.i:           ; preds = %if.end28.i.i.i
 if.then.i.i.i.i:                                  ; preds = %if.end28.i.i.if.then.i.i.i_crit_edge.i, %if.end13.i.i.i
   %10 = phi ptr [ %.pre.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i ], [ %add.ptr.i.i.i.i.i.i, %if.end13.i.i.i ]
   %11 = phi i32 [ %.pre.i.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i ], [ %9, %if.end13.i.i.i ]
-  %conv.i34.i.i.i = zext i32 %11 to i64
+  %conv.i35.i.i.i = zext i32 %11 to i64
   %12 = load ptr, ptr %codePointSet_, align 8
-  %gepdiff.i.i.i = shl nuw nsw i64 %conv.i34.i.i.i, 3
+  %gepdiff.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 4 %12, i64 %gepdiff.i.i.i, i1 false)
   br label %cond.end.thread71
 
@@ -13016,9 +13016,9 @@ if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i: ; preds = %if.end28.i.i.i.i.
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i, %if.end13.i.i.i.i.i.i.i.i.i
   %6 = phi ptr [ %.pre.i.i.i.i.i.i.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %if.end13.i.i.i.i.i.i.i.i.i ]
   %7 = phi i32 [ %.pre.i.i.i.i.i.i.i.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i ], [ %5, %if.end13.i.i.i.i.i.i.i.i.i ]
-  %conv.i34.i.i.i.i.i.i.i.i.i = zext i32 %7 to i64
+  %conv.i35.i.i.i.i.i.i.i.i.i = zext i32 %7 to i64
   %8 = load ptr, ptr %__first.addr.06.i.i.i.i.i, align 8
-  %gepdiff.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i34.i.i.i.i.i.i.i.i.i, 1
+  %gepdiff.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i.i.i.i.i.i.i, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 2 %8, i64 %gepdiff.i.i.i.i.i.i.i.i.i, i1 false)
   br label %return.sink.split.i.i.i.i.i.i.i.i.i
 
@@ -13076,9 +13076,9 @@ if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i41: ; preds = %if.end28.i.i.i.
 if.then.i.i.i.i.i.i.i.i.i.i26:                    ; preds = %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i41, %if.end13.i.i.i.i.i.i.i.i.i24
   %11 = phi ptr [ %.pre.i.i.i.i.i.i.i42, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i41 ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i17, %if.end13.i.i.i.i.i.i.i.i.i24 ]
   %12 = phi i32 [ %.pre.i.i.i.i.i.i.i.i39, %if.end28.i.i.if.then.i.i.i_crit_edge.i.i.i.i.i.i.i41 ], [ %10, %if.end13.i.i.i.i.i.i.i.i.i24 ]
-  %conv.i34.i.i.i.i.i.i.i.i.i27 = zext i32 %12 to i64
+  %conv.i35.i.i.i.i.i.i.i.i.i27 = zext i32 %12 to i64
   %13 = load ptr, ptr %__first.addr.06.i.i.i.i.i16, align 8
-  %gepdiff.i.i.i.i.i.i.i.i.i28 = shl nuw nsw i64 %conv.i34.i.i.i.i.i.i.i.i.i27, 1
+  %gepdiff.i.i.i.i.i.i.i.i.i28 = shl nuw nsw i64 %conv.i35.i.i.i.i.i.i.i.i.i27, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 2 %13, i64 %gepdiff.i.i.i.i.i.i.i.i.i28, i1 false)
   br label %return.sink.split.i.i.i.i.i.i.i.i.i29
 
@@ -14324,9 +14324,9 @@ if.end37.i:                                       ; preds = %if.end24.i
 
 if.then.i.i.i:                                    ; preds = %if.end24.i, %if.end37.i
   %.pre5.pre.pre925 = phi ptr [ %.pre5.pre.pre9.pre, %if.end37.i ], [ %.pre6.pre, %if.end24.i ]
-  %conv.i50.i.pre-phi24 = phi i64 [ %.pre12, %if.end37.i ], [ %conv.i30.i, %if.end24.i ]
+  %conv.i51.i.pre-phi24 = phi i64 [ %.pre12, %if.end37.i ], [ %conv.i30.i, %if.end24.i ]
   %2 = load ptr, ptr %chars_.i, align 8
-  %gepdiff.i = shl nuw nsw i64 %conv.i50.i.pre-phi24, 2
+  %gepdiff.i = shl nuw nsw i64 %conv.i51.i.pre-phi24, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 4 %.pre5.pre.pre925, i64 %gepdiff.i, i1 false)
   %.pre5.pre.pre = load ptr, ptr %agg.tmp, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i
@@ -14426,8 +14426,8 @@ if.end22:                                         ; preds = %if.then.i.i.i.i.i, 
   br label %return.sink.split
 
 if.end24:                                         ; preds = %if.end12
-  %Capacity.i37 = getelementptr inbounds i8, ptr %this, i64 12
-  %8 = load i32, ptr %Capacity.i37, align 4
+  %Capacity.i38 = getelementptr inbounds i8, ptr %this, i64 12
+  %8 = load i32, ptr %Capacity.i38, align 4
   %cmp26 = icmp ult i32 %8, %5
   br i1 %cmp26, label %if.then27, label %if.else
 
@@ -14439,19 +14439,19 @@ if.then27:                                        ; preds = %if.end24
 
 if.else:                                          ; preds = %if.end24
   %tobool30.not = icmp eq i32 %6, 0
-  br i1 %tobool30.not, label %if.end37, label %if.then.i.i.i.i.i46
+  br i1 %tobool30.not, label %if.end37, label %if.then.i.i.i.i.i47
 
-if.then.i.i.i.i.i46:                              ; preds = %if.else
+if.then.i.i.i.i.i47:                              ; preds = %if.else
   %add.ptr.idx = shl nuw nsw i64 %conv.i32, 2
   %9 = load ptr, ptr %this, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %9, ptr align 4 %0, i64 %add.ptr.idx, i1 false)
   br label %if.end37
 
-if.end37:                                         ; preds = %if.then.i.i.i.i.i46, %if.else, %if.then27
-  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ 0, %if.else ], [ %conv.i32, %if.then.i.i.i.i.i46 ]
+if.end37:                                         ; preds = %if.then.i.i.i.i.i47, %if.else, %if.then27
+  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ 0, %if.else ], [ %conv.i32, %if.then.i.i.i.i.i47 ]
   %10 = load i32, ptr %Size.i29, align 8
-  %conv.i50 = zext i32 %10 to i64
-  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i50
+  %conv.i51 = zext i32 %10 to i64
+  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i51
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end37
@@ -14460,7 +14460,7 @@ if.then.i.i:                                      ; preds = %if.end37
   %add.ptr39 = getelementptr inbounds i8, ptr %11, i64 %add.ptr39.idx
   %12 = load ptr, ptr %this, align 8
   %add.ptr42 = getelementptr inbounds i32, ptr %12, i64 %CurSize.0
-  %13 = sub nsw i64 %conv.i50, %CurSize.0
+  %13 = sub nsw i64 %conv.i51, %CurSize.0
   %gepdiff = shl nsw i64 %13, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 4 %add.ptr39, i64 %gepdiff, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit

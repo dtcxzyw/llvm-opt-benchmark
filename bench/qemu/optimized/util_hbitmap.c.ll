@@ -98,7 +98,7 @@ if.end6:                                          ; preds = %if.then.if.end6_cri
   %and7 = and i64 %sub, %cur.0
   store i64 %and7, ptr %arrayidx, align 8
   %shl = shl i64 %5, 6
-  %6 = tail call i64 @llvm.cttz.i64(i64 %cur.0, i1 true), !range !5
+  %6 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %cur.0, i1 true)
   %add = or disjoint i64 %shl, %6
   %granularity = getelementptr inbounds i8, ptr %hbi, i64 8
   %7 = load i32, ptr %granularity, align 8
@@ -138,7 +138,7 @@ do.body:                                          ; preds = %do.body, %entry
   %and = and i64 %4, %2
   %cmp = icmp eq i64 %and, 0
   %indvars.iv.next = add i32 %indvars.iv, -1
-  br i1 %cmp, label %do.body, label %do.end, !llvm.loop !6
+  br i1 %cmp, label %do.body, label %do.end, !llvm.loop !5
 
 do.end:                                           ; preds = %do.body
   %cmp7 = icmp eq i32 %dec, 0
@@ -167,7 +167,7 @@ if.else:                                          ; preds = %for.body
 
 if.end11:                                         ; preds = %for.body
   %shl = shl i64 %pos.131, 6
-  %6 = tail call i64 @llvm.cttz.i64(i64 %cur.033, i1 true), !range !5
+  %6 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %cur.033, i1 true)
   %add = or disjoint i64 %6, %shl
   %sub = add i64 %cur.033, -1
   %and12 = and i64 %sub, %cur.033
@@ -180,7 +180,7 @@ if.end11:                                         ; preds = %for.body
   %8 = load i64, ptr %arrayidx20, align 8
   %9 = and i64 %indvars.iv.next36, 4294967295
   %exitcond.not = icmp eq i64 %9, 6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end11, %for.cond.preheader
   %pos.1.lcssa = phi i64 [ %shr, %for.cond.preheader ], [ %add, %if.end11 ]
@@ -280,7 +280,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %storemerge = and i64 %and10, %4
   store i64 %storemerge, ptr %arrayidx12, align 8
   %cmp6.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %cmp6.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %cmp6.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -290,7 +290,7 @@ for.end:                                          ; preds = %for.body
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @hbitmap_next_dirty(ptr noundef %hb, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @hbitmap_next_dirty(ptr noundef %hb, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   %hbi = alloca %struct.HBitmapIter, align 8
   %0 = or i64 %count, %start
@@ -357,7 +357,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %storemerge.i = and i64 %and10.i, %and22.i
   store i64 %storemerge.i, ptr %arrayidx12.i, align 8
   %cmp6.not.i = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %cmp6.not.i, label %hbitmap_iter_init.exit, label %for.body.i, !llvm.loop !9
+  br i1 %cmp6.not.i, label %hbitmap_iter_init.exit, label %for.body.i, !llvm.loop !8
 
 hbitmap_iter_init.exit:                           ; preds = %for.body.i
   %arrayidx.i18 = getelementptr inbounds i8, ptr %hbi, i64 72
@@ -385,7 +385,7 @@ hbitmap_iter_next.exit:                           ; preds = %hbitmap_iter_init.e
   %11 = phi i64 [ %.pre.i, %if.then.if.end6_crit_edge.i ], [ %9, %hbitmap_iter_init.exit ]
   %cur.0.i = phi i64 [ %call.i, %if.then.if.end6_crit_edge.i ], [ %and.i, %hbitmap_iter_init.exit ]
   %shl.i20 = shl i64 %11, 6
-  %12 = call i64 @llvm.cttz.i64(i64 %cur.0.i, i1 true), !range !5
+  %12 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %cur.0.i, i1 true)
   %add.i = or disjoint i64 %12, %shl.i20
   %13 = load i32, ptr %granularity5.i, align 8
   %sh_prom.i22 = zext nneg i32 %13 to i64
@@ -405,7 +405,7 @@ return:                                           ; preds = %if.then.i, %hbitmap
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @hbitmap_next_zero(ptr nocapture noundef readonly %hb, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @hbitmap_next_zero(ptr nocapture noundef readonly %hb, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   %granularity = getelementptr inbounds i8, ptr %hb, i64 24
   %0 = load i32, ptr %granularity, align 8
@@ -481,14 +481,14 @@ land.rhs:                                         ; preds = %do.body
   %arrayidx37 = getelementptr i64, ptr %1, i64 %inc
   %7 = load i64, ptr %arrayidx37, align 8
   %cmp38 = icmp eq i64 %7, -1
-  br i1 %cmp38, label %do.body, label %if.end45, !llvm.loop !10
+  br i1 %cmp38, label %do.body, label %if.end45, !llvm.loop !9
 
 if.end45:                                         ; preds = %land.rhs, %if.end31
   %cur.0 = phi i64 [ %or, %if.end31 ], [ %7, %land.rhs ]
   %pos.1 = phi i64 [ %shr1, %if.end31 ], [ %inc, %land.rhs ]
   %shl46 = shl i64 %pos.1, 6
   %not.i = xor i64 %cur.0, -1
-  %8 = tail call i64 @llvm.cttz.i64(i64 %not.i, i1 false), !range !5
+  %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i, i1 false)
   %add48 = add nuw i64 %shl46, %8
   %cmp49.not = icmp ult i64 %add48, %cond
   br i1 %cmp49.not, label %if.end52, label %return
@@ -534,7 +534,7 @@ if.end:                                           ; preds = %entry
 
 if.end7:                                          ; preds = %if.end
   %sub = sub nsw i64 %cond, %start
-  %call = tail call i64 @hbitmap_next_dirty(ptr noundef nonnull %hb, i64 noundef %start, i64 noundef %sub), !range !11
+  %call = tail call i64 @hbitmap_next_dirty(ptr noundef nonnull %hb, i64 noundef %start, i64 noundef %sub)
   %cmp8 = icmp slt i64 %call, 0
   br i1 %cmp8, label %return, label %if.end10
 
@@ -542,7 +542,7 @@ if.end10:                                         ; preds = %if.end7
   %sub11 = sub nsw i64 %cond, %call
   %cond17 = tail call i64 @llvm.smin.i64(i64 %sub11, i64 %max_dirty_count)
   %add = add i64 %cond17, %call
-  %call19 = tail call i64 @hbitmap_next_zero(ptr noundef nonnull %hb, i64 noundef %call, i64 noundef %cond17), !range !11
+  %call19 = tail call i64 @hbitmap_next_zero(ptr noundef nonnull %hb, i64 noundef %call, i64 noundef %cond17)
   %cmp2026 = icmp slt i64 %call19, 0
   %spec.select = select i1 %cmp2026, i64 %add, i64 %call19
   store i64 %call, ptr %dirty_start, align 8
@@ -584,7 +584,7 @@ if.else7:                                         ; preds = %if.end4
   unreachable
 
 if.end8:                                          ; preds = %if.end4
-  %call = tail call i64 @hbitmap_next_dirty(ptr noundef nonnull %hb, i64 noundef %start, i64 noundef %count), !range !11
+  %call = tail call i64 @hbitmap_next_dirty(ptr noundef nonnull %hb, i64 noundef %start, i64 noundef %count)
   %cmp9 = icmp eq i64 %call, -1
   br i1 %cmp9, label %return, label %if.end11
 
@@ -605,7 +605,7 @@ if.else17:                                        ; preds = %if.end14
   unreachable
 
 if.end18:                                         ; preds = %if.end14
-  %call19 = tail call i64 @hbitmap_next_zero(ptr noundef nonnull %hb, i64 noundef %start, i64 noundef %count), !range !11
+  %call19 = tail call i64 @hbitmap_next_zero(ptr noundef nonnull %hb, i64 noundef %start, i64 noundef %count)
   %cmp20 = icmp eq i64 %call19, -1
   br i1 %cmp20, label %return, label %if.end22
 
@@ -877,7 +877,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %storemerge.i = and i64 %and10.i, %and22.i
   store i64 %storemerge.i, ptr %arrayidx12.i, align 8
   %cmp6.not.i = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %cmp6.not.i, label %for.cond.preheader, label %for.body.i, !llvm.loop !9
+  br i1 %cmp6.not.i, label %for.cond.preheader, label %for.body.i, !llvm.loop !8
 
 for.cond.preheader:                               ; preds = %for.body.i
   %arrayidx.i7 = getelementptr inbounds i8, ptr %hbi, i64 72
@@ -904,7 +904,7 @@ hbitmap_iter_next_word.exit:                      ; preds = %for.cond, %if.then.
   br i1 %cmp.not, label %if.end, label %for.end
 
 if.end:                                           ; preds = %hbitmap_iter_next_word.exit
-  %7 = call i64 @llvm.ctpop.i64(i64 %cur.0.i), !range !5
+  %7 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %cur.0.i)
   %add2 = add i64 %7, %count.0
   br label %for.cond
 
@@ -917,7 +917,7 @@ if.then6:                                         ; preds = %for.end
   %notmask = shl nsw i64 -1, %conv7
   %sub = xor i64 %notmask, -1
   %and10 = and i64 %cur.0.i, %sub
-  %8 = call i64 @llvm.ctpop.i64(i64 %and10), !range !5
+  %8 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and10)
   %add13 = add i64 %8, %count.0
   br label %if.end14
 
@@ -1154,7 +1154,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %mul, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body
   %2 = load ptr, ptr %levels, align 8
@@ -1330,7 +1330,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %add.ptr1 = getelementptr i8, ptr %buf.addr.06, i64 8
   %incdec.ptr = getelementptr i8, ptr %incdec.ptr35, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !13
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %while.body, %if.end, %entry
   ret void
@@ -1361,7 +1361,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %add.ptr1 = getelementptr i8, ptr %buf.addr.07, i64 8
   %incdec.ptr = getelementptr i8, ptr %incdec.ptr46, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !14
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %if.end
   br i1 %finish, label %if.then3, label %if.end4
@@ -1379,7 +1379,7 @@ for.cond.loopexit.i:                              ; preds = %for.inc.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp2.not.i = icmp eq i64 %indvars.iv.i, 0
   %indvars.iv.next26.i = add nsw i64 %indvars.iv25.i, -1
-  br i1 %cmp2.not.i, label %hbitmap_deserialize_finish.exit, label %for.body.i, !llvm.loop !15
+  br i1 %cmp2.not.i, label %hbitmap_deserialize_finish.exit, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.loopexit.i, %if.then3
   %indvars.iv25.i = phi i64 [ 6, %if.then3 ], [ %indvars.iv.next26.i, %for.cond.loopexit.i ]
@@ -1417,7 +1417,7 @@ if.then.i:                                        ; preds = %for.body14.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body14.i
   %inc.i = add nuw nsw i64 %i.021.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %size.023.i
-  br i1 %exitcond.not.i, label %for.cond.loopexit.i, label %for.body14.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %for.cond.loopexit.i, label %for.body14.i, !llvm.loop !14
 
 hbitmap_deserialize_finish.exit:                  ; preds = %for.cond.loopexit.i
   %9 = load ptr, ptr %levels.i, align 8
@@ -1450,7 +1450,7 @@ for.cond.loopexit:                                ; preds = %for.inc
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp2.not = icmp eq i64 %indvars.iv, 0
   %indvars.iv.next26 = add nsw i64 %indvars.iv25, -1
-  br i1 %cmp2.not, label %for.end25, label %for.body, !llvm.loop !15
+  br i1 %cmp2.not, label %for.end25, label %for.body, !llvm.loop !13
 
 for.body:                                         ; preds = %entry, %for.cond.loopexit
   %indvars.iv25 = phi i64 [ 6, %entry ], [ %indvars.iv.next26, %for.cond.loopexit ]
@@ -1488,7 +1488,7 @@ if.then:                                          ; preds = %for.body14
 for.inc:                                          ; preds = %for.body14, %if.then
   %inc = add nuw nsw i64 %i.021, 1
   %exitcond.not = icmp eq i64 %inc, %size.023
-  br i1 %exitcond.not, label %for.cond.loopexit, label %for.body14, !llvm.loop !16
+  br i1 %exitcond.not, label %for.cond.loopexit, label %for.body14, !llvm.loop !14
 
 for.end25:                                        ; preds = %for.cond.loopexit
   %6 = load ptr, ptr %levels, align 8
@@ -1532,7 +1532,7 @@ for.cond.loopexit.i:                              ; preds = %for.inc.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp2.not.i = icmp eq i64 %indvars.iv.i, 0
   %indvars.iv.next26.i = add nsw i64 %indvars.iv25.i, -1
-  br i1 %cmp2.not.i, label %hbitmap_deserialize_finish.exit, label %for.body.i, !llvm.loop !15
+  br i1 %cmp2.not.i, label %hbitmap_deserialize_finish.exit, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.loopexit.i, %if.then2
   %indvars.iv25.i = phi i64 [ 6, %if.then2 ], [ %indvars.iv.next26.i, %for.cond.loopexit.i ]
@@ -1570,7 +1570,7 @@ if.then.i:                                        ; preds = %for.body14.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body14.i
   %inc.i = add nuw nsw i64 %i.021.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %size.023.i
-  br i1 %exitcond.not.i, label %for.cond.loopexit.i, label %for.body14.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %for.cond.loopexit.i, label %for.body14.i, !llvm.loop !14
 
 hbitmap_deserialize_finish.exit:                  ; preds = %for.cond.loopexit.i
   %8 = load ptr, ptr %levels.i, align 8
@@ -1617,7 +1617,7 @@ for.cond.loopexit.i:                              ; preds = %for.inc.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp2.not.i = icmp eq i64 %indvars.iv.i, 0
   %indvars.iv.next26.i = add nsw i64 %indvars.iv25.i, -1
-  br i1 %cmp2.not.i, label %hbitmap_deserialize_finish.exit, label %for.body.i, !llvm.loop !15
+  br i1 %cmp2.not.i, label %hbitmap_deserialize_finish.exit, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.loopexit.i, %if.then2
   %indvars.iv25.i = phi i64 [ 6, %if.then2 ], [ %indvars.iv.next26.i, %for.cond.loopexit.i ]
@@ -1655,7 +1655,7 @@ if.then.i:                                        ; preds = %for.body14.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body14.i
   %inc.i = add nuw nsw i64 %i.021.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %size.023.i
-  br i1 %exitcond.not.i, label %for.cond.loopexit.i, label %for.body14.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %for.cond.loopexit.i, label %for.body14.i, !llvm.loop !14
 
 hbitmap_deserialize_finish.exit:                  ; preds = %for.cond.loopexit.i
   %8 = load ptr, ptr %levels.i, align 8
@@ -1696,7 +1696,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %1 = load ptr, ptr %arrayidx, align 8
   tail call void @g_free(ptr noundef %1) #12
   %cmp.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body
   tail call void @g_free(ptr noundef nonnull %hb) #12
@@ -1760,7 +1760,7 @@ for.body:                                         ; preds = %if.end10, %for.body
   %arrayidx20 = getelementptr [7 x ptr], ptr %levels, i64 0, i64 %indvars.iv.next
   store ptr %call18, ptr %arrayidx20, align 8
   %cmp13.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %cmp13.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %cmp13.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.body
   %cmp21 = icmp ult i64 %size.addr.024, 65
@@ -1864,7 +1864,7 @@ if.end40.us:                                      ; preds = %for.body.us
   store ptr %call.us, ptr %arrayidx48.us, align 8
   %dec.us = add nsw i32 %dec49.us, -1
   %cmp34.not.us = icmp eq i32 %dec49.us, 0
-  br i1 %cmp34.not.us, label %for.end, label %for.body.us, !llvm.loop !19
+  br i1 %cmp34.not.us, label %for.end, label %for.body.us, !llvm.loop !17
 
 for.body:                                         ; preds = %for.body.preheader, %if.end40
   %dec49 = phi i32 [ %dec, %if.end40 ], [ 6, %for.body.preheader ]
@@ -1890,7 +1890,7 @@ if.end40:                                         ; preds = %for.body
   tail call void @llvm.memset.p0.i64(ptr align 8 %arrayidx57, i8 0, i64 %mul, i1 false)
   %dec = add nsw i32 %dec49, -1
   %cmp34.not = icmp eq i32 %dec49, 0
-  br i1 %cmp34.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %cmp34.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %if.end40, %for.body, %for.body.us, %if.end40.us
   %meta = getelementptr inbounds i8, ptr %hb.tr51, i64 32
@@ -1977,7 +1977,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %mul.i, i1 false)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.not.i = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %cmp.not.i, label %hbitmap_reset_all.exit, label %for.body.i, !llvm.loop !12
+  br i1 %cmp.not.i, label %hbitmap_reset_all.exit, label %for.body.i, !llvm.loop !10
 
 hbitmap_reset_all.exit:                           ; preds = %for.body.i
   %10 = load ptr, ptr %levels.i, align 8
@@ -2007,7 +2007,7 @@ for.body.i61:                                     ; preds = %for.body.i61, %if.t
   tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %mul.i65, i1 false)
   %indvars.iv.next.i66 = add nsw i64 %indvars.iv.i62, -1
   %cmp.not.i67 = icmp eq i64 %indvars.iv.next.i66, 0
-  br i1 %cmp.not.i67, label %hbitmap_reset_all.exit69, label %for.body.i61, !llvm.loop !12
+  br i1 %cmp.not.i67, label %hbitmap_reset_all.exit69, label %for.body.i61, !llvm.loop !10
 
 hbitmap_reset_all.exit69:                         ; preds = %for.body.i61
   %13 = load ptr, ptr %levels.i59, align 8
@@ -2036,13 +2036,13 @@ if.end.i.i:                                       ; preds = %if.then31, %for.bod
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
   %sub.i.i = sub nsw i64 %15, %storemerge8.i
-  %call.i.i = tail call i64 @hbitmap_next_dirty(ptr noundef nonnull %a, i64 noundef %storemerge8.i, i64 noundef %sub.i.i), !range !11
+  %call.i.i = tail call i64 @hbitmap_next_dirty(ptr noundef nonnull %a, i64 noundef %storemerge8.i, i64 noundef %sub.i.i)
   %cmp8.i.i = icmp slt i64 %call.i.i, 0
   br i1 %cmp8.i.i, label %if.end32, label %for.body.i70
 
 for.body.i70:                                     ; preds = %if.end7.i.i
   %sub11.i.i = sub nsw i64 %15, %call.i.i
-  %call19.i.i = tail call i64 @hbitmap_next_zero(ptr noundef nonnull %a, i64 noundef %call.i.i, i64 noundef %sub11.i.i), !range !11
+  %call19.i.i = tail call i64 @hbitmap_next_zero(ptr noundef nonnull %a, i64 noundef %call.i.i, i64 noundef %sub11.i.i)
   %cmp2026.i.i = icmp slt i64 %call19.i.i, 0
   %spec.select.i.i = select i1 %cmp2026.i.i, i64 %15, i64 %call19.i.i
   %sub23.i.i = sub i64 %spec.select.i.i, %call.i.i
@@ -2050,7 +2050,7 @@ for.body.i70:                                     ; preds = %if.end7.i.i
   %16 = load i64, ptr %a, align 8
   %17 = or i64 %16, %spec.select.i.i
   %or.cond.i.i = icmp sgt i64 %17, -1
-  br i1 %or.cond.i.i, label %if.end.i.i, label %if.else.i.i, !llvm.loop !20
+  br i1 %or.cond.i.i, label %if.end.i.i, label %if.else.i.i, !llvm.loop !18
 
 if.end32:                                         ; preds = %if.end7.i.i, %if.end.i.i, %if.end29
   br i1 %cmp8, label %return, label %if.then34
@@ -2072,13 +2072,13 @@ if.end.i.i73:                                     ; preds = %if.then34, %for.bod
 
 if.end7.i.i76:                                    ; preds = %if.end.i.i73
   %sub.i.i77 = sub nsw i64 %19, %storemerge8.i74
-  %call.i.i78 = tail call i64 @hbitmap_next_dirty(ptr noundef nonnull %b, i64 noundef %storemerge8.i74, i64 noundef %sub.i.i77), !range !11
+  %call.i.i78 = tail call i64 @hbitmap_next_dirty(ptr noundef nonnull %b, i64 noundef %storemerge8.i74, i64 noundef %sub.i.i77)
   %cmp8.i.i79 = icmp slt i64 %call.i.i78, 0
   br i1 %cmp8.i.i79, label %return, label %for.body.i80
 
 for.body.i80:                                     ; preds = %if.end7.i.i76
   %sub11.i.i81 = sub nsw i64 %19, %call.i.i78
-  %call19.i.i82 = tail call i64 @hbitmap_next_zero(ptr noundef nonnull %b, i64 noundef %call.i.i78, i64 noundef %sub11.i.i81), !range !11
+  %call19.i.i82 = tail call i64 @hbitmap_next_zero(ptr noundef nonnull %b, i64 noundef %call.i.i78, i64 noundef %sub11.i.i81)
   %cmp2026.i.i83 = icmp slt i64 %call19.i.i82, 0
   %spec.select.i.i84 = select i1 %cmp2026.i.i83, i64 %19, i64 %call19.i.i82
   %sub23.i.i85 = sub i64 %spec.select.i.i84, %call.i.i78
@@ -2086,7 +2086,7 @@ for.body.i80:                                     ; preds = %if.end7.i.i76
   %20 = load i64, ptr %b, align 8
   %21 = or i64 %20, %spec.select.i.i84
   %or.cond.i.i86 = icmp sgt i64 %21, -1
-  br i1 %or.cond.i.i86, label %if.end.i.i73, label %if.else.i.i72, !llvm.loop !20
+  br i1 %or.cond.i.i86, label %if.end.i.i73, label %if.else.i.i72, !llvm.loop !18
 
 if.end36:                                         ; preds = %if.end21
   %size = getelementptr inbounds i8, ptr %a, i64 8
@@ -2135,12 +2135,12 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   %inc = add nuw i64 %j.089, 1
   %30 = load i64, ptr %arrayidx, align 8
   %cmp44 = icmp ult i64 %inc, %30
-  br i1 %cmp44, label %for.body45, label %for.inc57, !llvm.loop !21
+  br i1 %cmp44, label %for.body45, label %for.inc57, !llvm.loop !19
 
 for.inc57:                                        ; preds = %for.body45, %for.cond43.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp42.not = icmp eq i64 %indvars.iv, 0
-  br i1 %cmp42.not, label %for.end58, label %for.cond43.preheader, !llvm.loop !22
+  br i1 %cmp42.not, label %for.end58, label %for.cond43.preheader, !llvm.loop !20
 
 for.end58:                                        ; preds = %for.inc57
   %size59 = getelementptr inbounds i8, ptr %result, i64 8
@@ -2229,21 +2229,19 @@ attributes #13 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{i64 -1, i64 -9223372036854775808}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}

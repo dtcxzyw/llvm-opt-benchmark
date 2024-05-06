@@ -505,7 +505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ;
   br label %257
 
 196:                                              ; preds = %182, %175
-  %197 = trunc i8 %.195 to i1
+  %197 = trunc nuw i8 %.195 to i1
   %.not112 = xor i1 %197, true
   %brmerge = or i1 %.090, %.not112
   br i1 %brmerge, label %207, label %198

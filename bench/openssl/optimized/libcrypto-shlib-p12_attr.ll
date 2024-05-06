@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_add_localkeyid(ptr noundef %bag, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_add_localkeyid(ptr noundef %bag, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
 entry:
   %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attrib, i32 noundef 157, i32 noundef 4, ptr noundef %name, i32 noundef %namelen) #3
@@ -28,7 +28,7 @@ entry:
 declare i32 @PKCS8_pkey_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_add_friendlyname_asc(ptr noundef %bag, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_add_friendlyname_asc(ptr noundef %bag, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
 entry:
   %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attrib, i32 noundef 156, i32 noundef 4097, ptr noundef %name, i32 noundef %namelen) #3
@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_add_friendlyname_utf8(ptr noundef %bag, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_add_friendlyname_utf8(ptr noundef %bag, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
 entry:
   %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attrib, i32 noundef 156, i32 noundef 4096, ptr noundef %name, i32 noundef %namelen) #3
@@ -48,7 +48,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_add_friendlyname_uni(ptr noundef %bag, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_add_friendlyname_uni(ptr noundef %bag, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
 entry:
   %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attrib, i32 noundef 156, i32 noundef 4098, ptr noundef %name, i32 noundef %namelen) #3
@@ -58,7 +58,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_add_CSPName_asc(ptr noundef %bag, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_add_CSPName_asc(ptr noundef %bag, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
 entry:
   %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attrib, i32 noundef 417, i32 noundef 4097, ptr noundef %name, i32 noundef %namelen) #3
@@ -68,7 +68,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_add1_attr_by_NID(ptr noundef %bag, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_add1_attr_by_NID(ptr noundef %bag, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attrib, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #3
@@ -78,7 +78,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS12_add1_attr_by_txt(ptr noundef %bag, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_add1_attr_by_txt(ptr noundef %bag, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %call = tail call ptr @X509at_add1_attr_by_txt(ptr noundef nonnull %attrib, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #3

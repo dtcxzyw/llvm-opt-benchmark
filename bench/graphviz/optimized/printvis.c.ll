@@ -36,7 +36,7 @@ define void @printvis(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %18 = load double, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load double, ptr %19, align 8
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %21, i32 noundef %14, i32 noundef %16, double noundef %18, double noundef %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %10, align 4

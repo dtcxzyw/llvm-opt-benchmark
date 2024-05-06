@@ -12094,7 +12094,7 @@ entry:
   %1 = load ptr, ptr %m_objectives.i, align 8, !noalias !44
   %idxprom.i.i = zext i32 %i to i64
   %arrayidx.i.i = getelementptr inbounds %"struct.opt::context::objective", ptr %1, i64 %idxprom.i.i
-  tail call void @_ZN3opt7context6mk_cmpEbR3refI5modelERKNS0_9objectiveE(ptr sret(%class.obj_ref.76) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(792) %0, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %mdl, ptr noundef nonnull align 8 dereferenceable(100) %arrayidx.i.i)
+  tail call void @_ZN3opt7context6mk_cmpEbR3refI5modelERKNS0_9objectiveE(ptr sret(%class.obj_ref.76) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(792) %0, i1 noundef zeroext false, ptr noundef nonnull readonly align 8 dereferenceable(8) %mdl, ptr noundef nonnull align 8 dereferenceable(100) %arrayidx.i.i)
   ret void
 }
 
@@ -12117,7 +12117,7 @@ entry:
   %1 = load ptr, ptr %m_objectives.i, align 8, !noalias !47
   %idxprom.i.i = zext i32 %i to i64
   %arrayidx.i.i = getelementptr inbounds %"struct.opt::context::objective", ptr %1, i64 %idxprom.i.i
-  tail call void @_ZN3opt7context6mk_cmpEbR3refI5modelERKNS0_9objectiveE(ptr sret(%class.obj_ref.76) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(792) %0, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %mdl, ptr noundef nonnull align 8 dereferenceable(100) %arrayidx.i.i)
+  tail call void @_ZN3opt7context6mk_cmpEbR3refI5modelERKNS0_9objectiveE(ptr sret(%class.obj_ref.76) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(792) %0, i1 noundef zeroext true, ptr noundef nonnull readonly align 8 dereferenceable(8) %mdl, ptr noundef nonnull align 8 dereferenceable(100) %arrayidx.i.i)
   ret void
 }
 
@@ -21098,8 +21098,8 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %8 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %8 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %9 = getelementptr i8, ptr %0, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %9, i64 32
+  %9 = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %9, i64 32
   %cmp.not104 = icmp eq i32 %8, 0
   br i1 %cmp.not104, label %cond.false.i, label %for.body.preheader
 
@@ -22985,7 +22985,7 @@ if.then26:                                        ; preds = %if.then26.critedge,
   %call27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.54)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i)
   call void @_ZN3opt7context16get_lower_as_numEj(ptr nonnull sret(%class.inf_eps_rational) align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(792) %this, i32 noundef %13), !noalias !95
-  invoke void @_ZN3opt7context7to_exprERK16inf_eps_rationalI12inf_rationalE(ptr nonnull sret(%class.obj_ref.76) align 8 %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(792) %this, ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i)
+  invoke void @_ZN3opt7context7to_exprERK16inf_eps_rationalI12inf_rationalE(ptr nonnull writeonly sret(%class.obj_ref.76) align 8 %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(792) %this, ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i)
           to label %_ZN3opt7context9get_lowerEj.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %ehcleanup25, %ehcleanup42, %lpad45, %cleanup.action, %ehcleanup, %lpad.i47, %lpad.i
@@ -23014,7 +23014,7 @@ invoke.cont32:                                    ; preds = %invoke.cont30
           to label %.noexc unwind label %lpad29
 
 .noexc:                                           ; preds = %invoke.cont32
-  invoke void @_ZN3opt7context7to_exprERK16inf_eps_rationalI12inf_rationalE(ptr nonnull sret(%class.obj_ref.76) align 8 %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(792) %this, ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i34)
+  invoke void @_ZN3opt7context7to_exprERK16inf_eps_rationalI12inf_rationalE(ptr nonnull writeonly sret(%class.obj_ref.76) align 8 %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(792) %this, ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i34)
           to label %invoke.cont35 unwind label %lpad.i35
 
 lpad.i35:                                         ; preds = %.noexc
@@ -23119,7 +23119,7 @@ if.else:                                          ; preds = %call3.i.i.noexc
   %call43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.55)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i46)
   call void @_ZN3opt7context16get_lower_as_numEj(ptr nonnull sret(%class.inf_eps_rational) align 8 %ref.tmp.i46, ptr noundef nonnull align 8 dereferenceable(792) %this, i32 noundef %13), !noalias !101
-  invoke void @_ZN3opt7context7to_exprERK16inf_eps_rationalI12inf_rationalE(ptr nonnull sret(%class.obj_ref.76) align 8 %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(792) %this, ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i46)
+  invoke void @_ZN3opt7context7to_exprERK16inf_eps_rationalI12inf_rationalE(ptr nonnull writeonly sret(%class.obj_ref.76) align 8 %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(792) %this, ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i46)
           to label %_ZN3opt7context9get_lowerEj.exit48 unwind label %lpad.i47
 
 lpad.i47:                                         ; preds = %if.else

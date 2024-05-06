@@ -213,7 +213,7 @@ define { double, double } @PQ_min() local_unnamed_addr #3 {
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %9 = trunc i64 %indvars.iv.next to i32
+  %9 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %9, ptr @PQmin, align 4
   br label %10
 
@@ -326,7 +326,7 @@ define void @PQdump() local_unnamed_addr #7 {
 
 .lr.ph12:                                         ; preds = %0, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %0 ]
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3)
   %5 = load ptr, ptr @PQhash, align 8
   %6 = getelementptr inbounds %struct.Halfedge, ptr %5, i64 %indvars.iv, i32 7

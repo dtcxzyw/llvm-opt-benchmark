@@ -48,7 +48,7 @@ define void @sscal_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %21 = load <4 x float>, ptr %20, align 4
   %22 = fmul <4 x float> %16, %21
   store <4 x float> %22, ptr %20, align 4
-  %23 = getelementptr i8, ptr %20, i64 16
+  %23 = getelementptr inbounds i8, ptr %20, i64 16
   %24 = load float, ptr %23, align 4
   %25 = fmul float %6, %24
   store float %25, ptr %23, align 4
@@ -67,7 +67,7 @@ define void @sscal_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph47, !llvm.loop !6
 
 30:                                               ; preds = %10
-  %31 = mul nsw i32 %7, %5
+  %31 = mul nuw nsw i32 %7, %5
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph.preheader, label %.loopexit
 

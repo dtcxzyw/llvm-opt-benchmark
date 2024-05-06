@@ -69,7 +69,7 @@ return:                                           ; preds = %CRYPTO_DOWN_REF.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_kdf_data_up_ref(ptr nocapture noundef %kdfdata) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_kdf_data_up_ref(ptr nocapture noundef %kdfdata) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0

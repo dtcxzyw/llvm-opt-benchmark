@@ -22,7 +22,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
 8:                                                ; preds = %2, %236
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %236 ]
   %9 = load i32, ptr %3, align 4
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = shl nuw nsw i32 1, %10
   %12 = and i32 %9, %11
   %.not = icmp eq i32 %12, 0
@@ -193,7 +193,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
 142:                                              ; preds = %133
   %143 = load i32, ptr %5, align 8
   %144 = lshr i32 %143, 12
-  %145 = trunc i32 %112 to i8
+  %145 = trunc nuw nsw i32 %112 to i8
   %.lhs.trunc188 = add nuw nsw i8 %145, 1
   %146 = trunc i32 %144 to i8
   %147 = and i8 %146, 15
@@ -225,14 +225,14 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   br i1 %.not212, label %181, label %167
 
 167:                                              ; preds = %154
-  %168 = trunc i32 %112 to i8
+  %168 = trunc nuw nsw i32 %112 to i8
   %.lhs.trunc = add nuw nsw i8 %168, 1
   %169 = sdiv i8 %.lhs.trunc, %.rhs.trunc177
   %.sext = sext i8 %169 to i32
   %170 = srem i8 %.lhs.trunc, %.rhs.trunc177
   %171 = icmp ne i8 %170, 0
   %172 = zext i1 %171 to i32
-  %173 = trunc i32 %134 to i8
+  %173 = trunc nuw nsw i32 %134 to i8
   %.lhs.trunc170 = add nsw i8 %173, -1
   %174 = sdiv i8 %.lhs.trunc170, %.rhs.trunc177
   %.sext172 = sext i8 %174 to i32
@@ -245,14 +245,14 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   br label %195
 
 181:                                              ; preds = %154
-  %182 = trunc i32 %134 to i8
+  %182 = trunc nuw nsw i32 %134 to i8
   %.lhs.trunc176 = add nuw nsw i8 %182, 1
   %183 = sdiv i8 %.lhs.trunc176, %.rhs.trunc177
   %.sext178 = sext i8 %183 to i32
   %184 = srem i8 %.lhs.trunc176, %.rhs.trunc177
   %185 = icmp ne i8 %184, 0
   %186 = zext i1 %185 to i32
-  %187 = trunc i32 %112 to i8
+  %187 = trunc nuw nsw i32 %112 to i8
   %.lhs.trunc182 = add nsw i8 %187, -1
   %188 = sdiv i8 %.lhs.trunc182, %.rhs.trunc177
   %.sext184 = sext i8 %188 to i32
@@ -438,7 +438,7 @@ Kit_WordFindFirstBit.exit:                        ; preds = %32, %35
 
 54:                                               ; preds = %54, %.preheader19.i
   %indvars.iv.i = phi i64 [ 0, %.preheader19.i ], [ %indvars.iv.next.i, %54 ]
-  %55 = trunc i64 %indvars.iv.i to i32
+  %55 = trunc nuw nsw i64 %indvars.iv.i to i32
   %56 = and i32 %48, %55
   %.not.i79 = icmp ne i32 %56, 0
   %spec.select.i = sext i1 %.not.i79 to i32

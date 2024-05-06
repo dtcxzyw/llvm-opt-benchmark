@@ -88,7 +88,7 @@ define i32 @mca_coll_basic_gatherv_intra(ptr noundef %0, i32 noundef %1, ptr nou
 46:                                               ; preds = %42
   %47 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
   %48 = zext nneg i32 %44 to i64
-  %49 = trunc i64 %indvars.iv72 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv72 to i32
   %50 = tail call i32 %47(ptr noundef %40, i64 noundef %48, ptr noundef %6, i32 noundef %49, i32 noundef -20, ptr noundef %8, ptr noundef null) #2
   br label %56
 
@@ -130,7 +130,7 @@ define i32 @mca_coll_basic_gatherv_intra(ptr noundef %0, i32 noundef %1, ptr nou
 67:                                               ; preds = %63
   %68 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
   %69 = zext nneg i32 %65 to i64
-  %70 = trunc i64 %indvars.iv to i32
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
   %71 = tail call i32 %68(ptr noundef %61, i64 noundef %69, ptr noundef %6, i32 noundef %70, i32 noundef -20, ptr noundef %8, ptr noundef null) #2
   %.not56 = icmp eq i32 %71, 0
   br i1 %.not56, label %.thread, label %.loopexit
@@ -207,7 +207,7 @@ ompi_comm_remote_size.exit:                       ; preds = %10, %14
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv
-  %45 = trunc i64 %indvars.iv to i32
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
   %46 = tail call i32 %40(ptr noundef %39, i64 noundef %43, ptr noundef %6, i32 noundef %45, i32 noundef -20, ptr noundef %8, ptr noundef nonnull %44) #2
   %.not45 = icmp eq i32 %46, 0
   %indvars.iv.next = add nuw i64 %indvars.iv, 1

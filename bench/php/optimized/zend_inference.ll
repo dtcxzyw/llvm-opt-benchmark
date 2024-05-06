@@ -12066,7 +12066,7 @@ shift_left_overflows.exit.thread:                 ; preds = %2396, %2391, %2388,
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @zend_array_type_info(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define range(i32 -2147483520, 0) i32 @zend_array_type_info(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 9
   %4 = load i8, ptr %3, align 1
@@ -14759,7 +14759,7 @@ zend_fetch_prop_type.exit:                        ; preds = %1217, %1219
   ]
 
 1250:                                             ; preds = %1246
-  %1251 = tail call i32 @zend_array_type_info(ptr noundef nonnull %1247), !range !4
+  %1251 = tail call i32 @zend_array_type_info(ptr noundef nonnull %1247)
   br label %.thread10241
 
 1252:                                             ; preds = %1246
@@ -14839,7 +14839,7 @@ zend_fetch_prop_type.exit:                        ; preds = %1217, %1219
   ]
 
 1298:                                             ; preds = %1294
-  %1299 = tail call i32 @zend_array_type_info(ptr noundef nonnull %1295), !range !4
+  %1299 = tail call i32 @zend_array_type_info(ptr noundef nonnull %1295)
   br label %.thread10241
 
 1300:                                             ; preds = %1294
@@ -14929,7 +14929,7 @@ zend_fetch_prop_type.exit10112:                   ; preds = %1317, %1319
   ]
 
 1350:                                             ; preds = %1346
-  %1351 = tail call i32 @zend_array_type_info(ptr noundef nonnull %1347), !range !4
+  %1351 = tail call i32 @zend_array_type_info(ptr noundef nonnull %1347)
   br label %.thread10241
 
 1352:                                             ; preds = %1346
@@ -15068,7 +15068,7 @@ zend_fetch_prop_type.exit10112:                   ; preds = %1317, %1319
   ]
 
 1421:                                             ; preds = %1417
-  %1422 = tail call i32 @zend_array_type_info(ptr noundef nonnull %1418), !range !4
+  %1422 = tail call i32 @zend_array_type_info(ptr noundef nonnull %1418)
   br label %.thread10253
 
 1423:                                             ; preds = %1417
@@ -16375,7 +16375,7 @@ zend_fetch_prop_type.exit10121:                   ; preds = %1728
   ]
 
 2136:                                             ; preds = %2132
-  %2137 = tail call i32 @zend_array_type_info(ptr noundef nonnull %2133), !range !4
+  %2137 = tail call i32 @zend_array_type_info(ptr noundef nonnull %2133)
   br label %.thread10257
 
 2138:                                             ; preds = %2132
@@ -16655,7 +16655,7 @@ zend_fetch_prop_type.exit10121:                   ; preds = %1728
   ]
 
 2294:                                             ; preds = %2289
-  %2295 = tail call i32 @zend_array_type_info(ptr noundef nonnull %2291), !range !4
+  %2295 = tail call i32 @zend_array_type_info(ptr noundef nonnull %2291)
   br label %2308
 
 2296:                                             ; preds = %2289
@@ -16709,7 +16709,7 @@ zend_fetch_prop_type.exit10121:                   ; preds = %1728
   ]
 
 2323:                                             ; preds = %2319
-  %2324 = tail call i32 @zend_array_type_info(ptr noundef nonnull %2320), !range !4
+  %2324 = tail call i32 @zend_array_type_info(ptr noundef nonnull %2320)
   br label %.thread10271
 
 2325:                                             ; preds = %2319
@@ -16862,7 +16862,7 @@ zend_fetch_prop_type.exit10121:                   ; preds = %1728
   ]
 
 2408:                                             ; preds = %2404
-  %2409 = tail call i32 @zend_array_type_info(ptr noundef nonnull %2405), !range !4
+  %2409 = tail call i32 @zend_array_type_info(ptr noundef nonnull %2405)
   br label %.thread10273
 
 2410:                                             ; preds = %2404
@@ -17427,7 +17427,7 @@ zend_fetch_prop_type.exit10133:                   ; preds = %2611, %2612
   ]
 
 2720:                                             ; preds = %2716
-  %2721 = call i32 @zend_array_type_info(ptr noundef nonnull %2717), !range !4
+  %2721 = call i32 @zend_array_type_info(ptr noundef nonnull %2717)
   br label %.thread10280
 
 2722:                                             ; preds = %2716
@@ -17654,7 +17654,7 @@ zend_fetch_prop_type.exit10133:                   ; preds = %2611, %2612
   ]
 
 2843:                                             ; preds = %2839
-  %2844 = tail call i32 @zend_array_type_info(ptr noundef nonnull %2840), !range !4
+  %2844 = tail call i32 @zend_array_type_info(ptr noundef nonnull %2840)
   br label %.thread10282
 
 2845:                                             ; preds = %2839
@@ -19000,7 +19000,7 @@ zend_fetch_prop_type.exit10133:                   ; preds = %2611, %2612
   ]
 
 3581:                                             ; preds = %3577
-  %3582 = tail call i32 @zend_array_type_info(ptr noundef nonnull %3578), !range !4
+  %3582 = tail call i32 @zend_array_type_info(ptr noundef nonnull %3578)
   br label %.thread10287
 
 3583:                                             ; preds = %3577
@@ -20736,7 +20736,7 @@ zend_fetch_prop_type.exit10133:                   ; preds = %2611, %2612
   br i1 %.not8877, label %.thread10325, label %4533
 
 4533:                                             ; preds = %4529
-  %4534 = load ptr, ptr %4532, align 8, !nonnull !5, !noundef !5
+  %4534 = load ptr, ptr %4532, align 8, !nonnull !4, !noundef !4
   %4535 = load i32, ptr %4479, align 4
   %4536 = icmp sgt i32 %4535, -1
   br i1 %4536, label %4537, label %.thread10325
@@ -21878,7 +21878,7 @@ thread-pre-split10294.thread:                     ; preds = %4944, %4925, %4940,
   ]
 
 5192:                                             ; preds = %5188
-  %5193 = tail call i32 @zend_array_type_info(ptr noundef nonnull %5189), !range !4
+  %5193 = tail call i32 @zend_array_type_info(ptr noundef nonnull %5189)
   br label %.thread10299
 
 5194:                                             ; preds = %5188
@@ -21942,7 +21942,7 @@ thread-pre-split10294.thread:                     ; preds = %4944, %4925, %4940,
   br i1 %or.cond9813, label %5229, label %5222
 
 5222:                                             ; preds = %5218
-  %5223 = tail call fastcc i32 @assign_dim_array_result_type(i32 noundef %.0760710301, i32 noundef %.07368, i32 noundef %.0737710216, i8 noundef zeroext %5219), !range !6
+  %5223 = tail call fastcc i32 @assign_dim_array_result_type(i32 noundef %.0760710301, i32 noundef %.07368, i32 noundef %.0737710216, i8 noundef zeroext %5219)
   %5224 = or i32 %5223, %.76
   %5225 = getelementptr inbounds i8, ptr %.07418, i64 20
   %5226 = load i32, ptr %5225, align 4
@@ -22973,7 +22973,7 @@ thread-pre-split10294.thread:                     ; preds = %4944, %4925, %4940,
   ]
 
 5794:                                             ; preds = %5790
-  %5795 = tail call i32 @zend_array_type_info(ptr noundef nonnull %5791), !range !4
+  %5795 = tail call i32 @zend_array_type_info(ptr noundef nonnull %5791)
   br label %5812
 
 5796:                                             ; preds = %5790
@@ -26512,7 +26512,7 @@ zend_get_return_info_from_signature_only.exit:    ; preds = %3, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_ssa_inference(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_ssa_inference(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 72
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -26522,7 +26522,7 @@ define noundef i32 @zend_ssa_inference(ptr nocapture noundef %0, ptr noundef %1,
   %9 = getelementptr inbounds i8, ptr %3, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 40, i64 %11) #20, !srcloc !7
+  %12 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 40, i64 %11) #20, !srcloc !5
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = extractvalue { i64, i64 } %12, 1
   %.not140.not = icmp eq i64 %14, 0
@@ -26664,7 +26664,7 @@ define noundef i32 @zend_ssa_inference(ptr nocapture noundef %0, ptr noundef %1,
 ._crit_edge:                                      ; preds = %.lr.ph151, %.loopexit
   tail call fastcc void @zend_mark_cv_references(ptr noundef %1, ptr noundef nonnull %3)
   tail call fastcc void @zend_infer_ranges(ptr noundef %1, ptr noundef nonnull %3)
-  %83 = tail call fastcc i32 @zend_infer_types(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4), !range !8
+  %83 = tail call fastcc i32 @zend_infer_types(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4)
   %84 = icmp eq i32 %83, -1
   %.144 = sext i1 %84 to i32
   ret i32 %.144
@@ -29915,7 +29915,7 @@ zend_ssa_range_narrowing.exit1062.thread:         ; preds = %1367, %1302
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_infer_types(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @zend_infer_types(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %.sroa.30.i = alloca [6 x i8], align 2
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load i32, ptr %5, align 8
@@ -29959,7 +29959,7 @@ define internal fastcc noundef i32 @zend_infer_types(ptr noundef %0, ptr noundef
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
-  %31 = call fastcc i32 @zend_infer_types_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %18, i64 noundef %3), !range !8
+  %31 = call fastcc i32 @zend_infer_types_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %18, i64 noundef %3)
   %32 = icmp eq i32 %31, -1
   br i1 %32, label %33, label %34
 
@@ -31747,7 +31747,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not596, label %613, label %598
 
 598:                                              ; preds = %595
-  %599 = load ptr, ptr %597, align 8, !nonnull !5, !noundef !5
+  %599 = load ptr, ptr %597, align 8, !nonnull !4, !noundef !4
   %600 = getelementptr inbounds i8, ptr %599, i64 48
   %601 = load i32, ptr %600, align 8
   %602 = and i32 %601, 33554431
@@ -33510,7 +33510,7 @@ define internal fastcc ptr @zend_fetch_prop_info(ptr nocapture noundef readonly 
   br i1 %.not32.i, label %.thread, label %62
 
 62:                                               ; preds = %59
-  %63 = load ptr, ptr %61, align 8, !nonnull !5, !noundef !5
+  %63 = load ptr, ptr %61, align 8, !nonnull !4, !noundef !4
   %64 = getelementptr inbounds i8, ptr %63, i64 32
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, %47
@@ -33687,7 +33687,7 @@ define internal fastcc ptr @zend_fetch_static_prop_info(ptr noundef %0, ptr noun
   br i1 %.not32.i, label %.thread, label %84
 
 84:                                               ; preds = %81
-  %85 = load ptr, ptr %83, align 8, !nonnull !5, !noundef !5
+  %85 = load ptr, ptr %83, align 8, !nonnull !4, !noundef !4
   %86 = getelementptr inbounds i8, ptr %85, i64 32
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, %69
@@ -33826,7 +33826,7 @@ declare ptr @zend_optimizer_get_class_entry_from_op1(ptr noundef, ptr noundef, p
 declare ptr @zend_std_get_constructor(ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc i32 @assign_dim_array_result_type(i32 noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #10 {
+define internal fastcc range(i32 0, 16777216) i32 @assign_dim_array_result_type(i32 noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #10 {
   %5 = and i32 %2, 1023
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %41, label %6
@@ -35531,7 +35531,7 @@ zend_inference_narrowing_meet.exit:               ; preds = %.preheader, %.loope
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_infer_types_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @zend_infer_types_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
@@ -35605,7 +35605,7 @@ zend_bitset_empty.exit:                           ; preds = %.lr.ph.i, %.lr.ph
 
 40:                                               ; preds = %.lr.ph.i10266
   %41 = shl nuw nsw i64 %indvars.iv.i10267, 6
-  %42 = call i64 @llvm.cttz.i64(i64 %39, i1 true), !range !9
+  %42 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %39, i1 true)
   %43 = or disjoint i64 %42, %41
   %44 = trunc nuw i64 %43 to i32
   br label %zend_bitset_first.exit
@@ -38491,7 +38491,7 @@ zend_fetch_prop_type.exit:                        ; preds = %1451, %1453
   ]
 
 1482:                                             ; preds = %1478
-  %1483 = call i32 @zend_array_type_info(ptr noundef nonnull %1479), !range !4
+  %1483 = call i32 @zend_array_type_info(ptr noundef nonnull %1479)
   br label %.thread10504
 
 1484:                                             ; preds = %1478
@@ -38569,7 +38569,7 @@ zend_fetch_prop_type.exit:                        ; preds = %1451, %1453
   ]
 
 1528:                                             ; preds = %1524
-  %1529 = call i32 @zend_array_type_info(ptr noundef nonnull %1525), !range !4
+  %1529 = call i32 @zend_array_type_info(ptr noundef nonnull %1525)
   br label %.thread10504
 
 1530:                                             ; preds = %1524
@@ -38657,7 +38657,7 @@ zend_fetch_prop_type.exit10354:                   ; preds = %1547, %1549
   ]
 
 1578:                                             ; preds = %1574
-  %1579 = call i32 @zend_array_type_info(ptr noundef nonnull %1575), !range !4
+  %1579 = call i32 @zend_array_type_info(ptr noundef nonnull %1575)
   br label %.thread10504
 
 1580:                                             ; preds = %1574
@@ -38794,7 +38794,7 @@ zend_fetch_prop_type.exit10354:                   ; preds = %1547, %1549
   ]
 
 1647:                                             ; preds = %1643
-  %1648 = call i32 @zend_array_type_info(ptr noundef nonnull %1644), !range !4
+  %1648 = call i32 @zend_array_type_info(ptr noundef nonnull %1644)
   br label %.thread10516
 
 1649:                                             ; preds = %1643
@@ -40038,7 +40038,7 @@ zend_fetch_prop_type.exit10363:                   ; preds = %1947
   ]
 
 2334:                                             ; preds = %2330
-  %2335 = call i32 @zend_array_type_info(ptr noundef nonnull %2331), !range !4
+  %2335 = call i32 @zend_array_type_info(ptr noundef nonnull %2331)
   br label %.thread10520
 
 2336:                                             ; preds = %2330
@@ -40312,7 +40312,7 @@ zend_fetch_prop_type.exit10363:                   ; preds = %1947
   ]
 
 2487:                                             ; preds = %2482
-  %2488 = call i32 @zend_array_type_info(ptr noundef nonnull %2484), !range !4
+  %2488 = call i32 @zend_array_type_info(ptr noundef nonnull %2484)
   br label %2501
 
 2489:                                             ; preds = %2482
@@ -40365,7 +40365,7 @@ zend_fetch_prop_type.exit10363:                   ; preds = %1947
   ]
 
 2515:                                             ; preds = %2511
-  %2516 = call i32 @zend_array_type_info(ptr noundef nonnull %2512), !range !4
+  %2516 = call i32 @zend_array_type_info(ptr noundef nonnull %2512)
   br label %.thread10534
 
 2517:                                             ; preds = %2511
@@ -40508,7 +40508,7 @@ zend_fetch_prop_type.exit10363:                   ; preds = %1947
   ]
 
 2595:                                             ; preds = %2591
-  %2596 = call i32 @zend_array_type_info(ptr noundef nonnull %2592), !range !4
+  %2596 = call i32 @zend_array_type_info(ptr noundef nonnull %2592)
   br label %.thread10536
 
 2597:                                             ; preds = %2591
@@ -41051,7 +41051,7 @@ zend_fetch_prop_type.exit10375:                   ; preds = %2791, %2792
   ]
 
 2895:                                             ; preds = %2891
-  %2896 = call i32 @zend_array_type_info(ptr noundef nonnull %2892), !range !4
+  %2896 = call i32 @zend_array_type_info(ptr noundef nonnull %2892)
   br label %.thread10543
 
 2897:                                             ; preds = %2891
@@ -41259,7 +41259,7 @@ zend_fetch_prop_type.exit10375:                   ; preds = %2791, %2792
   ]
 
 3009:                                             ; preds = %3005
-  %3010 = call i32 @zend_array_type_info(ptr noundef nonnull %3006), !range !4
+  %3010 = call i32 @zend_array_type_info(ptr noundef nonnull %3006)
   br label %.thread10545
 
 3011:                                             ; preds = %3005
@@ -42517,7 +42517,7 @@ zend_fetch_prop_type.exit10375:                   ; preds = %2791, %2792
   ]
 
 3705:                                             ; preds = %3701
-  %3706 = call i32 @zend_array_type_info(ptr noundef nonnull %3702), !range !4
+  %3706 = call i32 @zend_array_type_info(ptr noundef nonnull %3702)
   br label %.thread10550
 
 3707:                                             ; preds = %3701
@@ -44126,7 +44126,7 @@ zend_fetch_prop_type.exit10375:                   ; preds = %2791, %2792
   br label %.lr.ph.i.preheader.backedge
 
 4602:                                             ; preds = %4598
-  %4603 = load ptr, ptr %4601, align 8, !nonnull !5, !noundef !5
+  %4603 = load ptr, ptr %4601, align 8, !nonnull !4, !noundef !4
   store ptr %4603, ptr %6, align 8
   %4604 = load i32, ptr %4554, align 4
   %4605 = icmp sgt i32 %4604, -1
@@ -45262,7 +45262,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   ]
 
 5252:                                             ; preds = %5248
-  %5253 = call i32 @zend_array_type_info(ptr noundef nonnull %5249), !range !4
+  %5253 = call i32 @zend_array_type_info(ptr noundef nonnull %5249)
   br label %.thread10562
 
 5254:                                             ; preds = %5248
@@ -45326,7 +45326,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   br i1 %or.cond10044, label %5289, label %5282
 
 5282:                                             ; preds = %5278
-  %5283 = call fastcc i32 @assign_dim_array_result_type(i32 noundef %.0792010564, i32 noundef %.07595, i32 noundef %.0760810479, i8 noundef zeroext %5279), !range !6
+  %5283 = call fastcc i32 @assign_dim_array_result_type(i32 noundef %.0792010564, i32 noundef %.07595, i32 noundef %.0760810479, i8 noundef zeroext %5279)
   %5284 = or i32 %5283, %.76
   %5285 = getelementptr inbounds i8, ptr %.07654, i64 20
   %5286 = load i32, ptr %5285, align 4
@@ -46304,7 +46304,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   ]
 
 5828:                                             ; preds = %5824
-  %5829 = call i32 @zend_array_type_info(ptr noundef nonnull %5825), !range !4
+  %5829 = call i32 @zend_array_type_info(ptr noundef nonnull %5825)
   br label %5846
 
 5830:                                             ; preds = %5824
@@ -49619,7 +49619,7 @@ define internal fastcc void @zend_type_narrowing(ptr noundef %0, ptr noundef %1,
   %18 = phi ptr [ %16, %15 ], [ %14, %13 ]
   %19 = getelementptr inbounds i64, ptr %18, i64 %9
   %20 = shl nuw nsw i64 %9, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 %20, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %19, i8 0, i64 %20, i1 false)
   %21 = getelementptr inbounds i8, ptr %0, i64 80
   %22 = load i32, ptr %21, align 8
   %23 = load i32, ptr %5, align 8
@@ -49710,7 +49710,7 @@ define internal fastcc void @zend_type_narrowing(ptr noundef %0, ptr noundef %1,
 
 79:                                               ; preds = %73, %68
   %80 = phi ptr [ %72, %68 ], [ %78, %73 ]
-  call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 %20, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %18, i8 0, i64 %20, i1 false)
   %81 = trunc nsw i64 %indvars.iv131 to i32
   %82 = call fastcc zeroext i1 @can_convert_to_double(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %81, ptr noundef %80, ptr noundef %18)
   br i1 %82, label %83, label %zend_bitset_union.exit
@@ -49792,7 +49792,7 @@ zend_bitset_union.exit:                           ; preds = %.lr.ph.i, %83, %._c
   br i1 %12, label %.sink.split, label %111
 
 109:                                              ; preds = %._crit_edge123
-  %110 = call fastcc i32 @zend_infer_types_ex(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %19, i64 noundef %3), !range !8
+  %110 = call fastcc i32 @zend_infer_types_ex(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %19, i64 noundef %3)
   br i1 %12, label %.sink.split, label %111
 
 .sink.split:                                      ; preds = %109, %.critedge
@@ -50388,9 +50388,5 @@ attributes #21 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483520, i32 0}
-!5 = !{}
-!6 = !{i32 0, i32 16777216}
-!7 = !{i64 2974392, i64 2974413}
-!8 = !{i32 -1, i32 1}
-!9 = !{i64 0, i64 65}
+!4 = !{}
+!5 = !{i64 2974392, i64 2974413}

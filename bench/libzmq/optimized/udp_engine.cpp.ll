@@ -1128,7 +1128,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq12udp_engine_t4initEPNS_9address_tEbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17880) %this, ptr noundef %address_, i1 noundef zeroext %send_, i1 noundef zeroext %recv_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12udp_engine_t4initEPNS_9address_tEbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17880) %this, ptr noundef %address_, i1 noundef zeroext %send_, i1 noundef zeroext %recv_) local_unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %send_ to i8
   %frombool1 = zext i1 %recv_ to i8
@@ -1905,7 +1905,7 @@ declare void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferencea
 declare noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq12udp_engine_t19resolve_raw_addressEPKcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17880) %this, ptr noundef %name_, i64 noundef %length_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12udp_engine_t19resolve_raw_addressEPKcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17880) %this, ptr noundef %name_, i64 noundef %length_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %addr_str = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -2103,7 +2103,7 @@ do.end25:                                         ; preds = %if.then10, %if.then
 
 if.then28:                                        ; preds = %do.end25
   %call29 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %group_msg)
-  %call30 = call noundef i32 @_ZN3zmq12udp_engine_t19resolve_raw_addressEPKcm(ptr noundef nonnull align 8 dereferenceable(17880) %this, ptr noundef %call29, i64 noundef %call26), !range !10
+  %call30 = call noundef i32 @_ZN3zmq12udp_engine_t19resolve_raw_addressEPKcm(ptr noundef nonnull align 8 dereferenceable(17880) %this, ptr noundef %call29, i64 noundef %call26)
   %cmp31.not = icmp eq i32 %call30, 0
   br i1 %cmp31.not, label %if.end57, label %if.then32
 
@@ -2750,7 +2750,7 @@ if.end16:                                         ; preds = %invoke.cont13, %inv
   %__x.addr.0.in = getelementptr inbounds i8, ptr %__x.addr.037, i64 16
   %__x.addr.0 = load ptr, ptr %__x.addr.0.in, align 8
   %cmp.not = icmp eq ptr %__x.addr.0, null
-  br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !11
+  br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !10
 
 lpad18:                                           ; preds = %invoke.cont19, %lpad
   %8 = landingpad { ptr, i32 }
@@ -2790,7 +2790,7 @@ while.body:                                       ; preds = %entry, %while.body
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #21
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !12
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -2888,7 +2888,7 @@ if.end16:                                         ; preds = %invoke.cont13, %inv
   %__x.addr.0.in = getelementptr inbounds i8, ptr %__x.addr.037, i64 16
   %__x.addr.0 = load ptr, ptr %__x.addr.0.in, align 8
   %cmp.not = icmp eq ptr %__x.addr.0, null
-  br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !13
+  br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !12
 
 lpad18:                                           ; preds = %invoke.cont19, %lpad
   %8 = landingpad { ptr, i32 }
@@ -2928,7 +2928,7 @@ while.body:                                       ; preds = %entry, %while.body
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #21
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !14
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -3027,7 +3027,7 @@ if.end16:                                         ; preds = %invoke.cont13, %inv
   %__x.addr.0.in = getelementptr inbounds i8, ptr %__x.addr.036, i64 16
   %__x.addr.0 = load ptr, ptr %__x.addr.0.in, align 8
   %cmp.not = icmp eq ptr %__x.addr.0, null
-  br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !15
+  br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !14
 
 lpad18:                                           ; preds = %invoke.cont19, %lpad
   %8 = landingpad { ptr, i32 }
@@ -3071,7 +3071,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #21
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !16
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !15
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -3180,10 +3180,9 @@ attributes #25 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 -1, i32 1}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

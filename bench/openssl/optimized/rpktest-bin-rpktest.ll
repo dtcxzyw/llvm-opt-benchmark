@@ -141,7 +141,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -256,7 +256,7 @@ declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_rpk_api() #1 {
+define internal range(i32 0, 2) i32 @test_rpk_api() #1 {
 entry:
   %cctx = alloca ptr, align 8
   %sctx = alloca ptr, align 8
@@ -367,7 +367,7 @@ entry:
 if.end:                                           ; preds = %entry
   %div = sdiv i32 %idx, 1024
   %rem = srem i32 %idx, 1024
-  %div1.lhs.trunc = trunc i32 %rem to i16
+  %div1.lhs.trunc = trunc nsw i32 %rem to i16
   %div1131 = sdiv i16 %div1.lhs.trunc, 512
   %div1.sext = sext i16 %div1131 to i32
   %rem2132 = srem i16 %div1.lhs.trunc, 512
@@ -378,7 +378,7 @@ if.end:                                           ; preds = %entry
   %div5135 = sdiv i16 %rem4134, 128
   %div5.sext = sext i16 %div5135 to i32
   %rem6136 = srem i16 %rem4134, 128
-  %div7.lhs.trunc = trunc i16 %rem6136 to i8
+  %div7.lhs.trunc = trunc nsw i16 %rem6136 to i8
   %div7137 = sdiv i8 %div7.lhs.trunc, 32
   %div7.sext = sext i8 %div7137 to i32
   %rem8138 = srem i8 %div7.lhs.trunc, 32
@@ -1613,7 +1613,7 @@ declare i32 @SSL_CTX_dane_enable(ptr noundef) local_unnamed_addr #2
 declare void @SSL_CTX_set_verify(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rpk_verify_client_cb(i32 noundef %ok, ptr noundef %ctx) #1 {
+define internal range(i32 0, 2) i32 @rpk_verify_client_cb(i32 noundef %ok, ptr noundef %ctx) #1 {
 entry:
   %call = tail call i32 @X509_STORE_CTX_get_error(ptr noundef %ctx) #4
   %call1 = tail call ptr @X509_STORE_CTX_get0_rpk(ptr noundef %ctx) #4
@@ -1648,7 +1648,7 @@ declare i32 @SSL_add_expected_rpk(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @SSL_set_verify(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rpk_verify_server_cb(i32 noundef %ok, ptr noundef %ctx) #1 {
+define internal range(i32 0, 2) i32 @rpk_verify_server_cb(i32 noundef %ok, ptr noundef %ctx) #1 {
 entry:
   %call = tail call i32 @X509_STORE_CTX_get_error(ptr noundef %ctx) #4
   %call1 = tail call ptr @X509_STORE_CTX_get0_rpk(ptr noundef %ctx) #4

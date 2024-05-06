@@ -372,7 +372,7 @@ _ZNSt16allocator_traitsISaIPdEE8allocateERS1_m.exit.i.i.i: ; preds = %46
   %122 = getelementptr inbounds i8, ptr %spec.select138, i64 16
   %123 = load <2 x double>, ptr %122, align 1
   %124 = fmul <2 x double> %123, %123
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %spec.select138, i64 48
+  %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %spec.select138, i64 48
   %125 = icmp ugt i32 %25, 7
   br i1 %125, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
@@ -385,7 +385,7 @@ _ZNSt16allocator_traitsISaIPdEE8allocateERS1_m.exit.i.i.i: ; preds = %46
   %127 = load <2 x double>, ptr %126, align 1
   %128 = fmul <2 x double> %127, %127
   %129 = fadd <2 x double> %.07275.i.i.i.i, %128
-  %gep.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
+  %gep.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
   %130 = load <2 x double>, ptr %gep.i.i.i.i, align 1
   %131 = fmul <2 x double> %130, %130
   %132 = fadd <2 x double> %storemerge76.i.i.i.i, %131
@@ -909,7 +909,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal25MatrixMatrixMultiplyNaiveIL
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge.split.us.us.us
   %indvars.iv230 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next231, %._crit_edge.split.us.us.us ]
-  %87 = trunc i64 %indvars.iv230 to i32
+  %87 = trunc nuw nsw i64 %indvars.iv230 to i32
   %88 = add i32 %87, %8
   %89 = getelementptr inbounds double, ptr %3, i64 %indvars.iv230
   br label %.lr.ph.preheader.i.us.us.us
@@ -1042,7 +1042,7 @@ _ZN5ceres8internalL10MMM_mat1x4EiPKdS2_iPdi.exit.us.us.us: ; preds = %.lr.ph152.
 
 .preheader.us.us164:                              ; preds = %.preheader.us.us164.preheader, %._crit_edge.split.split.us.us.us
   %indvars.iv222 = phi i64 [ 0, %.preheader.us.us164.preheader ], [ %indvars.iv.next223, %._crit_edge.split.split.us.us.us ]
-  %170 = trunc i64 %indvars.iv222 to i32
+  %170 = trunc nuw nsw i64 %indvars.iv222 to i32
   %171 = add i32 %170, %8
   %172 = getelementptr inbounds double, ptr %3, i64 %indvars.iv222
   br label %.preheader.i.us133.us.us

@@ -56,7 +56,7 @@ define i32 @LAPACKE_dpftrs_work(i32 noundef %0, i8 noundef signext %1, i8 nounde
 
 29:                                               ; preds = %21
   %30 = add nuw nsw i32 %19, 1
-  %31 = mul nsw i32 %30, %19
+  %31 = mul nuw nsw i32 %30, %19
   %32 = zext nneg i32 %31 to i64
   %33 = shl nuw nsw i64 %32, 2
   %34 = tail call noalias ptr @malloc(i64 noundef %33) #7

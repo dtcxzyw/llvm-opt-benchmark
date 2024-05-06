@@ -1424,7 +1424,7 @@ define hidden { i32, i32 } @_ZN3vfs13path_interner12PathInterner3get17hff490a5fd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @_ZN3vfs13path_interner12PathInterner6intern17h820e0cb538e82916E(ptr noalias noundef align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, -1) i32 @_ZN3vfs13path_interner12PathInterner6intern17h820e0cb538e82916E(ptr noalias noundef align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca i64, align 8
   %4 = alloca { { i64, [3 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !262

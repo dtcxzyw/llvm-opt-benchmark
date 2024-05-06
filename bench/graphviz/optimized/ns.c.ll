@@ -868,7 +868,7 @@ STsetFind.exit48.i.i:                             ; preds = %STsetFind.exit48.i.
   br label %425
 
 425:                                              ; preds = %.sink.split.i.i, %422, %419
-  %426 = tail call fastcc i32 @add_tree_edge(ptr noundef nonnull %360), !range !4
+  %426 = tail call fastcc i32 @add_tree_edge(ptr noundef nonnull %360)
   %.not34.i.i = icmp eq i32 %426, 0
   br i1 %.not34.i.i, label %.preheader.i51.i, label %merge_trees.exit.thread.i
 
@@ -1043,7 +1043,7 @@ feasible_tree.exit.thread:                        ; preds = %._crit_edge93.threa
   %505 = load ptr, ptr %504, align 8
   %506 = getelementptr inbounds i8, ptr %505, i64 256
   %507 = load ptr, ptr %506, align 8
-  %508 = tail call fastcc i32 @dfs_range_init(ptr noundef %507, ptr noundef null, i32 noundef 1), !range !5
+  %508 = tail call fastcc i32 @dfs_range_init(ptr noundef %507, ptr noundef null, i32 noundef 1)
   %509 = load ptr, ptr @G, align 8
   %510 = getelementptr inbounds i8, ptr %509, i64 16
   %511 = load ptr, ptr %510, align 8
@@ -1424,12 +1424,12 @@ enter_edge.exit:                                  ; preds = %614, %615
   %718 = select i1 %716, ptr %713, ptr %717
   %719 = getelementptr inbounds i8, ptr %718, i64 56
   %720 = load ptr, ptr %719, align 8
-  %.not103.i = icmp eq ptr %.028.i.i, %720
+  %.not104.i = icmp eq ptr %.028.i.i, %720
   %721 = getelementptr inbounds i8, ptr %713, i64 16
   %722 = load ptr, ptr %721, align 8
   %723 = getelementptr inbounds i8, ptr %722, i64 216
   %724 = load i32, ptr %723, align 8
-  %.sink.p.i.i = select i1 %.not103.i, i32 %688, i32 %700
+  %.sink.p.i.i = select i1 %.not104.i, i32 %688, i32 %700
   %.sink.i.i = add i32 %724, %.sink.p.i.i
   store i32 %.sink.i.i, ptr %723, align 8
   %725 = load i32, ptr %713, align 8
@@ -1471,7 +1471,7 @@ treeupdate.exit.i:                                ; preds = %709
   br label %756
 
 756:                                              ; preds = %.critedge.i83.i, %treeupdate.exit.i
-  %.028.i80.i = phi ptr [ %750, %treeupdate.exit.i ], [ %..i88.i, %.critedge.i83.i ]
+  %.028.i80.i = phi ptr [ %750, %treeupdate.exit.i ], [ %..i89.i, %.critedge.i83.i ]
   %757 = getelementptr inbounds i8, ptr %.028.i80.i, i64 16
   %758 = load ptr, ptr %757, align 8
   %759 = getelementptr inbounds i8, ptr %758, i64 448
@@ -1486,7 +1486,7 @@ treeupdate.exit.i:                                ; preds = %709
   %765 = getelementptr inbounds i8, ptr %758, i64 452
   %766 = load i32, ptr %765, align 4
   %.not32.i82.i = icmp sgt i32 %763, %766
-  br i1 %.not32.i82.i, label %.critedge.i83.i, label %treeupdate.exit89.i
+  br i1 %.not32.i82.i, label %.critedge.i83.i, label %treeupdate.exit90.i
 
 .critedge.i83.i:                                  ; preds = %764, %756
   %767 = getelementptr inbounds i8, ptr %758, i64 440
@@ -1503,9 +1503,9 @@ treeupdate.exit.i:                                ; preds = %709
   %778 = load ptr, ptr %777, align 8
   %779 = getelementptr inbounds i8, ptr %778, i64 216
   %780 = load i32, ptr %779, align 8
-  %.sink.p.i85.i = select i1 %776, i32 %700, i32 %688
-  %.sink.i86.i = add i32 %780, %.sink.p.i85.i
-  store i32 %.sink.i86.i, ptr %779, align 8
+  %.sink.p.i86.i = select i1 %776, i32 %700, i32 %688
+  %.sink.i87.i = add i32 %780, %.sink.p.i86.i
+  store i32 %.sink.i87.i, ptr %779, align 8
   %781 = load i32, ptr %768, align 8
   %782 = and i32 %781, 3
   %783 = icmp eq i32 %782, 3
@@ -1517,8 +1517,8 @@ treeupdate.exit.i:                                ; preds = %709
   %789 = getelementptr inbounds i8, ptr %788, i64 452
   %790 = load i32, ptr %789, align 4
   %791 = icmp eq i32 %782, 2
-  %.idx.i87.i = select i1 %791, i64 0, i64 -64
-  %792 = getelementptr inbounds i8, ptr %768, i64 %.idx.i87.i
+  %.idx.i88.i = select i1 %791, i64 0, i64 -64
+  %792 = getelementptr inbounds i8, ptr %768, i64 %.idx.i88.i
   %793 = getelementptr inbounds i8, ptr %792, i64 56
   %794 = load ptr, ptr %793, align 8
   %795 = getelementptr inbounds i8, ptr %794, i64 16
@@ -1526,14 +1526,14 @@ treeupdate.exit.i:                                ; preds = %709
   %797 = getelementptr inbounds i8, ptr %796, i64 452
   %798 = load i32, ptr %797, align 4
   %799 = icmp sgt i32 %790, %798
-  %..i88.i = select i1 %799, ptr %786, ptr %794
+  %..i89.i = select i1 %799, ptr %786, ptr %794
   br label %756
 
-treeupdate.exit89.i:                              ; preds = %764
+treeupdate.exit90.i:                              ; preds = %764
   %.not.i93 = icmp eq ptr %.028.i80.i, %.028.i.i
   br i1 %.not.i93, label %800, label %971
 
-800:                                              ; preds = %treeupdate.exit89.i
+800:                                              ; preds = %treeupdate.exit90.i
   %801 = load ptr, ptr %744, align 8
   %802 = getelementptr inbounds i8, ptr %801, i64 448
   %803 = load i32, ptr %802, align 8
@@ -1553,7 +1553,7 @@ treeupdate.exit89.i:                              ; preds = %764
 .lr.ph.i.i95:                                     ; preds = %800, %830
   %815 = phi ptr [ %852, %830 ], [ %812, %800 ]
   %816 = phi ptr [ %850, %830 ], [ %810, %800 ]
-  %.024.i.i = phi ptr [ %..i92.i, %830 ], [ %809, %800 ]
+  %.024.i.i = phi ptr [ %..i93.i, %830 ], [ %809, %800 ]
   store i32 -1, ptr %815, align 8
   %817 = load ptr, ptr %816, align 8
   %818 = getelementptr inbounds i8, ptr %817, i64 440
@@ -1567,8 +1567,8 @@ treeupdate.exit89.i:                              ; preds = %764
   %824 = load ptr, ptr %744, align 8
   %825 = getelementptr inbounds i8, ptr %824, i64 452
   %826 = load i32, ptr %825, align 4
-  %.not.i90.i = icmp slt i32 %823, %826
-  br i1 %.not.i90.i, label %830, label %827
+  %.not.i91.i = icmp slt i32 %823, %826
+  br i1 %.not.i91.i, label %830, label %827
 
 827:                                              ; preds = %821
   %.not22.i.i = icmp eq ptr %.024.i.i, %.028.i.i
@@ -1582,8 +1582,8 @@ treeupdate.exit89.i:                              ; preds = %764
   %831 = load i32, ptr %819, align 8
   %832 = and i32 %831, 3
   %833 = icmp eq i32 %832, 3
-  %.idx.i91.i = select i1 %833, i64 0, i64 64
-  %834 = getelementptr inbounds i8, ptr %819, i64 %.idx.i91.i
+  %.idx.i92.i = select i1 %833, i64 0, i64 64
+  %834 = getelementptr inbounds i8, ptr %819, i64 %.idx.i92.i
   %835 = getelementptr inbounds i8, ptr %834, i64 56
   %836 = load ptr, ptr %835, align 8
   %837 = getelementptr inbounds i8, ptr %836, i64 16
@@ -1600,8 +1600,8 @@ treeupdate.exit89.i:                              ; preds = %764
   %847 = getelementptr inbounds i8, ptr %846, i64 452
   %848 = load i32, ptr %847, align 4
   %849 = icmp sgt i32 %840, %848
-  %..i92.i = select i1 %849, ptr %836, ptr %844
-  %850 = getelementptr inbounds i8, ptr %..i92.i, i64 16
+  %..i93.i = select i1 %849, ptr %836, ptr %844
+  %850 = getelementptr inbounds i8, ptr %..i93.i, i64 16
   %851 = load ptr, ptr %850, align 8
   %852 = getelementptr inbounds i8, ptr %851, i64 448
   %853 = load i32, ptr %852, align 8
@@ -1620,42 +1620,42 @@ invalidate_path.exit.i:                           ; preds = %830, %.lr.ph.i.i95,
   %863 = getelementptr inbounds i8, ptr %862, i64 448
   %864 = load i32, ptr %863, align 8
   %865 = icmp eq i32 %864, -1
-  br i1 %865, label %invalidate_path.exit100.i, label %.lr.ph.i93.i
+  br i1 %865, label %invalidate_path.exit101.i, label %.lr.ph.i94.i
 
-.lr.ph.i93.i:                                     ; preds = %invalidate_path.exit.i, %881
+.lr.ph.i94.i:                                     ; preds = %invalidate_path.exit.i, %881
   %866 = phi ptr [ %903, %881 ], [ %863, %invalidate_path.exit.i ]
   %867 = phi ptr [ %901, %881 ], [ %861, %invalidate_path.exit.i ]
-  %.024.i94.i = phi ptr [ %..i99.i, %881 ], [ %860, %invalidate_path.exit.i ]
+  %.024.i95.i = phi ptr [ %..i100.i, %881 ], [ %860, %invalidate_path.exit.i ]
   store i32 -1, ptr %866, align 8
   %868 = load ptr, ptr %867, align 8
   %869 = getelementptr inbounds i8, ptr %868, i64 440
   %870 = load ptr, ptr %869, align 8
   %871 = icmp eq ptr %870, null
-  br i1 %871, label %invalidate_path.exit100.i, label %872
+  br i1 %871, label %invalidate_path.exit101.i, label %872
 
-872:                                              ; preds = %.lr.ph.i93.i
+872:                                              ; preds = %.lr.ph.i94.i
   %873 = getelementptr inbounds i8, ptr %868, i64 452
   %874 = load i32, ptr %873, align 4
   %875 = load ptr, ptr %744, align 8
   %876 = getelementptr inbounds i8, ptr %875, i64 452
   %877 = load i32, ptr %876, align 4
-  %.not.i95.i = icmp slt i32 %874, %877
-  br i1 %.not.i95.i, label %881, label %878
+  %.not.i96.i = icmp slt i32 %874, %877
+  br i1 %.not.i96.i, label %881, label %878
 
 878:                                              ; preds = %872
-  %.not22.i96.i = icmp eq ptr %.024.i94.i, %.028.i.i
-  br i1 %.not22.i96.i, label %invalidate_path.exit100.i, label %879
+  %.not22.i97.i = icmp eq ptr %.024.i95.i, %.028.i.i
+  br i1 %.not22.i97.i, label %invalidate_path.exit101.i, label %879
 
 879:                                              ; preds = %878
   %880 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.14) #17
-  br label %invalidate_path.exit100.i
+  br label %invalidate_path.exit101.i
 
 881:                                              ; preds = %872
   %882 = load i32, ptr %870, align 8
   %883 = and i32 %882, 3
   %884 = icmp eq i32 %883, 3
-  %.idx.i97.i = select i1 %884, i64 0, i64 64
-  %885 = getelementptr inbounds i8, ptr %870, i64 %.idx.i97.i
+  %.idx.i98.i = select i1 %884, i64 0, i64 64
+  %885 = getelementptr inbounds i8, ptr %870, i64 %.idx.i98.i
   %886 = getelementptr inbounds i8, ptr %885, i64 56
   %887 = load ptr, ptr %886, align 8
   %888 = getelementptr inbounds i8, ptr %887, i64 16
@@ -1663,8 +1663,8 @@ invalidate_path.exit.i:                           ; preds = %830, %.lr.ph.i.i95,
   %890 = getelementptr inbounds i8, ptr %889, i64 452
   %891 = load i32, ptr %890, align 4
   %892 = icmp eq i32 %883, 2
-  %.idx21.i98.i = select i1 %892, i64 0, i64 -64
-  %893 = getelementptr inbounds i8, ptr %870, i64 %.idx21.i98.i
+  %.idx21.i99.i = select i1 %892, i64 0, i64 -64
+  %893 = getelementptr inbounds i8, ptr %870, i64 %.idx21.i99.i
   %894 = getelementptr inbounds i8, ptr %893, i64 56
   %895 = load ptr, ptr %894, align 8
   %896 = getelementptr inbounds i8, ptr %895, i64 16
@@ -1672,15 +1672,15 @@ invalidate_path.exit.i:                           ; preds = %830, %.lr.ph.i.i95,
   %898 = getelementptr inbounds i8, ptr %897, i64 452
   %899 = load i32, ptr %898, align 4
   %900 = icmp sgt i32 %891, %899
-  %..i99.i = select i1 %900, ptr %887, ptr %895
-  %901 = getelementptr inbounds i8, ptr %..i99.i, i64 16
+  %..i100.i = select i1 %900, ptr %887, ptr %895
+  %901 = getelementptr inbounds i8, ptr %..i100.i, i64 16
   %902 = load ptr, ptr %901, align 8
   %903 = getelementptr inbounds i8, ptr %902, i64 448
   %904 = load i32, ptr %903, align 8
   %905 = icmp eq i32 %904, -1
-  br i1 %905, label %invalidate_path.exit100.i, label %.lr.ph.i93.i
+  br i1 %905, label %invalidate_path.exit101.i, label %.lr.ph.i94.i
 
-invalidate_path.exit100.i:                        ; preds = %881, %.lr.ph.i93.i, %879, %878, %invalidate_path.exit.i
+invalidate_path.exit101.i:                        ; preds = %881, %.lr.ph.i94.i, %879, %878, %invalidate_path.exit.i
   %906 = load ptr, ptr %637, align 8
   %907 = getelementptr inbounds i8, ptr %906, i64 216
   store i32 %700, ptr %907, align 8
@@ -1706,8 +1706,8 @@ invalidate_path.exit100.i:                        ; preds = %881, %.lr.ph.i93.i,
   %923 = load i32, ptr %.0.i84146, align 8
   %924 = and i32 %923, 3
   %925 = icmp eq i32 %924, 3
-  %.idx.i101.i = select i1 %925, i64 0, i64 64
-  %926 = getelementptr inbounds i8, ptr %.0.i84146, i64 %.idx.i101.i
+  %.idx.i102.i = select i1 %925, i64 0, i64 64
+  %926 = getelementptr inbounds i8, ptr %.0.i84146, i64 %.idx.i102.i
   %927 = getelementptr inbounds i8, ptr %926, i64 56
   %928 = load ptr, ptr %927, align 8
   %929 = getelementptr inbounds i8, ptr %928, i64 16
@@ -1721,8 +1721,8 @@ invalidate_path.exit100.i:                        ; preds = %881, %.lr.ph.i93.i,
   %936 = load ptr, ptr %935, align 8
   br label %937
 
-937:                                              ; preds = %941, %invalidate_path.exit100.i
-  %.056.i.i = phi i64 [ 0, %invalidate_path.exit100.i ], [ %942, %941 ]
+937:                                              ; preds = %941, %invalidate_path.exit101.i
+  %.056.i.i = phi i64 [ 0, %invalidate_path.exit101.i ], [ %942, %941 ]
   %938 = getelementptr inbounds ptr, ptr %936, i64 %.056.i.i
   %939 = load ptr, ptr %938, align 8
   %940 = icmp eq ptr %939, %.0.i84146
@@ -1730,8 +1730,8 @@ invalidate_path.exit100.i:                        ; preds = %881, %.lr.ph.i93.i,
 
 941:                                              ; preds = %937
   %942 = add i64 %.056.i.i, 1
-  %.not.i102.i = icmp ugt i64 %942, %933
-  br i1 %.not.i102.i, label %943, label %937
+  %.not.i103.i = icmp ugt i64 %942, %933
+  br i1 %.not.i103.i, label %943, label %937
 
 943:                                              ; preds = %941, %937
   %.0.lcssa.i.i = phi i64 [ %.056.i.i, %937 ], [ %942, %941 ]
@@ -1774,7 +1774,7 @@ invalidate_path.exit100.i:                        ; preds = %881, %.lr.ph.i93.i,
   %.not53.i.i = icmp ugt i64 %970, %961
   br i1 %.not53.i.i, label %987, label %965
 
-971:                                              ; preds = %treeupdate.exit89.i
+971:                                              ; preds = %treeupdate.exit90.i
   %972 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.13) #17
   %.val47 = load ptr, ptr %22, align 8
   %973 = getelementptr inbounds i8, ptr %.val47, i64 256
@@ -1875,7 +1875,7 @@ freeTreeList.exit104:                             ; preds = %.lr.ph.i99, %971
   %1035 = load ptr, ptr %744, align 8
   %1036 = getelementptr inbounds i8, ptr %1035, i64 440
   %1037 = load ptr, ptr %1036, align 8
-  %1038 = tail call fastcc i32 @dfs_range(ptr noundef %.028.i.i, ptr noundef %1037, i32 noundef %803), !range !5
+  %1038 = tail call fastcc i32 @dfs_range(ptr noundef %.028.i.i, ptr noundef %1037, i32 noundef %803)
   %1039 = add nuw nsw i32 %.031, 1
   %1040 = load i8, ptr @Verbose, align 1
   %.not41 = icmp ne i8 %1040, 0
@@ -1981,12 +1981,12 @@ scan_and_normalize.exit.i:                        ; preds = %scan_and_normalize.
   br i1 %.not.i107, label %.loopexit.i108, label %1088
 
 1088:                                             ; preds = %scan_and_normalize.exit.i
-  %1089 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1087, ptr noundef nonnull dereferenceable(4) @.str.16) #21
+  %1089 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1087, ptr noundef nonnull readonly dereferenceable(4) @.str.16) #21
   %1090 = icmp eq i32 %1089, 0
   br i1 %1090, label %1094, label %1091
 
 1091:                                             ; preds = %1088
-  %1092 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1087, ptr noundef nonnull dereferenceable(4) @.str.17) #21
+  %1092 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1087, ptr noundef nonnull readonly dereferenceable(4) @.str.17) #21
   %1093 = icmp eq i32 %1092, 0
   br i1 %1093, label %1094, label %.loopexit.i108
 
@@ -2716,7 +2716,7 @@ define internal fastcc i32 @tight_subtree_search(ptr nocapture noundef readonly 
   br i1 %48, label %49, label %60
 
 49:                                               ; preds = %34
-  %50 = tail call fastcc i32 @add_tree_edge(ptr noundef nonnull %15), !range !4
+  %50 = tail call fastcc i32 @add_tree_edge(ptr noundef nonnull %15)
   %.not51 = icmp eq i32 %50, 0
   br i1 %.not51, label %51, label %.loopexit
 
@@ -2789,7 +2789,7 @@ define internal fastcc i32 @tight_subtree_search(ptr nocapture noundef readonly 
   br i1 %100, label %101, label %112
 
 101:                                              ; preds = %86
-  %102 = tail call fastcc i32 @add_tree_edge(ptr noundef nonnull %67), !range !4
+  %102 = tail call fastcc i32 @add_tree_edge(ptr noundef nonnull %67)
   %.not49 = icmp eq i32 %102, 0
   br i1 %.not49, label %103, label %.loopexit
 
@@ -2822,7 +2822,7 @@ define internal fastcc i32 @tight_subtree_search(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @add_tree_edge(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_tree_edge(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 220
@@ -3418,7 +3418,7 @@ define internal fastcc void @tree_adjust(ptr noundef %0, ptr noundef readnone %1
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @dfs_range_init(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #8 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @dfs_range_init(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 440
@@ -3458,7 +3458,7 @@ define internal fastcc i32 @dfs_range_init(ptr nocapture noundef readonly %0, pt
   %23 = getelementptr inbounds i8, ptr %18, i64 %.idx38
   %24 = getelementptr inbounds i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call fastcc i32 @dfs_range_init(ptr noundef %25, ptr noundef nonnull %18, i32 noundef %.03140), !range !5
+  %26 = tail call fastcc i32 @dfs_range_init(ptr noundef %25, ptr noundef nonnull %18, i32 noundef %.03140)
   %.pre = load ptr, ptr %4, align 8
   br label %27
 
@@ -3489,7 +3489,7 @@ define internal fastcc i32 @dfs_range_init(ptr nocapture noundef readonly %0, pt
   %39 = getelementptr inbounds i8, ptr %34, i64 %.idx
   %40 = getelementptr inbounds i8, ptr %39, i64 56
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call fastcc i32 @dfs_range_init(ptr noundef %41, ptr noundef nonnull %34, i32 noundef %.243), !range !5
+  %42 = tail call fastcc i32 @dfs_range_init(ptr noundef %41, ptr noundef nonnull %34, i32 noundef %.243)
   %.pre53 = load ptr, ptr %4, align 8
   br label %43
 
@@ -4466,7 +4466,7 @@ define internal fastcc void @rerank(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @dfs_range(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #8 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @dfs_range(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 440
@@ -4522,7 +4522,7 @@ define internal fastcc i32 @dfs_range(ptr nocapture noundef readonly %0, ptr nou
   %33 = getelementptr inbounds i8, ptr %28, i64 %.idx41
   %34 = getelementptr inbounds i8, ptr %33, i64 56
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call fastcc i32 @dfs_range(ptr noundef %35, ptr noundef nonnull %28, i32 noundef %.044), !range !5
+  %36 = tail call fastcc i32 @dfs_range(ptr noundef %35, ptr noundef nonnull %28, i32 noundef %.044)
   %.pre = load ptr, ptr %4, align 8
   br label %37
 
@@ -4553,7 +4553,7 @@ define internal fastcc i32 @dfs_range(ptr nocapture noundef readonly %0, ptr nou
   %49 = getelementptr inbounds i8, ptr %44, i64 %.idx
   %50 = getelementptr inbounds i8, ptr %49, i64 56
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call fastcc i32 @dfs_range(ptr noundef %51, ptr noundef nonnull %44, i32 noundef %.247), !range !5
+  %52 = tail call fastcc i32 @dfs_range(ptr noundef %51, ptr noundef nonnull %44, i32 noundef %.247)
   %.pre56 = load ptr, ptr %4, align 8
   br label %53
 
@@ -4585,7 +4585,7 @@ define internal fastcc i32 @dfs_range(ptr nocapture noundef readonly %0, ptr nou
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @decreasingrankcmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 -1, 2) i32 @decreasingrankcmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -4604,7 +4604,7 @@ define internal i32 @decreasingrankcmpf(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @increasingrankcmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 -1, 2) i32 @increasingrankcmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -4667,5 +4667,3 @@ attributes #22 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = !{i32 -2147483647, i32 -2147483648}

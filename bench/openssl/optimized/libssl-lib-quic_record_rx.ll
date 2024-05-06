@@ -481,7 +481,7 @@ entry:
 declare i32 @ossl_quic_demux_unregister(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_qrx_provide_secret(ptr noundef %qrx, i32 noundef %enc_level, i32 noundef %suite_id, ptr noundef %md, ptr noundef %secret, i64 noundef %secret_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qrx_provide_secret(ptr noundef %qrx, i32 noundef %enc_level, i32 noundef %suite_id, ptr noundef %md, ptr noundef %secret, i64 noundef %secret_len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %enc_level, 3
   br i1 %cmp, label %return, label %if.end
@@ -588,7 +588,7 @@ return:                                           ; preds = %ossl_list_urxe_inse
 declare i32 @ossl_qrl_enc_level_set_provide_secret(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_qrx_discard_enc_level(ptr noundef %qrx, i32 noundef %enc_level) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qrx_discard_enc_level(ptr noundef %qrx, i32 noundef %enc_level) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %enc_level, 3
   br i1 %cmp, label %return, label %if.end
@@ -604,7 +604,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_qrx_processed_read_pending(ptr nocapture noundef readonly %qrx) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_qrx_processed_read_pending(ptr nocapture noundef readonly %qrx) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %qrx, i64 136
   %rx_pending.val = load i64, ptr %0, align 8
@@ -614,7 +614,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_qrx_unprocessed_read_pending(ptr nocapture noundef readonly %qrx) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_qrx_unprocessed_read_pending(ptr nocapture noundef readonly %qrx) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %qrx, i64 64
   %urx_pending.val = load i64, ptr %0, align 8
@@ -634,7 +634,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_qrx_read_pkt(ptr noundef %qrx, ptr nocapture noundef writeonly %ppkt) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qrx_read_pkt(ptr noundef %qrx, ptr nocapture noundef writeonly %ppkt) local_unnamed_addr #0 {
 entry:
   %l.i.i = alloca i32, align 4
   %l2.i.i = alloca i32, align 4
@@ -839,7 +839,7 @@ lor.lhs.false.i.i.i.i.i:                          ; preds = %if.then16.i.i.i.i.i
 ossl_quic_conn_id_eq.exit.i.i.i.i.i:              ; preds = %lor.lhs.false.i.i.i.i.i
   %id8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 113
   %conv11.i.i.i.i.i.i = zext nneg i8 %9 to i64
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull %first_dcid.sroa.gep.i.i.i, ptr nonnull %id8.i.i.i.i.i.i, i64 %conv11.i.i.i.i.i.i)
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %first_dcid.sroa.gep.i.i.i, ptr nonnull readonly %id8.i.i.i.i.i.i, i64 %conv11.i.i.i.i.i.i)
   %cmp12.i.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %cmp12.i.not.i.i.i.i.i, label %if.end26.i.i.i.i, label %malformed.i.i.i.i
 
@@ -1270,7 +1270,7 @@ if.end132.i.i.i.i:                                ; preds = %if.end91.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %l.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %l2.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %nonce.i.i)
-  %call133.i.i.i.i = call fastcc i32 @qrx_validate_hdr_late(ptr noundef nonnull %qrx, ptr noundef nonnull %call114.i.i.i.i), !range !10
+  %call133.i.i.i.i = call fastcc i32 @qrx_validate_hdr_late(ptr noundef nonnull %qrx, ptr noundef nonnull %call114.i.i.i.i)
   %tobool134.not.i.i.i.i = icmp eq i32 %call133.i.i.i.i, 0
   br i1 %tobool134.not.i.i.i.i, label %malformed.i.i.i.i, label %if.end136.i.i.i.i
 
@@ -1438,7 +1438,7 @@ for.cond.i.i.i:                                   ; preds = %79, %qrx_process_pk
   %80 = phi i32 [ %have_deferred.016.i.i.i, %79 ], [ 1, %qrx_process_pkt.exit.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %pkt_idx.017.i.i.i, 1
   %cmp.not.i.i.i = icmp eq i64 %pkt.val.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %qrx_process_datagram.exit.i.i, label %for.body.i.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i.i, label %qrx_process_datagram.exit.i.i, label %for.body.i.i.i, !llvm.loop !10
 
 qrx_process_datagram.exit.thread.i.i:             ; preds = %PACKET_buf_init.exit.i.i.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pkt.i.i.i)
@@ -1566,7 +1566,7 @@ if.end26.i.i:                                     ; preds = %if.then23.i.i, %if.
 qrx_process_one_urxe.exit.i:                      ; preds = %if.end26.i.i, %if.then17.i.i, %ossl_list_urxe_insert_tail.exit.i.i
   %urx_pending.val.i = load ptr, ptr %urx_pending.i, align 8
   %cmp.not.i = icmp eq ptr %urx_pending.val.i, null
-  br i1 %cmp.not.i, label %if.end, label %if.end.i.i, !llvm.loop !12
+  br i1 %cmp.not.i, label %if.end, label %if.end.i.i, !llvm.loop !11
 
 if.end:                                           ; preds = %qrx_process_one_urxe.exit.i
   %rx_pending.val.i24.pre = load i64, ptr %0, align 8
@@ -1790,7 +1790,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 declare ptr @ossl_qrl_enc_level_set_get(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_qrx_key_update_timeout(ptr noundef %qrx, i32 noundef %normal) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qrx_key_update_timeout(ptr noundef %qrx, i32 noundef %normal) local_unnamed_addr #0 {
 entry:
   %el_set = getelementptr inbounds i8, ptr %qrx, i64 168
   %call = tail call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set, i32 noundef 3, i32 noundef 1) #12
@@ -2246,7 +2246,7 @@ declare i32 @ossl_qrl_enc_level_set_have_el(ptr noundef, i32 noundef) local_unna
 declare i32 @ossl_quic_hdr_protector_decrypt(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @qrx_validate_hdr_late(ptr nocapture noundef readonly %qrx, ptr nocapture noundef readonly %rxe) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @qrx_validate_hdr_late(ptr nocapture noundef readonly %qrx, ptr nocapture noundef readonly %rxe) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %rxe, i64 104
   %rxe.val = load i32, ptr %0, align 8
@@ -2364,6 +2364,5 @@ attributes #12 = { nounwind }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 2}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

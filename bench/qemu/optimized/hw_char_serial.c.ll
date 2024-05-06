@@ -138,7 +138,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @serial_post_load(ptr noundef %opaque, i32 noundef %version_id) #1 {
+define internal range(i32 -1, 1) i32 @serial_post_load(ptr noundef %opaque, i32 noundef %version_id) #1 {
 entry:
   %cmp = icmp slt i32 %version_id, 3
   br i1 %cmp, label %if.then, label %if.end
@@ -387,7 +387,7 @@ trace_serial_update_parameters.exit:              ; preds = %cond.end, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @serial_ioport_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #1 {
+define internal range(i64 0, 256) i64 @serial_ioport_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cmp = icmp eq i32 %size, 1
@@ -1841,7 +1841,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @serial_can_receive1(ptr nocapture noundef readonly %opaque) #6 {
+define internal range(i32 -15, 256) i32 @serial_can_receive1(ptr nocapture noundef readonly %opaque) #6 {
 entry:
   %fcr.i = getelementptr inbounds i8, ptr %opaque, i64 172
   %0 = load i8, ptr %fcr.i, align 4
@@ -2067,7 +2067,7 @@ declare void @sysbus_init_mmio(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @sysbus_init_irq(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @serial_mm_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #1 {
+define internal range(i64 0, 256) i64 @serial_mm_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.58, i32 noundef 102, ptr noundef nonnull @__func__.SERIAL_MM) #10
   %serial = getelementptr inbounds i8, ptr %call.i, i64 816
@@ -2075,7 +2075,7 @@ entry:
   %0 = load i8, ptr %regshift, align 16
   %sh_prom = zext nneg i8 %0 to i64
   %shr = lshr i64 %addr, %sh_prom
-  %call1 = tail call i64 @serial_ioport_read(ptr noundef nonnull %serial, i64 noundef %shr, i32 noundef 1), !range !8
+  %call1 = tail call i64 @serial_ioport_read(ptr noundef nonnull %serial, i64 noundef %shr, i32 noundef 1)
   ret i64 %call1
 }
 
@@ -2124,4 +2124,3 @@ attributes #13 = { nounwind allocsize(0,1) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i64 0, i64 256}

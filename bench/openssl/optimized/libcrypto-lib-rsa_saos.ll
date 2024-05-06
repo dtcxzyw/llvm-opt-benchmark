@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.RSA_verify_ASN1_OCTET_STRING = private unnamed_addr constant [29 x i8] c"RSA_verify_ASN1_OCTET_STRING\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RSA_sign_ASN1_OCTET_STRING(i32 noundef %type, ptr noundef %m, i32 noundef %m_len, ptr noundef %sigret, ptr nocapture noundef writeonly %siglen, ptr noundef %rsa) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_sign_ASN1_OCTET_STRING(i32 noundef %type, ptr noundef %m, i32 noundef %m_len, ptr noundef %sigret, ptr nocapture noundef writeonly %siglen, ptr noundef %rsa) local_unnamed_addr #0 {
 entry:
   %sig = alloca %struct.asn1_string_st, align 8
   %p = alloca ptr, align 8
@@ -76,7 +76,7 @@ declare i32 @RSA_private_encrypt(i32 noundef, ptr noundef, ptr noundef, ptr noun
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RSA_verify_ASN1_OCTET_STRING(i32 noundef %dtype, ptr nocapture noundef readonly %m, i32 noundef %m_len, ptr noundef %sigbuf, i32 noundef %siglen, ptr noundef %rsa) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_verify_ASN1_OCTET_STRING(i32 noundef %dtype, ptr nocapture noundef readonly %m, i32 noundef %m_len, ptr noundef %sigbuf, i32 noundef %siglen, ptr noundef %rsa) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %call = tail call i32 @RSA_size(ptr noundef %rsa) #3

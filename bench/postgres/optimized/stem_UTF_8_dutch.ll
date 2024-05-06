@@ -61,7 +61,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_1_2 = internal constant [1 x i8] c"Y", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dutch_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @dutch_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -387,7 +387,7 @@ r_mark_regions.exit:                              ; preds = %92, %100, %115, %11
   br i1 %148, label %r_prelude.exit.thread, label %159
 
 149:                                              ; preds = %142
-  %150 = tail call fastcc i32 @r_en_ending(ptr noundef nonnull %0), !range !4
+  %150 = tail call fastcc i32 @r_en_ending(ptr noundef nonnull %0)
   %151 = icmp slt i32 %150, 0
   br i1 %151, label %r_prelude.exit.thread, label %159
 
@@ -457,7 +457,7 @@ r_e_ending.exit.i:                                ; preds = %176
   %181 = load ptr, ptr %94, align 8
   %182 = getelementptr i8, ptr %181, i64 8
   store i32 1, ptr %182, align 4
-  %183 = tail call fastcc i32 @r_undouble(ptr noundef nonnull %0), !range !4
+  %183 = tail call fastcc i32 @r_undouble(ptr noundef nonnull %0)
   %184 = icmp slt i32 %183, 0
   br i1 %184, label %r_prelude.exit.thread, label %r_e_ending.exit.thread.i
 
@@ -536,7 +536,7 @@ r_e_ending.exit.thread.i:                         ; preds = %r_e_ending.exit.i, 
   br i1 %217, label %r_prelude.exit.thread, label %r_en_ending.exit.i
 
 r_en_ending.exit.i:                               ; preds = %213
-  %218 = tail call fastcc i32 @r_undouble(ptr noundef nonnull %0), !range !4
+  %218 = tail call fastcc i32 @r_undouble(ptr noundef nonnull %0)
   %219 = icmp slt i32 %218, 0
   br i1 %219, label %r_prelude.exit.thread, label %r_en_ending.exit.thread.i
 
@@ -633,7 +633,7 @@ r_en_ending.exit.thread.i:                        ; preds = %r_en_ending.exit.i,
   %259 = load i32, ptr %5, align 4
   %260 = add i32 %.neg274.i, %259
   store i32 %260, ptr %2, align 8
-  %261 = tail call fastcc i32 @r_undouble(ptr noundef nonnull %0), !range !4
+  %261 = tail call fastcc i32 @r_undouble(ptr noundef nonnull %0)
   %262 = icmp slt i32 %261, 0
   br i1 %262, label %r_prelude.exit.thread, label %293
 
@@ -674,7 +674,7 @@ r_en_ending.exit.thread.i:                        ; preds = %r_en_ending.exit.i,
   br i1 %278, label %r_prelude.exit.thread, label %279
 
 279:                                              ; preds = %276
-  %280 = tail call fastcc i32 @r_e_ending(ptr noundef nonnull %0), !range !4
+  %280 = tail call fastcc i32 @r_e_ending(ptr noundef nonnull %0)
   %281 = icmp slt i32 %280, 0
   br i1 %281, label %r_prelude.exit.thread, label %293
 
@@ -877,7 +877,7 @@ declare i32 @out_grouping_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef, 
 declare i32 @find_among_b(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_en_ending(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_en_ending(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 40
@@ -912,7 +912,7 @@ define internal fastcc i32 @r_en_ending(ptr noundef %0) unnamed_addr #0 {
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %13
-  %19 = tail call fastcc i32 @r_undouble(ptr noundef nonnull %0), !range !4
+  %19 = tail call fastcc i32 @r_undouble(ptr noundef nonnull %0)
   br label %20
 
 20:                                               ; preds = %18, %13, %9, %5, %1
@@ -925,7 +925,7 @@ declare i32 @out_grouping_b_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare i32 @slice_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_e_ending(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_e_ending(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 8
@@ -978,7 +978,7 @@ define internal fastcc i32 @r_e_ending(ptr noundef %0) unnamed_addr #0 {
   %29 = load ptr, ptr %2, align 8
   %30 = getelementptr i8, ptr %29, i64 8
   store i32 1, ptr %30, align 4
-  %31 = tail call fastcc i32 @r_undouble(ptr noundef nonnull %0), !range !4
+  %31 = tail call fastcc i32 @r_undouble(ptr noundef nonnull %0)
   br label %32
 
 32:                                               ; preds = %28, %23, %19, %16, %1, %10
@@ -989,7 +989,7 @@ define internal fastcc i32 @r_e_ending(ptr noundef %0) unnamed_addr #0 {
 declare i32 @eq_s_b(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_undouble(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_undouble(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1061,4 +1061,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483648, i32 2}

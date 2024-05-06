@@ -153,7 +153,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.89 = private unnamed_addr constant [39 x i8] c"Silence the shared file system warning\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_register_params() local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @prte_register_params() local_unnamed_addr #0 {
   %1 = alloca %struct.pmix_output_stream_t, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
@@ -169,7 +169,7 @@ define i32 @prte_register_params() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %4 ]
   %6 = getelementptr inbounds [5 x i32], ptr @__const.prte_register_params.signals, i64 0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %8, label %11 [
     i32 4, label %17
     i32 0, label %9
@@ -259,7 +259,7 @@ define i32 @prte_register_params() local_unnamed_addr #0 {
   %52 = getelementptr inbounds i8, ptr %1, i64 48
   store i32 1, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %1, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false)
   %54 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_output_stream_t_class, i64 0, i32 6), align 8
   %55 = load ptr, ptr %54, align 8
   %.not6.i = icmp eq ptr %55, null

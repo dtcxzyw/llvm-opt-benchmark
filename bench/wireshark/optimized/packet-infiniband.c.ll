@@ -2609,7 +2609,7 @@ define internal i32 @dissect_infiniband_link(ptr noundef %0, ptr noundef %1, ptr
   br i1 %or.cond17.i, label %dissect_general_info.exit, label %118
 
 118:                                              ; preds = %115
-  %119 = call fastcc i32 @parse_MAD_Common(ptr noundef null, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !4
+  %119 = call fastcc i32 @parse_MAD_Common(ptr noundef null, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not73.i = icmp eq i32 %119, 0
   br i1 %.not73.i, label %dissect_general_info.exit, label %120
 
@@ -2722,7 +2722,7 @@ declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unname
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mellanox_eoib(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_mellanox_eoib(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %.mask = and i8 %6, -32
@@ -3183,7 +3183,7 @@ define internal fastcc void @dissect_infiniband_common(ptr noundef %0, ptr nound
   %157 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %124, i32 noundef %155, ptr noundef %0, i32 noundef %154, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %156) #11
   %158 = add nsw i32 %.0392, %108
   store i32 %158, ptr %5, align 4
-  %159 = trunc i32 %.0392 to i16
+  %159 = trunc nuw nsw i32 %.0392 to i16
   %160 = sub i16 %.1, %159
   %.val = load i8, ptr %110, align 8
   %161 = getelementptr inbounds i8, ptr %6, i64 32
@@ -3538,7 +3538,7 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal fastcc i32 @find_next_header_sequence(i8 %.8.val, i32 %.32.val) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 27) i32 @find_next_header_sequence(i8 %.8.val, i32 %.32.val) unnamed_addr #5 {
   %1 = icmp eq i8 %.8.val, 85
   br i1 %1, label %2, label %4
 
@@ -3554,7 +3554,7 @@ define internal fastcc i32 @find_next_header_sequence(i8 %.8.val, i32 %.32.val) 
 6:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 13
-  br i1 %exitcond.not.i, label %.lr.ph.i42, label %.lr.ph.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %.lr.ph.i42, label %.lr.ph.i, !llvm.loop !4
 
 .lr.ph.i:                                         ; preds = %6, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %6 ]
@@ -3566,7 +3566,7 @@ define internal fastcc i32 @find_next_header_sequence(i8 %.8.val, i32 %.32.val) 
 10:                                               ; preds = %.lr.ph.i42
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, 6
-  br i1 %exitcond.not.i45, label %.lr.ph.i48, label %.lr.ph.i42, !llvm.loop !5
+  br i1 %exitcond.not.i45, label %.lr.ph.i48, label %.lr.ph.i42, !llvm.loop !4
 
 .lr.ph.i42:                                       ; preds = %6, %10
   %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i44, %10 ], [ 0, %6 ]
@@ -3578,7 +3578,7 @@ define internal fastcc i32 @find_next_header_sequence(i8 %.8.val, i32 %.32.val) 
 14:                                               ; preds = %.lr.ph.i48
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, 6
-  br i1 %exitcond.not.i51, label %.lr.ph.i54, label %.lr.ph.i48, !llvm.loop !5
+  br i1 %exitcond.not.i51, label %.lr.ph.i54, label %.lr.ph.i48, !llvm.loop !4
 
 .lr.ph.i48:                                       ; preds = %10, %14
   %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i50, %14 ], [ 0, %10 ]
@@ -3590,7 +3590,7 @@ define internal fastcc i32 @find_next_header_sequence(i8 %.8.val, i32 %.32.val) 
 18:                                               ; preds = %.lr.ph.i54
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i55, 1
   %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, 4
-  br i1 %exitcond.not.i57, label %.lr.ph.i60, label %.lr.ph.i54, !llvm.loop !5
+  br i1 %exitcond.not.i57, label %.lr.ph.i60, label %.lr.ph.i54, !llvm.loop !4
 
 .lr.ph.i54:                                       ; preds = %14, %18
   %indvars.iv.i55 = phi i64 [ %indvars.iv.next.i56, %18 ], [ 0, %14 ]
@@ -3602,7 +3602,7 @@ define internal fastcc i32 @find_next_header_sequence(i8 %.8.val, i32 %.32.val) 
 22:                                               ; preds = %.lr.ph.i60
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, 3
-  br i1 %exitcond.not.i63, label %.lr.ph.i66, label %.lr.ph.i60, !llvm.loop !5
+  br i1 %exitcond.not.i63, label %.lr.ph.i66, label %.lr.ph.i60, !llvm.loop !4
 
 .lr.ph.i60:                                       ; preds = %18, %22
   %indvars.iv.i61 = phi i64 [ %indvars.iv.next.i62, %22 ], [ 0, %18 ]
@@ -3614,7 +3614,7 @@ define internal fastcc i32 @find_next_header_sequence(i8 %.8.val, i32 %.32.val) 
 26:                                               ; preds = %.lr.ph.i66
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, 3
-  br i1 %exitcond.not.i69, label %.lr.ph.i72, label %.lr.ph.i66, !llvm.loop !5
+  br i1 %exitcond.not.i69, label %.lr.ph.i72, label %.lr.ph.i66, !llvm.loop !4
 
 .lr.ph.i66:                                       ; preds = %22, %26
   %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i68, %26 ], [ 0, %22 ]
@@ -3626,7 +3626,7 @@ define internal fastcc i32 @find_next_header_sequence(i8 %.8.val, i32 %.32.val) 
 30:                                               ; preds = %.lr.ph.i72
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, 1
   %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, 3
-  br i1 %exitcond.not.i75, label %.lr.ph.i78, label %.lr.ph.i72, !llvm.loop !5
+  br i1 %exitcond.not.i75, label %.lr.ph.i78, label %.lr.ph.i72, !llvm.loop !4
 
 .lr.ph.i72:                                       ; preds = %26, %30
   %indvars.iv.i73 = phi i64 [ %indvars.iv.next.i74, %30 ], [ 0, %26 ]
@@ -3638,7 +3638,7 @@ define internal fastcc i32 @find_next_header_sequence(i8 %.8.val, i32 %.32.val) 
 34:                                               ; preds = %.lr.ph.i78
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
   %exitcond.not.i81 = icmp eq i64 %indvars.iv.next.i80, 2
-  br i1 %exitcond.not.i81, label %.lr.ph.i84, label %.lr.ph.i78, !llvm.loop !5
+  br i1 %exitcond.not.i81, label %.lr.ph.i84, label %.lr.ph.i78, !llvm.loop !4
 
 .lr.ph.i78:                                       ; preds = %30, %34
   %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i80, %34 ], [ 0, %30 ]
@@ -3650,7 +3650,7 @@ define internal fastcc i32 @find_next_header_sequence(i8 %.8.val, i32 %.32.val) 
 38:                                               ; preds = %.lr.ph.i84
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i85, 1
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, 2
-  br i1 %exitcond.not.i87, label %.lr.ph.i90, label %.lr.ph.i84, !llvm.loop !5
+  br i1 %exitcond.not.i87, label %.lr.ph.i90, label %.lr.ph.i84, !llvm.loop !4
 
 .lr.ph.i84:                                       ; preds = %34, %38
   %indvars.iv.i85 = phi i64 [ %indvars.iv.next.i86, %38 ], [ 0, %34 ]
@@ -3662,7 +3662,7 @@ define internal fastcc i32 @find_next_header_sequence(i8 %.8.val, i32 %.32.val) 
 42:                                               ; preds = %.lr.ph.i90
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, 2
-  br i1 %exitcond.not.i93, label %.lr.ph.i96, label %.lr.ph.i90, !llvm.loop !5
+  br i1 %exitcond.not.i93, label %.lr.ph.i96, label %.lr.ph.i90, !llvm.loop !4
 
 .lr.ph.i90:                                       ; preds = %38, %42
   %indvars.iv.i91 = phi i64 [ %indvars.iv.next.i92, %42 ], [ 0, %38 ]
@@ -3674,7 +3674,7 @@ define internal fastcc i32 @find_next_header_sequence(i8 %.8.val, i32 %.32.val) 
 46:                                               ; preds = %.lr.ph.i96
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
   %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, 2
-  br i1 %exitcond.not.i99, label %.lr.ph.i102, label %.lr.ph.i96, !llvm.loop !5
+  br i1 %exitcond.not.i99, label %.lr.ph.i102, label %.lr.ph.i96, !llvm.loop !4
 
 .lr.ph.i96:                                       ; preds = %42, %46
   %indvars.iv.i97 = phi i64 [ %indvars.iv.next.i98, %46 ], [ 0, %42 ]
@@ -3686,7 +3686,7 @@ define internal fastcc i32 @find_next_header_sequence(i8 %.8.val, i32 %.32.val) 
 50:                                               ; preds = %.lr.ph.i102
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i103, 1
   %exitcond.not.i105 = icmp eq i64 %indvars.iv.next.i104, 2
-  br i1 %exitcond.not.i105, label %54, label %.lr.ph.i102, !llvm.loop !5
+  br i1 %exitcond.not.i105, label %54, label %.lr.ph.i102, !llvm.loop !4
 
 .lr.ph.i102:                                      ; preds = %46, %50
   %indvars.iv.i103 = phi i64 [ %indvars.iv.next.i104, %50 ], [ 0, %46 ]
@@ -3856,7 +3856,7 @@ define internal fastcc void @parse_PAYLOAD(ptr noundef %0, ptr noundef %1, ptr n
   %35 = load ptr, ptr %34, align 8
   tail call void @col_set_str(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.1295) #11
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11)
-  %36 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %11), !range !4
+  %36 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %11)
   %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %parse_VENDOR_MANAGEMENT.exit, label %37
 
@@ -3883,7 +3883,7 @@ parse_VENDOR_MANAGEMENT.exit:                     ; preds = %33, %37
   %46 = load ptr, ptr %45, align 8
   tail call void @col_set_str(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.1296) #11
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10)
-  %47 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %10), !range !4
+  %47 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %10)
   %.not.i128 = icmp eq i32 %47, 0
   br i1 %.not.i128, label %parse_APPLICATION_MANAGEMENT.exit, label %48
 
@@ -3917,7 +3917,7 @@ parse_APPLICATION_MANAGEMENT.exit:                ; preds = %44, %48
   %60 = load ptr, ptr %59, align 8
   tail call void @col_set_str(ptr noundef %60, i32 noundef 25, ptr noundef nonnull @.str.1297) #11
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9)
-  %61 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %9), !range !4
+  %61 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %9)
   %.not.i129 = icmp eq i32 %61, 0
   br i1 %.not.i129, label %parse_RESERVED_MANAGEMENT.exit, label %62
 
@@ -4288,7 +4288,7 @@ declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 define internal fastcc void @parse_SUBN_LID_ROUTED(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.MAD_Data, align 8
   %6 = alloca i32, align 4
-  %7 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5), !range !4
+  %7 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %35, label %8
 
@@ -4340,7 +4340,7 @@ define internal fastcc void @parse_SUBN_LID_ROUTED(ptr noundef %0, ptr nocapture
 define internal fastcc void @parse_SUBN_DIRECTED_ROUTE(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.MAD_Data, align 8
   %6 = alloca i32, align 4
-  %7 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5), !range !4
+  %7 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %55, label %8
 
@@ -4412,7 +4412,7 @@ define internal fastcc void @parse_SUBN_DIRECTED_ROUTE(ptr noundef %0, ptr nocap
 define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.MAD_Data, align 8
   %6 = alloca i32, align 4
-  %7 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5), !range !4
+  %7 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %482, label %8
 
@@ -4808,7 +4808,7 @@ parse_RID.exit.i:                                 ; preds = %190, %parse_RMPP.ex
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %223, ptr noundef nonnull @.str.1364, i32 noundef %.02.i.i) #11
   %225 = add nuw nsw i32 %.02.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %225, 8
-  br i1 %exitcond.not.i.i, label %parse_SUBA_Attribute.exit, label %.preheader.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %parse_SUBA_Attribute.exit, label %.preheader.i.i, !llvm.loop !6
 
 226:                                              ; preds = %parse_RID.exit.i
   br i1 %.not.i.i, label %parse_SUBA_Attribute.exit, label %227
@@ -5095,7 +5095,7 @@ parse_RID.exit.i:                                 ; preds = %190, %parse_RMPP.ex
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %462, ptr noundef nonnull @.str.1494, ptr noundef nonnull @.str.704, i32 noundef %.02.i114.i) #11
   %464 = add nuw nsw i32 %.02.i114.i, 1
   %exitcond.not.i115.i = icmp eq i32 %464, %459
-  br i1 %exitcond.not.i115.i, label %.preheader.i116.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i115.i, label %.preheader.i116.i, label %.lr.ph.i.i, !llvm.loop !7
 
 .lr.ph5.i.i:                                      ; preds = %.preheader.i116.i, %.lr.ph5.i.i
   %.14.i.i = phi i32 [ %468, %.lr.ph5.i.i ], [ 0, %.preheader.i116.i ]
@@ -5106,7 +5106,7 @@ parse_RID.exit.i:                                 ; preds = %190, %parse_RMPP.ex
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %466, ptr noundef nonnull @.str.1494, ptr noundef nonnull @.str.702, i32 noundef %.14.i.i) #11
   %468 = add nuw nsw i32 %.14.i.i, 1
   %exitcond10.not.i.i = icmp eq i32 %468, %460
-  br i1 %exitcond10.not.i.i, label %parse_SUBA_Attribute.exit, label %.lr.ph5.i.i, !llvm.loop !9
+  br i1 %exitcond10.not.i.i, label %parse_SUBA_Attribute.exit, label %.lr.ph5.i.i, !llvm.loop !8
 
 469:                                              ; preds = %parse_RID.exit.i
   br i1 %.not.i.i, label %parse_SUBA_Attribute.exit, label %470
@@ -5137,7 +5137,7 @@ parse_SUBA_Attribute.exit:                        ; preds = %.lr.ph5.i.i, %.preh
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.MAD_Data, align 8
-  %6 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %5), !range !4
+  %6 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %5)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %138, label %7
 
@@ -5304,7 +5304,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noca
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parse_BM(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.MAD_Data, align 8
-  %5 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4), !range !4
+  %5 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
@@ -5324,7 +5324,7 @@ define internal fastcc void @parse_BM(ptr noundef %0, ptr noundef %1, ptr nocapt
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parse_DEV_MGT(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.MAD_Data, align 8
-  %5 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4), !range !4
+  %5 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
@@ -5361,7 +5361,7 @@ define internal fastcc void @parse_COM_MGT(ptr noundef %0, ptr noundef %1, ptr n
   %21 = alloca %struct.MAD_Data, align 8
   %22 = alloca %struct.infinibandinfo, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 40, i1 false)
-  %23 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %21), !range !4
+  %23 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %21)
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %612, label %24
 
@@ -5622,9 +5622,9 @@ parse_CM_Req_ServiceID.exit.i:                    ; preds = %49, %37
   br label %238
 
 236:                                              ; preds = %227
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %229, ptr noundef nonnull align 1 dereferenceable(16) %.0146.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %229, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0146.i, i64 16, i1 false)
   %237 = getelementptr inbounds i8, ptr %229, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %237, ptr noundef nonnull align 1 dereferenceable(16) %.0147.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %237, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0147.i, i64 16, i1 false)
   br label %238
 
 238:                                              ; preds = %236, %232
@@ -5664,7 +5664,7 @@ parse_CM_Req_ServiceID.exit.i:                    ; preds = %49, %37
   %256 = xor i64 %255, %254
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %make_hash_key.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i.i, label %make_hash_key.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 make_hash_key.exit.i.i:                           ; preds = %.lr.ph.i.i.i.i, %238
   %.011.lcssa.i.i.i.i = phi i64 [ %245, %238 ], [ %256, %.lr.ph.i.i.i.i ]
@@ -5700,7 +5700,7 @@ make_hash_key.exit.i.i:                           ; preds = %.lr.ph.i.i.i.i, %23
   %278 = getelementptr inbounds i8, ptr %276, i64 12
   store i32 0, ptr %278, align 4
   %279 = getelementptr inbounds i8, ptr %276, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %279, ptr noundef nonnull align 8 dereferenceable(232) %274, i64 232, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %279, ptr noundef nonnull readonly align 8 dereferenceable(232) %274, i64 232, i1 false)
   %280 = load i32, ptr %263, align 4
   %281 = call nonnull ptr @conversation_new(i32 noundef %280, ptr noundef nonnull %246, ptr noundef nonnull %246, i32 noundef 14, i32 noundef %273, i32 noundef %273, i32 noundef 3) #11
   %282 = load i32, ptr @proto_infiniband, align 4
@@ -5878,7 +5878,7 @@ parse_CM_Req.exit:                                ; preds = %parse_IP_CM_Req_Msg
   %407 = xor i64 %406, %405
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %lookup_connection.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i.i.i, label %lookup_connection.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !9
 
 lookup_connection.exit.i.i:                       ; preds = %.lr.ph.i.i.i.i.i, %394
   %.011.lcssa.i.i.i.i.i = phi i64 [ %396, %394 ], [ %407, %.lr.ph.i.i.i.i.i ]
@@ -5958,7 +5958,7 @@ attach_connection_to_pinfo.exit.i.i:              ; preds = %426, %425, %424
   %441 = getelementptr inbounds i8, ptr %439, i64 12
   store i32 %436, ptr %441, align 4
   %442 = getelementptr inbounds i8, ptr %439, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %442, ptr noundef nonnull align 8 dereferenceable(232) %437, i64 232, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %442, ptr noundef nonnull readonly align 8 dereferenceable(232) %437, i64 232, i1 false)
   %443 = load i32, ptr %412, align 4
   %444 = call nonnull ptr @conversation_new(i32 noundef %443, ptr noundef nonnull %16, ptr noundef nonnull %16, i32 noundef 14, i32 noundef %435, i32 noundef %435, i32 noundef 3) #11
   %445 = load i32, ptr @proto_infiniband, align 4
@@ -6039,7 +6039,7 @@ parse_CM_Rsp.exit:                                ; preds = %334, %lookup_connec
   %487 = xor i64 %486, %485
   %indvars.iv.next.i.i.i.i.i46 = add nuw nsw i64 %indvars.iv.i.i.i.i.i44, 1
   %exitcond.not.i.i.i.i.i47 = icmp eq i64 %indvars.iv.next.i.i.i.i.i46, %wide.trip.count.i.i.i.i.i42
-  br i1 %exitcond.not.i.i.i.i.i47, label %parse_CM_Rtu.exit, label %.lr.ph.i.i.i.i.i43, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i.i.i47, label %parse_CM_Rtu.exit, label %.lr.ph.i.i.i.i.i43, !llvm.loop !9
 
 parse_CM_Rtu.exit:                                ; preds = %.lr.ph.i.i.i.i.i43, %467
   %.011.lcssa.i.i.i.i.i40 = phi i64 [ %.val22.i, %467 ], [ %487, %.lr.ph.i.i.i.i.i43 ]
@@ -6108,7 +6108,7 @@ parse_CM_Rtu.exit:                                ; preds = %.lr.ph.i.i.i.i.i43,
   %530 = xor i64 %529, %528
   %indvars.iv.next.i.i.i.i.i55 = add nuw nsw i64 %indvars.iv.i.i.i.i.i53, 1
   %exitcond.not.i.i.i.i.i56 = icmp eq i64 %indvars.iv.next.i.i.i.i.i55, %wide.trip.count.i.i.i.i.i51
-  br i1 %exitcond.not.i.i.i.i.i56, label %parse_CM_Rej.exit, label %.lr.ph.i.i.i.i.i52, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i.i.i56, label %parse_CM_Rej.exit, label %.lr.ph.i.i.i.i.i52, !llvm.loop !9
 
 parse_CM_Rej.exit:                                ; preds = %.lr.ph.i.i.i.i.i52, %494
   %.011.lcssa.i.i.i.i.i49 = phi i64 [ %.val44.i, %494 ], [ %530, %.lr.ph.i.i.i.i.i52 ]
@@ -6167,7 +6167,7 @@ parse_CM_Rej.exit:                                ; preds = %.lr.ph.i.i.i.i.i52,
   %563 = xor i64 %562, %561
   %indvars.iv.next.i.i.i.i.i64 = add nuw nsw i64 %indvars.iv.i.i.i.i.i62, 1
   %exitcond.not.i.i.i.i.i65 = icmp eq i64 %indvars.iv.next.i.i.i.i.i64, %wide.trip.count.i.i.i.i.i60
-  br i1 %exitcond.not.i.i.i.i.i65, label %parse_CM_DReq.exit, label %.lr.ph.i.i.i.i.i61, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i.i.i65, label %parse_CM_DReq.exit, label %.lr.ph.i.i.i.i.i61, !llvm.loop !9
 
 parse_CM_DReq.exit:                               ; preds = %.lr.ph.i.i.i.i.i61, %537
   %.011.lcssa.i.i.i.i.i58 = phi i64 [ %.val30.i, %537 ], [ %563, %.lr.ph.i.i.i.i.i61 ]
@@ -6220,7 +6220,7 @@ parse_CM_DReq.exit:                               ; preds = %.lr.ph.i.i.i.i.i61,
   %590 = xor i64 %589, %588
   %indvars.iv.next.i.i.i.i.i82 = add nuw nsw i64 %indvars.iv.i.i.i.i.i80, 1
   %exitcond.not.i.i.i.i.i83 = icmp eq i64 %indvars.iv.next.i.i.i.i.i82, %wide.trip.count.i.i.i.i.i78
-  br i1 %exitcond.not.i.i.i.i.i83, label %try_connection_dissectors.exit.i, label %.lr.ph.i.i.i.i.i79, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i.i.i83, label %try_connection_dissectors.exit.i, label %.lr.ph.i.i.i.i.i79, !llvm.loop !9
 
 try_connection_dissectors.exit.i:                 ; preds = %.lr.ph.i.i.i.i.i79, %570
   %.011.lcssa.i.i.i.i.i67 = phi i64 [ %.val25.i, %570 ], [ %590, %.lr.ph.i.i.i.i.i79 ]
@@ -6259,7 +6259,7 @@ try_connection_dissectors.exit.i:                 ; preds = %.lr.ph.i.i.i.i.i79,
   %605 = xor i64 %604, %603
   %indvars.iv.next.i.i.i.i75 = add nuw nsw i64 %indvars.iv.i.i.i.i73, 1
   %exitcond.not.i.i.i.i76 = icmp eq i64 %indvars.iv.next.i.i.i.i75, %wide.trip.count.i.i.i.i71
-  br i1 %exitcond.not.i.i.i.i76, label %remove_connection.exit.i, label %.lr.ph.i.i.i.i72, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i.i76, label %remove_connection.exit.i, label %.lr.ph.i.i.i.i72, !llvm.loop !9
 
 remove_connection.exit.i:                         ; preds = %.lr.ph.i.i.i.i72, %596
   %.011.lcssa.i.i.i.i69 = phi i64 [ %597, %596 ], [ %605, %.lr.ph.i.i.i.i72 ]
@@ -6290,7 +6290,7 @@ parse_CM_DRsp.exit:                               ; preds = %try_connection_diss
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parse_SNMP(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.MAD_Data, align 8
-  %5 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4), !range !4
+  %5 = call fastcc i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
@@ -6312,7 +6312,7 @@ declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @dissector_try_payload_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   %6 = icmp eq ptr %3, null
   br i1 %6, label %63, label %7
@@ -6470,7 +6470,7 @@ define internal fastcc void @parse_SUBM_Attribute(ptr noundef %0, ptr noundef %1
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.1364, i32 noundef %.02.i) #11
   %23 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %23, 8
-  br i1 %exitcond.not.i, label %parse_NodeDescription.exit, label %.preheader.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %parse_NodeDescription.exit, label %.preheader.i, !llvm.loop !6
 
 24:                                               ; preds = %3
   %.val59 = load i32, ptr %2, align 4
@@ -7244,7 +7244,7 @@ define internal fastcc void @parse_P_KeyTable(ptr noundef %0, ptr noundef %1, pt
   %16 = add nuw nsw i32 %.01921, 1
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.1364, i32 noundef %16) #11
   %exitcond.not = icmp eq i32 %16, 32
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !10
 
 .loopexit:                                        ; preds = %10, %3
   ret void
@@ -7276,7 +7276,7 @@ define internal fastcc void @parse_SLtoVLMappingTable(ptr noundef %0, ptr nounde
   %16 = add nuw nsw i32 %.022, 1
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.1364, i32 noundef %16) #11
   %exitcond.not = icmp eq i32 %16, 8
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !11
 
 .loopexit:                                        ; preds = %10, %3
   ret void
@@ -7309,7 +7309,7 @@ define internal fastcc void @parse_VLArbitrationTable(ptr noundef %0, ptr nounde
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.1364, i32 noundef %.02022) #11
   %17 = add nuw nsw i32 %.02022, 1
   %exitcond.not = icmp eq i32 %17, 32
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !12
 
 .loopexit:                                        ; preds = %10, %3
   ret void
@@ -7338,7 +7338,7 @@ define internal fastcc void @parse_LinearForwardingTable(ptr noundef %0, ptr nou
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.1364, i32 noundef %.017) #11
   %14 = add nuw nsw i32 %.017, 1
   %exitcond.not = icmp eq i32 %14, 64
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !13
 
 .loopexit:                                        ; preds = %10, %3
   ret void
@@ -7378,7 +7378,7 @@ define internal fastcc void @parse_RandomForwardingTable(ptr noundef %0, ptr nou
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef nonnull @.str.1364, i32 noundef %.034) #11
   %22 = add nuw nsw i32 %.034, 1
   %exitcond.not = icmp eq i32 %22, 16
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !14
 
 .loopexit:                                        ; preds = %10, %3
   ret void
@@ -7407,7 +7407,7 @@ define internal fastcc void @parse_MulticastForwardingTable(ptr noundef %0, ptr 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.1364, i32 noundef %.017) #11
   %14 = add nuw nsw i32 %.017, 1
   %exitcond.not = icmp eq i32 %14, 16
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !15
 
 .loopexit:                                        ; preds = %10, %3
   ret void
@@ -7689,16 +7689,15 @@ attributes #15 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

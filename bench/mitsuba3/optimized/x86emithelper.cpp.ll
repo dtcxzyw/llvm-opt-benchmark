@@ -943,7 +943,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitPrologERKNS
   br i1 %129, label %.loopexit16, label %130
 
 130:                                              ; preds = %122
-  %131 = trunc i64 %123 to i8
+  %131 = trunc nuw nsw i64 %123 to i8
   call fastcc void @_ZN6asmjit9_abi_1_103x86L32X86Internal_setupSaveRestoreInfoENS0_8RegGroupERKNS0_9FuncFrameERNS1_3RegERjS8_(i8 noundef zeroext %131, ptr noundef nonnull align 4 dereferenceable(100) %1, ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13) #11
   %132 = load i32, ptr %12, align 4, !tbaa !4
   %133 = load i32, ptr %13, align 4
@@ -1154,7 +1154,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8610EmitHelper10emitEpilogERKNS
   br i1 %61, label %.loopexit22, label %62
 
 62:                                               ; preds = %54
-  %63 = trunc i64 %55 to i8
+  %63 = trunc nuw nsw i64 %55 to i8
   call fastcc void @_ZN6asmjit9_abi_1_103x86L32X86Internal_setupSaveRestoreInfoENS0_8RegGroupERKNS0_9FuncFrameERNS1_3RegERjS8_(i8 noundef zeroext %63, ptr noundef nonnull align 4 dereferenceable(100) %1, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10) #11
   %64 = load i32, ptr %9, align 4, !tbaa !4
   %65 = load i32, ptr %10, align 4

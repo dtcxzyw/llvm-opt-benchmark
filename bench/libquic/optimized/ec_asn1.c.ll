@@ -312,7 +312,7 @@ lor.lhs.false17.i:                                ; preds = %lor.lhs.false13.i
   br i1 %tobool19.not.i, label %if.then.i, label %lor.lhs.false20.i
 
 lor.lhs.false20.i:                                ; preds = %lor.lhs.false17.i
-  %call21.i = call fastcc i32 @is_unsigned_integer(ptr noundef nonnull %prime), !range !7
+  %call21.i = call fastcc i32 @is_unsigned_integer(ptr noundef nonnull %prime)
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %if.then.i, label %lor.lhs.false23.i
 
@@ -347,7 +347,7 @@ lor.lhs.false38.i:                                ; preds = %lor.lhs.false35.i
   br i1 %tobool40.not.i, label %if.then.i, label %lor.lhs.false41.i
 
 lor.lhs.false41.i:                                ; preds = %lor.lhs.false38.i
-  %call42.i = call fastcc i32 @is_unsigned_integer(ptr noundef nonnull %order), !range !7
+  %call42.i = call fastcc i32 @is_unsigned_integer(ptr noundef nonnull %order)
   %tobool43.not.i = icmp eq i32 %call42.i, 0
   br i1 %tobool43.not.i, label %if.then.i, label %if.end.i
 
@@ -418,7 +418,7 @@ for.body:                                         ; preds = %parse_explicit_prim
   %data10 = getelementptr inbounds i8, ptr %4, i64 10
   %conv11 = zext i8 %5 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i, ptr noundef nonnull align 8 dereferenceable(16) %prime, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %prime, i64 16, i1 false)
   %call5.i22 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i) #7
   %cmp.not6.i = icmp eq i64 %call5.i22, 0
   br i1 %cmp.not6.i, label %while.end.i, label %land.rhs.i
@@ -433,7 +433,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %call4.i = call i32 @CBS_skip(ptr noundef nonnull %a_copy.i, i64 noundef 1) #7
   %call.i24 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i) #7
   %cmp.not.i = icmp eq i64 %call.i24, 0
-  br i1 %cmp.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %for.body
   %cmp6.not7.i = icmp eq i8 %5, 0
@@ -454,7 +454,7 @@ while.body14.i:                                   ; preds = %land.rhs8.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %b.addr.08.i, i64 1
   %dec.i = add nsw i64 %b_len.addr.09.i, -1
   %cmp6.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp6.not.i, label %integers_equal.exit, label %land.rhs8.i, !llvm.loop !10
+  br i1 %cmp6.not.i, label %integers_equal.exit, label %land.rhs8.i, !llvm.loop !9
 
 integers_equal.exit:                              ; preds = %land.rhs8.i, %while.body14.i, %while.end.i
   %b.addr.0.lcssa.i = phi ptr [ %data10, %while.end.i ], [ %b.addr.08.i, %land.rhs8.i ], [ %scevgep.i, %while.body14.i ]
@@ -467,7 +467,7 @@ integers_equal.exit:                              ; preds = %land.rhs8.i, %while
 land.lhs.true:                                    ; preds = %integers_equal.exit
   %add.ptr = getelementptr inbounds i8, ptr %data10, i64 %conv11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i25)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i25, ptr noundef nonnull align 8 dereferenceable(16) %a, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i25, ptr noundef nonnull readonly align 8 dereferenceable(16) %a, i64 16, i1 false)
   %call5.i26 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i25) #7
   %cmp.not6.i27 = icmp eq i64 %call5.i26, 0
   br i1 %cmp.not6.i27, label %while.end.i31, label %land.rhs.i28
@@ -482,7 +482,7 @@ while.body.i46:                                   ; preds = %land.rhs.i28
   %call4.i47 = call i32 @CBS_skip(ptr noundef nonnull %a_copy.i25, i64 noundef 1) #7
   %call.i48 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i25) #7
   %cmp.not.i49 = icmp eq i64 %call.i48, 0
-  br i1 %cmp.not.i49, label %while.end.i31, label %land.rhs.i28, !llvm.loop !8
+  br i1 %cmp.not.i49, label %while.end.i31, label %land.rhs.i28, !llvm.loop !7
 
 while.end.i31:                                    ; preds = %while.body.i46, %land.rhs.i28, %land.lhs.true
   br i1 %cmp6.not7.i, label %integers_equal.exit50, label %land.rhs8.preheader.i33
@@ -502,7 +502,7 @@ while.body14.i42:                                 ; preds = %land.rhs8.i35
   %incdec.ptr.i43 = getelementptr inbounds i8, ptr %b.addr.08.i37, i64 1
   %dec.i44 = add nsw i64 %b_len.addr.09.i36, -1
   %cmp6.not.i45 = icmp eq i64 %dec.i44, 0
-  br i1 %cmp6.not.i45, label %integers_equal.exit50, label %land.rhs8.i35, !llvm.loop !10
+  br i1 %cmp6.not.i45, label %integers_equal.exit50, label %land.rhs8.i35, !llvm.loop !9
 
 integers_equal.exit50:                            ; preds = %land.rhs8.i35, %while.body14.i42, %while.end.i31
   %b.addr.0.lcssa.i39 = phi ptr [ %add.ptr, %while.end.i31 ], [ %b.addr.08.i37, %land.rhs8.i35 ], [ %scevgep.i34, %while.body14.i42 ]
@@ -517,7 +517,7 @@ land.lhs.true20:                                  ; preds = %integers_equal.exit
   %idx.ext24 = zext nneg i32 %mul to i64
   %add.ptr25 = getelementptr inbounds i8, ptr %data10, i64 %idx.ext24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i51)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i51, ptr noundef nonnull align 8 dereferenceable(16) %b, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i51, ptr noundef nonnull readonly align 8 dereferenceable(16) %b, i64 16, i1 false)
   %call5.i52 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i51) #7
   %cmp.not6.i53 = icmp eq i64 %call5.i52, 0
   br i1 %cmp.not6.i53, label %while.end.i57, label %land.rhs.i54
@@ -532,7 +532,7 @@ while.body.i72:                                   ; preds = %land.rhs.i54
   %call4.i73 = call i32 @CBS_skip(ptr noundef nonnull %a_copy.i51, i64 noundef 1) #7
   %call.i74 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i51) #7
   %cmp.not.i75 = icmp eq i64 %call.i74, 0
-  br i1 %cmp.not.i75, label %while.end.i57, label %land.rhs.i54, !llvm.loop !8
+  br i1 %cmp.not.i75, label %while.end.i57, label %land.rhs.i54, !llvm.loop !7
 
 while.end.i57:                                    ; preds = %while.body.i72, %land.rhs.i54, %land.lhs.true20
   br i1 %cmp6.not7.i, label %integers_equal.exit76, label %land.rhs8.preheader.i59
@@ -552,7 +552,7 @@ while.body14.i68:                                 ; preds = %land.rhs8.i61
   %incdec.ptr.i69 = getelementptr inbounds i8, ptr %b.addr.08.i63, i64 1
   %dec.i70 = add nsw i64 %b_len.addr.09.i62, -1
   %cmp6.not.i71 = icmp eq i64 %dec.i70, 0
-  br i1 %cmp6.not.i71, label %integers_equal.exit76, label %land.rhs8.i61, !llvm.loop !10
+  br i1 %cmp6.not.i71, label %integers_equal.exit76, label %land.rhs8.i61, !llvm.loop !9
 
 integers_equal.exit76:                            ; preds = %land.rhs8.i61, %while.body14.i68, %while.end.i57
   %b.addr.0.lcssa.i65 = phi ptr [ %add.ptr25, %while.end.i57 ], [ %b.addr.08.i63, %land.rhs8.i61 ], [ %scevgep.i60, %while.body14.i68 ]
@@ -567,7 +567,7 @@ land.lhs.true29:                                  ; preds = %integers_equal.exit
   %idx.ext34 = zext nneg i32 %mul33 to i64
   %add.ptr35 = getelementptr inbounds i8, ptr %data10, i64 %idx.ext34
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i77)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i77, ptr noundef nonnull align 8 dereferenceable(16) %base_x, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i77, ptr noundef nonnull readonly align 8 dereferenceable(16) %base_x, i64 16, i1 false)
   %call5.i78 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i77) #7
   %cmp.not6.i79 = icmp eq i64 %call5.i78, 0
   br i1 %cmp.not6.i79, label %while.end.i83, label %land.rhs.i80
@@ -582,7 +582,7 @@ while.body.i98:                                   ; preds = %land.rhs.i80
   %call4.i99 = call i32 @CBS_skip(ptr noundef nonnull %a_copy.i77, i64 noundef 1) #7
   %call.i100 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i77) #7
   %cmp.not.i101 = icmp eq i64 %call.i100, 0
-  br i1 %cmp.not.i101, label %while.end.i83, label %land.rhs.i80, !llvm.loop !8
+  br i1 %cmp.not.i101, label %while.end.i83, label %land.rhs.i80, !llvm.loop !7
 
 while.end.i83:                                    ; preds = %while.body.i98, %land.rhs.i80, %land.lhs.true29
   br i1 %cmp6.not7.i, label %integers_equal.exit102, label %land.rhs8.preheader.i85
@@ -602,7 +602,7 @@ while.body14.i94:                                 ; preds = %land.rhs8.i87
   %incdec.ptr.i95 = getelementptr inbounds i8, ptr %b.addr.08.i89, i64 1
   %dec.i96 = add nsw i64 %b_len.addr.09.i88, -1
   %cmp6.not.i97 = icmp eq i64 %dec.i96, 0
-  br i1 %cmp6.not.i97, label %integers_equal.exit102, label %land.rhs8.i87, !llvm.loop !10
+  br i1 %cmp6.not.i97, label %integers_equal.exit102, label %land.rhs8.i87, !llvm.loop !9
 
 integers_equal.exit102:                           ; preds = %land.rhs8.i87, %while.body14.i94, %while.end.i83
   %b.addr.0.lcssa.i91 = phi ptr [ %add.ptr35, %while.end.i83 ], [ %b.addr.08.i89, %land.rhs8.i87 ], [ %scevgep.i86, %while.body14.i94 ]
@@ -617,7 +617,7 @@ land.lhs.true39:                                  ; preds = %integers_equal.exit
   %idx.ext44 = zext nneg i32 %mul43 to i64
   %add.ptr45 = getelementptr inbounds i8, ptr %data10, i64 %idx.ext44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i103)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i103, ptr noundef nonnull align 8 dereferenceable(16) %base_y, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i103, ptr noundef nonnull readonly align 8 dereferenceable(16) %base_y, i64 16, i1 false)
   %call5.i104 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i103) #7
   %cmp.not6.i105 = icmp eq i64 %call5.i104, 0
   br i1 %cmp.not6.i105, label %while.end.i109, label %land.rhs.i106
@@ -632,7 +632,7 @@ while.body.i124:                                  ; preds = %land.rhs.i106
   %call4.i125 = call i32 @CBS_skip(ptr noundef nonnull %a_copy.i103, i64 noundef 1) #7
   %call.i126 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i103) #7
   %cmp.not.i127 = icmp eq i64 %call.i126, 0
-  br i1 %cmp.not.i127, label %while.end.i109, label %land.rhs.i106, !llvm.loop !8
+  br i1 %cmp.not.i127, label %while.end.i109, label %land.rhs.i106, !llvm.loop !7
 
 while.end.i109:                                   ; preds = %while.body.i124, %land.rhs.i106, %land.lhs.true39
   br i1 %cmp6.not7.i, label %integers_equal.exit128, label %land.rhs8.preheader.i111
@@ -652,7 +652,7 @@ while.body14.i120:                                ; preds = %land.rhs8.i113
   %incdec.ptr.i121 = getelementptr inbounds i8, ptr %b.addr.08.i115, i64 1
   %dec.i122 = add nsw i64 %b_len.addr.09.i114, -1
   %cmp6.not.i123 = icmp eq i64 %dec.i122, 0
-  br i1 %cmp6.not.i123, label %integers_equal.exit128, label %land.rhs8.i113, !llvm.loop !10
+  br i1 %cmp6.not.i123, label %integers_equal.exit128, label %land.rhs8.i113, !llvm.loop !9
 
 integers_equal.exit128:                           ; preds = %land.rhs8.i113, %while.body14.i120, %while.end.i109
   %b.addr.0.lcssa.i117 = phi ptr [ %add.ptr45, %while.end.i109 ], [ %b.addr.08.i115, %land.rhs8.i113 ], [ %scevgep.i112, %while.body14.i120 ]
@@ -667,7 +667,7 @@ land.lhs.true49:                                  ; preds = %integers_equal.exit
   %idx.ext54 = zext nneg i32 %mul53 to i64
   %add.ptr55 = getelementptr inbounds i8, ptr %data10, i64 %idx.ext54
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i129)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i129, ptr noundef nonnull align 8 dereferenceable(16) %order, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i129, ptr noundef nonnull readonly align 8 dereferenceable(16) %order, i64 16, i1 false)
   %call5.i130 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i129) #7
   %cmp.not6.i131 = icmp eq i64 %call5.i130, 0
   br i1 %cmp.not6.i131, label %while.end.i135, label %land.rhs.i132
@@ -682,7 +682,7 @@ while.body.i150:                                  ; preds = %land.rhs.i132
   %call4.i151 = call i32 @CBS_skip(ptr noundef nonnull %a_copy.i129, i64 noundef 1) #7
   %call.i152 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i129) #7
   %cmp.not.i153 = icmp eq i64 %call.i152, 0
-  br i1 %cmp.not.i153, label %while.end.i135, label %land.rhs.i132, !llvm.loop !8
+  br i1 %cmp.not.i153, label %while.end.i135, label %land.rhs.i132, !llvm.loop !7
 
 while.end.i135:                                   ; preds = %while.body.i150, %land.rhs.i132, %land.lhs.true49
   br i1 %cmp6.not7.i, label %integers_equal.exit154, label %land.rhs8.preheader.i137
@@ -702,7 +702,7 @@ while.body14.i146:                                ; preds = %land.rhs8.i139
   %incdec.ptr.i147 = getelementptr inbounds i8, ptr %b.addr.08.i141, i64 1
   %dec.i148 = add nsw i64 %b_len.addr.09.i140, -1
   %cmp6.not.i149 = icmp eq i64 %dec.i148, 0
-  br i1 %cmp6.not.i149, label %integers_equal.exit154, label %land.rhs8.i139, !llvm.loop !10
+  br i1 %cmp6.not.i149, label %integers_equal.exit154, label %land.rhs8.i139, !llvm.loop !9
 
 integers_equal.exit154:                           ; preds = %land.rhs8.i139, %while.body14.i146, %while.end.i135
   %b.addr.0.lcssa.i143 = phi ptr [ %add.ptr55, %while.end.i135 ], [ %b.addr.08.i141, %land.rhs8.i139 ], [ %scevgep.i138, %while.body14.i146 ]
@@ -722,7 +722,7 @@ for.inc:                                          ; preds = %integers_equal.exit
   %arrayidx = getelementptr inbounds [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %idxprom
   %18 = load i32, ptr %arrayidx, align 8
   %cmp.not = icmp eq i32 %18, 0
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %parse_explicit_prime_curve.exit
   call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str, i32 noundef 404) #7
@@ -764,7 +764,7 @@ declare void @EC_GROUP_free(ptr noundef) local_unnamed_addr #1
 declare void @EC_KEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EC_KEY_marshal_private_key(ptr noundef %cbb, ptr noundef readonly %key, i32 noundef %enc_flags) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EC_KEY_marshal_private_key(ptr noundef %cbb, ptr noundef readonly %key, i32 noundef %enc_flags) local_unnamed_addr #0 {
 entry:
   %ec_private_key = alloca %struct.cbb_st, align 8
   %private_key = alloca %struct.cbb_st, align 8
@@ -830,7 +830,7 @@ if.then20:                                        ; preds = %if.end18
 
 lor.lhs.false23:                                  ; preds = %if.then20
   %4 = load ptr, ptr %key, align 8
-  %call25 = call i32 @EC_KEY_marshal_curve_name(ptr noundef nonnull %child, ptr noundef %4), !range !7
+  %call25 = call i32 @EC_KEY_marshal_curve_name(ptr noundef nonnull %child, ptr noundef %4)
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %if.then30, label %lor.lhs.false27
 
@@ -910,7 +910,7 @@ declare i32 @BN_bn2cbb_padded(ptr noundef, i64 noundef, ptr noundef) local_unnam
 declare i32 @BN_num_bytes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_KEY_marshal_curve_name(ptr noundef %cbb, ptr noundef %group) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EC_KEY_marshal_curve_name(ptr noundef %cbb, ptr noundef %group) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %call = tail call i32 @EC_GROUP_get_curve_name(ptr noundef %group) #7
@@ -937,11 +937,11 @@ for.cond:                                         ; preds = %for.body.preheader,
   %arrayidx = getelementptr inbounds [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 8
   %cmp2.not = icmp eq i32 %1, 0
-  br i1 %cmp2.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %cmp2.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.body:                                         ; preds = %for.cond
   %cmp6 = icmp eq i32 %1, %call
-  br i1 %cmp6, label %if.then7, label %for.cond, !llvm.loop !12
+  br i1 %cmp6, label %if.then7, label %for.cond, !llvm.loop !11
 
 if.then7:                                         ; preds = %for.body, %for.body.preheader
   %arrayidx10.lcssa = phi ptr [ @OPENSSL_built_in_curves, %for.body.preheader ], [ %arrayidx, %for.body ]
@@ -1024,7 +1024,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %arrayidx = getelementptr inbounds [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %idxprom
   %3 = load i32, ptr %arrayidx, align 8
   %cmp.not = icmp eq i32 %3, 0
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str, i32 noundef 343) #7
@@ -1106,7 +1106,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call1 = call i32 @EC_KEY_get_enc_flags(ptr noundef %key) #7
-  %call2 = call i32 @EC_KEY_marshal_private_key(ptr noundef nonnull %cbb, ptr noundef %key, i32 noundef %call1), !range !7
+  %call2 = call i32 @EC_KEY_marshal_private_key(ptr noundef nonnull %cbb, ptr noundef %key, i32 noundef %call1)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.then, label %if.end
 
@@ -1204,7 +1204,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 lor.lhs.false2:                                   ; preds = %if.end
   %1 = load ptr, ptr %key, align 8
-  %call4 = call i32 @EC_KEY_marshal_curve_name(ptr noundef nonnull %cbb, ptr noundef %1), !range !7
+  %call4 = call i32 @EC_KEY_marshal_curve_name(ptr noundef nonnull %cbb, ptr noundef %1)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.then6, label %if.end7
 
@@ -1377,7 +1377,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @is_unsigned_integer(ptr noundef %cbs) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_unsigned_integer(ptr noundef %cbs) unnamed_addr #0 {
 entry:
   %call = tail call i64 @CBS_len(ptr noundef %cbs) #7
   %cmp = icmp eq i64 %call, 0
@@ -1448,10 +1448,9 @@ attributes #8 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}

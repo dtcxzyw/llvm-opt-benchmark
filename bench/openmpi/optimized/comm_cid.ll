@@ -461,7 +461,7 @@ ompi_comm_extended_cid_get_unique_tag.exit.i.i:   ; preds = %50, %46
 157:                                              ; preds = %.thread.i.i
   store i64 %.1.i.i, ptr %25, align 8
   %158 = getelementptr inbounds i8, ptr %0, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %158, i8 0, i64 18, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(18) %158, i8 0, i64 18, i1 false)
   br label %159
 
 159:                                              ; preds = %157, %155, %148, %78, %75, %72
@@ -507,7 +507,7 @@ ompi_comm_ext_cid_new_block.exit.i:               ; preds = %168, %166
   br i1 %.not.i, label %170, label %ompi_comm_nextcid_ext_nb.exit
 
 169:                                              ; preds = %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32, i1 false)
   br label %170
 
 170:                                              ; preds = %169, %ompi_comm_ext_cid_new_block.exit.i, %ompi_comm_extended_cid_block_available.exit.i

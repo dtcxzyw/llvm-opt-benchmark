@@ -209,7 +209,7 @@ define void @dlahqr_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %156 = fneg double %154
   %157 = select i1 %155, double %154, double %156
   %158 = fcmp ugt double %157, %84
-  %159 = trunc i64 %147 to i32
+  %159 = trunc nsw i64 %147 to i32
   br i1 %158, label %160, label %.loopexit42
 
 160:                                              ; preds = %146

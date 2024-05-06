@@ -59,7 +59,7 @@ define internal i32 @serport_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @serport_ldisc_open(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 -12, 1) i32 @serport_ldisc_open(ptr noundef %0) #2 align 16 {
   %2 = tail call zeroext i1 @capable(i32 noundef 21) #11
   br i1 %2, label %3, label %13
 
@@ -97,7 +97,7 @@ define internal void @serport_ldisc_close(ptr nocapture noundef readonly %0) #2 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @serport_ldisc_read(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3, ptr nocapture readnone %4, i64 %5) #2 align 16 {
+define internal noundef range(i64 -16, 1) i64 @serport_ldisc_read(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3, ptr nocapture readnone %4, i64 %5) #2 align 16 {
   %7 = alloca %struct.wait_queue_entry, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 576
   %9 = load ptr, ptr %8, align 8
@@ -194,7 +194,7 @@ define internal noundef i64 @serport_ldisc_read(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @serport_ldisc_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @serport_ldisc_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
   %4 = icmp eq i32 %1, 1074295041
   br i1 %4, label %5, label %26
 
@@ -233,7 +233,7 @@ define internal noundef i32 @serport_ldisc_ioctl(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @serport_ldisc_compat_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @serport_ldisc_compat_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
   %4 = icmp eq i32 %1, 1074032897
   br i1 %4, label %5, label %27
 
@@ -403,7 +403,7 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 declare dso_local ptr @tty_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @serport_serio_write(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) #2 align 16 {
+define internal range(i32 -1, 1) i32 @serport_serio_write(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) #2 align 16 {
   %3 = alloca i8, align 1
   store i8 %1, ptr %3, align 1
   %4 = load ptr, ptr %0, align 8

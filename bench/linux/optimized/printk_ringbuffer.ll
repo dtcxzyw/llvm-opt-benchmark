@@ -220,7 +220,7 @@ define dso_local noundef zeroext i1 @prb_reserve_in_last(ptr nocapture noundef %
   br label %124
 
 124:                                              ; preds = %120, %118
-  %125 = trunc i32 %116 to i16
+  %125 = trunc nuw i32 %116 to i16
   store i16 %125, ptr %113, align 8
   br label %126
 
@@ -810,7 +810,7 @@ define dso_local noundef zeroext i1 @prb_reserve(ptr nocapture noundef %0, ptr n
   %46 = and i64 %45, 4611686018427387903
   %47 = icmp eq i64 %46, %34
   %48 = lshr i64 %45, 62
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw nsw i64 %48 to i32
   %50 = select i1 %47, i32 %49, i32 -1
   %51 = add nsw i32 %50, 1
   %52 = icmp ult i32 %51, 2
@@ -825,7 +825,7 @@ define dso_local noundef zeroext i1 @prb_reserve(ptr nocapture noundef %0, ptr n
   %57 = and i64 %56, 4611686018427387903
   %58 = icmp eq i64 %57, %34
   %59 = lshr i64 %56, 62
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nuw nsw i64 %59 to i32
   br i1 %58, label %select.unfold, label %.thread
 
 .thread:                                          ; preds = %53
@@ -887,7 +887,7 @@ select.unfold:                                    ; preds = %53, %37
   %96 = and i64 %95, 4611686018427387903
   %97 = icmp eq i64 %96, %87
   %98 = lshr i64 %95, 62
-  %99 = trunc i64 %98 to i32
+  %99 = trunc nuw nsw i64 %98 to i32
   %100 = select i1 %97, i32 %99, i32 -1
   %101 = add nsw i32 %100, 1
   %102 = icmp ult i32 %101, 2
@@ -900,7 +900,7 @@ select.unfold:                                    ; preds = %53, %37
   %105 = and i64 %104, 4611686018427387903
   %106 = icmp eq i64 %105, %87
   %107 = lshr i64 %104, 62
-  %108 = trunc i64 %107 to i32
+  %108 = trunc nuw nsw i64 %107 to i32
   %109 = select i1 %106, i32 %108, i32 -1
   br label %110
 
@@ -1354,7 +1354,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   %34 = and i64 %33, 4611686018427387903
   %35 = icmp eq i64 %34, %30
   %36 = lshr i64 %33, 62
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw nsw i64 %36 to i32
   %38 = select i1 %35, i32 %37, i32 -1
   %39 = add nsw i32 %38, 1
   %40 = icmp ult i32 %39, 2
@@ -1371,7 +1371,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   %46 = and i64 %45, 4611686018427387903
   %47 = icmp eq i64 %46, %30
   %48 = lshr i64 %45, 62
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw nsw i64 %48 to i32
   %50 = select i1 %47, i32 %49, i32 -1
   br label %51
 
@@ -1494,7 +1494,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   %123 = and i64 %122, 4611686018427387903
   %124 = icmp eq i64 %123, %30
   %125 = lshr i64 %122, 62
-  %126 = trunc i64 %125 to i32
+  %126 = trunc nuw nsw i64 %125 to i32
   %127 = select i1 %124, i32 %126, i32 -1
   %128 = add nsw i32 %127, 1
   %129 = icmp ult i32 %128, 2
@@ -1511,7 +1511,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   %135 = and i64 %134, 4611686018427387903
   %136 = icmp eq i64 %135, %30
   %137 = lshr i64 %134, 62
-  %138 = trunc i64 %137 to i32
+  %138 = trunc nuw nsw i64 %137 to i32
   %139 = select i1 %136, i32 %138, i32 -1
   br label %140
 
@@ -1572,7 +1572,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   %171 = and i64 %170, 4611686018427387903
   %172 = icmp eq i64 %171, %161
   %173 = lshr i64 %170, 62
-  %174 = trunc i64 %173 to i32
+  %174 = trunc nuw nsw i64 %173 to i32
   %175 = select i1 %172, i32 %174, i32 -1
   %176 = add nsw i32 %175, 1
   %177 = icmp ult i32 %176, 2
@@ -1587,7 +1587,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   %182 = and i64 %181, 4611686018427387903
   %183 = icmp eq i64 %182, %161
   %184 = lshr i64 %181, 62
-  %185 = trunc i64 %184 to i32
+  %185 = trunc nuw nsw i64 %184 to i32
   %186 = select i1 %183, i32 %185, i32 -1
   br label %187
 
@@ -1677,7 +1677,7 @@ define dso_local i64 @prb_next_seq(ptr noundef %0) local_unnamed_addr #0 align 1
   %16 = and i64 %15, 4611686018427387903
   %17 = icmp eq i64 %16, %4
   %18 = lshr i64 %15, 62
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = select i1 %17, i32 %19, i32 -1
   %21 = add nsw i32 %20, 1
   %22 = icmp ult i32 %21, 2
@@ -1844,7 +1844,7 @@ define internal fastcc noundef zeroext i1 @data_push_tail(ptr noundef %0, i64 no
   %41 = and i64 %40, 4611686018427387903
   %42 = icmp eq i64 %41, %32
   %43 = lshr i64 %40, 62
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw nsw i64 %43 to i32
   %45 = select i1 %42, i32 %44, i32 -1
   %46 = add nsw i32 %45, 1
   %47 = icmp ult i32 %46, 2
@@ -1861,7 +1861,7 @@ define internal fastcc noundef zeroext i1 @data_push_tail(ptr noundef %0, i64 no
   %54 = and i64 %53, 4611686018427387903
   %55 = icmp eq i64 %54, %32
   %56 = lshr i64 %53, 62
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw nsw i64 %56 to i32
   br i1 %55, label %select.unfold, label %.thread
 
 .thread:                                          ; preds = %48

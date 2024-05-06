@@ -231,7 +231,7 @@ common_topo_route_part.exit:                      ; preds = %14, %.sink.split.i
 
 103:                                              ; preds = %100
   %104 = load ptr, ptr %10, align 8
-  %105 = trunc i64 %indvars.iv.i to i32
+  %105 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._route_part_split_hostlist, i32 noundef %105, ptr noundef %104) #6
   br label %106
 
@@ -418,7 +418,7 @@ _set_span.exit:                                   ; preds = %..loopexit_crit_edg
 
 181:                                              ; preds = %174
   %182 = load ptr, ptr %12, align 8
-  %183 = trunc i64 %indvars.iv to i32
+  %183 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_topo_split_hostlist_treewidth, i32 noundef %183, ptr noundef %182) #6
   br label %184
 
@@ -433,7 +433,7 @@ _set_span.exit:                                   ; preds = %..loopexit_crit_edg
   br i1 %.not40, label %._crit_edge.loopexit, label %.lr.ph59, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %185
-  %187 = trunc i64 %indvars.iv.next to i32
+  %187 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_set_span.exit
@@ -490,7 +490,7 @@ declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @common_topo_get_node_addr(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @common_topo_get_node_addr(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @slurm_find_node_record(ptr noundef %0) #6
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
@@ -1000,7 +1000,7 @@ declare i32 @slurm_list_count(ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_list_for_each_ro(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_part_split_hostlist(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_part_split_hostlist(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24

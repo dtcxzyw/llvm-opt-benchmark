@@ -104,7 +104,7 @@ if.else:                                          ; preds = %while.body
 
 if.end:                                           ; preds = %while.body
   %call = tail call noalias ptr @g_strdup(ptr noundef nonnull %path.addr.025) #15
-  %call.i = tail call ptr @strchrnul(ptr noundef nonnull %path.addr.025, i32 noundef 47) #16
+  %call.i = tail call ptr @strchrnul(ptr noundef nonnull readonly %path.addr.025, i32 noundef 47) #16
   %5 = load i8, ptr %call.i, align 1
   %tobool6.not = icmp eq i8 %5, 0
   br i1 %tobool6.not, label %if.else9, label %if.then7
@@ -583,7 +583,7 @@ entry:
   %call = tail call noalias ptr @g_path_get_dirname(ptr noundef %0) #15
   %1 = load ptr, ptr %data, align 8
   %call2 = tail call noalias ptr @g_path_get_basename(ptr noundef %1) #15
-  %call.i = tail call i32 @local_open_nofollow(ptr noundef %fs_ctx, ptr noundef %call, i32 noundef 65536, i32 noundef 0)
+  %call.i = tail call i32 @local_open_nofollow(ptr noundef readonly %fs_ctx, ptr noundef %call, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i, -1
   br i1 %cmp, label %out, label %if.end
 
@@ -671,7 +671,7 @@ if.end.i:                                         ; preds = %if.then.i
   br i1 %cmp9.i.i, label %if.end5.i, label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.end.i
-  %call13.i.i = tail call noalias ptr @fdopen(i32 noundef %call7.i.i, ptr noundef nonnull @.str.36) #15
+  %call13.i.i = tail call noalias ptr @fdopen(i32 noundef %call7.i.i, ptr noundef nonnull readonly @.str.36) #15
   %tobool.not.i.i = icmp eq ptr %call13.i.i, null
   br i1 %tobool.not.i.i, label %if.then14.i.i, label %if.end5.i
 
@@ -685,7 +685,7 @@ if.else.i:                                        ; preds = %entry.tail.i
   br i1 %cmp9.i15.i, label %local_mapped_file_attr.exit, label %if.end12.i16.i
 
 if.end12.i16.i:                                   ; preds = %if.else.i
-  %call13.i17.i = tail call noalias ptr @fdopen(i32 noundef %call7.i14.i, ptr noundef nonnull @.str.36) #15
+  %call13.i17.i = tail call noalias ptr @fdopen(i32 noundef %call7.i14.i, ptr noundef nonnull readonly @.str.36) #15
   %tobool.not.i18.i = icmp eq ptr %call13.i17.i, null
   br i1 %tobool.not.i18.i, label %if.then14.i20.i, label %if.end8.i
 
@@ -831,7 +831,7 @@ if.then16:                                        ; preds = %if.else
   %call18 = tail call noalias ptr @g_path_get_dirname(ptr noundef %6) #15
   %7 = load ptr, ptr %data17, align 8
   %call20 = tail call noalias ptr @g_path_get_basename(ptr noundef %7) #15
-  %call.i18 = tail call i32 @local_open_nofollow(ptr noundef nonnull %fs_ctx, ptr noundef %call18, i32 noundef 65536, i32 noundef 0)
+  %call.i18 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %fs_ctx, ptr noundef %call18, i32 noundef 65536, i32 noundef 0)
   %cmp22 = icmp eq i32 %call.i18, -1
   br i1 %cmp22, label %out, label %if.end24
 
@@ -862,7 +862,7 @@ entry:
   %call = tail call noalias ptr @g_path_get_dirname(ptr noundef %0) #15
   %1 = load ptr, ptr %data, align 8
   %call2 = tail call noalias ptr @g_path_get_basename(ptr noundef %1) #15
-  %call.i = tail call i32 @local_open_nofollow(ptr noundef %fs_ctx, ptr noundef %call, i32 noundef 65536, i32 noundef 0)
+  %call.i = tail call i32 @local_open_nofollow(ptr noundef readonly %fs_ctx, ptr noundef %call, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i, -1
   br i1 %cmp, label %out, label %if.end
 
@@ -920,7 +920,7 @@ entry:
   %call = tail call noalias ptr @g_path_get_dirname(ptr noundef %0) #15
   %1 = load ptr, ptr %data, align 8
   %call2 = tail call noalias ptr @g_path_get_basename(ptr noundef %1) #15
-  %call.i = tail call i32 @local_open_nofollow(ptr noundef %fs_ctx, ptr noundef %call, i32 noundef 65536, i32 noundef 0)
+  %call.i = tail call i32 @local_open_nofollow(ptr noundef readonly %fs_ctx, ptr noundef %call, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i, -1
   br i1 %cmp, label %out, label %if.end
 
@@ -995,12 +995,12 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then, label %local_is_mapped_file_metadata.exit
 
 local_is_mapped_file_metadata.exit:               ; preds = %land.lhs.true
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 
@@ -1012,7 +1012,7 @@ if.then:                                          ; preds = %land.lhs.true, %loc
 if.end:                                           ; preds = %local_is_mapped_file_metadata.exit, %entry
   %data = getelementptr inbounds i8, ptr %dir_path, i64 8
   %1 = load ptr, ptr %data, align 8
-  %call.i32 = tail call i32 @local_open_nofollow(ptr noundef nonnull %fs_ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
+  %call.i32 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %fs_ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i32, -1
   br i1 %cmp, label %return, label %if.end4
 
@@ -1112,7 +1112,7 @@ entry:
   %call = tail call noalias ptr @g_path_get_dirname(ptr noundef %0) #15
   %1 = load ptr, ptr %data, align 8
   %call2 = tail call noalias ptr @g_path_get_basename(ptr noundef %1) #15
-  %call.i = tail call i32 @local_open_nofollow(ptr noundef %s, ptr noundef %call, i32 noundef 65536, i32 noundef 0)
+  %call.i = tail call i32 @local_open_nofollow(ptr noundef readonly %s, ptr noundef %call, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i, -1
   br i1 %cmp, label %out, label %if.end
 
@@ -1137,7 +1137,7 @@ entry:
   %stbuf = alloca %struct.stat, align 8
   %call = tail call noalias ptr @g_path_get_dirname(ptr noundef %path) #15
   %call1 = tail call noalias ptr @g_path_get_basename(ptr noundef %path) #15
-  %call.i = tail call i32 @local_open_nofollow(ptr noundef %ctx, ptr noundef %call, i32 noundef 65536, i32 noundef 0)
+  %call.i = tail call i32 @local_open_nofollow(ptr noundef readonly %ctx, ptr noundef %call, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i, -1
   br i1 %cmp, label %out, label %if.end
 
@@ -1182,12 +1182,12 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then, label %local_is_mapped_file_metadata.exit
 
 local_is_mapped_file_metadata.exit:               ; preds = %land.lhs.true
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 
@@ -1199,7 +1199,7 @@ if.then:                                          ; preds = %land.lhs.true, %loc
 if.end:                                           ; preds = %local_is_mapped_file_metadata.exit, %entry
   %data = getelementptr inbounds i8, ptr %dir_path, i64 8
   %1 = load ptr, ptr %data, align 8
-  %call.i38 = tail call i32 @local_open_nofollow(ptr noundef nonnull %fs_ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
+  %call.i38 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %fs_ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i38, -1
   br i1 %cmp, label %return, label %if.end4
 
@@ -1324,12 +1324,12 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then, label %local_is_mapped_file_metadata.exit
 
 local_is_mapped_file_metadata.exit:               ; preds = %land.lhs.true
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 
@@ -1339,14 +1339,14 @@ if.then:                                          ; preds = %land.lhs.true, %loc
   br label %out
 
 if.end:                                           ; preds = %local_is_mapped_file_metadata.exit, %entry
-  %call.i29 = tail call i32 @local_open_nofollow(ptr noundef nonnull %ctx, ptr noundef %call, i32 noundef 65536, i32 noundef 0)
+  %call.i29 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %ctx, ptr noundef %call, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i29, -1
   br i1 %cmp, label %out, label %if.end7
 
 if.end7:                                          ; preds = %if.end
   %data8 = getelementptr inbounds i8, ptr %dirpath, i64 8
   %3 = load ptr, ptr %data8, align 8
-  %call.i30 = tail call i32 @local_open_nofollow(ptr noundef nonnull %ctx, ptr noundef %3, i32 noundef 65536, i32 noundef 0)
+  %call.i30 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %ctx, ptr noundef %3, i32 noundef 65536, i32 noundef 0)
   %cmp10 = icmp eq i32 %call.i30, -1
   br i1 %cmp10, label %if.then11, label %if.end12
 
@@ -1459,7 +1459,7 @@ define internal range(i32 -1, 1) i32 @local_opendir(ptr nocapture noundef readon
 entry:
   %data = getelementptr inbounds i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
-  %call.i = tail call i32 @local_open_nofollow(ptr noundef %ctx, ptr noundef %0, i32 noundef 65536, i32 noundef 0)
+  %call.i = tail call i32 @local_open_nofollow(ptr noundef readonly %ctx, ptr noundef %0, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i, -1
   br i1 %cmp, label %return, label %if.end
 
@@ -1508,12 +1508,12 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then, label %local_is_mapped_file_metadata.exit
 
 local_is_mapped_file_metadata.exit:               ; preds = %land.lhs.true
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 
@@ -1526,7 +1526,7 @@ if.end:                                           ; preds = %local_is_mapped_fil
   %or = or i32 %flags, 131072
   %data = getelementptr inbounds i8, ptr %dir_path, i64 8
   %1 = load ptr, ptr %data, align 8
-  %call.i38 = tail call i32 @local_open_nofollow(ptr noundef nonnull %fs_ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
+  %call.i38 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %fs_ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i38, -1
   br i1 %cmp, label %return, label %if.end4
 
@@ -1671,12 +1671,12 @@ if.else:                                          ; preds = %if.end
 
 if.then7:                                         ; preds = %if.else
   %d_name = getelementptr inbounds i8, ptr %call12, i64 19
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %d_name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %again.backedge, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then7
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %d_name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %d_name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %again.backedge, label %return.sink.split
 
@@ -1746,12 +1746,12 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then, label %local_is_mapped_file_metadata.exit
 
 local_is_mapped_file_metadata.exit:               ; preds = %land.lhs.true
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 
@@ -1763,7 +1763,7 @@ if.then:                                          ; preds = %land.lhs.true, %loc
 if.end:                                           ; preds = %local_is_mapped_file_metadata.exit, %entry
   %data = getelementptr inbounds i8, ptr %dir_path, i64 8
   %1 = load ptr, ptr %data, align 8
-  %call.i33 = tail call i32 @local_open_nofollow(ptr noundef nonnull %fs_ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
+  %call.i33 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %fs_ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i33, -1
   br i1 %cmp, label %return, label %if.end4
 
@@ -2099,12 +2099,12 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then, label %local_is_mapped_file_metadata.exit
 
 local_is_mapped_file_metadata.exit:               ; preds = %land.lhs.true
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 
@@ -2244,22 +2244,22 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %old_name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %old_name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then, label %local_is_mapped_file_metadata.exit
 
 local_is_mapped_file_metadata.exit:               ; preds = %land.lhs.true
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %old_name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %old_name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %local_is_mapped_file_metadata.exit
-  %call.i30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %new_name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
+  %call.i30 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %new_name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
   %tobool.not.i31 = icmp eq i32 %call.i30, 0
   br i1 %tobool.not.i31, label %if.then, label %local_is_mapped_file_metadata.exit35
 
 local_is_mapped_file_metadata.exit35:             ; preds = %lor.lhs.false
-  %call1.i33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %new_name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
+  %call1.i33 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %new_name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
   %tobool2.not.i34 = icmp eq i32 %call1.i33, 0
   br i1 %tobool2.not.i34, label %if.then, label %if.end
 
@@ -2271,14 +2271,14 @@ if.then:                                          ; preds = %lor.lhs.false, %lan
 if.end:                                           ; preds = %local_is_mapped_file_metadata.exit35, %entry
   %data = getelementptr inbounds i8, ptr %olddir, i64 8
   %1 = load ptr, ptr %data, align 8
-  %call.i36 = tail call i32 @local_open_nofollow(ptr noundef nonnull %ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
+  %call.i36 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i36, -1
   br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %data6 = getelementptr inbounds i8, ptr %newdir, i64 8
   %2 = load ptr, ptr %data6, align 8
-  %call.i37 = tail call i32 @local_open_nofollow(ptr noundef nonnull %ctx, ptr noundef %2, i32 noundef 65536, i32 noundef 0)
+  %call.i37 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %ctx, ptr noundef %2, i32 noundef 65536, i32 noundef 0)
   %cmp8 = icmp eq i32 %call.i37, -1
   br i1 %cmp8, label %if.then9, label %if.end10
 
@@ -2378,12 +2378,12 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then, label %local_is_mapped_file_metadata.exit
 
 local_is_mapped_file_metadata.exit:               ; preds = %land.lhs.true
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(22) @.str.37) #16
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 
@@ -2395,7 +2395,7 @@ if.then:                                          ; preds = %land.lhs.true, %loc
 if.end:                                           ; preds = %local_is_mapped_file_metadata.exit, %entry
   %data = getelementptr inbounds i8, ptr %dir, i64 8
   %1 = load ptr, ptr %data, align 8
-  %call.i7 = tail call i32 @local_open_nofollow(ptr noundef nonnull %ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
+  %call.i7 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i7, -1
   br i1 %cmp, label %return, label %if.end4
 
@@ -2478,7 +2478,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry, %entry
   %data.i = getelementptr inbounds i8, ptr %path, i64 8
   %1 = load ptr, ptr %data.i, align 8
-  %call.i = tail call i32 @local_open_nofollow(ptr noundef %ctx, ptr noundef %1, i32 noundef 0, i32 noundef 0)
+  %call.i = tail call i32 @local_open_nofollow(ptr noundef readonly %ctx, ptr noundef %1, i32 noundef 0, i32 noundef 0)
   %cmp4 = icmp slt i32 %call.i, 0
   br i1 %cmp4, label %return, label %if.end6
 
@@ -2613,7 +2613,7 @@ if.then:                                          ; preds = %entry.tail
   br i1 %cmp9.i, label %if.then4, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then
-  %call13.i = tail call noalias ptr @fdopen(i32 noundef %call7.i, ptr noundef nonnull @.str.36) #15
+  %call13.i = tail call noalias ptr @fdopen(i32 noundef %call7.i, ptr noundef nonnull readonly @.str.36) #15
   %tobool.not.i = icmp eq ptr %call13.i, null
   br i1 %tobool.not.i, label %if.then14.i, label %if.end26
 
@@ -2649,7 +2649,7 @@ if.end17:                                         ; preds = %if.end13
   br i1 %cmp9.i42, label %if.then20, label %if.end12.i43
 
 if.end12.i43:                                     ; preds = %if.end17
-  %call13.i44 = tail call noalias ptr @fdopen(i32 noundef %call7.i41, ptr noundef nonnull @.str.36) #15
+  %call13.i44 = tail call noalias ptr @fdopen(i32 noundef %call7.i41, ptr noundef nonnull readonly @.str.36) #15
   %tobool.not.i45 = icmp eq ptr %call13.i44, null
   br i1 %tobool.not.i45, label %if.then14.i47, label %if.end26
 
@@ -2749,7 +2749,7 @@ if.then67:                                        ; preds = %if.then4, %update_m
   br i1 %cmp9.i51, label %return, label %if.end12.i52
 
 if.end12.i52:                                     ; preds = %if.then67
-  %call13.i53 = call noalias ptr @fdopen(i32 noundef %call6.i, ptr noundef nonnull @.str.42) #15
+  %call13.i53 = call noalias ptr @fdopen(i32 noundef %call6.i, ptr noundef nonnull readonly @.str.42) #15
   %tobool.not.i54 = icmp eq ptr %call13.i53, null
   br i1 %tobool.not.i54, label %if.then14.i56, label %if.end77
 
@@ -2768,7 +2768,7 @@ if.else69:                                        ; preds = %if.then20, %update_
   br i1 %cmp9.i60, label %local_fopenat.exit67, label %if.end12.i61
 
 if.end12.i61:                                     ; preds = %if.else69
-  %call13.i62 = call noalias ptr @fdopen(i32 noundef %call6.i59, ptr noundef nonnull @.str.42) #15
+  %call13.i62 = call noalias ptr @fdopen(i32 noundef %call6.i59, ptr noundef nonnull readonly @.str.42) #15
   %tobool.not.i63 = icmp eq ptr %call13.i62, null
   br i1 %tobool.not.i63, label %if.then14.i65, label %local_fopenat.exit67
 

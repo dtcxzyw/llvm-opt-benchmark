@@ -104,7 +104,7 @@ define dso_local void @mpi_add_ui(ptr noundef %0, ptr nocapture noundef readonly
   %58 = sext i32 %5 to i64
   %59 = getelementptr i64, ptr %17, i64 %58
   store i64 %57, ptr %59, align 8
-  %60 = trunc i64 %57 to i32
+  %60 = trunc nuw nsw i64 %57 to i32
   %61 = add i32 %5, %60
   br label %106
 

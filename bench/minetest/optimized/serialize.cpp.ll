@@ -151,7 +151,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont11 unwind label %lpad8
 
 invoke.cont11:                                    ; preds = %if.end
-  %conv = trunc i64 %plain.coerce0 to i16
+  %conv = trunc nuw i64 %plain.coerce0 to i16
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %conv)
   store i16 %rev.i.i, ptr %buf, align 2
   %6 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !9
@@ -607,7 +607,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont11 unwind label %lpad8
 
 invoke.cont11:                                    ; preds = %if.end
-  %conv = trunc i64 %plain.coerce0 to i32
+  %conv = trunc nuw nsw i64 %plain.coerce0 to i32
   %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %conv)
   store i32 %or7.i.i, ptr %buf, align 4
   %6 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !9
@@ -1137,7 +1137,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %7 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %7 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %7, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 

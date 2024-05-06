@@ -334,7 +334,7 @@ if.then54:                                        ; preds = %while.end
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then54, %while.end
-  %conv58 = trunc i64 %in_len.addr.1.lcssa to i32
+  %conv58 = trunc nuw i64 %in_len.addr.1.lcssa to i32
   store i32 %conv58, ptr %ctx, align 4
   store i32 %total.1.lcssa, ptr %out_len, align 4
   br label %return
@@ -593,7 +593,7 @@ if.end:                                           ; preds = %EVP_EncodeBlock.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @EVP_DecodedLength(ptr nocapture noundef writeonly %out_len, i64 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_DecodedLength(ptr nocapture noundef writeonly %out_len, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %rem = and i64 %len, 3
   %cmp.not = icmp eq i64 %rem, 0
@@ -611,7 +611,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @EVP_DecodeBase64(ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out, ptr nocapture noundef readonly %in, i64 noundef %in_len) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @EVP_DecodeBase64(ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out, ptr nocapture noundef readonly %in, i64 noundef %in_len) local_unnamed_addr #1 {
 entry:
   %rem.i = and i64 %in_len, 3
   %cmp.not.i = icmp eq i64 %rem.i, 0
@@ -796,7 +796,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @EVP_DecodeUpdate(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, ptr nocapture noundef readonly %in, i64 noundef %in_len) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @EVP_DecodeUpdate(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, ptr nocapture noundef readonly %in, i64 noundef %in_len) local_unnamed_addr #1 {
 entry:
   %dst_len.i = alloca i64, align 8
   %0 = load i32, ptr %ctx, align 4
@@ -1016,7 +1016,7 @@ EVP_DecodedLength.exit.i:                         ; preds = %while.end15.i
   br i1 %cmp17.i, label %EVP_DecodeBlock.exit.thread, label %if.end.i72
 
 if.end.i72:                                       ; preds = %EVP_DecodedLength.exit.i
-  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef %out.addr.0117, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.i.lcssa), !range !13
+  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef writeonly %out.addr.0117, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.i.lcssa)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %EVP_DecodeBlock.exit.thread, label %while.cond23.preheader.i
 
@@ -1033,7 +1033,7 @@ while.body26.i:                                   ; preds = %while.cond23.prehea
   store i8 0, ptr %arrayidx27.i, align 1
   %rem.i = urem i64 %inc.i, 3
   %cmp24.not.i = icmp eq i64 %rem.i, 0
-  br i1 %cmp24.not.i, label %EVP_DecodeBlock.exit, label %while.body26.i, !llvm.loop !14
+  br i1 %cmp24.not.i, label %EVP_DecodeBlock.exit, label %while.body26.i, !llvm.loop !13
 
 EVP_DecodeBlock.exit.thread:                      ; preds = %EVP_DecodedLength.exit.i, %if.end.i72, %while.end15.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dst_len.i)
@@ -1086,7 +1086,7 @@ for.inc:                                          ; preds = %if.then47, %lor.lhs
   %inc126 = add i32 %i.0119, 1
   %conv4 = zext i32 %inc126 to i64
   %cmp5 = icmp ult i64 %conv4, %in_len
-  br i1 %cmp5, label %for.body, label %end, !llvm.loop !15
+  br i1 %cmp5, label %for.body, label %end, !llvm.loop !14
 
 end:                                              ; preds = %for.inc, %if.else118, %if.end112, %if.end104, %EVP_DecodeBlock.exit, %if.then28, %if.else, %for.body, %land.lhs.true, %EVP_DecodeBlock.exit.thread, %entry
   %rv.0 = phi i32 [ 0, %entry ], [ 0, %EVP_DecodeBlock.exit.thread ], [ 0, %land.lhs.true ], [ 1, %for.inc ], [ 0, %if.else118 ], [ 0, %if.end112 ], [ -1, %if.end104 ], [ 0, %EVP_DecodeBlock.exit ], [ -1, %if.then28 ], [ -1, %if.else ], [ -1, %for.body ]
@@ -1165,7 +1165,7 @@ EVP_DecodedLength.exit:                           ; preds = %while.end15
   br i1 %cmp17, label %return, label %if.end
 
 if.end:                                           ; preds = %EVP_DecodedLength.exit
-  %call19 = call i32 @EVP_DecodeBase64(ptr noundef %dst, ptr noundef nonnull %dst_len, i64 noundef %mul.i, ptr noundef nonnull %src.addr.0.lcssa, i64 noundef %src_len.addr.1), !range !13
+  %call19 = call i32 @EVP_DecodeBase64(ptr noundef %dst, ptr noundef nonnull %dst_len, i64 noundef %mul.i, ptr noundef nonnull %src.addr.0.lcssa, i64 noundef %src_len.addr.1)
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %while.cond23.preheader
 
@@ -1182,7 +1182,7 @@ while.body26:                                     ; preds = %while.cond23.prehea
   store i8 0, ptr %arrayidx27, align 1
   %rem = urem i64 %inc, 3
   %cmp24.not = icmp eq i64 %rem, 0
-  br i1 %cmp24.not, label %while.end28, label %while.body26, !llvm.loop !14
+  br i1 %cmp24.not, label %while.end28, label %while.body26, !llvm.loop !13
 
 while.end28:                                      ; preds = %while.body26, %while.cond23.preheader
   %inc25.lcssa = phi i64 [ %dst_len.promoted, %while.cond23.preheader ], [ %inc, %while.body26 ]
@@ -1195,7 +1195,7 @@ return:                                           ; preds = %while.end15, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @EVP_DecodeFinal(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outl) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @EVP_DecodeFinal(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outl) local_unnamed_addr #1 {
 entry:
   %dst_len.i = alloca i64, align 8
   store i32 0, ptr %outl, align 4
@@ -1269,7 +1269,7 @@ EVP_DecodedLength.exit.i:                         ; preds = %while.end15.i
   br i1 %cmp17.i, label %EVP_DecodeBlock.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %EVP_DecodedLength.exit.i
-  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef %out, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.i.lcssa), !range !13
+  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef writeonly %out, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.i.lcssa)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %EVP_DecodeBlock.exit.thread, label %while.cond23.preheader.i
 
@@ -1286,7 +1286,7 @@ while.body26.i:                                   ; preds = %while.cond23.prehea
   store i8 0, ptr %arrayidx27.i, align 1
   %rem.i = urem i64 %inc.i, 3
   %cmp24.not.i = icmp eq i64 %rem.i, 0
-  br i1 %cmp24.not.i, label %EVP_DecodeBlock.exit, label %while.body26.i, !llvm.loop !14
+  br i1 %cmp24.not.i, label %EVP_DecodeBlock.exit, label %while.body26.i, !llvm.loop !13
 
 EVP_DecodeBlock.exit.thread:                      ; preds = %EVP_DecodedLength.exit.i, %if.end.i, %while.end15.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dst_len.i)
@@ -1310,7 +1310,7 @@ return:                                           ; preds = %EVP_DecodeBlock.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @EVP_EncodedLength(ptr nocapture noundef writeonly %out_len, i64 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_EncodedLength(ptr nocapture noundef writeonly %out_len, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp2.not = icmp ult i64 %len, -4611686018427387906
   br i1 %cmp2.not, label %if.end9, label %return
@@ -1358,6 +1358,5 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
-!13 = !{i32 0, i32 2}
+!13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}

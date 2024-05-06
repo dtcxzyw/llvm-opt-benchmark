@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Status_set_elements_x = weak alias i32 (ptr, ptr, i64), ptr @PMPI_Status_set_elements_x
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PMPI_Status_set_elements_x(ptr noundef writeonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define range(i32 0, 14) i32 @PMPI_Status_set_elements_x(ptr noundef writeonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = load i8, ptr @ompi_mpi_param_check, align 1
   %6 = trunc i8 %5 to i1
@@ -41,7 +41,7 @@ define noundef i32 @PMPI_Status_set_elements_x(ptr noundef writeonly %0, ptr nou
 15:                                               ; preds = %12
   %16 = icmp sgt i64 %2, -1
   %17 = lshr i64 %2, 62
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %spec.select22 = and i32 %18, 2
   br i1 %16, label %20, label %.thread
 

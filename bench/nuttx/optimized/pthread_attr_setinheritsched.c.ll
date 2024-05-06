@@ -4,14 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @pthread_attr_setinheritsched(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @pthread_attr_setinheritsched(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %or.cond = icmp ugt i32 %1, 1
   %or.cond7 = or i1 %.not, %or.cond
   br i1 %or.cond7, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = trunc i32 %1 to i8
+  %4 = trunc nuw i32 %1 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %4, ptr %5, align 2
   br label %6

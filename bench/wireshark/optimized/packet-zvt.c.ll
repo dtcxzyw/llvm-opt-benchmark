@@ -875,7 +875,7 @@ define internal noundef i32 @dissect_zvt_expiry_date(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zvt_card_number(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal range(i32 2, 168) i32 @dissect_zvt_card_number(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %6 = and i8 %5, 15
   %7 = add i32 %1, 1
@@ -906,7 +906,7 @@ define internal noundef i32 @dissect_zvt_terminal_id(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zvt_additional_data(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
+define internal range(i32 3, 1669) i32 @dissect_zvt_additional_data(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %7 = and i8 %6, 15
@@ -941,7 +941,7 @@ define internal noundef i32 @dissect_zvt_card_type(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zvt_card_name(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
+define internal range(i32 2, 168) i32 @dissect_zvt_card_name(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %7 = and i8 %6, 15
@@ -1502,7 +1502,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_zvt_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65541) i32 @get_zvt_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #5
   %7 = icmp eq i8 %6, -1

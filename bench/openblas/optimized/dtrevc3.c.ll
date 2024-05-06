@@ -204,7 +204,7 @@ define void @dtrevc3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, 
 
 132:                                              ; preds = %126
   store i32 1, ptr %18, align 4, !tbaa !3
-  %133 = mul nsw i32 %100, 3
+  %133 = mul nuw nsw i32 %100, 3
   store i32 %133, ptr %19, align 4, !tbaa !3
   %134 = icmp eq i32 %100, 0
   %135 = select i1 %134, i32 1, i32 %133

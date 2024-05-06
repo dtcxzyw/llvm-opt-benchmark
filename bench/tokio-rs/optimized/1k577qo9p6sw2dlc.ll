@@ -87,13 +87,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17heedafa0be56b1
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc i32 %1 to i8
+  %11 = trunc nuw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !4
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc i32 %13 to i8
+  %14 = trunc nuw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !4
   %16 = trunc i32 %1 to i8
@@ -105,7 +105,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17heedafa0be56b1
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !4
   %24 = lshr i32 %1, 6
@@ -3511,7 +3511,7 @@ define void @_ZN5tokio3net4unix4pipe4pipe17hee65ad4614851a56E(ptr noalias nocapt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN3mio3sys4unix4pipe3new17hb5786efa6a0e031cE(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %5)
   %6 = load i32, ptr %5, align 8, !range !826, !noundef !12
-  %trunc = trunc i32 %6 to i1
+  %trunc = trunc nuw i32 %6 to i1
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 4
@@ -3707,7 +3707,7 @@ define void @_ZN5tokio3net4unix4pipe11OpenOptions4open17h584ec72f2db2f771E(ptr n
   store i8 %12, ptr %.sroa.66.0..sroa_idx, align 1
   store i32 2048, ptr %9, align 4
   %13 = load i8, ptr %1, align 1, !range !853, !noundef !12
-  %14 = trunc i8 %13 to i1
+  %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %21, label %15
 
 15:                                               ; preds = %21, %5
@@ -3715,7 +3715,7 @@ define void @_ZN5tokio3net4unix4pipe11OpenOptions4open17h584ec72f2db2f771E(ptr n
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @_ZN3std2fs11OpenOptions5_open17h6c5b835fc2afb736E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   %16 = load i32, ptr %7, align 8, !range !826, !noundef !12
-  %trunc = trunc i32 %16 to i1
+  %trunc = trunc nuw i32 %16 to i1
   %17 = getelementptr inbounds i8, ptr %7, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !12
   %19 = getelementptr inbounds i8, ptr %7, i64 4
@@ -3732,7 +3732,7 @@ define void @_ZN5tokio3net4unix4pipe11OpenOptions4open17h584ec72f2db2f771E(ptr n
   store i32 %20, ptr %8, align 4
   %23 = getelementptr inbounds i8, ptr %1, i64 1
   %24 = load i8, ptr %23, align 1, !range !853, !noundef !12
-  %25 = trunc i8 %24 to i1
+  %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %30, label %28
 
 26:                                               ; preds = %15
@@ -4013,7 +4013,7 @@ define void @_ZN5tokio3net4unix4pipe6Sender13from_owned_fd17h5c6214d5c627ff96E(p
 
 .noexc38:                                         ; preds = %.noexc36, %42
   %49 = tail call noundef i32 @"_ZN76_$LT$mio..sys..unix..pipe..Sender$u20$as$u20$std..os..fd..raw..FromRawFd$GT$11from_raw_fd17h66fd5dc07fd91ebaE"(i32 noundef %1)
-  tail call fastcc void @_ZN5tokio3net4unix4pipe6Sender8from_mio17h42eed3663b5b0d5eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %49)
+  tail call fastcc void @_ZN5tokio3net4unix4pipe6Sender8from_mio17h42eed3663b5b0d5eE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %49)
   br label %.thread67
 
 50:                                               ; preds = %47
@@ -4052,7 +4052,7 @@ define void @_ZN5tokio3net4unix4pipe6Sender13from_owned_fd17h5c6214d5c627ff96E(p
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5tokio3net4unix4pipe6Sender19from_file_unchecked17h6ff727971eb674efE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i32 @"_ZN76_$LT$mio..sys..unix..pipe..Sender$u20$as$u20$std..os..fd..raw..FromRawFd$GT$11from_raw_fd17h66fd5dc07fd91ebaE"(i32 noundef %1), !range !827, !noalias !895
-  tail call fastcc void @_ZN5tokio3net4unix4pipe6Sender8from_mio17h42eed3663b5b0d5eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %3)
+  tail call fastcc void @_ZN5tokio3net4unix4pipe6Sender8from_mio17h42eed3663b5b0d5eE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %3)
   ret void
 }
 
@@ -4143,11 +4143,11 @@ define void @_ZN5tokio3net4unix4pipe6Sender16into_blocking_fd17h5f4de4f99f20f90e
   %4 = alloca { i32, [3 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !901
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !901
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !905
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !905
   call void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$10into_inner17h7a802be8e3d44215E"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3), !noalias !901
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !901
   %5 = load i32, ptr %4, align 8, !range !826, !noalias !901, !noundef !12
-  %trunc.i = trunc i32 %5 to i1
+  %trunc.i = trunc nuw i32 %5 to i1
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !901, !nonnull !12
   %8 = getelementptr inbounds i8, ptr %4, i64 4
@@ -4228,7 +4228,7 @@ define void @_ZN5tokio3net4unix4pipe6Sender19into_nonblocking_fd17hdc90bf52ff3e6
   call void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$10into_inner17h7a802be8e3d44215E"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %5 = load i32, ptr %4, align 8, !range !826, !noundef !12
-  %trunc = trunc i32 %5 to i1
+  %trunc = trunc nuw i32 %5 to i1
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !12
   %8 = getelementptr inbounds i8, ptr %4, i64 4
@@ -4303,7 +4303,7 @@ define noundef i32 @"_ZN76_$LT$tokio..net..unix..pipe..Sender$u20$as$u20$std..os
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @"_ZN75_$LT$tokio..net..unix..pipe..Sender$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h80589d472c0d1620E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #0 {
+define noundef range(i32 0, -1) i32 @"_ZN75_$LT$tokio..net..unix..pipe..Sender$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h80589d472c0d1620E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !909)
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !alias.scope !909, !noundef !12
@@ -4497,7 +4497,7 @@ define void @_ZN5tokio3net4unix4pipe8Receiver13from_owned_fd17hbe545561190f1354E
 
 .noexc38:                                         ; preds = %.noexc36, %41
   %48 = tail call noundef i32 @"_ZN78_$LT$mio..sys..unix..pipe..Receiver$u20$as$u20$std..os..fd..raw..FromRawFd$GT$11from_raw_fd17h6c77d1c5d5f87d57E"(i32 noundef %1)
-  tail call fastcc void @_ZN5tokio3net4unix4pipe8Receiver8from_mio17hc26a7093ed58e415E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %48)
+  tail call fastcc void @_ZN5tokio3net4unix4pipe8Receiver8from_mio17hc26a7093ed58e415E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %48)
   br label %.thread67
 
 49:                                               ; preds = %46
@@ -4536,7 +4536,7 @@ define void @_ZN5tokio3net4unix4pipe8Receiver13from_owned_fd17hbe545561190f1354E
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5tokio3net4unix4pipe8Receiver19from_file_unchecked17ha8b126839764b979E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i32 @"_ZN78_$LT$mio..sys..unix..pipe..Receiver$u20$as$u20$std..os..fd..raw..FromRawFd$GT$11from_raw_fd17h6c77d1c5d5f87d57E"(i32 noundef %1), !range !827, !noalias !926
-  tail call fastcc void @_ZN5tokio3net4unix4pipe8Receiver8from_mio17hc26a7093ed58e415E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %3)
+  tail call fastcc void @_ZN5tokio3net4unix4pipe8Receiver8from_mio17hc26a7093ed58e415E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %3)
   ret void
 }
 
@@ -4627,11 +4627,11 @@ define void @_ZN5tokio3net4unix4pipe8Receiver16into_blocking_fd17h20a884cf2690a2
   %4 = alloca { i32, [3 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !932
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !932
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !936
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !936
   call void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$10into_inner17h945aa71362e91324E"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3), !noalias !932
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !932
   %5 = load i32, ptr %4, align 8, !range !826, !noalias !932, !noundef !12
-  %trunc.i = trunc i32 %5 to i1
+  %trunc.i = trunc nuw i32 %5 to i1
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !932, !nonnull !12
   %8 = getelementptr inbounds i8, ptr %4, i64 4
@@ -4712,7 +4712,7 @@ define void @_ZN5tokio3net4unix4pipe8Receiver19into_nonblocking_fd17h739736fac17
   call void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$10into_inner17h945aa71362e91324E"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %5 = load i32, ptr %4, align 8, !range !826, !noundef !12
-  %trunc = trunc i32 %5 to i1
+  %trunc = trunc nuw i32 %5 to i1
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !12
   %8 = getelementptr inbounds i8, ptr %4, i64 4
@@ -4758,7 +4758,7 @@ define noundef i32 @"_ZN78_$LT$tokio..net..unix..pipe..Receiver$u20$as$u20$std..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @"_ZN77_$LT$tokio..net..unix..pipe..Receiver$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h388fff77b37f8c2bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #0 {
+define noundef range(i32 0, -1) i32 @"_ZN77_$LT$tokio..net..unix..pipe..Receiver$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h388fff77b37f8c2bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !940)
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !alias.scope !940, !noundef !12

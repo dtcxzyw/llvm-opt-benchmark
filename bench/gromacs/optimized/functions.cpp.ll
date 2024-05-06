@@ -6,8 +6,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN3gmx5log2IEj(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %0, i1 true), !range !5
+define noundef range(i32 0, 32) i32 @_ZN3gmx5log2IEj(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
   %3 = xor i32 %2, 31
   ret i32 %3
 }
@@ -16,8 +16,8 @@ define noundef i32 @_ZN3gmx5log2IEj(i32 noundef %0) local_unnamed_addr #0 {
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN3gmx5log2IEm(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 true), !range !6
+define noundef range(i32 0, 64) i32 @_ZN3gmx5log2IEm(i64 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 true)
   %3 = trunc nuw nsw i64 %2 to i32
   %4 = xor i32 %3, 63
   ret i32 %4
@@ -27,15 +27,15 @@ define noundef i32 @_ZN3gmx5log2IEm(i64 noundef %0) local_unnamed_addr #0 {
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN3gmx5log2IEi(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %0, i1 true), !range !5
+define noundef range(i32 0, 32) i32 @_ZN3gmx5log2IEi(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 true)
   %3 = xor i32 %2, 31
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN3gmx5log2IEl(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 true), !range !6
+define noundef range(i32 0, 64) i32 @_ZN3gmx5log2IEl(i64 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 true)
   %3 = trunc nuw nsw i64 %2 to i32
   %4 = xor i32 %3, 63
   ret i32 %4
@@ -51,7 +51,7 @@ define noundef i64 @_ZN3gmx21greatestCommonDivisorEll(i64 noundef %0, i64 nounde
   %.068 = phi i64 [ %3, %.lr.ph ], [ %1, %2 ]
   %3 = srem i64 %.09, %.068
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i64 [ %0, %2 ], [ %.068, %.lr.ph ]
@@ -392,7 +392,5 @@ attributes #7 = { nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = !{i64 0, i64 65}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

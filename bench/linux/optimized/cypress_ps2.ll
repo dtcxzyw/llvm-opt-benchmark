@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cypress_detect(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -19, 1) i32 @cypress_detect(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false), !annotation !5
@@ -65,7 +65,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @cypress_send_ext_cmd(ptr noundef %0, i8 noundef zeroext %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @cypress_send_ext_cmd(ptr noundef %0, i8 noundef zeroext %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = and i8 %1, 3
   %6 = lshr i8 %1, 2
@@ -201,7 +201,7 @@ define internal fastcc noundef i32 @cypress_send_ext_cmd(ptr noundef %0, i8 noun
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cypress_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @cypress_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [3 x i8], align 1
   %3 = alloca [8 x i8], align 8
   %4 = alloca [3 x i8], align 1
@@ -521,7 +521,7 @@ define internal void @cypress_reset(ptr noundef %0) #0 align 16 {
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cypress_protocol_handler(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 0, 3) i32 @cypress_protocol_handler(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 241
   %4 = load i8, ptr %3, align 1
@@ -647,7 +647,7 @@ define internal void @cypress_disconnect(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cypress_reconnect(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @cypress_reconnect(ptr noundef %0) #0 align 16 {
   %2 = alloca [3 x i8], align 1
   %3 = alloca [3 x i8], align 1
   %4 = getelementptr inbounds i8, ptr %3, i64 1

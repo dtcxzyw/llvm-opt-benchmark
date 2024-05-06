@@ -2071,7 +2071,7 @@ define internal noundef i32 @v9fs_test_new_inode_dotl(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @v9fs_test_inode_dotl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
+define internal range(i32 0, 2) i32 @v9fs_test_inode_dotl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = trunc i32 %4 to i16

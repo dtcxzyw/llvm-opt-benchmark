@@ -188,7 +188,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   br label %invoke.cont19.i
 
 invoke.cont19.i:                                  ; preds = %if.then.i.i, %for.body.i
-  invoke void @grpc_slice_buffer_add(ptr noundef nonnull %leftover_bytes14.i, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %arrayidx.i)
+  invoke void @grpc_slice_buffer_add(ptr noundef nonnull %leftover_bytes14.i, ptr noundef nonnull readonly byval(%struct.grpc_slice) align 8 %arrayidx.i)
           to label %for.inc.i unwind label %lpad8.loopexit.i
 
 for.inc.i:                                        ; preds = %invoke.cont19.i

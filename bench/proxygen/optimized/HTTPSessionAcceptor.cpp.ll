@@ -6647,7 +6647,7 @@ lpad.body:                                        ; preds = %ehcleanup.i.i.i, %l
   %8 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %9 = tail call ptr @__cxa_begin_catch(ptr %8) #24
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i36
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i39
 
 if.end.thread:                                    ; preds = %lpad.body
   tail call void @_ZNSt16allocator_traitsISaIN6wangle16SSLContextConfig15CertificateInfoEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr) #24
@@ -6659,11 +6659,11 @@ lpad21:                                           ; preds = %invoke.cont23
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i36:                                      ; preds = %lpad.body
+if.then.i39:                                      ; preds = %lpad.body
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #23
   br label %invoke.cont23
 
-invoke.cont23:                                    ; preds = %if.then.i36, %if.end.thread
+invoke.cont23:                                    ; preds = %if.then.i39, %if.end.thread
   invoke void @__cxa_rethrow() #28
           to label %unreachable unwind label %lpad21
 

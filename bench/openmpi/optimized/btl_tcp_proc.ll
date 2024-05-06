@@ -819,7 +819,7 @@ opal_obj_run_destructors.exit140.i.i:             ; preds = %.lr.ph.i137.i.i, %2
   br i1 %260, label %.lr.ph193.i.us.i, label %._crit_edge194.i.us.i
 
 .lr.ph193.i.us.i:                                 ; preds = %.preheader.i.us.i
-  %261 = trunc i64 %indvars.iv230.i.us.i to i32
+  %261 = trunc nuw nsw i64 %indvars.iv230.i.us.i to i32
   br label %.lr.ph193.split.us.i.us.i
 
 .lr.ph193.split.us.i.us.i:                        ; preds = %279, %.lr.ph193.i.us.i
@@ -837,7 +837,7 @@ opal_obj_run_destructors.exit140.i.i:             ; preds = %.lr.ph.i137.i.i, %2
 269:                                              ; preds = %.lr.ph193.split.us.i.us.i
   %270 = sub nsw i32 0, %267
   %271 = load i32, ptr getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i64 0, i32 2), align 4
-  %272 = trunc i64 %indvars.iv227.i.us.i to i32
+  %272 = trunc nuw nsw i64 %indvars.iv227.i.us.i to i32
   %273 = add i32 %271, %272
   %274 = load ptr, ptr %4, align 8
   %275 = sext i32 %270 to i64
@@ -891,7 +891,7 @@ opal_obj_run_destructors.exit140.i.i:             ; preds = %.lr.ph.i137.i.i, %2
   br i1 %296, label %.lr.ph193.i.i, label %._crit_edge194.i.i
 
 .lr.ph193.i.i:                                    ; preds = %.preheader.i.i
-  %297 = trunc i64 %indvars.iv230.i.i to i32
+  %297 = trunc nuw nsw i64 %indvars.iv230.i.i to i32
   br label %.lr.ph193.split.i.i
 
 .lr.ph193.split.i.i:                              ; preds = %315, %.lr.ph193.i.i
@@ -909,7 +909,7 @@ opal_obj_run_destructors.exit140.i.i:             ; preds = %.lr.ph.i137.i.i, %2
 305:                                              ; preds = %.lr.ph193.split.i.i
   %306 = sub nsw i32 0, %303
   %307 = load i32, ptr getelementptr inbounds (%struct.mca_btl_tcp_component_t, ptr @mca_btl_tcp_component, i64 0, i32 2), align 4
-  %308 = trunc i64 %indvars.iv224.i.i to i32
+  %308 = trunc nuw nsw i64 %indvars.iv224.i.i to i32
   %309 = add i32 %307, %308
   %310 = load ptr, ptr %4, align 8
   %311 = sext i32 %306 to i64

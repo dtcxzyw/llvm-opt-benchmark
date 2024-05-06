@@ -1543,7 +1543,7 @@ define noundef zeroext i1 @_ZN3vcg9CICubeMap7LoadOldEPKc(ptr noundef nonnull ali
 
 25:                                               ; preds = %22
   store ptr %24, ptr %5, align 8
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = invoke noundef zeroext i1 @_ZN3vcg9CICubeMap7GetNameEi7QStringRS1_(ptr nonnull align 4 poison, i32 noundef %26, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %28 unwind label %34
 
@@ -1753,7 +1753,7 @@ define noundef zeroext i1 @_ZN3vcg9CICubeMap7LoadExtEPKc(ptr noundef nonnull ali
 
 25:                                               ; preds = %22
   store ptr %24, ptr %6, align 8
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = invoke noundef zeroext i1 @_ZN3vcg9CICubeMap7GetNameEi7QStringRS1_(ptr nonnull align 4 poison, i32 noundef %26, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %28 unwind label %36
 

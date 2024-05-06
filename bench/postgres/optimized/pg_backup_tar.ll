@@ -328,7 +328,7 @@ define internal noundef i32 @_WriteByte(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_ReadByte(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, 256) i32 @_ReadByte(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
@@ -1020,7 +1020,7 @@ define internal fastcc ptr @tarOpen(ptr noundef %0, ptr noundef %1, i8 noundef s
   br label %36
 
 36:                                               ; preds = %35, %.loopexit.i
-  %37 = tail call fastcc i32 @_tarGetHeader(ptr noundef %0, ptr noundef %10), !range !11
+  %37 = tail call fastcc i32 @_tarGetHeader(ptr noundef %0, ptr noundef %10)
   %.not46.i = icmp eq i32 %37, 0
   %.not47.i = icmp eq ptr %1, null
   br i1 %.not46.i, label %44, label %.preheader.i
@@ -1148,12 +1148,12 @@ _tarReadRaw.exit.i:                               ; preds = %76, %73, %.thread.i
   store i64 %85, ptr %83, align 8
   %86 = add nuw nsw i64 %.04361.i, 1
   %exitcond.not.i = icmp eq i64 %86, %62
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph62.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph62.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %_tarReadRaw.exit.i, %59
-  %87 = tail call fastcc i32 @_tarGetHeader(ptr noundef %0, ptr noundef %10), !range !11
+  %87 = tail call fastcc i32 @_tarGetHeader(ptr noundef %0, ptr noundef %10)
   %.not51.i = icmp eq i32 %87, 0
-  br i1 %.not51.i, label %88, label %.preheader.split.i, !llvm.loop !13
+  br i1 %.not51.i, label %88, label %.preheader.split.i, !llvm.loop !12
 
 88:                                               ; preds = %._crit_edge.i
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull %1) #18
@@ -1327,7 +1327,7 @@ _tarWriteHeader.exit.i:                           ; preds = %26
   %38 = add i64 %.03.i, %40
   %39 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 32768, ptr noundef %15)
   %.not34.i = icmp eq i64 %39, 0
-  br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 .lr.ph.i:                                         ; preds = %_tarWriteHeader.exit.i, %37
   %40 = phi i64 [ %39, %37 ], [ %36, %_tarWriteHeader.exit.i ]
@@ -1393,7 +1393,7 @@ _tarWriteHeader.exit.i:                           ; preds = %26
 59:                                               ; preds = %.lr.ph6.i
   %60 = add nuw i64 %.0284.i, 1
   %exitcond.not.i = icmp eq i64 %60, %58
-  br i1 %exitcond.not.i, label %_tarAddFile.exit, label %.lr.ph6.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_tarAddFile.exit, label %.lr.ph6.i, !llvm.loop !14
 
 .lr.ph6.i:                                        ; preds = %55, %59
   %.0284.i = phi i64 [ %60, %59 ], [ 0, %55 ]
@@ -1589,7 +1589,7 @@ define internal fastcc i64 @_tarReadRaw(ptr nocapture noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_tarGetHeader(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_tarGetHeader(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca [512 x i8], align 16
   %4 = alloca [101 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 592
@@ -1600,7 +1600,7 @@ define internal fastcc noundef i32 @_tarGetHeader(ptr nocapture noundef %0, ptr 
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %21
-  br label %.loopexit, !llvm.loop !16
+  br label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %2
   %10 = load i64, ptr %7, align 8
@@ -1628,7 +1628,7 @@ define internal fastcc noundef i32 @_tarGetHeader(ptr nocapture noundef %0, ptr 
 21:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %16, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %16 ]
@@ -1856,9 +1856,8 @@ attributes #21 = { nounwind willreturn memory(none) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

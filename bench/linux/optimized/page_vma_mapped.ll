@@ -627,7 +627,7 @@ define internal fastcc zeroext i1 @check_pte(ptr nocapture noundef readonly %0) 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @page_mapped_in_vma(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @page_mapped_in_vma(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.page_vma_mapped_walk, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #6
   %4 = getelementptr inbounds i8, ptr %3, i64 64

@@ -101,7 +101,7 @@ define internal noundef i32 @nul_match(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nul_marshal(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -90, 1) i32 @nul_marshal(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 16) #5
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -127,7 +127,7 @@ define internal noundef i32 @nul_refresh(ptr nocapture noundef readonly %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nul_validate(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -5, 1) i32 @nul_validate(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 8) #5
   %4 = icmp eq ptr %3, null
   br i1 %4, label %13, label %5

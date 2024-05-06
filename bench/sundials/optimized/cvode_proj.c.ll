@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [25 x i8] c"proj_mem = NULL illegal.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetProjFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeSetProjFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -93,7 +93,7 @@ cvProjCreate.exit:                                ; preds = %16
 declare void @cvProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetProjErrEst(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @CVodeSetProjErrEst(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -122,7 +122,7 @@ cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %cvAccessPro
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetProjFrequency(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @CVodeSetProjFrequency(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -172,7 +172,7 @@ cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %12, %18, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetMaxNumProjFails(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @CVodeSetMaxNumProjFails(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -209,7 +209,7 @@ cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetEpsProj(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @CVodeSetEpsProj(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -246,7 +246,7 @@ cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetProjFailEta(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @CVodeSetProjFailEta(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -275,7 +275,7 @@ cvAccessProjMem.exit.thread:                      ; preds = %cvAccessProjMem.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumProjEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @CVodeGetNumProjEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -305,7 +305,7 @@ cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %cvAccessPro
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNumProjFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @CVodeGetNumProjFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -335,7 +335,7 @@ cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %cvAccessPro
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cvDoProjection(ptr noundef %0, ptr nocapture noundef writeonly %1, double noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -31, 4) i32 @cvDoProjection(ptr noundef %0, ptr nocapture noundef writeonly %1, double noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 1504
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -463,7 +463,7 @@ declare double @llvm.fabs.f64(double) #2
 declare void @cvRescale(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @cvProjInit(ptr noundef writeonly %0) local_unnamed_addr #3 {
+define range(i32 -29, 1) i32 @cvProjInit(ptr noundef writeonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

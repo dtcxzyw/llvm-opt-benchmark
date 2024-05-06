@@ -41,7 +41,7 @@ define void @dsygvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %28
-  %31 = mul nsw i32 %26, 5
+  %31 = mul nuw nsw i32 %26, 5
   %32 = add nuw nsw i32 %31, 3
   store i32 %26, ptr %15, align 4, !tbaa !3
   %33 = shl nuw i32 %26, 1

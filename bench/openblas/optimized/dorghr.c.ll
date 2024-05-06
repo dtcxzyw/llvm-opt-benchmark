@@ -238,7 +238,7 @@ define void @dorghr_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 .split17.us:                                      ; preds = %146, %.split17.us
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.split17.us ], [ 1, %146 ]
   %154 = phi i64 [ %159, %.split17.us ], [ 0, %146 ]
-  %155 = trunc i64 %indvars.iv25 to i32
+  %155 = trunc nuw nsw i64 %indvars.iv25 to i32
   %156 = mul i32 %148, %155
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds double, ptr %16, i64 %157
@@ -258,7 +258,7 @@ define void @dorghr_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %166 = shl nsw i64 %165, 3
   %167 = getelementptr i8, ptr %150, i64 %166
   call void @llvm.memset.p0.i64(ptr align 8 %167, i8 0, i64 %152, i1 false), !tbaa !7
-  %168 = trunc i64 %indvars.iv to i32
+  %168 = trunc nuw nsw i64 %indvars.iv to i32
   %169 = mul i32 %148, %168
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds double, ptr %16, i64 %170

@@ -1383,7 +1383,7 @@ if.then164:                                       ; preds = %getTrailByte
   ]
 
 if.then168:                                       ; preds = %if.then164
-  %conv169 = trunc i32 %mySourceChar.0 to i8
+  %conv169 = trunc nuw i32 %mySourceChar.0 to i8
   %45 = and i8 %conv169, 1
   %tobool.not.i = icmp eq i8 %45, 0
   %cmp.i145 = icmp ult i8 %44, 96
@@ -1486,7 +1486,7 @@ if.then214:                                       ; preds = %if.then212
   br label %if.end229
 
 if.end229:                                        ; preds = %if.then214, %if.then212
-  %conv230 = trunc i32 %targetUniChar.3 to i16
+  %conv230 = trunc nuw i32 %targetUniChar.3 to i16
   %incdec.ptr231 = getelementptr inbounds i8, ptr %myTarget.3, i64 2
   store i16 %conv230, ptr %myTarget.3, align 2
   br label %while.cond.preheader, !llvm.loop !8
@@ -3366,7 +3366,7 @@ getTrailByte:                                     ; preds = %if.then65, %if.then
 if.then82:                                        ; preds = %getTrailByte
   %incdec.ptr83 = getelementptr inbounds i8, ptr %60, i64 1
   store ptr %incdec.ptr83, ptr %mySource, align 8
-  %63 = trunc i16 %mySourceChar.0 to i8
+  %63 = trunc nuw i16 %mySourceChar.0 to i8
   %conv85 = xor i8 %63, -128
   store i8 %conv85, ptr %tempBuf, align 1
   %add88 = or disjoint i8 %61, -128
@@ -3375,7 +3375,7 @@ if.then82:                                        ; preds = %getTrailByte
   %call91 = call i32 @ucnv_MBCSSimpleGetNextUChar_75(ptr noundef %44, ptr noundef nonnull %tempBuf, i32 noundef 2, i8 noundef signext %45)
   %shl = shl nuw nsw i32 %conv68, 8
   %or = or disjoint i32 %shl, %conv73
-  %conv94 = trunc i32 %or to i16
+  %conv94 = trunc nuw i32 %or to i16
   br label %if.end128
 
 if.else95:                                        ; preds = %getTrailByte
@@ -3396,7 +3396,7 @@ if.then103:                                       ; preds = %land.lhs.true99, %l
   store ptr %incdec.ptr104, ptr %mySource, align 8
   %shl106 = shl nuw nsw i32 %conv68, 8
   %or107 = or disjoint i32 %shl106, %conv73
-  %conv110 = trunc i32 %or107 to i16
+  %conv110 = trunc nuw i32 %or107 to i16
   br label %if.end128
 
 if.else113:                                       ; preds = %if.then65
@@ -3470,7 +3470,7 @@ if.then.i:                                        ; preds = %if.else148
 _ZL17toUnicodeCallbackP10UConverterjjP10UErrorCode.exit: ; preds = %if.else148, %if.then.i
   %conv4.sink.in.i = phi i16 [ %shr.i, %if.then.i ], [ %mySourceChar.1, %if.else148 ]
   %.sink.i = phi i8 [ 2, %if.then.i ], [ 1, %if.else148 ]
-  %conv4.sink.i = trunc i16 %conv4.sink.in.i to i8
+  %conv4.sink.i = trunc nuw i16 %conv4.sink.in.i to i8
   %71 = getelementptr inbounds i8, ptr %70, i64 65
   store i8 %conv4.sink.i, ptr %71, align 1
   %72 = getelementptr inbounds i8, ptr %70, i64 64
@@ -3585,8 +3585,8 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond101, label %getTrail, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end
-  %cmp18148 = icmp ult ptr %0, %1
-  br i1 %cmp18148, label %while.body.lr.ph, label %while.end
+  %cmp18149 = icmp ult ptr %0, %1
+  br i1 %cmp18149, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %fromUnicodeTable.i = getelementptr inbounds i8, ptr %17, i64 88
@@ -3596,17 +3596,17 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end190
-  %source.0151 = phi ptr [ %0, %while.body.lr.ph ], [ %incdec.ptr, %if.end190 ]
-  %isTargetByteDBCS.0150 = phi i8 [ %conv12, %while.body.lr.ph ], [ %conv56, %if.end190 ]
-  %target.0149 = phi ptr [ %2, %while.body.lr.ph ], [ %target.5, %if.end190 ]
+  %source.0152 = phi ptr [ %0, %while.body.lr.ph ], [ %incdec.ptr, %if.end190 ]
+  %isTargetByteDBCS.0151 = phi i8 [ %conv12, %while.body.lr.ph ], [ %conv56, %if.end190 ]
+  %target.0150 = phi ptr [ %2, %while.body.lr.ph ], [ %target.5, %if.end190 ]
   store i32 65535, ptr %targetByteUnit, align 4
   %21 = load ptr, ptr %targetLimit4, align 8
-  %cmp20 = icmp ult ptr %target.0149, %21
+  %cmp20 = icmp ult ptr %target.0150, %21
   br i1 %cmp20, label %if.then21, label %if.else189
 
 if.then21:                                        ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %source.0151, i64 2
-  %22 = load i16, ptr %source.0151, align 2
+  %incdec.ptr = getelementptr inbounds i8, ptr %source.0152, i64 2
+  %22 = load i16, ptr %source.0152, align 2
   %conv22 = zext i16 %22 to i32
   %cmp23 = icmp ult i16 %22, 32
   br i1 %cmp23, label %land.lhs.true24, label %if.end29
@@ -3660,12 +3660,12 @@ if.then49.i:                                      ; preds = %if.end29
 if.else50.i:                                      ; preds = %if.end29
   %29 = add nsw i32 %conv22, -63744
   %cmp53.i = icmp ult i32 %29, -6400
-  %or.cond30.i.not154 = select i1 %tobool51.not.i, i1 %cmp53.i, i1 false
+  %or.cond30.i.not155 = select i1 %tobool51.not.i, i1 %cmp53.i, i1 false
   %cmp57.old.not.i = icmp eq i16 %28, 0
-  %or.cond127 = select i1 %or.cond30.i.not154, i1 true, i1 %cmp57.old.not.i
-  br i1 %or.cond127, label %if.end62.i, label %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread117
+  %or.cond128 = select i1 %or.cond30.i.not155, i1 true, i1 %cmp57.old.not.i
+  br i1 %or.cond128, label %if.end62.i, label %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread118
 
-_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread117: ; preds = %if.else50.i
+_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread118: ; preds = %if.else50.i
   store i32 %conv16.i, ptr %targetByteUnit, align 4
   br label %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread
 
@@ -3680,8 +3680,8 @@ _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit: ; preds = %if.e
   %spec.select = call i32 @llvm.abs.i32(i32 %call.i.fr, i1 true)
   br label %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread
 
-_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread: ; preds = %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit, %if.then49.i, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread117
-  %31 = phi i32 [ %..i, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread117 ], [ %..i, %if.then49.i ], [ %spec.select, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit ]
+_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread: ; preds = %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit, %if.then49.i, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread118
+  %31 = phi i32 [ %..i, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread118 ], [ %..i, %if.then49.i ], [ %spec.select, %_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit ]
   %32 = add nsw i32 %31, -3
   %or.cond = icmp ult i32 %32, -2
   br i1 %or.cond, label %if.end52.thread, label %lor.lhs.false35
@@ -3720,15 +3720,15 @@ if.end52:                                         ; preds = %lor.lhs.false46, %l
 if.then54:                                        ; preds = %if.end52
   %cmp55 = icmp ugt i32 %33, 255
   %conv56 = zext i1 %cmp55 to i8
-  %conv57 = sext i8 %isTargetByteDBCS.0150 to i32
+  %conv57 = sext i8 %isTargetByteDBCS.0151 to i32
   %conv58 = zext i1 %cmp55 to i32
   %cmp59.not = icmp eq i32 %conv57, %conv58
   br i1 %cmp59.not, label %if.end72, label %if.then60
 
 if.then60:                                        ; preds = %if.then54
   %. = select i1 %cmp55, i8 14, i8 15
-  %target.1 = getelementptr inbounds i8, ptr %target.0149, i64 1
-  store i8 %., ptr %target.0149, align 1
+  %target.1 = getelementptr inbounds i8, ptr %target.0150, i64 1
+  store i8 %., ptr %target.0150, align 1
   %34 = load ptr, ptr %offsets, align 8
   %tobool65.not = icmp eq ptr %34, null
   br i1 %tobool65.not, label %if.end72, label %if.then66
@@ -3747,14 +3747,14 @@ if.then66:                                        ; preds = %if.then60
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then60, %if.then66, %if.then54
-  %target.2 = phi ptr [ %target.0149, %if.then54 ], [ %target.1, %if.then60 ], [ %target.1, %if.then66 ]
+  %target.2 = phi ptr [ %target.0150, %if.then54 ], [ %target.1, %if.then60 ], [ %target.1, %if.then66 ]
   %37 = load i32, ptr %targetByteUnit, align 4
   %cmp73 = icmp ult i32 %37, 256
   %cmp75 = icmp ult ptr %target.2, %3
   br i1 %cmp73, label %if.then74, label %if.else95
 
 if.then74:                                        ; preds = %if.end72
-  %conv77 = trunc i32 %37 to i8
+  %conv77 = trunc nuw i32 %37 to i8
   br i1 %cmp75, label %if.then76, label %if.else90
 
 if.then76:                                        ; preds = %if.then74
@@ -3892,8 +3892,8 @@ if.then164:                                       ; preds = %if.else161
   br i1 %cmp166, label %getTrail, label %if.end185
 
 getTrail:                                         ; preds = %if.end, %if.then164
-  %target.3 = phi ptr [ %2, %if.end ], [ %target.0149, %if.then164 ]
-  %isTargetByteDBCS.1 = phi i8 [ %conv12, %if.end ], [ %isTargetByteDBCS.0150, %if.then164 ]
+  %target.3 = phi ptr [ %2, %if.end ], [ %target.0150, %if.then164 ]
+  %isTargetByteDBCS.1 = phi i8 [ %conv12, %if.end ], [ %isTargetByteDBCS.0151, %if.then164 ]
   %sourceChar.0 = phi i32 [ %20, %if.end ], [ %conv22, %if.then164 ]
   %source.1 = phi ptr [ %0, %if.end ], [ %incdec.ptr, %if.then164 ]
   %cmp168 = icmp ult ptr %source.1, %1
@@ -3915,8 +3915,8 @@ if.then173:                                       ; preds = %if.then169
 
 if.end185:                                        ; preds = %if.else161, %if.then164, %getTrail, %if.then169, %if.then173
   %.sink = phi i32 [ 10, %if.then173 ], [ 12, %if.then169 ], [ 0, %getTrail ], [ 12, %if.then164 ], [ 10, %if.else161 ]
-  %target.4 = phi ptr [ %target.3, %if.then173 ], [ %target.3, %if.then169 ], [ %target.3, %getTrail ], [ %target.0149, %if.then164 ], [ %target.0149, %if.else161 ]
-  %isTargetByteDBCS.2 = phi i8 [ %isTargetByteDBCS.1, %if.then173 ], [ %isTargetByteDBCS.1, %if.then169 ], [ %isTargetByteDBCS.1, %getTrail ], [ %isTargetByteDBCS.0150, %if.then164 ], [ %isTargetByteDBCS.0150, %if.else161 ]
+  %target.4 = phi ptr [ %target.3, %if.then173 ], [ %target.3, %if.then169 ], [ %target.3, %getTrail ], [ %target.0150, %if.then164 ], [ %target.0150, %if.else161 ]
+  %isTargetByteDBCS.2 = phi i8 [ %isTargetByteDBCS.1, %if.then173 ], [ %isTargetByteDBCS.1, %if.then169 ], [ %isTargetByteDBCS.1, %getTrail ], [ %isTargetByteDBCS.0151, %if.then164 ], [ %isTargetByteDBCS.0151, %if.else161 ]
   %sourceChar.1 = phi i32 [ %sub177, %if.then173 ], [ %sourceChar.0, %if.then169 ], [ %sourceChar.0, %getTrail ], [ %conv22, %if.then164 ], [ %conv22, %if.else161 ]
   %source.2 = phi ptr [ %incdec.ptr174, %if.then173 ], [ %source.1, %if.then169 ], [ %source.1, %getTrail ], [ %incdec.ptr, %if.then164 ], [ %incdec.ptr, %if.else161 ]
   store i32 %.sink, ptr %err, align 4
@@ -3935,13 +3935,13 @@ if.end190:                                        ; preds = %if.else139, %if.the
   br i1 %cmp18, label %while.body, label %while.end, !llvm.loop !18
 
 while.end:                                        ; preds = %if.end190, %while.cond.preheader, %if.else189, %if.end185, %if.then26
-  %target.6 = phi ptr [ %target.4, %if.end185 ], [ %target.0149, %if.then26 ], [ %target.0149, %if.else189 ], [ %2, %while.cond.preheader ], [ %target.5, %if.end190 ]
-  %isTargetByteDBCS.3 = phi i8 [ %isTargetByteDBCS.2, %if.end185 ], [ %isTargetByteDBCS.0150, %if.then26 ], [ %isTargetByteDBCS.0150, %if.else189 ], [ %conv12, %while.cond.preheader ], [ %conv56, %if.end190 ]
-  %source.3 = phi ptr [ %source.2, %if.end185 ], [ %incdec.ptr, %if.then26 ], [ %source.0151, %if.else189 ], [ %0, %while.cond.preheader ], [ %incdec.ptr, %if.end190 ]
+  %target.6 = phi ptr [ %target.4, %if.end185 ], [ %target.0150, %if.then26 ], [ %target.0150, %if.else189 ], [ %2, %while.cond.preheader ], [ %target.5, %if.end190 ]
+  %isTargetByteDBCS.3 = phi i8 [ %isTargetByteDBCS.2, %if.end185 ], [ %isTargetByteDBCS.0151, %if.then26 ], [ %isTargetByteDBCS.0151, %if.else189 ], [ %conv12, %while.cond.preheader ], [ %conv56, %if.end190 ]
+  %source.3 = phi ptr [ %source.2, %if.end185 ], [ %incdec.ptr, %if.then26 ], [ %source.0152, %if.else189 ], [ %0, %while.cond.preheader ], [ %incdec.ptr, %if.end190 ]
   %62 = load i32, ptr %err, align 4
-  %cmp.i104 = icmp slt i32 %62, 1
+  %cmp.i105 = icmp slt i32 %62, 1
   %tobool194 = icmp ne i8 %isTargetByteDBCS.3, 0
-  %or.cond2 = select i1 %cmp.i104, i1 %tobool194, i1 false
+  %or.cond2 = select i1 %cmp.i105, i1 %tobool194, i1 false
   br i1 %or.cond2, label %land.lhs.true195, label %if.end234
 
 land.lhs.true195:                                 ; preds = %while.end
@@ -4245,7 +4245,7 @@ if.then86:                                        ; preds = %getTrailByte
   %arrayidx90 = getelementptr inbounds [4 x i8], ptr %toU2022State, i64 0, i64 %idxprom
   %31 = load i8, ptr %arrayidx90, align 1
   %cmp92 = icmp sgt i8 %31, 31
-  %conv99 = trunc i32 %mySourceChar.0 to i8
+  %conv99 = trunc nuw i32 %mySourceChar.0 to i8
   br i1 %cmp92, label %if.then93, label %if.else102
 
 if.then93:                                        ; preds = %if.then86
@@ -4358,7 +4358,7 @@ if.then152:                                       ; preds = %if.then150
   br label %if.end167
 
 if.end167:                                        ; preds = %if.then152, %if.then150
-  %conv168 = trunc i32 %targetUniChar.2 to i16
+  %conv168 = trunc nuw i32 %targetUniChar.2 to i16
   %incdec.ptr169 = getelementptr inbounds i8, ptr %myTarget.3, i64 2
   store i16 %conv168, ptr %myTarget.3, align 2
   br label %if.end244

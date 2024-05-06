@@ -9916,7 +9916,7 @@ if.end:                                           ; preds = %if.else, %_ZNSt16al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZNK4cvc58internal5proof16AlfNodeConverter33getNumChildrenToProcessForClosureENS0_4kind6Kind_tE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(448) %this, i32 noundef %k) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i64 2, 4) i64 @_ZNK4cvc58internal5proof16AlfNodeConverter33getNumChildrenToProcessForClosureENS0_4kind6Kind_tE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(448) %this, i32 noundef %k) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp eq i32 %k, 255
   %cond = select i1 %cmp, i64 3, i64 2

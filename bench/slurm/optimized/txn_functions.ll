@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [24 x i8] c" Unknown condition: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sacctmgr_list_txn(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sacctmgr_list_txn(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 96, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 160, ptr noundef nonnull @__func__.sacctmgr_list_txn) #8
   %5 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #8

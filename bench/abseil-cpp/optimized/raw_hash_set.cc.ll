@@ -31,7 +31,7 @@ if.then:                                          ; preds = %if.end, %entry
   %seq.sroa.3.0.lcssa = phi i64 [ %and.i.i.i, %entry ], [ %and.i6, %if.end ]
   %seq.sroa.8.0.lcssa = phi i64 [ 0, %entry ], [ %add.i4, %if.end ]
   %.lcssa = phi i16 [ %4, %entry ], [ %7, %if.end ]
-  %5 = tail call i16 @llvm.cttz.i16(i16 %.lcssa, i1 true), !range !8
+  %5 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa, i1 true)
   %conv = zext nneg i16 %5 to i64
   %add.i = add i64 %seq.sroa.3.0.lcssa, %conv
   %and.i = and i64 %add.i, %1
@@ -50,7 +50,7 @@ if.end:                                           ; preds = %entry, %if.end
   %cmp.i.i.i = icmp slt <16 x i8> %6, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %7 = bitcast <16 x i1> %cmp.i.i.i to i16
   %cmp.i.not = icmp eq i16 %7, 0
-  br i1 %cmp.i.not, label %if.end, label %if.then, !llvm.loop !9
+  br i1 %cmp.i.not, label %if.end, label %if.then, !llvm.loop !8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -59,7 +59,7 @@ entry:
   ret ptr null
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4absl18container_internal33CommonFieldsGenerationInfoEnabled41should_rehash_for_bug_detection_on_insertEPKNS0_6ctrl_tEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %ctrl, i64 noundef %capacity) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %this, align 8
@@ -97,8 +97,8 @@ return:                                           ; preds = %entry, %if.end5, %i
   ret i1 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl18container_internal33CommonFieldsGenerationInfoEnabled39should_rehash_for_bug_detection_on_moveEPKNS0_6ctrl_tEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef %ctrl, i64 noundef %capacity) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+define dso_local noundef zeroext i1 @_ZNK4absl18container_internal33CommonFieldsGenerationInfoEnabled39should_rehash_for_bug_detection_on_moveEPKNS0_6ctrl_tEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef %ctrl, i64 noundef %capacity) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4absl18container_internal12_GLOBAL__N_110RandomSeedEvE7counter)
   %1 = load i64, ptr %0, align 8
@@ -121,8 +121,8 @@ entry:
   ret i1 %cmp.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl18container_internal21ShouldInsertBackwardsEmPKNS0_6ctrl_tE(i64 noundef %hash, ptr noundef %ctrl) local_unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+define dso_local noundef zeroext i1 @_ZN4absl18container_internal21ShouldInsertBackwardsEmPKNS0_6ctrl_tE(i64 noundef %hash, ptr noundef %ctrl) local_unnamed_addr #3 {
 entry:
   %shr.i = lshr i64 %hash, 7
   %0 = ptrtoint ptr %ctrl to i64
@@ -141,7 +141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm(ptr noundef %ctrl, i64 noundef %capacity) local_unnamed_addr #3 {
+define dso_local void @_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm(ptr noundef %ctrl, i64 noundef %capacity) local_unnamed_addr #4 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %ctrl, i64 %capacity
   %cmp10 = icmp sgt i64 %capacity, 0
@@ -157,7 +157,7 @@ for.body:                                         ; preds = %entry, %for.body
   store <2 x i64> %or.i.i, ptr %pos.011, align 1
   %add.ptr1 = getelementptr inbounds i8, ptr %pos.011, i64 16
   %cmp = icmp ult ptr %add.ptr1, %add.ptr
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %entry
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 1
@@ -167,14 +167,14 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i64, i64 } @_ZN4absl18container_internal29find_first_non_full_outoflineERKNS0_12CommonFieldsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %common, i64 noundef %hash) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local { i64, i64 } @_ZN4absl18container_internal29find_first_non_full_outoflineERKNS0_12CommonFieldsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %common, i64 noundef %hash) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %common, align 8
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %common, i64 16
-  %1 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !12
+  %1 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !11
   %shr.i.i.i.i = lshr i64 %hash, 7
   %2 = ptrtoint ptr %0 to i64
   %shr.i.i.i.i.i = lshr i64 %2, 12
@@ -198,13 +198,13 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %cmp.i.i.i.i = icmp slt <16 x i8> %5, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %6 = bitcast <16 x i1> %cmp.i.i.i.i to i16
   %cmp.i.not.i = icmp eq i16 %6, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm.exit, !llvm.loop !9
+  br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm.exit, !llvm.loop !8
 
 _ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm.exit: ; preds = %if.end.i, %entry
   %seq.sroa.3.0.lcssa.i = phi i64 [ %and.i.i.i.i, %entry ], [ %and.i6.i, %if.end.i ]
   %seq.sroa.8.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i4.i, %if.end.i ]
   %.lcssa.i = phi i16 [ %4, %entry ], [ %6, %if.end.i ]
-  %7 = tail call i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true), !range !8
+  %7 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %conv.i = zext nneg i16 %7 to i64
   %add.i.i = add i64 %seq.sroa.3.0.lcssa.i, %conv.i
   %and.i.i = and i64 %add.i.i, %1
@@ -235,7 +235,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   store <2 x i64> %or.i.i.i, ptr %pos.011.i, align 1
   %add.ptr1.i = getelementptr inbounds i8, ptr %pos.011.i, i64 16
   %cmp.i = icmp ult ptr %add.ptr1.i, %add.ptr.i
-  br i1 %cmp.i, label %for.body.i, label %_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit, !llvm.loop !11
+  br i1 %cmp.i, label %for.body.i, label %_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit, !llvm.loop !10
 
 _ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit: ; preds = %for.body.i, %entry
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
@@ -246,19 +246,19 @@ _ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_t
   %transfer3 = getelementptr inbounds i8, ptr %policy, i64 16
   %6 = load ptr, ptr %transfer3, align 8
   %7 = load i64, ptr %policy, align 8
-  %cmp.not93 = icmp eq i64 %1, 0
-  br i1 %cmp.not93, label %for.end, label %for.body
+  %cmp.not94 = icmp eq i64 %1, 0
+  br i1 %cmp.not94, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit, %for.inc
-  %slot_ptr.095 = phi ptr [ %28, %for.inc ], [ %0, %_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit ]
-  %i.094 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit ]
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %i.094
+  %slot_ptr.096 = phi ptr [ %28, %for.inc ], [ %0, %_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit ]
+  %i.095 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit ]
+  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %i.095
   %8 = load i8, ptr %arrayidx, align 1
-  %cmp.i59 = icmp eq i8 %8, -2
-  br i1 %cmp.i59, label %if.end, label %for.inc
+  %cmp.i60 = icmp eq i8 %8, -2
+  br i1 %cmp.i60, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
-  %call7 = tail call noundef i64 %5(ptr noundef nonnull %common, ptr noundef %slot_ptr.095)
+  %call7 = tail call noundef i64 %5(ptr noundef nonnull %common, ptr noundef %slot_ptr.096)
   %9 = load ptr, ptr %common, align 8
   %10 = load i64, ptr %capacity_.i, align 8
   %shr.i.i.i.i = lshr i64 %call7, 7
@@ -279,91 +279,91 @@ if.end.i:                                         ; preds = %if.end, %if.end.i
   %add.i4.i = add i64 %seq.sroa.8.016.i, 16
   %add3.i.i = add i64 %add.i4.i, %seq.sroa.3.015.i
   %and.i6.i = and i64 %add3.i.i, %10
-  %add.ptr.i60 = getelementptr inbounds i8, ptr %9, i64 %and.i6.i
-  %14 = load <16 x i8>, ptr %add.ptr.i60, align 1
+  %add.ptr.i61 = getelementptr inbounds i8, ptr %9, i64 %and.i6.i
+  %14 = load <16 x i8>, ptr %add.ptr.i61, align 1
   %cmp.i.i.i.i = icmp slt <16 x i8> %14, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %15 = bitcast <16 x i1> %cmp.i.i.i.i to i16
   %cmp.i.not.i = icmp eq i16 %15, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm.exit, !llvm.loop !9
+  br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm.exit, !llvm.loop !8
 
 _ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm.exit: ; preds = %if.end.i, %if.end
   %seq.sroa.3.0.lcssa.i = phi i64 [ %and.i.i.i.i, %if.end ], [ %and.i6.i, %if.end.i ]
   %.lcssa.i = phi i16 [ %13, %if.end ], [ %15, %if.end.i ]
-  %16 = tail call i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true), !range !8
+  %16 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %conv.i = zext nneg i16 %16 to i64
   %add.i.i = add i64 %seq.sroa.3.0.lcssa.i, %conv.i
   %and.i.i = and i64 %add.i.i, %10
   %sub.i = sub i64 %and.i.i, %and.i.i.i.i
-  %sub.i62 = sub i64 %i.094, %and.i.i.i.i
-  %and.i92 = xor i64 %sub.i, %sub.i62
-  %cmp12.unshifted = and i64 %and.i92, %1
+  %sub.i63 = sub i64 %i.095, %and.i.i.i.i
+  %and.i93 = xor i64 %sub.i, %sub.i63
+  %cmp12.unshifted = and i64 %and.i93, %1
   %cmp12 = icmp ult i64 %cmp12.unshifted, 16
   br i1 %cmp12, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm.exit
   %17 = trunc i64 %call7 to i8
-  %conv.i65 = and i8 %17, 127
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %9, i64 %i.094
-  store i8 %conv.i65, ptr %arrayidx.i.i, align 1
-  %sub.i.i = add i64 %i.094, -15
-  %and.i.i67 = and i64 %10, %sub.i.i
+  %conv.i66 = and i8 %17, 127
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %9, i64 %i.095
+  store i8 %conv.i66, ptr %arrayidx.i.i, align 1
+  %sub.i.i = add i64 %i.095, -15
+  %and.i.i68 = and i64 %10, %sub.i.i
   %and6.i.i = and i64 %10, 15
-  %18 = getelementptr i8, ptr %9, i64 %and.i.i67
+  %18 = getelementptr i8, ptr %9, i64 %and.i.i68
   %arrayidx7.i.i = getelementptr i8, ptr %18, i64 %and6.i.i
-  store i8 %conv.i65, ptr %arrayidx7.i.i, align 1
+  store i8 %conv.i66, ptr %arrayidx7.i.i, align 1
   br label %for.inc
 
 if.end15:                                         ; preds = %_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm.exit
   %mul.i = mul i64 %and.i.i, %7
-  %add.ptr.i68 = getelementptr inbounds i8, ptr %0, i64 %mul.i
+  %add.ptr.i69 = getelementptr inbounds i8, ptr %0, i64 %mul.i
   %arrayidx17 = getelementptr inbounds i8, ptr %2, i64 %and.i.i
   %19 = load i8, ptr %arrayidx17, align 1
-  %cmp.i69 = icmp eq i8 %19, -128
+  %cmp.i70 = icmp eq i8 %19, -128
   %20 = trunc i64 %call7 to i8
-  %conv.i70 = and i8 %20, 127
-  %arrayidx.i.i72 = getelementptr inbounds i8, ptr %9, i64 %and.i.i
-  store i8 %conv.i70, ptr %arrayidx.i.i72, align 1
-  %sub.i.i73 = add i64 %and.i.i, -15
-  %and.i.i74 = and i64 %sub.i.i73, %10
-  %and6.i.i75 = and i64 %10, 15
-  %21 = getelementptr i8, ptr %9, i64 %and.i.i74
-  %arrayidx7.i.i76 = getelementptr i8, ptr %21, i64 %and6.i.i75
-  store i8 %conv.i70, ptr %arrayidx7.i.i76, align 1
-  br i1 %cmp.i69, label %if.then19, label %if.else
+  %conv.i71 = and i8 %20, 127
+  %arrayidx.i.i73 = getelementptr inbounds i8, ptr %9, i64 %and.i.i
+  store i8 %conv.i71, ptr %arrayidx.i.i73, align 1
+  %sub.i.i74 = add i64 %and.i.i, -15
+  %and.i.i75 = and i64 %sub.i.i74, %10
+  %and6.i.i76 = and i64 %10, 15
+  %21 = getelementptr i8, ptr %9, i64 %and.i.i75
+  %arrayidx7.i.i77 = getelementptr i8, ptr %21, i64 %and6.i.i76
+  store i8 %conv.i71, ptr %arrayidx7.i.i77, align 1
+  br i1 %cmp.i70, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end15
-  tail call void %6(ptr noundef nonnull %common, ptr noundef %add.ptr.i68, ptr noundef %slot_ptr.095)
+  tail call void %6(ptr noundef nonnull %common, ptr noundef %add.ptr.i69, ptr noundef %slot_ptr.096)
   %22 = load i64, ptr %capacity_.i, align 8
   %23 = load ptr, ptr %common, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %23, i64 %i.094
+  %arrayidx.i = getelementptr inbounds i8, ptr %23, i64 %i.095
   store i8 -128, ptr %arrayidx.i, align 1
-  %sub.i78 = add i64 %i.094, -15
-  %and.i79 = and i64 %22, %sub.i78
+  %sub.i79 = add i64 %i.095, -15
+  %and.i80 = and i64 %22, %sub.i79
   %and6.i = and i64 %22, 15
-  %24 = getelementptr i8, ptr %23, i64 %and.i79
+  %24 = getelementptr i8, ptr %23, i64 %and.i80
   %arrayidx7.i = getelementptr i8, ptr %24, i64 %and6.i
   store i8 -128, ptr %arrayidx7.i, align 1
   br label %for.inc
 
 if.else:                                          ; preds = %if.end15
-  tail call void %6(ptr noundef nonnull %common, ptr noundef %tmp_space, ptr noundef %add.ptr.i68)
-  tail call void %6(ptr noundef nonnull %common, ptr noundef %add.ptr.i68, ptr noundef %slot_ptr.095)
-  tail call void %6(ptr noundef nonnull %common, ptr noundef %slot_ptr.095, ptr noundef %tmp_space)
-  %dec = add i64 %i.094, -1
-  %25 = ptrtoint ptr %slot_ptr.095 to i64
-  %sub.i87 = sub i64 %25, %7
-  %26 = inttoptr i64 %sub.i87 to ptr
+  tail call void %6(ptr noundef nonnull %common, ptr noundef %tmp_space, ptr noundef %add.ptr.i69)
+  tail call void %6(ptr noundef nonnull %common, ptr noundef %add.ptr.i69, ptr noundef %slot_ptr.096)
+  tail call void %6(ptr noundef nonnull %common, ptr noundef %slot_ptr.096, ptr noundef %tmp_space)
+  %dec = add i64 %i.095, -1
+  %25 = ptrtoint ptr %slot_ptr.096 to i64
+  %sub.i88 = sub i64 %25, %7
+  %26 = inttoptr i64 %sub.i88 to ptr
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then19, %if.else, %for.body, %if.then13
-  %i.1 = phi i64 [ %i.094, %if.then13 ], [ %i.094, %if.then19 ], [ %dec, %if.else ], [ %i.094, %for.body ]
-  %slot_ptr.1 = phi ptr [ %slot_ptr.095, %if.then13 ], [ %slot_ptr.095, %if.then19 ], [ %26, %if.else ], [ %slot_ptr.095, %for.body ]
+  %i.1 = phi i64 [ %i.095, %if.then13 ], [ %i.095, %if.then19 ], [ %dec, %if.else ], [ %i.095, %for.body ]
+  %slot_ptr.1 = phi ptr [ %slot_ptr.096, %if.then13 ], [ %slot_ptr.096, %if.then19 ], [ %26, %if.else ], [ %slot_ptr.096, %for.body ]
   %inc = add i64 %i.1, 1
   %27 = ptrtoint ptr %slot_ptr.1 to i64
   %add.i = add i64 %7, %27
   %28 = inttoptr i64 %add.i to ptr
   %cmp.not = icmp eq i64 %inc, %1
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit
   %29 = load i64, ptr %capacity_.i, align 8
@@ -372,15 +372,15 @@ for.end:                                          ; preds = %for.inc, %_ZN4absl1
   %30 = load i64, ptr %size_.i.i, align 8
   %shr.i.i = lshr i64 %30, 1
   %31 = add nuw i64 %div2.i.i, %shr.i.i
-  %sub.i89 = sub i64 %29, %31
+  %sub.i90 = sub i64 %29, %31
   %32 = load ptr, ptr %common, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %32, i64 -8
-  store i64 %sub.i89, ptr %add.ptr.i.i, align 8
+  store i64 %sub.i90, ptr %add.ptr.i.i, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl18container_internal13EraseMetaOnlyERNS0_12CommonFieldsEPNS0_6ctrl_tEm(ptr nocapture noundef nonnull align 8 dereferenceable(32) %c, ptr noundef %it, i64 noundef %slot_size) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl18container_internal13EraseMetaOnlyERNS0_12CommonFieldsEPNS0_6ctrl_tEm(ptr nocapture noundef nonnull align 8 dereferenceable(32) %c, ptr noundef %it, i64 noundef %slot_size) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %size_.i = getelementptr inbounds i8, ptr %c, i64 24
   %0 = load i64, ptr %size_.i, align 8
@@ -407,8 +407,8 @@ entry:
   br i1 %or.cond, label %land.end, label %land.end.thread
 
 land.end:                                         ; preds = %entry
-  %7 = tail call i16 @llvm.cttz.i16(i16 %4, i1 true), !range !8
-  %8 = tail call i16 @llvm.ctlz.i16(i16 %6, i1 true), !range !8
+  %7 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %4, i1 true)
+  %8 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %6, i1 true)
   %narrow = add nuw nsw i16 %8, %7
   %narrow.fr = freeze i16 %narrow
   %cmp = icmp ult i16 %narrow.fr, 16
@@ -436,7 +436,7 @@ land.end.thread:                                  ; preds = %land.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl18container_internal17ClearBackingArrayERNS0_12CommonFieldsERKNS0_15PolicyFunctionsEb(ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(32) %policy, i1 noundef zeroext %reuse) local_unnamed_addr #7 {
+define dso_local void @_ZN4absl18container_internal17ClearBackingArrayERNS0_12CommonFieldsERKNS0_15PolicyFunctionsEb(ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(32) %policy, i1 noundef zeroext %reuse) local_unnamed_addr #8 {
 entry:
   %size_.i = getelementptr inbounds i8, ptr %c, i64 24
   %0 = load i64, ptr %size_.i, align 8
@@ -477,7 +477,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef %new_ctrl, i64 noundef %new_capacity) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef %new_ctrl, i64 noundef %new_capacity) local_unnamed_addr #9 align 2 {
 entry:
   %old_capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %old_capacity_, align 8
@@ -506,10 +506,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper43GrowIntoSingleGroupShuffleTransferableSlotsEPvS2_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef readonly %old_slots, ptr nocapture noundef writeonly %new_slots, i64 noundef %slot_size) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper43GrowIntoSingleGroupShuffleTransferableSlotsEPvS2_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef readonly %old_slots, ptr nocapture noundef writeonly %new_slots, i64 noundef %slot_size) local_unnamed_addr #11 align 2 {
 entry:
   %old_capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %old_capacity_, align 8
@@ -525,7 +525,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl18container_internal19HashSetResizeHelper35GrowSizeIntoSingleGroupTransferableERNS0_12CommonFieldsEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef readonly %old_slots, i64 noundef %slot_size) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4absl18container_internal19HashSetResizeHelper35GrowSizeIntoSingleGroupTransferableERNS0_12CommonFieldsEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef readonly %old_slots, i64 noundef %slot_size) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load ptr, ptr %c, align 8
   %capacity_.i = getelementptr inbounds i8, ptr %c, i64 16
@@ -561,35 +561,37 @@ entry:
   %mul.i.i = mul i64 %add.i, %slot_size
   %add.ptr.i.i = getelementptr inbounds i8, ptr %old_slots, i64 %mul.i.i
   %mul3.i = mul i64 %div11.i, %slot_size
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %add.ptr.i.i, i64 %mul3.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %6, ptr readonly align 1 %add.ptr.i.i, i64 %mul3.i, i1 false)
   %add.ptr.i13.i = getelementptr inbounds i8, ptr %6, i64 %mul.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i13.i, ptr align 1 %old_slots, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr.i13.i, ptr readonly align 1 %old_slots, i64 %mul.i.i, i1 false)
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #11
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.ctlz.i16(i16, i1 immarg) #11
+declare i16 @llvm.ctlz.i16(i16, i1 immarg) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -601,11 +603,10 @@ attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable w
 !5 = !{!6}
 !6 = distinct !{!6, !7, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm: %agg.result"}
 !7 = distinct !{!7, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm"}
-!8 = !{i16 0, i16 17}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm: %agg.result"}
-!14 = distinct !{!14, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm"}
-!15 = distinct !{!15, !10}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm: %agg.result"}
+!13 = distinct !{!13, !"_ZN4absl18container_internal5probeERKNS0_12CommonFieldsEm"}
+!14 = distinct !{!14, !9}

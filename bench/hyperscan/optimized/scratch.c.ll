@@ -304,7 +304,7 @@ if.then116:                                       ; preds = %if.then114
   br label %if.end118
 
 if.end118:                                        ; preds = %if.then116, %if.then114
-  %call119 = tail call fastcc i32 @alloc_scratch(ptr noundef nonnull %11, ptr noundef nonnull %scratch), !range !5
+  %call119 = tail call fastcc i32 @alloc_scratch(ptr noundef nonnull %11, ptr noundef nonnull %scratch)
   %46 = load ptr, ptr @hs_scratch_free, align 8
   tail call void %46(ptr noundef nonnull %call18) #5
   %cmp120.not = icmp eq i32 %call119, 0
@@ -336,7 +336,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @alloc_scratch(ptr nocapture noundef readonly %proto, ptr nocapture noundef writeonly %scratch) unnamed_addr #0 {
+define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr nocapture noundef readonly %proto, ptr nocapture noundef writeonly %scratch) unnamed_addr #0 {
 entry:
   %queueCount1 = getelementptr inbounds i8, ptr %proto, i64 8
   %0 = load i32, ptr %queueCount1, align 8
@@ -467,7 +467,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %add.ptr78 = getelementptr inbounds i8, ptr %current.0153, i64 %idx.ext77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
   %21 = ptrtoint ptr %add.ptr78 to i64
@@ -490,7 +490,7 @@ for.body90:                                       ; preds = %for.end, %for.body9
   %add.ptr95 = getelementptr inbounds i8, ptr %current.1156, i64 %conv2.i
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next163, %conv.i
-  br i1 %exitcond165.not, label %for.end98, label %for.body90, !llvm.loop !8
+  br i1 %exitcond165.not, label %for.end98, label %for.body90, !llvm.loop !7
 
 for.end98:                                        ; preds = %for.body90, %for.end
   %current.1.lcssa = phi ptr [ %add.ptr83, %for.end ], [ %add.ptr95, %for.body90 ]
@@ -573,7 +573,7 @@ for.body160:                                      ; preds = %for.body160.prehead
   %32 = load ptr, ptr %queues, align 16
   %add.ptr157 = getelementptr inbounds %struct.mq, ptr %32, i64 %conv15
   %cmp158.not = icmp eq ptr %incdec.ptr, %add.ptr157
-  br i1 %cmp158.not, label %return, label %for.body160, !llvm.loop !9
+  br i1 %cmp158.not, label %return, label %for.body160, !llvm.loop !8
 
 return:                                           ; preds = %for.body160, %for.end98, %if.then
   %retval.0 = phi i32 [ %ret.i.0150, %if.then ], [ 0, %for.end98 ], [ 0, %for.body160 ]
@@ -581,7 +581,7 @@ return:                                           ; preds = %for.body160, %for.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hs_clone_scratch(ptr noundef %src, ptr noundef writeonly %dest) local_unnamed_addr #0 {
+define dso_local i32 @hs_clone_scratch(ptr noundef %src, ptr noundef writeonly %dest) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %dest, null
   %tobool1 = icmp ne ptr %src, null
@@ -599,7 +599,7 @@ lor.lhs.false3:                                   ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false3
   store ptr null, ptr %dest, align 8
-  %call = tail call fastcc i32 @alloc_scratch(ptr noundef nonnull %src, ptr noundef nonnull %dest), !range !5
+  %call = tail call fastcc i32 @alloc_scratch(ptr noundef nonnull %src, ptr noundef nonnull %dest)
   %cmp5.not = icmp eq i32 %call, 0
   br i1 %cmp5.not, label %return, label %if.then6
 
@@ -613,7 +613,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hs_free_scratch(ptr noundef %scratch) local_unnamed_addr #0 {
+define dso_local range(i32 -10, 1) i32 @hs_free_scratch(ptr noundef %scratch) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %scratch, null
   br i1 %tobool.not, label %return, label %if.then
@@ -650,7 +650,7 @@ return:                                           ; preds = %if.end4, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @hs_scratch_size(ptr noundef %scratch, ptr noundef writeonly %size) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @hs_scratch_size(ptr noundef %scratch, ptr noundef writeonly %size) local_unnamed_addr #4 {
 entry:
   %tobool = icmp ne ptr %size, null
   %tobool1 = icmp ne ptr %scratch, null
@@ -692,8 +692,7 @@ attributes #5 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -9, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

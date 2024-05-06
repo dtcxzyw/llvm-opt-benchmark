@@ -369,7 +369,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp1
   call void @llvm.experimental.noalias.scope.decl(metadata !69)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6.i.i)
   %87 = getelementptr inbounds i64, ptr %85, i64 %86
-  %88 = invoke noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter6traits8iterator8Iterator10min_by_key17hc47f4f1cbfedb790E.llvm.6876384978452292205(ptr noundef nonnull %85, ptr noundef nonnull %87, ptr noalias noundef nonnull readonly align 8 %83, i64 noundef %84)
+  %88 = invoke noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter6traits8iterator8Iterator10min_by_key17hc47f4f1cbfedb790E.llvm.6876384978452292205(ptr noundef nonnull readonly %85, ptr noundef nonnull readonly %87, ptr noalias noundef nonnull readonly align 8 %83, i64 noundef %84)
           to label %.noexc94.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !42
 
 .noexc94.i:                                       ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb85f0817c9d90b65E.exit.thread.i"
@@ -400,7 +400,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp1
 94:                                               ; preds = %.noexc95.i
   store i64 %.sroa.0.0.copyload.i.i, ptr %19, align 8, !alias.scope !75, !noalias !76
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds i8, ptr %19, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i.i, i64 16, i1 false), !noalias !76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %.sroa.6.0..sroa_idx2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i.i, i64 16, i1 false), !noalias !76
   br label %321
 
 95:                                               ; preds = %80
@@ -1126,7 +1126,7 @@ _ZN6uu_fmt9linebreak19find_kp_breakpoints17h9ece749410d68b29E.exit: ; preds = %3
 _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit.thread.i.i: ; preds = %412
   %417 = load ptr, ptr %394, align 8, !alias.scope !195, !noalias !198, !nonnull !7, !noundef !7
   %418 = getelementptr inbounds i8, ptr %417, i64 %413
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %418, ptr nonnull align 1 %386, i64 %388, i1 false), !noalias !201
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %418, ptr nonnull readonly align 1 %386, i64 %388, i1 false), !noalias !201
   %419 = add i64 %413, %388
   store i64 %419, ptr %393, align 8, !alias.scope !195, !noalias !198
   br label %._crit_edge.i.i
@@ -1255,7 +1255,7 @@ _ZN6uu_fmt9linebreak14slice_if_fresh17he2750172105604aaE.exit.i.i: ; preds = %44
 472:                                              ; preds = %465
   %473 = load ptr, ptr %394, align 8, !alias.scope !228, !noalias !229, !nonnull !7, !noundef !7
   %474 = getelementptr inbounds i8, ptr %473, i64 %467
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %474, ptr nonnull align 1 %.sink3.i.i.i, i64 %.sink.i.i.i, i1 false), !noalias !231
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %474, ptr nonnull readonly align 1 %.sink3.i.i.i, i64 %.sink.i.i.i, i1 false), !noalias !231
   %475 = add i64 %467, %.sink.i.i.i
   store i64 %475, ptr %393, align 8, !alias.scope !228, !noalias !229
   br label %_ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.i
@@ -1339,7 +1339,7 @@ _ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.i: ; preds = %4
 _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit57.thread.i.i: ; preds = %501
   %506 = load ptr, ptr %394, align 8, !alias.scope !250, !noalias !253, !nonnull !7, !noundef !7
   %507 = getelementptr inbounds i8, ptr %506, i64 %502
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %507, ptr nonnull align 1 %386, i64 %388, i1 false), !noalias !256
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %507, ptr nonnull readonly align 1 %386, i64 %388, i1 false), !noalias !256
   %508 = add i64 %502, %388
   store i64 %508, ptr %393, align 8, !alias.scope !250, !noalias !253
   br label %511
@@ -1393,7 +1393,7 @@ _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit57.i.i: ; preds = %5
 _ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.thread.i.i: ; preds = %522
   %529 = load ptr, ptr %394, align 8, !alias.scope !265, !noalias !268, !nonnull !7, !noundef !7
   %530 = getelementptr inbounds i8, ptr %529, i64 %526
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %530, ptr nonnull align 1 %524, i64 %523, i1 false), !noalias !271
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %530, ptr nonnull readonly align 1 %524, i64 %523, i1 false), !noalias !271
   %531 = add i64 %526, %523
   store i64 %531, ptr %393, align 8, !alias.scope !265, !noalias !268
   br label %.loopexit.i41
@@ -1622,7 +1622,7 @@ _ZN6uu_fmt9linebreak19find_kp_breakpoints17h9ece749410d68b29E.exit._crit_edge: ;
 _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit.thread: ; preds = %603
   %610 = load ptr, ptr %539, align 8, !alias.scope !304, !noalias !307, !nonnull !7, !noundef !7
   %611 = getelementptr inbounds i8, ptr %610, i64 %604
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %611, ptr nonnull align 1 %386, i64 %388, i1 false), !noalias !309
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %611, ptr nonnull readonly align 1 %386, i64 %388, i1 false), !noalias !309
   %612 = add i64 %604, %388
   store i64 %612, ptr %538, align 8, !alias.scope !304, !noalias !307
   br label %573

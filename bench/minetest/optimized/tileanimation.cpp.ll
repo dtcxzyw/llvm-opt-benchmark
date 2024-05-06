@@ -241,7 +241,7 @@ define dso_local void @_ZNK19TileAnimationParams15determineParamsEN3irr4core8vec
 entry:
   %texture_size.sroa.0.0.extract.trunc = trunc i64 %texture_size.coerce to i32
   %texture_size.sroa.4.0.extract.shift = lshr i64 %texture_size.coerce, 32
-  %texture_size.sroa.4.0.extract.trunc = trunc i64 %texture_size.sroa.4.0.extract.shift to i32
+  %texture_size.sroa.4.0.extract.trunc = trunc nuw i64 %texture_size.sroa.4.0.extract.shift to i32
   %0 = load i8, ptr %this, align 4, !tbaa !4
   switch i8 %0, label %if.end44 [
     i8 1, label %if.then
@@ -359,7 +359,7 @@ entry:
 _ZNK19TileAnimationParams15determineParamsEN3irr4core8vector2dIjEEPiS4_PS3_.exit: ; preds = %entry
   %texture_size.sroa.0.0.extract.trunc.i = trunc i64 %texture_size.coerce to i32
   %texture_size.sroa.4.0.extract.shift.i = lshr i64 %texture_size.coerce, 32
-  %texture_size.sroa.4.0.extract.trunc.i = trunc i64 %texture_size.sroa.4.0.extract.shift.i to i32
+  %texture_size.sroa.4.0.extract.trunc.i = trunc nuw i64 %texture_size.sroa.4.0.extract.shift.i to i32
   %conv2.i = uitofp i32 %texture_size.sroa.0.0.extract.trunc.i to float
   %1 = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %1, align 4, !tbaa !9
@@ -427,7 +427,7 @@ if.then:                                          ; preds = %entry
 
 _ZNK19TileAnimationParams15determineParamsEN3irr4core8vector2dIjEEPiS4_PS3_.exit: ; preds = %entry
   %texture_size.sroa.4.0.extract.shift.i = lshr i64 %texture_size.coerce, 32
-  %texture_size.sroa.4.0.extract.trunc.i = trunc i64 %texture_size.sroa.4.0.extract.shift.i to i32
+  %texture_size.sroa.4.0.extract.trunc.i = trunc nuw i64 %texture_size.sroa.4.0.extract.shift.i to i32
   %4 = getelementptr inbounds i8, ptr %this, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !9
   %div38.i = udiv i32 %texture_size.sroa.0.0.extract.trunc, %5

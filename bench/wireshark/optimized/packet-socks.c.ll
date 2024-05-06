@@ -903,7 +903,7 @@ copy_address_wmem.exit:                           ; preds = %6
   %7 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %5, i32 noundef 4) #6
   %8 = tail call ptr @wmem_file_scope() #6
   %9 = getelementptr inbounds i8, ptr %2, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store i32 2, ptr %9, align 8
   %10 = tail call noalias ptr @wmem_memdup(ptr noundef %8, ptr noundef %7, i64 noundef 4) #6
   %11 = getelementptr inbounds i8, ptr %2, i64 56
@@ -926,7 +926,7 @@ copy_address_wmem.exit19:                         ; preds = %16
   %17 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %5, i32 noundef 16) #6
   %18 = tail call ptr @wmem_file_scope() #6
   %19 = getelementptr inbounds i8, ptr %2, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   store i32 3, ptr %19, align 8
   %20 = tail call noalias ptr @wmem_memdup(ptr noundef %18, ptr noundef %17, i64 noundef 16) #6
   %21 = getelementptr inbounds i8, ptr %2, i64 56
@@ -1067,7 +1067,7 @@ copy_address_wmem.exit:                           ; preds = %37, %32
   %41 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef 0, i32 noundef 4) #6
   %42 = tail call ptr @wmem_file_scope() #6
   %43 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   store i32 2, ptr %43, align 8
   %44 = tail call noalias ptr @wmem_memdup(ptr noundef %42, ptr noundef %41, i64 noundef 4) #6
   %45 = getelementptr inbounds i8, ptr %0, i64 56

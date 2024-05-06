@@ -371,14 +371,14 @@ _ZN3zmq7array_tINS_6pipe_tELi1EE4swapEmm.exit:    ; preds = %if.end.i, %if.then7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq4fq_t4recvEPNS_5msg_tE(ptr nocapture noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull %msg_) local_unnamed_addr #5 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq4fq_t4recvEPNS_5msg_tE(ptr nocapture noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull %msg_) local_unnamed_addr #5 align 2 {
 entry:
-  %call = tail call noundef i32 @_ZN3zmq4fq_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef %msg_, ptr noundef null), !range !5
+  %call = tail call noundef i32 @_ZN3zmq4fq_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef %msg_, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq4fq_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr nocapture noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull %msg_, ptr noundef writeonly %pipe_) local_unnamed_addr #5 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq4fq_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr nocapture noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull %msg_, ptr noundef writeonly %pipe_) local_unnamed_addr #5 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cmp.not = icmp eq i32 %call, 0
@@ -509,7 +509,7 @@ if.then45:                                        ; preds = %_ZN3zmq7array_tINS_
 if.end47:                                         ; preds = %if.then45, %_ZN3zmq7array_tINS_6pipe_tELi1EE4swapEmm.exit
   %27 = phi i64 [ 0, %if.then45 ], [ %25, %_ZN3zmq7array_tINS_6pipe_tELi1EE4swapEmm.exit ]
   %cmp6.not = icmp eq i64 %26, 0
-  br i1 %cmp6.not, label %while.end, label %while.body, !llvm.loop !6
+  br i1 %cmp6.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %if.end47, %do.end
   %call48 = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
@@ -631,7 +631,7 @@ if.then12:                                        ; preds = %_ZN3zmq7array_tINS_
 if.end14:                                         ; preds = %if.then12, %_ZN3zmq7array_tINS_6pipe_tELi1EE4swapEmm.exit
   %16 = phi i64 [ 0, %if.then12 ], [ %14, %_ZN3zmq7array_tINS_6pipe_tELi1EE4swapEmm.exit ]
   %cmp.not = icmp eq i64 %15, 0
-  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !8
+  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !7
 
 return:                                           ; preds = %while.body, %if.end14, %while.cond.preheader, %entry
   %retval.0 = phi i1 [ true, %entry ], [ false, %while.cond.preheader ], [ %call2, %if.end14 ], [ %call2, %while.body ]
@@ -695,7 +695,6 @@ attributes #22 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

@@ -79,7 +79,7 @@ entry:
   %1 = tail call float @llvm.fabs.f32(float %f)
   %and.i.i = bitcast float %1 to i32
   %shr.i.i = lshr i32 %0, 16
-  %2 = trunc i32 %shr.i.i to i16
+  %2 = trunc nuw i32 %shr.i.i to i16
   %conv.i.i = and i16 %2, -32768
   %cmp.i.i = icmp ugt i32 %and.i.i, 947912703
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end37.i.i
@@ -98,7 +98,7 @@ if.end.i.i:                                       ; preds = %if.then4.i.i
   %shr10.i.i = and i32 %and9.i.i, 1023
   %cmp15.i.i = icmp eq i32 %shr10.i.i, 0
   %3 = zext i1 %cmp15.i.i to i16
-  %4 = trunc i32 %shr10.i.i to i16
+  %4 = trunc nuw nsw i32 %shr10.i.i to i16
   %5 = or i16 %4, %3
   %conv19.i.i = or disjoint i16 %5, %conv6.i.i
   br label %_ZN9Imath_3_24halfC2Ef.exit
@@ -136,7 +136,7 @@ if.end40.i.i:                                     ; preds = %if.end37.i.i
   %shr46.i.i = lshr i32 %or44.i.i, %sub42.i.i
   %conv47.i.i = and i32 %shr.i.i, 32768
   %or48.i.i = or i32 %shr46.i.i, %conv47.i.i
-  %conv49.i.i = trunc i32 %or48.i.i to i16
+  %conv49.i.i = trunc nuw i32 %or48.i.i to i16
   %cmp50.i.i = icmp ugt i32 %shl.i.i, -2147483648
   br i1 %cmp50.i.i, label %if.then55.i.i, label %lor.lhs.false.i.i
 
@@ -175,7 +175,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %2 = tail call float @llvm.fabs.f32(float %0)
   %and.i.i = bitcast float %2 to i32
   %shr.i.i = lshr i32 %1, 16
-  %3 = trunc i32 %shr.i.i to i16
+  %3 = trunc nuw i32 %shr.i.i to i16
   %conv.i.i = and i16 %3, -32768
   %cmp.i.i = icmp ugt i32 %and.i.i, 947912703
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end37.i.i
@@ -194,7 +194,7 @@ if.end.i.i:                                       ; preds = %if.then4.i.i
   %shr10.i.i = and i32 %and9.i.i, 1023
   %cmp15.i.i = icmp eq i32 %shr10.i.i, 0
   %4 = zext i1 %cmp15.i.i to i16
-  %5 = trunc i32 %shr10.i.i to i16
+  %5 = trunc nuw nsw i32 %shr10.i.i to i16
   %6 = or i16 %5, %4
   %conv19.i.i = or disjoint i16 %6, %conv6.i.i
   br label %_ZN9Imath_3_24halfC2Ef.exit
@@ -232,7 +232,7 @@ if.end40.i.i:                                     ; preds = %if.end37.i.i
   %shr46.i.i = lshr i32 %or44.i.i, %sub42.i.i
   %conv47.i.i = and i32 %shr.i.i, 32768
   %or48.i.i = or i32 %shr46.i.i, %conv47.i.i
-  %conv49.i.i = trunc i32 %or48.i.i to i16
+  %conv49.i.i = trunc nuw i32 %or48.i.i to i16
   %cmp50.i.i = icmp ugt i32 %shl.i.i, -2147483648
   br i1 %cmp50.i.i, label %if.then55.i.i, label %lor.lhs.false.i.i
 
@@ -626,7 +626,7 @@ entry:
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header11compressionEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderSetIntAttribute(ptr noundef nonnull %hdr, ptr noundef %name, i32 noundef %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderSetIntAttribute(ptr noundef nonnull %hdr, ptr noundef %name, i32 noundef %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %value.addr = alloca i32, align 4
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute", align 8
@@ -743,7 +743,7 @@ declare void @_ZN7Imf_3_214TypedAttributeIiED1Ev(ptr noundef nonnull align 8 der
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_214TypedAttributeIiE5valueEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderIntAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderIntAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %call.i.noexc unwind label %lpad
@@ -816,7 +816,7 @@ eh.resume:                                        ; preds = %lpad.body
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_214TypedAttributeIiE5valueEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderSetFloatAttribute(ptr noundef nonnull %hdr, ptr noundef %name, float noundef %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderSetFloatAttribute(ptr noundef nonnull %hdr, ptr noundef %name, float noundef %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %value.addr = alloca float, align 4
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute.1", align 8
@@ -927,7 +927,7 @@ declare void @_ZN7Imf_3_214TypedAttributeIfED1Ev(ptr noundef nonnull align 8 der
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_214TypedAttributeIfE5valueEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderSetDoubleAttribute(ptr noundef nonnull %hdr, ptr noundef %name, double noundef %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderSetDoubleAttribute(ptr noundef nonnull %hdr, ptr noundef %name, double noundef %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %value.addr = alloca double, align 8
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute.3", align 8
@@ -1038,7 +1038,7 @@ declare void @_ZN7Imf_3_214TypedAttributeIdED1Ev(ptr noundef nonnull align 8 der
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_214TypedAttributeIdE5valueEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderFloatAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderFloatAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %call.i.noexc unwind label %lpad
@@ -1111,7 +1111,7 @@ eh.resume:                                        ; preds = %lpad.body
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_214TypedAttributeIfE5valueEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderDoubleAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderDoubleAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %call.i.noexc unwind label %lpad
@@ -1184,7 +1184,7 @@ eh.resume:                                        ; preds = %lpad.body
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_214TypedAttributeIdE5valueEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderSetStringAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr noundef %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderSetStringAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr noundef %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute.4", align 8
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1363,7 +1363,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN7Imf_3_214TypedAttri
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderStringAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderStringAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %value) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %call.i.noexc unwind label %lpad
@@ -1439,7 +1439,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Imf_3_214TypedAttr
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderSetBox2iAttribute(ptr noundef nonnull %hdr, ptr noundef %name, i32 noundef %xMin, i32 noundef %yMin, i32 noundef %xMax, i32 noundef %yMax) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderSetBox2iAttribute(ptr noundef nonnull %hdr, ptr noundef %name, i32 noundef %xMin, i32 noundef %yMin, i32 noundef %xMax, i32 noundef %yMax) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %box = alloca %"class.Imath_3_2::Box", align 4
   %ref.tmp21 = alloca %"class.Imf_3_2::TypedAttribute.8", align 8
@@ -1562,7 +1562,7 @@ declare void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEED1Ev(p
 declare noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE5valueEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderBox2iAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %xMin, ptr nocapture noundef writeonly %yMin, ptr nocapture noundef writeonly %xMax, ptr nocapture noundef writeonly %yMax) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderBox2iAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %xMin, ptr nocapture noundef writeonly %yMin, ptr nocapture noundef writeonly %xMax, ptr nocapture noundef writeonly %yMax) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %call.i.noexc unwind label %lpad
@@ -1644,7 +1644,7 @@ eh.resume:                                        ; preds = %lpad.body
 declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE5valueEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderSetBox2fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, float noundef %xMin, float noundef %yMin, float noundef %xMax, float noundef %yMax) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderSetBox2fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, float noundef %xMin, float noundef %yMin, float noundef %xMax, float noundef %yMax) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %box = alloca %"class.Imath_3_2::Box.9", align 4
   %ref.tmp21 = alloca %"class.Imf_3_2::TypedAttribute.10", align 8
@@ -1767,7 +1767,7 @@ declare void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEED1Ev(p
 declare noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEE5valueEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderBox2fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %xMin, ptr nocapture noundef writeonly %yMin, ptr nocapture noundef writeonly %xMax, ptr nocapture noundef writeonly %yMax) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderBox2fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %xMin, ptr nocapture noundef writeonly %yMin, ptr nocapture noundef writeonly %xMax, ptr nocapture noundef writeonly %yMax) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %call.i.noexc unwind label %lpad
@@ -1849,7 +1849,7 @@ eh.resume:                                        ; preds = %lpad.body
 declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEE5valueEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderSetV2iAttribute(ptr noundef nonnull %hdr, ptr noundef %name, i32 noundef %x, i32 noundef %y) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderSetV2iAttribute(ptr noundef nonnull %hdr, ptr noundef %name, i32 noundef %x, i32 noundef %y) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"class.Imath_3_2::Vec2.0", align 4
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute.11", align 8
@@ -1964,7 +1964,7 @@ declare void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IiEEED1Ev(ptr noundef 
 declare noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IiEEE5valueEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderV2iAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderV2iAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %call.i.noexc unwind label %lpad
@@ -2040,7 +2040,7 @@ eh.resume:                                        ; preds = %lpad.body
 declare noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IiEEE5valueEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderSetV2fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, float noundef %x, float noundef %y) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderSetV2fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, float noundef %x, float noundef %y) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"class.Imath_3_2::Vec2", align 4
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute.12", align 8
@@ -2155,7 +2155,7 @@ declare void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IfEEED1Ev(ptr noundef 
 declare noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IfEEE5valueEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderV2fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderV2fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %call.i.noexc unwind label %lpad
@@ -2231,7 +2231,7 @@ eh.resume:                                        ; preds = %lpad.body
 declare noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7Imf_3_214TypedAttributeIN9Imath_3_24Vec2IfEEE5valueEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderSetV3iAttribute(ptr noundef nonnull %hdr, ptr noundef %name, i32 noundef %x, i32 noundef %y, i32 noundef %z) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderSetV3iAttribute(ptr noundef nonnull %hdr, ptr noundef %name, i32 noundef %x, i32 noundef %y, i32 noundef %z) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"class.Imath_3_2::Vec3", align 4
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute.13", align 8
@@ -2350,7 +2350,7 @@ declare void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IiEEED1Ev(ptr noundef 
 declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IiEEE5valueEv(ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderV3iAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr nocapture noundef writeonly %z) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderV3iAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr nocapture noundef writeonly %z) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %call.i.noexc unwind label %lpad
@@ -2429,7 +2429,7 @@ eh.resume:                                        ; preds = %lpad.body
 declare noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IiEEE5valueEv(ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderSetV3fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, float noundef %x, float noundef %y, float noundef %z) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderSetV3fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, float noundef %x, float noundef %y, float noundef %z) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"class.Imath_3_2::Vec3.15", align 4
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute.16", align 8
@@ -2548,7 +2548,7 @@ declare void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IfEEED1Ev(ptr noundef 
 declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IfEEE5valueEv(ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderV3fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr nocapture noundef writeonly %z) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderV3fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr nocapture noundef writeonly %z) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %call.i.noexc unwind label %lpad
@@ -2627,7 +2627,7 @@ eh.resume:                                        ; preds = %lpad.body
 declare noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7Imf_3_214TypedAttributeIN9Imath_3_24Vec3IfEEE5valueEv(ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderSetM33fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef readonly %m) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderSetM33fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef readonly %m) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %m3 = alloca %"class.Imath_3_2::Matrix33", align 16
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute.18", align 8
@@ -2751,7 +2751,7 @@ declare void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEED1Ev(ptr noun
 declare noundef nonnull align 4 dereferenceable(36) ptr @_ZN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEE5valueEv(ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderM33fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %m) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderM33fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %m) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %call.i.noexc unwind label %lpad
@@ -2856,7 +2856,7 @@ eh.resume:                                        ; preds = %lpad.body
 declare noundef nonnull align 4 dereferenceable(36) ptr @_ZNK7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEE5valueEv(ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderSetM44fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef readonly %m) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderSetM44fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef readonly %m) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %m4 = alloca %"class.Imath_3_2::Matrix44", align 16
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute.20", align 8
@@ -2986,7 +2986,7 @@ declare void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IfEEED1Ev(ptr noun
 declare noundef nonnull align 4 dereferenceable(64) ptr @_ZN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IfEEE5valueEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfHeaderM44fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %m) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfHeaderM44fAttribute(ptr noundef nonnull %hdr, ptr noundef %name, ptr nocapture noundef writeonly %m) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %call.i.noexc unwind label %lpad
@@ -3193,7 +3193,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfOutputSetFrameBuffer(ptr noundef nonnull %out, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfOutputSetFrameBuffer(ptr noundef nonnull %out, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN7Imf_3_214RgbaOutputFile14setFrameBufferEPKNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride)
           to label %return unwind label %lpad
@@ -3229,7 +3229,7 @@ eh.resume:                                        ; preds = %lpad
 declare void @_ZN7Imf_3_214RgbaOutputFile14setFrameBufferEPKNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfOutputWritePixels(ptr noundef nonnull %out, i32 noundef %numScanLines) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfOutputWritePixels(ptr noundef nonnull %out, i32 noundef %numScanLines) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN7Imf_3_214RgbaOutputFile11writePixelsEi(ptr noundef nonnull align 8 dereferenceable(24) %out, i32 noundef %numScanLines)
           to label %return unwind label %lpad
@@ -3364,7 +3364,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfTiledOutputSetFrameBuffer(ptr noundef nonnull %out, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfTiledOutputSetFrameBuffer(ptr noundef nonnull %out, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN7Imf_3_219TiledRgbaOutputFile14setFrameBufferEPKNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride)
           to label %return unwind label %lpad
@@ -3400,7 +3400,7 @@ eh.resume:                                        ; preds = %lpad
 declare void @_ZN7Imf_3_219TiledRgbaOutputFile14setFrameBufferEPKNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfTiledOutputWriteTile(ptr noundef nonnull %out, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfTiledOutputWriteTile(ptr noundef nonnull %out, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN7Imf_3_219TiledRgbaOutputFile9writeTileEiiii(ptr noundef nonnull align 8 dereferenceable(24) %out, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly)
           to label %return unwind label %lpad
@@ -3436,7 +3436,7 @@ eh.resume:                                        ; preds = %lpad
 declare void @_ZN7Imf_3_219TiledRgbaOutputFile9writeTileEiiii(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfTiledOutputWriteTiles(ptr noundef nonnull %out, i32 noundef %dxMin, i32 noundef %dxMax, i32 noundef %dyMin, i32 noundef %dyMax, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfTiledOutputWriteTiles(ptr noundef nonnull %out, i32 noundef %dxMin, i32 noundef %dxMax, i32 noundef %dyMin, i32 noundef %dyMax, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN7Imf_3_219TiledRgbaOutputFile10writeTilesEiiiiii(ptr noundef nonnull align 8 dereferenceable(24) %out, i32 noundef %dxMin, i32 noundef %dxMax, i32 noundef %dyMin, i32 noundef %dyMax, i32 noundef %lx, i32 noundef %ly)
           to label %return unwind label %lpad
@@ -3598,7 +3598,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfInputSetFrameBuffer(ptr noundef nonnull %in, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfInputSetFrameBuffer(ptr noundef nonnull %in, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN7Imf_3_213RgbaInputFile14setFrameBufferEPNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(64) %in, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride)
           to label %return unwind label %lpad
@@ -3634,7 +3634,7 @@ eh.resume:                                        ; preds = %lpad
 declare void @_ZN7Imf_3_213RgbaInputFile14setFrameBufferEPNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfInputReadPixels(ptr noundef nonnull %in, i32 noundef %scanLine1, i32 noundef %scanLine2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfInputReadPixels(ptr noundef nonnull %in, i32 noundef %scanLine1, i32 noundef %scanLine2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN7Imf_3_213RgbaInputFile10readPixelsEii(ptr noundef nonnull align 8 dereferenceable(64) %in, i32 noundef %scanLine1, i32 noundef %scanLine2)
           to label %return unwind label %lpad
@@ -3769,7 +3769,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfTiledInputSetFrameBuffer(ptr noundef nonnull %in, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfTiledInputSetFrameBuffer(ptr noundef nonnull %in, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN7Imf_3_218TiledRgbaInputFile14setFrameBufferEPNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(56) %in, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride)
           to label %return unwind label %lpad
@@ -3805,7 +3805,7 @@ eh.resume:                                        ; preds = %lpad
 declare void @_ZN7Imf_3_218TiledRgbaInputFile14setFrameBufferEPNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfTiledInputReadTile(ptr noundef nonnull %in, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfTiledInputReadTile(ptr noundef nonnull %in, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN7Imf_3_218TiledRgbaInputFile8readTileEiiii(ptr noundef nonnull align 8 dereferenceable(56) %in, i32 noundef %dx, i32 noundef %dy, i32 noundef %lx, i32 noundef %ly)
           to label %return unwind label %lpad
@@ -3841,7 +3841,7 @@ eh.resume:                                        ; preds = %lpad
 declare void @_ZN7Imf_3_218TiledRgbaInputFile8readTileEiiii(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ImfTiledInputReadTiles(ptr noundef nonnull %in, i32 noundef %dxMin, i32 noundef %dxMax, i32 noundef %dyMin, i32 noundef %dyMax, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @ImfTiledInputReadTiles(ptr noundef nonnull %in, i32 noundef %dxMin, i32 noundef %dxMax, i32 noundef %dyMin, i32 noundef %dyMax, i32 noundef %lx, i32 noundef %ly) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN7Imf_3_218TiledRgbaInputFile9readTilesEiiiiii(ptr noundef nonnull align 8 dereferenceable(56) %in, i32 noundef %dxMin, i32 noundef %dxMax, i32 noundef %dyMin, i32 noundef %dyMax, i32 noundef %lx, i32 noundef %ly)
           to label %return unwind label %lpad
@@ -4170,7 +4170,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #15
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -4372,7 +4372,7 @@ for.inc.us:                                       ; preds = %if.then.us, %if.the
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %conv = trunc i64 %indvars.iv to i16
   %15 = and i16 %conv, 31744
   %cmp.i = icmp eq i16 %15, 31744
@@ -4478,7 +4478,7 @@ attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-
 attributes #12 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind memory(read) }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

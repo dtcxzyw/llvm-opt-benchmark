@@ -412,11 +412,11 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
   %spec.select = select i1 %4, i32 %5, i32 %3
   %6 = add i32 %spec.select, -3000000
   %7 = icmp ult i32 %6, 3
-  %8 = add nsw i32 %spec.select, -3000003
+  %8 = add nuw nsw i32 %spec.select, -3000003
   %.033 = select i1 %7, i32 %8, i32 %6
   %9 = add i32 %spec.select, -40000000
   %10 = icmp ult i32 %9, 3
-  %11 = add nsw i32 %spec.select, -40000003
+  %11 = add nuw nsw i32 %spec.select, -40000003
   %.034 = select i1 %10, i32 %11, i32 %9
   %12 = load i32, ptr @autovacuum_freeze_max_age, align 4
   %13 = add i32 %12, %0

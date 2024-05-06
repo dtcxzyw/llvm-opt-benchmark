@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.17 = private unnamed_addr constant [30 x i8] c"strbuf_setlen() beyond buffer\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_verify_pack(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmd_verify_pack(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %index_pack.i = alloca %struct.child_process, align 8
   %arg.i = alloca %struct.strbuf, align 8
@@ -150,7 +150,7 @@ if.end12.i:                                       ; preds = %if.then10.i, %for.b
 lor.lhs.false.i.i.i:                              ; preds = %if.end12.i
   %sub.i.i.i = add i64 %4, -4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.i.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(4) @.str.12, i64 4)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i.i.i, ptr noundef nonnull readonly dereferenceable(4) @.str.12, i64 4)
   %tobool.not.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %lor.lhs.false.i
 
@@ -174,14 +174,14 @@ if.then4.i.i.i:                                   ; preds = %if.end.i5.i.i
   br label %if.then17.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end12.i
-  %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
+  %call.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #12
   %cmp.i.i.i.i = icmp ult i64 %call.i.i.i, 5
   br i1 %cmp.i.i.i.i, label %if.then17.i, label %ends_with.exit.i
 
 ends_with.exit.i:                                 ; preds = %lor.lhs.false.i
   %6 = getelementptr i8, ptr %3, i64 %call.i.i.i
   %add.ptr.i.i.i.i = getelementptr i8, ptr %6, i64 -5
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.13, i64 5)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.13, i64 5)
   %tobool.not.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.not.i, label %if.end18.i, label %if.then17.i
 

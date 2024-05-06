@@ -139,7 +139,7 @@ define hidden void @scdf_init(ptr nocapture noundef %0, ptr nocapture noundef %1
   %8 = zext i32 %7 to i64
   %9 = add nuw nsw i64 %8, 63
   %10 = lshr i64 %9, 6
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %12 = getelementptr inbounds i8, ptr %1, i64 56
   store i32 %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 40
@@ -147,14 +147,14 @@ define hidden void @scdf_init(ptr nocapture noundef %0, ptr nocapture noundef %1
   %15 = zext i32 %14 to i64
   %16 = add nuw nsw i64 %15, 63
   %17 = lshr i64 %16, 6
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %19 = getelementptr inbounds i8, ptr %1, i64 60
   store i32 %18, ptr %19, align 4
   %20 = load i32, ptr %3, align 8
   %21 = zext i32 %20 to i64
   %22 = add nuw nsw i64 %21, 63
   %23 = lshr i64 %22, 6
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw nsw i64 %23 to i32
   %25 = getelementptr inbounds i8, ptr %1, i64 64
   store i32 %24, ptr %25, align 8
   %26 = add nuw nsw i64 %17, %10
@@ -385,7 +385,7 @@ zend_bitset_pop_first.exit:                       ; preds = %zend_bitset_first.e
 
 51:                                               ; preds = %zend_bitset_first.exit.i
   %52 = shl nuw nsw i64 %indvars.iv.i.i, 6
-  %53 = tail call i64 @llvm.cttz.i64(i64 %47, i1 true), !range !5
+  %53 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %47, i1 true)
   %54 = shl nuw i64 1, %53
   %55 = xor i64 %54, -1
   %56 = and i64 %indvars.iv.i.i, 33554431
@@ -397,7 +397,7 @@ zend_bitset_pop_first.exit:                       ; preds = %zend_bitset_first.e
   %.masked = and i64 %52, 2147483584
   %61 = or disjoint i64 %53, %.masked
   %62 = getelementptr inbounds %struct._zend_ssa_var, ptr %60, i64 %61, i32 4
-  %63 = load ptr, ptr %62, align 8, !nonnull !6, !noundef !6
+  %63 = load ptr, ptr %62, align 8, !nonnull !5, !noundef !5
   %64 = load ptr, ptr %12, align 8
   %65 = getelementptr inbounds i8, ptr %63, i64 72
   %66 = load i32, ptr %65, align 8
@@ -441,7 +441,7 @@ zend_bitset_pop_first.exit:                       ; preds = %zend_bitset_first.e
 
 zend_bitset_first.exit.i135:                      ; preds = %.lr.ph.i.i132
   %83 = shl nuw nsw i64 %indvars.iv.i.i133, 6
-  %84 = tail call i64 @llvm.cttz.i64(i64 %82, i1 true), !range !5
+  %84 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %82, i1 true)
   %85 = or disjoint i64 %84, %83
   %86 = trunc i64 %85 to i32
   %87 = icmp sgt i32 %86, -1
@@ -651,7 +651,7 @@ scdf_mark_edge_feasible.exit:                     ; preds = %.lr.ph.i142, %190, 
 
 zend_bitset_first.exit.i150:                      ; preds = %.lr.ph.i.i147
   %218 = shl nuw nsw i64 %indvars.iv.i.i148, 6
-  %219 = tail call i64 @llvm.cttz.i64(i64 %217, i1 true), !range !5
+  %219 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %217, i1 true)
   %220 = or disjoint i64 %219, %218
   %221 = trunc i64 %220 to i32
   %222 = icmp sgt i32 %221, -1
@@ -1141,7 +1141,7 @@ is_live_loop_var_free.exit.thread.i:              ; preds = %is_live_loop_var_fr
 .loopexit:                                        ; preds = %is_live_loop_var_free.exit.thread.i, %..loopexit_crit_edge, %27
   %77 = phi i32 [ %.pre36, %..loopexit_crit_edge ], [ %31, %27 ], [ %31, %is_live_loop_var_free.exit.thread.i ]
   %78 = add i32 %77, %.01932
-  %79 = trunc i64 %indvars.iv to i32
+  %79 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @zend_ssa_remove_block(ptr noundef %22, ptr noundef nonnull %3, i32 noundef %79) #8
   br label %150
 
@@ -1346,5 +1346,4 @@ attributes #11 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{i64 2742220, i64 2742241}
-!5 = !{i64 0, i64 65}
-!6 = !{}
+!5 = !{}

@@ -225,7 +225,7 @@ if.then.i.i:                                      ; preds = %if.end.i.i.i
   %or6.i.i87.i = or i64 %shr5.i.i86.i, %or4.i.i85.i
   %shr7.i.i88.i = lshr i64 %or6.i.i87.i, 16
   %or8.i.i89.i = or i64 %shr7.i.i88.i, %or6.i.i87.i
-  %9 = trunc i64 %or8.i.i89.i to i32
+  %9 = trunc nuw i64 %or8.i.i89.i to i32
   %conv3.i90.i = add i32 %9, 1
   %.sroa.speculated.i91.i = call i32 @llvm.umax.i32(i32 %conv3.i90.i, i32 64)
   store i32 %.sroa.speculated.i91.i, ptr %NumBuckets.i.i.i.i.i.i.i, align 8, !noalias !4
@@ -416,7 +416,7 @@ if.then10.i.i:                                    ; preds = %if.else.i.i
   %or6.i.i.i = or i64 %shr5.i.i.i, %or4.i.i.i
   %shr7.i.i.i = lshr i64 %or6.i.i.i, 16
   %or8.i.i.i = or i64 %shr7.i.i.i, %or6.i.i.i
-  %25 = trunc i64 %or8.i.i.i to i32
+  %25 = trunc nuw i64 %or8.i.i.i to i32
   %conv3.i.i = add i32 %25, 1
   %.sroa.speculated.i.i = call i32 @llvm.umax.i32(i32 %conv3.i.i, i32 64)
   store i32 %.sroa.speculated.i.i, ptr %NumBuckets.i.i.i.i.i.i.i, align 8, !noalias !4
@@ -2241,7 +2241,7 @@ _ZN4llvh8DenseMapIPN6hermes5ValueEPNS1_19ScopedHashTableNodeIS3_bEENS_12DenseMap
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8

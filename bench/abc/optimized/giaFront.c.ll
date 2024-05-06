@@ -123,7 +123,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManCrossCutSimple(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Gia_ManCrossCutSimple(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @Gia_ManCreateValueRefs(ptr noundef %0) #15
   %2 = getelementptr i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -209,7 +209,7 @@ declare void @Gia_ManCreateValueRefs(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @Gia_ManFront(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @Gia_ManCrossCutSimple(ptr noundef %0), !range !7
+  %2 = tail call i32 @Gia_ManCrossCutSimple(ptr noundef %0)
   tail call void @Gia_ManCreateValueRefs(ptr noundef %0) #15
   %3 = getelementptr i8, ptr %0, i64 24
   %.val122 = load i32, ptr %3, align 8
@@ -219,10 +219,10 @@ define ptr @Gia_ManFront(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #16
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #16
   %8 = add i64 %7, 1
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #14
-  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %5) #15
+  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %5) #15
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %6
@@ -234,10 +234,10 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %6
   br i1 %.not.i138, label %Gia_ManFrontFindNext.exit, label %14
 
 14:                                               ; preds = %Abc_UtilStrsav.exit
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #16
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #16
   %16 = add i64 %15, 1
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #14
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %13) #15
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %13) #15
   br label %Gia_ManFrontFindNext.exit
 
 Gia_ManFrontFindNext.exit:                        ; preds = %14, %Abc_UtilStrsav.exit
@@ -405,7 +405,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %105 = getelementptr inbounds i8, ptr %27, i64 %104
   %106 = load i8, ptr %105, align 1
   %.not.i144 = icmp eq i8 %106, 0
-  br i1 %.not.i144, label %Gia_ManFrontFindNext.exit147, label %.lr.ph.i142, !llvm.loop !8
+  br i1 %.not.i144, label %Gia_ManFrontFindNext.exit147, label %.lr.ph.i142, !llvm.loop !7
 
 Gia_ManFrontFindNext.exit147:                     ; preds = %.lr.ph.i142, %Gia_ManAppendCi.exit
   %.lcssa6.i145 = phi i64 [ %99, %Gia_ManAppendCi.exit ], [ %104, %.lr.ph.i142 ]
@@ -637,7 +637,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %243 = getelementptr inbounds i8, ptr %27, i64 %242
   %244 = load i8, ptr %243, align 1
   %.not.i161 = icmp eq i8 %244, 0
-  br i1 %.not.i161, label %Gia_ManFrontFindNext.exit164, label %.lr.ph.i159, !llvm.loop !8
+  br i1 %.not.i161, label %Gia_ManFrontFindNext.exit164, label %.lr.ph.i159, !llvm.loop !7
 
 Gia_ManFrontFindNext.exit164:                     ; preds = %.lr.ph.i159, %206
   %.lcssa6.i162 = phi i64 [ %237, %206 ], [ %242, %.lr.ph.i159 ]
@@ -703,7 +703,7 @@ Gia_ManFrontFindNext.exit164:                     ; preds = %.lr.ph.i159, %206
   %276 = load i32, ptr %3, align 8
   %277 = sext i32 %276 to i64
   %278 = icmp slt i64 %indvars.iv.next, %277
-  br i1 %278, label %41, label %.critedge.preheader, !llvm.loop !9
+  br i1 %278, label %41, label %.critedge.preheader, !llvm.loop !8
 }
 
 declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #4
@@ -960,6 +960,5 @@ attributes #19 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 -2147483648}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

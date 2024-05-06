@@ -604,7 +604,7 @@ define internal i32 @acpi_cpufreq_cpu_init(ptr noundef %0) #2 align 16 {
 declare dso_local i32 @cpufreq_generic_frequency_table_verify(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_cpufreq_target(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define internal noundef range(i32 -19, 1) i32 @acpi_cpufreq_target(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = alloca %struct.drv_cmd, align 8
   %4 = alloca %struct.drv_cmd, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 576
@@ -1024,7 +1024,7 @@ define internal noundef i32 @acpi_cpufreq_cpu_exit(ptr nocapture noundef %0) #2 
   %16 = and i64 %13, %8
   %17 = trunc i64 %16 to i32
   %18 = lshr i64 %16, 32
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw i64 %18 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %7, i32 %17, i32 %19) #16, !srcloc !36
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #16
           to label %21 [label %20], !srcloc !35
@@ -1133,7 +1133,7 @@ define internal void @cpu_freq_write_intel(ptr nocapture readnone %0, i32 nounde
 9:                                                ; preds = %8, %2
   %10 = trunc i64 %4 to i32
   %11 = lshr i64 %7, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = and i32 %10, -65536
   %14 = and i32 %1, 65535
   %15 = or disjoint i32 %13, %14
@@ -1187,7 +1187,7 @@ define internal void @cpu_freq_write_amd(ptr nocapture readnone %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @get_max_boost_ratio(i32 noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i64 0, 4398046510081) i64 @get_max_boost_ratio(i32 noundef %0) unnamed_addr #2 align 16 {
   %2 = alloca %struct.cppc_perf_caps, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %2) #16
   %3 = load i32, ptr @acpi_pstate_strict, align 4
@@ -1598,7 +1598,7 @@ define internal void @boost_set_msr_each(ptr noundef readnone %0) #2 align 16 {
   %18 = select i1 %2, i64 %17, i64 %16
   %19 = trunc i64 %18 to i32
   %20 = lshr i64 %18, 32
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %6, i32 %19, i32 %21) #16, !srcloc !36
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_write_msr, i64 0, i32 1), i32 2) #16
           to label %23 [label %22], !srcloc !35
@@ -1658,7 +1658,7 @@ define internal i64 @show_freqdomain_cpus(ptr nocapture noundef readonly %0, ptr
 declare dso_local i64 @cpufreq_show_cpus(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @show_cpb(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #14 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_cpb(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #14 align 16 {
   %3 = load i8, ptr getelementptr inbounds (%struct.cpufreq_driver, ptr @acpi_cpufreq_driver, i64 0, i32 22), align 8, !range !17, !noundef !18
   %4 = zext nneg i8 %3 to i32
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %4) #16
@@ -1780,7 +1780,7 @@ define internal i32 @acpi_cpufreq_probe(ptr nocapture readnone %0) #0 section ".
 declare dso_local ptr @cpufreq_get_current_driver() local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @acpi_cpufreq_early_init() unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @acpi_cpufreq_early_init() unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call noalias dereferenceable_or_null(112) ptr @__alloc_percpu(i64 noundef 112, i64 noundef 8) #21
   store ptr %1, ptr @acpi_perf_data, align 8
   %2 = icmp eq ptr %1, null

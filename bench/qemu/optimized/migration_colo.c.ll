@@ -152,7 +152,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @get_colo_mode() local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @get_colo_mode() local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @migrate_get_current() #6
   %state.i = getelementptr inbounds i8, ptr %call.i, i64 776
@@ -1019,7 +1019,7 @@ declare void @qemu_event_set(ptr noundef) local_unnamed_addr #1
 declare void @qemu_sem_post(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @colo_incoming_co() #0 {
+define dso_local range(i32 -22, 1) i32 @colo_incoming_co() #0 {
 entry:
   %local_err = alloca ptr, align 8
   %th = alloca %struct.QemuThread, align 8

@@ -542,7 +542,7 @@ Vec_IntFetch.exit:                                ; preds = %62, %67, %73
   br i1 %exitcond.not, label %.critedge8, label %90, !llvm.loop !10
 
 .critedge2:                                       ; preds = %90
-  %95 = trunc i64 %indvars.iv to i32
+  %95 = trunc nuw nsw i64 %indvars.iv to i32
   %96 = icmp eq i32 %.val148, %95
   br i1 %96, label %.critedge8, label %98
 
@@ -601,7 +601,7 @@ Vec_IntFetch.exit:                                ; preds = %62, %67, %73
   br i1 %exitcond279.not, label %.critedge4.loopexit, label %107, !llvm.loop !11
 
 .critedge6.us:                                    ; preds = %107, %110
-  %115 = trunc i64 %indvars.iv275 to i32
+  %115 = trunc nuw nsw i64 %indvars.iv275 to i32
   %116 = icmp eq i32 %.val149246.fr, %115
   br i1 %116, label %.critedge4.loopexit320, label %117
 
@@ -655,20 +655,20 @@ Vec_IntFetch.exit:                                ; preds = %62, %67, %73
   br i1 %exitcond269.not, label %.critedge4.thread, label %.lr.ph195.split.split, !llvm.loop !12
 
 .critedge4.loopexit:                              ; preds = %114
-  %127 = trunc i64 %indvars.iv280 to i32
+  %127 = trunc nuw nsw i64 %indvars.iv280 to i32
   br label %.critedge4
 
 .critedge4.loopexit320:                           ; preds = %.critedge6.us, %.lr.ph195.split.us
   %.5.ph = phi i32 [ %109, %.critedge6.us ], [ %.1113193.us, %.lr.ph195.split.us ]
-  %128 = trunc i64 %indvars.iv280 to i32
+  %128 = trunc nuw nsw i64 %indvars.iv280 to i32
   br label %.critedge4
 
 .critedge4.loopexit321:                           ; preds = %.lr.ph195.split.split.us
-  %129 = trunc i64 %indvars.iv270 to i32
+  %129 = trunc nuw nsw i64 %indvars.iv270 to i32
   br label %.critedge4
 
 .critedge4.loopexit323:                           ; preds = %.lr.ph195.split.split
-  %130 = trunc i64 %indvars.iv265 to i32
+  %130 = trunc nuw nsw i64 %indvars.iv265 to i32
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit323, %.critedge4.loopexit321, %.critedge4.loopexit320, %.critedge4.loopexit, %.critedge2.thread303, %98
@@ -750,11 +750,11 @@ Vec_IntFetch.exit:                                ; preds = %62, %67, %73
   br i1 %exitcond289.not, label %.critedge10, label %148, !llvm.loop !13
 
 .critedge10.loopexit.split.loop.exit341:          ; preds = %151
-  %156 = trunc i64 %indvars.iv285 to i32
+  %156 = trunc nuw nsw i64 %indvars.iv285 to i32
   br label %.critedge10
 
 .critedge10.loopexit.split.loop.exit344:          ; preds = %148
-  %157 = trunc i64 %indvars.iv285 to i32
+  %157 = trunc nuw nsw i64 %indvars.iv285 to i32
   br label %.critedge10
 
 .critedge10:                                      ; preds = %155, %.critedge10.loopexit.split.loop.exit341, %.critedge10.loopexit.split.loop.exit344, %.preheader
@@ -921,7 +921,7 @@ Kit_SopCommonCube.exit:                           ; preds = %5, %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Kit_SopIsCubeFree(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Kit_SopIsCubeFree(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val.i = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val.i, 0
@@ -1361,7 +1361,7 @@ Kit_SopWorstLiteral.exit.thread:                  ; preds = %Kit_SopMakeCubeFree
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Kit_SopDivisor(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Kit_SopDivisor(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %5, align 4
   %6 = icmp sgt i32 %.val, 1

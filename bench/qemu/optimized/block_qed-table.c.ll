@@ -35,18 +35,18 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [17 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qed_write_table, ptr @.str.10, ptr @.str.11, i32 67, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_read_l2_table, ptr @.str.10, ptr @.str.11, i32 137, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_write_l1_table, ptr @.str.10, ptr @.str.11, i32 122, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_write_l2_table_sync, ptr @.str.10, ptr @.str.11, i32 191, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_unlock, ptr @.str.10, ptr @.str.12, i32 152, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pread, ptr @.str.10, ptr @.str.13, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_read_table, ptr @.str.10, ptr @.str.11, i32 25, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_write_l1_table_sync, ptr @.str.10, ptr @.str.11, i32 130, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_read_l2_table_sync, ptr @.str.10, ptr @.str.11, i32 175, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_debug_event, ptr @.str.10, ptr @.str.14, i32 243, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwritev, ptr @.str.10, ptr @.str.13, i32 53, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_read_l1_table_sync, ptr @.str.10, ptr @.str.11, i32 116, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite, ptr @.str.10, ptr @.str.13, i32 70, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_flush, ptr @.str.10, ptr @.str.14, i32 111, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_lock, ptr @.str.10, ptr @.str.12, i32 146, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_preadv, ptr @.str.10, ptr @.str.13, i32 47, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_write_l2_table, ptr @.str.10, ptr @.str.11, i32 182, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qed_read_l1_table_sync(ptr noundef %s) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qed_read_l1_table_sync(ptr noundef %s) #0 {
 entry:
   %l1_table_offset = getelementptr inbounds i8, ptr %s, i64 48
   %0 = load i64, ptr %l1_table_offset, align 8
   %l1_table = getelementptr inbounds i8, ptr %s, i64 120
   %1 = load ptr, ptr %l1_table, align 8
-  %call = tail call i32 @qed_read_table(ptr noundef %s, i64 noundef %0, ptr noundef %1), !range !5
+  %call = tail call i32 @qed_read_table(ptr noundef %s, i64 noundef %0, ptr noundef %1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qed_read_table(ptr noundef %s, i64 noundef %offset, ptr noundef %table) #0 {
+define internal range(i32 -2147483648, 1) i32 @qed_read_table(ptr noundef %s, i64 noundef %offset, ptr noundef %table) #0 {
 entry:
   %_now.i.i19 = alloca %struct.timeval, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8
@@ -149,7 +149,7 @@ trace_qed_read_table_cb.exit:                     ; preds = %trace_qed_read_tabl
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qed_write_l1_table(ptr noundef %s, i32 noundef %index, i32 noundef %n) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qed_write_l1_table(ptr noundef %s, i32 noundef %index, i32 noundef %n) #0 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %file = getelementptr inbounds i8, ptr %0, i64 16840
@@ -167,14 +167,14 @@ do.end:                                           ; preds = %entry, %if.then
   %3 = load i64, ptr %l1_table_offset, align 8
   %l1_table = getelementptr inbounds i8, ptr %s, i64 120
   %4 = load ptr, ptr %l1_table, align 8
-  %call = tail call i32 @qed_write_table(ptr noundef nonnull %s, i64 noundef %3, ptr noundef %4, i32 noundef %index, i32 noundef %n, i1 noundef zeroext false), !range !5
+  %call = tail call i32 @qed_write_table(ptr noundef nonnull %s, i64 noundef %3, ptr noundef %4, i32 noundef %index, i32 noundef %n, i1 noundef zeroext false)
   ret i32 %call
 }
 
 declare void @bdrv_co_debug_event(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qed_write_table(ptr noundef %s, i64 noundef %offset, ptr noundef %table, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush) #0 {
+define internal range(i32 -2147483648, 1) i32 @qed_write_table(ptr noundef %s, i64 noundef %offset, ptr noundef %table, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush) #0 {
 entry:
   %_now.i.i30 = alloca %struct.timeval, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8
@@ -248,7 +248,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %12, %lftr.wideiv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %trace_qed_write_table.exit.for.end_crit_edge
   %conv10.pre-phi = phi i64 [ %.pre, %trace_qed_write_table.exit.for.end_crit_edge ], [ %10, %for.body ]
@@ -330,7 +330,7 @@ out:                                              ; preds = %if.then21, %trace_q
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qed_write_l1_table_sync(ptr noundef %s, i32 noundef %index, i32 noundef %n) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qed_write_l1_table_sync(ptr noundef %s, i32 noundef %index, i32 noundef %n) #0 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %file.i = getelementptr inbounds i8, ptr %0, i64 16840
@@ -348,12 +348,12 @@ qed_write_l1_table.exit:                          ; preds = %entry, %if.then.i
   %3 = load i64, ptr %l1_table_offset.i, align 8
   %l1_table.i = getelementptr inbounds i8, ptr %s, i64 120
   %4 = load ptr, ptr %l1_table.i, align 8
-  %call.i = tail call i32 @qed_write_table(ptr noundef nonnull %s, i64 noundef %3, ptr noundef %4, i32 noundef %index, i32 noundef %n, i1 noundef zeroext false), !range !5
+  %call.i = tail call i32 @qed_write_table(ptr noundef nonnull %s, i64 noundef %3, ptr noundef %4, i32 noundef %index, i32 noundef %n, i1 noundef zeroext false)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qed_read_l2_table(ptr noundef %s, ptr nocapture noundef %request, i64 noundef %offset) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qed_read_l2_table(ptr noundef %s, ptr nocapture noundef %request, i64 noundef %offset) #0 {
 entry:
   %0 = load ptr, ptr %request, align 8
   tail call void @qed_unref_l2_cache_entry(ptr noundef %0) #6
@@ -383,7 +383,7 @@ if.then9:                                         ; preds = %if.end
 do.end:                                           ; preds = %if.end, %if.then9
   %5 = load ptr, ptr %request, align 8
   %6 = load ptr, ptr %5, align 8
-  %call16 = tail call i32 @qed_read_table(ptr noundef nonnull %s, i64 noundef %offset, ptr noundef %6), !range !5
+  %call16 = tail call i32 @qed_read_table(ptr noundef nonnull %s, i64 noundef %offset, ptr noundef %6)
   %tobool17.not = icmp eq i32 %call16, 0
   %7 = load ptr, ptr %request, align 8
   br i1 %tobool17.not, label %if.else, label %if.then18
@@ -426,14 +426,14 @@ declare void @qed_commit_l2_cache_entry(ptr noundef, ptr noundef) local_unnamed_
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qed_read_l2_table_sync(ptr noundef %s, ptr nocapture noundef %request, i64 noundef %offset) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qed_read_l2_table_sync(ptr noundef %s, ptr nocapture noundef %request, i64 noundef %offset) #0 {
 entry:
-  %call = tail call i32 @qed_read_l2_table(ptr noundef %s, ptr noundef %request, i64 noundef %offset), !range !5
+  %call = tail call i32 @qed_read_l2_table(ptr noundef %s, ptr noundef %request, i64 noundef %offset)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qed_write_l2_table(ptr noundef %s, ptr nocapture noundef readonly %request, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qed_write_l2_table(ptr noundef %s, ptr nocapture noundef readonly %request, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush) #0 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %file = getelementptr inbounds i8, ptr %0, i64 16840
@@ -451,12 +451,12 @@ do.end:                                           ; preds = %entry, %if.then
   %offset = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %offset, align 8
   %5 = load ptr, ptr %3, align 8
-  %call = tail call i32 @qed_write_table(ptr noundef nonnull %s, i64 noundef %4, ptr noundef %5, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush), !range !5
+  %call = tail call i32 @qed_write_table(ptr noundef nonnull %s, i64 noundef %4, ptr noundef %5, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qed_write_l2_table_sync(ptr noundef %s, ptr nocapture noundef readonly %request, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qed_write_l2_table_sync(ptr noundef %s, ptr nocapture noundef readonly %request, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush) #0 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %file.i = getelementptr inbounds i8, ptr %0, i64 16840
@@ -474,7 +474,7 @@ qed_write_l2_table.exit:                          ; preds = %entry, %if.then.i
   %offset.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %offset.i, align 8
   %5 = load ptr, ptr %3, align 8
-  %call.i = tail call i32 @qed_write_table(ptr noundef nonnull %s, i64 noundef %4, ptr noundef %5, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush), !range !5
+  %call.i = tail call i32 @qed_write_table(ptr noundef nonnull %s, i64 noundef %4, ptr noundef %5, i32 noundef %index, i32 noundef %n, i1 noundef zeroext %flush)
   ret i32 %call.i
 }
 
@@ -562,6 +562,5 @@ attributes #7 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -2147483648, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

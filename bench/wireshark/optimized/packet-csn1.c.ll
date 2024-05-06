@@ -472,7 +472,7 @@ ProcessError.exit:                                ; preds = %47, %51
   %245 = zext nneg i16 %230 to i64
   %246 = getelementptr [9 x i8], ptr @tvb_get_masked_bits8.maskBits, i64 0, i64 %245
   %247 = load i8, ptr %246, align 1
-  %248 = trunc i32 %244 to i8
+  %248 = trunc nuw i32 %244 to i8
   %249 = and i8 %247, %248
   br label %tvb_get_masked_bits8.exit
 
@@ -1118,7 +1118,7 @@ tvb_get_masked_bits8.exit:                        ; preds = %242, %250
   %619 = xor i8 %618, 43
   %620 = zext i8 %619 to i32
   %621 = lshr i32 %620, %617
-  %622 = trunc i32 %621 to i8
+  %622 = trunc nuw i32 %621 to i8
   %623 = and i8 %622, 1
   br label %tvb_get_masked_bits8.exit1477
 
@@ -1651,7 +1651,7 @@ tvb_get_masked_bits8.exit1479:                    ; preds = %925
   %934 = xor i8 %933, 43
   %935 = zext i8 %934 to i32
   %936 = lshr i32 %935, %932
-  %937 = trunc i32 %936 to i8
+  %937 = trunc nuw i32 %936 to i8
   %938 = and i8 %937, 1
   %939 = getelementptr inbounds i8, ptr %.01291, i64 56
   %940 = load ptr, ptr %939, align 8
@@ -2547,7 +2547,7 @@ define internal fastcc zeroext i8 @tvb_get_masked_bits8(ptr noundef %0, i32 noun
   %14 = zext nneg i32 %2 to i64
   %15 = getelementptr [9 x i8], ptr @tvb_get_masked_bits8.maskBits, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
-  %17 = trunc i32 %13 to i8
+  %17 = trunc nuw i32 %13 to i8
   %18 = and i8 %16, %17
   br label %35
 

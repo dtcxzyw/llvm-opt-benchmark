@@ -5368,8 +5368,8 @@ land.lhs.true:                                    ; preds = %_ZNK7pb_util5is_geE
   %18 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i.i = zext i32 %18 to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 3
-  %19 = getelementptr i8, ptr %cond.i, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %19, i64 32
+  %19 = getelementptr inbounds i8, ptr %cond.i, i64 %add.ptr.i.idx.i
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %19, i64 32
   %cmp.not14.i = icmp eq i32 %18, 0
   br i1 %cmp.not14.i, label %if.then8, label %for.body.lr.ph.i
 
@@ -5504,8 +5504,8 @@ land.lhs.true13:                                  ; preds = %_ZNK11ast_manager5i
   %44 = load i32, ptr %m_num_args.i.i38, align 8
   %idx.ext.i.i39 = zext i32 %44 to i64
   %add.ptr.i.idx.i40 = shl nuw nsw i64 %idx.ext.i.i39, 3
-  %45 = getelementptr i8, ptr %cond.i, i64 %add.ptr.i.idx.i40
-  %add.ptr.i.ptr.i41 = getelementptr i8, ptr %45, i64 32
+  %45 = getelementptr inbounds i8, ptr %cond.i, i64 %add.ptr.i.idx.i40
+  %add.ptr.i.ptr.i41 = getelementptr inbounds i8, ptr %45, i64 32
   %cmp.not14.i42 = icmp eq i32 %44, 0
   br i1 %cmp.not14.i42, label %if.then16, label %for.body.lr.ph.i43
 
@@ -8632,8 +8632,8 @@ if.then17:                                        ; preds = %_ZNK7pb_util5is_geE
   %36 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i.i91 = zext i32 %36 to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i91, 3
-  %37 = getelementptr i8, ptr %e, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %37, i64 32
+  %37 = getelementptr inbounds i8, ptr %e, i64 %add.ptr.i.idx.i
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %37, i64 32
   %cmp.not14.i = icmp eq i32 %36, 0
   br i1 %cmp.not14.i, label %for.end, label %for.body.lr.ph.i
 
@@ -8977,8 +8977,8 @@ if.then32:                                        ; preds = %_ZNK11ast_manager5i
   %103 = load i32, ptr %m_num_args.i.i149, align 8
   %idx.ext.i.i150 = zext i32 %103 to i64
   %add.ptr.i.idx.i151 = shl nuw nsw i64 %idx.ext.i.i150, 3
-  %104 = getelementptr i8, ptr %e, i64 %add.ptr.i.idx.i151
-  %add.ptr.i.ptr.i152 = getelementptr i8, ptr %104, i64 32
+  %104 = getelementptr inbounds i8, ptr %e, i64 %add.ptr.i.idx.i151
+  %add.ptr.i.ptr.i152 = getelementptr inbounds i8, ptr %104, i64 32
   %cmp.not14.i153 = icmp eq i32 %103, 0
   br i1 %cmp.not14.i153, label %for.end47, label %for.body.lr.ph.i154
 

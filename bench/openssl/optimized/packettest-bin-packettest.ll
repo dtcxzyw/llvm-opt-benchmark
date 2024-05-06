@@ -198,7 +198,7 @@ for.end:                                          ; preds = %for.body
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_buf_init() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_buf_init() #0 {
 entry:
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 309, ptr noundef nonnull @.str.26, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -231,7 +231,7 @@ return:                                           ; preds = %lor.lhs.false16, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_null_init() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_null_init() #0 {
 entry:
   %call1 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 324, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.32, i64 noundef 0, i64 noundef 0) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -249,7 +249,7 @@ return:                                           ; preds = %PACKET_forward.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_remaining() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_remaining() #0 {
 entry:
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 21, ptr noundef nonnull @.str.34, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -287,7 +287,7 @@ return:                                           ; preds = %lor.lhs.false21, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_end() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_end() #0 {
 entry:
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 36, ptr noundef nonnull @.str.34, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -330,7 +330,7 @@ return:                                           ; preds = %lor.lhs.false25, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_equal() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_equal() #0 {
 entry:
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 335, ptr noundef nonnull @.str.39, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -387,7 +387,7 @@ return:                                           ; preds = %PACKET_equal.exit49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_get_1() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_get_1() #0 {
 entry:
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 53, ptr noundef nonnull @.str.34, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -434,7 +434,7 @@ return:                                           ; preds = %PACKET_get_1.exit20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_get_4() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_get_4() #0 {
 entry:
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 70, ptr noundef nonnull @.str.34, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -481,7 +481,7 @@ return:                                           ; preds = %PACKET_get_4.exit44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_get_net_2() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_get_net_2() #0 {
 entry:
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 87, ptr noundef nonnull @.str.34, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -536,7 +536,7 @@ return:                                           ; preds = %PACKET_get_net_2.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_get_net_3() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_get_net_3() #0 {
 entry:
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 104, ptr noundef nonnull @.str.34, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -599,7 +599,7 @@ return:                                           ; preds = %PACKET_get_net_3.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_get_net_4() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_get_net_4() #0 {
 entry:
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 121, ptr noundef nonnull @.str.34, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -670,7 +670,7 @@ return:                                           ; preds = %PACKET_get_net_4.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_get_sub_packet() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_get_sub_packet() #0 {
 entry:
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 138, ptr noundef nonnull @.str.34, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -761,7 +761,7 @@ return:                                           ; preds = %PACKET_get_sub_pack
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_get_bytes() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_get_bytes() #0 {
 entry:
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 159, ptr noundef nonnull @.str.34, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -847,7 +847,7 @@ return:                                           ; preds = %lor.lhs.false54, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_copy_bytes() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_copy_bytes() #0 {
 entry:
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 183, ptr noundef nonnull @.str.34, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -860,7 +860,7 @@ PACKET_copy_bytes.exit:                           ; preds = %entry
   %bytes.sroa.6.0.extract.shift = lshr i32 %0, 16
   %bytes.sroa.6.0.extract.trunc = trunc i32 %bytes.sroa.6.0.extract.shift to i8
   %bytes.sroa.8.0.extract.shift = lshr i32 %0, 24
-  %bytes.sroa.8.0.extract.trunc = trunc i32 %bytes.sroa.8.0.extract.shift to i8
+  %bytes.sroa.8.0.extract.trunc = trunc nuw i32 %bytes.sroa.8.0.extract.shift to i8
   %call5 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 184, ptr noundef nonnull @.str.81, i32 noundef 1) #5
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %lor.lhs.false7
@@ -903,7 +903,7 @@ PACKET_copy_bytes.exit12:                         ; preds = %PACKET_forward.exit
   %bytes.sroa.6.0.extract.shift28 = lshr i32 %1, 16
   %bytes.sroa.6.0.extract.trunc29 = trunc i32 %bytes.sroa.6.0.extract.shift28 to i8
   %bytes.sroa.8.0.extract.shift31 = lshr i32 %1, 24
-  %bytes.sroa.8.0.extract.trunc32 = trunc i32 %bytes.sroa.8.0.extract.shift31 to i8
+  %bytes.sroa.8.0.extract.trunc32 = trunc nuw i32 %bytes.sroa.8.0.extract.shift31 to i8
   %call37 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 191, ptr noundef nonnull @.str.81, i32 noundef 1) #5
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %return, label %lor.lhs.false39
@@ -941,7 +941,7 @@ return:                                           ; preds = %lor.lhs.false55, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_copy_all() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_copy_all() #0 {
 entry:
   %tmp = alloca [255 x i8], align 16
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 208, ptr noundef nonnull @.str.34, i32 noundef 1) #5
@@ -949,7 +949,7 @@ entry:
   br i1 %tobool.not, label %return, label %PACKET_copy_all.exit
 
 PACKET_copy_all.exit:                             ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(255) %tmp, ptr noundef nonnull align 16 dereferenceable(255) @smbuf, i64 255, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(255) %tmp, ptr noundef nonnull align 16 dereferenceable(255) @smbuf, i64 255, i1 false)
   %call5 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 209, ptr noundef nonnull @.str.83, i32 noundef 1) #5
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %lor.lhs.false7
@@ -981,7 +981,7 @@ return:                                           ; preds = %PACKET_copy_all.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_memdup() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_memdup() #0 {
 entry:
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 226, ptr noundef nonnull @.str.34, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -1041,7 +1041,7 @@ end:                                              ; preds = %lor.lhs.false29, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_strndup() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_strndup() #0 {
 entry:
   %buf1 = alloca [10 x i8], align 1
   %buf2 = alloca [10 x i8], align 1
@@ -1107,7 +1107,7 @@ end:                                              ; preds = %lor.lhs.false34, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_contains_zero_byte() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_contains_zero_byte() #0 {
 entry:
   %buf1 = alloca [10 x i8], align 1
   %buf2 = alloca [10 x i8], align 1
@@ -1120,7 +1120,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %buf1, i32 noundef 0, i64 noundef 10) #6
+  %call.i = call ptr @memchr(ptr noundef nonnull readonly dereferenceable(1) %buf1, i32 noundef 0, i64 noundef 10) #6
   %cmp.i = icmp ne ptr %call.i, null
   %conv.i = zext i1 %cmp.i to i32
   %call7 = call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 278, ptr noundef nonnull @.str.102, i32 noundef %conv.i) #5
@@ -1133,7 +1133,7 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false
   br i1 %tobool15.not, label %return, label %lor.lhs.false16
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false9
-  %call.i5 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %buf2, i32 noundef 0, i64 noundef 10) #6
+  %call.i5 = call ptr @memchr(ptr noundef nonnull readonly dereferenceable(1) %buf2, i32 noundef 0, i64 noundef 10) #6
   %cmp.i6 = icmp ne ptr %call.i5, null
   %conv.i7 = zext i1 %cmp.i6 to i32
   %call20 = call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 280, ptr noundef nonnull @.str.102, i32 noundef %conv.i7) #5
@@ -1147,7 +1147,7 @@ return:                                           ; preds = %lor.lhs.false16, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_forward() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_forward() #0 {
 entry:
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 291, ptr noundef nonnull @.str.34, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -1192,7 +1192,7 @@ return:                                           ; preds = %lor.lhs.false28, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_get_length_prefixed_1() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_get_length_prefixed_1() #0 {
 entry:
   %buf1 = alloca [255 x i8], align 16
   br label %for.body
@@ -1262,7 +1262,7 @@ return:                                           ; preds = %lor.lhs.false36, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_get_length_prefixed_2() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_get_length_prefixed_2() #0 {
 entry:
   %buf1 = alloca [1024 x i8], align 16
   br label %for.body
@@ -1357,7 +1357,7 @@ return:                                           ; preds = %lor.lhs.false35, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_get_length_prefixed_3() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_get_length_prefixed_3() #0 {
 entry:
   %buf1 = alloca [1024 x i8], align 16
   br label %for.body
@@ -1456,7 +1456,7 @@ return:                                           ; preds = %lor.lhs.false35, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_as_length_prefixed_1() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_as_length_prefixed_1() #0 {
 entry:
   %call4 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 433, ptr noundef nonnull @.str.29, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call4, 0
@@ -1499,7 +1499,7 @@ return:                                           ; preds = %lor.lhs.false31, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_PACKET_as_length_prefixed_2() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_as_length_prefixed_2() #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
   br label %for.body
@@ -1572,7 +1572,7 @@ return:                                           ; preds = %lor.lhs.false30, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_PACKET_get_quic_vlint() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_get_quic_vlint() #0 {
 entry:
   br label %for.body
 
@@ -1621,7 +1621,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_PACKET_get_quic_length_prefixed() #0 {
+define internal range(i32 0, 2) i32 @test_PACKET_get_quic_length_prefixed() #0 {
 entry:
   br label %for.body
 

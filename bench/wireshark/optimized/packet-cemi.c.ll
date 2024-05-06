@@ -1970,14 +1970,14 @@ dissect_authenticate_service.exit.i.i.i:          ; preds = %430, %418
   %439 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %438, ptr noundef %0, i32 noundef %313, i32 noundef 1, i32 noundef 0) #8
   %440 = add nsw i32 %.6347, 3
   store i32 %440, ptr %15, align 4
-  br label %dissect_ox.exit122.i.i.i
+  br label %dissect_ox.exit124.i.i.i
 
 441:                                              ; preds = %432
   %442 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef nonnull %1, ptr noundef nonnull @ei_knxip_error, ptr noundef %0, i32 noundef %313, i32 noundef 0, ptr noundef nonnull @.str.550) #8
   store i8 1, ptr %17, align 1
-  br label %dissect_ox.exit122.i.i.i
+  br label %dissect_ox.exit124.i.i.i
 
-dissect_ox.exit122.i.i.i:                         ; preds = %441, %434
+dissect_ox.exit124.i.i.i:                         ; preds = %441, %434
   %443 = call fastcc zeroext i8 @dissect_pid(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %15, i32 noundef %7, i32 noundef -1, i8 noundef zeroext 1, ptr noundef nonnull %17)
   call fastcc void @dissect_range(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %15, i32 noundef %7, i8 noundef zeroext %316, ptr noundef nonnull %17)
   br label %dissect_extended_app_service.exit.i.i
@@ -1996,20 +1996,20 @@ dissect_ox.exit122.i.i.i:                         ; preds = %441, %434
   %451 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %450, ptr noundef %0, i32 noundef %313, i32 noundef 1, i32 noundef 0) #8
   %452 = add nsw i32 %.6347, 3
   store i32 %452, ptr %15, align 4
-  br label %dissect_ox.exit124.i.i.i
+  br label %dissect_ox.exit127.i.i.i
 
 453:                                              ; preds = %444
   %454 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef nonnull %1, ptr noundef nonnull @ei_knxip_error, ptr noundef %0, i32 noundef %313, i32 noundef 0, ptr noundef nonnull @.str.550) #8
   store i8 1, ptr %17, align 1
-  br label %dissect_ox.exit124.i.i.i
+  br label %dissect_ox.exit127.i.i.i
 
-dissect_ox.exit124.i.i.i:                         ; preds = %453, %446
+dissect_ox.exit127.i.i.i:                         ; preds = %453, %446
   %455 = call fastcc zeroext i8 @dissect_pid(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %15, i32 noundef %7, i32 noundef -1, i8 noundef zeroext %316, ptr noundef nonnull %17)
   %456 = load i32, ptr %15, align 4
   %457 = icmp slt i32 %456, %7
   br i1 %457, label %458, label %467
 
-458:                                              ; preds = %dissect_ox.exit124.i.i.i
+458:                                              ; preds = %dissect_ox.exit127.i.i.i
   %.not.i108.i.i.i = icmp ne i8 %455, 0
   %.not35.i.i.i.i = select i1 %.not79.i.i.i.i, i1 %.not.i108.i.i.i, i1 false
   %459 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %456) #8
@@ -2029,7 +2029,7 @@ dissect_ox.exit124.i.i.i:                         ; preds = %453, %446
   store i32 %466, ptr %15, align 4
   br label %dissect_px.exit.i.i.i.i
 
-467:                                              ; preds = %dissect_ox.exit124.i.i.i
+467:                                              ; preds = %dissect_ox.exit127.i.i.i
   %468 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef nonnull %1, ptr noundef nonnull @ei_knxip_error, ptr noundef %0, i32 noundef %456, i32 noundef 0, ptr noundef nonnull @.str.559) #8
   store i8 1, ptr %17, align 1
   br label %dissect_px.exit.i.i.i.i
@@ -2403,8 +2403,8 @@ dissect_property_ext_description_service.exit.i.i.i: ; preds = %627, %597
   %.pre.i.i.i = load i8, ptr %16, align 1
   br label %dissect_extended_app_service.exit.i.i
 
-dissect_extended_app_service.exit.i.i:            ; preds = %631, %630, %dissect_property_ext_description_service.exit.i.i.i, %dissect_property_ext_value_service.exit.i.i.i, %dissect_system_network_parameter_service.exit.i.i.i, %dissect_ia_serial_number_service.exit.i.i.i, %470, %469, %dissect_px.exit.i.i.i.i, %dissect_ox.exit122.i.i.i, %dissect_authenticate_service.exit.i.i.i, %dissect_router_service.exit.i.i.i, %dissect_ox.exit.i.i.i, %dissect_user_memory_service.exit.i.i.i, %dissect_memory_ext_service.exit.i.i.i, %315
-  %632 = phi i8 [ 0, %469 ], [ 0, %dissect_px.exit.i.i.i.i ], [ %.pre.i.i.i, %631 ], [ %316, %630 ], [ 0, %dissect_property_ext_description_service.exit.i.i.i ], [ %316, %dissect_property_ext_value_service.exit.i.i.i ], [ %316, %dissect_system_network_parameter_service.exit.i.i.i ], [ %316, %dissect_ia_serial_number_service.exit.i.i.i ], [ %316, %470 ], [ %316, %dissect_ox.exit122.i.i.i ], [ %316, %dissect_authenticate_service.exit.i.i.i ], [ %316, %dissect_router_service.exit.i.i.i ], [ %316, %dissect_ox.exit.i.i.i ], [ %316, %dissect_user_memory_service.exit.i.i.i ], [ %316, %dissect_memory_ext_service.exit.i.i.i ], [ %316, %315 ]
+dissect_extended_app_service.exit.i.i:            ; preds = %631, %630, %dissect_property_ext_description_service.exit.i.i.i, %dissect_property_ext_value_service.exit.i.i.i, %dissect_system_network_parameter_service.exit.i.i.i, %dissect_ia_serial_number_service.exit.i.i.i, %470, %469, %dissect_px.exit.i.i.i.i, %dissect_ox.exit124.i.i.i, %dissect_authenticate_service.exit.i.i.i, %dissect_router_service.exit.i.i.i, %dissect_ox.exit.i.i.i, %dissect_user_memory_service.exit.i.i.i, %dissect_memory_ext_service.exit.i.i.i, %315
+  %632 = phi i8 [ 0, %469 ], [ 0, %dissect_px.exit.i.i.i.i ], [ %.pre.i.i.i, %631 ], [ %316, %630 ], [ 0, %dissect_property_ext_description_service.exit.i.i.i ], [ %316, %dissect_property_ext_value_service.exit.i.i.i ], [ %316, %dissect_system_network_parameter_service.exit.i.i.i ], [ %316, %dissect_ia_serial_number_service.exit.i.i.i ], [ %316, %470 ], [ %316, %dissect_ox.exit124.i.i.i ], [ %316, %dissect_authenticate_service.exit.i.i.i ], [ %316, %dissect_router_service.exit.i.i.i ], [ %316, %dissect_ox.exit.i.i.i ], [ %316, %dissect_user_memory_service.exit.i.i.i ], [ %316, %dissect_memory_ext_service.exit.i.i.i ], [ %316, %315 ]
   %633 = load i32, ptr %15, align 4
   %634 = load i8, ptr %17, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
@@ -3364,7 +3364,7 @@ proto_tree_add_data.exit225:                      ; preds = %.lr.ph.split.us.spl
 
 127:                                              ; preds = %.lr.ph215.i
   %128 = getelementptr inbounds i8, ptr %.091214.i, i64 10
-  %129 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef nonnull %128, ptr noundef %117, i32 noundef %123, ptr noundef %115, i32 noundef %11)
+  %129 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef nonnull %128, ptr noundef %117, i32 noundef %123, ptr noundef readonly %115, i32 noundef %11)
   %.not142.i = icmp eq ptr %129, null
   br i1 %.not142.i, label %137, label %130
 
@@ -3402,7 +3402,7 @@ proto_tree_add_data.exit225:                      ; preds = %.lr.ph.split.us.spl
 
 141:                                              ; preds = %.lr.ph230.i
   %142 = getelementptr inbounds i8, ptr %.090229.i, i64 10
-  %143 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef nonnull %142, ptr noundef %117, i32 noundef %123, ptr noundef %115, i32 noundef %11)
+  %143 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef nonnull %142, ptr noundef %117, i32 noundef %123, ptr noundef readonly %115, i32 noundef %11)
   %.not139.i = icmp eq ptr %143, null
   br i1 %.not139.i, label %151, label %144
 
@@ -3447,7 +3447,7 @@ proto_tree_add_data.exit225:                      ; preds = %.lr.ph.split.us.spl
 
 155:                                              ; preds = %.lr.ph245.i
   %156 = getelementptr inbounds i8, ptr %.089244.i, i64 10
-  %157 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef nonnull %156, ptr noundef %117, i32 noundef %123, ptr noundef %115, i32 noundef %11)
+  %157 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef nonnull %156, ptr noundef %117, i32 noundef %123, ptr noundef readonly %115, i32 noundef %11)
   %.not146.i = icmp eq ptr %157, null
   br i1 %.not146.i, label %165, label %158
 
@@ -3496,7 +3496,7 @@ proto_tree_add_data.exit225:                      ; preds = %.lr.ph.split.us.spl
 .lr.ph256.i:                                      ; preds = %.loopexit183.i, %169
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %169 ], [ 0, %.loopexit183.i ]
   %173 = getelementptr [10 x [16 x i8]], ptr @knx_decryption_keys, i64 0, i64 %indvars.iv.i
-  %174 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef %173, ptr noundef %117, i32 noundef %123, ptr noundef %115, i32 noundef %11)
+  %174 = tail call fastcc ptr @decrypt_data_security_data_with_key(ptr noundef %119, ptr noundef %173, ptr noundef %117, i32 noundef %123, ptr noundef readonly %115, i32 noundef %11)
   %.not148.i = icmp eq ptr %174, null
   br i1 %.not148.i, label %169, label %.thread161.i
 

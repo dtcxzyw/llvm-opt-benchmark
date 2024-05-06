@@ -1773,7 +1773,7 @@ define dso_local noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT9GetStringERKN
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8
-  %28 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %27, i64 %22, ptr %23)
+  %28 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %27, i64 %22, ptr %23)
           to label %.sink.split unwind label %29
 
 29:                                               ; preds = %14
@@ -1814,7 +1814,7 @@ define dso_local noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT9GetStringERKN
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8
-  %48 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %47, i64 %42, ptr %43)
+  %48 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %47, i64 %42, ptr %43)
           to label %.sink.split unwind label %49
 
 49:                                               ; preds = %34
@@ -1944,7 +1944,7 @@ define dso_local noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT15GetStringCon
   %48 = load ptr, ptr %16, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8
-  %51 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %50, i64 %46, ptr %47)
+  %51 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %50, i64 %46, ptr %47)
           to label %.thread.sink.split unwind label %54
 
 52:                                               ; preds = %61, %37, %56, %34, %31, %4
@@ -1998,7 +1998,7 @@ define dso_local noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT15GetStringCon
   %72 = load ptr, ptr %16, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load i32, ptr %73, align 8
-  %75 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %74, i64 %70, ptr %71)
+  %75 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %74, i64 %70, ptr %71)
           to label %.thread.sink.split unwind label %76
 
 76:                                               ; preds = %68
@@ -2077,7 +2077,7 @@ define dso_local noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT7GetBoolERKNSt
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8
-  %28 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %27, i64 %22, ptr %23)
+  %28 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %27, i64 %22, ptr %23)
           to label %_ZNK17cmQtAutoGenerator5InfoT8LogErrorESt17basic_string_viewIcSt11char_traitsIcEE.exit unwind label %29
 
 _ZNK17cmQtAutoGenerator5InfoT8LogErrorESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %14
@@ -2143,7 +2143,7 @@ define dso_local noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT7GetUIntERKNSt
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8
-  %27 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %26, i64 %21, ptr %22)
+  %27 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %26, i64 %21, ptr %22)
           to label %_ZNK17cmQtAutoGenerator5InfoT8LogErrorESt17basic_string_viewIcSt11char_traitsIcEE.exit unwind label %28
 
 _ZNK17cmQtAutoGenerator5InfoT8LogErrorESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %13
@@ -2204,7 +2204,7 @@ define dso_local noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8GetArrayERKNS
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
-  %25 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %24, i64 %19, ptr %20)
+  %25 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %24, i64 %19, ptr %20)
           to label %_ZNK17cmQtAutoGenerator5InfoT8LogErrorESt17basic_string_viewIcSt11char_traitsIcEE.exit unwind label %26
 
 _ZNK17cmQtAutoGenerator5InfoT8LogErrorESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %11
@@ -2269,7 +2269,7 @@ define dso_local noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8GetArrayERKNS
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
-  %25 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %24, i64 %19, ptr %20)
+  %25 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %24, i64 %19, ptr %20)
           to label %_ZNK17cmQtAutoGenerator5InfoT8LogErrorESt17basic_string_viewIcSt11char_traitsIcEE.exit unwind label %26
 
 _ZNK17cmQtAutoGenerator5InfoT8LogErrorESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %11
@@ -2384,7 +2384,7 @@ define dso_local noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT14GetArrayConf
   %47 = load ptr, ptr %15, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8
-  %50 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %49, i64 %45, ptr %46)
+  %50 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %49, i64 %45, ptr %46)
           to label %.thread.sink.split unwind label %53
 
 51:                                               ; preds = %58, %36, %55, %33, %30, %4
@@ -2434,7 +2434,7 @@ define dso_local noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT14GetArrayConf
   %69 = load ptr, ptr %15, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   %71 = load i32, ptr %70, align 8
-  %72 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %71, i64 %67, ptr %68)
+  %72 = invoke noundef zeroext i1 @_ZNK17cmQtAutoGenerator5InfoT8LogErrorEN11cmQtAutoGen4GenTESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %71, i64 %67, ptr %68)
           to label %.thread.sink.split unwind label %73
 
 73:                                               ; preds = %65

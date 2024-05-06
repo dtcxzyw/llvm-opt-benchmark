@@ -936,7 +936,7 @@ define noundef ptr @uint_to_str_back(ptr noundef writeonly %0, i32 noundef %1) l
 ._crit_edge.thread21:                             ; preds = %5, %._crit_edge
   %.1.lcssa26 = phi ptr [ %17, %._crit_edge ], [ %0, %5 ]
   %.012.lcssa25 = phi i32 [ %11, %._crit_edge ], [ %1, %5 ]
-  %19 = trunc i32 %.012.lcssa25 to i8
+  %19 = trunc nuw i32 %.012.lcssa25 to i8
   %20 = or disjoint i8 %19, 48
   %21 = getelementptr i8, ptr %.1.lcssa26, i64 -1
   store i8 %20, ptr %21, align 1
@@ -986,7 +986,7 @@ define noundef ptr @uint64_to_str_back(ptr noundef writeonly %0, i64 noundef %1)
 ._crit_edge.thread21:                             ; preds = %5, %._crit_edge
   %.1.lcssa26 = phi ptr [ %16, %._crit_edge ], [ %0, %5 ]
   %.012.lcssa25 = phi i64 [ %10, %._crit_edge ], [ %1, %5 ]
-  %18 = trunc i64 %.012.lcssa25 to i8
+  %18 = trunc nuw i64 %.012.lcssa25 to i8
   %19 = or disjoint i8 %18, 48
   %20 = getelementptr i8, ptr %.1.lcssa26, i64 -1
   store i8 %19, ptr %20, align 1
@@ -1037,7 +1037,7 @@ define noundef ptr @uint_to_str_back_len(ptr noundef %0, i32 noundef %1, i32 nou
 ._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %6
   %.1.lcssa26.i = phi ptr [ %18, %._crit_edge.i ], [ %0, %6 ]
   %.012.lcssa25.i = phi i32 [ %12, %._crit_edge.i ], [ %1, %6 ]
-  %20 = trunc i32 %.012.lcssa25.i to i8
+  %20 = trunc nuw i32 %.012.lcssa25.i to i8
   %21 = or disjoint i8 %20, 48
   %22 = getelementptr i8, ptr %.1.lcssa26.i, i64 -1
   store i8 %21, ptr %22, align 1
@@ -1110,7 +1110,7 @@ define noundef ptr @uint64_to_str_back_len(ptr noundef %0, i64 noundef %1, i32 n
 ._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %6
   %.1.lcssa26.i = phi ptr [ %17, %._crit_edge.i ], [ %0, %6 ]
   %.012.lcssa25.i = phi i64 [ %11, %._crit_edge.i ], [ %1, %6 ]
-  %19 = trunc i64 %.012.lcssa25.i to i8
+  %19 = trunc nuw i64 %.012.lcssa25.i to i8
   %20 = or disjoint i8 %19, 48
   %21 = getelementptr i8, ptr %.1.lcssa26.i, i64 -1
   store i8 %20, ptr %21, align 1
@@ -1180,7 +1180,7 @@ define noundef ptr @int_to_str_back(ptr noundef writeonly %0, i32 noundef %1) lo
 ._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %4
   %.1.lcssa26.i = phi ptr [ %17, %._crit_edge.i ], [ %0, %4 ]
   %.012.lcssa25.i = phi i32 [ %11, %._crit_edge.i ], [ %5, %4 ]
-  %19 = trunc i32 %.012.lcssa25.i to i8
+  %19 = trunc nuw i32 %.012.lcssa25.i to i8
   %20 = or disjoint i8 %19, 48
   %21 = getelementptr i8, ptr %.1.lcssa26.i, i64 -1
   store i8 %20, ptr %21, align 1
@@ -1231,7 +1231,7 @@ uint_to_str_back.exit:                            ; preds = %._crit_edge.i, %._c
 ._crit_edge.thread21.i7:                          ; preds = %._crit_edge.i14, %26
   %.1.lcssa26.i8 = phi ptr [ %38, %._crit_edge.i14 ], [ %0, %26 ]
   %.012.lcssa25.i9 = phi i32 [ %32, %._crit_edge.i14 ], [ %1, %26 ]
-  %40 = trunc i32 %.012.lcssa25.i9 to i8
+  %40 = trunc nuw i32 %.012.lcssa25.i9 to i8
   %41 = or disjoint i8 %40, 48
   %42 = getelementptr i8, ptr %.1.lcssa26.i8, i64 -1
   store i8 %41, ptr %42, align 1
@@ -1277,7 +1277,7 @@ define noundef ptr @int64_to_str_back(ptr noundef writeonly %0, i64 noundef %1) 
 ._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %4
   %.1.lcssa26.i = phi ptr [ %16, %._crit_edge.i ], [ %0, %4 ]
   %.012.lcssa25.i = phi i64 [ %10, %._crit_edge.i ], [ %5, %4 ]
-  %18 = trunc i64 %.012.lcssa25.i to i8
+  %18 = trunc nuw i64 %.012.lcssa25.i to i8
   %19 = or disjoint i8 %18, 48
   %20 = getelementptr i8, ptr %.1.lcssa26.i, i64 -1
   store i8 %19, ptr %20, align 1
@@ -1327,7 +1327,7 @@ uint64_to_str_back.exit:                          ; preds = %._crit_edge.i, %._c
 ._crit_edge.thread21.i7:                          ; preds = %._crit_edge.i14, %25
   %.1.lcssa26.i8 = phi ptr [ %36, %._crit_edge.i14 ], [ %0, %25 ]
   %.012.lcssa25.i9 = phi i64 [ %30, %._crit_edge.i14 ], [ %1, %25 ]
-  %38 = trunc i64 %.012.lcssa25.i9 to i8
+  %38 = trunc nuw i64 %.012.lcssa25.i9 to i8
   %39 = or disjoint i8 %38, 48
   %40 = getelementptr i8, ptr %.1.lcssa26.i8, i64 -1
   store i8 %39, ptr %40, align 1
@@ -1426,7 +1426,7 @@ guint32_to_str_buf_len.exit:                      ; preds = %3, %5, %7, %9, %11,
 ._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %27
   %.1.lcssa26.i = phi ptr [ %39, %._crit_edge.i ], [ %24, %27 ]
   %.012.lcssa25.i = phi i32 [ %33, %._crit_edge.i ], [ %0, %27 ]
-  %41 = trunc i32 %.012.lcssa25.i to i8
+  %41 = trunc nuw i32 %.012.lcssa25.i to i8
   %42 = or disjoint i8 %41, 48
   %43 = getelementptr i8, ptr %.1.lcssa26.i, i64 -1
   store i8 %42, ptr %43, align 1
@@ -1565,7 +1565,7 @@ guint64_to_str_buf_len.exit:                      ; preds = %3, %5, %7, %9, %11,
 ._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %47
   %.1.lcssa26.i = phi ptr [ %58, %._crit_edge.i ], [ %44, %47 ]
   %.012.lcssa25.i = phi i64 [ %52, %._crit_edge.i ], [ %0, %47 ]
-  %60 = trunc i64 %.012.lcssa25.i to i8
+  %60 = trunc nuw i64 %.012.lcssa25.i to i8
   %61 = or disjoint i8 %60, 48
   %62 = getelementptr i8, ptr %.1.lcssa26.i, i64 -1
   store i8 %61, ptr %62, align 1
@@ -2394,7 +2394,7 @@ define i32 @format_fractional_part_nsecs(ptr noundef %0, i64 noundef %1, i32 nou
 ._crit_edge.thread21.i.i:                         ; preds = %._crit_edge.i.i, %45
   %.1.lcssa26.i.i = phi ptr [ %57, %._crit_edge.i.i ], [ %7, %45 ]
   %.012.lcssa25.i.i = phi i32 [ %51, %._crit_edge.i.i ], [ %.054, %45 ]
-  %59 = trunc i32 %.012.lcssa25.i.i to i8
+  %59 = trunc nuw i32 %.012.lcssa25.i.i to i8
   %60 = or disjoint i8 %59, 48
   %61 = getelementptr i8, ptr %.1.lcssa26.i.i, i64 -1
   store i8 %60, ptr %61, align 1
@@ -2529,7 +2529,7 @@ define void @display_signed_time(ptr noundef %0, i64 noundef %1, ptr nocapture n
 ._crit_edge.thread21.i.i:                         ; preds = %._crit_edge.i.i, %.thread
   %.1.lcssa26.i.i = phi ptr [ %33, %._crit_edge.i.i ], [ %6, %.thread ]
   %.012.lcssa25.i.i = phi i64 [ %27, %._crit_edge.i.i ], [ %22, %.thread ]
-  %35 = trunc i64 %.012.lcssa25.i.i to i8
+  %35 = trunc nuw i64 %.012.lcssa25.i.i to i8
   %36 = or disjoint i8 %35, 48
   %37 = getelementptr i8, ptr %.1.lcssa26.i.i, i64 -1
   store i8 %36, ptr %37, align 1
@@ -2579,7 +2579,7 @@ uint64_to_str_back.exit.i:                        ; preds = %._crit_edge.thread2
 ._crit_edge.thread21.i7.i:                        ; preds = %._crit_edge.i14.i, %42
   %.1.lcssa26.i8.i = phi ptr [ %53, %._crit_edge.i14.i ], [ %6, %42 ]
   %.012.lcssa25.i9.i = phi i64 [ %47, %._crit_edge.i14.i ], [ %.pr, %42 ]
-  %55 = trunc i64 %.012.lcssa25.i9.i to i8
+  %55 = trunc nuw i64 %.012.lcssa25.i9.i to i8
   %56 = or disjoint i8 %55, 48
   %57 = getelementptr i8, ptr %.1.lcssa26.i8.i, i64 -1
   store i8 %56, ptr %57, align 1

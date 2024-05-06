@@ -616,7 +616,7 @@ define hidden void @proto_reg_handoff_json() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_json_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_json_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   %6 = getelementptr inbounds i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
@@ -637,7 +637,7 @@ define internal i32 @dissect_json_heur(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_json_acdr_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_json_acdr_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_acdr, align 4
@@ -1893,7 +1893,7 @@ define internal fastcc ptr @get_json_string(ptr noundef %0, ptr nocapture nounde
 
 13:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4)
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #8
+  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %11) #8
   %15 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %14) #7
   %.not167.i = icmp eq i64 %14, 0
   br i1 %.not167.i, label %json_string_unescape.exit, label %.lr.ph162.i

@@ -124,7 +124,7 @@ define dso_local void @write_pci_config_16(i8 noundef zeroext %0, i8 noundef zer
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local i32 @early_pci_allowed() local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 2) i32 @early_pci_allowed() local_unnamed_addr #1 align 16 {
   %1 = load i32, ptr @pci_probe, align 4
   %2 = and i32 %1, 18
   %3 = icmp eq i32 %2, 2

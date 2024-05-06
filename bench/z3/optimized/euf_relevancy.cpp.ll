@@ -179,8 +179,8 @@ _ZN6vectorIPN3sat6clauseELb0EjE4backEv.exit:      ; preds = %sw.bb23, %if.end.i.
   %21 = load i32, ptr %m_size.i, align 4
   %idx.ext.i = zext i32 %21 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %22 = getelementptr i8, ptr %20, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %22, i64 20
+  %22 = getelementptr inbounds i8, ptr %20, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %22, i64 20
   %cmp28.not49 = icmp eq i32 %21, 0
   br i1 %cmp28.not49, label %for.end, label %for.body29.preheader
 
@@ -547,8 +547,8 @@ _ZN6vectorISt4pairIN3euf9relevancy6updateEjELb0EjE9push_backEOS4_.exit: ; preds 
   %44 = load i32, ptr %m_size.i, align 4
   %idx.ext.i46 = zext i32 %44 to i64
   %add.ptr.i47.idx = shl nuw nsw i64 %idx.ext.i46, 2
-  %45 = getelementptr i8, ptr %call20, i64 %add.ptr.i47.idx
-  %add.ptr.i47.ptr = getelementptr i8, ptr %45, i64 20
+  %45 = getelementptr inbounds i8, ptr %call20, i64 %add.ptr.i47.idx
+  %add.ptr.i47.ptr = getelementptr inbounds i8, ptr %45, i64 20
   %cmp34.not85 = icmp eq i32 %44, 0
   br i1 %cmp34.not85, label %for.end44, label %for.body35.lr.ph
 
@@ -1109,8 +1109,8 @@ _ZN6vectorISt4pairIN3euf9relevancy6updateEjELb0EjE9push_backEOS4_.exit: ; preds 
   %42 = load i32, ptr %m_size.i, align 4
   %idx.ext.i45 = zext i32 %42 to i64
   %add.ptr.i46.idx = shl nuw nsw i64 %idx.ext.i45, 2
-  %43 = getelementptr i8, ptr %call11, i64 %add.ptr.i46.idx
-  %add.ptr.i46.ptr = getelementptr i8, ptr %43, i64 20
+  %43 = getelementptr inbounds i8, ptr %call11, i64 %add.ptr.i46.idx
+  %add.ptr.i46.ptr = getelementptr inbounds i8, ptr %43, i64 20
   %cmp25.not79 = icmp eq i32 %42, 0
   br i1 %cmp25.not79, label %for.end35, label %for.body26.lr.ph
 
@@ -2075,8 +2075,8 @@ if.end29.us:                                      ; preds = %for.body.us
   %61 = load i32, ptr %m_size.i.us, align 4
   %idx.ext.i.us = zext i32 %61 to i64
   %add.ptr.i60.us.idx = shl nuw nsw i64 %idx.ext.i.us, 2
-  %62 = getelementptr i8, ptr %60, i64 %add.ptr.i60.us.idx
-  %add.ptr.i60.us.ptr = getelementptr i8, ptr %62, i64 20
+  %62 = getelementptr inbounds i8, ptr %60, i64 %add.ptr.i60.us.idx
+  %add.ptr.i60.us.ptr = getelementptr inbounds i8, ptr %62, i64 20
   %cmp34.not125.us = icmp eq i32 %61, 0
   br i1 %cmp34.not125.us, label %for.end, label %for.body35.us.us138.preheader
 
@@ -2139,8 +2139,8 @@ if.end29:                                         ; preds = %for.body
   %72 = load i32, ptr %m_size.i, align 4
   %idx.ext.i = zext i32 %72 to i64
   %add.ptr.i60.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %73 = getelementptr i8, ptr %71, i64 %add.ptr.i60.idx
-  %add.ptr.i60.ptr = getelementptr i8, ptr %73, i64 20
+  %73 = getelementptr inbounds i8, ptr %71, i64 %add.ptr.i60.idx
+  %add.ptr.i60.ptr = getelementptr inbounds i8, ptr %73, i64 20
   %cmp34.not125 = icmp eq i32 %72, 0
   br i1 %cmp34.not125, label %for.end, label %for.body35.preheader
 
@@ -2560,8 +2560,8 @@ if.then21:                                        ; preds = %_ZNK6vectorIPN3euf5
   %32 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i37 = zext i32 %32 to i64
   %add.ptr.i38.idx = shl nuw nsw i64 %idx.ext.i37, 3
-  %33 = getelementptr i8, ptr %27, i64 %add.ptr.i38.idx
-  %add.ptr.i38.ptr = getelementptr i8, ptr %33, i64 176
+  %33 = getelementptr inbounds i8, ptr %27, i64 %add.ptr.i38.idx
+  %add.ptr.i38.ptr = getelementptr inbounds i8, ptr %33, i64 176
   %cmp.not151 = icmp eq i32 %32, 0
   br i1 %cmp.not151, label %if.end29, label %for.body.preheader
 
@@ -3099,8 +3099,8 @@ if.end18:                                         ; preds = %for.body
   %25 = load i32, ptr %m_size.i, align 4
   %idx.ext.i = zext i32 %25 to i64
   %add.ptr.i19.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %26 = getelementptr i8, ptr %23, i64 %add.ptr.i19.idx
-  %add.ptr.i19.ptr = getelementptr i8, ptr %26, i64 20
+  %26 = getelementptr inbounds i8, ptr %23, i64 %add.ptr.i19.idx
+  %add.ptr.i19.ptr = getelementptr inbounds i8, ptr %26, i64 20
   %cmp23.not39 = icmp eq i32 %25, 0
   br i1 %cmp23.not39, label %if.else, label %for.body24.lr.ph
 

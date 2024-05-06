@@ -1107,7 +1107,7 @@ thread-pre-split:                                 ; preds = %193, %.thread89
   %262 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %261) #12
   %263 = getelementptr inbounds i8, ptr %.1329, i64 48
   store i64 %262, ptr %263, align 8
-  %264 = trunc i8 %.033095115 to i1
+  %264 = trunc nuw i8 %.033095115 to i1
   br i1 %264, label %265, label %.thread
 
 265:                                              ; preds = %260
@@ -1283,7 +1283,7 @@ pdo_attr_lval.exit448:                            ; preds = %pdo_attr_lval.exit,
   %334 = load ptr, ptr %333, align 8
   %335 = call i32 %334(ptr noundef nonnull %.2133168188, ptr noundef %.2380.ph) #11
   %.not432 = icmp eq i32 %335, 0
-  %336 = trunc i8 %.1331131170186 to i1
+  %336 = trunc nuw i8 %.1331131170186 to i1
   br i1 %.not432, label %382, label %337
 
 337:                                              ; preds = %332
@@ -2428,7 +2428,7 @@ thread-pre-split:                                 ; preds = %14
   br i1 %switch, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = trunc i64 %20 to i32
+  %22 = trunc nuw i64 %20 to i32
   %23 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %22, ptr %23, align 8
   br label %207
@@ -2481,7 +2481,7 @@ thread-pre-split116:                              ; preds = %34
   br i1 %switch104, label %41, label %44
 
 41:                                               ; preds = %39
-  %42 = trunc i64 %40 to i32
+  %42 = trunc nuw i64 %40 to i32
   %43 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %42, ptr %43, align 8
   br label %207

@@ -283,7 +283,7 @@ define void @dlasd0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %189 = and i64 %185, 2
   %190 = icmp eq i64 %189, 0
   %191 = select i1 %190, i32 1, i32 %188
-  %192 = mul nsw i32 %191, %184
+  %192 = mul nuw nsw i32 %191, %184
   %193 = icmp ult i64 %185, 4
   br i1 %193, label %.loopexit11, label %.preheader, !llvm.loop !12
 

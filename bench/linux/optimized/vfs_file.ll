@@ -603,7 +603,7 @@ define internal i32 @v9fs_file_lock_dotl(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v9fs_file_flock_dotl(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @v9fs_file_flock_dotl(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 80
@@ -774,7 +774,7 @@ declare dso_local i32 @filemap_fdatawrite_wbc(ptr noundef, ptr noundef) local_un
 declare dso_local i32 @netfs_page_mkwrite(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @v9fs_file_do_lock(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_file_do_lock(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.p9_flock, align 8
   %5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #4

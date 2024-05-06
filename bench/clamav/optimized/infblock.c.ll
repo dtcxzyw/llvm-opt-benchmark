@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @inflate_mask = internal unnamed_addr constant [17 x i16] [i16 0, i16 1, i16 3, i16 7, i16 15, i16 31, i16 63, i16 127, i16 255, i16 511, i16 1023, i16 2047, i16 4095, i16 8191, i16 16383, i16 32767, i16 -1], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @nsis_inflate(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -3, 2) i32 @nsis_inflate(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -285,7 +285,7 @@ inflate_flush.exit:                               ; preds = %75
   br i1 %exitcond.not, label %126, label %118
 
 126:                                              ; preds = %124
-  %127 = call fastcc i32 @huft_build(ptr noundef nonnull %57, i32 noundef 288, i32 noundef 257, ptr noundef nonnull @cplens, ptr noundef nonnull @cplext, ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %2, ptr noundef nonnull %54), !range !4
+  %127 = call fastcc i32 @huft_build(ptr noundef nonnull %57, i32 noundef 288, i32 noundef 257, ptr noundef nonnull @cplens, ptr noundef nonnull @cplext, ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %2, ptr noundef nonnull %54)
   br label %128
 
 128:                                              ; preds = %126, %128
@@ -297,7 +297,7 @@ inflate_flush.exit:                               ; preds = %75
   br i1 %exitcond1604.not, label %130, label %128
 
 130:                                              ; preds = %128
-  %131 = call fastcc i32 @huft_build(ptr noundef nonnull %57, i32 noundef 30, i32 noundef 0, ptr noundef nonnull @cpdist, ptr noundef nonnull @cpdext, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef nonnull %60, ptr noundef nonnull %2, ptr noundef nonnull %54), !range !4
+  %131 = call fastcc i32 @huft_build(ptr noundef nonnull %57, i32 noundef 30, i32 noundef 0, ptr noundef nonnull @cpdist, ptr noundef nonnull @cpdext, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef nonnull %60, ptr noundef nonnull %2, ptr noundef nonnull %54)
   %132 = load i8, ptr %9, align 8
   %133 = add i8 %132, 1
   store i8 %133, ptr %9, align 8
@@ -789,7 +789,7 @@ inflate_flush.exit807:                            ; preds = %290
 ._crit_edge1209:                                  ; preds = %.lr.ph1208, %.preheader879
   store i32 7, ptr %51, align 8
   store i32 0, ptr %3, align 4
-  %341 = call fastcc i32 @huft_build(ptr noundef nonnull %45, i32 noundef 19, i32 noundef 19, ptr noundef null, ptr noundef null, ptr noundef nonnull %52, ptr noundef nonnull %51, ptr noundef nonnull %53, ptr noundef nonnull %3, ptr noundef nonnull %54), !range !4
+  %341 = call fastcc i32 @huft_build(ptr noundef nonnull %45, i32 noundef 19, i32 noundef 19, ptr noundef null, ptr noundef null, ptr noundef nonnull %52, ptr noundef nonnull %51, ptr noundef nonnull %53, ptr noundef nonnull %3, ptr noundef nonnull %54)
   %.not770 = icmp eq i32 %341, 0
   br i1 %.not770, label %342, label %344
 
@@ -1127,7 +1127,7 @@ inflate_flush.exit817:                            ; preds = %431
   %492 = add nuw nsw i32 %348, 257
   store i32 9, ptr %5, align 4
   store i32 6, ptr %6, align 4
-  %493 = call fastcc i32 @huft_build(ptr noundef nonnull %45, i32 noundef %492, i32 noundef 257, ptr noundef nonnull @cplens, ptr noundef nonnull @cplext, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %53, ptr noundef nonnull %4, ptr noundef nonnull %54), !range !4
+  %493 = call fastcc i32 @huft_build(ptr noundef nonnull %45, i32 noundef %492, i32 noundef 257, ptr noundef nonnull @cplens, ptr noundef nonnull @cplext, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %53, ptr noundef nonnull %4, ptr noundef nonnull %54)
   %494 = load i32, ptr %5, align 4
   %495 = icmp ne i32 %494, 0
   %496 = icmp eq i32 %493, 0
@@ -1138,7 +1138,7 @@ inflate_flush.exit817:                            ; preds = %431
   %499 = add nuw nsw i32 %351, 1
   %500 = zext nneg i32 %492 to i64
   %501 = getelementptr inbounds i32, ptr %45, i64 %500
-  %502 = call fastcc i32 @huft_build(ptr noundef nonnull %501, i32 noundef %499, i32 noundef 0, ptr noundef nonnull @cpdist, ptr noundef nonnull @cpdext, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %53, ptr noundef nonnull %4, ptr noundef nonnull %54), !range !4
+  %502 = call fastcc i32 @huft_build(ptr noundef nonnull %501, i32 noundef %499, i32 noundef 0, ptr noundef nonnull @cpdist, ptr noundef nonnull @cpdext, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %53, ptr noundef nonnull %4, ptr noundef nonnull %54)
   %.not772 = icmp eq i32 %502, 0
   br i1 %.not772, label %503, label %.thread861
 
@@ -2183,7 +2183,7 @@ define internal fastcc void @inflate_flush(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @huft_build(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr noundef %7, ptr nocapture noundef %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc range(i32 -5, 1) i32 @huft_build(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr noundef %7, ptr nocapture noundef %8, ptr noundef %9) unnamed_addr #0 {
 .preheader225.preheader:
   %10 = alloca [16 x i32], align 16
   %11 = alloca [15 x ptr], align 16
@@ -2662,4 +2662,3 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -5, i32 1}

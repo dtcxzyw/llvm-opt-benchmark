@@ -375,7 +375,7 @@ define dso_local void @mm_compute_batch(i32 noundef %0) local_unnamed_addr #3 al
   %12 = trunc i64 %3 to i32
   %13 = shl i32 %12, 1
   %14 = tail call i32 @llvm.smax.i32(i32 %13, i32 32)
-  %15 = trunc i64 %11 to i32
+  %15 = trunc nuw nsw i64 %11 to i32
   %16 = tail call i32 @llvm.umax.i32(i32 %14, i32 %15)
   store i32 %16, ptr @vm_committed_as_batch, align 4
   ret void
@@ -397,14 +397,14 @@ define internal noundef i32 @mm_compute_batch_init() #4 section ".init.text" ali
   %12 = trunc i64 %3 to i32
   %13 = shl i32 %12, 1
   %14 = tail call i32 @llvm.smax.i32(i32 %13, i32 32)
-  %15 = trunc i64 %11 to i32
+  %15 = trunc nuw nsw i64 %11 to i32
   %16 = tail call i32 @llvm.umax.i32(i32 %14, i32 %15)
   store i32 %16, ptr @vm_committed_as_batch, align 4
   ret i32 0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @mm_sysfs_init() #0 section ".init.text" align 16 {
+define internal range(i32 -12, 1) i32 @mm_sysfs_init() #0 section ".init.text" align 16 {
   %1 = load ptr, ptr @kernel_kobj, align 8
   %2 = tail call ptr @kobject_create_and_add(ptr noundef nonnull @.str.26, ptr noundef %1) #22
   store ptr %2, ptr @mm_kobj, align 8
@@ -414,7 +414,7 @@ define internal i32 @mm_sysfs_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @cmdline_parse_kernelcore(ptr noundef %0) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @cmdline_parse_kernelcore(ptr noundef %0) #0 section ".init.text" align 16 {
   %2 = tail call zeroext i1 @parse_option_str(ptr noundef %0, ptr noundef nonnull @.str.27) #22
   br i1 %2, label %3, label %4
 
@@ -432,7 +432,7 @@ define internal noundef i32 @cmdline_parse_kernelcore(ptr noundef %0) #0 section
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @cmdline_parse_movablecore(ptr noundef %0) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @cmdline_parse_movablecore(ptr noundef %0) #0 section ".init.text" align 16 {
   %2 = tail call fastcc i32 @cmdline_parse_core(ptr noundef %0, ptr noundef nonnull @required_movablecore, ptr noundef nonnull @required_movablecore_percent) #24, !range !15
   ret i32 %2
 }
@@ -459,7 +459,7 @@ define dso_local void @__init_single_page(ptr noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @early_pfn_to_nid(i64 noundef %0) local_unnamed_addr #0 section ".meminit.text" align 16 {
+define dso_local range(i32 0, -2147483648) i32 @early_pfn_to_nid(i64 noundef %0) local_unnamed_addr #0 section ".meminit.text" align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @early_pfn_to_nid.early_pfn_lock) #22
   %2 = tail call fastcc i32 @__early_pfn_to_nid(i64 noundef %0) #24
   %3 = icmp slt i32 %2, 0
@@ -526,7 +526,7 @@ define internal fastcc i32 @__early_pfn_to_nid(i64 noundef %0) unnamed_addr #0 s
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @set_hashdist(ptr noundef %0) #0 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @set_hashdist(ptr noundef %0) #0 section ".init.text" align 16 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = icmp eq ptr %0, null
@@ -1144,7 +1144,7 @@ define dso_local void @free_area_init(ptr nocapture noundef readonly %0) local_u
 
 44:                                               ; preds = %40
   %45 = shl i64 %42, 12
-  %46 = trunc i64 %indvars.iv29 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv29 to i32
   %47 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef %46, i64 noundef %45) #21
   br label %48
 
@@ -2453,7 +2453,7 @@ declare dso_local ptr @kobject_create_and_add(ptr noundef, ptr noundef) local_un
 declare dso_local zeroext i1 @parse_option_str(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @cmdline_parse_core(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @cmdline_parse_core(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8

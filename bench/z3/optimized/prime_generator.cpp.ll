@@ -382,7 +382,7 @@ for.inc78:                                        ; preds = %.noexc95, %lor.lhs.
   br i1 %exitcond148.not, label %for.end92, label %for.body67, !llvm.loop !9
 
 for.end80.loopexit:                               ; preds = %for.body67
-  %52 = trunc i64 %indvars.iv144 to i32
+  %52 = trunc nuw i64 %indvars.iv144 to i32
   br label %for.end80
 
 for.end80:                                        ; preds = %for.end80.loopexit, %_ZNK6vectorImLb0EjE4sizeEv.exit76

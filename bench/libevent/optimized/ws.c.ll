@@ -312,7 +312,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   store i8 %2, ptr %p.043.i.i, align 1
   %3 = shl i8 %0, 4
   %4 = and i8 %3, 48
-  %arrayidx8.i.i = getelementptr i8, ptr %arrayidx.i.i, i64 1
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
   %5 = load i8, ptr %arrayidx8.i.i, align 1
   %6 = lshr i8 %5, 4
   %or40.i.i = or disjoint i8 %6, %4
@@ -323,7 +323,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   store i8 %7, ptr %incdec.ptr.i.i, align 1
   %8 = shl i8 %5, 2
   %9 = and i8 %8, 60
-  %arrayidx23.i.i = getelementptr i8, ptr %arrayidx.i.i, i64 2
+  %arrayidx23.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 2
   %10 = load i8, ptr %arrayidx23.i.i, align 1
   %11 = lshr i8 %10, 6
   %or2741.i.i = or disjoint i8 %11, %9
@@ -675,7 +675,7 @@ if.end8:                                          ; preds = %if.end73.i
   %conv75..i = select i1 %or.cond2.i, i32 %conv75.i, i32 129
   %call9 = call i32 @evbuffer_drain(ptr noundef %call, i64 noundef %pos.2.i) #9
   %call10 = call ptr @evbuffer_pullup(ptr noundef %call, i64 noundef -1) #9
-  %trunc = trunc i32 %conv75..i to i8
+  %trunc = trunc nuw i32 %conv75..i to i8
   switch i8 %trunc, label %sw.default [
     i8 1, label %sw.bb
     i8 2, label %sw.bb
@@ -838,7 +838,7 @@ if.else.i:                                        ; preds = %entry
 if.then9.i:                                       ; preds = %if.else.i
   store i8 126, ptr %.sink.i.sroa.gep3, align 1
   %shr.i = lshr i64 %str_len, 8
-  %conv12.i = trunc i64 %shr.i to i8
+  %conv12.i = trunc nuw i64 %shr.i to i8
   %arrayidx14.i = getelementptr inbounds i8, ptr %header.i, i64 2
   store i8 %conv12.i, ptr %arrayidx14.i, align 2
   br label %if.end29.sink.split.i

@@ -750,7 +750,7 @@ declare dso_local i32 @block_read_full_folio(ptr noundef, ptr noundef) local_unn
 declare dso_local i32 @ext4_get_block(ptr noundef, i64 noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @ext4_init_post_read_processing() local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ext4_init_post_read_processing() local_unnamed_addr #4 section ".init.text" align 16 {
   %1 = tail call ptr @kmem_cache_create(ptr noundef nonnull @.str, i32 noundef 48, i32 noundef 8, i32 noundef 131072, ptr noundef null) #7
   store ptr %1, ptr @bio_post_read_ctx_cache, align 8
   %2 = icmp eq ptr %1, null

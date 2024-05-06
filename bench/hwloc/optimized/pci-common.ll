@@ -425,8 +425,8 @@ define hidden void @hwloc_pci_discovery_exit(ptr nocapture noundef %0) local_unn
 ._crit_edge18:                                    ; preds = %.lr.ph17, %._crit_edge
   %20 = getelementptr inbounds i8, ptr %0, i64 880
   %21 = getelementptr inbounds i8, ptr %0, i64 896
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i64 -1, ptr %21, align 8
   ret void
 }
@@ -994,7 +994,7 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not88, label %107, label %109
 
 107:                                              ; preds = %105
-  %108 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #24
+  %108 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #24
   br label %126
 
 109:                                              ; preds = %105
@@ -1015,7 +1015,7 @@ define noundef i32 @hwloc_pcidisc_tree_attach(ptr noundef %0, ptr noundef %1) lo
 
 117:                                              ; preds = %109
   tail call void @free(ptr noundef nonnull %106) #21
-  %118 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #24
+  %118 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #24
   br label %126
 
 119:                                              ; preds = %109
@@ -1116,7 +1116,7 @@ define internal fastcc ptr @hwloc__pci_find_busid_parent(ptr noundef %0, ptr nou
 
 30:                                               ; preds = %.critedge70
   store i64 0, ptr %28, align 8
-  %31 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #24
+  %31 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #24
   %32 = getelementptr inbounds i8, ptr %31, i64 224
   %33 = load i32, ptr %32, align 8
   %.not2.i.i.i = icmp eq i32 %33, 0
@@ -1296,7 +1296,7 @@ hwloc__pci_find_busid_parent_quirk.exit.thread66: ; preds = %99, %94, %90, %85, 
   br i1 %.not59, label %112, label %114
 
 112:                                              ; preds = %hwloc__pci_find_busid_parent_quirk.exit.thread66
-  %113 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef 0, i32 noundef 0) #24
+  %113 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #24
   br label %114
 
 114:                                              ; preds = %112, %hwloc__pci_find_busid_parent_quirk.exit.thread66
@@ -1337,7 +1337,7 @@ define ptr @hwloc_pci_find_parent_by_busid(ptr noundef %0, i32 noundef %1, i32 n
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
 define ptr @hwloc_pci_find_by_busid(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 {
-  %6 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef 0, i32 noundef 0) #24
+  %6 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #24
   %7 = getelementptr inbounds i8, ptr %0, i64 920
   %.04457 = load ptr, ptr %7, align 8
   %.not58 = icmp eq ptr %.04457, null
@@ -1518,7 +1518,7 @@ hwloc__pci_find_by_busid.exit:                    ; preds = %tailrecurse.loopexi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @hwloc_pcidisc_find_cap(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define range(i32 0, 253) i32 @hwloc_pcidisc_find_cap(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = alloca [256 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 6
@@ -1535,7 +1535,7 @@ define i32 @hwloc_pcidisc_find_cap(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %.not1520, label %.loopexit, label %.lr.ph
 
 9:                                                ; preds = %21
-  %10 = getelementptr i8, ptr %15, i64 1
+  %10 = getelementptr inbounds i8, ptr %15, i64 1
   %.013.in = load i8, ptr %10, align 1
   %.013 = and i8 %.013.in, -4
   %.not15 = icmp eq i8 %.013, 0
@@ -1619,7 +1619,7 @@ define noundef i32 @hwloc_pcidisc_find_linkspeed(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @hwloc_pcidisc_check_bridge_type(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
+define range(i32 14, 16) i32 @hwloc_pcidisc_check_bridge_type(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
   %.not = icmp eq i32 %0, 1540
   br i1 %.not, label %3, label %9
 
@@ -1637,7 +1637,7 @@ define i32 @hwloc_pcidisc_check_bridge_type(i32 noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @hwloc_pcidisc_find_bridge_buses(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef readonly %6) local_unnamed_addr #11 {
+define range(i32 -1, 1) i32 @hwloc_pcidisc_find_bridge_buses(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef readonly %6) local_unnamed_addr #11 {
   %8 = getelementptr inbounds i8, ptr %6, i64 25
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32

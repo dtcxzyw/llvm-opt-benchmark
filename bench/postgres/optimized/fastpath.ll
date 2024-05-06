@@ -379,7 +379,7 @@ fetch_fp_info.exit:                               ; preds = %53
   br i1 %.not74.i, label %191, label %180
 
 180:                                              ; preds = %177
-  %181 = trunc i64 %indvars.iv97.i to i32
+  %181 = trunc nuw nsw i64 %indvars.iv97.i to i32
   %182 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %182)
   %183 = call i32 @errcode(i32 noundef 50462850) #12

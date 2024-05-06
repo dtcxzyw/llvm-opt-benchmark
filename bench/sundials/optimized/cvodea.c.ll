@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [30 x i8] c"Bad t = %g for interpolation.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeAdjInit(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeAdjInit(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -218,7 +218,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @CVAhermiteMalloc(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, 2) i32 @CVAhermiteMalloc(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2672
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 464
@@ -482,7 +482,7 @@ define internal void @CVAhermiteFree(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @CVAhermiteGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @CVAhermiteGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca [4 x double], align 16
@@ -506,7 +506,7 @@ define internal noundef i32 @CVAhermiteGetY(ptr nocapture noundef readonly %0, d
 
 21:                                               ; preds = %4, %18
   %22 = phi i32 [ %20, %18 ], [ 0, %4 ]
-  %23 = call fastcc i32 @CVAfindIndex(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !4
+  %23 = call fastcc i32 @CVAfindIndex(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %24, label %124
 
@@ -704,7 +704,7 @@ define internal noundef i32 @CVAhermiteGetY(ptr nocapture noundef readonly %0, d
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @CVAhermiteStorePnt(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -28, 1) i32 @CVAhermiteStorePnt(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2672
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -842,7 +842,7 @@ define internal noundef i32 @CVAhermiteStorePnt(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @CVApolynomialMalloc(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, 2) i32 @CVApolynomialMalloc(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2672
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 464
@@ -1055,7 +1055,7 @@ define internal void @CVApolynomialFree(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @CVApolynomialGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 2672
@@ -1077,7 +1077,7 @@ define internal noundef i32 @CVApolynomialGetY(ptr nocapture noundef readonly %0
 18:                                               ; preds = %4, %15
   %19 = phi i32 [ %17, %15 ], [ 0, %4 ]
   %.fr204 = freeze i32 %19
-  %20 = call fastcc i32 @CVAfindIndex(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !4
+  %20 = call fastcc i32 @CVAfindIndex(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %.loopexit
 
@@ -1450,7 +1450,7 @@ define internal noundef i32 @CVApolynomialGetY(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @CVApolynomialStorePnt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -28, 1) i32 @CVApolynomialStorePnt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2672
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1510,7 +1510,7 @@ define internal noundef i32 @CVApolynomialStorePnt(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeAdjReInit(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @CVodeAdjReInit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -3588,7 +3588,7 @@ declare i32 @CVodeGetDky(ptr noundef, double noundef, i32 noundef, ptr noundef) 
 declare i32 @CVode(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeCreateB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @CVodeCreateB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -3697,7 +3697,7 @@ define i32 @CVodeInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, double no
 
 .lr.ph:                                           ; preds = %.lr.ph, %19
   %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
-  %.028 = load ptr, ptr %.sink, align 8, !nonnull !5, !noundef !5
+  %.028 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %21 = load i32, ptr %.028, align 8
   %22 = icmp eq i32 %21, %1
   %23 = getelementptr inbounds i8, ptr %.028, i64 120
@@ -3832,7 +3832,7 @@ define i32 @CVodeInitBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, double n
 
 .lr.ph:                                           ; preds = %.lr.ph, %19
   %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
-  %.028 = load ptr, ptr %.sink, align 8, !nonnull !5, !noundef !5
+  %.028 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %21 = load i32, ptr %.028, align 8
   %22 = icmp eq i32 %21, %1
   %23 = getelementptr inbounds i8, ptr %.028, i64 120
@@ -3900,7 +3900,7 @@ define i32 @CVodeReInitB(ptr noundef %0, i32 noundef %1, double noundef %2, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.018 = load ptr, ptr %.sink, align 8, !nonnull !5, !noundef !5
+  %.018 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.018, align 8
   %21 = icmp eq i32 %20, %1
   %22 = getelementptr inbounds i8, ptr %.018, i64 120
@@ -3956,7 +3956,7 @@ define i32 @CVodeSStolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.018 = load ptr, ptr %.sink, align 8, !nonnull !5, !noundef !5
+  %.018 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.018, align 8
   %21 = icmp eq i32 %20, %1
   %22 = getelementptr inbounds i8, ptr %.018, i64 120
@@ -4012,7 +4012,7 @@ define i32 @CVodeSVtolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.018 = load ptr, ptr %.sink, align 8, !nonnull !5, !noundef !5
+  %.018 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.018, align 8
   %21 = icmp eq i32 %20, %1
   %22 = getelementptr inbounds i8, ptr %.018, i64 120
@@ -4068,7 +4068,7 @@ define i32 @CVodeQuadInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.021 = load ptr, ptr %.sink, align 8, !nonnull !5, !noundef !5
+  %.021 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.021, align 8
   %21 = icmp eq i32 %20, %1
   %22 = getelementptr inbounds i8, ptr %.021, i64 120
@@ -4185,7 +4185,7 @@ define i32 @CVodeQuadInitBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.021 = load ptr, ptr %.sink, align 8, !nonnull !5, !noundef !5
+  %.021 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.021, align 8
   %21 = icmp eq i32 %20, %1
   %22 = getelementptr inbounds i8, ptr %.021, i64 120
@@ -4247,7 +4247,7 @@ define i32 @CVodeQuadReInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.018 = load ptr, ptr %.sink, align 8, !nonnull !5, !noundef !5
+  %.018 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.018, align 8
   %20 = icmp eq i32 %19, %1
   %21 = getelementptr inbounds i8, ptr %.018, i64 120
@@ -4303,7 +4303,7 @@ define i32 @CVodeQuadSStolerancesB(ptr noundef %0, i32 noundef %1, double nounde
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.018 = load ptr, ptr %.sink, align 8, !nonnull !5, !noundef !5
+  %.018 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.018, align 8
   %21 = icmp eq i32 %20, %1
   %22 = getelementptr inbounds i8, ptr %.018, i64 120
@@ -4359,7 +4359,7 @@ define i32 @CVodeQuadSVtolerancesB(ptr noundef %0, i32 noundef %1, double nounde
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.018 = load ptr, ptr %.sink, align 8, !nonnull !5, !noundef !5
+  %.018 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.018, align 8
   %21 = icmp eq i32 %20, %1
   %22 = getelementptr inbounds i8, ptr %.018, i64 120
@@ -4671,7 +4671,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br i1 %.not153.us.us, label %152, label %150
 
 150:                                              ; preds = %.split222.us.split.us
-  %151 = tail call fastcc i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %.0133178), !range !6
+  %151 = tail call fastcc i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %.0133178)
   %.not154.us.us = icmp eq i32 %151, 0
   br i1 %.not154.us.us, label %152, label %.critedge163
 
@@ -4682,7 +4682,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br i1 %.not153.us.us, label %155, label %153
 
 153:                                              ; preds = %.split222.us.split.split.us
-  %154 = tail call fastcc i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %.0133178), !range !6
+  %154 = tail call fastcc i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %.0133178)
   %.not154.us.us234 = icmp eq i32 %154, 0
   br i1 %.not154.us.us234, label %155, label %.critedge163
 
@@ -4696,7 +4696,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br i1 %.not153, label %.lr.ph214.preheader, label %157
 
 157:                                              ; preds = %.split222
-  %158 = call fastcc i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %.1134), !range !6
+  %158 = call fastcc i32 @CVAdataStore(ptr noundef nonnull %0, ptr noundef %.1134)
   %.not154 = icmp eq i32 %158, 0
   br i1 %.not154, label %.lr.ph214.preheader, label %.critedge163
 
@@ -4791,7 +4791,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
 declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @CVAdataStore(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -106, 1) i32 @CVAdataStore(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2672
   %5 = load ptr, ptr %4, align 8
@@ -5085,7 +5085,7 @@ define internal fastcc noundef i32 @CVAdataStore(ptr noundef %0, ptr noundef %1)
   %indvars.iv.next302.i = add nuw nsw i64 %indvars.iv301.i, 1
   %176 = sext i32 %174 to i64
   %.not222.not.i = icmp slt i64 %indvars.iv301.i, %176
-  br i1 %.not222.not.i, label %.preheader242.i, label %._crit_edge262.i, !llvm.loop !7
+  br i1 %.not222.not.i, label %.preheader242.i, label %._crit_edge262.i, !llvm.loop !5
 
 ._crit_edge262.i:                                 ; preds = %._crit_edge259.i, %.preheader242.lr.ph.i, %.preheader243.._crit_edge262_crit_edge.i
   %177 = phi i32 [ %.pre327.i, %.preheader243.._crit_edge262_crit_edge.i ], [ %137, %.preheader242.lr.ph.i ], [ %175, %._crit_edge259.i ]
@@ -5220,7 +5220,7 @@ define internal fastcc noundef i32 @CVAdataStore(ptr noundef %0, ptr noundef %1)
   %indvars.iv.next311.i = add nuw nsw i64 %indvars.iv310.i, 1
   %252 = sext i32 %250 to i64
   %.not226.not.i = icmp slt i64 %indvars.iv310.i, %252
-  br i1 %.not226.not.i, label %.preheader239.i, label %._crit_edge273.i, !llvm.loop !9
+  br i1 %.not226.not.i, label %.preheader239.i, label %._crit_edge273.i, !llvm.loop !7
 
 ._crit_edge273.i:                                 ; preds = %._crit_edge270.i, %.preheader239.lr.ph.i, %.preheader240.._crit_edge273_crit_edge.i
   %253 = phi i32 [ %.pre330.i, %.preheader240.._crit_edge273_crit_edge.i ], [ %213, %.preheader239.lr.ph.i ], [ %251, %._crit_edge270.i ]
@@ -5400,7 +5400,7 @@ CVAckpntGet.exit.thread:                          ; preds = %323, %._crit_edge27
 declare i32 @CVodeSetStopTime(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @CVodeGetB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -5436,7 +5436,7 @@ define noundef i32 @CVodeGetB(ptr noundef %0, i32 noundef %1, ptr nocapture noun
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.0 = load ptr, ptr %.sink, align 8, !nonnull !5, !noundef !5
+  %.0 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.0, align 8
   %21 = icmp eq i32 %20, %1
   %22 = getelementptr inbounds i8, ptr %.0, i64 120
@@ -5494,7 +5494,7 @@ define i32 @CVodeGetQuadB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph, %19
   %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
-  %.024 = load ptr, ptr %.sink, align 8, !nonnull !5, !noundef !5
+  %.024 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %21 = load i32, ptr %.024, align 8
   %22 = icmp eq i32 %21, %1
   %23 = getelementptr inbounds i8, ptr %.024, i64 120
@@ -5572,7 +5572,7 @@ declare i32 @CVodeQuadSensReInit(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @cvSensRhsWrapper(ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @CVAfindIndex(ptr nocapture noundef readonly %0, double noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i32 -107, 1) i32 @CVAfindIndex(ptr nocapture noundef readonly %0, double noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 2672
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 120
@@ -5743,9 +5743,7 @@ attributes #11 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -107, i32 1}
-!5 = !{}
-!6 = !{i32 -106, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.unswitch.partial.disable"}
-!9 = distinct !{!9, !8}
+!4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.unswitch.partial.disable"}
+!7 = distinct !{!7, !6}

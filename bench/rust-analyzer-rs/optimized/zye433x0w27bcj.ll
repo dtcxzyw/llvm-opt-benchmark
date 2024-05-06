@@ -30,7 +30,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h10d3489aca260780E.llvm.4687055707153247929"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #1 {
+define hidden noundef range(i32 0, 1114113) i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h10d3489aca260780E.llvm.4687055707153247929"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !6, !nonnull !4, !noundef !4
   %4 = load ptr, ptr %0, align 8, !alias.scope !6, !nonnull !4, !noundef !4
@@ -49,7 +49,7 @@ define hidden noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h862041d032d00d35E.llvm.4687055707153247929"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #1 {
+define hidden noundef range(i32 0, 1114113) i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h862041d032d00d35E.llvm.4687055707153247929"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !15, !nonnull !4, !noundef !4
   %4 = load ptr, ptr %0, align 8, !alias.scope !15, !nonnull !4, !noundef !4
@@ -68,7 +68,7 @@ define hidden noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd3e968399cbe0bE.llvm.4687055707153247929"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #1 {
+define hidden noundef range(i32 0, 1114113) i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd3e968399cbe0bE.llvm.4687055707153247929"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !23, !nonnull !4, !noundef !4
   %4 = load ptr, ptr %0, align 8, !alias.scope !23, !nonnull !4, !noundef !4
@@ -425,7 +425,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h3df379410f36ce8aE.llvm.4687055
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef i8 @_ZN4core4iter6traits8iterator12iter_compare17h04ffe3ac1a47cff3E.llvm.4687055707153247929(ptr noundef nonnull readonly %0, ptr noundef readnone %1, ptr noundef nonnull readonly %2, ptr noundef readnone %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 4, 3) i8 @_ZN4core4iter6traits8iterator12iter_compare17h04ffe3ac1a47cff3E.llvm.4687055707153247929(ptr noundef nonnull readonly %0, ptr noundef readnone %1, ptr noundef nonnull readonly %2, ptr noundef readnone %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5b91472450878c6aE.exit.i.i.i"
@@ -461,7 +461,7 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17hdcb5caa8667bbd80E.llvm.46
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef i8 @_ZN4core4iter6traits8iterator12iter_compare17h1c4832d161da93eaE.llvm.4687055707153247929(ptr noundef nonnull readonly %0, ptr noundef readnone %1, ptr noundef nonnull readonly %2, ptr noundef readnone %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 4, 3) i8 @_ZN4core4iter6traits8iterator12iter_compare17h1c4832d161da93eaE.llvm.4687055707153247929(ptr noundef nonnull readonly %0, ptr noundef readnone %1, ptr noundef nonnull readonly %2, ptr noundef readnone %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf46cfae9fcb94ebbE.exit.i.i.i"
@@ -497,7 +497,7 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17hcdb196b1bcc4f402E.llvm.46
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef i8 @_ZN4core4iter6traits8iterator12iter_compare17h53bb098632ec6edcE.llvm.4687055707153247929(ptr noundef nonnull readonly %0, ptr noundef readnone %1, ptr noundef nonnull readonly %2, ptr noundef readnone %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 4, 3) i8 @_ZN4core4iter6traits8iterator12iter_compare17h53bb098632ec6edcE.llvm.4687055707153247929(ptr noundef nonnull readonly %0, ptr noundef readnone %1, ptr noundef nonnull readonly %2, ptr noundef readnone %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8e26e5d8e30778e2E.exit.i.i.i"
@@ -1343,7 +1343,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i.i: ; preds
   %62 = phi i64 [ %54, %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i.i ], [ %.pre.i.i.i.i.i.i, %58 ]
   %63 = load ptr, ptr %12, align 8, !alias.scope !476, !noalias !481, !nonnull !4, !noundef !4
   %64 = getelementptr inbounds i8, ptr %63, i64 %62
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i.i.i.i, i64 %53, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i.i.i.i, i64 %53, i1 false)
   %65 = load i64, ptr %11, align 8, !alias.scope !476, !noalias !481, !noundef !4
   %66 = add i64 %65, %53
   store i64 %66, ptr %11, align 8, !alias.scope !476, !noalias !481

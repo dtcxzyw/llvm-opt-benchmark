@@ -28,7 +28,7 @@ define dso_local noundef zeroext i1 @intel_pxp_is_active(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local i32 @intel_pxp_init(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -107, -18) i32 @intel_pxp_init(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 9304
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 3488
@@ -106,7 +106,7 @@ define dso_local void @intel_pxp_mark_termination_in_progress(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @intel_pxp_get_backend_timeout_ms(ptr nocapture noundef readonly %0) local_unnamed_addr #6 align 16 {
+define dso_local range(i32 250, 2501) i32 @intel_pxp_get_backend_timeout_ms(ptr nocapture noundef readonly %0) local_unnamed_addr #6 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 4956
   %4 = load i32, ptr %3, align 4

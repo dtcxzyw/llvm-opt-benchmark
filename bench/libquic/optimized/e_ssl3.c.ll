@@ -51,11 +51,11 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_rc4_md5_ssl3_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_rc4_md5_ssl3_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_rc4() #6
   %call1 = tail call ptr @EVP_md5() #6
-  %call2 = tail call fastcc i32 @aead_ssl3_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %call, ptr noundef %call1), !range !7
+  %call2 = tail call fastcc i32 @aead_ssl3_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %call, ptr noundef %call1)
   ret i32 %call2
 }
 
@@ -73,7 +73,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_ssl3_seal(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr nocapture readnone %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
+define internal range(i32 0, 2) i32 @aead_ssl3_seal(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr nocapture readnone %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
 entry:
   %mac = alloca [64 x i8], align 16
   %mac_len = alloca i32, align 4
@@ -136,7 +136,7 @@ if.end15:                                         ; preds = %if.end12
   br i1 %tobool17.not, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.end15
-  %conv = trunc i64 %in_len to i32
+  %conv = trunc nuw nsw i64 %in_len to i32
   %call21 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %0, ptr noundef %out, ptr noundef nonnull %len, ptr noundef %in, i32 noundef %conv) #6
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %return, label %if.end24
@@ -164,7 +164,7 @@ if.then38:                                        ; preds = %if.end31
   %conv40 = zext i32 %8 to i64
   %add41 = add nuw nsw i64 %conv40, %in_len
   %rem = urem i64 %add41, %conv39
-  %9 = trunc i64 %rem to i32
+  %9 = trunc nuw i64 %rem to i32
   %conv43 = sub i32 %call35, %9
   %sub45 = add i32 %conv43, -1
   %conv46 = zext i32 %sub45 to i64
@@ -203,7 +203,7 @@ return:                                           ; preds = %if.end59, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_ssl3_open(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr nocapture readnone %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
+define internal range(i32 0, 2) i32 @aead_ssl3_open(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr nocapture readnone %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
 entry:
   %len = alloca i32, align 4
   %mac = alloca [64 x i8], align 16
@@ -261,7 +261,7 @@ if.then13:                                        ; preds = %if.end11
   br label %return
 
 if.end14:                                         ; preds = %if.end11
-  %conv = trunc i64 %in_len to i32
+  %conv = trunc nuw nsw i64 %in_len to i32
   %call16 = call i32 @EVP_DecryptUpdate(ptr noundef nonnull %0, ptr noundef %out, ptr noundef nonnull %len, ptr noundef %in, i32 noundef %conv) #6
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %return, label %if.end19
@@ -340,7 +340,7 @@ return:                                           ; preds = %if.end55, %if.end19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_ssl3_get_rc4_state(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_key) #1 {
+define internal range(i32 0, 2) i32 @aead_ssl3_get_rc4_state(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_key) #1 {
 entry:
   %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
@@ -361,7 +361,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @aead_ssl3_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %cipher, ptr noundef %md) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @aead_ssl3_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %cipher, ptr noundef %md) unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq i64 %tag_len, 0
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -476,7 +476,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 declare i64 @EVP_AEAD_max_overhead(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl3_mac(ptr noundef %ssl3_ctx, ptr noundef %out, ptr noundef %out_len, ptr noundef %ad, ptr noundef %in, i64 noundef %in_len) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ssl3_mac(ptr noundef %ssl3_ctx, ptr noundef %out, ptr noundef %out_len, ptr noundef %ad, ptr noundef %in, i64 noundef %in_len) unnamed_addr #1 {
 entry:
   %ad_extra = alloca [2 x i8], align 1
   %md_ctx4 = alloca %struct.env_md_ctx_st, align 8
@@ -577,27 +577,27 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare ptr @EVP_CIPHER_CTX_cipher(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_rc4_sha1_ssl3_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_rc4_sha1_ssl3_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_rc4() #6
   %call1 = tail call ptr @EVP_sha1() #6
-  %call2 = tail call fastcc i32 @aead_ssl3_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %call, ptr noundef %call1), !range !7
+  %call2 = tail call fastcc i32 @aead_ssl3_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %call, ptr noundef %call1)
   ret i32 %call2
 }
 
 declare ptr @EVP_sha1() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_aes_128_cbc_sha1_ssl3_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_aes_128_cbc_sha1_ssl3_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_aes_128_cbc() #6
   %call1 = tail call ptr @EVP_sha1() #6
-  %call2 = tail call fastcc i32 @aead_ssl3_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %call, ptr noundef %call1), !range !7
+  %call2 = tail call fastcc i32 @aead_ssl3_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %call, ptr noundef %call1)
   ret i32 %call2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_ssl3_get_iv(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_iv, ptr nocapture noundef writeonly %out_iv_len) #1 {
+define internal range(i32 0, 2) i32 @aead_ssl3_get_iv(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_iv, ptr nocapture noundef writeonly %out_iv_len) #1 {
 entry:
   %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
@@ -622,33 +622,33 @@ declare ptr @EVP_aes_128_cbc() local_unnamed_addr #2
 declare i32 @EVP_CIPHER_CTX_iv_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_aes_256_cbc_sha1_ssl3_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_aes_256_cbc_sha1_ssl3_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_aes_256_cbc() #6
   %call1 = tail call ptr @EVP_sha1() #6
-  %call2 = tail call fastcc i32 @aead_ssl3_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %call, ptr noundef %call1), !range !7
+  %call2 = tail call fastcc i32 @aead_ssl3_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %call, ptr noundef %call1)
   ret i32 %call2
 }
 
 declare ptr @EVP_aes_256_cbc() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_des_ede3_cbc_sha1_ssl3_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_des_ede3_cbc_sha1_ssl3_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_des_ede3_cbc() #6
   %call1 = tail call ptr @EVP_sha1() #6
-  %call2 = tail call fastcc i32 @aead_ssl3_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %call, ptr noundef %call1), !range !7
+  %call2 = tail call fastcc i32 @aead_ssl3_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %call, ptr noundef %call1)
   ret i32 %call2
 }
 
 declare ptr @EVP_des_ede3_cbc() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aead_null_sha1_ssl3_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
+define internal range(i32 0, 2) i32 @aead_null_sha1_ssl3_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) #1 {
 entry:
   %call = tail call ptr @EVP_enc_null() #6
   %call1 = tail call ptr @EVP_sha1() #6
-  %call2 = tail call fastcc i32 @aead_ssl3_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %call, ptr noundef %call1), !range !7
+  %call2 = tail call fastcc i32 @aead_ssl3_init(ptr noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %call, ptr noundef %call1)
   ret i32 %call2
 }
 
@@ -672,4 +672,3 @@ attributes #7 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}

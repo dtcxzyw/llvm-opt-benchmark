@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.mbedtls_pk_psa_rsa_sign_ext = private unnamed_addr constant [21 x i32] [i32 -15872, i32 -15872, i32 -110, i32 -1, i32 -1, i32 -1, i32 -112, i32 -15872, i32 -112, i32 -1, i32 -1, i32 -1, i32 -16256, i32 -1, i32 -1, i32 -14464, i32 -16000, i32 -15616, i32 -14976, i32 -14720, i32 -1], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @mbedtls_pk_error_from_psa(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -16256, 1) i32 @mbedtls_pk_error_from_psa(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %12 [
     i32 0, label %13
     i32 -136, label %2
@@ -86,7 +86,7 @@ define hidden noundef i32 @mbedtls_pk_error_from_psa(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @mbedtls_pk_error_from_psa_rsa(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -17536, 1) i32 @mbedtls_pk_error_from_psa_rsa(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %12 [
     i32 -133, label %mbedtls_pk_error_from_psa.exit
     i32 -135, label %mbedtls_pk_error_from_psa.exit
@@ -149,7 +149,7 @@ mbedtls_pk_error_from_psa.exit:                   ; preds = %1, %1, %1, %mbedtls
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_pk_psa_rsa_sign_ext(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_pk_psa_rsa_sign_ext(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
   %8 = alloca %struct.psa_key_attributes_s, align 8
   %9 = alloca i32, align 4
   %10 = alloca %struct.mbedtls_pk_context, align 8
@@ -236,7 +236,7 @@ psa_set_key_type.exit:                            ; preds = %15
   br i1 %.not30, label %mbedtls_pk_error_from_psa.exit, label %39
 
 39:                                               ; preds = %36
-  %40 = call i32 @mbedtls_pk_error_from_psa_rsa(i32 noundef %38), !range !4
+  %40 = call i32 @mbedtls_pk_error_from_psa_rsa(i32 noundef %38)
   br label %mbedtls_pk_error_from_psa.exit
 
 mbedtls_pk_error_from_psa.exit:                   ; preds = %psa_set_key_type.exit, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %36, %39
@@ -288,7 +288,7 @@ define internal i64 @rsa_get_bitlen(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @rsa_can_do(i32 noundef %0) #0 {
+define internal range(i32 0, 2) i32 @rsa_can_do(i32 noundef %0) #0 {
   %2 = icmp eq i32 %0, 1
   %3 = icmp eq i32 %0, 6
   %4 = or i1 %2, %3
@@ -431,7 +431,7 @@ define internal i64 @eckey_get_bitlen(ptr nocapture noundef readonly %0) #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @eckey_can_do(i32 noundef %0) #0 {
+define internal range(i32 0, 2) i32 @eckey_can_do(i32 noundef %0) #0 {
   %2 = and i32 %0, -2
   %or.cond = icmp eq i32 %2, 2
   %3 = icmp eq i32 %0, 4
@@ -517,7 +517,7 @@ define internal void @eckey_debug(ptr noundef %0, ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @eckeydh_can_do(i32 noundef %0) #0 {
+define internal range(i32 0, 2) i32 @eckeydh_can_do(i32 noundef %0) #0 {
   %2 = and i32 %0, -2
   %3 = icmp eq i32 %2, 2
   %4 = zext i1 %3 to i32
@@ -525,14 +525,14 @@ define internal noundef i32 @eckeydh_can_do(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ecdsa_can_do(i32 noundef %0) #0 {
+define internal range(i32 0, 2) i32 @ecdsa_can_do(i32 noundef %0) #0 {
   %2 = icmp eq i32 %0, 4
   %3 = zext i1 %2 to i32
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecdsa_verify_wrap(ptr noundef %0, i32 %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #1 {
+define internal range(i32 -19455, -19456) i32 @ecdsa_verify_wrap(ptr noundef %0, i32 %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #1 {
   %7 = tail call i32 @mbedtls_ecdsa_read_signature(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #10
   %8 = icmp eq i32 %7, -19456
   %. = select i1 %8, i32 -14592, i32 %7
@@ -577,7 +577,7 @@ define internal i64 @rsa_alt_get_bitlen(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @rsa_alt_can_do(i32 noundef %0) #0 {
+define internal range(i32 0, 2) i32 @rsa_alt_can_do(i32 noundef %0) #0 {
   %2 = icmp eq i32 %0, 1
   %3 = zext i1 %2 to i32
   ret i32 %3
@@ -755,4 +755,3 @@ attributes #11 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -17536, i32 1}

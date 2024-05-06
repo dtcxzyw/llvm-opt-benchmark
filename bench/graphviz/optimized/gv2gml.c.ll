@@ -131,7 +131,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %32 = alloca double, align 8
   %33 = alloca %struct.ingraph_state, align 8
   %34 = load ptr, ptr %1, align 8
-  %35 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %34, i32 noundef 47) #13
+  %35 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %34, i32 noundef 47) #13
   %.not.i.i = icmp eq ptr %35, null
   %36 = getelementptr inbounds i8, ptr %35, i64 1
   %.0.i.i = select i1 %.not.i.i, ptr %34, ptr %36
@@ -372,7 +372,7 @@ emitGraphAttrs.exit.i:                            ; preds = %emitAttr.exit116, %
   %.sroa.0.0198.i.i.i = phi i32 [ %.sroa.0.3.i.i.i, %emitAttr.exit108 ], [ 0, %.lr.ph.i ]
   %130 = getelementptr inbounds i8, ptr %.0214.i.i.i, i64 16
   %131 = load ptr, ptr %130, align 8
-  %132 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(6) @.str.22) #13
+  %132 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(6) @.str.22) #13
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %134, label %143
 
@@ -398,7 +398,7 @@ emitGraphAttrs.exit.i:                            ; preds = %emitAttr.exit116, %
   br label %emitAttr.exit108
 
 143:                                              ; preds = %.lr.ph.i.i.i
-  %144 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(6) @.str.26) #13
+  %144 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(6) @.str.26) #13
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %sub_0.i.i.i, label %202
 
@@ -542,7 +542,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br label %emitAttr.exit108
 
 202:                                              ; preds = %143
-  %203 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(9) @.str.28) #13
+  %203 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(9) @.str.28) #13
   %204 = icmp eq i32 %203, 0
   br i1 %204, label %205, label %208
 
@@ -555,7 +555,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br label %emitAttr.exit108
 
 208:                                              ; preds = %202
-  %209 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(6) @.str.29) #13
+  %209 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(6) @.str.29) #13
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %211, label %218
 
@@ -572,7 +572,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br label %emitAttr.exit108
 
 218:                                              ; preds = %208
-  %219 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(7) @.str.30) #13
+  %219 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(7) @.str.30) #13
   %220 = icmp eq i32 %219, 0
   br i1 %220, label %221, label %228
 
@@ -589,7 +589,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br label %emitAttr.exit108
 
 228:                                              ; preds = %218
-  %229 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(4) @.str.31) #13
+  %229 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(4) @.str.31) #13
   %230 = icmp eq i32 %229, 0
   br i1 %230, label %231, label %239
 
@@ -606,7 +606,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br label %emitAttr.exit108
 
 239:                                              ; preds = %228
-  %240 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(6) @.str.33) #13
+  %240 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(6) @.str.33) #13
   %241 = icmp eq i32 %240, 0
   br i1 %241, label %242, label %245
 
@@ -619,7 +619,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br label %emitAttr.exit108
 
 245:                                              ; preds = %239
-  %246 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(6) @.str.34) #13
+  %246 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(6) @.str.34) #13
   %247 = icmp eq i32 %246, 0
   br i1 %247, label %248, label %252
 
@@ -633,7 +633,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br label %emitAttr.exit108
 
 252:                                              ; preds = %245
-  %253 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(10) @.str.35) #13
+  %253 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(10) @.str.35) #13
   %254 = icmp eq i32 %253, 0
   br i1 %254, label %255, label %258
 
@@ -646,7 +646,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br label %emitAttr.exit108
 
 258:                                              ; preds = %252
-  %259 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(9) @.str.36) #13
+  %259 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(9) @.str.36) #13
   %260 = icmp eq i32 %259, 0
   br i1 %260, label %261, label %264
 
@@ -659,7 +659,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br label %emitAttr.exit108
 
 264:                                              ; preds = %258
-  %265 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(9) @.str.37) #13
+  %265 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(9) @.str.37) #13
   %266 = icmp eq i32 %265, 0
   br i1 %266, label %267, label %270
 
@@ -672,7 +672,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br label %emitAttr.exit108
 
 270:                                              ; preds = %264
-  %271 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(9) @.str.38) #13
+  %271 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(9) @.str.38) #13
   %272 = icmp eq i32 %271, 0
   br i1 %272, label %273, label %276
 
@@ -685,7 +685,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br label %emitAttr.exit108
 
 276:                                              ; preds = %270
-  %277 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(10) @.str.39) #13
+  %277 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(10) @.str.39) #13
   %278 = icmp eq i32 %277, 0
   %279 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
   br i1 %278, label %280, label %282
@@ -1467,7 +1467,7 @@ emitNode.exit.i:                                  ; preds = %emitAttr.exit20, %4
   %.sroa.0.0176.i.i.i = phi i32 [ %.sroa.0.4.i.i.i, %.thread.i.i ], [ %.sroa.0.0176.i.ph.i.i, %.lr.ph.i.outer.i.i ]
   %553 = getelementptr inbounds i8, ptr %.0189.i.i.i, i64 16
   %554 = load ptr, ptr %553, align 8
-  %555 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(6) @.str.22) #13
+  %555 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(6) @.str.22) #13
   %556 = icmp eq i32 %555, 0
   br i1 %556, label %557, label %560
 
@@ -1479,7 +1479,7 @@ emitNode.exit.i:                                  ; preds = %emitAttr.exit20, %4
 
 560:                                              ; preds = %.lr.ph.i.i23.i
   %561 = getelementptr inbounds i8, ptr %.0189.i.i.i, i64 16
-  %562 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(6) @.str.26) #13
+  %562 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(6) @.str.26) #13
   %563 = icmp eq i32 %562, 0
   br i1 %563, label %564, label %587
 
@@ -1543,7 +1543,7 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br label %.loopexit.i.i
 
 587:                                              ; preds = %560
-  %588 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(9) @.str.28) #13
+  %588 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(9) @.str.28) #13
   %589 = icmp eq i32 %588, 0
   br i1 %589, label %590, label %593
 
@@ -1556,7 +1556,7 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br label %.loopexit.i.i
 
 593:                                              ; preds = %587
-  %594 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(4) @.str.31) #13
+  %594 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(4) @.str.31) #13
   %595 = icmp eq i32 %594, 0
   br i1 %595, label %596, label %599
 
@@ -1569,7 +1569,7 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br label %.loopexit.i.i
 
 599:                                              ; preds = %593
-  %600 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(4) @.str.68) #13
+  %600 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(4) @.str.68) #13
   %601 = icmp eq i32 %600, 0
   br i1 %601, label %602, label %605
 
@@ -1582,7 +1582,7 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br label %.loopexit.i.i
 
 605:                                              ; preds = %599
-  %606 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(6) @.str.34) #13
+  %606 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(6) @.str.34) #13
   %607 = icmp eq i32 %606, 0
   br i1 %607, label %608, label %611
 
@@ -1595,7 +1595,7 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br label %.loopexit.i.i
 
 611:                                              ; preds = %605
-  %612 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(9) @.str.36) #13
+  %612 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(9) @.str.36) #13
   %613 = icmp eq i32 %612, 0
   br i1 %613, label %614, label %617
 
@@ -1608,7 +1608,7 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br label %.loopexit.i.i
 
 617:                                              ; preds = %611
-  %618 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(10) @.str.69) #13
+  %618 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(10) @.str.69) #13
   %619 = icmp eq i32 %618, 0
   br i1 %619, label %620, label %623
 
@@ -1621,7 +1621,7 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br label %.loopexit.i.i
 
 623:                                              ; preds = %617
-  %624 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(10) @.str.70) #13
+  %624 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(10) @.str.70) #13
   %625 = icmp eq i32 %624, 0
   br i1 %625, label %626, label %629
 
@@ -1634,7 +1634,7 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br label %.loopexit.i.i
 
 629:                                              ; preds = %623
-  %630 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(9) @.str.37) #13
+  %630 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(9) @.str.37) #13
   %631 = icmp eq i32 %630, 0
   br i1 %631, label %632, label %635
 
@@ -1647,7 +1647,7 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br label %.loopexit.i.i
 
 635:                                              ; preds = %629
-  %636 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(9) @.str.38) #13
+  %636 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(9) @.str.38) #13
   %637 = icmp eq i32 %636, 0
   br i1 %637, label %638, label %641
 
@@ -1660,7 +1660,7 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br label %.loopexit.i.i
 
 641:                                              ; preds = %635
-  %642 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %554, ptr noundef nonnull dereferenceable(10) @.str.39) #13
+  %642 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(10) @.str.39) #13
   %643 = icmp eq i32 %642, 0
   %644 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
   br i1 %643, label %645, label %647
@@ -2379,22 +2379,22 @@ emitAttr.exit96.i:                                ; preds = %.loopexit.i95.i, %8
   br i1 %.not127.i.i.i, label %emitAttr.exit88.i, label %868
 
 868:                                              ; preds = %emitAttr.exit96.i
-  %869 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull dereferenceable(8) @.str.73) #13
+  %869 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull readonly dereferenceable(8) @.str.73) #13
   %870 = icmp eq i32 %869, 0
   br i1 %870, label %.sink.split227.i.i.i, label %871
 
 871:                                              ; preds = %868
-  %872 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull dereferenceable(5) @.str.76) #13
+  %872 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.76) #13
   %873 = icmp eq i32 %872, 0
   br i1 %873, label %.sink.split227.i.i.i, label %874
 
 874:                                              ; preds = %871
-  %875 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull dereferenceable(5) @.str.78) #13
+  %875 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.78) #13
   %876 = icmp eq i32 %875, 0
   br i1 %876, label %.sink.split227.i.i.i, label %877
 
 877:                                              ; preds = %874
-  %878 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull dereferenceable(5) @.str.79) #13
+  %878 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.sroa.21.1.i2764.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.79) #13
   %879 = icmp eq i32 %878, 0
   br i1 %879, label %.sink.split227.i.i.i, label %emitAttr.exit88.i
 
@@ -2817,7 +2817,7 @@ define internal fastcc i32 @parseStyle(ptr noundef readonly %0) unnamed_addr #8 
   %.sroa.9.037 = phi i64 [ %3, %.lr.ph ], [ %40, %tok_next.exit ]
   %.sroa.4.036 = phi ptr [ %0, %.lr.ph ], [ %39, %tok_next.exit ]
   %7 = tail call i64 @llvm.umin.i64(i64 %.sroa.9.037, i64 5)
-  %8 = tail call i32 @strncmp(ptr noundef nonnull %.sroa.4.036, ptr noundef nonnull @.str.58, i64 noundef %7) #13
+  %8 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.4.036, ptr noundef nonnull readonly @.str.58, i64 noundef %7) #13
   %.not.i.i.i = icmp eq i32 %8, 0
   %9 = icmp eq i64 %.sroa.9.037, 5
   %spec.select.i.i = and i1 %9, %.not.i.i.i
@@ -2829,7 +2829,7 @@ define internal fastcc i32 @parseStyle(ptr noundef readonly %0) unnamed_addr #8 
 
 12:                                               ; preds = %6
   %13 = tail call i64 @llvm.umin.i64(i64 %.sroa.9.037, i64 6)
-  %14 = tail call i32 @strncmp(ptr noundef nonnull %.sroa.4.036, ptr noundef nonnull @.str.59, i64 noundef %13) #13
+  %14 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.4.036, ptr noundef nonnull readonly @.str.59, i64 noundef %13) #13
   %.not.i.i.i21 = icmp eq i32 %14, 0
   %15 = icmp eq i64 %.sroa.9.037, 6
   %spec.select.i.i22 = and i1 %15, %.not.i.i.i21
@@ -2840,7 +2840,7 @@ define internal fastcc i32 @parseStyle(ptr noundef readonly %0) unnamed_addr #8 
   br label %35
 
 18:                                               ; preds = %12
-  %19 = tail call i32 @strncmp(ptr noundef nonnull %.sroa.4.036, ptr noundef nonnull @.str.24, i64 noundef %13) #13
+  %19 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.4.036, ptr noundef nonnull readonly @.str.24, i64 noundef %13) #13
   %.not.i.i.i24 = icmp eq i32 %19, 0
   %spec.select.i.i25 = and i1 %15, %.not.i.i.i24
   br i1 %spec.select.i.i25, label %20, label %22
@@ -2850,7 +2850,7 @@ define internal fastcc i32 @parseStyle(ptr noundef readonly %0) unnamed_addr #8 
   br label %35
 
 22:                                               ; preds = %18
-  %23 = tail call i32 @strncmp(ptr noundef nonnull %.sroa.4.036, ptr noundef nonnull @.str.25, i64 noundef %13) #13
+  %23 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.4.036, ptr noundef nonnull readonly @.str.25, i64 noundef %13) #13
   %.not.i.i.i27 = icmp eq i32 %23, 0
   %spec.select.i.i28 = and i1 %15, %.not.i.i.i27
   br i1 %spec.select.i.i28, label %24, label %26
@@ -2860,7 +2860,7 @@ define internal fastcc i32 @parseStyle(ptr noundef readonly %0) unnamed_addr #8 
   br label %35
 
 26:                                               ; preds = %22
-  %27 = tail call i32 @strncmp(ptr noundef nonnull %.sroa.4.036, ptr noundef nonnull @.str.60, i64 noundef %7) #13
+  %27 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.4.036, ptr noundef nonnull readonly @.str.60, i64 noundef %7) #13
   %.not.i.i.i30 = icmp eq i32 %27, 0
   %spec.select.i.i31 = and i1 %9, %.not.i.i.i30
   br i1 %spec.select.i.i31, label %28, label %30
@@ -2871,7 +2871,7 @@ define internal fastcc i32 @parseStyle(ptr noundef readonly %0) unnamed_addr #8 
 
 30:                                               ; preds = %26
   %31 = tail call i64 @llvm.umin.i64(i64 %.sroa.9.037, i64 4)
-  %32 = tail call i32 @strncmp(ptr noundef nonnull %.sroa.4.036, ptr noundef nonnull @.str.61, i64 noundef %31) #13
+  %32 = tail call i32 @strncmp(ptr noundef nonnull readonly %.sroa.4.036, ptr noundef nonnull readonly @.str.61, i64 noundef %31) #13
   %.not.i.i.i33 = icmp eq i32 %32, 0
   %33 = icmp eq i64 %.sroa.9.037, 4
   %spec.select.i.i34 = and i1 %33, %.not.i.i.i33

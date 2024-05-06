@@ -9378,7 +9378,7 @@ define hidden ptr @nvme_get_opcode_string(i8 noundef zeroext %0, i16 noundef zer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @nvme_is_io_queue_opcode(i8 noundef zeroext %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @nvme_is_io_queue_opcode(i8 noundef zeroext %0) local_unnamed_addr #5 {
   %2 = icmp ult i8 %0, 18
   br i1 %2, label %switch.hole_check, label %3
 

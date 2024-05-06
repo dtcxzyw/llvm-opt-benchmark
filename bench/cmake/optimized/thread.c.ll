@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @platform_needs_custom_semaphore = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_barrier_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_barrier_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @pthread_barrier_init(ptr noundef %0, ptr noundef null, i32 noundef %1) #10
   %4 = sub nsw i32 0, %3
   ret i32 %4
@@ -24,7 +24,7 @@ define dso_local i32 @uv_barrier_init(ptr noundef %0, i32 noundef %1) local_unna
 declare i32 @pthread_barrier_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_barrier_wait(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @uv_barrier_wait(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_barrier_wait(ptr noundef %0) #10
   %3 = add i32 %2, -1
   %or.cond = icmp ult i32 %3, -2
@@ -108,7 +108,7 @@ declare i32 @getrlimit(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @getpagesize() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_thread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_thread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.uv_thread_options_s, align 8
   store i32 0, ptr %4, align 8
   %5 = call i32 @uv_thread_create_ex(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2)
@@ -116,7 +116,7 @@ define dso_local i32 @uv_thread_create(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_thread_create_ex(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_thread_create_ex(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.rlimit, align 8
   %6 = alloca %union.pthread_attr_t, align 8
   %7 = load i32, ptr %1, align 8
@@ -247,7 +247,7 @@ define dso_local i64 @uv_thread_self() local_unnamed_addr #4 {
 declare i64 @pthread_self() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_thread_join(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_thread_join(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %3 = tail call i32 @pthread_join(i64 noundef %2, ptr noundef null) #10
   %4 = sub nsw i32 0, %3
@@ -268,7 +268,7 @@ define dso_local i32 @uv_thread_equal(ptr nocapture noundef readonly %0, ptr noc
 declare i32 @pthread_equal(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_mutex_init(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_mutex_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_init(ptr noundef %0, ptr noundef null) #10
   %3 = sub nsw i32 0, %2
   ret i32 %3
@@ -278,7 +278,7 @@ define dso_local i32 @uv_mutex_init(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_mutex_init_recursive(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_mutex_init_recursive(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %union.pthread_mutexattr_t, align 4
   %3 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %2) #10
   %.not = icmp eq i32 %3, 0
@@ -356,7 +356,7 @@ define dso_local void @uv_mutex_lock(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_mutex_trylock(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -16, 1) i32 @uv_mutex_trylock(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_trylock(ptr noundef %0) #10
   switch i32 %2, label %3 [
     i32 0, label %4
@@ -397,7 +397,7 @@ define dso_local void @uv_mutex_unlock(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_rwlock_init(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_rwlock_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_rwlock_init(ptr noundef %0, ptr noundef null) #10
   %3 = sub nsw i32 0, %2
   ret i32 %3
@@ -441,7 +441,7 @@ define dso_local void @uv_rwlock_rdlock(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @pthread_rwlock_rdlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_rwlock_tryrdlock(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -16, 1) i32 @uv_rwlock_tryrdlock(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_rwlock_tryrdlock(ptr noundef %0) #10
   switch i32 %2, label %3 [
     i32 0, label %4
@@ -499,7 +499,7 @@ define dso_local void @uv_rwlock_wrlock(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @pthread_rwlock_wrlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_rwlock_trywrlock(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -16, 1) i32 @uv_rwlock_trywrlock(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_rwlock_trywrlock(ptr noundef %0) #10
   switch i32 %2, label %3 [
     i32 0, label %4
@@ -553,7 +553,7 @@ define dso_local void @uv_once(ptr noundef %0, ptr noundef %1) local_unnamed_add
 declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_sem_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_sem_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %union.pthread_condattr_t, align 4
   %4 = tail call i32 @pthread_once(ptr noundef nonnull @glibc_version_check_once, ptr noundef nonnull @glibc_version_check) #10
   %.not.i = icmp eq i32 %4, 0
@@ -846,7 +846,7 @@ uv__custom_sem_wait.exit:                         ; preds = %.preheader, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_sem_trywait(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -11, 1) i32 @uv_sem_trywait(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @platform_needs_custom_semaphore, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.preheader, label %3
@@ -923,7 +923,7 @@ uv__custom_sem_trywait.exit:                      ; preds = %.preheader, %.crite
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_cond_init(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cond_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %union.pthread_condattr_t, align 4
   %3 = call i32 @pthread_condattr_init(ptr noundef nonnull %2) #10
   %.not = icmp eq i32 %3, 0
@@ -1043,7 +1043,7 @@ define dso_local void @uv_cond_wait(ptr noundef %0, ptr noundef %1) local_unname
 declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_cond_timedwait(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -110, 1) i32 @uv_cond_timedwait(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = tail call i64 @uv__hrtime(i32 noundef 0) #10
   %6 = add i64 %5, %2
@@ -1075,7 +1075,7 @@ declare i64 @uv__hrtime(i32 noundef) local_unnamed_addr #5
 declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_key_create(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_key_create(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_key_create(ptr noundef %0, ptr noundef null) #10
   %3 = sub nsw i32 0, %2
   ret i32 %3

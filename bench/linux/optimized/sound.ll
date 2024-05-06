@@ -267,7 +267,7 @@ declare dso_local i32 @device_add(ptr noundef) local_unnamed_addr #1
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_unregister_device(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2, 1) i32 @snd_unregister_device(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @sound_mutex) #5
   br label %2
 
@@ -507,7 +507,7 @@ define internal void @alsa_sound_exit() #2 section ".exit.text" align 16 {
 declare dso_local i32 @snd_info_done() local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @alsa_sound_init() #2 section ".init.text" align 16 {
+define internal noundef range(i32 -12, 1) i32 @alsa_sound_init() #2 section ".init.text" align 16 {
   %1 = load i32, ptr @major, align 4
   store i32 %1, ptr @snd_major, align 4
   %2 = load i32, ptr @cards_limit, align 4

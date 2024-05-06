@@ -341,7 +341,7 @@ define internal i32 @dissect_wlancap(ptr noundef %0, ptr noundef %1, ptr noundef
   %79 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %79, i32 noundef 15, ptr noundef nonnull @.str.97, i32 noundef %76) #3
   store i16 513, ptr %37, align 4
-  %80 = trunc i32 %76 to i16
+  %80 = trunc nuw nsw i32 %76 to i16
   %81 = getelementptr inbounds i8, ptr %5, i64 30
   store i16 %80, ptr %81, align 2
   br i1 %.not, label %85, label %82
@@ -425,7 +425,7 @@ define internal i32 @dissect_wlancap(ptr noundef %0, ptr noundef %1, ptr noundef
 122:                                              ; preds = %106
   %123 = or disjoint i16 %110, 4
   store i16 %123, ptr %37, align 4
-  %124 = trunc i32 %120 to i16
+  %124 = trunc nuw nsw i32 %120 to i16
   %125 = getelementptr inbounds i8, ptr %5, i64 36
   store i16 %124, ptr %125, align 4
   br label %126

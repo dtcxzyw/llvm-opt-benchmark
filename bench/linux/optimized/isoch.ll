@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [149 x i8] c"number of request queue slots required by the isochronous bandwidth requested by AGP 3.0 devices exceeds the number provided by the AGP 3.0 bridge!\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @agp_3_5_enable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4

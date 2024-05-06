@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @m_table_common = internal unnamed_addr constant [13 x i32] [i32 -1, i32 0, i32 3, i32 3, i32 6, i32 1, i32 4, i32 6, i32 2, i32 5, i32 0, i32 3, i32 5], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @timelib_day_of_week(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i64 -395, 400) i64 @timelib_day_of_week(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = srem i64 %0, 400
   %5 = srem i64 %0, 100
   %6 = and i64 %0, 3
@@ -59,7 +59,7 @@ timelib_day_of_week_ex.exit:                      ; preds = %8, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @timelib_iso_day_of_week(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i64 -395, 400) i64 @timelib_iso_day_of_week(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = srem i64 %0, 400
   %5 = srem i64 %0, 100
   %6 = and i64 %0, 3
@@ -109,7 +109,7 @@ timelib_day_of_week_ex.exit:                      ; preds = %8, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @timelib_day_of_year(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i64 -9223372036854775808, 9223372036854775807) i64 @timelib_day_of_year(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = and i64 %0, 3
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %10
@@ -136,7 +136,7 @@ define hidden i64 @timelib_day_of_year(i64 noundef %0, i64 noundef %1, i64 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @timelib_days_in_month(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i64 -2147483648, 2147483648) i64 @timelib_days_in_month(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = and i64 %0, 3
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %9
@@ -626,7 +626,7 @@ timelib_daynr_from_weeknr.exit:                   ; preds = %11, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @timelib_valid_time(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @timelib_valid_time(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %or.cond = icmp ult i64 %0, 24
   %4 = icmp ult i64 %1, 60
   %or.cond5.not17 = and i1 %or.cond, %4
@@ -637,7 +637,7 @@ define hidden noundef i32 @timelib_valid_time(i64 noundef %0, i64 noundef %1, i6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @timelib_valid_date(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @timelib_valid_date(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = add i64 %1, -13
   %or.cond = icmp ult i64 %4, -12
   %5 = icmp slt i64 %2, 1

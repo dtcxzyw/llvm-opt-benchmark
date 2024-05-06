@@ -437,17 +437,17 @@ define noundef ptr @PQconnectStartParams(ptr nocapture noundef readonly %0, ptr 
   br i1 %or.cond.i, label %.split.i, label %9
 
 .split.i:                                         ; preds = %.lr.ph181.i
-  %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(14) @uri_designator, i64 noundef 13) #24
+  %21 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %17, ptr noundef nonnull dereferenceable(14) @uri_designator, i64 noundef 13) #24
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %recognized_connection_string.exit.thread.i, label %23
 
 23:                                               ; preds = %.split.i
-  %24 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(12) @short_uri_designator, i64 noundef 11) #24
+  %24 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %17, ptr noundef nonnull dereferenceable(12) @short_uri_designator, i64 noundef 11) #24
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %recognized_connection_string.exit.thread.i, label %recognized_connection_string.exit.i
 
 recognized_connection_string.exit.i:              ; preds = %23
-  %26 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 61) #24
+  %26 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %17, i32 noundef 61) #24
   %.not164.i = icmp eq ptr %26, null
   br i1 %.not164.i, label %.critedge.i, label %recognized_connection_string.exit.thread.i
 
@@ -820,7 +820,7 @@ conninfo_array_parse.exit.thread:                 ; preds = %PQconninfoFree.exit
 .lr.ph.i.i.i:                                     ; preds = %146, %151
   %148 = phi ptr [ %153, %151 ], [ %147, %146 ]
   %.010.i.i.i = phi ptr [ %152, %151 ], [ %29, %146 ]
-  %149 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %148, ptr noundef nonnull dereferenceable(1) %142) #24
+  %149 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %148, ptr noundef nonnull readonly dereferenceable(1) %142) #24
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %conninfo_getval.exit.i, label %151
 
@@ -2062,7 +2062,7 @@ pqGetHomeDirectory.exit:                          ; preds = %217, %220
   ]
 
 266:                                              ; preds = %264, %264
-  %267 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0305, ptr noundef nonnull dereferenceable(5) @.str.1) #24
+  %267 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0305, ptr noundef nonnull dereferenceable(5) @.str.1) #24
   %268 = icmp eq i32 %267, 0
   %spec.store.select.i = select i1 %268, ptr @.str.241, ptr %.0305
   br label %269
@@ -2190,12 +2190,12 @@ pqGetHomeDirectory.exit:                          ; preds = %217, %220
   br i1 %.not71.i, label %347, label %329
 
 329:                                              ; preds = %327
-  %330 = call fastcc ptr @pwdfMatchesString(ptr noundef nonnull %328, ptr noundef nonnull %251)
+  %330 = call fastcc ptr @pwdfMatchesString(ptr noundef nonnull %328, ptr noundef nonnull readonly %251)
   %.not72.i = icmp eq ptr %330, null
   br i1 %.not72.i, label %347, label %331
 
 331:                                              ; preds = %329
-  %332 = call fastcc ptr @pwdfMatchesString(ptr noundef nonnull %330, ptr noundef nonnull %252)
+  %332 = call fastcc ptr @pwdfMatchesString(ptr noundef nonnull %330, ptr noundef nonnull readonly %252)
   %.not73.i = icmp eq ptr %332, null
   br i1 %.not73.i, label %347, label %333
 
@@ -2929,7 +2929,7 @@ define internal fastcc noundef zeroext i1 @connectOptions1(ptr noundef %0, ptr n
 .lr.ph.i.i.i:                                     ; preds = %12, %17
   %14 = phi ptr [ %19, %17 ], [ %13, %12 ]
   %.010.i.i.i = phi ptr [ %18, %17 ], [ %4, %12 ]
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %8) #24
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %8) #24
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %conninfo_getval.exit.i, label %17
 
@@ -3264,7 +3264,7 @@ define internal fastcc noundef zeroext i1 @conninfo_add_defaults(ptr noundef %0,
 .lr.ph.i.i.i:                                     ; preds = %2, %11
   %8 = phi ptr [ %13, %11 ], [ %7, %2 ]
   %.010.i.i.i = phi ptr [ %12, %11 ], [ %0, %2 ]
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(8) @.str.130) #24
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(8) @.str.130) #24
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %conninfo_getval.exit.i, label %11
 
@@ -3526,17 +3526,17 @@ define noundef ptr @PQsetdbLogin(ptr noundef readonly %0, ptr noundef readonly %
   br i1 %.not, label %19, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(14) @uri_designator, i64 noundef 13) #24
+  %12 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(14) @uri_designator, i64 noundef 13) #24
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %recognized_connection_string.exit.thread, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(12) @short_uri_designator, i64 noundef 11) #24
+  %15 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %4, ptr noundef nonnull dereferenceable(12) @short_uri_designator, i64 noundef 11) #24
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %recognized_connection_string.exit.thread, label %recognized_connection_string.exit
 
 recognized_connection_string.exit:                ; preds = %14
-  %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 61) #24
+  %17 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %4, i32 noundef 61) #24
   %.not81 = icmp eq ptr %17, null
   br i1 %.not81, label %.thread, label %recognized_connection_string.exit.thread
 
@@ -6443,12 +6443,12 @@ define noundef ptr @PQconninfoParse(ptr noundef %0, ptr noundef writeonly %1) lo
 define internal fastcc noundef ptr @parse_connection_string(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.PQExpBufferData, align 8
-  %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @uri_designator, i64 noundef 13) #24
+  %6 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @uri_designator, i64 noundef 13) #24
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %select.unfold, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(12) @short_uri_designator, i64 noundef 11) #24
+  %9 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(12) @short_uri_designator, i64 noundef 11) #24
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %select.unfold, label %uri_prefix_length.exit
 
@@ -6518,12 +6518,12 @@ conninfo_init.exit.i:                             ; preds = %23, %.lr.ph.prehead
   br label %.preheader.i13.critedge.i
 
 35:                                               ; preds = %31
-  %36 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @uri_designator, i64 noundef 13) #24
+  %36 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @uri_designator, i64 noundef 13) #24
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %select.unfold.i.i, label %38
 
 38:                                               ; preds = %35
-  %39 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(12) @short_uri_designator, i64 noundef 11) #24
+  %39 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(12) @short_uri_designator, i64 noundef 11) #24
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %select.unfold.i.i, label %uri_prefix_length.exit.i.i
 
@@ -6575,7 +6575,7 @@ select.unfold.i.i:                                ; preds = %38, %35
 .lr.ph.i.i.i.i:                                   ; preds = %50, %55
   %52 = phi ptr [ %57, %55 ], [ %51, %50 ]
   %.010.i.i.i.i = phi ptr [ %56, %55 ], [ %11, %50 ]
-  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(5) @.str.113) #24
+  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull readonly dereferenceable(5) @.str.113) #24
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %conninfo_find.exit.i.i.i, label %55
 
@@ -6627,7 +6627,7 @@ conninfo_storeval.exit.i.i:                       ; preds = %conninfo_find.exit.
 .lr.ph.i.i181.i.i:                                ; preds = %69, %74
   %71 = phi ptr [ %76, %74 ], [ %70, %69 ]
   %.010.i.i182.i.i = phi ptr [ %75, %74 ], [ %11, %69 ]
-  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(9) @.str.7) #24
+  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull readonly dereferenceable(9) @.str.7) #24
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %conninfo_find.exit.i186.i.i, label %74
 
@@ -6800,7 +6800,7 @@ conninfo_storeval.exit189.i.i:                    ; preds = %conninfo_find.exit.
 .lr.ph.i.i193.i.i:                                ; preds = %126, %131
   %128 = phi ptr [ %133, %131 ], [ %127, %126 ]
   %.010.i.i194.i.i = phi ptr [ %132, %131 ], [ %11, %126 ]
-  %129 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(5) @.str.117) #24
+  %129 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull readonly dereferenceable(5) @.str.117) #24
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %conninfo_find.exit.i198.i.i, label %131
 
@@ -6976,7 +6976,7 @@ conninfo_init.exit.thread.i19:                    ; preds = %uri_prefix_length.e
   br label %conninfo_init.exit.i12
 
 conninfo_init.exit.i12:                           ; preds = %181, %.lr.ph.preheader.i.i18, %178
-  %182 = tail call noalias ptr @strdup(ptr noundef %0) #23
+  %182 = tail call noalias ptr @strdup(ptr noundef readonly %0) #23
   %183 = icmp eq ptr %182, null
   br i1 %183, label %.preheader.i96.i, label %.preheader123.i
 
@@ -7358,7 +7358,7 @@ conninfo_init.exit.thread:                        ; preds = %8
 .lr.ph.i.i:                                       ; preds = %35, %40
   %37 = phi ptr [ %42, %40 ], [ %36, %35 ]
   %.010.i.i = phi ptr [ %41, %40 ], [ %9, %35 ]
-  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %.020.i) #24
+  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull readonly dereferenceable(1) %.020.i) #24
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %conninfo_find.exit.i, label %40
 
@@ -7421,7 +7421,7 @@ define internal fastcc noundef ptr @conninfo_storeval(ptr noundef %0, ptr nounde
 .lr.ph.i:                                         ; preds = %12, %17
   %14 = phi ptr [ %19, %17 ], [ %13, %12 ]
   %.010.i = phi ptr [ %18, %17 ], [ %0, %12 ]
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %.020) #24
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %.020) #24
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %conninfo_find.exit, label %17
 
@@ -8234,7 +8234,7 @@ define internal fastcc noundef zeroext i1 @conninfo_uri_parse_params(ptr noundef
 .lr.ph.i.i:                                       ; preds = %41, %46
   %43 = phi ptr [ %48, %46 ], [ %42, %41 ]
   %.010.i.i = phi ptr [ %47, %46 ], [ %1, %41 ]
-  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %.020.i) #24
+  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull readonly dereferenceable(1) %.020.i) #24
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %conninfo_find.exit.i, label %46
 

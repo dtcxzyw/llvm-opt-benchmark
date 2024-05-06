@@ -243,7 +243,7 @@ define internal i32 @dissect_xdmcp(ptr noundef %0, ptr noundef %1, ptr noundef %
 37:                                               ; preds = %29
   %38 = load i32, ptr @hf_xdmcp_client_address_bytes, align 4
   %39 = load i32, ptr @hf_xdmcp_client_address_bytes_len, align 4
-  %40 = tail call fastcc i32 @xdmcp_add_bytes(ptr noundef %16, i32 noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef 6), !range !4
+  %40 = tail call fastcc i32 @xdmcp_add_bytes(ptr noundef %16, i32 noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef 6)
   %41 = add nuw nsw i32 %40, 6
   br label %42
 
@@ -263,7 +263,7 @@ define internal i32 @dissect_xdmcp(ptr noundef %0, ptr noundef %1, ptr noundef %
 50:                                               ; preds = %42
   %51 = load i32, ptr @hf_xdmcp_client_port_bytes, align 4
   %52 = load i32, ptr @hf_xdmcp_client_port_len, align 4
-  %53 = tail call fastcc i32 @xdmcp_add_bytes(ptr noundef %16, i32 noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %.0244), !range !4
+  %53 = tail call fastcc i32 @xdmcp_add_bytes(ptr noundef %16, i32 noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %.0244)
   %54 = add nuw nsw i32 %53, %.0244
   br label %55
 
@@ -297,7 +297,7 @@ define internal i32 @dissect_xdmcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %71 = add i32 %69, %.021.i
   %72 = add nsw i32 %.01920.i, -1
   %73 = icmp ugt i32 %.01920.i, 1
-  br i1 %73, label %.lr.ph.i, label %xdmcp_add_authentication_names.exit, !llvm.loop !5
+  br i1 %73, label %.lr.ph.i, label %xdmcp_add_authentication_names.exit, !llvm.loop !4
 
 xdmcp_add_authentication_names.exit:              ; preds = %.lr.ph.i, %55
   %.0.lcssa.i = phi i32 [ %61, %55 ], [ %71, %.lr.ph.i ]
@@ -433,7 +433,7 @@ xdmcp_add_authentication_names.exit:              ; preds = %.lr.ph.i, %55
   %167 = add i32 %141, %140
   %168 = add nuw nsw i32 %.0246259, 1
   %exitcond.not = icmp eq i32 %.0246259, %125
-  br i1 %exitcond.not, label %._crit_edge, label %136, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %136, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %166, %131
   %.0245.lcssa = phi i32 [ %134, %131 ], [ %167, %166 ]
@@ -441,17 +441,17 @@ xdmcp_add_authentication_names.exit:              ; preds = %.lr.ph.i, %55
   %170 = add i32 %.0245.lcssa, -8
   call void @proto_item_set_len(ptr noundef %169, i32 noundef %170) #3
   %171 = load i32, ptr @hf_xdmcp_authentication_name, align 4
-  %172 = call fastcc i32 @xdmcp_add_string(ptr noundef %16, i32 noundef %171, ptr noundef %0, i32 noundef %.0245.lcssa), !range !4
+  %172 = call fastcc i32 @xdmcp_add_string(ptr noundef %16, i32 noundef %171, ptr noundef %0, i32 noundef %.0245.lcssa)
   %173 = add i32 %172, %.0245.lcssa
   %174 = load i32, ptr @hf_xdmcp_authentication_data, align 4
   %175 = load i32, ptr @hf_xdmcp_authentication_data_len, align 4
-  %176 = call fastcc i32 @xdmcp_add_bytes(ptr noundef %16, i32 noundef %174, i32 noundef %175, ptr noundef %0, i32 noundef %173), !range !4
+  %176 = call fastcc i32 @xdmcp_add_bytes(ptr noundef %16, i32 noundef %174, i32 noundef %175, ptr noundef %0, i32 noundef %173)
   %177 = add i32 %176, %173
   %178 = call fastcc i32 @xdmcp_add_authorization_names(ptr noundef %16, ptr noundef %0, i32 noundef %177)
   %179 = add i32 %177, %178
   %180 = load i32, ptr @hf_xdmcp_manufacturer_display_id, align 4
   %181 = load i32, ptr @hf_xdmcp_manufacturer_display_id_len, align 4
-  %182 = call fastcc i32 @xdmcp_add_bytes(ptr noundef %16, i32 noundef %180, i32 noundef %181, ptr noundef %0, i32 noundef %179), !range !4
+  %182 = call fastcc i32 @xdmcp_add_bytes(ptr noundef %16, i32 noundef %180, i32 noundef %181, ptr noundef %0, i32 noundef %179)
   %183 = add i32 %182, %179
   br label %286
 
@@ -603,7 +603,7 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @xdmcp_add_bytes(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 2, 65538) i32 @xdmcp_add_bytes(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %4) #3
   %7 = zext i16 %6 to i32
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 2, i32 noundef 0) #3
@@ -613,7 +613,7 @@ define internal fastcc noundef i32 @xdmcp_add_bytes(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @xdmcp_add_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 2, 65538) i32 @xdmcp_add_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %3) #3
   %6 = zext i16 %5 to i32
   %7 = tail call ptr @wmem_packet_scope() #3
@@ -666,7 +666,7 @@ define internal fastcc noundef i32 @xdmcp_add_authorization_names(ptr noundef %0
   %20 = add i32 %18, %.021
   %21 = add nsw i32 %.01920, -1
   %22 = icmp ugt i32 %.01920, 1
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ %10, %3 ], [ %20, %.lr.ph ]
@@ -701,8 +701,7 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 2, i32 65538}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

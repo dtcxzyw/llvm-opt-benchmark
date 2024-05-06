@@ -302,7 +302,7 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   br i1 %199, label %200, label %190, !llvm.loop !13
 
 200:                                              ; preds = %193
-  %201 = trunc i64 %191 to i32
+  %201 = trunc nsw i64 %191 to i32
   br label %.loopexit22
 
 .loopexit22:                                      ; preds = %190, %200

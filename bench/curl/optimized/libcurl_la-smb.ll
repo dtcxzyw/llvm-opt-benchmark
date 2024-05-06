@@ -125,7 +125,7 @@ return:                                           ; preds = %entry, %smb_parse_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @smb_do(ptr nocapture noundef readonly %data, ptr nocapture noundef writeonly %done) #1 {
+define internal range(i32 0, 4) i32 @smb_do(ptr nocapture noundef readonly %data, ptr nocapture noundef writeonly %done) #1 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -138,7 +138,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @smb_connect(ptr nocapture noundef readonly %data, ptr nocapture readnone %done) #0 {
+define internal range(i32 0, 68) i32 @smb_connect(ptr nocapture noundef readonly %data, ptr nocapture readnone %done) #0 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -769,7 +769,7 @@ if.end.i102:                                      ; preds = %sw.bb155
   store i16 %conv12.i, ptr %byte_count.i, align 1
   %data.val.i = load ptr, ptr %conn1, align 8
   %data.val23.i = load ptr, ptr %p, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %49, i8 0, i64 36, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(36) %49, i8 0, i64 36, i1 false)
   %conv.i.i = add i16 %conv11.i, 64
   %call.i.i = call zeroext i16 @htons(i16 noundef zeroext %conv.i.i) #14
   %nbt_length.i.i = getelementptr inbounds i8, ptr %49, i64 2
@@ -1077,8 +1077,8 @@ if.then21.i:                                      ; preds = %if.end17.i
   br i1 %cmp27.not.i, label %if.end40.i, label %if.then29.i
 
 if.then29.i:                                      ; preds = %if.then21.i
-  %22 = getelementptr i8, ptr %16, i64 %mul.i
-  %arrayidx30.i = getelementptr i8, ptr %22, i64 37
+  %22 = getelementptr inbounds i8, ptr %16, i64 %mul.i
+  %arrayidx30.i = getelementptr inbounds i8, ptr %22, i64 37
   %call31.i = call zeroext i16 @Curl_read16_le(ptr noundef nonnull %arrayidx30.i) #12
   %conv32.i = zext i16 %call31.i to i64
   %add34.i = add nuw nsw i64 %add26.i, %conv32.i
@@ -1202,7 +1202,7 @@ if.end:                                           ; preds = %entry
   %data.val = load ptr, ptr %1, align 8
   %2 = getelementptr i8, ptr %data, i64 392
   %data.val8 = load ptr, ptr %2, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %0, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(36) %0, i8 0, i64 36, i1 false)
   %3 = trunc i64 %msg_len to i16
   %conv.i = add i16 %3, 32
   %call.i = tail call zeroext i16 @htons(i16 noundef zeroext %conv.i) #14

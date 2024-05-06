@@ -1415,7 +1415,7 @@ if.end.i:                                         ; preds = %if.then38
 if.then1.i:                                       ; preds = %if.end.i
   %.pre.i = load i32, ptr %n.i, align 4
   %conv.i = zext i32 %.pre.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %call.i, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %16, ptr align 1 %call.i, i64 %conv.i, i1 false)
   br label %esp_fifo_pop_buf.exit
 
 esp_fifo_pop_buf.exit:                            ; preds = %if.then38, %if.end.i, %if.then1.i
@@ -1512,7 +1512,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare void @fifo8_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @esp_reg_read(ptr noundef %s, i32 noundef %saddr) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @esp_reg_read(ptr noundef %s, i32 noundef %saddr) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -3560,7 +3560,7 @@ esp_fifo_pop_buf.exit.i11:                        ; preds = %lor.lhs.false.i
   %call.i.i12 = call ptr @fifo8_pop_buf(ptr noundef nonnull %cmdfifo.i9, i32 noundef %call.i, ptr noundef nonnull %n.i.i3) #10
   %.pre.i.i = load i32, ptr %n.i.i3, align 4
   %conv.i.i = zext i32 %.pre.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %call.i.i12, i64 %conv.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %buf.i, ptr align 1 %call.i.i12, i64 %conv.i.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i.i3)
   %bus.i = getelementptr inbounds i8, ptr %s, i64 248
   %17 = load ptr, ptr %current_dev.i, align 8
@@ -3820,7 +3820,7 @@ esp_fifo_pop_buf.exit:                            ; preds = %if.else30
   %call.i39 = call ptr @fifo8_pop_buf(ptr noundef nonnull %fifo, i32 noundef %cond38, ptr noundef nonnull %n.i) #10
   %.pre.i = load i32, ptr %n.i, align 4
   %conv.i = zext i32 %.pre.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr align 1 %call.i39, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %buf, ptr align 1 %call.i39, i64 %conv.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i)
   %cmdfifo46 = getelementptr inbounds i8, ptr %s, i64 408
   %call47 = call i32 @fifo8_num_free(ptr noundef nonnull %cmdfifo46) #10
@@ -4101,7 +4101,7 @@ sw.epilog:                                        ; preds = %if.then.i, %sw.bb, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @sysbus_esp_mem_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @sysbus_esp_mem_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %esp = getelementptr inbounds i8, ptr %opaque, i64 1368
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %esp, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
@@ -4110,7 +4110,7 @@ entry:
   %sh_prom = zext nneg i32 %0 to i64
   %shr = lshr i64 %addr, %sh_prom
   %conv = trunc i64 %shr to i32
-  %call1 = tail call i64 @esp_reg_read(ptr noundef %call.i, i32 noundef %conv), !range !9
+  %call1 = tail call i64 @esp_reg_read(ptr noundef %call.i, i32 noundef %conv)
   ret i64 %call1
 }
 
@@ -4145,7 +4145,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @sysbus_esp_pdma_read(ptr noundef %opaque, i64 %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 65536) i64 @sysbus_esp_pdma_read(ptr noundef %opaque, i64 %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %esp = getelementptr inbounds i8, ptr %opaque, i64 1368
@@ -4640,7 +4640,7 @@ if.end.i.i:                                       ; preds = %if.then39.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   %conv.i.i = zext i32 %.pre.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %call.i.i, i64 %conv.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %33, ptr align 1 %call.i.i, i64 %conv.i.i, i1 false)
   br label %esp_fifo_pop_buf.exit.i
 
 esp_fifo_pop_buf.exit.i:                          ; preds = %if.then1.i.i, %if.end.i.i, %if.then39.i
@@ -4670,7 +4670,7 @@ if.then57.i:                                      ; preds = %esp_fifo_pop_buf.ex
   br i1 %tobool.not.i82.i, label %esp_fifo_pop_buf.exit87.i, label %if.then1.i84.i
 
 if.then1.i84.i:                                   ; preds = %if.then57.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %call.i81.i, i64 %.pre.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr.i, ptr align 1 %call.i81.i, i64 %.pre.i, i1 false)
   br label %esp_fifo_pop_buf.exit87.i
 
 esp_fifo_pop_buf.exit87.i:                        ; preds = %if.then1.i84.i, %if.then57.i
@@ -4987,4 +4987,3 @@ attributes #11 = { noreturn nounwind }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i64 0, i64 4294967296}

@@ -5506,7 +5506,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream6DoPullESt8functionIFviPK10ngtcp2_vecmS4_IS0_EEEiPS5_mmE3$_0E9_M_invokeERKSt9_Any_dataOm", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream6DoPullESt8functionIFviPK10ngtcp2_vecmS4_IS0_EEEiPS5_mmE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
@@ -5548,7 +5548,7 @@ if.end:                                           ; preds = %lor.lhs.false
 if.then4:                                         ; preds = %if.end
   %_M_manager.i.i7 = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
   %_M_invoker.i8 = getelementptr inbounds i8, ptr %agg.tmp5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp5, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream6DoPullESt8functionIFviPK10ngtcp2_vecmS4_IS0_EEEiPS5_mmE3$_1E9_M_invokeERKSt9_Any_dataOm", ptr %_M_invoker.i8, align 8
   store ptr @"_ZNSt17_Function_handlerIFvmEZN4node4quic6Stream6DoPullESt8functionIFviPK10ngtcp2_vecmS4_IS0_EEEiPS5_mmE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i9)

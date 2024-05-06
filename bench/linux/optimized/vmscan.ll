@@ -3056,7 +3056,7 @@ define dso_local void @__acct_reclaim_writeback(ptr noundef %0, ptr noundef %1, 
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @remove_mapping(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @remove_mapping(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = tail call fastcc i32 @__remove_mapping(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false, ptr noundef null), !range !61
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %14, label %5
@@ -3082,7 +3082,7 @@ define dso_local i64 @remove_mapping(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__remove_mapping(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @__remove_mapping(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #1 align 16 {
   %5 = load volatile i64, ptr %1, align 8
   %6 = and i64 %5, 1
   %7 = icmp eq i64 %6, 0
@@ -4709,7 +4709,7 @@ define dso_local noundef zeroext i1 @folio_isolate_lru(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @reclaim_pages(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @reclaim_pages(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.reclaim_stat, align 4
   %3 = alloca %struct.scan_control, align 8
   %4 = alloca %struct.reclaim_stat, align 4
@@ -7112,7 +7112,7 @@ define internal noundef i32 @kswapd_init() #5 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @node_reclaim(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -2, 2) i32 @node_reclaim(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = alloca %struct.scan_control, align 8
   %5 = load i32, ptr @node_reclaim_mode, align 4
   %6 = and i32 %5, 4

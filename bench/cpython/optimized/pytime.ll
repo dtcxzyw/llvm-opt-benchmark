@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [2 x i8] c"i\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestInternalCapi_Init_PyTime(ptr noundef %m) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyTestInternalCapi_Init_PyTime(ptr noundef %m) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyModule_AddFunctions(ptr noundef %m, ptr noundef nonnull @TestMethods) #2
   %call.lobit = ashr i32 %call, 31

@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__dso_handle = external hidden global i8
 @.str = private unnamed_addr constant [9 x i8] c"LANGUAGE\00", align 1
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.3 = private unnamed_addr constant [22 x i8] c"Gettext: domainname=\22\00", align 1
 @.str.4 = private unnamed_addr constant [9 x i8] c"\22 path=\22\00", align 1
 @.str.5 = private unnamed_addr constant [2 x i8] c"\22\00", align 1

@@ -2453,7 +2453,7 @@ if.end.i:                                         ; preds = %if.end221
   br i1 %cmp.not.i103, label %if.end3.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %call2.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %packageName) #23
+  %call2.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %packageName) #23
   %55 = trunc i64 %call2.i to i32
   %conv.i104 = add i32 %55, 1
   br label %if.end3.i
@@ -2522,7 +2522,7 @@ if.end30.i:                                       ; preds = %call27.i.noexc
   br i1 %cmp.not.i103, label %if.end36.i, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.end30.i
-  %call34.i = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %call27.i109, ptr noundef nonnull dereferenceable(1) %packageName) #18
+  %call34.i = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %call27.i109, ptr noundef nonnull readonly dereferenceable(1) %packageName) #18
   %strlen43.i = call i64 @strlen(ptr nonnull dereferenceable(1) %call27.i109)
   %endptr44.i = getelementptr inbounds i8, ptr %call27.i109, i64 %strlen43.i
   store i16 95, ptr %endptr44.i, align 1
@@ -2533,7 +2533,7 @@ if.end36.i:                                       ; preds = %if.then33.i, %if.en
   br label %finish.i
 
 if.else.i:                                        ; preds = %.noexc108
-  %call38.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %outputDir) #23
+  %call38.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %outputDir) #23
   %conv39.i = trunc i64 %call38.i to i32
   %conv41.i = trunc i64 %call22.i to i32
   %add42.i = add i32 %pkgLen.0.i, 8
@@ -2552,7 +2552,7 @@ if.then49.i:                                      ; preds = %call47.i.noexc
   br label %finish.i
 
 if.end50.i:                                       ; preds = %call47.i.noexc
-  %call51.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call47.i110, ptr noundef nonnull dereferenceable(1) %outputDir) #18
+  %call51.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call47.i110, ptr noundef nonnull readonly dereferenceable(1) %outputDir) #18
   %sext.i = shl i64 %call38.i, 32
   %idxprom.i = ashr exact i64 %sext.i, 32
   %arrayidx.i = getelementptr inbounds i8, ptr %outputDir, i64 %idxprom.i
@@ -2573,7 +2573,7 @@ if.end60.i:                                       ; preds = %if.then54.i, %if.en
   br i1 %cmp.not.i103, label %if.end65.i, label %if.then62.i
 
 if.then62.i:                                      ; preds = %if.end60.i
-  %call63.i = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %call47.i110, ptr noundef nonnull dereferenceable(1) %packageName) #18
+  %call63.i = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %call47.i110, ptr noundef nonnull readonly dereferenceable(1) %packageName) #18
   %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %call47.i110)
   %endptr.i = getelementptr inbounds i8, ptr %call47.i110, i64 %strlen.i
   store i16 95, ptr %endptr.i, align 1

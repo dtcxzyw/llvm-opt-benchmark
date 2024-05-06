@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [119 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/bn/gcd.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BN_gcd(ptr noundef %r, ptr noundef %in_a, ptr noundef %in_b, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_gcd(ptr noundef %r, ptr noundef %in_a, ptr noundef %in_b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #3
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #3

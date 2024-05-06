@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [93 x i8] c"mca_sharedfp_individual_file_open: Error during metadatafile file open. Continuing anyway. \0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_sharedfp_individual_file_open(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_sharedfp_individual_file_open(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %6 = icmp eq ptr %calloc, null
   br i1 %6, label %7, label %8

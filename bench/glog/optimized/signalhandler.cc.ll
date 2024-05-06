@@ -87,8 +87,8 @@ $_ZTIN6google12base_logging12LogStreamBufE = comdat any
 @_ZTISt15basic_streambufIcSt11char_traitsIcEE = external constant ptr
 @_ZTIN6google12base_logging12LogStreamBufE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6google12base_logging12LogStreamBufE, ptr @_ZTISt15basic_streambufIcSt11char_traitsIcEE }, comdat, align 8
 @_ZN6google12_GLOBAL__N_18signaledE = internal global %"struct.std::once_flag" zeroinitializer, align 4
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @.str.2 = private unnamed_addr constant [5 x i8] c"PC: \00", align 1
 @.str.3 = private unnamed_addr constant [5 x i8] c"    \00", align 1
 @.str.4 = private unnamed_addr constant [16 x i8] c"*** Aborted at \00", align 1
@@ -581,7 +581,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i: ; preds = %
   br i1 %exitcond.not, label %.lr.ph.i.i.i.preheader.i, label %17
 
 17:                                               ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
   %18 = urem i64 %.0.i.i, 10
   %19 = udiv i64 %.0.i.i, 10
   %20 = trunc nuw nsw i64 %18 to i8
@@ -808,7 +808,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit.i11: ; preds =
   br i1 %exitcond245.not.i, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit19.i, label %87
 
 87:                                               ; preds = %.lr.ph.i.i
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.010.i16.i
+  %gep.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %.010.i16.i
   store i8 %86, ptr %gep.i, align 1
   %88 = add nuw nsw i64 %.010.i16.i, 1
   %89 = getelementptr inbounds i8, ptr %.1.i, i64 %88
@@ -824,7 +824,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit19.i: ; preds =
 91:                                               ; preds = %91, %.preheader.preheader.i
   %92 = phi i8 [ %95, %91 ], [ 83, %.preheader.preheader.i ]
   %.010.i21.i = phi i64 [ %93, %91 ], [ 0, %.preheader.preheader.i ]
-  %gep268.i = getelementptr i8, ptr %invariant.gep267.i, i64 %.010.i21.i
+  %gep268.i = getelementptr inbounds i8, ptr %invariant.gep267.i, i64 %.010.i21.i
   store i8 %92, ptr %gep268.i, align 1
   %93 = add nuw nsw i64 %.010.i21.i, 1
   %94 = getelementptr inbounds i8, ptr @.str.14, i64 %93
@@ -845,7 +845,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit24.i: ; preds =
   br i1 %exitcond63.not, label %.lr.ph.i.i.i.preheader.i17, label %98
 
 98:                                               ; preds = %97
-  %gep89 = getelementptr i8, ptr %invariant.gep88, i64 %indvars.iv59
+  %gep89 = getelementptr inbounds i8, ptr %invariant.gep88, i64 %indvars.iv59
   %99 = urem i64 %.0.i.i15, 10
   %100 = udiv i64 %.0.i.i15, 10
   %101 = trunc nuw nsw i64 %99 to i8

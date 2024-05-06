@@ -214,7 +214,7 @@ kdf_pbkdf2_init.exit:                             ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_pbkdf2_derive(ptr noundef %vctx, ptr nocapture noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kdf_pbkdf2_derive(ptr noundef %vctx, ptr nocapture noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %digtmp.i = alloca [64 x i8], align 16
   %itmp.i = alloca [4 x i8], align 1
@@ -223,7 +223,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @kdf_pbkdf2_set_ctx_params(ptr noundef %vctx, ptr noundef %params), !range !4
+  %call1 = tail call i32 @kdf_pbkdf2_set_ctx_params(ptr noundef %vctx, ptr noundef %params)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end
 
@@ -414,14 +414,14 @@ lor.lhs.false79.us60.i:                           ; preds = %if.end74.us57.i
 for.cond85.preheader.us63.i:                      ; preds = %lor.lhs.false79.us60.i
   %inc96.us64.i = add nuw i64 %j.043.us54.i, 1
   %exitcond.not.i = icmp eq i64 %inc96.us64.i, %6
-  br i1 %exitcond.not.i, label %for.cond.for.end97_crit_edge.us.i, label %for.body.us53.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %for.cond.for.end97_crit_edge.us.i, label %for.body.us53.i, !llvm.loop !4
 
 for.cond.for.end97_crit_edge.us.i:                ; preds = %for.cond85.preheader.us63.i, %for.cond85.for.inc95_crit_edge.us.us.i
   %sub.us.i = sub nsw i32 %tkeylen.047.us.fr.i, %call.tkeylen.0.us.i
   %inc98.us.i = add i64 %i.048.us.i, 1
   %add.ptr.us.i = getelementptr inbounds i8, ptr %p.045.us.i, i64 %conv68.us.i
   %tobool35.not.us.i = icmp eq i32 %sub.us.i, 0
-  br i1 %tobool35.not.us.i, label %err.i, label %while.body.us.i, !llvm.loop !7
+  br i1 %tobool35.not.us.i, label %err.i, label %while.body.us.i, !llvm.loop !6
 
 for.body.us.us.i:                                 ; preds = %for.cond85.for.inc95_crit_edge.us.us.i, %for.body.us.us.preheader.i
   %j.043.us.us.i = phi i64 [ %inc96.us.us.i, %for.cond85.for.inc95_crit_edge.us.us.i ], [ 1, %for.body.us.us.preheader.i ]
@@ -449,12 +449,12 @@ for.body88.us.us.i:                               ; preds = %lor.lhs.false79.us.
   store i8 %xor38.us.us.i, ptr %arrayidx92.us.us.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond78.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond78.not.i, label %for.cond85.for.inc95_crit_edge.us.us.i, label %for.body88.us.us.i, !llvm.loop !8
+  br i1 %exitcond78.not.i, label %for.cond85.for.inc95_crit_edge.us.us.i, label %for.body88.us.us.i, !llvm.loop !7
 
 for.cond85.for.inc95_crit_edge.us.us.i:           ; preds = %for.body88.us.us.i
   %inc96.us.us.i = add nuw i64 %j.043.us.us.i, 1
   %exitcond79.not.i = icmp eq i64 %inc96.us.us.i, %6
-  br i1 %exitcond79.not.i, label %for.cond.for.end97_crit_edge.us.i, label %for.body.us.us.i, !llvm.loop !5
+  br i1 %exitcond79.not.i, label %for.cond.for.end97_crit_edge.us.i, label %for.body.us.us.i, !llvm.loop !4
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %if.end66.i
   %i.048.i = phi i64 [ %inc98.i, %if.end66.i ], [ 1, %while.body.lr.ph.i ]
@@ -498,7 +498,7 @@ if.end66.i:                                       ; preds = %lor.lhs.false61.i
   %inc98.i = add i64 %i.048.i, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %p.045.i, i64 %conv68.i
   %tobool35.not.i = icmp eq i32 %sub.i, 0
-  br i1 %tobool35.not.i, label %err.i, label %while.body.i, !llvm.loop !7
+  br i1 %tobool35.not.i, label %err.i, label %while.body.i, !llvm.loop !6
 
 err.i:                                            ; preds = %if.end66.i, %lor.lhs.false61.i, %lor.lhs.false.i, %if.end55.i, %while.body.i, %for.cond.for.end97_crit_edge.us.i, %lor.lhs.false61.us.i, %lor.lhs.false.us.i, %if.end55.us.i, %while.body.us.i, %lor.lhs.false79.us60.i, %if.end74.us57.i, %for.body.us53.i, %lor.lhs.false79.us.us.i, %if.end74.us.us.i, %for.body.us.us.i, %while.cond.preheader.i, %if.end29.i, %if.end23.i
   %ret.0.i = phi i32 [ 0, %if.end29.i ], [ 0, %if.end23.i ], [ 1, %while.cond.preheader.i ], [ 0, %for.body.us.us.i ], [ 0, %if.end74.us.us.i ], [ 0, %lor.lhs.false79.us.us.i ], [ 0, %for.body.us53.i ], [ 0, %if.end74.us57.i ], [ 0, %lor.lhs.false79.us60.i ], [ 1, %for.cond.for.end97_crit_edge.us.i ], [ 0, %if.end55.us.i ], [ 0, %lor.lhs.false.us.i ], [ 0, %lor.lhs.false61.us.i ], [ 0, %while.body.us.i ], [ 1, %if.end66.i ], [ 0, %if.end55.i ], [ 0, %lor.lhs.false.i ], [ 0, %lor.lhs.false61.i ], [ 0, %while.body.i ]
@@ -525,7 +525,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_pbkdf2_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kdf_pbkdf2_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %pkcs5 = alloca i32, align 4
   %iter = alloca i64, align 8
@@ -790,8 +790,7 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

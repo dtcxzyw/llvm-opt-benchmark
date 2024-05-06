@@ -532,7 +532,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %27
   %.0..0..0..0.11 = load volatile i32, ptr %1, align 4
-  %20 = call i32 @llvm.cttz.i32(i32 %.0..0..0..0.11, i1 true), !range !15
+  %20 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.0..0..0..0.11, i1 true)
   %cond = icmp eq i32 %20, 0
   br i1 %cond, label %24, label %.thread
 
@@ -554,7 +554,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
 27:                                               ; preds = %.thread, %24
   %.0..0..0..0.10 = load volatile i32, ptr %1, align 4
   %.not20 = icmp eq i32 %.0..0..0..0.10, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 .thread26:                                        ; preds = %24
   %28 = load ptr, ptr @MyProcSignalSlot, align 8
@@ -564,7 +564,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
   store volatile i32 1, ptr @InterruptPending, align 4
   %.0..0..0..0.1028 = load volatile i32, ptr %1, align 4
   %.not2029 = icmp eq i32 %.0..0..0..0.1028, 0
-  br i1 %.not2029, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !16
+  br i1 %.not2029, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !15
 
 ._crit_edge.thread:                               ; preds = %.thread26
   store ptr %15, ptr @PG_exception_stack, align 8
@@ -879,5 +879,4 @@ attributes #15 = { noreturn nounwind }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = !{i64 2150391393}
-!15 = !{i32 0, i32 33}
-!16 = distinct !{!16, !6}
+!15 = distinct !{!15, !6}

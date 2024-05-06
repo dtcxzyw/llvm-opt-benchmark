@@ -51,7 +51,7 @@ if.then:                                          ; preds = %entry
   store i32 -1, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 1), align 8
   store i32 0, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 2), align 4
   store i32 0, ptr getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 3), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 4), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) getelementptr inbounds (%struct.subframe_stats_t, ptr @all_, i64 0, i32 4), i8 0, i64 16, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -100,7 +100,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom7 = zext i32 %10 to i64
   %arrayidx8 = getelementptr inbounds [0 x ptr], ptr @FLAC__SubframeTypeString, i64 0, i64 %idxprom7
   %11 = load ptr, ptr %arrayidx8, align 8
-  %12 = trunc i64 %indvars.iv241 to i32
+  %12 = trunc nuw i64 %indvars.iv241 to i32
   %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fout, ptr noundef nonnull @.str.1, i32 noundef %12, i32 noundef %9, ptr noundef %11)
   %13 = load i32, ptr %add.ptr, align 8
   switch i32 %13, label %for.inc172 [
@@ -134,7 +134,7 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
   %indvars.iv235 = phi i64 [ 0, %for.body27.lr.ph ], [ %indvars.iv.next236, %for.body27 ]
   %arrayidx30 = getelementptr inbounds [4 x i64], ptr %warmup, i64 0, i64 %indvars.iv235
   %18 = load i64, ptr %arrayidx30, align 8
-  %19 = trunc i64 %indvars.iv235 to i32
+  %19 = trunc nuw i64 %indvars.iv235 to i32
   %call31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fout, ptr noundef nonnull @.str.6, i32 noundef %19, i64 noundef %18)
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %20 = load i32, ptr %order, align 8
@@ -193,7 +193,7 @@ for.body67:                                       ; preds = %for.body67.lr.ph, %
   %30 = load ptr, ptr %residual, align 8
   %arrayidx70 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv238
   %31 = load i32, ptr %arrayidx70, align 4
-  %32 = trunc i64 %indvars.iv238 to i32
+  %32 = trunc nuw i64 %indvars.iv238 to i32
   %call71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fout, ptr noundef nonnull @.str.9, i32 noundef %32, i32 noundef %31)
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %33 = load i32, ptr %frame, align 8
@@ -234,7 +234,7 @@ for.body93:                                       ; preds = %for.body93.lr.ph, %
   %indvars.iv = phi i64 [ 0, %for.body93.lr.ph ], [ %indvars.iv.next, %for.body93 ]
   %arrayidx96 = getelementptr inbounds [32 x i32], ptr %qlp_coeff, i64 0, i64 %indvars.iv
   %41 = load i32, ptr %arrayidx96, align 4
-  %42 = trunc i64 %indvars.iv to i32
+  %42 = trunc nuw i64 %indvars.iv to i32
   %call97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fout, ptr noundef nonnull @.str.11, i32 noundef %42, i32 noundef %41)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %order78, align 8
@@ -246,7 +246,7 @@ for.body106:                                      ; preds = %for.body106.lr.ph, 
   %indvars.iv229 = phi i64 [ 0, %for.body106.lr.ph ], [ %indvars.iv.next230, %for.body106 ]
   %arrayidx110 = getelementptr inbounds [32 x i64], ptr %warmup108, i64 0, i64 %indvars.iv229
   %45 = load i64, ptr %arrayidx110, align 8
-  %46 = trunc i64 %indvars.iv229 to i32
+  %46 = trunc nuw i64 %indvars.iv229 to i32
   %call111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fout, ptr noundef nonnull @.str.6, i32 noundef %46, i64 noundef %45)
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %47 = load i32, ptr %order78, align 8
@@ -305,7 +305,7 @@ for.body160:                                      ; preds = %for.body160.lr.ph, 
   %57 = load ptr, ptr %residual162, align 8
   %arrayidx164 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv232
   %58 = load i32, ptr %arrayidx164, align 4
-  %59 = trunc i64 %indvars.iv232 to i32
+  %59 = trunc nuw i64 %indvars.iv232 to i32
   %call165 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %fout, ptr noundef nonnull @.str.9, i32 noundef %59, i32 noundef %58)
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %60 = load i32, ptr %frame, align 8
@@ -346,7 +346,7 @@ for.body180:                                      ; preds = %for.body180.lr.ph, 
   store i32 -1, ptr %peak_index.i, align 8
   store i32 0, ptr %nbuckets.i, align 4
   store i32 0, ptr %nsamples.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sum.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %sum.i, i8 0, i64 16, i1 false)
   %63 = load i32, ptr %add.ptr185, align 8
   switch i32 %63, label %for.inc243 [
     i32 2, label %sw.bb187
@@ -398,7 +398,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp6.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %75 = trunc i64 %indvars.iv.i to i32
+  %75 = trunc nuw i64 %indvars.iv.i to i32
   %count.i = getelementptr inbounds [65535 x %struct.pair_t], ptr %stats, i64 0, i64 %indvars.iv.i, i32 1
   br label %find_peak.i
 
@@ -491,7 +491,7 @@ for.body.i129:                                    ; preds = %for.inc.i133, %for.
   br i1 %cmp6.i132, label %if.then.i153, label %for.inc.i133
 
 if.then.i153:                                     ; preds = %for.body.i129
-  %92 = trunc i64 %indvars.iv.i130 to i32
+  %92 = trunc nuw i64 %indvars.iv.i130 to i32
   %count.i154 = getelementptr inbounds [65535 x %struct.pair_t], ptr %stats, i64 0, i64 %indvars.iv.i130, i32 1
   br label %find_peak.i140
 
@@ -583,7 +583,7 @@ for.body.i162:                                    ; preds = %for.inc.i166, %for.
   br i1 %cmp6.i165, label %if.then.i185, label %for.inc.i166
 
 if.then.i185:                                     ; preds = %for.body.i162
-  %106 = trunc i64 %indvars.iv.i163 to i32
+  %106 = trunc nuw i64 %indvars.iv.i163 to i32
   %count.i186 = getelementptr inbounds [65535 x %struct.pair_t], ptr @all_, i64 0, i64 %indvars.iv.i163, i32 1
   br label %find_peak.i173
 
@@ -638,7 +638,7 @@ for.end234:                                       ; preds = %update_stats.exit18
   br i1 %cmp235.not, label %for.inc243, label %if.then237
 
 if.then237:                                       ; preds = %for.end234
-  %112 = trunc i64 %indvars.iv259 to i32
+  %112 = trunc nuw i64 %indvars.iv259 to i32
   %call239 = call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef nonnull %outfilename, i64 noundef 1024, ptr noundef nonnull @.str.13, i32 noundef %frame_number, i32 noundef %112) #10
   %113 = load double, ptr %sum.i, align 8
   %conv.i190 = uitofp i32 %.pr272 to double

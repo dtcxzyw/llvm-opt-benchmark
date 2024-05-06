@@ -627,7 +627,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_759UVector3211containsAllERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759UVector3211containsAllERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) local_unnamed_addr #7 align 2 {
 entry:
   %count.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %count.i, align 8
@@ -710,7 +710,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
 
 return.loopexit.split.loop.exit8:                 ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %for.inc, %return.loopexit.split.loop.exit8, %entry
@@ -719,7 +719,7 @@ return:                                           ; preds = %for.inc, %return.lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_759UVector3212containsNoneERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759UVector3212containsNoneERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) local_unnamed_addr #7 align 2 {
 entry:
   %count.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %count.i, align 8
@@ -775,7 +775,7 @@ return:                                           ; preds = %_ZNK6icu_759UVector
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZN6icu_759UVector329removeAllERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) local_unnamed_addr #9 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_759UVector329removeAllERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) local_unnamed_addr #9 align 2 {
 entry:
   %count.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %count.i, align 8
@@ -819,7 +819,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %9, label %for.inc, label %for.body.i, !llvm.loop !10
 
 _ZNK6icu_759UVector327indexOfEii.exit:            ; preds = %for.body.i
-  %10 = trunc i64 %indvars.iv.i to i32
+  %10 = trunc nsw i64 %indvars.iv.i to i32
   %cmp3 = icmp sgt i32 %10, -1
   br i1 %cmp3, label %for.cond.preheader.i, label %for.inc
 
@@ -842,7 +842,7 @@ for.body.i9:                                      ; preds = %for.body.i9, %for.b
   store i32 %13, ptr %arrayidx5.i, align 4
   %14 = load i32, ptr %count.i5, align 8
   %sub.i = add nsw i32 %14, -1
-  %15 = trunc i64 %indvars.iv.next.i11 to i32
+  %15 = trunc nuw i64 %indvars.iv.next.i11 to i32
   %cmp2.i13 = icmp sgt i32 %sub.i, %15
   br i1 %cmp2.i13, label %for.body.i9, label %_ZN6icu_759UVector3215removeElementAtEi.exit, !llvm.loop !12
 
@@ -894,7 +894,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %3, ptr %arrayidx5, align 4
   %4 = load i32, ptr %count, align 8
   %sub = add nsw i32 %4, -1
-  %5 = trunc i64 %indvars.iv.next to i32
+  %5 = trunc nuw i64 %indvars.iv.next to i32
   %cmp2 = icmp sgt i32 %sub, %5
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !12
 
@@ -908,7 +908,7 @@ if.end:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZN6icu_759UVector329retainAllERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) local_unnamed_addr #9 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_759UVector329retainAllERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) local_unnamed_addr #9 align 2 {
 entry:
   %count.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count.i, align 8
@@ -972,7 +972,7 @@ for.body.i8:                                      ; preds = %for.cond.preheader.
   store i32 %12, ptr %arrayidx5.i, align 4
   %13 = load i32, ptr %count.i, align 8
   %sub.i = add nsw i32 %13, -1
-  %14 = trunc i64 %indvars.iv.next.i10 to i32
+  %14 = trunc nuw i64 %indvars.iv.next.i10 to i32
   %cmp2.i12 = icmp sgt i32 %sub.i, %14
   br i1 %cmp2.i12, label %for.body.i8, label %for.end.i, !llvm.loop !12
 
@@ -1001,7 +1001,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_759UVector326equalsERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_759UVector326equalsERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) local_unnamed_addr #7 align 2 {
 entry:
   %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
@@ -1042,7 +1042,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %minimumCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %minimumCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1

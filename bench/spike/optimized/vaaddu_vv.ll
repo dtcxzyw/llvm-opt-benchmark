@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20fast_rv32i_vaaddu_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vaaddu_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 659640
   %5 = getelementptr inbounds i8, ptr %0, i64 659728
   %6 = load ptr, ptr %5, align 8
@@ -394,7 +394,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %179 = zext i8 %175 to i128
   %180 = add nuw nsw i128 %178, %179
   %extract199 = lshr i128 %180, 1
-  %extract.t200 = trunc i128 %extract199 to i8
+  %extract.t200 = trunc nuw i128 %extract199 to i8
   switch i32 %11, label %190 [
     i32 0, label %181
     i32 1, label %183
@@ -404,7 +404,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 181:                                              ; preds = %172
   %182 = add nuw nsw i128 %180, 1
   %extract211 = lshr i128 %182, 1
-  %extract.t212 = trunc i128 %extract211 to i8
+  %extract.t212 = trunc nuw i128 %extract211 to i8
   br label %190
 
 183:                                              ; preds = %172
@@ -439,7 +439,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %198 = zext i16 %194 to i128
   %199 = add nuw nsw i128 %197, %198
   %extract182 = lshr i128 %199, 1
-  %extract.t183 = trunc i128 %extract182 to i16
+  %extract.t183 = trunc nuw i128 %extract182 to i16
   switch i32 %11, label %209 [
     i32 0, label %200
     i32 1, label %202
@@ -449,7 +449,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 200:                                              ; preds = %191
   %201 = add nuw nsw i128 %199, 1
   %extract194 = lshr i128 %201, 1
-  %extract.t195 = trunc i128 %extract194 to i16
+  %extract.t195 = trunc nuw i128 %extract194 to i16
   br label %209
 
 202:                                              ; preds = %191
@@ -484,7 +484,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %217 = zext i32 %213 to i128
   %218 = add nuw nsw i128 %216, %217
   %extract165 = lshr i128 %218, 1
-  %extract.t166 = trunc i128 %extract165 to i32
+  %extract.t166 = trunc nuw i128 %extract165 to i32
   switch i32 %11, label %228 [
     i32 0, label %219
     i32 1, label %221
@@ -494,7 +494,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 219:                                              ; preds = %210
   %220 = add nuw nsw i128 %218, 1
   %extract177 = lshr i128 %220, 1
-  %extract.t178 = trunc i128 %extract177 to i32
+  %extract.t178 = trunc nuw i128 %extract177 to i32
   br label %228
 
 221:                                              ; preds = %210
@@ -529,7 +529,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %236 = zext i64 %232 to i128
   %237 = add nuw nsw i128 %235, %236
   %extract = lshr i128 %237, 1
-  %extract.t = trunc i128 %extract to i64
+  %extract.t = trunc nuw i128 %extract to i64
   switch i32 %11, label %247 [
     i32 0, label %238
     i32 1, label %240
@@ -539,7 +539,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 238:                                              ; preds = %229
   %239 = add nuw nsw i128 %237, 1
   %extract160 = lshr i128 %239, 1
-  %extract.t161 = trunc i128 %extract160 to i64
+  %extract.t161 = trunc nuw i128 %extract160 to i64
   br label %247
 
 240:                                              ; preds = %229
@@ -926,7 +926,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %179 = zext i8 %175 to i128
   %180 = add nuw nsw i128 %178, %179
   %extract199 = lshr i128 %180, 1
-  %extract.t200 = trunc i128 %extract199 to i8
+  %extract.t200 = trunc nuw i128 %extract199 to i8
   switch i32 %11, label %190 [
     i32 0, label %181
     i32 1, label %183
@@ -936,7 +936,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 181:                                              ; preds = %172
   %182 = add nuw nsw i128 %180, 1
   %extract211 = lshr i128 %182, 1
-  %extract.t212 = trunc i128 %extract211 to i8
+  %extract.t212 = trunc nuw i128 %extract211 to i8
   br label %190
 
 183:                                              ; preds = %172
@@ -971,7 +971,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %198 = zext i16 %194 to i128
   %199 = add nuw nsw i128 %197, %198
   %extract182 = lshr i128 %199, 1
-  %extract.t183 = trunc i128 %extract182 to i16
+  %extract.t183 = trunc nuw i128 %extract182 to i16
   switch i32 %11, label %209 [
     i32 0, label %200
     i32 1, label %202
@@ -981,7 +981,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 200:                                              ; preds = %191
   %201 = add nuw nsw i128 %199, 1
   %extract194 = lshr i128 %201, 1
-  %extract.t195 = trunc i128 %extract194 to i16
+  %extract.t195 = trunc nuw i128 %extract194 to i16
   br label %209
 
 202:                                              ; preds = %191
@@ -1016,7 +1016,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %217 = zext i32 %213 to i128
   %218 = add nuw nsw i128 %216, %217
   %extract165 = lshr i128 %218, 1
-  %extract.t166 = trunc i128 %extract165 to i32
+  %extract.t166 = trunc nuw i128 %extract165 to i32
   switch i32 %11, label %228 [
     i32 0, label %219
     i32 1, label %221
@@ -1026,7 +1026,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 219:                                              ; preds = %210
   %220 = add nuw nsw i128 %218, 1
   %extract177 = lshr i128 %220, 1
-  %extract.t178 = trunc i128 %extract177 to i32
+  %extract.t178 = trunc nuw i128 %extract177 to i32
   br label %228
 
 221:                                              ; preds = %210
@@ -1061,7 +1061,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %236 = zext i64 %232 to i128
   %237 = add nuw nsw i128 %235, %236
   %extract = lshr i128 %237, 1
-  %extract.t = trunc i128 %extract to i64
+  %extract.t = trunc nuw i128 %extract to i64
   switch i32 %11, label %247 [
     i32 0, label %238
     i32 1, label %240
@@ -1071,7 +1071,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 238:                                              ; preds = %229
   %239 = add nuw nsw i128 %237, 1
   %extract160 = lshr i128 %239, 1
-  %extract.t161 = trunc i128 %extract160 to i64
+  %extract.t161 = trunc nuw i128 %extract160 to i64
   br label %247
 
 240:                                              ; preds = %229
@@ -1109,7 +1109,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22logged_rv32i_vaaddu_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vaaddu_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 659640
   %5 = getelementptr inbounds i8, ptr %0, i64 659728
   %6 = load ptr, ptr %5, align 8
@@ -1427,7 +1427,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %179 = zext i8 %175 to i128
   %180 = add nuw nsw i128 %178, %179
   %extract199 = lshr i128 %180, 1
-  %extract.t200 = trunc i128 %extract199 to i8
+  %extract.t200 = trunc nuw i128 %extract199 to i8
   switch i32 %11, label %190 [
     i32 0, label %181
     i32 1, label %183
@@ -1437,7 +1437,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 181:                                              ; preds = %172
   %182 = add nuw nsw i128 %180, 1
   %extract211 = lshr i128 %182, 1
-  %extract.t212 = trunc i128 %extract211 to i8
+  %extract.t212 = trunc nuw i128 %extract211 to i8
   br label %190
 
 183:                                              ; preds = %172
@@ -1472,7 +1472,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %198 = zext i16 %194 to i128
   %199 = add nuw nsw i128 %197, %198
   %extract182 = lshr i128 %199, 1
-  %extract.t183 = trunc i128 %extract182 to i16
+  %extract.t183 = trunc nuw i128 %extract182 to i16
   switch i32 %11, label %209 [
     i32 0, label %200
     i32 1, label %202
@@ -1482,7 +1482,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 200:                                              ; preds = %191
   %201 = add nuw nsw i128 %199, 1
   %extract194 = lshr i128 %201, 1
-  %extract.t195 = trunc i128 %extract194 to i16
+  %extract.t195 = trunc nuw i128 %extract194 to i16
   br label %209
 
 202:                                              ; preds = %191
@@ -1517,7 +1517,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %217 = zext i32 %213 to i128
   %218 = add nuw nsw i128 %216, %217
   %extract165 = lshr i128 %218, 1
-  %extract.t166 = trunc i128 %extract165 to i32
+  %extract.t166 = trunc nuw i128 %extract165 to i32
   switch i32 %11, label %228 [
     i32 0, label %219
     i32 1, label %221
@@ -1527,7 +1527,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 219:                                              ; preds = %210
   %220 = add nuw nsw i128 %218, 1
   %extract177 = lshr i128 %220, 1
-  %extract.t178 = trunc i128 %extract177 to i32
+  %extract.t178 = trunc nuw i128 %extract177 to i32
   br label %228
 
 221:                                              ; preds = %210
@@ -1562,7 +1562,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %236 = zext i64 %232 to i128
   %237 = add nuw nsw i128 %235, %236
   %extract = lshr i128 %237, 1
-  %extract.t = trunc i128 %extract to i64
+  %extract.t = trunc nuw i128 %extract to i64
   switch i32 %11, label %247 [
     i32 0, label %238
     i32 1, label %240
@@ -1572,7 +1572,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 238:                                              ; preds = %229
   %239 = add nuw nsw i128 %237, 1
   %extract160 = lshr i128 %239, 1
-  %extract.t161 = trunc i128 %extract160 to i64
+  %extract.t161 = trunc nuw i128 %extract160 to i64
   br label %247
 
 240:                                              ; preds = %229
@@ -1930,7 +1930,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %179 = zext i8 %175 to i128
   %180 = add nuw nsw i128 %178, %179
   %extract199 = lshr i128 %180, 1
-  %extract.t200 = trunc i128 %extract199 to i8
+  %extract.t200 = trunc nuw i128 %extract199 to i8
   switch i32 %11, label %190 [
     i32 0, label %181
     i32 1, label %183
@@ -1940,7 +1940,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 181:                                              ; preds = %172
   %182 = add nuw nsw i128 %180, 1
   %extract211 = lshr i128 %182, 1
-  %extract.t212 = trunc i128 %extract211 to i8
+  %extract.t212 = trunc nuw i128 %extract211 to i8
   br label %190
 
 183:                                              ; preds = %172
@@ -1975,7 +1975,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %198 = zext i16 %194 to i128
   %199 = add nuw nsw i128 %197, %198
   %extract182 = lshr i128 %199, 1
-  %extract.t183 = trunc i128 %extract182 to i16
+  %extract.t183 = trunc nuw i128 %extract182 to i16
   switch i32 %11, label %209 [
     i32 0, label %200
     i32 1, label %202
@@ -1985,7 +1985,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 200:                                              ; preds = %191
   %201 = add nuw nsw i128 %199, 1
   %extract194 = lshr i128 %201, 1
-  %extract.t195 = trunc i128 %extract194 to i16
+  %extract.t195 = trunc nuw i128 %extract194 to i16
   br label %209
 
 202:                                              ; preds = %191
@@ -2020,7 +2020,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %217 = zext i32 %213 to i128
   %218 = add nuw nsw i128 %216, %217
   %extract165 = lshr i128 %218, 1
-  %extract.t166 = trunc i128 %extract165 to i32
+  %extract.t166 = trunc nuw i128 %extract165 to i32
   switch i32 %11, label %228 [
     i32 0, label %219
     i32 1, label %221
@@ -2030,7 +2030,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 219:                                              ; preds = %210
   %220 = add nuw nsw i128 %218, 1
   %extract177 = lshr i128 %220, 1
-  %extract.t178 = trunc i128 %extract177 to i32
+  %extract.t178 = trunc nuw i128 %extract177 to i32
   br label %228
 
 221:                                              ; preds = %210
@@ -2065,7 +2065,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %236 = zext i64 %232 to i128
   %237 = add nuw nsw i128 %235, %236
   %extract = lshr i128 %237, 1
-  %extract.t = trunc i128 %extract to i64
+  %extract.t = trunc nuw i128 %extract to i64
   switch i32 %11, label %247 [
     i32 0, label %238
     i32 1, label %240
@@ -2075,7 +2075,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 238:                                              ; preds = %229
   %239 = add nuw nsw i128 %237, 1
   %extract160 = lshr i128 %239, 1
-  %extract.t161 = trunc i128 %extract160 to i64
+  %extract.t161 = trunc nuw i128 %extract160 to i64
   br label %247
 
 240:                                              ; preds = %229
@@ -2113,7 +2113,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20fast_rv32e_vaaddu_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vaaddu_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 659640
   %5 = getelementptr inbounds i8, ptr %0, i64 659728
   %6 = load ptr, ptr %5, align 8
@@ -2431,7 +2431,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %179 = zext i8 %175 to i128
   %180 = add nuw nsw i128 %178, %179
   %extract199 = lshr i128 %180, 1
-  %extract.t200 = trunc i128 %extract199 to i8
+  %extract.t200 = trunc nuw i128 %extract199 to i8
   switch i32 %11, label %190 [
     i32 0, label %181
     i32 1, label %183
@@ -2441,7 +2441,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 181:                                              ; preds = %172
   %182 = add nuw nsw i128 %180, 1
   %extract211 = lshr i128 %182, 1
-  %extract.t212 = trunc i128 %extract211 to i8
+  %extract.t212 = trunc nuw i128 %extract211 to i8
   br label %190
 
 183:                                              ; preds = %172
@@ -2476,7 +2476,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %198 = zext i16 %194 to i128
   %199 = add nuw nsw i128 %197, %198
   %extract182 = lshr i128 %199, 1
-  %extract.t183 = trunc i128 %extract182 to i16
+  %extract.t183 = trunc nuw i128 %extract182 to i16
   switch i32 %11, label %209 [
     i32 0, label %200
     i32 1, label %202
@@ -2486,7 +2486,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 200:                                              ; preds = %191
   %201 = add nuw nsw i128 %199, 1
   %extract194 = lshr i128 %201, 1
-  %extract.t195 = trunc i128 %extract194 to i16
+  %extract.t195 = trunc nuw i128 %extract194 to i16
   br label %209
 
 202:                                              ; preds = %191
@@ -2521,7 +2521,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %217 = zext i32 %213 to i128
   %218 = add nuw nsw i128 %216, %217
   %extract165 = lshr i128 %218, 1
-  %extract.t166 = trunc i128 %extract165 to i32
+  %extract.t166 = trunc nuw i128 %extract165 to i32
   switch i32 %11, label %228 [
     i32 0, label %219
     i32 1, label %221
@@ -2531,7 +2531,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 219:                                              ; preds = %210
   %220 = add nuw nsw i128 %218, 1
   %extract177 = lshr i128 %220, 1
-  %extract.t178 = trunc i128 %extract177 to i32
+  %extract.t178 = trunc nuw i128 %extract177 to i32
   br label %228
 
 221:                                              ; preds = %210
@@ -2566,7 +2566,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %236 = zext i64 %232 to i128
   %237 = add nuw nsw i128 %235, %236
   %extract = lshr i128 %237, 1
-  %extract.t = trunc i128 %extract to i64
+  %extract.t = trunc nuw i128 %extract to i64
   switch i32 %11, label %247 [
     i32 0, label %238
     i32 1, label %240
@@ -2576,7 +2576,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 238:                                              ; preds = %229
   %239 = add nuw nsw i128 %237, 1
   %extract160 = lshr i128 %239, 1
-  %extract.t161 = trunc i128 %extract160 to i64
+  %extract.t161 = trunc nuw i128 %extract160 to i64
   br label %247
 
 240:                                              ; preds = %229
@@ -2934,7 +2934,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %179 = zext i8 %175 to i128
   %180 = add nuw nsw i128 %178, %179
   %extract199 = lshr i128 %180, 1
-  %extract.t200 = trunc i128 %extract199 to i8
+  %extract.t200 = trunc nuw i128 %extract199 to i8
   switch i32 %11, label %190 [
     i32 0, label %181
     i32 1, label %183
@@ -2944,7 +2944,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 181:                                              ; preds = %172
   %182 = add nuw nsw i128 %180, 1
   %extract211 = lshr i128 %182, 1
-  %extract.t212 = trunc i128 %extract211 to i8
+  %extract.t212 = trunc nuw i128 %extract211 to i8
   br label %190
 
 183:                                              ; preds = %172
@@ -2979,7 +2979,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %198 = zext i16 %194 to i128
   %199 = add nuw nsw i128 %197, %198
   %extract182 = lshr i128 %199, 1
-  %extract.t183 = trunc i128 %extract182 to i16
+  %extract.t183 = trunc nuw i128 %extract182 to i16
   switch i32 %11, label %209 [
     i32 0, label %200
     i32 1, label %202
@@ -2989,7 +2989,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 200:                                              ; preds = %191
   %201 = add nuw nsw i128 %199, 1
   %extract194 = lshr i128 %201, 1
-  %extract.t195 = trunc i128 %extract194 to i16
+  %extract.t195 = trunc nuw i128 %extract194 to i16
   br label %209
 
 202:                                              ; preds = %191
@@ -3024,7 +3024,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %217 = zext i32 %213 to i128
   %218 = add nuw nsw i128 %216, %217
   %extract165 = lshr i128 %218, 1
-  %extract.t166 = trunc i128 %extract165 to i32
+  %extract.t166 = trunc nuw i128 %extract165 to i32
   switch i32 %11, label %228 [
     i32 0, label %219
     i32 1, label %221
@@ -3034,7 +3034,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 219:                                              ; preds = %210
   %220 = add nuw nsw i128 %218, 1
   %extract177 = lshr i128 %220, 1
-  %extract.t178 = trunc i128 %extract177 to i32
+  %extract.t178 = trunc nuw i128 %extract177 to i32
   br label %228
 
 221:                                              ; preds = %210
@@ -3069,7 +3069,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %236 = zext i64 %232 to i128
   %237 = add nuw nsw i128 %235, %236
   %extract = lshr i128 %237, 1
-  %extract.t = trunc i128 %extract to i64
+  %extract.t = trunc nuw i128 %extract to i64
   switch i32 %11, label %247 [
     i32 0, label %238
     i32 1, label %240
@@ -3079,7 +3079,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 238:                                              ; preds = %229
   %239 = add nuw nsw i128 %237, 1
   %extract160 = lshr i128 %239, 1
-  %extract.t161 = trunc i128 %extract160 to i64
+  %extract.t161 = trunc nuw i128 %extract160 to i64
   br label %247
 
 240:                                              ; preds = %229
@@ -3117,7 +3117,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22logged_rv32e_vaaddu_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vaaddu_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 659640
   %5 = getelementptr inbounds i8, ptr %0, i64 659728
   %6 = load ptr, ptr %5, align 8
@@ -3435,7 +3435,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %179 = zext i8 %175 to i128
   %180 = add nuw nsw i128 %178, %179
   %extract199 = lshr i128 %180, 1
-  %extract.t200 = trunc i128 %extract199 to i8
+  %extract.t200 = trunc nuw i128 %extract199 to i8
   switch i32 %11, label %190 [
     i32 0, label %181
     i32 1, label %183
@@ -3445,7 +3445,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 181:                                              ; preds = %172
   %182 = add nuw nsw i128 %180, 1
   %extract211 = lshr i128 %182, 1
-  %extract.t212 = trunc i128 %extract211 to i8
+  %extract.t212 = trunc nuw i128 %extract211 to i8
   br label %190
 
 183:                                              ; preds = %172
@@ -3480,7 +3480,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %198 = zext i16 %194 to i128
   %199 = add nuw nsw i128 %197, %198
   %extract182 = lshr i128 %199, 1
-  %extract.t183 = trunc i128 %extract182 to i16
+  %extract.t183 = trunc nuw i128 %extract182 to i16
   switch i32 %11, label %209 [
     i32 0, label %200
     i32 1, label %202
@@ -3490,7 +3490,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 200:                                              ; preds = %191
   %201 = add nuw nsw i128 %199, 1
   %extract194 = lshr i128 %201, 1
-  %extract.t195 = trunc i128 %extract194 to i16
+  %extract.t195 = trunc nuw i128 %extract194 to i16
   br label %209
 
 202:                                              ; preds = %191
@@ -3525,7 +3525,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %217 = zext i32 %213 to i128
   %218 = add nuw nsw i128 %216, %217
   %extract165 = lshr i128 %218, 1
-  %extract.t166 = trunc i128 %extract165 to i32
+  %extract.t166 = trunc nuw i128 %extract165 to i32
   switch i32 %11, label %228 [
     i32 0, label %219
     i32 1, label %221
@@ -3535,7 +3535,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 219:                                              ; preds = %210
   %220 = add nuw nsw i128 %218, 1
   %extract177 = lshr i128 %220, 1
-  %extract.t178 = trunc i128 %extract177 to i32
+  %extract.t178 = trunc nuw i128 %extract177 to i32
   br label %228
 
 221:                                              ; preds = %210
@@ -3570,7 +3570,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %236 = zext i64 %232 to i128
   %237 = add nuw nsw i128 %235, %236
   %extract = lshr i128 %237, 1
-  %extract.t = trunc i128 %extract to i64
+  %extract.t = trunc nuw i128 %extract to i64
   switch i32 %11, label %247 [
     i32 0, label %238
     i32 1, label %240
@@ -3580,7 +3580,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 238:                                              ; preds = %229
   %239 = add nuw nsw i128 %237, 1
   %extract160 = lshr i128 %239, 1
-  %extract.t161 = trunc i128 %extract160 to i64
+  %extract.t161 = trunc nuw i128 %extract160 to i64
   br label %247
 
 240:                                              ; preds = %229
@@ -3938,7 +3938,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %179 = zext i8 %175 to i128
   %180 = add nuw nsw i128 %178, %179
   %extract199 = lshr i128 %180, 1
-  %extract.t200 = trunc i128 %extract199 to i8
+  %extract.t200 = trunc nuw i128 %extract199 to i8
   switch i32 %11, label %190 [
     i32 0, label %181
     i32 1, label %183
@@ -3948,7 +3948,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 181:                                              ; preds = %172
   %182 = add nuw nsw i128 %180, 1
   %extract211 = lshr i128 %182, 1
-  %extract.t212 = trunc i128 %extract211 to i8
+  %extract.t212 = trunc nuw i128 %extract211 to i8
   br label %190
 
 183:                                              ; preds = %172
@@ -3983,7 +3983,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %198 = zext i16 %194 to i128
   %199 = add nuw nsw i128 %197, %198
   %extract182 = lshr i128 %199, 1
-  %extract.t183 = trunc i128 %extract182 to i16
+  %extract.t183 = trunc nuw i128 %extract182 to i16
   switch i32 %11, label %209 [
     i32 0, label %200
     i32 1, label %202
@@ -3993,7 +3993,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 200:                                              ; preds = %191
   %201 = add nuw nsw i128 %199, 1
   %extract194 = lshr i128 %201, 1
-  %extract.t195 = trunc i128 %extract194 to i16
+  %extract.t195 = trunc nuw i128 %extract194 to i16
   br label %209
 
 202:                                              ; preds = %191
@@ -4028,7 +4028,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %217 = zext i32 %213 to i128
   %218 = add nuw nsw i128 %216, %217
   %extract165 = lshr i128 %218, 1
-  %extract.t166 = trunc i128 %extract165 to i32
+  %extract.t166 = trunc nuw i128 %extract165 to i32
   switch i32 %11, label %228 [
     i32 0, label %219
     i32 1, label %221
@@ -4038,7 +4038,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 219:                                              ; preds = %210
   %220 = add nuw nsw i128 %218, 1
   %extract177 = lshr i128 %220, 1
-  %extract.t178 = trunc i128 %extract177 to i32
+  %extract.t178 = trunc nuw i128 %extract177 to i32
   br label %228
 
 221:                                              ; preds = %210
@@ -4073,7 +4073,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %236 = zext i64 %232 to i128
   %237 = add nuw nsw i128 %235, %236
   %extract = lshr i128 %237, 1
-  %extract.t = trunc i128 %extract to i64
+  %extract.t = trunc nuw i128 %extract to i64
   switch i32 %11, label %247 [
     i32 0, label %238
     i32 1, label %240
@@ -4083,7 +4083,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 238:                                              ; preds = %229
   %239 = add nuw nsw i128 %237, 1
   %extract160 = lshr i128 %239, 1
-  %extract.t161 = trunc i128 %extract160 to i64
+  %extract.t161 = trunc nuw i128 %extract160 to i64
   br label %247
 
 240:                                              ; preds = %229

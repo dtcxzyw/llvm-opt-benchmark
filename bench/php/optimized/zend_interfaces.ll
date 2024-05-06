@@ -261,7 +261,7 @@ define void @zend_user_it_invalidate_current(ptr noundef %0) #0 {
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @zend_user_it_valid(ptr noundef readonly %0) #0 {
+define range(i32 -1, 1) i32 @zend_user_it_valid(ptr noundef readonly %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %55, label %3
@@ -682,7 +682,7 @@ define ptr @zend_user_it_get_new_iterator(ptr nocapture noundef readonly %0, ptr
 declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_user_serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #0 {
+define range(i32 -1, 1) i32 @zend_user_serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
@@ -748,7 +748,7 @@ define noundef i32 @zend_user_serialize(ptr nocapture noundef readonly %0, ptr n
 declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @zend_user_unserialize(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture readnone %4) #0 {
+define range(i32 -1, 1) i32 @zend_user_unserialize(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = tail call i32 @object_init_ex(ptr noundef %0, ptr noundef %1) #9
   %.not = icmp eq i32 %7, 0
@@ -790,7 +790,7 @@ define i32 @zend_user_unserialize(ptr noundef %0, ptr noundef %1, ptr nocapture 
 declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_create_internal_iterator_zval(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_create_internal_iterator_zval(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 17), align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -1744,7 +1744,7 @@ define internal noundef i32 @zend_implement_iterator(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zend_implement_serializable(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @zend_implement_serializable(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

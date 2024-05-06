@@ -18,7 +18,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_netfs_limit_
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_netfs_extract_user_iter683, ptr @__UNIQUE_ID___addressable_netfs_limit_iter709], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @netfs_extract_user_iter(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i64 -12, 4294967296) i64 @netfs_extract_user_iter(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7

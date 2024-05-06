@@ -1072,7 +1072,7 @@ define dso_local void @expr_insert_addr(ptr nocapture noundef %0) local_unnamed_
 
 13:                                               ; preds = %6, %1
   %14 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 56, i1 false)
   %15 = load i16, ptr %2, align 8
   %16 = and i16 %15, -256
   %17 = or disjoint i16 %16, 63
@@ -2476,7 +2476,7 @@ define dso_local void @expr_rewrite_insert_deref(ptr nocapture noundef %0) local
 
 13:                                               ; preds = %6, %1
   %14 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 56, i1 false)
   %15 = load i16, ptr %2, align 8
   %16 = and i16 %15, -256
   %17 = or disjoint i16 %16, 63

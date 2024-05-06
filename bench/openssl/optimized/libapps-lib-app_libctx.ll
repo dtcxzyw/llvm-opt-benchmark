@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [34 x i8] c"Failed to create library context\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define i32 @app_set_propq(ptr noundef %arg) local_unnamed_addr #0 {
+define noundef i32 @app_set_propq(ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   store ptr %arg, ptr @app_propq, align 8
   ret i32 1

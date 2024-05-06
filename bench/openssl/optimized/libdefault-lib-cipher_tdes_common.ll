@@ -103,7 +103,7 @@ if.end:                                           ; preds = %entry
   %bufsz = getelementptr inbounds i8, ptr %vctx, i64 96
   store i64 0, ptr %bufsz, align 8
   %enc1 = getelementptr inbounds i8, ptr %vctx, i64 108
-  %0 = trunc i32 %enc to i8
+  %0 = trunc nuw nsw i32 %enc to i8
   %bf.load = load i8, ptr %enc1, align 4
   %bf.value = shl i8 %0, 1
   %bf.shl = and i8 %bf.value, 2
@@ -190,7 +190,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_tdes_get_ctx_params(ptr noundef %vctx, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_tdes_get_ctx_params(ptr noundef %vctx, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_cipher_generic_get_ctx_params(ptr noundef %vctx, ptr noundef %params) #4
   %tobool.not = icmp eq i32 %call, 0

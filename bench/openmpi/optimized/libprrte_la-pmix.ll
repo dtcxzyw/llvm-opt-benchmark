@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.prte_pmix_convert_proc_state_to_error = private unnamed_addr constant [18 x i32] [i32 -180, i32 -182, i32 -181, i32 -184, i32 -185, i32 -49, i32 -186, i32 -182, i32 -1, i32 -1, i32 -4, i32 -187, i32 -181, i32 -49, i32 -49, i32 -49, i32 -49, i32 -49], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @prte_pmix_convert_rc(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -334, 1) i32 @prte_pmix_convert_rc(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %34 [
     i32 -67, label %35
     i32 -68, label %35
@@ -336,7 +336,7 @@ define noundef i32 @prte_pmix_convert_status(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @prte_pmix_convert_state(i32 noundef %0) local_unnamed_addr #0 {
+define zeroext range(i8 0, 64) i8 @prte_pmix_convert_state(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %18 [
     i32 63, label %17
     i32 1, label %2
@@ -410,7 +410,7 @@ define noundef zeroext i8 @prte_pmix_convert_state(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @prte_pmix_convert_pstate(i8 noundef zeroext %0) local_unnamed_addr #0 {
+define range(i32 0, 64) i32 @prte_pmix_convert_pstate(i8 noundef zeroext %0) local_unnamed_addr #0 {
   switch i8 %0, label %20 [
     i8 63, label %19
     i8 1, label %2
@@ -493,7 +493,7 @@ define noundef i32 @prte_pmix_convert_pstate(i8 noundef zeroext %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @prte_pmix_convert_job_state_to_error(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -188, 0) i32 @prte_pmix_convert_job_state_to_error(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %9 [
     i32 68, label %10
     i32 69, label %2
@@ -540,7 +540,7 @@ define noundef i32 @prte_pmix_convert_job_state_to_error(i32 noundef %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @prte_pmix_convert_proc_state_to_error(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -187, 0) i32 @prte_pmix_convert_proc_state_to_error(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -51
   %2 = icmp ult i32 %switch.tableidx, 18
   br i1 %2, label %switch.lookup, label %4
@@ -575,7 +575,7 @@ define i32 @prte_pmix_register_cleanup(ptr noundef %0, i1 noundef zeroext %1, i1
   %12 = getelementptr inbounds i8, ptr %5, i64 48
   store i32 1, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %13, i8 0, i64 64, i1 false)
   %14 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i64 0, i32 6), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i = icmp eq ptr %15, null
@@ -805,7 +805,7 @@ define internal void @arritmcon(ptr noundef %0) #1 {
   %8 = getelementptr inbounds i8, ptr %0, i64 192
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
   %10 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i = icmp eq ptr %11, null
@@ -913,19 +913,19 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %26
   %46 = getelementptr inbounds i8, ptr %45, i64 48
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %47, align 8
-  %.not6.i17 = icmp eq ptr %48, null
-  br i1 %.not6.i17, label %pmix_obj_run_destructors.exit21, label %.lr.ph.i18
+  %.not6.i18 = icmp eq ptr %48, null
+  br i1 %.not6.i18, label %pmix_obj_run_destructors.exit22, label %.lr.ph.i19
 
-.lr.ph.i18:                                       ; preds = %._crit_edge, %.lr.ph.i18
-  %49 = phi ptr [ %51, %.lr.ph.i18 ], [ %48, %._crit_edge ]
-  %.07.i19 = phi ptr [ %50, %.lr.ph.i18 ], [ %47, %._crit_edge ]
+.lr.ph.i19:                                       ; preds = %._crit_edge, %.lr.ph.i19
+  %49 = phi ptr [ %51, %.lr.ph.i19 ], [ %48, %._crit_edge ]
+  %.07.i20 = phi ptr [ %50, %.lr.ph.i19 ], [ %47, %._crit_edge ]
   tail call void %49(ptr noundef nonnull %43) #9
-  %50 = getelementptr inbounds i8, ptr %.07.i19, i64 8
+  %50 = getelementptr inbounds i8, ptr %.07.i20, i64 8
   %51 = load ptr, ptr %50, align 8
-  %.not.i20 = icmp eq ptr %51, null
-  br i1 %.not.i20, label %pmix_obj_run_destructors.exit21, label %.lr.ph.i18, !llvm.loop !7
+  %.not.i21 = icmp eq ptr %51, null
+  br i1 %.not.i21, label %pmix_obj_run_destructors.exit22, label %.lr.ph.i19, !llvm.loop !7
 
-pmix_obj_run_destructors.exit21:                  ; preds = %.lr.ph.i18, %._crit_edge
+pmix_obj_run_destructors.exit22:                  ; preds = %.lr.ph.i19, %._crit_edge
   ret void
 }
 

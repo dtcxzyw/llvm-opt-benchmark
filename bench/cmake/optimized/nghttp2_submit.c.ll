@@ -61,7 +61,7 @@ define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %19, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i64 16, i1 false)
   br label %27
 
 27:                                               ; preds = %25, %22, %21

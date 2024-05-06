@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [14 x i8] c"tls-data-size\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @tls1_allocate_write_buffers(ptr noundef %rl, ptr nocapture noundef readonly %templates, i64 noundef %numtempl, ptr nocapture noundef writeonly %prefix) #0 {
+define range(i32 0, 2) i32 @tls1_allocate_write_buffers(ptr noundef %rl, ptr nocapture noundef readonly %templates, i64 noundef %numtempl, ptr nocapture noundef writeonly %prefix) #0 {
 entry:
   %need_empty_fragments = getelementptr inbounds i8, ptr %rl, i64 4120
   %0 = load i32, ptr %need_empty_fragments, align 8
@@ -128,7 +128,7 @@ declare i32 @WPACKET_allocate_bytes(ptr noundef, i64 noundef, ptr noundef) local
 declare i32 @tls_initialise_write_packets_default(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tls1_set_crypto_state(ptr noundef %rl, i32 noundef %level, ptr noundef %key, i64 %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr noundef %md, ptr noundef %comp) #0 {
+define internal range(i32 -2, 2) i32 @tls1_set_crypto_state(ptr noundef %rl, i32 noundef %level, ptr noundef %key, i64 %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr noundef %md, ptr noundef %comp) #0 {
 entry:
   %direction = getelementptr inbounds i8, ptr %rl, i64 28
   %0 = load i32, ptr %direction, align 4
@@ -384,7 +384,7 @@ return:                                           ; preds = %lor.lhs.false112, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tls1_cipher(ptr noundef %rl, ptr noundef %recs, i64 noundef %n_recs, i32 noundef %sending, ptr noundef %macs, i64 noundef %macsize) #0 {
+define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %rl, ptr noundef %recs, i64 noundef %n_recs, i32 noundef %sending, ptr noundef %macs, i64 noundef %macsize) #0 {
 entry:
   %reclen = alloca [32 x i64], align 16
   %buf = alloca [32 x [13 x i8]], align 16
@@ -1020,7 +1020,7 @@ return:                                           ; preds = %if.then208, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tls1_mac(ptr noundef %rl, ptr noundef %rec, ptr noundef %md, i32 noundef %sending) #0 {
+define internal range(i32 0, 2) i32 @tls1_mac(ptr noundef %rl, ptr noundef %rec, ptr noundef %md, i32 noundef %sending) #0 {
 entry:
   %md_size = alloca i64, align 8
   %header = alloca [13 x i8], align 8

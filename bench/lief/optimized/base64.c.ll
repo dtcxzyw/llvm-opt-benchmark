@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [7 x i8] c"failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_base64_encode(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 -42, 1) i32 @mbedtls_base64_encode(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq i64 %4, 0
   br i1 %6, label %7, label %8
 
@@ -113,7 +113,7 @@ define hidden noundef i32 @mbedtls_base64_encode(ptr noundef %0, i64 noundef %1,
   %64 = shl i8 %52, 4
   %65 = lshr i32 %60, 4
   %66 = and i8 %64, 48
-  %67 = trunc i32 %65 to i8
+  %67 = trunc nuw nsw i32 %65 to i8
   %68 = or disjoint i8 %66, %67
   %69 = tail call zeroext i8 @mbedtls_ct_base64_enc_char(i8 noundef zeroext %68) #6
   %70 = getelementptr inbounds i8, ptr %.0.lcssa, i64 2
@@ -121,7 +121,7 @@ define hidden noundef i32 @mbedtls_base64_encode(ptr noundef %0, i64 noundef %1,
   br i1 %54, label %71, label %75
 
 71:                                               ; preds = %59
-  %.tr = trunc i32 %60 to i8
+  %.tr = trunc nuw i32 %60 to i8
   %72 = shl i8 %.tr, 2
   %73 = and i8 %72, 60
   %74 = tail call zeroext i8 @mbedtls_ct_base64_enc_char(i8 noundef zeroext %73) #6
@@ -152,7 +152,7 @@ define hidden noundef i32 @mbedtls_base64_encode(ptr noundef %0, i64 noundef %1,
 declare zeroext i8 @mbedtls_ct_base64_enc_char(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_base64_decode(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.loopexit.sink.split, label %.preheader90
 
@@ -357,7 +357,7 @@ define hidden noundef i32 @mbedtls_base64_decode(ptr noundef %0, i64 noundef %1,
 declare signext i8 @mbedtls_ct_base64_dec_value(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_base64_self_test(i32 noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @mbedtls_base64_self_test(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca [128 x i8], align 16
   %.not = icmp eq i32 %0, 0
@@ -368,7 +368,7 @@ define hidden noundef i32 @mbedtls_base64_self_test(i32 noundef %0) local_unname
   br label %6
 
 6:                                                ; preds = %4, %1
-  %7 = call i32 @mbedtls_base64_encode(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull %2, ptr noundef nonnull @base64_test_dec, i64 noundef 64), !range !9
+  %7 = call i32 @mbedtls_base64_encode(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull %2, ptr noundef nonnull @base64_test_dec, i64 noundef 64)
   %.not7 = icmp eq i32 %7, 0
   br i1 %.not7, label %8, label %9
 
@@ -388,7 +388,7 @@ define hidden noundef i32 @mbedtls_base64_self_test(i32 noundef %0) local_unname
   br label %13
 
 13:                                               ; preds = %11, %10
-  %14 = call i32 @mbedtls_base64_decode(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull %2, ptr noundef nonnull @base64_test_enc, i64 noundef 88), !range !10
+  %14 = call i32 @mbedtls_base64_decode(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull %2, ptr noundef nonnull @base64_test_enc, i64 noundef 88)
   %.not9 = icmp eq i32 %14, 0
   br i1 %.not9, label %15, label %16
 
@@ -445,5 +445,3 @@ attributes #6 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -42, i32 1}
-!10 = !{i32 -44, i32 1}

@@ -2563,7 +2563,7 @@ select.unfold:                                    ; preds = %45, %42
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @isolate_freepages_block(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #1 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @isolate_freepages_block(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #1 align 16 {
   %7 = alloca i64, align 8
   %8 = load i64, ptr %1, align 8
   %9 = icmp ult i64 %8, %2
@@ -4326,7 +4326,7 @@ define dso_local noundef zeroext i1 @compaction_zonelist_suitable(ptr nocapture 
 declare dso_local i64 @zone_reclaimable_pages(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @try_to_compact_pages(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 1, 9) i32 @try_to_compact_pages(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 align 16 {
   %7 = alloca %struct.compact_control, align 8
   %8 = alloca %struct.capture_control, align 8
   %9 = and i32 %0, 64
@@ -5568,7 +5568,7 @@ define dso_local void @kcompactd_stop(i32 noundef %0) local_unnamed_addr #7 sect
 declare dso_local i32 @kthread_stop(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @kcompactd_init() #7 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @kcompactd_init() #7 section ".init.text" align 16 {
   %1 = tail call i32 @__cpuhp_setup_state(i32 noundef 189, ptr noundef nonnull @.str.115, i1 noundef zeroext false, ptr noundef nonnull @kcompactd_cpu_online, ptr noundef null, i1 noundef zeroext false) #16
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %3, label %5

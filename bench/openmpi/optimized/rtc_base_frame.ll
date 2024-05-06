@@ -55,7 +55,7 @@ define internal i32 @prte_rtc_base_open(i32 noundef %0) #1 {
 5:                                                ; preds = %4, %1
   store ptr @pmix_list_t_class, ptr getelementptr inbounds (%struct.prte_rtc_base_t, ptr @prte_rtc_base, i64 0, i32 0, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds (%struct.prte_rtc_base_t, ptr @prte_rtc_base, i64 0, i32 0, i32 0, i32 2), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.prte_rtc_base_t, ptr @prte_rtc_base, i64 0, i32 0, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (%struct.prte_rtc_base_t, ptr @prte_rtc_base, i64 0, i32 0, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %6 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %7 = load ptr, ptr %6, align 8
   %.not6.i = icmp eq ptr %7, null
@@ -157,19 +157,19 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
   %40 = getelementptr inbounds i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
-  %.not6.i15 = icmp eq ptr %42, null
-  br i1 %.not6.i15, label %pmix_obj_run_destructors.exit19, label %.lr.ph.i16
+  %.not6.i16 = icmp eq ptr %42, null
+  br i1 %.not6.i16, label %pmix_obj_run_destructors.exit20, label %.lr.ph.i17
 
-.lr.ph.i16:                                       ; preds = %._crit_edge, %.lr.ph.i16
-  %43 = phi ptr [ %45, %.lr.ph.i16 ], [ %42, %._crit_edge ]
-  %.07.i17 = phi ptr [ %44, %.lr.ph.i16 ], [ %41, %._crit_edge ]
+.lr.ph.i17:                                       ; preds = %._crit_edge, %.lr.ph.i17
+  %43 = phi ptr [ %45, %.lr.ph.i17 ], [ %42, %._crit_edge ]
+  %.07.i18 = phi ptr [ %44, %.lr.ph.i17 ], [ %41, %._crit_edge ]
   tail call void %43(ptr noundef nonnull @prte_rtc_base) #8
-  %44 = getelementptr inbounds i8, ptr %.07.i17, i64 8
+  %44 = getelementptr inbounds i8, ptr %.07.i18, i64 8
   %45 = load ptr, ptr %44, align 8
-  %.not.i18 = icmp eq ptr %45, null
-  br i1 %.not.i18, label %pmix_obj_run_destructors.exit19, label %.lr.ph.i16, !llvm.loop !6
+  %.not.i19 = icmp eq ptr %45, null
+  br i1 %.not.i19, label %pmix_obj_run_destructors.exit20, label %.lr.ph.i17, !llvm.loop !6
 
-pmix_obj_run_destructors.exit19:                  ; preds = %.lr.ph.i16, %._crit_edge
+pmix_obj_run_destructors.exit20:                  ; preds = %.lr.ph.i17, %._crit_edge
   %46 = tail call i32 @pmix_mca_base_framework_components_close(ptr noundef nonnull @prte_rtc_base_framework, ptr noundef null) #8
   ret i32 %46
 }
@@ -211,7 +211,7 @@ define internal void @rcon(ptr noundef %0) #1 {
   %9 = getelementptr inbounds i8, ptr %0, i64 208
   store i32 1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 216
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %11 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @prte_value_t_class, i64 0, i32 6), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i = icmp eq ptr %12, null

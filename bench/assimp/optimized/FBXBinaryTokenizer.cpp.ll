@@ -1821,7 +1821,7 @@ _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cx
 
 _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE9push_backEOS4_.exit385: ; preds = %if.then.i.i355, %_ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i381
   %112 = load ptr, ptr %cursor, align 8
-  %113 = trunc i64 %cond79 to i32
+  %113 = trunc nuw nsw i64 %cond79 to i32
   br label %for.body115
 
 for.cond112:                                      ; preds = %for.body115

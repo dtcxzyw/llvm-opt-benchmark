@@ -338,7 +338,7 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   %181 = getelementptr [8192 x i16], ptr @hist_start, i64 0, i64 %180
   %182 = sext i32 %.1142240 to i64
   %183 = getelementptr [4097 x %struct.PGLZ_HistEntry], ptr @hist_entries, i64 0, i64 %182
-  %184 = trunc i8 %.1147239 to i1
+  %184 = trunc nuw i8 %.1147239 to i1
   br i1 %184, label %185, label %204
 
 185:                                              ; preds = %177
@@ -442,7 +442,7 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   %243 = getelementptr [8192 x i16], ptr @hist_start, i64 0, i64 %242
   %244 = sext i32 %.0141247 to i64
   %245 = getelementptr [4097 x %struct.PGLZ_HistEntry], ptr @hist_entries, i64 0, i64 %244
-  %246 = trunc i8 %.0146246 to i1
+  %246 = trunc nuw i8 %.0146246 to i1
   br i1 %246, label %247, label %266
 
 247:                                              ; preds = %239

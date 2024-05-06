@@ -9102,7 +9102,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6duckdb29ResultArrowArrayStreamWrapper17MyStreamGetSchemaEP16ArrowArrayStreamP11ArrowSchema(ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %out) #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN6duckdb29ResultArrowArrayStreamWrapper17MyStreamGetSchemaEP16ArrowArrayStreamP11ArrowSchema(ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %out) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.duckdb::PreservedError", align 8
@@ -9984,7 +9984,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6duckdb29ResultArrowArrayStreamWrapper15MyStreamGetNextEP16ArrowArrayStreamP10ArrowArray(ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %out) #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN6duckdb29ResultArrowArrayStreamWrapper15MyStreamGetNextEP16ArrowArrayStreamP10ArrowArray(ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %out) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %result_count = alloca i64, align 8

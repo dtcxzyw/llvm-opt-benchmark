@@ -504,7 +504,7 @@ define dso_local ptr @pci_get_base_class(i32 noundef %0, ptr noundef %1) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_dev_present(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @pci_dev_present(ptr noundef %0) #0 align 16 {
   br label %2
 
 2:                                                ; preds = %14, %1
@@ -554,7 +554,7 @@ declare dso_local i64 @_find_next_bit(ptr noundef, i64 noundef, i64 noundef) loc
 declare dso_local ptr @bus_find_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal noundef i32 @match_pci_dev_by_id(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #5 align 16 {
+define internal noundef range(i32 0, 2) i32 @match_pci_dev_by_id(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #5 align 16 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %10, label %5

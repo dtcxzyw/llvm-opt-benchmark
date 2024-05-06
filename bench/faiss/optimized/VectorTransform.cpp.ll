@@ -2412,7 +2412,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc110
   store i8 0, ptr %58, align 2
   %59 = getelementptr inbounds i8, ptr %5, i64 24
   store i8 0, ptr %56, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %59, i8 0, i64 49, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(49) %59, i8 0, i64 49, i1 false)
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20RandomRotationMatrixE, i64 0, i32 0, i64 2), ptr %5, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 80
   %61 = load i32, ptr %60, align 8
@@ -6675,7 +6675,7 @@ define void @_ZN5faiss9PCAMatrixC2Eiifb(ptr nocapture noundef nonnull writeonly 
   %11 = getelementptr inbounds i8, ptr %0, i64 18
   store i8 0, ptr %11, align 2
   %12 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %12, i8 0, i64 49, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(49) %12, i8 0, i64 49, i1 false)
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss9PCAMatrixE, i64 0, i32 0, i64 2), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 76
   store float %3, ptr %13, align 4
@@ -7318,7 +7318,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit94:                  ; preds = %_ZNSt6vectorIiSaIiE
   store i8 0, ptr %234, align 2
   %235 = getelementptr inbounds i8, ptr %5, i64 24
   store i8 0, ptr %232, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %235, i8 0, i64 49, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(49) %235, i8 0, i64 49, i1 false)
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20RandomRotationMatrixE, i64 0, i32 0, i64 2), ptr %5, align 8
   invoke void @_ZN5faiss20RandomRotationMatrix4initEi(ptr noundef nonnull align 8 dereferenceable(73) %5, i32 noundef 5)
           to label %236 unwind label %266
@@ -7917,7 +7917,7 @@ define void @_ZN5faiss9ITQMatrixC2Ei(ptr nocapture noundef nonnull writeonly ali
   store i8 0, ptr %7, align 2
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %5, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %8, i8 0, i64 49, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(49) %8, i8 0, i64 49, i1 false)
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss9ITQMatrixE, i64 0, i32 0, i64 2), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 50, ptr %9, align 4
@@ -8056,7 +8056,7 @@ define void @_ZN5faiss9OPQMatrixC2Eiii(ptr nocapture noundef nonnull writeonly a
   %11 = getelementptr inbounds i8, ptr %0, i64 18
   store i8 0, ptr %11, align 2
   %12 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %12, i8 0, i64 49, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(49) %12, i8 0, i64 49, i1 false)
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss9OPQMatrixE, i64 0, i32 0, i64 2), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 %2, ptr %13, align 4

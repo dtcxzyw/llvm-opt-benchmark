@@ -434,7 +434,7 @@ _ZNK6casadi6MXNode3depEx.exit.i:                  ; preds = %5
   %.08.us.i = phi i64 [ %26, %_ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit.loopexit.us.i ], [ 0, %_ZNK6casadi6MXNode3depEx.exit.i ]
   %17 = load ptr, ptr %1, align 8
   %18 = load ptr, ptr %2, align 8
-  %19 = mul nsw i64 %.08.us.i, %12
+  %19 = mul nuw nsw i64 %.08.us.i, %12
   %20 = getelementptr inbounds %"class.casadi::SXElem", ptr %18, i64 %19
   br label %.lr.ph.i.i.i.i.i.us.i
 

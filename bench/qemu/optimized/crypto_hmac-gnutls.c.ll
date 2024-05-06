@@ -125,7 +125,7 @@ declare ptr @gnutls_strerror(i32 noundef) local_unnamed_addr #5
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcrypto_gnutls_hmac_bytesv(ptr nocapture noundef readonly %hmac, ptr nocapture noundef readonly %iov, i64 noundef %niov, ptr nocapture noundef %result, ptr nocapture noundef %resultlen, ptr noundef %errp) #2 {
+define internal range(i32 -1, 1) i32 @qcrypto_gnutls_hmac_bytesv(ptr nocapture noundef readonly %hmac, ptr nocapture noundef readonly %iov, i64 noundef %niov, ptr nocapture noundef %result, ptr nocapture noundef %resultlen, ptr noundef %errp) #2 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %hmac, i64 8
   %0 = load ptr, ptr %opaque, align 8

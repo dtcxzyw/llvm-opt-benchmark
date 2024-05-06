@@ -811,7 +811,7 @@ grow_memtuples.exit:                              ; preds = %.grow_memtuples.exi
 
 .lr.ph.preheader.i:                               ; preds = %114
   %117 = load ptr, ptr %8, align 8
-  %118 = trunc i64 %indvars.iv.i to i32
+  %118 = trunc nsw i64 %indvars.iv.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %131, %.lr.ph.preheader.i

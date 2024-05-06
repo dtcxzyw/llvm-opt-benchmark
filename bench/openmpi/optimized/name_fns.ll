@@ -496,7 +496,7 @@ define ptr @prte_util_print_local_jobid(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_util_convert_vpid_to_string(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @prte_util_convert_vpid_to_string(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   switch i32 %1, label %13 [
     i32 -2, label %3
     i32 -4, label %5
@@ -551,7 +551,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_util_convert_string_to_process_name(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @prte_util_convert_string_to_process_name(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -592,7 +592,7 @@ declare void @PMIx_Load_nspace(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_util_convert_process_name_to_string(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @prte_util_convert_process_name_to_string(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -662,7 +662,7 @@ prte_util_print_jobids.exit:                      ; preds = %9, %26
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @prte_util_compare_name_fields(i8 noundef zeroext %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #6 {
+define range(i32 -1, 2) i32 @prte_util_compare_name_fields(i8 noundef zeroext %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %or.cond = and i1 %4, %5

@@ -30,7 +30,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @conf_ssl_name_find(ptr noundef readonly %name, ptr nocapture noundef writeonly %idx) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @conf_ssl_name_find(ptr noundef readonly %name, ptr nocapture noundef writeonly %idx) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %name, null
   br i1 %cmp, label %return, label %if.end
@@ -92,7 +92,7 @@ entry:
 declare i32 @CONF_module_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssl_module_init(ptr noundef %md, ptr noundef %cnf) #4 {
+define internal range(i32 0, 2) i32 @ssl_module_init(ptr noundef %md, ptr noundef %cnf) #4 {
 entry:
   %call = tail call ptr @CONF_imodule_get_value(ptr noundef %md) #7
   %call1 = tail call ptr @NCONF_get_section(ptr noundef %cnf, ptr noundef %call) #7

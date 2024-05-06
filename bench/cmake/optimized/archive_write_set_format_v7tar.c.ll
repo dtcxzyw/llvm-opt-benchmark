@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @template_header = internal unnamed_addr constant <{ [156 x i8], [356 x i8] }> <{ [156 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00000000 \00000000 \00000000 \0000000000000 00000000000         ", [356 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_format_v7tar(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_format_v7tar(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #11
   %3 = icmp eq i32 %2, -30
   br i1 %3, label %23, label %4
@@ -85,7 +85,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_write_v7tar_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_write_v7tar_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.3) #13
@@ -370,7 +370,7 @@ format_number.exit.thread.i:                      ; preds = %110, %._crit_edge.i
 
 .preheader.i.i.i:                                 ; preds = %format_number.exit.thread.i
   %113 = getelementptr inbounds i8, ptr %6, i64 108
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %113, i8 48, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(6) %113, i8 48, i64 6, i1 false)
   br label %124
 
 114:                                              ; preds = %format_number.exit.thread.i
@@ -411,7 +411,7 @@ format_number.exit88.i:                           ; preds = %124, %._crit_edge.i
 
 .preheader.i.i96.i:                               ; preds = %format_number.exit88.i
   %127 = getelementptr inbounds i8, ptr %6, i64 116
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %127, i8 48, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(6) %127, i8 48, i64 6, i1 false)
   br label %138
 
 128:                                              ; preds = %format_number.exit88.i
@@ -452,7 +452,7 @@ format_number.exit97.i:                           ; preds = %138, %._crit_edge.i
 
 .preheader.i.i105.i:                              ; preds = %format_number.exit97.i
   %141 = getelementptr inbounds i8, ptr %6, i64 124
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %141, i8 48, i64 11, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(11) %141, i8 48, i64 11, i1 false)
   br label %152
 
 142:                                              ; preds = %format_number.exit97.i
@@ -493,7 +493,7 @@ format_number.exit106.i:                          ; preds = %152, %._crit_edge.i
 
 .preheader.i.i114.i:                              ; preds = %format_number.exit106.i
   %155 = getelementptr inbounds i8, ptr %6, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %155, i8 48, i64 11, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(11) %155, i8 48, i64 11, i1 false)
   br label %166
 
 156:                                              ; preds = %format_number.exit106.i

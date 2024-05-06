@@ -4486,7 +4486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit71.i: 
 
 1370:                                             ; preds = %1344
   %1371 = fdiv float %1352, %1353
-  %1372 = invoke fastcc noundef i32 @_ZL16gen_vsites_6ringP7t_atomsPPiN3gmx8ArrayRefI18InteractionsOfTypeEEiS1_fffb(ptr noundef nonnull %3, ptr noundef %7, ptr %1261, i32 noundef %.5, ptr noundef nonnull %194, float noundef %1295, float noundef %1324, float noundef %1371, i1 noundef zeroext true)
+  %1372 = invoke fastcc noundef i32 @_ZL16gen_vsites_6ringP7t_atomsPPiN3gmx8ArrayRefI18InteractionsOfTypeEEiS1_fffb(ptr noundef nonnull readonly %3, ptr noundef readonly %7, ptr %1261, i32 noundef %.5, ptr noundef nonnull readonly %194, float noundef %1295, float noundef %1324, float noundef %1371, i1 noundef zeroext true)
           to label %1373 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .body.i703:                                       ; preds = %.body64.i, %1362, %.body49.i, %1354, %.body1097, %.body1106
@@ -5564,7 +5564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit296.i:
 
 1656:                                             ; preds = %1604
   %1657 = fdiv float %1612, %1613
-  %1658 = invoke fastcc noundef i32 @_ZL16gen_vsites_6ringP7t_atomsPPiN3gmx8ArrayRefI18InteractionsOfTypeEEiS1_fffb(ptr noundef nonnull %3, ptr noundef %7, ptr %1413, i32 noundef 12, ptr noundef nonnull %194, float noundef %1459, float noundef %1488, float noundef %1657, i1 noundef zeroext false)
+  %1658 = invoke fastcc noundef i32 @_ZL16gen_vsites_6ringP7t_atomsPPiN3gmx8ArrayRefI18InteractionsOfTypeEEiS1_fffb(ptr noundef nonnull readonly %3, ptr noundef readonly %7, ptr %1413, i32 noundef 12, ptr noundef nonnull readonly %194, float noundef %1459, float noundef %1488, float noundef %1657, i1 noundef zeroext false)
           to label %.noexc722 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc722:                                        ; preds = %1656
@@ -18504,22 +18504,22 @@ define internal fastcc noundef float @_ZL13get_ddb_angleN3gmx8ArrayRefIK19Virtua
 .lr.ph.i.i.i22:                                   ; preds = %46, %67
   %.036.i.i.i = phi i64 [ %69, %67 ], [ %55, %46 ]
   %.sroa.025.035.i.i.i = phi ptr [ %68, %67 ], [ %48, %46 ]
-  %57 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL13get_ddb_angleN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_16VirtualSiteAngleESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %.sroa.025.035.i.i.i)
+  %57 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL13get_ddb_angleN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_16VirtualSiteAngleESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %7, ptr %.sroa.025.035.i.i.i)
   br i1 %57, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology16VirtualSiteAngleESt6vectorIS3_SaIS3_EEEEZL13get_ddb_angleN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_SL_E3$_1ET_SN_SN_T0_.exit", label %58
 
 58:                                               ; preds = %.lr.ph.i.i.i22
   %59 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 104
-  %60 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL13get_ddb_angleN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_16VirtualSiteAngleESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nonnull %59)
+  %60 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL13get_ddb_angleN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_16VirtualSiteAngleESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %7, ptr nonnull %59)
   br i1 %60, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology16VirtualSiteAngleESt6vectorIS3_SaIS3_EEEEZL13get_ddb_angleN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_SL_E3$_1ET_SN_SN_T0_.exit", label %61
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 208
-  %63 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL13get_ddb_angleN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_16VirtualSiteAngleESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nonnull %62)
+  %63 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL13get_ddb_angleN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_16VirtualSiteAngleESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %7, ptr nonnull %62)
   br i1 %63, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology16VirtualSiteAngleESt6vectorIS3_SaIS3_EEEEZL13get_ddb_angleN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_SL_E3$_1ET_SN_SN_T0_.exit", label %64
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 312
-  %66 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL13get_ddb_angleN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_16VirtualSiteAngleESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nonnull %65)
+  %66 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL13get_ddb_angleN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_16VirtualSiteAngleESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %7, ptr nonnull %65)
   br i1 %66, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology16VirtualSiteAngleESt6vectorIS3_SaIS3_EEEEZL13get_ddb_angleN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_SL_E3$_1ET_SN_SN_T0_.exit", label %67
 
 67:                                               ; preds = %64
@@ -18544,7 +18544,7 @@ define internal fastcc noundef float @_ZL13get_ddb_angleN3gmx8ArrayRefIK19Virtua
   ]
 
 72:                                               ; preds = %._crit_edge.i.i.i20
-  %73 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL13get_ddb_angleN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_16VirtualSiteAngleESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %.sroa.025.0.lcssa.i.i.i)
+  %73 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL13get_ddb_angleN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_16VirtualSiteAngleESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %7, ptr %.sroa.025.0.lcssa.i.i.i)
   br i1 %73, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology16VirtualSiteAngleESt6vectorIS3_SaIS3_EEEEZL13get_ddb_angleN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_SL_E3$_1ET_SN_SN_T0_.exit", label %74
 
 74:                                               ; preds = %72
@@ -18553,7 +18553,7 @@ define internal fastcc noundef float @_ZL13get_ddb_angleN3gmx8ArrayRefIK19Virtua
 
 76:                                               ; preds = %74, %._crit_edge.i.i.i20
   %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i20 ], [ %75, %74 ]
-  %77 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL13get_ddb_angleN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_16VirtualSiteAngleESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %.sroa.025.1.i.i.i)
+  %77 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL13get_ddb_angleN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_16VirtualSiteAngleESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %7, ptr %.sroa.025.1.i.i.i)
   br i1 %77, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology16VirtualSiteAngleESt6vectorIS3_SaIS3_EEEEZL13get_ddb_angleN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_SL_E3$_1ET_SN_SN_T0_.exit", label %78
 
 78:                                               ; preds = %76
@@ -18562,7 +18562,7 @@ define internal fastcc noundef float @_ZL13get_ddb_angleN3gmx8ArrayRefIK19Virtua
 
 80:                                               ; preds = %78, %._crit_edge.i.i.i20
   %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i20 ], [ %79, %78 ]
-  %81 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL13get_ddb_angleN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_16VirtualSiteAngleESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %.sroa.025.2.i.i.i)
+  %81 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL13get_ddb_angleN3gmx8ArrayRefIK19VirtualSiteTopologyEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_E3$_1EclINS_17__normal_iteratorIPKNS4_16VirtualSiteAngleESt6vectorISJ_SaISJ_EEEEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %7, ptr %.sroa.025.2.i.i.i)
   %spec.select.i.i.i21 = select i1 %81, ptr %.sroa.025.2.i.i.i, ptr %50
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN19VirtualSiteTopology16VirtualSiteAngleESt6vectorIS3_SaIS3_EEEEZL13get_ddb_angleN3gmx8ArrayRefIKS2_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_SL_E3$_1ET_SN_SN_T0_.exit"
 

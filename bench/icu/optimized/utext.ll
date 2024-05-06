@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZTVN6icu_7513UnicodeStringE = external unnamed_addr constant { [13 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @utext_moveIndex32_75(ptr noundef %ut, i32 noundef %delta) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @utext_moveIndex32_75(ptr noundef %ut, i32 noundef %delta) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %delta, 0
   br i1 %cmp, label %do.body.preheader, label %if.else13
@@ -258,7 +258,7 @@ return:                                           ; preds = %if.then.i50, %do.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @utext_next32_75(ptr noundef %ut) local_unnamed_addr #0 {
+define range(i32 -56613888, 10559488) i32 @utext_next32_75(ptr noundef %ut) local_unnamed_addr #0 {
 entry:
   %chunkOffset = getelementptr inbounds i8, ptr %ut, i64 40
   %0 = load i32, ptr %chunkOffset, align 8
@@ -342,7 +342,7 @@ return:                                           ; preds = %if.end23, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @utext_previous32_75(ptr noundef %ut) local_unnamed_addr #0 {
+define range(i32 -56613888, 10559488) i32 @utext_previous32_75(ptr noundef %ut) local_unnamed_addr #0 {
 entry:
   %chunkOffset = getelementptr inbounds i8, ptr %ut, i64 40
   %0 = load i32, ptr %chunkOffset, align 8
@@ -436,7 +436,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @utext_isLengthExpensive_75(ptr nocapture noundef readonly %ut) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @utext_isLengthExpensive_75(ptr nocapture noundef readonly %ut) local_unnamed_addr #1 {
 entry:
   %providerProperties = getelementptr inbounds i8, ptr %ut, i64 8
   %0 = load i32, ptr %providerProperties, align 8
@@ -796,7 +796,7 @@ return:                                           ; preds = %if.end11, %if.end34
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @utext_current32_75(ptr noundef %ut) local_unnamed_addr #0 {
+define range(i32 -56613888, 10559488) i32 @utext_current32_75(ptr noundef %ut) local_unnamed_addr #0 {
 entry:
   %chunkOffset = getelementptr inbounds i8, ptr %ut, i64 40
   %0 = load i32, ptr %chunkOffset, align 8
@@ -893,7 +893,7 @@ return:                                           ; preds = %if.end31, %if.end3,
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @utext_char32At_75(ptr noundef %ut, i64 noundef %nativeIndex) local_unnamed_addr #0 {
+define range(i32 -56613888, 10559488) i32 @utext_char32At_75(ptr noundef %ut, i64 noundef %nativeIndex) local_unnamed_addr #0 {
 entry:
   %chunkNativeStart = getelementptr inbounds i8, ptr %ut, i64 32
   %0 = load i64, ptr %chunkNativeStart, align 8
@@ -1098,7 +1098,7 @@ return:                                           ; preds = %if.end40.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @utext_next32From_75(ptr noundef %ut, i64 noundef %index) local_unnamed_addr #0 {
+define range(i32 -56613888, 10559488) i32 @utext_next32From_75(ptr noundef %ut, i64 noundef %index) local_unnamed_addr #0 {
 entry:
   %chunkNativeStart = getelementptr inbounds i8, ptr %ut, i64 32
   %0 = load i64, ptr %chunkNativeStart, align 8
@@ -1331,7 +1331,7 @@ return:                                           ; preds = %if.end34.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @utext_previous32From_75(ptr noundef %ut, i64 noundef %index) local_unnamed_addr #0 {
+define range(i32 -56613888, 10559488) i32 @utext_previous32From_75(ptr noundef %ut, i64 noundef %index) local_unnamed_addr #0 {
 entry:
   %chunkNativeStart = getelementptr inbounds i8, ptr %ut, i64 32
   %0 = load i64, ptr %chunkNativeStart, align 8
@@ -1581,7 +1581,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @utext_equals_75(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @utext_equals_75(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %b, null
@@ -1670,7 +1670,7 @@ return:                                           ; preds = %utext_getNativeInde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @utext_isWritable_75(ptr nocapture noundef readonly %ut) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @utext_isWritable_75(ptr nocapture noundef readonly %ut) local_unnamed_addr #1 {
 entry:
   %providerProperties = getelementptr inbounds i8, ptr %ut, i64 8
   %0 = load i32, ptr %providerProperties, align 8
@@ -1691,7 +1691,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @utext_hasMetaData_75(ptr nocapture noundef readonly %ut) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @utext_hasMetaData_75(ptr nocapture noundef readonly %ut) local_unnamed_addr #1 {
 entry:
   %providerProperties = getelementptr inbounds i8, ptr %ut, i64 8
   %0 = load i32, ptr %providerProperties, align 8
@@ -2063,7 +2063,7 @@ if.end14:                                         ; preds = %if.end9
   store ptr @_ZL9utf8Funcs, ptr %pFuncs, align 8
   %context = getelementptr inbounds i8, ptr %call10, i64 72
   store ptr %spec.store.select, ptr %context, align 8
-  %conv = trunc i64 %length to i32
+  %conv = trunc nsw i64 %length to i32
   %b = getelementptr inbounds i8, ptr %call10, i64 120
   store i32 %conv, ptr %b, align 8
   %c = getelementptr inbounds i8, ptr %call10, i64 124
@@ -2310,7 +2310,7 @@ if.then13:                                        ; preds = %if.end9
   %cond = tail call i64 @llvm.smax.i64(i64 %length, i64 0)
   %chunkNativeLimit = getelementptr inbounds i8, ptr %call10, i64 16
   store i64 %cond, ptr %chunkNativeLimit, align 8
-  %conv = trunc i64 %cond to i32
+  %conv = trunc nsw i64 %cond to i32
   %chunkLength = getelementptr inbounds i8, ptr %call10, i64 44
   store i32 %conv, ptr %chunkLength, align 4
   %chunkOffset = getelementptr inbounds i8, ptr %call10, i64 40
@@ -2435,7 +2435,7 @@ if.end10:                                         ; preds = %if.then6, %do.body,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZL14utf8TextLengthP5UText(ptr nocapture noundef %ut) #7 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL14utf8TextLengthP5UText(ptr nocapture noundef %ut) #7 {
 entry:
   %b = getelementptr inbounds i8, ptr %ut, i64 120
   %0 = load i32, ptr %b, align 8
@@ -2478,7 +2478,7 @@ if.end12:                                         ; preds = %while.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL14utf8TextAccessP5UTextla(ptr noundef %ut, i64 noundef %index, i8 noundef signext %forward) #0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(ptr noundef %ut, i64 noundef %index, i8 noundef signext %forward) #0 {
 entry:
   %srcIx459 = alloca i32, align 4
   %context = getelementptr inbounds i8, ptr %ut, i64 72
@@ -2487,7 +2487,7 @@ entry:
   %1 = load i32, ptr %b, align 8
   %cmp = icmp slt i64 %index, 0
   %spec.select362 = tail call i64 @llvm.umin.i64(i64 %index, i64 2147483647)
-  %spec.select = trunc i64 %spec.select362 to i32
+  %spec.select = trunc nuw nsw i64 %spec.select362 to i32
   %ix.0 = select i1 %cmp, i32 0, i32 %spec.select
   %cmp4 = icmp sgt i32 %ix.0, %1
   br i1 %cmp4, label %if.then5, label %if.end30
@@ -2525,7 +2525,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !8
 
 while.end.loopexit.split.loop.exit403:            ; preds = %land.rhs
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit403, %while.cond.preheader
@@ -3043,7 +3043,7 @@ do.body338:                                       ; preds = %do.end332
 if.then340:                                       ; preds = %land.lhs.true315, %cond.false311, %land.lhs.true305, %land.lhs.true297, %land.lhs.true291, %land.lhs.true280, %cond.false, %cond.true264, %if.then259, %do.body338
   %srcIx.4352360 = phi i32 [ %srcIx.4, %do.body338 ], [ %spec.select347, %if.then259 ], [ %inc253, %cond.false311 ], [ %inc253, %cond.false ], [ %inc253, %land.lhs.true280 ], [ %spec.select347, %land.lhs.true291 ], [ %inc295, %land.lhs.true297 ], [ %inc253, %cond.true264 ], [ %spec.select347, %land.lhs.true305 ], [ %srcIx.2, %land.lhs.true315 ]
   %c222.2353358 = phi i32 [ %c222.2, %do.body338 ], [ 65533, %if.then259 ], [ 65533, %cond.false311 ], [ 65533, %cond.false ], [ 65533, %land.lhs.true280 ], [ 65533, %land.lhs.true291 ], [ 65533, %land.lhs.true297 ], [ 65533, %cond.true264 ], [ 65533, %land.lhs.true305 ], [ 65533, %land.lhs.true315 ]
-  %conv341 = trunc i32 %c222.2353358 to i16
+  %conv341 = trunc nuw i32 %c222.2353358 to i16
   %inc342 = add nsw i32 %destIx.0, 1
   %idxprom343 = sext i32 %destIx.0 to i64
   %arrayidx344 = getelementptr inbounds i16, ptr %buf215, i64 %idxprom343
@@ -3424,11 +3424,11 @@ if.end27:                                         ; preds = %lor.lhs.false17
   br i1 %exitcond.not, label %if.end28, label %for.body, !llvm.loop !12
 
 if.end28.loopexit.split.loop.exit:                ; preds = %for.body
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nsw i64 %indvars.iv to i32
   br label %if.end28
 
 if.end28.loopexit.split.loop.exit57:              ; preds = %lor.lhs.false17
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nsw i64 %indvars.iv to i32
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end27, %if.end28.loopexit.split.loop.exit, %if.end28.loopexit.split.loop.exit57, %if.end10
@@ -3463,11 +3463,11 @@ if.end52:                                         ; preds = %lor.lhs.false41
   br i1 %exitcond56.not, label %if.end57, label %for.body35, !llvm.loop !13
 
 if.end57.loopexit.split.loop.exit:                ; preds = %for.body35
-  %14 = trunc i64 %indvars.iv53 to i32
+  %14 = trunc nsw i64 %indvars.iv53 to i32
   br label %if.end57
 
 if.end57.loopexit.split.loop.exit62:              ; preds = %lor.lhs.false41
-  %15 = trunc i64 %indvars.iv53 to i32
+  %15 = trunc nsw i64 %indvars.iv53 to i32
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end52, %if.end57.loopexit.split.loop.exit, %if.end57.loopexit.split.loop.exit62, %if.end28
@@ -3509,7 +3509,7 @@ if.else.i44:                                      ; preds = %while.body.i
   br i1 %cmp5.i, label %if.then6.i, label %if.else9.i
 
 if.then6.i:                                       ; preds = %if.else.i44
-  %conv7.i = trunc i32 %call.i to i16
+  %conv7.i = trunc nuw i32 %call.i to i16
   %incdec.ptr8.i = getelementptr inbounds i8, ptr %pDest.038.i, i64 2
   store i16 %conv7.i, ptr %pDest.038.i, align 2
   br label %if.end19.i
@@ -3591,7 +3591,7 @@ _ZL17utext_strFromUTF8PDsiPiPKciP10UErrorCode.exit: ; preds = %if.end35.i, %whil
   %call41.i = call i32 @u_terminateUChars_75(ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %add38.i, ptr noundef nonnull %pErrorCode)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %index.i)
   %conv61 = sext i32 %limit32.1 to i64
-  %call62 = call noundef signext i8 @_ZL14utf8TextAccessP5UTextla(ptr noundef %ut, i64 noundef %conv61, i8 noundef signext 1), !range !16
+  %call62 = call noundef signext i8 @_ZL14utf8TextAccessP5UTextla(ptr noundef %ut, i64 noundef %conv61, i8 noundef signext 1)
   br label %return
 
 return:                                           ; preds = %entry, %_ZL17utext_strFromUTF8PDsiPiPKciP10UErrorCode.exit, %if.then9, %if.then3
@@ -3600,7 +3600,7 @@ return:                                           ; preds = %entry, %_ZL17utext_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZL25utf8TextMapOffsetToNativePK5UText(ptr nocapture noundef readonly %ut) #8 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL25utf8TextMapOffsetToNativePK5UText(ptr nocapture noundef readonly %ut) #8 {
 entry:
   %p = getelementptr inbounds i8, ptr %ut, i64 80
   %0 = load ptr, ptr %p, align 8
@@ -3622,7 +3622,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL23utf8TextMapIndexToUTF16PK5UTextl(ptr nocapture noundef readonly %ut, i64 noundef %index64) #8 {
+define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23utf8TextMapIndexToUTF16PK5UTextl(ptr nocapture noundef readonly %ut, i64 noundef %index64) #8 {
 entry:
   %conv = trunc i64 %index64 to i32
   %p = getelementptr inbounds i8, ptr %ut, i64 80
@@ -3952,7 +3952,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZL13repTextLengthP5UText(ptr nocapture noundef readonly %ut) #0 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL13repTextLengthP5UText(ptr nocapture noundef readonly %ut) #0 {
 entry:
   %context = getelementptr inbounds i8, ptr %ut, i64 72
   %0 = load ptr, ptr %context, align 8
@@ -3965,7 +3965,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL13repTextAccessP5UTextla(ptr nocapture noundef %ut, i64 noundef %index, i8 noundef signext %forward) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL13repTextAccessP5UTextla(ptr nocapture noundef %ut, i64 noundef %index, i8 noundef signext %forward) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca %"class.icu_75::UnicodeString", align 8
   %context = getelementptr inbounds i8, ptr %ut, i64 72
@@ -4302,7 +4302,7 @@ if.end34:                                         ; preds = %land.lhs.true28, %l
 invoke.cont:                                      ; preds = %if.end34
   %conv39 = sext i32 %spec.select35 to i64
   %call41 = invoke noundef signext i8 @_ZL13repTextAccessP5UTextla(ptr noundef nonnull %ut, i64 noundef %conv39, i8 noundef signext 1)
-          to label %invoke.cont40 unwind label %lpad, !range !16
+          to label %invoke.cont40 unwind label %lpad
 
 invoke.cont40:                                    ; preds = %invoke.cont
   %call43 = invoke i32 @u_terminateUChars_75(ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %sub35, ptr noundef nonnull %status)
@@ -4420,14 +4420,14 @@ land.lhs.true32:                                  ; preds = %land.lhs.true26
 if.end38:                                         ; preds = %land.lhs.true32, %land.lhs.true26, %if.end24
   %limit32.0 = phi i32 [ %conv.i39, %land.lhs.true26 ], [ %conv.i39, %if.end24 ], [ %spec.select33, %land.lhs.true32 ]
   %length.lobit = lshr i32 %length, 31
-  %conv40 = trunc i32 %length.lobit to i8
+  %conv40 = trunc nuw nsw i32 %length.lobit to i8
   store ptr %src, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %replStr, i8 noundef signext %conv40, ptr noundef nonnull %agg.tmp, i32 noundef %length)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end38
   %13 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13) #14, !srcloc !17
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13) #14, !srcloc !16
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %14 = load ptr, ptr %vfn, align 8
@@ -4452,14 +4452,14 @@ invoke.cont43:                                    ; preds = %invoke.cont42
 if.then48:                                        ; preds = %invoke.cont43
   store i64 0, ptr %chunkNativeLimit, align 8
   %nativeIndexingLimit.i = getelementptr inbounds i8, ptr %ut, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %nativeIndexingLimit.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %nativeIndexingLimit.i, i8 0, i64 20, i1 false)
   br label %if.end50
 
 lpad:                                             ; preds = %if.end38
   %17 = landingpad { ptr, i32 }
           cleanup
   %18 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %18) #14, !srcloc !17
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %18) #14, !srcloc !16
   br label %eh.resume
 
 lpad41:                                           ; preds = %invoke.cont42, %if.end50, %invoke.cont
@@ -4472,7 +4472,7 @@ if.end50:                                         ; preds = %if.then48, %invoke.
   %add = add nsw i32 %sub45, %limit32.0
   %conv51 = sext i32 %add to i64
   %call53 = invoke noundef signext i8 @_ZL13repTextAccessP5UTextla(ptr noundef nonnull %ut, i64 noundef %conv51, i8 noundef signext 1)
-          to label %invoke.cont52 unwind label %lpad41, !range !16
+          to label %invoke.cont52 unwind label %lpad41
 
 invoke.cont52:                                    ; preds = %if.end50
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %replStr) #14
@@ -4576,7 +4576,7 @@ if.end21:                                         ; preds = %if.end5, %invoke.co
 if.then29:                                        ; preds = %if.end21
   store i64 0, ptr %chunkNativeLimit, align 8
   %nativeIndexingLimit.i = getelementptr inbounds i8, ptr %ut, i64 28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %nativeIndexingLimit.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(20) %nativeIndexingLimit.i, i8 0, i64 20, i1 false)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then29, %if.end21
@@ -4584,7 +4584,7 @@ if.end30:                                         ; preds = %if.then29, %if.end2
   %sub32 = sub i32 %add31, %start32.1
   %nativeIterIndex.0 = select i1 %or.cond36, i32 %conv.i51, i32 %sub32
   %conv38 = sext i32 %nativeIterIndex.0 to i64
-  %call39 = call noundef signext i8 @_ZL13repTextAccessP5UTextla(ptr noundef nonnull %ut, i64 noundef %conv38, i8 noundef signext 1), !range !16
+  %call39 = call noundef signext i8 @_ZL13repTextAccessP5UTextla(ptr noundef nonnull %ut, i64 noundef %conv38, i8 noundef signext 1)
   br label %return
 
 return:                                           ; preds = %entry, %if.end30, %if.then4
@@ -4673,7 +4673,7 @@ if.end:                                           ; preds = %new.cont, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZL16unistrTextLengthP5UText(ptr nocapture noundef readonly %t) #8 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL16unistrTextLengthP5UText(ptr nocapture noundef readonly %t) #8 {
 entry:
   %context = getelementptr inbounds i8, ptr %t, i64 72
   %0 = load ptr, ptr %context, align 8
@@ -4690,7 +4690,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef signext i8 @_ZL16unistrTextAccessP5UTextla(ptr nocapture noundef %ut, i64 noundef %index, i8 noundef signext %forward) #2 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL16unistrTextAccessP5UTextla(ptr nocapture noundef %ut, i64 noundef %index, i8 noundef signext %forward) #2 {
 entry:
   %chunkLength = getelementptr inbounds i8, ptr %ut, i64 44
   %0 = load i32, ptr %chunkLength, align 4
@@ -4757,7 +4757,7 @@ if.end10:                                         ; preds = %if.end5
   br i1 %cmp11, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end10
-  %conv12 = trunc i64 %start to i32
+  %conv12 = trunc nuw nsw i64 %start to i32
   %call13 = tail call noundef i32 @_ZNK6icu_7513UnicodeString14getChar32StartEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %conv12)
   br label %cond.end
 
@@ -4767,7 +4767,7 @@ cond.end:                                         ; preds = %if.end10, %cond.tru
   br i1 %cmp15, label %cond.true16, label %cond.end20
 
 cond.true16:                                      ; preds = %cond.end
-  %conv17 = trunc i64 %limit to i32
+  %conv17 = trunc nuw nsw i64 %limit to i32
   %call18 = tail call noundef i32 @_ZNK6icu_7513UnicodeString14getChar32StartEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %conv17)
   br label %cond.end20
 
@@ -4785,14 +4785,14 @@ if.then25:                                        ; preds = %cond.end20
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then25
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %dest) #14, !srcloc !18
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %dest) #14, !srcloc !17
   %add = add nsw i32 %spec.select, %cond
   br label %if.end30
 
 lpad:                                             ; preds = %if.then25
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %dest) #14, !srcloc !18
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %dest) #14, !srcloc !17
   resume { ptr, i32 } %5
 
 if.end30:                                         ; preds = %cond.end20, %invoke.cont
@@ -4875,7 +4875,7 @@ if.end18:                                         ; preds = %if.then16, %if.end1
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end18
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %src) #14, !srcloc !17
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %src) #14, !srcloc !16
   %7 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i40 = icmp slt i16 %7, 0
   %8 = ashr i16 %7, 5
@@ -4921,7 +4921,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %invoke.cont, %if.th
 lpad:                                             ; preds = %if.end18
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %src) #14, !srcloc !17
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %src) #14, !srcloc !16
   resume { ptr, i32 } %11
 
 return:                                           ; preds = %entry, %_ZNK6icu_7513UnicodeString9getBufferEv.exit, %if.then5
@@ -5153,7 +5153,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   store i16 %4, ptr %arrayidx9, align 2
   %inc = add nuw nsw i64 %i.018, 1
   %exitcond.not = icmp eq i64 %inc, %conv7
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %arrayidx10 = getelementptr inbounds i16, ptr %call5, i64 %conv7
@@ -5195,7 +5195,7 @@ if.end:                                           ; preds = %if.then, %if.end
   %arrayidx = getelementptr inbounds i16, ptr %1, i64 %inc
   %4 = load i16, ptr %arrayidx, align 2
   %cmp1 = icmp eq i16 %4, 0
-  br i1 %cmp1, label %for.end, label %if.end, !llvm.loop !20
+  br i1 %cmp1, label %for.end, label %if.end, !llvm.loop !19
 
 for.end:                                          ; preds = %if.end, %if.then
   %.lcssa = phi i64 [ %chunkNativeLimit.promoted, %if.then ], [ %inc, %if.end ]
@@ -5217,7 +5217,7 @@ if.end9:                                          ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef signext i8 @_ZL15ucstrTextAccessP5UTextla(ptr nocapture noundef %ut, i64 noundef %index, i8 noundef signext %forward) #7 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL15ucstrTextAccessP5UTextla(ptr nocapture noundef %ut, i64 noundef %index, i8 noundef signext %forward) #7 {
 entry:
   %context = getelementptr inbounds i8, ptr %ut, i64 72
   %0 = load ptr, ptr %context, align 8
@@ -5277,7 +5277,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp28, label %if.then29, label %for.inc
 
 if.then29:                                        ; preds = %for.body
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nsw i64 %indvars.iv to i32
   store i64 %indvars.iv, ptr %a, align 8
   %chunkLength = getelementptr inbounds i8, ptr %ut, i64 44
   store i32 %9, ptr %chunkLength, align 4
@@ -5316,7 +5316,7 @@ if.end54:                                         ; preds = %land.lhs.true44, %i
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %do.body59, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %do.body59, label %for.body, !llvm.loop !20
 
 do.body59:                                        ; preds = %for.inc, %if.else15
   %chunkLimit.0.lcssa = phi i32 [ %conv24, %if.else15 ], [ %scanLimit.0, %for.inc ]
@@ -5422,7 +5422,7 @@ if.then5:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end6:                                          ; preds = %lor.lhs.false
-  %call7 = tail call noundef signext i8 @_ZL15ucstrTextAccessP5UTextla(ptr noundef %ut, i64 noundef %start, i8 noundef signext 1), !range !16
+  %call7 = tail call noundef signext i8 @_ZL15ucstrTextAccessP5UTextla(ptr noundef %ut, i64 noundef %start, i8 noundef signext 1)
   %chunkContents = getelementptr inbounds i8, ptr %ut, i64 48
   %1 = load ptr, ptr %chunkContents, align 8
   %chunkOffset = getelementptr inbounds i8, ptr %ut, i64 40
@@ -5445,7 +5445,7 @@ if.else:                                          ; preds = %if.end6
 if.end13:                                         ; preds = %if.else, %if.then9
   %spec.select71.sink = phi i64 [ %spec.select71, %if.else ], [ %spec.select, %if.then9 ]
   %cmp.i62.sink = icmp slt i64 %limit, 0
-  %4 = trunc i64 %spec.select71.sink to i32
+  %4 = trunc nuw nsw i64 %spec.select71.sink to i32
   %conv.i65 = select i1 %cmp.i62.sink, i32 0, i32 %4
   %cmp1476 = icmp slt i32 %2, %conv.i65
   br i1 %cmp1476, label %for.body.lr.ph, label %for.end
@@ -5479,7 +5479,7 @@ if.end34.us:                                      ; preds = %if.end23.us, %if.th
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %indvars.iv.next118 = add nsw i64 %indvars.iv117, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count124
-  br i1 %exitcond125.not, label %for.end.loopexit, label %for.body.us, !llvm.loop !22
+  br i1 %exitcond125.not, label %for.end.loopexit, label %for.body.us, !llvm.loop !21
 
 for.body.us84:                                    ; preds = %for.body.lr.ph, %if.then25.us89
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %if.then25.us89 ], [ 0, %for.body.lr.ph ]
@@ -5495,11 +5495,11 @@ if.then25.us89:                                   ; preds = %for.body.us84
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count124
-  br i1 %exitcond116.not, label %for.end.loopexit106, label %for.body.us84, !llvm.loop !22
+  br i1 %exitcond116.not, label %for.end.loopexit106, label %for.body.us84, !llvm.loop !21
 
 if.then19:                                        ; preds = %for.body.us
-  %10 = trunc i64 %indvars.iv119 to i32
-  %11 = trunc i64 %indvars.iv117 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv119 to i32
+  %11 = trunc nsw i64 %indvars.iv117 to i32
   store i64 %indvars.iv117, ptr %a, align 8
   %chunkNativeLimit = getelementptr inbounds i8, ptr %ut, i64 16
   store i64 %indvars.iv117, ptr %chunkNativeLimit, align 8
@@ -5510,11 +5510,11 @@ if.then19:                                        ; preds = %for.body.us
   br label %for.end
 
 for.end.loopexit:                                 ; preds = %if.end34.us
-  %12 = trunc i64 %indvars.iv.next118 to i32
+  %12 = trunc nsw i64 %indvars.iv.next118 to i32
   br label %for.end
 
 for.end.loopexit106:                              ; preds = %if.then25.us89
-  %13 = trunc i64 %indvars.iv.next to i32
+  %13 = trunc nsw i64 %indvars.iv.next to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.body.us84, %for.end.loopexit106, %for.end.loopexit, %if.end13, %if.then19
@@ -5571,7 +5571,7 @@ if.then67:                                        ; preds = %if.end63
   br label %if.end72
 
 if.else69:                                        ; preds = %if.end63
-  %call71 = tail call noundef signext i8 @_ZL15ucstrTextAccessP5UTextla(ptr noundef nonnull %ut, i64 noundef %conv64, i8 noundef signext 1), !range !16
+  %call71 = tail call noundef signext i8 @_ZL15ucstrTextAccessP5UTextla(ptr noundef nonnull %ut, i64 noundef %conv64, i8 noundef signext 1)
   br label %if.end72
 
 if.end72:                                         ; preds = %if.else69, %if.then67
@@ -5816,7 +5816,7 @@ return:                                           ; preds = %if.end3.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZL18charIterTextLengthP5UText(ptr nocapture noundef readonly %ut) #1 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL18charIterTextLengthP5UText(ptr nocapture noundef readonly %ut) #1 {
 entry:
   %a = getelementptr inbounds i8, ptr %ut, i64 112
   %0 = load i64, ptr %a, align 8
@@ -5826,7 +5826,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL18charIterTextAccessP5UTextla(ptr nocapture noundef %ut, i64 noundef %index, i8 noundef signext %forward) #0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL18charIterTextAccessP5UTextla(ptr nocapture noundef %ut, i64 noundef %index, i8 noundef signext %forward) #0 {
 entry:
   %context = getelementptr inbounds i8, ptr %ut, i64 72
   %0 = load ptr, ptr %context, align 8
@@ -5933,7 +5933,7 @@ for.body:                                         ; preds = %for.body, %if.end36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   %or.cond80 = select i1 %cmp43, i1 true, i1 %exitcond.not
-  br i1 %or.cond80, label %if.then50, label %for.body, !llvm.loop !23
+  br i1 %or.cond80, label %if.then50, label %for.body, !llvm.loop !22
 
 if.then50.sink.split:                             ; preds = %if.else27, %if.else24
   %.sink = phi i64 [ 80, %if.else24 ], [ 88, %if.else27 ]
@@ -6059,7 +6059,7 @@ do.body:                                          ; preds = %while.body
   br i1 %cmp17, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %do.body
-  %conv22 = trunc i32 %call16 to i16
+  %conv22 = trunc nuw i32 %call16 to i16
   %inc = add nsw i32 %desti.048, 1
   %idxprom = sext i32 %desti.048 to i64
   %arrayidx = getelementptr inbounds i16, ptr %dest, i64 %idxprom
@@ -6096,13 +6096,13 @@ if.end36:                                         ; preds = %if.else34, %do.end
   %copyLimit.1 = phi i32 [ %copyLimit.046, %if.else34 ], [ %add33, %do.end ]
   %desti.2 = phi i32 [ %add, %if.else34 ], [ %desti.1, %do.end ]
   %cmp13 = icmp slt i32 %add37.pre-phi, %conv.i37
-  br i1 %cmp13, label %while.body, label %while.end, !llvm.loop !24
+  br i1 %cmp13, label %while.body, label %while.end, !llvm.loop !23
 
 while.end:                                        ; preds = %if.end36, %if.end6
   %copyLimit.0.lcssa = phi i32 [ %6, %if.end6 ], [ %copyLimit.1, %if.end36 ]
   %desti.0.lcssa = phi i32 [ 0, %if.end6 ], [ %desti.2, %if.end36 ]
   %conv38 = sext i32 %copyLimit.0.lcssa to i64
-  %call39 = tail call noundef signext i8 @_ZL18charIterTextAccessP5UTextla(ptr noundef %ut, i64 noundef %conv38, i8 noundef signext 1), !range !16
+  %call39 = tail call noundef signext i8 @_ZL18charIterTextAccessP5UTextla(ptr noundef %ut, i64 noundef %conv38, i8 noundef signext 1)
   %call40 = tail call i32 @u_terminateUChars_75(ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %desti.0.lcssa, ptr noundef nonnull %status)
   br label %return
 
@@ -6189,12 +6189,11 @@ attributes #14 = { nounwind }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i8 0, i8 2}
-!17 = !{i64 2148396395}
-!18 = !{i64 2148396250}
+!16 = !{i64 2148396395}
+!17 = !{i64 2148396250}
+!18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}

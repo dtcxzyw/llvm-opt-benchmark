@@ -275,7 +275,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %other) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %other) unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %lor.end, label %typeid.end
@@ -517,7 +517,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule14isEquivalentToERKNS_12TimeZoneRuleE(ptr noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %other) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519InitialTimeZoneRule14isEquivalentToERKNS_12TimeZoneRuleE(ptr noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %other) unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end
@@ -958,7 +958,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, i32 noundef %year, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr nocapture noundef nonnull align 8 dereferenceable(8) %result) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, i32 noundef %year, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr nocapture noundef nonnull align 8 dereferenceable(8) %result) local_unnamed_addr #0 align 2 {
 entry:
   %fStartYear = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %fStartYear, align 8
@@ -1144,7 +1144,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #9
 declare noundef i32 @_ZNK6icu_7512DateTimeRule15getTimeRuleTypeEv(ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule14isEquivalentToERKNS_12TimeZoneRuleE(ptr noundef nonnull readonly align 8 dereferenceable(96) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %other) unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7518AnnualTimeZoneRule14isEquivalentToERKNS_12TimeZoneRuleE(ptr noundef nonnull readonly align 8 dereferenceable(96) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %other) unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end
@@ -1224,16 +1224,16 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule13getFirstStartEiiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr nocapture noundef nonnull align 8 dereferenceable(8) %result) unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7518AnnualTimeZoneRule13getFirstStartEiiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr nocapture noundef nonnull align 8 dereferenceable(8) %result) unnamed_addr #0 align 2 {
 entry:
   %fStartYear = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %fStartYear, align 8
-  %call = tail call noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %0, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %result), !range !4
+  %call = tail call noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %0, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %result)
   ret i8 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule13getFinalStartEiiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr nocapture noundef nonnull align 8 dereferenceable(8) %result) unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7518AnnualTimeZoneRule13getFinalStartEiiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr nocapture noundef nonnull align 8 dereferenceable(8) %result) unnamed_addr #0 align 2 {
 entry:
   %fEndYear = getelementptr inbounds i8, ptr %this, i64 92
   %0 = load i32, ptr %fEndYear, align 4
@@ -1241,7 +1241,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %0, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %result), !range !4
+  %call = tail call noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %0, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %result)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1274,7 +1274,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = call noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %0, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %tmp), !range !4
+  %call2 = call noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %0, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %tmp)
   %tobool.not = icmp eq i8 %call2, 0
   br i1 %tobool.not, label %return, label %if.then3
 
@@ -1292,7 +1292,7 @@ lor.lhs.false:                                    ; preds = %if.then3
 if.then7:                                         ; preds = %lor.lhs.false, %if.then3
   %4 = load i32, ptr %year, align 4
   %add = add nsw i32 %4, 1
-  %call8 = call noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %add, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %result), !range !4
+  %call8 = call noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %add, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %result)
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
@@ -1331,7 +1331,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = call noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %0, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %tmp), !range !4
+  %call2 = call noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %0, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %tmp)
   %tobool.not = icmp eq i8 %call2, 0
   br i1 %tobool.not, label %return, label %if.then3
 
@@ -1349,7 +1349,7 @@ lor.lhs.false:                                    ; preds = %if.then3
 if.then7:                                         ; preds = %lor.lhs.false, %if.then3
   %4 = load i32, ptr %year, align 4
   %sub = add nsw i32 %4, -1
-  %call8 = call noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %sub, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %result), !range !4
+  %call8 = call noundef signext i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %sub, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %result)
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
@@ -1404,7 +1404,7 @@ _ZN6icu_7512TimeZoneRuleC2ERKNS_13UnicodeStringEii.exit: ; preds = %entry
   store ptr null, ptr %fStartTimes, align 8
   store i32 0, ptr %status, align 4
   %call = invoke noundef signext i8 @_ZN6icu_7521TimeArrayTimeZoneRule14initStartTimesEPKdiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef %startTimes, i32 noundef %numStartTimes, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont unwind label %lpad, !range !4
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_7512TimeZoneRuleC2ERKNS_13UnicodeStringEii.exit
   ret void
@@ -1419,7 +1419,7 @@ lpad:                                             ; preds = %_ZN6icu_7512TimeZon
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7521TimeArrayTimeZoneRule14initStartTimesEPKdiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr nocapture noundef readonly %source, i32 noundef %size, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7521TimeArrayTimeZoneRule14initStartTimesEPKdiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr nocapture noundef readonly %source, i32 noundef %size, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
 entry:
   %fStartTimes = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %fStartTimes, align 8
@@ -1529,7 +1529,7 @@ _ZN6icu_7512TimeZoneRuleC2ERKS0_.exit:            ; preds = %entry
   %fNumStartTimes = getelementptr inbounds i8, ptr %source, i64 84
   %5 = load i32, ptr %fNumStartTimes, align 4
   %call = invoke noundef signext i8 @_ZN6icu_7521TimeArrayTimeZoneRule14initStartTimesEPKdiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont unwind label %lpad, !range !4
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_7512TimeZoneRuleC2ERKS0_.exit
   ret void
@@ -1640,7 +1640,7 @@ _ZN6icu_7512TimeZoneRuleaSERKS0_.exit:            ; preds = %entry
   %2 = load ptr, ptr %fStartTimes, align 8
   %fNumStartTimes = getelementptr inbounds i8, ptr %right, i64 84
   %3 = load i32, ptr %fNumStartTimes, align 4
-  %call2 = call noundef signext i8 @_ZN6icu_7521TimeArrayTimeZoneRule14initStartTimesEPKdiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !4
+  %call2 = call noundef signext i8 @_ZN6icu_7521TimeArrayTimeZoneRule14initStartTimesEPKdiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %fTimeRuleType = getelementptr inbounds i8, ptr %right, i64 80
   %4 = load i32, ptr %fTimeRuleType, align 8
   %fTimeRuleType3 = getelementptr inbounds i8, ptr %this, i64 80
@@ -1727,7 +1727,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %cmp18, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !5
+  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !4
 
 return:                                           ; preds = %for.body, %for.cond.preheader, %if.end.i.i, %if.end5, %lor.lhs.false8, %_ZNKSt9type_infoneERKS_.exit, %lor.lhs.false, %entry
   %retval.0 = phi i1 [ true, %entry ], [ false, %lor.lhs.false ], [ false, %_ZNKSt9type_infoneERKS_.exit ], [ false, %lor.lhs.false8 ], [ false, %if.end5 ], [ false, %if.end.i.i ], [ true, %for.cond.preheader ], [ %cmp18, %for.body ]
@@ -1754,7 +1754,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7521TimeArrayTimeZoneRule14getStartTimeAtEiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, i32 noundef %index, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) local_unnamed_addr #11 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule14getStartTimeAtEiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, i32 noundef %index, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) local_unnamed_addr #11 align 2 {
 entry:
   %fNumStartTimes = getelementptr inbounds i8, ptr %this, i64 84
   %0 = load i32, ptr %fNumStartTimes, align 4
@@ -1786,7 +1786,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7521TimeArrayTimeZoneRule14isEquivalentToERKNS_12TimeZoneRuleE(ptr noundef nonnull readonly align 8 dereferenceable(352) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %other) unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule14isEquivalentToERKNS_12TimeZoneRuleE(ptr noundef nonnull readonly align 8 dereferenceable(352) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %other) unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end
@@ -1866,7 +1866,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
@@ -1883,7 +1883,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7521TimeArrayTimeZoneRule13getFirstStartEiiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #11 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule13getFirstStartEiiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #11 align 2 {
 entry:
   %fNumStartTimes = getelementptr inbounds i8, ptr %this, i64 84
   %0 = load i32, ptr %fNumStartTimes, align 4
@@ -1933,7 +1933,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7521TimeArrayTimeZoneRule13getFinalStartEiiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #11 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule13getFinalStartEiiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #11 align 2 {
 entry:
   %fNumStartTimes = getelementptr inbounds i8, ptr %this, i64 84
   %0 = load i32, ptr %fNumStartTimes, align 4
@@ -1970,7 +1970,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7521TimeArrayTimeZoneRule12getNextStartEdiiaRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, double noundef %base, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, i8 noundef signext %inclusive, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #12 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule12getNextStartEdiiaRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, double noundef %base, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, i8 noundef signext %inclusive, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #12 align 2 {
 entry:
   %fNumStartTimes = getelementptr inbounds i8, ptr %this, i64 84
   %0 = load i32, ptr %fNumStartTimes, align 4
@@ -2026,14 +2026,14 @@ for.body.us:                                      ; preds = %lor.lhs.false.us
   %sub6.i.us = fsub double %time.addr.0.i.us, %conv5.i
   %time.addr.1.i.us = select i1 %cmp3.i.us, double %sub6.i.us, double %time.addr.0.i.us
   %cmp2.us = fcmp olt double %time.addr.1.i.us, %base
-  br i1 %cmp2.us, label %for.end.loopexit31.split.loop.exit, label %lor.lhs.false.us, !llvm.loop !8
+  br i1 %cmp2.us, label %for.end.loopexit31.split.loop.exit, label %lor.lhs.false.us, !llvm.loop !7
 
 lor.lhs.false.us:                                 ; preds = %for.body.lr.ph.split.us, %for.body.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.us ], [ %idxprom.us14, %for.body.lr.ph.split.us ]
   %time.addr.1.i.us24 = phi double [ %time.addr.1.i.us, %for.body.us ], [ %time.addr.1.i.us21, %for.body.lr.ph.split.us ]
   store double %time.addr.1.i.us24, ptr %result, align 8
   %cmp.us = icmp sgt i64 %indvars.iv, 0
-  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !8
+  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !7
 
 for.body:                                         ; preds = %if.end
   %indvars.iv.next29 = add nsw i64 %indvars.iv2845, -1
@@ -2048,14 +2048,14 @@ for.body:                                         ; preds = %if.end
   %sub6.i = fsub double %time.addr.0.i, %conv5.i
   %time.addr.1.i = select i1 %cmp3.i, double %sub6.i, double %time.addr.0.i
   %or.cond = fcmp ugt double %time.addr.1.i, %base
-  br i1 %or.cond, label %if.end, label %for.body.for.end.loopexit_crit_edge, !llvm.loop !8
+  br i1 %or.cond, label %if.end, label %for.body.for.end.loopexit_crit_edge, !llvm.loop !7
 
 if.end:                                           ; preds = %for.body.preheader, %for.body
   %time.addr.1.i46 = phi double [ %time.addr.1.i, %for.body ], [ %time.addr.1.i43, %for.body.preheader ]
   %indvars.iv2845 = phi i64 [ %indvars.iv.next29, %for.body ], [ %2, %for.body.preheader ]
   store double %time.addr.1.i46, ptr %result, align 8
   %cmp = icmp sgt i64 %indvars.iv2845, 0
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end.loopexit31.split.loop.exit:               ; preds = %for.body.us
   %13 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2074,7 +2074,7 @@ for.end:                                          ; preds = %lor.lhs.false.us, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7521TimeArrayTimeZoneRule16getPreviousStartEdiiaRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, double noundef %base, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, i8 noundef signext %inclusive, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #12 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule16getPreviousStartEdiiaRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, double noundef %base, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, i8 noundef signext %inclusive, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #12 align 2 {
 entry:
   %fNumStartTimes = getelementptr inbounds i8, ptr %this, i64 84
   %0 = load i32, ptr %fNumStartTimes, align 4
@@ -2130,7 +2130,7 @@ for.body.us:                                      ; preds = %for.cond.us
   %arrayidx.us = getelementptr inbounds double, ptr %1, i64 %7
   %8 = load double, ptr %arrayidx.us, align 8
   %or.cond62 = fcmp ugt double %8, %base
-  br i1 %or.cond62, label %for.cond.us, label %if.then, !llvm.loop !9
+  br i1 %or.cond62, label %for.cond.us, label %if.then, !llvm.loop !8
 
 entry.split.split.us:                             ; preds = %entry
   br i1 %tobool.not.not, label %entry.split.split.us.split.us, label %for.cond.us6.preheader
@@ -2174,7 +2174,7 @@ for.body.us10:                                    ; preds = %for.cond.us6
   %sub.i.us13 = fsub double %14, %conv.i
   %sub6.i.us14 = fsub double %sub.i.us13, %conv5.i
   %or.cond63 = fcmp ugt double %sub6.i.us14, %base
-  br i1 %or.cond63, label %for.cond.us6, label %if.then, !llvm.loop !9
+  br i1 %or.cond63, label %for.cond.us6, label %if.then, !llvm.loop !8
 
 entry.split.split:                                ; preds = %entry
   br i1 %tobool.not.not, label %entry.split.split.split.us, label %for.cond.preheader
@@ -2216,7 +2216,7 @@ for.body:                                         ; preds = %for.cond
   %20 = load double, ptr %arrayidx, align 8
   %sub.i = fsub double %20, %conv.i
   %or.cond64 = fcmp ugt double %sub.i, %base
-  br i1 %or.cond64, label %for.cond, label %if.then, !llvm.loop !9
+  br i1 %or.cond64, label %for.cond, label %if.then, !llvm.loop !8
 
 if.then:                                          ; preds = %for.body.us10, %for.body.us10.us, %for.body.us, %for.body.us.us, %for.body, %for.body.us26
   %.us-phi = phi double [ %sub.i.us29, %for.body.us26 ], [ %sub.i, %for.body ], [ %4, %for.body.us.us ], [ %8, %for.body.us ], [ %sub6.i.us14.us, %for.body.us10.us ], [ %sub6.i.us14, %for.body.us10 ]
@@ -2237,7 +2237,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @uprv_sortArray_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL12compareDatesPKvS0_S0_(ptr nocapture readnone %0, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #6 {
+define internal noundef range(i32 -1, 2) i32 @_ZL12compareDatesPKvS0_S0_(ptr nocapture readnone %0, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #6 {
 entry:
   %1 = load double, ptr %left, align 8
   %2 = load double, ptr %right, align 8
@@ -2283,9 +2283,8 @@ attributes #18 = { allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i8 0, i8 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

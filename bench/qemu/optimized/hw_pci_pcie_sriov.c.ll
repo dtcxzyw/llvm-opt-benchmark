@@ -321,7 +321,7 @@ if.end9:                                          ; preds = %if.end5
   %idxprom = zext nneg i32 %region_num to i64
   %arrayidx = getelementptr [7 x i8], ptr %vf_bar_type, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
-  %2 = tail call i64 @llvm.ctpop.i64(i64 %call1), !range !7
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call1)
   %or.cond = icmp eq i64 %2, 1
   br i1 %or.cond, label %if.end13, label %if.then12
 
@@ -558,7 +558,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %sriov_vf.i = getelementptr inbounds i8, ptr %call.i, i64 2232
   store ptr %dev, ptr %sriov_vf.i, align 8
   %vf_number.i = getelementptr inbounds i8, ptr %call.i, i64 2240
-  %11 = trunc i64 %indvars.iv to i16
+  %11 = trunc nuw i64 %indvars.iv to i16
   store i16 %11, ptr %vf_number.i, align 8
   %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
   %call1.i.i = call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #9
@@ -598,7 +598,7 @@ if.end42:                                         ; preds = %register_vf.exit
   %add44 = add i32 %devfn.028, %conv43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv19
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end42, %register_vf.exit, %trace_sriov_register_vfs.exit
   %num_vfs.0 = phi i16 [ 0, %trace_sriov_register_vfs.exit ], [ %11, %register_vf.exit ], [ %add.ptr17.val, %if.end42 ]
@@ -784,5 +784,4 @@ attributes #11 = { nounwind allocsize(0,1) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 0, i64 65}
-!8 = distinct !{!8, !6}
+!7 = distinct !{!7, !6}

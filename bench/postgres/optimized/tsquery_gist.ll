@@ -49,7 +49,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare i64 @makeTSQuerySign(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gtsquery_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @gtsquery_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -245,8 +245,8 @@ define dso_local i64 @gtsquery_picksplit(ptr nocapture noundef readonly %0) loca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = getelementptr [0 x %struct.GISTENTRY], ptr %20, i64 0, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
-  %24 = trunc i64 %indvars.iv.next to i16
-  %25 = trunc i64 %indvars.iv to i16
+  %24 = trunc nuw i64 %indvars.iv.next to i16
+  %25 = trunc nuw i64 %indvars.iv to i16
   br label %26
 
 26:                                               ; preds = %.lr.ph, %hemdist.exit
@@ -316,7 +316,7 @@ hemdist.exit:                                     ; preds = %31
   %indvars.iv194 = phi i64 [ 1, %.lr.ph173.preheader ], [ %indvars.iv.next195, %hemdist.exit141 ]
   %52 = getelementptr %struct.SPLITCOST, ptr %51, i64 %indvars.iv194
   %53 = getelementptr i8, ptr %52, i64 -8
-  %54 = trunc i64 %indvars.iv194 to i16
+  %54 = trunc nuw i64 %indvars.iv194 to i16
   store i16 %54, ptr %53, align 4
   %55 = load i64, ptr %42, align 8
   %56 = getelementptr [0 x %struct.GISTENTRY], ptr %40, i64 0, i64 %indvars.iv194
@@ -481,7 +481,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @comparecost(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @comparecost(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -498,7 +498,7 @@ define internal i32 @comparecost(ptr nocapture noundef readonly %0, ptr nocaptur
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gtsquery_consistent_oldsig(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @gtsquery_consistent_oldsig(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

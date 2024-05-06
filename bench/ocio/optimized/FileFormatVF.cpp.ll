@@ -1423,7 +1423,7 @@ invoke.cont297:                                   ; preds = %if.end293
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %99, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileE, i64 0, i32 0, i64 2), ptr %call295, align 8
   %lut3D.i = getelementptr inbounds i8, ptr %call295, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(145) %lut3D.i, i8 0, i64 145, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(145) %lut3D.i, i8 0, i64 145, i1 false)
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
           to label %invoke.cont299 unwind label %lpad.i.i.i.i
 

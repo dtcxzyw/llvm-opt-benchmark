@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @secure_zero_memory.memset_v = internal constant ptr @memset, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @blake2sp_init(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @blake2sp_init(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.blake2s_param__], align 16
   %4 = alloca [1 x %struct.blake2s_param__], align 16
   %5 = add i64 %1, -33
@@ -23,7 +23,7 @@ define dso_local noundef i32 @blake2sp_init(ptr noundef %0, i64 noundef %1) loca
   store i64 %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 1088
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %10 = trunc i64 %1 to i8
+  %10 = trunc nuw nsw i64 %1 to i8
   store i8 %10, ptr %4, align 16
   %11 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 0, ptr %11, align 1
@@ -68,7 +68,7 @@ define dso_local noundef i32 @blake2sp_init(ptr noundef %0, i64 noundef %1) loca
   store i8 0, ptr %20, align 1
   store i8 8, ptr %21, align 2
   store i8 2, ptr %22, align 1
-  %32 = trunc i64 %.019 to i8
+  %32 = trunc nuw nsw i64 %.019 to i8
   store i32 0, ptr %23, align 4
   store i8 %32, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %25, i8 0, i64 6, i1 false)
@@ -99,7 +99,7 @@ define dso_local noundef i32 @blake2sp_init(ptr noundef %0, i64 noundef %1) loca
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @blake2sp_init_key(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @blake2sp_init_key(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.blake2s_param__], align 16
   %6 = alloca [1 x %struct.blake2s_param__], align 16
   %7 = alloca [64 x i8], align 16
@@ -121,9 +121,9 @@ define dso_local noundef i32 @blake2sp_init_key(ptr noundef %0, i64 noundef %1, 
   store i64 %1, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 1088
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %17 = trunc i64 %1 to i8
+  %17 = trunc nuw nsw i64 %1 to i8
   store i8 %17, ptr %6, align 16
-  %18 = trunc i64 %3 to i8
+  %18 = trunc nuw nsw i64 %3 to i8
   %19 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 %18, ptr %19, align 1
   %20 = getelementptr inbounds i8, ptr %6, i64 2
@@ -167,7 +167,7 @@ define dso_local noundef i32 @blake2sp_init_key(ptr noundef %0, i64 noundef %1, 
   store i8 %18, ptr %28, align 1
   store i8 8, ptr %29, align 2
   store i8 2, ptr %30, align 1
-  %40 = trunc i64 %.037 to i8
+  %40 = trunc nuw nsw i64 %.037 to i8
   store i32 0, ptr %31, align 4
   store i8 %40, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %33, i8 0, i64 6, i1 false)
@@ -389,8 +389,8 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   br i1 %or.cond63, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %16
-  %21 = trunc i64 %1 to i8
-  %22 = trunc i64 %5 to i8
+  %21 = trunc nuw nsw i64 %1 to i8
+  %22 = trunc nuw nsw i64 %5 to i8
   %23 = getelementptr inbounds i8, ptr %8, i64 1
   %24 = getelementptr inbounds i8, ptr %8, i64 2
   %25 = getelementptr inbounds i8, ptr %8, i64 3
@@ -414,7 +414,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   store i8 %22, ptr %23, align 1
   store i8 8, ptr %24, align 2
   store i8 2, ptr %25, align 1
-  %35 = trunc i64 %.05464 to i8
+  %35 = trunc nuw nsw i64 %.05464 to i8
   store i32 0, ptr %26, align 4
   store i8 %35, ptr %27, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %28, i8 0, i64 6, i1 false)

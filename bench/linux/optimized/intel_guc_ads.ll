@@ -1253,7 +1253,7 @@ fill_engine_enable_masks.exit.split:              ; preds = %fill_engine_enable_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @guc_capture_prep_lists(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, -4095) i32 @guc_capture_prep_lists(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.guc_gt_system_info, align 1
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
@@ -1381,7 +1381,7 @@ fill_engine_enable_masks.exit.thread:             ; preds = %9, %29, %69
   %90 = shl nuw nsw i64 %87, 6
   %91 = or disjoint i64 %90, 4380
   %92 = or disjoint i64 %90, 4252
-  %93 = trunc i64 %87 to i32
+  %93 = trunc nuw nsw i64 %87 to i32
   br label %94
 
 94:                                               ; preds = %264, %85

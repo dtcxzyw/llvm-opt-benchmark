@@ -184,7 +184,7 @@ define internal i32 @ptp_vclock_gettimex(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ptp_vclock_gettime(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -4, 1) i32 @ptp_vclock_gettime(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 272
   %4 = tail call i32 @mutex_lock_interruptible(ptr noundef %3) #9
   %5 = icmp eq i32 %4, 0
@@ -426,7 +426,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ptp_vclock_adjfine(ptr noundef %0, i64 noundef %1) #0 align 16 {
+define internal noundef range(i32 -4, 1) i32 @ptp_vclock_adjfine(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 272
   %4 = tail call i32 @mutex_lock_interruptible(ptr noundef %3) #9
   %5 = icmp eq i32 %4, 0
@@ -450,7 +450,7 @@ define internal noundef i32 @ptp_vclock_adjfine(ptr noundef %0, i64 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ptp_vclock_adjtime(ptr noundef %0, i64 noundef %1) #0 align 16 {
+define internal noundef range(i32 -4, 1) i32 @ptp_vclock_adjtime(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 272
   %4 = tail call i32 @mutex_lock_interruptible(ptr noundef %3) #9
   %5 = icmp eq i32 %4, 0
@@ -470,7 +470,7 @@ define internal noundef i32 @ptp_vclock_adjtime(ptr noundef %0, i64 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ptp_vclock_settime(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -4, 1) i32 @ptp_vclock_settime(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp sgt i64 %3, 9223372035
   br i1 %4, label %12, label %5

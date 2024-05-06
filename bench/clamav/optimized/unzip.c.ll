@@ -617,7 +617,7 @@ declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @cli_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @sort_by_file_offset(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -1, 2) i32 @sort_by_file_offset(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp ult i32 %3, %4
@@ -2284,7 +2284,7 @@ define i32 @cli_unzip_single(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
 
 18:                                               ; preds = %15
   %19 = trunc i64 %1 to i32
-  %20 = call fastcc i32 @parse_local_file_header(ptr noundef nonnull %6, i32 noundef %19, i32 noundef %10, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @cli_magic_scan_desc, ptr noundef null)
+  %20 = call fastcc i32 @parse_local_file_header(ptr noundef nonnull %6, i32 noundef %19, i32 noundef %10, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull readonly @cli_magic_scan_desc, ptr noundef null)
   %21 = load i32, ptr %3, align 4
   br label %unzip_single_internal.exit
 
@@ -2296,7 +2296,7 @@ unzip_single_internal.exit:                       ; preds = %14, %17, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @unzip_search_add(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @unzip_search_add(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21) #12
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = load i32, ptr %4, align 8

@@ -383,7 +383,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr nocapture noundef
 
 39:                                               ; preds = %.preheader
   %spec.select.i.i = zext i1 %.not42.i.i to i32
-  %40 = trunc i64 %indvars.iv.i.i to i32
+  %40 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %spec.select33.i.i = select i1 %.not42.i.i, i32 %40, i32 %.02463.i.i
   br label %41
 
@@ -405,7 +405,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr nocapture noundef
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %xia_test_addr.exit.thread24.i
 
 .preheader.i.i.i:                                 ; preds = %42
-  %46 = trunc i64 %indvars.iv.i to i32
+  %46 = trunc nuw nsw i64 %indvars.iv.i to i32
   %47 = and i32 %46, 255
   %.not40.i.i.i = icmp ugt i32 %34, %47
   br i1 %.not40.i.i.i, label %.preheader.split.i.i.i, label %.preheader.split.us.i.i.i

@@ -206,7 +206,7 @@ if.end.i.i:                                       ; preds = %if.else5
   %cmp.i.i.i = icmp ne i64 %call3.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %2 = add nsw i64 %call3.i, -1
-  %3 = tail call i64 @llvm.ctlz.i64(i64 %2, i1 false), !range !7
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
   %4 = trunc nuw nsw i64 %3 to i32
   %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %4)
   %cmp4.i.i = icmp ugt i32 %4, 49
@@ -340,7 +340,7 @@ if.end.i.i.i:                                     ; preds = %if.else3
   %cmp.i.i.i.i = icmp ne i64 %call3.i.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %20 = add nsw i64 %call3.i.i, -1
-  %21 = tail call i64 @llvm.ctlz.i64(i64 %20, i1 false), !range !7
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 false)
   %22 = trunc nuw nsw i64 %21 to i32
   %cond.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %22)
   %cmp4.i.i.i = icmp ugt i32 %22, 49
@@ -412,7 +412,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %cmp.i.i.i = icmp ne i64 %call4.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %4 = add nsw i64 %call4.i, -1
-  %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 false), !range !7
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 false)
   %6 = trunc nuw nsw i64 %5 to i32
   %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %6)
   %cmp4.i.i = icmp ugt i32 %6, 49
@@ -656,7 +656,7 @@ if.end.i.i:                                       ; preds = %if.else5
   %cmp.i.i.i = icmp ne i64 %call3.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %2 = add nsw i64 %call3.i, -1
-  %3 = tail call i64 @llvm.ctlz.i64(i64 %2, i1 false), !range !7
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
   %4 = trunc nuw nsw i64 %3 to i32
   %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %4)
   %cmp4.i.i = icmp ugt i32 %4, 49
@@ -778,7 +778,7 @@ if.end.i.i.i:                                     ; preds = %if.else3
   %cmp.i.i.i.i = icmp ne i64 %call3.i.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %14 = add nsw i64 %call3.i.i, -1
-  %15 = tail call i64 @llvm.ctlz.i64(i64 %14, i1 false), !range !7
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 false)
   %16 = trunc nuw nsw i64 %15 to i32
   %cond.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %16)
   %cmp4.i.i.i = icmp ugt i32 %16, 49
@@ -852,7 +852,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %cmp.i.i.i = icmp ne i64 %call4.i, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %4 = add nsw i64 %call4.i, -1
-  %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 false), !range !7
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 false)
   %6 = trunc nuw nsw i64 %5 to i32
   %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %6)
   %cmp4.i.i = icmp ugt i32 %6, 49
@@ -948,7 +948,7 @@ if.end.i:                                         ; preds = %entry
   %cmp.i.i = icmp ne i64 %call, 0
   tail call void @llvm.assume(i1 %cmp.i.i)
   %0 = add nsw i64 %call, -1
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 false), !range !7
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 false)
   %2 = trunc nuw nsw i64 %1 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %2)
   %cmp4.i = icmp ugt i32 %2, 49
@@ -985,12 +985,12 @@ if.end29.i.i:                                     ; preds = %while.body.i.i
   %arrayidx30.i.i = getelementptr inbounds i64, ptr %pageslab_bitmap, i64 %add19.i.i
   %6 = load i64, ptr %arrayidx30.i.i, align 8
   %cmp13.i.i = icmp eq i64 %6, 0
-  br i1 %cmp13.i.i, label %while.body.i.i, label %fb_ffs.exit, !llvm.loop !8
+  br i1 %cmp13.i.i, label %while.body.i.i, label %fb_ffs.exit, !llvm.loop !7
 
 fb_ffs.exit:                                      ; preds = %if.end29.i.i, %sz_psz2ind.exit
   %group.i.1.lcssa.i = phi i64 [ %and.i.i, %sz_psz2ind.exit ], [ %6, %if.end29.i.i ]
   %group_ind.i.0.lcssa.i = phi i64 [ %div2.i26.i, %sz_psz2ind.exit ], [ %add19.i.i, %if.end29.i.i ]
-  %7 = tail call i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i, i1 true), !range !7
+  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i, i1 true)
   %mul.i.i = shl i64 %group_ind.i.0.lcssa.i, 6
   %mul.i.i.masked = and i64 %mul.i.i, 4294967232
   %8 = or disjoint i64 %mul.i.i.masked, %7
@@ -1028,12 +1028,12 @@ while.cond.i.preheader.i:                         ; preds = %entry
   %purge_bitmap = getelementptr inbounds i8, ptr %psset, i64 5256
   %group.i.1.i = load i64, ptr %purge_bitmap, align 8
   %cmp13.i.i = icmp eq i64 %group.i.1.i, 0
-  br i1 %cmp13.i.i, label %return, label %fb_fls.exit, !llvm.loop !8
+  br i1 %cmp13.i.i, label %return, label %fb_fls.exit, !llvm.loop !7
 
 fb_fls.exit:                                      ; preds = %entry, %while.cond.i.preheader.i
   %group_ind.i.0.lcssa.i = phi i64 [ 64, %entry ], [ 0, %while.cond.i.preheader.i ]
   %group.i.1.lcssa.i = phi i64 [ %group.i.128.i, %entry ], [ %group.i.1.i, %while.cond.i.preheader.i ]
-  %0 = tail call i64 @llvm.ctlz.i64(i64 %group.i.1.lcssa.i, i1 true), !range !7
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %group.i.1.lcssa.i, i1 true)
   %1 = or disjoint i64 %0, %group_ind.i.0.lcssa.i
   %add42.i.i = xor i64 %1, 63
   %to_purge = getelementptr inbounds i8, ptr %psset, i64 4232
@@ -1232,5 +1232,4 @@ attributes #8 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i64 0, i64 65}
-!8 = distinct !{!8, !5}
+!7 = distinct !{!7, !5}

@@ -10,8 +10,8 @@ target triple = "x86_64-pc-linux-gnu"
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [58 x i8] c"integer overflow when trying to allocate %zu * %zu bytes\0A\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
-@gv_sort_compar = internal thread_local global ptr null, align 8
-@gv_sort_arg = internal thread_local global ptr null, align 8
+@gv_sort_compar = internal thread_local unnamed_addr global ptr null, align 8
+@gv_sort_arg = internal thread_local unnamed_addr global ptr null, align 8
 @.str.2 = private unnamed_addr constant [20 x i8] c"realloc failed: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -662,7 +662,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #2 {
+define internal range(i32 -1, 2) i32 @cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #2 {
   %4 = load i64, ptr %0, align 8
   %5 = getelementptr inbounds double, ptr %2, i64 %4
   %6 = load double, ptr %5, align 8

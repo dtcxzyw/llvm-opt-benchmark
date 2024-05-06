@@ -928,7 +928,7 @@ Vec_StrPushBuffer.exit:                           ; preds = %42, %48, %58
   %63 = sext i32 %60 to i64
   %64 = getelementptr inbounds i8, ptr %62, i64 %63
   %65 = sext i32 %.2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %7, i64 %65, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr readonly align 1 %7, i64 %65, i1 false)
   %66 = load i32, ptr %43, align 4
   %67 = add nsw i32 %66, %.2
   store i32 %67, ptr %43, align 4
@@ -1126,7 +1126,7 @@ Vec_StrPush.exit63:                               ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Pdr_SetContains(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @Pdr_SetContains(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1188,7 +1188,7 @@ define noundef i32 @Pdr_SetContains(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Pdr_SetContainsSimple(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @Pdr_SetContainsSimple(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %.not3840 = icmp slt i32 %4, 1
@@ -1252,7 +1252,7 @@ define noundef i32 @Pdr_SetContainsSimple(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Pdr_SetIsInit(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @Pdr_SetIsInit(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1287,7 +1287,7 @@ define noundef i32 @Pdr_SetIsInit(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Pdr_SetCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
+define range(i32 -1, 2) i32 @Pdr_SetCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1440,7 +1440,7 @@ Pdr_SetDeref.exit:                                ; preds = %18, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Pdr_QueueIsEmpty(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
+define range(i32 0, 2) i32 @Pdr_QueueIsEmpty(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1667,7 +1667,7 @@ Pdr_QueuePop.exit:                                ; preds = %Pdr_QueuePop.exit.l
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Pdr_NtkFindSatAssign_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @Pdr_NtkFindSatAssign_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #16 {
   %6 = getelementptr i8, ptr %1, i64 24
   %.val144 = load i64, ptr %6, align 8
   %7 = and i64 %.val144, 7
@@ -1753,7 +1753,7 @@ Saig_ObjIsLo.exit:                                ; preds = %17
 
 52:                                               ; preds = %45
   %53 = xor i32 %51, 1
-  %54 = tail call i32 @Pdr_NtkFindSatAssign_rec(ptr noundef nonnull %0, ptr noundef %49, i32 noundef %53, ptr noundef %3, i32 noundef %4), !range !26
+  %54 = tail call i32 @Pdr_NtkFindSatAssign_rec(ptr noundef nonnull %0, ptr noundef %49, i32 noundef %53, ptr noundef %3, i32 noundef %4)
   %.not73 = icmp eq i32 %54, 0
   br i1 %.not73, label %Pdr_ObjSatValue.exit, label %55
 
@@ -1951,4 +1951,3 @@ attributes #29 = { nounwind willreturn memory(read) }
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = !{i32 0, i32 2}

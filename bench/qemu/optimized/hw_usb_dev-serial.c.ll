@@ -824,7 +824,7 @@ if.end55.i:                                       ; preds = %if.then50.i, %while
   %conv61.i = zext i16 %29 to i32
   %add.i = add nsw i32 %spec.select.i, %conv61.i
   %rem.i = srem i32 %add.i, 496
-  %conv62.i = trunc i32 %rem.i to i16
+  %conv62.i = trunc nsw i32 %rem.i to i16
   store i16 %conv62.i, ptr %recv_ptr.i, align 8
   %add64.neg.i = add i32 %packet_len.039.i, -2
   %sub65.i = sub i32 %add64.neg.i, %spec.select.i
@@ -907,7 +907,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @usb_serial_can_read(ptr nocapture noundef readonly %opaque) #2 {
+define internal range(i32 -65039, 497) i32 @usb_serial_can_read(ptr nocapture noundef readonly %opaque) #2 {
 entry:
   %attached = getelementptr inbounds i8, ptr %opaque, i64 264
   %0 = load i8, ptr %attached, align 8

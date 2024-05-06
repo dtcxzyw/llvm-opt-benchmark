@@ -1212,7 +1212,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare noundef i64 @_ZN5cmsys11SystemTools10FileLengthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN12_GLOBAL__N_123curlWriteMemoryCallbackEPvmmS0_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) #3 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN12_GLOBAL__N_123curlWriteMemoryCallbackEPvmmS0_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) #3 {
   %5 = shl i64 %1, 32
   %sext = mul i64 %5, %2
   %6 = ashr exact i64 %sext, 32

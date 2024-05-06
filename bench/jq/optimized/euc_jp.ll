@@ -62,7 +62,7 @@ define internal i32 @mbc_to_code(ptr noundef %0, ptr noundef readnone %1) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @code_to_mbclen(i32 noundef %0) #3 {
+define internal range(i32 -400, 4) i32 @code_to_mbclen(i32 noundef %0) #3 {
   %2 = icmp ult i32 %0, 128
   br i1 %2, label %22, label %3
 
@@ -145,7 +145,7 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1) #2 {
   %20 = ptrtoint ptr %1 to i64
   %21 = sub i64 %19, %20
   %.not19 = icmp eq i64 %21, %18
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nsw i64 %21 to i32
   %.016 = select i1 %.not19, i32 %22, i32 -400
   ret i32 %.016
 }
@@ -308,7 +308,7 @@ code_to_mbclen.exit:                              ; preds = %35, %30, %21, %17, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #4 {
+define internal range(i32 -6, 1) i32 @get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #4 {
   %4 = icmp ult i32 %0, 15
   br i1 %4, label %12, label %5
 
@@ -367,7 +367,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp ult i8 %3, 127
   %5 = and i8 %3, -2
@@ -378,7 +378,7 @@ define internal i32 @is_allowed_reverse_match(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @is_valid_mbc_string(ptr noundef readonly %0, ptr noundef readnone %1) #5 {
+define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0, ptr noundef readnone %1) #5 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph, label %._crit_edge
 

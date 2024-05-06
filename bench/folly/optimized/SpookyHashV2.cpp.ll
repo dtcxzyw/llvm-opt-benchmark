@@ -668,7 +668,7 @@ if.then:                                          ; preds = %entry
   %1 = load i64, ptr %m_length, align 8, !tbaa !17
   %add3 = add i64 %1, %length
   store i64 %add3, ptr %m_length, align 8, !tbaa !17
-  %conv5 = trunc i64 %add to i8
+  %conv5 = trunc nuw i64 %add to i8
   store i8 %conv5, ptr %m_remainder, align 8, !tbaa !19
   br label %cleanup
 

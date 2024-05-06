@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [11 x i8] c"Seek error\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_data_into_fd(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 2, 1) i32 @archive_read_data_into_fd(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -117,7 +117,7 @@ define dso_local noundef i32 @archive_read_data_into_fd(ptr noundef %0, i32 noun
   %48 = icmp sgt i64 %47, %42
   %49 = sub nsw i64 %42, %.02327.i
   %spec.select.i = select i1 %48, i64 %49, i64 16384
-  %50 = call i64 @write(i32 noundef %1, ptr noundef nonnull %19, i64 noundef %spec.select.i) #9
+  %50 = call i64 @write(i32 noundef %1, ptr noundef nonnull readonly %19, i64 noundef %spec.select.i) #9
   %51 = icmp slt i64 %50, 0
   br i1 %51, label %.thread61.sink.split, label %44
 
@@ -194,7 +194,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @archive_read_data_block(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pad_to(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @pad_to(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.preheader, label %8
 

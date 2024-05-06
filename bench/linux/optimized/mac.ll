@@ -226,7 +226,7 @@ define dso_local i32 @e1000_check_alt_mac_addr_generic(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @e1000e_rar_get_count_generic(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 0, 65536) i32 @e1000e_rar_get_count_generic(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 776
   %3 = load i16, ptr %2, align 8
   %4 = zext i16 %3 to i32
@@ -1344,7 +1344,7 @@ define dso_local void @e1000e_config_collision_dist_generic(ptr noundef %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000e_force_mac_fc(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -3, 1) i32 @e1000e_force_mac_fc(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3) #6, !srcloc !6
@@ -1413,7 +1413,7 @@ define dso_local noundef i32 @e1000e_get_speed_and_duplex_fiber_serdes(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000e_get_hw_semaphore(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @e1000e_get_hw_semaphore(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1136
   %3 = load i16, ptr %2, align 8
   %4 = zext i16 %3 to i32
@@ -1492,7 +1492,7 @@ define dso_local void @e1000e_put_hw_semaphore(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000e_get_auto_rd_done(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -9, 1) i32 @e1000e_get_auto_rd_done(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   br label %3
 
@@ -1658,7 +1658,7 @@ define dso_local i32 @e1000e_id_led_init_generic(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000e_setup_led_generic(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -3, 1) i32 @e1000e_setup_led_generic(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @e1000e_setup_led_generic
@@ -1833,7 +1833,7 @@ define dso_local void @e1000e_set_pcie_no_snoop(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000e_disable_pcie_master(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -10, 1) i32 @e1000e_disable_pcie_master(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3) #6, !srcloc !6

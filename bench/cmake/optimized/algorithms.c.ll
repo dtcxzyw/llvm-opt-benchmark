@@ -90,13 +90,13 @@ define dso_local void @rhash_init_algorithms(i32 noundef %0) local_unnamed_addr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @rhash_info_by_id(i32 noundef %0) local_unnamed_addr #2 {
   %2 = and i32 %0, 1023
-  %3 = tail call i32 @llvm.ctpop.i32(i32 %2), !range !5
+  %3 = tail call range(i32 0, 11) i32 @llvm.ctpop.i32(i32 %2)
   %or.cond = icmp eq i32 %3, 1
   br i1 %or.cond, label %4, label %10
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @rhash_info_table, align 8
-  %6 = tail call i32 @llvm.cttz.i32(i32 %2, i1 true), !range !6
+  %6 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds %struct.rhash_hash_info, ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -126,5 +126,3 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 11}
-!6 = !{i32 0, i32 33}

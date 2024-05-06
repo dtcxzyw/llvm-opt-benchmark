@@ -119,7 +119,7 @@ define noundef zeroext i1 @_Z24isDeviceDetectionEnabledv() local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z15getDeviceVendorPKc(ptr noundef readonly %0) local_unnamed_addr #1 {
+define noundef range(i32 0, 5) i32 @_Z15getDeviceVendorPKc(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -160,7 +160,7 @@ define noundef i32 @_Z15getDeviceVendorPKc(ptr noundef readonly %0) local_unname
 declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z26getDeviceComputeUnitFactorRK17DeviceInformation(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0) local_unnamed_addr #3 {
+define noundef range(i32 1, 17) i32 @_Z26getDeviceComputeUnitFactorRK17DeviceInformation(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %cond = icmp eq i32 %3, 3

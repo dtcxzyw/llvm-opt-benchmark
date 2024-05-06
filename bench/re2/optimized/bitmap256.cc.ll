@@ -19,8 +19,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %mul = shl nsw i32 %div, 6
-  %1 = tail call i64 @llvm.cttz.i64(i64 %and, i1 true), !range !4
-  %cast.i = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and, i1 true)
+  %cast.i = trunc nuw nsw i64 %1 to i32
   %add = or disjoint i32 %mul, %cast.i
   br label %return
 
@@ -38,8 +38,8 @@ sw.bb:                                            ; preds = %if.end
   br i1 %cmp4.not, label %sw.bb11, label %if.then5
 
 if.then5:                                         ; preds = %sw.bb
-  %3 = tail call i64 @llvm.cttz.i64(i64 %2, i1 true), !range !4
-  %cast.i8 = trunc i64 %3 to i32
+  %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  %cast.i8 = trunc nuw nsw i64 %3 to i32
   %add9 = or disjoint i32 %cast.i8, 64
   br label %return
 
@@ -50,8 +50,8 @@ sw.bb11:                                          ; preds = %sw.bb, %if.end
   br i1 %cmp14.not, label %sw.bb21, label %if.then15
 
 if.then15:                                        ; preds = %sw.bb11
-  %5 = tail call i64 @llvm.cttz.i64(i64 %4, i1 true), !range !4
-  %cast.i9 = trunc i64 %5 to i32
+  %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
+  %cast.i9 = trunc nuw nsw i64 %5 to i32
   %add19 = or disjoint i32 %cast.i9, 128
   br label %return
 
@@ -62,8 +62,8 @@ sw.bb21:                                          ; preds = %sw.bb11, %if.end
   br i1 %cmp24.not, label %return, label %if.then25
 
 if.then25:                                        ; preds = %sw.bb21
-  %7 = tail call i64 @llvm.cttz.i64(i64 %6, i1 true), !range !4
-  %cast.i10 = trunc i64 %7 to i32
+  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %6, i1 true)
+  %cast.i10 = trunc nuw nsw i64 %7 to i32
   %add29 = or disjoint i32 %cast.i10, 192
   br label %return
 
@@ -84,4 +84,3 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 0, i64 65}

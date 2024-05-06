@@ -7270,7 +7270,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %_ZNK3nix9CanonPath3
   %24 = ptrtoint ptr %21 to i64
   %25 = sub i64 %23, %24
   %.0.i.i.i.ph = select i1 %.not.i.i.i, i64 -1, i64 %25
-  %26 = getelementptr inbounds i8, ptr %20, i64 %15
+  %26 = getelementptr i8, ptr %20, i64 %15
   %27 = getelementptr inbounds i8, ptr %3, i64 8
   %28 = getelementptr inbounds i8, ptr %3, i64 16
   br label %29
@@ -7659,7 +7659,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i61: ; preds = %_ZNK3nix9CanonPath3
   %149 = ptrtoint ptr %146 to i64
   %150 = sub i64 %148, %149
   %.0.i.i.i63.ph = select i1 %.not.i.i.i62, i64 -1, i64 %150
-  %151 = getelementptr inbounds i8, ptr %145, i64 %140
+  %151 = getelementptr i8, ptr %145, i64 %140
   %152 = getelementptr inbounds i8, ptr %9, i64 8
   %153 = getelementptr inbounds i8, ptr %9, i64 16
   br label %154

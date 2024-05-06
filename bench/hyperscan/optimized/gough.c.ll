@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.gough_report = type { i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecGough8_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecGough8_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %s.i = alloca i8, align 1
   %final_look.i = alloca ptr, align 8
@@ -176,7 +176,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %add.ptr59.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %sub60.i = sub nsw i64 %local_ep.i.0, %sp.i.0
   %add.i = add i64 %sp.i.0, %0
-  %call61.i = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef nonnull %s.i, ptr noundef %add.ptr59.i, i64 noundef %sub60.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 0), !range !7
+  %call61.i = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef nonnull %s.i, ptr noundef %add.ptr59.i, i64 noundef %sub60.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 0)
   %cmp63.i = icmp eq i8 %call61.i, 0
   br i1 %cmp63.i, label %if.then65.i, label %land.lhs.true94.i
 
@@ -359,7 +359,7 @@ nfaExecGough8_Q2i.exit:                           ; preds = %cond.end.i30, %doRe
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecGough16_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecGough16_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %s.i = alloca i16, align 2
   %final_look.i = alloca ptr, align 8
@@ -527,7 +527,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %add.ptr54.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %sub55.i = sub nsw i64 %local_ep.i.0, %sp.i.0
   %add.i = add i64 %sp.i.0, %0
-  %call56.i = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef nonnull %s.i, ptr noundef %add.ptr54.i, i64 noundef %sub55.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 0), !range !7
+  %call56.i = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef nonnull %s.i, ptr noundef %add.ptr54.i, i64 noundef %sub55.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 0)
   %cmp58.i = icmp eq i8 %call56.i, 0
   br i1 %cmp58.i, label %if.then60.i, label %land.lhs.true87.i
 
@@ -708,7 +708,7 @@ nfaExecGough16_Q2i.exit:                          ; preds = %cond.end.i28, %doRe
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecGough8_Q2(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 3) i8 @nfaExecGough8_Q2(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %s.i = alloca i8, align 1
   %final_look.i = alloca ptr, align 8
@@ -876,7 +876,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %add.ptr59.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %sub60.i = sub nsw i64 %local_ep.i.0, %sp.i.0
   %add.i = add i64 %sp.i.0, %0
-  %call61.i = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef nonnull %s.i, ptr noundef %add.ptr59.i, i64 noundef %sub60.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 1), !range !7
+  %call61.i = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef nonnull %s.i, ptr noundef %add.ptr59.i, i64 noundef %sub60.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 1)
   %cmp63.i = icmp eq i8 %call61.i, 0
   br i1 %cmp63.i, label %if.then65.i, label %land.lhs.true70.i
 
@@ -1082,7 +1082,7 @@ nfaExecGough8_Q2i.exit:                           ; preds = %cond.end.i30, %doRe
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecGough16_Q2(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 3) i8 @nfaExecGough16_Q2(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %s.i = alloca i16, align 2
   %final_look.i = alloca ptr, align 8
@@ -1250,7 +1250,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %add.ptr54.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %sub55.i = sub nsw i64 %local_ep.i.0, %sp.i.0
   %add.i = add i64 %sp.i.0, %0
-  %call56.i = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef nonnull %s.i, ptr noundef %add.ptr54.i, i64 noundef %sub55.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 1), !range !7
+  %call56.i = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i12, ptr noundef nonnull %s.i, ptr noundef %add.ptr54.i, i64 noundef %sub55.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 1)
   %cmp58.i = icmp eq i8 %call56.i, 0
   br i1 %cmp58.i, label %if.then60.i, label %land.lhs.true65.i
 
@@ -1454,7 +1454,7 @@ nfaExecGough16_Q2i.exit:                          ; preds = %cond.end.i28, %doRe
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecGough8_QR(ptr noundef %n, ptr noundef %q, i32 noundef %report) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 3) i8 @nfaExecGough8_QR(ptr noundef %n, ptr noundef %q, i32 noundef %report) local_unnamed_addr #0 {
 entry:
   %s.i = alloca i8, align 1
   %final_look.i = alloca ptr, align 8
@@ -1607,7 +1607,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %add.ptr59.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %sub60.i = sub nsw i64 %local_ep.i.0, %sp.i.0
   %add.i = add i64 %sp.i.0, %0
-  %call61.i = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i15, ptr noundef nonnull %s.i, ptr noundef %add.ptr59.i, i64 noundef %sub60.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 2), !range !7
+  %call61.i = call fastcc signext i8 @goughExec8_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i15, ptr noundef nonnull %s.i, ptr noundef %add.ptr59.i, i64 noundef %sub60.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 2)
   %cmp63.i = icmp eq i8 %call61.i, 0
   br i1 %cmp63.i, label %if.then65.i, label %if.end116.i
 
@@ -1778,7 +1778,7 @@ return:                                           ; preds = %land.lhs.true, %con
 declare signext i8 @nfaExecMcClellan8_inAccept(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaExecGough16_QR(ptr noundef %n, ptr noundef %q, i32 noundef %report) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 3) i8 @nfaExecGough16_QR(ptr noundef %n, ptr noundef %q, i32 noundef %report) local_unnamed_addr #0 {
 entry:
   %s.i = alloca i16, align 2
   %final_look.i = alloca ptr, align 8
@@ -1931,7 +1931,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %add.ptr54.i = getelementptr inbounds i8, ptr %cur_buf.i.0, i64 %sp.i.0
   %sub55.i = sub nsw i64 %local_ep.i.0, %sp.i.0
   %add.i = add i64 %sp.i.0, %0
-  %call56.i = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i15, ptr noundef nonnull %s.i, ptr noundef %add.ptr54.i, i64 noundef %sub55.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 2), !range !7
+  %call56.i = call fastcc signext i8 @goughExec16_i_ni(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr.i15, ptr noundef nonnull %s.i, ptr noundef %add.ptr54.i, i64 noundef %sub55.i, i64 noundef %add.i, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %final_look.i, i32 noundef 2)
   %cmp58.i = icmp eq i8 %call56.i, 0
   br i1 %cmp58.i, label %if.then60.i, label %if.end109.i
 
@@ -2100,7 +2100,7 @@ return:                                           ; preds = %land.lhs.true, %con
 declare signext i8 @nfaExecMcClellan16_inAccept(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecGough8_initCompressedState(ptr nocapture noundef readonly %nfa, i64 noundef %offset, ptr nocapture noundef writeonly %state, i8 noundef zeroext %key) local_unnamed_addr #2 {
+define hidden signext range(i8 0, 2) i8 @nfaExecGough8_initCompressedState(ptr nocapture noundef readonly %nfa, i64 noundef %offset, ptr nocapture noundef writeonly %state, i8 noundef zeroext %key) local_unnamed_addr #2 {
 entry:
   %streamStateSize = getelementptr inbounds i8, ptr %nfa, i64 28
   %0 = load i32, ptr %streamStateSize, align 4
@@ -2127,7 +2127,7 @@ return:                                           ; preds = %entry, %if.then
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecGough16_initCompressedState(ptr nocapture noundef readonly %nfa, i64 noundef %offset, ptr nocapture noundef writeonly %state, i8 noundef zeroext %key) local_unnamed_addr #2 {
+define hidden signext range(i8 0, 2) i8 @nfaExecGough16_initCompressedState(ptr nocapture noundef readonly %nfa, i64 noundef %offset, ptr nocapture noundef writeonly %state, i8 noundef zeroext %key) local_unnamed_addr #2 {
 entry:
   %streamStateSize = getelementptr inbounds i8, ptr %nfa, i64 28
   %0 = load i32, ptr %streamStateSize, align 4
@@ -2389,7 +2389,7 @@ entry:
 declare signext i8 @nfaExecMcClellan16_inAnyAccept(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef signext i8 @nfaExecGough8_testEOD(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %streamState, i64 noundef %offset, ptr nocapture noundef readonly %callback, ptr noundef %context) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecGough8_testEOD(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %streamState, i64 noundef %offset, ptr nocapture noundef readonly %callback, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %state, i64 16
   %0 = load i8, ptr %state, align 1
@@ -2449,7 +2449,7 @@ goughCheckEOD.exit:                               ; preds = %for.cond.i.i, %cond
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef signext i8 @nfaExecGough16_testEOD(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %streamState, i64 noundef %offset, ptr nocapture noundef readonly %callback, ptr noundef %context) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecGough16_testEOD(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %state, ptr nocapture noundef readnone %streamState, i64 noundef %offset, ptr nocapture noundef readonly %callback, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %state, i64 16
   %0 = load i16, ptr %state, align 2
@@ -2592,7 +2592,7 @@ for.body.i.us:                                    ; preds = %for.body.i.us.prehe
   store i16 %conv.i8.us, ptr %add.ptr.i6.us, align 1
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %compSomSpace.exit, label %for.body.i.us, !llvm.loop !8
+  br i1 %exitcond61.not, label %compSomSpace.exit, label %for.body.i.us, !llvm.loop !7
 
 for.body.i.us23:                                  ; preds = %for.body.i.us23.preheader, %for.body.i.us23
   %indvars.iv52 = phi i64 [ 0, %for.body.i.us23.preheader ], [ %indvars.iv.next53, %for.body.i.us23 ]
@@ -2609,7 +2609,7 @@ for.body.i.us23:                                  ; preds = %for.body.i.us23.pre
   store i32 %conv6.i.us, ptr %add.ptr.i6.us29, align 1
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %compSomSpace.exit, label %for.body.i.us23, !llvm.loop !8
+  br i1 %exitcond56.not, label %compSomSpace.exit, label %for.body.i.us23, !llvm.loop !7
 
 for.body.i.us36:                                  ; preds = %for.body.i.us36.preheader, %for.body.i.us36
   %indvars.iv = phi i64 [ 0, %for.body.i.us36.preheader ], [ %indvars.iv.next, %for.body.i.us36 ]
@@ -2623,7 +2623,7 @@ for.body.i.us36:                                  ; preds = %for.body.i.us36.pre
   store i64 %sub.i.us44, ptr %add.ptr.i6.us42, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %compSomSpace.exit, label %for.body.i.us36, !llvm.loop !8
+  br i1 %exitcond.not, label %compSomSpace.exit, label %for.body.i.us36, !llvm.loop !7
 
 compSomSpace.exit:                                ; preds = %for.body.i.us36, %for.body.i.us23, %for.body.i.us, %for.body.i.lr.ph, %entry
   ret i8 0
@@ -2671,7 +2671,7 @@ for.body.i.us:                                    ; preds = %for.body.i.lr.ph, %
   store i64 %retval.i.0.us, ptr %arrayidx.i.us, align 8
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count63
-  br i1 %exitcond59.not, label %expandSomSpace.exit, label %for.body.i.us, !llvm.loop !9
+  br i1 %exitcond59.not, label %expandSomSpace.exit, label %for.body.i.us, !llvm.loop !8
 
 for.body.i.us17:                                  ; preds = %for.body.i.lr.ph, %for.body.i.us17
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %for.body.i.us17 ], [ 0, %for.body.i.lr.ph ]
@@ -2688,7 +2688,7 @@ for.body.i.us17:                                  ; preds = %for.body.i.lr.ph, %
   store i64 %retval.i.0.us26, ptr %arrayidx.i.us28, align 8
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count63
-  br i1 %exitcond54.not, label %expandSomSpace.exit, label %for.body.i.us17, !llvm.loop !9
+  br i1 %exitcond54.not, label %expandSomSpace.exit, label %for.body.i.us17, !llvm.loop !8
 
 for.body.i.us32:                                  ; preds = %for.body.i.lr.ph, %for.body.i.us32
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i.us32 ], [ 0, %for.body.i.lr.ph ]
@@ -2704,7 +2704,7 @@ for.body.i.us32:                                  ; preds = %for.body.i.lr.ph, %
   store i64 %spec.select, ptr %arrayidx.i.us43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count63
-  br i1 %exitcond.not, label %expandSomSpace.exit, label %for.body.i.us32, !llvm.loop !9
+  br i1 %exitcond.not, label %expandSomSpace.exit, label %for.body.i.us32, !llvm.loop !8
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %for.body.i ], [ 0, %for.body.i.lr.ph ]
@@ -2712,7 +2712,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   store i64 %offset, ptr %arrayidx.i, align 8
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
-  br i1 %exitcond64.not, label %expandSomSpace.exit, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond64.not, label %expandSomSpace.exit, label %for.body.i, !llvm.loop !8
 
 expandSomSpace.exit:                              ; preds = %for.body.i.us32, %for.body.i.us17, %for.body.i.us, %for.body.i, %entry
   ret i8 0
@@ -2778,7 +2778,7 @@ for.body.i.us:                                    ; preds = %for.body.i.us.prehe
   store i16 %conv.i9.us, ptr %add.ptr.i7.us, align 1
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %compSomSpace.exit, label %for.body.i.us, !llvm.loop !8
+  br i1 %exitcond61.not, label %compSomSpace.exit, label %for.body.i.us, !llvm.loop !7
 
 for.body.i.us23:                                  ; preds = %for.body.i.us23.preheader, %for.body.i.us23
   %indvars.iv52 = phi i64 [ 0, %for.body.i.us23.preheader ], [ %indvars.iv.next53, %for.body.i.us23 ]
@@ -2795,7 +2795,7 @@ for.body.i.us23:                                  ; preds = %for.body.i.us23.pre
   store i32 %conv6.i.us, ptr %add.ptr.i7.us29, align 1
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %compSomSpace.exit, label %for.body.i.us23, !llvm.loop !8
+  br i1 %exitcond56.not, label %compSomSpace.exit, label %for.body.i.us23, !llvm.loop !7
 
 for.body.i.us36:                                  ; preds = %for.body.i.us36.preheader, %for.body.i.us36
   %indvars.iv = phi i64 [ 0, %for.body.i.us36.preheader ], [ %indvars.iv.next, %for.body.i.us36 ]
@@ -2809,7 +2809,7 @@ for.body.i.us36:                                  ; preds = %for.body.i.us36.pre
   store i64 %sub.i.us44, ptr %add.ptr.i7.us42, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %compSomSpace.exit, label %for.body.i.us36, !llvm.loop !8
+  br i1 %exitcond.not, label %compSomSpace.exit, label %for.body.i.us36, !llvm.loop !7
 
 compSomSpace.exit:                                ; preds = %for.body.i.us36, %for.body.i.us23, %for.body.i.us, %for.body.i.lr.ph, %entry
   ret i8 0
@@ -2857,7 +2857,7 @@ for.body.i.us:                                    ; preds = %for.body.i.lr.ph, %
   store i64 %retval.i.0.us, ptr %arrayidx.i.us, align 8
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count63
-  br i1 %exitcond59.not, label %expandSomSpace.exit, label %for.body.i.us, !llvm.loop !9
+  br i1 %exitcond59.not, label %expandSomSpace.exit, label %for.body.i.us, !llvm.loop !8
 
 for.body.i.us17:                                  ; preds = %for.body.i.lr.ph, %for.body.i.us17
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %for.body.i.us17 ], [ 0, %for.body.i.lr.ph ]
@@ -2874,7 +2874,7 @@ for.body.i.us17:                                  ; preds = %for.body.i.lr.ph, %
   store i64 %retval.i.0.us26, ptr %arrayidx.i.us28, align 8
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count63
-  br i1 %exitcond54.not, label %expandSomSpace.exit, label %for.body.i.us17, !llvm.loop !9
+  br i1 %exitcond54.not, label %expandSomSpace.exit, label %for.body.i.us17, !llvm.loop !8
 
 for.body.i.us32:                                  ; preds = %for.body.i.lr.ph, %for.body.i.us32
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i.us32 ], [ 0, %for.body.i.lr.ph ]
@@ -2890,7 +2890,7 @@ for.body.i.us32:                                  ; preds = %for.body.i.lr.ph, %
   store i64 %spec.select, ptr %arrayidx.i.us43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count63
-  br i1 %exitcond.not, label %expandSomSpace.exit, label %for.body.i.us32, !llvm.loop !9
+  br i1 %exitcond.not, label %expandSomSpace.exit, label %for.body.i.us32, !llvm.loop !8
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %for.body.i ], [ 0, %for.body.i.lr.ph ]
@@ -2898,14 +2898,14 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   store i64 %offset, ptr %arrayidx.i, align 8
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
-  br i1 %exitcond64.not, label %expandSomSpace.exit, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond64.not, label %expandSomSpace.exit, label %for.body.i, !llvm.loop !8
 
 expandSomSpace.exit:                              ; preds = %for.body.i.us32, %for.body.i.us17, %for.body.i.us, %for.body.i, %entry
   ret i8 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef signext i8 @goughExec8_i_ni(ptr noundef %m, ptr nocapture noundef %som, ptr nocapture noundef %state, ptr noundef %buf, i64 noundef %len, i64 noundef %offAdj, ptr nocapture noundef readonly %cb, ptr noundef %ctxt, ptr nocapture noundef writeonly %final_point, i32 noundef %mode) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 2) i8 @goughExec8_i_ni(ptr noundef %m, ptr nocapture noundef %som, ptr nocapture noundef %state, ptr noundef %buf, i64 noundef %len, i64 noundef %offAdj, ptr nocapture noundef readonly %cb, ptr noundef %ctxt, ptr nocapture noundef writeonly %final_point, i32 noundef %mode) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %state, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
@@ -3045,7 +3045,7 @@ run_prog.exit.us:                                 ; preds = %while.body.i61.us, 
   %cmp8.i.us = icmp ult ptr %incdec.ptr.i.us, %min_accel_offset.i.0
   %tobool11.i.us = icmp ne i8 %18, 0
   %19 = select i1 %cmp8.i.us, i1 %tobool11.i.us, i1 false
-  br i1 %19, label %while.body.i.us, label %with_accel.i, !llvm.loop !10
+  br i1 %19, label %while.body.i.us, label %with_accel.i, !llvm.loop !9
 
 while.body.i.us329:                               ; preds = %while.body.i.lr.ph, %if.end44.i.us381
   %s.i.1320.us330 = phi i8 [ %30, %if.end44.i.us381 ], [ %s.i.0, %while.body.i.lr.ph ]
@@ -3141,7 +3141,7 @@ if.end44.i.us381:                                 ; preds = %run_prog.exit.us379
   %cmp8.i.us385 = icmp ult ptr %incdec.ptr.i.us336, %min_accel_offset.i.0
   %tobool11.i.us386 = icmp ne i8 %30, 0
   %32 = and i1 %cmp8.i.us385, %tobool11.i.us386
-  br i1 %32, label %while.body.i.us329, label %with_accel.i, !llvm.loop !10
+  br i1 %32, label %while.body.i.us329, label %with_accel.i, !llvm.loop !9
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %if.end44.i
   %s.i.1320 = phi i8 [ %43, %if.end44.i ], [ %s.i.0, %while.body.i.lr.ph ]
@@ -3332,7 +3332,7 @@ if.end44.i:                                       ; preds = %for.cond.i184.i, %c
   %cmp8.i = icmp ult ptr %incdec.ptr.i, %min_accel_offset.i.0
   %tobool11.i = icmp ne i8 %43, 0
   %55 = and i1 %cmp8.i, %tobool11.i
-  br i1 %55, label %while.body.i, label %with_accel.i, !llvm.loop !10
+  br i1 %55, label %while.body.i, label %with_accel.i, !llvm.loop !9
 
 with_accel.i:                                     ; preds = %if.end44.i.us381, %run_prog.exit.us, %if.end44.i, %without_accel.i, %entry
   %cached_accept_som.i.4 = phi i32 [ 0, %entry ], [ %cached_accept_som.i.0, %without_accel.i ], [ %cached_accept_som.i.3, %if.end44.i ], [ %cached_accept_som.i.0, %run_prog.exit.us ], [ %cached_accept_som.i.0, %if.end44.i.us381 ]
@@ -3588,7 +3588,7 @@ if.end138.i:                                      ; preds = %for.cond.i.i, %cond
   %cmp46.i = icmp ult ptr %incdec.ptr55.i, %add.ptr.i
   %tobool50.i = icmp ne i8 %67, 0
   %82 = and i1 %cmp46.i, %tobool50.i
-  br i1 %82, label %while.body52.i, label %while.end139.i, !llvm.loop !11
+  br i1 %82, label %while.body52.i, label %while.end139.i, !llvm.loop !10
 
 while.end139.i:                                   ; preds = %if.end138.i, %with_accel.i
   %s.i.3.lcssa = phi i8 [ %s.i.2, %with_accel.i ], [ %67, %if.end138.i ]
@@ -3702,7 +3702,7 @@ sw.epilog.i104:                                   ; preds = %if.then.i122, %if.t
 run_prog_i.exit140:                               ; preds = %while.body.i91
   %incdec.ptr = getelementptr inbounds i8, ptr %c.addr.05, i64 1
   %cmp3 = icmp ult ptr %incdec.ptr, %c2
-  br i1 %cmp3, label %while.body, label %if.end, !llvm.loop !12
+  br i1 %cmp3, label %while.body, label %if.end, !llvm.loop !11
 
 if.else:                                          ; preds = %entry
   %sub.ptr.rhs.cast10 = ptrtoint ptr %buf to i64
@@ -3779,7 +3779,7 @@ sw.epilog.i48:                                    ; preds = %if.then.i66, %if.th
 for.inc:                                          ; preds = %while.body.i35
   %inc = add nuw nsw i64 %i.07, 1
   %exitcond.not = icmp eq i64 %inc, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc
   br i1 %cmp136.not, label %if.end, label %while.body.i.preheader.lr.ph
@@ -3855,14 +3855,14 @@ sw.epilog.i:                                      ; preds = %if.then.i, %if.then
 for.inc26:                                        ; preds = %while.body.i
   %inc27 = add nuw nsw i64 %i20.09, 1
   %exitcond11.not = icmp eq i64 %inc27, %conv
-  br i1 %exitcond11.not, label %if.end, label %while.body.i.preheader, !llvm.loop !14
+  br i1 %exitcond11.not, label %if.end, label %while.body.i.preheader, !llvm.loop !13
 
 if.end:                                           ; preds = %run_prog_i.exit140, %for.inc26, %if.else, %while.cond.preheader, %for.end
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef signext i8 @goughExec16_i_ni(ptr noundef %m, ptr nocapture noundef %som, ptr nocapture noundef %state, ptr noundef %buf, i64 noundef %len, i64 noundef %offAdj, ptr nocapture noundef readonly %cb, ptr noundef %ctxt, ptr nocapture noundef writeonly %final_point, i32 noundef %mode) unnamed_addr #8 {
+define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %m, ptr nocapture noundef %som, ptr nocapture noundef %state, ptr noundef %buf, i64 noundef %len, i64 noundef %offAdj, ptr nocapture noundef readonly %cb, ptr noundef %ctxt, ptr nocapture noundef writeonly %final_point, i32 noundef %mode) unnamed_addr #8 {
 entry:
   %0 = load i16, ptr %state, align 2
   %add.ptr.i = getelementptr inbounds i8, ptr %m, i64 -64
@@ -4041,11 +4041,11 @@ if.then.i19:                                      ; preds = %if.else.i
   br i1 %tobool5.i.not, label %if.end17.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i19
-  %23 = tail call i32 @llvm.cttz.i32(i32 %and4.i, i1 true), !range !15
+  %23 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %and4.i, i1 true)
   %sub9.i = add nsw i32 %23, -4
   %24 = zext i8 %18 to i64
-  %25 = getelementptr i8, ptr %add.ptr.i3, i64 %24
-  %add.ptr12.i = getelementptr i8, ptr %25, i64 4
+  %25 = getelementptr inbounds i8, ptr %add.ptr.i3, i64 %24
+  %add.ptr12.i = getelementptr inbounds i8, ptr %25, i64 4
   %conv13.i = zext nneg i32 %sub9.i to i64
   %mul.i28 = shl nuw nsw i64 %conv13.i, 1
   %add.ptr14.i = getelementptr inbounds i8, ptr %add.ptr12.i, i64 %mul.i28
@@ -4178,7 +4178,7 @@ if.end61.i:                                       ; preds = %for.cond.i225.i, %c
   %cmp8.i = icmp ult ptr %incdec.ptr.i, %min_accel_offset.i.0
   %tobool11.i = icmp ne i16 %.pre-phi, 0
   %38 = select i1 %cmp8.i, i1 %tobool11.i, i1 false
-  br i1 %38, label %while.body.i, label %with_accel.i, !llvm.loop !16
+  br i1 %38, label %while.body.i, label %with_accel.i, !llvm.loop !14
 
 with_accel.i:                                     ; preds = %if.end61.i, %without_accel.i, %entry
   %cached_accept_som.i.4 = phi i32 [ 0, %entry ], [ %cached_accept_som.i.0, %without_accel.i ], [ %cached_accept_som.i.3, %if.end61.i ]
@@ -4331,11 +4331,11 @@ if.then.i55:                                      ; preds = %if.else94.i
   br i1 %tobool5.i66.not, label %if.end17.i46, label %if.then6.i68
 
 if.then6.i68:                                     ; preds = %if.then.i55
-  %55 = tail call i32 @llvm.cttz.i32(i32 %and4.i65, i1 true), !range !15
+  %55 = tail call range(i32 4, 33) i32 @llvm.cttz.i32(i32 %and4.i65, i1 true)
   %sub9.i71 = add nsw i32 %55, -4
   %56 = zext i8 %50 to i64
-  %57 = getelementptr i8, ptr %add.ptr.i13, i64 %56
-  %add.ptr12.i75 = getelementptr i8, ptr %57, i64 4
+  %57 = getelementptr inbounds i8, ptr %add.ptr.i13, i64 %56
+  %add.ptr12.i75 = getelementptr inbounds i8, ptr %57, i64 4
   %conv13.i76 = zext nneg i32 %sub9.i71 to i64
   %mul.i77 = shl nuw nsw i64 %conv13.i76, 1
   %add.ptr14.i78 = getelementptr inbounds i8, ptr %add.ptr12.i75, i64 %mul.i77
@@ -4511,7 +4511,7 @@ if.end176.i:                                      ; preds = %for.cond.i.i, %cond
   %cmp66.i = icmp ult ptr %incdec.ptr75.i, %add.ptr1.i
   %tobool70.i = icmp ne i16 %.pre-phi457, 0
   %74 = select i1 %cmp66.i, i1 %tobool70.i, i1 false
-  br i1 %74, label %while.body72.i, label %while.end180.i, !llvm.loop !17
+  br i1 %74, label %while.body72.i, label %while.end180.i, !llvm.loop !15
 
 while.end180.i:                                   ; preds = %if.end176.i, %with_accel.i
   %s.i.4.lcssa = phi i16 [ %s.i.3, %with_accel.i ], [ %.pre-phi457, %if.end176.i ]
@@ -4566,7 +4566,7 @@ attributes #12 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i8 0, i8 2}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
@@ -4574,6 +4574,4 @@ attributes #12 = { nounwind }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = !{i32 4, i32 33}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
+!15 = distinct !{!15, !6}

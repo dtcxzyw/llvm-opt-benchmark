@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [3 x i8] c"-c\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 -2147483648, 256) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [2 x i32], align 4
   %4 = alloca [4096 x i8], align 16
   %5 = alloca i32, align 4

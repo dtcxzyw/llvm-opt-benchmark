@@ -1476,7 +1476,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..error..ErrorIn
 
 5:                                                ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.2603348648179966163.exit.i.i4.i.i", %1
   %6 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..error..context..ContextValue$GT$$GT$17h68c34320a2b603ebE.llvm.2603348648179966163"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
+  tail call void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$clap_builder..error..context..ContextValue$GT$$GT$17h68c34320a2b603ebE.llvm.2603348648179966163"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !474)
   %7 = load i64, ptr %0, align 8, !range !477, !alias.scope !474, !noundef !5
   %8 = icmp eq i64 %7, 2

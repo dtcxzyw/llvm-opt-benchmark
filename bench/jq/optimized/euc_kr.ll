@@ -29,7 +29,7 @@ define internal i32 @euckr_mbc_to_code(ptr noundef %0, ptr noundef %1) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @euckr_code_to_mbclen(i32 noundef %0) #3 {
+define internal range(i32 -400, 3) i32 @euckr_code_to_mbclen(i32 noundef %0) #3 {
   %.not = icmp ult i32 %0, 65536
   br i1 %.not, label %2, label %13
 
@@ -121,7 +121,7 @@ define internal ptr @euckr_left_adjust_char_head(ptr noundef readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @euckr_is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @euckr_is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp ult i8 %3, 127
   %. = zext i1 %4 to i32
@@ -129,7 +129,7 @@ define internal i32 @euckr_is_allowed_reverse_match(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @is_valid_mbc_string(ptr noundef readonly %0, ptr noundef readnone %1) #4 {
+define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0, ptr noundef readnone %1) #4 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %.lr.ph, label %._crit_edge
 

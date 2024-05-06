@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [19 x i8] c"priority_p_recover\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @priority_sort_part_tier(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @priority_sort_part_tier(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 278
@@ -44,7 +44,7 @@ define i32 @priority_sort_part_tier(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @priority_g_init() local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @priority_g_init() local_unnamed_addr #1 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_priority_context_lock) #6
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2

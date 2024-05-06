@@ -106,7 +106,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_sign_ed25519_open(ptr noundef writeonly %m, ptr noundef writeonly %mlen_p, ptr noundef nonnull %sm, i64 noundef %smlen, ptr noundef nonnull %pk) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_sign_ed25519_open(ptr noundef writeonly %m, ptr noundef writeonly %mlen_p, ptr noundef nonnull %sm, i64 noundef %smlen, ptr noundef nonnull %pk) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %smlen, 64
   br i1 %cmp, label %badsig, label %lor.lhs.false

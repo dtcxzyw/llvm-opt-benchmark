@@ -948,7 +948,7 @@ if.else17:                                        ; preds = %do.end
   unreachable
 
 do.end19:                                         ; preds = %do.end
-  %7 = tail call i32 @llvm.cttz.i32(i32 %addr.0, i1 true), !range !12
+  %7 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %addr.0, i1 true)
   %shl = shl nuw i32 1, %7
   %tobool21.not = icmp eq ptr %sizeptr, null
   br i1 %tobool21.not, label %if.end24, label %if.then22
@@ -1367,7 +1367,7 @@ return:                                           ; preds = %do.end11, %qpci_io_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @qpci_msix_table_size(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
+define dso_local zeroext range(i16 1, 2049) i16 @qpci_msix_table_size(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %config_readb.i10.i = getelementptr inbounds i8, ptr %0, i64 80
@@ -1726,4 +1726,3 @@ attributes #12 = { noreturn nounwind }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i32 0, i32 33}

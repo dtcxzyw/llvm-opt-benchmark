@@ -706,7 +706,7 @@ cond.true129:                                     ; preds = %cond.end117
 
 cond.end132:                                      ; preds = %cond.end117, %cond.true129
   %cond133 = phi ptr [ %14, %cond.true129 ], [ %scalar, %cond.end117 ]
-  %conv135 = trunc i64 %cond118 to i32
+  %conv135 = trunc nuw nsw i64 %cond118 to i32
   %arrayidx136 = getelementptr inbounds i64, ptr %call59, i64 %i.0311
   %call137 = tail call ptr @bn_compute_wNAF(ptr noundef %cond133, i32 noundef %conv135, ptr noundef %arrayidx136) #6
   %arrayidx138 = getelementptr inbounds ptr, ptr %call62, i64 %i.0311
@@ -1237,7 +1237,7 @@ declare i32 @EC_POINT_invert(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @ossl_ec_point_blind_coordinates(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %group, ptr noundef %ctx) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %group, ptr noundef %ctx) local_unnamed_addr #1 {
 entry:
   tail call void @EC_pre_comp_free(ptr noundef %group) #6
   %tobool.not.i = icmp eq ptr %group, null
@@ -1565,7 +1565,7 @@ declare ptr @EC_GROUP_get0_order(ptr noundef) local_unnamed_addr #2
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_ec_wNAF_have_precompute_mult(ptr nocapture noundef readonly %group) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ossl_ec_wNAF_have_precompute_mult(ptr nocapture noundef readonly %group) local_unnamed_addr #4 {
 entry:
   %pre_comp_type = getelementptr inbounds i8, ptr %group, i64 152
   %0 = load i32, ptr %pre_comp_type, align 8

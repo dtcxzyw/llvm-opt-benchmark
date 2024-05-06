@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @syncrep_parse_error_msg = dso_local local_unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @syncrep_yyparse() local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @syncrep_yyparse() local_unnamed_addr #0 {
   %1 = alloca [200 x i8], align 16
   %2 = alloca [200 x %union.YYSTYPE], align 16
   store i32 -2, ptr @syncrep_yychar, align 4
@@ -47,7 +47,7 @@ define dso_local noundef i32 @syncrep_yyparse() local_unnamed_addr #0 {
   %.0139 = phi ptr [ %1, %0 ], [ %.1140, %3 ]
   %.0137 = phi i64 [ 200, %0 ], [ %.1138, %3 ]
   %.1 = phi i32 [ 0, %0 ], [ %.0, %3 ]
-  %6 = trunc i32 %.1 to i8
+  %6 = trunc nsw i32 %.1 to i8
   store i8 %6, ptr %.1143, align 1
   %7 = getelementptr i8, ptr %.0139, i64 %.0137
   %8 = getelementptr i8, ptr %7, i64 -1

@@ -981,7 +981,7 @@ define internal i64 @ossl_ts_token_info_get_gen_time(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ts_token_info_get_ordering(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_ts_token_info_get_ordering(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ts_token_info_type) #7
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1578,7 +1578,7 @@ define internal noundef i64 @ossl_ts_req_set_cert_requested(i64 noundef %0, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_ts_req_get_cert_requested(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_ts_req_get_cert_requested(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ts_req_type) #7
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5

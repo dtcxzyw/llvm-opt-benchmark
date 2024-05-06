@@ -434,7 +434,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7rocksdb9cassandra25CassandraCompactionFilter8FilterV2EiRKNS_5SliceENS_16CompactionFilter9ValueTypeES4_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %value_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %existing_value, ptr noundef %new_value, ptr nocapture readnone %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZNK7rocksdb9cassandra25CassandraCompactionFilter8FilterV2EiRKNS_5SliceENS_16CompactionFilter9ValueTypeES4_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %value_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %existing_value, ptr noundef %new_value, ptr nocapture readnone %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value_changed = alloca i8, align 1
   %row_value = alloca %"class.rocksdb::cassandra::RowValue", align 8
@@ -1124,7 +1124,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont:                                      ; preds = %.noexc
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp2, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZ24RegisterCassandraObjectsE3$_0E9_M_invokeERKSt9_Any_dataSA_OSF_OSG_", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb13MergeOperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZ24RegisterCassandraObjectsE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryINS_13MergeOperatorEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS4_St14default_deleteIS4_EEPSB_EESD_SN_(ptr noundef nonnull align 8 dereferenceable(128) %library, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
@@ -1170,7 +1170,7 @@ lpad.i15:                                         ; preds = %.noexc18
 invoke.cont11:                                    ; preds = %.noexc18
   %_M_manager.i.i21 = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
   %_M_invoker.i22 = getelementptr inbounds i8, ptr %ref.tmp12, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp12, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb16CompactionFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZ24RegisterCassandraObjectsE3$_1E9_M_invokeERKSt9_Any_dataSA_OSF_OSG_", ptr %_M_invoker.i22, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb16CompactionFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZ24RegisterCassandraObjectsE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %_M_manager.i.i21, align 8
   %call16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryINS_16CompactionFilterEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS4_St14default_deleteIS4_EEPSB_EESD_SN_(ptr noundef nonnull align 8 dereferenceable(128) %library, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12)
@@ -1216,7 +1216,7 @@ lpad.i30:                                         ; preds = %.noexc33
 invoke.cont24:                                    ; preds = %.noexc33
   %_M_manager.i.i36 = getelementptr inbounds i8, ptr %ref.tmp25, i64 16
   %_M_invoker.i37 = getelementptr inbounds i8, ptr %ref.tmp25, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp25, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %ref.tmp25, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb23CompactionFilterFactoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZ24RegisterCassandraObjectsE3$_2E9_M_invokeERKSt9_Any_dataSA_OSF_OSG_", ptr %_M_invoker.i37, align 8
   store ptr @"_ZNSt17_Function_handlerIFPN7rocksdb23CompactionFilterFactoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS1_St14default_deleteIS1_EEPS8_EZ24RegisterCassandraObjectsE3$_2E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %_M_manager.i.i36, align 8
   %call29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb13ObjectLibrary10AddFactoryINS_23CompactionFilterFactoryEEERKSt8functionIFPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrIS4_St14default_deleteIS4_EEPSB_EESD_SN_(ptr noundef nonnull align 8 dereferenceable(128) %library, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25)

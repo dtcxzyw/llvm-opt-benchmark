@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @acpi_gbl_integer_byte_width = external dso_local local_unnamed_addr global i8, align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i8 @acpi_ut_is_pci_root_bridge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext range(i8 0, 2) i8 @acpi_ut_is_pci_root_bridge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(8) @.str) #8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %8, label %4
@@ -54,7 +54,7 @@ define dso_local void @acpi_ut_set_integer_width(i8 noundef zeroext %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ut_create_update_state_and_push(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @acpi_ut_create_update_state_and_push(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #5 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %5
 

@@ -109,7 +109,7 @@ for.body37.i:                                     ; preds = %if.end20.i, %for.bo
   %sub.i = sub i32 %din.0.val.i, %prevPixel.0119.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %din.0120.i, i64 4
   %shr.i = lshr i32 %sub.i, 24
-  %conv38.i = trunc i32 %shr.i to i8
+  %conv38.i = trunc nuw i32 %shr.i to i8
   %incdec.ptr40.i = getelementptr inbounds i8, ptr %ptr.sroa.0.0118.i, i64 1
   store i8 %conv38.i, ptr %ptr.sroa.0.0118.i, align 1
   %shr41.i = lshr i32 %sub.i, 16

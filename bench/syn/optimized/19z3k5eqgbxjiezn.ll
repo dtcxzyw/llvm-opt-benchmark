@@ -3896,7 +3896,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %23, %21
   store ptr %6, ptr %27, align 8, !noalias !538
   %28 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 1, ptr %28, align 8, !noalias !538
-  call void @_ZN3syn5parse11ParseBuffer4step17hc7eb6887829ee83fE.llvm.858133952616893155(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3), !noalias !543
+  call void @_ZN3syn5parse11ParseBuffer4step17hc7eb6887829ee83fE.llvm.858133952616893155(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3), !noalias !543
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !538
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !532
   %29 = load i64, ptr %5, align 8, !range !18, !noalias !532, !noundef !4
@@ -4159,7 +4159,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %83, %85
   store ptr %4, ptr %3, align 8, !noalias !562
   store ptr %6, ptr %62, align 8, !noalias !562
   store i64 2, ptr %63, align 8, !noalias !562
-  invoke void @_ZN3syn5parse11ParseBuffer4step17hc7eb6887829ee83fE.llvm.858133952616893155(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
+  invoke void @_ZN3syn5parse11ParseBuffer4step17hc7eb6887829ee83fE.llvm.858133952616893155(ptr noalias nocapture noundef nonnull writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc76 unwind label %.loopexit
 
 .noexc76:                                         ; preds = %_ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i

@@ -165,7 +165,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %513
 
 100:                                              ; preds = %.lr.ph
-  %101 = getelementptr i8, ptr %94, i64 4
+  %101 = getelementptr inbounds i8, ptr %94, i64 4
   %102 = load float, ptr %101, align 4
   %103 = fcmp olt float %102, 0.000000e+00
   br i1 %103, label %104, label %107

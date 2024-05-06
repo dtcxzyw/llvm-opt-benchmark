@@ -217,13 +217,13 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @__archive_read_free_filters(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_append_filter_program(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @archive_read_append_filter_program_signature(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef 0), !range !7
+define dso_local range(i32 -30, 1) i32 @archive_read_append_filter_program(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @archive_read_append_filter_program_signature(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_append_filter_program_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_append_filter_program_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @archive_read_support_filter_program_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #6
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %38
@@ -250,7 +250,7 @@ define dso_local noundef i32 @archive_read_append_filter_program_signature(ptr n
   %14 = add nuw nsw i32 %.03241, 1
   %15 = getelementptr inbounds i8, ptr %.03340, i64 24
   %exitcond.not = icmp eq i32 %14, 16
-  br i1 %exitcond.not, label %split, label %8, !llvm.loop !8
+  br i1 %exitcond.not, label %split, label %8, !llvm.loop !7
 
 split:                                            ; preds = %13
   %.pre = load ptr, ptr %scevgep, align 8
@@ -334,5 +334,4 @@ attributes #8 = { nounwind allocsize(0,1) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -30, i32 1}
-!8 = distinct !{!8, !6}
+!7 = distinct !{!7, !6}

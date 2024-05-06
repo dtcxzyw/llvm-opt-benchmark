@@ -29,7 +29,7 @@ define dso_local void @nfs4_renew_state(ptr noundef %0) local_unnamed_addr #0 al
   %18 = add i64 %15, %17
   %19 = sub i64 %18, %16
   %20 = lshr i64 %19, 63
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   %22 = tail call i32 @nfs_delegations_present(ptr noundef %2) #4
   %23 = icmp eq i32 %22, 0
   %24 = or disjoint i32 %21, 2

@@ -2001,7 +2001,7 @@ define hidden void @_ZNK8rawspeed18PentaxDecompressor10decompressENS_10ByteStrea
   %15 = getelementptr inbounds i8, ptr %5, i64 48
   %16 = load i32, ptr %15, align 8, !tbaa !168, !noalias !163
   %17 = ashr i32 %16, 1
-  %18 = mul nsw i32 %17, %14
+  %18 = mul nuw nsw i32 %17, %14
   %19 = icmp sgt i32 %12, -1
   tail call void @llvm.assume(i1 %19)
   %20 = icmp sgt i32 %14, -1

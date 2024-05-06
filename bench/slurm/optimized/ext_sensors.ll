@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [25 x i8] c"ext_sensors_p_get_config\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ext_sensors_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ext_sensors_init() local_unnamed_addr #0 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #6
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
@@ -182,7 +182,7 @@ declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #4
 declare void @pack_time(i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ext_sensors_data_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ext_sensors_data_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call noundef ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 131, ptr noundef nonnull @__func__.ext_sensors_alloc) #6
   store i64 -2, ptr %5, align 8

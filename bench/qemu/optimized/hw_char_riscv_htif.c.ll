@@ -209,7 +209,7 @@ declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @memory_region_add_subregion_overlap(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @htif_mm_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @htif_mm_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %tohost_offset = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load i64, ptr %tohost_offset, align 8
@@ -313,7 +313,7 @@ if.then10:                                        ; preds = %if.then8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch139.i)
   %shr.i = lshr i64 %or, 56
   %and.i = and i64 %or, 281474976710655
-  %trunc.i = trunc i64 %shr.i to i8
+  %trunc.i = trunc nuw i64 %shr.i to i8
   switch i8 %trunc.i, label %if.else150.i [
     i8 0, label %if.then.i
     i8 1, label %if.then129.i
@@ -383,7 +383,7 @@ for.body62.preheader.i:                           ; preds = %for.body.i
 
 for.body62.i:                                     ; preds = %for.inc.i, %for.body62.preheader.i
   %indvars.iv.i = phi i64 [ %13, %for.body62.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %14 = trunc i64 %indvars.iv.i to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add.i = add i32 %i.058.i, %14
   %conv63.i = sext i32 %add.i to i64
   %cmp64.not.i = icmp ult i64 %sub.i, %conv63.i

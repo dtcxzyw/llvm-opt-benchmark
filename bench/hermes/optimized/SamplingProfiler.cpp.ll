@@ -2166,7 +2166,7 @@ if.then:                                          ; preds = %entry
   %or6.i.i.i = or i64 %shr5.i.i.i, %or4.i.i.i
   %shr7.i.i.i = lshr i64 %or6.i.i.i, 16
   %or8.i.i.i = or i64 %shr7.i.i.i, %or6.i.i.i
-  %3 = trunc i64 %or8.i.i.i to i32
+  %3 = trunc nuw i64 %or8.i.i.i to i32
   %conv3.i.i = add i32 %3, 1
   %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %conv3.i.i, i32 64)
   store i32 %.sroa.speculated.i.i, ptr %NumBuckets.i.i, align 8
@@ -2273,7 +2273,7 @@ if.then10:                                        ; preds = %if.else
   %or6.i.i.i25 = or i64 %shr5.i.i.i24, %or4.i.i.i23
   %shr7.i.i.i26 = lshr i64 %or6.i.i.i25, 16
   %or8.i.i.i27 = or i64 %shr7.i.i.i26, %or6.i.i.i25
-  %13 = trunc i64 %or8.i.i.i27 to i32
+  %13 = trunc nuw i64 %or8.i.i.i27 to i32
   %conv3.i.i28 = add i32 %13, 1
   %.sroa.speculated.i.i29 = tail call i32 @llvm.umax.i32(i32 %conv3.i.i28, i32 64)
   store i32 %.sroa.speculated.i.i29, ptr %NumBuckets.i.i, align 8
@@ -2515,7 +2515,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 if.then:                                          ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E10destroyAllEv.exit
   %sub.i = add i32 %0, -1
-  %4 = tail call i32 @llvm.ctlz.i32(i32 %sub.i, i1 false), !range !27
+  %4 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i, i1 false)
   %add = sub nuw nsw i32 33, %4
   %shl = shl nuw i32 1, %add
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %shl, i32 64)
@@ -2565,7 +2565,7 @@ if.then.i:                                        ; preds = %if.end5
   %or6.i.i.i = or i64 %shr5.i.i.i, %or4.i.i.i
   %shr7.i.i.i = lshr i64 %or6.i.i.i, 16
   %or8.i.i.i = or i64 %shr7.i.i.i, %or6.i.i.i
-  %8 = trunc i64 %or8.i.i.i to i32
+  %8 = trunc nuw nsw i64 %or8.i.i.i to i32
   %conv2.i.i = add nuw i32 %8, 1
   store i32 %conv2.i.i, ptr %NumBuckets.i.i.i, align 8
   %conv.i3.i = zext i32 %conv2.i.i to i64
@@ -2656,7 +2656,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 for.inc:                                          ; preds = %for.body, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE13_M_key_equalsERKS6_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit
   %__it.sroa.0.0 = load ptr, ptr %__it.sroa.0.041, align 8
   %cmp.i.not = icmp eq ptr %__it.sroa.0.0, null
-  br i1 %cmp.i.not, label %if.end17, label %for.body, !llvm.loop !28
+  br i1 %cmp.i.not, label %if.end17, label %for.body, !llvm.loop !27
 
 if.end17:                                         ; preds = %for.inc, %entry
   %call.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #18
@@ -2821,7 +2821,7 @@ lor.lhs.false:                                    ; preds = %if.end3
   %7 = load i64, ptr %add.ptr.i.i, align 8
   %rem.i.i.i = urem i64 %7, %6
   %cmp.not = icmp eq i64 %rem.i.i.i, %__bkt
-  br i1 %cmp.not, label %for.cond, label %return, !llvm.loop !29
+  br i1 %cmp.not, label %for.cond, label %return, !llvm.loop !28
 
 return:                                           ; preds = %land.rhs.i.i.i.i, %lor.lhs.false, %if.end3, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS6_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit, %entry
   %retval.0 = phi ptr [ null, %entry ], [ %__prev_p.0, %land.rhs.i.i.i.i ], [ null, %lor.lhs.false ], [ null, %if.end3 ], [ %__prev_p.0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS6_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit ]
@@ -2911,7 +2911,7 @@ if.end22.sink.split:                              ; preds = %if.else, %if.then15
 if.end22:                                         ; preds = %if.end22.sink.split, %if.then
   %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then ], [ %__bbegin_bkt.1.ph, %if.end22.sink.split ]
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !30
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !29
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
@@ -3004,7 +3004,6 @@ attributes #19 = { nounwind allocsize(0) }
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = !{i32 0, i32 33}
+!27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}

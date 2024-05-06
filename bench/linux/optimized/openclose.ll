@@ -237,7 +237,7 @@ define dso_local i32 @io_openat2_prep(ptr noundef %0, ptr noundef %1) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_openat2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -11, 1) i32 @io_openat2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.open_flags, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !7
@@ -404,7 +404,7 @@ declare dso_local i32 @io_fixed_fd_install(ptr noundef, i32 noundef, ptr noundef
 declare dso_local void @putname(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_openat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -11, 1) i32 @io_openat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @io_openat2(ptr noundef %0, i32 noundef %1), !range !11
   ret i32 %3
 }
@@ -450,7 +450,7 @@ define dso_local i32 @__io_close_fixed(ptr noundef %0, i32 noundef %1, i32 nound
 declare dso_local i32 @io_fixed_fd_remove(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i32 @io_close_prep(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 -22, 1) i32 @io_close_prep(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -508,7 +508,7 @@ define dso_local i32 @io_close_prep(ptr nocapture noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_close(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -11, 1) i32 @io_close(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 1856
@@ -634,7 +634,7 @@ declare dso_local ptr @file_close_fd_locked(ptr noundef, i32 noundef) local_unna
 declare dso_local i32 @filp_close(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local noundef i32 @io_install_fixed_fd_prep(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @io_install_fixed_fd_prep(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0

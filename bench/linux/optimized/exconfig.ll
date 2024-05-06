@@ -181,7 +181,7 @@ declare dso_local void @acpi_info(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local i32 @acpi_tb_load_table(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @acpi_ex_add_table(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 5) i32 @acpi_ex_add_table(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = tail call ptr @acpi_ut_create_internal_object_dbg(ptr noundef nonnull @_acpi_module_name, i32 noundef 54, i32 noundef 128, i32 noundef 20) #7
   %4 = icmp eq ptr %3, null
   br i1 %4, label %11, label %5

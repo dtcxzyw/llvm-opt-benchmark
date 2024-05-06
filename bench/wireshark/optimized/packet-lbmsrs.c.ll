@@ -655,7 +655,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_lbmsrs_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @test_lbmsrs_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.lbmsrs_tag_entry_t, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 280
   %7 = load i32, ptr %6, align 8
@@ -685,7 +685,7 @@ define internal noundef i32 @test_lbmsrs_packet(ptr noundef %0, ptr noundef %1, 
 13:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %14 = getelementptr %struct.lbmsrs_tag_entry_t, ptr %11, i64 %indvars.iv.i
-  %15 = tail call fastcc i32 @lbmsrs_match_packet(ptr noundef %1, ptr noundef %14), !range !6
+  %15 = tail call fastcc i32 @lbmsrs_match_packet(ptr noundef readonly %1, ptr noundef %14)
   %.not7.i = icmp eq i32 %15, 0
   br i1 %.not7.i, label %12, label %16
 
@@ -708,7 +708,7 @@ define internal noundef i32 @test_lbmsrs_packet(ptr noundef %0, ptr noundef %1, 
   %26 = load i32, ptr @lbmsrs_source_port, align 4
   %27 = getelementptr inbounds i8, ptr %5, i64 20
   store i32 %26, ptr %27, align 4
-  %28 = call fastcc i32 @lbmsrs_match_packet(ptr noundef nonnull %1, ptr noundef nonnull %5), !range !6
+  %28 = call fastcc i32 @lbmsrs_match_packet(ptr noundef nonnull %1, ptr noundef nonnull %5)
   %29 = icmp eq i32 %28, 0
   br label %lbmsrs_tag_find.exit
 
@@ -733,7 +733,7 @@ lbmsrs_tag_find.exit:                             ; preds = %16, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_lbmsrs_packet(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_lbmsrs_packet(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %3 = icmp ult i32 %2, 7
   br i1 %3, label %27, label %4
@@ -832,7 +832,7 @@ define internal fastcc i32 @dissect_lbmsrs_real(ptr noundef %0, ptr noundef %1, 
 9:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
   %10 = getelementptr %struct.lbmsrs_tag_entry_t, ptr %7, i64 %indvars.iv.i
-  %11 = tail call fastcc i32 @lbmsrs_match_packet(ptr noundef %1, ptr noundef %10), !range !6
+  %11 = tail call fastcc i32 @lbmsrs_match_packet(ptr noundef readonly %1, ptr noundef %10)
   %.not7.i = icmp eq i32 %11, 0
   br i1 %.not7.i, label %8, label %lbmsrs_tag_find.exit
 
@@ -944,7 +944,7 @@ define internal i32 @dissect_lbmsrs_pdus(ptr noundef %0, ptr noundef %1, ptr nou
 38:                                               ; preds = %40
   %39 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %39, 17
-  br i1 %exitcond.not.i, label %getFrameTypeName.exit.thread, label %40, !llvm.loop !7
+  br i1 %exitcond.not.i, label %getFrameTypeName.exit.thread, label %40, !llvm.loop !6
 
 40:                                               ; preds = %38, %34
   %.06.i = phi i64 [ 0, %34 ], [ %39, %38 ]
@@ -1228,7 +1228,7 @@ getFrameTypeName.exit.thread:                     ; preds = %38, %getFrameTypeNa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @lbmsrs_match_packet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @lbmsrs_match_packet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 2
@@ -1521,7 +1521,7 @@ dissect_lbmsrs_stream_request.exit:               ; preds = %74, %77
 92:                                               ; preds = %839
   %93 = add i32 %.0.i35, %.061236.i
   %94 = icmp ult i32 %93, %86
-  br i1 %94, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+  br i1 %94, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 .lr.ph.i:                                         ; preds = %85, %92
   %.061236.i = phi i32 [ %93, %92 ], [ %3, %85 ]
@@ -2962,6 +2962,5 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

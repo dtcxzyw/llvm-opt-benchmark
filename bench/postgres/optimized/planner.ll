@@ -8189,7 +8189,7 @@ declare ptr @list_concat_unique(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @common_prefix_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 -1, 2) i32 @common_prefix_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -9499,7 +9499,7 @@ make_ordered_path.exit.i95:                       ; preds = %514, %512
   br i1 %.not158.i, label %520, label %519
 
 519:                                              ; preds = %517
-  call fastcc void @consider_groupingsets_paths(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %.0.i177.i, i1 noundef zeroext true, i1 noundef zeroext %471, ptr noundef %4, ptr noundef %3, double noundef %465)
+  call fastcc void @consider_groupingsets_paths(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %.0.i177.i, i1 noundef zeroext true, i1 noundef zeroext %471, ptr noundef readonly %4, ptr noundef %3, double noundef %465)
   br label %536
 
 520:                                              ; preds = %517
@@ -9690,7 +9690,7 @@ make_ordered_path.exit167.i:                      ; preds = %582, %580
   br i1 %.not149.i, label %610, label %609
 
 609:                                              ; preds = %606
-  call fastcc void @consider_groupingsets_paths(ptr noundef %0, ptr noundef %2, ptr noundef %468, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %4, ptr noundef %3, double noundef %465)
+  call fastcc void @consider_groupingsets_paths(ptr noundef %0, ptr noundef %2, ptr noundef %468, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef readonly %4, ptr noundef %3, double noundef %465)
   br label %616
 
 610:                                              ; preds = %606

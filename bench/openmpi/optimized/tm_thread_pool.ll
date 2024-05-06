@@ -64,7 +64,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @tm_submit_work(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @tm_submit_work(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, -1
   br i1 %3, label %4, label %29
 
@@ -142,7 +142,7 @@ define hidden void @tm_terminate_thread_pool() local_unnamed_addr #1 {
 12:                                               ; preds = %.lr.ph, %add_work.exit.i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %add_work.exit.i ]
   %13 = phi ptr [ %3, %.lr.ph ], [ %31, %add_work.exit.i ]
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %8, align 4
   %15 = getelementptr inbounds i8, ptr %13, i64 32
   %16 = load ptr, ptr %15, align 8
@@ -209,7 +209,7 @@ add_work.exit.i:                                  ; preds = %24
   br i1 %or.cond, label %60, label %63
 
 60:                                               ; preds = %.lr.ph14
-  %61 = trunc i64 %indvars.iv17 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv17 to i32
   %62 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %61)
   %.pre = load ptr, ptr @pool, align 8
   br label %63
@@ -353,7 +353,7 @@ define hidden i32 @tm_get_nb_threads() local_unnamed_addr #1 {
   %48 = getelementptr inbounds %struct.local_thread_t, ptr %44, i64 %indvars.iv.i.i
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   store ptr %47, ptr %49, align 8
-  %50 = trunc i64 %indvars.iv.i.i to i32
+  %50 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %50, ptr %48, align 8
   %51 = load ptr, ptr @pool, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 16
@@ -506,7 +506,7 @@ tm_create_work.exit.preheader:                    ; preds = %0, %21
 tm_create_work.exit:                              ; preds = %tm_create_work.exit.preheader, %tm_create_work.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %tm_create_work.exit ], [ 0, %tm_create_work.exit.preheader ]
   %23 = getelementptr inbounds [100 x i32], ptr %6, i64 0, i64 %indvars.iv
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %24, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100

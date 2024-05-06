@@ -133,7 +133,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @tty_serial_ioctl(ptr noundef %chr, i32 noundef %cmd, ptr nocapture noundef %arg) #0 {
+define internal range(i32 -95, 1) i32 @tty_serial_ioctl(ptr noundef %chr, i32 noundef %cmd, ptr nocapture noundef %arg) #0 {
 entry:
   %sarg = alloca i32, align 4
   %targ38 = alloca i32, align 4

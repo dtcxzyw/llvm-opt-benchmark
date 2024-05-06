@@ -431,7 +431,7 @@ for.body:                                         ; preds = %buffer_tobuf.exit, 
   %arrayidx = getelementptr inbounds %union.TValue, ptr %10, i64 %arg.068
   %11 = load i64, ptr %arrayidx, align 8
   %shr61 = ashr i64 %11, 47
-  %conv62 = trunc i64 %shr61 to i32
+  %conv62 = trunc nsw i64 %shr61 to i32
   %cmp263 = icmp eq i32 %conv62, -5
   br i1 %cmp263, label %if.then, label %if.else
 
@@ -521,7 +521,7 @@ if.then39:                                        ; preds = %land.lhs.true35
   store ptr %add.ptr50, ptr %top.i, align 8
   %29 = load i64, ptr %arrayidx44, align 8
   %shr = ashr i64 %29, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp2 = icmp eq i32 %conv, -5
   br i1 %cmp2, label %if.then, label %if.else
 

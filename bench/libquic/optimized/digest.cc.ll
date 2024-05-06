@@ -305,7 +305,7 @@ land.lhs.true78:                                  ; preds = %invoke.cont18, %whi
   %check_args.sroa.6.0189330 = phi i1 [ %check_args.sroa.6.0216, %invoke.cont18 ], [ %check_args.sroa.6.0189, %while.end ]
   %check_args.sroa.3.0193329 = phi i8 [ %check_args.sroa.3.0215, %invoke.cont18 ], [ %check_args.sroa.3.0193, %while.end ]
   %check_args.sroa.0.0197328 = phi i1 [ %check_args.sroa.0.0214, %invoke.cont18 ], [ %check_args.sroa.0.0197, %while.end ]
-  %tobool79 = trunc i8 %check_mode.0177332 to i1
+  %tobool79 = trunc nuw i8 %check_mode.0177332 to i1
   br i1 %tobool79, label %if.end83, label %if.then80
 
 if.then80:                                        ; preds = %land.lhs.true78
@@ -413,7 +413,7 @@ lpad104:                                          ; preds = %if.else.i.i79
   br label %ehcleanup
 
 if.end106:                                        ; preds = %invoke.cont105, %for.end99
-  %tobool107 = trunc i8 %check_mode.0177326 to i1
+  %tobool107 = trunc nuw i8 %check_mode.0177326 to i1
   %32 = load ptr, ptr %sources, align 8
   %33 = load ptr, ptr %_M_finish.i.i69, align 8
   %cmp.i85.not247 = icmp eq ptr %32, %33
@@ -426,7 +426,7 @@ for.body115.lr.ph:                                ; preds = %if.then108
   %filename_.i39.i = getelementptr inbounds i8, ptr %target_source.i, i64 8
   %filename_.i44.i = getelementptr inbounds i8, ptr %ref.tmp94.i, i64 8
   %filename_.i40.i = getelementptr inbounds i8, ptr %ref.tmp89.i, i64 8
-  %tobool111.i = trunc i8 %check_args.sroa.3.0193323 to i1
+  %tobool111.i = trunc nuw i8 %check_args.sroa.3.0193323 to i1
   %not.tobool64.i = xor i1 %check_args.sroa.9.0185325, true
   br label %for.body115
 
@@ -1407,7 +1407,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %idxprom52 = zext nneg i32 %shr to i64
   %arrayidx53 = getelementptr inbounds [17 x i8], ptr @_ZZL7SumFilePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK9env_md_stRK6SourceE9kHextable, i64 0, i64 %idxprom52
   %17 = load i8, ptr %arrayidx53, align 1
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw i64 %indvars.iv to i32
   %mul = shl i32 %18, 1
   %idxprom54 = zext i32 %mul to i64
   %arrayidx55 = getelementptr inbounds [128 x i8], ptr %hex_digest, i64 0, i64 %idxprom54

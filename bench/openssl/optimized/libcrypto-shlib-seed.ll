@@ -2187,7 +2187,7 @@ entry:
   %xor1544 = xor i32 %add1542, %xor1358
   %xor1545 = xor i32 %xor1541, %xor1359
   %shr1546 = lshr i32 %xor1544, 24
-  %conv1550 = trunc i32 %shr1546 to i8
+  %conv1550 = trunc nuw i32 %shr1546 to i8
   store i8 %conv1550, ptr %d, align 1
   %shr1552 = lshr i32 %xor1544, 16
   %conv1556 = trunc i32 %shr1552 to i8
@@ -2201,7 +2201,7 @@ entry:
   %add.ptr1568 = getelementptr inbounds i8, ptr %d, i64 3
   store i8 %conv1567, ptr %add.ptr1568, align 1
   %shr1569 = lshr i32 %xor1545, 24
-  %conv1573 = trunc i32 %shr1569 to i8
+  %conv1573 = trunc nuw i32 %shr1569 to i8
   %add.ptr1574 = getelementptr inbounds i8, ptr %d, i64 4
   store i8 %conv1573, ptr %add.ptr1574, align 1
   %shr1576 = lshr i32 %xor1545, 16
@@ -2216,7 +2216,7 @@ entry:
   %add.ptr1595 = getelementptr inbounds i8, ptr %d, i64 7
   store i8 %conv1593, ptr %add.ptr1595, align 1
   %shr1596 = lshr i32 %xor1451, 24
-  %conv1600 = trunc i32 %shr1596 to i8
+  %conv1600 = trunc nuw i32 %shr1596 to i8
   %add.ptr1601 = getelementptr inbounds i8, ptr %d, i64 8
   store i8 %conv1600, ptr %add.ptr1601, align 1
   %shr1603 = lshr i32 %xor1451, 16
@@ -2231,7 +2231,7 @@ entry:
   %add.ptr1622 = getelementptr inbounds i8, ptr %d, i64 11
   store i8 %conv1620, ptr %add.ptr1622, align 1
   %shr1623 = lshr i32 %xor1452, 24
-  %conv1627 = trunc i32 %shr1623 to i8
+  %conv1627 = trunc nuw i32 %shr1623 to i8
   %add.ptr1628 = getelementptr inbounds i8, ptr %d, i64 12
   store i8 %conv1627, ptr %add.ptr1628, align 1
   %shr1630 = lshr i32 %xor1452, 16
@@ -3522,7 +3522,7 @@ entry:
   %xor1544 = xor i32 %add1542, %xor1358
   %xor1545 = xor i32 %xor1541, %xor1359
   %shr1546 = lshr i32 %xor1544, 24
-  %conv1550 = trunc i32 %shr1546 to i8
+  %conv1550 = trunc nuw i32 %shr1546 to i8
   store i8 %conv1550, ptr %d, align 1
   %shr1552 = lshr i32 %xor1544, 16
   %conv1556 = trunc i32 %shr1552 to i8
@@ -3536,7 +3536,7 @@ entry:
   %add.ptr1568 = getelementptr inbounds i8, ptr %d, i64 3
   store i8 %conv1567, ptr %add.ptr1568, align 1
   %shr1569 = lshr i32 %xor1545, 24
-  %conv1573 = trunc i32 %shr1569 to i8
+  %conv1573 = trunc nuw i32 %shr1569 to i8
   %add.ptr1574 = getelementptr inbounds i8, ptr %d, i64 4
   store i8 %conv1573, ptr %add.ptr1574, align 1
   %shr1576 = lshr i32 %xor1545, 16
@@ -3551,7 +3551,7 @@ entry:
   %add.ptr1595 = getelementptr inbounds i8, ptr %d, i64 7
   store i8 %conv1593, ptr %add.ptr1595, align 1
   %shr1596 = lshr i32 %xor1451, 24
-  %conv1600 = trunc i32 %shr1596 to i8
+  %conv1600 = trunc nuw i32 %shr1596 to i8
   %add.ptr1601 = getelementptr inbounds i8, ptr %d, i64 8
   store i8 %conv1600, ptr %add.ptr1601, align 1
   %shr1603 = lshr i32 %xor1451, 16
@@ -3566,7 +3566,7 @@ entry:
   %add.ptr1622 = getelementptr inbounds i8, ptr %d, i64 11
   store i8 %conv1620, ptr %add.ptr1622, align 1
   %shr1623 = lshr i32 %xor1452, 24
-  %conv1627 = trunc i32 %shr1623 to i8
+  %conv1627 = trunc nuw i32 %shr1623 to i8
   %add.ptr1628 = getelementptr inbounds i8, ptr %d, i64 12
   store i8 %conv1627, ptr %add.ptr1628, align 1
   %shr1630 = lshr i32 %xor1452, 16

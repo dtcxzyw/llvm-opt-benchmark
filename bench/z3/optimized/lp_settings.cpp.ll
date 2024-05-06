@@ -245,7 +245,7 @@ sw.default:                                       ; preds = %switch.hole_check, 
   unreachable
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %status to i16
+  %switch.maskindex = trunc nuw i32 %status to i16
   %switch.shifted = lshr i16 4091, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default
@@ -258,7 +258,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN2lp21lp_status_from_stringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %status) local_unnamed_addr #3 {
+define hidden noundef range(i32 0, 10) i32 @_ZN2lp21lp_status_from_stringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %status) local_unnamed_addr #3 {
 entry:
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull @.str.7) #8
   %cmp.i = icmp eq i32 %call.i, 0

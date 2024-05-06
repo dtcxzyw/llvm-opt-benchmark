@@ -495,7 +495,7 @@ define dso_local ptr @drm_get_hdcp_content_type_name(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_connector_attach_content_protection_property(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_connector_attach_content_protection_property(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1392
   %5 = load ptr, ptr %4, align 8

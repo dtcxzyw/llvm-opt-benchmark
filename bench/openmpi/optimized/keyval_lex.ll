@@ -48,7 +48,7 @@ source_filename = "bench/openmpi/original/keyval_lex.ll"
 @.str.11 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_util_keyval_yylex() local_unnamed_addr #0 {
+define range(i32 0, 9) i32 @opal_util_keyval_yylex() local_unnamed_addr #0 {
   %.b = load i1, ptr @yy_init, align 4
   br i1 %.b, label %._crit_edge445, label %1
 

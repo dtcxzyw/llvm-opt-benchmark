@@ -30,7 +30,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_hdac_aco
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable_snd_hdac_acomp_exit371, ptr @__UNIQUE_ID___addressable_snd_hdac_acomp_get_eld358, ptr @__UNIQUE_ID___addressable_snd_hdac_acomp_init368, ptr @__UNIQUE_ID___addressable_snd_hdac_acomp_register_notifier365, ptr @__UNIQUE_ID___addressable_snd_hdac_display_power356, ptr @__UNIQUE_ID___addressable_snd_hdac_set_codec_wakeup355, ptr @__UNIQUE_ID___addressable_snd_hdac_sync_audio_rate357], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hdac_set_codec_wakeup(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @snd_hdac_set_codec_wakeup(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1264
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -302,7 +302,7 @@ define dso_local i32 @snd_hdac_acomp_get_eld(ptr noundef %0, i16 noundef zeroext
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @snd_hdac_acomp_register_notifier(ptr nocapture noundef readonly %0, ptr noundef %1) #3 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @snd_hdac_acomp_register_notifier(ptr nocapture noundef readonly %0, ptr noundef %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1264
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -319,7 +319,7 @@ define dso_local noundef i32 @snd_hdac_acomp_register_notifier(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hdac_acomp_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_acomp_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store ptr null, ptr %5, align 8
@@ -444,7 +444,7 @@ declare dso_local ptr @devres_find(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare dso_local void @__init_swait_queue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hdac_component_master_bind(ptr noundef %0) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @hdac_component_master_bind(ptr noundef %0) #0 align 16 {
   %2 = tail call ptr @devres_find(ptr noundef %0, ptr noundef nonnull @hdac_acomp_release, ptr noundef null, ptr noundef null) #7
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5, !prof !14

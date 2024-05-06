@@ -280,7 +280,7 @@ opal_obj_run_destructors.exit15:                  ; preds = %.lr.ph.i12, %opal_o
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_btl_tcp_endpoint_send(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -12, 2) i32 @mca_btl_tcp_endpoint_send(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.mca_btl_tcp_endpoint_hs_msg_t, align 8
   %4 = alloca %struct.sockaddr_storage, align 8
   %5 = alloca ptr, align 8
@@ -2367,7 +2367,7 @@ opal_update_counted_pointer.exit.i.i:             ; preds = %.lr.ph.i.i
   %23 = extractvalue { i128, i1 } %21, 0
   %.sroa.0.0.extract.trunc.i.i = trunc i128 %23 to i64
   %.sroa.4.0.extract.shift.i.i = lshr i128 %23, 64
-  %.sroa.4.0.extract.trunc.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i, ptr %.sroa.4.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i)

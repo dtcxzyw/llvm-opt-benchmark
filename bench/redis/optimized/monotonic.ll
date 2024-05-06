@@ -47,7 +47,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @monotonicGetType() local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @monotonicGetType() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @getMonotonicUs, align 8
   %cmp = icmp ne ptr %0, @getMonotonicUs_posix

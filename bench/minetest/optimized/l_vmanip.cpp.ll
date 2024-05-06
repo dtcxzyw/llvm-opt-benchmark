@@ -447,7 +447,7 @@ declare ptr @lua_touserdata(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN13LuaVoxelManip15l_read_from_mapEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN13LuaVoxelManip15l_read_from_mapEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator", align 1
@@ -535,15 +535,15 @@ if.end11:                                         ; preds = %if.end
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc.i.i, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %call12, 0
   %cond.i18.i.i = select i1 %cmp9.i17.i.i, i32 %add.i16.i.i, i32 %conv.i13.i.i
   %div.i19.i.i = sdiv i32 %cond.i18.i.i, 16
-  %bp1.sroa.0.0.extract.trunc = trunc i32 %div.i.i.i to i16
-  %bp1.sroa.6.0.extract.trunc = trunc i32 %div.i11.i.i to i16
-  %bp1.sroa.8.0.extract.trunc = trunc i32 %div.i19.i.i to i16
+  %bp1.sroa.0.0.extract.trunc = trunc nsw i32 %div.i.i.i to i16
+  %bp1.sroa.6.0.extract.trunc = trunc nsw i32 %div.i11.i.i to i16
+  %bp1.sroa.8.0.extract.trunc = trunc nsw i32 %div.i19.i.i to i16
   %call16 = tail call i48 @_Z11check_v3s16P9lua_Statei(ptr noundef %L, i32 noundef 3)
   %p.sroa.0.0.extract.trunc.i.i38 = trunc i48 %call16 to i16
   %p.sroa.2.0.extract.shift.i.i39 = lshr i48 %call16, 16
@@ -558,15 +558,15 @@ if.end11:                                         ; preds = %if.end
   %cmp9.i9.i.i48 = icmp slt i16 %p.sroa.2.0.extract.trunc.i.i40, 0
   %cond.i10.i.i49 = select i1 %cmp9.i9.i.i48, i32 %add.i8.i.i47, i32 %conv.i5.i.i46
   %div.i11.i.i50 = sdiv i32 %cond.i10.i.i49, 16
-  %tr.sh.diff.i.i51 = trunc i48 %p.sroa.2.0.extract.shift.i.i39 to i32
+  %tr.sh.diff.i.i51 = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i39 to i32
   %conv.i13.i.i52 = ashr i32 %tr.sh.diff.i.i51, 16
   %add.i16.i.i53 = add nsw i32 %conv.i13.i.i52, -15
   %cmp9.i17.i.i54 = icmp slt i48 %call16, 0
   %cond.i18.i.i55 = select i1 %cmp9.i17.i.i54, i32 %add.i16.i.i53, i32 %conv.i13.i.i52
   %div.i19.i.i56 = sdiv i32 %cond.i18.i.i55, 16
-  %bp2.sroa.0.0.extract.trunc = trunc i32 %div.i.i.i45 to i16
-  %bp2.sroa.6.0.extract.trunc = trunc i32 %div.i11.i.i50 to i16
-  %bp2.sroa.8.0.extract.trunc = trunc i32 %div.i19.i.i56 to i16
+  %bp2.sroa.0.0.extract.trunc = trunc nsw i32 %div.i.i.i45 to i16
+  %bp2.sroa.6.0.extract.trunc = trunc nsw i32 %div.i11.i.i50 to i16
+  %bp2.sroa.8.0.extract.trunc = trunc nsw i32 %div.i19.i.i56 to i16
   %spec.select = tail call i16 @llvm.smin.i16(i16 %bp1.sroa.0.0.extract.trunc, i16 %bp2.sroa.0.0.extract.trunc)
   %spec.select69 = tail call i16 @llvm.smax.i16(i16 %bp1.sroa.0.0.extract.trunc, i16 %bp2.sroa.0.0.extract.trunc)
   %bp1.sroa.6.0 = tail call i16 @llvm.smin.i16(i16 %bp1.sroa.6.0.extract.trunc, i16 %bp2.sroa.6.0.extract.trunc)
@@ -1385,7 +1385,7 @@ land.lhs.true9.i.i:                               ; preds = %entry
 
 land.lhs.true22.i.i:                              ; preds = %land.lhs.true9.i.i
   %sh.diff.i.i = lshr i48 %call1, 16
-  %tr.sh.diff.i.i = trunc i48 %sh.diff.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %sh.diff.i.i to i32
   %conv23.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %Z25.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %6 = load i16, ptr %Z25.i.i, align 2, !tbaa !82
@@ -1483,7 +1483,7 @@ land.lhs.true9.i.i:                               ; preds = %entry
 
 land.lhs.true22.i.i:                              ; preds = %land.lhs.true9.i.i
   %sh.diff.i.i = lshr i48 %call1, 16
-  %tr.sh.diff.i.i = trunc i48 %sh.diff.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %sh.diff.i.i to i32
   %conv23.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %Z25.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %6 = load i16, ptr %Z25.i.i, align 2, !tbaa !82
@@ -1616,7 +1616,7 @@ cond.true:                                        ; preds = %if.end
   %extract131 = lshr i48 %call8, 16
   %extract.t132 = trunc i48 %extract131 to i16
   %extract135 = lshr i48 %call8, 32
-  %extract.t136 = trunc i48 %extract135 to i16
+  %extract.t136 = trunc nuw i48 %extract135 to i16
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
@@ -1643,7 +1643,7 @@ cond.true14:                                      ; preds = %cond.end
   %extract139 = lshr i48 %call15, 16
   %extract.t140 = trunc i48 %extract139 to i16
   %extract143 = lshr i48 %call15, 32
-  %extract.t144 = trunc i48 %extract143 to i16
+  %extract.t144 = trunc nuw i48 %extract143 to i16
   br label %cond.end21
 
 cond.false17:                                     ; preds = %cond.end
@@ -1879,7 +1879,7 @@ cond.true:                                        ; preds = %if.end
   %extract134 = lshr i48 %call13, 16
   %extract.t135 = trunc i48 %extract134 to i16
   %extract138 = lshr i48 %call13, 32
-  %extract.t139 = trunc i48 %extract138 to i16
+  %extract.t139 = trunc nuw i48 %extract138 to i16
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end
@@ -1906,7 +1906,7 @@ cond.true19:                                      ; preds = %cond.end
   %extract142 = lshr i48 %call20, 16
   %extract.t143 = trunc i48 %extract142 to i16
   %extract146 = lshr i48 %call20, 32
-  %extract.t147 = trunc i48 %extract146 to i16
+  %extract.t147 = trunc nuw i48 %extract146 to i16
   %MaxEdge7.i.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 14
   %.pre = load i16, ptr %MaxEdge7.i.phi.trans.insert, align 2
   %Y23.i.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 16
@@ -2480,15 +2480,15 @@ invoke.cont:                                      ; preds = %entry
   %cmp9.i9.i.i = icmp slt i16 %p.sroa.2.0.extract.trunc.i.i, 0
   %cond.i10.i.i = select i1 %cmp9.i9.i.i, i32 %add.i8.i.i, i32 %conv.i5.i.i
   %div.i11.i.i = sdiv i32 %cond.i10.i.i, 16
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %p1.coerce, 0
   %cond.i18.i.i = select i1 %cmp9.i17.i.i, i32 %add.i16.i.i, i32 %conv.i13.i.i
   %div.i19.i.i = sdiv i32 %cond.i18.i.i, 16
-  %bp1.sroa.0.0.extract.trunc = trunc i32 %div.i.i.i to i16
-  %bp1.sroa.6.0.extract.trunc = trunc i32 %div.i11.i.i to i16
-  %bp1.sroa.8.0.extract.trunc = trunc i32 %div.i19.i.i to i16
+  %bp1.sroa.0.0.extract.trunc = trunc nsw i32 %div.i.i.i to i16
+  %bp1.sroa.6.0.extract.trunc = trunc nsw i32 %div.i11.i.i to i16
+  %bp1.sroa.8.0.extract.trunc = trunc nsw i32 %div.i19.i.i to i16
   %p.sroa.0.0.extract.trunc.i.i13 = trunc i48 %p2.coerce to i16
   %p.sroa.2.0.extract.shift.i.i14 = lshr i48 %p2.coerce, 16
   %p.sroa.2.0.extract.trunc.i.i15 = trunc i48 %p.sroa.2.0.extract.shift.i.i14 to i16
@@ -2502,15 +2502,15 @@ invoke.cont:                                      ; preds = %entry
   %cmp9.i9.i.i23 = icmp slt i16 %p.sroa.2.0.extract.trunc.i.i15, 0
   %cond.i10.i.i24 = select i1 %cmp9.i9.i.i23, i32 %add.i8.i.i22, i32 %conv.i5.i.i21
   %div.i11.i.i25 = sdiv i32 %cond.i10.i.i24, 16
-  %tr.sh.diff.i.i26 = trunc i48 %p.sroa.2.0.extract.shift.i.i14 to i32
+  %tr.sh.diff.i.i26 = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i14 to i32
   %conv.i13.i.i27 = ashr i32 %tr.sh.diff.i.i26, 16
   %add.i16.i.i28 = add nsw i32 %conv.i13.i.i27, -15
   %cmp9.i17.i.i29 = icmp slt i48 %p2.coerce, 0
   %cond.i18.i.i30 = select i1 %cmp9.i17.i.i29, i32 %add.i16.i.i28, i32 %conv.i13.i.i27
   %div.i19.i.i31 = sdiv i32 %cond.i18.i.i30, 16
-  %bp2.sroa.0.0.extract.trunc = trunc i32 %div.i.i.i20 to i16
-  %bp2.sroa.6.0.extract.trunc = trunc i32 %div.i11.i.i25 to i16
-  %bp2.sroa.8.0.extract.trunc = trunc i32 %div.i19.i.i31 to i16
+  %bp2.sroa.0.0.extract.trunc = trunc nsw i32 %div.i.i.i20 to i16
+  %bp2.sroa.6.0.extract.trunc = trunc nsw i32 %div.i11.i.i25 to i16
+  %bp2.sroa.8.0.extract.trunc = trunc nsw i32 %div.i19.i.i31 to i16
   %spec.select = tail call i16 @llvm.smin.i16(i16 %bp1.sroa.0.0.extract.trunc, i16 %bp2.sroa.0.0.extract.trunc)
   %spec.select40 = tail call i16 @llvm.smax.i16(i16 %bp1.sroa.0.0.extract.trunc, i16 %bp2.sroa.0.0.extract.trunc)
   %bp1.sroa.6.0 = tail call i16 @llvm.smin.i16(i16 %bp1.sroa.6.0.extract.trunc, i16 %bp2.sroa.6.0.extract.trunc)
@@ -2566,7 +2566,7 @@ if.end:                                           ; preds = %delete.notnull, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN13LuaVoxelManip13create_objectEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN13LuaVoxelManip13create_objectEP9lua_State(ptr noundef %L) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN10ModApiBase6getEnvEP9lua_State(ptr noundef %L)
   %cmp = icmp eq ptr %call, null

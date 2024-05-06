@@ -81,7 +81,7 @@ do.body.preheader.i:                              ; preds = %os_pages_unmap.exit
 
 do.body.i:                                        ; preds = %os_pages_trim.exit.i, %do.body.preheader.i
   %4 = load i8, ptr @os_overcommits, align 1
-  %tobool.i.i = trunc i8 %4 to i1
+  %tobool.i.i = trunc nuw i8 %4 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %entry.if.end_crit_edge.i.i
 
 entry.if.end_crit_edge.i.i:                       ; preds = %do.body.i
@@ -183,7 +183,7 @@ define internal fastcc ptr @os_pages_map(ptr noundef %addr, i64 noundef %size, p
 entry:
   %buf.i = alloca [64 x i8], align 16
   %0 = load i8, ptr @os_overcommits, align 1
-  %tobool = trunc i8 %0 to i1
+  %tobool = trunc nuw i8 %0 to i1
   br i1 %tobool, label %if.then, label %entry.if.end_crit_edge
 
 entry.if.end_crit_edge:                           ; preds = %entry
@@ -276,7 +276,7 @@ define internal fastcc noundef zeroext i1 @pages_commit_impl(ptr noundef %addr, 
 entry:
   %buf.i.i = alloca [64 x i8], align 16
   %0 = load i8, ptr @os_overcommits, align 1
-  %tobool = trunc i8 %0 to i1
+  %tobool = trunc nuw i8 %0 to i1
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -490,7 +490,7 @@ if.end13:                                         ; preds = %if.end13.sink.split
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @pages_boot() local_unnamed_addr #0 {
 entry:
-  %buf.i30 = alloca [64 x i8], align 16
+  %buf.i32 = alloca [64 x i8], align 16
   %buf.i10 = alloca [24 x i8], align 16
   %buf.i = alloca [1 x i8], align 1
   %call.i = tail call i64 @sysconf(i32 noundef 30) #8
@@ -655,7 +655,7 @@ label_error.i:                                    ; preds = %if.else17.i, %if.en
 init_thp_state.exit:                              ; preds = %if.then11.i, %if.then16.i, %if.then22.i, %label_error.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i10)
   %8 = load i8, ptr @os_overcommits, align 1
-  %tobool.i19 = trunc i8 %8 to i1
+  %tobool.i19 = trunc nuw i8 %8 to i1
   %spec.select = select i1 %tobool.i19, i32 3, i32 0
   %9 = load i32, ptr @mmap_flags, align 4
   %call.i21 = call ptr @mmap(ptr noundef null, i64 noundef 4096, i32 noundef %spec.select, i32 noundef %9, i32 noundef -1, i64 noundef 0) #8
@@ -670,35 +670,35 @@ do.end:                                           ; preds = %init_thp_state.exit
   br i1 %.b.i, label %if.then20, label %pages_purge_lazy.exit
 
 pages_purge_lazy.exit:                            ; preds = %do.end
-  %call.i27 = call i32 @madvise(ptr noundef nonnull %call.i21, i64 noundef 4096, i32 noundef 8) #8
-  %cmp.i28.not = icmp eq i32 %call.i27, 0
-  br i1 %cmp.i28.not, label %if.end21, label %if.then20
+  %call.i29 = call i32 @madvise(ptr noundef nonnull %call.i21, i64 noundef 4096, i32 noundef 8) #8
+  %cmp.i30.not = icmp eq i32 %call.i29, 0
+  br i1 %cmp.i30.not, label %if.end21, label %if.then20
 
 if.then20:                                        ; preds = %do.end, %pages_purge_lazy.exit
   store i1 true, ptr @pages_can_purge_lazy_runtime, align 1
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then20, %pages_purge_lazy.exit
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i30)
-  %call.i31 = call i32 @munmap(ptr noundef nonnull %call.i21, i64 noundef 4096) #8
-  %cmp.i32 = icmp eq i32 %call.i31, -1
-  br i1 %cmp.i32, label %if.then.i34, label %os_pages_unmap.exit
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i32)
+  %call.i33 = call i32 @munmap(ptr noundef nonnull %call.i21, i64 noundef 4096) #8
+  %cmp.i34 = icmp eq i32 %call.i33, -1
+  br i1 %cmp.i34, label %if.then.i36, label %os_pages_unmap.exit
 
-if.then.i34:                                      ; preds = %if.end21
-  %call.i.i35 = tail call ptr @__errno_location() #9
-  %10 = load i32, ptr %call.i.i35, align 4
-  %call4.i = call i32 @buferror(i32 noundef %10, ptr noundef nonnull %buf.i30, i64 noundef 64) #8
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i30) #8
+if.then.i36:                                      ; preds = %if.end21
+  %call.i.i37 = tail call ptr @__errno_location() #9
+  %10 = load i32, ptr %call.i.i37, align 4
+  %call4.i = call i32 @buferror(i32 noundef %10, ptr noundef nonnull %buf.i32, i64 noundef 64) #8
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i32) #8
   %11 = load i8, ptr @opt_abort, align 1
-  %tobool.i36 = trunc i8 %11 to i1
-  br i1 %tobool.i36, label %if.then6.i, label %os_pages_unmap.exit
+  %tobool.i38 = trunc i8 %11 to i1
+  br i1 %tobool.i38, label %if.then6.i, label %os_pages_unmap.exit
 
-if.then6.i:                                       ; preds = %if.then.i34
+if.then6.i:                                       ; preds = %if.then.i36
   call void @abort() #10
   unreachable
 
-os_pages_unmap.exit:                              ; preds = %if.end21, %if.then.i34
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i30)
+os_pages_unmap.exit:                              ; preds = %if.end21, %if.then.i36
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf.i32)
   br label %return
 
 return:                                           ; preds = %init_thp_state.exit, %init_thp_state.exit, %if.then, %os_pages_unmap.exit

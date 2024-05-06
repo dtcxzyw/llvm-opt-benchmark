@@ -41,7 +41,7 @@ define internal void @mca_mpool_hugepage_hugepage_destructor(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_mpool_hugepage_module_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -16, 1) i32 @mca_mpool_hugepage_module_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   store ptr @mca_mpool_hugepage_component, ptr %0, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -377,7 +377,7 @@ define void @mca_mpool_hugepage_seg_free(ptr noundef %0, ptr noundef %1) #2 {
 declare i32 @opal_rb_tree_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @mca_mpool_rb_hugepage_compare(ptr noundef readnone %0, ptr noundef readnone %1) #4 {
+define internal noundef range(i32 -1, 2) i32 @mca_mpool_rb_hugepage_compare(ptr noundef readnone %0, ptr noundef readnone %1) #4 {
   %3 = icmp eq ptr %0, %1
   %4 = icmp ult ptr %0, %1
   %5 = select i1 %4, i32 -1, i32 1

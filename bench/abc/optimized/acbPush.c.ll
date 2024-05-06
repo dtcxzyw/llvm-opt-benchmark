@@ -855,7 +855,7 @@ Acb_ObjRemoveFaninFanoutOne.exit:                 ; preds = %.lr.ph.i.i.i, %.._c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Acb_ObjSuppMin_int(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Acb_ObjSuppMin_int(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 216
   %.val = load ptr, ptr %3, align 8
   %4 = sext i32 %1 to i64
@@ -1036,9 +1036,9 @@ define void @Acb_ObjSuppMin(ptr nocapture noundef readonly %0, i32 noundef %1) l
   br label %3
 
 3:                                                ; preds = %3, %2
-  %4 = tail call i32 @Acb_ObjSuppMin_int(ptr noundef %0, i32 noundef %1), !range !11
+  %4 = tail call i32 @Acb_ObjSuppMin_int(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %3, !llvm.loop !12
+  br i1 %.not, label %5, label %3, !llvm.loop !11
 
 5:                                                ; preds = %3
   ret void
@@ -1227,16 +1227,16 @@ Vec_IntRemove.exit.preheader:                     ; preds = %91, %._crit_edge.i,
   br label %Vec_IntRemove.exit
 
 Vec_IntRemove.exit:                               ; preds = %Vec_IntRemove.exit.preheader, %Vec_IntRemove.exit
-  %108 = tail call i32 @Acb_ObjSuppMin_int(ptr noundef %0, i32 noundef %1), !range !11
+  %108 = tail call i32 @Acb_ObjSuppMin_int(ptr noundef readonly %0, i32 noundef %1)
   %.not.i = icmp eq i32 %108, 0
-  br i1 %.not.i, label %Acb_ObjSuppMin.exit, label %Vec_IntRemove.exit, !llvm.loop !12
+  br i1 %.not.i, label %Acb_ObjSuppMin.exit, label %Vec_IntRemove.exit, !llvm.loop !11
 
 Acb_ObjSuppMin.exit:                              ; preds = %Vec_IntRemove.exit
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Acb_ObjRemoveDupFanins_int(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Acb_ObjRemoveDupFanins_int(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 136
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 152
@@ -1257,7 +1257,7 @@ define noundef i32 @Acb_ObjRemoveDupFanins_int(ptr nocapture noundef readonly %0
 .loopexit:                                        ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
-  br i1 %exitcond33.not, label %.loopexit20, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond33.not, label %.loopexit20, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv29 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next30, %.loopexit ]
@@ -1277,7 +1277,7 @@ define noundef i32 @Acb_ObjRemoveDupFanins_int(ptr nocapture noundef readonly %0
   %16 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next27
   %17 = load i32, ptr %16, align 4
   %.not = icmp eq i32 %15, %17
-  br i1 %.not, label %18, label %13, !llvm.loop !14
+  br i1 %.not, label %18, label %13, !llvm.loop !13
 
 18:                                               ; preds = %14
   %19 = trunc nuw nsw i64 %indvars.iv29 to i32
@@ -1314,7 +1314,7 @@ define void @Acb_ObjRemoveDupFanins(ptr nocapture noundef readonly %0, i32 nound
 .loopexit.i:                                      ; preds = %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
-  br i1 %exitcond33.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond33.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %.loopexit.i, %.lr.ph.preheader.i
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next30.i, %.loopexit.i ]
@@ -1334,12 +1334,12 @@ define void @Acb_ObjRemoveDupFanins(ptr nocapture noundef readonly %0, i32 nound
   %18 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next27.i
   %19 = load i32, ptr %18, align 4
   %.not.i = icmp eq i32 %17, %19
-  br i1 %.not.i, label %Acb_ObjRemoveDupFanins_int.exit, label %15, !llvm.loop !14
+  br i1 %.not.i, label %Acb_ObjRemoveDupFanins_int.exit, label %15, !llvm.loop !13
 
 Acb_ObjRemoveDupFanins_int.exit:                  ; preds = %16
   %20 = trunc nuw nsw i64 %indvars.iv29.i to i32
   %21 = trunc nuw nsw i64 %indvars.iv26.i to i32
-  tail call void @Acb_ObjRemoveDup(ptr noundef %0, i32 noundef %1, i32 noundef %20, i32 noundef %21)
+  tail call void @Acb_ObjRemoveDup(ptr noundef readonly %0, i32 noundef %1, i32 noundef %20, i32 noundef %21)
   %.val.i = load ptr, ptr %3, align 8
   %.val19.i = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds i32, ptr %.val.i, i64 %5
@@ -1348,7 +1348,7 @@ Acb_ObjRemoveDupFanins_int.exit:                  ; preds = %16
   %25 = getelementptr inbounds i32, ptr %.val19.i, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph.preheader.i, label %.loopexit, !llvm.loop !15
+  br i1 %27, label %.lr.ph.preheader.i, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %Acb_ObjRemoveDupFanins_int.exit, %.loopexit.i, %2
   ret void
@@ -1381,7 +1381,7 @@ Acb_ObjSuppMin.exit.loopexit:                     ; preds = %122
   %14 = getelementptr %struct.Vec_Int_t_, ptr %.val15.i, i64 %4, i32 1
   %.val16.i = load i32, ptr %14, align 4
   %15 = icmp sgt i32 %.val16.i, 0
-  br i1 %15, label %.lr.ph.i, label %Acb_ObjFindNodeFanout.exit.thread, !llvm.loop !16
+  br i1 %15, label %.lr.ph.i, label %Acb_ObjFindNodeFanout.exit.thread, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.lr.ph, %Acb_ObjSuppMin.exit.loopexit
   %.val = phi ptr [ %.val26, %.lr.ph.i.lr.ph ], [ %.val.i42, %Acb_ObjSuppMin.exit.loopexit ]
@@ -1410,7 +1410,7 @@ Acb_ObjSuppMin.exit.loopexit:                     ; preds = %122
 24:                                               ; preds = %18, %18, %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Acb_ObjFindNodeFanout.exit.thread, label %18, !llvm.loop !17
+  br i1 %exitcond.not.i, label %Acb_ObjFindNodeFanout.exit.thread, label %18, !llvm.loop !16
 
 Acb_ObjFindNodeFanout.exit:                       ; preds = %18
   %25 = icmp sgt i32 %20, -1
@@ -1787,7 +1787,7 @@ Vec_IntRemove.exit.i54:                           ; preds = %156, %._crit_edge30
 
 Acb_ObjSuppMin_int.exit:                          ; preds = %.lr.ph.i33.i, %Vec_IntRemove.exit.i54
   %.04.lcssa.i.i = phi i64 [ %116, %Vec_IntRemove.exit.i54 ], [ %189, %.lr.ph.i33.i ]
-  br label %Abc_Tt6RemoveVar.exit, !llvm.loop !12
+  br label %Abc_Tt6RemoveVar.exit, !llvm.loop !11
 
 Acb_ObjFindNodeFanout.exit.thread:                ; preds = %Acb_ObjFindNodeFanout.exit, %Acb_ObjSuppMin.exit.loopexit, %24, %2
   %.val15.i85 = phi ptr [ %.val15.i86, %2 ], [ %.val15.i88, %24 ], [ %.val15.i88, %Acb_ObjFindNodeFanout.exit ], [ %.val15.i, %Acb_ObjSuppMin.exit.loopexit ]
@@ -1852,7 +1852,7 @@ define void @Acb_ObjRemoveBufInv(ptr nocapture noundef readonly %0, i32 noundef 
 22:                                               ; preds = %16, %16, %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader, label %16, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.preheader, label %16, !llvm.loop !16
 
 Acb_ObjFindNodeFanout.exit:                       ; preds = %16
   %23 = icmp sgt i32 %18, -1
@@ -1959,7 +1959,7 @@ Acb_ObjWhatFanin.exit:                            ; preds = %47, %.critedge.spli
 .loopexit.i.i:                                    ; preds = %76
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond33.not.i.i = icmp eq i64 %indvars.iv.next30.i.i, %wide.trip.count32.i.i
-  br i1 %exitcond33.not.i.i, label %Acb_ObjRemoveDupFanins.exit, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %exitcond33.not.i.i, label %Acb_ObjRemoveDupFanins.exit, label %.lr.ph.i.i, !llvm.loop !12
 
 .lr.ph.i.i:                                       ; preds = %.loopexit.i.i, %.lr.ph.preheader.i.i
   %indvars.iv29.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next30.i.i, %.loopexit.i.i ]
@@ -1979,7 +1979,7 @@ Acb_ObjWhatFanin.exit:                            ; preds = %47, %.critedge.spli
   %79 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv.next27.i.i
   %80 = load i32, ptr %79, align 4
   %.not.i.i = icmp eq i32 %78, %80
-  br i1 %.not.i.i, label %Acb_ObjRemoveDupFanins_int.exit.i, label %76, !llvm.loop !14
+  br i1 %.not.i.i, label %Acb_ObjRemoveDupFanins_int.exit.i, label %76, !llvm.loop !13
 
 Acb_ObjRemoveDupFanins_int.exit.i:                ; preds = %77
   %81 = trunc nuw nsw i64 %indvars.iv29.i.i to i32
@@ -2325,18 +2325,18 @@ Acb_ObjSuppMin_int.exit:                          ; preds = %.lr.ph.i33.i, %Vec_
   %.val24.i = load ptr, ptr %3, align 8
   %257 = getelementptr inbounds i64, ptr %.val24.i, i64 %41
   store i64 %.04.lcssa.i.i108, ptr %257, align 8
-  br label %Vec_IntRemove.exit.i76, !llvm.loop !12
+  br label %Vec_IntRemove.exit.i76, !llvm.loop !11
 
 Acb_ObjRemoveDup.exit:                            ; preds = %188
   %258 = icmp sgt i32 %187, 0
-  br i1 %258, label %.lr.ph.preheader.i.i, label %Acb_ObjRemoveDupFanins.exit, !llvm.loop !15
+  br i1 %258, label %.lr.ph.preheader.i.i, label %Acb_ObjRemoveDupFanins.exit, !llvm.loop !14
 
 Acb_ObjRemoveDupFanins.exit:                      ; preds = %Acb_ObjRemoveDup.exit, %.loopexit.i.i, %66
   %.val15.i = load ptr, ptr %7, align 8
   %259 = getelementptr %struct.Vec_Int_t_, ptr %.val15.i, i64 %4, i32 1
   %.val16.i = load i32, ptr %259, align 4
   %260 = icmp slt i32 %.val16.i, 1
-  br i1 %260, label %.critedge, label %.lr.ph.i, !llvm.loop !18
+  br i1 %260, label %.critedge, label %.lr.ph.i, !llvm.loop !17
 
 .critedge:                                        ; preds = %Acb_ObjRemoveDupFanins.exit, %.lr.ph145, %2, %.preheader
   %.val48 = phi ptr [ %.val15.i227, %.preheader ], [ %.val15.i225, %2 ], [ %.val49.us, %.lr.ph145 ], [ %.val15.i, %Acb_ObjRemoveDupFanins.exit ]
@@ -2438,7 +2438,7 @@ Vec_IntRemove.exit.i:                             ; preds = %285, %._crit_edge30
   %302 = phi i32 [ %271, %._crit_edge.i.i ], [ %.pre.i, %._crit_edge30.i.i ], [ %271, %285 ]
   %303 = sext i32 %302 to i64
   %304 = icmp slt i64 %indvars.iv.next.i64, %303
-  br i1 %304, label %.lr.ph.i62, label %Acb_ObjRemoveFaninFanout.exit, !llvm.loop !19
+  br i1 %304, label %.lr.ph.i62, label %Acb_ObjRemoveFaninFanout.exit, !llvm.loop !18
 
 Acb_ObjRemoveFaninFanout.exit:                    ; preds = %Vec_IntRemove.exit.i
   %.val52.pre = load ptr, ptr %9, align 8
@@ -2506,7 +2506,7 @@ define internal fastcc void @Acb_ObjPatchFanin(ptr nocapture noundef readonly %0
 
 18:                                               ; preds = %.lr.ph, %17
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %18, %4
   %19 = getelementptr i8, ptr %0, i64 436
@@ -2661,7 +2661,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Acb_ObjPushToFanins(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Acb_ObjPushToFanins(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 136
   %.val50 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 152
@@ -2777,7 +2777,7 @@ define noundef i32 @Acb_ObjPushToFanins(ptr nocapture noundef readonly %0, i32 n
 
 Abc_TtCheckDsdAnd.exit.i:                         ; preds = %72, %36
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Acb_ObjFindFaninPushableIndex.exit.thread, label %36, !llvm.loop !21
+  br i1 %exitcond.not.i, label %Acb_ObjFindFaninPushableIndex.exit.thread, label %36, !llvm.loop !20
 
 Acb_ObjFindFaninPushableIndex.exit:               ; preds = %37, %69, %72
   %76 = icmp eq i32 %43, -1
@@ -2789,7 +2789,7 @@ Acb_ObjFindFaninPushableIndex.exit:               ; preds = %37, %69, %72
 
 Acb_ObjFindFaninPushableIndex.exit.thread:        ; preds = %Abc_TtCheckDsdAnd.exit.i, %Acb_ObjFindFaninPushableIndex.exit, %25, %22, %16
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !22
+  br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !21
 
 .critedge:                                        ; preds = %Acb_ObjFindFaninPushableIndex.exit.thread
   %78 = icmp eq i32 %11, 2
@@ -2855,7 +2855,7 @@ Acb_ObjFindFaninPushableIndex.exit.thread:        ; preds = %Abc_TtCheckDsdAnd.e
 Abc_Tt6CheckOutDec.exit.i:                        ; preds = %97
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, 2
-  br i1 %exitcond.not.i65, label %Acb_ObjFindFanoutPushableIndex.exit, label %97, !llvm.loop !23
+  br i1 %exitcond.not.i65, label %Acb_ObjFindFanoutPushableIndex.exit, label %97, !llvm.loop !22
 
 Acb_ObjFindFanoutPushableIndex.exit:              ; preds = %97, %Abc_Tt6CheckOutDec.exit.i
   %.0.i59 = phi i32 [ %101, %97 ], [ -1, %Abc_Tt6CheckOutDec.exit.i ]
@@ -2890,7 +2890,7 @@ define void @Acb_NtkPushLogic(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %14 = add nuw nsw i32 %.09.i.i, %13
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Acb_NtkNodeNum.exit, label %9, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %Acb_NtkNodeNum.exit, label %9, !llvm.loop !23
 
 Acb_NtkNodeNum.exit:                              ; preds = %9, %3
   %.0.lcssa.i.i = phi i32 [ 0, %3 ], [ %14, %9 ]
@@ -2949,7 +2949,7 @@ Acb_NtkNodeNum.exit:                              ; preds = %9, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = sext i32 %.val75 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %23, label %.preheader92, !llvm.loop !25
+  br i1 %36, label %23, label %.preheader92, !llvm.loop !24
 
 .preheader91:                                     ; preds = %53, %Acb_NtkNodeNum.exit, %.preheader92
   %37 = phi i32 [ %.val75, %.preheader92 ], [ %.val7595, %Acb_NtkNodeNum.exit ], [ %.val76, %53 ]
@@ -2997,7 +2997,7 @@ Acb_NtkNodeNum.exit:                              ; preds = %9, %3
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %54 = sext i32 %.val76 to i64
   %55 = icmp slt i64 %indvars.iv.next113, %54
-  br i1 %55, label %42, label %.preheader91, !llvm.loop !26
+  br i1 %55, label %42, label %.preheader91, !llvm.loop !25
 
 .preheader90:                                     ; preds = %.preheader90.lr.ph, %._crit_edge
   %.val77100 = phi i32 [ %.val77100123, %._crit_edge ], [ %37, %.preheader90.lr.ph ]
@@ -3035,10 +3035,10 @@ Acb_NtkNodeNum.exit:                              ; preds = %9, %3
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.2 = phi i32 [ %67, %.preheader ], [ %.1102, %.preheader.preheader ]
-  %66 = tail call i32 @Acb_ObjPushToFanins(ptr noundef %0, i32 noundef %65, i32 noundef %1), !range !11
+  %66 = tail call i32 @Acb_ObjPushToFanins(ptr noundef %0, i32 noundef %65, i32 noundef %1)
   %.not55 = icmp eq i32 %66, 0
   %67 = add nsw i32 %.2, 1
-  br i1 %.not55, label %68, label %.preheader, !llvm.loop !27
+  br i1 %.not55, label %68, label %.preheader, !llvm.loop !26
 
 68:                                               ; preds = %.preheader
   %.val = load ptr, ptr %39, align 8
@@ -3061,14 +3061,14 @@ Acb_NtkNodeNum.exit:                              ; preds = %9, %3
   %.val77 = load i32, ptr %4, align 4
   %77 = sext i32 %.val77 to i64
   %78 = icmp slt i64 %indvars.iv.next116, %77
-  br i1 %78, label %.lr.ph103, label %._crit_edge, !llvm.loop !28
+  br i1 %78, label %.lr.ph103, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %76, %.preheader90
   %.val77100123 = phi i32 [ %.val77100, %.preheader90 ], [ %.val77, %76 ]
   %.1.lcssa = phi i32 [ %.0106, %.preheader90 ], [ %.3, %76 ]
   %79 = add nuw i32 %.047105, 1
   %exitcond.not = icmp eq i32 %.047105, %1
-  br i1 %exitcond.not, label %._crit_edge107, label %.preheader90, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge107, label %.preheader90, !llvm.loop !28
 
 ._crit_edge107:                                   ; preds = %._crit_edge, %.preheader90.lr.ph, %.preheader91
   %80 = phi i32 [ %37, %.preheader91 ], [ %37, %.preheader90.lr.ph ], [ %.val77100123, %._crit_edge ]
@@ -3092,7 +3092,7 @@ Acb_NtkNodeNum.exit:                              ; preds = %9, %3
   %89 = add nuw nsw i32 %.09.i.i84, %88
   %indvars.iv.next.i.i85 = add nuw nsw i64 %indvars.iv.i.i83, 1
   %exitcond.not.i.i86 = icmp eq i64 %indvars.iv.next.i.i85, %wide.trip.count.i.i82
-  br i1 %exitcond.not.i.i86, label %Acb_NtkNodeNum.exit87, label %84, !llvm.loop !24
+  br i1 %exitcond.not.i.i86, label %Acb_NtkNodeNum.exit87, label %84, !llvm.loop !23
 
 Acb_NtkNodeNum.exit87:                            ; preds = %84, %._crit_edge107
   %.0.lcssa.i.i80 = phi i32 [ 0, %._crit_edge107 ], [ %89, %84 ]
@@ -3256,7 +3256,7 @@ Vec_IntPush.exit.i:                               ; preds = %68, %Vec_IntGrow.ex
   %75 = load i32, ptr %36, align 4
   %76 = sext i32 %75 to i64
   %77 = icmp slt i64 %indvars.iv.next.i, %76
-  br i1 %77, label %.lr.ph.i, label %Acb_ObjAddFaninFanout.exit.loopexit, !llvm.loop !31
+  br i1 %77, label %.lr.ph.i, label %Acb_ObjAddFaninFanout.exit.loopexit, !llvm.loop !30
 
 Acb_ObjAddFaninFanout.exit.loopexit:              ; preds = %Vec_IntPush.exit.i
   %.val7.pre = load i32, ptr %23, align 4
@@ -3267,7 +3267,7 @@ Acb_ObjAddFaninFanout.exit:                       ; preds = %Acb_ObjAddFaninFano
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = sext i32 %.val7 to i64
   %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %29, label %._crit_edge, !llvm.loop !32
+  br i1 %79, label %29, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %Acb_ObjAddFaninFanout.exit, %Acb_NtkCleanObjFanout.exit
   ret void
@@ -3303,7 +3303,7 @@ define void @Acb_NtkPushLogic2(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 10:                                               ; preds = %7, %7, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !32
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %7
   %11 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3367,7 +3367,7 @@ attributes #9 = { nounwind allocsize(0) }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 0, i32 2}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
@@ -3384,9 +3384,8 @@ attributes #9 = { nounwind allocsize(0) }
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5, !30}
-!30 = !{!"llvm.loop.unswitch.partial.disable"}
+!28 = distinct !{!28, !5, !29}
+!29 = !{!"llvm.loop.unswitch.partial.disable"}
+!30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}

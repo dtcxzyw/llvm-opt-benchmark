@@ -33,7 +33,7 @@ define dso_local void @blk_pm_runtime_init(ptr nocapture noundef %0, ptr noundef
 declare dso_local void @pm_runtime_set_autosuspend_delay(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @blk_pre_runtime_suspend(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -16, 1) i32 @blk_pre_runtime_suspend(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

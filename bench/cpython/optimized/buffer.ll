@@ -75,7 +75,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyLexer_tok_reserve_buf(ptr nocapture noundef %tok, i64 noundef %size) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_PyLexer_tok_reserve_buf(ptr nocapture noundef %tok, i64 noundef %size) local_unnamed_addr #1 {
 entry:
   %cur1 = getelementptr inbounds i8, ptr %tok, i64 8
   %0 = load ptr, ptr %cur1, align 8

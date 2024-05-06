@@ -29,7 +29,7 @@ define internal noundef i32 @dvm_close() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @dvm_component_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #1 {
+define internal range(i32 -1, 1) i32 @dvm_component_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #1 {
   %3 = load i8, ptr getelementptr inbounds (%struct.prte_process_info_t, ptr @prte_process_info, i64 0, i32 10), align 4
   %4 = and i8 %3, 4
   %.not = icmp eq i8 %4, 0

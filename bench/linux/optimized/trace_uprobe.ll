@@ -588,7 +588,7 @@ define internal i32 @process_fetch_insn(ptr nocapture noundef readonly %0, ptr n
   %303 = zext nneg i8 %302 to i32
   %304 = and i32 %300, 255
   %305 = lshr i32 %304, %303
-  %306 = trunc i32 %305 to i8
+  %306 = trunc nuw i32 %305 to i8
   store i8 %306, ptr %100, align 1
   br label %thread-pre-split
 
@@ -604,7 +604,7 @@ define internal i32 @process_fetch_insn(ptr nocapture noundef readonly %0, ptr n
   %315 = zext nneg i8 %314 to i32
   %316 = and i32 %312, 65535
   %317 = lshr i32 %316, %315
-  %318 = trunc i32 %317 to i16
+  %318 = trunc nuw i32 %317 to i16
   store i16 %318, ptr %100, align 2
   br label %thread-pre-split
 
@@ -716,7 +716,7 @@ thread-pre-split:                                 ; preds = %124, %145, %149, %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bpf_get_uprobe_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bpf_get_uprobe_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 992
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 96
@@ -2277,7 +2277,7 @@ declare dso_local zeroext i1 @trace_probe_match_command_args(ptr noundef, i32 no
 declare dso_local i32 @trace_probe_init(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @uprobe_dispatcher(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @uprobe_dispatcher(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.uprobe_dispatch_data, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
   %4 = getelementptr i8, ptr %0, i64 -24

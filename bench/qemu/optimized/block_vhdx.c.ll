@@ -293,7 +293,7 @@ if.then6.i:                                       ; preds = %entry
   %data_write_guid.i = getelementptr inbounds i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %uuid.i.i)
   call void @qemu_uuid_generate(ptr noundef nonnull %uuid.i.i) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %data_write_guid.i, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %data_write_guid.i, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i.i)
   br label %if.end7.i
 
@@ -303,7 +303,7 @@ if.end7.i:                                        ; preds = %if.then6.i, %entry
 
 if.then9.i:                                       ; preds = %if.end7.i
   %log_guid10.i = getelementptr inbounds i8, ptr %2, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %log_guid10.i, ptr noundef nonnull align 1 dereferenceable(16) %log_guid, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %log_guid10.i, ptr noundef nonnull readonly align 1 dereferenceable(16) %log_guid, i64 16, i1 false)
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then9.i, %if.end7.i
@@ -335,7 +335,7 @@ if.then6.i30:                                     ; preds = %if.end
   %data_write_guid.i31 = getelementptr inbounds i8, ptr %6, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %uuid.i.i6)
   call void @qemu_uuid_generate(ptr noundef nonnull %uuid.i.i6) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %data_write_guid.i31, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i.i6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %data_write_guid.i31, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i.i6, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i.i6)
   br label %if.end7.i21
 
@@ -344,7 +344,7 @@ if.end7.i21:                                      ; preds = %if.then6.i30, %if.e
 
 if.then9.i23:                                     ; preds = %if.end7.i21
   %log_guid10.i24 = getelementptr inbounds i8, ptr %6, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %log_guid10.i24, ptr noundef nonnull align 1 dereferenceable(16) %log_guid, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %log_guid10.i24, ptr noundef nonnull readonly align 1 dereferenceable(16) %log_guid, i64 16, i1 false)
   br label %if.end11.i25
 
 if.end11.i25:                                     ; preds = %if.then9.i23, %if.end7.i21
@@ -509,7 +509,7 @@ if.end13:                                         ; preds = %if.end10
   %session_guid = getelementptr inbounds i8, ptr %0, i64 465
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %uuid.i)
   call void @qemu_uuid_generate(ptr noundef nonnull %uuid.i) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %session_guid, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %session_guid, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i)
   %call.i = call ptr @qemu_blockalign(ptr noundef nonnull %bs, i64 noundef 80) #17
   %call1.i = call ptr @qemu_blockalign(ptr noundef nonnull %bs, i64 noundef 80) #17
@@ -1060,9 +1060,9 @@ if.end260.i:                                      ; preds = %if.end238.i
   %div253.i = udiv i64 4294967296, %conv252.i
   %chunk_ratio.i = getelementptr inbounds i8, ptr %0, i64 424
   store i64 %div253.i, ptr %chunk_ratio.i, align 8
-  %72 = call i32 @llvm.ctpop.i32(i32 %div87.i), !range !9
+  %72 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %div87.i)
   %tobool265.not.i = icmp ult i32 %72, 2
-  %73 = call i64 @llvm.ctpop.i64(i64 %div253.i), !range !10
+  %73 = call range(i64 0, 56) i64 @llvm.ctpop.i64(i64 %div253.i)
   %tobool272.not.i = icmp ult i64 %73, 2
   %or.cond93.i = select i1 %tobool265.not.i, i1 %tobool272.not.i, i1 false
   br i1 %or.cond93.i, label %if.end274.i, label %vhdx_parse_metadata.exit.thread
@@ -1070,7 +1070,7 @@ if.end260.i:                                      ; preds = %if.end238.i
 if.end274.i:                                      ; preds = %if.end260.i
   %block_size277.i = getelementptr inbounds i8, ptr %0, i64 388
   store i32 %69, ptr %block_size277.i, align 4
-  %74 = call i32 @llvm.ctpop.i32(i32 %69), !range !9
+  %74 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %69)
   %tobool282.not.i = icmp ult i32 %74, 2
   br i1 %tobool282.not.i, label %if.end28, label %vhdx_parse_metadata.exit.thread
 
@@ -1083,14 +1083,14 @@ vhdx_parse_metadata.exit.thread:                  ; preds = %if.end133.i, %if.th
 if.end28:                                         ; preds = %if.end274.i
   %logical_sector_size_bits.i.i = getelementptr inbounds i8, ptr %0, i64 436
   store i32 9, ptr %logical_sector_size_bits.i.i, align 4
-  %75 = call i32 @llvm.cttz.i32(i32 %div87.i, i1 false), !range !9
+  %75 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %div87.i, i1 false)
   %sectors_per_block_bits.i.i = getelementptr inbounds i8, ptr %0, i64 400
   store i32 %75, ptr %sectors_per_block_bits.i.i, align 8
-  %76 = call i64 @llvm.cttz.i64(i64 %div253.i, i1 true), !range !11
+  %76 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %div253.i, i1 true)
   %cast.i.i.i = trunc nuw nsw i64 %76 to i32
   %chunk_ratio_bits.i.i = getelementptr inbounds i8, ptr %0, i64 432
   store i32 %cast.i.i.i, ptr %chunk_ratio_bits.i.i, align 8
-  %77 = call i32 @llvm.cttz.i32(i32 %69, i1 false), !range !9
+  %77 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %69, i1 false)
   %block_size_bits.i.i = getelementptr inbounds i8, ptr %0, i64 392
   store i32 %77, ptr %block_size_bits.i.i, align 8
   call void @qemu_vfree(ptr noundef nonnull %call.i78) #17
@@ -1223,7 +1223,7 @@ if.then.i:                                        ; preds = %land.rhs.i.preheade
   %9 = load ptr, ptr %entries.i, align 8
   %cmp.not.i = icmp eq ptr %9, null
   %.pre3.i = load ptr, ptr %le_prev7.i, align 8
-  br i1 %cmp.not.i, label %for.end.critedge.i, label %if.then.i, !llvm.loop !12
+  br i1 %cmp.not.i, label %for.end.critedge.i, label %if.then.i, !llvm.loop !9
 
 for.end.critedge.i:                               ; preds = %if.then.i, %land.rhs.i.preheader
   %r.02.i.lcssa = phi ptr [ %.val, %land.rhs.i.preheader ], [ %8, %if.then.i ]
@@ -1239,7 +1239,7 @@ vhdx_region_unregister_all.exit:                  ; preds = %entry, %for.end.cri
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhdx_co_create(ptr nocapture noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhdx_co_create(ptr nocapture noundef %opts, ptr noundef %errp) #0 {
 entry:
   %signature = alloca i64, align 8
   %metadata_offset = alloca i64, align 8
@@ -1368,7 +1368,7 @@ if.then59:                                        ; preds = %if.end50
   br label %return
 
 if.end60:                                         ; preds = %if.end50
-  %12 = tail call i64 @llvm.ctpop.i64(i64 %conv51), !range !11
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %conv51)
   %tobool1.not.i = icmp ult i64 %12, 2
   br i1 %tobool1.not.i, label %if.end63, label %if.then62
 
@@ -1464,7 +1464,7 @@ return:                                           ; preds = %if.end68, %delete_a
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhdx_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhdx_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %create_options = alloca ptr, align 8
   store ptr null, ptr %create_options, align 8
@@ -1553,7 +1553,7 @@ if.then50:                                        ; preds = %if.end46
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end46.thread, %if.end46, %if.then50, %if.end30
-  %call55 = call i32 @vhdx_co_create(ptr noundef nonnull %0, ptr noundef %errp), !range !13
+  %call55 = call i32 @vhdx_co_create(ptr noundef nonnull %0, ptr noundef %errp)
   br label %fail
 
 fail:                                             ; preds = %if.end11, %if.end8, %if.end4, %entry, %if.end, %if.end54
@@ -1622,7 +1622,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal noundef i32 @vhdx_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #6 {
+define internal range(i32 0, 101) i32 @vhdx_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #6 {
 entry:
   %cmp = icmp sgt i32 %buf_size, 7
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -1641,7 +1641,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhdx_co_readv(ptr nocapture noundef readonly %bs, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef %qiov) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhdx_co_readv(ptr nocapture noundef readonly %bs, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef %qiov) #0 {
 entry:
   %hd_qiov = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -1735,7 +1735,7 @@ sw.epilog:                                        ; preds = %sw.bb4, %sw.bb
   %add = add i64 %sector_num.addr.020, %conv15.pre-phi
   %add18 = add i64 %bytes_done.021, %conv
   %cmp = icmp sgt i32 %sub, 0
-  br i1 %cmp, label %while.body, label %exit, !llvm.loop !14
+  br i1 %cmp, label %while.body, label %exit, !llvm.loop !10
 
 exit:                                             ; preds = %sw.bb4, %while.body, %if.else, %sw.epilog, %entry
   %ret.0 = phi i32 [ 0, %entry ], [ 0, %sw.epilog ], [ -5, %if.else ], [ -95, %while.body ], [ %call7, %sw.bb4 ]
@@ -1767,7 +1767,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i8 0, ptr %first_visible_write.i, align 8
-  %call.i = call i32 @vhdx_update_headers(ptr noundef nonnull %bs, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef null)
+  %call.i = call i32 @vhdx_update_headers(ptr noundef nonnull readonly %bs, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef null)
   br label %vhdx_user_visible_write.exit
 
 vhdx_user_visible_write.exit:                     ; preds = %entry, %if.then.i
@@ -2012,19 +2012,19 @@ error_bat_restore:                                ; preds = %sw.bb60, %if.end70
 
 if.then99:                                        ; preds = %error_bat_restore
   %or.cond2.i = icmp ult i32 %conv, 4
-  %spec.select93 = select i1 %or.cond2.i, i64 0, i64 %bat_prior_offset.1
+  %spec.select94 = select i1 %or.cond2.i, i64 0, i64 %bat_prior_offset.1
   %37 = load ptr, ptr %bat.i, align 8
   %arrayidx9.i54 = getelementptr i64, ptr %37, i64 %idxprom.i
-  store i64 %spec.select93, ptr %arrayidx9.i54, align 8
-  %conv.i55 = and i64 %12, 7
+  store i64 %spec.select94, ptr %arrayidx9.i54, align 8
+  %conv.i56 = and i64 %12, 7
   %38 = load ptr, ptr %bat.i, align 8
-  %arrayidx13.i58 = getelementptr i64, ptr %38, i64 %idxprom.i
-  %39 = load i64, ptr %arrayidx13.i58, align 8
-  %or.i59 = or i64 %39, %conv.i55
-  store i64 %or.i59, ptr %arrayidx13.i58, align 8
+  %arrayidx13.i59 = getelementptr i64, ptr %38, i64 %idxprom.i
+  %39 = load i64, ptr %arrayidx13.i59, align 8
+  %or.i60 = or i64 %39, %conv.i56
+  store i64 %or.i60, ptr %arrayidx13.i59, align 8
   %40 = load ptr, ptr %bat.i, align 8
-  %arrayidx17.i61 = getelementptr i64, ptr %40, i64 %idxprom.i
-  %41 = load i64, ptr %arrayidx17.i61, align 8
+  %arrayidx17.i62 = getelementptr i64, ptr %40, i64 %idxprom.i
+  %41 = load i64, ptr %arrayidx17.i62, align 8
   store i64 %41, ptr %bat_entry, align 8
   br label %exit
 
@@ -2278,7 +2278,7 @@ for.inc:                                          ; preds = %for.inc.i, %if.then
   %16 = load i32, ptr %bat_entries, align 8
   %conv2 = zext i32 %16 to i64
   %cmp3 = icmp ult i64 %inc64, %conv2
-  br i1 %cmp3, label %for.body, label %return, !llvm.loop !15
+  br i1 %cmp3, label %for.body, label %return, !llvm.loop !11
 
 return:                                           ; preds = %if.then54, %if.then37, %if.then29, %if.then23, %for.inc, %if.end, %if.then
   %retval.0 = phi i32 [ %conv, %if.then ], [ 0, %if.end ], [ -22, %if.then54 ], [ -22, %if.then37 ], [ -22, %if.then29 ], [ -22, %if.then23 ], [ %ret.3, %for.inc ]
@@ -2361,12 +2361,12 @@ entry:
   %file_write_guid = getelementptr inbounds i8, ptr %call2, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %uuid.i)
   call void @qemu_uuid_generate(ptr noundef nonnull %uuid.i) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %file_write_guid, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %file_write_guid, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i)
   %data_write_guid = getelementptr inbounds i8, ptr %call2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %uuid.i15)
   call void @qemu_uuid_generate(ptr noundef nonnull %uuid.i15) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %data_write_guid, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i15, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %data_write_guid, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i15, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i15)
   %parents = getelementptr inbounds i8, ptr %call, i64 16848
   %0 = load ptr, ptr %parents, align 8
@@ -2425,17 +2425,17 @@ if.end:                                           ; preds = %entry
   store i32 %block_size, ptr %block_size3, align 4
   %logical_sector_size = getelementptr inbounds i8, ptr %call, i64 416
   store i32 %sector_size, ptr %logical_sector_size, align 8
-  %0 = tail call i32 @llvm.cttz.i32(i32 %sector_size, i1 true), !range !9
+  %0 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %sector_size, i1 true)
   %logical_sector_size_bits.i = getelementptr inbounds i8, ptr %call, i64 436
   store i32 %0, ptr %logical_sector_size_bits.i, align 4
-  %1 = tail call i32 @llvm.cttz.i32(i32 %div2, i1 false), !range !9
+  %1 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %div2, i1 false)
   %sectors_per_block_bits.i = getelementptr inbounds i8, ptr %call, i64 400
   store i32 %1, ptr %sectors_per_block_bits.i, align 8
-  %2 = tail call i64 @llvm.cttz.i64(i64 %div, i1 false), !range !11
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %div, i1 false)
   %cast.i.i = trunc nuw nsw i64 %2 to i32
   %chunk_ratio_bits.i = getelementptr inbounds i8, ptr %call, i64 432
   store i32 %cast.i.i, ptr %chunk_ratio_bits.i, align 8
-  %3 = tail call i32 @llvm.cttz.i32(i32 %block_size, i1 false), !range !9
+  %3 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %block_size, i1 false)
   %block_size_bits.i = getelementptr inbounds i8, ptr %call, i64 392
   store i32 %3, ptr %block_size_bits.i, align 8
   %add.i = add i64 %image_size, -1
@@ -2564,7 +2564,7 @@ if.else.i:                                        ; preds = %if.end
 
 vhdx_guid_generate.exit:                          ; preds = %if.end
   call void @qemu_uuid_generate(ptr noundef nonnull %uuid.i) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr6, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %add.ptr6, ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %uuid.i)
   store i64 %image_size, ptr %add.ptr, align 1
   store i32 %sector_size, ptr %add.ptr11, align 1
@@ -2743,8 +2743,8 @@ if.then42:                                        ; preds = %if.then34
   br label %exit
 
 if.end43:                                         ; preds = %if.then34
-  %cmp4951.not = icmp eq i64 %shr, 0
-  br i1 %cmp4951.not, label %while.end, label %while.body.lr.ph
+  %cmp4952.not = icmp eq i64 %shr, 0
+  br i1 %cmp4952.not, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end43
   %cond = select i1 %cmp25, i32 6, i32 0
@@ -2754,14 +2754,14 @@ while.body.lr.ph:                                 ; preds = %if.end43
   %chunk_ratio_bits.i = getelementptr inbounds i8, ptr %s, i64 432
   %add53 = add i64 %add1, 1048575
   %or.cond2.i = icmp ult i32 %cond48, 4
-  %conv.i43 = zext nneg i32 %cond48 to i64
+  %conv.i44 = zext nneg i32 %cond48 to i64
   br i1 %or.cond2.i, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.body.us
-  %sector_num.052.us = phi i64 [ %add67.us, %while.body.us ], [ 0, %while.body.lr.ph ]
+  %sector_num.053.us = phi i64 [ %add67.us, %while.body.us ], [ 0, %while.body.lr.ph ]
   %2 = load i32, ptr %sectors_per_block_bits.i, align 8
   %sh_prom.i.us = zext nneg i32 %2 to i64
-  %shr.i.us = ashr i64 %sector_num.052.us, %sh_prom.i.us
+  %shr.i.us = ashr i64 %sector_num.053.us, %sh_prom.i.us
   %conv.i.us = trunc i64 %shr.i.us to i32
   %3 = load i32, ptr %chunk_ratio_bits.i, align 8
   %shr6.i.us = lshr i32 %conv.i.us, %3
@@ -2774,19 +2774,19 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %5 = load ptr, ptr %bat, align 8
   %arrayidx13.i.us = getelementptr i64, ptr %5, i64 %idxprom.i.us
   %6 = load i64, ptr %arrayidx13.i.us, align 8
-  %or.i.us = or i64 %6, %conv.i43
+  %or.i.us = or i64 %6, %conv.i44
   store i64 %or.i.us, ptr %arrayidx13.i.us, align 8
   %7 = load i32, ptr %sectors_per_block, align 4
   %conv66.us = zext i32 %7 to i64
-  %add67.us = add i64 %sector_num.052.us, %conv66.us
+  %add67.us = add i64 %sector_num.053.us, %conv66.us
   %cmp49.us = icmp ult i64 %add67.us, %shr
-  br i1 %cmp49.us, label %while.body.us, label %while.end, !llvm.loop !16
+  br i1 %cmp49.us, label %while.body.us, label %while.end, !llvm.loop !12
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %sector_num.052 = phi i64 [ %add67, %while.body ], [ 0, %while.body.lr.ph ]
+  %sector_num.053 = phi i64 [ %add67, %while.body ], [ 0, %while.body.lr.ph ]
   %8 = load i32, ptr %sectors_per_block_bits.i, align 8
   %sh_prom.i = zext nneg i32 %8 to i64
-  %shr.i = ashr i64 %sector_num.052, %sh_prom.i
+  %shr.i = ashr i64 %sector_num.053, %sh_prom.i
   %conv.i = trunc i64 %shr.i to i32
   %9 = load i32, ptr %chunk_ratio_bits.i, align 8
   %shr6.i = lshr i32 %conv.i, %9
@@ -2794,7 +2794,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %10 = load i32, ptr %logical_sector_size_bits, align 4
   %idxprom.i = zext i32 %add.i to i64
   %sh_prom52 = zext nneg i32 %10 to i64
-  %shl = shl i64 %sector_num.052, %sh_prom52
+  %shl = shl i64 %sector_num.053, %sh_prom52
   %sub = add i64 %add53, %shl
   %and = and i64 %sub, -1048576
   %call58 = tail call ptr @blk_bs(ptr noundef %blk) #17
@@ -2804,13 +2804,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %12 = load ptr, ptr %bat, align 8
   %arrayidx13.i = getelementptr i64, ptr %12, i64 %idxprom.i
   %13 = load i64, ptr %arrayidx13.i, align 8
-  %or.i = or i64 %13, %conv.i43
+  %or.i = or i64 %13, %conv.i44
   store i64 %or.i, ptr %arrayidx13.i, align 8
   %14 = load i32, ptr %sectors_per_block, align 4
   %conv66 = zext i32 %14 to i64
-  %add67 = add i64 %sector_num.052, %conv66
+  %add67 = add i64 %sector_num.053, %conv66
   %cmp49 = icmp ult i64 %add67, %shr
-  br i1 %cmp49, label %while.body, label %while.end, !llvm.loop !16
+  br i1 %cmp49, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %while.body.us, %if.end43
   %15 = load ptr, ptr %bat, align 8
@@ -2999,11 +2999,7 @@ attributes #19 = { nounwind allocsize(0,1) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 0, i32 33}
-!10 = !{i64 0, i64 56}
-!11 = !{i64 0, i64 65}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i32 -2147483648, i32 1}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

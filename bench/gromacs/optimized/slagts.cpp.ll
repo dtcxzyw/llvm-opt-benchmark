@@ -185,11 +185,11 @@ thread-pre-split357:                              ; preds = %47, %31, %36
   %107 = load float, ptr %106, align 4
   %108 = getelementptr inbounds float, ptr %15, i64 %indvars.iv437
   %109 = load float, ptr %108, align 4
-  %110 = getelementptr i8, ptr %106, i64 4
+  %110 = getelementptr inbounds i8, ptr %106, i64 4
   %111 = load float, ptr %110, align 4
   %112 = fneg float %109
   %113 = tail call float @llvm.fmuladd.f32(float %112, float %111, float %107)
-  %114 = getelementptr i8, ptr %106, i64 8
+  %114 = getelementptr inbounds i8, ptr %106, i64 8
   br label %.sink.split
 
 115:                                              ; preds = %.lr.ph403
@@ -201,7 +201,7 @@ thread-pre-split357:                              ; preds = %47, %31, %36
   br i1 %118, label %121, label %128
 
 121:                                              ; preds = %115
-  %122 = getelementptr i8, ptr %119, i64 4
+  %122 = getelementptr inbounds i8, ptr %119, i64 4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %105, %121
@@ -287,7 +287,7 @@ thread-pre-split357:                              ; preds = %47, %31, %36
   %163 = load float, ptr %162, align 4
   %164 = getelementptr inbounds float, ptr %15, i64 %indvars.iv434
   %165 = load float, ptr %164, align 4
-  %166 = getelementptr i8, ptr %162, i64 4
+  %166 = getelementptr inbounds i8, ptr %162, i64 4
   %167 = load float, ptr %166, align 4
   %168 = fneg float %165
   %169 = tail call float @llvm.fmuladd.f32(float %168, float %167, float %163)

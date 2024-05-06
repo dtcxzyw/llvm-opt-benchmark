@@ -31,7 +31,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq5msg_t4initEPvmPFvS1_S1_ES1_PNS0_9content_tE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %data_, i64 noundef %size_, ptr noundef %ffn_, ptr noundef %hint_, ptr noundef %content_) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t4initEPvmPFvS1_S1_ES1_PNS0_9content_tE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %data_, i64 noundef %size_, ptr noundef %ffn_, ptr noundef %hint_, ptr noundef %content_) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp ult i64 %size_, 34
   br i1 %cmp, label %if.then3, label %if.end5
@@ -42,7 +42,7 @@ if.then3:                                         ; preds = %entry
   %flags.i = getelementptr inbounds i8, ptr %this, i64 43
   store i8 101, ptr %type.i, align 2
   store i8 0, ptr %flags.i, align 1
-  %conv.i = trunc i64 %size_ to i8
+  %conv.i = trunc nuw nsw i64 %size_ to i8
   %size.i = getelementptr inbounds i8, ptr %this, i64 41
   store i8 %conv.i, ptr %size.i, align 1
   %group.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -95,7 +95,7 @@ _ZN3zmq5msg_t21init_external_storageEPNS0_9content_tEPvmPFvS3_S3_ES3_.exit: ; pr
   br label %return
 
 if.end8:                                          ; preds = %if.end5
-  %call9 = tail call noundef i32 @_ZN3zmq5msg_t9init_dataEPvmPFvS1_S1_ES1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %data_, i64 noundef %size_, ptr noundef %ffn_, ptr noundef %hint_), !range !4
+  %call9 = tail call noundef i32 @_ZN3zmq5msg_t9init_dataEPvmPFvS1_S1_ES1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %data_, i64 noundef %size_, ptr noundef %ffn_, ptr noundef %hint_)
   br label %return
 
 return:                                           ; preds = %if.end8, %_ZN3zmq5msg_t21init_external_storageEPNS0_9content_tEPvmPFvS3_S3_ES3_.exit, %if.then3
@@ -104,7 +104,7 @@ return:                                           ; preds = %if.end8, %_ZN3zmq5m
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, i64 noundef %size_) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t9init_sizeEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, i64 noundef %size_) local_unnamed_addr #2 align 2 {
 entry:
   %cmp = icmp ult i64 %size_, 34
   store ptr null, ptr %this, align 8
@@ -115,7 +115,7 @@ entry:
 if.then:                                          ; preds = %entry
   store i8 101, ptr %type, align 2
   store i8 0, ptr %flags, align 1
-  %conv = trunc i64 %size_ to i8
+  %conv = trunc nuw nsw i64 %size_ to i8
   %size = getelementptr inbounds i8, ptr %this, i64 41
   store i8 %conv, ptr %size, align 1
   %group = getelementptr inbounds i8, ptr %this, i64 48
@@ -275,7 +275,7 @@ do.end10:                                         ; preds = %do.body3, %if.then6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq5msg_t9init_dataEPvmPFvS1_S1_ES1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr noundef %data_, i64 noundef %size_, ptr noundef %ffn_, ptr noundef %hint_) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t9init_dataEPvmPFvS1_S1_ES1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr noundef %data_, i64 noundef %size_, ptr noundef %ffn_, ptr noundef %hint_) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp eq ptr %data_, null
   %cmp2 = icmp ne i64 %size_, 0
@@ -362,7 +362,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq5msg_t11init_bufferEPKvm(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %buf_, i64 noundef %size_) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t11init_bufferEPKvm(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %buf_, i64 noundef %size_) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.i = icmp ult i64 %size_, 34
   store ptr null, ptr %this, align 8
@@ -375,7 +375,7 @@ if.else.i:                                        ; preds = %entry
   %content.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %content.i, align 8
   %cmp25.i = icmp ult i64 %size_, -40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
   br i1 %cmp25.i, label %if.end.i, label %_ZN3zmq5msg_t9init_sizeEm.exit
 
 if.end.i:                                         ; preds = %if.else.i
@@ -402,7 +402,7 @@ _ZN3zmq5msg_t9init_sizeEm.exit:                   ; preds = %if.else.i, %if.end.
 if.end:                                           ; preds = %entry
   store i8 101, ptr %type.i, align 2
   store i8 0, ptr %flags.i, align 1
-  %conv.i = trunc i64 %size_ to i8
+  %conv.i = trunc nuw nsw i64 %size_ to i8
   %size.i = getelementptr inbounds i8, ptr %this, i64 41
   store i8 %conv.i, ptr %size.i, align 1
   %group.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -466,7 +466,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq5msg_t14init_subscribeEmPKh(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %size_, ptr nocapture noundef readonly %topic_) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t14init_subscribeEmPKh(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %size_, ptr nocapture noundef readonly %topic_) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.i = icmp ult i64 %size_, 34
   store ptr null, ptr %this, align 8
@@ -479,7 +479,7 @@ if.else.i:                                        ; preds = %entry
   %content.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %content.i, align 8
   %cmp25.i = icmp ult i64 %size_, -40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
   br i1 %cmp25.i, label %if.end.i, label %_ZN3zmq5msg_t9init_sizeEm.exit
 
 if.end.i:                                         ; preds = %if.else.i
@@ -506,7 +506,7 @@ _ZN3zmq5msg_t9init_sizeEm.exit:                   ; preds = %if.else.i, %if.end.
 
 if.then:                                          ; preds = %entry
   store i8 101, ptr %type.i, align 2
-  %conv.i = trunc i64 %size_ to i8
+  %conv.i = trunc nuw nsw i64 %size_ to i8
   %size.i = getelementptr inbounds i8, ptr %this, i64 41
   store i8 %conv.i, ptr %size.i, align 1
   %group.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -540,7 +540,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq5msg_t11init_cancelEmPKh(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %size_, ptr nocapture noundef readonly %topic_) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t11init_cancelEmPKh(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %size_, ptr nocapture noundef readonly %topic_) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.i = icmp ult i64 %size_, 34
   store ptr null, ptr %this, align 8
@@ -553,7 +553,7 @@ if.else.i:                                        ; preds = %entry
   %content.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %content.i, align 8
   %cmp25.i = icmp ult i64 %size_, -40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
   br i1 %cmp25.i, label %if.end.i, label %_ZN3zmq5msg_t9init_sizeEm.exit
 
 if.end.i:                                         ; preds = %if.else.i
@@ -580,7 +580,7 @@ _ZN3zmq5msg_t9init_sizeEm.exit:                   ; preds = %if.else.i, %if.end.
 
 if.then:                                          ; preds = %entry
   store i8 101, ptr %type.i, align 2
-  %conv.i = trunc i64 %size_ to i8
+  %conv.i = trunc nuw nsw i64 %size_ to i8
   %size.i = getelementptr inbounds i8, ptr %this, i64 41
   store i8 %conv.i, ptr %size.i, align 1
   %group.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -604,7 +604,7 @@ if.end4:                                          ; preds = %_ZN3zmq5msg_t9init_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq5msg_t5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type.i = getelementptr inbounds i8, ptr %this, i64 42
   %0 = load i8, ptr %type.i, align 2
@@ -791,7 +791,7 @@ declare noundef zeroext i1 @_ZN3zmq10metadata_t8drop_refEv(ptr noundef nonnull a
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq5msg_t4moveERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(64) %src_) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -2147483648, 1) i32 @_ZN3zmq5msg_t4moveERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(64) %src_) local_unnamed_addr #1 align 2 {
 entry:
   %type.i = getelementptr inbounds i8, ptr %src_, i64 42
   %0 = load i8, ptr %type.i, align 2
@@ -805,7 +805,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call3 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %this), !range !4
+  %call3 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
   %cmp = icmp slt i32 %call3, 0
   br i1 %cmp, label %return, label %if.end5
 
@@ -816,7 +816,7 @@ if.end5:                                          ; preds = %if.end
   %flags.i = getelementptr inbounds i8, ptr %src_, i64 43
   %size.i = getelementptr inbounds i8, ptr %src_, i64 41
   store i8 0, ptr %size.i, align 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(7) %flags.i, i8 0, i64 7, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end, %if.end5, %if.then
@@ -825,7 +825,7 @@ return:                                           ; preds = %if.end, %if.end5, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq5msg_t4copyERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(64) %src_) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -2147483648, 1) i32 @_ZN3zmq5msg_t4copyERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(64) %src_) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type.i = getelementptr inbounds i8, ptr %src_, i64 42
   %0 = load i8, ptr %type.i, align 2
@@ -839,7 +839,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call3 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %this), !range !4
+  %call3 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
   %cmp = icmp slt i32 %call3, 0
   br i1 %cmp, label %return, label %if.end5
 
@@ -1554,7 +1554,7 @@ lor.lhs.false:                                    ; preds = %if.end12, %if.end12
   br i1 %tobool21.not, label %if.then22, label %if.end24
 
 if.then22:                                        ; preds = %if.end12, %lor.lhs.false
-  %call23 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %this), !range !4
+  %call23 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
   br label %return
 
 if.end24:                                         ; preds = %lor.lhs.false
@@ -1634,7 +1634,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3zmq5msg_t14set_routing_idEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, i32 noundef %routing_id_) local_unnamed_addr #12 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t14set_routing_idEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, i32 noundef %routing_id_) local_unnamed_addr #12 align 2 {
 entry:
   %tobool.not = icmp eq i32 %routing_id_, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1676,7 +1676,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @_ZN3zmq5msg_t9set_groupEPKc(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %group_) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t9set_groupEPKc(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %group_) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %group_, i64 noundef 255) #25
   %cmp.i = icmp ugt i64 %call, 255
@@ -1700,14 +1700,14 @@ if.then3.i:                                       ; preds = %if.end.i
   %refcnt.i = getelementptr inbounds i8, ptr %call4.i, i64 256
   store i32 0, ptr %refcnt.i, align 4
   store atomic i32 1, ptr %refcnt.i seq_cst, align 4
-  %call18.i = tail call ptr @strncpy(ptr noundef %call4.i, ptr noundef %group_, i64 noundef %call) #22
+  %call18.i = tail call ptr @strncpy(ptr noundef %call4.i, ptr noundef readonly %group_, i64 noundef %call) #22
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr %call4.i, i64 0, i64 %call
   store i8 0, ptr %arrayidx.i, align 1
   br label %_ZN3zmq5msg_t9set_groupEPKcm.exit
 
 if.else.i:                                        ; preds = %if.end.i
   %group25.i = getelementptr inbounds i8, ptr %this, i64 49
-  %call27.i = tail call ptr @strncpy(ptr noundef nonnull %group25.i, ptr noundef %group_, i64 noundef %call) #22
+  %call27.i = tail call ptr @strncpy(ptr noundef nonnull %group25.i, ptr noundef readonly %group_, i64 noundef %call) #22
   %arrayidx31.i = getelementptr inbounds [15 x i8], ptr %group25.i, i64 0, i64 %call
   store i8 0, ptr %arrayidx31.i, align 1
   br label %_ZN3zmq5msg_t9set_groupEPKcm.exit
@@ -1721,7 +1721,7 @@ _ZN3zmq5msg_t9set_groupEPKcm.exit:                ; preds = %if.then.i, %if.then
 declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @_ZN3zmq5msg_t9set_groupEPKcm(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %group_, i64 noundef %length_) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t9set_groupEPKcm(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %group_, i64 noundef %length_) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp ugt i64 %length_, 255
   br i1 %cmp, label %if.then, label %if.end
@@ -1783,7 +1783,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #24
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !5
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -1841,6 +1841,5 @@ attributes #25 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

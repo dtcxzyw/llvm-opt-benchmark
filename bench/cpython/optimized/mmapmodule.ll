@@ -162,7 +162,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mmap_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @mmap_exec(ptr noundef %module) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_OSError, align 8
   %call = tail call i32 @PyModule_AddObjectRef(ptr noundef %module, ptr noundef nonnull @.str.1, ptr noundef %0) #8
@@ -851,7 +851,7 @@ return:                                           ; preds = %if.end4, %if.then3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mmap_ass_item(ptr nocapture noundef readonly %self, i64 noundef %i, ptr noundef %v) #0 {
+define internal range(i32 -1, 1) i32 @mmap_ass_item(ptr nocapture noundef readonly %self, i64 noundef %i, ptr noundef %v) #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8
@@ -1093,7 +1093,7 @@ return:                                           ; preds = %if.then28, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mmap_ass_subscript(ptr nocapture noundef readonly %self, ptr noundef %item, ptr noundef %value) #0 {
+define internal range(i32 -1, 1) i32 @mmap_ass_subscript(ptr nocapture noundef readonly %self, ptr noundef %item, ptr noundef %value) #0 {
 entry:
   %start = alloca i64, align 8
   %stop = alloca i64, align 8
@@ -1323,7 +1323,7 @@ return:                                           ; preds = %is_writable.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mmap_buffer_getbuf(ptr noundef %self, ptr noundef %view, i32 noundef %flags) #0 {
+define internal range(i32 -1, 1) i32 @mmap_buffer_getbuf(ptr noundef %self, ptr noundef %view, i32 noundef %flags) #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %data, align 8

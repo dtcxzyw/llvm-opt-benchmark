@@ -3,7 +3,7 @@ source_filename = "bench/ipopt/original/IpTaggedObject.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@_ZN5IpoptL10unique_tagE = internal thread_local global i32 1, align 4
+@_ZN5IpoptL10unique_tagE = internal thread_local unnamed_addr global i32 1, align 4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {

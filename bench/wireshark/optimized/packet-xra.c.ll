@@ -908,7 +908,7 @@ dissect_xra_tlv.exit:                             ; preds = %206, %4
   %284 = udiv i64 %283, 1000000000
   store i64 %284, ptr %7, align 8
   %285 = urem i64 %283, 1000000000
-  %286 = trunc i64 %285 to i32
+  %286 = trunc nuw nsw i64 %285 to i32
   store i32 %286, ptr %227, align 8
   %287 = load i32, ptr @hf_plc_mb_ts_timestamp_formatted, align 4
   %288 = call ptr @proto_tree_add_time(ptr noundef %266, i32 noundef %287, ptr noundef %255, i32 noundef 1, i32 noundef 8, ptr noundef nonnull %7) #4

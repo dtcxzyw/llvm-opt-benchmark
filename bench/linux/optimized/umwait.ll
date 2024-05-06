@@ -188,7 +188,7 @@ define internal void @umwait_syscore_resume() #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @enable_c02_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #4 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @enable_c02_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #4 align 16 {
   %4 = load volatile i32, ptr @umwait_control_cached, align 4
   %5 = and i32 %4, 1
   %6 = xor i32 %5, 1
@@ -254,7 +254,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 declare dso_local void @on_each_cpu_cond_mask(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @max_time_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #4 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @max_time_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #4 align 16 {
   %4 = load volatile i32, ptr @umwait_control_cached, align 4
   %5 = and i32 %4, -4
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %5) #6

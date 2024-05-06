@@ -749,7 +749,7 @@ _ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13sca
   %71 = getelementptr inbounds i8, ptr %.sink.i23, i64 16
   %72 = load <4 x float>, ptr %71, align 16
   %73 = fmul <4 x float> %72, %72
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %.sink.i23, i64 48
+  %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %.sink.i23, i64 48
   %74 = icmp ugt i64 %16, 15
   br i1 %74, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
@@ -762,7 +762,7 @@ _ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13sca
   %76 = load <4 x float>, ptr %75, align 16
   %77 = fmul <4 x float> %76, %76
   %78 = fadd <4 x float> %.07275.i.i.i.i, %77
-  %gep.i.i.i.i = getelementptr float, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
+  %gep.i.i.i.i = getelementptr inbounds float, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
   %79 = load <4 x float>, ptr %gep.i.i.i.i, align 16
   %80 = fmul <4 x float> %79, %79
   %81 = fadd <4 x float> %storemerge76.i.i.i.i, %80

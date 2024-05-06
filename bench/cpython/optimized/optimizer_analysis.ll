@@ -33,7 +33,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.then.i:                                        ; preds = %for.body.i
   store i16 30, ptr %arrayidx.i, align 8
-  %1 = trunc i64 %indvars.iv.i to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %for.inc.i
 
 if.then9.i:                                       ; preds = %for.body.i

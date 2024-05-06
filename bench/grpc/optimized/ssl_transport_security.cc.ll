@@ -513,7 +513,7 @@ if.then7:                                         ; preds = %if.end3
 
 if.end8:                                          ; preds = %if.end3
   %call10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pem_roots) #20
-  %call11 = tail call fastcc noundef i32 @_ZL21x509_store_load_certsP13x509_store_stPKcmPP18stack_st_X509_NAME(ptr noundef nonnull %call4, ptr noundef nonnull %pem_roots, i64 noundef %call10, ptr noundef null), !range !6
+  %call11 = tail call fastcc noundef i32 @_ZL21x509_store_load_certsP13x509_store_stPKcmPP18stack_st_X509_NAME(ptr noundef nonnull %call4, ptr noundef nonnull %pem_roots, i64 noundef %call10, ptr noundef null)
   %cmp12.not = icmp eq i32 %call11, 0
   br i1 %cmp12.not, label %return, label %if.then13
 
@@ -536,7 +536,7 @@ declare ptr @X509_STORE_new() local_unnamed_addr #0
 declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL21x509_store_load_certsP13x509_store_stPKcmPP18stack_st_X509_NAME(ptr noundef %cert_store, ptr noundef %pem_roots, i64 noundef %pem_roots_size, ptr noundef %root_names) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 13) i32 @_ZL21x509_store_load_certsP13x509_store_stPKcmPP18stack_st_X509_NAME(ptr noundef %cert_store, ptr noundef %pem_roots, i64 noundef %pem_roots_size, ptr noundef %root_names) unnamed_addr #3 {
 entry:
   %cmp = icmp ugt i64 %pem_roots_size, 2147483647
   br i1 %cmp, label %if.then, label %do.end
@@ -593,7 +593,7 @@ if.end43.us:                                      ; preds = %if.then32.us, %if.e
   %inc.us = add i64 %num_roots.044.us, 1
   %call15.us = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %call, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
   %cmp16.us = icmp eq ptr %call15.us, null
-  br i1 %cmp16.us, label %while.end.thread, label %if.end18.us, !llvm.loop !7
+  br i1 %cmp16.us, label %while.end.thread, label %if.end18.us, !llvm.loop !6
 
 if.end18:                                         ; preds = %if.end14.thread, %if.end43
   %call1545 = phi ptr [ %call15, %if.end43 ], [ %call154270, %if.end14.thread ]
@@ -636,7 +636,7 @@ if.end43:                                         ; preds = %if.then32, %if.end2
   %inc = add i64 %num_roots.044, 1
   %call15 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %call, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
   %cmp16 = icmp eq ptr %call15, null
-  br i1 %cmp16, label %while.end.thread, label %if.end18, !llvm.loop !7
+  br i1 %cmp16, label %while.end.thread, label %if.end18, !llvm.loop !6
 
 while.end:                                        ; preds = %if.end24, %if.then41, %if.then23
   %num_roots.041 = phi i64 [ %num_roots.044, %if.then23 ], [ %.us-phi, %if.then41 ], [ %num_roots.044, %if.end24 ]
@@ -709,14 +709,14 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @_Z32tsi_ssl_session_cache_create_lrum(i64 noundef %capacity) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22, !noalias !8
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22, !noalias !7
   invoke void @_ZN3tsi18SslSessionLRUCacheC1Em(ptr noundef nonnull align 8 dereferenceable(104) %call.i.i, i64 noundef %capacity)
-          to label %_ZN9grpc_core13RefCountedPtrIN3tsi18SslSessionLRUCacheEED2Ev.exit unwind label %lpad.i.i, !noalias !8
+          to label %_ZN9grpc_core13RefCountedPtrIN3tsi18SslSessionLRUCacheEED2Ev.exit unwind label %lpad.i.i, !noalias !7
 
 lpad.i.i:                                         ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #23, !noalias !8
+  tail call void @_ZdlPv(ptr noundef nonnull %call.i.i) #23, !noalias !7
   resume { ptr, i32 } %0
 
 _ZN9grpc_core13RefCountedPtrIN3tsi18SslSessionLRUCacheEED2Ev.exit: ; preds = %entry
@@ -729,7 +729,7 @@ declare i32 @__gxx_personality_v0(...)
 define void @_Z25tsi_ssl_session_cache_refP21tsi_ssl_session_cache(ptr nocapture noundef %cache) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core13RefCountedPtrIN3tsi18SslSessionLRUCacheEED2Ev.exit:
   %refs_.i.i = getelementptr inbounds i8, ptr %cache, i64 8
-  %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !13
+  %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !12
   ret void
 }
 
@@ -765,7 +765,7 @@ entry:
 for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %i.011, 1
   %exitcond.not = icmp eq i64 %inc, %call.i
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.011 = phi i64 [ %inc, %for.cond ], [ 0, %entry ]
@@ -809,16 +809,16 @@ declare i64 @BIO_get_mem_data(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z51tsi_ssl_client_handshaker_factory_create_handshakerP33tsi_ssl_client_handshaker_factoryPKcmmPP14tsi_handshaker(ptr noundef %factory, ptr noundef %server_name_indication, i64 noundef %network_bio_buf_size, i64 noundef %ssl_bio_buf_size, ptr nocapture noundef writeonly %handshaker) local_unnamed_addr #3 {
+define noundef range(i32 0, 13) i32 @_Z51tsi_ssl_client_handshaker_factory_create_handshakerP33tsi_ssl_client_handshaker_factoryPKcmmPP14tsi_handshaker(ptr noundef %factory, ptr noundef %server_name_indication, i64 noundef %network_bio_buf_size, i64 noundef %ssl_bio_buf_size, ptr nocapture noundef writeonly %handshaker) local_unnamed_addr #3 {
 entry:
   %ssl_context = getelementptr inbounds i8, ptr %factory, i64 16
   %0 = load ptr, ptr %ssl_context, align 8
-  %call = tail call fastcc noundef i32 @_ZL25create_tsi_ssl_handshakerP10ssl_ctx_stiPKcmmP26tsi_ssl_handshaker_factoryPP14tsi_handshaker(ptr noundef %0, i32 noundef 1, ptr noundef %server_name_indication, i64 noundef %network_bio_buf_size, i64 noundef %ssl_bio_buf_size, ptr noundef %factory, ptr noundef %handshaker), !range !6
+  %call = tail call fastcc noundef i32 @_ZL25create_tsi_ssl_handshakerP10ssl_ctx_stiPKcmmP26tsi_ssl_handshaker_factoryPP14tsi_handshaker(ptr noundef %0, i32 noundef 1, ptr noundef %server_name_indication, i64 noundef %network_bio_buf_size, i64 noundef %ssl_bio_buf_size, ptr noundef %factory, ptr noundef %handshaker)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL25create_tsi_ssl_handshakerP10ssl_ctx_stiPKcmmP26tsi_ssl_handshaker_factoryPP14tsi_handshaker(ptr noundef %ctx, i32 noundef %is_client, ptr noundef %server_name_indication, i64 noundef %network_bio_buf_size, i64 noundef %ssl_bio_buf_size, ptr noundef %factory, ptr nocapture noundef writeonly %handshaker) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 13) i32 @_ZL25create_tsi_ssl_handshakerP10ssl_ctx_stiPKcmmP26tsi_ssl_handshaker_factoryPP14tsi_handshaker(ptr noundef %ctx, i32 noundef %is_client, ptr noundef %server_name_indication, i64 noundef %network_bio_buf_size, i64 noundef %ssl_bio_buf_size, ptr noundef %factory, ptr nocapture noundef writeonly %handshaker) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %session.i = alloca %"class.std::unique_ptr", align 8
   %network_io = alloca ptr, align 8
@@ -907,7 +907,7 @@ for.inc.i:                                        ; preds = %if.end20.i, %if.end
   %num_size.1.i = phi i64 [ %inc.i, %if.end12.i ], [ 0, %if.end20.i ]
   %inc25.i = add nuw i64 %i.028.i, 1
   %exitcond.not.i = icmp eq i64 %inc25.i, %call.i.i
-  br i1 %exitcond.not.i, label %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %for.body.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %for.body.i, !llvm.loop !16
 
 _ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %for.inc.i
   %2 = icmp ult i64 %dot_count.1.i, 3
@@ -1074,7 +1074,7 @@ return:                                           ; preds = %entry, %_ZL30tsi_ss
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z51tsi_ssl_server_handshaker_factory_create_handshakerP33tsi_ssl_server_handshaker_factorymmPP14tsi_handshaker(ptr noundef %factory, i64 noundef %network_bio_buf_size, i64 noundef %ssl_bio_buf_size, ptr nocapture noundef writeonly %handshaker) local_unnamed_addr #3 {
+define noundef range(i32 0, 13) i32 @_Z51tsi_ssl_server_handshaker_factory_create_handshakerP33tsi_ssl_server_handshaker_factorymmPP14tsi_handshaker(ptr noundef %factory, i64 noundef %network_bio_buf_size, i64 noundef %ssl_bio_buf_size, ptr nocapture noundef writeonly %handshaker) local_unnamed_addr #3 {
 entry:
   %ssl_context_count = getelementptr inbounds i8, ptr %factory, i64 32
   %0 = load i64, ptr %ssl_context_count, align 8
@@ -1085,7 +1085,7 @@ if.end:                                           ; preds = %entry
   %ssl_contexts = getelementptr inbounds i8, ptr %factory, i64 16
   %1 = load ptr, ptr %ssl_contexts, align 8
   %2 = load ptr, ptr %1, align 8
-  %call = tail call fastcc noundef i32 @_ZL25create_tsi_ssl_handshakerP10ssl_ctx_stiPKcmmP26tsi_ssl_handshaker_factoryPP14tsi_handshaker(ptr noundef %2, i32 noundef 0, ptr noundef null, i64 noundef %network_bio_buf_size, i64 noundef %ssl_bio_buf_size, ptr noundef nonnull %factory, ptr noundef %handshaker), !range !6
+  %call = tail call fastcc noundef i32 @_ZL25create_tsi_ssl_handshakerP10ssl_ctx_stiPKcmmP26tsi_ssl_handshaker_factoryPP14tsi_handshaker(ptr noundef %2, i32 noundef 0, ptr noundef null, i64 noundef %network_bio_buf_size, i64 noundef %ssl_bio_buf_size, ptr noundef nonnull %factory, ptr noundef %handshaker)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1252,7 +1252,7 @@ _ZL31tsi_ssl_handshaker_factory_initP26tsi_ssl_handshaker_factory.exit: ; preds 
 
 if.then18:                                        ; preds = %_ZL31tsi_ssl_handshaker_factory_initP26tsi_ssl_handshaker_factory.exit
   %refs_.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !18
+  %6 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !17
   %session_cache20 = getelementptr inbounds i8, ptr %call14, i64 40
   %7 = load ptr, ptr %session_cache20, align 8
   store ptr %5, ptr %session_cache20, align 8
@@ -1285,7 +1285,7 @@ if.end23:                                         ; preds = %_ZN9grpc_core13RefC
 
 if.then25:                                        ; preds = %if.end23
   %refs_.i.i81 = getelementptr inbounds i8, ptr %10, i64 8
-  %11 = atomicrmw add ptr %refs_.i.i81, i64 1 monotonic, align 8, !noalias !21
+  %11 = atomicrmw add ptr %refs_.i.i81, i64 1 monotonic, align 8, !noalias !20
   %key_logger28 = getelementptr inbounds i8, ptr %call14, i64 48
   %12 = load ptr, ptr %key_logger28, align 8
   store ptr %10, ptr %key_logger28, align 8
@@ -1355,7 +1355,7 @@ land.lhs.true52:                                  ; preds = %if.end41, %if.end49
 
 if.then55:                                        ; preds = %land.lhs.true52
   %call58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #20
-  %call59 = tail call fastcc noundef i32 @_ZL31ssl_ctx_load_verification_certsP10ssl_ctx_stPKcmPP18stack_st_X509_NAME(ptr noundef nonnull %call6, ptr noundef nonnull %24, i64 noundef %call58, ptr noundef null), !range !6
+  %call59 = tail call fastcc noundef i32 @_ZL31ssl_ctx_load_verification_certsP10ssl_ctx_stPKcmPP18stack_st_X509_NAME(ptr noundef nonnull %call6, ptr noundef nonnull %24, i64 noundef %call58, ptr noundef null)
   %cmp60.not = icmp eq i32 %call59, 0
   br i1 %cmp60.not, label %if.end63, label %if.then61
 
@@ -1375,7 +1375,7 @@ if.then65:                                        ; preds = %if.end63
   %conv = trunc i64 %25 to i16
   %alpn_protocol_list = getelementptr inbounds i8, ptr %call14, i64 24
   %alpn_protocol_list_length = getelementptr inbounds i8, ptr %call14, i64 32
-  %call67 = tail call fastcc noundef i32 @_ZL29build_alpn_protocol_name_listPPKctPPhPm(ptr noundef %26, i16 noundef zeroext %conv, ptr noundef nonnull %alpn_protocol_list, ptr noundef nonnull %alpn_protocol_list_length), !range !6
+  %call67 = tail call fastcc noundef i32 @_ZL29build_alpn_protocol_name_listPPKctPPhPm(ptr noundef %26, i16 noundef zeroext %conv, ptr noundef nonnull %alpn_protocol_list, ptr noundef nonnull %alpn_protocol_list_length)
   %cmp68.not = icmp eq i32 %call67, 0
   br i1 %cmp68.not, label %do.body72, label %if.then69
 
@@ -1616,7 +1616,7 @@ declare void @_ZN9grpc_core16LogSslErrorStackEv() local_unnamed_addr #0
 declare void @SSL_CTX_sess_set_new_cb(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL46server_handshaker_factory_new_session_callbackP6ssl_stP14ssl_session_st(ptr noundef %ssl, ptr noundef %session) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @_ZL46server_handshaker_factory_new_session_callbackP6ssl_stP14ssl_session_st(ptr noundef %ssl, ptr noundef %session) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %call = tail call ptr @SSL_get_SSL_CTX(ptr noundef %ssl)
@@ -1797,7 +1797,7 @@ if.then15.i:                                      ; preds = %while.body.i
 if.end16.i:                                       ; preds = %while.body.i
   %call17.i = tail call i32 @SSL_CTX_add_extra_chain_cert(ptr noundef %context, ptr noundef nonnull %call13.i)
   %tobool18.not.i = icmp eq i32 %call17.i, 0
-  br i1 %tobool18.not.i, label %if.then19.i, label %while.body.i, !llvm.loop !24
+  br i1 %tobool18.not.i, label %if.then19.i, label %while.body.i, !llvm.loop !23
 
 if.then19.i:                                      ; preds = %if.end16.i
   tail call void @X509_free(ptr noundef nonnull %call13.i)
@@ -1899,16 +1899,16 @@ declare i32 @X509_STORE_up_ref(ptr noundef) local_unnamed_addr #0
 declare void @SSL_CTX_set_cert_store(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL31ssl_ctx_load_verification_certsP10ssl_ctx_stPKcmPP18stack_st_X509_NAME(ptr noundef %context, ptr noundef %pem_roots, i64 noundef %pem_roots_size, ptr noundef %root_name) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 13) i32 @_ZL31ssl_ctx_load_verification_certsP10ssl_ctx_stPKcmPP18stack_st_X509_NAME(ptr noundef %context, ptr noundef %pem_roots, i64 noundef %pem_roots_size, ptr noundef %root_name) unnamed_addr #3 {
 entry:
   %call = tail call ptr @SSL_CTX_get_cert_store(ptr noundef %context)
   %call1 = tail call i32 @X509_STORE_set_flags(ptr noundef %call, i64 noundef 557056)
-  %call2 = tail call fastcc noundef i32 @_ZL21x509_store_load_certsP13x509_store_stPKcmPP18stack_st_X509_NAME(ptr noundef %call, ptr noundef %pem_roots, i64 noundef %pem_roots_size, ptr noundef %root_name), !range !6
+  %call2 = tail call fastcc noundef i32 @_ZL21x509_store_load_certsP13x509_store_stPKcmPP18stack_st_X509_NAME(ptr noundef %call, ptr noundef %pem_roots, i64 noundef %pem_roots_size, ptr noundef %root_name)
   ret i32 %call2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL29build_alpn_protocol_name_listPPKctPPhPm(ptr nocapture noundef readonly %alpn_protocols, i16 noundef zeroext %num_alpn_protocols, ptr nocapture noundef %protocol_name_list, ptr nocapture noundef %protocol_name_list_length) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 13) i32 @_ZL29build_alpn_protocol_name_listPPKctPPhPm(ptr nocapture noundef readonly %alpn_protocols, i16 noundef zeroext %num_alpn_protocols, ptr nocapture noundef %protocol_name_list, ptr nocapture noundef %protocol_name_list_length) unnamed_addr #3 {
 entry:
   store ptr null, ptr %protocol_name_list, align 8
   store i64 0, ptr %protocol_name_list_length, align 8
@@ -1945,7 +1945,7 @@ if.end11:                                         ; preds = %cond.end
   store i64 %add12, ptr %protocol_name_list_length, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24
 
 for.end:                                          ; preds = %if.end11
   %call13 = tail call ptr @gpr_malloc(i64 noundef %add12)
@@ -1967,7 +1967,7 @@ for.body21:                                       ; preds = %for.end, %for.body2
   %add.ptr = getelementptr inbounds i8, ptr %incdec.ptr, i64 %call25
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count
-  br i1 %exitcond42.not, label %for.end31, label %for.body21, !llvm.loop !26
+  br i1 %exitcond42.not, label %for.end31, label %for.body21, !llvm.loop !25
 
 for.end31:                                        ; preds = %for.body21
   %5 = load ptr, ptr %protocol_name_list, align 8
@@ -1998,7 +1998,7 @@ declare i32 @SSL_CTX_set_alpn_protos(ptr noundef, ptr noundef, i64 noundef) loca
 declare void @SSL_CTX_set_next_proto_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL38client_handshaker_factory_npn_callbackP6ssl_stPPhS1_PKhjPv(ptr nocapture readnone %0, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture noundef readonly %arg) #8 {
+define internal noundef range(i32 0, 4) i32 @_ZL38client_handshaker_factory_npn_callbackP6ssl_stPPhS1_PKhjPv(ptr nocapture readnone %0, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture noundef readonly %arg) #8 {
 entry:
   %alpn_protocol_list = getelementptr inbounds i8, ptr %arg, i64 24
   %1 = load ptr, ptr %alpn_protocol_list, align 8
@@ -2041,7 +2041,7 @@ if.end.us.i:                                      ; preds = %land.lhs.true.us.i,
   %sub.ptr.sub6.us.i = sub i64 %sub.ptr.lhs.cast4.us.i, %sub.ptr.rhs.cast5.i
   %cmp7.us.i = icmp ult i64 %sub.ptr.sub6.us.i, %conv
   %or.cond.us.i = and i1 %cmp3.not.us.i, %cmp7.us.i
-  br i1 %or.cond.us.i, label %while.body8.us.i, label %while.cond2.while.end_crit_edge.us.i, !llvm.loop !27
+  br i1 %or.cond.us.i, label %while.body8.us.i, label %while.cond2.while.end_crit_edge.us.i, !llvm.loop !26
 
 while.cond2.while.end_crit_edge.us.i:             ; preds = %if.end.us.i
   %add.ptr17.us.i = getelementptr inbounds i8, ptr %incdec.ptr.us.i, i64 %conv13.us.i
@@ -2049,7 +2049,7 @@ while.cond2.while.end_crit_edge.us.i:             ; preds = %if.end.us.i
   %sub.ptr.sub.us.i = sub i64 %sub.ptr.lhs.cast.us.i, %sub.ptr.rhs.cast.i
   %conv1.us.i = and i64 %sub.ptr.sub.us.i, 4294967295
   %cmp.us.i = icmp ult i64 %conv1.us.i, %2
-  br i1 %cmp.us.i, label %while.body.us.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, !llvm.loop !28
+  br i1 %cmp.us.i, label %while.body.us.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, !llvm.loop !27
 
 if.then.i:                                        ; preds = %land.lhs.true.us.i
   store ptr %incdec.ptr9.us.i, ptr %out, align 8
@@ -2156,7 +2156,7 @@ declare ptr @SSL_CTX_get_cert_store(ptr noundef) local_unnamed_addr #0
 declare void @X509_STORE_set_get_crl(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL18GetCrlFromProviderP17x509_store_ctx_stPP11X509_crl_stP7x509_st(ptr noundef %ctx, ptr nocapture noundef writeonly %crl_out, ptr noundef %cert) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @_ZL18GetCrlFromProviderP17x509_store_ctx_stPP11X509_crl_stP7x509_st(ptr noundef %ctx, ptr nocapture noundef writeonly %crl_out, ptr noundef %cert) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca %"class.std::allocator.2", align 1
@@ -2255,24 +2255,24 @@ lpad15:                                           ; preds = %_ZNSt10shared_ptrIN
 
 if.end19:                                         ; preds = %invoke.cont16
   %_M_refcount2.i.i.i = getelementptr inbounds i8, ptr %internal_crl, i64 8
-  %11 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !29
+  %11 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !28
   %cmp.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i, label %_ZSt19static_pointer_castIN9grpc_core12experimental7CrlImplENS1_3CrlEESt10shared_ptrIT_ERKS4_IT0_E.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end19
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load i8, ptr @__libc_single_threaded, align 1, !noalias !29
+  %12 = load i8, ptr @__libc_single_threaded, align 1, !noalias !28
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %13 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !29
+  %13 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !28
   %add.i.i.i.i.i.i = add nsw i32 %13, 1
-  store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !29
+  store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !28
   br label %if.then.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %14 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !29
+  %14 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !28
   br label %if.then.i.i.i
 
 _ZSt19static_pointer_castIN9grpc_core12experimental7CrlImplENS1_3CrlEESt10shared_ptrIT_ERKS4_IT0_E.exit: ; preds = %if.end19
@@ -2653,7 +2653,7 @@ if.then21:                                        ; preds = %if.end18
   %9 = load ptr, ptr %alpn_protocols, align 8
   %alpn_protocol_list = getelementptr inbounds i8, ptr %call, i64 40
   %alpn_protocol_list_length = getelementptr inbounds i8, ptr %call, i64 48
-  %call23 = tail call fastcc noundef i32 @_ZL29build_alpn_protocol_name_listPPKctPPhPm(ptr noundef %9, i16 noundef zeroext %8, ptr noundef nonnull %alpn_protocol_list, ptr noundef nonnull %alpn_protocol_list_length), !range !6
+  %call23 = tail call fastcc noundef i32 @_ZL29build_alpn_protocol_name_listPPKctPPhPm(ptr noundef %9, i16 noundef zeroext %8, ptr noundef nonnull %alpn_protocol_list, ptr noundef nonnull %alpn_protocol_list_length)
   %cmp24.not = icmp eq i32 %call23, 0
   br i1 %cmp24.not, label %if.end28, label %if.end.i117
 
@@ -2684,7 +2684,7 @@ if.end28:                                         ; preds = %if.then21, %if.end1
 
 if.then30:                                        ; preds = %if.end28
   %refs_.i.i = getelementptr inbounds i8, ptr %12, i64 8
-  %13 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !32
+  %13 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !31
   %key_logger32 = getelementptr inbounds i8, ptr %call, i64 56
   %14 = load ptr, ptr %key_logger32, align 8
   store ptr %12, ptr %key_logger32, align 8
@@ -2829,7 +2829,7 @@ if.then76:                                        ; preds = %if.end74
   %root_names. = select i1 %tobool, ptr %root_names, ptr null
   %call.i132 = call ptr @SSL_CTX_get_cert_store(ptr noundef %35)
   %call1.i = call i32 @X509_STORE_set_flags(ptr noundef %call.i132, i64 noundef 557056)
-  %call2.i133 = call fastcc noundef i32 @_ZL21x509_store_load_certsP13x509_store_stPKcmPP18stack_st_X509_NAME(ptr noundef %call.i132, ptr noundef nonnull %33, i64 noundef %call81, ptr noundef %root_names.), !range !6
+  %call2.i133 = call fastcc noundef i32 @_ZL21x509_store_load_certsP13x509_store_stPKcmPP18stack_st_X509_NAME(ptr noundef %call.i132, ptr noundef nonnull %33, i64 noundef %call81, ptr noundef %root_names.)
   %cmp83.not = icmp eq i32 %call2.i133, 0
   br i1 %cmp83.not, label %if.end85, label %if.then84
 
@@ -3014,7 +3014,7 @@ for.inc:                                          ; preds = %if.then159, %if.end
   %inc = add nuw i64 %i.0152, 1
   %81 = load i64, ptr %num_key_cert_pairs, align 8
   %cmp36 = icmp ult i64 %inc, %81
-  br i1 %cmp36, label %do.body, label %for.end, !llvm.loop !35
+  br i1 %cmp36, label %do.body, label %for.end, !llvm.loop !34
 
 for.end:                                          ; preds = %for.inc, %if.end34
   store ptr %call, ptr %factory, align 8
@@ -3114,7 +3114,7 @@ declare void @SSL_CTX_set_client_CA_list(ptr noundef, ptr noundef) local_unnamed
 declare i32 @SSL_CTX_set_tlsext_servername_callback(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL49ssl_server_handshaker_factory_servername_callbackP6ssl_stPiPv(ptr noundef %ssl, ptr nocapture readnone %0, ptr nocapture noundef readonly %arg) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 4) i32 @_ZL49ssl_server_handshaker_factory_servername_callbackP6ssl_stPiPv(ptr noundef %ssl, ptr nocapture readnone %0, ptr nocapture noundef readonly %arg) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call ptr @SSL_get_servername(ptr noundef %ssl, i32 noundef 0)
   %cmp = icmp eq ptr %call, null
@@ -3140,7 +3140,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = load ptr, ptr %ssl_context_x509_subject_names, align 8
   %arrayidx = getelementptr inbounds %struct.tsi_peer, ptr %2, i64 %i.012
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #24
-  %call4 = tail call noundef i32 @_Z25tsi_ssl_peer_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %arrayidx, i64 %call.i.i, ptr nonnull %call), !range !36
+  %call4 = tail call noundef i32 @_Z25tsi_ssl_peer_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %arrayidx, i64 %call.i.i, ptr nonnull %call)
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %for.inc, label %if.then5
 
@@ -3156,7 +3156,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.012, 1
   %5 = load i64, ptr %ssl_context_count, align 8
   %cmp3 = icmp ult i64 %inc, %5
-  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !37
+  br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !35
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 1975, i32 noundef 2, ptr noundef nonnull @.str.90, ptr noundef nonnull %call)
@@ -3172,7 +3172,7 @@ declare i32 @SSL_CTX_set_tlsext_servername_arg(ptr noundef, ptr noundef) local_u
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL39server_handshaker_factory_alpn_callbackP6ssl_stPPKhPhS2_jPv(ptr nocapture readnone %0, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture noundef readonly %arg) #8 {
+define internal noundef range(i32 0, 4) i32 @_ZL39server_handshaker_factory_alpn_callbackP6ssl_stPPKhPhS2_jPv(ptr nocapture readnone %0, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture noundef readonly %arg) #8 {
 entry:
   %conv = zext i32 %inlen to i64
   %alpn_protocol_list = getelementptr inbounds i8, ptr %arg, i64 40
@@ -3215,7 +3215,7 @@ if.end.us.i:                                      ; preds = %land.lhs.true.us.i,
   %sub.ptr.sub6.us.i = sub i64 %sub.ptr.lhs.cast4.us.i, %sub.ptr.rhs.cast5.i
   %cmp7.us.i = icmp ult i64 %sub.ptr.sub6.us.i, %2
   %or.cond.us.i = and i1 %cmp3.not.us.i, %cmp7.us.i
-  br i1 %or.cond.us.i, label %while.body8.us.i, label %while.cond2.while.end_crit_edge.us.i, !llvm.loop !27
+  br i1 %or.cond.us.i, label %while.body8.us.i, label %while.cond2.while.end_crit_edge.us.i, !llvm.loop !26
 
 while.cond2.while.end_crit_edge.us.i:             ; preds = %if.end.us.i
   %add.ptr17.us.i = getelementptr inbounds i8, ptr %incdec.ptr.us.i, i64 %conv13.us.i
@@ -3223,7 +3223,7 @@ while.cond2.while.end_crit_edge.us.i:             ; preds = %if.end.us.i
   %sub.ptr.sub.us.i = sub i64 %sub.ptr.lhs.cast.us.i, %sub.ptr.rhs.cast.i
   %conv1.us.i = and i64 %sub.ptr.sub.us.i, 4294967295
   %cmp.us.i = icmp ult i64 %conv1.us.i, %conv
-  br i1 %cmp.us.i, label %while.body.us.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, !llvm.loop !28
+  br i1 %cmp.us.i, label %while.body.us.i, label %_ZL20select_protocol_listPPKhPhS0_mS0_m.exit, !llvm.loop !27
 
 if.then.i:                                        ; preds = %land.lhs.true.us.i
   store ptr %incdec.ptr9.us.i, ptr %out, align 8
@@ -3334,7 +3334,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z25tsi_ssl_peer_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef readonly %peer, i64 %name.coerce0, ptr %name.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_Z25tsi_ssl_peer_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef readonly %peer, i64 %name.coerce0, ptr %name.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp25.not.i = icmp eq i64 %name.coerce0, 0
   br i1 %cmp25.not.i, label %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %for.body.i
@@ -3381,7 +3381,7 @@ for.inc.i:                                        ; preds = %if.end20.i, %if.end
   %num_size.1.i = phi i64 [ %inc.i, %if.end12.i ], [ 0, %if.end20.i ]
   %inc25.i = add nuw i64 %i.028.i, 1
   %exitcond.not.i = icmp eq i64 %inc25.i, %name.coerce0
-  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !16
 
 for.end.loopexit.i:                               ; preds = %for.inc.i
   %1 = icmp ugt i64 %dot_count.1.i, 2
@@ -3434,7 +3434,7 @@ if.then6.us:                                      ; preds = %if.end.us
   %10 = load ptr, ptr %value.us, align 8
   %length.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 16
   %11 = load i64, ptr %length.us, align 8
-  %call11.us = tail call fastcc noundef i32 @_ZL21does_entry_match_nameSt17basic_string_viewIcSt11char_traitsIcEES2_(i64 %11, ptr %10, i64 %name.coerce0, ptr %name.coerce1), !range !36
+  %call11.us = tail call fastcc noundef i32 @_ZL21does_entry_match_nameSt17basic_string_viewIcSt11char_traitsIcEES2_(i64 %11, ptr %10, i64 %name.coerce0, ptr %name.coerce1)
   %tobool12.not.us = icmp eq i32 %call11.us, 0
   br i1 %tobool12.not.us, label %if.then6.us.for.inc.us_crit_edge, label %return
 
@@ -3449,7 +3449,7 @@ for.inc.us:                                       ; preds = %if.then6.us.for.inc
   %san_count.1.us = phi i64 [ %san_count.025.us, %for.body.us ], [ %san_count.025.us, %if.else22.us ], [ %inc.us, %if.then6.us.for.inc.us_crit_edge ]
   %inc29.us = add nuw i64 %i.026.us, 1
   %cmp.us = icmp ult i64 %inc29.us, %12
-  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !38
+  br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !36
 
 for.body.lr.ph.split:                             ; preds = %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, %for.body.lr.ph
   %13 = phi i64 [ %5, %for.body.lr.ph ], [ %6, %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ]
@@ -3477,7 +3477,7 @@ if.then6.us42:                                    ; preds = %if.end.us35
 for.inc.us46:                                     ; preds = %if.end.us35, %if.then6.us42, %for.body.us29
   %inc29.us49 = add nuw i64 %i.026.us30, 1
   %cmp.us50 = icmp ult i64 %inc29.us49, %13
-  br i1 %cmp.us50, label %for.body.us29, label %if.end46, !llvm.loop !38
+  br i1 %cmp.us50, label %for.body.us29, label %if.end46, !llvm.loop !36
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc
   %i.026 = phi i64 [ %inc29, %for.inc ], [ 0, %for.body.lr.ph.split ]
@@ -3507,7 +3507,7 @@ land.rhs.i:                                       ; preds = %if.then6
 for.inc:                                          ; preds = %if.end, %land.rhs.i, %if.then6, %for.body
   %inc29 = add nuw i64 %i.026, 1
   %cmp = icmp ult i64 %inc29, %13
-  br i1 %cmp, label %for.body, label %if.end46, !llvm.loop !38
+  br i1 %cmp, label %for.body, label %if.end46, !llvm.loop !36
 
 for.end:                                          ; preds = %for.inc.us
   %cmp30 = icmp ne i64 %san_count.1.us, 0
@@ -3520,7 +3520,7 @@ if.then35:                                        ; preds = %for.end
   %20 = load ptr, ptr %value37, align 8
   %length40 = getelementptr inbounds i8, ptr %cn_property.1.us, i64 16
   %21 = load i64, ptr %length40, align 8
-  %call42 = tail call fastcc noundef i32 @_ZL21does_entry_match_nameSt17basic_string_viewIcSt11char_traitsIcEES2_(i64 %21, ptr %20, i64 %name.coerce0, ptr %name.coerce1), !range !36
+  %call42 = tail call fastcc noundef i32 @_ZL21does_entry_match_nameSt17basic_string_viewIcSt11char_traitsIcEES2_(i64 %21, ptr %20, i64 %name.coerce0, ptr %name.coerce1)
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.end46, label %return
 
@@ -3536,7 +3536,7 @@ return:                                           ; preds = %land.rhs.i, %if.the
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL21does_entry_match_nameSt17basic_string_viewIcSt11char_traitsIcEES2_(i64 %entry.coerce0, ptr %entry.coerce1, i64 %name.coerce0, ptr %name.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL21does_entry_match_nameSt17basic_string_viewIcSt11char_traitsIcEES2_(i64 %entry.coerce0, ptr %entry.coerce1, i64 %name.coerce0, ptr %name.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %name_subdomain = alloca %"class.std::basic_string_view", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3615,32 +3615,32 @@ if.then.i.i:                                      ; preds = %if.end37
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end37
-  %sub.i15 = sub i64 %spec.select, %add
-  %add.ptr.i17 = getelementptr inbounds i8, ptr %name.coerce1, i64 %add
-  store i64 %sub.i15, ptr %name_subdomain, align 8
+  %sub.i17 = sub i64 %spec.select, %add
+  %add.ptr.i19 = getelementptr inbounds i8, ptr %name.coerce1, i64 %add
+  store i64 %sub.i17, ptr %name_subdomain, align 8
   %4 = getelementptr inbounds i8, ptr %name_subdomain, i64 8
-  store ptr %add.ptr.i17, ptr %4, align 8
-  %add.ptr.i19 = getelementptr inbounds i8, ptr %entry.coerce1, i64 2
-  %sub.i20 = add i64 %entry2.sroa.0.0, -2
-  %cmp.i21.not = icmp eq i64 %spec.select, %add
-  br i1 %cmp.i21.not, label %if.then45, label %if.then.i23
+  store ptr %add.ptr.i19, ptr %4, align 8
+  %add.ptr.i21 = getelementptr inbounds i8, ptr %entry.coerce1, i64 2
+  %sub.i22 = add i64 %entry2.sroa.0.0, -2
+  %cmp.i23.not = icmp eq i64 %spec.select, %add
+  br i1 %cmp.i23.not, label %if.then45, label %if.then.i25
 
-if.then.i23:                                      ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
-  %call.i.i25 = tail call ptr @memchr(ptr noundef nonnull %add.ptr.i17, i32 noundef 46, i64 noundef %sub.i15) #24
-  %tobool.not.i26 = icmp eq ptr %call.i.i25, null
-  br i1 %tobool.not.i26, label %if.then45, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit31
+if.then.i25:                                      ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
+  %call.i.i29 = tail call ptr @memchr(ptr noundef nonnull %add.ptr.i19, i32 noundef 46, i64 noundef %sub.i17) #24
+  %tobool.not.i30 = icmp eq ptr %call.i.i29, null
+  br i1 %tobool.not.i30, label %if.then45, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit35
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit31: ; preds = %if.then.i23
-  %sub.ptr.lhs.cast.i28 = ptrtoint ptr %call.i.i25 to i64
-  %sub.ptr.rhs.cast.i29 = ptrtoint ptr %add.ptr.i17 to i64
-  %sub.ptr.sub.i30 = sub i64 %sub.ptr.lhs.cast.i28, %sub.ptr.rhs.cast.i29
-  %cmp40 = icmp eq i64 %sub.ptr.sub.i30, -1
-  %sub43 = add i64 %sub.i15, -1
-  %cmp44 = icmp eq i64 %sub.ptr.sub.i30, %sub43
-  %or.cond59 = or i1 %cmp40, %cmp44
-  br i1 %or.cond59, label %if.then45, label %if.end50
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit35: ; preds = %if.then.i25
+  %sub.ptr.lhs.cast.i32 = ptrtoint ptr %call.i.i29 to i64
+  %sub.ptr.rhs.cast.i33 = ptrtoint ptr %add.ptr.i19 to i64
+  %sub.ptr.sub.i34 = sub i64 %sub.ptr.lhs.cast.i32, %sub.ptr.rhs.cast.i33
+  %cmp40 = icmp eq i64 %sub.ptr.sub.i34, -1
+  %sub43 = add i64 %sub.i17, -1
+  %cmp44 = icmp eq i64 %sub.ptr.sub.i34, %sub43
+  %or.cond63 = or i1 %cmp40, %cmp44
+  br i1 %or.cond63, label %if.then45, label %if.end50
 
-if.then45:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %if.then.i23, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit31
+if.then45:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %if.then.i25, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit35
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS2_EvEERKT_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %name_subdomain, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46)
           to label %invoke.cont unwind label %lpad
@@ -3671,13 +3671,13 @@ ehcleanup:                                        ; preds = %lpad48, %lpad
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #24
   resume { ptr, i32 } %.pn
 
-if.end50:                                         ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit31
-  %add.ptr.i33 = getelementptr inbounds i8, ptr %name.coerce1, i64 %spec.select
-  %add.ptr2.i34 = getelementptr inbounds i8, ptr %add.ptr.i33, i64 -1
-  %7 = load i8, ptr %add.ptr2.i34, align 1
+if.end50:                                         ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit35
+  %add.ptr.i37 = getelementptr inbounds i8, ptr %name.coerce1, i64 %spec.select
+  %add.ptr2.i38 = getelementptr inbounds i8, ptr %add.ptr.i37, i64 -1
+  %7 = load i8, ptr %add.ptr2.i38, align 1
   %cmp53 = icmp eq i8 %7, 46
-  %spec.select61 = select i1 %cmp53, i64 %sub43, i64 %sub.i15
-  %call59 = tail call noundef zeroext i1 @_ZN4absl12lts_2023080216EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %spec.select61, ptr nonnull %add.ptr.i17, i64 %sub.i20, ptr nonnull %add.ptr.i19) #24
+  %spec.select65 = select i1 %cmp53, i64 %sub43, i64 %sub.i17
+  %call59 = tail call noundef zeroext i1 @_ZN4absl12lts_2023080216EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %spec.select65, ptr nonnull %add.ptr.i19, i64 %sub.i22, ptr nonnull %add.ptr.i21) #24
   %8 = zext i1 %call59 to i32
   br label %return
 
@@ -3765,7 +3765,7 @@ entry:
 for.cond:                                         ; preds = %if.end88
   %inc92 = add nuw i64 %i.037, 1
   %exitcond.not = icmp eq i64 %inc92, %subject_alt_name_count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !39
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.037 = phi i64 [ %inc92, %for.cond ], [ 0, %entry ]
@@ -4282,19 +4282,19 @@ if.end16.i:                                       ; preds = %if.then14.i, %if.th
 
 _ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %do.end.i
   %conv19.i = zext nneg i32 %call10.i to i64
-  %call20.i = tail call fastcc noundef i32 @_ZL27ssl_handshaker_do_handshakeP18tsi_ssl_handshakerPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %self, ptr noundef %error), !range !40
+  %call20.i = tail call fastcc noundef i32 @_ZL27ssl_handshaker_do_handshakeP18tsi_ssl_handshakerPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %self, ptr noundef %error)
   %cmp2158 = icmp eq i32 %call20.i, 16
   br i1 %cmp2158, label %while.body22, label %while.end
 
 while.body22:                                     ; preds = %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %if.end26
-  %call23 = call fastcc noundef i32 @_ZL34ssl_handshaker_write_output_bufferP14tsi_handshakerPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef nonnull %bytes_written, ptr noundef %error), !range !41
+  %call23 = call fastcc noundef i32 @_ZL34ssl_handshaker_write_output_bufferP14tsi_handshakerPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef nonnull %bytes_written, ptr noundef %error)
   %cmp24.not = icmp eq i32 %call23, 0
   br i1 %cmp24.not, label %if.end26, label %return
 
 if.end26:                                         ; preds = %while.body22
-  %call27 = tail call fastcc noundef i32 @_ZL27ssl_handshaker_do_handshakeP18tsi_ssl_handshakerPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef %error), !range !40
+  %call27 = tail call fastcc noundef i32 @_ZL27ssl_handshaker_do_handshakeP18tsi_ssl_handshakerPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef %error)
   %cmp21 = icmp eq i32 %call27, 16
-  br i1 %cmp21, label %while.body22, label %while.end, !llvm.loop !42
+  br i1 %cmp21, label %while.body22, label %while.end, !llvm.loop !38
 
 while.end:                                        ; preds = %if.end26, %if.end16.i, %if.then5.i, %if.then.i, %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %bytes_written_to_openssl.067 = phi i64 [ %conv19.i, %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %remaining_bytes_to_write_to_openssl_size.061, %if.then.i ], [ %remaining_bytes_to_write_to_openssl_size.061, %if.then5.i ], [ %remaining_bytes_to_write_to_openssl_size.061, %if.end16.i ], [ %conv19.i, %if.end26 ]
@@ -4302,7 +4302,7 @@ while.end:                                        ; preds = %if.end26, %if.end16
   %sub = sub i64 %remaining_bytes_to_write_to_openssl_size.061, %bytes_written_to_openssl.067
   %add.ptr = getelementptr inbounds i8, ptr %remaining_bytes_to_write_to_openssl.060, i64 %bytes_written_to_openssl.067
   %cmp13.not = icmp eq i64 %sub, 0
-  br i1 %cmp13.not, label %if.end29, label %land.lhs.true14, !llvm.loop !43
+  br i1 %cmp13.not, label %if.end29, label %land.lhs.true14, !llvm.loop !39
 
 if.end29:                                         ; preds = %land.lhs.true14, %while.end
   %status.0.lcssa = phi i32 [ %status.059, %land.lhs.true14 ], [ %status.1.lcssa, %while.end ]
@@ -4310,7 +4310,7 @@ if.end29:                                         ; preds = %land.lhs.true14, %w
   br i1 %cmp30.not, label %if.end32, label %return
 
 if.end32:                                         ; preds = %if.end10, %if.end29
-  %call33 = call fastcc noundef i32 @_ZL34ssl_handshaker_write_output_bufferP14tsi_handshakerPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef nonnull %bytes_written, ptr noundef %error), !range !41
+  %call33 = call fastcc noundef i32 @_ZL34ssl_handshaker_write_output_bufferP14tsi_handshakerPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef nonnull %bytes_written, ptr noundef %error)
   %cmp34.not = icmp eq i32 %call33, 0
   br i1 %cmp34.not, label %if.end36, label %return
 
@@ -4348,7 +4348,7 @@ if.then39:                                        ; preds = %_ZL25ssl_handshaker
 if.else:                                          ; preds = %if.end36, %if.then.i50, %_ZL25ssl_handshaker_get_resultP18tsi_ssl_handshaker.exit
   store ptr null, ptr %unused_bytes, align 8
   store i64 0, ptr %unused_bytes_size, align 8
-  %call40 = call fastcc noundef i32 @_ZL19ssl_bytes_remainingP18tsi_ssl_handshakerPPhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %self, ptr noundef nonnull %unused_bytes, ptr noundef nonnull %unused_bytes_size, ptr noundef %error), !range !41
+  %call40 = call fastcc noundef i32 @_ZL19ssl_bytes_remainingP18tsi_ssl_handshakerPPhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %self, ptr noundef nonnull %unused_bytes, ptr noundef nonnull %unused_bytes_size, ptr noundef %error)
   %cmp41.not = icmp eq i32 %call40, 0
   br i1 %cmp41.not, label %if.end43, label %return
 
@@ -4370,7 +4370,7 @@ if.then47:                                        ; preds = %if.then45
 
 if.end50:                                         ; preds = %if.end43
   %10 = load ptr, ptr %unused_bytes, align 8
-  %call51 = call fastcc noundef i32 @_ZL28ssl_handshaker_result_createP18tsi_ssl_handshakerPhmPP21tsi_handshaker_resultPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %self, ptr noundef %10, i64 noundef %8, ptr noundef %handshaker_result, ptr noundef %error), !range !44
+  %call51 = call fastcc noundef i32 @_ZL28ssl_handshaker_result_createP18tsi_ssl_handshakerPhmPP21tsi_handshaker_resultPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %self, ptr noundef %10, i64 noundef %8, ptr noundef %handshaker_result, ptr noundef %error)
   %cmp52 = icmp eq i32 %call51, 0
   br i1 %cmp52, label %if.then53, label %return
 
@@ -4385,7 +4385,7 @@ return:                                           ; preds = %while.body22, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL34ssl_handshaker_write_output_bufferP14tsi_handshakerPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef %self, ptr nocapture noundef %bytes_written, ptr noundef %error) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 8) i32 @_ZL34ssl_handshaker_write_output_bufferP14tsi_handshakerPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef %self, ptr nocapture noundef %bytes_written, ptr noundef %error) unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %bytes_written, align 8
   %outgoing_bytes_buffer_size = getelementptr inbounds i8, ptr %self, i64 48
@@ -4462,7 +4462,7 @@ if.then:                                          ; preds = %if.end21.i
   %cmp.i = icmp eq ptr %call4, null
   %cmp3.i = icmp ugt i64 %sub, 2147483647
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp3.i
-  br i1 %or.cond, label %if.then.i, label %do.end.i, !llvm.loop !45
+  br i1 %or.cond, label %if.then.i, label %do.end.i, !llvm.loop !40
 
 do.end:                                           ; preds = %if.end21.i, %if.end19.i, %if.then5.i, %if.then.i, %if.then12.i
   %offset.024 = phi i64 [ %offset.030, %if.then12.i ], [ %offset.030, %if.end19.i ], [ %offset.0.lcssa, %if.then5.i ], [ %offset.0.lcssa, %if.then.i ], [ %offset.030, %if.end21.i ]
@@ -4474,7 +4474,7 @@ do.end:                                           ; preds = %if.end21.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL27ssl_handshaker_do_handshakeP18tsi_ssl_handshakerPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef %impl, ptr noundef %error) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 17) i32 @_ZL27ssl_handshaker_do_handshakeP18tsi_ssl_handshakerPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef %impl, ptr noundef %error) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %err_str = alloca [256 x i8], align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4550,8 +4550,8 @@ _ZN4absl12lts_202308028AlphaNumC2EPKc.exit:       ; preds = %if.then16, %cond.tr
   store i64 2, ptr %ref.tmp19, align 8
   %6 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   store ptr @.str.62, ptr %6, align 8
-  %call.i.i.i.i16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %err_str) #24
-  store i64 %call.i.i.i.i16, ptr %ref.tmp20, align 8
+  %call.i.i.i.i17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %err_str) #24
+  store i64 %call.i.i.i.i17, ptr %ref.tmp20, align 8
   %7 = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
   store ptr %err_str, ptr %7, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp20)
@@ -4569,7 +4569,7 @@ return:                                           ; preds = %if.else, %sw.bb, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL19ssl_bytes_remainingP18tsi_ssl_handshakerPPhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly %impl, ptr noundef %bytes_remaining, ptr noundef writeonly %bytes_remaining_size, ptr noundef %error) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 8) i32 @_ZL19ssl_bytes_remainingP18tsi_ssl_handshakerPPhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly %impl, ptr noundef %bytes_remaining, ptr noundef writeonly %bytes_remaining_size, ptr noundef %error) unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %impl, null
   %cmp1 = icmp eq ptr %bytes_remaining, null
@@ -4630,7 +4630,7 @@ return:                                           ; preds = %if.then20, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL28ssl_handshaker_result_createP18tsi_ssl_handshakerPhmPP21tsi_handshaker_resultPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %handshaker, ptr noundef %unused_bytes, i64 noundef %unused_bytes_size, ptr nocapture noundef writeonly %handshaker_result, ptr noundef %error) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZL28ssl_handshaker_result_createP18tsi_ssl_handshakerPhmPP21tsi_handshaker_resultPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %handshaker, ptr noundef %unused_bytes, i64 noundef %unused_bytes_size, ptr nocapture noundef writeonly %handshaker_result, ptr noundef %error) unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %handshaker, null
   br i1 %cmp, label %if.then, label %lor.lhs.false2
@@ -4760,7 +4760,7 @@ for.body:                                         ; preds = %if.end9, %for.body
   %inc29 = add nuw i64 %i.053, 1
   %11 = load i64, ptr %property_count, align 8
   %cmp27 = icmp ult i64 %inc29, %11
-  br i1 %cmp27, label %for.body, label %for.end, !llvm.loop !46
+  br i1 %cmp27, label %for.body, label %for.end, !llvm.loop !41
 
 for.end:                                          ; preds = %for.body, %if.end9
   %12 = load ptr, ptr %peer, align 8
@@ -4869,7 +4869,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL44ssl_handshaker_result_create_frame_protectorPK21tsi_handshaker_resultPmPP19tsi_frame_protector(ptr nocapture noundef %self, ptr noundef %max_output_protected_frame_size, ptr nocapture noundef writeonly %protector) #3 {
+define internal noundef range(i32 0, 8) i32 @_ZL44ssl_handshaker_result_create_frame_protectorPK21tsi_handshaker_resultPmPP19tsi_frame_protector(ptr nocapture noundef %self, ptr noundef %max_output_protected_frame_size, ptr nocapture noundef writeonly %protector) #3 {
 entry:
   %call = tail call ptr @gpr_zalloc(i64 noundef 48)
   %cmp.not = icmp eq ptr %max_output_protected_frame_size, null
@@ -5377,7 +5377,7 @@ for.inc:                                          ; preds = %for.body, %if.then3
   %5 = phi i64 [ %1, %for.body ], [ %.pre, %if.then3 ]
   %inc = add nuw i64 %i.021, 1
   %cmp1 = icmp ult i64 %inc, %5
-  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !47
+  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !42
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %ssl_contexts8 = getelementptr inbounds i8, ptr %factory, i64 16
@@ -5604,45 +5604,40 @@ attributes #25 = { noreturn nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 13}
-!7 = distinct !{!7, !5}
-!8 = !{!9, !11}
-!9 = distinct !{!9, !10, !"_ZN9grpc_core14MakeRefCountedIN3tsi18SslSessionLRUCacheEJRmEEENS_13RefCountedPtrIT_EEDpOT0_: %agg.result"}
-!10 = distinct !{!10, !"_ZN9grpc_core14MakeRefCountedIN3tsi18SslSessionLRUCacheEJRmEEENS_13RefCountedPtrIT_EEDpOT0_"}
-!11 = distinct !{!11, !12, !"_ZN3tsi18SslSessionLRUCache6CreateEm: %agg.result"}
-!12 = distinct !{!12, !"_ZN3tsi18SslSessionLRUCache6CreateEm"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN9grpc_core10RefCountedIN3tsi18SslSessionLRUCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
-!15 = distinct !{!15, !"_ZN9grpc_core10RefCountedIN3tsi18SslSessionLRUCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
+!6 = distinct !{!6, !5}
+!7 = !{!8, !10}
+!8 = distinct !{!8, !9, !"_ZN9grpc_core14MakeRefCountedIN3tsi18SslSessionLRUCacheEJRmEEENS_13RefCountedPtrIT_EEDpOT0_: %agg.result"}
+!9 = distinct !{!9, !"_ZN9grpc_core14MakeRefCountedIN3tsi18SslSessionLRUCacheEJRmEEENS_13RefCountedPtrIT_EEDpOT0_"}
+!10 = distinct !{!10, !11, !"_ZN3tsi18SslSessionLRUCache6CreateEm: %agg.result"}
+!11 = distinct !{!11, !"_ZN3tsi18SslSessionLRUCache6CreateEm"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN9grpc_core10RefCountedIN3tsi18SslSessionLRUCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
+!14 = distinct !{!14, !"_ZN9grpc_core10RefCountedIN3tsi18SslSessionLRUCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN9grpc_core10RefCountedIN3tsi18SslSessionLRUCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
-!20 = distinct !{!20, !"_ZN9grpc_core10RefCountedIN3tsi18SslSessionLRUCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
-!23 = distinct !{!23, !"_ZN9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN9grpc_core10RefCountedIN3tsi18SslSessionLRUCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
+!19 = distinct !{!19, !"_ZN9grpc_core10RefCountedIN3tsi18SslSessionLRUCacheENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
+!22 = distinct !{!22, !"_ZN9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
+!23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZSt19static_pointer_castIN9grpc_core12experimental7CrlImplENS1_3CrlEESt10shared_ptrIT_ERKS4_IT0_E: %agg.result"}
-!31 = distinct !{!31, !"_ZSt19static_pointer_castIN9grpc_core12experimental7CrlImplENS1_3CrlEESt10shared_ptrIT_ERKS4_IT0_E"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
-!34 = distinct !{!34, !"_ZN9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZSt19static_pointer_castIN9grpc_core12experimental7CrlImplENS1_3CrlEESt10shared_ptrIT_ERKS4_IT0_E: %agg.result"}
+!30 = distinct !{!30, !"_ZSt19static_pointer_castIN9grpc_core12experimental7CrlImplENS1_3CrlEESt10shared_ptrIT_ERKS4_IT0_E"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: %agg.result"}
+!33 = distinct !{!33, !"_ZN9grpc_core10RefCountedIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerENS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
+!34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
-!36 = !{i32 0, i32 2}
+!36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
-!40 = !{i32 0, i32 17}
-!41 = !{i32 0, i32 8}
+!40 = distinct !{!40, !5}
+!41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = !{i32 0, i32 3}
-!45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}
-!47 = distinct !{!47, !5}

@@ -14385,7 +14385,7 @@ lpad.i:                                           ; preds = %lpad.loopexit.split
   br label %ehcleanup
 
 for.end.i:                                        ; preds = %for.inc.i, %invoke.cont
-  invoke void @_ZN4cvc58internal11NodeManager29mkMutualDatatypeTypesInternalERKSt6vectorINS0_5DTypeESaIS3_EERKSt3setINS0_8TypeNodeESt4lessIS9_ESaIS9_EE(ptr nonnull sret(%"class.std::vector.236") align 8 %result, ptr noundef nonnull align 8 dereferenceable(3360) %this, ptr noundef nonnull align 8 dereferenceable(24) %datatypes, ptr noundef nonnull align 8 dereferenceable(48) %unresolvedTypes.i)
+  invoke void @_ZN4cvc58internal11NodeManager29mkMutualDatatypeTypesInternalERKSt6vectorINS0_5DTypeESaIS3_EERKSt3setINS0_8TypeNodeESt4lessIS9_ESaIS9_EE(ptr nonnull sret(%"class.std::vector.236") align 8 %result, ptr noundef nonnull align 8 dereferenceable(3360) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %datatypes, ptr noundef nonnull align 8 dereferenceable(48) %unresolvedTypes.i)
           to label %invoke.cont7.i unwind label %lpad.loopexit.split-lp.i
 
 invoke.cont7.i:                                   ; preds = %for.end.i
@@ -25846,7 +25846,7 @@ entry:
 declare void @_ZN4cvc58internal4expr4attr16AttributeManager16deleteAttributesERKSt6vectorIPKNS2_17AttributeUniqueIdESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(344), ptr noundef nonnull align 1) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal11NodeManager18getKindForFunctionENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %fun) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -1, 221) i32 @_ZN4cvc58internal11NodeManager18getKindForFunctionENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %fun) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tn = alloca %"class.cvc5::internal::TypeNode", align 8
   call void @_ZNK4cvc58internal12NodeTemplateILb0EE7getTypeEb(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %tn, ptr noundef nonnull align 8 dereferenceable(8) %fun, i1 noundef zeroext false)
@@ -27299,8 +27299,8 @@ if.end.i.i.i:                                     ; preds = %if.end13
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 67108863
   %4 = shl nuw nsw i32 %bf.clear.i.i.i.i, 3
   %add.ptr.i.idx.i.i.i = zext nneg i32 %4 to i64
-  %5 = getelementptr i8, ptr %3, i64 %add.ptr.i.idx.i.i.i
-  %add.ptr.i.ptr.i.i.i = getelementptr i8, ptr %5, i64 16
+  %5 = getelementptr inbounds i8, ptr %3, i64 %add.ptr.i.idx.i.i.i
+  %add.ptr.i.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %cmp5.not7.i.i.i = icmp eq i32 %bf.clear.i.i.i.i, 0
   br i1 %cmp5.not7.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIPN4cvc58internal4expr9NodeValueES5_NS_9_IdentityENS3_25NodeValuePoolHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS5_EEmRKT_.exit, label %while.body.preheader.i.i.i
 
@@ -27934,8 +27934,8 @@ if.end.i.i.i:                                     ; preds = %if.else
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 67108863
   %11 = shl nuw nsw i32 %bf.clear.i.i.i.i, 3
   %add.ptr.i.idx.i.i.i = zext nneg i32 %11 to i64
-  %12 = getelementptr i8, ptr %10, i64 %add.ptr.i.idx.i.i.i
-  %add.ptr.i.ptr.i.i.i = getelementptr i8, ptr %12, i64 16
+  %12 = getelementptr inbounds i8, ptr %10, i64 %add.ptr.i.idx.i.i.i
+  %add.ptr.i.ptr.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %cmp5.not7.i.i.i = icmp eq i32 %bf.clear.i.i.i.i, 0
   br i1 %cmp5.not7.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIPN4cvc58internal4expr9NodeValueES5_NS_9_IdentityENS3_25NodeValuePoolHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS5_.exit, label %while.body.preheader.i.i.i
 
@@ -30899,8 +30899,8 @@ if.end.i.i.i:                                     ; preds = %if.end15
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 67108863
   %4 = shl nuw nsw i32 %bf.clear.i.i.i.i, 3
   %add.ptr.i.idx.i.i.i = zext nneg i32 %4 to i64
-  %5 = getelementptr i8, ptr %3, i64 %add.ptr.i.idx.i.i.i
-  %add.ptr.i.ptr.i.i.i = getelementptr i8, ptr %5, i64 16
+  %5 = getelementptr inbounds i8, ptr %3, i64 %add.ptr.i.idx.i.i.i
+  %add.ptr.i.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %cmp5.not7.i.i.i = icmp eq i32 %bf.clear.i.i.i.i, 0
   br i1 %cmp5.not7.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIPN4cvc58internal4expr9NodeValueES5_NS_9_IdentityENS3_25NodeValuePoolHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS5_.exit, label %while.body.preheader.i.i.i
 

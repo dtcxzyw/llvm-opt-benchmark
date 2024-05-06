@@ -199,7 +199,7 @@ $_ZN5vcpkg6Checks21msg_exit_with_messageIJNS_3msg9env_var_tENS2_7value_tEEJNS_10
 @switch.table._ZN5vcpkg15to_zstring_viewENS_15CPUArchitectureE.11 = private unnamed_addr constant [12 x i64] [i64 3, i64 3, i64 3, i64 5, i64 7, i64 5, i64 7, i64 7, i64 7, i64 11, i64 11, i64 6], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN5vcpkg14get_process_idEv() local_unnamed_addr #0 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @_ZN5vcpkg14get_process_idEv() local_unnamed_addr #0 {
   %1 = tail call i32 @getpid() #23
   %2 = sext i32 %1 to i64
   ret i64 %2

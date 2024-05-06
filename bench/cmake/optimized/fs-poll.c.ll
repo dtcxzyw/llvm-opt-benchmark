@@ -33,7 +33,7 @@ define dso_local noundef i32 @uv_fs_poll_init(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_fs_poll_start(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 {
+define dso_local range(i32 -2147483648, 1) i32 @uv_fs_poll_start(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call i32 @uv_is_active(ptr noundef %0) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %62
@@ -473,7 +473,7 @@ define internal void @timer_close_cb(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_fs_poll_getpath(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -105, 1) i32 @uv_fs_poll_getpath(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @uv_is_active(ptr noundef %0) #7
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %6

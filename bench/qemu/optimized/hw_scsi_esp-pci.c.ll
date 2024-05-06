@@ -357,7 +357,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @esp_pci_io_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 4294967296) i64 @esp_pci_io_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i12 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -368,7 +368,7 @@ entry:
 if.then:                                          ; preds = %entry
   %esp = getelementptr inbounds i8, ptr %opaque, i64 2920
   %shr = lshr i64 %addr, 2
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw nsw i64 %shr to i32
   %call = tail call i64 @esp_reg_read(ptr noundef nonnull %esp, i32 noundef %conv) #5
   %conv1 = trunc i64 %call to i32
   br label %if.end16
@@ -620,7 +620,7 @@ do.end:                                           ; preds = %if.end13, %entry
 
 if.then34:                                        ; preds = %do.end
   %shr35 = lshr i64 %addr.addr.0, 2
-  %conv36 = trunc i64 %shr35 to i32
+  %conv36 = trunc nuw nsw i64 %shr35 to i32
   tail call void @esp_reg_write(ptr noundef nonnull %esp, i32 noundef %conv36, i64 noundef %val.addr.0) #5
   br label %if.end57
 
@@ -1138,7 +1138,7 @@ for.end28:                                        ; preds = %for.body14
   %arrayidx33 = getelementptr i8, ptr %call4, i64 126
   store i8 %conv32, ptr %arrayidx33, align 1
   %6 = lshr i16 %sub, 8
-  %conv35 = trunc i16 %6 to i8
+  %conv35 = trunc nuw i16 %6 to i8
   %arrayidx36 = getelementptr i8, ptr %call4, i64 127
   store i8 %conv35, ptr %arrayidx36, align 1
   br label %return

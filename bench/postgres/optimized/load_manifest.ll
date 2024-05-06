@@ -31,9 +31,9 @@ define dso_local ptr @manifest_files_create(i32 noundef %0, ptr noundef %1) loca
   %8 = select i1 %7, double 0x41F0000000000000, double %6
   %9 = fptoui double %8 to i64
   %10 = tail call i64 @llvm.umax.i64(i64 %9, i64 2)
-  %11 = tail call i64 @llvm.ctpop.i64(i64 %10), !range !5
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
   %12 = icmp ult i64 %11, 2
-  %13 = tail call i64 @llvm.ctlz.i64(i64 %10, i1 true), !range !5
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %14 = sub nuw nsw i64 64, %13
   %15 = shl nuw i64 1, %14
   %.0.i.i = select i1 %12, i64 %10, i64 %15
@@ -51,9 +51,9 @@ manifest_files_compute_size.exit:                 ; preds = %2
   %20 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %19, ptr %20, align 8
   %21 = tail call i64 @llvm.umax.i64(i64 %.0.i.i, i64 2)
-  %22 = tail call i64 @llvm.ctpop.i64(i64 %21), !range !5
+  %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %21)
   %23 = icmp ult i64 %22, 2
-  %24 = tail call i64 @llvm.ctlz.i64(i64 %21, i1 true), !range !5
+  %24 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %21, i1 true)
   %25 = sub nuw nsw i64 64, %24
   %26 = shl nuw i64 1, %25
   %.0.i.i.i = select i1 %23, i64 %21, i64 %26
@@ -116,9 +116,9 @@ define dso_local void @manifest_files_grow(ptr nocapture noundef %0, i64 noundef
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @llvm.umax.i64(i64 %1, i64 2)
-  %7 = tail call i64 @llvm.ctpop.i64(i64 %6), !range !5
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %8 = icmp ult i64 %7, 2
-  %9 = tail call i64 @llvm.ctlz.i64(i64 %6, i1 true), !range !5
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %6, i1 true)
   %10 = sub nuw nsw i64 64, %9
   %11 = shl nuw i64 1, %10
   %.0.i.i = select i1 %8, i64 %6, i64 %11
@@ -135,9 +135,9 @@ manifest_files_compute_size.exit:                 ; preds = %2
   %15 = tail call ptr @pg_malloc0(i64 noundef %12) #17
   store ptr %15, ptr %4, align 8
   %16 = tail call i64 @llvm.umax.i64(i64 %.0.i.i, i64 2)
-  %17 = tail call i64 @llvm.ctpop.i64(i64 %16), !range !5
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
   %18 = icmp ult i64 %17, 2
-  %19 = tail call i64 @llvm.ctlz.i64(i64 %16, i1 true), !range !5
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %16, i1 true)
   %20 = sub nuw nsw i64 64, %19
   %21 = shl nuw i64 1, %20
   %.0.i.i.i = select i1 %18, i64 %16, i64 %21
@@ -189,7 +189,7 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
   %44 = add i32 %.057, 1
   %45 = zext i32 %44 to i64
   %46 = icmp ugt i64 %3, %45
-  br i1 %46, label %.lr.ph, label %.lr.ph65.preheader, !llvm.loop !6
+  br i1 %46, label %.lr.ph, label %.lr.ph65.preheader, !llvm.loop !5
 
 .lr.ph65.preheader:                               ; preds = %43, %.lr.ph, %36
   %.04962.ph = phi i32 [ %.057, %36 ], [ %.057, %.lr.ph ], [ 0, %43 ]
@@ -235,7 +235,7 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
   %66 = add i32 %.163, 1
   %67 = zext i32 %66 to i64
   %68 = icmp ugt i64 %3, %67
-  br i1 %68, label %.lr.ph65, label %._crit_edge66, !llvm.loop !8
+  br i1 %68, label %.lr.ph65, label %._crit_edge66, !llvm.loop !7
 
 ._crit_edge66:                                    ; preds = %63, %manifest_files_update_parameters.exit
   tail call void @pfree(ptr noundef %5) #17
@@ -381,7 +381,7 @@ manifest_files_distance.exit:                     ; preds = %30, %35
   %67 = getelementptr %struct.manifest_file, ptr %19, i64 %66
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.073133, ptr noundef nonnull align 8 dereferenceable(40) %67, i64 40, i1 false)
   %.not75 = icmp eq i32 %65, %.069108
-  br i1 %.not75, label %.sink.split, label %.lr.ph135, !llvm.loop !9
+  br i1 %.not75, label %.sink.split, label %.lr.ph135, !llvm.loop !8
 
 68:                                               ; preds = %manifest_files_distance.exit
   %69 = and i32 %.val76, %40
@@ -449,7 +449,7 @@ define dso_local noundef ptr @manifest_files_lookup(ptr nocapture noundef readon
   %.01214.i = phi i32 [ %21, %19 ], [ %7, %2 ]
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %1) #19
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %1) #19
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %manifest_files_lookup_hash_internal.exit, label %19
 
@@ -485,7 +485,7 @@ define dso_local noundef ptr @manifest_files_lookup_hash(ptr nocapture noundef r
   %.01214.i = phi i32 [ %19, %17 ], [ %5, %3 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %1) #19
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %1) #19
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %manifest_files_lookup_hash_internal.exit, label %17
 
@@ -677,7 +677,7 @@ define dso_local void @manifest_files_start_iterate(ptr nocapture noundef readon
   %11 = add i32 %.01113, 1
   %12 = zext i32 %11 to i64
   %13 = icmp ugt i64 %3, %12
-  br i1 %13, label %6, label %._crit_edge, !llvm.loop !10
+  br i1 %13, label %6, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %10, %6, %2
   %.0 = phi i32 [ -1, %2 ], [ %.01113, %6 ], [ -1, %10 ]
@@ -740,7 +740,7 @@ define dso_local ptr @manifest_files_iterate(ptr nocapture noundef readonly %0, 
   %25 = phi i8 [ 1, %23 ], [ %8, %10 ]
   %26 = load i32, ptr %14, align 8
   %27 = icmp eq i32 %26, 1
-  br i1 %27, label %28, label %7, !llvm.loop !11
+  br i1 %27, label %28, label %7, !llvm.loop !10
 
 28:                                               ; preds = %7, %24
   %.0 = phi ptr [ %14, %24 ], [ null, %7 ]
@@ -814,7 +814,7 @@ manifest_files_distance.exit:                     ; preds = %14, %20
   %31 = add i32 %.05769, 1
   %32 = zext i32 %31 to i64
   %33 = icmp ugt i64 %30, %32
-  br i1 %33, label %8, label %.preheader, !llvm.loop !12
+  br i1 %33, label %8, label %.preheader, !llvm.loop !11
 
 .lr.ph78:                                         ; preds = %.preheader, %.lr.ph78
   %34 = phi i64 [ %41, %.lr.ph78 ], [ 0, %.preheader ]
@@ -832,7 +832,7 @@ manifest_files_distance.exit:                     ; preds = %14, %20
   %40 = add i32 %.15875, 1
   %41 = zext i32 %40 to i64
   %42 = icmp ugt i64 %30, %41
-  br i1 %42, label %.lr.ph78, label %._crit_edge, !llvm.loop !13
+  br i1 %42, label %.lr.ph78, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph78, %1, %.preheader
   %.lcssa90 = phi i64 [ 0, %.preheader ], [ 0, %1 ], [ %30, %.lr.ph78 ]
@@ -888,7 +888,7 @@ define dso_local ptr @load_backup_manifests(i32 noundef %0, ptr nocapture nounde
   store ptr %9, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret ptr %5
@@ -937,7 +937,7 @@ define dso_local noundef ptr @load_backup_manifest(ptr noundef %0) local_unnamed
   %20 = sdiv i64 %19, 100
   %21 = call i64 @llvm.smax.i64(i64 %20, i64 256)
   %22 = call i64 @llvm.umin.i64(i64 %21, i64 4294967295)
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %24 = call ptr @manifest_files_create(i32 noundef %23, ptr noundef null)
   %25 = call ptr @pg_malloc(i64 noundef %19) #17
   %26 = call i64 @read(i32 noundef %6, ptr noundef %25, i64 noundef %19) #17
@@ -1008,7 +1008,7 @@ define internal void @combinebackup_per_file_cb(ptr nocapture noundef readonly %
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %11 = trunc i64 %10 to i32
   %12 = tail call i32 @hash_bytes(ptr noundef %1, i32 noundef %11) #17
-  %13 = call fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noundef %9, ptr noundef %1, i32 noundef %12, ptr noundef nonnull %7)
+  %13 = call fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noundef %9, ptr noundef %1, i32 noundef %12, ptr noundef nonnull writeonly %7)
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %17
@@ -1139,13 +1139,12 @@ attributes #20 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

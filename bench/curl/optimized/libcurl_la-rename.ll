@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @Curl_rename(ptr nocapture noundef readonly %oldpath, ptr nocapture noundef readonly %newpath) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @Curl_rename(ptr nocapture noundef readonly %oldpath, ptr nocapture noundef readonly %newpath) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @rename(ptr noundef %oldpath, ptr noundef %newpath) #2
   %tobool.not = icmp ne i32 %call, 0

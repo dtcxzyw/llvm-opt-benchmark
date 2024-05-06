@@ -113,7 +113,7 @@ declare i32 @iconv_close(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @is_object_reference(ptr noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @is_object_reference(ptr noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -786,7 +786,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 74:                                               ; preds = %.critedge
   %75 = getelementptr inbounds i8, ptr %2, i64 %3
   store ptr %75, ptr %8, align 8
-  %76 = call i32 @is_object_reference(ptr noundef %.2.lcssa, ptr noundef nonnull %8, ptr noundef nonnull %9), !range !4
+  %76 = call i32 @is_object_reference(ptr noundef %.2.lcssa, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not249 = icmp eq i32 %76, 0
   br i1 %.not249, label %182, label %77
 
@@ -1671,7 +1671,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %204, label %.lr.ph372, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %202, %.lr.ph372, %.lr.ph372, %197
-  %205 = call i32 @is_object_reference(ptr noundef nonnull %.2227.lcssa, ptr noundef nonnull %6, ptr noundef null), !range !4
+  %205 = call i32 @is_object_reference(ptr noundef nonnull %.2227.lcssa, ptr noundef nonnull %6, ptr noundef null)
   %206 = load ptr, ptr %6, align 8
   %207 = ptrtoint ptr %206 to i64
   %208 = ptrtoint ptr %.2227.lcssa to i64
@@ -2081,7 +2081,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
 
 105:                                              ; preds = %71
   store ptr %.0120187.ptr.lcssa, ptr %7, align 8
-  %106 = call i32 @is_object_reference(ptr noundef nonnull %.lcssa, ptr noundef nonnull %7, ptr noundef null), !range !4
+  %106 = call i32 @is_object_reference(ptr noundef nonnull %.lcssa, ptr noundef nonnull %7, ptr noundef null)
   %.not149 = icmp eq i32 %106, 0
   br i1 %.not149, label %107, label %..critedge7_crit_edge
 
@@ -2489,4 +2489,3 @@ attributes #17 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i8 @_ZN3std2io5error14repr_bitpacked14kind_from_prim17h3d10874abefbcd8cE(i32 %0) unnamed_addr #0 {
+define hidden range(i8 0, 42) i8 @_ZN3std2io5error14repr_bitpacked14kind_from_prim17h3d10874abefbcd8cE(i32 %0) unnamed_addr #0 {
 switch.lookup:
   %spec.select43 = tail call i32 @llvm.umin.i32(i32 %0, i32 41)
   %spec.select = trunc nuw nsw i32 %spec.select43 to i8

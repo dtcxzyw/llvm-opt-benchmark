@@ -134,8 +134,8 @@ while.cond.outer.backedge:                        ; preds = %if.end41, %if.end75
 
 if.end41:                                         ; preds = %if.end34
   %not = xor i64 %comp.0138199, -1
-  %6 = tail call i64 @llvm.cttz.i64(i64 %not, i1 false), !range !7
-  %cast.i = trunc i64 %6 to i32
+  %6 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not, i1 false)
+  %cast.i = trunc nuw nsw i64 %6 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %cast.i, i32 %bytes_to_check.1134203)
   %add45 = add i32 %cond, %zrun_len.1137200
   %sub46 = sub i32 %bytes_to_check.1134203, %cond
@@ -184,8 +184,8 @@ if.then72:                                        ; preds = %if.end66
   br label %while.cond.outer.backedge
 
 if.end75:                                         ; preds = %if.end66
-  %7 = tail call i64 @llvm.cttz.i64(i64 %comp.1, i1 false), !range !7
-  %cast.i118 = trunc i64 %7 to i32
+  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %comp.1, i1 false)
+  %cast.i118 = trunc nuw nsw i64 %7 to i32
   %cond82 = tail call i32 @llvm.smin.i32(i32 %cast.i118, i32 %bytes_to_check.2)
   %add83 = add i32 %cond82, %nzrun_len.3
   %sub84 = sub i32 %bytes_to_check.2, %cond82
@@ -215,7 +215,7 @@ if.end108:                                        ; preds = %if.then89
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr105, ptr align 1 %add.ptr103, i64 %idx.ext101, i1 false)
   %add11 = add i32 %add94, 2
   %cmp12 = icmp sgt i32 %add11, %dlen
-  br i1 %cmp12, label %return, label %if.end14, !llvm.loop !8
+  br i1 %cmp12, label %return, label %if.end14, !llvm.loop !7
 
 while.end109:                                     ; preds = %while.cond
   %cmp110.not = icmp eq i32 %nzrun_len.0.ph209, 0
@@ -310,7 +310,7 @@ while.body17:                                     ; preds = %land.rhs
   %inc18 = add i32 %i.188, 1
   %dec = add nsw i64 %res.089, -1
   %tobool10.not = icmp eq i64 %dec, 0
-  br i1 %tobool10.not, label %while.cond21.preheader, label %land.rhs, !llvm.loop !9
+  br i1 %tobool10.not, label %while.cond21.preheader, label %land.rhs, !llvm.loop !8
 
 land.rhs24:                                       ; preds = %while.cond21.preheader, %while.body30
   %zrun_len.294 = phi i32 [ %add35, %while.body30 ], [ %3, %while.cond21.preheader ]
@@ -327,7 +327,7 @@ while.body30:                                     ; preds = %land.rhs24
   %add32 = add i32 %i.293, 8
   %add35 = add i32 %zrun_len.294, 8
   %cmp22 = icmp slt i32 %add32, %slen
-  br i1 %cmp22, label %land.rhs24, label %while.end37, !llvm.loop !10
+  br i1 %cmp22, label %land.rhs24, label %while.end37, !llvm.loop !9
 
 while.end37:                                      ; preds = %land.rhs24, %while.body30, %while.cond21.preheader
   %i.2.lcssa = phi i32 [ %i.1.lcssa, %while.cond21.preheader ], [ %add32, %while.body30 ], [ %i.293, %land.rhs24 ]
@@ -355,10 +355,10 @@ while.body51:                                     ; preds = %land.rhs41
   %inc52 = add i32 %zrun_len.3101, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %2
-  br i1 %exitcond.not, label %if.end55, label %land.rhs41, !llvm.loop !11
+  br i1 %exitcond.not, label %if.end55, label %land.rhs41, !llvm.loop !10
 
 if.end55.loopexit.split.loop.exit:                ; preds = %land.rhs41
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nsw i64 %indvars.iv to i32
   br label %if.end55
 
 if.end55:                                         ; preds = %land.rhs, %while.body51, %if.end55.loopexit.split.loop.exit, %while.end37
@@ -415,7 +415,7 @@ while.body89:                                     ; preds = %land.rhs79
   %inc91 = add nuw nsw i32 %nzrun_len.1107, 1
   %dec92 = add nsw i64 %res.1109, -1
   %tobool78.not = icmp eq i64 %dec92, 0
-  br i1 %tobool78.not, label %while.cond96.preheader, label %land.rhs79, !llvm.loop !12
+  br i1 %tobool78.not, label %while.cond96.preheader, label %land.rhs79, !llvm.loop !11
 
 while.body99:                                     ; preds = %while.cond96.preheader, %if.else122
   %i.6114 = phi i32 [ %add124, %if.else122 ], [ %i.5.lcssa, %while.cond96.preheader ]
@@ -449,13 +449,13 @@ while.body118:                                    ; preds = %while.cond109.prehe
   %arrayidx114 = getelementptr i8, ptr %new_buf, i64 %idxprom110
   %27 = load i8, ptr %arrayidx114, align 1
   %cmp116.not = icmp eq i8 %26, %27
-  br i1 %cmp116.not, label %if.end131, label %while.body118, !llvm.loop !13
+  br i1 %cmp116.not, label %if.end131, label %while.body118, !llvm.loop !12
 
 if.else122:                                       ; preds = %while.body99
   %add124 = add i32 %i.6114, 8
   %add127 = add i32 %nzrun_len.2113, 8
   %cmp97 = icmp slt i32 %add124, %slen
-  br i1 %cmp97, label %while.body99, label %if.end131, !llvm.loop !14
+  br i1 %cmp97, label %while.body99, label %if.end131, !llvm.loop !13
 
 if.end131:                                        ; preds = %land.rhs79, %if.else122, %while.body118, %while.cond96.preheader, %while.cond109.preheader
   %nzrun_len.4 = phi i32 [ %nzrun_len.2113, %while.cond109.preheader ], [ %15, %while.cond96.preheader ], [ %inc119, %while.body118 ], [ %add127, %if.else122 ], [ %nzrun_len.1107, %land.rhs79 ]
@@ -474,7 +474,7 @@ if.end140:                                        ; preds = %if.end131
   %conv143 = zext i32 %nzrun_len.4 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr142, ptr align 1 %add.ptr68, i64 %conv143, i1 false)
   %cmp = icmp slt i32 %i.8, %slen
-  br i1 %cmp, label %while.body, label %return, !llvm.loop !15
+  br i1 %cmp, label %while.body, label %return, !llvm.loop !14
 
 return:                                           ; preds = %while.body, %if.end55, %if.end59, %if.end63, %if.end131, %if.end140, %while.cond.preheader
   %retval.0 = phi i32 [ 0, %while.cond.preheader ], [ %add136, %if.end140 ], [ -1, %if.end131 ], [ -1, %if.end63 ], [ %d.0126, %if.end59 ], [ 0, %if.end55 ], [ -1, %while.body ]
@@ -485,7 +485,7 @@ return:                                           ; preds = %while.body, %if.end
 define dso_local i32 @xbzrle_encode_buffer(ptr noundef %old_buf, ptr noundef %new_buf, i32 noundef %slen, ptr noundef %dst, i32 noundef %dlen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @accel_func, align 8
-  %call = tail call i32 %0(ptr noundef %old_buf, ptr noundef %new_buf, i32 noundef %slen, ptr noundef %dst, i32 noundef %dlen) #8, !callees !16
+  %call = tail call i32 %0(ptr noundef %old_buf, ptr noundef %new_buf, i32 noundef %slen, ptr noundef %dst, i32 noundef %dlen) #8, !callees !15
   ret i32 %call
 }
 
@@ -554,7 +554,7 @@ if.end29:                                         ; preds = %if.end21
   %conv = zext i32 %1 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr31, ptr align 1 %add.ptr33, i64 %conv, i1 false)
   %cmp = icmp slt i32 %add26, %slen
-  br i1 %cmp, label %while.body, label %return, !llvm.loop !17
+  br i1 %cmp, label %while.body, label %return, !llvm.loop !16
 
 return:                                           ; preds = %while.body, %lor.lhs.false, %if.end, %if.end5, %if.end13, %if.end21, %if.end29, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ %add23, %if.end29 ], [ -1, %if.end21 ], [ -1, %if.end13 ], [ -1, %if.end5 ], [ -1, %if.end ], [ -1, %lor.lhs.false ], [ -1, %while.body ]
@@ -600,7 +600,7 @@ attributes #9 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 0, i64 65}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
@@ -608,6 +608,5 @@ attributes #9 = { noreturn nounwind }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = !{ptr @xbzrle_encode_buffer_avx512, ptr @xbzrle_encode_buffer_int}
-!17 = distinct !{!17, !6}
+!15 = !{ptr @xbzrle_encode_buffer_avx512, ptr @xbzrle_encode_buffer_int}
+!16 = distinct !{!16, !6}

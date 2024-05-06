@@ -80,7 +80,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.11 = private unnamed_addr constant [52 x i8] c"Abc_NtkOchestraction: The network check has failed.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkRewrite3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkRewrite3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.timespec, align 8
   %10 = alloca %struct.timespec, align 8
@@ -235,7 +235,7 @@ Abc_Clock.exit111:                                ; preds = %Abc_Clock.exit109, 
   br i1 %79, label %Extra_ProgressBarUpdate.exit, label %80
 
 80:                                               ; preds = %76, %75
-  %81 = trunc i64 %indvars.iv to i32
+  %81 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %59, i32 noundef %81, ptr noundef null) #20
   br label %Extra_ProgressBarUpdate.exit
 
@@ -1057,7 +1057,7 @@ declare void @Abc_NodeConeCollect(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Abc_NodeConeIsConst0_1(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Abc_NodeConeIsConst0_1(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp slt i32 %1, 7
   %4 = add nsw i32 %1, -6
   %5 = shl nuw i32 1, %4
@@ -1087,7 +1087,7 @@ define noundef i32 @Abc_NodeConeIsConst0_1(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Abc_NodeConeIsConst1_1(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Abc_NodeConeIsConst1_1(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp slt i32 %1, 7
   %4 = add nsw i32 %1, -6
   %5 = shl nuw i32 1, %4
@@ -1604,7 +1604,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
 
 37:                                               ; preds = %.preheader26.us.us.i, %37
   %indvars.iv64.i = phi i64 [ 0, %.preheader26.us.us.i ], [ %indvars.iv.next65.i, %37 ]
-  %38 = trunc i64 %indvars.iv64.i to i32
+  %38 = trunc nuw nsw i64 %indvars.iv64.i to i32
   %39 = and i32 %47, %38
   %.not.us.us.i = icmp ne i32 %39, 0
   %spec.select.i = sext i1 %.not.us.us.i to i32
@@ -1862,7 +1862,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #20
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #20
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1881,7 +1881,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1889,7 +1889,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkRefactor3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkRefactor3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.timespec, align 8
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.timespec, align 8
@@ -2005,7 +2005,7 @@ Abc_Clock.exit:                                   ; preds = %8, %19
   br i1 %72, label %Extra_ProgressBarUpdate.exit, label %73
 
 73:                                               ; preds = %69, %68
-  %74 = trunc i64 %indvars.iv to i32
+  %74 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %43, i32 noundef %74, ptr noundef null) #20
   %.val87.pre = load i32, ptr %66, align 4
   br label %Extra_ProgressBarUpdate.exit
@@ -2308,7 +2308,7 @@ declare ptr @Abc_NodeFindCut(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare void @Abc_NtkManCutStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkResubstitute3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkResubstitute3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.timespec, align 8
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.timespec, align 8
@@ -2483,7 +2483,7 @@ Abc_Clock.exit:                                   ; preds = %8, %22
   br i1 %102, label %Extra_ProgressBarUpdate.exit, label %103
 
 103:                                              ; preds = %99, %98
-  %104 = trunc i64 %indvars.iv220 to i32
+  %104 = trunc nuw nsw i64 %indvars.iv220 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %68, i32 noundef %104, ptr noundef null) #20
   %.val146.pre = load i32, ptr %96, align 4
   br label %Extra_ProgressBarUpdate.exit
@@ -3087,7 +3087,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubStart(i32 noundef %0) un
   %spec.select = select i1 %9, i32 1, i32 %10
   %11 = getelementptr inbounds i8, ptr %calloc, i64 44
   store i32 %spec.select, ptr %11, align 4
-  %12 = mul nsw i32 %spec.select, 151
+  %12 = mul nuw nsw i32 %spec.select, 151
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 2
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #21
@@ -3199,7 +3199,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store ptr %68, ptr %69, align 8
   %70 = sext i32 %.pre110 to i64
   %71 = shl nsw i64 %70, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %68, i8 -1, i64 %71, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 4 %68, i8 -1, i64 %71, i1 false)
   %72 = icmp sgt i32 %.pre111, 0
   br i1 %72, label %.lr.ph104, label %._crit_edge105
 
@@ -3219,7 +3219,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %77 = load ptr, ptr %74, align 8
   %78 = getelementptr inbounds ptr, ptr %77, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8
-  %80 = trunc i64 %indvars.iv to i32
+  %80 = trunc nuw nsw i64 %indvars.iv to i32
   %81 = shl nuw i32 1, %80
   br label %82
 
@@ -4302,7 +4302,7 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   br label %.loopexit96.i
 
 440:                                              ; preds = %432
-  %441 = trunc i64 %indvars.iv138.i to i32
+  %441 = trunc nuw nsw i64 %indvars.iv138.i to i32
   %442 = add i32 %410, %441
   %.val84.i = load ptr, ptr %411, align 8
   %443 = sext i32 %442 to i64
@@ -4508,7 +4508,7 @@ Abc_Clock.exit125:                                ; preds = %Abc_Clock.exit123, 
   br i1 %exitcond.not.i131, label %._crit_edge.thread.i, label %533, !llvm.loop !46
 
 ._crit_edge.loopexit.i:                           ; preds = %533
-  %540 = trunc i64 %indvars.iv.i128 to i32
+  %540 = trunc nuw nsw i64 %indvars.iv.i128 to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %Abc_Clock.exit125
@@ -4760,7 +4760,7 @@ Abc_Clock.exit143:                                ; preds = %611, %614
   br i1 %exitcond.not.i163, label %._crit_edge.thread.i149, label %653, !llvm.loop !49
 
 ._crit_edge.i159:                                 ; preds = %653
-  %664 = trunc i64 %indvars.iv.i158 to i32
+  %664 = trunc nuw nsw i64 %indvars.iv.i158 to i32
   %665 = icmp eq i32 %650, %664
   br i1 %665, label %._crit_edge.thread.i149, label %.lr.ph108.i
 
@@ -4848,7 +4848,7 @@ Vec_PtrGrow.exit.i.i155:                          ; preds = %679, %677
   br i1 %exitcond133.not.i, label %._crit_edge109.thread.i, label %.lr.ph108.i, !llvm.loop !50
 
 ._crit_edge109.i:                                 ; preds = %.lr.ph108.i
-  %703 = trunc i64 %indvars.iv129.i to i32
+  %703 = trunc nuw nsw i64 %indvars.iv129.i to i32
   %704 = icmp eq i32 %650, %703
   br i1 %704, label %._crit_edge109.thread.i, label %.preheader100.i
 
@@ -4935,7 +4935,7 @@ Vec_PtrGrow.exit.i77.i:                           ; preds = %720, %718
   br i1 %exitcond138.not.i, label %._crit_edge115.thread.i, label %.preheader100.i, !llvm.loop !51
 
 ._crit_edge115.i:                                 ; preds = %.preheader100.i
-  %745 = trunc i64 %indvars.iv134.i to i32
+  %745 = trunc nuw nsw i64 %indvars.iv134.i to i32
   %746 = icmp eq i32 %650, %745
   br i1 %746, label %._crit_edge115.thread.i, label %.lr.ph120.i
 
@@ -5018,7 +5018,7 @@ Vec_PtrGrow.exit.i84.i:                           ; preds = %759, %757
   br i1 %exitcond143.not.i, label %._crit_edge121.thread.i, label %.lr.ph120.i, !llvm.loop !52
 
 ._crit_edge121.loopexit.i:                        ; preds = %.lr.ph120.i
-  %783 = trunc i64 %indvars.iv139.i to i32
+  %783 = trunc nuw nsw i64 %indvars.iv139.i to i32
   br label %._crit_edge121.i
 
 ._crit_edge121.i:                                 ; preds = %._crit_edge.thread148.i, %._crit_edge121.loopexit.i
@@ -5290,11 +5290,11 @@ Abc_ManResubDivsS.exit:                           ; preds = %Abc_ManResubDivsS.e
   br i1 %.not157.us.i, label %916, label %.loopexit180.us.loopexit.i
 
 .loopexit180.us.loopexit.i:                       ; preds = %901
-  %913 = trunc i64 %indvars.iv285.i to i32
+  %913 = trunc nuw nsw i64 %indvars.iv285.i to i32
   br label %.loopexit180.us.i
 
 .loopexit180.us.loopexit334.i:                    ; preds = %887
-  %914 = trunc i64 %indvars.iv280.i to i32
+  %914 = trunc nuw nsw i64 %indvars.iv280.i to i32
   br label %.loopexit180.us.i
 
 .loopexit180.us.i:                                ; preds = %.preheader181.us.i, %.preheader179.us.i, %.loopexit180.us.loopexit334.i, %.loopexit180.us.loopexit.i
@@ -5398,11 +5398,11 @@ Abc_ManResubDivsS.exit:                           ; preds = %Abc_ManResubDivsS.e
   br i1 %exitcond272.not.i, label %.split.us.i167, label %943, !llvm.loop !59
 
 .loopexit184.loopexit.i:                          ; preds = %943
-  %957 = trunc i64 %indvars.iv268.i to i32
+  %957 = trunc nuw nsw i64 %indvars.iv268.i to i32
   br label %.loopexit184.i
 
 .loopexit184.loopexit337.i:                       ; preds = %930
-  %958 = trunc i64 %indvars.iv.i170 to i32
+  %958 = trunc nuw nsw i64 %indvars.iv.i170 to i32
   br label %.loopexit184.i
 
 .loopexit184.i:                                   ; preds = %.loopexit184.loopexit337.i, %.loopexit184.loopexit.i, %.preheader183.i, %.preheader185.i
@@ -7078,7 +7078,7 @@ define noalias noundef ptr @Abc_CutFactor_1(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkOrchSA(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkOrchSA(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17) local_unnamed_addr #0 {
   %19 = alloca %struct.timespec, align 8
   %20 = alloca %struct.timespec, align 8
   %21 = alloca %struct.timespec, align 8
@@ -7482,7 +7482,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %247, label %Extra_ProgressBarUpdate.exit, label %248
 
 248:                                              ; preds = %244, %241
-  %249 = trunc i64 %indvars.iv940 to i32
+  %249 = trunc nuw nsw i64 %indvars.iv940 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %182, i32 noundef %249, ptr noundef null) #20
   %.val680.pre = load i32, ptr %239, align 4
   br label %Extra_ProgressBarUpdate.exit
@@ -9583,7 +9583,7 @@ declare i32 @Dec_GraphUpdateNetwork(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare void @Rwr_ManAddTimeUpdate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkOrchLocal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkOrchLocal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #0 {
   %14 = alloca %struct.timespec, align 8
   %15 = alloca %struct.timespec, align 8
   %16 = alloca %struct.timespec, align 8
@@ -9830,7 +9830,7 @@ Abc_Clock.exit265:                                ; preds = %Abc_Clock.exit263, 
   br i1 %158, label %Extra_ProgressBarUpdate.exit, label %159
 
 159:                                              ; preds = %155, %154
-  %160 = trunc i64 %indvars.iv361 to i32
+  %160 = trunc nuw nsw i64 %indvars.iv361 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %112, i32 noundef %160, ptr noundef null) #20
   %.val255.pre = load i32, ptr %152, align 4
   br label %Extra_ProgressBarUpdate.exit
@@ -10497,7 +10497,7 @@ Abc_Clock.exit310:                                ; preds = %438
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkOchestration(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkOchestration(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) local_unnamed_addr #0 {
   %18 = alloca %struct.timespec, align 8
   %19 = alloca %struct.timespec, align 8
   %20 = alloca %struct.timespec, align 8
@@ -10883,7 +10883,7 @@ Abc_Clock.exit843:                                ; preds = %Abc_Clock.exit841, 
   br i1 %273, label %Extra_ProgressBarUpdate.exit, label %274
 
 274:                                              ; preds = %270, %269
-  %275 = trunc i64 %indvars.iv1266 to i32
+  %275 = trunc nuw nsw i64 %indvars.iv1266 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %180, i32 noundef %275, ptr noundef null) #20
   br label %Extra_ProgressBarUpdate.exit
 
@@ -14309,7 +14309,7 @@ Abc_Clock.exit1123:                               ; preds = %1889
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkOchestration3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkOchestration3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17) local_unnamed_addr #0 {
   %19 = alloca %struct.timespec, align 8
   %20 = alloca %struct.timespec, align 8
   %21 = alloca %struct.timespec, align 8
@@ -14629,7 +14629,7 @@ Abc_Clock.exit355:                                ; preds = %Abc_Clock.exit353, 
   br i1 %200, label %Extra_ProgressBarUpdate.exit, label %201
 
 201:                                              ; preds = %197, %196
-  %202 = trunc i64 %indvars.iv572 to i32
+  %202 = trunc nuw nsw i64 %indvars.iv572 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %141, i32 noundef %202, ptr noundef null) #20
   br label %Extra_ProgressBarUpdate.exit
 
@@ -16442,7 +16442,7 @@ Abc_Clock.exit505:                                ; preds = %1030
 declare i32 @rand() local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkOchestration2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkOchestration2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17) local_unnamed_addr #0 {
   %19 = alloca %struct.timespec, align 8
   %20 = alloca %struct.timespec, align 8
   %21 = alloca %struct.timespec, align 8
@@ -16750,7 +16750,7 @@ Abc_Clock.exit338:                                ; preds = %Abc_Clock.exit336, 
   br i1 %188, label %Extra_ProgressBarUpdate.exit, label %189
 
 189:                                              ; preds = %185, %184
-  %190 = trunc i64 %indvars.iv510 to i32
+  %190 = trunc nuw nsw i64 %indvars.iv510 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %135, i32 noundef %190, ptr noundef null) #20
   br label %Extra_ProgressBarUpdate.exit
 
@@ -18277,7 +18277,7 @@ Abc_Clock.exit460:                                ; preds = %895
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkOrchGNN(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkOrchGNN(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15) local_unnamed_addr #0 {
   %17 = alloca %struct.timespec, align 8
   %18 = alloca %struct.timespec, align 8
   %19 = alloca %struct.timespec, align 8
@@ -18540,7 +18540,7 @@ Abc_Clock.exit256:                                ; preds = %Abc_Clock.exit254, 
   br i1 %161, label %Extra_ProgressBarUpdate.exit, label %162
 
 162:                                              ; preds = %158, %.critedge4
-  %163 = trunc i64 %indvars.iv322 to i32
+  %163 = trunc nuw nsw i64 %indvars.iv322 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %107, i32 noundef %163, ptr noundef null) #20
   br label %Extra_ProgressBarUpdate.exit
 
@@ -18995,7 +18995,7 @@ Abc_Clock.exit282:                                ; preds = %364
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkOrchRand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17, i32 noundef %18) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkOrchRand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17, i32 noundef %18) local_unnamed_addr #0 {
   %20 = alloca %struct.timespec, align 8
   %21 = alloca %struct.timespec, align 8
   %22 = alloca %struct.timespec, align 8
@@ -19299,7 +19299,7 @@ Abc_Clock.exit326:                                ; preds = %Abc_Clock.exit324, 
   br i1 %191, label %Extra_ProgressBarUpdate.exit, label %192
 
 192:                                              ; preds = %188, %185
-  %193 = trunc i64 %indvars.iv506 to i32
+  %193 = trunc nuw nsw i64 %indvars.iv506 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %139, i32 noundef %193, ptr noundef null) #20
   br label %Extra_ProgressBarUpdate.exit
 
@@ -20423,7 +20423,7 @@ Vec_IntPush.exit428:                              ; preds = %.Vec_IntGrow.exit10
   %716 = sext i32 %187 to i64
   %717 = getelementptr inbounds i32, ptr %715, i64 %716
   store i32 -1, ptr %717, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
   br label %825
 
 718:                                              ; preds = %705
@@ -20530,7 +20530,7 @@ Abc_Clock.exit436:                                ; preds = %Abc_Clock.exit434, 
   %764 = sext i32 %187 to i64
   %765 = getelementptr inbounds i32, ptr %763, i64 %764
   store i32 0, ptr %765, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
   br label %825
 
 766:                                              ; preds = %705
@@ -20593,7 +20593,7 @@ Dec_GraphFree.exit:                               ; preds = %Abc_Clock.exit440, 
   %794 = sext i32 %187 to i64
   %795 = getelementptr inbounds i32, ptr %793, i64 %794
   store i32 1, ptr %795, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
   br label %825
 
 796:                                              ; preds = %705
@@ -20660,7 +20660,7 @@ Dec_GraphFree.exit447:                            ; preds = %Abc_Clock.exit445, 
   %823 = sext i32 %187 to i64
   %824 = getelementptr inbounds i32, ptr %822, i64 %823
   store i32 2, ptr %824, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
   br label %825
 
 825:                                              ; preds = %705, %182, %176, %Dec_GraphFree.exit447, %Dec_GraphFree.exit, %760, %712, %Vec_IntPush.exit361, %Vec_IntPush.exit340
@@ -20943,19 +20943,13 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #13
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -21055,7 +21049,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
 declare i32 @Abc_NodeMffcInside(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture noundef %0) unnamed_addr #15 {
+define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture noundef %0) unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
@@ -21144,7 +21138,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %38 = getelementptr inbounds i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
   %indvars.iv.next835 = add nuw nsw i64 %indvars.iv834, 1
-  %40 = trunc i64 %indvars.iv.next835 to i32
+  %40 = trunc nuw i64 %indvars.iv.next835 to i32
   %41 = icmp sgt i32 %.val478, %40
   br i1 %41, label %.lr.ph631.us, label %.critedge4.loopexit.us
 
@@ -21300,19 +21294,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   br i1 %.not460.us.us, label %152, label %.loopexit559.us.us.loopexit
 
 .loopexit559.us.us.loopexit:                      ; preds = %114
-  %130 = trunc i64 %indvars.iv824 to i32
+  %130 = trunc nuw nsw i64 %indvars.iv824 to i32
   br label %.loopexit559.us.us
 
 .loopexit559.us.us.loopexit942:                   ; preds = %98
-  %131 = trunc i64 %indvars.iv819 to i32
+  %131 = trunc nuw nsw i64 %indvars.iv819 to i32
   br label %.loopexit559.us.us
 
 .loopexit559.us.us.loopexit944:                   ; preds = %78
-  %132 = trunc i64 %indvars.iv814 to i32
+  %132 = trunc nuw nsw i64 %indvars.iv814 to i32
   br label %.loopexit559.us.us
 
 .loopexit559.us.us.loopexit946:                   ; preds = %58
-  %133 = trunc i64 %indvars.iv809 to i32
+  %133 = trunc nuw nsw i64 %indvars.iv809 to i32
   br label %.loopexit559.us.us
 
 .loopexit559.us.us:                               ; preds = %95, %.loopexit559.us.us.loopexit946, %.loopexit559.us.us.loopexit944, %.loopexit559.us.us.loopexit942, %.loopexit559.us.us.loopexit, %.preheader564.us.us, %.preheader562.us.us, %.preheader558.us.us
@@ -21358,7 +21352,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %.6388.us.us = phi ptr [ %.3385.us.us, %145 ], [ %.4386.us.us, %148 ], [ %.2384627.us.us, %.loopexit559.us.us ]
   %.6374.us.us = phi ptr [ %.3371.us.us, %145 ], [ %.4372.us.us, %148 ], [ %.2370628.us.us, %.loopexit559.us.us ]
   %indvars.iv.next832 = add nuw nsw i64 %indvars.iv831, 1
-  %150 = trunc i64 %indvars.iv.next832 to i32
+  %150 = trunc nuw i64 %indvars.iv.next832 to i32
   %151 = icmp sgt i32 %.val478, %150
   br i1 %151, label %49, label %.critedge4.loopexit.us, !llvm.loop !102
 
@@ -21414,7 +21408,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %162 = getelementptr inbounds i8, ptr %161, i64 56
   %163 = load ptr, ptr %162, align 8
   %indvars.iv.next805 = add nuw nsw i64 %indvars.iv804, 1
-  %164 = trunc i64 %indvars.iv.next805 to i32
+  %164 = trunc nuw i64 %indvars.iv.next805 to i32
   %165 = icmp sgt i32 %.val478, %164
   br i1 %165, label %.lr.ph631, label %.critedge4.loopexit
 
@@ -21593,19 +21587,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   br i1 %exitcond789.not, label %.loopexit567.thread, label %240, !llvm.loop !107
 
 .loopexit567.loopexit:                            ; preds = %201
-  %257 = trunc i64 %indvars.iv790 to i32
+  %257 = trunc nuw nsw i64 %indvars.iv790 to i32
   br label %.loopexit567
 
 .loopexit567.loopexit948:                         ; preds = %240
-  %258 = trunc i64 %indvars.iv785 to i32
+  %258 = trunc nuw nsw i64 %indvars.iv785 to i32
   br label %.loopexit567
 
 .loopexit567.loopexit950:                         ; preds = %219
-  %259 = trunc i64 %indvars.iv780 to i32
+  %259 = trunc nuw nsw i64 %indvars.iv780 to i32
   br label %.loopexit567
 
 .loopexit567.loopexit952:                         ; preds = %183
-  %260 = trunc i64 %indvars.iv to i32
+  %260 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit567
 
 .loopexit567:                                     ; preds = %236, %.loopexit567.loopexit952, %.loopexit567.loopexit950, %.loopexit567.loopexit948, %.loopexit567.loopexit, %.preheader572, %.preheader570, %.preheader566
@@ -21662,7 +21656,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %.6388 = phi ptr [ %.3385, %272 ], [ %.4386, %275 ], [ %.2384627, %.loopexit567 ]
   %.6374 = phi ptr [ %.3371, %272 ], [ %.4372, %275 ], [ %.2370628, %.loopexit567 ]
   %indvars.iv.next800 = add nuw nsw i64 %indvars.iv799, 1
-  %281 = trunc i64 %indvars.iv.next800 to i32
+  %281 = trunc nuw i64 %indvars.iv.next800 to i32
   %282 = icmp sgt i32 %.val478, %281
   br i1 %282, label %173, label %.critedge4.loopexit, !llvm.loop !102
 
@@ -21714,7 +21708,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %299 = getelementptr inbounds i8, ptr %298, i64 56
   %300 = load ptr, ptr %299, align 8
   %indvars.iv.next904 = add nuw nsw i64 %indvars.iv903, 1
-  %301 = trunc i64 %indvars.iv.next904 to i32
+  %301 = trunc nuw i64 %indvars.iv.next904 to i32
   %302 = icmp sgt i32 %.val475, %301
   br i1 %302, label %.lr.ph706.us, label %.critedge10.loopexit.us
 
@@ -21870,19 +21864,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   br i1 %.not423.us.us, label %413, label %.loopexit.us.us.loopexit
 
 .loopexit.us.us.loopexit:                         ; preds = %375
-  %391 = trunc i64 %indvars.iv893 to i32
+  %391 = trunc nuw nsw i64 %indvars.iv893 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us.loopexit925:                      ; preds = %359
-  %392 = trunc i64 %indvars.iv888 to i32
+  %392 = trunc nuw nsw i64 %indvars.iv888 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us.loopexit927:                      ; preds = %339
-  %393 = trunc i64 %indvars.iv883 to i32
+  %393 = trunc nuw nsw i64 %indvars.iv883 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us.loopexit929:                      ; preds = %319
-  %394 = trunc i64 %indvars.iv878 to i32
+  %394 = trunc nuw nsw i64 %indvars.iv878 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us:                                  ; preds = %356, %.loopexit.us.us.loopexit929, %.loopexit.us.us.loopexit927, %.loopexit.us.us.loopexit925, %.loopexit.us.us.loopexit, %.preheader548.us.us, %.preheader546.us.us, %.preheader.us.us
@@ -21928,7 +21922,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %.13395.us.us = phi ptr [ %.10392.us.us, %406 ], [ %.11393.us.us, %409 ], [ %.9391702.us.us, %.loopexit.us.us ]
   %.13381.us.us = phi ptr [ %.10378.us.us, %406 ], [ %.11379.us.us, %409 ], [ %.9377703.us.us, %.loopexit.us.us ]
   %indvars.iv.next901 = add nuw nsw i64 %indvars.iv900, 1
-  %411 = trunc i64 %indvars.iv.next901 to i32
+  %411 = trunc nuw i64 %indvars.iv.next901 to i32
   %412 = icmp sgt i32 %.val475, %411
   br i1 %412, label %310, label %.critedge10.loopexit.us, !llvm.loop !113
 
@@ -21984,7 +21978,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %423 = getelementptr inbounds i8, ptr %422, i64 56
   %424 = load ptr, ptr %423, align 8
   %indvars.iv.next874 = add nuw nsw i64 %indvars.iv873, 1
-  %425 = trunc i64 %indvars.iv.next874 to i32
+  %425 = trunc nuw i64 %indvars.iv.next874 to i32
   %426 = icmp sgt i32 %.val475, %425
   br i1 %426, label %.lr.ph706, label %.critedge10.loopexit
 
@@ -22163,19 +22157,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   br i1 %exitcond858.not, label %.loopexit551.thread, label %501, !llvm.loop !118
 
 .loopexit551.loopexit:                            ; preds = %462
-  %518 = trunc i64 %indvars.iv859 to i32
+  %518 = trunc nuw nsw i64 %indvars.iv859 to i32
   br label %.loopexit551
 
 .loopexit551.loopexit931:                         ; preds = %501
-  %519 = trunc i64 %indvars.iv854 to i32
+  %519 = trunc nuw nsw i64 %indvars.iv854 to i32
   br label %.loopexit551
 
 .loopexit551.loopexit933:                         ; preds = %480
-  %520 = trunc i64 %indvars.iv849 to i32
+  %520 = trunc nuw nsw i64 %indvars.iv849 to i32
   br label %.loopexit551
 
 .loopexit551.loopexit935:                         ; preds = %444
-  %521 = trunc i64 %indvars.iv844 to i32
+  %521 = trunc nuw nsw i64 %indvars.iv844 to i32
   br label %.loopexit551
 
 .loopexit551:                                     ; preds = %497, %.loopexit551.loopexit935, %.loopexit551.loopexit933, %.loopexit551.loopexit931, %.loopexit551.loopexit, %.preheader556, %.preheader554, %.preheader550
@@ -22304,7 +22298,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %.13395 = phi ptr [ %.10392, %533 ], [ %.11393, %536 ], [ %.9391702, %.loopexit551 ]
   %.13381 = phi ptr [ %.10378, %533 ], [ %.11379, %536 ], [ %.9377703, %.loopexit551 ]
   %indvars.iv.next869 = add nuw nsw i64 %indvars.iv868, 1
-  %594 = trunc i64 %indvars.iv.next869 to i32
+  %594 = trunc nuw i64 %indvars.iv.next869 to i32
   %595 = icmp sgt i32 %.val475, %594
   br i1 %595, label %434, label %.critedge10.loopexit, !llvm.loop !113
 
@@ -22436,7 +22430,7 @@ define internal fastcc void @Abc_ManResubDivsD(ptr nocapture noundef readonly %0
   br i1 %exitcond.not, label %._crit_edge.thread, label %62, !llvm.loop !119
 
 ._crit_edge.loopexit:                             ; preds = %62
-  %76 = trunc i64 %indvars.iv to i32
+  %76 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader283
@@ -22612,7 +22606,7 @@ Vec_PtrPush.exit184:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond374.not, label %._crit_edge301.thread, label %143, !llvm.loop !120
 
 ._crit_edge301.loopexit:                          ; preds = %143
-  %157 = trunc i64 %indvars.iv370 to i32
+  %157 = trunc nuw nsw i64 %indvars.iv370 to i32
   br label %._crit_edge301
 
 ._crit_edge301:                                   ; preds = %._crit_edge301.loopexit, %139
@@ -22791,7 +22785,7 @@ Vec_PtrPush.exit198:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond379.not, label %._crit_edge310.thread, label %227, !llvm.loop !121
 
 ._crit_edge310.loopexit:                          ; preds = %227
-  %241 = trunc i64 %indvars.iv375 to i32
+  %241 = trunc nuw nsw i64 %indvars.iv375 to i32
   br label %._crit_edge310
 
 ._crit_edge310:                                   ; preds = %._crit_edge310.loopexit, %223
@@ -22973,7 +22967,7 @@ Vec_PtrPush.exit212:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond384.not, label %._crit_edge319.thread, label %314, !llvm.loop !122
 
 ._crit_edge319.loopexit:                          ; preds = %314
-  %328 = trunc i64 %indvars.iv380 to i32
+  %328 = trunc nuw nsw i64 %indvars.iv380 to i32
   br label %._crit_edge319
 
 ._crit_edge319:                                   ; preds = %._crit_edge319.loopexit, %310
@@ -23161,7 +23155,7 @@ Vec_PtrPush.exit226:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond389.not, label %._crit_edge327.thread, label %404, !llvm.loop !123
 
 ._crit_edge327.loopexit:                          ; preds = %404
-  %418 = trunc i64 %indvars.iv385 to i32
+  %418 = trunc nuw nsw i64 %indvars.iv385 to i32
   br label %._crit_edge327
 
 ._crit_edge327:                                   ; preds = %._crit_edge327.loopexit, %.preheader
@@ -23337,7 +23331,7 @@ Vec_PtrPush.exit240:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond394.not, label %._crit_edge336.thread, label %485, !llvm.loop !124
 
 ._crit_edge336.loopexit:                          ; preds = %485
-  %498 = trunc i64 %indvars.iv390 to i32
+  %498 = trunc nuw nsw i64 %indvars.iv390 to i32
   br label %._crit_edge336
 
 ._crit_edge336:                                   ; preds = %._crit_edge336.loopexit, %481
@@ -23516,7 +23510,7 @@ Vec_PtrPush.exit254:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond399.not, label %._crit_edge345.thread, label %568, !llvm.loop !125
 
 ._crit_edge345.loopexit:                          ; preds = %568
-  %581 = trunc i64 %indvars.iv395 to i32
+  %581 = trunc nuw nsw i64 %indvars.iv395 to i32
   br label %._crit_edge345
 
 ._crit_edge345:                                   ; preds = %._crit_edge345.loopexit, %564
@@ -23698,7 +23692,7 @@ Vec_PtrPush.exit268:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond404.not, label %._crit_edge354.thread, label %654, !llvm.loop !126
 
 ._crit_edge354.loopexit:                          ; preds = %654
-  %668 = trunc i64 %indvars.iv400 to i32
+  %668 = trunc nuw nsw i64 %indvars.iv400 to i32
   br label %._crit_edge354
 
 ._crit_edge354:                                   ; preds = %._crit_edge354.loopexit, %650
@@ -23851,7 +23845,7 @@ Vec_PtrPush.exit282:                              ; preds = %.Vec_PtrGrow.exit11
   %738 = load ptr, ptr %19, align 8
   %739 = getelementptr i8, ptr %738, i64 4
   %.val174 = load i32, ptr %739, align 4
-  %740 = trunc i64 %indvars.iv.next408 to i32
+  %740 = trunc nuw i64 %indvars.iv.next408 to i32
   %741 = icmp sgt i32 %.val174, %740
   br i1 %741, label %44, label %.critedge2, !llvm.loop !127
 
@@ -23870,7 +23864,7 @@ Vec_PtrPush.exit282:                              ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noundef %0) unnamed_addr #15 {
+define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noundef %0) unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
@@ -24072,19 +24066,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noun
   br i1 %exitcond547.not, label %.split.us, label %110, !llvm.loop !133
 
 .loopexit350.us.loopexit:                         ; preds = %110
-  %127 = trunc i64 %indvars.iv543 to i32
+  %127 = trunc nuw nsw i64 %indvars.iv543 to i32
   br label %.loopexit350.us
 
 .loopexit350.us.loopexit665:                      ; preds = %92
-  %128 = trunc i64 %indvars.iv538 to i32
+  %128 = trunc nuw nsw i64 %indvars.iv538 to i32
   br label %.loopexit350.us
 
 .loopexit350.us.loopexit667:                      ; preds = %73
-  %129 = trunc i64 %indvars.iv533 to i32
+  %129 = trunc nuw nsw i64 %indvars.iv533 to i32
   br label %.loopexit350.us
 
 .loopexit350.us.loopexit669:                      ; preds = %56
-  %130 = trunc i64 %indvars.iv to i32
+  %130 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit350.us
 
 .loopexit350.us:                                  ; preds = %.loopexit350.us.loopexit669, %.loopexit350.us.loopexit667, %.loopexit350.us.loopexit665, %.loopexit350.us.loopexit, %.preheader355.us, %.preheader353.us, %.preheader351.us, %.preheader349.us
@@ -24252,19 +24246,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noun
   br i1 %.not303.us.us, label %225, label %.loopexit342.us.us.loopexit
 
 .loopexit342.us.us.loopexit:                      ; preds = %205
-  %220 = trunc i64 %indvars.iv568 to i32
+  %220 = trunc nuw nsw i64 %indvars.iv568 to i32
   br label %.loopexit342.us.us
 
 .loopexit342.us.us.loopexit658:                   ; preds = %188
-  %221 = trunc i64 %indvars.iv563 to i32
+  %221 = trunc nuw nsw i64 %indvars.iv563 to i32
   br label %.loopexit342.us.us
 
 .loopexit342.us.us.loopexit660:                   ; preds = %170
-  %222 = trunc i64 %indvars.iv558 to i32
+  %222 = trunc nuw nsw i64 %indvars.iv558 to i32
   br label %.loopexit342.us.us
 
 .loopexit342.us.us.loopexit662:                   ; preds = %154
-  %223 = trunc i64 %indvars.iv553 to i32
+  %223 = trunc nuw nsw i64 %indvars.iv553 to i32
   br label %.loopexit342.us.us
 
 .loopexit342.us.us:                               ; preds = %.loopexit342.us.us.loopexit662, %.loopexit342.us.us.loopexit660, %.loopexit342.us.us.loopexit658, %.loopexit342.us.us.loopexit, %.preheader347.us.us, %.preheader345.us.us, %.preheader343.us.us, %.preheader341.us.us
@@ -24501,19 +24495,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noun
   br i1 %exitcond602.not, label %.split460.us, label %332, !llvm.loop !143
 
 .loopexit334.us.loopexit:                         ; preds = %332
-  %349 = trunc i64 %indvars.iv598 to i32
+  %349 = trunc nuw nsw i64 %indvars.iv598 to i32
   br label %.loopexit334.us
 
 .loopexit334.us.loopexit649:                      ; preds = %315
-  %350 = trunc i64 %indvars.iv593 to i32
+  %350 = trunc nuw nsw i64 %indvars.iv593 to i32
   br label %.loopexit334.us
 
 .loopexit334.us.loopexit651:                      ; preds = %297
-  %351 = trunc i64 %indvars.iv588 to i32
+  %351 = trunc nuw nsw i64 %indvars.iv588 to i32
   br label %.loopexit334.us
 
 .loopexit334.us.loopexit653:                      ; preds = %280
-  %352 = trunc i64 %indvars.iv583 to i32
+  %352 = trunc nuw nsw i64 %indvars.iv583 to i32
   br label %.loopexit334.us
 
 .loopexit334.us:                                  ; preds = %.loopexit334.us.loopexit653, %.loopexit334.us.loopexit651, %.loopexit334.us.loopexit649, %.loopexit334.us.loopexit, %.preheader339.us, %.preheader337.us, %.preheader335.us, %.preheader333.us
@@ -24681,19 +24675,19 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noun
   br i1 %.not286.us.us, label %447, label %.loopexit.us.us.loopexit
 
 .loopexit.us.us.loopexit:                         ; preds = %427
-  %442 = trunc i64 %indvars.iv623 to i32
+  %442 = trunc nuw nsw i64 %indvars.iv623 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us.loopexit642:                      ; preds = %410
-  %443 = trunc i64 %indvars.iv618 to i32
+  %443 = trunc nuw nsw i64 %indvars.iv618 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us.loopexit644:                      ; preds = %392
-  %444 = trunc i64 %indvars.iv613 to i32
+  %444 = trunc nuw nsw i64 %indvars.iv613 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us.loopexit646:                      ; preds = %376
-  %445 = trunc i64 %indvars.iv608 to i32
+  %445 = trunc nuw nsw i64 %indvars.iv608 to i32
   br label %.loopexit.us.us
 
 .loopexit.us.us:                                  ; preds = %.loopexit.us.us.loopexit646, %.loopexit.us.us.loopexit644, %.loopexit.us.us.loopexit642, %.loopexit.us.us.loopexit, %.preheader331.us.us, %.preheader329.us.us, %.preheader327.us.us, %.preheader.us.us
@@ -24760,7 +24754,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs2(ptr nocapture noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @Abc_ManResubDivs3(ptr nocapture noundef %0) unnamed_addr #15 {
+define internal fastcc noalias noundef ptr @Abc_ManResubDivs3(ptr nocapture noundef %0) unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
@@ -25450,67 +25444,67 @@ default.unreachable547:                           ; preds = %.lr.ph416
   unreachable
 
 .loopexit.loopexit:                               ; preds = %80
-  %400 = trunc i64 %indvars.iv530 to i32
+  %400 = trunc nuw nsw i64 %indvars.iv530 to i32
   br label %.loopexit
 
 .loopexit.loopexit549:                            ; preds = %99
-  %401 = trunc i64 %indvars.iv525 to i32
+  %401 = trunc nuw nsw i64 %indvars.iv525 to i32
   br label %.loopexit
 
 .loopexit.loopexit551:                            ; preds = %119
-  %402 = trunc i64 %indvars.iv520 to i32
+  %402 = trunc nuw nsw i64 %indvars.iv520 to i32
   br label %.loopexit
 
 .loopexit.loopexit553:                            ; preds = %139
-  %403 = trunc i64 %indvars.iv515 to i32
+  %403 = trunc nuw nsw i64 %indvars.iv515 to i32
   br label %.loopexit
 
 .loopexit.loopexit555:                            ; preds = %158
-  %404 = trunc i64 %indvars.iv510 to i32
+  %404 = trunc nuw nsw i64 %indvars.iv510 to i32
   br label %.loopexit
 
 .loopexit.loopexit557:                            ; preds = %178
-  %405 = trunc i64 %indvars.iv505 to i32
+  %405 = trunc nuw nsw i64 %indvars.iv505 to i32
   br label %.loopexit
 
 .loopexit.loopexit559:                            ; preds = %199
-  %406 = trunc i64 %indvars.iv500 to i32
+  %406 = trunc nuw nsw i64 %indvars.iv500 to i32
   br label %.loopexit
 
 .loopexit.loopexit561:                            ; preds = %220
-  %407 = trunc i64 %indvars.iv495 to i32
+  %407 = trunc nuw nsw i64 %indvars.iv495 to i32
   br label %.loopexit
 
 .loopexit.loopexit563:                            ; preds = %240
-  %408 = trunc i64 %indvars.iv490 to i32
+  %408 = trunc nuw nsw i64 %indvars.iv490 to i32
   br label %.loopexit
 
 .loopexit.loopexit565:                            ; preds = %260
-  %409 = trunc i64 %indvars.iv485 to i32
+  %409 = trunc nuw nsw i64 %indvars.iv485 to i32
   br label %.loopexit
 
 .loopexit.loopexit567:                            ; preds = %281
-  %410 = trunc i64 %indvars.iv480 to i32
+  %410 = trunc nuw nsw i64 %indvars.iv480 to i32
   br label %.loopexit
 
 .loopexit.loopexit569:                            ; preds = %302
-  %411 = trunc i64 %indvars.iv475 to i32
+  %411 = trunc nuw nsw i64 %indvars.iv475 to i32
   br label %.loopexit
 
 .loopexit.loopexit571:                            ; preds = %322
-  %412 = trunc i64 %indvars.iv470 to i32
+  %412 = trunc nuw nsw i64 %indvars.iv470 to i32
   br label %.loopexit
 
 .loopexit.loopexit573:                            ; preds = %341
-  %413 = trunc i64 %indvars.iv465 to i32
+  %413 = trunc nuw nsw i64 %indvars.iv465 to i32
   br label %.loopexit
 
 .loopexit.loopexit575:                            ; preds = %361
-  %414 = trunc i64 %indvars.iv460 to i32
+  %414 = trunc nuw nsw i64 %indvars.iv460 to i32
   br label %.loopexit
 
 .loopexit.loopexit577:                            ; preds = %381
-  %415 = trunc i64 %indvars.iv to i32
+  %415 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit577, %.loopexit.loopexit575, %.loopexit.loopexit573, %.loopexit.loopexit571, %.loopexit.loopexit569, %.loopexit.loopexit567, %.loopexit.loopexit565, %.loopexit.loopexit563, %.loopexit.loopexit561, %.loopexit.loopexit559, %.loopexit.loopexit557, %.loopexit.loopexit555, %.loopexit.loopexit553, %.loopexit.loopexit551, %.loopexit.loopexit549, %.loopexit.loopexit, %.preheader328, %.preheader326, %.preheader324, %.preheader322, %.preheader320, %.preheader318, %.preheader316, %.preheader314, %.preheader312, %.preheader310, %.preheader308, %.preheader306, %.preheader304, %.preheader302, %.preheader300, %.preheader
@@ -25530,6 +25524,12 @@ default.unreachable547:                           ; preds = %.lr.ph416
   %.0279 = phi ptr [ %420, %.loopexit.thread ], [ null, %1 ], [ null, %.critedge2.loopexit ]
   ret ptr %.0279
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #16
@@ -25565,9 +25565,9 @@ attributes #9 = { mustprogress nofree nounwind willreturn memory(write, argmem: 
 attributes #10 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nofree nounwind }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

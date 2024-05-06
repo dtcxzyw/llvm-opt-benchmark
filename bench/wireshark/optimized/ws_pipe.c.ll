@@ -38,7 +38,7 @@ define noundef zeroext i1 @ws_pipe_spawn_sync(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not.i, label %16, label %18
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = trunc i64 %indvars.iv.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 179, ptr noundef nonnull @__func__.convert_to_argv, ptr noundef nonnull @.str.2, i32 noundef %17) #6
   %.pre.i = load ptr, ptr %13, align 8
   br label %18
@@ -204,7 +204,7 @@ define i32 @ws_pipe_spawn_async(ptr nocapture noundef %0, ptr nocapture noundef 
   br i1 %.not.i, label %21, label %23
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = trunc i64 %indvars.iv.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 179, ptr noundef nonnull @__func__.convert_to_argv, ptr noundef nonnull @.str.2, i32 noundef %22) #6
   %.pre.i = load ptr, ptr %18, align 8
   br label %23

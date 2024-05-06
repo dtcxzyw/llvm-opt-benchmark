@@ -1233,7 +1233,7 @@ define range(i32 -47, 1) i32 @pmix_ptl_base_parse_uri_file(ptr noundef %0, i1 no
 36:                                               ; preds = %35, %32
   store ptr @pmix_mutex_t_class, ptr %16, align 8
   store i32 1, ptr %17, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %18, i8 0, i64 64, i1 false)
   %37 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i64 0, i32 6), align 8
   %38 = load ptr, ptr %37, align 8
   %.not6.i = icmp eq ptr %38, null
@@ -2000,7 +2000,7 @@ define i32 @pmix_ptl_base_make_connection(ptr noundef %0, ptr noundef %1, ptr no
 82:                                               ; preds = %81, %78
   store ptr @pmix_buffer_t_class, ptr %21, align 8
   store i32 1, ptr %22, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %23, i8 0, i64 64, i1 false)
   %83 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_buffer_t_class, i64 0, i32 6), align 8
   %84 = load ptr, ptr %83, align 8
   %.not6.i.i.i = icmp eq ptr %84, null
@@ -3439,7 +3439,7 @@ define void @pmix_ptl_base_query_servers(i32 noundef %0, i16 noundef signext %1,
   %10 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   %12 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %13 = load ptr, ptr %12, align 8
   %.not6.i = icmp eq ptr %13, null
@@ -3798,7 +3798,7 @@ sub_2:                                            ; preds = %sub_140
 106:                                              ; preds = %105, %102
   store ptr @pmix_mutex_t_class, ptr %27, align 8
   store i32 1, ptr %28, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %29, i8 0, i64 64, i1 false)
   %107 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i64 0, i32 6), align 8
   %108 = load ptr, ptr %107, align 8
   %.not6.i.i = icmp eq ptr %108, null
@@ -4014,7 +4014,7 @@ pmix_obj_run_destructors.exit146.i:               ; preds = %.lr.ph.i143.i, %._c
 200:                                              ; preds = %199, %._crit_edge213.i
   store ptr @pmix_list_t_class, ptr %36, align 8
   store i32 1, ptr %37, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %38, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %38, i8 0, i64 64, i1 false)
   %201 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_list_t_class, i64 0, i32 6), align 8
   %202 = load ptr, ptr %201, align 8
   %.not6.i147.i = icmp eq ptr %202, null

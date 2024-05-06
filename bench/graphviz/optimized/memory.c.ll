@@ -43,7 +43,7 @@ gcd.exit.loopexit:                                ; preds = %.lr.ph.i
 gcd.exit:                                         ; preds = %gcd.exit.loopexit, %9
   %.0.lcssa.i = phi i64 [ 8, %9 ], [ %13, %gcd.exit.loopexit ]
   %14 = udiv i64 8, %.0.lcssa.i
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw nsw i64 %14 to i32
   %16 = mul i32 %15, %1
   br label %17
 

@@ -419,7 +419,7 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %16
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nsw i64 %indvars.iv to i32
   %28 = add nsw i32 %27, -1
   br label %.loopexit
 
@@ -429,7 +429,7 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   br i1 %30, label %16, label %.loopexit.loopexit, !llvm.loop !8
 
 .loopexit.loopexit:                               ; preds = %29
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %26

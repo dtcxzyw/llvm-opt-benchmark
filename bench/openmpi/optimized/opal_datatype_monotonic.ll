@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_datatype_is_monotonic(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @opal_datatype_is_monotonic(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [32 x %struct.iovec], align 16
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4

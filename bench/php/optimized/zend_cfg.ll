@@ -2719,7 +2719,7 @@ dominates.exit:                                   ; preds = %.lr.ph.i, %142
   %163 = add nuw nsw i64 %162, 63
   %164 = lshr i64 %163, 3
   %165 = and i64 %164, 1073741816
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %24, i8 0, i64 %165, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull writeonly align 8 %24, i8 0, i64 %165, i1 false)
   br label %166
 
 166:                                              ; preds = %160, %156

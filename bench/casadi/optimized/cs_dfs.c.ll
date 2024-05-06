@@ -25,7 +25,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr 
   %17 = load ptr, ptr %16, align 8
   store i32 %0, ptr %3, align 4
   %.not77 = icmp eq ptr %5, null
-  %invariant.gep = getelementptr i8, ptr %15, i64 4
+  %invariant.gep = getelementptr inbounds i8, ptr %15, i64 4
   br label %18
 
 18:                                               ; preds = %13, %67
@@ -76,7 +76,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr 
 
 43:                                               ; preds = %41
   %44 = zext nneg i32 %25 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %44
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %44
   %45 = load i32, ptr %gep, align 4
   %46 = icmp slt i32 %45, 0
   %47 = sub nsw i32 -2, %45
@@ -106,7 +106,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr 
   br i1 %59, label %63, label %.thread
 
 .thread:                                          ; preds = %.lr.ph
-  %60 = trunc i64 %indvars.iv to i32
+  %60 = trunc nsw i64 %indvars.iv to i32
   store i32 %60, ptr %50, align 4
   %61 = add nuw nsw i32 %.06184, 1
   %62 = zext nneg i32 %61 to i64

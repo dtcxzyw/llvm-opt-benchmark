@@ -482,7 +482,7 @@ define internal i32 @dissect_ftdi_ft(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.thread
 
 58:                                               ; preds = %46
-  %59 = call fastcc i32 @identify_chip(ptr noundef nonnull %3), !range !4
+  %59 = call fastcc i32 @identify_chip(ptr noundef nonnull %3)
   call fastcc void @dissect_request_set_baud_rate(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %33, i32 noundef %59)
   br label %.thread
 
@@ -697,7 +697,7 @@ dissect_modem_status_bytes.exit:                  ; preds = %143, %146, %144
   %.3 = phi i32 [ %152, %149 ], [ %139, %dissect_modem_status_bytes.exit ]
   %154 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3) #8
   %155 = icmp sgt i32 %154, 0
-  br i1 %155, label %131, label %156, !llvm.loop !5
+  br i1 %155, label %131, label %156, !llvm.loop !4
 
 156:                                              ; preds = %153
   %157 = icmp sgt i32 %147, 0
@@ -839,7 +839,7 @@ define internal fastcc void @dissect_request_set_flow_ctrl(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @identify_chip(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 9) i32 @identify_chip(ptr nocapture noundef readonly %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 52
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i32
@@ -1423,7 +1423,7 @@ get_recorded_desegment_data.exit:                 ; preds = %get_recorded_interf
   %153 = add i32 %152, %.0144181
   %.0147 = load ptr, ptr %.0147182, align 8
   %.not163 = icmp eq ptr %.0147, null
-  br i1 %.not163, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not163, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %148, %142
   %.0144.lcssa = phi i32 [ 0, %142 ], [ %153, %148 ]
@@ -1773,7 +1773,7 @@ define internal i32 @ftdi_fragment_key_hash(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @ftdi_fragment_key_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @ftdi_fragment_key_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 20
@@ -1891,7 +1891,6 @@ attributes #10 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 9}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

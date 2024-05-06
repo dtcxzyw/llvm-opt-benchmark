@@ -1152,7 +1152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN4node4quic7Session11Application27ExtractSessionTicketAppDataERKNS0_13SessionTicket7AppDataENS4_6Source4FlagE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %app_data, i32 noundef %flag) unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 3, 5) i32 @_ZN4node4quic7Session11Application27ExtractSessionTicketAppDataERKNS0_13SessionTicket7AppDataENS4_6Source4FlagE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %app_data, i32 noundef %flag) unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp eq i32 %flag, 1
   %cond = select i1 %cmp, i32 4, i32 3

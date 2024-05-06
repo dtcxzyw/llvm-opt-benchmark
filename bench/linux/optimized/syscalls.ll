@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @init_time_ns = external dso_local global %struct.time_namespace, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i64 @__x64_sys_set_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @__x64_sys_set_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 24
@@ -52,7 +52,7 @@ define dso_local noundef i64 @__x64_sys_set_robust_list(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i64 @__ia32_sys_set_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @__ia32_sys_set_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -76,7 +76,7 @@ define dso_local noundef i64 @__ia32_sys_set_robust_list(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_get_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_get_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -88,7 +88,7 @@ define dso_local i64 @__x64_sys_get_robust_list(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_get_robust_list(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_robust_list(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 align 16 {
   %4 = trunc i64 %0 to i32
   %5 = inttoptr i64 %1 to ptr
   %6 = inttoptr i64 %2 to ptr
@@ -147,7 +147,7 @@ define internal fastcc i64 @__se_sys_get_robust_list(i64 noundef %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_get_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_get_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -162,7 +162,7 @@ define dso_local i64 @__ia32_sys_get_robust_list(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @do_futex(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @do_futex(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 16 {
   %8 = alloca i32, align 4
   store i32 %6, ptr %8, align 4
   %9 = and i32 %1, 128
@@ -508,7 +508,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_futex_waitv(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futex_waitv(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -524,7 +524,7 @@ define dso_local i64 @__x64_sys_futex_waitv(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_futex_waitv(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex_waitv(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #1 align 16 {
   %6 = alloca %struct.timespec64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.futex_waitv, align 8
@@ -708,7 +708,7 @@ futex2_setup_timeout.exit:                        ; preds = %37, %53
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_futex_waitv(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex_waitv(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -729,7 +729,7 @@ define dso_local i64 @__ia32_sys_futex_waitv(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_futex_wake(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futex_wake(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -756,7 +756,7 @@ define dso_local i64 @__x64_sys_futex_wake(ptr nocapture noundef readonly %0) lo
 21:                                               ; preds = %15
   %22 = lshr i32 %12, 3
   %23 = xor i32 %22, 274
-  %24 = trunc i64 %5 to i32
+  %24 = trunc nuw i64 %5 to i32
   %25 = tail call i32 @futex_wake(ptr noundef %10, i32 noundef %23, i32 noundef %11, i32 noundef %24) #10
   %26 = sext i32 %25 to i64
   br label %27
@@ -767,7 +767,7 @@ define dso_local i64 @__x64_sys_futex_wake(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_futex_wake(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex_wake(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -804,7 +804,7 @@ define dso_local i64 @__ia32_sys_futex_wake(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_futex_wait(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futex_wait(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = alloca i64, align 8
   %4 = alloca %struct.hrtimer_sleeper, align 8
@@ -846,8 +846,8 @@ define dso_local i64 @__x64_sys_futex_wait(ptr nocapture noundef readonly %0) lo
   br i1 %34, label %.thread, label %38
 
 .thread:                                          ; preds = %33
-  %35 = trunc i64 %8 to i32
-  %36 = trunc i64 %10 to i32
+  %35 = trunc nuw i64 %8 to i32
+  %36 = trunc nuw i64 %10 to i32
   %37 = tail call i32 @__futex_wait(ptr noundef %17, i32 noundef %27, i32 noundef %35, ptr noundef null, i32 noundef %36) #10
   br label %76
 
@@ -912,8 +912,8 @@ define dso_local i64 @__x64_sys_futex_wait(ptr nocapture noundef readonly %0) lo
   %71 = call ptr @futex_setup_timer(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %40, i64 noundef 0) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
-  %72 = trunc i64 %8 to i32
-  %73 = trunc i64 %10 to i32
+  %72 = trunc nuw i64 %8 to i32
+  %73 = trunc nuw i64 %10 to i32
   %74 = call i32 @__futex_wait(ptr noundef %17, i32 noundef %27, i32 noundef %72, ptr noundef nonnull %4, i32 noundef %73) #10
   %75 = call i32 @hrtimer_cancel(ptr noundef nonnull %4) #10
   br label %76
@@ -930,7 +930,7 @@ define dso_local i64 @__x64_sys_futex_wait(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_futex_wait(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex_wait(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.timespec64, align 8
   %3 = alloca i64, align 8
   %4 = alloca %struct.hrtimer_sleeper, align 8
@@ -1055,7 +1055,7 @@ define dso_local i64 @__ia32_sys_futex_wait(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_futex_requeue(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futex_requeue(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1069,7 +1069,7 @@ define dso_local i64 @__x64_sys_futex_requeue(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_futex_requeue(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex_requeue(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 16 {
   %5 = alloca %struct.futex_waitv, align 8
   %6 = alloca [2 x %struct.futex_vector], align 16
   %7 = alloca i32, align 4
@@ -1173,7 +1173,7 @@ define internal fastcc i64 @__se_sys_futex_requeue(i64 noundef %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_futex_requeue(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex_requeue(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -1191,7 +1191,7 @@ define dso_local i64 @__ia32_sys_futex_requeue(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i64 @__ia32_compat_sys_set_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i64 -22, 1) i64 @__ia32_compat_sys_set_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -1215,7 +1215,7 @@ define dso_local noundef i64 @__ia32_compat_sys_set_robust_list(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_get_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_get_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 88

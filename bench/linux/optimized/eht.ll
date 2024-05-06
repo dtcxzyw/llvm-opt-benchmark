@@ -159,7 +159,7 @@ define dso_local void @ieee80211_eht_cap_ie_to_sta_eht_cap(ptr nocapture noundef
   %101 = add i32 %100, 16
   %102 = lshr i32 %101, 3
   %103 = trunc i32 %102 to i8
-  %104 = add i8 %79, %103
+  %104 = add nuw nsw i8 %79, %103
   %105 = icmp ult i8 %103, 33
   br i1 %105, label %106, label %.thread8
 

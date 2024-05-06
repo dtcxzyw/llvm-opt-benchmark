@@ -394,7 +394,7 @@ define dso_local void @nf_reject_ip_tcphdr_put(ptr noundef %0, ptr nocapture nou
   %70 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %68, i32 %69) #8, !srcloc !8
   %71 = xor i32 %70, -1
   %72 = lshr i32 %71, 16
-  %73 = trunc i32 %72 to i16
+  %73 = trunc nuw i32 %72 to i16
   %74 = xor i16 %73, -1
   %75 = getelementptr inbounds i8, ptr %15, i64 16
   store i16 %74, ptr %75, align 4
@@ -732,7 +732,7 @@ nf_reject_verify_csum.exit.thread6:               ; preds = %110, %110, %110, %1
   %198 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %196, i32 %197) #8, !srcloc !8
   %199 = xor i32 %198, -1
   %200 = lshr i32 %199, 16
-  %201 = trunc i32 %200 to i16
+  %201 = trunc nuw i32 %200 to i16
   %202 = getelementptr inbounds i8, ptr %186, i64 2
   store i16 %201, ptr %202, align 2
   %203 = getelementptr inbounds i8, ptr %142, i64 112

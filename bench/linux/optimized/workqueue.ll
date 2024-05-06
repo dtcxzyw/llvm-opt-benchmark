@@ -2111,7 +2111,7 @@ define dso_local noundef zeroext i1 @mod_delayed_work_on(i32 noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @try_to_grab_pending(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -11, 2) i32 @try_to_grab_pending(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
   store i64 0, ptr %4, align 8, !annotation !14
@@ -3652,7 +3652,7 @@ define dso_local noundef zeroext i1 @cancel_delayed_work_sync(ptr noundef %0) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @schedule_on_each_cpu(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @schedule_on_each_cpu(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = alloca i64, align 8
   %3 = tail call noalias dereferenceable_or_null(32) ptr @__alloc_percpu(i64 noundef 32, i64 noundef 8) #29
   %4 = icmp eq ptr %3, null
@@ -3774,7 +3774,7 @@ declare dso_local void @cpus_read_unlock() local_unnamed_addr #0
 declare dso_local void @free_percpu(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @execute_in_process_context(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @execute_in_process_context(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = alloca i64, align 8
   %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #26, !srcloc !31
   %5 = and i32 %4, 16776960
@@ -3897,7 +3897,7 @@ define dso_local i32 @apply_workqueue_attrs(ptr noundef %0, ptr nocapture nounde
   br label %17
 
 17:                                               ; preds = %15, %8
-  %18 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @wq_unbound_cpumask)
+  %18 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull @wq_unbound_cpumask)
   %19 = icmp ugt ptr %18, inttoptr (i64 -4096 to ptr)
   br i1 %19, label %20, label %23
 
@@ -4184,7 +4184,7 @@ define dso_local noundef ptr @alloc_workqueue(ptr nocapture noundef readonly %0,
   br label %155
 
 155:                                              ; preds = %153, %146
-  %156 = call fastcc ptr @apply_wqattrs_prepare(ptr noundef nonnull %19, ptr noundef %141, ptr noundef nonnull @wq_unbound_cpumask)
+  %156 = call fastcc ptr @apply_wqattrs_prepare(ptr noundef nonnull %19, ptr noundef readonly %141, ptr noundef nonnull @wq_unbound_cpumask)
   %157 = icmp ugt ptr %156, inttoptr (i64 -4096 to ptr)
   br i1 %157, label %apply_workqueue_attrs_locked.exit, label %apply_workqueue_attrs_locked.exit.thread16
 
@@ -4265,7 +4265,7 @@ apply_workqueue_attrs_locked.exit:                ; preds = %155
   br label %187
 
 187:                                              ; preds = %185, %178
-  %188 = call fastcc ptr @apply_wqattrs_prepare(ptr noundef nonnull %19, ptr noundef %173, ptr noundef nonnull @wq_unbound_cpumask)
+  %188 = call fastcc ptr @apply_wqattrs_prepare(ptr noundef nonnull %19, ptr noundef readonly %173, ptr noundef nonnull @wq_unbound_cpumask)
   %189 = icmp ugt ptr %188, inttoptr (i64 -4096 to ptr)
   br i1 %189, label %190, label %193
 
@@ -5595,7 +5595,7 @@ define dso_local zeroext i1 @workqueue_congested(i32 noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @work_busy(ptr noundef %0) #1 align 16 {
+define dso_local range(i32 0, 4) i32 @work_busy(ptr noundef %0) #1 align 16 {
   %2 = load volatile i64, ptr %0, align 8
   %3 = trunc i64 %2 to i32
   %4 = and i32 %3, 1
@@ -6029,7 +6029,7 @@ declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @workqueue_prepare_cpu(i32 noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @workqueue_prepare_cpu(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8
@@ -6793,7 +6793,7 @@ define internal fastcc void @wq_update_pod(ptr noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @workqueue_offline_cpu(i32 noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @workqueue_offline_cpu(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #26, !srcloc !229
   %3 = icmp eq i32 %2, %0
   br i1 %3, label %5, label %4, !prof !12
@@ -8264,7 +8264,7 @@ declare dso_local ptr @housekeeping_cpumask(i32 noundef) local_unnamed_addr #0
 declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @init_worker_pool(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @init_worker_pool(ptr noundef %0) unnamed_addr #1 align 16 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 -1, ptr %2, align 4
@@ -12480,7 +12480,7 @@ declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #0
 declare dso_local i64 @schedule_timeout_interruptible(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @wq_affn_dfl_set(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
+define internal range(i32 -2147483648, 1) i32 @wq_affn_dfl_set(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
   br label %3
 
 3:                                                ; preds = %10, %2
@@ -12575,7 +12575,7 @@ declare dso_local i32 @subsys_virtual_register(ptr noundef, ptr noundef) local_u
 declare dso_local ptr @bus_get_dev_root(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @wq_unbound_cpumask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @wq_unbound_cpumask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @wq_pool_mutex) #25
   %4 = load i32, ptr @nr_cpu_ids, align 4
   %5 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %2, i64 noundef 4096, ptr noundef nonnull @.str.97, i32 noundef %4, ptr noundef nonnull @wq_unbound_cpumask) #25
@@ -12637,7 +12637,7 @@ define internal i64 @wq_unbound_cpumask_store(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @wq_requested_cpumask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @wq_requested_cpumask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @wq_pool_mutex) #25
   %4 = load i32, ptr @nr_cpu_ids, align 4
   %5 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %2, i64 noundef 4096, ptr noundef nonnull @.str.97, i32 noundef %4, ptr noundef nonnull @wq_requested_unbound_cpumask) #25
@@ -12647,7 +12647,7 @@ define internal i64 @wq_requested_cpumask_show(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @wq_isolated_cpumask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @wq_isolated_cpumask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @wq_pool_mutex) #25
   %4 = load i32, ptr @nr_cpu_ids, align 4
   %5 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %2, i64 noundef 4096, ptr noundef nonnull @.str.97, i32 noundef %4, ptr noundef nonnull @wq_isolated_cpumask) #25
@@ -12660,7 +12660,7 @@ define internal i64 @wq_isolated_cpumask_show(ptr nocapture readnone %0, ptr noc
 declare dso_local i32 @bitmap_parse(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @per_cpu_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @per_cpu_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 256
@@ -12674,7 +12674,7 @@ define internal i64 @per_cpu_show(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @max_active_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @max_active_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 148
@@ -12712,7 +12712,7 @@ define internal noundef i64 @max_active_store(ptr nocapture noundef readonly %0,
 declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @wq_nice_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @wq_nice_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32
@@ -12810,7 +12810,7 @@ define internal i64 @wq_nice_store(ptr nocapture noundef readonly %0, ptr nocapt
   br label %51
 
 51:                                               ; preds = %49, %42
-  %52 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull @wq_unbound_cpumask)
+  %52 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %6, ptr noundef nonnull readonly %8, ptr noundef nonnull @wq_unbound_cpumask)
   %53 = icmp ugt ptr %52, inttoptr (i64 -4096 to ptr)
   br i1 %53, label %54, label %57
 
@@ -12842,7 +12842,7 @@ apply_workqueue_attrs_locked.exit:                ; preds = %4, %57, %54, %48, %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @wq_cpumask_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @wq_cpumask_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32
@@ -12936,7 +12936,7 @@ define internal i64 @wq_cpumask_store(ptr nocapture noundef readonly %0, ptr noc
   br label %48
 
 48:                                               ; preds = %46, %39
-  %49 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull @wq_unbound_cpumask)
+  %49 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %6, ptr noundef nonnull readonly %8, ptr noundef nonnull @wq_unbound_cpumask)
   %50 = icmp ugt ptr %49, inttoptr (i64 -4096 to ptr)
   br i1 %50, label %51, label %54
 
@@ -12968,7 +12968,7 @@ apply_workqueue_attrs_locked.exit:                ; preds = %4, %54, %51, %45, %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @wq_affn_scope_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @wq_affn_scope_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32
@@ -13098,7 +13098,7 @@ define internal i64 @wq_affn_scope_store(ptr nocapture noundef readonly %0, ptr 
   br label %57
 
 57:                                               ; preds = %55, %48
-  %58 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %6, ptr noundef nonnull %24, ptr noundef nonnull @wq_unbound_cpumask)
+  %58 = tail call fastcc ptr @apply_wqattrs_prepare(ptr noundef %6, ptr noundef nonnull readonly %24, ptr noundef nonnull @wq_unbound_cpumask)
   %59 = icmp ugt ptr %58, inttoptr (i64 -4096 to ptr)
   br i1 %59, label %60, label %63
 
@@ -13134,7 +13134,7 @@ apply_workqueue_attrs_locked.exit:                ; preds = %22, %63, %60, %54, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @wq_affinity_strict_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @wq_affinity_strict_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 152
@@ -13226,7 +13226,7 @@ define internal i64 @wq_affinity_strict_store(ptr nocapture noundef readonly %0,
   br label %48
 
 48:                                               ; preds = %46, %39
-  %49 = call fastcc ptr @apply_wqattrs_prepare(ptr noundef %7, ptr noundef nonnull %12, ptr noundef nonnull @wq_unbound_cpumask)
+  %49 = call fastcc ptr @apply_wqattrs_prepare(ptr noundef %7, ptr noundef nonnull readonly %12, ptr noundef nonnull @wq_unbound_cpumask)
   %50 = icmp ugt ptr %49, inttoptr (i64 -4096 to ptr)
   br i1 %50, label %51, label %54
 

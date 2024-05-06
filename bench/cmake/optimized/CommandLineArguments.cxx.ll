@@ -473,7 +473,7 @@ _ZN5cmsys20CommandLineArguments10InitializeEv.exit.i: ; preds = %_ZSt8_DestroyIP
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %16 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
-  tail call void @_ZN5cmsys20CommandLineArguments15ProcessArgumentEPKc(ptr noundef nonnull align 8 dereferenceable(45) %0, ptr noundef %17)
+  tail call void @_ZN5cmsys20CommandLineArguments15ProcessArgumentEPKc(ptr noundef nonnull readonly align 8 dereferenceable(45) %0, ptr noundef %17)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN5cmsys20CommandLineArguments10InitializeEiPKPKc.exit, label %.lr.ph.i, !llvm.loop !7
@@ -608,7 +608,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN5cmsys20CommandLineArguments5ParseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(45) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN5cmsys20CommandLineArguments5ParseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(45) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 44

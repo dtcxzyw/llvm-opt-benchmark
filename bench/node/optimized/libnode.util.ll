@@ -1125,7 +1125,7 @@ _ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIcSaI
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %call16) #24
   store ptr %call5.i.i.i.i.i.i, ptr %agg.result, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 %call16
+  %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 %call16
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i.i.i, align 1

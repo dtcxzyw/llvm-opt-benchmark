@@ -167,7 +167,7 @@ define hidden noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$13w
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %2, ptr %6, align 8
   %7 = load i64, ptr @"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal6PARKER7__getit5__KEY17h50ca4e470992f625E", align 8, !range !35, !noalias !36, !noundef !4
-  %trunc.i.i = trunc i64 %7 to i1
+  %trunc.i.i = trunc nuw i64 %7 to i1
   br i1 %trunc.i.i, label %"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal6PARKER7__getit17h8b93753d594ffaf4E.llvm.6090777742988092048.exit.thread", label %"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal6PARKER7__getit17h8b93753d594ffaf4E.llvm.6090777742988092048.exit"
 
 "_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal6PARKER7__getit17h8b93753d594ffaf4E.llvm.6090777742988092048.exit": ; preds = %3
@@ -347,7 +347,7 @@ define hidden noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$13w
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal6PARKER7__getit17h8b93753d594ffaf4E.llvm.6090777742988092048"(ptr noalias noundef align 8 dereferenceable_or_null(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr @"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal6PARKER7__getit5__KEY17h50ca4e470992f625E", align 8, !range !35, !noalias !109, !noundef !4
-  %trunc.i = trunc i64 %2 to i1
+  %trunc.i = trunc nuw i64 %2 to i1
   br i1 %trunc.i, label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17hb4ff792e44840d6aE.exit", label %3
 
 3:                                                ; preds = %1
@@ -1224,7 +1224,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h8af9ae2206abefa9E.llvm.6090777742988092048"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$8register17h8af9ae2206abefa9E.llvm.6090777742988092048"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { i8, [23 x i8] }, align 8
   %6 = alloca { i8, [23 x i8] }, align 8
   %7 = alloca { ptr, [1 x i64] }, align 8
@@ -1267,7 +1267,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
   store i8 %.0.i.i.i.i, ptr %25, align 8, !alias.scope !245
   store ptr %0, ptr %12, align 8, !alias.scope !245
   %26 = load i64, ptr %1, align 8, !range !35, !noundef !4
-  %trunc = trunc i64 %26 to i1
+  %trunc = trunc nuw i64 %26 to i1
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   br i1 %trunc, label %29, label %28
 
@@ -1575,7 +1575,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
   br label %31
 
 121:                                              ; preds = %119
-  %122 = trunc i8 %.023 to i1
+  %122 = trunc nuw i8 %.023 to i1
   br i1 %122, label %123, label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.llvm.6090777742988092048.exit41"
 
 123:                                              ; preds = %121
@@ -1614,7 +1614,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
   resume { ptr, i32 } %.pn28
 
 138:                                              ; preds = %115
-  %139 = trunc i8 %.3 to i1
+  %139 = trunc nuw i8 %.3 to i1
   br i1 %139, label %140, label %137
 
 140:                                              ; preds = %138

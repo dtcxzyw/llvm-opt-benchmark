@@ -974,11 +974,11 @@ _ZN12OutputStream4growEm.exit.i.i491:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %_ZN12OutputStream4growEm.exit.i.i, %_ZN12OutputStream4growEm.exit.i.i41, %_ZN12OutputStream4growEm.exit.i.i66, %_ZN12OutputStream4growEm.exit.i.i91, %_ZN12OutputStream4growEm.exit.i.i116, %_ZN12OutputStream4growEm.exit.i.i141, %_ZN12OutputStream4growEm.exit.i.i166, %_ZN12OutputStream4growEm.exit.i.i191, %_ZN12OutputStream4growEm.exit.i.i216, %_ZN12OutputStream4growEm.exit.i.i241, %_ZN12OutputStream4growEm.exit.i.i266, %_ZN12OutputStream4growEm.exit.i.i291, %_ZN12OutputStream4growEm.exit.i.i316, %_ZN12OutputStream4growEm.exit.i.i341, %_ZN12OutputStream4growEm.exit.i.i366, %_ZN12OutputStream4growEm.exit.i.i391, %_ZN12OutputStream4growEm.exit.i.i416, %_ZN12OutputStream4growEm.exit.i.i441, %_ZN12OutputStream4growEm.exit.i.i466, %_ZN12OutputStream4growEm.exit.i.i491
-  %CurrentPosition.i.i.i479.sink497 = phi ptr [ %CurrentPosition.i.i.i479, %_ZN12OutputStream4growEm.exit.i.i491 ], [ %CurrentPosition.i.i.i454, %_ZN12OutputStream4growEm.exit.i.i466 ], [ %CurrentPosition.i.i.i429, %_ZN12OutputStream4growEm.exit.i.i441 ], [ %CurrentPosition.i.i.i404, %_ZN12OutputStream4growEm.exit.i.i416 ], [ %CurrentPosition.i.i.i379, %_ZN12OutputStream4growEm.exit.i.i391 ], [ %CurrentPosition.i.i.i354, %_ZN12OutputStream4growEm.exit.i.i366 ], [ %CurrentPosition.i.i.i329, %_ZN12OutputStream4growEm.exit.i.i341 ], [ %CurrentPosition.i.i.i304, %_ZN12OutputStream4growEm.exit.i.i316 ], [ %CurrentPosition.i.i.i279, %_ZN12OutputStream4growEm.exit.i.i291 ], [ %CurrentPosition.i.i.i254, %_ZN12OutputStream4growEm.exit.i.i266 ], [ %CurrentPosition.i.i.i229, %_ZN12OutputStream4growEm.exit.i.i241 ], [ %CurrentPosition.i.i.i204, %_ZN12OutputStream4growEm.exit.i.i216 ], [ %CurrentPosition.i.i.i179, %_ZN12OutputStream4growEm.exit.i.i191 ], [ %CurrentPosition.i.i.i154, %_ZN12OutputStream4growEm.exit.i.i166 ], [ %CurrentPosition.i.i.i129, %_ZN12OutputStream4growEm.exit.i.i141 ], [ %CurrentPosition.i.i.i104, %_ZN12OutputStream4growEm.exit.i.i116 ], [ %CurrentPosition.i.i.i79, %_ZN12OutputStream4growEm.exit.i.i91 ], [ %CurrentPosition.i.i.i54, %_ZN12OutputStream4growEm.exit.i.i66 ], [ %CurrentPosition.i.i.i29, %_ZN12OutputStream4growEm.exit.i.i41 ], [ %CurrentPosition.i.i.i, %_ZN12OutputStream4growEm.exit.i.i ]
-  %.sink496 = phi i64 [ 14, %_ZN12OutputStream4growEm.exit.i.i491 ], [ 11, %_ZN12OutputStream4growEm.exit.i.i466 ], [ 6, %_ZN12OutputStream4growEm.exit.i.i441 ], [ 5, %_ZN12OutputStream4growEm.exit.i.i416 ], [ 7, %_ZN12OutputStream4growEm.exit.i.i391 ], [ 16, %_ZN12OutputStream4growEm.exit.i.i366 ], [ 7, %_ZN12OutputStream4growEm.exit.i.i341 ], [ 13, %_ZN12OutputStream4growEm.exit.i.i316 ], [ 4, %_ZN12OutputStream4growEm.exit.i.i291 ], [ 12, %_ZN12OutputStream4growEm.exit.i.i266 ], [ 3, %_ZN12OutputStream4growEm.exit.i.i241 ], [ 14, %_ZN12OutputStream4growEm.exit.i.i216 ], [ 5, %_ZN12OutputStream4growEm.exit.i.i191 ], [ 8, %_ZN12OutputStream4growEm.exit.i.i166 ], [ 8, %_ZN12OutputStream4growEm.exit.i.i141 ], [ 13, %_ZN12OutputStream4growEm.exit.i.i116 ], [ 11, %_ZN12OutputStream4growEm.exit.i.i91 ], [ 4, %_ZN12OutputStream4growEm.exit.i.i66 ], [ 4, %_ZN12OutputStream4growEm.exit.i.i41 ], [ 4, %_ZN12OutputStream4growEm.exit.i.i ]
-  %81 = load i64, ptr %CurrentPosition.i.i.i479.sink497, align 8
-  %add.i.i493 = add i64 %81, %.sink496
-  store i64 %add.i.i493, ptr %CurrentPosition.i.i.i479.sink497, align 8
+  %CurrentPosition.i.i.i479.sink498 = phi ptr [ %CurrentPosition.i.i.i479, %_ZN12OutputStream4growEm.exit.i.i491 ], [ %CurrentPosition.i.i.i454, %_ZN12OutputStream4growEm.exit.i.i466 ], [ %CurrentPosition.i.i.i429, %_ZN12OutputStream4growEm.exit.i.i441 ], [ %CurrentPosition.i.i.i404, %_ZN12OutputStream4growEm.exit.i.i416 ], [ %CurrentPosition.i.i.i379, %_ZN12OutputStream4growEm.exit.i.i391 ], [ %CurrentPosition.i.i.i354, %_ZN12OutputStream4growEm.exit.i.i366 ], [ %CurrentPosition.i.i.i329, %_ZN12OutputStream4growEm.exit.i.i341 ], [ %CurrentPosition.i.i.i304, %_ZN12OutputStream4growEm.exit.i.i316 ], [ %CurrentPosition.i.i.i279, %_ZN12OutputStream4growEm.exit.i.i291 ], [ %CurrentPosition.i.i.i254, %_ZN12OutputStream4growEm.exit.i.i266 ], [ %CurrentPosition.i.i.i229, %_ZN12OutputStream4growEm.exit.i.i241 ], [ %CurrentPosition.i.i.i204, %_ZN12OutputStream4growEm.exit.i.i216 ], [ %CurrentPosition.i.i.i179, %_ZN12OutputStream4growEm.exit.i.i191 ], [ %CurrentPosition.i.i.i154, %_ZN12OutputStream4growEm.exit.i.i166 ], [ %CurrentPosition.i.i.i129, %_ZN12OutputStream4growEm.exit.i.i141 ], [ %CurrentPosition.i.i.i104, %_ZN12OutputStream4growEm.exit.i.i116 ], [ %CurrentPosition.i.i.i79, %_ZN12OutputStream4growEm.exit.i.i91 ], [ %CurrentPosition.i.i.i54, %_ZN12OutputStream4growEm.exit.i.i66 ], [ %CurrentPosition.i.i.i29, %_ZN12OutputStream4growEm.exit.i.i41 ], [ %CurrentPosition.i.i.i, %_ZN12OutputStream4growEm.exit.i.i ]
+  %.sink497 = phi i64 [ 14, %_ZN12OutputStream4growEm.exit.i.i491 ], [ 11, %_ZN12OutputStream4growEm.exit.i.i466 ], [ 6, %_ZN12OutputStream4growEm.exit.i.i441 ], [ 5, %_ZN12OutputStream4growEm.exit.i.i416 ], [ 7, %_ZN12OutputStream4growEm.exit.i.i391 ], [ 16, %_ZN12OutputStream4growEm.exit.i.i366 ], [ 7, %_ZN12OutputStream4growEm.exit.i.i341 ], [ 13, %_ZN12OutputStream4growEm.exit.i.i316 ], [ 4, %_ZN12OutputStream4growEm.exit.i.i291 ], [ 12, %_ZN12OutputStream4growEm.exit.i.i266 ], [ 3, %_ZN12OutputStream4growEm.exit.i.i241 ], [ 14, %_ZN12OutputStream4growEm.exit.i.i216 ], [ 5, %_ZN12OutputStream4growEm.exit.i.i191 ], [ 8, %_ZN12OutputStream4growEm.exit.i.i166 ], [ 8, %_ZN12OutputStream4growEm.exit.i.i141 ], [ 13, %_ZN12OutputStream4growEm.exit.i.i116 ], [ 11, %_ZN12OutputStream4growEm.exit.i.i91 ], [ 4, %_ZN12OutputStream4growEm.exit.i.i66 ], [ 4, %_ZN12OutputStream4growEm.exit.i.i41 ], [ 4, %_ZN12OutputStream4growEm.exit.i.i ]
+  %81 = load i64, ptr %CurrentPosition.i.i.i479.sink498, align 8
+  %add.i.i493 = add i64 %81, %.sink497
+  store i64 %add.i.i493, ptr %CurrentPosition.i.i.i479.sink498, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
@@ -4648,9 +4648,9 @@ _ZN12OutputStream4growEm.exit.i.i189:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %_ZN12OutputStream4growEm.exit.i.i139, %_ZN12OutputStream4growEm.exit.i.i164, %_ZN12OutputStream4growEm.exit.i.i189
-  %.sink199 = phi i64 [ 1, %_ZN12OutputStream4growEm.exit.i.i139 ], [ 1, %_ZN12OutputStream4growEm.exit.i.i164 ], [ 2, %_ZN12OutputStream4growEm.exit.i.i189 ]
+  %.sink215 = phi i64 [ 1, %_ZN12OutputStream4growEm.exit.i.i139 ], [ 1, %_ZN12OutputStream4growEm.exit.i.i164 ], [ 2, %_ZN12OutputStream4growEm.exit.i.i189 ]
   %53 = load i64, ptr %CurrentPosition.i.i, align 8
-  %add.i.i141 = add i64 %53, %.sink199
+  %add.i.i141 = add i64 %53, %.sink215
   store i64 %add.i.i141, ptr %CurrentPosition.i.i, align 8
   br label %sw.epilog
 
@@ -4663,9 +4663,9 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 if.end.i:                                         ; preds = %sw.epilog
   %and4.i = and i8 %55, 1
   %tobool.not.i = icmp ne i8 %and4.i, 0
-  br i1 %tobool.not.i, label %if.end.i197, label %_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b.exit
+  br i1 %tobool.not.i, label %if.end.i213, label %_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b.exit
 
-if.end.i197:                                      ; preds = %if.end.i
+if.end.i213:                                      ; preds = %if.end.i
   %add.i.i.i.i.i = add i64 %54, 5
   %BufferCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
   %56 = load i64, ptr %BufferCapacity.i.i.i.i.i, align 8
@@ -4673,7 +4673,7 @@ if.end.i197:                                      ; preds = %if.end.i
   %.pre.i.i.i.i = load ptr, ptr %OS, align 8
   br i1 %cmp.not.i.i.i.i.i, label %_ZN12OutputStream4growEm.exit.i.i.i.i, label %if.then.i.i.i.i.i
 
-if.then.i.i.i.i.i:                                ; preds = %if.end.i197
+if.then.i.i.i.i.i:                                ; preds = %if.end.i213
   %mul.i.i.i.i.i = shl i64 %56, 1
   %spec.store.select.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i.i.i, i64 %add.i.i.i.i.i)
   store i64 %spec.store.select.i.i.i.i.i, ptr %BufferCapacity.i.i.i.i.i, align 8
@@ -4690,9 +4690,9 @@ if.then15.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   tail call void @_ZSt9terminatev() #10
   unreachable
 
-_ZN12OutputStream4growEm.exit.i.i.i.i:            ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i.i.i, %if.end.i197
-  %57 = phi i64 [ %54, %if.end.i197 ], [ %.pre5.i.i.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i.i.i ]
-  %58 = phi ptr [ %.pre.i.i.i.i, %if.end.i197 ], [ %call.i.i.i.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i.i.i ]
+_ZN12OutputStream4growEm.exit.i.i.i.i:            ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i.i.i, %if.end.i213
+  %57 = phi i64 [ %54, %if.end.i213 ], [ %.pre5.i.i.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i.i.i ]
+  %58 = phi ptr [ %.pre.i.i.i.i, %if.end.i213 ], [ %call.i.i.i.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 %57
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.139, i64 5, i1 false)
   %59 = load i64, ptr %CurrentPosition.i.i, align 8
@@ -4911,9 +4911,9 @@ _ZN12OutputStream4growEm.exit.i.i77:              ; preds = %if.then.i._ZN12Outp
   br label %if.end.i.i89.sink.split
 
 if.end.i.i89.sink.split:                          ; preds = %_ZN12OutputStream4growEm.exit.i.i77, %_ZN12OutputStream4growEm.exit.i.i52, %_ZN12OutputStream4growEm.exit.i.i27, %_ZN12OutputStream4growEm.exit.i.i
-  %.sink107 = phi i64 [ 4, %_ZN12OutputStream4growEm.exit.i.i77 ], [ 5, %_ZN12OutputStream4growEm.exit.i.i52 ], [ 6, %_ZN12OutputStream4growEm.exit.i.i27 ], [ 5, %_ZN12OutputStream4growEm.exit.i.i ]
+  %.sink108 = phi i64 [ 4, %_ZN12OutputStream4growEm.exit.i.i77 ], [ 5, %_ZN12OutputStream4growEm.exit.i.i52 ], [ 6, %_ZN12OutputStream4growEm.exit.i.i27 ], [ 5, %_ZN12OutputStream4growEm.exit.i.i ]
   %13 = load i64, ptr %CurrentPosition.i.i.i90.phi.trans.insert, align 8
-  %add.i.i79 = add i64 %13, %.sink107
+  %add.i.i79 = add i64 %13, %.sink108
   store i64 %add.i.i79, ptr %CurrentPosition.i.i.i90.phi.trans.insert, align 8
   br label %if.end.i.i89
 
@@ -6497,7 +6497,7 @@ while.body:                                       ; preds = %entry, %while.body
   %TempPtr.0.idx21 = phi i64 [ %TempPtr.0.add19, %while.body ], [ 21, %entry ]
   %N.addr.020 = phi i64 [ %div, %while.body ], [ %N, %entry ]
   %rem = urem i64 %N.addr.020, 10
-  %conv = trunc i64 %rem to i8
+  %conv = trunc nuw nsw i64 %rem to i8
   %add = or disjoint i8 %conv, 48
   %TempPtr.0.add19 = add nsw i64 %TempPtr.0.idx21, -1
   %incdec.ptr.ptr = getelementptr inbounds i8, ptr %Temp, i64 %TempPtr.0.add19

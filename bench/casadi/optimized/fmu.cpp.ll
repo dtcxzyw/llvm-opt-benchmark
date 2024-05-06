@@ -9002,7 +9002,7 @@ _ZNSt6vectorImSaImEE2atEm.exit:                   ; preds = %_ZNSt6vectorIbSaIbE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi3Fmu15eval_derivativeEPNS_9FmuMemoryEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi3Fmu15eval_derivativeEPNS_9FmuMemoryEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9300,7 +9300,7 @@ _ZNK6casadi11FmuInternal15eval_derivativeEPNS_9FmuMemoryEb.exit: ; preds = %41, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi11FmuInternal15eval_derivativeEPNS_9FmuMemoryEb(ptr noundef nonnull align 8 dereferenceable(608) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK6casadi11FmuInternal15eval_derivativeEPNS_9FmuMemoryEb(ptr noundef nonnull align 8 dereferenceable(608) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
   tail call void @_ZNK6casadi11FmuInternal11gather_sensEPNS_9FmuMemoryE(ptr noundef nonnull align 8 dereferenceable(608) %0, ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8

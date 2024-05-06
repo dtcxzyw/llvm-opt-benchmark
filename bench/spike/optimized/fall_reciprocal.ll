@@ -63,7 +63,7 @@ define i16 @f16_rsqrte7(i16 %0) local_unnamed_addr #0 {
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
   %.masked = and i64 %19, 511
-  %.masked.numleadingzeros = tail call i64 @llvm.ctlz.i64(i64 %.masked, i1 true), !range !4
+  %.masked.numleadingzeros = tail call range(i64 55, 65) i64 @llvm.ctlz.i64(i64 %.masked, i1 true)
   %.masked.leadingonepos = xor i64 %.masked.numleadingzeros, 63
   %.lr.ph.i.tripcount = sub nuw nsw i64 9, %.masked.leadingonepos
   %25 = shl nuw nsw i64 %22, %.lr.ph.i.tripcount
@@ -161,7 +161,7 @@ define i32 @f32_rsqrte7(i32 %0) local_unnamed_addr #0 {
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
   %.masked = and i64 %19, 4194303
-  %.masked.numleadingzeros = tail call i64 @llvm.ctlz.i64(i64 %.masked, i1 true), !range !5
+  %.masked.numleadingzeros = tail call range(i64 42, 65) i64 @llvm.ctlz.i64(i64 %.masked, i1 true)
   %.masked.leadingonepos = xor i64 %.masked.numleadingzeros, 63
   %.lr.ph.i.tripcount = sub nuw nsw i64 22, %.masked.leadingonepos
   %25 = shl nuw nsw i64 %22, %.lr.ph.i.tripcount
@@ -257,7 +257,7 @@ define i64 @f64_rsqrte7(i64 %0) local_unnamed_addr #0 {
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
   %.masked = and i64 %0, 2251799813685247
-  %.masked.numleadingzeros = tail call i64 @llvm.ctlz.i64(i64 %.masked, i1 true), !range !6
+  %.masked.numleadingzeros = tail call range(i64 13, 65) i64 @llvm.ctlz.i64(i64 %.masked, i1 true)
   %.masked.leadingonepos = xor i64 %.masked.numleadingzeros, 63
   %.lr.ph.i.tripcount = sub nuw nsw i64 51, %.masked.leadingonepos
   %23 = shl i64 %20, %.lr.ph.i.tripcount
@@ -357,7 +357,7 @@ define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
   %.masked = and i64 %20, 511
-  %.masked.numleadingzeros = tail call i64 @llvm.ctlz.i64(i64 %.masked, i1 true), !range !4
+  %.masked.numleadingzeros = tail call range(i64 55, 65) i64 @llvm.ctlz.i64(i64 %.masked, i1 true)
   %.masked.leadingonepos = xor i64 %.masked.numleadingzeros, 63
   %.lr.ph.i.tripcount = sub nuw nsw i64 9, %.masked.leadingonepos
   %28 = shl nuw nsw i64 %24, %.lr.ph.i.tripcount
@@ -493,7 +493,7 @@ define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
   %.masked = and i64 %20, 4194303
-  %.masked.numleadingzeros = tail call i64 @llvm.ctlz.i64(i64 %.masked, i1 true), !range !5
+  %.masked.numleadingzeros = tail call range(i64 42, 65) i64 @llvm.ctlz.i64(i64 %.masked, i1 true)
   %.masked.leadingonepos = xor i64 %.masked.numleadingzeros, 63
   %.lr.ph.i.tripcount = sub nuw nsw i64 22, %.masked.leadingonepos
   %27 = shl nuw nsw i64 %24, %.lr.ph.i.tripcount
@@ -628,7 +628,7 @@ define i64 @f64_recip7(i64 %0) local_unnamed_addr #0 {
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
   %.masked = and i64 %0, 2251799813685247
-  %.masked.numleadingzeros = tail call i64 @llvm.ctlz.i64(i64 %.masked, i1 true), !range !6
+  %.masked.numleadingzeros = tail call range(i64 13, 65) i64 @llvm.ctlz.i64(i64 %.masked, i1 true)
   %.masked.leadingonepos = xor i64 %.masked.numleadingzeros, 63
   %.lr.ph.i.tripcount = sub nuw nsw i64 51, %.masked.leadingonepos
   %25 = shl i64 %22, %.lr.ph.i.tripcount
@@ -719,6 +719,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 55, i64 65}
-!5 = !{i64 42, i64 65}
-!6 = !{i64 13, i64 65}

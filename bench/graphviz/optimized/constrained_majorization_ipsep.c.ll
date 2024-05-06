@@ -463,23 +463,23 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %172, label %.lr.ph546.split.split.split, label %._crit_edge547.loopexit663
 
 ._crit_edge547.loopexit:                          ; preds = %140
-  %173 = trunc i64 %indvars.iv.next730 to i32
+  %173 = trunc nsw i64 %indvars.iv.next730 to i32
   br label %._crit_edge547
 
 ._crit_edge547.loopexit663:                       ; preds = %168
-  %174 = trunc i64 %indvars.iv.next727 to i32
+  %174 = trunc nsw i64 %indvars.iv.next727 to i32
   br label %._crit_edge547
 
 ._crit_edge547.loopexit664:                       ; preds = %154
-  %175 = trunc i64 %indvars.iv.next724 to i32
+  %175 = trunc nsw i64 %indvars.iv.next724 to i32
   br label %._crit_edge547
 
 ._crit_edge547.loopexit665:                       ; preds = %.lr.ph546.split.us.split.us
-  %176 = trunc i64 %indvars.iv.next721 to i32
+  %176 = trunc nsw i64 %indvars.iv.next721 to i32
   br label %._crit_edge547
 
 ._crit_edge547.loopexit666:                       ; preds = %.lr.ph546.split.us.split
-  %177 = trunc i64 %indvars.iv.next718 to i32
+  %177 = trunc nsw i64 %indvars.iv.next718 to i32
   br label %._crit_edge547
 
 ._crit_edge547:                                   ; preds = %._crit_edge547.loopexit666, %._crit_edge547.loopexit665, %._crit_edge547.loopexit664, %._crit_edge547.loopexit663, %._crit_edge547.loopexit, %.preheader504
@@ -520,7 +520,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 .lr.ph583.preheader:                              ; preds = %.preheader503
   %183 = sext i32 %.1436579 to i64
   %wide.trip.count746 = zext i32 %indvars.iv744 to i64
-  %invariant.gep860 = getelementptr double, ptr %180, i64 %indvars.iv748
+  %invariant.gep860 = getelementptr inbounds double, ptr %180, i64 %indvars.iv748
   br label %.lr.ph583
 
 .preheader502:                                    ; preds = %._crit_edge584, %178
@@ -539,7 +539,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %186 = load float, ptr %185, align 4
   %187 = fpext float %186 to double
   %188 = fadd double %.0433580, %187
-  %gep861 = getelementptr double, ptr %invariant.gep860, i64 %indvars.iv739
+  %gep861 = getelementptr inbounds double, ptr %invariant.gep860, i64 %indvars.iv739
   %189 = load double, ptr %gep861, align 8
   %190 = fsub double %189, %187
   store double %190, ptr %gep861, align 8
@@ -549,7 +549,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %exitcond747.not, label %._crit_edge584.loopexit, label %.lr.ph583
 
 ._crit_edge584.loopexit:                          ; preds = %.lr.ph583
-  %191 = trunc i64 %indvars.iv.next738 to i32
+  %191 = trunc nsw i64 %indvars.iv.next738 to i32
   br label %._crit_edge584
 
 ._crit_edge584:                                   ; preds = %._crit_edge584.loopexit, %.preheader503
@@ -575,7 +575,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %199 = getelementptr inbounds float, ptr %.0452, i64 %198
   store float %197, ptr %199, align 4
   %indvars.iv.next754 = add nuw nsw i64 %indvars.iv753, 1
-  %200 = trunc i64 %indvars.iv755 to i32
+  %200 = trunc nsw i64 %indvars.iv755 to i32
   %201 = add nsw i32 %.2437590, %200
   %indvars.iv.next756 = add nsw i64 %indvars.iv755, -1
   %exitcond761.not = icmp eq i64 %indvars.iv.next754, %wide.trip.count760
@@ -677,7 +677,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %244, label %._crit_edge648, label %.lr.ph647
 
 .lr.ph647:                                        ; preds = %241
-  %invariant.gep = getelementptr i8, ptr %180, i64 8
+  %invariant.gep = getelementptr inbounds i8, ptr %180, i64 8
   %245 = fpext float %226 to double
   %246 = add nsw i32 %6, -1
   %247 = getelementptr inbounds i8, ptr %7, i64 16
@@ -708,7 +708,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %indvars.iv798 = phi i64 [ %indvars.iv.next799, %._crit_edge619 ], [ 0, %252 ]
   %indvars.iv785 = phi i32 [ %indvars.iv.next786, %._crit_edge619 ], [ %.pre-phi, %252 ]
   %.3438622 = phi i32 [ %.4439.lcssa, %._crit_edge619 ], [ 0, %252 ]
-  %253 = trunc i64 %indvars.iv798 to i32
+  %253 = trunc nuw nsw i64 %indvars.iv798 to i32
   %254 = xor i32 %253, -1
   %255 = add nsw i32 %.0409, %254
   tail call void @set_vector_valf(i32 noundef %.0409, float noundef 0.000000e+00, ptr noundef %234) #11
@@ -751,7 +751,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 .lr.ph618.preheader:                              ; preds = %.preheader498
   %264 = sext i32 %.4439614 to i64
   %wide.trip.count796 = zext i32 %indvars.iv785 to i64
-  %invariant.gep862 = getelementptr double, ptr %invariant.gep, i64 %indvars.iv798
+  %invariant.gep862 = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv798
   br label %.lr.ph618
 
 .lr.ph613:                                        ; preds = %.lr.ph613.preheader, %270
@@ -784,7 +784,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   store float %275, ptr %273, align 4
   %276 = fpext float %275 to double
   %277 = fadd double %.1434615, %276
-  %gep863 = getelementptr double, ptr %invariant.gep862, i64 %indvars.iv791
+  %gep863 = getelementptr inbounds double, ptr %invariant.gep862, i64 %indvars.iv791
   %278 = load double, ptr %gep863, align 8
   %279 = fsub double %278, %276
   store double %279, ptr %gep863, align 8
@@ -794,7 +794,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %exitcond797.not, label %._crit_edge619.loopexit, label %.lr.ph618
 
 ._crit_edge619.loopexit:                          ; preds = %.lr.ph618
-  %280 = trunc i64 %indvars.iv.next790 to i32
+  %280 = trunc nsw i64 %indvars.iv.next790 to i32
   br label %._crit_edge619
 
 ._crit_edge619:                                   ; preds = %.preheader498.thread, %._crit_edge619.loopexit, %.preheader498
@@ -823,7 +823,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %288 = getelementptr inbounds float, ptr %243, i64 %287
   store float %286, ptr %288, align 4
   %indvars.iv.next804 = add nuw nsw i64 %indvars.iv803, 1
-  %289 = trunc i64 %indvars.iv805 to i32
+  %289 = trunc nsw i64 %indvars.iv805 to i32
   %290 = add nsw i32 %.5440626, %289
   %indvars.iv.next806 = add nsw i64 %indvars.iv805, -1
   %exitcond811.not = icmp eq i64 %indvars.iv.next804, %wide.trip.count810

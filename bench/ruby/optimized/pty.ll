@@ -126,13 +126,13 @@ define internal noundef i64 @pty_getpty(i32 noundef %0, ptr noundef %1, i64 %2) 
   %32 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %31, ptr %32, align 8
   call void @rb_execarg_parent_start(i64 noundef %29) #10
-  %33 = call fastcc i32 @get_device_once(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0), !range !6
+  %33 = call fastcc i32 @get_device_once(ptr noundef nonnull writeonly %4, ptr noundef nonnull writeonly %5, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0)
   %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %getDevice.exit.i, label %34
 
 34:                                               ; preds = %28
   call void @rb_gc() #10
-  %35 = call fastcc i32 @get_device_once(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 1), !range !6
+  %35 = call fastcc i32 @get_device_once(ptr noundef nonnull writeonly %4, ptr noundef nonnull writeonly %5, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 1)
   br label %getDevice.exit.i
 
 getDevice.exit.i:                                 ; preds = %34, %28
@@ -180,7 +180,7 @@ establishShell.exit:                              ; preds = %getDevice.exit.i
   store i32 %40, ptr %56, align 4
   store i32 %36, ptr %11, align 4
   store ptr %30, ptr %10, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %10) #10, !srcloc !7
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %10) #10, !srcloc !6
   %57 = load ptr, ptr %10, align 8
   %58 = load volatile i64, ptr %57, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -280,13 +280,13 @@ define internal i64 @pty_open(i64 %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca [16 x i8], align 16
-  %5 = call fastcc i32 @get_device_once(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 0), !range !6
+  %5 = call fastcc i32 @get_device_once(ptr noundef nonnull writeonly %2, ptr noundef nonnull writeonly %3, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 0)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %getDevice.exit, label %6
 
 6:                                                ; preds = %1
   call void @rb_gc() #10
-  %7 = call fastcc i32 @get_device_once(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 1), !range !6
+  %7 = call fastcc i32 @get_device_once(ptr noundef nonnull writeonly %2, ptr noundef nonnull writeonly %3, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 1)
   br label %getDevice.exit
 
 getDevice.exit:                                   ; preds = %1, %6
@@ -328,7 +328,7 @@ define internal i64 @echild_status(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.6, i64 noundef 6) #10
   store i64 %2, ptr @echild_status.rbimpl_id, align 8
   %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !8
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !7
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %1
   %.lcssa.i = phi i64 [ %.pr.i, %1 ], [ %2, %.lr.ph.i ]
@@ -441,7 +441,7 @@ declare void @rb_execarg_parent_end(i64 noundef) local_unnamed_addr #1
 declare void @rb_jump_tag(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_device_once(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_device_once(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @posix_openpt(i32 noundef 524546) #10
   %cond = icmp eq i32 %6, -1
   br i1 %cond, label %25, label %7
@@ -467,7 +467,7 @@ define internal fastcc noundef i32 @get_device_once(ptr nocapture noundef writeo
   br i1 %.not.i, label %no_mesg.exit.thread, label %no_mesg.exit
 
 no_mesg.exit:                                     ; preds = %16
-  %17 = tail call i32 @chmod(ptr noundef nonnull %14, i32 noundef 384) #10
+  %17 = tail call i32 @chmod(ptr noundef nonnull readonly %14, i32 noundef 384) #10
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %23, label %no_mesg.exit.thread
 
@@ -621,7 +621,7 @@ define internal noundef i64 @pty_close_pty(i64 noundef %0) #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %9, %14
-  br i1 %3, label %2, label %16, !llvm.loop !10
+  br i1 %3, label %2, label %16, !llvm.loop !9
 
 16:                                               ; preds = %.critedge
   ret i64 4
@@ -665,8 +665,7 @@ attributes #13 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 1}
-!7 = !{i64 2150889379}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!6 = !{i64 2150889379}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

@@ -466,7 +466,7 @@ define internal fastcc void @cmpp_connect(ptr noundef %0, ptr noundef %1) unname
   %23 = sdiv i32 %19, 10000
   %24 = srem i32 %23, 100
   %25 = sdiv i32 %19, 1000000
-  %.lhs.trunc.i = trunc i32 %25 to i16
+  %.lhs.trunc.i = trunc nsw i32 %25 to i16
   %26 = srem i16 %.lhs.trunc.i, 100
   %.sext.i = sext i16 %26 to i32
   %27 = sdiv i32 %19, 100000000

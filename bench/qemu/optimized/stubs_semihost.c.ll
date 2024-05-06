@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qemu_semihosting_config_opts = dso_local global { ptr, ptr, i8, %union.anon, [1 x %struct.QemuOptDesc] } { ptr @.str, ptr null, i8 0, %union.anon { %struct.QTailQLink { ptr null, ptr getelementptr (i8, ptr @qemu_semihosting_config_opts, i64 24) } }, [1 x %struct.QemuOptDesc] zeroinitializer }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @semihosting_enabled(i1 noundef zeroext %is_user) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @semihosting_enabled(i1 noundef zeroext %is_user) local_unnamed_addr #0 {
 entry:
   ret i1 false
 }
@@ -23,25 +23,25 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @qemu_semihosting_config_options(ptr nocapture noundef readnone %optstr) local_unnamed_addr #0 {
+define dso_local noundef i32 @qemu_semihosting_config_options(ptr nocapture noundef readnone %optstr) local_unnamed_addr #0 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noalias ptr @semihosting_get_arg(i32 noundef %i) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @semihosting_get_arg(i32 noundef %i) local_unnamed_addr #0 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @semihosting_get_argc() local_unnamed_addr #0 {
+define dso_local noundef i32 @semihosting_get_argc() local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noalias ptr @semihosting_get_cmdline() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @semihosting_get_cmdline() local_unnamed_addr #0 {
 entry:
   ret ptr null
 }

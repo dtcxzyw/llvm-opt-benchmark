@@ -35,7 +35,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cipher_hw_rc4_hmac_md5_cipher(ptr noundef %bctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
+define internal range(i32 0, 2) i32 @cipher_hw_rc4_hmac_md5_cipher(ptr noundef %bctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %mac = alloca [16 x i8], align 16
   %ks1 = getelementptr inbounds i8, ptr %bctx, i64 192
@@ -237,7 +237,7 @@ return:                                           ; preds = %if.then142, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cipher_hw_rc4_hmac_md5_tls_init(ptr noundef %bctx, ptr noundef %aad, i64 noundef %aad_len) #1 {
+define internal range(i32 0, 17) i32 @cipher_hw_rc4_hmac_md5_tls_init(ptr noundef %bctx, ptr noundef %aad, i64 noundef %aad_len) #1 {
 entry:
   %cmp.not = icmp eq i64 %aad_len, 13
   br i1 %cmp.not, label %if.end, label %return
@@ -264,7 +264,7 @@ if.then4:                                         ; preds = %if.end
 if.end8:                                          ; preds = %if.then4
   %sub9 = add nsw i32 %or, -16
   %shr = lshr i32 %sub9, 8
-  %conv10 = trunc i32 %shr to i8
+  %conv10 = trunc nuw i32 %shr to i8
   store i8 %conv10, ptr %arrayidx, align 1
   %conv13 = trunc i32 %sub9 to i8
   store i8 %conv13, ptr %arrayidx2, align 1

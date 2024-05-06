@@ -209,18 +209,18 @@ define internal fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef re
 57:                                               ; preds = %43
   %58 = getelementptr inbounds i8, ptr %47, i64 160
   %59 = getelementptr inbounds i8, ptr %47, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %58, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %58, i8 0, i64 40, i1 false)
   store ptr %26, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %47, i64 208
   %61 = getelementptr inbounds i8, ptr %47, i64 248
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %60, i8 0, i64 40, i1 false)
   store ptr %26, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %47, i64 8
   store i8 0, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %47, i64 16
   store ptr null, ptr %47, align 8
   %64 = getelementptr inbounds i8, ptr %47, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   store ptr %26, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %47, i64 40
   %66 = getelementptr inbounds i8, ptr %47, i64 48
@@ -228,7 +228,7 @@ define internal fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef re
   %67 = getelementptr inbounds i8, ptr %47, i64 56
   store ptr null, ptr %65, align 8
   %68 = getelementptr inbounds i8, ptr %47, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   store ptr %26, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %47, i64 80
   %70 = getelementptr inbounds i8, ptr %47, i64 88
@@ -236,7 +236,7 @@ define internal fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef re
   %71 = getelementptr inbounds i8, ptr %47, i64 96
   store ptr null, ptr %69, align 8
   %72 = getelementptr inbounds i8, ptr %47, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   store ptr %26, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %47, i64 120
   %74 = getelementptr inbounds i8, ptr %47, i64 128
@@ -244,7 +244,7 @@ define internal fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef re
   %75 = getelementptr inbounds i8, ptr %47, i64 136
   store ptr null, ptr %73, align 8
   %76 = getelementptr inbounds i8, ptr %47, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
   store ptr %26, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %47, i64 264
   %78 = getelementptr inbounds i8, ptr %47, i64 288
@@ -283,12 +283,12 @@ define internal fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef re
   store ptr null, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %.sink4, i64 760
   %96 = getelementptr inbounds i8, ptr %.sink4, i64 800
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %95, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %95, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %93, i8 0, i64 17, i1 false)
   store ptr %26, ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %.sink4, i64 808
   %98 = getelementptr inbounds i8, ptr %.sink4, i64 848
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %97, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %97, i8 0, i64 40, i1 false)
   store ptr %26, ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %.sink4, i64 504
   store ptr @prologInitProcessor, ptr %99, align 8
@@ -312,7 +312,7 @@ define internal fastcc ptr @parserCreate(ptr noundef readonly %0, ptr noundef re
   br i1 %107, label %copyString.exit.i, label %108
 
 108:                                              ; preds = %104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %106, ptr nonnull align 1 %0, i64 %103, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %106, ptr nonnull readonly align 1 %0, i64 %103, i1 false)
   br label %copyString.exit.i
 
 copyString.exit.i:                                ; preds = %108, %104
@@ -405,7 +405,7 @@ parserInit.exit:                                  ; preds = %57, %copyString.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i8 @XML_ParserReset(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local zeroext range(i8 0, 2) i8 @XML_ParserReset(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %214, label %4
 
@@ -601,7 +601,7 @@ poolClear.exit57:                                 ; preds = %.lr.ph.i54, %59, %6
   br i1 %75, label %copyString.exit.i, label %76
 
 76:                                               ; preds = %72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull align 1 %1, i64 %71, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %1, i64 %71, i1 false)
   br label %copyString.exit.i
 
 copyString.exit.i:                                ; preds = %76, %72
@@ -899,7 +899,7 @@ dtdReset.exit:                                    ; preds = %.lr.ph.i46.i, %199,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @XML_SetEncoding(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @XML_SetEncoding(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %21, label %4
 
@@ -936,7 +936,7 @@ define dso_local noundef i32 @XML_SetEncoding(ptr noundef %0, ptr noundef readon
   br i1 %20, label %.sink.split, label %copyString.exit
 
 copyString.exit:                                  ; preds = %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %1, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %1, i64 %15, i1 false)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %16, %7, %copyString.exit
@@ -1314,7 +1314,7 @@ poolCopyString.exit.i:                            ; preds = %._crit_edge.i.i
   br i1 %.not137.i, label %dtdCopy.exit.thread, label %207
 
 207:                                              ; preds = %poolCopyString.exit.i
-  %208 = call fastcc ptr @lookup(ptr noundef %0, ptr noundef nonnull %91, ptr noundef nonnull %205, i64 noundef 16)
+  %208 = call fastcc ptr @lookup(ptr noundef readonly %0, ptr noundef nonnull %91, ptr noundef nonnull %205, i64 noundef 16)
   %.not138.i = icmp eq ptr %208, null
   br i1 %.not138.i, label %dtdCopy.exit.thread, label %.backedge292
 
@@ -1360,7 +1360,7 @@ hashTableIterNext.exit148.i:                      ; preds = %224
   br i1 %229, label %230, label %232
 
 230:                                              ; preds = %hashTableIterNext.exit148.i
-  %231 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85), !range !14
+  %231 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85)
   %.not133.i = icmp eq i8 %231, 0
   br i1 %.not133.i, label %dtdCopy.exit.thread, label %._crit_edge.i
 
@@ -1384,7 +1384,7 @@ hashTableIterNext.exit148.i:                      ; preds = %224
   br i1 %239, label %240, label %242
 
 240:                                              ; preds = %236
-  %241 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85), !range !14
+  %241 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85)
   %.not.i152.i = icmp eq i8 %241, 0
   br i1 %.not.i152.i, label %dtdCopy.exit.thread, label %._crit_edge.i153.i
 
@@ -1412,7 +1412,7 @@ poolCopyString.exit155.i:                         ; preds = %242
 
 250:                                              ; preds = %poolCopyString.exit155.i
   %251 = getelementptr inbounds i8, ptr %248, i64 1
-  %252 = call fastcc ptr @lookup(ptr noundef %0, ptr noundef nonnull %217, ptr noundef nonnull %251, i64 noundef 24)
+  %252 = call fastcc ptr @lookup(ptr noundef readonly %0, ptr noundef nonnull %217, ptr noundef nonnull %251, i64 noundef 24)
   %.not135.i = icmp eq ptr %252, null
   br i1 %.not135.i, label %dtdCopy.exit.thread, label %253
 
@@ -1442,7 +1442,7 @@ poolCopyString.exit155.i:                         ; preds = %242
   br i1 %268, label %.sink.split.i, label %269
 
 269:                                              ; preds = %265
-  %270 = call fastcc i64 @hash(ptr noundef %0, ptr noundef %266)
+  %270 = call fastcc i64 @hash(ptr noundef readonly %0, ptr noundef %266)
   %271 = load i64, ptr %219, align 8
   %272 = add i64 %271, -1
   %273 = and i64 %272, %270
@@ -1481,7 +1481,7 @@ poolCopyString.exit155.i:                         ; preds = %242
   %291 = load i8, ptr %289, align 1
   %292 = load i8, ptr %290, align 1
   %293 = icmp eq i8 %291, %292
-  br i1 %293, label %.lr.ph.i.i.i, label %.loopexit158.i.i, !llvm.loop !15
+  br i1 %293, label %.lr.ph.i.i.i, label %.loopexit158.i.i, !llvm.loop !14
 
 .loopexit158.i.i:                                 ; preds = %288, %281
   %.not150.i.i = icmp eq i8 %.0123163.i.i, 0
@@ -1508,7 +1508,7 @@ poolCopyString.exit155.i:                         ; preds = %242
   %306 = getelementptr inbounds ptr, ptr %274, i64 %.1122.i.i
   %307 = load ptr, ptr %306, align 8
   %.not.i156.i = icmp eq ptr %307, null
-  br i1 %.not.i156.i, label %.sink.split.i, label %281, !llvm.loop !16
+  br i1 %.not.i156.i, label %.sink.split.i, label %281, !llvm.loop !15
 
 .sink.split.i:                                    ; preds = %303, %.lr.ph.i.i.i, %269, %265, %259
   %.sink.i = phi ptr [ %221, %259 ], [ null, %265 ], [ null, %269 ], [ %282, %.lr.ph.i.i.i ], [ null, %303 ]
@@ -1561,7 +1561,7 @@ hashTableIterNext.exit164.i:                      ; preds = %321
   br i1 %328, label %329, label %331
 
 329:                                              ; preds = %325
-  %330 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85), !range !14
+  %330 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85)
   %.not.i168.i = icmp eq i8 %330, 0
   br i1 %.not.i168.i, label %dtdCopy.exit.thread, label %._crit_edge.i169.i
 
@@ -1588,7 +1588,7 @@ poolCopyString.exit171.i:                         ; preds = %331
   br i1 %.not125.i, label %dtdCopy.exit.thread, label %339
 
 339:                                              ; preds = %poolCopyString.exit171.i
-  %340 = call fastcc ptr @lookup(ptr noundef %0, ptr noundef nonnull %317, ptr noundef nonnull %337, i64 noundef 40)
+  %340 = call fastcc ptr @lookup(ptr noundef readonly %0, ptr noundef nonnull %317, ptr noundef nonnull %337, i64 noundef 40)
   %.not126.i = icmp eq ptr %340, null
   br i1 %.not126.i, label %dtdCopy.exit.thread, label %341
 
@@ -1621,7 +1621,7 @@ poolCopyString.exit171.i:                         ; preds = %331
   br i1 %356, label %lookup.exit189.i, label %357
 
 357:                                              ; preds = %353
-  %358 = call fastcc i64 @hash(ptr noundef %0, ptr noundef %354)
+  %358 = call fastcc i64 @hash(ptr noundef readonly %0, ptr noundef %354)
   %359 = load i64, ptr %318, align 8
   %360 = add i64 %359, -1
   %361 = and i64 %360, %358
@@ -1660,7 +1660,7 @@ poolCopyString.exit171.i:                         ; preds = %331
   %379 = load i8, ptr %377, align 1
   %380 = load i8, ptr %378, align 1
   %381 = icmp eq i8 %379, %380
-  br i1 %381, label %.lr.ph.i.i186.i, label %.loopexit158.i176.i, !llvm.loop !15
+  br i1 %381, label %.lr.ph.i.i186.i, label %.loopexit158.i176.i, !llvm.loop !14
 
 .loopexit158.i176.i:                              ; preds = %376, %369
   %.not150.i177.i = icmp eq i8 %.0123163.i175.i, 0
@@ -1687,7 +1687,7 @@ poolCopyString.exit171.i:                         ; preds = %331
   %394 = getelementptr inbounds ptr, ptr %362, i64 %.1122.i181.i
   %395 = load ptr, ptr %394, align 8
   %.not.i182.i = icmp eq ptr %395, null
-  br i1 %.not.i182.i, label %lookup.exit189.i, label %369, !llvm.loop !16
+  br i1 %.not.i182.i, label %lookup.exit189.i, label %369, !llvm.loop !15
 
 lookup.exit189.i:                                 ; preds = %391, %.lr.ph.i.i186.i, %357, %353
   %.0120.i185.i = phi ptr [ null, %353 ], [ null, %357 ], [ %370, %.lr.ph.i.i186.i ], [ null, %391 ]
@@ -1713,7 +1713,7 @@ lookup.exit189.i:                                 ; preds = %391, %.lr.ph.i.i186
   br i1 %406, label %lookup.exit207.i, label %407
 
 407:                                              ; preds = %403
-  %408 = call fastcc i64 @hash(ptr noundef %0, ptr noundef %404)
+  %408 = call fastcc i64 @hash(ptr noundef readonly %0, ptr noundef %404)
   %409 = load i64, ptr %219, align 8
   %410 = add i64 %409, -1
   %411 = and i64 %410, %408
@@ -1752,7 +1752,7 @@ lookup.exit189.i:                                 ; preds = %391, %.lr.ph.i.i186
   %429 = load i8, ptr %427, align 1
   %430 = load i8, ptr %428, align 1
   %431 = icmp eq i8 %429, %430
-  br i1 %431, label %.lr.ph.i.i204.i, label %.loopexit158.i194.i, !llvm.loop !15
+  br i1 %431, label %.lr.ph.i.i204.i, label %.loopexit158.i194.i, !llvm.loop !14
 
 .loopexit158.i194.i:                              ; preds = %426, %419
   %.not150.i195.i = icmp eq i8 %.0123163.i193.i, 0
@@ -1779,7 +1779,7 @@ lookup.exit189.i:                                 ; preds = %391, %.lr.ph.i.i186
   %444 = getelementptr inbounds ptr, ptr %412, i64 %.1122.i199.i
   %445 = load ptr, ptr %444, align 8
   %.not.i200.i = icmp eq ptr %445, null
-  br i1 %.not.i200.i, label %lookup.exit207.i, label %419, !llvm.loop !16
+  br i1 %.not.i200.i, label %lookup.exit207.i, label %419, !llvm.loop !15
 
 lookup.exit207.i:                                 ; preds = %441, %.lr.ph.i.i204.i, %407, %403
   %.0120.i203.i = phi ptr [ null, %403 ], [ null, %407 ], [ %420, %.lr.ph.i.i204.i ], [ null, %441 ]
@@ -1809,7 +1809,7 @@ lookup.exit207.i:                                 ; preds = %441, %.lr.ph.i.i204
   br i1 %458, label %lookup.exit225.i, label %459
 
 459:                                              ; preds = %452
-  %460 = call fastcc i64 @hash(ptr noundef %0, ptr noundef %456)
+  %460 = call fastcc i64 @hash(ptr noundef readonly %0, ptr noundef %456)
   %461 = load i64, ptr %318, align 8
   %462 = add i64 %461, -1
   %463 = and i64 %462, %460
@@ -1848,7 +1848,7 @@ lookup.exit207.i:                                 ; preds = %441, %.lr.ph.i.i204
   %481 = load i8, ptr %479, align 1
   %482 = load i8, ptr %480, align 1
   %483 = icmp eq i8 %481, %482
-  br i1 %483, label %.lr.ph.i.i222.i, label %.loopexit158.i212.i, !llvm.loop !15
+  br i1 %483, label %.lr.ph.i.i222.i, label %.loopexit158.i212.i, !llvm.loop !14
 
 .loopexit158.i212.i:                              ; preds = %478, %471
   %.not150.i213.i = icmp eq i8 %.0123163.i211.i, 0
@@ -1875,7 +1875,7 @@ lookup.exit207.i:                                 ; preds = %441, %.lr.ph.i.i204
   %496 = getelementptr inbounds ptr, ptr %464, i64 %.1122.i217.i
   %497 = load ptr, ptr %496, align 8
   %.not.i218.i = icmp eq ptr %497, null
-  br i1 %.not.i218.i, label %lookup.exit225.i, label %471, !llvm.loop !16
+  br i1 %.not.i218.i, label %lookup.exit225.i, label %471, !llvm.loop !15
 
 lookup.exit225.i:                                 ; preds = %493, %.lr.ph.i.i222.i, %459, %452
   %.0120.i221.i = phi ptr [ null, %452 ], [ null, %459 ], [ %472, %.lr.ph.i.i222.i ], [ null, %493 ]
@@ -1902,7 +1902,7 @@ lookup.exit225.i:                                 ; preds = %493, %.lr.ph.i.i222
   br i1 %510, label %511, label %513
 
 511:                                              ; preds = %.preheader.i
-  %512 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85), !range !14
+  %512 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85)
   %.not.i229.i = icmp eq i8 %512, 0
   br i1 %.not.i229.i, label %poolCopyString.exit232.i, label %._crit_edge.i230.i
 
@@ -1949,7 +1949,7 @@ poolCopyString.exit232.i:                         ; preds = %511, %519
   %531 = load i32, ptr %399, align 8
   %532 = sext i32 %531 to i64
   %533 = icmp slt i64 %indvars.iv.next.i, %532
-  br i1 %533, label %452, label %.loopexit.i.backedge, !llvm.loop !17
+  br i1 %533, label %452, label %.loopexit.i.backedge, !llvm.loop !16
 
 534:                                              ; preds = %.loopexit.i
   %535 = load ptr, ptr %8, align 8
@@ -1995,7 +1995,7 @@ hashTableIterNext.exit.i122:                      ; preds = %544
   br i1 %551, label %552, label %554
 
 552:                                              ; preds = %548
-  %553 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85), !range !14
+  %553 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85)
   %.not.i79.i = icmp eq i8 %553, 0
   br i1 %.not.i79.i, label %dtdCopy.exit.thread, label %._crit_edge.i.i129
 
@@ -2022,7 +2022,7 @@ poolCopyString.exit.i124:                         ; preds = %554
   br i1 %.not66.i, label %dtdCopy.exit.thread, label %562
 
 562:                                              ; preds = %poolCopyString.exit.i124
-  %563 = call fastcc ptr @lookup(ptr noundef %0, ptr noundef nonnull %76, ptr noundef nonnull %560, i64 noundef 64)
+  %563 = call fastcc ptr @lookup(ptr noundef readonly %0, ptr noundef nonnull %76, ptr noundef nonnull %560, i64 noundef 64)
   %.not67.i = icmp eq ptr %563, null
   br i1 %.not67.i, label %dtdCopy.exit.thread, label %564
 
@@ -2040,7 +2040,7 @@ poolCopyString.exit.i124:                         ; preds = %554
   br i1 %569, label %570, label %572
 
 570:                                              ; preds = %.preheader131.i
-  %571 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85), !range !14
+  %571 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85)
   %.not.i83.i = icmp eq i8 %571, 0
   br i1 %.not.i83.i, label %dtdCopy.exit.thread, label %._crit_edge.i84.i
 
@@ -2086,7 +2086,7 @@ poolCopyString.exit86.i:                          ; preds = %572
   br i1 %588, label %589, label %591
 
 589:                                              ; preds = %.preheader129.i
-  %590 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85), !range !14
+  %590 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85)
   %.not.i90.i = icmp eq i8 %590, 0
   br i1 %.not.i90.i, label %dtdCopy.exit.thread, label %._crit_edge.i91.i
 
@@ -2135,7 +2135,7 @@ poolCopyString.exit93.i:                          ; preds = %591
   br i1 %605, label %606, label %608
 
 606:                                              ; preds = %.preheader127.i
-  %607 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85), !range !14
+  %607 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85)
   %.not.i97.i = icmp eq i8 %607, 0
   br i1 %.not.i97.i, label %dtdCopy.exit.thread, label %._crit_edge.i98.i
 
@@ -2176,7 +2176,7 @@ poolCopyString.exit100.i:                         ; preds = %608
   br i1 %.not.i101.i, label %624, label %626
 
 624:                                              ; preds = %618
-  %625 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85), !range !14
+  %625 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85)
   %.not16.i.i = icmp eq i8 %625, 0
   br i1 %.not16.i.i, label %dtdCopy.exit.thread, label %626
 
@@ -2193,7 +2193,7 @@ poolCopyString.exit100.i:                         ; preds = %608
   br i1 %630, label %631, label %633
 
 631:                                              ; preds = %.lr.ph.i.i128
-  %632 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85), !range !14
+  %632 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85)
   %.not17.i.i = icmp eq i8 %632, 0
   br i1 %.not17.i.i, label %dtdCopy.exit.thread, label %._crit_edge20.i.i
 
@@ -2210,7 +2210,7 @@ poolCopyString.exit100.i:                         ; preds = %608
   %637 = add nsw i32 %.019.i.i, -1
   %638 = getelementptr inbounds i8, ptr %.01418.i.i, i64 1
   %639 = icmp sgt i32 %.019.i.i, 1
-  br i1 %639, label %.lr.ph.i.i128, label %poolCopyStringN.exit.i, !llvm.loop !18
+  br i1 %639, label %.lr.ph.i.i128, label %poolCopyStringN.exit.i, !llvm.loop !17
 
 poolCopyStringN.exit.i:                           ; preds = %633, %626
   %640 = load ptr, ptr %89, align 8
@@ -2243,7 +2243,7 @@ poolCopyStringN.exit.i:                           ; preds = %633, %626
   br i1 %651, label %652, label %654
 
 652:                                              ; preds = %.preheader.i126
-  %653 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85), !range !14
+  %653 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %85)
   %.not.i107.i = icmp eq i8 %653, 0
   br i1 %.not.i107.i, label %dtdCopy.exit.thread, label %._crit_edge.i108.i
 
@@ -2322,7 +2322,7 @@ poolCopyString.exit110.i:                         ; preds = %654
   %697 = load ptr, ptr %696, align 8
   %698 = getelementptr inbounds i8, ptr %76, i64 312
   store ptr %697, ptr %698, align 8
-  %699 = call fastcc zeroext i8 @setContext(ptr noundef %.0110, ptr noundef %1), !range !14
+  %699 = call fastcc zeroext i8 @setContext(ptr noundef %.0110, ptr noundef %1)
   %.not117 = icmp eq i8 %699, 0
   br i1 %.not117, label %dtdCopy.exit.thread, label %700
 
@@ -2341,7 +2341,7 @@ dtdCopy.exit.thread:                              ; preds = %207, %poolCopyStrin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i8 @setContext(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @setContext(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 648
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %1, align 1
@@ -2381,7 +2381,7 @@ define internal fastcc noundef zeroext i8 @setContext(ptr nocapture noundef %0, 
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %21
-  %26 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %6), !range !14
+  %26 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %6)
   %.not87 = icmp eq i8 %26, 0
   br i1 %.not87, label %.loopexit, label %._crit_edge129
 
@@ -2400,7 +2400,7 @@ define internal fastcc noundef zeroext i8 @setContext(ptr nocapture noundef %0, 
   br i1 %32, label %lookup.exit.thread, label %33
 
 33:                                               ; preds = %27
-  %34 = tail call fastcc i64 @hash(ptr noundef nonnull %0, ptr noundef %30)
+  %34 = tail call fastcc i64 @hash(ptr noundef nonnull readonly %0, ptr noundef %30)
   %35 = load i64, ptr %17, align 8
   %36 = add i64 %35, -1
   %37 = and i64 %36, %34
@@ -2439,7 +2439,7 @@ define internal fastcc noundef zeroext i8 @setContext(ptr nocapture noundef %0, 
   %55 = load i8, ptr %53, align 1
   %56 = load i8, ptr %54, align 1
   %57 = icmp eq i8 %55, %56
-  br i1 %57, label %.lr.ph.i.i, label %.loopexit158.i, !llvm.loop !15
+  br i1 %57, label %.lr.ph.i.i, label %.loopexit158.i, !llvm.loop !14
 
 .loopexit158.i:                                   ; preds = %52, %45
   %.not150.i = icmp eq i8 %.0123163.i, 0
@@ -2466,7 +2466,7 @@ define internal fastcc noundef zeroext i8 @setContext(ptr nocapture noundef %0, 
   %70 = getelementptr inbounds ptr, ptr %38, i64 %.1122.i
   %71 = load ptr, ptr %70, align 8
   %.not.i = icmp eq ptr %71, null
-  br i1 %.not.i, label %lookup.exit.thread, label %45, !llvm.loop !16
+  br i1 %.not.i, label %lookup.exit.thread, label %45, !llvm.loop !15
 
 lookup.exit:                                      ; preds = %.lr.ph.i.i
   %72 = getelementptr inbounds i8, ptr %46, i64 56
@@ -2494,7 +2494,7 @@ lookup.exit.thread:                               ; preds = %67, %33, %27, %look
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %79
-  %83 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %6), !range !14
+  %83 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %6)
   %.not78 = icmp eq i8 %83, 0
   br i1 %.not78, label %.loopexit, label %._crit_edge
 
@@ -2526,7 +2526,7 @@ lookup.exit.thread:                               ; preds = %67, %33, %27, %look
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %.preheader
-  %97 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %11), !range !14
+  %97 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %11)
   %.not.i91 = icmp eq i8 %97, 0
   br i1 %.not.i91, label %poolCopyString.exit.thread, label %._crit_edge.i92
 
@@ -2586,7 +2586,7 @@ poolCopyString.exit._crit_edge:                   ; preds = %poolCopyString.exit
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %111
-  %116 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %6), !range !14
+  %116 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %6)
   %.not86 = icmp eq i8 %116, 0
   br i1 %.not86, label %.loopexit, label %._crit_edge126
 
@@ -2601,7 +2601,7 @@ poolCopyString.exit._crit_edge:                   ; preds = %poolCopyString.exit
   %120 = getelementptr inbounds i8, ptr %118, i64 1
   store ptr %120, ptr %7, align 8
   store i8 %119, ptr %118, align 1
-  br label %109, !llvm.loop !19
+  br label %109, !llvm.loop !18
 
 .critedge:                                        ; preds = %109, %109
   %121 = load ptr, ptr %7, align 8
@@ -2610,7 +2610,7 @@ poolCopyString.exit._crit_edge:                   ; preds = %poolCopyString.exit
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %.critedge
-  %125 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %6), !range !14
+  %125 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %6)
   %.not83 = icmp eq i8 %125, 0
   br i1 %.not83, label %.loopexit, label %._crit_edge124
 
@@ -2624,7 +2624,7 @@ poolCopyString.exit._crit_edge:                   ; preds = %poolCopyString.exit
   store ptr %128, ptr %7, align 8
   store i8 0, ptr %127, align 1
   %129 = load ptr, ptr %8, align 8
-  %130 = tail call fastcc i32 @addBinding(ptr noundef nonnull %0, ptr noundef nonnull %.0, ptr noundef null, ptr noundef %129, ptr noundef nonnull %16), !range !20
+  %130 = tail call fastcc i32 @addBinding(ptr noundef nonnull %0, ptr noundef nonnull %.0, ptr noundef null, ptr noundef %129, ptr noundef nonnull %16)
   %.not84 = icmp eq i32 %130, 0
   br i1 %.not84, label %131, label %.loopexit
 
@@ -2644,7 +2644,7 @@ poolCopyString.exit._crit_edge:                   ; preds = %poolCopyString.exit
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %135
-  %140 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %6), !range !14
+  %140 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %6)
   %.not77 = icmp eq i8 %140, 0
   br i1 %.not77, label %.loopexit, label %._crit_edge131
 
@@ -2667,7 +2667,7 @@ poolCopyString.exit._crit_edge:                   ; preds = %poolCopyString.exit
   %.2 = phi ptr [ %spec.select, %lookup.exit.thread ], [ %spec.select90, %131 ], [ %145, %141 ]
   %147 = load i8, ptr %.3, align 1
   %.not = icmp eq i8 %147, 0
-  br i1 %.not, label %.loopexit, label %19, !llvm.loop !21
+  br i1 %.not, label %.loopexit, label %19, !llvm.loop !19
 
 .loopexit:                                        ; preds = %25, %82, %84, %poolCopyString.exit, %124, %126, %139, %146, %115, %2, %poolCopyString.exit.thread
   %.067 = phi i8 [ 0, %poolCopyString.exit.thread ], [ 1, %2 ], [ 0, %115 ], [ 0, %25 ], [ 0, %82 ], [ 0, %84 ], [ 0, %poolCopyString.exit ], [ 0, %124 ], [ 0, %126 ], [ 0, %139 ], [ 1, %146 ]
@@ -2814,7 +2814,7 @@ destroyBindings.exit70:                           ; preds = %.lr.ph.i67, %destro
   %66 = load ptr, ptr %65, align 8
   tail call void %66(ptr noundef nonnull %.014.i) #22
   %.not.i72 = icmp eq ptr %63, null
-  br i1 %.not.i72, label %._crit_edge.i, label %62, !llvm.loop !22
+  br i1 %.not.i72, label %._crit_edge.i, label %62, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %62, %destroyBindings.exit70
   %67 = getelementptr inbounds i8, ptr %0, i64 768
@@ -2834,7 +2834,7 @@ destroyBindings.exit70:                           ; preds = %.lr.ph.i67, %destro
   %74 = load ptr, ptr %73, align 8
   tail call void %74(ptr noundef nonnull %.116.i) #22
   %.not12.i = icmp eq ptr %71, null
-  br i1 %.not12.i, label %poolDestroy.exit, label %70, !llvm.loop !23
+  br i1 %.not12.i, label %poolDestroy.exit, label %70, !llvm.loop !21
 
 poolDestroy.exit:                                 ; preds = %70, %._crit_edge.i
   %75 = getelementptr inbounds i8, ptr %0, i64 808
@@ -2854,7 +2854,7 @@ poolDestroy.exit:                                 ; preds = %70, %._crit_edge.i
   %82 = load ptr, ptr %81, align 8
   tail call void %82(ptr noundef nonnull %.014.i75) #22
   %.not.i76 = icmp eq ptr %79, null
-  br i1 %.not.i76, label %._crit_edge.i77, label %78, !llvm.loop !22
+  br i1 %.not.i76, label %._crit_edge.i77, label %78, !llvm.loop !20
 
 ._crit_edge.i77:                                  ; preds = %78, %poolDestroy.exit
   %83 = getelementptr inbounds i8, ptr %0, i64 816
@@ -2874,7 +2874,7 @@ poolDestroy.exit:                                 ; preds = %70, %._crit_edge.i
   %90 = load ptr, ptr %89, align 8
   tail call void %90(ptr noundef nonnull %.116.i80) #22
   %.not12.i81 = icmp eq ptr %87, null
-  br i1 %.not12.i81, label %poolDestroy.exit82, label %86, !llvm.loop !23
+  br i1 %.not12.i81, label %poolDestroy.exit82, label %86, !llvm.loop !21
 
 poolDestroy.exit82:                               ; preds = %86, %._crit_edge.i77
   %91 = load ptr, ptr %7, align 8
@@ -2954,7 +2954,7 @@ hashTableIterNext.exit.i:                         ; preds = %108
   %128 = add nuw i64 %.07.i.i, 1
   %129 = load i64, ptr %118, align 8
   %130 = icmp ult i64 %128, %129
-  br i1 %130, label %121, label %hashTableDestroy.exit.i, !llvm.loop !24
+  br i1 %130, label %121, label %hashTableDestroy.exit.i, !llvm.loop !22
 
 hashTableDestroy.exit.i:                          ; preds = %121, %117
   %131 = getelementptr inbounds i8, ptr %95, i64 32
@@ -2984,7 +2984,7 @@ hashTableDestroy.exit.i:                          ; preds = %121, %117
   %146 = add nuw i64 %.07.i23.i, 1
   %147 = load i64, ptr %136, align 8
   %148 = icmp ult i64 %146, %147
-  br i1 %148, label %139, label %hashTableDestroy.exit24.i, !llvm.loop !24
+  br i1 %148, label %139, label %hashTableDestroy.exit24.i, !llvm.loop !22
 
 hashTableDestroy.exit24.i:                        ; preds = %139, %hashTableDestroy.exit.i
   %149 = getelementptr inbounds i8, ptr %95, i64 72
@@ -3015,7 +3015,7 @@ hashTableDestroy.exit24.i:                        ; preds = %139, %hashTableDest
   %165 = add nuw i64 %.07.i27.i, 1
   %166 = load i64, ptr %155, align 8
   %167 = icmp ult i64 %165, %166
-  br i1 %167, label %158, label %hashTableDestroy.exit28.i, !llvm.loop !24
+  br i1 %167, label %158, label %hashTableDestroy.exit28.i, !llvm.loop !22
 
 hashTableDestroy.exit28.i:                        ; preds = %158, %hashTableDestroy.exit24.i
   %168 = getelementptr inbounds i8, ptr %95, i64 112
@@ -3046,7 +3046,7 @@ hashTableDestroy.exit28.i:                        ; preds = %158, %hashTableDest
   %184 = add nuw i64 %.07.i31.i, 1
   %185 = load i64, ptr %174, align 8
   %186 = icmp ult i64 %184, %185
-  br i1 %186, label %177, label %hashTableDestroy.exit32.i, !llvm.loop !24
+  br i1 %186, label %177, label %hashTableDestroy.exit32.i, !llvm.loop !22
 
 hashTableDestroy.exit32.i:                        ; preds = %177, %hashTableDestroy.exit28.i
   %187 = getelementptr inbounds i8, ptr %95, i64 152
@@ -3072,7 +3072,7 @@ hashTableDestroy.exit32.i:                        ; preds = %177, %hashTableDest
   %199 = load ptr, ptr %198, align 8
   tail call void %199(ptr noundef nonnull %.014.i.i) #22
   %.not.i34.i = icmp eq ptr %196, null
-  br i1 %.not.i34.i, label %._crit_edge.i.i, label %195, !llvm.loop !22
+  br i1 %.not.i34.i, label %._crit_edge.i.i, label %195, !llvm.loop !20
 
 ._crit_edge.i.i:                                  ; preds = %195, %hashTableDestroy.exit32.i
   %200 = getelementptr inbounds i8, ptr %95, i64 168
@@ -3092,7 +3092,7 @@ hashTableDestroy.exit32.i:                        ; preds = %177, %hashTableDest
   %207 = load ptr, ptr %206, align 8
   tail call void %207(ptr noundef nonnull %.116.i.i) #22
   %.not12.i.i = icmp eq ptr %204, null
-  br i1 %.not12.i.i, label %poolDestroy.exit.i, label %203, !llvm.loop !23
+  br i1 %.not12.i.i, label %poolDestroy.exit.i, label %203, !llvm.loop !21
 
 poolDestroy.exit.i:                               ; preds = %203, %._crit_edge.i.i
   %208 = getelementptr inbounds i8, ptr %95, i64 208
@@ -3112,7 +3112,7 @@ poolDestroy.exit.i:                               ; preds = %203, %._crit_edge.i
   %215 = load ptr, ptr %214, align 8
   tail call void %215(ptr noundef nonnull %.014.i37.i) #22
   %.not.i38.i = icmp eq ptr %212, null
-  br i1 %.not.i38.i, label %._crit_edge.i39.i, label %211, !llvm.loop !22
+  br i1 %.not.i38.i, label %._crit_edge.i39.i, label %211, !llvm.loop !20
 
 ._crit_edge.i39.i:                                ; preds = %211, %poolDestroy.exit.i
   %216 = getelementptr inbounds i8, ptr %95, i64 216
@@ -3132,7 +3132,7 @@ poolDestroy.exit.i:                               ; preds = %203, %._crit_edge.i
   %223 = load ptr, ptr %222, align 8
   tail call void %223(ptr noundef nonnull %.116.i42.i) #22
   %.not12.i43.i = icmp eq ptr %220, null
-  br i1 %.not12.i43.i, label %poolDestroy.exit44.i, label %219, !llvm.loop !23
+  br i1 %.not12.i43.i, label %poolDestroy.exit44.i, label %219, !llvm.loop !21
 
 poolDestroy.exit44.i:                             ; preds = %219, %._crit_edge.i39.i
   br i1 %.not59.not, label %224, label %dtdDestroy.exit
@@ -3201,7 +3201,7 @@ dtdDestroy.exit:                                  ; preds = %poolDestroy.exit44.
 ; Function Attrs: nounwind uwtable
 define internal i32 @externalEntityInitProcessor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = tail call fastcc i32 @initializeEncoding(ptr noundef %0), !range !25
+  %6 = tail call fastcc i32 @initializeEncoding(ptr noundef %0)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %35
 
@@ -3269,7 +3269,7 @@ define internal i32 @externalEntityInitProcessor(ptr noundef %0, ptr noundef %1,
 33:                                               ; preds = %17, %14, %7
   %.024.i = phi ptr [ %1, %7 ], [ %15, %17 ], [ %15, %14 ]
   store ptr @externalEntityInitProcessor3, ptr %8, align 8
-  %34 = call i32 @externalEntityInitProcessor3(ptr noundef nonnull %0, ptr noundef %.024.i, ptr noundef %2, ptr noundef %3)
+  %34 = call i32 @externalEntityInitProcessor3(ptr noundef nonnull %0, ptr noundef %.024.i, ptr noundef %2, ptr noundef writeonly %3)
   br label %externalEntityInitProcessor2.exit
 
 externalEntityInitProcessor2.exit:                ; preds = %20, %24, %25, %30, %31, %33
@@ -3297,7 +3297,7 @@ define dso_local void @XML_UseParserAsHandlerArg(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @XML_UseForeignDTD(ptr noundef readnone %0, i8 noundef zeroext %1) local_unnamed_addr #2 {
+define dso_local noundef range(i32 25, 42) i32 @XML_UseForeignDTD(ptr noundef readnone %0, i8 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   %. = select i1 %3, i32 41, i32 25
   ret i32 %.
@@ -3349,7 +3349,7 @@ define dso_local void @XML_SetUserData(ptr noundef %0, ptr noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @XML_SetBase(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @XML_SetBase(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %poolCopyString.exit.thread, label %4
 
@@ -3373,7 +3373,7 @@ define dso_local noundef i32 @XML_SetBase(ptr noundef %0, ptr noundef readonly %
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
-  %16 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8), !range !14
+  %16 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
   %.not.i = icmp eq i8 %16, 0
   br i1 %.not.i, label %poolCopyString.exit.thread, label %._crit_edge.i
 
@@ -3865,7 +3865,7 @@ define dso_local void @XML_SetXmlDeclHandler(ptr noundef writeonly %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @XML_SetParamEntityParsing(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @XML_SetParamEntityParsing(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -3888,7 +3888,7 @@ define dso_local noundef i32 @XML_SetParamEntityParsing(ptr noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @XML_SetHashSalt(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @XML_SetHashSalt(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %4, %2
@@ -3921,7 +3921,7 @@ tailrecurse:                                      ; preds = %4, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @XML_Parse(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @XML_Parse(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   %6 = icmp slt i32 %2, 0
   %or.cond = or i1 %5, %6
@@ -3967,7 +3967,7 @@ define dso_local noundef i32 @XML_Parse(ptr noundef %0, ptr noundef readonly %1,
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %19
-  %24 = tail call fastcc zeroext i8 @startParsing(ptr noundef nonnull %0), !range !14
+  %24 = tail call fastcc zeroext i8 @startParsing(ptr noundef nonnull %0)
   %.not = icmp eq i8 %24, 0
   br i1 %.not, label %25, label %27
 
@@ -4046,7 +4046,7 @@ define dso_local noundef i32 @XML_Parse(ptr noundef %0, ptr noundef readonly %1,
 63:                                               ; preds = %60
   %64 = zext nneg i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr align 1 %1, i64 %64, i1 false)
-  %65 = tail call i32 @XML_ParseBuffer(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %3), !range !26
+  %65 = tail call i32 @XML_ParseBuffer(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %3)
   br label %66
 
 66:                                               ; preds = %60, %44, %55, %29, %10, %.thread, %63, %56, %46, %25, %17, %15
@@ -4055,7 +4055,7 @@ define dso_local noundef i32 @XML_Parse(ptr noundef %0, ptr noundef readonly %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i8 @startParsing(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @startParsing(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.timeval, align 8
   %4 = alloca ptr, align 8
@@ -4090,7 +4090,7 @@ define internal fastcc noundef zeroext i8 @startParsing(ptr nocapture noundef %0
   %21 = tail call ptr @__errno_location() #24
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 4
-  br i1 %23, label %11, label %38, !llvm.loop !27
+  br i1 %23, label %11, label %38, !llvm.loop !23
 
 writeRandomBytes_getrandom_nonblock.exit.i:       ; preds = %17
   %24 = load i64, ptr %6, align 8
@@ -4152,7 +4152,7 @@ getDebugLevel.exit.i.i:                           ; preds = %31
   %.118.i.i = select i1 %44, i64 %.017.i.i, i64 %45
   %48 = load i32, ptr %21, align 4
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %.preheader.i.i, label %writeRandomBytes_dev_urandom.exit.thread5.i, !llvm.loop !28
+  br i1 %49, label %.preheader.i.i, label %writeRandomBytes_dev_urandom.exit.thread5.i, !llvm.loop !24
 
 writeRandomBytes_dev_urandom.exit.thread5.i:      ; preds = %47
   %50 = call i32 @close(i32 noundef %39) #22
@@ -4259,7 +4259,7 @@ generate_hash_secret_salt.exit:                   ; preds = %getDebugLevel.exit.
   br i1 %.not, label %90, label %88
 
 88:                                               ; preds = %85
-  %89 = call fastcc zeroext i8 @setContext(ptr noundef nonnull %0, ptr noundef nonnull @implicitContext), !range !14
+  %89 = call fastcc zeroext i8 @setContext(ptr noundef nonnull %0, ptr noundef nonnull @implicitContext)
   br label %90
 
 90:                                               ; preds = %85, %88
@@ -4481,7 +4481,7 @@ define dso_local ptr @XML_GetBuffer(ptr noundef %0, i32 noundef %1) local_unname
   %106 = icmp slt i32 %105, %64
   %107 = icmp sgt i32 %105, 0
   %108 = and i1 %106, %107
-  br i1 %108, label %104, label %109, !llvm.loop !29
+  br i1 %108, label %104, label %109, !llvm.loop !25
 
 109:                                              ; preds = %104
   %110 = icmp slt i32 %105, 1
@@ -4581,7 +4581,7 @@ define dso_local ptr @XML_GetBuffer(ptr noundef %0, i32 noundef %1) local_unname
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @XML_ParseBuffer(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @XML_ParseBuffer(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %61, label %5
 
@@ -4622,7 +4622,7 @@ define dso_local noundef i32 @XML_ParseBuffer(ptr noundef %0, i32 noundef %1, i3
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %17
-  %22 = tail call fastcc zeroext i8 @startParsing(ptr noundef nonnull %0), !range !14
+  %22 = tail call fastcc zeroext i8 @startParsing(ptr noundef nonnull %0)
   %.not45 = icmp eq i8 %22, 0
   br i1 %.not45, label %23, label %25
 
@@ -4709,7 +4709,7 @@ define dso_local noundef i32 @XML_ParseBuffer(ptr noundef %0, i32 noundef %1, i3
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @XML_StopParser(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @XML_StopParser(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %16, label %4
 
@@ -4757,7 +4757,7 @@ define dso_local noundef i32 @XML_StopParser(ptr noundef %0, i8 noundef zeroext 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @XML_ResumeParser(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @XML_ResumeParser(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %38, label %3
 
@@ -5180,7 +5180,7 @@ define dso_local void @XML_DefaultCurrent(ptr noundef %0) local_unnamed_addr #0 
   %45 = load ptr, ptr %4, align 8
   store ptr %45, ptr %.022.i, align 8
   %46 = icmp ugt i32 %35, 1
-  br i1 %46, label %31, label %reportDefault.exit, !llvm.loop !30
+  br i1 %46, label %31, label %reportDefault.exit, !llvm.loop !26
 
 47:                                               ; preds = %13
   %48 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5239,7 +5239,7 @@ reportDefault.exit:                               ; preds = %31, %47
   %82 = load ptr, ptr %2, align 8
   store ptr %82, ptr %57, align 8
   %83 = icmp ugt i32 %72, 1
-  br i1 %83, label %68, label %reportDefault.exit16, !llvm.loop !30
+  br i1 %83, label %68, label %reportDefault.exit16, !llvm.loop !26
 
 84:                                               ; preds = %54
   %85 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5317,7 +5317,7 @@ define internal fastcc void @reportDefault(ptr nocapture noundef %0, ptr noundef
   %40 = load ptr, ptr %5, align 8
   store ptr %40, ptr %.022, align 8
   %41 = icmp ugt i32 %30, 1
-  br i1 %41, label %26, label %.loopexit, !llvm.loop !30
+  br i1 %41, label %26, label %.loopexit, !llvm.loop !26
 
 42:                                               ; preds = %4
   %43 = getelementptr inbounds i8, ptr %0, i64 160
@@ -5380,7 +5380,7 @@ declare ptr @XmlGetUtf8InternalEncoding() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prologInitProcessor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = tail call fastcc i32 @initializeEncoding(ptr noundef %0), !range !25
+  %5 = tail call fastcc i32 @initializeEncoding(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %9
 
@@ -5403,7 +5403,7 @@ declare i32 @XmlInitEncoding(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @initializeEncoding(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 19) i32 @initializeEncoding(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.XML_Encoding, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
@@ -5688,7 +5688,7 @@ define internal i32 @prologProcessor(ptr noundef %0, ptr noundef %1, ptr noundef
 
 102:                                              ; preds = %98
   %103 = load ptr, ptr %21, align 8
-  %104 = call fastcc i32 @processXmlDecl(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %.0564.i, ptr noundef %103), !range !31
+  %104 = call fastcc i32 @processXmlDecl(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %.0564.i, ptr noundef %103)
   %.not714.i = icmp eq i32 %104, 0
   br i1 %.not714.i, label %105, label %doProlog.exit
 
@@ -5710,7 +5710,7 @@ define internal i32 @prologProcessor(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not.i.i.i, label %112, label %114
 
 112:                                              ; preds = %109
-  %113 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %113 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not12.i.i.i = icmp eq i8 %113, 0
   br i1 %.not12.i.i.i, label %poolAppend.exit.thread.i.i, label %114
 
@@ -5726,7 +5726,7 @@ define internal i32 @prologProcessor(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %or.cond.i.i.i, label %poolAppend.exit.i.i, label %120
 
 120:                                              ; preds = %116
-  %121 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %121 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not13.i.i.i = icmp eq i8 %121, 0
   br i1 %.not13.i.i.i, label %poolAppend.exit.thread.i.i, label %116
 
@@ -5747,7 +5747,7 @@ poolAppend.exit.i.i:                              ; preds = %116
   br i1 %126, label %127, label %poolStoreString.exit.i
 
 127:                                              ; preds = %123
-  %128 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %128 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not10.i.i = icmp eq i8 %128, 0
   br i1 %.not10.i.i, label %poolStoreString.exit.thread.i, label %._crit_edge.i.i
 
@@ -5848,7 +5848,7 @@ poolClear.exit.i:                                 ; preds = %.lr.ph.i.i, %145, %
   br i1 %.not.i.i737.i, label %164, label %166
 
 164:                                              ; preds = %155
-  %165 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %165 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not12.i.i747.i = icmp eq i8 %165, 0
   br i1 %.not12.i.i747.i, label %poolAppend.exit.thread.i740.i, label %166
 
@@ -5864,7 +5864,7 @@ poolClear.exit.i:                                 ; preds = %.lr.ph.i.i, %145, %
   br i1 %or.cond.i.i738.i, label %poolAppend.exit.i742.i, label %172
 
 172:                                              ; preds = %168
-  %173 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %173 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not13.i.i739.i = icmp eq i8 %173, 0
   br i1 %.not13.i.i739.i, label %poolAppend.exit.thread.i740.i, label %168
 
@@ -5885,7 +5885,7 @@ poolAppend.exit.i742.i:                           ; preds = %168
   br i1 %178, label %179, label %poolStoreString.exit748.i
 
 179:                                              ; preds = %175
-  %180 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %180 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not10.i744.i = icmp eq i8 %180, 0
   br i1 %.not10.i744.i, label %doProlog.exit, label %._crit_edge.i745.i
 
@@ -5932,7 +5932,7 @@ poolStoreString.exit748.i:                        ; preds = %._crit_edge.i745.i,
 190:                                              ; preds = %.sink.split.i.i, %186, %185
   %.1.i.i = phi ptr [ %.016.i.i, %186 ], [ %.016.i.i, %185 ], [ %189, %.sink.split.i.i ]
   %191 = getelementptr inbounds i8, ptr %.0.i749.i, i64 1
-  br label %.preheader1016.i, !llvm.loop !32
+  br label %.preheader1016.i, !llvm.loop !27
 
 192:                                              ; preds = %.preheader1016.i
   %.not18.i.i = icmp eq ptr %.016.i.i, %183
@@ -5987,7 +5987,7 @@ normalizePublicId.exit.i:                         ; preds = %193, %192
   br i1 %.not.i.i750.i, label %216, label %218
 
 216:                                              ; preds = %207
-  %217 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66), !range !14
+  %217 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66)
   %.not12.i.i760.i = icmp eq i8 %217, 0
   br i1 %.not12.i.i760.i, label %poolAppend.exit.thread.i753.i, label %218
 
@@ -6003,7 +6003,7 @@ normalizePublicId.exit.i:                         ; preds = %193, %192
   br i1 %or.cond.i.i751.i, label %poolAppend.exit.i755.i, label %224
 
 224:                                              ; preds = %220
-  %225 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66), !range !14
+  %225 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66)
   %.not13.i.i752.i = icmp eq i8 %225, 0
   br i1 %.not13.i.i752.i, label %poolAppend.exit.thread.i753.i, label %220
 
@@ -6024,7 +6024,7 @@ poolAppend.exit.i755.i:                           ; preds = %220
   br i1 %230, label %231, label %poolStoreString.exit761.i
 
 231:                                              ; preds = %227
-  %232 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66), !range !14
+  %232 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66)
   %.not10.i757.i = icmp eq i8 %232, 0
   br i1 %.not10.i757.i, label %doProlog.exit, label %._crit_edge.i758.i
 
@@ -6071,7 +6071,7 @@ poolStoreString.exit761.i:                        ; preds = %._crit_edge.i758.i,
 242:                                              ; preds = %.sink.split.i766.i, %238, %237
   %.1.i768.i = phi ptr [ %.016.i762.i, %238 ], [ %.016.i762.i, %237 ], [ %241, %.sink.split.i766.i ]
   %243 = getelementptr inbounds i8, ptr %.0.i763.i, i64 1
-  br label %.preheader.i, !llvm.loop !32
+  br label %.preheader.i, !llvm.loop !27
 
 244:                                              ; preds = %.preheader.i
   %.not18.i769.i = icmp eq ptr %.016.i762.i, %235
@@ -6150,7 +6150,7 @@ poolClear.exit778.i:                              ; preds = %.lr.ph.i775.i, %265
 272:                                              ; preds = %98
   %273 = getelementptr inbounds i8, ptr %0, i64 504
   store ptr @contentProcessor, ptr %273, align 8
-  %274 = call i32 @contentProcessor(ptr noundef nonnull %0, ptr noundef %.0564.i, ptr noundef %2, ptr noundef %3)
+  %274 = call i32 @contentProcessor(ptr noundef nonnull %0, ptr noundef %.0564.i, ptr noundef %2, ptr noundef writeonly %3)
   br label %doProlog.exit
 
 275:                                              ; preds = %98
@@ -6246,7 +6246,7 @@ poolClear.exit778.i:                              ; preds = %.lr.ph.i775.i, %265
   br i1 %305, label %306, label %308
 
 306:                                              ; preds = %.lr.ph.i779.i
-  %307 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %307 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not10.i782.i = icmp eq i8 %307, 0
   br i1 %.not10.i782.i, label %doProlog.exit, label %._crit_edge13.i.i
 
@@ -6262,7 +6262,7 @@ poolClear.exit778.i:                              ; preds = %.lr.ph.i775.i, %265
   %311 = getelementptr inbounds i8, ptr %.012.i.i, i64 1
   %312 = load i8, ptr %311, align 1
   %.not.i780.i = icmp eq i8 %312, 0
-  br i1 %.not.i780.i, label %poolAppendString.exit.i, label %.lr.ph.i779.i, !llvm.loop !33
+  br i1 %.not.i780.i, label %poolAppendString.exit.i, label %.lr.ph.i779.i, !llvm.loop !28
 
 poolAppendString.exit.i:                          ; preds = %308, %298
   %313 = load ptr, ptr %64, align 8
@@ -6278,7 +6278,7 @@ poolAppendString.exit.i:                          ; preds = %308, %298
   br i1 %.not.i784.i, label %317, label %319
 
 317:                                              ; preds = %314
-  %318 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %318 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not12.i.i = icmp eq i8 %318, 0
   br i1 %.not12.i.i, label %poolAppend.exit.thread.i, label %319
 
@@ -6294,7 +6294,7 @@ poolAppendString.exit.i:                          ; preds = %308, %298
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %325
 
 325:                                              ; preds = %321
-  %326 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %326 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not13.i.i = icmp eq i8 %326, 0
   br i1 %.not13.i.i, label %poolAppend.exit.thread.i, label %321
 
@@ -6340,7 +6340,7 @@ poolAppend.exit.i:                                ; preds = %321
 341:                                              ; preds = %342
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i788.i, label %342, !llvm.loop !34
+  br i1 %exitcond.not.i.i, label %._crit_edge.i788.i, label %342, !llvm.loop !29
 
 342:                                              ; preds = %341, %.lr.ph.i790.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i790.i ], [ %indvars.iv.next.i.i, %341 ]
@@ -6467,7 +6467,7 @@ defineAttribute.exit.i:                           ; preds = %342, %383
   br i1 %398, label %399, label %401
 
 399:                                              ; preds = %395
-  %400 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %400 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not691.i = icmp eq i8 %400, 0
   br i1 %.not691.i, label %doProlog.exit, label %._crit_edge1265.i
 
@@ -6486,7 +6486,7 @@ defineAttribute.exit.i:                           ; preds = %342, %383
   br i1 %406, label %407, label %409
 
 407:                                              ; preds = %401
-  %408 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %408 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not692.i = icmp eq i8 %408, 0
   br i1 %.not692.i, label %doProlog.exit, label %._crit_edge1267.i
 
@@ -6590,7 +6590,7 @@ poolClear.exit796.i:                              ; preds = %.lr.ph.i793.i, %427
   br i1 %453, label %454, label %456
 
 454:                                              ; preds = %._crit_edge.i800.i
-  %455 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66), !range !14
+  %455 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66)
   %.not21.i.i = icmp eq i8 %455, 0
   br i1 %.not21.i.i, label %doProlog.exit, label %._crit_edge22.i.i
 
@@ -6625,7 +6625,7 @@ poolClear.exit796.i:                              ; preds = %.lr.ph.i793.i, %427
 470:                                              ; preds = %471
   %indvars.iv.next.i815.i = add nuw nsw i64 %indvars.iv.i814.i, 1
   %exitcond.not.i816.i = icmp eq i64 %indvars.iv.next.i815.i, %wide.trip.count.i813.i
-  br i1 %exitcond.not.i816.i, label %._crit_edge53.i803.i, label %471, !llvm.loop !34
+  br i1 %exitcond.not.i816.i, label %._crit_edge53.i803.i, label %471, !llvm.loop !29
 
 471:                                              ; preds = %470, %.lr.ph.i812.i
   %indvars.iv.i814.i = phi i64 [ 0, %.lr.ph.i812.i ], [ %indvars.iv.next.i815.i, %470 ]
@@ -6736,7 +6736,7 @@ defineAttribute.exit817.i:                        ; preds = %471, %506
   br i1 %521, label %522, label %524
 
 522:                                              ; preds = %518
-  %523 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %523 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not685.i = icmp eq i8 %523, 0
   br i1 %.not685.i, label %doProlog.exit, label %._crit_edge.i
 
@@ -6755,7 +6755,7 @@ defineAttribute.exit817.i:                        ; preds = %471, %506
   br i1 %529, label %530, label %532
 
 530:                                              ; preds = %524
-  %531 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %531 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not686.i = icmp eq i8 %531, 0
   br i1 %.not686.i, label %doProlog.exit, label %._crit_edge1263.i
 
@@ -6836,7 +6836,7 @@ poolClear.exit823.i:                              ; preds = %.lr.ph.i820.i, %550
   br i1 %.not.i824.i, label %566, label %568
 
 566:                                              ; preds = %555
-  %567 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %564), !range !14
+  %567 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %564)
   %.not54.i.i = icmp eq i8 %567, 0
   br i1 %.not54.i.i, label %storeEntityValue.exit.i, label %568
 
@@ -6879,7 +6879,7 @@ poolClear.exit823.i:                              ; preds = %.lr.ph.i820.i, %550
   br i1 %.not.i.i832.i, label %582, label %.preheader
 
 582:                                              ; preds = %579
-  %583 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %564), !range !14
+  %583 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %564)
   %.not12.i.i837.i = icmp eq i8 %583, 0
   br i1 %.not12.i.i837.i, label %poolAppend.exit.thread.i835.i, label %.preheader
 
@@ -6894,7 +6894,7 @@ poolClear.exit823.i:                              ; preds = %.lr.ph.i820.i, %550
   br i1 %or.cond.i.i833.i, label %poolAppend.exit.i836.i, label %588
 
 588:                                              ; preds = %584
-  %589 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %564), !range !14
+  %589 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %564)
   %.not13.i.i834.i = icmp eq i8 %589, 0
   br i1 %.not13.i.i834.i, label %poolAppend.exit.thread.i835.i, label %584
 
@@ -6922,7 +6922,7 @@ poolAppend.exit.i836.i:                           ; preds = %584
   br i1 %598, label %599, label %601
 
 599:                                              ; preds = %595
-  %600 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %564), !range !14
+  %600 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %564)
   %.not56.i.i = icmp eq i8 %600, 0
   br i1 %.not56.i.i, label %storeEntityValue.exit.i, label %._crit_edge83.i.i
 
@@ -6969,7 +6969,7 @@ poolAppend.exit.i836.i:                           ; preds = %584
   br i1 %617, label %618, label %620
 
 618:                                              ; preds = %.lr.ph.i826.i
-  %619 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %564), !range !14
+  %619 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %564)
   %.not55.i.i = icmp eq i8 %619, 0
   br i1 %.not55.i.i, label %storeEntityValue.exit.i, label %._crit_edge.i830.i
 
@@ -6986,7 +6986,7 @@ poolAppend.exit.i836.i:                           ; preds = %584
   store i8 %623, ptr %621, align 1
   %indvars.iv.next.i828.i = add nuw nsw i64 %indvars.iv.i827.i, 1
   %exitcond.not.i829.i = icmp eq i64 %indvars.iv.next.i828.i, %wide.trip.count.i825.i
-  br i1 %exitcond.not.i829.i, label %.loopexit.i.i, label %.lr.ph.i826.i, !llvm.loop !35
+  br i1 %exitcond.not.i829.i, label %.loopexit.i.i, label %.lr.ph.i826.i, !llvm.loop !30
 
 625:                                              ; preds = %575
   %626 = load ptr, ptr %23, align 8
@@ -7092,7 +7092,7 @@ storeEntityValue.exit.i:                          ; preds = %599, %poolAppend.ex
   br i1 %.not.i.i838.i, label %677, label %679
 
 677:                                              ; preds = %668
-  %678 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %678 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not12.i.i848.i = icmp eq i8 %678, 0
   br i1 %.not12.i.i848.i, label %poolAppend.exit.thread.i841.i, label %679
 
@@ -7108,7 +7108,7 @@ storeEntityValue.exit.i:                          ; preds = %599, %poolAppend.ex
   br i1 %or.cond.i.i839.i, label %poolAppend.exit.i843.i, label %685
 
 685:                                              ; preds = %681
-  %686 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %686 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not13.i.i840.i = icmp eq i8 %686, 0
   br i1 %.not13.i.i840.i, label %poolAppend.exit.thread.i841.i, label %681
 
@@ -7129,7 +7129,7 @@ poolAppend.exit.i843.i:                           ; preds = %681
   br i1 %691, label %692, label %poolStoreString.exit849.i
 
 692:                                              ; preds = %688
-  %693 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %693 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not10.i845.i = icmp eq i8 %693, 0
   br i1 %.not10.i845.i, label %poolStoreString.exit849.thread.i, label %._crit_edge.i846.i
 
@@ -7198,7 +7198,7 @@ poolStoreString.exit849.i:                        ; preds = %._crit_edge.i846.i,
   br i1 %.not.i.i850.i, label %720, label %722
 
 720:                                              ; preds = %711
-  %721 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66), !range !14
+  %721 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66)
   %.not12.i.i860.i = icmp eq i8 %721, 0
   br i1 %.not12.i.i860.i, label %poolAppend.exit.thread.i853.i, label %722
 
@@ -7214,7 +7214,7 @@ poolStoreString.exit849.i:                        ; preds = %._crit_edge.i846.i,
   br i1 %or.cond.i.i851.i, label %poolAppend.exit.i855.i, label %728
 
 728:                                              ; preds = %724
-  %729 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66), !range !14
+  %729 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66)
   %.not13.i.i852.i = icmp eq i8 %729, 0
   br i1 %.not13.i.i852.i, label %poolAppend.exit.thread.i853.i, label %724
 
@@ -7235,7 +7235,7 @@ poolAppend.exit.i855.i:                           ; preds = %724
   br i1 %734, label %735, label %737
 
 735:                                              ; preds = %731
-  %736 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66), !range !14
+  %736 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66)
   %.not10.i857.i = icmp eq i8 %736, 0
   br i1 %.not10.i857.i, label %poolStoreString.exit861.i, label %._crit_edge.i858.i
 
@@ -7322,7 +7322,7 @@ poolStoreString.exit861.i:                        ; preds = %737, %735, %poolApp
   br i1 %.not.i.i862.i, label %776, label %778
 
 776:                                              ; preds = %773
-  %777 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66), !range !14
+  %777 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66)
   %.not12.i.i872.i = icmp eq i8 %777, 0
   br i1 %.not12.i.i872.i, label %poolAppend.exit.thread.i865.i, label %778
 
@@ -7338,7 +7338,7 @@ poolStoreString.exit861.i:                        ; preds = %737, %735, %poolApp
   br i1 %or.cond.i.i863.i, label %poolAppend.exit.i867.i, label %784
 
 784:                                              ; preds = %780
-  %785 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66), !range !14
+  %785 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66)
   %.not13.i.i864.i = icmp eq i8 %785, 0
   br i1 %.not13.i.i864.i, label %poolAppend.exit.thread.i865.i, label %780
 
@@ -7359,7 +7359,7 @@ poolAppend.exit.i867.i:                           ; preds = %780
   br i1 %790, label %791, label %793
 
 791:                                              ; preds = %787
-  %792 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66), !range !14
+  %792 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66)
   %.not10.i869.i = icmp eq i8 %792, 0
   br i1 %.not10.i869.i, label %poolStoreString.exit873.i, label %._crit_edge.i870.i
 
@@ -7452,7 +7452,7 @@ poolStoreString.exit873.i:                        ; preds = %793, %791, %poolApp
   br i1 %.not.i.i874.i, label %841, label %843
 
 841:                                              ; preds = %838
-  %842 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66), !range !14
+  %842 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66)
   %.not12.i.i884.i = icmp eq i8 %842, 0
   br i1 %.not12.i.i884.i, label %poolAppend.exit.thread.i877.i, label %843
 
@@ -7468,7 +7468,7 @@ poolStoreString.exit873.i:                        ; preds = %793, %791, %poolApp
   br i1 %or.cond.i.i875.i, label %poolAppend.exit.i879.i, label %849
 
 849:                                              ; preds = %845
-  %850 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66), !range !14
+  %850 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66)
   %.not13.i.i876.i = icmp eq i8 %850, 0
   br i1 %.not13.i.i876.i, label %poolAppend.exit.thread.i877.i, label %845
 
@@ -7489,7 +7489,7 @@ poolAppend.exit.i879.i:                           ; preds = %845
   br i1 %855, label %856, label %poolStoreString.exit885.i
 
 856:                                              ; preds = %852
-  %857 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66), !range !14
+  %857 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %66)
   %.not10.i881.i = icmp eq i8 %857, 0
   br i1 %.not10.i881.i, label %doProlog.exit, label %._crit_edge.i882.i
 
@@ -7561,7 +7561,7 @@ poolStoreString.exit885.i:                        ; preds = %._crit_edge.i882.i,
   br i1 %.not.i.i886.i, label %887, label %889
 
 887:                                              ; preds = %884
-  %888 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %888 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not12.i.i896.i = icmp eq i8 %888, 0
   br i1 %.not12.i.i896.i, label %poolAppend.exit.thread.i889.i, label %889
 
@@ -7577,7 +7577,7 @@ poolStoreString.exit885.i:                        ; preds = %._crit_edge.i882.i,
   br i1 %or.cond.i.i887.i, label %poolAppend.exit.i891.i, label %895
 
 895:                                              ; preds = %891
-  %896 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %896 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not13.i.i888.i = icmp eq i8 %896, 0
   br i1 %.not13.i.i888.i, label %poolAppend.exit.thread.i889.i, label %891
 
@@ -7598,7 +7598,7 @@ poolAppend.exit.i891.i:                           ; preds = %891
   br i1 %901, label %902, label %poolStoreString.exit897.i
 
 902:                                              ; preds = %898
-  %903 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %903 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not10.i893.i = icmp eq i8 %903, 0
   br i1 %.not10.i893.i, label %poolStoreString.exit897.thread.i, label %._crit_edge.i894.i
 
@@ -7653,7 +7653,7 @@ poolStoreString.exit897.i:                        ; preds = %._crit_edge.i894.i,
   br i1 %.not.i.i898.i, label %925, label %927
 
 925:                                              ; preds = %916
-  %926 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %926 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not12.i.i908.i = icmp eq i8 %926, 0
   br i1 %.not12.i.i908.i, label %poolAppend.exit.thread.i901.i, label %927
 
@@ -7669,7 +7669,7 @@ poolStoreString.exit897.i:                        ; preds = %._crit_edge.i894.i,
   br i1 %or.cond.i.i899.i, label %poolAppend.exit.i903.i, label %933
 
 933:                                              ; preds = %929
-  %934 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %934 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not13.i.i900.i = icmp eq i8 %934, 0
   br i1 %.not13.i.i900.i, label %poolAppend.exit.thread.i901.i, label %929
 
@@ -7690,7 +7690,7 @@ poolAppend.exit.i903.i:                           ; preds = %929
   br i1 %939, label %940, label %poolStoreString.exit909.i
 
 940:                                              ; preds = %936
-  %941 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %941 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not10.i905.i = icmp eq i8 %941, 0
   br i1 %.not10.i905.i, label %doProlog.exit, label %._crit_edge.i906.i
 
@@ -7737,7 +7737,7 @@ poolStoreString.exit909.i:                        ; preds = %._crit_edge.i906.i,
 951:                                              ; preds = %.sink.split.i914.i, %947, %946
   %.1.i916.i = phi ptr [ %.016.i910.i, %947 ], [ %.016.i910.i, %946 ], [ %950, %.sink.split.i914.i ]
   %952 = getelementptr inbounds i8, ptr %.0.i911.i, i64 1
-  br label %.preheader1019.i, !llvm.loop !32
+  br label %.preheader1019.i, !llvm.loop !27
 
 953:                                              ; preds = %.preheader1019.i
   %.not18.i917.i = icmp eq ptr %.016.i910.i, %944
@@ -7783,7 +7783,7 @@ normalizePublicId.exit920.i:                      ; preds = %954, %953
   br i1 %.not.i.i921.i, label %972, label %974
 
 972:                                              ; preds = %963
-  %973 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %973 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not12.i.i931.i = icmp eq i8 %973, 0
   br i1 %.not12.i.i931.i, label %poolAppend.exit.thread.i924.i, label %974
 
@@ -7799,7 +7799,7 @@ normalizePublicId.exit920.i:                      ; preds = %954, %953
   br i1 %or.cond.i.i922.i, label %poolAppend.exit.i926.i, label %980
 
 980:                                              ; preds = %976
-  %981 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %981 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not13.i.i923.i = icmp eq i8 %981, 0
   br i1 %.not13.i.i923.i, label %poolAppend.exit.thread.i924.i, label %976
 
@@ -7820,7 +7820,7 @@ poolAppend.exit.i926.i:                           ; preds = %976
   br i1 %986, label %987, label %poolStoreString.exit932.i
 
 987:                                              ; preds = %983
-  %988 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60), !range !14
+  %988 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %60)
   %.not10.i928.i = icmp eq i8 %988, 0
   br i1 %.not10.i928.i, label %doProlog.exit, label %._crit_edge.i929.i
 
@@ -8244,7 +8244,7 @@ poolClear.exit946.i:                              ; preds = %.lr.ph.i942.i, %101
   %1181 = getelementptr inbounds i8, ptr %1176, i64 %.0565.i
   %1182 = load i8, ptr %1181, align 1
   %.not619.i = icmp eq i8 %1182, 0
-  br i1 %.not619.i, label %1183, label %1179, !llvm.loop !36
+  br i1 %.not619.i, label %1183, label %1179, !llvm.loop !31
 
 1183:                                             ; preds = %1179
   %1184 = load i32, ptr %49, align 8
@@ -8400,14 +8400,14 @@ poolClear.exit946.i:                              ; preds = %.lr.ph.i942.i, %101
   %1263 = getelementptr inbounds %struct.CONTENT_SCAFFOLD, ptr %1261, i64 %1262, i32 6
   %1264 = load i32, ptr %1229, align 8
   %1265 = icmp ult i32 %1260, %1264
-  br i1 %1265, label %.lr.ph.i950.i, label %.loopexit.i952.i, !llvm.loop !37
+  br i1 %1265, label %.lr.ph.i950.i, label %.loopexit.i952.i, !llvm.loop !32
 
 .loopexit.i952.i:                                 ; preds = %.lr.ph.i950.i, %1251, %1249
   %.258.i.i = phi ptr [ %1247, %1249 ], [ %.0566.i.i, %1251 ], [ %.0566.i.i, %.lr.ph.i950.i ]
   %.2.i953.i = phi ptr [ %.0557.i.i, %1249 ], [ %.0557.i.i, %1251 ], [ %1258, %.lr.ph.i950.i ]
   %1266 = getelementptr inbounds i8, ptr %.0595.i.i, i64 32
   %1267 = icmp ult ptr %1266, %1224
-  br i1 %1267, label %1228, label %build_model.exit.thread989.i, !llvm.loop !38
+  br i1 %1267, label %1228, label %build_model.exit.thread989.i, !llvm.loop !33
 
 build_model.exit.thread989.i:                     ; preds = %.loopexit.i952.i, %1221
   store ptr %.0564.i, ptr %34, align 8
@@ -8425,13 +8425,13 @@ build_model.exit.thread989.i:                     ; preds = %.loopexit.i952.i, %
 
 1273:                                             ; preds = %98
   %1274 = load ptr, ptr %21, align 8
-  %1275 = call fastcc i32 @reportProcessingInstruction(ptr noundef nonnull %0, ptr noundef %.0563.i, ptr noundef %.0564.i, ptr noundef %1274), !range !39
+  %1275 = call fastcc i32 @reportProcessingInstruction(ptr noundef nonnull %0, ptr noundef %.0563.i, ptr noundef %.0564.i, ptr noundef %1274)
   %.not612.i = icmp eq i32 %1275, 0
   br i1 %.not612.i, label %doProlog.exit, label %.thread1010.i
 
 1276:                                             ; preds = %98
   %1277 = load ptr, ptr %21, align 8
-  %1278 = call fastcc i32 @reportComment(ptr noundef nonnull %0, ptr noundef %.0563.i, ptr noundef %.0564.i, ptr noundef %1277), !range !39
+  %1278 = call fastcc i32 @reportComment(ptr noundef nonnull %0, ptr noundef %.0563.i, ptr noundef %.0564.i, ptr noundef %1277)
   %.not611.i = icmp eq i32 %1278, 0
   br i1 %.not611.i, label %doProlog.exit, label %.thread1010.i
 
@@ -8539,7 +8539,7 @@ build_model.exit.thread989.i:                     ; preds = %.loopexit.i952.i, %
   %1323 = load ptr, ptr %5, align 8
   store ptr %1323, ptr %.022.i.i, align 8
   %1324 = icmp ugt i32 %1313, 1
-  br i1 %1324, label %1309, label %reportDefault.exit.i, !llvm.loop !30
+  br i1 %1324, label %1309, label %reportDefault.exit.i, !llvm.loop !26
 
 1325:                                             ; preds = %1297
   %1326 = load ptr, ptr %47, align 8
@@ -8592,7 +8592,7 @@ declare i32 @XmlSizeOfUnknownEncoding() local_unnamed_addr #10
 declare ptr @XmlInitUnknownEncoding(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @processXmlDecl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 32) i32 @processXmlDecl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.XML_Encoding, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -8659,7 +8659,7 @@ define internal fastcc noundef i32 @processXmlDecl(ptr noundef %0, i32 noundef %
   br i1 %.not.i.i, label %42, label %44
 
 42:                                               ; preds = %32
-  %43 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %33), !range !14
+  %43 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %33)
   %.not12.i.i = icmp eq i8 %43, 0
   br i1 %.not12.i.i, label %poolAppend.exit.thread.i, label %44
 
@@ -8676,7 +8676,7 @@ define internal fastcc noundef i32 @processXmlDecl(ptr noundef %0, i32 noundef %
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %51
 
 51:                                               ; preds = %47
-  %52 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %33), !range !14
+  %52 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %33)
   %.not13.i.i = icmp eq i8 %52, 0
   br i1 %.not13.i.i, label %poolAppend.exit.thread.i, label %47
 
@@ -8698,7 +8698,7 @@ poolAppend.exit.i:                                ; preds = %47
   br i1 %58, label %59, label %poolStoreString.exit
 
 59:                                               ; preds = %55
-  %60 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %33), !range !14
+  %60 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %33)
   %.not10.i = icmp eq i8 %60, 0
   br i1 %.not10.i, label %poolStoreString.exit.thread, label %._crit_edge.i
 
@@ -8743,7 +8743,7 @@ poolStoreString.exit:                             ; preds = %55, %._crit_edge.i
   br i1 %.not.i.i78, label %79, label %81
 
 79:                                               ; preds = %68
-  %80 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %69), !range !14
+  %80 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %69)
   %.not12.i.i88 = icmp eq i8 %80, 0
   br i1 %.not12.i.i88, label %poolAppend.exit.thread.i81, label %81
 
@@ -8760,7 +8760,7 @@ poolStoreString.exit:                             ; preds = %55, %._crit_edge.i
   br i1 %or.cond.i.i79, label %poolAppend.exit.i83, label %88
 
 88:                                               ; preds = %84
-  %89 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %69), !range !14
+  %89 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %69)
   %.not13.i.i80 = icmp eq i8 %89, 0
   br i1 %.not13.i.i80, label %poolAppend.exit.thread.i81, label %84
 
@@ -8782,7 +8782,7 @@ poolAppend.exit.i83:                              ; preds = %84
   br i1 %95, label %96, label %poolStoreString.exit89
 
 96:                                               ; preds = %92
-  %97 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %69), !range !14
+  %97 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %69)
   %.not10.i85 = icmp eq i8 %97, 0
   br i1 %.not10.i85, label %poolStoreString.exit.thread, label %._crit_edge.i86
 
@@ -8853,7 +8853,7 @@ poolStoreString.exit89:                           ; preds = %92, %._crit_edge.i8
   %134 = load ptr, ptr %6, align 8
   store ptr %134, ptr %17, align 8
   %135 = icmp ugt i32 %124, 1
-  br i1 %135, label %120, label %reportDefault.exit, !llvm.loop !30
+  br i1 %135, label %120, label %reportDefault.exit, !llvm.loop !26
 
 136:                                              ; preds = %110
   %137 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9087,7 +9087,7 @@ define internal fastcc ptr @poolStoreString(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i, label %8, label %10
 
 8:                                                ; preds = %4
-  %9 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %0), !range !14
+  %9 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %0)
   %.not12.i = icmp eq i8 %9, 0
   br i1 %.not12.i, label %poolAppend.exit.thread, label %10
 
@@ -9104,7 +9104,7 @@ define internal fastcc ptr @poolStoreString(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond.i, label %poolAppend.exit, label %17
 
 17:                                               ; preds = %13
-  %18 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %0), !range !14
+  %18 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %0)
   %.not13.i = icmp eq i8 %18, 0
   br i1 %.not13.i, label %poolAppend.exit.thread, label %13
 
@@ -9126,7 +9126,7 @@ poolAppend.exit:                                  ; preds = %13
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %21
-  %26 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %0), !range !14
+  %26 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %0)
   %.not10 = icmp eq i8 %26, 0
   br i1 %.not10, label %31, label %._crit_edge
 
@@ -9248,7 +9248,7 @@ define internal i32 @contentProcessor(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %.041.i, ptr %23, align 8
   %.042.i = load ptr, ptr %.04250.i, align 8
   %.not.i = icmp eq ptr %.042.i, null
-  br i1 %.not.i, label %storeRawNames.exit, label %.lr.ph.i, !llvm.loop !40
+  br i1 %.not.i, label %storeRawNames.exit, label %.lr.ph.i, !llvm.loop !34
 
 storeRawNames.exit:                               ; preds = %.lr.ph.i, %61, %41, %26, %12, %4
   %.0 = phi i32 [ %10, %4 ], [ 0, %12 ], [ 0, %.lr.ph.i ], [ 0, %61 ], [ 1, %41 ], [ 1, %26 ]
@@ -9269,7 +9269,7 @@ define internal fastcc ptr @getElementType(ptr nocapture noundef readonly %0, pt
   br i1 %.not.i.i, label %11, label %13
 
 11:                                               ; preds = %4
-  %12 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8), !range !14
+  %12 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
   %.not12.i.i = icmp eq i8 %12, 0
   br i1 %.not12.i.i, label %poolAppend.exit.thread.i, label %13
 
@@ -9286,7 +9286,7 @@ define internal fastcc ptr @getElementType(ptr nocapture noundef readonly %0, pt
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %20
 
 20:                                               ; preds = %16
-  %21 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8), !range !14
+  %21 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
   %.not13.i.i = icmp eq i8 %21, 0
   br i1 %.not13.i.i, label %poolAppend.exit.thread.i, label %16
 
@@ -9308,7 +9308,7 @@ poolAppend.exit.i:                                ; preds = %16
   br i1 %27, label %28, label %poolStoreString.exit
 
 28:                                               ; preds = %24
-  %29 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8), !range !14
+  %29 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
   %.not10.i = icmp eq i8 %29, 0
   br i1 %.not10.i, label %poolStoreString.exit.thread, label %._crit_edge.i
 
@@ -9344,7 +9344,7 @@ poolStoreString.exit:                             ; preds = %24, %._crit_edge.i
 40:                                               ; preds = %36
   %41 = load ptr, ptr %9, align 8
   store ptr %41, ptr %22, align 8
-  %42 = call fastcc i32 @setElementTypePrefix(ptr noundef %0, ptr noundef nonnull %35), !range !39
+  %42 = call fastcc i32 @setElementTypePrefix(ptr noundef %0, ptr noundef nonnull %35)
   %.not24 = icmp eq i32 %42, 0
   br i1 %.not24, label %poolStoreString.exit.thread, label %43
 
@@ -9370,7 +9370,7 @@ define internal fastcc ptr @getAttributeId(ptr nocapture noundef readonly %0, pt
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %4
-  %15 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8), !range !14
+  %15 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %poolStoreString.exit.thread, label %._crit_edge99
 
@@ -9390,7 +9390,7 @@ define internal fastcc ptr @getAttributeId(ptr nocapture noundef readonly %0, pt
   br i1 %.not.i.i, label %20, label %22
 
 20:                                               ; preds = %16
-  %21 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8), !range !14
+  %21 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
   %.not12.i.i = icmp eq i8 %21, 0
   br i1 %.not12.i.i, label %poolAppend.exit.thread.i, label %22
 
@@ -9406,7 +9406,7 @@ define internal fastcc ptr @getAttributeId(ptr nocapture noundef readonly %0, pt
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %28
 
 28:                                               ; preds = %24
-  %29 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8), !range !14
+  %29 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
   %.not13.i.i = icmp eq i8 %29, 0
   br i1 %.not13.i.i, label %poolAppend.exit.thread.i, label %24
 
@@ -9428,7 +9428,7 @@ poolAppend.exit.i:                                ; preds = %24
   br i1 %35, label %36, label %poolStoreString.exit
 
 36:                                               ; preds = %32
-  %37 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8), !range !14
+  %37 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
   %.not10.i = icmp eq i8 %37, 0
   br i1 %.not10.i, label %poolStoreString.exit.thread, label %._crit_edge.i
 
@@ -9554,7 +9554,7 @@ poolStoreString.exit:                             ; preds = %32, %._crit_edge.i
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %.lr.ph
-  %91 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8), !range !14
+  %91 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
   %.not83 = icmp eq i8 %91, 0
   br i1 %.not83, label %poolStoreString.exit.thread, label %._crit_edge101
 
@@ -9571,7 +9571,7 @@ poolStoreString.exit:                             ; preds = %32, %._crit_edge.i
   store i8 %95, ptr %93, align 1
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %92
   %.pre103 = load ptr, ptr %9, align 8
@@ -9584,7 +9584,7 @@ poolStoreString.exit:                             ; preds = %32, %._crit_edge.i
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %._crit_edge
-  %101 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8), !range !14
+  %101 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
   %.not81 = icmp eq i8 %101, 0
   br i1 %.not81, label %poolStoreString.exit.thread, label %._crit_edge104
 
@@ -9625,7 +9625,7 @@ poolStoreString.exit:                             ; preds = %32, %._crit_edge.i
   %indvars.iv.next97 = add nuw i32 %indvars.iv96, 1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %42, i64 %indvars.iv.next
   %.pre100 = load i8, ptr %.phi.trans.insert, align 1
-  br label %84, !llvm.loop !42
+  br label %84, !llvm.loop !36
 
 poolStoreString.exit.thread:                      ; preds = %84, %90, %poolAppend.exit.thread.i, %36, %poolAppend.exit.i, %47, %81, %113, %115, %49, %102, %100, %41, %poolStoreString.exit, %14
   %.068 = phi ptr [ null, %14 ], [ null, %poolStoreString.exit ], [ null, %41 ], [ null, %100 ], [ null, %102 ], [ %44, %49 ], [ %44, %115 ], [ %44, %113 ], [ %44, %81 ], [ %44, %47 ], [ null, %poolAppend.exit.i ], [ null, %36 ], [ null, %poolAppend.exit.thread.i ], [ null, %90 ], [ %44, %84 ]
@@ -9633,7 +9633,7 @@ poolStoreString.exit.thread:                      ; preds = %84, %90, %poolAppen
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i8 @poolGrow(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @poolGrow(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -9916,7 +9916,7 @@ define internal fastcc ptr @lookup(ptr nocapture noundef readonly %0, ptr nocapt
   %44 = load i8, ptr %42, align 1
   %45 = load i8, ptr %43, align 1
   %46 = icmp eq i8 %44, %45
-  br i1 %46, label %.lr.ph.i, label %.loopexit158, !llvm.loop !15
+  br i1 %46, label %.lr.ph.i, label %.loopexit158, !llvm.loop !14
 
 .loopexit158:                                     ; preds = %41, %34
   %.not150 = icmp eq i8 %.0123163, 0
@@ -9943,7 +9943,7 @@ define internal fastcc ptr @lookup(ptr nocapture noundef readonly %0, ptr nocapt
   %59 = getelementptr inbounds ptr, ptr %26, i64 %.1122
   %60 = load ptr, ptr %59, align 8
   %.not = icmp eq ptr %60, null
-  br i1 %.not, label %._crit_edge, label %34, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %34, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %56, %21
   %.0121.lcssa = phi i64 [ %25, %21 ], [ %.1122, %56 ]
@@ -10036,7 +10036,7 @@ define internal fastcc ptr @lookup(ptr nocapture noundef readonly %0, ptr nocapt
   %110 = getelementptr inbounds ptr, ptr %84, i64 %.1
   %111 = load ptr, ptr %110, align 8
   %.not147 = icmp eq ptr %111, null
-  br i1 %.not147, label %._crit_edge170, label %107, !llvm.loop !43
+  br i1 %.not147, label %._crit_edge170, label %107, !llvm.loop !37
 
 ._crit_edge170:                                   ; preds = %107, %96
   %.0.lcssa = phi i64 [ %99, %96 ], [ %.1, %107 ]
@@ -10052,7 +10052,7 @@ define internal fastcc ptr @lookup(ptr nocapture noundef readonly %0, ptr nocapt
   %117 = phi i64 [ %92, %91 ], [ %.pre, %._crit_edge170 ]
   %118 = add nuw i64 %.2172, 1
   %119 = icmp ult i64 %118, %117
-  br i1 %119, label %91, label %._crit_edge175, !llvm.loop !44
+  br i1 %119, label %91, label %._crit_edge175, !llvm.loop !38
 
 ._crit_edge175:                                   ; preds = %116, %85
   %120 = load ptr, ptr %81, align 8
@@ -10094,7 +10094,7 @@ define internal fastcc ptr @lookup(ptr nocapture noundef readonly %0, ptr nocapt
   %139 = getelementptr inbounds ptr, ptr %84, i64 %.4
   %140 = load ptr, ptr %139, align 8
   %.not144 = icmp eq ptr %140, null
-  br i1 %.not144, label %.loopexit, label %136, !llvm.loop !45
+  br i1 %.not144, label %.loopexit, label %136, !llvm.loop !39
 
 .loopexit:                                        ; preds = %136, %._crit_edge175, %61, %16
   %.5 = phi i64 [ %20, %16 ], [ %.0121.lcssa, %61 ], [ %124, %._crit_edge175 ], [ %.4, %136 ]
@@ -10262,7 +10262,7 @@ define internal fastcc i32 @nextScaffoldPart(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @reportProcessingInstruction(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @reportProcessingInstruction(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -10333,7 +10333,7 @@ define internal fastcc noundef i32 @reportProcessingInstruction(ptr noundef %0, 
   %47 = load ptr, ptr %7, align 8
   store ptr %47, ptr %.022.i, align 8
   %48 = icmp ugt i32 %37, 1
-  br i1 %48, label %33, label %reportDefault.exit, !llvm.loop !30
+  br i1 %48, label %33, label %reportDefault.exit, !llvm.loop !26
 
 49:                                               ; preds = %14
   %50 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10370,7 +10370,7 @@ reportDefault.exit:                               ; preds = %33, %49
   br i1 %.not.i.i, label %70, label %72
 
 70:                                               ; preds = %56
-  %71 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %67), !range !14
+  %71 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %67)
   %.not12.i.i = icmp eq i8 %71, 0
   br i1 %.not12.i.i, label %poolAppend.exit.thread.i, label %72
 
@@ -10387,7 +10387,7 @@ reportDefault.exit:                               ; preds = %33, %49
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %79
 
 79:                                               ; preds = %75
-  %80 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %67), !range !14
+  %80 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %67)
   %.not13.i.i = icmp eq i8 %80, 0
   br i1 %.not13.i.i, label %poolAppend.exit.thread.i, label %75
 
@@ -10409,7 +10409,7 @@ poolAppend.exit.i:                                ; preds = %75
   br i1 %86, label %87, label %poolStoreString.exit
 
 87:                                               ; preds = %83
-  %88 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %67), !range !14
+  %88 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %67)
   %.not10.i = icmp eq i8 %88, 0
   br i1 %.not10.i, label %poolStoreString.exit.thread, label %._crit_edge.i
 
@@ -10444,7 +10444,7 @@ poolStoreString.exit:                             ; preds = %83, %._crit_edge.i
   br i1 %.not.i.i40, label %103, label %.preheader65
 
 103:                                              ; preds = %92
-  %104 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %67), !range !14
+  %104 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %67)
   %.not12.i.i50 = icmp eq i8 %104, 0
   br i1 %.not12.i.i50, label %poolAppend.exit.thread.i43, label %.preheader65
 
@@ -10459,7 +10459,7 @@ poolStoreString.exit:                             ; preds = %83, %._crit_edge.i
   br i1 %or.cond.i.i41, label %poolAppend.exit.i45, label %109
 
 109:                                              ; preds = %105
-  %110 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %67), !range !14
+  %110 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %67)
   %.not13.i.i42 = icmp eq i8 %110, 0
   br i1 %.not13.i.i42, label %poolAppend.exit.thread.i43, label %105
 
@@ -10480,7 +10480,7 @@ poolAppend.exit.i45:                              ; preds = %105
   br i1 %115, label %116, label %poolStoreString.exit51
 
 116:                                              ; preds = %112
-  %117 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %67), !range !14
+  %117 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %67)
   %.not10.i47 = icmp eq i8 %117, 0
   br i1 %.not10.i47, label %poolStoreString.exit.thread, label %._crit_edge.i48
 
@@ -10535,7 +10535,7 @@ poolStoreString.exit51:                           ; preds = %112, %._crit_edge.i
   %.1.i = getelementptr inbounds i8, ptr %.0.i52, i64 1
   %134 = load i8, ptr %.2.i, align 1
   %.not.i53 = icmp eq i8 %134, 0
-  br i1 %.not.i53, label %135, label %.preheader.i, !llvm.loop !46
+  br i1 %.not.i53, label %135, label %.preheader.i, !llvm.loop !40
 
 135:                                              ; preds = %133
   store i8 0, ptr %.1.i, align 1
@@ -10580,7 +10580,7 @@ poolStoreString.exit.thread:                      ; preds = %poolAppend.exit.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @reportComment(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @reportComment(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -10650,7 +10650,7 @@ define internal fastcc noundef i32 @reportComment(ptr noundef %0, ptr noundef %1
   %46 = load ptr, ptr %6, align 8
   store ptr %46, ptr %.022.i, align 8
   %47 = icmp ugt i32 %36, 1
-  br i1 %47, label %32, label %reportDefault.exit, !llvm.loop !30
+  br i1 %47, label %32, label %reportDefault.exit, !llvm.loop !26
 
 48:                                               ; preds = %13
   %49 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10686,7 +10686,7 @@ reportDefault.exit:                               ; preds = %32, %48
   br i1 %.not.i.i, label %68, label %70
 
 68:                                               ; preds = %55
-  %69 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %56), !range !14
+  %69 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %56)
   %.not12.i.i = icmp eq i8 %69, 0
   br i1 %.not12.i.i, label %poolAppend.exit.thread.i, label %70
 
@@ -10703,7 +10703,7 @@ reportDefault.exit:                               ; preds = %32, %48
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %77
 
 77:                                               ; preds = %73
-  %78 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %56), !range !14
+  %78 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %56)
   %.not13.i.i = icmp eq i8 %78, 0
   br i1 %.not13.i.i, label %poolAppend.exit.thread.i, label %73
 
@@ -10725,7 +10725,7 @@ poolAppend.exit.i:                                ; preds = %73
   br i1 %84, label %85, label %poolStoreString.exit
 
 85:                                               ; preds = %81
-  %86 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %56), !range !14
+  %86 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %56)
   %.not10.i = icmp eq i8 %86, 0
   br i1 %.not10.i, label %poolStoreString.exit.thread, label %._crit_edge.i
 
@@ -10780,7 +10780,7 @@ poolStoreString.exit:                             ; preds = %81, %._crit_edge.i
   %.1.i = getelementptr inbounds i8, ptr %.0.i23, i64 1
   %103 = load i8, ptr %.2.i, align 1
   %.not.i24 = icmp eq i8 %103, 0
-  br i1 %.not.i24, label %104, label %.preheader.i, !llvm.loop !46
+  br i1 %.not.i24, label %104, label %.preheader.i, !llvm.loop !40
 
 104:                                              ; preds = %102
   store i8 0, ptr %.1.i, align 1
@@ -11128,7 +11128,7 @@ define internal fastcc i32 @doContent(ptr noundef %0, i32 noundef %1, ptr nounde
   %182 = load ptr, ptr %27, align 8
   store ptr %182, ptr %.022.i, align 8
   %183 = icmp ugt i32 %172, 1
-  br i1 %183, label %168, label %reportDefault.exit, !llvm.loop !30
+  br i1 %183, label %168, label %reportDefault.exit, !llvm.loop !26
 
 184:                                              ; preds = %157
   %185 = load ptr, ptr %57, align 8
@@ -11159,7 +11159,7 @@ reportDefault.exit:                               ; preds = %168, %184
   br i1 %.not.i.i, label %199, label %.preheader81
 
 199:                                              ; preds = %190
-  %200 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %90), !range !14
+  %200 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %90)
   %.not12.i.i = icmp eq i8 %200, 0
   br i1 %.not12.i.i, label %poolAppend.exit.thread.i, label %.preheader81
 
@@ -11174,7 +11174,7 @@ reportDefault.exit:                               ; preds = %168, %184
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %205
 
 205:                                              ; preds = %201
-  %206 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %90), !range !14
+  %206 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %90)
   %.not13.i.i = icmp eq i8 %206, 0
   br i1 %.not13.i.i, label %poolAppend.exit.thread.i, label %201
 
@@ -11195,7 +11195,7 @@ poolAppend.exit.i:                                ; preds = %201
   br i1 %211, label %212, label %poolStoreString.exit
 
 212:                                              ; preds = %208
-  %213 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %90), !range !14
+  %213 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %90)
   %.not10.i = icmp eq i8 %213, 0
   br i1 %.not10.i, label %freeBindings.exit, label %._crit_edge.i
 
@@ -11218,7 +11218,7 @@ poolStoreString.exit:                             ; preds = %208, %._crit_edge.i
   br i1 %219, label %lookup.exit, label %220
 
 220:                                              ; preds = %217
-  %221 = call fastcc i64 @hash(ptr noundef %0, ptr noundef nonnull %216)
+  %221 = call fastcc i64 @hash(ptr noundef readonly %0, ptr noundef nonnull %216)
   %222 = load i64, ptr %94, align 8
   %223 = add i64 %222, -1
   %224 = and i64 %223, %221
@@ -11257,7 +11257,7 @@ poolStoreString.exit:                             ; preds = %208, %._crit_edge.i
   %242 = load i8, ptr %240, align 1
   %243 = load i8, ptr %241, align 1
   %244 = icmp eq i8 %242, %243
-  br i1 %244, label %.lr.ph.i.i, label %.loopexit158.i, !llvm.loop !15
+  br i1 %244, label %.lr.ph.i.i, label %.loopexit158.i, !llvm.loop !14
 
 .loopexit158.i:                                   ; preds = %239, %232
   %.not150.i = icmp eq i8 %.0123163.i, 0
@@ -11284,7 +11284,7 @@ poolStoreString.exit:                             ; preds = %208, %._crit_edge.i
   %257 = getelementptr inbounds ptr, ptr %225, i64 %.1122.i
   %258 = load ptr, ptr %257, align 8
   %.not.i493 = icmp eq ptr %258, null
-  br i1 %.not.i493, label %lookup.exit, label %232, !llvm.loop !16
+  br i1 %.not.i493, label %lookup.exit, label %232, !llvm.loop !15
 
 lookup.exit:                                      ; preds = %254, %.lr.ph.i.i, %220, %217
   %.0120.i = phi ptr [ null, %217 ], [ null, %220 ], [ %233, %.lr.ph.i.i ], [ null, %254 ]
@@ -11483,7 +11483,7 @@ processInternalEntity.exit:                       ; preds = %303, %306
   br i1 %345, label %346, label %348
 
 346:                                              ; preds = %342
-  %347 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80), !range !14
+  %347 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80)
   %.not80.i = icmp eq i8 %347, 0
   br i1 %.not80.i, label %getContext.exit.thread, label %._crit_edge160.i
 
@@ -11518,7 +11518,7 @@ processInternalEntity.exit:                       ; preds = %303, %306
   br i1 %359, label %360, label %362
 
 360:                                              ; preds = %.lr.ph.i501
-  %361 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80), !range !14
+  %361 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80)
   %.not98.i = icmp eq i8 %361, 0
   br i1 %.not98.i, label %getContext.exit.thread, label %._crit_edge161.i
 
@@ -11538,7 +11538,7 @@ processInternalEntity.exit:                       ; preds = %303, %306
   store i8 %368, ptr %363, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit122.i, label %.lr.ph.i501, !llvm.loop !47
+  br i1 %exitcond.not.i, label %.loopexit122.i, label %.lr.ph.i501, !llvm.loop !41
 
 .loopexit122.i:                                   ; preds = %362, %348, %338
   %370 = getelementptr inbounds i8, ptr %339, i64 120
@@ -11592,7 +11592,7 @@ hashTableIterNext.exit.i:                         ; preds = %379
   br i1 %389, label %390, label %392
 
 390:                                              ; preds = %386
-  %391 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80), !range !14
+  %391 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80)
   %.not92.i = icmp eq i8 %391, 0
   br i1 %.not92.i, label %getContext.exit.thread, label %._crit_edge163.i
 
@@ -11622,7 +11622,7 @@ hashTableIterNext.exit.i:                         ; preds = %379
   br i1 %401, label %402, label %404
 
 402:                                              ; preds = %.lr.ph135.i
-  %403 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80), !range !14
+  %403 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80)
   %.not97.i = icmp eq i8 %403, 0
   br i1 %.not97.i, label %getContext.exit.thread, label %._crit_edge165.i
 
@@ -11640,7 +11640,7 @@ hashTableIterNext.exit.i:                         ; preds = %379
   %408 = getelementptr inbounds i8, ptr %.073134.i, i64 1
   %409 = load i8, ptr %408, align 1
   %.not93.i = icmp eq i8 %409, 0
-  br i1 %.not93.i, label %._crit_edge.i499, label %.lr.ph135.i, !llvm.loop !48
+  br i1 %.not93.i, label %._crit_edge.i499, label %.lr.ph135.i, !llvm.loop !42
 
 ._crit_edge.i499:                                 ; preds = %404, %395
   %410 = load ptr, ptr %81, align 8
@@ -11649,7 +11649,7 @@ hashTableIterNext.exit.i:                         ; preds = %379
   br i1 %412, label %413, label %415
 
 413:                                              ; preds = %._crit_edge.i499
-  %414 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80), !range !14
+  %414 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80)
   %.not94.i = icmp eq i8 %414, 0
   br i1 %.not94.i, label %getContext.exit.thread, label %._crit_edge168.i
 
@@ -11687,7 +11687,7 @@ hashTableIterNext.exit.i:                         ; preds = %379
   br i1 %426, label %427, label %429
 
 427:                                              ; preds = %.lr.ph138.i
-  %428 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80), !range !14
+  %428 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80)
   %.not96.i = icmp eq i8 %428, 0
   br i1 %.not96.i, label %getContext.exit.thread, label %._crit_edge170.i
 
@@ -11707,7 +11707,7 @@ hashTableIterNext.exit.i:                         ; preds = %379
   store i8 %435, ptr %430, align 1
   %indvars.iv.next156.i = add nuw nsw i64 %indvars.iv155.i, 1
   %exitcond159.not.i = icmp eq i64 %indvars.iv.next156.i, %wide.trip.count158.i
-  br i1 %exitcond159.not.i, label %.outer121.i.backedge, label %.lr.ph138.i, !llvm.loop !49
+  br i1 %exitcond159.not.i, label %.outer121.i.backedge, label %.lr.ph138.i, !llvm.loop !43
 
 437:                                              ; preds = %377
   %438 = load ptr, ptr %339, align 8
@@ -11759,7 +11759,7 @@ hashTableIterNext.exit107.i:                      ; preds = %446
   br i1 %455, label %456, label %458
 
 456:                                              ; preds = %452
-  %457 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80), !range !14
+  %457 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80)
   %.not87.i = icmp eq i8 %457, 0
   br i1 %.not87.i, label %getContext.exit.thread, label %._crit_edge172.i
 
@@ -11792,7 +11792,7 @@ hashTableIterNext.exit107.i:                      ; preds = %446
   br i1 %467, label %468, label %470
 
 468:                                              ; preds = %.lr.ph142.i
-  %469 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80), !range !14
+  %469 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80)
   %.not89.i = icmp eq i8 %469, 0
   br i1 %.not89.i, label %getContext.exit.thread, label %._crit_edge174.i
 
@@ -11810,7 +11810,7 @@ hashTableIterNext.exit107.i:                      ; preds = %446
   %474 = getelementptr inbounds i8, ptr %.071140.i, i64 1
   %475 = load i8, ptr %474, align 1
   %.not88.i = icmp eq i8 %475, 0
-  br i1 %.not88.i, label %.outer.i.backedge, label %.lr.ph142.i, !llvm.loop !50
+  br i1 %.not88.i, label %.outer.i.backedge, label %.lr.ph142.i, !llvm.loop !44
 
 476:                                              ; preds = %444
   %477 = load ptr, ptr %81, align 8
@@ -11819,7 +11819,7 @@ hashTableIterNext.exit107.i:                      ; preds = %446
   br i1 %479, label %480, label %getContext.exit
 
 480:                                              ; preds = %476
-  %481 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80), !range !14
+  %481 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80)
   %.not84.i = icmp eq i8 %481, 0
   br i1 %.not84.i, label %getContext.exit.thread, label %._crit_edge177.i
 
@@ -12066,7 +12066,7 @@ getContext.exit:                                  ; preds = %476, %._crit_edge17
   %616 = load ptr, ptr %23, align 8
   store ptr %616, ptr %.022.i505, align 8
   %617 = icmp ugt i32 %606, 1
-  br i1 %617, label %602, label %reportDefault.exit507, !llvm.loop !30
+  br i1 %617, label %602, label %reportDefault.exit507, !llvm.loop !26
 
 618:                                              ; preds = %591
   %619 = load ptr, ptr %57, align 8
@@ -12127,7 +12127,7 @@ poolClear.exit:                                   ; preds = %.lr.ph.i509, %627, 
   br i1 %.not.i.i511, label %641, label %.preheader83
 
 641:                                              ; preds = %631
-  %642 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80), !range !14
+  %642 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80)
   %.not12.i.i521 = icmp eq i8 %642, 0
   br i1 %.not12.i.i521, label %poolAppend.exit.thread.i514, label %.preheader83
 
@@ -12142,7 +12142,7 @@ poolClear.exit:                                   ; preds = %.lr.ph.i509, %627, 
   br i1 %or.cond.i.i512, label %poolAppend.exit.i516, label %647
 
 647:                                              ; preds = %643
-  %648 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80), !range !14
+  %648 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80)
   %.not13.i.i513 = icmp eq i8 %648, 0
   br i1 %.not13.i.i513, label %poolAppend.exit.thread.i514, label %643
 
@@ -12163,7 +12163,7 @@ poolAppend.exit.i516:                             ; preds = %643
   br i1 %653, label %654, label %poolStoreString.exit522
 
 654:                                              ; preds = %650
-  %655 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80), !range !14
+  %655 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %80)
   %.not10.i518 = icmp eq i8 %655, 0
   br i1 %.not10.i518, label %freeBindings.exit, label %._crit_edge.i519
 
@@ -12219,7 +12219,7 @@ poolStoreString.exit522:                          ; preds = %650, %._crit_edge.i
   %677 = getelementptr inbounds i8, ptr %676, i64 8
   store ptr %675, ptr %677, align 8
   %.not.i525 = icmp eq ptr %672, null
-  br i1 %.not.i525, label %freeBindings.exit, label %.lr.ph.i524, !llvm.loop !51
+  br i1 %.not.i525, label %freeBindings.exit, label %.lr.ph.i524, !llvm.loop !45
 
 678:                                              ; preds = %659
   %679 = load ptr, ptr %81, align 8
@@ -12310,7 +12310,7 @@ poolStoreString.exit522:                          ; preds = %650, %._crit_edge.i
   %720 = load ptr, ptr %20, align 8
   store ptr %720, ptr %.022.i529, align 8
   %721 = icmp ugt i32 %710, 1
-  br i1 %721, label %706, label %reportDefault.exit531, !llvm.loop !30
+  br i1 %721, label %706, label %reportDefault.exit531, !llvm.loop !26
 
 722:                                              ; preds = %695
   %723 = load ptr, ptr %57, align 8
@@ -12381,7 +12381,7 @@ poolClear.exit538:                                ; preds = %.lr.ph.i534, %730, 
   %747 = getelementptr inbounds i8, ptr %746, i64 8
   store ptr %745, ptr %747, align 8
   %.not.i543 = icmp eq ptr %742, null
-  br i1 %.not.i543, label %freeBindings.exit545, label %.lr.ph.i540, !llvm.loop !51
+  br i1 %.not.i543, label %freeBindings.exit545, label %.lr.ph.i540, !llvm.loop !45
 
 freeBindings.exit545:                             ; preds = %740, %poolClear.exit538
   %748 = load i32, ptr %67, align 4
@@ -12401,7 +12401,7 @@ freeBindings.exit545:                             ; preds = %740, %poolClear.exi
 
 753:                                              ; preds = %750
   %754 = load ptr, ptr %30, align 8
-  %755 = call i32 @epilogProcessor(ptr noundef nonnull %0, ptr noundef %754, ptr noundef %4, ptr noundef %5), !range !52
+  %755 = call i32 @epilogProcessor(ptr noundef nonnull %0, ptr noundef %754, ptr noundef %4, ptr noundef %5)
   br label %freeBindings.exit
 
 756:                                              ; preds = %104
@@ -12477,7 +12477,7 @@ freeBindings.exit545:                             ; preds = %740, %poolClear.exi
   store i8 %795, ptr %.0382658, align 1
   %798 = load i8, ptr %796, align 1
   %.not441 = icmp eq i8 %798, 0
-  br i1 %.not441, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not441, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %788
   %.0382.lcssa = phi ptr [ %793, %788 ], [ %797, %.lr.ph ]
@@ -12506,7 +12506,7 @@ freeBindings.exit545:                             ; preds = %740, %poolClear.exi
   %.1383 = getelementptr inbounds i8, ptr %.1383662, i64 1
   %809 = load i8, ptr %808, align 1
   %.not442 = icmp eq i8 %809, 0
-  br i1 %.not442, label %.loopexit, label %.lr.ph664, !llvm.loop !54
+  br i1 %.not442, label %.loopexit, label %.lr.ph664, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.lr.ph664, %804, %._crit_edge
   %.2 = phi ptr [ %.0382.lcssa, %._crit_edge ], [ %.1383659, %804 ], [ %.1383, %.lr.ph664 ]
@@ -12571,7 +12571,7 @@ freeBindings.exit545:                             ; preds = %740, %poolClear.exi
   %841 = load ptr, ptr %18, align 8
   store ptr %841, ptr %.022.i548, align 8
   %842 = icmp ugt i32 %831, 1
-  br i1 %842, label %827, label %reportDefault.exit550, !llvm.loop !30
+  br i1 %842, label %827, label %reportDefault.exit550, !llvm.loop !26
 
 843:                                              ; preds = %816
   %844 = load ptr, ptr %57, align 8
@@ -12623,7 +12623,7 @@ reportDefault.exit550:                            ; preds = %827, %843
   store ptr %865, ptr %867, align 8
   %868 = load ptr, ptr %850, align 8
   %.not443 = icmp eq ptr %868, null
-  br i1 %.not443, label %._crit_edge669, label %.lr.ph668, !llvm.loop !55
+  br i1 %.not443, label %._crit_edge669, label %.lr.ph668, !llvm.loop !48
 
 ._crit_edge669:                                   ; preds = %858, %849
   %869 = load i32, ptr %67, align 4
@@ -12643,7 +12643,7 @@ reportDefault.exit550:                            ; preds = %827, %843
 
 874:                                              ; preds = %871
   %875 = load ptr, ptr %30, align 8
-  %876 = call i32 @epilogProcessor(ptr noundef nonnull %0, ptr noundef %875, ptr noundef %4, ptr noundef %5), !range !52
+  %876 = call i32 @epilogProcessor(ptr noundef nonnull %0, ptr noundef %875, ptr noundef %4, ptr noundef %5)
   br label %freeBindings.exit
 
 877:                                              ; preds = %104
@@ -12714,7 +12714,7 @@ reportDefault.exit550:                            ; preds = %827, %843
   %914 = load ptr, ptr %16, align 8
   store ptr %914, ptr %.022.i553, align 8
   %915 = icmp ugt i32 %904, 1
-  br i1 %915, label %900, label %reportDefault.exit555, !llvm.loop !30
+  br i1 %915, label %900, label %reportDefault.exit555, !llvm.loop !26
 
 916:                                              ; preds = %889
   %917 = load ptr, ptr %57, align 8
@@ -12790,7 +12790,7 @@ reportDefault.exit555:                            ; preds = %900, %916
   %952 = load ptr, ptr %14, align 8
   store ptr %952, ptr %.022.i558, align 8
   %953 = icmp ugt i32 %942, 1
-  br i1 %953, label %938, label %reportDefault.exit560, !llvm.loop !30
+  br i1 %953, label %938, label %reportDefault.exit560, !llvm.loop !26
 
 954:                                              ; preds = %928
   %955 = load ptr, ptr %57, align 8
@@ -12865,7 +12865,7 @@ reportDefault.exit560:                            ; preds = %938, %954
   %990 = load ptr, ptr %12, align 8
   store ptr %990, ptr %.022.i563, align 8
   %991 = icmp ugt i32 %980, 1
-  br i1 %991, label %976, label %reportDefault.exit565, !llvm.loop !30
+  br i1 %991, label %976, label %reportDefault.exit565, !llvm.loop !26
 
 992:                                              ; preds = %966
   %993 = load ptr, ptr %57, align 8
@@ -13067,7 +13067,7 @@ reportDefault.exit565:                            ; preds = %976, %992
   %1093 = load ptr, ptr %10, align 8
   store ptr %1093, ptr %.022.i568, align 8
   %1094 = icmp ugt i32 %1083, 1
-  br i1 %1094, label %1079, label %reportDefault.exit570, !llvm.loop !30
+  br i1 %1094, label %1079, label %reportDefault.exit570, !llvm.loop !26
 
 1095:                                             ; preds = %1069
   %1096 = load ptr, ptr %57, align 8
@@ -13085,13 +13085,13 @@ reportDefault.exit570:                            ; preds = %1079, %1095
 
 1101:                                             ; preds = %104
   %1102 = load ptr, ptr %29, align 8
-  %1103 = call fastcc i32 @reportProcessingInstruction(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %1102, ptr noundef %108), !range !39
+  %1103 = call fastcc i32 @reportProcessingInstruction(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %1102, ptr noundef %108)
   %.not420 = icmp eq i32 %1103, 0
   br i1 %.not420, label %freeBindings.exit, label %.loopexit593
 
 1104:                                             ; preds = %104
   %1105 = load ptr, ptr %29, align 8
-  %1106 = call fastcc i32 @reportComment(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %1105, ptr noundef %108), !range !39
+  %1106 = call fastcc i32 @reportComment(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %1105, ptr noundef %108)
   %.not = icmp eq i32 %1106, 0
   br i1 %.not, label %freeBindings.exit, label %.loopexit593
 
@@ -13144,7 +13144,7 @@ reportDefault.exit570:                            ; preds = %1079, %1095
   %1133 = load ptr, ptr %8, align 8
   store ptr %1133, ptr %.022.i573, align 8
   %1134 = icmp ugt i32 %1123, 1
-  br i1 %1134, label %1119, label %reportDefault.exit575, !llvm.loop !30
+  br i1 %1134, label %1119, label %reportDefault.exit575, !llvm.loop !26
 
 1135:                                             ; preds = %1109
   %1136 = load ptr, ptr %57, align 8
@@ -13193,7 +13193,7 @@ define internal fastcc i32 @storeAtts(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %14, label %lookup.exit.thread, label %15
 
 15:                                               ; preds = %5
-  %16 = tail call fastcc i64 @hash(ptr noundef nonnull %0, ptr noundef %11)
+  %16 = tail call fastcc i64 @hash(ptr noundef nonnull readonly %0, ptr noundef %11)
   %17 = load i64, ptr %12, align 8
   %18 = add i64 %17, -1
   %19 = and i64 %18, %16
@@ -13233,7 +13233,7 @@ define internal fastcc i32 @storeAtts(ptr noundef %0, ptr noundef %1, ptr nounde
   %38 = load i8, ptr %36, align 1
   %39 = load i8, ptr %37, align 1
   %40 = icmp eq i8 %38, %39
-  br i1 %40, label %.lr.ph.i.i, label %.loopexit158.i, !llvm.loop !15
+  br i1 %40, label %.lr.ph.i.i, label %.loopexit158.i, !llvm.loop !14
 
 .loopexit158.i:                                   ; preds = %35, %28
   %.not150.i = icmp eq i8 %.0123163.i, 0
@@ -13260,7 +13260,7 @@ define internal fastcc i32 @storeAtts(ptr noundef %0, ptr noundef %1, ptr nounde
   %53 = getelementptr inbounds ptr, ptr %20, i64 %.1122.i
   %54 = load ptr, ptr %53, align 8
   %.not.i = icmp eq ptr %54, null
-  br i1 %.not.i, label %lookup.exit.thread, label %28, !llvm.loop !16
+  br i1 %.not.i, label %lookup.exit.thread, label %28, !llvm.loop !15
 
 lookup.exit.thread:                               ; preds = %50, %15, %5
   %55 = getelementptr inbounds i8, ptr %9, i64 160
@@ -13277,7 +13277,7 @@ lookup.exit.thread:                               ; preds = %50, %15, %5
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %59
-  %64 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %55), !range !14
+  %64 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %55)
   %.not.i496 = icmp eq i8 %64, 0
   br i1 %.not.i496, label %poolCopyString.exit.thread, label %._crit_edge.i497
 
@@ -13316,7 +13316,7 @@ poolCopyString.exit:                              ; preds = %65
   br i1 %.not444, label %lookup.exit, label %79
 
 79:                                               ; preds = %76
-  %80 = tail call fastcc i32 @setElementTypePrefix(ptr noundef nonnull %0, ptr noundef nonnull %75), !range !39
+  %80 = tail call fastcc i32 @setElementTypePrefix(ptr noundef nonnull %0, ptr noundef nonnull %75)
   %.not445 = icmp eq i32 %80, 0
   br i1 %.not445, label %poolCopyString.exit.thread, label %lookup.exit
 
@@ -13456,7 +13456,7 @@ lookup.exit:                                      ; preds = %.lr.ph.i.i, %76, %7
 161:                                              ; preds = %162
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit536, label %162, !llvm.loop !56
+  br i1 %exitcond.not, label %.loopexit536, label %162, !llvm.loop !49
 
 162:                                              ; preds = %.lr.ph, %161
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %161 ]
@@ -13507,7 +13507,7 @@ lookup.exit:                                      ; preds = %.lr.ph.i.i, %76, %7
   br i1 %185, label %186, label %188
 
 186:                                              ; preds = %._crit_edge.i500
-  %187 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %119), !range !14
+  %187 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %119)
   %.not21.i = icmp eq i8 %187, 0
   br i1 %.not21.i, label %poolCopyString.exit.thread, label %._crit_edge22.i
 
@@ -13538,7 +13538,7 @@ lookup.exit:                                      ; preds = %.lr.ph.i.i, %76, %7
   br i1 %.not.i.i, label %200, label %.preheader61
 
 200:                                              ; preds = %194
-  %201 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %119), !range !14
+  %201 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %119)
   %.not12.i.i = icmp eq i8 %201, 0
   br i1 %.not12.i.i, label %poolAppend.exit.thread.i, label %.preheader61
 
@@ -13553,7 +13553,7 @@ lookup.exit:                                      ; preds = %.lr.ph.i.i, %76, %7
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %206
 
 206:                                              ; preds = %202
-  %207 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %119), !range !14
+  %207 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %119)
   %.not13.i.i = icmp eq i8 %207, 0
   br i1 %.not13.i.i, label %poolAppend.exit.thread.i, label %202
 
@@ -13574,7 +13574,7 @@ poolAppend.exit.i:                                ; preds = %202
   br i1 %212, label %213, label %poolStoreString.exit
 
 213:                                              ; preds = %209
-  %214 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %119), !range !14
+  %214 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %119)
   %.not10.i = icmp eq i8 %214, 0
   br i1 %.not10.i, label %poolStoreString.exit.thread, label %._crit_edge.i503
 
@@ -13618,7 +13618,7 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
   %230 = sext i32 %150 to i64
   %231 = getelementptr inbounds ptr, ptr %116, i64 %230
   %232 = load ptr, ptr %231, align 8
-  %233 = call fastcc i32 @addBinding(ptr noundef nonnull %0, ptr noundef nonnull %225, ptr noundef nonnull %134, ptr noundef %232, ptr noundef %4), !range !20
+  %233 = call fastcc i32 @addBinding(ptr noundef nonnull %0, ptr noundef nonnull %225, ptr noundef nonnull %134, ptr noundef %232, ptr noundef %4)
   %.not493 = icmp eq i32 %233, 0
   br i1 %.not493, label %241, label %poolCopyString.exit.thread
 
@@ -13639,7 +13639,7 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
   %.1380 = phi i32 [ %235, %234 ], [ %240, %239 ], [ %.0379593, %229 ]
   %indvars.iv.next687 = add nuw nsw i64 %indvars.iv686, 1
   %exitcond690.not = icmp eq i64 %indvars.iv.next687, %wide.trip.count689
-  br i1 %exitcond690.not, label %._crit_edge, label %126, !llvm.loop !57
+  br i1 %exitcond690.not, label %._crit_edge, label %126, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %241, %115
   %.0397.lcssa = phi i32 [ 0, %115 ], [ %.1398, %241 ]
@@ -13677,7 +13677,7 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
   %indvars.iv.next692 = add nuw nsw i64 %indvars.iv691, 2
   %256 = trunc nuw i64 %indvars.iv.next692 to i32
   %257 = icmp sgt i32 %.0379.lcssa, %256
-  br i1 %257, label %.lr.ph597, label %.loopexit534, !llvm.loop !58
+  br i1 %257, label %.lr.ph597, label %.loopexit534, !llvm.loop !51
 
 .loopexit534.sink.split:                          ; preds = %._crit_edge, %245, %253
   %.sink = phi i32 [ %254, %253 ], [ -1, %245 ], [ -1, %._crit_edge ]
@@ -13727,7 +13727,7 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
   br i1 %.not484, label %279, label %277
 
 277:                                              ; preds = %274
-  %278 = call fastcc i32 @addBinding(ptr noundef %0, ptr noundef nonnull %273, ptr noundef nonnull %264, ptr noundef nonnull %270, ptr noundef %4), !range !20
+  %278 = call fastcc i32 @addBinding(ptr noundef %0, ptr noundef nonnull %273, ptr noundef nonnull %264, ptr noundef nonnull %270, ptr noundef %4)
   %.not485 = icmp eq i32 %278, 0
   br i1 %.not485, label %285, label %poolCopyString.exit.thread
 
@@ -13758,7 +13758,7 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
   %.3 = phi i32 [ %.2600, %261 ], [ %.2600, %277 ], [ %.2600, %268 ], [ %284, %.sink.split ]
   %indvars.iv.next695 = add nuw nsw i64 %indvars.iv694, 1
   %exitcond698.not = icmp eq i64 %indvars.iv.next695, %wide.trip.count697
-  br i1 %exitcond698.not, label %._crit_edge603, label %261, !llvm.loop !59
+  br i1 %exitcond698.not, label %._crit_edge603, label %261, !llvm.loop !52
 
 ._crit_edge603:                                   ; preds = %285, %.loopexit534
   %.2399.lcssa = phi i32 [ %.0397.lcssa, %.loopexit534 ], [ %.3400, %285 ]
@@ -13789,7 +13789,7 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
   %299 = zext nneg i8 %297 to i32
   %300 = ashr i32 %.2399.lcssa, %299
   %.not450 = icmp eq i32 %300, 0
-  br i1 %.not450, label %301, label %.preheader531, !llvm.loop !60
+  br i1 %.not450, label %301, label %.preheader531, !llvm.loop !53
 
 301:                                              ; preds = %.preheader531
   store i8 %298, ptr %290, align 8
@@ -13850,7 +13850,7 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
   store i64 4294967295, ptr %323, align 8
   %324 = and i64 %indvars.iv.next700, 4294967295
   %.not453 = icmp eq i64 %324, 0
-  br i1 %.not453, label %.loopexit530, label %321, !llvm.loop !61
+  br i1 %.not453, label %.loopexit530, label %321, !llvm.loop !54
 
 .loopexit530:                                     ; preds = %321, %317
   %.0390731 = phi i32 [ %.0390, %317 ], [ %.0390732, %321 ]
@@ -13951,7 +13951,7 @@ copy_salt_to_sipkey.exit:                         ; preds = %tailrecurse.i.i
   br i1 %374, label %375, label %377
 
 375:                                              ; preds = %368
-  %376 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %336), !range !14
+  %376 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %336)
   %.not480 = icmp eq i8 %376, 0
   br i1 %.not480, label %poolCopyString.exit.thread, label %._crit_edge717
 
@@ -13968,7 +13968,7 @@ copy_salt_to_sipkey.exit:                         ; preds = %tailrecurse.i.i
   %380 = load i32, ptr %364, align 8
   %381 = sext i32 %380 to i64
   %382 = icmp slt i64 %indvars.iv.next703, %381
-  br i1 %382, label %368, label %._crit_edge610, !llvm.loop !62
+  br i1 %382, label %368, label %._crit_edge610, !llvm.loop !55
 
 ._crit_edge610:                                   ; preds = %377, %.preheader525.._crit_edge610_crit_edge
   %.pre-phi = phi i64 [ %.pre725, %.preheader525.._crit_edge610_crit_edge ], [ %381, %377 ]
@@ -13982,7 +13982,7 @@ copy_salt_to_sipkey.exit:                         ; preds = %tailrecurse.i.i
   %387 = getelementptr inbounds i8, ptr %.0387, i64 1
   %388 = load i8, ptr %.0387, align 1
   %.not457 = icmp eq i8 %388, 58
-  br i1 %.not457, label %389, label %386, !llvm.loop !63
+  br i1 %.not457, label %389, label %386, !llvm.loop !56
 
 389:                                              ; preds = %386
   %390 = load i8, ptr %387, align 1
@@ -13996,7 +13996,7 @@ copy_salt_to_sipkey.exit:                         ; preds = %tailrecurse.i.i
   %392 = add i64 %.06.i, 1
   %393 = load i8, ptr %391, align 1
   %.not.i507 = icmp eq i8 %393, 0
-  br i1 %.not.i507, label %keylen.exit, label %.lr.ph.i506, !llvm.loop !64
+  br i1 %.not.i507, label %keylen.exit, label %.lr.ph.i506, !llvm.loop !57
 
 keylen.exit:                                      ; preds = %.lr.ph.i506, %389
   %.0.lcssa.i = phi i64 [ 0, %389 ], [ %392, %.lr.ph.i506 ]
@@ -14011,7 +14011,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i506, %389
   br i1 %398, label %399, label %401
 
 399:                                              ; preds = %395
-  %400 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %336), !range !14
+  %400 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %336)
   %.not458 = icmp eq i8 %400, 0
   br i1 %.not458, label %poolCopyString.exit.thread, label %._crit_edge718
 
@@ -14028,7 +14028,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i506, %389
   %405 = getelementptr inbounds i8, ptr %.1388, i64 1
   %406 = load i8, ptr %.1388, align 1
   %.not459 = icmp eq i8 %406, 0
-  br i1 %.not459, label %407, label %395, !llvm.loop !65
+  br i1 %.not459, label %407, label %395, !llvm.loop !58
 
 407:                                              ; preds = %401
   %408 = call fastcc i64 @sip24_final(ptr noundef nonnull %7)
@@ -14075,7 +14075,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i506, %389
   %433 = icmp ne i8 %431, %432
   %.not478 = icmp eq i8 %431, 0
   %or.cond495 = or i1 %.not478, %433
-  br i1 %or.cond495, label %.critedge, label %.lr.ph617, !llvm.loop !66
+  br i1 %or.cond495, label %.critedge, label %.lr.ph617, !llvm.loop !59
 
 .critedge:                                        ; preds = %.lr.ph617, %422
   %.not478.lcssa = phi i1 [ %.not478612, %422 ], [ %.not478, %.lr.ph617 ]
@@ -14107,7 +14107,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i506, %389
   %448 = getelementptr inbounds %struct.NS_ATT, ptr %411, i64 %447
   %449 = load i64, ptr %448, align 8
   %450 = icmp eq i64 %449, %325
-  br i1 %450, label %417, label %._crit_edge623, !llvm.loop !67
+  br i1 %450, label %417, label %._crit_edge623, !llvm.loop !60
 
 ._crit_edge623:                                   ; preds = %444, %407
   %.lcssa554 = phi i64 [ %412, %407 ], [ %447, %444 ]
@@ -14132,7 +14132,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i506, %389
   br i1 %461, label %462, label %464
 
 462:                                              ; preds = %458
-  %463 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %336), !range !14
+  %463 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %336)
   %.not461 = icmp eq i8 %463, 0
   br i1 %.not461, label %poolCopyString.exit.thread, label %._crit_edge720
 
@@ -14149,7 +14149,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i506, %389
   %468 = getelementptr inbounds i8, ptr %.2389, i64 1
   %469 = load i8, ptr %.2389, align 1
   %.not462 = icmp eq i8 %469, 0
-  br i1 %.not462, label %.loopexit522, label %458, !llvm.loop !68
+  br i1 %.not462, label %.loopexit522, label %458, !llvm.loop !61
 
 .loopexit522:                                     ; preds = %464, %._crit_edge623
   %470 = load ptr, ptr %340, align 8
@@ -14183,7 +14183,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i506, %389
   %indvars.iv.next706 = add nuw nsw i64 %indvars.iv705, 2
   %484 = trunc nuw i64 %indvars.iv.next706 to i32
   %485 = icmp sgt i32 %.2.lcssa, %484
-  br i1 %485, label %345, label %.loopexit527, !llvm.loop !69
+  br i1 %485, label %345, label %.loopexit527, !llvm.loop !62
 
 .loopexit527:                                     ; preds = %483, %.loopexit530, %479, %._crit_edge603
   %.4 = phi i32 [ %481, %479 ], [ 0, %._crit_edge603 ], [ 0, %.loopexit530 ], [ %484, %483 ]
@@ -14207,7 +14207,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i506, %389
   store i8 0, ptr %490, align 1
   %indvars.iv.next709 = add nsw i64 %indvars.iv708, 2
   %491 = icmp slt i64 %indvars.iv.next709, %286
-  br i1 %491, label %.lr.ph632, label %.preheader521, !llvm.loop !70
+  br i1 %491, label %.lr.ph632, label %.preheader521, !llvm.loop !63
 
 .lr.ph636:                                        ; preds = %.preheader521, %.lr.ph636
   %.0403635 = phi ptr [ %.0403, %.lr.ph636 ], [ %.0403633, %.preheader521 ]
@@ -14219,7 +14219,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i506, %389
   %496 = getelementptr inbounds i8, ptr %.0403635, i64 8
   %.0403 = load ptr, ptr %496, align 8
   %.not464 = icmp eq ptr %.0403, null
-  br i1 %.not464, label %._crit_edge637, label %.lr.ph636, !llvm.loop !71
+  br i1 %.not464, label %._crit_edge637, label %.lr.ph636, !llvm.loop !64
 
 ._crit_edge637:                                   ; preds = %.lr.ph636, %.preheader521
   %497 = getelementptr inbounds i8, ptr %0, i64 448
@@ -14248,7 +14248,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i506, %389
   %508 = getelementptr inbounds i8, ptr %.0405, i64 1
   %509 = load i8, ptr %.0405, align 1
   %.not469 = icmp eq i8 %509, 58
-  br i1 %.not469, label %.loopexit520, label %507, !llvm.loop !72
+  br i1 %.not469, label %.loopexit520, label %507, !llvm.loop !65
 
 510:                                              ; preds = %499
   %511 = getelementptr inbounds i8, ptr %9, i64 272
@@ -14280,7 +14280,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i506, %389
   %520 = getelementptr inbounds i8, ptr %519, i64 %indvars.iv711
   %521 = load i8, ptr %520, align 1
   %.not472 = icmp eq i8 %521, 0
-  br i1 %.not472, label %.loopexit.loopexit, label %.preheader, !llvm.loop !73
+  br i1 %.not472, label %.loopexit.loopexit, label %.preheader, !llvm.loop !66
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %522 = trunc nuw i64 %indvars.iv.next712 to i32
@@ -14308,7 +14308,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i506, %389
   %532 = getelementptr inbounds i8, ptr %.1406, i64 %indvars.iv714
   %533 = load i8, ptr %532, align 1
   %.not473 = icmp eq i8 %533, 0
-  br i1 %.not473, label %534, label %531, !llvm.loop !74
+  br i1 %.not473, label %534, label %531, !llvm.loop !67
 
 534:                                              ; preds = %531
   %535 = trunc nuw i64 %indvars.iv.next715 to i32
@@ -14377,7 +14377,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i506, %389
 568:                                              ; preds = %.lr.ph642, %567
   %.0 = load ptr, ptr %.0640, align 8
   %.not476 = icmp eq ptr %.0, null
-  br i1 %.not476, label %._crit_edge643, label %.lr.ph642, !llvm.loop !75
+  br i1 %.not476, label %._crit_edge643, label %.lr.ph642, !llvm.loop !68
 
 ._crit_edge643:                                   ; preds = %568, %557
   %569 = getelementptr inbounds i8, ptr %0, i64 40
@@ -14422,7 +14422,7 @@ poolCopyString.exit.thread:                       ; preds = %63, %186, %.loopexi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @epilogProcessor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 36) i32 @epilogProcessor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -14499,7 +14499,7 @@ define internal noundef i32 @epilogProcessor(ptr noundef %0, ptr noundef %1, ptr
   %46 = load ptr, ptr %7, align 8
   store ptr %46, ptr %11, align 8
   %47 = icmp ugt i32 %36, 1
-  br i1 %47, label %32, label %reportDefault.exit, !llvm.loop !30
+  br i1 %47, label %32, label %reportDefault.exit, !llvm.loop !26
 
 48:                                               ; preds = %26
   %49 = load ptr, ptr %15, align 8
@@ -14569,7 +14569,7 @@ reportDefault.exit._crit_edge:                    ; preds = %reportDefault.exit
   %81 = load ptr, ptr %5, align 8
   store ptr %81, ptr %11, align 8
   %82 = icmp ugt i32 %71, 1
-  br i1 %82, label %67, label %reportDefault.exit46, !llvm.loop !30
+  br i1 %82, label %67, label %reportDefault.exit46, !llvm.loop !26
 
 83:                                               ; preds = %61
   %84 = load ptr, ptr %15, align 8
@@ -14587,13 +14587,13 @@ reportDefault.exit46:                             ; preds = %67, %83
 
 89:                                               ; preds = %19
   %90 = load ptr, ptr %12, align 8
-  %91 = call fastcc i32 @reportProcessingInstruction(ptr noundef nonnull %0, ptr noundef %90, ptr noundef %.037, ptr noundef %23), !range !39
+  %91 = call fastcc i32 @reportProcessingInstruction(ptr noundef nonnull %0, ptr noundef %90, ptr noundef %.037, ptr noundef %23)
   %.not40 = icmp eq i32 %91, 0
   br i1 %.not40, label %.loopexit, label %104
 
 92:                                               ; preds = %19
   %93 = load ptr, ptr %12, align 8
-  %94 = call fastcc i32 @reportComment(ptr noundef nonnull %0, ptr noundef %93, ptr noundef %.037, ptr noundef %23), !range !39
+  %94 = call fastcc i32 @reportComment(ptr noundef nonnull %0, ptr noundef %93, ptr noundef %.037, ptr noundef %23)
   %.not39 = icmp eq i32 %94, 0
   br i1 %.not39, label %.loopexit, label %104
 
@@ -14642,7 +14642,7 @@ reportDefault.exit46:                             ; preds = %67, %83
 declare i32 @XmlUtf8Encode(i32 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @doCdataSection(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, i8 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 36) i32 @doCdataSection(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, i8 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -14768,7 +14768,7 @@ define internal fastcc i32 @doCdataSection(ptr nocapture noundef %0, ptr noundef
   %77 = load ptr, ptr %11, align 8
   store ptr %77, ptr %.022.i, align 8
   %78 = icmp ugt i32 %67, 1
-  br i1 %78, label %63, label %reportDefault.exit, !llvm.loop !30
+  br i1 %78, label %63, label %reportDefault.exit, !llvm.loop !26
 
 79:                                               ; preds = %53
   %80 = load ptr, ptr %32, align 8
@@ -14853,7 +14853,7 @@ reportDefault.exit:                               ; preds = %63, %79
   %119 = load ptr, ptr %9, align 8
   store ptr %119, ptr %.022.i73, align 8
   %120 = icmp ugt i32 %109, 1
-  br i1 %120, label %105, label %reportDefault.exit75, !llvm.loop !30
+  br i1 %120, label %105, label %reportDefault.exit75, !llvm.loop !26
 
 121:                                              ; preds = %95
   %122 = load ptr, ptr %32, align 8
@@ -14964,7 +14964,7 @@ reportDefault.exit75:                             ; preds = %105, %121
   %179 = load ptr, ptr %7, align 8
   store ptr %179, ptr %.022.i77, align 8
   %180 = icmp ugt i32 %169, 1
-  br i1 %180, label %165, label %reportDefault.exit79, !llvm.loop !30
+  br i1 %180, label %165, label %reportDefault.exit79, !llvm.loop !26
 
 181:                                              ; preds = %155
   %182 = load ptr, ptr %32, align 8
@@ -15147,7 +15147,7 @@ define internal i32 @internalEntityProcessor(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @setElementTypePrefix(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @setElementTypePrefix(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 648
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -15179,7 +15179,7 @@ define internal fastcc noundef i32 @setElementTypePrefix(ptr nocapture noundef r
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
-  %16 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %10), !range !14
+  %16 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %10)
   %.not38 = icmp eq i8 %16, 0
   br i1 %.not38, label %.loopexit, label %._crit_edge45
 
@@ -15195,7 +15195,7 @@ define internal fastcc noundef i32 @setElementTypePrefix(ptr nocapture noundef r
   store i8 %19, ptr %18, align 1
   %21 = getelementptr inbounds i8, ptr %.042, i64 1
   %.not35 = icmp eq ptr %21, %.031
-  br i1 %.not35, label %._crit_edge, label %11, !llvm.loop !76
+  br i1 %.not35, label %._crit_edge, label %11, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %17, %.preheader
   %22 = getelementptr inbounds i8, ptr %4, i64 184
@@ -15207,7 +15207,7 @@ define internal fastcc noundef i32 @setElementTypePrefix(ptr nocapture noundef r
 
 27:                                               ; preds = %._crit_edge
   %28 = getelementptr inbounds i8, ptr %4, i64 160
-  %29 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %28), !range !14
+  %29 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %28)
   %.not36 = icmp eq i8 %29, 0
   br i1 %.not36, label %.loopexit, label %._crit_edge46
 
@@ -15249,7 +15249,7 @@ define internal fastcc noundef i32 @setElementTypePrefix(ptr nocapture noundef r
 
 46:                                               ; preds = %6
   %47 = getelementptr inbounds i8, ptr %.031, i64 1
-  br label %6, !llvm.loop !77
+  br label %6, !llvm.loop !70
 
 .loopexit:                                        ; preds = %6, %15, %44, %30, %27
   %.030 = phi i32 [ 0, %27 ], [ 0, %30 ], [ 1, %44 ], [ 0, %15 ], [ 1, %6 ]
@@ -15257,7 +15257,7 @@ define internal fastcc noundef i32 @setElementTypePrefix(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @addBinding(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 41) i32 @addBinding(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = load i8, ptr %3, align 1
   %7 = icmp eq i8 %6, 0
   %8 = load ptr, ptr %1, align 8
@@ -15339,7 +15339,7 @@ define internal fastcc noundef i32 @addBinding(ptr nocapture noundef %0, ptr nou
   %43 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next173
   %44 = load i8, ptr %43, align 1
   %.not114.us.us = icmp eq i8 %44, 0
-  br i1 %.not114.us.us, label %._crit_edge.loopexit163, label %.lr.ph.split.us.split.us, !llvm.loop !78
+  br i1 %.not114.us.us, label %._crit_edge.loopexit163, label %.lr.ph.split.us.split.us, !llvm.loop !71
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
   %45 = getelementptr inbounds i8, ptr %0, i64 868
@@ -15376,7 +15376,7 @@ define internal fastcc noundef i32 @addBinding(ptr nocapture noundef %0, ptr nou
   %58 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next
   %59 = load i8, ptr %58, align 1
   %.not114.us = icmp eq i8 %59, 0
-  br i1 %.not114.us, label %._crit_edge.loopexit165, label %47, !llvm.loop !78
+  br i1 %.not114.us, label %._crit_edge.loopexit165, label %47, !llvm.loop !71
 
 .lr.ph.split:                                     ; preds = %22, %25, %29, %10, %11, %14, %18
   %60 = getelementptr inbounds i8, ptr %0, i64 448
@@ -15429,7 +15429,7 @@ define internal fastcc noundef i32 @addBinding(ptr nocapture noundef %0, ptr nou
   %77 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next177
   %78 = load i8, ptr %77, align 1
   %.not114.us150 = icmp eq i8 %78, 0
-  br i1 %.not114.us150, label %._crit_edge.loopexit, label %.lr.ph.split.split.us, !llvm.loop !78
+  br i1 %.not114.us150, label %._crit_edge.loopexit, label %.lr.ph.split.split.us, !llvm.loop !71
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   %79 = getelementptr inbounds i8, ptr %0, i64 868
@@ -15485,7 +15485,7 @@ define internal fastcc noundef i32 @addBinding(ptr nocapture noundef %0, ptr nou
   %99 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next175
   %100 = load i8, ptr %99, align 1
   %.not114 = icmp eq i8 %100, 0
-  br i1 %.not114, label %._crit_edge.loopexit162, label %81, !llvm.loop !78
+  br i1 %.not114, label %._crit_edge.loopexit162, label %81, !llvm.loop !71
 
 ._crit_edge.loopexit:                             ; preds = %76
   %101 = trunc nuw nsw i64 %indvars.iv.next177 to i32
@@ -15702,7 +15702,7 @@ define internal fastcc noundef ptr @sip24_update(ptr noundef returned %0, ptr no
   store ptr %21, ptr %5, align 8
   store i8 %20, ptr %17, align 1
   %22 = icmp ult ptr %19, %4
-  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !79
+  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !72
 
 .critedge:                                        ; preds = %.lr.ph, %18, %15
   %.1.lcssa = phi ptr [ %.0, %15 ], [ %19, %18 ], [ %.134, %.lr.ph ]
@@ -15759,7 +15759,7 @@ define internal fastcc noundef ptr @sip24_update(ptr noundef returned %0, ptr no
   %64 = tail call i64 @llvm.fshl.i64(i64 %61, i64 %61, i64 32)
   %65 = add nuw nsw i32 %.036.i, 1
   %exitcond.not.i = icmp eq i32 %65, 2
-  br i1 %exitcond.not.i, label %sip_round.exit, label %46, !llvm.loop !80
+  br i1 %exitcond.not.i, label %sip_round.exit, label %46, !llvm.loop !73
 
 sip_round.exit:                                   ; preds = %46
   store i64 %63, ptr %12, align 8
@@ -15771,7 +15771,7 @@ sip_round.exit:                                   ; preds = %46
   %67 = load i64, ptr %14, align 8
   %68 = add i64 %67, 8
   store i64 %68, ptr %14, align 8
-  br i1 %.lcssa, label %15, label %69, !llvm.loop !81
+  br i1 %.lcssa, label %15, label %69, !llvm.loop !74
 
 69:                                               ; preds = %.critedge, %sip_round.exit
   ret ptr %0
@@ -15896,7 +15896,7 @@ define internal fastcc i64 @sip24_final(ptr noundef %0) unnamed_addr #12 {
   %78 = tail call i64 @llvm.fshl.i64(i64 %75, i64 %75, i64 32)
   %79 = add nuw nsw i32 %.036.i, 1
   %exitcond.not.i = icmp eq i32 %79, 2
-  br i1 %exitcond.not.i, label %sip_round.exit, label %60, !llvm.loop !80
+  br i1 %exitcond.not.i, label %sip_round.exit, label %60, !llvm.loop !73
 
 sip_round.exit:                                   ; preds = %60
   %80 = xor i64 %72, %.6
@@ -15925,7 +15925,7 @@ sip_round.exit:                                   ; preds = %60
   %100 = tail call i64 @llvm.fshl.i64(i64 %97, i64 %97, i64 32)
   %101 = add nuw nsw i32 %.036.i33, 1
   %exitcond.not.i34 = icmp eq i32 %101, 4
-  br i1 %exitcond.not.i34, label %sip_round.exit35, label %82, !llvm.loop !80
+  br i1 %exitcond.not.i34, label %sip_round.exit35, label %82, !llvm.loop !73
 
 sip_round.exit35:                                 ; preds = %82
   store i64 %99, ptr %58, align 8
@@ -16039,7 +16039,7 @@ define internal i32 @externalEntityContentProcessor(ptr noundef %0, ptr noundef 
   store ptr %.041.i, ptr %23, align 8
   %.042.i = load ptr, ptr %.04250.i, align 8
   %.not.i = icmp eq ptr %.042.i, null
-  br i1 %.not.i, label %storeRawNames.exit, label %.lr.ph.i, !llvm.loop !40
+  br i1 %.not.i, label %storeRawNames.exit, label %.lr.ph.i, !llvm.loop !34
 
 storeRawNames.exit:                               ; preds = %.lr.ph.i, %61, %41, %26, %12, %4
   %.0 = phi i32 [ %10, %4 ], [ 0, %12 ], [ 0, %.lr.ph.i ], [ 0, %61 ], [ 1, %41 ], [ 1, %26 ]
@@ -16047,7 +16047,7 @@ storeRawNames.exit:                               ; preds = %.lr.ph.i, %61, %41,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @appendAttributeValue(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 25) i32 @appendAttributeValue(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -16168,7 +16168,7 @@ define internal fastcc i32 @appendAttributeValue(ptr noundef %0, ptr noundef %1,
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %.lr.ph
-  %76 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %5), !range !14
+  %76 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %5)
   %.not139 = icmp eq i8 %76, 0
   br i1 %.not139, label %poolStoreString.exit.thread, label %._crit_edge188
 
@@ -16185,7 +16185,7 @@ define internal fastcc i32 @appendAttributeValue(ptr noundef %0, ptr noundef %1,
   store i8 %80, ptr %78, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !82
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !75
 
 82:                                               ; preds = %33
   %83 = load ptr, ptr %9, align 8
@@ -16196,7 +16196,7 @@ define internal fastcc i32 @appendAttributeValue(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %85, label %.preheader
 
 85:                                               ; preds = %82
-  %86 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %5), !range !14
+  %86 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %5)
   %.not12.i = icmp eq i8 %86, 0
   br i1 %.not12.i, label %poolAppend.exit.thread, label %.preheader
 
@@ -16211,7 +16211,7 @@ define internal fastcc i32 @appendAttributeValue(ptr noundef %0, ptr noundef %1,
   br i1 %or.cond.i, label %poolAppend.exit, label %91
 
 91:                                               ; preds = %87
-  %92 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %5), !range !14
+  %92 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %5)
   %.not13.i = icmp eq i8 %92, 0
   br i1 %.not13.i, label %poolAppend.exit.thread, label %87
 
@@ -16253,7 +16253,7 @@ poolAppend.exit:                                  ; preds = %87
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %106
-  %110 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %5), !range !14
+  %110 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %5)
   %.not137 = icmp eq i8 %110, 0
   br i1 %.not137, label %poolStoreString.exit.thread, label %._crit_edge186
 
@@ -16288,7 +16288,7 @@ poolAppend.exit:                                  ; preds = %87
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %124
-  %129 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %5), !range !14
+  %129 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %5)
   %.not135 = icmp eq i8 %129, 0
   br i1 %.not135, label %poolStoreString.exit.thread, label %._crit_edge
 
@@ -16317,7 +16317,7 @@ poolAppend.exit:                                  ; preds = %87
   br i1 %.not.i.i, label %141, label %.preheader19
 
 141:                                              ; preds = %133
-  %142 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %18), !range !14
+  %142 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %18)
   %.not12.i.i = icmp eq i8 %142, 0
   br i1 %.not12.i.i, label %poolAppend.exit.thread.i, label %.preheader19
 
@@ -16332,7 +16332,7 @@ poolAppend.exit:                                  ; preds = %87
   br i1 %or.cond.i.i, label %poolAppend.exit.i, label %147
 
 147:                                              ; preds = %143
-  %148 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %18), !range !14
+  %148 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %18)
   %.not13.i.i = icmp eq i8 %148, 0
   br i1 %.not13.i.i, label %poolAppend.exit.thread.i, label %143
 
@@ -16353,7 +16353,7 @@ poolAppend.exit.i:                                ; preds = %143
   br i1 %153, label %154, label %poolStoreString.exit
 
 154:                                              ; preds = %150
-  %155 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %18), !range !14
+  %155 = call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %18)
   %.not10.i = icmp eq i8 %155, 0
   br i1 %.not10.i, label %poolStoreString.exit.thread, label %._crit_edge.i
 
@@ -16376,7 +16376,7 @@ poolStoreString.exit:                             ; preds = %150, %._crit_edge.i
   br i1 %161, label %lookup.exit, label %162
 
 162:                                              ; preds = %159
-  %163 = call fastcc i64 @hash(ptr noundef nonnull %0, ptr noundef nonnull %158)
+  %163 = call fastcc i64 @hash(ptr noundef nonnull readonly %0, ptr noundef nonnull %158)
   %164 = load i64, ptr %23, align 8
   %165 = add i64 %164, -1
   %166 = and i64 %165, %163
@@ -16415,7 +16415,7 @@ poolStoreString.exit:                             ; preds = %150, %._crit_edge.i
   %184 = load i8, ptr %182, align 1
   %185 = load i8, ptr %183, align 1
   %186 = icmp eq i8 %184, %185
-  br i1 %186, label %.lr.ph.i.i, label %.loopexit158.i, !llvm.loop !15
+  br i1 %186, label %.lr.ph.i.i, label %.loopexit158.i, !llvm.loop !14
 
 .loopexit158.i:                                   ; preds = %181, %174
   %.not150.i = icmp eq i8 %.0123163.i, 0
@@ -16442,7 +16442,7 @@ poolStoreString.exit:                             ; preds = %150, %._crit_edge.i
   %199 = getelementptr inbounds ptr, ptr %167, i64 %.1122.i
   %200 = load ptr, ptr %199, align 8
   %.not.i142 = icmp eq ptr %200, null
-  br i1 %.not.i142, label %lookup.exit, label %174, !llvm.loop !16
+  br i1 %.not.i142, label %lookup.exit, label %174, !llvm.loop !15
 
 lookup.exit:                                      ; preds = %196, %.lr.ph.i.i, %162, %159
   %.0120.i = phi ptr [ null, %159 ], [ null, %162 ], [ %175, %.lr.ph.i.i ], [ null, %196 ]
@@ -16612,7 +16612,7 @@ copy_salt_to_sipkey.exit:                         ; preds = %tailrecurse.i.i
   %18 = add i64 %.06.i, 1
   %19 = load i8, ptr %17, align 1
   %.not.i = icmp eq i8 %19, 0
-  br i1 %.not.i, label %keylen.exit, label %.lr.ph.i, !llvm.loop !64
+  br i1 %.not.i, label %keylen.exit, label %.lr.ph.i, !llvm.loop !57
 
 keylen.exit:                                      ; preds = %.lr.ph.i, %copy_salt_to_sipkey.exit
   %.0.lcssa.i = phi i64 [ 0, %copy_salt_to_sipkey.exit ], [ %18, %.lr.ph.i ]
@@ -16641,7 +16641,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i, %copy_sal
   store ptr %31, ptr %14, align 8
   store i8 %30, ptr %27, align 1
   %32 = icmp ult ptr %29, %20
-  br i1 %32, label %.lr.ph.i3, label %..critedge.i.loopexit_crit_edge, !llvm.loop !79
+  br i1 %32, label %.lr.ph.i3, label %..critedge.i.loopexit_crit_edge, !llvm.loop !72
 
 ..critedge.i.loopexit_crit_edge:                  ; preds = %28
   %.pre.pre = load ptr, ptr %14, align 8
@@ -16701,7 +16701,7 @@ keylen.exit:                                      ; preds = %.lr.ph.i, %copy_sal
   %74 = call i64 @llvm.fshl.i64(i64 %71, i64 %71, i64 32)
   %75 = add nuw nsw i32 %.036.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %75, 2
-  br i1 %exitcond.not.i.i, label %sip_round.exit.i, label %56, !llvm.loop !80
+  br i1 %exitcond.not.i.i, label %sip_round.exit.i, label %56, !llvm.loop !73
 
 sip_round.exit.i:                                 ; preds = %56
   store i64 %73, ptr %9, align 8
@@ -16713,7 +16713,7 @@ sip_round.exit.i:                                 ; preds = %56
   %77 = load i64, ptr %15, align 8
   %78 = add i64 %77, 8
   store i64 %78, ptr %15, align 8
-  br i1 %.not.i4.not.not, label %sip24_update.exit, label %25, !llvm.loop !81
+  br i1 %.not.i4.not.not, label %sip24_update.exit, label %25, !llvm.loop !74
 
 sip24_update.exit:                                ; preds = %25, %.critedge.i, %sip_round.exit.i
   %79 = call fastcc i64 @sip24_final(ptr noundef nonnull %3)
@@ -16841,7 +16841,7 @@ define internal i32 @externalEntityInitProcessor3(ptr noundef %0, ptr noundef %1
   ]
 
 14:                                               ; preds = %4
-  %15 = call fastcc i32 @processXmlDecl(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %1, ptr noundef %12), !range !31
+  %15 = call fastcc i32 @processXmlDecl(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %1, ptr noundef %12)
   %.not30 = icmp eq i32 %15, 0
   br i1 %.not30, label %16, label %35
 
@@ -16957,24 +16957,24 @@ attributes #25 = { cold nounwind }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = !{i8 0, i8 2}
+!14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = !{i32 0, i32 41}
+!20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
-!25 = !{i32 0, i32 19}
-!26 = !{i32 0, i32 3}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
-!31 = !{i32 0, i32 32}
+!31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
@@ -16982,7 +16982,7 @@ attributes #25 = { cold nounwind }
 !36 = distinct !{!36, !6}
 !37 = distinct !{!37, !6}
 !38 = distinct !{!38, !6}
-!39 = !{i32 0, i32 2}
+!39 = distinct !{!39, !6}
 !40 = distinct !{!40, !6}
 !41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
@@ -16995,7 +16995,7 @@ attributes #25 = { cold nounwind }
 !49 = distinct !{!49, !6}
 !50 = distinct !{!50, !6}
 !51 = distinct !{!51, !6}
-!52 = !{i32 0, i32 36}
+!52 = distinct !{!52, !6}
 !53 = distinct !{!53, !6}
 !54 = distinct !{!54, !6}
 !55 = distinct !{!55, !6}
@@ -17019,10 +17019,3 @@ attributes #25 = { cold nounwind }
 !73 = distinct !{!73, !6}
 !74 = distinct !{!74, !6}
 !75 = distinct !{!75, !6}
-!76 = distinct !{!76, !6}
-!77 = distinct !{!77, !6}
-!78 = distinct !{!78, !6}
-!79 = distinct !{!79, !6}
-!80 = distinct !{!80, !6}
-!81 = distinct !{!81, !6}
-!82 = distinct !{!82, !6}

@@ -917,7 +917,7 @@ declare dso_local i32 @pci_read_config_word(ptr noundef, i32 noundef, ptr nounde
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i801_isr(i32 %0, ptr noundef %1) #3 align 16 {
+define internal noundef range(i32 0, 2) i32 @i801_isr(i32 %0, ptr noundef %1) #3 align 16 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #15
   store i16 0, ptr %3, align 2, !annotation !14
@@ -2457,7 +2457,7 @@ define internal i32 @i801_access(ptr nocapture noundef readonly %0, i16 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @i801_func(ptr nocapture noundef readonly %0) #7 align 16 {
+define internal range(i32 201261056, 536870912) i32 @i801_func(ptr nocapture noundef readonly %0) #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1048
@@ -2481,7 +2481,7 @@ declare dso_local i32 @__pm_runtime_resume(ptr noundef, i32 noundef) local_unnam
 declare dso_local i32 @pci_write_config_byte(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @i801_transaction(ptr noundef %0, i32 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -110, 256) i32 @i801_transaction(ptr noundef %0, i32 noundef %1) unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1048
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 16
@@ -2822,7 +2822,7 @@ declare dso_local zeroext i1 @dmi_match(i32 noundef, ptr noundef) local_unnamed_
 declare dso_local i32 @acpi_get_devices(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @check_acpi_smo88xx_device(ptr noundef %0, i32 %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #3 align 16 {
+define internal noundef range(i32 0, 16388) i32 @check_acpi_smo88xx_device(ptr noundef %0, i32 %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #3 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   store ptr null, ptr %5, align 8, !annotation !14

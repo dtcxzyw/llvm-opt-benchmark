@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @curl_easy_header(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %1, null
   %8 = icmp eq ptr %5, null
   %or.cond.not81.not87.not93 = or i1 %7, %8
@@ -301,7 +301,7 @@ define dso_local noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_headers_push(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %1, align 1
   switch i8 %4, label %5 [
     i8 13, label %.critedge62

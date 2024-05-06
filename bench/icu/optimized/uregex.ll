@@ -777,7 +777,7 @@ if.then10:                                        ; preds = %land.lhs.true7
   %chunkContents = getelementptr inbounds i8, ptr %call3, i64 48
   %7 = load ptr, ptr %chunkContents, align 8
   store ptr %7, ptr %fText, align 8
-  %conv12 = trunc i64 %call4 to i32
+  %conv12 = trunc nsw i64 %call4 to i32
   %fTextLength = getelementptr inbounds i8, ptr %regexp2, i64 56
   store i32 %conv12, ptr %fTextLength, align 8
   br label %if.end24.sink.split
@@ -2008,7 +2008,7 @@ uregex_regionStart64_75.exit:                     ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @uregex_regionStart64_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define range(i64 -2147483648, 2147483648) i64 @uregex_regionStart64_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -2099,7 +2099,7 @@ uregex_regionEnd64_75.exit:                       ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @uregex_regionEnd64_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
+define range(i64 -2147483648, 2147483648) i64 @uregex_regionEnd64_75(ptr noundef readonly %regexp2, ptr nocapture noundef %status) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -3843,8 +3843,8 @@ if.end31:                                         ; preds = %if.end31.preheader,
   br i1 %or.cond67, label %if.then38, label %if.end40
 
 if.then38:                                        ; preds = %if.end31
-  %18 = trunc i64 %indvars.iv94 to i32
-  %19 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv94 to i32
+  %19 = trunc nsw i64 %indvars.iv to i32
   store i32 %19, ptr %fTextLength, align 8
   br label %if.end67
 
@@ -3863,8 +3863,8 @@ if.else45:                                        ; preds = %if.end40
   br i1 %cmp47, label %if.then48, label %if.end51
 
 if.then48:                                        ; preds = %if.else45
-  %20 = trunc i64 %indvars.iv94 to i32
-  %21 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv94 to i32
+  %21 = trunc nsw i64 %indvars.iv to i32
   %sub = sub i32 %20, %21
   %add = add i32 %sub, %15
   br label %if.end67
@@ -3873,7 +3873,7 @@ if.end51:                                         ; preds = %if.else45, %if.then
   %22 = phi i32 [ %15, %if.else45 ], [ %.pre, %if.then42 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %23 = trunc i64 %indvars.iv.next to i32
+  %23 = trunc nsw i64 %indvars.iv.next to i32
   %cmp29 = icmp eq i32 %22, %23
   br i1 %cmp29, label %if.end67.loopexit, label %if.end31, !llvm.loop !10
 
@@ -3902,7 +3902,7 @@ if.end64:                                         ; preds = %if.else59, %if.then
   br label %if.end67
 
 if.end67.loopexit:                                ; preds = %if.end51
-  %28 = trunc i64 %indvars.iv.next95 to i32
+  %28 = trunc nuw i64 %indvars.iv.next95 to i32
   br label %if.end67
 
 if.end67:                                         ; preds = %if.end67.loopexit, %if.end28, %if.then38, %if.then48, %if.end64
@@ -4317,7 +4317,7 @@ for.inc:                                          ; preds = %if.then85, %if.else
   %add83108 = phi i32 [ %add83, %if.then85 ], [ %add83109, %if.else86 ]
   %inc88 = add nuw nsw i32 %groupNum.0128, 1
   %cmp63.not = icmp sge i32 %groupNum.0128, %call4
-  %30 = trunc i64 %indvars.iv.next to i32
+  %30 = trunc nsw i64 %indvars.iv.next to i32
   %cmp65 = icmp eq i32 %sub, %30
   %or.cond = or i1 %cmp65, %cmp63.not
   br i1 %or.cond, label %for.end, label %if.end.i.i, !llvm.loop !12
@@ -4329,7 +4329,7 @@ for.end:                                          ; preds = %for.inc, %if.end60
   br i1 %cmp89, label %if.then90, label %for.inc131
 
 if.then90.loopexit:                               ; preds = %if.end60.us
-  %31 = trunc i64 %indvars.iv244 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv244 to i32
   br label %if.then90
 
 if.then90:                                        ; preds = %for.end, %if.then90.loopexit
@@ -4362,7 +4362,7 @@ if.end105:                                        ; preds = %if.end95, %if.then1
   br label %for.end133
 
 if.else108.loopexit:                              ; preds = %if.end32.us
-  %32 = trunc i64 %indvars.iv244 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv244 to i32
   br label %if.else108
 
 if.else108:                                       ; preds = %if.end32, %if.else108.loopexit

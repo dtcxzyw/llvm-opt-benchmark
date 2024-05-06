@@ -117,7 +117,7 @@ define i32 @nxmutex_trylock(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @nxsem_trywait(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nxmutex_timedlock(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, -4) i32 @nxmutex_timedlock(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -396,7 +396,7 @@ nxmutex_trylock.exit:                             ; preds = %6, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nxrmutex_timedlock(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, -4) i32 @nxrmutex_timedlock(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8

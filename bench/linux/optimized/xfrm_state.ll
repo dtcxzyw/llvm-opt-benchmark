@@ -240,7 +240,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xfrm_audit_s
 @llvm.compiler.used = appending global [54 x ptr] [ptr @__UNIQUE_ID___addressable___xfrm_init_state975, ptr @__UNIQUE_ID___addressable___xfrm_state_delete835, ptr @__UNIQUE_ID___addressable___xfrm_state_destroy832, ptr @__UNIQUE_ID___addressable_km_new_mapping939, ptr @__UNIQUE_ID___addressable_km_policy_expired940, ptr @__UNIQUE_ID___addressable_km_policy_notify931, ptr @__UNIQUE_ID___addressable_km_query936, ptr @__UNIQUE_ID___addressable_km_report943, ptr @__UNIQUE_ID___addressable_km_state_expired933, ptr @__UNIQUE_ID___addressable_km_state_notify932, ptr @__UNIQUE_ID___addressable_verify_spi_info918, ptr @__UNIQUE_ID___addressable_xfrm_alloc_spi923, ptr @__UNIQUE_ID___addressable_xfrm_audit_state_add987, ptr @__UNIQUE_ID___addressable_xfrm_audit_state_delete988, ptr @__UNIQUE_ID___addressable_xfrm_audit_state_icvfail993, ptr @__UNIQUE_ID___addressable_xfrm_audit_state_notfound992, ptr @__UNIQUE_ID___addressable_xfrm_audit_state_notfound_simple991, ptr @__UNIQUE_ID___addressable_xfrm_audit_state_replay990, ptr @__UNIQUE_ID___addressable_xfrm_audit_state_replay_overflow989, ptr @__UNIQUE_ID___addressable_xfrm_dev_state_flush838, ptr @__UNIQUE_ID___addressable_xfrm_find_acq911, ptr @__UNIQUE_ID___addressable_xfrm_find_acq_byseq916, ptr @__UNIQUE_ID___addressable_xfrm_flush_gc968, ptr @__UNIQUE_ID___addressable_xfrm_get_acqseq917, ptr @__UNIQUE_ID___addressable_xfrm_init_state976, ptr @__UNIQUE_ID___addressable_xfrm_register_km949, ptr @__UNIQUE_ID___addressable_xfrm_register_type798, ptr @__UNIQUE_ID___addressable_xfrm_register_type_offload820, ptr @__UNIQUE_ID___addressable_xfrm_sad_getinfo839, ptr @__UNIQUE_ID___addressable_xfrm_state_add903, ptr @__UNIQUE_ID___addressable_xfrm_state_afinfo_get_rcu965, ptr @__UNIQUE_ID___addressable_xfrm_state_alloc829, ptr @__UNIQUE_ID___addressable_xfrm_state_check_expire908, ptr @__UNIQUE_ID___addressable_xfrm_state_delete836, ptr @__UNIQUE_ID___addressable_xfrm_state_delete_tunnel969, ptr @__UNIQUE_ID___addressable_xfrm_state_flush837, ptr @__UNIQUE_ID___addressable_xfrm_state_free826, ptr @__UNIQUE_ID___addressable_xfrm_state_insert894, ptr @__UNIQUE_ID___addressable_xfrm_state_lookup909, ptr @__UNIQUE_ID___addressable_xfrm_state_lookup_byaddr910, ptr @__UNIQUE_ID___addressable_xfrm_state_lookup_byspi877, ptr @__UNIQUE_ID___addressable_xfrm_state_mtu973, ptr @__UNIQUE_ID___addressable_xfrm_state_register_afinfo956, ptr @__UNIQUE_ID___addressable_xfrm_state_unregister_afinfo962, ptr @__UNIQUE_ID___addressable_xfrm_state_update905, ptr @__UNIQUE_ID___addressable_xfrm_state_walk924, ptr @__UNIQUE_ID___addressable_xfrm_state_walk_done926, ptr @__UNIQUE_ID___addressable_xfrm_state_walk_init925, ptr @__UNIQUE_ID___addressable_xfrm_stateonly_find876, ptr @__UNIQUE_ID___addressable_xfrm_unregister_km950, ptr @__UNIQUE_ID___addressable_xfrm_unregister_type815, ptr @__UNIQUE_ID___addressable_xfrm_unregister_type_offload825, ptr @__UNIQUE_ID___addressable_xfrm_user_policy948, ptr @xfrm_hash_resize.__UNIQUE_ID___addressable___SCK__preempt_schedule781], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_register_type(ptr noundef %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -97, 1) i32 @xfrm_register_type(ptr noundef %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = icmp ugt i16 %1, 45
   br i1 %3, label %.thread, label %4, !prof !6
 
@@ -574,7 +574,7 @@ define dso_local void @xfrm_unregister_type(ptr noundef readonly %0, i16 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_register_type_offload(ptr noundef %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -97, 1) i32 @xfrm_register_type_offload(ptr noundef %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = icmp ugt i16 %1, 45
   br i1 %3, label %.thread, label %4, !prof !6
 
@@ -1200,7 +1200,7 @@ define internal fastcc void @___xfrm_state_destroy(ptr noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__xfrm_state_delete(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -3, 1) i32 @__xfrm_state_delete(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load i8, ptr %3, align 8
@@ -1380,7 +1380,7 @@ define dso_local noundef i32 @__xfrm_state_delete(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_state_delete(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -3, 1) i32 @xfrm_state_delete(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 76
   tail call void @_raw_spin_lock_bh(ptr noundef %2) #15
   %3 = tail call i32 @__xfrm_state_delete(ptr noundef %0), !range !72
@@ -1389,7 +1389,7 @@ define dso_local noundef i32 @xfrm_state_delete(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xfrm_state_flush(ptr noundef %0, i8 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) #0 align 16 {
+define dso_local range(i32 -3, 1) i32 @xfrm_state_flush(ptr noundef %0, i8 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 3392
   tail call void @_raw_spin_lock_bh(ptr noundef %5) #15
   %6 = getelementptr inbounds i8, ptr %0, i64 2672
@@ -1719,7 +1719,7 @@ xfrm_audit_helper_sainfo.exit:                    ; preds = %36, %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xfrm_dev_state_flush(ptr noundef %0, ptr noundef readnone %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local range(i32 -3, 1) i32 @xfrm_dev_state_flush(ptr noundef %0, ptr noundef readnone %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 3392
   tail call void @_raw_spin_lock_bh(ptr noundef %4) #15
   %5 = getelementptr inbounds i8, ptr %0, i64 2672
@@ -3538,7 +3538,7 @@ define dso_local ptr @xfrm_state_find(ptr nocapture noundef readonly %0, ptr noc
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @km_query(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @km_query(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   tail call void @__rcu_read_lock() #15
   %4 = load volatile ptr, ptr @xfrm_km_list, align 8
   %5 = icmp eq ptr %4, @xfrm_km_list
@@ -4402,7 +4402,7 @@ define internal fastcc void @__xfrm_state_insert(ptr noundef %0) unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_state_add(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @xfrm_state_add(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = load i32, ptr %3, align 8
@@ -5540,7 +5540,7 @@ define dso_local noundef i32 @xfrm_state_update(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_state_check_expire(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xfrm_state_check_expire(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.km_event, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 536
   %4 = getelementptr inbounds i8, ptr %0, i64 560
@@ -6238,7 +6238,7 @@ __xfrm_find_acq_byseq.exit:                       ; preds = %44, %3, %40, %51
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xfrm_get_acqseq() #0 align 16 {
+define dso_local range(i32 1, 0) i32 @xfrm_get_acqseq() #0 align 16 {
   br label %1
 
 1:                                                ; preds = %1, %0
@@ -6252,7 +6252,7 @@ define dso_local i32 @xfrm_get_acqseq() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @verify_spi_info(i8 noundef zeroext %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @verify_spi_info(i8 noundef zeroext %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
   switch i8 %0, label %9 [
     i8 51, label %11
     i8 50, label %11
@@ -6296,7 +6296,7 @@ define dso_local noundef i32 @verify_spi_info(i8 noundef zeroext %0, i32 noundef
 declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_alloc_spi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @xfrm_alloc_spi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = tail call i32 @llvm.bswap.i32(i32 %1)
   %7 = getelementptr inbounds i8, ptr %0, i64 160
@@ -7104,7 +7104,7 @@ define dso_local void @km_policy_expired(ptr noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @km_report(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @km_report(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   tail call void @__rcu_read_lock() #15
   %5 = load volatile ptr, ptr @xfrm_km_list, align 8
   %6 = icmp eq ptr %5, @xfrm_km_list
@@ -7319,7 +7319,7 @@ define dso_local void @xfrm_unregister_km(ptr nocapture noundef %0) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_state_register_afinfo(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -97, 1) i32 @xfrm_state_register_afinfo(ptr noundef %0) #0 align 16 {
   %2 = load i8, ptr %0, align 8
   %3 = icmp ugt i8 %2, 45
   br i1 %3, label %4, label %5, !prof !6
@@ -7956,7 +7956,7 @@ define dso_local i32 @xfrm_init_state(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_state_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @xfrm_state_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, @init_net
   br i1 %2, label %3, label %5
 

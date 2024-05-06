@@ -10,7 +10,7 @@ define hidden ptr @ASN1_item_new(ptr noundef %it) local_unnamed_addr #0 {
 entry:
   %ret = alloca ptr, align 8
   store ptr null, ptr %ret, align 8
-  %call.i = call fastcc noundef i32 @asn1_item_ex_combine_new(ptr noundef nonnull %ret, ptr noundef %it, i32 noundef 0), !range !7
+  %call.i = call fastcc i32 @asn1_item_ex_combine_new(ptr noundef nonnull %ret, ptr noundef %it, i32 noundef 0)
   %cmp.not = icmp eq i32 %call.i, 0
   %0 = load ptr, ptr %ret, align 8
   %retval.0 = select i1 %cmp.not, ptr null, ptr %0
@@ -18,14 +18,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_item_ex_new(ptr noundef %pval, ptr noundef %it) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_item_ex_new(ptr noundef %pval, ptr noundef %it) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @asn1_item_ex_combine_new(ptr noundef %pval, ptr noundef %it, i32 noundef 0), !range !7
+  %call = tail call fastcc i32 @asn1_item_ex_combine_new(ptr noundef %pval, ptr noundef %it, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @asn1_item_ex_combine_new(ptr noundef %pval, ptr noundef %it, i32 noundef %combine) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_item_ex_combine_new(ptr noundef %pval, ptr noundef %it, i32 noundef %combine) unnamed_addr #0 {
 entry:
   %funcs = getelementptr inbounds i8, ptr %it, i64 32
   %0 = load ptr, ptr %funcs, align 8
@@ -126,7 +126,7 @@ if.end12.i:                                       ; preds = %if.then9.i
 ASN1_template_new.exit:                           ; preds = %if.end5.i
   %8 = trunc i64 %7 to i32
   %conv.i = and i32 %8, 1024
-  %call16.i = tail call fastcc i32 @asn1_item_ex_combine_new(ptr noundef %pval, ptr noundef %6, i32 noundef %conv.i), !range !7
+  %call16.i = tail call fastcc i32 @asn1_item_ex_combine_new(ptr noundef %pval, ptr noundef %6, i32 noundef %conv.i)
   %tobool31.not = icmp eq i32 %call16.i, 0
   br i1 %tobool31.not, label %memerr, label %return
 
@@ -259,7 +259,7 @@ if.end12.i87:                                     ; preds = %if.then9.i84
 ASN1_template_new.exit92:                         ; preds = %if.end5.i81
   %17 = trunc i64 %16 to i32
   %conv.i90 = and i32 %17, 1024
-  %call16.i91 = tail call fastcc i32 @asn1_item_ex_combine_new(ptr noundef %call96, ptr noundef %15, i32 noundef %conv.i90), !range !7
+  %call16.i91 = tail call fastcc i32 @asn1_item_ex_combine_new(ptr noundef %call96, ptr noundef %15, i32 noundef %conv.i90)
   %tobool98.not = icmp eq i32 %call16.i91, 0
   br i1 %tobool98.not, label %memerr, label %for.inc
 
@@ -268,7 +268,7 @@ for.inc:                                          ; preds = %if.end12.i87, %if.t
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i64, ptr %tcount, align 8
   %cmp94 = icmp sgt i64 %18, %indvars.iv.next
-  br i1 %cmp94, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp94, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end91
   br i1 %tobool72.not, label %return, label %land.lhs.true102
@@ -298,7 +298,7 @@ return:                                           ; preds = %if.end12.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_template_new(ptr noundef %pval, ptr nocapture noundef readonly %tt) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_template_new(ptr noundef %pval, ptr nocapture noundef readonly %tt) local_unnamed_addr #0 {
 entry:
   %item = getelementptr inbounds i8, ptr %tt, i64 32
   %0 = load ptr, ptr %item, align 8
@@ -341,7 +341,7 @@ if.end12:                                         ; preds = %if.then9
 if.end13:                                         ; preds = %if.end5
   %2 = trunc i64 %1 to i32
   %conv = and i32 %2, 1024
-  %call16 = tail call fastcc i32 @asn1_item_ex_combine_new(ptr noundef %pval, ptr noundef %0, i32 noundef %conv), !range !7
+  %call16 = tail call fastcc i32 @asn1_item_ex_combine_new(ptr noundef %pval, ptr noundef %0, i32 noundef %conv)
   br label %return
 
 return:                                           ; preds = %if.then11, %if.end12, %if.end13, %if.then4, %if.then
@@ -608,6 +608,5 @@ attributes #5 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

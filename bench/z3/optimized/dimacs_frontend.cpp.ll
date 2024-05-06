@@ -473,7 +473,7 @@ _ZNK6vectorI5lboolLb0EjE4sizeEv.exit:             ; preds = %for.cond, %if.end.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw i64 %indvars.iv to i32
   %shl.i = shl i32 %7, 1
   store i32 %shl.i, ptr %lit, align 4
   %arrayidx.i9 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
@@ -720,7 +720,7 @@ call.i.i.i.noexc:                                 ; preds = %for.body
           to label %invoke.cont12 unwind label %lpad7.loopexit
 
 invoke.cont12:                                    ; preds = %call.i.i.i.noexc
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN8expr2var6insertEP4exprj(ptr noundef nonnull align 8 dereferenceable(41) %a2b, ptr noundef %call.i.i19, i32 noundef %5)
           to label %for.inc unwind label %lpad7.loopexit
 
@@ -1674,7 +1674,7 @@ if.end.i.i34.i:                                   ; preds = %invoke.cont8.i
 invoke.cont9.i:                                   ; preds = %if.end.i.i34.i, %invoke.cont8.i
   %retval.0.i.i36.i = phi i32 [ %12, %if.end.i.i34.i ], [ 0, %invoke.cont8.i ]
   %mul.i = shl i32 %retval.0.i.i36.i, 1
-  %conv.i = trunc i64 %retval.0.i.i.i.i to i32
+  %conv.i = trunc nuw i64 %retval.0.i.i.i.i to i32
   %add.i = add i32 %mul.i, %conv.i
   %13 = load ptr, ptr %bin_clauses.i, align 8
   %cmp.i.i = icmp eq ptr %13, null
@@ -1772,7 +1772,7 @@ for.cond35.preheader.i:                           ; preds = %invoke.cont17.i
   br i1 %cmp36.not155.i, label %for.cond54.preheader.i, label %for.body37.i
 
 invoke.cont21.i:                                  ; preds = %invoke.cont17.i
-  %25 = trunc i64 %indvars.iv.i to i32
+  %25 = trunc nuw i64 %indvars.iv.i to i32
   %shl.i.i.i = shl i32 %25, 1
   %26 = load ptr, ptr %m_assignment.i.i, align 8
   %idxprom.i.i.i = zext i32 %shl.i.i.i to i64
@@ -2314,7 +2314,7 @@ sw.bb.i:                                          ; preds = %for.body.i22
 
 for.inc.sink.split.i:                             ; preds = %sw.bb.i, %for.body.i22
   %call4.sink.i = phi ptr [ @_ZSt4cout, %for.body.i22 ], [ %call4.i26, %sw.bb.i ]
-  %89 = trunc i64 %indvars.iv.i16 to i32
+  %89 = trunc nuw i64 %indvars.iv.i16 to i32
   %call5.i27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call4.sink.i, i32 noundef %89)
           to label %call5.i.noexc unwind label %lpad58.loopexit
 

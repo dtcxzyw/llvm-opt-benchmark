@@ -152,7 +152,7 @@ define dso_local void @vp_legacy_remove(ptr nocapture noundef readonly %0) #0 al
 declare dso_local void @pci_iounmap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @vp_legacy_get_features(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @vp_legacy_get_features(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @ioread32(ptr noundef %3) #3
@@ -164,7 +164,7 @@ define dso_local i64 @vp_legacy_get_features(ptr nocapture noundef readonly %0) 
 declare dso_local i32 @ioread32(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @vp_legacy_get_driver_features(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @vp_legacy_get_driver_features(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4

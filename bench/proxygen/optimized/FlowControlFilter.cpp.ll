@@ -2965,7 +2965,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %6 = lshr i16 %5, 8
-  %conv4.i.i.i.i.i = trunc i16 %6 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %6 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -3028,7 +3028,7 @@ if.then.i.i.i.i.i40:                              ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i38:                              ; preds = %while.end.i.i.i.i.i32
   %11 = lshr i16 %10, 8
-  %conv4.i.i.i.i.i39 = trunc i16 %11 to i8
+  %conv4.i.i.i.i.i39 = trunc nuw i16 %11 to i8
   store i8 %conv4.i.i.i.i.i39, ptr %buffer.i13, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -3107,7 +3107,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %5 = lshr i16 %4, 8
-  %conv4.i.i.i.i.i = trunc i16 %5 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %5 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -3171,7 +3171,7 @@ if.then.i.i.i.i.i40:                              ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i37:                              ; preds = %while.end.i.i.i.i.i31
   %10 = lshr i16 %9, 8
-  %conv4.i.i.i.i.i38 = trunc i16 %10 to i8
+  %conv4.i.i.i.i.i38 = trunc nuw i16 %10 to i8
   store i8 %conv4.i.i.i.i.i38, ptr %buffer.i11, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit46
 

@@ -182,7 +182,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
 
 land.rhs.i.i:                                     ; preds = %for.body.i
   %9 = extractvalue { i64, ptr } %call5.i, 1
-  %bcmp.i.i = tail call i32 @bcmp(ptr %9, ptr %type_url.coerce1, i64 %type_url.coerce0.fr)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %9, ptr readonly %type_url.coerce1, i64 %type_url.coerce0.fr)
   %cmp.i.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i, label %_ZNRSt8optionalImE5valueEv.exit, label %for.inc.i
 
@@ -303,7 +303,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
 
 land.rhs.i.i:                                     ; preds = %for.body.i
   %8 = extractvalue { i64, ptr } %call5.i, 1
-  %bcmp.i.i = tail call i32 @bcmp(ptr %8, ptr %type_url.coerce1, i64 %type_url.coerce0.fr)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %8, ptr readonly %type_url.coerce1, i64 %type_url.coerce0.fr)
   %cmp.i.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i, label %_ZNRSt8optionalImE5valueEv.exit, label %for.inc.i
 
@@ -521,7 +521,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
 
 land.rhs.i.i:                                     ; preds = %for.body.i
   %9 = extractvalue { i64, ptr } %call5.i, 1
-  %bcmp.i.i = tail call i32 @bcmp(ptr %9, ptr %type_url.coerce1, i64 %type_url.coerce0.fr)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %9, ptr readonly %type_url.coerce1, i64 %type_url.coerce0.fr)
   %cmp.i.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i, label %_ZNRSt8optionalImE5valueEv.exit, label %for.inc.i
 

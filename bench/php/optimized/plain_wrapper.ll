@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.php_stdiop_set_option.1 = private unnamed_addr constant [4 x i32] [i32 2, i32 2, i32 1, i32 1], align 4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @php_stream_parse_fopen_modes(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_stream_parse_fopen_modes(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1
   switch i8 %3, label %16 [
     i8 114, label %8
@@ -766,7 +766,7 @@ define internal noundef i32 @php_stdiop_seek(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_stdiop_cast(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) #2 {
+define internal range(i32 -1, 1) i32 @php_stdiop_cast(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) #2 {
   %4 = alloca [5 x i8], align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1284,7 +1284,7 @@ define ptr @_php_stream_fopen(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %8 = alloca ptr, align 8
   %9 = and i32 %3, 2048
   store ptr null, ptr %8, align 8
-  %10 = call i32 @php_stream_parse_fopen_modes(ptr noundef %1, ptr noundef nonnull %6), !range !4
+  %10 = call i32 @php_stream_parse_fopen_modes(ptr noundef %1, ptr noundef nonnull %6)
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %13
 
@@ -1995,7 +1995,7 @@ define internal ptr @php_plain_files_dir_opener(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_plain_files_unlink(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 0, 2) i32 @php_plain_files_unlink(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #2 {
   %5 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.15, i64 noundef 7) #17
   %6 = icmp eq i32 %5, 0
   %spec.select.idx = select i1 %6, i64 7, i64 0
@@ -2031,7 +2031,7 @@ define internal noundef i32 @php_plain_files_unlink(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_plain_files_rename(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 %3, ptr nocapture readnone %4) #2 {
+define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 %3, ptr nocapture readnone %4) #2 {
   %6 = alloca %struct.stat, align 8
   %7 = icmp ne ptr %1, null
   %8 = icmp ne ptr %2, null
@@ -2146,7 +2146,7 @@ define internal noundef i32 @php_plain_files_rename(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_plain_files_mkdir(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4) #2 {
+define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4) #2 {
   %6 = alloca [4096 x i8], align 16
   %7 = ptrtoint ptr %6 to i64
   %8 = alloca %struct.stat, align 8
@@ -2187,9 +2187,9 @@ define internal i32 @php_plain_files_mkdir(ptr nocapture readnone %0, ptr nounde
   %27 = icmp ne ptr %26, null
   %28 = icmp eq i64 %23, 1
   %or.cond = and i1 %28, %27
-  br i1 %or.cond, label %.critedge3, label %.preheader77
+  br i1 %or.cond, label %.critedge3, label %.preheader73
 
-.preheader77:                                     ; preds = %22
+.preheader73:                                     ; preds = %22
   %29 = ptrtoint ptr %26 to i64
   %reass.sub = sub i64 %29, %7
   %30 = add i64 %reass.sub, 1
@@ -2198,15 +2198,15 @@ define internal i32 @php_plain_files_mkdir(ptr nocapture readnone %0, ptr nounde
   %31 = getelementptr inbounds i8, ptr %6, i64 %.046.fr
   %.not62 = icmp eq i64 %.046.fr, 1
   %32 = trunc i64 %7 to i32
-  br i1 %.not62, label %.preheader77.split.us, label %.preheader77.split
+  br i1 %.not62, label %.preheader73.split.us, label %.preheader73.split
 
-.preheader77.split.us:                            ; preds = %.preheader77, %.critedge5.us
+.preheader73.split.us:                            ; preds = %.preheader73, %.critedge5.us
   %33 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %31, i32 noundef 47) #17
   %34 = ptrtoint ptr %33 to i64
   %.not61.us = icmp eq ptr %33, null
   br i1 %.not61.us, label %.critedge3, label %.critedge.us
 
-.critedge.us:                                     ; preds = %.preheader77.split.us
+.critedge.us:                                     ; preds = %.preheader73.split.us
   store i8 0, ptr %33, align 1
   %35 = icmp ugt ptr %33, %6
   br i1 %35, label %.lr.ph.us.preheader, label %.critedge5.us
@@ -2217,92 +2217,92 @@ define internal i32 @php_plain_files_mkdir(ptr nocapture readnone %0, ptr nounde
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %43
-  %.04383.us = phi i32 [ %44, %43 ], [ 0, %.lr.ph.us.preheader ]
-  %.14882.us = phi ptr [ %38, %43 ], [ %33, %.lr.ph.us.preheader ]
-  %38 = getelementptr inbounds i8, ptr %.14882.us, i64 -1
+  %.04379.us = phi i32 [ %44, %43 ], [ 0, %.lr.ph.us.preheader ]
+  %.14878.us = phi ptr [ %38, %43 ], [ %33, %.lr.ph.us.preheader ]
+  %38 = getelementptr inbounds i8, ptr %.14878.us, i64 -1
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 47
   br i1 %40, label %43, label %.critedge5.us
 
 .critedge5.us:                                    ; preds = %.lr.ph.us, %43, %.critedge.us
-  %.148.lcssa.us = phi ptr [ %33, %.critedge.us ], [ %38, %43 ], [ %.14882.us, %.lr.ph.us ]
-  %.043.lcssa.us = phi i32 [ 0, %.critedge.us ], [ %37, %43 ], [ %.04383.us, %.lr.ph.us ]
+  %.148.lcssa.us = phi ptr [ %33, %.critedge.us ], [ %38, %43 ], [ %.14878.us, %.lr.ph.us ]
+  %.043.lcssa.us = phi i32 [ 0, %.critedge.us ], [ %37, %43 ], [ %.04379.us, %.lr.ph.us ]
   %41 = call i32 @stat(ptr noundef nonnull %6, ptr noundef nonnull %8) #18
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.preheader, label %.preheader77.split.us
+  br i1 %42, label %.preheader, label %.preheader73.split.us
 
 43:                                               ; preds = %.lr.ph.us
-  %44 = add nuw nsw i32 %.04383.us, 1
+  %44 = add nuw nsw i32 %.04379.us, 1
   store i8 0, ptr %38, align 1
   %45 = icmp ugt ptr %38, %6
   br i1 %45, label %.lr.ph.us, label %.critedge5.us
 
-.preheader77.split:                               ; preds = %.preheader77, %.critedge5
+.preheader73.split:                               ; preds = %.preheader73, %.critedge5
   %46 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %31, i32 noundef 47) #17
   %.not61 = icmp eq ptr %46, null
   br i1 %.not61, label %47, label %.critedge
 
-47:                                               ; preds = %.preheader77.split
+47:                                               ; preds = %.preheader73.split
   %48 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 47) #17
   %.not63 = icmp eq ptr %48, null
   br i1 %.not63, label %.critedge3, label %.critedge
 
-.critedge:                                        ; preds = %.preheader77.split, %47
-  %.047 = phi ptr [ %46, %.preheader77.split ], [ %48, %47 ]
+.critedge:                                        ; preds = %.preheader73.split, %47
+  %.047 = phi ptr [ %46, %.preheader73.split ], [ %48, %47 ]
   store i8 0, ptr %.047, align 1
   %49 = icmp ugt ptr %.047, %6
   br i1 %49, label %.lr.ph.preheader, label %.critedge5
 
 .lr.ph.preheader:                                 ; preds = %.critedge
-  %.047110 = ptrtoint ptr %.047 to i64
-  %50 = trunc i64 %.047110 to i32
+  %.047106 = ptrtoint ptr %.047 to i64
+  %50 = trunc i64 %.047106 to i32
   %51 = sub i32 %50, %32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
-  %.04383 = phi i32 [ %56, %55 ], [ 0, %.lr.ph.preheader ]
-  %.14882 = phi ptr [ %52, %55 ], [ %.047, %.lr.ph.preheader ]
-  %52 = getelementptr inbounds i8, ptr %.14882, i64 -1
+  %.04379 = phi i32 [ %56, %55 ], [ 0, %.lr.ph.preheader ]
+  %.14878 = phi ptr [ %52, %55 ], [ %.047, %.lr.ph.preheader ]
+  %52 = getelementptr inbounds i8, ptr %.14878, i64 -1
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 47
   br i1 %54, label %55, label %.critedge5
 
 55:                                               ; preds = %.lr.ph
-  %56 = add nuw nsw i32 %.04383, 1
+  %56 = add nuw nsw i32 %.04379, 1
   store i8 0, ptr %52, align 1
   %57 = icmp ugt ptr %52, %6
   br i1 %57, label %.lr.ph, label %.critedge5
 
 .critedge5:                                       ; preds = %.lr.ph, %55, %.critedge
-  %.148.lcssa = phi ptr [ %.047, %.critedge ], [ %52, %55 ], [ %.14882, %.lr.ph ]
-  %.043.lcssa = phi i32 [ 0, %.critedge ], [ %51, %55 ], [ %.04383, %.lr.ph ]
+  %.148.lcssa = phi ptr [ %.047, %.critedge ], [ %52, %55 ], [ %.14878, %.lr.ph ]
+  %.043.lcssa = phi i32 [ 0, %.critedge ], [ %51, %55 ], [ %.04379, %.lr.ph ]
   %58 = call i32 @stat(ptr noundef nonnull %6, ptr noundef nonnull %8) #18
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %.preheader, label %.preheader77.split
+  br i1 %59, label %.preheader, label %.preheader73.split
 
 .preheader:                                       ; preds = %.critedge5, %.critedge5.us
   %.us-phi = phi ptr [ %.148.lcssa.us, %.critedge5.us ], [ %.148.lcssa, %.critedge5 ]
-  %.us-phi88 = phi i32 [ %.043.lcssa.us, %.critedge5.us ], [ %.043.lcssa, %.critedge5 ]
+  %.us-phi84 = phi i32 [ %.043.lcssa.us, %.critedge5.us ], [ %.043.lcssa, %.critedge5 ]
   store i8 47, ptr %.us-phi, align 1
-  %.not6489 = icmp eq i32 %.us-phi88, 0
-  br i1 %.not6489, label %.critedge3, label %.lr.ph92.preheader
+  %.not6485 = icmp eq i32 %.us-phi84, 0
+  br i1 %.not6485, label %.critedge3, label %.lr.ph88.preheader
 
-.lr.ph92.preheader:                               ; preds = %.preheader
+.lr.ph88.preheader:                               ; preds = %.preheader
   %scevgep = getelementptr i8, ptr %.us-phi, i64 1
-  %60 = zext i32 %.us-phi88 to i64
+  %60 = zext i32 %.us-phi84 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 47, i64 %60, i1 false)
-  %61 = zext i32 %.us-phi88 to i64
-  %scevgep111 = getelementptr i8, ptr %.us-phi, i64 %61
+  %61 = zext i32 %.us-phi84 to i64
+  %scevgep107 = getelementptr i8, ptr %.us-phi, i64 %61
   br label %.critedge3
 
-.critedge3:                                       ; preds = %47, %.preheader77.split.us, %.lr.ph92.preheader, %.preheader, %22
-  %.3 = phi ptr [ %26, %22 ], [ %.us-phi, %.preheader ], [ %scevgep111, %.lr.ph92.preheader ], [ null, %.preheader77.split.us ], [ null, %47 ]
+.critedge3:                                       ; preds = %47, %.preheader73.split.us, %.lr.ph88.preheader, %.preheader, %22
+  %.3 = phi ptr [ %26, %22 ], [ %.us-phi, %.preheader ], [ %scevgep107, %.lr.ph88.preheader ], [ null, %.preheader73.split.us ], [ null, %47 ]
   %.not65 = icmp eq ptr %.3, null
-  %spec.select72 = select i1 %.not65, ptr %6, ptr %.3
+  %spec.select71 = select i1 %.not65, ptr %6, ptr %.3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %76, %.critedge3
-  %.5 = phi ptr [ %spec.select72, %.critedge3 ], [ %73, %76 ]
+  %.5 = phi ptr [ %spec.select71, %.critedge3 ], [ %73, %76 ]
   %62 = call i32 @mkdir(ptr noundef nonnull %6, i32 noundef %2) #18
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %64, label %71
@@ -2315,8 +2315,8 @@ define internal i32 @php_plain_files_mkdir(ptr nocapture readnone %0, ptr nounde
 
 67:                                               ; preds = %64
   %68 = and i32 %3, 8
-  %.not71 = icmp eq i32 %68, 0
-  br i1 %.not71, label %87, label %69
+  %.not70 = icmp eq i32 %68, 0
+  br i1 %.not70, label %87, label %69
 
 69:                                               ; preds = %67
   %70 = call ptr @strerror(i32 noundef %66) #18
@@ -2325,35 +2325,35 @@ define internal i32 @php_plain_files_mkdir(ptr nocapture readnone %0, ptr nounde
 
 71:                                               ; preds = %64, %.loopexit
   %72 = getelementptr inbounds i8, ptr %.5, i64 1
-  %.not6794 = icmp eq ptr %72, %25
-  br i1 %.not6794, label %.thread, label %.lr.ph96
+  %.not6790 = icmp eq ptr %72, %25
+  br i1 %.not6790, label %._crit_edge, label %.lr.ph92
 
-.lr.ph96:                                         ; preds = %71, %79
+.lr.ph92:                                         ; preds = %71, %79
   %73 = phi ptr [ %80, %79 ], [ %72, %71 ]
-  %.695 = phi ptr [ %73, %79 ], [ %.5, %71 ]
+  %.691 = phi ptr [ %73, %79 ], [ %.5, %71 ]
   %74 = load i8, ptr %73, align 1
   %75 = icmp eq i8 %74, 0
   br i1 %75, label %76, label %79
 
-76:                                               ; preds = %.lr.ph96
+76:                                               ; preds = %.lr.ph92
   store i8 47, ptr %73, align 1
-  %77 = getelementptr inbounds i8, ptr %.695, i64 2
+  %77 = getelementptr inbounds i8, ptr %.691, i64 2
   %78 = load i8, ptr %77, align 1
   %.not68 = icmp eq i8 %78, 0
   br i1 %.not68, label %79, label %.loopexit
 
-79:                                               ; preds = %76, %.lr.ph96
+79:                                               ; preds = %76, %.lr.ph92
   %80 = getelementptr inbounds i8, ptr %73, i64 1
   %.not67 = icmp eq ptr %80, %25
-  br i1 %.not67, label %.thread, label %.lr.ph96
+  br i1 %.not67, label %._crit_edge, label %.lr.ph92
 
-.thread:                                          ; preds = %71, %79
+._crit_edge:                                      ; preds = %71, %79
   br i1 %63, label %81, label %87
 
-81:                                               ; preds = %.thread
+81:                                               ; preds = %._crit_edge
   %82 = and i32 %3, 8
-  %.not70 = icmp eq i32 %82, 0
-  br i1 %.not70, label %87, label %83
+  %.not69 = icmp eq i32 %82, 0
+  br i1 %.not69, label %87, label %83
 
 83:                                               ; preds = %81
   %84 = tail call ptr @__errno_location() #20
@@ -2362,13 +2362,13 @@ define internal i32 @php_plain_files_mkdir(ptr nocapture readnone %0, ptr nounde
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.17, ptr noundef %86) #18
   br label %87
 
-87:                                               ; preds = %.thread, %81, %83, %67, %69, %20, %19, %12
-  %.042 = phi i32 [ 0, %19 ], [ %16, %12 ], [ 0, %20 ], [ 0, %69 ], [ 0, %67 ], [ 0, %83 ], [ 0, %81 ], [ 1, %.thread ]
+87:                                               ; preds = %._crit_edge, %81, %83, %67, %69, %20, %19, %12
+  %.042 = phi i32 [ 0, %19 ], [ %16, %12 ], [ 0, %20 ], [ 0, %69 ], [ 0, %67 ], [ 0, %83 ], [ 0, %81 ], [ 1, %._crit_edge ]
   ret i32 %.042
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_plain_files_rmdir(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 0, 2) i32 @php_plain_files_rmdir(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #2 {
   %5 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.15, i64 noundef 7) #17
   %6 = icmp eq i32 %5, 0
   %spec.select.idx = select i1 %6, i64 7, i64 0
@@ -2399,7 +2399,7 @@ define internal noundef i32 @php_plain_files_rmdir(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_plain_files_metadata(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture readnone %4) #2 {
+define internal range(i32 0, 2) i32 @php_plain_files_metadata(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture readnone %4) #2 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.15, i64 noundef 7) #17
@@ -2540,7 +2540,7 @@ declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnam
 declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @php_plain_files_dirstream_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #2 {
+define internal range(i64 -1, 258) i64 @php_plain_files_dirstream_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #2 {
   %.not = icmp eq i64 %2, 257
   br i1 %.not, label %4, label %15
 
@@ -2678,4 +2678,3 @@ attributes #20 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E = external global { ptr }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h6d023e0c832bc4f0E.llvm.11839231457967886541"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 768614336404564651) i64 @"_ZN102_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h6d023e0c832bc4f0E.llvm.11839231457967886541"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
@@ -340,7 +340,7 @@ define void @_ZN5regex8builders5bytes12RegexBuilder3new17h6901428803d639e8E(ptr 
   resume { ptr, i32 } %9
 
 _ZN5regex8builders7Builder3new17h0d12423bb591e296E.exit: ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %6, ptr noundef nonnull align 8 dereferenceable(160) %5, i64 160, i1 false), !noalias !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(160) %6, ptr noundef nonnull align 8 dereferenceable(160) %5, i64 160, i1 false), !noalias !30
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5), !noalias !21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %6, i64 160, i1 false)
@@ -870,7 +870,7 @@ define void @"_ZN79_$LT$$RF$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$regex..regex..b
   %7 = load i64, ptr %6, align 8, !alias.scope !145, !noalias !148, !noundef !4
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !149
-  %10 = tail call { i64, ptr } %9(i8 noundef 36, ptr noundef nonnull %5, ptr noundef nonnull %8), !noalias !156
+  %10 = tail call { i64, ptr } %9(i8 noundef 36, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %8), !noalias !156
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %10, 0
   %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
   br i1 %switch8.i.not.i.i.i, label %11, label %12
@@ -884,7 +884,7 @@ define void @"_ZN79_$LT$$RF$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$regex..regex..b
 
 12:                                               ; preds = %2
   %.fca.1.extract.i.i.i.i = extractvalue { i64, ptr } %10, 1
-  %13 = tail call noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17habd1359cc593a97cE"(ptr noundef %.fca.1.extract.i.i.i.i, ptr noundef nonnull %5)
+  %13 = tail call noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17habd1359cc593a97cE"(ptr noundef %.fca.1.extract.i.i.i.i, ptr noundef nonnull readonly %5)
   br label %_ZN5regex5regex5bytes12no_expansion17hea174207b5007cb1E.exit
 
 _ZN5regex5regex5bytes12no_expansion17hea174207b5007cb1E.exit: ; preds = %11, %12
@@ -918,7 +918,7 @@ define void @"_ZN75_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$regex..regex..bytes
   %6 = load i64, ptr %5, align 8, !alias.scope !162, !noalias !157, !noundef !4
   %7 = getelementptr inbounds i8, ptr %4, i64 %6
   %8 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !165
-  %9 = tail call { i64, ptr } %8(i8 noundef 36, ptr noundef nonnull %4, ptr noundef nonnull %7), !noalias !172
+  %9 = tail call { i64, ptr } %8(i8 noundef 36, ptr noundef nonnull readonly %4, ptr noundef nonnull readonly %7), !noalias !172
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %9, 0
   %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
   br i1 %switch8.i.not.i.i.i, label %10, label %11
@@ -932,7 +932,7 @@ define void @"_ZN75_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$regex..regex..bytes
 
 11:                                               ; preds = %2
   %.fca.1.extract.i.i.i.i = extractvalue { i64, ptr } %9, 1
-  %12 = tail call noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17habd1359cc593a97cE"(ptr noundef %.fca.1.extract.i.i.i.i, ptr noundef nonnull %4)
+  %12 = tail call noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17habd1359cc593a97cE"(ptr noundef %.fca.1.extract.i.i.i.i, ptr noundef nonnull readonly %4)
   br label %_ZN5regex5regex5bytes12no_expansion17h3ce9713693a687f3E.exit
 
 _ZN5regex5regex5bytes12no_expansion17h3ce9713693a687f3E.exit: ; preds = %10, %11

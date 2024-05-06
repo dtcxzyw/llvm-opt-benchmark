@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.bitmap_test_and_clear_atomic = private unnamed_addr constant [64 x i8] c"_Bool bitmap_test_and_clear_atomic(unsigned long *, long, long)\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local noundef i32 @slow_bitmap_empty(ptr nocapture noundef readonly %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @slow_bitmap_empty(ptr nocapture noundef readonly %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div7 = lshr i64 %bits, 6
   %cmp9.not = icmp ult i64 %bits, 64
@@ -55,7 +55,7 @@ return:                                           ; preds = %for.body, %if.then2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local noundef i32 @slow_bitmap_full(ptr nocapture noundef readonly %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @slow_bitmap_full(ptr nocapture noundef readonly %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div7 = lshr i64 %bits, 6
   %cmp9.not = icmp ult i64 %bits, 64
@@ -99,7 +99,7 @@ return:                                           ; preds = %for.body, %if.then2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local noundef i32 @slow_bitmap_equal(ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @slow_bitmap_equal(ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div10 = lshr i64 %bits, 6
   %cmp12.not = icmp ult i64 %bits, 64
@@ -187,7 +187,7 @@ if.end:                                           ; preds = %if.then, %for.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local i32 @slow_bitmap_and(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @slow_bitmap_and(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #1 {
 entry:
   %sub = add i64 %bits, 63
   %div6 = lshr i64 %sub, 6
@@ -270,7 +270,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local i32 @slow_bitmap_andnot(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @slow_bitmap_andnot(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #1 {
 entry:
   %sub = add i64 %bits, 63
   %div6 = lshr i64 %sub, 6
@@ -739,7 +739,7 @@ declare i64 @find_next_zero_bit(ptr noundef, i64 noundef, i64 noundef) local_unn
 declare i64 @find_next_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local noundef i32 @slow_bitmap_intersects(ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @slow_bitmap_intersects(ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div10 = lshr i64 %bits, 6
   %cmp12.not = icmp ult i64 %bits, 64
@@ -799,11 +799,11 @@ for.body:                                         ; preds = %entry, %for.body
   %k.012 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
   %arrayidx = getelementptr i64, ptr %bitmap, i64 %k.012
   %0 = load i64, ptr %arrayidx, align 8
-  %1 = tail call i64 @llvm.ctpop.i64(i64 %0), !range !20
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
   %add = add i64 %1, %result.013
   %inc = add nuw nsw i64 %k.012, 1
   %exitcond.not = icmp eq i64 %inc, %div9
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body, %entry
   %k.0.lcssa = phi i64 [ 0, %entry ], [ %div9, %for.body ]
@@ -819,7 +819,7 @@ if.then:                                          ; preds = %for.end
   %and = and i64 %sub, 63
   %shr = lshr i64 -1, %and
   %and2 = and i64 %2, %shr
-  %3 = tail call i64 @llvm.ctpop.i64(i64 %and2), !range !20
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and2)
   %add5 = add i64 %3, %result.0.lcssa
   br label %if.end
 
@@ -834,7 +834,7 @@ entry:
   %sub.i = add i64 %nbits, 63
   %0 = lshr i64 %sub.i, 3
   %mul.i = and i64 %0, 2305843009213693944
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst, ptr align 8 %src, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %dst, ptr readonly align 8 %src, i64 %mul.i, i1 false)
   ret void
 }
 
@@ -844,7 +844,7 @@ entry:
   %sub.i = add i64 %nbits, 63
   %0 = lshr i64 %sub.i, 3
   %mul.i = and i64 %0, 2305843009213693944
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst, ptr align 8 %src, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %dst, ptr readonly align 8 %src, i64 %mul.i, i1 false)
   ret void
 }
 
@@ -870,7 +870,7 @@ if.else.i:                                        ; preds = %if.then
   %sub.i = add i64 %nbits, 63
   %1 = lshr i64 %sub.i, 3
   %mul.i = and i64 %1, 2305843009213693944
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %dst, ptr align 8 %add.ptr, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %dst, ptr readonly align 8 %add.ptr, i64 %mul.i, i1 false)
   br label %if.end27
 
 if.end:                                           ; preds = %entry
@@ -895,7 +895,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %incdec.ptr = getelementptr i8, ptr %dst.addr.040, i64 8
   %sub5 = add i64 %nbits.addr.038, -64
   %cmp = icmp ugt i64 %sub5, 63
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !22
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !21
 
 while.end:                                        ; preds = %while.body, %if.end
   %nbits.addr.0.lcssa = phi i64 [ %nbits, %if.end ], [ %sub5, %while.body ]
@@ -959,7 +959,7 @@ if.else.i:                                        ; preds = %if.then
   %sub.i = add i64 %nbits, 63
   %1 = lshr i64 %sub.i, 3
   %mul.i = and i64 %1, 2305843009213693944
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %src, i64 %mul.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 8 %add.ptr, ptr readonly align 8 %src, i64 %mul.i, i1 false)
   br label %if.end34
 
 if.end:                                           ; preds = %entry
@@ -990,7 +990,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %incdec.ptr8 = getelementptr i8, ptr %src.addr.043, i64 8
   %sub9 = add i64 %nbits.addr.042, -64
   %cmp = icmp ugt i64 %sub9, 63
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !23
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !22
 
 while.end:                                        ; preds = %while.body, %if.end
   %6 = phi i64 [ %and, %if.end ], [ %shr, %while.body ]
@@ -1079,7 +1079,6 @@ attributes #12 = { nounwind }
 !17 = !{i64 2149892821}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = !{i64 0, i64 65}
+!20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}

@@ -692,7 +692,7 @@ define internal noundef i32 @dt_iop_colorcorrection_draw(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dt_iop_colorcorrection_button_press(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @dt_iop_colorcorrection_button_press(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !87
   %6 = icmp eq i32 %5, 1
@@ -906,7 +906,7 @@ define internal noundef i32 @dt_iop_colorcorrection_leave_notify(ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dt_iop_colorcorrection_scrolled(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef range(i32 0, 2) i32 @dt_iop_colorcorrection_scrolled(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 704
   %6 = load ptr, ptr %5, align 16, !tbaa !49
@@ -960,7 +960,7 @@ define internal noundef i32 @dt_iop_colorcorrection_scrolled(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dt_iop_colorcorrection_key_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @dt_iop_colorcorrection_key_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 704
   %5 = load ptr, ptr %4, align 16, !tbaa !49
   %6 = getelementptr inbounds i8, ptr %2, i64 680
@@ -1128,7 +1128,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !100
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

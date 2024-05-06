@@ -39,7 +39,7 @@ define internal i32 @init_nls_iso8859_1() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @uni2char(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 align 16 {
+define internal noundef range(i32 -36, 2) i32 @uni2char(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 align 16 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %18, label %5
 
@@ -69,7 +69,7 @@ define internal noundef i32 @uni2char(i16 noundef zeroext %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @char2uni(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef writeonly %2) #3 align 16 {
+define internal range(i32 -22, 2) i32 @char2uni(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef writeonly %2) #3 align 16 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i64
   %6 = getelementptr [256 x i16], ptr @charset2uni, i64 0, i64 %5

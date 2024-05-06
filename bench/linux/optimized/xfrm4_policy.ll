@@ -137,7 +137,7 @@ define internal ptr @xfrm4_dst_lookup(ptr noundef %0, i32 noundef %1, i32 %2, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @xfrm4_get_saddr(ptr noundef %0, i32 %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) #2 align 16 {
+define internal noundef range(i32 -113, 1) i32 @xfrm4_get_saddr(ptr noundef %0, i32 %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) #2 align 16 {
   %6 = alloca %struct.flowi4, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)

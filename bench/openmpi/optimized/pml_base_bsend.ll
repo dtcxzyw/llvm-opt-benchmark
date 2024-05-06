@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_packed = external global %struct.ompi_predefined_datatype_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_base_bsend_init() local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @mca_pml_base_bsend_init() local_unnamed_addr #0 {
   %1 = load i8, ptr @opal_uses_threads, align 1
   %2 = trunc i8 %1 to i1
   br i1 %2, label %3, label %6
@@ -213,7 +213,7 @@ opal_obj_run_destructors.exit5:                   ; preds = %.lr.ph.i2, %opal_ob
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_base_bsend_attach(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @mca_pml_base_bsend_attach(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @ompi_mpi_thread_multiple, align 1
   %4 = trunc i8 %3 to i1
   %5 = icmp eq ptr %0, null
@@ -311,7 +311,7 @@ define internal ptr @mca_pml_bsend_alloc_segment(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_base_bsend_detach(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @mca_pml_base_bsend_detach(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @opal_uses_threads, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %7
@@ -417,7 +417,7 @@ opal_condition_wait.exit:                         ; preds = %22, %.loopexit.i
 
 48:                                               ; preds = %47
   %49 = load i64, ptr @mca_pml_bsend_usersize, align 8
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nuw nsw i64 %49 to i32
   store i32 %50, ptr %1, align 4
   br label %51
 
@@ -443,7 +443,7 @@ opal_condition_wait.exit:                         ; preds = %22, %.loopexit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_base_bsend_request_start(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @mca_pml_base_bsend_request_start(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.iovec, align 8
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
@@ -540,7 +540,7 @@ declare i32 @opal_convertor_pack(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @opal_convertor_prepare_for_send(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_base_bsend_request_alloc(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @mca_pml_base_bsend_request_alloc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @opal_uses_threads, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %6

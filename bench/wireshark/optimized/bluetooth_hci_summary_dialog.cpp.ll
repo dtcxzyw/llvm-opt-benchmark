@@ -2435,7 +2435,7 @@ declare void @_ZN7QWidget10addActionsERK5QListIP7QActionE(ptr noundef nonnull al
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN25BluetoothHciSummaryDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN25BluetoothHciSummaryDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   %7 = alloca %class.QString, align 16
   %8 = alloca %class.QVariant, align 8
@@ -3429,7 +3429,7 @@ _ZN7QStringD2Ev.exit699:                          ; preds = %465, %_ZN17QArrayDa
 .noexc701:                                        ; preds = %470
   %476 = add i64 %475, 2147483648
   %.not.i.i700 = icmp ult i64 %476, 4294967296
-  %477 = trunc i64 %475 to i32
+  %477 = trunc nsw i64 %475 to i32
   %478 = add i32 %477, -1
   %479 = select i1 %.not.i.i700, i32 %478, i32 -1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %52, i32 noundef %479, i32 noundef 10)
@@ -3987,7 +3987,7 @@ _ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderE.exit: ; preds = %_ZN7QString
 .noexc807:                                        ; preds = %647
   %653 = add i64 %652, 2147483648
   %.not.i.i805 = icmp ult i64 %653, 4294967296
-  %654 = trunc i64 %652 to i32
+  %654 = trunc nsw i64 %652 to i32
   %655 = add i32 %654, 1
   %656 = select i1 %.not.i.i805, i32 %655, i32 1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %63, i32 noundef %656, i32 noundef 10)
@@ -4105,7 +4105,7 @@ _ZN7QStringD2Ev.exit816:                          ; preds = %665, %_ZN17QArrayDa
 .noexc831:                                        ; preds = %687
   %693 = add i64 %692, 2147483648
   %.not.i.i829 = icmp ult i64 %693, 4294967296
-  %694 = trunc i64 %692 to i32
+  %694 = trunc nsw i64 %692 to i32
   %695 = add i32 %694, 1
   %696 = select i1 %.not.i.i829, i32 %695, i32 1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %65, i32 noundef %696, i32 noundef 10)
@@ -5062,7 +5062,7 @@ _ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderE.exit1011: ; preds = %_ZN7QSt
 .noexc1014:                                       ; preds = %1005
   %1011 = add i64 %1010, 2147483648
   %.not.i.i1012 = icmp ult i64 %1011, 4294967296
-  %1012 = trunc i64 %1010 to i32
+  %1012 = trunc nsw i64 %1010 to i32
   %1013 = add i32 %1012, 1
   %1014 = select i1 %.not.i.i1012, i32 %1013, i32 1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %86, i32 noundef %1014, i32 noundef 10)
@@ -5398,7 +5398,7 @@ _ZN7QStringD2Ev.exit1080:                         ; preds = %1109, %_ZN17QArrayD
 .noexc1083:                                       ; preds = %1115
   %1121 = add i64 %1120, 2147483648
   %.not.i.i1081 = icmp ult i64 %1121, 4294967296
-  %1122 = trunc i64 %1120 to i32
+  %1122 = trunc nsw i64 %1120 to i32
   %1123 = add i32 %1122, 1
   %1124 = select i1 %.not.i.i1081, i32 %1123, i32 1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %92, i32 noundef %1124, i32 noundef 10)
@@ -5526,7 +5526,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i1106:  ; preds = %_ZN7QStringD2Ev.exi
 .noexc1135:                                       ; preds = %1160
   %1166 = add i64 %1165, 2147483648
   %.not.i.i1133 = icmp ult i64 %1166, 4294967296
-  %1167 = trunc i64 %1165 to i32
+  %1167 = trunc nsw i64 %1165 to i32
   %1168 = add i32 %1167, 1
   %1169 = select i1 %.not.i.i1133, i32 %1168, i32 1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %94, i32 noundef %1169, i32 noundef 10)
@@ -6215,7 +6215,7 @@ _ZNK15QTreeWidgetItem5childEi.exit1272:           ; preds = %.noexc1271, %1395
 .noexc1275:                                       ; preds = %1401
   %1407 = add i64 %1406, 2147483648
   %.not.i.i1273 = icmp ult i64 %1407, 4294967296
-  %1408 = trunc i64 %1406 to i32
+  %1408 = trunc nsw i64 %1406 to i32
   %1409 = add i32 %1408, 1
   %1410 = select i1 %.not.i.i1273, i32 %1409, i32 1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %107, i32 noundef %1410, i32 noundef 10)
@@ -6420,7 +6420,7 @@ _ZN7QStringD2Ev.exit1310:                         ; preds = %1461, %_ZN17QArrayD
 .noexc1313:                                       ; preds = %1467
   %1473 = add i64 %1472, 2147483648
   %.not.i.i1311 = icmp ult i64 %1473, 4294967296
-  %1474 = trunc i64 %1472 to i32
+  %1474 = trunc nsw i64 %1472 to i32
   %1475 = add i32 %1474, 1
   %1476 = select i1 %.not.i.i1311, i32 %1475, i32 1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %113, i32 noundef %1476, i32 noundef 10)
@@ -7206,7 +7206,7 @@ _ZNK15QTreeWidgetItem5childEi.exit1470.thread:    ; preds = %1722, %1729, %_ZNK1
 .noexc1473:                                       ; preds = %1733
   %1739 = add i64 %1738, 2147483648
   %.not.i.i1471 = icmp ult i64 %1739, 4294967296
-  %1740 = trunc i64 %1738 to i32
+  %1740 = trunc nsw i64 %1738 to i32
   %1741 = add i32 %1740, -1
   %1742 = select i1 %.not.i.i1471, i32 %1741, i32 -1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %127, i32 noundef %1742, i32 noundef 10)
@@ -7271,7 +7271,7 @@ _ZN7QStringD2Ev.exit1482:                         ; preds = %_ZN7QStringD2Ev.exi
 .noexc1485:                                       ; preds = %1760
   %1766 = add i64 %1765, 2147483648
   %.not.i.i1483 = icmp ult i64 %1766, 4294967296
-  %1767 = trunc i64 %1765 to i32
+  %1767 = trunc nsw i64 %1765 to i32
   %1768 = add i32 %1767, -1
   %1769 = select i1 %.not.i.i1483, i32 %1768, i32 -1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %129, i32 noundef %1769, i32 noundef 10)
@@ -7713,7 +7713,7 @@ _ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderE.exit1568: ; preds = %_ZN7QSt
 .noexc1571:                                       ; preds = %1918
   %1924 = add i64 %1923, 2147483648
   %.not.i.i1569 = icmp ult i64 %1924, 4294967296
-  %1925 = trunc i64 %1923 to i32
+  %1925 = trunc nsw i64 %1923 to i32
   %1926 = add i32 %1925, 1
   %1927 = select i1 %.not.i.i1569, i32 %1926, i32 1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %137, i32 noundef %1927, i32 noundef 10)
@@ -7868,7 +7868,7 @@ _ZN7QStringD2Ev.exit1580:                         ; preds = %1936, %_ZN17QArrayD
 .noexc1603:                                       ; preds = %1970
   %1976 = add i64 %1975, 2147483648
   %.not.i.i1601 = icmp ult i64 %1976, 4294967296
-  %1977 = trunc i64 %1975 to i32
+  %1977 = trunc nsw i64 %1975 to i32
   %1978 = add i32 %1977, 1
   %1979 = select i1 %.not.i.i1601, i32 %1978, i32 1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %139, i32 noundef %1979, i32 noundef 10)
@@ -8421,7 +8421,7 @@ _ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderE.exit1703: ; preds = %_ZN7QSt
 .noexc1706:                                       ; preds = %2160
   %2166 = add i64 %2165, 2147483648
   %.not.i.i1704 = icmp ult i64 %2166, 4294967296
-  %2167 = trunc i64 %2165 to i32
+  %2167 = trunc nsw i64 %2165 to i32
   %2168 = add i32 %2167, 1
   %2169 = select i1 %.not.i.i1704, i32 %2168, i32 1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %151, i32 noundef %2169, i32 noundef 10)
@@ -8572,7 +8572,7 @@ _ZN7QStringD2Ev.exit1715:                         ; preds = %2178, %_ZN17QArrayD
 .noexc1738:                                       ; preds = %2212
   %2218 = add i64 %2217, 2147483648
   %.not.i.i1736 = icmp ult i64 %2218, 4294967296
-  %2219 = trunc i64 %2217 to i32
+  %2219 = trunc nsw i64 %2217 to i32
   %2220 = add i32 %2219, 1
   %2221 = select i1 %.not.i.i1736, i32 %2220, i32 1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %153, i32 noundef %2221, i32 noundef 10)
@@ -9143,7 +9143,7 @@ _ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderE.exit1843: ; preds = %_ZN7QSt
 .noexc1846:                                       ; preds = %2411
   %2417 = add i64 %2416, 2147483648
   %.not.i.i1844 = icmp ult i64 %2417, 4294967296
-  %2418 = trunc i64 %2416 to i32
+  %2418 = trunc nsw i64 %2416 to i32
   %2419 = add i32 %2418, 1
   %2420 = select i1 %.not.i.i1844, i32 %2419, i32 1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %165, i32 noundef %2420, i32 noundef 10)
@@ -9298,7 +9298,7 @@ _ZN7QStringD2Ev.exit1855:                         ; preds = %2429, %_ZN17QArrayD
 .noexc1878:                                       ; preds = %2463
   %2469 = add i64 %2468, 2147483648
   %.not.i.i1876 = icmp ult i64 %2469, 4294967296
-  %2470 = trunc i64 %2468 to i32
+  %2470 = trunc nsw i64 %2468 to i32
   %2471 = add i32 %2470, 1
   %2472 = select i1 %.not.i.i1876, i32 %2471, i32 1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %167, i32 noundef %2472, i32 noundef 10)
@@ -9922,7 +9922,7 @@ _ZN15QTreeWidgetItem12sortChildrenEiN2Qt9SortOrderE.exit1997: ; preds = %_ZN7QSt
 .noexc2000:                                       ; preds = %2673
   %2679 = add i64 %2678, 2147483648
   %.not.i.i1998 = icmp ult i64 %2679, 4294967296
-  %2680 = trunc i64 %2678 to i32
+  %2680 = trunc nsw i64 %2678 to i32
   %2681 = add i32 %2680, 1
   %2682 = select i1 %.not.i.i1998, i32 %2681, i32 1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %182, i32 noundef %2682, i32 noundef 10)
@@ -10130,7 +10130,7 @@ _ZN7QStringD2Ev.exit2013:                         ; preds = %2695, %_ZN17QArrayD
 .noexc2044:                                       ; preds = %2741
   %2747 = add i64 %2746, 2147483648
   %.not.i.i2042 = icmp ult i64 %2747, 4294967296
-  %2748 = trunc i64 %2746 to i32
+  %2748 = trunc nsw i64 %2746 to i32
   %2749 = add i32 %2748, 1
   %2750 = select i1 %.not.i.i2042, i32 %2749, i32 1
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %184, i32 noundef %2750, i32 noundef 10)
@@ -21600,12 +21600,12 @@ _ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit: ; preds = %5
 ._crit_edge:                                      ; preds = %10
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre47 = ptrtoint ptr %6 to i64
-  %.pre48 = add i64 %.pre47, 23
-  %.pre50 = and i64 %.pre48, -8
-  %.pre52 = ptrtoint ptr %.pre to i64
-  %.pre54 = sub i64 %.pre52, %.pre50
-  %.pre56 = ashr exact i64 %.pre54, 3
+  %.pre49 = ptrtoint ptr %6 to i64
+  %.pre50 = add i64 %.pre49, 23
+  %.pre52 = and i64 %.pre50, -8
+  %.pre54 = ptrtoint ptr %.pre to i64
+  %.pre56 = sub i64 %.pre54, %.pre52
+  %.pre58 = ashr exact i64 %.pre56, 3
   br label %19
 
 _ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit: ; preds = %10
@@ -21621,21 +21621,21 @@ _ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit: ; preds = %10
   br i1 %.not16, label %19, label %_ZN17QArrayDataPointerIP7QActionE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit
 
 19:                                               ; preds = %._crit_edge, %_ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit
-  %.pre-phi57 = phi i64 [ %.pre56, %._crit_edge ], [ %18, %_ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit ]
+  %.pre-phi59 = phi i64 [ %.pre58, %._crit_edge ], [ %18, %_ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit ]
   %20 = phi ptr [ %.pre, %._crit_edge ], [ %12, %_ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit ]
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8
-  %26 = add i64 %25, %.pre-phi57
+  %26 = add i64 %25, %.pre-phi59
   %27 = sub i64 %22, %26
   %28 = icmp eq i32 %1, 1
   %.not18.i = icmp sge i64 %27, %2
-  %or.cond19.i.not60 = and i1 %28, %.not18.i
+  %or.cond19.i.not62 = and i1 %28, %.not18.i
   %29 = mul i64 %25, 3
   %30 = icmp slt i64 %29, %22
-  %or.cond = and i1 %or.cond19.i.not60, %30
+  %or.cond = and i1 %or.cond19.i.not62, %30
   br i1 %or.cond, label %31, label %.critedge
 
 31:                                               ; preds = %19
@@ -21643,7 +21643,7 @@ _ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit: ; preds = %10
   %33 = sub i64 %22, %32
   %34 = sdiv i64 %33, 2
   %35 = tail call noundef i64 @llvm.smax.i64(i64 %34, i64 0)
-  %36 = sub i64 %2, %.pre-phi57
+  %36 = sub i64 %2, %.pre-phi59
   %37 = add i64 %36, %35
   %38 = getelementptr ptr, ptr %20, i64 %37
   %39 = icmp eq i64 %25, 0
@@ -21718,42 +21718,42 @@ _ZNK17QArrayDataPointerIP7QActionE14freeSpaceAtEndEv.exit.i23: ; preds = %_ZNK17
   %74 = sub nsw i64 0, %64
   %75 = getelementptr ptr, ptr %58, i64 %74
   %76 = icmp eq i64 %66, 0
-  br i1 %76, label %_ZN9QtPrivate20q_relocate_overlap_nIP7QActionxEEvPT_T0_S4_.exit.i.i32, label %77
+  br i1 %76, label %_ZN9QtPrivate20q_relocate_overlap_nIP7QActionxEEvPT_T0_S4_.exit.i.i33, label %77
 
 77:                                               ; preds = %73
-  %.idx.mask.i.i29 = and i64 %74, 2305843009213693951
-  %78 = icmp eq i64 %.idx.mask.i.i29, 0
+  %.idx.mask.i.i30 = and i64 %74, 2305843009213693951
+  %78 = icmp eq i64 %.idx.mask.i.i30, 0
   %79 = icmp eq ptr %58, null
-  %or.cond.i.i.i30 = or i1 %78, %79
+  %or.cond.i.i.i31 = or i1 %78, %79
   %80 = icmp eq ptr %75, null
-  %or.cond3.i.i.i31 = or i1 %80, %or.cond.i.i.i30
-  br i1 %or.cond3.i.i.i31, label %_ZN9QtPrivate20q_relocate_overlap_nIP7QActionxEEvPT_T0_S4_.exit.i.i32, label %81
+  %or.cond3.i.i.i32 = or i1 %80, %or.cond.i.i.i31
+  br i1 %or.cond3.i.i.i32, label %_ZN9QtPrivate20q_relocate_overlap_nIP7QActionxEEvPT_T0_S4_.exit.i.i33, label %81
 
 81:                                               ; preds = %77
   %82 = shl i64 %66, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 1 %58, i64 %82, i1 false)
-  br label %_ZN9QtPrivate20q_relocate_overlap_nIP7QActionxEEvPT_T0_S4_.exit.i.i32
+  br label %_ZN9QtPrivate20q_relocate_overlap_nIP7QActionxEEvPT_T0_S4_.exit.i.i33
 
-_ZN9QtPrivate20q_relocate_overlap_nIP7QActionxEEvPT_T0_S4_.exit.i.i32: ; preds = %81, %77, %73
-  %.not.i21.i33 = icmp eq ptr %3, null
-  br i1 %.not.i21.i33, label %_ZN17QArrayDataPointerIP7QActionE8relocateExPPKS1_.exit.i35, label %83
+_ZN9QtPrivate20q_relocate_overlap_nIP7QActionxEEvPT_T0_S4_.exit.i.i33: ; preds = %81, %77, %73
+  %.not.i21.i34 = icmp eq ptr %3, null
+  br i1 %.not.i21.i34, label %_ZN17QArrayDataPointerIP7QActionE8relocateExPPKS1_.exit.i36, label %83
 
-83:                                               ; preds = %_ZN9QtPrivate20q_relocate_overlap_nIP7QActionxEEvPT_T0_S4_.exit.i.i32
+83:                                               ; preds = %_ZN9QtPrivate20q_relocate_overlap_nIP7QActionxEEvPT_T0_S4_.exit.i.i33
   %84 = load ptr, ptr %3, align 8
   %85 = load ptr, ptr %57, align 8
   %86 = load i64, ptr %65, align 8
   %87 = getelementptr ptr, ptr %85, i64 %86
   %88 = icmp uge ptr %84, %85
   %89 = icmp ult ptr %84, %87
-  %spec.select.i.i.i34 = and i1 %88, %89
-  br i1 %spec.select.i.i.i34, label %90, label %_ZN17QArrayDataPointerIP7QActionE8relocateExPPKS1_.exit.i35
+  %spec.select.i.i.i35 = and i1 %88, %89
+  br i1 %spec.select.i.i.i35, label %90, label %_ZN17QArrayDataPointerIP7QActionE8relocateExPPKS1_.exit.i36
 
 90:                                               ; preds = %83
   %91 = getelementptr ptr, ptr %84, i64 %74
   store ptr %91, ptr %3, align 8
-  br label %_ZN17QArrayDataPointerIP7QActionE8relocateExPPKS1_.exit.i35
+  br label %_ZN17QArrayDataPointerIP7QActionE8relocateExPPKS1_.exit.i36
 
-_ZN17QArrayDataPointerIP7QActionE8relocateExPPKS1_.exit.i35: ; preds = %90, %83, %_ZN9QtPrivate20q_relocate_overlap_nIP7QActionxEEvPT_T0_S4_.exit.i.i32
+_ZN17QArrayDataPointerIP7QActionE8relocateExPPKS1_.exit.i36: ; preds = %90, %83, %_ZN9QtPrivate20q_relocate_overlap_nIP7QActionxEEvPT_T0_S4_.exit.i.i33
   store ptr %75, ptr %57, align 8
   br label %_ZN17QArrayDataPointerIP7QActionE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit
 
@@ -21761,7 +21761,7 @@ _ZN17QArrayDataPointerIP7QActionE8relocateExPPKS1_.exit.i35: ; preds = %90, %83,
   tail call void @_ZN17QArrayDataPointerIP7QActionE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i64 noundef %2, ptr noundef %4)
   br label %_ZN17QArrayDataPointerIP7QActionE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit
 
-_ZN17QArrayDataPointerIP7QActionE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit: ; preds = %_ZN17QArrayDataPointerIP7QActionE8relocateExPPKS1_.exit.i, %_ZN17QArrayDataPointerIP7QActionE8relocateExPPKS1_.exit.i35, %9, %_ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerIP7QActionE14freeSpaceAtEndEv.exit, %.critedge
+_ZN17QArrayDataPointerIP7QActionE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS1_.exit: ; preds = %_ZN17QArrayDataPointerIP7QActionE8relocateExPPKS1_.exit.i, %_ZN17QArrayDataPointerIP7QActionE8relocateExPPKS1_.exit.i36, %9, %_ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerIP7QActionE14freeSpaceAtEndEv.exit, %.critedge
   ret void
 }
 

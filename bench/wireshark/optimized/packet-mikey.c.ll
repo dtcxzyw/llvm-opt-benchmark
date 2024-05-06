@@ -642,7 +642,7 @@ dissect_payload_cs_id.exit.us:                    ; preds = %.lr.ph, %dissect_pa
   %.05259.us = phi i32 [ %35, %dissect_payload_cs_id.exit.thread.us ], [ 10, %.lr.ph ]
   %.05358.us = phi i32 [ %36, %dissect_payload_cs_id.exit.thread.us ], [ 0, %.lr.ph ]
   %32 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %.05259.us) #2
-  %33 = tail call fastcc i32 @dissect_payload_cs_id_srtp(ptr nonnull poison, ptr noundef %32, ptr poison, ptr noundef %3) #2
+  %33 = tail call fastcc i32 @dissect_payload_cs_id_srtp(ptr nonnull readnone poison, ptr noundef %32, ptr readnone poison, ptr noundef %3) #2
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %._crit_edge, label %dissect_payload_cs_id.exit.thread.us
 
@@ -665,7 +665,7 @@ dissect_payload_cs_id.exit.thread:                ; preds = %.lr.ph, %dissect_pa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_payload_kemac(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3) #0 {
+define internal range(i32 0, 65561) i32 @dissect_payload_kemac(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 2) #2
   %7 = zext i16 %6 to i32
@@ -733,7 +733,7 @@ dissect_payload.exit:                             ; preds = %21, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_payload_pke(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal range(i32 3, 1027) i32 @dissect_payload_pke(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 1) #2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %6
@@ -755,7 +755,7 @@ define internal i32 @dissect_payload_pke(ptr nocapture readnone %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_payload_dh(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal range(i32 0, 196) i32 @dissect_payload_dh(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
   %6 = icmp ult i8 %5, 3
   br i1 %6, label %switch.lookup, label %22
@@ -793,7 +793,7 @@ switch.lookup:                                    ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_payload_sign(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal range(i32 2, 4098) i32 @dissect_payload_sign(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 0) #2
   %6 = and i8 %5, 15
   %7 = zext nneg i8 %6 to i16
@@ -825,7 +825,7 @@ define internal i32 @dissect_payload_sign(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_payload_t(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal range(i32 0, 11) i32 @dissect_payload_t(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %6
@@ -860,7 +860,7 @@ define internal noundef i32 @dissect_payload_t(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_payload_id(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
+define internal range(i32 4, 65540) i32 @dissect_payload_id(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 2) #2
@@ -895,7 +895,7 @@ define internal i32 @dissect_payload_id(ptr nocapture readnone %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_payload_cert(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 4, 65540) i32 @dissect_payload_cert(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %2) #2
   %6 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
@@ -925,7 +925,7 @@ define internal i32 @dissect_payload_cert(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_payload_v(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal range(i32 0, 23) i32 @dissect_payload_v(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
   %6 = load i32, ptr getelementptr inbounds ([71 x i32], ptr @hf_mikey, i64 0, i64 35), align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
@@ -950,7 +950,7 @@ define internal i32 @dissect_payload_v(ptr nocapture readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_payload_sp(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal range(i32 5, 65541) i32 @dissect_payload_sp(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 3) #2
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 2) #2
@@ -1028,7 +1028,7 @@ dissect_payload_sp_param.exit:                    ; preds = %.lr.ph, %dissect_pa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_payload_rand(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal range(i32 2, 258) i32 @dissect_payload_rand(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
   %6 = load i32, ptr getelementptr inbounds ([71 x i32], ptr @hf_mikey, i64 0, i64 44), align 16
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
@@ -1061,7 +1061,7 @@ define internal noundef i32 @dissect_payload_err(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_payload_idr(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
+define internal range(i32 5, 65541) i32 @dissect_payload_idr(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 2) #2
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 3) #2
@@ -1098,7 +1098,7 @@ define internal i32 @dissect_payload_idr(ptr nocapture readnone %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_payload_keydata(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal range(i32 0, 65536) i32 @dissect_payload_keydata(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
   %7 = and i8 %6, 15
@@ -1223,7 +1223,7 @@ define internal i32 @dissect_payload_keydata(ptr nocapture readnone %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_payload_general_ext(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal range(i32 4, 65540) i32 @dissect_payload_general_ext(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #2
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 2) #2
   %.not = icmp eq ptr %3, null
@@ -1253,7 +1253,7 @@ define internal i32 @dissect_payload_general_ext(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_payload_sakke(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal range(i32 5, 65541) i32 @dissect_payload_sakke(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 3) #2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %6

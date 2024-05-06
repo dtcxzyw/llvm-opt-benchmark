@@ -414,7 +414,7 @@ define internal i32 @dissect_mp4ves_name(ptr noundef %0, ptr nocapture noundef r
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %14
   %12 = phi ptr [ %16, %14 ], [ @.str.168, %.lr.ph.i.preheader ]
   %.010.i = phi ptr [ %15, %14 ], [ @mp4ves_capability_tab, %.lr.ph.i.preheader ]
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %12) #6
+  %13 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %12) #6
   %.not8.i = icmp eq i32 %13, 0
   br i1 %.not8.i, label %find_cap.exit, label %14
 
@@ -693,7 +693,7 @@ declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mp4ves_par_profile(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal range(i32 0, 3) i32 @dissect_mp4ves_par_profile(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %16, label %6
 
@@ -725,7 +725,7 @@ define internal noundef i32 @dissect_mp4ves_par_profile(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mp4ves_par_video_object_type(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal range(i32 0, 3) i32 @dissect_mp4ves_par_video_object_type(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %16, label %6
 

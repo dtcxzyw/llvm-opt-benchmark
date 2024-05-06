@@ -69,7 +69,7 @@ define dso_local i32 @dm_get_reserved_rq_based_ios() local_unnamed_addr #0 align
 declare dso_local i32 @__dm_get_module_param(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @dm_request_based(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 2) i32 @dm_request_based(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -110,7 +110,7 @@ define dso_local void @dm_mq_kick_requeue_list(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef i64 @dm_attr_rq_based_seq_io_merge_deadline_show(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @dm_attr_rq_based_seq_io_merge_deadline_show(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 align 16 {
   %3 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 0) #14
   %4 = sext i32 %3 to i64
   ret i64 %4
@@ -257,7 +257,7 @@ declare dso_local void @blk_mq_delay_kick_requeue_list(ptr noundef, i64 noundef)
 declare dso_local noalias ptr @kmalloc_node_trace(ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i8 @dm_mq_queue_rq(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef zeroext range(i8 0, 10) i8 @dm_mq_queue_rq(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8

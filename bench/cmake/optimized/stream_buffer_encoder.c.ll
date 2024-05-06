@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lzma_block = type { i32, i32, i32, i64, i64, ptr, [64 x i8], ptr, ptr, ptr, i32, i32, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @lzma_stream_buffer_bound(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 49, 48) i64 @lzma_stream_buffer_bound(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @lzma_block_buffer_bound(i64 noundef %0) #5
   %3 = icmp eq i64 %2, 0
   %4 = icmp sgt i64 %2, 9223372036854775759

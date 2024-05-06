@@ -1356,8 +1356,8 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #4
 ; Function Attrs: noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #2
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #3
 
 declare i32 @spank_fini(ptr noundef) #4
 

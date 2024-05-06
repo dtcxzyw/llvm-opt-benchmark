@@ -632,7 +632,7 @@ _ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb1EEEPNS_19InvertedListScanne
   %46 = getelementptr inbounds i8, ptr %41, i64 17
   store i8 %43, ptr %46, align 1
   %47 = getelementptr inbounds i8, ptr %41, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFFlatScannerILNS_10MetricTypeE0ENS_4CMinIflEELb0EEE, i64 0, i32 0, i64 2), ptr %41, align 8
   %48 = getelementptr inbounds i8, ptr %41, i64 40
   store i64 %42, ptr %48, align 8
@@ -649,7 +649,7 @@ _ZN5faiss12_GLOBAL__N_124get_InvertedListScanner1ILb1EEEPNS_19InvertedListScanne
   %55 = getelementptr inbounds i8, ptr %50, i64 17
   store i8 %52, ptr %55, align 1
   %56 = getelementptr inbounds i8, ptr %50, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFFlatScannerILNS_10MetricTypeE1ENS_4CMaxIflEELb0EEE, i64 0, i32 0, i64 2), ptr %50, align 8
   %57 = getelementptr inbounds i8, ptr %50, i64 40
   store i64 %51, ptr %57, align 8
@@ -2190,7 +2190,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 .lr.ph.us:                                        ; preds = %.lr.ph159, %.critedge75.us
   %.068158.us = phi i64 [ %77, %.critedge75.us ], [ 0, %.lr.ph159 ]
-  %46 = mul nsw i64 %.068158.us, %3
+  %46 = mul nuw nsw i64 %.068158.us, %3
   %47 = getelementptr inbounds i64, ptr %7, i64 %46
   %48 = getelementptr inbounds float, ptr %6, i64 %46
   %49 = load i64, ptr %43, align 8

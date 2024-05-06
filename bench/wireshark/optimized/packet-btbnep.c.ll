@@ -405,7 +405,7 @@ tailrecurse.i:                                    ; preds = %101, %119
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %tailrecurse.i
-  %115 = tail call fastcc i32 @dissect_control(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %112)
+  %115 = tail call fastcc i32 @dissect_control(ptr noundef %0, ptr noundef readonly %1, ptr noundef %9, i32 noundef %112)
   br label %119
 
 116:                                              ; preds = %tailrecurse.i
@@ -481,7 +481,7 @@ dissect_extension.exit:                           ; preds = %119, %101
   %149 = load i32, ptr @hf_btbnep_type, align 4
   %150 = add i32 %.3, -2
   %151 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %149, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef %.0149) #2
-  %152 = trunc i32 %.0149 to i16
+  %152 = trunc nuw i32 %.0149 to i16
   store i16 %152, ptr %5, align 8
   %153 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.3, ptr %153, align 4

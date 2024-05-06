@@ -2133,7 +2133,7 @@ _ZN14cranelift_isle7codegen7Codegen13generate_rust17h4fe1bb35a025d3d4E.exit: ; p
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %55), !noalias !6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56), !noalias !6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57), !noalias !6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %109, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %109, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %109)
   ret void
 }

@@ -132,7 +132,7 @@ return:                                           ; preds = %for.body27, %cond.e
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @mod_utf8_encode(ptr nocapture noundef writeonly %buf, i64 noundef %bufsz, i32 noundef %codepoint) local_unnamed_addr #0 {
+define dso_local range(i64 -1, 5) i64 @mod_utf8_encode(ptr nocapture noundef writeonly %buf, i64 noundef %bufsz, i32 noundef %codepoint) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %bufsz, 4
   br i1 %cmp, label %if.end, label %if.else
@@ -162,7 +162,7 @@ if.end2:                                          ; preds = %if.end.i
   br i1 %or.cond, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end2
-  %conv = trunc i32 %codepoint to i8
+  %conv = trunc nuw nsw i32 %codepoint to i8
   store i8 %conv, ptr %buf, align 1
   br label %return.sink.split
 
@@ -172,7 +172,7 @@ if.end7:                                          ; preds = %if.end2
 
 if.then10:                                        ; preds = %if.end7
   %shr = lshr i32 %codepoint, 6
-  %3 = trunc i32 %shr to i8
+  %3 = trunc nuw i32 %shr to i8
   %conv12 = or disjoint i8 %3, -64
   store i8 %conv12, ptr %buf, align 1
   %4 = trunc i32 %codepoint to i8
@@ -189,7 +189,7 @@ if.end19:                                         ; preds = %if.end7
 
 if.then22:                                        ; preds = %if.end19
   %shr23 = lshr i32 %codepoint, 12
-  %6 = trunc i32 %shr23 to i8
+  %6 = trunc nuw i32 %shr23 to i8
   %conv26 = or disjoint i8 %6, -32
   store i8 %conv26, ptr %buf, align 1
   %shr28 = lshr i32 %codepoint, 6
@@ -206,7 +206,7 @@ if.then22:                                        ; preds = %if.end19
 
 if.end38:                                         ; preds = %if.end19
   %shr39 = lshr i32 %codepoint, 18
-  %11 = trunc i32 %shr39 to i8
+  %11 = trunc nuw i32 %shr39 to i8
   %conv42 = or disjoint i8 %11, -16
   store i8 %conv42, ptr %buf, align 1
   %shr44 = lshr i32 %codepoint, 12

@@ -3347,7 +3347,7 @@ cleanup90:                                        ; preds = %cleanup85, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3irr5scene13CSceneManager24registerNodeForRenderingEPNS0_10ISceneNodeENS0_24E_SCENE_NODE_RENDER_PASSE(ptr noundef nonnull align 8 dereferenceable(572) %this, ptr noundef %node, i32 noundef %pass) unnamed_addr #10 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN3irr5scene13CSceneManager24registerNodeForRenderingEPNS0_10ISceneNodeENS0_24E_SCENE_NODE_RENDER_PASSE(ptr noundef nonnull align 8 dereferenceable(572) %this, ptr noundef %node, i32 noundef %pass) unnamed_addr #10 align 2 {
 entry:
   switch i32 %pass, label %sw.epilog [
     i32 1, label %for.cond.preheader

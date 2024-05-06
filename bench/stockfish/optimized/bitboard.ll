@@ -198,7 +198,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 56:                                               ; preds = %._crit_edge.i
-  %57 = trunc i32 %.0.lcssa.i to i8
+  %57 = trunc nuw i32 %.0.lcssa.i to i8
   %58 = or disjoint i8 %57, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -220,24 +220,24 @@ define dso_local void @_ZN9Stockfish9Bitboards4initEv() local_unnamed_addr #3 {
 
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = tail call noundef i64 @llvm.ctpop.i64(i64 %indvars.iv), !range !16
-  %4 = trunc i64 %3 to i8
+  %3 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %indvars.iv)
+  %4 = trunc nuw nsw i64 %3 to i8
   %5 = getelementptr inbounds [65536 x i8], ptr @_ZN9Stockfish8PopCnt16E, i64 0, i64 %indvars.iv
   store i8 %4, ptr %5, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
-  br i1 %exitcond.not, label %.preheader122, label %2, !llvm.loop !17
+  br i1 %exitcond.not, label %.preheader122, label %2, !llvm.loop !16
 
 .preheader122:                                    ; preds = %2, %19
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %19 ], [ 0, %2 ]
-  %6 = trunc i64 %indvars.iv140 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv140 to i32
   %7 = and i32 %6, 7
   %8 = lshr i32 %6, 3
   br label %9
 
 9:                                                ; preds = %.preheader122, %9
   %indvars.iv136 = phi i64 [ 0, %.preheader122 ], [ %indvars.iv.next137, %9 ]
-  %10 = trunc i64 %indvars.iv136 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv136 to i32
   %11 = and i32 %10, 7
   %12 = sub nsw i32 %7, %11
   %13 = tail call noundef i32 @llvm.abs.i32(i32 %12, i1 true)
@@ -250,12 +250,12 @@ define dso_local void @_ZN9Stockfish9Bitboards4initEv() local_unnamed_addr #3 {
   store i8 %17, ptr %18, align 1
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next137, 64
-  br i1 %exitcond139.not, label %19, label %9, !llvm.loop !18
+  br i1 %exitcond139.not, label %19, label %9, !llvm.loop !17
 
 19:                                               ; preds = %9
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next141, 64
-  br i1 %exitcond143.not, label %20, label %.preheader122, !llvm.loop !19
+  br i1 %exitcond143.not, label %20, label %.preheader122, !llvm.loop !18
 
 20:                                               ; preds = %19
   tail call fastcc void @_ZN9Stockfish12_GLOBAL__N_111init_magicsENS_9PieceTypeEPmPNS_5MagicE(i32 noundef 4, ptr noundef nonnull @_ZN9Stockfish12_GLOBAL__N_19RookTableE, ptr noundef nonnull @_ZN9Stockfish10RookMagicsE)
@@ -282,7 +282,7 @@ define dso_local void @_ZN9Stockfish9Bitboards4initEv() local_unnamed_addr #3 {
   store i64 %34, ptr %35, align 8
   %36 = getelementptr inbounds [8 x [64 x i64]], ptr @_ZN9Stockfish13PseudoAttacksE, i64 0, i64 6, i64 %indvars.iv148
   %.promoted = load i64, ptr %36, align 8
-  %37 = trunc i64 %indvars.iv148 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv148 to i32
   br label %39
 
 .preheader:                                       ; preds = %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit
@@ -550,7 +550,7 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit44: ; preds = %_ZN9Stoc
   store i64 %221, ptr %220, align 8
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next145, 64
-  br i1 %exitcond147.not, label %222, label %91, !llvm.loop !20
+  br i1 %exitcond147.not, label %222, label %91, !llvm.loop !19
 
 222:                                              ; preds = %218
   %.029.add = add nuw nsw i64 %.029.idx132, 4
@@ -560,7 +560,7 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit44: ; preds = %_ZN9Stoc
 223:                                              ; preds = %222
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, 64
-  br i1 %exitcond151.not, label %224, label %22, !llvm.loop !21
+  br i1 %exitcond151.not, label %224, label %22, !llvm.loop !20
 
 224:                                              ; preds = %223
   ret void
@@ -616,7 +616,7 @@ _ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i: ; preds = %.l
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, %15
   %23 = and i64 %indvars.iv.next.i, 4294967232
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %.lr.ph.i, label %.critedge.i, !llvm.loop !22
+  br i1 %24, label %.lr.ph.i, label %.critedge.i, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i, %.lr.ph.i, %11
   %.1.lcssa.i = phi i64 [ %.01724.i, %11 ], [ %22, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i ], [ %.119.i, %.lr.ph.i ]
@@ -719,8 +719,8 @@ _ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i68: ; preds = %
   %indvars.iv.next.i69 = add nsw i64 %indvars.iv.i65, %67
   %79 = and i64 %indvars.iv.next.i69, 4294967232
   %80 = icmp eq i64 %79, 0
-  %81 = trunc i64 %indvars.iv.i65 to i32
-  br i1 %80, label %.lr.ph.i64, label %.critedge.i59, !llvm.loop !22
+  %81 = trunc nuw nsw i64 %indvars.iv.i65 to i32
+  br i1 %80, label %.lr.ph.i64, label %.critedge.i59, !llvm.loop !21
 
 .critedge.i59:                                    ; preds = %76, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i68, %.lr.ph.i64, %63
   %.1.lcssa.i60 = phi i64 [ %.01724.i57, %63 ], [ %.119.i67, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i68 ], [ %78, %76 ], [ %.119.i67, %.lr.ph.i64 ]
@@ -736,10 +736,10 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
   %84 = and i64 %83, %31
   %.not = icmp eq i64 %84, 0
   %indvars.iv.next100 = add nuw i32 %indvars.iv99, 1
-  br i1 %.not, label %85, label %61, !llvm.loop !23
+  br i1 %.not, label %85, label %61, !llvm.loop !22
 
 85:                                               ; preds = %_ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70
-  %86 = trunc i64 %indvars.iv to i32
+  %86 = trunc nuw nsw i64 %indvars.iv to i32
   %87 = lshr i64 %indvars.iv102, 3
   %88 = and i64 %87, 536870911
   %89 = getelementptr inbounds [2 x [8 x i32]], ptr @__const._ZN9Stockfish12_GLOBAL__N_111init_magicsENS_9PieceTypeEPmPNS_5MagicE.seeds, i64 0, i64 1, i64 %88
@@ -798,7 +798,7 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
   %126 = add nuw nsw i32 %reass.add, %123
   %127 = add nuw nsw i32 %126, %125
   %128 = icmp ult i32 %127, 6
-  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %93
   %.sroa.0.1.lcssa = phi i64 [ %.sroa.0.089, %93 ], [ %116, %.lr.ph ]
@@ -843,21 +843,21 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
 154:                                              ; preds = %143, %148
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
-  br i1 %exitcond.not, label %.split.loop.exit108, label %130, !llvm.loop !25
+  br i1 %exitcond.not, label %.split.loop.exit108, label %130, !llvm.loop !24
 
 .split.loop.exit:                                 ; preds = %148
-  %155 = trunc i64 %indvars.iv97 to i32
+  %155 = trunc nuw nsw i64 %indvars.iv97 to i32
   br label %.split.loop.exit108
 
 .split.loop.exit108:                              ; preds = %154, %.split.loop.exit
   %.1.lcssa = phi i32 [ %155, %.split.loop.exit ], [ %indvars.iv99, %154 ]
   %.not51 = icmp ugt i32 %.1.lcssa, %86
-  br i1 %.not51, label %156, label %93, !llvm.loop !26
+  br i1 %.not51, label %156, label %93, !llvm.loop !25
 
 156:                                              ; preds = %.split.loop.exit108
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 64
-  br i1 %exitcond105.not, label %157, label %8, !llvm.loop !27
+  br i1 %exitcond105.not, label %157, label %8, !llvm.loop !26
 
 157:                                              ; preds = %156
   ret void
@@ -959,7 +959,7 @@ attributes #7 = { nounwind }
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = !{i64 0, i64 65}
+!16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
@@ -970,4 +970,3 @@ attributes #7 = { nounwind }
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}

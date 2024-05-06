@@ -186,7 +186,7 @@ define internal void @tfp410_mode_set(ptr nocapture readnone %0, ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @tfp410_detect(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 1, 3) i32 @tfp410_detect(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = alloca [2 x i8], align 2
   %3 = alloca [2 x i8], align 2
   %4 = alloca [2 x %struct.i2c_msg], align 16
@@ -1169,7 +1169,7 @@ define internal void @tfp410_dump_regs(ptr nocapture noundef readonly %0) #0 ali
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tfp410_getid(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 65536) i32 @tfp410_getid(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca [2 x i8], align 2
   %4 = alloca [2 x i8], align 2
   %5 = alloca [2 x %struct.i2c_msg], align 16
@@ -1201,7 +1201,7 @@ define internal fastcc i32 @tfp410_getid(ptr nocapture noundef readonly %0, i32 
   store i16 1, ptr %20, align 4
   %21 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %7, ptr %21, align 8
-  %22 = trunc i32 %1 to i8
+  %22 = trunc nuw nsw i32 %1 to i8
   store i8 %22, ptr %6, align 2
   %23 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 0, ptr %23, align 1
@@ -1254,7 +1254,7 @@ define internal fastcc i32 @tfp410_getid(ptr nocapture noundef readonly %0, i32 
   store i16 1, ptr %43, align 4
   %44 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %4, ptr %44, align 8
-  %45 = trunc i32 %34 to i8
+  %45 = trunc nuw nsw i32 %34 to i8
   store i8 %45, ptr %3, align 2
   %46 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 0, ptr %46, align 1

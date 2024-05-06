@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.cvNlsFPFunction = private unnamed_addr constant [16 x i8] c"cvNlsFPFunction\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @CVodeSetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -160,7 +160,7 @@ declare i32 @SUNNonlinSolGetType(ptr noundef) local_unnamed_addr #1
 declare i32 @SUNNonlinSolSetSysFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cvNlsResidual(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 -21, 11) i32 @cvNlsResidual(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %6
 
@@ -214,7 +214,7 @@ define internal noundef i32 @cvNlsResidual(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cvNlsFPFunction(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 -21, 11) i32 @cvNlsFPFunction(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %6
 
@@ -266,7 +266,7 @@ define internal noundef i32 @cvNlsFPFunction(ptr noundef %0, ptr noundef %1, ptr
 declare i32 @SUNNonlinSolSetConvTestFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cvNlsConvTest(ptr noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -21, 903) i32 @cvNlsConvTest(ptr noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = icmp eq ptr %5, null
   br i1 %8, label %9, label %10
@@ -345,7 +345,7 @@ define internal noundef i32 @cvNlsConvTest(ptr noundef %0, ptr noundef %1, ptr n
 declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeSetNlsRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeSetNlsRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -375,7 +375,7 @@ define noundef i32 @CVodeSetNlsRhsFn(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CVodeGetNonlinearSystemData(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @CVodeGetNonlinearSystemData(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #0 {
   %10 = icmp eq ptr %0, null
   br i1 %10, label %11, label %12
 
@@ -416,7 +416,7 @@ define noundef i32 @CVodeGetNonlinearSystemData(ptr noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cvNlsInit(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @cvNlsInit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1016
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -485,7 +485,7 @@ define noundef i32 @cvNlsInit(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @SUNNonlinSolSetLSetupFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cvNlsLSetup(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 {
+define internal range(i32 -21, 903) i32 @cvNlsLSetup(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %6
 
@@ -554,7 +554,7 @@ define internal i32 @cvNlsLSetup(i32 noundef %0, ptr nocapture noundef writeonly
 declare i32 @SUNNonlinSolSetLSolveFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cvNlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -21, 903) i32 @cvNlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
 

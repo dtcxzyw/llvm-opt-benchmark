@@ -146,7 +146,7 @@ declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #3
 declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @uffd_query_features(ptr nocapture noundef writeonly %features) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @uffd_query_features(ptr nocapture noundef writeonly %features) local_unnamed_addr #0 {
 entry:
   %_now.i.i3 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -264,7 +264,7 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare i32 @close(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @uffd_create_fd(i64 noundef %features, i1 noundef zeroext %non_blocking) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @uffd_create_fd(i64 noundef %features, i1 noundef zeroext %non_blocking) local_unnamed_addr #0 {
 entry:
   %_now.i.i20 = alloca %struct.timeval, align 8
   %_now.i.i6 = alloca %struct.timeval, align 8
@@ -432,7 +432,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @uffd_register_memory(i32 noundef %uffd_fd, ptr noundef %addr, i64 noundef %length, i64 noundef %mode, ptr noundef writeonly %ioctls) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @uffd_register_memory(i32 noundef %uffd_fd, ptr noundef %addr, i64 noundef %length, i64 noundef %mode, ptr noundef writeonly %ioctls) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %uffd_register = alloca %struct.uffdio_register, align 8
@@ -501,7 +501,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @uffd_unregister_memory(i32 noundef %uffd_fd, ptr noundef %addr, i64 noundef %length) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @uffd_unregister_memory(i32 noundef %uffd_fd, ptr noundef %addr, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %uffd_range = alloca %struct.uffdio_range, align 8
@@ -558,7 +558,7 @@ return:                                           ; preds = %entry, %trace_uffd_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @uffd_change_protection(i32 noundef %uffd_fd, ptr noundef %addr, i64 noundef %length, i1 noundef zeroext %wp, i1 noundef zeroext %dont_wake) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @uffd_change_protection(i32 noundef %uffd_fd, ptr noundef %addr, i64 noundef %length, i1 noundef zeroext %wp, i1 noundef zeroext %dont_wake) local_unnamed_addr #0 {
 entry:
   %uffd_writeprotect = alloca %struct.uffdio_writeprotect, align 8
   %0 = ptrtoint ptr %addr to i64
@@ -590,7 +590,7 @@ return:                                           ; preds = %entry, %if.then7
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @uffd_copy_page(i32 noundef %uffd_fd, ptr noundef %dst_addr, ptr noundef %src_addr, i64 noundef %length, i1 noundef zeroext %dont_wake) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @uffd_copy_page(i32 noundef %uffd_fd, ptr noundef %dst_addr, ptr noundef %src_addr, i64 noundef %length, i1 noundef zeroext %dont_wake) local_unnamed_addr #0 {
 entry:
   %uffd_copy = alloca %struct.uffdio_copy, align 8
   %0 = ptrtoint ptr %dst_addr to i64
@@ -620,7 +620,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @uffd_zero_page(i32 noundef %uffd_fd, ptr noundef %addr, i64 noundef %length, i1 noundef zeroext %dont_wake) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @uffd_zero_page(i32 noundef %uffd_fd, ptr noundef %addr, i64 noundef %length, i1 noundef zeroext %dont_wake) local_unnamed_addr #0 {
 entry:
   %uffd_zeropage = alloca %struct.uffdio_zeropage, align 8
   %0 = ptrtoint ptr %addr to i64
@@ -647,7 +647,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @uffd_wakeup(i32 noundef %uffd_fd, ptr noundef %addr, i64 noundef %length) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @uffd_wakeup(i32 noundef %uffd_fd, ptr noundef %addr, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %uffd_range = alloca %struct.uffdio_range, align 8
   %0 = ptrtoint ptr %addr to i64

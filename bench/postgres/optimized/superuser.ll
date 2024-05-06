@@ -19,7 +19,7 @@ define dso_local zeroext i1 @superuser() local_unnamed_addr #0 {
 
 4:                                                ; preds = %0
   %5 = load i8, ptr @last_roleid_is_super, align 1
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   br label %superuser_arg.exit
 
 7:                                                ; preds = %0
@@ -79,7 +79,7 @@ define dso_local zeroext i1 @superuser_arg(i32 noundef %0) local_unnamed_addr #0
 
 4:                                                ; preds = %1
   %5 = load i8, ptr @last_roleid_is_super, align 1
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   br label %28
 
 7:                                                ; preds = %1

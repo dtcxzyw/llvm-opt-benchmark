@@ -892,7 +892,7 @@ for.cond.i:                                       ; preds = %if.end14, %for.inc.
 land.lhs.true.i82:                                ; preds = %for.cond.i
   %long_name.i = getelementptr inbounds i8, ptr %options.addr.0.i, i64 8
   %22 = load ptr, ptr %long_name.i, align 8
-  %call.i83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %5) #18
+  %call.i83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(1) %5) #18
   %tobool.not.i84 = icmp eq i32 %call.i83, 0
   br i1 %tobool.not.i84, label %parse_subcommand.exit.thread, label %for.inc.i85
 
@@ -1210,7 +1210,7 @@ while.cond.ithread-pre-split.i.i:                 ; preds = %while.body.i.i.i
 while.body.i.i.i:                                 ; preds = %while.cond.ithread-pre-split.i.i, %while.cond.i.preheader.i.i
   %array.addr.0.i7.i.i = phi ptr [ %group.09.i.i, %while.cond.i.preheader.i.i ], [ %incdec.ptr.i.i.i, %while.cond.ithread-pre-split.i.i ]
   %52 = phi ptr [ %51, %while.cond.i.preheader.i.i ], [ %.pr.i.i, %while.cond.ithread-pre-split.i.i ]
-  %call.i.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %52) #18
+  %call.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %52) #18
   %tobool1.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool1.not.i.i.i, label %while.cond.i7.i.i, label %while.cond.ithread-pre-split.i.i, !llvm.loop !14
 
@@ -1222,7 +1222,7 @@ while.cond.i7.i.i:                                ; preds = %while.body.i.i.i, %
 
 while.body.i10.i.i:                               ; preds = %while.cond.i7.i.i
   %incdec.ptr.i11.i.i = getelementptr inbounds i8, ptr %array.addr.0.i8.i.i, i64 8
-  %call.i12.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %53) #18
+  %call.i12.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %53) #18
   %tobool1.not.i13.i.i = icmp eq i32 %call.i12.i.i, 0
   br i1 %tobool1.not.i13.i.i, label %if.end21.i, label %while.cond.i7.i.i, !llvm.loop !14
 
@@ -2319,7 +2319,7 @@ for.body.i:                                       ; preds = %if.then169, %for.in
   br i1 %tobool.not.i162, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call.i163 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %positive_name.2) #18
+  %call.i163 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull readonly dereferenceable(1) %positive_name.2) #18
   %tobool3.not.i = icmp eq i32 %call.i163, 0
   br i1 %tobool3.not.i, label %for.inc182, label %for.inc.i
 
@@ -2427,7 +2427,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 st_mult.exit.i:                                   ; preds = %if.then.i
   %mul.i.i = shl nuw nsw i64 %conv, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %5, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr, ptr readonly align 1 %5, i64 %mul.i.i, i1 false)
   %.pre = load ptr, ptr %out, align 8
   %.pre12 = load i32, ptr %cpidx, align 4
   %.pre13 = load i32, ptr %argc1, align 8
@@ -2493,7 +2493,7 @@ st_mult.exit.i:                                   ; preds = %for.end.i
   %conv.i = and i64 %add.i, 4294967295
   %mul.i.i = mul nuw nsw i64 %conv.i, 88
   %call8.i = tail call ptr @xmalloc(i64 noundef %mul.i.i) #17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call8.i, ptr noundef nonnull align 1 dereferenceable(1) %options, i64 %mul.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %call8.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %options, i64 %mul.i.i, i1 false)
   %1 = mul i32 %nr_aliases.0.i, 3
   %mul.i = add i32 %1, 3
   %conv10.i = sext i32 %mul.i to i64
@@ -2569,7 +2569,7 @@ if.then52.i:                                      ; preds = %if.end46.i
 
 if.end53.i:                                       ; preds = %if.end46.i
   %10 = trunc nuw nsw i64 %indvars.iv76.i to i32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx17.i, ptr noundef nonnull align 8 dereferenceable(88) %arrayidx40.i, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx17.i, ptr noundef nonnull readonly align 8 dereferenceable(88) %arrayidx40.i, i64 88, i1 false)
   store i32 %4, ptr %short_name25.i, align 4
   store ptr %5, ptr %long_name28.i, align 8
   %call62.i = call ptr @strbuf_detach(ptr noundef nonnull %help.i, ptr noundef null) #17
@@ -2822,7 +2822,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 st_mult.exit.i.i:                                 ; preds = %if.then.i.i
   %mul.i.i.i = shl nuw nsw i64 %conv.i38, 3
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %42, i64 %mul.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 1 %add.ptr.i, ptr readonly align 1 %42, i64 %mul.i.i.i, i1 false)
   %.pre.i = load ptr, ptr %out.i, align 8
   %.pre12.i = load i32, ptr %cpidx.i, align 4
   %.pre13.i = load i32, ptr %argc1.i, align 8

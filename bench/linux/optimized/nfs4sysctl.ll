@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @nfs_idmap_cache_timeout = external dso_local global i32, align 4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfs4_register_sysctl() local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @nfs4_register_sysctl() local_unnamed_addr #0 align 16 {
   %1 = tail call ptr @register_sysctl_sz(ptr noundef nonnull @.str, ptr noundef nonnull @nfs4_cb_sysctls, i64 noundef 2) #2
   store ptr %1, ptr @nfs4_callback_sysctl_table, align 8
   %2 = icmp eq ptr %1, null

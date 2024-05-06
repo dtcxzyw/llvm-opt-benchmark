@@ -138,21 +138,21 @@ return:                                           ; preds = %if.end16, %if.end2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossl_aes_gcm_siv_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @ossl_aes_gcm_siv_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 1), !range !4
+  %call = tail call fastcc i32 @ossl_aes_gcm_siv_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossl_aes_gcm_siv_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @ossl_aes_gcm_siv_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 0), !range !4
+  %call = tail call fastcc i32 @ossl_aes_gcm_siv_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossl_aes_gcm_siv_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
+define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -205,7 +205,7 @@ return:                                           ; preds = %if.then1, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossl_aes_gcm_siv_stream_final(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly %outl, i64 %outsize) #0 {
+define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_stream_final(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly %outl, i64 %outsize) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -245,7 +245,7 @@ entry:
 declare ptr @ossl_cipher_generic_gettable_params(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossl_aes_gcm_siv_get_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_get_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #4
   %cmp.not = icmp eq ptr %call, null
@@ -317,7 +317,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossl_aes_gcm_siv_set_ctx_params(ptr nocapture noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_set_ctx_params(ptr nocapture noundef %vctx, ptr noundef %params) #0 {
 entry:
   %speed = alloca i32, align 4
   %key_len = alloca i64, align 8
@@ -520,7 +520,7 @@ declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 no
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ossl_aes_gcm_siv_init(ptr noundef %vctx, ptr noundef readonly %key, i64 noundef %keylen, ptr noundef readonly %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ossl_aes_gcm_siv_init(ptr noundef %vctx, ptr noundef readonly %key, i64 noundef %keylen, ptr noundef readonly %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -528,7 +528,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %enc1 = getelementptr inbounds i8, ptr %vctx, i64 440
-  %0 = trunc i32 %enc to i8
+  %0 = trunc nuw nsw i32 %enc to i8
   %bf.load = load i8, ptr %enc1, align 8
   %bf.value = and i8 %0, 1
   %bf.clear = and i8 %bf.load, -2
@@ -582,7 +582,7 @@ if.end14:                                         ; preds = %if.end12, %if.end7
   br i1 %tobool16.not, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.end14
-  %call19 = tail call i32 @ossl_aes_gcm_siv_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params), !range !4
+  %call19 = tail call i32 @ossl_aes_gcm_siv_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %if.end14, %entry, %if.end18, %if.then11, %if.then4
@@ -625,4 +625,3 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

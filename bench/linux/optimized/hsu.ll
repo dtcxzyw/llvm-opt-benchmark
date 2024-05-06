@@ -38,7 +38,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hsu_dma_remo
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_hsu_dma_do_irq357, ptr @__UNIQUE_ID___addressable_hsu_dma_get_status356, ptr @__UNIQUE_ID___addressable_hsu_dma_probe358, ptr @__UNIQUE_ID___addressable_hsu_dma_remove359, ptr @__UNIQUE_ID_author363, ptr @__UNIQUE_ID_description362, ptr @__UNIQUE_ID_file360, ptr @__UNIQUE_ID_license361], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @hsu_dma_get_status(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local range(i32 -22, 2) i32 @hsu_dma_get_status(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 392
@@ -95,7 +95,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @hsu_dma_do_irq(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @hsu_dma_do_irq(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 392

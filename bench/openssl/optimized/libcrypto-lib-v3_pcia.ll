@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [12 x i8] c"proxyPolicy\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @PROXY_POLICY_it() #0 {
+define noundef nonnull ptr @PROXY_POLICY_it() #0 {
 entry:
   ret ptr @PROXY_POLICY_it.local_it
 }
@@ -60,7 +60,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @PROXY_CERT_INFO_EXTENSION_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @PROXY_CERT_INFO_EXTENSION_it() local_unnamed_addr #0 {
 entry:
   ret ptr @PROXY_CERT_INFO_EXTENSION_it.local_it
 }

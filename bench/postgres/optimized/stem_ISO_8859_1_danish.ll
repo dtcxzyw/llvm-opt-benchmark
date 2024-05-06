@@ -57,7 +57,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_c = internal constant [4 x i8] c"w\DFw\01", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @danish_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @danish_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -303,7 +303,7 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
   br i1 %124, label %r_main_suffix.exit, label %125
 
 125:                                              ; preds = %122
-  %126 = tail call fastcc i32 @r_consonant_pair(ptr noundef nonnull %0), !range !4
+  %126 = tail call fastcc i32 @r_consonant_pair(ptr noundef nonnull %0)
   %127 = icmp slt i32 %126, 0
   br i1 %127, label %r_main_suffix.exit, label %r_other_suffix.exit
 
@@ -375,7 +375,7 @@ r_main_suffix.exit:                               ; preds = %154, %128, %125, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @r_consonant_pair(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_consonant_pair(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -490,4 +490,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483648, i32 2}

@@ -111,7 +111,7 @@ entry:
   %in.sroa.3 = alloca i32, align 4
   %in.sroa.0.0.extract.trunc = trunc i64 %in.coerce to i32
   %in.sroa.3.0.extract.shift = lshr i64 %in.coerce, 32
-  %in.sroa.3.0.extract.trunc = trunc i64 %in.sroa.3.0.extract.shift to i32
+  %in.sroa.3.0.extract.trunc = trunc nuw i64 %in.sroa.3.0.extract.shift to i32
   store i32 %in.sroa.0.0.extract.trunc, ptr @last_tfrsuv_arg, align 4
   store i32 %in.sroa.3.0.extract.trunc, ptr getelementptr inbounds (%struct.TestReg, ptr @last_tfrsuv_arg, i64 0, i32 1), align 4
   store volatile i32 195948557, ptr %in.sroa.0, align 4
@@ -231,8 +231,8 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %0 = trunc i64 %indvars.iv.next to i32
-  %add = uitofp i32 %0 to double
+  %0 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %add = uitofp nneg i32 %0 to double
   %arrayidx = getelementptr [4 x double], ptr %agg.result, i64 0, i64 %indvars.iv
   store double %add, ptr %arrayidx, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -269,8 +269,8 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %0 = trunc i64 %indvars.iv.next to i32
-  %add = uitofp i32 %0 to double
+  %0 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %add = uitofp nneg i32 %0 to double
   %arrayidx = getelementptr [8 x double], ptr %agg.result, i64 0, i64 %indvars.iv
   store double %add, ptr %arrayidx, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -307,8 +307,8 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %0 = trunc i64 %indvars.iv.next to i32
-  %add = uitofp i32 %0 to double
+  %0 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %add = uitofp nneg i32 %0 to double
   %arrayidx = getelementptr [9 x double], ptr %agg.result, i64 0, i64 %indvars.iv
   store double %add, ptr %arrayidx, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
@@ -330,7 +330,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_testfunc_union_by_value2(ptr nocapture noundef readonly byval(%struct.Test5) align 8 %in) local_unnamed_addr #10 {
+define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_value2(ptr nocapture noundef readonly byval(%struct.Test5) align 8 %in) local_unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %in, align 8
   %nested = getelementptr inbounds i8, ptr %in, i64 8
@@ -349,7 +349,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @_testfunc_union_by_reference2(ptr nocapture noundef %in) local_unnamed_addr #11 {
+define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_reference2(ptr nocapture noundef %in) local_unnamed_addr #11 {
 entry:
   %0 = load i32, ptr %in, align 8
   %another_int = getelementptr inbounds i8, ptr %in, i64 4
@@ -361,7 +361,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @_testfunc_union_by_reference3(ptr nocapture noundef %in) local_unnamed_addr #11 {
+define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_reference3(ptr nocapture noundef %in) local_unnamed_addr #11 {
 entry:
   %0 = load i32, ptr %in, align 8
   %nested = getelementptr inbounds i8, ptr %in, i64 8
@@ -376,7 +376,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @_testfunc_bitfield_by_value1(i32 %in.coerce) local_unnamed_addr #9 {
+define range(i64 -9, 6) i64 @_testfunc_bitfield_by_value1(i32 %in.coerce) local_unnamed_addr #9 {
 entry:
   %in.sroa.0.0.extract.trunc = trunc i32 %in.coerce to i8
   %0 = and i32 %in.coerce, 1
@@ -396,7 +396,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @_testfunc_bitfield_by_reference1(ptr nocapture noundef %in) local_unnamed_addr #11 {
+define range(i64 -9, 6) i64 @_testfunc_bitfield_by_reference1(ptr nocapture noundef %in) local_unnamed_addr #11 {
 entry:
   %bf.load = load i8, ptr %in, align 4
   %0 = and i8 %bf.load, 1
@@ -414,7 +414,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @_testfunc_bitfield_by_reference2(ptr nocapture noundef %in) local_unnamed_addr #11 {
+define range(i64 0, 15) i64 @_testfunc_bitfield_by_reference2(ptr nocapture noundef %in) local_unnamed_addr #11 {
 entry:
   %bf.load = load i8, ptr %in, align 4
   %bf.clear = and i8 %bf.load, 1
@@ -432,7 +432,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @_testfunc_bitfield_by_value2(i32 %in.coerce) local_unnamed_addr #9 {
+define range(i64 -9, 6) i64 @_testfunc_bitfield_by_value2(i32 %in.coerce) local_unnamed_addr #9 {
 entry:
   %0 = and i32 %in.coerce, 1
   %bf.cast44 = shl i32 %in.coerce, 30
@@ -842,7 +842,7 @@ define i32 @_testfunc_byval(i64 %in.coerce, ptr noundef writeonly %pout) local_u
 entry:
   %in.sroa.0.0.extract.trunc = trunc i64 %in.coerce to i32
   %in.sroa.3.0.extract.shift = lshr i64 %in.coerce, 32
-  %in.sroa.3.0.extract.trunc = trunc i64 %in.sroa.3.0.extract.shift to i32
+  %in.sroa.3.0.extract.trunc = trunc nuw i64 %in.sroa.3.0.extract.shift to i32
   %tobool.not = icmp eq ptr %pout, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -947,7 +947,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @unpack_bitfields(ptr nocapture noundef readonly %bits, i8 noundef signext %name) local_unnamed_addr #10 {
+define range(i32 -256, 1000) i32 @unpack_bitfields(ptr nocapture noundef readonly %bits, i8 noundef signext %name) local_unnamed_addr #10 {
 entry:
   switch i8 %name, label %return [
     i8 65, label %sw.bb
@@ -1015,7 +1015,7 @@ sw.bb25:                                          ; preds = %entry
   %bf.load26 = load i64, ptr %H, align 4
   %bf.shl27 = shl i64 %bf.load26, 56
   %bf.ashr28 = ashr exact i64 %bf.shl27, 56
-  %bf.cast = trunc i64 %bf.ashr28 to i32
+  %bf.cast = trunc nsw i64 %bf.ashr28 to i32
   br label %return
 
 sw.bb29:                                          ; preds = %entry
@@ -1023,7 +1023,7 @@ sw.bb29:                                          ; preds = %entry
   %bf.load30 = load i64, ptr %I, align 4
   %bf.shl31 = shl i64 %bf.load30, 47
   %bf.ashr32 = ashr i64 %bf.shl31, 55
-  %bf.cast33 = trunc i64 %bf.ashr32 to i32
+  %bf.cast33 = trunc nsw i64 %bf.ashr32 to i32
   br label %return
 
 sw.bb34:                                          ; preds = %entry
@@ -1031,7 +1031,7 @@ sw.bb34:                                          ; preds = %entry
   %bf.load35 = load i64, ptr %M, align 4
   %bf.shl36 = shl i64 %bf.load35, 46
   %bf.ashr37 = ashr i64 %bf.shl36, 63
-  %bf.cast38 = trunc i64 %bf.ashr37 to i32
+  %bf.cast38 = trunc nsw i64 %bf.ashr37 to i32
   br label %return
 
 sw.bb40:                                          ; preds = %entry
@@ -1039,7 +1039,7 @@ sw.bb40:                                          ; preds = %entry
   %bf.load41 = load i64, ptr %N, align 4
   %bf.shl42 = shl i64 %bf.load41, 44
   %bf.ashr43 = ashr i64 %bf.shl42, 62
-  %bf.cast44 = trunc i64 %bf.ashr43 to i32
+  %bf.cast44 = trunc nsw i64 %bf.ashr43 to i32
   br label %return
 
 sw.bb46:                                          ; preds = %entry
@@ -1047,7 +1047,7 @@ sw.bb46:                                          ; preds = %entry
   %bf.load47 = load i64, ptr %O, align 4
   %bf.shl48 = shl i64 %bf.load47, 41
   %bf.ashr49 = ashr i64 %bf.shl48, 61
-  %bf.cast50 = trunc i64 %bf.ashr49 to i32
+  %bf.cast50 = trunc nsw i64 %bf.ashr49 to i32
   br label %return
 
 sw.bb52:                                          ; preds = %entry
@@ -1055,7 +1055,7 @@ sw.bb52:                                          ; preds = %entry
   %bf.load53 = load i64, ptr %P, align 4
   %bf.shl54 = shl i64 %bf.load53, 37
   %bf.ashr55 = ashr i64 %bf.shl54, 60
-  %bf.cast56 = trunc i64 %bf.ashr55 to i32
+  %bf.cast56 = trunc nsw i64 %bf.ashr55 to i32
   br label %return
 
 sw.bb58:                                          ; preds = %entry
@@ -1063,7 +1063,7 @@ sw.bb58:                                          ; preds = %entry
   %bf.load59 = load i64, ptr %Q, align 4
   %bf.shl60 = shl i64 %bf.load59, 32
   %bf.ashr61 = ashr i64 %bf.shl60, 59
-  %bf.cast62 = trunc i64 %bf.ashr61 to i32
+  %bf.cast62 = trunc nsw i64 %bf.ashr61 to i32
   br label %return
 
 sw.bb64:                                          ; preds = %entry
@@ -1071,7 +1071,7 @@ sw.bb64:                                          ; preds = %entry
   %bf.load65 = load i64, ptr %R, align 4
   %bf.shl66 = shl i64 %bf.load65, 26
   %bf.ashr67 = ashr i64 %bf.shl66, 58
-  %bf.cast68 = trunc i64 %bf.ashr67 to i32
+  %bf.cast68 = trunc nsw i64 %bf.ashr67 to i32
   br label %return
 
 sw.bb70:                                          ; preds = %entry
@@ -1079,7 +1079,7 @@ sw.bb70:                                          ; preds = %entry
   %bf.load71 = load i64, ptr %S, align 4
   %bf.shl72 = shl i64 %bf.load71, 19
   %bf.ashr73 = ashr i64 %bf.shl72, 57
-  %bf.cast74 = trunc i64 %bf.ashr73 to i32
+  %bf.cast74 = trunc nsw i64 %bf.ashr73 to i32
   br label %return
 
 return:                                           ; preds = %entry, %sw.bb70, %sw.bb64, %sw.bb58, %sw.bb52, %sw.bb46, %sw.bb40, %sw.bb34, %sw.bb29, %sw.bb25, %sw.bb21, %sw.bb17, %sw.bb13, %sw.bb9, %sw.bb5, %sw.bb1, %sw.bb
@@ -1088,7 +1088,7 @@ return:                                           ; preds = %entry, %sw.bb70, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef signext i8 @tf_b(i8 noundef signext %c) local_unnamed_addr #29 {
+define noundef signext range(i8 -42, 43) i8 @tf_b(i8 noundef signext %c) local_unnamed_addr #29 {
 entry:
   %conv = sext i8 %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1097,7 +1097,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef zeroext i8 @tf_B(i8 noundef zeroext %c) local_unnamed_addr #29 {
+define noundef zeroext range(i8 0, 86) i8 @tf_B(i8 noundef zeroext %c) local_unnamed_addr #29 {
 entry:
   %conv = zext i8 %c to i64
   store i64 %conv, ptr @last_tf_arg_u, align 8
@@ -1106,7 +1106,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef signext i16 @tf_h(i16 noundef signext %c) local_unnamed_addr #29 {
+define noundef signext range(i16 -10922, 10923) i16 @tf_h(i16 noundef signext %c) local_unnamed_addr #29 {
 entry:
   %conv = sext i16 %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1115,7 +1115,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef zeroext i16 @tf_H(i16 noundef zeroext %c) local_unnamed_addr #29 {
+define noundef zeroext range(i16 0, 21846) i16 @tf_H(i16 noundef zeroext %c) local_unnamed_addr #29 {
 entry:
   %conv = zext i16 %c to i64
   store i64 %conv, ptr @last_tf_arg_u, align 8
@@ -1124,7 +1124,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @tf_i(i32 noundef %c) local_unnamed_addr #29 {
+define noundef range(i32 -715827882, 715827883) i32 @tf_i(i32 noundef %c) local_unnamed_addr #29 {
 entry:
   %conv = sext i32 %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1133,7 +1133,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @tf_I(i32 noundef %c) local_unnamed_addr #29 {
+define noundef range(i32 0, 1431655766) i32 @tf_I(i32 noundef %c) local_unnamed_addr #29 {
 entry:
   %conv = zext i32 %c to i64
   store i64 %conv, ptr @last_tf_arg_u, align 8
@@ -1142,7 +1142,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_l(i64 noundef %c) local_unnamed_addr #29 {
+define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_l(i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_s, align 8
   %div = sdiv i64 %c, 3
@@ -1150,7 +1150,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_L(i64 noundef %c) local_unnamed_addr #29 {
+define noundef range(i64 0, 6148914691236517206) i64 @tf_L(i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_u, align 8
   %div = udiv i64 %c, 3
@@ -1158,7 +1158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_q(i64 noundef %c) local_unnamed_addr #29 {
+define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_q(i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_s, align 8
   %div = sdiv i64 %c, 3
@@ -1166,7 +1166,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_Q(i64 noundef %c) local_unnamed_addr #29 {
+define noundef range(i64 0, 6148914691236517206) i64 @tf_Q(i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_u, align 8
   %div = udiv i64 %c, 3
@@ -1201,7 +1201,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef signext i8 @tf_bb(i8 noundef signext %x, i8 noundef signext %c) local_unnamed_addr #29 {
+define noundef signext range(i8 -42, 43) i8 @tf_bb(i8 noundef signext %x, i8 noundef signext %c) local_unnamed_addr #29 {
 entry:
   %conv = sext i8 %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1210,7 +1210,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef zeroext i8 @tf_bB(i8 noundef signext %x, i8 noundef zeroext %c) local_unnamed_addr #29 {
+define noundef zeroext range(i8 0, 86) i8 @tf_bB(i8 noundef signext %x, i8 noundef zeroext %c) local_unnamed_addr #29 {
 entry:
   %conv = zext i8 %c to i64
   store i64 %conv, ptr @last_tf_arg_u, align 8
@@ -1219,7 +1219,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef signext i16 @tf_bh(i8 noundef signext %x, i16 noundef signext %c) local_unnamed_addr #29 {
+define noundef signext range(i16 -10922, 10923) i16 @tf_bh(i8 noundef signext %x, i16 noundef signext %c) local_unnamed_addr #29 {
 entry:
   %conv = sext i16 %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1228,7 +1228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef zeroext i16 @tf_bH(i8 noundef signext %x, i16 noundef zeroext %c) local_unnamed_addr #29 {
+define noundef zeroext range(i16 0, 21846) i16 @tf_bH(i8 noundef signext %x, i16 noundef zeroext %c) local_unnamed_addr #29 {
 entry:
   %conv = zext i16 %c to i64
   store i64 %conv, ptr @last_tf_arg_u, align 8
@@ -1237,7 +1237,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @tf_bi(i8 noundef signext %x, i32 noundef %c) local_unnamed_addr #29 {
+define noundef range(i32 -715827882, 715827883) i32 @tf_bi(i8 noundef signext %x, i32 noundef %c) local_unnamed_addr #29 {
 entry:
   %conv = sext i32 %c to i64
   store i64 %conv, ptr @last_tf_arg_s, align 8
@@ -1246,7 +1246,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @tf_bI(i8 noundef signext %x, i32 noundef %c) local_unnamed_addr #29 {
+define noundef range(i32 0, 1431655766) i32 @tf_bI(i8 noundef signext %x, i32 noundef %c) local_unnamed_addr #29 {
 entry:
   %conv = zext i32 %c to i64
   store i64 %conv, ptr @last_tf_arg_u, align 8
@@ -1255,7 +1255,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_bl(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #29 {
+define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_bl(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_s, align 8
   %div = sdiv i64 %c, 3
@@ -1263,7 +1263,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_bL(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #29 {
+define noundef range(i64 0, 6148914691236517206) i64 @tf_bL(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_u, align 8
   %div = udiv i64 %c, 3
@@ -1271,7 +1271,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_bq(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #29 {
+define noundef range(i64 -3074457345618258602, 3074457345618258603) i64 @tf_bq(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_s, align 8
   %div = sdiv i64 %c, 3
@@ -1279,7 +1279,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @tf_bQ(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #29 {
+define noundef range(i64 0, 6148914691236517206) i64 @tf_bQ(i8 noundef signext %x, i64 noundef %c) local_unnamed_addr #29 {
 entry:
   store i64 %c, ptr @last_tf_arg_u, align 8
   %div = udiv i64 %c, 3
@@ -1322,7 +1322,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @PointInRect(ptr nocapture noundef readonly %prc, i64 %pt.coerce0, i64 %pt.coerce1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @PointInRect(ptr nocapture noundef readonly %prc, i64 %pt.coerce0, i64 %pt.coerce1) local_unnamed_addr #10 {
 entry:
   %0 = load i64, ptr %prc, align 8
   %cmp = icmp sgt i64 %0, %pt.coerce0
@@ -1484,7 +1484,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @GetRectangle(i32 noundef %flag, ptr nocapture noundef writeonly %prect) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @GetRectangle(i32 noundef %flag, ptr nocapture noundef writeonly %prect) local_unnamed_addr #21 {
 entry:
   %cmp = icmp eq i32 %flag, 0
   br i1 %cmp, label %return, label %if.end

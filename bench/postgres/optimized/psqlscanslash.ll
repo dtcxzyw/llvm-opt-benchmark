@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [18 x i8] c"%s: out of memory\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @slash_yylex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @slash_yylex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca [512 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %1, i64 144
@@ -1105,7 +1105,7 @@ yy_get_previous_state.exit:                       ; preds = %394, %378
   br i1 %exitcond179.not.i, label %.critedge.i, label %476, !llvm.loop !11
 
 .critedge.split.loop.exit.i:                      ; preds = %476, %476
-  %489 = trunc i64 %indvars.iv.i to i32
+  %489 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %479, %.critedge.split.loop.exit.i
@@ -2610,7 +2610,7 @@ define dso_local void @slash_yyset_lval(ptr noundef %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @slash_yylex_init(ptr noundef writeonly %0) local_unnamed_addr #13 {
+define dso_local range(i32 0, 2) i32 @slash_yylex_init(ptr noundef writeonly %0) local_unnamed_addr #13 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -2638,7 +2638,7 @@ declare ptr @__errno_location() local_unnamed_addr #14
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @slash_yylex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
+define dso_local range(i32 0, 2) i32 @slash_yylex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -2825,7 +2825,7 @@ define dso_local ptr @psql_scan_slash_command(ptr noundef %0) local_unnamed_addr
   %9 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 1, ptr %9, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = call i32 @slash_yylex(ptr noundef null, ptr noundef %10), !range !14
+  %11 = call i32 @slash_yylex(ptr noundef null, ptr noundef %10)
   call void @psql_scan_reselect_sql_lexer(ptr noundef nonnull %0) #29
   %12 = load ptr, ptr %2, align 8
   ret ptr %12
@@ -2861,7 +2861,7 @@ define dso_local ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef %1, ptr
   %15 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %.sink, ptr %15, align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = call i32 @slash_yylex(ptr noundef null, ptr noundef %16), !range !14
+  %17 = call i32 @slash_yylex(ptr noundef null, ptr noundef %16)
   %18 = load i32, ptr %15, align 8
   call void @psql_scan_reselect_sql_lexer(ptr noundef nonnull %0) #29
   switch i32 %18, label %71 [
@@ -2908,7 +2908,7 @@ define dso_local ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef %1, ptr
   %38 = load i64, ptr %20, align 8
   %39 = icmp ne i64 %38, 0
   %or.cond = select i1 %37, i1 %39, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !15
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %32, %.lr.ph, %.preheader, %19
   %40 = add i32 %1, -1
@@ -3039,7 +3039,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   %15 = getelementptr i8, ptr %.1.us, i64 1
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1.us) #32
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.1.us, ptr align 1 %15, i64 %16, i1 false)
-  br label %.split.us.outer, !llvm.loop !16
+  br label %.split.us.outer, !llvm.loop !15
 
 17:                                               ; preds = %.split.us
   br i1 %4, label %20, label %18
@@ -3053,7 +3053,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   %21 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.0.us, i32 noundef %2) #29
   %22 = sext i32 %21 to i64
   %23 = getelementptr i8, ptr %.0.us, i64 %22
-  br label %.split.us, !llvm.loop !16
+  br label %.split.us, !llvm.loop !15
 
 .split:                                           ; preds = %.split.outer, %36
   %.0 = phi ptr [ %39, %36 ], [ %.0.ph, %.split.outer ]
@@ -3083,7 +3083,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   %34 = getelementptr i8, ptr %.1, i64 1
   %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #32
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.1, ptr align 1 %34, i64 %35, i1 false)
-  br label %.split.outer, !llvm.loop !16
+  br label %.split.outer, !llvm.loop !15
 
 .split.outer:                                     ; preds = %3, %33
   %.016.ph = phi i8 [ %.117, %33 ], [ 0, %3 ]
@@ -3094,7 +3094,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   %37 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.0, i32 noundef %2) #29
   %38 = sext i32 %37 to i64
   %39 = getelementptr i8, ptr %.0, i64 %38
-  br label %.split, !llvm.loop !16
+  br label %.split, !llvm.loop !15
 
 .split21.us:                                      ; preds = %.split, %.split.us
   ret void
@@ -3127,7 +3127,7 @@ define dso_local void @psql_scan_slash_command_end(ptr noundef %0) local_unnamed
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 8, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i32 @slash_yylex(ptr noundef null, ptr noundef %9), !range !14
+  %10 = tail call i32 @slash_yylex(ptr noundef null, ptr noundef %9)
   tail call void @psql_scan_reselect_sql_lexer(ptr noundef nonnull %0) #29
   ret void
 }
@@ -3246,6 +3246,5 @@ attributes #32 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = !{i32 0, i32 2}
+!14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

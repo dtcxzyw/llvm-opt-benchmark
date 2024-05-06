@@ -29,7 +29,7 @@ define dso_local i32 @archive_read_support_filter_compress(ptr noundef %0) local
 declare i32 @__archive_read_register_bidder(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @compress_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal range(i32 0, 19) i32 @compress_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = call ptr @__archive_read_filter_ahead(ptr noundef %1, i64 noundef 3, ptr noundef nonnull %3) #6
   %5 = icmp eq ptr %4, null
@@ -66,7 +66,7 @@ define internal i32 @compress_bidder_bid(ptr nocapture readnone %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @compress_bidder_init(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @compress_bidder_init(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 3, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -152,7 +152,7 @@ define internal noundef i32 @compress_bidder_init(ptr nocapture noundef %0) #0 {
   br i1 %.not49, label %44, label %40, !llvm.loop !5
 
 44:                                               ; preds = %40
-  %45 = tail call fastcc i32 @next_code(ptr noundef %0), !range !7
+  %45 = tail call fastcc i32 @next_code(ptr noundef %0)
   br label %46
 
 46:                                               ; preds = %44, %21, %8
@@ -258,7 +258,7 @@ define internal fastcc i32 @getbits(ptr nocapture noundef readonly %0, i32 nound
   %45 = add i64 %44, 1
   store i64 %45, ptr %13, align 8
   %46 = icmp slt i32 %43, %1
-  br i1 %46, label %14, label %._crit_edge, !llvm.loop !8
+  br i1 %46, label %14, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %32, %.._crit_edge_crit_edge
   %47 = phi i32 [ %.pre37, %.._crit_edge_crit_edge ], [ %41, %32 ]
@@ -280,7 +280,7 @@ define internal fastcc i32 @getbits(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @next_code(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @next_code(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 76
@@ -329,7 +329,7 @@ define internal fastcc i32 @next_code(ptr nocapture noundef readonly %0) unnamed
   %31 = add nsw i32 %.0, -1
   %32 = tail call fastcc i32 @getbits(ptr noundef %0, i32 noundef 8)
   %33 = icmp slt i32 %32, 0
-  br i1 %33, label %.loopexit, label %28, !llvm.loop !9
+  br i1 %33, label %.loopexit, label %28, !llvm.loop !8
 
 tailrecurse:                                      ; preds = %28
   store i64 0, ptr %21, align 8
@@ -410,7 +410,7 @@ tailrecurse:                                      ; preds = %28
   %77 = load i16, ptr %76, align 2
   %78 = zext i16 %77 to i32
   %79 = icmp ugt i16 %77, 255
-  br i1 %79, label %70, label %._crit_edge, !llvm.loop !10
+  br i1 %79, label %70, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %70, %65
   %.1.lcssa = phi i32 [ %.069, %65 ], [ %78, %70 ]
@@ -539,7 +539,7 @@ define internal i64 @compress_filter_read(ptr nocapture noundef readonly %0, ptr
   br label %31
 
 26:                                               ; preds = %19
-  %27 = tail call fastcc i32 @next_code(ptr noundef %0), !range !7
+  %27 = tail call fastcc i32 @next_code(ptr noundef %0)
   switch i32 %27, label %29 [
     i32 -1, label %28
     i32 0, label %31
@@ -556,7 +556,7 @@ define internal i64 @compress_filter_read(ptr nocapture noundef readonly %0, ptr
 31:                                               ; preds = %26, %28, %22
   %.1 = phi ptr [ %25, %22 ], [ %.02330, %28 ], [ %.02330, %26 ]
   %32 = icmp ult ptr %.1, %13
-  br i1 %32, label %17, label %.critedge, !llvm.loop !11
+  br i1 %32, label %17, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %17, %31, %8
   %.023.lcssa = phi ptr [ %10, %8 ], [ %.1, %31 ], [ %.02330, %17 ]
@@ -603,8 +603,7 @@ attributes #8 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -2147483648, i32 1}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}

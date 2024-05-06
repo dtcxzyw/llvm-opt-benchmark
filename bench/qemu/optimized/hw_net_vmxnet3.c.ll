@@ -629,7 +629,7 @@ declare i32 @pcie_endpoint_cap_init(ptr noundef, i8 noundef zeroext) local_unnam
 declare void @pcie_dev_ser_num_init(ptr noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @vmxnet3_io_bar0_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #4 {
+define internal range(i64 0, 2) i64 @vmxnet3_io_bar0_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #4 {
 entry:
   %cmp1.i = icmp ugt i64 %addr, 199
   br i1 %cmp1.i, label %return, label %if.then
@@ -793,7 +793,7 @@ if.then11.i:                                      ; preds = %if.end9.i
   %bf.lshr2.i.i = lshr i32 %bf.load1.i.i, 18
   store i32 %bf.lshr2.i.i, ptr %cso_or_gso_size.i.i, align 4
   %bf.lshr4.i.i = lshr i32 %bf.load14.pre.i, 16
-  %conv.i28.i = trunc i32 %bf.lshr4.i.i to i16
+  %conv.i28.i = trunc nuw i32 %bf.lshr4.i.i to i16
   store i16 %conv.i28.i, ptr %tci.i.i, align 16
   %22 = lshr i32 %bf.load14.pre.i, 15
   %23 = trunc i32 %22 to i8
@@ -890,13 +890,13 @@ switch.lookup:                                    ; preds = %sw.bb.i.i
   %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.vmxnet3_io_bar0_write, i64 0, i64 %43
   %switch.load = load i64, ptr %switch.gep, align 8
   %44 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep27 = getelementptr inbounds [3 x i64], ptr @switch.table.vmxnet3_io_bar0_write.15, i64 0, i64 %44
-  %switch.load28 = load i64, ptr %switch.gep27, align 8
+  %switch.gep29 = getelementptr inbounds [3 x i64], ptr @switch.table.vmxnet3_io_bar0_write.15, i64 0, i64 %44
+  %switch.load30 = load i64, ptr %switch.gep29, align 8
   %ucastPktsTxOK.i.i = getelementptr inbounds i8, ptr %txq_stats.i4965.i, i64 %switch.load
   %45 = load i64, ptr %ucastPktsTxOK.i.i, align 8
   %inc8.i.i = add i64 %45, 1
   store i64 %inc8.i.i, ptr %ucastPktsTxOK.i.i, align 8
-  %ucastBytesTxOK.i.i = getelementptr inbounds i8, ptr %txq_stats.i4965.i, i64 %switch.load28
+  %ucastBytesTxOK.i.i = getelementptr inbounds i8, ptr %txq_stats.i4965.i, i64 %switch.load30
   %46 = load i64, ptr %ucastBytesTxOK.i.i, align 8
   %add9.i.i = add i64 %46, %call.i4664.i
   store i64 %add9.i.i, ptr %ucastBytesTxOK.i.i, align 8
@@ -1039,12 +1039,12 @@ if.then10:                                        ; preds = %do.body
   br label %do.end34
 
 if.end15:                                         ; preds = %if.end
-  %cmp1.i17 = icmp ugt i64 %addr, 199
-  br i1 %cmp1.i17, label %if.end25, label %if.then18
+  %cmp1.i18 = icmp ugt i64 %addr, 199
+  br i1 %cmp1.i18, label %if.end25, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
   %div2014 = lshr i64 %addr, 3
-  %conv21 = trunc i64 %div2014 to i32
+  %conv21 = trunc nuw i64 %div2014 to i32
   %tobool24 = icmp ne i64 %val, 0
   %frombool.i = zext i1 %tobool24 to i8
   %interrupt_states.i = getelementptr inbounds i8, ptr %opaque, i64 14240
@@ -1211,7 +1211,7 @@ declare void @msix_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @msi_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vmxnet3_io_bar1_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @vmxnet3_io_bar1_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %0 = tail call i64 @llvm.fshl.i64(i64 %addr, i64 %addr, i64 61)
   switch i64 %0, label %sw.epilog [
@@ -2220,7 +2220,7 @@ do.end20:                                         ; preds = %entry
   %arrayidx14.i = getelementptr i8, ptr %opaque, i64 2618
   store i8 %conv10.i, ptr %arrayidx14.i, align 2
   %shr15.i = lshr i32 %92, 24
-  %conv17.i = trunc i32 %shr15.i to i8
+  %conv17.i = trunc nuw i32 %shr15.i to i8
   %arrayidx21.i = getelementptr i8, ptr %opaque, i64 2619
   store i8 %conv17.i, ptr %arrayidx21.i, align 1
   %conv24.i = trunc i64 %val to i8
@@ -2416,7 +2416,7 @@ declare void @qemu_set_vnet_hdr_len(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @qemu_using_vnet_hdr(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @vmxnet3_receive(ptr noundef %nc, ptr noundef %buf, i64 noundef %size) #0 {
+define internal range(i64 1, 0) i64 @vmxnet3_receive(ptr noundef %nc, ptr noundef %buf, i64 noundef %size) #0 {
 entry:
   %hasip4.i.i = alloca i8, align 1
   %hasip6.i.i = alloca i8, align 1
@@ -2531,7 +2531,7 @@ sw.bb.i:                                          ; preds = %if.end2.i
 
 if.end8.i:                                        ; preds = %sw.bb.i
   %conf.i = getelementptr inbounds i8, ptr %call, i64 2616
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %conf.i, ptr noundef nonnull dereferenceable(6) %buf.addr.0, i64 6)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %conf.i, ptr noundef nonnull readonly dereferenceable(6) %buf.addr.0, i64 6)
   %tobool.not.i28 = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i28, label %if.then8, label %if.end20
 
@@ -2561,7 +2561,7 @@ if.end29.i:                                       ; preds = %if.end24.i
 for.body.lr.ph.i.i:                               ; preds = %if.end29.i
   %mcast_list.i.i = getelementptr inbounds i8, ptr %call, i64 14848
   %22 = load ptr, ptr %mcast_list.i.i, align 16
-  %bcmp.i15.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf.addr.0, ptr noundef nonnull dereferenceable(6) %22, i64 6)
+  %bcmp.i15.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf.addr.0, ptr noundef nonnull dereferenceable(6) %22, i64 6)
   %tobool.not.i16.i = icmp eq i32 %bcmp.i15.i, 0
   br i1 %tobool.not.i16.i, label %if.then8, label %for.cond.i.i
 
@@ -2574,7 +2574,7 @@ for.cond.i.i:                                     ; preds = %for.body.lr.ph.i.i,
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %idxprom.i11.i = sext i32 %inc.i.i to i64
   %arrayidx.i12.i = getelementptr %struct.MACAddr, ptr %22, i64 %idxprom.i11.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf.addr.0, ptr noundef nonnull dereferenceable(6) %arrayidx.i12.i, i64 6)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf.addr.0, ptr noundef nonnull dereferenceable(6) %arrayidx.i12.i, i64 6)
   %tobool.not.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %tobool.not.i.i, label %vmxnet3_is_allowed_mcast_group.exit.i, label %for.cond.i.i, !llvm.loop !21
 
@@ -2992,7 +2992,7 @@ if.then20.i:                                      ; preds = %vmxnet3_pci_dma_wri
 if.end21.i:                                       ; preds = %if.then20.i, %vmxnet3_pci_dma_writev.exit.i
   store i32 0, ptr %49, align 4
   %bf.value.i = and i32 %rxd_idx.0.ph.i, 4095
-  %conv24.i44 = trunc i64 %cond.i to i32
+  %conv24.i44 = trunc nuw nsw i64 %cond.i to i32
   store i32 %conv24.i44, ptr %47, align 4
   %bf.shl.i = select i1 %is_head.0100.i61, i32 32768, i32 0
   %bf.set34.i = or disjoint i32 %bf.shl.i, %bf.value.i
@@ -3405,7 +3405,7 @@ declare void @msi_uninit(ptr noundef) local_unnamed_addr #1
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vmxnet3_post_load(ptr noundef %opaque, i32 %version_id) #0 {
+define internal range(i32 -1, 1) i32 @vmxnet3_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %tx_pkt = getelementptr inbounds i8, ptr %opaque, i64 14192
   %max_tx_frags = getelementptr inbounds i8, ptr %opaque, i64 14180

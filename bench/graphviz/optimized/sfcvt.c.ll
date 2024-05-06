@@ -286,7 +286,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
 
 132:                                              ; preds = %130
   %133 = getelementptr inbounds i8, ptr %.0252.lcssa, i64 -1
-  %134 = trunc i64 %.2268.lcssa to i8
+  %134 = trunc nuw i64 %.2268.lcssa to i8
   %135 = or disjoint i8 %134, 48
   store i8 %135, ptr %133, align 1
   br label %241

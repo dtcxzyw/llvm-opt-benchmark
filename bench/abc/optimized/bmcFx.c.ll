@@ -522,7 +522,7 @@ Vec_StrStart.exit:                                ; preds = %3, %7
   call fastcc void @Tab_TabHashAdd(ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 1)
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %.val = load i32, ptr %26, align 4
-  %37 = trunc i64 %indvars.iv.next115 to i32
+  %37 = trunc nuw i64 %indvars.iv.next115 to i32
   %38 = icmp sgt i32 %.val, %37
   br i1 %38, label %.lr.ph, label %.critedge4.loopexit.loopexit, !llvm.loop !13
 
@@ -867,7 +867,7 @@ Div_FindDiv.exit.thread:                          ; preds = %75, %70, %85, %91, 
   %.val64138 = phi i32 [ %.val64139, %155 ], [ %.val64139, %121 ], [ %.val64139, %116 ], [ %.val64139, %103 ], [ %.val64139, %95 ], [ %.val63.pre, %161 ], [ %.val64139, %Div_FindDiv.exit ], [ %.val64139, %98 ], [ %.val64139, %91 ], [ %.val64139, %85 ], [ %.val64139, %70 ], [ %.val64139, %75 ]
   %.val63 = phi i32 [ %.val63134, %155 ], [ %.val63134, %121 ], [ %.val63134, %116 ], [ %.val63134, %103 ], [ %.val63134, %95 ], [ %.val63.pre, %161 ], [ %.val63134, %Div_FindDiv.exit ], [ %.val63134, %98 ], [ %.val63134, %91 ], [ %.val63134, %85 ], [ %.val63134, %70 ], [ %.val63134, %75 ]
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %162 = trunc i64 %indvars.iv.next123 to i32
+  %162 = trunc nuw i64 %indvars.iv.next123 to i32
   %163 = icmp sgt i32 %.val63, %162
   br i1 %163, label %42, label %.critedge6.loopexit.loopexit, !llvm.loop !14
 
@@ -1165,9 +1165,9 @@ define internal fastcc void @Tab_TabHashAdd(ptr nocapture noundef %0, ptr nocapt
   %47 = lshr i64 %38, 62
   %48 = trunc nuw nsw i64 %47 to i32
   %49 = load i32, ptr %0, align 8
-  %50 = mul nsw i32 %40, 50331653
-  %51 = mul nsw i32 %43, 100663319
-  %52 = mul nsw i32 %46, 201326611
+  %50 = mul nuw nsw i32 %40, 50331653
+  %51 = mul nuw nsw i32 %43, 100663319
+  %52 = mul nuw nsw i32 %46, 201326611
   %53 = mul nuw nsw i32 %48, 402653189
   %54 = add nuw i32 %53, %50
   %55 = add nuw i32 %54, %51
@@ -1306,7 +1306,7 @@ Tab_TabEntry.exit45:                              ; preds = %.lr.ph, %92, %97
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Bmc_FxSolve(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef %7) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @Bmc_FxSolve(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef %7) local_unnamed_addr #1 {
   %9 = alloca [2 x i32], align 4
   %10 = getelementptr i8, ptr %3, i64 4
   %.val252 = load i32, ptr %10, align 4
@@ -2122,7 +2122,7 @@ Vec_IntPush.exit320:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not.i, label %Vec_IntFind.exit, label %347, !llvm.loop !26
 
 ._crit_edge.loopexit.split.loop.exit12.i:         ; preds = %347
-  %352 = trunc i64 %indvars.iv.i322 to i32
+  %352 = trunc nuw nsw i64 %indvars.iv.i322 to i32
   br label %Vec_IntFind.exit
 
 Vec_IntFind.exit:                                 ; preds = %351, %Vec_IntPush.exit320, %._crit_edge.loopexit.split.loop.exit12.i
@@ -2440,7 +2440,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .preheader49:                                     ; preds = %.preheader49.lr.ph, %77
   %indvars.iv61 = phi i64 [ 0, %.preheader49.lr.ph ], [ %indvars.iv.next62, %77 ]
   %57 = shl nuw nsw i64 %indvars.iv61, 1
-  %58 = trunc i64 %indvars.iv61 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv61 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader49, %76
@@ -2457,9 +2457,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %64 = select i1 %.not, ptr @.str.23, ptr @.str.22
   %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %58, ptr noundef nonnull %64)
   %66 = or disjoint i64 %indvars.iv, %57
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   %68 = add nsw i32 %62, %67
-  %69 = call i32 @Bmc_FxSolve(ptr noundef %6, i32 noundef %67, i32 noundef %68, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef null), !range !29
+  %69 = call i32 @Bmc_FxSolve(ptr noundef %6, i32 noundef %67, i32 noundef %68, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef null)
   switch i32 %69, label %71 [
     i32 0, label %.sink.split
     i32 -1, label %70
@@ -2479,15 +2479,15 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %74 = load i32, ptr %73, align 4
   %75 = add nsw i32 %74, %72
   store i32 %75, ptr %73, align 4
-  br i1 %.not, label %63, label %76, !llvm.loop !30
+  br i1 %.not, label %63, label %76, !llvm.loop !29
 
 76:                                               ; preds = %71
-  br i1 %59, label %.preheader, label %77, !llvm.loop !31
+  br i1 %59, label %.preheader, label %77, !llvm.loop !30
 
 77:                                               ; preds = %76
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
-  br i1 %exitcond64.not, label %._crit_edge55, label %.preheader49, !llvm.loop !32
+  br i1 %exitcond64.not, label %._crit_edge55, label %.preheader49, !llvm.loop !31
 
 ._crit_edge55:                                    ; preds = %77, %._crit_edge
   %78 = load ptr, ptr %23, align 8
@@ -2579,7 +2579,7 @@ define void @Bmc_FxAddClauses(ptr noundef %0, ptr nocapture noundef readonly %1,
   ]
 
 33:                                               ; preds = %23
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   %35 = xor i32 %34, -1
   %36 = add i32 %12, %35
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
@@ -2603,7 +2603,7 @@ define void @Bmc_FxAddClauses(ptr noundef %0, ptr nocapture noundef readonly %1,
   br label %93
 
 46:                                               ; preds = %23
-  %47 = trunc i64 %indvars.iv to i32
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
   %48 = xor i32 %47, -1
   %49 = add i32 %12, %48
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
@@ -2638,7 +2638,7 @@ define void @Bmc_FxAddClauses(ptr noundef %0, ptr nocapture noundef readonly %1,
   %63 = or disjoint i64 %24, 3
   %64 = getelementptr inbounds i32, ptr %.val47, i64 %63
   %65 = load i32, ptr %64, align 4
-  %66 = trunc i64 %indvars.iv to i32
+  %66 = trunc nuw nsw i64 %indvars.iv to i32
   %67 = xor i32 %66, -1
   %68 = add i32 %12, %67
   %69 = ashr i32 %32, 1
@@ -2695,7 +2695,7 @@ sat_solver_add_mux.exit:                          ; preds = %62, %90
 93:                                               ; preds = %23, %33, %sat_solver_add_mux.exit, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %93, %4
   ret void
@@ -2819,12 +2819,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %.04653, ptr %57, align 4
   %58 = add nsw i32 %.04653, 1
   %exitcond.not = icmp eq i32 %58, %.055
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit, %Vec_IntAlloc.exit
   %59 = add nsw i32 %12, %.04754
   %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %.04754, i32 noundef %59)
-  %61 = tail call i32 @Bmc_FxSolve(ptr noundef %5, i32 noundef 0, i32 noundef %59, ptr noundef nonnull %21, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef nonnull %16), !range !29
+  %61 = tail call i32 @Bmc_FxSolve(ptr noundef %5, i32 noundef 0, i32 noundef %59, ptr noundef nonnull %21, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef nonnull %16)
   switch i32 %61, label %63 [
     i32 0, label %.sink.split
     i32 -1, label %62
@@ -2866,7 +2866,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %76 = sext i32 %75 to i64
   %77 = icmp slt i64 %indvars.iv.next.i.i, %76
-  br i1 %77, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !35
+  br i1 %77, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !34
 
 ._crit_edge.i.i:                                  ; preds = %74, %63
   %78 = load ptr, ptr %19, align 8
@@ -2907,7 +2907,7 @@ Vec_IntFree.exit52:                               ; preds = %Vec_IntFree.exit, %
   tail call void @free(ptr noundef nonnull %21) #17
   %88 = add nuw nsw i32 %.04754, 1
   %exitcond59.not = icmp eq i32 %88, %1
-  br i1 %exitcond59.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !36
+  br i1 %exitcond59.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !35
 
 ._crit_edge58:                                    ; preds = %Vec_IntFree.exit52, %3
   tail call void @sat_solver_delete(ptr noundef %5) #17
@@ -3069,7 +3069,7 @@ Vec_IntPush.exit9:                                ; preds = %.Vec_IntGrow.exit10
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4
@@ -3148,11 +3148,10 @@ attributes #18 = { nounwind allocsize(0,1) }
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = !{i32 -1, i32 2}
+!29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}

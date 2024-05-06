@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [12 x i8] c"can_include\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_indexam_has_property(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_indexam_has_property(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -35,7 +35,7 @@ define dso_local i64 @pg_indexam_has_property(ptr nocapture noundef %0) local_un
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #2
   %9 = tail call ptr @text_to_cstring(ptr noundef %8) #2
-  %10 = tail call fastcc i64 @indexam_property(ptr noundef %0, ptr noundef %9, i32 noundef %4, i32 noundef 0, i32 noundef 0), !range !5
+  %10 = tail call fastcc i64 @indexam_property(ptr noundef %0, ptr noundef %9, i32 noundef %4, i32 noundef 0, i32 noundef 0)
   ret i64 %10
 }
 
@@ -44,7 +44,7 @@ declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @indexam_property(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @indexam_property(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   store i8 0, ptr %6, align 1
@@ -54,7 +54,7 @@ define internal fastcc i64 @indexam_property(ptr nocapture noundef writeonly %0,
 8:                                                ; preds = %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 18
-  br i1 %exitcond.not.i, label %lookup_prop_name.exit, label %9, !llvm.loop !6
+  br i1 %exitcond.not.i, label %lookup_prop_name.exit, label %9, !llvm.loop !5
 
 9:                                                ; preds = %8, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %8 ]
@@ -504,7 +504,7 @@ test_indoption.exit104:                           ; preds = %133, %137
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_index_has_property(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_index_has_property(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -513,12 +513,12 @@ define dso_local i64 @pg_index_has_property(ptr nocapture noundef %0) local_unna
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #2
   %9 = tail call ptr @text_to_cstring(ptr noundef %8) #2
-  %10 = tail call fastcc i64 @indexam_property(ptr noundef %0, ptr noundef %9, i32 noundef 0, i32 noundef %4, i32 noundef 0), !range !5
+  %10 = tail call fastcc i64 @indexam_property(ptr noundef %0, ptr noundef %9, i32 noundef 0, i32 noundef %4, i32 noundef 0)
   ret i64 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_index_column_has_property(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_index_column_has_property(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -539,7 +539,7 @@ define dso_local i64 @pg_index_column_has_property(ptr nocapture noundef %0) loc
 
 15:                                               ; preds = %1
   %16 = trunc i64 %3 to i32
-  %17 = tail call fastcc i64 @indexam_property(ptr noundef nonnull %0, ptr noundef %11, i32 noundef 0, i32 noundef %16, i32 noundef %6), !range !5
+  %17 = tail call fastcc i64 @indexam_property(ptr noundef nonnull %0, ptr noundef %11, i32 noundef 0, i32 noundef %16, i32 noundef %6)
   br label %18
 
 18:                                               ; preds = %15, %13
@@ -620,6 +620,5 @@ attributes #2 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

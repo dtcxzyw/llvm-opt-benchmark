@@ -470,7 +470,7 @@ timerlist_expired.exit:                           ; preds = %entry, %qemu_lockab
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @timerlist_deadline_ns(ptr noundef %timer_list) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @timerlist_deadline_ns(ptr noundef %timer_list) local_unnamed_addr #0 {
 entry:
   %active_timers = getelementptr inbounds i8, ptr %timer_list, i64 56
   %0 = load atomic i64, ptr %active_timers monotonic, align 8

@@ -65,7 +65,7 @@ entry:
 declare ptr @X509at_delete_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_signed_add1_attr(ptr noundef %si, ptr noundef %attr) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_signed_add1_attr(ptr noundef %si, ptr noundef %attr) local_unnamed_addr #0 {
 entry:
   %signedAttrs = getelementptr inbounds i8, ptr %si, i64 24
   %call = tail call ptr @X509at_add1_attr(ptr noundef nonnull %signedAttrs, ptr noundef %attr) #2
@@ -77,7 +77,7 @@ entry:
 declare ptr @X509at_add1_attr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_signed_add1_attr_by_OBJ(ptr noundef %si, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_signed_add1_attr_by_OBJ(ptr noundef %si, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %signedAttrs = getelementptr inbounds i8, ptr %si, i64 24
   %call = tail call ptr @X509at_add1_attr_by_OBJ(ptr noundef nonnull %signedAttrs, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #2
@@ -89,7 +89,7 @@ entry:
 declare ptr @X509at_add1_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_signed_add1_attr_by_NID(ptr noundef %si, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_signed_add1_attr_by_NID(ptr noundef %si, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %signedAttrs = getelementptr inbounds i8, ptr %si, i64 24
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %signedAttrs, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #2
@@ -101,7 +101,7 @@ entry:
 declare ptr @X509at_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_signed_add1_attr_by_txt(ptr noundef %si, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_signed_add1_attr_by_txt(ptr noundef %si, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %signedAttrs = getelementptr inbounds i8, ptr %si, i64 24
   %call = tail call ptr @X509at_add1_attr_by_txt(ptr noundef nonnull %signedAttrs, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #2
@@ -169,7 +169,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_unsigned_add1_attr(ptr noundef %si, ptr noundef %attr) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_unsigned_add1_attr(ptr noundef %si, ptr noundef %attr) local_unnamed_addr #0 {
 entry:
   %unsignedAttrs = getelementptr inbounds i8, ptr %si, i64 48
   %call = tail call ptr @X509at_add1_attr(ptr noundef nonnull %unsignedAttrs, ptr noundef %attr) #2
@@ -179,7 +179,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_unsigned_add1_attr_by_OBJ(ptr noundef %si, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_unsigned_add1_attr_by_OBJ(ptr noundef %si, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %unsignedAttrs = getelementptr inbounds i8, ptr %si, i64 48
   %call = tail call ptr @X509at_add1_attr_by_OBJ(ptr noundef nonnull %unsignedAttrs, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #2
@@ -189,7 +189,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_unsigned_add1_attr_by_NID(ptr noundef %si, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_unsigned_add1_attr_by_NID(ptr noundef %si, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %unsignedAttrs = getelementptr inbounds i8, ptr %si, i64 48
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %unsignedAttrs, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #2
@@ -199,7 +199,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_unsigned_add1_attr_by_txt(ptr noundef %si, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_unsigned_add1_attr_by_txt(ptr noundef %si, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %unsignedAttrs = getelementptr inbounds i8, ptr %si, i64 48
   %call = tail call ptr @X509at_add1_attr_by_txt(ptr noundef nonnull %unsignedAttrs, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #2
@@ -218,7 +218,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cms_si_check_attributes(ptr nocapture noundef readonly %si) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_si_check_attributes(ptr nocapture noundef readonly %si) local_unnamed_addr #0 {
 entry:
   %signedAttrs.i = getelementptr inbounds i8, ptr %si, i64 24
   %0 = load ptr, ptr %signedAttrs.i, align 8
@@ -244,13 +244,13 @@ for.body:                                         ; preds = %entry, %for.cond
   %flags9 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %3 = load i32, ptr %flags9, align 4
   %4 = load ptr, ptr %signedAttrs.i, align 8
-  %call10 = tail call fastcc i32 @cms_check_attribute(i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef %4, i32 noundef %conv), !range !6
+  %call10 = tail call fastcc i32 @cms_check_attribute(i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef %4, i32 noundef %conv)
   %tobool.not = icmp eq i32 %call10, 0
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
   %5 = load ptr, ptr %unsignedAttrs.i, align 8
-  %call11 = tail call fastcc i32 @cms_check_attribute(i32 noundef %2, i32 noundef %3, i32 noundef 2, ptr noundef %5, i32 noundef %conv3), !range !6
+  %call11 = tail call fastcc i32 @cms_check_attribute(i32 noundef %2, i32 noundef %3, i32 noundef 2, ptr noundef %5, i32 noundef %conv3)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.then, label %for.cond
 
@@ -266,7 +266,7 @@ return:                                           ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cms_check_attribute(i32 noundef %nid, i32 noundef %flags, i32 noundef %type, ptr noundef %attrs, i32 noundef %have_attrs) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_check_attribute(i32 noundef %nid, i32 noundef %flags, i32 noundef %type, ptr noundef %attrs, i32 noundef %have_attrs) unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @X509at_get_attr_by_NID(ptr noundef %attrs, i32 noundef %nid, i32 noundef -1) #2
   %cmp.i = icmp slt i32 %call.i, 0
@@ -345,4 +345,3 @@ attributes #2 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}

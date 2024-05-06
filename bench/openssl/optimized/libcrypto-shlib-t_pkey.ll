@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [12 x i8] c" (Negative)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_buf_print(ptr noundef %bp, ptr nocapture noundef readonly %buf, i64 noundef %buflen, i32 noundef %indent) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_buf_print(ptr noundef %bp, ptr nocapture noundef readonly %buf, i64 noundef %buflen, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %cmp10.not = icmp eq i64 %buflen, 0
   br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
@@ -79,7 +79,7 @@ declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef %number, ptr noundef %num, ptr nocapture noundef readnone %ign, i32 noundef %indent) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef %number, ptr noundef %num, ptr nocapture noundef readnone %ign, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %num, null
   br i1 %cmp, label %return, label %if.end

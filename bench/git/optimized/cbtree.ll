@@ -92,7 +92,7 @@ different_byte_found:                             ; preds = %for.body
   %conv30 = trunc i64 %newbyte.058 to i32
   %byte = getelementptr inbounds i8, ptr %node, i64 16
   store i32 %conv30, ptr %byte, align 8
-  %conv31 = trunc i64 %xor23 to i8
+  %conv31 = trunc nuw i64 %xor23 to i8
   %otherbits = getelementptr inbounds i8, ptr %node, i64 20
   store i8 %conv31, ptr %otherbits, align 4
   %add = shl nuw nsw i64 %or27, 24

@@ -245,7 +245,7 @@ return:                                           ; preds = %entry, %if.end15
 declare void @hi_sdsfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisReaderFeed(ptr nocapture noundef %r, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisReaderFeed(ptr nocapture noundef %r, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %r, align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -422,7 +422,7 @@ __redisReaderSetErrorOOM.exit:                    ; preds = %oom, %land.lhs.true
   store i32 -1, ptr %ridx.i.i, align 4
   store i32 5, ptr %r, align 8
   %errstr.i.i = getelementptr inbounds i8, ptr %r, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str, i64 13, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %r, i64 17
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %return
@@ -468,14 +468,14 @@ __redisReaderSetError.exit:                       ; preds = %entry, %land.lhs.tr
   store i32 -1, ptr %ridx.i, align 4
   store i32 5, ptr %r, align 8
   %errstr.i = getelementptr inbounds i8, ptr %r, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str, i64 13, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %r, i64 17
   store i8 0, ptr %arrayidx.i, align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @redisReaderGetReply(ptr noundef %r, ptr noundef writeonly %reply) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisReaderGetReply(ptr noundef %r, ptr noundef writeonly %reply) local_unnamed_addr #0 {
 entry:
   %cbuf.i = alloca [8 x i8], align 1
   %sbuf.i = alloca [128 x i8], align 16
@@ -644,27 +644,27 @@ sw.default.i:                                     ; preds = %if.then2.i
   ]
 
 sw.bb.i.i:                                        ; preds = %sw.default.i, %sw.default.i
-  %call.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cbuf.i, i64 noundef 8, ptr noundef nonnull @.str.2, i32 noundef %conv.i.i38) #12
+  %call.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %cbuf.i, i64 noundef 8, ptr noundef nonnull @.str.2, i32 noundef %conv.i.i38) #12
   br label %chrtos.exit.i
 
 sw.bb3.i.i:                                       ; preds = %sw.default.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %cbuf.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.3, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %cbuf.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.3, i64 5, i1 false)
   br label %chrtos.exit.i
 
 sw.bb6.i.i:                                       ; preds = %sw.default.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %cbuf.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %cbuf.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
   br label %chrtos.exit.i
 
 sw.bb9.i.i:                                       ; preds = %sw.default.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %cbuf.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.5, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %cbuf.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.5, i64 5, i1 false)
   br label %chrtos.exit.i
 
 sw.bb12.i.i:                                      ; preds = %sw.default.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %cbuf.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.6, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %cbuf.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.6, i64 5, i1 false)
   br label %chrtos.exit.i
 
 sw.bb15.i.i:                                      ; preds = %sw.default.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %cbuf.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.7, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %cbuf.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.7, i64 5, i1 false)
   br label %chrtos.exit.i
 
 sw.default.i.i:                                   ; preds = %sw.default.i
@@ -678,12 +678,12 @@ sw.default.i.i:                                   ; preds = %sw.default.i
   br i1 %tobool.not.i.i46, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.default.i.i
-  %call22.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cbuf.i, i64 noundef 8, ptr noundef nonnull @.str.8, i32 noundef %conv.i.i38) #12
+  %call22.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %cbuf.i, i64 noundef 8, ptr noundef nonnull @.str.8, i32 noundef %conv.i.i38) #12
   br label %chrtos.exit.i
 
 if.else.i.i:                                      ; preds = %sw.default.i.i
   %conv24.i.i = zext i8 %23 to i32
-  %call25.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cbuf.i, i64 noundef 8, ptr noundef nonnull @.str.9, i32 noundef %conv24.i.i) #12
+  %call25.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %cbuf.i, i64 noundef 8, ptr noundef nonnull @.str.9, i32 noundef %conv24.i.i) #12
   br label %chrtos.exit.i
 
 chrtos.exit.i:                                    ; preds = %if.else.i.i, %if.then.i.i, %sw.bb15.i.i, %sw.bb12.i.i, %sw.bb9.i.i, %sw.bb6.i.i, %sw.bb3.i.i, %sw.bb.i.i
@@ -714,9 +714,9 @@ __redisReaderSetErrorProtocolByte.exit:           ; preds = %chrtos.exit.i, %lan
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
-  %call.i3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %sbuf.i) #14
+  %call.i3.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %sbuf.i) #14
   %cond.i.i = call i64 @llvm.umin.i64(i64 %call.i3.i, i64 127)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %errstr.i151.i.i, ptr nonnull align 16 %sbuf.i, i64 %cond.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %errstr.i151.i.i, ptr nonnull readonly align 16 %sbuf.i, i64 %cond.i.i, i1 false)
   %arrayidx.i4.i = getelementptr inbounds [128 x i8], ptr %errstr.i151.i.i, i64 0, i64 %cond.i.i
   store i8 0, ptr %arrayidx.i4.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cbuf.i)
@@ -949,7 +949,7 @@ __redisReaderSetError.exit.i.i:                   ; preds = %if.then.i83.i.i, %l
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %errstr.i151.i.i, ptr noundef nonnull align 1 dereferenceable(17) @.str.10, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %errstr.i151.i.i, ptr noundef nonnull readonly align 1 dereferenceable(17) @.str.10, i64 17, i1 false)
   store i8 0, ptr %arrayidx.i.i.i, align 1
   br label %processLineItem.exit.i
 
@@ -1001,7 +1001,7 @@ __redisReaderSetError.exit102.i.i:                ; preds = %if.then.i94.i.i, %l
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(25) %errstr.i151.i.i, ptr noundef nonnull align 1 dereferenceable(25) @.str.11, i64 25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(25) %errstr.i151.i.i, ptr noundef nonnull readonly align 1 dereferenceable(25) @.str.11, i64 25, i1 false)
   store i8 0, ptr %arrayidx.i101.i.i, align 1
   br label %processLineItem.exit.i
 
@@ -1101,7 +1101,7 @@ __redisReaderSetError.exit119.i.i:                ; preds = %if.then.i111.i.i, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i151.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str.17, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i151.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.17, i64 13, i1 false)
   store i8 0, ptr %arrayidx.i118.i.i, align 1
   br label %processLineItem.exit.i
 
@@ -1159,7 +1159,7 @@ __redisReaderSetError.exit136.i.i:                ; preds = %if.then.i128.i.i, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %errstr.i151.i.i, ptr noundef nonnull align 1 dereferenceable(14) @.str.19, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %errstr.i151.i.i, ptr noundef nonnull readonly align 1 dereferenceable(14) @.str.19, i64 14, i1 false)
   store i8 0, ptr %arrayidx.i135.i.i, align 1
   br label %processLineItem.exit.i
 
@@ -1226,7 +1226,7 @@ __redisReaderSetError.exit153.i.i:                ; preds = %if.then.i145.i.i, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %errstr.i151.i.i, ptr noundef nonnull align 1 dereferenceable(16) @.str.20, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %errstr.i151.i.i, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.20, i64 16, i1 false)
   store i8 0, ptr %arrayidx.i152.i.i, align 1
   br label %processLineItem.exit.i
 
@@ -1287,7 +1287,7 @@ __redisReaderSetError.exit170.i.i:                ; preds = %if.then.i162.i.i, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %errstr.i151.i.i, ptr noundef nonnull align 1 dereferenceable(23) @.str.21, i64 23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(23) %errstr.i151.i.i, ptr noundef nonnull readonly align 1 dereferenceable(23) @.str.21, i64 23, i1 false)
   store i8 0, ptr %arrayidx.i169.i.i, align 1
   br label %processLineItem.exit.i
 
@@ -1348,7 +1348,7 @@ __redisReaderSetErrorOOM.exit.i.i:                ; preds = %if.then.i.i.i.i, %l
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
   store i32 5, ptr %r, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i151.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i151.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str, i64 13, i1 false)
   store i8 0, ptr %arrayidx.i118.i.i, align 1
   br label %processLineItem.exit.i
 
@@ -1578,7 +1578,7 @@ __redisReaderSetError.exit.i57.i:                 ; preds = %if.then.i.i.i, %lan
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %errstr.i151.i.i, ptr noundef nonnull align 1 dereferenceable(22) @.str.22, i64 22, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %errstr.i151.i.i, ptr noundef nonnull readonly align 1 dereferenceable(22) @.str.22, i64 22, i1 false)
   %arrayidx.i49.i.i = getelementptr inbounds i8, ptr %r, i64 26
   store i8 0, ptr %arrayidx.i49.i.i, align 1
   br label %return
@@ -1616,7 +1616,7 @@ __redisReaderSetError.exit66.i.i:                 ; preds = %if.then.i58.i.i, %l
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(31) %errstr.i151.i.i, ptr noundef nonnull align 1 dereferenceable(31) @.str.23, i64 31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(31) %errstr.i151.i.i, ptr noundef nonnull readonly align 1 dereferenceable(31) @.str.23, i64 31, i1 false)
   %arrayidx.i65.i.i = getelementptr inbounds i8, ptr %r, i64 35
   store i8 0, ptr %arrayidx.i65.i.i, align 1
   br label %return
@@ -1692,7 +1692,7 @@ __redisReaderSetError.exit83.i.i:                 ; preds = %if.then.i75.i.i, %l
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(75) %errstr.i151.i.i, ptr noundef nonnull align 1 dereferenceable(75) @.str.24, i64 75, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(75) %errstr.i151.i.i, ptr noundef nonnull readonly align 1 dereferenceable(75) @.str.24, i64 75, i1 false)
   %arrayidx.i82.i.i = getelementptr inbounds i8, ptr %r, i64 79
   store i8 0, ptr %arrayidx.i82.i.i, align 1
   br label %return
@@ -1755,7 +1755,7 @@ __redisReaderSetErrorOOM.exit.i91.i:              ; preds = %if.then.i.i.i90.i, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
   store i32 5, ptr %r, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i151.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i151.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str, i64 13, i1 false)
   store i8 0, ptr %arrayidx.i118.i.i, align 1
   br label %return
 
@@ -1898,7 +1898,7 @@ redisReaderGrow.exit.i.i:                         ; preds = %if.then.i.i.i.i.i, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
   store i32 5, ptr %r, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i151.i.i, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %errstr.i151.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str, i64 13, i1 false)
   store i8 0, ptr %arrayidx.i118.i.i, align 1
   br label %return
 
@@ -2066,7 +2066,7 @@ __redisReaderSetError.exit.i182.i:                ; preds = %if.then.i63.i.i, %l
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %errstr.i151.i.i, ptr noundef nonnull align 1 dereferenceable(21) @.str.25, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %errstr.i151.i.i, ptr noundef nonnull readonly align 1 dereferenceable(21) @.str.25, i64 21, i1 false)
   %arrayidx.i66.i.i = getelementptr inbounds i8, ptr %r, i64 25
   store i8 0, ptr %arrayidx.i66.i.i, align 1
   br label %return
@@ -2114,7 +2114,7 @@ __redisReaderSetError.exit83.i213.i:              ; preds = %if.then.i75.i211.i,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %ridx, align 4
   store i32 4, ptr %r, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %errstr.i151.i.i, ptr noundef nonnull align 1 dereferenceable(30) @.str.26, i64 30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %errstr.i151.i.i, ptr noundef nonnull readonly align 1 dereferenceable(30) @.str.26, i64 30, i1 false)
   %arrayidx.i82.i215.i = getelementptr inbounds i8, ptr %r, i64 34
   store i8 0, ptr %arrayidx.i82.i215.i, align 1
   br label %return

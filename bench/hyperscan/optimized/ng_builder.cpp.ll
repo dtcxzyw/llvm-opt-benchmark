@@ -142,7 +142,7 @@ lpad.i.i.i:                                       ; preds = %call.i2.i.noexc.i
 _ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i.i.i: ; preds = %call.i2.i.noexc.i
   store ptr %call.i2.i1.i, ptr %graph.i.i, align 8, !alias.scope !8, !noalias !5
   %expr.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %expr.i.i, ptr noundef nonnull align 8 dereferenceable(56) %expr, i64 56, i1 false), !noalias !5
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %expr.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %expr, i64 56, i1 false), !noalias !5
   %id2vertex.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %id2vertex.i.i, i8 0, i64 24, i1 false), !noalias !5
   %vertIdx.i.i = getelementptr inbounds i8, ptr %call.i, i64 112

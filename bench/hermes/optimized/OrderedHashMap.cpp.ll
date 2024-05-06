@@ -399,7 +399,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
 declare noundef zeroext i1 @_ZN6hermes2vm15isSameValueZeroENS0_11HermesValueES1_(i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm14OrderedHashMap17rehashIfNecessaryENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nocapture readonly %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm14OrderedHashMap17rehashIfNecessaryENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nocapture readonly %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %self.coerce, align 8
   %and.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i, 281474976710655
@@ -972,7 +972,7 @@ return:                                           ; preds = %while.body.i.i, %en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm14OrderedHashMap6insertENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_(ptr nocapture readonly %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %key.coerce, ptr nocapture readonly %value.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm14OrderedHashMap6insertENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_(ptr nocapture readonly %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %key.coerce, ptr nocapture readonly %value.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call noundef i64 @_ZN6hermes2vm7Runtime23gcStableHashHermesValueENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %key.coerce) #4
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %self.coerce, align 8
@@ -1371,7 +1371,7 @@ if.end101:                                        ; preds = %_ZN6hermes2vm9GCPoi
   %64 = load i32, ptr %size_, align 4
   %inc = add i32 %64, 1
   store i32 %inc, ptr %size_, align 4
-  %call107 = tail call noundef i32 @_ZN6hermes2vm14OrderedHashMap17rehashIfNecessaryENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nonnull %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime), !range !7
+  %call107 = tail call noundef i32 @_ZN6hermes2vm14OrderedHashMap17rehashIfNecessaryENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nonnull %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm12HashMapEntry6createERNS0_7RuntimeE.exit, %if.end101, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit
@@ -1573,7 +1573,7 @@ if.then52:                                        ; preds = %_ZN6hermes2vm12Hash
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then52, %_ZN6hermes2vm12HashMapEntry11markDeletedERNS0_7RuntimeE.exit
-  %call60 = tail call noundef i32 @_ZN6hermes2vm14OrderedHashMap17rehashIfNecessaryENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nonnull %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime), !range !7
+  %call60 = tail call noundef i32 @_ZN6hermes2vm14OrderedHashMap17rehashIfNecessaryENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nonnull %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
   br label %return
 
 return:                                           ; preds = %while.body, %entry, %entry, %while.cond.preheader, %if.end55
@@ -1767,7 +1767,7 @@ _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE9setNonPtrILNS3_6InlineE0EE
   %16 = load i32, ptr %capacity_, align 4
   %17 = zext i32 %16 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %17
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE9setNonPtrILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit, %for.cond.preheader.for.end_crit_edge
   %.pre-phi59 = phi i64 [ %.pre58, %for.cond.preheader.for.end_crit_edge ], [ %2, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE9setNonPtrILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit ]
@@ -1882,5 +1882,4 @@ attributes #4 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !5}
+!7 = distinct !{!7, !5}

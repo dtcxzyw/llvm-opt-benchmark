@@ -18467,8 +18467,8 @@ if.then17:                                        ; preds = %lor.lhs.false14.if.
   %29 = phi i32 [ %.pre, %lor.lhs.false14.if.then17_crit_edge ], [ %2, %_ZNK11ast_manager6is_notEPK4expr.exit ], [ %2, %_ZNK11ast_manager10is_impliesEPK4expr.exit ], [ %2, %_ZNK11ast_manager6is_andEPK4expr.exit ], [ %2, %_ZNK11ast_manager5is_orEPK4expr.exit ]
   %idx.ext.i = zext i32 %29 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %30 = getelementptr i8, ptr %fml, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %30, i64 32
+  %30 = getelementptr inbounds i8, ptr %fml, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %30, i64 32
   %cmp21.not92 = icmp eq i32 %29, 0
   br i1 %cmp21.not92, label %return, label %for.body.preheader
 
@@ -24901,8 +24901,8 @@ if.then22:                                        ; preds = %if.then.i.i.i, %if.
   %28 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i27 = zext i32 %28 to i64
   %add.ptr.i28.idx = shl nuw nsw i64 %idx.ext.i27, 3
-  %29 = getelementptr i8, ptr %27, i64 %add.ptr.i28.idx
-  %add.ptr.i28.ptr = getelementptr i8, ptr %29, i64 32
+  %29 = getelementptr inbounds i8, ptr %27, i64 %add.ptr.i28.idx
+  %add.ptr.i28.ptr = getelementptr inbounds i8, ptr %29, i64 32
   %cmp26.not74 = icmp eq i32 %28, 0
   br i1 %cmp26.not74, label %if.end46, label %for.body.lr.ph
 

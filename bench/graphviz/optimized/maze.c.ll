@@ -1400,7 +1400,7 @@ declare void @initSEdges(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @gsave(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @vcmpid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #9 {
+define internal range(i32 -1, 2) i32 @vcmpid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #9 {
   %5 = load double, ptr %1, align 8
   %6 = load double, ptr %2, align 8
   %7 = fsub double %5, %6
@@ -1429,7 +1429,7 @@ define internal i32 @vcmpid(ptr nocapture readnone %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @hcmpid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #9 {
+define internal range(i32 -1, 2) i32 @hcmpid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #9 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8

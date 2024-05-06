@@ -1544,7 +1544,7 @@ _ZN3dap3any5resetEv.exit:                         ; preds = %2, %4, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK3dap4json19JsonCppDeserializer5countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) unnamed_addr #0 align 2 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK3dap4json19JsonCppDeserializer5countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i32 @_ZNK4Json5Value4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %3)

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lzma_filter = type { i64, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @lzma_block_buffer_bound64(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, -9222949824389710820) i64 @lzma_block_buffer_bound64(i64 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i64 %0, 9223372036854774716
   br i1 %2, label %lzma2_bound.exit.thread, label %3
 
@@ -37,7 +37,7 @@ lzma2_bound.exit.thread:                          ; preds = %1, %3, %lzma2_bound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @lzma_block_buffer_bound(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, -9222949824389710820) i64 @lzma_block_buffer_bound(i64 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i64 %0, 9223372036854774716
   br i1 %2, label %lzma_block_buffer_bound64.exit, label %3
 
@@ -62,13 +62,13 @@ lzma_block_buffer_bound64.exit:                   ; preds = %1, %3, %lzma2_bound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_block_buffer_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 {
+define dso_local i32 @lzma_block_buffer_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = tail call fastcc i32 @block_buffer_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i1 noundef zeroext true)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @block_buffer_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i1 noundef zeroext %7) unnamed_addr #1 {
+define internal fastcc i32 @block_buffer_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i1 noundef zeroext %7) unnamed_addr #1 {
   %9 = alloca %struct.lzma_check_state, align 8
   %10 = icmp eq ptr %0, null
   br i1 %10, label %74, label %11
@@ -158,7 +158,7 @@ lzma2_bound.exit:                                 ; preds = %44
   ]
 
 .thread:                                          ; preds = %lzma2_bound.exit, %54
-  %56 = tail call fastcc i32 @block_encode_uncompressed(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %41), !range !5
+  %56 = tail call fastcc i32 @block_encode_uncompressed(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %41)
   %.not79 = icmp eq i32 %56, 0
   br i1 %.not79, label %57, label %74
 
@@ -178,7 +178,7 @@ lzma2_bound.exit:                                 ; preds = %44
   %63 = add i64 %.085, 1
   %64 = and i64 %63, 3
   %.not80 = icmp eq i64 %64, 0
-  br i1 %.not80, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not80, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %57
   %.not81 = icmp eq i32 %37, 0
@@ -207,7 +207,7 @@ lzma2_bound.exit:                                 ; preds = %44
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @lzma_block_uncomp_encode(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
+define dso_local i32 @lzma_block_uncomp_encode(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = tail call fastcc i32 @block_buffer_encode(ptr noundef %0, ptr noundef null, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i1 noundef zeroext false)
   ret i32 %7
 }
@@ -295,7 +295,7 @@ select.unfold48:                                  ; preds = %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @block_encode_uncompressed(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef %4, i64 noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 0, 12) i32 @block_encode_uncompressed(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef %4, i64 noundef %5) unnamed_addr #1 {
   %7 = alloca %struct.lzma_options_lzma, align 8
   %8 = alloca [2 x %struct.lzma_filter], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, i8 0, i64 112, i1 false)
@@ -380,7 +380,7 @@ define internal fastcc noundef i32 @block_encode_uncompressed(ptr noundef %0, pt
   %53 = add i64 %52, %37
   store i64 %53, ptr %4, align 8
   %54 = icmp ult i64 %51, %2
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %29
   %storemerge.lcssa = phi i64 [ %33, %29 ], [ %53, %.lr.ph ]
@@ -438,7 +438,6 @@ attributes #9 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 12}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

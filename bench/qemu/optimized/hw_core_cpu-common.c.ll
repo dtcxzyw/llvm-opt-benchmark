@@ -480,7 +480,7 @@ while.end:                                        ; preds = %if.then5, %if.end.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @cpu_common_get_arch_id(ptr nocapture noundef readonly %cpu) #4 {
+define internal range(i64 -2147483648, 2147483648) i64 @cpu_common_get_arch_id(ptr nocapture noundef readonly %cpu) #4 {
 entry:
   %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
   %0 = load i32, ptr %cpu_index, align 8

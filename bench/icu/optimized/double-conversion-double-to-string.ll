@@ -8,7 +8,7 @@ define void @_ZN6icu_7517double_conversion23DoubleToStringConverter13DoubleToAsc
 entry:
   %0 = bitcast double %v to i64
   %.lobit = lshr i64 %0, 63
-  %.sink = trunc i64 %.lobit to i8
+  %.sink = trunc nuw nsw i64 %.lobit to i8
   %v.addr.0 = tail call double @llvm.fabs.f64(double %v)
   store i8 %.sink, ptr %sign, align 1
   %cmp1 = icmp eq i32 %mode, 3

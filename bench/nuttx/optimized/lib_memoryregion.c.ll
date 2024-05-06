@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.memory_region_s = type { i64, i64, i32 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @parse_memory_region(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %41, label %6

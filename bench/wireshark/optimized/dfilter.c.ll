@@ -1423,7 +1423,7 @@ define ptr @df_cell_ref(ptr nocapture noundef readonly %0) local_unnamed_addr #0
 declare ptr @g_ptr_array_ref(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @df_cell_size(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define range(i64 0, 4294967296) i64 @df_cell_size(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %8, label %4

@@ -33,7 +33,7 @@ define noundef nonnull ptr @get_slurm_rlimits_info() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @parse_rlimits(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @parse_rlimits(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = tail call i32 @xstrcmp(ptr noundef %0, ptr noundef nonnull @.str) #6
   %5 = icmp eq i32 %4, 0

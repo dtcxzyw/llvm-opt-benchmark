@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.pq_less.bk = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pq_less(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pq_less(ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
 entry:
   %ak = alloca %struct.strbuf, align 8
   %bk = alloca %struct.strbuf, align 8
@@ -65,7 +65,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @merged_iter_pqueue_is_empty(ptr nocapture noundef readonly byval(%struct.merged_iter_pqueue) align 8 %pq) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @merged_iter_pqueue_is_empty(ptr nocapture noundef readonly byval(%struct.merged_iter_pqueue) align 8 %pq) local_unnamed_addr #4 {
 entry:
   %len = getelementptr inbounds i8, ptr %pq, i64 8
   %0 = load i64, ptr %len, align 8
@@ -317,7 +317,7 @@ for.body:                                         ; preds = %entry, %for.body
   %1 = load ptr, ptr %pq, align 8
   %rec = getelementptr inbounds %struct.pq_entry, ptr %1, i64 %indvars.iv, i32 1
   tail call void @reftable_record_release(ptr noundef nonnull %rec) #8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load i64, ptr %len, align 8
   %cmp = icmp ugt i64 %2, %indvars.iv.next
   br i1 %cmp, label %for.body, label %do.body, !llvm.loop !8

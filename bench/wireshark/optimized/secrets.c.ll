@@ -139,7 +139,7 @@ define internal i32 @key_id_hash(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @key_id_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @key_id_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %0, ptr noundef nonnull dereferenceable(20) %1, i64 20)
   %.not = icmp eq i32 %bcmp, 0
   %3 = zext i1 %.not to i32
@@ -214,7 +214,7 @@ get_pkcs11_token_uris.exit:                       ; preds = %23, %0
 declare ptr @g_slist_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @secrets_verify_key(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @secrets_verify_key(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -506,7 +506,7 @@ declare ptr @g_slist_reverse(ptr noundef) local_unnamed_addr #1
 declare void @gnutls_pkcs11_set_pin_function(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @set_pin_callback(ptr noundef readonly %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i64 noundef %6) #7 {
+define internal range(i32 -303, 1) i32 @set_pin_callback(ptr noundef readonly %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4, ptr nocapture noundef writeonly %5, i64 noundef %6) #7 {
   %.not.not = icmp eq ptr %0, null
   br i1 %.not.not, label %.thread, label %8
 

@@ -41,7 +41,7 @@ define ptr @Dsd_NodeReadDec(ptr nocapture noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Dsd_NodeReadDecsNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -32768, 32768) i32 @Dsd_NodeReadDecsNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i16, ptr %2, align 8
   %4 = sext i16 %3 to i32

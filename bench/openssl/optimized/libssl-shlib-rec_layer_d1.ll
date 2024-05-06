@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.dtls_buffer_record = private unnamed_addr constant [19 x i8] c"dtls_buffer_record\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @DTLS_RECORD_LAYER_new(ptr nocapture noundef writeonly %rl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DTLS_RECORD_LAYER_new(ptr nocapture noundef writeonly %rl) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 23) #5
   %cmp = icmp eq ptr %call, null
@@ -131,7 +131,7 @@ declare void @pitem_free(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @dtls1_read_bytes(ptr noundef %s, i8 noundef zeroext %type, ptr noundef writeonly %recvd_type, ptr nocapture noundef writeonly %buf, i64 noundef %len, i32 noundef %peek, ptr nocapture noundef writeonly %readbytes) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @dtls1_read_bytes(ptr noundef %s, i8 noundef zeroext %type, ptr noundef writeonly %recvd_type, ptr nocapture noundef writeonly %buf, i64 noundef %len, i32 noundef %peek, ptr nocapture noundef writeonly %readbytes) local_unnamed_addr #0 {
 entry:
   %msg_hdr = alloca %struct.hm_header_st, align 8
   %cmp = icmp eq ptr %s, null

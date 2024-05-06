@@ -46,11 +46,11 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.2 = private unnamed_addr constant [8 x i8] c"skipped\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @checkXenClocksource(ptr nocapture noundef writeonly %error_msg) #0 {
+define dso_local range(i32 -1, 2) i32 @checkXenClocksource(ptr nocapture noundef writeonly %error_msg) #0 {
 entry:
   %buf.i = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i)
-  %call.i = tail call noalias ptr @fopen64(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4)
+  %call.i = tail call noalias ptr @fopen64(ptr noundef nonnull readonly @.str, ptr noundef nonnull @.str.4)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %read_sysfs_line.exit.thread, label %if.end.i
 
@@ -96,7 +96,7 @@ declare ptr @sdsnew(ptr noundef) local_unnamed_addr #2
 declare void @sdsfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @checkOvercommit(ptr nocapture noundef writeonly %error_msg) #0 {
+define dso_local range(i32 -1, 2) i32 @checkOvercommit(ptr nocapture noundef writeonly %error_msg) #0 {
 entry:
   %buf = alloca [64 x i8], align 16
   %call = tail call noalias ptr @fopen64(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
@@ -137,7 +137,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @checkTHPEnabled(ptr nocapture noundef writeonly %error_msg) #0 {
+define dso_local range(i32 -1, 2) i32 @checkTHPEnabled(ptr nocapture noundef writeonly %error_msg) #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %call = tail call noalias ptr @fopen64(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4)
@@ -169,7 +169,7 @@ return:                                           ; preds = %if.end, %if.end4, %
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @checkClocksource(ptr nocapture noundef writeonly %error_msg) #0 {
+define internal range(i32 -1, 2) i32 @checkClocksource(ptr nocapture noundef writeonly %error_msg) #0 {
 entry:
   %buf.i6 = alloca [256 x i8], align 16
   %buf.i = alloca [256 x i8], align 16
@@ -245,7 +245,7 @@ if.end22:                                         ; preds = %while.end
 
 if.then49:                                        ; preds = %if.end22
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i)
-  %call.i = call noalias ptr @fopen64(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.4)
+  %call.i = call noalias ptr @fopen64(ptr noundef nonnull readonly @.str.19, ptr noundef nonnull @.str.4)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %read_sysfs_line.exit, label %if.end.i
 
@@ -264,7 +264,7 @@ read_sysfs_line.exit:                             ; preds = %if.then49, %if.end.
   %retval.0.i = phi ptr [ %call9.i, %if.end5.i ], [ null, %if.then49 ], [ null, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i6)
-  %call.i7 = call noalias ptr @fopen64(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4)
+  %call.i7 = call noalias ptr @fopen64(ptr noundef nonnull readonly @.str, ptr noundef nonnull @.str.4)
   %tobool.not.i8 = icmp eq ptr %call.i7, null
   br i1 %tobool.not.i8, label %read_sysfs_line.exit17, label %if.end.i9
 
@@ -299,7 +299,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @syscheck() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @syscheck() local_unnamed_addr #0 {
 entry:
   %err_msg = alloca ptr, align 8
   store ptr null, ptr %err_msg, align 8

@@ -254,7 +254,7 @@ define internal fastcc void @bcj_apply(ptr nocapture noundef %0, ptr nocapture n
   br i1 %26, label %51, label %27
 
 27:                                               ; preds = %24
-  %28 = trunc i64 %25 to i32
+  %28 = trunc nuw nsw i64 %25 to i32
   %29 = add nsw i32 %28, -1
   %30 = shl i32 %17, %29
   %31 = and i32 %30, 7
@@ -603,7 +603,7 @@ define dso_local noalias noundef ptr @xz_dec_bcj_create(i1 noundef zeroext %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @xz_dec_bcj_reset(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i32 0, 7) i32 @xz_dec_bcj_reset(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) local_unnamed_addr #5 align 16 {
   switch i8 %1, label %9 [
     i8 4, label %3
     i8 5, label %3

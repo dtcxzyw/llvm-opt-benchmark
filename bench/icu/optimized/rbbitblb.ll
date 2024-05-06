@@ -3388,7 +3388,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7516RBBITableBuilder12getTableSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -2147483628, -2147483648) i32 @_ZNK6icu_7516RBBITableBuilder12getTableSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
 entry:
   %fTree = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fTree, align 8
@@ -4118,7 +4118,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7516RBBITableBuilder16getSafeTableSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -2147483628, -2147483648) i32 @_ZNK6icu_7516RBBITableBuilder16getSafeTableSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
 entry:
   %fSafeTable = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %fSafeTable, align 8

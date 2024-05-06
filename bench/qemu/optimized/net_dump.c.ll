@@ -282,7 +282,7 @@ if.end.i:                                         ; preds = %cond.end
   %conv12.i = trunc i64 %add11.i to i32
   store i32 %conv12.i, ptr %hdr.i, align 4
   %rem.i = srem i64 %div.i.i, 1000000
-  %conv14.i = trunc i64 %rem.i to i32
+  %conv14.i = trunc nsw i64 %rem.i to i32
   %tv_usec.i = getelementptr inbounds i8, ptr %hdr.i, i64 4
   store i32 %conv14.i, ptr %tv_usec.i, align 4
   %caplen16.i = getelementptr inbounds i8, ptr %hdr.i, i64 8

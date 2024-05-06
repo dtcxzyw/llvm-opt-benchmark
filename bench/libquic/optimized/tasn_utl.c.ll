@@ -198,7 +198,7 @@ if.end6:                                          ; preds = %if.end.i, %lor.lhs.
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden noundef i32 @asn1_enc_save(ptr noundef readonly %pval, ptr nocapture noundef readonly %in, i32 noundef %inlen, ptr nocapture noundef readonly %it) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @asn1_enc_save(ptr noundef readonly %pval, ptr nocapture noundef readonly %in, i32 noundef %inlen, ptr nocapture noundef readonly %it) local_unnamed_addr #4 {
 entry:
   %tobool.not.i = icmp eq ptr %pval, null
   br i1 %tobool.not.i, label %return, label %lor.lhs.false.i
@@ -261,7 +261,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @asn1_enc_restore(ptr noundef writeonly %len, ptr noundef %out, ptr noundef readonly %pval, ptr nocapture noundef readonly %it) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @asn1_enc_restore(ptr noundef writeonly %len, ptr noundef %out, ptr noundef readonly %pval, ptr nocapture noundef readonly %it) local_unnamed_addr #1 {
 entry:
   %tobool.not.i = icmp eq ptr %pval, null
   br i1 %tobool.not.i, label %return, label %lor.lhs.false.i

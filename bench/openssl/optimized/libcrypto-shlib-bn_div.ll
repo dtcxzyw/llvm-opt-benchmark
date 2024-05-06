@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.BN_div = private unnamed_addr constant [7 x i8] c"BN_div\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_div(ptr noundef %dv, ptr noundef %rm, ptr noundef %num, ptr noundef %divisor, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_div(ptr noundef %dv, ptr noundef %rm, ptr noundef %num, ptr noundef %divisor, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_is_zero(ptr noundef %divisor) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -37,7 +37,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %call3 = tail call i32 @bn_div_fixed_top(ptr noundef %dv, ptr noundef %rm, ptr noundef %num, ptr noundef nonnull %divisor, ptr noundef %ctx), !range !4
+  %call3 = tail call i32 @bn_div_fixed_top(ptr noundef %dv, ptr noundef %rm, ptr noundef %num, ptr noundef nonnull %divisor, ptr noundef %ctx)
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %return, label %if.then5
 
@@ -71,7 +71,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bn_div_fixed_top(ptr noundef %dv, ptr noundef %rm, ptr noundef %num, ptr noundef %divisor, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_div_fixed_top(ptr noundef %dv, ptr noundef %rm, ptr noundef %num, ptr noundef %divisor, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #3
   %cmp = icmp eq ptr %dv, null
@@ -130,7 +130,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %and13.i = and i64 %shr12.i, %or.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %bn_left_align.exit, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %bn_left_align.exit, label %for.body.i, !llvm.loop !4
 
 bn_left_align.exit:                               ; preds = %for.body.i, %if.end7
   %neg = getelementptr inbounds i8, ptr %call3, i64 16
@@ -240,7 +240,7 @@ cond.false72:                                     ; preds = %if.else
 
 cond.end74:                                       ; preds = %if.else, %cond.false72
   %cond75 = phi i64 [ %21, %cond.false72 ], [ 0, %if.else ]
-  %22 = tail call { i64, i64 } asm sideeffect "divq   $4", "={ax},={dx},{ax},{dx},r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %20, i64 %19, i64 %14) #3, !srcloc !7
+  %22 = tail call { i64, i64 } asm sideeffect "divq   $4", "={ax},={dx},{ax},{dx},r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %20, i64 %19, i64 %14) #3, !srcloc !6
   %asmresult = extractvalue { i64, i64 } %22, 0
   %asmresult76 = extractvalue { i64, i64 } %22, 1
   %conv79 = zext i64 %asmresult to i128
@@ -304,7 +304,7 @@ for.body119:                                      ; preds = %if.end104, %for.bod
   store i64 %and, ptr %arrayidx125, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end126, label %for.body119, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end126, label %for.body119, !llvm.loop !7
 
 for.end126:                                       ; preds = %for.body119, %if.end104
   %30 = load ptr, ptr %call1, align 8
@@ -316,7 +316,7 @@ for.end126:                                       ; preds = %for.body119, %if.en
   store i64 %sub114, ptr %incdec.ptr130, align 8
   %inc132 = add nuw nsw i32 %i.0118, 1
   %exitcond120.not = icmp eq i32 %inc132, %sub24
-  br i1 %exitcond120.not, label %for.end134, label %for.body, !llvm.loop !9
+  br i1 %exitcond120.not, label %for.end134, label %for.body, !llvm.loop !8
 
 for.end134:                                       ; preds = %for.end126, %if.end61
   %neg135 = getelementptr inbounds i8, ptr %call2, i64 16
@@ -377,9 +377,8 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 2148713494}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{i64 2148713494}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

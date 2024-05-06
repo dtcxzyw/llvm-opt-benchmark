@@ -139,7 +139,7 @@ php_glob_stream_get_result_count.exit:            ; preds = %13, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @php_glob_stream_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #1 {
+define internal range(i64 -1, 258) i64 @php_glob_stream_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i64 %2, 257

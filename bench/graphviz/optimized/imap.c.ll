@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Ag_G_global = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @aginternalmaplookup(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @aginternalmaplookup(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.IMapEntry_s, align 8
   %6 = icmp eq i32 %1, 3
   %spec.store.select = select i1 %6, i32 2, i32 %1
@@ -154,7 +154,7 @@ find_isym.exit:                                   ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @aginternalmapdelete(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @aginternalmapdelete(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.IMapEntry_s, align 8
   %5 = icmp eq i32 %1, 3
   %spec.store.select = select i1 %5, i32 2, i32 %1
@@ -350,7 +350,7 @@ closeit.exit7:                                    ; preds = %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @namecmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 -1, 2) i32 @namecmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
@@ -363,7 +363,7 @@ define internal i32 @namecmpf(ptr nocapture readnone %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @idcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 -1, 2) i32 @idcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 32

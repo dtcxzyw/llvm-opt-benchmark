@@ -192,7 +192,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #2
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @_sort_controllers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @_sort_controllers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load i16, ptr %3, align 2

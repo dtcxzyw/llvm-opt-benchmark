@@ -55,7 +55,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i) #8
-  %conv.i = trunc i32 %cp to i8
+  %conv.i = trunc nuw nsw i32 %cp to i8
   store i8 %conv.i, ptr %ref.tmp.i, align 1, !tbaa !15
   %call3.i.i.i.i.i2 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %ref.tmp.i, i64 noundef 1)
           to label %call3.i.i.i.i.i.noexc unwind label %lpad
@@ -71,7 +71,7 @@ if.else.i:                                        ; preds = %entry
 if.then2.i:                                       ; preds = %if.else.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ref.tmp4.i) #8
   %shr.i = lshr i32 %cp, 6
-  %1 = trunc i32 %shr.i to i8
+  %1 = trunc nuw nsw i32 %shr.i to i8
   %conv6.i = or disjoint i8 %1, -64
   store i8 %conv6.i, ptr %ref.tmp4.i, align 1, !tbaa !15
   %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 1
@@ -93,7 +93,7 @@ if.else12.i:                                      ; preds = %if.else.i
 if.then14.i:                                      ; preds = %if.else12.i
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %ref.tmp16.i) #8
   %shr18.i = lshr i32 %cp, 12
-  %4 = trunc i32 %shr18.i to i8
+  %4 = trunc nuw nsw i32 %shr18.i to i8
   %conv20.i = or disjoint i8 %4, -32
   store i8 %conv20.i, ptr %ref.tmp16.i, align 1, !tbaa !15
   %arrayinit.element21.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 1
@@ -121,7 +121,7 @@ if.else33.i:                                      ; preds = %if.else12.i
 if.then35.i:                                      ; preds = %if.else33.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp37.i) #8
   %shr39.i = lshr i32 %cp, 18
-  %9 = trunc i32 %shr39.i to i8
+  %9 = trunc nuw nsw i32 %shr39.i to i8
   %conv41.i = or disjoint i8 %9, -16
   store i8 %conv41.i, ptr %ref.tmp37.i, align 1, !tbaa !15
   %arrayinit.element42.i = getelementptr inbounds i8, ptr %ref.tmp37.i, i64 1
@@ -197,7 +197,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i) #8
-  %conv.i = trunc i32 %cp to i8
+  %conv.i = trunc nuw nsw i32 %cp to i8
   store i8 %conv.i, ptr %ref.tmp.i, align 1, !tbaa !15
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !12
@@ -212,7 +212,7 @@ if.else.i:                                        ; preds = %entry
 if.then2.i:                                       ; preds = %if.else.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ref.tmp4.i) #8
   %shr.i = lshr i32 %cp, 6
-  %1 = trunc i32 %shr.i to i8
+  %1 = trunc nuw nsw i32 %shr.i to i8
   %conv6.i = or disjoint i8 %1, -64
   store i8 %conv6.i, ptr %ref.tmp4.i, align 1, !tbaa !15
   %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 1
@@ -233,7 +233,7 @@ if.else12.i:                                      ; preds = %if.else.i
 if.then14.i:                                      ; preds = %if.else12.i
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %ref.tmp16.i) #8
   %shr18.i = lshr i32 %cp, 12
-  %5 = trunc i32 %shr18.i to i8
+  %5 = trunc nuw nsw i32 %shr18.i to i8
   %conv20.i = or disjoint i8 %5, -32
   store i8 %conv20.i, ptr %ref.tmp16.i, align 1, !tbaa !15
   %arrayinit.element21.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 1
@@ -260,7 +260,7 @@ if.else33.i:                                      ; preds = %if.else12.i
 if.then35.i:                                      ; preds = %if.else33.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp37.i) #8
   %shr39.i = lshr i32 %cp, 18
-  %11 = trunc i32 %shr39.i to i8
+  %11 = trunc nuw nsw i32 %shr39.i to i8
   %conv41.i = or disjoint i8 %11, -16
   store i8 %conv41.i, ptr %ref.tmp37.i, align 1, !tbaa !15
   %arrayinit.element42.i = getelementptr inbounds i8, ptr %ref.tmp37.i, i64 1
@@ -291,7 +291,7 @@ if.then35.i:                                      ; preds = %if.else33.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i32 @_ZN5folly15utf8ToCodePointERPKhS1_b(ptr nocapture noundef nonnull align 8 dereferenceable(8) %p, ptr noundef readnone %e, i1 noundef zeroext %skipOnError) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i32 0, 1114112) i32 @_ZN5folly15utf8ToCodePointERPKhS1_b(ptr nocapture noundef nonnull align 8 dereferenceable(8) %p, ptr noundef readnone %e, i1 noundef zeroext %skipOnError) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %d = alloca i32, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1210,7 +1210,7 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.else.i:                                        ; preds = %while.end.i
   %22 = lshr i16 %21, 8
-  %conv8.i = trunc i16 %22 to i8
+  %conv8.i = trunc nuw i16 %22 to i8
   store i8 %conv8.i, ptr %out, align 1, !tbaa !15
   br label %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.exit
 

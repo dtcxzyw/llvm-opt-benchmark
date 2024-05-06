@@ -763,7 +763,7 @@ define internal i64 @i915_gem_shrinker_scan(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal i64 @i915_gem_shrinker_count(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 align 16 {
+define internal range(i64 0, 4503599627370496) i64 @i915_gem_shrinker_count(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8624

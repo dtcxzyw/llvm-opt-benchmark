@@ -97,7 +97,7 @@ define dso_local i64 @gen_pool_first_fit(ptr noundef %0, i64 noundef %1, i64 nou
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gen_pool_add_owner(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @gen_pool_add_owner(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = zext nneg i32 %8 to i64
@@ -1368,7 +1368,7 @@ gen_pool_destroy.exit:                            ; preds = %28, %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @devm_gen_pool_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #6 align 16 {
+define internal range(i32 0, 2) i32 @devm_gen_pool_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #6 align 16 {
   %4 = icmp eq ptr %2, null
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 48

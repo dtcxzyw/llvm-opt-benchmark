@@ -101,7 +101,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.68 = private unnamed_addr constant [3 x i8] c"lp\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @gmlparse() local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
   %1 = alloca [200 x i8], align 16
   %2 = alloca [200 x %union.GMLSTYPE], align 16
   store i32 -2, ptr @gmlchar, align 4
@@ -123,7 +123,7 @@ define dso_local noundef i32 @gmlparse() local_unnamed_addr #0 {
   %.0167 = phi i64 [ 200, %0 ], [ %.1168, %3 ]
   %.1165 = phi i32 [ 0, %0 ], [ %.0164, %3 ]
   %.1 = phi i32 [ 0, %0 ], [ %.0, %3 ]
-  %6 = trunc i32 %.1 to i8
+  %6 = trunc nsw i32 %.1 to i8
   store i8 %6, ptr %.1173, align 1
   %7 = getelementptr inbounds i8, ptr %.0169, i64 %.0167
   %8 = getelementptr inbounds i8, ptr %7, i64 -1
@@ -455,7 +455,7 @@ setDir.exit:                                      ; preds = %142
   %146 = getelementptr inbounds i8, ptr %145, i64 32
   %147 = load ptr, ptr %146, align 8
   %148 = load ptr, ptr %147, align 8
-  %149 = call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.1) #20
+  %149 = call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.1) #20
   %150 = icmp eq ptr %149, null
   br i1 %150, label %151, label %gv_strdup.exit
 
@@ -563,7 +563,7 @@ mkEdge.exit:                                      ; preds = %186
   %207 = getelementptr inbounds i8, ptr %206, i64 32
   %208 = load ptr, ptr %207, align 8
   %209 = load ptr, ptr %208, align 8
-  %210 = call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.1) #20
+  %210 = call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull readonly @.str.1) #20
   %211 = icmp eq ptr %210, null
   br i1 %211, label %212, label %gv_strdup.exit222
 
@@ -1183,13 +1183,13 @@ gv_alloc.exit:                                    ; preds = %5
 
 sortToStr.exit:                                   ; preds = %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45
   %.0.i = phi ptr [ null, %45 ], [ @.str.42, %44 ], [ @.str.41, %43 ], [ @.str.40, %42 ], [ @.str.39, %41 ], [ @.str.38, %40 ], [ @.str.37, %39 ], [ @.str.36, %38 ], [ @.str.35, %37 ], [ @.str.34, %36 ], [ @.str.33, %35 ], [ @.str.32, %34 ], [ @.str.31, %33 ], [ @.str.30, %32 ], [ @.str.29, %31 ], [ @.str.28, %30 ], [ @.str.27, %29 ], [ @.str.26, %28 ], [ @.str.25, %27 ], [ @.str.24, %26 ], [ @.str.23, %25 ], [ @.str.22, %24 ], [ @.str.21, %23 ], [ @.str.20, %22 ], [ @.str.19, %21 ], [ @.str.18, %20 ], [ @.str.17, %19 ], [ @.str.16, %18 ], [ @.str.15, %17 ], [ @.str.14, %16 ], [ @.str.1, %15 ], [ @.str.13, %14 ], [ @.str.12, %13 ], [ @.str.11, %12 ], [ @.str.10, %11 ]
-  %46 = tail call noalias ptr @strdup(ptr noundef %.0.i) #20
+  %46 = tail call noalias ptr @strdup(ptr noundef readonly %.0.i) #20
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %gv_strdup.exit
 
 48:                                               ; preds = %sortToStr.exit
   %49 = load ptr, ptr @stderr, align 8
-  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #24
+  %50 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0.i) #24
   %51 = add i64 %50, 1
   %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.9, i64 noundef %51) #22
   tail call fastcc void @graphviz_exit() #23
@@ -1298,7 +1298,7 @@ define dso_local ptr @gml_to_gv(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   tail call void @initgmlscan(ptr noundef %.) #20
   store ptr null, ptr @L, align 8
   tail call fastcc void @pushAlist()
-  %8 = tail call i32 @gmlparse(), !range !5
+  %8 = tail call i32 @gmlparse()
   %9 = tail call i32 @gmlerrors() #20
   %10 = load i32, ptr %3, align 4
   %11 = or i32 %10, %9
@@ -3801,16 +3801,16 @@ agxbput.exit:                                     ; preds = %72, %67, %79, %82
 define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_copy(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #20
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #20
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   br label %vagxbprint.exit
 
 8:                                                ; preds = %2
@@ -3864,7 +3864,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
-  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #20
+  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef readonly %1, ptr noundef nonnull %4) #20
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %vagxbprint.exit
 
@@ -3889,7 +3889,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
 
 vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %34, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3968,17 +3968,17 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #15
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #15
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #15
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #16
@@ -4034,4 +4034,3 @@ attributes #27 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 3}

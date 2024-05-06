@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID_xa_testtype425, ptr @__param_xa_test], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sr_do_ioctl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @sr_do_ioctl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.scsi_sense_hdr, align 8
   %4 = alloca %struct.scsi_exec_args, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
@@ -187,7 +187,7 @@ declare dso_local void @sdev_prefix_printk(ptr noundef, ptr noundef, ptr noundef
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sr_tray_move(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @sr_tray_move(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.packet_command, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -223,7 +223,7 @@ define dso_local i32 @sr_lock_door(ptr nocapture noundef readonly %0, i32 nounde
 declare dso_local i32 @scsi_set_medium_removal(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sr_drive_status(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 5) i32 @sr_drive_status(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.scsi_sense_hdr, align 8
   %4 = alloca %struct.media_event_desc, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -316,7 +316,7 @@ declare dso_local i32 @scsi_test_unit_ready(ptr noundef, i32 noundef, i32 nounde
 declare dso_local i32 @cdrom_get_media_event(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sr_disk_status(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 104) i32 @sr_disk_status(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.packet_command, align 8
   %3 = alloca %struct.cdrom_tocentry, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -412,7 +412,7 @@ define dso_local i32 @sr_disk_status(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sr_read_tocentry(ptr %.32.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @sr_read_tocentry(ptr %.32.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.packet_command, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #9
   %3 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 5), align 8
@@ -536,7 +536,7 @@ define dso_local noundef i32 @sr_get_last_session(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sr_get_mcn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @sr_get_mcn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.packet_command, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -596,7 +596,7 @@ define dso_local noundef i32 @sr_reset(ptr nocapture noundef readnone %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sr_select_speed(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -5, 1) i32 @sr_select_speed(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.packet_command, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -625,7 +625,7 @@ define dso_local i32 @sr_select_speed(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sr_audio_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @sr_audio_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.packet_command, align 8
   %5 = alloca %struct.cdrom_tocentry, align 4
   %6 = alloca %struct.cdrom_tocentry, align 4
@@ -864,7 +864,7 @@ define dso_local i32 @sr_audio_ioctl(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sr_is_xa(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 2) i32 @sr_is_xa(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.packet_command, align 8
   %3 = alloca %struct.packet_command, align 8
   %4 = load i32, ptr @xa_test, align 4
@@ -894,7 +894,7 @@ define dso_local i32 @sr_is_xa(ptr noundef %0) local_unnamed_addr #0 align 16 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i8 -66, ptr %2, align 8
   %20 = lshr i32 %14, 24
-  %21 = trunc i32 %20 to i8
+  %21 = trunc nuw i32 %20 to i8
   %22 = getelementptr inbounds i8, ptr %2, i64 2
   store i8 %21, ptr %22, align 2
   %23 = lshr i32 %14, 16
@@ -956,7 +956,7 @@ define dso_local i32 @sr_is_xa(ptr noundef %0) local_unnamed_addr #0 align 16 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   store i8 40, ptr %3, align 8
   %55 = lshr i32 %14, 24
-  %56 = trunc i32 %55 to i8
+  %56 = trunc nuw i32 %55 to i8
   %57 = getelementptr inbounds i8, ptr %3, i64 2
   store i8 %56, ptr %57, align 2
   %58 = lshr i32 %14, 16

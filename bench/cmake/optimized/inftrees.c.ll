@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @cm_zlib_inflate_table.dext = internal unnamed_addr constant [32 x i16] [i16 16, i16 16, i16 16, i16 16, i16 17, i16 17, i16 18, i16 18, i16 19, i16 19, i16 20, i16 20, i16 21, i16 21, i16 22, i16 22, i16 23, i16 23, i16 24, i16 24, i16 25, i16 25, i16 26, i16 26, i16 27, i16 27, i16 28, i16 28, i16 29, i16 29, i16 64, i16 64], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @cm_zlib_inflate_table(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @cm_zlib_inflate_table(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
 .preheader237:
   %6 = alloca [16 x i16], align 16
   %7 = alloca [16 x i16], align 16
@@ -91,7 +91,7 @@ define dso_local noundef i32 @cm_zlib_inflate_table(i32 noundef %0, ptr nocaptur
   br i1 %exitcond286.not, label %._crit_edge250, label %.lr.ph249, !llvm.loop !8
 
 ._crit_edge250.loopexit.split.loop.exit:          ; preds = %.lr.ph249
-  %31 = trunc i64 %indvars.iv280 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv280 to i32
   br label %._crit_edge250
 
 ._crit_edge250:                                   ; preds = %30, %._crit_edge250.loopexit.split.loop.exit, %21

@@ -459,7 +459,7 @@ define internal i64 @blk_ia_range_sysfs_show(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @blk_ia_range_sector_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #3 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @blk_ia_range_sector_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.5, i64 noundef %4) #8
@@ -471,7 +471,7 @@ define internal noundef i64 @blk_ia_range_sector_show(ptr nocapture noundef read
 declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @blk_ia_range_nr_sectors_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #3 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @blk_ia_range_nr_sectors_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.5, i64 noundef %4) #8

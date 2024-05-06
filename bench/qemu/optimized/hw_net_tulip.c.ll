@@ -400,7 +400,7 @@ declare ptr @eeprom93xx_data(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tulip_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 4294967296) i64 @tulip_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   switch i64 %addr, label %sw.default [
@@ -508,8 +508,8 @@ trace_tulip_reg_read.exit:                        ; preds = %tulip_reg_name.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tulip_write(ptr noundef %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
-  %_now.i.i.i93 = alloca %struct.timeval, align 8
-  %_now.i.i.i76 = alloca %struct.timeval, align 8
+  %_now.i.i.i94 = alloca %struct.timeval, align 8
+  %_now.i.i.i77 = alloca %struct.timeval, align 8
   %_now.i.i.i59 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -695,125 +695,125 @@ if.else:                                          ; preds = %sw.bb29
   store i32 %and.i61, ptr %arrayidx.i60, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i59)
   %24 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i62 = icmp ne i32 %24, 0
+  %tobool.i.i.i63 = icmp ne i32 %24, 0
   %25 = load i16, ptr @_TRACE_TULIP_RX_STATE_DSTATE, align 2
-  %tobool4.i.i.i63 = icmp ne i16 %25, 0
-  %or.cond.i.i.i64 = select i1 %tobool.i.i.i62, i1 %tobool4.i.i.i63, i1 false
-  br i1 %or.cond.i.i.i64, label %land.lhs.true5.i.i.i65, label %tulip_update_rs.exit75
+  %tobool4.i.i.i64 = icmp ne i16 %25, 0
+  %or.cond.i.i.i65 = select i1 %tobool.i.i.i63, i1 %tobool4.i.i.i64, i1 false
+  br i1 %or.cond.i.i.i65, label %land.lhs.true5.i.i.i66, label %tulip_update_rs.exit76
 
-land.lhs.true5.i.i.i65:                           ; preds = %if.else
+land.lhs.true5.i.i.i66:                           ; preds = %if.else
   %26 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i66 = and i32 %26, 32768
-  %cmp.i.not.i.i.i67 = icmp eq i32 %and.i.i.i.i66, 0
-  br i1 %cmp.i.not.i.i.i67, label %tulip_update_rs.exit75, label %if.then.i.i.i68
+  %and.i.i.i.i67 = and i32 %26, 32768
+  %cmp.i.not.i.i.i68 = icmp eq i32 %and.i.i.i.i67, 0
+  br i1 %cmp.i.not.i.i.i68, label %tulip_update_rs.exit76, label %if.then.i.i.i69
 
-if.then.i.i.i68:                                  ; preds = %land.lhs.true5.i.i.i65
+if.then.i.i.i69:                                  ; preds = %land.lhs.true5.i.i.i66
   %27 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i69 = trunc i8 %27 to i1
-  br i1 %tobool7.i.i.i69, label %if.then8.i.i.i71, label %if.else.i.i.i70
+  %tobool7.i.i.i70 = trunc i8 %27 to i1
+  br i1 %tobool7.i.i.i70, label %if.then8.i.i.i72, label %if.else.i.i.i71
 
-if.then8.i.i.i71:                                 ; preds = %if.then.i.i.i68
-  %call9.i.i.i72 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i59, ptr noundef null) #8
-  %call10.i.i.i73 = tail call i32 @qemu_get_thread_id() #8
+if.then8.i.i.i72:                                 ; preds = %if.then.i.i.i69
+  %call9.i.i.i73 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i59, ptr noundef null) #8
+  %call10.i.i.i74 = tail call i32 @qemu_get_thread_id() #8
   %28 = load i64, ptr %_now.i.i.i59, align 8
-  %tv_usec.i.i.i74 = getelementptr inbounds i8, ptr %_now.i.i.i59, i64 8
-  %29 = load i64, ptr %tv_usec.i.i.i74, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i.i73, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.58) #8
-  br label %tulip_update_rs.exit75
+  %tv_usec.i.i.i75 = getelementptr inbounds i8, ptr %_now.i.i.i59, i64 8
+  %29 = load i64, ptr %tv_usec.i.i.i75, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i.i74, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.58) #8
+  br label %tulip_update_rs.exit76
 
-if.else.i.i.i70:                                  ; preds = %if.then.i.i.i68
+if.else.i.i.i71:                                  ; preds = %if.then.i.i.i69
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58) #8
-  br label %tulip_update_rs.exit75
+  br label %tulip_update_rs.exit76
 
-tulip_update_rs.exit75:                           ; preds = %if.else, %land.lhs.true5.i.i.i65, %if.then8.i.i.i71, %if.else.i.i.i70
+tulip_update_rs.exit76:                           ; preds = %if.else, %land.lhs.true5.i.i.i66, %if.then8.i.i.i72, %if.else.i.i.i71
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i59)
   br label %if.end41
 
-if.end41:                                         ; preds = %tulip_update_rs.exit75, %tulip_update_rs.exit
+if.end41:                                         ; preds = %tulip_update_rs.exit76, %tulip_update_rs.exit
   %30 = load i32, ptr %arrayidx32, align 8
   %31 = and i32 %30, 8192
   %tobool46.not = icmp eq i32 %31, 0
-  %arrayidx.i94 = getelementptr i8, ptr %opaque, i64 11412
-  %32 = load i32, ptr %arrayidx.i94, align 4
-  %and.i95 = and i32 %32, -7340033
+  %arrayidx.i95 = getelementptr i8, ptr %opaque, i64 11412
+  %32 = load i32, ptr %arrayidx.i95, align 4
+  %and.i96 = and i32 %32, -7340033
   br i1 %tobool46.not, label %if.else48, label %if.then47
 
 if.then47:                                        ; preds = %if.end41
-  %or.i79 = or disjoint i32 %and.i95, 6291456
-  store i32 %or.i79, ptr %arrayidx.i94, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i76)
+  %or.i80 = or disjoint i32 %and.i96, 6291456
+  store i32 %or.i80, ptr %arrayidx.i95, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i77)
   %33 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i80 = icmp ne i32 %33, 0
+  %tobool.i.i.i81 = icmp ne i32 %33, 0
   %34 = load i16, ptr @_TRACE_TULIP_TX_STATE_DSTATE, align 2
-  %tobool4.i.i.i81 = icmp ne i16 %34, 0
-  %or.cond.i.i.i82 = select i1 %tobool.i.i.i80, i1 %tobool4.i.i.i81, i1 false
-  br i1 %or.cond.i.i.i82, label %land.lhs.true5.i.i.i83, label %tulip_update_ts.exit
+  %tobool4.i.i.i82 = icmp ne i16 %34, 0
+  %or.cond.i.i.i83 = select i1 %tobool.i.i.i81, i1 %tobool4.i.i.i82, i1 false
+  br i1 %or.cond.i.i.i83, label %land.lhs.true5.i.i.i84, label %tulip_update_ts.exit
 
-land.lhs.true5.i.i.i83:                           ; preds = %if.then47
+land.lhs.true5.i.i.i84:                           ; preds = %if.then47
   %35 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i84 = and i32 %35, 32768
-  %cmp.i.not.i.i.i85 = icmp eq i32 %and.i.i.i.i84, 0
-  br i1 %cmp.i.not.i.i.i85, label %tulip_update_ts.exit, label %if.then.i.i.i86
+  %and.i.i.i.i85 = and i32 %35, 32768
+  %cmp.i.not.i.i.i86 = icmp eq i32 %and.i.i.i.i85, 0
+  br i1 %cmp.i.not.i.i.i86, label %tulip_update_ts.exit, label %if.then.i.i.i87
 
-if.then.i.i.i86:                                  ; preds = %land.lhs.true5.i.i.i83
+if.then.i.i.i87:                                  ; preds = %land.lhs.true5.i.i.i84
   %36 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i87 = trunc i8 %36 to i1
-  br i1 %tobool7.i.i.i87, label %if.then8.i.i.i89, label %if.else.i.i.i88
+  %tobool7.i.i.i88 = trunc i8 %36 to i1
+  br i1 %tobool7.i.i.i88, label %if.then8.i.i.i90, label %if.else.i.i.i89
 
-if.then8.i.i.i89:                                 ; preds = %if.then.i.i.i86
-  %call9.i.i.i90 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i76, ptr noundef null) #8
-  %call10.i.i.i91 = tail call i32 @qemu_get_thread_id() #8
-  %37 = load i64, ptr %_now.i.i.i76, align 8
-  %tv_usec.i.i.i92 = getelementptr inbounds i8, ptr %_now.i.i.i76, i64 8
-  %38 = load i64, ptr %tv_usec.i.i.i92, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i.i91, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.62) #8
+if.then8.i.i.i90:                                 ; preds = %if.then.i.i.i87
+  %call9.i.i.i91 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i77, ptr noundef null) #8
+  %call10.i.i.i92 = tail call i32 @qemu_get_thread_id() #8
+  %37 = load i64, ptr %_now.i.i.i77, align 8
+  %tv_usec.i.i.i93 = getelementptr inbounds i8, ptr %_now.i.i.i77, i64 8
+  %38 = load i64, ptr %tv_usec.i.i.i93, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i.i92, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.62) #8
   br label %tulip_update_ts.exit
 
-if.else.i.i.i88:                                  ; preds = %if.then.i.i.i86
+if.else.i.i.i89:                                  ; preds = %if.then.i.i.i87
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.62) #8
   br label %tulip_update_ts.exit
 
-tulip_update_ts.exit:                             ; preds = %if.then47, %land.lhs.true5.i.i.i83, %if.then8.i.i.i89, %if.else.i.i.i88
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i76)
+tulip_update_ts.exit:                             ; preds = %if.then47, %land.lhs.true5.i.i.i84, %if.then8.i.i.i90, %if.else.i.i.i89
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i77)
   tail call fastcc void @tulip_xmit_list_update(ptr noundef nonnull %opaque)
   br label %sw.epilog
 
 if.else48:                                        ; preds = %if.end41
-  store i32 %and.i95, ptr %arrayidx.i94, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i93)
+  store i32 %and.i96, ptr %arrayidx.i95, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i94)
   %39 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i96 = icmp ne i32 %39, 0
+  %tobool.i.i.i98 = icmp ne i32 %39, 0
   %40 = load i16, ptr @_TRACE_TULIP_TX_STATE_DSTATE, align 2
-  %tobool4.i.i.i97 = icmp ne i16 %40, 0
-  %or.cond.i.i.i98 = select i1 %tobool.i.i.i96, i1 %tobool4.i.i.i97, i1 false
-  br i1 %or.cond.i.i.i98, label %land.lhs.true5.i.i.i99, label %tulip_update_ts.exit109
+  %tobool4.i.i.i99 = icmp ne i16 %40, 0
+  %or.cond.i.i.i100 = select i1 %tobool.i.i.i98, i1 %tobool4.i.i.i99, i1 false
+  br i1 %or.cond.i.i.i100, label %land.lhs.true5.i.i.i101, label %tulip_update_ts.exit111
 
-land.lhs.true5.i.i.i99:                           ; preds = %if.else48
+land.lhs.true5.i.i.i101:                          ; preds = %if.else48
   %41 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i100 = and i32 %41, 32768
-  %cmp.i.not.i.i.i101 = icmp eq i32 %and.i.i.i.i100, 0
-  br i1 %cmp.i.not.i.i.i101, label %tulip_update_ts.exit109, label %if.then.i.i.i102
+  %and.i.i.i.i102 = and i32 %41, 32768
+  %cmp.i.not.i.i.i103 = icmp eq i32 %and.i.i.i.i102, 0
+  br i1 %cmp.i.not.i.i.i103, label %tulip_update_ts.exit111, label %if.then.i.i.i104
 
-if.then.i.i.i102:                                 ; preds = %land.lhs.true5.i.i.i99
+if.then.i.i.i104:                                 ; preds = %land.lhs.true5.i.i.i101
   %42 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i103 = trunc i8 %42 to i1
-  br i1 %tobool7.i.i.i103, label %if.then8.i.i.i105, label %if.else.i.i.i104
+  %tobool7.i.i.i105 = trunc i8 %42 to i1
+  br i1 %tobool7.i.i.i105, label %if.then8.i.i.i107, label %if.else.i.i.i106
 
-if.then8.i.i.i105:                                ; preds = %if.then.i.i.i102
-  %call9.i.i.i106 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i93, ptr noundef null) #8
-  %call10.i.i.i107 = tail call i32 @qemu_get_thread_id() #8
-  %43 = load i64, ptr %_now.i.i.i93, align 8
-  %tv_usec.i.i.i108 = getelementptr inbounds i8, ptr %_now.i.i.i93, i64 8
-  %44 = load i64, ptr %tv_usec.i.i.i108, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i.i107, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.58) #8
-  br label %tulip_update_ts.exit109
+if.then8.i.i.i107:                                ; preds = %if.then.i.i.i104
+  %call9.i.i.i108 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i94, ptr noundef null) #8
+  %call10.i.i.i109 = tail call i32 @qemu_get_thread_id() #8
+  %43 = load i64, ptr %_now.i.i.i94, align 8
+  %tv_usec.i.i.i110 = getelementptr inbounds i8, ptr %_now.i.i.i94, i64 8
+  %44 = load i64, ptr %tv_usec.i.i.i110, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i.i109, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.58) #8
+  br label %tulip_update_ts.exit111
 
-if.else.i.i.i104:                                 ; preds = %if.then.i.i.i102
+if.else.i.i.i106:                                 ; preds = %if.then.i.i.i104
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.58) #8
-  br label %tulip_update_ts.exit109
+  br label %tulip_update_ts.exit111
 
-tulip_update_ts.exit109:                          ; preds = %if.else48, %land.lhs.true5.i.i.i99, %if.then8.i.i.i105, %if.else.i.i.i104
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i93)
+tulip_update_ts.exit111:                          ; preds = %if.else48, %land.lhs.true5.i.i.i101, %if.then8.i.i.i107, %if.else.i.i.i106
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i94)
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %trace_tulip_reg_write.exit
@@ -901,15 +901,15 @@ sw.bb98:                                          ; preds = %trace_tulip_reg_wri
 
 do.body:                                          ; preds = %trace_tulip_reg_write.exit
   %55 = load i32, ptr @qemu_loglevel, align 4
-  %and.i110 = and i32 %55, 2048
-  %cmp.i.not = icmp eq i32 %and.i110, 0
+  %and.i112 = and i32 %55, 2048
+  %cmp.i.not = icmp eq i32 %and.i112, 0
   br i1 %cmp.i.not, label %sw.epilog, label %if.then106
 
 if.then106:                                       ; preds = %do.body
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.tulip_write, i64 noundef %addr) #8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then106, %do.body, %tulip_update_ts.exit, %tulip_update_ts.exit109, %sw.bb, %if.then, %sw.bb98, %sw.bb94, %sw.bb90, %sw.bb82, %sw.bb78, %sw.bb74, %tulip_csr9_write.exit, %sw.bb54, %sw.bb50, %sw.bb22, %sw.bb14, %sw.bb4, %sw.bb2, %sw.bb1
+sw.epilog:                                        ; preds = %if.then106, %do.body, %tulip_update_ts.exit, %tulip_update_ts.exit111, %sw.bb, %if.then, %sw.bb98, %sw.bb94, %sw.bb90, %sw.bb82, %sw.bb78, %sw.bb74, %tulip_csr9_write.exit, %sw.bb54, %sw.bb50, %sw.bb22, %sw.bb14, %sw.bb4, %sw.bb2, %sw.bb1
   ret void
 }
 
@@ -1540,7 +1540,7 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %conv14.i.i.i.i = zext i8 %35 to i32
   %conv15.i.i.i.i = zext i8 %34 to i32
   %conv16.i.i.i.i = zext i8 %32 to i32
-  %45 = trunc i64 %indvars.iv.i to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %call10.i.i.i.i, i64 noundef %43, i64 noundef %44, i32 noundef %45, i32 noundef %conv11.i.i.i.i, i32 noundef %conv12.i.i.i.i, i32 noundef %conv13.i.i.i.i, i32 noundef %conv14.i.i.i.i, i32 noundef %conv15.i.i.i.i, i32 noundef %conv16.i.i.i.i) #8
   br label %tulip_setup_filter_addr.exit.i
 
@@ -1551,7 +1551,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %conv20.i.i.i.i = zext i8 %35 to i32
   %conv21.i.i.i.i = zext i8 %34 to i32
   %conv22.i.i.i.i = zext i8 %32 to i32
-  %46 = trunc i64 %indvars.iv.i to i32
+  %46 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %46, i32 noundef %conv17.i.i.i.i, i32 noundef %conv18.i.i.i.i, i32 noundef %conv19.i.i.i.i, i32 noundef %conv20.i.i.i.i, i32 noundef %conv21.i.i.i.i, i32 noundef %conv22.i.i.i.i) #8
   br label %tulip_setup_filter_addr.exit.i
 
@@ -1625,7 +1625,7 @@ if.then13.i:                                      ; preds = %if.end11.i
   fence seq_cst
   %call.i.i.i.i.i59 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv14.i, i32 1, ptr noundef %add.ptr.i, i64 noundef %conv17.i, i1 noundef zeroext false) #8
   %53 = load i16, ptr %tx_frame_len, align 16
-  %54 = trunc i32 %and.i54 to i16
+  %54 = trunc nuw nsw i32 %and.i54 to i16
   %conv22.i = add i16 %53, %54
   store i16 %conv22.i, ptr %tx_frame_len, align 16
   %.pre.i = zext i16 %conv22.i to i32
@@ -1662,7 +1662,7 @@ if.then46.i:                                      ; preds = %if.end44.i
   fence seq_cst
   %call.i.i.i.i29.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv48.i, i32 1, ptr noundef %add.ptr54.i, i64 noundef %conv55.i, i1 noundef zeroext false) #8
   %58 = load i16, ptr %tx_frame_len, align 16
-  %59 = trunc i32 %and3.i to i16
+  %59 = trunc nuw nsw i32 %and3.i to i16
   %conv60.i = add i16 %58, %59
   store i16 %conv60.i, ptr %tx_frame_len, align 16
   br label %if.then20
@@ -1690,7 +1690,7 @@ if.then.i64:                                      ; preds = %if.then25
 
 if.then2.i:                                       ; preds = %if.then.i64
   %conv.i67 = zext i16 %60 to i64
-  %call.i = call fastcc i64 @tulip_receive(ptr noundef nonnull %s, ptr noundef nonnull %tx_frame.i, i64 noundef %conv.i67), !range !13
+  %call.i = call fastcc i64 @tulip_receive(ptr noundef nonnull %s, ptr noundef nonnull %tx_frame.i, i64 noundef %conv.i67)
   br label %if.end15.ithread-pre-split
 
 if.else.i:                                        ; preds = %if.then.i64
@@ -1760,7 +1760,7 @@ tulip_next_tx_descriptor.exit:                    ; preds = %if.then.i73, %if.th
   store i64 %and18.i, ptr %current_tx_desc, align 8
   %inc = add nuw i8 %i.080, 1
   %exitcond.not = icmp eq i8 %inc, -128
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %tulip_next_tx_descriptor.exit, %entry, %tulip_update_ts.exit
   ret void
@@ -1940,7 +1940,7 @@ declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 no
 declare i32 @llvm.bswap.i32(i32) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @tulip_receive(ptr noundef %s, ptr noundef %buf, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc range(i64 -65535, 65536) i64 @tulip_receive(ptr noundef %s, ptr noundef %buf, i64 noundef %size) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %desc = alloca %struct.tulip_descriptor, align 4
@@ -2003,7 +2003,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.body.i ]
   %ret.014.i = phi i8 [ 0, %if.end ], [ %spec.select.i, %for.body.i ]
   %arrayidx.i = getelementptr [16 x [6 x i8]], ptr %filter.i, i64 0, i64 %indvars.iv.i
-  %bcmp12.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %arrayidx.i, ptr noundef nonnull dereferenceable(6) %buf, i64 6)
+  %bcmp12.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %arrayidx.i, ptr noundef nonnull readonly dereferenceable(6) %buf, i64 6)
   %tobool3.not.i = icmp eq i32 %bcmp12.i, 0
   %spec.select.i = select i1 %tobool3.not.i, i8 1, i8 %ret.014.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2011,10 +2011,10 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %10 = and i8 %spec.select.i, 1
   %cmp1.i = icmp eq i8 %10, 0
   %11 = select i1 %cmp.i38, i1 %cmp1.i, i1 false
-  br i1 %11, label %for.body.i, label %for.end.i, !llvm.loop !15
+  br i1 %11, label %for.body.i, label %for.end.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.body.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @tulip_filter_address.broadcast, i64 6)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @tulip_filter_address.broadcast, i64 6)
   %tobool5.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool5.not.i, label %do.body.preheader, label %if.end7.i
 
@@ -2054,7 +2054,7 @@ do.body.preheader.sink.split:                     ; preds = %land.lhs.true.i, %i
 
 do.body.preheader:                                ; preds = %do.body.preheader.sink.split, %if.end29.i, %for.end.i
   %current_rx_desc = getelementptr inbounds i8, ptr %s, i64 11472
-  %19 = trunc i64 %size to i16
+  %19 = trunc nuw i64 %size to i16
   %conv22 = add nuw nsw i16 %19, 4
   %rx_frame_size23 = getelementptr inbounds i8, ptr %s, i64 15588
   %conv25 = zext nneg i16 %conv22 to i32
@@ -2133,7 +2133,7 @@ if.then.i:                                        ; preds = %if.end36
   fence seq_cst
   %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv11.i, i32 1, ptr noundef %add.ptr.i, i64 noundef %conv15.i, i1 noundef zeroext true) #8
   %32 = load i16, ptr %rx_frame_len, align 2
-  %33 = trunc i32 %and.conv.i to i16
+  %33 = trunc nuw nsw i32 %and.conv.i to i16
   %conv19.i = sub i16 %32, %33
   store i16 %conv19.i, ptr %rx_frame_len, align 2
   br label %if.end20.i
@@ -2160,7 +2160,7 @@ if.then26.i:                                      ; preds = %if.end20.i
   fence seq_cst
   %call.i.i.i.i28.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv37.i, i32 1, ptr noundef %add.ptr46.i, i64 noundef %conv47.i, i1 noundef zeroext true) #8
   %36 = load i16, ptr %rx_frame_len, align 2
-  %37 = trunc i32 %and3.conv22.i to i16
+  %37 = trunc nuw nsw i32 %and3.conv22.i to i16
   %conv52.i = sub i16 %36, %37
   store i16 %conv52.i, ptr %rx_frame_len, align 2
   br label %tulip_copy_rx_bytes.exit
@@ -2222,7 +2222,7 @@ tulip_next_rx_descriptor.exit:                    ; preds = %if.then.i42, %if.th
   store i64 %and18.i44, ptr %current_rx_desc, align 16
   %48 = load i16, ptr %rx_frame_len, align 2
   %tobool51.not = icmp eq i16 %48, 0
-  br i1 %tobool51.not, label %return, label %do.body, !llvm.loop !16
+  br i1 %tobool51.not, label %return, label %do.body, !llvm.loop !15
 
 return:                                           ; preds = %tulip_next_rx_descriptor.exit, %if.end29.i, %trace_tulip_receive.exit, %lor.lhs.false2, %lor.lhs.false3, %if.then10
   %retval.0 = phi i64 [ %sub, %if.then10 ], [ 0, %lor.lhs.false3 ], [ 0, %lor.lhs.false2 ], [ 0, %trace_tulip_receive.exit ], [ %size, %if.end29.i ], [ %size, %tulip_next_rx_descriptor.exit ]
@@ -2287,10 +2287,10 @@ trace_tulip_descriptor.exit:                      ; preds = %entry, %land.lhs.tr
 declare void @eeprom93xx_write(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tulip_receive_nc(ptr noundef %nc, ptr noundef %buf, i64 noundef %size) #0 {
+define internal range(i64 -65535, 65536) i64 @tulip_receive_nc(ptr noundef %nc, ptr noundef %buf, i64 noundef %size) #0 {
 entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #8
-  %call1 = tail call fastcc i64 @tulip_receive(ptr noundef %call, ptr noundef %buf, i64 noundef %size), !range !13
+  %call1 = tail call fastcc i64 @tulip_receive(ptr noundef %call, ptr noundef %buf, i64 noundef %size)
   ret i64 %call1
 }
 
@@ -2342,7 +2342,6 @@ attributes #8 = { nounwind }
 !10 = distinct !{!10, !6}
 !11 = !{i64 2151793764}
 !12 = distinct !{!12, !6}
-!13 = !{i64 -65535, i64 65536}
+!13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

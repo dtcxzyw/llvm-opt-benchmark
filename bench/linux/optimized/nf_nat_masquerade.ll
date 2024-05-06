@@ -496,7 +496,7 @@ define internal fastcc void @nf_nat_masq_schedule(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @device_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @device_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -647,7 +647,7 @@ define internal noundef i32 @masq_inet_event(ptr nocapture readnone %0, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @inet_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @inet_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

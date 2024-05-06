@@ -104,7 +104,7 @@ Llb_ManCountEntries.exit.thread:                  ; preds = %Llb_ManCountEntries
   %.not17 = icmp eq i32 %22, 0
   %24 = select i1 %.not17, i32 45, i32 43
   %putchar = tail call i32 @putchar(i32 %24)
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %25)
   %.val20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %.val20, null
@@ -304,7 +304,7 @@ Vec_PtrStart.exit:                                ; preds = %3, %8
   %33 = getelementptr inbounds ptr, ptr %.val77, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %.val89 = load i32, ptr %24, align 8
-  %35 = trunc i64 %indvars.iv to i32
+  %35 = trunc nuw nsw i64 %indvars.iv to i32
   %36 = add nsw i32 %.val89, %35
   %37 = tail call ptr @Cudd_bddIthVar(ptr noundef %1, i32 noundef %36) #8
   tail call void @Cudd_Ref(ptr noundef %37) #8
@@ -395,7 +395,7 @@ Vec_PtrStart.exit:                                ; preds = %3, %8
 Aig_ManObj.exit:                                  ; preds = %70, %71
   %75 = phi ptr [ %74, %71 ], [ null, %70 ]
   %76 = tail call ptr @Llb_ManComputeIndCase_rec(ptr noundef nonnull %0, ptr noundef %75, ptr noundef %1, ptr noundef nonnull %6)
-  %trunc = trunc i32 %69 to i1
+  %trunc = trunc nuw i32 %69 to i1
   %77 = getelementptr inbounds i8, ptr %75, i64 40
   %78 = load ptr, ptr %77, align 8
   br i1 %trunc, label %87, label %79
@@ -620,7 +620,7 @@ define noundef ptr @Llb_ManConstructGlobalBdds(ptr nocapture noundef readonly %0
   %.val46 = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds ptr, ptr %.val46, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call ptr @Cudd_bddIthVar(ptr noundef %3, i32 noundef %19) #8
   %21 = getelementptr inbounds i8, ptr %18, i64 40
   store ptr %20, ptr %21, align 8

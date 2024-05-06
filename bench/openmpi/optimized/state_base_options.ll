@@ -59,13 +59,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [16 x i8] c"bad-combination\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_state_base_set_default_rto(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @prte_state_base_set_runtime_options(ptr noundef %0, ptr noundef null), !range !4
+define range(i32 -43, 1) i32 @prte_state_base_set_default_rto(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @prte_state_base_set_runtime_options(ptr noundef %0, ptr noundef null)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_state_base_set_runtime_options(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @prte_state_base_set_runtime_options(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
@@ -266,7 +266,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
   %107 = getelementptr inbounds i8, ptr %106, i64 128
   %108 = load i32, ptr %107, align 8
   %109 = icmp slt i32 %105, %108
-  br i1 %109, label %.lr.ph124, label %.loopexit, !llvm.loop !5
+  br i1 %109, label %.lr.ph124, label %.loopexit, !llvm.loop !4
 
 110:                                              ; preds = %2
   %111 = call ptr @PMIx_Argv_split(ptr noundef nonnull %1, i32 noundef 44) #6
@@ -487,7 +487,7 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   %248 = getelementptr inbounds i8, ptr %245, i64 128
   %249 = load i32, ptr %248, align 8
   %250 = icmp slt i32 %247, %249
-  br i1 %250, label %.lr.ph, label %.loopexit119, !llvm.loop !7
+  br i1 %250, label %.lr.ph, label %.loopexit119, !llvm.loop !6
 
 251:                                              ; preds = %212
   %252 = load i32, ptr %3, align 4
@@ -699,7 +699,7 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   %379 = getelementptr inbounds ptr, ptr %111, i64 %378
   %380 = load ptr, ptr %379, align 8
   %.not109 = icmp eq ptr %380, null
-  br i1 %.not109, label %._crit_edge, label %115, !llvm.loop !8
+  br i1 %.not109, label %._crit_edge, label %115, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.loopexit119, %110
   call void @PMIx_Argv_free(ptr noundef nonnull %111) #6
@@ -794,7 +794,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   %25 = getelementptr inbounds ptr, ptr %7, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not47 = icmp eq ptr %26, null
-  br i1 %.not47, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not47, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !8
 
 27:                                               ; preds = %17
   tail call void @PMIx_Argv_free(ptr noundef nonnull %7) #6
@@ -934,9 +934,8 @@ attributes #7 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -43, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

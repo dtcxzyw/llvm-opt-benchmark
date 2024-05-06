@@ -275,7 +275,7 @@ ompi_coll_libnbc_hb_tree_empty.exit:              ; preds = %33, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_coll_libnbc_hb_tree_insert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+define range(i32 -1, 2) i32 @ompi_coll_libnbc_hb_tree_insert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %.06185 = load ptr, ptr %0, align 8
   %.not86 = icmp eq ptr %.06185, null
   br i1 %.not86, label %._crit_edge, label %.lr.ph
@@ -555,7 +555,7 @@ node_new.exit.thread:                             ; preds = %._crit_edge, %12, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_coll_libnbc_hb_tree_probe(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
+define range(i32 -1, 2) i32 @ompi_coll_libnbc_hb_tree_probe(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
   %.05272 = load ptr, ptr %0, align 8
   %.not73 = icmp eq ptr %.05272, null
   br i1 %.not73, label %._crit_edge, label %.lr.ph
@@ -848,7 +848,7 @@ define ptr @ompi_coll_libnbc_hb_tree_search(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_coll_libnbc_hb_tree_remove(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define range(i32 -1, 1) i32 @ompi_coll_libnbc_hb_tree_remove(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %.081145 = load ptr, ptr %0, align 8
   %cond146 = icmp eq ptr %.081145, null
   br i1 %cond146, label %.loopexit, label %.lr.ph
@@ -1841,7 +1841,7 @@ ompi_coll_libnbc_hb_itor_first.exit:              ; preds = %.preheader.i, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @ompi_coll_libnbc_hb_itor_first(ptr nocapture noundef %0) #6 {
+define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_first(ptr nocapture noundef %0) #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1871,7 +1871,7 @@ define void @ompi_coll_libnbc_hb_itor_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ompi_coll_libnbc_hb_itor_valid(ptr nocapture noundef readonly %0) #2 {
+define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_valid(ptr nocapture noundef readonly %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
@@ -1887,7 +1887,7 @@ define void @ompi_coll_libnbc_hb_itor_invalidate(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @ompi_coll_libnbc_hb_itor_next(ptr nocapture noundef %0) #6 {
+define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_next(ptr nocapture noundef %0) #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1941,7 +1941,7 @@ ompi_coll_libnbc_hb_itor_first.exit:              ; preds = %.preheader19.i, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @ompi_coll_libnbc_hb_itor_prev(ptr nocapture noundef %0) #6 {
+define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_prev(ptr nocapture noundef %0) #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1995,7 +1995,7 @@ ompi_coll_libnbc_hb_itor_last.exit:               ; preds = %.preheader19.i, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @ompi_coll_libnbc_hb_itor_nextn(ptr nocapture noundef %0, i32 noundef %1) #6 {
+define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_nextn(ptr nocapture noundef %0, i32 noundef %1) #6 {
   %.not = icmp eq i32 %1, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -2077,7 +2077,7 @@ node_next.exit:                                   ; preds = %.preheader19.i, %.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @ompi_coll_libnbc_hb_itor_prevn(ptr nocapture noundef %0, i32 noundef %1) #6 {
+define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_prevn(ptr nocapture noundef %0, i32 noundef %1) #6 {
   %.not = icmp eq i32 %1, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -2159,7 +2159,7 @@ node_prev.exit:                                   ; preds = %.preheader19.i, %.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @ompi_coll_libnbc_hb_itor_last(ptr nocapture noundef %0) #6 {
+define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_last(ptr nocapture noundef %0) #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2182,7 +2182,7 @@ node_max.exit:                                    ; preds = %.preheader, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hb_itor_search(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @hb_itor_search(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -2269,7 +2269,7 @@ define ptr @ompi_coll_libnbc_hb_itor_cdata(ptr nocapture noundef readonly %0) #8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_coll_libnbc_hb_itor_set_data(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define range(i32 -1, 1) i32 @ompi_coll_libnbc_hb_itor_set_data(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

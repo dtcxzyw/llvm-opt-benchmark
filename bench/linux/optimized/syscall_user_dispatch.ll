@@ -138,7 +138,7 @@ define internal fastcc void @trigger_sigsys(ptr nocapture noundef readonly %0) u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @set_syscall_user_dispatch(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @set_syscall_user_dispatch(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
   switch i64 %0, label %31 [
@@ -196,7 +196,7 @@ define dso_local noundef i32 @set_syscall_user_dispatch(i64 noundef %0, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @syscall_user_dispatch_get_config(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @syscall_user_dispatch_get_config(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.ptrace_sud_config, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   %5 = icmp eq i64 %1, 32
@@ -236,7 +236,7 @@ define dso_local i32 @syscall_user_dispatch_get_config(ptr noundef %0, i64 nound
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @syscall_user_dispatch_set_config(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @syscall_user_dispatch_set_config(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.ptrace_sud_config, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   %5 = icmp eq i64 %1, 32

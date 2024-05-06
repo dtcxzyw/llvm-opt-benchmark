@@ -1094,7 +1094,7 @@ define hidden void @proto_register_iso_data() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_iso_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 4, -2147483640) i32 @dissect_iso_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @proto_bthci_iso_data, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #7

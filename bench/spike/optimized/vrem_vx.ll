@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv32i_vrem_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vrem_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -386,9 +386,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 169:                                              ; preds = %165
   %.lhs.trunc = sext i8 %161 to i16
-  %.rhs.trunc = trunc i32 %162 to i16
+  %.rhs.trunc = trunc nsw i32 %162 to i16
   %170 = srem i16 %.lhs.trunc, %.rhs.trunc
-  %171 = trunc i16 %170 to i8
+  %171 = trunc nsw i16 %170 to i8
   store i8 %171, ptr %157, align 1
   br label %216
 
@@ -420,7 +420,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 185:                                              ; preds = %181
   %186 = sext i16 %177 to i32
   %187 = srem i32 %186, %178
-  %188 = trunc i32 %187 to i16
+  %188 = trunc nsw i32 %187 to i16
   store i16 %188, ptr %173, align 2
   br label %216
 
@@ -835,9 +835,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 169:                                              ; preds = %165
   %.lhs.trunc = sext i8 %161 to i16
-  %.rhs.trunc = trunc i32 %162 to i16
+  %.rhs.trunc = trunc nsw i32 %162 to i16
   %170 = srem i16 %.lhs.trunc, %.rhs.trunc
-  %171 = trunc i16 %170 to i8
+  %171 = trunc nsw i16 %170 to i8
   store i8 %171, ptr %157, align 1
   br label %216
 
@@ -869,7 +869,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 185:                                              ; preds = %181
   %186 = sext i16 %177 to i32
   %187 = srem i32 %186, %178
-  %188 = trunc i32 %187 to i16
+  %188 = trunc nsw i32 %187 to i16
   store i16 %188, ptr %173, align 2
   br label %216
 
@@ -941,7 +941,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv32i_vrem_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vrem_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -1251,9 +1251,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 169:                                              ; preds = %165
   %.lhs.trunc = sext i8 %161 to i16
-  %.rhs.trunc = trunc i32 %162 to i16
+  %.rhs.trunc = trunc nsw i32 %162 to i16
   %170 = srem i16 %.lhs.trunc, %.rhs.trunc
-  %171 = trunc i16 %170 to i8
+  %171 = trunc nsw i16 %170 to i8
   store i8 %171, ptr %157, align 1
   br label %216
 
@@ -1285,7 +1285,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 185:                                              ; preds = %181
   %186 = sext i16 %177 to i32
   %187 = srem i32 %186, %178
-  %188 = trunc i32 %187 to i16
+  %188 = trunc nsw i32 %187 to i16
   store i16 %188, ptr %173, align 2
   br label %216
 
@@ -1669,9 +1669,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 169:                                              ; preds = %165
   %.lhs.trunc = sext i8 %161 to i16
-  %.rhs.trunc = trunc i32 %162 to i16
+  %.rhs.trunc = trunc nsw i32 %162 to i16
   %170 = srem i16 %.lhs.trunc, %.rhs.trunc
-  %171 = trunc i16 %170 to i8
+  %171 = trunc nsw i16 %170 to i8
   store i8 %171, ptr %157, align 1
   br label %216
 
@@ -1703,7 +1703,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 185:                                              ; preds = %181
   %186 = sext i16 %177 to i32
   %187 = srem i32 %186, %178
-  %188 = trunc i32 %187 to i16
+  %188 = trunc nsw i32 %187 to i16
   store i16 %188, ptr %173, align 2
   br label %216
 
@@ -1775,7 +1775,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z18fast_rv32e_vrem_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vrem_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -2101,9 +2101,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 176:                                              ; preds = %172
   %.lhs.trunc = sext i8 %168 to i16
-  %.rhs.trunc = trunc i32 %169 to i16
+  %.rhs.trunc = trunc nsw i32 %169 to i16
   %177 = srem i16 %.lhs.trunc, %.rhs.trunc
-  %178 = trunc i16 %177 to i8
+  %178 = trunc nsw i16 %177 to i8
   store i8 %178, ptr %158, align 1
   br label %241
 
@@ -2150,7 +2150,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 198:                                              ; preds = %194
   %199 = sext i16 %190 to i32
   %200 = srem i32 %199, %191
-  %201 = trunc i32 %200 to i16
+  %201 = trunc nsw i32 %200 to i16
   store i16 %201, ptr %180, align 2
   br label %241
 
@@ -2580,9 +2580,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 176:                                              ; preds = %172
   %.lhs.trunc = sext i8 %168 to i16
-  %.rhs.trunc = trunc i32 %169 to i16
+  %.rhs.trunc = trunc nsw i32 %169 to i16
   %177 = srem i16 %.lhs.trunc, %.rhs.trunc
-  %178 = trunc i16 %177 to i8
+  %178 = trunc nsw i16 %177 to i8
   store i8 %178, ptr %158, align 1
   br label %241
 
@@ -2629,7 +2629,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 198:                                              ; preds = %194
   %199 = sext i16 %190 to i32
   %200 = srem i32 %199, %191
-  %201 = trunc i32 %200 to i16
+  %201 = trunc nsw i32 %200 to i16
   store i16 %201, ptr %180, align 2
   br label %241
 
@@ -2731,7 +2731,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20logged_rv32e_vrem_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vrem_vxP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = and i64 %1, 33554432
   %5 = icmp eq i64 %4, 0
   %6 = and i64 %1, 33558400
@@ -3057,9 +3057,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 176:                                              ; preds = %172
   %.lhs.trunc = sext i8 %168 to i16
-  %.rhs.trunc = trunc i32 %169 to i16
+  %.rhs.trunc = trunc nsw i32 %169 to i16
   %177 = srem i16 %.lhs.trunc, %.rhs.trunc
-  %178 = trunc i16 %177 to i8
+  %178 = trunc nsw i16 %177 to i8
   store i8 %178, ptr %158, align 1
   br label %241
 
@@ -3106,7 +3106,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 198:                                              ; preds = %194
   %199 = sext i16 %190 to i32
   %200 = srem i32 %199, %191
-  %201 = trunc i32 %200 to i16
+  %201 = trunc nsw i32 %200 to i16
   store i16 %201, ptr %180, align 2
   br label %241
 
@@ -3536,9 +3536,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 176:                                              ; preds = %172
   %.lhs.trunc = sext i8 %168 to i16
-  %.rhs.trunc = trunc i32 %169 to i16
+  %.rhs.trunc = trunc nsw i32 %169 to i16
   %177 = srem i16 %.lhs.trunc, %.rhs.trunc
-  %178 = trunc i16 %177 to i8
+  %178 = trunc nsw i16 %177 to i8
   store i8 %178, ptr %158, align 1
   br label %241
 
@@ -3585,7 +3585,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 198:                                              ; preds = %194
   %199 = sext i16 %190 to i32
   %200 = srem i32 %199, %191
-  %201 = trunc i32 %200 to i16
+  %201 = trunc nsw i32 %200 to i16
   store i16 %201, ptr %180, align 2
   br label %241
 

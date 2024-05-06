@@ -666,7 +666,7 @@ if.end18:                                         ; preds = %if.then.i.i, %if.th
   %call19 = call i64 @_ZN4node21SpinEventLoopInternalEPNS_11EnvironmentE(ptr noundef %env) #13
   %tobool.i = trunc i64 %call19 to i1
   %ref.tmp.sroa.24.0.extract.shift = lshr i64 %call19, 32
-  %ref.tmp.sroa.24.0.extract.trunc = trunc i64 %ref.tmp.sroa.24.0.extract.shift to i32
+  %ref.tmp.sroa.24.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.24.0.extract.shift to i32
   %cond.i = select i1 %tobool.i, i32 %ref.tmp.sroa.24.0.extract.trunc, i32 1
   store i32 %cond.i, ptr %exit_code, align 4
   br label %if.end22

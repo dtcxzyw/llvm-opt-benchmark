@@ -557,7 +557,7 @@ proto_item_set_generated.exit341:                 ; preds = %proto_item_set_gene
   %47 = getelementptr inbounds i8, ptr %1, i64 408
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noalias ptr @wmem_alloc(ptr noundef %48, i64 noundef 1) #5
-  %50 = trunc i32 %38 to i8
+  %50 = trunc nuw nsw i32 %38 to i8
   store i8 %50, ptr %49, align 1
   %51 = getelementptr inbounds i8, ptr %1, i64 208
   %52 = load i32, ptr @devicenet_address_type, align 4
@@ -628,7 +628,7 @@ proto_item_set_generated.exit347:                 ; preds = %proto_item_set_gene
   %87 = getelementptr inbounds i8, ptr %1, i64 408
   %88 = load ptr, ptr %87, align 8
   %89 = tail call noalias ptr @wmem_alloc(ptr noundef %88, i64 noundef 1) #5
-  %90 = trunc i32 %78 to i8
+  %90 = trunc nuw nsw i32 %78 to i8
   store i8 %90, ptr %89, align 1
   %91 = getelementptr inbounds i8, ptr %1, i64 208
   %92 = load i32, ptr @devicenet_address_type, align 4
@@ -720,7 +720,7 @@ proto_item_set_generated.exit353:                 ; preds = %proto_item_set_gene
   %135 = getelementptr inbounds i8, ptr %1, i64 408
   %136 = load ptr, ptr %135, align 8
   %137 = tail call noalias ptr @wmem_alloc(ptr noundef %136, i64 noundef 1) #5
-  %138 = trunc i32 %126 to i8
+  %138 = trunc nuw nsw i32 %126 to i8
   store i8 %138, ptr %137, align 1
   %139 = getelementptr inbounds i8, ptr %1, i64 208
   %140 = load i32, ptr @devicenet_address_type, align 4

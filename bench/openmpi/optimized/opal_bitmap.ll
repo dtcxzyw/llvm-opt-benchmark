@@ -37,7 +37,7 @@ define internal void @opal_bitmap_destruct(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @opal_bitmap_set_max_size(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @opal_bitmap_set_max_size(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -56,7 +56,7 @@ define noundef i32 @opal_bitmap_set_max_size(ptr noundef writeonly %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @opal_bitmap_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -5, 1) i32 @opal_bitmap_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp slt i32 %1, 1
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -111,7 +111,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_bitmap_clear_all_bits(ptr noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 -5, 1) i32 @opal_bitmap_clear_all_bits(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -131,7 +131,7 @@ define noundef i32 @opal_bitmap_clear_all_bits(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @opal_bitmap_set_bit(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -5, 1) i32 @opal_bitmap_set_bit(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp slt i32 %1, 0
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -203,7 +203,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_bitmap_clear_bit(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 -5, 1) i32 @opal_bitmap_clear_bit(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp slt i32 %1, 0
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -270,7 +270,7 @@ define zeroext i1 @opal_bitmap_is_set_bit(ptr noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_bitmap_set_all_bits(ptr noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 -5, 1) i32 @opal_bitmap_set_all_bits(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -290,7 +290,7 @@ define noundef i32 @opal_bitmap_set_all_bits(ptr noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_bitmap_find_and_set_first_unset_bit(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #9 {
+define range(i32 -5, 1) i32 @opal_bitmap_find_and_set_first_unset_bit(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #9 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %opal_bitmap_set_bit.exit, label %4
 
@@ -320,7 +320,7 @@ define noundef i32 @opal_bitmap_find_and_set_first_unset_bit(ptr noundef %0, ptr
   br i1 %exitcond.not, label %.critedge.thread, label %10, !llvm.loop !4
 
 .critedge.loopexit:                               ; preds = %10
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %4
@@ -424,7 +424,7 @@ opal_bitmap_set_bit.exit:                         ; preds = %41, %26, %19, %.cri
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_bitmap_bitwise_and_inplace(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 -5, 1) i32 @opal_bitmap_bitwise_and_inplace(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -469,7 +469,7 @@ define noundef i32 @opal_bitmap_bitwise_and_inplace(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_bitmap_bitwise_or_inplace(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 -5, 1) i32 @opal_bitmap_bitwise_or_inplace(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -514,7 +514,7 @@ define noundef i32 @opal_bitmap_bitwise_or_inplace(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_bitmap_bitwise_xor_inplace(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 -5, 1) i32 @opal_bitmap_bitwise_xor_inplace(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

@@ -726,7 +726,7 @@ iov_to_buf.exit.thread.i:                         ; preds = %if.end.i62
   store i16 %22, ptr %opthdr.i, align 2
   %23 = trunc i16 %22 to i8
   %24 = lshr i16 %22, 8
-  %25 = trunc i16 %24 to i8
+  %25 = trunc nuw i16 %24 to i8
   br label %if.end10.i
 
 iov_to_buf.exit.i70:                              ; preds = %if.end.i62
@@ -832,7 +832,7 @@ return:                                           ; preds = %eth_is_ip6_extensio
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @eth_strip_vlan(ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %iovoff, ptr noundef %new_ehdr_buf, ptr nocapture noundef %payload_offset, ptr nocapture noundef writeonly %tci) local_unnamed_addr #2 {
+define dso_local range(i64 0, 19) i64 @eth_strip_vlan(ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %iovoff, ptr noundef %new_ehdr_buf, ptr nocapture noundef %payload_offset, ptr nocapture noundef writeonly %tci) local_unnamed_addr #2 {
 entry:
   %vlan_hdr = alloca %struct.vlan_header, align 4
   %tobool.i.not = icmp eq i32 %iovcnt, 0
@@ -886,7 +886,7 @@ iov_to_buf.exit27.thread:                         ; preds = %land.lhs.true1.i19
   %6 = load i32, ptr %add.ptr.i26, align 1
   store i32 %6, ptr %vlan_hdr, align 4
   %7 = lshr i32 %6, 16
-  %8 = trunc i32 %7 to i16
+  %8 = trunc nuw i32 %7 to i16
   %9 = trunc i32 %6 to i16
   br label %if.end6
 
@@ -952,7 +952,7 @@ return:                                           ; preds = %if.end, %if.end6, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @eth_strip_vlan_ex(ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %iovoff, i32 noundef %index, i16 noundef zeroext %vet, i16 noundef zeroext %vet_ext, ptr noundef %new_ehdr_buf, ptr nocapture noundef writeonly %payload_offset, ptr nocapture noundef writeonly %tci) local_unnamed_addr #2 {
+define dso_local range(i64 0, 19) i64 @eth_strip_vlan_ex(ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %iovoff, i32 noundef %index, i16 noundef zeroext %vet, i16 noundef zeroext %vet_ext, ptr noundef %new_ehdr_buf, ptr nocapture noundef writeonly %payload_offset, ptr nocapture noundef writeonly %tci) local_unnamed_addr #2 {
 entry:
   %vlan_hdr = alloca %struct.vlan_header, align 4
   switch i32 %index, label %return [
@@ -1051,7 +1051,7 @@ iov_to_buf.exit44.thread:                         ; preds = %land.lhs.true1.i36
   %10 = load i32, ptr %add.ptr.i43, align 1
   store i32 %10, ptr %vlan_hdr, align 4
   %11 = lshr i32 %10, 16
-  %12 = trunc i32 %11 to i16
+  %12 = trunc nuw i32 %11 to i16
   br label %if.end21
 
 iov_to_buf.exit44:                                ; preds = %if.end16, %land.lhs.true1.i36

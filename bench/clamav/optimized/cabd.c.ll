@@ -965,7 +965,7 @@ cabd_free_decomp.exit:                            ; preds = %88, %105
 146:                                              ; preds = %136
   %147 = getelementptr inbounds i8, ptr %11, i64 8
   %148 = load i32, ptr %147, align 8
-  %149 = tail call fastcc i32 @cabd_init_decomp(ptr noundef nonnull %0, i32 noundef %148), !range !4
+  %149 = tail call fastcc i32 @cabd_init_decomp(ptr noundef nonnull %0, i32 noundef %148)
   %.not141 = icmp eq i32 %149, 0
   br i1 %.not141, label %153, label %150
 
@@ -1097,19 +1097,19 @@ thread-pre-split:                                 ; preds = %175
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cabd_prepend(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = tail call fastcc i32 @cabd_merge(ptr noundef %0, ptr noundef %2, ptr noundef %1), !range !4
+define internal range(i32 0, 9) i32 @cabd_prepend(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = tail call fastcc i32 @cabd_merge(ptr noundef %0, ptr noundef %2, ptr noundef %1)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cabd_append(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = tail call fastcc i32 @cabd_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2), !range !4
+define internal range(i32 0, 9) i32 @cabd_append(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = tail call fastcc i32 @cabd_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @cabd_param(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2) #2 {
+define internal range(i32 0, 2) i32 @cabd_param(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2) #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %4
 
@@ -1872,7 +1872,7 @@ define internal fastcc ptr @cabd_read_string(ptr noundef %0, ptr noundef %1, i32
 declare i32 @mspack_sys_filelen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cabd_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %125, label %4
 
@@ -2003,7 +2003,7 @@ define internal fastcc noundef i32 @cabd_merge(ptr noundef %0, ptr noundef %1, p
   br label %.loopexit
 
 61:                                               ; preds = %50, %47
-  %62 = tail call fastcc i32 @cabd_can_merge_folders(ptr noundef %6, ptr noundef nonnull %.0122, ptr noundef %44), !range !5
+  %62 = tail call fastcc i32 @cabd_can_merge_folders(ptr noundef %6, ptr noundef nonnull %.0122, ptr noundef %44)
   %.not143 = icmp eq i32 %62, 0
   br i1 %.not143, label %.sink.split, label %63
 
@@ -2168,7 +2168,7 @@ define internal fastcc noundef i32 @cabd_merge(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cabd_can_merge_folders(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cabd_can_merge_folders(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2681,7 +2681,7 @@ define internal i32 @cabd_sys_write(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cabd_init_decomp(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9) i32 @cabd_init_decomp(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 120
@@ -2794,7 +2794,7 @@ noned_init.exit:                                  ; preds = %27, %22, %51, %41, 
 declare void @lzxd_set_output_length(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @noned_decompress(ptr nocapture noundef readonly %0, i64 noundef %1) #0 {
+define internal range(i32 0, 5) i32 @noned_decompress(ptr nocapture noundef readonly %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = icmp sgt i64 %1, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -2894,5 +2894,3 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 9}
-!5 = !{i32 0, i32 2}

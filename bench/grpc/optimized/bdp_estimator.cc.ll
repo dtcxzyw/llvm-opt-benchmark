@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [34 x i8] c"ping_state_ == PingState::STARTED\00", align 1
 @.str.5 = private unnamed_addr constant [35 x i8] c"bdp[%s]: estimate increased to %ld\00", align 1
 @.str.6 = private unnamed_addr constant [35 x i8] c"bdp[%s]:update_inter_time to %ldms\00", align 1
-@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local global ptr, align 8
+@_ZN9grpc_core9Timestamp25thread_local_time_source_E = external thread_local local_unnamed_addr global ptr, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_bdp_estimator.cc, ptr null }]
 
 @_ZN9grpc_core12BdpEstimatorC1ESt17basic_string_viewIcSt11char_traitsIcEE = unnamed_addr alias void (ptr, i64, ptr), ptr @_ZN9grpc_core12BdpEstimatorC2ESt17basic_string_viewIcSt11char_traitsIcEE

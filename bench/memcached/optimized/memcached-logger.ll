@@ -229,7 +229,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_setspecific(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @logger_log(ptr noundef %l, i32 noundef %event, ptr noundef %entry1, ...) local_unnamed_addr #1 {
+define dso_local range(i32 0, 3) i32 @logger_log(ptr noundef %l, i32 noundef %event, ptr noundef %entry1, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %buf2 = getelementptr inbounds i8, ptr %l, i64 88
@@ -319,7 +319,7 @@ declare i32 @bipbuf_push(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @logger_add_watcher(ptr noundef %c, i32 noundef %sfd, i16 noundef zeroext %f) local_unnamed_addr #1 {
+define dso_local range(i32 0, 3) i32 @logger_add_watcher(ptr noundef %c, i32 noundef %sfd, i16 noundef zeroext %f) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @logger_stack_lock) #18
   %0 = load i32, ptr @watcher_count, align 4
@@ -339,7 +339,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end.split.loop.exit:                          ; preds = %for.body
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit
@@ -556,7 +556,7 @@ while.cond.preheader.i.i:                         ; preds = %lor.lhs.false6.i.i
   br i1 %tobool25.i.i, label %while.end.i.i, label %land.rhs.preheader.i.i
 
 land.rhs.preheader.i.i:                           ; preds = %while.cond.preheader.i.i
-  %18 = trunc i64 %indvars.iv.i.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end16.i.i, %land.rhs.preheader.i.i

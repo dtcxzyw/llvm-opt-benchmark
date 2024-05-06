@@ -708,7 +708,7 @@ declare i32 @mbedtls_des3_set3key_enc(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @mbedtls_des3_set3key_dec(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @chacha20_stream_wrap(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 -80, -81) i32 @chacha20_stream_wrap(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @mbedtls_chacha20_update(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #4
   %6 = icmp eq i32 %5, -81
   %. = select i1 %6, i32 -24832, i32 %5
@@ -716,7 +716,7 @@ define internal i32 @chacha20_stream_wrap(ptr noundef %0, i64 noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @chacha20_setkey_wrap(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal range(i32 -24832, 1) i32 @chacha20_setkey_wrap(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %.not = icmp eq i32 %2, 256
   br i1 %.not, label %4, label %6
 
@@ -761,7 +761,7 @@ declare void @mbedtls_chacha20_init(ptr noundef) local_unnamed_addr #1
 declare void @mbedtls_chacha20_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @chachapoly_setkey_wrap(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal range(i32 -24832, 1) i32 @chachapoly_setkey_wrap(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %.not = icmp eq i32 %2, 256
   br i1 %.not, label %4, label %6
 

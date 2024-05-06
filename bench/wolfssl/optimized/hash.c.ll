@@ -128,31 +128,31 @@ if.else29:                                        ; preds = %if.else22
 
 if.else36:                                        ; preds = %if.else29
   %puts16 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  %call39 = tail call i32 @hmac_md5_test(), !range !5
+  %call39 = tail call i32 @hmac_md5_test()
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.else43, label %return
 
 if.else43:                                        ; preds = %if.else36
   %puts17 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
-  %call46 = tail call i32 @hmac_sha_test(), !range !5
+  %call46 = tail call i32 @hmac_sha_test()
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %if.else50, label %return
 
 if.else50:                                        ; preds = %if.else43
   %puts18 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  %call53 = tail call i32 @hmac_sha224_test(), !range !5
+  %call53 = tail call i32 @hmac_sha224_test()
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %if.else57, label %return
 
 if.else57:                                        ; preds = %if.else50
   %puts19 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
-  %call60 = tail call i32 @hmac_sha256_test(), !range !5
+  %call60 = tail call i32 @hmac_sha256_test()
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %if.else64, label %return
 
 if.else64:                                        ; preds = %if.else57
   %puts20 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
-  %call67 = tail call i32 @hmac_sha384_test(), !range !5
+  %call67 = tail call i32 @hmac_sha384_test()
   %tobool68.not = icmp eq i32 %call67, 0
   br i1 %tobool68.not, label %if.else71, label %return
 
@@ -230,14 +230,14 @@ if.end53:                                         ; preds = %if.end49
   br i1 %cmp59.not, label %for.inc, label %if.then61
 
 if.then61:                                        ; preds = %if.end53
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %sub = sub nuw nsw i32 -5, %3
   br label %return
 
 for.inc:                                          ; preds = %if.end53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc
   call void @wc_Md5Free(ptr noundef nonnull %md5) #5
@@ -297,14 +297,14 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp45.not, label %for.inc, label %if.then47
 
 if.then47:                                        ; preds = %for.body
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %sub = sub nuw nsw i32 -10, %3
   br label %return
 
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc
   call void @wc_ShaFree(ptr noundef nonnull %sha) #5
@@ -362,7 +362,7 @@ if.end25:                                         ; preds = %if.end20
   br i1 %cmp31.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.end25
-  br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !9
+  br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc
   call void @wc_Sha224Free(ptr noundef nonnull %sha) #5
@@ -420,7 +420,7 @@ if.end29:                                         ; preds = %if.end24
   br i1 %cmp35.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.end29
-  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc
   call void @wc_Sha256Free(ptr noundef nonnull %sha) #5
@@ -478,7 +478,7 @@ if.end29:                                         ; preds = %if.end24
   br i1 %cmp35.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.end29
-  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc
   call void @wc_Sha512Free(ptr noundef nonnull %sha) #5
@@ -536,7 +536,7 @@ if.end29:                                         ; preds = %if.end24
   br i1 %cmp35.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.end29
-  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc
   call void @wc_Sha384Free(ptr noundef nonnull %sha) #5
@@ -548,7 +548,7 @@ return:                                           ; preds = %if.end24, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hmac_md5_test() local_unnamed_addr #0 {
+define dso_local range(i32 -20009, 2147483629) i32 @hmac_md5_test() local_unnamed_addr #0 {
 entry:
   %hmac = alloca %struct.Hmac, align 16
   %hash = alloca [16 x i8], align 16
@@ -607,14 +607,14 @@ if.end49:                                         ; preds = %if.end44
   br i1 %cmp55.not, label %for.inc, label %if.then57
 
 if.then57:                                        ; preds = %if.end49
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %sub = sub nuw nsw i32 -20, %4
   br label %return
 
 for.inc:                                          ; preds = %if.end49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc
   call void @wc_HmacFree(ptr noundef nonnull %hmac) #5
@@ -626,7 +626,7 @@ return:                                           ; preds = %if.end44, %if.end32
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hmac_sha_test() local_unnamed_addr #0 {
+define dso_local range(i32 -20009, 2147483629) i32 @hmac_sha_test() local_unnamed_addr #0 {
 entry:
   %hmac = alloca %struct.Hmac, align 16
   %hash = alloca [20 x i8], align 16
@@ -685,14 +685,14 @@ if.end49:                                         ; preds = %if.end44
   br i1 %cmp55.not, label %for.inc, label %if.then57
 
 if.then57:                                        ; preds = %if.end49
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %sub = sub nuw nsw i32 -20, %4
   br label %return
 
 for.inc:                                          ; preds = %if.end49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc
   call void @wc_HmacFree(ptr noundef nonnull %hmac) #5
@@ -704,7 +704,7 @@ return:                                           ; preds = %if.end44, %if.end32
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hmac_sha224_test() local_unnamed_addr #0 {
+define dso_local range(i32 -20009, 2147483629) i32 @hmac_sha224_test() local_unnamed_addr #0 {
 entry:
   %hmac = alloca %struct.Hmac, align 16
   %hash = alloca [28 x i8], align 16
@@ -763,14 +763,14 @@ if.end43:                                         ; preds = %if.end38
   br i1 %cmp49.not, label %for.inc, label %if.then51
 
 if.then51:                                        ; preds = %if.end43
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %sub = sub nuw nsw i32 -20, %4
   br label %return
 
 for.inc:                                          ; preds = %if.end43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc
   call void @wc_HmacFree(ptr noundef nonnull %hmac) #5
@@ -782,7 +782,7 @@ return:                                           ; preds = %if.end38, %if.end26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hmac_sha256_test() local_unnamed_addr #0 {
+define dso_local range(i32 -20009, 2147483629) i32 @hmac_sha256_test() local_unnamed_addr #0 {
 entry:
   %hmac = alloca %struct.Hmac, align 16
   %hash = alloca [32 x i8], align 16
@@ -841,14 +841,14 @@ if.end49:                                         ; preds = %if.end44
   br i1 %cmp55.not, label %for.inc, label %if.then57
 
 if.then57:                                        ; preds = %if.end49
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %sub = sub nuw nsw i32 -20, %4
   br label %return
 
 for.inc:                                          ; preds = %if.end49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc
   call void @wc_HmacFree(ptr noundef nonnull %hmac) #5
@@ -860,7 +860,7 @@ return:                                           ; preds = %if.end44, %if.end32
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hmac_sha384_test() local_unnamed_addr #0 {
+define dso_local range(i32 -20009, 2147483629) i32 @hmac_sha384_test() local_unnamed_addr #0 {
 entry:
   %hmac = alloca %struct.Hmac, align 16
   %hash = alloca [48 x i8], align 16
@@ -919,14 +919,14 @@ if.end49:                                         ; preds = %if.end44
   br i1 %cmp55.not, label %for.inc, label %if.then57
 
 if.then57:                                        ; preds = %if.end49
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %sub = sub nuw nsw i32 -20, %4
   br label %return
 
 for.inc:                                          ; preds = %if.end49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc
   call void @wc_HmacFree(ptr noundef nonnull %hmac) #5
@@ -1019,16 +1019,15 @@ attributes #6 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -20009, i32 2147483629}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}

@@ -11,7 +11,7 @@ define void @softfloat_shiftRightJam256M(ptr nocapture noundef readonly %0, i64 
 4:                                                ; preds = %3
   %5 = lshr i64 %1, 6
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %5, i64 4)
-  %6 = trunc i64 %spec.store.select to i8
+  %6 = trunc nuw nsw i64 %spec.store.select to i8
   br label %7
 
 7:                                                ; preds = %7, %4
@@ -80,7 +80,7 @@ softfloat_shortShiftRightJamM.exit:               ; preds = %25
   br i1 %.not49, label %.loopexit, label %.loopexit60
 
 33:                                               ; preds = %.thread
-  %34 = trunc i64 %.03859 to i8
+  %34 = trunc nuw nsw i64 %.03859 to i8
   %.not4862 = icmp eq i8 %34, 4
   br i1 %.not4862, label %.loopexit60, label %.lr.ph.preheader
 
@@ -96,7 +96,7 @@ softfloat_shortShiftRightJamM.exit:               ; preds = %25
   store i64 %36, ptr %.263, align 8
   %37 = getelementptr inbounds i8, ptr %.065, i64 8
   %38 = getelementptr inbounds i8, ptr %.263, i64 8
-  %39 = add i8 %.164, -1
+  %39 = add nsw i8 %.164, -1
   %.not48 = icmp eq i8 %39, 0
   br i1 %.not48, label %.loopexit60, label %.lr.ph, !llvm.loop !7
 

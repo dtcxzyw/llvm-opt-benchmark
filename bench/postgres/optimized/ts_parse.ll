@@ -38,7 +38,7 @@ define dso_local void @parsetext(i32 noundef %0, ptr nocapture noundef %1, ptr n
   %17 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %7, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %18, i8 0, i64 56, i1 false)
   %19 = getelementptr inbounds i8, ptr %11, i64 80
   %20 = ptrtoint ptr %6 to i64
   %21 = ptrtoint ptr %5 to i64
@@ -334,7 +334,7 @@ RemoveHead.exit:                                  ; preds = %37, %.thread.i.i
   br i1 %63, label %64, label %81
 
 64:                                               ; preds = %49
-  %65 = trunc i64 %indvars.iv243 to i32
+  %65 = trunc nsw i64 %indvars.iv243 to i32
   %66 = load ptr, ptr %47, align 8
   %67 = getelementptr i32, ptr %66, i64 %indvars.iv243
   %68 = load i32, ptr %67, align 4
@@ -761,7 +761,7 @@ define dso_local void @hlparsetext(i32 noundef %0, ptr nocapture noundef %1, ptr
   %19 = getelementptr inbounds i8, ptr %8, i64 12
   store i32 0, ptr %19, align 4
   %20 = getelementptr inbounds i8, ptr %8, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(56) %20, i8 0, i64 56, i1 false)
   %21 = getelementptr inbounds i8, ptr %13, i64 80
   %22 = ptrtoint ptr %7 to i64
   %23 = ptrtoint ptr %6 to i64
@@ -894,7 +894,7 @@ hladdword.exit.i:                                 ; preds = %67, %60
   %101 = sext i32 %100 to i64
   %102 = getelementptr %struct.HeadlineWordEntry, ptr %99, i64 %101, i32 2
   %103 = load ptr, ptr %102, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr align 1 %62, i64 %93, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr readonly align 1 %62, i64 %93, i1 false)
   %104 = load i32, ptr %27, align 4
   %105 = add i32 %104, 1
   store i32 %105, ptr %27, align 4
@@ -997,7 +997,7 @@ hladdword.exit:                                   ; preds = %13, %20
   %54 = sext i32 %53 to i64
   %55 = getelementptr %struct.HeadlineWordEntry, ptr %52, i64 %54, i32 2
   %56 = load ptr, ptr %55, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 1 %15, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr readonly align 1 %15, i64 %46, i1 false)
   %57 = load i32, ptr %5, align 4
   %58 = add i32 %57, 1
   store i32 %58, ptr %5, align 4

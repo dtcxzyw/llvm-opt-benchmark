@@ -109,14 +109,14 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %cmp3.i, label %if.then4.i, label %if.else11.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %div.lhs.trunc.i = trunc i32 %sub30 to i16
+  %div.lhs.trunc.i = trunc nuw i32 %sub30 to i16
   %div78.i = udiv i16 %div.lhs.trunc.i, 253
-  %8 = trunc i16 %div78.i to i8
+  %8 = trunc nuw i16 %div78.i to i8
   %conv6.i = add nuw nsw i8 %8, -46
   %incdec.ptr7.i = getelementptr inbounds i8, ptr %p.034, i64 1
   store i8 %conv6.i, ptr %p.034, align 1
   %rem79.i = urem i16 %div.lhs.trunc.i, 253
-  %9 = trunc i16 %rem79.i to i8
+  %9 = trunc nuw i16 %rem79.i to i8
   %conv9.i = add nuw i8 %9, 3
   %incdec.ptr10.i = getelementptr inbounds i8, ptr %p.034, i64 2
   store i8 %conv9.i, ptr %incdec.ptr7.i, align 1
@@ -125,7 +125,7 @@ if.then4.i:                                       ; preds = %if.else.i
 if.else11.i:                                      ; preds = %if.else.i
   %cmp12.i = icmp ult i32 %sub30, 192786
   %rem14.i = urem i32 %sub30, 253
-  %10 = trunc i32 %rem14.i to i8
+  %10 = trunc nuw i32 %rem14.i to i8
   %conv16.i = add nuw i8 %10, 3
   %div17.i = udiv i32 %sub30, 253
   br i1 %cmp12.i, label %if.then13.i, label %if.else25.i
@@ -133,14 +133,14 @@ if.else11.i:                                      ; preds = %if.else.i
 if.then13.i:                                      ; preds = %if.else11.i
   %arrayidx.i = getelementptr inbounds i8, ptr %p.034, i64 2
   store i8 %conv16.i, ptr %arrayidx.i, align 1
-  %rem18.lhs.trunc.i = trunc i32 %div17.i to i16
+  %rem18.lhs.trunc.i = trunc nuw i32 %div17.i to i16
   %rem1880.i = urem i16 %rem18.lhs.trunc.i, 253
-  %11 = trunc i16 %rem1880.i to i8
+  %11 = trunc nuw i16 %rem1880.i to i8
   %conv20.i = add nuw i8 %11, 3
   %arrayidx21.i = getelementptr inbounds i8, ptr %p.034, i64 1
   store i8 %conv20.i, ptr %arrayidx21.i, align 1
   %div22.i = udiv i32 %sub30, 64009
-  %12 = trunc i32 %div22.i to i8
+  %12 = trunc nuw i32 %div22.i to i8
   %conv24.i = add nuw nsw i8 %12, -4
   store i8 %conv24.i, ptr %p.034, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %p.034, i64 3
@@ -150,14 +150,14 @@ if.else25.i:                                      ; preds = %if.else11.i
   %arrayidx29.i = getelementptr inbounds i8, ptr %p.034, i64 3
   store i8 %conv16.i, ptr %arrayidx29.i, align 1
   %rem31.i = urem i32 %div17.i, 253
-  %13 = trunc i32 %rem31.i to i8
+  %13 = trunc nuw i32 %rem31.i to i8
   %conv33.i = add nuw i8 %13, 3
   %arrayidx34.i = getelementptr inbounds i8, ptr %p.034, i64 2
   store i8 %conv33.i, ptr %arrayidx34.i, align 1
   %div35.i = udiv i32 %sub30, 64009
-  %rem36.lhs.trunc.i = trunc i32 %div35.i to i16
+  %rem36.lhs.trunc.i = trunc nuw i32 %div35.i to i16
   %rem3681.i = urem i16 %rem36.lhs.trunc.i, 253
-  %14 = trunc i16 %rem3681.i to i8
+  %14 = trunc nuw i16 %rem3681.i to i8
   %conv38.i = add nuw i8 %14, 3
   %arrayidx39.i = getelementptr inbounds i8, ptr %p.034, i64 1
   store i8 %conv38.i, ptr %arrayidx39.i, align 1
@@ -173,7 +173,7 @@ do.body.i:                                        ; preds = %if.else43.i
   %15 = trunc i32 %sub30 to i16
   %rem4682.lhs.trunc.i = sub nsw i16 0, %15
   %rem468283.i = urem i16 %rem4682.lhs.trunc.i, 253
-  %rem4682.zext.i = trunc i16 %rem468283.i to i8
+  %rem4682.zext.i = trunc nuw i16 %rem468283.i to i8
   %rem4682.neg.i = sub i8 0, %rem4682.zext.i
   %div478586.i = udiv i16 %rem4682.lhs.trunc.i, 253
   %div4785.neg.i = sub nsw i16 0, %div478586.i
@@ -195,7 +195,7 @@ if.else58.i:                                      ; preds = %if.else43.i
   %rem6288.i = urem i32 %diff.nonneg87.i, 253
   %div6390.i = udiv i32 %diff.nonneg87.i, 253
   %cmp64.not.i = icmp ne i32 %rem6288.i, 0
-  %17 = trunc i32 %rem6288.i to i8
+  %17 = trunc nuw i32 %rem6288.i to i8
   %18 = sub i8 0, %17
   %dec66.neg.i = zext i1 %cmp64.not.i to i32
   %diff.addr.1.neg.i = add nuw nsw i32 %div6390.i, %dec66.neg.i
@@ -205,14 +205,14 @@ if.else58.i:                                      ; preds = %if.else43.i
 do.body61.i:                                      ; preds = %if.else58.i
   %arrayidx72.i = getelementptr inbounds i8, ptr %p.034, i64 2
   store i8 %m.1.i, ptr %arrayidx72.i, align 1
-  %.neg.i = trunc i32 %diff.addr.1.neg.i to i16
+  %.neg.i = trunc nuw i32 %diff.addr.1.neg.i to i16
   %rem749192.i = urem i16 %.neg.i, 253
   %div759495.i = udiv i16 %.neg.i, 253
   %div7594.neg.i = sub nsw i16 0, %div759495.i
   %cmp76.not.i = icmp eq i16 %rem749192.i, 0
   %dec78.i = xor i16 %div759495.i, -1
   %diff.addr.2.i = select i1 %cmp76.not.i, i16 %div7594.neg.i, i16 %dec78.i
-  %19 = trunc i16 %rem749192.i to i8
+  %19 = trunc nuw i16 %rem749192.i to i8
   %20 = sub i8 0, %19
   %conv83.i = select i1 %cmp76.not.i, i8 3, i8 %20
   %arrayidx84.i = getelementptr inbounds i8, ptr %p.034, i64 1
@@ -229,7 +229,7 @@ do.body89.i:                                      ; preds = %if.else58.i
   %rem102100.i = urem i32 %diff.addr.1.neg.i, 253
   %div103102.i = udiv i32 %diff.addr.1.neg.i, 253
   %cmp104.not.i = icmp ne i32 %rem102100.i, 0
-  %22 = trunc i32 %rem102100.i to i8
+  %22 = trunc nuw i32 %rem102100.i to i8
   %23 = sub i8 0, %22
   %dec106.neg.i = zext i1 %cmp104.not.i to i32
   %diff.addr.4.neg.i = add nuw nsw i32 %div103102.i, %dec106.neg.i
@@ -238,7 +238,7 @@ do.body89.i:                                      ; preds = %if.else58.i
   store i8 %m.4.i, ptr %arrayidx112.i, align 1
   %rem114103.lhs.trunc.i = trunc i32 %diff.addr.4.neg.i to i16
   %rem114103104.i = urem i16 %rem114103.lhs.trunc.i, 253
-  %rem114103.zext.i = trunc i16 %rem114103104.i to i8
+  %rem114103.zext.i = trunc nuw i16 %rem114103104.i to i8
   %rem114103.neg.i = sub i8 0, %rem114103.zext.i
   %cmp116.not.i = icmp eq i16 %rem114103104.i, 0
   %m.5.i = select i1 %cmp116.not.i, i8 3, i8 %rem114103.neg.i

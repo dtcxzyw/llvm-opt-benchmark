@@ -38,7 +38,7 @@ if.end3:                                          ; preds = %if.end
   %conv = add i32 %0, 4
   %header_buffer = getelementptr inbounds i8, ptr %writer, i64 8
   %shr.i = lshr i32 %conv, 24
-  %conv2.i = trunc i32 %shr.i to i8
+  %conv2.i = trunc nuw i32 %shr.i to i8
   %arrayidx.i = getelementptr inbounds i8, ptr %writer, i64 11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %input_bytes_written, i8 0, i64 16, i1 false)
   store i8 %conv2.i, ptr %arrayidx.i, align 1

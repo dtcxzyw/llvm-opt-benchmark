@@ -3963,13 +3963,13 @@ define hidden void @_ZN8rawspeed10DngDecoder14handleMetadataEPKNS_7TiffIFDE(ptr 
   %532 = icmp ne i32 %524, 0
   %533 = xor i1 %531, %532
   call void @llvm.assume(i1 %533)
-  %534 = mul nsw i32 %527, %524
+  %534 = mul nuw nsw i32 %527, %524
   %535 = icmp eq i32 %518, %534
   call void @llvm.assume(i1 %535)
   %536 = icmp eq i32 %524, 1
   %537 = icmp eq i32 %527, %521
   %538 = or i1 %536, %537
-  %539 = mul nsw i32 %524, %521
+  %539 = mul nuw nsw i32 %524, %521
   call void @llvm.assume(i1 %538)
   %540 = icmp eq i32 %539, 0
   br i1 %540, label %546, label %541
@@ -4262,13 +4262,13 @@ define hidden void @_ZNK8rawspeed10DngDecoder8setBlackEPKNS_7TiffIFDE(ptr nocapt
   %60 = icmp ne i32 %52, 0
   %61 = xor i1 %59, %60
   tail call void @llvm.assume(i1 %61)
-  %62 = mul nsw i32 %55, %52
+  %62 = mul nuw nsw i32 %55, %52
   %63 = icmp eq i32 %46, %62
   tail call void @llvm.assume(i1 %63)
   %64 = icmp eq i32 %52, 1
   %65 = icmp eq i32 %55, %49
   %66 = or i1 %64, %65
-  %67 = mul nsw i32 %52, %49
+  %67 = mul nuw nsw i32 %52, %49
   tail call void @llvm.assume(i1 %66)
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %74, label %69
@@ -6552,13 +6552,13 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   %126 = icmp ne i32 %118, 0
   %127 = xor i1 %125, %126
   tail call void @llvm.assume(i1 %127)
-  %128 = mul nsw i32 %121, %118
+  %128 = mul nuw nsw i32 %121, %118
   %129 = icmp eq i32 %112, %128
   tail call void @llvm.assume(i1 %129)
   %130 = icmp eq i32 %118, 1
   %131 = icmp eq i32 %121, %115
   %132 = or i1 %130, %131
-  %133 = mul nsw i32 %118, %115
+  %133 = mul nuw nsw i32 %118, %115
   tail call void @llvm.assume(i1 %132)
   %134 = fptosi float %86 to i32
   store i32 %134, ptr %110, align 4, !tbaa !125
@@ -6622,13 +6622,13 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   %171 = icmp ne i32 %163, 0
   %172 = xor i1 %170, %171
   tail call void @llvm.assume(i1 %172)
-  %173 = mul nsw i32 %166, %163
+  %173 = mul nuw nsw i32 %166, %163
   %174 = icmp eq i32 %157, %173
   tail call void @llvm.assume(i1 %174)
   %175 = icmp eq i32 %163, 1
   %176 = icmp eq i32 %166, %160
   %177 = or i1 %175, %176
-  %178 = mul nsw i32 %163, %160
+  %178 = mul nuw nsw i32 %163, %160
   tail call void @llvm.assume(i1 %177)
   %179 = tail call noundef float @_ZNK8rawspeed9TiffEntry8getFloatEj(ptr noundef nonnull align 8 dereferenceable(52) %70, i32 noundef 0)
   %180 = fpext float %179 to double
@@ -6777,13 +6777,13 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   %275 = icmp ne i32 %267, 0
   %276 = xor i1 %274, %275
   tail call void @llvm.assume(i1 %276)
-  %277 = mul nsw i32 %270, %267
+  %277 = mul nuw nsw i32 %270, %267
   %278 = icmp eq i32 %261, %277
   tail call void @llvm.assume(i1 %278)
   %279 = icmp eq i32 %267, 1
   %280 = icmp eq i32 %270, %264
   %281 = or i1 %279, %280
-  %282 = mul nsw i32 %267, %264
+  %282 = mul nuw nsw i32 %267, %264
   tail call void @llvm.assume(i1 %281)
   %283 = sitofp i32 %252 to float
   %284 = fdiv float %253, %283
@@ -6997,13 +6997,13 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   %428 = icmp ne i32 %420, 0
   %429 = xor i1 %427, %428
   tail call void @llvm.assume(i1 %429)
-  %430 = mul nsw i32 %423, %420
+  %430 = mul nuw nsw i32 %423, %420
   %431 = icmp eq i32 %414, %430
   tail call void @llvm.assume(i1 %431)
   %432 = icmp eq i32 %420, 1
   %433 = icmp eq i32 %423, %417
   %434 = or i1 %432, %433
-  %435 = mul nsw i32 %420, %417
+  %435 = mul nuw nsw i32 %420, %417
   tail call void @llvm.assume(i1 %434)
   %436 = sitofp i32 %405 to float
   %437 = fdiv float %406, %436

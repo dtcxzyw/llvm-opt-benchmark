@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [35 x i8] c"mca:prm:select: using component %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_prm_base_select() local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @pmix_prm_base_select() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca i32, align 4
   %3 = load i8, ptr getelementptr inbounds (%struct.pmix_prm_globals_t, ptr @pmix_prm_base, i64 0, i32 1), align 1

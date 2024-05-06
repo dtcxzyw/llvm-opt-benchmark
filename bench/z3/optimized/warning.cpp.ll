@@ -227,7 +227,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %0 = load i8, ptr @_ZL16g_use_std_stdout, align 1
-  %tobool3 = trunc i8 %0 to i1
+  %tobool3 = trunc nuw i8 %0 to i1
   %1 = load ptr, ptr @stdout, align 8
   %2 = load ptr, ptr @stderr, align 8
   %cond = select i1 %tobool3, ptr %1, ptr %2
@@ -254,7 +254,7 @@ define hidden void @_Z11warning_msgPKcz(ptr nocapture noundef readonly %msg, ...
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load i8, ptr @_ZL14g_warning_msgs, align 1
-  %tobool = trunc i8 %0 to i1
+  %tobool = trunc nuw i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

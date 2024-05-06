@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_pt = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @up_map_region(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @up_map_region(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, -4096
   %6 = trunc i64 %4 to i32

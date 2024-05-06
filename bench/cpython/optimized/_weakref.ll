@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_weakref_getweakrefs__doc__ = internal constant [102 x i8] c"getweakrefs($module, object, /)\0A--\0A\0AReturn a list of all weak reference objects pointing to 'object'.\00", align 16
 @.str.5 = private unnamed_addr constant [6 x i8] c"proxy\00", align 1
 @_weakref_proxy__doc__ = internal constant [203 x i8] c"proxy($module, object, callback=None, /)\0A--\0A\0ACreate a proxy object that weakly references 'object'.\0A\0A'callback', if given, is called with a reference to the\0Aproxy when 'object' is about to be finalized.\00", align 16
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.6 = private unnamed_addr constant [11 x i8] c"argument 1\00", align 1
 @.str.7 = private unnamed_addr constant [5 x i8] c"dict\00", align 1
 @PyExc_KeyError = external local_unnamed_addr global ptr, align 8
@@ -289,7 +289,7 @@ declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @_PyDict_DelItemIf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @is_dead_weakref(ptr nocapture noundef readonly %value) #0 {
+define internal range(i32 -1, 2) i32 @is_dead_weakref(ptr nocapture noundef readonly %value) #0 {
 entry:
   %0 = getelementptr i8, ptr %value, i64 8
   %value.val5 = load ptr, ptr %0, align 8
@@ -343,7 +343,7 @@ declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 declare ptr @PyWeakref_NewProxy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @weakref_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @weakref_exec(ptr noundef %module) #0 {
 entry:
   %call = tail call i32 @PyModule_AddObjectRef(ptr noundef %module, ptr noundef nonnull @.str.9, ptr noundef nonnull @_PyWeakref_RefType) #3
   %cmp = icmp slt i32 %call, 0

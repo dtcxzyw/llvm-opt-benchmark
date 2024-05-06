@@ -2695,7 +2695,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1063, %1060, %._cri
   %1251 = add nuw nsw i32 %.0804.i, 8
   %1252 = load ptr, ptr %53, align 8
   %1253 = lshr i64 %1250, 32
-  %1254 = trunc i64 %1253 to i32
+  %1254 = trunc nuw i64 %1253 to i32
   %1255 = trunc i64 %1250 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1252, i32 noundef 25, ptr noundef nonnull @.str.520, i32 noundef %1254, i32 noundef %1255) #4
   %1256 = icmp eq i64 %1250, 0
@@ -2803,7 +2803,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1063, %1060, %._cri
   %1317 = add nuw nsw i32 %.0804.i, 9
   %1318 = load ptr, ptr %53, align 8
   %1319 = lshr i64 %1316, 32
-  %1320 = trunc i64 %1319 to i32
+  %1320 = trunc nuw i64 %1319 to i32
   %1321 = trunc i64 %1316 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1318, i32 noundef 25, ptr noundef nonnull @.str.520, i32 noundef %1320, i32 noundef %1321) #4
   switch i64 %1316, label %dissect_vendor_dependent.exit [
@@ -2952,7 +2952,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1063, %1060, %._cri
   %1405 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %1404, ptr noundef %.0803.i, i32 noundef %1297, i32 noundef 1, i32 noundef 0) #4
   %1406 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0803.i, i32 noundef %1297) #4
   %1407 = and i8 %1406, 127
-  %1408 = uitofp i8 %1407 to double
+  %1408 = uitofp nneg i8 %1407 to double
   %1409 = fmul double %1408, 1.000000e+02
   %1410 = fdiv double %1409, 1.270000e+02
   %1411 = fptoui double %1410 to i32
@@ -3188,7 +3188,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1063, %1060, %._cri
   %1554 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %1553, ptr noundef %.0803.i, i32 noundef %.0804.i, i32 noundef 1, i32 noundef 0) #4
   %1555 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0803.i, i32 noundef %.0804.i) #4
   %1556 = and i8 %1555, 127
-  %1557 = uitofp i8 %1556 to double
+  %1557 = uitofp nneg i8 %1556 to double
   %1558 = fmul double %1557, 1.000000e+02
   %1559 = fdiv double %1558, 1.270000e+02
   %1560 = fptoui double %1559 to i32

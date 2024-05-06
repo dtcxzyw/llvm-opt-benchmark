@@ -25,7 +25,7 @@ define zeroext i1 @in_poly(ptr nocapture readonly %0, i32 %1, double %2, double 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
   %10 = phi i1 [ false, %.lr.ph.preheader ], [ %9, %8 ]
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   %12 = add i32 %5, %11
   %13 = srem i32 %12, %1
   %14 = sext i32 %13 to i64

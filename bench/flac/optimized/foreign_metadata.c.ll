@@ -182,7 +182,7 @@ if.end4:                                          ; preds = %if.end, %entry
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @flac__foreign_metadata_read_from_aiff(ptr nocapture noundef %fm, ptr nocapture noundef readonly %filename, ptr noundef writeonly %error) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_aiff(ptr nocapture noundef %fm, ptr nocapture noundef readonly %filename, ptr noundef writeonly %error) local_unnamed_addr #4 {
 entry:
   %buffer.i = alloca [12 x i8], align 1
   %call = tail call noalias ptr @fopen64(ptr noundef %filename, ptr noundef nonnull @.str.3)
@@ -540,7 +540,7 @@ declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocaptu
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @flac__foreign_metadata_read_from_wave(ptr nocapture noundef %fm, ptr nocapture noundef readonly %filename, ptr noundef writeonly %error) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_wave(ptr nocapture noundef %fm, ptr nocapture noundef readonly %filename, ptr noundef writeonly %error) local_unnamed_addr #4 {
 entry:
   %buffer.i = alloca [12 x i8], align 1
   %buffer2.i = alloca [28 x i8], align 16
@@ -901,7 +901,7 @@ if.end218.i:                                      ; preds = %if.end209.i
   %conv24.i141.i = zext i8 %32 to i64
   %shl25.i142.i = shl nuw i64 %conv24.i141.i, 56
   %add26.i143.i = or disjoint i64 %add22.i139.i, %shl25.i142.i
-  %add221.i = add nsw i64 %add26.i143.i, 8
+  %add221.i = add nuw nsw i64 %add26.i143.i, 8
   %cmp224.i = icmp slt i64 %add26.i143.i, 0
   br i1 %cmp224.i, label %if.then229.i, label %if.end266.i
 
@@ -998,7 +998,7 @@ return:                                           ; preds = %if.then, %if.then2,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @flac__foreign_metadata_read_from_wave64(ptr nocapture noundef %fm, ptr nocapture noundef readonly %filename, ptr noundef writeonly %error) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_wave64(ptr nocapture noundef %fm, ptr nocapture noundef readonly %filename, ptr noundef writeonly %error) local_unnamed_addr #4 {
 entry:
   %buffer.i = alloca [40 x i8], align 16
   %call = tail call noalias ptr @fopen64(ptr noundef %filename, ptr noundef nonnull @.str.3)
@@ -1297,7 +1297,7 @@ return:                                           ; preds = %if.then, %if.then2,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @flac__foreign_metadata_write_to_flac(ptr nocapture noundef readonly %fm, ptr nocapture noundef readonly %infilename, ptr noundef %outfilename, ptr noundef writeonly %error) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_flac(ptr nocapture noundef readonly %fm, ptr nocapture noundef readonly %infilename, ptr noundef %outfilename, ptr noundef writeonly %error) local_unnamed_addr #4 {
 entry:
   %buffer.i.i = alloca [4096 x i8], align 16
   %buffer.i = alloca [4 x i8], align 1
@@ -1577,7 +1577,7 @@ declare i32 @FLAC__metadata_simple_iterator_init(ptr noundef, ptr noundef, i32 n
 declare void @FLAC__metadata_simple_iterator_delete(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @flac__foreign_metadata_read_from_flac(ptr nocapture noundef %fm, ptr noundef %filename, ptr noundef writeonly %error) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_flac(ptr nocapture noundef %fm, ptr noundef %filename, ptr noundef writeonly %error) local_unnamed_addr #4 {
 entry:
   %id.i = alloca [4 x i8], align 1
   %buffer.i = alloca [32 x i8], align 16
@@ -1712,7 +1712,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
 
 for.inc.thread.i:                                 ; preds = %for.body.i
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %5, ptr %fm, align 8
   %indvars.iv.next213.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not214.i = icmp eq i64 %indvars.iv.next213.i, 3
@@ -2155,7 +2155,7 @@ return:                                           ; preds = %if.then, %if.then2,
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local noundef i32 @flac__foreign_metadata_write_to_iff(ptr nocapture noundef readonly %fm, ptr nocapture noundef readonly %infilename, ptr nocapture noundef readonly %outfilename, i64 noundef %offset1, i64 noundef %offset2, i64 noundef %offset3, ptr noundef writeonly %error) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_iff(ptr nocapture noundef readonly %fm, ptr nocapture noundef readonly %infilename, ptr nocapture noundef readonly %outfilename, i64 noundef %offset1, i64 noundef %offset2, i64 noundef %offset3, ptr noundef writeonly %error) local_unnamed_addr #7 {
 entry:
   %buffer.i106.i = alloca [4096 x i8], align 16
   %buffer.i85.i = alloca [4096 x i8], align 16
@@ -2594,7 +2594,7 @@ return:                                           ; preds = %if.then, %if.then1,
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local noundef i32 @flac__foreign_metadata_compare_with_iff(ptr nocapture noundef readonly %fm, ptr nocapture noundef readonly %infilename, ptr nocapture noundef readonly %outfilename, i64 noundef %offset3, ptr noundef writeonly %error) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_compare_with_iff(ptr nocapture noundef readonly %fm, ptr nocapture noundef readonly %infilename, ptr nocapture noundef readonly %outfilename, i64 noundef %offset3, ptr noundef writeonly %error) local_unnamed_addr #7 {
 entry:
   %buffer_in.i30.i = alloca [4096 x i8], align 16
   %buffer_out.i31.i = alloca [4096 x i8], align 16

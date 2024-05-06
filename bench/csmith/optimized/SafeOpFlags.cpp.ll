@@ -165,7 +165,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize(i1 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 1, 12) i32 @_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize(i1 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   br i1 %0, label %3, label %5
 
 3:                                                ; preds = %2

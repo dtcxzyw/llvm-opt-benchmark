@@ -77,7 +77,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_namemap_empty() #0 {
+define internal range(i32 0, 2) i32 @test_namemap_empty() #0 {
 entry:
   %call = tail call i32 @ossl_namemap_empty(ptr noundef null) #2
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.7, i32 noundef 24, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef %call, i32 noundef 1) #2
@@ -117,7 +117,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_namemap_independent() #0 {
+define internal range(i32 0, 2) i32 @test_namemap_independent() #0 {
 entry:
   %call = tail call ptr @ossl_namemap_new() #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 59, ptr noundef nonnull @.str.15, ptr noundef %call) #2
@@ -125,7 +125,7 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %call2 = tail call fastcc i32 @test_namemap(ptr noundef %call), !range !5
+  %call2 = tail call fastcc i32 @test_namemap(ptr noundef %call)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
@@ -135,7 +135,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_namemap_stored() #0 {
+define internal range(i32 0, 2) i32 @test_namemap_stored() #0 {
 entry:
   %call = tail call ptr @ossl_namemap_stored(ptr noundef null) #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 69, ptr noundef nonnull @.str.15, ptr noundef %call) #2
@@ -143,7 +143,7 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %call2 = tail call fastcc i32 @test_namemap(ptr noundef %call), !range !5
+  %call2 = tail call fastcc i32 @test_namemap(ptr noundef %call)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
@@ -152,7 +152,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_digestbyname() #0 {
+define internal range(i32 0, 2) i32 @test_digestbyname() #0 {
 entry:
   %call = tail call ptr @ossl_namemap_stored(ptr noundef null) #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 83, ptr noundef nonnull @.str.15, ptr noundef %call) #2
@@ -190,7 +190,7 @@ return:                                           ; preds = %if.end16, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cipherbyname() #0 {
+define internal range(i32 0, 2) i32 @test_cipherbyname() #0 {
 entry:
   %call = tail call ptr @ossl_namemap_stored(ptr noundef null) #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 111, ptr noundef nonnull @.str.15, ptr noundef %call) #2
@@ -228,7 +228,7 @@ return:                                           ; preds = %if.end16, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_digest_is_a() #0 {
+define internal range(i32 0, 2) i32 @test_digest_is_a() #0 {
 entry:
   %call = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef nonnull @.str.38, ptr noundef null) #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 160, ptr noundef nonnull @.str.39, ptr noundef %call) #2
@@ -287,7 +287,7 @@ return:                                           ; preds = %entry, %if.end26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_cipher_is_a() #0 {
+define internal range(i32 0, 2) i32 @test_cipher_is_a() #0 {
 entry:
   %call = tail call ptr @EVP_CIPHER_fetch(ptr noundef null, ptr noundef nonnull @.str.48, ptr noundef null) #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 138, ptr noundef nonnull @.str.39, ptr noundef %call) #2
@@ -360,7 +360,7 @@ declare i32 @ossl_namemap_add_name(ptr noundef, i32 noundef, ptr noundef) local_
 declare void @ossl_namemap_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_namemap(ptr noundef %nm) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_namemap(ptr noundef %nm) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_namemap_add_name(ptr noundef %nm, i32 noundef 0, ptr noundef nonnull @.str.14) #2
   %call1 = tail call i32 @ossl_namemap_add_name(ptr noundef %nm, i32 noundef 0, ptr noundef nonnull @.str.16) #2
@@ -462,4 +462,3 @@ attributes #2 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

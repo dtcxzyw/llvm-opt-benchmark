@@ -183,7 +183,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 20:                                               ; preds = %2
   %21 = load ptr, ptr getelementptr inbounds (%struct.prte_install_dirs_t, ptr @prte_install_dirs, i64 0, i32 15), align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
-  %22 = call i32 @stat(ptr noundef %21, ptr noundef nonnull %3) #15
+  %22 = call i32 @stat(ptr noundef readonly %21, ptr noundef nonnull %3) #15
   %23 = icmp eq i32 %22, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
   br i1 %23, label %24, label %27
@@ -413,7 +413,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 135:                                              ; preds = %134, %129
   store ptr @pmix_cli_result_t_class, ptr getelementptr inbounds (%struct.pmix_cli_result_t, ptr @results, i64 0, i32 0, i32 1), align 8
   store i32 1, ptr getelementptr inbounds (%struct.pmix_cli_result_t, ptr @results, i64 0, i32 0, i32 2), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%struct.pmix_cli_result_t, ptr @results, i64 0, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) getelementptr inbounds (%struct.pmix_cli_result_t, ptr @results, i64 0, i32 0, i32 3, i32 0), i8 0, i64 64, i1 false)
   %136 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_cli_result_t_class, i64 0, i32 6), align 8
   %137 = load ptr, ptr %136, align 8
   %.not6.i = icmp eq ptr %137, null
@@ -785,7 +785,7 @@ sub_1285:                                         ; preds = %sub_0284
   %338 = getelementptr inbounds i8, ptr %6, i64 48
   store i32 1, ptr %338, align 8
   %339 = getelementptr inbounds i8, ptr %6, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %339, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(64) %339, i8 0, i64 64, i1 false)
   %340 = load ptr, ptr getelementptr inbounds (%struct.pmix_class_t, ptr @pmix_mutex_t_class, i64 0, i32 6), align 8
   %341 = load ptr, ptr %340, align 8
   %.not6.i264 = icmp eq ptr %341, null
@@ -1390,7 +1390,7 @@ define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr nocapture noundef 
   %.03.i = phi ptr [ %.0.i, %6 ], [ %.01.i, %1 ]
   %2 = getelementptr inbounds i8, ptr %.03.i, i64 144
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %0) #18
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %0) #18
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %pmix_cmd_line_get_param.exit.loopexit, label %6
 

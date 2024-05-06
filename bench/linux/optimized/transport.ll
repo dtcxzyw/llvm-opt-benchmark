@@ -218,7 +218,7 @@ define dso_local i32 @usb_stor_clear_halt(ptr noundef %0, i32 noundef %1) #0 ali
   %6 = or disjoint i32 %4, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   %8 = load i32, ptr %7, align 8
-  %9 = trunc i32 %6 to i16
+  %9 = trunc nuw nsw i32 %6 to i16
   %10 = getelementptr inbounds i8, ptr %0, i64 208
   %11 = load ptr, ptr %10, align 8
   store i8 2, ptr %11, align 1
@@ -281,7 +281,7 @@ define dso_local i32 @usb_stor_clear_halt(ptr noundef %0, i32 noundef %1) #0 ali
 declare dso_local void @usb_reset_endpoint(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @usb_stor_ctrl_transfer(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef %6, i16 noundef zeroext %7) #0 align 16 {
+define dso_local range(i32 0, 5) i32 @usb_stor_ctrl_transfer(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef %6, i16 noundef zeroext %7) #0 align 16 {
   %9 = getelementptr inbounds i8, ptr %0, i64 208
   %10 = load ptr, ptr %9, align 8
   store i8 %3, ptr %10, align 1
@@ -326,7 +326,7 @@ define dso_local i32 @usb_stor_ctrl_transfer(ptr noundef %0, i32 noundef %1, i8 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @interpret_urb_result(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 5) i32 @interpret_urb_result(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   switch i32 %3, label %59 [
     i32 0, label %6
     i32 -32, label %9
@@ -353,7 +353,7 @@ define internal fastcc i32 @interpret_urb_result(ptr noundef %0, i32 noundef %1,
   %16 = or disjoint i32 %14, %15
   %17 = getelementptr inbounds i8, ptr %0, i64 80
   %18 = load i32, ptr %17, align 8
-  %19 = trunc i32 %16 to i16
+  %19 = trunc nuw nsw i32 %16 to i16
   %20 = getelementptr inbounds i8, ptr %0, i64 208
   %21 = load ptr, ptr %20, align 8
   store i8 2, ptr %21, align 1
@@ -431,7 +431,7 @@ define internal fastcc i32 @interpret_urb_result(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @usb_stor_bulk_transfer_buf(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) #0 align 16 {
+define dso_local range(i32 0, 5) i32 @usb_stor_bulk_transfer_buf(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -468,7 +468,7 @@ define dso_local i32 @usb_stor_bulk_transfer_buf(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @usb_stor_bulk_srb(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local range(i32 0, 5) i32 @usb_stor_bulk_srb(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
   store i32 0, ptr %4, align 4, !annotation !5
@@ -489,7 +489,7 @@ define dso_local i32 @usb_stor_bulk_srb(ptr noundef %0, i32 noundef %1, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @usb_stor_bulk_transfer_sglist(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 5) i32 @usb_stor_bulk_transfer_sglist(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 64
   %8 = load volatile i64, ptr %7, align 8
   %9 = and i64 %8, 4
@@ -558,7 +558,7 @@ define internal fastcc i32 @usb_stor_bulk_transfer_sglist(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @usb_stor_bulk_transfer_sg(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) #0 align 16 {
+define dso_local range(i32 0, 5) i32 @usb_stor_bulk_transfer_sg(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) #0 align 16 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   store i32 0, ptr %7, align 4, !annotation !5
@@ -1400,7 +1400,7 @@ declare dso_local i32 @usb_unlink_urb(ptr noundef) local_unnamed_addr #2
 declare dso_local void @usb_sg_cancel(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @usb_stor_CB_transport(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 4) i32 @usb_stor_CB_transport(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 216
   %5 = load i32, ptr %4, align 8
@@ -1631,7 +1631,7 @@ define dso_local noundef i32 @usb_stor_CB_transport(ptr nocapture noundef %0, pt
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @usb_stor_Bulk_max_lun(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 256) i32 @usb_stor_Bulk_max_lun(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   store i8 0, ptr %3, align 1
@@ -1713,7 +1713,7 @@ define dso_local i32 @usb_stor_Bulk_max_lun(ptr noundef %0) local_unnamed_addr #
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @usb_stor_Bulk_transport(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 0, 4) i32 @usb_stor_Bulk_transport(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -2219,7 +2219,7 @@ define internal fastcc i32 @usb_stor_reset_common(ptr noundef %0, i8 noundef zer
   %79 = and i32 %76, 128
   %80 = or disjoint i32 %78, %79
   %81 = load i32, ptr %12, align 8
-  %82 = trunc i32 %80 to i16
+  %82 = trunc nuw nsw i32 %80 to i16
   %83 = load ptr, ptr %14, align 8
   store i8 2, ptr %83, align 1
   %84 = load ptr, ptr %14, align 8
@@ -2279,7 +2279,7 @@ define internal fastcc i32 @usb_stor_reset_common(ptr noundef %0, i8 noundef zer
   %118 = and i32 %115, 128
   %119 = or disjoint i32 %117, %118
   %120 = load i32, ptr %12, align 8
-  %121 = trunc i32 %119 to i16
+  %121 = trunc nuw nsw i32 %119 to i16
   %122 = load ptr, ptr %14, align 8
   store i8 2, ptr %122, align 1
   %123 = load ptr, ptr %14, align 8

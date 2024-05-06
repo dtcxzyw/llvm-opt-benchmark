@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @MPL_shm_hnd_serialize(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef range(i32 0, 10) i32 @MPL_shm_hnd_serialize(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -97,7 +97,7 @@ MPLI_shm_hnd_reset_val.exit:                      ; preds = %7, %8
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @MPL_shm_hnd_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
+define range(i32 0, 12) i32 @MPL_shm_hnd_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   %2 = tail call noalias noundef dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #9
   store ptr %2, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null

@@ -738,7 +738,7 @@ define internal noundef i32 @i915_perf_noa_delay_get(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_perf_noa_delay_set(ptr noundef %0, i64 noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @i915_perf_noa_delay_set(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 9304
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @intel_gt_ns_to_clock_interval(ptr noundef %4, i64 noundef %1) #5

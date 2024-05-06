@@ -696,7 +696,7 @@ define dso_local i32 @acpi_ev_execute_reg_method(ptr noundef %0, i32 noundef %1)
 declare dso_local void @acpi_ut_remove_reference(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ev_attach_region(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 8) i32 @acpi_ev_attach_region(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

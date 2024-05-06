@@ -95,7 +95,7 @@ $_ZGVZN11TestManager14getTestModulesEvE17m_modules_to_test = comdat any
 @_ZTI19TestFailedException = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS19TestFailedException }, comdat, align 8
 @.str.7 = private unnamed_addr constant [58 x i8] c"sender.getAddress().s_addr == address.getAddress().s_addr\00", align 1
 @.str.8 = private unnamed_addr constant [75 x i8] c"sender.getAddress().s_addr == Address(127, 0, 0, 1, 0).getAddress().s_addr\00", align 1
-@dstream = external thread_local global %class.LogStream, align 8
+@dstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.9 = private unnamed_addr constant [49 x i8] c"WARNING: IPv6 socket creation failed (unit test)\00", align 1
 @__const._ZN10TestSocket14testIPv6SocketEv.sendbuffer = private unnamed_addr constant [13 x i8] c"hello world!\00", align 1
 @.str.10 = private unnamed_addr constant [88 x i8] c"memcmp(sender.getAddress6().s6_addr, Address(&bytes, 0).getAddress6().s6_addr, 16) == 0\00", align 1

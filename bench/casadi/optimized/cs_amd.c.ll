@@ -104,7 +104,7 @@ define ptr @cs_amd(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %54, label %.lr.ph, label %.loopexit855.loopexit, !llvm.loop !4
 
 .loopexit855.loopexit:                            ; preds = %.lr.ph
-  %55 = trunc i64 %indvars.iv.next to i32
+  %55 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit855
 
 .loopexit855:                                     ; preds = %.loopexit855.loopexit, %.lr.ph860
@@ -346,13 +346,13 @@ cs_wclear.exit:                                   ; preds = %136
   br i1 %.not808, label %._crit_edge1115, label %166
 
 ._crit_edge1115:                                  ; preds = %162
-  %.pre1116 = trunc i64 %indvars.iv1026 to i32
+  %.pre1116 = trunc nuw nsw i64 %indvars.iv1026 to i32
   br label %170
 
 166:                                              ; preds = %162
   %167 = sext i32 %165 to i64
   %168 = getelementptr inbounds i32, ptr %77, i64 %167
-  %169 = trunc i64 %indvars.iv1026 to i32
+  %169 = trunc nuw nsw i64 %indvars.iv1026 to i32
   store i32 %169, ptr %168, align 4
   %.pre1108 = load i32, ptr %164, align 4
   br label %170
@@ -404,7 +404,7 @@ cs_wclear.exit:                                   ; preds = %136
   br i1 %exitcond1034.not, label %.critedge, label %.lr.ph876, !llvm.loop !11
 
 .critedge.loopexit.split.loop.exit1165:           ; preds = %.lr.ph876
-  %180 = trunc i64 %indvars.iv1031 to i32
+  %180 = trunc nsw i64 %indvars.iv1031 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %179, %.critedge.loopexit.split.loop.exit1165, %.preheader852
@@ -515,8 +515,8 @@ cs_wclear.exit:                                   ; preds = %136
   br i1 %232, label %.lr.ph889, label %.loopexit846.loopexit, !llvm.loop !13
 
 .loopexit846.loopexit:                            ; preds = %.lr.ph889
-  %233 = trunc i64 %indvars.iv.next1043 to i32
-  %234 = trunc i64 %indvars.iv.next1041 to i32
+  %233 = trunc nsw i64 %indvars.iv.next1043 to i32
+  %234 = trunc nsw i64 %indvars.iv.next1041 to i32
   br label %.loopexit846
 
 .loopexit846:                                     ; preds = %.loopexit846.loopexit, %215, %.lr.ph894
@@ -1238,7 +1238,7 @@ select.unfold:                                    ; preds = %462
   %534 = load i32, ptr %528, align 4
   %535 = sext i32 %534 to i64
   %536 = getelementptr inbounds i32, ptr %98, i64 %535
-  %537 = trunc i64 %indvars.iv1097 to i32
+  %537 = trunc nuw nsw i64 %indvars.iv1097 to i32
   store i32 %537, ptr %536, align 4
   br label %538
 
@@ -1276,7 +1276,7 @@ select.unfold:                                    ; preds = %462
   %551 = load i32, ptr %544, align 4
   %552 = sext i32 %551 to i64
   %553 = getelementptr inbounds i32, ptr %98, i64 %552
-  %554 = trunc i64 %indvars.iv1100 to i32
+  %554 = trunc nuw nsw i64 %indvars.iv1100 to i32
   store i32 %554, ptr %553, align 4
   br label %555
 
@@ -1294,7 +1294,7 @@ select.unfold:                                    ; preds = %462
   br i1 %559, label %560, label %563
 
 560:                                              ; preds = %.lr.ph1004
-  %561 = trunc i64 %indvars.iv1103 to i32
+  %561 = trunc nuw nsw i64 %indvars.iv1103 to i32
   %562 = tail call i32 @cs_tdfs(i32 noundef %561, i32 noundef %.37401002, ptr noundef nonnull %98, ptr noundef nonnull %95, ptr noundef nonnull %77, ptr noundef nonnull %107) #6
   br label %563
 
@@ -1327,7 +1327,7 @@ declare ptr @cs_spfree(ptr noundef) local_unnamed_addr #1
 declare i32 @cs_fkeep(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @cs_diag(i32 noundef %0, i32 noundef %1, double %2, ptr nocapture readnone %3) #3 {
+define internal range(i32 0, 2) i32 @cs_diag(i32 noundef %0, i32 noundef %1, double %2, ptr nocapture readnone %3) #3 {
   %5 = icmp ne i32 %0, %1
   %6 = zext i1 %5 to i32
   ret i32 %6

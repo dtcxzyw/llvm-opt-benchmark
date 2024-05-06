@@ -289,7 +289,7 @@ Vec_IntPush.exit56:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %.not38, label %93, label %63
 
 63:                                               ; preds = %60
-  %64 = trunc i64 %indvars.iv to i32
+  %64 = trunc nuw nsw i64 %indvars.iv to i32
   %65 = or i32 %59, %64
   %66 = load i32, ptr %19, align 4
   %67 = load i32, ptr %18, align 8
@@ -428,7 +428,7 @@ define void @Gia_FlaConvertToGla_rec(ptr nocapture noundef readonly %0, ptr noun
 
 Gia_ObjIsRo.exit:                                 ; preds = %19
   %29 = lshr i64 %.val17, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   %31 = and i32 %30, 536870911
   %.val4.i = load i32, ptr %17, align 8
   %.val5.i = load ptr, ptr %18, align 8
@@ -530,7 +530,7 @@ define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr nocapture no
   %.val62 = load ptr, ptr %9, align 8
   %25 = getelementptr i8, ptr %.val62, i64 4
   %.val62.val = load i32, ptr %25, align 4
-  %26 = trunc i64 %indvars.iv108 to i32
+  %26 = trunc nuw nsw i64 %indvars.iv108 to i32
   %27 = sub i32 %26, %.val68120
   %28 = add i32 %27, %.val62.val
   %.val66 = load ptr, ptr %3, align 8
@@ -645,7 +645,7 @@ define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr nocapture no
   %.val73 = load ptr, ptr %53, align 8
   %72 = getelementptr i8, ptr %.val73, i64 4
   %.val73.val = load i32, ptr %72, align 4
-  %73 = trunc i64 %indvars.iv114 to i32
+  %73 = trunc nuw nsw i64 %indvars.iv114 to i32
   %74 = sub i32 %73, %.val69128
   %75 = add i32 %74, %.val73.val
   %.val76 = load ptr, ptr %3, align 8
@@ -747,7 +747,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %.val19.val = load ptr, ptr %22, align 8
   %23 = getelementptr i8, ptr %.val17, i64 4
   %.val17.val = load i32, ptr %23, align 4
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = sub i32 %24, %.val21
   %26 = add i32 %25, %.val17.val
   %27 = sext i32 %26 to i64

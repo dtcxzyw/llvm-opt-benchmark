@@ -635,7 +635,7 @@ arkRelaxNewtonSolve.exit.thread48:                ; preds = %294, %322, %arkRela
 declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxSetEtaFail(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxSetEtaFail(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -674,7 +674,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %11, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxSetLowerBound(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxSetLowerBound(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -713,7 +713,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %11, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxSetMaxFails(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxSetMaxFails(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -750,7 +750,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %10, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxSetMaxIters(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxSetMaxIters(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -787,7 +787,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %10, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxSetSolver(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxSetSolver(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -826,7 +826,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %9, %8
 declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxSetResTol(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxSetResTol(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -863,7 +863,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %10, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxSetTol(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxSetTol(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %4, label %5
 
@@ -904,7 +904,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %4, %8, %13, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxSetUpperBound(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxSetUpperBound(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -941,7 +941,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %10, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxGetNumRelaxFnEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxFnEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -971,7 +971,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %arkRelaxAcc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxGetNumRelaxJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -1001,7 +1001,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %arkRelaxAcc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxGetNumRelaxFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -1031,7 +1031,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %arkRelaxAcc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxGetNumRelaxSolveFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxSolveFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -1061,7 +1061,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %arkRelaxAcc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxGetNumRelaxBoundFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxBoundFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -1091,7 +1091,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %arkRelaxAcc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxGetNumRelaxSolveIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxSolveIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -1121,7 +1121,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %arkRelaxAcc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxPrintAllStats(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxPrintAllStats(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %4, label %5
 
@@ -1200,7 +1200,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %4, %8, %9, %28, %47
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRelaxCreate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @arkRelaxCreate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %7
 
@@ -1314,7 +1314,7 @@ define noundef i32 @arkRelaxDestroy(ptr noundef %0) local_unnamed_addr #3 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @arkRelax(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define range(i32 -2147483648, 6) i32 @arkRelax(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 648
   %7 = load ptr, ptr %6, align 8

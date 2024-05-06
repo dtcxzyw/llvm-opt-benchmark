@@ -132,7 +132,7 @@ define ptr @Map_MappingDfs(ptr nocapture noundef readonly %0, i32 noundef %1) lo
 declare ptr @Map_NodeVecAlloc(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Map_MappingCountLevels(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @Map_MappingCountLevels(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -159,13 +159,13 @@ define i32 @Map_MappingCountLevels(ptr nocapture noundef readonly %0) local_unna
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
   %14 = inttoptr i64 %13 to ptr
-  %15 = tail call fastcc i32 @Map_MappingCountLevels_rec(ptr noundef %14), !range !7
+  %15 = tail call fastcc i32 @Map_MappingCountLevels_rec(ptr noundef %14)
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.01316, i32 %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %2, align 8
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %8, label %.preheader, !llvm.loop !8
+  br i1 %18, label %8, label %.preheader, !llvm.loop !7
 
 19:                                               ; preds = %.lr.ph19, %19
   %indvars.iv21 = phi i64 [ 0, %.lr.ph19 ], [ %indvars.iv.next22, %19 ]
@@ -180,7 +180,7 @@ define i32 @Map_MappingCountLevels(ptr nocapture noundef readonly %0) local_unna
   %26 = load i32, ptr %2, align 8
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next22, %27
-  br i1 %28, label %19, label %._crit_edge, !llvm.loop !9
+  br i1 %28, label %19, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %19, %1, %.preheader
   %.013.lcssa25 = phi i32 [ %spec.select, %.preheader ], [ -1, %1 ], [ %spec.select, %19 ]
@@ -188,7 +188,7 @@ define i32 @Map_MappingCountLevels(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Map_MappingCountLevels_rec(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65536) i32 @Map_MappingCountLevels_rec(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @Map_NodeIsAnd(ptr noundef %0) #14
   %.not = icmp eq i32 %2, 0
   %3 = getelementptr inbounds i8, ptr %0, i64 28
@@ -222,13 +222,13 @@ common.ret14:                                     ; preds = %9, %5, %12
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, -2
   %18 = inttoptr i64 %17 to ptr
-  %19 = tail call fastcc i32 @Map_MappingCountLevels_rec(ptr noundef %18), !range !7
+  %19 = tail call fastcc i32 @Map_MappingCountLevels_rec(ptr noundef %18)
   %20 = getelementptr inbounds i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, -2
   %24 = inttoptr i64 %23 to ptr
-  %25 = tail call fastcc i32 @Map_MappingCountLevels_rec(ptr noundef %24), !range !7
+  %25 = tail call fastcc i32 @Map_MappingCountLevels_rec(ptr noundef %24)
   %26 = tail call i32 @llvm.umax.i32(i32 %19, i32 %25)
   %27 = load i32, ptr %3, align 4
   %28 = shl nuw nsw i32 %26, 5
@@ -307,7 +307,7 @@ define void @Map_MappingUnmark(ptr nocapture noundef readonly %0) local_unnamed_
   %13 = load i32, ptr %2, align 8
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %6, label %._crit_edge, !llvm.loop !10
+  br i1 %15, label %6, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %6, %1
   ret void
@@ -378,7 +378,7 @@ define void @Map_MappingPrintOutputArrivals(ptr nocapture noundef readonly %0) l
 
 9:                                                ; preds = %12, %.preheader.i
   %indvars.iv.i = phi i64 [ %8, %.preheader.i ], [ %13, %12 ]
-  %10 = trunc i64 %indvars.iv.i to i32
+  %10 = trunc nuw i64 %indvars.iv.i to i32
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %12, label %37
 
@@ -409,7 +409,7 @@ define void @Map_MappingPrintOutputArrivals(ptr nocapture noundef readonly %0) l
   %34 = getelementptr inbounds [2 x %struct.Map_TimeStruct_t_], ptr %33, i64 0, i64 %29, i32 2
   %35 = load float, ptr %34, align 4
   %36 = fcmp uge float %32, %35
-  br i1 %36, label %37, label %9, !llvm.loop !11
+  br i1 %36, label %37, label %9, !llvm.loop !10
 
 37:                                               ; preds = %12, %9
   %.027.in.lcssa.i = phi i32 [ %10, %12 ], [ %smin.i, %9 ]
@@ -443,13 +443,13 @@ define void @Map_MappingPrintOutputArrivals(ptr nocapture noundef readonly %0) l
   store i32 %46, ptr %47, align 4
   %indvars.iv.next41.i = add nsw i64 %indvars.iv40.i, -1
   %48 = icmp sgt i64 %indvars.iv.next41.i, %44
-  %49 = trunc i64 %indvars.iv40.i to i32
-  br i1 %48, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+  %49 = trunc nsw i64 %indvars.iv40.i to i32
+  br i1 %48, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre46.i, %.._crit_edge_crit_edge.i ], [ %44, %.lr.ph.i ]
   %50 = getelementptr inbounds i32, ptr %2, i64 %.pre-phi.i
-  %51 = trunc i64 %indvars.iv43.i to i32
+  %51 = trunc nuw nsw i64 %indvars.iv43.i to i32
   store i32 %51, ptr %50, align 4
   br label %52
 
@@ -457,7 +457,7 @@ define void @Map_MappingPrintOutputArrivals(ptr nocapture noundef readonly %0) l
   %.2.i = phi i32 [ %.02935.i, %37 ], [ %spec.select.i, %._crit_edge.i ]
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next44.i, %7
-  br i1 %exitcond.not, label %Map_MappingFindLatest.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %exitcond.not, label %Map_MappingFindLatest.exit, label %.preheader.i, !llvm.loop !12
 
 Map_MappingFindLatest.exit:                       ; preds = %52, %1
   %53 = icmp sgt i32 %4, 0
@@ -492,7 +492,7 @@ Map_MappingFindLatest.exit:                       ; preds = %52, %1
   %spec.select31 = tail call i32 @llvm.smax.i32(i32 %.033, i32 %66)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond37.not, label %.preheader, label %59, !llvm.loop !14
+  br i1 %exitcond37.not, label %.preheader, label %59, !llvm.loop !13
 
 67:                                               ; preds = %.lr.ph35, %67
   %indvars.iv38 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next39, %67 ]
@@ -525,7 +525,7 @@ Map_MappingFindLatest.exit:                       ; preds = %52, %1
   %putchar = tail call i32 @putchar(i32 10)
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
-  br i1 %exitcond42.not, label %._crit_edge, label %67, !llvm.loop !15
+  br i1 %exitcond42.not, label %._crit_edge, label %67, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %67, %Map_MappingFindLatest.exit, %.preheader
   ret void
@@ -548,7 +548,7 @@ define void @Map_MappingSetupTruthTables(ptr nocapture noundef %0) local_unnamed
 
 3:                                                ; preds = %.preheader17, %11
   %indvars.iv = phi i64 [ 0, %.preheader17 ], [ %indvars.iv.next, %11 ]
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %5 = shl nuw nsw i32 1, %4
   %6 = and i32 %5, %.01619
   %.not = icmp eq i32 %6, 0
@@ -564,12 +564,12 @@ define void @Map_MappingSetupTruthTables(ptr nocapture noundef %0) local_unnamed
 11:                                               ; preds = %3, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %12, label %3, !llvm.loop !16
+  br i1 %exitcond.not, label %12, label %3, !llvm.loop !15
 
 12:                                               ; preds = %11
   %13 = add nuw nsw i32 %.01619, 1
   %exitcond22.not = icmp eq i32 %13, 32
-  br i1 %exitcond22.not, label %.preheader, label %.preheader17, !llvm.loop !17
+  br i1 %exitcond22.not, label %.preheader, label %.preheader17, !llvm.loop !16
 
 .preheader:                                       ; preds = %12, %.preheader
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.preheader ], [ 0, %12 ]
@@ -579,7 +579,7 @@ define void @Map_MappingSetupTruthTables(ptr nocapture noundef %0) local_unnamed
   store i32 %15, ptr %16, align 4
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 5
-  br i1 %exitcond26.not, label %17, label %.preheader, !llvm.loop !18
+  br i1 %exitcond26.not, label %17, label %.preheader, !llvm.loop !17
 
 17:                                               ; preds = %.preheader
   %18 = getelementptr inbounds i8, ptr %0, i64 40
@@ -603,22 +603,22 @@ define void @Map_MappingSetupTruthTablesLarge(ptr nocapture noundef %0) local_un
   store i32 0, ptr %3, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %4, label %2, !llvm.loop !19
+  br i1 %exitcond.not, label %4, label %2, !llvm.loop !18
 
 4:                                                ; preds = %2
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 32
-  br i1 %exitcond44.not, label %.preheader31, label %.preheader33, !llvm.loop !20
+  br i1 %exitcond44.not, label %.preheader31, label %.preheader33, !llvm.loop !19
 
 .preheader31:                                     ; preds = %4, %18
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %18 ], [ 0, %4 ]
-  %5 = trunc i64 %indvars.iv49 to i32
+  %5 = trunc nuw nsw i64 %indvars.iv49 to i32
   %6 = shl nuw i32 1, %5
   br label %7
 
 7:                                                ; preds = %.preheader31, %17
   %indvars.iv45 = phi i64 [ 0, %.preheader31 ], [ %indvars.iv.next46, %17 ]
-  %8 = trunc i64 %indvars.iv45 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv45 to i32
   %9 = shl nuw nsw i32 1, %8
   %10 = and i32 %9, %5
   %.not = icmp eq i32 %10, 0
@@ -629,7 +629,7 @@ define void @Map_MappingSetupTruthTablesLarge(ptr nocapture noundef %0) local_un
   %13 = load i32, ptr %12, align 4
   %14 = or i32 %13, %6
   store i32 %14, ptr %12, align 4
-  %15 = getelementptr i8, ptr %12, i64 640
+  %15 = getelementptr inbounds i8, ptr %12, i64 640
   %16 = getelementptr inbounds [32 x i32], ptr %15, i64 0, i64 %indvars.iv49
   store i32 -1, ptr %16, align 4
   br label %17
@@ -637,12 +637,12 @@ define void @Map_MappingSetupTruthTablesLarge(ptr nocapture noundef %0) local_un
 17:                                               ; preds = %7, %11
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 5
-  br i1 %exitcond48.not, label %18, label %7, !llvm.loop !21
+  br i1 %exitcond48.not, label %18, label %7, !llvm.loop !20
 
 18:                                               ; preds = %17
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 32
-  br i1 %exitcond52.not, label %.preheader, label %.preheader31, !llvm.loop !22
+  br i1 %exitcond52.not, label %.preheader, label %.preheader31, !llvm.loop !21
 
 .preheader:                                       ; preds = %18, %23
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %23 ], [ 0, %18 ]
@@ -656,12 +656,12 @@ define void @Map_MappingSetupTruthTablesLarge(ptr nocapture noundef %0) local_un
   store i32 %21, ptr %22, align 4
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 5
-  br i1 %exitcond56.not, label %23, label %19, !llvm.loop !23
+  br i1 %exitcond56.not, label %23, label %19, !llvm.loop !22
 
 23:                                               ; preds = %19
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 32
-  br i1 %exitcond60.not, label %24, label %.preheader, !llvm.loop !24
+  br i1 %exitcond60.not, label %24, label %.preheader, !llvm.loop !23
 
 24:                                               ; preds = %23
   ret void
@@ -808,7 +808,7 @@ Map_MappingDfs.exit:                              ; preds = %.lr.ph14.i
   %71 = load i32, ptr %7, align 8
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %70, %.preheader.i, %Map_MappingDfs.exit
   tail call void @Map_NodeVecFree(ptr noundef nonnull %2) #14
@@ -822,7 +822,7 @@ declare i32 @Map_NodeIsConst(ptr noundef) local_unnamed_addr #1
 declare void @Map_NodeVecFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Map_MappingNodeIsViolator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Map_MappingNodeIsViolator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %5
@@ -889,7 +889,7 @@ define float @Map_MappingGetAreaFlow(ptr nocapture noundef readonly %0) local_un
   %32 = load i32, ptr %2, align 8
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %6, label %._crit_edge, !llvm.loop !26
+  br i1 %34, label %6, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %31, %1
   %.019.lcssa = phi float [ 0.000000e+00, %1 ], [ %.1, %31 ]
@@ -897,7 +897,7 @@ define float @Map_MappingGetAreaFlow(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Map_CompareNodesByLevel(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define range(i32 -1, 2) i32 @Map_CompareNodesByLevel(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
@@ -935,7 +935,7 @@ define void @Map_MappingSortByLevel(ptr nocapture noundef readnone %0, ptr nocap
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Map_CompareNodesByPointer(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define range(i32 -1, 2) i32 @Map_CompareNodesByPointer(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %3, %4
@@ -994,7 +994,7 @@ define i32 @Map_MappingCountDoubles(ptr nocapture noundef readnone %0, ptr nocap
   %24 = load i32, ptr %3, align 8
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %23, %2
   %.011.lcssa = phi i32 [ 0, %2 ], [ %.1, %23 ]
@@ -1041,7 +1041,7 @@ define ptr @Map_CreateTableGate2Super(ptr nocapture noundef readonly %0) local_u
   %23 = getelementptr inbounds [6 x ptr], ptr %21, i64 0, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %24, align 8
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = xor i32 %26, -1
   %28 = add nsw i32 %20, %27
   %.not = icmp eq i32 %25, %28
@@ -1050,7 +1050,7 @@ define ptr @Map_CreateTableGate2Super(ptr nocapture noundef readonly %0) local_u
 29:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   %.0.lcssa = phi i32 [ 0, %17 ], [ %26, %.lr.ph ]
@@ -1069,7 +1069,7 @@ define ptr @Map_CreateTableGate2Super(ptr nocapture noundef readonly %0) local_u
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next31, %36
-  br i1 %37, label %.lr.ph27, label %._crit_edge28, !llvm.loop !29
+  br i1 %37, label %.lr.ph27, label %._crit_edge28, !llvm.loop !28
 
 ._crit_edge28:                                    ; preds = %32, %1
   ret ptr %2
@@ -1115,7 +1115,7 @@ define void @Map_ManCleanData(ptr nocapture noundef readonly %0) local_unnamed_a
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1218,7 +1218,7 @@ define float @Map_MappingComputeDelayWithFanouts(ptr noundef %0) local_unnamed_a
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %31, %1
   %37 = tail call float @Map_TimeComputeArrivalMax(ptr noundef nonnull %0) #14
@@ -1232,7 +1232,7 @@ declare float @Map_TimeCutComputeArrival(ptr noundef, ptr noundef, i32 noundef, 
 declare float @Map_TimeComputeArrivalMax(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Map_MappingGetMaxLevel(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define range(i32 0, 65536) i32 @Map_MappingGetMaxLevel(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -1259,7 +1259,7 @@ define i32 @Map_MappingGetMaxLevel(ptr nocapture noundef readonly %0) local_unna
   %.09. = tail call i32 @llvm.umax.i32(i32 %.0911, i32 %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %7, %1
   %.09.lcssa = phi i32 [ 0, %1 ], [ %.09., %7 ]
@@ -1267,7 +1267,7 @@ define i32 @Map_MappingGetMaxLevel(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Map_MappingUpdateLevel_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 65536) i32 @Map_MappingUpdateLevel_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @Map_NodeIsAnd(ptr noundef %1) #14
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %7
@@ -1295,13 +1295,13 @@ define i32 @Map_MappingUpdateLevel_rec(ptr noundef %0, ptr noundef %1, i32 nound
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
-  %21 = tail call i32 @Map_MappingUpdateLevel_rec(ptr noundef nonnull %0, ptr noundef %20, i32 noundef %2), !range !7
+  %21 = tail call i32 @Map_MappingUpdateLevel_rec(ptr noundef nonnull %0, ptr noundef %20, i32 noundef %2)
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, -2
   %26 = inttoptr i64 %25 to ptr
-  %27 = tail call i32 @Map_MappingUpdateLevel_rec(ptr noundef nonnull %0, ptr noundef %26, i32 noundef %2), !range !7
+  %27 = tail call i32 @Map_MappingUpdateLevel_rec(ptr noundef nonnull %0, ptr noundef %26, i32 noundef %2)
   %28 = tail call i32 @llvm.umax.i32(i32 %21, i32 %27)
   %29 = getelementptr inbounds i8, ptr %1, i64 28
   %30 = load i32, ptr %29, align 4
@@ -1317,7 +1317,7 @@ define i32 @Map_MappingUpdateLevel_rec(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not42, label %.loopexit, label %38
 
 38:                                               ; preds = %15
-  %39 = tail call i32 @Map_MappingUpdateLevel_rec(ptr noundef nonnull %0, ptr noundef nonnull %37, i32 noundef %2), !range !7
+  %39 = tail call i32 @Map_MappingUpdateLevel_rec(ptr noundef nonnull %0, ptr noundef nonnull %37, i32 noundef %2)
   %.not43 = icmp eq i32 %2, 0
   %40 = load i32, ptr %29, align 4
   %41 = lshr i32 %40, 5
@@ -1362,7 +1362,7 @@ define i32 @Map_MappingUpdateLevel_rec(ptr noundef %0, ptr noundef %1, i32 nound
   %60 = getelementptr inbounds i8, ptr %.03847, i64 80
   %.038 = load ptr, ptr %60, align 8
   %.not44 = icmp eq ptr %.038, null
-  br i1 %.not44, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not44, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %15, %50, %13, %5
   %.0.in.in.in = phi ptr [ %14, %13 ], [ %6, %5 ], [ %29, %50 ], [ %29, %15 ], [ %29, %.preheader ], [ %29, %.lr.ph ]
@@ -1395,12 +1395,12 @@ define void @Map_MappingSetChoiceLevels(ptr noundef %0) local_unnamed_addr #0 {
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, -2
   %15 = inttoptr i64 %14 to ptr
-  %16 = tail call i32 @Map_MappingUpdateLevel_rec(ptr noundef nonnull %0, ptr noundef %15, i32 noundef 1), !range !7
+  %16 = tail call i32 @Map_MappingUpdateLevel_rec(ptr noundef nonnull %0, ptr noundef %15, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %5, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %9, label %._crit_edge, !llvm.loop !34
+  br i1 %19, label %9, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %9, %1
   ret void
@@ -1441,7 +1441,7 @@ Map_MappingGetMaxLevel.exit.thread:               ; preds = %1
   %.09..i = tail call i32 @llvm.umax.i32(i32 %.0911.i, i32 %19)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Map_MappingGetMaxLevel.exit, label %10, !llvm.loop !32
+  br i1 %exitcond.not.i, label %Map_MappingGetMaxLevel.exit, label %10, !llvm.loop !31
 
 Map_MappingGetMaxLevel.exit:                      ; preds = %10
   %20 = getelementptr inbounds i8, ptr %0, i64 148
@@ -1462,12 +1462,12 @@ Map_MappingGetMaxLevel.exit:                      ; preds = %10
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, -2
   %30 = inttoptr i64 %29 to ptr
-  %31 = tail call i32 @Map_MappingUpdateLevel_rec(ptr noundef nonnull %0, ptr noundef %30, i32 noundef 0), !range !7
+  %31 = tail call i32 @Map_MappingUpdateLevel_rec(ptr noundef nonnull %0, ptr noundef %30, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %2, align 8
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %24, label %._crit_edge, !llvm.loop !35
+  br i1 %34, label %24, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %24
   %35 = icmp sgt i32 %32, 0
@@ -1494,7 +1494,7 @@ Map_MappingGetMaxLevel.exit:                      ; preds = %10
   %.09..i35 = tail call i32 @llvm.umax.i32(i32 %.0911.i34, i32 %47)
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count.i32
-  br i1 %exitcond.not.i37, label %Map_MappingGetMaxLevel.exit38, label %38, !llvm.loop !32
+  br i1 %exitcond.not.i37, label %Map_MappingGetMaxLevel.exit38, label %38, !llvm.loop !31
 
 Map_MappingGetMaxLevel.exit38:                    ; preds = %38, %Map_MappingGetMaxLevel.exit.thread, %Map_MappingGetMaxLevel.exit, %._crit_edge
   %.09.lcssa.i6063 = phi i32 [ %.09..i, %._crit_edge ], [ 0, %Map_MappingGetMaxLevel.exit.thread ], [ %.09..i, %Map_MappingGetMaxLevel.exit ], [ %.09..i, %38 ]
@@ -1539,14 +1539,14 @@ Map_MappingGetMaxLevel.exit38:                    ; preds = %38, %Map_MappingGet
   %65 = getelementptr inbounds i8, ptr %.042, i64 80
   %66 = load ptr, ptr %65, align 8
   %.not29 = icmp eq ptr %66, null
-  br i1 %.not29, label %.loopexit, label %.lr.ph44, !llvm.loop !36
+  br i1 %.not29, label %.loopexit, label %.lr.ph44, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.lr.ph44, %54, %60
   %.2 = phi i32 [ %.02746, %60 ], [ %.02746, %54 ], [ %64, %.lr.ph44 ]
   %.1 = phi i32 [ %.02448, %60 ], [ %.02448, %54 ], [ %63, %.lr.ph44 ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge50, label %54, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge50, label %54, !llvm.loop !36
 
 ._crit_edge50:                                    ; preds = %.loopexit, %Map_MappingGetMaxLevel.exit38
   %.027.lcssa = phi i32 [ 0, %Map_MappingGetMaxLevel.exit38 ], [ %.2, %.loopexit ]
@@ -1594,7 +1594,7 @@ attributes #15 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 65536}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
@@ -1624,4 +1624,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}

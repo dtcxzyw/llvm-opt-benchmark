@@ -22,7 +22,7 @@ define noundef ptr @_ZN5ZXing6QRCode8ToStringENS0_20ErrorCorrectionLevelE(i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5ZXing6QRCode17ECLevelFromStringEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noundef range(i32 0, 5) i32 @_ZN5ZXing6QRCode17ECLevelFromStringEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1
   %switch.tableidx = add i8 %2, -72
   %3 = icmp ult i8 %switch.tableidx, 10

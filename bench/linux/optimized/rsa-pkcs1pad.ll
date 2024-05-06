@@ -299,7 +299,7 @@ define internal noundef i32 @pkcs1pad_encrypt(ptr noundef %0) #0 align 16 {
 
 40:                                               ; preds = %34
   %41 = lshr i32 %37, 8
-  %42 = trunc i32 %41 to i8
+  %42 = trunc nuw i32 %41 to i8
   %43 = add nuw i8 %42, 1
   %44 = load ptr, ptr %24, align 8
   %45 = getelementptr i8, ptr %44, i64 %33
@@ -1099,7 +1099,7 @@ define internal fastcc noundef i32 @pkcs1pad_decrypt_complete(ptr nocapture noun
   br i1 %34, label %.thread, label %.preheader, !llvm.loop !21
 
 35:                                               ; preds = %.preheader
-  %36 = trunc i64 %indvars.iv to i32
+  %36 = trunc nuw i64 %indvars.iv to i32
   %37 = icmp ult i32 %36, 9
   %38 = icmp eq i32 %24, %36
   %39 = or i1 %37, %38
@@ -1225,7 +1225,7 @@ define internal fastcc i32 @pkcs1pad_verify_complete(ptr nocapture noundef %0, i
   br i1 %42, label %.thread, label %.preheader, !llvm.loop !22
 
 43:                                               ; preds = %.preheader
-  %44 = trunc i64 %indvars.iv to i32
+  %44 = trunc nuw i64 %indvars.iv to i32
   %45 = icmp ult i32 %44, 9
   %46 = icmp eq i32 %32, %44
   %47 = or i1 %45, %46

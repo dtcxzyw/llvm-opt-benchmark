@@ -140,7 +140,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @call_run_cert(i32 noundef %i) #0 {
+define internal range(i32 0, 2) i32 @call_run_cert(i32 noundef %i) #0 {
 entry:
   %msg.i76.i = alloca [1024 x i8], align 16
   %msg.i59.i = alloca [1024 x i8], align 16
@@ -257,7 +257,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.end.i.thread.i
   %8 = phi ptr [ @.str.78, %if.end.i.thread.i ], [ %7, %for.cond.i.i.i ]
   %p.03.i.i.i = phi ptr [ @exceptions, %if.end.i.thread.i ], [ %incdec.ptr.i.i.i, %for.cond.i.i.i ]
-  %call.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.i.i, ptr noundef nonnull dereferenceable(1) %8) #8
+  %call.i.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %msg.i.i, ptr noundef nonnull dereferenceable(1) %8) #8
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %check_message.exit.i, label %for.cond.i.i.i
 
@@ -324,7 +324,7 @@ for.cond.i.i70.i:                                 ; preds = %for.body.i.i66.i
 for.body.i.i66.i:                                 ; preds = %for.cond.i.i70.i, %if.end.i61.thread.i
   %13 = phi ptr [ @.str.78, %if.end.i61.thread.i ], [ %12, %for.cond.i.i70.i ]
   %p.03.i.i67.i = phi ptr [ @exceptions, %if.end.i61.thread.i ], [ %incdec.ptr.i.i71.i, %for.cond.i.i70.i ]
-  %call.i.i68.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.i59.i, ptr noundef nonnull dereferenceable(1) %13) #8
+  %call.i.i68.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %msg.i59.i, ptr noundef nonnull dereferenceable(1) %13) #8
   %cmp.i.i69.i = icmp eq i32 %call.i.i68.i, 0
   br i1 %cmp.i.i69.i, label %check_message.exit75.i, label %for.cond.i.i70.i
 
@@ -380,7 +380,7 @@ for.cond.i.i87.i:                                 ; preds = %for.body.i.i83.i
 for.body.i.i83.i:                                 ; preds = %for.cond.i.i87.i, %if.end.i78.thread.i
   %18 = phi ptr [ @.str.78, %if.end.i78.thread.i ], [ %17, %for.cond.i.i87.i ]
   %p.03.i.i84.i = phi ptr [ @exceptions, %if.end.i78.thread.i ], [ %incdec.ptr.i.i88.i, %for.cond.i.i87.i ]
-  %call.i.i85.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.i76.i, ptr noundef nonnull dereferenceable(1) %18) #8
+  %call.i.i85.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %msg.i76.i, ptr noundef nonnull dereferenceable(1) %18) #8
   %cmp.i.i86.i = icmp eq i32 %call.i.i85.i, 0
   br i1 %cmp.i.i86.i, label %check_message.exit92.i, label %for.cond.i.i87.i
 
@@ -425,7 +425,7 @@ for.end:                                          ; preds = %if.end
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_GENERAL_NAME_cmp() #0 {
+define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
 entry:
   %derp = alloca ptr, align 8
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 216, ptr noundef nonnull @.str.2, i32 noundef 662) #7
@@ -568,77 +568,77 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_cn1(ptr noundef %crt, ptr noundef %name) #0 {
+define internal range(i32 0, 2) i32 @set_cn1(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef %name, i32 noundef 0), !range !13
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef %name, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_cn2(ptr noundef %crt, ptr noundef %name) #0 {
+define internal range(i32 0, 2) i32 @set_cn2(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef nonnull @.str.10, i32 noundef 13, ptr noundef %name, i32 noundef 0), !range !13
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef nonnull @.str.10, i32 noundef 13, ptr noundef %name, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_cn3(ptr noundef %crt, ptr noundef %name) #0 {
+define internal range(i32 0, 2) i32 @set_cn3(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef %name, i32 noundef 13, ptr noundef nonnull @.str.10, i32 noundef 0), !range !13
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef %name, i32 noundef 13, ptr noundef nonnull @.str.10, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_cn_and_email(ptr noundef %crt, ptr noundef %name) #0 {
+define internal range(i32 0, 2) i32 @set_cn_and_email(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef %name, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef 0), !range !13
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef %name, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_email1(ptr noundef %crt, ptr noundef %name) #0 {
+define internal range(i32 0, 2) i32 @set_email1(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef %name, i32 noundef 0), !range !13
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef %name, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_email2(ptr noundef %crt, ptr noundef %name) #0 {
+define internal range(i32 0, 2) i32 @set_email2(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef 48, ptr noundef %name, i32 noundef 0), !range !13
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef 48, ptr noundef %name, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_email3(ptr noundef %crt, ptr noundef %name) #0 {
+define internal range(i32 0, 2) i32 @set_email3(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef %name, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef 0), !range !13
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef %name, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_email_and_cn(ptr noundef %crt, ptr noundef %name) #0 {
+define internal range(i32 0, 2) i32 @set_email_and_cn(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef %name, i32 noundef 13, ptr noundef nonnull @.str.12, i32 noundef 0), !range !13
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef %name, i32 noundef 13, ptr noundef nonnull @.str.12, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_altname_dns(ptr noundef %crt, ptr noundef %name) #0 {
+define internal range(i32 0, 2) i32 @set_altname_dns(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_altname(ptr noundef %crt, i32 noundef 2, ptr noundef %name, i32 noundef 0), !range !13
+  %call = tail call i32 (ptr, ...) @set_altname(ptr noundef %crt, i32 noundef 2, ptr noundef %name, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_altname_email(ptr noundef %crt, ptr noundef %name) #0 {
+define internal range(i32 0, 2) i32 @set_altname_email(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_altname(ptr noundef %crt, i32 noundef 1, ptr noundef %name, i32 noundef 0), !range !13
+  %call = tail call i32 (ptr, ...) @set_altname(ptr noundef %crt, i32 noundef 1, ptr noundef %name, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_cn(ptr noundef %crt, ...) unnamed_addr #0 {
+define internal range(i32 0, 2) i32 @set_cn(ptr noundef %crt, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -724,7 +724,7 @@ declare i32 @X509_set_subject_name(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @X509_NAME_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_altname(ptr noundef %crt, ...) unnamed_addr #0 {
+define internal range(i32 0, 2) i32 @set_altname(ptr noundef %crt, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -929,4 +929,3 @@ attributes #9 = { noreturn nounwind }
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i32 0, i32 2}

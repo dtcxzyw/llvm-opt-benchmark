@@ -804,14 +804,14 @@ accumulate_append_subpath.exit250:                ; preds = %134, %129, %124, %.
 
 list_length.exit.thread:                          ; preds = %204
   %205 = load i32, ptr %15, align 4
-  %206 = call i32 @llvm.ctlz.i32(i32 %205, i1 true), !range !11
+  %206 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %205, i1 true)
   %207 = sub nuw nsw i32 32, %206
   %208 = icmp sgt i32 %.0199.lcssa, %207
   br i1 %208, label %212, label %list_length.exit252
 
 list_length.exit252:                              ; preds = %list_length.exit.thread, %204
   %209 = phi i32 [ 0, %204 ], [ %205, %list_length.exit.thread ]
-  %210 = call i32 @llvm.ctlz.i32(i32 %209, i1 true), !range !11
+  %210 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %209, i1 true)
   %211 = sub nuw nsw i32 32, %210
   br label %212
 
@@ -872,14 +872,14 @@ list_length.exit252:                              ; preds = %list_length.exit.th
 
 list_length.exit254.thread:                       ; preds = %._crit_edge404
   %236 = load i32, ptr %15, align 4
-  %237 = call i32 @llvm.ctlz.i32(i32 %236, i1 true), !range !11
+  %237 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %236, i1 true)
   %238 = sub nuw nsw i32 32, %237
   %239 = icmp sgt i32 %.0195.lcssa, %238
   br i1 %239, label %243, label %list_length.exit256
 
 list_length.exit256:                              ; preds = %list_length.exit254.thread, %._crit_edge404
   %240 = phi i32 [ 0, %._crit_edge404 ], [ %236, %list_length.exit254.thread ]
-  %241 = call i32 @llvm.ctlz.i32(i32 %240, i1 true), !range !11
+  %241 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %240, i1 true)
   %242 = sub nuw nsw i32 32, %241
   br label %243
 
@@ -1174,7 +1174,7 @@ accumulate_append_subpath.exit141.us.i:           ; preds = %get_singleton_appen
   %.2.us.i = phi ptr [ %.0159173.us.i, %get_singleton_append_subpath.exit130.us.i ], [ %359, %get_singleton_append_subpath.exit139.us.i ]
   %360 = add i32 %.093175.us.i, %.094205210.i
   %.not110.us.i = icmp eq i32 %360, %.096203212.i
-  br i1 %.not110.us.i, label %._crit_edge.thread.i, label %.lr.ph.split.us.i, !llvm.loop !12
+  br i1 %.not110.us.i, label %._crit_edge.thread.i, label %.lr.ph.split.us.i, !llvm.loop !11
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %accumulate_append_subpath.exit141.i
   %.093175.i = phi i32 [ %440, %accumulate_append_subpath.exit141.i ], [ 0, %.lr.ph.i ]
@@ -1334,7 +1334,7 @@ accumulate_append_subpath.exit141.i:              ; preds = %438, %434, %430, %a
   %.2.i = phi ptr [ %.0159173.i, %accumulate_append_subpath.exit140.i ], [ %433, %430 ], [ %437, %434 ], [ %439, %438 ]
   %440 = add nuw i32 %.093175.i, 1
   %.not110.i = icmp eq i32 %440, %287
-  br i1 %.not110.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !12
+  br i1 %.not110.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %accumulate_append_subpath.exit141.i, %list_length.exit121.i
   %.0163.lcssa.i = phi ptr [ null, %list_length.exit121.i ], [ %.1164.i, %accumulate_append_subpath.exit141.i ]
@@ -1850,7 +1850,7 @@ define dso_local void @generate_useful_gather_paths(ptr noundef %0, ptr noundef 
   %23 = load i32, ptr %12, align 4
   %24 = sext i32 %23 to i64
   %.not25.i = icmp slt i64 %indvars.iv.next.i, %24
-  br i1 %.not25.i, label %15, label %._crit_edge.i, !llvm.loop !13
+  br i1 %.not25.i, label %15, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %22, %15
   %.022.lcssa.ph.in.i = phi i64 [ %indvars.iv.i, %15 ], [ %indvars.iv.next.i, %22 ]
@@ -2060,7 +2060,7 @@ define dso_local ptr @standard_join_search(ptr noundef %0, i32 noundef %1, ptr n
 ._crit_edge:                                      ; preds = %28, %.lr.ph, %11
   %32 = add i32 %.042, 1
   %.not = icmp sgt i32 %32, %1
-  br i1 %.not, label %._crit_edge45, label %11, !llvm.loop !14
+  br i1 %.not, label %._crit_edge45, label %11, !llvm.loop !13
 
 ._crit_edge45:                                    ; preds = %._crit_edge, %3
   %33 = load ptr, ptr %8, align 8
@@ -2169,7 +2169,7 @@ define dso_local void @generate_partitionwise_join_paths(ptr noundef %0, ptr nou
   %.1 = phi ptr [ %.036, %.lr.ph ], [ %.036, %32 ], [ %35, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %36
   %.not33 = icmp eq ptr %.1, null
@@ -2239,7 +2239,7 @@ define dso_local void @create_partial_bitmap_paths(ptr noundef %0, ptr noundef %
 25:                                               ; preds = %21
   %26 = add i32 %.032.i, 1
   %27 = icmp sgt i32 %22, 715827882
-  br i1 %27, label %compute_parallel_worker.exit, label %21, !llvm.loop !16
+  br i1 %27, label %compute_parallel_worker.exit, label %21, !llvm.loop !15
 
 compute_parallel_worker.exit:                     ; preds = %25, %21, %3, %17
   %.136.i = phi i32 [ %7, %3 ], [ 0, %17 ], [ %26, %25 ], [ %.032.i, %21 ]
@@ -2313,7 +2313,7 @@ define dso_local i32 @compute_parallel_worker(ptr nocapture noundef readonly %0,
 32:                                               ; preds = %28
   %33 = add i32 %.032, 1
   %34 = icmp sgt i32 %29, 715827882
-  br i1 %34, label %.loopexit, label %28, !llvm.loop !16
+  br i1 %34, label %.loopexit, label %28, !llvm.loop !15
 
 .loopexit:                                        ; preds = %28, %32, %23
   %.035 = phi i32 [ 0, %23 ], [ %.032, %28 ], [ %33, %32 ]
@@ -2336,7 +2336,7 @@ define dso_local i32 @compute_parallel_worker(ptr nocapture noundef readonly %0,
 43:                                               ; preds = %39
   %44 = add i32 %.031, 1
   %45 = icmp sgt i32 %40, 715827882
-  br i1 %45, label %46, label %39, !llvm.loop !17
+  br i1 %45, label %46, label %39, !llvm.loop !16
 
 46:                                               ; preds = %43, %39
   %.1 = phi i32 [ %44, %43 ], [ %.031, %39 ]
@@ -2848,7 +2848,7 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
 
 243:                                              ; preds = %237, %205, %200
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  br label %.split, !llvm.loop !18
+  br label %.split, !llvm.loop !17
 
 .thread69:                                        ; preds = %194, %189, %161, %154, %93, %82, %.lr.ph137
   %.1128.i = phi double [ %.0127.i93136, %.lr.ph137 ], [ %.0127.i93136, %82 ], [ %.0127.i93136, %93 ], [ %.0127.i93136, %154 ], [ %169, %161 ], [ %169, %189 ], [ %169, %194 ]
@@ -2898,7 +2898,7 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
   store i32 %263, ptr %265, align 4
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge110, label %258, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge110, label %258, !llvm.loop !18
 
 ._crit_edge110:                                   ; preds = %258, %247
   %266 = getelementptr inbounds i8, ptr %1, i64 200
@@ -3201,7 +3201,7 @@ list_length.exit.i.i:                             ; preds = %378
   %406 = load ptr, ptr %405, align 8
   %407 = getelementptr inbounds i8, ptr %404, i64 16
   %408 = load i16, ptr %407, align 8
-  %409 = call fastcc zeroext i1 @find_window_run_conditions(ptr noundef nonnull %294, i16 noundef signext %408, ptr noundef %406, ptr noundef nonnull %331, i1 noundef zeroext true, ptr noundef nonnull %6, ptr noundef nonnull %8)
+  %409 = call fastcc zeroext i1 @find_window_run_conditions(ptr noundef nonnull readonly %294, i16 noundef signext %408, ptr noundef %406, ptr noundef nonnull %331, i1 noundef zeroext true, ptr noundef nonnull %6, ptr noundef nonnull %8)
   br i1 %409, label %410, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %397
@@ -3243,7 +3243,7 @@ list_length.exit.i.i:                             ; preds = %378
   %431 = load ptr, ptr %430, align 8
   %432 = getelementptr inbounds i8, ptr %429, i64 16
   %433 = load i16, ptr %432, align 8
-  %434 = call fastcc zeroext i1 @find_window_run_conditions(ptr noundef nonnull %294, i16 noundef signext %433, ptr noundef %431, ptr noundef nonnull %331, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %8)
+  %434 = call fastcc zeroext i1 @find_window_run_conditions(ptr noundef nonnull readonly %294, i16 noundef signext %433, ptr noundef %431, ptr noundef nonnull %331, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %8)
   br i1 %434, label %check_and_push_window_quals.exit.i, label %check_and_push_window_quals.exit.thread.i
 
 check_and_push_window_quals.exit.thread.i:        ; preds = %422, %418, %413, %383, %list_length.exit.i.i, %378, %375
@@ -3562,7 +3562,7 @@ list_length.exit153.i:                            ; preds = %577, %list_length.e
   %indvars.iv.next198.i = add nuw nsw i64 %indvars.iv197.i, 1
   %598 = and i64 %597, 4294967295
   %.not137.i = icmp eq i64 %indvars.iv.next198.i, %598
-  br i1 %.not137.i, label %584, label %.thread165.i, !llvm.loop !20
+  br i1 %.not137.i, label %584, label %.thread165.i, !llvm.loop !19
 
 .thread165.i:                                     ; preds = %594, %591, %585, %584, %.preheader.i, %list_length.exit153.i
   %.0.i48 = phi i1 [ false, %list_length.exit153.i ], [ true, %.preheader.i ], [ %exitcond.not.i, %584 ], [ %exitcond.not.i, %585 ], [ %exitcond.not.i, %591 ], [ %exitcond.not.i, %594 ]
@@ -3686,7 +3686,7 @@ set_subquery_pathlist.exit:                       ; preds = %.lr.ph195.i, %558, 
   %659 = getelementptr inbounds i8, ptr %.0.i51, i64 32
   %660 = load ptr, ptr %659, align 8
   %.not24.i = icmp eq ptr %660, null
-  br i1 %.not24.i, label %661, label %.preheader.i50, !llvm.loop !21
+  br i1 %.not24.i, label %661, label %.preheader.i50, !llvm.loop !20
 
 661:                                              ; preds = %658
   %662 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -3733,7 +3733,7 @@ set_worktable_pathlist.exit:                      ; preds = %666
   %681 = getelementptr inbounds i8, ptr %.0.i53, i64 32
   %682 = load ptr, ptr %681, align 8
   %.not42.i = icmp eq ptr %682, null
-  br i1 %.not42.i, label %683, label %.preheader, !llvm.loop !22
+  br i1 %.not42.i, label %683, label %.preheader, !llvm.loop !21
 
 683:                                              ; preds = %679
   %684 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -4548,7 +4548,7 @@ define internal fastcc noundef zeroext i1 @find_window_run_conditions(ptr nocapt
 11:                                               ; preds = %9
   %12 = getelementptr inbounds i8, ptr %.085, i64 8
   %13 = load ptr, ptr %12, align 8
-  br label %9, !llvm.loop !23
+  br label %9, !llvm.loop !22
 
 14:                                               ; preds = %9
   %15 = tail call zeroext i1 @contain_subplans(ptr noundef nonnull %.085) #9
@@ -5113,7 +5113,7 @@ define internal fastcc void @set_plain_rel_pathlist(ptr noundef %0, ptr noundef 
 28:                                               ; preds = %25
   %29 = add i32 %.032.i.i, 1
   %30 = icmp sgt i32 %26, 715827882
-  br i1 %30, label %compute_parallel_worker.exit.i, label %25, !llvm.loop !16
+  br i1 %30, label %compute_parallel_worker.exit.i, label %25, !llvm.loop !15
 
 compute_parallel_worker.exit.i:                   ; preds = %28, %25, %10
   %.136.i.i = phi i32 [ %15, %10 ], [ %.032.i.i, %25 ], [ %29, %28 ]
@@ -5222,7 +5222,7 @@ attributes #11 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = !{i32 0, i32 33}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
@@ -5234,4 +5234,3 @@ attributes #11 = { nounwind willreturn memory(read) }
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}

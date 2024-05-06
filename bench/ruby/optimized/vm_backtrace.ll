@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [78 x i8] c"-- Ruby level backtrace information ----------------------------------------\0A\00", align 1
 @.str.32 = private unnamed_addr constant [25 x i8] c"%s:%d:in unknown method\0A\00", align 1
 @.str.33 = private unnamed_addr constant [15 x i8] c"%s:%d:in '%s'\0A\00", align 1
-@ruby_current_ec = external thread_local global ptr, align 8
+@ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 @.str.34 = private unnamed_addr constant [31 x i8] c"\09from %s:%d:in unknown method\0A\00", align 1
 @.str.35 = private unnamed_addr constant [21 x i8] c"\09from %s:%d:in '%s'\0A\00", align 1
 @.str.36 = private unnamed_addr constant [18 x i8] c"\09from %li\0B:%d:in \00", align 1
@@ -582,7 +582,7 @@ define hidden i64 @rb_backtrace_to_str_ary(i64 noundef %0) local_unnamed_addr #0
 15:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
   %16 = getelementptr [1 x %struct.rb_backtrace_location_struct], ptr %14, i64 0, i64 %indvars.iv.i.i
-  %17 = tail call fastcc i64 @location_to_str(ptr noundef %16)
+  %17 = tail call fastcc i64 @location_to_str(ptr noundef readonly %16)
   %18 = tail call i64 @rb_ary_push(i64 noundef %11, i64 noundef %17) #4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %19 = load i32, ptr %8, align 8
@@ -1258,7 +1258,7 @@ backtrace_each.exit:                              ; preds = %61, %2, %10, %13
 define dso_local i64 @rb_make_backtrace() local_unnamed_addr #0 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %2 = load ptr, ptr %1, align 8
-  %3 = tail call fastcc i64 @rb_ec_partial_backtrace_object(ptr noundef %2, i64 noundef 0, i64 noundef -1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false)
+  %3 = tail call fastcc i64 @rb_ec_partial_backtrace_object(ptr noundef readonly %2, i64 noundef 0, i64 noundef -1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false)
   %4 = tail call i64 @rb_backtrace_to_str_ary(i64 noundef %3)
   ret i64 %4
 }
@@ -1507,7 +1507,7 @@ rb_num2long_inline.exit46:                        ; preds = %65, %67
 93:                                               ; preds = %93, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %93 ]
   %94 = getelementptr [1 x %struct.rb_backtrace_location_struct], ptr %92, i64 0, i64 %indvars.iv.i.i
-  %95 = call fastcc i64 @location_to_str(ptr noundef %94)
+  %95 = call fastcc i64 @location_to_str(ptr noundef readonly %94)
   %96 = call i64 @rb_ary_push(i64 noundef %89, i64 noundef %95) #4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %97 = load i32, ptr %86, align 8
@@ -1733,7 +1733,7 @@ declare void @rb_undef_alloc_func(i64 noundef) local_unnamed_addr #1
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @location_lineno_m(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @location_lineno_m(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @location_data_type) #4
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1954,7 +1954,7 @@ define dso_local i64 @rb_debug_inspector_open(ptr nocapture noundef readonly %0,
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %12, ptr %13, align 8
-  %14 = tail call fastcc i64 @rb_ec_partial_backtrace_object(ptr noundef %10, i64 noundef 0, i64 noundef -1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false)
+  %14 = tail call fastcc i64 @rb_ec_partial_backtrace_object(ptr noundef readonly %10, i64 noundef 0, i64 noundef -1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false)
   %15 = tail call ptr @rb_check_typeddata(i64 noundef %14, ptr noundef nonnull @backtrace_data_type) #4
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8
@@ -2457,7 +2457,7 @@ frame_get.exit:                                   ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_debug_inspector_current_depth() local_unnamed_addr #6 {
+define dso_local range(i64 1, 0) i64 @rb_debug_inspector_current_depth() local_unnamed_addr #6 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
@@ -3099,7 +3099,7 @@ declare i64 @rb_obj_class(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_class_path(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @rb_profile_frame_singleton_method_p(i64 noundef %0) local_unnamed_addr #6 {
+define dso_local range(i64 0, 21) i64 @rb_profile_frame_singleton_method_p(i64 noundef %0) local_unnamed_addr #6 {
   %2 = icmp eq i64 %0, 4
   br i1 %2, label %.thread, label %3
 

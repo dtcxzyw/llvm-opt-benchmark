@@ -140,7 +140,7 @@ define dso_local void @enable_swap_slots_cache() local_unnamed_addr #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @alloc_swap_slot_cache(i32 noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @alloc_swap_slot_cache(i32 noundef %0) #0 align 16 {
   %2 = tail call noalias noundef dereferenceable_or_null(512) ptr @kvmalloc_node(i64 noundef 512, i32 noundef 3520, i32 noundef -1) #5
   %3 = icmp eq ptr %2, null
   br i1 %3, label %32, label %4

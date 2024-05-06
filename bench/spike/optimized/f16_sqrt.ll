@@ -11,7 +11,7 @@ define i16 @f16_sqrt(i16 %0) local_unnamed_addr #0 {
   %2 = zext i16 %0 to i64
   %.not = icmp sgt i16 %0, -1
   %3 = lshr i16 %0, 10
-  %4 = trunc i16 %3 to i8
+  %4 = trunc nuw nsw i16 %3 to i8
   %5 = and i8 %4, 31
   %6 = and i64 %2, 1023
   %7 = icmp eq i8 %5, 31

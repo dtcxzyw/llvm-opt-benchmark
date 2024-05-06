@@ -248,7 +248,7 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   %126 = load i32, ptr %125, align 8
   %127 = icmp eq i32 %126, 0
   %128 = lshr i32 %126, 16
-  %129 = trunc i32 %128 to i16
+  %129 = trunc nuw i32 %128 to i16
   %130 = or i16 %129, 4096
   %131 = select i1 %127, i16 0, i16 %130
   %132 = getelementptr inbounds i8, ptr %117, i64 38
@@ -452,7 +452,7 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   %244 = load i32, ptr %243, align 8
   %245 = icmp eq i32 %244, 0
   %246 = lshr i32 %244, 16
-  %247 = trunc i32 %246 to i16
+  %247 = trunc nuw i32 %246 to i16
   %248 = or i16 %247, 4096
   %249 = select i1 %245, i16 0, i16 %248
   %250 = getelementptr inbounds i8, ptr %235, i64 38

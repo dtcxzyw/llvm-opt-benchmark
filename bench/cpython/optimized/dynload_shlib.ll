@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [13 x i8] c"%.20s_%.200s\00", align 1
 @.str.5 = private unnamed_addr constant [23 x i8] c"unknown dlopen() error\00", align 1
 @.str.6 = private unnamed_addr constant [16 x i8] c"surrogateescape\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyImport_FindSharedFuncptr(ptr noundef %prefix, ptr noundef %shortname, ptr noundef %pathname, ptr noundef %fp) local_unnamed_addr #0 {

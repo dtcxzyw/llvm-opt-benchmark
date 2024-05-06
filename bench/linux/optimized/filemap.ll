@@ -1614,7 +1614,7 @@ define dso_local void @delete_from_page_cache_batch(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @filemap_check_errors(ptr noundef %0) #1 align 16 {
+define dso_local range(i32 -28, 1) i32 @filemap_check_errors(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 2
@@ -1903,7 +1903,7 @@ define dso_local zeroext i1 @filemap_range_has_page(ptr noundef %0, i64 noundef 
 declare dso_local ptr @xas_find(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @filemap_fdatawait_range(ptr noundef %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local range(i32 -28, 1) i32 @filemap_fdatawait_range(ptr noundef %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
   tail call fastcc void @__filemap_fdatawait_range(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load volatile i64, ptr %4, align 8
@@ -2259,7 +2259,7 @@ filemap_get_folios_tag.exit:                      ; preds = %find_get_entry.exit
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @filemap_fdatawait_range_keep_errors(ptr noundef %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -28, 1) i32 @filemap_fdatawait_range_keep_errors(ptr noundef %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
   tail call fastcc void @__filemap_fdatawait_range(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load volatile i64, ptr %4, align 8
@@ -2356,7 +2356,7 @@ define dso_local i32 @file_check_and_advance_wb_err(ptr noundef %0) #1 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @filemap_fdatawait_keep_errors(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -28, 1) i32 @filemap_fdatawait_keep_errors(ptr noundef %0) #1 align 16 {
   %2 = alloca %struct.xa_state, align 8
   %3 = alloca %struct.folio_batch, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #13
@@ -4074,7 +4074,7 @@ define dso_local void @migration_entry_wait_on_locked(i64 %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @wake_page_function(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef %3) #1 align 16 {
+define internal range(i32 -1, 2) i32 @wake_page_function(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef %3) #1 align 16 {
   %5 = getelementptr i8, ptr %0, i64 -16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %3, align 8
@@ -4163,7 +4163,7 @@ define dso_local void @folio_wait_bit(ptr noundef %0, i32 noundef %1) #1 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @folio_wait_bit_common(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 align 16 {
+define internal fastcc range(i32 -4, 1) i32 @folio_wait_bit_common(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 align 16 {
   %5 = alloca %struct.wait_page_queue, align 8
   %6 = alloca i8, align 1
   %7 = ptrtoint ptr %0 to i64
@@ -4442,7 +4442,7 @@ define internal fastcc i32 @folio_wait_bit_common(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @folio_wait_bit_killable(ptr noundef %0, i32 noundef %1) #1 align 16 {
+define dso_local range(i32 -4, 1) i32 @folio_wait_bit_killable(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = tail call fastcc i32 @folio_wait_bit_common(ptr noundef %0, i32 noundef %1, i32 noundef 258, i32 noundef 1), !range !92
   ret i32 %3
 }
@@ -4739,13 +4739,13 @@ define dso_local void @__folio_lock(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__folio_lock_killable(ptr noundef %0) #1 align 16 {
+define dso_local range(i32 -4, 1) i32 @__folio_lock_killable(ptr noundef %0) #1 align 16 {
   %2 = tail call fastcc i32 @folio_wait_bit_common(ptr noundef %0, i32 noundef 0, i32 noundef 258, i32 noundef 0), !range !92
   ret i32 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__folio_lock_or_retry(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 1025) i32 @__folio_lock_or_retry(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 36
@@ -5443,7 +5443,7 @@ declare dso_local void @folio_mark_accessed(ptr noundef) local_unnamed_addr #0
 declare dso_local void @folio_wait_stable(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @find_get_entries(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 256) i32 @find_get_entries(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #1 align 16 {
   %6 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #13
   %7 = getelementptr inbounds i8, ptr %6, i64 16
@@ -5738,7 +5738,7 @@ define internal fastcc ptr @find_get_entry(ptr noundef %0, i64 noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @find_lock_entries(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 256) i32 @find_lock_entries(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #1 align 16 {
   %6 = alloca %struct.wait_page_key, align 8
   %7 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #13
@@ -6012,13 +6012,13 @@ define dso_local i32 @find_lock_entries(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @filemap_get_folios(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr nocapture noundef %3) #1 align 16 {
+define dso_local range(i32 0, 256) i32 @filemap_get_folios(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr nocapture noundef %3) #1 align 16 {
   %5 = tail call i32 @filemap_get_folios_tag(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 8, ptr noundef %3), !range !104
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @filemap_get_folios_tag(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef %4) #1 align 16 {
+define dso_local range(i32 0, 256) i32 @filemap_get_folios_tag(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef %4) #1 align 16 {
   %6 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #13
   %7 = getelementptr inbounds i8, ptr %6, i64 16
@@ -6099,7 +6099,7 @@ define dso_local i32 @filemap_get_folios_tag(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @filemap_get_folios_contig(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr nocapture noundef %3) #1 align 16 {
+define dso_local range(i32 0, 256) i32 @filemap_get_folios_contig(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr nocapture noundef %3) #1 align 16 {
   %5 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #13
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -8214,7 +8214,7 @@ define dso_local i64 @mapping_seek_hole_data(ptr noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @filemap_fault(ptr nocapture noundef %0) #1 align 16 {
+define dso_local range(i32 1, 1032) i32 @filemap_fault(ptr nocapture noundef %0) #1 align 16 {
   %2 = alloca %struct.wait_page_key, align 8
   %3 = alloca %struct.wait_page_key, align 8
   %4 = alloca %struct.readahead_control, align 8
@@ -9022,7 +9022,7 @@ define internal fastcc ptr @do_sync_mmap_readahead(ptr nocapture noundef readonl
 declare dso_local void @fput(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @filemap_map_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local range(i32 0, 512) i32 @filemap_map_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
   %4 = alloca %struct.wait_page_key, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -9675,7 +9675,7 @@ define internal fastcc ptr @next_uptodate_folio(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @filemap_page_mkwrite(ptr nocapture noundef readonly %0) #1 align 16 {
+define dso_local noundef range(i32 256, 513) i32 @filemap_page_mkwrite(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = alloca %struct.wait_page_key, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 136
@@ -9880,7 +9880,7 @@ declare dso_local i32 @file_update_time(ptr noundef) local_unnamed_addr #0
 declare dso_local zeroext i1 @folio_mark_dirty(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @generic_file_mmap(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define dso_local noundef range(i32 -8, 1) i32 @generic_file_mmap(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 104
@@ -9913,7 +9913,7 @@ define dso_local noundef i32 @generic_file_mmap(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @generic_file_readonly_mmap(ptr noundef %0, ptr nocapture noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @generic_file_readonly_mmap(ptr noundef %0, ptr nocapture noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 40
@@ -10772,7 +10772,7 @@ define dso_local zeroext i1 @filemap_release_folio(ptr noundef %0, i32 noundef %
 declare dso_local zeroext i1 @try_to_free_buffers(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_cachestat(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -95, 1) i64 @__x64_sys_cachestat(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -10786,7 +10786,7 @@ define dso_local i64 @__x64_sys_cachestat(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__se_sys_cachestat(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc range(i64 -95, 1) i64 @__se_sys_cachestat(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 16 {
   %5 = alloca %struct.xa_state, align 8
   %6 = alloca i8, align 1
   %7 = alloca %struct.cachestat_range, align 8
@@ -11072,7 +11072,7 @@ define internal fastcc i64 @__se_sys_cachestat(i64 noundef %0, i64 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_cachestat(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -95, 1) i64 @__ia32_sys_cachestat(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295

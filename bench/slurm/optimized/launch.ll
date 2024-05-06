@@ -500,7 +500,7 @@ define dso_local noundef i32 @launch_g_setup_srun_opt(ptr nocapture noundef read
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @launch_g_handle_multi_prog_verify(i32 noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @launch_g_handle_multi_prog_verify(i32 noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.stat, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -643,7 +643,7 @@ _load_multi.exit:                                 ; preds = %.lr.ph31.i, %._crit
 declare i32 @verify_multi_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @launch_g_create_job_step(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @launch_g_create_job_step(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
@@ -1002,7 +1002,7 @@ define dso_local noundef i32 @launch_g_create_job_step(ptr noundef %0, i1 nounde
   br i1 %.not271.i, label %210, label %205
 
 205:                                              ; preds = %202
-  %206 = tail call fastcc i32 @_parse_gpu_request(ptr noundef nonnull %204), !range !10
+  %206 = tail call fastcc i32 @_parse_gpu_request(ptr noundef nonnull %204)
   %207 = load i32, ptr %42, align 8
   %208 = mul nsw i32 %207, %206
   %209 = getelementptr inbounds i8, ptr %30, i64 16
@@ -1016,7 +1016,7 @@ define dso_local noundef i32 @launch_g_create_job_step(ptr noundef %0, i1 nounde
   br i1 %.not272.i, label %220, label %213
 
 213:                                              ; preds = %210
-  %214 = tail call fastcc i32 @_parse_gpu_request(ptr noundef nonnull %212), !range !10
+  %214 = tail call fastcc i32 @_parse_gpu_request(ptr noundef nonnull %212)
   %215 = load i32, ptr %16, align 8
   %216 = mul nsw i32 %215, %214
   %217 = load i32, ptr %42, align 8
@@ -1040,7 +1040,7 @@ define dso_local noundef i32 @launch_g_create_job_step(ptr noundef %0, i1 nounde
   %226 = getelementptr inbounds i8, ptr %224, i64 9
   %227 = getelementptr inbounds i8, ptr %4, i64 120
   %228 = load i32, ptr %227, align 8
-  %229 = tail call fastcc i32 @_parse_gpu_request(ptr noundef nonnull %226), !range !10
+  %229 = tail call fastcc i32 @_parse_gpu_request(ptr noundef nonnull %226)
   %230 = mul nsw i32 %229, %228
   %231 = load i32, ptr %42, align 8
   %232 = mul nsw i32 %230, %231
@@ -1061,7 +1061,7 @@ define dso_local noundef i32 @launch_g_create_job_step(ptr noundef %0, i1 nounde
 236:                                              ; preds = %236, %235
   %237 = load ptr, ptr %158, align 8
   %238 = call zeroext i1 @slurm_option_get_tres_per_tres(ptr noundef %237, ptr noundef nonnull @.str.42, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7) #18
-  br i1 %238, label %236, label %239, !llvm.loop !11
+  br i1 %238, label %236, label %239, !llvm.loop !10
 
 239:                                              ; preds = %236
   %240 = load i32, ptr %7, align 4
@@ -1226,7 +1226,7 @@ define dso_local noundef i32 @launch_g_create_job_step(ptr noundef %0, i1 nounde
   %330 = getelementptr inbounds i8, ptr %30, i64 152
   store ptr %329, ptr %330, align 8
   %331 = getelementptr inbounds i8, ptr %30, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %331, ptr noundef nonnull align 8 dereferenceable(12) %0, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %331, ptr noundef nonnull readonly align 8 dereferenceable(12) %0, i64 12, i1 false)
   %332 = getelementptr inbounds i8, ptr %12, i64 88
   %333 = load i32, ptr %332, align 8
   %334 = getelementptr inbounds i8, ptr %30, i64 172
@@ -1739,7 +1739,7 @@ _create_job_step_create_request.exit.thread:      ; preds = %430, %241
   %593 = getelementptr inbounds [0 x i32], ptr @sig_array, i64 0, i64 %indvars.iv.next
   %594 = load i32, ptr %593, align 4
   %.not122 = icmp eq i32 %594, 0
-  br i1 %.not122, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not122, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 595:                                              ; preds = %567
   br i1 %570, label %596, label %.loopexit
@@ -2294,7 +2294,7 @@ define dso_local i32 @launch_g_step_launch(ptr noundef %0, ptr nocapture noundef
 240:                                              ; preds = %.sink.split.i, %237
   %241 = call ptr @find_quote_token(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef nonnull %10) #18
   %.not23.i = icmp eq ptr %241, null
-  br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %240, %.lr.ph.i
   call void @slurm_xfree(ptr noundef nonnull %9) #18
@@ -2535,7 +2535,7 @@ _build_user_env.exit:                             ; preds = %.thread4.i, %.threa
   store i64 %352, ptr %342, align 8
   %353 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @start_cond, ptr noundef nonnull @start_mutex, ptr noundef nonnull %7) #18
   %354 = icmp eq i32 %353, 110
-  br i1 %354, label %355, label %343, !llvm.loop !14
+  br i1 %354, label %355, label %343, !llvm.loop !13
 
 355:                                              ; preds = %347, %343
   %356 = call i32 @pthread_cond_broadcast(ptr noundef nonnull @start_cond) #18
@@ -2743,7 +2743,7 @@ _mpir_get_host_name.exit.us:                      ; preds = %48, %46
   %56 = load i32, ptr %2, align 4
   %57 = zext i32 %56 to i64
   %58 = icmp ult i64 %indvars.iv.next39, %57
-  br i1 %58, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !15
+  br i1 %58, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %85 ]
@@ -2802,7 +2802,7 @@ _mpir_get_host_name.exit:                         ; preds = %73, %75
   %86 = load i32, ptr %2, align 4
   %87 = zext i32 %86 to i64
   %88 = icmp ult i64 %indvars.iv.next, %87
-  br i1 %88, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
+  br i1 %88, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %85, %55, %.thread, %22
   ret void
@@ -2840,7 +2840,7 @@ define dso_local void @launch_g_fwd_signal(i32 noundef %0) #1 {
   tail call void @slurm_step_launch_abort(ptr noundef %12) #18
   %13 = tail call ptr @list_next(ptr noundef %8) #18
   %.not7.us = icmp eq ptr %13, null
-  br i1 %.not7.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
+  br i1 %.not7.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %14 = phi ptr [ %17, %.lr.ph.split ], [ %9, %.lr.ph ]
@@ -2849,7 +2849,7 @@ define dso_local void @launch_g_fwd_signal(i32 noundef %0) #1 {
   tail call void @slurm_step_launch_fwd_signal(ptr noundef %16, i32 noundef %0) #18
   %17 = tail call ptr @list_next(ptr noundef %8) #18
   %.not7 = icmp eq ptr %17, null
-  br i1 %.not7, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
+  br i1 %.not7, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %7
   tail call void @list_iterator_destroy(ptr noundef %8) #18
@@ -2996,7 +2996,7 @@ _find_srun_job.exit.thread:                       ; preds = %1, %_find_srun_job.
   tail call void @bit_set(ptr noundef nonnull %57, i64 noundef %65) #18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %62, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.loopexit, label %62, !llvm.loop !16
 
 .loopexit:                                        ; preds = %62, %.preheader.i
   %66 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 2048, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 198, ptr noundef nonnull @__func__._task_array_to_string) #18
@@ -3044,7 +3044,7 @@ launch_common_get_slurm_step_layout.exit.thread.i: ; preds = %launch_common_get_
   %86 = add nuw nsw i32 %.02427.i, %85
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, %wide.trip.count.i107
-  br i1 %exitcond.not.i110, label %._crit_edge.i, label %82, !llvm.loop !18
+  br i1 %exitcond.not.i110, label %._crit_edge.i, label %82, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %82
   %87 = icmp ugt i32 %86, 100000
@@ -3084,7 +3084,7 @@ launch_common_get_slurm_step_layout.exit.thread.i: ; preds = %launch_common_get_
 100:                                              ; preds = %97, %95
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
-  br i1 %exitcond39.not.i, label %._crit_edge32.i, label %.lr.ph31.i, !llvm.loop !19
+  br i1 %exitcond39.not.i, label %._crit_edge32.i, label %.lr.ph31.i, !llvm.loop !18
 
 ._crit_edge32.i:                                  ; preds = %100, %._crit_edge.thread.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -3100,7 +3100,7 @@ launch_common_get_slurm_step_layout.exit.thread.i: ; preds = %launch_common_get_
   %105 = icmp slt i64 %104, 0
   %106 = icmp ult i64 %.0.i.i, 32768
   %107 = and i1 %106, %105
-  br i1 %107, label %101, label %108, !llvm.loop !20
+  br i1 %107, label %101, label %108, !llvm.loop !19
 
 108:                                              ; preds = %101
   %109 = icmp ugt i64 %.0.i.i, 32767
@@ -3209,7 +3209,7 @@ _is_openmpi_port_error.exit:                      ; preds = %137, %139
   %.val103 = load ptr, ptr %154, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
   %155 = getelementptr inbounds i8, ptr %.val103, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %155, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull readonly align 8 dereferenceable(12) %155, i64 12, i1 false)
   %.b4.i = load i1, ptr @retry_step_begin, align 1
   %.pre.i = load i32, ptr @retry_step_cnt, align 4
   br i1 %.b4.i, label %158, label %156
@@ -3381,7 +3381,7 @@ _is_openmpi_port_error.exit.thread:               ; preds = %130, %139, %_is_ope
   call void @task_state_update(ptr noundef nonnull %226, i32 noundef %233, i32 noundef %231) #18
   %indvars.iv.next.i119 = add nuw nsw i64 %indvars.iv.i118, 1
   %exitcond.not.i120 = icmp eq i64 %indvars.iv.next.i119, %wide.trip.count.i116
-  br i1 %exitcond.not.i120, label %_update_task_exit_state.exit, label %.lr.ph.i117, !llvm.loop !21
+  br i1 %exitcond.not.i120, label %_update_task_exit_state.exit, label %.lr.ph.i117, !llvm.loop !20
 
 234:                                              ; preds = %224
   %235 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.67, ptr noundef nonnull @__func__._task_finish, ptr noundef nonnull %9) #18
@@ -3497,7 +3497,7 @@ declare void @mpir_dump_proctable() local_unnamed_addr #2
 declare void @MPIR_Breakpoint(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @launch_g_step_wait(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @launch_g_step_wait(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 272
   %5 = load ptr, ptr %4, align 8
   tail call void @slurm_step_launch_wait_finish(ptr noundef %5) #18
@@ -3591,7 +3591,7 @@ define internal fastcc i32 @_step_signal(i32 noundef %0) unnamed_addr #1 {
   %spec.select = select i1 %.not14, i32 %.0916, i32 %20
   %21 = tail call ptr @list_next(ptr noundef %8) #18
   %.not13 = icmp eq ptr %21, null
-  br i1 %.not13, label %._crit_edge, label %11, !llvm.loop !22
+  br i1 %.not13, label %._crit_edge, label %11, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %16, %7
   %.09.lcssa = phi i32 [ 0, %7 ], [ %spec.select, %16 ]
@@ -3636,7 +3636,7 @@ declare ptr @xshort_hostname() local_unnamed_addr #2
 declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_parse_gpu_request(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 0, -2147483648) i32 @_parse_gpu_request(ptr noundef %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
@@ -3658,7 +3658,7 @@ define internal fastcc i32 @_parse_gpu_request(ptr noundef %0) unnamed_addr #1 {
   %spec.select = add nuw nsw i32 %9, %.01117
   %10 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef nonnull %2) #18
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.011.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %.lr.ph ]
@@ -3719,7 +3719,7 @@ declare zeroext i1 @task_state_first_exit(ptr noundef) local_unnamed_addr #2
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_find_step(ptr noundef %0, ptr noundef %1) #1 {
+define internal range(i32 0, 2) i32 @_find_step(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call zeroext i1 @verify_step_id(ptr noundef %0, ptr noundef %1) #18
   %4 = zext i1 %3 to i32
   ret i32 %4
@@ -3816,7 +3816,7 @@ attributes #21 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = !{i32 0, i32 -2147483648}
+!10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
@@ -3829,4 +3829,3 @@ attributes #21 = { nounwind willreturn memory(read) }
 !20 = distinct !{!20, !8}
 !21 = distinct !{!21, !8}
 !22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}

@@ -1030,7 +1030,7 @@ declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #4
 declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fra_ClauCheckProperty(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_ClauCheckProperty(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 108
   %5 = load i32, ptr %4, align 4
@@ -1222,7 +1222,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fra_ClauCheckBmc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_ClauCheckBmc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %1, i64 8
@@ -1338,7 +1338,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fra_ClauCheckClause(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_ClauCheckClause(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, 1
@@ -1952,7 +1952,7 @@ Vec_IntSplitHalf.exit:                            ; preds = %Vec_IntAlloc.exit.i
   %.pre-phi.i = phi i32 [ %.pre.i, %.critedge.loopexit.i ], [ %10, %Vec_IntAlloc.exit.i ]
   store i32 %.pre-phi.i, ptr %7, align 4
   tail call fastcc void @Vec_IntAppend(ptr noundef %1, ptr noundef nonnull %.tr40.ph47)
-  %54 = tail call i32 @Fra_ClauCheckClause(ptr noundef %0, ptr noundef %1, ptr noundef null), !range !19
+  %54 = tail call i32 @Fra_ClauCheckClause(ptr noundef %0, ptr noundef %1, ptr noundef null)
   %.not = icmp eq i32 %54, 0
   store i32 %.val.pre.pre, ptr %6, align 4
   br i1 %.not, label %56, label %tailrecurse
@@ -1964,7 +1964,7 @@ tailrecurse:                                      ; preds = %Vec_IntSplitHalf.ex
 
 56:                                               ; preds = %Vec_IntSplitHalf.exit
   tail call fastcc void @Vec_IntAppend(ptr noundef %1, ptr noundef nonnull %12)
-  %57 = tail call i32 @Fra_ClauCheckClause(ptr noundef %0, ptr noundef %1, ptr noundef null), !range !19
+  %57 = tail call i32 @Fra_ClauCheckClause(ptr noundef %0, ptr noundef %1, ptr noundef null)
   %.not37 = icmp eq i32 %57, 0
   br i1 %.not37, label %59, label %tailrecurse.outer
 
@@ -2081,7 +2081,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val = load i32, ptr %3, align 4
   %38 = sext i32 %.val to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %7, label %.critedge, !llvm.loop !20
+  br i1 %39, label %7, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %Vec_IntPush.exit, %2
   ret void
@@ -2192,10 +2192,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = sext i32 %.val31 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph, label %.critedge2, !llvm.loop !21
+  br i1 %45, label %.lr.ph, label %.critedge2, !llvm.loop !20
 
 .critedge2:                                       ; preds = %43, %10
-  %46 = tail call i32 @Fra_ClauCheckClause(ptr noundef %0, ptr noundef %1, ptr noundef null), !range !19
+  %46 = tail call i32 @Fra_ClauCheckClause(ptr noundef %0, ptr noundef %1, ptr noundef null)
   %.not = icmp eq i32 %46, 0
   br i1 %.not, label %56, label %.preheader
 
@@ -2218,7 +2218,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %53 = add nsw i32 %.val30, -1
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next51, %54
-  br i1 %55, label %.lr.ph41, label %._crit_edge, !llvm.loop !22
+  br i1 %55, label %.lr.ph41, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph41, %.preheader
   %.lcssa = phi i32 [ %47, %.preheader ], [ %53, %.lr.ph41 ]
@@ -2227,7 +2227,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 56:                                               ; preds = %.critedge2, %._crit_edge
   %57 = icmp sgt i64 %indvars.iv53, 1
-  br i1 %57, label %10, label %.critedge, !llvm.loop !23
+  br i1 %57, label %10, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %56, %3
   ret void
@@ -2288,7 +2288,7 @@ define void @Fra_ClauPrintClause(ptr nocapture noundef readonly %0, ptr nocaptur
   %.1 = phi i32 [ %.025, %10 ], [ %.025, %21 ], [ %24, %23 ]
   %.val20 = load i32, ptr %4, align 4
   %30 = icmp slt i32 %.1, %.val20
-  br i1 %30, label %8, label %.critedge, !llvm.loop !24
+  br i1 %30, label %8, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %8, %29, %2
   ret void
@@ -2298,7 +2298,7 @@ define void @Fra_ClauPrintClause(ptr nocapture noundef readonly %0, ptr nocaptur
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fra_Clau(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_Clau(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @Fra_ClauStart(ptr noundef %0)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %23, label %.preheader
@@ -2306,7 +2306,7 @@ define noundef i32 @Fra_Clau(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
 .preheader:                                       ; preds = %4
   %7 = getelementptr inbounds i8, ptr %5, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @Fra_ClauCheckProperty(ptr noundef nonnull %5, ptr noundef %8), !range !19
+  %9 = tail call i32 @Fra_ClauCheckProperty(ptr noundef nonnull %5, ptr noundef %8)
   %.not139 = icmp eq i32 %9, 0
   %10 = icmp sgt i32 %1, 0
   %11 = and i1 %.not139, %10
@@ -2404,12 +2404,12 @@ define noundef i32 @Fra_Clau(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
   %.1.i = phi i32 [ %.025.i, %41 ], [ %.025.i, %52 ], [ %55, %54 ]
   %.val20.i = load i32, ptr %35, align 4
   %61 = icmp slt i32 %.1.i, %.val20.i
-  br i1 %61, label %39, label %Fra_ClauPrintClause.exit, !llvm.loop !24
+  br i1 %61, label %39, label %Fra_ClauPrintClause.exit, !llvm.loop !23
 
 Fra_ClauPrintClause.exit:                         ; preds = %60, %39, %.thread, %32, %28
   %62 = phi ptr [ %27, %.thread ], [ %31, %32 ], [ %31, %28 ], [ %31, %39 ], [ %31, %60 ]
   %63 = load ptr, ptr %17, align 8
-  %64 = tail call i32 @Fra_ClauCheckClause(ptr noundef nonnull %5, ptr noundef %62, ptr noundef %63), !range !19
+  %64 = tail call i32 @Fra_ClauCheckClause(ptr noundef nonnull %5, ptr noundef %62, ptr noundef %63)
   %.not85.not137 = icmp eq i32 %64, 0
   br i1 %.not85.not137, label %.lr.ph, label %.critedge
 
@@ -2630,9 +2630,9 @@ Vec_IntComplement.exit:                           ; preds = %148, %.Vec_IntCompl
 163:                                              ; preds = %Fra_ClauRemapClause.exit
   %164 = add nuw nsw i32 %.0138, 1
   %165 = load ptr, ptr %17, align 8
-  %166 = tail call i32 @Fra_ClauCheckClause(ptr noundef nonnull %5, ptr noundef nonnull %.pre, ptr noundef %165), !range !19
+  %166 = tail call i32 @Fra_ClauCheckClause(ptr noundef nonnull %5, ptr noundef nonnull %.pre, ptr noundef %165)
   %.not85.not = icmp eq i32 %166, 0
-  br i1 %.not85.not, label %.lr.ph, label %.critedge, !llvm.loop !25
+  br i1 %.not85.not, label %.lr.ph, label %.critedge, !llvm.loop !24
 
 167:                                              ; preds = %Vec_IntComplement.exit
   br i1 %12, label %168, label %263
@@ -2680,7 +2680,7 @@ Vec_IntComplement.exit:                           ; preds = %148, %.Vec_IntCompl
 186:                                              ; preds = %206
   %.val.i113 = load i32, ptr %181, align 4
   %187 = icmp slt i32 %.117.i116, %.val.i113
-  br i1 %187, label %.lr.ph172, label %Fra_ClauPrintClause.exit120.thread, !llvm.loop !24
+  br i1 %187, label %.lr.ph172, label %Fra_ClauPrintClause.exit120.thread, !llvm.loop !23
 
 .lr.ph172:                                        ; preds = %.lr.ph.i110, %186
   %.01624.i112171 = phi i32 [ %.117.i116, %186 ], [ 0, %.lr.ph.i110 ]
@@ -2719,7 +2719,7 @@ Vec_IntComplement.exit:                           ; preds = %148, %.Vec_IntCompl
   %.1.i117 = phi i32 [ %.025.i111170, %.lr.ph172 ], [ %.025.i111170, %198 ], [ %201, %200 ]
   %.val20.i118 = load i32, ptr %171, align 4
   %207 = icmp slt i32 %.1.i117, %.val20.i118
-  br i1 %207, label %186, label %Fra_ClauPrintClause.exit120.thread, !llvm.loop !24
+  br i1 %207, label %186, label %Fra_ClauPrintClause.exit120.thread, !llvm.loop !23
 
 Fra_ClauPrintClause.exit120.thread:               ; preds = %206, %186, %.lr.ph.i110, %177, %179
   %.val92 = phi i32 [ %.val92.pre, %177 ], [ %.val92.pre, %179 ], [ %.val92.pre, %.lr.ph.i110 ], [ %.val20.i118, %186 ], [ %.val20.i118, %206 ]
@@ -2798,7 +2798,7 @@ Fra_ClauPrintClause.exit120.thread133:            ; preds = %176, %Fra_ClauPrint
   %.1.i129 = phi i32 [ %.025.i123, %223 ], [ %.025.i123, %234 ], [ %237, %236 ]
   %.val20.i130 = load i32, ptr %217, align 4
   %243 = icmp slt i32 %.1.i129, %.val20.i130
-  br i1 %243, label %221, label %Fra_ClauPrintClause.exit132, !llvm.loop !24
+  br i1 %243, label %221, label %Fra_ClauPrintClause.exit132, !llvm.loop !23
 
 Fra_ClauPrintClause.exit132:                      ; preds = %242, %221, %213
   br i1 %12, label %Fra_ClauPrintClause.exit132.Fra_ClauPrintClause.exit132.thread_crit_edge, label %.critedge89
@@ -2848,11 +2848,11 @@ Fra_ClauPrintClause.exit132.thread:               ; preds = %Fra_ClauPrintClause
 263:                                              ; preds = %256, %261, %173, %174, %167, %168
   %264 = add nuw nsw i32 %.081140, 1
   %265 = load ptr, ptr %7, align 8
-  %266 = tail call i32 @Fra_ClauCheckProperty(ptr noundef nonnull %5, ptr noundef %265), !range !19
+  %266 = tail call i32 @Fra_ClauCheckProperty(ptr noundef nonnull %5, ptr noundef %265)
   %.not = icmp eq i32 %266, 0
   %267 = icmp slt i32 %264, %1
   %268 = select i1 %.not, i1 %267, i1 false
-  br i1 %268, label %24, label %.loopexit, !llvm.loop !26
+  br i1 %268, label %24, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %263, %.preheader, %254
   %.1 = phi i32 [ %255, %254 ], [ 0, %.preheader ], [ %264, %263 ]
@@ -2924,11 +2924,10 @@ attributes #14 = { nounwind }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = !{i32 0, i32 2}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}

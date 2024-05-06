@@ -13,7 +13,7 @@ define zeroext i8 @crc5_usb_11bit_input(i16 noundef zeroext %0) local_unnamed_ad
 3:                                                ; preds = %13, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %13 ]
   %.01012.i = phi i8 [ 2, %1 ], [ %.1.i, %13 ]
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %5 = shl nuw nsw i32 1, %4
   %6 = and i32 %5, %2
   %.not.i = icmp eq i32 %6, 0
@@ -45,7 +45,7 @@ define zeroext i8 @crc5_usb_19bit_input(i32 noundef %0) local_unnamed_addr #0 {
 2:                                                ; preds = %11, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %11 ]
   %.01012.i = phi i8 [ 29, %1 ], [ %.1.i, %11 ]
-  %3 = trunc i64 %indvars.iv.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i to i32
   %4 = shl nuw nsw i32 1, %3
   %5 = and i32 %4, %0
   %.not.i = icmp eq i32 %5, 0

@@ -74,7 +74,7 @@ target triple = "x86_64-pc-linux-gnu"
 @logcat_text_long_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @logcat_text_open(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @logcat_text_open(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i64 @file_seek(ptr noundef %4, i64 noundef 0, i32 noundef 0, ptr noundef %1) #11
   %6 = icmp eq i64 %5, -1
@@ -195,19 +195,19 @@ declare i32 @g_regex_match_simple(ptr noundef, ptr noundef, i32 noundef, i32 nou
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @logcat_text_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #11
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
-  %12 = tail call fastcc i32 @logcat_text_read_packet(ptr noundef %9, ptr noundef %1, ptr noundef %2, i32 noundef %11), !range !6
+  %12 = tail call fastcc i32 @logcat_text_read_packet(ptr noundef %9, ptr noundef %1, ptr noundef %2, i32 noundef %11)
   ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
+define internal range(i32 0, 2) i32 @logcat_text_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #11
@@ -218,7 +218,7 @@ define internal noundef i32 @logcat_text_seek_read(ptr nocapture noundef readonl
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
-  %15 = tail call fastcc i32 @logcat_text_read_packet(ptr noundef %12, ptr noundef %2, ptr noundef %3, i32 noundef %14), !range !6
+  %15 = tail call fastcc i32 @logcat_text_read_packet(ptr noundef %12, ptr noundef %2, ptr noundef %3, i32 noundef %14)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %20
 
@@ -276,7 +276,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @logcat_text_read_packet(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @logcat_text_read_packet(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.tm, align 8
   %7 = alloca i32, align 4
@@ -298,7 +298,7 @@ define internal fastcc noundef i32 @logcat_text_read_packet(ptr noundef %0, ptr 
 16:                                               ; preds = %13
   %17 = tail call i32 @file_eof(ptr noundef %0) #11
   %.not59 = icmp eq i32 %17, 0
-  br i1 %.not59, label %11, label %.critedge, !llvm.loop !7
+  br i1 %.not59, label %11, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %16, %13
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #13
@@ -334,7 +334,7 @@ define internal fastcc noundef i32 @logcat_text_read_packet(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %34
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #13
   %32 = icmp ugt i64 %31, 2
-  br i1 %32, label %.lr.ph81, label %.critedge2, !llvm.loop !8
+  br i1 %32, label %.lr.ph81, label %.critedge2, !llvm.loop !7
 
 .lr.ph81:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.0577680 = phi i64 [ %36, %.lr.ph ], [ %27, %.lr.ph.preheader ]
@@ -347,7 +347,7 @@ define internal fastcc noundef i32 @logcat_text_read_packet(ptr noundef %0, ptr 
   %36 = tail call i64 @file_tell(ptr noundef %0) #11
   %37 = tail call ptr @file_gets(ptr noundef %26, i32 noundef 262144, ptr noundef %0) #11
   %cond68 = icmp eq ptr %37, null
-  br i1 %cond68, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %cond68, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph81, %.lr.ph.preheader
   %.05776.lcssa = phi i64 [ %27, %.lr.ph.preheader ], [ %36, %.lr.ph ], [ %.0577680, %.lr.ph81 ]
@@ -409,7 +409,7 @@ define internal fastcc noundef i32 @logcat_text_read_packet(ptr noundef %0, ptr 
   %67 = getelementptr inbounds i8, ptr %8, i64 12
   %68 = getelementptr inbounds i8, ptr %8, i64 8
   %69 = getelementptr inbounds i8, ptr %8, i64 4
-  %70 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %65, ptr noundef nonnull @.str.15, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %8, ptr noundef nonnull %7) #11
+  %70 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %65, ptr noundef nonnull @.str.15, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %8, ptr noundef nonnull %7) #11
   %71 = icmp eq i32 %70, 6
   br i1 %71, label %72, label %get_time.exit
 
@@ -449,7 +449,7 @@ get_time.exit:                                    ; preds = %64, %72
   %87 = getelementptr inbounds i8, ptr %6, i64 12
   %88 = getelementptr inbounds i8, ptr %6, i64 8
   %89 = getelementptr inbounds i8, ptr %6, i64 4
-  %90 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %10, ptr noundef nonnull @.str.15, ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
+  %90 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %10, ptr noundef nonnull @.str.15, ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
   %91 = icmp eq i32 %90, 6
   br i1 %91, label %92, label %get_time.exit72
 
@@ -520,7 +520,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @logcat_text_brief_dump_can_write_encap(i32 noundef %0) #7 {
+define internal range(i32 -9, 1) i32 @logcat_text_brief_dump_can_write_encap(i32 noundef %0) #7 {
   switch i32 %0, label %3 [
     i32 -1, label %4
     i32 163, label %2
@@ -554,7 +554,7 @@ define internal noundef i32 @logcat_text_brief_dump_open(ptr nocapture noundef w
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_dump_text(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 0, 2) i32 @logcat_text_dump_text(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = alloca [15 x i8], align 1
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -800,7 +800,7 @@ logcat_log.exit:                                  ; preds = %76, %78, %80, %82, 
 
 110:                                              ; preds = %105
   %.not98 = icmp eq ptr %.1106, null
-  br i1 %.not98, label %111, label %66, !llvm.loop !9
+  br i1 %.not98, label %111, label %66, !llvm.loop !8
 
 111:                                              ; preds = %110
   call void @g_free(ptr noundef %64) #11
@@ -848,7 +848,7 @@ declare ptr @gmtime(ptr noundef) local_unnamed_addr #9
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @logcat_text_process_dump_can_write_encap(i32 noundef %0) #7 {
+define internal range(i32 -9, 1) i32 @logcat_text_process_dump_can_write_encap(i32 noundef %0) #7 {
   switch i32 %0, label %3 [
     i32 -1, label %4
     i32 163, label %2
@@ -879,7 +879,7 @@ define internal noundef i32 @logcat_text_process_dump_open(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @logcat_text_tag_dump_can_write_encap(i32 noundef %0) #7 {
+define internal range(i32 -9, 1) i32 @logcat_text_tag_dump_can_write_encap(i32 noundef %0) #7 {
   switch i32 %0, label %3 [
     i32 -1, label %4
     i32 163, label %2
@@ -910,7 +910,7 @@ define internal noundef i32 @logcat_text_tag_dump_open(ptr nocapture noundef wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @logcat_text_thread_dump_can_write_encap(i32 noundef %0) #7 {
+define internal range(i32 -9, 1) i32 @logcat_text_thread_dump_can_write_encap(i32 noundef %0) #7 {
   switch i32 %0, label %3 [
     i32 -1, label %4
     i32 163, label %2
@@ -941,7 +941,7 @@ define internal noundef i32 @logcat_text_thread_dump_open(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @logcat_text_time_dump_can_write_encap(i32 noundef %0) #7 {
+define internal range(i32 -9, 1) i32 @logcat_text_time_dump_can_write_encap(i32 noundef %0) #7 {
   switch i32 %0, label %3 [
     i32 -1, label %4
     i32 163, label %2
@@ -972,7 +972,7 @@ define internal noundef i32 @logcat_text_time_dump_open(ptr nocapture noundef wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @logcat_text_threadtime_dump_can_write_encap(i32 noundef %0) #7 {
+define internal range(i32 -9, 1) i32 @logcat_text_threadtime_dump_can_write_encap(i32 noundef %0) #7 {
   switch i32 %0, label %3 [
     i32 -1, label %4
     i32 163, label %2
@@ -1003,7 +1003,7 @@ define internal noundef i32 @logcat_text_threadtime_dump_open(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @logcat_text_long_dump_can_write_encap(i32 noundef %0) #7 {
+define internal range(i32 -9, 1) i32 @logcat_text_long_dump_can_write_encap(i32 noundef %0) #7 {
   switch i32 %0, label %3 [
     i32 -1, label %4
     i32 163, label %2
@@ -1063,7 +1063,6 @@ attributes #14 = { nounwind allocsize(0,1) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

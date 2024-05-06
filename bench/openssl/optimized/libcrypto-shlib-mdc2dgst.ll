@@ -72,7 +72,7 @@ if.then22:                                        ; preds = %if.end18
   %data23 = getelementptr inbounds i8, ptr %c, i64 4
   %arrayidx25 = getelementptr inbounds i8, ptr %in.addr.0, i64 %and
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data23, ptr align 1 %arrayidx25, i64 %sub19, i1 false)
-  %conv26 = trunc i64 %sub19 to i32
+  %conv26 = trunc nuw nsw i64 %sub19 to i32
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then4, %if.then22
@@ -183,7 +183,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv63 = trunc i32 %shr61 to i8
   store i8 %conv63, ptr %incdec.ptr60, align 1
   %shr65 = lshr i32 %xor50, 24
-  %conv67 = trunc i32 %shr65 to i8
+  %conv67 = trunc nuw i32 %shr65 to i8
   store i8 %conv67, ptr %incdec.ptr64, align 1
   %conv70 = trunc i32 %xor48 to i8
   store i8 %conv70, ptr %incdec.ptr68, align 1
@@ -194,7 +194,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv78 = trunc i32 %shr76 to i8
   store i8 %conv78, ptr %incdec.ptr75, align 1
   %shr80 = lshr i32 %xor48, 24
-  %conv82 = trunc i32 %shr80 to i8
+  %conv82 = trunc nuw i32 %shr80 to i8
   store i8 %conv82, ptr %incdec.ptr79, align 1
   %conv87 = trunc i32 %xor to i8
   store i8 %conv87, ptr %hh, align 1
@@ -205,7 +205,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv95 = trunc i32 %shr93 to i8
   store i8 %conv95, ptr %incdec.ptr92, align 1
   %shr97 = lshr i32 %xor, 24
-  %conv99 = trunc i32 %shr97 to i8
+  %conv99 = trunc nuw i32 %shr97 to i8
   store i8 %conv99, ptr %incdec.ptr96, align 1
   %conv102 = trunc i32 %xor52 to i8
   store i8 %conv102, ptr %incdec.ptr100, align 1
@@ -216,7 +216,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv110 = trunc i32 %shr108 to i8
   store i8 %conv110, ptr %incdec.ptr107, align 1
   %shr112 = lshr i32 %xor52, 24
-  %conv114 = trunc i32 %shr112 to i8
+  %conv114 = trunc nuw i32 %shr112 to i8
   store i8 %conv114, ptr %incdec.ptr111, align 1
   %add = add nuw i64 %i.059, 8
   %cmp = icmp ult i64 %add, %len

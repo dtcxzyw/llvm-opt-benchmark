@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_barrier_init(ptr noundef %barrier, i32 noundef %count) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_barrier_init(ptr noundef %barrier, i32 noundef %count) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_barrier_init(ptr noundef %barrier, ptr noundef null, i32 noundef %count) #3
   %sub = sub nsw i32 0, %call
@@ -15,7 +15,7 @@ entry:
 declare i32 @pthread_barrier_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_barrier_wait(ptr noundef %barrier) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @uv_barrier_wait(ptr noundef %barrier) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_barrier_wait(ptr noundef %barrier) #3
   %0 = add i32 %call, -1

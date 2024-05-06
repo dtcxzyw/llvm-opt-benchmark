@@ -469,9 +469,9 @@ define noundef i32 @_Z11gmx_genconfiPPc(i32 noundef %0, ptr noundef %1) local_un
 
 182:                                              ; preds = %165
   %183 = extractelement <2 x i32> %172, i64 0
-  %184 = mul nsw i32 %183, %168
+  %184 = mul nuw nsw i32 %183, %168
   %185 = extractelement <2 x i32> %172, i64 1
-  %186 = mul nsw i32 %184, %185
+  %186 = mul nuw nsw i32 %184, %185
   invoke void @_ZN10gmx_mtop_tC1Ev(ptr noundef nonnull align 8 dereferenceable(768) %40)
           to label %187 unwind label %96
 

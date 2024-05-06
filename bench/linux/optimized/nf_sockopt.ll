@@ -26,7 +26,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nf_getsockop
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_nf_getsockopt688, ptr @__UNIQUE_ID___addressable_nf_register_sockopt685, ptr @__UNIQUE_ID___addressable_nf_setsockopt687, ptr @__UNIQUE_ID___addressable_nf_unregister_sockopt686], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nf_register_sockopt(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @nf_register_sockopt(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @nf_sockopt_mutex) #2
   %2 = load ptr, ptr @nf_sockopts, align 8
   %3 = icmp eq ptr %2, @nf_sockopts

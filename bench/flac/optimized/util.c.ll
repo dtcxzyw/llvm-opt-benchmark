@@ -198,7 +198,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @double_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #3 {
+define internal range(i32 0, 2) i32 @double_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #3 {
 entry:
   %0 = load double, ptr %a, align 8
   %1 = load double, ptr %b, align 8

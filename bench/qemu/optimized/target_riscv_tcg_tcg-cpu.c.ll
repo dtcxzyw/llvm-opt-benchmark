@@ -462,7 +462,7 @@ if.end124:                                        ; preds = %if.end117
 if.then127:                                       ; preds = %if.end124
   %vlen.i = getelementptr inbounds i8, ptr %cpu, i64 15464
   %44 = load i16, ptr %vlen.i, align 8
-  %45 = tail call i16 @llvm.ctpop.i16(i16 %44), !range !7
+  %45 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %44)
   %or.cond23.i = icmp eq i16 %45, 1
   br i1 %or.cond23.i, label %if.end.i372, label %if.then.i
 
@@ -482,7 +482,7 @@ if.then8.i:                                       ; preds = %if.end.i372
 if.end9.i:                                        ; preds = %if.end.i372
   %elen.i = getelementptr inbounds i8, ptr %cpu, i64 15466
   %47 = load i16, ptr %elen.i, align 2
-  %48 = tail call i16 @llvm.ctpop.i16(i16 %47), !range !7
+  %48 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %47)
   %or.cond24.i = icmp eq i16 %48, 1
   br i1 %or.cond24.i, label %if.end13.i, label %if.then12.i
 
@@ -1298,7 +1298,7 @@ if.end:                                           ; preds = %lor.lhs.false
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.end, %if.then, %lor.lhs.false
   %incdec.ptr = getelementptr i8, ptr %edata.011, i64 16
   %tobool.not = icmp eq ptr %incdec.ptr, null
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !8
+  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %land.rhs
   ret void
@@ -1498,7 +1498,7 @@ if.end.us.i.i:                                    ; preds = %for.body.us.i.i
 for.inc.us.i.i:                                   ; preds = %if.end.us.i.i, %for.body.us.i.i
   %indvars.iv.next17.i.i = add nuw nsw i64 %indvars.iv16.i.i, 1
   %exitcond19.not.i.i = icmp eq i64 %indvars.iv.next17.i.i, 13
-  br i1 %exitcond19.not.i.i, label %riscv_cpu_add_misa_properties.exit.i, label %for.body.us.i.i, !llvm.loop !9
+  br i1 %exitcond19.not.i.i, label %riscv_cpu_add_misa_properties.exit.i, label %for.body.us.i.i, !llvm.loop !8
 
 for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %entry ]
@@ -1523,7 +1523,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %if.end.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 13
-  br i1 %exitcond.not.i.i, label %riscv_cpu_add_misa_properties.exit.i, label %for.body.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %riscv_cpu_add_misa_properties.exit.i, label %for.body.i.i, !llvm.loop !8
 
 riscv_cpu_add_misa_properties.exit.i:             ; preds = %for.inc.i.i, %for.inc.us.i.i
   tail call fastcc void @riscv_cpu_add_multiext_prop_array(ptr noundef %call.i, ptr noundef nonnull @riscv_cpu_extensions)
@@ -1543,7 +1543,7 @@ for.body.i:                                       ; preds = %land.rhs.i
   tail call void @qdev_property_add_static(ptr noundef %call.i.i, ptr noundef nonnull %prop.010.i) #11
   %incdec.ptr.i = getelementptr i8, ptr %prop.010.i, i64 88
   %tobool.not.i = icmp eq ptr %incdec.ptr.i, null
-  br i1 %tobool.not.i, label %riscv_cpu_add_user_properties.exit, label %land.rhs.i, !llvm.loop !10
+  br i1 %tobool.not.i, label %riscv_cpu_add_user_properties.exit, label %land.rhs.i, !llvm.loop !9
 
 riscv_cpu_add_user_properties.exit:               ; preds = %land.rhs.i, %for.body.i
   %call.i3 = tail call ptr @object_dynamic_cast(ptr noundef %call.i, ptr noundef nonnull @.str.66) #11
@@ -1573,7 +1573,7 @@ for.body.i6:                                      ; preds = %land.rhs.i5
   tail call void @isa_ext_update_enabled(ptr noundef %call.i.i4, i32 noundef %8, i1 noundef zeroext true) #11
   %incdec.ptr.i7 = getelementptr i8, ptr %prop.017.i, i64 16
   %tobool.not.i8 = icmp eq ptr %incdec.ptr.i7, null
-  br i1 %tobool.not.i8, label %for.end.i, label %land.rhs.i5, !llvm.loop !11
+  br i1 %tobool.not.i8, label %for.end.i, label %land.rhs.i5, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.body.i6, %land.rhs.i5
   %vext_ver.i = getelementptr inbounds i8, ptr %call.i.i4, i64 15176
@@ -1790,7 +1790,7 @@ if.end.i:                                         ; preds = %for.body
 cpu_add_multi_ext_prop.exit:                      ; preds = %for.body, %if.end.i
   %incdec.ptr = getelementptr i8, ptr %prop.05, i64 16
   %tobool1.not = icmp eq ptr %incdec.ptr, null
-  br i1 %tobool1.not, label %for.end, label %land.rhs, !llvm.loop !12
+  br i1 %tobool1.not, label %for.end, label %land.rhs, !llvm.loop !11
 
 for.end:                                          ; preds = %cpu_add_multi_ext_prop.exit, %land.rhs
   ret void
@@ -1929,10 +1929,10 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.i.not, label %if.end9, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %call.i12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
+  %call.i12 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #13
   %add.i = add i64 %call.i12, 1
   %call1.i = call noalias ptr @g_malloc0(i64 noundef %add.i) #15
-  %call2.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call1.i, ptr noundef nonnull dereferenceable(1) %0) #11
+  %call2.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call1.i, ptr noundef nonnull readonly dereferenceable(1) %0) #11
   %4 = load i8, ptr %call1.i, align 1
   %conv.i = sext i8 %4 to i32
   %call3.i = call i32 @tolower(i32 noundef %conv.i) #13
@@ -2033,9 +2033,8 @@ attributes #15 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i16 0, i16 17}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}

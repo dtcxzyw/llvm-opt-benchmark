@@ -74,7 +74,7 @@ return:                                           ; preds = %if.else, %land.rhs,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7510Appendable12appendStringEPKDsi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef readonly %s, i32 noundef %length) unnamed_addr #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510Appendable12appendStringEPKDsi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef readonly %s, i32 noundef %length) unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp slt i32 %length, 0
   br i1 %cmp, label %while.cond, label %if.else

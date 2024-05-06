@@ -970,7 +970,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.81 = private unnamed_addr constant [56 x i8] c"aiter() returned not an async iterator of type '%.100s'\00", align 1
 @PyExc_StopIteration = external local_unnamed_addr global ptr, align 8
 @.str.82 = private unnamed_addr constant [34 x i8] c"null argument to internal routine\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @PyCFunction_Type = external global %struct._typeobject, align 8
 @.str.83 = private unnamed_addr constant [6 x i8] c"print\00", align 1
 @.str.84 = private unnamed_addr constant [118 x i8] c"unsupported operand type(s) for %.100s: '%.100s' and '%.100s'. Did you mean \22print(<message>, file=<output_stream>)\22?\00", align 1
@@ -1193,7 +1193,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @_PyObject_HasLen(ptr nocapture noundef readonly %o) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_PyObject_HasLen(ptr nocapture noundef readonly %o) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %o, i64 8
   %o.val6 = load ptr, ptr %0, align 8
@@ -2299,7 +2299,7 @@ return:                                           ; preds = %if.then.i, %_PyErr_
 declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyObject_CheckBuffer(ptr nocapture noundef readonly %obj) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyObject_CheckBuffer(ptr nocapture noundef readonly %obj) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -2320,7 +2320,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyObject_CheckReadBuffer(ptr noundef %obj) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @PyObject_CheckReadBuffer(ptr noundef %obj) local_unnamed_addr #0 {
 entry:
   %view = alloca %struct.Py_buffer, align 8
   %0 = getelementptr i8, ptr %obj, i64 8
@@ -2438,14 +2438,14 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyObject_AsCharBuffer(ptr noundef %obj, ptr noundef %buffer, ptr noundef %buffer_len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyObject_AsCharBuffer(ptr noundef %obj, ptr noundef %buffer, ptr noundef %buffer_len) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @as_read_buffer(ptr noundef %obj, ptr noundef %buffer, ptr noundef %buffer_len), !range !5
+  %call = tail call fastcc i32 @as_read_buffer(ptr noundef %obj, ptr noundef %buffer, ptr noundef %buffer_len)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @as_read_buffer(ptr noundef %obj, ptr noundef writeonly %buffer, ptr noundef writeonly %buffer_len) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @as_read_buffer(ptr noundef %obj, ptr noundef writeonly %buffer, ptr noundef writeonly %buffer_len) unnamed_addr #0 {
 entry:
   %view = alloca %struct.Py_buffer, align 8
   %cmp = icmp eq ptr %obj, null
@@ -2551,14 +2551,14 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyObject_AsReadBuffer(ptr noundef %obj, ptr noundef %buffer, ptr noundef %buffer_len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyObject_AsReadBuffer(ptr noundef %obj, ptr noundef %buffer, ptr noundef %buffer_len) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @as_read_buffer(ptr noundef %obj, ptr noundef %buffer, ptr noundef %buffer_len), !range !5
+  %call = tail call fastcc i32 @as_read_buffer(ptr noundef %obj, ptr noundef %buffer, ptr noundef %buffer_len)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyObject_AsWriteBuffer(ptr noundef %obj, ptr noundef writeonly %buffer, ptr noundef writeonly %buffer_len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyObject_AsWriteBuffer(ptr noundef %obj, ptr noundef writeonly %buffer, ptr noundef writeonly %buffer_len) local_unnamed_addr #0 {
 entry:
   %view = alloca %struct.Py_buffer, align 8
   %cmp = icmp eq ptr %obj, null
@@ -2695,7 +2695,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyBuffer_IsContiguous(ptr nocapture noundef readonly %view, i8 noundef signext %order) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @PyBuffer_IsContiguous(ptr nocapture noundef readonly %view, i8 noundef signext %order) local_unnamed_addr #3 {
 entry:
   %suboffsets = getelementptr inbounds i8, ptr %view, i64 64
   %0 = load ptr, ptr %suboffsets, align 8
@@ -2754,7 +2754,7 @@ if.end11.i:                                       ; preds = %land.lhs.true.i, %f
   %mul.i = mul i64 %7, %sd.013.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp4.i = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %cmp4.i, label %for.body.i, label %return, !llvm.loop !6
+  br i1 %cmp4.i, label %for.body.i, label %return, !llvm.loop !5
 
 if.then7:                                         ; preds = %if.end
   %len.i7 = getelementptr inbounds i8, ptr %view, i64 16
@@ -2790,7 +2790,7 @@ for.body.i20:                                     ; preds = %for.body.i20, %for.
   %spec.select.i = add i64 %sd.023.i, %add.i
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next27.i, %wide.trip.count29.i
-  br i1 %exitcond30.not.i, label %for.end.i, label %for.body.i20, !llvm.loop !8
+  br i1 %exitcond30.not.i, label %for.end.i, label %for.body.i20, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.body.i20
   %cmp11.i = icmp slt i64 %spec.select.i, 2
@@ -2827,7 +2827,7 @@ if.end29.i:                                       ; preds = %land.lhs.true.i18, 
   %mul.i16 = mul i64 %17, %sd.220.i
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i17, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %return, label %for.body17.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %return, label %for.body17.i, !llvm.loop !8
 
 if.then13:                                        ; preds = %if.end
   %len.i22 = getelementptr inbounds i8, ptr %view, i64 16
@@ -2874,7 +2874,7 @@ if.end11.i40:                                     ; preds = %land.lhs.true.i44, 
   %mul.i41 = mul i64 %25, %sd.013.i37
   %indvars.iv.next.i42 = add nsw i64 %indvars.iv.i36, -1
   %cmp4.i43 = icmp sgt i64 %indvars.iv.i36, 0
-  br i1 %cmp4.i43, label %for.body.i35, label %return, !llvm.loop !6
+  br i1 %cmp4.i43, label %for.body.i35, label %return, !llvm.loop !5
 
 if.end12.i54:                                     ; preds = %land.lhs.true.i44
   %cmp1519.i55 = icmp sgt i32 %21, 0
@@ -2902,7 +2902,7 @@ if.end29.i66:                                     ; preds = %land.lhs.true.i70, 
   %mul.i67 = mul i64 %27, %sd.220.i63
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, %wide.trip.count.i60
-  br i1 %exitcond.not.i69, label %return, label %for.body17.i61, !llvm.loop !9
+  br i1 %exitcond.not.i69, label %return, label %for.body17.i61, !llvm.loop !8
 
 return:                                           ; preds = %if.end11.i40, %if.end29.i66, %land.lhs.true.i70, %if.end29.i, %land.lhs.true.i18, %if.end11.i, %land.lhs.true.i, %if.end3.i27, %if.end.i24, %if.then13, %if.end12.i54, %if.end12.i, %for.end.i, %if.then2.i, %if.then7, %if.end3.i, %if.end.i, %if.then3, %if.end, %entry
   %retval.0.shrunk = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 1, %if.then3 ], [ 1, %if.end.i ], [ 1, %if.end3.i ], [ %14, %for.end.i ], [ 1, %if.then7 ], [ 1, %if.then2.i ], [ 1, %if.end12.i ], [ 1, %if.end12.i54 ], [ 1, %if.then13 ], [ 1, %if.end.i24 ], [ 1, %if.end3.i27 ], [ 1, %if.end11.i ], [ 0, %land.lhs.true.i ], [ 1, %if.end29.i ], [ 0, %land.lhs.true.i18 ], [ 1, %if.end29.i66 ], [ 0, %land.lhs.true.i70 ], [ 1, %if.end11.i40 ]
@@ -2938,7 +2938,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %add.ptr.us = getelementptr i8, ptr %pointer.015.us, i64 %mul.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
-  br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !10
+  br i1 %exitcond23.not, label %for.end, label %for.body.us, !llvm.loop !9
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.lr.ph ]
@@ -2963,7 +2963,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %pointer.1 = phi ptr [ %add.ptr11, %if.then ], [ %add.ptr, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %for.body.us, %entry
   %pointer.0.lcssa = phi ptr [ %0, %entry ], [ %add.ptr.us, %for.body.us ], [ %pointer.1, %for.inc ]
@@ -3058,12 +3058,12 @@ declare ptr @_PyImport_GetModuleAttrString(ptr noundef, ptr noundef) local_unnam
 declare ptr @PyObject_CallFunctionObjArgs(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyBuffer_FromContiguous(ptr nocapture noundef readonly %view, ptr nocapture noundef readonly %buf, i64 noundef %len, i8 noundef signext %fort) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyBuffer_FromContiguous(ptr nocapture noundef readonly %view, ptr nocapture noundef readonly %buf, i64 noundef %len, i8 noundef signext %fort) local_unnamed_addr #0 {
 entry:
   %len1 = getelementptr inbounds i8, ptr %view, i64 16
   %0 = load i64, ptr %len1, align 8
   %spec.select = tail call i64 @llvm.smin.i64(i64 %0, i64 %len)
-  %call = tail call i32 @PyBuffer_IsContiguous(ptr noundef %view, i8 noundef signext %fort), !range !11
+  %call = tail call i32 @PyBuffer_IsContiguous(ptr noundef %view, i8 noundef signext %fort)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end5, label %if.then3
 
@@ -3098,7 +3098,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %4 = load i32, ptr %ndim, align 4
   %5 = sext i32 %4 to i64
   %cmp13 = icmp slt i64 %indvars.iv.next, %5
-  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %cmp16 = icmp eq i8 %fort, 70
@@ -3142,7 +3142,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %add.ptr.us.i = getelementptr i8, ptr %pointer.015.us.i, i64 %mul.us.i
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count22.i
-  br i1 %exitcond23.not.i, label %PyBuffer_GetPointer.exit, label %for.body.us.i, !llvm.loop !10
+  br i1 %exitcond23.not.i, label %PyBuffer_GetPointer.exit, label %for.body.us.i, !llvm.loop !9
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
@@ -3167,7 +3167,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %pointer.1.i = phi ptr [ %add.ptr11.i, %if.then.i ], [ %add.ptr.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count22.i
-  br i1 %exitcond.not.i, label %PyBuffer_GetPointer.exit, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %PyBuffer_GetPointer.exit, label %for.body.i, !llvm.loop !9
 
 PyBuffer_GetPointer.exit:                         ; preds = %for.inc.i, %for.body.us.i, %while.body
   %pointer.0.lcssa.i = phi ptr [ %7, %while.body ], [ %add.ptr.us.i, %for.body.us.i ], [ %pointer.1.i, %for.inc.i ]
@@ -3177,9 +3177,9 @@ PyBuffer_GetPointer.exit:                         ; preds = %for.inc.i, %for.bod
   %add.ptr = getelementptr i8, ptr %src.028, i64 %18
   %19 = load i32, ptr %ndim, align 4
   %20 = load ptr, ptr %shape, align 8
-  tail call void %_Py_add_one_to_index_F._Py_add_one_to_index_C(i32 noundef %19, ptr noundef nonnull %call6, ptr noundef %20) #11, !callees !13
+  tail call void %_Py_add_one_to_index_F._Py_add_one_to_index_C(i32 noundef %19, ptr noundef nonnull %call6, ptr noundef %20) #11, !callees !11
   %tobool20.not = icmp eq i64 %dec, 0
-  br i1 %tobool20.not, label %while.end, label %while.body, !llvm.loop !14
+  br i1 %tobool20.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %PyBuffer_GetPointer.exit, %for.end
   tail call void @PyMem_Free(ptr noundef nonnull %call6) #11
@@ -3226,7 +3226,7 @@ if.else:                                          ; preds = %for.body
   store i64 0, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %if.else, %entry, %if.then
   ret void
@@ -3259,7 +3259,7 @@ if.else:                                          ; preds = %for.body
   store i64 0, ptr %arrayidx, align 8
   %k.0 = add nsw i32 %k.010, -1
   %cmp = icmp sgt i32 %k.010, 0
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %if.else, %entry, %if.then
   ret void
@@ -3268,7 +3268,7 @@ for.end:                                          ; preds = %if.else, %entry, %i
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyObject_CopyData(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyObject_CopyData(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
 entry:
   %view_dest = alloca %struct.Py_buffer, align 8
   %view_src = alloca %struct.Py_buffer, align 8
@@ -3513,20 +3513,20 @@ if.end11.i.i:                                     ; preds = %land.lhs.true.i.i, 
   %mul.i.i = mul i64 %38, %sd.013.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %cmp4.i.i = icmp sgt i64 %indvars.iv.i.i, 0
-  br i1 %cmp4.i.i, label %for.body.i.i, label %land.lhs.true, !llvm.loop !6
+  br i1 %cmp4.i.i, label %for.body.i.i, label %land.lhs.true, !llvm.loop !5
 
 land.lhs.true:                                    ; preds = %if.end11.i.i, %if.end.i71, %if.end.i.i74, %if.end3.i.i
-  %call16 = call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view_src, i8 noundef signext 67), !range !11
+  %call16 = call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view_src, i8 noundef signext 67)
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %lor.lhs.false18, label %if.then24
 
 lor.lhs.false18:                                  ; preds = %land.lhs.true.i.i, %if.end13, %land.lhs.true
-  %call19 = call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view_dest, i8 noundef signext 70), !range !11
+  %call19 = call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view_dest, i8 noundef signext 70)
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %if.end27, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %lor.lhs.false18
-  %call22 = call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view_src, i8 noundef signext 70), !range !11
+  %call22 = call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %view_src, i8 noundef signext 70)
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %if.end27, label %if.then24
 
@@ -3576,7 +3576,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %45 = load i32, ptr %ndim, align 4
   %46 = sext i32 %45 to i64
   %cmp35 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %cmp35, label %for.body, label %for.cond37.preheader, !llvm.loop !17
+  br i1 %cmp35, label %for.body, label %for.cond37.preheader, !llvm.loop !15
 
 while.cond.preheader:                             ; preds = %for.body41
   %tobool48.not136 = icmp eq i64 %mul44, 0
@@ -3600,7 +3600,7 @@ for.body41:                                       ; preds = %for.body41.lr.ph, %
   %mul44 = mul i64 %47, %elements.0133
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count
-  br i1 %exitcond.not, label %while.cond.preheader, label %for.body41, !llvm.loop !18
+  br i1 %exitcond.not, label %while.cond.preheader, label %for.body41, !llvm.loop !16
 
 while.body:                                       ; preds = %while.body.lr.ph, %PyBuffer_GetPointer.exit114
   %elements.1137 = phi i64 [ %elements.0.lcssa151, %while.body.lr.ph ], [ %dec, %PyBuffer_GetPointer.exit114 ]
@@ -3631,7 +3631,7 @@ if.else.i:                                        ; preds = %for.body.i
   store i64 0, ptr %arrayidx.i, align 8
   %k.0.i = add nsw i32 %k.010.i, -1
   %cmp.i75 = icmp sgt i32 %k.010.i, 0
-  br i1 %cmp.i75, label %for.body.i, label %_Py_add_one_to_index_C.exit, !llvm.loop !16
+  br i1 %cmp.i75, label %for.body.i, label %_Py_add_one_to_index_C.exit, !llvm.loop !14
 
 _Py_add_one_to_index_C.exit:                      ; preds = %if.else.i, %while.body, %if.then.i76
   %52 = load ptr, ptr %view_dest, align 8
@@ -3657,7 +3657,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %add.ptr.us.i = getelementptr i8, ptr %pointer.015.us.i, i64 %mul.us.i
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count22.i
-  br i1 %exitcond23.not.i, label %PyBuffer_GetPointer.exit, label %for.body.us.i, !llvm.loop !10
+  br i1 %exitcond23.not.i, label %PyBuffer_GetPointer.exit, label %for.body.us.i, !llvm.loop !9
 
 for.body.i78:                                     ; preds = %for.body.lr.ph.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
@@ -3682,7 +3682,7 @@ for.inc.i:                                        ; preds = %if.then.i81, %for.b
   %pointer.1.i = phi ptr [ %add.ptr11.i, %if.then.i81 ], [ %add.ptr.i, %for.body.i78 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count22.i
-  br i1 %exitcond.not.i, label %PyBuffer_GetPointer.exit, label %for.body.i78, !llvm.loop !10
+  br i1 %exitcond.not.i, label %PyBuffer_GetPointer.exit, label %for.body.i78, !llvm.loop !9
 
 PyBuffer_GetPointer.exit:                         ; preds = %for.inc.i, %for.body.us.i, %_Py_add_one_to_index_C.exit
   %pointer.0.lcssa.i = phi ptr [ %52, %_Py_add_one_to_index_C.exit ], [ %add.ptr.us.i, %for.body.us.i ], [ %pointer.1.i, %for.inc.i ]
@@ -3709,7 +3709,7 @@ for.body.us.i105:                                 ; preds = %for.body.lr.ph.i85,
   %add.ptr.us.i111 = getelementptr i8, ptr %pointer.015.us.i107, i64 %mul.us.i110
   %indvars.iv.next20.i112 = add nuw nsw i64 %indvars.iv19.i106, 1
   %exitcond23.not.i113 = icmp eq i64 %indvars.iv.next20.i112, %wide.trip.count22.i89
-  br i1 %exitcond23.not.i113, label %PyBuffer_GetPointer.exit114, label %for.body.us.i105, !llvm.loop !10
+  br i1 %exitcond23.not.i113, label %PyBuffer_GetPointer.exit114, label %for.body.us.i105, !llvm.loop !9
 
 for.body.i90:                                     ; preds = %for.body.lr.ph.i85, %for.inc.i99
   %indvars.iv.i91 = phi i64 [ %indvars.iv.next.i101, %for.inc.i99 ], [ 0, %for.body.lr.ph.i85 ]
@@ -3734,14 +3734,14 @@ for.inc.i99:                                      ; preds = %if.then.i103, %for.
   %pointer.1.i100 = phi ptr [ %add.ptr11.i104, %if.then.i103 ], [ %add.ptr.i96, %for.body.i90 ]
   %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i91, 1
   %exitcond.not.i102 = icmp eq i64 %indvars.iv.next.i101, %wide.trip.count22.i89
-  br i1 %exitcond.not.i102, label %PyBuffer_GetPointer.exit114, label %for.body.i90, !llvm.loop !10
+  br i1 %exitcond.not.i102, label %PyBuffer_GetPointer.exit114, label %for.body.i90, !llvm.loop !9
 
 PyBuffer_GetPointer.exit114:                      ; preds = %for.inc.i99, %for.body.us.i105, %PyBuffer_GetPointer.exit
   %pointer.0.lcssa.i84 = phi ptr [ %62, %PyBuffer_GetPointer.exit ], [ %add.ptr.us.i111, %for.body.us.i105 ], [ %pointer.1.i100, %for.inc.i99 ]
   %72 = load i64, ptr %itemsize, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %pointer.0.lcssa.i, ptr align 1 %pointer.0.lcssa.i84, i64 %72, i1 false)
   %tobool48.not = icmp eq i64 %dec, 0
-  br i1 %tobool48.not, label %while.end, label %while.body, !llvm.loop !19
+  br i1 %tobool48.not, label %while.end, label %while.body, !llvm.loop !17
 
 while.end:                                        ; preds = %PyBuffer_GetPointer.exit114, %while.cond.preheader
   call void @PyMem_Free(ptr noundef nonnull %call28) #11
@@ -3788,7 +3788,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %mul = mul i64 %1, %sd.021
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count
-  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !18
 
 for.body10:                                       ; preds = %for.body10.preheader, %for.body10
   %indvars.iv = phi i64 [ %0, %for.body10.preheader ], [ %indvars.iv.next, %for.body10 ]
@@ -3800,14 +3800,14 @@ for.body10:                                       ; preds = %for.body10.preheade
   %mul15 = mul i64 %2, %sd.117
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp8.not = icmp eq i64 %indvars.iv, 0
-  br i1 %cmp8.not, label %if.end, label %for.body10, !llvm.loop !21
+  br i1 %cmp8.not, label %if.end, label %for.body10, !llvm.loop !19
 
 if.end:                                           ; preds = %for.body10, %for.body, %for.cond7.preheader, %for.cond.preheader
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyBuffer_FillInfo(ptr noundef %view, ptr noundef %obj, ptr noundef %buf, i64 noundef %len, i32 noundef %readonly, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyBuffer_FillInfo(ptr noundef %view, ptr noundef %obj, ptr noundef %buf, i64 noundef %len, i32 noundef %readonly, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %view, null
   br i1 %cmp, label %if.then, label %if.end
@@ -4114,7 +4114,7 @@ declare ptr @PyUnicode_New(i64 noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @_PyErr_Format(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyNumber_Check(ptr noundef readonly %o) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @PyNumber_Check(ptr noundef readonly %o) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %o, null
   br i1 %cmp, label %return, label %if.end
@@ -5906,7 +5906,7 @@ return:                                           ; preds = %if.then.i, %_PyErr_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyIndex_Check(ptr nocapture noundef readonly %obj) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyIndex_Check(ptr nocapture noundef readonly %obj) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -6783,7 +6783,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare ptr @_PyLong_Format(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PySequence_Check(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PySequence_Check(ptr nocapture noundef readonly %s) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 8
   %s.val4 = load ptr, ptr %0, align 8
@@ -8596,7 +8596,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyMapping_Check(ptr noundef readonly %o) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyMapping_Check(ptr noundef readonly %o) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %o, null
   br i1 %tobool.not, label %land.end, label %land.lhs.true
@@ -8964,7 +8964,7 @@ Py_XDECREF.exit:                                  ; preds = %if.end9.i, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyMapping_HasKeyString(ptr noundef %obj, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @PyMapping_HasKeyString(ptr noundef %obj, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %value = alloca ptr, align 8
   %cmp = icmp eq ptr %obj, null
@@ -9027,7 +9027,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 declare void @PyErr_FormatUnraisable(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyMapping_HasKey(ptr noundef %obj, ptr noundef %key) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @PyMapping_HasKey(ptr noundef %obj, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %value = alloca ptr, align 8
   %cmp = icmp eq ptr %obj, null
@@ -9454,7 +9454,7 @@ if.end18:                                         ; preds = %if.then14, %_Py_Ent
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.060, 1
   %exitcond.not = icmp eq i64 %inc, %cls.addr.0.val34
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.body:                                         ; preds = %if.end18, %for.cond
   %i.060 = phi i64 [ %inc, %for.cond ], [ 0, %if.end18 ]
@@ -9608,7 +9608,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %return
 
 if.end.i36:                                       ; preds = %land.lhs.true.i, %if.end
-  %call4.i = tail call fastcc i32 @check_class(ptr noundef %derived, ptr noundef nonnull @.str.93), !range !5
+  %call4.i = tail call fastcc i32 @check_class(ptr noundef %derived, ptr noundef nonnull @.str.93)
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %return, label %if.end7.i
 
@@ -9618,12 +9618,12 @@ if.end7.i:                                        ; preds = %if.end.i36
   br i1 %cmp.i.not.i, label %if.end14.i, label %land.lhs.true10.i
 
 land.lhs.true10.i:                                ; preds = %if.end7.i
-  %call11.i = tail call fastcc i32 @check_class(ptr noundef nonnull %cls, ptr noundef nonnull @.str.94), !range !5
+  %call11.i = tail call fastcc i32 @check_class(ptr noundef nonnull %cls, ptr noundef nonnull @.str.94)
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   br i1 %tobool12.not.i, label %return, label %if.end14.i
 
 if.end14.i:                                       ; preds = %land.lhs.true10.i, %if.end7.i
-  %call15.i = tail call fastcc i32 @abstract_issubclass(ptr noundef %derived, ptr noundef nonnull %cls), !range !23
+  %call15.i = tail call fastcc i32 @abstract_issubclass(ptr noundef %derived, ptr noundef nonnull %cls)
   br label %return
 
 if.end3:                                          ; preds = %entry
@@ -9668,7 +9668,7 @@ if.end16:                                         ; preds = %if.then12, %_Py_Ent
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.061, 1
   %exitcond.not = icmp eq i64 %inc, %cls.addr.0.val35
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.body:                                         ; preds = %if.end16, %for.cond
   %i.061 = phi i64 [ %inc, %for.cond ], [ 0, %if.end16 ]
@@ -9851,7 +9851,7 @@ if.end.i29:                                       ; preds = %if.end
   br i1 %cmp.i31, label %return.sink.split, label %return
 
 if.else15:                                        ; preds = %entry
-  %call16 = tail call fastcc i32 @check_class(ptr noundef nonnull %cls, ptr noundef nonnull @.str.91), !range !5
+  %call16 = tail call fastcc i32 @check_class(ptr noundef nonnull %cls, ptr noundef nonnull @.str.91)
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %return, label %if.end19
 
@@ -9862,7 +9862,7 @@ if.end19:                                         ; preds = %if.else15
   br i1 %cmp21.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %if.end19
-  %call23 = call fastcc i32 @abstract_issubclass(ptr noundef nonnull %9, ptr noundef nonnull %cls), !range !23
+  %call23 = call fastcc i32 @abstract_issubclass(ptr noundef nonnull %9, ptr noundef nonnull %cls)
   %10 = load ptr, ptr %icls, align 8
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 2147483648
@@ -9911,7 +9911,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %recursive_issubclass.exit
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  %call4.i = tail call fastcc i32 @check_class(ptr noundef %derived, ptr noundef nonnull @.str.93), !range !5
+  %call4.i = tail call fastcc i32 @check_class(ptr noundef %derived, ptr noundef nonnull @.str.93)
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %recursive_issubclass.exit, label %if.end7.i
 
@@ -9921,12 +9921,12 @@ if.end7.i:                                        ; preds = %if.end.i
   br i1 %cmp.i.not.i, label %if.end14.i, label %land.lhs.true10.i
 
 land.lhs.true10.i:                                ; preds = %if.end7.i
-  %call11.i = tail call fastcc i32 @check_class(ptr noundef nonnull %cls, ptr noundef nonnull @.str.94), !range !5
+  %call11.i = tail call fastcc i32 @check_class(ptr noundef nonnull %cls, ptr noundef nonnull @.str.94)
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   br i1 %tobool12.not.i, label %recursive_issubclass.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %land.lhs.true10.i, %if.end7.i
-  %call15.i = tail call fastcc i32 @abstract_issubclass(ptr noundef %derived, ptr noundef nonnull %cls), !range !23
+  %call15.i = tail call fastcc i32 @abstract_issubclass(ptr noundef %derived, ptr noundef nonnull %cls)
   br label %recursive_issubclass.exit
 
 recursive_issubclass.exit:                        ; preds = %if.then.i, %if.end.i, %land.lhs.true10.i, %if.end14.i
@@ -9959,7 +9959,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %call4 = tail call fastcc i32 @check_class(ptr noundef %derived, ptr noundef nonnull @.str.93), !range !5
+  %call4 = tail call fastcc i32 @check_class(ptr noundef %derived, ptr noundef nonnull @.str.93)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %if.end7
 
@@ -9969,12 +9969,12 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp.i.not, label %if.end14, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %if.end7
-  %call11 = tail call fastcc i32 @check_class(ptr noundef nonnull %cls, ptr noundef nonnull @.str.94), !range !5
+  %call11 = tail call fastcc i32 @check_class(ptr noundef nonnull %cls, ptr noundef nonnull @.str.94)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %if.end14
 
 if.end14:                                         ; preds = %land.lhs.true10, %if.end7
-  %call15 = tail call fastcc i32 @abstract_issubclass(ptr noundef %derived, ptr noundef nonnull %cls), !range !23
+  %call15 = tail call fastcc i32 @abstract_issubclass(ptr noundef %derived, ptr noundef nonnull %cls)
   br label %return
 
 return:                                           ; preds = %land.lhs.true10, %if.end, %if.end14, %if.then
@@ -9985,7 +9985,7 @@ return:                                           ; preds = %land.lhs.true10, %i
 declare ptr @PySeqIter_New(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyIter_Check(ptr nocapture noundef readonly %obj) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyIter_Check(ptr nocapture noundef readonly %obj) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -10068,7 +10068,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyAIter_Check(ptr nocapture noundef readonly %obj) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @PyAIter_Check(ptr nocapture noundef readonly %obj) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -10193,7 +10193,7 @@ declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #2
 declare i32 @_Py_CheckRecursiveCall(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_class(ptr noundef %cls, ptr noundef %error) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @check_class(ptr noundef %cls, ptr noundef %error) unnamed_addr #0 {
 entry:
   %bases.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bases.i)
@@ -10270,7 +10270,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @abstract_issubclass(ptr noundef %derived, ptr noundef %cls) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @abstract_issubclass(ptr noundef %derived, ptr noundef %cls) unnamed_addr #0 {
 entry:
   %bases.i = alloca ptr, align 8
   %cmp45 = icmp eq ptr %derived, %cls
@@ -10427,13 +10427,13 @@ if.then1.i31:                                     ; preds = %if.end.i28
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.049, 1
   %exitcond.not = icmp eq i64 %inc, %call.val
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.049 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
   %arrayidx20 = getelementptr [1 x ptr], ptr %ob_item19, i64 0, i64 %i.049
   %19 = load ptr, ptr %arrayidx20, align 8
-  %call21 = call fastcc i32 @abstract_issubclass(ptr noundef %19, ptr noundef %cls), !range !23
+  %call21 = call fastcc i32 @abstract_issubclass(ptr noundef %19, ptr noundef %cls)
   %cmp22.not = icmp eq i32 %call21, 0
   br i1 %cmp22.not, label %for.cond, label %for.end
 
@@ -10500,24 +10500,21 @@ attributes #12 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{i32 0, i32 2}
-!12 = distinct !{!12, !7}
-!13 = !{ptr @_Py_add_one_to_index_C, ptr @_Py_add_one_to_index_F}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = !{i32 -1, i32 2}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = !{ptr @_Py_add_one_to_index_C, ptr @_Py_add_one_to_index_F}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}

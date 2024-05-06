@@ -197,7 +197,7 @@ if.end131:                                        ; preds = %for.cond108, %if.th
   br label %for.cond108
 
 for.end137.loopexit:                              ; preds = %for.cond108
-  %11 = trunc i64 %indvars.iv98 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv98 to i32
   br label %for.end137
 
 for.end137:                                       ; preds = %if.else120, %for.end137.loopexit
@@ -312,7 +312,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare ptr @OPENSSL_LH_retrieve(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TXT_DB_create_index(ptr nocapture noundef %db, i32 noundef %field, ptr noundef %qual, ptr noundef %hash, ptr noundef %cmp) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TXT_DB_create_index(ptr nocapture noundef %db, i32 noundef %field, ptr noundef %qual, ptr noundef %hash, ptr noundef %cmp) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %db, align 8
   %cmp1.not = icmp sgt i32 %0, %field
@@ -593,7 +593,7 @@ err:                                              ; preds = %for.body, %if.end23
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TXT_DB_insert(ptr nocapture noundef %db, ptr noundef %row) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TXT_DB_insert(ptr nocapture noundef %db, ptr noundef %row) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %db, align 8
   %cmp50 = icmp sgt i32 %0, 0
@@ -705,7 +705,7 @@ for.inc62:                                        ; preds = %for.body24, %if.end
   br i1 %cmp22, label %for.body24, label %for.end64.loopexit, !llvm.loop !11
 
 for.end64.loopexit:                               ; preds = %for.inc62
-  %18 = trunc i64 %indvars.iv.next61 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.next61 to i32
   br label %for.end64
 
 for.end64:                                        ; preds = %entry, %for.end64.loopexit, %for.cond20.preheader
@@ -717,7 +717,7 @@ for.end64:                                        ; preds = %entry, %for.end64.l
   br i1 %tobool.not, label %err1, label %return
 
 err1.loopexit:                                    ; preds = %if.end44
-  %20 = trunc i64 %indvars.iv60 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv60 to i32
   br label %err1
 
 err1:                                             ; preds = %err1.loopexit, %for.end64

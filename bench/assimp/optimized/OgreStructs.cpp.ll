@@ -300,7 +300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6Assimp4Ogre13VertexElement4SizeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 0, 33) i64 @_ZNK6Assimp4Ogre13VertexElement4SizeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
   %type = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %type, align 4
@@ -319,7 +319,7 @@ _ZN6Assimp4Ogre13VertexElement8TypeSizeENS1_4TypeE.exit: ; preds = %entry, %swit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN6Assimp4Ogre13VertexElement8TypeSizeENS1_4TypeE(i32 noundef %type) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i64 0, 33) i64 @_ZN6Assimp4Ogre13VertexElement8TypeSizeENS1_4TypeE(i32 noundef %type) local_unnamed_addr #2 align 2 {
 entry:
   %0 = icmp ult i32 %type, 28
   br i1 %0, label %switch.lookup, label %return
@@ -336,7 +336,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6Assimp4Ogre13VertexElement14ComponentCountEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 0, 5) i64 @_ZNK6Assimp4Ogre13VertexElement14ComponentCountEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
   %type = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %type, align 4
@@ -355,7 +355,7 @@ _ZN6Assimp4Ogre13VertexElement14ComponentCountENS1_4TypeE.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN6Assimp4Ogre13VertexElement14ComponentCountENS1_4TypeE(i32 noundef %type) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i64 0, 5) i64 @_ZN6Assimp4Ogre13VertexElement14ComponentCountENS1_4TypeE(i32 noundef %type) local_unnamed_addr #2 align 2 {
 entry:
   %0 = icmp ult i32 %type, 28
   br i1 %0, label %switch.lookup, label %return
@@ -2893,7 +2893,7 @@ _ZNSt12__shared_ptrIN6Assimp14MemoryIOStreamELN9__gnu_cxx12_Lock_policyE2EE5rese
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6Assimp4Ogre9IndexData9IndexSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 2, 5) i64 @_ZNK6Assimp4Ogre9IndexData9IndexSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #1 align 2 {
 entry:
   %is32bit = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %is32bit, align 8
@@ -2903,7 +2903,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6Assimp4Ogre9IndexData8FaceSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 6, 13) i64 @_ZNK6Assimp4Ogre9IndexData8FaceSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #1 align 2 {
 entry:
   %is32bit.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %is32bit.i, align 8
@@ -5371,8 +5371,8 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %buffer.i = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffer.i, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %call, i8 0, i64 9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %buffer.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(9) %call, i8 0, i64 9, i1 false)
   %indexData = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %call, ptr %indexData, align 8
   ret void

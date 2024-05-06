@@ -321,7 +321,7 @@ define internal ptr @TidRangeNext(ptr noundef %0) #0 {
   ]
 
 47:                                               ; preds = %45
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %5, ptr noundef nonnull align 2 dereferenceable(6) %42, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %5, ptr noundef nonnull readonly align 2 dereferenceable(6) %42, i64 6, i1 false)
   %48 = getelementptr inbounds i8, ptr %34, i64 16
   %49 = load i8, ptr %48, align 8
   %50 = trunc i8 %49 to i1
@@ -337,11 +337,11 @@ define internal ptr @TidRangeNext(ptr noundef %0) #0 {
   br i1 %54, label %55, label %65
 
 55:                                               ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %2, ptr noundef nonnull align 2 dereferenceable(6) %5, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %2, ptr noundef nonnull readonly align 2 dereferenceable(6) %5, i64 6, i1 false)
   br label %65
 
 56:                                               ; preds = %45
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %6, ptr noundef nonnull align 2 dereferenceable(6) %42, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %6, ptr noundef nonnull readonly align 2 dereferenceable(6) %42, i64 6, i1 false)
   %57 = getelementptr inbounds i8, ptr %34, i64 16
   %58 = load i8, ptr %57, align 8
   %59 = trunc i8 %58 to i1
@@ -357,7 +357,7 @@ define internal ptr @TidRangeNext(ptr noundef %0) #0 {
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %61
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull align 2 dereferenceable(6) %6, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %3, ptr noundef nonnull readonly align 2 dereferenceable(6) %6, i64 6, i1 false)
   br label %65
 
 65:                                               ; preds = %64, %61, %55, %52, %45
@@ -377,9 +377,9 @@ TidRangeEval.exit:                                ; preds = %.lr.ph
 
 .loopexit:                                        ; preds = %65, %.lr.ph.i, %18
   %69 = getelementptr inbounds i8, ptr %0, i64 232
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %69, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %69, ptr noundef nonnull readonly align 2 dereferenceable(6) %2, i64 6, i1 false)
   %70 = getelementptr inbounds i8, ptr %0, i64 238
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %70, ptr noundef nonnull align 2 dereferenceable(6) %3, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 2 dereferenceable(6) %70, ptr noundef nonnull readonly align 2 dereferenceable(6) %3, i64 6, i1 false)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)

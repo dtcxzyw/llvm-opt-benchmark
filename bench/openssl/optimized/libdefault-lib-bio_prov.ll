@@ -341,7 +341,7 @@ return:                                           ; preds = %entry, %if.end
 define i32 @ossl_prov_bio_printf(ptr noundef %bio, ptr noundef %format, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %ap)
+  call void @llvm.va_start.p0(ptr nonnull %ap)
   %0 = load ptr, ptr @c_bio_vprintf, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %ossl_prov_bio_vprintf.exit, label %if.end.i
@@ -352,15 +352,9 @@ if.end.i:                                         ; preds = %entry
 
 ossl_prov_bio_vprintf.exit:                       ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %call.i, %if.end.i ], [ -1, %entry ]
-  call void @llvm.va_end(ptr nonnull %ap)
+  call void @llvm.va_end.p0(ptr nonnull %ap)
   ret i32 %retval.0.i
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_bio_prov_init_bio_method() local_unnamed_addr #1 {
@@ -413,9 +407,9 @@ return:                                           ; preds = %lor.lhs.false17, %i
   ret ptr %retval.0
 }
 
-declare ptr @BIO_meth_new(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BIO_meth_new(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BIO_meth_set_write_ex(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BIO_meth_set_write_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @bio_core_write_ex(ptr noundef %bio, ptr noundef %data, i64 noundef %data_len, ptr noundef %written) #1 {
@@ -434,7 +428,7 @@ ossl_prov_bio_write_ex.exit:                      ; preds = %entry, %if.end.i
   ret i32 %retval.0.i
 }
 
-declare i32 @BIO_meth_set_read_ex(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BIO_meth_set_read_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @bio_core_read_ex(ptr noundef %bio, ptr noundef %data, i64 noundef %data_len, ptr noundef %bytes_read) #1 {
@@ -453,7 +447,7 @@ ossl_prov_bio_read_ex.exit:                       ; preds = %entry, %if.end.i
   ret i32 %retval.0.i
 }
 
-declare i32 @BIO_meth_set_puts(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BIO_meth_set_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @bio_core_puts(ptr noundef %bio, ptr noundef %str) #1 {
@@ -472,7 +466,7 @@ ossl_prov_bio_puts.exit:                          ; preds = %entry, %if.end.i
   ret i32 %retval.0.i
 }
 
-declare i32 @BIO_meth_set_gets(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BIO_meth_set_gets(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @bio_core_gets(ptr noundef %bio, ptr noundef %buf, i32 noundef %size) #1 {
@@ -491,10 +485,10 @@ ossl_prov_bio_gets.exit:                          ; preds = %entry, %if.end.i
   ret i32 %retval.0.i
 }
 
-declare i32 @BIO_meth_set_ctrl(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BIO_meth_set_ctrl(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @bio_core_ctrl(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #1 {
+define internal range(i64 -2147483648, 2147483648) i64 @bio_core_ctrl(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #1 {
 entry:
   %call = tail call ptr @BIO_get_data(ptr noundef %bio) #4
   %0 = load ptr, ptr @c_bio_ctrl, align 8
@@ -511,7 +505,7 @@ ossl_prov_bio_ctrl.exit:                          ; preds = %entry, %if.end.i
   ret i64 %retval.0.i
 }
 
-declare i32 @BIO_meth_set_create(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BIO_meth_set_create(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @bio_core_new(ptr noundef %bio) #1 {
@@ -520,7 +514,7 @@ entry:
   ret i32 1
 }
 
-declare i32 @BIO_meth_set_destroy(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BIO_meth_set_destroy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @bio_core_free(ptr noundef %bio) #1 {
@@ -539,7 +533,7 @@ ossl_prov_bio_free.exit:                          ; preds = %entry, %if.end.i
   ret i32 1
 }
 
-declare void @BIO_meth_free(ptr noundef) local_unnamed_addr #3
+declare void @BIO_meth_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_bio_new_from_core_bio(ptr noundef %provctx, ptr noundef %corebio) local_unnamed_addr #1 {
@@ -576,22 +570,28 @@ return:                                           ; preds = %if.end, %entry, %if
   ret ptr %retval.0
 }
 
-declare ptr @ossl_prov_ctx_get0_core_bio_method(ptr noundef) local_unnamed_addr #3
+declare ptr @ossl_prov_ctx_get0_core_bio_method(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #3
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
-declare void @BIO_set_data(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @BIO_set_data(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @BIO_get_data(ptr noundef) local_unnamed_addr #3
+declare ptr @BIO_get_data(ptr noundef) local_unnamed_addr #2
 
-declare void @BIO_set_init(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @BIO_set_init(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #3
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

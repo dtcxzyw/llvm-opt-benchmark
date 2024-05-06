@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_process_info = external local_unnamed_addr global %struct.opal_process_info_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_component_find(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define i32 @mca_base_component_find(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 56
   %7 = load ptr, ptr %6, align 8
@@ -209,7 +209,7 @@ find_dyn_components.exit:                         ; preds = %75, %63, %65, %67
   br i1 %.1, label %85, label %opal_obj_new.exit.thread
 
 85:                                               ; preds = %84
-  %86 = call fastcc i32 @component_find_check(ptr noundef %1, ptr noundef %.144), !range !8
+  %86 = call fastcc i32 @component_find_check(ptr noundef %1, ptr noundef %.144)
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %39, %84, %85
@@ -227,7 +227,7 @@ opal_obj_new.exit.thread:                         ; preds = %39, %84, %85
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_component_parse_requested(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mca_base_component_parse_requested(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   store i8 1, ptr %1, align 1
   %4 = icmp eq ptr %0, null
@@ -279,12 +279,12 @@ define internal fastcc noundef zeroext i1 @use_component(ptr nocapture noundef r
   %9 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i
   %10 = load ptr, ptr %9, align 8
   %.not.not.i = icmp eq ptr %10, null
-  br i1 %.not.not.i, label %.loopexit36, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.not.i, label %.loopexit36, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %6, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %6 ]
   %11 = phi ptr [ %10, %8 ], [ %7, %6 ]
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %11) #7
+  %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %11) #7
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %component_in_list.exit, label %8
 
@@ -313,7 +313,7 @@ define internal fastcc noundef zeroext i1 @use_component(ptr nocapture noundef r
   %22 = getelementptr inbounds i8, ptr %.039.us, i64 16
   %.0.us = load volatile ptr, ptr %22, align 8
   %.not23.us = icmp eq ptr %.0.us, %19
-  br i1 %.not23.us, label %component_in_list.exit.thread, label %.lr.ph.split.us, !llvm.loop !10
+  br i1 %.not23.us, label %component_in_list.exit.thread, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.i25.preheader:                             ; preds = %.lr.ph, %.loopexit
   %.039 = phi ptr [ %.0, %.loopexit ], [ %.037, %.lr.ph ]
@@ -326,12 +326,12 @@ define internal fastcc noundef zeroext i1 @use_component(ptr nocapture noundef r
   %26 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i27
   %27 = load ptr, ptr %26, align 8
   %.not.not.i28 = icmp eq ptr %27, null
-  br i1 %.not.not.i28, label %.loopexit, label %.lr.ph.i25, !llvm.loop !9
+  br i1 %.not.not.i28, label %.loopexit, label %.lr.ph.i25, !llvm.loop !8
 
 .lr.ph.i25:                                       ; preds = %.lr.ph.i25.preheader, %25
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i27, %25 ], [ 0, %.lr.ph.i25.preheader ]
   %28 = phi ptr [ %27, %25 ], [ %21, %.lr.ph.i25.preheader ]
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %28) #7
+  %29 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %28) #7
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %component_in_list.exit, label %25
 
@@ -339,7 +339,7 @@ define internal fastcc noundef zeroext i1 @use_component(ptr nocapture noundef r
   %31 = getelementptr inbounds i8, ptr %.039, i64 16
   %.0 = load volatile ptr, ptr %31, align 8
   %.not23 = icmp eq ptr %.0, %19
-  br i1 %.not23, label %component_in_list.exit.thread, label %.lr.ph.i25.preheader, !llvm.loop !10
+  br i1 %.not23, label %component_in_list.exit.thread, label %.lr.ph.i25.preheader, !llvm.loop !9
 
 component_in_list.exit:                           ; preds = %.lr.ph.i, %.lr.ph.i25
   br i1 %1, label %34, label %component_in_list.exit.thread
@@ -360,7 +360,7 @@ declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @component_find_check(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -13, 1) i32 @component_find_check(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit42, label %.preheader
 
@@ -414,7 +414,7 @@ define internal fastcc noundef i32 @component_find_check(ptr noundef %0, ptr nou
   %25 = getelementptr inbounds i8, ptr %.02946, i64 16
   %.029 = load volatile ptr, ptr %25, align 8
   %.not37 = icmp eq ptr %.029, %21
-  br i1 %.not37, label %.loopexit, label %26, !llvm.loop !11
+  br i1 %.not37, label %.loopexit, label %26, !llvm.loop !10
 
 26:                                               ; preds = %.lr.ph, %24
   %.02946 = phi ptr [ %.02944, %.lr.ph ], [ %.029, %24 ]
@@ -428,7 +428,7 @@ define internal fastcc noundef i32 @component_find_check(ptr noundef %0, ptr nou
   %31 = getelementptr inbounds i8, ptr %.03149, i64 16
   %.031 = load volatile ptr, ptr %31, align 8
   %.not35 = icmp eq ptr %.031, %5
-  br i1 %.not35, label %._crit_edge, label %.lr.ph50, !llvm.loop !12
+  br i1 %.not35, label %._crit_edge, label %.lr.ph50, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %8, %.loopexit
   %32 = load ptr, ptr getelementptr inbounds (%struct.opal_process_info_t, ptr @opal_process_info, i64 0, i32 3), align 8
@@ -453,7 +453,7 @@ opal_gethostname.exit:                            ; preds = %._crit_edge, %34
   %41 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %.loopexit42, label %8, !llvm.loop !13
+  br i1 %.not, label %.loopexit42, label %8, !llvm.loop !12
 
 .loopexit42:                                      ; preds = %.thread39, %.preheader, %2, %opal_gethostname.exit
   %.0 = phi i32 [ -13, %opal_gethostname.exit ], [ 0, %2 ], [ 0, %.preheader ], [ 0, %.thread39 ]
@@ -468,7 +468,7 @@ define noundef i32 @mca_base_component_find_finalize() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_components_filter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @mca_base_components_filter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %1, 0
@@ -608,7 +608,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %57, %60
   %71 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %72 = load ptr, ptr %71, align 8
   %.not.i58 = icmp eq ptr %72, null
-  br i1 %.not.i58, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i58, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !13
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %65
   tail call void @free(ptr noundef %.04475) #8
@@ -630,13 +630,13 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %65
   %.046.in = getelementptr inbounds i8, ptr %.04677, i64 16
   %.046 = load volatile ptr, ptr %.046.in, align 8
   %.not50 = icmp eq ptr %.04677, %23
-  br i1 %.not50, label %._crit_edge, label %28, !llvm.loop !15
+  br i1 %.not50, label %._crit_edge, label %28, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %78, %22
   br i1 %.062.ph, label %79, label %81
 
 79:                                               ; preds = %._crit_edge
-  %80 = tail call fastcc i32 @component_find_check(ptr noundef %0, ptr noundef %.063.ph), !range !8
+  %80 = tail call fastcc i32 @component_find_check(ptr noundef %0, ptr noundef %.063.ph)
   br label %81
 
 81:                                               ; preds = %._crit_edge, %79
@@ -711,11 +711,10 @@ attributes #9 = { nounwind allocsize(0) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -13, i32 1}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}

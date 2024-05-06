@@ -125,7 +125,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator19calculateStac
 36:                                               ; preds = %34, %26
   %37 = phi i64 [ %33, %26 ], [ %35, %34 ]
   %38 = tail call i64 @llvm.umin.i64(i64 %37, i64 4294967295)
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw i64 %38 to i32
   %40 = getelementptr inbounds i8, ptr %17, i64 12
   store i32 %39, ptr %40, align 4, !tbaa !22
   %41 = getelementptr inbounds i8, ptr %5, i64 8
@@ -393,7 +393,7 @@ split:                                            ; preds = %109, %._crit_edge
 195:                                              ; preds = %193, %185
   %196 = phi i64 [ %192, %185 ], [ %194, %193 ]
   %197 = tail call i64 @llvm.umin.i64(i64 %196, i64 4294967295)
-  %198 = trunc i64 %197 to i32
+  %198 = trunc nuw i64 %197 to i32
   %199 = getelementptr inbounds i8, ptr %176, i64 12
   store i32 %198, ptr %199, align 4, !tbaa !22
   %200 = getelementptr inbounds i8, ptr %175, i64 8
@@ -425,7 +425,7 @@ split:                                            ; preds = %109, %._crit_edge
 220:                                              ; preds = %218, %210
   %221 = phi i64 [ %217, %210 ], [ %219, %218 ]
   %222 = tail call i64 @llvm.umin.i64(i64 %221, i64 4294967295)
-  %223 = trunc i64 %222 to i32
+  %223 = trunc nuw i64 %222 to i32
   %224 = getelementptr inbounds i8, ptr %201, i64 12
   store i32 %223, ptr %224, align 4, !tbaa !22
   %225 = getelementptr inbounds i8, ptr %175, i64 16

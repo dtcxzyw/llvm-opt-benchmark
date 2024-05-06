@@ -452,7 +452,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @net_rx_pkt_get_total_len(ptr noundef readonly %pkt) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @net_rx_pkt_get_total_len(ptr noundef readonly %pkt) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pkt, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1403,7 +1403,7 @@ cond.end:                                         ; preds = %land.lhs.true, %con
   %ip6_src = getelementptr inbounds i8, ptr %pkt, i64 %.sink
   %1 = load i64, ptr %bytes_written, align 8
   %arrayidx.i = getelementptr i8, ptr %rss_input, i64 %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 1 dereferenceable(16) %ip6_src, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %arrayidx.i, ptr noundef nonnull align 1 dereferenceable(16) %ip6_src, i64 16, i1 false)
   %2 = load i64, ptr %bytes_written, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1457,7 +1457,7 @@ cond.end8:                                        ; preds = %land.lhs.true3, %co
   %.sink26 = phi i64 [ 136, %cond.false6 ], [ 171, %land.lhs.true3 ]
   %ip6_dst = getelementptr inbounds i8, ptr %pkt, i64 %.sink26
   %arrayidx.i10 = getelementptr i8, ptr %rss_input, i64 %add.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx.i10, ptr noundef nonnull align 1 dereferenceable(16) %ip6_dst, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %arrayidx.i10, ptr noundef nonnull align 1 dereferenceable(16) %ip6_dst, i64 16, i1 false)
   %11 = load i64, ptr %bytes_written, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i9)
   %12 = load i32, ptr @trace_events_enabled_count, align 4

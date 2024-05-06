@@ -209,7 +209,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
 ._crit_edge.i19:                                  ; preds = %.noexc23, %.noexc21
   %.sroa.0.0.lcssa.i = phi i64 [ %68, %.noexc21 ], [ %78, %.noexc23 ]
   %.lcssa.i = phi i16 [ %73, %.noexc21 ], [ %83, %.noexc23 ]
-  %85 = call i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true), !range !5
+  %85 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %86 = zext nneg i16 %85 to i64
   %87 = add i64 %.sroa.0.0.lcssa.i, %86
   %88 = load i64, ptr %66, align 8, !noundef !3
@@ -236,7 +236,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
 .noexc25:                                         ; preds = %.noexc24
   %96 = trunc i32 %95 to i16
   %.not.i.i = icmp ne i16 %96, 0
-  %97 = call i16 @llvm.cttz.i16(i16 %96, i1 true), !range !5
+  %97 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %96, i1 true)
   %98 = zext nneg i16 %97 to i64
   call void @llvm.assume(i1 %.not.i.i)
   br label %99
@@ -263,7 +263,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
   %109 = getelementptr inbounds i8, ptr %107, i64 %.0.i.i
   %110 = load i8, ptr %109, align 1, !noundef !3
   %111 = lshr i64 %63, 57
-  %112 = trunc i64 %111 to i8
+  %112 = trunc nuw nsw i64 %111 to i8
   %113 = add i64 %.0.i.i, -16
   %114 = and i64 %100, %113
   store i8 %112, ptr %109, align 1
@@ -276,7 +276,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h7054f8c820ad57e2E.ex
 
 119:                                              ; preds = %99
   %120 = lshr i64 %63, 57
-  %121 = trunc i64 %120 to i8
+  %121 = trunc nuw nsw i64 %120 to i8
   %122 = add i64 %.sroa.03.043, -16
   %123 = and i64 %100, %122
   %124 = load ptr, ptr %65, align 8, !nonnull !3, !noundef !3
@@ -364,7 +364,7 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
   %.sroa.0.0.lcssa.i = phi i64 [ %9, %2 ], [ %19, %.lr.ph.i ]
   %.lcssa.i = phi i16 [ %14, %2 ], [ %24, %.lr.ph.i ]
-  %26 = call i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true), !range !5
+  %26 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %27 = zext nneg i16 %26 to i64
   %28 = add i64 %.sroa.0.0.lcssa.i, %27
   %29 = load i64, ptr %7, align 8, !noundef !3
@@ -385,7 +385,7 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
   %36 = call i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h4e30675482c76e33E(ptr nonnull align 16 %3)
   %37 = trunc i32 %36 to i16
   %.not.i.i = icmp ne i16 %37, 0
-  %38 = call i16 @llvm.cttz.i16(i16 %37, i1 true), !range !5
+  %38 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %37, i1 true)
   %39 = zext nneg i16 %38 to i64
   call void @llvm.assume(i1 %.not.i.i)
   %.pre = load ptr, ptr %0, align 8
@@ -402,7 +402,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hc4ccbffa7b2d2916E.exit: ; p
   %42 = getelementptr inbounds i8, ptr %41, i64 %.0.i.i
   %43 = load i8, ptr %42, align 1, !noundef !3
   %44 = lshr i64 %1, 57
-  %45 = trunc i64 %44 to i8
+  %45 = trunc nuw nsw i64 %44 to i8
   %46 = add i64 %.0.i.i, -16
   %47 = and i64 %40, %46
   store i8 %45, ptr %42, align 1
@@ -433,7 +433,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   %18 = alloca <2 x i64>, align 16
   %19 = alloca i16, align 2
   %20 = lshr i64 %1, 57
-  %21 = trunc i64 %20 to i8
+  %21 = trunc nuw nsw i64 %20 to i8
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8, !noundef !3
   %24 = and i64 %23, %1
@@ -489,7 +489,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   br i1 %47, label %_ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h06ac551774210734E.exit, label %48
 
 48:                                               ; preds = %44
-  %49 = call i16 @llvm.cttz.i16(i16 %46, i1 true), !range !5
+  %49 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %46, i1 true)
   %50 = zext nneg i16 %49 to i64
   %51 = add i64 %.sroa.0.017, %50
   %52 = load i64, ptr %22, align 8, !noundef !3
@@ -542,7 +542,7 @@ _ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h06ac551774210734E.
   %71 = call i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h4e30675482c76e33E(ptr nonnull align 16 %5)
   %72 = trunc i32 %71 to i16
   %.not.i = icmp ne i16 %72, 0
-  %73 = call i16 @llvm.cttz.i16(i16 %72, i1 true), !range !5
+  %73 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %72, i1 true)
   %74 = zext nneg i16 %73 to i64
   call void @llvm.assume(i1 %.not.i)
   br label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hb35084e813bf3b0eE.exit
@@ -640,4 +640,3 @@ attributes #9 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !3 = !{}
 !4 = !{i64 8}
-!5 = !{i16 0, i16 17}

@@ -48,7 +48,7 @@ define dso_local noundef nonnull ptr @intel_crtc_get_crc_sources(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_crtc_verify_crc_source(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_crtc_verify_crc_source(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.thread4, label %6
@@ -158,7 +158,7 @@ define dso_local noundef i32 @intel_crtc_verify_crc_source(ptr nocapture noundef
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_crtc_set_crc_source(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_crtc_set_crc_source(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8
@@ -467,7 +467,7 @@ define internal fastcc void @intel_crtc_crc_setup_workarounds(ptr noundef %0, i1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @get_new_crc_ctl_reg(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @get_new_crc_ctl_reg(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 2632
   %6 = load i16, ptr %5, align 8
   %7 = icmp eq i16 %6, 2
@@ -656,11 +656,11 @@ define internal fastcc noundef i32 @get_new_crc_ctl_reg(ptr noundef %0, i32 noun
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %80
-  %83 = tail call fastcc i32 @ivb_pipe_crc_ctl_reg(ptr noundef %2, ptr noundef %3), !range !5
+  %83 = tail call fastcc i32 @ivb_pipe_crc_ctl_reg(ptr noundef %2, ptr noundef %3)
   br label %86
 
 84:                                               ; preds = %80
-  %85 = tail call fastcc i32 @skl_pipe_crc_ctl_reg(ptr noundef %2, ptr noundef %3), !range !5
+  %85 = tail call fastcc i32 @skl_pipe_crc_ctl_reg(ptr noundef %2, ptr noundef %3)
   br label %86
 
 86:                                               ; preds = %74, %8, %84, %82, %79, %78, %77, %76, %62, %49, %48, %44, %42, %40, %29, %28, %22, %21, %19, %11
@@ -816,7 +816,7 @@ declare dso_local void @__drm_atomic_state_free(ptr noundef) local_unnamed_addr 
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc noundef i32 @ivb_pipe_crc_ctl_reg(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #5 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ivb_pipe_crc_ctl_reg(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #5 align 16 {
   %3 = load i32, ptr %0, align 4
   switch i32 %3, label %9 [
     i32 13, label %.thread
@@ -850,7 +850,7 @@ define internal fastcc noundef i32 @ivb_pipe_crc_ctl_reg(ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc noundef i32 @skl_pipe_crc_ctl_reg(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #5 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @skl_pipe_crc_ctl_reg(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #5 align 16 {
   %3 = load i32, ptr %0, align 4
   switch i32 %3, label %14 [
     i32 13, label %.thread

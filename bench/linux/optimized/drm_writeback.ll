@@ -204,7 +204,7 @@ declare dso_local void @drm_connector_cleanup(ptr noundef) local_unnamed_addr #1
 declare dso_local void @drm_property_blob_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_writeback_set_fb(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_writeback_set_fb(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 140
   %5 = load i32, ptr %4, align 4
@@ -266,7 +266,7 @@ define dso_local noundef i32 @drm_writeback_set_fb(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_writeback_prepare_job(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_writeback_prepare_job(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 1544
   %4 = load ptr, ptr %3, align 8

@@ -498,7 +498,7 @@ for.body.i.i:                                     ; preds = %sw.bb156, %for.body
   %85 = load float, ptr %arrayidx10.i.i.i, align 4
   %86 = tail call noundef float @llvm.fmuladd.f32(float %85, float %mul14.i.i, float %84)
   %cmp2.i.i = fcmp ogt float %86, %maxDot1.09.i.i
-  %87 = trunc i64 %indvars.iv.i.i to i32
+  %87 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %ptIndex.1.i.i = select i1 %cmp2.i.i, i32 %87, i32 %ptIndex.08.i.i
   %maxDot1.1.i.i = select i1 %cmp2.i.i, float %86, float %maxDot1.09.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -558,7 +558,7 @@ for.body.i.i161:                                  ; preds = %sw.bb162, %for.body
   %104 = load float, ptr %arrayidx10.i.i.i168, align 4
   %105 = tail call noundef float @llvm.fmuladd.f32(float %104, float %mul14.i.i145, float %103)
   %cmp2.i.i169 = fcmp ogt float %105, %maxDot1.09.i.i163
-  %106 = trunc i64 %indvars.iv.i.i162 to i32
+  %106 = trunc nuw nsw i64 %indvars.iv.i.i162 to i32
   %ptIndex.1.i.i170 = select i1 %cmp2.i.i169, i32 %106, i32 %ptIndex.08.i.i164
   %maxDot1.1.i.i171 = select i1 %cmp2.i.i169, float %105, float %maxDot1.09.i.i163
   %indvars.iv.next.i.i172 = add nuw nsw i64 %indvars.iv.i.i162, 1
@@ -802,8 +802,8 @@ entry:
     i32 0, label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit71
     i32 1, label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit133
     i32 10, label %sw.bb71
-    i32 4, label %sw.bb12.i281
-    i32 5, label %sw.bb12.i281
+    i32 4, label %sw.bb12.i282
+    i32 5, label %sw.bb12.i282
   ]
 
 _ZNK13btConvexShape19getMarginNonVirtualEv.exit:  ; preds = %entry
@@ -1116,8 +1116,8 @@ sw.bb71:                                          ; preds = %entry
   %166 = load float, ptr %halfExtents72, align 4
   %167 = load float, ptr %arrayidx3.i204, align 4
   %168 = load float, ptr %arrayidx5.i205, align 4
-  %mul8.i8.i249 = fmul float %163, %167
-  %169 = tail call float @llvm.fmuladd.f32(float %166, float %161, float %mul8.i8.i249)
+  %mul8.i8.i250 = fmul float %163, %167
+  %169 = tail call float @llvm.fmuladd.f32(float %166, float %161, float %mul8.i8.i250)
   %170 = tail call noundef float @llvm.fmuladd.f32(float %168, float %165, float %169)
   %171 = insertelement <2 x float> %152, float %157, i64 1
   %172 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %171)
@@ -1136,31 +1136,31 @@ sw.bb71:                                          ; preds = %entry
   %185 = shufflevector <2 x float> %184, <2 x float> poison, <2 x i32> zeroinitializer
   %186 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %185, <2 x float> %176, <2 x float> %183)
   %187 = fsub <2 x float> %177, %186
-  %sub14.i262 = fsub float %center88.sroa.5.0.copyload, %170
-  %retval.sroa.3.12.vec.insert.i265 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i262, i64 0
+  %sub14.i263 = fsub float %center88.sroa.5.0.copyload, %170
+  %retval.sroa.3.12.vec.insert.i266 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i263, i64 0
   store <2 x float> %187, ptr %aabbMin, align 4
   %ref.tmp96.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %aabbMin, i64 8
-  store <2 x float> %retval.sroa.3.12.vec.insert.i265, ptr %ref.tmp96.sroa.2.0..sroa_idx, align 4
+  store <2 x float> %retval.sroa.3.12.vec.insert.i266, ptr %ref.tmp96.sroa.2.0..sroa_idx, align 4
   %188 = fadd <2 x float> %177, %186
-  %add14.i274 = fadd float %center88.sroa.5.0.copyload, %170
-  %retval.sroa.3.12.vec.insert.i277 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i274, i64 0
+  %add14.i275 = fadd float %center88.sroa.5.0.copyload, %170
+  %retval.sroa.3.12.vec.insert.i278 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i275, i64 0
   store <2 x float> %188, ptr %aabbMax, align 4
   %ref.tmp99.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %aabbMax, i64 8
-  store <2 x float> %retval.sroa.3.12.vec.insert.i277, ptr %ref.tmp99.sroa.2.0..sroa_idx, align 4
+  store <2 x float> %retval.sroa.3.12.vec.insert.i278, ptr %ref.tmp99.sroa.2.0..sroa_idx, align 4
   br label %sw.epilog
 
-sw.bb12.i281:                                     ; preds = %entry, %entry
-  %m_collisionMargin.i5.i282 = getelementptr inbounds i8, ptr %this, i64 64
-  %189 = load float, ptr %m_collisionMargin.i5.i282, align 8
+sw.bb12.i282:                                     ; preds = %entry, %entry
+  %m_collisionMargin.i5.i283 = getelementptr inbounds i8, ptr %this, i64 64
+  %189 = load float, ptr %m_collisionMargin.i5.i283, align 8
   %m_localAabbMin.i = getelementptr inbounds i8, ptr %this, i64 80
   %m_localAabbMax.i = getelementptr inbounds i8, ptr %this, i64 96
   %190 = load float, ptr %m_localAabbMax.i, align 8
   %191 = load float, ptr %m_localAabbMin.i, align 8
   %sub.i.i.i = fsub float %190, %191
-  %arrayidx5.i.i.i303 = getelementptr inbounds i8, ptr %this, i64 100
-  %192 = load float, ptr %arrayidx5.i.i.i303, align 4
-  %arrayidx7.i.i.i304 = getelementptr inbounds i8, ptr %this, i64 84
-  %193 = load float, ptr %arrayidx7.i.i.i304, align 4
+  %arrayidx5.i.i.i304 = getelementptr inbounds i8, ptr %this, i64 100
+  %192 = load float, ptr %arrayidx5.i.i.i304, align 4
+  %arrayidx7.i.i.i305 = getelementptr inbounds i8, ptr %this, i64 84
+  %193 = load float, ptr %arrayidx7.i.i.i305, align 4
   %sub8.i.i.i = fsub float %192, %193
   %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %194 = load float, ptr %arrayidx11.i.i.i, align 8
@@ -1259,7 +1259,7 @@ sw.default:                                       ; preds = %entry
   tail call void %244(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(64) %t, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %for.body, %sw.default, %sw.bb12.i281, %sw.bb71, %_ZNK13btConvexShape19getMarginNonVirtualEv.exit71, %_ZNK13btConvexShape19getMarginNonVirtualEv.exit
+sw.epilog:                                        ; preds = %for.body, %sw.default, %sw.bb12.i282, %sw.bb71, %_ZNK13btConvexShape19getMarginNonVirtualEv.exit71, %_ZNK13btConvexShape19getMarginNonVirtualEv.exit
   ret void
 }
 

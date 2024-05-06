@@ -109,7 +109,7 @@ declare dso_local void @_raw_write_unlock(ptr noundef) local_unnamed_addr #1 sec
 declare dso_local void @key_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @keyring_preparse(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 -22, 1) i32 @keyring_preparse(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -1680,7 +1680,7 @@ declare dso_local void @_raw_read_lock(ptr noundef) local_unnamed_addr #1 sectio
 declare dso_local void @_raw_read_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__key_link_lock(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -20, 1) i32 @__key_link_lock(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @key_type_keyring
@@ -1707,7 +1707,7 @@ define dso_local noundef i32 @__key_link_lock(ptr noundef %0, ptr nocapture noun
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__key_move_lock(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -20, 1) i32 @__key_move_lock(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @key_type_keyring
@@ -2543,7 +2543,7 @@ define dso_local void @keyring_gc(ptr noundef %0, i64 noundef %1) local_unnamed_
 declare dso_local i32 @assoc_array_iterate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @keyring_gc_check_iterator(ptr noundef %0, ptr nocapture noundef readonly %1) #10 align 16 {
+define internal range(i32 0, 2) i32 @keyring_gc_check_iterator(ptr noundef %0, ptr nocapture noundef readonly %1) #10 align 16 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -4
   %5 = inttoptr i64 %4 to ptr
@@ -2700,7 +2700,7 @@ declare dso_local void @seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @keyring_read_iterator(ptr noundef %0, ptr nocapture noundef %1) #11 align 16 {
+define internal noundef range(i32 0, 2) i32 @keyring_read_iterator(ptr noundef %0, ptr nocapture noundef %1) #11 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
@@ -3022,7 +3022,7 @@ define internal void @keyring_free_object(ptr noundef %0) #0 align 16 {
 declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @keyring_detect_cycle_iterator(ptr noundef %0, ptr nocapture noundef %1) #16 align 16 {
+define internal noundef range(i32 0, 2) i32 @keyring_detect_cycle_iterator(ptr noundef %0, ptr nocapture noundef %1) #16 align 16 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -4
   %5 = inttoptr i64 %4 to ptr

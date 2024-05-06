@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [122 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/bn/random.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BN_rand(ptr noundef %rnd, i32 noundef %bits, i32 noundef %top, i32 noundef %bottom) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_rand(ptr noundef %rnd, i32 noundef %bits, i32 noundef %top, i32 noundef %bottom) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %rnd, null
   br i1 %cmp, label %return, label %if.end
@@ -134,14 +134,14 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BN_pseudo_rand(ptr noundef %rnd, i32 noundef %bits, i32 noundef %top, i32 noundef %bottom) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_pseudo_rand(ptr noundef %rnd, i32 noundef %bits, i32 noundef %top, i32 noundef %bottom) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @BN_rand(ptr noundef %rnd, i32 noundef %bits, i32 noundef %top, i32 noundef %bottom), !range !7
+  %call = tail call i32 @BN_rand(ptr noundef %rnd, i32 noundef %bits, i32 noundef %top, i32 noundef %bottom)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_rand_range(ptr noundef %r, ptr noundef %range) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_rand_range(ptr noundef %r, ptr noundef %range) local_unnamed_addr #0 {
 entry:
   %neg = getelementptr inbounds i8, ptr %range, i64 16
   %0 = load i32, ptr %neg, align 8
@@ -187,7 +187,7 @@ do.body.preheader:                                ; preds = %land.lhs.true
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond
   %count.0 = phi i32 [ %dec, %do.cond ], [ 100, %do.body.preheader ]
-  %call10 = tail call i32 @BN_rand(ptr noundef %r, i32 noundef %add, i32 noundef -1, i32 noundef 0), !range !7
+  %call10 = tail call i32 @BN_rand(ptr noundef %r, i32 noundef %add, i32 noundef -1, i32 noundef 0)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return, label %if.end13
 
@@ -223,11 +223,11 @@ if.then31:                                        ; preds = %if.end29
 do.cond:                                          ; preds = %if.end29
   %call33 = tail call i32 @BN_cmp(ptr noundef %r, ptr noundef %range) #7
   %cmp34 = icmp sgt i32 %call33, -1
-  br i1 %cmp34, label %do.body, label %return, !llvm.loop !8
+  br i1 %cmp34, label %do.body, label %return, !llvm.loop !7
 
 do.body36:                                        ; preds = %do.body36.preheader, %do.cond45
   %count.1 = phi i32 [ %dec41, %do.cond45 ], [ 100, %do.body36.preheader ]
-  %call37 = tail call i32 @BN_rand(ptr noundef %r, i32 noundef %call2, i32 noundef -1, i32 noundef 0), !range !7
+  %call37 = tail call i32 @BN_rand(ptr noundef %r, i32 noundef %call2, i32 noundef -1, i32 noundef 0)
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %return, label %if.end40
 
@@ -243,7 +243,7 @@ if.then43:                                        ; preds = %if.end40
 do.cond45:                                        ; preds = %if.end40
   %call46 = tail call i32 @BN_cmp(ptr noundef %r, ptr noundef %range) #7
   %cmp47 = icmp sgt i32 %call46, -1
-  br i1 %cmp47, label %do.body36, label %return, !llvm.loop !10
+  br i1 %cmp47, label %do.body36, label %return, !llvm.loop !9
 
 return:                                           ; preds = %do.cond45, %do.body36, %do.cond, %if.then23, %if.then16, %do.body, %if.then3, %if.then43, %if.then31, %if.then
   %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then43 ], [ 0, %if.then31 ], [ 1, %if.then3 ], [ 1, %do.cond ], [ 0, %if.then23 ], [ 0, %if.then16 ], [ 0, %do.body ], [ 1, %do.cond45 ], [ 0, %do.body36 ]
@@ -261,14 +261,14 @@ declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BN_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_pseudo_rand_range(ptr noundef %r, ptr noundef %range) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_pseudo_rand_range(ptr noundef %r, ptr noundef %range) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @BN_rand_range(ptr noundef %r, ptr noundef %range), !range !7
+  %call = tail call i32 @BN_rand_range(ptr noundef %r, ptr noundef %range)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_generate_dsa_nonce(ptr noundef %out, ptr noundef %range, ptr nocapture noundef readonly %priv, ptr noundef %message, i64 noundef %message_len, ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_generate_dsa_nonce(ptr noundef %out, ptr noundef %range, ptr nocapture noundef readonly %priv, ptr noundef %message, i64 noundef %message_len, ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
 entry:
   %sha = alloca %struct.sha512_state_st, align 8
   %random_bytes = alloca [64 x i8], align 16
@@ -322,7 +322,7 @@ if.end14:                                         ; preds = %if.end9
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr, i8 0, i64 %sub16, i1 false)
   %cmp1922.not = icmp eq i32 %call, 0
   %shr = lshr i32 255, %rem2
-  %2 = trunc i32 %shr to i8
+  %2 = trunc nuw i32 %shr to i8
   br i1 %cmp1922.not, label %if.end14.split, label %for.cond.us
 
 for.cond.us:                                      ; preds = %if.end14, %for.inc.us
@@ -362,7 +362,7 @@ if.end25.us:                                      ; preds = %for.body.us
   %add.us = add i64 %spec.store.select.us, %4
   store i64 %add.us, ptr %done, align 8
   %cmp19.us = icmp ult i64 %add.us, %conv
-  br i1 %cmp19.us, label %for.body.us, label %for.cond17.for.end_crit_edge.us, !llvm.loop !11
+  br i1 %cmp19.us, label %for.body.us, label %for.cond17.for.end_crit_edge.us, !llvm.loop !10
 
 for.cond17.for.end_crit_edge.us:                  ; preds = %if.end25.us
   %5 = load i8, ptr %call6, align 1
@@ -438,8 +438,7 @@ attributes #8 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

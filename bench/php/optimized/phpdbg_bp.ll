@@ -802,7 +802,7 @@ define void @phpdbg_set_breakpoint_file(ptr noundef %0, i64 noundef %1, i64 noun
   %81 = icmp ne ptr %80, null
   call void @llvm.assume(i1 %81)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %82 = trunc i8 %.0228 to i1
+  %82 = trunc nuw i8 %.0228 to i1
   br i1 %82, label %83, label %.loopexit
 
 83:                                               ; preds = %71
@@ -856,7 +856,7 @@ define void @phpdbg_set_breakpoint_file(ptr noundef %0, i64 noundef %1, i64 noun
 
 .loopexit:                                        ; preds = %104, %83, %71
   %.3 = phi i8 [ %.0228, %71 ], [ %.0228, %83 ], [ %.2, %104 ]
-  %106 = trunc i8 %.3 to i1
+  %106 = trunc nuw i8 %.3 to i1
   br i1 %106, label %107, label %112
 
 107:                                              ; preds = %.loopexit
@@ -1451,7 +1451,7 @@ define void @phpdbg_set_breakpoint_opline(i64 noundef %0) local_unnamed_addr #1 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @phpdbg_resolve_op_array_break(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @phpdbg_resolve_op_array_break(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 84
   %5 = load i32, ptr %4, align 4
@@ -1619,7 +1619,7 @@ define void @phpdbg_resolve_op_array_breaks(ptr nocapture noundef readonly %0) l
 
 33:                                               ; preds = %.lr.ph
   %34 = load ptr, ptr %.05896, align 8
-  %35 = tail call i32 @phpdbg_resolve_op_array_break(ptr noundef %34, ptr noundef %0), !range !5
+  %35 = tail call i32 @phpdbg_resolve_op_array_break(ptr noundef %34, ptr noundef %0)
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %.thread91, label %50
 
@@ -1660,7 +1660,7 @@ define void @phpdbg_resolve_op_array_breaks(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @phpdbg_resolve_opline_break(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 -1, 3) i32 @phpdbg_resolve_opline_break(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1693,7 +1693,7 @@ define noundef i32 @phpdbg_resolve_opline_break(ptr noundef %0) local_unnamed_ad
   br i1 %.not76, label %19, label %.thread
 
 19:                                               ; preds = %12
-  %20 = tail call i32 @phpdbg_resolve_op_array_break(ptr noundef nonnull %0, ptr noundef nonnull %11), !range !5
+  %20 = tail call i32 @phpdbg_resolve_op_array_break(ptr noundef nonnull %0, ptr noundef nonnull %11)
   %21 = icmp eq i32 %20, 0
   %. = select i1 %21, i32 0, i32 2
   br label %.thread
@@ -1735,7 +1735,7 @@ define noundef i32 @phpdbg_resolve_opline_break(ptr noundef %0) local_unnamed_ad
   br i1 %.not72, label %44, label %47
 
 44:                                               ; preds = %41
-  %45 = tail call i32 @phpdbg_resolve_op_array_break(ptr noundef nonnull %0, ptr noundef nonnull %24), !range !5
+  %45 = tail call i32 @phpdbg_resolve_op_array_break(ptr noundef nonnull %0, ptr noundef nonnull %24)
   %46 = icmp eq i32 %45, 0
   %.77 = select i1 %46, i32 0, i32 2
   br label %.thread
@@ -1817,7 +1817,7 @@ define noundef i32 @phpdbg_resolve_opline_break(ptr noundef %0) local_unnamed_ad
   br label %.thread
 
 90:                                               ; preds = %78
-  %91 = tail call i32 @phpdbg_resolve_op_array_break(ptr noundef nonnull %0, ptr noundef nonnull %79), !range !5
+  %91 = tail call i32 @phpdbg_resolve_op_array_break(ptr noundef nonnull %0, ptr noundef nonnull %79)
   %92 = icmp eq i32 %91, -1
   %.78 = select i1 %92, i32 2, i32 0
   br label %.thread
@@ -1861,7 +1861,7 @@ define void @phpdbg_set_breakpoint_method_opline(ptr noundef %0, ptr noundef %1,
   store i64 %2, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %8, i64 64
   store i64 0, ptr %24, align 8
-  %25 = call i32 @phpdbg_resolve_opline_break(ptr noundef nonnull %8), !range !6
+  %25 = call i32 @phpdbg_resolve_opline_break(ptr noundef nonnull %8)
   switch i32 %25, label %38 [
     i32 -1, label %26
     i32 0, label %32
@@ -2083,7 +2083,7 @@ define void @phpdbg_set_breakpoint_function_opline(ptr noundef %0, i64 noundef %
   store i64 %1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 64
   store i64 0, ptr %18, align 8
-  %19 = call i32 @phpdbg_resolve_opline_break(ptr noundef nonnull %6), !range !6
+  %19 = call i32 @phpdbg_resolve_opline_break(ptr noundef nonnull %6)
   switch i32 %19, label %30 [
     i32 -1, label %20
     i32 0, label %25
@@ -2228,7 +2228,7 @@ define void @phpdbg_set_breakpoint_file_opline(ptr noundef %0, i64 noundef %1) l
   store i64 %1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 64
   store i64 0, ptr %18, align 8
-  %19 = call i32 @phpdbg_resolve_opline_break(ptr noundef nonnull %6), !range !6
+  %19 = call i32 @phpdbg_resolve_opline_break(ptr noundef nonnull %6)
   switch i32 %19, label %30 [
     i32 -1, label %20
     i32 0, label %25
@@ -4923,5 +4923,3 @@ attributes #17 = { nounwind returns_twice }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -1, i32 1}
-!6 = !{i32 -1, i32 3}

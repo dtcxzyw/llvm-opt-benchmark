@@ -177,7 +177,7 @@ do.body4.i:                                       ; preds = %entry
   unreachable
 
 _ZN4node4quic11TokenSecretaSEPKh.exit:            ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buf_, ptr noundef nonnull align 1 dereferenceable(16) %secret, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %buf_, ptr noundef nonnull readonly align 1 dereferenceable(16) %secret, i64 16, i1 false)
   ret void
 }
 
@@ -807,7 +807,7 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #17
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic19StatelessResetTokenE, i64 0, i32 0, i64 2), ptr @_ZN4node4quic19StatelessResetToken8kInvalidE, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.node::quic::StatelessResetToken", ptr @_ZN4node4quic19StatelessResetToken8kInvalidE, i64 0, i32 1), i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) getelementptr inbounds (%"class.node::quic::StatelessResetToken", ptr @_ZN4node4quic19StatelessResetToken8kInvalidE, i64 0, i32 1), i8 0, i64 24, i1 false)
   ret void
 }
 

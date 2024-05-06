@@ -46,7 +46,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_arch_debugfs_dir325, ptr @__UNIQUE_ID___addressable_arch_kdebugfs_init327], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @arch_kdebugfs_init() #0 section ".init.text" align 16 {
+define internal noundef range(i32 -12, 1) i32 @arch_kdebugfs_init() #0 section ".init.text" align 16 {
   %1 = tail call ptr @debugfs_create_dir(ptr noundef nonnull @.str, ptr noundef null) #8
   store ptr %1, ptr @arch_debugfs_dir, align 8
   %2 = tail call fastcc i32 @boot_params_kdebugfs_init() #9, !range !5
@@ -60,7 +60,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare dso_local ptr @debugfs_create_dir(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @boot_params_kdebugfs_init() unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @boot_params_kdebugfs_init() unnamed_addr #0 section ".init.text" align 16 {
   %1 = load ptr, ptr @arch_debugfs_dir, align 8
   %2 = tail call ptr @debugfs_create_dir(ptr noundef nonnull @.str.1, ptr noundef %1) #8
   tail call void @debugfs_create_x16(ptr noundef nonnull @.str.2, i16 noundef zeroext 292, ptr noundef %2, ptr noundef nonnull getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 9)) #8
@@ -87,7 +87,7 @@ declare dso_local void @debugfs_create_x16(ptr noundef, i16 noundef zeroext, ptr
 declare dso_local ptr @debugfs_create_blob(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @create_setup_data_nodes(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @create_setup_data_nodes(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = tail call ptr @debugfs_create_dir(ptr noundef nonnull @.str.4, ptr noundef %0) #8
   %3 = load i64, ptr getelementptr inbounds (%struct.boot_params, ptr @boot_params, i64 0, i32 28, i32 34), align 1
   %4 = icmp eq i64 %3, 0
@@ -229,7 +229,7 @@ declare dso_local ptr @debugfs_create_file(ptr noundef, i16 noundef zeroext, ptr
 declare dso_local i64 @default_llseek(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @setup_data_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #6 align 16 {
+define internal noundef range(i64 -22, 2147483648) i64 @setup_data_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #6 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %3, align 8

@@ -295,7 +295,7 @@ declare void @_ZN7rocksdb4port5MutexC1Eb(ptr noundef nonnull align 8 dereference
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN7rocksdb18GenericRateLimiter35CalculateRefillBytesPerPeriodLockedEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(608) %this, i64 noundef %rate_bytes_per_sec) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -9223372036854, 9223372036855) i64 @_ZN7rocksdb18GenericRateLimiter35CalculateRefillBytesPerPeriodLockedEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(608) %this, i64 noundef %rate_bytes_per_sec) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refill_period_us_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load atomic i64, ptr %refill_period_us_ monotonic, align 8
@@ -912,7 +912,7 @@ invoke.cont3:                                     ; preds = %entry
   %rate_bytes_per_sec_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load atomic i64, ptr %rate_bytes_per_sec_.i.i monotonic, align 8
   %cmp.i.i = icmp ugt i64 %single_burst_bytes, 9223372036854
-  %mul.i.i = mul nsw i64 %single_burst_bytes, 1000000
+  %mul.i.i = mul nuw nsw i64 %single_burst_bytes, 1000000
   %spec.select.i.i = select i1 %cmp.i.i, i64 9223372036854775807, i64 %mul.i.i
   %retval.0.i.i = sdiv i64 %spec.select.i.i, %0
   %refill_period_us_.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -1450,7 +1450,7 @@ entry:
   %shr.i.i.i.i = lshr i64 %mul.i.i.i.i, 31
   %and.i.i.i.i = and i64 %mul.i.i.i.i, 2147483647
   %add.i.i.i.i = add nuw nsw i64 %shr.i.i.i.i, %and.i.i.i.i
-  %conv2.i.i.i.i = trunc i64 %add.i.i.i.i to i32
+  %conv2.i.i.i.i = trunc nuw i64 %add.i.i.i.i to i32
   %cmp.i.i.i.i = icmp slt i32 %conv2.i.i.i.i, 0
   %sub.i.i.i.i = add i32 %conv2.i.i.i.i, -2147483647
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i, i32 %sub.i.i.i.i, i32 %conv2.i.i.i.i
@@ -1461,7 +1461,7 @@ entry:
   %shr.i.i.i6.i = lshr i64 %mul.i.i.i5.i, 31
   %and.i.i.i7.i = and i64 %mul.i.i.i5.i, 2147483647
   %add.i.i.i8.i = add nuw nsw i64 %shr.i.i.i6.i, %and.i.i.i7.i
-  %conv2.i.i.i9.i = trunc i64 %add.i.i.i8.i to i32
+  %conv2.i.i.i9.i = trunc nuw i64 %add.i.i.i8.i to i32
   %cmp.i.i.i10.i = icmp slt i32 %conv2.i.i.i9.i, 0
   %sub.i.i.i11.i = add i32 %conv2.i.i.i9.i, -2147483647
   %spec.select.i.i.i12.i = select i1 %cmp.i.i.i10.i, i32 %sub.i.i.i11.i, i32 %conv2.i.i.i9.i
@@ -1593,7 +1593,7 @@ entry:
   %shr.i.i.i = lshr i64 %mul.i.i.i, 31
   %and.i.i.i = and i64 %mul.i.i.i, 2147483647
   %add.i.i.i = add nuw nsw i64 %shr.i.i.i, %and.i.i.i
-  %conv2.i.i.i = trunc i64 %add.i.i.i to i32
+  %conv2.i.i.i = trunc nuw i64 %add.i.i.i to i32
   %cmp.i.i.i = icmp slt i32 %conv2.i.i.i, 0
   %sub.i.i.i = add i32 %conv2.i.i.i, -2147483647
   %spec.select.i.i.i = select i1 %cmp.i.i.i, i32 %sub.i.i.i, i32 %conv2.i.i.i
@@ -1604,7 +1604,7 @@ entry:
   %shr.i.i.i6 = lshr i64 %mul.i.i.i5, 31
   %and.i.i.i7 = and i64 %mul.i.i.i5, 2147483647
   %add.i.i.i8 = add nuw nsw i64 %shr.i.i.i6, %and.i.i.i7
-  %conv2.i.i.i9 = trunc i64 %add.i.i.i8 to i32
+  %conv2.i.i.i9 = trunc nuw i64 %add.i.i.i8 to i32
   %cmp.i.i.i10 = icmp slt i32 %conv2.i.i.i9, 0
   %sub.i.i.i11 = add i32 %conv2.i.i.i9, -2147483647
   %spec.select.i.i.i12 = select i1 %cmp.i.i.i10, i32 %sub.i.i.i11, i32 %conv2.i.i.i9
@@ -2263,7 +2263,7 @@ entry:
   %1 = load ptr, ptr %_M_node1, align 8
   %cmp.not = icmp eq ptr %0, %1
   %2 = load ptr, ptr %__first, align 8
-  %sub.ptr.rhs.cast.i136 = ptrtoint ptr %2 to i64
+  %sub.ptr.rhs.cast.i142 = ptrtoint ptr %2 to i64
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -2277,7 +2277,7 @@ if.then:                                          ; preds = %entry
   %_M_node5.i = getelementptr inbounds i8, ptr %__result, i64 24
   %7 = load ptr, ptr %_M_node5.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i136
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i142
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp14.i = icmp sgt i64 %sub.ptr.div.i, 0
   br i1 %cmp14.i, label %while.body.i, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit
@@ -2356,264 +2356,264 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__
   store ptr %agg.tmp.sroa.8.2, ptr %_M_last4.i, align 8
   store ptr %agg.tmp.sroa.12.2, ptr %_M_node5.i, align 8
   %11 = load ptr, ptr %_M_node, align 8
-  %__node.0202 = getelementptr inbounds i8, ptr %11, i64 8
+  %__node.0208 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %_M_node1, align 8
-  %cmp4.not203 = icmp eq ptr %__node.0202, %12
-  br i1 %cmp4.not203, label %for.end, label %for.body
+  %cmp4.not209 = icmp eq ptr %__node.0208, %12
+  br i1 %cmp4.not209, label %for.end, label %for.body
 
-for.body:                                         ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63
-  %13 = phi ptr [ %agg.tmp7.sroa.11.1, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ], [ %agg.tmp.sroa.12.2, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ]
-  %14 = phi ptr [ %agg.tmp7.sroa.7.1, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ], [ %agg.tmp.sroa.8.2, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ]
-  %15 = phi ptr [ %agg.tmp7.sroa.4.1, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ], [ %9, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ]
-  %16 = phi ptr [ %storemerge.i.i49, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ], [ %10, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ]
-  %__node.0204 = phi ptr [ %__node.0, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ], [ %__node.0202, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ]
-  %17 = load ptr, ptr %__node.0204, align 8
-  br label %while.body.i18
+for.body:                                         ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit69
+  %13 = phi ptr [ %agg.tmp7.sroa.11.1, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit69 ], [ %agg.tmp.sroa.12.2, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ]
+  %14 = phi ptr [ %agg.tmp7.sroa.7.1, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit69 ], [ %agg.tmp.sroa.8.2, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ]
+  %15 = phi ptr [ %agg.tmp7.sroa.4.1, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit69 ], [ %9, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ]
+  %16 = phi ptr [ %storemerge.i.i60, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit69 ], [ %10, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ]
+  %__node.0210 = phi ptr [ %__node.0, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit69 ], [ %__node.0208, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ]
+  %17 = load ptr, ptr %__node.0210, align 8
+  br label %while.body.i29
 
-while.body.i18:                                   ; preds = %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i48, %for.body
-  %agg.tmp7.sroa.11.0 = phi ptr [ %13, %for.body ], [ %agg.tmp7.sroa.11.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i48 ]
-  %agg.tmp7.sroa.7.0 = phi ptr [ %14, %for.body ], [ %agg.tmp7.sroa.7.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i48 ]
-  %agg.tmp7.sroa.4.0 = phi ptr [ %15, %for.body ], [ %agg.tmp7.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i48 ]
-  %agg.tmp7.sroa.0.0 = phi ptr [ %16, %for.body ], [ %storemerge.i.i49, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i48 ]
-  %__first.addr.016.i19 = phi ptr [ %17, %for.body ], [ %add.ptr.i26, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i48 ]
-  %storemerge15.i20 = phi i64 [ 64, %for.body ], [ %sub.i50, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i48 ]
-  %sub.ptr.lhs.cast1.i21 = ptrtoint ptr %agg.tmp7.sroa.7.0 to i64
-  %sub.ptr.rhs.cast2.i22 = ptrtoint ptr %agg.tmp7.sroa.0.0 to i64
-  %sub.ptr.sub3.i23 = sub i64 %sub.ptr.lhs.cast1.i21, %sub.ptr.rhs.cast2.i22
-  %sub.ptr.div4.i24 = ashr exact i64 %sub.ptr.sub3.i23, 3
-  %.sroa.speculated.i25 = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div4.i24, i64 %storemerge15.i20)
-  %add.ptr.i26 = getelementptr inbounds ptr, ptr %__first.addr.016.i19, i64 %.sroa.speculated.i25
-  %tobool.not.i.i.i.i27 = icmp eq ptr %agg.tmp7.sroa.7.0, %agg.tmp7.sroa.0.0
-  br i1 %tobool.not.i.i.i.i27, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i32, label %if.then.i.i.i.i28
+while.body.i29:                                   ; preds = %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i59, %for.body
+  %agg.tmp7.sroa.11.0 = phi ptr [ %13, %for.body ], [ %agg.tmp7.sroa.11.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i59 ]
+  %agg.tmp7.sroa.7.0 = phi ptr [ %14, %for.body ], [ %agg.tmp7.sroa.7.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i59 ]
+  %agg.tmp7.sroa.4.0 = phi ptr [ %15, %for.body ], [ %agg.tmp7.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i59 ]
+  %agg.tmp7.sroa.0.0 = phi ptr [ %16, %for.body ], [ %storemerge.i.i60, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i59 ]
+  %__first.addr.016.i30 = phi ptr [ %17, %for.body ], [ %add.ptr.i37, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i59 ]
+  %storemerge15.i31 = phi i64 [ 64, %for.body ], [ %sub.i61, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i59 ]
+  %sub.ptr.lhs.cast1.i32 = ptrtoint ptr %agg.tmp7.sroa.7.0 to i64
+  %sub.ptr.rhs.cast2.i33 = ptrtoint ptr %agg.tmp7.sroa.0.0 to i64
+  %sub.ptr.sub3.i34 = sub i64 %sub.ptr.lhs.cast1.i32, %sub.ptr.rhs.cast2.i33
+  %sub.ptr.div4.i35 = ashr exact i64 %sub.ptr.sub3.i34, 3
+  %.sroa.speculated.i36 = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div4.i35, i64 %storemerge15.i31)
+  %add.ptr.i37 = getelementptr inbounds ptr, ptr %__first.addr.016.i30, i64 %.sroa.speculated.i36
+  %tobool.not.i.i.i.i38 = icmp eq ptr %agg.tmp7.sroa.7.0, %agg.tmp7.sroa.0.0
+  br i1 %tobool.not.i.i.i.i38, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i43, label %if.then.i.i.i.i39
 
-if.then.i.i.i.i28:                                ; preds = %while.body.i18
-  %add.ptr.idx.i29 = shl nsw i64 %.sroa.speculated.i25, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp7.sroa.0.0, ptr align 8 %__first.addr.016.i19, i64 %add.ptr.idx.i29, i1 false), !noalias !69
-  br label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i32
+if.then.i.i.i.i39:                                ; preds = %while.body.i29
+  %add.ptr.idx.i40 = shl nsw i64 %.sroa.speculated.i36, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp7.sroa.0.0, ptr align 8 %__first.addr.016.i30, i64 %add.ptr.idx.i40, i1 false), !noalias !69
+  br label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i43
 
-_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i32: ; preds = %if.then.i.i.i.i28, %while.body.i18
-  %sub.ptr.rhs.cast.i.i34 = ptrtoint ptr %agg.tmp7.sroa.4.0 to i64
-  %sub.ptr.sub.i.i35 = sub i64 %sub.ptr.rhs.cast2.i22, %sub.ptr.rhs.cast.i.i34
-  %sub.ptr.div.i.i36 = ashr exact i64 %sub.ptr.sub.i.i35, 3
-  %add.i.i37 = add nsw i64 %sub.ptr.div.i.i36, %.sroa.speculated.i25
-  %cmp.i7.i38 = icmp sgt i64 %add.i.i37, -1
-  br i1 %cmp.i7.i38, label %land.lhs.true.i.i57, label %cond.false.i.i39
+_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i43: ; preds = %if.then.i.i.i.i39, %while.body.i29
+  %sub.ptr.rhs.cast.i.i45 = ptrtoint ptr %agg.tmp7.sroa.4.0 to i64
+  %sub.ptr.sub.i.i46 = sub i64 %sub.ptr.rhs.cast2.i33, %sub.ptr.rhs.cast.i.i45
+  %sub.ptr.div.i.i47 = ashr exact i64 %sub.ptr.sub.i.i46, 3
+  %add.i.i48 = add nsw i64 %sub.ptr.div.i.i47, %.sroa.speculated.i36
+  %cmp.i7.i49 = icmp sgt i64 %add.i.i48, -1
+  br i1 %cmp.i7.i49, label %land.lhs.true.i.i63, label %cond.false.i.i50
 
-land.lhs.true.i.i57:                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i32
-  %cmp2.i.i58 = icmp ult i64 %add.i.i37, 64
-  br i1 %cmp2.i.i58, label %if.then.i.i61, label %cond.true.i.i59
+land.lhs.true.i.i63:                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i43
+  %cmp2.i.i64 = icmp ult i64 %add.i.i48, 64
+  br i1 %cmp2.i.i64, label %if.then.i.i67, label %cond.true.i.i65
 
-if.then.i.i61:                                    ; preds = %land.lhs.true.i.i57
-  %add.ptr.i.i62 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.0.0, i64 %.sroa.speculated.i25
-  br label %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i48
+if.then.i.i67:                                    ; preds = %land.lhs.true.i.i63
+  %add.ptr.i.i68 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.0.0, i64 %.sroa.speculated.i36
+  br label %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i59
 
-cond.true.i.i59:                                  ; preds = %land.lhs.true.i.i57
-  %div911.i.i60 = lshr i64 %add.i.i37, 6
-  br label %cond.end.i.i41
+cond.true.i.i65:                                  ; preds = %land.lhs.true.i.i63
+  %div911.i.i66 = lshr i64 %add.i.i48, 6
+  br label %cond.end.i.i52
 
-cond.false.i.i39:                                 ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i32
-  %sub10.i.i40 = ashr i64 %add.i.i37, 6
-  br label %cond.end.i.i41
+cond.false.i.i50:                                 ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i43
+  %sub10.i.i51 = ashr i64 %add.i.i48, 6
+  br label %cond.end.i.i52
 
-cond.end.i.i41:                                   ; preds = %cond.false.i.i39, %cond.true.i.i59
-  %cond.i.i42 = phi i64 [ %div911.i.i60, %cond.true.i.i59 ], [ %sub10.i.i40, %cond.false.i.i39 ]
-  %add.ptr11.i.i43 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i42
-  %18 = load ptr, ptr %add.ptr11.i.i43, align 8, !noalias !69
-  %add.ptr.i.i.i44 = getelementptr inbounds i8, ptr %18, i64 512
-  %mul.i.i45 = shl nsw i64 %cond.i.i42, 6
-  %sub14.i.i46 = sub nsw i64 %add.i.i37, %mul.i.i45
-  %add.ptr15.i.i47 = getelementptr inbounds ptr, ptr %18, i64 %sub14.i.i46
-  br label %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i48
+cond.end.i.i52:                                   ; preds = %cond.false.i.i50, %cond.true.i.i65
+  %cond.i.i53 = phi i64 [ %div911.i.i66, %cond.true.i.i65 ], [ %sub10.i.i51, %cond.false.i.i50 ]
+  %add.ptr11.i.i54 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i53
+  %18 = load ptr, ptr %add.ptr11.i.i54, align 8, !noalias !69
+  %add.ptr.i.i.i55 = getelementptr inbounds i8, ptr %18, i64 512
+  %mul.i.i56 = shl nsw i64 %cond.i.i53, 6
+  %sub14.i.i57 = sub nsw i64 %add.i.i48, %mul.i.i56
+  %add.ptr15.i.i58 = getelementptr inbounds ptr, ptr %18, i64 %sub14.i.i57
+  br label %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i59
 
-_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i48: ; preds = %cond.end.i.i41, %if.then.i.i61
-  %agg.tmp7.sroa.11.1 = phi ptr [ %agg.tmp7.sroa.11.0, %if.then.i.i61 ], [ %add.ptr11.i.i43, %cond.end.i.i41 ]
-  %agg.tmp7.sroa.7.1 = phi ptr [ %agg.tmp7.sroa.7.0, %if.then.i.i61 ], [ %add.ptr.i.i.i44, %cond.end.i.i41 ]
-  %agg.tmp7.sroa.4.1 = phi ptr [ %agg.tmp7.sroa.4.0, %if.then.i.i61 ], [ %18, %cond.end.i.i41 ]
-  %storemerge.i.i49 = phi ptr [ %add.ptr.i.i62, %if.then.i.i61 ], [ %add.ptr15.i.i47, %cond.end.i.i41 ]
-  %sub.i50 = sub nsw i64 %storemerge15.i20, %.sroa.speculated.i25
-  %cmp.i51 = icmp sgt i64 %sub.i50, 0
-  br i1 %cmp.i51, label %while.body.i18, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63, !llvm.loop !68
+_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i59: ; preds = %cond.end.i.i52, %if.then.i.i67
+  %agg.tmp7.sroa.11.1 = phi ptr [ %agg.tmp7.sroa.11.0, %if.then.i.i67 ], [ %add.ptr11.i.i54, %cond.end.i.i52 ]
+  %agg.tmp7.sroa.7.1 = phi ptr [ %agg.tmp7.sroa.7.0, %if.then.i.i67 ], [ %add.ptr.i.i.i55, %cond.end.i.i52 ]
+  %agg.tmp7.sroa.4.1 = phi ptr [ %agg.tmp7.sroa.4.0, %if.then.i.i67 ], [ %18, %cond.end.i.i52 ]
+  %storemerge.i.i60 = phi ptr [ %add.ptr.i.i68, %if.then.i.i67 ], [ %add.ptr15.i.i58, %cond.end.i.i52 ]
+  %sub.i61 = sub nsw i64 %storemerge15.i31, %.sroa.speculated.i36
+  %cmp.i62 = icmp sgt i64 %sub.i61, 0
+  br i1 %cmp.i62, label %while.body.i29, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit69, !llvm.loop !68
 
-_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63: ; preds = %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i48
-  store ptr %storemerge.i.i49, ptr %__result, align 8
+_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit69: ; preds = %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i59
+  store ptr %storemerge.i.i60, ptr %__result, align 8
   store ptr %agg.tmp7.sroa.4.1, ptr %_M_first3.i, align 8
   store ptr %agg.tmp7.sroa.7.1, ptr %_M_last4.i, align 8
   store ptr %agg.tmp7.sroa.11.1, ptr %_M_node5.i, align 8
-  %__node.0 = getelementptr inbounds i8, ptr %__node.0204, i64 8
+  %__node.0 = getelementptr inbounds i8, ptr %__node.0210, i64 8
   %19 = load ptr, ptr %_M_node1, align 8
   %cmp4.not = icmp eq ptr %__node.0, %19
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !72
 
-for.end:                                          ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit
-  %20 = phi ptr [ %agg.tmp.sroa.12.2, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %agg.tmp7.sroa.11.1, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ]
-  %21 = phi ptr [ %agg.tmp.sroa.8.2, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %agg.tmp7.sroa.7.1, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ]
-  %22 = phi ptr [ %9, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %agg.tmp7.sroa.4.1, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ]
-  %23 = phi ptr [ %10, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %storemerge.i.i49, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit63 ]
+for.end:                                          ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit69, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit
+  %20 = phi ptr [ %agg.tmp.sroa.12.2, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %agg.tmp7.sroa.11.1, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit69 ]
+  %21 = phi ptr [ %agg.tmp.sroa.8.2, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %agg.tmp7.sroa.7.1, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit69 ]
+  %22 = phi ptr [ %9, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %agg.tmp7.sroa.4.1, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit69 ]
+  %23 = phi ptr [ %10, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit ], [ %storemerge.i.i60, %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES3_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS9_PS9_EE6__typeES7_S7_SC_.exit69 ]
   %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
   %24 = load ptr, ptr %_M_first, align 8
   %25 = load ptr, ptr %__last, align 8
-  %sub.ptr.lhs.cast.i70 = ptrtoint ptr %25 to i64
-  %sub.ptr.rhs.cast.i71 = ptrtoint ptr %24 to i64
-  %sub.ptr.sub.i72 = sub i64 %sub.ptr.lhs.cast.i70, %sub.ptr.rhs.cast.i71
-  %sub.ptr.div.i73 = ashr exact i64 %sub.ptr.sub.i72, 3
-  %cmp14.i74 = icmp sgt i64 %sub.ptr.div.i73, 0
-  br i1 %cmp14.i74, label %while.body.i88, label %return
+  %sub.ptr.lhs.cast.i76 = ptrtoint ptr %25 to i64
+  %sub.ptr.rhs.cast.i77 = ptrtoint ptr %24 to i64
+  %sub.ptr.sub.i78 = sub i64 %sub.ptr.lhs.cast.i76, %sub.ptr.rhs.cast.i77
+  %sub.ptr.div.i79 = ashr exact i64 %sub.ptr.sub.i78, 3
+  %cmp14.i80 = icmp sgt i64 %sub.ptr.div.i79, 0
+  br i1 %cmp14.i80, label %while.body.i94, label %return
 
-while.body.i88:                                   ; preds = %for.end, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118
-  %agg.tmp9.sroa.12.0 = phi ptr [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118 ], [ %20, %for.end ]
-  %agg.tmp9.sroa.8.0 = phi ptr [ %agg.tmp9.sroa.8.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118 ], [ %21, %for.end ]
-  %agg.tmp9.sroa.4.0 = phi ptr [ %agg.tmp9.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118 ], [ %22, %for.end ]
-  %agg.tmp9.sroa.0.0 = phi ptr [ %storemerge.i.i119, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118 ], [ %23, %for.end ]
-  %__first.addr.016.i89 = phi ptr [ %add.ptr.i96, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118 ], [ %24, %for.end ]
-  %storemerge15.i90 = phi i64 [ %sub.i120, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118 ], [ %sub.ptr.div.i73, %for.end ]
-  %sub.ptr.lhs.cast1.i91 = ptrtoint ptr %agg.tmp9.sroa.8.0 to i64
-  %sub.ptr.rhs.cast2.i92 = ptrtoint ptr %agg.tmp9.sroa.0.0 to i64
-  %sub.ptr.sub3.i93 = sub i64 %sub.ptr.lhs.cast1.i91, %sub.ptr.rhs.cast2.i92
-  %sub.ptr.div4.i94 = ashr exact i64 %sub.ptr.sub3.i93, 3
-  %.sroa.speculated.i95 = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div4.i94, i64 %storemerge15.i90)
-  %add.ptr.i96 = getelementptr inbounds ptr, ptr %__first.addr.016.i89, i64 %.sroa.speculated.i95
-  %tobool.not.i.i.i.i97 = icmp eq ptr %agg.tmp9.sroa.8.0, %agg.tmp9.sroa.0.0
-  br i1 %tobool.not.i.i.i.i97, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i102, label %if.then.i.i.i.i98
+while.body.i94:                                   ; preds = %for.end, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i124
+  %agg.tmp9.sroa.12.0 = phi ptr [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i124 ], [ %20, %for.end ]
+  %agg.tmp9.sroa.8.0 = phi ptr [ %agg.tmp9.sroa.8.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i124 ], [ %21, %for.end ]
+  %agg.tmp9.sroa.4.0 = phi ptr [ %agg.tmp9.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i124 ], [ %22, %for.end ]
+  %agg.tmp9.sroa.0.0 = phi ptr [ %storemerge.i.i125, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i124 ], [ %23, %for.end ]
+  %__first.addr.016.i95 = phi ptr [ %add.ptr.i102, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i124 ], [ %24, %for.end ]
+  %storemerge15.i96 = phi i64 [ %sub.i126, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i124 ], [ %sub.ptr.div.i79, %for.end ]
+  %sub.ptr.lhs.cast1.i97 = ptrtoint ptr %agg.tmp9.sroa.8.0 to i64
+  %sub.ptr.rhs.cast2.i98 = ptrtoint ptr %agg.tmp9.sroa.0.0 to i64
+  %sub.ptr.sub3.i99 = sub i64 %sub.ptr.lhs.cast1.i97, %sub.ptr.rhs.cast2.i98
+  %sub.ptr.div4.i100 = ashr exact i64 %sub.ptr.sub3.i99, 3
+  %.sroa.speculated.i101 = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div4.i100, i64 %storemerge15.i96)
+  %add.ptr.i102 = getelementptr inbounds ptr, ptr %__first.addr.016.i95, i64 %.sroa.speculated.i101
+  %tobool.not.i.i.i.i103 = icmp eq ptr %agg.tmp9.sroa.8.0, %agg.tmp9.sroa.0.0
+  br i1 %tobool.not.i.i.i.i103, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i108, label %if.then.i.i.i.i104
 
-if.then.i.i.i.i98:                                ; preds = %while.body.i88
-  %add.ptr.idx.i99 = shl nsw i64 %.sroa.speculated.i95, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp9.sroa.0.0, ptr align 8 %__first.addr.016.i89, i64 %add.ptr.idx.i99, i1 false), !noalias !73
-  br label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i102
+if.then.i.i.i.i104:                               ; preds = %while.body.i94
+  %add.ptr.idx.i105 = shl nsw i64 %.sroa.speculated.i101, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp9.sroa.0.0, ptr align 8 %__first.addr.016.i95, i64 %add.ptr.idx.i105, i1 false), !noalias !73
+  br label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i108
 
-_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i102: ; preds = %if.then.i.i.i.i98, %while.body.i88
-  %sub.ptr.rhs.cast.i.i104 = ptrtoint ptr %agg.tmp9.sroa.4.0 to i64
-  %sub.ptr.sub.i.i105 = sub i64 %sub.ptr.rhs.cast2.i92, %sub.ptr.rhs.cast.i.i104
-  %sub.ptr.div.i.i106 = ashr exact i64 %sub.ptr.sub.i.i105, 3
-  %add.i.i107 = add nsw i64 %sub.ptr.div.i.i106, %.sroa.speculated.i95
-  %cmp.i7.i108 = icmp sgt i64 %add.i.i107, -1
-  br i1 %cmp.i7.i108, label %land.lhs.true.i.i122, label %cond.false.i.i109
+_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i108: ; preds = %if.then.i.i.i.i104, %while.body.i94
+  %sub.ptr.rhs.cast.i.i110 = ptrtoint ptr %agg.tmp9.sroa.4.0 to i64
+  %sub.ptr.sub.i.i111 = sub i64 %sub.ptr.rhs.cast2.i98, %sub.ptr.rhs.cast.i.i110
+  %sub.ptr.div.i.i112 = ashr exact i64 %sub.ptr.sub.i.i111, 3
+  %add.i.i113 = add nsw i64 %sub.ptr.div.i.i112, %.sroa.speculated.i101
+  %cmp.i7.i114 = icmp sgt i64 %add.i.i113, -1
+  br i1 %cmp.i7.i114, label %land.lhs.true.i.i128, label %cond.false.i.i115
 
-land.lhs.true.i.i122:                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i102
-  %cmp2.i.i123 = icmp ult i64 %add.i.i107, 64
-  br i1 %cmp2.i.i123, label %if.then.i.i126, label %cond.true.i.i124
+land.lhs.true.i.i128:                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i108
+  %cmp2.i.i129 = icmp ult i64 %add.i.i113, 64
+  br i1 %cmp2.i.i129, label %if.then.i.i132, label %cond.true.i.i130
 
-if.then.i.i126:                                   ; preds = %land.lhs.true.i.i122
-  %add.ptr.i.i127 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.0.0, i64 %.sroa.speculated.i95
-  br label %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118
+if.then.i.i132:                                   ; preds = %land.lhs.true.i.i128
+  %add.ptr.i.i133 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.0.0, i64 %.sroa.speculated.i101
+  br label %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i124
 
-cond.true.i.i124:                                 ; preds = %land.lhs.true.i.i122
-  %div911.i.i125 = lshr i64 %add.i.i107, 6
-  br label %cond.end.i.i111
+cond.true.i.i130:                                 ; preds = %land.lhs.true.i.i128
+  %div911.i.i131 = lshr i64 %add.i.i113, 6
+  br label %cond.end.i.i117
 
-cond.false.i.i109:                                ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i102
-  %sub10.i.i110 = ashr i64 %add.i.i107, 6
-  br label %cond.end.i.i111
+cond.false.i.i115:                                ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i108
+  %sub10.i.i116 = ashr i64 %add.i.i113, 6
+  br label %cond.end.i.i117
 
-cond.end.i.i111:                                  ; preds = %cond.false.i.i109, %cond.true.i.i124
-  %cond.i.i112 = phi i64 [ %div911.i.i125, %cond.true.i.i124 ], [ %sub10.i.i110, %cond.false.i.i109 ]
-  %add.ptr11.i.i113 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i112
-  %26 = load ptr, ptr %add.ptr11.i.i113, align 8, !noalias !73
-  %add.ptr.i.i.i114 = getelementptr inbounds i8, ptr %26, i64 512
-  %mul.i.i115 = shl nsw i64 %cond.i.i112, 6
-  %sub14.i.i116 = sub nsw i64 %add.i.i107, %mul.i.i115
-  %add.ptr15.i.i117 = getelementptr inbounds ptr, ptr %26, i64 %sub14.i.i116
-  br label %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118
+cond.end.i.i117:                                  ; preds = %cond.false.i.i115, %cond.true.i.i130
+  %cond.i.i118 = phi i64 [ %div911.i.i131, %cond.true.i.i130 ], [ %sub10.i.i116, %cond.false.i.i115 ]
+  %add.ptr11.i.i119 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i118
+  %26 = load ptr, ptr %add.ptr11.i.i119, align 8, !noalias !73
+  %add.ptr.i.i.i120 = getelementptr inbounds i8, ptr %26, i64 512
+  %mul.i.i121 = shl nsw i64 %cond.i.i118, 6
+  %sub14.i.i122 = sub nsw i64 %add.i.i113, %mul.i.i121
+  %add.ptr15.i.i123 = getelementptr inbounds ptr, ptr %26, i64 %sub14.i.i122
+  br label %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i124
 
-_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118: ; preds = %cond.end.i.i111, %if.then.i.i126
-  %agg.tmp9.sroa.12.1 = phi ptr [ %agg.tmp9.sroa.12.0, %if.then.i.i126 ], [ %add.ptr11.i.i113, %cond.end.i.i111 ]
-  %agg.tmp9.sroa.8.1 = phi ptr [ %agg.tmp9.sroa.8.0, %if.then.i.i126 ], [ %add.ptr.i.i.i114, %cond.end.i.i111 ]
-  %agg.tmp9.sroa.4.1 = phi ptr [ %agg.tmp9.sroa.4.0, %if.then.i.i126 ], [ %26, %cond.end.i.i111 ]
-  %storemerge.i.i119 = phi ptr [ %add.ptr.i.i127, %if.then.i.i126 ], [ %add.ptr15.i.i117, %cond.end.i.i111 ]
-  %sub.i120 = sub nsw i64 %storemerge15.i90, %.sroa.speculated.i95
-  %cmp.i121 = icmp sgt i64 %sub.i120, 0
-  br i1 %cmp.i121, label %while.body.i88, label %return, !llvm.loop !68
+_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i124: ; preds = %cond.end.i.i117, %if.then.i.i132
+  %agg.tmp9.sroa.12.1 = phi ptr [ %agg.tmp9.sroa.12.0, %if.then.i.i132 ], [ %add.ptr11.i.i119, %cond.end.i.i117 ]
+  %agg.tmp9.sroa.8.1 = phi ptr [ %agg.tmp9.sroa.8.0, %if.then.i.i132 ], [ %add.ptr.i.i.i120, %cond.end.i.i117 ]
+  %agg.tmp9.sroa.4.1 = phi ptr [ %agg.tmp9.sroa.4.0, %if.then.i.i132 ], [ %26, %cond.end.i.i117 ]
+  %storemerge.i.i125 = phi ptr [ %add.ptr.i.i133, %if.then.i.i132 ], [ %add.ptr15.i.i123, %cond.end.i.i117 ]
+  %sub.i126 = sub nsw i64 %storemerge15.i96, %.sroa.speculated.i101
+  %cmp.i127 = icmp sgt i64 %sub.i126, 0
+  br i1 %cmp.i127, label %while.body.i94, label %return, !llvm.loop !68
 
 if.end:                                           ; preds = %entry
   %27 = load ptr, ptr %__last, align 8
   %28 = load ptr, ptr %__result, align 8
-  %_M_first3.i130 = getelementptr inbounds i8, ptr %__result, i64 8
-  %29 = load ptr, ptr %_M_first3.i130, align 8
-  %_M_last4.i132 = getelementptr inbounds i8, ptr %__result, i64 16
-  %30 = load ptr, ptr %_M_last4.i132, align 8
-  %_M_node5.i134 = getelementptr inbounds i8, ptr %__result, i64 24
-  %31 = load ptr, ptr %_M_node5.i134, align 8
-  %sub.ptr.lhs.cast.i135 = ptrtoint ptr %27 to i64
-  %sub.ptr.sub.i137 = sub i64 %sub.ptr.lhs.cast.i135, %sub.ptr.rhs.cast.i136
-  %sub.ptr.div.i138 = ashr exact i64 %sub.ptr.sub.i137, 3
-  %cmp14.i139 = icmp sgt i64 %sub.ptr.div.i138, 0
-  br i1 %cmp14.i139, label %while.body.i153, label %return
+  %_M_first3.i136 = getelementptr inbounds i8, ptr %__result, i64 8
+  %29 = load ptr, ptr %_M_first3.i136, align 8
+  %_M_last4.i138 = getelementptr inbounds i8, ptr %__result, i64 16
+  %30 = load ptr, ptr %_M_last4.i138, align 8
+  %_M_node5.i140 = getelementptr inbounds i8, ptr %__result, i64 24
+  %31 = load ptr, ptr %_M_node5.i140, align 8
+  %sub.ptr.lhs.cast.i141 = ptrtoint ptr %27 to i64
+  %sub.ptr.sub.i143 = sub i64 %sub.ptr.lhs.cast.i141, %sub.ptr.rhs.cast.i142
+  %sub.ptr.div.i144 = ashr exact i64 %sub.ptr.sub.i143, 3
+  %cmp14.i145 = icmp sgt i64 %sub.ptr.div.i144, 0
+  br i1 %cmp14.i145, label %while.body.i159, label %return
 
-while.body.i153:                                  ; preds = %if.end, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183
-  %agg.tmp12.sroa.12.0 = phi ptr [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183 ], [ %31, %if.end ]
-  %agg.tmp12.sroa.8.0 = phi ptr [ %agg.tmp12.sroa.8.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183 ], [ %30, %if.end ]
-  %agg.tmp12.sroa.4.0 = phi ptr [ %agg.tmp12.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183 ], [ %29, %if.end ]
-  %agg.tmp12.sroa.0.0 = phi ptr [ %storemerge.i.i184, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183 ], [ %28, %if.end ]
-  %__first.addr.016.i154 = phi ptr [ %add.ptr.i161, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183 ], [ %2, %if.end ]
-  %storemerge15.i155 = phi i64 [ %sub.i185, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183 ], [ %sub.ptr.div.i138, %if.end ]
-  %sub.ptr.lhs.cast1.i156 = ptrtoint ptr %agg.tmp12.sroa.8.0 to i64
-  %sub.ptr.rhs.cast2.i157 = ptrtoint ptr %agg.tmp12.sroa.0.0 to i64
-  %sub.ptr.sub3.i158 = sub i64 %sub.ptr.lhs.cast1.i156, %sub.ptr.rhs.cast2.i157
-  %sub.ptr.div4.i159 = ashr exact i64 %sub.ptr.sub3.i158, 3
-  %.sroa.speculated.i160 = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div4.i159, i64 %storemerge15.i155)
-  %add.ptr.i161 = getelementptr inbounds ptr, ptr %__first.addr.016.i154, i64 %.sroa.speculated.i160
-  %tobool.not.i.i.i.i162 = icmp eq ptr %agg.tmp12.sroa.8.0, %agg.tmp12.sroa.0.0
-  br i1 %tobool.not.i.i.i.i162, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i167, label %if.then.i.i.i.i163
+while.body.i159:                                  ; preds = %if.end, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i189
+  %agg.tmp12.sroa.12.0 = phi ptr [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i189 ], [ %31, %if.end ]
+  %agg.tmp12.sroa.8.0 = phi ptr [ %agg.tmp12.sroa.8.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i189 ], [ %30, %if.end ]
+  %agg.tmp12.sroa.4.0 = phi ptr [ %agg.tmp12.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i189 ], [ %29, %if.end ]
+  %agg.tmp12.sroa.0.0 = phi ptr [ %storemerge.i.i190, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i189 ], [ %28, %if.end ]
+  %__first.addr.016.i160 = phi ptr [ %add.ptr.i167, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i189 ], [ %2, %if.end ]
+  %storemerge15.i161 = phi i64 [ %sub.i191, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i189 ], [ %sub.ptr.div.i144, %if.end ]
+  %sub.ptr.lhs.cast1.i162 = ptrtoint ptr %agg.tmp12.sroa.8.0 to i64
+  %sub.ptr.rhs.cast2.i163 = ptrtoint ptr %agg.tmp12.sroa.0.0 to i64
+  %sub.ptr.sub3.i164 = sub i64 %sub.ptr.lhs.cast1.i162, %sub.ptr.rhs.cast2.i163
+  %sub.ptr.div4.i165 = ashr exact i64 %sub.ptr.sub3.i164, 3
+  %.sroa.speculated.i166 = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div4.i165, i64 %storemerge15.i161)
+  %add.ptr.i167 = getelementptr inbounds ptr, ptr %__first.addr.016.i160, i64 %.sroa.speculated.i166
+  %tobool.not.i.i.i.i168 = icmp eq ptr %agg.tmp12.sroa.8.0, %agg.tmp12.sroa.0.0
+  br i1 %tobool.not.i.i.i.i168, label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i173, label %if.then.i.i.i.i169
 
-if.then.i.i.i.i163:                               ; preds = %while.body.i153
-  %add.ptr.idx.i164 = shl nsw i64 %.sroa.speculated.i160, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp12.sroa.0.0, ptr align 8 %__first.addr.016.i154, i64 %add.ptr.idx.i164, i1 false), !noalias !76
-  br label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i167
+if.then.i.i.i.i169:                               ; preds = %while.body.i159
+  %add.ptr.idx.i170 = shl nsw i64 %.sroa.speculated.i166, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %agg.tmp12.sroa.0.0, ptr align 8 %__first.addr.016.i160, i64 %add.ptr.idx.i170, i1 false), !noalias !76
+  br label %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i173
 
-_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i167: ; preds = %if.then.i.i.i.i163, %while.body.i153
-  %sub.ptr.rhs.cast.i.i169 = ptrtoint ptr %agg.tmp12.sroa.4.0 to i64
-  %sub.ptr.sub.i.i170 = sub i64 %sub.ptr.rhs.cast2.i157, %sub.ptr.rhs.cast.i.i169
-  %sub.ptr.div.i.i171 = ashr exact i64 %sub.ptr.sub.i.i170, 3
-  %add.i.i172 = add nsw i64 %sub.ptr.div.i.i171, %.sroa.speculated.i160
-  %cmp.i7.i173 = icmp sgt i64 %add.i.i172, -1
-  br i1 %cmp.i7.i173, label %land.lhs.true.i.i187, label %cond.false.i.i174
+_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i173: ; preds = %if.then.i.i.i.i169, %while.body.i159
+  %sub.ptr.rhs.cast.i.i175 = ptrtoint ptr %agg.tmp12.sroa.4.0 to i64
+  %sub.ptr.sub.i.i176 = sub i64 %sub.ptr.rhs.cast2.i163, %sub.ptr.rhs.cast.i.i175
+  %sub.ptr.div.i.i177 = ashr exact i64 %sub.ptr.sub.i.i176, 3
+  %add.i.i178 = add nsw i64 %sub.ptr.div.i.i177, %.sroa.speculated.i166
+  %cmp.i7.i179 = icmp sgt i64 %add.i.i178, -1
+  br i1 %cmp.i7.i179, label %land.lhs.true.i.i193, label %cond.false.i.i180
 
-land.lhs.true.i.i187:                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i167
-  %cmp2.i.i188 = icmp ult i64 %add.i.i172, 64
-  br i1 %cmp2.i.i188, label %if.then.i.i191, label %cond.true.i.i189
+land.lhs.true.i.i193:                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i173
+  %cmp2.i.i194 = icmp ult i64 %add.i.i178, 64
+  br i1 %cmp2.i.i194, label %if.then.i.i197, label %cond.true.i.i195
 
-if.then.i.i191:                                   ; preds = %land.lhs.true.i.i187
-  %add.ptr.i.i192 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.0.0, i64 %.sroa.speculated.i160
-  br label %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183
+if.then.i.i197:                                   ; preds = %land.lhs.true.i.i193
+  %add.ptr.i.i198 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.0.0, i64 %.sroa.speculated.i166
+  br label %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i189
 
-cond.true.i.i189:                                 ; preds = %land.lhs.true.i.i187
-  %div911.i.i190 = lshr i64 %add.i.i172, 6
-  br label %cond.end.i.i176
+cond.true.i.i195:                                 ; preds = %land.lhs.true.i.i193
+  %div911.i.i196 = lshr i64 %add.i.i178, 6
+  br label %cond.end.i.i182
 
-cond.false.i.i174:                                ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i167
-  %sub10.i.i175 = ashr i64 %add.i.i172, 6
-  br label %cond.end.i.i176
+cond.false.i.i180:                                ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i173
+  %sub10.i.i181 = ashr i64 %add.i.i178, 6
+  br label %cond.end.i.i182
 
-cond.end.i.i176:                                  ; preds = %cond.false.i.i174, %cond.true.i.i189
-  %cond.i.i177 = phi i64 [ %div911.i.i190, %cond.true.i.i189 ], [ %sub10.i.i175, %cond.false.i.i174 ]
-  %add.ptr11.i.i178 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i177
-  %32 = load ptr, ptr %add.ptr11.i.i178, align 8, !noalias !76
-  %add.ptr.i.i.i179 = getelementptr inbounds i8, ptr %32, i64 512
-  %mul.i.i180 = shl nsw i64 %cond.i.i177, 6
-  %sub14.i.i181 = sub nsw i64 %add.i.i172, %mul.i.i180
-  %add.ptr15.i.i182 = getelementptr inbounds ptr, ptr %32, i64 %sub14.i.i181
-  br label %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183
+cond.end.i.i182:                                  ; preds = %cond.false.i.i180, %cond.true.i.i195
+  %cond.i.i183 = phi i64 [ %div911.i.i196, %cond.true.i.i195 ], [ %sub10.i.i181, %cond.false.i.i180 ]
+  %add.ptr11.i.i184 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i183
+  %32 = load ptr, ptr %add.ptr11.i.i184, align 8, !noalias !76
+  %add.ptr.i.i.i185 = getelementptr inbounds i8, ptr %32, i64 512
+  %mul.i.i186 = shl nsw i64 %cond.i.i183, 6
+  %sub14.i.i187 = sub nsw i64 %add.i.i178, %mul.i.i186
+  %add.ptr15.i.i188 = getelementptr inbounds ptr, ptr %32, i64 %sub14.i.i187
+  br label %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i189
 
-_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183: ; preds = %cond.end.i.i176, %if.then.i.i191
-  %agg.tmp12.sroa.12.1 = phi ptr [ %agg.tmp12.sroa.12.0, %if.then.i.i191 ], [ %add.ptr11.i.i178, %cond.end.i.i176 ]
-  %agg.tmp12.sroa.8.1 = phi ptr [ %agg.tmp12.sroa.8.0, %if.then.i.i191 ], [ %add.ptr.i.i.i179, %cond.end.i.i176 ]
-  %agg.tmp12.sroa.4.1 = phi ptr [ %agg.tmp12.sroa.4.0, %if.then.i.i191 ], [ %32, %cond.end.i.i176 ]
-  %storemerge.i.i184 = phi ptr [ %add.ptr.i.i192, %if.then.i.i191 ], [ %add.ptr15.i.i182, %cond.end.i.i176 ]
-  %sub.i185 = sub nsw i64 %storemerge15.i155, %.sroa.speculated.i160
-  %cmp.i186 = icmp sgt i64 %sub.i185, 0
-  br i1 %cmp.i186, label %while.body.i153, label %return, !llvm.loop !68
+_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i189: ; preds = %cond.end.i.i182, %if.then.i.i197
+  %agg.tmp12.sroa.12.1 = phi ptr [ %agg.tmp12.sroa.12.0, %if.then.i.i197 ], [ %add.ptr11.i.i184, %cond.end.i.i182 ]
+  %agg.tmp12.sroa.8.1 = phi ptr [ %agg.tmp12.sroa.8.0, %if.then.i.i197 ], [ %add.ptr.i.i.i185, %cond.end.i.i182 ]
+  %agg.tmp12.sroa.4.1 = phi ptr [ %agg.tmp12.sroa.4.0, %if.then.i.i197 ], [ %32, %cond.end.i.i182 ]
+  %storemerge.i.i190 = phi ptr [ %add.ptr.i.i198, %if.then.i.i197 ], [ %add.ptr15.i.i188, %cond.end.i.i182 ]
+  %sub.i191 = sub nsw i64 %storemerge15.i161, %.sroa.speculated.i166
+  %cmp.i192 = icmp sgt i64 %sub.i191, 0
+  br i1 %cmp.i192, label %while.body.i159, label %return, !llvm.loop !68
 
-return:                                           ; preds = %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183, %if.end, %for.end
-  %.sink205 = phi ptr [ %23, %for.end ], [ %28, %if.end ], [ %storemerge.i.i184, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183 ], [ %storemerge.i.i119, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118 ]
-  %.sink = phi ptr [ %22, %for.end ], [ %29, %if.end ], [ %agg.tmp12.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183 ], [ %agg.tmp9.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118 ]
-  %agg.tmp12.sroa.8.2.sink = phi ptr [ %21, %for.end ], [ %30, %if.end ], [ %agg.tmp12.sroa.8.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183 ], [ %agg.tmp9.sroa.8.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118 ]
-  %agg.tmp12.sroa.12.2.sink = phi ptr [ %20, %for.end ], [ %31, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i183 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i118 ]
-  store ptr %.sink205, ptr %agg.result, align 8
-  %_M_first.i8.i144 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %.sink, ptr %_M_first.i8.i144, align 8
-  %_M_last.i.i145 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %agg.tmp12.sroa.8.2.sink, ptr %_M_last.i.i145, align 8
-  %_M_node.i9.i147 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %agg.tmp12.sroa.12.2.sink, ptr %_M_node.i9.i147, align 8
+return:                                           ; preds = %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i124, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i189, %if.end, %for.end
+  %.sink211 = phi ptr [ %23, %for.end ], [ %28, %if.end ], [ %storemerge.i.i190, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i189 ], [ %storemerge.i.i125, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i124 ]
+  %.sink = phi ptr [ %22, %for.end ], [ %29, %if.end ], [ %agg.tmp12.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i189 ], [ %agg.tmp9.sroa.4.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i124 ]
+  %agg.tmp12.sroa.8.2.sink = phi ptr [ %21, %for.end ], [ %30, %if.end ], [ %agg.tmp12.sroa.8.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i189 ], [ %agg.tmp9.sroa.8.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i124 ]
+  %agg.tmp12.sroa.12.2.sink = phi ptr [ %20, %for.end ], [ %31, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i189 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorIPN7rocksdb18GenericRateLimiter3ReqERS3_PS3_EpLEl.exit.i124 ]
+  store ptr %.sink211, ptr %agg.result, align 8
+  %_M_first.i8.i150 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %.sink, ptr %_M_first.i8.i150, align 8
+  %_M_last.i.i151 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store ptr %agg.tmp12.sroa.8.2.sink, ptr %_M_last.i.i151, align 8
+  %_M_node.i9.i153 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  store ptr %agg.tmp12.sroa.12.2.sink, ptr %_M_node.i9.i153, align 8
   ret void
 }
 

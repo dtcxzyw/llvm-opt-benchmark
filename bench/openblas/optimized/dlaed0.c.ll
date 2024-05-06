@@ -228,7 +228,7 @@ thread-pre-split:                                 ; preds = %33
   %152 = and i64 %148, 2
   %153 = icmp eq i64 %152, 0
   %154 = select i1 %153, i32 1, i32 %151
-  %155 = mul nsw i32 %154, %147
+  %155 = mul nuw nsw i32 %154, %147
   %156 = icmp ult i64 %148, 4
   br i1 %156, label %.loopexit29, label %.preheader28, !llvm.loop !14
 
@@ -260,7 +260,7 @@ thread-pre-split:                                 ; preds = %33
   %176 = and i64 %172, 2
   %177 = icmp eq i64 %176, 0
   %178 = select i1 %177, i32 1, i32 %175
-  %179 = mul nsw i32 %178, %171
+  %179 = mul nuw nsw i32 %178, %171
   %180 = icmp ult i64 %172, 4
   br i1 %180, label %.loopexit27, label %.preheader, !llvm.loop !14
 

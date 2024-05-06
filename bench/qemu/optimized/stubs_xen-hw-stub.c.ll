@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @xen_pci_slot_get_pirq(ptr nocapture noundef readnone %pci_dev, i32 noundef %irq_num) local_unnamed_addr #0 {
+define dso_local noundef i32 @xen_pci_slot_get_pirq(ptr nocapture noundef readnone %pci_dev, i32 noundef %irq_num) local_unnamed_addr #0 {
 entry:
   ret i32 -1
 }
@@ -16,7 +16,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @xen_set_pci_link_route(i8 noundef zeroext %link, i8 noundef zeroext %irq) local_unnamed_addr #0 {
+define dso_local noundef i32 @xen_set_pci_link_route(i8 noundef zeroext %link, i8 noundef zeroext %irq) local_unnamed_addr #0 {
 entry:
   ret i32 -1
 }
@@ -28,13 +28,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @xen_is_pirq_msi(i32 noundef %msi_data) local_unnamed_addr #0 {
+define dso_local noundef i32 @xen_is_pirq_msi(i32 noundef %msi_data) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noalias ptr @xen_interrupt_controller_init() local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @xen_interrupt_controller_init() local_unnamed_addr #0 {
 entry:
   ret ptr null
 }

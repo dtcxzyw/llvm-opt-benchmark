@@ -1932,7 +1932,7 @@ _ZN6hermes3hbc18StringLiteralTableD2Ev.exit:      ; preds = %_ZNSt6vectorIhSaIhE
   %tempBuffer_.i = getelementptr inbounds i8, ptr %litBuilder, i64 40
   %arrays_.i = getelementptr inbounds i8, ptr %litBuilder, i64 64
   %_M_map_size.i.i.i.i.i.i160 = getelementptr inbounds i8, ptr %litBuilder, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %tempBuffer_.i, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %tempBuffer_.i, i8 0, i64 128, i1 false)
   store i64 8, ptr %_M_map_size.i.i.i.i.i.i160, align 8
   %call5.i.i.i.i.i.i.i.i.i161 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #19
   store ptr %call5.i.i.i.i.i.i.i.i.i161, ptr %arrays_.i, align 8
@@ -1957,11 +1957,11 @@ _ZN6hermes3hbc18StringLiteralTableD2Ev.exit:      ; preds = %_ZNSt6vectorIhSaIhE
   store ptr %call5.i.i.i.i.i.i.i.i.i.i163, ptr %_M_start.i.i.i.i.i.i164, align 8
   store ptr %call5.i.i.i.i.i.i.i.i.i.i163, ptr %_M_finish.i.i.i.i.i.i169, align 8
   %stringsToIndex_.i.i.i173 = getelementptr inbounds i8, ptr %litBuilder, i64 144
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %stringsToIndex_.i.i.i173, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %stringsToIndex_.i.i.i173, i8 0, i64 20, i1 false)
   %indexInSet_.i.i = getelementptr inbounds i8, ptr %litBuilder, i64 168
   %objKeys_.i = getelementptr inbounds i8, ptr %litBuilder, i64 216
   %_M_map_size.i.i.i.i.i2.i = getelementptr inbounds i8, ptr %litBuilder, i64 224
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %indexInSet_.i.i, i8 0, i64 152, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(152) %indexInSet_.i.i, i8 0, i64 152, i1 false)
   store i64 8, ptr %_M_map_size.i.i.i.i.i2.i, align 8
   %call5.i.i.i.i.i.i.i.i3.i = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #19
   store ptr %call5.i.i.i.i.i.i.i.i3.i, ptr %objKeys_.i, align 8
@@ -1986,11 +1986,11 @@ _ZN6hermes3hbc18StringLiteralTableD2Ev.exit:      ; preds = %_ZNSt6vectorIhSaIhE
   store ptr %call5.i.i.i.i.i.i.i.i.i5.i, ptr %_M_start.i.i.i.i.i6.i, align 8
   store ptr %call5.i.i.i.i.i.i.i.i.i5.i, ptr %_M_finish.i.i.i.i.i11.i, align 8
   %stringsToIndex_.i.i15.i = getelementptr inbounds i8, ptr %litBuilder, i64 296
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %stringsToIndex_.i.i15.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %stringsToIndex_.i.i15.i, i8 0, i64 20, i1 false)
   %indexInSet_.i16.i = getelementptr inbounds i8, ptr %litBuilder, i64 320
   %objVals_.i = getelementptr inbounds i8, ptr %litBuilder, i64 344
   %_M_map_size.i.i.i.i.i17.i = getelementptr inbounds i8, ptr %litBuilder, i64 352
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %indexInSet_.i16.i, i8 0, i64 128, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(128) %indexInSet_.i16.i, i8 0, i64 128, i1 false)
   store i64 8, ptr %_M_map_size.i.i.i.i.i17.i, align 8
   %call5.i.i.i.i.i.i.i.i18.i = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #19
   store ptr %call5.i.i.i.i.i.i.i.i18.i, ptr %objVals_.i, align 8
@@ -2015,9 +2015,9 @@ _ZN6hermes3hbc18StringLiteralTableD2Ev.exit:      ; preds = %_ZNSt6vectorIhSaIhE
   store ptr %call5.i.i.i.i.i.i.i.i.i20.i, ptr %_M_start.i.i.i.i.i21.i, align 8
   store ptr %call5.i.i.i.i.i.i.i.i.i20.i, ptr %_M_finish.i.i.i.i.i26.i, align 8
   %stringsToIndex_.i.i30.i = getelementptr inbounds i8, ptr %litBuilder, i64 424
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %stringsToIndex_.i.i30.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %stringsToIndex_.i.i30.i, i8 0, i64 20, i1 false)
   %indexInSet_.i31.i = getelementptr inbounds i8, ptr %litBuilder, i64 448
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %indexInSet_.i31.i, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %indexInSet_.i31.i, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %arrayStorage.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i174)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i)
@@ -8806,7 +8806,7 @@ for.body:                                         ; preds = %entry, %_ZSt8_Destr
   %2 = load ptr, ptr %__node.033, align 8
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %_ZSt8_DestroyIN6hermes6bigint12ParsedBigIntEEvPT_.exit.i.i.i, %for.body
+for.body.i.i.i:                                   ; preds = %for.body, %_ZSt8_DestroyIN6hermes6bigint12ParsedBigIntEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i.idx = phi i64 [ %__first.addr.04.i.i.i.add, %_ZSt8_DestroyIN6hermes6bigint12ParsedBigIntEEvPT_.exit.i.i.i ], [ 0, %for.body ]
   %__first.addr.04.i.i.i.ptr = getelementptr inbounds i8, ptr %2, i64 %__first.addr.04.i.i.i.idx
   %3 = load ptr, ptr %__first.addr.04.i.i.i.ptr, align 8
@@ -9077,7 +9077,7 @@ sw.bb.i:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb.i, %sw.bb
@@ -9623,7 +9623,7 @@ sw.bb.i:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 dereferenceable(16) %__source, i64 16, i1 false)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb.i, %sw.bb
@@ -10121,8 +10121,8 @@ if.end22:                                         ; preds = %if.then.i.i.i.i.i, 
   br label %return.sink.split
 
 if.end24:                                         ; preds = %if.end12
-  %Capacity.i37 = getelementptr inbounds i8, ptr %this, i64 12
-  %8 = load i32, ptr %Capacity.i37, align 4
+  %Capacity.i38 = getelementptr inbounds i8, ptr %this, i64 12
+  %8 = load i32, ptr %Capacity.i38, align 4
   %cmp26 = icmp ult i32 %8, %5
   br i1 %cmp26, label %if.then27, label %if.else
 
@@ -10134,18 +10134,18 @@ if.then27:                                        ; preds = %if.end24
 
 if.else:                                          ; preds = %if.end24
   %tobool30.not = icmp eq i32 %6, 0
-  br i1 %tobool30.not, label %if.end37, label %if.then.i.i.i.i.i46
+  br i1 %tobool30.not, label %if.end37, label %if.then.i.i.i.i.i47
 
-if.then.i.i.i.i.i46:                              ; preds = %if.else
+if.then.i.i.i.i.i47:                              ; preds = %if.else
   %9 = load ptr, ptr %this, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %9, ptr align 1 %0, i64 %conv.i32, i1 false)
   br label %if.end37
 
-if.end37:                                         ; preds = %if.then.i.i.i.i.i46, %if.else, %if.then27
-  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ 0, %if.else ], [ %conv.i32, %if.then.i.i.i.i.i46 ]
+if.end37:                                         ; preds = %if.then.i.i.i.i.i47, %if.else, %if.then27
+  %CurSize.0 = phi i64 [ 0, %if.then27 ], [ 0, %if.else ], [ %conv.i32, %if.then.i.i.i.i.i47 ]
   %10 = load i32, ptr %Size.i29, align 8
-  %conv.i50 = zext i32 %10 to i64
-  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i50
+  %conv.i51 = zext i32 %10 to i64
+  %cmp.not.i.i = icmp eq i64 %CurSize.0, %conv.i51
   br i1 %cmp.not.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end37
@@ -10153,7 +10153,7 @@ if.then.i.i:                                      ; preds = %if.end37
   %add.ptr39 = getelementptr inbounds i8, ptr %11, i64 %CurSize.0
   %12 = load ptr, ptr %this, align 8
   %add.ptr42 = getelementptr inbounds i8, ptr %12, i64 %CurSize.0
-  %gepdiff = sub nsw i64 %conv.i50, %CurSize.0
+  %gepdiff = sub nsw i64 %conv.i51, %CurSize.0
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42, ptr align 1 %add.ptr39, i64 %gepdiff, i1 false)
   br label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit
 

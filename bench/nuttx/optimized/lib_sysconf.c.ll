@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @sysconf(i32 noundef %0) local_unnamed_addr #0 {
+define range(i64 -1, 4194305) i64 @sysconf(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %11 [
     i32 55, label %13
     i32 18, label %2

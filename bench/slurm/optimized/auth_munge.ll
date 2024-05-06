@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.26 = private unnamed_addr constant [20 x i8] c"%s: %s: DECODED: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = tail call ptr @getenv(ptr noundef nonnull @.str) #12
@@ -84,7 +84,7 @@ define noundef i32 @init() local_unnamed_addr #0 {
   br i1 %.not8, label %21, label %17
 
 17:                                               ; preds = %10
-  %18 = tail call fastcc i32 @_decode_cred(ptr noundef nonnull %16, ptr noundef %12, i1 noundef zeroext true), !range !6
+  %18 = tail call fastcc i32 @_decode_cred(ptr noundef nonnull %16, ptr noundef %12, i1 noundef zeroext true)
   %.not9 = icmp eq i32 %18, 0
   br i1 %.not9, label %19, label %23
 
@@ -324,7 +324,7 @@ define ptr @auth_p_create(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_decode_cred(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_decode_cred(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -595,7 +595,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @auth_p_verify(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @auth_p_verify(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %5
@@ -613,7 +613,7 @@ define noundef i32 @auth_p_verify(ptr noundef %0, ptr noundef %1) local_unnamed_
 9:                                                ; preds = %5
   %10 = tail call ptr @slurm_auth_opts_to_socket(ptr noundef %1) #12
   store ptr %10, ptr %3, align 8
-  %11 = tail call fastcc i32 @_decode_cred(ptr noundef nonnull %0, ptr noundef %10, i1 noundef zeroext false), !range !6
+  %11 = tail call fastcc i32 @_decode_cred(ptr noundef nonnull %0, ptr noundef %10, i1 noundef zeroext false)
   call void @slurm_xfree(ptr noundef nonnull %3) #12
   br label %12
 
@@ -724,7 +724,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare void @slurm_get_ip_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @auth_p_get_data(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @auth_p_get_data(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %4
 
@@ -792,7 +792,7 @@ define noalias noundef ptr @auth_p_get_identity(ptr noundef readnone %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @auth_p_pack(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @auth_p_pack(ptr noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -917,7 +917,7 @@ auth_p_destroy.exit:                              ; preds = %.thread, %28
 declare i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @auth_p_thread_config(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 6001) i32 @auth_p_thread_config(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = icmp eq ptr %0, null
   %5 = icmp ne ptr %1, null
@@ -1009,4 +1009,3 @@ attributes #14 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -1, i32 1}

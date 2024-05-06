@@ -217,7 +217,7 @@ _bz2_clear.exit:                                  ; preds = %do.body1.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_bz2_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @_bz2_exec(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #6
   %call1 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %module, ptr noundef nonnull @bz2_compressor_type_spec, ptr noundef null) #6
@@ -407,7 +407,7 @@ if.end9.i:                                        ; preds = %if.end4.i
   %bzfree.i = getelementptr inbounds i8, ptr %call.i14, i64 80
   store ptr @BZ2_Free, ptr %bzfree.i, align 8
   %call13.i = tail call i32 @BZ2_bzCompressInit(ptr noundef nonnull %bzs.i, i32 noundef %compresslevel.017, i32 noundef 0, i32 noundef 0) #6
-  %call14.i = tail call fastcc i32 @catch_bz2_error(i32 noundef %call13.i), !range !4
+  %call14.i = tail call fastcc i32 @catch_bz2_error(i32 noundef %call13.i)
   %tobool.not.i = icmp eq i32 %call14.i, 0
   br i1 %tobool.not.i, label %exit, label %error.i
 
@@ -666,7 +666,7 @@ if.end39.us.us:                                   ; preds = %if.then29.us.us, %i
   %call40.us.us = tail call ptr @PyEval_SaveThread() #6
   %call42.us.us = tail call i32 @BZ2_bzCompress(ptr noundef nonnull %bzs, i32 noundef 0) #6
   tail call void @PyEval_RestoreThread(ptr noundef %call40.us.us) #6
-  %call43.us.us = tail call fastcc i32 @catch_bz2_error(i32 noundef %call42.us.us), !range !4
+  %call43.us.us = tail call fastcc i32 @catch_bz2_error(i32 noundef %call42.us.us)
   %tobool.not.us.us = icmp eq i32 %call43.us.us, 0
   br i1 %tobool.not.us.us, label %for.cond.us.us, label %error
 
@@ -700,7 +700,7 @@ if.end39.us44:                                    ; preds = %if.then29.us41, %if
   %call40.us45 = tail call ptr @PyEval_SaveThread() #6
   %call42.us46 = tail call i32 @BZ2_bzCompress(ptr noundef nonnull %bzs, i32 noundef %action) #6
   tail call void @PyEval_RestoreThread(ptr noundef %call40.us45) #6
-  %call43.us47 = tail call fastcc i32 @catch_bz2_error(i32 noundef %call42.us46), !range !4
+  %call43.us47 = tail call fastcc i32 @catch_bz2_error(i32 noundef %call42.us46)
   %tobool.not.us48 = icmp eq i32 %call43.us47, 0
   br i1 %tobool.not.us48, label %for.cond.us29, label %error
 
@@ -734,7 +734,7 @@ if.end39:                                         ; preds = %if.then29, %if.end1
   %call40 = tail call ptr @PyEval_SaveThread() #6
   %call42 = tail call i32 @BZ2_bzCompress(ptr noundef nonnull %bzs, i32 noundef 2) #6
   tail call void @PyEval_RestoreThread(ptr noundef %call40) #6
-  %call43 = tail call fastcc i32 @catch_bz2_error(i32 noundef %call42), !range !4
+  %call43 = tail call fastcc i32 @catch_bz2_error(i32 noundef %call42)
   %tobool.not = icmp eq i32 %call43, 0
   br i1 %tobool.not, label %if.end45, label %error
 
@@ -882,7 +882,7 @@ _BlocksOutputBuffer_Grow.exit:                    ; preds = %if.then.i, %if.then
 declare i32 @BZ2_bzCompress(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @catch_bz2_error(i32 noundef %bzerror) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @catch_bz2_error(i32 noundef %bzerror) unnamed_addr #0 {
 entry:
   switch i32 %bzerror, label %sw.default [
     i32 0, label %return
@@ -1045,7 +1045,7 @@ for.body.i:                                       ; preds = %if.then19.i, %for.b
   %add.ptr.i = getelementptr i8, ptr %posi.045.i, i64 %.val38.i
   %inc.i = add nuw nsw i64 %i.046.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %sub21.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.body.i, %if.then19.i
   %posi.0.lcssa.i = phi ptr [ %ob_sval.i.i, %if.then19.i ], [ %add.ptr.i, %for.body.i ]
@@ -1323,7 +1323,7 @@ if.end5.i:                                        ; preds = %if.end.i
 if.end10.i:                                       ; preds = %if.end5.i
   %bzs.i = getelementptr inbounds i8, ptr %call.i13, i64 16
   %call11.i = tail call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %bzs.i, i32 noundef 0, i32 noundef 0) #6
-  %call12.i = tail call fastcc i32 @catch_bz2_error(i32 noundef %call11.i), !range !4
+  %call12.i = tail call fastcc i32 @catch_bz2_error(i32 noundef %call11.i)
   %tobool.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool.not.i, label %exit, label %error.i
 
@@ -1617,7 +1617,7 @@ for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.back
   %28 = load i64, ptr %bzs_avail_in_real.i.i.i, align 8
   %add.i.i.i = add i64 %28, %conv10.i.i.i
   store i64 %add.i.i.i, ptr %bzs_avail_in_real.i.i.i, align 8
-  %call12.i.i.i = call fastcc i32 @catch_bz2_error(i32 noundef %call8.i.i.i), !range !4
+  %call12.i.i.i = call fastcc i32 @catch_bz2_error(i32 noundef %call8.i.i.i)
   %tobool.not.i.i.i = icmp eq i32 %call12.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.end14.i.i.i, label %error.i.i.i
 
@@ -1876,6 +1876,5 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

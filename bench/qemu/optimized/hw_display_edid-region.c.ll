@@ -20,7 +20,7 @@ entry:
 declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @edid_region_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #2 {
+define internal range(i64 0, 256) i64 @edid_region_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #2 {
 entry:
   %arrayidx = getelementptr i8, ptr %ptr, i64 %addr
   %0 = load i8, ptr %arrayidx, align 1

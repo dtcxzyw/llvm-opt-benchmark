@@ -766,7 +766,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3gmx29PositionCalculationCollection27requiredTopologyInfoForTypeEPKcb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 3) i32 @_ZN3gmx29PositionCalculationCollection27requiredTopologyInfoForTypeEPKcb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = select i1 %1, i32 128, i32 0
@@ -2954,8 +2954,8 @@ define internal fastcc void @_ZL13merge_to_baseP17gmx_ana_poscalc_tS0_(ptr nound
 76:                                               ; preds = %74
   %77 = load ptr, ptr %20, align 8
   %78 = zext nneg i32 %.27389 to i64
-  %79 = getelementptr i32, ptr %.pre.pre, i64 %78
-  %80 = getelementptr i8, ptr %79, i64 4
+  %79 = getelementptr inbounds i32, ptr %.pre.pre, i64 %78
+  %80 = getelementptr inbounds i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   %83 = getelementptr i32, ptr %77, i64 %82
@@ -2987,8 +2987,8 @@ define internal fastcc void @_ZL13merge_to_baseP17gmx_ana_poscalc_tS0_(ptr nound
   %101 = load ptr, ptr %15, align 8
   %102 = load ptr, ptr %72, align 8
   %103 = zext nneg i32 %.07090 to i64
-  %104 = getelementptr i32, ptr %102, i64 %103
-  %105 = getelementptr i8, ptr %104, i64 4
+  %104 = getelementptr inbounds i32, ptr %102, i64 %103
+  %105 = getelementptr inbounds i8, ptr %104, i64 4
   %106 = load i32, ptr %105, align 4
   %107 = sext i32 %106 to i64
   %108 = getelementptr i32, ptr %101, i64 %107
@@ -3074,7 +3074,7 @@ declare void @_Z26gmx_ana_pos_reserve_forcesP13gmx_ana_pos_t(ptr noundef) local_
 declare void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(148)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z38gmx_ana_poscalc_required_topology_infoP17gmx_ana_poscalc_t(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
+define noundef range(i32 0, 3) i32 @_Z38gmx_ana_poscalc_required_topology_infoP17gmx_ana_poscalc_t(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
   %2 = load i32, ptr %0, align 8
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %8, label %3

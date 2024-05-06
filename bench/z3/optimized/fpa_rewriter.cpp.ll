@@ -182,7 +182,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %f, i32 noundef %num_args, ptr nocapture noundef readonly %args, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 6) i32 @_ZN12fpa_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %f, i32 noundef %num_args, ptr nocapture noundef readonly %args, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
 entry:
   %m_info.i = getelementptr inbounds i8, ptr %f, i64 24
   %0 = load ptr, ptr %m_info.i, align 8
@@ -335,7 +335,7 @@ sw.bb13:                                          ; preds = %_ZNK4decl13get_decl
   %17 = load ptr, ptr %arrayidx14, align 8
   %arrayidx15 = getelementptr inbounds i8, ptr %args, i64 16
   %18 = load ptr, ptr %arrayidx15, align 8
-  %call16 = tail call noundef i32 @_ZN12fpa_rewriter6mk_addEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call16 = tail call noundef i32 @_ZN12fpa_rewriter6mk_addEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -349,7 +349,7 @@ sw.bb17:                                          ; preds = %_ZNK4decl13get_decl
 
 sw.bb22:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %22 = load ptr, ptr %args, align 8
-  %call24 = tail call noundef i32 @_ZN12fpa_rewriter6mk_negEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call24 = tail call noundef i32 @_ZN12fpa_rewriter6mk_negEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -358,7 +358,7 @@ sw.bb25:                                          ; preds = %_ZNK4decl13get_decl
   %24 = load ptr, ptr %arrayidx27, align 8
   %arrayidx28 = getelementptr inbounds i8, ptr %args, i64 16
   %25 = load ptr, ptr %arrayidx28, align 8
-  %call29 = tail call noundef i32 @_ZN12fpa_rewriter6mk_mulEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call29 = tail call noundef i32 @_ZN12fpa_rewriter6mk_mulEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -367,47 +367,47 @@ sw.bb30:                                          ; preds = %_ZNK4decl13get_decl
   %27 = load ptr, ptr %arrayidx32, align 8
   %arrayidx33 = getelementptr inbounds i8, ptr %args, i64 16
   %28 = load ptr, ptr %arrayidx33, align 8
-  %call34 = tail call noundef i32 @_ZN12fpa_rewriter6mk_divEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call34 = tail call noundef i32 @_ZN12fpa_rewriter6mk_divEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb35:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %29 = load ptr, ptr %args, align 8
   %arrayidx37 = getelementptr inbounds i8, ptr %args, i64 8
   %30 = load ptr, ptr %arrayidx37, align 8
-  %call38 = tail call noundef i32 @_ZN12fpa_rewriter6mk_remEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %29, ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call38 = tail call noundef i32 @_ZN12fpa_rewriter6mk_remEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %29, ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb39:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %31 = load ptr, ptr %args, align 8
-  %call41 = tail call noundef i32 @_ZN12fpa_rewriter6mk_absEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call41 = tail call noundef i32 @_ZN12fpa_rewriter6mk_absEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb42:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %32 = load ptr, ptr %args, align 8
   %arrayidx44 = getelementptr inbounds i8, ptr %args, i64 8
   %33 = load ptr, ptr %arrayidx44, align 8
-  %call45 = tail call noundef i32 @_ZN12fpa_rewriter6mk_minEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %32, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call45 = tail call noundef i32 @_ZN12fpa_rewriter6mk_minEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %32, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb46:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %34 = load ptr, ptr %args, align 8
   %arrayidx48 = getelementptr inbounds i8, ptr %args, i64 8
   %35 = load ptr, ptr %arrayidx48, align 8
-  %call49 = tail call noundef i32 @_ZN12fpa_rewriter6mk_maxEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %34, ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call49 = tail call noundef i32 @_ZN12fpa_rewriter6mk_maxEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %34, ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %36 = load ptr, ptr %args, align 8
   %arrayidx52 = getelementptr inbounds i8, ptr %args, i64 8
   %37 = load ptr, ptr %arrayidx52, align 8
-  %call53 = tail call noundef i32 @_ZN12fpa_rewriter6mk_minEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call53 = tail call noundef i32 @_ZN12fpa_rewriter6mk_minEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb54:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %38 = load ptr, ptr %args, align 8
   %arrayidx56 = getelementptr inbounds i8, ptr %args, i64 8
   %39 = load ptr, ptr %arrayidx56, align 8
-  %call57 = tail call noundef i32 @_ZN12fpa_rewriter6mk_maxEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %38, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call57 = tail call noundef i32 @_ZN12fpa_rewriter6mk_maxEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %38, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb58:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -418,35 +418,35 @@ sw.bb58:                                          ; preds = %_ZNK4decl13get_decl
   %42 = load ptr, ptr %arrayidx61, align 8
   %arrayidx62 = getelementptr inbounds i8, ptr %args, i64 24
   %43 = load ptr, ptr %arrayidx62, align 8
-  %call63 = tail call noundef i32 @_ZN12fpa_rewriter6mk_fmaEP4exprS1_S1_S1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call63 = tail call noundef i32 @_ZN12fpa_rewriter6mk_fmaEP4exprS1_S1_S1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb64:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %44 = load ptr, ptr %args, align 8
   %arrayidx66 = getelementptr inbounds i8, ptr %args, i64 8
   %45 = load ptr, ptr %arrayidx66, align 8
-  %call67 = tail call noundef i32 @_ZN12fpa_rewriter7mk_sqrtEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call67 = tail call noundef i32 @_ZN12fpa_rewriter7mk_sqrtEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb68:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %46 = load ptr, ptr %args, align 8
   %arrayidx70 = getelementptr inbounds i8, ptr %args, i64 8
   %47 = load ptr, ptr %arrayidx70, align 8
-  %call71 = tail call noundef i32 @_ZN12fpa_rewriter20mk_round_to_integralEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %46, ptr noundef %47, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call71 = tail call noundef i32 @_ZN12fpa_rewriter20mk_round_to_integralEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %46, ptr noundef %47, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb72:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %48 = load ptr, ptr %args, align 8
   %arrayidx74 = getelementptr inbounds i8, ptr %args, i64 8
   %49 = load ptr, ptr %arrayidx74, align 8
-  %call75 = tail call noundef i32 @_ZN12fpa_rewriter11mk_float_eqEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %48, ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call75 = tail call noundef i32 @_ZN12fpa_rewriter11mk_float_eqEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %48, ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb76:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %50 = load ptr, ptr %args, align 8
   %arrayidx78 = getelementptr inbounds i8, ptr %args, i64 8
   %51 = load ptr, ptr %arrayidx78, align 8
-  %call79 = tail call noundef i32 @_ZN12fpa_rewriter5mk_ltEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %50, ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !5
+  %call79 = tail call noundef i32 @_ZN12fpa_rewriter5mk_ltEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %50, ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb80:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -460,7 +460,7 @@ sw.bb84:                                          ; preds = %_ZNK4decl13get_decl
   %54 = load ptr, ptr %args, align 8
   %arrayidx86 = getelementptr inbounds i8, ptr %args, i64 8
   %55 = load ptr, ptr %arrayidx86, align 8
-  %call87 = tail call noundef i32 @_ZN12fpa_rewriter5mk_leEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %54, ptr noundef %55, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call87 = tail call noundef i32 @_ZN12fpa_rewriter5mk_leEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %54, ptr noundef %55, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb88:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -472,37 +472,37 @@ sw.bb88:                                          ; preds = %_ZNK4decl13get_decl
 
 sw.bb92:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %58 = load ptr, ptr %args, align 8
-  %call94 = tail call noundef i32 @_ZN12fpa_rewriter10mk_is_zeroEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call94 = tail call noundef i32 @_ZN12fpa_rewriter10mk_is_zeroEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb95:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %59 = load ptr, ptr %args, align 8
-  %call97 = tail call noundef i32 @_ZN12fpa_rewriter9mk_is_nanEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %59, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call97 = tail call noundef i32 @_ZN12fpa_rewriter9mk_is_nanEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %59, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb98:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %60 = load ptr, ptr %args, align 8
-  %call100 = tail call noundef i32 @_ZN12fpa_rewriter9mk_is_infEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call100 = tail call noundef i32 @_ZN12fpa_rewriter9mk_is_infEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb101:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %61 = load ptr, ptr %args, align 8
-  %call103 = tail call noundef i32 @_ZN12fpa_rewriter12mk_is_normalEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %61, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call103 = tail call noundef i32 @_ZN12fpa_rewriter12mk_is_normalEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %61, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb104:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %62 = load ptr, ptr %args, align 8
-  %call106 = tail call noundef i32 @_ZN12fpa_rewriter15mk_is_subnormalEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %62, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call106 = tail call noundef i32 @_ZN12fpa_rewriter15mk_is_subnormalEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %62, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb107:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %63 = load ptr, ptr %args, align 8
-  %call109 = tail call noundef i32 @_ZN12fpa_rewriter14mk_is_negativeEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %63, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call109 = tail call noundef i32 @_ZN12fpa_rewriter14mk_is_negativeEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %63, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb110:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %64 = load ptr, ptr %args, align 8
-  %call112 = tail call noundef i32 @_ZN12fpa_rewriter14mk_is_positiveEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %64, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call112 = tail call noundef i32 @_ZN12fpa_rewriter14mk_is_positiveEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %64, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb113:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -511,76 +511,76 @@ sw.bb113:                                         ; preds = %_ZNK4decl13get_decl
   %66 = load ptr, ptr %arrayidx115, align 8
   %arrayidx116 = getelementptr inbounds i8, ptr %args, i64 16
   %67 = load ptr, ptr %arrayidx116, align 8
-  %call117 = tail call noundef i32 @_ZN12fpa_rewriter5mk_fpEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call117 = tail call noundef i32 @_ZN12fpa_rewriter5mk_fpEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb118:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
-  %call119 = tail call noundef i32 @_ZN12fpa_rewriter8mk_to_fpEP9func_decljPKP4exprR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull %f, i32 noundef %num_args, ptr noundef %args, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call119 = tail call noundef i32 @_ZN12fpa_rewriter8mk_to_fpEP9func_decljPKP4exprR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull %f, i32 noundef %num_args, ptr noundef %args, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb120:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %68 = load ptr, ptr %args, align 8
   %arrayidx122 = getelementptr inbounds i8, ptr %args, i64 8
   %69 = load ptr, ptr %arrayidx122, align 8
-  %call123 = tail call noundef i32 @_ZN12fpa_rewriter17mk_to_fp_unsignedEP9func_declP4exprS3_R7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull %f, ptr noundef %68, ptr noundef %69, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call123 = tail call noundef i32 @_ZN12fpa_rewriter17mk_to_fp_unsignedEP9func_declP4exprS3_R7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull %f, ptr noundef %68, ptr noundef %69, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb124:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %70 = load ptr, ptr %args, align 8
   %arrayidx126 = getelementptr inbounds i8, ptr %args, i64 8
   %71 = load ptr, ptr %arrayidx126, align 8
-  %call.i = tail call noundef i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull %f, ptr noundef %70, ptr noundef %71, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call.i = tail call noundef i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull readonly %f, ptr noundef %70, ptr noundef %71, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb128:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %72 = load ptr, ptr %args, align 8
   %arrayidx130 = getelementptr inbounds i8, ptr %args, i64 8
   %73 = load ptr, ptr %arrayidx130, align 8
-  %call.i138 = tail call noundef i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull %f, ptr noundef %72, ptr noundef %73, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call.i138 = tail call noundef i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull readonly %f, ptr noundef %72, ptr noundef %73, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb132:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %74 = load ptr, ptr %args, align 8
   %arrayidx134 = getelementptr inbounds i8, ptr %args, i64 8
   %75 = load ptr, ptr %arrayidx134, align 8
-  %call.i139 = tail call noundef i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull %f, ptr noundef %74, ptr noundef %75, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call.i139 = tail call noundef i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull readonly %f, ptr noundef %74, ptr noundef %75, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb136:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %76 = load ptr, ptr %args, align 8
   %arrayidx138 = getelementptr inbounds i8, ptr %args, i64 8
   %77 = load ptr, ptr %arrayidx138, align 8
-  %call.i140 = tail call noundef i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull %f, ptr noundef %76, ptr noundef %77, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call.i140 = tail call noundef i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull readonly %f, ptr noundef %76, ptr noundef %77, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb140:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %78 = load ptr, ptr %args, align 8
-  %call142 = tail call noundef i32 @_ZN12fpa_rewriter13mk_to_ieee_bvEP9func_declP4exprR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nonnull poison, ptr noundef %78, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !6
+  %call142 = tail call noundef i32 @_ZN12fpa_rewriter13mk_to_ieee_bvEP9func_declP4exprR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nonnull poison, ptr noundef %78, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb143:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %79 = load ptr, ptr %args, align 8
-  %call145 = tail call noundef i32 @_ZN12fpa_rewriter13mk_to_ieee_bvEP9func_declP4exprR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nonnull poison, ptr noundef %79, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !6
+  %call145 = tail call noundef i32 @_ZN12fpa_rewriter13mk_to_ieee_bvEP9func_declP4exprR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nonnull poison, ptr noundef %79, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb146:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %80 = load ptr, ptr %args, align 8
-  %call148 = tail call noundef i32 @_ZN12fpa_rewriter10mk_to_realEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %80, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call148 = tail call noundef i32 @_ZN12fpa_rewriter10mk_to_realEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %80, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb149:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %81 = load ptr, ptr %args, align 8
-  %call151 = tail call noundef i32 @_ZN12fpa_rewriter10mk_to_realEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %81, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call151 = tail call noundef i32 @_ZN12fpa_rewriter10mk_to_realEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %81, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb152:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %82 = load ptr, ptr %args, align 8
-  %call154 = tail call noundef i32 @_ZN12fpa_rewriter9mk_bvwrapEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %82, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call154 = tail call noundef i32 @_ZN12fpa_rewriter9mk_bvwrapEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %82, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.bb155:                                         ; preds = %_ZNK4decl13get_decl_kindEv.exit
   %83 = load ptr, ptr %args, align 8
-  %call157 = tail call noundef i32 @_ZN12fpa_rewriter8mk_bv2rmEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %83, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call157 = tail call noundef i32 @_ZN12fpa_rewriter8mk_bv2rmEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %83, ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry, %_ZNK4decl13get_decl_kindEv.exit
@@ -631,7 +631,7 @@ _ZN7obj_refI4expr11ast_managerE7dec_refEv.exit:   ; preds = %if.end, %if.then.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter6mk_addEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter6mk_addEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rm = alloca i32, align 4
   %v2 = alloca %class.scoped_mpf, align 8
@@ -847,7 +847,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter6mk_negEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter6mk_negEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v.i40 = alloca %class.scoped_mpf, align 8
   %v.i13 = alloca %class.scoped_mpf, align 8
@@ -1239,7 +1239,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter6mk_mulEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter6mk_mulEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rm = alloca i32, align 4
   %v2 = alloca %class.scoped_mpf, align 8
@@ -1411,7 +1411,7 @@ return:                                           ; preds = %_ZN10scoped_mpfD2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter6mk_divEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter6mk_divEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rm = alloca i32, align 4
   %v2 = alloca %class.scoped_mpf, align 8
@@ -1583,7 +1583,7 @@ return:                                           ; preds = %_ZN10scoped_mpfD2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter6mk_remEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter6mk_remEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v1 = alloca %class.scoped_mpf, align 8
   %v2 = alloca %class.scoped_mpf, align 8
@@ -1741,7 +1741,7 @@ ehcleanup31:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter6mk_absEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter6mk_absEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v.i = alloca %class.scoped_mpf, align 8
   %v = alloca %class.scoped_mpf, align 8
@@ -1922,7 +1922,7 @@ return:                                           ; preds = %cleanup, %_ZN7obj_r
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter6mk_minEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter6mk_minEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v.i9 = alloca %class.scoped_mpf, align 8
   %v.i = alloca %class.scoped_mpf, align 8
@@ -2262,7 +2262,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter6mk_maxEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter6mk_maxEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v.i9 = alloca %class.scoped_mpf, align 8
   %v.i = alloca %class.scoped_mpf, align 8
@@ -2602,7 +2602,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter6mk_fmaEP4exprS1_S1_S1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter6mk_fmaEP4exprS1_S1_S1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rm = alloca i32, align 4
   %v2 = alloca %class.scoped_mpf, align 8
@@ -2815,7 +2815,7 @@ return:                                           ; preds = %_ZN10scoped_mpfD2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter7mk_sqrtEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter7mk_sqrtEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rm = alloca i32, align 4
   %v2 = alloca %class.scoped_mpf, align 8
@@ -2945,7 +2945,7 @@ return:                                           ; preds = %_ZN10scoped_mpfD2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter20mk_round_to_integralEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter20mk_round_to_integralEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rm = alloca i32, align 4
   %v2 = alloca %class.scoped_mpf, align 8
@@ -3075,7 +3075,7 @@ return:                                           ; preds = %_ZN10scoped_mpfD2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter11mk_float_eqEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter11mk_float_eqEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v1 = alloca %class.scoped_mpf, align 8
   %v2 = alloca %class.scoped_mpf, align 8
@@ -3202,7 +3202,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter5mk_ltEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 2, 6) i32 @_ZN12fpa_rewriter5mk_ltEP4exprS1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v.i119 = alloca %class.scoped_mpf, align 8
   %v.i91 = alloca %class.scoped_mpf, align 8
@@ -3758,7 +3758,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter5mk_leEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter5mk_leEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v.i5 = alloca %class.scoped_mpf, align 8
   %v.i = alloca %class.scoped_mpf, align 8
@@ -4057,7 +4057,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter10mk_is_zeroEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter10mk_is_zeroEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %class.scoped_mpf, align 8
   %m_fm = getelementptr inbounds i8, ptr %this, i64 64
@@ -4143,7 +4143,7 @@ _ZN10scoped_mpfD2Ev.exit:                         ; preds = %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter9mk_is_nanEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter9mk_is_nanEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %class.scoped_mpf, align 8
   %m_fm = getelementptr inbounds i8, ptr %this, i64 64
@@ -4229,7 +4229,7 @@ _ZN10scoped_mpfD2Ev.exit:                         ; preds = %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter9mk_is_infEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter9mk_is_infEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %class.scoped_mpf, align 8
   %m_fm = getelementptr inbounds i8, ptr %this, i64 64
@@ -4315,7 +4315,7 @@ _ZN10scoped_mpfD2Ev.exit:                         ; preds = %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter12mk_is_normalEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter12mk_is_normalEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %class.scoped_mpf, align 8
   %m_fm = getelementptr inbounds i8, ptr %this, i64 64
@@ -4401,7 +4401,7 @@ _ZN10scoped_mpfD2Ev.exit:                         ; preds = %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter15mk_is_subnormalEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter15mk_is_subnormalEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %class.scoped_mpf, align 8
   %m_fm = getelementptr inbounds i8, ptr %this, i64 64
@@ -4487,7 +4487,7 @@ _ZN10scoped_mpfD2Ev.exit:                         ; preds = %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter14mk_is_negativeEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter14mk_is_negativeEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %class.scoped_mpf, align 8
   %m_fm = getelementptr inbounds i8, ptr %this, i64 64
@@ -4573,7 +4573,7 @@ _ZN10scoped_mpfD2Ev.exit:                         ; preds = %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter14mk_is_positiveEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter14mk_is_positiveEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %class.scoped_mpf, align 8
   %m_fm = getelementptr inbounds i8, ptr %this, i64 64
@@ -4671,7 +4671,7 @@ _ZN10scoped_mpfD2Ev.exit:                         ; preds = %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter5mk_fpEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %sgn, ptr noundef %exp, ptr noundef %sig, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter5mk_fpEP4exprS1_S1_R7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %sgn, ptr noundef %exp, ptr noundef %sig, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %rsgn = alloca %class.rational, align 8
   %rexp = alloca %class.rational, align 8
@@ -4904,7 +4904,7 @@ ehcleanup:                                        ; preds = %lpad22, %lpad4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter8mk_to_fpEP9func_decljPKP4exprR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef readonly %f, i32 noundef %num_args, ptr nocapture noundef readonly %args, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter8mk_to_fpEP9func_decljPKP4exprR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef readonly %f, i32 noundef %num_args, ptr nocapture noundef readonly %args, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
   %is_int.i257 = alloca i8, align 1
   %is_int.i252 = alloca i8, align 1
@@ -5756,7 +5756,7 @@ ehcleanup344:                                     ; preds = %lpad130, %lpad105, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter17mk_to_fp_unsignedEP9func_declP4exprS3_R7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef readonly %f, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter17mk_to_fp_unsignedEP9func_declP4exprS3_R7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef readonly %f, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rmv = alloca i32, align 4
   %r = alloca %class.rational, align 8
@@ -5927,21 +5927,21 @@ ehcleanup:                                        ; preds = %lpad13, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter9mk_to_ubvEP9func_declP4exprS3_R7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef readonly %f, ptr noundef %arg1, ptr noundef %arg2, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter9mk_to_ubvEP9func_declP4exprS3_R7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef readonly %f, ptr noundef %arg1, ptr noundef %arg2, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
 entry:
-  %call = tail call noundef i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %f, ptr noundef %arg1, ptr noundef %arg2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call = tail call noundef i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %f, ptr noundef %arg1, ptr noundef %arg2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %result)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter9mk_to_sbvEP9func_declP4exprS3_R7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef readonly %f, ptr noundef %arg1, ptr noundef %arg2, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter9mk_to_sbvEP9func_declP4exprS3_R7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef readonly %f, ptr noundef %arg1, ptr noundef %arg2, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
 entry:
-  %call = tail call noundef i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %f, ptr noundef %arg1, ptr noundef %arg2, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %result), !range !4
+  %call = tail call noundef i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %f, ptr noundef %arg1, ptr noundef %arg2, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %result)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter13mk_to_ieee_bvEP9func_declP4exprR7obj_refIS2_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr nocapture readnone %f, ptr noundef %arg, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 6) i32 @_ZN12fpa_rewriter13mk_to_ieee_bvEP9func_declP4exprR7obj_refIS2_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr nocapture readnone %f, ptr noundef %arg, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %class.scoped_mpf, align 8
   %bu = alloca %class.bv_util, align 8
@@ -6210,7 +6210,7 @@ ehcleanup59:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter10mk_to_realEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %arg, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter10mk_to_realEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %arg, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %class.scoped_mpf, align 8
   %ref.tmp = alloca %class.rational, align 8
@@ -6535,7 +6535,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad20,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter9mk_bvwrapEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef readonly %arg, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter9mk_bvwrapEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef readonly %arg, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bu = alloca %class.bv_util, align 8
   %fpsrt = alloca %class.obj_ref.46, align 8
@@ -7080,7 +7080,7 @@ return:                                           ; preds = %_ZN7obj_refI4sort11
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter8mk_bv2rmEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %arg, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter8mk_bv2rmEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %arg, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bv_val = alloca %class.rational, align 8
   %sz = alloca i32, align 4
@@ -7374,7 +7374,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then.i.i.i
 for.inc.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %if.then.i.i.i, %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %curr.030.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr5.i.i.i
-  br i1 %cmp.not.i.i.i, label %for.cond18.preheader.i.i.i, label %for.body.i.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i.i, label %for.cond18.preheader.i.i.i, label %for.body.i.i.i, !llvm.loop !4
 
 for.body20.i.i.i:                                 ; preds = %for.cond18.preheader.i.i.i, %for.inc36.i.i.i
   %curr.132.i.i.i = phi ptr [ %incdec.ptr37.i.i.i, %for.inc36.i.i.i ], [ %1, %for.cond18.preheader.i.i.i ]
@@ -7399,7 +7399,7 @@ land.lhs.true25.i.i.i:                            ; preds = %if.then22.i.i.i
 for.inc36.i.i.i:                                  ; preds = %land.lhs.true25.i.i.i, %if.then22.i.i.i, %for.body20.i.i.i
   %incdec.ptr37.i.i.i = getelementptr inbounds i8, ptr %curr.132.i.i.i, i64 24
   %cmp19.not.i.i.i = icmp eq ptr %incdec.ptr37.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp19.not.i.i.i, label %if.else, label %for.body20.i.i.i, !llvm.loop !9
+  br i1 %cmp19.not.i.i.i, label %if.else, label %for.body20.i.i.i, !llvm.loop !6
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i.i, %land.lhs.true25.i.i.i
   %retval.0.i.i.i = phi ptr [ %curr.132.i.i.i, %land.lhs.true25.i.i.i ], [ %curr.030.i.i.i, %land.lhs.true.i.i.i ]
@@ -7416,7 +7416,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.then.i.i, %while
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr5.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit, label %land.rhs.i.i.i.i, !llvm.loop !10
+  br i1 %cmp.not.i.i.i.i, label %_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit, label %land.rhs.i.i.i.i, !llvm.loop !7
 
 _ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit: ; preds = %land.rhs.i.i.i.i, %while.body.i.i.i.i, %if.then.i.i
   %retval.sroa.0.2.i.i = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ]
@@ -7444,11 +7444,11 @@ if.else:                                          ; preds = %for.body.i.i.i, %fo
   call void @_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIjS2_E(ptr noundef nonnull align 8 dereferenceable(20) %cond-lvalue, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %9 = load ptr, ptr %this, align 8
-  store i32 2, ptr %ref.tmp6, align 8, !alias.scope !11
+  store i32 2, ptr %ref.tmp6, align 8, !alias.scope !8
   %m_kind.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 4
-  store i8 0, ptr %m_kind.i.i, align 4, !alias.scope !11
+  store i8 0, ptr %m_kind.i.i, align 4, !alias.scope !8
   %m_ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
-  store ptr null, ptr %m_ptr.i.i, align 8, !alias.scope !11
+  store ptr null, ptr %m_ptr.i.i, align 8, !alias.scope !8
   call void @_ZN11mpz_managerILb0EE5powerERK3mpzjRS1_(ptr noundef nonnull align 8 dereferenceable(600) %9, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6, i32 noundef %n, ptr noundef nonnull align 8 dereferenceable(16) %call5)
   br i1 %negated, label %if.then8, label %return
 
@@ -7673,7 +7673,7 @@ entry:
 declare noundef zeroext i1 @_ZN11mpf_manager2ltERK3mpfS2_(ptr noundef nonnull align 8 dereferenceable(840), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter11mk_is_nzeroEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter11mk_is_nzeroEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %class.scoped_mpf, align 8
   %m_fm = getelementptr inbounds i8, ptr %this, i64 64
@@ -7761,7 +7761,7 @@ _ZN10scoped_mpfD2Ev.exit:                         ; preds = %cleanup
 declare noundef zeroext i1 @_ZN11mpf_manager8is_nzeroERK3mpf(ptr noundef nonnull align 8 dereferenceable(840), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter11mk_is_pzeroEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter11mk_is_pzeroEP4exprR7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %class.scoped_mpf, align 8
   %m_fm = getelementptr inbounds i8, ptr %this, i64 64
@@ -7857,7 +7857,7 @@ declare noundef zeroext i1 @_ZN11mpf_manager9is_normalERK3mpf(ptr noundef nonnul
 declare noundef zeroext i1 @_ZN11mpf_manager11is_denormalERK3mpf(ptr noundef nonnull align 8 dereferenceable(840), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter10mk_eq_coreEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter10mk_eq_coreEP4exprS1_R7obj_refIS0_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this, ptr noundef %arg1, ptr noundef %arg2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v1 = alloca %class.scoped_mpf, align 8
   %v2 = alloca %class.scoped_mpf, align 8
@@ -8043,7 +8043,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef readonly %f, ptr noundef %arg1, ptr noundef %arg2, i1 noundef zeroext %is_signed, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter8mk_to_bvEP9func_declP4exprS3_bR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef readonly %f, ptr noundef %arg1, ptr noundef %arg2, i1 noundef zeroext %is_signed, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rmv = alloca i32, align 4
   %v = alloca %class.scoped_mpf, align 8
@@ -8115,7 +8115,7 @@ invoke.cont17:                                    ; preds = %lor.lhs.false
 
 if.then19:                                        ; preds = %invoke.cont17, %invoke.cont12
   %call21 = invoke noundef i32 @_ZN12fpa_rewriter20mk_to_bv_unspecifiedEP9func_declR7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull %f, ptr noundef nonnull align 8 dereferenceable(16) %result)
-          to label %cleanup90 unwind label %lpad, !range !4
+          to label %cleanup90 unwind label %lpad
 
 lpad:                                             ; preds = %land.lhs.true, %_ZNK9parameter7get_intEv.exit, %invoke.cont22, %if.then19, %lor.lhs.false, %if.then
   %9 = landingpad { ptr, i32 }
@@ -8742,7 +8742,7 @@ invoke.cont76:                                    ; preds = %if.then75
 
 if.else80:                                        ; preds = %call4.i.i.i.i.i.i.noexc, %if.then.i.i.i.i.i.i, %call4.i.i.i.i.i.noexc, %if.then.i.i.i.i.i, %invoke.cont73, %invoke.cont70
   %call82 = invoke noundef i32 @_ZN12fpa_rewriter20mk_to_bv_unspecifiedEP9func_declR7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull %f, ptr noundef nonnull align 8 dereferenceable(16) %result)
-          to label %cleanup unwind label %lpad43, !range !4
+          to label %cleanup unwind label %lpad43
 
 cleanup:                                          ; preds = %if.else80, %invoke.cont76
   %retval.0 = phi i32 [ 4, %invoke.cont76 ], [ %call82, %if.else80 ]
@@ -8847,7 +8847,7 @@ ehcleanup91:                                      ; preds = %ehcleanup88, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN12fpa_rewriter20mk_to_bv_unspecifiedEP9func_declR7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef readonly %f, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 4, 6) i32 @_ZN12fpa_rewriter20mk_to_bv_unspecifiedEP9func_declR7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef readonly %f, ptr nocapture noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #3 align 2 {
 entry:
   %m_hi_fp_unspecified = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %m_hi_fp_unspecified, align 8
@@ -8967,7 +8967,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then.i.i.i
 for.inc.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %if.then.i.i.i, %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %curr.030.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr5.i.i.i
-  br i1 %cmp.not.i.i.i, label %for.cond18.preheader.i.i.i, label %for.body.i.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i.i, label %for.cond18.preheader.i.i.i, label %for.body.i.i.i, !llvm.loop !4
 
 for.body20.i.i.i:                                 ; preds = %for.cond18.preheader.i.i.i, %for.inc36.i.i.i
   %curr.132.i.i.i = phi ptr [ %incdec.ptr37.i.i.i, %for.inc36.i.i.i ], [ %1, %for.cond18.preheader.i.i.i ]
@@ -8992,7 +8992,7 @@ land.lhs.true25.i.i.i:                            ; preds = %if.then22.i.i.i
 for.inc36.i.i.i:                                  ; preds = %land.lhs.true25.i.i.i, %if.then22.i.i.i, %for.body20.i.i.i
   %incdec.ptr37.i.i.i = getelementptr inbounds i8, ptr %curr.132.i.i.i, i64 24
   %cmp19.not.i.i.i = icmp eq ptr %incdec.ptr37.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp19.not.i.i.i, label %if.else, label %for.body20.i.i.i, !llvm.loop !9
+  br i1 %cmp19.not.i.i.i, label %if.else, label %for.body20.i.i.i, !llvm.loop !6
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i.i, %land.lhs.true25.i.i.i
   %retval.0.i.i.i = phi ptr [ %curr.132.i.i.i, %land.lhs.true25.i.i.i ], [ %curr.030.i.i.i, %land.lhs.true.i.i.i ]
@@ -9009,7 +9009,7 @@ land.rhs.i.i.i.i:                                 ; preds = %if.then.i.i, %while
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr5.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit, label %land.rhs.i.i.i.i, !llvm.loop !10
+  br i1 %cmp.not.i.i.i.i, label %_ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit, label %land.rhs.i.i.i.i, !llvm.loop !7
 
 _ZNK9table2mapI17default_map_entryIjP3mpzE6u_hash4u_eqE13find_iteratorERKj.exit: ; preds = %land.rhs.i.i.i.i, %while.body.i.i.i.i, %if.then.i.i
   %retval.sroa.0.2.i.i = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ], [ %retval.sroa.0.0.i.i, %land.rhs.i.i.i.i ]
@@ -9037,11 +9037,11 @@ if.else:                                          ; preds = %for.body.i.i.i, %fo
   call void @_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE6insertEO9_key_dataIjS2_E(ptr noundef nonnull align 8 dereferenceable(20) %cond-lvalue, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %9 = load ptr, ptr %this, align 8
-  store i32 2, ptr %ref.tmp6, align 8, !alias.scope !14
+  store i32 2, ptr %ref.tmp6, align 8, !alias.scope !11
   %m_kind.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 4
-  store i8 0, ptr %m_kind.i.i, align 4, !alias.scope !14
+  store i8 0, ptr %m_kind.i.i, align 4, !alias.scope !11
   %m_ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
-  store ptr null, ptr %m_ptr.i.i, align 8, !alias.scope !14
+  store ptr null, ptr %m_ptr.i.i, align 8, !alias.scope !11
   call void @_ZN11mpz_managerILb0EE5powerERK3mpzjRS1_(ptr noundef nonnull align 8 dereferenceable(600) %9, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6, i32 noundef %n, ptr noundef nonnull align 8 dereferenceable(16) %call5)
   %10 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i6)
@@ -9506,7 +9506,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   %del_entry.1 = phi ptr [ %del_entry.063, %land.lhs.true ], [ %del_entry.063, %if.then9 ], [ %curr.062, %for.body ]
   %incdec.ptr = getelementptr inbounds i8, ptr %curr.062, i64 24
   %cmp7.not = icmp eq ptr %incdec.ptr, %add.ptr6
-  br i1 %cmp7.not, label %for.cond27.preheader, label %for.body, !llvm.loop !17
+  br i1 %cmp7.not, label %for.cond27.preheader, label %for.body, !llvm.loop !14
 
 for.body29:                                       ; preds = %for.cond27.preheader, %for.inc54
   %del_entry.267 = phi ptr [ %del_entry.3, %for.inc54 ], [ %del_entry.0.lcssa, %for.cond27.preheader ]
@@ -9562,7 +9562,7 @@ for.inc54:                                        ; preds = %for.body29, %land.l
   %del_entry.3 = phi ptr [ %del_entry.267, %land.lhs.true34 ], [ %del_entry.267, %if.then31 ], [ %curr.166, %for.body29 ]
   %incdec.ptr55 = getelementptr inbounds i8, ptr %curr.166, i64 24
   %cmp28.not = icmp eq ptr %incdec.ptr55, %add.ptr
-  br i1 %cmp28.not, label %for.end56, label %for.body29, !llvm.loop !18
+  br i1 %cmp28.not, label %for.end56, label %for.body29, !llvm.loop !15
 
 for.end56:                                        ; preds = %for.inc54, %for.cond27.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.6, i32 noundef 404, ptr noundef nonnull @.str.7)
@@ -9628,7 +9628,7 @@ for.body8.i:                                      ; preds = %if.then.i, %for.inc
 for.inc.i:                                        ; preds = %for.body8.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %target_curr.025.i, i64 24
   %cmp7.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr2.i
-  br i1 %cmp7.not.i, label %for.cond11.preheader.i, label %for.body8.i, !llvm.loop !19
+  br i1 %cmp7.not.i, label %for.cond11.preheader.i, label %for.body8.i, !llvm.loop !16
 
 for.body13.i:                                     ; preds = %for.cond11.preheader.i, %for.inc17.i
   %target_curr.127.i = phi ptr [ %incdec.ptr18.i, %for.inc17.i ], [ %call.i.i, %for.cond11.preheader.i ]
@@ -9640,7 +9640,7 @@ for.body13.i:                                     ; preds = %for.cond11.preheade
 for.inc17.i:                                      ; preds = %for.body13.i
   %incdec.ptr18.i = getelementptr inbounds i8, ptr %target_curr.127.i, i64 24
   %cmp12.not.i = icmp eq ptr %incdec.ptr18.i, %add.ptr5.i
-  br i1 %cmp12.not.i, label %for.end19.i, label %for.body13.i, !llvm.loop !20
+  br i1 %cmp12.not.i, label %for.end19.i, label %for.body13.i, !llvm.loop !17
 
 for.end19.i:                                      ; preds = %for.cond11.preheader.i, %for.inc17.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.6, i32 noundef 212, ptr noundef nonnull @.str.7)
@@ -9655,7 +9655,7 @@ for.inc21.sink.split.i:                           ; preds = %for.body8.i, %for.b
 for.inc21.i:                                      ; preds = %for.inc21.sink.split.i, %for.body.i
   %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_curr.029.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr22.i, %add.ptr.i
-  br i1 %cmp.not.i, label %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE10move_tableEPS3_jSB_j.exit.loopexit, label %for.body.i, !llvm.loop !21
+  br i1 %cmp.not.i, label %_ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE10move_tableEPS3_jSB_j.exit.loopexit, label %for.body.i, !llvm.loop !18
 
 _ZN14core_hashtableI17default_map_entryIjP3mpzEN9table2mapIS3_6u_hash4u_eqE15entry_hash_procENS7_13entry_eq_procEE10move_tableEPS3_jSB_j.exit.loopexit: ; preds = %for.inc21.i
   %.pre = load ptr, ptr %this, align 8
@@ -9791,21 +9791,18 @@ attributes #16 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 4, i32 6}
-!5 = !{i32 2, i32 6}
-!6 = !{i32 0, i32 6}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZN11mpz_managerILb0EE4mk_zEi: %agg.result"}
+!10 = distinct !{!10, !"_ZN11mpz_managerILb0EE4mk_zEi"}
 !11 = !{!12}
 !12 = distinct !{!12, !13, !"_ZN11mpz_managerILb0EE4mk_zEi: %agg.result"}
 !13 = distinct !{!13, !"_ZN11mpz_managerILb0EE4mk_zEi"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN11mpz_managerILb0EE4mk_zEi: %agg.result"}
-!16 = distinct !{!16, !"_ZN11mpz_managerILb0EE4mk_zEi"}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}

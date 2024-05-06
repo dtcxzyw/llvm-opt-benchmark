@@ -1427,7 +1427,7 @@ declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unname
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ipdum_message_can_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_ipdum_message_can_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i64, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %6, label %7
@@ -1535,7 +1535,7 @@ get_flexray_mapping.exit.thread:                  ; preds = %6, %get_flexray_map
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ipdum_message_flexray_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_ipdum_message_flexray_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @dissect_ipdum_message_flexray(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32

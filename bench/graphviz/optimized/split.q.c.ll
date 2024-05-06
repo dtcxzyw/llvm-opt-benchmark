@@ -28,7 +28,7 @@ define void @SplitNode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef rea
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 1544
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
   %18 = getelementptr inbounds i8, ptr %0, i64 1568
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1576
@@ -103,7 +103,7 @@ GetBranches.exit:                                 ; preds = %19
   %.03045.i.i = phi i32 [ 0, %.preheader.i.i ], [ %.232.i.i, %.loopexit.i.i ]
   %42 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv56.i.i
   %43 = getelementptr inbounds [65 x i64], ptr %5, i64 0, i64 %indvars.iv56.i.i
-  %44 = trunc i64 %indvars.iv56.i.i to i32
+  %44 = trunc nuw nsw i64 %indvars.iv56.i.i to i32
   br label %45
 
 45:                                               ; preds = %45, %.lr.ph.i.i
@@ -124,7 +124,7 @@ GetBranches.exit:                                 ; preds = %19
   %54 = add i64 %51, %53
   %55 = sub i64 %50, %54
   %56 = icmp ugt i64 %55, %.12740.i.i
-  %57 = trunc i64 %indvars.iv52.i.i to i32
+  %57 = trunc nuw nsw i64 %indvars.iv52.i.i to i32
   %.232.i.i = select i1 %56, i32 %57, i32 %.13139.i.i
   %.228.i.i = call i64 @llvm.umax.i64(i64 %55, i64 %.12740.i.i)
   %.2.i.i = select i1 %56, i32 %44, i32 %.142.i.i
@@ -251,7 +251,7 @@ PickSeeds.exit.i:                                 ; preds = %80, %79
   %.053.i = select i1 %.not72.i, i64 %117, i64 %116
   %118 = icmp ule i64 %.053.i, %.06287.i
   %or.cond74.not.i = select i1 %.06088.i, i1 %118, i1 false
-  %119 = trunc i64 %indvars.iv.i to i32
+  %119 = trunc nuw nsw i64 %indvars.iv.i to i32
   br i1 %or.cond74.not.i, label %120, label %130
 
 120:                                              ; preds = %102

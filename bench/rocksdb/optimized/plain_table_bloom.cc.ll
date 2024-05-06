@@ -166,7 +166,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   %idxprom.i.i = zext nneg i32 %div12.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idxprom.i.i
   %6 = load i8, ptr %arrayidx.i.i, align 1
-  %7 = trunc i32 %shl3.i.i to i8
+  %7 = trunc nuw i32 %shl3.i.i to i8
   %conv5.i.i = or i8 %6, %7
   store i8 %conv5.i.i, ptr %arrayidx.i.i, align 1
   %or9.i.i = tail call i32 @llvm.fshl.i32(i32 %h.addr.015.i.i, i32 %h.addr.015.i.i, i32 23)
@@ -193,7 +193,7 @@ for.body.i3.i:                                    ; preds = %if.else.i, %for.bod
   %idxprom.i5.i = zext nneg i32 %div6.i.i to i64
   %arrayidx.i6.i = getelementptr inbounds i8, ptr %10, i64 %idxprom.i5.i
   %11 = load i8, ptr %arrayidx.i6.i, align 1
-  %12 = trunc i32 %shl2.i.i to i8
+  %12 = trunc nuw i32 %shl2.i.i to i8
   %conv4.i.i = or i8 %11, %12
   store i8 %conv4.i.i, ptr %arrayidx.i6.i, align 1
   %add.i.i = add i32 %h.addr.09.i.i, %or.i2.i

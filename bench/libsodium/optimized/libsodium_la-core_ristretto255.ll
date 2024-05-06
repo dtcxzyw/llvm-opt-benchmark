@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ge25519_p3 = type { [5 x i64], [5 x i64], [5 x i64], [5 x i64] }
 
 ; Function Attrs: nounwind ssp uwtable
-define i32 @crypto_core_ristretto255_is_valid_point(ptr noundef nonnull %p) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @crypto_core_ristretto255_is_valid_point(ptr noundef nonnull %p) local_unnamed_addr #0 {
 entry:
   %p_p3 = alloca %struct.ge25519_p3, align 8
   %call = call i32 @_sodium_ristretto255_frombytes(ptr noundef nonnull %p_p3, ptr noundef nonnull %p) #5
@@ -18,7 +18,7 @@ entry:
 declare i32 @_sodium_ristretto255_frombytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_core_ristretto255_add(ptr noundef nonnull %r, ptr noundef nonnull %p, ptr noundef nonnull %q) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_core_ristretto255_add(ptr noundef nonnull %r, ptr noundef nonnull %p, ptr noundef nonnull %q) local_unnamed_addr #0 {
 entry:
   %p_p3 = alloca %struct.ge25519_p3, align 8
   %q_p3 = alloca %struct.ge25519_p3, align 8
@@ -47,7 +47,7 @@ declare void @_sodium_ge25519_p3_add(ptr noundef, ptr noundef, ptr noundef) loca
 declare void @_sodium_ristretto255_p3_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_core_ristretto255_sub(ptr noundef nonnull %r, ptr noundef nonnull %p, ptr noundef nonnull %q) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_core_ristretto255_sub(ptr noundef nonnull %r, ptr noundef nonnull %p, ptr noundef nonnull %q) local_unnamed_addr #0 {
 entry:
   %p_p3 = alloca %struct.ge25519_p3, align 8
   %q_p3 = alloca %struct.ge25519_p3, align 8
@@ -83,7 +83,7 @@ entry:
 declare void @_sodium_ristretto255_from_hash(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_core_ristretto255_from_string(ptr noundef nonnull %p, ptr noundef %ctx, ptr noundef %msg, i64 noundef %msg_len, i32 noundef %hash_alg) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_core_ristretto255_from_string(ptr noundef nonnull %p, ptr noundef %ctx, ptr noundef %msg, i64 noundef %msg_len, i32 noundef %hash_alg) local_unnamed_addr #0 {
 entry:
   %h.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %h.i)
@@ -102,7 +102,7 @@ _string_to_element.exit:                          ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_core_ristretto255_from_string_ro(ptr noundef nonnull %p, ptr noundef %ctx, ptr noundef %msg, i64 noundef %msg_len, i32 noundef %hash_alg) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_core_ristretto255_from_string_ro(ptr noundef nonnull %p, ptr noundef %ctx, ptr noundef %msg, i64 noundef %msg_len, i32 noundef %hash_alg) local_unnamed_addr #0 {
 entry:
   %h.i.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %h.i.i)
@@ -213,7 +213,7 @@ entry:
 declare i32 @_sodium_sc25519_is_canonical(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @crypto_core_ristretto255_scalar_from_string(ptr noundef %s, ptr noundef %ctx, ptr noundef %msg, i64 noundef %msg_len, i32 noundef %hash_alg) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @crypto_core_ristretto255_scalar_from_string(ptr noundef %s, ptr noundef %ctx, ptr noundef %msg, i64 noundef %msg_len, i32 noundef %hash_alg) local_unnamed_addr #0 {
 entry:
   %h = alloca [64 x i8], align 16
   %h_be = alloca [48 x i8], align 16

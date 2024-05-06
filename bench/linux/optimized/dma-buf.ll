@@ -1751,7 +1751,7 @@ define internal i64 @dma_buf_llseek(ptr nocapture noundef readonly %0, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @dma_buf_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 9) i32 @dma_buf_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2237,7 +2237,7 @@ define internal i32 @dma_buf_mmap_internal(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @dma_buf_file_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @dma_buf_file_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @dma_buf_fops
@@ -2508,7 +2508,7 @@ declare dso_local ptr @kern_mount(ptr noundef) local_unnamed_addr #2
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @dma_buf_fs_init_context(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @dma_buf_fs_init_context(ptr noundef %0) #0 align 16 {
   %2 = tail call ptr @init_pseudo(ptr noundef %0, i64 noundef 1145913666) #10
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4

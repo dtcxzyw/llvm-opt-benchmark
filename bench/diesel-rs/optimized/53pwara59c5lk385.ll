@@ -295,7 +295,7 @@ define hidden void @"_ZN135_$LT$diesel..query_builder..returning_clause..Returni
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.46.0..sroa_idx.i, i64 24, i1 false), !noalias !61
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !61
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.i, i64 24, i1 false), !noalias !72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.28.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.i, i64 24, i1 false), !noalias !72
   br label %"_ZN207_$LT$diesel..query_builder..returning_clause..ReturningClause$LT$Expr$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$C$diesel..backend..sql_dialect..returning_clause..PgLikeReturningClause$GT$$GT$8walk_ast17h4fa990c31d7580d9E.llvm.3499718862566202072.exit"
 
 "_ZN207_$LT$diesel..query_builder..returning_clause..ReturningClause$LT$Expr$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$C$diesel..backend..sql_dialect..returning_clause..PgLikeReturningClause$GT$$GT$8walk_ast17h4fa990c31d7580d9E.llvm.3499718862566202072.exit": ; preds = %24, %25
@@ -334,7 +334,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 .body:                                            ; preds = %70, %98
   %.020 = phi i8 [ %.1.lpad-body.ph, %98 ], [ %.2, %70 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body.ph, %98 ], [ %71, %70 ]
-  %19 = trunc i8 %.020 to i1
+  %19 = trunc nuw i8 %.020 to i1
   br i1 %19, label %102, label %101
 
 .thread:                                          ; preds = %5, %25
@@ -362,7 +362,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %29 = ptrtoint ptr %22 to i64
   %.sroa.4.0.extract.trunc = trunc i64 %29 to i8
   %.sroa.4.1.extract.shift = lshr i64 %29, 8
-  %.sroa.4.1.extract.trunc = trunc i64 %.sroa.4.1.extract.shift to i56
+  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.216.0..sroa_idx, align 8
@@ -391,7 +391,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   br label %97
 
 36:                                               ; preds = %25
-  %trunc = trunc i8 %26 to i1
+  %trunc = trunc nuw i8 %26 to i1
   %37 = getelementptr inbounds i8, ptr %1, i64 24
   %38 = getelementptr inbounds i8, ptr %1, i64 40
   br i1 %trunc, label %48, label %39
@@ -518,7 +518,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   store i64 -9223372036854775798, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %88 = trunc i8 %.2 to i1
+  %88 = trunc nuw i8 %.2 to i1
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h96b44d52bdeb93aaE.exit35", %81
@@ -613,7 +613,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %21 = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %.pre, %.noexc23 ]
   %22 = phi i64 [ 0, %5 ], [ %.pre.i.i.i.i, %.noexc23 ]
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %12, i64 %14, i1 false), !noalias !126
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %12, i64 %14, i1 false), !noalias !126
   %24 = load i64, ptr %11, align 8, !alias.scope !115, !noalias !120, !noundef !10
   %25 = add i64 %24, %14
   store i64 %25, ptr %11, align 8, !alias.scope !115, !noalias !120
@@ -765,7 +765,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %22 = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %.pre, %.noexc23 ]
   %23 = phi i64 [ 0, %5 ], [ %.pre.i.i.i.i.i, %.noexc23 ]
   %24 = getelementptr inbounds i8, ptr %22, i64 %23
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %13, i64 %15, i1 false), !noalias !160
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %13, i64 %15, i1 false), !noalias !160
   %25 = load i64, ptr %11, align 8, !alias.scope !149, !noalias !154, !noundef !10
   %26 = add i64 %25, %15
   store i64 %26, ptr %11, align 8, !alias.scope !149, !noalias !154
@@ -1016,7 +1016,7 @@ default.unreachable:                              ; preds = %"_ZN6diesel13query_
   %.sroa.6.0.in.i = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.6.0.i = load ptr, ptr %.sroa.6.0.in.i, align 8, !alias.scope !189, !noalias !192, !nonnull !10, !align !12, !noundef !10
   %17 = load i8, ptr %16, align 1, !range !78, !noalias !194, !noundef !10
-  %18 = trunc i8 %17 to i1
+  %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2035ba7c3ba8b49bE.exit.thread.i", label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %14
@@ -1085,7 +1085,7 @@ default.unreachable:                              ; preds = %"_ZN6diesel13query_
   %.sroa.6.0.in.i129 = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.6.0.i130 = load ptr, ptr %.sroa.6.0.in.i129, align 8, !alias.scope !222, !noalias !225, !nonnull !10, !align !12, !noundef !10
   %32 = load i8, ptr %31, align 1, !range !78, !noalias !239, !noundef !10
-  %33 = trunc i8 %32 to i1
+  %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2035ba7c3ba8b49bE.exit.thread.i155", label %.critedge.thread.i149
 
 .critedge.thread.i149:                            ; preds = %29
@@ -1152,7 +1152,7 @@ thread-pre-split:                                 ; preds = %3, %3
   %.sroa.6.0.in.i163 = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.6.0.i164 = load ptr, ptr %.sroa.6.0.in.i163, align 8, !alias.scope !257, !noalias !260, !nonnull !10, !align !12, !noundef !10
   %44 = load i8, ptr %43, align 1, !range !78, !noalias !262, !noundef !10
-  %45 = trunc i8 %44 to i1
+  %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2035ba7c3ba8b49bE.exit.thread.i189", label %.critedge.thread.i183
 
 .critedge.thread.i183:                            ; preds = %41
@@ -1564,7 +1564,7 @@ define internal fastcc void @"_ZN123_$LT$diesel_demo_step_2_pg..schema..posts..c
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8, !nonnull !10, !align !12, !noundef !10
   %10 = load i8, ptr %9, align 1, !range !78, !noundef !10
-  %11 = trunc i8 %10 to i1
+  %11 = trunc nuw i8 %10 to i1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !10
   br i1 %11, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2035ba7c3ba8b49bE.exit.thread", label %.critedge.thread

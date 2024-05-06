@@ -493,7 +493,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @uscript_getCode_75(ptr noundef %nameOrAbbrOrLocale, ptr noundef writeonly %fillIn, i32 noundef %capacity, ptr nocapture noundef %err) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 4) i32 @uscript_getCode_75(ptr noundef %nameOrAbbrOrLocale, ptr noundef writeonly %fillIn, i32 noundef %capacity, ptr nocapture noundef %err) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %internalErrorCode = alloca i32, align 4
   %likely = alloca %"class.icu_75::CharString", align 8
@@ -577,7 +577,7 @@ if.end2.i:                                        ; preds = %if.end.i
 if.end30:                                         ; preds = %land.lhs.true, %if.then24, %lor.lhs.false12, %land.lhs.true21
   %tobool58.not = phi i1 [ true, %land.lhs.true21 ], [ true, %lor.lhs.false12 ], [ false, %if.then24 ], [ true, %land.lhs.true ]
   store i32 0, ptr %internalErrorCode, align 4
-  %call31 = tail call fastcc noundef i32 @_ZL18getCodesFromLocalePKcP11UScriptCodeiP10UErrorCode(ptr noundef nonnull %nameOrAbbrOrLocale, ptr noundef %fillIn, i32 noundef %capacity, ptr noundef nonnull %err), !range !4
+  %call31 = tail call fastcc noundef i32 @_ZL18getCodesFromLocalePKcP11UScriptCodeiP10UErrorCode(ptr noundef nonnull %nameOrAbbrOrLocale, ptr noundef %fillIn, i32 noundef %capacity, ptr noundef nonnull %err)
   %2 = load i32, ptr %err, align 4
   %cmp.i39 = icmp sgt i32 %2, 0
   %cmp35 = icmp ne i32 %call31, 0
@@ -608,7 +608,7 @@ invoke.cont39:                                    ; preds = %invoke.cont
 if.then45:                                        ; preds = %invoke.cont39
   %5 = load ptr, ptr %likely, align 8
   %call49 = invoke fastcc noundef i32 @_ZL18getCodesFromLocalePKcP11UScriptCodeiP10UErrorCode(ptr noundef %5, ptr noundef %fillIn, i32 noundef %capacity, ptr noundef nonnull %err)
-          to label %invoke.cont48 unwind label %lpad, !range !4
+          to label %invoke.cont48 unwind label %lpad
 
 invoke.cont48:                                    ; preds = %if.then45
   %6 = load i32, ptr %err, align 4
@@ -681,7 +681,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 declare i32 @u_getPropertyValueEnum_75(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL18getCodesFromLocalePKcP11UScriptCodeiP10UErrorCode(ptr noundef %locale, ptr nocapture noundef writeonly %scripts, i32 noundef %capacity, ptr nocapture noundef %err) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL18getCodesFromLocalePKcP11UScriptCodeiP10UErrorCode(ptr noundef %locale, ptr nocapture noundef writeonly %scripts, i32 noundef %capacity, ptr nocapture noundef %err) unnamed_addr #1 {
 entry:
   %internalErrorCode = alloca i32, align 4
   %lang = alloca [8 x i8], align 8
@@ -727,7 +727,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   store i32 %3, ptr %arrayidx5.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !4
 
 if.end11:                                         ; preds = %if.end5
   %bcmp53 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %lang, ptr noundef nonnull dereferenceable(3) @.str.1, i64 3)
@@ -755,7 +755,7 @@ for.body.i25:                                     ; preds = %if.end.i22, %for.bo
   store i32 %5, ptr %arrayidx5.i28, align 4
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, 2
-  br i1 %exitcond.not.i30, label %return, label %for.body.i25, !llvm.loop !5
+  br i1 %exitcond.not.i30, label %return, label %for.body.i25, !llvm.loop !4
 
 if.end17:                                         ; preds = %if.end11
   %call19 = call i32 @uloc_getScript_75(ptr noundef %locale, ptr noundef nonnull %script, i32 noundef 8, ptr noundef nonnull %internalErrorCode)
@@ -796,7 +796,7 @@ for.body.i40:                                     ; preds = %if.end.i37, %for.bo
   store i32 %8, ptr %arrayidx5.i43, align 4
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, 2
-  br i1 %exitcond.not.i45, label %return, label %for.body.i40, !llvm.loop !5
+  br i1 %exitcond.not.i45, label %return, label %for.body.i40, !llvm.loop !4
 
 if.end34:                                         ; preds = %land.lhs.true, %if.end25
   %cmp35.not = icmp eq i32 %call19, 0
@@ -870,6 +870,5 @@ attributes #13 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 4}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

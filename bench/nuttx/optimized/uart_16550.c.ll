@@ -209,7 +209,7 @@ define internal void @u16550_detach(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @u16550_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 %2) #0 {
+define internal range(i32 -25, 1) i32 @u16550_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -251,11 +251,11 @@ define internal noundef i32 @u16550_ioctl(ptr nocapture noundef readonly %0, i32
   %.val5.i8 = load i16, ptr %11, align 4
   %19 = call zeroext i8 @uart_getreg(i16 noundef zeroext %.val5.i8, i32 noundef 3) #3
   %20 = and i8 %19, -65
-  %.val.i9 = load i16, ptr %11, align 4
-  call void @uart_putreg(i16 noundef zeroext %.val.i9, i32 noundef 3, i8 noundef zeroext %20) #3
+  %.val.i10 = load i16, ptr %11, align 4
+  call void @uart_putreg(i16 noundef zeroext %.val.i10, i32 noundef 3, i8 noundef zeroext %20) #3
   %21 = and i64 %18, 512
-  %.not.i10 = icmp eq i64 %21, 0
-  br i1 %.not.i10, label %up_irq_restore.exit, label %22
+  %.not.i11 = icmp eq i64 %21, 0
+  br i1 %.not.i11, label %up_irq_restore.exit, label %22
 
 22:                                               ; preds = %17
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
@@ -267,7 +267,7 @@ up_irq_restore.exit:                              ; preds = %22, %17, %16, %12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @u16550_receive(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 0, 256) i32 @u16550_receive(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
   %.val = load i16, ptr %4, align 4

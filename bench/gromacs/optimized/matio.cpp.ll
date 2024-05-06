@@ -22354,9 +22354,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .thread:                                          ; preds = %33
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #24
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+37:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
@@ -22364,9 +22364,9 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 39:                                               ; preds = %33
   tail call void @_ZdlPv(ptr noundef nonnull %23) #26
-  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+  br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35: ; preds = %39, %.thread
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %39, %.thread
   invoke void @__cxa_rethrow() #25
           to label %44 unwind label %37
 
@@ -22380,7 +22380,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   tail call void @__clang_call_terminate(ptr %43) #27
   unreachable
 
-44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit35
+44:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit37
   unreachable
 }
 
@@ -32248,7 +32248,7 @@ define void @_Z10write_xpm3P8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char_trai
   %26 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv44
   %27 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.249, ptr noundef nonnull @.str.1, i32 noundef 1161, i64 noundef %.fr37, i64 noundef 4)
   store ptr %27, ptr %26, align 8
-  %28 = mul nsw i64 %.fr37, %indvars.iv44
+  %28 = mul nuw nsw i64 %.fr37, %indvars.iv44
   %29 = getelementptr float, ptr %25, i64 %28
   br label %30
 
@@ -32480,13 +32480,13 @@ common.resume:                                    ; preds = %36, %44, %61, %234,
   br i1 %exitcond.not.i.i, label %_ZL19write_xpm_map_splitP8_IO_FILEiiPKiff5t_rgbS3_bPiffS3_S3_.exit, label %.lr.ph.i.i, !llvm.loop !288
 
 97:                                               ; preds = %71
-  tail call fastcc void @_ZL14pr_simple_cmapP8_IO_FILEffi5t_rgbS1_i(ptr noundef %0, float noundef %16, float noundef %17, i32 noundef %74, ptr noundef nonnull byval(%struct.t_rgb) align 8 %20, ptr noundef nonnull byval(%struct.t_rgb) align 8 %21, i32 noundef 0)
+  tail call fastcc void @_ZL14pr_simple_cmapP8_IO_FILEffi5t_rgbS1_i(ptr noundef %0, float noundef %16, float noundef %17, i32 noundef %74, ptr noundef nonnull readonly byval(%struct.t_rgb) align 8 %20, ptr noundef nonnull readonly byval(%struct.t_rgb) align 8 %21, i32 noundef 0)
   br label %_ZL19write_xpm_map_splitP8_IO_FILEiiPKiff5t_rgbS3_bPiffS3_S3_.exit
 
 _ZL19write_xpm_map_splitP8_IO_FILEiiPKiff5t_rgbS3_bPiffS3_S3_.exit: ; preds = %.lr.ph.i.i, %75, %97
   %98 = load i32, ptr %13, align 4
   %99 = load i32, ptr %18, align 4
-  tail call fastcc void @_ZL14pr_simple_cmapP8_IO_FILEffi5t_rgbS1_i(ptr noundef %0, float noundef %11, float noundef %12, i32 noundef %98, ptr noundef nonnull byval(%struct.t_rgb) align 8 %14, ptr noundef nonnull byval(%struct.t_rgb) align 8 %15, i32 noundef %99)
+  tail call fastcc void @_ZL14pr_simple_cmapP8_IO_FILEffi5t_rgbS1_i(ptr noundef %0, float noundef %11, float noundef %12, i32 noundef %98, ptr noundef nonnull readonly byval(%struct.t_rgb) align 8 %14, ptr noundef nonnull readonly byval(%struct.t_rgb) align 8 %15, i32 noundef %99)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25)
   %100 = sext i32 %6 to i64
   %101 = getelementptr inbounds float, ptr %8, i64 %100
@@ -32895,7 +32895,7 @@ define void @_Z15write_xpm_splitP8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char
   %30 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv47
   %31 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.249, ptr noundef nonnull @.str.1, i32 noundef 1266, i64 noundef %.fr40, i64 noundef 4)
   store ptr %31, ptr %30, align 8
-  %32 = mul nsw i64 %.fr40, %indvars.iv47
+  %32 = mul nuw nsw i64 %.fr40, %indvars.iv47
   %33 = getelementptr float, ptr %29, i64 %32
   br label %34
 
@@ -33391,7 +33391,7 @@ define void @_Z9write_xpmP8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char_traits
   %24 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv43
   %25 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.249, ptr noundef nonnull @.str.1, i32 noundef 1370, i64 noundef %.fr36, i64 noundef 4)
   store ptr %25, ptr %24, align 8
-  %26 = mul nsw i64 %.fr36, %indvars.iv43
+  %26 = mul nuw nsw i64 %.fr36, %indvars.iv43
   %27 = getelementptr float, ptr %23, i64 %26
   br label %28
 

@@ -148,7 +148,7 @@ if.then:                                          ; preds = %entry
   %div = udiv i64 %sub, 1000
   %div2 = udiv i64 %sub, 1000000
   %rem = urem i64 %div, 1000
-  %conv = trunc i64 %rem to i32
+  %conv = trunc nuw nsw i64 %rem to i32
   br label %if.end15
 
 if.else:                                          ; preds = %entry
@@ -164,7 +164,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp10.not, label %if.end15, label %if.then11
 
 if.then11:                                        ; preds = %if.else
-  %2 = trunc i64 %rem817.neg to i32
+  %2 = trunc nsw i64 %rem817.neg to i32
   %conv14 = add nsw i32 %2, 1000
   br label %if.end15
 
@@ -394,7 +394,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i
   %cmp26.i.i.i.i.i = icmp eq i32 %cond10.sink.i.i.i.i.i, 0
   %mul.i.i.i.i.i = mul nsw i64 %ts.val.i, 1000000
   %cond27.i.i.i.i.i = select i1 %cmp26.i.i.i.i.i, i64 %mul.i.i.i.i.i, i64 0
-  %1 = trunc i32 %cond10.sink.i.i.i.i.i to i8
+  %1 = trunc nuw nsw i32 %cond10.sink.i.i.i.i.i to i8
   br label %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
 
 _ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.end.i
@@ -474,7 +474,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i
   %cmp26.i.i.i.i.i = icmp eq i32 %cond10.sink.i.i.i.i.i, 0
   %mul.i.i.i.i.i = mul nsw i64 %ts.val.i, 1000000
   %cond27.i.i.i.i.i = select i1 %cmp26.i.i.i.i.i, i64 %mul.i.i.i.i.i, i64 0
-  %1 = trunc i32 %cond10.sink.i.i.i.i.i to i8
+  %1 = trunc nuw nsw i32 %cond10.sink.i.i.i.i.i to i8
   br label %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i
 
 _ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.end.i

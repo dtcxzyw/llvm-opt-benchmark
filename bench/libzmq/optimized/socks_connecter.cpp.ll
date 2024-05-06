@@ -620,7 +620,7 @@ if.then98:                                        ; preds = %if.end86, %if.then4
   %26 = load ptr, ptr %_addr, align 8
   %address = getelementptr inbounds i8, ptr %26, i64 32
   %call101 = invoke noundef i32 @_ZN3zmq17socks_connecter_t13parse_addressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_Rt(ptr noundef nonnull align 8 dereferenceable(32) %address, ptr noundef nonnull align 8 dereferenceable(32) %hostname, ptr noundef nonnull align 2 dereferenceable(2) %port)
-          to label %invoke.cont100 unwind label %lpad99, !range !4
+          to label %invoke.cont100 unwind label %lpad99
 
 invoke.cont100:                                   ; preds = %if.then98
   %cmp102 = icmp eq i32 %call101, -1
@@ -774,7 +774,7 @@ declare noundef zeroext i1 @_ZNK3zmq22socks_choice_decoder_t13message_readyEv(pt
 declare i8 @_ZN3zmq22socks_choice_decoder_t6decodeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN3zmq17socks_connecter_t23process_server_responseERKNS_14socks_choice_tE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %response_) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq17socks_connecter_t23process_server_responseERKNS_14socks_choice_tE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %response_) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i8, ptr %response_, align 1
   %1 = and i8 %0, -3
@@ -790,7 +790,7 @@ declare noundef zeroext i1 @_ZNK3zmq29socks_auth_response_decoder_t13message_rea
 declare i8 @_ZN3zmq29socks_auth_response_decoder_t6decodeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN3zmq17socks_connecter_t23process_server_responseERKNS_21socks_auth_response_tE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %response_) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq17socks_connecter_t23process_server_responseERKNS_21socks_auth_response_tE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %response_) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i8, ptr %response_, align 1
   %cmp = icmp ne i8 %0, 0
@@ -805,7 +805,7 @@ declare noundef zeroext i1 @_ZNK3zmq24socks_response_decoder_t13message_readyEv(
 declare void @_ZN3zmq24socks_response_decoder_t6decodeEv(ptr sret(%"struct.zmq::socks_response_t") align 8, ptr noundef nonnull align 8 dereferenceable(272)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN3zmq17socks_connecter_t23process_server_responseERKNS_16socks_response_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(42) %response_) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq17socks_connecter_t23process_server_responseERKNS_16socks_response_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(42) %response_) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i8, ptr %response_, align 8
   %cmp = icmp ne i8 %0, 0
@@ -826,7 +826,7 @@ declare void @_ZN3zmq11io_object_t12reset_pollinEPv(ptr noundef nonnull align 8 
 declare void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq17socks_connecter_t13parse_addressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_Rt(ptr noundef nonnull align 8 dereferenceable(32) %address_, ptr noundef nonnull align 8 dereferenceable(32) %hostname_, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %port_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq17socks_connecter_t13parse_addressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_Rt(ptr noundef nonnull align 8 dereferenceable(32) %address_, ptr noundef nonnull align 8 dereferenceable(32) %hostname_, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %port_) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -928,7 +928,7 @@ lor.rhs:                                          ; preds = %switch.hole_check, 
   br label %do.end
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 43, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %lor.rhs
@@ -948,7 +948,7 @@ do.end:                                           ; preds = %switch.lookup, %lor
   ]
 
 if.then12:                                        ; preds = %do.end
-  %call13 = tail call noundef i32 @_ZNK3zmq17socks_connecter_t22check_proxy_connectionEv(ptr noundef nonnull align 8 dereferenceable(3032) %this), !range !4
+  %call13 = tail call noundef i32 @_ZNK3zmq17socks_connecter_t22check_proxy_connectionEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   %cmp14 = icmp eq i32 %call13, -1
   br i1 %cmp14, label %if.then15, label %if.else
 
@@ -1157,7 +1157,7 @@ if.end111:                                        ; preds = %if.else39, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK3zmq17socks_connecter_t22check_proxy_connectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3032) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZNK3zmq17socks_connecter_t22check_proxy_connectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3032) %this) local_unnamed_addr #0 align 2 {
 entry:
   %err = alloca i32, align 4
   %len = alloca i32, align 4
@@ -1275,7 +1275,7 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %call3 = tail call noundef i32 @_ZN3zmq17socks_connecter_t16connect_to_proxyEv(ptr noundef nonnull align 8 dereferenceable(3032) %this), !range !4
+  %call3 = tail call noundef i32 @_ZN3zmq17socks_connecter_t16connect_to_proxyEv(ptr noundef nonnull align 8 dereferenceable(3032) %this)
   %cmp4 = icmp eq i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %if.else
 
@@ -1349,7 +1349,7 @@ if.end28:                                         ; preds = %invoke.cont21, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq17socks_connecter_t16connect_to_proxyEv(ptr noundef nonnull align 8 dereferenceable(3032) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq17socks_connecter_t16connect_to_proxyEv(ptr noundef nonnull align 8 dereferenceable(3032) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_s = getelementptr inbounds i8, ptr %this, i64 1472
   %0 = load i32, ptr %_s, align 8
@@ -1672,4 +1672,3 @@ attributes #18 = { builtin nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

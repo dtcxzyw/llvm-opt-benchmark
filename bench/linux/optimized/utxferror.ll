@@ -37,10 +37,10 @@ define dso_local void @acpi_error(ptr noundef %0, i32 noundef %1, ptr noundef %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !5
   tail call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str) #5
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   call void @acpi_os_vprintf(ptr noundef %2, ptr noundef nonnull %4) #5
   call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.1, i32 noundef 539166248, ptr noundef %0, i32 noundef %1) #5
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #5
   ret void
 }
@@ -54,14 +54,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @acpi_os_printf(ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @acpi_os_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
@@ -84,10 +78,10 @@ define dso_local void @acpi_exception(ptr noundef %0, i32 noundef %1, i32 nounde
 
 10:                                               ; preds = %8, %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !5
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   call void @acpi_os_vprintf(ptr noundef %3, ptr noundef nonnull %5) #5
   call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.1, i32 noundef 539166248, ptr noundef %0, i32 noundef %1) #5
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #5
   ret void
 }
@@ -101,10 +95,10 @@ define dso_local void @acpi_warning(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !5
   tail call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.3) #5
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   call void @acpi_os_vprintf(ptr noundef %2, ptr noundef nonnull %4) #5
   call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.1, i32 noundef 539166248, ptr noundef %0, i32 noundef %1) #5
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #5
   ret void
 }
@@ -115,10 +109,10 @@ define dso_local void @acpi_info(ptr noundef %0, ...) #0 align 16 {
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, i8 0, i64 24, i1 false), !annotation !5
   tail call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.4) #5
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   call void @acpi_os_vprintf(ptr noundef %0, ptr noundef nonnull %2) #5
   call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.5) #5
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #5
   ret void
 }
@@ -129,10 +123,10 @@ define dso_local void @acpi_bios_error(ptr noundef %0, i32 noundef %1, ptr nound
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !5
   tail call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.6) #5
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   call void @acpi_os_vprintf(ptr noundef %2, ptr noundef nonnull %4) #5
   call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.1, i32 noundef 539166248, ptr noundef %0, i32 noundef %1) #5
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #5
   ret void
 }
@@ -155,10 +149,10 @@ define dso_local void @acpi_bios_exception(ptr noundef %0, i32 noundef %1, i32 n
 
 10:                                               ; preds = %8, %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !5
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   call void @acpi_os_vprintf(ptr noundef %3, ptr noundef nonnull %5) #5
   call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.1, i32 noundef 539166248, ptr noundef %0, i32 noundef %1) #5
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #5
   ret void
 }
@@ -169,13 +163,19 @@ define dso_local void @acpi_bios_warning(ptr noundef %0, i32 noundef %1, ptr nou
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !5
   tail call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.8) #5
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   call void @acpi_os_vprintf(ptr noundef %2, ptr noundef nonnull %4) #5
   call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.1, i32 noundef 539166248, ptr noundef %0, i32 noundef %1) #5
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #5
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

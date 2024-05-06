@@ -1113,7 +1113,7 @@ _ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit204: ; preds = %invoke.cont21, %i
   %needsReset.5737 = phi i1 [ true, %invoke.cont21 ], [ %needsReset.5736, %if.then.i.i201 ]
   %_M_manager.i.i205 = getelementptr inbounds i8, ptr %agg.tmp22, i64 16
   %_M_invoker.i206 = getelementptr inbounds i8, ptr %agg.tmp22, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp22, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp22, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_6E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker.i206, align 8
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_6E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i205, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp7.i208)
@@ -1190,7 +1190,7 @@ _ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit243: ; preds = %invoke.cont25, %i
   %needsReset.6742 = phi i1 [ true, %invoke.cont25 ], [ %needsReset.6741, %if.then.i.i240 ]
   %_M_manager.i.i244 = getelementptr inbounds i8, ptr %agg.tmp26, i64 16
   %_M_invoker.i245 = getelementptr inbounds i8, ptr %agg.tmp26, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp26, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp26, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_7E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker.i245, align 8
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_7E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i244, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp7.i247)
@@ -1267,7 +1267,7 @@ _ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit282: ; preds = %invoke.cont29, %i
   %needsReset.7747 = phi i1 [ true, %invoke.cont29 ], [ %needsReset.7746, %if.then.i.i279 ]
   %_M_manager.i.i283 = getelementptr inbounds i8, ptr %agg.tmp30, i64 16
   %_M_invoker.i284 = getelementptr inbounds i8, ptr %agg.tmp30, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp30, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp30, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_8E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker.i284, align 8
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_8E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i283, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp7.i286)
@@ -1344,7 +1344,7 @@ _ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit321: ; preds = %invoke.cont33, %i
   %needsReset.8752 = phi i1 [ true, %invoke.cont33 ], [ %needsReset.8751, %if.then.i.i318 ]
   %_M_manager.i.i322 = getelementptr inbounds i8, ptr %agg.tmp34, i64 16
   %_M_invoker.i323 = getelementptr inbounds i8, ptr %agg.tmp34, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp34, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp34, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_9E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker.i323, align 8
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE3$_9E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i322, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp7.i325)
@@ -1421,7 +1421,7 @@ _ZNSt8functionIFN4pbrt9TransformES1_EED2Ev.exit360: ; preds = %invoke.cont37, %i
   %needsReset.9757 = phi i1 [ true, %invoke.cont37 ], [ %needsReset.9756, %if.then.i.i357 ]
   %_M_manager.i.i361 = getelementptr inbounds i8, ptr %agg.tmp38, i64 16
   %_M_invoker.i362 = getelementptr inbounds i8, ptr %agg.tmp38, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp38, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %agg.tmp38, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE4$_10E9_M_invokeERKSt9_Any_dataOS1_", ptr %_M_invoker.i362, align 8
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE4$_10E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i361, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp7.i364)
@@ -2120,7 +2120,7 @@ define dso_local void @_ZN4pbrt3GUIC2ENSt7__cxx1112basic_stringIcSt11char_traits
 entry:
   %resolution.sroa.0.0.extract.trunc = trunc i64 %resolution.coerce to i32
   %resolution.sroa.5.0.extract.shift = lshr i64 %resolution.coerce, 32
-  %resolution.sroa.5.0.extract.trunc = trunc i64 %resolution.sroa.5.0.extract.shift to i32
+  %resolution.sroa.5.0.extract.trunc = trunc nuw i64 %resolution.sroa.5.0.extract.shift to i32
   store float 1.000000e+00, ptr %this, align 8
   %printCameraTransform = getelementptr inbounds i8, ptr %this, i64 4
   store i8 0, ptr %printCameraTransform, align 4
@@ -2522,7 +2522,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4pbrt3GUI14RefreshDisplayEv(ptr noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN4pbrt3GUI14RefreshDisplayEv(ptr noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fvoid.i = alloca %"class.std::_Bind", align 8
   %ref.tmp.i = alloca %"class.std::unique_lock", align 8
@@ -2749,8 +2749,8 @@ land.rhs.i.i:                                     ; preds = %invoke.cont88
 switch.lookup:                                    ; preds = %invoke.cont88
   %33 = shl nuw nsw i32 %31, 5
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr i8, ptr %image, i64 %34
-  %ptr.i16.i.i = getelementptr i8, ptr %35, i64 64
+  %35 = getelementptr inbounds i8, ptr %image, i64 %34
+  %ptr.i16.i.i = getelementptr inbounds i8, ptr %35, i64 64
   %36 = load ptr, ptr %ptr.i16.i.i, align 8
   %37 = load i32, ptr %width, align 4
   %38 = load i32, ptr %height, align 4
@@ -2766,7 +2766,7 @@ switch.lookup:                                    ; preds = %invoke.cont88
   %_M_bound_args.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 8
   store i32 %frameNumber.val, ptr %_M_bound_args.i.i.i, align 8, !alias.scope !93
   %39 = getelementptr inbounds i8, ptr %fvoid.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %39, ptr noundef nonnull align 8 dereferenceable(12) %image, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(12) %39, ptr noundef nonnull align 8 dereferenceable(12) %image, i64 12, i1 false)
   %channelNames.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fvoid.i, i64 32
   %channelNames3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %image, i64 16
   %40 = load i64, ptr %channelNames3.i.i.i.i.i.i.i, align 8, !noalias !93
@@ -3298,20 +3298,20 @@ entry:
   %add50 = fadd float %mul44, %mul49
   %call52 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %13 = extractvalue { ptr, i64 } %call52, 0
-  %arrayidx.i61 = getelementptr inbounds i8, ptr %13, i64 4
-  store float %add50, ptr %arrayidx.i61, align 4
+  %arrayidx.i62 = getelementptr inbounds i8, ptr %13, i64 4
+  store float %add50, ptr %arrayidx.i62, align 4
   %mul56 = fmul float %8, %div3.i.i
   %mul58 = fmul float %sub10, %mul56
   %mul60 = fmul float %5, %sinTheta
   %sub61 = fsub float %mul58, %mul60
   %call63 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %14 = extractvalue { ptr, i64 } %call63, 0
-  %arrayidx.i62 = getelementptr inbounds i8, ptr %14, i64 8
-  store float %sub61, ptr %arrayidx.i62, align 4
+  %arrayidx.i63 = getelementptr inbounds i8, ptr %14, i64 8
+  store float %sub61, ptr %arrayidx.i63, align 4
   %call66 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %15 = extractvalue { ptr, i64 } %call66, 0
-  %arrayidx.i63 = getelementptr inbounds i8, ptr %15, i64 12
-  store float 0.000000e+00, ptr %arrayidx.i63, align 4
+  %arrayidx.i64 = getelementptr inbounds i8, ptr %15, i64 12
+  store float 0.000000e+00, ptr %arrayidx.i64, align 4
   %sub75 = fsub float %mul21, %mul23
   %call77 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %16 = extractvalue { ptr, i64 } %call77, 0
@@ -3319,31 +3319,31 @@ entry:
   %add86 = fadd float %mul60, %mul58
   %call88 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %17 = extractvalue { ptr, i64 } %call88, 0
-  %arrayidx.i64 = getelementptr inbounds i8, ptr %17, i64 4
-  store float %add86, ptr %arrayidx.i64, align 4
+  %arrayidx.i66 = getelementptr inbounds i8, ptr %17, i64 4
+  store float %add86, ptr %arrayidx.i66, align 4
   %mul92 = fmul float %div3.i.i, %div3.i.i
   %sub96 = fsub float 1.000000e+00, %mul92
   %mul97 = fmul float %sub96, %cosTheta
   %add98 = fadd float %mul92, %mul97
   %call100 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %18 = extractvalue { ptr, i64 } %call100, 0
-  %arrayidx.i65 = getelementptr inbounds i8, ptr %18, i64 8
-  store float %add98, ptr %arrayidx.i65, align 4
+  %arrayidx.i67 = getelementptr inbounds i8, ptr %18, i64 8
+  store float %add98, ptr %arrayidx.i67, align 4
   %call103 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %19 = extractvalue { ptr, i64 } %call103, 0
-  %arrayidx.i66 = getelementptr inbounds i8, ptr %19, i64 12
-  store float 0.000000e+00, ptr %arrayidx.i66, align 4
+  %arrayidx.i68 = getelementptr inbounds i8, ptr %19, i64 12
+  store float 0.000000e+00, ptr %arrayidx.i68, align 4
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp105)
   br label %for.cond1.preheader.i
 
 for.cond1.preheader.i:                            ; preds = %for.inc9.i, %entry
   %indvars.iv11.i = phi i64 [ 0, %entry ], [ %indvars.iv.next12.i, %for.inc9.i ]
-  %20 = trunc i64 %indvars.iv11.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv11.i to i32
   br label %for.body3.i
 
 for.body3.i:                                      ; preds = %for.body3.i, %for.cond1.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond1.preheader.i ], [ %indvars.iv.next.i, %for.body3.i ]
-  %21 = trunc i64 %indvars.iv.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call.i = call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef %21)
   %22 = extractvalue { ptr, i64 } %call.i, 0
   %arrayidx.i.i = getelementptr inbounds float, ptr %22, i64 %indvars.iv11.i
@@ -5760,7 +5760,7 @@ entry:
   %0 = getelementptr i8, ptr %call.val, i64 56
   %call.val.val = load float, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %agg.tmp1.i.i), !noalias !111
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !111
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !111
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i.i), !noalias !111
   %fneg.i.i.i = fneg float %call.val.val
   %agg.tmp.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg.i.i.i, i64 0
@@ -5808,7 +5808,7 @@ entry:
   %0 = getelementptr i8, ptr %call.val, i64 56
   %call.val.val = load float, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %agg.tmp1.i.i), !noalias !119
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !119
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !119
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i.i), !noalias !119
   %agg.tmp.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %call.val.val, i64 0
   call void @_ZN4pbrt9TranslateENS_7Vector3IfEE(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp.i.i.i, <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i.i, float 0.000000e+00), !noalias !124
@@ -5853,7 +5853,7 @@ entry:
   %0 = getelementptr i8, ptr %call.val, i64 56
   %call.val.val = load float, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %agg.tmp1.i.i), !noalias !127
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !127
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !127
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i.i), !noalias !127
   %fneg.i.i.i = fneg float %call.val.val
   call void @_ZN4pbrt9TranslateENS_7Vector3IfEE(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp.i.i.i, <2 x float> zeroinitializer, float %fneg.i.i.i), !noalias !132
@@ -5898,7 +5898,7 @@ entry:
   %0 = getelementptr i8, ptr %call.val, i64 56
   %call.val.val = load float, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %agg.tmp1.i.i), !noalias !135
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !135
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !135
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i.i), !noalias !135
   call void @_ZN4pbrt9TranslateENS_7Vector3IfEE(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp.i.i.i, <2 x float> zeroinitializer, float %call.val.val), !noalias !140
   call void @_ZNK4pbrt9TransformmlERKS0_(ptr sret(%"class.pbrt::Transform") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i.i.i)
@@ -5942,7 +5942,7 @@ entry:
   %0 = getelementptr i8, ptr %call.val, i64 56
   %call.val.val = load float, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %agg.tmp1.i.i), !noalias !143
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !143
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !143
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i.i), !noalias !143
   %fneg.i.i.i = fneg float %call.val.val
   %agg.tmp.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> <float 0.000000e+00, float poison>, float %fneg.i.i.i, i64 1
@@ -5988,7 +5988,7 @@ entry:
   %0 = getelementptr i8, ptr %call.val, i64 56
   %call.val.val = load float, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %agg.tmp1.i.i), !noalias !151
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !151
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !151
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i.i), !noalias !151
   %agg.tmp.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> <float 0.000000e+00, float poison>, float %call.val.val, i64 1
   call void @_ZN4pbrt9TranslateENS_7Vector3IfEE(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp.i.i.i, <2 x float> %agg.tmp.sroa.0.4.vec.insert.i.i.i, float 0.000000e+00), !noalias !156
@@ -6030,7 +6030,7 @@ entry:
   %ref.tmp.i.i.i = alloca %"class.pbrt::Transform", align 4
   %agg.tmp1.i.i = alloca %"class.pbrt::Transform", align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %agg.tmp1.i.i), !noalias !159
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !159
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !159
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i.i), !noalias !159
   call void @_ZN4pbrt6RotateEffNS_7Vector3IfEE(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp.i.i.i, float noundef 0xBF81DF37C0000000, float noundef 0x3FEFFFB020000000, <2 x float> <float 0.000000e+00, float 1.000000e+00>, float 0.000000e+00), !noalias !164
   call void @_ZNK4pbrt9TransformmlERKS0_(ptr sret(%"class.pbrt::Transform") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i.i.i)
@@ -6065,7 +6065,7 @@ entry:
   %ref.tmp.i.i.i = alloca %"class.pbrt::Transform", align 4
   %agg.tmp1.i.i = alloca %"class.pbrt::Transform", align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %agg.tmp1.i.i), !noalias !167
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !167
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !167
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i.i), !noalias !167
   call void @_ZN4pbrt6RotateEffNS_7Vector3IfEE(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp.i.i.i, float noundef 0x3F81DF37C0000000, float noundef 0x3FEFFFB020000000, <2 x float> <float 0.000000e+00, float 1.000000e+00>, float 0.000000e+00), !noalias !172
   call void @_ZNK4pbrt9TransformmlERKS0_(ptr sret(%"class.pbrt::Transform") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i.i.i)
@@ -6100,7 +6100,7 @@ entry:
   %ref.tmp.i.i.i = alloca %"class.pbrt::Transform", align 4
   %agg.tmp1.i.i = alloca %"class.pbrt::Transform", align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %agg.tmp1.i.i), !noalias !175
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !175
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !175
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i.i), !noalias !175
   call void @_ZN4pbrt6RotateEffNS_7Vector3IfEE(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp.i.i.i, float noundef 0xBF81DF37C0000000, float noundef 0x3FEFFFB020000000, <2 x float> <float 1.000000e+00, float 0.000000e+00>, float 0.000000e+00), !noalias !180
   call void @_ZNK4pbrt9TransformmlERKS0_(ptr sret(%"class.pbrt::Transform") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i.i.i)
@@ -6135,7 +6135,7 @@ entry:
   %ref.tmp.i.i.i = alloca %"class.pbrt::Transform", align 4
   %agg.tmp1.i.i = alloca %"class.pbrt::Transform", align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %agg.tmp1.i.i), !noalias !183
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !183
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull readonly align 4 dereferenceable(128) %__args, i64 128, i1 false), !noalias !183
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i.i), !noalias !183
   call void @_ZN4pbrt6RotateEffNS_7Vector3IfEE(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp.i.i.i, float noundef 0x3F81DF37C0000000, float noundef 0x3FEFFFB020000000, <2 x float> <float 1.000000e+00, float 0.000000e+00>, float 0.000000e+00), !noalias !188
   call void @_ZNK4pbrt9TransformmlERKS0_(ptr sret(%"class.pbrt::Transform") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %agg.tmp1.i.i, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp.i.i.i)

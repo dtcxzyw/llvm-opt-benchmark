@@ -318,7 +318,7 @@ define internal fastcc ptr @acl_new_entry(ptr nocapture noundef %0, i32 noundef 
 declare void @archive_mstring_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_acl_add_entry(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 -25, 1) i32 @archive_acl_add_entry(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp eq i32 %1, 256
   %8 = icmp ult i32 %2, 8
   %or.cond.i = and i1 %7, %8
@@ -388,7 +388,7 @@ acl_special.exit:                                 ; preds = %10, %15, %20
 declare i32 @archive_mstring_copy_mbs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_acl_add_entry_w_len(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+define dso_local range(i32 -25, 1) i32 @archive_acl_add_entry_w_len(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq i32 %1, 256
   %9 = icmp ult i32 %2, 8
   %or.cond.i = and i1 %8, %9
@@ -536,7 +536,7 @@ archive_acl_count.exit:                           ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_acl_next(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr noundef %7) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 2) i32 @archive_acl_next(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr noundef %7) local_unnamed_addr #0 {
   store ptr null, ptr %7, align 8
   store i32 -1, ptr %6, align 4
   %9 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1743,7 +1743,7 @@ append_entry.exit:                                ; preds = %29, %68
 
 121:                                              ; preds = %115
   %122 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %122, ptr noundef nonnull align 1 dereferenceable(9) @.str.3, i64 9, i1 false) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %122, ptr noundef nonnull readonly align 1 dereferenceable(9) @.str.3, i64 9, i1 false) #19
   %123 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %122) #24
   %124 = getelementptr inbounds i8, ptr %122, i64 %123
   store ptr %124, ptr %7, align 8
@@ -2097,7 +2097,7 @@ declare i32 @archive_mstring_get_mbs_l(ptr noundef, ptr noundef, ptr noundef, pt
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_acl_from_text_w(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_w(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [6 x %struct.anon], align 16
   switch i32 %2, label %archive_acl_add_entry_w_len.exit [
     i32 768, label %5
@@ -2991,7 +2991,7 @@ archive_acl_add_entry_w_len.exit:                 ; preds = %303, %3, %archive_a
 declare i32 @wmemcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_acl_from_text_l(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @archive_acl_from_text_l(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [6 x %struct.anon.0], align 16
   switch i32 %2, label %archive_acl_add_entry_len_l.exit [
     i32 768, label %6

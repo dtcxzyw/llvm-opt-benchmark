@@ -22,7 +22,7 @@ define dso_local noalias noundef ptr @pg_cryptohash_create(i32 noundef %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pg_cryptohash_init(ptr noundef %0) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @pg_cryptohash_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %17, label %3
 
@@ -85,7 +85,7 @@ declare void @pg_sha384_init(ptr noundef) local_unnamed_addr #2
 declare void @pg_sha512_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pg_cryptohash_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @pg_cryptohash_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %19, label %5
 
@@ -148,7 +148,7 @@ declare void @pg_sha384_update(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare void @pg_sha512_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pg_cryptohash_final(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @pg_cryptohash_final(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %43, label %5
 

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [20 x i8] c"/proc/self/fd/%d/%s\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @fgetxattrat_nofollow(i32 noundef %dirfd, ptr noundef %filename, ptr noundef %name, ptr noundef %value, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @fgetxattrat_nofollow(i32 noundef %dirfd, ptr noundef %filename, ptr noundef %name, ptr noundef %value, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str, i32 noundef %dirfd, ptr noundef %filename) #3
   %call1 = tail call i64 @lgetxattr(ptr noundef %call, ptr noundef %name, ptr noundef %value, i64 noundef %size) #3
@@ -24,7 +24,7 @@ declare i64 @lgetxattr(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @flistxattrat_nofollow(i32 noundef %dirfd, ptr noundef %filename, ptr noundef %list, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @flistxattrat_nofollow(i32 noundef %dirfd, ptr noundef %filename, ptr noundef %list, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str, i32 noundef %dirfd, ptr noundef %filename) #3
   %call1 = tail call i64 @llistxattr(ptr noundef %call, ptr noundef %list, i64 noundef %size) #3
@@ -38,7 +38,7 @@ entry:
 declare i64 @llistxattr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @fremovexattrat_nofollow(i32 noundef %dirfd, ptr noundef %filename, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @fremovexattrat_nofollow(i32 noundef %dirfd, ptr noundef %filename, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str, i32 noundef %dirfd, ptr noundef %filename) #3
   %call1 = tail call i32 @lremovexattr(ptr noundef %call, ptr noundef %name) #3

@@ -193,7 +193,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_tls1_prf_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kdf_tls1_prf_derive(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %0) #7
@@ -202,7 +202,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call2 = tail call i32 @kdf_tls1_prf_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params), !range !4
+  %call2 = tail call i32 @kdf_tls1_prf_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end
 
@@ -288,7 +288,7 @@ if.end24:                                         ; preds = %land.lhs.true, %if.
 if.then.i:                                        ; preds = %if.end24
   %add.i = add i64 %8, 1
   %div27.i = lshr i64 %add.i, 1
-  %call.i = tail call fastcc i32 @tls1_prf_P_hash(ptr noundef %5, ptr noundef %7, i64 noundef %div27.i, ptr noundef %9, i64 noundef %.pre, ptr noundef %key, i64 noundef %keylen), !range !4
+  %call.i = tail call fastcc i32 @tls1_prf_P_hash(ptr noundef %5, ptr noundef %7, i64 noundef %div27.i, ptr noundef %9, i64 noundef %.pre, ptr noundef %key, i64 noundef %keylen)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
@@ -301,7 +301,7 @@ if.end5.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %8
   %idx.neg.i = sub nsw i64 0, %div27.i
   %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
-  %call7.i = tail call fastcc i32 @tls1_prf_P_hash(ptr noundef nonnull %6, ptr noundef %add.ptr6.i, i64 noundef %div27.i, ptr noundef %9, i64 noundef %.pre, ptr noundef nonnull %call2.i, i64 noundef %keylen), !range !4
+  %call7.i = tail call fastcc i32 @tls1_prf_P_hash(ptr noundef nonnull %6, ptr noundef %add.ptr6.i, i64 noundef %div27.i, ptr noundef %9, i64 noundef %.pre, ptr noundef nonnull %call2.i, i64 noundef %keylen)
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %if.then9.i, label %for.body.i
 
@@ -319,14 +319,14 @@ for.body.i:                                       ; preds = %if.end5.i, %for.bod
   store i8 %xor28.i, ptr %arrayidx12.i, align 1
   %inc.i = add nuw i64 %i.030.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %keylen
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.body.i
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %call2.i, i64 noundef %keylen, ptr noundef nonnull @.str, i32 noundef 466) #7
   br label %return
 
 if.end15.i:                                       ; preds = %if.end24
-  %call16.i = tail call fastcc i32 @tls1_prf_P_hash(ptr noundef %5, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %.pre, ptr noundef %key, i64 noundef %keylen), !range !4
+  %call16.i = tail call fastcc i32 @tls1_prf_P_hash(ptr noundef %5, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %.pre, ptr noundef %key, i64 noundef %keylen)
   br label %return
 
 return:                                           ; preds = %if.end15.i, %for.end.i, %if.then9.i, %if.end.i, %if.then.i, %entry, %lor.lhs.false, %if.then22, %if.then13, %if.then10, %if.then7, %if.then4
@@ -341,7 +341,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_tls1_prf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kdf_tls1_prf_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %val = alloca ptr, align 8
   %sz = alloca i64, align 8
@@ -521,7 +521,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @ossl_tls1_prf_ems_check_enabled(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @tls1_prf_P_hash(ptr noundef %ctx_init, ptr noundef %sec, i64 noundef %sec_len, ptr noundef %seed, i64 noundef %seed_len, ptr noundef %out, i64 noundef %olen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tls1_prf_P_hash(ptr noundef %ctx_init, ptr noundef %sec, i64 noundef %sec_len, ptr noundef %seed, i64 noundef %seed_len, ptr noundef %out, i64 noundef %olen) unnamed_addr #0 {
 entry:
   %Ai = alloca [64 x i8], align 16
   %Ai_len = alloca i64, align 8
@@ -716,6 +716,5 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

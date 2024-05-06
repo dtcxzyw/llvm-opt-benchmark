@@ -57,7 +57,7 @@ define i32 @f128_to_f32(i64 %0, i64 %1) local_unnamed_addr #0 {
 
 31:                                               ; preds = %12, %14, %15, %25
   %.0 = phi i64 [ %17, %15 ], [ %26, %25 ], [ 2143289344, %14 ], [ 2143289344, %12 ]
-  %32 = trunc i64 %.0 to i32
+  %32 = trunc nuw i64 %.0 to i32
   br label %33
 
 33:                                               ; preds = %31, %27

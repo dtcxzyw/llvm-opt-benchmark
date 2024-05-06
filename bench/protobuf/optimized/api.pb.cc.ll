@@ -1123,7 +1123,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %incdec.ptr2.i.i78, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   %value.addr.i.0.lcssa.i.i = phi i64 [ %conv.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %shr.i.i.i, %while.body.i.i.i ]
-  %conv1.i.i.i = trunc i64 %value.addr.i.0.lcssa.i.i to i8
+  %conv1.i.i.i = trunc nuw nsw i64 %value.addr.i.0.lcssa.i.i to i8
   %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa.i.i, i64 1
   store i8 %conv1.i.i.i, ptr %ptr.addr.i.0.lcssa.i.i, align 1
   br label %if.end64
@@ -1189,7 +1189,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call.i = tail call noundef i64 @_ZNK6google8protobuf6Method12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(80) %4)
   %conv.i.i = trunc i64 %call.i to i32
   %or.i.i.i = or i32 %conv.i.i, 1
-  %5 = tail call noundef i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true), !range !10
+  %5 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
   %sub.i.i.i = xor i32 %5, 31
   %mul.i.i.i = mul nuw nsw i32 %sub.i.i.i, 9
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
@@ -1227,7 +1227,7 @@ for.body25:                                       ; preds = %for.end, %for.body2
   %call.i35 = tail call noundef i64 @_ZNK6google8protobuf6Option12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
   %conv.i.i36 = trunc i64 %call.i35 to i32
   %or.i.i.i37 = or i32 %conv.i.i36, 1
-  %11 = tail call noundef i32 @llvm.ctlz.i32(i32 %or.i.i.i37, i1 true), !range !10
+  %11 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i37, i1 true)
   %sub.i.i.i38 = xor i32 %11, 31
   %mul.i.i.i39 = mul nuw nsw i32 %sub.i.i.i38, 9
   %add.i.i.i40 = add nuw nsw i32 %mul.i.i.i39, 73
@@ -1265,7 +1265,7 @@ for.body47:                                       ; preds = %for.end32, %for.bod
   %call.i60 = tail call noundef i64 @_ZNK6google8protobuf5Mixin12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(40) %16)
   %conv.i.i61 = trunc i64 %call.i60 to i32
   %or.i.i.i62 = or i32 %conv.i.i61, 1
-  %17 = tail call noundef i32 @llvm.ctlz.i32(i32 %or.i.i.i62, i1 true), !range !10
+  %17 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i62, i1 true)
   %sub.i.i.i63 = xor i32 %17, 31
   %mul.i.i.i64 = mul nuw nsw i32 %sub.i.i.i63, 9
   %add.i.i.i65 = add nuw nsw i32 %mul.i.i.i64, 73
@@ -1295,7 +1295,7 @@ if.then:                                          ; preds = %for.end54
   %call.i72 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #16
   %conv.i.i73 = trunc i64 %call.i72 to i32
   %or.i.i.i74 = or i32 %conv.i.i73, 1
-  %24 = tail call noundef i32 @llvm.ctlz.i32(i32 %or.i.i.i74, i1 true), !range !10
+  %24 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i74, i1 true)
   %sub.i.i.i75 = xor i32 %24, 31
   %mul.i.i.i76 = mul nuw nsw i32 %sub.i.i.i75, 9
   %add.i.i.i77 = add nuw nsw i32 %mul.i.i.i76, 73
@@ -1324,7 +1324,7 @@ if.then63:                                        ; preds = %if.end
   %call.i84 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #16
   %conv.i.i85 = trunc i64 %call.i84 to i32
   %or.i.i.i86 = or i32 %conv.i.i85, 1
-  %31 = tail call noundef i32 @llvm.ctlz.i32(i32 %or.i.i.i86, i1 true), !range !10
+  %31 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i86, i1 true)
   %sub.i.i.i87 = xor i32 %31, 31
   %mul.i.i.i88 = mul nuw nsw i32 %sub.i.i.i87, 9
   %add.i.i.i89 = add nuw nsw i32 %mul.i.i.i88, 73
@@ -1349,7 +1349,7 @@ if.then70:                                        ; preds = %if.end68
   %call.i93 = tail call noundef i64 @_ZNK6google8protobuf13SourceContext12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(32) %34)
   %conv.i.i94 = trunc i64 %call.i93 to i32
   %or.i.i.i95 = or i32 %conv.i.i94, 1
-  %35 = tail call noundef i32 @llvm.ctlz.i32(i32 %or.i.i.i95, i1 true), !range !10
+  %35 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i95, i1 true)
   %sub.i.i.i96 = xor i32 %35, 31
   %mul.i.i.i97 = mul nuw nsw i32 %sub.i.i.i96, 9
   %add.i.i.i98 = add nuw nsw i32 %mul.i.i.i97, 73
@@ -1370,7 +1370,7 @@ if.end74:                                         ; preds = %if.then70, %if.end6
 if.then76:                                        ; preds = %if.end74
   %37 = or i32 %36, 1
   %or.i.i.i103 = sext i32 %37 to i64
-  %38 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i103, i1 true), !range !11
+  %38 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i103, i1 true)
   %sub.i.i.i104 = xor i64 %38, 63
   %mul.i.i.i105 = mul nuw nsw i64 %sub.i.i.i104, 9
   %add.i.i.i106 = add nuw nsw i64 %mul.i.i.i105, 73
@@ -1441,22 +1441,22 @@ entry:
   store <2 x ptr> %6, ptr %name_, align 8
   %source_context_ = getelementptr inbounds i8, ptr %this, i64 112
   %source_context_12 = getelementptr i8, ptr %other, i64 112
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %__first2.addr.07.i.i = phi ptr [ %incdec.ptr1.i.i, %for.body.i.i ], [ %source_context_12, %entry ]
   %__first1.addr.06.i.idx.i = phi i64 [ %__first1.addr.06.i.add.i, %for.body.i.i ], [ 0, %entry ]
   %__first1.addr.06.i.ptr.i = getelementptr inbounds i8, ptr %source_context_, i64 %__first1.addr.06.i.idx.i
-  %8 = load i8, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !12, !noalias !15
-  %9 = load i8, ptr %__first2.addr.07.i.i, align 1, !alias.scope !15, !noalias !12
-  store i8 %9, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !12, !noalias !15
-  store i8 %8, ptr %__first2.addr.07.i.i, align 1, !alias.scope !15, !noalias !12
+  %8 = load i8, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !10, !noalias !13
+  %9 = load i8, ptr %__first2.addr.07.i.i, align 1, !alias.scope !13, !noalias !10
+  store i8 %9, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !10, !noalias !13
+  store i8 %8, ptr %__first2.addr.07.i.i, align 1, !alias.scope !13, !noalias !10
   %__first1.addr.06.i.add.i = add nuw nsw i64 %__first1.addr.06.i.idx.i, 1
   %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i, i64 1
   %cmp.not.i.i = icmp eq i64 %__first1.addr.06.i.add.i, 12
-  br i1 %cmp.not.i.i, label %_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_.exit, label %for.body.i.i, !llvm.loop !17
+  br i1 %cmp.not.i.i, label %_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_.exit, label %for.body.i.i, !llvm.loop !15
 
 _ZN6google8protobuf8internal7memswapILm12EEEvPcS3_.exit: ; preds = %for.body.i.i
   ret void
@@ -2179,7 +2179,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call50 = tail call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite20InternalWriteMessageEiRKNS0_11MessageLiteEiPhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(16) %32, i32 noundef %33, ptr noundef %target.addr.5105, ptr noundef %stream)
   %inc = add nuw i32 %i.0104, 1
   %exitcond.not = icmp eq i32 %inc, %27
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.body, %if.end44
   %target.addr.5.lcssa = phi ptr [ %target.addr.4, %if.end44 ], [ %call50, %for.body ]
@@ -2221,7 +2221,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit99
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %incdec.ptr2.i.i102, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit99 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   %value.addr.i.0.lcssa.i.i = phi i64 [ %conv.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit99 ], [ %shr.i.i.i, %while.body.i.i.i ]
-  %conv1.i.i.i = trunc i64 %value.addr.i.0.lcssa.i.i to i8
+  %conv1.i.i.i = trunc nuw nsw i64 %value.addr.i.0.lcssa.i.i to i8
   %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa.i.i, i64 1
   store i8 %conv1.i.i.i, ptr %ptr.addr.i.0.lcssa.i.i, align 1
   br label %if.end57
@@ -2272,7 +2272,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call.i = tail call noundef i64 @_ZNK6google8protobuf6Option12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   %conv.i.i = trunc i64 %call.i to i32
   %or.i.i.i = or i32 %conv.i.i, 1
-  %6 = tail call noundef i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true), !range !10
+  %6 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
   %sub.i.i.i = xor i32 %6, 31
   %mul.i.i.i = mul nuw nsw i32 %sub.i.i.i, 9
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
@@ -2302,7 +2302,7 @@ if.then:                                          ; preds = %for.end
   %call.i18 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
   %conv.i.i19 = trunc i64 %call.i18 to i32
   %or.i.i.i20 = or i32 %conv.i.i19, 1
-  %13 = tail call noundef i32 @llvm.ctlz.i32(i32 %or.i.i.i20, i1 true), !range !10
+  %13 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i20, i1 true)
   %sub.i.i.i21 = xor i32 %13, 31
   %mul.i.i.i22 = mul nuw nsw i32 %sub.i.i.i21, 9
   %add.i.i.i23 = add nuw nsw i32 %mul.i.i.i22, 73
@@ -2331,7 +2331,7 @@ if.then19:                                        ; preds = %if.end
   %call.i30 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #16
   %conv.i.i31 = trunc i64 %call.i30 to i32
   %or.i.i.i32 = or i32 %conv.i.i31, 1
-  %20 = tail call noundef i32 @llvm.ctlz.i32(i32 %or.i.i.i32, i1 true), !range !10
+  %20 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i32, i1 true)
   %sub.i.i.i33 = xor i32 %20, 31
   %mul.i.i.i34 = mul nuw nsw i32 %sub.i.i.i33, 9
   %add.i.i.i35 = add nuw nsw i32 %mul.i.i.i34, 73
@@ -2360,7 +2360,7 @@ if.then27:                                        ; preds = %if.end24
   %call.i42 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #16
   %conv.i.i43 = trunc i64 %call.i42 to i32
   %or.i.i.i44 = or i32 %conv.i.i43, 1
-  %27 = tail call noundef i32 @llvm.ctlz.i32(i32 %or.i.i.i44, i1 true), !range !10
+  %27 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i44, i1 true)
   %sub.i.i.i45 = xor i32 %27, 31
   %mul.i.i.i46 = mul nuw nsw i32 %sub.i.i.i45, 9
   %add.i.i.i47 = add nuw nsw i32 %mul.i.i.i46, 73
@@ -2391,7 +2391,7 @@ if.end32:                                         ; preds = %if.then27, %if.end2
 if.then46:                                        ; preds = %if.end32
   %31 = or i32 %30, 1
   %or.i.i.i53 = sext i32 %31 to i64
-  %32 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i53, i1 true), !range !11
+  %32 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i53, i1 true)
   %sub.i.i.i54 = xor i64 %32, 63
   %mul.i.i.i55 = mul nuw nsw i64 %sub.i.i.i54, 9
   %add.i.i.i56 = add nuw nsw i64 %mul.i.i.i55, 73
@@ -2507,22 +2507,22 @@ entry:
   store ptr %__tmp.sroa.0.0.copyload.i9, ptr %response_type_url_, align 8
   %request_streaming_ = getelementptr inbounds i8, ptr %this, i64 64
   %request_streaming_8 = getelementptr i8, ptr %other, i64 64
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %__first2.addr.07.i.i = phi ptr [ %incdec.ptr1.i.i, %for.body.i.i ], [ %request_streaming_8, %entry ]
   %__first1.addr.06.i.idx.i = phi i64 [ %__first1.addr.06.i.add.i, %for.body.i.i ], [ 0, %entry ]
   %__first1.addr.06.i.ptr.i = getelementptr inbounds i8, ptr %request_streaming_, i64 %__first1.addr.06.i.idx.i
-  %7 = load i8, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !19, !noalias !22
-  %8 = load i8, ptr %__first2.addr.07.i.i, align 1, !alias.scope !22, !noalias !19
-  store i8 %8, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !19, !noalias !22
-  store i8 %7, ptr %__first2.addr.07.i.i, align 1, !alias.scope !22, !noalias !19
+  %7 = load i8, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !17, !noalias !20
+  %8 = load i8, ptr %__first2.addr.07.i.i, align 1, !alias.scope !20, !noalias !17
+  store i8 %8, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !17, !noalias !20
+  store i8 %7, ptr %__first2.addr.07.i.i, align 1, !alias.scope !20, !noalias !17
   %__first1.addr.06.i.add.i = add nuw nsw i64 %__first1.addr.06.i.idx.i, 1
   %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i, i64 1
   %cmp.not.i.i = icmp eq i64 %__first1.addr.06.i.add.i, 8
-  br i1 %cmp.not.i.i, label %_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_.exit, label %for.body.i.i, !llvm.loop !17
+  br i1 %cmp.not.i.i, label %_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_.exit, label %for.body.i.i, !llvm.loop !15
 
 _ZN6google8protobuf8internal7memswapILm8EEEvPcS3_.exit: ; preds = %for.body.i.i
   ret void
@@ -2910,7 +2910,7 @@ if.then:                                          ; preds = %entry
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   %conv.i.i = trunc i64 %call.i to i32
   %or.i.i.i = or i32 %conv.i.i, 1
-  %7 = tail call noundef i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true), !range !10
+  %7 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
   %sub.i.i.i = xor i32 %7, 31
   %mul.i.i.i = mul nuw nsw i32 %sub.i.i.i, 9
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
@@ -2938,7 +2938,7 @@ if.then8:                                         ; preds = %if.end
   %call.i7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #16
   %conv.i.i8 = trunc i64 %call.i7 to i32
   %or.i.i.i9 = or i32 %conv.i.i8, 1
-  %14 = tail call noundef i32 @llvm.ctlz.i32(i32 %or.i.i.i9, i1 true), !range !10
+  %14 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i9, i1 true)
   %sub.i.i.i10 = xor i32 %14, 31
   %mul.i.i.i11 = mul nuw nsw i32 %sub.i.i.i10, 9
   %add.i.i.i12 = add nuw nsw i32 %mul.i.i.i11, 73
@@ -3308,17 +3308,15 @@ attributes #19 = { builtin nounwind }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 0, i32 33}
-!11 = !{i64 0, i64 65}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_: %a"}
-!14 = distinct !{!14, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_"}
-!15 = !{!16}
-!16 = distinct !{!16, !14, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_: %b"}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_: %a"}
-!21 = distinct !{!21, !"_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_"}
-!22 = !{!23}
-!23 = distinct !{!23, !21, !"_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_: %b"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_: %a"}
+!12 = distinct !{!12, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_"}
+!13 = !{!14}
+!14 = distinct !{!14, !12, !"_ZN6google8protobuf8internal7memswapILm12EEEvPcS3_: %b"}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_: %a"}
+!19 = distinct !{!19, !"_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_"}
+!20 = !{!21}
+!21 = distinct !{!21, !19, !"_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_: %b"}

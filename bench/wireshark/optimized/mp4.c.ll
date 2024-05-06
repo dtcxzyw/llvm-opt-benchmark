@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mp4_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 1, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mp4_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @mp4_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [8 x i8], align 1
   %5 = load ptr, ptr %0, align 8
   %6 = call i32 @file_read(ptr noundef nonnull %4, i32 noundef 8, ptr noundef %5) #3

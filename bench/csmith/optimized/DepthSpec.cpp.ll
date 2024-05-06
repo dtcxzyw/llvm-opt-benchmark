@@ -112,27 +112,27 @@ define dso_local noundef i32 @_ZN9DepthSpec28dtInitVariable_minimal_depthEi(i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec25dtFunction_minimal_depth_Ei(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 5, 8) i32 @_ZN9DepthSpec25dtFunction_minimal_depth_Ei(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec33dtGenerateParamList_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 2, 4) i32 @_ZN9DepthSpec33dtGenerateParamList_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec36dtFunctionGenerateBody_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 3, 5) i32 @_ZN9DepthSpec36dtFunctionGenerateBody_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec24dtFunction_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 5, 8) i32 @_ZN9DepthSpec24dtFunction_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec29dtFirstFunction_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 4, 6) i32 @_ZN9DepthSpec29dtFirstFunction_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 4
 }
 
@@ -142,29 +142,29 @@ define dso_local noundef i32 @_ZN9DepthSpec26dtReturnType_minimal_depthEi(i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec26dtStatement_minimal_depth_Ei(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 2, 4) i32 @_ZN9DepthSpec26dtStatement_minimal_depth_Ei(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec31dtStatementReturn_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN9DepthSpec31dtStatementReturn_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec21dtBlock_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 3, 5) i32 @_ZN9DepthSpec21dtBlock_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec25dtStatement_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 2, 5) i32 @_ZN9DepthSpec25dtStatement_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = icmp eq i32 %0, 10
   %spec.select = select i1 %2, i32 3, i32 2
   ret i32 %spec.select
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9DepthSpec31dtStatementAssign_minimal_depthEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 4, 9) i32 @_ZN9DepthSpec31dtStatementAssign_minimal_depthEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN9CGOptions19compound_assignmentEv()
   %3 = select i1 %2, i32 6, i32 5
   ret i32 %3
@@ -173,14 +173,14 @@ define dso_local noundef i32 @_ZN9DepthSpec31dtStatementAssign_minimal_depthEi(i
 declare noundef zeroext i1 @_ZN9CGOptions19compound_assignmentEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec28dtSelectLValue_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN9DepthSpec28dtSelectLValue_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = icmp eq i32 %0, 4
   %spec.select.i = select i1 %2, i32 2, i32 1
   ret i32 %spec.select.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec26dtExpression_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9DepthSpec26dtExpression_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = icmp eq i32 %0, 5
   %3 = zext i1 %2 to i32
   ret i32 %3
@@ -192,24 +192,24 @@ define dso_local noundef i32 @_ZN9DepthSpec19dtLhs_minimal_depthEi(i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec27dtSafeOpFlags_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 2, 4) i32 @_ZN9DepthSpec27dtSafeOpFlags_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = icmp eq i32 %0, 1
   %3 = select i1 %2, i32 2, i32 3
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec28dtStatementFor_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 14, 20) i32 @_ZN9DepthSpec28dtStatementFor_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec40dtFunctionInvocationBinary_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 2, 4) i32 @_ZN9DepthSpec40dtFunctionInvocationBinary_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec27dtStatementIf_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 6, 10) i32 @_ZN9DepthSpec27dtStatementIf_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 6
 }
 
@@ -271,32 +271,32 @@ _ZNSt6vectorIiSaIiEED2Ev.exit27:                  ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec34dtExpressionVariable_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN9DepthSpec34dtExpressionVariable_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec39dtFunctionInvocationUnary_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 2, 4) i32 @_ZN9DepthSpec39dtFunctionInvocationUnary_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec45dtFunctionInvocationRandomUnary_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 3, 6) i32 @_ZN9DepthSpec45dtFunctionInvocationRandomUnary_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec53dtFunctionInvocationRandomRegularBinary_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 3, 7) i32 @_ZN9DepthSpec53dtFunctionInvocationRandomRegularBinary_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec53dtFunctionInvocationRandomBinaryPointer_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 4, 8) i32 @_ZN9DepthSpec53dtFunctionInvocationRandomBinaryPointer_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   ret i32 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec46dtFunctionInvocationRandomBinary_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN9DepthSpec46dtFunctionInvocationRandomBinary_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i4:
   ret i32 5
 }
@@ -304,27 +304,27 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i4:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec43dtFunctionUserBuildInvocation_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9DepthSpec43dtFunctionUserBuildInvocation_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = icmp eq i32 %0, 5
   %3 = zext i1 %2 to i32
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec37dtExpressionRandomParam_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN9DepthSpec37dtExpressionRandomParam_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = icmp eq i32 %0, 5
   %3 = zext i1 %2 to i32
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec41dtFunctionInvocationStdFunc_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN9DepthSpec41dtFunctionInvocationStdFunc_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i4:
   ret i32 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN9DepthSpec30dtSelectVariable_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN9DepthSpec30dtSelectVariable_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = icmp eq i32 %0, 4
   %spec.select = select i1 %2, i32 2, i32 1
   ret i32 %spec.select
@@ -397,7 +397,7 @@ define dso_local noundef i32 @_ZN9DepthSpec32dtInitPointerValue_minimal_depthEi(
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9DepthSpec12backtrackingEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN9DepthSpec12backtrackingEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = tail call noundef ptr @_ZN12RandomNumber18GetRndNumGeneratorEv()
   %3 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %3)
@@ -415,7 +415,7 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #5
 declare noundef zeroext i1 @_ZN18DFSRndNumGenerator18eager_backtrackingEi(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9DepthSpec20depth_guard_by_depthEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN9DepthSpec20depth_guard_by_depthEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN9CGOptions14dfs_exhaustiveEv()
   br i1 %2, label %3, label %8
 
@@ -436,7 +436,7 @@ define dso_local noundef i32 @_ZN9DepthSpec20depth_guard_by_depthEi(i32 noundef 
 declare noundef zeroext i1 @_ZN9CGOptions14dfs_exhaustiveEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9DepthSpec19depth_guard_by_typeE5dTypei(i32 noundef %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN9DepthSpec19depth_guard_by_typeE5dTypei(i32 noundef %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef zeroext i1 @_ZN9CGOptions14dfs_exhaustiveEv()
   br i1 %3, label %4, label %57
 
@@ -608,7 +608,7 @@ define dso_local noundef i32 @_ZN9DepthSpec19depth_guard_by_typeE5dTypei(i32 nou
 
 .sink.split:                                      ; preds = %4, %4, %4, %5, %6, %7, %9, %12, %13, %14, %16, %17, %18, %19, %20, %22, %25, %28, %31, %32, %34, %35, %36, %37, %38, %39, %40, %42, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53
   %.sink = phi i32 [ %55, %53 ], [ 3, %52 ], [ 3, %51 ], [ 3, %50 ], [ 2, %49 ], [ 2, %48 ], [ 2, %47 ], [ 1, %46 ], [ 1, %45 ], [ 0, %44 ], [ %spec.select.i78, %42 ], [ %spec.select.i.i, %40 ], [ 1, %39 ], [ 2, %38 ], [ 3, %37 ], [ 1, %36 ], [ 1, %35 ], [ 1, %34 ], [ %33, %32 ], [ 1, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %20 ], [ 4, %19 ], [ 3, %18 ], [ 3, %17 ], [ 1, %16 ], [ %15, %14 ], [ 6, %13 ], [ 17, %12 ], [ %11, %9 ], [ %spec.select.i, %7 ], [ 3, %6 ], [ 4, %5 ], [ 5, %4 ], [ 5, %4 ], [ 5, %4 ]
-  %56 = tail call noundef i32 @_ZN9DepthSpec12backtrackingEi(i32 noundef %.sink), !range !7
+  %56 = tail call noundef i32 @_ZN9DepthSpec12backtrackingEi(i32 noundef %.sink)
   br label %57
 
 57:                                               ; preds = %.sink.split, %4, %2
@@ -849,4 +849,3 @@ attributes #13 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 1}

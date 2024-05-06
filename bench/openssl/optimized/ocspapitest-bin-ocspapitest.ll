@@ -70,7 +70,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #6
   %tobool.not = icmp eq i32 %call, 0
@@ -116,7 +116,7 @@ declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_resp_signer() #1 {
+define internal range(i32 0, 2) i32 @test_resp_signer() #1 {
 entry:
   %tmp = alloca ptr, align 8
   %call = tail call fastcc ptr @make_dummy_resp()
@@ -252,7 +252,7 @@ err:                                              ; preds = %lor.lhs.false52, %i
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_access_description(i32 noundef %testcase) #1 {
+define internal range(i32 0, 2) i32 @test_access_description(i32 noundef %testcase) #1 {
 entry:
   %call = tail call ptr @ACCESS_DESCRIPTION_new() #6
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 162, ptr noundef nonnull @.str.45, ptr noundef %call) #6
@@ -298,7 +298,7 @@ err:                                              ; preds = %sw.bb9, %sw.bb2, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_ocsp_url_svcloc_new() #1 {
+define internal range(i32 0, 2) i32 @test_ocsp_url_svcloc_new() #1 {
 entry:
   %0 = load ptr, ptr @certstr, align 8
   %call.i = tail call ptr @BIO_new_file(ptr noundef %0, ptr noundef nonnull @.str.42) #6

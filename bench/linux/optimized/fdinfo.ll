@@ -293,12 +293,12 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
 157:                                              ; preds = %149, %143
   %158 = phi ptr [ %156, %149 ], [ %145, %143 ]
   %159 = getelementptr inbounds i8, ptr %158, i64 56
-  %160 = trunc i64 %136 to i32
+  %160 = trunc nuw i64 %136 to i32
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.18, i32 noundef %160, ptr noundef %159) #4
   br label %163
 
 161:                                              ; preds = %.lr.ph
-  %162 = trunc i64 %136 to i32
+  %162 = trunc nuw i64 %136 to i32
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %162) #4
   br label %163
 
@@ -328,7 +328,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr nocapture nounde
   %178 = load i64, ptr %175, align 8
   %179 = sub i64 %177, %178
   %180 = trunc i64 %179 to i32
-  %181 = trunc i64 %172 to i32
+  %181 = trunc nuw i64 %172 to i32
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %181, i64 noundef %178, i32 noundef %180) #4
   %182 = add nuw nsw i64 %172, 1
   %183 = load i32, ptr %168, align 4

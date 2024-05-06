@@ -1265,7 +1265,7 @@ define internal void @req_ref_ra_est_cause_convert(ptr nocapture noundef writeon
 switch.hole_check:
   %2 = lshr i32 %1, 5
   %3 = and i32 %2, 7
-  %switch.maskindex = trunc i32 %3 to i8
+  %switch.maskindex = trunc nuw nsw i32 %3 to i8
   %switch.shifted = lshr i8 -15, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %4
@@ -1303,7 +1303,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %17
 
 switch.hole_check8:                               ; preds = %4
-  %switch.maskindex10 = trunc i32 %6 to i8
+  %switch.maskindex10 = trunc nuw nsw i32 %6 to i8
   %switch.shifted11 = lshr i8 -65, %switch.maskindex10
   %switch.lobit12 = trunc i8 %switch.shifted11 to i1
   br i1 %switch.lobit12, label %switch.lookup9, label %8
@@ -2533,7 +2533,7 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
 
 559:                                              ; preds = %15
   %560 = call fastcc i32 @dissect_rsl_paging_package_number(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5)
-  %561 = trunc i32 %560 to i8
+  %561 = trunc nuw nsw i32 %560 to i8
   %562 = load i32, ptr %5, align 4
   %563 = tail call fastcc i32 @dissect_rsl_paging_package(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %562, i8 noundef zeroext %561)
   store i32 %563, ptr %5, align 4
@@ -4699,7 +4699,7 @@ define internal fastcc i32 @dissect_rsl_ie_llp_apdu(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rsl_paging_package_number(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 16) i32 @dissect_rsl_paging_package_number(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = load i32, ptr @ett_ie_paging_package_number, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.786) #5

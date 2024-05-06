@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sigset_s = type { [2 x i32] }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pause() local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @pause() local_unnamed_addr #0 {
   %1 = alloca %struct.sigset_s, align 4
   %2 = call i32 @sigemptyset(ptr noundef nonnull %1) #2
   %3 = call i32 @nxsig_timedwait(ptr noundef nonnull %1, ptr noundef null, ptr noundef null) #2

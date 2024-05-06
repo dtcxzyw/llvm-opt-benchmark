@@ -653,7 +653,7 @@ declare dso_local void @_raw_read_unlock(ptr noundef) local_unnamed_addr #1 sect
 declare dso_local void @_raw_read_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @send_sigurg(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @send_sigurg(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i64 @_raw_read_lock_irqsave(ptr noundef %0) #6
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -801,7 +801,7 @@ send_sigurg_to_task.exit4:                        ; preds = %71, %74, %76
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @fasync_remove_entry(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @fasync_remove_entry(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_raw_spin_lock(ptr noundef %3) #6
   tail call void @_raw_spin_lock(ptr noundef nonnull @fasync_lock) #6
@@ -952,7 +952,7 @@ define dso_local ptr @fasync_insert_entry(i32 noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @fasync_helper(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -12, 2) i32 @fasync_helper(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = icmp eq i32 %2, 0
   br i1 %5, label %6, label %8
 
@@ -1883,7 +1883,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @put_compat_flock(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -14, 1) i32 @put_compat_flock(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.compat_flock, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   %4 = load i16, ptr %0, align 8
@@ -1914,7 +1914,7 @@ define internal fastcc i32 @put_compat_flock(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @put_compat_flock64(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -14, 1) i32 @put_compat_flock64(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.compat_flock64, align 2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #6
   %4 = load i16, ptr %0, align 8

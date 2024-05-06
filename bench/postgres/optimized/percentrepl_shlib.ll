@@ -46,7 +46,7 @@ define ptr @replace_percent_placeholders(ptr noundef %0, ptr noundef %1, ptr noc
   unreachable
 
 15:                                               ; preds = %10
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %16 = load i8, ptr %2, align 1
   %.not2834 = icmp eq i8 %16, 0
   br i1 %.not2834, label %.loopexit, label %.lr.ph
@@ -118,11 +118,11 @@ define ptr @replace_percent_placeholders(ptr noundef %0, ptr noundef %1, ptr noc
 
 .critedge:                                        ; preds = %.split
   call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull %.us-phi38) #4
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   br label %49
 
 .loopexit:                                        ; preds = %.split, %15, %25, %28
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %1, ptr noundef %0) #4
   %46 = load i8, ptr %11, align 1
   %47 = sext i8 %46 to i32
@@ -153,13 +153,13 @@ declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_u
 ; Function Attrs: noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #3
-
 declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #3
+declare void @llvm.va_start.p0(ptr) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

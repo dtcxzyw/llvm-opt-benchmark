@@ -1995,7 +1995,7 @@ define hidden noundef zeroext i16 @de_emm_trac_area_id(ptr noundef %0, ptr nound
 declare i32 @dissect_e212_mcc_mnc(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i16 @de_emm_ue_net_cap(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define hidden zeroext i16 @de_emm_ue_net_cap(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, ptr noundef nonnull @de_emm_ue_net_cap.oct3_flags, i32 noundef 0) #10
   %8 = add i32 %3, 1
   tail call void @proto_tree_add_bitmask_list(ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef 1, ptr noundef nonnull @de_emm_ue_net_cap.oct4_flags, i32 noundef 0) #10
@@ -2003,7 +2003,7 @@ define hidden noundef zeroext i16 @de_emm_ue_net_cap(ptr noundef %0, ptr noundef
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = trunc i32 %4 to i16
+  %11 = trunc nuw nsw i32 %4 to i16
   br label %43
 
 12:                                               ; preds = %7
@@ -2089,7 +2089,7 @@ define hidden noundef zeroext i16 @de_emm_ue_add_sec_cap(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i16 @de_esm_apn_aggr_max_br(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define hidden zeroext i16 @de_esm_apn_aggr_max_br(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %13
@@ -2182,7 +2182,7 @@ calc_bitrate.exit175:                             ; preds = %38, %42, %45
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %50
-  %54 = trunc i32 %4 to i16
+  %54 = trunc nuw nsw i32 %4 to i16
   br label %175
 
 55:                                               ; preds = %50
@@ -2407,7 +2407,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i16 @de_esm_qos(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define hidden zeroext i16 @de_esm_qos(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_nas_eps_esm_qci, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
   %10 = add i32 %3, 1
@@ -2415,7 +2415,7 @@ define hidden noundef zeroext i16 @de_esm_qos(ptr noundef %0, ptr noundef %1, pt
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %7
-  %13 = trunc i32 %4 to i16
+  %13 = trunc nuw nsw i32 %4 to i16
   br label %255
 
 14:                                               ; preds = %7
@@ -2803,7 +2803,7 @@ calc_bitrate_ext.exit244:                         ; preds = %188, %193, %195, %1
 212:                                              ; preds = %206
   %213 = zext i8 %207 to i32
   %214 = load i32, ptr @hf_nas_eps_esm_embr_ul, align 4
-  %215 = tail call fastcc i32 @calc_bitrate_ext2(i8 noundef zeroext %207), !range !6
+  %215 = tail call fastcc i32 @calc_bitrate_ext2(i8 noundef zeroext %207)
   %216 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %214, ptr noundef %0, i32 noundef %204, i32 noundef 1, i32 noundef %213, ptr noundef nonnull @.str.64, i32 noundef %215) #10
   br label %217
 
@@ -2821,7 +2821,7 @@ calc_bitrate_ext.exit244:                         ; preds = %188, %193, %195, %1
 224:                                              ; preds = %217
   %225 = zext i8 %219 to i32
   %226 = load i32, ptr @hf_nas_eps_esm_embr_dl, align 4
-  %227 = tail call fastcc i32 @calc_bitrate_ext2(i8 noundef zeroext %219), !range !6
+  %227 = tail call fastcc i32 @calc_bitrate_ext2(i8 noundef zeroext %219)
   %228 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %226, ptr noundef %0, i32 noundef %218, i32 noundef 1, i32 noundef %225, ptr noundef nonnull @.str.66, i32 noundef %227) #10
   br label %229
 
@@ -2839,7 +2839,7 @@ calc_bitrate_ext.exit244:                         ; preds = %188, %193, %195, %1
 236:                                              ; preds = %229
   %237 = zext i8 %231 to i32
   %238 = load i32, ptr @hf_nas_eps_esm_egbr_ul, align 4
-  %239 = tail call fastcc i32 @calc_bitrate_ext2(i8 noundef zeroext %231), !range !6
+  %239 = tail call fastcc i32 @calc_bitrate_ext2(i8 noundef zeroext %231)
   %240 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %238, ptr noundef %0, i32 noundef %230, i32 noundef 1, i32 noundef %237, ptr noundef nonnull @.str.68, i32 noundef %239) #10
   br label %241
 
@@ -2857,7 +2857,7 @@ calc_bitrate_ext.exit244:                         ; preds = %188, %193, %195, %1
 248:                                              ; preds = %241
   %249 = zext i8 %243 to i32
   %250 = load i32, ptr @hf_nas_eps_esm_egbr_dl, align 4
-  %251 = tail call fastcc i32 @calc_bitrate_ext2(i8 noundef zeroext %243), !range !6
+  %251 = tail call fastcc i32 @calc_bitrate_ext2(i8 noundef zeroext %243)
   %252 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %250, ptr noundef %0, i32 noundef %242, i32 noundef 1, i32 noundef %249, ptr noundef nonnull @.str.70, i32 noundef %251) #10
   br label %253
 
@@ -2871,7 +2871,7 @@ calc_bitrate_ext.exit244:                         ; preds = %188, %193, %195, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc i32 @calc_bitrate_ext2(i8 noundef zeroext %0) unnamed_addr #2 {
+define internal fastcc range(i32 260, 10001) i32 @calc_bitrate_ext2(i8 noundef zeroext %0) unnamed_addr #2 {
   %2 = zext i8 %0 to i32
   %3 = add i8 %0, -1
   %or.cond = icmp ult i8 %3, 61
@@ -3315,13 +3315,13 @@ proto_item_set_hidden.exit:                       ; preds = %35, %32, %19, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_emm_eps_net_feature_sup(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal zeroext i16 @de_emm_eps_net_feature_sup(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, ptr noundef nonnull @de_emm_eps_net_feature_sup.oct3_flags, i32 noundef 0) #10
   %8 = icmp ult i32 %4, 2
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = trunc i32 %4 to i16
+  %10 = trunc nuw nsw i32 %4 to i16
   br label %20
 
 11:                                               ; preds = %7
@@ -3840,7 +3840,7 @@ define internal noundef zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr
   %39 = add nuw nsw i32 %.0107141, 1
   %40 = add i32 %.1110140, 2
   %exitcond163.not = icmp eq i32 %39, %30
-  br i1 %exitcond163.not, label %.loopexit, label %.preheader, !llvm.loop !7
+  br i1 %exitcond163.not, label %.loopexit, label %.preheader, !llvm.loop !6
 
 41:                                               ; preds = %23
   %42 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %24, i32 noundef 6, i32 noundef 1) #10
@@ -3876,7 +3876,7 @@ define internal noundef zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr
 proto_item_set_generated.exit:                    ; preds = %.lr.ph, %52, %55
   %59 = add nuw nsw i32 %.1139, 1
   %exitcond162.not = icmp eq i32 %59, %46
-  br i1 %exitcond162.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond162.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 60:                                               ; preds = %23
   %61 = zext nneg i8 %.0108 to i32
@@ -3900,7 +3900,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %52, %55
   %69 = add i32 %66, 2
   %70 = add nuw nsw i32 %.2138, 1
   %exitcond.not = icmp eq i32 %70, %61
-  br i1 %exitcond.not, label %.loopexit, label %.preheader122, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.preheader122, !llvm.loop !8
 
 default.unreachable164:                           ; preds = %23
   unreachable
@@ -3909,7 +3909,7 @@ default.unreachable164:                           ; preds = %23
   %.3 = phi i32 [ %45, %41 ], [ %40, %.preheader ], [ %45, %proto_item_set_generated.exit ], [ %69, %.preheader122 ]
   %71 = sub i32 %.3, %3
   %72 = icmp ult i32 %71, %4
-  br i1 %72, label %.lr.ph146, label %.loopexit124, !llvm.loop !10
+  br i1 %72, label %.lr.ph146, label %.loopexit124, !llvm.loop !9
 
 .loopexit124:                                     ; preds = %.loopexit, %7, %63, %34, %25
   %.0.in = phi i32 [ %4, %25 ], [ %4, %63 ], [ %4, %34 ], [ 0, %7 ], [ %71, %.loopexit ]
@@ -4018,7 +4018,7 @@ define internal noundef zeroext i16 @de_emm_ext_emerg_num_list(ptr noundef %0, p
   call void @proto_item_set_len(ptr noundef %43, i32 noundef %44) #10
   %45 = sub i32 %.2, %3
   %46 = icmp ult i32 %45, %4
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %42, %7
   %47 = trunc i32 %4 to i16
@@ -4411,7 +4411,7 @@ define internal noundef zeroext i16 @de_emm_ciph_key_data(ptr noundef %0, ptr no
   call void @proto_item_set_len(ptr noundef %97, i32 noundef %98) #10
   %99 = sub i32 %.2, %3
   %100 = icmp ult i32 %99, %4
-  br i1 %100, label %22, label %._crit_edge, !llvm.loop !12
+  br i1 %100, label %22, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %96, %7
   %101 = trunc i32 %4 to i16
@@ -4475,7 +4475,7 @@ define internal noundef zeroext i16 @de_emm_wus_assist_info(ptr noundef %0, ptr 
   %19 = add i32 %.019, 1
   %20 = add i32 %.01618, 1
   %exitcond.not = icmp eq i32 %.01618, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %18, %7
   %21 = trunc i32 %4 to i16
@@ -4855,7 +4855,7 @@ define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %
   %77 = add nuw i32 %.08183, 1
   %78 = load i32, ptr %10, align 4
   %79 = icmp ult i32 %77, %78
-  br i1 %79, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %79, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %76, %20
   %.1.lcssa = phi i32 [ %32, %20 ], [ %.2, %76 ]
@@ -4893,7 +4893,7 @@ define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %
   %100 = add i32 %.08286, 1
   %101 = load i32, ptr %8, align 4
   %.not = icmp ugt i32 %100, %101
-  br i1 %.not, label %._crit_edge90, label %20, !llvm.loop !15
+  br i1 %.not, label %._crit_edge90, label %20, !llvm.loop !14
 
 ._crit_edge90:                                    ; preds = %99, %7
   %102 = trunc i32 %4 to i16
@@ -5320,7 +5320,7 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %.preheader42, label %12, !llvm.loop !16
+  br i1 %exitcond.not, label %.preheader42, label %12, !llvm.loop !15
 
 .preheader42:                                     ; preds = %12, %.preheader42
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.preheader42 ], [ 23, %12 ]
@@ -5331,7 +5331,7 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next62, 33
-  br i1 %exitcond68.not, label %.preheader41, label %.preheader42, !llvm.loop !17
+  br i1 %exitcond68.not, label %.preheader41, label %.preheader42, !llvm.loop !16
 
 .preheader41:                                     ; preds = %.preheader42, %.preheader41
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.preheader41 ], [ 56, %.preheader42 ]
@@ -5342,7 +5342,7 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next70, 78
-  br i1 %exitcond76.not, label %.preheader40, label %.preheader41, !llvm.loop !18
+  br i1 %exitcond76.not, label %.preheader40, label %.preheader41, !llvm.loop !17
 
 .preheader40:                                     ; preds = %.preheader41, %.preheader40
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.preheader40 ], [ 134, %.preheader41 ]
@@ -5353,7 +5353,7 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next78, 28
-  br i1 %exitcond84.not, label %.preheader, label %.preheader40, !llvm.loop !19
+  br i1 %exitcond84.not, label %.preheader, label %.preheader40, !llvm.loop !18
 
 .preheader:                                       ; preds = %.preheader40, %.preheader
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.preheader ], [ 162, %.preheader40 ]
@@ -5364,7 +5364,7 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next86, 34
-  br i1 %exitcond92.not, label %23, label %.preheader, !llvm.loop !20
+  br i1 %exitcond92.not, label %23, label %.preheader, !llvm.loop !19
 
 23:                                               ; preds = %.preheader
   %24 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.815, ptr noundef nonnull @.str.816, ptr noundef nonnull @.str.817) #10
@@ -5713,7 +5713,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nas_eps_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 0, 2) i32 @dissect_nas_eps_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #10
   %6 = icmp slt i32 %5, 8
   br i1 %6, label %15, label %7
@@ -10454,7 +10454,7 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 260, i32 10001}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -10468,4 +10468,3 @@ attributes #12 = { noreturn nounwind }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}

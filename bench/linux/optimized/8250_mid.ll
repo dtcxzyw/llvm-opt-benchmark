@@ -214,7 +214,7 @@ define internal void @mid8250_remove(ptr nocapture noundef readonly %0) #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pnw_setup(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @pnw_setup(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 344
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -122
@@ -272,7 +272,7 @@ declare dso_local ptr @pci_get_slot(ptr noundef, i32 noundef) local_unnamed_addr
 declare dso_local void @pci_dev_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tng_setup(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #2 align 16 {
+define internal noundef range(i32 -19, 1) i32 @tng_setup(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 344
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -128
@@ -308,7 +308,7 @@ define internal void @tng_exit(ptr nocapture noundef readonly %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @tng_handle_irq(ptr noundef %0) #2 align 16 {
+define internal range(i32 0, 2) i32 @tng_handle_irq(ptr noundef %0) #2 align 16 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 520
   %4 = load ptr, ptr %3, align 8
@@ -392,7 +392,7 @@ declare dso_local i32 @hsu_dma_do_irq(ptr noundef, i16 noundef zeroext, i32 noun
 declare dso_local i32 @serial8250_handle_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @dnv_setup(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
+define internal range(i32 -2147483648, 1) i32 @dnv_setup(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   %4 = getelementptr inbounds i8, ptr %1, i64 344
   %5 = load ptr, ptr %4, align 8
@@ -484,7 +484,7 @@ declare dso_local i32 @pci_irq_vector(ptr noundef, i32 noundef) local_unnamed_ad
 declare dso_local i32 @hsu_dma_probe(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @dnv_handle_irq(ptr noundef %0) #2 align 16 {
+define internal range(i32 0, 2) i32 @dnv_handle_irq(ptr noundef %0) #2 align 16 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 520
   %4 = load ptr, ptr %3, align 8

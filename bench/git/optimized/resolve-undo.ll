@@ -59,7 +59,7 @@ if.end12:                                         ; preds = %if.then9, %if.end5
   %idxprom = zext nneg i32 %sub to i64
   %arrayidx = getelementptr inbounds [3 x %struct.object_id], ptr %oid, i64 0, i64 %idxprom
   %oid14 = getelementptr inbounds i8, ptr %ce, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %arrayidx, ptr noundef nonnull align 4 dereferenceable(32) %oid14, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(32) %arrayidx, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid14, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %ce, i64 104
   %5 = load i32, ptr %algo.i, align 4
   %algo3.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
@@ -295,7 +295,7 @@ if.end44:                                         ; preds = %if.end39
   %9 = load ptr, ptr %hash_algo.i, align 8
   %rawsz.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load i64, ptr %rawsz.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %arrayidx46, ptr align 1 %data.addr.246, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %arrayidx46, ptr readonly align 1 %data.addr.246, i64 %10, i1 false)
   %11 = load ptr, ptr @the_repository, align 8
   %hash_algo2.i = getelementptr inbounds i8, ptr %11, i64 256
   %12 = load ptr, ptr %hash_algo2.i, align 8
@@ -362,7 +362,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unmerge_index_entry(ptr noundef %istate, ptr noundef %path, ptr noundef %ru, i32 noundef %ce_flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @unmerge_index_entry(ptr noundef %istate, ptr noundef %path, ptr noundef %ru, i32 noundef %ce_flags) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #7
   %conv = trunc i64 %call to i32
@@ -409,7 +409,7 @@ for.body.for.inc_crit_edge:                       ; preds = %for.body
 if.end16:                                         ; preds = %for.body
   %arrayidx21 = getelementptr inbounds [3 x %struct.object_id], ptr %oid, i64 0, i64 %indvars.iv
   %4 = add nuw nsw i64 %indvars.iv, 1
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %call22 = tail call ptr @make_cache_entry(ptr noundef %istate, i32 noundef %3, ptr noundef nonnull %arrayidx21, ptr noundef %path, i32 noundef %5, i32 noundef 0) #6
   %ce_flags23 = getelementptr inbounds i8, ptr %call22, i64 56
   %6 = load i32, ptr %ce_flags23, align 8
@@ -484,7 +484,7 @@ if.end9:                                          ; preds = %for.body
   br i1 %tobool13.not, label %for.inc, label %if.end15
 
 if.end15:                                         ; preds = %if.end9
-  %call16 = tail call i32 @unmerge_index_entry(ptr noundef nonnull %istate, ptr noundef %6, ptr noundef nonnull %7, i32 noundef %ce_flags), !range !12
+  %call16 = tail call i32 @unmerge_index_entry(ptr noundef nonnull %istate, ptr noundef %6, ptr noundef nonnull %7, i32 noundef %ce_flags)
   tail call void @free(ptr noundef nonnull %7) #6
   store ptr null, ptr %util, align 8
   br label %for.inc
@@ -535,4 +535,3 @@ attributes #7 = { nounwind willreturn memory(read) }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i32 -1, i32 1}

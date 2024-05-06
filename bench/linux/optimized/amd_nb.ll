@@ -269,7 +269,7 @@ define dso_local noundef ptr @amd_get_mmconfig_range(ptr noundef writeonly %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @amd_get_subcaches(i32 noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 16) i32 @amd_get_subcaches(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = alloca i32, align 4
   %3 = sext i32 %0 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
@@ -317,7 +317,7 @@ define dso_local i32 @amd_get_subcaches(i32 noundef %0) local_unnamed_addr #1 al
 declare dso_local i32 @pci_read_config_dword(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @amd_set_subcaches(i32 noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @amd_set_subcaches(i32 noundef %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca i32, align 4
   %4 = sext i32 %0 to i64
   %5 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4

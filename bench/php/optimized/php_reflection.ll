@@ -2073,7 +2073,7 @@ _function_closure_string.exit:                    ; preds = %._crit_edge.i, %362
   %.06780.i = phi ptr [ %390, %.lr.ph.i603 ], [ %431, %424 ]
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.128, ptr noundef nonnull %388) #13
   %416 = icmp ult i32 %.06681.i, %392
-  call fastcc void @_parameter_string(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %.06780.i, i32 noundef %.06681.i, i1 noundef zeroext %416)
+  call fastcc void @_parameter_string(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef nonnull %.06780.i, i32 noundef %.06681.i, i1 noundef zeroext %416)
   %417 = load ptr, ptr %0, align 8
   %.not78.i = icmp eq ptr %417, null
   br i1 %.not78.i, label %423, label %418
@@ -4692,7 +4692,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getParameters(ptr nocapture n
 
 45:                                               ; preds = %42
   %46 = call noalias ptr @_emalloc_256() #13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %46, ptr noundef nonnull align 8 dereferenceable(240) %13, i64 240, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %46, ptr noundef nonnull readonly align 8 dereferenceable(240) %13, i64 240, i1 false)
   %47 = load ptr, ptr %39, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
@@ -6054,7 +6054,7 @@ define hidden void @zim_ReflectionParameter___construct(ptr noundef %0, ptr noca
 
 is_closure_invoke.exit:                           ; preds = %138
   %142 = getelementptr inbounds i8, ptr %133, i64 24
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %142, ptr noundef nonnull dereferenceable(8) @.str.20, i64 8)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %142, ptr noundef nonnull dereferenceable(8) @.str.20, i64 8)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %143, label %is_closure_invoke.exit.thread
 
@@ -7342,7 +7342,7 @@ define hidden void @zim_ReflectionParameter_getDeclaringFunction(ptr nocapture n
 
 33:                                               ; preds = %32
   %34 = tail call noalias ptr @_emalloc_256() #13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %34, ptr noundef nonnull align 8 dereferenceable(240) %26, i64 240, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %34, ptr noundef nonnull readonly align 8 dereferenceable(240) %26, i64 240, i1 false)
   %35 = getelementptr inbounds i8, ptr %26, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 4
@@ -7424,7 +7424,7 @@ reflection_function_factory.exit:                 ; preds = %60, %73
 
 78:                                               ; preds = %77
   %79 = tail call noalias ptr @_emalloc_256() #13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %79, ptr noundef nonnull align 8 dereferenceable(240) %26, i64 240, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %79, ptr noundef nonnull readonly align 8 dereferenceable(240) %26, i64 240, i1 false)
   %80 = getelementptr inbounds i8, ptr %26, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 4
@@ -7992,7 +7992,7 @@ get_type_kind.exit.thread:                        ; preds = %15, %21
   br label %30
 
 get_type_kind.exit:                               ; preds = %21
-  %27 = tail call i32 @llvm.ctpop.i32(i32 %6), !range !5
+  %27 = tail call range(i32 0, 18) i32 @llvm.ctpop.i32(i32 %6)
   %.not13.i = icmp ugt i32 %27, 1
   %28 = and i32 %1, 262143
   %29 = icmp ne i32 %28, 2
@@ -11114,7 +11114,7 @@ define internal fastcc void @reflection_method_invoke(ptr noundef %0, ptr nocapt
 
 102:                                              ; preds = %.critedge2
   %103 = call noalias ptr @_emalloc_256() #13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %103, ptr noundef nonnull align 8 dereferenceable(240) %10, i64 240, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %103, ptr noundef nonnull readonly align 8 dereferenceable(240) %10, i64 240, i1 false)
   %104 = getelementptr inbounds i8, ptr %10, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 4
@@ -16265,7 +16265,7 @@ _property_string.exit:                            ; preds = %371, %376
 
 is_closure_invoke.exit:                           ; preds = %460
   %464 = getelementptr inbounds i8, ptr %457, i64 24
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %464, ptr noundef nonnull dereferenceable(8) @.str.20, i64 8)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %464, ptr noundef nonnull dereferenceable(8) @.str.20, i64 8)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %465, label %is_closure_invoke.exit.thread
 
@@ -17231,7 +17231,7 @@ define hidden void @zim_ReflectionClass_hasMethod(ptr nocapture noundef readonly
 
 is_closure_invoke.exit:                           ; preds = %35
   %39 = getelementptr inbounds i8, ptr %29, i64 24
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %39, ptr noundef nonnull dereferenceable(8) @.str.20, i64 8)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %39, ptr noundef nonnull dereferenceable(8) @.str.20, i64 8)
   %bcmp.i.fr = freeze i32 %bcmp.i
   %.not.i = icmp eq i32 %bcmp.i.fr, 0
   %spec.select = select i1 %.not.i, i32 3, i32 2
@@ -17338,7 +17338,7 @@ define hidden void @zim_ReflectionClass_getMethod(ptr nocapture noundef readonly
 
 is_closure_invoke.exit:                           ; preds = %36
   %40 = getelementptr inbounds i8, ptr %31, i64 24
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %40, ptr noundef nonnull dereferenceable(8) @.str.20, i64 8)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %40, ptr noundef nonnull dereferenceable(8) @.str.20, i64 8)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %41, label %is_closure_invoke.exit55.thread
 
@@ -17435,7 +17435,7 @@ is_closure_invoke.exit.thread:                    ; preds = %41
 
 is_closure_invoke.exit55:                         ; preds = %88
   %92 = getelementptr inbounds i8, ptr %31, i64 24
-  %bcmp.i53 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %92, ptr noundef nonnull dereferenceable(8) @.str.20, i64 8)
+  %bcmp.i53 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %92, ptr noundef nonnull dereferenceable(8) @.str.20, i64 8)
   %.not.i54 = icmp eq i32 %bcmp.i53, 0
   br i1 %.not.i54, label %93, label %is_closure_invoke.exit55.thread
 
@@ -30087,7 +30087,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   %170 = load ptr, ptr %3, align 8
   %171 = getelementptr inbounds i8, ptr %14, i64 24
   %172 = load ptr, ptr %171, align 8
-  %173 = call fastcc i32 @call_attribute_constructor(ptr noundef nonnull %166, ptr noundef nonnull %30, ptr noundef %170, ptr noundef %.0, i32 noundef %.2134, ptr noundef %.3, ptr noundef %172), !range !6
+  %173 = call fastcc i32 @call_attribute_constructor(ptr noundef nonnull %166, ptr noundef nonnull %30, ptr noundef %170, ptr noundef %.0, i32 noundef %.2134, ptr noundef %.3, ptr noundef %172)
   %174 = icmp eq i32 %173, -1
   br i1 %174, label %175, label %187
 
@@ -30179,7 +30179,7 @@ define internal fastcc void @attribute_ctor_cleanup(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @call_attribute_constructor(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @call_attribute_constructor(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %union._zend_function, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 256
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
@@ -31103,7 +31103,7 @@ zend_reflection_class_factory.exit:               ; preds = %23, %49
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_ReflectionEnumBackedCase___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
-  tail call void @zim_ReflectionClassConstant___construct(ptr noundef %0, ptr poison)
+  tail call void @zim_ReflectionClassConstant___construct(ptr noundef %0, ptr readnone poison)
   %3 = load ptr, ptr getelementptr inbounds (%struct._zend_executor_globals, ptr @executor_globals, i64 0, i32 50), align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %4, label %zim_ReflectionEnumUnitCase___construct.exit.thread
@@ -34229,5 +34229,3 @@ attributes #16 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 0, i32 18}
-!6 = !{i32 -1, i32 1}

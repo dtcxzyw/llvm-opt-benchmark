@@ -424,7 +424,7 @@ define internal fastcc i32 @dissect_wifi_dpp_attributes(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_wifi_dpp_public_action(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 2, 65538) i32 @dissect_wifi_dpp_public_action(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.2) #2
@@ -615,7 +615,7 @@ define internal i32 @dissect_wifi_dpp_tcp_pdu(ptr noundef %0, ptr nocapture noun
   %15 = load i32, ptr @hf_wifi_dpp_tcp_oui_type, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
   %17 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 9) #2
-  %18 = tail call i32 @dissect_wifi_dpp_public_action(ptr noundef %17, ptr noundef nonnull %1, ptr noundef %2, ptr poison), !range !6
+  %18 = tail call i32 @dissect_wifi_dpp_public_action(ptr noundef %17, ptr noundef nonnull %1, ptr noundef %2, ptr poison)
   %19 = add nuw nsw i32 %18, 9
   br label %93
 
@@ -735,4 +735,3 @@ attributes #2 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 2, i32 65538}

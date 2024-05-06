@@ -1605,7 +1605,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef signext i8 @_ZN6icu_75L25comparePartialLocationKeyE8UElementS0_(ptr readonly %key1.coerce, ptr readonly %key2.coerce) #10 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_75L25comparePartialLocationKeyE8UElementS0_(ptr readonly %key1.coerce, ptr readonly %key2.coerce) #10 {
 entry:
   %cmp = icmp eq ptr %key1.coerce, %key2.coerce
   br i1 %cmp, label %return, label %if.end

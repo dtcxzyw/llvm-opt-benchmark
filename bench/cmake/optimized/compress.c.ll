@@ -41,7 +41,7 @@ thread-pre-split:                                 ; preds = %28
 
 17:                                               ; preds = %14
   %18 = call i64 @llvm.umin.i64(i64 %.0, i64 4294967295)
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw i64 %18 to i32
   store i32 %19, ptr %12, align 8
   %20 = sub i64 %.0, %18
   br label %21
@@ -54,7 +54,7 @@ thread-pre-split:                                 ; preds = %28
 
 24:                                               ; preds = %21
   %25 = call i64 @llvm.umin.i64(i64 %.019, i64 4294967295)
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw i64 %25 to i32
   store i32 %26, ptr %13, align 8
   %27 = sub i64 %.019, %25
   br label %28
@@ -122,7 +122,7 @@ thread-pre-split.i:                               ; preds = %27
 
 16:                                               ; preds = %13
   %17 = call i64 @llvm.umin.i64(i64 %.0.i, i64 4294967295)
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   store i32 %18, ptr %11, align 8
   %19 = sub i64 %.0.i, %17
   br label %20
@@ -135,7 +135,7 @@ thread-pre-split.i:                               ; preds = %27
 
 23:                                               ; preds = %20
   %24 = call i64 @llvm.umin.i64(i64 %.019.i, i64 4294967295)
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw i64 %24 to i32
   store i32 %25, ptr %12, align 8
   %26 = sub i64 %.019.i, %24
   br label %27

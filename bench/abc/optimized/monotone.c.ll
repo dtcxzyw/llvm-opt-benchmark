@@ -141,7 +141,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %37, ptr %5, align 4
   %38 = sext i32 %13 to i64
   %39 = getelementptr inbounds i32, ptr %36, i64 %38
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %40, ptr %39, align 4
   %41 = add nsw i32 %.01216, 1
   br label %42
@@ -202,7 +202,7 @@ define i32 @findPendingSignal(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %13, label %.lr.ph, label %.critedge, !llvm.loop !6
 
 .critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %10, %.critedge.loopexit.split.loop.exit, %1
@@ -1214,7 +1214,7 @@ define noalias ptr @findNewMonotone(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %32, label %33, label %65
 
 33:                                               ; preds = %22
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nsw i64 %indvars.iv to i32
   %35 = add i32 %18, %34
   %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %35, i32 noundef 1, ptr noundef nonnull @.str.13, i32 noundef -1)
   %37 = add i32 %19, %34
@@ -1473,7 +1473,7 @@ define noalias noundef ptr @findMonotoneSignals(ptr noundef %0) local_unnamed_ad
   br i1 %13, label %.lr.ph.i, label %findPendingSignal.exit.thread, !llvm.loop !6
 
 findPendingSignal.exit:                           ; preds = %.lr.ph.i
-  %14 = trunc i64 %indvars.iv.i to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %findPendingSignal.exit.thread, label %16
 

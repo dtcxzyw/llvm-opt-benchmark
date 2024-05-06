@@ -21,13 +21,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.RISCV_CPU = private unnamed_addr constant [10 x i8] c"RISCV_CPU\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @riscv_cpu_write_elf64_note(ptr nocapture noundef readonly %f, ptr noundef %cs, i32 noundef %cpuid, ptr noundef %s) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @riscv_cpu_write_elf64_note(ptr nocapture noundef readonly %f, ptr noundef %cs, i32 noundef %cpuid, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %note = alloca %struct.riscv64_note, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
   %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
   %0 = getelementptr inbounds i8, ptr %note, i64 17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(396) %0, i8 0, i64 379, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(396) %0, i8 0, i64 379, i1 false)
   %call.i10 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 5) #6
   store i32 %call.i10, ptr %note, align 4
   %call1.i = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 376) #6
@@ -37,7 +37,7 @@ entry:
   %n_type.i = getelementptr inbounds i8, ptr %note, i64 8
   store i32 %call3.i, ptr %n_type.i, align 4
   %name5.i = getelementptr inbounds i8, ptr %note, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %name5.i, ptr noundef nonnull align 1 dereferenceable(5) @__const.riscv_cpu_write_elf32_note.name, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(5) %name5.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @__const.riscv_cpu_write_elf32_note.name, i64 5, i1 false)
   %call2 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef %cpuid) #6
   %pr_pid = getelementptr inbounds i8, ptr %note, i64 52
   store i32 %call2, ptr %pr_pid, align 4
@@ -74,13 +74,13 @@ declare i32 @cpu_to_dump32(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i64 @cpu_to_dump64(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @riscv_cpu_write_elf32_note(ptr nocapture noundef readonly %f, ptr noundef %cs, i32 noundef %cpuid, ptr noundef %s) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @riscv_cpu_write_elf32_note(ptr nocapture noundef readonly %f, ptr noundef %cs, i32 noundef %cpuid, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %note = alloca %struct.riscv32_note, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
   %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
   %0 = getelementptr inbounds i8, ptr %note, i64 17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(224) %0, i8 0, i64 207, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(224) %0, i8 0, i64 207, i1 false)
   %call.i10 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 5) #6
   store i32 %call.i10, ptr %note, align 4
   %call1.i = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 204) #6
@@ -90,7 +90,7 @@ entry:
   %n_type.i = getelementptr inbounds i8, ptr %note, i64 8
   store i32 %call3.i, ptr %n_type.i, align 4
   %name5.i = getelementptr inbounds i8, ptr %note, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %name5.i, ptr noundef nonnull align 1 dereferenceable(5) @__const.riscv_cpu_write_elf32_note.name, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(5) %name5.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @__const.riscv_cpu_write_elf32_note.name, i64 5, i1 false)
   %call2 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef %cpuid) #6
   %pr_pid = getelementptr inbounds i8, ptr %note, i64 44
   store i32 %call2, ptr %pr_pid, align 4
@@ -122,7 +122,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @cpu_get_dump_info(ptr nocapture noundef writeonly %info, ptr nocapture noundef readnone %guest_phys_blocks) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @cpu_get_dump_info(ptr nocapture noundef writeonly %info, ptr nocapture noundef readnone %guest_phys_blocks) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !8
@@ -152,7 +152,7 @@ return:                                           ; preds = %entry, %while.end5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @cpu_get_note_size(i32 noundef %class, i32 noundef %machine, i32 noundef %nr_cpus) local_unnamed_addr #3 {
+define dso_local range(i64 -850403524608, 850403524213) i64 @cpu_get_note_size(i32 noundef %class, i32 noundef %machine, i32 noundef %nr_cpus) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq i32 %class, 2
   %. = select i1 %cmp, i64 396, i64 224

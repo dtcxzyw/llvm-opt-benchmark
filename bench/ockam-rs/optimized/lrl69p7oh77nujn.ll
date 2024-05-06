@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h0c0cb700fd497c9fE = external global { i64 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef i64 @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT$N$C$E$C$F$C$W$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$10clone_span17hdb615317ae5ee0fbE"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 {
+define internal noundef range(i64 1, 0) i64 @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT$N$C$E$C$F$C$W$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$10clone_span17hdb615317ae5ee0fbE"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1784
   %4 = tail call noundef i64 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$10clone_span17hafc84c3ede57a92bE"(ptr noundef nonnull align 8 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1), !range !4
   %5 = load i64, ptr %1, align 8, !alias.scope !5, !noundef !8
@@ -100,7 +100,7 @@ define internal noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..fmt..Subscri
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef i64 @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT$N$C$E$C$F$C$W$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h28215b9286329ef7E"(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
+define internal noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT$N$C$E$C$F$C$W$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h28215b9286329ef7E"(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = tail call noundef i64 @_ZN18tracing_subscriber6filter3env9EnvFilter14max_level_hint17hde3b1273ae83d82eE(ptr noundef nonnull align 8 %0), !range !15
   %3 = getelementptr inbounds i8, ptr %0, i64 1784
   %4 = tail call noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h213cb83368434197E.llvm.17652871756462562911"(ptr noundef nonnull align 8 %3, i64 noundef 6, i64 noundef 6, i1 noundef zeroext false), !range !15
@@ -113,7 +113,7 @@ define internal noundef i64 @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef i8 @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT$N$C$E$C$F$C$W$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17h04f4ae191756fa44E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #0 {
+define internal noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT$N$C$E$C$F$C$W$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17h04f4ae191756fa44E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #0 {
   %3 = tail call noundef i8 @"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite17h04e9b43d567dfbe7E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !range !16
   ret i8 %3
 }
@@ -217,7 +217,7 @@ define internal noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..fmt..Subscri
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef i64 @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT$N$C$E$C$F$C$W$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$8new_span17h1bef5c73d0c79a20E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
+define internal noundef range(i64 1, 0) i64 @"_ZN113_$LT$tracing_subscriber..fmt..Subscriber$LT$N$C$E$C$F$C$W$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$8new_span17h1bef5c73d0c79a20E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !39
@@ -847,7 +847,7 @@ define hidden { ptr, ptr } @_ZN18tracing_subscriber4util17SubscriberInitExt8try_
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 1, ptr %7, align 8, !noalias !112
   %8 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2352) %8, ptr noundef nonnull align 8 dereferenceable(2352) %0, i64 2352, i1 false), !noalias !115
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2352) %8, ptr noundef nonnull readonly align 8 dereferenceable(2352) %0, i64 2352, i1 false), !noalias !115
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !116
   %10 = tail call noundef align 8 dereferenceable_or_null(2368) ptr @__rust_alloc(i64 noundef 2368, i64 noundef 8) #31, !noalias !116
   %11 = icmp eq ptr %10, null
@@ -900,7 +900,7 @@ common.resume.i.i.i:                              ; preds = %17, %13
   unreachable
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h7ab153c4824c0ccfE.exit": ; preds = %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h46edc739d5629005E.exit.i.i.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !119
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !119
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !102
   %21 = call noundef zeroext i1 @_ZN12tracing_core10dispatcher18set_global_default17h7e68cf36f4df0db8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -2486,7 +2486,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.6546454688099798842.ex
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN61_$LT$tracing_core..span..Id$u20$as$u20$core..clone..Clone$GT$5clone17h02e6011a692db60cE.llvm.6546454688099798842"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #16 {
+define hidden noundef range(i64 1, 0) i64 @"_ZN61_$LT$tracing_core..span..Id$u20$as$u20$core..clone..Clone$GT$5clone17h02e6011a692db60cE.llvm.6546454688099798842"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #16 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !8
   ret i64 %2
 }
@@ -2685,7 +2685,7 @@ declare noundef i64 @_ZN18tracing_subscriber6filter13layer_filters8FilterId4none
 declare hidden void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17hfc9131877141b846E(ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #19
 
 ; Function Attrs: nonlazybind
-define hidden noundef i32 @__rust_try.llvm.6546454688099798842(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #20 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 2) i32 @__rust_try.llvm.6546454688099798842(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #20 personality ptr @rust_eh_personality {
   invoke void %0(ptr %1)
           to label %common.ret unwind label %4
 

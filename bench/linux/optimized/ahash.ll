@@ -87,7 +87,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_crypto_hash_
 @llvm.compiler.used = appending global [27 x ptr] [ptr @__UNIQUE_ID___addressable_ahash_register_instance468, ptr @__UNIQUE_ID___addressable_crypto_ahash_digest455, ptr @__UNIQUE_ID___addressable_crypto_ahash_export456, ptr @__UNIQUE_ID___addressable_crypto_ahash_final453, ptr @__UNIQUE_ID___addressable_crypto_ahash_finup454, ptr @__UNIQUE_ID___addressable_crypto_ahash_import457, ptr @__UNIQUE_ID___addressable_crypto_ahash_init451, ptr @__UNIQUE_ID___addressable_crypto_ahash_setkey450, ptr @__UNIQUE_ID___addressable_crypto_ahash_update452, ptr @__UNIQUE_ID___addressable_crypto_alloc_ahash459, ptr @__UNIQUE_ID___addressable_crypto_clone_ahash461, ptr @__UNIQUE_ID___addressable_crypto_grab_ahash458, ptr @__UNIQUE_ID___addressable_crypto_has_ahash460, ptr @__UNIQUE_ID___addressable_crypto_hash_alg_has_setkey469, ptr @__UNIQUE_ID___addressable_crypto_hash_walk_done448, ptr @__UNIQUE_ID___addressable_crypto_hash_walk_first449, ptr @__UNIQUE_ID___addressable_crypto_register_ahash462, ptr @__UNIQUE_ID___addressable_crypto_register_ahashes464, ptr @__UNIQUE_ID___addressable_crypto_unregister_ahash463, ptr @__UNIQUE_ID___addressable_crypto_unregister_ahashes465, ptr @__UNIQUE_ID___addressable_shash_ahash_digest444, ptr @__UNIQUE_ID___addressable_shash_ahash_finup440, ptr @__UNIQUE_ID___addressable_shash_ahash_update439, ptr @__UNIQUE_ID_description472, ptr @__UNIQUE_ID_file470, ptr @__UNIQUE_ID_license471, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched206], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @shash_ahash_update(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -291,7 +291,7 @@ define dso_local i32 @shash_ahash_update(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local i32 @crypto_hash_walk_first(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define dso_local range(i32 0, 4097) i32 @crypto_hash_walk_first(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 28

@@ -497,7 +497,7 @@ declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_iso14443(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, -2147483644) i32 @dissect_iso14443(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
@@ -881,7 +881,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_iso14443_cmd_type_wupa(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 3) i32 @dissect_iso14443_cmd_type_wupa(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #3
   %6 = getelementptr inbounds i8, ptr %1, i64 348
   %7 = load i32, ptr %6, align 4
@@ -1153,7 +1153,7 @@ dissect_iso14443_atqb.exit:                       ; preds = %126, %110, %4, %10,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_iso14443_cmd_type_hlta(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 2, 5) i32 @dissect_iso14443_cmd_type_hlta(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = ptrtoint ptr %3 to i64
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #3
   %7 = getelementptr inbounds i8, ptr %1, i64 8

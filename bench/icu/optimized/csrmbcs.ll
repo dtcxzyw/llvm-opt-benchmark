@@ -67,7 +67,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE(ptr nocapture noundef nonnull align 4 dereferenceable(14) %this, ptr nocapture noundef readonly %det) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, 256) i32 @_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE(ptr nocapture noundef nonnull align 4 dereferenceable(14) %this, ptr nocapture noundef readonly %det) local_unnamed_addr #1 align 2 {
 entry:
   %nextIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %nextIndex, align 4
@@ -159,7 +159,7 @@ if.end14.us:                                      ; preds = %if.else.us, %if.the
   %badCharCount.1.us = phi i32 [ %inc3.us, %if.then.us ], [ %badCharCount.0.us, %if.else.us ]
   %doubleByteCharCount.1.us = phi i32 [ %doubleByteCharCount.0.us, %if.then.us ], [ %spec.select72, %if.else.us ]
   %cmp15.us = icmp slt i32 %badCharCount.1.us, 2
-  %mul.us = mul nsw i32 %badCharCount.1.us, 5
+  %mul.us = mul nuw nsw i32 %badCharCount.1.us, 5
   %cmp16.not.us = icmp slt i32 %mul.us, %doubleByteCharCount.1.us
   %or.cond25.us = select i1 %cmp15.us, i1 true, i1 %cmp16.not.us
   br i1 %or.cond25.us, label %while.cond.us, label %return, !llvm.loop !4
@@ -200,7 +200,7 @@ if.end14.us56:                                    ; preds = %if.else.us52, %if.t
   %badCharCount.1.us58 = phi i32 [ %inc3.us51, %if.then.us50 ], [ %badCharCount.0.us40, %if.else.us52 ]
   %doubleByteCharCount.1.us59 = phi i32 [ %doubleByteCharCount.0.us42, %if.then.us50 ], [ %spec.select73, %if.else.us52 ]
   %cmp15.us60 = icmp slt i32 %badCharCount.1.us58, 2
-  %mul.us61 = mul nsw i32 %badCharCount.1.us58, 5
+  %mul.us61 = mul nuw nsw i32 %badCharCount.1.us58, 5
   %cmp16.not.us62 = icmp slt i32 %mul.us61, %doubleByteCharCount.1.us59
   %or.cond25.us63 = select i1 %cmp15.us60, i1 true, i1 %cmp16.not.us62
   br i1 %or.cond25.us63, label %while.cond.us38, label %return, !llvm.loop !4
@@ -270,7 +270,7 @@ if.end14:                                         ; preds = %if.end.i, %_ZN6icu_
   %badCharCount.1 = phi i32 [ %inc3, %if.then ], [ %badCharCount.0, %if.else ], [ %badCharCount.0, %_ZN6icu_75L12binarySearchEPKtit.exit ], [ %badCharCount.0, %if.end.i ]
   %doubleByteCharCount.1 = phi i32 [ %doubleByteCharCount.0, %if.then ], [ %doubleByteCharCount.0, %if.else ], [ %inc5, %_ZN6icu_75L12binarySearchEPKtit.exit ], [ %inc5, %if.end.i ]
   %cmp15 = icmp slt i32 %badCharCount.1, 2
-  %mul = mul nsw i32 %badCharCount.1, 5
+  %mul = mul nuw nsw i32 %badCharCount.1, 5
   %cmp16.not = icmp slt i32 %mul, %doubleByteCharCount.1
   %or.cond25 = select i1 %cmp15, i1 true, i1 %cmp16.not
   br i1 %or.cond25, label %while.cond, label %return, !llvm.loop !4
@@ -356,7 +356,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7517CharsetRecog_sjis8nextCharEPNS_12IteratedCharEPNS_9InputTextE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %it, ptr nocapture noundef readonly %det) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517CharsetRecog_sjis8nextCharEPNS_12IteratedCharEPNS_9InputTextE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %it, ptr nocapture noundef readonly %det) unnamed_addr #1 align 2 {
 entry:
   %nextIndex = getelementptr inbounds i8, ptr %it, i64 8
   %0 = load i32, ptr %nextIndex, align 4
@@ -433,7 +433,7 @@ return:                                           ; preds = %_ZN6icu_7512Iterate
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7517CharsetRecog_sjis5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef %results) unnamed_addr #6 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517CharsetRecog_sjis5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7517CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef nonnull @_ZN6icu_75L16commonChars_sjisE, i32 noundef 57)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %det, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -471,7 +471,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7516CharsetRecog_euc8nextCharEPNS_12IteratedCharEPNS_9InputTextE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %it, ptr nocapture noundef readonly %det) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7516CharsetRecog_euc8nextCharEPNS_12IteratedCharEPNS_9InputTextE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %it, ptr nocapture noundef readonly %det) unnamed_addr #1 align 2 {
 entry:
   %nextIndex = getelementptr inbounds i8, ptr %it, i64 8
   %0 = load i32, ptr %nextIndex, align 4
@@ -617,7 +617,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7519CharsetRecog_euc_jp5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef %results) unnamed_addr #6 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519CharsetRecog_euc_jp5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7517CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef nonnull @_ZN6icu_75L18commonChars_euc_jpE, i32 noundef 100)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %det, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -654,7 +654,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7519CharsetRecog_euc_kr5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef %results) unnamed_addr #6 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519CharsetRecog_euc_kr5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7517CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef nonnull @_ZN6icu_75L18commonChars_euc_krE, i32 noundef 100)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %det, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -679,7 +679,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7517CharsetRecog_big58nextCharEPNS_12IteratedCharEPNS_9InputTextE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %it, ptr nocapture noundef readonly %det) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517CharsetRecog_big58nextCharEPNS_12IteratedCharEPNS_9InputTextE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %it, ptr nocapture noundef readonly %det) unnamed_addr #1 align 2 {
 entry:
   %nextIndex = getelementptr inbounds i8, ptr %it, i64 8
   %0 = load i32, ptr %nextIndex, align 4
@@ -760,7 +760,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7517CharsetRecog_big55matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef %results) unnamed_addr #6 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517CharsetRecog_big55matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7517CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef nonnull @_ZN6icu_75L16commonChars_big5E, i32 noundef 96)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %det, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
@@ -785,7 +785,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7521CharsetRecog_gb_180308nextCharEPNS_12IteratedCharEPNS_9InputTextE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %it, ptr nocapture noundef readonly %det) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521CharsetRecog_gb_180308nextCharEPNS_12IteratedCharEPNS_9InputTextE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %it, ptr nocapture noundef readonly %det) unnamed_addr #1 align 2 {
 entry:
   %nextIndex = getelementptr inbounds i8, ptr %it, i64 8
   %0 = load i32, ptr %nextIndex, align 4
@@ -924,7 +924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7521CharsetRecog_gb_180305matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef %results) unnamed_addr #6 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521CharsetRecog_gb_180305matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef %results) unnamed_addr #6 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7517CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef nonnull @_ZN6icu_75L20commonChars_gb_18030E, i32 noundef 100)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %det, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)

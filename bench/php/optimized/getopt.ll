@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [27 x i8] c"no argument for option %c\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @php_getopt(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   store i32 -1, ptr @php_optidx, align 4
   %8 = load ptr, ptr @php_getopt.prev_optarg, align 8
   %.not = icmp eq ptr %8, null

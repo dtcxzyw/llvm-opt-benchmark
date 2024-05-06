@@ -133,7 +133,7 @@ define noundef i32 @dsyr2k_kernel_L(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 .preheader:                                       ; preds = %.thread.split, %121
   %100 = phi i64 [ %122, %121 ], [ 0, %.thread.split ]
-  %101 = mul nsw i64 %100, %93
+  %101 = mul nuw nsw i64 %100, %93
   %102 = add nuw nsw i64 %100, %86
   %103 = mul nsw i64 %102, %7
   %104 = add i64 %103, %86
@@ -144,7 +144,7 @@ define noundef i32 @dsyr2k_kernel_L(i64 noundef %0, i64 noundef %1, i64 noundef 
   %107 = add nuw nsw i64 %106, %101
   %108 = getelementptr inbounds [1024 x double], ptr %11, i64 0, i64 %107
   %109 = load double, ptr %108, align 8, !tbaa !6
-  %110 = mul nsw i64 %106, %93
+  %110 = mul nuw nsw i64 %106, %93
   %111 = add nuw nsw i64 %110, %100
   %112 = getelementptr inbounds [1024 x double], ptr %11, i64 0, i64 %111
   %113 = load double, ptr %112, align 8, !tbaa !6

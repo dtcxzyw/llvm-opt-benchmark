@@ -21,7 +21,7 @@ define i32 @softfloat_approxRecipSqrt32_1(i32 noundef %0, i32 noundef %1) local_
   %13 = and i32 %6, 65535
   %14 = mul nuw i32 %13, %12
   %15 = lshr i32 %14, 20
-  %16 = trunc i32 %15 to i16
+  %16 = trunc nuw nsw i32 %15 to i16
   %17 = sub i16 %9, %16
   %18 = zext i16 %17 to i64
   %19 = mul nuw nsw i64 %18, %18

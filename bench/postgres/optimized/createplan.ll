@@ -1265,7 +1265,7 @@ get_gating_quals.exit:                            ; preds = %670
 
 create_gating_plan.exit:                          ; preds = %678, %681, %685
   %.0.i92 = phi ptr [ %.0.i, %681 ], [ %.0.i, %678 ], [ %spec.select.i93, %685 ]
-  %689 = call fastcc ptr @build_path_tlist(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %689 = call fastcc ptr @build_path_tlist(ptr noundef nonnull %0, ptr noundef nonnull readonly %1)
   %690 = call noundef ptr @palloc0(i64 noundef 112) #12
   store i32 315, ptr %690, align 4
   %691 = getelementptr inbounds i8, ptr %690, i64 48
@@ -2619,7 +2619,7 @@ list_length.exit126:                              ; preds = %list_length.exit128
   br i1 %1514, label %.lr.ph276, label %._crit_edge268.loopexit
 
 ._crit_edge268.loopexit:                          ; preds = %.lr.ph276
-  %1515 = trunc i64 %indvars.iv.next346 to i32
+  %1515 = trunc nuw nsw i64 %indvars.iv.next346 to i32
   br label %._crit_edge268
 
 ._crit_edge268:                                   ; preds = %._crit_edge268.loopexit, %.lr.ph267, %list_length.exit126
@@ -2668,7 +2668,7 @@ list_length.exit126:                              ; preds = %list_length.exit128
   br i1 %1544, label %.lr.ph289, label %create_windowagg_plan.exit.loopexit
 
 create_windowagg_plan.exit.loopexit:              ; preds = %.lr.ph289
-  %1545 = trunc i64 %indvars.iv.next351 to i32
+  %1545 = trunc nuw nsw i64 %indvars.iv.next351 to i32
   br label %create_windowagg_plan.exit
 
 create_windowagg_plan.exit:                       ; preds = %create_windowagg_plan.exit.loopexit, %.lr.ph281, %._crit_edge268
@@ -3478,7 +3478,7 @@ list_length.exit143:                              ; preds = %2028, %2033
   br i1 %2066, label %.lr.ph325, label %create_limit_plan.exit.loopexit
 
 create_limit_plan.exit.loopexit:                  ; preds = %.lr.ph325
-  %2067 = trunc i64 %indvars.iv.next368 to i32
+  %2067 = trunc nuw nsw i64 %indvars.iv.next368 to i32
   br label %create_limit_plan.exit
 
 create_limit_plan.exit:                           ; preds = %create_limit_plan.exit.loopexit, %list_length.exit143, %.lr.ph317, %2021
@@ -3898,7 +3898,7 @@ list_length.exit:                                 ; preds = %2, %5
   br i1 %40, label %.lr.ph44, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph44
-  %41 = trunc i64 %indvars.iv.next to i32
+  %41 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %list_length.exit
@@ -6020,7 +6020,7 @@ create_customscan_plan.exit:                      ; preds = %1075, %._crit_edge,
 
 create_gating_plan.exit:                          ; preds = %1086, %1089, %1093
   %.0.i192 = phi ptr [ %.0111, %1089 ], [ %.0111, %1086 ], [ %spec.select.i, %1093 ]
-  %1097 = call fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef %1)
+  %1097 = call fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef readonly %1)
   %1098 = call noundef ptr @palloc0(i64 noundef 112) #12
   store i32 315, ptr %1098, align 4
   %1099 = getelementptr inbounds i8, ptr %1098, i64 48
@@ -7327,7 +7327,7 @@ list_length.exit.i:                               ; preds = %90, %87
   br i1 %130, label %.lr.ph49.i, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %113
-  %131 = trunc i64 %indvars.iv.next.i111 to i32
+  %131 = trunc nuw nsw i64 %indvars.iv.next.i111 to i32
   br label %make_sort_from_groupcols.exit
 
 make_sort_from_groupcols.exit:                    ; preds = %list_length.exit.i, %.lr.ph.i109, %._crit_edge.loopexit.i
@@ -8051,7 +8051,7 @@ define internal fastcc noundef ptr @create_indexscan_plan(ptr noundef %0, ptr no
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @lappend(ptr noundef %.1917.i, ptr noundef %40) #12
   %42 = load ptr, ptr %33, align 8
-  %43 = tail call fastcc ptr @fix_indexqual_clause(ptr noundef %0, ptr noundef %15, i32 noundef %28, ptr noundef %40, ptr noundef %42)
+  %43 = tail call fastcc ptr @fix_indexqual_clause(ptr noundef %0, ptr noundef readonly %15, i32 noundef %28, ptr noundef %40, ptr noundef %42)
   %44 = tail call ptr @lappend(ptr noundef %.130818.i, ptr noundef %43) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %45 = load i32, ptr %31, align 4
@@ -8483,7 +8483,7 @@ list_length.exit:                                 ; preds = %2
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 16
   %41 = load <2 x i32>, ptr %.sroa.3.0..sroa_idx, align 8
-  %42 = trunc i64 %indvars.iv87 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv87 to i32
   %43 = extractelement <2 x i32> %41, i64 0
   br label %44
 
@@ -9045,7 +9045,7 @@ define internal fastcc ptr @create_bitmap_subplan(ptr noundef %0, ptr nocapture 
   br i1 %71, label %77, label %72
 
 72:                                               ; preds = %.lr.ph274
-  %73 = trunc i8 %.0155240271 to i1
+  %73 = trunc nuw i8 %.0155240271 to i1
   br i1 %73, label %77, label %74
 
 74:                                               ; preds = %72
@@ -9061,7 +9061,7 @@ define internal fastcc ptr @create_bitmap_subplan(ptr noundef %0, ptr nocapture 
   br i1 %79, label %85, label %80
 
 80:                                               ; preds = %77
-  %81 = trunc i8 %.0157239272 to i1
+  %81 = trunc nuw i8 %.0157239272 to i1
   br i1 %81, label %85, label %82
 
 82:                                               ; preds = %80
@@ -9079,8 +9079,8 @@ define internal fastcc ptr @create_bitmap_subplan(ptr noundef %0, ptr nocapture 
   br i1 %88, label %.lr.ph274, label %._crit_edge246
 
 ._crit_edge246:                                   ; preds = %85
-  %89 = trunc i8 %.1156 to i1
-  %90 = trunc i8 %.1158 to i1
+  %89 = trunc nuw i8 %.1156 to i1
+  %90 = trunc nuw i8 %.1158 to i1
   %.not.i = icmp eq ptr %69, null
   br i1 %.not.i, label %._crit_edge246.thread, label %list_length.exit
 
@@ -9748,7 +9748,7 @@ list_length.exit125:                              ; preds = %is_projection_capab
   br i1 %154, label %.lr.ph211, label %.._crit_edge.loopexit_crit_edge
 
 .._crit_edge.loopexit_crit_edge:                  ; preds = %140
-  %155 = trunc i64 %indvars.iv.next180 to i32
+  %155 = trunc nuw nsw i64 %indvars.iv.next180 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph167, %.._crit_edge.loopexit_crit_edge, %list_length.exit

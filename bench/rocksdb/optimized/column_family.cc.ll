@@ -728,8 +728,8 @@ $_ZSt19piecewise_construct = comdat any
 @.str.87 = private unnamed_addr constant [119 x i8] c"Option file_temperature_age_thresholds requires elements to be sorted in increasing order with respect to `age` field.\00", align 1
 @_ZTVN7rocksdb21InternalKeyComparatorE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb21InternalKeyComparatorD2Ev, ptr @_ZN7rocksdb21InternalKeyComparatorD0Ev, ptr @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_] }, comdat, align 8
 @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE = unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb25ColumnFamilyMemTablesImplD2Ev, ptr @_ZN7rocksdb25ColumnFamilyMemTablesImplD0Ev, ptr @_ZN7rocksdb25ColumnFamilyMemTablesImpl4SeekEj, ptr @_ZNK7rocksdb25ColumnFamilyMemTablesImpl12GetLogNumberEv, ptr @_ZNK7rocksdb25ColumnFamilyMemTablesImpl11GetMemTableEv, ptr @_ZN7rocksdb25ColumnFamilyMemTablesImpl21GetColumnFamilyHandleEv, ptr @_ZN7rocksdb25ColumnFamilyMemTablesImpl7currentEv] }, align 8
-@_ZN7rocksdb10perf_levelE = external thread_local global i8, align 1
-@_ZN7rocksdb12perf_contextE = external thread_local global %"struct.rocksdb::PerfContext", align 8
+@_ZN7rocksdb10perf_levelE = external thread_local local_unnamed_addr global i8, align 1
+@_ZN7rocksdb12perf_contextE = external thread_local local_unnamed_addr global %"struct.rocksdb::PerfContext", align 8
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @.str.88 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @_ZTVN7rocksdb38UserKeyTablePropertiesCollectorFactoryE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb38UserKeyTablePropertiesCollectorFactoryD2Ev, ptr @_ZN7rocksdb38UserKeyTablePropertiesCollectorFactoryD0Ev, ptr @_ZN7rocksdb38UserKeyTablePropertiesCollectorFactory25CreateIntTblPropCollectorEji, ptr @_ZNK7rocksdb38UserKeyTablePropertiesCollectorFactory4NameEv] }, comdat, align 8
@@ -12492,7 +12492,7 @@ _ZNSt10shared_ptrIN7rocksdb14ObjectRegistryEED2Ev.exit: ; preds = %entry, %_ZN9_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN7rocksdb16ColumnFamilyData21CalculateSSTWriteHintEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2656) %this, i32 noundef %level) local_unnamed_addr #15 align 2 {
+define noundef range(i32 -2147483645, 6) i32 @_ZN7rocksdb16ColumnFamilyData21CalculateSSTWriteHintEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2656) %this, i32 noundef %level) local_unnamed_addr #15 align 2 {
 entry:
   %compaction_style = getelementptr inbounds i8, ptr %this, i64 336
   %0 = load i8, ptr %compaction_style, align 8

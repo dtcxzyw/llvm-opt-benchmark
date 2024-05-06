@@ -735,7 +735,7 @@ _ZN8uu_split8platform4unix13WithEnvVarSet3new17hd7b6d27b884df56bE.exit.i: ; pred
   store ptr %50, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !110, !noalias !116
   %.sroa.0.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %28, i64 48
   store i64 4, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !110, !noalias !116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false), !noalias !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false), !noalias !116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !113
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %27), !noalias !105
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26), !noalias !105

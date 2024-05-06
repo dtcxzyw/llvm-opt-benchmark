@@ -482,7 +482,7 @@ for.body41.us.us.us.for.inc103.us.us.us_crit_edge: ; preds = %for.body41.us.us.u
 
 if.end55.us.us.us:                                ; preds = %for.body41.us.us.us
   %16 = add nuw nsw i64 %indvars.iv248, 1
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   br label %for.inc103.us.us.us
 
 for.inc103.us.us.us:                              ; preds = %for.body41.us.us.us.for.inc103.us.us.us_crit_edge, %if.end55.us.us.us
@@ -496,7 +496,7 @@ for.body41.us.us:                                 ; preds = %for.body41.lr.ph.sp
   %written.0138.us.us = phi i32 [ %written.1.us.us, %for.inc103.us.us ], [ 0, %for.body41.lr.ph.split.us.split.us ]
   %arrayidx43.us.us = getelementptr inbounds i8, ptr %line, i64 %indvars.iv242
   %18 = load i8, ptr %arrayidx43.us.us, align 1
-  %19 = trunc i64 %indvars.iv242 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv242 to i32
   switch i8 %18, label %for.end104 [
     i8 32, label %for.body41.us.us.for.inc103.us.us_crit_edge
     i8 9, label %if.end55.us.us
@@ -514,7 +514,7 @@ if.end55.us.us:                                   ; preds = %for.body41.us.us
   %conv97.us.us = sext i32 %add.us.us to i64
   %call98.us.us = tail call i64 @fwrite(ptr noundef %add.ptr95.us.us, i64 noundef %conv97.us.us, i64 noundef 1, ptr noundef nonnull %stream)
   %20 = add nuw nsw i64 %indvars.iv242, 1
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw nsw i64 %20 to i32
   br label %for.inc103.us.us
 
 for.inc103.us.us:                                 ; preds = %for.body41.us.us.for.inc103.us.us_crit_edge, %if.end55.us.us
@@ -529,7 +529,7 @@ for.body41.us:                                    ; preds = %for.body41.lr.ph.sp
   %result.2137.us = phi i32 [ %result.4.us, %for.inc103.us ], [ %result.1116, %for.body41.lr.ph.split.us ]
   %arrayidx43.us = getelementptr inbounds i8, ptr %line, i64 %indvars.iv236
   %22 = load i8, ptr %arrayidx43.us, align 1
-  %23 = trunc i64 %indvars.iv236 to i32
+  %23 = trunc nuw nsw i64 %indvars.iv236 to i32
   switch i8 %22, label %for.end104 [
     i8 32, label %for.body41.us.for.inc103.us_crit_edge
     i8 9, label %if.end55.us
@@ -574,7 +574,7 @@ if.then64.us:                                     ; preds = %if.then61.us
 if.end101.us:                                     ; preds = %if.then64.us, %if.then61.us, %if.then93.us, %if.else73.us
   %result.3.us = phi i32 [ %or62.us, %if.then64.us ], [ %or62.us, %if.then61.us ], [ %result.2137.us, %if.then93.us ], [ %result.2137.us, %if.else73.us ]
   %25 = add nuw nsw i64 %indvars.iv236, 1
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw nsw i64 %25 to i32
   br label %for.inc103.us
 
 for.inc103.us:                                    ; preds = %for.body41.us.for.inc103.us_crit_edge, %if.end101.us
@@ -608,7 +608,7 @@ for.body41.us152.us.for.inc103.us165.us_crit_edge: ; preds = %for.body41.us152.u
 if.end55.us158.us:                                ; preds = %for.body41.us152.us
   %or77.us.us = or i32 %result.2137.us155.us, 2048
   %28 = add nuw nsw i64 %indvars.iv230, 1
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   br label %for.inc103.us165.us
 
 for.inc103.us165.us:                              ; preds = %for.body41.us152.us.for.inc103.us165.us_crit_edge, %if.end55.us158.us
@@ -624,7 +624,7 @@ for.body41.us152:                                 ; preds = %for.body41.lr.ph.sp
   %result.2137.us155 = phi i32 [ %result.4.us166, %for.inc103.us165 ], [ %result.1116, %for.body41.lr.ph.split.split.us ]
   %arrayidx43.us157 = getelementptr inbounds i8, ptr %line, i64 %indvars.iv224
   %30 = load i8, ptr %arrayidx43.us157, align 1
-  %31 = trunc i64 %indvars.iv224 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv224 to i32
   switch i8 %30, label %for.end104 [
     i8 32, label %for.body41.us152.for.inc103.us165_crit_edge
     i8 9, label %if.end55.us158
@@ -647,7 +647,7 @@ if.end55.us158:                                   ; preds = %for.body41.us152
   %fputc.us = tail call i32 @fputc(i32 %chari.us, ptr nonnull %stream)
   %call89.us = tail call i32 @fputs(ptr noundef %reset, ptr noundef nonnull %stream)
   %32 = add nuw nsw i64 %indvars.iv224, 1
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw nsw i64 %32 to i32
   br label %for.inc103.us165
 
 for.inc103.us165:                                 ; preds = %for.body41.us152.for.inc103.us165_crit_edge, %if.end55.us158
@@ -663,7 +663,7 @@ for.body41:                                       ; preds = %for.body41.lr.ph.sp
   %result.2137 = phi i32 [ %result.4, %for.inc103 ], [ %result.1116, %for.body41.lr.ph.split ]
   %arrayidx43 = getelementptr inbounds i8, ptr %line, i64 %indvars.iv220
   %34 = load i8, ptr %arrayidx43, align 1
-  %35 = trunc i64 %indvars.iv220 to i32
+  %35 = trunc nuw nsw i64 %indvars.iv220 to i32
   switch i8 %34, label %for.end104 [
     i8 32, label %for.body41.for.inc103_crit_edge
     i8 9, label %if.end55
@@ -713,7 +713,7 @@ if.then79:                                        ; preds = %if.else73
 if.end101:                                        ; preds = %if.then79, %if.else73, %if.then61, %if.then64
   %result.3 = phi i32 [ %or62, %if.then64 ], [ %or62, %if.then61 ], [ %or77, %if.then79 ], [ %or77, %if.else73 ]
   %37 = add nuw nsw i64 %indvars.iv220, 1
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw nsw i64 %37 to i32
   br label %for.inc103
 
 for.inc103:                                       ; preds = %for.body41.for.inc103_crit_edge, %if.end101
@@ -724,11 +724,11 @@ for.inc103:                                       ; preds = %for.body41.for.inc1
   br i1 %exitcond.not, label %for.end104, label %for.body41, !llvm.loop !11
 
 for.end104.loopexit.split.loop.exit:              ; preds = %for.body41.us.us.us
-  %39 = trunc i64 %indvars.iv248 to i32
+  %39 = trunc nuw nsw i64 %indvars.iv248 to i32
   br label %for.end104
 
 for.end104.loopexit265.split.loop.exit:           ; preds = %for.body41.us152.us
-  %40 = trunc i64 %indvars.iv230 to i32
+  %40 = trunc nuw nsw i64 %indvars.iv230 to i32
   br label %for.end104
 
 for.end104:                                       ; preds = %for.inc103, %for.body41, %for.inc103.us165, %for.body41.us152, %for.inc103.us165.us, %for.inc103.us, %for.body41.us, %for.inc103.us.us, %for.body41.us.us, %for.inc103.us.us.us, %for.end104.loopexit265.split.loop.exit, %for.end104.loopexit.split.loop.exit, %if.end33.thread
@@ -820,7 +820,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @ws_blank_line(ptr nocapture noundef readonly %line, i32 noundef %len) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @ws_blank_line(ptr nocapture noundef readonly %line, i32 noundef %len) local_unnamed_addr #7 {
 entry:
   %cmp3 = icmp sgt i32 %len, 0
   br i1 %cmp3, label %while.body, label %return
@@ -949,7 +949,7 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   ]
 
 if.then53.us.us:                                  ; preds = %for.body.us.us
-  %14 = trunc i64 %indvars.iv264 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv264 to i32
   br label %for.inc.us.us
 
 for.inc.us.us:                                    ; preds = %for.body.us.us, %if.then53.us.us
@@ -965,7 +965,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %last_tab_in_indent.0183.us = phi i32 [ %last_tab_in_indent.1.us, %for.inc.us ], [ -1, %for.body.lr.ph.split.us ]
   %arrayidx49.us = getelementptr inbounds i8, ptr %src, i64 %indvars.iv259
   %15 = load i8, ptr %arrayidx49.us, align 1
-  %16 = trunc i64 %indvars.iv259 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv259 to i32
   switch i8 %15, label %for.end [
     i8 9, label %if.then53.us
     i8 32, label %for.inc.us

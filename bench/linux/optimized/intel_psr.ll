@@ -7916,7 +7916,7 @@ declare dso_local i32 @simple_attr_release(ptr noundef, ptr noundef) #3
 declare dso_local i32 @simple_attr_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal noundef i32 @i915_edp_psr_debug_get(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) #8 align 16 {
+define internal noundef range(i32 -19, 1) i32 @i915_edp_psr_debug_get(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2624
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 28
@@ -8109,7 +8109,7 @@ declare dso_local i32 @single_release(ptr noundef, ptr noundef) #3
 declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_edp_psr_status_show(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal noundef range(i32 -19, 1) i32 @i915_edp_psr_status_show(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 2624
@@ -8535,7 +8535,7 @@ define internal i32 @i915_psr_sink_status_open(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i915_psr_sink_status_show(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal range(i32 2, 1) i32 @i915_psr_sink_status_show(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 112

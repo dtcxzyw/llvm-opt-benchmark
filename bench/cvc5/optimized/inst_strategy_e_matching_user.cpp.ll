@@ -407,7 +407,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory11quantifiers24InstStrategyUserPatterns7processENS0_12NodeTemplateILb1EEENS1_6Theory6EffortEi(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %q, i32 %effort, i32 noundef %e) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal6theory11quantifiers24InstStrategyUserPatterns7processENS0_12NodeTemplateILb1EEENS1_6Theory6EffortEi(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %q, i32 %effort, i32 noundef %e) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i159 = alloca %"class.std::tuple.302", align 8
   %ref.tmp10.i160 = alloca %"class.std::tuple.305", align 1

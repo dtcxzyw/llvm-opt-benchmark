@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [12 x i8] c"%s.%s.%d.%d\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @mca_base_component_compare_priority(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compare_priority(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 48
@@ -25,7 +25,7 @@ define i32 @mca_base_component_compare_priority(ptr nocapture noundef readonly %
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 40
   %16 = getelementptr inbounds i8, ptr %14, i64 40
-  %17 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %16, i64 noundef 31) #5
+  %17 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %16, i64 noundef 31) #5
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %20, label %18
 
@@ -36,7 +36,7 @@ define i32 @mca_base_component_compare_priority(ptr nocapture noundef readonly %
 20:                                               ; preds = %10
   %21 = getelementptr inbounds i8, ptr %12, i64 84
   %22 = getelementptr inbounds i8, ptr %14, i64 84
-  %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %22, i64 noundef 63) #5
+  %23 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %22, i64 noundef 63) #5
   %.not28.i = icmp eq i32 %23, 0
   br i1 %.not28.i, label %26, label %24
 
@@ -87,7 +87,7 @@ mca_base_component_compare.exit:                  ; preds = %48, %42, %40, %34, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @mca_base_component_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 31) #5
@@ -155,7 +155,7 @@ define i32 @mca_base_component_compare(ptr nocapture noundef readonly %0, ptr no
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @mca_base_component_compatible(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compatible(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 31) #5

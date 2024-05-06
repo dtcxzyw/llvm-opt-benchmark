@@ -144,7 +144,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.main = private unnamed_addr constant [6 x ptr] [ptr @.str.122, ptr @.str.124, ptr @.str.123, ptr @.str.125, ptr @.str.126, ptr @.str.127], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca [1025 x i8], align 16
   %5 = alloca [128 x ptr], align 16

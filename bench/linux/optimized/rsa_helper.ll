@@ -15,7 +15,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_rsa_parse_pr
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_rsa_parse_priv_key4, ptr @__UNIQUE_ID___addressable_rsa_parse_pub_key3], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @rsa_get_n(ptr nocapture noundef writeonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @rsa_get_n(ptr nocapture noundef writeonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = icmp ne ptr %3, null
   %7 = icmp ne i64 %4, 0
   %8 = and i1 %6, %7
@@ -33,7 +33,7 @@ define dso_local noundef i32 @rsa_get_n(ptr nocapture noundef writeonly %0, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @rsa_get_e(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @rsa_get_e(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %15, label %7
 
@@ -57,7 +57,7 @@ define dso_local noundef i32 @rsa_get_e(ptr nocapture noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @rsa_get_d(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @rsa_get_d(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %15, label %7
 
@@ -81,7 +81,7 @@ define dso_local noundef i32 @rsa_get_d(ptr nocapture noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @rsa_get_p(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @rsa_get_p(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = icmp ne ptr %3, null
   %7 = icmp ne i64 %4, 0
   %8 = and i1 %6, %7
@@ -106,7 +106,7 @@ define dso_local noundef i32 @rsa_get_p(ptr nocapture noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @rsa_get_q(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @rsa_get_q(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = icmp ne ptr %3, null
   %7 = icmp ne i64 %4, 0
   %8 = and i1 %6, %7
@@ -131,7 +131,7 @@ define dso_local noundef i32 @rsa_get_q(ptr nocapture noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @rsa_get_dp(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @rsa_get_dp(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = icmp ne ptr %3, null
   %7 = icmp ne i64 %4, 0
   %8 = and i1 %6, %7
@@ -156,7 +156,7 @@ define dso_local noundef i32 @rsa_get_dp(ptr nocapture noundef %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @rsa_get_dq(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @rsa_get_dq(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = icmp ne ptr %3, null
   %7 = icmp ne i64 %4, 0
   %8 = and i1 %6, %7
@@ -181,7 +181,7 @@ define dso_local noundef i32 @rsa_get_dq(ptr nocapture noundef %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @rsa_get_qinv(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @rsa_get_qinv(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = icmp ne ptr %3, null
   %7 = icmp ne i64 %4, 0
   %8 = and i1 %6, %7

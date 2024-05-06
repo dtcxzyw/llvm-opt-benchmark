@@ -92,7 +92,7 @@ define dso_local void @component_release_of(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @component_compare_dev(ptr noundef readnone %0, ptr noundef readnone %1) #3 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @component_compare_dev(ptr noundef readnone %0, ptr noundef readnone %1) #3 align 16 {
   %3 = icmp eq ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4
@@ -224,7 +224,7 @@ define dso_local void @component_match_add_typed(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @component_master_add_with_match(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @component_master_add_with_match(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
@@ -376,7 +376,7 @@ define dso_local i32 @component_master_add_with_match(ptr noundef %0, ptr nounde
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @try_to_bring_up_aggregate_device(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2147483648, 2) i32 @try_to_bring_up_aggregate_device(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -974,7 +974,7 @@ define dso_local i32 @component_bind_all(ptr noundef readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @component_add_typed(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @component_add_typed(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %6, !prof !5
 
@@ -985,7 +985,7 @@ define dso_local i32 @component_add_typed(ptr noundef %0, ptr noundef %1, i32 no
   br label %8
 
 6:                                                ; preds = %3
-  %7 = tail call fastcc i32 @__component_add(ptr noundef %0, ptr noundef %1, i32 noundef %2), !range !30
+  %7 = tail call fastcc i32 @__component_add(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %8
 
 8:                                                ; preds = %6, %5
@@ -994,7 +994,7 @@ define dso_local i32 @component_add_typed(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__component_add(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @__component_add(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 6), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 56) #11
   %6 = icmp eq ptr %5, null
@@ -1033,7 +1033,7 @@ define internal fastcc i32 @__component_add(ptr noundef %0, ptr noundef %1, i32 
 22:                                               ; preds = %19, %.preheader6
   %23 = load ptr, ptr %15, align 8
   %24 = icmp eq ptr %23, @aggregate_devices
-  br i1 %24, label %.thread, label %.preheader6, !llvm.loop !31
+  br i1 %24, label %.thread, label %.preheader6, !llvm.loop !30
 
 25:                                               ; preds = %19
   %26 = icmp slt i32 %20, 0
@@ -1074,7 +1074,7 @@ define internal fastcc i32 @__component_add(ptr noundef %0, ptr noundef %1, i32 
   %48 = getelementptr inbounds i8, ptr %46, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = icmp ult i64 %47, %49
-  br i1 %50, label %.preheader, label %.loopexit, !llvm.loop !32
+  br i1 %50, label %.preheader, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %45, %31, %27
   %51 = load ptr, ptr %12, align 8
@@ -1099,8 +1099,8 @@ define internal fastcc i32 @__component_add(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @component_add(ptr noundef %0, ptr noundef %1) #1 align 16 {
-  %3 = tail call fastcc i32 @__component_add(ptr noundef %0, ptr noundef %1, i32 noundef 0), !range !30
+define dso_local range(i32 -2147483648, 1) i32 @component_add(ptr noundef %0, ptr noundef %1) #1 align 16 {
+  %3 = tail call fastcc i32 @__component_add(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i32 %3
 }
 
@@ -1127,7 +1127,7 @@ define dso_local void @component_del(ptr noundef readnone %0, ptr noundef readno
 13:                                               ; preds = %9, %.preheader5
   %14 = load ptr, ptr %5, align 8
   %15 = icmp eq ptr %14, @component_list
-  br i1 %15, label %.thread, label %.preheader5, !llvm.loop !33
+  br i1 %15, label %.thread, label %.preheader5, !llvm.loop !32
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1197,7 +1197,7 @@ define dso_local void @component_del(ptr noundef readnone %0, ptr noundef readno
   %57 = getelementptr inbounds i8, ptr %55, i64 8
   %58 = load i64, ptr %57, align 8
   %59 = icmp ult i64 %56, %58
-  br i1 %59, label %.preheader, label %.loopexit, !llvm.loop !32
+  br i1 %59, label %.preheader, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %54, %39, %22
   tail call void @mutex_unlock(ptr noundef nonnull @component_mutex) #9
@@ -1205,9 +1205,9 @@ define dso_local void @component_del(ptr noundef readnone %0, ptr noundef readno
 
 .thread:                                          ; preds = %13, %2, %16
   tail call void @mutex_unlock(ptr noundef nonnull @component_mutex) #9
-  tail call void asm sideeffect "337: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 337b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 337) #9, !srcloc !34
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 821, i32 2305, i64 12) #9, !srcloc !35
-  tail call void asm sideeffect "338: nop\0A\09.pushsection .discard.instr_end\0A\09.long 338b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 338) #9, !srcloc !36
+  tail call void asm sideeffect "337: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 337b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 337) #9, !srcloc !33
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 821, i32 2305, i64 12) #9, !srcloc !34
+  tail call void asm sideeffect "338: nop\0A\09.pushsection .discard.instr_end\0A\09.long 338b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 338) #9, !srcloc !35
   br label %60
 
 60:                                               ; preds = %.thread, %.loopexit
@@ -1258,7 +1258,7 @@ define internal void @devm_component_match_release(ptr noundef %0, ptr nocapture
   %21 = add i32 %11, 1
   %22 = zext i32 %21 to i64
   %23 = icmp ugt i64 %20, %22
-  br i1 %23, label %8, label %.loopexit, !llvm.loop !37
+  br i1 %23, label %8, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %19, %2
   %24 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1378,7 +1378,7 @@ define internal noundef i32 @component_devices_show(ptr noundef %0, ptr nocaptur
   %47 = add nuw i64 %26, 1
   %48 = load i64, ptr %20, align 8
   %49 = icmp ult i64 %47, %48
-  br i1 %49, label %25, label %.loopexit, !llvm.loop !38
+  br i1 %49, label %25, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %44, %14
   tail call void @mutex_unlock(ptr noundef nonnull @component_mutex) #9
@@ -1464,12 +1464,11 @@ attributes #12 = { cold nounwind }
 !27 = !{i64 2154275627, i64 2154275436, i64 2154275488, i64 2154275534, i64 2154275562}
 !28 = !{i64 2154275701, i64 2154275730, i64 2154275776, i64 2154275834, i64 2154275888, i64 2154275942, i64 2154275997, i64 2154276028, i64 2154276336, i64 2154276342, i64 2154276389, i64 2154276412, i64 2154276438}
 !29 = !{i64 2154276895, i64 2154276706, i64 2154276756, i64 2154276802, i64 2154276830}
-!30 = !{i32 -2147483648, i32 1}
+!30 = distinct !{!30, !8, !9}
 !31 = distinct !{!31, !8, !9}
 !32 = distinct !{!32, !8, !9}
-!33 = distinct !{!33, !8, !9}
-!34 = !{i64 2154284313, i64 2154284122, i64 2154284174, i64 2154284220, i64 2154284248}
-!35 = !{i64 2154284387, i64 2154284416, i64 2154284462, i64 2154284520, i64 2154284574, i64 2154284628, i64 2154284683, i64 2154284714, i64 2154285022, i64 2154285028, i64 2154285075, i64 2154285098, i64 2154285124}
-!36 = !{i64 2154285581, i64 2154285392, i64 2154285442, i64 2154285488, i64 2154285516}
+!33 = !{i64 2154284313, i64 2154284122, i64 2154284174, i64 2154284220, i64 2154284248}
+!34 = !{i64 2154284387, i64 2154284416, i64 2154284462, i64 2154284520, i64 2154284574, i64 2154284628, i64 2154284683, i64 2154284714, i64 2154285022, i64 2154285028, i64 2154285075, i64 2154285098, i64 2154285124}
+!35 = !{i64 2154285581, i64 2154285392, i64 2154285442, i64 2154285488, i64 2154285516}
+!36 = distinct !{!36, !8, !9}
 !37 = distinct !{!37, !8, !9}
-!38 = distinct !{!38, !8, !9}

@@ -1134,7 +1134,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL7MonitorENS0_8hash_opsIS4_EEE7do_hashERKS4_.ex
   store i32 %62, ptr %44, align 8
   %63 = load ptr, ptr %0, align 8
   %64 = getelementptr inbounds i32, ptr %63, i64 %60
-  %65 = trunc i64 %indvars.iv to i32
+  %65 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %65, ptr %64, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load ptr, ptr %33, align 8

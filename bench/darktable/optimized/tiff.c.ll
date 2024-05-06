@@ -52,7 +52,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @write_image(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11) local_unnamed_addr #1 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i16, align 2
@@ -1056,9 +1056,9 @@ define i32 @write_image(ptr nocapture noundef readonly %0, ptr noundef %1, ptr n
   %640 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 282, double noundef %279) #16
   %641 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 283, double noundef %279) #16
   %642 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 296, i32 noundef 2) #16
-  %643 = trunc i64 %602 to i32
+  %643 = trunc nsw i64 %602 to i32
   %644 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 256, i32 noundef %643) #16
-  %645 = trunc i64 %603 to i32
+  %645 = trunc nsw i64 %603 to i32
   %646 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 257, i32 noundef %645) #16
   %647 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 284, i32 noundef 1) #16
   %648 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 274, i32 noundef 1) #16
@@ -1880,7 +1880,7 @@ define void @free_params(ptr nocapture noundef readnone %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_params(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8, !tbaa !69
@@ -1956,7 +1956,7 @@ define noundef i32 @bpp(ptr nocapture noundef readonly %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @levels(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef range(i32 256, 261) i32 @levels(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 148
   %3 = load i32, ptr %2, align 4, !tbaa !30
   switch i32 %3, label %8 [

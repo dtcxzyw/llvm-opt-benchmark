@@ -93,7 +93,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @radix_tree_preload(i32 noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @radix_tree_preload(i32 noundef %0) #0 align 16 {
   %2 = and i32 %0, 1024
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %5, !prof !6
@@ -110,7 +110,7 @@ define dso_local noundef i32 @radix_tree_preload(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__radix_tree_preload(i32 noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__radix_tree_preload(i32 noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = and i32 %0, -4194305
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #13, !srcloc !11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
@@ -178,7 +178,7 @@ define internal fastcc noundef i32 @__radix_tree_preload(i32 noundef %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @radix_tree_maybe_preload(i32 noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @radix_tree_maybe_preload(i32 noundef %0) #0 align 16 {
   %2 = and i32 %0, 1024
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %6, label %4
@@ -199,7 +199,7 @@ define dso_local noundef i32 @radix_tree_maybe_preload(i32 noundef %0) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @radix_tree_insert(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 2) i32 @radix_tree_insert(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = ptrtoint ptr %2 to i64
   %5 = and i64 %4, 3
   %6 = icmp eq i64 %5, 2
@@ -1374,7 +1374,7 @@ define dso_local void @radix_tree_iter_tag_clear(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @radix_tree_tag_get(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @radix_tree_tag_get(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %2, 26

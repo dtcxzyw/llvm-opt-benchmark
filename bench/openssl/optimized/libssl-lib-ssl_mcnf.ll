@@ -16,14 +16,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SSL_config(ptr noundef %s, ptr noundef %name) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @SSL_config(ptr noundef %s, ptr noundef %name) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc i32 @ssl_do_config(ptr noundef %s, ptr noundef null, ptr noundef %name, i32 noundef 0), !range !4
+  %call = tail call fastcc i32 @ssl_do_config(ptr noundef %s, ptr noundef null, ptr noundef %name, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_do_config(ptr noundef %s, ptr noundef %ctx, ptr noundef %name, i32 noundef %system) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ssl_do_config(ptr noundef %s, ptr noundef %ctx, ptr noundef %name, i32 noundef %system) unnamed_addr #1 {
 entry:
   %name.addr = alloca ptr, align 8
   %idx = alloca i64, align 8
@@ -116,7 +116,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %i.027, 1
   %8 = load i64, ptr %cmd_count, align 8
   %cmp37 = icmp ult i64 %inc, %8
-  br i1 %cmp37, label %for.body, label %for.end, !llvm.loop !5
+  br i1 %cmp37, label %for.body, label %for.end, !llvm.loop !4
 
 for.body:                                         ; preds = %if.end26, %for.cond
   %i.027 = phi i64 [ %inc, %for.cond ], [ 0, %if.end26 ]
@@ -154,16 +154,16 @@ err:                                              ; preds = %if.end11, %if.then7
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SSL_CTX_config(ptr noundef %ctx, ptr noundef %name) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @SSL_CTX_config(ptr noundef %ctx, ptr noundef %name) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc i32 @ssl_do_config(ptr noundef null, ptr noundef %ctx, ptr noundef %name, i32 noundef 0), !range !4
+  %call = tail call fastcc i32 @ssl_do_config(ptr noundef null, ptr noundef %ctx, ptr noundef %name, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define void @ssl_ctx_system_config(ptr noundef %ctx) local_unnamed_addr #1 {
 entry:
-  %call = tail call fastcc i32 @ssl_do_config(ptr noundef null, ptr noundef %ctx, ptr noundef null, i32 noundef 1), !range !4
+  %call = tail call fastcc i32 @ssl_do_config(ptr noundef null, ptr noundef %ctx, ptr noundef null, i32 noundef 1)
   ret void
 }
 
@@ -208,6 +208,5 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

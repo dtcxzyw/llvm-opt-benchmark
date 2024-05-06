@@ -183,7 +183,7 @@ opal_obj_new.exit.thread:                         ; preds = %8, %62
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_coll_basic_module_enable(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #1 {
+define range(i32 -1, 1) i32 @mca_coll_basic_module_enable(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #1 {
   %3 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_base_comm_t_class, i64 0, i32 8), align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #4
   %5 = load i32, ptr @opal_class_init_epoch, align 4

@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [41 x i8] c"Unknown class in reference(%p) - 0x%2.2X\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ex_opcode_0A_0T_1R(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12290) i32 @acpi_ex_opcode_0A_0T_1R(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 10
   %3 = load i16, ptr %2, align 2
   %4 = icmp eq i16 %3, 23347
@@ -371,7 +371,7 @@ define dso_local i32 @acpi_ex_opcode_1A_1T_1R(ptr noundef %0) local_unnamed_addr
   %119 = getelementptr inbounds i8, ptr %118, i64 16
   %120 = load i64, ptr %119, align 8
   %121 = lshr i64 %120, 32
-  %122 = trunc i64 %121 to i32
+  %122 = trunc nuw i64 %121 to i32
   %123 = trunc i64 %120 to i32
   call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 386, ptr noundef nonnull @.str.2, i32 noundef %122, i32 noundef %123) #3
   br label %.thread22

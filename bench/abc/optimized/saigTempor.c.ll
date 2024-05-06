@@ -31,10 +31,10 @@ define ptr @Saig_ManTemporFrames(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #11
+  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #11
   %10 = add i64 %9, 1
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #12
-  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %7) #10
+  %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %7) #10
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %2, %8
@@ -343,10 +343,10 @@ define ptr @Saig_ManTemporDecompose(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #11
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #11
   %16 = add i64 %15, 1
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #12
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %13) #10
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %13) #10
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %7, %14
@@ -558,7 +558,7 @@ Aig_ObjChild0Copy.exit145:                        ; preds = %.lr.ph168, %107
   %indvars.iv191 = phi i64 [ 0, %.lr.ph171 ], [ %indvars.iv.next192, %125 ]
   %126 = load ptr, ptr %124, align 8
   %.val112 = load i32, ptr %23, align 4
-  %127 = trunc i64 %indvars.iv191 to i32
+  %127 = trunc nuw nsw i64 %indvars.iv191 to i32
   %128 = add nsw i32 %.val112, %127
   %129 = getelementptr i8, ptr %126, i64 8
   %.val117 = load ptr, ptr %129, align 8
@@ -775,7 +775,7 @@ declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #1
 declare void @Aig_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Vec_IntLastNonZeroBeforeLimit(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 2147483647) i32 @Vec_IntLastNonZeroBeforeLimit(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge, label %4
 
@@ -788,7 +788,7 @@ define i32 @Vec_IntLastNonZeroBeforeLimit(ptr noundef readonly %0, i32 noundef %
 
 8:                                                ; preds = %11, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ %7, %4 ]
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %.critedge
 
@@ -907,7 +907,7 @@ Vec_IntFreeP.exit53:                              ; preds = %24, %.thread.i52
   %40 = getelementptr inbounds i32, ptr %.val48, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   %.not45 = icmp eq i32 %41, 0
-  %42 = trunc i64 %indvars.iv to i32
+  %42 = trunc nuw nsw i64 %indvars.iv to i32
   %43 = select i1 %.not45, i32 %.03873, i32 %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -990,7 +990,7 @@ Vec_IntFreeP.exit58:                              ; preds = %52, %.thread.i57
 
 74:                                               ; preds = %77, %70
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %77 ], [ %73, %70 ]
-  %75 = trunc i64 %indvars.iv.i to i32
+  %75 = trunc nuw i64 %indvars.iv.i to i32
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %77, label %.thread
 
@@ -1084,7 +1084,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #10
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #10
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1103,7 +1103,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1128,16 +1128,16 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9

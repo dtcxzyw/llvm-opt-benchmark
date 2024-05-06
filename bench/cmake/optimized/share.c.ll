@@ -34,7 +34,7 @@ define dso_local ptr @curl_share_init() local_unnamed_addr #0 {
 declare void @Curl_init_dnscache(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @curl_share_setopt(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
+define dso_local range(i32 0, 6) i32 @curl_share_setopt(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %138, label %4
@@ -51,7 +51,7 @@ define dso_local noundef i32 @curl_share_setopt(ptr noundef %0, i32 noundef %1, 
   br i1 %.not46, label %10, label %138
 
 10:                                               ; preds = %7
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   switch i32 %1, label %.thread67 [
     i32 1, label %11
     i32 2, label %53
@@ -307,16 +307,13 @@ define dso_local noundef i32 @curl_share_setopt(ptr noundef %0, i32 noundef %1, 
 
 .thread67:                                        ; preds = %24, %45, %40, %35, %30, %10, %82, %86, %66, %77, %74, %81, %78, %66, %46, %.thread, %134, %117, %100
   %.1 = phi i32 [ 0, %134 ], [ 0, %117 ], [ 0, %100 ], [ 1, %86 ], [ 0, %82 ], [ 0, %81 ], [ 0, %78 ], [ 0, %77 ], [ 0, %74 ], [ 0, %66 ], [ 0, %66 ], [ 4, %46 ], [ 0, %.thread ], [ 1, %10 ], [ 4, %30 ], [ 4, %35 ], [ 4, %40 ], [ 1, %45 ], [ 5, %24 ]
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %138
 
 138:                                              ; preds = %7, %2, %4, %.thread67
   %.038 = phi i32 [ %.1, %.thread67 ], [ 3, %4 ], [ 3, %2 ], [ 2, %7 ]
   ret i32 %.038
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
 
 declare ptr @Curl_cookie_init(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -328,11 +325,8 @@ declare void @Curl_cookie_cleanup(ptr noundef) local_unnamed_addr #1
 
 declare void @Curl_hsts_cleanup(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
-
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @curl_share_cleanup(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @curl_share_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %45, label %2
 
@@ -445,7 +439,7 @@ declare void @Curl_hash_destroy(ptr noundef) local_unnamed_addr #1
 declare void @Curl_ssl_kill_session(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_share_lock(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @Curl_share_lock(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 208
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -477,7 +471,7 @@ define dso_local noundef i32 @Curl_share_lock(ptr noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_share_unlock(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @Curl_share_unlock(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -507,6 +501,12 @@ define dso_local noundef i32 @Curl_share_unlock(ptr noundef %0, i32 noundef %1) 
   %.0 = phi i32 [ 3, %2 ], [ 0, %10 ], [ 0, %13 ], [ 0, %5 ]
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -359,7 +359,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.4364434838112105284.exit
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.4364434838112105284(ptr nocapture noundef nonnull writeonly align 1 %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #5 {
   %3 = load i8, ptr %1, align 1, !range !64, !noundef !5
-  %4 = trunc i8 %3 to i1
+  %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.4364434838112105284.exit.thread, label %5
 
 5:                                                ; preds = %2
@@ -454,7 +454,7 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$std..sync..mutex..MutexGuard
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %5 = load i8, ptr %4, align 8, !range !64, !alias.scope !72, !noundef !5
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.4364434838112105284.exit.i, label %7
 
 7:                                                ; preds = %1
@@ -826,7 +826,7 @@ define hidden { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h498a
 define hidden { ptr, i8 } @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.4364434838112105284"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i8 }, align 8
   %4 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  %trunc = trunc i64 %4 to i1
+  %trunc = trunc nuw i64 %4 to i1
   br i1 %trunc, label %12, label %5
 
 5:                                                ; preds = %2
@@ -938,7 +938,7 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$std..sync..mutex..Mutex$LT$T$GT$$u2
 
 28:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %29 = trunc i8 %19 to i1
+  %29 = trunc nuw i8 %19 to i1
   br i1 %29, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.4364434838112105284.exit.i.i, label %30
 
 30:                                               ; preds = %28
@@ -1024,7 +1024,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.4364434838112105284.exit.
 
 60:                                               ; preds = %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %61 = trunc i8 %19 to i1
+  %61 = trunc nuw i8 %19 to i1
   br i1 %61, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.4661854399685404667.exit.i.i.i, label %62
 
 62:                                               ; preds = %60
@@ -1076,7 +1076,7 @@ define hidden void @"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
   %5 = load i8, ptr %4, align 8, !range !64, !alias.scope !98, !noundef !5
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.4364434838112105284.exit, label %7
 
 7:                                                ; preds = %1
@@ -1145,7 +1145,7 @@ define void @_ZN10rayon_core5sleep5Sleep3new17h97a0d250b2f3199bE(ptr noalias noc
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden noundef i64 @_ZN10rayon_core5sleep5Sleep15announce_sleepy17hd873976ca361f7c4E(ptr noundef nonnull align 8 %0) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN10rayon_core5sleep5Sleep15announce_sleepy17hd873976ca361f7c4E(ptr noundef nonnull align 8 %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   br label %3
 
@@ -1285,7 +1285,7 @@ common.resume:                                    ; preds = %49, %25
   store i8 %.0.i.i.i, ptr %.fca.1.gep, align 8
   %30 = getelementptr inbounds i8, ptr %11, i64 5
   %31 = load i8, ptr %30, align 1, !range !64, !noundef !5
-  %32 = trunc i8 %31 to i1
+  %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.4364434838112105284.exit"
@@ -1301,7 +1301,7 @@ common.resume:                                    ; preds = %49, %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %38 = getelementptr inbounds i8, ptr %37, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
-  %39 = trunc i8 %36 to i1
+  %39 = trunc nuw i8 %36 to i1
   br i1 %39, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.4364434838112105284.exit.i.i, label %40
 
 40:                                               ; preds = %35

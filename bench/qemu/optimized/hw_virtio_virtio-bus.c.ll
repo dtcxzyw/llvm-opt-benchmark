@@ -444,7 +444,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @virtio_bus_grab_ioeventfd(ptr noundef %bus) local_unnamed_addr #0 {
+define dso_local range(i32 -38, 1) i32 @virtio_bus_grab_ioeventfd(ptr noundef %bus) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %bus) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #5
@@ -524,7 +524,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.then3:                                         ; preds = %land.lhs.true
   store i8 0, ptr %ioeventfd_started, align 8
-  %call = tail call i32 @virtio_bus_start_ioeventfd(ptr noundef nonnull %bus), !range !5
+  %call = tail call i32 @virtio_bus_start_ioeventfd(ptr noundef nonnull %bus)
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %land.lhs.true, %if.end
@@ -532,7 +532,7 @@ if.end5:                                          ; preds = %if.then3, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @virtio_bus_start_ioeventfd(ptr noundef %bus) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @virtio_bus_start_ioeventfd(ptr noundef %bus) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %bus) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #5
@@ -839,4 +839,3 @@ attributes #6 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -2147483648, i32 1}

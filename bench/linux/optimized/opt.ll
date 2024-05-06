@@ -261,7 +261,7 @@ define internal void @optimized_callback(ptr noundef %0, ptr noundef %1) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @arch_check_optimized_kprobe(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -17, 1) i32 @arch_check_optimized_kprobe(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load i64, ptr %2, align 8
   %4 = icmp ugt i64 %3, 1
@@ -300,7 +300,7 @@ define dso_local noundef i32 @arch_check_optimized_kprobe(ptr nocapture noundef 
 declare dso_local zeroext i1 @kprobe_disarmed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @arch_within_optimized_kprobe(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 2) i32 @arch_within_optimized_kprobe(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ugt ptr %4, %1
@@ -342,7 +342,7 @@ define dso_local void @arch_remove_optimized_kprobe(ptr nocapture noundef %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @arch_prepare_optimized_kprobe(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.insn, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -774,7 +774,7 @@ define dso_local void @arch_unoptimize_kprobes(ptr noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @setup_detour_execution(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @setup_detour_execution(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4

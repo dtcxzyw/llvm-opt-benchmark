@@ -626,7 +626,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7515UnhandledEngine7handlesEiPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %c, ptr nocapture readnone %locale) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7515UnhandledEngine7handlesEiPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %c, ptr nocapture readnone %locale) unnamed_addr #1 align 2 {
 entry:
   %fHandled = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fHandled, align 8
@@ -1617,7 +1617,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7518BreakEngineWrapper7handlesEiPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %c, ptr noundef %locale) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7518BreakEngineWrapper7handlesEiPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %c, ptr noundef %locale) unnamed_addr #1 align 2 {
 entry:
   %delegate = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %delegate, align 8

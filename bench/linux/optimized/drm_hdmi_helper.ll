@@ -17,7 +17,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_hdmi_avi
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_drm_hdmi_avi_infoframe_bars363, ptr @__UNIQUE_ID___addressable_drm_hdmi_avi_infoframe_colorimetry362, ptr @__UNIQUE_ID___addressable_drm_hdmi_avi_infoframe_content_type364, ptr @__UNIQUE_ID___addressable_drm_hdmi_infoframe_set_hdr_metadata361], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_hdmi_infoframe_set_hdr_metadata(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_hdmi_infoframe_set_hdr_metadata(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4

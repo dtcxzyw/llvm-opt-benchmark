@@ -10,12 +10,12 @@ target triple = "x86_64-pc-linux-gnu"
 define i16 @f16_div(i16 %0, i16 %1) local_unnamed_addr #0 {
   %3 = zext i16 %0 to i64
   %4 = lshr i16 %0, 10
-  %5 = trunc i16 %4 to i8
+  %5 = trunc nuw nsw i16 %4 to i8
   %6 = and i8 %5, 31
   %7 = and i64 %3, 1023
   %8 = zext i16 %1 to i64
   %9 = lshr i16 %1, 10
-  %10 = trunc i16 %9 to i8
+  %10 = trunc nuw nsw i16 %9 to i8
   %11 = and i8 %10, 31
   %12 = and i64 %8, 1023
   %.lobit87 = xor i16 %1, %0
@@ -102,7 +102,7 @@ define i16 @f16_div(i16 %0, i16 %1) local_unnamed_addr #0 {
   %48 = and i64 %.076, 63
   %49 = mul nuw nsw i64 %48, %47
   %50 = lshr i64 %49, 10
-  %51 = trunc i64 %50 to i16
+  %51 = trunc nuw nsw i64 %50 to i16
   %52 = sub i16 %44, %51
   %53 = zext i16 %52 to i64
   %54 = mul i64 %.1, %53

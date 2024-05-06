@@ -121,12 +121,12 @@ declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #3
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_read_file_(ptr nocapture noundef readonly %filename, ptr nocapture noundef writeonly %content_out, ptr nocapture noundef writeonly %len_out, i32 noundef %is_binary) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @evutil_read_file_(ptr nocapture noundef readonly %filename, ptr nocapture noundef writeonly %content_out, ptr nocapture noundef writeonly %len_out, i32 noundef %is_binary) local_unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   store ptr null, ptr %content_out, align 8
   store i64 0, ptr %len_out, align 8
-  %call.i = tail call i32 (ptr, i32, ...) @open(ptr noundef %filename, i32 noundef 524288, i32 noundef 0) #30
+  %call.i = tail call i32 (ptr, i32, ...) @open(ptr noundef readonly %filename, i32 noundef 524288, i32 noundef 0) #30
   %cmp.i = icmp sgt i32 %call.i, -1
   br i1 %cmp.i, label %if.end, label %lor.lhs.false.i
 
@@ -137,7 +137,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp2.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call3.i = tail call i32 (ptr, i32, ...) @open(ptr noundef %filename, i32 noundef 0, i32 noundef 0) #30
+  %call3.i = tail call i32 (ptr, i32, ...) @open(ptr noundef readonly %filename, i32 noundef 0, i32 noundef 0) #30
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %return, label %if.end6.i
 
@@ -236,7 +236,7 @@ entry:
 declare i32 @socketpair(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_ersatz_socketpair_(i32 noundef %family, i32 noundef %type, i32 noundef %protocol, ptr noundef writeonly %fd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evutil_ersatz_socketpair_(i32 noundef %family, i32 noundef %type, i32 noundef %protocol, ptr noundef writeonly %fd) local_unnamed_addr #0 {
 entry:
   %listen_addr = alloca %struct.sockaddr_in, align 4
   %connect_addr = alloca %struct.sockaddr_in, align 4
@@ -425,7 +425,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_make_socket_nonblocking(i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evutil_make_socket_nonblocking(i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %fd, i32 noundef 3, ptr noundef null) #30
   %cmp = icmp slt i32 %call, 0
@@ -503,7 +503,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_make_socket_closeonexec(i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evutil_make_socket_closeonexec(i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %fd, i32 noundef 1, ptr noundef null) #30
   %cmp = icmp slt i32 %call, 0
@@ -541,7 +541,7 @@ entry:
 declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_socket_connect_(ptr nocapture noundef %fd_ptr, ptr noundef %sa, i32 noundef %socklen) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 3) i32 @evutil_socket_connect_(ptr nocapture noundef %fd_ptr, ptr noundef %sa, i32 noundef %socklen) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %fd_ptr, align 4
   %cmp = icmp sgt i32 %0, -1
@@ -609,7 +609,7 @@ return:                                           ; preds = %if.then, %err, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_socket_finished_connecting_(i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @evutil_socket_finished_connecting_(i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %e = alloca i32, align 4
   %elen = alloca i32, align 4
@@ -643,7 +643,7 @@ return:                                           ; preds = %if.end, %return.fol
 declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @evutil_v4addr_is_local_(ptr nocapture noundef readonly %in) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @evutil_v4addr_is_local_(ptr nocapture noundef readonly %in) local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %in, align 4
   %call = tail call i32 @ntohl(i32 noundef %0) #31
@@ -665,7 +665,7 @@ entry:
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @evutil_v6addr_is_local_(ptr nocapture noundef readonly %in) local_unnamed_addr #10 {
+define dso_local range(i32 0, 2) i32 @evutil_v6addr_is_local_(ptr nocapture noundef readonly %in) local_unnamed_addr #10 {
 entry:
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %in, ptr noundef nonnull dereferenceable(8) @evutil_v6addr_is_local_.ZEROES, i64 8)
   %tobool.not = icmp eq i32 %bcmp, 0
@@ -900,7 +900,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evutil_getaddrinfo_common_(ptr noundef %nodename, ptr noundef %servname, ptr nocapture noundef %hints, ptr nocapture noundef writeonly %res, ptr nocapture noundef writeonly %portnum) local_unnamed_addr #0 {
+define dso_local range(i32 -90002, 1) i32 @evutil_getaddrinfo_common_(ptr noundef %nodename, ptr noundef %servname, ptr nocapture noundef %hints, ptr nocapture noundef writeonly %res, ptr nocapture noundef writeonly %portnum) local_unnamed_addr #0 {
 entry:
   %a.i = alloca i32, align 4
   %b.i = alloca i32, align 4
@@ -1259,7 +1259,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_inet_pton_scope(i32 noundef %af, ptr noundef %src, ptr nocapture noundef writeonly %dst, ptr nocapture noundef writeonly %indexp) local_unnamed_addr #0 {
+define dso_local i32 @evutil_inet_pton_scope(i32 noundef %af, ptr noundef %src, ptr nocapture noundef writeonly %dst, ptr nocapture noundef writeonly %indexp) local_unnamed_addr #0 {
 entry:
   %check = alloca ptr, align 8
   store i32 0, ptr %indexp, align 4
@@ -1267,7 +1267,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @evutil_inet_pton(i32 noundef %af, ptr noundef %src, ptr noundef %dst), !range !9
+  %call = tail call i32 @evutil_inet_pton(i32 noundef %af, ptr noundef %src, ptr noundef %dst)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1276,7 +1276,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call i32 @evutil_inet_pton(i32 noundef 10, ptr noundef %src, ptr noundef %dst), !range !9
+  %call4 = tail call i32 @evutil_inet_pton(i32 noundef 10, ptr noundef %src, ptr noundef %dst)
   br label %return
 
 if.end5:                                          ; preds = %if.end
@@ -1303,7 +1303,7 @@ if.end16:                                         ; preds = %if.then8, %if.end5
 if.end19:                                         ; preds = %if.end16
   %call20 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call17, i32 noundef 37) #32
   store i8 0, ptr %call20, align 1
-  %call21 = tail call i32 @evutil_inet_pton(i32 noundef 10, ptr noundef nonnull %call17, ptr noundef %dst), !range !9
+  %call21 = tail call i32 @evutil_inet_pton(i32 noundef 10, ptr noundef nonnull %call17, ptr noundef %dst)
   tail call void @event_mm_free_(ptr noundef nonnull %call17) #30
   br label %return
 
@@ -1313,7 +1313,7 @@ return:                                           ; preds = %if.end16, %if.then8
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef i32 @evutil_inet_pton(i32 noundef %af, ptr noundef %src, ptr nocapture noundef writeonly %dst) local_unnamed_addr #14 {
+define dso_local range(i32 -1, 2) i32 @evutil_inet_pton(i32 noundef %af, ptr noundef %src, ptr nocapture noundef writeonly %dst) local_unnamed_addr #14 {
 entry:
   %a = alloca i32, align 4
   %b = alloca i32, align 4
@@ -1399,7 +1399,7 @@ land.rhs:                                         ; preds = %for.cond
   %6 = shl nuw i32 1, %and2.i
   %7 = and i32 %6, %5
   %tobool33.not = icmp eq i32 %7, 0
-  br i1 %tobool33.not, label %for.end, label %for.cond, !llvm.loop !10
+  br i1 %tobool33.not, label %for.end, label %for.cond, !llvm.loop !9
 
 for.end:                                          ; preds = %for.cond, %land.rhs
   %call35 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %call22.pn, ptr noundef nonnull @.str.22, ptr noundef nonnull %byte1, ptr noundef nonnull %byte2, ptr noundef nonnull %byte3, ptr noundef nonnull %byte4, ptr noundef nonnull %more29) #30
@@ -1522,7 +1522,7 @@ if.end124:                                        ; preds = %if.then102, %if.the
   %gapPos.1 = phi i32 [ %gapPos.090, %if.end90 ], [ %i.089, %if.then102 ], [ 0, %if.then119 ]
   %src.addr.1 = phi ptr [ %incdec.ptr91, %if.end90 ], [ %incdec.ptr103, %if.then102 ], [ %add.ptr120, %if.then119 ]
   %cmp55 = icmp ult ptr %src.addr.1, %eow.1
-  br i1 %cmp55, label %while.body, label %while.end, !llvm.loop !11
+  br i1 %cmp55, label %while.body, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end124
   %cmp125 = icmp sgt i32 %setWords.2, 8
@@ -1584,7 +1584,7 @@ for.body165:                                      ; preds = %for.body165.prehead
   store i8 %conv176, ptr %arrayidx181, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %return, label %for.body165, !llvm.loop !12
+  br i1 %exitcond.not, label %return, label %for.body165, !llvm.loop !11
 
 return:                                           ; preds = %if.else104, %land.lhs.true111, %if.end80, %if.then63, %while.body, %for.body165, %if.end54, %entry, %if.then143, %while.end, %lor.lhs.false127, %lor.lhs.false133, %if.end38, %for.end, %if.then21, %if.end11, %if.end8, %if.end5, %if.end, %if.then, %if.end14
   %retval.0 = phi i32 [ 1, %if.end14 ], [ 0, %if.then ], [ 0, %if.end ], [ 0, %if.end5 ], [ 0, %if.end8 ], [ 0, %if.end11 ], [ 0, %if.then21 ], [ 0, %for.end ], [ 0, %if.end38 ], [ 0, %lor.lhs.false133 ], [ 0, %lor.lhs.false127 ], [ 0, %while.end ], [ -1, %if.then143 ], [ -1, %entry ], [ 0, %if.end54 ], [ 1, %for.body165 ], [ 0, %while.body ], [ 0, %if.then63 ], [ 0, %if.end80 ], [ 0, %land.lhs.true111 ], [ 0, %if.else104 ]
@@ -1656,7 +1656,7 @@ if.end3.i.i:                                      ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %if.end3.i.i, %for.body.i.i
   %i.0.i.i = load ptr, ptr %i.06.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %i.0.i.i, null
-  br i1 %tobool.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !13
+  br i1 %tobool.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !12
 
 for.end.loopexit.i.i:                             ; preds = %for.inc.i.i
   %.pre.i.i = load ptr, ptr %ifa.i.i, align 8
@@ -1729,7 +1729,7 @@ evutil_inet_pton.exit.i:                          ; preds = %if.end14.i.i, %if.e
   %sin6_port.i = getelementptr inbounds i8, ptr %sin6.i, i64 2
   store i16 %call3.i, ptr %sin6_port.i, align 2
   %sin6_addr.i = getelementptr inbounds i8, ptr %sin6.i, i64 8
-  %call6.i = call i32 @evutil_inet_pton(i32 noundef 10, ptr noundef nonnull @.str.31, ptr noundef nonnull %sin6_addr.i), !range !9
+  %call6.i = call i32 @evutil_inet_pton(i32 noundef 10, ptr noundef nonnull @.str.31, ptr noundef nonnull %sin6_addr.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin_out.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %sin6_out.i, i8 0, i64 28, i1 false)
   %call9.i = call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 17) #30
@@ -1873,7 +1873,7 @@ if.then7:                                         ; preds = %land.lhs.true8.i
   br i1 %tobool8.not, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.then7
-  %call10 = call i32 @evutil_getaddrinfo_common_(ptr noundef null, ptr noundef nonnull %servname, ptr noundef nonnull %hints, ptr noundef %res, ptr noundef nonnull %portnum), !range !14
+  %call10 = call i32 @evutil_getaddrinfo_common_(ptr noundef null, ptr noundef nonnull %servname, ptr noundef nonnull %hints, ptr noundef %res, ptr noundef nonnull %portnum)
   br label %return
 
 if.end12:                                         ; preds = %need_numeric_port_hack.exit, %land.end, %if.then7
@@ -1991,7 +1991,7 @@ for.inc.i:                                        ; preds = %if.else13.i, %if.th
   %ai_next16.i = getelementptr inbounds i8, ptr %14, i64 40
   %15 = load ptr, ptr %ai_next16.i, align 8
   %tobool.not.i18 = icmp eq ptr %15, null
-  br i1 %tobool.not.i18, label %if.end20, label %for.body.i, !llvm.loop !15
+  br i1 %tobool.not.i18, label %if.end20, label %for.body.i, !llvm.loop !13
 
 if.end20:                                         ; preds = %for.inc.i, %if.then19, %do.end
   %.b.i21 = load i1, ptr @tested_for_getaddrinfo_hacks, align 4
@@ -2098,7 +2098,7 @@ for.inc.i26:                                      ; preds = %if.end18.i, %if.the
   %ai_next21.i = getelementptr inbounds i8, ptr %ai.addr.023.i, i64 40
   %21 = load ptr, ptr %ai_next21.i, align 8
   %tobool.not.i27 = icmp eq ptr %21, null
-  br i1 %tobool.not.i27, label %return, label %for.body.i25, !llvm.loop !16
+  br i1 %tobool.not.i27, label %return, label %for.body.i25, !llvm.loop !14
 
 if.then26:                                        ; preds = %if.end.i, %if.then16.i
   %22 = load ptr, ptr %res, align 8
@@ -2334,7 +2334,7 @@ entry:
   br i1 %tobool.not.i, label %evutil_vsnprintf.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = call i32 @vsnprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef %format, ptr noundef nonnull %ap) #30
+  %call.i = call i32 @vsnprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef readonly %format, ptr noundef nonnull %ap) #30
   %0 = getelementptr i8, ptr %buf, i64 %buflen
   %arrayidx.i = getelementptr i8, ptr %0, i64 -1
   store i8 0, ptr %arrayidx.i, align 1
@@ -2410,7 +2410,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i16 %add33, ptr %arrayidx36, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body
   %5 = load <4 x i16>, ptr %words, align 16
@@ -2507,7 +2507,7 @@ while.body139:                                    ; preds = %land.rhs
   %inc141 = add nuw nsw i32 %curGapLen.072, 1
   %indvars.iv.next90 = add nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, 8
-  br i1 %exitcond92.not, label %while.end, label %land.rhs, !llvm.loop !18
+  br i1 %exitcond92.not, label %while.end, label %land.rhs, !llvm.loop !16
 
 while.end.loopexit.split.loop.exit107:            ; preds = %land.rhs
   %19 = trunc nsw i64 %indvars.iv89 to i32
@@ -2526,7 +2526,7 @@ if.end148:                                        ; preds = %while.body, %while.
   %longestGapPos.1 = phi i32 [ %spec.select65, %while.end ], [ %longestGapPos.078, %while.body ]
   %i.3 = phi i32 [ %i.2.lcssa, %while.end ], [ %i.270, %while.body ]
   %cmp122 = icmp slt i32 %i.3, 8
-  br i1 %cmp122, label %while.body, label %while.end149, !llvm.loop !19
+  br i1 %cmp122, label %while.body, label %while.end149, !llvm.loop !17
 
 while.end149:                                     ; preds = %if.end148
   %cmp150 = icmp slt i32 %longestGapLen.1, 2
@@ -2576,7 +2576,7 @@ land.rhs176:                                      ; preds = %land.rhs176.prehead
 while.body183:                                    ; preds = %land.rhs176
   %indvars.iv.next94 = add nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, 8
-  br i1 %exitcond96.not, label %while.end185, label %land.rhs176, !llvm.loop !20
+  br i1 %exitcond96.not, label %while.end185, label %land.rhs176, !llvm.loop !18
 
 while.end185.loopexit.split.loop.exit110:         ; preds = %land.rhs176
   %23 = trunc nsw i64 %indvars.iv93 to i32
@@ -2608,7 +2608,7 @@ for.inc199:                                       ; preds = %while.end185, %if.t
   %i.6 = phi i32 [ %dec, %while.end185 ], [ %i.485, %if.then195 ]
   %inc200 = add nsw i32 %i.6, 1
   %cmp156 = icmp slt i32 %i.6, 7
-  br i1 %cmp156, label %for.body158, label %for.end201, !llvm.loop !21
+  br i1 %cmp156, label %for.body158, label %for.end201, !llvm.loop !19
 
 for.end201:                                       ; preds = %if.else186, %for.inc199
   %cp.2106 = phi ptr [ %cp.2, %for.inc199 ], [ %add.ptr, %if.else186 ]
@@ -2646,7 +2646,7 @@ declare ptr @event_mm_strdup_(ptr noundef) local_unnamed_addr #3
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @EVUTIL_ISDIGIT_(i8 noundef signext %c) local_unnamed_addr #18 {
+define dso_local range(i32 0, 2) i32 @EVUTIL_ISDIGIT_(i8 noundef signext %c) local_unnamed_addr #18 {
 entry:
   %conv = zext i8 %c to i32
   %shr = lshr i32 %conv, 5
@@ -2660,7 +2660,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %c) local_unnamed_addr #18 {
+define dso_local range(i32 0, 2) i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %c) local_unnamed_addr #18 {
 entry:
   %conv = zext i8 %c to i32
   %shr = lshr i32 %conv, 5
@@ -2680,7 +2680,7 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_parse_sockaddr_port(ptr noundef %ip_as_string, ptr nocapture noundef writeonly %out, ptr nocapture noundef %outlen) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evutil_parse_sockaddr_port(ptr noundef %ip_as_string, ptr nocapture noundef writeonly %out, ptr nocapture noundef %outlen) local_unnamed_addr #0 {
 entry:
   %a.i = alloca i32, align 4
   %b.i = alloca i32, align 4
@@ -3002,7 +3002,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @EVUTIL_ISALPHA_(i8 noundef signext %c) local_unnamed_addr #18 {
+define dso_local range(i32 0, 2) i32 @EVUTIL_ISALPHA_(i8 noundef signext %c) local_unnamed_addr #18 {
 entry:
   %conv = zext i8 %c to i32
   %shr = lshr i32 %conv, 5
@@ -3016,7 +3016,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @EVUTIL_ISALNUM_(i8 noundef signext %c) local_unnamed_addr #18 {
+define dso_local range(i32 0, 2) i32 @EVUTIL_ISALNUM_(i8 noundef signext %c) local_unnamed_addr #18 {
 entry:
   %conv = zext i8 %c to i32
   %shr = lshr i32 %conv, 5
@@ -3030,7 +3030,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @EVUTIL_ISSPACE_(i8 noundef signext %c) local_unnamed_addr #18 {
+define dso_local range(i32 0, 2) i32 @EVUTIL_ISSPACE_(i8 noundef signext %c) local_unnamed_addr #18 {
 entry:
   %conv = zext i8 %c to i32
   %shr = lshr i32 %conv, 5
@@ -3044,7 +3044,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @EVUTIL_ISPRINT_(i8 noundef signext %c) local_unnamed_addr #18 {
+define dso_local range(i32 0, 2) i32 @EVUTIL_ISPRINT_(i8 noundef signext %c) local_unnamed_addr #18 {
 entry:
   %conv = zext i8 %c to i32
   %shr = lshr i32 %conv, 5
@@ -3058,7 +3058,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @EVUTIL_ISLOWER_(i8 noundef signext %c) local_unnamed_addr #18 {
+define dso_local range(i32 0, 2) i32 @EVUTIL_ISLOWER_(i8 noundef signext %c) local_unnamed_addr #18 {
 entry:
   %conv = zext i8 %c to i32
   %shr = lshr i32 %conv, 5
@@ -3072,7 +3072,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @EVUTIL_ISUPPER_(i8 noundef signext %c) local_unnamed_addr #18 {
+define dso_local range(i32 0, 2) i32 @EVUTIL_ISUPPER_(i8 noundef signext %c) local_unnamed_addr #18 {
 entry:
   %conv = zext i8 %c to i32
   %shr = lshr i32 %conv, 5
@@ -3104,7 +3104,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @evutil_ascii_strcasecmp(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2) local_unnamed_addr #20 {
+define dso_local range(i32 -1, 2) i32 @evutil_ascii_strcasecmp(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2) local_unnamed_addr #20 {
 entry:
   br label %while.body
 
@@ -3138,7 +3138,7 @@ return:                                           ; preds = %if.else10, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @evutil_ascii_strncasecmp(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2, i64 noundef %n) local_unnamed_addr #20 {
+define dso_local range(i32 -1, 2) i32 @evutil_ascii_strncasecmp(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2, i64 noundef %n) local_unnamed_addr #20 {
 entry:
   br label %while.cond
 
@@ -3170,7 +3170,7 @@ if.else:                                          ; preds = %while.body
 
 if.else10:                                        ; preds = %if.else
   %cmp12 = icmp eq i8 %0, 0
-  br i1 %cmp12, label %return, label %while.cond, !llvm.loop !22
+  br i1 %cmp12, label %return, label %while.cond, !llvm.loop !20
 
 return:                                           ; preds = %while.cond, %if.else10, %if.else, %while.body
   %retval.0 = phi i32 [ -1, %while.body ], [ 1, %if.else ], [ 0, %if.else10 ], [ 0, %while.cond ]
@@ -3204,7 +3204,7 @@ while.cond:                                       ; preds = %while.cond.preheade
 while.body:                                       ; preds = %while.cond, %while.cond
   store i8 0, ptr %cp.0, align 1
   %cmp10 = icmp eq ptr %cp.0, %str
-  br i1 %cmp10, label %while.end, label %while.cond, !llvm.loop !23
+  br i1 %cmp10, label %while.end, label %while.cond, !llvm.loop !21
 
 while.end:                                        ; preds = %while.cond, %while.body, %if.end, %entry
   ret void
@@ -3268,7 +3268,7 @@ declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) 
 declare i32 @getpid() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @evutil_weakrand_(ptr nocapture noundef %state) local_unnamed_addr #23 {
+define dso_local range(i32 0, -2147483648) i32 @evutil_weakrand_(ptr nocapture noundef %state) local_unnamed_addr #23 {
 entry:
   %0 = load i32, ptr %state, align 4
   %mul = mul i32 %0, 1103515245
@@ -3279,7 +3279,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i32 @evutil_weakrand_range_(ptr nocapture noundef %state, i32 noundef %top) local_unnamed_addr #24 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @evutil_weakrand_range_(ptr nocapture noundef %state, i32 noundef %top) local_unnamed_addr #24 {
 entry:
   %div = sdiv i32 2147483647, %top
   %state.promoted = load i32, ptr %state, align 4
@@ -3292,7 +3292,7 @@ do.body:                                          ; preds = %do.body, %entry
   %and.i = and i32 %add.i, 2147483647
   %div1 = sdiv i32 %and.i, %div
   %cmp.not = icmp slt i32 %div1, %top
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !24
+  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !22
 
 do.end:                                           ; preds = %do.body
   store i32 %and.i, ptr %state, align 4
@@ -3311,7 +3311,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @evutil_sockaddr_is_loopback_(ptr nocapture noundef readonly %addr) local_unnamed_addr #10 {
+define dso_local range(i32 0, 2) i32 @evutil_sockaddr_is_loopback_(ptr nocapture noundef readonly %addr) local_unnamed_addr #10 {
 entry:
   %0 = load i16, ptr %addr, align 2
   switch i16 %0, label %return [
@@ -3340,7 +3340,7 @@ return:                                           ; preds = %entry, %if.then8, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @evutil_hex_char_to_int_(i8 noundef signext %c) local_unnamed_addr #18 {
+define dso_local range(i32 -1, 16) i32 @evutil_hex_char_to_int_(i8 noundef signext %c) local_unnamed_addr #18 {
 entry:
   %switch.tableidx = add i8 %c, -48
   %0 = icmp ult i8 %switch.tableidx, 55
@@ -3358,7 +3358,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evutil_socket_(i32 noundef %domain, i32 noundef %type, i32 noundef %protocol) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @evutil_socket_(i32 noundef %domain, i32 noundef %type, i32 noundef %protocol) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @socket(i32 noundef %domain, i32 noundef %type, i32 noundef %protocol) #30
   %cmp = icmp sgt i32 %call, -1
@@ -3460,7 +3460,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @accept4(i32 noundef, ptr, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_make_internal_pipe_(ptr noundef %fd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evutil_make_internal_pipe_(ptr noundef %fd) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pipe2(ptr noundef %fd, i32 noundef 526336) #30
   %cmp = icmp eq i32 %call, 0
@@ -3689,7 +3689,7 @@ do.body:                                          ; preds = %if.then
 
 if.then10:                                        ; preds = %entry
   %sin6_addr = getelementptr inbounds i8, ptr %sa, i64 8
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %sin6_addr, ptr noundef nonnull dereferenceable(8) @evutil_v6addr_is_local_.ZEROES, i64 8)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %sin6_addr, ptr noundef nonnull dereferenceable(8) @evutil_v6addr_is_local_.ZEROES, i64 8)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %if.end21, label %lor.lhs.false.i
 
@@ -3784,7 +3784,7 @@ if.end.i:                                         ; preds = %while.body.i
   %ai_next.i = getelementptr inbounds i8, ptr %ai.addr.05.i, i64 40
   %2 = load ptr, ptr %ai_next.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i, label %if.then7, label %while.body.i, !llvm.loop !25
+  br i1 %tobool.not.i, label %if.then7, label %while.body.i, !llvm.loop !23
 
 lor.lhs.false:                                    ; preds = %while.body.i
   %3 = load ptr, ptr %ai3, align 8
@@ -3802,7 +3802,7 @@ if.end.i9:                                        ; preds = %while.body.i4
   %ai_next.i10 = getelementptr inbounds i8, ptr %ai.addr.05.i5, i64 40
   %5 = load ptr, ptr %ai_next.i10, align 8
   %tobool.not.i11 = icmp eq ptr %5, null
-  br i1 %tobool.not.i11, label %if.then7, label %while.body.i4, !llvm.loop !25
+  br i1 %tobool.not.i11, label %if.then7, label %while.body.i4, !llvm.loop !23
 
 if.then7:                                         ; preds = %if.end.i, %if.end.i9, %lor.lhs.false, %if.end
   store i1 true, ptr @need_socktype_protocol_hack_, align 4
@@ -3916,12 +3916,12 @@ attributes #32 = { nounwind willreturn memory(read) }
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 -1, i32 2}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = !{i32 -90002, i32 1}
+!14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
@@ -3931,5 +3931,3 @@ attributes #32 = { nounwind willreturn memory(read) }
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}

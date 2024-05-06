@@ -15,7 +15,7 @@ entry:
 declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @i2c_ASN1_BIT_STRING(ptr noundef readonly %a, ptr noundef %pp) local_unnamed_addr #2 {
+define hidden range(i32 -2147483647, -2147483648) i32 @i2c_ASN1_BIT_STRING(ptr noundef readonly %a, ptr noundef %pp) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end
@@ -111,7 +111,7 @@ if.end58:                                         ; preds = %if.end, %if.else43,
 
 if.end62:                                         ; preds = %if.end58
   %8 = load ptr, ptr %pp, align 8
-  %conv63 = trunc i32 %bits.0 to i8
+  %conv63 = trunc nuw nsw i32 %bits.0 to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %8, i64 1
   store i8 %conv63, ptr %8, align 1
   %data64 = getelementptr inbounds i8, ptr %a, i64 8
@@ -208,7 +208,7 @@ if.end24:                                         ; preds = %if.then17
   %6 = trunc i32 %shl to i8
   %conv29 = and i8 %5, %6
   store i8 %conv29, ptr %arrayidx, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %len
+  %add.ptr = getelementptr i8, ptr %1, i64 %len
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end11, %if.end24
@@ -273,7 +273,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_BIT_STRING_set_bit(ptr noundef %a, i32 noundef %n, i32 noundef %value) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_BIT_STRING_set_bit(ptr noundef %a, i32 noundef %n, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %div = sdiv i32 %n, 8
   %and = and i32 %n, 7
@@ -356,7 +356,7 @@ if.end40:                                         ; preds = %if.end36, %lor.lhs.
   %conv42 = zext i8 %6 to i32
   %and43 = and i32 %conv42, %not
   %or = or i32 %and43, %spec.select
-  %conv44 = trunc i32 %or to i8
+  %conv44 = trunc nuw i32 %or to i8
   store i8 %conv44, ptr %arrayidx, align 1
   %.pr = load i32, ptr %a, align 8
   %cmp4931 = icmp sgt i32 %.pr, 0
@@ -393,7 +393,7 @@ declare ptr @OPENSSL_realloc_clean(ptr noundef, i64 noundef, i64 noundef) local_
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @ASN1_BIT_STRING_get_bit(ptr noundef readonly %a, i32 noundef %n) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @ASN1_BIT_STRING_get_bit(ptr noundef readonly %a, i32 noundef %n) local_unnamed_addr #7 {
 entry:
   %div = sdiv i32 %n, 8
   %and = and i32 %n, 7
@@ -427,7 +427,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @ASN1_BIT_STRING_check(ptr noundef readonly %a, ptr nocapture noundef readonly %flags, i32 noundef %flags_len) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @ASN1_BIT_STRING_check(ptr noundef readonly %a, ptr nocapture noundef readonly %flags, i32 noundef %flags_len) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %a, null
   br i1 %tobool.not, label %return, label %lor.lhs.false

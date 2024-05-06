@@ -38,7 +38,7 @@ define dso_local void @mdio_device_free(ptr noundef %0) #0 align 16 {
 declare dso_local void @put_device(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @mdio_device_bus_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 2) i32 @mdio_device_bus_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, -1
@@ -216,7 +216,7 @@ define dso_local void @mdio_device_reset(ptr nocapture noundef %0, i32 noundef %
 33:                                               ; preds = %29
   %34 = add nuw nsw i64 %26, 999
   %35 = udiv i64 %34, 1000
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw nsw i64 %35 to i32
   tail call void @msleep(i32 noundef %36) #6
   br label %37
 
@@ -312,7 +312,7 @@ define internal i32 @mdio_probe(ptr noundef %0) #0 align 16 {
 32:                                               ; preds = %28
   %33 = add nuw nsw i64 %25, 999
   %34 = udiv i64 %33, 1000
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   tail call void @msleep(i32 noundef %35) #6
   br label %36
 
@@ -388,7 +388,7 @@ mdio_device_reset.exit:                           ; preds = %7, %11, %.thread.i,
 71:                                               ; preds = %67
   %72 = add nuw nsw i64 %64, 999
   %73 = udiv i64 %72, 1000
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nuw nsw i64 %73 to i32
   tail call void @msleep(i32 noundef %74) #6
   br label %75
 
@@ -472,7 +472,7 @@ define internal noundef i32 @mdio_remove(ptr noundef %0) #0 align 16 {
 37:                                               ; preds = %33
   %38 = add nuw nsw i64 %30, 999
   %39 = udiv i64 %38, 1000
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw nsw i64 %39 to i32
   tail call void @msleep(i32 noundef %40) #6
   br label %41
 

@@ -479,7 +479,7 @@ entry:
   %ref.tmp2 = alloca %"class.std::allocator.4", align 1
   %agg.tmp.sroa.2.0.insert.ext = zext i16 %y to i48
   %agg.tmp.sroa.2.0.insert.shift = shl nuw nsw i48 %agg.tmp.sroa.2.0.insert.ext, 16
-  %p.sroa.0.0.extract.trunc.i = trunc i48 %agg.tmp.sroa.2.0.insert.shift to i32
+  %p.sroa.0.0.extract.trunc.i = trunc nuw i48 %agg.tmp.sroa.2.0.insert.shift to i32
   %conv5.i = ashr exact i32 %p.sroa.0.0.extract.trunc.i, 16
   %0 = add nsw i32 %conv5.i, -1938
   %1 = icmp ult i32 %0, -3875

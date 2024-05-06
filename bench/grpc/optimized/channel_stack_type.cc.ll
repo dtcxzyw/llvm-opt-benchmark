@@ -25,7 +25,7 @@ do.body:                                          ; preds = %entry
   unreachable
 
 switch.lookup:                                    ; preds = %entry
-  %switch.cast = trunc i32 %type to i6
+  %switch.cast = trunc nuw i32 %type to i6
   %switch.downshift = lshr i6 31, %switch.cast
   %switch.masked = trunc i6 %switch.downshift to i1
   ret i1 %switch.masked

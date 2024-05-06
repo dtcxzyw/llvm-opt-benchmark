@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.x509_sig_info_init = private unnamed_addr constant [19 x i8] c"x509_sig_info_init\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_set_version(ptr noundef %x, i64 noundef %version) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_set_version(ptr noundef %x, i64 noundef %version) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end
@@ -96,7 +96,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 declare i32 @ASN1_STRING_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_set_issuer_name(ptr noundef %x, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_set_issuer_name(ptr noundef %x, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -120,7 +120,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i32 @X509_NAME_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_set_subject_name(ptr noundef %x, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_set_subject_name(ptr noundef %x, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -142,7 +142,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_x509_set1_time(ptr noundef writeonly %modified, ptr nocapture noundef %ptm, ptr noundef %tm) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_x509_set1_time(ptr noundef writeonly %modified, ptr nocapture noundef %ptm, ptr noundef %tm) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ptm, align 8
   %cmp = icmp eq ptr %0, %tm
@@ -176,7 +176,7 @@ declare ptr @ASN1_STRING_dup(ptr noundef) local_unnamed_addr #1
 declare void @ASN1_TIME_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_set1_notBefore(ptr noundef %x, ptr noundef %tm) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_set1_notBefore(ptr noundef %x, ptr noundef %tm) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   %cmp1 = icmp eq ptr %tm, null
@@ -208,7 +208,7 @@ return:                                           ; preds = %if.end4.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_set1_notAfter(ptr noundef %x, ptr noundef %tm) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_set1_notAfter(ptr noundef %x, ptr noundef %tm) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   %cmp1 = icmp eq ptr %tm, null
@@ -240,7 +240,7 @@ return:                                           ; preds = %if.end4.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_set_pubkey(ptr noundef %x, ptr noundef %pkey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_set_pubkey(ptr noundef %x, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end
@@ -264,7 +264,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @X509_PUBKEY_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @X509_up_ref(ptr nocapture noundef %x) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @X509_up_ref(ptr nocapture noundef %x) local_unnamed_addr #2 {
 entry:
   %references = getelementptr inbounds i8, ptr %x, i64 192
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
@@ -371,7 +371,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @X509_SIG_INFO_get(ptr nocapture noundef readonly %siginf, ptr noundef writeonly %mdnid, ptr noundef writeonly %pknid, ptr noundef writeonly %secbits, ptr noundef writeonly %flags) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @X509_SIG_INFO_get(ptr nocapture noundef readonly %siginf, ptr noundef writeonly %mdnid, ptr noundef writeonly %pknid, ptr noundef writeonly %secbits, ptr noundef writeonly %flags) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %mdnid, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -430,7 +430,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_get_signature_info(ptr noundef %x, ptr noundef writeonly %mdnid, ptr noundef writeonly %pknid, ptr noundef writeonly %secbits, ptr noundef writeonly %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_get_signature_info(ptr noundef %x, ptr noundef writeonly %mdnid, ptr noundef writeonly %pknid, ptr noundef writeonly %secbits, ptr noundef writeonly %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_check_purpose(ptr noundef %x, i32 noundef -1, i32 noundef -1) #8
   %cmp.not.i = icmp eq ptr %mdnid, null
@@ -480,7 +480,7 @@ X509_SIG_INFO_get.exit:                           ; preds = %if.end9.i, %if.then
 declare i32 @X509_check_purpose(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_x509_init_sig_info(ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_x509_init_sig_info(ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %pknid.i = alloca i32, align 4
   %mdnid.i = alloca i32, align 4

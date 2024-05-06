@@ -2480,7 +2480,7 @@ define internal fastcc ptr @decrypt_krb5_data_private(ptr noundef %0, ptr nounde
   store ptr %24, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %8, i64 20
   store i32 %9, ptr %26, align 4
-  %27 = call fastcc i32 @decrypt_krb5_with_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %5, ptr noundef %4, ptr noundef nonnull @decrypt_krb5_data_cb, ptr noundef nonnull %8), !range !9
+  %27 = call fastcc i32 @decrypt_krb5_with_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %5, ptr noundef %4, ptr noundef nonnull @decrypt_krb5_data_cb, ptr noundef nonnull %8)
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %28, label %33
 
@@ -2618,7 +2618,7 @@ kerberos_new_private_data.exit:                   ; preds = %8, %14
   br i1 %73, label %85, label %74
 
 74:                                               ; preds = %65
-  %75 = call fastcc i32 @decrypt_krb5_with_cb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull @decrypt_krb5_krb_cfx_dce_cb, ptr noundef nonnull %9), !range !9
+  %75 = call fastcc i32 @decrypt_krb5_with_cb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull @decrypt_krb5_krb_cfx_dce_cb, ptr noundef nonnull %9)
   %76 = load ptr, ptr %10, align 8
   %77 = load ptr, ptr %72, align 8
   call void @wmem_free(ptr noundef %76, ptr noundef %77) #16
@@ -2653,7 +2653,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @decrypt_krb5_with_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @decrypt_krb5_with_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.insert_longterm_keys_into_key_map_state, align 8
   %10 = alloca %struct.decrypt_krb5_with_cb_state, align 8
   store ptr %0, ptr %10, align 8
@@ -2845,7 +2845,7 @@ insert_longterm_keys_into_key_map.exit:           ; preds = %33, %39
   %.0.in.i = getelementptr inbounds i8, ptr %.065.i, i64 360
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not61.i = icmp eq ptr %.0.i, null
-  br i1 %.not61.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not61.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %111
   %131 = getelementptr inbounds i8, ptr %2, i64 144
@@ -3221,7 +3221,7 @@ define hidden void @show_krb_recordmark(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @kerberos_rm_to_reclen(i32 noundef %0) local_unnamed_addr #6 {
+define hidden noundef range(i32 0, -2147483648) i32 @kerberos_rm_to_reclen(i32 noundef %0) local_unnamed_addr #6 {
   %2 = and i32 %0, 2147483647
   ret i32 %2
 }
@@ -3624,7 +3624,7 @@ define hidden i32 @kerberos_output_keytype() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @get_krb_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 4, -2147483644) i32 @get_krb_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #16
   %6 = and i32 %5, 2147483647
   %7 = add nuw i32 %6, 4
@@ -3761,7 +3761,7 @@ define internal i32 @enc_key_content_hash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @enc_key_content_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 0, 2) i32 @enc_key_content_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5497,7 +5497,7 @@ read_keytab_file_from_preferences.exit.i:         ; preds = %128, %126, %119
 146:                                              ; preds = %147
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %keytype_for_cksumtype.exit.i, label %147, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %keytype_for_cksumtype.exit.i, label %147, !llvm.loop !10
 
 147:                                              ; preds = %146, %143
   %indvars.iv.i.i = phi i64 [ 0, %143 ], [ %indvars.iv.next.i.i, %146 ]
@@ -5554,7 +5554,7 @@ keytype_for_cksumtype.exit.i:                     ; preds = %147, %146
 177:                                              ; preds = %178
   %indvars.iv.next.i60.i = add nuw nsw i64 %indvars.iv.i57.i, 1
   %exitcond.not.i61.i = icmp eq i64 %indvars.iv.next.i60.i, 3
-  br i1 %exitcond.not.i61.i, label %keytype_for_cksumtype.exit63.i, label %178, !llvm.loop !11
+  br i1 %exitcond.not.i61.i, label %keytype_for_cksumtype.exit63.i, label %178, !llvm.loop !10
 
 178:                                              ; preds = %177, %174
   %indvars.iv.i57.i = phi i64 [ 0, %174 ], [ %indvars.iv.next.i60.i, %177 ]
@@ -5654,7 +5654,7 @@ kerberos_get_private_data.exit.i.i:               ; preds = %kerberos_new_privat
 221:                                              ; preds = %222
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %keytype_for_cksumtype.exit.i.i, label %222, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %keytype_for_cksumtype.exit.i.i, label %222, !llvm.loop !10
 
 222:                                              ; preds = %221, %219
   %indvars.iv.i.i.i = phi i64 [ 0, %219 ], [ %indvars.iv.next.i.i.i, %221 ]
@@ -5813,7 +5813,7 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
   %312 = getelementptr ptr, ptr %298, i64 %311
   %313 = load ptr, ptr %312, align 8
   %.not112.i.i = icmp eq ptr %313, null
-  br i1 %.not112.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not112.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %309
   %314 = phi ptr [ %313, %309 ], [ %299, %.preheader.i.i ]
@@ -5867,7 +5867,7 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
   %342 = getelementptr ptr, ptr %340, i64 %341
   %343 = load ptr, ptr %342, align 8
   %.not109.i.i = icmp eq ptr %343, null
-  br i1 %.not109.i.i, label %.thread121.i.i, label %.lr.ph138.i.i, !llvm.loop !13
+  br i1 %.not109.i.i, label %.thread121.i.i, label %.lr.ph138.i.i, !llvm.loop !12
 
 344:                                              ; preds = %318
   %345 = load ptr, ptr %21, align 8
@@ -6044,7 +6044,7 @@ kerberos_get_private_data.exit.i66.i:             ; preds = %kerberos_new_privat
 430:                                              ; preds = %431
   %indvars.iv.next.i.i74.i = add nuw nsw i64 %indvars.iv.i.i72.i, 1
   %exitcond.not.i.i75.i = icmp eq i64 %indvars.iv.next.i.i74.i, 3
-  br i1 %exitcond.not.i.i75.i, label %keytype_for_cksumtype.exit.i76.i, label %431, !llvm.loop !11
+  br i1 %exitcond.not.i.i75.i, label %keytype_for_cksumtype.exit.i76.i, label %431, !llvm.loop !10
 
 431:                                              ; preds = %430, %428
   %indvars.iv.i.i72.i = phi i64 [ 0, %428 ], [ %indvars.iv.next.i.i74.i, %430 ]
@@ -6207,7 +6207,7 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %431, %430
   br label %verify_krb5_pac_full_checksum.exit.i
 
 526:                                              ; preds = %516
-  %527 = trunc i64 %indvars.iv.i69.i to i32
+  %527 = trunc nuw i64 %indvars.iv.i69.i to i32
   %528 = call i32 @tvb_get_guint32(ptr noundef nonnull %491, i32 noundef %527, i32 noundef -2147483648) #16
   %529 = or disjoint i32 %527, 4
   %530 = call i32 @tvb_get_guint32(ptr noundef nonnull %491, i32 noundef %529, i32 noundef -2147483648) #16
@@ -6276,7 +6276,7 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %431, %430
 566:                                              ; preds = %563, %562, %560
   %567 = add nuw nsw i32 %.0164172.i.i, 1
   %exitcond176.not.i.i = icmp eq i32 %567, %509
-  br i1 %exitcond176.not.i.i, label %._crit_edge.i71.i, label %.lr.ph.i68.i, !llvm.loop !14
+  br i1 %exitcond176.not.i.i, label %._crit_edge.i71.i, label %.lr.ph.i68.i, !llvm.loop !13
 
 ._crit_edge.i71.i:                                ; preds = %566, %508
   %568 = load i32, ptr %404, align 8
@@ -6689,7 +6689,7 @@ dissect_krb5_AD_WIN2K_PAC_struct.exit:            ; preds = %615, %630, %dissect
   %822 = add i32 %.02436, 16
   %823 = add nuw i32 %.037, 1
   %exitcond.not = icmp eq i32 %823, %606
-  br i1 %exitcond.not, label %._crit_edge, label %615, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %615, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %dissect_krb5_AD_WIN2K_PAC_struct.exit, %verify_krb5_pac.exit
   %.024.lcssa = phi i32 [ %613, %verify_krb5_pac.exit ], [ %822, %dissect_krb5_AD_WIN2K_PAC_struct.exit ]
@@ -6857,7 +6857,7 @@ define internal fastcc void @used_signing_key(ptr noundef %0, ptr noundef %1, pt
   %.0.in = getelementptr inbounds i8, ptr %.037, i64 360
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %50 = getelementptr inbounds i8, ptr %2, i64 144
@@ -9940,7 +9940,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   %43 = getelementptr i8, ptr %.013.i, i64 16
   %44 = load i32, ptr %43, align 8
   %.not10.i = icmp eq i32 %44, 0
-  br i1 %.not10.i, label %call_kerberos_callbacks.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not10.i, label %call_kerberos_callbacks.exit, label %.lr.ph.i, !llvm.loop !16
 
 call_kerberos_callbacks.exit:                     ; preds = %42, %38, %.preheader.i, %30, %kerberos_get_private_data.exit
   ret i32 %28
@@ -10371,7 +10371,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   %43 = getelementptr i8, ptr %.013.i, i64 16
   %44 = load i32, ptr %43, align 8
   %.not10.i = icmp eq i32 %44, 0
-  br i1 %.not10.i, label %call_kerberos_callbacks.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not10.i, label %call_kerberos_callbacks.exit, label %.lr.ph.i, !llvm.loop !16
 
 call_kerberos_callbacks.exit:                     ; preds = %42, %38, %.preheader.i, %30, %kerberos_get_private_data.exit
   ret i32 %28
@@ -11003,7 +11003,7 @@ define internal void @kerberos_display_key(ptr noundef %0, ptr nocapture noundef
   %.0.in = getelementptr inbounds i8, ptr %.065, i64 360
   %.0 = load ptr, ptr %.0.in, align 8
   %.not61 = icmp eq ptr %.0, null
-  br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %84
   ret void
@@ -11096,7 +11096,7 @@ attributes #20 = { noreturn nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -1, i32 1}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
@@ -11105,4 +11105,3 @@ attributes #20 = { noreturn nounwind }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}

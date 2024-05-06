@@ -38,7 +38,7 @@ define dso_local void @InitializeTimeouts() local_unnamed_addr #0 {
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %2 = getelementptr [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %indvars.iv
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %3, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store volatile i8 0, ptr %4, align 4
@@ -199,7 +199,7 @@ define dso_local i32 @RegisterTimeout(i32 noundef %0, ptr noundef %1) local_unna
   unreachable
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %2
@@ -371,7 +371,7 @@ define internal fastcc void @enable_timeout(i32 noundef %0, i64 noundef %1, i64 
   br i1 %20, label %.lr.ph.i, label %find_active_timeout.exit.thread, !llvm.loop !10
 
 find_active_timeout.exit:                         ; preds = %.lr.ph.i
-  %21 = trunc i64 %indvars.iv.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %find_active_timeout.exit.thread, label %23
 
@@ -500,7 +500,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i21, %29
   store volatile ptr %79, ptr %81, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not.i25.not = icmp sgt i64 %indvars.iv, %77
-  %82 = trunc i64 %indvars.iv to i32
+  %82 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not.i25.not, label %.lr.ph.i24, label %insert_timeout.exit, !llvm.loop !12
 
 insert_timeout.exit:                              ; preds = %.lr.ph.i24, %74
@@ -630,7 +630,7 @@ define dso_local void @disable_timeout(i32 noundef %0, i1 noundef zeroext %1) lo
   br i1 %18, label %.lr.ph.i, label %find_active_timeout.exit.thread, !llvm.loop !10
 
 find_active_timeout.exit:                         ; preds = %.lr.ph.i
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %find_active_timeout.exit.thread, label %21
 
@@ -749,7 +749,7 @@ define dso_local void @disable_timeouts(ptr nocapture noundef readonly %0, i32 n
   br i1 %21, label %.lr.ph.i, label %find_active_timeout.exit.thread, !llvm.loop !10
 
 find_active_timeout.exit:                         ; preds = %.lr.ph.i
-  %22 = trunc i64 %indvars.iv.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i to i32
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %find_active_timeout.exit.thread, label %24
 

@@ -78,7 +78,7 @@ define ptr @mszipd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @mszipd_flush_window(ptr nocapture noundef %0, i32 noundef %1) #1 {
+define internal range(i32 0, 2) i32 @mszipd_flush_window(ptr nocapture noundef %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, %1
@@ -1116,7 +1116,7 @@ define internal fastcc noundef i32 @inflate(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond550.not.i, label %._crit_edge457.i, label %.lr.ph456.i
 
 ._crit_edge457.i:                                 ; preds = %.lr.ph456.i, %.preheader299.i
-  %346 = call fastcc i32 @make_decode_table(i32 noundef 19, i32 noundef 7, ptr noundef nonnull %3, ptr noundef nonnull %2), !range !4
+  %346 = call fastcc i32 @make_decode_table(i32 noundef 19, i32 noundef 7, ptr noundef nonnull %3, ptr noundef nonnull %2)
   %.not.i414 = icmp eq i32 %346, 0
   br i1 %.not.i414, label %.preheader298.i, label %zip_read_lens.exit.thread
 
@@ -1540,12 +1540,12 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge457.i, %
   %.4337 = phi i32 [ %.11.i, %523 ], [ %101, %.preheader470 ]
   %.9315 = phi ptr [ %.19.i, %523 ], [ %.3309.lcssa, %.preheader470 ]
   %.9 = phi ptr [ %.19227.i, %523 ], [ %.3302.lcssa, %.preheader470 ]
-  %524 = call fastcc i32 @make_decode_table(i32 noundef 288, i32 noundef 9, ptr noundef nonnull %18, ptr noundef nonnull %25), !range !4
+  %524 = call fastcc i32 @make_decode_table(i32 noundef 288, i32 noundef 9, ptr noundef nonnull %18, ptr noundef nonnull %25)
   %.not370 = icmp eq i32 %524, 0
   br i1 %.not370, label %525, label %.loopexit450
 
 525:                                              ; preds = %.loopexit471
-  %526 = call fastcc i32 @make_decode_table(i32 noundef 32, i32 noundef 6, ptr noundef nonnull %19, ptr noundef nonnull %26), !range !4
+  %526 = call fastcc i32 @make_decode_table(i32 noundef 32, i32 noundef 6, ptr noundef nonnull %19, ptr noundef nonnull %26)
   %.not371 = icmp eq i32 %526, 0
   br i1 %.not371, label %.preheader462, label %.loopexit450
 
@@ -2513,7 +2513,7 @@ define void @mszipd_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @make_decode_table(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #2 {
   %5 = shl nuw nsw i32 1, %1
   %6 = lshr i32 %5, 1
   %.not155 = icmp eq i32 %1, 0
@@ -2843,4 +2843,3 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

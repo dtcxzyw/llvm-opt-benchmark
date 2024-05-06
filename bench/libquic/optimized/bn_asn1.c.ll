@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [123 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/bn/bn_asn1.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BN_parse_asn1_unsigned(ptr noundef %cbs, ptr noundef %ret) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_parse_asn1_unsigned(ptr noundef %cbs, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbs_st, align 8
   %call = call i32 @CBS_get_asn1(ptr noundef %cbs, ptr noundef nonnull %child, i32 noundef 2) #2
@@ -81,7 +81,7 @@ declare ptr @CBS_data(ptr noundef) local_unnamed_addr #1
 declare ptr @BN_bin2bn(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BN_parse_asn1_unsigned_buggy(ptr noundef %cbs, ptr noundef %ret) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_parse_asn1_unsigned_buggy(ptr noundef %cbs, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbs_st, align 8
   %call = call i32 @CBS_get_asn1(ptr noundef %cbs, ptr noundef nonnull %child, i32 noundef 2) #2
@@ -111,7 +111,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @BN_marshal_asn1(ptr noundef %cbb, ptr noundef %bn) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_marshal_asn1(ptr noundef %cbb, ptr noundef %bn) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %call = tail call i32 @BN_is_negative(ptr noundef %bn) #2

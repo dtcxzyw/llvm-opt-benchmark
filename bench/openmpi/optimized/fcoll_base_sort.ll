@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [15 x i8] c"OUT OF MEMORY\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_fcoll_base_sort_iovec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @ompi_fcoll_base_sort_iovec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = add i32 %1, -1
   %5 = icmp eq i32 %1, 0
   br i1 %5, label %111, label %6

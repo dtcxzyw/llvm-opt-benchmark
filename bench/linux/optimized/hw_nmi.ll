@@ -37,7 +37,7 @@ define internal void @nmi_raise_cpu_backtrace(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nmi_cpu_backtrace_handler(i32 %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @nmi_cpu_backtrace_handler(i32 %0, ptr noundef %1) #0 align 16 {
   %3 = tail call zeroext i1 @nmi_cpu_backtrace(ptr noundef %1) #3
   %4 = zext i1 %3 to i32
   ret i32 %4

@@ -5938,7 +5938,7 @@ define internal void @isakmp_init_protocol() #0 {
   %10 = getelementptr inbounds i8, ptr %8, i64 368
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %8, i64 108
   %13 = load ptr, ptr @ikev1_uat_data, align 8
   %14 = getelementptr %struct._ikev1_uat_data_key, ptr %13, i64 %indvars.iv
@@ -6126,7 +6126,7 @@ define internal i32 @dissect_isakmp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %53 = getelementptr inbounds i8, ptr %51, i64 368
   store ptr %52, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   %55 = load ptr, ptr @isakmp_hash, align 8
   %56 = call i32 @g_hash_table_insert(ptr noundef %55, ptr noundef nonnull %49, ptr noundef %51) #17
   br label %57
@@ -6152,7 +6152,7 @@ addresses_equal.exit:                             ; preds = %61
   %69 = load i32, ptr %68, align 4
   %70 = getelementptr inbounds i8, ptr %1, i64 216
   %71 = load ptr, ptr %70, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %58, i8 0, i64 24, i1 false)
   store i32 %67, ptr %58, align 8
   %72 = icmp eq i32 %69, 0
   br i1 %72, label %copy_address_wmem.exit, label %73
@@ -6351,7 +6351,7 @@ copy_address_wmem.exit:                           ; preds = %61, %57, %73, %addr
   br i1 %.not226, label %194, label %198
 
 194:                                              ; preds = %184
-  %195 = call fastcc i32 @prepare_decrypt(ptr noundef %.1), !range !41
+  %195 = call fastcc i32 @prepare_decrypt(ptr noundef %.1)
   %.not227 = icmp eq i32 %195, 0
   br i1 %.not227, label %198, label %196
 
@@ -6886,7 +6886,7 @@ define internal fastcc void @dissect_sa_kek(ptr noundef %0, ptr noundef %1, i32 
   %63 = call fastcc i32 @dissect_ipsec_attribute(ptr noundef %0, ptr noundef %1, ptr noundef %4, i32 noundef %.275)
   %64 = add i32 %63, %.275
   %65 = icmp slt i32 %64, %12
-  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %55
   %.2.lcssa = phi i32 [ %61, %55 ], [ %64, %.lr.ph ]
@@ -7003,7 +7003,7 @@ define internal fastcc void @dissect_sa_tek(ptr noundef %0, ptr noundef %1, i32 
   %82 = call fastcc i32 @dissect_ipsec_attribute(ptr noundef %0, ptr noundef %1, ptr noundef %17, i32 noundef %.2112)
   %83 = add i32 %82, %.2112
   %84 = icmp slt i32 %83, %13
-  br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+  br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %74
   %.2.lcssa = phi i32 [ %80, %74 ], [ %83, %.lr.ph ]
@@ -8339,14 +8339,14 @@ define internal i32 @isakmp_hash_func(ptr nocapture noundef readonly %0) #8 {
   %4 = getelementptr i8, ptr %0, i64 %indvars.iv
   %.0.copyload = load i32, ptr %4, align 1
   %5 = xor i32 %.0.copyload, %.078
-  br i1 %3, label %2, label %6, !llvm.loop !44
+  br i1 %3, label %2, label %6, !llvm.loop !43
 
 6:                                                ; preds = %2
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @isakmp_equal_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 0, 2) i32 @isakmp_equal_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) %1, i64 8)
   %3 = icmp eq i32 %bcmp, 0
   %. = zext i1 %3 to i32
@@ -8397,7 +8397,7 @@ define internal i32 @ikev2_key_hash_func(ptr nocapture noundef readonly %0) #10 
   %9 = xor i32 %8, %.01719
   %10 = add nuw nsw i64 %.020, 1
   %exitcond.not = icmp eq i64 %10, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.017.lcssa = phi i32 [ 0, %1 ], [ %9, %.lr.ph ]
@@ -8418,7 +8418,7 @@ define internal i32 @ikev2_key_hash_func(ptr nocapture noundef readonly %0) #10 
   %19 = xor i32 %18, %.11821
   %20 = add nuw nsw i64 %.122, 1
   %exitcond29.not = icmp eq i64 %20, %14
-  br i1 %exitcond29.not, label %._crit_edge25, label %.lr.ph24, !llvm.loop !46
+  br i1 %exitcond29.not, label %._crit_edge25, label %.lr.ph24, !llvm.loop !45
 
 ._crit_edge25:                                    ; preds = %.lr.ph24, %._crit_edge
   %.118.lcssa = phi i32 [ %.017.lcssa, %._crit_edge ], [ %19, %.lr.ph24 ]
@@ -8426,7 +8426,7 @@ define internal i32 @ikev2_key_hash_func(ptr nocapture noundef readonly %0) #10 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ikev2_key_equal_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
+define internal range(i32 0, 2) i32 @ikev2_key_equal_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -8490,7 +8490,7 @@ declare ptr @tfs_get_string(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @prepare_decrypt(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @prepare_decrypt(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %66, label %2
 
@@ -8683,7 +8683,7 @@ get_iv.exit:                                      ; preds = %16, %19
   %33 = getelementptr i8, ptr %1, i64 %28
   %34 = sub nsw i64 0, %27
   %35 = getelementptr i8, ptr %33, i64 %34
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %35, i64 %27, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr readonly align 1 %35, i64 %27, i1 false)
   br label %set_next_iv.exit
 
 set_next_iv.exit:                                 ; preds = %get_iv.exit, %30
@@ -8879,9 +8879,8 @@ attributes #21 = { noreturn nounwind }
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
-!41 = !{i32 0, i32 2}
+!41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
 !44 = distinct !{!44, !5}
 !45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}

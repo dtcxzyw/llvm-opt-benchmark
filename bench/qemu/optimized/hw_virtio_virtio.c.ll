@@ -79,7 +79,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.44 = private unnamed_addr constant [40 x i8] c"ARRAY_SIZE(data.in_addr) >= data.in_num\00", align 1
 @__PRETTY_FUNCTION__.qemu_get_virtqueue_element = private unnamed_addr constant [69 x i8] c"void *qemu_get_virtqueue_element(VirtIODevice *, QEMUFile *, size_t)\00", align 1
 @.str.45 = private unnamed_addr constant [42 x i8] c"ARRAY_SIZE(data.out_addr) >= data.out_num\00", align 1
-@current_cpu = external thread_local global ptr, align 8
+@current_cpu = external thread_local local_unnamed_addr global ptr, align 8
 @.str.46 = private unnamed_addr constant [52 x i8] c"tried to modify queue alignment for virtio-1 device\00", align 1
 @.str.47 = private unnamed_addr constant [32 x i8] c"k->has_variable_vring_alignment\00", align 1
 @__PRETTY_FUNCTION__.virtio_queue_set_align = private unnamed_addr constant [54 x i8] c"void virtio_queue_set_align(VirtIODevice *, int, int)\00", align 1
@@ -423,7 +423,7 @@ return:                                           ; preds = %return.sink.split, 
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @virtio_queue_get_desc_size(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local range(i64 0, 68719476721) i64 @virtio_queue_get_desc_size(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %vq = getelementptr inbounds i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
@@ -465,7 +465,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @virtio_queue_get_used_size(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local range(i64 4, 34359738367) i64 @virtio_queue_get_used_size(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %vdev, i64 184
   %vdev.val3 = load i64, ptr %0, align 8
@@ -493,7 +493,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @virtio_queue_get_avail_size(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
+define dso_local range(i64 4, 8589934597) i64 @virtio_queue_get_avail_size(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %vdev, i64 184
   %vdev.val3 = load i64, ptr %0, align 8
@@ -1064,7 +1064,7 @@ if.end3:                                          ; preds = %if.end3.sink.split,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @virtio_queue_ready(ptr nocapture noundef readonly %vq) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @virtio_queue_ready(ptr nocapture noundef readonly %vq) local_unnamed_addr #4 {
 entry:
   %avail = getelementptr inbounds i8, ptr %vq, i64 24
   %0 = load i64, ptr %avail, align 8
@@ -1074,7 +1074,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @virtio_queue_empty(ptr nocapture noundef %vq) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @virtio_queue_empty(ptr nocapture noundef %vq) local_unnamed_addr #0 {
 entry:
   %vdev = getelementptr inbounds i8, ptr %vq, i64 96
   %0 = load ptr, ptr %vdev, align 8
@@ -2778,7 +2778,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i50, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @virtqueue_avail_bytes(ptr nocapture noundef %vq, i32 noundef %in_bytes, i32 noundef %out_bytes) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @virtqueue_avail_bytes(ptr nocapture noundef %vq, i32 noundef %in_bytes, i32 noundef %out_bytes) local_unnamed_addr #0 {
 entry:
   %in_total = alloca i32, align 4
   %out_total = alloca i32, align 4
@@ -4072,7 +4072,7 @@ if.else:                                          ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %elem.i4, i8 0, i64 56, i1 false)
   %and.i.i.i = and i64 %.val, 536870912
   %tobool.i.i.not.i = icmp eq i64 %and.i.i.i, 0
-  %call218.i = tail call i32 @virtio_queue_empty(ptr noundef nonnull %vq), !range !30
+  %call218.i = tail call i32 @virtio_queue_empty(ptr noundef nonnull %vq)
   %tobool.not19.i = icmp eq i32 %call218.i, 0
   br i1 %tobool.not19.i, label %land.rhs.lr.ph.i, label %virtqueue_split_drop_all.exit
 
@@ -4091,7 +4091,7 @@ land.rhs.i:                                       ; preds = %if.end10.i, %land.r
   br i1 %cmp.i8, label %while.body.i9, label %virtqueue_split_drop_all.exit
 
 while.body.i9:                                    ; preds = %land.rhs.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !31
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !30
   fence acquire
   %35 = load i16, ptr %last_avail_idx.i7, align 8
   %36 = load i32, ptr %vq, align 8
@@ -4207,9 +4207,9 @@ virtio_stw_phys_cached.exit.i.i:                  ; preds = %if.else7.i.i.i.i.i,
 if.end10.i:                                       ; preds = %virtio_stw_phys_cached.exit.i.i, %if.end.i.i, %if.then8.i, %if.end.i12
   call void @virtqueue_push(ptr noundef nonnull %vq, ptr noundef nonnull %elem.i4, i32 noundef 0)
   %inc11.i = add i32 %dropped.020.i, 1
-  %call2.i = call i32 @virtio_queue_empty(ptr noundef nonnull %vq), !range !30
+  %call2.i = call i32 @virtio_queue_empty(ptr noundef nonnull %vq)
   %tobool.not.i15 = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i15, label %land.rhs.i, label %virtqueue_split_drop_all.exit, !llvm.loop !32
+  br i1 %tobool.not.i15, label %land.rhs.i, label %virtqueue_split_drop_all.exit, !llvm.loop !31
 
 virtqueue_split_drop_all.exit:                    ; preds = %land.rhs.i, %if.end10.i, %if.else, %virtqueue_get_head.exit.i
   %dropped.016.i = phi i32 [ %dropped.020.i, %virtqueue_get_head.exit.i ], [ 0, %if.else ], [ %inc11.i, %if.end10.i ], [ %dropped.020.i, %land.rhs.i ]
@@ -4282,7 +4282,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i32 %i.034, 1
   %8 = load i32, ptr %in_num12, align 8
   %cmp13 = icmp ult i32 %inc, %8
-  br i1 %cmp13, label %for.body, label %for.cond18.preheader, !llvm.loop !33
+  br i1 %cmp13, label %for.body, label %for.cond18.preheader, !llvm.loop !32
 
 for.cond31.preheader.loopexit:                    ; preds = %for.body22
   %.pre = load i32, ptr %in_num12, align 8
@@ -4310,7 +4310,7 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %inc29 = add nuw i32 %i.136, 1
   %13 = load i32, ptr %out_num19, align 4
   %cmp20 = icmp ult i32 %inc29, %13
-  br i1 %cmp20, label %for.body22, label %for.cond31.preheader.loopexit, !llvm.loop !34
+  br i1 %cmp20, label %for.body22, label %for.cond31.preheader.loopexit, !llvm.loop !33
 
 for.cond48.preheader.loopexit:                    ; preds = %for.body35
   %.pre41 = load i32, ptr %out_num19, align 4
@@ -4340,7 +4340,7 @@ for.body35:                                       ; preds = %for.body35.lr.ph, %
   %inc46 = add nuw i32 %i.238, 1
   %18 = load i32, ptr %in_num12, align 8
   %cmp33 = icmp ult i32 %inc46, %18
-  br i1 %cmp33, label %for.body35, label %for.cond48.preheader.loopexit, !llvm.loop !35
+  br i1 %cmp33, label %for.body35, label %for.cond48.preheader.loopexit, !llvm.loop !34
 
 for.body52:                                       ; preds = %for.body52.lr.ph, %for.body52
   %i.340 = phi i32 [ 0, %for.body52.lr.ph ], [ %inc65, %for.body52 ]
@@ -4356,7 +4356,7 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %inc65 = add nuw i32 %i.340, 1
   %22 = load i32, ptr %out_num19, align 4
   %cmp50 = icmp ult i32 %inc65, %22
-  br i1 %cmp50, label %for.body52, label %for.end66, !llvm.loop !36
+  br i1 %cmp50, label %for.body52, label %for.end66, !llvm.loop !35
 
 for.end66:                                        ; preds = %for.body52, %for.cond48.preheader
   %23 = getelementptr i8, ptr %vdev, i64 176
@@ -4504,7 +4504,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i64 %6, ptr %arrayidx7, align 8
   %inc = add nuw i32 %i.029, 1
   %exitcond.not = icmp eq i32 %inc, %2
-  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !37
+  br i1 %exitcond.not, label %for.cond8.preheader, label %for.body, !llvm.loop !36
 
 for.cond20.preheader:                             ; preds = %for.body11, %for.cond8.preheader
   br i1 %cmp28.not, label %for.cond33.preheader, label %for.body23.lr.ph
@@ -4524,7 +4524,7 @@ for.body11:                                       ; preds = %for.body11.lr.ph, %
   store i64 %8, ptr %arrayidx16, align 8
   %inc18 = add nuw i32 %i.131, 1
   %exitcond36.not = icmp eq i32 %inc18, %3
-  br i1 %exitcond36.not, label %for.cond20.preheader, label %for.body11, !llvm.loop !38
+  br i1 %exitcond36.not, label %for.cond20.preheader, label %for.body11, !llvm.loop !37
 
 for.cond33.preheader:                             ; preds = %for.body23, %for.cond20.preheader
   br i1 %cmp1030.not, label %for.end46, label %for.body36.lr.ph
@@ -4544,7 +4544,7 @@ for.body23:                                       ; preds = %for.body23.lr.ph, %
   store i64 %10, ptr %iov_len29, align 8
   %inc31 = add nuw i32 %i.233, 1
   %exitcond37.not = icmp eq i32 %inc31, %2
-  br i1 %exitcond37.not, label %for.cond33.preheader, label %for.body23, !llvm.loop !39
+  br i1 %exitcond37.not, label %for.cond33.preheader, label %for.body23, !llvm.loop !38
 
 for.body36:                                       ; preds = %for.body36.lr.ph, %for.body36
   %i.335 = phi i32 [ 0, %for.body36.lr.ph ], [ %inc45, %for.body36 ]
@@ -4555,7 +4555,7 @@ for.body36:                                       ; preds = %for.body36.lr.ph, %
   store i64 %11, ptr %iov_len43, align 8
   %inc45 = add nuw i32 %i.335, 1
   %exitcond38.not = icmp eq i32 %inc45, %3
-  br i1 %exitcond38.not, label %for.end46, label %for.body36, !llvm.loop !40
+  br i1 %exitcond38.not, label %for.end46, label %for.body36, !llvm.loop !39
 
 for.end46:                                        ; preds = %for.body36, %for.cond33.preheader
   %12 = getelementptr i8, ptr %vdev, i64 176
@@ -4997,7 +4997,7 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call fastcc void @__virtio_queue_reset(ptr noundef %opaque, i32 noundef %i.029)
   %inc = add nuw nsw i32 %i.029, 1
   %exitcond.not = icmp eq i32 %inc, 1024
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !41
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !40
 
 for.end:                                          ; preds = %for.body
   ret void
@@ -5181,7 +5181,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !42
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !41
 
 for.end.split.loop.exit:                          ; preds = %for.body
   %2 = trunc nuw nsw i64 %indvars.iv to i32
@@ -5488,7 +5488,7 @@ for.body:                                         ; preds = %entry, %for.inc
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %if.then4, label %for.body, !llvm.loop !43
+  br i1 %exitcond.not, label %if.then4, label %for.body, !llvm.loop !42
 
 for.end:                                          ; preds = %for.body
   %2 = and i64 %indvars.iv, 4294967295
@@ -5846,7 +5846,7 @@ vring_packed_need_event.exit.i:                   ; preds = %if.then.i.i, %lor.r
   br label %return
 
 if.else:                                          ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !44
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !43
   fence seq_cst
   %vdev.val10.i = load i64, ptr %0, align 8
   %and.i.i.i = and i64 %vdev.val10.i, 16777216
@@ -5860,7 +5860,7 @@ land.lhs.true.i:                                  ; preds = %if.else
   br i1 %tobool.not.i5, label %land.lhs.true1.i, label %if.end.i6
 
 land.lhs.true1.i:                                 ; preds = %land.lhs.true.i
-  %call2.i = tail call i32 @virtio_queue_empty(ptr noundef nonnull %vq), !range !30
+  %call2.i = tail call i32 @virtio_queue_empty(ptr noundef nonnull %vq)
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool3.not.i, label %land.lhs.true1.if.end_crit_edge.i, label %return
 
@@ -6306,7 +6306,7 @@ for.body:                                         ; preds = %if.end, %for.inc
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !45
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !44
 
 for.end.split.loop.exit:                          ; preds = %for.body
   %8 = trunc nuw nsw i64 %indvars.iv to i32
@@ -6364,7 +6364,7 @@ if.then45:                                        ; preds = %if.end36
 for.inc49:                                        ; preds = %if.end36, %if.then45
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 1024
-  br i1 %exitcond70.not, label %for.end51, label %for.body15, !llvm.loop !46
+  br i1 %exitcond70.not, label %for.end51, label %for.body15, !llvm.loop !45
 
 for.end51:                                        ; preds = %for.body15, %for.inc49
   %save = getelementptr inbounds i8, ptr %call1.i60, i64 312
@@ -6426,7 +6426,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @virtio_set_features(ptr noundef %vdev, i64 noundef %val) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @virtio_set_features(ptr noundef %vdev, i64 noundef %val) local_unnamed_addr #0 {
 entry:
   %status = getelementptr inbounds i8, ptr %vdev, i64 168
   %0 = load i8, ptr %status, align 8
@@ -6496,7 +6496,7 @@ if.then16:                                        ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %if.end18, label %for.body, !llvm.loop !47
+  br i1 %exitcond.not, label %if.end18, label %for.body, !llvm.loop !46
 
 if.end18:                                         ; preds = %for.inc, %virtio_set_features_nocheck.exit
   br i1 %cmp.not.i.not, label %if.then20, label %return
@@ -6567,7 +6567,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   %arrayidx = getelementptr %struct.VirtIOFeature, ptr %1, i64 %inc
   %5 = load i64, ptr %arrayidx, align 8
   %cmp.not = icmp eq i64 %5, 0
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !48
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !47
 
 for.end:                                          ; preds = %for.inc, %entry
   %config_size.0.lcssa = phi i64 [ %0, %entry ], [ %config_size.1, %for.inc ]
@@ -6647,7 +6647,7 @@ while.body:                                       ; preds = %if.end12, %while.bo
   %conv20 = sext i32 %dec to i64
   %5 = load i64, ptr %config_len16, align 8
   %cmp22 = icmp ult i64 %5, %conv20
-  br i1 %cmp22, label %while.body, label %while.end, !llvm.loop !49
+  br i1 %cmp22, label %while.body, label %while.end, !llvm.loop !48
 
 while.end:                                        ; preds = %while.body, %if.end12
   %call25 = tail call i32 @qemu_get_be32(ptr noundef %f) #21
@@ -6737,7 +6737,7 @@ if.then76:                                        ; preds = %if.end74
 for.inc:                                          ; preds = %if.end74, %if.then76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !50
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !49
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
@@ -7161,7 +7161,7 @@ if.then260:                                       ; preds = %vring_avail_idx.exi
 for.inc278:                                       ; preds = %for.body140, %vring_avail_idx.exit246, %vring_avail_idx.exit212, %if.then153
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next274, %wide.trip.count276
-  br i1 %exitcond277.not, label %for.end280, label %for.body140, !llvm.loop !51
+  br i1 %exitcond277.not, label %for.end280, label %for.body140, !llvm.loop !50
 
 for.end280:                                       ; preds = %for.inc278, %if.end135
   %post_load = getelementptr inbounds i8, ptr %call1.i170, i64 328
@@ -7350,7 +7350,7 @@ for.body:                                         ; preds = %if.end, %for.body
   store i8 0, ptr %host_notifier_enabled, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !52
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !51
 
 for.end:                                          ; preds = %for.body
   %cmp.i = icmp ult i16 %device_id, 42
@@ -8115,7 +8115,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %add.ptr = getelementptr i8, ptr %opaque, i64 -116
-  %call = tail call i32 @virtio_queue_empty(ptr noundef %add.ptr), !range !30
+  %call = tail call i32 @virtio_queue_empty(ptr noundef %add.ptr)
   %tobool1.not = icmp eq i32 %call, 0
   br label %land.end
 
@@ -8949,7 +8949,7 @@ for.inc.i:                                        ; preds = %if.end.i133, %for.b
   %arrayidx.i134 = getelementptr [6 x %struct.anon.8], ptr @__const.qmp_decode_vring_desc_flags.map, i64 0, i64 %indvars.iv.next.i
   %51 = load i16, ptr %arrayidx.i134, align 16
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.i, label %qmp_decode_vring_desc_flags.exit, label %for.body.i, !llvm.loop !53
+  br i1 %exitcond.i, label %qmp_decode_vring_desc_flags.exit, label %for.body.i, !llvm.loop !52
 
 qmp_decode_vring_desc_flags.exit:                 ; preds = %for.inc.i
   %52 = load ptr, ptr %value, align 8
@@ -9002,7 +9002,7 @@ if.else8.i.i.i:                                   ; preds = %if.end.i.i.i
 
 virtqueue_split_read_next_desc.exit:              ; preds = %if.then6.i.i.i, %if.else8.i.i.i
   %exitcond.not = icmp eq i32 %inc, %max.0
-  br i1 %exitcond.not, label %do.end, label %if.end77, !llvm.loop !54
+  br i1 %exitcond.not, label %do.end, label %if.end77, !llvm.loop !53
 
 do.end:                                           ; preds = %virtqueue_split_read_next_desc.exit, %qmp_decode_vring_desc_flags.exit, %vring_used_idx.exit, %if.then3.i
   %list.1 = phi ptr [ %call78, %if.then3.i ], [ null, %vring_used_idx.exit ], [ %call78, %qmp_decode_vring_desc_flags.exit ], [ %call78, %virtqueue_split_read_next_desc.exit ]
@@ -9226,7 +9226,7 @@ vring_packed_desc_write_data.exit.i:              ; preds = %if.else8.i21.i.i, %
   br i1 %strict_order, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %vring_packed_desc_write_data.exit.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !55
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !54
   fence release
   br label %if.end.i
 
@@ -9307,7 +9307,7 @@ vring_packed_desc_read_flags.exit:                ; preds = %if.then5.i.i.i.i, %
   br i1 %strict_order, label %if.then, label %if.end
 
 if.then:                                          ; preds = %vring_packed_desc_read_flags.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !56
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !55
   fence acquire
   br label %if.end
 
@@ -9468,7 +9468,7 @@ if.end40:                                         ; preds = %if.end6
   %add = add i64 %2, %pa.addr.033
   %inc = add i32 %num_sg.035, 1
   %tobool3.not = icmp eq i64 %sub, 0
-  br i1 %tobool3.not, label %out, label %while.body, !llvm.loop !57
+  br i1 %tobool3.not, label %out, label %while.body, !llvm.loop !56
 
 out:                                              ; preds = %if.end40, %if.then39, %if.then5, %if.then1
   %ok.0 = phi i1 [ false, %if.then5 ], [ false, %if.then39 ], [ false, %if.then1 ], [ true, %if.end40 ]
@@ -9623,7 +9623,7 @@ for.cond:                                         ; preds = %entry, %for.body
   %indvars.iv9 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv9, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !58
+  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !57
 
 for.body:                                         ; preds = %for.cond
   %arrayidx = getelementptr %struct.VirtQueue, ptr %0, i64 %indvars.iv.next
@@ -9631,7 +9631,7 @@ for.body:                                         ; preds = %for.cond
   %num_default = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %4 = load i32, ptr %num_default, align 4
   %cmp5.not = icmp eq i32 %3, %4
-  br i1 %cmp5.not, label %for.cond, label %return.loopexit, !llvm.loop !58
+  br i1 %cmp5.not, label %for.cond, label %return.loopexit, !llvm.loop !57
 
 return.loopexit:                                  ; preds = %for.cond, %for.body
   %cmp.le = icmp ult i64 %indvars.iv9, 1023
@@ -9823,7 +9823,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
 virtio_virtqueue_reset_region_cache.exit.i:       ; preds = %if.then.i.i, %if.end4.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 1024
-  br i1 %exitcond.not.i, label %virtio_virtqueue_reset_region_cache.exit.for.end_crit_edge.i, label %for.body.i, !llvm.loop !59
+  br i1 %exitcond.not.i, label %virtio_virtqueue_reset_region_cache.exit.for.end_crit_edge.i, label %for.body.i, !llvm.loop !58
 
 virtio_virtqueue_reset_region_cache.exit.for.end_crit_edge.i: ; preds = %virtio_virtqueue_reset_region_cache.exit.i
   %.pre.i = load ptr, ptr %vq.i, align 8
@@ -9963,7 +9963,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @virtio_device_start_ioeventfd_impl(ptr noundef %vdev) #0 {
+define internal range(i32 -2147483648, 1) i32 @virtio_device_start_ioeventfd_impl(ptr noundef %vdev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
@@ -9998,7 +9998,7 @@ if.end8:                                          ; preds = %if.end
 for.inc:                                          ; preds = %for.body, %if.end8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %for.body11, label %for.body, !llvm.loop !60
+  br i1 %exitcond.not, label %for.body11, label %for.body, !llvm.loop !59
 
 for.body11:                                       ; preds = %for.inc, %for.inc21
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %for.inc21 ], [ 0, %for.inc ]
@@ -10016,7 +10016,7 @@ if.end18:                                         ; preds = %for.body11
 for.inc21:                                        ; preds = %for.body11, %if.end18
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, 1024
-  br i1 %exitcond52.not, label %return.sink.split, label %for.body11, !llvm.loop !61
+  br i1 %exitcond52.not, label %return.sink.split, label %for.body11, !llvm.loop !60
 
 while.body:                                       ; preds = %while.cond.preheader, %while.cond.backedge
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %while.cond.backedge ], [ %indvars.iv, %while.cond.preheader ]
@@ -10030,7 +10030,7 @@ while.body:                                       ; preds = %while.cond.preheade
 
 while.cond.backedge:                              ; preds = %while.body, %if.end32
   %7 = icmp sgt i64 %indvars.iv45, 1
-  br i1 %7, label %while.body, label %while.end, !llvm.loop !62
+  br i1 %7, label %while.body, label %while.end, !llvm.loop !61
 
 if.end32:                                         ; preds = %while.body
   %indvars = trunc i64 %indvars.iv.next46 to i32
@@ -10064,7 +10064,7 @@ if.end45:                                         ; preds = %while.body41
 
 while.cond38.backedge:                            ; preds = %if.end45, %while.body41
   %cmp40 = icmp sgt i32 %dec3941.in, 1
-  br i1 %cmp40, label %while.body41, label %return, !llvm.loop !63
+  br i1 %cmp40, label %while.body41, label %return, !llvm.loop !62
 
 return.sink.split:                                ; preds = %for.inc21, %while.cond.preheader
   %retval.0.ph = phi i32 [ %call5, %while.cond.preheader ], [ 0, %for.inc21 ]
@@ -10109,7 +10109,7 @@ if.else:                                          ; preds = %if.end
 for.inc:                                          ; preds = %if.end, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !64
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !63
 
 for.end:                                          ; preds = %for.inc
   tail call void @memory_region_transaction_commit() #21
@@ -10131,7 +10131,7 @@ if.end15:                                         ; preds = %for.body11
 for.inc16:                                        ; preds = %for.body11, %if.end15
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 1024
-  br i1 %exitcond23.not, label %for.end18, label %for.body11, !llvm.loop !65
+  br i1 %exitcond23.not, label %for.end18, label %for.body11, !llvm.loop !64
 
 for.end18:                                        ; preds = %for.inc16
   ret void
@@ -10161,7 +10161,7 @@ if.end:                                           ; preds = %for.body
   tail call void @virtio_init_region_cache(ptr noundef %add.ptr, i32 noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !66
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !65
 
 for.end:                                          ; preds = %for.body, %if.end
   ret void
@@ -10256,8 +10256,8 @@ attributes #23 = { nounwind allocsize(0) }
 !27 = distinct !{!27, !13}
 !28 = distinct !{!28, !13}
 !29 = distinct !{!29, !13}
-!30 = !{i32 0, i32 2}
-!31 = !{i64 2152893186}
+!30 = !{i64 2152893186}
+!31 = distinct !{!31, !13}
 !32 = distinct !{!32, !13}
 !33 = distinct !{!33, !13}
 !34 = distinct !{!34, !13}
@@ -10269,8 +10269,8 @@ attributes #23 = { nounwind allocsize(0) }
 !40 = distinct !{!40, !13}
 !41 = distinct !{!41, !13}
 !42 = distinct !{!42, !13}
-!43 = distinct !{!43, !13}
-!44 = !{i64 2152900608}
+!43 = !{i64 2152900608}
+!44 = distinct !{!44, !13}
 !45 = distinct !{!45, !13}
 !46 = distinct !{!46, !13}
 !47 = distinct !{!47, !13}
@@ -10280,9 +10280,9 @@ attributes #23 = { nounwind allocsize(0) }
 !51 = distinct !{!51, !13}
 !52 = distinct !{!52, !13}
 !53 = distinct !{!53, !13}
-!54 = distinct !{!54, !13}
-!55 = !{i64 2152887511}
-!56 = !{i64 2152887111}
+!54 = !{i64 2152887511}
+!55 = !{i64 2152887111}
+!56 = distinct !{!56, !13}
 !57 = distinct !{!57, !13}
 !58 = distinct !{!58, !13}
 !59 = distinct !{!59, !13}
@@ -10292,4 +10292,3 @@ attributes #23 = { nounwind allocsize(0) }
 !63 = distinct !{!63, !13}
 !64 = distinct !{!64, !13}
 !65 = distinct !{!65, !13}
-!66 = distinct !{!66, !13}

@@ -19,14 +19,14 @@ entry:
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @custom_ext_add_clienthello(ptr noundef %ssl, ptr noundef %extensions) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @custom_ext_add_clienthello(ptr noundef %ssl, ptr noundef %extensions) local_unnamed_addr #2 {
 entry:
-  %call = tail call fastcc i32 @custom_ext_add_hello(ptr noundef %ssl, ptr noundef %extensions), !range !7
+  %call = tail call fastcc i32 @custom_ext_add_hello(ptr noundef %ssl, ptr noundef %extensions)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @custom_ext_add_hello(ptr noundef %ssl, ptr noundef %extensions) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @custom_ext_add_hello(ptr noundef %ssl, ptr noundef %extensions) unnamed_addr #2 {
 entry:
   %contents = alloca ptr, align 8
   %contents_len = alloca i64, align 8
@@ -177,7 +177,7 @@ for.inc:                                          ; preds = %if.then59, %if.end5
   %inc = add nuw i64 %i.039, 1
   %call = call i64 @sk_num(ptr noundef nonnull %stack.0) #6
   %cmp4 = icmp ult i64 %inc, %call
-  br i1 %cmp4, label %for.body, label %return, !llvm.loop !8
+  br i1 %cmp4, label %for.body, label %return, !llvm.loop !7
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %if.then28, %if.then35, %entry, %sw.default
   %retval.0 = phi i32 [ 0, %sw.default ], [ 1, %entry ], [ 0, %if.then35 ], [ 0, %if.then28 ], [ 1, %for.cond.preheader ], [ 1, %for.inc ]
@@ -185,7 +185,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @custom_ext_parse_serverhello(ptr noundef %ssl, ptr noundef %out_alert, i16 noundef zeroext %value, ptr noundef %extension) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @custom_ext_parse_serverhello(ptr noundef %ssl, ptr noundef %out_alert, i16 noundef zeroext %value, ptr noundef %extension) local_unnamed_addr #2 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %ssl, i64 232
   %0 = load ptr, ptr %ctx, align 8
@@ -207,7 +207,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add nuw i64 %i.010.i, 1
   %call.i = tail call i64 @sk_num(ptr noundef %1) #6
   %cmp.i = icmp ult i64 %inc.i, %call.i
-  br i1 %cmp.i, label %for.body.i, label %if.then, !llvm.loop !10
+  br i1 %cmp.i, label %for.body.i, label %if.then, !llvm.loop !9
 
 lor.lhs.false:                                    ; preds = %for.body.i
   %value2.i.le = getelementptr inbounds i8, ptr %call1.i, i64 40
@@ -266,7 +266,7 @@ declare ptr @CBS_data(ptr noundef) local_unnamed_addr #3
 declare i64 @CBS_len(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @custom_ext_parse_clienthello(ptr noundef %ssl, ptr noundef %out_alert, i16 noundef zeroext %value, ptr noundef %extension) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @custom_ext_parse_clienthello(ptr noundef %ssl, ptr noundef %out_alert, i16 noundef zeroext %value, ptr noundef %extension) local_unnamed_addr #2 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %ssl, i64 232
   %0 = load ptr, ptr %ctx, align 8
@@ -288,7 +288,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add nuw i64 %i.010.i, 1
   %call.i = tail call i64 @sk_num(ptr noundef %1) #6
   %cmp.i = icmp ult i64 %inc.i, %call.i
-  br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !10
+  br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !9
 
 if.end:                                           ; preds = %for.body.i
   %value2.i.le = getelementptr inbounds i8, ptr %call1.i, i64 40
@@ -329,24 +329,24 @@ return:                                           ; preds = %for.inc.i, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @custom_ext_add_serverhello(ptr noundef %ssl, ptr noundef %extensions) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @custom_ext_add_serverhello(ptr noundef %ssl, ptr noundef %extensions) local_unnamed_addr #2 {
 entry:
-  %call = tail call fastcc i32 @custom_ext_add_hello(ptr noundef %ssl, ptr noundef %extensions), !range !7
+  %call = tail call fastcc i32 @custom_ext_add_hello(ptr noundef %ssl, ptr noundef %extensions)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_CTX_add_client_custom_ext(ptr nocapture noundef %ctx, i32 noundef %extension_value, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @SSL_CTX_add_client_custom_ext(ptr nocapture noundef %ctx, i32 noundef %extension_value, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
 entry:
   %client_custom_extensions = getelementptr inbounds i8, ptr %ctx, i64 248
   %tobool.not = icmp eq ptr %add_cb, null
   %cond = select i1 %tobool.not, ptr @default_add_callback, ptr %add_cb
-  %call = tail call fastcc i32 @custom_ext_append(ptr noundef nonnull %client_custom_extensions, i32 noundef %extension_value, ptr noundef nonnull %cond, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg), !range !7
+  %call = tail call fastcc i32 @custom_ext_append(ptr noundef nonnull %client_custom_extensions, i32 noundef %extension_value, ptr noundef nonnull %cond, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @custom_ext_append(ptr nocapture noundef %stack, i32 noundef %extension_value, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @custom_ext_append(ptr nocapture noundef %stack, i32 noundef %extension_value, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %add_cb, null
   %cmp1 = icmp ugt i32 %extension_value, 65535
@@ -370,7 +370,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false3
 
 lor.lhs.false7:                                   ; preds = %land.lhs.true
   %1 = load ptr, ptr %stack, align 8
-  %conv = trunc i32 %extension_value to i16
+  %conv = trunc nuw i32 %extension_value to i16
   %call8.i = tail call i64 @sk_num(ptr noundef %1) #6
   %cmp9.not.i = icmp eq i64 %call8.i, 0
   br i1 %cmp9.not.i, label %if.end, label %for.body.i
@@ -387,7 +387,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add nuw i64 %i.010.i, 1
   %call.i = tail call i64 @sk_num(ptr noundef %1) #6
   %cmp.i = icmp ult i64 %inc.i, %call.i
-  br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !10
+  br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !9
 
 if.end:                                           ; preds = %for.inc.i, %lor.lhs.false7, %lor.lhs.false3
   %call11 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #7
@@ -404,7 +404,7 @@ if.end15:                                         ; preds = %if.end
   store ptr %parse_cb, ptr %parse_callback, align 8
   %parse_arg17 = getelementptr inbounds i8, ptr %call11, i64 32
   store ptr %parse_arg, ptr %parse_arg17, align 8
-  %conv18 = trunc i32 %extension_value to i16
+  %conv18 = trunc nuw i32 %extension_value to i16
   %value = getelementptr inbounds i8, ptr %call11, i64 40
   store i16 %conv18, ptr %value, align 8
   %3 = load ptr, ptr %stack, align 8
@@ -446,7 +446,7 @@ return:                                           ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @default_add_callback(ptr nocapture noundef readonly %ssl, i32 %extension_value, ptr nocapture readnone %out, ptr nocapture noundef writeonly %out_len, ptr nocapture readnone %out_alert_value, ptr nocapture readnone %add_arg) #4 {
+define internal range(i32 0, 2) i32 @default_add_callback(ptr nocapture noundef readonly %ssl, i32 %extension_value, ptr nocapture readnone %out, ptr nocapture noundef writeonly %out_len, ptr nocapture readnone %out_alert_value, ptr nocapture readnone %add_arg) #4 {
 entry:
   %server = getelementptr inbounds i8, ptr %ssl, i64 385
   %bf.load = load i8, ptr %server, align 1
@@ -464,12 +464,12 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SSL_CTX_add_server_custom_ext(ptr nocapture noundef %ctx, i32 noundef %extension_value, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @SSL_CTX_add_server_custom_ext(ptr nocapture noundef %ctx, i32 noundef %extension_value, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
 entry:
   %server_custom_extensions = getelementptr inbounds i8, ptr %ctx, i64 256
   %tobool.not = icmp eq ptr %add_cb, null
   %cond = select i1 %tobool.not, ptr @default_add_callback, ptr %add_cb
-  %call = tail call fastcc i32 @custom_ext_append(ptr noundef nonnull %server_custom_extensions, i32 noundef %extension_value, ptr noundef nonnull %cond, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg), !range !7
+  %call = tail call fastcc i32 @custom_ext_append(ptr noundef nonnull %server_custom_extensions, i32 noundef %extension_value, ptr noundef nonnull %cond, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg)
   ret i32 %call
 }
 
@@ -516,7 +516,6 @@ attributes #7 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

@@ -228,7 +228,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden i32 @is_ps_title_available() local_unnamed_addr #6 {
+define hidden range(i32 0, 4) i32 @is_ps_title_available() local_unnamed_addr #6 {
   %1 = load ptr, ptr @save_argv, align 8
   %.not = icmp eq ptr %1, null
   %2 = load ptr, ptr @ps_buffer, align 8

@@ -349,7 +349,7 @@ declare void @zend_restore_compiled_filename(ptr noundef) local_unnamed_addr #1
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_lex_tstring(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_lex_tstring(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %.critedge, %2
@@ -434,7 +434,7 @@ declare void @llvm.assume(i1 noundef) #3
 declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_multibyte_set_filter(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_multibyte_set_filter(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @zend_multibyte_get_internal_encoding() #16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %zend_multibyte_find_script_encoding.exit.thread
@@ -753,7 +753,7 @@ define internal i64 @encoding_filter_intermediate_to_internal(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @open_file_for_scanning(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @open_file_for_scanning(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = call i32 @zend_stream_fixup(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
@@ -789,7 +789,7 @@ define noundef i32 @open_file_for_scanning(ptr noundef %0) local_unnamed_addr #0
   store ptr %16, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 15), align 8
   store i64 %11, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
   store ptr null, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
-  %17 = call i32 @zend_multibyte_set_filter(ptr noundef null), !range !4
+  %17 = call i32 @zend_multibyte_set_filter(ptr noundef null)
   %18 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
   %.not42 = icmp eq ptr %18, null
   br i1 %.not42, label %.thread-pre-split_crit_edge, label %19
@@ -961,13 +961,13 @@ define noundef ptr @compile_file(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %10 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i32 noundef 4) #16
   %12 = getelementptr inbounds i8, ptr %3, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i32 noundef 8) #16
   %13 = getelementptr inbounds i8, ptr %3, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
   tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10)) #16
   %14 = load ptr, ptr @language_scanner_globals, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 136
@@ -1006,7 +1006,7 @@ define noundef ptr @compile_file(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %36 = getelementptr inbounds i8, ptr %3, i64 232
   %37 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
   store <2 x ptr> %37, ptr %36, align 8
-  %38 = tail call i32 @open_file_for_scanning(ptr noundef %0), !range !4
+  %38 = tail call i32 @open_file_for_scanning(ptr noundef %0)
   %39 = icmp eq i32 %38, -1
   br i1 %39, label %40, label %49
 
@@ -1157,13 +1157,13 @@ define ptr @zend_compile_string_to_ast(ptr noundef %0, ptr nocapture noundef wri
   %22 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i32 noundef 4) #16
   %24 = getelementptr inbounds i8, ptr %5, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i32 noundef 8) #16
   %25 = getelementptr inbounds i8, ptr %5, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
   tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10)) #16
   %26 = load ptr, ptr @language_scanner_globals, align 8
   %27 = getelementptr inbounds i8, ptr %5, i64 136
@@ -1354,7 +1354,7 @@ define void @zend_prepare_string_for_scanning(ptr nocapture noundef %0, ptr noun
   store i64 %5, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 16), align 8
   store ptr null, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 17), align 8
   %50 = tail call ptr @zend_multibyte_get_internal_encoding() #16
-  %51 = tail call i32 @zend_multibyte_set_filter(ptr noundef %50), !range !4
+  %51 = tail call i32 @zend_multibyte_set_filter(ptr noundef %50)
   %52 = load ptr, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 19), align 8
   %.not102 = icmp eq ptr %52, null
   br i1 %.not102, label %64, label %53
@@ -1584,13 +1584,13 @@ define noundef ptr @compile_string(ptr noundef %0, ptr nocapture noundef readonl
   %24 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %23, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i32 noundef 4) #16
   %26 = getelementptr inbounds i8, ptr %4, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i32 noundef 8) #16
   %27 = getelementptr inbounds i8, ptr %4, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
   tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10)) #16
   %28 = load ptr, ptr @language_scanner_globals, align 8
   %29 = getelementptr inbounds i8, ptr %4, i64 136
@@ -1700,7 +1700,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @highlight_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @highlight_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zend_lex_state, align 8
   %4 = alloca %struct._zend_file_handle, align 8
   call void @zend_stream_init_filename(ptr noundef nonnull %4, ptr noundef %0) #16
@@ -1716,13 +1716,13 @@ define noundef i32 @highlight_file(ptr noundef %0, ptr noundef %1) local_unnamed
   %11 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
   call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i32 noundef 4) #16
   %13 = getelementptr inbounds i8, ptr %3, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
   call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i32 noundef 8) #16
   %14 = getelementptr inbounds i8, ptr %3, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
   call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10)) #16
   %15 = load ptr, ptr @language_scanner_globals, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 136
@@ -1761,7 +1761,7 @@ define noundef i32 @highlight_file(ptr noundef %0, ptr noundef %1) local_unnamed
   %37 = getelementptr inbounds i8, ptr %3, i64 232
   %38 = load <2 x ptr>, ptr getelementptr inbounds (%struct._zend_compiler_globals, ptr @compiler_globals, i64 0, i32 31), align 8
   store <2 x ptr> %38, ptr %37, align 8
-  %39 = call i32 @open_file_for_scanning(ptr noundef nonnull %4), !range !4
+  %39 = call i32 @open_file_for_scanning(ptr noundef nonnull %4)
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %41, label %42
 
@@ -1839,13 +1839,13 @@ define void @highlight_string(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   %29 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 9), i32 noundef 4) #16
   %31 = getelementptr inbounds i8, ptr %4, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i64 24, i1 false)
   tail call void @zend_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11), i32 noundef 8) #16
   %32 = getelementptr inbounds i8, ptr %4, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10), i64 32, i1 false)
   tail call void @zend_ptr_stack_init(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 10)) #16
   %33 = load ptr, ptr @language_scanner_globals, align 8
   %34 = getelementptr inbounds i8, ptr %4, i64 136
@@ -2247,7 +2247,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
   br i1 %62, label %63, label %.loopexit7123
 
 63:                                               ; preds = %60
-  %64 = tail call fastcc i32 @check_nesting_at_end(), !range !4
+  %64 = tail call fastcc i32 @check_nesting_at_end()
   %.not6532 = icmp eq i32 %64, 0
   %or.cond6603 = or i1 %.not5992, %.not6532
   %spec.select6680 = select i1 %or.cond6603, i32 0, i32 406
@@ -2346,7 +2346,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
   %109 = getelementptr inbounds i8, ptr %108, i64 1
   %110 = select i1 %.not6529, i32 -3, i32 -2
   %111 = add i32 %110, %106
-  %112 = tail call fastcc i32 @zend_scan_escape_string(ptr noundef %0, ptr noundef nonnull %109, i32 noundef %111, i8 noundef signext 34), !range !4
+  %112 = tail call fastcc i32 @zend_scan_escape_string(ptr noundef %0, ptr noundef nonnull %109, i32 noundef %111, i8 noundef signext 34)
   %113 = icmp eq i32 %112, 0
   %or.cond6604 = or i1 %.not5992, %113
   br i1 %or.cond6604, label %.loopexit6823, label %.loopexit7123
@@ -2954,7 +2954,7 @@ switch.early.test:                                ; preds = %114
   store ptr %385, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 5), align 8
   store i32 1, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
   %386 = load i8, ptr %.promoted103941316013175, align 1
-  %387 = tail call fastcc i32 @exit_nesting(i8 noundef signext %386), !range !4
+  %387 = tail call fastcc i32 @exit_nesting(i8 noundef signext %386)
   %.not6448 = icmp eq i32 %387, 0
   %or.cond = or i1 %.not5992, %.not6448
   br i1 %or.cond, label %388, label %.loopexit7123
@@ -4025,7 +4025,7 @@ strip_underscores.exit:                           ; preds = %453
   br label %826
 
 826:                                              ; preds = %823, %825
-  %827 = tail call fastcc i32 @exit_nesting(i8 noundef signext 125), !range !4
+  %827 = tail call fastcc i32 @exit_nesting(i8 noundef signext 125)
   %.not6078 = icmp eq i32 %827, 0
   %or.cond6613 = or i1 %.not5992, %.not6078
   %spec.select6681 = select i1 %or.cond6613, i32 125, i32 406
@@ -17439,7 +17439,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6642, label %6643, label %6645
 
 6643:                                             ; preds = %6636
-  %6644 = tail call fastcc i32 @check_nesting_at_end(), !range !4
+  %6644 = tail call fastcc i32 @check_nesting_at_end()
   %.not6064 = icmp eq i32 %6644, 0
   %or.cond6632 = or i1 %.not5992, %.not6064
   %spec.select6682 = select i1 %or.cond6632, i32 0, i32 406
@@ -17519,7 +17519,7 @@ switch.early.test6683:                            ; preds = %6656
   %6673 = sub i64 %6672, %6639
   %6674 = trunc i64 %6673 to i32
   store i32 %6674, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %6675 = tail call fastcc i32 @zend_scan_escape_string(ptr noundef %0, ptr noundef nonnull %29, i32 noundef %6674, i8 noundef signext 96), !range !4
+  %6675 = tail call fastcc i32 @zend_scan_escape_string(ptr noundef %0, ptr noundef nonnull %29, i32 noundef %6674, i8 noundef signext 96)
   %6676 = icmp eq i32 %6675, 0
   %or.cond6638 = or i1 %.not5992, %6676
   br i1 %or.cond6638, label %.loopexit6823, label %.loopexit7123
@@ -17822,7 +17822,7 @@ switch.early.test6683:                            ; preds = %6656
   br i1 %6820, label %6821, label %6823
 
 6821:                                             ; preds = %6819
-  %6822 = tail call fastcc i32 @check_nesting_at_end(), !range !4
+  %6822 = tail call fastcc i32 @check_nesting_at_end()
   %.not6057 = icmp eq i32 %6822, 0
   %or.cond6641 = or i1 %.not5992, %.not6057
   %spec.select6684 = select i1 %or.cond6641, i32 0, i32 406
@@ -17902,7 +17902,7 @@ switch.early.test6685:                            ; preds = %6834
   %6851 = sub i64 %6850, %6810
   %6852 = trunc i64 %6851 to i32
   store i32 %6852, ptr getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 2), align 8
-  %6853 = tail call fastcc i32 @zend_scan_escape_string(ptr noundef %0, ptr noundef %29, i32 noundef %6852, i8 noundef signext 34), !range !4
+  %6853 = tail call fastcc i32 @zend_scan_escape_string(ptr noundef %0, ptr noundef %29, i32 noundef %6852, i8 noundef signext 34)
   %6854 = icmp eq i32 %6853, 0
   %or.cond6647 = or i1 %.not5992, %6854
   br i1 %or.cond6647, label %.loopexit6823, label %.loopexit7123
@@ -18182,7 +18182,7 @@ switch.early.test6685:                            ; preds = %6834
   br i1 %6988, label %6989, label %6991
 
 6989:                                             ; preds = %6980
-  %6990 = tail call fastcc i32 @check_nesting_at_end(), !range !4
+  %6990 = tail call fastcc i32 @check_nesting_at_end()
   %.not6051 = icmp eq i32 %6990, 0
   %or.cond6650 = or i1 %.not5992, %.not6051
   %spec.select6686 = select i1 %or.cond6650, i32 0, i32 406
@@ -18511,7 +18511,7 @@ switch.early.test6687:                            ; preds = %7089
 7136:                                             ; preds = %7124
   %7137 = load i64, ptr %7116, align 8
   %7138 = trunc i64 %7137 to i32
-  %7139 = tail call fastcc i32 @zend_scan_escape_string(ptr noundef nonnull %0, ptr noundef nonnull %7117, i32 noundef %7138, i8 noundef signext 0), !range !4
+  %7139 = tail call fastcc i32 @zend_scan_escape_string(ptr noundef nonnull %0, ptr noundef nonnull %7117, i32 noundef %7138, i8 noundef signext 0)
   %.not6048 = icmp eq i32 %7139, 0
   tail call void @_efree(ptr noundef nonnull %7113) #16
   br i1 %.not6048, label %.thread6766, label %.loopexit7123
@@ -19035,7 +19035,7 @@ switch.early.test6687:                            ; preds = %7089
   br i1 %7375, label %7376, label %.loopexit7123
 
 7376:                                             ; preds = %7373
-  %7377 = tail call fastcc i32 @check_nesting_at_end(), !range !4
+  %7377 = tail call fastcc i32 @check_nesting_at_end()
   %.not6033 = icmp eq i32 %7377, 0
   %or.cond6667 = or i1 %.not5992, %.not6033
   %spec.select6688 = select i1 %or.cond6667, i32 0, i32 406
@@ -20007,7 +20007,7 @@ thread-pre-split13155:                            ; preds = %7704, %7709
   br i1 %7821, label %7822, label %7824
 
 7822:                                             ; preds = %7813
-  %7823 = tail call fastcc i32 @check_nesting_at_end(), !range !4
+  %7823 = tail call fastcc i32 @check_nesting_at_end()
   %.not5987 = icmp eq i32 %7823, 0
   %or.cond6670 = or i1 %.not5992, %.not5987
   %spec.select6690 = select i1 %or.cond6670, i32 0, i32 406
@@ -20529,7 +20529,7 @@ thread-pre-split.outer.backedge:                  ; preds = %8038, %8040, %8037
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @check_nesting_at_end() unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @check_nesting_at_end() unnamed_addr #0 {
   %1 = alloca [256 x i8], align 16
   %2 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11)) #16
   br i1 %2, label %18, label %3
@@ -20565,7 +20565,7 @@ report_bad_nesting.exit:                          ; preds = %3, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @zend_scan_escape_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef signext %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @zend_scan_escape_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef signext %3) unnamed_addr #0 {
   %5 = alloca [3 x i8], align 1
   %6 = alloca [4 x i8], align 4
   %7 = alloca i64, align 8
@@ -21111,7 +21111,7 @@ switch.early.test326:                             ; preds = %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exit_nesting(i8 noundef signext %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @exit_nesting(i8 noundef signext %0) unnamed_addr #0 {
   %2 = alloca [256 x i8], align 16
   %3 = tail call zeroext i1 @zend_stack_is_empty(ptr noundef nonnull getelementptr inbounds (%struct._zend_php_scanner_globals, ptr @language_scanner_globals, i64 0, i32 11)) #16
   br i1 %3, label %4, label %8
@@ -21728,4 +21728,3 @@ attributes #21 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

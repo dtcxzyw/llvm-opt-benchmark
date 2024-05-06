@@ -229,14 +229,14 @@ return:                                           ; preds = %land.lhs.true6, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_gettime_monotonic(ptr nocapture noundef %timer, ptr nocapture noundef %tp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evutil_gettime_monotonic(ptr nocapture noundef %timer, ptr nocapture noundef %tp) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @evutil_gettime_monotonic_(ptr noundef %timer, ptr noundef %tp), !range !5
+  %call = tail call i32 @evutil_gettime_monotonic_(ptr noundef %timer, ptr noundef %tp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_gettime_monotonic_(ptr nocapture noundef %base, ptr nocapture noundef %tp) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @evutil_gettime_monotonic_(ptr nocapture noundef %base, ptr nocapture noundef %tp) local_unnamed_addr #1 {
 entry:
   %ts = alloca %struct.timespec, align 8
   %0 = load i32, ptr %base, align 8
@@ -378,4 +378,3 @@ attributes #8 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}

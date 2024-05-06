@@ -203,7 +203,7 @@ define hidden i32 @mbedtls_x509_get_rsassa_pss_params(ptr nocapture noundef read
   br i1 %.not71, label %51, label %.critedge
 
 51:                                               ; preds = %48
-  %52 = call fastcc i32 @x509_get_hash_alg(ptr noundef nonnull %8, ptr noundef nonnull %2), !range !4
+  %52 = call fastcc i32 @x509_get_hash_alg(ptr noundef nonnull %8, ptr noundef nonnull %2)
   %.not59 = icmp eq i32 %52, 0
   br i1 %.not59, label %53, label %.critedge
 
@@ -311,7 +311,7 @@ declare i32 @mbedtls_asn1_get_tag(ptr noundef, ptr noundef, ptr noundef, i32 nou
 declare i32 @mbedtls_oid_get_md_alg(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_get_hash_alg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147475328) i32 @x509_get_hash_alg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.mbedtls_asn1_buf, align 8
   %5 = alloca i64, align 8
@@ -574,7 +574,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
   store i32 0, ptr %2, align 4
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %29, %23
+.lr.ph.i.i:                                       ; preds = %23, %29
   %25 = phi i32 [ %37, %29 ], [ 0, %23 ]
   %.0811.i.i = phi i64 [ %38, %29 ], [ %.013, %23 ]
   %26 = load ptr, ptr %0, align 8
@@ -597,7 +597,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
   store i32 %37, ptr %2, align 4
   %38 = add nsw i64 %.0811.i.i, -1
   %.not.i.i = icmp eq i64 %38, 0
-  br i1 %.not.i.i, label %39, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.i.i, label %39, label %.lr.ph.i.i, !llvm.loop !4
 
 39:                                               ; preds = %29
   br i1 %14, label %40, label %.thread.i
@@ -638,7 +638,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
   store i32 %57, ptr %44, align 4
   %58 = add nsw i64 %.0811.i57.i, -1
   %.not.i59.i = icmp eq i64 %58, 0
-  br i1 %.not.i59.i, label %59, label %.lr.ph.i56.i, !llvm.loop !5
+  br i1 %.not.i59.i, label %59, label %.lr.ph.i56.i, !llvm.loop !4
 
 59:                                               ; preds = %49
   %60 = getelementptr inbounds i8, ptr %2, i64 8
@@ -668,7 +668,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
   store i32 %73, ptr %60, align 4
   %74 = add nsw i64 %.0811.i63.i, -1
   %.not.i65.i = icmp eq i64 %74, 0
-  br i1 %.not.i65.i, label %75, label %.lr.ph.i62.i, !llvm.loop !5
+  br i1 %.not.i65.i, label %75, label %.lr.ph.i62.i, !llvm.loop !4
 
 75:                                               ; preds = %65
   %76 = getelementptr inbounds i8, ptr %2, i64 12
@@ -698,11 +698,11 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
   store i32 %89, ptr %76, align 4
   %90 = add nsw i64 %.0811.i69.i, -1
   %.not.i71.i = icmp eq i64 %90, 0
-  br i1 %.not.i71.i, label %91, label %.lr.ph.i68.i, !llvm.loop !5
+  br i1 %.not.i71.i, label %91, label %.lr.ph.i68.i, !llvm.loop !4
 
 91:                                               ; preds = %81
   %92 = getelementptr inbounds i8, ptr %2, i64 16
-  %93 = call fastcc i32 @x509_parse_int(ptr noundef nonnull %0, i64 noundef 2, ptr noundef nonnull %92), !range !7
+  %93 = call fastcc i32 @x509_parse_int(ptr noundef nonnull %0, i64 noundef 2, ptr noundef nonnull %92)
   %.not52.i = icmp eq i32 %93, 0
   br i1 %.not52.i, label %94, label %x509_parse_time.exit
 
@@ -712,7 +712,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
 
 96:                                               ; preds = %94
   %97 = getelementptr inbounds i8, ptr %2, i64 20
-  %98 = call fastcc i32 @x509_parse_int(ptr noundef nonnull %0, i64 noundef 2, ptr noundef nonnull %97), !range !7
+  %98 = call fastcc i32 @x509_parse_int(ptr noundef nonnull %0, i64 noundef 2, ptr noundef nonnull %97)
   %.not53.i = icmp eq i32 %98, 0
   br i1 %.not53.i, label %99, label %x509_parse_time.exit
 
@@ -734,7 +734,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
   br label %105
 
 105:                                              ; preds = %.thread82.i, %99
-  %106 = call fastcc i32 @x509_date_is_valid(ptr noundef nonnull %2), !range !7
+  %106 = call fastcc i32 @x509_date_is_valid(ptr noundef nonnull %2)
   br label %x509_parse_time.exit
 
 x509_parse_time.exit:                             ; preds = %.lr.ph.i.i, %.lr.ph.i56.i, %.lr.ph.i62.i, %.lr.ph.i68.i, %105, %100, %99, %96, %94, %91, %19, %10, %3, %17
@@ -915,7 +915,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
   %10 = getelementptr inbounds i8, ptr %.06398, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %.outer._crit_edge, label %6, !llvm.loop !8
+  br i1 %.not, label %.outer._crit_edge, label %6, !llvm.loop !6
 
 12:                                               ; preds = %6
   %.not81 = icmp eq ptr %.06398, %2
@@ -1021,7 +1021,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
   %57 = add nuw nsw i64 %.16990.sink, 1
   %58 = load i64, ptr %37, align 8
   %59 = icmp ult i64 %56, %58
-  br i1 %59, label %40, label %._crit_edge104, !llvm.loop !9
+  br i1 %59, label %40, label %._crit_edge104, !llvm.loop !7
 
 ._crit_edge104:                                   ; preds = %.thread, %34
   %.068.lcssa = phi i64 [ 0, %34 ], [ %57, %.thread ]
@@ -1044,7 +1044,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
   %69 = getelementptr inbounds i8, ptr %.06398, i64 48
   %70 = load ptr, ptr %69, align 8
   %.not97 = icmp eq ptr %70, null
-  br i1 %.not97, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not97, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .outer._crit_edge:                                ; preds = %.outer, %9, %3
   %.066.ph.lcssa96 = phi i64 [ %1, %3 ], [ %.066.ph107, %9 ], [ %65, %.outer ]
@@ -1132,7 +1132,7 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, 
   %.1 = phi ptr [ %.055, %17 ], [ %32, %30 ]
   %34 = add nuw i64 %.04153, 1
   %exitcond.not = icmp eq i64 %34, %spec.select.fr
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %14
   %35 = getelementptr inbounds i8, ptr %0, i64 %15
@@ -1257,7 +1257,7 @@ md_type_to_string.exit47:                         ; preds = %md_type_to_string.e
 declare i32 @mbedtls_oid_get_sig_alg_desc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @mbedtls_x509_key_size_helper(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define hidden range(i32 -10624, 1) i32 @mbedtls_x509_key_size_helper(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.14, ptr noundef %2) #12
   %5 = icmp sgt i32 %4, -1
   %6 = zext nneg i32 %4 to i64
@@ -1268,7 +1268,7 @@ define hidden i32 @mbedtls_x509_key_size_helper(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_x509_time_is_past(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @mbedtls_x509_time_is_past(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
@@ -1365,7 +1365,7 @@ x509_check_time.exit:                             ; preds = %54, %50, %42, %36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_x509_time_is_future(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @mbedtls_x509_time_is_future(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
@@ -1462,7 +1462,7 @@ x509_check_time.exit:                             ; preds = %55, %51, %43, %37, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @x509_parse_int(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #7 {
+define internal fastcc range(i32 -9216, 1) i32 @x509_parse_int(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #7 {
   store i32 0, ptr %2, align 4
   %.not10 = icmp eq i64 %1, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -1490,7 +1490,7 @@ define internal fastcc noundef i32 @x509_parse_int(ptr nocapture noundef %0, i64
   store i32 %16, ptr %2, align 4
   %17 = add i64 %.0811, -1
   %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %8 ], [ -9216, %.lr.ph ]
@@ -1498,7 +1498,7 @@ define internal fastcc noundef i32 @x509_parse_int(ptr nocapture noundef %0, i64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @x509_date_is_valid(ptr nocapture noundef readonly %0) unnamed_addr #8 {
+define internal fastcc range(i32 -9216, 1) i32 @x509_date_is_valid(ptr nocapture noundef readonly %0) unnamed_addr #8 {
   %2 = load i32, ptr %0, align 4
   %or.cond = icmp ugt i32 %2, 9999
   br i1 %or.cond, label %26, label %3
@@ -1610,10 +1610,8 @@ attributes #13 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -2147483648, i32 2147475328}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -9216, i32 1}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

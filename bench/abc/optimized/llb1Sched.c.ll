@@ -57,7 +57,7 @@ define void @Llb_MtrSwapColumns(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Llb_MtrFindBestColumn(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %3, align 8
@@ -663,7 +663,7 @@ define void @Llb_MtrSchedule(ptr noundef %0) local_unnamed_addr #1 {
 
 Llb_MtrVerifyColumns.exit:                        ; preds = %68, %45
   %72 = trunc nuw nsw i64 %indvars.iv45 to i32
-  %73 = tail call i32 @Llb_MtrFindBestColumn(ptr noundef nonnull %0, i32 noundef %72), !range !14
+  %73 = tail call i32 @Llb_MtrFindBestColumn(ptr noundef nonnull %0, i32 noundef %72)
   %74 = load i32, ptr %2, align 8
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %.lr.ph.i36, label %Llb_MtrUseSelectedColumn.exit
@@ -780,7 +780,7 @@ Llb_MtrSwapColumns.exit:                          ; preds = %Llb_MtrUseSelectedC
   %141 = add nsw i32 %140, -1
   %142 = sext i32 %141 to i64
   %143 = icmp slt i64 %indvars.iv.next46, %142
-  br i1 %143, label %45, label %._crit_edge43, !llvm.loop !15
+  br i1 %143, label %45, label %._crit_edge43, !llvm.loop !14
 
 ._crit_edge43:                                    ; preds = %Llb_MtrSwapColumns.exit, %._crit_edge
   tail call void @Llb_MtrVerifyMatrix(ptr noundef nonnull %0) #8
@@ -843,5 +843,4 @@ attributes #9 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 -2147483648, i32 2147483646}
-!15 = distinct !{!15, !5}
+!14 = distinct !{!14, !5}

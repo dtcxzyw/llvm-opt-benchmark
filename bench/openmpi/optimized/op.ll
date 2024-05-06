@@ -276,7 +276,7 @@ opal_obj_run_destructors.exit47:                  ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_op_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_op_init() local_unnamed_addr #0 {
   %1 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @opal_pointer_array_t_class, i64 0, i32 8), align 8
   %2 = tail call noalias ptr @malloc(i64 noundef %1) #8
   %3 = load i32, ptr @opal_class_init_epoch, align 4

@@ -50,7 +50,7 @@ define void @dsyevr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %51, ptr %23, align 4
   %52 = icmp sgt i32 %50, 0
   %.0284 = select i1 %52, i32 %51, i32 1
-  %53 = mul nsw i32 %50, 10
+  %53 = mul nuw nsw i32 %50, 10
   %.0 = select i1 %52, i32 %53, i32 1
   store i32 0, ptr %20, align 4
   switch i8 %41, label %54 [
@@ -204,7 +204,7 @@ define void @dsyevr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.thread323
 
 .thread:                                          ; preds = %99
-  %103 = mul nsw i32 %64, 33
+  %103 = mul nuw nsw i32 %64, 33
   %104 = tail call i32 @llvm.smax.i32(i32 %103, i32 %.0284)
   %105 = sitofp i32 %104 to double
   store double %105, ptr %16, align 8

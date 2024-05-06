@@ -317,7 +317,7 @@ define hidden void @PBE_reset_parameters() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PBE_decrypt_data(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @PBE_decrypt_data(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr @password, align 8
   %8 = icmp eq ptr %7, null
@@ -381,7 +381,7 @@ define hidden noundef i32 @PBE_decrypt_data(ptr noundef %0, ptr noundef %1, ptr 
   %34 = load ptr, ptr @salt, align 8
   %35 = load i32, ptr @iteration_count, align 4
   %36 = load ptr, ptr @password, align 8
-  %37 = tail call fastcc i32 @generate_key_or_iv(ptr noundef %2, i32 noundef 1, ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %.084, ptr noundef %33), !range !4
+  %37 = tail call fastcc i32 @generate_key_or_iv(ptr noundef %2, i32 noundef 1, ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %.084, ptr noundef %33)
   %.not91 = icmp eq i32 %37, 0
   br i1 %.not91, label %107, label %38
 
@@ -395,7 +395,7 @@ define hidden noundef i32 @PBE_decrypt_data(ptr noundef %0, ptr noundef %1, ptr 
   %43 = load ptr, ptr @salt, align 8
   %44 = load i32, ptr @iteration_count, align 4
   %45 = load ptr, ptr @password, align 8
-  %46 = tail call fastcc i32 @generate_key_or_iv(ptr noundef nonnull %2, i32 noundef 2, ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef %.085, ptr noundef %42), !range !4
+  %46 = tail call fastcc i32 @generate_key_or_iv(ptr noundef nonnull %2, i32 noundef 2, ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef %.085, ptr noundef %42)
   %.not93 = icmp eq i32 %46, 0
   br i1 %.not93, label %107, label %47
 
@@ -471,11 +471,11 @@ define hidden noundef i32 @PBE_decrypt_data(ptr noundef %0, ptr noundef %1, ptr 
 84:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %85 = icmp sgt i64 %indvars.iv, 1
-  br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !5
+  br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %84
   %indvars.iv = phi i64 [ %83, %.lr.ph.preheader ], [ %indvars.iv.next, %84 ]
-  %86 = trunc i64 %indvars.iv to i32
+  %86 = trunc nsw i64 %indvars.iv to i32
   %87 = sub i32 %65, %86
   %88 = sext i32 %87 to i64
   %89 = getelementptr i8, ptr %68, i64 %88
@@ -528,7 +528,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @generate_key_or_iv(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca [20 x i8], align 16
@@ -567,7 +567,7 @@ define internal fastcc noundef i32 @generate_key_or_iv(ptr nocapture noundef rea
   store i8 %28, ptr %.05471, align 1
   %30 = add nuw nsw i32 %.05272, 1
   %exitcond.not = icmp eq i32 %30, 64
-  br i1 %exitcond.not, label %31, label %.preheader70, !llvm.loop !7
+  br i1 %exitcond.not, label %31, label %.preheader70, !llvm.loop !6
 
 31:                                               ; preds = %.preheader70
   br i1 %21, label %42, label %.preheader68
@@ -589,7 +589,7 @@ define internal fastcc noundef i32 @generate_key_or_iv(ptr nocapture noundef rea
   %spec.store.select = select i1 %39, i32 0, i32 %37
   %40 = add nuw nsw i32 %.15375, 2
   %41 = icmp ult i32 %.15375, 62
-  br i1 %41, label %.preheader68, label %.loopexit69, !llvm.loop !8
+  br i1 %41, label %.preheader68, label %.loopexit69, !llvm.loop !7
 
 42:                                               ; preds = %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %29, i8 0, i64 64, i1 false)
@@ -625,7 +625,7 @@ define internal fastcc noundef i32 @generate_key_or_iv(ptr nocapture noundef rea
   call void @gcry_md_write(ptr noundef %52, ptr noundef nonnull %14, i64 noundef 1) #8
   %53 = add nuw nsw i32 %.276, 1
   %exitcond89.not = icmp eq i32 %53, 64
-  br i1 %exitcond89.not, label %54, label %51, !llvm.loop !9
+  br i1 %exitcond89.not, label %54, label %51, !llvm.loop !8
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %8, align 8
@@ -659,7 +659,7 @@ define internal fastcc noundef i32 @generate_key_or_iv(ptr nocapture noundef rea
   call void @gcry_md_hash_buffer(i32 noundef 2, ptr noundef nonnull %10, ptr noundef nonnull %10, i64 noundef 20) #8
   %67 = add nuw i32 %.377, 1
   %exitcond90.not = icmp eq i32 %67, %3
-  br i1 %exitcond90.not, label %.preheader65, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond90.not, label %.preheader65, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph80.preheader, %.preheader65
   %.1.lcssa = phi i64 [ %.05185, %.preheader65 ], [ %66, %.lr.ph80.preheader ]
@@ -682,7 +682,7 @@ define internal fastcc noundef i32 @generate_key_or_iv(ptr nocapture noundef rea
   store i8 %74, ptr %75, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond94.not, label %76, label %.preheader, !llvm.loop !11
+  br i1 %exitcond94.not, label %76, label %.preheader, !llvm.loop !10
 
 76:                                               ; preds = %.preheader
   store i64 64, ptr %13, align 8
@@ -718,7 +718,7 @@ define internal fastcc noundef i32 @generate_key_or_iv(ptr nocapture noundef rea
 89:                                               ; preds = %83
   %90 = load ptr, ptr %15, align 8
   call void @gcry_mpi_release(ptr noundef %90) #8
-  br i1 %81, label %80, label %.loopexit, !llvm.loop !12
+  br i1 %81, label %80, label %.loopexit, !llvm.loop !11
 
 .loopexit64:                                      ; preds = %.loopexit, %76, %83, %80, %.loopexit69, %22, %69
   %.0 = phi i32 [ 1, %69 ], [ 0, %22 ], [ 0, %.loopexit69 ], [ 0, %80 ], [ 0, %83 ], [ 0, %76 ], [ 0, %.loopexit ]
@@ -1326,7 +1326,7 @@ define internal i32 @dissect_pkcs12_EncryptedData(i1 noundef zeroext %0, ptr nou
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = call i32 @PBE_decrypt_data(ptr noundef %12, ptr noundef %13, ptr noundef %15, ptr noundef %3, ptr noundef %17), !range !4
+  %18 = call i32 @PBE_decrypt_data(ptr noundef %12, ptr noundef %13, ptr noundef %15, ptr noundef %3, ptr noundef %17)
   %19 = load ptr, ptr @object_identifier_id, align 8
   call void @dissector_reset_string(ptr noundef nonnull @.str.180, ptr noundef %19) #8
   ret i32 %8
@@ -1483,12 +1483,11 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

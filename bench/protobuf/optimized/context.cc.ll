@@ -1191,7 +1191,7 @@ lor.rhs.i.i.i.i:                                  ; preds = %if.then.i
 _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i.i: ; preds = %lor.rhs.i.i.i.i
   %sub.i.i.i.i = add i64 %name2.coerce0.tr.i, -5
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %name2.coerce1.tr.i, i64 %sub.i.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.9, i64 5)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull readonly dereferenceable(5) @.str.9, i64 5)
   %cmp9.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   %cmp.i.i.i = icmp eq i64 %sub.i.i.i.i, %name1.coerce0.tr.i
   %or.cond.i = select i1 %cmp9.i.i.i.i, i1 %cmp.i.i.i, i1 false
@@ -1202,7 +1202,7 @@ land.rhs.i.i.i:                                   ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i2.i.i.i.i, label %if.then6.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %land.rhs.i.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr %name1.coerce1.tr.i, ptr %name2.coerce1.tr.i, i64 %name1.coerce0.tr.i)
+  %bcmp.i.i.i = call i32 @bcmp(ptr readonly %name1.coerce1.tr.i, ptr readonly %name2.coerce1.tr.i, i64 %name1.coerce0.tr.i)
   %cmp.i.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then6.i, label %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i24.i
 
@@ -1250,7 +1250,7 @@ lor.rhs.i.i.i22.i:                                ; preds = %lor.rhs.i.i.i.i
 _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i24.i: ; preds = %lor.rhs.i.i.i22.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i.i
   %sub.i.i.i25.i = add i64 %name2.coerce0.tr.i, -4
   %add.ptr.i.i.i26.i = getelementptr inbounds i8, ptr %name2.coerce1.tr.i, i64 %sub.i.i.i25.i
-  %bcmp.i.i.i27.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr.i.i.i26.i, ptr noundef nonnull dereferenceable(4) @.str.15, i64 4)
+  %bcmp.i.i.i27.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %add.ptr.i.i.i26.i, ptr noundef nonnull readonly dereferenceable(4) @.str.15, i64 4)
   %cmp9.i.i.i28.i = icmp eq i32 %bcmp.i.i.i27.i, 0
   %cmp.i.i32.i = icmp eq i64 %sub.i.i.i25.i, %name1.coerce0.tr.i
   %or.cond86.i = select i1 %cmp9.i.i.i28.i, i1 %cmp.i.i32.i, i1 false
@@ -1261,7 +1261,7 @@ land.rhs.i.i33.i:                                 ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i2.i.i.i34.i, label %if.then19.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i35.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i35.i: ; preds = %land.rhs.i.i33.i
-  %bcmp.i.i36.i = call i32 @bcmp(ptr %name1.coerce1.tr.i, ptr %name2.coerce1.tr.i, i64 %name1.coerce0.tr.i)
+  %bcmp.i.i36.i = call i32 @bcmp(ptr readonly %name1.coerce1.tr.i, ptr readonly %name2.coerce1.tr.i, i64 %name1.coerce0.tr.i)
   %cmp.i.i.i37.i = icmp eq i32 %bcmp.i.i36.i, 0
   br i1 %cmp.i.i.i37.i, label %if.then19.i, label %invoke.cont63.thread
 
@@ -1718,7 +1718,7 @@ for.body.preheader.i.i.i:                         ; preds = %while.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.preheader.i.i.i
   %__begin5.sroa.0.024.i.i.i = phi i32 [ %and.i9.i.i.i, %for.inc.i.i.i ], [ %8, %for.body.preheader.i.i.i ]
-  %9 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i.i, i1 true), !range !29
+  %9 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i.i, i1 true)
   %conv.i.i.i = zext nneg i32 %9 to i64
   %add.i.i.i.i = add i64 %seq.sroa.4.0.i.i.i, %conv.i.i.i
   %and.i.i.i.i = and i64 %add.i.i.i.i, %2
@@ -1748,7 +1748,7 @@ for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %whi
 if.end34.i.i.i:                                   ; preds = %for.end.i.i.i
   %add.i12.i.i.i = add i64 %seq.sroa.10.0.i.i.i, 16
   %add3.i.i.i.i = add i64 %add.i12.i.i.i, %seq.sroa.4.0.i.i.i
-  br label %while.body.i.i.i, !llvm.loop !30
+  br label %while.body.i.i.i, !llvm.loop !29
 
 _ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_8compiler4java18FieldGeneratorInfoEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_14const_iteratorERKT_.exit: ; preds = %for.end.i.i.i, %if.then.i.i.i
   %call25.pn.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i, %if.then.i.i.i ], [ { ptr null, ptr undef }, %for.end.i.i.i ]
@@ -1811,7 +1811,7 @@ entry:
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !noalias !31
+  %2 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !noalias !30
   %shr.i.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %3 = ptrtoint ptr %0 to i64
   %shr.i.i.i.i.i.i.i = lshr i64 %3, 12
@@ -1841,7 +1841,7 @@ for.body.preheader.i.i.i:                         ; preds = %while.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.preheader.i.i.i
   %__begin5.sroa.0.024.i.i.i = phi i32 [ %and.i9.i.i.i, %for.inc.i.i.i ], [ %8, %for.body.preheader.i.i.i ]
-  %9 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i.i, i1 true), !range !29
+  %9 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i.i, i1 true)
   %conv.i.i.i = zext nneg i32 %9 to i64
   %add.i.i.i.i = add i64 %seq.sroa.4.0.i.i.i, %conv.i.i.i
   %and.i.i.i.i = and i64 %add.i.i.i.i, %2
@@ -1871,7 +1871,7 @@ for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %whi
 if.end34.i.i.i:                                   ; preds = %for.end.i.i.i
   %add.i12.i.i.i = add i64 %seq.sroa.10.0.i.i.i, 16
   %add3.i.i.i.i = add i64 %add.i12.i.i.i, %seq.sroa.4.0.i.i.i
-  br label %while.body.i.i.i, !llvm.loop !34
+  br label %while.body.i.i.i, !llvm.loop !33
 
 _ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15OneofDescriptorENS5_8compiler4java18OneofGeneratorInfoEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_14const_iteratorERKT_.exit: ; preds = %for.end.i.i.i, %if.then.i.i.i
   %call25.pn.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i, %if.then.i.i.i ], [ { ptr null, ptr undef }, %for.end.i.i.i ]
@@ -1973,7 +1973,7 @@ entry:
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !35
+  %3 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !34
   %shr.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %4 = ptrtoint ptr %0 to i64
   %shr.i.i.i.i.i = lshr i64 %4, 12
@@ -2003,7 +2003,7 @@ for.body.preheader.i:                             ; preds = %while.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %__begin0.sroa.0.027.i = phi i32 [ %and.i10.i, %for.inc.i ], [ %9, %for.body.preheader.i ]
-  %10 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.027.i, i1 true), !range !29
+  %10 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.027.i, i1 true)
   %conv.i = zext nneg i32 %10 to i64
   %add.i.i = add i64 %seq.sroa.4.0.i, %conv.i
   %and.i.i = and i64 %add.i.i, %3
@@ -2027,7 +2027,7 @@ for.end.i:                                        ; preds = %for.inc.i, %while.b
 if.end36.i:                                       ; preds = %for.end.i
   %add.i13.i = add i64 %seq.sroa.10.0.i, 16
   %add3.i.i = add i64 %add.i13.i, %seq.sroa.4.0.i
-  br label %while.body.i, !llvm.loop !38
+  br label %while.body.i, !llvm.loop !37
 
 if.then:                                          ; preds = %for.end.i
   %call38.i = tail call noundef i64 @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15OneofDescriptorENS5_8compiler4java18OneofGeneratorInfoEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -2256,7 +2256,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw i64 %i.021, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !39
+  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !38
 
 if.then18:                                        ; preds = %for.inc
   %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 -8
@@ -2356,7 +2356,7 @@ entry:
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !40
+  %3 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !39
   %shr.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %4 = ptrtoint ptr %0 to i64
   %shr.i.i.i.i.i = lshr i64 %4, 12
@@ -2386,7 +2386,7 @@ for.body.preheader.i:                             ; preds = %while.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %__begin0.sroa.0.027.i = phi i32 [ %and.i10.i, %for.inc.i ], [ %9, %for.body.preheader.i ]
-  %10 = tail call noundef i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.027.i, i1 true), !range !29
+  %10 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.027.i, i1 true)
   %conv.i = zext nneg i32 %10 to i64
   %add.i.i = add i64 %seq.sroa.4.0.i, %conv.i
   %and.i.i = and i64 %add.i.i, %3
@@ -2410,7 +2410,7 @@ for.end.i:                                        ; preds = %for.inc.i, %while.b
 if.end36.i:                                       ; preds = %for.end.i
   %add.i13.i = add i64 %seq.sroa.10.0.i, 16
   %add3.i.i = add i64 %add.i13.i, %seq.sroa.4.0.i
-  br label %while.body.i, !llvm.loop !43
+  br label %while.body.i, !llvm.loop !42
 
 if.then:                                          ; preds = %for.end.i
   %call38.i = tail call noundef i64 @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_8compiler4java18FieldGeneratorInfoEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -2639,7 +2639,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %inc = add nuw i64 %i.021, 1
   %cmp.not = icmp eq i64 %inc, %2
-  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !44
+  br i1 %cmp.not, label %if.then18, label %for.body, !llvm.loop !43
 
 if.then18:                                        ; preds = %for.inc
   %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 -8
@@ -2774,19 +2774,18 @@ attributes #28 = { noreturn nounwind }
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
 !28 = distinct !{!28, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
-!29 = !{i32 0, i32 33}
-!30 = distinct !{!30, !5}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
-!33 = distinct !{!33, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
-!34 = distinct !{!34, !5}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
-!37 = distinct !{!37, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
+!29 = distinct !{!29, !5}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
+!32 = distinct !{!32, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
+!33 = distinct !{!33, !5}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
+!36 = distinct !{!36, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
+!37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
-!42 = distinct !{!42, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
+!41 = distinct !{!41, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
+!42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}

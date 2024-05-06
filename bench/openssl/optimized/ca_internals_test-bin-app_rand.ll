@@ -64,7 +64,7 @@ declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @app_RAND_load() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @app_RAND_load() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @randfiles, align 8
   %call13 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #2
@@ -142,7 +142,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @app_RAND_write() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @app_RAND_write() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @save_rand_file, align 8
   %cmp = icmp eq ptr %0, null
@@ -177,7 +177,7 @@ declare i32 @RAND_write_file(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @opt_rand(i32 noundef %opt) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @opt_rand(i32 noundef %opt) local_unnamed_addr #0 {
 entry:
   switch i32 %opt, label %sw.epilog [
     i32 1502, label %sw.bb9

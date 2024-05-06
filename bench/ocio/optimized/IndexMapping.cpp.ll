@@ -440,7 +440,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %conv9 = phi i64 [ 1, %for.body.lr.ph ], [ %conv, %for.cond ]
   %i.08 = phi i32 [ 1, %for.body.lr.ph ], [ %inc, %for.cond ]
-  tail call void @_ZNK19OpenColorIO_v2_4dev12IndexMapping13validateIndexEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %conv9)
+  tail call void @_ZNK19OpenColorIO_v2_4dev12IndexMapping13validateIndexEm(ptr noundef nonnull readonly align 8 dereferenceable(88) %this, i64 noundef %conv9)
   %2 = load ptr, ptr %m_indices.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %conv9
   %3 = load float, ptr %add.ptr.i.i, align 4
@@ -448,7 +448,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load float, ptr %second6.i, align 4
   %sub = add i32 %i.08, -1
   %conv3 = zext i32 %sub to i64
-  tail call void @_ZNK19OpenColorIO_v2_4dev12IndexMapping13validateIndexEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %conv3)
+  tail call void @_ZNK19OpenColorIO_v2_4dev12IndexMapping13validateIndexEm(ptr noundef nonnull readonly align 8 dereferenceable(88) %this, i64 noundef %conv3)
   %5 = load ptr, ptr %m_indices.i, align 8
   %add.ptr.i.i5 = getelementptr inbounds %"struct.std::pair", ptr %5, i64 %conv3
   %6 = load float, ptr %add.ptr.i.i5, align 4

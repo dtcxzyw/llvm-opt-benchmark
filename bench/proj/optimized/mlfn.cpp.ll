@@ -28,7 +28,7 @@ _ZL7polyvaldPKdi.exit:                            ; preds = %.lr.ph.i
   %9 = fadd double %0, 1.000000e+00
   %10 = fdiv double %7, %9
   store double %10, ptr %3, align 8
-  %invariant.gep = getelementptr i8, ptr %3, i64 56
+  %invariant.gep = getelementptr inbounds i8, ptr %3, i64 56
   br label %11
 
 11:                                               ; preds = %_ZL7polyvaldPKdi.exit, %_ZL7polyvaldPKdi.exit41
@@ -92,7 +92,7 @@ _ZL7polyvaldPKdi.exit41:                          ; preds = %.lr.ph.i37, %_ZL7po
   %.0.lcssa.i36 = phi double [ %25, %_ZL7polyvaldPKdi.exit35.thread ], [ %39, %.lr.ph.i37 ]
   %42 = fmul double %.02945, %.0.lcssa.i36
   %43 = zext nneg i32 %.02846 to i64
-  %gep = getelementptr double, ptr %invariant.gep, i64 %43
+  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %43
   store double %42, ptr %gep, align 8
   %44 = fmul double %.02945, %0
   %45 = add nuw i32 %.02747, 1

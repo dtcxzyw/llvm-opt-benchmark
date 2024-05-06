@@ -488,7 +488,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp13.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %105 = trunc i64 %indvars.iv.i101 to i32
+  %105 = trunc nuw nsw i64 %indvars.iv.i101 to i32
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
@@ -625,7 +625,7 @@ for.body88:                                       ; preds = %for.body88.preheade
   %144 = tail call noundef float @llvm.fmuladd.f32(float %140, float %142, float %mul3.i162)
   %cmp94 = fcmp olt float %144, %bestValue.0333
   %bestValue.1 = select i1 %cmp94, float %144, float %bestValue.0333
-  %145 = trunc i64 %indvars.iv339 to i32
+  %145 = trunc nuw nsw i64 %indvars.iv339 to i32
   %bestIndex.1 = select i1 %cmp94, i32 %145, i32 %bestIndex.0334
   %indvars.iv.next340 = add nuw nsw i64 %indvars.iv339, 1
   %exitcond343.not = icmp eq i64 %indvars.iv.next340, %wide.trip.count342
@@ -744,7 +744,7 @@ if.else141:                                       ; preds = %if.end76
   store i64 %160, ptr %normal201, align 4
   %sideNormal1202 = getelementptr inbounds i8, ptr %ref, i64 32
   %161 = lshr i64 %160, 32
-  %162 = trunc i64 %161 to i32
+  %162 = trunc nuw i64 %161 to i32
   %163 = bitcast i32 %162 to float
   %164 = trunc i64 %160 to i32
   %165 = bitcast i32 %164 to float
@@ -760,13 +760,13 @@ if.else141:                                       ; preds = %if.end76
   %166 = trunc i64 %158 to i32
   %167 = bitcast i32 %166 to float
   %168 = lshr i64 %158, 32
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw i64 %168 to i32
   %170 = bitcast i32 %169 to float
   %171 = trunc i64 %159 to i32
   %172 = bitcast i32 %171 to float
   %173 = bitcast i32 %164 to float
   %174 = lshr i64 %159, 32
-  %175 = trunc i64 %174 to i32
+  %175 = trunc nuw i64 %174 to i32
   %176 = bitcast i32 %175 to float
   br label %if.end212
 
@@ -817,12 +817,12 @@ if.then238:                                       ; preds = %if.end235
   %192 = trunc i64 %191 to i32
   %193 = bitcast i32 %192 to float
   %194 = lshr i64 %191, 32
-  %195 = trunc i64 %194 to i32
+  %195 = trunc nuw i64 %194 to i32
   %196 = bitcast i32 %195 to float
   %197 = trunc i64 %190 to i32
   %198 = bitcast i32 %197 to float
   %199 = lshr i64 %190, 32
-  %200 = trunc i64 %199 to i32
+  %200 = trunc nuw i64 %199 to i32
   %201 = bitcast i32 %200 to float
   br label %if.end252
 

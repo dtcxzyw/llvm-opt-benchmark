@@ -156,7 +156,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   %13 = load i32, ptr %12, align 8, !tbaa !96, !noalias !90
   %14 = ashr i32 %13, 2
-  %15 = mul nsw i32 %14, %11
+  %15 = mul nuw nsw i32 %14, %11
   %16 = icmp sgt i32 %9, -1
   tail call void @llvm.assume(i1 %16)
   %17 = icmp sgt i32 %11, -1
@@ -281,7 +281,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
 
 .split.us:                                        ; preds = %100, %.loopexit.us
   %103 = phi i64 [ %126, %.loopexit.us ], [ %101, %100 ]
-  %104 = trunc i64 %103 to i32
+  %104 = trunc nuw i64 %103 to i32
   %105 = icmp ult i64 %103, %44
   tail call void @llvm.assume(i1 %105)
   %106 = mul nsw i32 %14, %104
@@ -307,7 +307,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %122 = fadd float %117, %121
   store float %122, ptr %120, align 4, !tbaa !76
   %123 = add nuw nsw i64 %114, 1
-  %124 = trunc i64 %123 to i32
+  %124 = trunc nuw nsw i64 %123 to i32
   %125 = icmp sgt i32 %40, %124
   br i1 %125, label %113, label %.loopexit.us, !llvm.loop !101
 
@@ -318,7 +318,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
 
 .split:                                           ; preds = %100, %216
   %128 = phi i64 [ %217, %216 ], [ %101, %100 ]
-  %129 = trunc i64 %128 to i32
+  %129 = trunc nuw i64 %128 to i32
   %130 = icmp ult i64 %128, %44
   tail call void @llvm.assume(i1 %130)
   %131 = mul nsw i32 %14, %129
@@ -500,7 +500,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %249 = phi i64 [ %43, %226 ], [ %436, %435 ]
   %250 = icmp ult i64 %249, %44
   tail call void @llvm.assume(i1 %250)
-  %251 = trunc i64 %249 to i32
+  %251 = trunc nuw nsw i64 %249 to i32
   %252 = mul nsw i32 %14, %251
   %253 = add nuw nsw i32 %252, %9
   %254 = icmp ule i32 %253, %15
@@ -792,7 +792,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
 
 435:                                              ; preds = %.loopexit9, %.loopexit10, %380
   %436 = add nuw nsw i64 %249, 1
-  %437 = trunc i64 %436 to i32
+  %437 = trunc nuw nsw i64 %436 to i32
   %438 = icmp sgt i32 %34, %437
   br i1 %438, label %248, label %.loopexit11, !llvm.loop !111
 
@@ -887,7 +887,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = load i32, ptr %11, align 8, !tbaa !96, !noalias !112
   %13 = ashr i32 %12, 2
-  %14 = mul nsw i32 %13, %10
+  %14 = mul nuw nsw i32 %13, %10
   %15 = icmp sgt i32 %8, -1
   tail call void @llvm.assume(i1 %15)
   %16 = icmp sgt i32 %10, -1
@@ -995,7 +995,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %89 = add nuw nsw i64 %87, %71
   %90 = icmp ult i64 %89, %72
   tail call void @llvm.assume(i1 %90)
-  %91 = trunc i64 %89 to i32
+  %91 = trunc nuw nsw i64 %89 to i32
   %92 = mul nsw i32 %13, %91
   %93 = add nuw nsw i32 %92, %8
   %94 = icmp ule i32 %93, %14
@@ -1037,7 +1037,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %116 = add nuw nsw i64 %114, %71
   %117 = icmp ult i64 %116, %72
   tail call void @llvm.assume(i1 %117)
-  %118 = trunc i64 %116 to i32
+  %118 = trunc nuw nsw i64 %116 to i32
   %119 = mul nsw i32 %13, %118
   %120 = add nuw nsw i32 %119, %8
   %121 = icmp ule i32 %120, %14
@@ -1127,7 +1127,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %187 = add nuw nsw i64 %185, %71
   %188 = icmp ult i64 %187, %72
   tail call void @llvm.assume(i1 %188)
-  %189 = trunc i64 %187 to i32
+  %189 = trunc nuw nsw i64 %187 to i32
   %190 = mul nsw i32 %13, %189
   %191 = add nuw nsw i32 %190, %8
   %192 = icmp ule i32 %191, %14
@@ -1349,13 +1349,13 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %67 = icmp ne i32 %59, 0
   %68 = xor i1 %66, %67
   tail call void @llvm.assume(i1 %68)
-  %69 = mul nsw i32 %62, %59
+  %69 = mul nuw nsw i32 %62, %59
   %70 = icmp eq i32 %53, %69
   tail call void @llvm.assume(i1 %70)
   %71 = icmp eq i32 %59, 1
   %72 = icmp eq i32 %62, %56
   %73 = or i1 %71, %72
-  %74 = mul nsw i32 %59, %56
+  %74 = mul nuw nsw i32 %59, %56
   tail call void @llvm.assume(i1 %73)
   %75 = and i32 %27, 1
   %76 = shl nuw i32 %30, 1
@@ -1394,7 +1394,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   store <4 x float> %103, ptr %4, align 16, !tbaa !76
   %104 = sitofp <4 x i32> %99 to <4 x float>
   store <4 x float> %104, ptr %5, align 16, !tbaa !76
-  %105 = mul nsw i32 %17, %14
+  %105 = mul nuw nsw i32 %17, %14
   %106 = icmp slt i32 %1, %2
   br i1 %106, label %107, label %.loopexit4
 
@@ -1429,7 +1429,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %124 = add nuw nsw i64 %122, %114
   %125 = icmp ult i64 %124, %115
   tail call void @llvm.assume(i1 %125)
-  %126 = trunc i64 %124 to i32
+  %126 = trunc nuw nsw i64 %124 to i32
   %127 = mul nsw i32 %17, %126
   %128 = add nuw nsw i32 %127, %12
   %129 = icmp ule i32 %128, %105
@@ -1462,7 +1462,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
 
 .loopexit.us:                                     ; preds = %134
   %150 = add nuw nsw i64 %122, 1
-  %151 = trunc i64 %150 to i32
+  %151 = trunc nuw nsw i64 %150 to i32
   %152 = icmp slt i32 %151, %2
   br i1 %152, label %.preheader.us, label %.loopexit4, !llvm.loop !140
 
@@ -1476,7 +1476,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %155 = add nuw nsw i64 %153, %114
   %156 = icmp ult i64 %155, %115
   tail call void @llvm.assume(i1 %156)
-  %157 = trunc i64 %155 to i32
+  %157 = trunc nuw nsw i64 %155 to i32
   %158 = mul nsw i32 %17, %157
   %159 = add nuw nsw i32 %158, %12
   %160 = icmp ule i32 %159, %105
@@ -1521,7 +1521,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
 
 .loopexit3.us:                                    ; preds = %171
   %190 = add nuw nsw i64 %153, 1
-  %191 = trunc i64 %190 to i32
+  %191 = trunc nuw nsw i64 %190 to i32
   %192 = icmp slt i32 %191, %2
   br i1 %192, label %.split.split.us, label %.loopexit4, !llvm.loop !140
 
@@ -1532,7 +1532,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %195 = add nuw nsw i64 %193, %114
   %196 = icmp ult i64 %195, %115
   tail call void @llvm.assume(i1 %196)
-  %197 = trunc i64 %195 to i32
+  %197 = trunc nuw nsw i64 %195 to i32
   %198 = mul nsw i32 %17, %197
   %199 = add nuw nsw i32 %198, %12
   %200 = icmp ule i32 %199, %105
@@ -1599,7 +1599,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
 
 .loopexit:                                        ; preds = %.loopexit3
   %247 = add nuw nsw i64 %193, 1
-  %248 = trunc i64 %247 to i32
+  %248 = trunc nuw nsw i64 %247 to i32
   %249 = icmp slt i32 %248, %2
   br i1 %249, label %.split.split, label %.loopexit4, !llvm.loop !140
 
@@ -1623,7 +1623,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %14 = getelementptr inbounds i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8, !tbaa !96, !noalias !142
   %16 = ashr i32 %15, 2
-  %17 = mul nsw i32 %16, %13
+  %17 = mul nuw nsw i32 %16, %13
   %18 = icmp sgt i32 %11, -1
   tail call void @llvm.assume(i1 %18)
   %19 = icmp sgt i32 %13, -1
@@ -1641,7 +1641,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %26 = load ptr, ptr %25, align 8, !tbaa !145, !nonnull !93, !noundef !93
   %27 = getelementptr inbounds i8, ptr %0, i64 240
   %28 = load i32, ptr %27, align 8, !tbaa !146
-  %29 = mul nsw i32 %28, %13
+  %29 = mul nuw nsw i32 %28, %13
   %30 = icmp ne i32 %28, 0
   tail call void @llvm.assume(i1 %30)
   %31 = icmp sgt i32 %28, -1
@@ -1660,13 +1660,13 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   tail call void @llvm.assume(i1 %39)
   %40 = icmp ugt i32 %13, %2
   tail call void @llvm.assume(i1 %40)
-  %41 = mul nsw i32 %28, %2
+  %41 = mul nuw nsw i32 %28, %2
   %42 = add nuw nsw i32 %41, %28
   %43 = icmp ule i32 %42, %29
   tail call void @llvm.assume(i1 %43)
   %44 = zext nneg i32 %41 to i64
   %45 = getelementptr inbounds i8, ptr %26, i64 %44
-  %46 = mul nsw i32 %16, %2
+  %46 = mul nuw nsw i32 %16, %2
   %47 = add nuw nsw i32 %46, %11
   %48 = icmp ule i32 %47, %17
   %49 = zext nneg i32 %46 to i64
@@ -1725,13 +1725,13 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   tail call void @llvm.assume(i1 %86)
   %87 = icmp ugt i32 %13, %2
   tail call void @llvm.assume(i1 %87)
-  %88 = mul nsw i32 %28, %2
+  %88 = mul nuw nsw i32 %28, %2
   %89 = add nuw nsw i32 %88, %28
   %90 = icmp ule i32 %89, %29
   tail call void @llvm.assume(i1 %90)
   %91 = zext nneg i32 %88 to i64
   %92 = getelementptr inbounds i8, ptr %26, i64 %91
-  %93 = mul nsw i32 %16, %2
+  %93 = mul nuw nsw i32 %16, %2
   %94 = add nuw nsw i32 %93, %11
   %95 = icmp ule i32 %94, %17
   %96 = zext nneg i32 %93 to i64
@@ -1876,7 +1876,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %198 = phi float [ -1.000000e+00, %179 ], [ %220, %219 ]
   %199 = icmp ult i64 %196, %193
   tail call void @llvm.assume(i1 %199)
-  %200 = trunc i64 %196 to i32
+  %200 = trunc nuw nsw i64 %196 to i32
   %201 = mul nsw i32 %28, %200
   %202 = add nuw nsw i32 %201, %28
   %203 = icmp ule i32 %202, %29
@@ -1970,7 +1970,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   tail call void @llvm.assume(i1 %269)
   %270 = icmp ugt i32 %13, %2
   tail call void @llvm.assume(i1 %270)
-  %271 = mul nsw i32 %16, %2
+  %271 = mul nuw nsw i32 %16, %2
   %272 = add nuw nsw i32 %271, %11
   %273 = icmp ule i32 %272, %17
   tail call void @llvm.assume(i1 %273)

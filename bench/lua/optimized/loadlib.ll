@@ -254,11 +254,11 @@ declare i64 @luaL_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @lua_touserdata(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ll_loadlib(ptr noundef %L) #0 {
+define internal range(i32 1, 4) i32 @ll_loadlib(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
   %call1 = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 2, ptr noundef null) #6
-  %call2 = tail call fastcc i32 @lookforfunc(ptr noundef %L, ptr noundef %call, ptr noundef %call1), !range !8
+  %call2 = tail call fastcc i32 @lookforfunc(ptr noundef %L, ptr noundef %call, ptr noundef %call1)
   %cmp = icmp eq i32 %call2, 0
   br i1 %cmp, label %return, label %if.else
 
@@ -276,7 +276,7 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ll_searchpath(ptr noundef %L) #0 {
+define internal range(i32 1, 3) i32 @ll_searchpath(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
   %call1 = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 2, ptr noundef null) #6
@@ -299,7 +299,7 @@ return:                                           ; preds = %entry, %if.else
 declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @lookforfunc(ptr noundef %L, ptr noundef %path, ptr nocapture noundef readonly %sym) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @lookforfunc(ptr noundef %L, ptr noundef %path, ptr nocapture noundef readonly %sym) unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @lua_getfield(ptr noundef %L, i32 noundef -1001000, ptr noundef nonnull @.str.12) #6
   %call1.i = tail call i32 @lua_getfield(ptr noundef %L, i32 noundef -1, ptr noundef %path) #6
@@ -409,9 +409,9 @@ while.body:                                       ; preds = %if.then3.i, %if.els
   %cmp6.i = icmp eq ptr %call.i, null
   %spec.select.i = select i1 %cmp6.i, ptr %add.ptr12, ptr %call.i
   store i8 0, ptr %spec.select.i, align 1
-  %call.i10 = call noalias ptr @fopen64(ptr noundef nonnull %name.0.i, ptr noundef nonnull @.str.24)
+  %call.i10 = call noalias ptr @fopen64(ptr noundef nonnull readonly %name.0.i, ptr noundef nonnull @.str.24)
   %cmp.i11 = icmp eq ptr %call.i10, null
-  br i1 %cmp.i11, label %while.cond, label %if.then18, !llvm.loop !9
+  br i1 %cmp.i11, label %while.cond, label %if.then18, !llvm.loop !8
 
 if.then18:                                        ; preds = %while.body
   %call1.i = call i32 @fclose(ptr noundef nonnull %call.i10)
@@ -461,7 +461,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 declare void @luaL_addstring(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @searcher_preload(ptr noundef %L) #0 {
+define internal range(i32 1, 3) i32 @searcher_preload(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
   %call1 = tail call i32 @lua_getfield(ptr noundef %L, i32 noundef -1001000, ptr noundef nonnull @.str.10) #6
@@ -549,7 +549,7 @@ findfile.exit:                                    ; preds = %entry.split.i, %if.
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %findfile.exit
-  %call2 = tail call fastcc i32 @loadfunc(ptr noundef %L, ptr noundef nonnull %phi.call.i, ptr noundef %call), !range !8
+  %call2 = tail call fastcc i32 @loadfunc(ptr noundef %L, ptr noundef nonnull %phi.call.i, ptr noundef %call)
   %cmp3.not = icmp eq i32 %call2, 0
   br i1 %cmp3.not, label %if.then.i7, label %if.else.i
 
@@ -602,7 +602,7 @@ findfile.exit:                                    ; preds = %entry.split.i, %if.
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %findfile.exit
-  %call8 = tail call fastcc i32 @loadfunc(ptr noundef %L, ptr noundef nonnull %phi.call.i, ptr noundef %call), !range !8
+  %call8 = tail call fastcc i32 @loadfunc(ptr noundef %L, ptr noundef nonnull %phi.call.i, ptr noundef %call)
   switch i32 %call8, label %if.then12 [
     i32 0, label %if.end15
     i32 2, label %if.else
@@ -634,7 +634,7 @@ declare i32 @luaL_loadfilex(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare i32 @luaL_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @loadfunc(ptr noundef %L, ptr noundef %filename, ptr noundef %modname) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @loadfunc(ptr noundef %L, ptr noundef %filename, ptr noundef %modname) unnamed_addr #0 {
 entry:
   %call = tail call ptr @luaL_gsub(ptr noundef %L, ptr noundef %modname, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.32) #6
   %call1 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call, i32 noundef 45) #7
@@ -647,7 +647,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call2 = tail call ptr @lua_pushlstring(ptr noundef %L, ptr noundef %call, i64 noundef %sub.ptr.sub) #6
   %call3 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.34, ptr noundef %call2) #6
-  %call4 = tail call fastcc i32 @lookforfunc(ptr noundef %L, ptr noundef %filename, ptr noundef %call3), !range !8
+  %call4 = tail call fastcc i32 @lookforfunc(ptr noundef %L, ptr noundef %filename, ptr noundef %call3)
   %cmp.not = icmp eq i32 %call4, 2
   br i1 %cmp.not, label %if.end, label %return
 
@@ -658,7 +658,7 @@ if.end:                                           ; preds = %if.then
 if.end7:                                          ; preds = %if.end, %entry
   %modname.addr.0 = phi ptr [ %add.ptr, %if.end ], [ %call, %entry ]
   %call8 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.34, ptr noundef %modname.addr.0) #6
-  %call9 = tail call fastcc i32 @lookforfunc(ptr noundef %L, ptr noundef %filename, ptr noundef %call8), !range !8
+  %call9 = tail call fastcc i32 @lookforfunc(ptr noundef %L, ptr noundef %filename, ptr noundef %call8)
   br label %return
 
 return:                                           ; preds = %if.then, %if.end7
@@ -682,7 +682,7 @@ declare void @luaL_addlstring(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @lua_toboolean(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ll_require(ptr noundef %L) #0 {
+define internal range(i32 1, 3) i32 @ll_require(ptr noundef %L) #0 {
 entry:
   %msg.i = alloca %struct.luaL_Buffer, align 8
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
@@ -751,7 +751,7 @@ if.else25.i:                                      ; preds = %if.else.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else25.i, %if.then24.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %for.cond.i
 
 findloader.exit:                                  ; preds = %if.end16.i
@@ -827,5 +827,4 @@ attributes #7 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 3}
-!9 = distinct !{!9, !6}
+!8 = distinct !{!8, !6}

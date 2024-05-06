@@ -3086,8 +3086,8 @@ invoke.cont3:                                     ; preds = %entry
 
 if.then:                                          ; preds = %invoke.cont3
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %13 = getelementptr i8, ptr %e, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %13, i64 32
+  %13 = getelementptr inbounds i8, ptr %e, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %13, i64 32
   %cmp.not73 = icmp eq i32 %12, 0
   br i1 %cmp.not73, label %if.end25, label %for.body.preheader
 
@@ -3602,8 +3602,8 @@ if.end.i8:                                        ; preds = %for.body
   %18 = load i32, ptr %m_num_args.i.i, align 8
   %idx.ext.i.i = zext i32 %18 to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 3
-  %19 = getelementptr i8, ptr %17, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %19, i64 32
+  %19 = getelementptr inbounds i8, ptr %17, i64 %add.ptr.i.idx.i
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %19, i64 32
   %cmp.not8.i = icmp eq i32 %18, 0
   br i1 %cmp.not8.i, label %if.then, label %for.body.preheader.i
 

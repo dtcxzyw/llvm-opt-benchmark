@@ -166,7 +166,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare dso_local void @setup_sysctl_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal i32 @set_is_seen(ptr noundef readnone %0) #3 align 16 {
+define internal range(i32 0, 2) i32 @set_is_seen(ptr noundef readnone %0) #3 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !8
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 1872
@@ -211,7 +211,7 @@ define dso_local void @retire_ipc_sysctls(ptr noundef %0) local_unnamed_addr #0 
 declare dso_local void @unregister_sysctl_table(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @ipc_sysctl_init() #5 section ".init.text" align 16 {
+define internal noundef range(i32 -12, 1) i32 @ipc_sysctl_init() #5 section ".init.text" align 16 {
   %1 = tail call zeroext i1 @setup_ipc_sysctls(ptr noundef nonnull @init_ipc_ns)
   br i1 %1, label %4, label %2
 
@@ -246,7 +246,7 @@ define internal ptr @set_lookup(ptr nocapture readnone %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @ipc_permissions(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal range(i32 0, 65536) i32 @ipc_permissions(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 20
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i32

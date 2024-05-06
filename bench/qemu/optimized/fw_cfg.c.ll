@@ -76,7 +76,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @qfw_cfg_get_file(ptr noundef %fw_cfg, ptr nocapture noundef readonly %filename, ptr noundef %data, i64 noundef %buflen) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @qfw_cfg_get_file(ptr noundef %fw_cfg, ptr nocapture noundef readonly %filename, ptr noundef %data, i64 noundef %buflen) local_unnamed_addr #0 {
 entry:
   %count = alloca i32, align 4
   %select.i.i = getelementptr inbounds i8, ptr %fw_cfg, i64 16
@@ -120,7 +120,7 @@ if.then:                                          ; preds = %for.body
   %10 = call noundef i16 @llvm.bswap.i16(i16 %9)
   %conv6 = zext i32 %8 to i64
   %cmp8 = icmp ugt i64 %conv6, %buflen
-  %conv11 = trunc i64 %buflen to i32
+  %conv11 = trunc nuw i64 %buflen to i32
   %spec.select = select i1 %cmp8, i32 %conv11, i32 %8
   %conv12 = zext i32 %spec.select to i64
   %11 = load ptr, ptr %select.i.i, align 8

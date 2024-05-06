@@ -77,7 +77,7 @@ define noundef nonnull ptr @pg_finfo_utf8_to_win() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @win_to_utf8(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @win_to_utf8(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -141,7 +141,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @utf8_to_win(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @utf8_to_win(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8

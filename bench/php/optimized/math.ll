@@ -2770,7 +2770,7 @@ define hidden void @zif_decbin(ptr noundef %0, ptr nocapture noundef writeonly %
 15:                                               ; preds = %._crit_edge, %.thread146
   %16 = phi i64 [ %.pre, %._crit_edge ], [ %11, %.thread146 ]
   %17 = icmp eq i64 %16, 0
-  %18 = call i64 @llvm.ctlz.i64(i64 %16, i1 true), !range !4
+  %18 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %16, i1 true)
   %19 = sub nuw nsw i64 64, %18
   %.0127 = select i1 %17, i64 1, i64 %19
   %20 = add nuw nsw i64 %.0127, 32
@@ -2859,7 +2859,7 @@ define hidden void @zif_decoct(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %.thread164
-  %18 = call i64 @llvm.ctlz.i64(i64 %15, i1 true), !range !4
+  %18 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 true)
   %19 = trunc nuw nsw i64 %18 to i8
   %.lhs.trunc = sub nuw nsw i8 66, %19
   %20 = udiv i8 %.lhs.trunc, 3
@@ -2951,7 +2951,7 @@ define hidden void @zif_dechex(ptr noundef %0, ptr nocapture noundef writeonly %
 .thread164:                                       ; preds = %..thread164_crit_edge, %.thread146
   %15 = phi i64 [ %.pre, %..thread164_crit_edge ], [ %11, %.thread146 ]
   %16 = icmp eq i64 %15, 0
-  %17 = call i64 @llvm.ctlz.i64(i64 %15, i1 true), !range !4
+  %17 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 true)
   %18 = sub nuw nsw i64 67, %17
   %19 = lshr i64 %18, 2
   %.0127 = select i1 %16, i64 1, i64 %19
@@ -3023,7 +3023,7 @@ define hidden void @zflf_dechex_1(ptr nocapture noundef writeonly %0, ptr nounde
 11:                                               ; preds = %._crit_edge, %.critedge
   %12 = phi i64 [ %.pre, %._crit_edge ], [ %7, %.critedge ]
   %13 = icmp eq i64 %12, 0
-  %14 = call i64 @llvm.ctlz.i64(i64 %12, i1 true), !range !4
+  %14 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 true)
   %15 = sub nuw nsw i64 67, %14
   %16 = lshr i64 %15, 2
   %.092 = select i1 %13, i64 1, i64 %16
@@ -3262,7 +3262,7 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
 32:                                               ; preds = %31
   %33 = add i64 %.0187, -1
   %34 = udiv i64 %33, 3
-  %35 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %34, i64 %5, i64 %.0187) #20, !srcloc !5
+  %35 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %34, i64 %5, i64 %.0187) #20, !srcloc !4
   %.0199 = extractvalue { i64, i64 } %35, 1
   %.not218.not = icmp eq i64 %.0199, 0
   %.0198 = extractvalue { i64, i64 } %35, 0
@@ -3283,7 +3283,7 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
   br i1 %.not219, label %44, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %40, i64 1, i64 %3) #20, !srcloc !5
+  %42 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %40, i64 1, i64 %3) #20, !srcloc !4
   %.0196 = extractvalue { i64, i64 } %42, 1
   %.not222.not = icmp eq i64 %.0196, 0
   %.0195 = extractvalue { i64, i64 } %42, 0
@@ -3495,7 +3495,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
 22:                                               ; preds = %.thread
   %23 = add i64 %21, -1
   %24 = udiv i64 %23, 3
-  %25 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %24, i64 %5, i64 %21) #20, !srcloc !5
+  %25 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %24, i64 %5, i64 %21) #20, !srcloc !4
   %.0182 = extractvalue { i64, i64 } %25, 1
   %.not197.not = icmp eq i64 %.0182, 0
   %.0176 = extractvalue { i64, i64 } %25, 0
@@ -3518,7 +3518,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
   br i1 %.not198, label %36, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %32, i64 1, i64 %3) #20, !srcloc !5
+  %34 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %32, i64 1, i64 %3) #20, !srcloc !4
   %.0174 = extractvalue { i64, i64 } %34, 1
   %.not201.not = icmp eq i64 %.0174, 0
   %.0173 = extractvalue { i64, i64 } %34, 0
@@ -4195,5 +4195,4 @@ attributes #21 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 0, i64 65}
-!5 = !{i64 2752314, i64 2752335, i64 2752354}
+!4 = !{i64 2752314, i64 2752335, i64 2752354}

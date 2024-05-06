@@ -126,7 +126,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -179,7 +179,7 @@ declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_empty_configuration() #1 {
+define internal range(i32 0, 2) i32 @test_empty_configuration() #1 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.14, i32 noundef 114) #3
   %call1.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 114, ptr noundef nonnull @.str.23, ptr noundef %call.i) #3
@@ -201,7 +201,7 @@ if.end:                                           ; preds = %if.end.i
   %0 = load ptr, ptr %expected_ctx.i, align 8
   %expected_result = getelementptr inbounds i8, ptr %0, i64 424
   store i32 0, ptr %expected_result, align 8
-  %call3 = tail call fastcc i32 @execute_test(ptr noundef nonnull %call.i), !range !5
+  %call3 = tail call fastcc i32 @execute_test(ptr noundef nonnull %call.i)
   %1 = load ptr, ptr %expected_ctx.i, align 8
   tail call void @SSL_TEST_CTX_free(ptr noundef %1) #3
   br label %return.sink.split
@@ -218,7 +218,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_good_configuration() #1 {
+define internal range(i32 0, 2) i32 @test_good_configuration() #1 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.14, i32 noundef 114) #3
   %call1.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 114, ptr noundef nonnull @.str.23, ptr noundef %call.i) #3
@@ -317,7 +317,7 @@ if.end45:                                         ; preds = %if.end27
   %24 = load ptr, ptr %expected_ctx.i, align 8
   %ct_validation = getelementptr inbounds i8, ptr %24, i64 256
   store i32 2, ptr %ct_validation, align 8
-  %call51 = tail call fastcc i32 @execute_test(ptr noundef nonnull %call.i), !range !5
+  %call51 = tail call fastcc i32 @execute_test(ptr noundef nonnull %call.i)
   br label %return.sink.split.sink.split
 
 return.sink.split.sink.split:                     ; preds = %if.end, %if.end27, %if.end45
@@ -340,7 +340,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_bad_configuration(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_bad_configuration(i32 noundef %idx) #1 {
 entry:
   %0 = load ptr, ptr @conf, align 8
   %idxprom = sext i32 %idx to i64
@@ -371,7 +371,7 @@ entry:
 declare void @NCONF_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @execute_test(ptr nocapture noundef readonly %fixture) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @execute_test(ptr nocapture noundef readonly %fixture) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @conf, align 8
   %test_section = getelementptr inbounds i8, ptr %fixture, i64 8
@@ -423,14 +423,14 @@ lor.lhs.false9.i:                                 ; preds = %lor.lhs.false5.i
 lor.lhs.false13.i:                                ; preds = %lor.lhs.false9.i
   %extra.i = getelementptr inbounds i8, ptr %call, i64 24
   %extra14.i = getelementptr inbounds i8, ptr %4, i64 24
-  %call15.i = tail call fastcc i32 @extraconf_eq(ptr noundef nonnull %extra.i, ptr noundef nonnull %extra14.i), !range !5
+  %call15.i = tail call fastcc i32 @extraconf_eq(ptr noundef nonnull readonly %extra.i, ptr noundef nonnull readonly %extra14.i)
   %tobool16.not.i = icmp eq i32 %call15.i, 0
   br i1 %tobool16.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false17.i
 
 lor.lhs.false17.i:                                ; preds = %lor.lhs.false13.i
   %resume_extra.i = getelementptr inbounds i8, ptr %call, i64 224
   %resume_extra18.i = getelementptr inbounds i8, ptr %4, i64 224
-  %call19.i = tail call fastcc i32 @extraconf_eq(ptr noundef nonnull %resume_extra.i, ptr noundef nonnull %resume_extra18.i), !range !5
+  %call19.i = tail call fastcc i32 @extraconf_eq(ptr noundef nonnull readonly %resume_extra.i, ptr noundef nonnull readonly %resume_extra18.i)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %testctx_eq.exit.thread, label %lor.lhs.false21.i
 
@@ -574,7 +574,7 @@ declare void @SSL_TEST_CTX_free(ptr noundef) local_unnamed_addr #2
 declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extraconf_eq(ptr nocapture noundef readonly %extra, ptr nocapture noundef readonly %extra2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @extraconf_eq(ptr nocapture noundef readonly %extra, ptr nocapture noundef readonly %extra2) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %extra, align 8
   %1 = load i32, ptr %extra2, align 8
@@ -637,7 +637,7 @@ clientconf_eq.exit:                               ; preds = %entry, %lor.lhs.fal
 lor.lhs.false:                                    ; preds = %clientconf_eq.exit
   %server = getelementptr inbounds i8, ptr %extra, i64 72
   %server3 = getelementptr inbounds i8, ptr %extra2, i64 72
-  %call4 = tail call fastcc i32 @serverconf_eq(ptr noundef nonnull %server, ptr noundef nonnull %server3), !range !5
+  %call4 = tail call fastcc i32 @serverconf_eq(ptr noundef nonnull %server, ptr noundef nonnull %server3)
   %call7 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 69, ptr noundef nonnull @.str.61, i32 noundef %call4) #3
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %lor.lhs.false9
@@ -645,7 +645,7 @@ lor.lhs.false:                                    ; preds = %clientconf_eq.exit
 lor.lhs.false9:                                   ; preds = %lor.lhs.false
   %server2 = getelementptr inbounds i8, ptr %extra, i64 136
   %server210 = getelementptr inbounds i8, ptr %extra2, i64 136
-  %call11 = tail call fastcc i32 @serverconf_eq(ptr noundef nonnull %server2, ptr noundef nonnull %server210), !range !5
+  %call11 = tail call fastcc i32 @serverconf_eq(ptr noundef nonnull %server2, ptr noundef nonnull %server210)
   %call14 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 70, ptr noundef nonnull @.str.62, i32 noundef %call11) #3
   %tobool15.not = icmp ne i32 %call14, 0
   %spec.select = zext i1 %tobool15.not to i32
@@ -661,7 +661,7 @@ declare i32 @test_str_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @serverconf_eq(ptr nocapture noundef readonly %serv, ptr nocapture noundef readonly %serv2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @serverconf_eq(ptr nocapture noundef readonly %serv, ptr nocapture noundef readonly %serv2) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %serv, align 8
   %1 = load i32, ptr %serv2, align 8
@@ -736,4 +736,3 @@ attributes #3 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

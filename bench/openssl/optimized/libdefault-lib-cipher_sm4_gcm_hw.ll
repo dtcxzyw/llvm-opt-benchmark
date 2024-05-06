@@ -34,7 +34,7 @@ declare i32 @ossl_gcm_setiv(ptr noundef, ptr noundef, i64 noundef) #2
 declare i32 @ossl_gcm_aad_update(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @hw_gcm_cipher_update(ptr noundef %ctx, ptr noundef %in, i64 noundef %len, ptr noundef %out) #1 {
+define internal range(i32 0, 2) i32 @hw_gcm_cipher_update(ptr noundef %ctx, ptr noundef %in, i64 noundef %len, ptr noundef %out) #1 {
 entry:
   %enc = getelementptr inbounds i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %enc, align 4

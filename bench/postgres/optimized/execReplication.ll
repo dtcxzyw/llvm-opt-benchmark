@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.table_scan_getnextslot = private unnamed_addr constant [23 x i8] c"table_scan_getnextslot\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i16 @get_equal_strategy_number_for_am(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local zeroext range(i16 0, 4) i16 @get_equal_strategy_number_for_am(i32 noundef %0) local_unnamed_addr #0 {
   %switch.selectcmp = icmp eq i32 %0, 405
   %switch.select = zext i1 %switch.selectcmp to i16
   %switch.selectcmp2 = icmp eq i32 %0, 403

@@ -149,7 +149,7 @@ define hidden void @msrp_add_address(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not, label %12, label %31
 
 12:                                               ; preds = %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = call ptr @find_conversation(i32 noundef %14, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 2, i32 noundef %2, i32 noundef 0, i32 noundef 196608) #6
@@ -246,7 +246,7 @@ define internal i32 @dissect_msrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %9 = alloca i32, align 4
   store i32 0, ptr %7, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) @__const.dissect_msrp.content_info, i64 32, i1 false)
-  %10 = tail call fastcc i32 @check_msrp_header(ptr noundef %0), !range !4
+  %10 = tail call fastcc i32 @check_msrp_header(ptr noundef %0)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %292, label %11
 
@@ -323,7 +323,7 @@ define internal i32 @dissect_msrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 57:                                               ; preds = %52
   %58 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %56) #6
   %.not.i = icmp eq i32 %58, 0
-  br i1 %.not.i, label %find_end_line.exit.thread, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.i, label %find_end_line.exit.thread, label %.lr.ph.i, !llvm.loop !4
 
 find_end_line.exit.thread:                        ; preds = %57, %.lr.ph.i, %47
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -590,10 +590,10 @@ show_setup_info.exit:                             ; preds = %171, %168, %proto_i
 210:                                              ; preds = %207, %202
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %msrp_is_known_msrp_header.exit.thread, label %202, !llvm.loop !7
+  br i1 %exitcond.not.i, label %msrp_is_known_msrp_header.exit.thread, label %202, !llvm.loop !6
 
 msrp_is_known_msrp_header.exit:                   ; preds = %207
-  %211 = trunc i64 %indvars.iv.i to i32
+  %211 = trunc nuw nsw i64 %indvars.iv.i to i32
   %212 = icmp eq i32 %211, -1
   br i1 %212, label %msrp_is_known_msrp_header.exit.thread, label %.preheader292
 
@@ -622,7 +622,7 @@ msrp_is_known_msrp_header.exit.thread:            ; preds = %210, %msrp_is_known
 221:                                              ; preds = %.lr.ph, %.lr.ph
   %.0253 = add nsw i32 %.0253297, 1
   %exitcond.not = icmp eq i32 %.0253, %189
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !7
 
 .critedge:                                        ; preds = %221, %.lr.ph, %.preheader292
   %.0253.lcssa = phi i32 [ %.0253296, %.preheader292 ], [ %.0253297, %.lr.ph ], [ %189, %221 ]
@@ -662,7 +662,7 @@ msrp_is_known_msrp_header.exit.thread:            ; preds = %210, %msrp_is_known
 237:                                              ; preds = %.lr.ph302, %.lr.ph302
   %.0247 = add nsw i32 %.0247301, 1
   %exitcond316.not = icmp eq i32 %.0247, %189
-  br i1 %exitcond316.not, label %.critedge2, label %.lr.ph302, !llvm.loop !9
+  br i1 %exitcond316.not, label %.critedge2, label %.lr.ph302, !llvm.loop !8
 
 .critedge2:                                       ; preds = %237, %.lr.ph302, %.preheader
   %.0247.lcssa = phi i32 [ %.0247300, %.preheader ], [ %.0247301, %.lr.ph302 ], [ %189, %237 ]
@@ -687,7 +687,7 @@ msrp_is_known_msrp_header.exit.thread:            ; preds = %210, %msrp_is_known
   %249 = icmp eq i32 %248, 0
   %250 = icmp sge i32 %247, %56
   %.not276 = or i1 %250, %249
-  br i1 %.not276, label %.critedge281, label %185, !llvm.loop !10
+  br i1 %.not276, label %.critedge281, label %185, !llvm.loop !9
 
 251:                                              ; preds = %185
   %252 = load i32, ptr %7, align 4
@@ -722,7 +722,7 @@ msrp_is_known_msrp_header.exit.thread:            ; preds = %210, %msrp_is_known
   %269 = load i32, ptr %7, align 4
   %270 = call i32 @tvb_offset_exists(ptr noundef %254, i32 noundef %269) #6
   %.not278 = icmp eq i32 %270, 0
-  br i1 %.not278, label %.critedge281, label %.lr.ph312, !llvm.loop !11
+  br i1 %.not278, label %.critedge281, label %.lr.ph312, !llvm.loop !10
 
 .critedge281:                                     ; preds = %246, %.lr.ph312, %show_setup_info.exit, %.critedge283, %260
   %271 = load i32, ptr @hf_msrp_end_line, align 4
@@ -756,7 +756,7 @@ msrp_is_known_msrp_header.exit.thread:            ; preds = %210, %msrp_is_known
   %290 = load i32, ptr %5, align 4
   %291 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %290) #6
   %.not.i289 = icmp eq i32 %291, 0
-  br i1 %.not.i289, label %tvb_raw_text_add.exit, label %.lr.ph.i287, !llvm.loop !12
+  br i1 %.not.i289, label %tvb_raw_text_add.exit, label %.lr.ph.i287, !llvm.loop !11
 
 tvb_raw_text_add.exit:                            ; preds = %.lr.ph.i287, %282
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -785,8 +785,8 @@ define hidden void @proto_reg_handoff_msrp() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_msrp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call fastcc i32 @check_msrp_header(ptr noundef %0), !range !4
+define internal range(i32 0, 2) i32 @dissect_msrp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call fastcc i32 @check_msrp_header(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %17, label %6
 
@@ -822,7 +822,7 @@ declare ptr @find_dissector_table(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_msrp_header(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_msrp_header(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %3 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
@@ -945,12 +945,11 @@ attributes #7 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

@@ -59,7 +59,7 @@ define void @LzmaDec_Init(ptr nocapture noundef writeonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @LzmaDec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @LzmaDec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   %7 = load i64, ptr %3, align 8
   store i64 0, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 92
@@ -323,7 +323,7 @@ LzmaDec_InitStateReal.exit:                       ; preds = %120
   br i1 %or.cond, label %131, label %141
 
 131:                                              ; preds = %129
-  %132 = tail call fastcc i32 @LzmaDec_TryDummy(ptr noundef nonnull %0, ptr noundef %.2, i64 noundef %.2119), !range !4
+  %132 = tail call fastcc i32 @LzmaDec_TryDummy(ptr noundef nonnull %0, ptr noundef %.2, i64 noundef %.2119)
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %134, label %138
 
@@ -398,7 +398,7 @@ LzmaDec_InitStateReal.exit:                       ; preds = %120
 
 161:                                              ; preds = %._crit_edge
   %162 = zext i32 %.0114.lcssa to i64
-  %163 = tail call fastcc i32 @LzmaDec_TryDummy(ptr noundef nonnull %0, ptr noundef nonnull %53, i64 noundef %162), !range !4
+  %163 = tail call fastcc i32 @LzmaDec_TryDummy(ptr noundef nonnull %0, ptr noundef nonnull %53, i64 noundef %162)
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %165, label %168
 
@@ -465,7 +465,7 @@ LzmaDec_InitStateReal.exit:                       ; preds = %120
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @LzmaDec_TryDummy(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 44
@@ -2818,7 +2818,7 @@ define noundef i32 @LzmaDec_DecodeToBuf(ptr noundef %0, ptr nocapture noundef wr
   %23 = add i64 %20, %.045
   %.043 = select i1 %22, i64 %16, i64 %23
   %.041 = select i1 %22, i32 0, i32 %5
-  %24 = call i32 @LzmaDec_DecodeToDic(ptr noundef nonnull %0, i64 noundef %.043, ptr noundef %.046, ptr noundef nonnull %8, i32 noundef %.041, ptr noundef %6), !range !5
+  %24 = call i32 @LzmaDec_DecodeToDic(ptr noundef nonnull %0, i64 noundef %.043, ptr noundef %.046, ptr noundef nonnull %8, i32 noundef %.041, ptr noundef %6)
   %25 = load i64, ptr %8, align 8
   %26 = load i64, ptr %4, align 8
   %27 = add i64 %26, %25
@@ -2877,7 +2877,7 @@ define void @LzmaDec_Free(ptr nocapture noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @LzmaProps_Decode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define range(i32 0, 5) i32 @LzmaProps_Decode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp ult i32 %2, 5
   br i1 %4, label %19, label %5
 
@@ -2912,7 +2912,7 @@ define noundef i32 @LzmaProps_Decode(ptr nocapture noundef writeonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @LzmaDec_AllocateProbs(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 5) i32 @LzmaDec_AllocateProbs(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = icmp ult i32 %2, 5
   br i1 %5, label %LzmaDec_AllocateProbs2.exit, label %6
 
@@ -3148,7 +3148,7 @@ define i32 @LzmaDecode(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2,
   %48 = getelementptr inbounds i8, ptr %10, i64 100
   store i32 1, ptr %48, align 4
   store i64 %11, ptr %3, align 8
-  %49 = call i32 @LzmaDec_DecodeToDic(ptr noundef nonnull %10, i64 noundef %12, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %6, ptr noundef %7), !range !5
+  %49 = call i32 @LzmaDec_DecodeToDic(ptr noundef nonnull %10, i64 noundef %12, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %6, ptr noundef %7)
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %54
 
@@ -3196,5 +3196,3 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 4}
-!5 = !{i32 0, i32 2}

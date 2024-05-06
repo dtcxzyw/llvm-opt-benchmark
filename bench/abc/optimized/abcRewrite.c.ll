@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [46 x i8] c"Abc_NtkRewrite: The network check has failed.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkRewrite(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Abc_NtkRewrite(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.timespec, align 8
@@ -214,7 +214,7 @@ Abc_Clock.exit95:                                 ; preds = %Abc_NtkStartCutManF
   br i1 %93, label %Extra_ProgressBarUpdate.exit, label %94
 
 94:                                               ; preds = %90, %89
-  %95 = trunc i64 %indvars.iv to i32
+  %95 = trunc nuw nsw i64 %indvars.iv to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %72, i32 noundef %95, ptr noundef null) #11
   br label %Extra_ProgressBarUpdate.exit
 
@@ -508,7 +508,7 @@ define void @Abc_ManRewritePrintDivs(ptr nocapture noundef readonly %0, i32 noun
   br i1 %exitcond.not, label %.critedge2, label %29, !llvm.loop !7
 
 .critedge2.loopexit.split.loop.exit80:            ; preds = %29
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %33, %.critedge2.loopexit.split.loop.exit80, %20
@@ -566,7 +566,7 @@ define void @Abc_ManRewritePrintDivs(ptr nocapture noundef readonly %0, i32 noun
   br i1 %exitcond76.not, label %.critedge4, label %53, !llvm.loop !8
 
 .critedge4.loopexit.split.loop.exit82:            ; preds = %53
-  %58 = trunc i64 %indvars.iv72 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv72 to i32
   br label %.critedge4
 
 .critedge4:                                       ; preds = %57, %.critedge4.loopexit.split.loop.exit82, %40

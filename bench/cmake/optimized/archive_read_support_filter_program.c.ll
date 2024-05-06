@@ -17,25 +17,25 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [36 x i8] c"Child process exited with status %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_support_compression_program(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = tail call noundef i32 @archive_read_support_filter_program_signature(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef 0), !range !5
+define dso_local range(i32 -30, 1) i32 @archive_read_support_compression_program(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @archive_read_support_filter_program_signature(ptr noundef %0, ptr noundef readonly %1, ptr noundef null, i64 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_support_filter_program(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @archive_read_support_filter_program_signature(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef 0), !range !5
+define dso_local range(i32 -30, 1) i32 @archive_read_support_filter_program(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @archive_read_support_filter_program_signature(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_support_compression_program_signature(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @archive_read_support_filter_program_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3), !range !5
+define dso_local range(i32 -30, 1) i32 @archive_read_support_compression_program_signature(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call i32 @archive_read_support_filter_program_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_read_support_filter_program_signature(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_support_filter_program_signature(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #14
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.split, label %7
@@ -106,7 +106,7 @@ declare i32 @__archive_read_register_bidder(ptr noundef, ptr noundef, ptr nounde
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @__archive_read_program(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @__archive_read_program(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %4 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #14
   %5 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #16
@@ -243,13 +243,13 @@ define internal i32 @program_bidder_bid(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @program_bidder_init(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @program_bidder_init(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @__archive_read_program(ptr noundef %0, ptr noundef %6), !range !5
+  %7 = tail call i32 @__archive_read_program(ptr noundef %0, ptr noundef %6)
   ret i32 %7
 }
 
@@ -371,7 +371,7 @@ define internal i64 @program_filter_read(ptr nocapture noundef readonly %0, ptr 
   %50 = tail call ptr @__errno_location() #18
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 4
-  br i1 %52, label %.preheader.i, label %57, !llvm.loop !6
+  br i1 %52, label %.preheader.i, label %57, !llvm.loop !5
 
 .critedge2.i:                                     ; preds = %.preheader.i
   %53 = icmp sgt i64 %47, 0
@@ -414,7 +414,7 @@ child_read.exit.thread:                           ; preds = %62, %38, %24
   br label %78
 
 child_read.exit:                                  ; preds = %28, %24
-  %71 = call fastcc i32 @child_stop(ptr noundef %0, ptr noundef nonnull %17), !range !8
+  %71 = call fastcc i32 @child_stop(ptr noundef readonly %0, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %78, label %.critedge
@@ -425,7 +425,7 @@ child_read.exit:                                  ; preds = %28, %24
   %75 = getelementptr inbounds i8, ptr %.049, i64 %22
   %76 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %76, -1
-  br i1 %.not, label %.critedge, label %12, !llvm.loop !9
+  br i1 %.not, label %.critedge, label %12, !llvm.loop !7
 
 .critedge:                                        ; preds = %12, %73, %2, %child_read.exit
   %.01841 = phi i64 [ %.01848, %child_read.exit ], [ 0, %2 ], [ %.01848, %12 ], [ %74, %73 ]
@@ -439,10 +439,10 @@ child_read.exit:                                  ; preds = %28, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @program_filter_close(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -20, 1) i32 @program_filter_close(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call fastcc i32 @child_stop(ptr noundef %0, ptr noundef %3), !range !8
+  %4 = tail call fastcc i32 @child_stop(ptr noundef %0, ptr noundef %3)
   %5 = getelementptr inbounds i8, ptr %3, i64 48
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #15
@@ -458,7 +458,7 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @child_stop(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -20, 1) i32 @child_stop(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, -1
@@ -507,7 +507,7 @@ define internal fastcc noundef i32 @child_stop(ptr nocapture noundef readonly %0
   %22 = tail call ptr @__errno_location() #18
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 4
-  br i1 %24, label %17, label %.critedge, !llvm.loop !10
+  br i1 %24, label %17, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %17, %21
   store i32 0, ptr %13, align 8
@@ -616,9 +616,7 @@ attributes #18 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -30, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i32 -20, i32 1}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

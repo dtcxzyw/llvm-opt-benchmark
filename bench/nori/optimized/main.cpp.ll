@@ -216,7 +216,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr.92", align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4355,7 +4355,7 @@ _ZN3tbb10interface98internal19auto_partition_type12is_divisibleEv.exit9.i: ; pre
   %56 = load i64, ptr %22, align 8
   store i64 %56, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %46, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 32, i1 false)
   %58 = getelementptr inbounds i8, ptr %46, i64 56
   %59 = load i64, ptr %3, align 8
   %60 = lshr i64 %59, 1
@@ -4417,7 +4417,7 @@ _ZN3tbb10interface98internal19auto_partition_type12is_divisibleEv.exit9.i.backed
   br i1 %.not.i10.i, label %88, label %89
 
 88:                                               ; preds = %85, %.critedge.i
-  tail call fastcc void @"_ZN3tbb10interface98internal9start_forINS_13blocked_rangeIiEEZZL6renderPN4nori5SceneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEvEUlRKS4_E_KNS_16auto_partitionerEE8run_bodyERS4_"(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %21)
+  tail call fastcc void @"_ZN3tbb10interface98internal9start_forINS_13blocked_rangeIiEEZZL6renderPN4nori5SceneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEvEUlRKS4_E_KNS_16auto_partitionerEE8run_bodyERS4_"(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %21)
   br label %"_ZN3tbb10interface98internal19partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS_13blocked_rangeIiEEZZL6renderPN4nori5SceneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEvEUlRKS8_E_KNS_16auto_partitionerEEES8_EEvRT_RT0_.exit"
 
 89:                                               ; preds = %85
@@ -4426,7 +4426,7 @@ _ZN3tbb10interface98internal19auto_partition_type12is_divisibleEv.exit9.i.backed
   %92 = getelementptr inbounds i8, ptr %2, i64 3
   store <4 x i8> <i8 0, i8 0, i8 1, i8 0>, ptr %2, align 8
   %93 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull readonly align 8 dereferenceable(16) %21, i64 16, i1 false)
   %94 = getelementptr inbounds i8, ptr %0, i64 -32
   %95 = getelementptr inbounds i8, ptr %0, i64 24
   %96 = getelementptr inbounds i8, ptr %0, i64 -56
@@ -4540,9 +4540,9 @@ _ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to
   store i8 1, ptr %156, align 1
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @"_ZTVN3tbb10interface98internal9start_forINS_13blocked_rangeIiEEZZL6renderPN4nori5SceneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEvEUlRKS4_E_KNS_16auto_partitionerEEE", i64 0, i32 0, i64 2), ptr %155, align 8
   %157 = getelementptr inbounds i8, ptr %155, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, ptr noundef nonnull align 8 dereferenceable(16) %148, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %157, ptr noundef nonnull readonly align 8 dereferenceable(16) %148, i64 16, i1 false)
   %158 = getelementptr inbounds i8, ptr %155, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 8 dereferenceable(32) %95, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %158, ptr noundef nonnull align 8 dereferenceable(32) %95, i64 32, i1 false)
   %159 = getelementptr inbounds i8, ptr %155, i64 56
   %160 = load i64, ptr %3, align 8
   %161 = lshr i64 %160, 1

@@ -162,7 +162,7 @@ define hidden ptr @byte_array_from_literal(ptr noundef %0, ptr noundef writeonly
   br i1 %or.cond3, label %41, label %44
 
 41:                                               ; preds = %36
-  %42 = trunc i64 %33 to i8
+  %42 = trunc nuw i64 %33 to i8
   store i8 %42, ptr %4, align 1
   %43 = call ptr @g_byte_array_append(ptr noundef %18, ptr noundef nonnull %4, i32 noundef 1) #8
   br label %51
@@ -226,7 +226,7 @@ define hidden noundef ptr @byte_array_from_charconst(i64 noundef %0, ptr noundef
 
 8:                                                ; preds = %2
   %9 = tail call ptr @g_byte_array_new() #8
-  %10 = trunc i64 %0 to i8
+  %10 = trunc nuw i64 %0 to i8
   store i8 %10, ptr %3, align 1
   %11 = call ptr @g_byte_array_append(ptr noundef %9, ptr noundef nonnull %3, i32 noundef 1) #8
   br label %12
@@ -361,7 +361,7 @@ byte_array_from_charconst.exit.thread:            ; preds = %7, %6
 
 byte_array_from_charconst.exit:                   ; preds = %3
   %9 = tail call ptr @g_byte_array_new() #8
-  %10 = trunc i64 %1 to i8
+  %10 = trunc nuw i64 %1 to i8
   store i8 %10, ptr %4, align 1
   %11 = call ptr @g_byte_array_append(ptr noundef %9, ptr noundef nonnull %4, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
@@ -407,7 +407,7 @@ define internal noundef zeroext i1 @bytes_from_uinteger64(ptr nocapture noundef 
 byte_array_from_charconst.exit.i:                 ; preds = %4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %10 = tail call ptr @g_byte_array_new() #8
-  %11 = trunc i64 %2 to i8
+  %11 = trunc nuw i64 %2 to i8
   store i8 %11, ptr %5, align 1
   %12 = call ptr @g_byte_array_append(ptr noundef %10, ptr noundef nonnull %5, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
@@ -466,7 +466,7 @@ define internal noundef zeroext i1 @bytes_from_sinteger64(ptr nocapture noundef 
 byte_array_from_charconst.exit.i.i:               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %15 = tail call ptr @g_byte_array_new() #8
-  %16 = trunc i64 %2 to i8
+  %16 = trunc nuw i64 %2 to i8
   store i8 %16, ptr %5, align 1
   %17 = call ptr @g_byte_array_append(ptr noundef %15, ptr noundef nonnull %5, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)

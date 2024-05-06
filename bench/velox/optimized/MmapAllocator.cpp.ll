@@ -1579,7 +1579,7 @@ if.then318:                                       ; preds = %if.end315
 for.body.i:                                       ; preds = %if.then318, %for.body.i
   %__begin2.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %90, %if.then318 ]
   %92 = load ptr, ptr %__begin2.sroa.0.05.i, align 8
-  call void @_ZN8facebook5velox6memory13MmapAllocator9SizeClass12setAllMappedERKNS1_10AllocationEb(ptr noundef nonnull align 8 dereferenceable(192) %92, ptr noundef nonnull align 8 dereferenceable(36) %out, i1 noundef zeroext true)
+  call void @_ZN8facebook5velox6memory13MmapAllocator9SizeClass12setAllMappedERKNS1_10AllocationEb(ptr noundef nonnull align 8 dereferenceable(192) %92, ptr noundef nonnull readonly align 8 dereferenceable(36) %out, i1 noundef zeroext true)
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %91
   br i1 %cmp.i.not.i, label %return, label %for.body.i
@@ -2451,7 +2451,7 @@ _ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i: ; preds = %if.end.i.i.i, %if
   %arrayidx.i.i.i = getelementptr inbounds [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %stats_, i64 0, i64 %retval.0.i.i
   %allocateClocks.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   %4 = call noundef i64 @llvm.x86.rdtsc()
-  invoke fastcc void @"_ZZN8facebook5velox6memory13MmapAllocator30allocateContiguousWithoutRetryEmPNS1_10AllocationERNS1_20ContiguousAllocationESt8functionIFvlbEEmENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp1)
+  invoke fastcc void @"_ZZN8facebook5velox6memory13MmapAllocator30allocateContiguousWithoutRetryEmPNS1_10AllocationERNS1_20ContiguousAllocationESt8functionIFvlbEEmENK3$_0clEv"(ptr noundef nonnull readonly align 8 dereferenceable(56) %agg.tmp1)
           to label %_ZN8facebook5velox10ClockTimerD2Ev.exit.i unwind label %_ZN8facebook5velox10ClockTimerD2Ev.exit19.i
 
 _ZN8facebook5velox10ClockTimerD2Ev.exit.i:        ; preds = %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i
@@ -2473,7 +2473,7 @@ _ZN8facebook5velox10ClockTimerD2Ev.exit19.i:      ; preds = %_ZN8facebook5velox6
   resume { ptr, i32 } %9
 
 if.else.i:                                        ; preds = %entry
-  call fastcc void @"_ZZN8facebook5velox6memory13MmapAllocator30allocateContiguousWithoutRetryEmPNS1_10AllocationERNS1_20ContiguousAllocationESt8functionIFvlbEEmENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(56) %agg.tmp1)
+  call fastcc void @"_ZZN8facebook5velox6memory13MmapAllocator30allocateContiguousWithoutRetryEmPNS1_10AllocationERNS1_20ContiguousAllocationESt8functionIFvlbEEmENK3$_0clEv"(ptr noundef nonnull readonly align 8 dereferenceable(56) %agg.tmp1)
   br label %"_ZN8facebook5velox6memory5Stats14recordAllocateIZNS1_13MmapAllocator30allocateContiguousWithoutRetryEmPNS1_10AllocationERNS1_20ContiguousAllocationESt8functionIFvlbEEmE3$_0EEvliT_.exit"
 
 "_ZN8facebook5velox6memory5Stats14recordAllocateIZNS1_13MmapAllocator30allocateContiguousWithoutRetryEmPNS1_10AllocationERNS1_20ContiguousAllocationESt8functionIFvlbEEmE3$_0EEvliT_.exit": ; preds = %_ZN8facebook5velox10ClockTimerD2Ev.exit.i, %if.else.i
@@ -3899,8 +3899,8 @@ if.end35:                                         ; preds = %_ZNSt8functionIFvlb
   %runs_.i = getelementptr inbounds i8, ptr %allocation, i64 8
   %15 = load ptr, ptr %runs_.i, align 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %15, align 8
-  %_M_finish.i.i31 = getelementptr inbounds i8, ptr %allocation, i64 16
-  %16 = load ptr, ptr %_M_finish.i.i31, align 8
+  %_M_finish.i.i32 = getelementptr inbounds i8, ptr %allocation, i64 16
+  %16 = load ptr, ptr %_M_finish.i.i32, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -3917,7 +3917,7 @@ if.end44:                                         ; preds = %if.end35
   br i1 %tobool.not.i.i.i, label %_ZN8facebook5velox6memory10Allocation5clearEv.exit, label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.end44
-  store ptr %15, ptr %_M_finish.i.i31, align 8
+  store ptr %15, ptr %_M_finish.i.i32, align 8
   br label %_ZN8facebook5velox6memory10Allocation5clearEv.exit
 
 _ZN8facebook5velox6memory10Allocation5clearEv.exit: ; preds = %if.end44, %invoke.cont.i.i.i
@@ -3950,23 +3950,23 @@ if.end48:                                         ; preds = %if.end22
           to label %invoke.cont58 unwind label %lpad57
 
 invoke.cont58:                                    ; preds = %if.end48
-  %_M_manager.i.i35 = getelementptr inbounds i8, ptr %agg.tmp54, i64 16
-  %20 = load ptr, ptr %_M_manager.i.i35, align 8
-  %tobool.not.i.i36 = icmp eq ptr %20, null
-  br i1 %tobool.not.i.i36, label %_ZNSt8functionIFvlbEED2Ev.exit40, label %if.then.i.i37
+  %_M_manager.i.i36 = getelementptr inbounds i8, ptr %agg.tmp54, i64 16
+  %20 = load ptr, ptr %_M_manager.i.i36, align 8
+  %tobool.not.i.i37 = icmp eq ptr %20, null
+  br i1 %tobool.not.i.i37, label %_ZNSt8functionIFvlbEED2Ev.exit41, label %if.then.i.i38
 
-if.then.i.i37:                                    ; preds = %invoke.cont58
-  %call.i.i38 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp54, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp54, i32 noundef 3)
-          to label %_ZNSt8functionIFvlbEED2Ev.exit40 unwind label %terminate.lpad.i.i39
+if.then.i.i38:                                    ; preds = %invoke.cont58
+  %call.i.i39 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp54, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp54, i32 noundef 3)
+          to label %_ZNSt8functionIFvlbEED2Ev.exit41 unwind label %terminate.lpad.i.i40
 
-terminate.lpad.i.i39:                             ; preds = %if.then.i.i37
+terminate.lpad.i.i40:                             ; preds = %if.then.i.i38
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
   call void @__clang_call_terminate(ptr %22) #31
   unreachable
 
-_ZNSt8functionIFvlbEED2Ev.exit40:                 ; preds = %invoke.cont58, %if.then.i.i37
+_ZNSt8functionIFvlbEED2Ev.exit41:                 ; preds = %invoke.cont58, %if.then.i.i38
   br i1 %call59, label %if.end63, label %cleanup67
 
 lpad51:                                           ; preds = %if.end63
@@ -3977,35 +3977,35 @@ lpad51:                                           ; preds = %if.end63
 lpad57:                                           ; preds = %if.end48
   %24 = landingpad { ptr, i32 }
           cleanup
-  %_M_manager.i.i41 = getelementptr inbounds i8, ptr %agg.tmp54, i64 16
-  %25 = load ptr, ptr %_M_manager.i.i41, align 8
-  %tobool.not.i.i42 = icmp eq ptr %25, null
-  br i1 %tobool.not.i.i42, label %ehcleanup68, label %if.then.i.i43
+  %_M_manager.i.i42 = getelementptr inbounds i8, ptr %agg.tmp54, i64 16
+  %25 = load ptr, ptr %_M_manager.i.i42, align 8
+  %tobool.not.i.i43 = icmp eq ptr %25, null
+  br i1 %tobool.not.i.i43, label %ehcleanup68, label %if.then.i.i44
 
-if.then.i.i43:                                    ; preds = %lpad57
-  %call.i.i44 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp54, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp54, i32 noundef 3)
-          to label %ehcleanup68 unwind label %terminate.lpad.i.i45
+if.then.i.i44:                                    ; preds = %lpad57
+  %call.i.i45 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp54, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp54, i32 noundef 3)
+          to label %ehcleanup68 unwind label %terminate.lpad.i.i46
 
-terminate.lpad.i.i45:                             ; preds = %if.then.i.i43
+terminate.lpad.i.i46:                             ; preds = %if.then.i.i44
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
   call void @__clang_call_terminate(ptr %27) #31
   unreachable
 
-if.end63:                                         ; preds = %_ZNSt8functionIFvlbEED2Ev.exit40
+if.end63:                                         ; preds = %_ZNSt8functionIFvlbEED2Ev.exit41
   %data_.i = getelementptr inbounds i8, ptr %allocation49, i64 8
   %28 = load ptr, ptr %data_.i, align 8
   invoke void @_ZN8facebook5velox6memory20ContiguousAllocation5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %allocation49)
           to label %cleanup67 unwind label %lpad51
 
-cleanup67:                                        ; preds = %if.end63, %_ZNSt8functionIFvlbEED2Ev.exit40
-  %retval.1 = phi ptr [ null, %_ZNSt8functionIFvlbEED2Ev.exit40 ], [ %28, %if.end63 ]
+cleanup67:                                        ; preds = %if.end63, %_ZNSt8functionIFvlbEED2Ev.exit41
+  %retval.1 = phi ptr [ null, %_ZNSt8functionIFvlbEED2Ev.exit41 ], [ %28, %if.end63 ]
   call void @_ZN8facebook5velox6memory20ContiguousAllocationD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %allocation49) #24
   br label %return
 
-ehcleanup68:                                      ; preds = %if.then.i.i43, %lpad57, %lpad51
-  %.pn = phi { ptr, i32 } [ %23, %lpad51 ], [ %24, %lpad57 ], [ %24, %if.then.i.i43 ]
+ehcleanup68:                                      ; preds = %if.then.i.i44, %lpad57, %lpad51
+  %.pn = phi { ptr, i32 } [ %23, %lpad51 ], [ %24, %lpad57 ], [ %24, %if.then.i.i44 ]
   call void @_ZN8facebook5velox6memory20ContiguousAllocationD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %allocation49) #24
   br label %eh.resume
 

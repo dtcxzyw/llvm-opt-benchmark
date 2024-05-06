@@ -2702,7 +2702,7 @@ sw.epilog:                                        ; preds = %sw.default, %entry,
 
 if.end11:                                         ; preds = %sw.epilog
   %cond = tail call i64 @llvm.umax.i64(i64 %3, i64 4096)
-  %conv17 = trunc i64 %cond to i32
+  %conv17 = trunc nuw nsw i64 %cond to i32
   %buflen18 = getelementptr inbounds i8, ptr %req, i64 420
   store i32 %conv17, ptr %buflen18, align 4
   %iov = getelementptr inbounds i8, ptr %req, i64 432
@@ -2946,13 +2946,13 @@ if.end120.i:                                      ; preds = %if.end116.i
 
 for.body.i:                                       ; preds = %if.end120.i, %for.body.i
   %page.044.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end120.i ]
-  %call126.i = call fastcc i32 @mode_sense_page(ptr noundef %10, i32 noundef %page.044.i, ptr noundef nonnull %p.i, i32 noundef %shr.i), !range !7
+  %call126.i = call fastcc i32 @mode_sense_page(ptr noundef %10, i32 noundef %page.044.i, ptr noundef nonnull %p.i, i32 noundef %shr.i)
   %inc.i = add nuw nsw i32 %page.044.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 63
-  br i1 %exitcond.not.i, label %if.end133.i, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %if.end133.i, label %for.body.i, !llvm.loop !7
 
 if.else127.i:                                     ; preds = %if.end120.i
-  %call128.i = call fastcc i32 @mode_sense_page(ptr noundef nonnull %10, i32 noundef %and9.i, ptr noundef nonnull %p.i, i32 noundef %shr.i), !range !7
+  %call128.i = call fastcc i32 @mode_sense_page(ptr noundef nonnull %10, i32 noundef %and9.i, ptr noundef nonnull %p.i, i32 noundef %shr.i)
   %cmp129.i = icmp eq i32 %call128.i, -1
   br i1 %cmp129.i, label %scsi_disk_emulate_mode_sense.exit.thread, label %if.end133.i
 
@@ -3027,7 +3027,7 @@ sw.bb88:                                          ; preds = %if.end28
   br i1 %tobool94.not, label %sw.epilog374, label %illegal_request
 
 sw.bb97:                                          ; preds = %if.end28
-  %call98 = tail call fastcc i32 @scsi_disk_emulate_start_stop(ptr noundef nonnull %req), !range !9
+  %call98 = tail call fastcc i32 @scsi_disk_emulate_start_stop(ptr noundef nonnull %req)
   %cmp99 = icmp slt i32 %call98, 0
   br i1 %cmp99, label %return, label %sw.epilog374
 
@@ -3092,7 +3092,7 @@ if.then143:                                       ; preds = %if.end136
 if.end144:                                        ; preds = %if.then143, %if.end136
   %58 = phi i64 [ 4294967295, %if.then143 ], [ %dec, %if.end136 ]
   %shr = lshr i64 %58, 24
-  %conv146 = trunc i64 %shr to i8
+  %conv146 = trunc nuw i64 %shr to i8
   store i8 %conv146, ptr %7, align 1
   %59 = load i64, ptr %nb_sectors, align 8
   %shr148 = lshr i64 %59, 16
@@ -3142,12 +3142,12 @@ scsi_emulate_mechanism_status.exit:               ; preds = %sw.bb181
   br label %sw.epilog374
 
 sw.bb187:                                         ; preds = %if.end28
-  %call188 = tail call fastcc i32 @scsi_get_configuration(ptr noundef %0, ptr noundef %7), !range !10
+  %call188 = tail call fastcc i32 @scsi_get_configuration(ptr noundef %0, ptr noundef %7)
   %cmp189 = icmp slt i32 %call188, 0
   br i1 %cmp189, label %illegal_request, label %sw.epilog374
 
 sw.bb193:                                         ; preds = %if.end28
-  %call194 = tail call fastcc i32 @scsi_get_event_status_notification(ptr noundef %0, ptr noundef nonnull %req, ptr noundef %7), !range !11
+  %call194 = tail call fastcc i32 @scsi_get_event_status_notification(ptr noundef %0, ptr noundef nonnull %req, ptr noundef %7)
   %cmp195 = icmp slt i32 %call194, 0
   br i1 %cmp195, label %illegal_request, label %sw.epilog374
 
@@ -3210,7 +3210,7 @@ if.end241:                                        ; preds = %land.lhs.true236, %
   %max_lba249 = getelementptr inbounds i8, ptr %0, i64 568
   store i64 %dec247, ptr %max_lba249, align 8
   %shr250 = lshr i64 %dec247, 56
-  %conv252 = trunc i64 %shr250 to i8
+  %conv252 = trunc nuw i64 %shr250 to i8
   store i8 %conv252, ptr %7, align 1
   %77 = load i64, ptr %nb_sectors, align 8
   %shr254 = lshr i64 %77, 48
@@ -3272,7 +3272,7 @@ for.body.i138:                                    ; preds = %if.end241, %for.bod
   %inc.i139 = add i8 %exp.05.i, 1
   %shr.i140 = lshr i32 %size.06.i, 1
   %cmp.i = icmp ugt i32 %shr.i140, %86
-  br i1 %cmp.i, label %for.body.i138, label %get_physical_block_exp.exit, !llvm.loop !12
+  br i1 %cmp.i, label %for.body.i138, label %get_physical_block_exp.exit, !llvm.loop !8
 
 get_physical_block_exp.exit:                      ; preds = %for.body.i138, %if.end241
   %exp.0.lcssa.i = phi i8 [ 0, %if.end241 ], [ %inc.i139, %for.body.i138 ]
@@ -3678,7 +3678,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
   br i1 %cmp29.i, label %invalid_param_len.i, label %if.end32.i
 
 if.end32.i:                                       ; preds = %cond.end.i
-  %trunc.i = trunc i32 %cond27.i to i16
+  %trunc.i = trunc nuw i32 %cond27.i to i16
   switch i16 %trunc.i, label %invalid_param.i [
     i16 0, label %if.end62.i
     i16 8, label %if.then40.i
@@ -3835,7 +3835,7 @@ if.end3.i.i.us.i:                                 ; preds = %if.then33.i.us.i
   store ptr %mode_current.i.i.i, ptr %p.i.i.i, align 8
   %conv.i.i.us.i = zext nneg i32 %add.i.i.us.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %mode_current.i.i.i, i8 0, i64 %conv.i.i.us.i, i1 false)
-  %call.i.i.us.i = call fastcc i32 @mode_sense_page(ptr noundef %20, i32 noundef %and.i.us.i, ptr noundef nonnull %p.i.i.i, i32 noundef 0), !range !7
+  %call.i.i.us.i = call fastcc i32 @mode_sense_page(ptr noundef readonly %20, i32 noundef %and.i.us.i, ptr noundef nonnull %p.i.i.i, i32 noundef 0)
   %cmp6.i.i.us.i = icmp sgt i32 %call.i.i.us.i, -1
   %cmp8.not.i.i.us.i = icmp eq i32 %call.i.i.us.i, %add.i.i.us.i
   %or.cond.i.i.us.i = select i1 %cmp6.i.i.us.i, i1 %cmp8.not.i.i.us.i, i1 false
@@ -3844,7 +3844,7 @@ if.end3.i.i.us.i:                                 ; preds = %if.then33.i.us.i
 if.end11.i.i.us.i:                                ; preds = %if.end3.i.i.us.i
   store ptr %mode_changeable.i.i.i, ptr %p.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %mode_changeable.i.i.i, i8 0, i64 %conv.i.i.us.i, i1 false)
-  %call16.i.i.us.i = call fastcc i32 @mode_sense_page(ptr noundef %20, i32 noundef %and.i.us.i, ptr noundef nonnull %p.i.i.i, i32 noundef 1), !range !7
+  %call16.i.i.us.i = call fastcc i32 @mode_sense_page(ptr noundef readonly %20, i32 noundef %and.i.us.i, ptr noundef nonnull %p.i.i.i, i32 noundef 1)
   %cmp17.i.i.us.i = icmp eq i32 %call16.i.i.us.i, %add.i.i.us.i
   br i1 %cmp17.i.i.us.i, label %for.cond.preheader.i.i.us.i, label %if.else.i.i.i
 
@@ -3872,7 +3872,7 @@ for.body.i.i.us.i:                                ; preds = %for.cond.preheader.
 for.cond.i.i.us.i:                                ; preds = %for.body.i.i.us.i
   %indvars.iv.next.i.i.us.i = add nuw nsw i64 %indvars.iv.i.i.us.i, 1
   %exitcond.not.i.i.us.i = icmp eq i64 %indvars.iv.next.i.i.us.i, %conv.i.i.us.i
-  br i1 %exitcond.not.i.i.us.i, label %scsi_disk_check_mode_select.exit.i.us.i, label %for.body.i.i.us.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i.us.i, label %scsi_disk_check_mode_select.exit.i.us.i, label %for.body.i.i.us.i, !llvm.loop !9
 
 scsi_disk_check_mode_select.exit.i.us.i:          ; preds = %for.cond.i.i.us.i, %for.cond.preheader.i.i.us.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %mode_current.i.i.i)
@@ -3897,10 +3897,10 @@ if.end40.i.us.i:                                  ; preds = %sw.bb.i.i.us.i, %if
   %add.ptr41.i.us.i = getelementptr i8, ptr %p.addr.135.i.us.i, i64 %idx.ext.i.us.i
   %sub42.i.us.i = sub nsw i32 %len.addr.133.i.us.i, %page_len.034.i.us.i
   %cmp.i.us.i = icmp sgt i32 %sub42.i.us.i, 0
-  br i1 %cmp.i.us.i, label %while.body.i.us.i, label %for.inc.loopexit.us.i, !llvm.loop !14
+  br i1 %cmp.i.us.i, label %while.body.i.us.i, label %for.inc.loopexit.us.i, !llvm.loop !10
 
 for.inc.loopexit.us.i:                            ; preds = %if.end40.i.us.i
-  br i1 %cmp66.us.i, label %for.body.us.i, label %for.end.i, !llvm.loop !15
+  br i1 %cmp66.us.i, label %for.body.us.i, label %for.end.i, !llvm.loop !11
 
 if.else.i.i.i:                                    ; preds = %if.end11.i.i.us.i
   call void @__assert_fail(ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.5, i32 noundef 1507, ptr noundef nonnull @__PRETTY_FUNCTION__.scsi_disk_check_mode_select) #18
@@ -4193,7 +4193,7 @@ for.body.i:                                       ; preds = %if.end58.i, %for.bo
   %add.i41 = add i32 %i.062.i, %conv109.i
   %conv91.i = sext i32 %add.i41 to i64
   %cmp94.i = icmp ugt i64 %77, %conv91.i
-  br i1 %cmp94.i, label %for.body.i, label %for.end.i42, !llvm.loop !16
+  br i1 %cmp94.i, label %for.body.i, label %for.end.i42, !llvm.loop !12
 
 for.end.i42:                                      ; preds = %for.body.i, %if.end58.i
   %call113.i = tail call ptr @scsi_req_ref(ptr noundef %req) #17
@@ -4435,7 +4435,7 @@ sw.bb53.i:                                        ; preds = %if.then
 cond.true.i:                                      ; preds = %sw.bb53.i
   %call56.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #21
   %cond.i = tail call i64 @llvm.umin.i64(i64 %call56.i, i64 247)
-  %31 = trunc i64 %cond.i to i32
+  %31 = trunc nuw nsw i64 %cond.i to i32
   br label %cond.end62.i
 
 cond.end62.i:                                     ; preds = %cond.true.i, %sw.bb53.i
@@ -4486,7 +4486,7 @@ if.then68.i:                                      ; preds = %trace_scsi_disk_emu
   store i8 0, ptr %arrayidx74.i, align 1
   %arrayidx77.i = getelementptr i8, ptr %outbuf, i64 6
   store i8 0, ptr %arrayidx77.i, align 1
-  %conv78.i = trunc i32 %cond63.i to i8
+  %conv78.i = trunc nuw i32 %cond63.i to i8
   %arrayidx81.i = getelementptr i8, ptr %outbuf, i64 7
   store i8 %conv78.i, ptr %arrayidx81.i, align 1
   %add.ptr83.i = getelementptr i8, ptr %outbuf, i64 8
@@ -4654,7 +4654,7 @@ sw.bb215.i:                                       ; preds = %if.then
   %rotation_rate.i = getelementptr inbounds i8, ptr %0, i64 698
   %66 = load i16, ptr %rotation_rate.i, align 2
   %67 = lshr i16 %66, 8
-  %conv218.i = trunc i16 %67 to i8
+  %conv218.i = trunc nuw i16 %67 to i8
   %arrayidx219.i = getelementptr i8, ptr %outbuf, i64 4
   store i8 %conv218.i, ptr %arrayidx219.i, align 1
   %68 = load i16, ptr %rotation_rate.i, align 2
@@ -4870,7 +4870,7 @@ return:                                           ; preds = %sw.bb, %sw.bb15, %s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @scsi_disk_emulate_start_stop(ptr noundef %r) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @scsi_disk_emulate_start_stop(ptr noundef %r) unnamed_addr #0 {
 entry:
   %dev = getelementptr inbounds i8, ptr %r, i64 8
   %0 = load ptr, ptr %dev, align 8
@@ -4928,7 +4928,7 @@ if.then35:                                        ; preds = %if.end29
   %conf37 = getelementptr inbounds i8, ptr %0, i64 184
   %7 = load ptr, ptr %conf37, align 8
   tail call void @blk_eject(ptr noundef %7, i1 noundef zeroext %tobool.not) #17
-  %8 = trunc i32 %and to i8
+  %8 = trunc nuw nsw i32 %and to i8
   %frombool46 = xor i8 %8, 1
   store i8 %frombool46, ptr %tray_open30, align 8
   br label %return
@@ -4943,7 +4943,7 @@ declare void @blk_lock_medium(ptr noundef, i1 noundef zeroext) #1
 declare i32 @scsi_convert_sense(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @scsi_get_configuration(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %outbuf) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 41) i32 @scsi_get_configuration(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %outbuf) unnamed_addr #0 {
 entry:
   %nb_sectors.i23 = alloca i64, align 8
   %nb_sectors.i = alloca i64, align 8
@@ -5044,7 +5044,7 @@ return:                                           ; preds = %entry, %if.end6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @scsi_get_event_status_notification(ptr nocapture noundef %s, ptr nocapture noundef readonly %r, ptr nocapture noundef writeonly %outbuf) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 9) i32 @scsi_get_event_status_notification(ptr nocapture noundef %s, ptr nocapture noundef readonly %r, ptr nocapture noundef writeonly %outbuf) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %r, i64 60
   %0 = load i8, ptr %arrayidx, align 1
@@ -5121,7 +5121,7 @@ if.else:                                          ; preds = %if.end6
 
 if.end16:                                         ; preds = %if.else, %scsi_event_status_media.exit
   %size.0 = phi i32 [ 8, %scsi_event_status_media.exit ], [ 4, %if.else ]
-  %9 = trunc i32 %size.0 to i16
+  %9 = trunc nuw nsw i32 %size.0 to i16
   %conv17 = add nsw i16 %9, -4
   %10 = tail call i16 @llvm.bswap.i16(i16 %conv17)
   store i16 %10, ptr %outbuf, align 1
@@ -5133,7 +5133,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @scsi_read_disc_information(i32 %s.564.val, ptr noundef %r, ptr nocapture noundef writeonly %outbuf) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 35) i32 @scsi_read_disc_information(i32 %s.564.val, ptr noundef %r, ptr nocapture noundef writeonly %outbuf) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %s.564.val, 5
   br i1 %cmp.not, label %if.end, label %return
@@ -5302,7 +5302,7 @@ for.inc:                                          ; preds = %for.body, %if.end60
   %size.2 = phi i32 [ %add72, %if.end60 ], [ %size.133, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %sw.epilog, label %for.body, !llvm.loop !17
+  br i1 %exitcond.not, label %sw.epilog, label %for.body, !llvm.loop !13
 
 sw.epilog:                                        ; preds = %for.inc, %if.end30, %if.end30, %if.end36
   %size.3 = phi i32 [ %9, %if.end30 ], [ %9, %if.end30 ], [ %9, %if.end36 ], [ %size.2, %for.inc ]
@@ -5663,7 +5663,7 @@ declare i64 @llvm.bswap.i64(i64) #10
 declare i16 @llvm.bswap.i16(i16) #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @mode_sense_page(ptr nocapture noundef readonly %s, i32 noundef %page, ptr nocapture noundef %p_outbuf, i32 noundef %page_control) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 33) i32 @mode_sense_page(ptr nocapture noundef readonly %s, i32 noundef %page, ptr nocapture noundef %p_outbuf, i32 noundef %page_control) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %p_outbuf, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 2
@@ -5927,10 +5927,10 @@ if.end230:                                        ; preds = %if.then224
 
 if.end238:                                        ; preds = %if.end9, %if.end83, %if.end183, %if.end211, %if.then227, %if.end230, %sw.bb, %sw.bb79, %if.then155, %lor.lhs.false, %if.then166, %if.then161, %if.then175, %if.end169, %sw.bb179, %if.then207, %if.end5
   %length.0 = phi i32 [ 2, %if.then227 ], [ 2, %if.end230 ], [ 30, %if.then207 ], [ 30, %if.end211 ], [ 20, %sw.bb179 ], [ 20, %if.end183 ], [ 10, %if.then166 ], [ 10, %if.then161 ], [ 10, %if.then175 ], [ 10, %if.end169 ], [ 18, %if.then155 ], [ 18, %lor.lhs.false ], [ 30, %sw.bb79 ], [ 30, %if.end83 ], [ 22, %sw.bb ], [ 22, %if.end9 ], [ %page, %if.end5 ]
-  %conv239 = trunc i32 %page to i8
+  %conv239 = trunc nuw i32 %page to i8
   %27 = load ptr, ptr %p_outbuf, align 8
   store i8 %conv239, ptr %27, align 1
-  %conv241 = trunc i32 %length.0 to i8
+  %conv241 = trunc nuw nsw i32 %length.0 to i8
   %28 = load ptr, ptr %p_outbuf, align 8
   %arrayidx242 = getelementptr i8, ptr %28, i64 1
   store i8 %conv241, ptr %arrayidx242, align 1
@@ -6795,7 +6795,7 @@ if.end26:                                         ; preds = %if.end14
 
 if.then39:                                        ; preds = %if.end26
   %shl = shl nuw nsw i32 %conv34, 24
-  %9 = trunc i64 %div to i32
+  %9 = trunc nuw i64 %div to i32
   %conv44 = or disjoint i32 %shl, %9
   %10 = tail call i32 @llvm.bswap.i32(i32 %conv44)
   store i32 %10, ptr %cdb, align 1
@@ -6823,7 +6823,7 @@ if.then59:                                        ; preds = %if.else50
   %12 = load i8, ptr %cdb1, align 1
   %arrayidx67 = getelementptr i8, ptr %req, i64 604
   store i8 %12, ptr %arrayidx67, align 1
-  %conv70 = trunc i64 %div to i32
+  %conv70 = trunc nuw i64 %div to i32
   %13 = tail call i32 @llvm.bswap.i32(i32 %conv70)
   store i32 %13, ptr %arrayidx69, align 1
   %group_number = getelementptr inbounds i8, ptr %req, i64 602
@@ -6854,7 +6854,7 @@ if.then88:                                        ; preds = %if.else79
   store i8 %or92, ptr %cdb, align 1
   %16 = load i8, ptr %cdb196, align 1
   store i8 %16, ptr %arrayidx98, align 1
-  %conv101 = trunc i64 %div to i32
+  %conv101 = trunc nuw i64 %div to i32
   %17 = tail call i32 @llvm.bswap.i32(i32 %conv101)
   store i32 %17, ptr %arrayidx69, align 1
   %arrayidx103 = getelementptr i8, ptr %req, i64 609
@@ -7083,14 +7083,10 @@ attributes #21 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 33}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i32 -1, i32 1}
-!10 = !{i32 -1, i32 41}
-!11 = !{i32 -1, i32 9}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}

@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [37 x i8] c"replay_file && replay_mutex_locked()\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @replay_save_clock(i32 noundef %kind, i64 noundef returned %clock, i64 noundef %raw_icount) local_unnamed_addr #0 {
+define dso_local noundef i64 @replay_save_clock(i32 noundef %kind, i64 noundef returned %clock, i64 noundef %raw_icount) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @replay_file, align 8
   %tobool.not = icmp eq ptr %0, null

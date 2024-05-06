@@ -286,7 +286,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i
   %or.i.i.i.i.i44.i = or i64 %inc.i.i, 1
-  %14 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i, i1 true), !range !12
+  %14 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i, i1 true)
   %xor.i.i.i.i.i.i.i45.i = xor i64 %14, 63
   %15 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i47.i = inttoptr i64 %15 to ptr
@@ -296,7 +296,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %arrayidx4.i.i.i.i50.i = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %atomic-temp.i.0.i2.i.i.i.i49.i, i64 %inc.i.i
   %17 = load i64, ptr %arrayidx4.i.i.i.i50.i, align 8
   %add.i.i = add nsw i64 %17, %storemerge.i
-  br label %while.cond.i, !llvm.loop !13
+  br label %while.cond.i, !llvm.loop !12
 
 _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE7combineISt4plusIvEEElT_.exit: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i
   %retval.0.i = phi i64 [ %6, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i ], [ %storemerge.i, %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i ]
@@ -332,7 +332,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i, %if.e
 
 if.end4.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
   %cmp1.not.i.i.i.i.i = icmp ult i64 %storemerge27.i.i.in.in.i.i.i, 3
-  br i1 %cmp1.not.i.i.i.i.i, label %if.then5.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !14
+  br i1 %cmp1.not.i.i.i.i.i, label %if.then5.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !13
 
 if.then5.i.i.i:                                   ; preds = %if.end4.i.i.i.i.i, %if.end.i.i.i
   tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_T0_"(ptr %0, ptr %1)
@@ -367,20 +367,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %location.i.i)
   %my_locals.i.i.i = getelementptr inbounds i8, ptr %2, i64 48
   %my_size.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 104
-  %3 = load atomic i64, ptr %my_size.i.i.i.i acquire, align 8, !noalias !15
+  %3 = load atomic i64, ptr %my_size.i.i.i.i acquire, align 8, !noalias !14
   %my_segment_table.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 64
-  %4 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i acquire, align 8, !noalias !15
+  %4 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i acquire, align 8, !noalias !14
   %atomic-temp.i.0.i.i.i.i.i.i.i.i = inttoptr i64 %4 to ptr
   %my_embedded_table.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 72
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i, %atomic-temp.i.0.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 3, i64 64
-  %5 = load ptr, ptr %my_locals.i.i.i, align 8, !noalias !15
+  %5 = load ptr, ptr %my_locals.i.i.i, align 8, !noalias !14
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i, %for.body
   %seg_index.09.i.i.i.i.i.i = phi i64 [ 0, %for.body ], [ %inc.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i, i64 %seg_index.09.i.i.i.i.i.i
-  %6 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i monotonic, align 8, !noalias !15
+  %6 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i monotonic, align 8, !noalias !14
   %atomic-temp.i.0.i.i.i.i.i.i.i = inttoptr i64 %6 to ptr
   %cmp4.not.i.i.i.i.i.i = icmp ult ptr %5, %atomic-temp.i.0.i.i.i.i.i.i.i
   br i1 %cmp4.not.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -424,18 +424,18 @@ while.cond.i.i:                                   ; preds = %_ZNK3tbb6detail2d13
   %ci.sroa.4.0.i.i = phi i64 [ 0, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i ], [ %inc.i.i.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i ]
   %storemerge.i.i = phi i64 [ %12, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i ], [ %add.i.i.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i ]
   %inc.i.i.i = add i64 %ci.sroa.4.0.i.i, 1
-  %13 = load atomic i64, ptr %my_size.i.i.i.i acquire, align 8, !noalias !18
-  %14 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i acquire, align 8, !noalias !18
+  %13 = load atomic i64, ptr %my_size.i.i.i.i acquire, align 8, !noalias !17
+  %14 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i acquire, align 8, !noalias !17
   %atomic-temp.i.0.i.i.i.i.i.i18.i.i = inttoptr i64 %14 to ptr
   %cmp.i.i.i.i.i20.i.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i, %atomic-temp.i.0.i.i.i.i.i.i18.i.i
   %cond.i.i.i.i.i21.i.i = select i1 %cmp.i.i.i.i.i20.i.i, i64 3, i64 64
-  %15 = load ptr, ptr %my_locals.i.i.i, align 8, !noalias !18
+  %15 = load ptr, ptr %my_locals.i.i.i, align 8, !noalias !17
   br label %for.body.i.i.i.i22.i.i
 
 for.body.i.i.i.i22.i.i:                           ; preds = %for.inc.i.i.i.i34.i.i, %while.cond.i.i
   %seg_index.09.i.i.i.i23.i.i = phi i64 [ 0, %while.cond.i.i ], [ %inc.i.i.i.i35.i.i, %for.inc.i.i.i.i34.i.i ]
   %arrayidx.i.i.i.i24.i.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i18.i.i, i64 %seg_index.09.i.i.i.i23.i.i
-  %16 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i monotonic, align 8, !noalias !18
+  %16 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i monotonic, align 8, !noalias !17
   %atomic-temp.i.0.i.i.i.i.i25.i.i = inttoptr i64 %16 to ptr
   %cmp4.not.i.i.i.i26.i.i = icmp ult ptr %15, %atomic-temp.i.0.i.i.i.i.i25.i.i
   br i1 %cmp4.not.i.i.i.i26.i.i, label %for.inc.i.i.i.i34.i.i, label %if.then.i.i.i.i27.i.i
@@ -458,7 +458,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i
   %or.i.i.i.i.i44.i.i = or i64 %inc.i.i.i, 1
-  %17 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i, i1 true), !range !12
+  %17 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i, i1 true)
   %xor.i.i.i.i.i.i.i45.i.i = xor i64 %17, 63
   %18 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i47.i.i = inttoptr i64 %18 to ptr
@@ -468,7 +468,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %arrayidx4.i.i.i.i50.i.i = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %atomic-temp.i.0.i2.i.i.i.i49.i.i, i64 %inc.i.i.i
   %20 = load i64, ptr %arrayidx4.i.i.i.i50.i.i, align 8
   %add.i.i.i = add nsw i64 %20, %storemerge.i.i
-  br label %while.cond.i.i, !llvm.loop !13
+  br label %while.cond.i.i, !llvm.loop !12
 
 _ZN4mold7Counter9get_valueEv.exit:                ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i
   %retval.0.i.i = phi i64 [ %9, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i ], [ %storemerge.i.i, %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i ]
@@ -528,7 +528,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   store atomic i64 0, ptr %arrayidx.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.04.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 3
-  br i1 %cmp.not.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEEC2Ev.exit, label %for.body.i.i.i.i, !llvm.loop !21
+  br i1 %cmp.not.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEEC2Ev.exit, label %for.body.i.i.i.i, !llvm.loop !20
 
 _ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEEC2Ev.exit: ; preds = %for.body.i.i.i.i
   %stopped = getelementptr inbounds i8, ptr %this, i64 144
@@ -569,19 +569,19 @@ _ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_al
 if.then:                                          ; preds = %_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEEC2Ev.exit
   %children7 = getelementptr inbounds i8, ptr %parent, i64 40
   %my_size.i.i = getelementptr inbounds i8, ptr %parent, i64 96
-  %3 = atomicrmw add ptr %my_size.i.i, i64 1 seq_cst, align 8, !noalias !22
+  %3 = atomicrmw add ptr %my_size.i.i, i64 1 seq_cst, align 8, !noalias !21
   %my_first_block.i.i.i = getelementptr inbounds i8, ptr %parent, i64 88
-  %4 = load atomic i64, ptr %my_first_block.i.i.i monotonic, align 8, !noalias !22
+  %4 = load atomic i64, ptr %my_first_block.i.i.i monotonic, align 8, !noalias !21
   %cmp.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp.i.i.i, label %seqcst_fail50.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_.exit
 
 seqcst_fail50.i.i.i.i:                            ; preds = %if.then
-  %5 = cmpxchg ptr %my_first_block.i.i.i, i64 0, i64 1 seq_cst seq_cst, align 8, !noalias !22
+  %5 = cmpxchg ptr %my_first_block.i.i.i, i64 0, i64 1 seq_cst seq_cst, align 8, !noalias !21
   br label %_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_.exit
 
 _ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_.exit: ; preds = %if.then, %seqcst_fail50.i.i.i.i
-  %call2.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d113segment_tableIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EENS1_17concurrent_vectorIS5_S7_EELm3EE18internal_subscriptILb1EEERS5_m(ptr noundef nonnull align 8 dereferenceable(65) %children7, i64 noundef %3), !noalias !22
-  store ptr %this, ptr %call2.i.i, align 8, !noalias !22
+  %call2.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d113segment_tableIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EENS1_17concurrent_vectorIS5_S7_EELm3EE18internal_subscriptILb1EEERS5_m(ptr noundef nonnull align 8 dereferenceable(65) %children7, i64 noundef %3), !noalias !21
+  store ptr %this, ptr %call2.i.i, align 8, !noalias !21
   br label %if.end
 
 if.end:                                           ; preds = %_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_.exit, %_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEEC2Ev.exit
@@ -739,7 +739,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i.i
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   %inc.i.i.i = add nuw nsw i64 %seg_index.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %cond.i.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE4sizeEv.exit, label %for.body.i.i.i, !llvm.loop !27
+  br i1 %exitcond.not.i.i.i, label %_ZNK3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE4sizeEv.exit, label %for.body.i.i.i, !llvm.loop !26
 
 _ZNK3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE4sizeEv.exit: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ %and.i.i.i.i, %if.then.i.i.i ], [ 8, %for.inc.i.i.i ]
@@ -758,7 +758,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK3tbb6detail2d11
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4mold11TimerRecord4stopEv.exit
   %i.086 = phi i64 [ %i.084, %for.body.lr.ph ], [ %i.0, %_ZN4mold11TimerRecord4stopEv.exit ]
   %or.i.i.i.i = or i64 %i.086, 1
-  %4 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !12
+  %4 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i = xor i64 %4, 63
   %5 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i22 = inttoptr i64 %5 to ptr
@@ -809,7 +809,7 @@ if.end.i:                                         ; preds = %for.body
 _ZN4mold11TimerRecord4stopEv.exit:                ; preds = %for.body, %if.end.i
   %i.0 = add nsw i64 %i.086, -1
   %cmp = icmp sgt i64 %i.086, 0
-  br i1 %cmp, label %for.body, label %for.cond4.preheader, !llvm.loop !28
+  br i1 %cmp, label %for.body, label %for.cond4.preheader, !llvm.loop !27
 
 for.cond4.preheader:                              ; preds = %_ZN4mold11TimerRecord4stopEv.exit, %_ZNK3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE4sizeEv.exit
   br label %for.cond4
@@ -840,7 +840,7 @@ if.then.i.i.i35:                                  ; preds = %for.body.i.i.i30
 for.inc.i.i.i40:                                  ; preds = %for.body.i.i.i30
   %inc.i.i.i41 = add nuw nsw i64 %seg_index.09.i.i.i31, 1
   %exitcond.not.i.i.i42 = icmp eq i64 %inc.i.i.i41, %cond.i.i.i.i29
-  br i1 %exitcond.not.i.i.i42, label %_ZNK3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE4sizeEv.exit43, label %for.body.i.i.i30, !llvm.loop !27
+  br i1 %exitcond.not.i.i.i42, label %_ZNK3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE4sizeEv.exit43, label %for.body.i.i.i30, !llvm.loop !26
 
 _ZNK3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE4sizeEv.exit43: ; preds = %for.inc.i.i.i40, %if.then.i.i.i35
   %retval.0.i.i.i38 = phi i64 [ %and.i.i.i.i37, %if.then.i.i.i35 ], [ 8, %for.inc.i.i.i40 ]
@@ -850,7 +850,7 @@ _ZNK3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14def
 
 for.body7:                                        ; preds = %_ZNK3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE4sizeEv.exit43
   %or.i.i.i.i44 = or i64 %i3.0, 1
-  %17 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i44, i1 true), !range !12
+  %17 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i44, i1 true)
   %xor.i.i.i.i.i.i45 = xor i64 %17, 63
   %18 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i47 = inttoptr i64 %18 to ptr
@@ -875,7 +875,7 @@ for.body13:                                       ; preds = %for.body13.lr.ph, %
   %j.089.in = phi i64 [ %i3.0, %for.body13.lr.ph ], [ %j.089, %for.inc23 ]
   %j.089 = add nsw i64 %j.089.in, -1
   %or.i.i.i.i51 = or i64 %j.089, 1
-  %22 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i51, i1 true), !range !12
+  %22 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i51, i1 true)
   %xor.i.i.i.i.i.i52 = xor i64 %22, 63
   %23 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i54 = inttoptr i64 %23 to ptr
@@ -901,43 +901,43 @@ if.then20:                                        ; preds = %land.lhs.true
   store ptr %25, ptr %parent, align 8
   %children = getelementptr inbounds i8, ptr %25, i64 40
   %my_size.i.i = getelementptr inbounds i8, ptr %25, i64 96
-  %30 = atomicrmw add ptr %my_size.i.i, i64 1 seq_cst, align 8, !noalias !29
+  %30 = atomicrmw add ptr %my_size.i.i, i64 1 seq_cst, align 8, !noalias !28
   %my_first_block.i.i.i = getelementptr inbounds i8, ptr %25, i64 88
-  %31 = load atomic i64, ptr %my_first_block.i.i.i monotonic, align 8, !noalias !29
+  %31 = load atomic i64, ptr %my_first_block.i.i.i monotonic, align 8, !noalias !28
   %cmp.i.i.i = icmp eq i64 %31, 0
   br i1 %cmp.i.i.i, label %seqcst_fail50.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_.exit
 
 seqcst_fail50.i.i.i.i:                            ; preds = %if.then20
-  %32 = cmpxchg ptr %my_first_block.i.i.i, i64 0, i64 1 seq_cst seq_cst, align 8, !noalias !29
+  %32 = cmpxchg ptr %my_first_block.i.i.i, i64 0, i64 1 seq_cst seq_cst, align 8, !noalias !28
   br label %_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_.exit
 
 _ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_.exit: ; preds = %if.then20, %seqcst_fail50.i.i.i.i
-  %call2.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d113segment_tableIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EENS1_17concurrent_vectorIS5_S7_EELm3EE18internal_subscriptILb1EEERS5_m(ptr noundef nonnull align 8 dereferenceable(65) %children, i64 noundef %30), !noalias !29
-  store ptr %20, ptr %call2.i.i, align 8, !noalias !29
+  %call2.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3tbb6detail2d113segment_tableIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EENS1_17concurrent_vectorIS5_S7_EELm3EE18internal_subscriptILb1EEERS5_m(ptr noundef nonnull align 8 dereferenceable(65) %children, i64 noundef %30), !noalias !28
+  store ptr %20, ptr %call2.i.i, align 8, !noalias !28
   br label %for.inc26
 
 for.inc23:                                        ; preds = %for.body13, %land.lhs.true
   %cmp12 = icmp sgt i64 %j.089.in, 1
-  br i1 %cmp12, label %for.body13, label %for.inc26, !llvm.loop !34
+  br i1 %cmp12, label %for.body13, label %for.inc26, !llvm.loop !33
 
 for.inc26:                                        ; preds = %for.inc23, %_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_.exit, %for.body7
   %inc = add nuw nsw i64 %i3.0, 1
-  br label %for.cond4, !llvm.loop !35
+  br label %for.cond4, !llvm.loop !34
 
 for.end27:                                        ; preds = %_ZNK3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE4sizeEv.exit43
   %call28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.5) #15
-  %33 = load atomic i64, ptr %my_size.i acquire, align 8, !noalias !36
-  %34 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8, !noalias !36
+  %33 = load atomic i64, ptr %my_size.i acquire, align 8, !noalias !35
+  %34 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8, !noalias !35
   %atomic-temp.i.0.i.i.i.i.i.i = inttoptr i64 %34 to ptr
   %cmp.i.i.i.i.i = icmp eq ptr %my_embedded_table.i.i.i.i, %atomic-temp.i.0.i.i.i.i.i.i
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 3, i64 64
-  %35 = load ptr, ptr %records, align 8, !noalias !36
+  %35 = load ptr, ptr %records, align 8, !noalias !35
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %for.end27
   %seg_index.09.i.i.i.i = phi i64 [ 0, %for.end27 ], [ %inc.i.i.i.i, %for.inc.i.i.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.std::atomic.29", ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 %seg_index.09.i.i.i.i
-  %36 = load atomic i64, ptr %arrayidx.i.i.i.i monotonic, align 8, !noalias !36
+  %36 = load atomic i64, ptr %arrayidx.i.i.i.i monotonic, align 8, !noalias !35
   %atomic-temp.i.0.i.i.i.i.i59 = inttoptr i64 %36 to ptr
   %cmp4.not.i.i.i.i = icmp ult ptr %35, %atomic-temp.i.0.i.i.i.i.i59
   br i1 %cmp4.not.i.i.i.i, label %for.inc.i.i.i.i, label %if.then.i.i.i.i
@@ -950,7 +950,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %inc.i.i.i.i = add nuw nsw i64 %seg_index.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, %cond.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE3endEv.exit, label %for.body.i.i.i.i, !llvm.loop !27
+  br i1 %exitcond.not.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE3endEv.exit, label %for.body.i.i.i.i, !llvm.loop !26
 
 _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE3endEv.exit: ; preds = %for.inc.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi i64 [ %and.i.i.i.i.i, %if.then.i.i.i.i ], [ 8, %for.inc.i.i.i.i ]
@@ -961,7 +961,7 @@ _ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14defa
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS6_EENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit: ; preds = %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE3endEv.exit, %for.inc39
   %__begin1.sroa.3.092 = phi i64 [ %inc.i, %for.inc39 ], [ 0, %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE3endEv.exit ]
   %or.i.i.i.i63 = or i64 %__begin1.sroa.3.092, 1
-  %37 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i63, i1 true), !range !12
+  %37 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i63, i1 true)
   %xor.i.i.i.i.i.i64 = xor i64 %37, 63
   %38 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i66 = inttoptr i64 %38 to ptr
@@ -1074,20 +1074,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #15
   %children = getelementptr inbounds i8, ptr %rec, i64 40
   %my_size.i.i.i = getelementptr inbounds i8, ptr %rec, i64 96
-  %11 = load atomic i64, ptr %my_size.i.i.i acquire, align 8, !noalias !39
+  %11 = load atomic i64, ptr %my_size.i.i.i acquire, align 8, !noalias !38
   %my_segment_table.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rec, i64 56
-  %12 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i acquire, align 8, !noalias !39
+  %12 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i acquire, align 8, !noalias !38
   %atomic-temp.i.0.i.i.i.i.i.i.i = inttoptr i64 %12 to ptr
   %my_embedded_table.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rec, i64 64
   %cmp.i.i.i.i.i.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i, %atomic-temp.i.0.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 3, i64 64
-  %13 = load ptr, ptr %children, align 8, !noalias !39
+  %13 = load ptr, ptr %children, align 8, !noalias !38
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %seg_index.09.i.i.i.i.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %inc.i.i.i.i.i, %for.inc.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.i, i64 %seg_index.09.i.i.i.i.i
-  %14 = load atomic i64, ptr %arrayidx.i.i.i.i.i monotonic, align 8, !noalias !39
+  %14 = load atomic i64, ptr %arrayidx.i.i.i.i.i monotonic, align 8, !noalias !38
   %atomic-temp.i.0.i.i.i.i.i.i = inttoptr i64 %14 to ptr
   %cmp4.not.i.i.i.i.i = icmp ult ptr %13, %atomic-temp.i.0.i.i.i.i.i.i
   br i1 %cmp4.not.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1100,7 +1100,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
 for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %inc.i.i.i.i.i = add nuw nsw i64 %seg_index.09.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %inc.i.i.i.i.i, %cond.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE3endEv.exit.i, label %for.body.i.i.i.i.i, !llvm.loop !42
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE3endEv.exit.i, label %for.body.i.i.i.i.i, !llvm.loop !41
 
 _ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE3endEv.exit.i: ; preds = %for.inc.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi i64 [ %and.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ 8, %for.inc.i.i.i.i.i ]
@@ -1133,7 +1133,7 @@ if.end4.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.
   %add.i.i.i.i.i = add nuw nsw i64 %storemerge27.i.i.i.i.i, 1
   %div5.i.i.i.i.i = lshr i64 %add.i.i.i.i.i, 1
   %cmp1.not.i.i.i.i.i = icmp ult i64 %storemerge27.i.i.i.i.i, 2
-  br i1 %cmp1.not.i.i.i.i.i, label %if.then3.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !43
+  br i1 %cmp1.not.i.i.i.i.i, label %if.then3.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !42
 
 if.then3.i.i.i:                                   ; preds = %if.end4.i.i.i.i.i, %if.end.i.i.i
   store ptr %children, ptr %agg.tmp4.i.i.i, align 8
@@ -1169,18 +1169,18 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp5.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp7.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp8.i.i.i)
-  %16 = load atomic i64, ptr %my_size.i.i.i acquire, align 8, !noalias !44
-  %17 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i acquire, align 8, !noalias !44
+  %16 = load atomic i64, ptr %my_size.i.i.i acquire, align 8, !noalias !43
+  %17 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i acquire, align 8, !noalias !43
   %atomic-temp.i.0.i.i.i.i.i.i12 = inttoptr i64 %17 to ptr
   %cmp.i.i.i.i.i13 = icmp eq ptr %my_embedded_table.i.i.i.i.i.i, %atomic-temp.i.0.i.i.i.i.i.i12
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i13, i64 3, i64 64
-  %18 = load ptr, ptr %children, align 8, !noalias !44
+  %18 = load ptr, ptr %children, align 8, !noalias !43
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %"_ZN4mold4sortIN3tbb6detail2d117concurrent_vectorIPNS_11TimerRecordENS3_23cache_aligned_allocatorIS6_EEEEZNS_L9print_recERS5_lE3$_0EEvRT_T0_.exit"
   %seg_index.09.i.i.i.i = phi i64 [ 0, %"_ZN4mold4sortIN3tbb6detail2d117concurrent_vectorIPNS_11TimerRecordENS3_23cache_aligned_allocatorIS6_EEEEZNS_L9print_recERS5_lE3$_0EEvRT_T0_.exit" ], [ %inc.i.i.i.i, %for.inc.i.i.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i12, i64 %seg_index.09.i.i.i.i
-  %19 = load atomic i64, ptr %arrayidx.i.i.i.i monotonic, align 8, !noalias !44
+  %19 = load atomic i64, ptr %arrayidx.i.i.i.i monotonic, align 8, !noalias !43
   %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %19 to ptr
   %cmp4.not.i.i.i.i = icmp ult ptr %18, %atomic-temp.i.0.i.i.i.i.i
   br i1 %cmp4.not.i.i.i.i, label %for.inc.i.i.i.i, label %if.then.i.i.i.i
@@ -1193,7 +1193,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %inc.i.i.i.i = add nuw nsw i64 %seg_index.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, %cond.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE3endEv.exit, label %for.body.i.i.i.i, !llvm.loop !42
+  br i1 %exitcond.not.i.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE3endEv.exit, label %for.body.i.i.i.i, !llvm.loop !41
 
 _ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE3endEv.exit: ; preds = %for.inc.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi i64 [ %and.i.i.i.i.i, %if.then.i.i.i.i ], [ 8, %for.inc.i.i.i.i ]
@@ -1208,7 +1208,7 @@ for.body.lr.ph:                                   ; preds = %_ZN3tbb6detail2d117
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit: ; preds = %for.body.lr.ph, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit
   %__begin1.sroa.3.034 = phi i64 [ 0, %for.body.lr.ph ], [ %inc.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit ]
   %or.i.i.i.i = or i64 %__begin1.sroa.3.034, 1
-  %20 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !12
+  %20 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i = xor i64 %20, 63
   %21 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %21 to ptr
@@ -1523,7 +1523,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %6 = load i64, ptr %my_index.i, align 8
   %7 = load ptr, ptr %my_item4.i7, align 8
   %or.i.i.i.i.i = or i64 %__i.sroa.7.083, 1
-  %8 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i, i1 true), !range !12
+  %8 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i = xor i64 %8, 63
   %9 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %9 to ptr
@@ -1537,7 +1537,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
 
 if.then.i5.i:                                     ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i
   %or.i.i.i.i7.i = or i64 %6, 1
-  %12 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i7.i, i1 true), !range !12
+  %12 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i7.i, i1 true)
   %xor.i.i.i.i.i.i8.i = xor i64 %12, 63
   %my_segment_table.i.i.i9.i = getelementptr inbounds i8, ptr %5, i64 16
   %13 = load atomic i64, ptr %my_segment_table.i.i.i9.i acquire, align 8
@@ -1557,7 +1557,7 @@ if.then.i5.i:                                     ; preds = %_ZNK3tbb6detail2d11
   %.val1.i = load i64, ptr %17, align 8
   %cmp.i15.i = icmp slt i64 %.val.i, %.val1.i
   %or.i.i.i.i = or i64 %__i.sroa.7.083, 1
-  %18 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !12
+  %18 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i = xor i64 %18, 63
   %19 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %19 to ptr
@@ -1584,29 +1584,29 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %__n.035.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit29.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %for.body.i.preheader.i.i.i.i ]
   %dec.i.i.i.i.i.i = add i64 %agg.tmp1.sroa.2.0.i.i.i.i, -1
   %or.i.i.i.i.i.i.i.i.i = or i64 %dec.i.i.i.i.i.i, 1
-  %23 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i, i1 true), !range !12
+  %23 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i64 %23, 63
-  %24 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8, !noalias !47
+  %24 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8, !noalias !46
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i = inttoptr i64 %24 to ptr
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i, i64 %xor.i.i.i.i.i.i.i.i.i.i.i
-  %25 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i acquire, align 8, !noalias !47
+  %25 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i acquire, align 8, !noalias !46
   %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i = inttoptr i64 %25 to ptr
   %arrayidx4.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i, i64 %dec.i.i.i.i.i.i
-  %26 = load ptr, ptr %arrayidx4.i.i.i.i.i.i.i.i, align 8, !noalias !47
+  %26 = load ptr, ptr %arrayidx4.i.i.i.i.i.i.i.i, align 8, !noalias !46
   %dec.i7.i.i.i.i.i = add i64 %agg.tmp2.sroa.3.0.i.i.i.i, -1
   %or.i.i.i.i22.i.i.i.i.i = or i64 %dec.i7.i.i.i.i.i, 1
-  %27 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i22.i.i.i.i.i, i1 true), !range !12
+  %27 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i22.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i23.i.i.i.i.i = xor i64 %27, 63
-  %28 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8, !noalias !47
+  %28 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8, !noalias !46
   %atomic-temp.i.0.i.i.i.i25.i.i.i.i.i = inttoptr i64 %28 to ptr
   %arrayidx.i.i.i26.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i25.i.i.i.i.i, i64 %xor.i.i.i.i.i.i23.i.i.i.i.i
-  %29 = load atomic i64, ptr %arrayidx.i.i.i26.i.i.i.i.i acquire, align 8, !noalias !47
+  %29 = load atomic i64, ptr %arrayidx.i.i.i26.i.i.i.i.i acquire, align 8, !noalias !46
   %atomic-temp.i.0.i2.i.i.i27.i.i.i.i.i = inttoptr i64 %29 to ptr
   %arrayidx4.i.i.i28.i.i.i.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i27.i.i.i.i.i, i64 %dec.i7.i.i.i.i.i
-  store ptr %26, ptr %arrayidx4.i.i.i28.i.i.i.i.i, align 8, !noalias !47
+  store ptr %26, ptr %arrayidx4.i.i.i28.i.i.i.i.i, align 8, !noalias !46
   %dec.i.i.i.i.i = add nsw i64 %__n.035.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp ugt i64 %__n.035.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit29.i.i.i.i.i, label %_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit, !llvm.loop !58
+  br i1 %cmp.i.i.i.i.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit29.i.i.i.i.i, label %_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit, !llvm.loop !57
 
 _ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit29.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit
   %30 = load ptr, ptr %my_item4.i7, align 8
@@ -1617,7 +1617,7 @@ if.then.i29:                                      ; preds = %_ZSt13move_backward
   %31 = load ptr, ptr %__first, align 8
   %32 = load i64, ptr %my_index.i, align 8
   %or.i.i.i.i31 = or i64 %32, 1
-  %33 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i31, i1 true), !range !12
+  %33 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i31, i1 true)
   %my_segment_table.i.i.i33 = getelementptr inbounds i8, ptr %31, i64 16
   br label %for.inc.sink.split
 
@@ -1625,7 +1625,7 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordE
   %34 = getelementptr i8, ptr %21, i64 112
   %__next.sroa.4.0.i90 = add i64 %__i.sroa.7.083, -1
   %or.i.i.i.i.i.i91 = or i64 %__next.sroa.4.0.i90, 1
-  %35 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i91, i1 true), !range !12
+  %35 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i91, i1 true)
   %xor.i.i.i.i.i.i.i.i92 = xor i64 %35, 63
   %36 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i.i93 = inttoptr i64 %36 to ptr
@@ -1652,7 +1652,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %arrayidx4.i.i.i21.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i20.i, i64 %__next.sroa.4.0.i101
   %.pre86.i = load ptr, ptr %arrayidx4.i.i.i21.i, align 8
   %or.i.i.i.i28.i = or i64 %agg.tmp10.sroa.7.0100, 1
-  %42 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i28.i, i1 true), !range !12
+  %42 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i28.i, i1 true)
   %xor.i.i.i.i.i.i29.i = xor i64 %42, 63
   %43 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i31.i = inttoptr i64 %43 to ptr
@@ -1663,7 +1663,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   store ptr %.pre86.i, ptr %arrayidx4.i.i.i34.i, align 8
   %__next.sroa.4.0.i = add i64 %__next.sroa.4.0.i101, -1
   %or.i.i.i.i.i.i = or i64 %__next.sroa.4.0.i, 1
-  %45 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i, i1 true), !range !12
+  %45 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i.i = xor i64 %45, 63
   %46 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i.i = inttoptr i64 %46 to ptr
@@ -1681,7 +1681,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
 "_ZSt25__unguarded_linear_insertIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_T0_.exit": ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit35.i, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i
   %agg.tmp10.sroa.7.0.lcssa = phi i64 [ %__i.sroa.7.083, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i ], [ %__next.sroa.4.0.i101, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit35.i ]
   %or.i.i.i.i56.i = or i64 %agg.tmp10.sroa.7.0.lcssa, 1
-  %50 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i56.i, i1 true), !range !12
+  %50 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i56.i, i1 true)
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %"_ZSt25__unguarded_linear_insertIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_T0_.exit", %if.then.i29
@@ -1706,7 +1706,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %54 = load i64, ptr %my_index2.i, align 8
   %cmp3.i.i = icmp ne i64 %inc.i, %54
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp3.i.i
-  br i1 %.not.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i, label %for.end, !llvm.loop !59
+  br i1 %.not.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i, label %for.end, !llvm.loop !58
 
 for.end:                                          ; preds = %for.inc, %if.end, %entry
   ret void
@@ -1751,7 +1751,7 @@ if.then.i.i:                                      ; preds = %if.then3
   %4 = load i64, ptr %my_index3.i, align 8
   %5 = load ptr, ptr %__middle, align 8
   %or.i.i.i.i.i = or i64 %4, 1
-  %6 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i, i1 true), !range !12
+  %6 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i = xor i64 %6, 63
   %my_segment_table.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
@@ -1770,7 +1770,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
 
 if.then.i5.i:                                     ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i
   %or.i.i.i.i7.i = or i64 %2, 1
-  %10 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i7.i, i1 true), !range !12
+  %10 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i7.i, i1 true)
   %xor.i.i.i.i.i.i8.i = xor i64 %10, 63
   %my_segment_table.i.i.i9.i = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load atomic i64, ptr %my_segment_table.i.i.i9.i acquire, align 8
@@ -1803,7 +1803,7 @@ if.then.i.i29:                                    ; preds = %if.then5
   %20 = load i64, ptr %my_index3.i14, align 8
   %21 = load ptr, ptr %__first, align 8
   %or.i.i.i.i.i31 = or i64 %20, 1
-  %22 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i31, i1 true), !range !12
+  %22 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i31, i1 true)
   %xor.i.i.i.i.i.i.i32 = xor i64 %22, 63
   %my_segment_table.i.i.i.i33 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load atomic i64, ptr %my_segment_table.i.i.i.i33 acquire, align 8
@@ -1821,7 +1821,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
 
 if.then.i4.i:                                     ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i27
   %or.i.i.i.i6.i = or i64 %18, 1
-  %25 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i6.i, i1 true), !range !12
+  %25 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i6.i, i1 true)
   %xor.i.i.i.i.i.i7.i = xor i64 %25, 63
   %my_segment_table.i.i.i8.i = getelementptr inbounds i8, ptr %17, i64 16
   %26 = load atomic i64, ptr %my_segment_table.i.i.i8.i acquire, align 8
@@ -1860,7 +1860,7 @@ if.then11:                                        ; preds = %if.end9
   %my_index3.i53269 = getelementptr inbounds i8, ptr %__last, i64 8
   %36 = load i64, ptr %my_index3.i53269, align 8
   %or.i.i.i.i = or i64 %add.i.i.i, 1
-  %37 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !12
+  %37 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i = xor i64 %37, 63
   %my_segment_table.i.i.i = getelementptr inbounds i8, ptr %30, i64 16
   %38 = load atomic i64, ptr %my_segment_table.i.i.i acquire, align 8
@@ -1884,20 +1884,20 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %shr.i = lshr i64 %__len.046.i, 1
   %add.i.i.i.i = add i64 %shr.i, %agg.tmp12.sroa.4.0
   %or.i.i.i.i.i.i = or i64 %add.i.i.i.i, 1
-  %40 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i, i1 true), !range !12
+  %40 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i.i = xor i64 %40, 63
-  %41 = load atomic i64, ptr %my_segment_table.i.i.i.i.i acquire, align 8, !noalias !60
+  %41 = load atomic i64, ptr %my_segment_table.i.i.i.i.i acquire, align 8, !noalias !59
   %atomic-temp.i.0.i.i.i.i.i.i = inttoptr i64 %41 to ptr
   %arrayidx.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 %xor.i.i.i.i.i.i.i.i
-  %42 = load atomic i64, ptr %arrayidx.i.i.i.i.i acquire, align 8, !noalias !60
+  %42 = load atomic i64, ptr %arrayidx.i.i.i.i.i acquire, align 8, !noalias !59
   %atomic-temp.i.0.i2.i.i.i.i.i = inttoptr i64 %42 to ptr
   %arrayidx4.i.i.i.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i, i64 %add.i.i.i.i
-  %43 = load ptr, ptr %arrayidx4.i.i.i.i.i, align 8, !noalias !60
-  %44 = load ptr, ptr %arrayidx4.i.i.i, align 8, !noalias !60
+  %43 = load ptr, ptr %arrayidx4.i.i.i.i.i, align 8, !noalias !59
+  %44 = load ptr, ptr %arrayidx4.i.i.i, align 8, !noalias !59
   %45 = getelementptr i8, ptr %43, i64 112
-  %.val.i.i = load i64, ptr %45, align 8, !noalias !60
+  %.val.i.i = load i64, ptr %45, align 8, !noalias !59
   %46 = getelementptr i8, ptr %44, i64 112
-  %.val1.i.i = load i64, ptr %46, align 8, !noalias !60
+  %.val1.i.i = load i64, ptr %46, align 8, !noalias !59
   %cmp.i2.i.i = icmp slt i64 %.val.i.i, %.val1.i.i
   %inc.i.i = add i64 %add.i.i.i.i, 1
   %47 = xor i64 %shr.i, -1
@@ -1906,7 +1906,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %agg.tmp12.sroa.9.2 = select i1 %cmp.i2.i.i, ptr null, ptr %agg.tmp12.sroa.9.0
   %__len.1.i = select i1 %cmp.i2.i.i, i64 %sub6.i, i64 %shr.i
   %cmp.i58 = icmp sgt i64 %__len.1.i, 0
-  br i1 %cmp.i58, label %while.body.i, label %"_ZSt13__lower_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_.exit", !llvm.loop !63
+  br i1 %cmp.i58, label %while.body.i, label %"_ZSt13__lower_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_.exit", !llvm.loop !62
 
 "_ZSt13__lower_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_.exit": ; preds = %while.body.i, %if.then11
   %agg.tmp12.sroa.9.3 = phi ptr [ %35, %if.then11 ], [ %agg.tmp12.sroa.9.2, %while.body.i ]
@@ -1919,7 +1919,7 @@ if.else:                                          ; preds = %if.end9
   %div21 = sdiv i64 %__len2, 2
   %add.i.i.i83 = add i64 %34, %div21
   %or.i.i.i.i119 = or i64 %add.i.i.i83, 1
-  %50 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i119, i1 true), !range !12
+  %50 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i119, i1 true)
   %xor.i.i.i.i.i.i120 = xor i64 %50, 63
   %my_segment_table.i.i.i121 = getelementptr inbounds i8, ptr %33, i64 16
   %51 = load atomic i64, ptr %my_segment_table.i.i.i121 acquire, align 8
@@ -1942,21 +1942,21 @@ while.body.i133:                                  ; preds = %while.body.i133.pre
   %__len.049.i = phi i64 [ %__len.1.i162, %while.body.i133 ], [ %sub.i.i.i.i130, %while.body.i133.preheader ]
   %shr.i134 = lshr i64 %__len.049.i, 1
   %add.i.i.i.i138 = add i64 %shr.i134, %agg.tmp23.sroa.4.0
-  %__val.val38.i = load ptr, ptr %arrayidx4.i.i.i125, align 8, !noalias !64
+  %__val.val38.i = load ptr, ptr %arrayidx4.i.i.i125, align 8, !noalias !63
   %or.i.i.i.i.i.i141 = or i64 %add.i.i.i.i138, 1
-  %53 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i141, i1 true), !range !12
+  %53 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i141, i1 true)
   %xor.i.i.i.i.i.i.i.i142 = xor i64 %53, 63
-  %54 = load atomic i64, ptr %my_segment_table.i.i.i.i.i143 acquire, align 8, !noalias !64
+  %54 = load atomic i64, ptr %my_segment_table.i.i.i.i.i143 acquire, align 8, !noalias !63
   %atomic-temp.i.0.i.i.i.i.i.i144 = inttoptr i64 %54 to ptr
   %arrayidx.i.i.i.i.i145 = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i144, i64 %xor.i.i.i.i.i.i.i.i142
-  %55 = load atomic i64, ptr %arrayidx.i.i.i.i.i145 acquire, align 8, !noalias !64
+  %55 = load atomic i64, ptr %arrayidx.i.i.i.i.i145 acquire, align 8, !noalias !63
   %atomic-temp.i.0.i2.i.i.i.i.i146 = inttoptr i64 %55 to ptr
   %arrayidx4.i.i.i.i.i147 = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i146, i64 %add.i.i.i.i138
-  %56 = load ptr, ptr %arrayidx4.i.i.i.i.i147, align 8, !noalias !64
+  %56 = load ptr, ptr %arrayidx4.i.i.i.i.i147, align 8, !noalias !63
   %57 = getelementptr i8, ptr %__val.val38.i, i64 112
-  %.val.i.i149 = load i64, ptr %57, align 8, !noalias !64
+  %.val.i.i149 = load i64, ptr %57, align 8, !noalias !63
   %58 = getelementptr i8, ptr %56, i64 112
-  %.val1.i.i150 = load i64, ptr %58, align 8, !noalias !64
+  %.val1.i.i150 = load i64, ptr %58, align 8, !noalias !63
   %cmp.i2.i.i151 = icmp slt i64 %.val.i.i149, %.val1.i.i150
   %inc.i.i152 = add i64 %add.i.i.i.i138, 1
   %59 = xor i64 %shr.i134, -1
@@ -1965,7 +1965,7 @@ while.body.i133:                                  ; preds = %while.body.i133.pre
   %agg.tmp23.sroa.9.2 = select i1 %cmp.i2.i.i151, ptr %agg.tmp23.sroa.9.0, ptr null
   %__len.1.i162 = select i1 %cmp.i2.i.i151, i64 %shr.i134, i64 %sub6.i160
   %cmp.i163 = icmp sgt i64 %__len.1.i162, 0
-  br i1 %cmp.i163, label %while.body.i133, label %"_ZSt13__upper_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_.exit", !llvm.loop !67
+  br i1 %cmp.i163, label %while.body.i133, label %"_ZSt13__upper_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_.exit", !llvm.loop !66
 
 "_ZSt13__upper_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_.exit": ; preds = %while.body.i133, %if.else
   %agg.tmp23.sroa.9.3 = phi ptr [ %32, %if.else ], [ %agg.tmp23.sroa.9.2, %while.body.i133 ]
@@ -1988,21 +1988,21 @@ if.end33:                                         ; preds = %"_ZSt13__upper_boun
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp2.i)
-  store ptr %30, ptr %agg.tmp.i, align 8, !noalias !68
+  store ptr %30, ptr %agg.tmp.i, align 8, !noalias !67
   %my_index.i.i201 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  store i64 %__first_cut.sroa.6.1, ptr %my_index.i.i201, align 8, !noalias !68
+  store i64 %__first_cut.sroa.6.1, ptr %my_index.i.i201, align 8, !noalias !67
   %my_item.i.i203 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  store ptr %__first_cut.sroa.17.1, ptr %my_item.i.i203, align 8, !noalias !68
-  store ptr %63, ptr %agg.tmp1.i, align 8, !noalias !68
+  store ptr %__first_cut.sroa.17.1, ptr %my_item.i.i203, align 8, !noalias !67
+  store ptr %63, ptr %agg.tmp1.i, align 8, !noalias !67
   %my_index.i1.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
-  store i64 %62, ptr %my_index.i1.i, align 8, !noalias !68
+  store i64 %62, ptr %my_index.i1.i, align 8, !noalias !67
   %my_item.i3.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
-  store ptr %64, ptr %my_item.i3.i, align 8, !noalias !68
-  store ptr %33, ptr %agg.tmp2.i, align 8, !noalias !68
+  store ptr %64, ptr %my_item.i3.i, align 8, !noalias !67
+  store ptr %33, ptr %agg.tmp2.i, align 8, !noalias !67
   %my_index.i5.i206 = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 8
-  store i64 %__second_cut.sroa.6.1, ptr %my_index.i5.i206, align 8, !noalias !68
+  store i64 %__second_cut.sroa.6.1, ptr %my_index.i5.i206, align 8, !noalias !67
   %my_item.i7.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 16
-  store ptr %__second_cut.sroa.17.1, ptr %my_item.i7.i, align 8, !noalias !68
+  store ptr %__second_cut.sroa.17.1, ptr %my_item.i7.i, align 8, !noalias !67
   call void @_ZNSt3_V28__rotateIN3tbb6detail2d115vector_iteratorINS3_17concurrent_vectorIPN4mold11TimerRecordENS3_23cache_aligned_allocatorIS8_EEEES8_EEEET_SD_SD_SD_St26random_access_iterator_tag(ptr nonnull sret(%"class.tbb::detail::d1::vector_iterator") align 8 %__new_middle, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp1.i, ptr noundef nonnull %agg.tmp2.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i)
@@ -2141,12 +2141,12 @@ for.body.i.us:                                    ; preds = %for.body.i.preheade
 
 if.then.i.i.i.us:                                 ; preds = %for.body.i.us
   %or.i.i.i.i.i.i.us = or i64 %agg.tmp.sroa.3.0.us, 1
-  %13 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.us, i1 true), !range !12
+  %13 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.us, i1 true)
   %xor.i.i.i.i.i.i.i.i.us = xor i64 %13, 63
-  %14 = load atomic i64, ptr %my_segment_table.i.i.i.i.i acquire, align 8, !noalias !71
+  %14 = load atomic i64, ptr %my_segment_table.i.i.i.i.i acquire, align 8, !noalias !70
   %atomic-temp.i.0.i.i.i.i.i.i.us = inttoptr i64 %14 to ptr
   %arrayidx.i.i.i.i.i.us = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.us, i64 %xor.i.i.i.i.i.i.i.i.us
-  %15 = load atomic i64, ptr %arrayidx.i.i.i.i.i.us acquire, align 8, !noalias !71
+  %15 = load atomic i64, ptr %arrayidx.i.i.i.i.i.us acquire, align 8, !noalias !70
   %atomic-temp.i.0.i2.i.i.i.i.i.us = inttoptr i64 %15 to ptr
   %arrayidx4.i.i.i.i.i.us = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.us, i64 %agg.tmp.sroa.3.0.us
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.us
@@ -2158,22 +2158,22 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
 
 if.then.i4.i.i.us:                                ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.us
   %or.i.i.i.i6.i.i.us = or i64 %agg.tmp8.sroa.3.0.us, 1
-  %16 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i6.i.i.us, i1 true), !range !12
+  %16 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i6.i.i.us, i1 true)
   %xor.i.i.i.i.i.i7.i.i.us = xor i64 %16, 63
-  %17 = load atomic i64, ptr %my_segment_table.i.i.i8.i.i acquire, align 8, !noalias !71
+  %17 = load atomic i64, ptr %my_segment_table.i.i.i8.i.i acquire, align 8, !noalias !70
   %atomic-temp.i.0.i.i.i.i9.i.i.us = inttoptr i64 %17 to ptr
   %arrayidx.i.i.i10.i.i.us = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i9.i.i.us, i64 %xor.i.i.i.i.i.i7.i.i.us
-  %18 = load atomic i64, ptr %arrayidx.i.i.i10.i.i.us acquire, align 8, !noalias !71
+  %18 = load atomic i64, ptr %arrayidx.i.i.i10.i.i.us acquire, align 8, !noalias !70
   %atomic-temp.i.0.i2.i.i.i11.i.i.us = inttoptr i64 %18 to ptr
   %arrayidx4.i.i.i12.i.i.us = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i11.i.i.us, i64 %agg.tmp8.sroa.3.0.us
   br label %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i.us
 
 _ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i.us: ; preds = %if.then.i4.i.i.us, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.us
   %item.0.i3.i.i.us = phi ptr [ %arrayidx4.i.i.i12.i.i.us, %if.then.i4.i.i.us ], [ %agg.tmp8.sroa.8.0.us, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.us ]
-  %19 = load ptr, ptr %item.0.i.i.i.us, align 8, !noalias !71
-  %20 = load ptr, ptr %item.0.i3.i.i.us, align 8, !noalias !71
-  store ptr %20, ptr %item.0.i.i.i.us, align 8, !noalias !71
-  store ptr %19, ptr %item.0.i3.i.i.us, align 8, !noalias !71
+  %19 = load ptr, ptr %item.0.i.i.i.us, align 8, !noalias !70
+  %20 = load ptr, ptr %item.0.i3.i.i.us, align 8, !noalias !70
+  store ptr %20, ptr %item.0.i.i.i.us, align 8, !noalias !70
+  store ptr %19, ptr %item.0.i3.i.i.us, align 8, !noalias !70
   %inc.i.i.us = add i64 %agg.tmp.sroa.3.0.us, 1
   %sub.i.i.i.i.us = add i64 %agg.tmp.sroa.3.0.us, -1
   %and.i.i.i.i.us = and i64 %sub.i.i.i.i.us, %inc.i.i.us
@@ -2200,12 +2200,12 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 
 if.then.i.i.i:                                    ; preds = %for.body.i
   %or.i.i.i.i.i.i = or i64 %agg.tmp.sroa.3.0, 1
-  %23 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i, i1 true), !range !12
+  %23 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i.i = xor i64 %23, 63
-  %24 = load atomic i64, ptr %my_segment_table.i.i.i.i.i acquire, align 8, !noalias !71
+  %24 = load atomic i64, ptr %my_segment_table.i.i.i.i.i acquire, align 8, !noalias !70
   %atomic-temp.i.0.i.i.i.i.i.i = inttoptr i64 %24 to ptr
   %arrayidx.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i, i64 %xor.i.i.i.i.i.i.i.i
-  %25 = load atomic i64, ptr %arrayidx.i.i.i.i.i acquire, align 8, !noalias !71
+  %25 = load atomic i64, ptr %arrayidx.i.i.i.i.i acquire, align 8, !noalias !70
   %atomic-temp.i.0.i2.i.i.i.i.i = inttoptr i64 %25 to ptr
   %arrayidx4.i.i.i.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i, i64 %agg.tmp.sroa.3.0
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i
@@ -2217,22 +2217,22 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
 
 if.then.i4.i.i:                                   ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i
   %or.i.i.i.i6.i.i = or i64 %agg.tmp8.sroa.3.0, 1
-  %26 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i6.i.i, i1 true), !range !12
+  %26 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i6.i.i, i1 true)
   %xor.i.i.i.i.i.i7.i.i = xor i64 %26, 63
-  %27 = load atomic i64, ptr %my_segment_table.i.i.i8.i.i acquire, align 8, !noalias !71
+  %27 = load atomic i64, ptr %my_segment_table.i.i.i8.i.i acquire, align 8, !noalias !70
   %atomic-temp.i.0.i.i.i.i9.i.i = inttoptr i64 %27 to ptr
   %arrayidx.i.i.i10.i.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i9.i.i, i64 %xor.i.i.i.i.i.i7.i.i
-  %28 = load atomic i64, ptr %arrayidx.i.i.i10.i.i acquire, align 8, !noalias !71
+  %28 = load atomic i64, ptr %arrayidx.i.i.i10.i.i acquire, align 8, !noalias !70
   %atomic-temp.i.0.i2.i.i.i11.i.i = inttoptr i64 %28 to ptr
   %arrayidx4.i.i.i12.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i11.i.i, i64 %agg.tmp8.sroa.3.0
   br label %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i
 
 _ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i: ; preds = %if.then.i4.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i
   %item.0.i3.i.i = phi ptr [ %arrayidx4.i.i.i12.i.i, %if.then.i4.i.i ], [ %agg.tmp8.sroa.8.0, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i ]
-  %29 = load ptr, ptr %item.0.i.i.i, align 8, !noalias !71
-  %30 = load ptr, ptr %item.0.i3.i.i, align 8, !noalias !71
-  store ptr %30, ptr %item.0.i.i.i, align 8, !noalias !71
-  store ptr %29, ptr %item.0.i3.i.i, align 8, !noalias !71
+  %29 = load ptr, ptr %item.0.i.i.i, align 8, !noalias !70
+  %30 = load ptr, ptr %item.0.i3.i.i, align 8, !noalias !70
+  store ptr %30, ptr %item.0.i.i.i, align 8, !noalias !70
+  store ptr %29, ptr %item.0.i3.i.i, align 8, !noalias !70
   %inc.i.i = add i64 %agg.tmp.sroa.3.0, 1
   %sub.i.i.i.i = add i64 %agg.tmp.sroa.3.0, -1
   %and.i.i.i.i = and i64 %sub.i.i.i.i, %inc.i.i
@@ -2248,7 +2248,7 @@ _ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold1
   %32 = select i1 %cmp.i2.i.i, i1 true, i1 %cmp.i.i.i16.i
   %agg.tmp8.sroa.8.1 = select i1 %32, ptr null, ptr %incdec.ptr.i17.i
   %cmp3.i.i.i.not = icmp eq i64 %inc.i.i, %3
-  br i1 %cmp3.i.i.i.not, label %_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit, label %for.body.i, !llvm.loop !74
+  br i1 %cmp3.i.i.i.not, label %_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit, label %for.body.i, !llvm.loop !73
 
 _ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit: ; preds = %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i
   %.pre = load ptr, ptr %__middle, align 8
@@ -2271,11 +2271,11 @@ if.end9:                                          ; preds = %if.end3
   %36 = load ptr, ptr %my_item4.i35, align 8
   %sub.i38 = sub i64 %2, %3
   %add.i = add i64 %sub.i38, %8
-  store ptr %0, ptr %agg.result, align 8, !alias.scope !75
+  store ptr %0, ptr %agg.result, align 8, !alias.scope !74
   %my_index.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %add.i, ptr %my_index.i.i, align 8, !alias.scope !75
+  store i64 %add.i, ptr %my_index.i.i, align 8, !alias.scope !74
   %my_item.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr null, ptr %my_item.i.i, align 8, !alias.scope !75
+  store ptr null, ptr %my_item.i.i, align 8, !alias.scope !74
   %my_segment_table.i.i.i.i242 = getelementptr inbounds i8, ptr %0, i64 16
   br label %for.cond
 
@@ -2298,7 +2298,7 @@ if.then15:                                        ; preds = %if.then13
 
 if.then.i:                                        ; preds = %if.then15
   %or.i.i.i.i = or i64 %__p.sroa.16.0, 1
-  %37 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !12
+  %37 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i = xor i64 %37, 63
   %38 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8
   %atomic-temp.i.0.i.i.i.i = inttoptr i64 %38 to ptr
@@ -2323,33 +2323,33 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %__n.033.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit15.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit ]
   %agg.tmp.sroa.2.0.i.i.i.i = add i64 %agg.tmp.sroa.2.0.i.i.i.i.in, 1
   %or.i.i.i.i.i.i.i.i.i = or i64 %agg.tmp.sroa.2.0.i.i.i.i, 1
-  %41 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i, i1 true), !range !12
+  %41 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i64 %41, 63
-  %42 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8, !noalias !78
+  %42 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8, !noalias !77
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i = inttoptr i64 %42 to ptr
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i, i64 %xor.i.i.i.i.i.i.i.i.i.i.i
-  %43 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i acquire, align 8, !noalias !78
+  %43 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i acquire, align 8, !noalias !77
   %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i = inttoptr i64 %43 to ptr
   %arrayidx4.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i, i64 %agg.tmp.sroa.2.0.i.i.i.i
-  %44 = load ptr, ptr %arrayidx4.i.i.i.i.i.i.i.i, align 8, !noalias !78
+  %44 = load ptr, ptr %arrayidx4.i.i.i.i.i.i.i.i, align 8, !noalias !77
   %cmp.i4.i.i.i.i.i = icmp eq ptr %agg.tmp2.sroa.8.0.i.i.i.i, null
   br i1 %cmp.i4.i.i.i.i.i, label %if.then.i6.i.i.i.i.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit15.i.i.i.i.i
 
 if.then.i6.i.i.i.i.i:                             ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i
   %or.i.i.i.i8.i.i.i.i.i = or i64 %agg.tmp2.sroa.3.0.i.i.i.i, 1
-  %45 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i8.i.i.i.i.i, i1 true), !range !12
+  %45 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i8.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i9.i.i.i.i.i = xor i64 %45, 63
-  %46 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8, !noalias !78
+  %46 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8, !noalias !77
   %atomic-temp.i.0.i.i.i.i11.i.i.i.i.i = inttoptr i64 %46 to ptr
   %arrayidx.i.i.i12.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i11.i.i.i.i.i, i64 %xor.i.i.i.i.i.i9.i.i.i.i.i
-  %47 = load atomic i64, ptr %arrayidx.i.i.i12.i.i.i.i.i acquire, align 8, !noalias !78
+  %47 = load atomic i64, ptr %arrayidx.i.i.i12.i.i.i.i.i acquire, align 8, !noalias !77
   %atomic-temp.i.0.i2.i.i.i13.i.i.i.i.i = inttoptr i64 %47 to ptr
   %arrayidx4.i.i.i14.i.i.i.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i13.i.i.i.i.i, i64 %agg.tmp2.sroa.3.0.i.i.i.i
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit15.i.i.i.i.i
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit15.i.i.i.i.i: ; preds = %if.then.i6.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i
   %item.0.i5.i.i.i.i.i = phi ptr [ %arrayidx4.i.i.i14.i.i.i.i.i, %if.then.i6.i.i.i.i.i ], [ %agg.tmp2.sroa.8.0.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i ]
-  store ptr %44, ptr %item.0.i5.i.i.i.i.i, align 8, !noalias !78
+  store ptr %44, ptr %item.0.i5.i.i.i.i.i, align 8, !noalias !77
   %inc.i20.i.i.i.i.i = add i64 %agg.tmp2.sroa.3.0.i.i.i.i, 1
   %sub.i.i.i24.i.i.i.i.i = add i64 %agg.tmp2.sroa.3.0.i.i.i.i, -1
   %and.i.i.i25.i.i.i.i.i = and i64 %sub.i.i.i24.i.i.i.i.i, %inc.i20.i.i.i.i.i
@@ -2359,12 +2359,12 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %agg.tmp2.sroa.8.1.i.i.i.i = select i1 %48, ptr null, ptr %incdec.ptr.i27.i.i.i.i.i
   %dec.i.i.i.i.i = add nsw i64 %__n.033.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp sgt i64 %__n.033.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit77, !llvm.loop !89
+  br i1 %cmp.i.i.i.i.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit77, !llvm.loop !88
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit77: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit15.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit
   %sub.i62 = add i64 %add.i48, -1
   %or.i.i.i.i70 = or i64 %sub.i62, 1
-  %49 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i70, i1 true), !range !12
+  %49 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i70, i1 true)
   %xor.i.i.i.i.i.i71 = xor i64 %49, 63
   %50 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8
   %atomic-temp.i.0.i.i.i.i73 = inttoptr i64 %50 to ptr
@@ -2393,7 +2393,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then.i.i91:                                    ; preds = %for.body
   %or.i.i.i.i.i = or i64 %__p.sroa.16.1332, 1
-  %52 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i, i1 true), !range !12
+  %52 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i = xor i64 %52, 63
   %53 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %53 to ptr
@@ -2406,7 +2406,7 @@ if.then.i.i91:                                    ; preds = %for.body
 _ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit: ; preds = %if.then.i.i91, %for.body
   %item.0.i.i = phi ptr [ %arrayidx4.i.i.i.i, %if.then.i.i91 ], [ %__p.sroa.36.1333, %for.body ]
   %or.i.i.i.i6.i = or i64 %__q.sroa.2.0330, 1
-  %55 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i6.i, i1 true), !range !12
+  %55 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i6.i, i1 true)
   %xor.i.i.i.i.i.i7.i = xor i64 %55, 63
   %56 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8
   %atomic-temp.i.0.i.i.i.i9.i = inttoptr i64 %56 to ptr
@@ -2428,7 +2428,7 @@ _ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold1
   %inc.i98 = add i64 %__q.sroa.2.0330, 1
   %inc = add nuw nsw i64 %__i.0334, 1
   %exitcond344.not = icmp eq i64 %inc, %sub11
-  br i1 %exitcond344.not, label %for.end, label %for.body, !llvm.loop !90
+  br i1 %exitcond344.not, label %for.end, label %for.body, !llvm.loop !89
 
 for.end:                                          ; preds = %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit, %if.end23
   %__p.sroa.16.1.lcssa = phi i64 [ %__p.sroa.16.0, %if.end23 ], [ %inc.i, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit ]
@@ -2449,7 +2449,7 @@ if.else35:                                        ; preds = %for.cond
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit128: ; preds = %if.else35
   %sub.i113 = add i64 %add.i109, -1
   %or.i.i.i.i121 = or i64 %sub.i113, 1
-  %61 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i121, i1 true), !range !12
+  %61 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i121, i1 true)
   %xor.i.i.i.i.i.i122 = xor i64 %61, 63
   %62 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8
   %atomic-temp.i.0.i.i.i.i124 = inttoptr i64 %62 to ptr
@@ -2468,29 +2468,29 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %__n.035.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i161, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit29.i.i.i.i.i ], [ %sub.i.i.i.i.i.i150, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit128 ]
   %dec.i.i.i.i.i.i = add i64 %agg.tmp1.sroa.2.0.i.i.i.i, -1
   %or.i.i.i.i.i.i.i.i.i163 = or i64 %dec.i.i.i.i.i.i, 1
-  %65 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i163, i1 true), !range !12
+  %65 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i163, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i164 = xor i64 %65, 63
-  %66 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8, !noalias !91
+  %66 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8, !noalias !90
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i165 = inttoptr i64 %66 to ptr
   %arrayidx.i.i.i.i.i.i.i.i166 = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i165, i64 %xor.i.i.i.i.i.i.i.i.i.i.i164
-  %67 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i166 acquire, align 8, !noalias !91
+  %67 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i166 acquire, align 8, !noalias !90
   %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i167 = inttoptr i64 %67 to ptr
   %arrayidx4.i.i.i.i.i.i.i.i168 = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i167, i64 %dec.i.i.i.i.i.i
-  %68 = load ptr, ptr %arrayidx4.i.i.i.i.i.i.i.i168, align 8, !noalias !91
+  %68 = load ptr, ptr %arrayidx4.i.i.i.i.i.i.i.i168, align 8, !noalias !90
   %dec.i7.i.i.i.i.i = add i64 %agg.tmp2.sroa.3.0.i.i.i.i154, -1
   %or.i.i.i.i22.i.i.i.i.i = or i64 %dec.i7.i.i.i.i.i, 1
-  %69 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i22.i.i.i.i.i, i1 true), !range !12
+  %69 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i22.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i23.i.i.i.i.i = xor i64 %69, 63
-  %70 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8, !noalias !91
+  %70 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8, !noalias !90
   %atomic-temp.i.0.i.i.i.i25.i.i.i.i.i = inttoptr i64 %70 to ptr
   %arrayidx.i.i.i26.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i25.i.i.i.i.i, i64 %xor.i.i.i.i.i.i23.i.i.i.i.i
-  %71 = load atomic i64, ptr %arrayidx.i.i.i26.i.i.i.i.i acquire, align 8, !noalias !91
+  %71 = load atomic i64, ptr %arrayidx.i.i.i26.i.i.i.i.i acquire, align 8, !noalias !90
   %atomic-temp.i.0.i2.i.i.i27.i.i.i.i.i = inttoptr i64 %71 to ptr
   %arrayidx4.i.i.i28.i.i.i.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i27.i.i.i.i.i, i64 %dec.i7.i.i.i.i.i
-  store ptr %68, ptr %arrayidx4.i.i.i28.i.i.i.i.i, align 8, !noalias !91
+  store ptr %68, ptr %arrayidx4.i.i.i28.i.i.i.i.i, align 8, !noalias !90
   %dec.i.i.i.i.i161 = add nsw i64 %__n.035.i.i.i.i.i, -1
   %cmp.i.i.i.i.i162 = icmp ugt i64 %__n.035.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i162, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit29.i.i.i.i.i, label %_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit, !llvm.loop !58
+  br i1 %cmp.i.i.i.i.i162, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit29.i.i.i.i.i, label %_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit, !llvm.loop !57
 
 _ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit29.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit128
   %cmp.i170 = icmp eq ptr %__p.sroa.36.0, null
@@ -2498,7 +2498,7 @@ _ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4
 
 if.then.i172:                                     ; preds = %_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit
   %or.i.i.i.i174 = or i64 %__p.sroa.16.0, 1
-  %72 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i174, i1 true), !range !12
+  %72 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i174, i1 true)
   %xor.i.i.i.i.i.i175 = xor i64 %72, 63
   %73 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8
   %atomic-temp.i.0.i.i.i.i177 = inttoptr i64 %73 to ptr
@@ -2525,7 +2525,7 @@ _ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold1
   %dec.i = add i64 %__p.sroa.16.2325, -1
   %dec.i204 = add i64 %__q50.sroa.3.0324, -1
   %or.i.i.i.i.i240 = or i64 %dec.i, 1
-  %75 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i240, i1 true), !range !12
+  %75 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i240, i1 true)
   %xor.i.i.i.i.i.i.i241 = xor i64 %75, 63
   %76 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i243 = inttoptr i64 %76 to ptr
@@ -2534,7 +2534,7 @@ _ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold1
   %atomic-temp.i.0.i2.i.i.i.i245 = inttoptr i64 %77 to ptr
   %arrayidx4.i.i.i.i246 = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i245, i64 %dec.i
   %or.i.i.i.i6.i231 = or i64 %dec.i204, 1
-  %78 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i6.i231, i1 true), !range !12
+  %78 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i6.i231, i1 true)
   %xor.i.i.i.i.i.i7.i232 = xor i64 %78, 63
   %79 = load atomic i64, ptr %my_segment_table.i.i.i.i242 acquire, align 8
   %atomic-temp.i.0.i.i.i.i9.i234 = inttoptr i64 %79 to ptr
@@ -2548,7 +2548,7 @@ _ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold1
   store ptr %81, ptr %arrayidx4.i.i.i12.i237, align 8
   %inc63 = add nuw nsw i64 %__i53.0327, 1
   %exitcond.not = icmp eq i64 %inc63, %__k.0
-  br i1 %exitcond.not, label %for.end64, label %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit247, !llvm.loop !102
+  br i1 %exitcond.not, label %for.end64, label %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit247, !llvm.loop !101
 
 for.end64:                                        ; preds = %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit247, %if.end49
   %__p.sroa.16.2.lcssa = phi i64 [ %sub.i187, %if.end49 ], [ %__p.sroa.16.0, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit247 ]
@@ -2561,7 +2561,7 @@ for.cond.backedge:                                ; preds = %for.end64, %if.end3
   %__p.sroa.36.0.be = phi ptr [ %__p.sroa.36.1.lcssa, %if.end33 ], [ null, %for.end64 ]
   %__k.0.be = phi i64 [ %sub34, %if.end33 ], [ %rem65, %for.end64 ]
   %__n.0.be = phi i64 [ %__k.0, %if.end33 ], [ %sub11, %for.end64 ]
-  br label %for.cond, !llvm.loop !103
+  br label %for.cond, !llvm.loop !102
 
 return:                                           ; preds = %for.end64, %for.end, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit181, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit77, %_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit, %if.then2, %if.then
   ret void
@@ -2615,13 +2615,13 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store i64 %agg.tmp.sroa.3.0, ptr %my_index.i4.i, align 8
   store ptr %6, ptr %my_item.i.i, align 8
   %add.i.i = add i64 %agg.tmp.sroa.3.0, 7
-  store ptr %2, ptr %agg.tmp1.i, align 8, !alias.scope !104
-  store i64 %add.i.i, ptr %my_index.i.i.i, align 8, !alias.scope !104
-  store ptr null, ptr %my_item.i.i.i, align 8, !alias.scope !104
+  store ptr %2, ptr %agg.tmp1.i, align 8, !alias.scope !103
+  store i64 %add.i.i, ptr %my_index.i.i.i, align 8, !alias.scope !103
+  store ptr null, ptr %my_item.i.i.i, align 8, !alias.scope !103
   call fastcc void @"_ZSt16__insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_"(ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp1.i)
   %sub.i.i = sub nsw i64 %0, %add.i.i
   %cmp.i = icmp sgt i64 %sub.i.i, 6
-  br i1 %cmp.i, label %while.body.i, label %"_ZSt22__chunk_insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_T1_.exit", !llvm.loop !107
+  br i1 %cmp.i, label %while.body.i, label %"_ZSt22__chunk_insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_T1_.exit", !llvm.loop !106
 
 "_ZSt22__chunk_insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_T1_.exit": ; preds = %while.body.i, %entry
   %7 = phi ptr [ %3, %entry ], [ null, %while.body.i ]
@@ -2687,7 +2687,7 @@ land.rhs.lr.ph.i:                                 ; preds = %land.rhs.lr.ph.i.pr
   %__result.addr.046.i = phi ptr [ %__result.addr.0.lcssa.i.i.i.i.i64.i, %"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ], [ %__buffer, %land.rhs.lr.ph.i.preheader ]
   store ptr %14, ptr %agg.tmp.i24.sroa.12, align 8
   %add.i.i35 = add i64 %agg.tmp3.sroa.3.0, %__step_size.0140
-  store ptr null, ptr %agg.tmp2.i.sroa.12, align 8, !alias.scope !108
+  store ptr null, ptr %agg.tmp2.i.sroa.12, align 8, !alias.scope !107
   %add.i12.i = add i64 %agg.tmp3.sroa.3.0, %mul.i
   br label %while.body.i58
 
@@ -2706,7 +2706,7 @@ while.body.i58:                                   ; preds = %land.rhs.lr.ph.i, %
 
 if.then.i.i.i:                                    ; preds = %while.body.i58
   %or.i.i.i.i.i.i = or i64 %agg.tmp2.i.sroa.6.0153, 1
-  %15 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i, i1 true), !range !12
+  %15 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i.i = xor i64 %15, 63
   %16 = load atomic i64, ptr %my_segment_table.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i.i = inttoptr i64 %16 to ptr
@@ -2724,7 +2724,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
 
 if.then.i5.i.i:                                   ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i
   %or.i.i.i.i7.i.i = or i64 %agg.tmp.i24.sroa.6.0154, 1
-  %19 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i7.i.i, i1 true), !range !12
+  %19 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i7.i.i, i1 true)
   %xor.i.i.i.i.i.i8.i.i = xor i64 %19, 63
   %20 = load atomic i64, ptr %my_segment_table.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i10.i.i = inttoptr i64 %20 to ptr
@@ -2751,7 +2751,7 @@ if.then.i:                                        ; preds = %"_ZN9__gnu_cxx5__op
 
 if.then.i.i:                                      ; preds = %if.then.i
   %or.i.i.i.i.i = or i64 %agg.tmp2.i.sroa.6.0153, 1
-  %25 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i, i1 true), !range !12
+  %25 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i = xor i64 %25, 63
   %26 = load atomic i64, ptr %my_segment_table.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %26 to ptr
@@ -2777,7 +2777,7 @@ if.else.i:                                        ; preds = %"_ZN9__gnu_cxx5__op
 
 if.then.i23.i:                                    ; preds = %if.else.i
   %or.i.i.i.i25.i = or i64 %agg.tmp.i24.sroa.6.0154, 1
-  %29 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i25.i, i1 true), !range !12
+  %29 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i25.i, i1 true)
   %xor.i.i.i.i.i.i26.i = xor i64 %29, 63
   %30 = load atomic i64, ptr %my_segment_table.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i28.i = inttoptr i64 %30 to ptr
@@ -2817,7 +2817,7 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__result.addr.098.i155, i64 8
   %cmp3.i.i.i.not = icmp eq i64 %agg.tmp.i24.sroa.6.2, %add.i.i35
   %agg.tmp2.i.sroa.12.0.agg.tmp2.i.sroa.12.0.agg.tmp2.i.sroa.12.0.agg.tmp2.i.sroa.12.16..pre = load ptr, ptr %agg.tmp2.i.sroa.12, align 8
-  br i1 %cmp3.i.i.i.not, label %while.end.i, label %land.rhs.ithread-pre-split, !llvm.loop !111
+  br i1 %cmp3.i.i.i.not, label %while.end.i, label %land.rhs.ithread-pre-split, !llvm.loop !110
 
 while.end.i:                                      ; preds = %land.rhs.ithread-pre-split, %if.end.i
   %agg.tmp2.i.sroa.6.3 = phi i64 [ %agg.tmp2.i.sroa.6.2, %if.end.i ], [ %add.i12.i, %land.rhs.ithread-pre-split ]
@@ -2840,7 +2840,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNK3tbb6detail2d11
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i
   %or.i.i.i.i.i.i.i.i.i.i = or i64 %agg.tmp.sroa.2.0.i.i.i.i.i, 1
-  %33 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i, i1 true), !range !12
+  %33 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i.i = xor i64 %33, 63
   %34 = load atomic i64, ptr %my_segment_table.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i.i = inttoptr i64 %34 to ptr
@@ -2864,7 +2864,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i.i = add nsw i64 %__n.010.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp sgt i64 %__n.010.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit.i, !llvm.loop !112
+  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit.i, !llvm.loop !111
 
 _ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit.i: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i, %while.end.i
   %__result.addr.0.lcssa.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i, %while.end.i ], [ %incdec.ptr.i.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i ]
@@ -2882,7 +2882,7 @@ for.body.i.i.i.i.i68.i:                           ; preds = %_ZSt4moveIN3tbb6det
 
 if.then.i.i.i.i.i.i85.i:                          ; preds = %for.body.i.i.i.i.i68.i
   %or.i.i.i.i.i.i.i.i.i86.i = or i64 %agg.tmp.sroa.2.0.i.i.i.i69.i, 1
-  %38 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i86.i, i1 true), !range !12
+  %38 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i86.i, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i87.i = xor i64 %38, 63
   %39 = load atomic i64, ptr %my_segment_table.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i88.i = inttoptr i64 %39 to ptr
@@ -2906,13 +2906,13 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %incdec.ptr.i.i.i.i.i82.i = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i72.i, i64 8
   %dec.i.i.i.i.i83.i = add nsw i64 %__n.010.i.i.i.i.i71.i, -1
   %cmp.i.i.i.i.i84.i = icmp sgt i64 %__n.010.i.i.i.i.i71.i, 1
-  br i1 %cmp.i.i.i.i.i84.i, label %for.body.i.i.i.i.i68.i, label %"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit", !llvm.loop !112
+  br i1 %cmp.i.i.i.i.i84.i, label %for.body.i.i.i.i.i68.i, label %"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit", !llvm.loop !111
 
 "_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit": ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i74.i, %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit.i
   %__result.addr.0.lcssa.i.i.i.i.i64.i = phi ptr [ %__result.addr.0.lcssa.i.i.i.i.i.i, %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit.i ], [ %incdec.ptr.i.i.i.i.i82.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i74.i ]
   %sub.i.i36 = sub nsw i64 %12, %add.i12.i
   %cmp.not.i = icmp slt i64 %sub.i.i36, %mul.i
-  br i1 %cmp.not.i, label %"_ZSt17__merge_sort_loopIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_T2_.exit", label %land.rhs.lr.ph.i, !llvm.loop !113
+  br i1 %cmp.not.i, label %"_ZSt17__merge_sort_loopIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_T2_.exit", label %land.rhs.lr.ph.i, !llvm.loop !112
 
 "_ZSt17__merge_sort_loopIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_T2_.exit": ; preds = %"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit", %while.body
   %43 = phi ptr [ %10, %while.body ], [ null, %"_ZSt12__move_mergeIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ]
@@ -2924,12 +2924,12 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   store i64 %.lcssa.i37, ptr %my_index.i21.i, align 8
   store ptr %43, ptr %my_item.i23.i, align 8
   %add.i26.i = add i64 %.sroa.speculated.i, %.lcssa.i37
-  store ptr %8, ptr %agg.tmp10.i, align 8, !alias.scope !114
-  store i64 %add.i26.i, ptr %my_index.i.i27.i, align 8, !alias.scope !114
-  store ptr null, ptr %my_item.i.i28.i, align 8, !alias.scope !114
-  store ptr %8, ptr %agg.tmp11.i, align 8, !alias.scope !117
-  store i64 %add.i26.i, ptr %my_index.i.i31.i, align 8, !alias.scope !117
-  store ptr null, ptr %my_item.i.i32.i, align 8, !alias.scope !117
+  store ptr %8, ptr %agg.tmp10.i, align 8, !alias.scope !113
+  store i64 %add.i26.i, ptr %my_index.i.i27.i, align 8, !alias.scope !113
+  store ptr null, ptr %my_item.i.i28.i, align 8, !alias.scope !113
+  store ptr %8, ptr %agg.tmp11.i, align 8, !alias.scope !116
+  store i64 %add.i26.i, ptr %my_index.i.i31.i, align 8, !alias.scope !116
+  store ptr null, ptr %my_item.i.i32.i, align 8, !alias.scope !116
   store ptr %11, ptr %agg.tmp12.i, align 8
   store i64 %12, ptr %my_index.i33.i, align 8
   store ptr %13, ptr %my_item.i35.i, align 8
@@ -2967,12 +2967,12 @@ while.body.i86:                                   ; preds = %while.body.i49, %if
   %agg.tmp.i43.sroa.12.0 = phi ptr [ %agg.tmp.i43.sroa.12.1, %if.end.i90 ], [ %47, %while.body.i49 ]
   %__first1.addr.068.i = phi ptr [ %__first1.addr.1.i, %if.end.i90 ], [ %__first.addr.030.i, %while.body.i49 ]
   %__first2.addr.067.i = phi ptr [ %__first2.addr.1.i, %if.end.i90 ], [ %add.ptr.i, %while.body.i49 ]
-  %__first2.addr.0.val.i = load ptr, ptr %__first2.addr.067.i, align 8, !noalias !120
-  %__first1.addr.0.val.i = load ptr, ptr %__first1.addr.068.i, align 8, !noalias !120
+  %__first2.addr.0.val.i = load ptr, ptr %__first2.addr.067.i, align 8, !noalias !119
+  %__first1.addr.0.val.i = load ptr, ptr %__first1.addr.068.i, align 8, !noalias !119
   %49 = getelementptr i8, ptr %__first2.addr.0.val.i, i64 112
-  %__first2.addr.0.val.val.i = load i64, ptr %49, align 8, !noalias !120
+  %__first2.addr.0.val.val.i = load i64, ptr %49, align 8, !noalias !119
   %50 = getelementptr i8, ptr %__first1.addr.0.val.i, i64 112
-  %__first1.addr.0.val.val.i = load i64, ptr %50, align 8, !noalias !120
+  %__first1.addr.0.val.val.i = load i64, ptr %50, align 8, !noalias !119
   %cmp.i.i.i87 = icmp slt i64 %__first2.addr.0.val.val.i, %__first1.addr.0.val.val.i
   %cmp.i.i88 = icmp eq ptr %agg.tmp.i43.sroa.12.0, null
   br i1 %cmp.i.i.i87, label %if.then.i94, label %if.else.i89
@@ -2982,19 +2982,19 @@ if.then.i94:                                      ; preds = %while.body.i86
 
 if.then.i.i98:                                    ; preds = %if.then.i94
   %or.i.i.i.i.i99 = or i64 %agg.tmp.i43.sroa.6.0, 1
-  %51 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i99, i1 true), !range !12
+  %51 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i99, i1 true)
   %xor.i.i.i.i.i.i.i100 = xor i64 %51, 63
-  %52 = load atomic i64, ptr %my_segment_table.i.i.i18.i acquire, align 8, !noalias !120
+  %52 = load atomic i64, ptr %my_segment_table.i.i.i18.i acquire, align 8, !noalias !119
   %atomic-temp.i.0.i.i.i.i.i102 = inttoptr i64 %52 to ptr
   %arrayidx.i.i.i.i103 = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i102, i64 %xor.i.i.i.i.i.i.i100
-  %53 = load atomic i64, ptr %arrayidx.i.i.i.i103 acquire, align 8, !noalias !120
+  %53 = load atomic i64, ptr %arrayidx.i.i.i.i103 acquire, align 8, !noalias !119
   %atomic-temp.i.0.i2.i.i.i.i104 = inttoptr i64 %53 to ptr
   %arrayidx4.i.i.i.i105 = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i104, i64 %agg.tmp.i43.sroa.6.0
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i95
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i95: ; preds = %if.then.i.i98, %if.then.i94
   %item.0.i.i96 = phi ptr [ %arrayidx4.i.i.i.i105, %if.then.i.i98 ], [ %agg.tmp.i43.sroa.12.0, %if.then.i94 ]
-  store ptr %__first2.addr.0.val.i, ptr %item.0.i.i96, align 8, !noalias !120
+  store ptr %__first2.addr.0.val.i, ptr %item.0.i.i96, align 8, !noalias !119
   %incdec.ptr.i97 = getelementptr inbounds i8, ptr %__first2.addr.067.i, i64 8
   br label %if.end.i90
 
@@ -3003,19 +3003,19 @@ if.else.i89:                                      ; preds = %while.body.i86
 
 if.then.i14.i:                                    ; preds = %if.else.i89
   %or.i.i.i.i16.i = or i64 %agg.tmp.i43.sroa.6.0, 1
-  %54 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i16.i, i1 true), !range !12
+  %54 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i16.i, i1 true)
   %xor.i.i.i.i.i.i17.i = xor i64 %54, 63
-  %55 = load atomic i64, ptr %my_segment_table.i.i.i18.i acquire, align 8, !noalias !120
+  %55 = load atomic i64, ptr %my_segment_table.i.i.i18.i acquire, align 8, !noalias !119
   %atomic-temp.i.0.i.i.i.i19.i = inttoptr i64 %55 to ptr
   %arrayidx.i.i.i20.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i19.i, i64 %xor.i.i.i.i.i.i17.i
-  %56 = load atomic i64, ptr %arrayidx.i.i.i20.i acquire, align 8, !noalias !120
+  %56 = load atomic i64, ptr %arrayidx.i.i.i20.i acquire, align 8, !noalias !119
   %atomic-temp.i.0.i2.i.i.i21.i = inttoptr i64 %56 to ptr
   %arrayidx4.i.i.i22.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i21.i, i64 %agg.tmp.i43.sroa.6.0
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit23.i
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit23.i: ; preds = %if.then.i14.i, %if.else.i89
   %item.0.i13.i = phi ptr [ %arrayidx4.i.i.i22.i, %if.then.i14.i ], [ %agg.tmp.i43.sroa.12.0, %if.else.i89 ]
-  store ptr %__first1.addr.0.val.i, ptr %item.0.i13.i, align 8, !noalias !120
+  store ptr %__first1.addr.0.val.i, ptr %item.0.i13.i, align 8, !noalias !119
   %incdec.ptr4.i = getelementptr inbounds i8, ptr %__first1.addr.068.i, i64 8
   br label %if.end.i90
 
@@ -3032,7 +3032,7 @@ if.end.i90:                                       ; preds = %_ZNK3tbb6detail2d11
   %cmp.i93 = icmp ne ptr %__first1.addr.1.i, %add.ptr.i
   %cmp1.i = icmp ne ptr %__first2.addr.1.i, %add.ptr2.i
   %58 = select i1 %cmp.i93, i1 %cmp1.i, i1 false
-  br i1 %58, label %while.body.i86, label %while.end.i61, !llvm.loop !123
+  br i1 %58, label %while.body.i86, label %while.end.i61, !llvm.loop !122
 
 while.end.i61:                                    ; preds = %if.end.i90, %while.body.i49
   %59 = phi ptr [ %47, %while.body.i49 ], [ %agg.tmp.i43.sroa.12.1, %if.end.i90 ]
@@ -3051,25 +3051,25 @@ for.body.i.i.i.i.i.i64:                           ; preds = %while.end.i61, %_ZN
   %agg.tmp.sroa.8.0.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.8.1.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i66 ], [ %59, %while.end.i61 ]
   %__n.011.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i74, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i66 ], [ %sub.ptr.div.i.i.i.i.i.i, %while.end.i61 ]
   %__first.addr.010.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i68, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i66 ], [ %__first1.addr.0.lcssa.i, %while.end.i61 ]
-  %61 = load ptr, ptr %__first.addr.010.i.i.i.i.i.i, align 8, !noalias !124
+  %61 = load ptr, ptr %__first.addr.010.i.i.i.i.i.i, align 8, !noalias !123
   %cmp.i.i.i.i.i.i.i65 = icmp eq ptr %agg.tmp.sroa.8.0.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i65, label %if.then.i.i.i.i.i.i.i76, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i66
 
 if.then.i.i.i.i.i.i.i76:                          ; preds = %for.body.i.i.i.i.i.i64
   %or.i.i.i.i.i.i.i.i.i.i77 = or i64 %agg.tmp.sroa.3.0.i.i.i.i.i, 1
-  %62 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i77, i1 true), !range !12
+  %62 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i77, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i.i78 = xor i64 %62, 63
-  %63 = load atomic i64, ptr %my_segment_table.i.i.i18.i acquire, align 8, !noalias !124
+  %63 = load atomic i64, ptr %my_segment_table.i.i.i18.i acquire, align 8, !noalias !123
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i.i79 = inttoptr i64 %63 to ptr
   %arrayidx.i.i.i.i.i.i.i.i.i80 = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i.i79, i64 %xor.i.i.i.i.i.i.i.i.i.i.i.i78
-  %64 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i80 acquire, align 8, !noalias !124
+  %64 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i80 acquire, align 8, !noalias !123
   %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i.i81 = inttoptr i64 %64 to ptr
   %arrayidx4.i.i.i.i.i.i.i.i.i82 = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i.i81, i64 %agg.tmp.sroa.3.0.i.i.i.i.i
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i66
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i66: ; preds = %if.then.i.i.i.i.i.i.i76, %for.body.i.i.i.i.i.i64
   %item.0.i.i.i.i.i.i.i67 = phi ptr [ %arrayidx4.i.i.i.i.i.i.i.i.i82, %if.then.i.i.i.i.i.i.i76 ], [ %agg.tmp.sroa.8.0.i.i.i.i.i, %for.body.i.i.i.i.i.i64 ]
-  store ptr %61, ptr %item.0.i.i.i.i.i.i.i67, align 8, !noalias !124
+  store ptr %61, ptr %item.0.i.i.i.i.i.i.i67, align 8, !noalias !123
   %incdec.ptr.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i.i.i69 = add i64 %agg.tmp.sroa.3.0.i.i.i.i.i, 1
   %sub.i.i.i.i.i.i.i.i.i70 = add i64 %agg.tmp.sroa.3.0.i.i.i.i.i, -1
@@ -3080,7 +3080,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %agg.tmp.sroa.8.1.i.i.i.i.i = select i1 %65, ptr null, ptr %incdec.ptr.i.i.i.i.i.i.i73
   %dec.i.i.i.i.i.i74 = add nsw i64 %__n.011.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i75 = icmp sgt i64 %__n.011.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i75, label %for.body.i.i.i.i.i.i64, label %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit.i, !llvm.loop !135
+  br i1 %cmp.i.i.i.i.i.i75, label %for.body.i.i.i.i.i.i64, label %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit.i, !llvm.loop !134
 
 _ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit.i: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i66, %while.end.i61
   %66 = phi ptr [ %59, %while.end.i61 ], [ %agg.tmp.sroa.8.1.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i66 ]
@@ -3097,25 +3097,25 @@ for.body.i.i.i.i.i40.i:                           ; preds = %_ZSt4moveIPPN4mold1
   %agg.tmp.sroa.8.0.i.i.i.i42.i = phi ptr [ %agg.tmp.sroa.8.1.i.i.i.i54.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46.i ], [ %66, %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit.i ]
   %__n.011.i.i.i.i.i43.i = phi i64 [ %dec.i.i.i.i.i55.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46.i ], [ %sub.ptr.div.i.i.i.i.i34.i, %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit.i ]
   %__first.addr.010.i.i.i.i.i44.i = phi ptr [ %incdec.ptr.i.i.i.i.i48.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46.i ], [ %__first2.addr.0.lcssa.i, %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit.i ]
-  %68 = load ptr, ptr %__first.addr.010.i.i.i.i.i44.i, align 8, !noalias !136
+  %68 = load ptr, ptr %__first.addr.010.i.i.i.i.i44.i, align 8, !noalias !135
   %cmp.i.i.i.i.i.i45.i = icmp eq ptr %agg.tmp.sroa.8.0.i.i.i.i42.i, null
   br i1 %cmp.i.i.i.i.i.i45.i, label %if.then.i.i.i.i.i.i57.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46.i
 
 if.then.i.i.i.i.i.i57.i:                          ; preds = %for.body.i.i.i.i.i40.i
   %or.i.i.i.i.i.i.i.i.i58.i = or i64 %agg.tmp.sroa.3.0.i.i.i.i41.i, 1
-  %69 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i58.i, i1 true), !range !12
+  %69 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i58.i, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i59.i = xor i64 %69, 63
-  %70 = load atomic i64, ptr %my_segment_table.i.i.i18.i acquire, align 8, !noalias !136
+  %70 = load atomic i64, ptr %my_segment_table.i.i.i18.i acquire, align 8, !noalias !135
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i60.i = inttoptr i64 %70 to ptr
   %arrayidx.i.i.i.i.i.i.i.i61.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i60.i, i64 %xor.i.i.i.i.i.i.i.i.i.i.i59.i
-  %71 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i61.i acquire, align 8, !noalias !136
+  %71 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i61.i acquire, align 8, !noalias !135
   %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i62.i = inttoptr i64 %71 to ptr
   %arrayidx4.i.i.i.i.i.i.i.i63.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i62.i, i64 %agg.tmp.sroa.3.0.i.i.i.i41.i
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46.i
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46.i: ; preds = %if.then.i.i.i.i.i.i57.i, %for.body.i.i.i.i.i40.i
   %item.0.i.i.i.i.i.i47.i = phi ptr [ %arrayidx4.i.i.i.i.i.i.i.i63.i, %if.then.i.i.i.i.i.i57.i ], [ %agg.tmp.sroa.8.0.i.i.i.i42.i, %for.body.i.i.i.i.i40.i ]
-  store ptr %68, ptr %item.0.i.i.i.i.i.i47.i, align 8, !noalias !136
+  store ptr %68, ptr %item.0.i.i.i.i.i.i47.i, align 8, !noalias !135
   %incdec.ptr.i.i.i.i.i48.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i.i.i44.i, i64 8
   %inc.i.i.i.i.i.i49.i = add i64 %agg.tmp.sroa.3.0.i.i.i.i41.i, 1
   %sub.i.i.i.i.i.i.i.i50.i = add i64 %agg.tmp.sroa.3.0.i.i.i.i41.i, -1
@@ -3126,7 +3126,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %agg.tmp.sroa.8.1.i.i.i.i54.i = select i1 %72, ptr null, ptr %incdec.ptr.i.i.i.i.i.i53.i
   %dec.i.i.i.i.i55.i = add nsw i64 %__n.011.i.i.i.i.i43.i, -1
   %cmp.i.i.i.i.i56.i = icmp sgt i64 %__n.011.i.i.i.i.i43.i, 1
-  br i1 %cmp.i.i.i.i.i56.i, label %for.body.i.i.i.i.i40.i, label %"_ZSt12__move_mergeIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit", !llvm.loop !135
+  br i1 %cmp.i.i.i.i.i56.i, label %for.body.i.i.i.i.i40.i, label %"_ZSt12__move_mergeIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit", !llvm.loop !134
 
 "_ZSt12__move_mergeIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit": ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46.i, %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit.i
   %73 = phi ptr [ %66, %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit.i ], [ %agg.tmp.sroa.8.1.i.i.i.i54.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46.i ]
@@ -3134,7 +3134,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast.i.i.i.i.i31.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.not.i50 = icmp slt i64 %sub.ptr.div.i, %mul.i44
-  br i1 %cmp.not.i50, label %"_ZSt17__merge_sort_loopIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEEvT_SJ_T0_T1_T2_.exit", label %while.body.i49, !llvm.loop !147
+  br i1 %cmp.not.i50, label %"_ZSt17__merge_sort_loopIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEEvT_SJ_T0_T1_T2_.exit", label %while.body.i49, !llvm.loop !146
 
 "_ZSt17__merge_sort_loopIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEEvT_SJ_T0_T1_T2_.exit": ; preds = %"_ZSt12__move_mergeIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit", %"_ZSt17__merge_sort_loopIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_T2_.exit"
   %75 = phi ptr [ %46, %"_ZSt17__merge_sort_loopIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SJ_T0_T1_T2_.exit" ], [ %73, %"_ZSt12__move_mergeIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ]
@@ -3150,7 +3150,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp13.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i)
   %cmp = icmp slt i64 %mul.i44, %sub.i
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !148
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !147
 
 while.end:                                        ; preds = %"_ZSt17__merge_sort_loopIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEEvT_SJ_T0_T1_T2_.exit", %"_ZSt22__chunk_insertion_sortIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_SI_T0_T1_.exit"
   ret void
@@ -3201,7 +3201,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNK3tbb6detail2d11
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i
   %or.i.i.i.i.i.i.i.i.i = or i64 %agg.tmp.sroa.2.0.i.i.i.i, 1
-  %4 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i, i1 true), !range !12
+  %4 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i64 %4, 63
   %5 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i = inttoptr i64 %5 to ptr
@@ -3225,7 +3225,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i = add nsw i64 %__n.010.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp sgt i64 %__n.010.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %land.rhs.i.preheader, !llvm.loop !112
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %land.rhs.i.preheader, !llvm.loop !111
 
 land.rhs.i.preheader:                             ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i
   %my_index3.i40 = getelementptr inbounds i8, ptr %__last, i64 8
@@ -3258,7 +3258,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4moldL9print_recERNS2_11TimerRecordElE3$_0EclIN3tbb6detail2d115vector_iteratorINSA_17concurrent_vectorIPS3_NSA_23cache_aligned_allocatorISD_EEEESD_EEPSD_EEbT_T0_.exit.i": ; preds = %while.body.i
   %or.i.i.i.i.i.i = or i64 %agg.tmp3.sroa.3.0, 1
-  %17 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i, i1 true), !range !12
+  %17 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i.i = xor i64 %17, 63
   %18 = load atomic i64, ptr %my_segment_table.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i.i = inttoptr i64 %18 to ptr
@@ -3302,7 +3302,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
 
 if.then.i15.i:                                    ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i
   %or.i.i.i.i17.i = or i64 %agg.tmp5.sroa.4.0, 1
-  %31 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i17.i, i1 true), !range !12
+  %31 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i17.i, i1 true)
   %xor.i.i.i.i.i.i18.i = xor i64 %31, 63
   %32 = load atomic i64, ptr %my_segment_table.i.i.i35.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i20.i = inttoptr i64 %32 to ptr
@@ -3333,7 +3333,7 @@ if.else.i:                                        ; preds = %"_ZN9__gnu_cxx5__op
 
 if.then.i31.i:                                    ; preds = %if.else.i
   %or.i.i.i.i33.i = or i64 %agg.tmp5.sroa.4.0, 1
-  %35 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i33.i, i1 true), !range !12
+  %35 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i33.i, i1 true)
   %xor.i.i.i.i.i.i34.i = xor i64 %35, 63
   %36 = load atomic i64, ptr %my_segment_table.i.i.i35.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i36.i = inttoptr i64 %36 to ptr
@@ -3362,7 +3362,7 @@ if.end.i:                                         ; preds = %_ZNK3tbb6detail2d11
   %38 = select i1 %cmp.not.i44.i, i1 true, i1 %cmp.i.i.i48.i
   %agg.tmp5.sroa.10.1 = select i1 %38, ptr null, ptr %incdec.ptr.i49.i
   %cmp.not.i = icmp eq ptr %__first1.addr.1.i, %incdec.ptr.i.i.i.i.i
-  br i1 %cmp.not.i, label %if.end56, label %land.rhs.i, !llvm.loop !149
+  br i1 %cmp.not.i, label %if.end56, label %land.rhs.i, !llvm.loop !148
 
 if.then8.i:                                       ; preds = %land.rhs.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i.i.i to i64
@@ -3377,25 +3377,25 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then8.i, %_ZNK3t
   %agg.tmp.sroa.8.0.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.8.1.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i ], [ %agg.tmp5.sroa.10.0, %if.then8.i ]
   %__n.011.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %if.then8.i ]
   %__first.addr.010.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i48, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i ], [ %__first1.addr.059.i, %if.then8.i ]
-  %39 = load ptr, ptr %__first.addr.010.i.i.i.i.i.i, align 8, !noalias !150
+  %39 = load ptr, ptr %__first.addr.010.i.i.i.i.i.i, align 8, !noalias !149
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.8.0.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i
   %or.i.i.i.i.i.i.i.i.i.i = or i64 %agg.tmp.sroa.3.0.i.i.i.i.i, 1
-  %40 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i, i1 true), !range !12
+  %40 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i.i = xor i64 %40, 63
-  %41 = load atomic i64, ptr %my_segment_table.i.i.i35.i acquire, align 8, !noalias !150
+  %41 = load atomic i64, ptr %my_segment_table.i.i.i35.i acquire, align 8, !noalias !149
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i.i = inttoptr i64 %41 to ptr
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i.i, i64 %xor.i.i.i.i.i.i.i.i.i.i.i.i
-  %42 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i acquire, align 8, !noalias !150
+  %42 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i acquire, align 8, !noalias !149
   %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i.i = inttoptr i64 %42 to ptr
   %arrayidx4.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i.i, i64 %agg.tmp.sroa.3.0.i.i.i.i.i
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   %item.0.i.i.i.i.i.i.i = phi ptr [ %arrayidx4.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.8.0.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  store ptr %39, ptr %item.0.i.i.i.i.i.i.i, align 8, !noalias !150
+  store ptr %39, ptr %item.0.i.i.i.i.i.i.i, align 8, !noalias !149
   %incdec.ptr.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i.i.i = add i64 %agg.tmp.sroa.3.0.i.i.i.i.i, 1
   %sub.i.i.i.i.i.i.i.i.i = add i64 %agg.tmp.sroa.3.0.i.i.i.i.i, -1
@@ -3406,7 +3406,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %agg.tmp.sroa.8.1.i.i.i.i.i = select i1 %43, ptr null, ptr %incdec.ptr.i.i.i.i.i.i.i
   %dec.i.i.i.i.i.i = add nsw i64 %__n.011.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i49 = icmp sgt i64 %__n.011.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i49, label %for.body.i.i.i.i.i.i, label %if.end56, !llvm.loop !135
+  br i1 %cmp.i.i.i.i.i.i49, label %for.body.i.i.i.i.i.i, label %if.end56, !llvm.loop !134
 
 if.else:                                          ; preds = %entry
   %cmp7.not = icmp sgt i64 %__len2, %__buffer_size
@@ -3439,7 +3439,7 @@ for.body.i.i.i.i.i66:                             ; preds = %_ZNK3tbb6detail2d11
 
 if.then.i.i.i.i.i.i83:                            ; preds = %for.body.i.i.i.i.i66
   %or.i.i.i.i.i.i.i.i.i84 = or i64 %agg.tmp.sroa.2.0.i.i.i.i67, 1
-  %48 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i84, i1 true), !range !12
+  %48 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i84, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i85 = xor i64 %48, 63
   %49 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i65 acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i86 = inttoptr i64 %49 to ptr
@@ -3463,7 +3463,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %incdec.ptr.i.i.i.i.i80 = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i70, i64 8
   %dec.i.i.i.i.i81 = add nsw i64 %__n.010.i.i.i.i.i69, -1
   %cmp.i.i.i.i.i82 = icmp sgt i64 %__n.010.i.i.i.i.i69, 1
-  br i1 %cmp.i.i.i.i.i82, label %for.body.i.i.i.i.i66, label %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit90.loopexit, !llvm.loop !112
+  br i1 %cmp.i.i.i.i.i82, label %for.body.i.i.i.i.i66, label %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit90.loopexit, !llvm.loop !111
 
 _ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit90.loopexit: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i72
   %.pre527 = load i64, ptr %my_index3.i51, align 8
@@ -3504,7 +3504,7 @@ for.body.i.i.i.i.i.i146:                          ; preds = %_ZNK3tbb6detail2d11
   %__n.011.i.i.i.i.i.i148 = phi i64 [ %dec.i.i.i.i.i.i156, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i154 ], [ %sub.ptr.div.i.i.i.i.i.i140, %for.body.i.preheader.i.i.i.i.i142 ]
   %__last.addr.010.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i149, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i154 ], [ %__result.addr.0.lcssa.i.i.i.i.i62, %for.body.i.preheader.i.i.i.i.i142 ]
   %incdec.ptr.i.i.i.i.i.i149 = getelementptr inbounds i8, ptr %__last.addr.010.i.i.i.i.i.i, i64 -8
-  %62 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i149, align 8, !noalias !161
+  %62 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i149, align 8, !noalias !160
   %dec.i.i.i.i.i.i.i = add i64 %agg.tmp.sroa.3.0.i.i.i.i.i147, -1
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.7.0.i.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %if.then.i4.i.i.i.i.i.i, label %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i.i
@@ -3518,12 +3518,12 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordE
 
 if.then.i4.i.i.i.i.i.i:                           ; preds = %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i.i, %for.body.i.i.i.i.i.i146
   %or.i.i.i.i.i.i.i.i.i.i158 = or i64 %dec.i.i.i.i.i.i.i, 1
-  %63 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i158, i1 true), !range !12
+  %63 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i.i158, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i.i159 = xor i64 %63, 63
-  %64 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i.i145 acquire, align 8, !noalias !161
+  %64 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i.i145 acquire, align 8, !noalias !160
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i.i160 = inttoptr i64 %64 to ptr
   %arrayidx.i.i.i.i.i.i.i.i.i161 = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i.i160, i64 %xor.i.i.i.i.i.i.i.i.i.i.i.i159
-  %65 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i161 acquire, align 8, !noalias !161
+  %65 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i161 acquire, align 8, !noalias !160
   %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i.i162 = inttoptr i64 %65 to ptr
   %arrayidx4.i.i.i.i.i.i.i.i.i163 = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i.i162, i64 %dec.i.i.i.i.i.i.i
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i154
@@ -3531,10 +3531,10 @@ if.then.i4.i.i.i.i.i.i:                           ; preds = %_ZN3tbb6detail2d115
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i.i154: ; preds = %if.then.i4.i.i.i.i.i.i, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i.i
   %agg.tmp.sroa.7.2.i.i.i.i.i = phi ptr [ null, %if.then.i4.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i153, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i.i ]
   %item.0.i.i.i.i.i.i.i155 = phi ptr [ %arrayidx4.i.i.i.i.i.i.i.i.i163, %if.then.i4.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i153, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i.i ]
-  store ptr %62, ptr %item.0.i.i.i.i.i.i.i155, align 8, !noalias !161
+  store ptr %62, ptr %item.0.i.i.i.i.i.i.i155, align 8, !noalias !160
   %dec.i.i.i.i.i.i156 = add nsw i64 %__n.011.i.i.i.i.i.i148, -1
   %cmp.i.i.i.i.i.i157 = icmp sgt i64 %__n.011.i.i.i.i.i.i148, 1
-  br i1 %cmp.i.i.i.i.i.i157, label %for.body.i.i.i.i.i.i146, label %if.end56, !llvm.loop !172
+  br i1 %cmp.i.i.i.i.i.i157, label %for.body.i.i.i.i.i.i146, label %if.end56, !llvm.loop !171
 
 if.else.i104:                                     ; preds = %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit90
   %cmp.i = icmp eq ptr %__result.addr.0.lcssa.i.i.i.i.i62, %__buffer
@@ -3562,7 +3562,7 @@ while.body.i113.outer:                            ; preds = %if.end15.i, %if.end
   %__last2.addr.0.i.ph = phi ptr [ %incdec.ptr.i112, %if.end2.i ], [ %__last2.addr.0.i, %if.end15.i ]
   %cmp.i.i.i114 = icmp eq ptr %.ph, null
   %or.i.i.i.i.i.i129 = or i64 %agg.tmp14.sroa.5.0.ph, 1
-  %67 = tail call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i129, i1 true), !range !12
+  %67 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i129, i1 true)
   %xor.i.i.i.i.i.i.i.i130 = xor i64 %67, 63
   br label %while.body.i113
 
@@ -3599,7 +3599,7 @@ while.body.i113:                                  ; preds = %while.body.i113.out
 
 if.then.i20.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4moldL9print_recERNS2_11TimerRecordElE3$_0EclIPPS3_N3tbb6detail2d115vector_iteratorINSC_17concurrent_vectorIS8_NSC_23cache_aligned_allocatorIS8_EEEES8_EEEEbT_T0_.exit.i"
   %or.i.i.i.i.i121 = or i64 %agg.tmp14.sroa.5.0.ph, 1
-  %76 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i121, i1 true), !range !12
+  %76 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i121, i1 true)
   %xor.i.i.i.i.i.i.i122 = xor i64 %76, 63
   %77 = load atomic i64, ptr %my_segment_table.i.i.i.i.i131 acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i124 = inttoptr i64 %77 to ptr
@@ -3625,7 +3625,7 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordE
 
 if.then.i36.i:                                    ; preds = %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit32.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i119
   %or.i.i.i.i38.i = or i64 %dec.i23.i, 1
-  %80 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i38.i, i1 true), !range !12
+  %80 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i38.i, i1 true)
   %xor.i.i.i.i.i.i39.i = xor i64 %80, 63
   %81 = load atomic i64, ptr %my_segment_table.i.i.i122.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i41.i = inttoptr i64 %81 to ptr
@@ -3658,7 +3658,7 @@ for.body.i.i.i.i.i67.i:                           ; preds = %if.then11.i, %_ZNK3
   %__n.011.i.i.i.i.i70.i = phi i64 [ %dec.i.i.i.i.i83.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i80.i ], [ %sub.ptr.div.i.i.i.i.i59.i, %if.then11.i ]
   %__last.addr.010.i.i.i.i.i71.i = phi ptr [ %incdec.ptr.i.i.i.i.i72.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i80.i ], [ %incdec.ptr12.i, %if.then11.i ]
   %incdec.ptr.i.i.i.i.i72.i = getelementptr inbounds i8, ptr %__last.addr.010.i.i.i.i.i71.i, i64 -8
-  %84 = load ptr, ptr %incdec.ptr.i.i.i.i.i72.i, align 8, !noalias !173
+  %84 = load ptr, ptr %incdec.ptr.i.i.i.i.i72.i, align 8, !noalias !172
   %dec.i.i.i.i.i.i73.i = add i64 %agg.tmp.sroa.3.0.i.i.i.i68.i, -1
   %cmp.not.i.i.i.i.i.i74.i = icmp eq ptr %agg.tmp.sroa.7.0.i.i.i.i69.i, null
   br i1 %cmp.not.i.i.i.i.i.i74.i, label %if.then.i4.i.i.i.i.i85.i, label %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i75.i
@@ -3672,12 +3672,12 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordE
 
 if.then.i4.i.i.i.i.i85.i:                         ; preds = %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i75.i, %for.body.i.i.i.i.i67.i
   %or.i.i.i.i.i.i.i.i.i86.i = or i64 %dec.i.i.i.i.i.i73.i, 1
-  %85 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i86.i, i1 true), !range !12
+  %85 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i86.i, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i87.i = xor i64 %85, 63
-  %86 = load atomic i64, ptr %my_segment_table.i.i.i122.i acquire, align 8, !noalias !173
+  %86 = load atomic i64, ptr %my_segment_table.i.i.i122.i acquire, align 8, !noalias !172
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i88.i = inttoptr i64 %86 to ptr
   %arrayidx.i.i.i.i.i.i.i.i89.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i88.i, i64 %xor.i.i.i.i.i.i.i.i.i.i.i87.i
-  %87 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i89.i acquire, align 8, !noalias !173
+  %87 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i89.i acquire, align 8, !noalias !172
   %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i90.i = inttoptr i64 %87 to ptr
   %arrayidx4.i.i.i.i.i.i.i.i91.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i90.i, i64 %dec.i.i.i.i.i.i73.i
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i80.i
@@ -3685,10 +3685,10 @@ if.then.i4.i.i.i.i.i85.i:                         ; preds = %_ZN3tbb6detail2d115
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i80.i: ; preds = %if.then.i4.i.i.i.i.i85.i, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i75.i
   %agg.tmp.sroa.7.2.i.i.i.i81.i = phi ptr [ null, %if.then.i4.i.i.i.i.i85.i ], [ %incdec.ptr.i.i.i.i.i.i79.i, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i75.i ]
   %item.0.i.i.i.i.i.i82.i = phi ptr [ %arrayidx4.i.i.i.i.i.i.i.i91.i, %if.then.i4.i.i.i.i.i85.i ], [ %incdec.ptr.i.i.i.i.i.i79.i, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i75.i ]
-  store ptr %84, ptr %item.0.i.i.i.i.i.i82.i, align 8, !noalias !173
+  store ptr %84, ptr %item.0.i.i.i.i.i.i82.i, align 8, !noalias !172
   %dec.i.i.i.i.i83.i = add nsw i64 %__n.011.i.i.i.i.i70.i, -1
   %cmp.i.i.i.i.i84.i = icmp sgt i64 %__n.011.i.i.i.i.i70.i, 1
-  br i1 %cmp.i.i.i.i.i84.i, label %for.body.i.i.i.i.i67.i, label %if.end56, !llvm.loop !172
+  br i1 %cmp.i.i.i.i.i84.i, label %for.body.i.i.i.i.i67.i, label %if.end56, !llvm.loop !171
 
 if.end15.i:                                       ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit45.i
   %dec.i94.i = add i64 %agg.tmp14.sroa.5.0.ph, -1
@@ -3698,7 +3698,7 @@ if.end15.i:                                       ; preds = %_ZNK3tbb6detail2d11
   %incdec.ptr.i101.i = getelementptr inbounds i8, ptr %.ph, i64 -8
   %.sink.i102.i = select i1 %cmp.i.i.i100.i, ptr null, ptr %incdec.ptr.i101.i
   %.ph.be = select i1 %cmp.i.i.i114, ptr null, ptr %.sink.i102.i
-  br label %while.body.i113.outer, !llvm.loop !184
+  br label %while.body.i113.outer, !llvm.loop !183
 
 if.else17.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4moldL9print_recERNS2_11TimerRecordElE3$_0EclIPPS3_N3tbb6detail2d115vector_iteratorINSC_17concurrent_vectorIS8_NSC_23cache_aligned_allocatorIS8_EEEES8_EEEEbT_T0_.exit.i.thread", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4moldL9print_recERNS2_11TimerRecordElE3$_0EclIPPS3_N3tbb6detail2d115vector_iteratorINSC_17concurrent_vectorIS8_NSC_23cache_aligned_allocatorIS8_EEEES8_EEEEbT_T0_.exit.i"
   %88 = load ptr, ptr %__last2.addr.0.i, align 8
@@ -3715,7 +3715,7 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordE
 
 if.then.i118.i:                                   ; preds = %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit114.i, %if.else17.i
   %or.i.i.i.i120.i = or i64 %dec.i105.i, 1
-  %89 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i120.i, i1 true), !range !12
+  %89 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i120.i, i1 true)
   %xor.i.i.i.i.i.i121.i = xor i64 %89, 63
   %90 = load atomic i64, ptr %my_segment_table.i.i.i122.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i123.i = inttoptr i64 %90 to ptr
@@ -3734,7 +3734,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
 
 if.end22.i:                                       ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit127.i
   %incdec.ptr23.i = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 -8
-  br label %while.body.i113, !llvm.loop !184
+  br label %while.body.i113, !llvm.loop !183
 
 if.else17:                                        ; preds = %if.else
   %92 = load ptr, ptr %__first, align 8
@@ -3755,7 +3755,7 @@ if.then19:                                        ; preds = %if.else17
   %my_index3.i182458 = getelementptr inbounds i8, ptr %__last, i64 8
   %98 = load i64, ptr %my_index3.i182458, align 8
   %or.i.i.i.i = or i64 %add.i.i.i, 1
-  %99 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !12
+  %99 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i = xor i64 %99, 63
   %my_segment_table.i.i.i = getelementptr inbounds i8, ptr %92, i64 16
   %100 = load atomic i64, ptr %my_segment_table.i.i.i acquire, align 8
@@ -3779,20 +3779,20 @@ while.body.i194:                                  ; preds = %while.body.i194.pre
   %shr.i = lshr i64 %__len.046.i, 1
   %add.i.i.i.i = add i64 %shr.i, %agg.tmp20.sroa.4.0
   %or.i.i.i.i.i.i196 = or i64 %add.i.i.i.i, 1
-  %102 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i196, i1 true), !range !12
+  %102 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i196, i1 true)
   %xor.i.i.i.i.i.i.i.i197 = xor i64 %102, 63
-  %103 = load atomic i64, ptr %my_segment_table.i.i.i.i.i198 acquire, align 8, !noalias !185
+  %103 = load atomic i64, ptr %my_segment_table.i.i.i.i.i198 acquire, align 8, !noalias !184
   %atomic-temp.i.0.i.i.i.i.i.i199 = inttoptr i64 %103 to ptr
   %arrayidx.i.i.i.i.i200 = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i199, i64 %xor.i.i.i.i.i.i.i.i197
-  %104 = load atomic i64, ptr %arrayidx.i.i.i.i.i200 acquire, align 8, !noalias !185
+  %104 = load atomic i64, ptr %arrayidx.i.i.i.i.i200 acquire, align 8, !noalias !184
   %atomic-temp.i.0.i2.i.i.i.i.i201 = inttoptr i64 %104 to ptr
   %arrayidx4.i.i.i.i.i202 = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i201, i64 %add.i.i.i.i
-  %105 = load ptr, ptr %arrayidx4.i.i.i.i.i202, align 8, !noalias !185
-  %106 = load ptr, ptr %arrayidx4.i.i.i, align 8, !noalias !185
+  %105 = load ptr, ptr %arrayidx4.i.i.i.i.i202, align 8, !noalias !184
+  %106 = load ptr, ptr %arrayidx4.i.i.i, align 8, !noalias !184
   %107 = getelementptr i8, ptr %105, i64 112
-  %.val.i.i204 = load i64, ptr %107, align 8, !noalias !185
+  %.val.i.i204 = load i64, ptr %107, align 8, !noalias !184
   %108 = getelementptr i8, ptr %106, i64 112
-  %.val1.i.i205 = load i64, ptr %108, align 8, !noalias !185
+  %.val1.i.i205 = load i64, ptr %108, align 8, !noalias !184
   %cmp.i2.i.i206 = icmp slt i64 %.val.i.i204, %.val1.i.i205
   %inc.i.i211 = add i64 %add.i.i.i.i, 1
   %109 = xor i64 %shr.i, -1
@@ -3801,7 +3801,7 @@ while.body.i194:                                  ; preds = %while.body.i194.pre
   %agg.tmp20.sroa.9.2 = select i1 %cmp.i2.i.i206, ptr null, ptr %agg.tmp20.sroa.9.0
   %__len.1.i = select i1 %cmp.i2.i.i206, i64 %sub6.i, i64 %shr.i
   %cmp.i208 = icmp sgt i64 %__len.1.i, 0
-  br i1 %cmp.i208, label %while.body.i194, label %"_ZSt13__lower_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_.exit", !llvm.loop !63
+  br i1 %cmp.i208, label %while.body.i194, label %"_ZSt13__lower_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_.exit", !llvm.loop !62
 
 "_ZSt13__lower_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_.exit": ; preds = %while.body.i194, %if.then19
   %agg.tmp20.sroa.9.3 = phi ptr [ %97, %if.then19 ], [ %agg.tmp20.sroa.9.2, %while.body.i194 ]
@@ -3814,7 +3814,7 @@ if.else29:                                        ; preds = %if.else17
   %div30 = sdiv i64 %__len2, 2
   %add.i.i.i242 = add i64 %96, %div30
   %or.i.i.i.i278 = or i64 %add.i.i.i242, 1
-  %112 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i278, i1 true), !range !12
+  %112 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i278, i1 true)
   %xor.i.i.i.i.i.i279 = xor i64 %112, 63
   %my_segment_table.i.i.i280 = getelementptr inbounds i8, ptr %95, i64 16
   %113 = load atomic i64, ptr %my_segment_table.i.i.i280 acquire, align 8
@@ -3837,21 +3837,21 @@ while.body.i292:                                  ; preds = %while.body.i292.pre
   %__len.049.i = phi i64 [ %__len.1.i322, %while.body.i292 ], [ %sub.i.i.i.i289, %while.body.i292.preheader ]
   %shr.i293 = lshr i64 %__len.049.i, 1
   %add.i.i.i.i297 = add i64 %shr.i293, %agg.tmp32.sroa.4.0
-  %__val.val38.i = load ptr, ptr %arrayidx4.i.i.i284, align 8, !noalias !188
+  %__val.val38.i = load ptr, ptr %arrayidx4.i.i.i284, align 8, !noalias !187
   %or.i.i.i.i.i.i300 = or i64 %add.i.i.i.i297, 1
-  %115 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i300, i1 true), !range !12
+  %115 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i300, i1 true)
   %xor.i.i.i.i.i.i.i.i301 = xor i64 %115, 63
-  %116 = load atomic i64, ptr %my_segment_table.i.i.i.i.i302 acquire, align 8, !noalias !188
+  %116 = load atomic i64, ptr %my_segment_table.i.i.i.i.i302 acquire, align 8, !noalias !187
   %atomic-temp.i.0.i.i.i.i.i.i303 = inttoptr i64 %116 to ptr
   %arrayidx.i.i.i.i.i304 = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i303, i64 %xor.i.i.i.i.i.i.i.i301
-  %117 = load atomic i64, ptr %arrayidx.i.i.i.i.i304 acquire, align 8, !noalias !188
+  %117 = load atomic i64, ptr %arrayidx.i.i.i.i.i304 acquire, align 8, !noalias !187
   %atomic-temp.i.0.i2.i.i.i.i.i305 = inttoptr i64 %117 to ptr
   %arrayidx4.i.i.i.i.i306 = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i305, i64 %add.i.i.i.i297
-  %118 = load ptr, ptr %arrayidx4.i.i.i.i.i306, align 8, !noalias !188
+  %118 = load ptr, ptr %arrayidx4.i.i.i.i.i306, align 8, !noalias !187
   %119 = getelementptr i8, ptr %__val.val38.i, i64 112
-  %.val.i.i308 = load i64, ptr %119, align 8, !noalias !188
+  %.val.i.i308 = load i64, ptr %119, align 8, !noalias !187
   %120 = getelementptr i8, ptr %118, i64 112
-  %.val1.i.i309 = load i64, ptr %120, align 8, !noalias !188
+  %.val1.i.i309 = load i64, ptr %120, align 8, !noalias !187
   %cmp.i2.i.i310 = icmp slt i64 %.val.i.i308, %.val1.i.i309
   %inc.i.i312 = add i64 %add.i.i.i.i297, 1
   %121 = xor i64 %shr.i293, -1
@@ -3860,7 +3860,7 @@ while.body.i292:                                  ; preds = %while.body.i292.pre
   %agg.tmp32.sroa.4.1 = select i1 %cmp.i2.i.i310, i64 %agg.tmp32.sroa.4.0, i64 %inc.i.i312
   %__len.1.i322 = select i1 %cmp.i2.i.i310, i64 %shr.i293, i64 %sub6.i320
   %cmp.i323 = icmp sgt i64 %__len.1.i322, 0
-  br i1 %cmp.i323, label %while.body.i292, label %"_ZSt13__upper_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_.exit", !llvm.loop !67
+  br i1 %cmp.i323, label %while.body.i292, label %"_ZSt13__upper_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_.exit", !llvm.loop !66
 
 "_ZSt13__upper_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_.exit": ; preds = %while.body.i292, %if.else29
   %agg.tmp32.sroa.9.3 = phi ptr [ %94, %if.else29 ], [ %agg.tmp32.sroa.9.2, %while.body.i292 ]
@@ -3988,7 +3988,7 @@ land.rhs:                                         ; preds = %if.end
   %11 = load i64, ptr %my_index2.i.i6, align 8
   %cmp3.i.i7 = icmp ne i64 %10, %11
   %.not.i8 = select i1 %cmp.i.i4, i1 true, i1 %cmp3.i.i7
-  br i1 %.not.i8, label %while.body, label %while.end, !llvm.loop !111
+  br i1 %.not.i8, label %while.body, label %while.end, !llvm.loop !110
 
 while.body:                                       ; preds = %land.rhs.lr.ph, %land.rhs
   %12 = phi i64 [ %10, %land.rhs ], [ %6, %land.rhs.lr.ph ]
@@ -4003,7 +4003,7 @@ while.body:                                       ; preds = %land.rhs.lr.ph, %la
 
 if.then.i.i:                                      ; preds = %while.body
   %or.i.i.i.i.i = or i64 %12, 1
-  %18 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i, i1 true), !range !12
+  %18 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i = xor i64 %18, 63
   %my_segment_table.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %19 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
@@ -4022,7 +4022,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
 
 if.then.i5.i:                                     ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i
   %or.i.i.i.i7.i = or i64 %15, 1
-  %22 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i7.i, i1 true), !range !12
+  %22 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i7.i, i1 true)
   %xor.i.i.i.i.i.i8.i = xor i64 %22, 63
   %my_segment_table.i.i.i9.i = getelementptr inbounds i8, ptr %14, i64 16
   %23 = load atomic i64, ptr %my_segment_table.i.i.i9.i acquire, align 8
@@ -4052,7 +4052,7 @@ if.then.i:                                        ; preds = %if.then
   %29 = load ptr, ptr %__first2, align 8
   %30 = load i64, ptr %my_index.i.i5, align 8
   %or.i.i.i.i = or i64 %30, 1
-  %31 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !12
+  %31 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i = xor i64 %31, 63
   %my_segment_table.i.i.i = getelementptr inbounds i8, ptr %29, i64 16
   %32 = load atomic i64, ptr %my_segment_table.i.i.i acquire, align 8
@@ -4083,7 +4083,7 @@ if.then.i23:                                      ; preds = %if.else
   %38 = load ptr, ptr %__first1, align 8
   %39 = load i64, ptr %my_index.i.i, align 8
   %or.i.i.i.i25 = or i64 %39, 1
-  %40 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i25, i1 true), !range !12
+  %40 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i25, i1 true)
   %xor.i.i.i.i.i.i26 = xor i64 %40, 63
   %my_segment_table.i.i.i27 = getelementptr inbounds i8, ptr %38, i64 16
   %41 = load atomic i64, ptr %my_segment_table.i.i.i27 acquire, align 8
@@ -4127,7 +4127,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
   %49 = load i64, ptr %my_index2.i.i, align 8
   %cmp3.i.i = icmp ne i64 %48, %49
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp3.i.i
-  br i1 %.not.i, label %land.rhs, label %while.end, !llvm.loop !111
+  br i1 %.not.i, label %land.rhs, label %while.end, !llvm.loop !110
 
 while.end:                                        ; preds = %if.end, %land.rhs, %land.rhs.lr.ph, %entry
   %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %__result, %land.rhs.lr.ph ], [ %incdec.ptr, %land.rhs ], [ %incdec.ptr, %if.end ]
@@ -4161,7 +4161,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNK3tbb6detail2d11
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i
   %or.i.i.i.i.i.i.i.i.i = or i64 %agg.tmp.sroa.2.0.i.i.i.i, 1
-  %55 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i, i1 true), !range !12
+  %55 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i64 %55, 63
   %56 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i = inttoptr i64 %56 to ptr
@@ -4185,7 +4185,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i = add nsw i64 %__n.010.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp sgt i64 %__n.010.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit, !llvm.loop !112
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit, !llvm.loop !111
 
 _ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i, %while.end
   %__result.addr.0.lcssa.i.i.i.i.i = phi ptr [ %__result.addr.0.lcssa, %while.end ], [ %incdec.ptr.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i ]
@@ -4207,7 +4207,7 @@ for.body.i.i.i.i.i68:                             ; preds = %_ZNK3tbb6detail2d11
 
 if.then.i.i.i.i.i.i85:                            ; preds = %for.body.i.i.i.i.i68
   %or.i.i.i.i.i.i.i.i.i86 = or i64 %agg.tmp.sroa.2.0.i.i.i.i69, 1
-  %60 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i86, i1 true), !range !12
+  %60 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i86, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i87 = xor i64 %60, 63
   %61 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i67 acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i88 = inttoptr i64 %61 to ptr
@@ -4231,7 +4231,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %incdec.ptr.i.i.i.i.i82 = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i72, i64 8
   %dec.i.i.i.i.i83 = add nsw i64 %__n.010.i.i.i.i.i71, -1
   %cmp.i.i.i.i.i84 = icmp sgt i64 %__n.010.i.i.i.i.i71, 1
-  br i1 %cmp.i.i.i.i.i84, label %for.body.i.i.i.i.i68, label %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit92, !llvm.loop !112
+  br i1 %cmp.i.i.i.i.i84, label %for.body.i.i.i.i.i68, label %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit92, !llvm.loop !111
 
 _ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit92: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i74, %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit
   ret void
@@ -4278,7 +4278,7 @@ if.then.i:                                        ; preds = %if.then
   %4 = load ptr, ptr %__result, align 8
   %5 = load i64, ptr %my_index.i15, align 8
   %or.i.i.i.i = or i64 %5, 1
-  %6 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !12
+  %6 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i = xor i64 %6, 63
   %my_segment_table.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load atomic i64, ptr %my_segment_table.i.i.i acquire, align 8
@@ -4302,7 +4302,7 @@ if.then.i14:                                      ; preds = %if.else
   %9 = load ptr, ptr %__result, align 8
   %10 = load i64, ptr %my_index.i15, align 8
   %or.i.i.i.i16 = or i64 %10, 1
-  %11 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i16, i1 true), !range !12
+  %11 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i16, i1 true)
   %xor.i.i.i.i.i.i17 = xor i64 %11, 63
   %my_segment_table.i.i.i18 = getelementptr inbounds i8, ptr %9, i64 16
   %12 = load atomic i64, ptr %my_segment_table.i.i.i18 acquire, align 8
@@ -4343,7 +4343,7 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordE
   %cmp = icmp ne ptr %__first1.addr.1, %__last1
   %cmp1 = icmp ne ptr %__first2.addr.1, %__last2
   %17 = select i1 %cmp, i1 %cmp1, i1 false
-  br i1 %17, label %while.body, label %while.end, !llvm.loop !123
+  br i1 %17, label %while.body, label %while.end, !llvm.loop !122
 
 while.end:                                        ; preds = %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit, %entry.while.end_crit_edge
   %18 = phi ptr [ %.pre70, %entry.while.end_crit_edge ], [ %16, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EppEv.exit ]
@@ -4367,25 +4367,25 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNK3tbb6detail2d11
   %agg.tmp.sroa.8.0.i.i.i.i = phi ptr [ %agg.tmp.sroa.8.1.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i ], [ %18, %for.body.i.preheader.i.i.i.i ]
   %__n.011.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body.i.preheader.i.i.i.i ]
   %__first.addr.010.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i ], [ %__first1.addr.0.lcssa, %for.body.i.preheader.i.i.i.i ]
-  %21 = load ptr, ptr %__first.addr.010.i.i.i.i.i, align 8, !noalias !191
+  %21 = load ptr, ptr %__first.addr.010.i.i.i.i.i, align 8, !noalias !190
   %cmp.i.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.8.0.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i
   %or.i.i.i.i.i.i.i.i.i = or i64 %agg.tmp.sroa.3.0.i.i.i.i, 1
-  %22 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i, i1 true), !range !12
+  %22 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i64 %22, 63
-  %23 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i acquire, align 8, !noalias !191
+  %23 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i acquire, align 8, !noalias !190
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i = inttoptr i64 %23 to ptr
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i, i64 %xor.i.i.i.i.i.i.i.i.i.i.i
-  %24 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i acquire, align 8, !noalias !191
+  %24 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i acquire, align 8, !noalias !190
   %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i = inttoptr i64 %24 to ptr
   %arrayidx4.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i, i64 %agg.tmp.sroa.3.0.i.i.i.i
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %item.0.i.i.i.i.i.i = phi ptr [ %arrayidx4.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %agg.tmp.sroa.8.0.i.i.i.i, %for.body.i.i.i.i.i ]
-  store ptr %21, ptr %item.0.i.i.i.i.i.i, align 8, !noalias !191
+  store ptr %21, ptr %item.0.i.i.i.i.i.i, align 8, !noalias !190
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i.i = add i64 %agg.tmp.sroa.3.0.i.i.i.i, 1
   %sub.i.i.i.i.i.i.i.i = add i64 %agg.tmp.sroa.3.0.i.i.i.i, -1
@@ -4396,13 +4396,13 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %agg.tmp.sroa.8.1.i.i.i.i = select i1 %25, ptr null, ptr %incdec.ptr.i.i.i.i.i.i
   %dec.i.i.i.i.i = add nsw i64 %__n.011.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp sgt i64 %__n.011.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit, !llvm.loop !135
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit, !llvm.loop !134
 
 _ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i, %while.end
   %26 = phi ptr [ %18, %while.end ], [ %agg.tmp.sroa.8.1.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i ]
   %27 = phi i64 [ %19, %while.end ], [ %inc.i.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
   %sub.ptr.lhs.cast.i.i.i.i.i31 = ptrtoint ptr %__last2 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i32 = ptrtoint ptr %__first2.addr.0.lcssa to i64
   %sub.ptr.sub.i.i.i.i.i33 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i31, %sub.ptr.rhs.cast.i.i.i.i.i32
@@ -4419,25 +4419,25 @@ for.body.i.i.i.i.i40:                             ; preds = %_ZNK3tbb6detail2d11
   %agg.tmp.sroa.8.0.i.i.i.i42 = phi ptr [ %agg.tmp.sroa.8.1.i.i.i.i54, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46 ], [ %26, %for.body.i.preheader.i.i.i.i38 ]
   %__n.011.i.i.i.i.i43 = phi i64 [ %dec.i.i.i.i.i55, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46 ], [ %sub.ptr.div.i.i.i.i.i34, %for.body.i.preheader.i.i.i.i38 ]
   %__first.addr.010.i.i.i.i.i44 = phi ptr [ %incdec.ptr.i.i.i.i.i48, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46 ], [ %__first2.addr.0.lcssa, %for.body.i.preheader.i.i.i.i38 ]
-  %28 = load ptr, ptr %__first.addr.010.i.i.i.i.i44, align 8, !noalias !208
+  %28 = load ptr, ptr %__first.addr.010.i.i.i.i.i44, align 8, !noalias !207
   %cmp.i.i.i.i.i.i45 = icmp eq ptr %agg.tmp.sroa.8.0.i.i.i.i42, null
   br i1 %cmp.i.i.i.i.i.i45, label %if.then.i.i.i.i.i.i57, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46
 
 if.then.i.i.i.i.i.i57:                            ; preds = %for.body.i.i.i.i.i40
   %or.i.i.i.i.i.i.i.i.i58 = or i64 %agg.tmp.sroa.3.0.i.i.i.i41, 1
-  %29 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i58, i1 true), !range !12
+  %29 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i58, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i59 = xor i64 %29, 63
-  %30 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i39 acquire, align 8, !noalias !208
+  %30 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i39 acquire, align 8, !noalias !207
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i60 = inttoptr i64 %30 to ptr
   %arrayidx.i.i.i.i.i.i.i.i61 = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i60, i64 %xor.i.i.i.i.i.i.i.i.i.i.i59
-  %31 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i61 acquire, align 8, !noalias !208
+  %31 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i61 acquire, align 8, !noalias !207
   %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i62 = inttoptr i64 %31 to ptr
   %arrayidx4.i.i.i.i.i.i.i.i63 = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i62, i64 %agg.tmp.sroa.3.0.i.i.i.i41
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46: ; preds = %if.then.i.i.i.i.i.i57, %for.body.i.i.i.i.i40
   %item.0.i.i.i.i.i.i47 = phi ptr [ %arrayidx4.i.i.i.i.i.i.i.i63, %if.then.i.i.i.i.i.i57 ], [ %agg.tmp.sroa.8.0.i.i.i.i42, %for.body.i.i.i.i.i40 ]
-  store ptr %28, ptr %item.0.i.i.i.i.i.i47, align 8, !noalias !208
+  store ptr %28, ptr %item.0.i.i.i.i.i.i47, align 8, !noalias !207
   %incdec.ptr.i.i.i.i.i48 = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i.i.i44, i64 8
   %inc.i.i.i.i.i.i49 = add i64 %agg.tmp.sroa.3.0.i.i.i.i41, 1
   %sub.i.i.i.i.i.i.i.i50 = add i64 %agg.tmp.sroa.3.0.i.i.i.i41, -1
@@ -4448,16 +4448,16 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %agg.tmp.sroa.8.1.i.i.i.i54 = select i1 %32, ptr null, ptr %incdec.ptr.i.i.i.i.i.i53
   %dec.i.i.i.i.i55 = add nsw i64 %__n.011.i.i.i.i.i43, -1
   %cmp.i.i.i.i.i56 = icmp sgt i64 %__n.011.i.i.i.i.i43, 1
-  br i1 %cmp.i.i.i.i.i56, label %for.body.i.i.i.i.i40, label %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit64, !llvm.loop !135
+  br i1 %cmp.i.i.i.i.i56, label %for.body.i.i.i.i.i40, label %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit64, !llvm.loop !134
 
 _ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit64: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46, %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit
   %33 = phi ptr [ %26, %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit ], [ %agg.tmp.sroa.8.1.i.i.i.i54, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46 ]
   %34 = phi i64 [ %27, %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit ], [ %inc.i.i.i.i.i.i49, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i46 ]
-  store ptr %20, ptr %agg.result, align 8, !alias.scope !215
+  store ptr %20, ptr %agg.result, align 8, !alias.scope !214
   %my_index.i.i3.i.i36 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %34, ptr %my_index.i.i3.i.i36, align 8, !alias.scope !215
+  store i64 %34, ptr %my_index.i.i3.i.i36, align 8, !alias.scope !214
   %my_item.i.i5.i.i37 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %33, ptr %my_item.i.i5.i.i37, align 8, !alias.scope !215
+  store ptr %33, ptr %my_item.i.i5.i.i37, align 8, !alias.scope !214
   ret void
 }
 
@@ -4503,7 +4503,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNK3tbb6detail2d11
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i
   %or.i.i.i.i.i.i.i.i.i = or i64 %agg.tmp.sroa.2.0.i.i.i.i, 1
-  %4 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i, i1 true), !range !12
+  %4 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i = xor i64 %4, 63
   %5 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i = inttoptr i64 %5 to ptr
@@ -4527,7 +4527,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i = add nsw i64 %__n.010.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp sgt i64 %__n.010.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit.loopexit, !llvm.loop !112
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit.loopexit, !llvm.loop !111
 
 _ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit.loopexit: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i
   %.pre = load i64, ptr %my_index3.i, align 8
@@ -4572,12 +4572,12 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordE
 
 if.then.i4.i.i.i.i.i:                             ; preds = %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i, %for.body.i.i.i.i.i31
   %or.i.i.i.i.i.i.i.i.i40 = or i64 %dec.i.i.i.i.i.i, 1
-  %16 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i40, i1 true), !range !12
+  %16 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i40, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i41 = xor i64 %16, 63
-  %17 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i30 acquire, align 8, !noalias !218
+  %17 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i30 acquire, align 8, !noalias !217
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i42 = inttoptr i64 %17 to ptr
   %arrayidx.i.i.i.i.i.i.i.i43 = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i42, i64 %xor.i.i.i.i.i.i.i.i.i.i.i41
-  %18 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i43 acquire, align 8, !noalias !218
+  %18 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i43 acquire, align 8, !noalias !217
   %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i44 = inttoptr i64 %18 to ptr
   %arrayidx4.i.i.i.i.i.i.i.i45 = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i44, i64 %dec.i.i.i.i.i.i
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i36
@@ -4585,7 +4585,7 @@ if.then.i4.i.i.i.i.i:                             ; preds = %_ZN3tbb6detail2d115
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i36: ; preds = %if.then.i4.i.i.i.i.i, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i
   %agg.tmp1.sroa.6.2.i.i.i.i = phi ptr [ null, %if.then.i4.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i35, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i ]
   %item.0.i.i.i.i.i.i37 = phi ptr [ %arrayidx4.i.i.i.i.i.i.i.i45, %if.then.i4.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i35, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i ]
-  %19 = load ptr, ptr %item.0.i.i.i.i.i.i37, align 8, !noalias !218
+  %19 = load ptr, ptr %item.0.i.i.i.i.i.i37, align 8, !noalias !217
   %dec.i7.i.i.i.i.i = add i64 %agg.tmp2.sroa.3.0.i.i.i.i, -1
   %cmp.not.i9.i.i.i.i.i = icmp eq ptr %agg.tmp2.sroa.7.0.i.i.i.i, null
   br i1 %cmp.not.i9.i.i.i.i.i, label %if.then.i20.i.i.i.i.i, label %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit16.i.i.i.i.i
@@ -4599,12 +4599,12 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordE
 
 if.then.i20.i.i.i.i.i:                            ; preds = %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit16.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i36
   %or.i.i.i.i22.i.i.i.i.i = or i64 %dec.i7.i.i.i.i.i, 1
-  %20 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i22.i.i.i.i.i, i1 true), !range !12
+  %20 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i22.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i23.i.i.i.i.i = xor i64 %20, 63
-  %21 = load atomic i64, ptr %my_segment_table.i.i.i24.i.i.i.i.i acquire, align 8, !noalias !218
+  %21 = load atomic i64, ptr %my_segment_table.i.i.i24.i.i.i.i.i acquire, align 8, !noalias !217
   %atomic-temp.i.0.i.i.i.i25.i.i.i.i.i = inttoptr i64 %21 to ptr
   %arrayidx.i.i.i26.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i25.i.i.i.i.i, i64 %xor.i.i.i.i.i.i23.i.i.i.i.i
-  %22 = load atomic i64, ptr %arrayidx.i.i.i26.i.i.i.i.i acquire, align 8, !noalias !218
+  %22 = load atomic i64, ptr %arrayidx.i.i.i26.i.i.i.i.i acquire, align 8, !noalias !217
   %atomic-temp.i.0.i2.i.i.i27.i.i.i.i.i = inttoptr i64 %22 to ptr
   %arrayidx4.i.i.i28.i.i.i.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i27.i.i.i.i.i, i64 %dec.i7.i.i.i.i.i
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit29.i.i.i.i.i
@@ -4612,10 +4612,10 @@ if.then.i20.i.i.i.i.i:                            ; preds = %_ZN3tbb6detail2d115
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit29.i.i.i.i.i: ; preds = %if.then.i20.i.i.i.i.i, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit16.i.i.i.i.i
   %agg.tmp2.sroa.7.2.i.i.i.i = phi ptr [ null, %if.then.i20.i.i.i.i.i ], [ %incdec.ptr.i14.i.i.i.i.i, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit16.i.i.i.i.i ]
   %item.0.i19.i.i.i.i.i = phi ptr [ %arrayidx4.i.i.i28.i.i.i.i.i, %if.then.i20.i.i.i.i.i ], [ %incdec.ptr.i14.i.i.i.i.i, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit16.i.i.i.i.i ]
-  store ptr %19, ptr %item.0.i19.i.i.i.i.i, align 8, !noalias !218
+  store ptr %19, ptr %item.0.i19.i.i.i.i.i, align 8, !noalias !217
   %dec.i.i.i.i.i38 = add nsw i64 %__n.035.i.i.i.i.i, -1
   %cmp.i.i.i.i.i39 = icmp sgt i64 %__n.035.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i39, label %for.body.i.i.i.i.i31, label %_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit, !llvm.loop !58
+  br i1 %cmp.i.i.i.i.i39, label %for.body.i.i.i.i.i31, label %_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit, !llvm.loop !57
 
 _ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit29.i.i.i.i.i
   %.pre216 = load i64, ptr %my_index3.i15, align 8
@@ -4625,8 +4625,8 @@ _ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4
   %23 = phi i64 [ %.pre216, %_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit ], [ %10, %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit ]
   %24 = load ptr, ptr %__first, align 8
   %25 = load ptr, ptr %my_item4.i17, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !229)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !231)
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %__buffer to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -4643,25 +4643,25 @@ for.body.i.i.i.i.i54:                             ; preds = %_ZNK3tbb6detail2d11
   %agg.tmp.sroa.8.0.i.i.i.i = phi ptr [ %agg.tmp.sroa.8.1.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i56 ], [ %25, %for.body.i.preheader.i.i.i.i52 ]
   %__n.011.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i64, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i56 ], [ %sub.ptr.div.i.i.i.i.i, %for.body.i.preheader.i.i.i.i52 ]
   %__first.addr.010.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i58, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i56 ], [ %__buffer, %for.body.i.preheader.i.i.i.i52 ]
-  %26 = load ptr, ptr %__first.addr.010.i.i.i.i.i, align 8, !noalias !235
+  %26 = load ptr, ptr %__first.addr.010.i.i.i.i.i, align 8, !noalias !234
   %cmp.i.i.i.i.i.i55 = icmp eq ptr %agg.tmp.sroa.8.0.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i55, label %if.then.i.i.i.i.i.i66, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i56
 
 if.then.i.i.i.i.i.i66:                            ; preds = %for.body.i.i.i.i.i54
   %or.i.i.i.i.i.i.i.i.i67 = or i64 %agg.tmp.sroa.3.0.i.i.i.i, 1
-  %27 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i67, i1 true), !range !12
+  %27 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i67, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i68 = xor i64 %27, 63
-  %28 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i53 acquire, align 8, !noalias !235
+  %28 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i53 acquire, align 8, !noalias !234
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i69 = inttoptr i64 %28 to ptr
   %arrayidx.i.i.i.i.i.i.i.i70 = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i69, i64 %xor.i.i.i.i.i.i.i.i.i.i.i68
-  %29 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i70 acquire, align 8, !noalias !235
+  %29 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i70 acquire, align 8, !noalias !234
   %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i71 = inttoptr i64 %29 to ptr
   %arrayidx4.i.i.i.i.i.i.i.i72 = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i71, i64 %agg.tmp.sroa.3.0.i.i.i.i
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i56
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i56: ; preds = %if.then.i.i.i.i.i.i66, %for.body.i.i.i.i.i54
   %item.0.i.i.i.i.i.i57 = phi ptr [ %arrayidx4.i.i.i.i.i.i.i.i72, %if.then.i.i.i.i.i.i66 ], [ %agg.tmp.sroa.8.0.i.i.i.i, %for.body.i.i.i.i.i54 ]
-  store ptr %26, ptr %item.0.i.i.i.i.i.i57, align 8, !noalias !235
+  store ptr %26, ptr %item.0.i.i.i.i.i.i57, align 8, !noalias !234
   %incdec.ptr.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__first.addr.010.i.i.i.i.i, i64 8
   %inc.i.i.i.i.i.i59 = add i64 %agg.tmp.sroa.3.0.i.i.i.i, 1
   %sub.i.i.i.i.i.i.i.i60 = add i64 %agg.tmp.sroa.3.0.i.i.i.i, -1
@@ -4672,16 +4672,16 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %agg.tmp.sroa.8.1.i.i.i.i = select i1 %30, ptr null, ptr %incdec.ptr.i.i.i.i.i.i63
   %dec.i.i.i.i.i64 = add nsw i64 %__n.011.i.i.i.i.i, -1
   %cmp.i.i.i.i.i65 = icmp sgt i64 %__n.011.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i65, label %for.body.i.i.i.i.i54, label %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit, !llvm.loop !135
+  br i1 %cmp.i.i.i.i.i65, label %for.body.i.i.i.i.i54, label %_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit, !llvm.loop !134
 
 _ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i56, %_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit
   %31 = phi ptr [ %25, %_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit ], [ %agg.tmp.sroa.8.1.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i56 ]
   %32 = phi i64 [ %23, %_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit ], [ %inc.i.i.i.i.i.i59, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i56 ]
-  store ptr %24, ptr %agg.result, align 8, !alias.scope !242
+  store ptr %24, ptr %agg.result, align 8, !alias.scope !241
   %my_index.i.i3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %32, ptr %my_index.i.i3.i.i, align 8, !alias.scope !242
+  store i64 %32, ptr %my_index.i.i3.i.i, align 8, !alias.scope !241
   %my_item.i.i5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %31, ptr %my_item.i.i5.i.i, align 8, !alias.scope !242
+  store ptr %31, ptr %my_item.i.i5.i.i, align 8, !alias.scope !241
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -4732,7 +4732,7 @@ for.body.i.i.i.i.i93:                             ; preds = %_ZNK3tbb6detail2d11
 
 if.then.i.i.i.i.i.i110:                           ; preds = %for.body.i.i.i.i.i93
   %or.i.i.i.i.i.i.i.i.i111 = or i64 %agg.tmp.sroa.2.0.i.i.i.i94, 1
-  %40 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i111, i1 true), !range !12
+  %40 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i111, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i112 = xor i64 %40, 63
   %41 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i92 acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i113 = inttoptr i64 %41 to ptr
@@ -4756,7 +4756,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %incdec.ptr.i.i.i.i.i107 = getelementptr inbounds i8, ptr %__result.addr.09.i.i.i.i.i97, i64 8
   %dec.i.i.i.i.i108 = add nsw i64 %__n.010.i.i.i.i.i96, -1
   %cmp.i.i.i.i.i109 = icmp sgt i64 %__n.010.i.i.i.i.i96, 1
-  br i1 %cmp.i.i.i.i.i109, label %for.body.i.i.i.i.i93, label %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit117.loopexit, !llvm.loop !112
+  br i1 %cmp.i.i.i.i.i109, label %for.body.i.i.i.i.i93, label %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit117.loopexit, !llvm.loop !111
 
 _ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit117.loopexit: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i99
   %.pre217 = load i64, ptr %my_index3.i82, align 8
@@ -4793,37 +4793,37 @@ for.body.i.i.i.i.i138:                            ; preds = %_ZNK3tbb6detail2d11
 
 if.then.i.i.i.i.i.i151:                           ; preds = %for.body.i.i.i.i.i138
   %or.i.i.i.i.i.i.i.i.i152 = or i64 %agg.tmp.sroa.2.0.i.i.i.i139, 1
-  %52 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i152, i1 true), !range !12
+  %52 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i152, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i153 = xor i64 %52, 63
-  %53 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i137 acquire, align 8, !noalias !245
+  %53 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i137 acquire, align 8, !noalias !244
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i154 = inttoptr i64 %53 to ptr
   %arrayidx.i.i.i.i.i.i.i.i155 = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i154, i64 %xor.i.i.i.i.i.i.i.i.i.i.i153
-  %54 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i155 acquire, align 8, !noalias !245
+  %54 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i155 acquire, align 8, !noalias !244
   %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i156 = inttoptr i64 %54 to ptr
   %arrayidx4.i.i.i.i.i.i.i.i157 = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i156, i64 %agg.tmp.sroa.2.0.i.i.i.i139
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i142
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i142: ; preds = %if.then.i.i.i.i.i.i151, %for.body.i.i.i.i.i138
   %item.0.i.i.i.i.i.i143 = phi ptr [ %arrayidx4.i.i.i.i.i.i.i.i157, %if.then.i.i.i.i.i.i151 ], [ %agg.tmp.sroa.7.0.i.i.i.i, %for.body.i.i.i.i.i138 ]
-  %55 = load ptr, ptr %item.0.i.i.i.i.i.i143, align 8, !noalias !245
+  %55 = load ptr, ptr %item.0.i.i.i.i.i.i143, align 8, !noalias !244
   %cmp.i4.i.i.i.i.i = icmp eq ptr %agg.tmp2.sroa.8.0.i.i.i.i, null
   br i1 %cmp.i4.i.i.i.i.i, label %if.then.i6.i.i.i.i.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit15.i.i.i.i.i
 
 if.then.i6.i.i.i.i.i:                             ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i142
   %or.i.i.i.i8.i.i.i.i.i = or i64 %agg.tmp2.sroa.3.0.i.i.i.i140, 1
-  %56 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i8.i.i.i.i.i, i1 true), !range !12
+  %56 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i8.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i9.i.i.i.i.i = xor i64 %56, 63
-  %57 = load atomic i64, ptr %my_segment_table.i.i.i10.i.i.i.i.i acquire, align 8, !noalias !245
+  %57 = load atomic i64, ptr %my_segment_table.i.i.i10.i.i.i.i.i acquire, align 8, !noalias !244
   %atomic-temp.i.0.i.i.i.i11.i.i.i.i.i = inttoptr i64 %57 to ptr
   %arrayidx.i.i.i12.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i11.i.i.i.i.i, i64 %xor.i.i.i.i.i.i9.i.i.i.i.i
-  %58 = load atomic i64, ptr %arrayidx.i.i.i12.i.i.i.i.i acquire, align 8, !noalias !245
+  %58 = load atomic i64, ptr %arrayidx.i.i.i12.i.i.i.i.i acquire, align 8, !noalias !244
   %atomic-temp.i.0.i2.i.i.i13.i.i.i.i.i = inttoptr i64 %58 to ptr
   %arrayidx4.i.i.i14.i.i.i.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i13.i.i.i.i.i, i64 %agg.tmp2.sroa.3.0.i.i.i.i140
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit15.i.i.i.i.i
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit15.i.i.i.i.i: ; preds = %if.then.i6.i.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i142
   %item.0.i5.i.i.i.i.i = phi ptr [ %arrayidx4.i.i.i14.i.i.i.i.i, %if.then.i6.i.i.i.i.i ], [ %agg.tmp2.sroa.8.0.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i142 ]
-  store ptr %55, ptr %item.0.i5.i.i.i.i.i, align 8, !noalias !245
+  store ptr %55, ptr %item.0.i5.i.i.i.i.i, align 8, !noalias !244
   %inc.i.i.i.i.i.i144 = add i64 %agg.tmp.sroa.2.0.i.i.i.i139, 1
   %sub.i.i.i.i.i.i.i.i145 = add i64 %agg.tmp.sroa.2.0.i.i.i.i139, -1
   %and.i.i.i.i.i.i.i.i146 = and i64 %sub.i.i.i.i.i.i.i.i145, %inc.i.i.i.i.i.i144
@@ -4840,7 +4840,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %agg.tmp2.sroa.8.1.i.i.i.i = select i1 %60, ptr null, ptr %incdec.ptr.i27.i.i.i.i.i
   %dec.i.i.i.i.i149 = add nsw i64 %__n.033.i.i.i.i.i, -1
   %cmp.i.i.i.i.i150 = icmp sgt i64 %__n.033.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i150, label %for.body.i.i.i.i.i138, label %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit, !llvm.loop !89
+  br i1 %cmp.i.i.i.i.i150, label %for.body.i.i.i.i.i138, label %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit, !llvm.loop !88
 
 _ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit15.i.i.i.i.i
   %.pre218 = load i64, ptr %my_index3.i123, align 8
@@ -4850,8 +4850,8 @@ _ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11Time
   %61 = phi i64 [ %.pre218, %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit ], [ %46, %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEPS7_ET0_T_SE_SD_.exit117 ]
   %62 = load ptr, ptr %__last, align 8
   %63 = load ptr, ptr %my_item4.i125, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !259)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !255)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
   %sub.ptr.lhs.cast.i.i.i.i.i164 = ptrtoint ptr %__result.addr.0.lcssa.i.i.i.i.i89 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i165 = ptrtoint ptr %__buffer to i64
   %sub.ptr.sub.i.i.i.i.i166 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i164, %sub.ptr.rhs.cast.i.i.i.i.i165
@@ -4869,7 +4869,7 @@ for.body.i.i.i.i.i173:                            ; preds = %_ZNK3tbb6detail2d11
   %__n.011.i.i.i.i.i176 = phi i64 [ %dec.i.i.i.i.i187, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i185 ], [ %sub.ptr.div.i.i.i.i.i167, %for.body.i.preheader.i.i.i.i171 ]
   %__last.addr.010.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i177, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i185 ], [ %__result.addr.0.lcssa.i.i.i.i.i89, %for.body.i.preheader.i.i.i.i171 ]
   %incdec.ptr.i.i.i.i.i177 = getelementptr inbounds i8, ptr %__last.addr.010.i.i.i.i.i, i64 -8
-  %64 = load ptr, ptr %incdec.ptr.i.i.i.i.i177, align 8, !noalias !262
+  %64 = load ptr, ptr %incdec.ptr.i.i.i.i.i177, align 8, !noalias !261
   %dec.i.i.i.i.i.i178 = add i64 %agg.tmp.sroa.3.0.i.i.i.i174, -1
   %cmp.not.i.i.i.i.i.i179 = icmp eq ptr %agg.tmp.sroa.7.0.i.i.i.i175, null
   br i1 %cmp.not.i.i.i.i.i.i179, label %if.then.i4.i.i.i.i.i189, label %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i180
@@ -4883,12 +4883,12 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordE
 
 if.then.i4.i.i.i.i.i189:                          ; preds = %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i180, %for.body.i.i.i.i.i173
   %or.i.i.i.i.i.i.i.i.i190 = or i64 %dec.i.i.i.i.i.i178, 1
-  %65 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i190, i1 true), !range !12
+  %65 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i.i.i.i.i190, i1 true)
   %xor.i.i.i.i.i.i.i.i.i.i.i191 = xor i64 %65, 63
-  %66 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i172 acquire, align 8, !noalias !262
+  %66 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i172 acquire, align 8, !noalias !261
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i192 = inttoptr i64 %66 to ptr
   %arrayidx.i.i.i.i.i.i.i.i193 = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i192, i64 %xor.i.i.i.i.i.i.i.i.i.i.i191
-  %67 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i193 acquire, align 8, !noalias !262
+  %67 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i193 acquire, align 8, !noalias !261
   %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i194 = inttoptr i64 %67 to ptr
   %arrayidx4.i.i.i.i.i.i.i.i195 = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i.i.i.i.i194, i64 %dec.i.i.i.i.i.i178
   br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i185
@@ -4896,19 +4896,19 @@ if.then.i4.i.i.i.i.i189:                          ; preds = %_ZN3tbb6detail2d115
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i185: ; preds = %if.then.i4.i.i.i.i.i189, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i180
   %agg.tmp.sroa.7.2.i.i.i.i = phi ptr [ null, %if.then.i4.i.i.i.i.i189 ], [ %incdec.ptr.i.i.i.i.i.i184, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i180 ]
   %item.0.i.i.i.i.i.i186 = phi ptr [ %arrayidx4.i.i.i.i.i.i.i.i195, %if.then.i4.i.i.i.i.i189 ], [ %incdec.ptr.i.i.i.i.i.i184, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i.i.i.i.i180 ]
-  store ptr %64, ptr %item.0.i.i.i.i.i.i186, align 8, !noalias !262
+  store ptr %64, ptr %item.0.i.i.i.i.i.i186, align 8, !noalias !261
   %dec.i.i.i.i.i187 = add nsw i64 %__n.011.i.i.i.i.i176, -1
   %cmp.i.i.i.i.i188 = icmp sgt i64 %__n.011.i.i.i.i.i176, 1
-  br i1 %cmp.i.i.i.i.i188, label %for.body.i.i.i.i.i173, label %_ZSt13move_backwardIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit, !llvm.loop !172
+  br i1 %cmp.i.i.i.i.i188, label %for.body.i.i.i.i.i173, label %_ZSt13move_backwardIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit, !llvm.loop !171
 
 _ZSt13move_backwardIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_.exit: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i185, %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit
   %agg.tmp.sroa.3.1.i.i.i.i = phi i64 [ %61, %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit ], [ %dec.i.i.i.i.i.i178, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i185 ]
   %agg.tmp.sroa.7.3.i.i.i.i = phi ptr [ %63, %_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit ], [ %agg.tmp.sroa.7.2.i.i.i.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i.i.i.i.i185 ]
-  store ptr %62, ptr %agg.result, align 8, !alias.scope !269
+  store ptr %62, ptr %agg.result, align 8, !alias.scope !268
   %my_index.i.i3.i.i169 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %agg.tmp.sroa.3.1.i.i.i.i, ptr %my_index.i.i3.i.i169, align 8, !alias.scope !269
+  store i64 %agg.tmp.sroa.3.1.i.i.i.i, ptr %my_index.i.i3.i.i169, align 8, !alias.scope !268
   %my_item.i.i5.i.i170 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %agg.tmp.sroa.7.3.i.i.i.i, ptr %my_item.i.i5.i.i170, align 8, !alias.scope !269
+  store ptr %agg.tmp.sroa.7.3.i.i.i.i, ptr %my_item.i.i5.i.i170, align 8, !alias.scope !268
   br label %return
 
 if.else21:                                        ; preds = %if.then10
@@ -4943,21 +4943,21 @@ if.else22:                                        ; preds = %if.else8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp2.i)
-  store ptr %71, ptr %agg.tmp.i, align 8, !noalias !272
+  store ptr %71, ptr %agg.tmp.i, align 8, !noalias !271
   %my_index.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  store i64 %72, ptr %my_index.i.i, align 8, !noalias !272
+  store i64 %72, ptr %my_index.i.i, align 8, !noalias !271
   %my_item.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  store ptr %73, ptr %my_item.i.i, align 8, !noalias !272
-  store ptr %74, ptr %agg.tmp1.i, align 8, !noalias !272
+  store ptr %73, ptr %my_item.i.i, align 8, !noalias !271
+  store ptr %74, ptr %agg.tmp1.i, align 8, !noalias !271
   %my_index.i1.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
-  store i64 %75, ptr %my_index.i1.i, align 8, !noalias !272
+  store i64 %75, ptr %my_index.i1.i, align 8, !noalias !271
   %my_item.i3.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
-  store ptr %76, ptr %my_item.i3.i, align 8, !noalias !272
-  store ptr %77, ptr %agg.tmp2.i, align 8, !noalias !272
+  store ptr %76, ptr %my_item.i3.i, align 8, !noalias !271
+  store ptr %77, ptr %agg.tmp2.i, align 8, !noalias !271
   %my_index.i5.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 8
-  store i64 %78, ptr %my_index.i5.i, align 8, !noalias !272
+  store i64 %78, ptr %my_index.i5.i, align 8, !noalias !271
   %my_item.i7.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 16
-  store ptr %79, ptr %my_item.i7.i, align 8, !noalias !272
+  store ptr %79, ptr %my_item.i7.i, align 8, !noalias !271
   call void @_ZNSt3_V28__rotateIN3tbb6detail2d115vector_iteratorINS3_17concurrent_vectorIPN4mold11TimerRecordENS3_23cache_aligned_allocatorIS8_EEEES8_EEEET_SD_SD_SD_St26random_access_iterator_tag(ptr sret(%"class.tbb::detail::d1::vector_iterator") align 8 %agg.result, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp1.i, ptr noundef nonnull %agg.tmp2.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i)
@@ -5090,18 +5090,18 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %__next.sroa.0.0.i = getelementptr inbounds i8, ptr %__next.sroa.0.09.i, i64 -8
   %5 = load ptr, ptr %__next.sroa.0.0.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %location.i.i.i)
-  %6 = load atomic i64, ptr %my_size.i.i.i.i.i acquire, align 8, !noalias !275
-  %7 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i acquire, align 8, !noalias !275
+  %6 = load atomic i64, ptr %my_size.i.i.i.i.i acquire, align 8, !noalias !274
+  %7 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i acquire, align 8, !noalias !274
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i = inttoptr i64 %7 to ptr
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i.i, %atomic-temp.i.0.i.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 3, i64 64
-  %8 = load ptr, ptr %my_locals.i.i.i.i, align 8, !noalias !275
+  %8 = load ptr, ptr %my_locals.i.i.i.i, align 8, !noalias !274
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.inc.i.i.i.i.i.i.i, %while.body.i
   %seg_index.09.i.i.i.i.i.i.i = phi i64 [ 0, %while.body.i ], [ %inc.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i, i64 %seg_index.09.i.i.i.i.i.i.i
-  %9 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i monotonic, align 8, !noalias !275
+  %9 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i monotonic, align 8, !noalias !274
   %atomic-temp.i.0.i.i.i.i.i.i.i.i = inttoptr i64 %9 to ptr
   %cmp4.not.i.i.i.i.i.i.i = icmp ult ptr %8, %atomic-temp.i.0.i.i.i.i.i.i.i.i
   br i1 %cmp4.not.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -5144,18 +5144,18 @@ while.cond.i.i.i:                                 ; preds = %_ZNK3tbb6detail2d13
   %ci.sroa.4.0.i.i.i = phi i64 [ 0, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i.i ], [ %inc.i.i.i.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i.i ]
   %storemerge.i.i.i = phi i64 [ %15, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i.i ], [ %add.i.i.i.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i.i ]
   %inc.i.i.i.i = add i64 %ci.sroa.4.0.i.i.i, 1
-  %16 = load atomic i64, ptr %my_size.i.i.i.i.i acquire, align 8, !noalias !278
-  %17 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i acquire, align 8, !noalias !278
+  %16 = load atomic i64, ptr %my_size.i.i.i.i.i acquire, align 8, !noalias !277
+  %17 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i acquire, align 8, !noalias !277
   %atomic-temp.i.0.i.i.i.i.i.i18.i.i.i = inttoptr i64 %17 to ptr
   %cmp.i.i.i.i.i20.i.i.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i.i, %atomic-temp.i.0.i.i.i.i.i.i18.i.i.i
   %cond.i.i.i.i.i21.i.i.i = select i1 %cmp.i.i.i.i.i20.i.i.i, i64 3, i64 64
-  %18 = load ptr, ptr %my_locals.i.i.i.i, align 8, !noalias !278
+  %18 = load ptr, ptr %my_locals.i.i.i.i, align 8, !noalias !277
   br label %for.body.i.i.i.i22.i.i.i
 
 for.body.i.i.i.i22.i.i.i:                         ; preds = %for.inc.i.i.i.i34.i.i.i, %while.cond.i.i.i
   %seg_index.09.i.i.i.i23.i.i.i = phi i64 [ 0, %while.cond.i.i.i ], [ %inc.i.i.i.i35.i.i.i, %for.inc.i.i.i.i34.i.i.i ]
   %arrayidx.i.i.i.i24.i.i.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i18.i.i.i, i64 %seg_index.09.i.i.i.i23.i.i.i
-  %19 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i.i monotonic, align 8, !noalias !278
+  %19 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i.i monotonic, align 8, !noalias !277
   %atomic-temp.i.0.i.i.i.i.i25.i.i.i = inttoptr i64 %19 to ptr
   %cmp4.not.i.i.i.i26.i.i.i = icmp ult ptr %18, %atomic-temp.i.0.i.i.i.i.i25.i.i.i
   br i1 %cmp4.not.i.i.i.i26.i.i.i, label %for.inc.i.i.i.i34.i.i.i, label %if.then.i.i.i.i27.i.i.i
@@ -5178,7 +5178,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i.i: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i.i
   %or.i.i.i.i.i44.i.i.i = or i64 %inc.i.i.i.i, 1
-  %20 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i.i, i1 true), !range !12
+  %20 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i45.i.i.i = xor i64 %20, 63
   %21 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i47.i.i.i = inttoptr i64 %21 to ptr
@@ -5188,7 +5188,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %arrayidx4.i.i.i.i50.i.i.i = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %atomic-temp.i.0.i2.i.i.i.i49.i.i.i, i64 %inc.i.i.i.i
   %23 = load i64, ptr %arrayidx4.i.i.i.i50.i.i.i, align 8
   %add.i.i.i.i = add nsw i64 %23, %storemerge.i.i.i
-  br label %while.cond.i.i.i, !llvm.loop !13
+  br label %while.cond.i.i.i, !llvm.loop !12
 
 _ZN4mold7Counter9get_valueEv.exit.i:              ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i.i, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i.i
   %retval.0.i.i.i = phi i64 [ %12, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i.i ], [ %storemerge.i.i.i, %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i.i ]
@@ -5196,20 +5196,20 @@ _ZN4mold7Counter9get_valueEv.exit.i:              ; preds = %_ZN3tbb6detail2d126
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %location.i.i1.i)
   %my_locals.i.i.i2.i = getelementptr inbounds i8, ptr %5, i64 48
   %my_size.i.i.i.i3.i = getelementptr inbounds i8, ptr %5, i64 104
-  %24 = load atomic i64, ptr %my_size.i.i.i.i3.i acquire, align 8, !noalias !281
+  %24 = load atomic i64, ptr %my_size.i.i.i.i3.i acquire, align 8, !noalias !280
   %my_segment_table.i.i.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %5, i64 64
-  %25 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i acquire, align 8, !noalias !281
+  %25 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i acquire, align 8, !noalias !280
   %atomic-temp.i.0.i.i.i.i.i.i.i.i5.i = inttoptr i64 %25 to ptr
   %my_embedded_table.i.i.i.i.i.i.i6.i = getelementptr inbounds i8, ptr %5, i64 72
   %cmp.i.i.i.i.i.i.i7.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i6.i, %atomic-temp.i.0.i.i.i.i.i.i.i.i5.i
   %cond.i.i.i.i.i.i.i8.i = select i1 %cmp.i.i.i.i.i.i.i7.i, i64 3, i64 64
-  %26 = load ptr, ptr %my_locals.i.i.i2.i, align 8, !noalias !281
+  %26 = load ptr, ptr %my_locals.i.i.i2.i, align 8, !noalias !280
   br label %for.body.i.i.i.i.i.i9.i
 
 for.body.i.i.i.i.i.i9.i:                          ; preds = %for.inc.i.i.i.i.i.i60.i, %_ZN4mold7Counter9get_valueEv.exit.i
   %seg_index.09.i.i.i.i.i.i10.i = phi i64 [ 0, %_ZN4mold7Counter9get_valueEv.exit.i ], [ %inc.i.i.i.i.i.i61.i, %for.inc.i.i.i.i.i.i60.i ]
   %arrayidx.i.i.i.i.i.i11.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i5.i, i64 %seg_index.09.i.i.i.i.i.i10.i
-  %27 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i11.i monotonic, align 8, !noalias !281
+  %27 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i11.i monotonic, align 8, !noalias !280
   %atomic-temp.i.0.i.i.i.i.i.i.i12.i = inttoptr i64 %27 to ptr
   %cmp4.not.i.i.i.i.i.i13.i = icmp ult ptr %26, %atomic-temp.i.0.i.i.i.i.i.i.i12.i
   br i1 %cmp4.not.i.i.i.i.i.i13.i, label %for.inc.i.i.i.i.i.i60.i, label %if.then.i.i.i.i.i.i14.i
@@ -5253,18 +5253,18 @@ while.cond.i.i24.i:                               ; preds = %_ZNK3tbb6detail2d13
   %ci.sroa.4.0.i.i25.i = phi i64 [ 0, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i21.i ], [ %inc.i.i.i27.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43.i ]
   %storemerge.i.i26.i = phi i64 [ %33, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i21.i ], [ %add.i.i.i50.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43.i ]
   %inc.i.i.i27.i = add i64 %ci.sroa.4.0.i.i25.i, 1
-  %34 = load atomic i64, ptr %my_size.i.i.i.i3.i acquire, align 8, !noalias !284
-  %35 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i acquire, align 8, !noalias !284
+  %34 = load atomic i64, ptr %my_size.i.i.i.i3.i acquire, align 8, !noalias !283
+  %35 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i acquire, align 8, !noalias !283
   %atomic-temp.i.0.i.i.i.i.i.i18.i.i28.i = inttoptr i64 %35 to ptr
   %cmp.i.i.i.i.i20.i.i29.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i6.i, %atomic-temp.i.0.i.i.i.i.i.i18.i.i28.i
   %cond.i.i.i.i.i21.i.i30.i = select i1 %cmp.i.i.i.i.i20.i.i29.i, i64 3, i64 64
-  %36 = load ptr, ptr %my_locals.i.i.i2.i, align 8, !noalias !284
+  %36 = load ptr, ptr %my_locals.i.i.i2.i, align 8, !noalias !283
   br label %for.body.i.i.i.i22.i.i31.i
 
 for.body.i.i.i.i22.i.i31.i:                       ; preds = %for.inc.i.i.i.i34.i.i52.i, %while.cond.i.i24.i
   %seg_index.09.i.i.i.i23.i.i32.i = phi i64 [ 0, %while.cond.i.i24.i ], [ %inc.i.i.i.i35.i.i53.i, %for.inc.i.i.i.i34.i.i52.i ]
   %arrayidx.i.i.i.i24.i.i33.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i18.i.i28.i, i64 %seg_index.09.i.i.i.i23.i.i32.i
-  %37 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i33.i monotonic, align 8, !noalias !284
+  %37 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i33.i monotonic, align 8, !noalias !283
   %atomic-temp.i.0.i.i.i.i.i25.i.i34.i = inttoptr i64 %37 to ptr
   %cmp4.not.i.i.i.i26.i.i35.i = icmp ult ptr %36, %atomic-temp.i.0.i.i.i.i.i25.i.i34.i
   br i1 %cmp4.not.i.i.i.i26.i.i35.i, label %for.inc.i.i.i.i34.i.i52.i, label %if.then.i.i.i.i27.i.i36.i
@@ -5287,7 +5287,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43.i: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39.i
   %or.i.i.i.i.i44.i.i44.i = or i64 %inc.i.i.i27.i, 1
-  %38 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i44.i, i1 true), !range !12
+  %38 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i44.i, i1 true)
   %xor.i.i.i.i.i.i.i45.i.i45.i = xor i64 %38, 63
   %39 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i47.i.i46.i = inttoptr i64 %39 to ptr
@@ -5297,20 +5297,20 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %arrayidx4.i.i.i.i50.i.i49.i = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %atomic-temp.i.0.i2.i.i.i.i49.i.i48.i, i64 %inc.i.i.i27.i
   %41 = load i64, ptr %arrayidx4.i.i.i.i50.i.i49.i, align 8
   %add.i.i.i50.i = add nsw i64 %41, %storemerge.i.i26.i
-  br label %while.cond.i.i24.i, !llvm.loop !13
+  br label %while.cond.i.i24.i, !llvm.loop !12
 
 "_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_.exit": ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39.i, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i55.i
   %retval.0.i.i51.i = phi i64 [ %30, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i55.i ], [ %storemerge.i.i26.i, %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %location.i.i1.i)
   %cmp.i3 = icmp sgt i64 %retval.0.i.i.i, %retval.0.i.i51.i
-  br i1 %cmp.i3, label %while.body.i, label %for.inc, !llvm.loop !287
+  br i1 %cmp.i3, label %while.body.i, label %for.inc, !llvm.loop !286
 
 for.inc:                                          ; preds = %"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_.exit", %if.else, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
   %__first.coerce.sink = phi ptr [ %__first.coerce, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %__i.sroa.0.017, %if.else ], [ %__next.sroa.0.09.i, %"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_.exit" ]
   store ptr %2, ptr %__first.coerce.sink, align 8
   %__i.sroa.0.0 = getelementptr inbounds i8, ptr %__i.sroa.0.017, i64 8
   %cmp.i1 = icmp eq ptr %__i.sroa.0.0, %__last.coerce
-  br i1 %cmp.i1, label %for.end, label %for.body, !llvm.loop !288
+  br i1 %cmp.i1, label %for.end, label %for.body, !llvm.loop !287
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader, %entry
   ret void
@@ -5377,7 +5377,7 @@ while.body.i:                                     ; preds = %if.then17, %while.b
   %__first.sroa.0.1.i = select i1 %call2.i.i, ptr %incdec.ptr.i.i, ptr %__first.sroa.0.07.i
   %__len.1.i = select i1 %call2.i.i, i64 %sub9.i, i64 %shr.i
   %cmp.i = icmp sgt i64 %__len.1.i, 0
-  br i1 %cmp.i, label %while.body.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNS3_5printEvE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !289
+  br i1 %cmp.i, label %while.body.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNS3_5printEvE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !288
 
 "_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNS3_5printEvE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit": ; preds = %while.body.i
   %.pre = ptrtoint ptr %__first.sroa.0.1.i to i64
@@ -5413,7 +5413,7 @@ while.body.i32:                                   ; preds = %if.else, %while.bod
   %__first.sroa.0.1.i45 = select i1 %call2.i.i42, ptr %__first.sroa.0.07.i34, ptr %incdec.ptr.i.i43
   %__len.1.i46 = select i1 %call2.i.i42, i64 %shr.i35, i64 %sub9.i44
   %cmp.i47 = icmp sgt i64 %__len.1.i46, 0
-  br i1 %cmp.i47, label %while.body.i32, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNS3_5printEvE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !290
+  br i1 %cmp.i47, label %while.body.i32, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNS3_5printEvE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !289
 
 "_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNS3_5printEvE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit": ; preds = %while.body.i32
   %.pre69 = ptrtoint ptr %__first.sroa.0.1.i45 to i64
@@ -5452,20 +5452,20 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %location.i.i)
   %my_locals.i.i.i = getelementptr inbounds i8, ptr %a, i64 48
   %my_size.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 104
-  %0 = load atomic i64, ptr %my_size.i.i.i.i acquire, align 8, !noalias !291
+  %0 = load atomic i64, ptr %my_size.i.i.i.i acquire, align 8, !noalias !290
   %my_segment_table.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 64
-  %1 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i acquire, align 8, !noalias !291
+  %1 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i acquire, align 8, !noalias !290
   %atomic-temp.i.0.i.i.i.i.i.i.i.i = inttoptr i64 %1 to ptr
   %my_embedded_table.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 72
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i, %atomic-temp.i.0.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 3, i64 64
-  %2 = load ptr, ptr %my_locals.i.i.i, align 8, !noalias !291
+  %2 = load ptr, ptr %my_locals.i.i.i, align 8, !noalias !290
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.inc.i.i.i.i.i.i, %entry
   %seg_index.09.i.i.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i, i64 %seg_index.09.i.i.i.i.i.i
-  %3 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i monotonic, align 8, !noalias !291
+  %3 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i monotonic, align 8, !noalias !290
   %atomic-temp.i.0.i.i.i.i.i.i.i = inttoptr i64 %3 to ptr
   %cmp4.not.i.i.i.i.i.i = icmp ult ptr %2, %atomic-temp.i.0.i.i.i.i.i.i.i
   br i1 %cmp4.not.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -5510,18 +5510,18 @@ while.cond.i.i:                                   ; preds = %_ZNK3tbb6detail2d13
   %ci.sroa.4.0.i.i = phi i64 [ 0, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i ], [ %inc.i.i.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i ]
   %storemerge.i.i = phi i64 [ %9, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i ], [ %add.i.i.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i ]
   %inc.i.i.i = add i64 %ci.sroa.4.0.i.i, 1
-  %10 = load atomic i64, ptr %my_size.i.i.i.i acquire, align 8, !noalias !294
-  %11 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i acquire, align 8, !noalias !294
+  %10 = load atomic i64, ptr %my_size.i.i.i.i acquire, align 8, !noalias !293
+  %11 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i acquire, align 8, !noalias !293
   %atomic-temp.i.0.i.i.i.i.i.i18.i.i = inttoptr i64 %11 to ptr
   %cmp.i.i.i.i.i20.i.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i, %atomic-temp.i.0.i.i.i.i.i.i18.i.i
   %cond.i.i.i.i.i21.i.i = select i1 %cmp.i.i.i.i.i20.i.i, i64 3, i64 64
-  %12 = load ptr, ptr %my_locals.i.i.i, align 8, !noalias !294
+  %12 = load ptr, ptr %my_locals.i.i.i, align 8, !noalias !293
   br label %for.body.i.i.i.i22.i.i
 
 for.body.i.i.i.i22.i.i:                           ; preds = %for.inc.i.i.i.i34.i.i, %while.cond.i.i
   %seg_index.09.i.i.i.i23.i.i = phi i64 [ 0, %while.cond.i.i ], [ %inc.i.i.i.i35.i.i, %for.inc.i.i.i.i34.i.i ]
   %arrayidx.i.i.i.i24.i.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i18.i.i, i64 %seg_index.09.i.i.i.i23.i.i
-  %13 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i monotonic, align 8, !noalias !294
+  %13 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i monotonic, align 8, !noalias !293
   %atomic-temp.i.0.i.i.i.i.i25.i.i = inttoptr i64 %13 to ptr
   %cmp4.not.i.i.i.i26.i.i = icmp ult ptr %12, %atomic-temp.i.0.i.i.i.i.i25.i.i
   br i1 %cmp4.not.i.i.i.i26.i.i, label %for.inc.i.i.i.i34.i.i, label %if.then.i.i.i.i27.i.i
@@ -5544,7 +5544,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i
   %or.i.i.i.i.i44.i.i = or i64 %inc.i.i.i, 1
-  %14 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i, i1 true), !range !12
+  %14 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i, i1 true)
   %xor.i.i.i.i.i.i.i45.i.i = xor i64 %14, 63
   %15 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i47.i.i = inttoptr i64 %15 to ptr
@@ -5554,7 +5554,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %arrayidx4.i.i.i.i50.i.i = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %atomic-temp.i.0.i2.i.i.i.i49.i.i, i64 %inc.i.i.i
   %17 = load i64, ptr %arrayidx4.i.i.i.i50.i.i, align 8
   %add.i.i.i = add nsw i64 %17, %storemerge.i.i
-  br label %while.cond.i.i, !llvm.loop !13
+  br label %while.cond.i.i, !llvm.loop !12
 
 _ZN4mold7Counter9get_valueEv.exit:                ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i
   %retval.0.i.i = phi i64 [ %6, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i ], [ %storemerge.i.i, %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i ]
@@ -5562,20 +5562,20 @@ _ZN4mold7Counter9get_valueEv.exit:                ; preds = %_ZN3tbb6detail2d126
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %location.i.i1)
   %my_locals.i.i.i2 = getelementptr inbounds i8, ptr %b, i64 48
   %my_size.i.i.i.i3 = getelementptr inbounds i8, ptr %b, i64 104
-  %18 = load atomic i64, ptr %my_size.i.i.i.i3 acquire, align 8, !noalias !297
+  %18 = load atomic i64, ptr %my_size.i.i.i.i3 acquire, align 8, !noalias !296
   %my_segment_table.i.i.i.i.i.i.i4 = getelementptr inbounds i8, ptr %b, i64 64
-  %19 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4 acquire, align 8, !noalias !297
+  %19 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4 acquire, align 8, !noalias !296
   %atomic-temp.i.0.i.i.i.i.i.i.i.i5 = inttoptr i64 %19 to ptr
   %my_embedded_table.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %b, i64 72
   %cmp.i.i.i.i.i.i.i7 = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i6, %atomic-temp.i.0.i.i.i.i.i.i.i.i5
   %cond.i.i.i.i.i.i.i8 = select i1 %cmp.i.i.i.i.i.i.i7, i64 3, i64 64
-  %20 = load ptr, ptr %my_locals.i.i.i2, align 8, !noalias !297
+  %20 = load ptr, ptr %my_locals.i.i.i2, align 8, !noalias !296
   br label %for.body.i.i.i.i.i.i9
 
 for.body.i.i.i.i.i.i9:                            ; preds = %for.inc.i.i.i.i.i.i60, %_ZN4mold7Counter9get_valueEv.exit
   %seg_index.09.i.i.i.i.i.i10 = phi i64 [ 0, %_ZN4mold7Counter9get_valueEv.exit ], [ %inc.i.i.i.i.i.i61, %for.inc.i.i.i.i.i.i60 ]
   %arrayidx.i.i.i.i.i.i11 = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i5, i64 %seg_index.09.i.i.i.i.i.i10
-  %21 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i11 monotonic, align 8, !noalias !297
+  %21 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i11 monotonic, align 8, !noalias !296
   %atomic-temp.i.0.i.i.i.i.i.i.i12 = inttoptr i64 %21 to ptr
   %cmp4.not.i.i.i.i.i.i13 = icmp ult ptr %20, %atomic-temp.i.0.i.i.i.i.i.i.i12
   br i1 %cmp4.not.i.i.i.i.i.i13, label %for.inc.i.i.i.i.i.i60, label %if.then.i.i.i.i.i.i14
@@ -5620,18 +5620,18 @@ while.cond.i.i24:                                 ; preds = %_ZNK3tbb6detail2d13
   %ci.sroa.4.0.i.i25 = phi i64 [ 0, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i21 ], [ %inc.i.i.i27, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43 ]
   %storemerge.i.i26 = phi i64 [ %27, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i21 ], [ %add.i.i.i50, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43 ]
   %inc.i.i.i27 = add i64 %ci.sroa.4.0.i.i25, 1
-  %28 = load atomic i64, ptr %my_size.i.i.i.i3 acquire, align 8, !noalias !300
-  %29 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4 acquire, align 8, !noalias !300
+  %28 = load atomic i64, ptr %my_size.i.i.i.i3 acquire, align 8, !noalias !299
+  %29 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4 acquire, align 8, !noalias !299
   %atomic-temp.i.0.i.i.i.i.i.i18.i.i28 = inttoptr i64 %29 to ptr
   %cmp.i.i.i.i.i20.i.i29 = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i6, %atomic-temp.i.0.i.i.i.i.i.i18.i.i28
   %cond.i.i.i.i.i21.i.i30 = select i1 %cmp.i.i.i.i.i20.i.i29, i64 3, i64 64
-  %30 = load ptr, ptr %my_locals.i.i.i2, align 8, !noalias !300
+  %30 = load ptr, ptr %my_locals.i.i.i2, align 8, !noalias !299
   br label %for.body.i.i.i.i22.i.i31
 
 for.body.i.i.i.i22.i.i31:                         ; preds = %for.inc.i.i.i.i34.i.i52, %while.cond.i.i24
   %seg_index.09.i.i.i.i23.i.i32 = phi i64 [ 0, %while.cond.i.i24 ], [ %inc.i.i.i.i35.i.i53, %for.inc.i.i.i.i34.i.i52 ]
   %arrayidx.i.i.i.i24.i.i33 = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i18.i.i28, i64 %seg_index.09.i.i.i.i23.i.i32
-  %31 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i33 monotonic, align 8, !noalias !300
+  %31 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i33 monotonic, align 8, !noalias !299
   %atomic-temp.i.0.i.i.i.i.i25.i.i34 = inttoptr i64 %31 to ptr
   %cmp4.not.i.i.i.i26.i.i35 = icmp ult ptr %30, %atomic-temp.i.0.i.i.i.i.i25.i.i34
   br i1 %cmp4.not.i.i.i.i26.i.i35, label %for.inc.i.i.i.i34.i.i52, label %if.then.i.i.i.i27.i.i36
@@ -5654,7 +5654,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39
   %or.i.i.i.i.i44.i.i44 = or i64 %inc.i.i.i27, 1
-  %32 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i44, i1 true), !range !12
+  %32 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i44, i1 true)
   %xor.i.i.i.i.i.i.i45.i.i45 = xor i64 %32, 63
   %33 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4 acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i47.i.i46 = inttoptr i64 %33 to ptr
@@ -5664,7 +5664,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %arrayidx4.i.i.i.i50.i.i49 = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %atomic-temp.i.0.i2.i.i.i.i49.i.i48, i64 %inc.i.i.i27
   %35 = load i64, ptr %arrayidx4.i.i.i.i50.i.i49, align 8
   %add.i.i.i50 = add nsw i64 %35, %storemerge.i.i26
-  br label %while.cond.i.i24, !llvm.loop !13
+  br label %while.cond.i.i24, !llvm.loop !12
 
 _ZN4mold7Counter9get_valueEv.exit63:              ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i55
   %retval.0.i.i51 = phi i64 [ %24, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i55 ], [ %storemerge.i.i26, %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39 ]
@@ -5708,7 +5708,7 @@ for.body.i:                                       ; preds = %if.end5, %for.body.
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.04.i, i64 8
   %incdec.ptr.i1.i = getelementptr inbounds i8, ptr %__first2.sroa.0.05.i, i64 8
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %__middle.coerce
-  br i1 %cmp.i.i, label %return, label %for.body.i, !llvm.loop !303
+  br i1 %cmp.i.i, label %return, label %for.body.i, !llvm.loop !302
 
 if.end16:                                         ; preds = %if.end5
   %sub.ptr.sub.i12 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast.i6
@@ -5729,14 +5729,14 @@ if.then22:                                        ; preds = %for.cond
 
 if.then24:                                        ; preds = %if.then22
   %2 = load ptr, ptr %__p.sroa.0.0, align 8
-  %add.ptr.i15.idx73 = shl nsw i64 %__n.0, 3
-  %add.ptr.i15 = getelementptr inbounds i8, ptr %__p.sroa.0.0, i64 %add.ptr.i15.idx73
+  %add.ptr.i15.idx = shl nsw i64 %__n.0, 3
+  %add.ptr.i15 = getelementptr inbounds i8, ptr %__p.sroa.0.0, i64 %add.ptr.i15.idx
   %tobool.not.i.i.i.i.i = icmp eq i64 %__n.0, 1
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then24
   %add.ptr.i14 = getelementptr inbounds i8, ptr %__p.sroa.0.0, i64 8
-  %gepdiff = add nsw i64 %add.ptr.i15.idx73, -8
+  %gepdiff = add nsw i64 %add.ptr.i15.idx, -8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %__p.sroa.0.0, ptr nonnull align 8 %add.ptr.i14, i64 %gepdiff, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
@@ -5746,26 +5746,26 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEE
   br label %return
 
 if.end45:                                         ; preds = %if.then22
-  %cmp5083 = icmp sgt i64 %sub20, 0
-  br i1 %cmp5083, label %for.body.preheader, label %for.end
+  %cmp5082 = icmp sgt i64 %sub20, 0
+  br i1 %cmp5082, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end45
   %add.ptr.i18 = getelementptr ptr, ptr %__p.sroa.0.0, i64 %__k.0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %__i.086 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %__p.sroa.0.185 = phi ptr [ %incdec.ptr.i, %for.body ], [ %__p.sroa.0.0, %for.body.preheader ]
-  %__q.sroa.0.084 = phi ptr [ %incdec.ptr.i19, %for.body ], [ %add.ptr.i18, %for.body.preheader ]
-  %3 = load ptr, ptr %__p.sroa.0.185, align 8
-  %4 = load ptr, ptr %__q.sroa.0.084, align 8
-  store ptr %4, ptr %__p.sroa.0.185, align 8
-  store ptr %3, ptr %__q.sroa.0.084, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__p.sroa.0.185, i64 8
-  %incdec.ptr.i19 = getelementptr inbounds i8, ptr %__q.sroa.0.084, i64 8
-  %inc = add nuw nsw i64 %__i.086, 1
-  %exitcond93.not = icmp eq i64 %inc, %sub20
-  br i1 %exitcond93.not, label %for.end, label %for.body, !llvm.loop !304
+  %__i.085 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+  %__p.sroa.0.184 = phi ptr [ %incdec.ptr.i, %for.body ], [ %__p.sroa.0.0, %for.body.preheader ]
+  %__q.sroa.0.083 = phi ptr [ %incdec.ptr.i19, %for.body ], [ %add.ptr.i18, %for.body.preheader ]
+  %3 = load ptr, ptr %__p.sroa.0.184, align 8
+  %4 = load ptr, ptr %__q.sroa.0.083, align 8
+  store ptr %4, ptr %__p.sroa.0.184, align 8
+  store ptr %3, ptr %__q.sroa.0.083, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__p.sroa.0.184, i64 8
+  %incdec.ptr.i19 = getelementptr inbounds i8, ptr %__q.sroa.0.083, i64 8
+  %inc = add nuw nsw i64 %__i.085, 1
+  %exitcond92.not = icmp eq i64 %inc, %sub20
+  br i1 %exitcond92.not, label %for.end, label %for.body, !llvm.loop !303
 
 for.end:                                          ; preds = %for.body, %if.end45
   %__p.sroa.0.1.lcssa = phi ptr [ %__p.sroa.0.0, %if.end45 ], [ %incdec.ptr.i, %for.body ]
@@ -5805,22 +5805,22 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4
 if.end90:                                         ; preds = %if.else61
   %idx.neg.i = sub i64 0, %sub20
   %add.ptr.i32 = getelementptr inbounds ptr, ptr %add.ptr.i20, i64 %idx.neg.i
-  %cmp10079 = icmp sgt i64 %__k.0, 0
-  br i1 %cmp10079, label %for.body101, label %for.end110
+  %cmp10078 = icmp sgt i64 %__k.0, 0
+  br i1 %cmp10078, label %for.body101, label %for.end110
 
 for.body101:                                      ; preds = %if.end90, %for.body101
-  %__i97.082 = phi i64 [ %inc109, %for.body101 ], [ 0, %if.end90 ]
-  %__q91.sroa.0.081 = phi ptr [ %incdec.ptr.i34, %for.body101 ], [ %add.ptr.i20, %if.end90 ]
-  %__p.sroa.0.280 = phi ptr [ %incdec.ptr.i33, %for.body101 ], [ %add.ptr.i32, %if.end90 ]
-  %incdec.ptr.i33 = getelementptr inbounds i8, ptr %__p.sroa.0.280, i64 -8
-  %incdec.ptr.i34 = getelementptr inbounds i8, ptr %__q91.sroa.0.081, i64 -8
+  %__i97.081 = phi i64 [ %inc109, %for.body101 ], [ 0, %if.end90 ]
+  %__q91.sroa.0.080 = phi ptr [ %incdec.ptr.i34, %for.body101 ], [ %add.ptr.i20, %if.end90 ]
+  %__p.sroa.0.279 = phi ptr [ %incdec.ptr.i33, %for.body101 ], [ %add.ptr.i32, %if.end90 ]
+  %incdec.ptr.i33 = getelementptr inbounds i8, ptr %__p.sroa.0.279, i64 -8
+  %incdec.ptr.i34 = getelementptr inbounds i8, ptr %__q91.sroa.0.080, i64 -8
   %6 = load ptr, ptr %incdec.ptr.i33, align 8
   %7 = load ptr, ptr %incdec.ptr.i34, align 8
   store ptr %7, ptr %incdec.ptr.i33, align 8
   store ptr %6, ptr %incdec.ptr.i34, align 8
-  %inc109 = add nuw nsw i64 %__i97.082, 1
+  %inc109 = add nuw nsw i64 %__i97.081, 1
   %exitcond.not = icmp eq i64 %inc109, %__k.0
-  br i1 %exitcond.not, label %for.end110, label %for.body101, !llvm.loop !305
+  br i1 %exitcond.not, label %for.end110, label %for.body101, !llvm.loop !304
 
 for.end110:                                       ; preds = %for.body101, %if.end90
   %__p.sroa.0.2.lcssa = phi ptr [ %add.ptr.i32, %if.end90 ], [ %__p.sroa.0.0, %for.body101 ]
@@ -5832,7 +5832,7 @@ for.cond.backedge:                                ; preds = %for.end110, %if.end
   %__p.sroa.0.0.be = phi ptr [ %__p.sroa.0.1.lcssa, %if.end59 ], [ %__p.sroa.0.2.lcssa, %for.end110 ]
   %__k.0.be = phi i64 [ %sub60, %if.end59 ], [ %rem111, %for.end110 ]
   %__n.0.be = phi i64 [ %__k.0, %if.end59 ], [ %sub20, %for.end110 ]
-  br label %for.cond, !llvm.loop !306
+  br label %for.cond, !llvm.loop !305
 
 return:                                           ; preds = %for.end110, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
   %retval.sroa.0.0 = phi ptr [ %add.ptr.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %add.ptr.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %__last.coerce, %entry ], [ %__first.coerce, %if.else ], [ %__middle.coerce, %for.body.i ], [ %add.ptr.i, %for.end ], [ %add.ptr.i, %for.end110 ]
@@ -5865,7 +5865,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %cmp.i = icmp sgt i64 %sub.ptr.sub.i.i, 48
-  br i1 %cmp.i, label %while.body.i, label %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_T0_T1_.exit", !llvm.loop !307
+  br i1 %cmp.i, label %while.body.i, label %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_T0_T1_.exit", !llvm.loop !306
 
 "_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_T0_T1_.exit": ; preds = %while.body.i, %entry
   %__first.sroa.0.0.lcssa.i = phi ptr [ %__first.coerce, %entry ], [ %add.ptr.i.i, %while.body.i ]
@@ -5911,20 +5911,20 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %location.i.i.i.i)
   %my_locals.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %my_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 104
-  %2 = load atomic i64, ptr %my_size.i.i.i.i.i.i acquire, align 8, !noalias !308
+  %2 = load atomic i64, ptr %my_size.i.i.i.i.i.i acquire, align 8, !noalias !307
   %my_segment_table.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
-  %3 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i.i acquire, align 8, !noalias !308
+  %3 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i.i acquire, align 8, !noalias !307
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i.i = inttoptr i64 %3 to ptr
   %my_embedded_table.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i.i.i, %atomic-temp.i.0.i.i.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, i64 3, i64 64
-  %4 = load ptr, ptr %my_locals.i.i.i.i.i, align 8, !noalias !308
+  %4 = load ptr, ptr %my_locals.i.i.i.i.i, align 8, !noalias !307
   br label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.inc.i.i.i.i.i.i.i.i, %while.body.i.i
   %seg_index.09.i.i.i.i.i.i.i.i = phi i64 [ 0, %while.body.i.i ], [ %inc.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i.i, i64 %seg_index.09.i.i.i.i.i.i.i.i
-  %5 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i monotonic, align 8, !noalias !308
+  %5 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i monotonic, align 8, !noalias !307
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i = inttoptr i64 %5 to ptr
   %cmp4.not.i.i.i.i.i.i.i.i = icmp ult ptr %4, %atomic-temp.i.0.i.i.i.i.i.i.i.i.i
   br i1 %cmp4.not.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -5968,18 +5968,18 @@ while.cond.i.i.i.i:                               ; preds = %_ZNK3tbb6detail2d13
   %ci.sroa.4.0.i.i.i.i = phi i64 [ 0, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i.i.i ], [ %inc.i.i.i.i.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i.i.i ]
   %storemerge.i.i.i.i = phi i64 [ %11, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i.i.i ], [ %add.i.i.i.i.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i.i.i ]
   %inc.i.i.i.i.i = add i64 %ci.sroa.4.0.i.i.i.i, 1
-  %12 = load atomic i64, ptr %my_size.i.i.i.i.i.i acquire, align 8, !noalias !311
-  %13 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i.i acquire, align 8, !noalias !311
+  %12 = load atomic i64, ptr %my_size.i.i.i.i.i.i acquire, align 8, !noalias !310
+  %13 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i.i acquire, align 8, !noalias !310
   %atomic-temp.i.0.i.i.i.i.i.i18.i.i.i.i = inttoptr i64 %13 to ptr
   %cmp.i.i.i.i.i20.i.i.i.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i.i.i, %atomic-temp.i.0.i.i.i.i.i.i18.i.i.i.i
   %cond.i.i.i.i.i21.i.i.i.i = select i1 %cmp.i.i.i.i.i20.i.i.i.i, i64 3, i64 64
-  %14 = load ptr, ptr %my_locals.i.i.i.i.i, align 8, !noalias !311
+  %14 = load ptr, ptr %my_locals.i.i.i.i.i, align 8, !noalias !310
   br label %for.body.i.i.i.i22.i.i.i.i
 
 for.body.i.i.i.i22.i.i.i.i:                       ; preds = %for.inc.i.i.i.i34.i.i.i.i, %while.cond.i.i.i.i
   %seg_index.09.i.i.i.i23.i.i.i.i = phi i64 [ 0, %while.cond.i.i.i.i ], [ %inc.i.i.i.i35.i.i.i.i, %for.inc.i.i.i.i34.i.i.i.i ]
   %arrayidx.i.i.i.i24.i.i.i.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i18.i.i.i.i, i64 %seg_index.09.i.i.i.i23.i.i.i.i
-  %15 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i.i.i monotonic, align 8, !noalias !311
+  %15 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i.i.i monotonic, align 8, !noalias !310
   %atomic-temp.i.0.i.i.i.i.i25.i.i.i.i = inttoptr i64 %15 to ptr
   %cmp4.not.i.i.i.i26.i.i.i.i = icmp ult ptr %14, %atomic-temp.i.0.i.i.i.i.i25.i.i.i.i
   br i1 %cmp4.not.i.i.i.i26.i.i.i.i, label %for.inc.i.i.i.i34.i.i.i.i, label %if.then.i.i.i.i27.i.i.i.i
@@ -6002,7 +6002,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i.i.i: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i.i.i
   %or.i.i.i.i.i44.i.i.i.i = or i64 %inc.i.i.i.i.i, 1
-  %16 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i.i.i, i1 true), !range !12
+  %16 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i45.i.i.i.i = xor i64 %16, 63
   %17 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i47.i.i.i.i = inttoptr i64 %17 to ptr
@@ -6012,7 +6012,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %arrayidx4.i.i.i.i50.i.i.i.i = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %atomic-temp.i.0.i2.i.i.i.i49.i.i.i.i, i64 %inc.i.i.i.i.i
   %19 = load i64, ptr %arrayidx4.i.i.i.i50.i.i.i.i, align 8
   %add.i.i.i.i.i = add nsw i64 %19, %storemerge.i.i.i.i
-  br label %while.cond.i.i.i.i, !llvm.loop !13
+  br label %while.cond.i.i.i.i, !llvm.loop !12
 
 _ZN4mold7Counter9get_valueEv.exit.i.i:            ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i.i.i, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i.i.i
   %retval.0.i.i.i.i = phi i64 [ %8, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i.i.i ], [ %storemerge.i.i.i.i, %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i.i.i ]
@@ -6020,20 +6020,20 @@ _ZN4mold7Counter9get_valueEv.exit.i.i:            ; preds = %_ZN3tbb6detail2d126
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %location.i.i1.i.i)
   %my_locals.i.i.i2.i.i = getelementptr inbounds i8, ptr %1, i64 48
   %my_size.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %1, i64 104
-  %20 = load atomic i64, ptr %my_size.i.i.i.i3.i.i acquire, align 8, !noalias !314
+  %20 = load atomic i64, ptr %my_size.i.i.i.i3.i.i acquire, align 8, !noalias !313
   %my_segment_table.i.i.i.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %1, i64 64
-  %21 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i.i acquire, align 8, !noalias !314
+  %21 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i.i acquire, align 8, !noalias !313
   %atomic-temp.i.0.i.i.i.i.i.i.i.i5.i.i = inttoptr i64 %21 to ptr
   %my_embedded_table.i.i.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %1, i64 72
   %cmp.i.i.i.i.i.i.i7.i.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i6.i.i, %atomic-temp.i.0.i.i.i.i.i.i.i.i5.i.i
   %cond.i.i.i.i.i.i.i8.i.i = select i1 %cmp.i.i.i.i.i.i.i7.i.i, i64 3, i64 64
-  %22 = load ptr, ptr %my_locals.i.i.i2.i.i, align 8, !noalias !314
+  %22 = load ptr, ptr %my_locals.i.i.i2.i.i, align 8, !noalias !313
   br label %for.body.i.i.i.i.i.i9.i.i
 
 for.body.i.i.i.i.i.i9.i.i:                        ; preds = %for.inc.i.i.i.i.i.i60.i.i, %_ZN4mold7Counter9get_valueEv.exit.i.i
   %seg_index.09.i.i.i.i.i.i10.i.i = phi i64 [ 0, %_ZN4mold7Counter9get_valueEv.exit.i.i ], [ %inc.i.i.i.i.i.i61.i.i, %for.inc.i.i.i.i.i.i60.i.i ]
   %arrayidx.i.i.i.i.i.i11.i.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i5.i.i, i64 %seg_index.09.i.i.i.i.i.i10.i.i
-  %23 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i11.i.i monotonic, align 8, !noalias !314
+  %23 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i11.i.i monotonic, align 8, !noalias !313
   %atomic-temp.i.0.i.i.i.i.i.i.i12.i.i = inttoptr i64 %23 to ptr
   %cmp4.not.i.i.i.i.i.i13.i.i = icmp ult ptr %22, %atomic-temp.i.0.i.i.i.i.i.i.i12.i.i
   br i1 %cmp4.not.i.i.i.i.i.i13.i.i, label %for.inc.i.i.i.i.i.i60.i.i, label %if.then.i.i.i.i.i.i14.i.i
@@ -6077,18 +6077,18 @@ while.cond.i.i24.i.i:                             ; preds = %_ZNK3tbb6detail2d13
   %ci.sroa.4.0.i.i25.i.i = phi i64 [ 0, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i21.i.i ], [ %inc.i.i.i27.i.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43.i.i ]
   %storemerge.i.i26.i.i = phi i64 [ %29, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i21.i.i ], [ %add.i.i.i50.i.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43.i.i ]
   %inc.i.i.i27.i.i = add i64 %ci.sroa.4.0.i.i25.i.i, 1
-  %30 = load atomic i64, ptr %my_size.i.i.i.i3.i.i acquire, align 8, !noalias !317
-  %31 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i.i acquire, align 8, !noalias !317
+  %30 = load atomic i64, ptr %my_size.i.i.i.i3.i.i acquire, align 8, !noalias !316
+  %31 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i.i acquire, align 8, !noalias !316
   %atomic-temp.i.0.i.i.i.i.i.i18.i.i28.i.i = inttoptr i64 %31 to ptr
   %cmp.i.i.i.i.i20.i.i29.i.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i6.i.i, %atomic-temp.i.0.i.i.i.i.i.i18.i.i28.i.i
   %cond.i.i.i.i.i21.i.i30.i.i = select i1 %cmp.i.i.i.i.i20.i.i29.i.i, i64 3, i64 64
-  %32 = load ptr, ptr %my_locals.i.i.i2.i.i, align 8, !noalias !317
+  %32 = load ptr, ptr %my_locals.i.i.i2.i.i, align 8, !noalias !316
   br label %for.body.i.i.i.i22.i.i31.i.i
 
 for.body.i.i.i.i22.i.i31.i.i:                     ; preds = %for.inc.i.i.i.i34.i.i52.i.i, %while.cond.i.i24.i.i
   %seg_index.09.i.i.i.i23.i.i32.i.i = phi i64 [ 0, %while.cond.i.i24.i.i ], [ %inc.i.i.i.i35.i.i53.i.i, %for.inc.i.i.i.i34.i.i52.i.i ]
   %arrayidx.i.i.i.i24.i.i33.i.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i18.i.i28.i.i, i64 %seg_index.09.i.i.i.i23.i.i32.i.i
-  %33 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i33.i.i monotonic, align 8, !noalias !317
+  %33 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i33.i.i monotonic, align 8, !noalias !316
   %atomic-temp.i.0.i.i.i.i.i25.i.i34.i.i = inttoptr i64 %33 to ptr
   %cmp4.not.i.i.i.i26.i.i35.i.i = icmp ult ptr %32, %atomic-temp.i.0.i.i.i.i.i25.i.i34.i.i
   br i1 %cmp4.not.i.i.i.i26.i.i35.i.i, label %for.inc.i.i.i.i34.i.i52.i.i, label %if.then.i.i.i.i27.i.i36.i.i
@@ -6111,7 +6111,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43.i.i: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39.i.i
   %or.i.i.i.i.i44.i.i44.i.i = or i64 %inc.i.i.i27.i.i, 1
-  %34 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i44.i.i, i1 true), !range !12
+  %34 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i44.i.i, i1 true)
   %xor.i.i.i.i.i.i.i45.i.i45.i.i = xor i64 %34, 63
   %35 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i47.i.i46.i.i = inttoptr i64 %35 to ptr
@@ -6121,7 +6121,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %arrayidx4.i.i.i.i50.i.i49.i.i = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %atomic-temp.i.0.i2.i.i.i.i49.i.i48.i.i, i64 %inc.i.i.i27.i.i
   %37 = load i64, ptr %arrayidx4.i.i.i.i50.i.i49.i.i, align 8
   %add.i.i.i50.i.i = add nsw i64 %37, %storemerge.i.i26.i.i
-  br label %while.cond.i.i24.i.i, !llvm.loop !13
+  br label %while.cond.i.i24.i.i, !llvm.loop !12
 
 "_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_.exit.i": ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39.i.i, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i55.i.i
   %retval.0.i.i51.i.i = phi i64 [ %26, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i55.i.i ], [ %storemerge.i.i26.i.i, %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39.i.i ]
@@ -6136,7 +6136,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   store ptr %.sink.i.i, ptr %__result.addr.029.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__result.addr.029.i.i, i64 8
   %cmp.i.i.i = icmp eq ptr %__first1.sroa.0.1.i.i, %add.ptr.i.i13
-  br i1 %cmp.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i.i, label %land.rhs.i.i, !llvm.loop !320
+  br i1 %cmp.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i.i, label %land.rhs.i.i, !llvm.loop !319
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %land.rhs.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i13 to i64
@@ -6165,7 +6165,7 @@ if.then.i.i.i.i.i10.i.i:                          ; preds = %_ZSt4moveIN9__gnu_c
   %sub.ptr.sub.i.i14 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast.i.i.i.i.i6.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i14, 3
   %cmp.not.i = icmp slt i64 %sub.ptr.div.i.i, %mul.i
-  br i1 %cmp.not.i, label %while.end.i, label %while.body.i12, !llvm.loop !321
+  br i1 %cmp.not.i, label %while.end.i, label %while.body.i12, !llvm.loop !320
 
 while.end.i:                                      ; preds = %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEET0_T_SF_SF_SF_SE_T1_.exit.i", %while.body
   %__first.sroa.0.0.lcssa.i15 = phi ptr [ %__first.coerce, %while.body ], [ %add.ptr.i6.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEET0_T_SF_SF_SF_SE_T1_.exit.i" ]
@@ -6198,20 +6198,20 @@ while.body.i20.i:                                 ; preds = %land.rhs.i15.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %location.i.i.i)
   %my_locals.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 48
   %my_size.i.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 104
-  %40 = load atomic i64, ptr %my_size.i.i.i.i.i acquire, align 8, !noalias !322
+  %40 = load atomic i64, ptr %my_size.i.i.i.i.i acquire, align 8, !noalias !321
   %my_segment_table.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 64
-  %41 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i acquire, align 8, !noalias !322
+  %41 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i acquire, align 8, !noalias !321
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i159 = inttoptr i64 %41 to ptr
   %my_embedded_table.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 72
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i.i, %atomic-temp.i.0.i.i.i.i.i.i.i.i.i159
   %cond.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 3, i64 64
-  %42 = load ptr, ptr %my_locals.i.i.i.i, align 8, !noalias !322
+  %42 = load ptr, ptr %my_locals.i.i.i.i, align 8, !noalias !321
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.inc.i.i.i.i.i.i.i, %while.body.i20.i
   %seg_index.09.i.i.i.i.i.i.i = phi i64 [ 0, %while.body.i20.i ], [ %inc.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i159, i64 %seg_index.09.i.i.i.i.i.i.i
-  %43 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i monotonic, align 8, !noalias !322
+  %43 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i monotonic, align 8, !noalias !321
   %atomic-temp.i.0.i.i.i.i.i.i.i.i = inttoptr i64 %43 to ptr
   %cmp4.not.i.i.i.i.i.i.i = icmp ult ptr %42, %atomic-temp.i.0.i.i.i.i.i.i.i.i
   br i1 %cmp4.not.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i160
@@ -6255,18 +6255,18 @@ while.cond.i.i.i:                                 ; preds = %_ZNK3tbb6detail2d13
   %ci.sroa.4.0.i.i.i = phi i64 [ 0, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i.i ], [ %inc.i.i.i.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i.i ]
   %storemerge.i.i.i = phi i64 [ %49, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i.i ], [ %add.i.i.i.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i.i ]
   %inc.i.i.i.i = add i64 %ci.sroa.4.0.i.i.i, 1
-  %50 = load atomic i64, ptr %my_size.i.i.i.i.i acquire, align 8, !noalias !325
-  %51 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i acquire, align 8, !noalias !325
+  %50 = load atomic i64, ptr %my_size.i.i.i.i.i acquire, align 8, !noalias !324
+  %51 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i acquire, align 8, !noalias !324
   %atomic-temp.i.0.i.i.i.i.i.i18.i.i.i = inttoptr i64 %51 to ptr
   %cmp.i.i.i.i.i20.i.i.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i.i, %atomic-temp.i.0.i.i.i.i.i.i18.i.i.i
   %cond.i.i.i.i.i21.i.i.i = select i1 %cmp.i.i.i.i.i20.i.i.i, i64 3, i64 64
-  %52 = load ptr, ptr %my_locals.i.i.i.i, align 8, !noalias !325
+  %52 = load ptr, ptr %my_locals.i.i.i.i, align 8, !noalias !324
   br label %for.body.i.i.i.i22.i.i.i
 
 for.body.i.i.i.i22.i.i.i:                         ; preds = %for.inc.i.i.i.i34.i.i.i, %while.cond.i.i.i
   %seg_index.09.i.i.i.i23.i.i.i = phi i64 [ 0, %while.cond.i.i.i ], [ %inc.i.i.i.i35.i.i.i, %for.inc.i.i.i.i34.i.i.i ]
   %arrayidx.i.i.i.i24.i.i.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i18.i.i.i, i64 %seg_index.09.i.i.i.i23.i.i.i
-  %53 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i.i monotonic, align 8, !noalias !325
+  %53 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i.i monotonic, align 8, !noalias !324
   %atomic-temp.i.0.i.i.i.i.i25.i.i.i = inttoptr i64 %53 to ptr
   %cmp4.not.i.i.i.i26.i.i.i = icmp ult ptr %52, %atomic-temp.i.0.i.i.i.i.i25.i.i.i
   br i1 %cmp4.not.i.i.i.i26.i.i.i, label %for.inc.i.i.i.i34.i.i.i, label %if.then.i.i.i.i27.i.i.i
@@ -6289,7 +6289,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i.i: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i.i
   %or.i.i.i.i.i44.i.i.i = or i64 %inc.i.i.i.i, 1
-  %54 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i.i, i1 true), !range !12
+  %54 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i45.i.i.i = xor i64 %54, 63
   %55 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i47.i.i.i = inttoptr i64 %55 to ptr
@@ -6299,7 +6299,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %arrayidx4.i.i.i.i50.i.i.i = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %atomic-temp.i.0.i2.i.i.i.i49.i.i.i, i64 %inc.i.i.i.i
   %57 = load i64, ptr %arrayidx4.i.i.i.i50.i.i.i, align 8
   %add.i.i.i.i = add nsw i64 %57, %storemerge.i.i.i
-  br label %while.cond.i.i.i, !llvm.loop !13
+  br label %while.cond.i.i.i, !llvm.loop !12
 
 _ZN4mold7Counter9get_valueEv.exit.i:              ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i.i, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i.i
   %retval.0.i.i.i = phi i64 [ %46, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i.i ], [ %storemerge.i.i.i, %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i.i ]
@@ -6307,20 +6307,20 @@ _ZN4mold7Counter9get_valueEv.exit.i:              ; preds = %_ZN3tbb6detail2d126
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %location.i.i1.i)
   %my_locals.i.i.i2.i = getelementptr inbounds i8, ptr %39, i64 48
   %my_size.i.i.i.i3.i = getelementptr inbounds i8, ptr %39, i64 104
-  %58 = load atomic i64, ptr %my_size.i.i.i.i3.i acquire, align 8, !noalias !328
+  %58 = load atomic i64, ptr %my_size.i.i.i.i3.i acquire, align 8, !noalias !327
   %my_segment_table.i.i.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %39, i64 64
-  %59 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i acquire, align 8, !noalias !328
+  %59 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i acquire, align 8, !noalias !327
   %atomic-temp.i.0.i.i.i.i.i.i.i.i5.i = inttoptr i64 %59 to ptr
   %my_embedded_table.i.i.i.i.i.i.i6.i = getelementptr inbounds i8, ptr %39, i64 72
   %cmp.i.i.i.i.i.i.i7.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i6.i, %atomic-temp.i.0.i.i.i.i.i.i.i.i5.i
   %cond.i.i.i.i.i.i.i8.i = select i1 %cmp.i.i.i.i.i.i.i7.i, i64 3, i64 64
-  %60 = load ptr, ptr %my_locals.i.i.i2.i, align 8, !noalias !328
+  %60 = load ptr, ptr %my_locals.i.i.i2.i, align 8, !noalias !327
   br label %for.body.i.i.i.i.i.i9.i
 
 for.body.i.i.i.i.i.i9.i:                          ; preds = %for.inc.i.i.i.i.i.i60.i, %_ZN4mold7Counter9get_valueEv.exit.i
   %seg_index.09.i.i.i.i.i.i10.i = phi i64 [ 0, %_ZN4mold7Counter9get_valueEv.exit.i ], [ %inc.i.i.i.i.i.i61.i, %for.inc.i.i.i.i.i.i60.i ]
   %arrayidx.i.i.i.i.i.i11.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i5.i, i64 %seg_index.09.i.i.i.i.i.i10.i
-  %61 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i11.i monotonic, align 8, !noalias !328
+  %61 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i11.i monotonic, align 8, !noalias !327
   %atomic-temp.i.0.i.i.i.i.i.i.i12.i = inttoptr i64 %61 to ptr
   %cmp4.not.i.i.i.i.i.i13.i = icmp ult ptr %60, %atomic-temp.i.0.i.i.i.i.i.i.i12.i
   br i1 %cmp4.not.i.i.i.i.i.i13.i, label %for.inc.i.i.i.i.i.i60.i, label %if.then.i.i.i.i.i.i14.i
@@ -6364,18 +6364,18 @@ while.cond.i.i24.i:                               ; preds = %_ZNK3tbb6detail2d13
   %ci.sroa.4.0.i.i25.i = phi i64 [ 0, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i21.i ], [ %inc.i.i.i27.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43.i ]
   %storemerge.i.i26.i = phi i64 [ %67, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i21.i ], [ %add.i.i.i50.i, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43.i ]
   %inc.i.i.i27.i = add i64 %ci.sroa.4.0.i.i25.i, 1
-  %68 = load atomic i64, ptr %my_size.i.i.i.i3.i acquire, align 8, !noalias !331
-  %69 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i acquire, align 8, !noalias !331
+  %68 = load atomic i64, ptr %my_size.i.i.i.i3.i acquire, align 8, !noalias !330
+  %69 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i acquire, align 8, !noalias !330
   %atomic-temp.i.0.i.i.i.i.i.i18.i.i28.i = inttoptr i64 %69 to ptr
   %cmp.i.i.i.i.i20.i.i29.i = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i6.i, %atomic-temp.i.0.i.i.i.i.i.i18.i.i28.i
   %cond.i.i.i.i.i21.i.i30.i = select i1 %cmp.i.i.i.i.i20.i.i29.i, i64 3, i64 64
-  %70 = load ptr, ptr %my_locals.i.i.i2.i, align 8, !noalias !331
+  %70 = load ptr, ptr %my_locals.i.i.i2.i, align 8, !noalias !330
   br label %for.body.i.i.i.i22.i.i31.i
 
 for.body.i.i.i.i22.i.i31.i:                       ; preds = %for.inc.i.i.i.i34.i.i52.i, %while.cond.i.i24.i
   %seg_index.09.i.i.i.i23.i.i32.i = phi i64 [ 0, %while.cond.i.i24.i ], [ %inc.i.i.i.i35.i.i53.i, %for.inc.i.i.i.i34.i.i52.i ]
   %arrayidx.i.i.i.i24.i.i33.i = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i18.i.i28.i, i64 %seg_index.09.i.i.i.i23.i.i32.i
-  %71 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i33.i monotonic, align 8, !noalias !331
+  %71 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i33.i monotonic, align 8, !noalias !330
   %atomic-temp.i.0.i.i.i.i.i25.i.i34.i = inttoptr i64 %71 to ptr
   %cmp4.not.i.i.i.i26.i.i35.i = icmp ult ptr %70, %atomic-temp.i.0.i.i.i.i.i25.i.i34.i
   br i1 %cmp4.not.i.i.i.i26.i.i35.i, label %for.inc.i.i.i.i34.i.i52.i, label %if.then.i.i.i.i27.i.i36.i
@@ -6398,7 +6398,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43.i: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39.i
   %or.i.i.i.i.i44.i.i44.i = or i64 %inc.i.i.i27.i, 1
-  %72 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i44.i, i1 true), !range !12
+  %72 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i44.i, i1 true)
   %xor.i.i.i.i.i.i.i45.i.i45.i = xor i64 %72, 63
   %73 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i47.i.i46.i = inttoptr i64 %73 to ptr
@@ -6408,7 +6408,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %arrayidx4.i.i.i.i50.i.i49.i = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %atomic-temp.i.0.i2.i.i.i.i49.i.i48.i, i64 %inc.i.i.i27.i
   %75 = load i64, ptr %arrayidx4.i.i.i.i50.i.i49.i, align 8
   %add.i.i.i50.i = add nsw i64 %75, %storemerge.i.i26.i
-  br label %while.cond.i.i24.i, !llvm.loop !13
+  br label %while.cond.i.i24.i, !llvm.loop !12
 
 "_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_.exit": ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39.i, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i55.i
   %retval.0.i.i51.i = phi i64 [ %64, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i55.i ], [ %storemerge.i.i26.i, %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39.i ]
@@ -6423,7 +6423,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   store ptr %.sink.i27.i, ptr %__result.addr.029.i16.i, align 8
   %incdec.ptr.i28.i = getelementptr inbounds i8, ptr %__result.addr.029.i16.i, i64 8
   %cmp.i.i29.i = icmp eq ptr %__first1.sroa.0.1.i26.i, %add.ptr.i12.i
-  br i1 %cmp.i.i29.i, label %while.end.thread.i30.i, label %land.rhs.i15.i, !llvm.loop !320
+  br i1 %cmp.i.i29.i, label %while.end.thread.i30.i, label %land.rhs.i15.i, !llvm.loop !319
 
 if.then.i.i.i.i.i.i48.i:                          ; preds = %land.rhs.i15.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i49.i = ptrtoint ptr %add.ptr.i12.i to i64
@@ -6467,20 +6467,20 @@ while.body.i.i24:                                 ; preds = %"_ZZN4mold7Counter5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %location.i.i.i.i17)
   %my_locals.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first2.addr.0.val.i.i, i64 48
   %my_size.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %__first2.addr.0.val.i.i, i64 104
-  %76 = load atomic i64, ptr %my_size.i.i.i.i.i.i26 acquire, align 8, !noalias !334
+  %76 = load atomic i64, ptr %my_size.i.i.i.i.i.i26 acquire, align 8, !noalias !333
   %my_segment_table.i.i.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %__first2.addr.0.val.i.i, i64 64
-  %77 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i.i27 acquire, align 8, !noalias !334
+  %77 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i.i27 acquire, align 8, !noalias !333
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i.i28 = inttoptr i64 %77 to ptr
   %my_embedded_table.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__first2.addr.0.val.i.i, i64 72
   %cmp.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i.i.i29, %atomic-temp.i.0.i.i.i.i.i.i.i.i.i.i28
   %cond.i.i.i.i.i.i.i.i.i31 = select i1 %cmp.i.i.i.i.i.i.i.i.i30, i64 3, i64 64
-  %78 = load ptr, ptr %my_locals.i.i.i.i.i25, align 8, !noalias !334
+  %78 = load ptr, ptr %my_locals.i.i.i.i.i25, align 8, !noalias !333
   br label %for.body.i.i.i.i.i.i.i.i32
 
 for.body.i.i.i.i.i.i.i.i32:                       ; preds = %for.inc.i.i.i.i.i.i.i.i156, %while.body.i.i24
   %seg_index.09.i.i.i.i.i.i.i.i33 = phi i64 [ 0, %while.body.i.i24 ], [ %inc.i.i.i.i.i.i.i.i157, %for.inc.i.i.i.i.i.i.i.i156 ]
   %arrayidx.i.i.i.i.i.i.i.i34 = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i.i28, i64 %seg_index.09.i.i.i.i.i.i.i.i33
-  %79 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i34 monotonic, align 8, !noalias !334
+  %79 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i.i34 monotonic, align 8, !noalias !333
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i35 = inttoptr i64 %79 to ptr
   %cmp4.not.i.i.i.i.i.i.i.i36 = icmp ult ptr %78, %atomic-temp.i.0.i.i.i.i.i.i.i.i.i35
   br i1 %cmp4.not.i.i.i.i.i.i.i.i36, label %for.inc.i.i.i.i.i.i.i.i156, label %if.then.i.i.i.i.i.i.i.i37
@@ -6524,18 +6524,18 @@ while.cond.i.i.i.i47:                             ; preds = %_ZNK3tbb6detail2d13
   %ci.sroa.4.0.i.i.i.i48 = phi i64 [ 0, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i.i.i44 ], [ %inc.i.i.i.i.i50, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i.i.i66 ]
   %storemerge.i.i.i.i49 = phi i64 [ %85, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i.i.i44 ], [ %add.i.i.i.i.i73, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i.i.i66 ]
   %inc.i.i.i.i.i50 = add i64 %ci.sroa.4.0.i.i.i.i48, 1
-  %86 = load atomic i64, ptr %my_size.i.i.i.i.i.i26 acquire, align 8, !noalias !337
-  %87 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i.i27 acquire, align 8, !noalias !337
+  %86 = load atomic i64, ptr %my_size.i.i.i.i.i.i26 acquire, align 8, !noalias !336
+  %87 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i.i27 acquire, align 8, !noalias !336
   %atomic-temp.i.0.i.i.i.i.i.i18.i.i.i.i51 = inttoptr i64 %87 to ptr
   %cmp.i.i.i.i.i20.i.i.i.i52 = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i.i.i29, %atomic-temp.i.0.i.i.i.i.i.i18.i.i.i.i51
   %cond.i.i.i.i.i21.i.i.i.i53 = select i1 %cmp.i.i.i.i.i20.i.i.i.i52, i64 3, i64 64
-  %88 = load ptr, ptr %my_locals.i.i.i.i.i25, align 8, !noalias !337
+  %88 = load ptr, ptr %my_locals.i.i.i.i.i25, align 8, !noalias !336
   br label %for.body.i.i.i.i22.i.i.i.i54
 
 for.body.i.i.i.i22.i.i.i.i54:                     ; preds = %for.inc.i.i.i.i34.i.i.i.i149, %while.cond.i.i.i.i47
   %seg_index.09.i.i.i.i23.i.i.i.i55 = phi i64 [ 0, %while.cond.i.i.i.i47 ], [ %inc.i.i.i.i35.i.i.i.i150, %for.inc.i.i.i.i34.i.i.i.i149 ]
   %arrayidx.i.i.i.i24.i.i.i.i56 = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i18.i.i.i.i51, i64 %seg_index.09.i.i.i.i23.i.i.i.i55
-  %89 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i.i.i56 monotonic, align 8, !noalias !337
+  %89 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i.i.i56 monotonic, align 8, !noalias !336
   %atomic-temp.i.0.i.i.i.i.i25.i.i.i.i57 = inttoptr i64 %89 to ptr
   %cmp4.not.i.i.i.i26.i.i.i.i58 = icmp ult ptr %88, %atomic-temp.i.0.i.i.i.i.i25.i.i.i.i57
   br i1 %cmp4.not.i.i.i.i26.i.i.i.i58, label %for.inc.i.i.i.i34.i.i.i.i149, label %if.then.i.i.i.i27.i.i.i.i59
@@ -6558,7 +6558,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i.i.i66: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i.i.i62
   %or.i.i.i.i.i44.i.i.i.i67 = or i64 %inc.i.i.i.i.i50, 1
-  %90 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i.i.i67, i1 true), !range !12
+  %90 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i.i.i67, i1 true)
   %xor.i.i.i.i.i.i.i45.i.i.i.i68 = xor i64 %90, 63
   %91 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i.i27 acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i47.i.i.i.i69 = inttoptr i64 %91 to ptr
@@ -6568,7 +6568,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %arrayidx4.i.i.i.i50.i.i.i.i72 = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %atomic-temp.i.0.i2.i.i.i.i49.i.i.i.i71, i64 %inc.i.i.i.i.i50
   %93 = load i64, ptr %arrayidx4.i.i.i.i50.i.i.i.i72, align 8
   %add.i.i.i.i.i73 = add nsw i64 %93, %storemerge.i.i.i.i49
-  br label %while.cond.i.i.i.i47, !llvm.loop !13
+  br label %while.cond.i.i.i.i47, !llvm.loop !12
 
 _ZN4mold7Counter9get_valueEv.exit.i.i74:          ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i.i.i62, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i.i.i152
   %retval.0.i.i.i.i75 = phi i64 [ %82, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i.i.i152 ], [ %storemerge.i.i.i.i49, %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i.i.i62 ]
@@ -6576,20 +6576,20 @@ _ZN4mold7Counter9get_valueEv.exit.i.i74:          ; preds = %_ZN3tbb6detail2d126
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %location.i.i1.i.i16)
   %my_locals.i.i.i2.i.i76 = getelementptr inbounds i8, ptr %__first1.addr.0.val.i.i, i64 48
   %my_size.i.i.i.i3.i.i77 = getelementptr inbounds i8, ptr %__first1.addr.0.val.i.i, i64 104
-  %94 = load atomic i64, ptr %my_size.i.i.i.i3.i.i77 acquire, align 8, !noalias !340
+  %94 = load atomic i64, ptr %my_size.i.i.i.i3.i.i77 acquire, align 8, !noalias !339
   %my_segment_table.i.i.i.i.i.i.i4.i.i78 = getelementptr inbounds i8, ptr %__first1.addr.0.val.i.i, i64 64
-  %95 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i.i78 acquire, align 8, !noalias !340
+  %95 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i.i78 acquire, align 8, !noalias !339
   %atomic-temp.i.0.i.i.i.i.i.i.i.i5.i.i79 = inttoptr i64 %95 to ptr
   %my_embedded_table.i.i.i.i.i.i.i6.i.i80 = getelementptr inbounds i8, ptr %__first1.addr.0.val.i.i, i64 72
   %cmp.i.i.i.i.i.i.i7.i.i81 = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i6.i.i80, %atomic-temp.i.0.i.i.i.i.i.i.i.i5.i.i79
   %cond.i.i.i.i.i.i.i8.i.i82 = select i1 %cmp.i.i.i.i.i.i.i7.i.i81, i64 3, i64 64
-  %96 = load ptr, ptr %my_locals.i.i.i2.i.i76, align 8, !noalias !340
+  %96 = load ptr, ptr %my_locals.i.i.i2.i.i76, align 8, !noalias !339
   br label %for.body.i.i.i.i.i.i9.i.i83
 
 for.body.i.i.i.i.i.i9.i.i83:                      ; preds = %for.inc.i.i.i.i.i.i60.i.i146, %_ZN4mold7Counter9get_valueEv.exit.i.i74
   %seg_index.09.i.i.i.i.i.i10.i.i84 = phi i64 [ 0, %_ZN4mold7Counter9get_valueEv.exit.i.i74 ], [ %inc.i.i.i.i.i.i61.i.i147, %for.inc.i.i.i.i.i.i60.i.i146 ]
   %arrayidx.i.i.i.i.i.i11.i.i85 = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i5.i.i79, i64 %seg_index.09.i.i.i.i.i.i10.i.i84
-  %97 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i11.i.i85 monotonic, align 8, !noalias !340
+  %97 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i11.i.i85 monotonic, align 8, !noalias !339
   %atomic-temp.i.0.i.i.i.i.i.i.i12.i.i86 = inttoptr i64 %97 to ptr
   %cmp4.not.i.i.i.i.i.i13.i.i87 = icmp ult ptr %96, %atomic-temp.i.0.i.i.i.i.i.i.i12.i.i86
   br i1 %cmp4.not.i.i.i.i.i.i13.i.i87, label %for.inc.i.i.i.i.i.i60.i.i146, label %if.then.i.i.i.i.i.i14.i.i88
@@ -6633,18 +6633,18 @@ while.cond.i.i24.i.i98:                           ; preds = %_ZNK3tbb6detail2d13
   %ci.sroa.4.0.i.i25.i.i99 = phi i64 [ 0, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i21.i.i95 ], [ %inc.i.i.i27.i.i101, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43.i.i117 ]
   %storemerge.i.i26.i.i100 = phi i64 [ %103, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i21.i.i95 ], [ %add.i.i.i50.i.i124, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43.i.i117 ]
   %inc.i.i.i27.i.i101 = add i64 %ci.sroa.4.0.i.i25.i.i99, 1
-  %104 = load atomic i64, ptr %my_size.i.i.i.i3.i.i77 acquire, align 8, !noalias !343
-  %105 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i.i78 acquire, align 8, !noalias !343
+  %104 = load atomic i64, ptr %my_size.i.i.i.i3.i.i77 acquire, align 8, !noalias !342
+  %105 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i.i78 acquire, align 8, !noalias !342
   %atomic-temp.i.0.i.i.i.i.i.i18.i.i28.i.i102 = inttoptr i64 %105 to ptr
   %cmp.i.i.i.i.i20.i.i29.i.i103 = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i6.i.i80, %atomic-temp.i.0.i.i.i.i.i.i18.i.i28.i.i102
   %cond.i.i.i.i.i21.i.i30.i.i104 = select i1 %cmp.i.i.i.i.i20.i.i29.i.i103, i64 3, i64 64
-  %106 = load ptr, ptr %my_locals.i.i.i2.i.i76, align 8, !noalias !343
+  %106 = load ptr, ptr %my_locals.i.i.i2.i.i76, align 8, !noalias !342
   br label %for.body.i.i.i.i22.i.i31.i.i105
 
 for.body.i.i.i.i22.i.i31.i.i105:                  ; preds = %for.inc.i.i.i.i34.i.i52.i.i139, %while.cond.i.i24.i.i98
   %seg_index.09.i.i.i.i23.i.i32.i.i106 = phi i64 [ 0, %while.cond.i.i24.i.i98 ], [ %inc.i.i.i.i35.i.i53.i.i140, %for.inc.i.i.i.i34.i.i52.i.i139 ]
   %arrayidx.i.i.i.i24.i.i33.i.i107 = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i18.i.i28.i.i102, i64 %seg_index.09.i.i.i.i23.i.i32.i.i106
-  %107 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i33.i.i107 monotonic, align 8, !noalias !343
+  %107 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i33.i.i107 monotonic, align 8, !noalias !342
   %atomic-temp.i.0.i.i.i.i.i25.i.i34.i.i108 = inttoptr i64 %107 to ptr
   %cmp4.not.i.i.i.i26.i.i35.i.i109 = icmp ult ptr %106, %atomic-temp.i.0.i.i.i.i.i25.i.i34.i.i108
   br i1 %cmp4.not.i.i.i.i26.i.i35.i.i109, label %for.inc.i.i.i.i34.i.i52.i.i139, label %if.then.i.i.i.i27.i.i36.i.i110
@@ -6667,7 +6667,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43.i.i117: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39.i.i113
   %or.i.i.i.i.i44.i.i44.i.i118 = or i64 %inc.i.i.i27.i.i101, 1
-  %108 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i44.i.i118, i1 true), !range !12
+  %108 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i44.i.i118, i1 true)
   %xor.i.i.i.i.i.i.i45.i.i45.i.i119 = xor i64 %108, 63
   %109 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i.i78 acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i47.i.i46.i.i120 = inttoptr i64 %109 to ptr
@@ -6677,7 +6677,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %arrayidx4.i.i.i.i50.i.i49.i.i123 = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %atomic-temp.i.0.i2.i.i.i.i49.i.i48.i.i122, i64 %inc.i.i.i27.i.i101
   %111 = load i64, ptr %arrayidx4.i.i.i.i50.i.i49.i.i123, align 8
   %add.i.i.i50.i.i124 = add nsw i64 %111, %storemerge.i.i26.i.i100
-  br label %while.cond.i.i24.i.i98, !llvm.loop !13
+  br label %while.cond.i.i24.i.i98, !llvm.loop !12
 
 "_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_.exit.i125": ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39.i.i113, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i55.i.i142
   %retval.0.i.i51.i.i126 = phi i64 [ %100, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i55.i.i142 ], [ %storemerge.i.i26.i.i100, %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39.i.i113 ]
@@ -6694,7 +6694,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %cmp.i.i = icmp ne ptr %__first1.addr.1.i.i, %add.ptr.i
   %cmp1.i.i = icmp ne ptr %__first2.addr.1.i.i, %add.ptr2.i
   %112 = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
-  br i1 %112, label %while.body.i.i24, label %while.end.i.loopexit.i, !llvm.loop !346
+  br i1 %112, label %while.body.i.i24, label %while.end.i.loopexit.i, !llvm.loop !345
 
 while.end.i.loopexit.i:                           ; preds = %"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_.exit.i125"
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i129 = ptrtoint ptr %add.ptr.i to i64
@@ -6724,7 +6724,7 @@ if.then.i.i.i.i.i15.i.i:                          ; preds = %_ZSt4moveIPPN4mold7
   %sub.ptr.sub.i134 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.lhs.cast.i.i.i.i.i11.i.i
   %sub.ptr.div.i135 = ashr exact i64 %sub.ptr.sub.i134, 3
   %cmp.not.i136 = icmp slt i64 %sub.ptr.div.i135, %mul.i18
-  br i1 %cmp.not.i136, label %while.end.i137, label %while.body.i23, !llvm.loop !347
+  br i1 %cmp.not.i136, label %while.end.i137, label %while.body.i23, !llvm.loop !346
 
 while.end.i137:                                   ; preds = %"_ZSt12__move_mergeIPPN4mold7CounterEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNS1_5printEvE3$_0EEET0_T_SF_SF_SF_SE_T1_.exit.i", %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_T0_T1_T2_.exit"
   %__first.addr.0.lcssa.i = phi ptr [ %__buffer, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_T0_T1_T2_.exit" ], [ %add.ptr2.i, %"_ZSt12__move_mergeIPPN4mold7CounterEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNS1_5printEvE3$_0EEET0_T_SF_SF_SF_SE_T1_.exit.i" ]
@@ -6746,20 +6746,20 @@ while.body.i35.i:                                 ; preds = %while.end.i137, %"_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %location.i.i.i163)
   %my_locals.i.i.i.i164 = getelementptr inbounds i8, ptr %__first2.addr.0.val.i39.i, i64 48
   %my_size.i.i.i.i.i165 = getelementptr inbounds i8, ptr %__first2.addr.0.val.i39.i, i64 104
-  %114 = load atomic i64, ptr %my_size.i.i.i.i.i165 acquire, align 8, !noalias !348
+  %114 = load atomic i64, ptr %my_size.i.i.i.i.i165 acquire, align 8, !noalias !347
   %my_segment_table.i.i.i.i.i.i.i.i166 = getelementptr inbounds i8, ptr %__first2.addr.0.val.i39.i, i64 64
-  %115 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i166 acquire, align 8, !noalias !348
+  %115 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i166 acquire, align 8, !noalias !347
   %atomic-temp.i.0.i.i.i.i.i.i.i.i.i167 = inttoptr i64 %115 to ptr
   %my_embedded_table.i.i.i.i.i.i.i.i168 = getelementptr inbounds i8, ptr %__first2.addr.0.val.i39.i, i64 72
   %cmp.i.i.i.i.i.i.i.i169 = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i.i168, %atomic-temp.i.0.i.i.i.i.i.i.i.i.i167
   %cond.i.i.i.i.i.i.i.i170 = select i1 %cmp.i.i.i.i.i.i.i.i169, i64 3, i64 64
-  %116 = load ptr, ptr %my_locals.i.i.i.i164, align 8, !noalias !348
+  %116 = load ptr, ptr %my_locals.i.i.i.i164, align 8, !noalias !347
   br label %for.body.i.i.i.i.i.i.i171
 
 for.body.i.i.i.i.i.i.i171:                        ; preds = %for.inc.i.i.i.i.i.i.i285, %while.body.i35.i
   %seg_index.09.i.i.i.i.i.i.i172 = phi i64 [ 0, %while.body.i35.i ], [ %inc.i.i.i.i.i.i.i286, %for.inc.i.i.i.i.i.i.i285 ]
   %arrayidx.i.i.i.i.i.i.i173 = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i.i167, i64 %seg_index.09.i.i.i.i.i.i.i172
-  %117 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i173 monotonic, align 8, !noalias !348
+  %117 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i.i173 monotonic, align 8, !noalias !347
   %atomic-temp.i.0.i.i.i.i.i.i.i.i174 = inttoptr i64 %117 to ptr
   %cmp4.not.i.i.i.i.i.i.i175 = icmp ult ptr %116, %atomic-temp.i.0.i.i.i.i.i.i.i.i174
   br i1 %cmp4.not.i.i.i.i.i.i.i175, label %for.inc.i.i.i.i.i.i.i285, label %if.then.i.i.i.i.i.i.i176
@@ -6803,18 +6803,18 @@ while.cond.i.i.i186:                              ; preds = %_ZNK3tbb6detail2d13
   %ci.sroa.4.0.i.i.i187 = phi i64 [ 0, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i.i183 ], [ %inc.i.i.i.i189, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i.i205 ]
   %storemerge.i.i.i188 = phi i64 [ %123, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i.i183 ], [ %add.i.i.i.i212, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i.i205 ]
   %inc.i.i.i.i189 = add i64 %ci.sroa.4.0.i.i.i187, 1
-  %124 = load atomic i64, ptr %my_size.i.i.i.i.i165 acquire, align 8, !noalias !351
-  %125 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i166 acquire, align 8, !noalias !351
+  %124 = load atomic i64, ptr %my_size.i.i.i.i.i165 acquire, align 8, !noalias !350
+  %125 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i166 acquire, align 8, !noalias !350
   %atomic-temp.i.0.i.i.i.i.i.i18.i.i.i190 = inttoptr i64 %125 to ptr
   %cmp.i.i.i.i.i20.i.i.i191 = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i.i168, %atomic-temp.i.0.i.i.i.i.i.i18.i.i.i190
   %cond.i.i.i.i.i21.i.i.i192 = select i1 %cmp.i.i.i.i.i20.i.i.i191, i64 3, i64 64
-  %126 = load ptr, ptr %my_locals.i.i.i.i164, align 8, !noalias !351
+  %126 = load ptr, ptr %my_locals.i.i.i.i164, align 8, !noalias !350
   br label %for.body.i.i.i.i22.i.i.i193
 
 for.body.i.i.i.i22.i.i.i193:                      ; preds = %for.inc.i.i.i.i34.i.i.i277, %while.cond.i.i.i186
   %seg_index.09.i.i.i.i23.i.i.i194 = phi i64 [ 0, %while.cond.i.i.i186 ], [ %inc.i.i.i.i35.i.i.i278, %for.inc.i.i.i.i34.i.i.i277 ]
   %arrayidx.i.i.i.i24.i.i.i195 = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i18.i.i.i190, i64 %seg_index.09.i.i.i.i23.i.i.i194
-  %127 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i.i195 monotonic, align 8, !noalias !351
+  %127 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i.i195 monotonic, align 8, !noalias !350
   %atomic-temp.i.0.i.i.i.i.i25.i.i.i196 = inttoptr i64 %127 to ptr
   %cmp4.not.i.i.i.i26.i.i.i197 = icmp ult ptr %126, %atomic-temp.i.0.i.i.i.i.i25.i.i.i196
   br i1 %cmp4.not.i.i.i.i26.i.i.i197, label %for.inc.i.i.i.i34.i.i.i277, label %if.then.i.i.i.i27.i.i.i198
@@ -6837,7 +6837,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i.i205: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i.i201
   %or.i.i.i.i.i44.i.i.i206 = or i64 %inc.i.i.i.i189, 1
-  %128 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i.i206, i1 true), !range !12
+  %128 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i.i206, i1 true)
   %xor.i.i.i.i.i.i.i45.i.i.i207 = xor i64 %128, 63
   %129 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i.i166 acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i47.i.i.i208 = inttoptr i64 %129 to ptr
@@ -6847,7 +6847,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %arrayidx4.i.i.i.i50.i.i.i211 = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %atomic-temp.i.0.i2.i.i.i.i49.i.i.i210, i64 %inc.i.i.i.i189
   %131 = load i64, ptr %arrayidx4.i.i.i.i50.i.i.i211, align 8
   %add.i.i.i.i212 = add nsw i64 %131, %storemerge.i.i.i188
-  br label %while.cond.i.i.i186, !llvm.loop !13
+  br label %while.cond.i.i.i186, !llvm.loop !12
 
 _ZN4mold7Counter9get_valueEv.exit.i213:           ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i.i201, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i.i280
   %retval.0.i.i.i214 = phi i64 [ %120, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i.i280 ], [ %storemerge.i.i.i188, %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i.i201 ]
@@ -6855,20 +6855,20 @@ _ZN4mold7Counter9get_valueEv.exit.i213:           ; preds = %_ZN3tbb6detail2d126
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %location.i.i1.i162)
   %my_locals.i.i.i2.i215 = getelementptr inbounds i8, ptr %__first1.addr.0.val.i40.i, i64 48
   %my_size.i.i.i.i3.i216 = getelementptr inbounds i8, ptr %__first1.addr.0.val.i40.i, i64 104
-  %132 = load atomic i64, ptr %my_size.i.i.i.i3.i216 acquire, align 8, !noalias !354
+  %132 = load atomic i64, ptr %my_size.i.i.i.i3.i216 acquire, align 8, !noalias !353
   %my_segment_table.i.i.i.i.i.i.i4.i217 = getelementptr inbounds i8, ptr %__first1.addr.0.val.i40.i, i64 64
-  %133 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i217 acquire, align 8, !noalias !354
+  %133 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i217 acquire, align 8, !noalias !353
   %atomic-temp.i.0.i.i.i.i.i.i.i.i5.i218 = inttoptr i64 %133 to ptr
   %my_embedded_table.i.i.i.i.i.i.i6.i219 = getelementptr inbounds i8, ptr %__first1.addr.0.val.i40.i, i64 72
   %cmp.i.i.i.i.i.i.i7.i220 = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i6.i219, %atomic-temp.i.0.i.i.i.i.i.i.i.i5.i218
   %cond.i.i.i.i.i.i.i8.i221 = select i1 %cmp.i.i.i.i.i.i.i7.i220, i64 3, i64 64
-  %134 = load ptr, ptr %my_locals.i.i.i2.i215, align 8, !noalias !354
+  %134 = load ptr, ptr %my_locals.i.i.i2.i215, align 8, !noalias !353
   br label %for.body.i.i.i.i.i.i9.i222
 
 for.body.i.i.i.i.i.i9.i222:                       ; preds = %for.inc.i.i.i.i.i.i60.i274, %_ZN4mold7Counter9get_valueEv.exit.i213
   %seg_index.09.i.i.i.i.i.i10.i223 = phi i64 [ 0, %_ZN4mold7Counter9get_valueEv.exit.i213 ], [ %inc.i.i.i.i.i.i61.i275, %for.inc.i.i.i.i.i.i60.i274 ]
   %arrayidx.i.i.i.i.i.i11.i224 = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i.i.i5.i218, i64 %seg_index.09.i.i.i.i.i.i10.i223
-  %135 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i11.i224 monotonic, align 8, !noalias !354
+  %135 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i11.i224 monotonic, align 8, !noalias !353
   %atomic-temp.i.0.i.i.i.i.i.i.i12.i225 = inttoptr i64 %135 to ptr
   %cmp4.not.i.i.i.i.i.i13.i226 = icmp ult ptr %134, %atomic-temp.i.0.i.i.i.i.i.i.i12.i225
   br i1 %cmp4.not.i.i.i.i.i.i13.i226, label %for.inc.i.i.i.i.i.i60.i274, label %if.then.i.i.i.i.i.i14.i227
@@ -6912,18 +6912,18 @@ while.cond.i.i24.i237:                            ; preds = %_ZNK3tbb6detail2d13
   %ci.sroa.4.0.i.i25.i238 = phi i64 [ 0, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i21.i234 ], [ %inc.i.i.i27.i240, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43.i256 ]
   %storemerge.i.i26.i239 = phi i64 [ %141, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit.i.i21.i234 ], [ %add.i.i.i50.i263, %_ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43.i256 ]
   %inc.i.i.i27.i240 = add i64 %ci.sroa.4.0.i.i25.i238, 1
-  %142 = load atomic i64, ptr %my_size.i.i.i.i3.i216 acquire, align 8, !noalias !357
-  %143 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i217 acquire, align 8, !noalias !357
+  %142 = load atomic i64, ptr %my_size.i.i.i.i3.i216 acquire, align 8, !noalias !356
+  %143 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i217 acquire, align 8, !noalias !356
   %atomic-temp.i.0.i.i.i.i.i.i18.i.i28.i241 = inttoptr i64 %143 to ptr
   %cmp.i.i.i.i.i20.i.i29.i242 = icmp eq ptr %my_embedded_table.i.i.i.i.i.i.i6.i219, %atomic-temp.i.0.i.i.i.i.i.i18.i.i28.i241
   %cond.i.i.i.i.i21.i.i30.i243 = select i1 %cmp.i.i.i.i.i20.i.i29.i242, i64 3, i64 64
-  %144 = load ptr, ptr %my_locals.i.i.i2.i215, align 8, !noalias !357
+  %144 = load ptr, ptr %my_locals.i.i.i2.i215, align 8, !noalias !356
   br label %for.body.i.i.i.i22.i.i31.i244
 
 for.body.i.i.i.i22.i.i31.i244:                    ; preds = %for.inc.i.i.i.i34.i.i52.i266, %while.cond.i.i24.i237
   %seg_index.09.i.i.i.i23.i.i32.i245 = phi i64 [ 0, %while.cond.i.i24.i237 ], [ %inc.i.i.i.i35.i.i53.i267, %for.inc.i.i.i.i34.i.i52.i266 ]
   %arrayidx.i.i.i.i24.i.i33.i246 = getelementptr inbounds %"struct.std::atomic.7", ptr %atomic-temp.i.0.i.i.i.i.i.i18.i.i28.i241, i64 %seg_index.09.i.i.i.i23.i.i32.i245
-  %145 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i33.i246 monotonic, align 8, !noalias !357
+  %145 = load atomic i64, ptr %arrayidx.i.i.i.i24.i.i33.i246 monotonic, align 8, !noalias !356
   %atomic-temp.i.0.i.i.i.i.i25.i.i34.i247 = inttoptr i64 %145 to ptr
   %cmp4.not.i.i.i.i26.i.i35.i248 = icmp ult ptr %144, %atomic-temp.i.0.i.i.i.i.i25.i.i34.i247
   br i1 %cmp4.not.i.i.i.i26.i.i35.i248, label %for.inc.i.i.i.i34.i.i52.i266, label %if.then.i.i.i.i27.i.i36.i249
@@ -6946,7 +6946,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
 
 _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EEENS1_23cache_aligned_allocatorIS8_EEEEKlEdeEv.exit51.i.i43.i256: ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39.i252
   %or.i.i.i.i.i44.i.i44.i257 = or i64 %inc.i.i.i27.i240, 1
-  %146 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i44.i257, i1 true), !range !12
+  %146 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i44.i.i44.i257, i1 true)
   %xor.i.i.i.i.i.i.i45.i.i45.i258 = xor i64 %146, 63
   %147 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i.i4.i217 acquire, align 8
   %atomic-temp.i.0.i.i.i.i.i47.i.i46.i259 = inttoptr i64 %147 to ptr
@@ -6956,7 +6956,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %arrayidx4.i.i.i.i50.i.i49.i262 = getelementptr inbounds %"struct.tbb::detail::d0::padded", ptr %atomic-temp.i.0.i2.i.i.i.i49.i.i48.i261, i64 %inc.i.i.i27.i240
   %149 = load i64, ptr %arrayidx4.i.i.i.i50.i.i49.i262, align 8
   %add.i.i.i50.i263 = add nsw i64 %149, %storemerge.i.i26.i239
-  br label %while.cond.i.i24.i237, !llvm.loop !13
+  br label %while.cond.i.i24.i237, !llvm.loop !12
 
 "_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_.exit288": ; preds = %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39.i252, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i55.i269
   %retval.0.i.i51.i264 = phi i64 [ %138, %_ZN3tbb6detail2d111ets_elementIlED2Ev.exit.i.i55.i269 ], [ %storemerge.i.i26.i239, %_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv.exit37.i.i39.i252 ]
@@ -6973,7 +6973,7 @@ _ZNK3tbb6detail2d135enumerable_thread_specific_iteratorINS1_17concurrent_vectorI
   %cmp.i49.i = icmp ne ptr %__first1.addr.1.i46.i, %add.ptr13.i
   %cmp1.i50.i = icmp ne ptr %__first2.addr.1.i44.i, %add.ptr
   %150 = select i1 %cmp.i49.i, i1 %cmp1.i50.i, i1 false
-  br i1 %150, label %while.body.i35.i, label %while.end.i18.i, !llvm.loop !346
+  br i1 %150, label %while.body.i35.i, label %while.end.i18.i, !llvm.loop !345
 
 while.end.i18.i:                                  ; preds = %"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_.exit288", %while.end.i137
   %__result.sroa.0.0.lcssa.i19.i = phi ptr [ %__result.sroa.0.0.lcssa.i, %while.end.i137 ], [ %incdec.ptr.i.i48.i, %"_ZZN4mold7Counter5printEvENK3$_0clEPS0_S2_.exit288" ]
@@ -7002,7 +7002,7 @@ if.then.i.i.i.i.i15.i33.i:                        ; preds = %_ZSt4moveIPPN4mold7
 
 "_ZSt17__merge_sort_loopIPPN4mold7CounterEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIZNS1_5printEvE3$_0EEEvT_SE_T0_T1_T2_.exit": ; preds = %_ZSt4moveIPPN4mold7CounterEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i27.i, %if.then.i.i.i.i.i15.i33.i
   %cmp = icmp slt i64 %mul.i18, %sub.ptr.div.i
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !360
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !359
 
 while.end:                                        ; preds = %"_ZSt17__merge_sort_loopIPPN4mold7CounterEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIZNS1_5printEvE3$_0EEEvT_SE_T0_T1_T2_.exit", %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_5printEvE3$_0EEEvT_SE_T0_T1_.exit"
   ret void
@@ -7054,7 +7054,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   store ptr %.sink.i, ptr %__result.sroa.0.017.i, align 8
   %incdec.ptr.i8.i = getelementptr inbounds i8, ptr %__result.sroa.0.017.i, i64 8
   %cmp.not.i = icmp eq ptr %__first1.addr.1.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.not.i, label %if.end89, label %land.rhs.i, !llvm.loop !361
+  br i1 %cmp.not.i, label %if.end89, label %land.rhs.i, !llvm.loop !360
 
 _ZSt4moveIPPN4mold7CounterEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i: ; preds = %land.rhs.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
@@ -7087,7 +7087,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZSt4moveIN9__gnu_c
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i33, 3
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__last.coerce, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i33, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %add.ptr.i.i.i.i.i.i, ptr align 8 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i33, i1 false)
   br label %if.end89
 
 if.end7.i:                                        ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit37.thread
@@ -7115,7 +7115,7 @@ if.then12.i:                                      ; preds = %while.body.i39
   %2 = load ptr, ptr %__last1.sroa.0.0.i.ph, align 8
   store ptr %2, ptr %incdec.ptr.i11.i, align 8
   %cmp.i12.i = icmp eq ptr %__last1.sroa.0.0.i.ph, %__first.coerce.tr112
-  br i1 %cmp.i12.i, label %if.then17.i, label %while.body.i39.outer, !llvm.loop !362
+  br i1 %cmp.i12.i, label %if.then17.i, label %while.body.i39.outer, !llvm.loop !361
 
 if.then17.i:                                      ; preds = %if.then12.i
   %incdec.ptr18.i = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 8
@@ -7140,7 +7140,7 @@ if.else26.i:                                      ; preds = %while.body.i39
 
 if.end31.i:                                       ; preds = %if.else26.i
   %incdec.ptr32.i = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 -8
-  br label %while.body.i39, !llvm.loop !362
+  br label %while.body.i39, !llvm.loop !361
 
 if.else29:                                        ; preds = %if.else
   br i1 %cmp.not118, label %if.then31, label %if.else46
@@ -7167,7 +7167,7 @@ while.body.i45:                                   ; preds = %if.then31, %while.b
   %__first.sroa.0.1.i = select i1 %call2.i.i46, ptr %incdec.ptr.i.i47, ptr %__first.sroa.0.07.i
   %__len.1.i = select i1 %call2.i.i46, i64 %sub9.i, i64 %shr.i
   %cmp.i48 = icmp sgt i64 %__len.1.i, 0
-  br i1 %cmp.i48, label %while.body.i45, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNS3_5printEvE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !289
+  br i1 %cmp.i48, label %while.body.i45, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNS3_5printEvE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !288
 
 "_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNS3_5printEvE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit": ; preds = %while.body.i45
   %.pre = ptrtoint ptr %__first.sroa.0.1.i to i64
@@ -7203,7 +7203,7 @@ while.body.i68:                                   ; preds = %if.else46, %while.b
   %__first.sroa.0.1.i81 = select i1 %call2.i.i78, ptr %__first.sroa.0.07.i70, ptr %incdec.ptr.i.i79
   %__len.1.i82 = select i1 %call2.i.i78, i64 %shr.i71, i64 %sub9.i80
   %cmp.i83 = icmp sgt i64 %__len.1.i82, 0
-  br i1 %cmp.i83, label %while.body.i68, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNS3_5printEvE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !290
+  br i1 %cmp.i83, label %while.body.i68, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNS3_5printEvE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !289
 
 "_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNS3_5printEvE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit": ; preds = %while.body.i68
   %.pre127 = ptrtoint ptr %__first.sroa.0.1.i81 to i64
@@ -7333,7 +7333,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 entry:
   %table = alloca ptr, align 8
   %or.i = or i64 %index, 1
-  %0 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i, i1 true), !range !12
+  %0 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i, i1 true)
   %xor.i.i.i = xor i64 %0, 63
   %my_segment_table = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load atomic i64, ptr %my_segment_table acquire, align 8
@@ -7445,7 +7445,7 @@ while.body.i.i.us.i.i.i:                          ; preds = %if.then.i.us.i.i.i,
   %dec.i.i.us.i.i.i = add nsw i32 %delay.addr.02.i.i.us.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
   %cmp.i.i.us.i.i.i = icmp ugt i32 %delay.addr.02.i.i.us.i.i.i, 1
-  br i1 %cmp.i.i.us.i.i.i, label %while.body.i.i.us.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i.i, !llvm.loop !363
+  br i1 %cmp.i.i.us.i.i.i, label %while.body.i.i.us.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i.i, !llvm.loop !362
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i.i: ; preds = %while.body.i.i.us.i.i.i, %if.then.i.us.i.i.i
   %mul.i.us.i.i.i = shl nsw i32 %backoff.sroa.0.014.us.i.i.i, 1
@@ -7455,14 +7455,14 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i.i: ; preds = %_ZN3tbb6deta
   %backoff.sroa.0.1.us.i.i.i = phi i32 [ %mul.i.us.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i.i ], [ %backoff.sroa.0.014.us.i.i.i, %if.else.i.us.i.i.i ]
   %2 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
   %cmp.i.us.i.i.i = icmp eq i64 %2, 0
-  br i1 %cmp.i.us.i.i.i, label %while.body.us.i.i.i, label %_ZN3tbb6detail2d015spin_wait_whileIPPN4mold11TimerRecordEZNS1_18spin_wait_while_eqIS6_S6_EET_RKSt6atomicIS8_ET0_St12memory_orderEUlS6_E_EES8_SC_SD_SE_.exit.i.i, !llvm.loop !364
+  br i1 %cmp.i.us.i.i.i, label %while.body.us.i.i.i, label %_ZN3tbb6detail2d015spin_wait_whileIPPN4mold11TimerRecordEZNS1_18spin_wait_while_eqIS6_S6_EET_RKSt6atomicIS8_ET0_St12memory_orderEUlS6_E_EES8_SC_SD_SE_.exit.i.i, !llvm.loop !363
 
 _ZN3tbb6detail2d015spin_wait_whileIPPN4mold11TimerRecordEZNS1_18spin_wait_while_eqIS6_S6_EET_RKSt6atomicIS8_ET0_St12memory_orderEUlS6_E_EES8_SC_SD_SE_.exit.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i.i, %for.body.i.i
   %inc.i.i = add i64 %i.016.i.i, 1
   %shl.i.i.i = shl nuw i64 1, %inc.i.i
   %and.i.i.i = and i64 %shl.i.i.i, -2
   %cmp.i.i5 = icmp ult i64 %and.i.i.i, %start_index
-  br i1 %cmp.i.i5, label %for.body.i.i, label %for.end.i.i, !llvm.loop !365
+  br i1 %cmp.i.i5, label %for.body.i.i, label %for.end.i.i, !llvm.loop !364
 
 for.end.i.i:                                      ; preds = %_ZN3tbb6detail2d015spin_wait_whileIPPN4mold11TimerRecordEZNS1_18spin_wait_while_eqIS6_S6_EET_RKSt6atomicIS8_ET0_St12memory_orderEUlS6_E_EES8_SC_SD_SE_.exit.i.i, %if.then4
   %my_segment_table.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -7484,7 +7484,7 @@ for.body9.i.i:                                    ; preds = %for.body9.i.i, %if.
   store ptr %atomic-temp.i.0.i.i.i, ptr %arrayidx11.i.i, align 8
   %inc15.i.i = add nuw nsw i64 %segment_index.017.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc15.i.i, 3
-  br i1 %exitcond.not.i.i, label %if.then.i6, label %for.body9.i.i, !llvm.loop !366
+  br i1 %exitcond.not.i.i, label %if.then.i6, label %for.body9.i.i, !llvm.loop !365
 
 if.then.i6:                                       ; preds = %for.body9.i.i
   %scevgep.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 24
@@ -7524,7 +7524,7 @@ while.body.i.i:                                   ; preds = %if.then.i, %while.b
   %dec.i.i = add nsw i32 %delay.addr.02.i.i, -1
   tail call void @llvm.x86.sse2.pause()
   %cmp.i.i = icmp ugt i32 %delay.addr.02.i.i, 1
-  br i1 %cmp.i.i, label %while.body.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i, !llvm.loop !363
+  br i1 %cmp.i.i, label %while.body.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i, !llvm.loop !362
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i:       ; preds = %while.body.i.i, %if.then.i
   %mul.i = shl nsw i32 %backoff.sroa.0.0, 1
@@ -7540,7 +7540,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit:   ; preds = %_ZN3tbb6detail2d0L1
   %atomic-temp.i.0.i = inttoptr i64 %8 to ptr
   store ptr %atomic-temp.i.0.i, ptr %table, align 8
   %cmp10 = icmp eq ptr %0, %atomic-temp.i.0.i
-  br i1 %cmp10, label %do.body, label %if.end12, !llvm.loop !367
+  br i1 %cmp10, label %do.body, label %if.end12, !llvm.loop !366
 
 if.end12:                                         ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit, %if.else.i7, %if.then.i6, %entry
   ret void
@@ -7593,7 +7593,7 @@ while.body.i.i.us.i:                              ; preds = %if.then.i.us.i, %wh
   %dec.i.i.us.i = add nsw i32 %delay.addr.02.i.i.us.i, -1
   tail call void @llvm.x86.sse2.pause()
   %cmp.i.i.us.i = icmp ugt i32 %delay.addr.02.i.i.us.i, 1
-  br i1 %cmp.i.i.us.i, label %while.body.i.i.us.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i, !llvm.loop !363
+  br i1 %cmp.i.i.us.i, label %while.body.i.i.us.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i, !llvm.loop !362
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i:  ; preds = %while.body.i.i.us.i, %if.then.i.us.i
   %mul.i.us.i = shl nsw i32 %backoff.sroa.0.014.us.i, 1
@@ -7603,7 +7603,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i: ; preds = %_ZN3tbb6detail2d
   %backoff.sroa.0.1.us.i = phi i32 [ %mul.i.us.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i ], [ %backoff.sroa.0.014.us.i, %if.else.i.us.i ]
   %3 = load atomic i64, ptr %arrayidx5 acquire, align 8
   %cmp.i.us.i = icmp eq i64 %3, 0
-  br i1 %cmp.i.us.i, label %while.body.us.i, label %return, !llvm.loop !364
+  br i1 %cmp.i.us.i, label %while.body.us.i, label %return, !llvm.loop !363
 
 if.end:                                           ; preds = %if.then
   %mul.i.i.i.i = shl i64 8, %0
@@ -7640,7 +7640,7 @@ for.body9.i.i.i:                                  ; preds = %for.body9.i.i.i, %i
   store ptr %atomic-temp.i.0.i.i.i.i, ptr %arrayidx11.i.i.i, align 8
   %inc15.i.i.i = add nuw nsw i64 %segment_index.017.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc15.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %if.then.i6.i, label %for.body9.i.i.i, !llvm.loop !366
+  br i1 %exitcond.not.i.i.i, label %if.then.i6.i, label %for.body9.i.i.i, !llvm.loop !365
 
 if.then.i6.i:                                     ; preds = %for.body9.i.i.i
   %scevgep.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i, i64 24
@@ -7673,7 +7673,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store atomic i64 %4, ptr %arrayidx14 release, align 8
   %inc = add nuw i64 %i.098, 1
   %exitcond.not = icmp eq i64 %inc, %0
-  br i1 %exitcond.not, label %for.cond16.preheader, label %for.body, !llvm.loop !368
+  br i1 %exitcond.not, label %for.cond16.preheader, label %for.body, !llvm.loop !367
 
 for.body19:                                       ; preds = %for.cond16.preheader, %for.body19
   %i15.099 = phi i64 [ %inc22, %for.body19 ], [ 1, %for.cond16.preheader ]
@@ -7681,7 +7681,7 @@ for.body19:                                       ; preds = %for.cond16.preheade
   store atomic i64 %4, ptr %arrayidx20 release, align 8
   %inc22 = add nuw nsw i64 %i15.099, 1
   %exitcond103.not = icmp eq i64 %inc22, %invariant.umin
-  br i1 %exitcond103.not, label %return, label %for.body19, !llvm.loop !369
+  br i1 %exitcond103.not, label %return, label %for.body19, !llvm.loop !368
 
 if.else:                                          ; preds = %if.end
   %11 = load ptr, ptr %this, align 8
@@ -7713,7 +7713,7 @@ while.body.i.i.us.i38:                            ; preds = %if.then.i.us.i34, %
   %dec.i.i.us.i40 = add nsw i32 %delay.addr.02.i.i.us.i39, -1
   tail call void @llvm.x86.sse2.pause()
   %cmp.i.i.us.i41 = icmp ugt i32 %delay.addr.02.i.i.us.i39, 1
-  br i1 %cmp.i.i.us.i41, label %while.body.i.i.us.i38, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i36, !llvm.loop !363
+  br i1 %cmp.i.i.us.i41, label %while.body.i.i.us.i38, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i36, !llvm.loop !362
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i36: ; preds = %while.body.i.i.us.i38, %if.then.i.us.i34
   %mul.i.us.i37 = shl nsw i32 %backoff.sroa.0.014.us.i26, 1
@@ -7723,7 +7723,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i30: ; preds = %_ZN3tbb6detail
   %backoff.sroa.0.1.us.i31 = phi i32 [ %mul.i.us.i37, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i36 ], [ %backoff.sroa.0.014.us.i26, %if.else.i.us.i28 ]
   %13 = load atomic i64, ptr %arrayidx26 acquire, align 8
   %cmp.i.us.i33 = icmp eq i64 %13, 0
-  br i1 %cmp.i.us.i33, label %while.body.us.i25, label %return, !llvm.loop !364
+  br i1 %cmp.i.us.i33, label %while.body.us.i25, label %return, !llvm.loop !363
 
 if.else30:                                        ; preds = %entry
   %shl.i13 = shl nuw i64 1, %seg_index
@@ -7767,7 +7767,7 @@ while.body.i.i.us.i60:                            ; preds = %if.then.i.us.i56, %
   %dec.i.i.us.i62 = add nsw i32 %delay.addr.02.i.i.us.i61, -1
   tail call void @llvm.x86.sse2.pause()
   %cmp.i.i.us.i63 = icmp ugt i32 %delay.addr.02.i.i.us.i61, 1
-  br i1 %cmp.i.i.us.i63, label %while.body.i.i.us.i60, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i58, !llvm.loop !363
+  br i1 %cmp.i.i.us.i63, label %while.body.i.i.us.i60, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i58, !llvm.loop !362
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i58: ; preds = %while.body.i.i.us.i60, %if.then.i.us.i56
   %mul.i.us.i59 = shl nsw i32 %backoff.sroa.0.014.us.i48, 1
@@ -7777,7 +7777,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i52: ; preds = %_ZN3tbb6detail
   %backoff.sroa.0.1.us.i53 = phi i32 [ %mul.i.us.i59, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i58 ], [ %backoff.sroa.0.014.us.i48, %if.else.i.us.i50 ]
   %17 = load atomic i64, ptr %arrayidx42 acquire, align 8
   %cmp.i.us.i55 = icmp eq i64 %17, 0
-  br i1 %cmp.i.us.i55, label %while.body.us.i47, label %return, !llvm.loop !364
+  br i1 %cmp.i.us.i55, label %while.body.us.i47, label %return, !llvm.loop !363
 
 return:                                           ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i52, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i30, %for.body19, %_ZN3tbb6detail2d113segment_tableIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EENS1_17concurrent_vectorIS5_S7_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS5_Emm.exit, %if.else41, %if.then25, %if.then4, %if.else, %if.then33
   ret ptr null
@@ -7852,354 +7852,354 @@ attributes #24 = { builtin nounwind allocsize(0) }
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
 !11 = distinct !{!11, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!12 = !{i64 0, i64 65}
+!12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!17 = distinct !{!17, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!20 = distinct !{!20, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!21 = distinct !{!21, !8}
-!22 = !{!23, !25}
-!23 = distinct !{!23, !24, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE21internal_emplace_backIJS5_EEENS1_15vector_iteratorIS8_S5_EEDpOT_: %agg.result"}
-!24 = distinct !{!24, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE21internal_emplace_backIJS5_EEENS1_15vector_iteratorIS8_S5_EEDpOT_"}
-!25 = distinct !{!25, !26, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_: %agg.result"}
-!26 = distinct !{!26, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!16 = distinct !{!16, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!19 = distinct !{!19, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!20 = distinct !{!20, !8}
+!21 = !{!22, !24}
+!22 = distinct !{!22, !23, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE21internal_emplace_backIJS5_EEENS1_15vector_iteratorIS8_S5_EEDpOT_: %agg.result"}
+!23 = distinct !{!23, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE21internal_emplace_backIJS5_EEENS1_15vector_iteratorIS8_S5_EEDpOT_"}
+!24 = distinct !{!24, !25, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_: %agg.result"}
+!25 = distinct !{!25, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_"}
+!26 = distinct !{!26, !8}
 !27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = !{!30, !32}
-!30 = distinct !{!30, !31, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE21internal_emplace_backIJS5_EEENS1_15vector_iteratorIS8_S5_EEDpOT_: %agg.result"}
-!31 = distinct !{!31, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE21internal_emplace_backIJS5_EEENS1_15vector_iteratorIS8_S5_EEDpOT_"}
-!32 = distinct !{!32, !33, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_: %agg.result"}
-!33 = distinct !{!33, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_"}
+!28 = !{!29, !31}
+!29 = distinct !{!29, !30, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE21internal_emplace_backIJS5_EEENS1_15vector_iteratorIS8_S5_EEDpOT_: %agg.result"}
+!30 = distinct !{!30, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE21internal_emplace_backIJS5_EEENS1_15vector_iteratorIS8_S5_EEDpOT_"}
+!31 = distinct !{!31, !32, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_: %agg.result"}
+!32 = distinct !{!32, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE9push_backEOS5_"}
+!33 = distinct !{!33, !8}
 !34 = distinct !{!34, !8}
-!35 = distinct !{!35, !8}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE3endEv: %agg.result"}
-!38 = distinct !{!38, !"_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE3endEv"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE3endEv: %agg.result"}
-!41 = distinct !{!41, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE3endEv"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE3endEv: %agg.result"}
+!37 = distinct !{!37, !"_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold11TimerRecordESt14default_deleteIS5_EENS1_23cache_aligned_allocatorIS8_EEE3endEv"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE3endEv: %agg.result"}
+!40 = distinct !{!40, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE3endEv"}
+!41 = distinct !{!41, !8}
 !42 = distinct !{!42, !8}
-!43 = distinct !{!43, !8}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE3endEv: %agg.result"}
-!46 = distinct !{!46, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE3endEv"}
-!47 = !{!48, !50, !52, !54, !56}
-!48 = distinct !{!48, !49, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_: %agg.result"}
-!49 = distinct !{!49, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_"}
-!50 = distinct !{!50, !51, !"_ZSt23__copy_move_backward_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
-!51 = distinct !{!51, !"_ZSt23__copy_move_backward_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
-!52 = distinct !{!52, !53, !"_ZSt23__copy_move_backward_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
-!53 = distinct !{!53, !"_ZSt23__copy_move_backward_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
-!54 = distinct !{!54, !55, !"_ZSt22__copy_move_backward_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
-!55 = distinct !{!55, !"_ZSt22__copy_move_backward_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
-!56 = distinct !{!56, !57, !"_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_: %agg.result"}
-!57 = distinct !{!57, !"_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE3endEv: %agg.result"}
+!45 = distinct !{!45, !"_ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE3endEv"}
+!46 = !{!47, !49, !51, !53, !55}
+!47 = distinct !{!47, !48, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_: %agg.result"}
+!48 = distinct !{!48, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_"}
+!49 = distinct !{!49, !50, !"_ZSt23__copy_move_backward_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
+!50 = distinct !{!50, !"_ZSt23__copy_move_backward_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
+!51 = distinct !{!51, !52, !"_ZSt23__copy_move_backward_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
+!52 = distinct !{!52, !"_ZSt23__copy_move_backward_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
+!53 = distinct !{!53, !54, !"_ZSt22__copy_move_backward_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
+!54 = distinct !{!54, !"_ZSt22__copy_move_backward_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
+!55 = distinct !{!55, !56, !"_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_: %agg.result"}
+!56 = distinct !{!56, !"_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_"}
+!57 = distinct !{!57, !8}
 !58 = distinct !{!58, !8}
-!59 = distinct !{!59, !8}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZSt13__lower_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_: %agg.result"}
-!62 = distinct !{!62, !"_ZSt13__lower_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_"}
-!63 = distinct !{!63, !8}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZSt13__upper_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_: %agg.result"}
-!66 = distinct !{!66, !"_ZSt13__upper_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_"}
-!67 = distinct !{!67, !8}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZNSt3_V26rotateIN3tbb6detail2d115vector_iteratorINS3_17concurrent_vectorIPN4mold11TimerRecordENS3_23cache_aligned_allocatorIS8_EEEES8_EEEET_SD_SD_SD_: %agg.result"}
-!70 = distinct !{!70, !"_ZNSt3_V26rotateIN3tbb6detail2d115vector_iteratorINS3_17concurrent_vectorIPN4mold11TimerRecordENS3_23cache_aligned_allocatorIS8_EEEES8_EEEET_SD_SD_SD_"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_: %agg.result"}
-!73 = distinct !{!73, !"_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_"}
-!74 = distinct !{!74, !8}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl: %agg.result"}
-!77 = distinct !{!77, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl"}
-!78 = !{!79, !81, !83, !85, !87}
-!79 = distinct !{!79, !80, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_: %agg.result"}
-!80 = distinct !{!80, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_"}
-!81 = distinct !{!81, !82, !"_ZSt14__copy_move_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
-!82 = distinct !{!82, !"_ZSt14__copy_move_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
-!83 = distinct !{!83, !84, !"_ZSt14__copy_move_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
-!84 = distinct !{!84, !"_ZSt14__copy_move_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
-!85 = distinct !{!85, !86, !"_ZSt13__copy_move_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
-!86 = distinct !{!86, !"_ZSt13__copy_move_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
-!87 = distinct !{!87, !88, !"_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_: %agg.result"}
-!88 = distinct !{!88, !"_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZSt13__lower_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_: %agg.result"}
+!61 = distinct !{!61, !"_ZSt13__lower_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_"}
+!62 = distinct !{!62, !8}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZSt13__upper_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_: %agg.result"}
+!65 = distinct !{!65, !"_ZSt13__upper_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_"}
+!66 = distinct !{!66, !8}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZNSt3_V26rotateIN3tbb6detail2d115vector_iteratorINS3_17concurrent_vectorIPN4mold11TimerRecordENS3_23cache_aligned_allocatorIS8_EEEES8_EEEET_SD_SD_SD_: %agg.result"}
+!69 = distinct !{!69, !"_ZNSt3_V26rotateIN3tbb6detail2d115vector_iteratorINS3_17concurrent_vectorIPN4mold11TimerRecordENS3_23cache_aligned_allocatorIS8_EEEES8_EEEET_SD_SD_SD_"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_: %agg.result"}
+!72 = distinct !{!72, !"_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_"}
+!73 = distinct !{!73, !8}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl: %agg.result"}
+!76 = distinct !{!76, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl"}
+!77 = !{!78, !80, !82, !84, !86}
+!78 = distinct !{!78, !79, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_: %agg.result"}
+!79 = distinct !{!79, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_"}
+!80 = distinct !{!80, !81, !"_ZSt14__copy_move_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
+!81 = distinct !{!81, !"_ZSt14__copy_move_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
+!82 = distinct !{!82, !83, !"_ZSt14__copy_move_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
+!83 = distinct !{!83, !"_ZSt14__copy_move_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
+!84 = distinct !{!84, !85, !"_ZSt13__copy_move_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
+!85 = distinct !{!85, !"_ZSt13__copy_move_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
+!86 = distinct !{!86, !87, !"_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_: %agg.result"}
+!87 = distinct !{!87, !"_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_"}
+!88 = distinct !{!88, !8}
 !89 = distinct !{!89, !8}
-!90 = distinct !{!90, !8}
-!91 = !{!92, !94, !96, !98, !100}
-!92 = distinct !{!92, !93, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_: %agg.result"}
-!93 = distinct !{!93, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_"}
-!94 = distinct !{!94, !95, !"_ZSt23__copy_move_backward_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
-!95 = distinct !{!95, !"_ZSt23__copy_move_backward_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
-!96 = distinct !{!96, !97, !"_ZSt23__copy_move_backward_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
-!97 = distinct !{!97, !"_ZSt23__copy_move_backward_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
-!98 = distinct !{!98, !99, !"_ZSt22__copy_move_backward_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
-!99 = distinct !{!99, !"_ZSt22__copy_move_backward_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
-!100 = distinct !{!100, !101, !"_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_: %agg.result"}
-!101 = distinct !{!101, !"_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_"}
+!90 = !{!91, !93, !95, !97, !99}
+!91 = distinct !{!91, !92, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_: %agg.result"}
+!92 = distinct !{!92, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_"}
+!93 = distinct !{!93, !94, !"_ZSt23__copy_move_backward_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
+!94 = distinct !{!94, !"_ZSt23__copy_move_backward_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
+!95 = distinct !{!95, !96, !"_ZSt23__copy_move_backward_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
+!96 = distinct !{!96, !"_ZSt23__copy_move_backward_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
+!97 = distinct !{!97, !98, !"_ZSt22__copy_move_backward_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
+!98 = distinct !{!98, !"_ZSt22__copy_move_backward_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
+!99 = distinct !{!99, !100, !"_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_: %agg.result"}
+!100 = distinct !{!100, !"_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_"}
+!101 = distinct !{!101, !8}
 !102 = distinct !{!102, !8}
-!103 = distinct !{!103, !8}
-!104 = !{!105}
-!105 = distinct !{!105, !106, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl: %agg.result"}
-!106 = distinct !{!106, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl"}
-!107 = distinct !{!107, !8}
-!108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl: %agg.result"}
-!110 = distinct !{!110, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl"}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl: %agg.result"}
+!105 = distinct !{!105, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl"}
+!106 = distinct !{!106, !8}
+!107 = !{!108}
+!108 = distinct !{!108, !109, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl: %agg.result"}
+!109 = distinct !{!109, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl"}
+!110 = distinct !{!110, !8}
 !111 = distinct !{!111, !8}
 !112 = distinct !{!112, !8}
-!113 = distinct !{!113, !8}
-!114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl: %agg.result"}
-!116 = distinct !{!116, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl"}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl: %agg.result"}
-!119 = distinct !{!119, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl"}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZSt12__move_mergeIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_: %agg.result"}
-!122 = distinct !{!122, !"_ZSt12__move_mergeIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_"}
-!123 = distinct !{!123, !8}
-!124 = !{!125, !127, !129, !131, !133, !121}
-!125 = distinct !{!125, !126, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
-!126 = distinct !{!126, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
-!127 = distinct !{!127, !128, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!128 = distinct !{!128, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!129 = distinct !{!129, !130, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!130 = distinct !{!130, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!131 = distinct !{!131, !132, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!132 = distinct !{!132, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!133 = distinct !{!133, !134, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
-!134 = distinct !{!134, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
-!135 = distinct !{!135, !8}
-!136 = !{!137, !139, !141, !143, !145, !121}
-!137 = distinct !{!137, !138, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
-!138 = distinct !{!138, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
-!139 = distinct !{!139, !140, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!140 = distinct !{!140, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!141 = distinct !{!141, !142, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!142 = distinct !{!142, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!143 = distinct !{!143, !144, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!144 = distinct !{!144, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!145 = distinct !{!145, !146, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
-!146 = distinct !{!146, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl: %agg.result"}
+!115 = distinct !{!115, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl"}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl: %agg.result"}
+!118 = distinct !{!118, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EplEl"}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"_ZSt12__move_mergeIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_: %agg.result"}
+!121 = distinct !{!121, !"_ZSt12__move_mergeIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_L9print_recERS1_lE3$_0EEET0_T_SK_SK_SK_SJ_T1_"}
+!122 = distinct !{!122, !8}
+!123 = !{!124, !126, !128, !130, !132, !120}
+!124 = distinct !{!124, !125, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
+!125 = distinct !{!125, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
+!126 = distinct !{!126, !127, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!127 = distinct !{!127, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!128 = distinct !{!128, !129, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!129 = distinct !{!129, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!130 = distinct !{!130, !131, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!131 = distinct !{!131, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!132 = distinct !{!132, !133, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
+!133 = distinct !{!133, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
+!134 = distinct !{!134, !8}
+!135 = !{!136, !138, !140, !142, !144, !120}
+!136 = distinct !{!136, !137, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
+!137 = distinct !{!137, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
+!138 = distinct !{!138, !139, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!139 = distinct !{!139, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!140 = distinct !{!140, !141, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!141 = distinct !{!141, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!142 = distinct !{!142, !143, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!143 = distinct !{!143, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!144 = distinct !{!144, !145, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
+!145 = distinct !{!145, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
+!146 = distinct !{!146, !8}
 !147 = distinct !{!147, !8}
 !148 = distinct !{!148, !8}
-!149 = distinct !{!149, !8}
-!150 = !{!151, !153, !155, !157, !159}
-!151 = distinct !{!151, !152, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
-!152 = distinct !{!152, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
-!153 = distinct !{!153, !154, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!154 = distinct !{!154, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!155 = distinct !{!155, !156, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!156 = distinct !{!156, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!157 = distinct !{!157, !158, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!158 = distinct !{!158, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!159 = distinct !{!159, !160, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
-!160 = distinct !{!160, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
-!161 = !{!162, !164, !166, !168, !170}
-!162 = distinct !{!162, !163, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
-!163 = distinct !{!163, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
-!164 = distinct !{!164, !165, !"_ZSt23__copy_move_backward_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!165 = distinct !{!165, !"_ZSt23__copy_move_backward_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!166 = distinct !{!166, !167, !"_ZSt23__copy_move_backward_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!167 = distinct !{!167, !"_ZSt23__copy_move_backward_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!168 = distinct !{!168, !169, !"_ZSt22__copy_move_backward_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!169 = distinct !{!169, !"_ZSt22__copy_move_backward_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!170 = distinct !{!170, !171, !"_ZSt13move_backwardIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
-!171 = distinct !{!171, !"_ZSt13move_backwardIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
-!172 = distinct !{!172, !8}
-!173 = !{!174, !176, !178, !180, !182}
-!174 = distinct !{!174, !175, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
-!175 = distinct !{!175, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
-!176 = distinct !{!176, !177, !"_ZSt23__copy_move_backward_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!177 = distinct !{!177, !"_ZSt23__copy_move_backward_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!178 = distinct !{!178, !179, !"_ZSt23__copy_move_backward_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!179 = distinct !{!179, !"_ZSt23__copy_move_backward_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!180 = distinct !{!180, !181, !"_ZSt22__copy_move_backward_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!181 = distinct !{!181, !"_ZSt22__copy_move_backward_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!182 = distinct !{!182, !183, !"_ZSt13move_backwardIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
-!183 = distinct !{!183, !"_ZSt13move_backwardIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
-!184 = distinct !{!184, !8}
-!185 = !{!186}
-!186 = distinct !{!186, !187, !"_ZSt13__lower_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_: %agg.result"}
-!187 = distinct !{!187, !"_ZSt13__lower_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_"}
-!188 = !{!189}
-!189 = distinct !{!189, !190, !"_ZSt13__upper_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_: %agg.result"}
-!190 = distinct !{!190, !"_ZSt13__upper_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_"}
-!191 = !{!192, !194, !196, !198, !200}
-!192 = distinct !{!192, !193, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
-!193 = distinct !{!193, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
-!194 = distinct !{!194, !195, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!195 = distinct !{!195, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!196 = distinct !{!196, !197, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!197 = distinct !{!197, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!198 = distinct !{!198, !199, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!199 = distinct !{!199, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!200 = distinct !{!200, !201, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
-!201 = distinct !{!201, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
-!202 = !{!203}
-!203 = distinct !{!203, !204, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
-!204 = distinct !{!204, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
-!205 = !{!206}
-!206 = distinct !{!206, !207, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!207 = distinct !{!207, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!208 = !{!209, !211, !213, !206, !203}
-!209 = distinct !{!209, !210, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
-!210 = distinct !{!210, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
-!211 = distinct !{!211, !212, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!212 = distinct !{!212, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!213 = distinct !{!213, !214, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!214 = distinct !{!214, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!215 = !{!216, !206, !203}
-!216 = distinct !{!216, !217, !"_ZSt12__niter_wrapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEET_RKSC_SC_: %agg.result"}
-!217 = distinct !{!217, !"_ZSt12__niter_wrapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEET_RKSC_SC_"}
-!218 = !{!219, !221, !223, !225, !227}
-!219 = distinct !{!219, !220, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_: %agg.result"}
-!220 = distinct !{!220, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_"}
-!221 = distinct !{!221, !222, !"_ZSt23__copy_move_backward_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
-!222 = distinct !{!222, !"_ZSt23__copy_move_backward_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
-!223 = distinct !{!223, !224, !"_ZSt23__copy_move_backward_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
-!224 = distinct !{!224, !"_ZSt23__copy_move_backward_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
-!225 = distinct !{!225, !226, !"_ZSt22__copy_move_backward_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
-!226 = distinct !{!226, !"_ZSt22__copy_move_backward_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
-!227 = distinct !{!227, !228, !"_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_: %agg.result"}
-!228 = distinct !{!228, !"_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_"}
-!229 = !{!230}
-!230 = distinct !{!230, !231, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
-!231 = distinct !{!231, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
-!232 = !{!233}
-!233 = distinct !{!233, !234, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!234 = distinct !{!234, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!235 = !{!236, !238, !240, !233, !230}
-!236 = distinct !{!236, !237, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
-!237 = distinct !{!237, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
-!238 = distinct !{!238, !239, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!239 = distinct !{!239, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!240 = distinct !{!240, !241, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!241 = distinct !{!241, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!242 = !{!243, !233, !230}
-!243 = distinct !{!243, !244, !"_ZSt12__niter_wrapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEET_RKSC_SC_: %agg.result"}
-!244 = distinct !{!244, !"_ZSt12__niter_wrapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEET_RKSC_SC_"}
-!245 = !{!246, !248, !250, !252, !254}
-!246 = distinct !{!246, !247, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_: %agg.result"}
-!247 = distinct !{!247, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_"}
-!248 = distinct !{!248, !249, !"_ZSt14__copy_move_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
-!249 = distinct !{!249, !"_ZSt14__copy_move_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
-!250 = distinct !{!250, !251, !"_ZSt14__copy_move_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
-!251 = distinct !{!251, !"_ZSt14__copy_move_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
-!252 = distinct !{!252, !253, !"_ZSt13__copy_move_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
-!253 = distinct !{!253, !"_ZSt13__copy_move_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
-!254 = distinct !{!254, !255, !"_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_: %agg.result"}
-!255 = distinct !{!255, !"_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_"}
-!256 = !{!257}
-!257 = distinct !{!257, !258, !"_ZSt13move_backwardIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
-!258 = distinct !{!258, !"_ZSt13move_backwardIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
-!259 = !{!260}
-!260 = distinct !{!260, !261, !"_ZSt22__copy_move_backward_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!261 = distinct !{!261, !"_ZSt22__copy_move_backward_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!262 = !{!263, !265, !267, !260, !257}
-!263 = distinct !{!263, !264, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
-!264 = distinct !{!264, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
-!265 = distinct !{!265, !266, !"_ZSt23__copy_move_backward_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!266 = distinct !{!266, !"_ZSt23__copy_move_backward_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!267 = distinct !{!267, !268, !"_ZSt23__copy_move_backward_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
-!268 = distinct !{!268, !"_ZSt23__copy_move_backward_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
-!269 = !{!270, !260, !257}
-!270 = distinct !{!270, !271, !"_ZSt12__niter_wrapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEET_RKSC_SC_: %agg.result"}
-!271 = distinct !{!271, !"_ZSt12__niter_wrapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEET_RKSC_SC_"}
-!272 = !{!273}
-!273 = distinct !{!273, !274, !"_ZNSt3_V26rotateIN3tbb6detail2d115vector_iteratorINS3_17concurrent_vectorIPN4mold11TimerRecordENS3_23cache_aligned_allocatorIS8_EEEES8_EEEET_SD_SD_SD_: %agg.result"}
-!274 = distinct !{!274, !"_ZNSt3_V26rotateIN3tbb6detail2d115vector_iteratorINS3_17concurrent_vectorIPN4mold11TimerRecordENS3_23cache_aligned_allocatorIS8_EEEES8_EEEET_SD_SD_SD_"}
-!275 = !{!276}
-!276 = distinct !{!276, !277, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!277 = distinct !{!277, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!278 = !{!279}
-!279 = distinct !{!279, !280, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!280 = distinct !{!280, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!281 = !{!282}
-!282 = distinct !{!282, !283, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!283 = distinct !{!283, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!284 = !{!285}
-!285 = distinct !{!285, !286, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!286 = distinct !{!286, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!149 = !{!150, !152, !154, !156, !158}
+!150 = distinct !{!150, !151, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
+!151 = distinct !{!151, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
+!152 = distinct !{!152, !153, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!153 = distinct !{!153, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!154 = distinct !{!154, !155, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!155 = distinct !{!155, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!156 = distinct !{!156, !157, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!157 = distinct !{!157, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!158 = distinct !{!158, !159, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
+!159 = distinct !{!159, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
+!160 = !{!161, !163, !165, !167, !169}
+!161 = distinct !{!161, !162, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
+!162 = distinct !{!162, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
+!163 = distinct !{!163, !164, !"_ZSt23__copy_move_backward_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!164 = distinct !{!164, !"_ZSt23__copy_move_backward_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!165 = distinct !{!165, !166, !"_ZSt23__copy_move_backward_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!166 = distinct !{!166, !"_ZSt23__copy_move_backward_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!167 = distinct !{!167, !168, !"_ZSt22__copy_move_backward_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!168 = distinct !{!168, !"_ZSt22__copy_move_backward_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!169 = distinct !{!169, !170, !"_ZSt13move_backwardIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
+!170 = distinct !{!170, !"_ZSt13move_backwardIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
+!171 = distinct !{!171, !8}
+!172 = !{!173, !175, !177, !179, !181}
+!173 = distinct !{!173, !174, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
+!174 = distinct !{!174, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
+!175 = distinct !{!175, !176, !"_ZSt23__copy_move_backward_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!176 = distinct !{!176, !"_ZSt23__copy_move_backward_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!177 = distinct !{!177, !178, !"_ZSt23__copy_move_backward_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!178 = distinct !{!178, !"_ZSt23__copy_move_backward_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!179 = distinct !{!179, !180, !"_ZSt22__copy_move_backward_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!180 = distinct !{!180, !"_ZSt22__copy_move_backward_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!181 = distinct !{!181, !182, !"_ZSt13move_backwardIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
+!182 = distinct !{!182, !"_ZSt13move_backwardIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
+!183 = distinct !{!183, !8}
+!184 = !{!185}
+!185 = distinct !{!185, !186, !"_ZSt13__lower_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_: %agg.result"}
+!186 = distinct !{!186, !"_ZSt13__lower_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_"}
+!187 = !{!188}
+!188 = distinct !{!188, !189, !"_ZSt13__upper_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_: %agg.result"}
+!189 = distinct !{!189, !"_ZSt13__upper_boundIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EES7_N9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEET_SI_SI_RKT0_T1_"}
+!190 = !{!191, !193, !195, !197, !199}
+!191 = distinct !{!191, !192, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
+!192 = distinct !{!192, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
+!193 = distinct !{!193, !194, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!194 = distinct !{!194, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!195 = distinct !{!195, !196, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!196 = distinct !{!196, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!197 = distinct !{!197, !198, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!198 = distinct !{!198, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!199 = distinct !{!199, !200, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
+!200 = distinct !{!200, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
+!201 = !{!202}
+!202 = distinct !{!202, !203, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
+!203 = distinct !{!203, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
+!204 = !{!205}
+!205 = distinct !{!205, !206, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!206 = distinct !{!206, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!207 = !{!208, !210, !212, !205, !202}
+!208 = distinct !{!208, !209, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
+!209 = distinct !{!209, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
+!210 = distinct !{!210, !211, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!211 = distinct !{!211, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!212 = distinct !{!212, !213, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!213 = distinct !{!213, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!214 = !{!215, !205, !202}
+!215 = distinct !{!215, !216, !"_ZSt12__niter_wrapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEET_RKSC_SC_: %agg.result"}
+!216 = distinct !{!216, !"_ZSt12__niter_wrapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEET_RKSC_SC_"}
+!217 = !{!218, !220, !222, !224, !226}
+!218 = distinct !{!218, !219, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_: %agg.result"}
+!219 = distinct !{!219, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_"}
+!220 = distinct !{!220, !221, !"_ZSt23__copy_move_backward_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
+!221 = distinct !{!221, !"_ZSt23__copy_move_backward_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
+!222 = distinct !{!222, !223, !"_ZSt23__copy_move_backward_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
+!223 = distinct !{!223, !"_ZSt23__copy_move_backward_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
+!224 = distinct !{!224, !225, !"_ZSt22__copy_move_backward_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
+!225 = distinct !{!225, !"_ZSt22__copy_move_backward_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
+!226 = distinct !{!226, !227, !"_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_: %agg.result"}
+!227 = distinct !{!227, !"_ZSt13move_backwardIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_"}
+!228 = !{!229}
+!229 = distinct !{!229, !230, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
+!230 = distinct !{!230, !"_ZSt4moveIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
+!231 = !{!232}
+!232 = distinct !{!232, !233, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!233 = distinct !{!233, !"_ZSt13__copy_move_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!234 = !{!235, !237, !239, !232, !229}
+!235 = distinct !{!235, !236, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
+!236 = distinct !{!236, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
+!237 = distinct !{!237, !238, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!238 = distinct !{!238, !"_ZSt14__copy_move_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!239 = distinct !{!239, !240, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!240 = distinct !{!240, !"_ZSt14__copy_move_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!241 = !{!242, !232, !229}
+!242 = distinct !{!242, !243, !"_ZSt12__niter_wrapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEET_RKSC_SC_: %agg.result"}
+!243 = distinct !{!243, !"_ZSt12__niter_wrapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEET_RKSC_SC_"}
+!244 = !{!245, !247, !249, !251, !253}
+!245 = distinct !{!245, !246, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_: %agg.result"}
+!246 = distinct !{!246, !"_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIN3tbb6detail2d115vector_iteratorINS5_17concurrent_vectorIPN4mold11TimerRecordENS5_23cache_aligned_allocatorISA_EEEESA_EESE_EET0_T_SG_SF_"}
+!247 = distinct !{!247, !248, !"_ZSt14__copy_move_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
+!248 = distinct !{!248, !"_ZSt14__copy_move_a2ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
+!249 = distinct !{!249, !250, !"_ZSt14__copy_move_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
+!250 = distinct !{!250, !"_ZSt14__copy_move_a1ILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
+!251 = distinct !{!251, !252, !"_ZSt13__copy_move_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_: %agg.result"}
+!252 = distinct !{!252, !"_ZSt13__copy_move_aILb1EN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET1_T0_SD_SC_"}
+!253 = distinct !{!253, !254, !"_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_: %agg.result"}
+!254 = distinct !{!254, !"_ZSt4moveIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_"}
+!255 = !{!256}
+!256 = distinct !{!256, !257, !"_ZSt13move_backwardIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_: %agg.result"}
+!257 = distinct !{!257, !"_ZSt13move_backwardIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET0_T_SE_SD_"}
+!258 = !{!259}
+!259 = distinct !{!259, !260, !"_ZSt22__copy_move_backward_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!260 = distinct !{!260, !"_ZSt22__copy_move_backward_aILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!261 = !{!262, !264, !266, !259, !256}
+!262 = distinct !{!262, !263, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_: %agg.result"}
+!263 = distinct !{!263, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS9_17concurrent_vectorIS5_NS9_23cache_aligned_allocatorIS5_EEEES5_EEEET0_T_SH_SG_"}
+!264 = distinct !{!264, !265, !"_ZSt23__copy_move_backward_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!265 = distinct !{!265, !"_ZSt23__copy_move_backward_a2ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!266 = distinct !{!266, !267, !"_ZSt23__copy_move_backward_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_: %agg.result"}
+!267 = distinct !{!267, !"_ZSt23__copy_move_backward_a1ILb1EPPN4mold11TimerRecordEN3tbb6detail2d115vector_iteratorINS6_17concurrent_vectorIS2_NS6_23cache_aligned_allocatorIS2_EEEES2_EEET1_T0_SE_SD_"}
+!268 = !{!269, !259, !256}
+!269 = distinct !{!269, !270, !"_ZSt12__niter_wrapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEET_RKSC_SC_: %agg.result"}
+!270 = distinct !{!270, !"_ZSt12__niter_wrapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEET_RKSC_SC_"}
+!271 = !{!272}
+!272 = distinct !{!272, !273, !"_ZNSt3_V26rotateIN3tbb6detail2d115vector_iteratorINS3_17concurrent_vectorIPN4mold11TimerRecordENS3_23cache_aligned_allocatorIS8_EEEES8_EEEET_SD_SD_SD_: %agg.result"}
+!273 = distinct !{!273, !"_ZNSt3_V26rotateIN3tbb6detail2d115vector_iteratorINS3_17concurrent_vectorIPN4mold11TimerRecordENS3_23cache_aligned_allocatorIS8_EEEES8_EEEET_SD_SD_SD_"}
+!274 = !{!275}
+!275 = distinct !{!275, !276, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!276 = distinct !{!276, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!277 = !{!278}
+!278 = distinct !{!278, !279, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!279 = distinct !{!279, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!280 = !{!281}
+!281 = distinct !{!281, !282, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!282 = distinct !{!282, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!283 = !{!284}
+!284 = distinct !{!284, !285, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!285 = distinct !{!285, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!286 = distinct !{!286, !8}
 !287 = distinct !{!287, !8}
 !288 = distinct !{!288, !8}
 !289 = distinct !{!289, !8}
-!290 = distinct !{!290, !8}
-!291 = !{!292}
-!292 = distinct !{!292, !293, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!293 = distinct !{!293, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!294 = !{!295}
-!295 = distinct !{!295, !296, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!296 = distinct !{!296, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!297 = !{!298}
-!298 = distinct !{!298, !299, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!299 = distinct !{!299, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!300 = !{!301}
-!301 = distinct !{!301, !302, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!302 = distinct !{!302, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!290 = !{!291}
+!291 = distinct !{!291, !292, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!292 = distinct !{!292, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!293 = !{!294}
+!294 = distinct !{!294, !295, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!295 = distinct !{!295, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!296 = !{!297}
+!297 = distinct !{!297, !298, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!298 = distinct !{!298, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!299 = !{!300}
+!300 = distinct !{!300, !301, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!301 = distinct !{!301, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!302 = distinct !{!302, !8}
 !303 = distinct !{!303, !8}
 !304 = distinct !{!304, !8}
 !305 = distinct !{!305, !8}
 !306 = distinct !{!306, !8}
-!307 = distinct !{!307, !8}
-!308 = !{!309}
-!309 = distinct !{!309, !310, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!310 = distinct !{!310, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!311 = !{!312}
-!312 = distinct !{!312, !313, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!313 = distinct !{!313, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!314 = !{!315}
-!315 = distinct !{!315, !316, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!316 = distinct !{!316, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!317 = !{!318}
-!318 = distinct !{!318, !319, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!319 = distinct !{!319, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!307 = !{!308}
+!308 = distinct !{!308, !309, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!309 = distinct !{!309, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!310 = !{!311}
+!311 = distinct !{!311, !312, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!312 = distinct !{!312, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!313 = !{!314}
+!314 = distinct !{!314, !315, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!315 = distinct !{!315, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!316 = !{!317}
+!317 = distinct !{!317, !318, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!318 = distinct !{!318, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!319 = distinct !{!319, !8}
 !320 = distinct !{!320, !8}
-!321 = distinct !{!321, !8}
-!322 = !{!323}
-!323 = distinct !{!323, !324, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!324 = distinct !{!324, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!325 = !{!326}
-!326 = distinct !{!326, !327, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!327 = distinct !{!327, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!328 = !{!329}
-!329 = distinct !{!329, !330, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!330 = distinct !{!330, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!331 = !{!332}
-!332 = distinct !{!332, !333, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!333 = distinct !{!333, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!334 = !{!335}
-!335 = distinct !{!335, !336, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!336 = distinct !{!336, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!337 = !{!338}
-!338 = distinct !{!338, !339, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!339 = distinct !{!339, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!340 = !{!341}
-!341 = distinct !{!341, !342, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!342 = distinct !{!342, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!343 = !{!344}
-!344 = distinct !{!344, !345, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!345 = distinct !{!345, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!321 = !{!322}
+!322 = distinct !{!322, !323, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!323 = distinct !{!323, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!324 = !{!325}
+!325 = distinct !{!325, !326, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!326 = distinct !{!326, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!327 = !{!328}
+!328 = distinct !{!328, !329, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!329 = distinct !{!329, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!330 = !{!331}
+!331 = distinct !{!331, !332, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!332 = distinct !{!332, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!333 = !{!334}
+!334 = distinct !{!334, !335, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!335 = distinct !{!335, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!336 = !{!337}
+!337 = distinct !{!337, !338, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!338 = distinct !{!338, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!339 = !{!340}
+!340 = distinct !{!340, !341, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!341 = distinct !{!341, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!342 = !{!343}
+!343 = distinct !{!343, !344, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!344 = distinct !{!344, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!345 = distinct !{!345, !8}
 !346 = distinct !{!346, !8}
-!347 = distinct !{!347, !8}
-!348 = !{!349}
-!349 = distinct !{!349, !350, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!350 = distinct !{!350, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!351 = !{!352}
-!352 = distinct !{!352, !353, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!353 = distinct !{!353, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!354 = !{!355}
-!355 = distinct !{!355, !356, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!356 = distinct !{!356, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
-!357 = !{!358}
-!358 = distinct !{!358, !359, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
-!359 = distinct !{!359, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!347 = !{!348}
+!348 = distinct !{!348, !349, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!349 = distinct !{!349, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!350 = !{!351}
+!351 = distinct !{!351, !352, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!352 = distinct !{!352, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!353 = !{!354}
+!354 = distinct !{!354, !355, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!355 = distinct !{!355, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!356 = !{!357}
+!357 = distinct !{!357, !358, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv: %agg.result"}
+!358 = distinct !{!358, !"_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EE3endEv"}
+!359 = distinct !{!359, !8}
 !360 = distinct !{!360, !8}
 !361 = distinct !{!361, !8}
 !362 = distinct !{!362, !8}
@@ -8209,4 +8209,3 @@ attributes #24 = { builtin nounwind allocsize(0) }
 !366 = distinct !{!366, !8}
 !367 = distinct !{!367, !8}
 !368 = distinct !{!368, !8}
-!369 = distinct !{!369, !8}

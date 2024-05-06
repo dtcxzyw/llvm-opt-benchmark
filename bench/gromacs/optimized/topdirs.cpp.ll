@@ -166,7 +166,7 @@ define noundef ptr @_Z17enumValueToString9Directive(i32 noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z11ifunc_index9Directivei(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 75) i32 @_Z11ifunc_index9Directivei(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -2351,7 +2351,7 @@ define void @_Z7DS_PushPP8DirStack9Directive(ptr nocapture noundef %0, i32 nound
 declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_Z9DS_SearchP8DirStack9Directive(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #13 {
+define noundef range(i32 0, 2) i32 @_Z9DS_SearchP8DirStack9Directive(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #13 {
   %.not8 = icmp eq ptr %0, null
   br i1 %.not8, label %.critedge, label %.lr.ph
 
@@ -2377,7 +2377,7 @@ define noundef i32 @_Z9DS_SearchP8DirStack9Directive(ptr noundef readonly %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_Z14DS_Check_OrderP8DirStack9Directive(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #13 {
+define noundef range(i32 0, 2) i32 @_Z14DS_Check_OrderP8DirStack9Directive(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = icmp sgt i32 %1, 10
   %.not8.i = icmp eq ptr %0, null
   %or.cond = or i1 %.not8.i, %3

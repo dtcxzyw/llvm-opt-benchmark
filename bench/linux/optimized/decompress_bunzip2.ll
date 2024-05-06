@@ -161,7 +161,7 @@ define dso_local noundef i32 @bunzip2(ptr noundef %0, i64 noundef %1, ptr nounde
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @start_bunzip(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 -6, 1) i32 @start_bunzip(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = tail call noalias align 4096 dereferenceable_or_null(42648) ptr @kmalloc_large(i64 noundef 42648, i32 noundef 3264) #12
   store ptr %5, ptr %0, align 8
   %6 = icmp eq ptr %5, null
@@ -379,7 +379,7 @@ define internal fastcc i32 @read_bunzip(ptr noundef %0, ptr nocapture noundef wr
 
 91:                                               ; preds = %79, %6
   %92 = phi i32 [ %55, %79 ], [ 0, %6 ]
-  %93 = tail call fastcc i32 @get_next_block(ptr noundef %0) #11, !range !13
+  %93 = tail call fastcc i32 @get_next_block(ptr noundef %0) #11
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %98, label %95
 
@@ -518,7 +518,7 @@ define internal fastcc i32 @get_bits(ptr nocapture noundef %0, i8 noundef zeroex
   %55 = add nuw nsw i32 %45, 8
   store i32 %55, ptr %3, align 8
   %56 = icmp ult i32 %55, %.pre-phi
-  br i1 %56, label %14, label %.loopexit5, !llvm.loop !14
+  br i1 %56, label %14, label %.loopexit5, !llvm.loop !13
 
 .loopexit5:                                       ; preds = %44, %..loopexit5_crit_edge
   %57 = phi i32 [ %.pre13, %..loopexit5_crit_edge ], [ %54, %44 ]
@@ -543,7 +543,7 @@ define internal fastcc i32 @get_bits(ptr nocapture noundef %0, i8 noundef zeroex
 declare dso_local noalias ptr @vmalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = alloca [258 x i8], align 16
   %3 = alloca [21 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 1104
@@ -620,13 +620,13 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   %55 = phi i32 [ %51, %48 ], [ %42, %41 ]
   %56 = add nuw nsw i32 %43, 1
   %57 = icmp eq i32 %56, 16
-  br i1 %57, label %.loopexit66, label %41, !llvm.loop !15
+  br i1 %57, label %.loopexit66, label %41, !llvm.loop !14
 
 .loopexit66:                                      ; preds = %54, %31
   %58 = phi i32 [ %32, %31 ], [ %55, %54 ]
   %59 = add nuw nsw i32 %33, 1
   %60 = icmp eq i32 %59, 16
-  br i1 %60, label %61, label %31, !llvm.loop !16
+  br i1 %60, label %61, label %31, !llvm.loop !15
 
 61:                                               ; preds = %.loopexit66
   %62 = tail call fastcc i32 @get_bits(ptr noundef %0, i8 noundef zeroext 3) #11
@@ -659,7 +659,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   store i8 %76, ptr %77, align 1
   %78 = add nuw nsw i64 %75, 1
   %79 = icmp eq i64 %78, %69
-  br i1 %79, label %70, label %74, !llvm.loop !17
+  br i1 %79, label %70, label %74, !llvm.loop !16
 
 80:                                               ; preds = %.loopexit62, %72
   %81 = phi i64 [ 0, %72 ], [ %96, %.loopexit62 ]
@@ -682,7 +682,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   %89 = tail call fastcc i32 @get_bits(ptr noundef %0, i8 noundef zeroext 1) #11
   %90 = icmp eq i32 %89, 0
   %indvar.next = add i64 %indvar, 1
-  br i1 %90, label %.loopexit62.loopexit, label %.preheader63, !llvm.loop !18
+  br i1 %90, label %.loopexit62.loopexit, label %.preheader63, !llvm.loop !17
 
 .loopexit62.loopexit:                             ; preds = %87
   %91 = zext nneg i32 %88 to i64
@@ -698,7 +698,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   store i8 %94, ptr %11, align 1
   %96 = add nuw nsw i64 %81, 1
   %97 = icmp eq i64 %96, %73
-  br i1 %97, label %.loopexit65, label %80, !llvm.loop !19
+  br i1 %97, label %.loopexit65, label %80, !llvm.loop !18
 
 .loopexit65:                                      ; preds = %.loopexit62, %70
   %98 = add i32 %58, 2
@@ -717,7 +717,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   %109 = phi ptr [ %185, %.loopexit55 ], [ %117, %.loopexit54 ]
   %110 = add nuw nsw i64 %114, 1
   %111 = icmp eq i64 %110, %69
-  br i1 %111, label %112, label %113, !llvm.loop !20
+  br i1 %111, label %112, label %113, !llvm.loop !19
 
 112:                                              ; preds = %105
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(1024) %9, i8 0, i64 1024, i1 false)
@@ -756,14 +756,14 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   %130 = load i32, ptr %100, align 8
   %131 = add i32 %130, 1
   store i32 %131, ptr %100, align 8
-  %132 = trunc i32 %126 to i8
+  %132 = trunc nuw nsw i32 %126 to i8
   %133 = add nuw nsw i8 %132, 1
   %134 = getelementptr [258 x i8], ptr %2, i64 0, i64 %122
   store i8 %133, ptr %134, align 1
   %135 = add nuw nsw i64 %122, 1
   %136 = icmp slt i64 %135, %103
   %137 = icmp eq i64 %135, %104
-  br i1 %137, label %144, label %121, !llvm.loop !21
+  br i1 %137, label %144, label %121, !llvm.loop !20
 
 138:                                              ; preds = %.preheader53
   %139 = add nuw i32 %127, 1
@@ -771,7 +771,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   %141 = add nsw i32 %126, -1
   %142 = add nsw i32 %141, %140
   %143 = icmp ugt i32 %142, 19
-  br i1 %143, label %.loopexit54, label %.preheader53, !llvm.loop !22
+  br i1 %143, label %.loopexit54, label %.preheader53, !llvm.loop !21
 
 144:                                              ; preds = %129
   %145 = load i8, ptr %2, align 16
@@ -791,7 +791,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   %156 = tail call i32 @llvm.smax.i32(i32 %148, i32 %152)
   %157 = add nuw nsw i64 %147, 1
   %158 = icmp eq i64 %157, %104
-  br i1 %158, label %164, label %.preheader59, !llvm.loop !23
+  br i1 %158, label %164, label %.preheader59, !llvm.loop !22
 
 .thread45:                                        ; preds = %113, %144
   %.ph = phi i1 [ %136, %144 ], [ false, %113 ]
@@ -868,14 +868,14 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   %205 = phi i32 [ %200, %199 ], [ %194, %.preheader51 ]
   %206 = add nuw nsw i64 %193, 1
   %207 = icmp eq i64 %206, %104
-  br i1 %207, label %.loopexit52, label %.preheader51, !llvm.loop !24
+  br i1 %207, label %.loopexit52, label %.preheader51, !llvm.loop !23
 
 .loopexit52:                                      ; preds = %204, %189
   %208 = phi i32 [ %191, %189 ], [ %205, %204 ]
   %209 = add nuw nsw i64 %190, 1
   %210 = trunc i64 %190 to i32
   %211 = icmp sgt i32 %175, %210
-  br i1 %211, label %189, label %.loopexit58, !llvm.loop !25
+  br i1 %211, label %189, label %.loopexit58, !llvm.loop !24
 
 .loopexit57:                                      ; preds = %.preheader56, %.loopexit58
   %212 = icmp slt i32 %187, %186
@@ -893,7 +893,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   store i8 %220, ptr %218, align 1
   %221 = add nuw nsw i64 %214, 1
   %222 = icmp eq i64 %221, %104
-  br i1 %222, label %.loopexit57, label %.preheader56, !llvm.loop !26
+  br i1 %222, label %.loopexit57, label %.preheader56, !llvm.loop !25
 
 .preheader200:                                    ; preds = %.loopexit57, %.preheader200
   %223 = phi i64 [ %238, %.preheader200 ], [ %213, %.loopexit57 ]
@@ -917,7 +917,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   store i32 %237, ptr %239, align 4
   %240 = trunc i64 %238 to i32
   %241 = icmp sgt i32 %186, %240
-  br i1 %241, label %.preheader200, label %.loopexit55, !llvm.loop !27
+  br i1 %241, label %.preheader200, label %.loopexit55, !llvm.loop !26
 
 .loopexit55:                                      ; preds = %.preheader200, %.loopexit57
   %242 = phi i32 [ 0, %.loopexit57 ], [ %236, %.preheader200 ]
@@ -958,7 +958,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   store i8 %261, ptr %262, align 1
   %263 = add nuw nsw i64 %260, 1
   %264 = icmp eq i64 %263, 256
-  br i1 %264, label %254, label %259, !llvm.loop !28
+  br i1 %264, label %254, label %259, !llvm.loop !27
 
 265:                                              ; preds = %421, %361
   %266 = phi ptr [ %287, %361 ], [ %422, %421 ]
@@ -1016,7 +1016,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
 
 302:                                              ; preds = %307
   %303 = icmp eq i64 %312, %297
-  br i1 %303, label %.loopexit47, label %307, !llvm.loop !29
+  br i1 %303, label %.loopexit47, label %307, !llvm.loop !28
 
 .loopexit47:                                      ; preds = %302, %296
   %304 = phi i32 [ %294, %296 ], [ %318, %302 ]
@@ -1040,7 +1040,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   store i32 %317, ptr %100, align 8
   %318 = load i32, ptr %292, align 4
   %319 = icmp ult i32 %317, %318
-  br i1 %319, label %302, label %.loopexit46, !llvm.loop !29
+  br i1 %319, label %302, label %.loopexit46, !llvm.loop !28
 
 .loopexit46:                                      ; preds = %307, %..loopexit46_crit_edge
   %320 = phi i32 [ %.pre153, %..loopexit46_crit_edge ], [ %316, %307 ]
@@ -1068,7 +1068,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   %337 = load i32, ptr %336, align 4
   %338 = icmp sgt i32 %330, %337
   %339 = add i32 %334, 1
-  br i1 %338, label %333, label %340, !llvm.loop !30
+  br i1 %338, label %333, label %340, !llvm.loop !29
 
 340:                                              ; preds = %333
   %341 = load i32, ptr %292, align 4
@@ -1104,7 +1104,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   %364 = shl i32 %363, %358
   %365 = add i32 %364, %362
   %366 = shl i32 %363, 1
-  br label %265, !llvm.loop !31
+  br label %265, !llvm.loop !30
 
 367:                                              ; preds = %354
   br i1 %360, label %.loopexit48, label %368
@@ -1140,7 +1140,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   %388 = getelementptr i32, ptr %5, i64 %387
   store i32 %382, ptr %388, align 4
   %389 = icmp eq i32 %385, 0
-  br i1 %389, label %.loopexit48, label %383, !llvm.loop !32
+  br i1 %389, label %.loopexit48, label %383, !llvm.loop !31
 
 .loopexit48:                                      ; preds = %383, %371, %367
   %390 = phi i32 [ %425, %367 ], [ %425, %371 ], [ %386, %383 ]
@@ -1169,7 +1169,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   %407 = getelementptr i8, ptr %11, i64 %406
   store i8 %405, ptr %407, align 1
   %408 = icmp eq i32 %402, 0
-  br i1 %408, label %409, label %400, !llvm.loop !33
+  br i1 %408, label %409, label %400, !llvm.loop !32
 
 409:                                              ; preds = %400
   store i8 %399, ptr %11, align 1
@@ -1186,7 +1186,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   %419 = sext i32 %390 to i64
   %420 = getelementptr i32, ptr %5, i64 %419
   store i32 %417, ptr %420, align 4
-  br label %421, !llvm.loop !31
+  br label %421, !llvm.loop !30
 
 421:                                              ; preds = %409, %254
   %422 = phi ptr [ %109, %254 ], [ %287, %409 ]
@@ -1215,7 +1215,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   store i32 %434, ptr %435, align 4
   %438 = add nuw nsw i64 %433, 1
   %439 = icmp eq i64 %438, 256
-  br i1 %439, label %429, label %.preheader, !llvm.loop !34
+  br i1 %439, label %429, label %.preheader, !llvm.loop !33
 
 440:                                              ; preds = %440, %431
   %441 = phi i64 [ 0, %431 ], [ %456, %440 ]
@@ -1237,7 +1237,7 @@ define internal fastcc noundef i32 @get_next_block(ptr noundef %0) unnamed_addr 
   store i32 %455, ptr %448, align 4
   %456 = add nuw nsw i64 %441, 1
   %457 = icmp eq i64 %456, %432
-  br i1 %457, label %.loopexit, label %440, !llvm.loop !35
+  br i1 %457, label %.loopexit, label %440, !llvm.loop !34
 
 .loopexit:                                        ; preds = %440, %429
   %458 = icmp eq i32 %390, 0
@@ -1315,7 +1315,7 @@ attributes #12 = { nounwind allocsize(0) }
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = distinct !{!11, !10, !8}
 !12 = distinct !{!12, !8}
-!13 = !{i32 -7, i32 1}
+!13 = distinct !{!13, !10, !8}
 !14 = distinct !{!14, !10, !8}
 !15 = distinct !{!15, !10, !8}
 !16 = distinct !{!16, !10, !8}
@@ -1323,8 +1323,8 @@ attributes #12 = { nounwind allocsize(0) }
 !18 = distinct !{!18, !10, !8}
 !19 = distinct !{!19, !10, !8}
 !20 = distinct !{!20, !10, !8}
-!21 = distinct !{!21, !10, !8}
-!22 = distinct !{!22, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !10, !8}
 !23 = distinct !{!23, !10, !8}
 !24 = distinct !{!24, !10, !8}
 !25 = distinct !{!25, !10, !8}
@@ -1332,9 +1332,8 @@ attributes #12 = { nounwind allocsize(0) }
 !27 = distinct !{!27, !10, !8}
 !28 = distinct !{!28, !10, !8}
 !29 = distinct !{!29, !10, !8}
-!30 = distinct !{!30, !10, !8}
-!31 = distinct !{!31, !8}
+!30 = distinct !{!30, !8}
+!31 = distinct !{!31, !10, !8}
 !32 = distinct !{!32, !10, !8}
 !33 = distinct !{!33, !10, !8}
 !34 = distinct !{!34, !10, !8}
-!35 = distinct !{!35, !10, !8}

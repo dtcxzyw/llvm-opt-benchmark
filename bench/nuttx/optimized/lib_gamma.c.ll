@@ -12,7 +12,7 @@ define double @tgamma(double noundef %0) local_unnamed_addr #0 {
   %2 = alloca float, align 4
   %3 = bitcast double %0 to i64
   %4 = lshr i64 %3, 32
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw i64 %4 to i32
   %6 = and i32 %5, 2147483647
   %7 = icmp ugt i32 %6, 2146435071
   br i1 %7, label %8, label %10

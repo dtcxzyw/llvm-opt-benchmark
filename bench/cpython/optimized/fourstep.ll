@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @mpd_moduli = external hidden local_unnamed_addr constant [0 x i64], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @four_step_fnt(ptr noundef %a, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @four_step_fnt(ptr noundef %a, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
 entry:
   %w3table = alloca [3 x i64], align 16
   %div = udiv i64 %n, 3
@@ -125,7 +125,7 @@ if.then.i:                                        ; preds = %while.body.i
   %conv1.i.i51 = zext i64 %base.addr.09.i to i128
   %mul.i.i52 = mul nuw i128 %conv1.i.i51, %conv.i.i50
   %shr.i.i53 = lshr i128 %mul.i.i52, 64
-  %conv2.i.i54 = trunc i128 %shr.i.i53 to i64
+  %conv2.i.i54 = trunc nuw i128 %shr.i.i53 to i64
   %conv3.i.i55 = trunc i128 %mul.i.i52 to i64
   br i1 %tobool.not.i47, label %if.else.i86, label %if.then.i58
 
@@ -229,7 +229,7 @@ if.end.i:                                         ; preds = %while.body.i.if.end
   %r.1.i = phi i64 [ %r.010.i, %while.body.i.if.end.i_crit_edge ], [ %spec.select93.i85, %x64_mulmod.exit144 ]
   %mul.i.i = mul nuw i128 %conv.i.i.pre-phi, %conv.i.i.pre-phi
   %shr.i.i = lshr i128 %mul.i.i, 64
-  %conv2.i.i = trunc i128 %shr.i.i to i64
+  %conv2.i.i = trunc nuw i128 %shr.i.i to i64
   %conv3.i.i = trunc i128 %mul.i.i to i64
   br i1 %tobool.not.i47, label %if.else.i, label %if.then.i48
 
@@ -352,7 +352,7 @@ for.body13:                                       ; preds = %for.body13.lr.ph, %
   %conv1.i.i241 = zext i64 %w0.0539 to i128
   %mul.i.i242 = mul nuw i128 %conv.i.i240, %conv1.i.i241
   %shr.i.i243 = lshr i128 %mul.i.i242, 64
-  %conv2.i.i244 = trunc i128 %shr.i.i243 to i64
+  %conv2.i.i244 = trunc nuw i128 %shr.i.i243 to i64
   %conv3.i.i245 = trunc i128 %mul.i.i242 to i64
   br i1 %tobool.not.i47, label %if.else.i276, label %if.then.i248
 
@@ -453,7 +453,7 @@ x64_mulmod.exit334:                               ; preds = %if.then.i248, %if.t
   %conv1.i.i146 = zext i64 %w1.0538 to i128
   %mul.i.i147 = mul nuw i128 %conv.i.i145, %conv1.i.i146
   %shr.i.i148 = lshr i128 %mul.i.i147, 64
-  %conv2.i.i149 = trunc i128 %shr.i.i148 to i64
+  %conv2.i.i149 = trunc nuw i128 %shr.i.i148 to i64
   %conv3.i.i150 = trunc i128 %mul.i.i147 to i64
   br i1 %tobool.not.i47, label %if.else.i181, label %if.then.i153
 
@@ -552,7 +552,7 @@ x64_mulmod.exit239:                               ; preds = %if.then.i153, %if.t
   %spec.select93.i180 = sub i64 %add99.sink94.i174, %sub108.i179
   %mul.i.i432 = mul nuw i128 %conv1.i.i241, %conv1.i.i431
   %shr.i.i433 = lshr i128 %mul.i.i432, 64
-  %conv2.i.i434 = trunc i128 %shr.i.i433 to i64
+  %conv2.i.i434 = trunc nuw i128 %shr.i.i433 to i64
   %conv3.i.i435 = trunc i128 %mul.i.i432 to i64
   br i1 %tobool.not.i47, label %if.else.i466, label %if.then.i438
 
@@ -651,7 +651,7 @@ x64_mulmod.exit524:                               ; preds = %if.then.i438, %if.t
   %spec.select93.i465 = sub i64 %add99.sink94.i459, %sub108.i464
   %mul.i.i337 = mul nuw i128 %conv1.i.i146, %conv1.i.i431
   %shr.i.i338 = lshr i128 %mul.i.i337, 64
-  %conv2.i.i339 = trunc i128 %shr.i.i338 to i64
+  %conv2.i.i339 = trunc nuw i128 %shr.i.i338 to i64
   %conv3.i.i340 = trunc i128 %mul.i.i337 to i64
   br i1 %tobool.not.i47, label %if.else.i371, label %if.then.i343
 
@@ -786,7 +786,7 @@ entry:
   %conv1.i = zext i64 %b to i128
   %mul.i = mul nuw i128 %conv1.i, %conv.i
   %shr.i = lshr i128 %mul.i, 64
-  %conv2.i = trunc i128 %shr.i to i64
+  %conv2.i = trunc nuw i128 %shr.i to i64
   %conv3.i = trunc i128 %mul.i to i64
   %and = and i64 %m, 4294967296
   %tobool.not = icmp eq i64 %and, 0
@@ -893,7 +893,7 @@ return:                                           ; preds = %if.else67, %if.then
 declare hidden i32 @six_step_fnt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @inv_four_step_fnt(ptr noundef %a, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @inv_four_step_fnt(ptr noundef %a, i64 noundef %n, i32 noundef %modnum) local_unnamed_addr #0 {
 entry:
   %w3table = alloca [3 x i64], align 16
   %div = udiv i64 %n, 3
@@ -945,7 +945,7 @@ if.then.i:                                        ; preds = %while.body.i
   %conv1.i.i51 = zext i64 %base.addr.09.i to i128
   %mul.i.i52 = mul nuw i128 %conv1.i.i51, %conv.i.i50
   %shr.i.i53 = lshr i128 %mul.i.i52, 64
-  %conv2.i.i54 = trunc i128 %shr.i.i53 to i64
+  %conv2.i.i54 = trunc nuw i128 %shr.i.i53 to i64
   %conv3.i.i55 = trunc i128 %mul.i.i52 to i64
   br i1 %tobool.not.i47, label %if.else.i86, label %if.then.i58
 
@@ -1049,7 +1049,7 @@ if.end.i:                                         ; preds = %while.body.i.if.end
   %r.1.i = phi i64 [ %r.010.i, %while.body.i.if.end.i_crit_edge ], [ %spec.select93.i85, %x64_mulmod.exit144 ]
   %mul.i.i = mul nuw i128 %conv.i.i.pre-phi, %conv.i.i.pre-phi
   %shr.i.i = lshr i128 %mul.i.i, 64
-  %conv2.i.i = trunc i128 %shr.i.i to i64
+  %conv2.i.i = trunc nuw i128 %shr.i.i to i64
   %conv3.i.i = trunc i128 %mul.i.i to i64
   br i1 %tobool.not.i47, label %if.else.i, label %if.then.i48
 
@@ -1172,7 +1172,7 @@ for.body10:                                       ; preds = %for.body10.lr.ph, %
   %conv1.i.i241 = zext i64 %w0.0538 to i128
   %mul.i.i242 = mul nuw i128 %conv.i.i240, %conv1.i.i241
   %shr.i.i243 = lshr i128 %mul.i.i242, 64
-  %conv2.i.i244 = trunc i128 %shr.i.i243 to i64
+  %conv2.i.i244 = trunc nuw i128 %shr.i.i243 to i64
   %conv3.i.i245 = trunc i128 %mul.i.i242 to i64
   br i1 %tobool.not.i47, label %if.else.i276, label %if.then.i248
 
@@ -1273,7 +1273,7 @@ x64_mulmod.exit334:                               ; preds = %if.then.i248, %if.t
   %conv1.i.i146 = zext i64 %w1.0537 to i128
   %mul.i.i147 = mul nuw i128 %conv.i.i145, %conv1.i.i146
   %shr.i.i148 = lshr i128 %mul.i.i147, 64
-  %conv2.i.i149 = trunc i128 %shr.i.i148 to i64
+  %conv2.i.i149 = trunc nuw i128 %shr.i.i148 to i64
   %conv3.i.i150 = trunc i128 %mul.i.i147 to i64
   br i1 %tobool.not.i47, label %if.else.i181, label %if.then.i153
 
@@ -1372,7 +1372,7 @@ x64_mulmod.exit239:                               ; preds = %if.then.i153, %if.t
   %spec.select93.i180 = sub i64 %add99.sink94.i174, %sub108.i179
   %mul.i.i432 = mul nuw i128 %conv1.i.i241, %conv1.i.i431
   %shr.i.i433 = lshr i128 %mul.i.i432, 64
-  %conv2.i.i434 = trunc i128 %shr.i.i433 to i64
+  %conv2.i.i434 = trunc nuw i128 %shr.i.i433 to i64
   %conv3.i.i435 = trunc i128 %mul.i.i432 to i64
   br i1 %tobool.not.i47, label %if.else.i466, label %if.then.i438
 
@@ -1471,7 +1471,7 @@ x64_mulmod.exit524:                               ; preds = %if.then.i438, %if.t
   %spec.select93.i465 = sub i64 %add99.sink94.i459, %sub108.i464
   %mul.i.i337 = mul nuw i128 %conv1.i.i146, %conv1.i.i431
   %shr.i.i338 = lshr i128 %mul.i.i337, 64
-  %conv2.i.i339 = trunc i128 %shr.i.i338 to i64
+  %conv2.i.i339 = trunc nuw i128 %shr.i.i338 to i64
   %conv3.i.i340 = trunc i128 %mul.i.i337 to i64
   br i1 %tobool.not.i47, label %if.else.i371, label %if.then.i343
 

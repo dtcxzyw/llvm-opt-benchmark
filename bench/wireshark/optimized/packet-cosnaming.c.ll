@@ -144,7 +144,7 @@ define hidden void @proto_reg_handoff_giop_cosnaming() local_unnamed_addr #0 {
 declare void @register_giop_user_module(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_cosnaming(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6) #0 {
+define internal range(i32 0, 2) i32 @dissect_cosnaming(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6) #0 {
   %8 = tail call i32 @is_big_endian(ptr noundef %4) #3
   %9 = getelementptr inbounds i8, ptr %4, i64 7
   %10 = load i8, ptr %9, align 1
@@ -164,7 +164,7 @@ define internal noundef i32 @dissect_cosnaming(ptr noundef %0, ptr noundef %1, p
   br i1 %.not.i, label %decode_user_exception.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val296, ptr noundef nonnull dereferenceable(49) @.str.61) #4
+  %19 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val296, ptr noundef nonnull dereferenceable(49) @.str.61) #4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %43
 
@@ -210,7 +210,7 @@ start_dissecting.exit.i:                          ; preds = %23, %21
   br i1 %exitcond.not.i.i, label %decode_user_exception.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 43:                                               ; preds = %18
-  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val296, ptr noundef nonnull dereferenceable(54) @.str.62) #4
+  %44 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val296, ptr noundef nonnull dereferenceable(54) @.str.62) #4
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %decode_user_exception.exit
 

@@ -335,7 +335,7 @@ Vec_VecPush.exit.i:                               ; preds = %58, %Vec_PtrGrow.ex
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 4
   store i32 0, ptr %69, align 4
-  %70 = tail call i32 @Ivy_NodeBalanceCone_rec(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef %68), !range !9
+  %70 = tail call i32 @Ivy_NodeBalanceCone_rec(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef %68)
   %.val22.i = load i32, ptr %69, align 4
   %71 = icmp sgt i32 %.val22.i, 0
   br i1 %71, label %.lr.ph.i, label %.critedge.i
@@ -360,7 +360,7 @@ Vec_VecPush.exit.i:                               ; preds = %58, %Vec_PtrGrow.ex
   %.val.i = load i32, ptr %69, align 4
   %82 = sext i32 %.val.i to i64
   %83 = icmp slt i64 %indvars.iv.next.i, %82
-  br i1 %83, label %73, label %.critedge.i, !llvm.loop !10
+  br i1 %83, label %73, label %.critedge.i, !llvm.loop !9
 
 .critedge.i:                                      ; preds = %73, %65
   %.pr = phi i32 [ %.val22.i, %65 ], [ %.val.i, %73 ]
@@ -437,7 +437,7 @@ Ivy_NodeBalanceCone.exit:                         ; preds = %.critedge.i
   %128 = load i32, ptr %69, align 4
   %129 = sext i32 %128 to i64
   %130 = icmp slt i64 %indvars.iv.next, %129
-  br i1 %130, label %104, label %._crit_edge, !llvm.loop !11
+  br i1 %130, label %104, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %104, %99
   %131 = getelementptr i8, ptr %1, i64 8
@@ -472,7 +472,7 @@ declare i32 @Ivy_ManCleanup(ptr noundef) local_unnamed_addr #1
 declare i32 @Ivy_ManCheck(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Ivy_NodeCompareLevelsDecrease(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define range(i32 -1, 2) i32 @Ivy_NodeCompareLevelsDecrease(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
@@ -576,10 +576,10 @@ Vec_PtrSort.exit:                                 ; preds = %4
 41:                                               ; preds = %33
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %42 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %42, label %33, label %Ivy_NodeBalanceFindLeft.exit, !llvm.loop !12
+  br i1 %42, label %33, label %Ivy_NodeBalanceFindLeft.exit, !llvm.loop !11
 
 ._crit_edge.split.loop.exit24.i:                  ; preds = %33
-  %43 = trunc i64 %indvars.iv.i to i32
+  %43 = trunc nuw nsw i64 %indvars.iv.i to i32
   %44 = add nsw i32 %43, 1
   br label %Ivy_NodeBalanceFindLeft.exit
 
@@ -634,7 +634,7 @@ Ivy_NodeBalanceFindLeft.exit:                     ; preds = %41, %._crit_edge.sp
 74:                                               ; preds = %Ivy_ObjCreateGhost.exit.us.i
   %indvars.iv.next89.i = add nsw i64 %indvars.iv88.i, -1
   %.not.us.not.i = icmp sgt i64 %indvars.iv88.i, %66
-  br i1 %.not.us.not.i, label %.lr.ph.split.us.i, label %Ivy_NodeBalancePermute.exit, !llvm.loop !13
+  br i1 %.not.us.not.i, label %.lr.ph.split.us.i, label %Ivy_NodeBalancePermute.exit, !llvm.loop !12
 
 75:                                               ; preds = %.lr.ph.split.us.i
   %76 = load i32, ptr %15, align 8
@@ -664,7 +664,7 @@ Ivy_ObjCreateGhost.exit.us.i:                     ; preds = %80, %Ivy_ObjFaninId
 82:                                               ; preds = %Ivy_ObjCreateGhost.exit.i
   %indvars.iv.next.i17 = add nsw i64 %indvars.iv.i16, -1
   %.not.not.i = icmp sgt i64 %indvars.iv.i16, %66
-  br i1 %.not.not.i, label %.lr.ph.split.i, label %Ivy_NodeBalancePermute.exit, !llvm.loop !13
+  br i1 %.not.not.i, label %.lr.ph.split.i, label %Ivy_NodeBalancePermute.exit, !llvm.loop !12
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i15, %82
   %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i17, %82 ], [ %65, %.lr.ph.i15 ]
@@ -757,7 +757,7 @@ Ivy_NodeBalancePermute.exit:                      ; preds = %82, %74, %Ivy_NodeB
 116:                                              ; preds = %117
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %117, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %117, !llvm.loop !13
 
 117:                                              ; preds = %116, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %116 ]
@@ -866,7 +866,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %129, %127
   %172 = getelementptr inbounds ptr, ptr %171, i64 %155
   store ptr %154, ptr %172, align 8
   %173 = icmp ugt i64 %indvars.iv.i19, 2
-  br i1 %173, label %.lr.ph.i18, label %Ivy_NodeBalancePushUniqueOrderByLevel.exit.loopexit, !llvm.loop !15
+  br i1 %173, label %.lr.ph.i18, label %Ivy_NodeBalancePushUniqueOrderByLevel.exit.loopexit, !llvm.loop !14
 
 Ivy_NodeBalancePushUniqueOrderByLevel.exit.loopexit: ; preds = %170, %.lr.ph.i18
   %.pre58 = load i32, ptr %5, align 4
@@ -875,7 +875,7 @@ Ivy_NodeBalancePushUniqueOrderByLevel.exit.loopexit: ; preds = %170, %.lr.ph.i18
 Ivy_NodeBalancePushUniqueOrderByLevel.exit:       ; preds = %117, %Ivy_NodeBalancePushUniqueOrderByLevel.exit.loopexit
   %174 = phi i32 [ %.pre58, %Ivy_NodeBalancePushUniqueOrderByLevel.exit.loopexit ], [ %113, %117 ]
   %175 = icmp sgt i32 %174, 1
-  br i1 %175, label %19, label %._crit_edge, !llvm.loop !16
+  br i1 %175, label %19, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %143, %Ivy_NodeBalancePushUniqueOrderByLevel.exit, %4, %Vec_PtrSort.exit
   %176 = getelementptr i8, ptr %1, i64 8
@@ -887,7 +887,7 @@ Ivy_NodeBalancePushUniqueOrderByLevel.exit:       ; preds = %117, %Ivy_NodeBalan
 declare ptr @Ivy_Oper(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
@@ -912,7 +912,7 @@ define i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %1, ptr noundef 
 15:                                               ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %20, !llvm.loop !17
+  br i1 %exitcond.not, label %.preheader, label %20, !llvm.loop !16
 
 .preheader:                                       ; preds = %15
   br i1 %12, label %.lr.ph52, label %.loopexit
@@ -935,7 +935,7 @@ define i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %1, ptr noundef 
 24:                                               ; preds = %25
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %.loopexit, label %25, !llvm.loop !18
+  br i1 %exitcond62.not, label %.loopexit, label %25, !llvm.loop !17
 
 25:                                               ; preds = %.lr.ph52, %24
   %indvars.iv58 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next59, %24 ]
@@ -1051,11 +1051,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %78 = getelementptr i8, ptr %1, i64 16
   %.val42 = load ptr, ptr %78, align 8
   %79 = tail call ptr @Ivy_ObjReal(ptr noundef %.val42) #9
-  %80 = tail call i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %79, ptr noundef %2), !range !9
+  %80 = tail call i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %79, ptr noundef %2)
   %81 = getelementptr i8, ptr %1, i64 24
   %.val46 = load ptr, ptr %81, align 8
   %82 = tail call ptr @Ivy_ObjReal(ptr noundef %.val46) #9
-  %83 = tail call i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %82, ptr noundef %2), !range !9
+  %83 = tail call i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %82, ptr noundef %2)
   %84 = icmp eq i32 %80, -1
   %85 = icmp eq i32 %83, -1
   %or.cond = select i1 %84, i1 true, i1 %85
@@ -1117,7 +1117,7 @@ attributes #11 = { nounwind allocsize(1) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -1, i32 2}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
@@ -1126,4 +1126,3 @@ attributes #11 = { nounwind allocsize(1) }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}

@@ -18,7 +18,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_sha3_init(ptr nocapture noundef writeonly %ctx, i8 noundef zeroext %pad, i64 noundef %bitlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_sha3_init(ptr nocapture noundef writeonly %ctx, i8 noundef zeroext %pad, i64 noundef %bitlen) local_unnamed_addr #0 {
 entry:
   %mul = shl i64 %bitlen, 1
   %sub = sub i64 1600, %mul
@@ -27,7 +27,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %div6 = lshr i64 %sub, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %ctx, i8 0, i64 200, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(200) %ctx, i8 0, i64 200, i1 false)
   %bufsz.i = getelementptr inbounds i8, ptr %ctx, i64 384
   store i64 0, ptr %bufsz.i, align 8
   %xof_state.i = getelementptr inbounds i8, ptr %ctx, i64 424
@@ -47,7 +47,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_keccak_kmac_init(ptr nocapture noundef writeonly %ctx, i8 noundef zeroext %pad, i64 noundef %bitlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_keccak_kmac_init(ptr nocapture noundef writeonly %ctx, i8 noundef zeroext %pad, i64 noundef %bitlen) local_unnamed_addr #0 {
 entry:
   %mul.i = shl i64 %bitlen, 1
   %sub.i = sub i64 1600, %mul.i
@@ -56,7 +56,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %div6.i = lshr i64 %sub.i, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %ctx, i8 0, i64 200, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(200) %ctx, i8 0, i64 200, i1 false)
   %bufsz.i.i = getelementptr inbounds i8, ptr %ctx, i64 384
   store i64 0, ptr %bufsz.i.i, align 8
   %xof_state.i.i = getelementptr inbounds i8, ptr %ctx, i64 424
@@ -77,7 +77,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_sha3_update(ptr noundef %ctx, ptr noundef %_inp, i64 noundef %len) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_sha3_update(ptr noundef %ctx, ptr noundef %_inp, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %block_size = getelementptr inbounds i8, ptr %ctx, i64 368
   %0 = load i64, ptr %block_size, align 8
@@ -157,7 +157,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i64 @SHA3_absorb(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_sha3_final(ptr noundef %ctx, ptr noundef %out, i64 noundef %outlen) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_sha3_final(ptr noundef %ctx, ptr noundef %out, i64 noundef %outlen) local_unnamed_addr #2 {
 entry:
   %block_size = getelementptr inbounds i8, ptr %ctx, i64 368
   %0 = load i64, ptr %block_size, align 8
@@ -199,7 +199,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @SHA3_squeeze(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_sha3_squeeze(ptr noundef %ctx, ptr noundef %out, i64 noundef %outlen) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_sha3_squeeze(ptr noundef %ctx, ptr noundef %out, i64 noundef %outlen) local_unnamed_addr #2 {
 entry:
   %block_size = getelementptr inbounds i8, ptr %ctx, i64 368
   %0 = load i64, ptr %block_size, align 8

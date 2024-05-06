@@ -988,7 +988,7 @@ define ptr @Abc_NtkFromMap(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
   %37 = getelementptr i8, ptr %.val74, i64 4
   %.val74.val = load i32, ptr %37, align 4
   %38 = load i32, ptr %5, align 4
-  %39 = trunc i64 %indvars.iv110 to i32
+  %39 = trunc nuw nsw i64 %indvars.iv110 to i32
   %.neg70 = sub i32 %39, %.val74.val
   %40 = add i32 %.neg70, %38
   %41 = sext i32 %40 to i64
@@ -1028,7 +1028,7 @@ define ptr @Abc_NtkFromMap(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
   %.val82.val = load ptr, ptr %56, align 8
   %57 = getelementptr inbounds ptr, ptr %.val82.val, i64 %indvars.iv113
   %58 = load ptr, ptr %57, align 8
-  %59 = trunc i64 %indvars.iv113 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv113 to i32
   %.neg = sub i32 %59, %.val75.val101
   %60 = add i32 %.neg, %51
   %61 = tail call ptr @Map_ManReadBufDriver(ptr noundef %0, i32 noundef %60) #13
@@ -1110,7 +1110,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #13
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #13
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -1129,7 +1129,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -1867,7 +1867,7 @@ Abc_NtkFromMapSuperChoice.exit.thread:            ; preds = %.critedge4.i
   br i1 %175, label %Extra_ProgressBarUpdate.exit.i, label %176
 
 176:                                              ; preds = %172, %171
-  %177 = trunc i64 %indvars.iv213.i to i32
+  %177 = trunc nuw nsw i64 %indvars.iv213.i to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %158, i32 noundef %177, ptr noundef null) #13
   br label %Extra_ProgressBarUpdate.exit.i
 
@@ -1902,7 +1902,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %176, %172
   %indvars.iv.i141.i = phi i64 [ 0, %.lr.ph.i139.i ], [ %indvars.iv.next.i142.i, %189 ]
   %190 = getelementptr inbounds ptr, ptr %186, i64 %indvars.iv.i141.i
   %191 = load ptr, ptr %190, align 8
-  %192 = trunc i64 %indvars.iv.i141.i to i32
+  %192 = trunc nuw nsw i64 %indvars.iv.i141.i to i32
   %193 = lshr i32 %188, %192
   %194 = and i32 %193, 1
   %195 = tail call ptr @Map_NodeReadData(ptr noundef %191, i32 noundef %194) #13
@@ -1939,7 +1939,7 @@ Abc_NodeFromMapCutPhase.exit144.i:                ; preds = %._crit_edge.i138.i,
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i137.i ], [ %indvars.iv.next.i.i, %206 ]
   %207 = getelementptr inbounds ptr, ptr %203, i64 %indvars.iv.i.i
   %208 = load ptr, ptr %207, align 8
-  %209 = trunc i64 %indvars.iv.i.i to i32
+  %209 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %210 = lshr i32 %205, %209
   %211 = and i32 %210, 1
   %212 = tail call ptr @Map_NodeReadData(ptr noundef %208, i32 noundef %211) #13
@@ -2547,7 +2547,7 @@ Vec_IntPush.exit136:                              ; preds = %.Vec_IntGrow.exit10
   %216 = getelementptr inbounds i8, ptr %144, i64 56
   %217 = load ptr, ptr %216, align 8
   %218 = tail call ptr @Mio_GateReadName(ptr noundef %217) #13
-  %219 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %218) #15
+  %219 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %218) #15
   %220 = trunc i64 %219 to i32
   %221 = icmp sgt i32 %220, 0
   br i1 %221, label %.lr.ph.i, label %Vec_StrPrintStr.exit
@@ -3013,7 +3013,7 @@ define void @Abc_NtkPrintMiniMapping(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %26 = trunc i64 %indvars.iv.next to i32
+  %26 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph50
@@ -3035,7 +3035,7 @@ define void @Abc_NtkPrintMiniMapping(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %exitcond68.not, label %._crit_edge55.loopexit, label %.lr.ph54, !llvm.loop !40
 
 ._crit_edge55.loopexit:                           ; preds = %.lr.ph54
-  %32 = trunc i64 %indvars.iv.next66 to i32
+  %32 = trunc nsw i64 %indvars.iv.next66 to i32
   br label %._crit_edge55
 
 ._crit_edge55:                                    ; preds = %._crit_edge55.loopexit, %.preheader
@@ -3265,16 +3265,10 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #8
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #8
 
 declare ptr @Scl_ConReadMan(...) local_unnamed_addr #1
 
@@ -3313,7 +3307,7 @@ define internal fastcc ptr @Abc_NodeFromMapPhase_rec(ptr noundef %0, ptr noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = lshr i32 %13, %17
   %19 = and i32 %18, 1
   %20 = tail call fastcc ptr @Abc_NodeFromMap_rec(ptr noundef %0, ptr noundef %16, i32 noundef %19)
@@ -3423,10 +3417,16 @@ declare ptr @Abc_SopRegister(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @Mio_GateReadSop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
@@ -3445,9 +3445,9 @@ attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #5 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nofree nounwind }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind }

@@ -155,13 +155,13 @@ for.body:                                         ; preds = %for.cond.preheader,
   %3 = load i32, ptr %arrayidx, align 4
   %shl = shl i32 %3, 2
   %4 = zext i32 %shl to i64
-  %invariant.gep = getelementptr i32, ptr %2, i64 %4
+  %invariant.gep = getelementptr inbounds i32, ptr %2, i64 %4
   br label %for.body4
 
 for.body4:                                        ; preds = %for.body, %for.body4
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.body4 ]
   %newSize.143 = phi i32 [ %newSize.045, %for.body ], [ %spec.select, %for.body4 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
   %5 = load i32, ptr %gep, align 4
   %cmp6.not = icmp ne i32 %5, -1
   %inc = zext i1 %cmp6.not to i32
@@ -219,8 +219,8 @@ for.body36:                                       ; preds = %for.body27, %for.in
   %indvars.iv61 = phi i64 [ 0, %for.body27 ], [ %indvars.iv.next62, %for.inc46 ]
   %newMeshes.146 = phi ptr [ %newMeshes.049, %for.body27 ], [ %newMeshes.2, %for.inc46 ]
   %10 = load ptr, ptr %replaceMeshIndex, align 8
-  %11 = getelementptr i32, ptr %10, i64 %indvars.iv61
-  %add.ptr.i40 = getelementptr i32, ptr %11, i64 %9
+  %11 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv61
+  %add.ptr.i40 = getelementptr inbounds i32, ptr %11, i64 %9
   %12 = load i32, ptr %add.ptr.i40, align 4
   %cmp40.not = icmp eq i32 %12, -1
   br i1 %cmp40.not, label %for.inc46, label %if.then41

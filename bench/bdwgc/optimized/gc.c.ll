@@ -267,7 +267,7 @@ target triple = "x86_64-pc-linux-gnu"
 @GC_pages_executable = internal unnamed_addr global i32 0, align 4
 @.str.110 = private unnamed_addr constant [41 x i8] c"---------- Begin address map ----------\0A\00", align 1
 @.str.111 = private unnamed_addr constant [39 x i8] c"---------- End address map ----------\0A\00", align 1
-@GC_thread_key = hidden thread_local global ptr null, align 8
+@GC_thread_key = hidden thread_local local_unnamed_addr global ptr null, align 8
 @GC_has_static_roots = internal unnamed_addr global ptr null, align 8
 @GC_sig_suspend = internal unnamed_addr global i32 -1, align 4
 @GC_sig_thr_restart = internal unnamed_addr global i32 -1, align 4
@@ -1398,8 +1398,8 @@ GC_register_data_segments.exit:                   ; preds = %166
   unreachable
 
 184:                                              ; preds = %176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %179, i8 0, i64 32768, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %178, i8 0, i64 32768, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %179, i8 0, i64 32768, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %178, i8 0, i64 32768, i1 false)
   br label %GC_bl_init_no_interiors.exit.i
 
 GC_bl_init_no_interiors.exit.i:                   ; preds = %184, %172
@@ -1421,8 +1421,8 @@ GC_bl_init_no_interiors.exit.i:                   ; preds = %184, %172
   unreachable
 
 GC_bl_init.exit:                                  ; preds = %GC_bl_init_no_interiors.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %187, i8 0, i64 32768, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %186, i8 0, i64 32768, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %187, i8 0, i64 32768, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %186, i8 0, i64 32768, i1 false)
   call fastcc void @alloc_mark_stack(i64 noundef 4096)
   %192 = call ptr @getenv(ptr noundef nonnull @.str.84) #38
   %.not100 = icmp eq ptr %192, null
@@ -1568,7 +1568,7 @@ GC_parse_mem_size_arg.exit114:                    ; preds = %216, %224, %226, %2
 
 241:                                              ; preds = %240
   %242 = lshr i64 %.0, 12
-  %243 = call fastcc i32 @GC_expand_hp_inner(i64 noundef %242), !range !8
+  %243 = call fastcc i32 @GC_expand_hp_inner(i64 noundef %242)
   %.not103 = icmp eq i32 %243, 0
   br i1 %.not103, label %244, label %246
 
@@ -1630,7 +1630,7 @@ GC_register_displacement_inner.exit:              ; preds = %249
   store i64 %263, ptr %264, align 8
   %265 = add i64 %.06.i, 1
   %exitcond.not = icmp eq i64 %.06.i, %umax
-  br i1 %exitcond.not, label %GC_init_size_map.exit, label %259, !llvm.loop !9
+  br i1 %exitcond.not, label %GC_init_size_map.exit, label %259, !llvm.loop !8
 
 GC_init_size_map.exit:                            ; preds = %259, %GC_register_displacement_inner.exit
   store i1 true, ptr @GC_is_initialized, align 4
@@ -1751,7 +1751,7 @@ GC_setup_atfork.exit:                             ; preds = %GC_init_size_map.ex
 .lr.ph._crit_edge.i:                              ; preds = %317, %312, %307, %303, %.lr.ph.i137
   %.1.i139 = phi i32 [ %spec.select.i, %317 ], [ %.01925.i, %303 ], [ %.01925.i, %307 ], [ %.01925.i, %312 ], [ %.01925.i, %.lr.ph.i137 ]
   %exitcond.not.i140 = icmp eq i64 %302, %wide.trip.count.i
-  br i1 %exitcond.not.i140, label %322, label %.lr.ph.i137, !llvm.loop !10
+  br i1 %exitcond.not.i140, label %322, label %.lr.ph.i137, !llvm.loop !9
 
 .thread153:                                       ; preds = %281, %287, %293
   call void @llvm.lifetime.end.p0(i64 1701, ptr nonnull %1)
@@ -2111,7 +2111,7 @@ GC_thr_init.exit:                                 ; preds = %418, %420, %setup_m
   br i1 %or.cond3, label %463, label %.thread
 
 463:                                              ; preds = %458
-  %464 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func), !range !8
+  %464 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
   %.pre = load i32, ptr @GC_dont_precollect, align 4
   %465 = icmp ne i32 %.pre, 0
   %466 = load i32, ptr @GC_dont_gc, align 4
@@ -2199,7 +2199,7 @@ GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %
   %498 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
   %499 = load i64, ptr %498, align 8
   %500 = icmp eq i64 %499, %453
-  br i1 %500, label %GC_lookup_thread.exit.i, label %496, !llvm.loop !11
+  br i1 %500, label %GC_lookup_thread.exit.i, label %496, !llvm.loop !10
 
 GC_lookup_thread.exit.i:                          ; preds = %497, %496
   %501 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
@@ -2226,14 +2226,14 @@ GC_lookup_thread.exit.i:                          ; preds = %497, %496
   store ptr inttoptr (i64 1 to ptr), ptr %507, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %508, label %506, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %508, label %506, !llvm.loop !11
 
 508:                                              ; preds = %506
   %509 = getelementptr inbounds [25 x ptr], ptr %505, i64 0, i64 %indvars.iv16.i.i
   store ptr inttoptr (i64 1 to ptr), ptr %509, align 8
   %indvars.iv.next17.i.i = add nuw nsw i64 %indvars.iv16.i.i, 1
   %exitcond19.not.i.i = icmp eq i64 %indvars.iv.next17.i.i, 25
-  br i1 %exitcond19.not.i.i, label %GC_init_thread_local.exit.i, label %.preheader.i.i, !llvm.loop !13
+  br i1 %exitcond19.not.i.i, label %GC_init_thread_local.exit.i, label %.preheader.i.i, !llvm.loop !12
 
 GC_init_thread_local.exit.i:                      ; preds = %508
   store ptr inttoptr (i64 -1 to ptr), ptr %505, align 8
@@ -2356,7 +2356,7 @@ GC_write.exit.thread3:                            ; preds = %10
   %22 = tail call ptr @__errno_location() #45
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 11
-  br i1 %24, label %17, label %GC_write.exit.thread, !llvm.loop !14
+  br i1 %24, label %17, label %GC_write.exit.thread, !llvm.loop !13
 
 GC_write.exit.thread:                             ; preds = %21
   %.sink.i2 = load i32, ptr %2, align 4
@@ -2371,7 +2371,7 @@ GC_write.exit.thread:                             ; preds = %21
   %29 = sext i32 %26 to i64
   %30 = getelementptr inbounds i8, ptr %3, i64 %29
   %31 = sub i64 %12, %29
-  br i1 %28, label %.outer.split.i, label %GC_write.exit, !llvm.loop !14
+  br i1 %28, label %.outer.split.i, label %GC_write.exit, !llvm.loop !13
 
 GC_write.exit:                                    ; preds = %.outer.i
   %.sink.i = load i32, ptr %2, align 4
@@ -2411,7 +2411,7 @@ define noundef ptr @GC_new_free_list_inner() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @GC_new_kind_inner(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 24) i32 @GC_new_kind_inner(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = load i32, ptr @GC_n_kinds, align 4
   %6 = icmp ult i32 %5, 24
   br i1 %6, label %7, label %17
@@ -2649,7 +2649,7 @@ GC_clear_stack.exit:                              ; preds = %GC_generic_malloc_i
   br label %98
 
 98:                                               ; preds = %88, %89
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #38, !srcloc !15
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #38, !srcloc !14
   br label %99
 
 99:                                               ; preds = %98, %83
@@ -2833,7 +2833,7 @@ GC_start_debugging_inner.exit:                    ; preds = %GC_generic_malloc_i
   %79 = icmp ne ptr %.0.i.i.i, %74
   %80 = select i1 %78, i1 %79, i1 false
   %81 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %80, label %75, label %GC_store_debug_info_inner.exit, !llvm.loop !16
+  br i1 %80, label %75, label %GC_store_debug_info_inner.exit, !llvm.loop !15
 
 GC_store_debug_info_inner.exit:                   ; preds = %75
   %82 = lshr i64 %70, 12
@@ -2868,7 +2868,7 @@ GC_store_debug_info_inner.exit:                   ; preds = %75
   br label %102
 
 102:                                              ; preds = %93, %94
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #38, !srcloc !17
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #38, !srcloc !16
   br label %103
 
 103:                                              ; preds = %102, %50
@@ -2973,7 +2973,7 @@ define void @GC_err_printf(ptr nocapture noundef readonly %0, ...) local_unnamed
 
 10:                                               ; preds = %1
   %11 = load i32, ptr @GC_stderr, align 4
-  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #46
+  %12 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %13 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #38
   %.not.i.i = icmp eq i64 %12, 0
@@ -2995,7 +2995,7 @@ define void @GC_err_printf(ptr nocapture noundef readonly %0, ...) local_unnamed
   %21 = tail call ptr @__errno_location() #45
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 11
-  br i1 %23, label %16, label %GC_err_puts.exit, !llvm.loop !14
+  br i1 %23, label %16, label %GC_err_puts.exit, !llvm.loop !13
 
 .outer.i.i:                                       ; preds = %16
   %24 = add nsw i32 %.012.ph17.i.i, %18
@@ -3004,7 +3004,7 @@ define void @GC_err_printf(ptr nocapture noundef readonly %0, ...) local_unnamed
   %27 = sext i32 %24 to i64
   %28 = getelementptr inbounds i8, ptr %3, i64 %27
   %29 = sub i64 %12, %27
-  br i1 %26, label %.outer.split.i.i, label %GC_err_puts.exit, !llvm.loop !14
+  br i1 %26, label %.outer.split.i.i, label %GC_err_puts.exit, !llvm.loop !13
 
 GC_err_puts.exit:                                 ; preds = %.outer.i.i, %20, %10
   %.sink.i.i = load i32, ptr %2, align 4
@@ -3067,13 +3067,13 @@ define void @GC_apply_to_all_blocks(ptr nocapture noundef nonnull readonly %0, i
 27:                                               ; preds = %23, %25, %19
   %.1 = phi i64 [ %24, %23 ], [ %26, %25 ], [ %20, %19 ]
   %28 = icmp sgt i64 %.1, -1
-  br i1 %28, label %4, label %29, !llvm.loop !18
+  br i1 %28, label %4, label %29, !llvm.loop !17
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds i8, ptr %.023, i64 8192
   %.0 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %29, %2
   ret void
@@ -3198,7 +3198,7 @@ define noundef ptr @GC_same_obj(ptr noundef returned %0, ptr noundef %1) local_u
   %14 = icmp ne ptr %.0.i, %9
   %15 = select i1 %13, i1 %14, i1 false
   %16 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %15, label %10, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %15, label %10, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %10
   %17 = lshr i64 %5, 12
@@ -3229,7 +3229,7 @@ GC_find_header.exit:                              ; preds = %10
   %32 = icmp ne ptr %.0.i53, %9
   %33 = select i1 %31, i1 %32, i1 false
   %34 = getelementptr inbounds i8, ptr %.0.i53, i64 8216
-  br i1 %33, label %28, label %GC_find_header.exit54, !llvm.loop !16
+  br i1 %33, label %28, label %GC_find_header.exit54, !llvm.loop !15
 
 GC_find_header.exit54:                            ; preds = %28
   %35 = lshr i64 %23, 12
@@ -3269,7 +3269,7 @@ GC_find_header.exit54:                            ; preds = %28
   %55 = icmp ne ptr %.0.i.i, %9
   %56 = select i1 %54, i1 %55, i1 false
   %57 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %56, label %51, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %56, label %51, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %51
   %58 = lshr i64 %47, 12
@@ -3277,7 +3277,7 @@ GC_find_header.exit.i:                            ; preds = %51
   %60 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i, i64 0, i64 %59
   %.0.i55 = load ptr, ptr %60, align 8
   %61 = icmp ult ptr %.0.i55, inttoptr (i64 4096 to ptr)
-  br i1 %61, label %43, label %GC_find_starting_hblk.exit, !llvm.loop !20
+  br i1 %61, label %43, label %GC_find_starting_hblk.exit, !llvm.loop !19
 
 GC_find_starting_hblk.exit:                       ; preds = %GC_find_header.exit.i
   %62 = getelementptr inbounds i8, ptr %.0.i55, i64 32
@@ -3383,7 +3383,7 @@ define noundef ptr @GC_is_valid_displacement(ptr noundef returned %0) local_unna
   %15 = icmp ne ptr %.0.i, %10
   %16 = select i1 %14, i1 %15, i1 false
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %16, label %11, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %16, label %11, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %11
   %18 = lshr i64 %6, 12
@@ -3425,7 +3425,7 @@ GC_find_header.exit:                              ; preds = %11
   %40 = icmp ne ptr %.0.i.i, %10
   %41 = select i1 %39, i1 %40, i1 false
   %42 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %41, label %36, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %41, label %36, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %36
   %43 = lshr i64 %32, 12
@@ -3433,7 +3433,7 @@ GC_find_header.exit.i:                            ; preds = %36
   %45 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i, i64 0, i64 %44
   %.0.i28 = load ptr, ptr %45, align 8
   %46 = icmp ult ptr %.0.i28, inttoptr (i64 4096 to ptr)
-  br i1 %46, label %.lr.ph.i, label %GC_find_starting_hblk.exit, !llvm.loop !20
+  br i1 %46, label %.lr.ph.i, label %GC_find_starting_hblk.exit, !llvm.loop !19
 
 47:                                               ; preds = %23
   br i1 %27, label %80, label %GC_find_starting_hblk.exit
@@ -3481,7 +3481,7 @@ GC_find_starting_hblk.exit:                       ; preds = %GC_find_header.exit
   %72 = icmp ne ptr %.0.i30, %10
   %73 = select i1 %71, i1 %72, i1 false
   %74 = getelementptr inbounds i8, ptr %.0.i30, i64 8216
-  br i1 %73, label %68, label %GC_find_header.exit31, !llvm.loop !16
+  br i1 %73, label %68, label %GC_find_header.exit31, !llvm.loop !15
 
 GC_find_header.exit31:                            ; preds = %68
   %75 = lshr i64 %62, 12
@@ -3540,7 +3540,7 @@ define noundef ptr @GC_is_visible(ptr noundef returned %0) local_unnamed_addr #1
   %15 = icmp ne ptr %.0.i, %10
   %16 = select i1 %14, i1 %15, i1 false
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %16, label %11, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %16, label %11, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %11
   %18 = lshr i64 %2, 12
@@ -3563,7 +3563,7 @@ GC_find_header.exit:                              ; preds = %11
   %26 = icmp ne ptr %.027.i, %10
   %27 = select i1 %25, i1 %26, i1 false
   %28 = getelementptr inbounds i8, ptr %.027.i, i64 8216
-  br i1 %27, label %.preheader, label %29, !llvm.loop !21
+  br i1 %27, label %.preheader, label %29, !llvm.loop !20
 
 29:                                               ; preds = %.preheader
   %30 = getelementptr inbounds [1024 x ptr], ptr %.027.i, i64 0, i64 %19
@@ -3598,7 +3598,7 @@ GC_find_header.exit:                              ; preds = %11
   %48 = icmp ne ptr %.0.i.i.i, %10
   %49 = select i1 %47, i1 %48, i1 false
   %50 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %49, label %44, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %49, label %44, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %44
   %51 = lshr i64 %40, 12
@@ -3606,7 +3606,7 @@ GC_find_header.exit.i.i:                          ; preds = %44
   %53 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %52
   %.0.i.i = load ptr, ptr %53, align 8
   %54 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %54, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !20
+  br i1 %54, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %33
   %.032.i = phi ptr [ %31, %33 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
@@ -3671,7 +3671,7 @@ define ptr @GC_base(ptr noundef %0) local_unnamed_addr #0 {
   %13 = icmp ne ptr %.027, %8
   %14 = select i1 %12, i1 %13, i1 false
   %15 = getelementptr inbounds i8, ptr %.027, i64 8216
-  br i1 %14, label %9, label %16, !llvm.loop !21
+  br i1 %14, label %9, label %16, !llvm.loop !20
 
 16:                                               ; preds = %9
   %17 = lshr i64 %3, 12
@@ -3707,7 +3707,7 @@ define ptr @GC_base(ptr noundef %0) local_unnamed_addr #0 {
   %36 = icmp ne ptr %.0.i.i, %8
   %37 = select i1 %35, i1 %36, i1 false
   %38 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %37, label %32, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %37, label %32, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %32
   %39 = lshr i64 %28, 12
@@ -3715,7 +3715,7 @@ GC_find_header.exit.i:                            ; preds = %32
   %41 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i, i64 0, i64 %40
   %.0.i = load ptr, ptr %41, align 8
   %42 = icmp ult ptr %.0.i, inttoptr (i64 4096 to ptr)
-  br i1 %42, label %.lr.ph.i, label %GC_find_starting_hblk.exit, !llvm.loop !20
+  br i1 %42, label %.lr.ph.i, label %GC_find_starting_hblk.exit, !llvm.loop !19
 
 GC_find_starting_hblk.exit:                       ; preds = %GC_find_header.exit.i, %22
   %.032 = phi ptr [ %20, %22 ], [ %.0.i, %GC_find_header.exit.i ]
@@ -3858,7 +3858,7 @@ define void @GC_iterate_free_hblks(ptr nocapture noundef nonnull readonly %0, i6
   %15 = icmp ne ptr %.0.i, %10
   %16 = select i1 %14, i1 %15, i1 false
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %16, label %11, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %16, label %11, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %11
   %18 = lshr i64 %6, 12
@@ -3867,12 +3867,12 @@ GC_find_header.exit:                              ; preds = %11
   %21 = load ptr, ptr %20, align 8
   %.0 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %GC_find_header.exit, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 61
-  br i1 %exitcond.not, label %22, label %3, !llvm.loop !23
+  br i1 %exitcond.not, label %22, label %3, !llvm.loop !22
 
 22:                                               ; preds = %._crit_edge
   ret void
@@ -3917,7 +3917,7 @@ define hidden void @GC_print_hblkfreelist() local_unnamed_addr #1 {
   %16 = icmp ne ptr %.0.i.i4, %6
   %17 = select i1 %15, i1 %16, i1 false
   %18 = getelementptr inbounds i8, ptr %.0.i.i4, i64 8216
-  br i1 %17, label %12, label %GC_find_header.exit.i5, !llvm.loop !16
+  br i1 %17, label %12, label %GC_find_header.exit.i5, !llvm.loop !15
 
 GC_find_header.exit.i5:                           ; preds = %12
   %19 = lshr i64 %8, 12
@@ -4098,20 +4098,20 @@ print_hblkfreelist_item.exit:                     ; preds = %103, %30, %38, %57,
   %115 = icmp ne ptr %.0.i.i, %110
   %116 = select i1 %114, i1 %115, i1 false
   %117 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %116, label %111, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %116, label %111, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %111
   %118 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i, i64 0, i64 %20
   %119 = load ptr, ptr %118, align 8
   %.0.i = load ptr, ptr %119, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %GC_find_header.exit.i, %1
   %.lcssa1012 = phi i32 [ %.lcssa1013, %1 ], [ %3, %GC_find_header.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 61
-  br i1 %exitcond.not.i, label %GC_iterate_free_hblks.exit, label %1, !llvm.loop !23
+  br i1 %exitcond.not.i, label %GC_iterate_free_hblks.exit, label %1, !llvm.loop !22
 
 GC_iterate_free_hblks.exit:                       ; preds = %._crit_edge.i
   %120 = load i64, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 4), align 8
@@ -4145,7 +4145,7 @@ GC_iterate_free_hblks.exit:                       ; preds = %._crit_edge.i
   %133 = icmp ne ptr %.0.i.i2.i, %121
   %134 = select i1 %132, i1 %133, i1 false
   %135 = getelementptr inbounds i8, ptr %.0.i.i2.i, i64 8216
-  br i1 %134, label %129, label %add_hb_sz.exit.i, !llvm.loop !16
+  br i1 %134, label %129, label %add_hb_sz.exit.i, !llvm.loop !15
 
 add_hb_sz.exit.i:                                 ; preds = %129
   %136 = lshr i64 %125, 12
@@ -4165,7 +4165,7 @@ add_hb_sz.exit.i:                                 ; preds = %129
   %146 = icmp ne ptr %.0.i.i.i, %121
   %147 = select i1 %145, i1 %146, i1 false
   %148 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %147, label %142, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %147, label %142, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %142
   %149 = add i64 %141, %124
@@ -4173,13 +4173,13 @@ GC_find_header.exit.i.i:                          ; preds = %142
   %151 = load ptr, ptr %150, align 8
   %.0.i.i2 = load ptr, ptr %151, align 8
   %.not.i.i = icmp eq ptr %.0.i.i2, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !22
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !21
 
 ._crit_edge.i.i:                                  ; preds = %GC_find_header.exit.i.i, %122
   %.lcssa5.i = phi i64 [ %.lcssa6.i, %122 ], [ %149, %GC_find_header.exit.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 61
-  br i1 %exitcond.not.i.i, label %GC_compute_large_free_bytes.exit, label %122, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %GC_compute_large_free_bytes.exit, label %122, !llvm.loop !22
 
 GC_compute_large_free_bytes.exit:                 ; preds = %._crit_edge.i.i
   %152 = load i64, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 4), align 8
@@ -4249,7 +4249,7 @@ GC_write.exit.thread4:                            ; preds = %12
   %24 = tail call ptr @__errno_location() #45
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 11
-  br i1 %26, label %19, label %GC_write.exit.thread, !llvm.loop !14
+  br i1 %26, label %19, label %GC_write.exit.thread, !llvm.loop !13
 
 GC_write.exit.thread:                             ; preds = %23
   %.sink.i3 = load i32, ptr %2, align 4
@@ -4264,7 +4264,7 @@ GC_write.exit.thread:                             ; preds = %23
   %31 = sext i32 %28 to i64
   %32 = getelementptr inbounds i8, ptr %3, i64 %31
   %33 = sub i64 %14, %31
-  br i1 %30, label %.outer.split.i, label %GC_write.exit, !llvm.loop !14
+  br i1 %30, label %.outer.split.i, label %GC_write.exit, !llvm.loop !13
 
 GC_write.exit:                                    ; preds = %.outer.i
   %.sink.i = load i32, ptr %2, align 4
@@ -4293,7 +4293,7 @@ define void @GC_dump_regions() local_unnamed_addr #1 {
   %2 = zext i32 %.lcssa to i64
   %3 = load i64, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 37), align 8
   %4 = icmp ugt i64 %3, %2
-  br i1 %4, label %.lr.ph60, label %._crit_edge, !llvm.loop !24
+  br i1 %4, label %.lr.ph60, label %._crit_edge, !llvm.loop !23
 
 .lr.ph60:                                         ; preds = %0, %.loopexit
   %5 = phi i64 [ %3, %.loopexit ], [ %1, %0 ]
@@ -4326,7 +4326,7 @@ define void @GC_dump_regions() local_unnamed_addr #1 {
   %25 = add i32 %17, 1
   %26 = zext i32 %25 to i64
   %27 = icmp ugt i64 %5, %26
-  br i1 %27, label %.lr.ph, label %.critedge, !llvm.loop !25
+  br i1 %27, label %.lr.ph, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %.lr.ph, %21, %.lr.ph60
   %.039.lcssa = phi ptr [ %12, %.lr.ph60 ], [ %24, %21 ], [ %.03952, %.lr.ph ]
@@ -4353,7 +4353,7 @@ define void @GC_dump_regions() local_unnamed_addr #1 {
   %38 = icmp ne ptr %.0.i, %33
   %39 = select i1 %37, i1 %38, i1 false
   %40 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %39, label %34, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %39, label %34, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %34
   %41 = lshr i64 %29, 12
@@ -4371,7 +4371,7 @@ GC_find_header.exit:                              ; preds = %34
   %.sink = phi i64 [ 4096, %46 ], [ %97, %96 ], [ %101, %98 ]
   %47 = getelementptr inbounds i8, ptr %.04057, i64 %.sink
   %48 = icmp ult ptr %47, %.039.lcssa
-  br i1 %48, label %.lr.ph58, label %.loopexit, !llvm.loop !26
+  br i1 %48, label %.lr.ph58, label %.loopexit, !llvm.loop !25
 
 49:                                               ; preds = %GC_find_header.exit
   %50 = getelementptr inbounds i8, ptr %44, i64 25
@@ -4438,7 +4438,7 @@ GC_hblk_fl_from_blocks.exit:                      ; preds = %58, %60, %62
   %83 = icmp ne ptr %.0.i.i, %70
   %84 = select i1 %82, i1 %83, i1 false
   %85 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %84, label %79, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %84, label %79, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %79
   %86 = lshr i64 %75, 12
@@ -4446,12 +4446,12 @@ GC_find_header.exit.i:                            ; preds = %79
   %88 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i, i64 0, i64 %87
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, %44
-  br i1 %90, label %free_list_index_of.exit, label %73, !llvm.loop !27
+  br i1 %90, label %free_list_index_of.exit, label %73, !llvm.loop !26
 
 91:                                               ; preds = %73
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 61
-  br i1 %exitcond.not.i, label %free_list_index_of.exit.thread, label %71, !llvm.loop !28
+  br i1 %exitcond.not.i, label %free_list_index_of.exit.thread, label %71, !llvm.loop !27
 
 free_list_index_of.exit:                          ; preds = %GC_find_header.exit.i
   %92 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -4504,7 +4504,7 @@ define i64 @GC_get_stopped_mark_total_time() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @GC_is_incremental_mode() local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @GC_is_incremental_mode() local_unnamed_addr #8 {
   %1 = load i32, ptr @GC_incremental, align 4
   ret i32 %1
 }
@@ -4915,14 +4915,14 @@ define internal fastcc void @GC_collect_a_little_inner(i32 noundef %0) unnamed_a
 
 .lr.ph:                                           ; preds = %11, %15
   %.019 = phi i32 [ %16, %15 ], [ %12, %11 ]
-  %14 = call fastcc i32 @GC_mark_some(ptr noundef null), !range !8
+  %14 = call fastcc i32 @GC_mark_some(ptr noundef null)
   %.not12 = icmp eq i32 %14, 0
   br i1 %.not12, label %15, label %._crit_edge
 
 15:                                               ; preds = %.lr.ph
   %16 = add i32 %.019, 1
   %exitcond.not = icmp eq i32 %16, %8
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge.thread:                               ; preds = %15
   store i1 false, ptr @GC_parallel_mark_disabled, align 4
@@ -4976,7 +4976,7 @@ define internal fastcc void @GC_collect_a_little_inner(i32 noundef %0) unnamed_a
   %33 = phi i32 [ %.pre, %._crit_edge22 ], [ %.pre23, %23 ]
   %34 = icmp slt i32 %33, %32
   %35 = select i1 %34, ptr @GC_timeout_stop_func, ptr @GC_never_stop_func
-  %36 = call fastcc i32 @GC_stopped_mark(ptr noundef nonnull %35), !range !8
+  %36 = call fastcc i32 @GC_stopped_mark(ptr noundef nonnull %35)
   %.not15 = icmp eq i32 %36, 0
   br i1 %.not15, label %38, label %37
 
@@ -5007,7 +5007,7 @@ define internal fastcc void @GC_collect_a_little_inner(i32 noundef %0) unnamed_a
   br i1 %.not10, label %48, label %GC_maybe_gc.exit
 
 48:                                               ; preds = %46
-  %49 = call fastcc i32 @GC_should_collect(), !range !8
+  %49 = call fastcc i32 @GC_should_collect()
   %.not.i = icmp eq i32 %49, 0
   br i1 %.not.i, label %GC_maybe_gc.exit, label %50
 
@@ -5015,7 +5015,7 @@ define internal fastcc void @GC_collect_a_little_inner(i32 noundef %0) unnamed_a
   br i1 %.not, label %51, label %53
 
 51:                                               ; preds = %50
-  %52 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func), !range !8
+  %52 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
   br label %GC_maybe_gc.exit
 
 53:                                               ; preds = %50
@@ -5052,7 +5052,7 @@ define internal fastcc void @GC_collect_a_little_inner(i32 noundef %0) unnamed_a
 
 67:                                               ; preds = %63, %61
   call fastcc void @GC_promote_black_lists()
-  %68 = call fastcc i32 @GC_reclaim_all(ptr noundef null, i32 noundef 1), !range !8
+  %68 = call fastcc i32 @GC_reclaim_all(ptr noundef null, i32 noundef 1)
   %69 = load ptr, ptr @GC_start_call_back, align 8
   %.not.i16 = icmp eq ptr %69, null
   br i1 %.not.i16, label %GC_notify_full_gc.exit, label %70
@@ -5105,7 +5105,7 @@ GC_notify_full_gc.exit:                           ; preds = %67, %70
   %93 = icmp ne ptr %.0.i.i.i, %88
   %94 = select i1 %92, i1 %93, i1 false
   %95 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %94, label %89, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %94, label %89, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %89
   %96 = and i64 %.01720.i.i, 1023
@@ -5160,13 +5160,13 @@ clear_marks_for_block.exit.i:                     ; preds = %GC_clear_hdr_marks.
 124:                                              ; preds = %122, %120, %clear_marks_for_block.exit.i
   %.1.i.i = phi i64 [ %121, %120 ], [ %123, %122 ], [ %117, %clear_marks_for_block.exit.i ]
   %125 = icmp sgt i64 %.1.i.i, -1
-  br i1 %125, label %72, label %126, !llvm.loop !18
+  br i1 %125, label %72, label %126, !llvm.loop !17
 
 126:                                              ; preds = %124
   %127 = getelementptr inbounds i8, ptr %.023.i.i, i64 8192
   %.0.i.i = load ptr, ptr %127, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %GC_clear_marks.exit, label %.preheader.i.i, !llvm.loop !19
+  br i1 %.not.i.i, label %GC_clear_marks.exit, label %.preheader.i.i, !llvm.loop !18
 
 GC_clear_marks.exit:                              ; preds = %126, %GC_notify_full_gc.exit
   store i32 0, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 23), align 4
@@ -5198,7 +5198,7 @@ GC_clear_marks.exit:                              ; preds = %126, %GC_notify_ful
   unreachable
 
 137:                                              ; preds = %132, %130
-  %138 = call fastcc i32 @GC_stopped_mark(ptr noundef nonnull @GC_timeout_stop_func), !range !8
+  %138 = call fastcc i32 @GC_stopped_mark(ptr noundef nonnull @GC_timeout_stop_func)
   %.not7.i = icmp eq i32 %138, 0
   br i1 %.not7.i, label %140, label %139
 
@@ -5513,7 +5513,7 @@ define i32 @GC_get_max_prior_attempts() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @GC_collect_a_little() local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @GC_collect_a_little() local_unnamed_addr #1 {
   %.b7 = load i1, ptr @GC_is_initialized, align 4
   br i1 %.b7, label %2, label %1
 
@@ -5589,7 +5589,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %or.cond, label %26, label %27
 
 26:                                               ; preds = %24
-  tail call fastcc void @GC_print_all_smashed_proc(), !callees !30
+  tail call fastcc void @GC_print_all_smashed_proc(), !callees !29
   br label %27
 
 27:                                               ; preds = %26, %24
@@ -5717,7 +5717,7 @@ GC_acquire_mark_lock.exit:                        ; preds = %.preheader.i.i, %11
   %23 = tail call ptr @__errno_location() #45
   %24 = load i32, ptr %23, align 4
   %.not3.i = icmp eq i32 %24, 4
-  br i1 %.not3.i, label %20, label %25, !llvm.loop !31
+  br i1 %.not3.i, label %20, label %25, !llvm.loop !30
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @GC_on_abort, align 8
@@ -5728,7 +5728,7 @@ GC_acquire_mark_lock.exit:                        ; preds = %.preheader.i.i, %11
 27:                                               ; preds = %20
   %28 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %28, %15
-  br i1 %exitcond.not.i, label %suspend_restart_barrier.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %suspend_restart_barrier.exit, label %.preheader.i, !llvm.loop !31
 
 suspend_restart_barrier.exit:                     ; preds = %27, %18, %17
   %29 = load i32, ptr @GC_parallel, align 4
@@ -5800,7 +5800,7 @@ define internal fastcc void @GC_start_world() unnamed_addr #1 {
   %14 = tail call ptr @__errno_location() #45
   %15 = load i32, ptr %14, align 4
   %.not3.i = icmp eq i32 %15, 4
-  br i1 %.not3.i, label %11, label %16, !llvm.loop !31
+  br i1 %.not3.i, label %11, label %16, !llvm.loop !30
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @GC_on_abort, align 8
@@ -5811,20 +5811,20 @@ define internal fastcc void @GC_start_world() unnamed_addr #1 {
 18:                                               ; preds = %11
   %19 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %19, %3
-  br i1 %exitcond.not.i, label %suspend_restart_barrier.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %suspend_restart_barrier.exit, label %.preheader.i, !llvm.loop !31
 
 suspend_restart_barrier.exit:                     ; preds = %18, %6, %5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_try_to_collect(ptr noundef nonnull %0) local_unnamed_addr #1 {
-  %2 = tail call fastcc i32 @GC_try_to_collect_general(ptr noundef nonnull %0, i32 noundef 0), !range !8
+define range(i32 0, 2) i32 @GC_try_to_collect(ptr noundef nonnull %0) local_unnamed_addr #1 {
+  %2 = tail call fastcc i32 @GC_try_to_collect_general(ptr noundef nonnull %0, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @GC_try_to_collect_general(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @GC_try_to_collect_general(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %.b13 = load i1, ptr @GC_is_initialized, align 4
   br i1 %.b13, label %5, label %4
@@ -5838,7 +5838,7 @@ define internal fastcc noundef i32 @GC_try_to_collect_general(ptr noundef %0, i3
   br i1 %.b12, label %6, label %7
 
 6:                                                ; preds = %5
-  tail call fastcc void @GC_print_all_smashed_proc(), !callees !30
+  tail call fastcc void @GC_print_all_smashed_proc(), !callees !29
   br label %7
 
 7:                                                ; preds = %6, %5
@@ -5922,7 +5922,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %.not15 = icmp eq ptr %0, null
   %39 = load ptr, ptr @GC_default_stop_func, align 8
   %40 = select i1 %.not15, ptr %39, ptr %0
-  %41 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef %40), !range !8
+  %41 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef %40)
   store atomic volatile i8 0, ptr @GC_collecting monotonic, align 1
   store i32 %38, ptr @GC_unmap_threshold, align 4
   %42 = load i32, ptr %3, align 4
@@ -5943,7 +5943,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b11, label %48, label %49
 
 48:                                               ; preds = %47
-  call fastcc void @GC_print_all_smashed_proc(), !callees !30
+  call fastcc void @GC_print_all_smashed_proc(), !callees !29
   br label %49
 
 49:                                               ; preds = %48, %47
@@ -5956,7 +5956,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 ; Function Attrs: nounwind uwtable
 define void @GC_gcollect() local_unnamed_addr #1 {
-  %1 = tail call fastcc i32 @GC_try_to_collect_general(ptr noundef null, i32 noundef 0), !range !8
+  %1 = tail call fastcc i32 @GC_try_to_collect_general(ptr noundef null, i32 noundef 0)
   %2 = load atomic volatile i64, ptr @GC_have_errors monotonic, align 8
   %3 = and i64 %2, 4294967295
   %.not = icmp eq i64 %3, 0
@@ -6060,7 +6060,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b19, label %32, label %.thread38
 
 32:                                               ; preds = %31
-  tail call fastcc void @GC_print_all_smashed_proc(), !callees !30
+  tail call fastcc void @GC_print_all_smashed_proc(), !callees !29
   br i1 %.not21, label %._crit_edge, label %.lr.ph.preheader
 
 .thread38:                                        ; preds = %31
@@ -6076,11 +6076,11 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %33 = getelementptr inbounds [40 x ptr], ptr %1, i64 0, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @GC_print_heap_obj, align 8
-  tail call void %35(ptr noundef %34) #38, !callees !33
+  tail call void %35(ptr noundef %34) #38, !callees !32
   tail call void @GC_free(ptr noundef %34)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %32
   %36 = and i64 %23, 4294967295
@@ -6165,7 +6165,7 @@ GC_lock.exit29:                                   ; preds = %.preheader.i.i27, %
 
 ; Function Attrs: nounwind uwtable
 define void @GC_gcollect_and_unmap() local_unnamed_addr #1 {
-  %1 = tail call fastcc i32 @GC_try_to_collect_general(ptr noundef nonnull @GC_never_stop_func, i32 noundef 1), !range !8
+  %1 = tail call fastcc i32 @GC_try_to_collect_general(ptr noundef nonnull @GC_never_stop_func, i32 noundef 1)
   ret void
 }
 
@@ -6265,7 +6265,7 @@ GC_is_black_listed.exit.us:                       ; preds = %46, %42, %36, %30
   %spec.select.us = add i32 %.020.us, %48
   %49 = getelementptr inbounds i8, ptr %.01619.us, i64 4096
   %50 = icmp ult ptr %49, %10
-  br i1 %50, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !35
+  br i1 %50, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !34
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %GC_is_black_listed.exit
   %.020 = phi i32 [ %spec.select, %GC_is_black_listed.exit ], [ 0, %.lr.ph ]
@@ -6310,7 +6310,7 @@ GC_is_black_listed.exit:                          ; preds = %66, %58, %70
   %spec.select = add i32 %.020, %72
   %73 = getelementptr inbounds i8, ptr %.01619, i64 4096
   %74 = icmp ult ptr %73, %10
-  br i1 %74, label %.lr.ph.split, label %._crit_edge, !llvm.loop !35
+  br i1 %74, label %.lr.ph.split, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %GC_is_black_listed.exit, %GC_is_black_listed.exit.us, %.lr.ph25
   %.0.lcssa = phi i32 [ 0, %.lr.ph25 ], [ %spec.select.us, %GC_is_black_listed.exit.us ], [ %spec.select, %GC_is_black_listed.exit ]
@@ -6320,7 +6320,7 @@ GC_is_black_listed.exit:                          ; preds = %66, %58, %70
   %77 = zext i32 %76 to i64
   %78 = load i64, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 37), align 8
   %79 = icmp ugt i64 %78, %77
-  br i1 %79, label %.lr.ph25, label %._crit_edge26, !llvm.loop !36
+  br i1 %79, label %.lr.ph25, label %._crit_edge26, !llvm.loop !35
 
 ._crit_edge26:                                    ; preds = %._crit_edge, %0
   ret void
@@ -6333,7 +6333,7 @@ define void @GC_set_max_heap_size(i64 noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_expand_hp(i64 noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @GC_expand_hp(i64 noundef %0) local_unnamed_addr #1 {
   %2 = tail call i64 @llvm.uadd.sat.i64(i64 %0, i64 4095)
   %3 = lshr i64 %2, 12
   %.b8 = load i1, ptr @GC_is_initialized, align 4
@@ -6393,7 +6393,7 @@ GC_generic_lock.exit.sink.split.i:                ; preds = %19, %11, %8
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %13, %5, %6
   %23 = load i64, ptr @GC_arrays, align 8
-  %24 = tail call fastcc i32 @GC_expand_hp_inner(i64 noundef %3), !range !8
+  %24 = tail call fastcc i32 @GC_expand_hp_inner(i64 noundef %3)
   %.not9 = icmp eq i32 %24, 0
   br i1 %.not9, label %34, label %25
 
@@ -6426,7 +6426,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @GC_expand_hp_inner(i64 noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @GC_expand_hp_inner(i64 noundef %0) unnamed_addr #1 {
   %2 = alloca i64, align 8
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %0, i64 1)
   %3 = shl i64 %spec.store.select, 12
@@ -6889,7 +6889,7 @@ GC_start_debugging_inner.exit:                    ; preds = %28, %26, %GC_lock.e
   %49 = icmp ne ptr %.0.i.i.i, %44
   %50 = select i1 %48, i1 %49, i1 false
   %51 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %50, label %45, label %GC_store_debug_info_inner.exit, !llvm.loop !16
+  br i1 %50, label %45, label %GC_store_debug_info_inner.exit, !llvm.loop !15
 
 GC_store_debug_info_inner.exit:                   ; preds = %45
   %52 = lshr i64 %40, 12
@@ -6995,7 +6995,7 @@ define void @GC_debug_end_stubborn_change(ptr noundef nonnull %0) local_unnamed_
   %12 = icmp ne ptr %.027.i, %7
   %13 = select i1 %11, i1 %12, i1 false
   %14 = getelementptr inbounds i8, ptr %.027.i, i64 8216
-  br i1 %13, label %8, label %15, !llvm.loop !21
+  br i1 %13, label %8, label %15, !llvm.loop !20
 
 15:                                               ; preds = %8
   %16 = lshr i64 %3, 12
@@ -7032,7 +7032,7 @@ define void @GC_debug_end_stubborn_change(ptr noundef nonnull %0) local_unnamed_
   %36 = icmp ne ptr %.0.i.i.i, %7
   %37 = select i1 %35, i1 %36, i1 false
   %38 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %37, label %32, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %37, label %32, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %32
   %39 = lshr i64 %28, 12
@@ -7040,7 +7040,7 @@ GC_find_header.exit.i.i:                          ; preds = %32
   %41 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %40
   %.0.i.i = load ptr, ptr %41, align 8
   %42 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %42, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !20
+  br i1 %42, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %21
   %.032.i = phi ptr [ %19, %21 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
@@ -7125,7 +7125,7 @@ define void @GC_debug_ptr_store_and_dirty(ptr noundef %0, ptr noundef %1) local_
   %4 = tail call ptr @GC_is_visible(ptr noundef %0)
   store ptr %1, ptr %0, align 8
   tail call void @GC_debug_end_stubborn_change(ptr noundef %0)
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #38, !srcloc !37
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #38, !srcloc !36
   ret void
 }
 
@@ -7327,7 +7327,7 @@ define void @GC_debug_free(ptr noundef %0) local_unnamed_addr #1 {
   %14 = icmp ne ptr %.027.i, %9
   %15 = select i1 %13, i1 %14, i1 false
   %16 = getelementptr inbounds i8, ptr %.027.i, i64 8216
-  br i1 %15, label %10, label %17, !llvm.loop !21
+  br i1 %15, label %10, label %17, !llvm.loop !20
 
 17:                                               ; preds = %10
   %18 = lshr i64 %5, 12
@@ -7364,7 +7364,7 @@ define void @GC_debug_free(ptr noundef %0) local_unnamed_addr #1 {
   %38 = icmp ne ptr %.0.i.i.i, %9
   %39 = select i1 %37, i1 %38, i1 false
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %39, label %34, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %39, label %34, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %34
   %41 = lshr i64 %30, 12
@@ -7372,7 +7372,7 @@ GC_find_header.exit.i.i:                          ; preds = %34
   %43 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %42
   %.0.i.i = load ptr, ptr %43, align 8
   %44 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %44, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !20
+  br i1 %44, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %23
   %.032.i = phi ptr [ %21, %23 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
@@ -7437,7 +7437,7 @@ GC_base.exit.thread:                              ; preds = %48, %GC_find_starti
   %76 = icmp ne ptr %.0.i.i.i44, %9
   %77 = select i1 %75, i1 %76, i1 false
   %78 = getelementptr inbounds i8, ptr %.0.i.i.i44, i64 8216
-  br i1 %77, label %72, label %GC_size.exit.i, !llvm.loop !16
+  br i1 %77, label %72, label %GC_size.exit.i, !llvm.loop !15
 
 GC_size.exit.i:                                   ; preds = %72
   %79 = getelementptr inbounds i8, ptr %57, i64 32
@@ -7495,7 +7495,7 @@ GC_check_annotated_obj.exit:                      ; preds = %GC_size.exit.i, %92
   %112 = icmp ne ptr %.0.i.i47, %9
   %113 = select i1 %111, i1 %112, i1 false
   %114 = getelementptr inbounds i8, ptr %.0.i.i47, i64 8216
-  br i1 %113, label %108, label %GC_size.exit, !llvm.loop !16
+  br i1 %113, label %108, label %GC_size.exit, !llvm.loop !15
 
 GC_size.exit:                                     ; preds = %108
   %115 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i47, i64 0, i64 %81
@@ -7548,7 +7548,7 @@ GC_size.exit:                                     ; preds = %108
   %134 = icmp ne ptr %.0.i48, %129
   %135 = select i1 %133, i1 %134, i1 false
   %136 = getelementptr inbounds i8, ptr %.0.i48, i64 8216
-  br i1 %135, label %130, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %135, label %130, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %130
   %137 = getelementptr inbounds [1024 x ptr], ptr %.0.i48, i64 0, i64 %19
@@ -7580,7 +7580,7 @@ GC_find_header.exit:                              ; preds = %130
   store i64 -1171307680339476753, ptr %148, align 8
   %149 = add nuw nsw i64 %.058, 1
   %exitcond.not = icmp eq i64 %149, %147
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %143
   %.b38 = load i1, ptr @GC_need_to_lock, align 4
@@ -7669,7 +7669,7 @@ define i64 @GC_size(ptr noundef nonnull %0) local_unnamed_addr #0 {
   %11 = icmp ne ptr %.0.i, %6
   %12 = select i1 %10, i1 %11, i1 false
   %13 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %7
   %14 = lshr i64 %2, 12
@@ -7703,7 +7703,7 @@ define internal fastcc void @GC_print_smashed_obj(ptr noundef %0, ptr noundef %1
   %14 = icmp ne ptr %.027.i, %9
   %15 = select i1 %13, i1 %14, i1 false
   %16 = getelementptr inbounds i8, ptr %.027.i, i64 8216
-  br i1 %15, label %10, label %17, !llvm.loop !21
+  br i1 %15, label %10, label %17, !llvm.loop !20
 
 17:                                               ; preds = %10
   %18 = lshr i64 %5, 12
@@ -7740,7 +7740,7 @@ define internal fastcc void @GC_print_smashed_obj(ptr noundef %0, ptr noundef %1
   %38 = icmp ne ptr %.0.i.i.i, %9
   %39 = select i1 %37, i1 %38, i1 false
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %39, label %34, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %39, label %34, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %34
   %41 = lshr i64 %30, 12
@@ -7748,7 +7748,7 @@ GC_find_header.exit.i.i:                          ; preds = %34
   %43 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %42
   %.0.i.i = load ptr, ptr %43, align 8
   %44 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %44, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !20
+  br i1 %44, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %23
   %.032.i = phi ptr [ %21, %23 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
@@ -7808,7 +7808,7 @@ GC_base.exit:                                     ; preds = %3, %17, %GC_find_st
   %76 = icmp ne ptr %.0.i.i16, %71
   %77 = select i1 %75, i1 %76, i1 false
   %78 = getelementptr inbounds i8, ptr %.0.i.i16, i64 8216
-  br i1 %77, label %72, label %GC_size.exit, !llvm.loop !16
+  br i1 %77, label %72, label %GC_size.exit, !llvm.loop !15
 
 GC_size.exit:                                     ; preds = %72
   %79 = lshr i64 %67, 12
@@ -7869,7 +7869,7 @@ define void @GC_free(ptr noundef %0) local_unnamed_addr #1 {
   %12 = icmp ne ptr %.0.i, %7
   %13 = select i1 %11, i1 %12, i1 false
   %14 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %13, label %8, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %13, label %8, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %8
   %15 = lshr i64 %3, 12
@@ -8046,7 +8046,7 @@ define ptr @GC_debug_realloc(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32
   %29 = icmp ne ptr %.027.i, %24
   %30 = select i1 %28, i1 %29, i1 false
   %31 = getelementptr inbounds i8, ptr %.027.i, i64 8216
-  br i1 %30, label %25, label %32, !llvm.loop !21
+  br i1 %30, label %25, label %32, !llvm.loop !20
 
 32:                                               ; preds = %25
   %33 = lshr i64 %20, 12
@@ -8083,7 +8083,7 @@ define ptr @GC_debug_realloc(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32
   %53 = icmp ne ptr %.0.i.i.i, %24
   %54 = select i1 %52, i1 %53, i1 false
   %55 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %54, label %49, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %54, label %49, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %49
   %56 = lshr i64 %45, 12
@@ -8091,7 +8091,7 @@ GC_find_header.exit.i.i:                          ; preds = %49
   %58 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %57
   %.0.i.i = load ptr, ptr %58, align 8
   %59 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %59, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !20
+  br i1 %59, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %38
   %.032.i = phi ptr [ %36, %38 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
@@ -8157,7 +8157,7 @@ GC_base.exit.thread:                              ; preds = %63, %GC_find_starti
   %92 = icmp ne ptr %.0.i37, %24
   %93 = select i1 %91, i1 %92, i1 false
   %94 = getelementptr inbounds i8, ptr %.0.i37, i64 8216
-  br i1 %93, label %88, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %93, label %88, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %88
   %95 = lshr i64 %80, 12
@@ -8225,7 +8225,7 @@ define ptr @GC_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #14 {
   %19 = icmp ne ptr %.0.i, %14
   %20 = select i1 %18, i1 %19, i1 false
   %21 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %20, label %15, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %20, label %15, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %15
   %22 = lshr i64 %3, 12
@@ -8429,7 +8429,7 @@ define void @GC_debug_register_finalizer(ptr noundef nonnull %0, ptr noundef %1,
   %18 = icmp ne ptr %.027.i, %13
   %19 = select i1 %17, i1 %18, i1 false
   %20 = getelementptr inbounds i8, ptr %.027.i, i64 8216
-  br i1 %19, label %14, label %21, !llvm.loop !21
+  br i1 %19, label %14, label %21, !llvm.loop !20
 
 21:                                               ; preds = %14
   %22 = lshr i64 %9, 12
@@ -8466,7 +8466,7 @@ define void @GC_debug_register_finalizer(ptr noundef nonnull %0, ptr noundef %1,
   %42 = icmp ne ptr %.0.i.i.i, %13
   %43 = select i1 %41, i1 %42, i1 false
   %44 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %43, label %38, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %43, label %38, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %38
   %45 = lshr i64 %34, 12
@@ -8474,7 +8474,7 @@ GC_find_header.exit.i.i:                          ; preds = %38
   %47 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %46
   %.0.i.i = load ptr, ptr %47, align 8
   %48 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %48, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !20
+  br i1 %48, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %27
   %.032.i = phi ptr [ %25, %27 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
@@ -8651,7 +8651,7 @@ define void @GC_debug_register_finalizer_no_order(ptr noundef nonnull %0, ptr no
   %18 = icmp ne ptr %.027.i, %13
   %19 = select i1 %17, i1 %18, i1 false
   %20 = getelementptr inbounds i8, ptr %.027.i, i64 8216
-  br i1 %19, label %14, label %21, !llvm.loop !21
+  br i1 %19, label %14, label %21, !llvm.loop !20
 
 21:                                               ; preds = %14
   %22 = lshr i64 %9, 12
@@ -8688,7 +8688,7 @@ define void @GC_debug_register_finalizer_no_order(ptr noundef nonnull %0, ptr no
   %42 = icmp ne ptr %.0.i.i.i, %13
   %43 = select i1 %41, i1 %42, i1 false
   %44 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %43, label %38, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %43, label %38, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %38
   %45 = lshr i64 %34, 12
@@ -8696,7 +8696,7 @@ GC_find_header.exit.i.i:                          ; preds = %38
   %47 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %46
   %.0.i.i = load ptr, ptr %47, align 8
   %48 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %48, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !20
+  br i1 %48, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %27
   %.032.i = phi ptr [ %25, %27 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
@@ -8863,7 +8863,7 @@ define void @GC_debug_register_finalizer_unreachable(ptr noundef nonnull %0, ptr
   %18 = icmp ne ptr %.027.i, %13
   %19 = select i1 %17, i1 %18, i1 false
   %20 = getelementptr inbounds i8, ptr %.027.i, i64 8216
-  br i1 %19, label %14, label %21, !llvm.loop !21
+  br i1 %19, label %14, label %21, !llvm.loop !20
 
 21:                                               ; preds = %14
   %22 = lshr i64 %9, 12
@@ -8900,7 +8900,7 @@ define void @GC_debug_register_finalizer_unreachable(ptr noundef nonnull %0, ptr
   %42 = icmp ne ptr %.0.i.i.i, %13
   %43 = select i1 %41, i1 %42, i1 false
   %44 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %43, label %38, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %43, label %38, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %38
   %45 = lshr i64 %34, 12
@@ -8908,7 +8908,7 @@ GC_find_header.exit.i.i:                          ; preds = %38
   %47 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %46
   %.0.i.i = load ptr, ptr %47, align 8
   %48 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %48, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !20
+  br i1 %48, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %27
   %.032.i = phi ptr [ %25, %27 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
@@ -9075,7 +9075,7 @@ define void @GC_debug_register_finalizer_ignore_self(ptr noundef nonnull %0, ptr
   %18 = icmp ne ptr %.027.i, %13
   %19 = select i1 %17, i1 %18, i1 false
   %20 = getelementptr inbounds i8, ptr %.027.i, i64 8216
-  br i1 %19, label %14, label %21, !llvm.loop !21
+  br i1 %19, label %14, label %21, !llvm.loop !20
 
 21:                                               ; preds = %14
   %22 = lshr i64 %9, 12
@@ -9112,7 +9112,7 @@ define void @GC_debug_register_finalizer_ignore_self(ptr noundef nonnull %0, ptr
   %42 = icmp ne ptr %.0.i.i.i, %13
   %43 = select i1 %41, i1 %42, i1 false
   %44 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %43, label %38, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %43, label %38, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %38
   %45 = lshr i64 %34, 12
@@ -9120,7 +9120,7 @@ GC_find_header.exit.i.i:                          ; preds = %38
   %47 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %46
   %.0.i.i = load ptr, ptr %47, align 8
   %48 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %48, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !20
+  br i1 %48, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %27
   %.032.i = phi ptr [ %25, %27 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
@@ -9262,7 +9262,7 @@ define void @GC_register_finalizer_ignore_self(ptr noundef nonnull %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_debug_toggleref_add(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 3) i32 @GC_debug_toggleref_add(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #1 {
   %.b.i = load i1, ptr @GC_is_initialized, align 4
   %3 = ptrtoint ptr %0 to i64
   br i1 %.b.i, label %4, label %GC_base.exit
@@ -9283,7 +9283,7 @@ define noundef i32 @GC_debug_toggleref_add(ptr noundef nonnull %0, i32 noundef %
   %13 = icmp ne ptr %.027.i, %8
   %14 = select i1 %12, i1 %13, i1 false
   %15 = getelementptr inbounds i8, ptr %.027.i, i64 8216
-  br i1 %14, label %9, label %16, !llvm.loop !21
+  br i1 %14, label %9, label %16, !llvm.loop !20
 
 16:                                               ; preds = %9
   %17 = lshr i64 %3, 12
@@ -9320,7 +9320,7 @@ define noundef i32 @GC_debug_toggleref_add(ptr noundef nonnull %0, i32 noundef %
   %37 = icmp ne ptr %.0.i.i.i, %8
   %38 = select i1 %36, i1 %37, i1 false
   %39 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %38, label %33, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %38, label %33, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %33
   %40 = lshr i64 %29, 12
@@ -9328,7 +9328,7 @@ GC_find_header.exit.i.i:                          ; preds = %33
   %42 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %41
   %.0.i.i = load ptr, ptr %42, align 8
   %43 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %43, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !20
+  br i1 %43, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %22
   %.032.i = phi ptr [ %20, %22 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
@@ -9372,12 +9372,12 @@ GC_base.exit:                                     ; preds = %2, %16, %GC_find_st
   br label %64
 
 64:                                               ; preds = %63, %GC_base.exit
-  %65 = tail call i32 @GC_toggleref_add(ptr noundef %.0.i, i32 noundef %1), !range !39
+  %65 = tail call i32 @GC_toggleref_add(ptr noundef %.0.i, i32 noundef %1)
   ret i32 %65
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_toggleref_add(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 3) i32 @GC_toggleref_add(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #1 {
   %.b5 = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b5, label %3, label %GC_lock.exit
 
@@ -9459,7 +9459,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %35 = shl i64 %32, 1
   store i64 %35, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 46), align 8
   %.not9.i = icmp sgt i64 %35, -1
-  br i1 %.not9.i, label %.preheader.i, label %ensure_toggleref_capacity.exit.thread, !llvm.loop !40
+  br i1 %.not9.i, label %.preheader.i, label %ensure_toggleref_capacity.exit.thread, !llvm.loop !38
 
 36:                                               ; preds = %.preheader.i
   %37 = shl i64 %32, 3
@@ -9531,7 +9531,7 @@ GC_generic_malloc_inner.exit.thread.i:            ; preds = %GC_generic_malloc_i
   %71 = icmp ne ptr %.0.i.i.i, %66
   %72 = select i1 %70, i1 %71, i1 false
   %73 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %72, label %67, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %72, label %67, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %67
   %74 = lshr i64 %62, 12
@@ -9737,7 +9737,7 @@ define void @GC_push_all_eager(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %31 = icmp ne ptr %.0.i, %26
   %32 = select i1 %30, i1 %31, i1 false
   %33 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %32, label %27, label %34, !llvm.loop !41
+  br i1 %32, label %27, label %34, !llvm.loop !39
 
 34:                                               ; preds = %27
   %35 = lshr i64 %18, 12
@@ -9764,7 +9764,7 @@ define void @GC_push_all_eager(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %46 = icmp ne ptr %.027.i.i, %26
   %47 = select i1 %45, i1 %46, i1 false
   %48 = getelementptr inbounds i8, ptr %.027.i.i, i64 8216
-  br i1 %47, label %.preheader, label %49, !llvm.loop !21
+  br i1 %47, label %.preheader, label %49, !llvm.loop !20
 
 49:                                               ; preds = %.preheader
   %50 = getelementptr inbounds [1024 x ptr], ptr %.027.i.i, i64 0, i64 %36
@@ -9799,7 +9799,7 @@ define void @GC_push_all_eager(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %68 = icmp ne ptr %.0.i.i.i.i, %26
   %69 = select i1 %67, i1 %68, i1 false
   %70 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 8216
-  br i1 %69, label %64, label %GC_find_header.exit.i.i.i, !llvm.loop !16
+  br i1 %69, label %64, label %GC_find_header.exit.i.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i.i:                        ; preds = %64
   %71 = lshr i64 %60, 12
@@ -9807,7 +9807,7 @@ GC_find_header.exit.i.i.i:                        ; preds = %64
   %73 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i.i, i64 0, i64 %72
   %.0.i.i.i = load ptr, ptr %73, align 8
   %74 = icmp ult ptr %.0.i.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %74, label %.lr.ph.i.i.i, label %GC_find_starting_hblk.exit.i.i, !llvm.loop !20
+  br i1 %74, label %.lr.ph.i.i.i, label %GC_find_starting_hblk.exit.i.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i.i:                   ; preds = %GC_find_header.exit.i.i.i, %53
   %.032.i.i = phi ptr [ %51, %53 ], [ %.0.i.i.i, %GC_find_header.exit.i.i.i ]
@@ -9856,7 +9856,7 @@ GC_find_starting_hblk.exit.i.i:                   ; preds = %GC_find_header.exit
   %102 = icmp ne ptr %.0.i27.i, %26
   %103 = select i1 %101, i1 %102, i1 false
   %104 = getelementptr inbounds i8, ptr %.0.i27.i, i64 8216
-  br i1 %103, label %98, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %103, label %98, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %98
   %105 = lshr i64 %94, 12
@@ -9878,7 +9878,7 @@ GC_base.exit.thread.i:                            ; preds = %GC_base.exit.thread
   %113 = icmp ne ptr %.0.i.i28.i, %26
   %114 = select i1 %112, i1 %113, i1 false
   %115 = getelementptr inbounds i8, ptr %.0.i.i28.i, i64 8216
-  br i1 %114, label %GC_base.exit.thread.i, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %114, label %GC_base.exit.thread.i, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %GC_base.exit.thread.i
   %116 = and i64 %35, 262143
@@ -9937,7 +9937,7 @@ GC_find_header.exit._crit_edge.i.i:               ; preds = %GC_find_header.exit
   %142 = icmp ne ptr %.0.i.i31.i, %26
   %143 = select i1 %141, i1 %142, i1 false
   %144 = getelementptr inbounds i8, ptr %.0.i.i31.i, i64 8216
-  br i1 %143, label %.preheader60.i, label %GC_find_header.exit.i32.i, !llvm.loop !16
+  br i1 %143, label %.preheader60.i, label %GC_find_header.exit.i32.i, !llvm.loop !15
 
 GC_find_header.exit.i32.i:                        ; preds = %.preheader60.i
   %145 = and i64 %35, 262143
@@ -9989,7 +9989,7 @@ GC_find_header.exit._crit_edge.i36.i:             ; preds = %GC_find_header.exit
   %169 = icmp ne ptr %.0.i.i43.i, %26
   %170 = select i1 %168, i1 %169, i1 false
   %171 = getelementptr inbounds i8, ptr %.0.i.i43.i, i64 8216
-  br i1 %170, label %.preheader.i, label %GC_find_header.exit.i44.i, !llvm.loop !16
+  br i1 %170, label %.preheader.i, label %GC_find_header.exit.i44.i, !llvm.loop !15
 
 GC_find_header.exit.i44.i:                        ; preds = %.preheader.i
   %172 = and i64 %35, 262143
@@ -10136,14 +10136,14 @@ GC_push_contents_hdr.exit.i:                      ; preds = %GC_custom_push_proc
 GC_mark_and_push_stack.exit:                      ; preds = %GC_push_contents_hdr.exit.i, %184, %176, %162, %157, %149, %128, %120, %17
   %240 = getelementptr inbounds i8, ptr %.015, i64 8
   %.not = icmp ugt ptr %240, %14
-  br i1 %.not, label %.loopexit, label %17, !llvm.loop !42
+  br i1 %.not, label %.loopexit, label %17, !llvm.loop !40
 
 .loopexit:                                        ; preds = %GC_mark_and_push_stack.exit, %6, %2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_register_disappearing_link(ptr noundef nonnull %0) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @GC_register_disappearing_link(ptr noundef nonnull %0) local_unnamed_addr #1 {
   %.b.i = load i1, ptr @GC_is_initialized, align 4
   br i1 %.b.i, label %2, label %GC_base.exit.thread
 
@@ -10164,7 +10164,7 @@ define noundef i32 @GC_register_disappearing_link(ptr noundef nonnull %0) local_
   %12 = icmp ne ptr %.027.i, %7
   %13 = select i1 %11, i1 %12, i1 false
   %14 = getelementptr inbounds i8, ptr %.027.i, i64 8216
-  br i1 %13, label %8, label %15, !llvm.loop !21
+  br i1 %13, label %8, label %15, !llvm.loop !20
 
 15:                                               ; preds = %8
   %16 = lshr i64 %3, 12
@@ -10201,7 +10201,7 @@ define noundef i32 @GC_register_disappearing_link(ptr noundef nonnull %0) local_
   %36 = icmp ne ptr %.0.i.i.i, %7
   %37 = select i1 %35, i1 %36, i1 false
   %38 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %37, label %32, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %37, label %32, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %32
   %39 = lshr i64 %28, 12
@@ -10209,7 +10209,7 @@ GC_find_header.exit.i.i:                          ; preds = %32
   %41 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %40
   %.0.i.i = load ptr, ptr %41, align 8
   %42 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %42, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !20
+  br i1 %42, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %21
   %.032.i = phi ptr [ %19, %21 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
@@ -10260,12 +10260,12 @@ GC_base.exit.thread:                              ; preds = %46, %GC_find_starti
   unreachable
 
 GC_general_register_disappearing_link.exit:       ; preds = %62
-  %66 = tail call fastcc noundef i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 41), ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef nonnull @.str.41), !range !43
+  %66 = tail call fastcc i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 41), ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef nonnull @.str.41)
   ret i32 %66
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_general_register_disappearing_link(ptr noundef nonnull %0, ptr noundef nonnull %1) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @GC_general_register_disappearing_link(ptr noundef nonnull %0, ptr noundef nonnull %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 7
   %.not = icmp eq i64 %4, 0
@@ -10278,12 +10278,12 @@ define noundef i32 @GC_general_register_disappearing_link(ptr noundef nonnull %0
   unreachable
 
 7:                                                ; preds = %2
-  %8 = tail call fastcc i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 41), ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.41), !range !43
+  %8 = tail call fastcc i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 41), ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.41)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @GC_register_disappearing_link_inner(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 4) i32 @GC_register_disappearing_link_inner(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = load i32, ptr @GC_find_leak, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %143
@@ -10407,7 +10407,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %65 = getelementptr inbounds i8, ptr %.05272, i64 8
   %.052 = load ptr, ptr %65, align 8
   %.not64 = icmp eq ptr %.052, null
-  br i1 %.not64, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %.not64, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %64, %41
   %66 = tail call fastcc ptr @GC_generic_malloc_inner_small(i64 noundef 24, i32 noundef 1)
@@ -10484,7 +10484,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %101 = getelementptr inbounds i8, ptr %.175, i64 8
   %.1 = load ptr, ptr %101, align 8
   %.not67 = icmp eq ptr %.1, null
-  br i1 %.not67, label %.loopexit, label %.lr.ph77, !llvm.loop !45
+  br i1 %.not67, label %.loopexit, label %.lr.ph77, !llvm.loop !42
 
 .loopexit:                                        ; preds = %100, %79, %._crit_edge
   %.051 = phi i64 [ %52, %._crit_edge ], [ %87, %79 ], [ %87, %100 ]
@@ -10555,7 +10555,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_unregister_disappearing_link(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @GC_unregister_disappearing_link(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 7
   %.not = icmp eq i64 %3, 0
@@ -10640,7 +10640,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %38 = load i64, ptr %.024.i, align 8
   %39 = xor i64 %38, %2
   %40 = icmp eq i64 %39, -1
-  br i1 %40, label %47, label %.lr.ph, !llvm.loop !46
+  br i1 %40, label %47, label %.lr.ph, !llvm.loop !43
 
 41:                                               ; preds = %.lr.ph.i.preheader
   %42 = getelementptr inbounds i8, ptr %.02429.i, i64 8
@@ -10687,7 +10687,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %62 = getelementptr inbounds i8, ptr %.02432.i10, i64 8
   %.024.i = load ptr, ptr %62, align 8
   %.not.i7 = icmp eq ptr %.024.i, null
-  br i1 %.not.i7, label %GC_unregister_disappearing_link_inner.exit, label %.lr.ph.i, !llvm.loop !46
+  br i1 %.not.i7, label %GC_unregister_disappearing_link_inner.exit, label %.lr.ph.i, !llvm.loop !43
 
 GC_unregister_disappearing_link_inner.exit:       ; preds = %.lr.ph, %GC_lock.exit, %24, %59
   %.0.i = phi ptr [ null, %GC_lock.exit ], [ %.02432.i.lcssa16, %59 ], [ null, %24 ], [ null, %.lr.ph ]
@@ -10978,7 +10978,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_register_long_link(ptr noundef nonnull %0, ptr noundef nonnull %1) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @GC_register_long_link(ptr noundef nonnull %0, ptr noundef nonnull %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 7
   %.not = icmp eq i64 %4, 0
@@ -10991,12 +10991,12 @@ define noundef i32 @GC_register_long_link(ptr noundef nonnull %0, ptr noundef no
   unreachable
 
 7:                                                ; preds = %2
-  %8 = tail call fastcc i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 40), ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.43), !range !43
+  %8 = tail call fastcc i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 40), ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.43)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_unregister_long_link(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @GC_unregister_long_link(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 7
   %.not = icmp eq i64 %3, 0
@@ -11081,7 +11081,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %38 = load i64, ptr %.024.i, align 8
   %39 = xor i64 %38, %2
   %40 = icmp eq i64 %39, -1
-  br i1 %40, label %47, label %.lr.ph, !llvm.loop !46
+  br i1 %40, label %47, label %.lr.ph, !llvm.loop !43
 
 41:                                               ; preds = %.lr.ph.i.preheader
   %42 = getelementptr inbounds i8, ptr %.02429.i, i64 8
@@ -11128,7 +11128,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %62 = getelementptr inbounds i8, ptr %.02432.i10, i64 8
   %.024.i = load ptr, ptr %62, align 8
   %.not.i7 = icmp eq ptr %.024.i, null
-  br i1 %.not.i7, label %GC_unregister_disappearing_link_inner.exit, label %.lr.ph.i, !llvm.loop !46
+  br i1 %.not.i7, label %GC_unregister_disappearing_link_inner.exit, label %.lr.ph.i, !llvm.loop !43
 
 GC_unregister_disappearing_link_inner.exit:       ; preds = %.lr.ph, %GC_lock.exit, %24, %59
   %.0.i = phi ptr [ null, %GC_lock.exit ], [ %.02432.i.lcssa16, %59 ], [ null, %24 ], [ null, %.lr.ph ]
@@ -11153,7 +11153,7 @@ GC_unregister_disappearing_link_inner.exit:       ; preds = %.lr.ph, %GC_lock.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_move_disappearing_link(ptr noundef %0, ptr noundef nonnull %1) local_unnamed_addr #1 {
+define range(i32 0, 5) i32 @GC_move_disappearing_link(ptr noundef %0, ptr noundef nonnull %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 7
   %.not = icmp eq i64 %4, 0
@@ -11176,7 +11176,7 @@ define noundef i32 @GC_move_disappearing_link(ptr noundef %0, ptr noundef nonnul
   br i1 %.b3, label %12, label %GC_lock.exit.thread
 
 GC_lock.exit.thread:                              ; preds = %10
-  %11 = tail call fastcc i32 @GC_move_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 41), ptr noundef %0, ptr noundef nonnull %1), !range !47
+  %11 = tail call fastcc i32 @GC_move_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 41), ptr noundef %0, ptr noundef nonnull %1)
   br label %32
 
 12:                                               ; preds = %10
@@ -11225,7 +11225,7 @@ GC_generic_lock.exit.sink.split.i:                ; preds = %25, %17, %14
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %19, %12
   %.b.pr = load i1, ptr @GC_need_to_lock, align 4
-  %29 = tail call fastcc i32 @GC_move_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 41), ptr noundef %0, ptr noundef nonnull %1), !range !47
+  %29 = tail call fastcc i32 @GC_move_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 41), ptr noundef %0, ptr noundef nonnull %1)
   br i1 %.b.pr, label %30, label %32
 
 30:                                               ; preds = %GC_lock.exit
@@ -11238,7 +11238,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc noundef i32 @GC_move_disappearing_link_inner(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #15 {
+define internal fastcc range(i32 0, 5) i32 @GC_move_disappearing_link_inner(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #15 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %6
@@ -11271,14 +11271,14 @@ define internal fastcc noundef i32 @GC_move_disappearing_link_inner(ptr nocaptur
   %22 = load i64, ptr %.044, align 8
   %23 = xor i64 %22, %7
   %24 = icmp eq i64 %23, -1
-  br i1 %24, label %.lr.ph._crit_edge, label %.lr.ph79, !llvm.loop !48
+  br i1 %24, label %.lr.ph._crit_edge, label %.lr.ph79, !llvm.loop !44
 
 .lr.ph79:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.0446078 = phi ptr [ %.044, %.lr.ph ], [ %.04457, %.lr.ph.preheader ]
   %25 = getelementptr inbounds i8, ptr %.0446078, i64 8
   %.044 = load ptr, ptr %25, align 8
   %cond = icmp eq ptr %.044, null
-  br i1 %cond, label %.loopexit, label %.lr.ph, !llvm.loop !48
+  br i1 %cond, label %.loopexit, label %.lr.ph, !llvm.loop !44
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.04460.lcssa = phi ptr [ %.04457, %.lr.ph.preheader ], [ %.044, %.lr.ph ]
@@ -11303,7 +11303,7 @@ define internal fastcc noundef i32 @GC_move_disappearing_link_inner(ptr nocaptur
   %36 = getelementptr inbounds i8, ptr %.04563, i64 8
   %.045 = load ptr, ptr %36, align 8
   %.not52 = icmp eq ptr %.045, null
-  br i1 %.not52, label %._crit_edge, label %.lr.ph64, !llvm.loop !49
+  br i1 %.not52, label %._crit_edge, label %.lr.ph64, !llvm.loop !45
 
 .lr.ph64:                                         ; preds = %27, %35
   %.04563 = phi ptr [ %.045, %35 ], [ %.04561, %27 ]
@@ -11394,7 +11394,7 @@ define internal fastcc noundef i32 @GC_move_disappearing_link_inner(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_move_long_link(ptr noundef %0, ptr noundef nonnull %1) local_unnamed_addr #1 {
+define range(i32 0, 5) i32 @GC_move_long_link(ptr noundef %0, ptr noundef nonnull %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 7
   %.not = icmp eq i64 %4, 0
@@ -11417,7 +11417,7 @@ define noundef i32 @GC_move_long_link(ptr noundef %0, ptr noundef nonnull %1) lo
   br i1 %.b3, label %12, label %GC_lock.exit.thread
 
 GC_lock.exit.thread:                              ; preds = %10
-  %11 = tail call fastcc i32 @GC_move_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 40), ptr noundef %0, ptr noundef nonnull %1), !range !47
+  %11 = tail call fastcc i32 @GC_move_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 40), ptr noundef %0, ptr noundef nonnull %1)
   br label %32
 
 12:                                               ; preds = %10
@@ -11466,7 +11466,7 @@ GC_generic_lock.exit.sink.split.i:                ; preds = %25, %17, %14
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %19, %12
   %.b.pr = load i1, ptr @GC_need_to_lock, align 4
-  %29 = tail call fastcc i32 @GC_move_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 40), ptr noundef %0, ptr noundef nonnull %1), !range !47
+  %29 = tail call fastcc i32 @GC_move_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 40), ptr noundef %0, ptr noundef nonnull %1)
   br i1 %.b.pr, label %30, label %32
 
 30:                                               ; preds = %GC_lock.exit
@@ -11596,14 +11596,14 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %62 = load i64, ptr %.082.us, align 8
   %63 = xor i64 %62, %43
   %64 = icmp eq i64 %63, -1
-  br i1 %64, label %.split156.us, label %.lr.ph169, !llvm.loop !50
+  br i1 %64, label %.split156.us, label %.lr.ph169, !llvm.loop !46
 
 .lr.ph169:                                        ; preds = %.lr.ph.us, %61
   %.082154.us168 = phi ptr [ %.082.us, %61 ], [ %.082151.us, %.lr.ph.us ]
   %65 = getelementptr inbounds i8, ptr %.082154.us168, i64 8
   %.082.us = load ptr, ptr %65, align 8
   %.not111.us = icmp eq ptr %.082.us, null
-  br i1 %.not111.us, label %.split167.us, label %61, !llvm.loop !50
+  br i1 %.not111.us, label %.split167.us, label %61, !llvm.loop !46
 
 .lr.ph.us:                                        ; preds = %.split.us
   %66 = load i64, ptr %.082151.us, align 8
@@ -11639,7 +11639,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %82 = load i64, ptr %.082, align 8
   %83 = xor i64 %82, %43
   %84 = icmp eq i64 %83, -1
-  br i1 %84, label %.split156.us, label %.lr.ph214, !llvm.loop !50
+  br i1 %84, label %.split156.us, label %.lr.ph214, !llvm.loop !46
 
 .split156.us:                                     ; preds = %.lr.ph.preheader, %.lr.ph, %61, %.lr.ph.us
   %.us-phi = phi ptr [ null, %.lr.ph.us ], [ null, %61 ], [ %.083, %.lr.ph ], [ %.083, %.lr.ph.preheader ]
@@ -11787,7 +11787,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %156 = getelementptr inbounds i8, ptr %.082154213, i64 8
   %.082 = load ptr, ptr %156, align 8
   %.not111 = icmp eq ptr %.082, null
-  br i1 %.not111, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not111, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph214, %.split
   %.not112 = icmp eq ptr %.083, null
@@ -11830,7 +11830,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %169 = icmp ne ptr %.0, %158
   %170 = select i1 %168, i1 %169, i1 false
   %171 = getelementptr inbounds i8, ptr %.0, i64 8216
-  br i1 %170, label %165, label %172, !llvm.loop !51
+  br i1 %170, label %165, label %172, !llvm.loop !47
 
 172:                                              ; preds = %165
   %173 = getelementptr inbounds [1024 x ptr], ptr %.0, i64 0, i64 %50
@@ -12037,7 +12037,7 @@ define internal void @GC_normal_finalize_mark_proc(ptr noundef %0) #1 {
   %11 = icmp ne ptr %.0.i, %6
   %12 = select i1 %10, i1 %11, i1 false
   %13 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %7
   %14 = lshr i64 %2, 12
@@ -12112,7 +12112,7 @@ define internal void @GC_ignore_self_finalize_mark_proc(ptr noundef %0) #1 {
   %11 = icmp ne ptr %.0.i, %6
   %12 = select i1 %10, i1 %11, i1 false
   %13 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %7
   %14 = lshr i64 %2, 12
@@ -12170,7 +12170,7 @@ GC_find_header.exit:                              ; preds = %7
   %45 = phi ptr [ %30, %28 ], [ %.pre, %38 ]
   %46 = getelementptr inbounds i8, ptr %.030, i64 8
   %.not = icmp ugt ptr %46, %.020
-  br i1 %.not, label %._crit_edge, label %28, !llvm.loop !52
+  br i1 %.not, label %._crit_edge, label %28, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %43, %GC_find_header.exit
   ret void
@@ -12203,7 +12203,7 @@ define internal void @GC_unreachable_finalize_mark_proc(ptr noundef %0) #1 {
   %13 = icmp ne ptr %.0.i.i, %8
   %14 = select i1 %12, i1 %13, i1 false
   %15 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %14, label %9, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %14, label %9, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %9
   %16 = lshr i64 %4, 12
@@ -12298,13 +12298,13 @@ define void @GC_dump_finalization() local_unnamed_addr #1 {
   %18 = getelementptr inbounds i8, ptr %.01316.i, i64 8
   %.013.i = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %.013.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !53
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !49
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %19 = add i64 %.017.i, 1
   %.0.highbits.i = lshr i64 %19, %5
   %20 = icmp eq i64 %.0.highbits.i, 0
-  br i1 %20, label %.preheader.i, label %GC_dump_finalization_links.exit, !llvm.loop !54
+  br i1 %20, label %.preheader.i, label %GC_dump_finalization_links.exit, !llvm.loop !50
 
 GC_dump_finalization_links.exit:                  ; preds = %._crit_edge.i, %0
   tail call void (ptr, ...) @GC_printf(ptr noundef nonnull @.str.47)
@@ -12336,13 +12336,13 @@ GC_dump_finalization_links.exit:                  ; preds = %._crit_edge.i, %0
   %35 = getelementptr inbounds i8, ptr %.01316.i13, i64 8
   %.013.i14 = load ptr, ptr %35, align 8
   %.not.i15 = icmp eq ptr %.013.i14, null
-  br i1 %.not.i15, label %._crit_edge.i16, label %.lr.ph.i12, !llvm.loop !53
+  br i1 %.not.i15, label %._crit_edge.i16, label %.lr.ph.i12, !llvm.loop !49
 
 ._crit_edge.i16:                                  ; preds = %.lr.ph.i12, %.preheader.i8
   %36 = add i64 %.017.i9, 1
   %.0.highbits.i17 = lshr i64 %36, %22
   %37 = icmp eq i64 %.0.highbits.i17, 0
-  br i1 %37, label %.preheader.i8, label %GC_dump_finalization_links.exit18, !llvm.loop !54
+  br i1 %37, label %.preheader.i8, label %GC_dump_finalization_links.exit18, !llvm.loop !50
 
 GC_dump_finalization_links.exit18:                ; preds = %._crit_edge.i16, %GC_dump_finalization_links.exit
   tail call void (ptr, ...) @GC_printf(ptr noundef nonnull @.str.48)
@@ -12365,13 +12365,13 @@ GC_dump_finalization_links.exit18:                ; preds = %._crit_edge.i16, %G
   %43 = getelementptr inbounds i8, ptr %.021, i64 8
   %.0 = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph23.split
   %44 = add i64 %.0722, 1
   %.07.highbits = lshr i64 %44, %3
   %45 = icmp eq i64 %.07.highbits, 0
-  br i1 %45, label %.lr.ph23.split, label %._crit_edge24, !llvm.loop !56
+  br i1 %45, label %.lr.ph23.split, label %._crit_edge24, !llvm.loop !52
 
 ._crit_edge24:                                    ; preds = %._crit_edge, %GC_dump_finalization_links.exit18
   ret void
@@ -12467,7 +12467,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %35 = icmp ne ptr %.0.i.i21.i, %30
   %36 = select i1 %34, i1 %35, i1 false
   %37 = getelementptr inbounds i8, ptr %.0.i.i21.i, i64 8216
-  br i1 %36, label %31, label %GC_find_header.exit.i22.i, !llvm.loop !16
+  br i1 %36, label %31, label %GC_find_header.exit.i22.i, !llvm.loop !15
 
 GC_find_header.exit.i22.i:                        ; preds = %31
   %38 = inttoptr i64 %26 to ptr
@@ -12537,7 +12537,7 @@ GC_normal_finalize_mark_proc.exit.i:              ; preds = %GC_custom_push_proc
   %66 = load volatile ptr, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 21), align 8
   %67 = load ptr, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 19), align 8
   %.not.i.i = icmp ult ptr %66, %67
-  br i1 %.not.i.i, label %GC_mark_fo.exit.i, label %.lr.ph.i.i, !llvm.loop !57
+  br i1 %.not.i.i, label %GC_mark_fo.exit.i, label %.lr.ph.i.i, !llvm.loop !53
 
 GC_mark_fo.exit.i:                                ; preds = %.lr.ph.i.i, %GC_normal_finalize_mark_proc.exit.i
   %68 = load ptr, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 30), align 8
@@ -12552,7 +12552,7 @@ GC_mark_fo.exit.i:                                ; preds = %.lr.ph.i.i, %GC_nor
   %73 = icmp ne ptr %.0.i.i.i, %68
   %74 = select i1 %72, i1 %73, i1 false
   %75 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %74, label %69, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %74, label %69, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %69
   %76 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %40
@@ -12579,9 +12579,9 @@ GC_set_mark_bit.exit.i:                           ; preds = %83, %GC_find_header
   br i1 %.not2.i19.i, label %GC_complete_ongoing_collection.exit.i, label %.preheader.i.i6
 
 .preheader.i.i6:                                  ; preds = %GC_set_mark_bit.exit.i, %.preheader.i.i6
-  %88 = tail call fastcc i32 @GC_mark_some(ptr noundef null), !range !8
+  %88 = tail call fastcc i32 @GC_mark_some(ptr noundef null)
   %.not1.i.i = icmp eq i32 %88, 0
-  br i1 %.not1.i.i, label %.preheader.i.i6, label %GC_complete_ongoing_collection.exit.i, !llvm.loop !58
+  br i1 %.not1.i.i, label %.preheader.i.i6, label %GC_complete_ongoing_collection.exit.i, !llvm.loop !54
 
 GC_complete_ongoing_collection.exit.i:            ; preds = %.preheader.i.i6, %GC_set_mark_bit.exit.i
   %89 = getelementptr inbounds i8, ptr %.01724.i, i64 8
@@ -12614,13 +12614,13 @@ GC_complete_ongoing_collection.exit._crit_edge.i: ; preds = %93, %GC_complete_on
   %107 = add i64 %105, %106
   store i64 %107, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 11), align 8
   %.not.i7 = icmp eq ptr %90, null
-  br i1 %.not.i7, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !59
+  br i1 %.not.i7, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !55
 
 ._crit_edge.i:                                    ; preds = %GC_complete_ongoing_collection.exit._crit_edge.i, %.lr.ph27.i
   %108 = add i64 %.025.i, 1
   %.0.highbits.i = lshr i64 %108, %21
   %109 = icmp eq i64 %.0.highbits.i, 0
-  br i1 %109, label %.lr.ph27.i, label %GC_enqueue_all_finalizers.exit, !llvm.loop !60
+  br i1 %109, label %.lr.ph27.i, label %GC_enqueue_all_finalizers.exit, !llvm.loop !56
 
 GC_enqueue_all_finalizers.exit:                   ; preds = %._crit_edge.i, %.lr.ph
   store i64 0, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 39), align 8
@@ -12684,7 +12684,7 @@ GC_generic_lock.exit.sink.split.i9:               ; preds = %127, %119, %116
 GC_lock.exit12:                                   ; preds = %.preheader.i.i10, %GC_generic_lock.exit.sink.split.i9, %121, %112, %114
   %131 = load i64, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 39), align 8
   %.not4 = icmp eq i64 %131, 0
-  br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %GC_lock.exit12, %GC_lock.exit
   %.b = load i1, ptr @GC_need_to_lock, align 4
@@ -12807,7 +12807,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %43 = add i32 %.046, 1
   %44 = load atomic volatile i64, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 42, i32 1) monotonic, align 8
   %.not36 = icmp eq i64 %44, 0
-  br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !62
+  br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !58
 
 .loopexit.sink.split:                             ; preds = %29, %25
   %.2.ph = phi i64 [ %.01545, %25 ], [ %.1, %29 ]
@@ -13030,7 +13030,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none) uwtable
-define i32 @GC_should_invoke_finalizers() local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @GC_should_invoke_finalizers() local_unnamed_addr #10 {
   %1 = load atomic volatile i64, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 42, i32 1) monotonic, align 8
   %2 = icmp ne i64 %1, 0
   %3 = zext i1 %2 to i32
@@ -13310,7 +13310,7 @@ define noalias ptr @GC_finalized_malloc(i64 noundef %0, ptr noundef nonnull %1) 
   br label %19
 
 19:                                               ; preds = %7, %10
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #38, !srcloc !63
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #38, !srcloc !59
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   br label %21
 
@@ -13398,7 +13398,7 @@ define noalias ptr @GC_malloc_kind(i64 noundef %0, i32 noundef %1) local_unnamed
   br label %GC_end_stubborn_change.exit
 
 GC_end_stubborn_change.exit:                      ; preds = %38, %39
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35) #38, !srcloc !64
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35) #38, !srcloc !60
   br label %62
 
 48:                                               ; preds = %32
@@ -13766,7 +13766,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %41 = ptrtoint ptr %40 to i64
   %42 = and i64 %41, %2
   %.not30 = icmp eq i64 %42, 0
-  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !65
+  br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !61
 
 .loopexit:                                        ; preds = %.lr.ph, %GC_lock.exit
   %.124 = phi ptr [ %36, %GC_lock.exit ], [ %40, %.lr.ph ]
@@ -13977,7 +13977,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %66 = icmp ne ptr %.0.i, %61
   %67 = select i1 %65, i1 %66, i1 false
   %68 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %67, label %62, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %67, label %62, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %62
   %69 = lshr i64 %57, 12
@@ -14159,7 +14159,7 @@ GC_lock.exitthread-pre-split:                     ; preds = %.preheader.i.i, %3,
   %39 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %40, %30
-  br i1 %41, label %GC_lookup_thread.exit.i, label %37, !llvm.loop !11
+  br i1 %41, label %GC_lookup_thread.exit.i, label %37, !llvm.loop !10
 
 GC_lookup_thread.exit.i:                          ; preds = %38, %37
   %42 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
@@ -14346,7 +14346,7 @@ GC_generic_lock.exit.sink.split.i:                ; preds = %31, %23, %20
   %53 = load i64, ptr %52, align 8
   %.not34.i = icmp eq i64 %53, 0
   %54 = add i64 %.031.i, 1
-  br i1 %.not34.i, label %.loopexit.i, label %51, !llvm.loop !66
+  br i1 %.not34.i, label %.loopexit.i, label %51, !llvm.loop !62
 
 55:                                               ; preds = %.thread
   %56 = or disjoint i64 %45, 1
@@ -14358,7 +14358,7 @@ GC_generic_lock.exit.sink.split.i:                ; preds = %31, %23, %20
   %59 = load i64, ptr %58, align 8
   %.not.i38 = icmp eq i64 %59, 0
   %60 = add i64 %.1.i, 1
-  br i1 %.not.i38, label %61, label %57, !llvm.loop !67
+  br i1 %.not.i38, label %61, label %57, !llvm.loop !63
 
 61:                                               ; preds = %57
   %62 = icmp ult i64 %.1.i, %40
@@ -14392,7 +14392,7 @@ GC_generic_lock.exit.sink.split.i:                ; preds = %31, %23, %20
   store i64 %73, ptr %76, align 8
   %77 = add i64 %.339.i, 1
   %.not35.i = icmp ugt i64 %77, %75
-  br i1 %.not35.i, label %GC_extend_size_map.exit.loopexit, label %.lr.ph.i, !llvm.loop !68
+  br i1 %.not35.i, label %GC_extend_size_map.exit.loopexit, label %.lr.ph.i, !llvm.loop !64
 
 GC_extend_size_map.exit.loopexit:                 ; preds = %.lr.ph.i
   %.pre = load i64, ptr %5, align 8
@@ -14497,7 +14497,7 @@ GC_alloc_reclaim_list.exit:                       ; preds = %86
   %128 = icmp ne ptr %.0.i.i.i, %123
   %129 = select i1 %127, i1 %128, i1 false
   %130 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %129, label %124, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %129, label %124, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %124
   %131 = lshr i64 %119, 12
@@ -14520,7 +14520,7 @@ GC_find_header.exit.i.i:                          ; preds = %124
   %143 = icmp ne ptr %.0.i.i.i.i, %138
   %144 = select i1 %142, i1 %143, i1 false
   %145 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 8216
-  br i1 %144, label %139, label %GC_reclaim_small_nonempty_block.exit.i.i, !llvm.loop !16
+  br i1 %144, label %139, label %GC_reclaim_small_nonempty_block.exit.i.i, !llvm.loop !15
 
 GC_reclaim_small_nonempty_block.exit.i.i:         ; preds = %139
   %146 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i.i, i64 0, i64 %132
@@ -14543,7 +14543,7 @@ GC_reclaim_small_nonempty_block.exit.i.i:         ; preds = %139
   store ptr %161, ptr %157, align 8
   %162 = load ptr, ptr %112, align 8
   %.not14.i.i = icmp eq ptr %162, null
-  br i1 %.not14.i.i, label %116, label %GC_continue_reclaim.exit.i, !llvm.loop !69
+  br i1 %.not14.i.i, label %116, label %GC_continue_reclaim.exit.i, !llvm.loop !65
 
 GC_continue_reclaim.exit.i:                       ; preds = %GC_reclaim_small_nonempty_block.exit.i.i, %116, %109
   store atomic volatile i8 0, ptr @GC_collecting monotonic, align 1
@@ -14576,7 +14576,7 @@ GC_continue_reclaim.exit.i:                       ; preds = %GC_reclaim_small_no
   %179 = icmp ne ptr %.0.i.i37.i, %174
   %180 = select i1 %178, i1 %179, i1 false
   %181 = getelementptr inbounds i8, ptr %.0.i.i37.i, i64 8216
-  br i1 %180, label %175, label %GC_find_header.exit.i38.i, !llvm.loop !16
+  br i1 %180, label %175, label %GC_find_header.exit.i38.i, !llvm.loop !15
 
 GC_find_header.exit.i38.i:                        ; preds = %175
   %182 = lshr i64 %170, 12
@@ -14610,7 +14610,7 @@ GC_find_header.exit.i38.i:                        ; preds = %175
   store i8 1, ptr %200, align 1
   %201 = add i32 %.012.i.i.i, %197
   %.not.i.i.i = icmp ugt i32 %201, %194
-  br i1 %.not.i.i.i, label %GC_set_hdr_marks.exit.i.i, label %198, !llvm.loop !70
+  br i1 %.not.i.i.i, label %GC_set_hdr_marks.exit.i.i, label %198, !llvm.loop !66
 
 GC_set_hdr_marks.exit.i.i:                        ; preds = %198
   %202 = udiv i64 4096, %187
@@ -14676,7 +14676,7 @@ GC_set_hdr_marks.exit.i.i:                        ; preds = %198
   %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx22.i.i.i.i, 32
   %.0.ptr.i.i.i.i = getelementptr inbounds i8, ptr %166, i64 %.0.add.i.i.i.i
   %227 = icmp ult i64 %.0.idx22.i.i.i.i, 4064
-  br i1 %227, label %220, label %GC_build_fl_clear2.exit.i.i.i, !llvm.loop !71
+  br i1 %227, label %220, label %GC_build_fl_clear2.exit.i.i.i, !llvm.loop !67
 
 GC_build_fl_clear2.exit.i.i.i:                    ; preds = %220
   %228 = getelementptr inbounds i8, ptr %.0.ptr.i.i.i.i, i64 -16
@@ -14701,7 +14701,7 @@ GC_build_fl_clear2.exit.i.i.i:                    ; preds = %220
   %.0.add.i40.i.i.i = add nuw nsw i64 %.0.idx18.i.i.i.i, 32
   %.0.ptr.i41.i.i.i = getelementptr inbounds i8, ptr %166, i64 %.0.add.i40.i.i.i
   %237 = icmp ult i64 %.0.idx18.i.i.i.i, 4064
-  br i1 %237, label %232, label %GC_build_fl2.exit.i.i.i, !llvm.loop !72
+  br i1 %237, label %232, label %GC_build_fl2.exit.i.i.i, !llvm.loop !68
 
 GC_build_fl2.exit.i.i.i:                          ; preds = %232
   %238 = getelementptr inbounds i8, ptr %.0.ptr.i41.i.i.i, i64 -16
@@ -14731,7 +14731,7 @@ GC_build_fl2.exit.i.i.i:                          ; preds = %232
   %.0.ptr.i45.i.i.i = getelementptr inbounds i8, ptr %166, i64 %.0.add.i44.i.i.i
   %249 = icmp ult i64 %.0.idx20.i.i.i.i, 4064
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %248, i8 0, i64 24, i1 false)
-  br i1 %249, label %244, label %GC_build_fl_clear4.exit.i.i.i, !llvm.loop !73
+  br i1 %249, label %244, label %GC_build_fl_clear4.exit.i.i.i, !llvm.loop !69
 
 GC_build_fl_clear4.exit.i.i.i:                    ; preds = %244
   %250 = getelementptr inbounds i8, ptr %166, i64 4064
@@ -14757,7 +14757,7 @@ GC_build_fl_clear4.exit.i.i.i:                    ; preds = %244
   %.0.add.i46.i.i.i = add nuw nsw i64 %.0.idx19.i.i.i.i, 64
   %.0.ptr.i47.i.i.i = getelementptr inbounds i8, ptr %166, i64 %.0.add.i46.i.i.i
   %259 = icmp ult i64 %.0.idx19.i.i.i.i, 4032
-  br i1 %259, label %253, label %GC_build_fl4.exit.i.i.i, !llvm.loop !74
+  br i1 %259, label %253, label %GC_build_fl4.exit.i.i.i, !llvm.loop !70
 
 GC_build_fl4.exit.i.i.i:                          ; preds = %253
   %260 = getelementptr inbounds i8, ptr %.0.ptr.i47.i.i.i, i64 -32
@@ -14784,7 +14784,7 @@ GC_build_fl4.exit.i.i.i:                          ; preds = %253
   store ptr %.050.i.i.i, ptr %.03551.i.i.i, align 8
   %.035.i.i.i = getelementptr inbounds i64, ptr %.03551.i.i.i, i64 %98
   %.not39.i.i.i = icmp ugt ptr %.035.i.i.i, %266
-  br i1 %.not39.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !75
+  br i1 %.not39.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !71
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %264
   %.0.lcssa.i.i.i = phi ptr [ %166, %264 ], [ %.03551.i.i.i, %.lr.ph.i.i.i ]
@@ -14822,7 +14822,7 @@ GC_new_hblk.exit.i:                               ; preds = %GC_build_fl.exit.i.
   br label %283
 
 280:                                              ; preds = %271
-  %281 = tail call fastcc i32 @GC_collect_or_expand(i64 noundef 1, i32 noundef 0, i32 noundef %.02840.i), !range !8
+  %281 = tail call fastcc i32 @GC_collect_or_expand(i64 noundef 1, i32 noundef 0, i32 noundef %.02840.i)
   %.not.i43 = icmp eq i32 %281, 0
   br i1 %.not.i43, label %282, label %283
 
@@ -14836,7 +14836,7 @@ GC_new_hblk.exit.i:                               ; preds = %GC_build_fl.exit.i.
   store atomic volatile i8 0, ptr @GC_collecting monotonic, align 1
   %.pre.i = load ptr, ptr %91, align 8
   %284 = icmp eq ptr %.pre.i, null
-  br i1 %284, label %101, label %GC_allocobj.exit, !llvm.loop !76
+  br i1 %284, label %101, label %GC_allocobj.exit, !llvm.loop !72
 
 GC_allocobj.exit:                                 ; preds = %GC_continue_reclaim.exit.i, %GC_new_hblk.exit.i, %283, %.preheader.i
   %.lcssa.i = phi ptr [ %93, %.preheader.i ], [ %.pre.i, %283 ], [ %163, %GC_continue_reclaim.exit.i ], [ %269, %GC_new_hblk.exit.i ]
@@ -14862,7 +14862,7 @@ GC_alloc_reclaim_list.exit.thread:                ; preds = %89, %282, %86, %285
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @GC_get_kind_and_size(ptr noundef nonnull %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define range(i32 0, 256) i32 @GC_get_kind_and_size(ptr noundef nonnull %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = ptrtoint ptr %0 to i64
   %4 = lshr i64 %3, 22
   %5 = and i64 %4, 2047
@@ -14879,7 +14879,7 @@ define i32 @GC_get_kind_and_size(ptr noundef nonnull %0, ptr noundef writeonly %
   %12 = icmp ne ptr %.0.i, %7
   %13 = select i1 %11, i1 %12, i1 false
   %14 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %13, label %8, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %13, label %8, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %8
   %15 = lshr i64 %3, 12
@@ -15005,7 +15005,7 @@ define void @GC_generic_malloc_many(i64 noundef %0, i32 noundef %1, ptr noundef 
   %26 = icmp ne ptr %.0.i, %21
   %27 = select i1 %25, i1 %26, i1 false
   %28 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %27, label %22, label %GC_is_heap_ptr.exit, !llvm.loop !77
+  br i1 %27, label %22, label %GC_is_heap_ptr.exit, !llvm.loop !73
 
 GC_is_heap_ptr.exit:                              ; preds = %22
   %29 = lshr i64 %17, 12
@@ -15022,7 +15022,7 @@ GC_is_heap_ptr.exit:                              ; preds = %22
   %37 = and i64 %29, 63
   %38 = shl nuw i64 1, %37
   %39 = atomicrmw volatile or ptr %36, i64 %38 monotonic, align 8
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13) #38, !srcloc !78
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13) #38, !srcloc !74
   br label %GC_clear_stack.exit
 
 40:                                               ; preds = %3
@@ -15146,7 +15146,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %90 = icmp ne ptr %.0.i111, %85
   %91 = select i1 %89, i1 %90, i1 false
   %92 = getelementptr inbounds i8, ptr %.0.i111, i64 8216
-  br i1 %91, label %86, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %91, label %86, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %86
   %93 = lshr i64 %81, 12
@@ -15454,7 +15454,7 @@ GC_lock.exit132:                                  ; preds = %.preheader.i.i130, 
   %219 = getelementptr inbounds ptr, ptr %.1, i64 %42
   %220 = load ptr, ptr %219, align 8
   %.not96 = icmp eq ptr %220, null
-  br i1 %.not96, label %.loopexit198, label %78, !llvm.loop !79
+  br i1 %.not96, label %.loopexit198, label %78, !llvm.loop !75
 
 .loopexit198:                                     ; preds = %GC_lock.exit132, %218, %.preheader, %70
   %221 = load ptr, ptr %72, align 16
@@ -15482,7 +15482,7 @@ GC_lock.exit132:                                  ; preds = %.preheader.i.i130, 
 
 231:                                              ; preds = %225
   %.not106 = icmp eq ptr %229, null
-  br i1 %.not106, label %.loopexit, label %225, !llvm.loop !80
+  br i1 %.not106, label %.loopexit, label %225, !llvm.loop !76
 
 .loopexit:                                        ; preds = %231, %230
   %232 = load i64, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 9), align 8
@@ -15517,7 +15517,7 @@ GC_lock.exit132:                                  ; preds = %.preheader.i.i130, 
   %249 = icmp ne ptr %.0.i134, %244
   %250 = select i1 %248, i1 %249, i1 false
   %251 = getelementptr inbounds i8, ptr %.0.i134, i64 8216
-  br i1 %250, label %245, label %GC_find_header.exit135, !llvm.loop !16
+  br i1 %250, label %245, label %GC_find_header.exit135, !llvm.loop !15
 
 GC_find_header.exit135:                           ; preds = %245
   %252 = lshr i64 %240, 12
@@ -15551,7 +15551,7 @@ GC_find_header.exit135:                           ; preds = %245
   store i8 1, ptr %270, align 1
   %271 = add i32 %.012.i, %267
   %.not.i136 = icmp ugt i32 %271, %264
-  br i1 %.not.i136, label %GC_set_hdr_marks.exit, label %268, !llvm.loop !70
+  br i1 %.not.i136, label %GC_set_hdr_marks.exit, label %268, !llvm.loop !66
 
 GC_set_hdr_marks.exit:                            ; preds = %268
   %272 = udiv i64 4096, %257
@@ -15669,7 +15669,7 @@ GC_release_mark_lock.exit141:                     ; preds = %294
   %.0.add.i.i = add nuw nsw i64 %.0.idx22.i.i, 32
   %.0.ptr.i.i = getelementptr inbounds i8, ptr %235, i64 %.0.add.i.i
   %318 = icmp ult i64 %.0.idx22.i.i, 4064
-  br i1 %318, label %311, label %GC_build_fl_clear2.exit.i, !llvm.loop !71
+  br i1 %318, label %311, label %GC_build_fl_clear2.exit.i, !llvm.loop !67
 
 GC_build_fl_clear2.exit.i:                        ; preds = %311
   %319 = getelementptr inbounds i8, ptr %.0.ptr.i.i, i64 -16
@@ -15694,7 +15694,7 @@ GC_build_fl_clear2.exit.i:                        ; preds = %311
   %.0.add.i40.i = add nuw nsw i64 %.0.idx18.i.i, 32
   %.0.ptr.i41.i = getelementptr inbounds i8, ptr %235, i64 %.0.add.i40.i
   %328 = icmp ult i64 %.0.idx18.i.i, 4064
-  br i1 %328, label %323, label %GC_build_fl2.exit.i, !llvm.loop !72
+  br i1 %328, label %323, label %GC_build_fl2.exit.i, !llvm.loop !68
 
 GC_build_fl2.exit.i:                              ; preds = %323
   %329 = getelementptr inbounds i8, ptr %.0.ptr.i41.i, i64 -16
@@ -15723,7 +15723,7 @@ GC_build_fl2.exit.i:                              ; preds = %323
   %.0.ptr.i45.i = getelementptr inbounds i8, ptr %235, i64 %.0.add.i44.i
   %339 = icmp ult i64 %.0.idx20.i.i, 4064
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %338, i8 0, i64 24, i1 false)
-  br i1 %339, label %334, label %GC_build_fl_clear4.exit.i, !llvm.loop !73
+  br i1 %339, label %334, label %GC_build_fl_clear4.exit.i, !llvm.loop !69
 
 GC_build_fl_clear4.exit.i:                        ; preds = %334
   %340 = getelementptr inbounds i8, ptr %235, i64 4064
@@ -15749,7 +15749,7 @@ GC_build_fl_clear4.exit.i:                        ; preds = %334
   %.0.add.i46.i = add nuw nsw i64 %.0.idx19.i.i, 64
   %.0.ptr.i47.i = getelementptr inbounds i8, ptr %235, i64 %.0.add.i46.i
   %349 = icmp ult i64 %.0.idx19.i.i, 4032
-  br i1 %349, label %343, label %GC_build_fl4.exit.i, !llvm.loop !74
+  br i1 %349, label %343, label %GC_build_fl4.exit.i, !llvm.loop !70
 
 GC_build_fl4.exit.i:                              ; preds = %343
   %350 = getelementptr inbounds i8, ptr %.0.ptr.i47.i, i64 -32
@@ -15777,7 +15777,7 @@ GC_build_fl4.exit.i:                              ; preds = %343
   store ptr %.050.i, ptr %.03551.i, align 8
   %.035.i = getelementptr inbounds i64, ptr %.03551.i, i64 %41
   %.not39.i = icmp ugt ptr %.035.i, %357
-  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !75
+  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !71
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %354
   %.0.lcssa.i = phi ptr [ %235, %354 ], [ %.03551.i, %.lr.ph.i ]
@@ -15915,7 +15915,7 @@ GC_release_mark_lock.exit148:                     ; preds = %GC_notify_all_build
   %.0.add.i.i167 = add nuw nsw i64 %.0.idx22.i.i166, 32
   %.0.ptr.i.i168 = getelementptr inbounds i8, ptr %235, i64 %.0.add.i.i167
   %412 = icmp ult i64 %.0.idx22.i.i166, 4064
-  br i1 %412, label %405, label %GC_build_fl_clear2.exit.i169, !llvm.loop !71
+  br i1 %412, label %405, label %GC_build_fl_clear2.exit.i169, !llvm.loop !67
 
 GC_build_fl_clear2.exit.i169:                     ; preds = %405
   %413 = getelementptr inbounds i8, ptr %.0.ptr.i.i168, i64 -16
@@ -15940,7 +15940,7 @@ GC_build_fl_clear2.exit.i169:                     ; preds = %405
   %.0.add.i40.i173 = add nuw nsw i64 %.0.idx18.i.i172, 32
   %.0.ptr.i41.i174 = getelementptr inbounds i8, ptr %235, i64 %.0.add.i40.i173
   %422 = icmp ult i64 %.0.idx18.i.i172, 4064
-  br i1 %422, label %417, label %GC_build_fl2.exit.i175, !llvm.loop !72
+  br i1 %422, label %417, label %GC_build_fl2.exit.i175, !llvm.loop !68
 
 GC_build_fl2.exit.i175:                           ; preds = %417
   %423 = getelementptr inbounds i8, ptr %.0.ptr.i41.i174, i64 -16
@@ -15969,7 +15969,7 @@ GC_build_fl2.exit.i175:                           ; preds = %417
   %.0.ptr.i45.i155 = getelementptr inbounds i8, ptr %235, i64 %.0.add.i44.i154
   %433 = icmp ult i64 %.0.idx20.i.i153, 4064
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %432, i8 0, i64 24, i1 false)
-  br i1 %433, label %428, label %GC_build_fl_clear4.exit.i156, !llvm.loop !73
+  br i1 %433, label %428, label %GC_build_fl_clear4.exit.i156, !llvm.loop !69
 
 GC_build_fl_clear4.exit.i156:                     ; preds = %428
   %434 = getelementptr inbounds i8, ptr %235, i64 4064
@@ -15995,7 +15995,7 @@ GC_build_fl_clear4.exit.i156:                     ; preds = %428
   %.0.add.i46.i161 = add nuw nsw i64 %.0.idx19.i.i160, 64
   %.0.ptr.i47.i162 = getelementptr inbounds i8, ptr %235, i64 %.0.add.i46.i161
   %443 = icmp ult i64 %.0.idx19.i.i160, 4032
-  br i1 %443, label %437, label %GC_build_fl4.exit.i163, !llvm.loop !74
+  br i1 %443, label %437, label %GC_build_fl4.exit.i163, !llvm.loop !70
 
 GC_build_fl4.exit.i163:                           ; preds = %437
   %444 = getelementptr inbounds i8, ptr %.0.ptr.i47.i162, i64 -32
@@ -16023,7 +16023,7 @@ GC_build_fl4.exit.i163:                           ; preds = %437
   store ptr %.050.i180, ptr %.03551.i179, align 8
   %.035.i181 = getelementptr inbounds i64, ptr %.03551.i179, i64 %41
   %.not39.i182 = icmp ugt ptr %.035.i181, %451
-  br i1 %.not39.i182, label %._crit_edge.i183, label %.lr.ph.i178, !llvm.loop !75
+  br i1 %.not39.i182, label %._crit_edge.i183, label %.lr.ph.i178, !llvm.loop !71
 
 ._crit_edge.i183:                                 ; preds = %.lr.ph.i178, %448
   %.0.lcssa.i184 = phi ptr [ %235, %448 ], [ %.03551.i179, %.lr.ph.i178 ]
@@ -16111,7 +16111,7 @@ GC_clear_stack.exit:                              ; preds = %480, %473, %384, %G
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @GC_is_heap_ptr(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @GC_is_heap_ptr(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = lshr i64 %2, 22
   %4 = and i64 %3, 2047
@@ -16128,7 +16128,7 @@ define i32 @GC_is_heap_ptr(ptr noundef %0) local_unnamed_addr #0 {
   %11 = icmp ne ptr %.0, %6
   %12 = select i1 %10, i1 %11, i1 false
   %13 = getelementptr inbounds i8, ptr %.0, i64 8216
-  br i1 %12, label %7, label %14, !llvm.loop !77
+  br i1 %12, label %7, label %14, !llvm.loop !73
 
 14:                                               ; preds = %7
   %15 = lshr i64 %2, 12
@@ -16214,14 +16214,14 @@ define internal fastcc ptr @GC_reclaim_generic(ptr noundef %0, ptr noundef %1, i
   store i64 0, ptr %39, align 8
   %.0.i.us.i = getelementptr inbounds i8, ptr %.013.i.us.i, i64 16
   %40 = icmp ult ptr %.0.i.us.i, %37
-  br i1 %40, label %.lr.ph.i.us.i, label %GC_clear_block.exit.loopexit.us.i, !llvm.loop !81
+  br i1 %40, label %.lr.ph.i.us.i, label %GC_clear_block.exit.loopexit.us.i, !llvm.loop !77
 
 41:                                               ; preds = %GC_clear_block.exit.loopexit.us.i, %33, %29
   %.130.us.i = phi ptr [ %30, %29 ], [ %36, %33 ], [ %.0.i.us.i, %GC_clear_block.exit.loopexit.us.i ]
   %.1.us.i = phi ptr [ %.036.us.i, %29 ], [ %.036.us.i, %33 ], [ %.02934.us.i, %GC_clear_block.exit.loopexit.us.i ]
   %42 = add i64 %.02835.us.i, %26
   %.not.us.i = icmp ugt ptr %.130.us.i, %22
-  br i1 %.not.us.i, label %GC_disclaim_and_reclaim.exit, label %.lr.ph.split.us.i, !llvm.loop !82
+  br i1 %.not.us.i, label %GC_disclaim_and_reclaim.exit, label %.lr.ph.split.us.i, !llvm.loop !78
 
 GC_clear_block.exit.loopexit.us.i:                ; preds = %.lr.ph.i.us.i
   %43 = load i64, ptr %5, align 8
@@ -16270,7 +16270,7 @@ GC_clear_block.exit.i:                            ; preds = %49
   %.1.i = phi ptr [ %.036.i, %47 ], [ %.036.i, %51 ], [ %.02934.i, %GC_clear_block.exit.i ]
   %59 = add i64 %.02835.i, %26
   %.not.i = icmp ugt ptr %.130.i, %22
-  br i1 %.not.i, label %GC_disclaim_and_reclaim.exit, label %.lr.ph.split.i, !llvm.loop !82
+  br i1 %.not.i, label %GC_disclaim_and_reclaim.exit, label %.lr.ph.split.i, !llvm.loop !78
 
 60:                                               ; preds = %6
   %61 = icmp ne i32 %3, 0
@@ -16320,14 +16320,14 @@ GC_clear_block.exit.i:                            ; preds = %49
   store i64 0, ptr %75, align 8
   %.0.i.us.i38 = getelementptr inbounds i8, ptr %.013.i.us.i36, i64 16
   %76 = icmp ult ptr %.0.i.us.i38, %73
-  br i1 %76, label %.lr.ph.i.us.i35, label %GC_clear_block.exit.loopexit.us.i39, !llvm.loop !81
+  br i1 %76, label %.lr.ph.i.us.i35, label %GC_clear_block.exit.loopexit.us.i39, !llvm.loop !77
 
 77:                                               ; preds = %GC_clear_block.exit.loopexit.us.i39, %71
   %.118.us.i = phi ptr [ %72, %71 ], [ %.0.i.us.i38, %GC_clear_block.exit.loopexit.us.i39 ]
   %.1.us.i31 = phi ptr [ %.024.us.i, %71 ], [ %.01723.us.i, %GC_clear_block.exit.loopexit.us.i39 ]
   %78 = add i64 %.01922.us.i, %68
   %.not.us.i32 = icmp ugt ptr %.118.us.i, %64
-  br i1 %.not.us.i32, label %GC_disclaim_and_reclaim.exit, label %.lr.ph.split.us.i30, !llvm.loop !83
+  br i1 %.not.us.i32, label %GC_disclaim_and_reclaim.exit, label %.lr.ph.split.us.i30, !llvm.loop !79
 
 GC_clear_block.exit.loopexit.us.i39:              ; preds = %.lr.ph.i.us.i35
   %79 = load i64, ptr %5, align 8
@@ -16363,7 +16363,7 @@ GC_clear_block.exit.i28:                          ; preds = %.lr.ph.split.i24
   %.1.i25 = phi ptr [ %.024.i, %83 ], [ %.01723.i, %GC_clear_block.exit.i28 ]
   %89 = add i64 %.01922.i, %68
   %.not.i26 = icmp ugt ptr %.118.i, %64
-  br i1 %.not.i26, label %GC_disclaim_and_reclaim.exit, label %.lr.ph.split.i24, !llvm.loop !83
+  br i1 %.not.i26, label %GC_disclaim_and_reclaim.exit, label %.lr.ph.split.i24, !llvm.loop !79
 
 90:                                               ; preds = %60
   br i1 %.not21.i, label %GC_reclaim_uninit.exit, label %.lr.ph.i40
@@ -16394,7 +16394,7 @@ GC_clear_block.exit.i28:                          ; preds = %.lr.ph.split.i24
   %99 = getelementptr inbounds i8, ptr %.02025.i, i64 %2
   %100 = add i64 %.02124.i, %92
   %.not.i42 = icmp ugt ptr %99, %64
-  br i1 %.not.i42, label %GC_reclaim_uninit.exit, label %93, !llvm.loop !84
+  br i1 %.not.i42, label %GC_reclaim_uninit.exit, label %93, !llvm.loop !80
 
 GC_reclaim_uninit.exit:                           ; preds = %98, %90
   %.018.lcssa.i = phi ptr [ %4, %90 ], [ %.119.i, %98 ]
@@ -16440,7 +16440,7 @@ GC_disclaim_and_reclaim.exit:                     ; preds = %58, %41, %88, %77, 
   store i8 1, ptr %122, align 1
   %123 = add i32 %.012.i, %119
   %.not.i44 = icmp ugt i32 %123, %116
-  br i1 %.not.i44, label %GC_set_hdr_marks.exit, label %120, !llvm.loop !70
+  br i1 %.not.i44, label %GC_set_hdr_marks.exit, label %120, !llvm.loop !66
 
 GC_set_hdr_marks.exit:                            ; preds = %120
   %124 = udiv i64 4096, %109
@@ -16534,7 +16534,7 @@ GC_hblk_fl_from_blocks.exit:                      ; preds = %12, %14, %16
   br i1 %or.cond3, label %51, label %35
 
 35:                                               ; preds = %27
-  %36 = tail call fastcc i32 @GC_should_collect(), !range !8
+  %36 = tail call fastcc i32 @GC_should_collect()
   %.not46 = icmp eq i32 %36, 0
   br i1 %.not46, label %51, label %37
 
@@ -16561,7 +16561,7 @@ GC_hblk_fl_from_blocks.exit:                      ; preds = %12, %14, %16
   %50 = add nsw i32 %.0710.i, -1
   %.not12.i = icmp eq i32 %.0710.i, 0
   %or.cond.i = or i1 %.not12.i, %.not.i
-  br i1 %or.cond.i, label %GC_enough_large_bytes_left.exit, label %45, !llvm.loop !85
+  br i1 %or.cond.i, label %GC_enough_large_bytes_left.exit, label %45, !llvm.loop !81
 
 GC_enough_large_bytes_left.exit:                  ; preds = %45
   %.inv = icmp slt i32 %.0710.i, 1
@@ -16582,7 +16582,7 @@ GC_enough_large_bytes_left.exit:                  ; preds = %45
 55:                                               ; preds = %.lr.ph
   %56 = add i32 %.13751, 1
   %exitcond.not = icmp eq i32 %.13751, %.0
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !86
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !82
 
 .lr.ph:                                           ; preds = %51, %55
   %.13751 = phi i32 [ %56, %55 ], [ %spec.select49, %51 ]
@@ -16615,7 +16615,7 @@ define noalias ptr @GC_malloc_many(i64 noundef %0) local_unnamed_addr #1 {
 ; Function Attrs: nounwind allocsize(1) uwtable
 define noalias ptr @GC_memalign(i64 noundef %0, i64 noundef %1) local_unnamed_addr #14 {
   %3 = add i64 %0, -1
-  %4 = tail call i64 @llvm.ctpop.i64(i64 %0), !range !87
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
   %.not = icmp eq i64 %4, 1
   br i1 %.not, label %5, label %11
 
@@ -16637,9 +16637,9 @@ define noalias ptr @GC_memalign(i64 noundef %0, i64 noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_posix_memalign(ptr nocapture noundef nonnull writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 23) i32 @GC_posix_memalign(ptr nocapture noundef nonnull writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp ult i64 %1, 8
-  %5 = tail call i64 @llvm.ctpop.i64(i64 %1), !range !87
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %6 = icmp ugt i64 %5, 1
   %7 = select i1 %4, i1 true, i1 %6
   br i1 %7, label %GC_memalign.exit.thread, label %8
@@ -16687,7 +16687,7 @@ define noalias ptr @GC_valloc(i64 noundef %0) local_unnamed_addr #5 {
 3:                                                ; preds = %2, %1
   %4 = load i64, ptr @GC_page_size, align 8
   %5 = add i64 %4, -1
-  %6 = tail call i64 @llvm.ctpop.i64(i64 %4), !range !87
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %4)
   %.not.i = icmp eq i64 %6, 1
   br i1 %.not.i, label %7, label %GC_memalign.exit
 
@@ -16725,7 +16725,7 @@ define noalias ptr @GC_pvalloc(i64 noundef %0) local_unnamed_addr #5 {
   %8 = add i64 %5, %0
   %9 = select i1 %7, i64 %8, i64 -1
   %10 = and i64 %9, %6
-  %11 = tail call i64 @llvm.ctpop.i64(i64 %4), !range !87
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %4)
   %.not.i = icmp eq i64 %11, 1
   br i1 %.not.i, label %12, label %GC_memalign.exit
 
@@ -16854,7 +16854,7 @@ define void @GC_ptr_store_and_dirty(ptr noundef %0, ptr noundef %1) local_unname
   br label %12
 
 12:                                               ; preds = %2, %3
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #38, !srcloc !88
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #38, !srcloc !83
   ret void
 }
 
@@ -16928,7 +16928,7 @@ define void @GC_set_mark_bit(ptr noundef nonnull %0) local_unnamed_addr #15 {
   %11 = icmp ne ptr %.0.i, %6
   %12 = select i1 %10, i1 %11, i1 false
   %13 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %7
   %14 = lshr i64 %2, 12
@@ -16973,7 +16973,7 @@ define void @GC_clear_mark_bit(ptr noundef nonnull %0) local_unnamed_addr #15 {
   %11 = icmp ne ptr %.0.i, %6
   %12 = select i1 %10, i1 %11, i1 false
   %13 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %7
   %14 = lshr i64 %2, 12
@@ -17008,7 +17008,7 @@ GC_find_header.exit:                              ; preds = %7
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @GC_is_marked(ptr noundef nonnull %0) local_unnamed_addr #0 {
+define range(i32 -128, 128) i32 @GC_is_marked(ptr noundef nonnull %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = lshr i64 %2, 22
   %4 = and i64 %3, 2047
@@ -17025,7 +17025,7 @@ define i32 @GC_is_marked(ptr noundef nonnull %0) local_unnamed_addr #0 {
   %11 = icmp ne ptr %.0.i, %6
   %12 = select i1 %10, i1 %11, i1 false
   %13 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %7
   %14 = lshr i64 %2, 12
@@ -17497,7 +17497,7 @@ GC_push_all.exit46:                               ; preds = %52, %45, %26
   %57 = phi i64 [ %95, %GC_push_all.exit52 ], [ %56, %GC_push_all.exit46 ]
   %58 = phi ptr [ %94, %GC_push_all.exit52 ], [ %55, %GC_push_all.exit46 ]
   %.059 = phi ptr [ %58, %GC_push_all.exit52 ], [ %15, %GC_push_all.exit46 ]
-  %59 = tail call i32 %2(ptr noundef %.059) #38, !callees !89
+  %59 = tail call i32 %2(ptr noundef %.059) #38, !callees !84
   %.not39 = icmp eq i32 %59, 0
   br i1 %.not39, label %GC_push_all.exit52, label %60
 
@@ -17569,7 +17569,7 @@ GC_push_all.exit52:                               ; preds = %91, %83, %.lr.ph
   %94 = getelementptr inbounds i8, ptr %58, i64 4096
   %95 = ptrtoint ptr %94 to i64
   %.not36 = icmp ult i64 %8, %95
-  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !90
+  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %GC_push_all.exit52, %GC_push_all.exit46
   %.0.lcssa = phi ptr [ %15, %GC_push_all.exit46 ], [ %58, %GC_push_all.exit52 ]
@@ -17577,7 +17577,7 @@ GC_push_all.exit52:                               ; preds = %91, %83, %.lr.ph
   br i1 %.not37, label %GC_push_all.exit, label %96
 
 96:                                               ; preds = %._crit_edge
-  %97 = tail call i32 %2(ptr noundef %.0.lcssa) #38, !callees !89
+  %97 = tail call i32 %2(ptr noundef %.0.lcssa) #38, !callees !84
   %.not38 = icmp eq i32 %97, 0
   br i1 %.not38, label %GC_push_all.exit, label %98
 
@@ -17621,7 +17621,7 @@ GC_push_all.exit:                                 ; preds = %GC_push_all.exit.si
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @GC_page_was_dirty(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @GC_page_was_dirty(ptr noundef %0) #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = lshr i64 %2, 22
   %4 = and i64 %3, 2047
@@ -17638,7 +17638,7 @@ define internal i32 @GC_page_was_dirty(ptr noundef %0) #0 {
   %11 = icmp ne ptr %.0.i, %6
   %12 = select i1 %10, i1 %11, i1 false
   %13 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %7
   %14 = lshr i64 %2, 12
@@ -17683,7 +17683,7 @@ define noundef ptr @GC_mark_and_push(ptr noundef %0, ptr noundef %1, ptr noundef
   %14 = icmp ne ptr %.0, %9
   %15 = select i1 %13, i1 %14, i1 false
   %16 = getelementptr inbounds i8, ptr %.0, i64 8216
-  br i1 %15, label %10, label %17, !llvm.loop !91
+  br i1 %15, label %10, label %17, !llvm.loop !86
 
 17:                                               ; preds = %10
   %18 = lshr i64 %5, 12
@@ -17711,7 +17711,7 @@ define noundef ptr @GC_mark_and_push(ptr noundef %0, ptr noundef %1, ptr noundef
   %29 = icmp ne ptr %.027.i, %9
   %30 = select i1 %28, i1 %29, i1 false
   %31 = getelementptr inbounds i8, ptr %.027.i, i64 8216
-  br i1 %30, label %.preheader44, label %32, !llvm.loop !21
+  br i1 %30, label %.preheader44, label %32, !llvm.loop !20
 
 32:                                               ; preds = %.preheader44
   %33 = getelementptr inbounds [1024 x ptr], ptr %.027.i, i64 0, i64 %19
@@ -17746,7 +17746,7 @@ define noundef ptr @GC_mark_and_push(ptr noundef %0, ptr noundef %1, ptr noundef
   %51 = icmp ne ptr %.0.i.i.i, %9
   %52 = select i1 %50, i1 %51, i1 false
   %53 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %52, label %47, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %52, label %47, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %47
   %54 = lshr i64 %43, 12
@@ -17754,7 +17754,7 @@ GC_find_header.exit.i.i:                          ; preds = %47
   %56 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %55
   %.0.i.i = load ptr, ptr %56, align 8
   %57 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %57, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !20
+  br i1 %57, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %36
   %.032.i = phi ptr [ %34, %36 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
@@ -17803,7 +17803,7 @@ GC_base.exit:                                     ; preds = %25, %32, %GC_find_s
   %84 = icmp ne ptr %.0.i27, %9
   %85 = select i1 %83, i1 %84, i1 false
   %86 = getelementptr inbounds i8, ptr %.0.i27, i64 8216
-  br i1 %85, label %80, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %85, label %80, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %80
   %87 = lshr i64 %.0.i, 12
@@ -17838,7 +17838,7 @@ GC_find_header.exit:                              ; preds = %80
   %101 = icmp ne ptr %.0.i.i28, %9
   %102 = select i1 %100, i1 %101, i1 false
   %103 = getelementptr inbounds i8, ptr %.0.i.i28, i64 8216
-  br i1 %102, label %.preheader39, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %102, label %.preheader39, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %.preheader39
   %104 = and i64 %18, 262143
@@ -17890,7 +17890,7 @@ GC_find_header.exit._crit_edge.i:                 ; preds = %GC_find_header.exit
   %127 = icmp ne ptr %.0.i.i32, %9
   %128 = select i1 %126, i1 %127, i1 false
   %129 = getelementptr inbounds i8, ptr %.0.i.i32, i64 8216
-  br i1 %128, label %.preheader, label %GC_find_header.exit.i33, !llvm.loop !16
+  br i1 %128, label %.preheader, label %GC_find_header.exit.i33, !llvm.loop !15
 
 GC_find_header.exit.i33:                          ; preds = %.preheader
   %130 = and i64 %18, 262143
@@ -17997,7 +17997,7 @@ define internal fastcc noundef ptr @GC_push_contents_hdr(ptr noundef %0, ptr nou
   %41 = icmp ne ptr %.0.i.i, %36
   %42 = select i1 %40, i1 %41, i1 false
   %43 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %42, label %37, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %42, label %37, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %37
   %44 = lshr i64 %6, 12
@@ -18058,7 +18058,7 @@ GC_find_header.exit._crit_edge.i:                 ; preds = %GC_find_header.exit
   %76 = icmp ne ptr %.0.i.i55, %71
   %77 = select i1 %75, i1 %76, i1 false
   %78 = getelementptr inbounds i8, ptr %.0.i.i55, i64 8216
-  br i1 %77, label %72, label %GC_find_header.exit.i56, !llvm.loop !16
+  br i1 %77, label %72, label %GC_find_header.exit.i56, !llvm.loop !15
 
 GC_find_header.exit.i56:                          ; preds = %72
   %79 = lshr i64 %6, 12
@@ -18129,7 +18129,7 @@ GC_find_header.exit._crit_edge.i58:               ; preds = %GC_find_header.exit
   %115 = icmp ne ptr %.0.i.i62, %110
   %116 = select i1 %114, i1 %115, i1 false
   %117 = getelementptr inbounds i8, ptr %.0.i.i62, i64 8216
-  br i1 %116, label %111, label %GC_find_header.exit.i63, !llvm.loop !16
+  br i1 %116, label %111, label %GC_find_header.exit.i63, !llvm.loop !15
 
 GC_find_header.exit.i63:                          ; preds = %111
   %118 = lshr i64 %6, 12
@@ -18190,7 +18190,7 @@ GC_find_header.exit._crit_edge.i67:               ; preds = %GC_find_header.exit
   %150 = icmp ne ptr %.0.i.i74, %145
   %151 = select i1 %149, i1 %150, i1 false
   %152 = getelementptr inbounds i8, ptr %.0.i.i74, i64 8216
-  br i1 %151, label %146, label %GC_find_header.exit.i75, !llvm.loop !16
+  br i1 %151, label %146, label %GC_find_header.exit.i75, !llvm.loop !15
 
 GC_find_header.exit.i75:                          ; preds = %146
   %153 = lshr i64 %6, 12
@@ -18316,7 +18316,7 @@ define hidden void @GC_print_static_roots() local_unnamed_addr #1 {
   %10 = load i32, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 48), align 4
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !92
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %13 = load i64, ptr @GC_root_size, align 8
@@ -18342,7 +18342,7 @@ define hidden void @GC_print_static_roots() local_unnamed_addr #1 {
   %23 = sub i64 %22, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %GC_compute_root_size.exit, label %.lr.ph.i, !llvm.loop !93
+  br i1 %exitcond.not.i, label %GC_compute_root_size.exit, label %.lr.ph.i, !llvm.loop !88
 
 GC_compute_root_size.exit:                        ; preds = %.lr.ph.i, %._crit_edge
   %.0.lcssa.i = phi i64 [ 0, %._crit_edge ], [ %23, %.lr.ph.i ]
@@ -18465,7 +18465,7 @@ define internal fastcc void @GC_add_roots_inner(ptr noundef %0, ptr noundef %1, 
   %25 = getelementptr inbounds i8, ptr %.08.i, i64 16
   %.0.i = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %GC_roots_present.exit.thread, label %.lr.ph.i, !llvm.loop !94
+  br i1 %.not.i, label %GC_roots_present.exit.thread, label %.lr.ph.i, !llvm.loop !89
 
 GC_roots_present.exit:                            ; preds = %.lr.ph.i
   %26 = getelementptr inbounds i8, ptr %.08.i, i64 8
@@ -18736,7 +18736,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %49 = phi i64 [ %38, %35 ], [ %28, %46 ]
   %.1.i = phi i32 [ %.012.i, %35 ], [ %47, %46 ]
   %50 = icmp slt i32 %.1.i, %.pr10.i
-  br i1 %50, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !95
+  br i1 %50, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !90
 
 ._crit_edge.i:                                    ; preds = %48
   %51 = icmp slt i32 %.pr10.i, %26
@@ -18772,7 +18772,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   store ptr %54, ptr %66, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %GC_remove_roots_inner.exit, label %.lr.ph.i.i, !llvm.loop !96
+  br i1 %exitcond.not.i.i, label %GC_remove_roots_inner.exit, label %.lr.ph.i.i, !llvm.loop !91
 
 GC_remove_roots_inner.exit:                       ; preds = %.lr.ph.i.i, %GC_lock.exit, %._crit_edge.i, %52
   %.b = load i1, ptr @GC_need_to_lock, align 4
@@ -18890,7 +18890,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 45:                                               ; preds = %.lr.ph, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !97
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !92
 
 .loopexit:                                        ; preds = %45, %33, %30, %41
   %.0 = phi i32 [ %32, %30 ], [ %44, %41 ], [ 0, %33 ], [ 0, %45 ]
@@ -19009,7 +19009,7 @@ define internal fastcc void @GC_exclude_static_roots_inner(ptr noundef %0, ptr n
   %.113.i = select i1 %.not15.i, i64 %.01216.i, i64 %11
   %.1.i = select i1 %.not15.i, i64 %8, i64 %.01117.i
   %12 = icmp ugt i64 %.1.i, %.113.i
-  br i1 %12, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !98
+  br i1 %12, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !93
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %13 = getelementptr inbounds %struct._GC_arrays, ptr @GC_arrays, i64 0, i32 67, i64 %.113.i, i32 1
@@ -19071,7 +19071,7 @@ GC_next_exclusion.exit.thread:                    ; preds = %._crit_edge.i
   %36 = getelementptr inbounds %struct._GC_arrays, ptr @GC_arrays, i64 0, i32 67, i64 %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
   %37 = icmp ugt i64 %35, %32
-  br i1 %37, label %.lr.ph, label %GC_next_exclusion.exit.thread.thread, !llvm.loop !99
+  br i1 %37, label %.lr.ph, label %GC_next_exclusion.exit.thread.thread, !llvm.loop !94
 
 GC_next_exclusion.exit.thread.thread:             ; preds = %.lr.ph, %29, %._crit_edge.i.thread, %2, %GC_next_exclusion.exit.thread
   %.019 = phi i64 [ %3, %GC_next_exclusion.exit.thread ], [ 0, %2 ], [ 1, %._crit_edge.i.thread ], [ %32, %29 ], [ %32, %.lr.ph ]
@@ -19118,7 +19118,7 @@ define hidden i32 @GC_n_set_marks(ptr nocapture noundef readonly %0) local_unnam
   %16 = add i32 %.014, %15
   %17 = add nuw nsw i64 %.01113, %4
   %18 = icmp ult i64 %17, %10
-  br i1 %18, label %12, label %._crit_edge, !llvm.loop !100
+  br i1 %18, label %12, label %._crit_edge, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %12
   ret i32 %16
@@ -19142,7 +19142,7 @@ define i32 @GC_count_set_marks_in_hblk(ptr noundef %0) local_unnamed_addr #0 {
   %11 = icmp ne ptr %.0.i, %6
   %12 = select i1 %10, i1 %11, i1 false
   %13 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %7
   %14 = lshr i64 %2, 12
@@ -19177,7 +19177,7 @@ GC_find_header.exit:                              ; preds = %7
   %32 = add i32 %.014.i, %31
   %33 = add nuw nsw i64 %.01113.i, %20
   %34 = icmp ult i64 %33, %26
-  br i1 %34, label %28, label %GC_n_set_marks.exit, !llvm.loop !100
+  br i1 %34, label %28, label %GC_n_set_marks.exit, !llvm.loop !95
 
 GC_n_set_marks.exit:                              ; preds = %28
   ret i32 %32
@@ -19233,7 +19233,7 @@ define hidden void @GC_print_block_list() local_unnamed_addr #1 {
   %25 = icmp ne ptr %.0.i.i, %20
   %26 = select i1 %24, i1 %25, i1 false
   %27 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %26, label %21, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %26, label %21, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %21
   %28 = and i64 %.01720.i, 1023
@@ -19267,7 +19267,7 @@ GC_find_header.exit.i:                            ; preds = %21
   %45 = add i32 %.014.i.i, %44
   %46 = add nuw nsw i64 %.01113.i.i, %33
   %47 = icmp ult i64 %46, %39
-  br i1 %47, label %41, label %GC_print_block_descr.exit, !llvm.loop !100
+  br i1 %47, label %41, label %GC_print_block_descr.exit, !llvm.loop !95
 
 GC_print_block_descr.exit:                        ; preds = %41
   %48 = udiv i64 4096, %32
@@ -19306,13 +19306,13 @@ GC_print_block_descr.exit:                        ; preds = %41
   %70 = phi i64 [ %4, %64 ], [ %4, %66 ], [ %60, %58 ]
   %.1.i = phi i64 [ %65, %64 ], [ %67, %66 ], [ %61, %58 ]
   %71 = icmp sgt i64 %.1.i, -1
-  br i1 %71, label %2, label %72, !llvm.loop !18
+  br i1 %71, label %2, label %72, !llvm.loop !17
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds i8, ptr %.023.i, i64 8192
   %.0.i = load ptr, ptr %73, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %GC_apply_to_all_blocks.exit, label %.preheader.i, !llvm.loop !19
+  br i1 %.not.i, label %GC_apply_to_all_blocks.exit, label %.preheader.i, !llvm.loop !18
 
 GC_apply_to_all_blocks.exit:                      ; preds = %72, %0
   %.sroa.0.0 = phi i64 [ 0, %0 ], [ %70, %72 ]
@@ -19341,7 +19341,7 @@ define void @GC_print_free_list(i32 noundef %0, i64 noundef %1) local_unnamed_ad
   %10 = add nuw nsw i32 %.010, 1
   %.07 = load ptr, ptr %.0711, align 8
   %.not = icmp eq ptr %.07, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -19393,7 +19393,7 @@ define void @GC_enumerate_reachable_objects_inner(ptr nocapture noundef nonnull 
   %26 = icmp ne ptr %.0.i.i, %21
   %27 = select i1 %25, i1 %26, i1 false
   %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %27, label %22, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %27, label %22, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %22
   %29 = inttoptr i64 %17 to ptr
@@ -19437,7 +19437,7 @@ GC_find_header.exit.i:                            ; preds = %22
   %49 = add i64 %.02025.i, %43
   %50 = getelementptr inbounds i8, ptr %.01926.i, i64 %34
   %.not22.i4 = icmp ugt ptr %50, %.0.i3
-  br i1 %.not22.i4, label %GC_do_enumerate_reachable_objects.exit, label %44, !llvm.loop !102
+  br i1 %.not22.i4, label %GC_do_enumerate_reachable_objects.exit, label %44, !llvm.loop !97
 
 GC_do_enumerate_reachable_objects.exit:           ; preds = %48, %37, %GC_find_header.exit.i, %9
   %51 = add nsw i64 %.01720.i, -1
@@ -19458,13 +19458,13 @@ GC_do_enumerate_reachable_objects.exit:           ; preds = %48, %37, %GC_find_h
 58:                                               ; preds = %56, %54, %GC_do_enumerate_reachable_objects.exit
   %.1.i = phi i64 [ %55, %54 ], [ %57, %56 ], [ %51, %GC_do_enumerate_reachable_objects.exit ]
   %59 = icmp sgt i64 %.1.i, -1
-  br i1 %59, label %4, label %60, !llvm.loop !18
+  br i1 %59, label %4, label %60, !llvm.loop !17
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds i8, ptr %.023.i, i64 8192
   %.0.i = load ptr, ptr %61, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %GC_apply_to_all_blocks.exit, label %.preheader.i, !llvm.loop !19
+  br i1 %.not.i, label %GC_apply_to_all_blocks.exit, label %.preheader.i, !llvm.loop !18
 
 GC_apply_to_all_blocks.exit:                      ; preds = %60, %2
   ret void
@@ -19662,7 +19662,7 @@ GC_new_kind_inner.exit6.i:                        ; preds = %GC_new_free_list_in
   store i64 %79, ptr %80, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %GC_init_explicit_typing.exit, label %76, !llvm.loop !103
+  br i1 %exitcond.not.i, label %GC_init_explicit_typing.exit, label %76, !llvm.loop !98
 
 GC_init_explicit_typing.exit:                     ; preds = %76
   store atomic volatile i64 1, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 25) release, align 8
@@ -19695,7 +19695,7 @@ GC_init_explicit_typing.exit:                     ; preds = %76
   %91 = shl nuw i64 1, %90
   %92 = and i64 %89, %91
   %.not42 = icmp eq i64 %92, 0
-  br i1 %.not42, label %84, label %.critedge.preheader, !llvm.loop !104
+  br i1 %.not42, label %84, label %.critedge.preheader, !llvm.loop !99
 
 .critedge.preheader:                              ; preds = %86
   %.not59 = icmp eq i64 %.036.in, 1
@@ -19715,7 +19715,7 @@ GC_init_explicit_typing.exit:                     ; preds = %76
 .critedge:                                        ; preds = %.lr.ph
   %99 = add nuw nsw i64 %.03551, 1
   %100 = icmp slt i64 %99, %.036
-  br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !105
+  br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %.critedge, %.lr.ph
   %.035.lcssa = phi i64 [ %indvars.iv, %.critedge ], [ %.03551, %.lr.ph ]
@@ -19750,7 +19750,7 @@ GC_init_explicit_typing.exit:                     ; preds = %76
   %spec.select = select i1 %.not44, i64 %109, i64 %113
   %114 = add nsw i64 %.03454, -1
   %115 = icmp sgt i64 %.03454, 0
-  br i1 %115, label %108, label %._crit_edge57.loopexit, !llvm.loop !106
+  br i1 %115, label %108, label %._crit_edge57.loopexit, !llvm.loop !101
 
 ._crit_edge57.loopexit:                           ; preds = %108
   %116 = or i64 %spec.select, 1
@@ -19926,7 +19926,7 @@ GC_lock.exit47.i:                                 ; preds = %.preheader.i.i45.i,
   %182 = phi i64 [ %.030.i, %180 ], [ %174, %GC_lock.exit47.i ]
   %183 = add i64 %.pre.i, %119
   %.not40.i = icmp ult i64 %183, %182
-  br i1 %.not40.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !107
+  br i1 %.not40.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !102
 
 .lr.ph52.i:                                       ; preds = %.preheader.i, %.lr.ph52.i
   %.03151.i = phi i64 [ %191, %.lr.ph52.i ], [ 0, %.preheader.i ]
@@ -19941,7 +19941,7 @@ GC_lock.exit47.i:                                 ; preds = %.preheader.i.i45.i,
   store i32 1, ptr %190, align 8
   %191 = add nuw nsw i64 %.03151.i, 1
   %exitcond.not.i45 = icmp eq i64 %191, %140
-  br i1 %exitcond.not.i45, label %._crit_edge.i, label %.lr.ph52.i, !llvm.loop !108
+  br i1 %exitcond.not.i45, label %._crit_edge.i, label %.lr.ph52.i, !llvm.loop !103
 
 ._crit_edge.i:                                    ; preds = %.lr.ph52.i, %.preheader.i
   %192 = getelementptr inbounds i64, ptr %0, i64 %140
@@ -20021,7 +20021,7 @@ define noalias ptr @GC_malloc_explicitly_typed(i64 noundef %0, i64 noundef %1) l
   %22 = icmp ne ptr %.0.i.i, %17
   %23 = select i1 %21, i1 %22, i1 false
   %24 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %23, label %18, label %GC_size.exit, !llvm.loop !16
+  br i1 %23, label %18, label %GC_size.exit, !llvm.loop !15
 
 GC_size.exit:                                     ; preds = %18
   %25 = lshr i64 %13, 12
@@ -20050,7 +20050,7 @@ GC_size.exit:                                     ; preds = %18
   br label %44
 
 44:                                               ; preds = %GC_size.exit, %35
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1) #38, !srcloc !109
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1) #38, !srcloc !104
   br label %45
 
 45:                                               ; preds = %2, %44
@@ -20094,7 +20094,7 @@ define noalias ptr @GC_malloc_explicitly_typed_ignore_off_page(i64 noundef %0, i
   %25 = icmp ne ptr %.0.i.i.i, %20
   %26 = select i1 %24, i1 %25, i1 false
   %27 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %26, label %21, label %GC_size.exit.i, !llvm.loop !16
+  br i1 %26, label %21, label %GC_size.exit.i, !llvm.loop !15
 
 GC_size.exit.i:                                   ; preds = %21
   %28 = lshr i64 %16, 12
@@ -20123,7 +20123,7 @@ GC_size.exit.i:                                   ; preds = %21
   br label %47
 
 47:                                               ; preds = %38, %GC_size.exit.i
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1) #38, !srcloc !109
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1) #38, !srcloc !104
   br label %GC_malloc_explicitly_typed.exit
 
 48:                                               ; preds = %2
@@ -20172,7 +20172,7 @@ GC_clear_stack.exit:                              ; preds = %48, %58
   %76 = icmp ne ptr %.0.i.i, %71
   %77 = select i1 %75, i1 %76, i1 false
   %78 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %77, label %72, label %GC_size.exit, !llvm.loop !16
+  br i1 %77, label %72, label %GC_size.exit, !llvm.loop !15
 
 GC_size.exit:                                     ; preds = %72
   %79 = lshr i64 %67, 12
@@ -20201,7 +20201,7 @@ GC_size.exit:                                     ; preds = %72
   br label %98
 
 98:                                               ; preds = %GC_size.exit, %89
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1) #38, !srcloc !110
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1) #38, !srcloc !105
   br label %GC_malloc_explicitly_typed.exit
 
 GC_malloc_explicitly_typed.exit:                  ; preds = %47, %5, %GC_clear_stack.exit, %98
@@ -20210,7 +20210,7 @@ GC_malloc_explicitly_typed.exit:                  ; preds = %47, %5, %GC_clear_s
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_calloc_prepare_explicitly_typed(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @GC_calloc_prepare_explicitly_typed(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = icmp eq i64 %3, 0
   %7 = icmp eq i64 %2, 0
   %8 = or i1 %7, %6
@@ -20233,7 +20233,7 @@ define noundef i32 @GC_calloc_prepare_explicitly_typed(ptr nocapture noundef %0,
 14:                                               ; preds = %11, %5
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   %16 = getelementptr inbounds i8, ptr %0, i64 40
-  %17 = tail call fastcc i32 @GC_make_array_descriptor(i64 noundef %spec.select, i64 noundef %spec.select36, i64 noundef %4, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %0), !range !111
+  %17 = tail call fastcc i32 @GC_make_array_descriptor(i64 noundef %spec.select, i64 noundef %spec.select36, i64 noundef %4, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %0)
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %18, ptr %19, align 8
@@ -20285,7 +20285,7 @@ default.unreachable38:                            ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @GC_make_array_descriptor(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 3) i32 @GC_make_array_descriptor(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #1 {
   %7 = and i64 %2, 3
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %16
@@ -20343,7 +20343,7 @@ GC_double_descr.exit:                             ; preds = %24, %28
   %32 = and i64 %.0.i, -4
   %33 = lshr i64 %32, %27
   %34 = or i64 %33, %.0.i
-  %35 = tail call fastcc i32 @GC_make_array_descriptor(i64 noundef %25, i64 noundef %26, i64 noundef %34, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !111
+  %35 = tail call fastcc i32 @GC_make_array_descriptor(i64 noundef %25, i64 noundef %26, i64 noundef %34, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %36 = and i64 %0, 1
   %37 = icmp eq i64 %36, 0
   %38 = icmp eq i32 %35, -1
@@ -20432,8 +20432,8 @@ GC_make_leaf_descriptor.exit58:                   ; preds = %52, %63, %46
   br label %80
 
 80:                                               ; preds = %71, %68
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.048) #38, !srcloc !112
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %40) #38, !srcloc !113
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.048) #38, !srcloc !106
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %40) #38, !srcloc !107
   br label %GC_make_sequence_descriptor.exit
 
 GC_make_sequence_descriptor.exit:                 ; preds = %GC_make_leaf_descriptor.exit58, %80
@@ -20508,7 +20508,7 @@ define noalias ptr @GC_calloc_do_explicitly_typed(ptr nocapture noundef readonly
   %34 = icmp ne ptr %.0.i.i.i, %29
   %35 = select i1 %33, i1 %34, i1 false
   %36 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %35, label %30, label %GC_size.exit.i, !llvm.loop !16
+  br i1 %35, label %30, label %GC_size.exit.i, !llvm.loop !15
 
 GC_size.exit.i:                                   ; preds = %30
   %37 = lshr i64 %25, 12
@@ -20537,7 +20537,7 @@ GC_size.exit.i:                                   ; preds = %30
   br label %56
 
 56:                                               ; preds = %47, %GC_size.exit.i
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %14) #38, !srcloc !109
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %14) #38, !srcloc !104
   br label %GC_malloc_explicitly_typed.exit
 
 57:                                               ; preds = %2
@@ -20576,7 +20576,7 @@ GC_size.exit.i:                                   ; preds = %30
   %78 = icmp ne ptr %.0.i.i, %73
   %79 = select i1 %77, i1 %78, i1 false
   %80 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %79, label %74, label %GC_size.exit, !llvm.loop !16
+  br i1 %79, label %74, label %GC_size.exit, !llvm.loop !15
 
 GC_size.exit:                                     ; preds = %74
   %81 = lshr i64 %69, 12
@@ -20757,7 +20757,7 @@ GC_lock.exit41:                                   ; preds = %.preheader.i.i39, %
 
 165:                                              ; preds = %153, %156
   %166 = load ptr, ptr %155, align 8
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %166) #38, !srcloc !114
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %166) #38, !srcloc !108
   %167 = getelementptr inbounds ptr, ptr %66, i64 %88
   %168 = getelementptr inbounds i8, ptr %167, i64 -8
   %169 = ptrtoint ptr %168 to i64
@@ -20772,7 +20772,7 @@ GC_lock.exit41:                                   ; preds = %.preheader.i.i39, %
   unreachable
 
 GC_general_register_disappearing_link.exit:       ; preds = %165
-  %173 = tail call fastcc noundef i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 41), ptr noundef nonnull %168, ptr noundef nonnull %66, ptr noundef nonnull @.str.41), !range !43
+  %173 = tail call fastcc i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 41), ptr noundef nonnull %168, ptr noundef nonnull %66, ptr noundef nonnull @.str.41)
   %174 = icmp eq i32 %173, 2
   br i1 %174, label %175, label %GC_malloc_explicitly_typed.exit
 
@@ -20879,7 +20879,7 @@ define noalias ptr @GC_calloc_explicitly_typed(i64 noundef %0, i64 noundef %1, i
 13:                                               ; preds = %10, %3
   %14 = getelementptr inbounds i8, ptr %4, i64 32
   %15 = getelementptr inbounds i8, ptr %4, i64 40
-  %16 = call fastcc i32 @GC_make_array_descriptor(i64 noundef %spec.select.i, i64 noundef %spec.select36.i, i64 noundef %2, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %4), !range !111
+  %16 = call fastcc i32 @GC_make_array_descriptor(i64 noundef %spec.select.i, i64 noundef %spec.select36.i, i64 noundef %2, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %4)
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %17, ptr %18, align 8
@@ -21017,7 +21017,7 @@ define i64 @GC_get_total_bytes() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i64 @GC_get_size_map_at(i32 noundef %0) local_unnamed_addr #8 {
+define range(i64 -1, -15) i64 @GC_get_size_map_at(i32 noundef %0) local_unnamed_addr #8 {
   %2 = icmp ugt i32 %0, 2048
   br i1 %2, label %8, label %3
 
@@ -21146,7 +21146,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @GC_get_prof_stats(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i64 0, 97) i64 @GC_get_prof_stats(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.GC_prof_stats_s, align 8
   %.b11 = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b11, label %4, label %GC_lock.exit
@@ -21281,7 +21281,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @GC_get_prof_stats_unsafe(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #26 {
+define range(i64 0, 97) i64 @GC_get_prof_stats_unsafe(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #26 {
   %3 = alloca %struct.GC_prof_stats_s, align 8
   %4 = icmp ugt i64 %1, 95
   br i1 %4, label %5, label %34
@@ -21384,7 +21384,7 @@ define noundef i64 @GC_get_prof_stats_unsafe(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @GC_is_init_called() local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @GC_is_init_called() local_unnamed_addr #8 {
   %.b = load i1, ptr @GC_is_initialized, align 4
   %1 = zext i1 %.b to i32
   ret i32 %1
@@ -21493,7 +21493,7 @@ define hidden ptr @GC_get_main_stack_base() local_unnamed_addr #1 {
 35:                                               ; preds = %33
   %36 = add nuw nsw i64 %31, %.01316.i.i
   %37 = icmp ult i64 %36, 4096
-  br i1 %37, label %.lr.ph.i.i, label %41, !llvm.loop !115
+  br i1 %37, label %.lr.ph.i.i, label %41, !llvm.loop !109
 
 GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
   %38 = tail call ptr @__errno_location() #45
@@ -21540,7 +21540,7 @@ GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
   %55 = load i16, ptr %54, align 2
   %56 = and i16 %55, 8192
   %.not49.i = icmp eq i16 %56, 0
-  br i1 %.not49.i, label %.critedge.i, label %46, !llvm.loop !116
+  br i1 %.not49.i, label %.critedge.i, label %46, !llvm.loop !110
 
 .critedge.i:                                      ; preds = %47, %46
   %.2.i = phi i64 [ %50, %47 ], [ %smax.i, %46 ]
@@ -21563,13 +21563,13 @@ GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
   %66 = load i16, ptr %65, align 2
   %67 = and i16 %66, 8192
   %.not50.i = icmp eq i16 %67, 0
-  br i1 %.not50.i, label %57, label %.critedge2.i, !llvm.loop !117
+  br i1 %.not50.i, label %57, label %.critedge2.i, !llvm.loop !111
 
 .critedge2.i:                                     ; preds = %58, %57
   %.4.i = phi i64 [ %61, %58 ], [ %smax63.i, %57 ]
   %68 = add nuw nsw i64 %.03755.i, 1
   %exitcond65.not.i = icmp eq i64 %68, 27
-  br i1 %exitcond65.not.i, label %.preheader.i, label %.preheader53.i, !llvm.loop !118
+  br i1 %exitcond65.not.i, label %.preheader.i, label %.preheader53.i, !llvm.loop !112
 
 69:                                               ; preds = %76, %.lr.ph.i
   %.557.i = phi i64 [ %.4.i, %.lr.ph.i ], [ %77, %76 ]
@@ -21585,7 +21585,7 @@ GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
 76:                                               ; preds = %69
   %77 = add nsw i64 %.557.i, 1
   %78 = icmp slt i64 %77, %.0.i.ph.i
-  br i1 %78, label %69, label %._crit_edge.i, !llvm.loop !119
+  br i1 %78, label %69, label %._crit_edge.i, !llvm.loop !113
 
 .critedge4.i:                                     ; preds = %69, %.preheader.i
   %.5.lcssa.i = phi i64 [ %.4.i, %.preheader.i ], [ %.557.i, %69 ]
@@ -21601,7 +21601,7 @@ GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
   %83 = add nuw nsw i64 %.13860.i, 1
   %84 = add nsw i64 %83, %.5.lcssa.i
   %85 = icmp slt i64 %84, %.0.i.ph.i
-  br i1 %85, label %86, label %._crit_edge.i, !llvm.loop !120
+  br i1 %85, label %86, label %._crit_edge.i, !llvm.loop !114
 
 86:                                               ; preds = %82, %.lr.ph61.i
   %.13860.i = phi i64 [ 0, %.lr.ph61.i ], [ %83, %82 ]
@@ -21814,7 +21814,7 @@ ensure_min_linux_ver.exit.i.i:                    ; preds = %GC_parse_version.ex
   br label %134
 
 66:                                               ; preds = %ensure_min_linux_ver.exit.i.i, %ensure_min_linux_ver.exit.thread16.i.i
-  %67 = call fastcc i32 @soft_dirty_open_files(), !range !8
+  %67 = call fastcc i32 @soft_dirty_open_files()
   %.not7.i.i = icmp eq i32 %67, 0
   br i1 %.not7.i.i, label %134, label %68
 
@@ -22089,7 +22089,7 @@ define void @GC_dump_named(ptr noundef %0) local_unnamed_addr #1 {
   %32 = load i32, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 48), align 4
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next.i, %33
-  br i1 %34, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !92
+  br i1 %34, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !87
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %11
   %35 = load i64, ptr @GC_root_size, align 8
@@ -22115,7 +22115,7 @@ define void @GC_dump_named(ptr noundef %0) local_unnamed_addr #1 {
   %45 = sub i64 %44, %43
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %GC_compute_root_size.exit.i, label %.lr.ph.i.i, !llvm.loop !93
+  br i1 %exitcond.not.i.i, label %GC_compute_root_size.exit.i, label %.lr.ph.i.i, !llvm.loop !88
 
 GC_compute_root_size.exit.i:                      ; preds = %.lr.ph.i.i, %._crit_edge.i
   %.0.lcssa.i.i = phi i64 [ 0, %._crit_edge.i ], [ %45, %.lr.ph.i.i ]
@@ -22139,7 +22139,7 @@ GC_print_static_roots.exit:                       ; preds = %GC_compute_root_siz
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @GC_try_to_collect_inner(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @GC_try_to_collect_inner(ptr noundef %0) unnamed_addr #1 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -22192,7 +22192,7 @@ define internal fastcc noundef i32 @GC_try_to_collect_inner(ptr noundef %0) unna
   store atomic volatile i8 0, ptr @GC_collecting monotonic, align 1
   %19 = load i32, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 35), align 8
   %.not36 = icmp eq i32 %19, 0
-  br i1 %.not36, label %.loopexit38, label %16, !llvm.loop !121
+  br i1 %.not36, label %.loopexit38, label %16, !llvm.loop !115
 
 .loopexit38:                                      ; preds = %18, %10
   %20 = load ptr, ptr @GC_start_call_back, align 8
@@ -22248,7 +22248,7 @@ GC_notify_full_gc.exit:                           ; preds = %.loopexit38, %21
   br i1 %or.cond, label %39, label %41
 
 39:                                               ; preds = %35
-  %40 = call fastcc i32 @GC_reclaim_all(ptr noundef %0, i32 noundef 0), !range !8
+  %40 = call fastcc i32 @GC_reclaim_all(ptr noundef %0, i32 noundef 0)
   %.not28 = icmp eq i32 %40, 0
   br i1 %.not28, label %.loopexit, label %41
 
@@ -22300,7 +22300,7 @@ GC_notify_full_gc.exit:                           ; preds = %.loopexit38, %21
   %66 = icmp ne ptr %.0.i.i.i, %61
   %67 = select i1 %65, i1 %66, i1 false
   %68 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %67, label %62, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %67, label %62, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %62
   %69 = and i64 %.01720.i.i, 1023
@@ -22355,20 +22355,20 @@ clear_marks_for_block.exit.i:                     ; preds = %GC_clear_hdr_marks.
 97:                                               ; preds = %95, %93, %clear_marks_for_block.exit.i
   %.1.i.i = phi i64 [ %94, %93 ], [ %96, %95 ], [ %90, %clear_marks_for_block.exit.i ]
   %98 = icmp sgt i64 %.1.i.i, -1
-  br i1 %98, label %45, label %99, !llvm.loop !18
+  br i1 %98, label %45, label %99, !llvm.loop !17
 
 99:                                               ; preds = %97
   %100 = getelementptr inbounds i8, ptr %.023.i.i, i64 8192
   %.0.i.i = load ptr, ptr %100, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %GC_clear_marks.exit, label %.preheader.i.i, !llvm.loop !19
+  br i1 %.not.i.i, label %GC_clear_marks.exit, label %.preheader.i.i, !llvm.loop !18
 
 GC_clear_marks.exit:                              ; preds = %99, %41
   store i32 0, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 23), align 4
   store i32 5, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 35), align 8
   store ptr null, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 31), align 8
   store i1 true, ptr @GC_is_full_gc, align 4
-  %101 = call fastcc i32 @GC_stopped_mark(ptr noundef %0), !range !8
+  %101 = call fastcc i32 @GC_stopped_mark(ptr noundef %0)
   %.not29 = icmp eq i32 %101, 0
   br i1 %.not29, label %102, label %113
 
@@ -22389,13 +22389,13 @@ GC_clear_marks.exit:                              ; preds = %99, %41
 108:                                              ; preds = %104
   %109 = load ptr, ptr @GC_old_normal_bl, align 8
   %110 = load ptr, ptr @GC_incomplete_normal_bl, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %110, ptr noundef nonnull align 8 dereferenceable(32768) %109, i64 32768, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %110, ptr noundef nonnull readonly align 8 dereferenceable(32768) %109, i64 32768, i1 false)
   br label %GC_unpromote_black_lists.exit
 
 GC_unpromote_black_lists.exit:                    ; preds = %104, %108
   %111 = load ptr, ptr @GC_old_stack_bl, align 8
   %112 = load ptr, ptr @GC_incomplete_stack_bl, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %112, ptr noundef nonnull align 8 dereferenceable(32768) %111, i64 32768, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %112, ptr noundef nonnull readonly align 8 dereferenceable(32768) %111, i64 32768, i1 false)
   br label %.loopexit
 
 113:                                              ; preds = %GC_clear_marks.exit
@@ -22482,7 +22482,7 @@ define internal fastcc void @GC_with_callee_saves_pushed(ptr noundef %0, ptr nou
   %8 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store volatile ptr null, ptr %5, align 8
-  call void asm sideeffect "fstcw $0", "=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %7) #38, !srcloc !122
+  call void asm sideeffect "fstcw $0", "=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %7) #38, !srcloc !116
   %9 = load i8, ptr @GC_with_callee_saves_pushed.getcontext_works, align 1
   %10 = icmp sgt i8 %9, -1
   br i1 %10, label %11, label %22
@@ -22514,8 +22514,8 @@ define internal fastcc void @GC_with_callee_saves_pushed(ptr noundef %0, ptr nou
   br label %22
 
 22:                                               ; preds = %17, %20, %2
-  call void asm sideeffect "fldcw $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %7) #38, !srcloc !123
-  call void asm sideeffect "stmxcsr $0", "=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8) #38, !srcloc !124
+  call void asm sideeffect "fldcw $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %7) #38, !srcloc !117
+  call void asm sideeffect "stmxcsr $0", "=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8) #38, !srcloc !118
   %23 = load i32, ptr %8, align 4
   %24 = and i32 %23, -7809
   %25 = load i16, ptr %7, align 2
@@ -22524,7 +22524,7 @@ define internal fastcc void @GC_with_callee_saves_pushed(ptr noundef %0, ptr nou
   %28 = zext nneg i16 %27 to i32
   %29 = or disjoint i32 %24, %28
   store i32 %29, ptr %8, align 4
-  call void asm sideeffect "ldmxcsr $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8) #38, !srcloc !125
+  call void asm sideeffect "ldmxcsr $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8) #38, !srcloc !119
   %.0..0..0..0.1 = load volatile ptr, ptr %5, align 8
   %30 = icmp eq ptr %.0..0..0..0.1, null
   br i1 %30, label %31, label %32
@@ -22547,8 +22547,8 @@ define internal void @callee_saves_pushed_dummy_fn(ptr nocapture readnone %0, pt
   ret void
 }
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #2
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #30
 
 ; Function Attrs: nounwind uwtable
 define internal void @GC_exit_check() #1 {
@@ -22565,12 +22565,12 @@ define internal void @GC_exit_check() #1 {
   br i1 %.not, label %6, label %GC_gcollect.exit
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @GC_thread_is_registered(), !range !8
+  %7 = tail call i32 @GC_thread_is_registered()
   %.not2 = icmp eq i32 %7, 0
   br i1 %.not2, label %GC_gcollect.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call fastcc i32 @GC_try_to_collect_general(ptr noundef null, i32 noundef 0), !range !8
+  %9 = tail call fastcc i32 @GC_try_to_collect_general(ptr noundef null, i32 noundef 0)
   %10 = load atomic volatile i64, ptr @GC_have_errors monotonic, align 8
   %11 = and i64 %10, 4294967295
   %.not.i = icmp eq i64 %11, 0
@@ -22751,7 +22751,7 @@ maybe_install_looping_handler.exit:               ; preds = %GC_setpagesize.exit
   br i1 %.not9, label %62, label %60
 
 60:                                               ; preds = %57
-  %61 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func), !range !8
+  %61 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
   br label %63
 
 62:                                               ; preds = %57
@@ -22873,7 +22873,7 @@ define internal fastcc void @GC_read_dirty(i32 noundef %0) unnamed_addr #1 {
   %41 = icmp ne ptr %.0.i, %30
   %42 = select i1 %40, i1 %41, i1 false
   %43 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %42, label %37, label %44, !llvm.loop !126
+  br i1 %42, label %37, label %44, !llvm.loop !120
 
 44:                                               ; preds = %37
   %45 = lshr i64 %31, 12
@@ -22964,7 +22964,7 @@ define internal fastcc void @GC_read_dirty(i32 noundef %0) unnamed_addr #1 {
   %87 = zext i32 %86 to i64
   %88 = load i64, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 37), align 8
   %89 = icmp ugt i64 %88, %87
-  br i1 %89, label %.lr.ph.i, label %GC_protect_heap.exit, !llvm.loop !127
+  br i1 %89, label %.lr.ph.i, label %GC_protect_heap.exit, !llvm.loop !121
 
 90:                                               ; preds = %1
   br i1 %.not, label %91, label %.loopexit.i5
@@ -23005,7 +23005,7 @@ define internal fastcc void @GC_read_dirty(i32 noundef %0) unnamed_addr #1 {
   %109 = add i64 %.019.i, 1
   %110 = load i64, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 37), align 8
   %.not17.i = icmp eq i64 %109, %110
-  br i1 %.not17.i, label %.preheader.i, label %.lr.ph.i6, !llvm.loop !128
+  br i1 %.not17.i, label %.preheader.i, label %.lr.ph.i6, !llvm.loop !122
 
 .lr.ph21.i:                                       ; preds = %.preheader.i, %.lr.ph21._crit_edge.i
   %111 = phi i32 [ %126, %.lr.ph21._crit_edge.i ], [ %93, %.preheader.i ]
@@ -23034,7 +23034,7 @@ define internal fastcc void @GC_read_dirty(i32 noundef %0) unnamed_addr #1 {
   %indvars.i = trunc i64 %121 to i32
   %126 = load i32, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 48), align 4
   %127 = icmp sgt i32 %126, %indvars.i
-  br i1 %127, label %.lr.ph21.i, label %.loopexit.i5, !llvm.loop !129
+  br i1 %127, label %.lr.ph21.i, label %.loopexit.i5, !llvm.loop !123
 
 .loopexit.i5:                                     ; preds = %.lr.ph21._crit_edge.i, %.preheader.i, %90
   %128 = load i32, ptr @clear_refs_fd, align 4
@@ -23224,7 +23224,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %65 = load i32, ptr @GC_available_markers_m1, align 4
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next.i, %66
-  br i1 %67, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !130
+  br i1 %67, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !124
 
 .loopexit.i:                                      ; preds = %64, %61, %56
   %68 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #38
@@ -23407,7 +23407,7 @@ define hidden void @GC_err_puts(ptr nocapture noundef readonly %0) local_unnamed
   %13 = tail call ptr @__errno_location() #45
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 11
-  br i1 %15, label %8, label %GC_write.exit, !llvm.loop !14
+  br i1 %15, label %8, label %GC_write.exit, !llvm.loop !13
 
 .outer.i:                                         ; preds = %8
   %16 = add nsw i32 %.012.ph17.i, %10
@@ -23416,7 +23416,7 @@ define hidden void @GC_err_puts(ptr nocapture noundef readonly %0) local_unnamed
   %19 = sext i32 %16 to i64
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
   %21 = sub i64 %4, %19
-  br i1 %18, label %.outer.split.i, label %GC_write.exit, !llvm.loop !14
+  br i1 %18, label %.outer.split.i, label %GC_write.exit, !llvm.loop !13
 
 GC_write.exit:                                    ; preds = %.outer.i, %12, %1
   %.sink.i = load i32, ptr %2, align 4
@@ -23432,7 +23432,7 @@ define void @GC_ignore_warn_proc(ptr nocapture noundef readonly %0, i64 noundef 
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void (ptr, ...) @GC_err_printf(ptr noundef %0, i64 noundef %1)
+  tail call void (ptr, ...) @GC_err_printf(ptr noundef readonly %0, i64 noundef %1)
   br label %5
 
 5:                                                ; preds = %4, %2
@@ -23616,7 +23616,7 @@ GC_write.exit.thread:                             ; preds = %4
   %16 = tail call ptr @__errno_location() #45
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 11
-  br i1 %18, label %11, label %GC_write.exit.thread14, !llvm.loop !14
+  br i1 %18, label %11, label %GC_write.exit.thread14, !llvm.loop !13
 
 GC_write.exit.thread14:                           ; preds = %15
   %.sink.i16 = load i32, ptr %3, align 4
@@ -23631,7 +23631,7 @@ GC_write.exit.thread14:                           ; preds = %15
   %23 = sext i32 %20 to i64
   %24 = getelementptr inbounds i8, ptr %0, i64 %23
   %25 = sub i64 %6, %23
-  br i1 %22, label %.outer.split.i, label %GC_write.exit, !llvm.loop !14
+  br i1 %22, label %.outer.split.i, label %GC_write.exit, !llvm.loop !13
 
 GC_write.exit:                                    ; preds = %.outer.i
   %.sink.i = load i32, ptr %3, align 4
@@ -23661,7 +23661,7 @@ GC_write.exit:                                    ; preds = %.outer.i
   %38 = tail call ptr @__errno_location() #45
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 11
-  br i1 %40, label %33, label %GC_write.exit11, !llvm.loop !14
+  br i1 %40, label %33, label %GC_write.exit11, !llvm.loop !13
 
 .outer.i6:                                        ; preds = %33
   %41 = icmp eq i32 %35, 0
@@ -23669,7 +23669,7 @@ GC_write.exit:                                    ; preds = %.outer.i
   %42 = ashr exact i64 %sext, 32
   %43 = getelementptr inbounds i8, ptr @.str.257, i64 %42
   %44 = sub nsw i64 1, %42
-  br i1 %41, label %.outer.split.i4, label %GC_write.exit11, !llvm.loop !14
+  br i1 %41, label %.outer.split.i4, label %GC_write.exit11, !llvm.loop !13
 
 GC_write.exit11:                                  ; preds = %.outer.i6, %37
   %.sink.i10 = load i32, ptr %2, align 4
@@ -23977,7 +23977,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @GC_is_disabled() local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @GC_is_disabled() local_unnamed_addr #8 {
   %1 = load i32, ptr @GC_dont_gc, align 4
   %2 = icmp ne i32 %1, 0
   %3 = zext i1 %2 to i32
@@ -24058,7 +24058,7 @@ GC_new_free_list_inner.exit:                      ; preds = %GC_lock.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @GC_new_kind(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 24) i32 @GC_new_kind(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %.b4 = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b4, label %5, label %GC_lock.exit
 
@@ -24147,7 +24147,7 @@ GC_new_kind_inner.exit:                           ; preds = %GC_lock.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @GC_new_proc_inner(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 64) i32 @GC_new_proc_inner(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load i32, ptr @GC_n_mark_procs, align 4
   %3 = icmp ult i32 %2, 64
   br i1 %3, label %4, label %8
@@ -24168,7 +24168,7 @@ define i32 @GC_new_proc_inner(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @GC_new_proc(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 64) i32 @GC_new_proc(ptr noundef %0) local_unnamed_addr #1 {
   %.b1 = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b1, label %2, label %GC_lock.exit
 
@@ -24530,7 +24530,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %32 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, %23
-  br i1 %34, label %GC_lookup_thread.exit, label %30, !llvm.loop !11
+  br i1 %34, label %GC_lookup_thread.exit, label %30, !llvm.loop !10
 
 GC_lookup_thread.exit:                            ; preds = %30, %31
   %35 = getelementptr inbounds i8, ptr %.0.i, i64 8
@@ -24643,7 +24643,7 @@ GC_lock.exit22:                                   ; preds = %.preheader.i.i20, %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %81 = load atomic volatile i64, ptr %68 acquire, align 8
   %82 = icmp eq i64 %81, %73
-  br i1 %82, label %.lr.ph.i, label %GC_suspend_self_inner.exit, !llvm.loop !131
+  br i1 %82, label %.lr.ph.i, label %GC_suspend_self_inner.exit, !llvm.loop !125
 
 GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %76
   %83 = load i32, ptr %4, align 4
@@ -24700,7 +24700,7 @@ GC_lock.exit27:                                   ; preds = %.preheader.i.i25, %
   %102 = load volatile i64, ptr %68, align 8
   %103 = and i64 %102, 1
   %.not15 = icmp eq i64 %103, 0
-  br i1 %.not15, label %._crit_edge, label %72, !llvm.loop !132
+  br i1 %.not15, label %._crit_edge, label %72, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %GC_lock.exit27, %GC_lock.exit22
   %104 = load i8, ptr %41, align 8
@@ -24877,7 +24877,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %41 = icmp ne ptr %.0.i.i, %18
   %42 = select i1 %40, i1 %41, i1 false
   %43 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %42, label %37, label %block_add_size.exit, !llvm.loop !16
+  br i1 %42, label %37, label %block_add_size.exit, !llvm.loop !15
 
 block_add_size.exit:                              ; preds = %37
   %44 = and i64 %.01720.i, 1023
@@ -24912,13 +24912,13 @@ block_add_size.exit:                              ; preds = %37
   %63 = phi i64 [ %21, %58 ], [ %21, %60 ], [ %54, %53 ]
   %.1.i = phi i64 [ %59, %58 ], [ %61, %60 ], [ %55, %53 ]
   %64 = icmp sgt i64 %.1.i, -1
-  br i1 %64, label %20, label %65, !llvm.loop !18
+  br i1 %64, label %20, label %65, !llvm.loop !17
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds i8, ptr %.023.i, i64 8192
   %.0.i = load ptr, ptr %66, align 8
   %.not.i2 = icmp eq ptr %.0.i, null
-  br i1 %.not.i2, label %GC_apply_to_all_blocks.exit, label %.preheader.i, !llvm.loop !19
+  br i1 %.not.i2, label %GC_apply_to_all_blocks.exit, label %.preheader.i, !llvm.loop !18
 
 GC_apply_to_all_blocks.exit:                      ; preds = %65, %GC_lock.exit
   %.0 = phi i64 [ 0, %GC_lock.exit ], [ %63, %65 ]
@@ -25384,8 +25384,8 @@ GC_initialize_offsets.exit:                       ; preds = %GC_lock.exit
   unreachable
 
 33:                                               ; preds = %25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %28, i8 0, i64 32768, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %27, i8 0, i64 32768, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %28, i8 0, i64 32768, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %27, i8 0, i64 32768, i1 false)
   br label %GC_bl_init_no_interiors.exit
 
 GC_bl_init_no_interiors.exit:                     ; preds = %33, %22, %GC_initialize_offsets.exit
@@ -25651,7 +25651,7 @@ declare i32 @pthread_attr_getstack(ptr noundef, ptr noundef, ptr noundef) local_
 declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_get_stack_base(ptr noundef nonnull %0) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @GC_get_stack_base(ptr noundef nonnull %0) local_unnamed_addr #1 {
   %2 = alloca %union.pthread_attr_t, align 8
   %3 = alloca i64, align 8
   %4 = tail call i64 @pthread_self() #45
@@ -25941,7 +25941,7 @@ GC_push_all_stack.exit.i.i:                       ; preds = %78, %75, %63
   %81 = getelementptr inbounds i8, ptr %.017.i.i, i64 8
   %82 = load ptr, ptr %81, align 8
   %.not.i.i = icmp eq ptr %82, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !133
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !127
 
 ._crit_edge.i.i:                                  ; preds = %GC_push_all_stack.exit.i.i, %52
   %83 = phi i32 [ %.pre19.i.i, %52 ], [ %79, %GC_push_all_stack.exit.i.i ]
@@ -26012,7 +26012,7 @@ GC_push_all_stack_sections.exit.i:                ; preds = %107, %104, %92
   %.3.i = phi i32 [ %.179.i, %.lr.ph.i ], [ %.2.i, %GC_push_all_stack_sections.exit.i ]
   %.040.i = load ptr, ptr %.04080.i, align 8
   %.not48.i = icmp eq ptr %.040.i, null
-  br i1 %.not48.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !134
+  br i1 %.not48.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !128
 
 ._crit_edge.i:                                    ; preds = %112, %4
   %.135.lcssa.i = phi i64 [ %.03484.i, %4 ], [ %.236.i, %112 ]
@@ -26020,7 +26020,7 @@ GC_push_all_stack_sections.exit.i:                ; preds = %107, %104, %92
   %.1.lcssa.i = phi i32 [ %.086.i, %4 ], [ %.3.i, %112 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %113, label %4, !llvm.loop !135
+  br i1 %exitcond.not.i, label %113, label %4, !llvm.loop !129
 
 113:                                              ; preds = %._crit_edge.i
   %114 = load i32, ptr @GC_print_stats, align 4
@@ -26062,7 +26062,7 @@ define ptr @GC_get_push_other_roots() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @GC_incremental_protection_needs() local_unnamed_addr #8 {
+define range(i32 0, 4) i32 @GC_incremental_protection_needs() local_unnamed_addr #8 {
   %1 = load i32, ptr @clear_refs_fd, align 4
   %.not = icmp eq i32 %1, -1
   %2 = load i64, ptr @GC_page_size, align 8
@@ -26073,7 +26073,7 @@ define i32 @GC_incremental_protection_needs() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @GC_get_actual_vdb() local_unnamed_addr #8 {
+define range(i32 0, 65) i32 @GC_get_actual_vdb() local_unnamed_addr #8 {
   %1 = load i32, ptr @GC_incremental, align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %5, label %2
@@ -26102,7 +26102,7 @@ define void @GC_set_pages_executable(i32 noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @GC_get_pages_executable() local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @GC_get_pages_executable() local_unnamed_addr #8 {
   %1 = load i32, ptr @GC_pages_executable, align 4
   ret i32 %1
 }
@@ -26134,7 +26134,7 @@ GC_get_maps_len.exit.thread54.i:                  ; preds = %7
 11:                                               ; preds = %7
   %12 = add i64 %8, %.07.i.i.i
   %13 = icmp sgt i64 %8, 0
-  br i1 %13, label %7, label %GC_get_maps_len.exit.i, !llvm.loop !136
+  br i1 %13, label %7, label %GC_get_maps_len.exit.i, !llvm.loop !130
 
 GC_get_maps_len.exit.i:                           ; preds = %11
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %3)
@@ -26199,7 +26199,7 @@ GC_scratch_recycle_inner.exit.i:                  ; preds = %35, %34, %18
   %38 = phi i64 [ %39, %.lr.ph.i ], [ %GC_get_maps.maps_buf_sz.promoted.i, %GC_scratch_recycle_inner.exit.i ]
   %39 = shl i64 %38, 1
   %.not28.i = icmp ult i64 %.1.i, %39
-  br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !137
+  br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !131
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   store i64 %39, ptr @GC_get_maps.maps_buf_sz, align 8
@@ -26513,7 +26513,7 @@ GC_get_maps_len.exit34.thread66.i:                ; preds = %183
 187:                                              ; preds = %183
   %188 = add i64 %184, %.07.i.i30.i
   %189 = icmp sgt i64 %184, 0
-  br i1 %189, label %183, label %GC_get_maps_len.exit34.i, !llvm.loop !136
+  br i1 %189, label %183, label %GC_get_maps_len.exit34.i, !llvm.loop !130
 
 GC_get_maps_len.exit34.i:                         ; preds = %187
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %2)
@@ -26523,7 +26523,7 @@ GC_get_maps_len.exit34.i:                         ; preds = %187
 
 .preheader73.i.backedge:                          ; preds = %GC_get_maps_len.exit34.i, %227
   %.1.i.be = phi i64 [ %188, %GC_get_maps_len.exit34.i ], [ %216, %227 ]
-  br label %.preheader73.i, !llvm.loop !138
+  br label %.preheader73.i, !llvm.loop !132
 
 GC_get_maps_len.exit34.thread.i:                  ; preds = %GC_get_maps_len.exit34.i, %179, %GC_get_maps_len.exit34.thread66.i
   %192 = load ptr, ptr @GC_on_abort, align 8
@@ -26572,7 +26572,7 @@ GC_get_maps_len.exit34.thread.i:                  ; preds = %GC_get_maps_len.exi
 209:                                              ; preds = %207
   %210 = add nuw nsw i64 %205, %.01316.i.i
   %211 = icmp ult i64 %210, %202
-  br i1 %211, label %.lr.ph.i36.i, label %GC_repeat_read.exit.thread69.loopexit.i, !llvm.loop !115
+  br i1 %211, label %.lr.ph.i36.i, label %GC_repeat_read.exit.thread69.loopexit.i, !llvm.loop !109
 
 GC_repeat_read.exit.thread.i:                     ; preds = %.lr.ph.i36.i
   %212 = tail call ptr @__errno_location() #45
@@ -26595,7 +26595,7 @@ GC_repeat_read.exit.thread69.i:                   ; preds = %GC_repeat_read.exit
   %.0.i3871.i = phi i64 [ %.0.i3871.ph.i, %GC_repeat_read.exit.thread69.loopexit.i ], [ 0, %.preheader72.i ]
   %216 = add i64 %.0.i3871.i, %.2.i
   %217 = icmp eq i64 %.0.i3871.i, %.pre-phi.i
-  br i1 %217, label %.preheader72.i, label %218, !llvm.loop !139
+  br i1 %217, label %.preheader72.i, label %218, !llvm.loop !133
 
 218:                                              ; preds = %GC_repeat_read.exit.thread69.i
   %219 = tail call i32 @close(i32 noundef %194) #38
@@ -26630,7 +26630,7 @@ GC_get_maps.exit:                                 ; preds = %227
   store i8 0, ptr %233, align 1
   tail call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.110)
   %234 = load i32, ptr @GC_stderr, align 4
-  %235 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %232) #46
+  %235 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %232) #46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   %236 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %1) #38
   %.not.i.i1 = icmp eq i64 %235, 0
@@ -26652,7 +26652,7 @@ GC_get_maps.exit:                                 ; preds = %227
   %244 = tail call ptr @__errno_location() #45
   %245 = load i32, ptr %244, align 4
   %246 = icmp eq i32 %245, 11
-  br i1 %246, label %239, label %GC_err_puts.exit, !llvm.loop !14
+  br i1 %246, label %239, label %GC_err_puts.exit, !llvm.loop !13
 
 .outer.i.i:                                       ; preds = %239
   %247 = add nsw i32 %.012.ph17.i.i, %241
@@ -26661,7 +26661,7 @@ GC_get_maps.exit:                                 ; preds = %227
   %250 = sext i32 %247 to i64
   %251 = getelementptr inbounds i8, ptr %232, i64 %250
   %252 = sub i64 %235, %250
-  br i1 %249, label %.outer.split.i.i, label %GC_err_puts.exit, !llvm.loop !14
+  br i1 %249, label %.outer.split.i.i, label %GC_err_puts.exit, !llvm.loop !13
 
 GC_err_puts.exit:                                 ; preds = %.outer.i.i, %243, %GC_get_maps.exit
   %.sink.i.i = load i32, ptr %1, align 4
@@ -26740,7 +26740,7 @@ define noalias ptr @GC_gcj_malloc(i64 noundef %0, ptr noundef %1) local_unnamed_
   br label %GC_end_stubborn_change.exit
 
 GC_end_stubborn_change.exit:                      ; preds = %33, %34
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %30) #38, !srcloc !140
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %30) #38, !srcloc !134
   br label %58
 
 43:                                               ; preds = %27
@@ -26849,7 +26849,7 @@ GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %
   %23 = load i32, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 35), align 8
   %.not5.i = icmp eq i32 %23, 0
   %or.cond.i = select i1 %.not3.i, i1 true, i1 %.not5.i
-  br i1 %or.cond.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !141
+  br i1 %or.cond.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !135
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %GC_lock.exit.i
   %24 = load i32, ptr @GC_dont_gc, align 4
@@ -26982,7 +26982,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %28 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, %0
-  br i1 %30, label %GC_lookup_thread.exit, label %26, !llvm.loop !11
+  br i1 %30, label %GC_lookup_thread.exit, label %26, !llvm.loop !10
 
 31:                                               ; preds = %26
   %.b21 = load i1, ptr @GC_need_to_lock, align 4
@@ -27094,7 +27094,7 @@ raise_signal.exit:                                ; preds = %.lr.ph.i, %60
   %77 = tail call ptr @__errno_location() #45
   %78 = load i32, ptr %77, align 4
   %.not3.i = icmp eq i32 %78, 4
-  br i1 %.not3.i, label %.preheader.i.preheader, label %79, !llvm.loop !31
+  br i1 %.not3.i, label %.preheader.i.preheader, label %79, !llvm.loop !30
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr @GC_on_abort, align 8
@@ -27172,7 +27172,7 @@ define internal void @GC_suspend_self_blocked(ptr noundef %0, ptr nocapture read
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %28 = load atomic volatile i64, ptr %15 acquire, align 8
   %29 = icmp eq i64 %28, %20
-  br i1 %29, label %.lr.ph.i, label %GC_suspend_self_inner.exit, !llvm.loop !131
+  br i1 %29, label %.lr.ph.i, label %GC_suspend_self_inner.exit, !llvm.loop !125
 
 GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %23
   %30 = load i32, ptr %4, align 4
@@ -27229,7 +27229,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %49 = load volatile i64, ptr %15, align 8
   %50 = and i64 %49, 1
   %.not = icmp eq i64 %50, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %19, !llvm.loop !142
+  br i1 %.not, label %._crit_edge.loopexit, label %19, !llvm.loop !136
 
 ._crit_edge.loopexit:                             ; preds = %GC_lock.exit
   %.pre = load i8, ptr %12, align 8
@@ -27283,7 +27283,7 @@ GC_wait_builder.exit:                             ; preds = %GC_wait_builder.exi
 13:                                               ; preds = %GC_wait_builder.exit
   %14 = tail call i32 @pthread_cond_wait(ptr noundef nonnull @builder_cv, ptr noundef nonnull @mark_mutex) #38
   %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %GC_wait_builder.exit, label %15, !llvm.loop !143
+  br i1 %.not.i, label %GC_wait_builder.exit, label %15, !llvm.loop !137
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr @GC_on_abort, align 8
@@ -27375,7 +27375,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %28 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, %0
-  br i1 %30, label %GC_lookup_thread.exit, label %26, !llvm.loop !11
+  br i1 %30, label %GC_lookup_thread.exit, label %26, !llvm.loop !10
 
 GC_lookup_thread.exit:                            ; preds = %27
   %31 = getelementptr inbounds i8, ptr %.0.i, i64 16
@@ -27447,7 +27447,7 @@ raise_signal.exit:                                ; preds = %.lr.ph.i, %41
   %62 = tail call ptr @__errno_location() #45
   %63 = load i32, ptr %62, align 4
   %.not3.i = icmp eq i32 %63, 4
-  br i1 %.not3.i, label %59, label %64, !llvm.loop !31
+  br i1 %.not3.i, label %59, label %64, !llvm.loop !30
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr @GC_on_abort, align 8
@@ -27473,7 +27473,7 @@ GC_lookup_thread.exit.thread:                     ; preds = %26, %35, %suspend_r
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @GC_is_thread_suspended(i64 noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @GC_is_thread_suspended(i64 noundef %0) local_unnamed_addr #1 {
   %.b4 = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b4, label %2, label %GC_lock.exit
 
@@ -27540,7 +27540,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %27 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, %0
-  br i1 %29, label %GC_lookup_thread.exit, label %25, !llvm.loop !11
+  br i1 %29, label %GC_lookup_thread.exit, label %25, !llvm.loop !10
 
 GC_lookup_thread.exit:                            ; preds = %26
   %30 = getelementptr inbounds i8, ptr %.0.i, i64 40
@@ -27597,7 +27597,7 @@ GC_push_all.exit:                                 ; preds = %0, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @GC_thread_is_registered() local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @GC_thread_is_registered() local_unnamed_addr #1 {
   %.b1.i = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b1.i, label %1, label %GC_lock.exit.i
 
@@ -27665,7 +27665,7 @@ GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %
   %27 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, %18
-  br i1 %29, label %GC_lookup_thread.exit.i, label %25, !llvm.loop !11
+  br i1 %29, label %GC_lookup_thread.exit.i, label %25, !llvm.loop !10
 
 GC_lookup_thread.exit.i:                          ; preds = %26, %25
   %.b.i = load i1, ptr @GC_need_to_lock, align 4
@@ -27760,7 +27760,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %31 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = icmp eq i64 %32, %22
-  br i1 %33, label %GC_lookup_thread.exit, label %29, !llvm.loop !11
+  br i1 %33, label %GC_lookup_thread.exit, label %29, !llvm.loop !10
 
 GC_lookup_thread.exit:                            ; preds = %29, %30
   %spec.store.select = phi ptr [ @first_thread, %29 ], [ %.0.i, %30 ]
@@ -27996,7 +27996,7 @@ define internal void @fork_child_proc() #1 {
   %4 = tail call i32 @close(i32 noundef %1) #38
   %5 = load i32, ptr @pagemap_fd, align 4
   %6 = tail call i32 @close(i32 noundef %5) #38
-  %7 = tail call fastcc i32 @soft_dirty_open_files(), !range !8
+  %7 = tail call fastcc i32 @soft_dirty_open_files()
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %8, label %GC_dirty_update_child.exit
 
@@ -28074,7 +28074,7 @@ GC_release_mark_lock.exit:                        ; preds = %10
   %38 = icmp ne ptr %.0.i.i.i, %33
   %39 = select i1 %37, i1 %38, i1 false
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %39, label %34, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %39, label %34, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %34
   %41 = lshr i64 %29, 12
@@ -28162,7 +28162,7 @@ GC_free_inner.exit.i:                             ; preds = %77, %66
   %89 = icmp ne ptr %.0.i.i27.i, %84
   %90 = select i1 %88, i1 %89, i1 false
   %91 = getelementptr inbounds i8, ptr %.0.i.i27.i, i64 8216
-  br i1 %90, label %85, label %GC_find_header.exit.i28.i, !llvm.loop !16
+  br i1 %90, label %85, label %GC_find_header.exit.i28.i, !llvm.loop !15
 
 GC_find_header.exit.i28.i:                        ; preds = %85
   %92 = lshr i64 %80, 12
@@ -28235,14 +28235,14 @@ GC_find_header.exit.i28.i:                        ; preds = %85
 GC_free_inner.exit33.i:                           ; preds = %127, %116, %25, %24
   %.2.i = phi ptr [ %.02435.i, %24 ], [ %.136.i, %25 ], [ %.136.i, %116 ], [ %.136.i, %127 ]
   %.not.i3 = icmp eq ptr %19, null
-  br i1 %.not.i3, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !144
+  br i1 %.not.i3, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !138
 
 ._crit_edge.i:                                    ; preds = %GC_free_inner.exit33.i, %16
   %.1.lcssa.i = phi ptr [ %.02337.i, %16 ], [ %.2.i, %GC_free_inner.exit33.i ]
   store ptr null, ptr %17, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %GC_remove_all_threads_but_me.exit, label %16, !llvm.loop !145
+  br i1 %exitcond.not.i, label %GC_remove_all_threads_but_me.exit, label %16, !llvm.loop !139
 
 GC_remove_all_threads_but_me.exit:                ; preds = %._crit_edge.i
   %130 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 16
@@ -28348,11 +28348,11 @@ define void @GC_set_stackbottom(ptr noundef readonly %0, ptr nocapture noundef n
 
 13:                                               ; preds = %13, %5
   %.0.in.i = phi ptr [ %12, %5 ], [ %.0.i, %13 ]
-  %.0.i = load ptr, ptr %.0.in.i, align 8, !nonnull !146, !noundef !146
+  %.0.i = load ptr, ptr %.0.in.i, align 8, !nonnull !140, !noundef !140
   %14 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, %6
-  br i1 %16, label %GC_lookup_thread.exit, label %13, !llvm.loop !11
+  br i1 %16, label %GC_lookup_thread.exit, label %13, !llvm.loop !10
 
 GC_lookup_thread.exit:                            ; preds = %13, %3
   %.0 = phi ptr [ %0, %3 ], [ %.0.i, %13 ]
@@ -28436,7 +28436,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %28 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, %19
-  br i1 %30, label %GC_lookup_thread.exit, label %26, !llvm.loop !11
+  br i1 %30, label %GC_lookup_thread.exit, label %26, !llvm.loop !10
 
 GC_lookup_thread.exit:                            ; preds = %26, %27
   %31 = getelementptr inbounds i8, ptr %.0.i, i64 8
@@ -28528,7 +28528,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %33 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, %24
-  br i1 %35, label %GC_lookup_thread.exit, label %31, !llvm.loop !11
+  br i1 %35, label %GC_lookup_thread.exit, label %31, !llvm.loop !10
 
 GC_lookup_thread.exit:                            ; preds = %31, %32
   %36 = getelementptr inbounds i8, ptr %.0.i, i64 8
@@ -28598,7 +28598,7 @@ GC_lookup_thread.exit:                            ; preds = %31, %32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %65 = load atomic volatile i64, ptr %47 acquire, align 8
   %66 = icmp eq i64 %65, %57
-  br i1 %66, label %.lr.ph.i, label %GC_suspend_self_inner.exit, !llvm.loop !131
+  br i1 %66, label %.lr.ph.i, label %GC_suspend_self_inner.exit, !llvm.loop !125
 
 GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %60
   %67 = load i32, ptr %4, align 4
@@ -28655,7 +28655,7 @@ GC_lock.exit36:                                   ; preds = %.preheader.i.i34, %
   %86 = load volatile i64, ptr %47, align 8
   %87 = and i64 %86, 1
   %.not28 = icmp eq i64 %87, 0
-  br i1 %.not28, label %._crit_edge.loopexit, label %56, !llvm.loop !147
+  br i1 %.not28, label %._crit_edge.loopexit, label %56, !llvm.loop !141
 
 ._crit_edge.loopexit:                             ; preds = %GC_lock.exit36
   %.pre = load i8, ptr %43, align 8
@@ -28822,7 +28822,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %29 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, %20
-  br i1 %31, label %GC_lookup_thread.exit, label %27, !llvm.loop !11
+  br i1 %31, label %GC_lookup_thread.exit, label %27, !llvm.loop !10
 
 GC_lookup_thread.exit:                            ; preds = %27, %28
   call fastcc void @GC_unregister_my_thread_inner(ptr noundef %.0.i)
@@ -28927,7 +28927,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %32 = load i64, ptr @GC_gc_no, align 8
   %33 = icmp eq i64 %5, %32
   %34 = select i1 %6, i1 true, i1 %33
-  br i1 %34, label %7, label %.critedge, !llvm.loop !148
+  br i1 %34, label %7, label %.critedge, !llvm.loop !142
 
 .critedge:                                        ; preds = %GC_lock.exit, %31, %1
   ret void
@@ -28971,7 +28971,7 @@ define internal fastcc void @GC_unregister_my_thread_inner(ptr noundef %0) unnam
   %.0.i.i.i = phi ptr [ %18, %.preheader.i.i.i ], [ %12, %14 ]
   %18 = load ptr, ptr %.0.i.i.i, align 8
   %19 = icmp ugt ptr %18, inttoptr (i64 4095 to ptr)
-  br i1 %19, label %.preheader.i.i.i, label %20, !llvm.loop !149
+  br i1 %19, label %.preheader.i.i.i, label %20, !llvm.loop !143
 
 20:                                               ; preds = %.preheader.i.i.i
   store ptr %16, ptr %.0.i.i.i, align 8
@@ -28985,7 +28985,7 @@ return_single_freelist.exit.i.i:                  ; preds = %20, %14
   store ptr inttoptr (i64 4096 to ptr), ptr %11, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 25
-  br i1 %exitcond.not.i.i, label %22, label %10, !llvm.loop !150
+  br i1 %exitcond.not.i.i, label %22, label %10, !llvm.loop !144
 
 22:                                               ; preds = %21
   %23 = load ptr, ptr %7, align 8
@@ -29004,7 +29004,7 @@ return_single_freelist.exit.i.i:                  ; preds = %20, %14
   %.0.i15.i.i = phi ptr [ %29, %.preheader.i14.i.i ], [ %23, %25 ]
   %29 = load ptr, ptr %.0.i15.i.i, align 8
   %30 = icmp ugt ptr %29, inttoptr (i64 4095 to ptr)
-  br i1 %30, label %.preheader.i14.i.i, label %31, !llvm.loop !149
+  br i1 %30, label %.preheader.i14.i.i, label %31, !llvm.loop !143
 
 31:                                               ; preds = %.preheader.i14.i.i
   store ptr %27, ptr %.0.i15.i.i, align 8
@@ -29017,7 +29017,7 @@ return_single_freelist.exit16.i.i:                ; preds = %31, %25
 return_freelists.exit.i:                          ; preds = %return_single_freelist.exit16.i.i, %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !151
+  br i1 %exitcond.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !145
 
 ._crit_edge.i:                                    ; preds = %return_freelists.exit.i, %1
   %32 = getelementptr inbounds i8, ptr %0, i64 656
@@ -29041,7 +29041,7 @@ return_freelists.exit.i:                          ; preds = %return_single_freel
   %.0.i.i16.i = phi ptr [ %42, %.preheader.i.i15.i ], [ %36, %38 ]
   %42 = load ptr, ptr %.0.i.i16.i, align 8
   %43 = icmp ugt ptr %42, inttoptr (i64 4095 to ptr)
-  br i1 %43, label %.preheader.i.i15.i, label %44, !llvm.loop !149
+  br i1 %43, label %.preheader.i.i15.i, label %44, !llvm.loop !143
 
 44:                                               ; preds = %.preheader.i.i15.i
   store ptr %40, ptr %.0.i.i16.i, align 8
@@ -29055,7 +29055,7 @@ return_single_freelist.exit.i17.i:                ; preds = %44, %38
   store ptr inttoptr (i64 4096 to ptr), ptr %35, align 8
   %indvars.iv.next.i8.i = add nuw nsw i64 %indvars.iv.i7.i, 1
   %exitcond.not.i9.i = icmp eq i64 %indvars.iv.next.i8.i, 25
-  br i1 %exitcond.not.i9.i, label %46, label %34, !llvm.loop !150
+  br i1 %exitcond.not.i9.i, label %46, label %34, !llvm.loop !144
 
 46:                                               ; preds = %45
   %47 = load ptr, ptr %32, align 8
@@ -29074,7 +29074,7 @@ return_single_freelist.exit.i17.i:                ; preds = %44, %38
   %.0.i15.i13.i = phi ptr [ %53, %.preheader.i14.i12.i ], [ %47, %49 ]
   %53 = load ptr, ptr %.0.i15.i13.i, align 8
   %54 = icmp ugt ptr %53, inttoptr (i64 4095 to ptr)
-  br i1 %54, label %.preheader.i14.i12.i, label %55, !llvm.loop !149
+  br i1 %54, label %.preheader.i14.i12.i, label %55, !llvm.loop !143
 
 55:                                               ; preds = %.preheader.i14.i12.i
   store ptr %51, ptr %.0.i15.i13.i, align 8
@@ -29185,7 +29185,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %27 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, %0
-  br i1 %29, label %GC_lookup_thread.exit, label %25, !llvm.loop !11
+  br i1 %29, label %GC_lookup_thread.exit, label %25, !llvm.loop !10
 
 GC_lookup_thread.exit:                            ; preds = %26
   %30 = getelementptr inbounds i8, ptr %.0.i, i64 24
@@ -29286,7 +29286,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %28 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, %19
-  br i1 %30, label %GC_lookup_thread.exit, label %26, !llvm.loop !11
+  br i1 %30, label %GC_lookup_thread.exit, label %26, !llvm.loop !10
 
 GC_lookup_thread.exit:                            ; preds = %27
   %31 = getelementptr inbounds i8, ptr %.0.i, i64 24
@@ -29327,7 +29327,7 @@ define void @GC_allow_register_threads() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @GC_register_my_thread(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @GC_register_my_thread(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #1 {
   %.b13 = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b13, label %4, label %2
 
@@ -29401,7 +29401,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %30 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %31, %21
-  br i1 %32, label %GC_lookup_thread.exit, label %28, !llvm.loop !11
+  br i1 %32, label %GC_lookup_thread.exit, label %28, !llvm.loop !10
 
 33:                                               ; preds = %28
   %34 = tail call fastcc ptr @GC_register_my_thread_inner(ptr noundef nonnull %0, i64 noundef %21)
@@ -29470,14 +29470,14 @@ GC_record_stack_base.exit:                        ; preds = %41
   store ptr inttoptr (i64 1 to ptr), ptr %59, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %60, label %58, !llvm.loop !12
+  br i1 %exitcond.not.i, label %60, label %58, !llvm.loop !11
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds [25 x ptr], ptr %57, i64 0, i64 %indvars.iv16.i
   store ptr inttoptr (i64 1 to ptr), ptr %61, align 8
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 25
-  br i1 %exitcond19.not.i, label %GC_init_thread_local.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %exitcond19.not.i, label %GC_init_thread_local.exit, label %.preheader.i, !llvm.loop !12
 
 GC_init_thread_local.exit:                        ; preds = %60
   store ptr inttoptr (i64 -1 to ptr), ptr %57, align 8
@@ -29723,7 +29723,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %28 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, %0
-  br i1 %30, label %GC_lookup_thread.exit, label %26, !llvm.loop !11
+  br i1 %30, label %GC_lookup_thread.exit, label %26, !llvm.loop !10
 
 GC_lookup_thread.exit:                            ; preds = %26, %27
   %.b7 = load i1, ptr @GC_need_to_lock, align 4
@@ -29828,7 +29828,7 @@ define internal fastcc void @GC_delete_thread(ptr noundef readonly %0) unnamed_a
   %.0 = phi ptr [ null, %1 ], [ %.018, %10 ]
   %.018 = load ptr, ptr %.018.in, align 8
   %.not = icmp eq ptr %.018, %0
-  br i1 %.not, label %11, label %10, !llvm.loop !152
+  br i1 %.not, label %11, label %10, !llvm.loop !146
 
 11:                                               ; preds = %10
   %12 = icmp eq ptr %.0, null
@@ -29878,7 +29878,7 @@ define internal fastcc void @GC_delete_thread(ptr noundef readonly %0) unnamed_a
   %38 = icmp ne ptr %.0.i.i, %33
   %39 = select i1 %37, i1 %38, i1 false
   %40 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %39, label %34, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %39, label %34, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %34
   %41 = lshr i64 %29, 12
@@ -29966,7 +29966,7 @@ GC_free_inner.exit:                               ; preds = %66, %77
   %89 = icmp ne ptr %.0.i.i21, %84
   %90 = select i1 %88, i1 %89, i1 false
   %91 = getelementptr inbounds i8, ptr %.0.i.i21, i64 8216
-  br i1 %90, label %85, label %GC_find_header.exit.i22, !llvm.loop !16
+  br i1 %90, label %85, label %GC_find_header.exit.i22, !llvm.loop !15
 
 GC_find_header.exit.i22:                          ; preds = %85
   %92 = lshr i64 %80, 12
@@ -30108,7 +30108,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %27 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, %0
-  br i1 %29, label %GC_lookup_thread.exit, label %25, !llvm.loop !11
+  br i1 %29, label %GC_lookup_thread.exit, label %25, !llvm.loop !10
 
 GC_lookup_thread.exit:                            ; preds = %25, %26
   %.b7 = load i1, ptr @GC_need_to_lock, align 4
@@ -30282,14 +30282,14 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   store ptr inttoptr (i64 1 to ptr), ptr %33, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %34, label %32, !llvm.loop !12
+  br i1 %exitcond.not.i, label %34, label %32, !llvm.loop !11
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds [25 x ptr], ptr %31, i64 0, i64 %indvars.iv16.i
   store ptr inttoptr (i64 1 to ptr), ptr %35, align 8
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 25
-  br i1 %exitcond19.not.i, label %GC_init_thread_local.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %exitcond19.not.i, label %GC_init_thread_local.exit, label %.preheader.i, !llvm.loop !12
 
 GC_init_thread_local.exit:                        ; preds = %34
   store ptr inttoptr (i64 -1 to ptr), ptr %31, align 8
@@ -30400,7 +30400,7 @@ define i32 @GC_pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %41 = tail call ptr @__errno_location() #45
   %42 = load i32, ptr %41, align 4
   %.not11 = icmp eq i32 %42, 4
-  br i1 %.not11, label %38, label %43, !llvm.loop !153
+  br i1 %.not11, label %38, label %43, !llvm.loop !147
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr @GC_on_abort, align 8
@@ -30716,7 +30716,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @GC_mark_some(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @GC_mark_some(ptr noundef %0) unnamed_addr #1 {
   %2 = load i32, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 35), align 8
   switch i32 %2, label %657 [
     i32 0, label %659
@@ -30779,7 +30779,7 @@ define internal fastcc noundef i32 @GC_mark_some(ptr noundef %0) unnamed_addr #1
   %28 = icmp ne ptr %.0.i.i, %16
   %29 = select i1 %27, i1 %28, i1 false
   %30 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %29, label %24, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %29, label %24, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %24
   %31 = lshr i64 %20, 12
@@ -30808,7 +30808,7 @@ GC_find_header.exit.i:                            ; preds = %24
   %43 = icmp ne ptr %.028.i.i, %16
   %44 = select i1 %42, i1 %43, i1 false
   %45 = getelementptr inbounds i8, ptr %.028.i.i, i64 8216
-  br i1 %44, label %.critedge.i, label %46, !llvm.loop !154
+  br i1 %44, label %.critedge.i, label %46, !llvm.loop !148
 
 46:                                               ; preds = %.critedge.i
   %47 = icmp eq ptr %.028.i.i, %16
@@ -30833,7 +30833,7 @@ GC_find_header.exit.i:                            ; preds = %24
   %52 = getelementptr inbounds i8, ptr %.02739.i.i, i64 8192
   %.027.i.i = load ptr, ptr %52, align 8
   %.not.i.i = icmp eq ptr %.027.i.i, null
-  br i1 %.not.i.i, label %GC_push_next_marked_dirty.exit, label %.lr.ph.i.i, !llvm.loop !155
+  br i1 %.not.i.i, label %GC_push_next_marked_dirty.exit, label %.lr.ph.i.i, !llvm.loop !149
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %70
   %.245.i.i = phi ptr [ %72, %70 ], [ %.245.i.i.ph, %.preheader.i.i.preheader ]
@@ -30868,13 +30868,13 @@ GC_find_header.exit.i:                            ; preds = %24
 68:                                               ; preds = %63, %57
   %.3.i.i = phi i64 [ %58, %57 ], [ %67, %63 ]
   %69 = icmp ult i64 %.3.i.i, 1024
-  br i1 %69, label %53, label %70, !llvm.loop !156
+  br i1 %69, label %53, label %70, !llvm.loop !150
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds i8, ptr %.245.i.i, i64 8192
   %72 = load ptr, ptr %71, align 8
   %.not32.i.i = icmp eq ptr %72, null
-  br i1 %.not32.i.i, label %GC_push_next_marked_dirty.exit, label %.preheader.i.i, !llvm.loop !157
+  br i1 %.not32.i.i, label %GC_push_next_marked_dirty.exit, label %.preheader.i.i, !llvm.loop !151
 
 GC_next_block.exit.i:                             ; preds = %59
   %73 = getelementptr inbounds i8, ptr %.245.i.i, i64 8208
@@ -30901,7 +30901,7 @@ GC_next_block.exit.i:                             ; preds = %59
   %88 = icmp ne ptr %.0.i25.i, %16
   %89 = select i1 %87, i1 %88, i1 false
   %90 = getelementptr inbounds i8, ptr %.0.i25.i, i64 8216
-  br i1 %89, label %84, label %GC_find_header.exit26.i, !llvm.loop !16
+  br i1 %89, label %84, label %GC_find_header.exit26.i, !llvm.loop !15
 
 GC_find_header.exit26.i:                          ; preds = %84
   %91 = and i64 %.23142.i.i, 1023
@@ -30938,7 +30938,7 @@ GC_find_header.exit26.i:                          ; preds = %84
   %108 = icmp ne ptr %.0.i.i.i.i, %16
   %109 = select i1 %107, i1 %108, i1 false
   %110 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 8216
-  br i1 %109, label %104, label %GC_find_header.exit.i.i.i, !llvm.loop !16
+  br i1 %109, label %104, label %GC_find_header.exit.i.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i.i:                        ; preds = %104
   %111 = lshr i64 %.pre-phi.i, 12
@@ -30952,7 +30952,7 @@ GC_find_header.exit.i.i.i:                        ; preds = %104
   %117 = getelementptr inbounds i8, ptr %.01019.i.i, i64 4096
   %118 = ptrtoint ptr %117 to i64
   %119 = icmp ugt i64 %98, %118
-  br i1 %119, label %.lr.ph.i29.i, label %GC_block_was_dirty.exit.thread52.i, !llvm.loop !158
+  br i1 %119, label %.lr.ph.i29.i, label %GC_block_was_dirty.exit.thread52.i, !llvm.loop !152
 
 .lr.ph.i29.i:                                     ; preds = %.preheader.i27.i, %116
   %120 = phi i64 [ %118, %116 ], [ %.pre-phi.i, %.preheader.i27.i ]
@@ -30971,7 +30971,7 @@ GC_find_header.exit.i.i.i:                        ; preds = %104
   %128 = icmp ne ptr %.0.i.i13.i.i, %16
   %129 = select i1 %127, i1 %128, i1 false
   %130 = getelementptr inbounds i8, ptr %.0.i.i13.i.i, i64 8216
-  br i1 %129, label %124, label %GC_find_header.exit.i14.i.i, !llvm.loop !16
+  br i1 %129, label %124, label %GC_find_header.exit.i14.i.i, !llvm.loop !15
 
 GC_find_header.exit.i14.i.i:                      ; preds = %124
   %131 = lshr i64 %120, 12
@@ -31091,7 +31091,7 @@ GC_push_obj.exit.i.i:                             ; preds = %GC_custom_push_proc
   %.1.i33.i = phi ptr [ %.01720.i.i, %.lr.ph.i31.i ], [ %.01720.i.i, %173 ], [ %.0.i.i.i32.i, %GC_custom_push_proc.exit.i.i.i ]
   %186 = getelementptr inbounds i8, ptr %.021.i.i, i64 %96
   %.not.i34.i = icmp ugt ptr %186, %169
-  br i1 %.not.i34.i, label %GC_push_unconditionally.exit.sink.split.i, label %.lr.ph.i31.i, !llvm.loop !159
+  br i1 %.not.i34.i, label %GC_push_unconditionally.exit.sink.split.i, label %.lr.ph.i31.i, !llvm.loop !153
 
 187:                                              ; preds = %GC_block_was_dirty.exit.thread.i
   br i1 %159, label %GC_push_unconditionally.exit.i, label %188
@@ -31177,7 +31177,7 @@ GC_push_obj.exit.i45.i:                           ; preds = %GC_custom_push_proc
   %219 = getelementptr inbounds i8, ptr %.029.i37.i, i64 %96
   %220 = add i64 %.02327.i.i, %194
   %.not24.i.i = icmp ugt ptr %219, %200
-  br i1 %.not24.i.i, label %GC_push_unconditionally.exit.sink.split.i, label %203, !llvm.loop !160
+  br i1 %.not24.i.i, label %GC_push_unconditionally.exit.sink.split.i, label %203, !llvm.loop !154
 
 GC_push_unconditionally.exit.sink.split.i:        ; preds = %GC_push_obj.exit.i.i, %GC_push_obj.exit.i45.i, %191, %161
   %.022.lcssa.i.sink.i = phi ptr [ %170, %161 ], [ %201, %191 ], [ %.1.i46.i, %GC_push_obj.exit.i45.i ], [ %.1.i33.i, %GC_push_obj.exit.i.i ]
@@ -31253,7 +31253,7 @@ GC_push_next_marked_dirty.exit:                   ; preds = %.preheader34.i.i, %
   %254 = icmp ne ptr %.0.i.i22, %249
   %255 = select i1 %253, i1 %254, i1 false
   %256 = getelementptr inbounds i8, ptr %.0.i.i22, i64 8216
-  br i1 %255, label %250, label %GC_find_header.exit.i23, !llvm.loop !16
+  br i1 %255, label %250, label %GC_find_header.exit.i23, !llvm.loop !15
 
 GC_find_header.exit.i23:                          ; preds = %250
   %257 = lshr i64 %245, 12
@@ -31293,7 +31293,7 @@ GC_find_header.exit.i23:                          ; preds = %250
   %274 = icmp ne ptr %.028.i.i30, %249
   %275 = select i1 %273, i1 %274, i1 false
   %276 = getelementptr inbounds i8, ptr %.028.i.i30, i64 8216
-  br i1 %275, label %270, label %277, !llvm.loop !154
+  br i1 %275, label %270, label %277, !llvm.loop !148
 
 277:                                              ; preds = %270
   %278 = lshr i64 %266, 12
@@ -31320,7 +31320,7 @@ GC_find_header.exit.i23:                          ; preds = %250
   %285 = getelementptr inbounds i8, ptr %.02739.i.i63, i64 8192
   %.027.i.i64 = load ptr, ptr %285, align 8
   %.not.i.i65 = icmp eq ptr %.027.i.i64, null
-  br i1 %.not.i.i65, label %GC_push_next_marked_uncollectable.exit, label %.lr.ph.i.i62, !llvm.loop !155
+  br i1 %.not.i.i65, label %GC_push_next_marked_uncollectable.exit, label %.lr.ph.i.i62, !llvm.loop !149
 
 .preheader.i.i34:                                 ; preds = %.preheader.i.i34.preheader, %303
   %.245.i.i35 = phi ptr [ %305, %303 ], [ %.245.i.i35.ph, %.preheader.i.i34.preheader ]
@@ -31355,13 +31355,13 @@ GC_find_header.exit.i23:                          ; preds = %250
 301:                                              ; preds = %296, %290
   %.3.i.i39 = phi i64 [ %291, %290 ], [ %300, %296 ]
   %302 = icmp ult i64 %.3.i.i39, 1024
-  br i1 %302, label %286, label %303, !llvm.loop !156
+  br i1 %302, label %286, label %303, !llvm.loop !150
 
 303:                                              ; preds = %301
   %304 = getelementptr inbounds i8, ptr %.245.i.i35, i64 8192
   %305 = load ptr, ptr %304, align 8
   %.not32.i.i40 = icmp eq ptr %305, null
-  br i1 %.not32.i.i40, label %GC_push_next_marked_uncollectable.exit, label %.preheader.i.i34, !llvm.loop !157
+  br i1 %.not32.i.i40, label %GC_push_next_marked_uncollectable.exit, label %.preheader.i.i34, !llvm.loop !151
 
 GC_next_block.exit.i41:                           ; preds = %292
   %306 = getelementptr inbounds i8, ptr %.245.i.i35, i64 8208
@@ -31388,7 +31388,7 @@ GC_next_block.exit.i41:                           ; preds = %292
   %321 = icmp ne ptr %.0.i24.i, %249
   %322 = select i1 %320, i1 %321, i1 false
   %323 = getelementptr inbounds i8, ptr %.0.i24.i, i64 8216
-  br i1 %322, label %317, label %GC_find_header.exit25.i, !llvm.loop !16
+  br i1 %322, label %317, label %GC_find_header.exit25.i, !llvm.loop !15
 
 GC_find_header.exit25.i:                          ; preds = %317
   %324 = and i64 %.23142.i.i37, 1023
@@ -31494,7 +31494,7 @@ GC_push_obj.exit.i.i59:                           ; preds = %GC_custom_push_proc
   %369 = getelementptr inbounds i8, ptr %.029.i28.i, i64 %333
   %370 = add i64 %.02327.i.i50, %344
   %.not24.i.i60 = icmp ugt ptr %369, %350
-  br i1 %.not24.i.i60, label %GC_push_marked.exit.sink.split.i, label %353, !llvm.loop !160
+  br i1 %.not24.i.i60, label %GC_push_marked.exit.sink.split.i, label %353, !llvm.loop !154
 
 371:                                              ; preds = %327
   %372 = getelementptr inbounds i8, ptr %.1.i42, i64 25
@@ -31580,7 +31580,7 @@ GC_push_obj.exit.i38.i:                           ; preds = %GC_custom_push_proc
   %.1.i39.i = phi ptr [ %.01720.i.i46, %.lr.ph.i30.i ], [ %.01720.i.i46, %394 ], [ %.0.i.i.i37.i, %GC_custom_push_proc.exit.i.i36.i ]
   %407 = getelementptr inbounds i8, ptr %.021.i.i45, i64 %376
   %.not.i40.i = icmp ugt ptr %407, %390
-  br i1 %.not.i40.i, label %GC_push_marked.exit.sink.split.i, label %.lr.ph.i30.i, !llvm.loop !159
+  br i1 %.not.i40.i, label %GC_push_marked.exit.sink.split.i, label %.lr.ph.i30.i, !llvm.loop !153
 
 408:                                              ; preds = %371
   %409 = add i64 %376, 4095
@@ -31601,7 +31601,7 @@ GC_push_obj.exit.i38.i:                           ; preds = %GC_custom_push_proc
   %420 = icmp ne ptr %.0.i43.i, %249
   %421 = select i1 %419, i1 %420, i1 false
   %422 = getelementptr inbounds i8, ptr %.0.i43.i, i64 8216
-  br i1 %421, label %416, label %GC_find_header.exit44.i, !llvm.loop !16
+  br i1 %421, label %416, label %GC_find_header.exit44.i, !llvm.loop !15
 
 GC_find_header.exit44.i:                          ; preds = %416
   %423 = lshr i64 %412, 12
@@ -31722,7 +31722,7 @@ GC_wait_marker.exit.i:                            ; preds = %462, %GC_notify_all
 462:                                              ; preds = %GC_wait_marker.exit.i
   %463 = tail call i32 @pthread_cond_wait(ptr noundef nonnull @mark_cv, ptr noundef nonnull @mark_mutex) #38
   %.not.i6.i = icmp eq i32 %463, 0
-  br i1 %.not.i6.i, label %GC_wait_marker.exit.i, label %464, !llvm.loop !161
+  br i1 %.not.i6.i, label %GC_wait_marker.exit.i, label %464, !llvm.loop !155
 
 464:                                              ; preds = %462
   %465 = load ptr, ptr @GC_on_abort, align 8
@@ -31898,7 +31898,7 @@ GC_do_parallel_mark.exit:                         ; preds = %GC_release_mark_loc
   %544 = icmp ne ptr %.0.i.i69, %539
   %545 = select i1 %543, i1 %544, i1 false
   %546 = getelementptr inbounds i8, ptr %.0.i.i69, i64 8216
-  br i1 %545, label %540, label %GC_find_header.exit.i70, !llvm.loop !16
+  br i1 %545, label %540, label %GC_find_header.exit.i70, !llvm.loop !15
 
 GC_find_header.exit.i70:                          ; preds = %540
   %547 = lshr i64 %535, 12
@@ -31927,7 +31927,7 @@ GC_find_header.exit.i70:                          ; preds = %540
   %559 = icmp ne ptr %.028.i.i74, %539
   %560 = select i1 %558, i1 %559, i1 false
   %561 = getelementptr inbounds i8, ptr %.028.i.i74, i64 8216
-  br i1 %560, label %.critedge.i72, label %562, !llvm.loop !154
+  br i1 %560, label %.critedge.i72, label %562, !llvm.loop !148
 
 562:                                              ; preds = %.critedge.i72
   %563 = icmp eq ptr %.028.i.i74, %539
@@ -31954,7 +31954,7 @@ GC_find_header.exit.i70:                          ; preds = %540
   %568 = getelementptr inbounds i8, ptr %.02739.i.i105, i64 8192
   %.027.i.i106 = load ptr, ptr %568, align 8
   %.not.i.i107 = icmp eq ptr %.027.i.i106, null
-  br i1 %.not.i.i107, label %GC_push_next_marked.exit, label %.lr.ph.i.i104, !llvm.loop !155
+  br i1 %.not.i.i107, label %GC_push_next_marked.exit, label %.lr.ph.i.i104, !llvm.loop !149
 
 .preheader.i.i78:                                 ; preds = %.preheader.i.i78.preheader, %586
   %.245.i.i79 = phi ptr [ %588, %586 ], [ %.245.i.i79.ph, %.preheader.i.i78.preheader ]
@@ -31989,13 +31989,13 @@ GC_find_header.exit.i70:                          ; preds = %540
 584:                                              ; preds = %579, %573
   %.3.i.i83 = phi i64 [ %574, %573 ], [ %583, %579 ]
   %585 = icmp ult i64 %.3.i.i83, 1024
-  br i1 %585, label %569, label %586, !llvm.loop !156
+  br i1 %585, label %569, label %586, !llvm.loop !150
 
 586:                                              ; preds = %584
   %587 = getelementptr inbounds i8, ptr %.245.i.i79, i64 8192
   %588 = load ptr, ptr %587, align 8
   %.not32.i.i84 = icmp eq ptr %588, null
-  br i1 %.not32.i.i84, label %GC_push_next_marked.exit, label %.preheader.i.i78, !llvm.loop !157
+  br i1 %.not32.i.i84, label %GC_push_next_marked.exit, label %.preheader.i.i78, !llvm.loop !151
 
 GC_next_block.exit.i85:                           ; preds = %575
   %589 = getelementptr inbounds i8, ptr %.245.i.i79, i64 8208
@@ -32022,7 +32022,7 @@ GC_next_block.exit.i85:                           ; preds = %575
   %604 = icmp ne ptr %.0.i16.i, %539
   %605 = select i1 %603, i1 %604, i1 false
   %606 = getelementptr inbounds i8, ptr %.0.i16.i, i64 8216
-  br i1 %605, label %600, label %GC_find_header.exit17.i, !llvm.loop !16
+  br i1 %605, label %600, label %GC_find_header.exit17.i, !llvm.loop !15
 
 GC_find_header.exit17.i:                          ; preds = %600
   %607 = and i64 %.23142.i.i81, 1023
@@ -32122,7 +32122,7 @@ GC_push_obj.exit.i.i98:                           ; preds = %GC_custom_push_proc
   %648 = getelementptr inbounds i8, ptr %.029.i20.i, i64 %612
   %649 = add i64 %.02327.i.i89, %623
   %.not24.i.i99 = icmp ugt ptr %648, %629
-  br i1 %.not24.i.i99, label %._crit_edge.i.i.loopexit, label %632, !llvm.loop !160
+  br i1 %.not24.i.i99, label %._crit_edge.i.i.loopexit, label %632, !llvm.loop !154
 
 ._crit_edge.i.i.loopexit:                         ; preds = %GC_push_obj.exit.i.i98
   %.pre169.pre.pre = load i32, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 35), align 8
@@ -32166,7 +32166,7 @@ GC_push_next_marked.exit:                         ; preds = %567, %586, %.prehea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @GC_stopped_mark(ptr noundef readonly %0) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @GC_stopped_mark(ptr noundef readonly %0) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
@@ -32229,7 +32229,7 @@ define internal fastcc noundef i32 @GC_stopped_mark(ptr noundef readonly %0) unn
   %34 = phi i64 [ %23, %16 ], [ %12, %31 ]
   %.1.i.i = phi i32 [ %.09.i.i, %16 ], [ %32, %31 ]
   %35 = icmp slt i32 %.1.i.i, %.pr7.i.i
-  br i1 %35, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !162
+  br i1 %35, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !156
 
 ._crit_edge.i.i:                                  ; preds = %33
   %36 = icmp slt i32 %.pr7.i.i, %10
@@ -32265,7 +32265,7 @@ define internal fastcc noundef i32 @GC_stopped_mark(ptr noundef readonly %0) unn
   store ptr %39, ptr %51, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %GC_remove_tmp_roots.exit.i, label %.lr.ph.i.i.i, !llvm.loop !96
+  br i1 %exitcond.not.i.i.i, label %GC_remove_tmp_roots.exit.i, label %.lr.ph.i.i.i, !llvm.loop !91
 
 GC_remove_tmp_roots.exit.i:                       ; preds = %.lr.ph.i.i.i, %37, %._crit_edge.i.i, %1
   %54 = load i32, ptr @GC_no_dls, align 4
@@ -32330,7 +32330,7 @@ GC_remove_tmp_roots.exit.i:                       ; preds = %.lr.ph.i.i.i, %37, 
   %77 = load i32, ptr @n_load_segs, align 4
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next.i.i7.i, %78
-  br i1 %79, label %.lr.ph.i.i5.i, label %GC_register_dynamic_libraries_dl_iterate_phdr.exit.thread.i.i, !llvm.loop !163
+  br i1 %79, label %.lr.ph.i.i5.i, label %GC_register_dynamic_libraries_dl_iterate_phdr.exit.thread.i.i, !llvm.loop !157
 
 80:                                               ; preds = %58
   %81 = load ptr, ptr @GC_data_start, align 8
@@ -32391,7 +32391,7 @@ GC_register_dynamic_libraries_dl_iterate_phdr.exit.thread.i.i: ; preds = %76, %8
 
 100:                                              ; preds = %.preheader.i21.i.i
   %101 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 16
-  br label %.preheader.i21.i.i, !llvm.loop !164
+  br label %.preheader.i21.i.i, !llvm.loop !158
 
 GC_FirstDLOpenedLinkMap.exit.i.i:                 ; preds = %96
   %102 = getelementptr inbounds i8, ptr %99, i64 24
@@ -32480,7 +32480,7 @@ GC_FirstDLOpenedLinkMap.exit.i.i:                 ; preds = %96
   %146 = getelementptr inbounds i8, ptr %.08.i.i.i.i, i64 16
   %.0.i.i.i.i = load ptr, ptr %146, align 8
   %.not.i.i.i.i = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %GC_roots_present.exit.thread.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !94
+  br i1 %.not.i.i.i.i, label %GC_roots_present.exit.thread.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !89
 
 GC_roots_present.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i
   %147 = getelementptr inbounds i8, ptr %.08.i.i.i.i, i64 8
@@ -32560,14 +32560,14 @@ GC_add_roots_inner.exit.i.i:                      ; preds = %162, %155, %152, %1
   %188 = load i16, ptr %106, align 8
   %189 = zext i16 %188 to i32
   %190 = icmp ult i32 %186, %189
-  br i1 %190, label %.lr.ph.i2.i, label %._crit_edge.i3.i, !llvm.loop !165
+  br i1 %190, label %.lr.ph.i2.i, label %._crit_edge.i3.i, !llvm.loop !159
 
 ._crit_edge.i3.i:                                 ; preds = %GC_add_roots_inner.exit.i.i, %.lr.ph39.i.i
   %GC_root_size.promoted32.i.i = phi i64 [ %GC_root_size.promoted3537.i.i, %.lr.ph39.i.i ], [ %GC_root_size.promoted33.i.i, %GC_add_roots_inner.exit.i.i ]
   %191 = getelementptr inbounds i8, ptr %.01638.i.i, i64 24
   %192 = load ptr, ptr %191, align 8
   %.not18.i.i = icmp eq ptr %192, null
-  br i1 %.not18.i.i, label %GC_cond_register_dynamic_libraries.exit, label %.lr.ph39.i.i, !llvm.loop !166
+  br i1 %.not18.i.i, label %GC_cond_register_dynamic_libraries.exit, label %.lr.ph39.i.i, !llvm.loop !160
 
 GC_cond_register_dynamic_libraries.exit:          ; preds = %.preheader.i21.i.i, %._crit_edge.i3.i, %GC_remove_tmp_roots.exit.i, %GC_register_dynamic_libraries_dl_iterate_phdr.exit.thread.i.i, %87, %93, %96, %GC_FirstDLOpenedLinkMap.exit.i.i
   %193 = load i64, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 45), align 8
@@ -32627,7 +32627,7 @@ GC_cond_register_dynamic_libraries.exit:          ; preds = %.preheader.i21.i.i,
   %218 = add nuw i64 %.01727.i, 1
   %219 = load i64, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 45), align 8
   %220 = icmp ult i64 %218, %219
-  br i1 %220, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !167
+  br i1 %220, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !161
 
 ._crit_edge.i:                                    ; preds = %217
   %221 = icmp ne i32 %.1.i, 0
@@ -32760,7 +32760,7 @@ GC_initiate_gc.exit:                              ; preds = %265, %268
 
 .lr.ph:                                           ; preds = %270, %278
   %.03386 = phi i32 [ %279, %278 ], [ 0, %270 ]
-  %272 = call fastcc i32 @GC_mark_some(ptr noundef %9), !range !8
+  %272 = call fastcc i32 @GC_mark_some(ptr noundef %9)
   %.not52 = icmp eq i32 %272, 0
   br i1 %.not52, label %278, label %273
 
@@ -32782,7 +32782,7 @@ GC_initiate_gc.exit:                              ; preds = %265, %268
   %279 = add nuw nsw i32 %.03386, 1
   %280 = call i32 %0() #38
   %.not51 = icmp eq i32 %280, 0
-  br i1 %.not51, label %.lr.ph, label %._crit_edge, !llvm.loop !168
+  br i1 %.not51, label %.lr.ph, label %._crit_edge, !llvm.loop !162
 
 .thread71:                                        ; preds = %277, %273
   store i1 false, ptr @GC_parallel_mark_disabled, align 4
@@ -32850,7 +32850,7 @@ GC_initiate_gc.exit:                              ; preds = %265, %268
   %308 = icmp ne ptr %.0.i.i.i, %303
   %309 = select i1 %307, i1 %308, i1 false
   %310 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %309, label %304, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %309, label %304, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %304
   %311 = inttoptr i64 %299 to ptr
@@ -32899,7 +32899,7 @@ GC_find_header.exit.i.i:                          ; preds = %304
   %337 = icmp ne ptr %.0.i.i.i.i.i, %303
   %338 = select i1 %336, i1 %337, i1 false
   %339 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 8216
-  br i1 %338, label %333, label %GC_size.exit.i.i.i, !llvm.loop !16
+  br i1 %338, label %333, label %GC_size.exit.i.i.i, !llvm.loop !15
 
 GC_size.exit.i.i.i:                               ; preds = %333
   %340 = getelementptr inbounds i8, ptr %.01940.i.i, i64 32
@@ -32950,7 +32950,7 @@ GC_has_other_debug_info.exit.i.i:                 ; preds = %363, %GC_has_other_
   %370 = icmp ne ptr %.0.i.i.i26.i.i, %303
   %371 = select i1 %369, i1 %370, i1 false
   %372 = getelementptr inbounds i8, ptr %.0.i.i.i26.i.i, i64 8216
-  br i1 %371, label %GC_has_other_debug_info.exit.i.i, label %GC_size.exit.i27.i.i, !llvm.loop !16
+  br i1 %371, label %GC_has_other_debug_info.exit.i.i, label %GC_size.exit.i27.i.i, !llvm.loop !15
 
 GC_size.exit.i27.i.i:                             ; preds = %GC_has_other_debug_info.exit.i.i
   %373 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i26.i.i, i64 0, i64 %342
@@ -33010,7 +33010,7 @@ GC_has_other_debug_info.exit.thread.i.i:          ; preds = %GC_add_smashed.exit
   %401 = add i64 %.042.i.i, %322
   %402 = getelementptr inbounds i8, ptr %.01940.i.i, i64 %316
   %.not.i2.i = icmp ugt ptr %402, %.018.i.i
-  br i1 %.not.i2.i, label %GC_check_heap_block.exit.i, label %323, !llvm.loop !169
+  br i1 %.not.i2.i, label %GC_check_heap_block.exit.i, label %323, !llvm.loop !163
 
 GC_check_heap_block.exit.i:                       ; preds = %GC_has_other_debug_info.exit.thread.i.i, %GC_find_header.exit.i.i, %291
   %GC_n_smashed.promoted5.i = phi i32 [ %GC_n_smashed.promoted9.i, %GC_find_header.exit.i.i ], [ %GC_n_smashed.promoted9.i, %291 ], [ %GC_n_smashed.promoted7.i, %GC_has_other_debug_info.exit.thread.i.i ]
@@ -33035,13 +33035,13 @@ GC_check_heap_block.exit.i:                       ; preds = %GC_has_other_debug_
   %412 = phi i32 [ %286, %407 ], [ %286, %409 ], [ %403, %GC_check_heap_block.exit.i ]
   %.1.i.i64 = phi i64 [ %408, %407 ], [ %410, %409 ], [ %404, %GC_check_heap_block.exit.i ]
   %413 = icmp sgt i64 %.1.i.i64, -1
-  br i1 %413, label %285, label %414, !llvm.loop !18
+  br i1 %413, label %285, label %414, !llvm.loop !17
 
 414:                                              ; preds = %411
   %415 = getelementptr inbounds i8, ptr %.023.i.i, i64 8192
   %.0.i.i = load ptr, ptr %415, align 8
   %.not.i.i65 = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i65, label %GC_check_heap_proc.exit, label %.preheader.i.i, !llvm.loop !19
+  br i1 %.not.i.i65, label %GC_check_heap_proc.exit, label %.preheader.i.i, !llvm.loop !18
 
 GC_check_heap_proc.exit:                          ; preds = %414, %283, %.thread71
   %416 = load ptr, ptr @GC_on_collection_event, align 8
@@ -33172,7 +33172,7 @@ GC_check_heap_proc.exit:                          ; preds = %414, %283, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @GC_timeout_stop_func() #1 {
+define internal range(i32 0, 2) i32 @GC_timeout_stop_func() #1 {
   %1 = alloca %struct.timespec, align 8
   %2 = load ptr, ptr @GC_default_stop_func, align 8
   %3 = tail call i32 %2() #38
@@ -33344,7 +33344,7 @@ define internal fastcc void @GC_finish_collection() unnamed_addr #1 {
   %43 = icmp ne ptr %.0.i.i, %38
   %44 = select i1 %42, i1 %43, i1 false
   %45 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %44, label %39, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %44, label %39, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %39
   %46 = and i64 %34, -4096
@@ -33352,7 +33352,7 @@ GC_find_header.exit.i:                            ; preds = %39
   br label %.sink.split
 
 .sink.split.loopexit:                             ; preds = %75
-  br label %.sink.split, !llvm.loop !16
+  br label %.sink.split, !llvm.loop !15
 
 .sink.split:                                      ; preds = %.sink.split.loopexit, %GC_find_header.exit.i
   %.sink76 = phi i64 [ %34, %GC_find_header.exit.i ], [ %67, %.sink.split.loopexit ]
@@ -33414,19 +33414,19 @@ GC_find_header.exit.i:                            ; preds = %39
   %79 = icmp ne ptr %.0.i27.i, %74
   %80 = select i1 %78, i1 %79, i1 false
   %81 = getelementptr inbounds i8, ptr %.0.i27.i, i64 8216
-  br i1 %80, label %75, label %.sink.split.loopexit, !llvm.loop !16
+  br i1 %80, label %75, label %.sink.split.loopexit, !llvm.loop !15
 
 GC_set_fl_marks.exit:                             ; preds = %63, %29
   %82 = add nuw nsw i64 %.01761, 1
   %exitcond.not = icmp eq i64 %82, 129
-  br i1 %exitcond.not, label %83, label %29, !llvm.loop !170
+  br i1 %exitcond.not, label %83, label %29, !llvm.loop !164
 
 83:                                               ; preds = %GC_set_fl_marks.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = load i32, ptr @GC_n_kinds, align 4
   %85 = zext i32 %84 to i64
   %86 = icmp ult i64 %indvars.iv.next, %85
-  br i1 %86, label %.preheader59, label %._crit_edge, !llvm.loop !171
+  br i1 %86, label %.preheader59, label %._crit_edge, !llvm.loop !165
 
 ._crit_edge:                                      ; preds = %83, %.preheader60
   call fastcc void @GC_start_reclaim(i32 noundef 1)
@@ -33463,7 +33463,7 @@ GC_set_fl_marks.exit:                             ; preds = %63, %29
   %107 = icmp ne ptr %.0.i.i.i.i, %102
   %108 = select i1 %106, i1 %107, i1 false
   %109 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 8216
-  br i1 %108, label %103, label %GC_find_header.exit.i.i.i, !llvm.loop !16
+  br i1 %108, label %103, label %GC_find_header.exit.i.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i.i:                        ; preds = %103
   %110 = lshr i64 %98, 12
@@ -33519,7 +33519,7 @@ GC_set_mark_bit.exit.i.i:                         ; preds = %119, %GC_find_heade
   %139 = icmp ne ptr %.0.i.i18.i.i, %134
   %140 = select i1 %138, i1 %139, i1 false
   %141 = getelementptr inbounds i8, ptr %.0.i.i18.i.i, i64 8216
-  br i1 %140, label %135, label %GC_find_header.exit.i19.i.i, !llvm.loop !16
+  br i1 %140, label %135, label %GC_find_header.exit.i19.i.i, !llvm.loop !15
 
 GC_find_header.exit.i19.i.i:                      ; preds = %135
   %142 = lshr i64 %127, 12
@@ -33589,7 +33589,7 @@ GC_normal_finalize_mark_proc.exit.i.i:            ; preds = %GC_custom_push_proc
   %168 = load volatile ptr, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 21), align 8
   %169 = load ptr, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 19), align 8
   %.not.i10.i.i = icmp ult ptr %168, %169
-  br i1 %.not.i10.i.i, label %GC_mark_fo.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !57
+  br i1 %.not.i10.i.i, label %GC_mark_fo.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !53
 
 GC_mark_fo.exit.i.i:                              ; preds = %.lr.ph.i.i.i, %GC_normal_finalize_mark_proc.exit.i.i
   %170 = load ptr, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 30), align 8
@@ -33604,7 +33604,7 @@ GC_mark_fo.exit.i.i:                              ; preds = %.lr.ph.i.i.i, %GC_n
   %175 = icmp ne ptr %.0.i.i12.i.i, %170
   %176 = select i1 %174, i1 %175, i1 false
   %177 = getelementptr inbounds i8, ptr %.0.i.i12.i.i, i64 8216
-  br i1 %176, label %171, label %GC_find_header.exit.i13.i.i, !llvm.loop !16
+  br i1 %176, label %171, label %GC_find_header.exit.i13.i.i, !llvm.loop !15
 
 GC_find_header.exit.i13.i.i:                      ; preds = %171
   %178 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i12.i.i, i64 0, i64 %143
@@ -33631,15 +33631,15 @@ GC_set_mark_bit.exit15.i.i:                       ; preds = %185, %GC_find_heade
   br i1 %.not2.i16.i.i, label %GC_complete_ongoing_collection.exit.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %GC_set_mark_bit.exit15.i.i, %.preheader.i.i.i
-  %190 = call fastcc i32 @GC_mark_some(ptr noundef null), !range !8
+  %190 = call fastcc i32 @GC_mark_some(ptr noundef null)
   %.not1.i.i.i = icmp eq i32 %190, 0
-  br i1 %.not1.i.i.i, label %.preheader.i.i.i, label %GC_complete_ongoing_collection.exit.i.i, !llvm.loop !58
+  br i1 %.not1.i.i.i, label %.preheader.i.i.i, label %GC_complete_ongoing_collection.exit.i.i, !llvm.loop !54
 
 GC_complete_ongoing_collection.exit.i.i:          ; preds = %.preheader.i.i.i, %GC_set_mark_bit.exit15.i.i, %.lr.ph.i.i
   %191 = add nuw i64 %.020.i.i, 1
   %192 = load i64, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 45), align 8
   %193 = icmp ult i64 %191, %192
-  br i1 %193, label %.lr.ph.i.i, label %GC_mark_togglerefs.exit.i, !llvm.loop !172
+  br i1 %193, label %.lr.ph.i.i, label %GC_mark_togglerefs.exit.i, !llvm.loop !166
 
 GC_mark_togglerefs.exit.i:                        ; preds = %GC_complete_ongoing_collection.exit.i.i, %GC_set_mark_bit.exit.i.i, %87
   call fastcc void @GC_make_disappearing_links_disappear(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 41), i32 noundef 0)
@@ -33680,7 +33680,7 @@ GC_mark_togglerefs.exit.i:                        ; preds = %GC_complete_ongoing
   %206 = icmp ne ptr %.0.i.i.i, %196
   %207 = select i1 %205, i1 %206, i1 false
   %208 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %207, label %202, label %GC_is_marked.exit.i, !llvm.loop !16
+  br i1 %207, label %202, label %GC_is_marked.exit.i, !llvm.loop !15
 
 GC_is_marked.exit.i:                              ; preds = %202
   %209 = lshr i64 %198, 12
@@ -33715,7 +33715,7 @@ GC_is_marked.exit.i:                              ; preds = %202
   %229 = load volatile ptr, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 21), align 8
   %230 = load ptr, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 19), align 8
   %.not.i108.i = icmp ult ptr %229, %230
-  br i1 %.not.i108.i, label %GC_mark_fo.exit.i, label %.lr.ph.i107.i, !llvm.loop !57
+  br i1 %.not.i108.i, label %GC_mark_fo.exit.i, label %.lr.ph.i107.i, !llvm.loop !53
 
 GC_mark_fo.exit.i:                                ; preds = %.lr.ph.i107.i, %218
   %231 = load ptr, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 30), align 8
@@ -33730,7 +33730,7 @@ GC_mark_fo.exit.i:                                ; preds = %.lr.ph.i107.i, %218
   %236 = icmp ne ptr %.0.i.i110.i, %231
   %237 = select i1 %235, i1 %236, i1 false
   %238 = getelementptr inbounds i8, ptr %.0.i.i110.i, i64 8216
-  br i1 %237, label %232, label %GC_is_marked.exit111.i, !llvm.loop !16
+  br i1 %237, label %232, label %GC_is_marked.exit111.i, !llvm.loop !15
 
 GC_is_marked.exit111.i:                           ; preds = %232
   %239 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i110.i, i64 0, i64 %210
@@ -33752,12 +33752,12 @@ GC_is_marked.exit111.i:                           ; preds = %232
   %248 = getelementptr inbounds i8, ptr %.0167.i, i64 8
   %.0.i40 = load ptr, ptr %248, align 8
   %.not104.i = icmp eq ptr %.0.i40, null
-  br i1 %.not104.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !173
+  br i1 %.not104.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !167
 
 ._crit_edge.i:                                    ; preds = %246, %.lr.ph169.i
   %249 = add nuw i64 %.082168.i, 1
   %exitcond.not.i = icmp eq i64 %249, %92
-  br i1 %exitcond.not.i, label %.lr.ph183.preheader.i, label %.lr.ph169.i, !llvm.loop !174
+  br i1 %exitcond.not.i, label %.lr.ph183.preheader.i, label %.lr.ph169.i, !llvm.loop !168
 
 .lr.ph183.preheader.i:                            ; preds = %._crit_edge.i
   store i64 0, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 11), align 8
@@ -33797,7 +33797,7 @@ GC_is_marked.exit111.i:                           ; preds = %232
   %263 = icmp ne ptr %.0.i.i113.i, %253
   %264 = select i1 %262, i1 %263, i1 false
   %265 = getelementptr inbounds i8, ptr %.0.i.i113.i, i64 8216
-  br i1 %264, label %259, label %GC_is_marked.exit114.i, !llvm.loop !16
+  br i1 %264, label %259, label %GC_is_marked.exit114.i, !llvm.loop !15
 
 GC_is_marked.exit114.i:                           ; preds = %259
   %266 = inttoptr i64 %255 to ptr
@@ -33827,7 +33827,7 @@ GC_is_marked.exit114.i:                           ; preds = %259
   %281 = icmp ne ptr %.0.i.i116.i, %253
   %282 = select i1 %280, i1 %281, i1 false
   %283 = getelementptr inbounds i8, ptr %.0.i.i116.i, i64 8216
-  br i1 %282, label %.preheader164.i, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %282, label %.preheader164.i, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %.preheader164.i
   %284 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i116.i, i64 0, i64 %268
@@ -33955,13 +33955,13 @@ GC_set_mark_bit.exit.i:                           ; preds = %289, %GC_find_heade
   %.174.i = phi ptr [ %.1176.i, %341 ], [ %.073173.i, %._crit_edge210.i ]
   %.2.i = phi ptr [ %343, %341 ], [ %294, %._crit_edge210.i ]
   %.not99.i = icmp eq ptr %.2.i, null
-  br i1 %.not99.i, label %._crit_edge179.i, label %.lr.ph178.i, !llvm.loop !175
+  br i1 %.not99.i, label %._crit_edge179.i, label %.lr.ph178.i, !llvm.loop !169
 
 ._crit_edge179.i:                                 ; preds = %344, %.lr.ph183.i
   %.177.lcssa.i = phi i32 [ %.076181.i, %.lr.ph183.i ], [ %.379.i, %344 ]
   %346 = add nuw i64 %.183180.i, 1
   %exitcond202.not.i = icmp eq i64 %346, %92
-  br i1 %exitcond202.not.i, label %._crit_edge184.i, label %.lr.ph183.i, !llvm.loop !176
+  br i1 %exitcond202.not.i, label %._crit_edge184.i, label %.lr.ph183.i, !llvm.loop !170
 
 ._crit_edge184.i:                                 ; preds = %._crit_edge179.i, %._crit_edge170.thread.i
   %.076.lcssa.i = phi i32 [ 0, %._crit_edge170.thread.i ], [ %.177.lcssa.i, %._crit_edge179.i ]
@@ -33990,7 +33990,7 @@ GC_set_mark_bit.exit.i:                           ; preds = %289, %GC_find_heade
   %357 = icmp ne ptr %.0.i.i119.i, %352
   %358 = select i1 %356, i1 %357, i1 false
   %359 = getelementptr inbounds i8, ptr %.0.i.i119.i, i64 8216
-  br i1 %358, label %353, label %GC_is_marked.exit121.i, !llvm.loop !16
+  br i1 %358, label %353, label %GC_is_marked.exit121.i, !llvm.loop !15
 
 GC_is_marked.exit121.i:                           ; preds = %353
   %360 = inttoptr i64 %348 to ptr
@@ -34021,7 +34021,7 @@ GC_is_marked.exit121.i:                           ; preds = %353
   %377 = icmp ne ptr %.0.i.i149.i, %352
   %378 = select i1 %376, i1 %377, i1 false
   %379 = getelementptr inbounds i8, ptr %.0.i.i149.i, i64 8216
-  br i1 %378, label %.preheader162.i, label %GC_find_header.exit.i150.i, !llvm.loop !16
+  br i1 %378, label %.preheader162.i, label %GC_find_header.exit.i150.i, !llvm.loop !15
 
 GC_find_header.exit.i150.i:                       ; preds = %.preheader162.i
   %380 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i149.i, i64 0, i64 %362
@@ -34089,7 +34089,7 @@ GC_normal_finalize_mark_proc.exit.i:              ; preds = %GC_custom_push_proc
   %404 = load volatile ptr, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 21), align 8
   %405 = load ptr, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 19), align 8
   %.not.i124.i = icmp ult ptr %404, %405
-  br i1 %.not.i124.i, label %GC_mark_fo.exit125thread-pre-split.i, label %.lr.ph.i123.i, !llvm.loop !57
+  br i1 %.not.i124.i, label %GC_mark_fo.exit125thread-pre-split.i, label %.lr.ph.i123.i, !llvm.loop !53
 
 GC_mark_fo.exit125thread-pre-split.i:             ; preds = %.lr.ph.i123.i, %GC_normal_finalize_mark_proc.exit.i
   %.pr160.i = load ptr, ptr %371, align 8
@@ -34113,7 +34113,7 @@ GC_mark_fo.exit125.i:                             ; preds = %GC_mark_fo.exit125t
   %413 = icmp ne ptr %.0.i.i127.i, %408
   %414 = select i1 %412, i1 %413, i1 false
   %415 = getelementptr inbounds i8, ptr %.0.i.i127.i, i64 8216
-  br i1 %414, label %409, label %GC_find_header.exit.i128.i, !llvm.loop !16
+  br i1 %414, label %409, label %GC_find_header.exit.i128.i, !llvm.loop !15
 
 GC_find_header.exit.i128.i:                       ; preds = %409
   %416 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i127.i, i64 0, i64 %362
@@ -34136,7 +34136,7 @@ GC_set_mark_bit.exit130.i:                        ; preds = %421, %GC_find_heade
   %425 = getelementptr inbounds i8, ptr %.3188.i, i64 8
   %.3.i = load ptr, ptr %425, align 8
   %.not92.i = icmp eq ptr %.3.i, null
-  br i1 %.not92.i, label %._crit_edge190.i, label %.lr.ph189.i, !llvm.loop !177
+  br i1 %.not92.i, label %._crit_edge190.i, label %.lr.ph189.i, !llvm.loop !171
 
 ._crit_edge190.i:                                 ; preds = %GC_set_mark_bit.exit130.i
   %.pre208.i = load ptr, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 42, i32 1), align 8
@@ -34173,7 +34173,7 @@ GC_set_mark_bit.exit130.i:                        ; preds = %421, %GC_find_heade
   %440 = icmp ne ptr %.0.i.i132.i, %435
   %441 = select i1 %439, i1 %440, i1 false
   %442 = getelementptr inbounds i8, ptr %.0.i.i132.i, i64 8216
-  br i1 %441, label %436, label %GC_is_marked.exit134.i, !llvm.loop !16
+  br i1 %441, label %436, label %GC_is_marked.exit134.i, !llvm.loop !15
 
 GC_is_marked.exit134.i:                           ; preds = %436
   %443 = lshr i64 %431, 12
@@ -34197,7 +34197,7 @@ GC_is_marked.exit134.i:                           ; preds = %436
   %455 = icmp ne ptr %.0.i.i136.i, %435
   %456 = select i1 %454, i1 %455, i1 false
   %457 = getelementptr inbounds i8, ptr %.0.i.i136.i, i64 8216
-  br i1 %456, label %.preheader.i, label %GC_find_header.exit.i137.i, !llvm.loop !16
+  br i1 %456, label %.preheader.i, label %GC_find_header.exit.i137.i, !llvm.loop !15
 
 GC_find_header.exit.i137.i:                       ; preds = %.preheader.i
   %458 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i136.i, i64 0, i64 %444
@@ -34293,7 +34293,7 @@ GC_set_mark_bit.exit139.i:                        ; preds = %509, %463, %GC_find
   %.581.i = phi i32 [ %.480192.i, %.lr.ph196.i ], [ 1, %509 ], [ %.480192.i, %GC_find_header.exit.i137.i ], [ %.480192.i, %463 ]
   %.5.i = phi ptr [ %.4194.i, %.lr.ph196.i ], [ %.275193.i, %509 ], [ %.4194.i, %GC_find_header.exit.i137.i ], [ %.4194.i, %463 ]
   %.not93.i = icmp eq ptr %427, null
-  br i1 %.not93.i, label %.loopexit.i, label %.lr.ph196.i, !llvm.loop !178
+  br i1 %.not93.i, label %.loopexit.i, label %.lr.ph196.i, !llvm.loop !172
 
 .loopexit.i:                                      ; preds = %GC_set_mark_bit.exit139.i, %._crit_edge190.i, %._crit_edge184.i
   %.6.i = phi i32 [ %.076.lcssa.i, %._crit_edge190.i ], [ %.076.lcssa.i, %._crit_edge184.i ], [ %.581.i, %GC_set_mark_bit.exit139.i ]
@@ -34352,7 +34352,7 @@ GC_set_mark_bit.exit139.i:                        ; preds = %509, %463, %GC_find
   %543 = icmp ne ptr %.0.i.i.i143.i, %538
   %544 = select i1 %542, i1 %543, i1 false
   %545 = getelementptr inbounds i8, ptr %.0.i.i.i143.i, i64 8216
-  br i1 %544, label %539, label %GC_is_marked.exit.i.i, !llvm.loop !16
+  br i1 %544, label %539, label %GC_is_marked.exit.i.i, !llvm.loop !15
 
 GC_is_marked.exit.i.i:                            ; preds = %539
   %546 = lshr i64 %534, 12
@@ -34378,7 +34378,7 @@ GC_is_marked.exit.i.i:                            ; preds = %539
   %558 = phi ptr [ %528, %.lr.ph.i140.i ], [ %528, %GC_is_marked.exit.i.i ], [ %.pre.i144.i, %555 ]
   %559 = add nuw i64 %.06.i.i, 1
   %560 = icmp ult i64 %559, %557
-  br i1 %560, label %.lr.ph.i140.i, label %GC_clear_togglerefs.exit.i, !llvm.loop !179
+  br i1 %560, label %.lr.ph.i140.i, label %GC_clear_togglerefs.exit.i, !llvm.loop !173
 
 GC_clear_togglerefs.exit.i:                       ; preds = %556, %525
   call fastcc void @GC_make_disappearing_links_disappear(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 40), i32 noundef 0)
@@ -34407,7 +34407,7 @@ GC_clear_togglerefs.exit.i:                       ; preds = %556, %525
   %572 = getelementptr inbounds i8, ptr %.0.i.i146.i, i64 16
   %573 = load i64, ptr %572, align 8
   %574 = icmp eq i64 %573, %563
-  br i1 %574, label %GC_reset_finalizer_nested.exit.i, label %570, !llvm.loop !11
+  br i1 %574, label %GC_reset_finalizer_nested.exit.i, label %570, !llvm.loop !10
 
 GC_reset_finalizer_nested.exit.i:                 ; preds = %571, %570
   %575 = getelementptr inbounds i8, ptr %.0.i.i146.i, i64 8
@@ -34475,7 +34475,7 @@ GC_finalize.exit:                                 ; preds = %GC_clear_togglerefs
   %603 = icmp ne ptr %.0.i.i43, %598
   %604 = select i1 %602, i1 %603, i1 false
   %605 = getelementptr inbounds i8, ptr %.0.i.i43, i64 8216
-  br i1 %604, label %599, label %GC_find_header.exit.i44, !llvm.loop !16
+  br i1 %604, label %599, label %GC_find_header.exit.i44, !llvm.loop !15
 
 GC_find_header.exit.i44:                          ; preds = %599
   %606 = and i64 %594, -4096
@@ -34483,7 +34483,7 @@ GC_find_header.exit.i44:                          ; preds = %599
   br label %.sink.split77
 
 .sink.split77.loopexit:                           ; preds = %643
-  br label %.sink.split77, !llvm.loop !16
+  br label %.sink.split77, !llvm.loop !15
 
 .sink.split77:                                    ; preds = %.sink.split77.loopexit, %GC_find_header.exit.i44
   %.sink80 = phi i64 [ %594, %GC_find_header.exit.i44 ], [ %635, %.sink.split77.loopexit ]
@@ -34557,19 +34557,19 @@ GC_find_header.exit.i44:                          ; preds = %599
   %647 = icmp ne ptr %.0.i34.i, %642
   %648 = select i1 %646, i1 %647, i1 false
   %649 = getelementptr inbounds i8, ptr %.0.i34.i, i64 8216
-  br i1 %648, label %643, label %.sink.split77.loopexit, !llvm.loop !16
+  br i1 %648, label %643, label %.sink.split77.loopexit, !llvm.loop !15
 
 GC_clear_fl_marks.exit:                           ; preds = %629, %589
   %650 = add nuw nsw i64 %.01563, 1
   %exitcond71.not = icmp eq i64 %650, 129
-  br i1 %exitcond71.not, label %651, label %589, !llvm.loop !180
+  br i1 %exitcond71.not, label %651, label %589, !llvm.loop !174
 
 651:                                              ; preds = %GC_clear_fl_marks.exit
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %652 = load i32, ptr @GC_n_kinds, align 4
   %653 = zext i32 %652 to i64
   %654 = icmp ult i64 %indvars.iv.next73, %653
-  br i1 %654, label %.preheader, label %._crit_edge65, !llvm.loop !181
+  br i1 %654, label %.preheader, label %._crit_edge65, !llvm.loop !175
 
 ._crit_edge65:                                    ; preds = %651, %586
   %655 = load i32, ptr @GC_print_stats, align 4
@@ -34765,7 +34765,7 @@ min_bytes_allocd.exit:                            ; preds = %708, %710
   %751 = getelementptr inbounds i8, ptr %.037.i, i64 8
   %.03.i = load ptr, ptr %751, align 8
   %.not.i54 = icmp eq ptr %.03.i, null
-  br i1 %.not.i54, label %GC_print_finalization_stats.exit, label %.lr.ph.i52, !llvm.loop !182
+  br i1 %.not.i54, label %GC_print_finalization_stats.exit, label %.lr.ph.i52, !llvm.loop !176
 
 GC_print_finalization_stats.exit:                 ; preds = %.lr.ph.i52, %746
   %.0.lcssa.i = phi i64 [ 0, %746 ], [ %750, %.lr.ph.i52 ]
@@ -34925,7 +34925,7 @@ define internal fastcc ptr @GC_mark_from(ptr noundef %0, ptr noundef %1, ptr nou
   %48 = sub i64 %47, %7
   %49 = or i64 %48, %.0131.ph172302
   %50 = icmp sgt i64 %49, -1
-  br i1 %50, label %.split.us267, label %.outer171._crit_edge, !llvm.loop !183
+  br i1 %50, label %.split.us267, label %.outer171._crit_edge, !llvm.loop !177
 
 .unreachabledefault:                              ; preds = %20
   unreachable
@@ -35012,7 +35012,7 @@ default.unreachable:                              ; preds = %54
   %76 = and i64 %.us-phi219, -4
   %77 = add nsw i64 %.0131.ph172302, -256
   %.not156295 = icmp eq i64 %76, 0
-  br i1 %.not156295, label %.outer171.backedge, label %.lr.ph300, !llvm.loop !183
+  br i1 %.not156295, label %.outer171.backedge, label %.lr.ph300, !llvm.loop !177
 
 .lr.ph300:                                        ; preds = %.split217.split.us, %98
   %.2298 = phi ptr [ %.3, %98 ], [ %75, %.split217.split.us ]
@@ -35058,7 +35058,7 @@ default.unreachable:                              ; preds = %54
   %99 = shl i64 %.1144296, 1
   %100 = getelementptr inbounds i8, ptr %.1135297, i64 8
   %.not156 = icmp eq i64 %99, 0
-  br i1 %.not156, label %.outer171.backedge, label %.lr.ph300, !llvm.loop !184
+  br i1 %.not156, label %.outer171.backedge, label %.lr.ph300, !llvm.loop !178
 
 .split221.split.us:                               ; preds = %54, %20
   %.us-phi222 = phi ptr [ %.0134.ph.us, %20 ], [ %51, %54 ]
@@ -35086,7 +35086,7 @@ default.unreachable:                              ; preds = %54
 .lr.ph.backedge:                                  ; preds = %.outer171.backedge, %.outer170
   %.0.ph173303.be = phi ptr [ %.0.ph173.be, %.outer171.backedge ], [ %.7, %.outer170 ]
   %.0131.ph172302.be = phi i64 [ %.0131.ph172.be, %.outer171.backedge ], [ %121, %.outer170 ]
-  br label %.lr.ph, !llvm.loop !183
+  br label %.lr.ph, !llvm.loop !177
 
 .backedge:                                        ; preds = %.split226.us, %.split229.us, %.split238.us
   %.0.be = phi ptr [ %68, %.split226.us ], [ %69, %.split229.us ], [ %70, %.split238.us ]
@@ -35094,7 +35094,7 @@ default.unreachable:                              ; preds = %54
   %114 = sub i64 %113, %7
   %115 = or i64 %114, %.0131.ph172302
   %116 = icmp sgt i64 %115, -1
-  br i1 %116, label %.split.us, label %.outer171._crit_edge, !llvm.loop !183
+  br i1 %116, label %.split.us, label %.outer171._crit_edge, !llvm.loop !177
 
 .split290.us:                                     ; preds = %.split238.us264, %.split238.us
   %.us-phi292 = phi ptr [ %70, %.split238.us ], [ %45, %.split238.us264 ]
@@ -35189,7 +35189,7 @@ default.unreachable:                              ; preds = %54
   %.6 = phi ptr [ %158, %157 ], [ %.5308, %154 ], [ %.5308, %.lr.ph310 ]
   %160 = getelementptr inbounds i8, ptr %.2136307, i64 8
   %.not157 = icmp ugt ptr %160, %.3141
-  br i1 %.not157, label %._crit_edge311, label %.lr.ph310, !llvm.loop !185
+  br i1 %.not157, label %._crit_edge311, label %.lr.ph310, !llvm.loop !179
 
 ._crit_edge311:                                   ; preds = %159, %138
   %.5.lcssa = phi ptr [ %.4, %138 ], [ %.6, %159 ]
@@ -35277,7 +35277,7 @@ define internal fastcc void @push_roots_and_advance(i32 noundef %0, ptr noundef 
   %.113.i.us.i.us.i = select i1 %.not15.i.us.i.us.i, i64 %.01216.i.us.i.us.i, i64 %21
   %.1.i.us.i.us.i = select i1 %.not15.i.us.i.us.i, i64 %18, i64 %.01117.i.us.i.us.i
   %22 = icmp ugt i64 %.1.i.us.i.us.i, %.113.i.us.i.us.i
-  br i1 %22, label %.lr.ph.i.us.i.us.i, label %._crit_edge.i.us.i.us.i, !llvm.loop !98
+  br i1 %22, label %.lr.ph.i.us.i.us.i, label %._crit_edge.i.us.i.us.i, !llvm.loop !93
 
 ._crit_edge.i.us.i.us.i:                          ; preds = %.lr.ph.i.us.i.us.i, %15
   %.012.lcssa.i.us.i.us.i = phi i64 [ 0, %15 ], [ %.113.i.us.i.us.i, %.lr.ph.i.us.i.us.i ]
@@ -35345,7 +35345,7 @@ GC_push_conditional_static.exit.us.i.us.i:        ; preds = %44, %33, %32, %27
   %49 = getelementptr inbounds i8, ptr %.013.us.i.us.i, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = icmp ult ptr %50, %11
-  br i1 %51, label %.lr.ph.split.us.i.us.i, label %GC_push_conditional_with_exclusions.exit.us.loopexit.i, !llvm.loop !186
+  br i1 %51, label %.lr.ph.split.us.i.us.i, label %GC_push_conditional_with_exclusions.exit.us.loopexit.i, !llvm.loop !180
 
 GC_push_conditional_with_exclusions.exit.us.loopexit.i: ; preds = %48, %GC_push_conditional_static.exit.us.i.us.i
   %.pre52.i = load i32, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 48), align 4
@@ -35356,7 +35356,7 @@ GC_push_conditional_with_exclusions.exit.us.i:    ; preds = %GC_push_conditional
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %53 = sext i32 %52 to i64
   %54 = icmp slt i64 %indvars.iv.next47.i, %53
-  br i1 %54, label %.lr.ph.split.us.i, label %.preheader36.i, !llvm.loop !187
+  br i1 %54, label %.lr.ph.split.us.i, label %.preheader36.i, !llvm.loop !181
 
 .preheader36.i:                                   ; preds = %GC_push_conditional_with_exclusions.exit.i, %GC_push_conditional_with_exclusions.exit.us.i, %4
   %55 = load i32, ptr @GC_n_kinds, align 4
@@ -35392,7 +35392,7 @@ GC_push_conditional_with_exclusions.exit.us.i:    ; preds = %GC_push_conditional
   %68 = icmp ne ptr %.027.i.i.us, %57
   %69 = select i1 %67, i1 %68, i1 false
   %70 = getelementptr inbounds i8, ptr %.027.i.i.us, i64 8216
-  br i1 %69, label %64, label %71, !llvm.loop !21
+  br i1 %69, label %64, label %71, !llvm.loop !20
 
 71:                                               ; preds = %64
   %72 = lshr i64 %60, 12
@@ -35429,7 +35429,7 @@ GC_push_conditional_with_exclusions.exit.us.i:    ; preds = %GC_push_conditional
   %92 = icmp ne ptr %.0.i.i.i.i.us, %57
   %93 = select i1 %91, i1 %92, i1 false
   %94 = getelementptr inbounds i8, ptr %.0.i.i.i.i.us, i64 8216
-  br i1 %93, label %88, label %GC_find_header.exit.i.i.i.us, !llvm.loop !16
+  br i1 %93, label %88, label %GC_find_header.exit.i.i.i.us, !llvm.loop !15
 
 GC_find_header.exit.i.i.i.us:                     ; preds = %88
   %95 = lshr i64 %84, 12
@@ -35437,7 +35437,7 @@ GC_find_header.exit.i.i.i.us:                     ; preds = %88
   %97 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i.i.us, i64 0, i64 %96
   %.0.i.i.i.us = load ptr, ptr %97, align 8
   %98 = icmp ult ptr %.0.i.i.i.us, inttoptr (i64 4096 to ptr)
-  br i1 %98, label %.lr.ph.i.i19.i.us, label %GC_find_starting_hblk.exit.i.i.us, !llvm.loop !20
+  br i1 %98, label %.lr.ph.i.i19.i.us, label %GC_find_starting_hblk.exit.i.i.us, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i.i.us:                ; preds = %GC_find_header.exit.i.i.i.us, %77
   %.032.i.i.us = phi ptr [ %75, %77 ], [ %.0.i.i.i.us, %GC_find_header.exit.i.i.i.us ]
@@ -35486,7 +35486,7 @@ GC_find_starting_hblk.exit.i.i.us:                ; preds = %GC_find_header.exit
   %125 = icmp ne ptr %.0.i.i20.i.us, %57
   %126 = select i1 %124, i1 %125, i1 false
   %127 = getelementptr inbounds i8, ptr %.0.i.i20.i.us, i64 8216
-  br i1 %126, label %121, label %GC_find_header.exit.i.i.us, !llvm.loop !16
+  br i1 %126, label %121, label %GC_find_header.exit.i.i.us, !llvm.loop !15
 
 GC_find_header.exit.i.i.us:                       ; preds = %121
   %128 = lshr i64 %117, 12
@@ -35514,7 +35514,7 @@ GC_set_mark_bit.exit.i.us:                        ; preds = %137, %GC_find_heade
   %141 = phi ptr [ %.pre, %137 ], [ %57, %GC_find_header.exit.i.i.us ], [ %57, %102 ], [ %57, %GC_find_starting_hblk.exit.i.i.us ], [ %57, %71 ]
   %indvars.iv.next50.i.us = add nuw nsw i64 %indvars.iv49.i.us, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next50.i.us, %56
-  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph41.i.us, !llvm.loop !188
+  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph41.i.us, !llvm.loop !182
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %GC_push_conditional_with_exclusions.exit.i
   %142 = phi i32 [ %185, %GC_push_conditional_with_exclusions.exit.i ], [ %5, %.lr.ph.i ]
@@ -35553,7 +35553,7 @@ GC_set_mark_bit.exit.i.us:                        ; preds = %137, %GC_find_heade
   %.113.i.i.i = select i1 %.not15.i.i.i, i64 %.01216.i.i.i, i64 %156
   %.1.i.i.i = select i1 %.not15.i.i.i, i64 %153, i64 %.01117.i.i.i
   %157 = icmp ugt i64 %.1.i.i.i, %.113.i.i.i
-  br i1 %157, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !98
+  br i1 %157, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !93
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %150
   %.012.lcssa.i.i.i = phi i64 [ 0, %150 ], [ %.113.i.i.i, %.lr.ph.i.i.i ]
@@ -35618,7 +35618,7 @@ GC_push_conditional_static.exit.i.i:              ; preds = %176, %164, %162
   %182 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
   %183 = load ptr, ptr %182, align 8
   %184 = icmp ult ptr %183, %146
-  br i1 %184, label %.lr.ph.split.i.i, label %GC_push_conditional_with_exclusions.exit.loopexit.i, !llvm.loop !186
+  br i1 %184, label %.lr.ph.split.i.i, label %GC_push_conditional_with_exclusions.exit.loopexit.i, !llvm.loop !180
 
 GC_push_conditional_with_exclusions.exit.loopexit.i: ; preds = %181, %GC_push_conditional_static.exit.i.i
   %.pre.i = load i32, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 48), align 4
@@ -35629,7 +35629,7 @@ GC_push_conditional_with_exclusions.exit.i:       ; preds = %GC_push_conditional
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %186 = sext i32 %185 to i64
   %187 = icmp slt i64 %indvars.iv.next.i, %186
-  br i1 %187, label %.lr.ph.split.i, label %.preheader36.i, !llvm.loop !187
+  br i1 %187, label %.lr.ph.split.i, label %.preheader36.i, !llvm.loop !181
 
 ._crit_edge.i:                                    ; preds = %GC_set_mark_bit.exit.i.us, %.lr.ph41.preheader.i, %.preheader36.i
   tail call void @GC_push_all_eager(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 40), ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 40, i32 1))
@@ -35734,7 +35734,7 @@ GC_push_thread_structures.exit.i:                 ; preds = %201, %192
   %228 = icmp ne ptr %.0.i.i.i.i.i, %223
   %229 = select i1 %227, i1 %228, i1 false
   %230 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 8216
-  br i1 %229, label %224, label %GC_find_header.exit.i.i.i.i, !llvm.loop !16
+  br i1 %229, label %224, label %GC_find_header.exit.i.i.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i.i.i:                      ; preds = %224
   %231 = inttoptr i64 %217 to ptr
@@ -35743,7 +35743,7 @@ GC_find_header.exit.i.i.i.i:                      ; preds = %224
   br label %.sink.split
 
 .sink.split.loopexit:                             ; preds = %261
-  br label %.sink.split, !llvm.loop !16
+  br label %.sink.split, !llvm.loop !15
 
 .sink.split:                                      ; preds = %.sink.split.loopexit, %GC_find_header.exit.i.i.i.i
   %.sink13 = phi i64 [ %217, %GC_find_header.exit.i.i.i.i ], [ %253, %.sink.split.loopexit ]
@@ -35805,12 +35805,12 @@ GC_find_header.exit.i.i.i.i:                      ; preds = %224
   %265 = icmp ne ptr %.0.i27.i.i.i.i, %260
   %266 = select i1 %264, i1 %265, i1 false
   %267 = getelementptr inbounds i8, ptr %.0.i27.i.i.i.i, i64 8216
-  br i1 %266, label %261, label %.sink.split.loopexit, !llvm.loop !16
+  br i1 %266, label %261, label %.sink.split.loopexit, !llvm.loop !15
 
 GC_set_fl_marks.exit.i.i.i:                       ; preds = %249, %215
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %268, label %215, !llvm.loop !189
+  br i1 %exitcond.not.i.i.i, label %268, label %215, !llvm.loop !183
 
 268:                                              ; preds = %GC_set_fl_marks.exit.i.i.i
   %.not.i.i26.i = icmp eq i64 %indvars.iv34.i.i.i, 0
@@ -35838,7 +35838,7 @@ GC_set_fl_marks.exit.i.i.i:                       ; preds = %249, %215
   %282 = icmp ne ptr %.0.i.i17.i.i.i, %277
   %283 = select i1 %281, i1 %282, i1 false
   %284 = getelementptr inbounds i8, ptr %.0.i.i17.i.i.i, i64 8216
-  br i1 %283, label %278, label %GC_find_header.exit.i18.i.i.i, !llvm.loop !16
+  br i1 %283, label %278, label %GC_find_header.exit.i18.i.i.i, !llvm.loop !15
 
 GC_find_header.exit.i18.i.i.i:                    ; preds = %278
   %285 = inttoptr i64 %271 to ptr
@@ -35847,7 +35847,7 @@ GC_find_header.exit.i18.i.i.i:                    ; preds = %278
   br label %.sink.split14
 
 .sink.split14.loopexit:                           ; preds = %315
-  br label %.sink.split14, !llvm.loop !16
+  br label %.sink.split14, !llvm.loop !15
 
 .sink.split14:                                    ; preds = %.sink.split14.loopexit, %GC_find_header.exit.i18.i.i.i
   %.sink16 = phi i64 [ %271, %GC_find_header.exit.i18.i.i.i ], [ %307, %.sink.split14.loopexit ]
@@ -35909,22 +35909,22 @@ GC_find_header.exit.i18.i.i.i:                    ; preds = %278
   %319 = icmp ne ptr %.0.i27.i26.i.i.i, %314
   %320 = select i1 %318, i1 %319, i1 false
   %321 = getelementptr inbounds i8, ptr %.0.i27.i26.i.i.i, i64 8216
-  br i1 %320, label %315, label %.sink.split14.loopexit, !llvm.loop !16
+  br i1 %320, label %315, label %.sink.split14.loopexit, !llvm.loop !15
 
 GC_set_fl_marks.exit30.i.i.i:                     ; preds = %303, %269, %268
   %indvars.iv.next35.i.i.i = add nuw nsw i64 %indvars.iv34.i.i.i, 1
   %exitcond37.not.i.i.i = icmp eq i64 %indvars.iv.next35.i.i.i, 25
-  br i1 %exitcond37.not.i.i.i, label %GC_mark_thread_local_fls_for.exit.i.i, label %.preheader.i.i.i, !llvm.loop !190
+  br i1 %exitcond37.not.i.i.i, label %GC_mark_thread_local_fls_for.exit.i.i, label %.preheader.i.i.i, !llvm.loop !184
 
 GC_mark_thread_local_fls_for.exit.i.i:            ; preds = %GC_set_fl_marks.exit30.i.i.i, %.lr.ph.i23.i
   %.0.i24.i = load ptr, ptr %.010.i.i, align 8
   %.not.i25.i = icmp eq ptr %.0.i24.i, null
-  br i1 %.not.i25.i, label %._crit_edge.i.i, label %.lr.ph.i23.i, !llvm.loop !191
+  br i1 %.not.i25.i, label %._crit_edge.i.i, label %.lr.ph.i23.i, !llvm.loop !185
 
 ._crit_edge.i.i:                                  ; preds = %GC_mark_thread_local_fls_for.exit.i.i, %.preheader.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 256
-  br i1 %exitcond.not.i.i, label %GC_mark_thread_local_free_lists.exit.i, label %.preheader.i, !llvm.loop !192
+  br i1 %exitcond.not.i.i, label %GC_mark_thread_local_free_lists.exit.i, label %.preheader.i, !llvm.loop !186
 
 GC_mark_thread_local_free_lists.exit.i:           ; preds = %._crit_edge.i.i, %207
   %322 = icmp eq ptr %1, null
@@ -36063,7 +36063,7 @@ define internal fastcc ptr @GC_header_cache_miss(ptr noundef %0, ptr nocapture n
   %12 = icmp ne ptr %.024, %7
   %13 = select i1 %11, i1 %12, i1 false
   %14 = getelementptr inbounds i8, ptr %.024, i64 8216
-  br i1 %13, label %8, label %15, !llvm.loop !193
+  br i1 %13, label %8, label %15, !llvm.loop !187
 
 15:                                               ; preds = %8
   %16 = lshr i64 %3, 12
@@ -36108,7 +36108,7 @@ define internal fastcc ptr @GC_header_cache_miss(ptr noundef %0, ptr nocapture n
   %39 = icmp ne ptr %.0.i.i, %7
   %40 = select i1 %38, i1 %39, i1 false
   %41 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %40, label %35, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %40, label %35, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %35
   %42 = lshr i64 %31, 12
@@ -36116,7 +36116,7 @@ GC_find_header.exit.i:                            ; preds = %35
   %44 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i, i64 0, i64 %43
   %.0.i = load ptr, ptr %44, align 8
   %45 = icmp ult ptr %.0.i, inttoptr (i64 4096 to ptr)
-  br i1 %45, label %27, label %GC_find_starting_hblk.exit, !llvm.loop !20
+  br i1 %45, label %27, label %GC_find_starting_hblk.exit, !llvm.loop !19
 
 GC_find_starting_hblk.exit:                       ; preds = %GC_find_header.exit.i
   %46 = getelementptr inbounds i8, ptr %.0.i, i64 25
@@ -36150,7 +36150,7 @@ GC_find_starting_hblk.exit:                       ; preds = %GC_find_header.exit
   %60 = icmp ne ptr %.0.i.i33, %7
   %61 = select i1 %59, i1 %60, i1 false
   %62 = getelementptr inbounds i8, ptr %.0.i.i33, i64 8216
-  br i1 %61, label %56, label %GC_find_header.exit.i34, !llvm.loop !16
+  br i1 %61, label %56, label %GC_find_header.exit.i34, !llvm.loop !15
 
 GC_find_header.exit.i34:                          ; preds = %56
   %63 = and i64 %16, 262143
@@ -36195,7 +36195,7 @@ GC_find_header.exit._crit_edge.i:                 ; preds = %GC_find_header.exit
   %83 = icmp ne ptr %.0.i.i44, %7
   %84 = select i1 %82, i1 %83, i1 false
   %85 = getelementptr inbounds i8, ptr %.0.i.i44, i64 8216
-  br i1 %84, label %.preheader92, label %GC_find_header.exit.i45, !llvm.loop !16
+  br i1 %84, label %.preheader92, label %GC_find_header.exit.i45, !llvm.loop !15
 
 GC_find_header.exit.i45:                          ; preds = %.preheader92
   %86 = and i64 %16, 262143
@@ -36250,7 +36250,7 @@ GC_find_header.exit._crit_edge.i49:               ; preds = %GC_find_header.exit
   %111 = icmp ne ptr %.0.i.i56, %7
   %112 = select i1 %110, i1 %111, i1 false
   %113 = getelementptr inbounds i8, ptr %.0.i.i56, i64 8216
-  br i1 %112, label %.preheader, label %GC_find_header.exit.i57, !llvm.loop !16
+  br i1 %112, label %.preheader, label %GC_find_header.exit.i57, !llvm.loop !15
 
 GC_find_header.exit.i57:                          ; preds = %.preheader
   %114 = and i64 %16, 262143
@@ -36307,7 +36307,7 @@ GC_find_header.exit._crit_edge.i61:               ; preds = %GC_find_header.exit
   %140 = icmp ne ptr %.0.i.i67, %7
   %141 = select i1 %139, i1 %140, i1 false
   %142 = getelementptr inbounds i8, ptr %.0.i.i67, i64 8216
-  br i1 %141, label %.preheader94, label %GC_find_header.exit.i68, !llvm.loop !16
+  br i1 %141, label %.preheader94, label %GC_find_header.exit.i68, !llvm.loop !15
 
 GC_find_header.exit.i68:                          ; preds = %.preheader94
   %143 = and i64 %16, 262143
@@ -36359,7 +36359,7 @@ GC_find_header.exit._crit_edge.i72:               ; preds = %GC_find_header.exit
   %167 = icmp ne ptr %.0.i.i79, %7
   %168 = select i1 %166, i1 %167, i1 false
   %169 = getelementptr inbounds i8, ptr %.0.i.i79, i64 8216
-  br i1 %168, label %.preheader93, label %GC_find_header.exit.i80, !llvm.loop !16
+  br i1 %168, label %.preheader93, label %GC_find_header.exit.i80, !llvm.loop !15
 
 GC_find_header.exit.i80:                          ; preds = %.preheader93
   %170 = and i64 %16, 262143
@@ -36407,7 +36407,7 @@ GC_add_to_black_list_stack.exit:                  ; preds = %182, %174, %160, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i32 @GC_static_page_was_dirty(ptr noundef %0) #8 {
+define internal range(i32 0, 2) i32 @GC_static_page_was_dirty(ptr noundef %0) #8 {
   %2 = ptrtoint ptr %0 to i64
   %3 = lshr i64 %2, 12
   %4 = lshr i64 %2, 18
@@ -36568,7 +36568,7 @@ GC_wait_marker.exit:                              ; preds = %GC_wait_marker.exit
 60:                                               ; preds = %59
   %61 = tail call i32 @pthread_cond_wait(ptr noundef nonnull @mark_cv, ptr noundef nonnull @mark_mutex) #38
   %.not.i33 = icmp eq i32 %61, 0
-  br i1 %.not.i33, label %GC_wait_marker.exit, label %62, !llvm.loop !194
+  br i1 %.not.i33, label %GC_wait_marker.exit, label %62, !llvm.loop !188
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr @GC_on_abort, align 8
@@ -36682,7 +36682,7 @@ GC_release_mark_lock.exit39:                      ; preds = %79, %83
   %104 = icmp ule ptr %103, %.022
   %105 = icmp ule i32 %.125.i, %spec.store.select
   %106 = select i1 %104, i1 %105, i1 false
-  br i1 %106, label %.lr.ph.i, label %GC_steal_mark_stack.exit, !llvm.loop !195
+  br i1 %106, label %.lr.ph.i, label %GC_steal_mark_stack.exit, !llvm.loop !189
 
 GC_steal_mark_stack.exit:                         ; preds = %102, %GC_release_mark_lock.exit39
   %.023.lcssa.i = phi ptr [ %11, %GC_release_mark_lock.exit39 ], [ %.1.i, %102 ]
@@ -36713,7 +36713,7 @@ GC_steal_mark_stack.exit:                         ; preds = %102, %GC_release_ma
 .outer.backedge:                                  ; preds = %113, %175
   %.1.i41.ph.be = phi ptr [ %186, %175 ], [ %111, %113 ]
   %.ph.be = xor i1 %109, true
-  br label %.outer, !llvm.loop !196
+  br label %.outer, !llvm.loop !190
 
 117:                                              ; preds = %113
   %118 = ashr exact i64 %115, 4
@@ -37173,7 +37173,7 @@ tailrecurse:                                      ; preds = %127, %2
   %33 = getelementptr inbounds i8, ptr %.039, i64 4096
   %34 = add i64 %.040, -4096
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %GC_scratch_recycle_inner.exit, label %30, !llvm.loop !197
+  br i1 %35, label %GC_scratch_recycle_inner.exit, label %30, !llvm.loop !191
 
 36:                                               ; preds = %30
   %37 = ptrtoint ptr %.039 to i64
@@ -37265,7 +37265,7 @@ tailrecurse:                                      ; preds = %127, %2
   %83 = zext i32 %82 to i64
   %84 = load i64, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 37), align 8
   %85 = icmp ugt i64 %84, %83
-  br i1 %85, label %.lr.ph.i.i, label %GC_unprotect_all_heap.exit.i, !llvm.loop !198
+  br i1 %85, label %.lr.ph.i.i, label %GC_unprotect_all_heap.exit.i, !llvm.loop !192
 
 .lr.ph.i.i:                                       ; preds = %79, %81
   %86 = phi i64 [ %83, %81 ], [ 0, %79 ]
@@ -37379,7 +37379,7 @@ define internal fastcc ptr @GC_install_header(ptr noundef %0) unnamed_addr #1 {
   %12 = getelementptr inbounds i8, ptr %.03342.i, i64 8216
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, %7
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !199
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !193
 
 ._crit_edge.i:                                    ; preds = %11, %1
   %14 = tail call fastcc ptr @GC_scratch_alloc(i64 noundef 8224)
@@ -37406,14 +37406,14 @@ define internal fastcc ptr @GC_install_header(ptr noundef %0) unnamed_addr #1 {
   %23 = getelementptr inbounds i8, ptr %28, i64 8208
   %24 = load i64, ptr %23, align 8
   %25 = icmp ult i64 %24, %3
-  br i1 %25, label %.lr.ph, label %.lr.ph47.i._crit_edge.loopexit, !llvm.loop !200
+  br i1 %25, label %.lr.ph, label %.lr.ph47.i._crit_edge.loopexit, !llvm.loop !194
 
 .lr.ph:                                           ; preds = %.lr.ph47.i.preheader, %.lr.ph47.i
   %26 = phi ptr [ %28, %.lr.ph47.i ], [ %19, %.lr.ph47.i.preheader ]
   %27 = getelementptr inbounds i8, ptr %26, i64 8192
   %28 = load ptr, ptr %27, align 8
   %.not36.i = icmp eq ptr %28, null
-  br i1 %.not36.i, label %._crit_edge48.i.loopexit, label %.lr.ph47.i, !llvm.loop !200
+  br i1 %.not36.i, label %._crit_edge48.i.loopexit, label %.lr.ph47.i, !llvm.loop !194
 
 ._crit_edge48.i.loopexit:                         ; preds = %.lr.ph
   %29 = getelementptr inbounds i8, ptr %26, i64 8192
@@ -37479,7 +37479,7 @@ alloc_hdr.exit:                                   ; preds = %.loopexit
   %47 = icmp ne ptr %.0, %42
   %48 = select i1 %46, i1 %47, i1 false
   %49 = getelementptr inbounds i8, ptr %.0, i64 8216
-  br i1 %48, label %43, label %50, !llvm.loop !201
+  br i1 %48, label %43, label %50, !llvm.loop !195
 
 50:                                               ; preds = %43
   %51 = lshr i64 %2, 12
@@ -37515,7 +37515,7 @@ define internal fastcc void @GC_freehblk(ptr noundef %0) unnamed_addr #1 {
   %11 = icmp ne ptr %.058, %6
   %12 = select i1 %10, i1 %11, i1 false
   %13 = getelementptr inbounds i8, ptr %.058, i64 8216
-  br i1 %12, label %7, label %14, !llvm.loop !202
+  br i1 %12, label %7, label %14, !llvm.loop !196
 
 14:                                               ; preds = %7
   %15 = lshr i64 %2, 12
@@ -37556,7 +37556,7 @@ define internal fastcc void @GC_freehblk(ptr noundef %0) unnamed_addr #1 {
   %37 = icmp ne ptr %.0.i.i, %6
   %38 = select i1 %36, i1 %37, i1 false
   %39 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %38, label %33, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %38, label %33, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %33
   %40 = lshr i64 %29, 12
@@ -37589,7 +37589,7 @@ GC_find_header.exit.i:                            ; preds = %33
   %56 = icmp ne ptr %.0.i, %51
   %57 = select i1 %55, i1 %56, i1 false
   %58 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %57, label %52, label %59, !llvm.loop !203
+  br i1 %57, label %52, label %59, !llvm.loop !197
 
 59:                                               ; preds = %52
   %60 = lshr i64 %47, 12
@@ -37599,7 +37599,7 @@ GC_find_header.exit.i:                            ; preds = %33
   %63 = getelementptr inbounds i8, ptr %.01518.i, i64 4096
   %64 = ptrtoint ptr %63 to i64
   %65 = icmp ugt i64 %45, %64
-  br i1 %65, label %.lr.ph.i, label %GC_remove_counts.exit, !llvm.loop !204
+  br i1 %65, label %.lr.ph.i, label %GC_remove_counts.exit, !llvm.loop !198
 
 GC_remove_counts.exit:                            ; preds = %59, %25, %GC_find_header.exit.i, %.preheader.i
   store i64 %22, ptr %19, align 8
@@ -37640,7 +37640,7 @@ GC_remove_counts.exit:                            ; preds = %59, %25, %GC_find_h
   %86 = icmp ne ptr %.0, %81
   %87 = select i1 %85, i1 %86, i1 false
   %88 = getelementptr inbounds i8, ptr %.0, i64 8216
-  br i1 %87, label %82, label %89, !llvm.loop !205
+  br i1 %87, label %82, label %89, !llvm.loop !199
 
 89:                                               ; preds = %82
   %90 = lshr i64 %77, 12
@@ -37663,7 +37663,7 @@ GC_remove_counts.exit:                            ; preds = %59, %25, %GC_find_h
   %103 = icmp ne ptr %.0.i.i69, %81
   %104 = select i1 %102, i1 %103, i1 false
   %105 = getelementptr inbounds i8, ptr %.0.i.i69, i64 8216
-  br i1 %104, label %99, label %106, !llvm.loop !206
+  br i1 %104, label %99, label %106, !llvm.loop !200
 
 106:                                              ; preds = %99
   %107 = lshr i64 %95, 12
@@ -37698,7 +37698,7 @@ GC_remove_counts.exit:                            ; preds = %59, %25, %GC_find_h
   %124 = icmp ne ptr %.0.i.i.i.i, %81
   %125 = select i1 %123, i1 %124, i1 false
   %126 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 8216
-  br i1 %125, label %120, label %GC_find_header.exit.i.i.i, !llvm.loop !16
+  br i1 %125, label %120, label %GC_find_header.exit.i.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i.i:                        ; preds = %120
   %127 = lshr i64 %116, 12
@@ -37706,7 +37706,7 @@ GC_find_header.exit.i.i.i:                        ; preds = %120
   %129 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i.i, i64 0, i64 %128
   %.0.i.i.i = load ptr, ptr %129, align 8
   %130 = icmp ult ptr %.0.i.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %130, label %.lr.ph.i.i.i, label %get_block_ending_at.exit.i, !llvm.loop !20
+  br i1 %130, label %.lr.ph.i.i.i, label %get_block_ending_at.exit.i, !llvm.loop !19
 
 .preheader.i.i:                                   ; preds = %106, %.preheader.i.i
   %.027.in.i.i.i = phi ptr [ %136, %.preheader.i.i ], [ %98, %106 ]
@@ -37717,7 +37717,7 @@ GC_find_header.exit.i.i.i:                        ; preds = %120
   %134 = icmp ne ptr %.027.i.i.i, %81
   %135 = select i1 %133, i1 %134, i1 false
   %136 = getelementptr inbounds i8, ptr %.027.i.i.i, i64 8216
-  br i1 %135, label %.preheader.i.i, label %137, !llvm.loop !207
+  br i1 %135, label %.preheader.i.i, label %137, !llvm.loop !201
 
 137:                                              ; preds = %.preheader.i.i
   %138 = icmp eq ptr %.027.i.i.i, %81
@@ -37744,7 +37744,7 @@ GC_find_header.exit.i.i.i:                        ; preds = %120
   %143 = getelementptr inbounds i8, ptr %.02639.i.i.i, i64 8200
   %.026.i.i.i = load ptr, ptr %143, align 8
   %.not.i.i.i = icmp eq ptr %.026.i.i.i, null
-  br i1 %.not.i.i.i, label %get_block_ending_at.exit.thread.i, label %.lr.ph.i22.i.i, !llvm.loop !208
+  br i1 %.not.i.i.i, label %get_block_ending_at.exit.thread.i, label %.lr.ph.i22.i.i, !llvm.loop !202
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %157
   %.245.i.i.i = phi ptr [ %159, %157 ], [ %.245.i.i.i.ph, %.preheader.i.i.i.preheader ]
@@ -37774,13 +37774,13 @@ GC_find_header.exit.i.i.i:                        ; preds = %120
 155:                                              ; preds = %152, %148
   %.3.i.i.i = phi i64 [ %149, %148 ], [ %154, %152 ]
   %156 = icmp sgt i64 %.3.i.i.i, -1
-  br i1 %156, label %144, label %157, !llvm.loop !209
+  br i1 %156, label %144, label %157, !llvm.loop !203
 
 157:                                              ; preds = %155
   %158 = getelementptr inbounds i8, ptr %.245.i.i.i, i64 8200
   %159 = load ptr, ptr %158, align 8
   %.not33.i.i.i = icmp eq ptr %159, null
-  br i1 %.not33.i.i.i, label %get_block_ending_at.exit.thread.i, label %.preheader.i.i.i, !llvm.loop !210
+  br i1 %.not33.i.i.i, label %get_block_ending_at.exit.thread.i, label %.preheader.i.i.i, !llvm.loop !204
 
 GC_prev_block.exit.i.i:                           ; preds = %150
   %160 = getelementptr inbounds i8, ptr %.245.i.i.i, i64 8208
@@ -37807,7 +37807,7 @@ GC_prev_block.exit.i.i:                           ; preds = %150
   %174 = icmp ne ptr %.0.i23.i.i, %81
   %175 = select i1 %173, i1 %174, i1 false
   %176 = getelementptr inbounds i8, ptr %.0.i23.i.i, i64 8216
-  br i1 %175, label %170, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %175, label %170, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %170
   %177 = and i64 %.23042.i.i.i, 1023
@@ -37847,7 +37847,7 @@ get_block_ending_at.exit.thread12.i:              ; preds = %get_block_ending_at
   %189 = icmp ne ptr %.0.i9.i, %81
   %190 = select i1 %188, i1 %189, i1 false
   %191 = getelementptr inbounds i8, ptr %.0.i9.i, i64 8216
-  br i1 %190, label %185, label %GC_find_header.exit.i70, !llvm.loop !16
+  br i1 %190, label %185, label %GC_find_header.exit.i70, !llvm.loop !15
 
 GC_find_header.exit.i70:                          ; preds = %185
   %192 = lshr i64 %.pre-phi.i, 12
@@ -37932,7 +37932,7 @@ GC_hblk_fl_from_blocks.exit.i:                    ; preds = %214, %212, %210
   %235 = icmp ne ptr %.029.i.i, %81
   %236 = select i1 %234, i1 %235, i1 false
   %237 = getelementptr inbounds i8, ptr %.029.i.i, i64 8216
-  br i1 %236, label %231, label %238, !llvm.loop !211
+  br i1 %236, label %231, label %238, !llvm.loop !205
 
 238:                                              ; preds = %231
   %239 = lshr i64 %227, 12
@@ -37972,7 +37972,7 @@ GC_hblk_fl_from_blocks.exit.i:                    ; preds = %214, %212, %210
   %260 = icmp ne ptr %.0.i2.i, %255
   %261 = select i1 %259, i1 %260, i1 false
   %262 = getelementptr inbounds i8, ptr %.0.i2.i, i64 8216
-  br i1 %261, label %256, label %263, !llvm.loop !212
+  br i1 %261, label %256, label %263, !llvm.loop !206
 
 263:                                              ; preds = %256
   %264 = lshr i64 %251, 12
@@ -38001,7 +38001,7 @@ GC_remove_from_fl.exit:                           ; preds = %244, %263
   %278 = icmp ne ptr %.0.i76, %273
   %279 = select i1 %277, i1 %278, i1 false
   %280 = getelementptr inbounds i8, ptr %.0.i76, i64 8216
-  br i1 %279, label %274, label %GC_remove_header.exit, !llvm.loop !213
+  br i1 %279, label %274, label %GC_remove_header.exit, !llvm.loop !207
 
 GC_remove_header.exit:                            ; preds = %274
   %281 = getelementptr inbounds [1024 x ptr], ptr %.0.i76, i64 0, i64 %91
@@ -38033,7 +38033,7 @@ GC_remove_header.exit:                            ; preds = %274
   %295 = icmp ne ptr %.0.i78, %290
   %296 = select i1 %294, i1 %295, i1 false
   %297 = getelementptr inbounds i8, ptr %.0.i78, i64 8216
-  br i1 %296, label %291, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %296, label %291, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %291
   %298 = lshr i64 %286, 12
@@ -38104,7 +38104,7 @@ GC_hblk_fl_from_blocks.exit.i79:                  ; preds = %318, %316, %314
   %339 = icmp ne ptr %.029.i.i82, %290
   %340 = select i1 %338, i1 %339, i1 false
   %341 = getelementptr inbounds i8, ptr %.029.i.i82, i64 8216
-  br i1 %340, label %335, label %342, !llvm.loop !211
+  br i1 %340, label %335, label %342, !llvm.loop !205
 
 342:                                              ; preds = %335
   %343 = lshr i64 %331, 12
@@ -38144,7 +38144,7 @@ GC_hblk_fl_from_blocks.exit.i79:                  ; preds = %318, %316, %314
   %364 = icmp ne ptr %.0.i2.i87, %359
   %365 = select i1 %363, i1 %364, i1 false
   %366 = getelementptr inbounds i8, ptr %.0.i2.i87, i64 8216
-  br i1 %365, label %360, label %367, !llvm.loop !212
+  br i1 %365, label %360, label %367, !llvm.loop !206
 
 367:                                              ; preds = %360
   %368 = lshr i64 %355, 12
@@ -38177,7 +38177,7 @@ GC_remove_from_fl.exit88:                         ; preds = %348, %367
   %385 = icmp ne ptr %.0.i90, %380
   %386 = select i1 %384, i1 %385, i1 false
   %387 = getelementptr inbounds i8, ptr %.0.i90, i64 8216
-  br i1 %386, label %381, label %GC_remove_header.exit91, !llvm.loop !213
+  br i1 %386, label %381, label %GC_remove_header.exit91, !llvm.loop !207
 
 GC_remove_header.exit91:                          ; preds = %381
   %388 = getelementptr inbounds [1024 x ptr], ptr %.0.i90, i64 0, i64 %16
@@ -38249,7 +38249,7 @@ GC_hblk_fl_from_blocks.exit.i92:                  ; preds = %402, %400, %398
   %425 = icmp ne ptr %.0.i96, %420
   %426 = select i1 %424, i1 %425, i1 false
   %427 = getelementptr inbounds i8, ptr %.0.i96, i64 8216
-  br i1 %426, label %421, label %428, !llvm.loop !214
+  br i1 %426, label %421, label %428, !llvm.loop !208
 
 428:                                              ; preds = %421
   %429 = lshr i64 %416, 12
@@ -38274,7 +38274,7 @@ declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr 
 declare extern_weak i32 @dl_iterate_phdr(ptr noundef, ptr noundef) #27
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @GC_register_dynlib_callback(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define internal range(i32 -1, 1) i32 @GC_register_dynlib_callback(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
   %4 = icmp ult i64 %1, 26
   br i1 %4, label %94, label %5
 
@@ -38363,7 +38363,7 @@ define internal noundef i32 @GC_register_dynlib_callback(ptr nocapture noundef r
   %50 = load i16, ptr %7, align 8
   %51 = zext i16 %50 to i32
   %52 = icmp ult i32 %48, %51
-  br i1 %52, label %10, label %._crit_edge, !llvm.loop !215
+  br i1 %52, label %10, label %._crit_edge, !llvm.loop !209
 
 ._crit_edge:                                      ; preds = %47
   %53 = icmp eq i16 %50, 0
@@ -38444,7 +38444,7 @@ define internal noundef i32 @GC_register_dynlib_callback(ptr nocapture noundef r
 
 87:                                               ; preds = %84
   %88 = icmp ugt i64 %indvars.iv, 1
-  br i1 %88, label %.lr.ph65, label %.loopexit, !llvm.loop !216
+  br i1 %88, label %.lr.ph65, label %.loopexit, !llvm.loop !210
 
 .loopexit:                                        ; preds = %87, %.thread, %56, %.lr.ph69, %79, %81
   %89 = add nuw nsw i32 %.167, 1
@@ -38452,7 +38452,7 @@ define internal noundef i32 @GC_register_dynlib_callback(ptr nocapture noundef r
   %91 = load i16, ptr %7, align 8
   %92 = zext i16 %91 to i32
   %93 = icmp ult i32 %89, %92
-  br i1 %93, label %.lr.ph69, label %._crit_edge70, !llvm.loop !217
+  br i1 %93, label %.lr.ph69, label %._crit_edge70, !llvm.loop !211
 
 ._crit_edge70:                                    ; preds = %.loopexit, %5, %._crit_edge
   store i32 1, ptr %2, align 4
@@ -38504,17 +38504,17 @@ define internal fastcc void @GC_start_reclaim(i32 noundef %0) unnamed_addr #1 {
   store ptr null, ptr %.058.i.us, align 8
   %.0.i.us = load ptr, ptr %.09.i.us, align 8
   %.not.i.us = icmp eq ptr %.0.i.us, null
-  br i1 %.not.i.us, label %GC_clear_fl_links.exit.us46, label %.lr.ph.i.us, !llvm.loop !218
+  br i1 %.not.i.us, label %GC_clear_fl_links.exit.us46, label %.lr.ph.i.us, !llvm.loop !212
 
 GC_clear_fl_links.exit.us46:                      ; preds = %.lr.ph.i.us, %.split.us50
   %.016.add.us47 = add nuw nsw i64 %.016.idx40.us44, 8
   %13 = icmp ult i64 %.016.idx40.us44, 1024
-  br i1 %13, label %.split.us50, label %.loopexit.us, !llvm.loop !219
+  br i1 %13, label %.split.us50, label %.loopexit.us, !llvm.loop !213
 
 14:                                               ; preds = %.loopexit.us, %.lr.ph.split.us
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !220
+  br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !214
 
 .loopexit.us:                                     ; preds = %GC_clear_fl_links.exit.us46, %GC_clear_fl_links.exit.us.us
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %6, i8 0, i64 1032, i1 false)
@@ -38534,7 +38534,7 @@ GC_clear_fl_links.exit.us46:                      ; preds = %.lr.ph.i.us, %.spli
 GC_clear_fl_links.exit.us.us:                     ; preds = %16, %.split.us.us
   %.016.add.us.us = add nuw nsw i64 %.016.idx40.us.us, 8
   %17 = icmp ult i64 %.016.idx40.us.us, 1024
-  br i1 %17, label %.split.us.us, label %.loopexit.us, !llvm.loop !219
+  br i1 %17, label %.split.us.us, label %.loopexit.us, !llvm.loop !213
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.lr.ph ]
@@ -38550,7 +38550,7 @@ GC_clear_fl_links.exit.us.us:                     ; preds = %16, %.split.us.us
 21:                                               ; preds = %.lr.ph.split, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count58
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !220
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !214
 
 ._crit_edge:                                      ; preds = %21, %14, %1
   %.021.i = load ptr, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 14), align 8
@@ -38601,7 +38601,7 @@ GC_clear_fl_links.exit.us.us:                     ; preds = %16, %.split.us.us
   %45 = icmp ne ptr %.0.i.i26, %40
   %46 = select i1 %44, i1 %45, i1 false
   %47 = getelementptr inbounds i8, ptr %.0.i.i26, i64 8216
-  br i1 %46, label %41, label %GC_find_header.exit.i27, !llvm.loop !16
+  br i1 %46, label %41, label %GC_find_header.exit.i27, !llvm.loop !15
 
 GC_find_header.exit.i27:                          ; preds = %41
   %48 = inttoptr i64 %36 to ptr
@@ -38699,7 +38699,7 @@ GC_find_header.exit.i27:                          ; preds = %41
   %99 = icmp ne ptr %.0.i.i.i30, %40
   %100 = select i1 %98, i1 %99, i1 false
   %101 = getelementptr inbounds i8, ptr %.0.i.i.i30, i64 8216
-  br i1 %100, label %.preheader58.i, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %100, label %.preheader58.i, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %.preheader58.i
   %102 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i30, i64 0, i64 %49
@@ -38748,7 +38748,7 @@ GC_find_header.exit.i.i:                          ; preds = %.preheader58.i
   %126 = icmp ne ptr %.0.i.i.i.i.i, %121
   %127 = select i1 %125, i1 %126, i1 false
   %128 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 8216
-  br i1 %127, label %122, label %GC_size.exit.i.i.i, !llvm.loop !16
+  br i1 %127, label %122, label %GC_size.exit.i.i.i, !llvm.loop !15
 
 GC_size.exit.i.i.i:                               ; preds = %122
   %129 = getelementptr inbounds i8, ptr %.01114.i.i.i, i64 32
@@ -38799,7 +38799,7 @@ GC_has_other_debug_info.exit.i.i:                 ; preds = %152, %GC_has_other_
   %159 = icmp ne ptr %.0.i12.i.i, %121
   %160 = select i1 %158, i1 %159, i1 false
   %161 = getelementptr inbounds i8, ptr %.0.i12.i.i, i64 8216
-  br i1 %160, label %GC_has_other_debug_info.exit.i.i, label %GC_find_header.exit.i.i37, !llvm.loop !16
+  br i1 %160, label %GC_has_other_debug_info.exit.i.i, label %GC_find_header.exit.i.i37, !llvm.loop !15
 
 GC_find_header.exit.i.i37:                        ; preds = %GC_has_other_debug_info.exit.i.i
   %162 = getelementptr inbounds [1024 x ptr], ptr %.0.i12.i.i, i64 0, i64 %131
@@ -38834,7 +38834,7 @@ GC_find_header.exit.i.i37:                        ; preds = %GC_has_other_debug_
   %174 = icmp ne ptr %.0.i.i.i.i, %121
   %175 = select i1 %173, i1 %174, i1 false
   %176 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 8216
-  br i1 %175, label %.preheader.i.i, label %GC_find_header.exit.i.i.i, !llvm.loop !16
+  br i1 %175, label %.preheader.i.i, label %GC_find_header.exit.i.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i.i:                        ; preds = %.preheader.i.i
   %177 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i.i, i64 0, i64 %131
@@ -38875,7 +38875,7 @@ GC_add_smashed.exit.i.i:                          ; preds = %192, %GC_set_mark_b
 194:                                              ; preds = %.lr.ph.i.i
   %195 = add nuw nsw i64 %.01115.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %195, %167
-  br i1 %exitcond.not.i.i, label %GC_add_leaked.exit, label %.lr.ph.i.i, !llvm.loop !221
+  br i1 %exitcond.not.i.i, label %GC_add_leaked.exit, label %.lr.ph.i.i, !llvm.loop !215
 
 GC_check_leaked.exit.i:                           ; preds = %152, %146, %GC_size.exit.i.i.i, %115
   store atomic volatile i64 1, ptr @GC_have_errors monotonic, align 8
@@ -38905,7 +38905,7 @@ GC_check_leaked.exit.i:                           ; preds = %152, %146, %GC_size
   %211 = icmp ne ptr %.0.i.i.i33, %206
   %212 = select i1 %210, i1 %211, i1 false
   %213 = getelementptr inbounds i8, ptr %.0.i.i.i33, i64 8216
-  br i1 %212, label %207, label %GC_find_header.exit.i4.i, !llvm.loop !16
+  br i1 %212, label %207, label %GC_find_header.exit.i4.i, !llvm.loop !15
 
 GC_find_header.exit.i4.i:                         ; preds = %207
   %214 = lshr i64 %202, 12
@@ -38932,7 +38932,7 @@ GC_add_leaked.exit:                               ; preds = %194, %223, %GC_find
   %227 = getelementptr inbounds i8, ptr %.01114.i.i.i, i64 %57
   %228 = add i64 %.015.i.i.i, %111
   %.not.i.i.i = icmp ugt ptr %227, %109
-  br i1 %.not.i.i.i, label %GC_reclaim_small_nonempty_block.exit.i31, label %112, !llvm.loop !222
+  br i1 %.not.i.i.i, label %GC_reclaim_small_nonempty_block.exit.i31, label %112, !llvm.loop !216
 
 229:                                              ; preds = %93
   %.not56.i = icmp eq i64 %95, 0
@@ -38954,7 +38954,7 @@ GC_add_leaked.exit:                               ; preds = %194, %223, %GC_find
   %237 = icmp ne ptr %.0.i.i54.i, %40
   %238 = select i1 %236, i1 %237, i1 false
   %239 = getelementptr inbounds i8, ptr %.0.i.i54.i, i64 8216
-  br i1 %238, label %.preheader.i32, label %GC_find_header.exit.i55.i, !llvm.loop !16
+  br i1 %238, label %.preheader.i32, label %GC_find_header.exit.i55.i, !llvm.loop !15
 
 GC_find_header.exit.i55.i:                        ; preds = %.preheader.i32
   %240 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i54.i, i64 0, i64 %49
@@ -39067,13 +39067,13 @@ GC_reclaim_block.exit:                            ; preds = %289, %286, %90, %87
 299:                                              ; preds = %297, %295, %GC_reclaim_block.exit
   %.1.i = phi i64 [ %296, %295 ], [ %298, %297 ], [ %292, %GC_reclaim_block.exit ]
   %300 = icmp sgt i64 %.1.i, -1
-  br i1 %300, label %23, label %301, !llvm.loop !18
+  br i1 %300, label %23, label %301, !llvm.loop !17
 
 301:                                              ; preds = %299
   %302 = getelementptr inbounds i8, ptr %.023.i, i64 8192
   %.0.i20 = load ptr, ptr %302, align 8
   %.not.i21 = icmp eq ptr %.0.i20, null
-  br i1 %.not.i21, label %GC_apply_to_all_blocks.exit.loopexit, label %.preheader.i, !llvm.loop !19
+  br i1 %.not.i21, label %GC_apply_to_all_blocks.exit.loopexit, label %.preheader.i, !llvm.loop !18
 
 GC_apply_to_all_blocks.exit.loopexit:             ; preds = %301
   %.pre = load i32, ptr @GC_n_kinds, align 4
@@ -39124,7 +39124,7 @@ GC_apply_to_all_blocks.exit:                      ; preds = %GC_apply_to_all_blo
   %325 = icmp ne ptr %.0.i.i, %320
   %326 = select i1 %324, i1 %325, i1 false
   %327 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %326, label %321, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %326, label %321, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %321
   %328 = lshr i64 %316, 12
@@ -39147,7 +39147,7 @@ GC_find_header.exit.i:                            ; preds = %321
   %340 = icmp ne ptr %.0.i.i.i, %335
   %341 = select i1 %339, i1 %340, i1 false
   %342 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %341, label %336, label %GC_reclaim_small_nonempty_block.exit.i, !llvm.loop !16
+  br i1 %341, label %336, label %GC_reclaim_small_nonempty_block.exit.i, !llvm.loop !15
 
 GC_reclaim_small_nonempty_block.exit.i:           ; preds = %336
   %343 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %329
@@ -39170,12 +39170,12 @@ GC_reclaim_small_nonempty_block.exit.i:           ; preds = %336
   store ptr %358, ptr %354, align 8
   %359 = load ptr, ptr %313, align 8
   %.not18.i = icmp eq ptr %359, null
-  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i24, !llvm.loop !223
+  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i24, !llvm.loop !217
 
 ._crit_edge.i:                                    ; preds = %GC_reclaim_small_nonempty_block.exit.i, %.preheader.i23
   %360 = add nuw nsw i64 %.01520.i, 1
   %exitcond.not.i = icmp eq i64 %360, 129
-  br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %.preheader.i23, !llvm.loop !224
+  br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %.preheader.i23, !llvm.loop !218
 
 .loopexit.loopexit.i:                             ; preds = %._crit_edge.i
   %.pre.i = load i32, ptr @GC_n_kinds, align 4
@@ -39186,7 +39186,7 @@ GC_reclaim_small_nonempty_block.exit.i:           ; preds = %336
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %362 = sext i32 %361 to i64
   %363 = icmp slt i64 %indvars.iv.next.i, %362
-  br i1 %363, label %.lr.ph23.i, label %GC_reclaim_unconditionally_marked.exit, !llvm.loop !225
+  br i1 %363, label %.lr.ph23.i, label %GC_reclaim_unconditionally_marked.exit, !llvm.loop !219
 
 GC_reclaim_unconditionally_marked.exit:           ; preds = %.loopexit.i, %GC_apply_to_all_blocks.exit
   ret void
@@ -39226,7 +39226,7 @@ define internal fastcc void @GC_unmap_old(i32 noundef %0) unnamed_addr #1 {
   %14 = icmp ne ptr %.0.i, %5
   %15 = select i1 %13, i1 %14, i1 false
   %16 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %15, label %10, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %15, label %10, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %10
   %17 = lshr i64 %6, 12
@@ -39303,12 +39303,12 @@ GC_unmap.exit:                                    ; preds = %32, %57
   %63 = phi ptr [ %5, %25 ], [ %.pre, %GC_unmap.exit ], [ %5, %GC_find_header.exit ]
   %.011 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %.011, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !226
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !220
 
 ._crit_edge:                                      ; preds = %62, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 61
-  br i1 %exitcond.not, label %64, label %3, !llvm.loop !227
+  br i1 %exitcond.not, label %64, label %3, !llvm.loop !221
 
 64:                                               ; preds = %._crit_edge
   ret void
@@ -39336,7 +39336,7 @@ define internal fastcc void @GC_add_leaked(ptr noundef %0) unnamed_addr #15 {
   %12 = icmp ne ptr %.0.i.i.i.i, %7
   %13 = select i1 %11, i1 %12, i1 false
   %14 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 8216
-  br i1 %13, label %8, label %GC_size.exit.i.i, !llvm.loop !16
+  br i1 %13, label %8, label %GC_size.exit.i.i, !llvm.loop !15
 
 GC_size.exit.i.i:                                 ; preds = %8
   %15 = getelementptr inbounds i8, ptr %0, i64 32
@@ -39387,7 +39387,7 @@ GC_has_other_debug_info.exit.i:                   ; preds = %38, %GC_has_other_d
   %45 = icmp ne ptr %.0.i12.i, %7
   %46 = select i1 %44, i1 %45, i1 false
   %47 = getelementptr inbounds i8, ptr %.0.i12.i, i64 8216
-  br i1 %46, label %GC_has_other_debug_info.exit.i, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %46, label %GC_has_other_debug_info.exit.i, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %GC_has_other_debug_info.exit.i
   %48 = getelementptr inbounds [1024 x ptr], ptr %.0.i12.i, i64 0, i64 %17
@@ -39422,7 +39422,7 @@ GC_find_header.exit.i:                            ; preds = %GC_has_other_debug_
   %60 = icmp ne ptr %.0.i.i.i, %7
   %61 = select i1 %59, i1 %60, i1 false
   %62 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %61, label %.preheader.i, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %61, label %.preheader.i, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %.preheader.i
   %63 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %17
@@ -39463,7 +39463,7 @@ GC_add_smashed.exit.i:                            ; preds = %78, %GC_set_mark_bi
 80:                                               ; preds = %.lr.ph.i
   %81 = add nuw nsw i64 %.01115.i, 1
   %exitcond.not.i = icmp eq i64 %81, %53
-  br i1 %exitcond.not.i, label %GC_set_mark_bit.exit, label %.lr.ph.i, !llvm.loop !221
+  br i1 %exitcond.not.i, label %GC_set_mark_bit.exit, label %.lr.ph.i, !llvm.loop !215
 
 GC_check_leaked.exit:                             ; preds = %38, %32, %GC_size.exit.i.i, %1
   store atomic volatile i64 1, ptr @GC_have_errors monotonic, align 8
@@ -39493,7 +39493,7 @@ GC_check_leaked.exit:                             ; preds = %38, %32, %GC_size.e
   %97 = icmp ne ptr %.0.i.i, %92
   %98 = select i1 %96, i1 %97, i1 false
   %99 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %98, label %93, label %GC_find_header.exit.i4, !llvm.loop !16
+  br i1 %98, label %93, label %GC_find_header.exit.i4, !llvm.loop !15
 
 GC_find_header.exit.i4:                           ; preds = %93
   %100 = lshr i64 %88, 12
@@ -39575,7 +39575,7 @@ define internal fastcc void @GC_make_disappearing_links_disappear(ptr nocapture 
   %28 = icmp ne ptr %.027.i, %23
   %29 = select i1 %27, i1 %28, i1 false
   %30 = getelementptr inbounds i8, ptr %.027.i, i64 8216
-  br i1 %29, label %24, label %31, !llvm.loop !21
+  br i1 %29, label %24, label %31, !llvm.loop !20
 
 31:                                               ; preds = %24
   %32 = lshr i64 %17, 12
@@ -39612,7 +39612,7 @@ define internal fastcc void @GC_make_disappearing_links_disappear(ptr nocapture 
   %52 = icmp ne ptr %.0.i.i.i, %23
   %53 = select i1 %51, i1 %52, i1 false
   %54 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %53, label %48, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %53, label %48, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %48
   %55 = lshr i64 %44, 12
@@ -39620,7 +39620,7 @@ GC_find_header.exit.i.i:                          ; preds = %48
   %57 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %56
   %.0.i.i = load ptr, ptr %57, align 8
   %58 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %58, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !20
+  br i1 %58, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %37
   %.032.i = phi ptr [ %35, %37 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
@@ -39669,7 +39669,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %86 = icmp ne ptr %.0.i.i38, %23
   %87 = select i1 %85, i1 %86, i1 false
   %88 = getelementptr inbounds i8, ptr %.0.i.i38, i64 8216
-  br i1 %87, label %82, label %GC_is_marked.exit, !llvm.loop !16
+  br i1 %87, label %82, label %GC_is_marked.exit, !llvm.loop !15
 
 GC_is_marked.exit:                                ; preds = %82
   %89 = lshr i64 %78, 12
@@ -39703,7 +39703,7 @@ GC_is_marked.exit:                                ; preds = %82
   %110 = icmp ne ptr %.0.i.i40, %105
   %111 = select i1 %109, i1 %110, i1 false
   %112 = getelementptr inbounds i8, ptr %.0.i.i40, i64 8216
-  br i1 %111, label %106, label %GC_is_marked.exit41, !llvm.loop !16
+  br i1 %111, label %106, label %GC_is_marked.exit41, !llvm.loop !15
 
 GC_is_marked.exit41:                              ; preds = %106
   %113 = lshr i64 %101, 12
@@ -39769,7 +39769,7 @@ GC_is_marked.exit41:                              ; preds = %106
   %152 = icmp ne ptr %.0.i.i43, %147
   %153 = select i1 %151, i1 %152, i1 false
   %154 = getelementptr inbounds i8, ptr %.0.i.i43, i64 8216
-  br i1 %153, label %148, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %153, label %148, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %148
   %155 = lshr i64 %143, 12
@@ -39809,14 +39809,14 @@ GC_base.exit.thread:                              ; preds = %62, %GC_find_starti
   %.3 = phi i32 [ %.2, %GC_clear_mark_bit.exit ], [ %.13153, %GC_is_marked.exit ], [ %.13153, %GC_is_marked.exit41 ], [ %.13153, %15 ], [ %.13153, %31 ], [ %.13153, %GC_find_starting_hblk.exit.i ], [ %.13153, %62 ]
   %.1 = phi ptr [ %.02954, %GC_clear_mark_bit.exit ], [ %.03252, %GC_is_marked.exit ], [ %.03252, %GC_is_marked.exit41 ], [ %.03252, %15 ], [ %.03252, %31 ], [ %.03252, %GC_find_starting_hblk.exit.i ], [ %.03252, %62 ]
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !228
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !222
 
 ._crit_edge:                                      ; preds = %GC_base.exit.thread, %9
   %.131.lcssa = phi i32 [ %.03055, %9 ], [ %.3, %GC_base.exit.thread ]
   %174 = add i64 %.056, 1
   %.0.highbits = lshr i64 %174, %5
   %175 = icmp eq i64 %.0.highbits, 0
-  br i1 %175, label %9, label %176, !llvm.loop !229
+  br i1 %175, label %9, label %176, !llvm.loop !223
 
 176:                                              ; preds = %._crit_edge
   %177 = icmp ne i32 %.131.lcssa, 0
@@ -39843,7 +39843,7 @@ GC_base.exit.thread:                              ; preds = %62, %GC_find_starti
 declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none) uwtable
-define internal fastcc i32 @GC_should_collect() unnamed_addr #21 {
+define internal fastcc range(i32 0, 2) i32 @GC_should_collect() unnamed_addr #21 {
   %1 = alloca i64, align 8
   %2 = load i64, ptr @GC_should_collect.last_gc_no, align 8
   %3 = load i64, ptr @GC_gc_no, align 8
@@ -39950,11 +39950,11 @@ define internal fastcc void @GC_promote_black_lists() unnamed_addr #1 {
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %1, i8 0, i64 32768, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %1, i8 0, i64 32768, i1 false)
   br label %7
 
 7:                                                ; preds = %6, %0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %2, i8 0, i64 32768, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32768) %2, i8 0, i64 32768, i1 false)
   store ptr %1, ptr @GC_incomplete_normal_bl, align 8
   store ptr %2, ptr @GC_incomplete_stack_bl, align 8
   %8 = load i64, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 37), align 8
@@ -39993,7 +39993,7 @@ define internal fastcc void @GC_promote_black_lists() unnamed_addr #1 {
   %spec.select.i.i = add i64 %26, %.0810.i.i
   %27 = getelementptr inbounds i8, ptr %.011.i.i, i64 4096
   %28 = icmp ult ptr %27, %16
-  br i1 %28, label %.lr.ph.i.i, label %GC_number_stack_black_listed.exit.i, !llvm.loop !230
+  br i1 %28, label %.lr.ph.i.i, label %GC_number_stack_black_listed.exit.i, !llvm.loop !224
 
 GC_number_stack_black_listed.exit.i:              ; preds = %.lr.ph.i.i, %10
   %.08.lcssa.i.i = phi i64 [ 0, %10 ], [ %spec.select.i.i, %.lr.ph.i.i ]
@@ -40001,7 +40001,7 @@ GC_number_stack_black_listed.exit.i:              ; preds = %.lr.ph.i.i, %10
   %indvars.iv.next.i = add i64 %indvars.iv.i, 1
   %30 = and i64 %indvars.iv.next.i, 4294967295
   %31 = icmp ugt i64 %8, %30
-  br i1 %31, label %10, label %._crit_edge.loopexit.i, !llvm.loop !231
+  br i1 %31, label %10, label %._crit_edge.loopexit.i, !llvm.loop !225
 
 ._crit_edge.loopexit.i:                           ; preds = %GC_number_stack_black_listed.exit.i
   %32 = shl i64 %29, 12
@@ -40054,7 +40054,7 @@ thread-pre-split:                                 ; preds = %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @GC_reclaim_all(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @GC_reclaim_all(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -40124,7 +40124,7 @@ define internal fastcc noundef i32 @GC_reclaim_all(ptr noundef readonly %0, i32 
   %35 = icmp ne ptr %.0.i, %30
   %36 = select i1 %34, i1 %35, i1 false
   %37 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %36, label %31, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %36, label %31, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %31
   %38 = lshr i64 %26, 12
@@ -40159,7 +40159,7 @@ GC_find_header.exit:                              ; preds = %31
   %58 = icmp ne ptr %.0.i.i, %53
   %59 = select i1 %57, i1 %58, i1 false
   %60 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %59, label %54, label %GC_reclaim_small_nonempty_block.exit, !llvm.loop !16
+  br i1 %59, label %54, label %GC_reclaim_small_nonempty_block.exit, !llvm.loop !15
 
 GC_reclaim_small_nonempty_block.exit:             ; preds = %54
   %61 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i, i64 0, i64 %39
@@ -40186,12 +40186,12 @@ GC_reclaim_small_nonempty_block.exit:             ; preds = %54
 77:                                               ; preds = %GC_reclaim_small_nonempty_block.exit, %43
   %78 = phi ptr [ %.pre, %GC_reclaim_small_nonempty_block.exit ], [ %42, %43 ]
   %.not = icmp eq ptr %78, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !232
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !226
 
 ._crit_edge:                                      ; preds = %77, %.preheader
   %79 = add nuw nsw i64 %.01828, 1
   %exitcond.not = icmp eq i64 %79, 129
-  br i1 %exitcond.not, label %.loopexit26.loopexit, label %.preheader, !llvm.loop !233
+  br i1 %exitcond.not, label %.loopexit26.loopexit, label %.preheader, !llvm.loop !227
 
 .loopexit26.loopexit:                             ; preds = %._crit_edge
   %.pre34 = load i32, ptr @GC_n_kinds, align 4
@@ -40202,7 +40202,7 @@ GC_reclaim_small_nonempty_block.exit:             ; preds = %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %15, label %._crit_edge32, !llvm.loop !234
+  br i1 %82, label %15, label %._crit_edge32, !llvm.loop !228
 
 ._crit_edge32:                                    ; preds = %.loopexit26, %12
   %83 = load i32, ptr @GC_print_stats, align 4
@@ -40277,14 +40277,14 @@ define internal fastcc void @GC_print_all_smashed_proc() unnamed_addr #1 {
   %16 = icmp ne ptr %.027.i, %11
   %17 = select i1 %15, i1 %16, i1 false
   %18 = getelementptr inbounds i8, ptr %.027.i, i64 8216
-  br i1 %17, label %12, label %19, !llvm.loop !21
+  br i1 %17, label %12, label %19, !llvm.loop !20
 
 19:                                               ; preds = %12
   %20 = and i64 %7, -4096
   %21 = lshr i64 %7, 12
   %22 = and i64 %21, 1023
   %23 = getelementptr inbounds [1024 x ptr], ptr %.027.i, i64 0, i64 %22
-  %24 = load ptr, ptr %23, align 8, !nonnull !146, !noundef !146
+  %24 = load ptr, ptr %23, align 8, !nonnull !140, !noundef !140
   %25 = inttoptr i64 %20 to ptr
   %26 = icmp ult ptr %24, inttoptr (i64 4096 to ptr)
   br i1 %26, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i
@@ -40310,7 +40310,7 @@ define internal fastcc void @GC_print_all_smashed_proc() unnamed_addr #1 {
   %38 = icmp ne ptr %.0.i.i.i, %11
   %39 = select i1 %37, i1 %38, i1 false
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %39, label %34, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %39, label %34, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %34
   %41 = lshr i64 %30, 12
@@ -40318,7 +40318,7 @@ GC_find_header.exit.i.i:                          ; preds = %34
   %43 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %42
   %.0.i.i = load ptr, ptr %43, align 8
   %44 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %44, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !20
+  br i1 %44, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %19
   %.pre-phi = phi i64 [ %7, %19 ], [ %30, %GC_find_header.exit.i.i ]
@@ -40352,7 +40352,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %61 = load i32, ptr @GC_n_smashed, align 4
   %62 = zext i32 %61 to i64
   %63 = icmp ult i64 %indvars.iv.next, %62
-  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !235
+  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !229
 
 ._crit_edge:                                      ; preds = %GC_find_starting_hblk.exit.i, %3
   store i32 0, ptr @GC_n_smashed, align 4
@@ -40381,7 +40381,7 @@ define internal void @GC_debug_print_heap_obj_proc(ptr noundef %0) #1 {
   %12 = icmp ne ptr %.0.i.i.i, %7
   %13 = select i1 %11, i1 %12, i1 false
   %14 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %13, label %8, label %GC_size.exit.i, !llvm.loop !16
+  br i1 %13, label %8, label %GC_size.exit.i, !llvm.loop !15
 
 GC_size.exit.i:                                   ; preds = %8
   %15 = getelementptr inbounds i8, ptr %0, i64 32
@@ -40437,7 +40437,7 @@ GC_has_other_debug_info.exit:                     ; preds = %38
   %45 = icmp ne ptr %.027.i.i, %7
   %46 = select i1 %44, i1 %45, i1 false
   %47 = getelementptr inbounds i8, ptr %.027.i.i, i64 8216
-  br i1 %46, label %.preheader, label %48, !llvm.loop !21
+  br i1 %46, label %.preheader, label %48, !llvm.loop !20
 
 48:                                               ; preds = %.preheader
   %49 = getelementptr inbounds [1024 x ptr], ptr %.027.i.i, i64 0, i64 %17
@@ -40470,7 +40470,7 @@ GC_has_other_debug_info.exit:                     ; preds = %38
   %65 = icmp ne ptr %.0.i.i.i.i, %7
   %66 = select i1 %64, i1 %65, i1 false
   %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 8216
-  br i1 %66, label %61, label %GC_find_header.exit.i.i.i, !llvm.loop !16
+  br i1 %66, label %61, label %GC_find_header.exit.i.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i.i:                        ; preds = %61
   %68 = lshr i64 %57, 12
@@ -40478,7 +40478,7 @@ GC_find_header.exit.i.i.i:                        ; preds = %61
   %70 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i.i, i64 0, i64 %69
   %.0.i.i.i5 = load ptr, ptr %70, align 8
   %71 = icmp ult ptr %.0.i.i.i5, inttoptr (i64 4096 to ptr)
-  br i1 %71, label %.lr.ph.i.i.i, label %GC_find_starting_hblk.exit.i.i, !llvm.loop !20
+  br i1 %71, label %.lr.ph.i.i.i, label %GC_find_starting_hblk.exit.i.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i.i:                   ; preds = %GC_find_header.exit.i.i.i, %52
   %.032.i.i = phi ptr [ %50, %52 ], [ %.0.i.i.i5, %GC_find_header.exit.i.i.i ]
@@ -40528,7 +40528,7 @@ GC_base.exit.i:                                   ; preds = %75, %GC_find_starti
   %98 = icmp ne ptr %.0.i22.i, %7
   %99 = select i1 %97, i1 %98, i1 false
   %100 = getelementptr inbounds i8, ptr %.0.i22.i, i64 8216
-  br i1 %99, label %94, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %99, label %94, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %94
   %101 = lshr i64 %90, 12
@@ -40560,7 +40560,7 @@ GC_find_header.exit.i:                            ; preds = %94
   %120 = icmp ne ptr %.0.i.i23.i, %7
   %121 = select i1 %119, i1 %120, i1 false
   %122 = getelementptr inbounds i8, ptr %.0.i.i23.i, i64 8216
-  br i1 %121, label %116, label %GC_is_marked.exit.i, !llvm.loop !16
+  br i1 %121, label %116, label %GC_is_marked.exit.i, !llvm.loop !15
 
 GC_is_marked.exit.i:                              ; preds = %116
   %123 = lshr i64 %112, 12
@@ -40648,7 +40648,7 @@ define internal void @GC_default_print_heap_obj_proc(ptr noundef %0) #1 {
   %11 = icmp ne ptr %.027.i, %.pre
   %12 = select i1 %10, i1 %11, i1 false
   %13 = getelementptr inbounds i8, ptr %.027.i, i64 8216
-  br i1 %12, label %7, label %14, !llvm.loop !21
+  br i1 %12, label %7, label %14, !llvm.loop !20
 
 14:                                               ; preds = %7
   %15 = lshr i64 %3, 12
@@ -40685,7 +40685,7 @@ define internal void @GC_default_print_heap_obj_proc(ptr noundef %0) #1 {
   %35 = icmp ne ptr %.0.i.i.i, %.pre
   %36 = select i1 %34, i1 %35, i1 false
   %37 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8216
-  br i1 %36, label %31, label %GC_find_header.exit.i.i, !llvm.loop !16
+  br i1 %36, label %31, label %GC_find_header.exit.i.i, !llvm.loop !15
 
 GC_find_header.exit.i.i:                          ; preds = %31
   %38 = lshr i64 %27, 12
@@ -40693,7 +40693,7 @@ GC_find_header.exit.i.i:                          ; preds = %31
   %40 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i.i, i64 0, i64 %39
   %.0.i.i = load ptr, ptr %40, align 8
   %41 = icmp ult ptr %.0.i.i, inttoptr (i64 4096 to ptr)
-  br i1 %41, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !20
+  br i1 %41, label %.lr.ph.i.i, label %GC_find_starting_hblk.exit.i, !llvm.loop !19
 
 GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit.i.i, %20
   %.032.i = phi ptr [ %18, %20 ], [ %.0.i.i, %GC_find_header.exit.i.i ]
@@ -40742,7 +40742,7 @@ GC_base.exit:                                     ; preds = %1, %14, %GC_find_st
   %67 = icmp ne ptr %.0.i5, %.pre
   %68 = select i1 %66, i1 %67, i1 false
   %69 = getelementptr inbounds i8, ptr %.0.i5, i64 8216
-  br i1 %68, label %63, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %68, label %63, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %63
   %70 = lshr i64 %59, 12
@@ -40762,7 +40762,7 @@ GC_find_header.exit:                              ; preds = %63
   %80 = icmp ne ptr %.0.i.i6, %.pre
   %81 = select i1 %79, i1 %80, i1 false
   %82 = getelementptr inbounds i8, ptr %.0.i.i6, i64 8216
-  br i1 %81, label %76, label %GC_size.exit, !llvm.loop !16
+  br i1 %81, label %76, label %GC_size.exit, !llvm.loop !15
 
 GC_size.exit:                                     ; preds = %76
   %83 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i6, i64 0, i64 %71
@@ -40796,7 +40796,7 @@ define internal fastcc void @GC_grow_table(ptr nocapture noundef %0, ptr nocaptu
 
 14:                                               ; preds = %3
   %15 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %4) #38
-  %16 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func), !range !8
+  %16 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
   %17 = load i32, ptr %4, align 4
   %18 = call i32 @pthread_setcancelstate(i32 noundef %17, ptr noundef null) #38
   %19 = load i64, ptr %2, align 8
@@ -40869,7 +40869,7 @@ GC_generic_malloc_inner.exit:                     ; preds = %23, %26
 ._crit_edge.split.us.us:                          ; preds = %.lr.ph.us, %.lr.ph45.split.us.split
   %49 = add nuw i64 %.044.us, 1
   %exitcond55.not = icmp eq i64 %49, %9
-  br i1 %exitcond55.not, label %._crit_edge46, label %.lr.ph45.split.us.split, !llvm.loop !236
+  br i1 %exitcond55.not, label %._crit_edge46, label %.lr.ph45.split.us.split, !llvm.loop !230
 
 .lr.ph.us:                                        ; preds = %.lr.ph45.split.us.split, %.lr.ph.us
   %.03743.us.us = phi ptr [ %53, %.lr.ph.us ], [ %48, %.lr.ph45.split.us.split ]
@@ -40894,7 +40894,7 @@ GC_generic_malloc_inner.exit:                     ; preds = %23, %26
   %67 = atomicrmw volatile or ptr %64, i64 %66 monotonic, align 8
   store ptr %.03743.us.us, ptr %58, align 8
   %.not.us.us = icmp eq ptr %53, null
-  br i1 %.not.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !237
+  br i1 %.not.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !231
 
 GC_generic_malloc_inner.exit.thread:              ; preds = %30, %GC_generic_malloc_inner.exit
   %68 = load ptr, ptr %0, align 8
@@ -40930,12 +40930,12 @@ GC_generic_malloc_inner.exit.thread:              ; preds = %30, %GC_generic_mal
   store ptr %84, ptr %77, align 8
   store ptr %.03743, ptr %83, align 8
   %.not = icmp eq ptr %78, null
-  br i1 %.not, label %._crit_edge.split, label %.lr.ph, !llvm.loop !237
+  br i1 %.not, label %._crit_edge.split, label %.lr.ph, !llvm.loop !231
 
 ._crit_edge.split:                                ; preds = %.lr.ph, %.lr.ph45.split.split
   %85 = add nuw i64 %.044, 1
   %exitcond.not = icmp eq i64 %85, %9
-  br i1 %exitcond.not, label %._crit_edge46, label %.lr.ph45.split.split, !llvm.loop !236
+  br i1 %exitcond.not, label %._crit_edge46, label %.lr.ph45.split.split, !llvm.loop !230
 
 ._crit_edge46:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.preheader
   store i32 %6, ptr %1, align 4
@@ -41074,7 +41074,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %52 = icmp ne ptr %.084.i, %43
   %53 = select i1 %51, i1 %52, i1 false
   %54 = getelementptr inbounds i8, ptr %.084.i, i64 8216
-  br i1 %53, label %48, label %55, !llvm.loop !238
+  br i1 %53, label %48, label %55, !llvm.loop !232
 
 55:                                               ; preds = %48
   %56 = lshr i64 %44, 12
@@ -41098,7 +41098,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %70 = icmp ne ptr %.0.i, %43
   %71 = select i1 %69, i1 %70, i1 false
   %72 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %71, label %66, label %73, !llvm.loop !239
+  br i1 %71, label %66, label %73, !llvm.loop !233
 
 73:                                               ; preds = %66
   %74 = inttoptr i64 %62 to ptr
@@ -41325,7 +41325,7 @@ GC_remap.exit.i:                                  ; preds = %194, %193, %GC_rema
   %208 = icmp ne ptr %.029.i.i, %203
   %209 = select i1 %207, i1 %208, i1 false
   %210 = getelementptr inbounds i8, ptr %.029.i.i, i64 8216
-  br i1 %209, label %204, label %211, !llvm.loop !211
+  br i1 %209, label %204, label %211, !llvm.loop !205
 
 211:                                              ; preds = %204
   %212 = lshr i64 %199, 12
@@ -41363,7 +41363,7 @@ GC_remap.exit.i:                                  ; preds = %194, %193, %GC_rema
   %232 = icmp ne ptr %.0.i.i, %227
   %233 = select i1 %231, i1 %232, i1 false
   %234 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %233, label %228, label %235, !llvm.loop !212
+  br i1 %233, label %228, label %235, !llvm.loop !206
 
 235:                                              ; preds = %228
   %236 = lshr i64 %223, 12
@@ -41427,7 +41427,7 @@ GC_hblk_fl_from_blocks.exit.i.i:                  ; preds = %249, %247, %245
   %271 = icmp ne ptr %.029.i.i.i, %266
   %272 = select i1 %270, i1 %271, i1 false
   %273 = getelementptr inbounds i8, ptr %.029.i.i.i, i64 8216
-  br i1 %272, label %267, label %274, !llvm.loop !211
+  br i1 %272, label %267, label %274, !llvm.loop !205
 
 274:                                              ; preds = %267
   %275 = lshr i64 %262, 12
@@ -41467,7 +41467,7 @@ GC_hblk_fl_from_blocks.exit.i.i:                  ; preds = %249, %247, %245
   %296 = icmp ne ptr %.0.i2.i.i, %291
   %297 = select i1 %295, i1 %296, i1 false
   %298 = getelementptr inbounds i8, ptr %.0.i2.i.i, i64 8216
-  br i1 %297, label %292, label %299, !llvm.loop !212
+  br i1 %297, label %292, label %299, !llvm.loop !206
 
 299:                                              ; preds = %292
   %300 = lshr i64 %287, 12
@@ -41496,7 +41496,7 @@ GC_remove_from_fl.exit.i:                         ; preds = %299, %280
   %314 = icmp ne ptr %.0.i101.i, %309
   %315 = select i1 %313, i1 %314, i1 false
   %316 = getelementptr inbounds i8, ptr %.0.i101.i, i64 8216
-  br i1 %315, label %310, label %GC_remove_header.exit.i, !llvm.loop !213
+  br i1 %315, label %310, label %GC_remove_header.exit.i, !llvm.loop !207
 
 GC_remove_header.exit.i:                          ; preds = %310
   %317 = getelementptr inbounds [1024 x ptr], ptr %.0.i101.i, i64 0, i64 %76
@@ -41558,7 +41558,7 @@ GC_hblk_fl_from_blocks.exit.i102.i:               ; preds = %327, %325, %323
   %349 = icmp ne ptr %.0.i106.i, %344
   %350 = select i1 %348, i1 %349, i1 false
   %351 = getelementptr inbounds i8, ptr %.0.i106.i, i64 8216
-  br i1 %350, label %345, label %352, !llvm.loop !214
+  br i1 %350, label %345, label %352, !llvm.loop !208
 
 352:                                              ; preds = %345
   %353 = lshr i64 %340, 12
@@ -41581,12 +41581,12 @@ GC_add_to_fl.exit.i:                              ; preds = %352, %GC_hblk_fl_fr
   %.1.in.i = phi ptr [ %40, %GC_add_to_fl.exit.i ], [ %59, %84 ], [ %59, %79 ], [ %59, %73 ]
   %.083.i = load ptr, ptr %.1.in.i, align 8
   %.not.i44 = icmp eq ptr %.083.i, null
-  br i1 %.not.i44, label %._crit_edge.i, label %42, !llvm.loop !240
+  br i1 %.not.i44, label %._crit_edge.i, label %42, !llvm.loop !234
 
 ._crit_edge.i:                                    ; preds = %360, %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 61
-  br i1 %exitcond.not.i, label %362, label %.preheader, !llvm.loop !241
+  br i1 %exitcond.not.i, label %362, label %.preheader, !llvm.loop !235
 
 362:                                              ; preds = %._crit_edge.i
   %363 = tail call fastcc ptr @GC_allochblk(i64 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3)
@@ -41595,14 +41595,14 @@ GC_add_to_fl.exit.i:                              ; preds = %352, %GC_hblk_fl_fr
 
 .lr.ph:                                           ; preds = %362, %365
   %.03551 = phi i32 [ 1, %365 ], [ 0, %362 ]
-  %364 = tail call fastcc i32 @GC_collect_or_expand(i64 noundef %9, i32 noundef %2, i32 noundef %.03551), !range !8
+  %364 = tail call fastcc i32 @GC_collect_or_expand(i64 noundef %9, i32 noundef %2, i32 noundef %.03551)
   %.not42 = icmp eq i32 %364, 0
   br i1 %.not42, label %.critedge, label %365
 
 365:                                              ; preds = %.lr.ph
   %366 = tail call fastcc ptr @GC_allochblk(i64 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3)
   %cond = icmp eq ptr %366, null
-  br i1 %cond, label %.lr.ph, label %.loopexit, !llvm.loop !242
+  br i1 %cond, label %.lr.ph, label %.loopexit, !llvm.loop !236
 
 .loopexit:                                        ; preds = %365, %37, %362
   %.1.lcssa = phi ptr [ %363, %362 ], [ %38, %37 ], [ %366, %365 ]
@@ -41632,7 +41632,7 @@ GC_add_to_fl.exit.i:                              ; preds = %352, %GC_hblk_fl_fr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @GC_collect_or_expand(i64 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @GC_collect_or_expand(i64 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %4) #38
   %6 = load i32, ptr @GC_incremental, align 4
@@ -41671,7 +41671,7 @@ define internal fastcc noundef i32 @GC_collect_or_expand(i64 noundef %0, i32 nou
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %23, %19, %15
-  %29 = call fastcc i32 @GC_should_collect(), !range !8
+  %29 = call fastcc i32 @GC_should_collect()
   %.not51 = icmp eq i32 %29, 0
   br i1 %.not51, label %43, label %._crit_edge
 
@@ -41699,7 +41699,7 @@ define internal fastcc noundef i32 @GC_collect_or_expand(i64 noundef %0, i32 nou
 
 35:                                               ; preds = %.thread, %30
   %36 = phi ptr [ @GC_never_stop_func, %30 ], [ %spec.select, %.thread ]
-  %37 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef %36), !range !8
+  %37 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef %36)
   %38 = icmp eq i32 %37, 0
   %39 = icmp ne i32 %2, 0
   %or.cond7 = and i1 %39, %38
@@ -41774,7 +41774,7 @@ define internal fastcc noundef i32 @GC_collect_or_expand(i64 noundef %0, i32 nou
   br label %74
 
 74:                                               ; preds = %73, %70
-  %75 = call fastcc i32 @GC_expand_hp_inner(i64 noundef %.2), !range !8
+  %75 = call fastcc i32 @GC_expand_hp_inner(i64 noundef %.2)
   %.not54 = icmp eq i32 %75, 0
   br i1 %.not54, label %76, label %101
 
@@ -41783,7 +41783,7 @@ define internal fastcc noundef i32 @GC_collect_or_expand(i64 noundef %0, i32 nou
   br i1 %77, label %80, label %78
 
 78:                                               ; preds = %76
-  %79 = call fastcc i32 @GC_expand_hp_inner(i64 noundef %0), !range !8
+  %79 = call fastcc i32 @GC_expand_hp_inner(i64 noundef %0)
   %.not55 = icmp eq i32 %79, 0
   br i1 %.not55, label %80, label %101
 
@@ -41791,7 +41791,7 @@ define internal fastcc noundef i32 @GC_collect_or_expand(i64 noundef %0, i32 nou
   br i1 %.037, label %81, label %83
 
 81:                                               ; preds = %80
-  %82 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func), !range !8
+  %82 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
   br label %105
 
 83:                                               ; preds = %80
@@ -41806,7 +41806,7 @@ define internal fastcc noundef i32 @GC_collect_or_expand(i64 noundef %0, i32 nou
 89:                                               ; preds = %83
   %90 = load ptr, ptr @GC_current_warn_proc, align 8
   call void %90(ptr noundef nonnull @.str.207, i64 noundef 0) #38
-  %91 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func), !range !8
+  %91 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
   br label %105
 
 92:                                               ; preds = %83
@@ -41970,7 +41970,7 @@ define internal fastcc ptr @GC_allochblk_nth(i64 noundef %0, i32 noundef %1, i32
   %34 = icmp ne ptr %.0110, %25
   %35 = select i1 %33, i1 %34, i1 false
   %36 = getelementptr inbounds i8, ptr %.0110, i64 8216
-  br i1 %35, label %30, label %37, !llvm.loop !243
+  br i1 %35, label %30, label %37, !llvm.loop !237
 
 37:                                               ; preds = %30
   %38 = lshr i64 %26, 12
@@ -42014,7 +42014,7 @@ define internal fastcc ptr @GC_allochblk_nth(i64 noundef %0, i32 noundef %1, i32
   %61 = icmp ne ptr %.0.i, %25
   %62 = select i1 %60, i1 %61, i1 false
   %63 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %62, label %57, label %64, !llvm.loop !244
+  br i1 %62, label %57, label %64, !llvm.loop !238
 
 64:                                               ; preds = %57
   %65 = lshr i64 %53, 12
@@ -42213,7 +42213,7 @@ GC_is_black_listed.exit.us.i:                     ; preds = %171, %167
   %.0.i19.us.i = phi ptr [ %158, %GC_is_black_listed.exit.thread17.us.i ], [ %176, %GC_is_black_listed.exit.us.i ]
   %179 = ptrtoint ptr %.0.i19.us.i to i64
   %.not.us.i = icmp ult i64 %134, %179
-  br i1 %.not.us.i, label %find_nonbl_hblk.exit.thread, label %.split.us.i, !llvm.loop !245
+  br i1 %.not.us.i, label %find_nonbl_hblk.exit.thread, label %.split.us.i, !llvm.loop !239
 
 180:                                              ; preds = %171
   %181 = add i64 %.022.i.us.i, 1
@@ -42306,7 +42306,7 @@ GC_is_black_listed.exit.i:                        ; preds = %212, %208
 224:                                              ; preds = %GC_is_black_listed.exit.i
   %225 = ptrtoint ptr %222 to i64
   %.not.i143 = icmp ult i64 %134, %225
-  br i1 %.not.i143, label %find_nonbl_hblk.exit.thread, label %.split.i, !llvm.loop !245
+  br i1 %.not.i143, label %find_nonbl_hblk.exit.thread, label %.split.i, !llvm.loop !239
 
 find_nonbl_hblk.exit:                             ; preds = %GC_is_black_listed.exit.i, %GC_is_black_listed.exit.us.i, %218, %185
   %.0.i144 = phi ptr [ %144, %185 ], [ %195, %218 ], [ %144, %GC_is_black_listed.exit.us.i ], [ %195, %GC_is_black_listed.exit.i ]
@@ -42377,7 +42377,7 @@ find_nonbl_hblk.exit.thread:                      ; preds = %224, %178, %find_no
   %264 = icmp ne ptr %.029.i.i, %25
   %265 = select i1 %263, i1 %264, i1 false
   %266 = getelementptr inbounds i8, ptr %.029.i.i, i64 8216
-  br i1 %265, label %260, label %267, !llvm.loop !211
+  br i1 %265, label %260, label %267, !llvm.loop !205
 
 267:                                              ; preds = %260
   %268 = lshr i64 %256, 12
@@ -42415,7 +42415,7 @@ find_nonbl_hblk.exit.thread:                      ; preds = %224, %178, %find_no
   %288 = icmp ne ptr %.0.i.i, %283
   %289 = select i1 %287, i1 %288, i1 false
   %290 = getelementptr inbounds i8, ptr %.0.i.i, i64 8216
-  br i1 %289, label %284, label %291, !llvm.loop !212
+  br i1 %289, label %284, label %291, !llvm.loop !206
 
 291:                                              ; preds = %284
   %292 = lshr i64 %279, 12
@@ -42433,7 +42433,7 @@ GC_remove_from_fl_at.exit.i.preheader:            ; preds = %291, %272
 GC_remove_from_fl_at.exit.i:                      ; preds = %GC_remove_from_fl_at.exit.i.preheader, %302
   %.013.i = phi ptr [ %303, %302 ], [ %41, %GC_remove_from_fl_at.exit.i.preheader ]
   %.0.i150 = phi ptr [ %301, %302 ], [ %.0109257, %GC_remove_from_fl_at.exit.i.preheader ]
-  %298 = tail call fastcc i32 @setup_header(ptr noundef nonnull %.013.i, ptr noundef nonnull %.0.i150, i64 noundef 4096, i32 noundef 0, i32 noundef 0), !range !8
+  %298 = tail call fastcc i32 @setup_header(ptr noundef nonnull %.013.i, ptr noundef nonnull %.0.i150, i64 noundef 4096, i32 noundef 0, i32 noundef 0)
   %.b.i = load i1, ptr @GC_debugging_started, align 4
   br i1 %.b.i, label %299, label %300
 
@@ -42449,7 +42449,7 @@ GC_remove_from_fl_at.exit.i:                      ; preds = %GC_remove_from_fl_a
 302:                                              ; preds = %300
   %303 = tail call fastcc ptr @GC_install_header(ptr noundef nonnull %301)
   %.not15.i = icmp eq ptr %303, null
-  br i1 %.not15.i, label %drop_hblk_in_chunks.exit, label %GC_remove_from_fl_at.exit.i, !llvm.loop !246
+  br i1 %.not15.i, label %drop_hblk_in_chunks.exit, label %GC_remove_from_fl_at.exit.i, !llvm.loop !240
 
 drop_hblk_in_chunks.exit:                         ; preds = %300, %302
   %304 = icmp eq ptr %246, null
@@ -42472,7 +42472,7 @@ drop_hblk_in_chunks.exit:                         ; preds = %300, %302
   %315 = icmp ne ptr %.0.i153, %310
   %316 = select i1 %314, i1 %315, i1 false
   %317 = getelementptr inbounds i8, ptr %.0.i153, i64 8216
-  br i1 %316, label %311, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %316, label %311, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %311
   %318 = lshr i64 %306, 12
@@ -42605,7 +42605,7 @@ GC_remap.exit:                                    ; preds = %345, %357
   %385 = icmp ne ptr %.0.i.i156, %380
   %386 = select i1 %384, i1 %385, i1 false
   %387 = getelementptr inbounds i8, ptr %.0.i.i156, i64 8216
-  br i1 %386, label %381, label %GC_find_header.exit.i, !llvm.loop !16
+  br i1 %386, label %381, label %GC_find_header.exit.i, !llvm.loop !15
 
 GC_find_header.exit.i:                            ; preds = %381
   %388 = lshr i64 %376, 12
@@ -42637,7 +42637,7 @@ GC_find_header.exit.i:                            ; preds = %381
   %403 = icmp ne ptr %.0.i31.i, %398
   %404 = select i1 %402, i1 %403, i1 false
   %405 = getelementptr inbounds i8, ptr %.0.i31.i, i64 8216
-  br i1 %404, label %399, label %GC_find_header.exit32.i, !llvm.loop !16
+  br i1 %404, label %399, label %GC_find_header.exit32.i, !llvm.loop !15
 
 GC_find_header.exit32.i:                          ; preds = %399
   %406 = lshr i64 %394, 12
@@ -42709,7 +42709,7 @@ GC_hblk_fl_from_blocks.exit.i.i:                  ; preds = %423, %421, %419
   %445 = icmp ne ptr %.0.i34.i, %440
   %446 = select i1 %444, i1 %445, i1 false
   %447 = getelementptr inbounds i8, ptr %.0.i34.i, i64 8216
-  br i1 %446, label %441, label %448, !llvm.loop !214
+  br i1 %446, label %441, label %448, !llvm.loop !208
 
 448:                                              ; preds = %441
   %449 = lshr i64 %436, 12
@@ -42796,7 +42796,7 @@ GC_remap.exit159:                                 ; preds = %463, %478
   %501 = icmp ne ptr %.029.i.i161, %496
   %502 = select i1 %500, i1 %501, i1 false
   %503 = getelementptr inbounds i8, ptr %.029.i.i161, i64 8216
-  br i1 %502, label %497, label %504, !llvm.loop !211
+  br i1 %502, label %497, label %504, !llvm.loop !205
 
 504:                                              ; preds = %497
   %505 = lshr i64 %492, 12
@@ -42834,7 +42834,7 @@ GC_remap.exit159:                                 ; preds = %463, %478
   %525 = icmp ne ptr %.0.i.i166, %520
   %526 = select i1 %524, i1 %525, i1 false
   %527 = getelementptr inbounds i8, ptr %.0.i.i166, i64 8216
-  br i1 %526, label %521, label %528, !llvm.loop !212
+  br i1 %526, label %521, label %528, !llvm.loop !206
 
 528:                                              ; preds = %521
   %529 = lshr i64 %516, 12
@@ -42922,7 +42922,7 @@ GC_hblk_fl_from_blocks.exit.i.i168:               ; preds = %551, %549, %547
   %574 = icmp ne ptr %.0.i22.i, %569
   %575 = select i1 %573, i1 %574, i1 false
   %576 = getelementptr inbounds i8, ptr %.0.i22.i, i64 8216
-  br i1 %575, label %570, label %577, !llvm.loop !214
+  br i1 %575, label %570, label %577, !llvm.loop !208
 
 577:                                              ; preds = %570
   %578 = lshr i64 %565, 12
@@ -42966,7 +42966,7 @@ GC_get_first_part.exit:                           ; preds = %GC_remove_from_fl_a
   %596 = getelementptr inbounds i8, ptr %.03342.i.i, i64 8216
   %597 = load ptr, ptr %596, align 8
   %.not.i.i173 = icmp eq ptr %597, %586
-  br i1 %.not.i.i173, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !199
+  br i1 %.not.i.i173, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !193
 
 ._crit_edge.i.i:                                  ; preds = %595, %.lr.ph70.i
   %598 = tail call fastcc ptr @GC_scratch_alloc(i64 noundef 8224)
@@ -42993,14 +42993,14 @@ GC_get_first_part.exit:                           ; preds = %GC_remove_from_fl_a
   %607 = getelementptr inbounds i8, ptr %612, i64 8208
   %608 = load i64, ptr %607, align 8
   %609 = icmp ult i64 %608, %588
-  br i1 %609, label %.lr.ph.i, label %.lr.ph47.i._crit_edge.i.loopexit, !llvm.loop !200
+  br i1 %609, label %.lr.ph.i, label %.lr.ph47.i._crit_edge.i.loopexit, !llvm.loop !194
 
 .lr.ph.i:                                         ; preds = %.lr.ph47.i.preheader.i, %.lr.ph47.i.i
   %610 = phi ptr [ %612, %.lr.ph47.i.i ], [ %603, %.lr.ph47.i.preheader.i ]
   %611 = getelementptr inbounds i8, ptr %610, i64 8192
   %612 = load ptr, ptr %611, align 8
   %.not36.i.i = icmp eq ptr %612, null
-  br i1 %.not36.i.i, label %._crit_edge48.i.i.loopexit, label %.lr.ph47.i.i, !llvm.loop !200
+  br i1 %.not36.i.i, label %._crit_edge48.i.i.loopexit, label %.lr.ph47.i.i, !llvm.loop !194
 
 ._crit_edge48.i.i.loopexit:                       ; preds = %.lr.ph.i
   %613 = getelementptr inbounds i8, ptr %610, i64 8192
@@ -43045,7 +43045,7 @@ GC_get_first_part.exit:                           ; preds = %GC_remove_from_fl_a
   %624 = ptrtoint ptr %623 to i64
   %625 = icmp ugt i64 %.pre320, %624
   %or.cond.i = select i1 %622, i1 %625, i1 false
-  br i1 %or.cond.i, label %.lr.ph70.i, label %._crit_edge.i, !llvm.loop !247
+  br i1 %or.cond.i, label %.lr.ph70.i, label %._crit_edge.i, !llvm.loop !241
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i, %GC_get_first_part.exit
   %626 = phi ptr [ %.pre97.i, %GC_get_first_part.exit ], [ %621, %.loopexit.i ]
@@ -43068,7 +43068,7 @@ GC_get_first_part.exit:                           ; preds = %GC_remove_from_fl_a
   %636 = getelementptr inbounds i8, ptr %.03342.i34.i, i64 8216
   %637 = load ptr, ptr %636, align 8
   %.not.i35.i = icmp eq ptr %637, %626
-  br i1 %.not.i35.i, label %._crit_edge.i36.i, label %.lr.ph.i33.i, !llvm.loop !199
+  br i1 %.not.i35.i, label %._crit_edge.i36.i, label %.lr.ph.i33.i, !llvm.loop !193
 
 ._crit_edge.i36.i:                                ; preds = %635, %._crit_edge.i
   %638 = tail call fastcc ptr @GC_scratch_alloc(i64 noundef 8224)
@@ -43095,14 +43095,14 @@ GC_get_first_part.exit:                           ; preds = %GC_remove_from_fl_a
   %647 = getelementptr inbounds i8, ptr %652, i64 8208
   %648 = load i64, ptr %647, align 8
   %649 = icmp ult i64 %648, %628
-  br i1 %649, label %.lr.ph76.i, label %.lr.ph47.i38._crit_edge.i.loopexit, !llvm.loop !200
+  br i1 %649, label %.lr.ph76.i, label %.lr.ph47.i38._crit_edge.i.loopexit, !llvm.loop !194
 
 .lr.ph76.i:                                       ; preds = %.lr.ph47.i38.preheader.i, %.lr.ph47.i38.i
   %650 = phi ptr [ %652, %.lr.ph47.i38.i ], [ %643, %.lr.ph47.i38.preheader.i ]
   %651 = getelementptr inbounds i8, ptr %650, i64 8192
   %652 = load ptr, ptr %651, align 8
   %.not36.i44.i = icmp eq ptr %652, null
-  br i1 %.not36.i44.i, label %._crit_edge48.i45.i.loopexit, label %.lr.ph47.i38.i, !llvm.loop !200
+  br i1 %.not36.i44.i, label %._crit_edge48.i45.i.loopexit, label %.lr.ph47.i38.i, !llvm.loop !194
 
 ._crit_edge48.i45.i.loopexit:                     ; preds = %.lr.ph76.i
   %653 = getelementptr inbounds i8, ptr %650, i64 8192
@@ -43163,7 +43163,7 @@ get_index.exit48.i:                               ; preds = %.lr.ph.i33.i, %658
   %672 = icmp ne ptr %.0.i172, %667
   %673 = select i1 %671, i1 %672, i1 false
   %674 = getelementptr inbounds i8, ptr %.0.i172, i64 8216
-  br i1 %673, label %668, label %675, !llvm.loop !248
+  br i1 %673, label %668, label %675, !llvm.loop !242
 
 675:                                              ; preds = %668
   %676 = sub i64 %663, %.pre319
@@ -43177,10 +43177,10 @@ get_index.exit48.i:                               ; preds = %.lr.ph.i33.i, %658
   %.1.i = getelementptr inbounds i8, ptr %.181.i, i64 4096
   %683 = ptrtoint ptr %.1.i to i64
   %684 = icmp ugt i64 %.pre320, %683
-  br i1 %684, label %.lr.ph82.i, label %GC_install_counts.exit, !llvm.loop !249
+  br i1 %684, label %.lr.ph82.i, label %GC_install_counts.exit, !llvm.loop !243
 
 GC_install_counts.exit:                           ; preds = %675, %get_index.exit48.i
-  %685 = tail call fastcc i32 @setup_header(ptr noundef nonnull %.1113, ptr noundef nonnull %.1, i64 noundef %0, i32 noundef %1, i32 noundef %2), !range !8
+  %685 = tail call fastcc i32 @setup_header(ptr noundef nonnull %.1113, ptr noundef nonnull %.1, i64 noundef %0, i32 noundef %1, i32 noundef %2)
   %.not135 = icmp eq i32 %685, 0
   br i1 %.not135, label %686, label %724
 
@@ -43204,7 +43204,7 @@ GC_install_counts.exit:                           ; preds = %675, %get_index.exi
   %697 = icmp ne ptr %.0.i.i175, %692
   %698 = select i1 %696, i1 %697, i1 false
   %699 = getelementptr inbounds i8, ptr %.0.i.i175, i64 8216
-  br i1 %698, label %693, label %GC_find_header.exit.i176, !llvm.loop !16
+  br i1 %698, label %693, label %GC_find_header.exit.i176, !llvm.loop !15
 
 GC_find_header.exit.i176:                         ; preds = %693
   %700 = lshr i64 %661, 12
@@ -43233,7 +43233,7 @@ GC_find_header.exit.i176:                         ; preds = %693
   %714 = icmp ne ptr %.0.i181, %709
   %715 = select i1 %713, i1 %714, i1 false
   %716 = getelementptr inbounds i8, ptr %.0.i181, i64 8216
-  br i1 %715, label %710, label %717, !llvm.loop !203
+  br i1 %715, label %710, label %717, !llvm.loop !197
 
 717:                                              ; preds = %710
   %718 = lshr i64 %705, 12
@@ -43243,7 +43243,7 @@ GC_find_header.exit.i176:                         ; preds = %693
   %721 = getelementptr inbounds i8, ptr %.01518.i, i64 4096
   %722 = ptrtoint ptr %721 to i64
   %723 = icmp ugt i64 %.pre320, %722
-  br i1 %723, label %.lr.ph.i179, label %GC_remove_counts.exit, !llvm.loop !204
+  br i1 %723, label %.lr.ph.i179, label %GC_remove_counts.exit, !llvm.loop !198
 
 724:                                              ; preds = %GC_install_counts.exit
   %725 = getelementptr inbounds i8, ptr %.1113, i64 40
@@ -43263,7 +43263,7 @@ GC_remove_counts.exit:                            ; preds = %.loopexit205, %next
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @setup_header(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @setup_header(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = icmp ugt i64 %2, 2048
   %7 = or i32 %4, 32
   %spec.select = select i1 %6, i32 %7, i32 %4
@@ -43349,7 +43349,7 @@ define internal fastcc noundef i32 @setup_header(ptr noundef %0, ptr noundef %1,
   store i16 1, ptr %50, align 2
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next30.i, 256
-  br i1 %exitcond32.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !250
+  br i1 %exitcond32.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !244
 
 .preheader23.i:                                   ; preds = %48, %.preheader23.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader23.i ], [ 0, %48 ]
@@ -43359,7 +43359,7 @@ define internal fastcc noundef i32 @setup_header(ptr noundef %0, ptr noundef %1,
   store i16 %52, ptr %53, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader23.i, !llvm.loop !251
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader23.i, !llvm.loop !245
 
 .loopexit.i:                                      ; preds = %.preheader23.i, %.preheader.i
   store ptr %41, ptr %38, align 8
@@ -43458,7 +43458,7 @@ define internal fastcc void @GC_remove_protection(ptr noundef %0, i64 noundef %1
   %28 = getelementptr inbounds i8, ptr %.037.us, i64 4096
   %29 = ptrtoint ptr %28 to i64
   %30 = icmp ugt i64 %18, %29
-  br i1 %30, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !252
+  br i1 %30, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !246
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %41
   %31 = phi i64 [ %43, %41 ], [ %12, %.lr.ph ]
@@ -43482,7 +43482,7 @@ define internal fastcc void @GC_remove_protection(ptr noundef %0, i64 noundef %1
   %42 = getelementptr inbounds i8, ptr %.037, i64 4096
   %43 = ptrtoint ptr %42 to i64
   %44 = icmp ugt i64 %18, %43
-  br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !252
+  br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !246
 
 ._crit_edge:                                      ; preds = %41, %.lr.ph.split.us, %8
   %45 = sub i64 %18, %12
@@ -43579,7 +43579,7 @@ define internal ptr @GC_typed_mark_proc(ptr noundef %0, ptr noundef %1, ptr noun
   %35 = lshr i64 %.02938, 1
   %36 = getelementptr inbounds i8, ptr %.03037, i64 8
   %.not = icmp ult i64 %.02938, 2
-  br i1 %.not, label %._crit_edge.loopexit, label %13, !llvm.loop !253
+  br i1 %.not, label %._crit_edge.loopexit, label %13, !llvm.loop !247
 
 ._crit_edge.loopexit:                             ; preds = %34
   %.pre = load ptr, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 52), align 8
@@ -43660,7 +43660,7 @@ define internal noundef ptr @GC_array_mark_proc(ptr noundef %0, ptr noundef %1, 
   %14 = icmp ne ptr %.0.i, %9
   %15 = select i1 %13, i1 %14, i1 false
   %16 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %15, label %10, label %GC_find_header.exit, !llvm.loop !16
+  br i1 %15, label %10, label %GC_find_header.exit, !llvm.loop !15
 
 GC_find_header.exit:                              ; preds = %10
   %17 = lshr i64 %5, 12
@@ -43771,7 +43771,7 @@ tailrecurse:                                      ; preds = %39, %4
   %19 = getelementptr inbounds i8, ptr %.04771, i64 %12
   %20 = add nuw i64 %.04572, 1
   %exitcond89.not = icmp eq i64 %20, %10
-  br i1 %exitcond89.not, label %.loopexit, label %.lr.ph74, !llvm.loop !254
+  br i1 %exitcond89.not, label %.loopexit, label %.lr.ph74, !llvm.loop !248
 
 21:                                               ; preds = %tailrecurse
   %22 = getelementptr inbounds i8, ptr %.tr52, i64 16
@@ -43794,7 +43794,7 @@ tailrecurse:                                      ; preds = %39, %4
   %30 = getelementptr inbounds i8, ptr %.14866, i64 %26
   %31 = add nuw i64 %.14667, 1
   %exitcond.not = icmp eq i64 %31, %25
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !255
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !249
 
 32:                                               ; preds = %tailrecurse
   %33 = getelementptr inbounds i8, ptr %.tr52, i64 8
@@ -43927,7 +43927,7 @@ define internal void @GC_write_fault_handler(i32 noundef %0, ptr noundef %1, ptr
   %20 = icmp ne ptr %.0.i, %15
   %21 = select i1 %19, i1 %20, i1 false
   %22 = getelementptr inbounds i8, ptr %.0.i, i64 8216
-  br i1 %21, label %16, label %is_header_found_async.exit, !llvm.loop !256
+  br i1 %21, label %16, label %is_header_found_async.exit, !llvm.loop !250
 
 is_header_found_async.exit:                       ; preds = %16
   %23 = inttoptr i64 %11 to ptr
@@ -44011,7 +44011,7 @@ is_header_found_async.exit:                       ; preds = %16
   %60 = atomicrmw volatile or ptr %57, i64 %59 monotonic, align 8
   %61 = add nuw nsw i64 %.028, 1
   %exitcond.not = icmp eq i64 %61, %42
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !257
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !251
 
 62:                                               ; preds = %3
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.237, ptr noundef %5)
@@ -44034,7 +44034,7 @@ declare i32 @sigaddset(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @soft_dirty_open_files() unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @soft_dirty_open_files() unnamed_addr #1 {
   %1 = alloca [40 x i8], align 16
   %2 = alloca [40 x i8], align 16
   %3 = tail call i32 @getpid() #38
@@ -44173,7 +44173,7 @@ define internal fastcc void @soft_set_grungy_pages(ptr noundef %0, ptr noundef %
 .loopexit35:                                      ; preds = %.loopexit, %80
   %.1.lcssa = phi i64 [ %.049, %80 ], [ %.pre61, %.loopexit ]
   %15 = icmp ult i64 %.1.lcssa, %13
-  br i1 %15, label %16, label %.loopexit36, !llvm.loop !258
+  br i1 %15, label %16, label %.loopexit36, !llvm.loop !252
 
 16:                                               ; preds = %.lr.ph50, %.loopexit35
   %17 = phi i64 [ %.pre, %.lr.ph50 ], [ %75, %.loopexit35 ]
@@ -44342,12 +44342,12 @@ pagemap_buffered_read.exit:                       ; preds = %32, %73
   %108 = getelementptr inbounds i8, ptr %.12945, i64 4096
   %109 = ptrtoint ptr %108 to i64
   %110 = icmp ugt i64 %spec.select, %109
-  br i1 %110, label %.lr.ph, label %.loopexit, !llvm.loop !259
+  br i1 %110, label %.lr.ph, label %.loopexit, !llvm.loop !253
 
 .loopexit:                                        ; preds = %.lr.ph, %91, %94
   %111 = getelementptr inbounds i8, ptr %.03046, i64 8
   %112 = icmp ult i64 %.pre61, %85
-  br i1 %112, label %91, label %.loopexit35, !llvm.loop !260
+  br i1 %112, label %91, label %.loopexit35, !llvm.loop !254
 
 .loopexit36:                                      ; preds = %.loopexit35, %3, %78
   ret void
@@ -44453,13 +44453,13 @@ raise_signal.exit:                                ; preds = %.lr.ph.i, %20
   %.2 = phi i32 [ %.127, %.lr.ph ], [ %.127, %7 ], [ %.127, %11 ], [ %.127, %15 ], [ %21, %32 ], [ %21, %30 ], [ %.127, %raise_signal.exit ]
   %.018 = load ptr, ptr %.01828, align 8
   %.not = icmp eq ptr %.018, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !261
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !255
 
 ._crit_edge:                                      ; preds = %37, %2
   %.1.lcssa = phi i32 [ %.030, %2 ], [ %.2, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %38, label %2, !llvm.loop !262
+  br i1 %exitcond.not, label %38, label %2, !llvm.loop !256
 
 38:                                               ; preds = %._crit_edge
   ret i32 %.1.lcssa
@@ -44513,7 +44513,7 @@ define internal fastcc void @resend_lost_signals_retry(i32 noundef %0, ptr nocap
 19:                                               ; preds = %.lr.ph
   %20 = add nuw nsw i32 %.018, 1
   %exitcond.not = icmp eq i32 %20, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !263
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !257
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   %.0.lcssa.ph = phi i32 [ %.018, %.lr.ph ], [ %0, %19 ]
@@ -44542,7 +44542,7 @@ resend_lost_signals.exit.thread21:                ; preds = %.preheader.i
   br i1 %26, label %27, label %47
 
 27:                                               ; preds = %.lr.ph.i
-  %28 = call i32 %1() #38, !callees !264
+  %28 = call i32 %1() #38, !callees !258
   %.not.i = icmp eq i32 %28, %.01429.i
   br i1 %.not.i, label %29, label %35
 
@@ -44621,7 +44621,7 @@ resend_lost_signals.exit:                         ; preds = %47
   %57 = tail call ptr @__errno_location() #45
   %58 = load i32, ptr %57, align 4
   %.not3.i = icmp eq i32 %58, 4
-  br i1 %.not3.i, label %54, label %59, !llvm.loop !31
+  br i1 %.not3.i, label %54, label %59, !llvm.loop !30
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr @GC_on_abort, align 8
@@ -44632,7 +44632,7 @@ resend_lost_signals.exit:                         ; preds = %47
 61:                                               ; preds = %54
   %62 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %62, %.3.i23
-  br i1 %exitcond.not.i, label %suspend_restart_barrier.exit, label %.preheader.i11, !llvm.loop !32
+  br i1 %exitcond.not.i, label %suspend_restart_barrier.exit, label %.preheader.i11, !llvm.loop !31
 
 suspend_restart_barrier.exit:                     ; preds = %61, %resend_lost_signals.exit.thread, %resend_lost_signals.exit
   ret void
@@ -44737,13 +44737,13 @@ raise_signal.exit:                                ; preds = %.lr.ph.i, %22
   %.2 = phi i32 [ %.128, %.lr.ph ], [ %.128, %7 ], [ %.128, %11 ], [ %.128, %17 ], [ %23, %34 ], [ %23, %32 ], [ %.128, %raise_signal.exit ]
   %.018 = load ptr, ptr %.01829, align 8
   %.not = icmp eq ptr %.018, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !265
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !259
 
 ._crit_edge:                                      ; preds = %39, %2
   %.1.lcssa = phi i32 [ %.031, %2 ], [ %.2, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %40, label %2, !llvm.loop !266
+  br i1 %exitcond.not, label %40, label %2, !llvm.loop !260
 
 40:                                               ; preds = %._crit_edge
   ret i32 %.1.lcssa
@@ -44884,7 +44884,7 @@ GC_wait_marker.exit.i:                            ; preds = %.critedge.i, %48
 .critedge.i:                                      ; preds = %54, %GC_wait_marker.exit.i
   %56 = call i32 @pthread_cond_wait(ptr noundef nonnull @mark_cv, ptr noundef nonnull @mark_mutex) #38
   %.not.i.i = icmp eq i32 %56, 0
-  br i1 %.not.i.i, label %GC_wait_marker.exit.i, label %57, !llvm.loop !267
+  br i1 %.not.i.i, label %GC_wait_marker.exit.i, label %57, !llvm.loop !261
 
 57:                                               ; preds = %.critedge.i
   %58 = load ptr, ptr @GC_on_abort, align 8
@@ -45016,7 +45016,7 @@ define internal void @GC_suspend_sigaction(i32 noundef %0, ptr nocapture readnon
   %25 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, %16
-  br i1 %27, label %GC_lookup_thread.exit.i, label %23, !llvm.loop !11
+  br i1 %27, label %GC_lookup_thread.exit.i, label %23, !llvm.loop !10
 
 GC_lookup_thread.exit.i:                          ; preds = %24, %23
   %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
@@ -45059,7 +45059,7 @@ GC_lookup_thread.exit.i:                          ; preds = %24, %23
   %46 = call i32 @sigsuspend(ptr noundef nonnull @suspend_handler_mask) #38
   %47 = load atomic volatile i64, ptr @GC_stop_count acquire, align 8
   %48 = icmp eq i64 %47, %12
-  br i1 %48, label %.critedge.us.i, label %.critedge2.i, !llvm.loop !268
+  br i1 %48, label %.critedge.us.i, label %.critedge2.i, !llvm.loop !262
 
 .critedge.i:                                      ; preds = %36, %.critedge.i.backedge
   %49 = call i32 @sigsuspend(ptr noundef nonnull @suspend_handler_mask) #38
@@ -45073,7 +45073,7 @@ GC_lookup_thread.exit.i:                          ; preds = %24, %23
   br i1 %54, label %.critedge.i.backedge, label %.critedge2.i
 
 .critedge.i.backedge:                             ; preds = %52, %.critedge.i
-  br label %.critedge.i, !llvm.loop !268
+  br label %.critedge.i, !llvm.loop !262
 
 .critedge2.i:                                     ; preds = %52, %.critedge.us.i
   %55 = load i32, ptr @GC_retry_signals, align 4
@@ -45257,16 +45257,16 @@ attributes #49 = { nounwind returns_twice }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = !{i64 2148783004}
-!16 = distinct !{!16, !5}
-!17 = !{i64 2148784172}
+!14 = !{i64 2148783004}
+!15 = distinct !{!15, !5}
+!16 = !{i64 2148784172}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
@@ -45278,25 +45278,25 @@ attributes #49 = { nounwind returns_twice }
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = !{ptr @GC_print_all_smashed_proc}
+!29 = !{ptr @GC_print_all_smashed_proc}
+!30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = !{ptr @GC_debug_print_heap_obj_proc, ptr @GC_default_print_heap_obj_proc}
+!32 = !{ptr @GC_debug_print_heap_obj_proc, ptr @GC_default_print_heap_obj_proc}
+!33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = !{i64 2149034102}
+!36 = !{i64 2149034102}
+!37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
-!39 = !{i32 0, i32 3}
+!39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
-!43 = !{i32 0, i32 4}
+!43 = distinct !{!43, !5}
 !44 = distinct !{!44, !5}
 !45 = distinct !{!45, !5}
 !46 = distinct !{!46, !5}
-!47 = !{i32 0, i32 5}
+!47 = distinct !{!47, !5}
 !48 = distinct !{!48, !5}
 !49 = distinct !{!49, !5}
 !50 = distinct !{!50, !5}
@@ -45308,12 +45308,12 @@ attributes #49 = { nounwind returns_twice }
 !56 = distinct !{!56, !5}
 !57 = distinct !{!57, !5}
 !58 = distinct !{!58, !5}
-!59 = distinct !{!59, !5}
-!60 = distinct !{!60, !5}
+!59 = !{i64 2149184637}
+!60 = !{i64 2150087871}
 !61 = distinct !{!61, !5}
 !62 = distinct !{!62, !5}
-!63 = !{i64 2149184637}
-!64 = !{i64 2150087871}
+!63 = distinct !{!63, !5}
+!64 = distinct !{!64, !5}
 !65 = distinct !{!65, !5}
 !66 = distinct !{!66, !5}
 !67 = distinct !{!67, !5}
@@ -45323,22 +45323,22 @@ attributes #49 = { nounwind returns_twice }
 !71 = distinct !{!71, !5}
 !72 = distinct !{!72, !5}
 !73 = distinct !{!73, !5}
-!74 = distinct !{!74, !5}
+!74 = !{i64 2149250448}
 !75 = distinct !{!75, !5}
 !76 = distinct !{!76, !5}
 !77 = distinct !{!77, !5}
-!78 = !{i64 2149250448}
+!78 = distinct !{!78, !5}
 !79 = distinct !{!79, !5}
 !80 = distinct !{!80, !5}
 !81 = distinct !{!81, !5}
 !82 = distinct !{!82, !5}
-!83 = distinct !{!83, !5}
-!84 = distinct !{!84, !5}
+!83 = !{i64 2149255349}
+!84 = !{ptr @GC_page_was_dirty, ptr @GC_static_page_was_dirty}
 !85 = distinct !{!85, !5}
 !86 = distinct !{!86, !5}
-!87 = !{i64 0, i64 65}
-!88 = !{i64 2149255349}
-!89 = !{ptr @GC_page_was_dirty, ptr @GC_static_page_was_dirty}
+!87 = distinct !{!87, !5}
+!88 = distinct !{!88, !5}
+!89 = distinct !{!89, !5}
 !90 = distinct !{!90, !5}
 !91 = distinct !{!91, !5}
 !92 = distinct !{!92, !5}
@@ -45353,28 +45353,28 @@ attributes #49 = { nounwind returns_twice }
 !101 = distinct !{!101, !5}
 !102 = distinct !{!102, !5}
 !103 = distinct !{!103, !5}
-!104 = distinct !{!104, !5}
-!105 = distinct !{!105, !5}
-!106 = distinct !{!106, !5}
-!107 = distinct !{!107, !5}
-!108 = distinct !{!108, !5}
-!109 = !{i64 2149477631}
-!110 = !{i64 2149478406}
-!111 = !{i32 -1, i32 3}
-!112 = !{i64 2149478713}
-!113 = !{i64 2149478798}
-!114 = !{i64 2149481868}
+!104 = !{i64 2149477631}
+!105 = !{i64 2149478406}
+!106 = !{i64 2149478713}
+!107 = !{i64 2149478798}
+!108 = !{i64 2149481868}
+!109 = distinct !{!109, !5}
+!110 = distinct !{!110, !5}
+!111 = distinct !{!111, !5}
+!112 = distinct !{!112, !5}
+!113 = distinct !{!113, !5}
+!114 = distinct !{!114, !5}
 !115 = distinct !{!115, !5}
-!116 = distinct !{!116, !5}
-!117 = distinct !{!117, !5}
-!118 = distinct !{!118, !5}
-!119 = distinct !{!119, !5}
+!116 = !{i64 2929738}
+!117 = !{i64 2930429}
+!118 = !{i64 2930603}
+!119 = !{i64 2930781}
 !120 = distinct !{!120, !5}
 !121 = distinct !{!121, !5}
-!122 = !{i64 2929738}
-!123 = !{i64 2930429}
-!124 = !{i64 2930603}
-!125 = !{i64 2930781}
+!122 = distinct !{!122, !5}
+!123 = distinct !{!123, !5}
+!124 = distinct !{!124, !5}
+!125 = distinct !{!125, !5}
 !126 = distinct !{!126, !5}
 !127 = distinct !{!127, !5}
 !128 = distinct !{!128, !5}
@@ -45383,19 +45383,19 @@ attributes #49 = { nounwind returns_twice }
 !131 = distinct !{!131, !5}
 !132 = distinct !{!132, !5}
 !133 = distinct !{!133, !5}
-!134 = distinct !{!134, !5}
+!134 = !{i64 2150092207}
 !135 = distinct !{!135, !5}
 !136 = distinct !{!136, !5}
 !137 = distinct !{!137, !5}
 !138 = distinct !{!138, !5}
 !139 = distinct !{!139, !5}
-!140 = !{i64 2150092207}
+!140 = !{}
 !141 = distinct !{!141, !5}
 !142 = distinct !{!142, !5}
 !143 = distinct !{!143, !5}
 !144 = distinct !{!144, !5}
 !145 = distinct !{!145, !5}
-!146 = !{}
+!146 = distinct !{!146, !5}
 !147 = distinct !{!147, !5}
 !148 = distinct !{!148, !5}
 !149 = distinct !{!149, !5}
@@ -45507,14 +45507,8 @@ attributes #49 = { nounwind returns_twice }
 !255 = distinct !{!255, !5}
 !256 = distinct !{!256, !5}
 !257 = distinct !{!257, !5}
-!258 = distinct !{!258, !5}
+!258 = !{ptr @GC_restart_all, ptr @GC_suspend_all}
 !259 = distinct !{!259, !5}
 !260 = distinct !{!260, !5}
 !261 = distinct !{!261, !5}
 !262 = distinct !{!262, !5}
-!263 = distinct !{!263, !5}
-!264 = !{ptr @GC_restart_all, ptr @GC_suspend_all}
-!265 = distinct !{!265, !5}
-!266 = distinct !{!266, !5}
-!267 = distinct !{!267, !5}
-!268 = distinct !{!268, !5}

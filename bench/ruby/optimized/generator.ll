@@ -447,7 +447,7 @@ define internal noundef i64 @cState_init_copy(i64 noundef returned %0, i64 nound
   unreachable
 
 9:                                                ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(136) %5, ptr noundef nonnull align 1 dereferenceable(136) %6, i64 136, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(136) %5, ptr noundef nonnull readonly align 1 dereferenceable(136) %6, i64 136, i1 false)
   %10 = getelementptr inbounds i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
@@ -456,7 +456,7 @@ define internal noundef i64 @cState_init_copy(i64 noundef returned %0, i64 nound
 13:                                               ; preds = %9
   %14 = load ptr, ptr %6, align 8
   %15 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %11, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %14, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr readonly align 1 %14, i64 %11, i1 false)
   br label %fstrndup.exit
 
 fstrndup.exit:                                    ; preds = %9, %13
@@ -471,7 +471,7 @@ fstrndup.exit:                                    ; preds = %9, %13
   %20 = getelementptr inbounds i8, ptr %6, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %17, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %21, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr readonly align 1 %21, i64 %17, i1 false)
   br label %fstrndup.exit42
 
 fstrndup.exit42:                                  ; preds = %fstrndup.exit, %19
@@ -487,7 +487,7 @@ fstrndup.exit42:                                  ; preds = %fstrndup.exit, %19
   %28 = getelementptr inbounds i8, ptr %6, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %25, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %29, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr readonly align 1 %29, i64 %25, i1 false)
   br label %fstrndup.exit44
 
 fstrndup.exit44:                                  ; preds = %fstrndup.exit42, %27
@@ -503,7 +503,7 @@ fstrndup.exit44:                                  ; preds = %fstrndup.exit42, %2
   %36 = getelementptr inbounds i8, ptr %6, i64 48
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %33, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %37, i64 %33, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr readonly align 1 %37, i64 %33, i1 false)
   br label %fstrndup.exit46
 
 fstrndup.exit46:                                  ; preds = %fstrndup.exit44, %35
@@ -519,7 +519,7 @@ fstrndup.exit46:                                  ; preds = %fstrndup.exit44, %3
   %44 = getelementptr inbounds i8, ptr %6, i64 64
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %41, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr align 1 %45, i64 %41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr readonly align 1 %45, i64 %41, i1 false)
   br label %fstrndup.exit48
 
 fstrndup.exit48:                                  ; preds = %fstrndup.exit46, %43
@@ -562,21 +562,21 @@ fstrndup.exit48:                                  ; preds = %fstrndup.exit46, %4
 65:                                               ; preds = %62
   %66 = getelementptr inbounds i8, ptr %54, i64 16
   %67 = icmp ugt i64 %.0.i.i.i, %spec.store.select.i.i
-  br i1 %67, label %68, label %rbimpl_size_mul_or_raise.exit.i.i
+  br i1 %67, label %68, label %ruby_nonempty_memcpy.exit.i.i
 
 68:                                               ; preds = %65
   %69 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %60, i64 noundef %.0.i.i.i, i64 noundef 1) #18
   store ptr %69, ptr %55, align 8
   store i64 %.0.i.i.i, ptr %61, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i.i
+  br label %ruby_nonempty_memcpy.exit.i.i
 
-rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %68, %65
+ruby_nonempty_memcpy.exit.i.i:                    ; preds = %68, %65
   %70 = phi ptr [ %69, %68 ], [ %60, %65 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %70, ptr align 1 %57, i64 %58, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %70, ptr readonly align 1 %57, i64 %58, i1 false)
   store i64 %58, ptr %66, align 8
   br label %fbuffer_dup.exit
 
-fbuffer_dup.exit:                                 ; preds = %50, %rbimpl_size_mul_or_raise.exit.i.i
+fbuffer_dup.exit:                                 ; preds = %50, %ruby_nonempty_memcpy.exit.i.i
   %71 = getelementptr inbounds i8, ptr %5, i64 80
   store ptr %54, ptr %71, align 8
   br label %72
@@ -618,21 +618,21 @@ fbuffer_dup.exit:                                 ; preds = %50, %rbimpl_size_mu
 90:                                               ; preds = %87
   %91 = getelementptr inbounds i8, ptr %79, i64 16
   %92 = icmp ugt i64 %.0.i.i.i51, %spec.store.select.i.i49
-  br i1 %92, label %93, label %rbimpl_size_mul_or_raise.exit.i.i52
+  br i1 %92, label %93, label %ruby_nonempty_memcpy.exit.i.i52
 
 93:                                               ; preds = %90
   %94 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %85, i64 noundef %.0.i.i.i51, i64 noundef 1) #18
   store ptr %94, ptr %80, align 8
   store i64 %.0.i.i.i51, ptr %86, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i.i52
+  br label %ruby_nonempty_memcpy.exit.i.i52
 
-rbimpl_size_mul_or_raise.exit.i.i52:              ; preds = %93, %90
+ruby_nonempty_memcpy.exit.i.i52:                  ; preds = %93, %90
   %95 = phi ptr [ %94, %93 ], [ %85, %90 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr align 1 %82, i64 %83, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %95, ptr readonly align 1 %82, i64 %83, i1 false)
   store i64 %83, ptr %91, align 8
   br label %fbuffer_dup.exit53
 
-fbuffer_dup.exit53:                               ; preds = %75, %rbimpl_size_mul_or_raise.exit.i.i52
+fbuffer_dup.exit53:                               ; preds = %75, %ruby_nonempty_memcpy.exit.i.i52
   %96 = getelementptr inbounds i8, ptr %5, i64 88
   store ptr %79, ptr %96, align 8
   br label %97
@@ -674,21 +674,21 @@ fbuffer_dup.exit53:                               ; preds = %75, %rbimpl_size_mu
 115:                                              ; preds = %112
   %116 = getelementptr inbounds i8, ptr %104, i64 16
   %117 = icmp ugt i64 %.0.i.i.i56, %spec.store.select.i.i54
-  br i1 %117, label %118, label %rbimpl_size_mul_or_raise.exit.i.i57
+  br i1 %117, label %118, label %ruby_nonempty_memcpy.exit.i.i57
 
 118:                                              ; preds = %115
   %119 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %110, i64 noundef %.0.i.i.i56, i64 noundef 1) #18
   store ptr %119, ptr %105, align 8
   store i64 %.0.i.i.i56, ptr %111, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i.i57
+  br label %ruby_nonempty_memcpy.exit.i.i57
 
-rbimpl_size_mul_or_raise.exit.i.i57:              ; preds = %118, %115
+ruby_nonempty_memcpy.exit.i.i57:                  ; preds = %118, %115
   %120 = phi ptr [ %119, %118 ], [ %110, %115 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %120, ptr align 1 %107, i64 %108, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %120, ptr readonly align 1 %107, i64 %108, i1 false)
   store i64 %108, ptr %116, align 8
   br label %fbuffer_dup.exit58
 
-fbuffer_dup.exit58:                               ; preds = %100, %rbimpl_size_mul_or_raise.exit.i.i57
+fbuffer_dup.exit58:                               ; preds = %100, %ruby_nonempty_memcpy.exit.i.i57
   %121 = getelementptr inbounds i8, ptr %5, i64 96
   store ptr %104, ptr %121, align 8
   br label %122
@@ -777,7 +777,7 @@ Check_Type.exit:                                  ; preds = %8
 fstrndup.exit:                                    ; preds = %21, %25
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %25 ], [ %24, %21 ]
   %26 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %.sroa.2.0.i, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr readonly align 1 %.sroa.2.0.i, i64 %14, i1 false)
   store ptr %26, ptr %3, align 8
   %27 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %14, ptr %27, align 8
@@ -869,7 +869,7 @@ Check_Type.exit:                                  ; preds = %8
 fstrndup.exit:                                    ; preds = %22, %26
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %26 ], [ %25, %22 ]
   %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %.sroa.2.0.i, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %.sroa.2.0.i, i64 %14, i1 false)
   store ptr %27, ptr %16, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %14, ptr %28, align 8
@@ -961,7 +961,7 @@ Check_Type.exit:                                  ; preds = %8
 fstrndup.exit:                                    ; preds = %22, %26
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %26 ], [ %25, %22 ]
   %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %.sroa.2.0.i, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %.sroa.2.0.i, i64 %14, i1 false)
   store ptr %27, ptr %16, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 40
   store i64 %14, ptr %28, align 8
@@ -1053,7 +1053,7 @@ Check_Type.exit:                                  ; preds = %8
 fstrndup.exit:                                    ; preds = %22, %26
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %26 ], [ %25, %22 ]
   %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %.sroa.2.0.i, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %.sroa.2.0.i, i64 %14, i1 false)
   store ptr %27, ptr %16, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 56
   store i64 %14, ptr %28, align 8
@@ -1145,7 +1145,7 @@ Check_Type.exit:                                  ; preds = %8
 fstrndup.exit:                                    ; preds = %22, %26
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %26 ], [ %25, %22 ]
   %27 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %14, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %.sroa.2.0.i, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %.sroa.2.0.i, i64 %14, i1 false)
   store ptr %27, ptr %16, align 8
   %28 = getelementptr inbounds i8, ptr %3, i64 72
   store i64 %14, ptr %28, align 8
@@ -1156,7 +1156,7 @@ fstrndup.exit:                                    ; preds = %22, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @cState_max_nesting(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @cState_max_nesting(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
   %3 = getelementptr inbounds i8, ptr %2, i64 104
   %4 = load i64, ptr %3, align 8
@@ -1166,7 +1166,7 @@ define internal i64 @cState_max_nesting(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @cState_max_nesting_set(i64 noundef %0, i64 noundef %1) #0 {
+define internal noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @cState_max_nesting_set(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
   %4 = and i64 %1, 1
   %.not31.i = icmp eq i64 %4, 0
@@ -1184,7 +1184,7 @@ Check_Type.exit:                                  ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @cState_script_safe(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @cState_script_safe(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
   %3 = getelementptr inbounds i8, ptr %2, i64 114
   %4 = load i8, ptr %3, align 2
@@ -1207,7 +1207,7 @@ define internal noundef i64 @cState_script_safe_set(i64 noundef %0, i64 noundef 
 declare void @rb_define_alias(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @cState_strict(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @cState_strict(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
   %3 = getelementptr inbounds i8, ptr %2, i64 115
   %4 = load i8, ptr %3, align 1
@@ -1228,7 +1228,7 @@ define internal noundef i64 @cState_strict_set(i64 noundef %0, i64 noundef %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @cState_check_circular_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @cState_check_circular_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
   %3 = getelementptr inbounds i8, ptr %2, i64 104
   %4 = load i64, ptr %3, align 8
@@ -1238,7 +1238,7 @@ define internal i64 @cState_check_circular_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @cState_allow_nan_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @cState_allow_nan_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
   %3 = getelementptr inbounds i8, ptr %2, i64 112
   %4 = load i8, ptr %3, align 8
@@ -1248,7 +1248,7 @@ define internal i64 @cState_allow_nan_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @cState_ascii_only_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @cState_ascii_only_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
   %3 = getelementptr inbounds i8, ptr %2, i64 113
   %4 = load i8, ptr %3, align 1
@@ -1258,7 +1258,7 @@ define internal i64 @cState_ascii_only_p(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @cState_depth(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @cState_depth(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
   %3 = getelementptr inbounds i8, ptr %2, i64 120
   %4 = load i64, ptr %3, align 8
@@ -1286,7 +1286,7 @@ Check_Type.exit:                                  ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @cState_buffer_initial_length(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @cState_buffer_initial_length(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @JSON_Generator_State_type) #14
   %3 = getelementptr inbounds i8, ptr %2, i64 128
   %4 = load i64, ptr %3, align 8
@@ -1376,7 +1376,7 @@ RSTRING_PTR.exit:                                 ; preds = %Check_Type.exit, %2
 
 27:                                               ; preds = %RSTRING_PTR.exit
   %28 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %25, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr align 1 %.sroa.2.0.i, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr readonly align 1 %.sroa.2.0.i, i64 %25, i1 false)
   br label %fstrndup.exit
 
 fstrndup.exit:                                    ; preds = %RSTRING_PTR.exit, %27
@@ -1430,7 +1430,7 @@ RSTRING_PTR.exit102:                              ; preds = %Check_Type.exit98, 
 
 49:                                               ; preds = %RSTRING_PTR.exit102
   %50 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %47, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %.sroa.2.0.i101, i64 %47, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr readonly align 1 %.sroa.2.0.i101, i64 %47, i1 false)
   br label %fstrndup.exit104
 
 fstrndup.exit104:                                 ; preds = %RSTRING_PTR.exit102, %49
@@ -1485,7 +1485,7 @@ RSTRING_PTR.exit110:                              ; preds = %Check_Type.exit106,
 
 72:                                               ; preds = %RSTRING_PTR.exit110
   %73 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %70, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr align 1 %.sroa.2.0.i109, i64 %70, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr readonly align 1 %.sroa.2.0.i109, i64 %70, i1 false)
   br label %fstrndup.exit112
 
 fstrndup.exit112:                                 ; preds = %RSTRING_PTR.exit110, %72
@@ -1540,7 +1540,7 @@ RSTRING_PTR.exit118:                              ; preds = %Check_Type.exit114,
 
 95:                                               ; preds = %RSTRING_PTR.exit118
   %96 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %93, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr align 1 %.sroa.2.0.i117, i64 %93, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr readonly align 1 %.sroa.2.0.i117, i64 %93, i1 false)
   br label %fstrndup.exit120
 
 fstrndup.exit120:                                 ; preds = %RSTRING_PTR.exit118, %95
@@ -1595,7 +1595,7 @@ RSTRING_PTR.exit126:                              ; preds = %Check_Type.exit122,
 
 118:                                              ; preds = %RSTRING_PTR.exit126
   %119 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %116, i64 noundef 1) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr align 1 %.sroa.2.0.i125, i64 %116, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr readonly align 1 %.sroa.2.0.i125, i64 %116, i1 false)
   br label %fstrndup.exit128
 
 fstrndup.exit128:                                 ; preds = %RSTRING_PTR.exit126, %118
@@ -2582,7 +2582,7 @@ cState_from_state_s.exit:                         ; preds = %3, %12, %15
 generate_json_false.exit:                         ; preds = %36, %38
   %41 = phi ptr [ %40, %38 ], [ %28, %36 ]
   %42 = getelementptr inbounds i8, ptr %41, i64 %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %42, ptr noundef nonnull align 1 dereferenceable(5) @.str.99, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %42, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.99, i64 5, i1 false)
   %43 = load i64, ptr %30, align 8
   %44 = add i64 %43, 5
   store i64 %44, ptr %30, align 8
@@ -3013,7 +3013,7 @@ define internal fastcc void @Check_Type(i64 noundef %0, i32 noundef %1) unnamed_
   br label %rb_type.exit.i
 
 switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc i64 %13 to i16
+  %switch.maskindex = trunc nuw i64 %13 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %15
@@ -3267,7 +3267,7 @@ fbuffer_append_char.exit:                         ; preds = %33, %35
 
 73:                                               ; preds = %69
   %74 = icmp ugt i64 %.0.i.i40, %66
-  br i1 %74, label %75, label %rbimpl_size_mul_or_raise.exit.i
+  br i1 %74, label %75, label %ruby_nonempty_memcpy.exit.i
 
 75:                                               ; preds = %73
   %76 = getelementptr inbounds i8, ptr %.pre76, i64 24
@@ -3275,21 +3275,21 @@ fbuffer_append_char.exit:                         ; preds = %33, %35
   store ptr %77, ptr %57, align 8
   store i64 %.0.i.i40, ptr %76, align 8
   %.pre.i41 = load i64, ptr %67, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i
+  br label %ruby_nonempty_memcpy.exit.i
 
-rbimpl_size_mul_or_raise.exit.i:                  ; preds = %75, %73
+ruby_nonempty_memcpy.exit.i:                      ; preds = %75, %73
   %78 = phi i64 [ %.pre.i41, %75 ], [ %68, %73 ]
   %79 = phi ptr [ %77, %75 ], [ %65, %73 ]
   %80 = getelementptr inbounds i8, ptr %79, i64 %78
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr nonnull align 1 %52, i64 %55, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %80, ptr nonnull readonly align 1 %52, i64 %55, i1 false)
   %81 = load i64, ptr %67, align 8
   %82 = add i64 %81, %55
   store i64 %82, ptr %67, align 8
   %.pre75 = load ptr, ptr %43, align 8
   br label %fbuffer_append.exit
 
-fbuffer_append.exit:                              ; preds = %rbimpl_size_mul_or_raise.exit.i, %53, %50
-  %83 = phi ptr [ %.pre75, %rbimpl_size_mul_or_raise.exit.i ], [ %.pre76, %53 ], [ %.pre76, %50 ]
+fbuffer_append.exit:                              ; preds = %ruby_nonempty_memcpy.exit.i, %53, %50
+  %83 = phi ptr [ %.pre75, %ruby_nonempty_memcpy.exit.i ], [ %.pre76, %53 ], [ %.pre76, %50 ]
   %84 = getelementptr inbounds i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
   %.not.i.i42 = icmp eq ptr %85, null
@@ -3390,7 +3390,7 @@ fbuffer_append_char.exit48:                       ; preds = %99, %101
 
 132:                                              ; preds = %128
   %133 = icmp ugt i64 %.0.i.i54, %125
-  br i1 %133, label %134, label %rbimpl_size_mul_or_raise.exit.i55
+  br i1 %133, label %134, label %ruby_nonempty_memcpy.exit.i55
 
 134:                                              ; preds = %132
   %135 = getelementptr inbounds i8, ptr %112, i64 24
@@ -3398,19 +3398,19 @@ fbuffer_append_char.exit48:                       ; preds = %99, %101
   store ptr %136, ptr %116, align 8
   store i64 %.0.i.i54, ptr %135, align 8
   %.pre.i56 = load i64, ptr %126, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i55
+  br label %ruby_nonempty_memcpy.exit.i55
 
-rbimpl_size_mul_or_raise.exit.i55:                ; preds = %134, %132
+ruby_nonempty_memcpy.exit.i55:                    ; preds = %134, %132
   %137 = phi i64 [ %.pre.i56, %134 ], [ %127, %132 ]
   %138 = phi ptr [ %136, %134 ], [ %124, %132 ]
   %139 = getelementptr inbounds i8, ptr %138, i64 %137
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %139, ptr nonnull align 1 %110, i64 %114, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %139, ptr nonnull readonly align 1 %110, i64 %114, i1 false)
   %140 = load i64, ptr %126, align 8
   %141 = add i64 %140, %114
   store i64 %141, ptr %126, align 8
   br label %fbuffer_append.exit57
 
-fbuffer_append.exit57:                            ; preds = %rbimpl_size_mul_or_raise.exit.i55, %111, %fbuffer_append_char.exit48
+fbuffer_append.exit57:                            ; preds = %ruby_nonempty_memcpy.exit.i55, %111, %fbuffer_append_char.exit48
   %142 = getelementptr inbounds i8, ptr %2, i64 80
   %143 = load ptr, ptr %142, align 8
   %.not34 = icmp eq ptr %143, null
@@ -3534,7 +3534,7 @@ fbuffer_append_char.exit64:                       ; preds = %167, %169
 
 200:                                              ; preds = %196
   %201 = icmp ugt i64 %.0.i.i70, %193
-  br i1 %201, label %202, label %rbimpl_size_mul_or_raise.exit.i71
+  br i1 %201, label %202, label %ruby_nonempty_memcpy.exit.i71
 
 202:                                              ; preds = %200
   %203 = getelementptr inbounds i8, ptr %180, i64 24
@@ -3542,19 +3542,19 @@ fbuffer_append_char.exit64:                       ; preds = %167, %169
   store ptr %204, ptr %184, align 8
   store i64 %.0.i.i70, ptr %203, align 8
   %.pre.i72 = load i64, ptr %194, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i71
+  br label %ruby_nonempty_memcpy.exit.i71
 
-rbimpl_size_mul_or_raise.exit.i71:                ; preds = %202, %200
+ruby_nonempty_memcpy.exit.i71:                    ; preds = %202, %200
   %205 = phi i64 [ %.pre.i72, %202 ], [ %195, %200 ]
   %206 = phi ptr [ %204, %202 ], [ %192, %200 ]
   %207 = getelementptr inbounds i8, ptr %206, i64 %205
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %207, ptr nonnull align 1 %178, i64 %182, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %207, ptr nonnull readonly align 1 %178, i64 %182, i1 false)
   %208 = load i64, ptr %194, align 8
   %209 = add i64 %208, %182
   store i64 %209, ptr %194, align 8
   br label %fbuffer_append.exit73
 
-fbuffer_append.exit73:                            ; preds = %rbimpl_size_mul_or_raise.exit.i71, %179, %fbuffer_append_char.exit64
+fbuffer_append.exit73:                            ; preds = %ruby_nonempty_memcpy.exit.i71, %179, %fbuffer_append_char.exit64
   ret ptr %6
 }
 
@@ -3737,7 +3737,7 @@ generate_json_false.exit:                         ; preds = %76, %78
   %81 = phi i64 [ %.pre.i.i85, %78 ], [ %71, %76 ]
   %82 = phi ptr [ %80, %78 ], [ %68, %76 ]
   %83 = getelementptr inbounds i8, ptr %82, i64 %81
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %83, ptr noundef nonnull align 1 dereferenceable(5) @.str.99, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(5) %83, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.99, i64 5, i1 false)
   %84 = load i64, ptr %70, align 8
   %85 = add i64 %84, 5
   store i64 %85, ptr %70, align 8
@@ -4048,7 +4048,7 @@ fbuffer_append_char.exit:                         ; preds = %38, %40
 
 70:                                               ; preds = %66
   %71 = icmp ugt i64 %.0.i.i38, %64
-  br i1 %71, label %72, label %rbimpl_size_mul_or_raise.exit.i
+  br i1 %71, label %72, label %ruby_nonempty_memcpy.exit.i
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4056,19 +4056,19 @@ fbuffer_append_char.exit:                         ; preds = %38, %40
   store ptr %74, ptr %23, align 8
   store i64 %.0.i.i38, ptr %73, align 8
   %.pre.i39 = load i64, ptr %33, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i
+  br label %ruby_nonempty_memcpy.exit.i
 
-rbimpl_size_mul_or_raise.exit.i:                  ; preds = %72, %70
+ruby_nonempty_memcpy.exit.i:                      ; preds = %72, %70
   %75 = phi i64 [ %.pre.i39, %72 ], [ %65, %70 ]
   %76 = phi ptr [ %74, %72 ], [ %63, %70 ]
   %77 = getelementptr inbounds i8, ptr %76, i64 %75
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull align 1 %7, i64 %9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %77, ptr nonnull readonly align 1 %7, i64 %9, i1 false)
   %78 = load i64, ptr %33, align 8
   %79 = add i64 %78, %9
   store i64 %79, ptr %33, align 8
   br label %fbuffer_append.exit
 
-fbuffer_append.exit:                              ; preds = %54, %rbimpl_size_mul_or_raise.exit.i
+fbuffer_append.exit:                              ; preds = %54, %ruby_nonempty_memcpy.exit.i
   %.not33 = icmp ne ptr %10, null
   %80 = icmp sgt i64 %52, 1
   %or.cond57 = select i1 %.not33, i1 %80, i1 false
@@ -4079,8 +4079,8 @@ fbuffer_append.exit:                              ; preds = %54, %rbimpl_size_mu
   %.phi.trans.insert.i.i43 = getelementptr inbounds i8, ptr %0, i64 24
   br i1 %.not.i40, label %.loopexit, label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %rbimpl_size_mul_or_raise.exit.i46
-  %indvars.iv = phi i64 [ %indvars.iv.next, %rbimpl_size_mul_or_raise.exit.i46 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %ruby_nonempty_memcpy.exit.i46
+  %indvars.iv = phi i64 [ %indvars.iv.next, %ruby_nonempty_memcpy.exit.i46 ], [ 0, %.lr.ph ]
   %81 = load ptr, ptr %23, align 8
   %.not.i.i41 = icmp eq ptr %81, null
   br i1 %.not.i.i41, label %82, label %._crit_edge.i.i42
@@ -4112,20 +4112,20 @@ fbuffer_append.exit:                              ; preds = %54, %rbimpl_size_mu
 
 94:                                               ; preds = %90
   %95 = icmp ugt i64 %.0.i.i45, %88
-  br i1 %95, label %96, label %rbimpl_size_mul_or_raise.exit.i46
+  br i1 %95, label %96, label %ruby_nonempty_memcpy.exit.i46
 
 96:                                               ; preds = %94
   %97 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %87, i64 noundef %.0.i.i45, i64 noundef 1) #18
   store ptr %97, ptr %23, align 8
   store i64 %.0.i.i45, ptr %.phi.trans.insert.i.i43, align 8
   %.pre.i47 = load i64, ptr %33, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i46
+  br label %ruby_nonempty_memcpy.exit.i46
 
-rbimpl_size_mul_or_raise.exit.i46:                ; preds = %96, %94
+ruby_nonempty_memcpy.exit.i46:                    ; preds = %96, %94
   %98 = phi i64 [ %.pre.i47, %96 ], [ %89, %94 ]
   %99 = phi ptr [ %97, %96 ], [ %87, %94 ]
   %100 = getelementptr inbounds i8, ptr %99, i64 %98
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %100, ptr nonnull align 1 %10, i64 %12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %100, ptr nonnull readonly align 1 %10, i64 %12, i1 false)
   %101 = load i64, ptr %33, align 8
   %102 = add i64 %101, %12
   store i64 %102, ptr %33, align 8
@@ -4133,7 +4133,7 @@ rbimpl_size_mul_or_raise.exit.i46:                ; preds = %96, %94
   %exitcond.not = icmp eq i64 %indvars.iv.next, %53
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !25
 
-.loopexit:                                        ; preds = %rbimpl_size_mul_or_raise.exit.i46, %.lr.ph, %fbuffer_append.exit, %fbuffer_append_char.exit
+.loopexit:                                        ; preds = %ruby_nonempty_memcpy.exit.i46, %.lr.ph, %fbuffer_append.exit, %fbuffer_append_char.exit
   %103 = load ptr, ptr %23, align 8
   %.not.i.i49 = icmp eq ptr %103, null
   br i1 %.not.i.i49, label %104, label %._crit_edge.i.i50
@@ -4315,7 +4315,7 @@ fbuffer_append_char.exit:                         ; preds = %43, %45
 
 68:                                               ; preds = %64
   %69 = icmp ugt i64 %.0.i.i67, %63
-  br i1 %69, label %70, label %rbimpl_size_mul_or_raise.exit.i
+  br i1 %69, label %70, label %ruby_nonempty_memcpy.exit.i
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4323,19 +4323,19 @@ fbuffer_append_char.exit:                         ; preds = %43, %45
   store ptr %72, ptr %28, align 8
   store i64 %.0.i.i67, ptr %71, align 8
   %.pre.i68 = load i64, ptr %38, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i
+  br label %ruby_nonempty_memcpy.exit.i
 
-rbimpl_size_mul_or_raise.exit.i:                  ; preds = %70, %68
+ruby_nonempty_memcpy.exit.i:                      ; preds = %70, %68
   %73 = phi i64 [ %.pre.i68, %70 ], [ %61, %68 ]
   %74 = phi ptr [ %72, %70 ], [ %62, %68 ]
   %75 = getelementptr inbounds i8, ptr %74, i64 %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %75, ptr align 1 %6, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %75, ptr readonly align 1 %6, i64 %8, i1 false)
   %76 = load i64, ptr %38, align 8
   %77 = add i64 %76, %8
   store i64 %77, ptr %38, align 8
   br label %fbuffer_append.exit
 
-fbuffer_append.exit:                              ; preds = %rbimpl_size_mul_or_raise.exit.i, %fbuffer_append_char.exit
+fbuffer_append.exit:                              ; preds = %ruby_nonempty_memcpy.exit.i, %fbuffer_append_char.exit
   %78 = inttoptr i64 %3 to ptr
   %79 = getelementptr inbounds i8, ptr %78, i64 16
   %.not.i70 = icmp eq i64 %19, 0
@@ -4405,30 +4405,30 @@ rb_array_len.exit:                                ; preds = %83, %86
 
 104:                                              ; preds = %100
   %105 = icmp ugt i64 %.0.i.i75, %98
-  br i1 %105, label %106, label %rbimpl_size_mul_or_raise.exit.i76
+  br i1 %105, label %106, label %ruby_nonempty_memcpy.exit.i76
 
 106:                                              ; preds = %104
   %107 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %97, i64 noundef %.0.i.i75, i64 noundef 1) #18
   store ptr %107, ptr %28, align 8
   store i64 %.0.i.i75, ptr %.phi.trans.insert.i.i73, align 8
   %.pre.i77 = load i64, ptr %38, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i76
+  br label %ruby_nonempty_memcpy.exit.i76
 
-rbimpl_size_mul_or_raise.exit.i76:                ; preds = %106, %104
+ruby_nonempty_memcpy.exit.i76:                    ; preds = %106, %104
   %108 = phi i64 [ %.pre.i77, %106 ], [ %99, %104 ]
   %109 = phi ptr [ %107, %106 ], [ %97, %104 ]
   %110 = getelementptr inbounds i8, ptr %109, i64 %108
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %110, ptr align 1 %17, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %110, ptr readonly align 1 %17, i64 %19, i1 false)
   %111 = load i64, ptr %38, align 8
   %112 = add i64 %111, %19
   store i64 %112, ptr %38, align 8
   br label %fbuffer_append.exit78
 
-fbuffer_append.exit78:                            ; preds = %rbimpl_size_mul_or_raise.exit.i76, %89
+fbuffer_append.exit78:                            ; preds = %ruby_nonempty_memcpy.exit.i76, %89
   br i1 %brmerge137, label %.loopexit116, label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %fbuffer_append.exit78, %rbimpl_size_mul_or_raise.exit.i85
-  %indvars.iv = phi i64 [ %indvars.iv.next, %rbimpl_size_mul_or_raise.exit.i85 ], [ 0, %fbuffer_append.exit78 ]
+.lr.ph.split:                                     ; preds = %fbuffer_append.exit78, %ruby_nonempty_memcpy.exit.i85
+  %indvars.iv = phi i64 [ %indvars.iv.next, %ruby_nonempty_memcpy.exit.i85 ], [ 0, %fbuffer_append.exit78 ]
   %113 = load ptr, ptr %28, align 8
   %.not.i.i80 = icmp eq ptr %113, null
   br i1 %.not.i.i80, label %114, label %._crit_edge.i.i81
@@ -4460,20 +4460,20 @@ fbuffer_append.exit78:                            ; preds = %rbimpl_size_mul_or_
 
 126:                                              ; preds = %122
   %127 = icmp ugt i64 %.0.i.i84, %120
-  br i1 %127, label %128, label %rbimpl_size_mul_or_raise.exit.i85
+  br i1 %127, label %128, label %ruby_nonempty_memcpy.exit.i85
 
 128:                                              ; preds = %126
   %129 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %119, i64 noundef %.0.i.i84, i64 noundef 1) #18
   store ptr %129, ptr %28, align 8
   store i64 %.0.i.i84, ptr %.phi.trans.insert.i.i73, align 8
   %.pre.i86 = load i64, ptr %38, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i85
+  br label %ruby_nonempty_memcpy.exit.i85
 
-rbimpl_size_mul_or_raise.exit.i85:                ; preds = %128, %126
+ruby_nonempty_memcpy.exit.i85:                    ; preds = %128, %126
   %130 = phi i64 [ %.pre.i86, %128 ], [ %121, %126 ]
   %131 = phi ptr [ %129, %128 ], [ %119, %126 ]
   %132 = getelementptr inbounds i8, ptr %131, i64 %130
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %132, ptr nonnull align 1 %9, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %132, ptr nonnull readonly align 1 %9, i64 %11, i1 false)
   %133 = load i64, ptr %38, align 8
   %134 = add i64 %133, %11
   store i64 %134, ptr %38, align 8
@@ -4481,7 +4481,7 @@ rbimpl_size_mul_or_raise.exit.i85:                ; preds = %128, %126
   %.not62.not = icmp sgt i64 %21, %indvars.iv
   br i1 %.not62.not, label %.lr.ph.split, label %.loopexit116, !llvm.loop !26
 
-.loopexit116:                                     ; preds = %rbimpl_size_mul_or_raise.exit.i85, %fbuffer_append.exit78
+.loopexit116:                                     ; preds = %ruby_nonempty_memcpy.exit.i85, %fbuffer_append.exit78
   %135 = tail call i64 @rb_ary_entry(i64 noundef %3, i64 noundef %indvars.iv128) #20
   tail call fastcc void @generate_json(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, i64 noundef %135)
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
@@ -4526,34 +4526,34 @@ rbimpl_size_mul_or_raise.exit.i85:                ; preds = %128, %126
 
 152:                                              ; preds = %148
   %153 = icmp ugt i64 %.0.i.i93, %146
-  br i1 %153, label %154, label %rbimpl_size_mul_or_raise.exit.i94
+  br i1 %153, label %154, label %ruby_nonempty_memcpy.exit.i94
 
 154:                                              ; preds = %152
   %155 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %145, i64 noundef %.0.i.i93, i64 noundef 1) #18
   store ptr %155, ptr %28, align 8
   store i64 %.0.i.i93, ptr %.phi.trans.insert.i.i73, align 8
   %.pre.i95 = load i64, ptr %38, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i94
+  br label %ruby_nonempty_memcpy.exit.i94
 
-rbimpl_size_mul_or_raise.exit.i94:                ; preds = %154, %152
+ruby_nonempty_memcpy.exit.i94:                    ; preds = %154, %152
   %156 = phi i64 [ %.pre.i95, %154 ], [ %147, %152 ]
   %157 = phi ptr [ %155, %154 ], [ %145, %152 ]
   %158 = getelementptr inbounds i8, ptr %157, i64 %156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %158, ptr nonnull align 1 %6, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %158, ptr nonnull readonly align 1 %6, i64 %8, i1 false)
   %159 = load i64, ptr %38, align 8
   %160 = add i64 %159, %8
   store i64 %160, ptr %38, align 8
   br label %fbuffer_append.exit96
 
-fbuffer_append.exit96:                            ; preds = %137, %rbimpl_size_mul_or_raise.exit.i94
+fbuffer_append.exit96:                            ; preds = %137, %ruby_nonempty_memcpy.exit.i94
   %.not59 = icmp eq ptr %9, null
   %161 = icmp slt i64 %21, 1
   %or.cond121.not140 = select i1 %.not59, i1 true, i1 %161
   %brmerge138 = select i1 %or.cond121.not140, i1 true, i1 %.not.i79
   br i1 %brmerge138, label %.loopexit, label %.lr.ph120.split
 
-.lr.ph120.split:                                  ; preds = %fbuffer_append.exit96, %rbimpl_size_mul_or_raise.exit.i103
-  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %rbimpl_size_mul_or_raise.exit.i103 ], [ 0, %fbuffer_append.exit96 ]
+.lr.ph120.split:                                  ; preds = %fbuffer_append.exit96, %ruby_nonempty_memcpy.exit.i103
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %ruby_nonempty_memcpy.exit.i103 ], [ 0, %fbuffer_append.exit96 ]
   %162 = load ptr, ptr %28, align 8
   %.not.i.i98 = icmp eq ptr %162, null
   br i1 %.not.i.i98, label %163, label %._crit_edge.i.i99
@@ -4585,20 +4585,20 @@ fbuffer_append.exit96:                            ; preds = %137, %rbimpl_size_m
 
 175:                                              ; preds = %171
   %176 = icmp ugt i64 %.0.i.i102, %169
-  br i1 %176, label %177, label %rbimpl_size_mul_or_raise.exit.i103
+  br i1 %176, label %177, label %ruby_nonempty_memcpy.exit.i103
 
 177:                                              ; preds = %175
   %178 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %168, i64 noundef %.0.i.i102, i64 noundef 1) #18
   store ptr %178, ptr %28, align 8
   store i64 %.0.i.i102, ptr %.phi.trans.insert.i.i73, align 8
   %.pre.i104 = load i64, ptr %38, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i103
+  br label %ruby_nonempty_memcpy.exit.i103
 
-rbimpl_size_mul_or_raise.exit.i103:               ; preds = %177, %175
+ruby_nonempty_memcpy.exit.i103:                   ; preds = %177, %175
   %179 = phi i64 [ %.pre.i104, %177 ], [ %170, %175 ]
   %180 = phi ptr [ %178, %177 ], [ %168, %175 ]
   %181 = getelementptr inbounds i8, ptr %180, i64 %179
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %181, ptr nonnull align 1 %9, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %181, ptr nonnull readonly align 1 %9, i64 %11, i1 false)
   %182 = load i64, ptr %38, align 8
   %183 = add i64 %182, %11
   store i64 %183, ptr %38, align 8
@@ -4606,7 +4606,7 @@ rbimpl_size_mul_or_raise.exit.i103:               ; preds = %177, %175
   %exitcond.not = icmp eq i64 %indvars.iv.next132, %21
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph120.split, !llvm.loop !28
 
-.loopexit:                                        ; preds = %rbimpl_size_mul_or_raise.exit.i103, %fbuffer_append.exit96, %136
+.loopexit:                                        ; preds = %ruby_nonempty_memcpy.exit.i103, %fbuffer_append.exit96, %136
   %184 = load ptr, ptr %28, align 8
   %.not.i.i106 = icmp eq ptr %184, null
   br i1 %.not.i.i106, label %185, label %._crit_edge.i.i107
@@ -4785,7 +4785,7 @@ RSTRING_PTR.exit.i:                               ; preds = %48, %43
 
 63:                                               ; preds = %53
   %64 = add nuw nsw i64 %59, 1
-  %65 = tail call fastcc zeroext i8 @isLegalUTF8(ptr noundef nonnull %.0167.i, i64 noundef %64), !range !32
+  %65 = tail call fastcc zeroext i8 @isLegalUTF8(ptr noundef nonnull %.0167.i, i64 noundef %64)
   %.not71.i = icmp eq i8 %65, 0
   br i1 %.not71.i, label %66, label %68
 
@@ -5042,7 +5042,7 @@ fbuffer_append.exit87.i:                          ; preds = %162, %160
   br label %411
 
 167:                                              ; preds = %145, %102
-  %168 = trunc i64 %94 to i8
+  %168 = trunc nuw nsw i64 %94 to i8
   %169 = load ptr, ptr %7, align 8
   %.not.i.i88.i = icmp eq ptr %169, null
   br i1 %.not.i.i88.i, label %170, label %._crit_edge.i.i89.i
@@ -5090,7 +5090,7 @@ fbuffer_append_char.exit.i:                       ; preds = %183, %181
   br label %411
 
 188:                                              ; preds = %100
-  %trunc.i = trunc i64 %94 to i16
+  %trunc.i = trunc nuw i64 %94 to i16
   switch i16 %trunc.i, label %294 [
     i16 10, label %189
     i16 13, label %210
@@ -5419,7 +5419,7 @@ unicode_escape_to_buffer.exit.i:                  ; preds = %324, %322
   unreachable
 
 333:                                              ; preds = %329
-  %334 = trunc i64 %94 to i32
+  %334 = trunc nuw i64 %94 to i32
   %335 = add nuw nsw i32 %334, 67043328
   %336 = lshr i32 %335, 10
   %337 = add nuw nsw i32 %336, 55296
@@ -5572,11 +5572,11 @@ unicode_escape_to_buffer.exit143.i:               ; preds = %406, %404
   %413 = add i64 %412, %.sink183.i
   store i64 %413, ptr %17, align 8
   %414 = icmp ult ptr %.6.i, %51
-  br i1 %414, label %53, label %convert_UTF8_to_JSON_ASCII.exit, !llvm.loop !33
+  br i1 %414, label %53, label %convert_UTF8_to_JSON_ASCII.exit, !llvm.loop !32
 
 convert_UTF8_to_JSON_ASCII.exit:                  ; preds = %411, %RSTRING_PTR.exit.i
   store ptr %5, ptr %6, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #14, !srcloc !34
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #14, !srcloc !33
   %415 = load ptr, ptr %6, align 8
   %416 = load volatile i64, ptr %415, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -5586,7 +5586,7 @@ convert_UTF8_to_JSON_ASCII.exit:                  ; preds = %411, %RSTRING_PTR.e
 417:                                              ; preds = %enc_utf8_compatible_p.exit.thread
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4)
   %418 = inttoptr i64 %.0 to ptr
-  %419 = load i64, ptr %418, align 8, !noalias !35
+  %419 = load i64, ptr %418, align 8, !noalias !34
   %420 = and i64 %419, 8192
   %.not.i.i.i13 = icmp eq i64 %420, 0
   %421 = getelementptr inbounds i8, ptr %418, i64 24
@@ -5602,8 +5602,8 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
   %424 = load i64, ptr %423, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, ptr noundef nonnull align 1 dereferenceable(6) @__const.convert_UTF8_to_JSON.buf, i64 6, i1 false)
   %425 = tail call i32 @rb_enc_str_asciionly_p(i64 noundef %.0) #14
-  %.not138.i = icmp eq i64 %424, 0
-  br i1 %.not138.i, label %convert_UTF8_to_JSON.exit, label %.lr.ph.lr.ph.i
+  %.not139.i = icmp eq i64 %424, 0
+  br i1 %.not139.i, label %convert_UTF8_to_JSON.exit, label %.lr.ph.lr.ph.i
 
 .lr.ph.lr.ph.i:                                   ; preds = %RSTRING_PTR.exit.i15
   %.not.i17 = icmp eq i8 %42, 0
@@ -5617,12 +5617,12 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
   br label %.lr.ph.i18
 
 .lr.ph.i18:                                       ; preds = %.outer.backedge.i, %.lr.ph.lr.ph.i
-  %.0.ph134.i = phi i64 [ 0, %.lr.ph.lr.ph.i ], [ %.058.ph.be.i, %.outer.backedge.i ]
+  %.0.ph135.i = phi i64 [ 0, %.lr.ph.lr.ph.i ], [ %.058.ph.be.i, %.outer.backedge.i ]
   br label %431
 
 431:                                              ; preds = %._crit_edge.i, %.lr.ph.i18
-  %.058128.i = phi i64 [ %.0.ph134.i, %.lr.ph.i18 ], [ %548, %._crit_edge.i ]
-  %432 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.058128.i
+  %.058129.i = phi i64 [ %.0.ph135.i, %.lr.ph.i18 ], [ %548, %._crit_edge.i ]
+  %432 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.058129.i
   %433 = load i8, ptr %432, align 1
   %434 = icmp ult i8 %433, 32
   br i1 %434, label %435, label %447
@@ -5668,7 +5668,7 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
   %454 = sext i8 %453 to i16
   %455 = add nsw i16 %454, 1
   %456 = zext i16 %455 to i64
-  %457 = add i64 %.058128.i, %456
+  %457 = add i64 %.058129.i, %456
   %458 = icmp ugt i64 %457, %424
   br i1 %458, label %459, label %461
 
@@ -5679,8 +5679,8 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
 
 461:                                              ; preds = %450
   %462 = icmp eq i8 %433, -30
-  %or.cond.i21 = and i1 %426, %462
-  br i1 %or.cond.i21, label %463, label %543
+  %or.cond.i23 = and i1 %426, %462
+  br i1 %or.cond.i23, label %463, label %543
 
 463:                                              ; preds = %461
   %464 = getelementptr inbounds i8, ptr %432, i64 1
@@ -5697,18 +5697,18 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
 
 471:                                              ; preds = %467
   %472 = icmp eq i8 %469, -88
-  %473 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.0.ph134.i
-  %474 = sub i64 %.058128.i, %.0.ph134.i
-  %.not.i.i22 = icmp eq i64 %.058128.i, %.0.ph134.i
-  br i1 %.not.i.i22, label %fbuffer_append.exit.i26, label %475
+  %473 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.0.ph135.i
+  %474 = sub i64 %.058129.i, %.0.ph135.i
+  %.not.i.i24 = icmp eq i64 %.058129.i, %.0.ph135.i
+  br i1 %.not.i.i24, label %fbuffer_append.exit.i28, label %475
 
 475:                                              ; preds = %471
   %476 = load ptr, ptr %7, align 8
   %.not.i.i67.i = icmp eq ptr %476, null
-  br i1 %.not.i.i67.i, label %477, label %._crit_edge.i.i.i23
+  br i1 %.not.i.i67.i, label %477, label %._crit_edge.i.i.i25
 
-._crit_edge.i.i.i23:                              ; preds = %475
-  %.pre.i.i.i24 = load i64, ptr %.phi.trans.insert.i.i.i, align 8
+._crit_edge.i.i.i25:                              ; preds = %475
+  %.pre.i.i.i26 = load i64, ptr %.phi.trans.insert.i.i.i, align 8
   br label %481
 
 477:                                              ; preds = %475
@@ -5719,46 +5719,46 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
   store i64 %480, ptr %.phi.trans.insert.i.i.i, align 8
   br label %481
 
-481:                                              ; preds = %477, %._crit_edge.i.i.i23
-  %482 = phi ptr [ %476, %._crit_edge.i.i.i23 ], [ %479, %477 ]
-  %483 = phi i64 [ %.pre.i.i.i24, %._crit_edge.i.i.i23 ], [ %480, %477 ]
+481:                                              ; preds = %477, %._crit_edge.i.i.i25
+  %482 = phi ptr [ %476, %._crit_edge.i.i.i25 ], [ %479, %477 ]
+  %483 = phi i64 [ %.pre.i.i.i26, %._crit_edge.i.i.i25 ], [ %480, %477 ]
   %484 = load i64, ptr %17, align 8
   br label %485
 
 485:                                              ; preds = %485, %481
-  %.0.i.i.i25 = phi i64 [ %483, %481 ], [ %488, %485 ]
-  %486 = sub i64 %.0.i.i.i25, %484
+  %.0.i.i.i27 = phi i64 [ %483, %481 ], [ %488, %485 ]
+  %486 = sub i64 %.0.i.i.i27, %484
   %487 = icmp ult i64 %486, %474
-  %488 = shl i64 %.0.i.i.i25, 1
+  %488 = shl i64 %.0.i.i.i27, 1
   br i1 %487, label %485, label %489, !llvm.loop !6
 
 489:                                              ; preds = %485
-  %490 = icmp ugt i64 %.0.i.i.i25, %483
-  br i1 %490, label %491, label %rbimpl_size_mul_or_raise.exit.i.i
+  %490 = icmp ugt i64 %.0.i.i.i27, %483
+  br i1 %490, label %491, label %ruby_nonempty_memcpy.exit.i.i
 
 491:                                              ; preds = %489
-  %492 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %482, i64 noundef %.0.i.i.i25, i64 noundef 1) #18
+  %492 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %482, i64 noundef %.0.i.i.i27, i64 noundef 1) #18
   store ptr %492, ptr %7, align 8
-  store i64 %.0.i.i.i25, ptr %.phi.trans.insert.i.i.i, align 8
-  %.pre.i.i27 = load i64, ptr %17, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i.i
+  store i64 %.0.i.i.i27, ptr %.phi.trans.insert.i.i.i, align 8
+  %.pre.i.i29 = load i64, ptr %17, align 8
+  br label %ruby_nonempty_memcpy.exit.i.i
 
-rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %491, %489
-  %493 = phi i64 [ %.pre.i.i27, %491 ], [ %484, %489 ]
+ruby_nonempty_memcpy.exit.i.i:                    ; preds = %491, %489
+  %493 = phi i64 [ %.pre.i.i29, %491 ], [ %484, %489 ]
   %494 = phi ptr [ %492, %491 ], [ %482, %489 ]
   %495 = getelementptr inbounds i8, ptr %494, i64 %493
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %495, ptr align 1 %473, i64 %474, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %495, ptr readonly align 1 %473, i64 %474, i1 false)
   %496 = load i64, ptr %17, align 8
   %497 = add i64 %496, %474
   store i64 %497, ptr %17, align 8
-  br label %fbuffer_append.exit.i26
+  br label %fbuffer_append.exit.i28
 
-fbuffer_append.exit.i26:                          ; preds = %rbimpl_size_mul_or_raise.exit.i.i, %471
+fbuffer_append.exit.i28:                          ; preds = %ruby_nonempty_memcpy.exit.i.i, %471
   %498 = load ptr, ptr %7, align 8
   %.not.i.i68.i = icmp eq ptr %498, null
   br i1 %472, label %499, label %521
 
-499:                                              ; preds = %fbuffer_append.exit.i26
+499:                                              ; preds = %fbuffer_append.exit.i28
   br i1 %.not.i.i68.i, label %500, label %._crit_edge.i.i69.i
 
 ._crit_edge.i.i69.i:                              ; preds = %499
@@ -5801,13 +5801,13 @@ fbuffer_append.exit75.i:                          ; preds = %514, %512
   %516 = phi i64 [ %.pre.i74.i, %514 ], [ %507, %512 ]
   %517 = phi ptr [ %515, %514 ], [ %505, %512 ]
   %518 = getelementptr inbounds i8, ptr %517, i64 %516
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %518, ptr noundef nonnull align 1 dereferenceable(6) @.str.96, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %518, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.96, i64 6, i1 false)
   %519 = load i64, ptr %17, align 8
   %520 = add i64 %519, 6
   store i64 %520, ptr %17, align 8
   br label %.outer.backedge.i
 
-521:                                              ; preds = %fbuffer_append.exit.i26
+521:                                              ; preds = %fbuffer_append.exit.i28
   br i1 %.not.i.i68.i, label %522, label %._crit_edge.i.i77.i
 
 ._crit_edge.i.i77.i:                              ; preds = %521
@@ -5850,14 +5850,14 @@ fbuffer_append.exit83.i:                          ; preds = %536, %534
   %538 = phi i64 [ %.pre.i82.i, %536 ], [ %529, %534 ]
   %539 = phi ptr [ %537, %536 ], [ %527, %534 ]
   %540 = getelementptr inbounds i8, ptr %539, i64 %538
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %540, ptr noundef nonnull align 1 dereferenceable(6) @.str.97, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(6) %540, ptr noundef nonnull readonly align 1 dereferenceable(6) @.str.97, i64 6, i1 false)
   %541 = load i64, ptr %17, align 8
   %542 = add i64 %541, 6
   store i64 %542, ptr %17, align 8
   br label %.outer.backedge.i
 
 543:                                              ; preds = %467, %463, %461
-  %544 = tail call fastcc zeroext i8 @isLegalUTF8(ptr noundef nonnull %432, i64 noundef %456), !range !32
+  %544 = tail call fastcc zeroext i8 @isLegalUTF8(ptr noundef nonnull %432, i64 noundef %456)
   %.not66.i = icmp eq i8 %544, 0
   br i1 %.not66.i, label %545, label %._crit_edge.i
 
@@ -5869,9 +5869,9 @@ fbuffer_append.exit83.i:                          ; preds = %536, %534
 ._crit_edge.i:                                    ; preds = %449, %543
   %.059.i = phi i16 [ %455, %543 ], [ 1, %449 ]
   %547 = zext i16 %.059.i to i64
-  %548 = add i64 %.058128.i, %547
+  %548 = add i64 %.058129.i, %547
   %549 = icmp ult i64 %548, %424
-  br i1 %549, label %431, label %.outer._crit_edge.i, !llvm.loop !38
+  br i1 %549, label %431, label %.outer._crit_edge.i, !llvm.loop !37
 
 switch.hole_check:                                ; preds = %435
   %switch.shifted = lshr i8 55, %switch.tableidx
@@ -5890,9 +5890,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
 .loopexit.i:                                      ; preds = %448, %447, %.loopexit.i.loopexit, %switch.lookup, %437
   %.061.i = phi i64 [ 6, %437 ], [ 2, %switch.lookup ], [ 2, %447 ], [ 2, %448 ], [ 2, %.loopexit.i.loopexit ]
   %.060.i = phi ptr [ %4, %437 ], [ %switch.load, %switch.lookup ], [ @.str.86, %447 ], [ @.str.88, %448 ], [ @.str.87, %.loopexit.i.loopexit ]
-  %551 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.0.ph134.i
-  %552 = sub i64 %.058128.i, %.0.ph134.i
-  %.not.i84.i = icmp eq i64 %.058128.i, %.0.ph134.i
+  %551 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.0.ph135.i
+  %552 = sub i64 %.058129.i, %.0.ph135.i
+  %.not.i84.i = icmp eq i64 %.058129.i, %.0.ph135.i
   br i1 %.not.i84.i, label %fbuffer_append.exit92.i, label %553
 
 553:                                              ; preds = %.loopexit.i
@@ -5927,32 +5927,32 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 567:                                              ; preds = %563
   %568 = icmp ugt i64 %.0.i.i89.i, %561
-  br i1 %568, label %569, label %rbimpl_size_mul_or_raise.exit.i90.i
+  br i1 %568, label %569, label %ruby_nonempty_memcpy.exit.i90.i
 
 569:                                              ; preds = %567
   %570 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %560, i64 noundef %.0.i.i89.i, i64 noundef 1) #18
   store ptr %570, ptr %7, align 8
   store i64 %.0.i.i89.i, ptr %.phi.trans.insert.i.i.i, align 8
   %.pre.i91.i = load i64, ptr %17, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i90.i
+  br label %ruby_nonempty_memcpy.exit.i90.i
 
-rbimpl_size_mul_or_raise.exit.i90.i:              ; preds = %569, %567
+ruby_nonempty_memcpy.exit.i90.i:                  ; preds = %569, %567
   %571 = phi i64 [ %.pre.i91.i, %569 ], [ %562, %567 ]
   %572 = phi ptr [ %570, %569 ], [ %560, %567 ]
   %573 = getelementptr inbounds i8, ptr %572, i64 %571
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %573, ptr align 1 %551, i64 %552, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %573, ptr readonly align 1 %551, i64 %552, i1 false)
   %574 = load i64, ptr %17, align 8
   %575 = add i64 %574, %552
   store i64 %575, ptr %17, align 8
   br label %fbuffer_append.exit92.i
 
-fbuffer_append.exit92.i:                          ; preds = %rbimpl_size_mul_or_raise.exit.i90.i, %.loopexit.i
+fbuffer_append.exit92.i:                          ; preds = %ruby_nonempty_memcpy.exit.i90.i, %.loopexit.i
   %576 = load ptr, ptr %7, align 8
-  %.not.i.i93.i = icmp eq ptr %576, null
-  br i1 %.not.i.i93.i, label %577, label %._crit_edge.i.i94.i
+  %.not.i.i94.i19 = icmp eq ptr %576, null
+  br i1 %.not.i.i94.i19, label %577, label %._crit_edge.i.i95.i20
 
-._crit_edge.i.i94.i:                              ; preds = %fbuffer_append.exit92.i
-  %.pre.i.i96.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8
+._crit_edge.i.i95.i20:                            ; preds = %fbuffer_append.exit92.i
+  %.pre.i.i97.i21 = load i64, ptr %.phi.trans.insert.i.i.i, align 8
   br label %581
 
 577:                                              ; preds = %fbuffer_append.exit92.i
@@ -5963,59 +5963,59 @@ fbuffer_append.exit92.i:                          ; preds = %rbimpl_size_mul_or_
   store i64 %580, ptr %.phi.trans.insert.i.i.i, align 8
   br label %581
 
-581:                                              ; preds = %577, %._crit_edge.i.i94.i
-  %582 = phi ptr [ %576, %._crit_edge.i.i94.i ], [ %579, %577 ]
-  %583 = phi i64 [ %.pre.i.i96.i, %._crit_edge.i.i94.i ], [ %580, %577 ]
+581:                                              ; preds = %577, %._crit_edge.i.i95.i20
+  %582 = phi ptr [ %576, %._crit_edge.i.i95.i20 ], [ %579, %577 ]
+  %583 = phi i64 [ %.pre.i.i97.i21, %._crit_edge.i.i95.i20 ], [ %580, %577 ]
   %584 = load i64, ptr %17, align 8
   br label %585
 
 585:                                              ; preds = %585, %581
-  %.0.i.i97.i = phi i64 [ %583, %581 ], [ %588, %585 ]
-  %586 = sub i64 %.0.i.i97.i, %584
+  %.0.i.i98.i22 = phi i64 [ %583, %581 ], [ %588, %585 ]
+  %586 = sub i64 %.0.i.i98.i22, %584
   %587 = icmp ult i64 %586, %.061.i
-  %588 = shl i64 %.0.i.i97.i, 1
+  %588 = shl i64 %.0.i.i98.i22, 1
   br i1 %587, label %585, label %589, !llvm.loop !6
 
 589:                                              ; preds = %585
-  %590 = icmp ugt i64 %.0.i.i97.i, %583
-  br i1 %590, label %591, label %fbuffer_append.exit100.i19
+  %590 = icmp ugt i64 %.0.i.i98.i22, %583
+  br i1 %590, label %591, label %fbuffer_append.exit101.i
 
 591:                                              ; preds = %589
-  %592 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %582, i64 noundef %.0.i.i97.i, i64 noundef 1) #18
+  %592 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %582, i64 noundef %.0.i.i98.i22, i64 noundef 1) #18
   store ptr %592, ptr %7, align 8
-  store i64 %.0.i.i97.i, ptr %.phi.trans.insert.i.i.i, align 8
-  %.pre.i99.i20 = load i64, ptr %17, align 8
-  br label %fbuffer_append.exit100.i19
+  store i64 %.0.i.i98.i22, ptr %.phi.trans.insert.i.i.i, align 8
+  %.pre.i100.i = load i64, ptr %17, align 8
+  br label %fbuffer_append.exit101.i
 
-fbuffer_append.exit100.i19:                       ; preds = %591, %589
-  %593 = phi i64 [ %.pre.i99.i20, %591 ], [ %584, %589 ]
+fbuffer_append.exit101.i:                         ; preds = %591, %589
+  %593 = phi i64 [ %.pre.i100.i, %591 ], [ %584, %589 ]
   %594 = phi ptr [ %592, %591 ], [ %582, %589 ]
   %595 = getelementptr inbounds i8, ptr %594, i64 %593
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %595, ptr noundef nonnull align 1 dereferenceable(1) %.060.i, i64 %.061.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(1) %595, ptr noundef nonnull readonly align 1 dereferenceable(1) %.060.i, i64 %.061.i, i1 false)
   %596 = load i64, ptr %17, align 8
   %597 = add i64 %596, %.061.i
   store i64 %597, ptr %17, align 8
-  %598 = add i64 %.058128.i, 1
+  %598 = add i64 %.058129.i, 1
   br label %.outer.backedge.i
 
-.outer.backedge.i:                                ; preds = %fbuffer_append.exit100.i19, %fbuffer_append.exit83.i, %fbuffer_append.exit75.i
-  %.058.ph.be.i = phi i64 [ %598, %fbuffer_append.exit100.i19 ], [ %457, %fbuffer_append.exit83.i ], [ %457, %fbuffer_append.exit75.i ]
+.outer.backedge.i:                                ; preds = %fbuffer_append.exit101.i, %fbuffer_append.exit83.i, %fbuffer_append.exit75.i
+  %.058.ph.be.i = phi i64 [ %598, %fbuffer_append.exit101.i ], [ %457, %fbuffer_append.exit83.i ], [ %457, %fbuffer_append.exit75.i ]
   %599 = icmp ult i64 %.058.ph.be.i, %424
-  br i1 %599, label %.lr.ph.i18, label %convert_UTF8_to_JSON.exit, !llvm.loop !38
+  br i1 %599, label %.lr.ph.i18, label %convert_UTF8_to_JSON.exit, !llvm.loop !37
 
 .outer._crit_edge.i:                              ; preds = %._crit_edge.i
-  %600 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.0.ph134.i
-  %601 = sub i64 %548, %.0.ph134.i
-  %.not.i101.i = icmp eq i64 %548, %.0.ph134.i
-  br i1 %.not.i101.i, label %convert_UTF8_to_JSON.exit, label %602
+  %600 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.0.ph135.i
+  %601 = sub i64 %548, %.0.ph135.i
+  %.not.i102.i = icmp eq i64 %548, %.0.ph135.i
+  br i1 %.not.i102.i, label %convert_UTF8_to_JSON.exit, label %602
 
 602:                                              ; preds = %.outer._crit_edge.i
   %603 = load ptr, ptr %7, align 8
-  %.not.i.i102.i = icmp eq ptr %603, null
-  br i1 %.not.i.i102.i, label %604, label %._crit_edge.i.i103.i
+  %.not.i.i103.i = icmp eq ptr %603, null
+  br i1 %.not.i.i103.i, label %604, label %._crit_edge.i.i104.i
 
-._crit_edge.i.i103.i:                             ; preds = %602
-  %.pre.i.i105.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8
+._crit_edge.i.i104.i:                             ; preds = %602
+  %.pre.i.i106.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8
   br label %608
 
 604:                                              ; preds = %602
@@ -6026,52 +6026,52 @@ fbuffer_append.exit100.i19:                       ; preds = %591, %589
   store i64 %607, ptr %.phi.trans.insert.i.i.i, align 8
   br label %608
 
-608:                                              ; preds = %604, %._crit_edge.i.i103.i
-  %609 = phi ptr [ %603, %._crit_edge.i.i103.i ], [ %606, %604 ]
-  %610 = phi i64 [ %.pre.i.i105.i, %._crit_edge.i.i103.i ], [ %607, %604 ]
+608:                                              ; preds = %604, %._crit_edge.i.i104.i
+  %609 = phi ptr [ %603, %._crit_edge.i.i104.i ], [ %606, %604 ]
+  %610 = phi i64 [ %.pre.i.i106.i, %._crit_edge.i.i104.i ], [ %607, %604 ]
   %611 = load i64, ptr %17, align 8
   br label %612
 
 612:                                              ; preds = %612, %608
-  %.0.i.i106.i = phi i64 [ %610, %608 ], [ %615, %612 ]
-  %613 = sub i64 %.0.i.i106.i, %611
+  %.0.i.i107.i = phi i64 [ %610, %608 ], [ %615, %612 ]
+  %613 = sub i64 %.0.i.i107.i, %611
   %614 = icmp ult i64 %613, %601
-  %615 = shl i64 %.0.i.i106.i, 1
+  %615 = shl i64 %.0.i.i107.i, 1
   br i1 %614, label %612, label %616, !llvm.loop !6
 
 616:                                              ; preds = %612
-  %617 = icmp ugt i64 %.0.i.i106.i, %610
-  br i1 %617, label %618, label %rbimpl_size_mul_or_raise.exit.i107.i
+  %617 = icmp ugt i64 %.0.i.i107.i, %610
+  br i1 %617, label %618, label %ruby_nonempty_memcpy.exit.i108.i
 
 618:                                              ; preds = %616
-  %619 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %609, i64 noundef %.0.i.i106.i, i64 noundef 1) #18
+  %619 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %609, i64 noundef %.0.i.i107.i, i64 noundef 1) #18
   store ptr %619, ptr %7, align 8
-  store i64 %.0.i.i106.i, ptr %.phi.trans.insert.i.i.i, align 8
-  %.pre.i108.i = load i64, ptr %17, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i107.i
+  store i64 %.0.i.i107.i, ptr %.phi.trans.insert.i.i.i, align 8
+  %.pre.i109.i = load i64, ptr %17, align 8
+  br label %ruby_nonempty_memcpy.exit.i108.i
 
-rbimpl_size_mul_or_raise.exit.i107.i:             ; preds = %618, %616
-  %620 = phi i64 [ %.pre.i108.i, %618 ], [ %611, %616 ]
+ruby_nonempty_memcpy.exit.i108.i:                 ; preds = %618, %616
+  %620 = phi i64 [ %.pre.i109.i, %618 ], [ %611, %616 ]
   %621 = phi ptr [ %619, %618 ], [ %609, %616 ]
   %622 = getelementptr inbounds i8, ptr %621, i64 %620
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %622, ptr align 1 %600, i64 %601, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %622, ptr readonly align 1 %600, i64 %601, i1 false)
   %623 = load i64, ptr %17, align 8
   %624 = add i64 %623, %601
   store i64 %624, ptr %17, align 8
   br label %convert_UTF8_to_JSON.exit
 
-convert_UTF8_to_JSON.exit:                        ; preds = %.outer.backedge.i, %RSTRING_PTR.exit.i15, %.outer._crit_edge.i, %rbimpl_size_mul_or_raise.exit.i107.i
+convert_UTF8_to_JSON.exit:                        ; preds = %.outer.backedge.i, %RSTRING_PTR.exit.i15, %.outer._crit_edge.i, %ruby_nonempty_memcpy.exit.i108.i
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4)
   br label %625
 
 625:                                              ; preds = %convert_UTF8_to_JSON.exit, %convert_UTF8_to_JSON_ASCII.exit
   %626 = load ptr, ptr %7, align 8
-  %.not.i.i28 = icmp eq ptr %626, null
-  br i1 %.not.i.i28, label %627, label %._crit_edge.i.i29
+  %.not.i.i30 = icmp eq ptr %626, null
+  br i1 %.not.i.i30, label %627, label %._crit_edge.i.i31
 
-._crit_edge.i.i29:                                ; preds = %625
-  %.phi.trans.insert.i.i30 = getelementptr inbounds i8, ptr %0, i64 24
-  %.pre.i.i31 = load i64, ptr %.phi.trans.insert.i.i30, align 8
+._crit_edge.i.i31:                                ; preds = %625
+  %.phi.trans.insert.i.i32 = getelementptr inbounds i8, ptr %0, i64 24
+  %.pre.i.i33 = load i64, ptr %.phi.trans.insert.i.i32, align 8
   br label %632
 
 627:                                              ; preds = %625
@@ -6083,32 +6083,32 @@ convert_UTF8_to_JSON.exit:                        ; preds = %.outer.backedge.i, 
   store i64 %630, ptr %631, align 8
   br label %632
 
-632:                                              ; preds = %627, %._crit_edge.i.i29
-  %633 = phi ptr [ %626, %._crit_edge.i.i29 ], [ %629, %627 ]
-  %634 = phi i64 [ %.pre.i.i31, %._crit_edge.i.i29 ], [ %630, %627 ]
+632:                                              ; preds = %627, %._crit_edge.i.i31
+  %633 = phi ptr [ %626, %._crit_edge.i.i31 ], [ %629, %627 ]
+  %634 = phi i64 [ %.pre.i.i33, %._crit_edge.i.i31 ], [ %630, %627 ]
   %635 = load i64, ptr %17, align 8
   br label %636
 
 636:                                              ; preds = %636, %632
-  %.0.i.i32 = phi i64 [ %634, %632 ], [ %638, %636 ]
-  %637 = icmp eq i64 %.0.i.i32, %635
-  %638 = shl i64 %.0.i.i32, 1
+  %.0.i.i34 = phi i64 [ %634, %632 ], [ %638, %636 ]
+  %637 = icmp eq i64 %.0.i.i34, %635
+  %638 = shl i64 %.0.i.i34, 1
   br i1 %637, label %636, label %639, !llvm.loop !6
 
 639:                                              ; preds = %636
-  %640 = icmp ugt i64 %.0.i.i32, %634
-  br i1 %640, label %641, label %fbuffer_append_char.exit34
+  %640 = icmp ugt i64 %.0.i.i34, %634
+  br i1 %640, label %641, label %fbuffer_append_char.exit36
 
 641:                                              ; preds = %639
   %642 = getelementptr inbounds i8, ptr %0, i64 24
-  %643 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %633, i64 noundef %.0.i.i32, i64 noundef 1) #18
+  %643 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %633, i64 noundef %.0.i.i34, i64 noundef 1) #18
   store ptr %643, ptr %7, align 8
-  store i64 %.0.i.i32, ptr %642, align 8
-  %.pre.i33 = load i64, ptr %17, align 8
-  br label %fbuffer_append_char.exit34
+  store i64 %.0.i.i34, ptr %642, align 8
+  %.pre.i35 = load i64, ptr %17, align 8
+  br label %fbuffer_append_char.exit36
 
-fbuffer_append_char.exit34:                       ; preds = %639, %641
-  %644 = phi i64 [ %635, %639 ], [ %.pre.i33, %641 ]
+fbuffer_append_char.exit36:                       ; preds = %639, %641
+  %644 = phi i64 [ %635, %639 ], [ %.pre.i35, %641 ]
   %645 = phi ptr [ %633, %639 ], [ %643, %641 ]
   %646 = getelementptr inbounds i8, ptr %645, i64 %644
   store i8 34, ptr %646, align 1
@@ -6136,7 +6136,7 @@ define internal fastcc void @generate_json_fixnum(ptr nocapture noundef %0, i64 
   store i8 %8, ptr %.0.i.i, align 1
   %10 = udiv i64 %.113.i.i, 10
   %.not.i.i = icmp ult i64 %.113.i.i, 10
-  br i1 %.not.i.i, label %11, label %5, !llvm.loop !39
+  br i1 %.not.i.i, label %11, label %5, !llvm.loop !38
 
 11:                                               ; preds = %5
   %12 = icmp slt i64 %4, 0
@@ -6163,7 +6163,7 @@ define internal fastcc void @generate_json_fixnum(ptr nocapture noundef %0, i64 
   %21 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 1
   store i8 %18, ptr %.08.i.i.i, align 1
   %22 = icmp ugt ptr %20, %21
-  br i1 %22, label %.lr.ph.i.i.i, label %fltoa.exit.i, !llvm.loop !40
+  br i1 %22, label %.lr.ph.i.i.i, label %fltoa.exit.i, !llvm.loop !39
 
 fltoa.exit.i:                                     ; preds = %.lr.ph.i.i.i, %15
   %23 = ptrtoint ptr %.1.i.i to i64
@@ -6208,7 +6208,7 @@ fltoa.exit.i:                                     ; preds = %.lr.ph.i.i.i, %15
 
 43:                                               ; preds = %39
   %44 = icmp ugt i64 %.0.i.i.i, %36
-  br i1 %44, label %45, label %rbimpl_size_mul_or_raise.exit.i.i
+  br i1 %44, label %45, label %ruby_nonempty_memcpy.exit.i.i
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6216,19 +6216,19 @@ fltoa.exit.i:                                     ; preds = %.lr.ph.i.i.i, %15
   store ptr %47, ptr %27, align 8
   store i64 %.0.i.i.i, ptr %46, align 8
   %.pre.i.i = load i64, ptr %37, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i.i
+  br label %ruby_nonempty_memcpy.exit.i.i
 
-rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %45, %43
+ruby_nonempty_memcpy.exit.i.i:                    ; preds = %45, %43
   %48 = phi i64 [ %.pre.i.i, %45 ], [ %38, %43 ]
   %49 = phi ptr [ %47, %45 ], [ %35, %43 ]
   %50 = getelementptr inbounds i8, ptr %49, i64 %48
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 16 %3, i64 %25, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %50, ptr nonnull readonly align 16 %3, i64 %25, i1 false)
   %51 = load i64, ptr %37, align 8
   %52 = add i64 %51, %25
   store i64 %52, ptr %37, align 8
   br label %fbuffer_append_long.exit
 
-fbuffer_append_long.exit:                         ; preds = %fltoa.exit.i, %rbimpl_size_mul_or_raise.exit.i.i
+fbuffer_append_long.exit:                         ; preds = %fltoa.exit.i, %ruby_nonempty_memcpy.exit.i.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
   ret void
 }
@@ -6288,7 +6288,7 @@ define internal fastcc void @fbuffer_append_str(ptr nocapture noundef %0, i64 no
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   store ptr %3, ptr %4, align 8
-  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #14, !srcloc !41
+  call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #14, !srcloc !40
   %10 = load ptr, ptr %4, align 8
   %11 = load volatile i64, ptr %10, align 8
   %.not.i = icmp eq i64 %9, 0
@@ -6330,7 +6330,7 @@ define internal fastcc void @fbuffer_append_str(ptr nocapture noundef %0, i64 no
 
 29:                                               ; preds = %25
   %30 = icmp ugt i64 %.0.i.i, %22
-  br i1 %30, label %31, label %rbimpl_size_mul_or_raise.exit.i
+  br i1 %30, label %31, label %ruby_nonempty_memcpy.exit.i
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6338,19 +6338,19 @@ define internal fastcc void @fbuffer_append_str(ptr nocapture noundef %0, i64 no
   store ptr %33, ptr %13, align 8
   store i64 %.0.i.i, ptr %32, align 8
   %.pre.i = load i64, ptr %23, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i
+  br label %ruby_nonempty_memcpy.exit.i
 
-rbimpl_size_mul_or_raise.exit.i:                  ; preds = %31, %29
+ruby_nonempty_memcpy.exit.i:                      ; preds = %31, %29
   %34 = phi i64 [ %.pre.i, %31 ], [ %24, %29 ]
   %35 = phi ptr [ %33, %31 ], [ %21, %29 ]
   %36 = getelementptr inbounds i8, ptr %35, i64 %34
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr align 1 %5, i64 %9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %36, ptr readonly align 1 %5, i64 %9, i1 false)
   %37 = load i64, ptr %23, align 8
   %38 = add i64 %37, %9
   store i64 %38, ptr %23, align 8
   br label %fbuffer_append.exit
 
-fbuffer_append.exit:                              ; preds = %2, %rbimpl_size_mul_or_raise.exit.i
+fbuffer_append.exit:                              ; preds = %2, %ruby_nonempty_memcpy.exit.i
   ret void
 }
 
@@ -6430,7 +6430,7 @@ define internal noundef i32 @json_object_i(i64 noundef %0, i64 noundef %1, i64 n
 
 52:                                               ; preds = %48
   %53 = icmp ugt i64 %.0.i.i, %45
-  br i1 %53, label %54, label %rbimpl_size_mul_or_raise.exit.i
+  br i1 %53, label %54, label %ruby_nonempty_memcpy.exit.i
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds i8, ptr %5, i64 24
@@ -6438,19 +6438,19 @@ define internal noundef i32 @json_object_i(i64 noundef %0, i64 noundef %1, i64 n
   store ptr %56, ptr %36, align 8
   store i64 %.0.i.i, ptr %55, align 8
   %.pre.i = load i64, ptr %46, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i
+  br label %ruby_nonempty_memcpy.exit.i
 
-rbimpl_size_mul_or_raise.exit.i:                  ; preds = %54, %52
+ruby_nonempty_memcpy.exit.i:                      ; preds = %54, %52
   %57 = phi i64 [ %.pre.i, %54 ], [ %47, %52 ]
   %58 = phi ptr [ %56, %54 ], [ %44, %52 ]
   %59 = getelementptr inbounds i8, ptr %58, i64 %57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr align 1 %34, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %59, ptr readonly align 1 %34, i64 %32, i1 false)
   %60 = load i64, ptr %46, align 8
   %61 = add i64 %60, %32
   store i64 %61, ptr %46, align 8
   br label %fbuffer_append.exit
 
-fbuffer_append.exit:                              ; preds = %rbimpl_size_mul_or_raise.exit.i, %28, %3
+fbuffer_append.exit:                              ; preds = %ruby_nonempty_memcpy.exit.i, %28, %3
   %.not = icmp eq ptr %11, null
   %.not.i51 = icmp eq i64 %13, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not.i51
@@ -6492,7 +6492,7 @@ fbuffer_append.exit:                              ; preds = %rbimpl_size_mul_or_
 
 79:                                               ; preds = %75
   %80 = icmp ugt i64 %.0.i.i56, %72
-  br i1 %80, label %81, label %rbimpl_size_mul_or_raise.exit.i57
+  br i1 %80, label %81, label %ruby_nonempty_memcpy.exit.i57
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds i8, ptr %5, i64 24
@@ -6500,19 +6500,19 @@ fbuffer_append.exit:                              ; preds = %rbimpl_size_mul_or_
   store ptr %83, ptr %63, align 8
   store i64 %.0.i.i56, ptr %82, align 8
   %.pre.i58 = load i64, ptr %73, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i57
+  br label %ruby_nonempty_memcpy.exit.i57
 
-rbimpl_size_mul_or_raise.exit.i57:                ; preds = %81, %79
+ruby_nonempty_memcpy.exit.i57:                    ; preds = %81, %79
   %84 = phi i64 [ %.pre.i58, %81 ], [ %74, %79 ]
   %85 = phi ptr [ %83, %81 ], [ %71, %79 ]
   %86 = getelementptr inbounds i8, ptr %85, i64 %84
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr align 1 %11, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %86, ptr readonly align 1 %11, i64 %13, i1 false)
   %87 = load i64, ptr %73, align 8
   %88 = add i64 %87, %13
   store i64 %88, ptr %73, align 8
   br label %fbuffer_append.exit59
 
-fbuffer_append.exit59:                            ; preds = %rbimpl_size_mul_or_raise.exit.i57, %fbuffer_append.exit
+fbuffer_append.exit59:                            ; preds = %ruby_nonempty_memcpy.exit.i57, %fbuffer_append.exit
   %.not50 = icmp ne ptr %14, null
   %89 = icmp sgt i64 %24, 0
   %or.cond80 = select i1 %.not50, i1 %89, i1 false
@@ -6525,8 +6525,8 @@ fbuffer_append.exit59:                            ; preds = %rbimpl_size_mul_or_
   %91 = getelementptr inbounds i8, ptr %5, i64 16
   br i1 %.not.i60, label %.loopexit, label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %rbimpl_size_mul_or_raise.exit.i66
-  %indvars.iv = phi i64 [ %indvars.iv.next, %rbimpl_size_mul_or_raise.exit.i66 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %ruby_nonempty_memcpy.exit.i66
+  %indvars.iv = phi i64 [ %indvars.iv.next, %ruby_nonempty_memcpy.exit.i66 ], [ 0, %.lr.ph ]
   %92 = load ptr, ptr %90, align 8
   %.not.i.i61 = icmp eq ptr %92, null
   br i1 %.not.i.i61, label %93, label %._crit_edge.i.i62
@@ -6558,28 +6558,28 @@ fbuffer_append.exit59:                            ; preds = %rbimpl_size_mul_or_
 
 105:                                              ; preds = %101
   %106 = icmp ugt i64 %.0.i.i65, %99
-  br i1 %106, label %107, label %rbimpl_size_mul_or_raise.exit.i66
+  br i1 %106, label %107, label %ruby_nonempty_memcpy.exit.i66
 
 107:                                              ; preds = %105
   %108 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %98, i64 noundef %.0.i.i65, i64 noundef 1) #18
   store ptr %108, ptr %90, align 8
   store i64 %.0.i.i65, ptr %.phi.trans.insert.i.i63, align 8
   %.pre.i67 = load i64, ptr %91, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i66
+  br label %ruby_nonempty_memcpy.exit.i66
 
-rbimpl_size_mul_or_raise.exit.i66:                ; preds = %107, %105
+ruby_nonempty_memcpy.exit.i66:                    ; preds = %107, %105
   %109 = phi i64 [ %.pre.i67, %107 ], [ %100, %105 ]
   %110 = phi ptr [ %108, %107 ], [ %98, %105 ]
   %111 = getelementptr inbounds i8, ptr %110, i64 %109
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr nonnull align 1 %14, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %111, ptr nonnull readonly align 1 %14, i64 %16, i1 false)
   %112 = load i64, ptr %91, align 8
   %113 = add i64 %112, %16
   store i64 %113, ptr %91, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %24
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !42
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !41
 
-.loopexit:                                        ; preds = %rbimpl_size_mul_or_raise.exit.i66, %.lr.ph, %fbuffer_append.exit59
+.loopexit:                                        ; preds = %ruby_nonempty_memcpy.exit.i66, %.lr.ph, %fbuffer_append.exit59
   %114 = and i64 %0, 7
   %115 = icmp ne i64 %114, 0
   %116 = icmp eq i64 %0, 0
@@ -6696,7 +6696,7 @@ Check_Type.exit:                                  ; preds = %144
 
 166:                                              ; preds = %162
   %167 = icmp ugt i64 %.0.i.i75, %159
-  br i1 %167, label %168, label %rbimpl_size_mul_or_raise.exit.i76
+  br i1 %167, label %168, label %ruby_nonempty_memcpy.exit.i76
 
 168:                                              ; preds = %166
   %169 = getelementptr inbounds i8, ptr %5, i64 24
@@ -6704,19 +6704,19 @@ Check_Type.exit:                                  ; preds = %144
   store ptr %170, ptr %150, align 8
   store i64 %.0.i.i75, ptr %169, align 8
   %.pre.i77 = load i64, ptr %160, align 8
-  br label %rbimpl_size_mul_or_raise.exit.i76
+  br label %ruby_nonempty_memcpy.exit.i76
 
-rbimpl_size_mul_or_raise.exit.i76:                ; preds = %168, %166
+ruby_nonempty_memcpy.exit.i76:                    ; preds = %168, %166
   %171 = phi i64 [ %.pre.i77, %168 ], [ %161, %166 ]
   %172 = phi ptr [ %170, %168 ], [ %158, %166 ]
   %173 = getelementptr inbounds i8, ptr %172, i64 %171
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %173, ptr align 1 %20, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %173, ptr readonly align 1 %20, i64 %22, i1 false)
   %174 = load i64, ptr %160, align 8
   %175 = add i64 %174, %22
   store i64 %175, ptr %160, align 8
   br label %fbuffer_append.exit78
 
-fbuffer_append.exit78:                            ; preds = %Check_Type.exit, %rbimpl_size_mul_or_raise.exit.i76
+fbuffer_append.exit78:                            ; preds = %Check_Type.exit, %ruby_nonempty_memcpy.exit.i76
   tail call fastcc void @generate_json(ptr noundef %5, i64 noundef %9, ptr noundef nonnull %7, i64 noundef %1)
   %176 = load i32, ptr %25, align 8
   %177 = add nsw i32 %176, 1
@@ -6735,7 +6735,7 @@ declare nonnull ptr @rb_utf8_encoding() local_unnamed_addr #1
 declare nonnull ptr @rb_usascii_encoding() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i8 @isLegalUTF8(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc zeroext range(i8 0, 2) i8 @isLegalUTF8(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
   switch i64 %1, label %30 [
     i64 4, label %4
@@ -6900,14 +6900,13 @@ attributes #21 = { memory(none) }
 !29 = !{!30}
 !30 = distinct !{!30, !31, !"rbimpl_rstring_getmem: argument 0"}
 !31 = distinct !{!31, !"rbimpl_rstring_getmem"}
-!32 = !{i8 0, i8 2}
-!33 = distinct !{!33, !7}
-!34 = !{i64 2150652963}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"rbimpl_rstring_getmem: argument 0"}
-!37 = distinct !{!37, !"rbimpl_rstring_getmem"}
+!32 = distinct !{!32, !7}
+!33 = !{i64 2150652963}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"rbimpl_rstring_getmem: argument 0"}
+!36 = distinct !{!36, !"rbimpl_rstring_getmem"}
+!37 = distinct !{!37, !7}
 !38 = distinct !{!38, !7}
 !39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = !{i64 2150630554}
-!42 = distinct !{!42, !7}
+!40 = !{i64 2150630554}
+!41 = distinct !{!41, !7}

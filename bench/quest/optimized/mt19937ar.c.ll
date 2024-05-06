@@ -260,7 +260,7 @@ init_genrand.exit:                                ; preds = %init_genrand.exit.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @genrand_int31() local_unnamed_addr #3 {
+define range(i64 0, -9223372036854775808) i64 @genrand_int31() local_unnamed_addr #3 {
   %1 = tail call i64 @genrand_int32()
   %2 = lshr i64 %1, 1
   ret i64 %2

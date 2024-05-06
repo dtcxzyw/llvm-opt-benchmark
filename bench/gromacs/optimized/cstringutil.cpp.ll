@@ -30,7 +30,7 @@ $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 @.str.4 = private unnamed_addr constant [4 x i8] c"%ld\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_Z10continuingPc(ptr noundef %0) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z10continuingPc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_Z5rtrimPc.exit, label %3
 
@@ -514,7 +514,7 @@ _Z5rtrimPc.exit:                                  ; preds = %.lr.ph.i3, %.crited
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
+define noundef range(i32 -255, 256) i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
   br label %3
 
 3:                                                ; preds = %17, %2
@@ -572,7 +572,7 @@ define noundef i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i32 @_Z19gmx_strncasecmp_minPKcS0_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #11 {
+define noundef range(i32 -255, 256) i32 @_Z19gmx_strncasecmp_minPKcS0_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = ptrtoint ptr %0 to i64
   %5 = sext i32 %2 to i64
   %6 = ptrtoint ptr %1 to i64
@@ -643,7 +643,7 @@ define noundef i32 @_Z19gmx_strncasecmp_minPKcS0_i(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
+define noundef range(i32 -255, 256) i32 @_Z14gmx_strcasecmpPKcS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
   br label %3
 
 3:                                                ; preds = %14, %2
@@ -678,7 +678,7 @@ define noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef i32 @_Z15gmx_strncasecmpPKcS0_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #11 {
+define noundef range(i32 -255, 256) i32 @_Z15gmx_strncasecmpPKcS0_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -802,7 +802,7 @@ define noundef i32 @_Z20gmx_string_hash_funcPKcj(ptr nocapture noundef readonly 
 declare i32 @isalnum(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_Z11gmx_wcmatchPKcS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #14 {
+define noundef range(i32 0, 2) i32 @_Z11gmx_wcmatchPKcS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #14 {
   br label %3
 
 3:                                                ; preds = %26, %2
@@ -857,7 +857,7 @@ define noundef i32 @_Z11gmx_wcmatchPKcS0_(ptr nocapture noundef readonly %0, ptr
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %.lr.ph
-  %18 = tail call noundef i32 @_Z11gmx_wcmatchPKcS0_(ptr noundef nonnull %.126, ptr noundef nonnull %.347), !range !17
+  %18 = tail call noundef i32 @_Z11gmx_wcmatchPKcS0_(ptr noundef nonnull %.126, ptr noundef nonnull %.347)
   %.not34.not = icmp eq i32 %18, 0
   br i1 %.not34.not, label %.loopexit, label %19
 
@@ -865,7 +865,7 @@ define noundef i32 @_Z11gmx_wcmatchPKcS0_(ptr nocapture noundef readonly %0, ptr
   %20 = getelementptr inbounds i8, ptr %.347, i64 1
   %21 = load i8, ptr %20, align 1
   %.not33 = icmp eq i8 %21, 0
-  br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 22:                                               ; preds = %3
   %23 = load i8, ptr %.024, align 1
@@ -880,7 +880,7 @@ define noundef i32 @_Z11gmx_wcmatchPKcS0_(ptr nocapture noundef readonly %0, ptr
 26:                                               ; preds = %24, %22
   %27 = getelementptr inbounds i8, ptr %.024, i64 1
   %28 = getelementptr inbounds i8, ptr %.025, i64 1
-  br label %3, !llvm.loop !19
+  br label %3, !llvm.loop !18
 
 29:                                               ; preds = %3
   %30 = load i8, ptr %.024, align 1
@@ -982,7 +982,7 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr nocapture noundef readonly %0, i32 
   %38 = icmp slt i32 %37, %.070
   %39 = icmp eq i32 %spec.select102, -1
   %or.cond = select i1 %38, i1 true, i1 %39
-  br i1 %or.cond, label %15, label %.critedge, !llvm.loop !20
+  br i1 %or.cond, label %15, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %.loopexit, %15
   %.1.lcssa = phi ptr [ %.2116, %.loopexit ], [ %.1135, %15 ]
@@ -1066,7 +1066,7 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr nocapture noundef readonly %0, i32 
   %72 = load i8, ptr %71, align 1
   %73 = icmp eq i8 %72, 32
   %indvars.iv.next158 = add nsw i64 %indvars.iv157, 1
-  br i1 %73, label %70, label %.loopexit127.loopexit, !llvm.loop !21
+  br i1 %73, label %70, label %.loopexit127.loopexit, !llvm.loop !20
 
 .loopexit127.loopexit:                            ; preds = %70
   %74 = trunc nsw i64 %indvars.iv157 to i32
@@ -1081,7 +1081,7 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr nocapture noundef readonly %0, i32 
   %.2.ph = phi i32 [ %.070, %59 ], [ %.070, %.thread170 ], [ %spec.select105, %.loopexit127.loopexit ]
   %.pr = load i8, ptr %55, align 1
   %.not100 = icmp eq i8 %.pr, 0
-  br i1 %.not100, label %.thread, label %13, !llvm.loop !22
+  br i1 %.not100, label %.thread, label %13, !llvm.loop !21
 
 .thread:                                          ; preds = %53, %.loopexit127
   %.8126 = phi i32 [ %.8.ph, %.loopexit127 ], [ %.6, %53 ]
@@ -1168,9 +1168,8 @@ attributes #23 = { noreturn }
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = !{i32 0, i32 2}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}

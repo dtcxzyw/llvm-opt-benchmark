@@ -2750,7 +2750,7 @@ invoke.cont5:                                     ; preds = %if.end.i.i, %for.co
   br i1 %cmp, label %for.body, label %invoke.cont18
 
 for.body:                                         ; preds = %invoke.cont5
-  %6 = trunc i64 %indvars.iv to i32
+  %6 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZNK10polynomial7manager7factorsixEj(ptr nonnull sret(%class.obj_ref.40) align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(44) %fs, i32 noundef %6)
           to label %invoke.cont7 unwind label %lpad3.loopexit
 

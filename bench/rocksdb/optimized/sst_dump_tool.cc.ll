@@ -398,7 +398,7 @@ _ZNSt12_Vector_baseISt4pairIN7rocksdb15CompressionTypeEPKcESaIS5_EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7rocksdb11SSTDumpTool3RunEiPKPKcNS_7OptionsE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef %options) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 2) i32 @_ZN7rocksdb11SSTDumpTool3RunEiPKPKcNS_7OptionsE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef %options) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i590 = alloca %"class.std::unique_ptr", align 8
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8

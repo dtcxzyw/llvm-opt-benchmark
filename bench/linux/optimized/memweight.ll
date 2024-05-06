@@ -53,7 +53,7 @@ define dso_local i64 @memweight(ptr noundef %0, i64 noundef %1) #0 align 16 {
   unreachable
 
 30:                                               ; preds = %27
-  %31 = trunc i64 %23 to i32
+  %31 = trunc nuw nsw i64 %23 to i32
   %32 = shl nuw nsw i32 %31, 3
   %33 = and i32 %32, 2147483584
   %34 = tail call i32 @__bitmap_weight(ptr noundef %25, i32 noundef %33) #3

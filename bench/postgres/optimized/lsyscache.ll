@@ -85,7 +85,7 @@ define dso_local zeroext i1 @op_in_opfamily(i32 noundef %0, i32 noundef %1) loca
 declare zeroext i1 @SearchSysCacheExists(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_op_opfamily_strategy(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -32768, 32768) i32 @get_op_opfamily_strategy(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = zext i32 %1 to i64
   %5 = tail call ptr @SearchSysCache3(i32 noundef 3, i64 noundef %3, i64 noundef 115, i64 noundef %4) #8
@@ -2405,7 +2405,7 @@ define dso_local i32 @get_func_rettype(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_func_nargs(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -32768, 32768) i32 @get_func_nargs(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
   %3 = tail call ptr @SearchSysCache1(i32 noundef 45, i64 noundef %2) #8
   %.not = icmp eq ptr %3, null
@@ -3127,8 +3127,8 @@ getTypeIOParam.exit:                              ; preds = %27, %50
 switch.lookup:                                    ; preds = %getTypeIOParam.exit
   %53 = shl nuw nsw i32 %1, 2
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr i8, ptr %33, i64 %54
-  %56 = getelementptr i8, ptr %55, i64 100
+  %55 = getelementptr inbounds i8, ptr %33, i64 %54
+  %56 = getelementptr inbounds i8, ptr %55, i64 100
   %57 = load i32, ptr %56, align 4
   store i32 %57, ptr %7, align 4
   br label %58
@@ -3324,7 +3324,7 @@ define dso_local i32 @getBaseTypeAndTypmod(i32 noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_typavgwidth(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 1, -2147483648) i32 @get_typavgwidth(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %3) #8
   %.not.i = icmp eq ptr %4, null
@@ -4211,7 +4211,7 @@ get_typsubscript.exit.thread:                     ; preds = %17, %18, %get_typsu
 declare i64 @OidFunctionCall0Coll(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_attavgwidth(i32 noundef %0, i16 noundef signext %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @get_attavgwidth(i32 noundef %0, i16 noundef signext %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @get_attavgwidth_hook, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4

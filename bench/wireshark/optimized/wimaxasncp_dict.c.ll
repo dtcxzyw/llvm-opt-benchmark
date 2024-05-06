@@ -753,7 +753,7 @@ append_to_buffer.exit341:                         ; preds = %292, %299
   %307 = getelementptr i8, ptr %305, i64 %306
   %308 = getelementptr inbounds i8, ptr %281, i64 32
   store ptr %307, ptr %308, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %307, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %307, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.4, i64 3, i1 false)
   %309 = load i32, ptr %294, align 4
   %310 = add i32 %309, 2
   store i32 %310, ptr %294, align 4
@@ -806,7 +806,7 @@ append_to_buffer.exit344:                         ; preds = %323, %330
   %338 = getelementptr i8, ptr %336, i64 %337
   %339 = getelementptr inbounds i8, ptr %312, i64 32
   store ptr %338, ptr %339, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %338, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %338, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.5, i64 3, i1 false)
   %340 = load i32, ptr %325, align 4
   %341 = add i32 %340, 2
   store i32 %341, ptr %325, align 4
@@ -916,7 +916,7 @@ append_to_buffer.exit350:                         ; preds = %387, %394
   store ptr %402, ptr %403, align 8
   %404 = add i32 %375, 1
   %405 = sext i32 %404 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %402, ptr align 1 %374, i64 %405, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %402, ptr readonly align 1 %374, i64 %405, i1 false)
   %406 = load i32, ptr %389, align 4
   %407 = add i32 %406, %375
   store i32 %407, ptr %389, align 4
@@ -1026,7 +1026,7 @@ append_to_buffer.exit356:                         ; preds = %453, %460
   store ptr %468, ptr %469, align 8
   %470 = add i32 %441, 1
   %471 = sext i32 %470 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %468, ptr align 1 %440, i64 %471, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %468, ptr readonly align 1 %440, i64 %471, i1 false)
   %472 = load i32, ptr %455, align 4
   %473 = add i32 %472, %441
   store i32 %473, ptr %455, align 4
@@ -1268,7 +1268,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %543, %545, %555
 
 594:                                              ; preds = %139
   %595 = load ptr, ptr %76, align 8
-  %596 = tail call i64 @strtoul(ptr nocapture noundef %595, ptr noundef null, i32 noundef 10) #32
+  %596 = tail call i64 @strtoul(ptr nocapture noundef readonly %595, ptr noundef null, i32 noundef 10) #32
   %597 = trunc i64 %596 to i32
   %598 = lshr exact i32 -2147483648, %597
   %599 = load ptr, ptr %0, align 8
@@ -1288,7 +1288,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %543, %545, %555
 
 606:                                              ; preds = %139
   %607 = load ptr, ptr %76, align 8
-  %608 = tail call i64 @strtoul(ptr nocapture noundef %607, ptr noundef null, i32 noundef 10) #32
+  %608 = tail call i64 @strtoul(ptr nocapture noundef readonly %607, ptr noundef null, i32 noundef 10) #32
   %609 = trunc i64 %608 to i32
   %610 = sub i32 15, %609
   %611 = shl nuw i32 1, %610
@@ -1309,7 +1309,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %543, %545, %555
 
 619:                                              ; preds = %139
   %620 = load ptr, ptr %76, align 8
-  %621 = tail call i64 @strtoul(ptr nocapture noundef %620, ptr noundef null, i32 noundef 10) #32
+  %621 = tail call i64 @strtoul(ptr nocapture noundef readonly %620, ptr noundef null, i32 noundef 10) #32
   %622 = trunc i64 %621 to i32
   %623 = sub i32 7, %622
   %624 = shl nuw i32 1, %623
@@ -1342,7 +1342,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %543, %545, %555
   %637 = getelementptr [27 x %struct._value_string], ptr @wimaxasncp_decode_type_vals, i64 0, i64 %.06.i
   %638 = getelementptr inbounds i8, ptr %637, i64 8
   %639 = load ptr, ptr %638, align 8
-  %640 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %633, ptr noundef nonnull dereferenceable(1) %639) #33
+  %640 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %633, ptr noundef nonnull dereferenceable(1) %639) #33
   %641 = icmp eq i32 %640, 0
   br i1 %641, label %642, label %634
 
@@ -2800,7 +2800,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind uwtable
 define internal void @wimaxasncp_dict_debug(ptr nocapture noundef readonly %0, ...) unnamed_addr #4 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %2)
+  call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load i32, ptr @debugging, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %7, label %4
@@ -2811,7 +2811,7 @@ define internal void @wimaxasncp_dict_debug(ptr nocapture noundef readonly %0, .
   br label %7
 
 7:                                                ; preds = %4, %1
-  call void @llvm.va_end(ptr nonnull %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   %8 = load ptr, ptr @stderr, align 8
   %9 = call i32 @fflush(ptr noundef %8)
   ret void
@@ -3843,7 +3843,7 @@ define hidden void @WimaxasncpDict_set_debug(i32 noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @WimaxasncpDict_lex_init(ptr noundef writeonly %0) local_unnamed_addr #15 {
+define hidden range(i32 0, 2) i32 @WimaxasncpDict_lex_init(ptr noundef writeonly %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -3871,7 +3871,7 @@ declare ptr @__errno_location() local_unnamed_addr #16
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @WimaxasncpDict_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 0, 2) i32 @WimaxasncpDict_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -4323,31 +4323,31 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 ; Function Attrs: noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #21
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #22
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #22
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #23
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #22
 
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #24
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #23
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #24
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #24
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #25
@@ -4380,9 +4380,9 @@ attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #19 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #23 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #25 = { nofree nounwind }
 attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #27 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }

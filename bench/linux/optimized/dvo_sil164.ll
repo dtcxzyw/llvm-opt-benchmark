@@ -377,7 +377,7 @@ define internal void @sil164_mode_set(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @sil164_detect(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 1, 3) i32 @sil164_detect(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = alloca [2 x i8], align 2
   %3 = alloca [2 x i8], align 2
   %4 = alloca [2 x %struct.i2c_msg], align 16

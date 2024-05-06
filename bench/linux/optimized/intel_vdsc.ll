@@ -632,7 +632,7 @@ define dso_local i32 @intel_dsc_power_domain(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @intel_dsc_get_num_vdsc_instances(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 1, 5) i32 @intel_dsc_get_num_vdsc_instances(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4757
   %3 = load i8, ptr %2, align 1, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0

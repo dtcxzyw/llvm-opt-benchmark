@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @stderr = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noalias ptr @T_FileStream_open(ptr noundef readonly %filename, ptr noundef readonly %mode) local_unnamed_addr #0 {
+define noalias noundef ptr @T_FileStream_open(ptr noundef readonly %filename, ptr noundef readonly %mode) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %filename, null
   br i1 %cmp.not, label %return, label %land.lhs.true
@@ -56,7 +56,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define signext i8 @T_FileStream_file_exists(ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @T_FileStream_file_exists(ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef nonnull @.str)
   %tobool.not = icmp eq ptr %call, null
@@ -72,7 +72,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @T_FileStream_read(ptr nocapture noundef %fileStream, ptr nocapture noundef %addr, i32 noundef %len) local_unnamed_addr #0 {
+define noundef i32 @T_FileStream_read(ptr nocapture noundef %fileStream, ptr nocapture noundef %addr, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %len to i64
   %call = tail call i64 @fread(ptr noundef %addr, i64 noundef 1, i64 noundef %conv, ptr noundef %fileStream)
@@ -84,7 +84,7 @@ entry:
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @T_FileStream_write(ptr nocapture noundef %fileStream, ptr nocapture noundef %addr, i32 noundef %len) local_unnamed_addr #0 {
+define noundef i32 @T_FileStream_write(ptr nocapture noundef %fileStream, ptr nocapture noundef %addr, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %len to i64
   %call = tail call i64 @fwrite(ptr noundef %addr, i64 noundef 1, i64 noundef %conv, ptr noundef %fileStream)
@@ -106,7 +106,7 @@ entry:
 declare void @rewind(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @T_FileStream_putc(ptr nocapture noundef %fileStream, i32 noundef %ch) local_unnamed_addr #0 {
+define noundef i32 @T_FileStream_putc(ptr nocapture noundef %fileStream, i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @fputc(i32 noundef %ch, ptr noundef %fileStream)
   ret i32 %call
@@ -116,7 +116,7 @@ entry:
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @T_FileStream_getc(ptr nocapture noundef %fileStream) local_unnamed_addr #0 {
+define noundef i32 @T_FileStream_getc(ptr nocapture noundef %fileStream) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @fgetc(ptr noundef %fileStream)
   ret i32 %call
@@ -126,7 +126,7 @@ entry:
 declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @T_FileStream_ungetc(i32 noundef %ch, ptr nocapture noundef %fileStream) local_unnamed_addr #0 {
+define noundef i32 @T_FileStream_ungetc(i32 noundef %ch, ptr nocapture noundef %fileStream) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ungetc(i32 noundef %ch, ptr noundef %fileStream)
   ret i32 %call
@@ -136,7 +136,7 @@ entry:
 declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @T_FileStream_peek(ptr nocapture noundef %fileStream) local_unnamed_addr #0 {
+define noundef i32 @T_FileStream_peek(ptr nocapture noundef %fileStream) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @fgetc(ptr noundef %fileStream)
   %call1 = tail call i32 @ungetc(i32 noundef %call, ptr noundef %fileStream)
@@ -144,7 +144,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define ptr @T_FileStream_readLine(ptr nocapture noundef %fileStream, ptr noundef %buffer, i32 noundef %length) local_unnamed_addr #0 {
+define noundef ptr @T_FileStream_readLine(ptr nocapture noundef %fileStream, ptr noundef %buffer, i32 noundef %length) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @fgets(ptr noundef %buffer, i32 noundef %length, ptr noundef %fileStream)
   ret ptr %call
@@ -154,7 +154,7 @@ entry:
 declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @T_FileStream_writeLine(ptr nocapture noundef %fileStream, ptr nocapture noundef readonly %buffer) local_unnamed_addr #0 {
+define noundef i32 @T_FileStream_writeLine(ptr nocapture noundef %fileStream, ptr nocapture noundef readonly %buffer) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @fputs(ptr noundef %buffer, ptr noundef %fileStream)
   ret i32 %call
@@ -164,7 +164,7 @@ entry:
 declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @T_FileStream_size(ptr nocapture noundef %fileStream) local_unnamed_addr #0 {
+define noundef i32 @T_FileStream_size(ptr nocapture noundef %fileStream) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @ftell(ptr noundef %fileStream)
   %call1 = tail call i32 @fseek(ptr noundef %fileStream, i64 noundef 0, i32 noundef 2)
@@ -183,7 +183,7 @@ declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #1
 declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @T_FileStream_eof(ptr nocapture noundef %fileStream) local_unnamed_addr #0 {
+define noundef i32 @T_FileStream_eof(ptr nocapture noundef %fileStream) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @feof(ptr noundef %fileStream) #5
   ret i32 %call
@@ -193,7 +193,7 @@ entry:
 declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i32 @T_FileStream_error(ptr noundef readonly %fileStream) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @T_FileStream_error(ptr noundef readonly %fileStream) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %fileStream, null
   br i1 %cmp, label %lor.end, label %lor.rhs
@@ -234,7 +234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define signext i8 @T_FileStream_remove(ptr nocapture noundef readonly %fileName) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @T_FileStream_remove(ptr nocapture noundef readonly %fileName) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @remove(ptr noundef %fileName) #5
   %cmp = icmp eq i32 %call, 0

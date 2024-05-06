@@ -191,7 +191,7 @@ event_symbol.exit:                                ; preds = %.lr.ph.i28.i, %.lr.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @thread_register_and_unregister_callback(i64 %0) #0 {
+define internal range(i64 0, 21) i64 @thread_register_and_unregister_callback(i64 %0) #0 {
   %2 = alloca [5 x ptr], align 16
   br label %3
 

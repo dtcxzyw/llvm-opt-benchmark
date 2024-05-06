@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.26 = private unnamed_addr constant [6 x i8] c"extra\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_PyTestCapi_Init_GC(ptr noundef %mod) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 1) i32 @_PyTestCapi_Init_GC(ptr noundef %mod) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyModule_AddFunctions(ptr noundef %mod, ptr noundef nonnull @test_methods) #7
   %cmp = icmp slt i32 %call, 0
@@ -353,7 +353,7 @@ declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 declare void @PyUnstable_GC_VisitObjects(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @gc_visit_callback_basic(ptr noundef readnone %obj, ptr nocapture noundef %arg) #2 {
+define internal range(i32 0, 2) i32 @gc_visit_callback_basic(ptr noundef readnone %obj, ptr nocapture noundef %arg) #2 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   %cmp = icmp eq ptr %0, %obj
@@ -372,7 +372,7 @@ return:                                           ; preds = %entry, %if.then
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @gc_visit_callback_exit_early(ptr nocapture readnone %obj, ptr nocapture noundef %arg) #2 {
+define internal range(i32 0, 2) i32 @gc_visit_callback_exit_early(ptr nocapture readnone %obj, ptr nocapture noundef %arg) #2 {
 entry:
   %0 = load i32, ptr %arg, align 4
   %inc = add i32 %0, 1

@@ -1527,7 +1527,7 @@ define void @rb_Digest_RMD160_Update(ptr nocapture noundef %0, ptr nocapture nou
   %7 = zext i32 %6 to i64
   %8 = add i64 %7, %2
   %9 = lshr i64 %8, 32
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, %10
@@ -1666,7 +1666,7 @@ define noundef i32 @rb_Digest_RMD160_Finish(ptr nocapture noundef %0, ptr nounde
   store i8 %39, ptr %41, align 1
   %42 = load i32, ptr %28, align 4
   %43 = lshr i32 %42, 24
-  %44 = trunc i32 %43 to i8
+  %44 = trunc nuw i32 %43 to i8
   %45 = or disjoint i64 %indvars.iv, 3
   %46 = getelementptr inbounds i8, ptr %1, i64 %45
   store i8 %44, ptr %46, align 1

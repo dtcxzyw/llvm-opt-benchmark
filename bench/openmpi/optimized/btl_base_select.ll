@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_class_init_epoch = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_btl_base_select(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_btl_base_select(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @mca_btl_base_include, align 8
   %5 = tail call noalias ptr @opal_argv_split(ptr noundef %4, i32 noundef 44) #6

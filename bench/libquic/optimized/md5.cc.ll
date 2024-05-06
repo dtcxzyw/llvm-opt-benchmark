@@ -731,7 +731,7 @@ _ZN4base8MD5FinalEPNS_9MD5DigestEPA88_c.exit:     ; preds = %if.then.i, %if.else
   %1 = load <2 x i32>, ptr %bits.i, align 16
   store <2 x i32> %1, ptr %arrayidx13.i, align 16
   call fastcc void @_ZN12_GLOBAL__N_112MD5TransformEPjPKj(ptr noundef nonnull %context_copy, ptr noundef nonnull %in.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %digest, ptr noundef nonnull align 16 dereferenceable(16) %context_copy, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %digest, ptr noundef nonnull align 16 dereferenceable(16) %context_copy, i64 16, i1 false)
   ret void
 }
 
@@ -845,7 +845,7 @@ _ZN4base8MD5FinalEPNS_9MD5DigestEPA88_c.exit:     ; preds = %if.then.i, %if.else
   %1 = load <2 x i32>, ptr %bits.i, align 16
   store <2 x i32> %1, ptr %arrayidx13.i, align 16
   call fastcc void @_ZN12_GLOBAL__N_112MD5TransformEPjPKj(ptr noundef nonnull %ctx, ptr noundef nonnull %in.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %digest, ptr noundef nonnull align 16 dereferenceable(16) %ctx, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %digest, ptr noundef nonnull align 16 dereferenceable(16) %ctx, i64 16, i1 false)
   ret void
 }
 
@@ -898,7 +898,7 @@ _ZN4base6MD5SumEPKvmPNS_9MD5DigestE.exit:         ; preds = %if.then.i.i, %if.el
   %1 = load <2 x i32>, ptr %bits.i.i, align 16
   store <2 x i32> %1, ptr %arrayidx13.i.i, align 16
   call fastcc void @_ZN12_GLOBAL__N_112MD5TransformEPjPKj(ptr noundef nonnull %ctx.i, ptr noundef nonnull %in.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %digest, ptr noundef nonnull align 16 dereferenceable(16) %ctx.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(16) %digest, ptr noundef nonnull align 16 dereferenceable(16) %ctx.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ctx.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #9

@@ -25,7 +25,7 @@ define hidden void @"_ZN20migrations_internals22migrations_directories28_$u7b$$u
   call void @"_ZN20migrations_internals22migrations_directories28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec050ee4479fdd33E.llvm.4395320261768566802"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %.pre = load i64, ptr %5, align 8, !range !5
-  %12 = trunc i64 %.pre to i1
+  %12 = trunc nuw i64 %.pre to i1
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %11
@@ -366,7 +366,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   call void @"_ZN20migrations_internals22migrations_directories28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hec050ee4479fdd33E.llvm.4395320261768566802"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4), !noalias !119
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !119
   %.pre.i = load i64, ptr %5, align 8, !range !5, !noalias !119
-  %9 = trunc i64 %.pre.i to i1
+  %9 = trunc nuw i64 %.pre.i to i1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !119
   br i1 %9, label %._crit_edge, label %10
@@ -385,7 +385,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %.phi.trans.insert, i64 40, i1 false), !noalias !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %.phi.trans.insert, i64 40, i1 false), !noalias !121
   br label %"_ZN20migrations_internals22migrations_directories28_$u7b$$u7b$closure$u7d$$u7d$17h4c7b3cdf9f4b89e3E.llvm.4395320261768566802.exit"
 
 "_ZN20migrations_internals22migrations_directories28_$u7b$$u7b$closure$u7d$$u7d$17h4c7b3cdf9f4b89e3E.llvm.4395320261768566802.exit": ; preds = %10, %._crit_edge, %14

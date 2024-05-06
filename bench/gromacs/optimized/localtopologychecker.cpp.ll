@@ -1418,7 +1418,7 @@ _ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5R
 .preheader105.us.i.i:                             ; preds = %._crit_edge149.us.i.i, %.preheader105.us.i.preheader.i
   %.062154.us.i.i = phi i32 [ %503, %._crit_edge149.us.i.i ], [ 0, %.preheader105.us.i.preheader.i ]
   %.063153.us.i.i = phi i32 [ %.3.us.i.i, %._crit_edge149.us.i.i ], [ 0, %.preheader105.us.i.preheader.i ]
-  %461 = mul nsw i32 %.062154.us.i.i, %150
+  %461 = mul nuw nsw i32 %.062154.us.i.i, %150
   %462 = mul nsw i32 %.062154.us.i.i, %145
   %463 = add i32 %460, %462
   br label %464

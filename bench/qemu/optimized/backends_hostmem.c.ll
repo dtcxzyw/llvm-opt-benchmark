@@ -656,11 +656,11 @@ for.inc.i:                                        ; preds = %entry, %for.body.i
 find_first_bit.exit:                              ; preds = %for.body.i, %entry
   %result.011.i.lcssa = phi i64 [ 0, %entry ], [ 64, %for.body.i ]
   %.lcssa = phi i64 [ %0, %entry ], [ %1, %for.body.i ]
-  %2 = tail call i64 @llvm.cttz.i64(i64 %.lcssa, i1 true), !range !7
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa, i1 true)
   %add.i = or disjoint i64 %2, %result.011.i.lcssa
   %call3 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call3, ptr %host_nodes, align 8
-  %conv = trunc i64 %add.i to i16
+  %conv = trunc nuw nsw i64 %add.i to i16
   %value4 = getelementptr inbounds i8, ptr %call3, i64 8
   store i16 %conv, ptr %value4, align 8
   %add20 = add nuw nsw i64 %add.i, 1
@@ -717,7 +717,7 @@ for.body:                                         ; preds = %for.cond
   %value = getelementptr inbounds i8, ptr %l.0, i64 8
   %0 = load i16, ptr %value, align 8
   %cmp = icmp ugt i16 %0, 127
-  br i1 %cmp, label %if.then, label %for.cond, !llvm.loop !8
+  br i1 %cmp, label %if.then, label %for.cond, !llvm.loop !7
 
 if.then:                                          ; preds = %for.body
   %conv = zext i16 %0 to i32
@@ -732,7 +732,7 @@ for.body7:                                        ; preds = %for.body7.lr.ph, %f
   call void @bitmap_set(ptr noundef nonnull %host_nodes8, i64 noundef %conv10, i64 noundef 1) #8
   %l.1 = load ptr, ptr %l.110, align 8
   %tobool6.not = icmp eq ptr %l.1, null
-  br i1 %tobool6.not, label %out, label %for.body7, !llvm.loop !9
+  br i1 %tobool6.not, label %out, label %for.body7, !llvm.loop !8
 
 out:                                              ; preds = %for.body7, %for.cond5.preheader, %if.then
   %2 = load ptr, ptr %host_nodes, align 8
@@ -927,6 +927,5 @@ attributes #11 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 0, i64 65}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}

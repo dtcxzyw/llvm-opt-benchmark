@@ -888,7 +888,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [8 x i8] c"pthread\00", align 1
 @.str.10 = private unnamed_addr constant [10 x i8] c"semaphore\00", align 1
 @PyThread__init_thread.lib_initialized = internal unnamed_addr global i1 false, align 4
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.11 = private unnamed_addr constant [16 x i8] c"sys.thread_info\00", align 1
 @threadinfo__doc__ = internal constant [84 x i8] c"sys.thread_info\0A\0AA named tuple holding information about the thread implementation.\00", align 16
 @threadinfo_fields = internal global [4 x %struct.PyStructSequence_Field] [%struct.PyStructSequence_Field { ptr @.str.12, ptr @.str.13 }, %struct.PyStructSequence_Field { ptr @.str.14, ptr @.str.15 }, %struct.PyStructSequence_Field { ptr @.str.16, ptr @.str.17 }, %struct.PyStructSequence_Field zeroinitializer], align 16
@@ -974,11 +974,11 @@ declare i64 @_PyTime_Add(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @_PyTime_AsTimespec_clamp(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyThread_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr nocapture noundef writeonly %ident, ptr nocapture noundef writeonly %handle) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyThread_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr nocapture noundef writeonly %ident, ptr nocapture noundef writeonly %handle) local_unnamed_addr #0 {
 entry:
   %th = alloca i64, align 8
   store i64 0, ptr %th, align 8
-  %call = call fastcc i32 @do_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr noundef nonnull %th), !range !5
+  %call = call fastcc i32 @do_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr noundef nonnull %th)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -994,7 +994,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @do_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr nocapture noundef writeonly %out_id) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @do_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr nocapture noundef writeonly %out_id) unnamed_addr #0 {
 entry:
   %th = alloca i64, align 8
   %attrs = alloca %union.pthread_attr_t, align 8
@@ -1083,7 +1083,7 @@ define dso_local noundef i64 @PyThread_start_new_thread(ptr noundef %func, ptr n
 entry:
   %th = alloca i64, align 8
   store i64 0, ptr %th, align 8
-  %call = call fastcc i32 @do_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr noundef nonnull %th), !range !5
+  %call = call fastcc i32 @do_start_joinable_thread(ptr noundef %func, ptr noundef %arg, ptr noundef nonnull %th)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -1199,7 +1199,7 @@ PyThread_get_thread_ident_ex.exit:                ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @PyThread_get_thread_native_id() local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @PyThread_get_thread_native_id() local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 14), align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -1339,7 +1339,7 @@ return:                                           ; preds = %entry, %if.end2
 declare i32 @sem_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyThread_acquire_lock_timed(ptr noundef %lock, i64 noundef %microseconds, i32 noundef %intr_flag) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @PyThread_acquire_lock_timed(ptr noundef %lock, i64 noundef %microseconds, i32 noundef %intr_flag) local_unnamed_addr #0 {
 entry:
   %abs_timeout = alloca %struct.timespec, align 8
   %cmp = icmp sgt i64 %microseconds, -1
@@ -1516,7 +1516,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @sem_post(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyThread_at_fork_reinit(ptr nocapture noundef writeonly %lock) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyThread_at_fork_reinit(ptr nocapture noundef writeonly %lock) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyThread_allocate_lock()
   %cmp = icmp eq ptr %call, null
@@ -1532,16 +1532,16 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyThread_acquire_lock(ptr noundef %lock, i32 noundef %waitflag) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @PyThread_acquire_lock(ptr noundef %lock, i32 noundef %waitflag) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp ne i32 %waitflag, 0
   %conv = sext i1 %tobool.not to i64
-  %call = tail call i32 @PyThread_acquire_lock_timed(ptr noundef %lock, i64 noundef %conv, i32 noundef 0), !range !6
+  %call = tail call i32 @PyThread_acquire_lock_timed(ptr noundef %lock, i64 noundef %conv, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyThread_create_key() local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @PyThread_create_key() local_unnamed_addr #0 {
 entry:
   %key = alloca i32, align 4
   %call = call i32 @pthread_key_create(ptr noundef nonnull %key, ptr noundef null) #14
@@ -1591,7 +1591,7 @@ entry:
 declare i32 @pthread_setspecific(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyThread_set_key_value(i32 noundef %key, ptr noundef %value) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyThread_set_key_value(i32 noundef %key, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_setspecific(i32 noundef %key, ptr noundef %value) #14
   %tobool.not = icmp ne i32 %call, 0
@@ -1616,7 +1616,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyThread_tss_create(ptr noundef %key) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyThread_tss_create(ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %key, align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -1656,7 +1656,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyThread_tss_set(ptr nocapture noundef readonly %key, ptr noundef %value) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyThread_tss_set(ptr nocapture noundef readonly %key, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %_key = getelementptr inbounds i8, ptr %key, i64 4
   %0 = load i32, ptr %_key, align 4
@@ -1688,7 +1688,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyThread_set_stacksize(i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyThread_set_stacksize(i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %attrs.i = alloca %union.pthread_attr_t, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %attrs.i)
@@ -1744,7 +1744,7 @@ _pythread_pthread_set_stacksize.exit:             ; preds = %cond.end.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyThread_ParseTimeoutArg(ptr noundef %arg, i32 noundef %blocking, ptr nocapture noundef writeonly %timeout_p) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyThread_ParseTimeoutArg(ptr noundef %arg, i32 noundef %blocking, ptr nocapture noundef writeonly %timeout_p) local_unnamed_addr #0 {
 entry:
   %timeout = alloca i64, align 8
   %cmp = icmp eq ptr %arg, null
@@ -1808,7 +1808,7 @@ declare i32 @_PyTime_FromSecondsObject(ptr noundef, ptr noundef, i32 noundef) lo
 declare i64 @_PyTime_AsMicroseconds(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyThread_acquire_lock_timed_with_retries(ptr noundef %lock, i64 noundef %timeout) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @PyThread_acquire_lock_timed_with_retries(ptr noundef %lock, i64 noundef %timeout) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -1830,7 +1830,7 @@ do.body.outer:                                    ; preds = %if.then17, %if.end
 
 do.body:                                          ; preds = %do.body.outer, %if.end15
   %call2 = tail call i64 @_PyTime_AsMicroseconds(i64 noundef %timeout.addr.0.ph, i32 noundef 1) #14
-  %call3 = tail call i32 @PyThread_acquire_lock_timed(ptr noundef %lock, i64 noundef 0, i32 noundef 0), !range !6
+  %call3 = tail call i32 @PyThread_acquire_lock_timed(ptr noundef %lock, i64 noundef 0, i32 noundef 0)
   %cmp4 = icmp eq i32 %call3, 0
   %cmp5 = icmp ne i64 %call2, 0
   %or.cond = select i1 %cmp4, i1 %cmp5, i1 false
@@ -1838,7 +1838,7 @@ do.body:                                          ; preds = %do.body.outer, %if.
 
 if.then6:                                         ; preds = %do.body
   %call7 = tail call ptr @PyEval_SaveThread() #14
-  %call8 = tail call i32 @PyThread_acquire_lock_timed(ptr noundef %lock, i64 noundef %call2, i32 noundef 1), !range !6
+  %call8 = tail call i32 @PyThread_acquire_lock_timed(ptr noundef %lock, i64 noundef %call2, i32 noundef 1)
   tail call void @PyEval_RestoreThread(ptr noundef %call7) #14
   br label %if.end9
 
@@ -1853,12 +1853,12 @@ if.then11:                                        ; preds = %if.end9
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.then11
-  br i1 %cmp16, label %if.then17, label %do.body, !llvm.loop !7
+  br i1 %cmp16, label %if.then17, label %do.body, !llvm.loop !5
 
 if.then17:                                        ; preds = %if.end15
   %call18 = tail call i64 @_PyDeadline_Get(i64 noundef %endtime.0) #14
   %cmp19 = icmp slt i64 %call18, 0
-  br i1 %cmp19, label %return, label %do.body.outer, !llvm.loop !7
+  br i1 %cmp19, label %return, label %do.body.outer, !llvm.loop !5
 
 return:                                           ; preds = %if.then17, %if.end9, %if.then11
   %retval.0 = phi i32 [ %r.0, %if.end9 ], [ 2, %if.then11 ], [ 0, %if.then17 ]
@@ -2118,7 +2118,5 @@ attributes #17 = { cold }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = !{i32 0, i32 3}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

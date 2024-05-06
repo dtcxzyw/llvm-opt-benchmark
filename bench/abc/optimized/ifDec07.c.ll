@@ -51,19 +51,19 @@ define void @If_DecPrintConfig(i64 noundef %0) local_unnamed_addr #0 {
   call void @Kit_DsdPrintFromTruth(ptr noundef nonnull %2, i32 noundef 4) #13
   %putchar14 = call i32 @putchar(i32 32)
   %26 = lshr i64 %0, 48
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw nsw i64 %26 to i32
   %28 = and i32 %27, 7
   %29 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %28)
   %30 = lshr i64 %0, 52
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw nsw i64 %30 to i32
   %32 = and i32 %31, 7
   %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %32)
   %34 = lshr i64 %0, 56
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = and i32 %35, 7
   %37 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %36)
   %38 = lshr i64 %0, 60
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw nsw i64 %38 to i32
   %40 = and i32 %39, 7
   %41 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %40)
   %putchar15 = call i32 @putchar(i32 10)
@@ -119,7 +119,7 @@ define i64 @If_Dec6Truth(i64 noundef %0) local_unnamed_addr #3 {
 .preheader.i:                                     ; preds = %17, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %17 ]
   %.01520.i = phi i64 [ %27, %.preheader.i ], [ -1, %17 ]
-  %20 = trunc i64 %indvars.iv.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.i to i32
   %21 = shl nuw nsw i32 1, %20
   %22 = and i32 %21, %.01721.i
   %.not18.i = icmp eq i32 %22, 0
@@ -147,7 +147,7 @@ If_Dec6ComposeLut4.exit.preheader:                ; preds = %30, %If_Dec6Compose
   %32 = shl nuw nsw i64 %indvars.iv38, 2
   %33 = add nuw nsw i64 %32, 48
   %34 = lshr i64 %0, %33
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = and i32 %35, 7
   switch i32 %36, label %37 [
     i32 6, label %If_Dec6ComposeLut4.exit
@@ -173,7 +173,7 @@ If_Dec6ComposeLut4.exit:                          ; preds = %If_Dec6ComposeLut4.
 
 44:                                               ; preds = %If_Dec6ComposeLut4.exit
   %45 = lshr i64 %0, 32
-  %46 = trunc i64 %45 to i32
+  %46 = trunc nuw i64 %45 to i32
   %47 = and i32 %46, 65535
   br label %48
 
@@ -188,7 +188,7 @@ If_Dec6ComposeLut4.exit:                          ; preds = %If_Dec6ComposeLut4.
 .preheader.i24:                                   ; preds = %48, %.preheader.i24
   %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i28, %.preheader.i24 ], [ 0, %48 ]
   %.01520.i26 = phi i64 [ %58, %.preheader.i24 ], [ -1, %48 ]
-  %51 = trunc i64 %indvars.iv.i25 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv.i25 to i32
   %52 = shl nuw nsw i32 1, %51
   %53 = and i32 %52, %.01721.i22
   %.not18.i27 = icmp eq i32 %53, 0
@@ -279,7 +279,7 @@ define void @If_Dec7Verify(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %37 ], [ 0, %17 ]
   %.sroa.0.027.i = phi i64 [ %39, %37 ], [ -1, %17 ]
   %.sroa.4.026.i = phi i64 [ %40, %37 ], [ -1, %17 ]
-  %24 = trunc i64 %indvars.iv.i to i32
+  %24 = trunc nuw nsw i64 %indvars.iv.i to i32
   %25 = shl nuw nsw i32 1, %24
   %26 = and i32 %25, %.02328.i
   %.not24.i = icmp eq i32 %26, 0
@@ -345,7 +345,7 @@ If_Dec7ComposeLut4.exit:                          ; preds = %44
 
 60:                                               ; preds = %52
   %61 = lshr i64 %1, 32
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw i64 %61 to i32
   %63 = and i32 %62, 65535
   br label %64
 
@@ -364,7 +364,7 @@ If_Dec7ComposeLut4.exit:                          ; preds = %44
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i31, %84 ], [ 0, %64 ]
   %.sroa.0.027.i27 = phi i64 [ %86, %84 ], [ -1, %64 ]
   %.sroa.4.026.i28 = phi i64 [ %87, %84 ], [ -1, %64 ]
-  %71 = trunc i64 %indvars.iv.i26 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv.i26 to i32
   %72 = shl nuw nsw i32 1, %71
   %73 = and i32 %72, %.02328.i23
   %.not24.i29 = icmp eq i32 %73, 0
@@ -451,7 +451,7 @@ define i64 @If_Dec6Perform(i64 noundef %0, i32 noundef %1) local_unnamed_addr #3
 8:                                                ; preds = %2, %8
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %8 ]
   %9 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %10, ptr %9, align 4
   %11 = getelementptr inbounds [6 x i32], ptr %5, i64 0, i64 %indvars.iv
   store i32 %10, ptr %11, align 4
@@ -628,8 +628,8 @@ If_Dec6CofCount2.exit:                            ; preds = %83
   %105 = lshr i64 %.0.lcssa.i52, %104
   %106 = and i64 %105, 15
   %.not.i.i = icmp eq i64 %106, %102
-  %107 = trunc i64 %106 to i32
-  %108 = trunc i64 %indvars.iv.i.i to i32
+  %107 = trunc nuw nsw i64 %106 to i32
+  %108 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %109 = shl nuw nsw i32 1, %108
   %.14.i = select i1 %.not.i.i, i32 %.03.i, i32 %107
   %110 = select i1 %.not.i.i, i32 0, i32 %109
@@ -646,7 +646,7 @@ If_Dec6DeriveCount2.exit.i:                       ; preds = %103
 112:                                              ; preds = %112, %If_Dec6DeriveCount2.exit.i
   %indvars.iv.i54 = phi i64 [ 0, %If_Dec6DeriveCount2.exit.i ], [ %indvars.iv.next.i55, %112 ]
   %.06.i = phi i64 [ %111, %If_Dec6DeriveCount2.exit.i ], [ %118, %112 ]
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i54
+  %gep.i = getelementptr inbounds i32, ptr %invariant.gep.i, i64 %indvars.iv.i54
   %113 = load i32, ptr %gep.i, align 4
   %114 = sext i32 %113 to i64
   %115 = shl nuw nsw i64 %indvars.iv.i54, 2
@@ -698,7 +698,7 @@ If_Dec6DeriveDisjoint.exit:                       ; preds = %127
   %139 = load i64, ptr %138, align 8
   %140 = xor i64 %139, -1
   %141 = and i64 %.0.lcssa.i52, %140
-  %142 = trunc i64 %indvars.iv141 to i32
+  %142 = trunc nuw nsw i64 %indvars.iv141 to i32
   %143 = shl nuw nsw i32 4, %142
   %144 = zext nneg i32 %143 to i64
   %145 = shl i64 %141, %144
@@ -776,8 +776,8 @@ If_Dec6CofCount2.exit80:                          ; preds = %.preheader
 180:                                              ; preds = %179
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 16 dereferenceable(24) %5, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, ptr noundef nonnull align 16 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull readonly align 16 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, ptr noundef nonnull readonly align 16 dereferenceable(24) %6, i64 24, i1 false)
   %.not94 = icmp eq i32 %142, 3
   br i1 %.not94, label %._crit_edge.i, label %.lr.ph.preheader.i
 
@@ -797,7 +797,7 @@ If_Dec6CofCount2.exit80:                          ; preds = %.preheader
   %186 = getelementptr inbounds i8, ptr %183, i64 8
   %187 = load i64, ptr %186, align 8
   %188 = and i64 %187, %.04358.i
-  %189 = trunc i64 %indvars.iv.i89 to i32
+  %189 = trunc nsw i64 %indvars.iv.i89 to i32
   %190 = shl nuw nsw i32 1, %189
   %191 = zext nneg i32 %190 to i64
   %192 = shl i64 %188, %191
@@ -841,8 +841,8 @@ If_Dec6CofCount2.exit80:                          ; preds = %.preheader
   %215 = lshr i64 %209, %214
   %216 = and i64 %215, 15
   %.not.i.i83 = icmp eq i64 %216, %212
-  %217 = trunc i64 %216 to i32
-  %218 = trunc i64 %indvars.iv.i.i81 to i32
+  %217 = trunc nuw nsw i64 %216 to i32
+  %218 = trunc nuw nsw i64 %indvars.iv.i.i81 to i32
   %219 = shl nuw nsw i32 1, %218
   %.sroa.356.1.i = select i1 %.not.i.i83, i32 %.sroa.356.0.i, i32 %217
   %220 = select i1 %.not.i.i83, i32 0, i32 %219
@@ -855,7 +855,7 @@ If_Dec6DeriveCount2.exit.i87:                     ; preds = %213
   %221 = lshr i64 %.043.lcssa.i, 32
   %222 = and i64 %.043.lcssa.i, -4294967296
   %223 = or disjoint i64 %221, %222
-  %224 = trunc i64 %221 to i32
+  %224 = trunc nuw i64 %221 to i32
   %225 = and i32 %224, 15
   %226 = and i64 %221, 15
   br label %227
@@ -868,8 +868,8 @@ If_Dec6DeriveCount2.exit.i87:                     ; preds = %213
   %229 = lshr i64 %223, %228
   %230 = and i64 %229, 15
   %.not.i48.i = icmp eq i64 %230, %226
-  %231 = trunc i64 %230 to i32
-  %232 = trunc i64 %indvars.iv.i46.i to i32
+  %231 = trunc nuw nsw i64 %230 to i32
+  %232 = trunc nuw nsw i64 %indvars.iv.i46.i to i32
   %233 = shl nuw nsw i32 1, %232
   %.sroa.3.1.i = select i1 %.not.i48.i, i32 %.sroa.3.0.i, i32 %231
   %234 = select i1 %.not.i48.i, i32 0, i32 %233
@@ -972,7 +972,7 @@ define i64 @If_Dec7Perform(ptr nocapture noundef readonly %0, i32 noundef %1) lo
 11:                                               ; preds = %2, %11
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds [7 x i32], ptr %5, i64 0, i64 %indvars.iv
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %13, ptr %12, align 4
   %14 = getelementptr inbounds [7 x i32], ptr %4, i64 0, i64 %indvars.iv
   store i32 %13, ptr %14, align 4
@@ -1310,7 +1310,7 @@ If_Dec7MoveTo.exit38:                             ; preds = %If_Dec7MoveTo.exit3
 
 191:                                              ; preds = %187
   %192 = icmp eq i32 %.016.i, 0
-  %193 = trunc i64 %indvars.iv.i to i32
+  %193 = trunc nuw nsw i64 %indvars.iv.i to i32
   br i1 %192, label %198, label %194
 
 194:                                              ; preds = %191
@@ -1342,7 +1342,7 @@ If_Dec7MoveTo.exit38:                             ; preds = %If_Dec7MoveTo.exit3
   %204 = load i8, ptr %203, align 1
   %205 = zext i8 %204 to i32
   %.not.i.i = icmp eq i8 %186, %204
-  %206 = trunc i64 %indvars.iv.i.i to i32
+  %206 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %207 = shl nuw nsw i32 1, %206
   %.14.i = select i1 %.not.i.i, i32 %.03.i, i32 %205
   %208 = select i1 %.not.i.i, i32 0, i32 %207
@@ -1359,7 +1359,7 @@ If_Dec7DeriveCount3.exit.i:                       ; preds = %202
 210:                                              ; preds = %210, %If_Dec7DeriveCount3.exit.i
   %indvars.iv.i40 = phi i64 [ 0, %If_Dec7DeriveCount3.exit.i ], [ %indvars.iv.next.i41, %210 ]
   %.06.i = phi i64 [ %209, %If_Dec7DeriveCount3.exit.i ], [ %216, %210 ]
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i40
+  %gep.i = getelementptr inbounds i32, ptr %invariant.gep.i, i64 %indvars.iv.i40
   %211 = load i32, ptr %gep.i, align 4
   %212 = sext i32 %211 to i64
   %213 = shl nuw nsw i64 %indvars.iv.i40, 2
@@ -1423,7 +1423,7 @@ define i64 @If_Dec6MinimumBase(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %6 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv41
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, %0
-  %9 = trunc i64 %indvars.iv41 to i32
+  %9 = trunc nuw nsw i64 %indvars.iv41 to i32
   %10 = shl nuw i32 1, %9
   %11 = zext nneg i32 %10 to i64
   %12 = lshr i64 %8, %11
@@ -1445,7 +1445,7 @@ define i64 @If_Dec6MinimumBase(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %17 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %0
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = shl nuw i32 1, %20
   %22 = zext nneg i32 %21 to i64
   %23 = lshr i64 %19, %22
@@ -1520,7 +1520,7 @@ define i64 @If_Dec6MinimumBase(i64 noundef %0, ptr noundef %1, i32 noundef %2, p
   %45 = getelementptr inbounds i8, ptr %42, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, %.11619.i
-  %48 = trunc i64 %indvars.iv.next30.i to i32
+  %48 = trunc nsw i64 %indvars.iv.next30.i to i32
   %49 = shl nuw i32 1, %48
   %50 = zext i32 %49 to i64
   %51 = shl i64 %47, %50
@@ -1580,7 +1580,7 @@ define void @If_Dec7MinimumBase(ptr nocapture noundef %0, ptr noundef %1, i32 no
   %11 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv42
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, %7
-  %14 = trunc i64 %indvars.iv42 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv42 to i32
   %15 = shl nuw i32 1, %14
   %16 = zext i32 %15 to i64
   %17 = lshr i64 %13, %16
@@ -1603,7 +1603,7 @@ If_Dec7HasVar.exit.us:                            ; preds = %10
   br i1 %.not56, label %28, label %If_Dec7HasVar.exit.us.If_Dec7HasVar.exit.thread.us_crit_edge
 
 If_Dec7HasVar.exit.us.If_Dec7HasVar.exit.thread.us_crit_edge: ; preds = %20, %If_Dec7HasVar.exit.us
-  %.pre = trunc i64 %indvars.iv42 to i32
+  %.pre = trunc nuw nsw i64 %indvars.iv42 to i32
   %.pre47 = shl nuw i32 1, %.pre
   br label %If_Dec7HasVar.exit.thread.us
 
@@ -1637,7 +1637,7 @@ If_Dec7HasVar.exit.thread.us:                     ; preds = %If_Dec7HasVar.exit.
   %34 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %35, %30
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   %38 = shl nuw i32 1, %37
   %39 = zext i32 %38 to i64
   %40 = lshr i64 %36, %39
@@ -1655,7 +1655,7 @@ If_Dec7HasVar.exit:                               ; preds = %33
   br i1 %.not54, label %53, label %If_Dec7HasVar.exit.If_Dec7HasVar.exit.thread_crit_edge
 
 If_Dec7HasVar.exit.If_Dec7HasVar.exit.thread_crit_edge: ; preds = %31, %If_Dec7HasVar.exit
-  %.pre49 = trunc i64 %indvars.iv to i32
+  %.pre49 = trunc nuw nsw i64 %indvars.iv to i32
   %.pre51 = shl nuw i32 1, %.pre49
   br label %If_Dec7HasVar.exit.thread
 
@@ -1742,7 +1742,7 @@ If_Dec7HasVar.exit.thread:                        ; preds = %If_Dec7HasVar.exit.
   %77 = getelementptr inbounds i8, ptr %74, i64 8
   %78 = load i64, ptr %77, align 8
   %79 = and i64 %78, %65
-  %80 = trunc i64 %indvars.iv.next23.i to i32
+  %80 = trunc nsw i64 %indvars.iv.next23.i to i32
   %81 = shl nuw i32 1, %80
   %82 = zext i32 %81 to i64
   %83 = shl i64 %79, %82
@@ -1799,7 +1799,7 @@ define i32 @If_Dec6PickBestMux(i64 noundef %0, ptr nocapture noundef writeonly %
   %6 = load i64, ptr %5, align 8
   %7 = xor i64 %6, -1
   %8 = and i64 %7, %0
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = shl nuw nsw i32 1, %9
   %11 = zext nneg i32 %10 to i64
   %12 = shl i64 %8, %11
@@ -1813,7 +1813,7 @@ define i32 @If_Dec6PickBestMux(i64 noundef %0, ptr nocapture noundef writeonly %
   %16 = load i64, ptr %15, align 8
   %17 = xor i64 %16, -1
   %18 = and i64 %13, %17
-  %19 = trunc i64 %indvars.iv.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   %20 = shl nuw nsw i32 1, %19
   %21 = zext nneg i32 %20 to i64
   %22 = shl i64 %18, %21
@@ -1841,7 +1841,7 @@ If_Dec6SuppSize.exit:                             ; preds = %14
   %33 = load i64, ptr %32, align 8
   %34 = xor i64 %33, -1
   %35 = and i64 %30, %34
-  %36 = trunc i64 %indvars.iv.i27 to i32
+  %36 = trunc nuw nsw i64 %indvars.iv.i27 to i32
   %37 = shl nuw nsw i32 1, %36
   %38 = zext nneg i32 %37 to i64
   %39 = shl i64 %35, %38
@@ -1907,7 +1907,7 @@ define i32 @If_Dec7PickBestMux(ptr nocapture noundef readonly %0, ptr nocapture 
   %14 = load i64, ptr %13, align 8
   %15 = xor i64 %14, -1
   %16 = and i64 %9, %15
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = shl nuw nsw i32 1, %17
   %19 = zext nneg i32 %18 to i64
   %20 = shl i64 %16, %19
@@ -1942,7 +1942,7 @@ If_Dec7Cofactor.exit28:                           ; preds = %10, %12
   %36 = load i64, ptr %35, align 8
   %37 = xor i64 %36, -1
   %38 = and i64 %.sroa.045.053, %37
-  %39 = trunc i64 %indvars.iv.i to i32
+  %39 = trunc nuw nsw i64 %indvars.iv.i to i32
   %40 = shl nuw nsw i32 1, %39
   %41 = zext nneg i32 %40 to i64
   %42 = shl i64 %38, %41
@@ -1983,7 +1983,7 @@ If_Dec7SuppSize.exit:                             ; preds = %If_Dec7Cofactor.exi
   %57 = load i64, ptr %56, align 8
   %58 = xor i64 %57, -1
   %59 = and i64 %.sroa.0.0, %58
-  %60 = trunc i64 %indvars.iv.i29 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv.i29 to i32
   %61 = shl nuw nsw i32 1, %60
   %62 = zext nneg i32 %61 to i64
   %63 = shl i64 %59, %62
@@ -2029,7 +2029,7 @@ If_Dec7SuppSize.exit42:                           ; preds = %If_Dec7Cofactor.exi
   store i64 %.sroa.447.051, ptr %5, align 8
   store i64 %.sroa.0.0, ptr %2, align 8
   store i64 %.sroa.4.0, ptr %6, align 8
-  %81 = trunc i64 %indvars.iv to i32
+  %81 = trunc nuw nsw i64 %indvars.iv to i32
   br label %82
 
 82:                                               ; preds = %If_Dec7SuppSize.exit42, %77, %80
@@ -2058,7 +2058,7 @@ define noundef i64 @If_Dec5Perform(i64 noundef %0, i32 noundef %1) local_unnamed
 11:                                               ; preds = %2, %11
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds [7 x i32], ptr %10, i64 0, i64 %indvars.iv
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %13, ptr %12, align 4
   %14 = getelementptr inbounds [7 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %13, ptr %14, align 4
@@ -2153,7 +2153,7 @@ If_Dec6MoveTo.exit:                               ; preds = %.lr.ph.i, %.prehead
 55:                                               ; preds = %72, %.preheader235.i
   %indvars.iv.i = phi i64 [ 0, %.preheader235.i ], [ %indvars.iv.next.i, %72 ]
   %.0181237.i = phi i32 [ 0, %.preheader235.i ], [ %.1182.i, %72 ]
-  %56 = trunc i64 %indvars.iv.i to i32
+  %56 = trunc nuw nsw i64 %indvars.iv.i to i32
   %57 = lshr i32 %56, %.136
   %58 = xor i32 %57, %.0172239.i
   %59 = and i32 %58, 1
@@ -2233,14 +2233,14 @@ If_Dec6MoveTo.exit:                               ; preds = %.lr.ph.i, %.prehead
 
 .preheader.i:                                     ; preds = %.loopexit.i, %88
   %indvars.iv258.i = phi i64 [ 0, %88 ], [ %indvars.iv.next259.i, %.loopexit.i ]
-  %89 = trunc i64 %indvars.iv258.i to i32
+  %89 = trunc nuw nsw i64 %indvars.iv258.i to i32
   %90 = lshr i32 %89, 1
   br label %91
 
 91:                                               ; preds = %108, %.preheader.i
   %indvars.iv250.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next251.i, %108 ]
   %.2183242.i = phi i32 [ 0, %.preheader.i ], [ %.3.i, %108 ]
-  %92 = trunc i64 %indvars.iv250.i to i32
+  %92 = trunc nuw nsw i64 %indvars.iv250.i to i32
   %93 = lshr i32 %92, %.136
   %94 = xor i32 %93, %89
   %95 = and i32 %94, 1
@@ -2304,7 +2304,7 @@ If_Dec6MoveTo.exit:                               ; preds = %.lr.ph.i, %.prehead
   %129 = lshr exact i64 %.323.i.i, 2
   %.424.i.i = select i1 %127, i64 %129, i64 %.323.i.i
   %.4.i.i = select i1 %127, i32 %128, i32 %.3.i.i
-  %130 = trunc i64 %.424.i.i to i32
+  %130 = trunc nuw nsw i64 %.424.i.i to i32
   %131 = and i32 %130, 1
   %132 = xor i32 %131, 1
   %.5.i.i = add nuw nsw i32 %132, %.4.i.i
@@ -2347,7 +2347,7 @@ Abc_Tt6FirstBit.exit.i:                           ; preds = %116, %114
   %153 = lshr exact i64 %.323.i215.i, 2
   %.424.i217.i = select i1 %151, i64 %153, i64 %.323.i215.i
   %.4.i218.i = select i1 %151, i32 %152, i32 %.3.i216.i
-  %154 = trunc i64 %.424.i217.i to i32
+  %154 = trunc nuw nsw i64 %.424.i217.i to i32
   %155 = and i32 %154, 1
   %156 = xor i32 %155, 1
   %.5.i219.i = add nuw nsw i32 %156, %.4.i218.i
@@ -2415,7 +2415,7 @@ Abc_Tt6FirstBit.exit234.i:                        ; preds = %161, %Abc_Tt6FirstB
 
 195:                                              ; preds = %221, %Abc_Tt6FirstBit.exit234.i
   %indvars.iv254.i = phi i64 [ 0, %Abc_Tt6FirstBit.exit234.i ], [ %indvars.iv.next255.i, %221 ]
-  %196 = trunc i64 %indvars.iv254.i to i32
+  %196 = trunc nuw nsw i64 %indvars.iv254.i to i32
   %197 = lshr i32 %196, %.136
   %198 = xor i32 %197, %89
   %199 = and i32 %198, 1
@@ -2458,7 +2458,7 @@ Abc_Tt6FirstBit.exit234.i:                        ; preds = %161, %Abc_Tt6FirstB
   %222 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 %indvars.iv258.i
   %223 = load i64, ptr %222, align 8
   %224 = and i64 %223, 15
-  %225 = mul nuw nsw i64 %224, 1229782938247303441
+  %225 = mul nuw i64 %224, 1229782938247303441
   store i64 %225, ptr %222, align 8
   %indvars.iv.next259.i = add nuw nsw i64 %indvars.iv258.i, 1
   %exitcond261.not.i = icmp eq i64 %indvars.iv.next259.i, 4
@@ -2889,7 +2889,7 @@ If_Dec6Verify.exit24:                             ; preds = %21, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @If_CutPerformCheck07(ptr nocapture noundef readnone %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @If_CutPerformCheck07(ptr nocapture noundef readnone %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
   %6 = alloca [2 x i64], align 16
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph, label %Abc_TtHasVar.exit.thread
@@ -2911,7 +2911,7 @@ define i32 @If_CutPerformCheck07(ptr nocapture noundef readnone %0, ptr noundef 
 
 Abc_TtHasVar.exit.us:                             ; preds = %Abc_TtHasVar.exit.thread44.us, %.lr.ph.split.us
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %Abc_TtHasVar.exit.thread44.us ], [ 0, %.lr.ph.split.us ]
-  %14 = trunc i64 %indvars.iv76 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv76 to i32
   %15 = shl nuw i32 1, %14
   %16 = zext nneg i32 %15 to i64
   %17 = lshr i64 %13, %16
@@ -2941,7 +2941,7 @@ Abc_TtHasVar.exit.thread44.us:                    ; preds = %Abc_TtHasVar.exit.u
   br i1 %22, label %.lr.ph.i, label %.preheader.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split.split.split
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = shl nuw nsw i32 1, %23
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv
@@ -2966,7 +2966,7 @@ Abc_TtHasVar.exit.thread44.us:                    ; preds = %Abc_TtHasVar.exit.u
 .preheader.lr.ph.i:                               ; preds = %.lr.ph.split.split.split
   %35 = add nsw i64 %indvars.iv, -6
   %36 = icmp eq i64 %35, 31
-  %37 = trunc i64 %35 to i32
+  %37 = trunc nsw i64 %35 to i32
   %38 = shl i32 2, %37
   %39 = sext i32 %38 to i64
   br i1 %36, label %Abc_TtHasVar.exit.thread, label %.preheader.us.preheader.i
@@ -3047,7 +3047,7 @@ Abc_TtHasVar.exit.thread:                         ; preds = %.preheader.lr.ph.i,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @If_MatchCheck1(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @If_MatchCheck1(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #4 {
   %6 = icmp slt i32 %3, %2
   br i1 %6, label %Abc_Tt6Check1.exit, label %7
 
@@ -3069,7 +3069,7 @@ define noundef i32 @If_MatchCheck1(ptr nocapture noundef readnone %0, ptr nocapt
   %10 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv47.i
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, %8
-  %13 = trunc i64 %indvars.iv47.i to i32
+  %13 = trunc nuw nsw i64 %indvars.iv47.i to i32
   %14 = shl nuw i32 1, %13
   %15 = zext nneg i32 %14 to i64
   %16 = shl i64 %12, %15
@@ -3082,7 +3082,7 @@ define noundef i32 @If_MatchCheck1(ptr nocapture noundef readnone %0, ptr nocapt
   br i1 %.not22.us.us.us.i, label %28, label %19
 
 19:                                               ; preds = %18
-  %20 = trunc i64 %indvars.iv42.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv42.i to i32
   %21 = shl nuw i32 1, %20
   %22 = zext nneg i32 %21 to i64
   %23 = lshr i64 %17, %22
@@ -3108,7 +3108,7 @@ define noundef i32 @If_MatchCheck1(ptr nocapture noundef readnone %0, ptr nocapt
   %29 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv37.i
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, %8
-  %32 = trunc i64 %indvars.iv37.i to i32
+  %32 = trunc nuw nsw i64 %indvars.iv37.i to i32
   %33 = shl nuw i32 1, %32
   %34 = zext nneg i32 %33 to i64
   %35 = lshr i64 %31, %34
@@ -3121,7 +3121,7 @@ define noundef i32 @If_MatchCheck1(ptr nocapture noundef readnone %0, ptr nocapt
   br i1 %.not22.us.us.i, label %47, label %38
 
 38:                                               ; preds = %37
-  %39 = trunc i64 %indvars.iv.i to i32
+  %39 = trunc nuw nsw i64 %indvars.iv.i to i32
   %40 = shl nuw i32 1, %39
   %41 = zext nneg i32 %40 to i64
   %42 = lshr i64 %36, %41
@@ -3151,7 +3151,7 @@ Abc_Tt6Check1.exit:                               ; preds = %._crit_edge29.split
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @If_MatchCheck2(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @If_MatchCheck2(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #4 {
   %6 = icmp slt i32 %3, %2
   br i1 %6, label %Abc_Tt6Check2.exit, label %7
 
@@ -3173,7 +3173,7 @@ define noundef i32 @If_MatchCheck2(ptr nocapture noundef readnone %0, ptr nocapt
   %10 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, %8
-  %13 = trunc i64 %indvars.iv.i to i32
+  %13 = trunc nuw nsw i64 %indvars.iv.i to i32
   %14 = shl nuw i32 1, %13
   %15 = zext nneg i32 %14 to i64
   %16 = lshr i64 %12, %15
@@ -3196,7 +3196,7 @@ define noundef i32 @If_MatchCheck2(ptr nocapture noundef readnone %0, ptr nocapt
   %19 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv27.i
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, %8
-  %22 = trunc i64 %indvars.iv27.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv27.i to i32
   %23 = shl nuw i32 1, %22
   %24 = zext nneg i32 %23 to i64
   %25 = shl i64 %21, %24

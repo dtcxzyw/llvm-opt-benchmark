@@ -414,7 +414,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %232 = load ptr, ptr %231, align 8
   %233 = sext i32 %.237.us.i to i64
   %234 = getelementptr inbounds ptr, ptr %226, i64 %233
-  %235 = trunc i64 %indvars.iv50.i to i32
+  %235 = trunc nuw nsw i64 %indvars.iv50.i to i32
   %236 = call i32 @PMPI_Irecv(ptr noundef %.0395, i32 noundef 1, ptr noundef %232, i32 noundef %235, i32 noundef 30, ptr noundef %218, ptr noundef %234) #3
   %237 = add nsw i32 %.237.us.i, 1
   br label %238
@@ -589,7 +589,7 @@ post_client_comm.exit:                            ; preds = %282, %280, %270, %.
   %318 = load ptr, ptr %317, align 8
   %319 = sext i32 %.237.i to i64
   %320 = getelementptr inbounds ptr, ptr %312, i64 %319
-  %321 = trunc i64 %indvars.iv45.i to i32
+  %321 = trunc nuw nsw i64 %indvars.iv45.i to i32
   %322 = call i32 @PMPI_Isend(ptr noundef %.0395, i32 noundef 1, ptr noundef %318, i32 noundef %321, i32 noundef 30, ptr noundef %303, ptr noundef %320) #3
   %323 = add nsw i32 %.237.i, 1
   br label %324
@@ -880,7 +880,7 @@ post_aggregator_comm.exit458.thread:              ; preds = %300, %302, %._crit_
   %458 = load ptr, ptr %457, align 8
   %459 = sext i32 %.237.us.i475 to i64
   %460 = getelementptr inbounds ptr, ptr %452, i64 %459
-  %461 = trunc i64 %indvars.iv50.i474 to i32
+  %461 = trunc nuw nsw i64 %indvars.iv50.i474 to i32
   %462 = call i32 @PMPI_Irecv(ptr noundef %.0395, i32 noundef 1, ptr noundef %458, i32 noundef %461, i32 noundef 30, ptr noundef %443, ptr noundef %460) #3
   %463 = add nsw i32 %.237.us.i475, 1
   br label %464
@@ -1260,11 +1260,11 @@ split239:                                         ; preds = %99, %._crit_edge238
   %149 = icmp eq i64 %147, %136
   %150 = getelementptr inbounds i8, ptr %45, i64 24
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr i64, ptr %151, i64 %.3146201
+  %152 = getelementptr inbounds i64, ptr %151, i64 %.3146201
   br i1 %149, label %153, label %157
 
 153:                                              ; preds = %148
-  %154 = getelementptr i8, ptr %152, i64 8
+  %154 = getelementptr inbounds i8, ptr %152, i64 8
   %155 = load i64, ptr %154, align 8
   %156 = add nsw i64 %155, %135
   br label %.loopexit187
@@ -1544,7 +1544,7 @@ define internal fastcc void @Exch_data_amounts(ptr nocapture noundef readonly %0
   %73 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv107
   %74 = load ptr, ptr %71, align 8
   %75 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv107
-  %76 = trunc i64 %indvars.iv107 to i32
+  %76 = trunc nuw nsw i64 %indvars.iv107 to i32
   %77 = tail call i32 @PMPI_Isend(ptr noundef %73, i32 noundef 8, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %76, i32 noundef 31, ptr noundef %74, ptr noundef %75) #3
   %78 = load i64, ptr %73, align 8
   %79 = icmp sgt i64 %78, 0

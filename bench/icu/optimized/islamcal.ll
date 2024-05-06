@@ -63,7 +63,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7519IslamicRGSACalendarD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7519IslamicRGSACalendarD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_7523getUmalqura_MonthLengthEii(i32 noundef %y, i32 noundef %m) local_unnamed_addr #0 {
+define noundef range(i32 29, 31) i32 @_ZN6icu_7523getUmalqura_MonthLengthEii(i32 noundef %y, i32 noundef %m) local_unnamed_addr #0 {
 entry:
   %sub = sub nsw i32 11, %m
   %shl = shl nuw i32 1, %sub
@@ -175,7 +175,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZN6icu_7515IslamicCalendar13civilLeapYearEi(i32 noundef %year) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7515IslamicCalendar13civilLeapYearEi(i32 noundef %year) local_unnamed_addr #0 align 2 {
 entry:
   %mul = mul nsw i32 %year, 11
   %add = add nsw i32 %mul, 14
@@ -403,7 +403,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515IslamicCalendar23handleComputeMonthStartEiia(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %eyear, i32 noundef %month, i8 signext %0) unnamed_addr #1 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_7515IslamicCalendar23handleComputeMonthStartEiia(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %eyear, i32 noundef %month, i8 signext %0) unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp sgt i32 %month, 11
   br i1 %cmp, label %if.then, label %if.else
@@ -639,18 +639,18 @@ if.then.i:                                        ; preds = %if.end
 if.else.i:                                        ; preds = %if.end
   %sub3.nonneg.i = sub i32 1396, %call
   %div48.i = udiv i32 %sub3.nonneg.i, 67
-  %rem89.i = urem i32 %sub3.nonneg.i, 67
+  %rem8.i = urem i32 %sub3.nonneg.i, 67
   %2 = shl nuw nsw i32 %div48.i, 1
-  %cmp10.i = icmp ult i32 %rem89.i, 34
+  %cmp10.i = icmp ult i32 %rem8.i, 34
   %cond11.neg.i = sext i1 %cmp10.i to i32
   %reass.sub.neg.i = add nuw nsw i32 %2, 2
   %add12.neg.i = add nsw i32 %reass.sub.neg.i, %cond11.neg.i
   br label %_ZN6icu_75L25gregoYearFromIslamicStartEi.exit
 
 _ZN6icu_75L25gregoYearFromIslamicStartEi.exit:    ; preds = %if.then.i, %if.else.i
-  %shift.0.neg10.i = phi i32 [ %add.neg.i, %if.then.i ], [ %add12.neg.i, %if.else.i ]
+  %shift.0.neg9.i = phi i32 [ %add.neg.i, %if.then.i ], [ %add12.neg.i, %if.else.i ]
   %add13.i = add nsw i32 %call, 579
-  %sub14.i = add i32 %add13.i, %shift.0.neg10.i
+  %sub14.i = add i32 %add13.i, %shift.0.neg9.i
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6icu_75L25gregoYearFromIslamicStartEi.exit
@@ -679,8 +679,8 @@ if.then.i:                                        ; preds = %entry
 if.else.i:                                        ; preds = %entry
   %sub3.nonneg.i = sub i32 1976, %year
   %div48.i = udiv i32 %sub3.nonneg.i, 65
-  %rem89.i = urem i32 %sub3.nonneg.i, 65
-  %cmp10.i = icmp ult i32 %rem89.i, 33
+  %rem8.i = urem i32 %sub3.nonneg.i, 65
+  %cmp10.i = icmp ult i32 %rem8.i, 33
   %cond11.i = zext i1 %cmp10.i to i32
   %0 = shl nuw nsw i32 %div48.i, 1
   %reass.sub = sub nsw i32 %cond11.i, %0
@@ -939,7 +939,7 @@ entry:
 declare double @uprv_ceil_75(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK6icu_7520IslamicCivilCalendar20handleGetMonthLengthEii(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #0 align 2 {
+define noundef range(i32 28, 32) i32 @_ZNK6icu_7520IslamicCivilCalendar20handleGetMonthLengthEii(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #0 align 2 {
 entry:
   %add = add nsw i32 %month, 1
   %rem = srem i32 %add, 2
@@ -961,7 +961,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK6icu_7520IslamicCivilCalendar19handleGetYearLengthEi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear) unnamed_addr #0 align 2 {
+define noundef range(i32 354, 356) i32 @_ZNK6icu_7520IslamicCivilCalendar19handleGetYearLengthEi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear) unnamed_addr #0 align 2 {
 entry:
   %mul.i = mul nsw i32 %extendedYear, 11
   %add.i = add nsw i32 %mul.i, 14
@@ -1270,7 +1270,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK6icu_7523IslamicUmalquraCalendar20handleGetMonthLengthEii(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #0 align 2 {
+define noundef range(i32 28, 32) i32 @_ZNK6icu_7523IslamicUmalquraCalendar20handleGetMonthLengthEii(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #0 align 2 {
 entry:
   %0 = add i32 %extendedYear, -1601
   %or.cond = icmp ult i32 %0, -301

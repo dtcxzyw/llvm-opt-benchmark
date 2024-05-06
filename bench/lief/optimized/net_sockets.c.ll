@@ -15,7 +15,7 @@ define hidden void @mbedtls_net_init(ptr nocapture noundef writeonly %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_net_connect(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 -82, 1) i32 @mbedtls_net_connect(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.addrinfo, align 8
   %6 = alloca ptr, align 8
   %7 = tail call ptr @__sysv_signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
@@ -102,7 +102,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #3
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_net_bind(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.addrinfo, align 8
   %7 = alloca ptr, align 8
@@ -255,7 +255,7 @@ declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_net_accept(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
+define hidden range(i32 -26880, 1) i32 @mbedtls_net_accept(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.sockaddr_storage, align 8
   %8 = alloca i32, align 4
@@ -423,7 +423,7 @@ define hidden i32 @mbedtls_net_set_nonblock(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_net_poll(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.fd_set, align 8
   %6 = alloca %struct.fd_set, align 8
@@ -541,7 +541,7 @@ define hidden void @mbedtls_net_usleep(i64 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_net_recv(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -26880, -2147483648) i32 @mbedtls_net_recv(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %18
@@ -589,7 +589,7 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_net_recv_timeout(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 -26880, -2147483648) i32 @mbedtls_net_recv_timeout(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.timeval, align 8
   %6 = alloca %struct.fd_set, align 8
   %7 = load i32, ptr %0, align 4
@@ -679,7 +679,7 @@ mbedtls_net_recv.exit:                            ; preds = %48, %47, %46, %46, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_net_send(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -26752, -2147483648) i32 @mbedtls_net_send(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %18

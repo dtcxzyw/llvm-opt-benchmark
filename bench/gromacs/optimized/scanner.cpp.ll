@@ -625,7 +625,7 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %33, %36, %45
   %304 = getelementptr inbounds i8, ptr %302, i64 %303
   store ptr %304, ptr %94, align 8
   %305 = tail call fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef nonnull %2)
-  %306 = tail call fastcc noundef i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %305, ptr noundef nonnull %2), !range !8
+  %306 = tail call fastcc noundef i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %305, ptr noundef nonnull %2)
   %307 = load ptr, ptr %99, align 8
   %.not245 = icmp eq i32 %306, 0
   br i1 %.not245, label %311, label %308
@@ -691,7 +691,7 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %33, %36, %45
   store i8 %331, ptr %.0128157.i, align 1
   %333 = add nuw i64 %.0130155.i, 1
   %exitcond.not.i = icmp eq i64 %333, %329
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %101, align 8
@@ -775,7 +775,7 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %33, %36, %45
   %.pn.i = load i64, ptr %.pn.in.i, align 8
   %.0131.i = add i64 %.pn.i, %343
   %370 = icmp eq i64 %.0131.i, 0
-  br i1 %370, label %.lr.ph162.i, label %._crit_edge163.i, !llvm.loop !10
+  br i1 %370, label %.lr.ph162.i, label %._crit_edge163.i, !llvm.loop !9
 
 ._crit_edge163.i:                                 ; preds = %363, %342
   %371 = phi ptr [ %334, %342 ], [ %369, %363 ]
@@ -808,7 +808,7 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %33, %36, %45
   store i8 %377, ptr %385, align 1
   %386 = add nuw nsw i64 %.0125164.i, 1
   %exitcond173.not.i = icmp eq i64 %386, %spec.store.select.i
-  br i1 %exitcond173.not.i, label %.critedge.i, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond173.not.i, label %.critedge.i, label %.preheader.i, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %376, %.preheader.i, %.preheader.i
   %.0125.lcssa.i = phi i64 [ %.0125164.i, %.preheader.i ], [ %.0125164.i, %.preheader.i ], [ %spec.store.select.i, %376 ]
@@ -891,7 +891,7 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %33, %36, %45
   %428 = tail call i64 @fread(ptr noundef %426, i64 noundef 1, i64 noundef %spec.store.select.i, ptr noundef %427)
   store i64 %428, ptr %103, align 8
   %429 = icmp eq i64 %428, 0
-  br i1 %429, label %.lr.ph166.i, label %.critedge2.i, !llvm.loop !12
+  br i1 %429, label %.lr.ph166.i, label %.critedge2.i, !llvm.loop !11
 
 .critedge2.i:                                     ; preds = %418, %.lr.ph166.i, %401, %400
   %430 = phi i64 [ %411, %401 ], [ %.1150.i, %400 ], [ 0, %.lr.ph166.i ], [ %428, %418 ]
@@ -1285,7 +1285,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
   %47 = getelementptr inbounds [151 x i16], ptr @_ZL6yy_chk, i64 0, i64 %46
   %48 = load i16, ptr %47, align 2
   %.not26 = icmp eq i16 %34, %48
-  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %40, %23
   %.lcssa = phi i64 [ %28, %23 ], [ %46, %40 ]
@@ -1294,7 +1294,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
   %51 = zext i16 %50 to i32
   %52 = getelementptr inbounds i8, ptr %.02329, i64 1
   %exitcond.not = icmp eq ptr %52, %7
-  br i1 %exitcond.not, label %._crit_edge33, label %11, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge33, label %11, !llvm.loop !13
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %1
   %.021.lcssa = phi i32 [ %3, %1 ], [ %51, %._crit_edge ]
@@ -1302,7 +1302,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #8 {
+define internal fastcc noundef range(i32 0, 65536) i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #8 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -1341,7 +1341,7 @@ define internal fastcc noundef i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %0, ptr
   %27 = getelementptr inbounds [151 x i16], ptr @_ZL6yy_chk, i64 0, i64 %26
   %28 = load i16, ptr %27, align 2
   %.not18 = icmp eq i16 %21, %28
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %.lcssa = phi i64 [ %15, %11 ], [ %26, %.lr.ph ]
@@ -2326,7 +2326,7 @@ define void @_Z20_gmx_sel_yyset_debugiPv(i32 noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @_Z19_gmx_sel_yylex_initPPv(ptr noundef writeonly %0) local_unnamed_addr #16 {
+define noundef range(i32 0, 2) i32 @_Z19_gmx_sel_yylex_initPPv(ptr noundef writeonly %0) local_unnamed_addr #16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -2354,7 +2354,7 @@ declare ptr @__errno_location() local_unnamed_addr #17
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @_Z25_gmx_sel_yylex_init_extraP15gmx_sel_lexer_tPPv(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define noundef range(i32 0, 2) i32 @_Z25_gmx_sel_yylex_init_extraP15gmx_sel_lexer_tPPv(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -2499,7 +2499,7 @@ _Z27_gmx_sel_yypop_buffer_statePv.exit:           ; preds = %23, %43, %47
   %58 = getelementptr inbounds ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %.not21 = icmp eq ptr %59, null
-  br i1 %.not21, label %.thread, label %.lr.ph34, !llvm.loop !16
+  br i1 %.not21, label %.thread, label %.lr.ph34, !llvm.loop !15
 
 .thread:                                          ; preds = %_Z27_gmx_sel_yypop_buffer_statePv.exit, %_Z25_gmx_sel_yy_delete_bufferP15yy_buffer_statePv.exit, %40, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %40 ], [ null, %_Z25_gmx_sel_yy_delete_bufferP15yy_buffer_statePv.exit ], [ %56, %_Z27_gmx_sel_yypop_buffer_statePv.exit ]
@@ -2601,7 +2601,7 @@ attributes #35 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 65536}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
@@ -2609,4 +2609,3 @@ attributes #35 = { nounwind willreturn memory(read) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

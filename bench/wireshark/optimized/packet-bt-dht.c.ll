@@ -387,12 +387,12 @@ sub_1:                                            ; preds = %sub_0
   %63 = load i32, ptr @ett_bt_dht_error, align 4
   %64 = call ptr @proto_item_add_subtree(ptr noundef %62, i32 noundef %63) #5
   %65 = add i32 %40, 1
-  %66 = call fastcc i32 @dissect_bencoded_int(ptr noundef %0, ptr noundef %1, ptr noundef %64, i32 noundef %65, ptr noundef nonnull %6, ptr noundef nonnull @.str.70)
+  %66 = call fastcc i32 @dissect_bencoded_int(ptr noundef %0, ptr noundef readonly %1, ptr noundef %64, i32 noundef %65, ptr noundef nonnull %6, ptr noundef nonnull @.str.70)
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %dissect_bt_dht_error.exit, label %68
 
 68:                                               ; preds = %60
-  %69 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef %1, ptr noundef %64, i32 noundef %66, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull @.str.71)
+  %69 = call fastcc i32 @dissect_bencoded_string(ptr noundef %0, ptr noundef readonly %1, ptr noundef %64, i32 noundef %66, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull @.str.71)
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %dissect_bt_dht_error.exit, label %71
 

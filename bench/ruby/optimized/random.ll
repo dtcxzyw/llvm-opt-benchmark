@@ -237,8 +237,8 @@ define dso_local double @rb_genrand_real() local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @genrand_int32(ptr noundef nonnull %2)
   %5 = lshr i32 %3, 5
   %6 = lshr i32 %4, 6
-  %7 = uitofp i32 %5 to double
-  %8 = uitofp i32 %6 to double
+  %7 = uitofp nneg i32 %5 to double
+  %8 = uitofp nneg i32 %6 to double
   %9 = tail call double @llvm.fmuladd.f64(double %7, double 0x4190000000000000, double %8)
   %10 = fmul double %9, 0x3CA0000000000000
   ret double %10
@@ -265,7 +265,7 @@ define dso_local void @rb_random_base_init(ptr nocapture noundef writeonly %0) l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @ruby_fill_random_bytes(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @ruby_fill_random_bytes(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @fill_random_bytes_syscall.try_syscall, align 4
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %16, label %5
@@ -614,7 +614,7 @@ RSTRING_PTR.exit:                                 ; preds = %32, %35
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %36
 
 36:                                               ; preds = %RSTRING_PTR.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %.sroa.2.0.i, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %1, ptr readonly align 1 %.sroa.2.0.i, i64 %2, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %36, %RSTRING_PTR.exit, %31
@@ -629,8 +629,8 @@ define dso_local double @rb_int_pair_to_real(i32 noundef %0, i32 noundef %1, i32
 4:                                                ; preds = %3
   %5 = lshr i32 %0, 5
   %6 = lshr i32 %1, 6
-  %7 = uitofp i32 %5 to double
-  %8 = uitofp i32 %6 to double
+  %7 = uitofp nneg i32 %5 to double
+  %8 = uitofp nneg i32 %6 to double
   %9 = tail call double @llvm.fmuladd.f64(double %7, double 0x4190000000000000, double %8)
   br label %19
 
@@ -641,8 +641,8 @@ define dso_local double @rb_int_pair_to_real(i32 noundef %0, i32 noundef %1, i32
   %14 = or disjoint i128 %12, %13
   %15 = mul nuw nsw i128 %14, 9007199254740993
   %16 = lshr i128 %15, 64
-  %17 = trunc i128 %16 to i64
-  %18 = uitofp i64 %17 to double
+  %17 = trunc nuw nsw i128 %16 to i64
+  %18 = uitofp nneg i64 %17 to double
   br label %19
 
 19:                                               ; preds = %10, %4
@@ -722,8 +722,8 @@ try_rand_if.exit.i:                               ; preds = %22, %default_rand.e
   %35 = tail call i32 %.val.i(ptr noundef nonnull %2) #21
   %36 = lshr i32 %34, 5
   %37 = lshr i32 %35, 6
-  %38 = uitofp i32 %36 to double
-  %39 = uitofp i32 %37 to double
+  %38 = uitofp nneg i32 %36 to double
+  %39 = uitofp nneg i32 %37 to double
   %40 = tail call double @llvm.fmuladd.f64(double %38, double 0x4190000000000000, double %39)
   %.0.i21.i = fmul double %40, 0x3CA0000000000000
   br label %random_real.exit
@@ -807,8 +807,8 @@ try_rand_if.exit:                                 ; preds = %default_rand.exit.i
 33:                                               ; preds = %32
   %34 = lshr i32 %.016, 5
   %35 = lshr i32 %.015, 6
-  %36 = uitofp i32 %34 to double
-  %37 = uitofp i32 %35 to double
+  %36 = uitofp nneg i32 %34 to double
+  %37 = uitofp nneg i32 %35 to double
   %38 = call double @llvm.fmuladd.f64(double %36, double 0x4190000000000000, double %37)
   br label %rb_int_pair_to_real.exit
 
@@ -819,8 +819,8 @@ try_rand_if.exit:                                 ; preds = %default_rand.exit.i
   %43 = or disjoint i128 %41, %42
   %44 = mul nuw nsw i128 %43, 9007199254740993
   %45 = lshr i128 %44, 64
-  %46 = trunc i128 %45 to i64
-  %47 = uitofp i64 %46 to double
+  %46 = trunc nuw nsw i128 %45 to i64
+  %47 = uitofp nneg i64 %46 to double
   br label %rb_int_pair_to_real.exit
 
 rb_int_pair_to_real.exit:                         ; preds = %33, %39
@@ -1354,7 +1354,7 @@ define hidden void @Init_RandomSeedCore() local_unnamed_addr #0 {
   %16 = lshr i32 %15, 30
   %17 = xor i32 %16, %15
   %18 = mul i32 %17, 1812433253
-  %19 = trunc i64 %indvars.iv.i.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %20 = add i32 %18, %19
   %21 = getelementptr [624 x i32], ptr %1, i64 0, i64 %indvars.iv.i.i
   store i32 %20, ptr %21, align 4
@@ -1608,7 +1608,7 @@ ruby_fill_random_bytes.exit:                      ; preds = %13, %.lr.ph.i.i, %1
   %31 = xor i32 %30, %28
   store i32 %31, ptr %29, align 4
   %32 = lshr i64 %27, 32
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   %34 = xor i32 %26, %33
   store i32 %34, ptr %0, align 4
   %35 = call i32 @getpid() #21
@@ -1626,7 +1626,7 @@ ruby_fill_random_bytes.exit:                      ; preds = %13, %.lr.ph.i.i, %1
   %47 = xor i32 %46, %44
   store i32 %47, ptr %45, align 4
   %48 = lshr i64 %43, 32
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw i64 %48 to i32
   %50 = xor i32 %42, %49
   store i32 %50, ptr %40, align 4
   ret void
@@ -1962,7 +1962,7 @@ rb_check_arity.exit:                              ; preds = %rand_start.exit
 
 35:                                               ; preds = %32
   %36 = lshr i64 %34, 60
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw nsw i64 %36 to i32
   %38 = and i32 %37, 7
   %39 = add nsw i32 %38, -3
   %.not7.i = icmp ult i32 %39, 2
@@ -2386,7 +2386,7 @@ rb_num2ulong_inline.exit:                         ; preds = %46, %48
   unreachable
 
 55:                                               ; preds = %rb_num2ulong_inline.exit
-  %56 = trunc i64 %.0.i29 to i32
+  %56 = trunc nuw nsw i64 %.0.i29 to i32
   %57 = getelementptr inbounds i8, ptr %3, i64 2512
   store i32 %56, ptr %57, align 8
   %58 = getelementptr i8, ptr %3, i64 2504
@@ -2408,7 +2408,7 @@ define internal i64 @rand_mt_state(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rand_mt_left(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @rand_mt_left(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @random_mt_type) #21
   %3 = getelementptr inbounds i8, ptr %2, i64 2512
   %4 = load i32, ptr %3, align 8
@@ -2845,7 +2845,7 @@ default_rand.exit:                                ; preds = %1, %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @random_s_left(i64 %0) #0 {
+define internal range(i64 1, 0) i64 @random_s_left(i64 %0) #0 {
   %2 = load ptr, ptr @default_rand_key, align 8
   %3 = tail call ptr @rb_ractor_local_storage_ptr(ptr noundef %2) #21
   %4 = icmp eq ptr %3, null
@@ -2890,7 +2890,7 @@ define internal i64 @rand_random_number(i32 noundef %0, ptr nocapture noundef re
 
 9:                                                ; preds = %6
   %10 = lshr i64 %8, 60
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %12 = and i32 %11, 7
   %13 = add nsw i32 %12, -3
   %.not7.i.i = icmp ult i32 %13, 2
@@ -3038,7 +3038,7 @@ define internal void @rand_mt_init(ptr noundef %0, ptr nocapture noundef readonl
   %7 = lshr i32 %6, 30
   %8 = xor i32 %7, %6
   %9 = mul i32 %8, 1812433253
-  %10 = trunc i64 %indvars.iv.i.i to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %11 = add i32 %9, %10
   %12 = getelementptr [624 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
   store i32 %11, ptr %12, align 4
@@ -3143,7 +3143,7 @@ define internal void @rand_mt_init_int32(ptr noundef %0, i32 noundef %1) #12 {
   %6 = lshr i32 %5, 30
   %7 = xor i32 %6, %5
   %8 = mul i32 %7, 1812433253
-  %9 = trunc i64 %indvars.iv.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   %10 = add i32 %8, %9
   %11 = getelementptr [624 x i32], ptr %3, i64 0, i64 %indvars.iv.i
   store i32 %10, ptr %11, align 4
@@ -3563,7 +3563,7 @@ float_value.exit54:                               ; preds = %rb_float_value_inli
 
 129:                                              ; preds = %124
   %130 = lshr i64 %128, 60
-  %131 = trunc i64 %130 to i32
+  %131 = trunc nuw nsw i64 %130 to i32
   %132 = and i32 %131, 7
   %133 = add nsw i32 %132, -3
   %.not7.i = icmp ult i32 %133, 2
@@ -3591,7 +3591,7 @@ float_value.exit54:                               ; preds = %rb_float_value_inli
 
 145:                                              ; preds = %142
   %146 = lshr i64 %144, 60
-  %147 = trunc i64 %146 to i32
+  %147 = trunc nuw nsw i64 %146 to i32
   %148 = and i32 %147, 7
   %149 = add nsw i32 %148, -3
   %.not7.i57 = icmp ult i32 %149, 2
@@ -3761,7 +3761,7 @@ rb_float_value_inline.exit71:                     ; preds = %212, %213, %219
 
 225:                                              ; preds = %rb_float_value_inline.exit71
   %226 = lshr i64 %224, 60
-  %227 = trunc i64 %226 to i32
+  %227 = trunc nuw nsw i64 %226 to i32
   %228 = and i32 %227, 7
   %229 = add nsw i32 %228, -3
   %.not7.i73 = icmp ult i32 %229, 2
@@ -3916,7 +3916,7 @@ define internal fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1,
   br i1 %.not33, label %6, label %36
 
 6:                                                ; preds = %5
-  %7 = tail call i64 @llvm.ctlz.i64(i64 %2, i1 true), !range !36
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 true)
   %narrow = sub nuw nsw i64 64, %7
   %.not35 = icmp ugt i64 %2, 4294967295
   %8 = select i1 %.not35, i32 8, i32 4
@@ -3949,7 +3949,7 @@ define internal fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1,
   %23 = lshr i64 %.1.us, %narrow
   %24 = and i64 %.128.us, %10
   %25 = icmp ugt i64 %24, %2
-  br i1 %25, label %.split.us, label %limited_rand.exit, !llvm.loop !37
+  br i1 %25, label %.split.us, label %limited_rand.exit, !llvm.loop !36
 
 .split:                                           ; preds = %6, %31
   %.027 = phi i64 [ %32, %31 ], [ 0, %6 ]
@@ -3971,7 +3971,7 @@ define internal fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1,
   %33 = lshr i64 %.1, %narrow
   %34 = and i64 %.128, %10
   %35 = icmp ugt i64 %34, %2
-  br i1 %35, label %.split, label %limited_rand.exit, !llvm.loop !37
+  br i1 %35, label %.split, label %limited_rand.exit, !llvm.loop !36
 
 36:                                               ; preds = %5
   %37 = load ptr, ptr @default_rand_key, align 8
@@ -4131,7 +4131,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %13
 
 .lr.ph.us.backedge:                               ; preds = %35, %.loopexit.us
   %.03641.us.be = phi i64 [ %37, %35 ], [ 0, %.loopexit.us ]
-  br label %.lr.ph.us, !llvm.loop !38
+  br label %.lr.ph.us, !llvm.loop !37
 
 .loopexit.us:                                     ; preds = %.lr.ph.us
   %39 = call fastcc i64 @obj_random_bytes(i64 noundef %0, ptr noundef nonnull %24, i64 noundef %26)
@@ -4266,7 +4266,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %11
   %34 = or i64 %33, %32
   %35 = lshr i64 %34, 16
   %36 = or i64 %35, %34
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw i64 %36 to i32
   %.not39.us = icmp eq i32 %37, 0
   br i1 %.not39.us, label %46, label %.thread.us
 
@@ -4301,7 +4301,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %11
   %.03245.us.be = phi i64 [ %.032.us, %46 ], [ %.03242, %42 ]
   %.044.us.be = phi i32 [ %47, %46 ], [ 0, %42 ]
   %.03343.us.be = phi i32 [ %.1.us, %46 ], [ 1, %42 ]
-  br label %.lr.ph.us, !llvm.loop !39
+  br label %.lr.ph.us, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %46, %17
   %50 = call i64 @rb_integer_unpack(ptr noundef %19, i64 noundef %5, i64 noundef 4, i64 noundef 0, i32 noundef 66) #21
@@ -4389,7 +4389,7 @@ rb_check_arity.exit:                              ; preds = %4
 
 10:                                               ; preds = %7
   %11 = lshr i64 %9, 60
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw nsw i64 %11 to i32
   %13 = and i32 %12, 7
   %14 = add nsw i32 %13, -3
   %.not7.i = icmp ult i32 %14, 2
@@ -4497,7 +4497,7 @@ float_value.exit.thread:                          ; preds = %47, %float_value.ex
 
 66:                                               ; preds = %float_value.exit.thread
   %67 = lshr i64 %65, 60
-  %68 = trunc i64 %67 to i32
+  %68 = trunc nuw nsw i64 %67 to i32
   %69 = and i32 %68, 7
   %70 = add nsw i32 %69, -3
   %.not7.i28 = icmp ult i32 %70, 2
@@ -4644,7 +4644,6 @@ attributes #27 = { memory(none) }
 !33 = distinct !{!33, !34, !"rbimpl_rstring_getmem: argument 0"}
 !34 = distinct !{!34, !"rbimpl_rstring_getmem"}
 !35 = !{i64 2155466550}
-!36 = !{i64 0, i64 65}
+!36 = distinct !{!36, !8}
 !37 = distinct !{!37, !8}
 !38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}

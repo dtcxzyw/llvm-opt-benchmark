@@ -906,7 +906,7 @@ define internal i64 @ossl_x509ext_get_value_der(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_x509ext_get_critical(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_x509ext_get_critical(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_x509ext_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5

@@ -61,7 +61,7 @@ define internal void @i915_exit() #0 section ".exit.text" align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @i915_init() #0 section ".init.text" align 16 {
+define internal range(i32 -2147483648, 1) i32 @i915_init() #0 section ".init.text" align 16 {
   br label %1
 
 1:                                                ; preds = %26, %0
@@ -129,7 +129,7 @@ define internal i32 @i915_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_check_nomodeset() #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @i915_check_nomodeset() #1 align 16 {
   %1 = load i32, ptr @i915_modparams, align 8
   %2 = icmp ne i32 %1, 0
   %3 = tail call zeroext i1 @video_firmware_drivers_only() #4

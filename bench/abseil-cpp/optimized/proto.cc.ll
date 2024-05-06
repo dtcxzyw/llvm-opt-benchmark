@@ -55,7 +55,7 @@ for.body.i:                                       ; preds = %_ZN4absl12log_inter
   %cmp1.i = icmp eq i64 %add.i21, %accumulator.tr.lcssa.i
   %conv.i = select i1 %cmp1.i, i64 0, i64 128
   %or.i = or disjoint i64 %conv.i, %and.i
-  %conv2.i = trunc i64 %or.i to i8
+  %conv2.i = trunc nuw i64 %or.i to i8
   %3 = load ptr, ptr %buf, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %s.010.i
   store i8 %conv2.i, ptr %arrayidx.i.i, align 1
@@ -71,7 +71,7 @@ _ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit: ; pr
   store i64 %sub.i.i, ptr %len_.i, align 8
   br label %for.body.i23
 
-for.body.i23:                                     ; preds = %for.body.i23, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit
+for.body.i23:                                     ; preds = %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit, %for.body.i23
   %s.010.i24 = phi i64 [ %add.i27, %for.body.i23 ], [ 0, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit ]
   %value.addr.09.i25 = phi i64 [ %shr.i33, %for.body.i23 ], [ %value, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit ]
   %and.i26 = and i64 %value.addr.09.i25, 127
@@ -79,7 +79,7 @@ for.body.i23:                                     ; preds = %for.body.i23, %_ZN4
   %cmp1.i28 = icmp eq i64 %add.i27, %accumulator.tr.lcssa.i17
   %conv.i29 = select i1 %cmp1.i28, i64 0, i64 128
   %or.i30 = or disjoint i64 %conv.i29, %and.i26
-  %conv2.i31 = trunc i64 %or.i30 to i8
+  %conv2.i31 = trunc nuw i64 %or.i30 to i8
   %6 = load ptr, ptr %buf, align 8
   %arrayidx.i.i32 = getelementptr inbounds i8, ptr %6, i64 %s.010.i24
   store i8 %conv2.i31, ptr %arrayidx.i.i32, align 1
@@ -136,7 +136,7 @@ for.body.i:                                       ; preds = %_ZN4absl12log_inter
   %cmp1.i = icmp eq i64 %add.i13, %accumulator.tr.lcssa.i
   %conv.i = select i1 %cmp1.i, i64 0, i64 128
   %or.i14 = or disjoint i64 %conv.i, %and.i
-  %conv2.i = trunc i64 %or.i14 to i8
+  %conv2.i = trunc nuw i64 %or.i14 to i8
   %2 = load ptr, ptr %buf, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 %s.010.i
   store i8 %conv2.i, ptr %arrayidx.i.i, align 1
@@ -214,7 +214,7 @@ for.body.i:                                       ; preds = %_ZN4absl12log_inter
   %cmp1.i = icmp eq i64 %add.i13, %accumulator.tr.lcssa.i
   %conv.i = select i1 %cmp1.i, i64 0, i64 128
   %or.i14 = or disjoint i64 %conv.i, %and.i
-  %conv2.i = trunc i64 %or.i14 to i8
+  %conv2.i = trunc nuw i64 %or.i14 to i8
   %2 = load ptr, ptr %buf, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 %s.010.i
   store i8 %conv2.i, ptr %arrayidx.i.i, align 1
@@ -310,7 +310,7 @@ for.body.i:                                       ; preds = %_ZN4absl12log_inter
   %cmp1.i = icmp eq i64 %add.i25, %accumulator.tr.lcssa.i
   %conv.i = select i1 %cmp1.i, i64 0, i64 128
   %or.i26 = or disjoint i64 %conv.i, %and.i
-  %conv2.i = trunc i64 %or.i26 to i8
+  %conv2.i = trunc nuw i64 %or.i26 to i8
   %3 = load ptr, ptr %buf, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %s.010.i
   store i8 %conv2.i, ptr %arrayidx.i.i, align 1
@@ -326,7 +326,7 @@ _ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit: ; pr
   store i64 %sub.i.i, ptr %len_.i22, align 8
   br label %for.body.i28
 
-for.body.i28:                                     ; preds = %for.body.i28, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit
+for.body.i28:                                     ; preds = %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit, %for.body.i28
   %s.010.i29 = phi i64 [ %add.i32, %for.body.i28 ], [ 0, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit ]
   %value.addr.09.i30 = phi i64 [ %shr.i38, %for.body.i28 ], [ %value.coerce1, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit ]
   %and.i31 = and i64 %value.addr.09.i30, 127
@@ -334,7 +334,7 @@ for.body.i28:                                     ; preds = %for.body.i28, %_ZN4
   %cmp1.i33 = icmp eq i64 %add.i32, %accumulator.tr.lcssa.i19
   %conv.i34 = select i1 %cmp1.i33, i64 0, i64 128
   %or.i35 = or disjoint i64 %conv.i34, %and.i31
-  %conv2.i36 = trunc i64 %or.i35 to i8
+  %conv2.i36 = trunc nuw i64 %or.i35 to i8
   %6 = load ptr, ptr %buf, align 8
   %arrayidx.i.i37 = getelementptr inbounds i8, ptr %6, i64 %s.010.i29
   store i8 %conv2.i36, ptr %arrayidx.i.i37, align 1
@@ -426,7 +426,7 @@ for.body.i:                                       ; preds = %_ZN4absl12log_inter
   %cmp1.i = icmp eq i64 %add.i44, %accumulator.tr.lcssa.i
   %conv.i = select i1 %cmp1.i, i64 0, i64 128
   %or.i45 = or disjoint i64 %conv.i, %and.i
-  %conv2.i = trunc i64 %or.i45 to i8
+  %conv2.i = trunc nuw i64 %or.i45 to i8
   %3 = load ptr, ptr %buf, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %s.010.i
   store i8 %conv2.i, ptr %arrayidx.i.i, align 1
@@ -442,7 +442,7 @@ _ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit: ; pr
   store i64 %sub.i.i, ptr %len_.i20, align 8
   br label %for.body.i47
 
-for.body.i47:                                     ; preds = %for.body.i47, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit
+for.body.i47:                                     ; preds = %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit, %for.body.i47
   %s.010.i48 = phi i64 [ %add.i51, %for.body.i47 ], [ 0, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit ]
   %value.addr.09.i49 = phi i64 [ %shr.i57, %for.body.i47 ], [ %length.0, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit ]
   %and.i50 = and i64 %value.addr.09.i49, 127
@@ -450,7 +450,7 @@ for.body.i47:                                     ; preds = %for.body.i47, %_ZN4
   %cmp1.i52 = icmp eq i64 %add.i51, %accumulator.tr.lcssa.i30
   %conv.i53 = select i1 %cmp1.i52, i64 0, i64 128
   %or.i54 = or disjoint i64 %conv.i53, %and.i50
-  %conv2.i55 = trunc i64 %or.i54 to i8
+  %conv2.i55 = trunc nuw i64 %or.i54 to i8
   %6 = load ptr, ptr %buf, align 8
   %arrayidx.i.i56 = getelementptr inbounds i8, ptr %6, i64 %s.010.i48
   store i8 %conv2.i55, ptr %arrayidx.i.i56, align 1
@@ -532,7 +532,7 @@ for.body.i:                                       ; preds = %_ZN4absl12log_inter
   %cmp1.i = icmp eq i64 %add.i25, %accumulator.tr.lcssa.i
   %conv.i = select i1 %cmp1.i, i64 0, i64 128
   %or.i26 = or disjoint i64 %conv.i, %and.i
-  %conv2.i = trunc i64 %or.i26 to i8
+  %conv2.i = trunc nuw i64 %or.i26 to i8
   %3 = load ptr, ptr %buf, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %s.010.i
   store i8 %conv2.i, ptr %arrayidx.i.i, align 1
@@ -546,31 +546,31 @@ _ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit: ; pr
   %5 = load i64, ptr %len_.i, align 8
   %sub.i.i = sub i64 %5, %accumulator.tr.lcssa.i
   store i64 %sub.i.i, ptr %len_.i, align 8
-  br label %for.body.i29
+  br label %for.body.i31
 
-for.body.i29:                                     ; preds = %for.body.i29, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit
-  %s.010.i30 = phi i64 [ %add.i33, %for.body.i29 ], [ 0, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit ]
-  %add.i33 = add nuw nsw i64 %s.010.i30, 1
-  %cmp1.i34 = icmp eq i64 %add.i33, %accumulator.tr.lcssa.i20
-  %conv2.i37 = select i1 %cmp1.i34, i8 0, i8 -128
+for.body.i31:                                     ; preds = %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit, %for.body.i31
+  %s.010.i32 = phi i64 [ %add.i35, %for.body.i31 ], [ 0, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit ]
+  %add.i35 = add nuw nsw i64 %s.010.i32, 1
+  %cmp1.i36 = icmp eq i64 %add.i35, %accumulator.tr.lcssa.i20
+  %conv2.i39 = select i1 %cmp1.i36, i8 0, i8 -128
   %6 = load ptr, ptr %buf, align 8
-  %arrayidx.i.i38 = getelementptr inbounds i8, ptr %6, i64 %s.010.i30
-  store i8 %conv2.i37, ptr %arrayidx.i.i38, align 1
-  br i1 %cmp1.i34, label %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit44, label %for.body.i29, !llvm.loop !5
+  %arrayidx.i.i40 = getelementptr inbounds i8, ptr %6, i64 %s.010.i32
+  store i8 %conv2.i39, ptr %arrayidx.i.i40, align 1
+  br i1 %cmp1.i36, label %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit46, label %for.body.i31, !llvm.loop !5
 
-_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit44: ; preds = %for.body.i29
+_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit46: ; preds = %for.body.i31
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 %accumulator.tr.lcssa.i20)
   %7 = load ptr, ptr %buf, align 8
-  %add.ptr.i.i41 = getelementptr inbounds i8, ptr %7, i64 %accumulator.tr.lcssa.i20
-  store ptr %add.ptr.i.i41, ptr %buf, align 8
+  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %7, i64 %accumulator.tr.lcssa.i20
+  store ptr %add.ptr.i.i43, ptr %buf, align 8
   %8 = load i64, ptr %len_.i, align 8
-  %sub.i.i43 = sub i64 %8, %accumulator.tr.lcssa.i20
+  %sub.i.i45 = sub i64 %8, %accumulator.tr.lcssa.i20
   br label %return
 
-return:                                           ; preds = %_ZN4absl12log_internal10VarintSizeEm.exit21, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit44
-  %storemerge = phi i64 [ %sub.i.i43, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit44 ], [ 0, %_ZN4absl12log_internal10VarintSizeEm.exit21 ]
-  %retval.sroa.3.0 = phi i64 [ %.sroa.speculated.i, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit44 ], [ 0, %_ZN4absl12log_internal10VarintSizeEm.exit21 ]
-  %retval.sroa.0.0 = phi ptr [ %add.ptr.i.i, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit44 ], [ null, %_ZN4absl12log_internal10VarintSizeEm.exit21 ]
+return:                                           ; preds = %_ZN4absl12log_internal10VarintSizeEm.exit21, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit46
+  %storemerge = phi i64 [ %sub.i.i45, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit46 ], [ 0, %_ZN4absl12log_internal10VarintSizeEm.exit21 ]
+  %retval.sroa.3.0 = phi i64 [ %.sroa.speculated.i, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit46 ], [ 0, %_ZN4absl12log_internal10VarintSizeEm.exit21 ]
+  %retval.sroa.0.0 = phi ptr [ %add.ptr.i.i, %_ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit46 ], [ null, %_ZN4absl12log_internal10VarintSizeEm.exit21 ]
   store i64 %storemerge, ptr %len_.i, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
@@ -605,7 +605,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %cmp1.i = icmp eq i64 %add.i, %msg.coerce1
   %conv.i = select i1 %cmp1.i, i64 0, i64 128
   %or.i = or disjoint i64 %conv.i, %and.i
-  %conv2.i = trunc i64 %or.i to i8
+  %conv2.i = trunc nuw i64 %or.i to i8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %msg.coerce0, i64 %s.010.i
   store i8 %conv2.i, ptr %arrayidx.i.i, align 1
   %shr.i = lshr i64 %value.addr.09.i, 7

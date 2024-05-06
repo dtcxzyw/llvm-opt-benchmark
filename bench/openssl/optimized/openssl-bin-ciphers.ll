@@ -64,7 +64,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.50 = private unnamed_addr constant [9 x i8] c"%-45s - \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ciphers_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %buf = alloca [512 x i8], align 16
   %call = tail call ptr @TLS_server_method() #3
@@ -482,7 +482,7 @@ declare i64 @SSL_CTX_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) lo
 declare void @SSL_CTX_set_psk_client_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @dummy_psk(ptr nocapture readnone %ssl, ptr nocapture readnone %hint, ptr nocapture readnone %identity, i32 %max_identity_len, ptr nocapture readnone %psk, i32 %max_psk_len) #2 {
+define internal noundef i32 @dummy_psk(ptr nocapture readnone %ssl, ptr nocapture readnone %hint, ptr nocapture readnone %identity, i32 %max_identity_len, ptr nocapture readnone %psk, i32 %max_psk_len) #2 {
 entry:
   ret i32 0
 }

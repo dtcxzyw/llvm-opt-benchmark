@@ -52,7 +52,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.35 = private unnamed_addr constant [17 x i8] c"Page not present\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @monitor_set_cpu(ptr nocapture noundef %mon, i32 noundef %cpu_index) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @monitor_set_cpu(ptr nocapture noundef %mon, i32 noundef %cpu_index) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_get_cpu(i32 noundef %cpu_index) #7
   %cmp = icmp eq ptr %call, null

@@ -2621,7 +2621,7 @@ return:                                           ; preds = %_ZN5folly6detail11L
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5folly14ManualExecutor4stepEv(ptr noundef nonnull align 64 dereferenceable(304) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 2) i64 @_ZN5folly14ManualExecutor4stepEv(ptr noundef nonnull align 64 dereferenceable(304) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %func = alloca %"class.folly::Function", align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %func) #21

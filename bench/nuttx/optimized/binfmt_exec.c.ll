@@ -105,7 +105,7 @@ up_irq_restore.exit45:                            ; preds = %43, %40, %44, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @exec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @exec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @exec_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef null, ptr noundef null, i1 noundef zeroext false)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %11

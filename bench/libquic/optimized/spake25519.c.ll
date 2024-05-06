@@ -83,7 +83,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SPAKE2_generate_msg(ptr noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %password, i64 noundef %password_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SPAKE2_generate_msg(ptr noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %password, i64 noundef %password_len) local_unnamed_addr #0 {
 entry:
   %private_tmp = alloca [64 x i8], align 16
   %P = alloca %struct.ge_p3, align 4
@@ -168,7 +168,7 @@ declare void @x25519_ge_p1p1_to_p2(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @x25519_ge_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SPAKE2_process_msg(ptr noundef %ctx, ptr nocapture noundef writeonly %out_key, ptr nocapture noundef writeonly %out_key_len, i64 noundef %max_out_key_len, ptr noundef %their_msg, i64 noundef %their_msg_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SPAKE2_process_msg(ptr noundef %ctx, ptr nocapture noundef writeonly %out_key, ptr nocapture noundef writeonly %out_key_len, i64 noundef %max_out_key_len, ptr noundef %their_msg, i64 noundef %their_msg_len) local_unnamed_addr #0 {
 entry:
   %len_le.i117 = alloca [8 x i8], align 1
   %len_le.i105 = alloca [8 x i8], align 1

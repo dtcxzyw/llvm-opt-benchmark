@@ -13,8 +13,8 @@ entry:
   br i1 %or.cond1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %outlen to i8
-  %conv6 = trunc i64 %keylen to i8
+  %conv = trunc nuw nsw i64 %outlen to i8
+  %conv6 = trunc nuw nsw i64 %keylen to i8
   %call = tail call i32 @_sodium_blake2b(ptr noundef nonnull %out, ptr noundef %in, ptr noundef %key, i8 noundef zeroext %conv, i64 noundef %inlen, i8 noundef zeroext %conv6) #2
   br label %return
 
@@ -35,8 +35,8 @@ entry:
   br i1 %or.cond1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv = trunc i64 %outlen to i8
-  %conv6 = trunc i64 %keylen to i8
+  %conv = trunc nuw nsw i64 %outlen to i8
+  %conv6 = trunc nuw nsw i64 %keylen to i8
   %call = tail call i32 @_sodium_blake2b_salt_personal(ptr noundef nonnull %out, ptr noundef %in, ptr noundef %key, i8 noundef zeroext %conv, i64 noundef %inlen, i8 noundef zeroext %conv6, ptr noundef %salt, ptr noundef %personal) #2
   br label %return
 
@@ -48,7 +48,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @_sodium_blake2b_salt_personal(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i64 noundef, i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_generichash_blake2b_init(ptr noundef nonnull %state, ptr noundef %key, i64 noundef %keylen, i64 noundef %outlen) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_generichash_blake2b_init(ptr noundef nonnull %state, ptr noundef %key, i64 noundef %keylen, i64 noundef %outlen) local_unnamed_addr #0 {
 entry:
   %0 = add i64 %outlen, -65
   %or.cond = icmp ult i64 %0, -64
@@ -60,7 +60,7 @@ if.end:                                           ; preds = %entry
   %cmp4 = icmp eq ptr %key, null
   %cmp6 = icmp eq i64 %keylen, 0
   %or.cond2 = or i1 %cmp4, %cmp6
-  %conv = trunc i64 %outlen to i8
+  %conv = trunc nuw nsw i64 %outlen to i8
   br i1 %or.cond2, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end
@@ -69,7 +69,7 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp8.not, label %if.end19, label %return
 
 if.else:                                          ; preds = %if.end
-  %conv13 = trunc i64 %keylen to i8
+  %conv13 = trunc nuw nsw i64 %keylen to i8
   %call14 = tail call i32 @_sodium_blake2b_init_key(ptr noundef nonnull %state, i8 noundef zeroext %conv, ptr noundef nonnull %key, i8 noundef zeroext %conv13) #2
   %cmp15.not = icmp eq i32 %call14, 0
   br i1 %cmp15.not, label %if.end19, label %return
@@ -87,7 +87,7 @@ declare i32 @_sodium_blake2b_init(ptr noundef, i8 noundef zeroext) local_unnamed
 declare i32 @_sodium_blake2b_init_key(ptr noundef, i8 noundef zeroext, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_generichash_blake2b_init_salt_personal(ptr noundef nonnull %state, ptr noundef %key, i64 noundef %keylen, i64 noundef %outlen, ptr noundef %salt, ptr noundef %personal) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_generichash_blake2b_init_salt_personal(ptr noundef nonnull %state, ptr noundef %key, i64 noundef %keylen, i64 noundef %outlen, ptr noundef %salt, ptr noundef %personal) local_unnamed_addr #0 {
 entry:
   %0 = add i64 %outlen, -65
   %or.cond = icmp ult i64 %0, -64
@@ -99,7 +99,7 @@ if.end:                                           ; preds = %entry
   %cmp4 = icmp eq ptr %key, null
   %cmp6 = icmp eq i64 %keylen, 0
   %or.cond2 = or i1 %cmp4, %cmp6
-  %conv = trunc i64 %outlen to i8
+  %conv = trunc nuw nsw i64 %outlen to i8
   br i1 %or.cond2, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end
@@ -108,7 +108,7 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp8.not, label %if.end19, label %return
 
 if.else:                                          ; preds = %if.end
-  %conv13 = trunc i64 %keylen to i8
+  %conv13 = trunc nuw nsw i64 %keylen to i8
   %call14 = tail call i32 @_sodium_blake2b_init_key_salt_personal(ptr noundef nonnull %state, i8 noundef zeroext %conv, ptr noundef nonnull %key, i8 noundef zeroext %conv13, ptr noundef %salt, ptr noundef %personal) #2
   %cmp15.not = icmp eq i32 %call14, 0
   br i1 %cmp15.not, label %if.end19, label %return

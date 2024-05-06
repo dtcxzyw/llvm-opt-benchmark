@@ -2746,7 +2746,7 @@ define void @densmatr_mixPauli(ptr nocapture noundef readonly byval(%struct.Qure
 
 densmatr_mixKrausMap.exit:                        ; preds = %59
   %60 = add nsw i32 %.sroa.3.0.copyload16, %1
-  tail call void @statevec_multiControlledTwoQubitUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef 0, i32 noundef %1, i32 noundef %60, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %6) #23
+  tail call void @statevec_multiControlledTwoQubitUnitary(ptr noundef nonnull readonly byval(%struct.Qureg) align 8 %0, i64 noundef 0, i32 noundef %1, i32 noundef %60, ptr noundef nonnull byval(%struct.ComplexMatrix4) align 8 %6) #23
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
   ret void
 }

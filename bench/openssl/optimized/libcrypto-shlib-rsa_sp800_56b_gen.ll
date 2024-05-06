@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_rsa_sp800_56b_pairwise_test = private unnamed_addr constant [33 x i8] c"ossl_rsa_sp800_56b_pairwise_test\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr nocapture noundef %rsa, ptr nocapture readnone %test, i32 noundef %nbits, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr nocapture noundef %rsa, ptr nocapture readnone %test, i32 noundef %nbits, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %nbits, 2048
   br i1 %cmp, label %if.then, label %if.end
@@ -177,7 +177,7 @@ declare void @BN_clear(ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_sp800_56b_validate_strength(i32 noundef %nbits, i32 noundef %strength) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_validate_strength(i32 noundef %nbits, i32 noundef %strength) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i16 @ossl_ifc_ffc_compute_security_bits(i32 noundef %nbits) #2
   %cmp.not = icmp eq i32 %strength, -1
@@ -200,7 +200,7 @@ return:                                           ; preds = %entry, %if.then
 declare zeroext i16 @ossl_ifc_ffc_compute_security_bits(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_sp800_56b_derive_params_from_pq(ptr nocapture noundef %rsa, i32 noundef %nbits, ptr noundef %e, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ossl_rsa_sp800_56b_derive_params_from_pq(ptr nocapture noundef %rsa, i32 noundef %nbits, ptr noundef %e, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #2
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #2
@@ -402,7 +402,7 @@ declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_sp800_56b_generate_key(ptr nocapture noundef %rsa, i32 noundef %nbits, ptr noundef %efixed, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_generate_key(ptr nocapture noundef %rsa, i32 noundef %nbits, ptr noundef %efixed, ptr noundef %cb) local_unnamed_addr #0 {
 if.end:
   %call.i = tail call zeroext i16 @ossl_ifc_ffc_compute_security_bits(i32 noundef %nbits) #2
   %libctx = getelementptr inbounds i8, ptr %rsa, i64 8
@@ -438,7 +438,7 @@ if.end18:                                         ; preds = %if.end9, %lor.lhs.f
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end35, %if.end18
-  %call19 = tail call i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef nonnull %rsa, ptr poison, i32 noundef %nbits, ptr noundef nonnull %e.0, ptr noundef nonnull %call7, ptr noundef %cb), !range !4
+  %call19 = tail call i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef nonnull %rsa, ptr poison, i32 noundef %nbits, ptr noundef nonnull %e.0, ptr noundef nonnull %call7, ptr noundef %cb)
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %err, label %land.lhs.true
 
@@ -456,7 +456,7 @@ if.then26:                                        ; preds = %land.lhs.true
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then26, %land.lhs.true
-  %call32 = tail call i32 @ossl_rsa_sp800_56b_derive_params_from_pq(ptr noundef nonnull %rsa, i32 noundef %nbits, ptr noundef nonnull %e.0, ptr noundef nonnull %call7), !range !5
+  %call32 = tail call i32 @ossl_rsa_sp800_56b_derive_params_from_pq(ptr noundef nonnull %rsa, i32 noundef %nbits, ptr noundef nonnull %e.0, ptr noundef nonnull %call7)
   %cmp33 = icmp slt i32 %call32, 0
   br i1 %cmp33, label %err, label %if.end35
 
@@ -465,7 +465,7 @@ if.end35:                                         ; preds = %if.end31
   br i1 %cmp36.not, label %for.cond, label %for.end
 
 for.end:                                          ; preds = %if.end35
-  %call39 = tail call i32 @ossl_rsa_sp800_56b_pairwise_test(ptr noundef nonnull %rsa, ptr noundef nonnull %call7), !range !4
+  %call39 = tail call i32 @ossl_rsa_sp800_56b_pairwise_test(ptr noundef nonnull %rsa, ptr noundef nonnull %call7)
   br label %err
 
 err:                                              ; preds = %if.end31, %for.cond, %for.end
@@ -497,7 +497,7 @@ declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsa_sp800_56b_pairwise_test(ptr nocapture noundef readonly %rsa, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_sp800_56b_pairwise_test(ptr nocapture noundef readonly %rsa, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #2
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #2
@@ -559,5 +559,3 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{i32 -1, i32 2}

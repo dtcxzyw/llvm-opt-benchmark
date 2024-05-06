@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [43 x i8] c"-L parameter '%s' starting at line %ld: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @parse_range_arg(ptr noundef %arg, ptr nocapture noundef readonly %nth_line_cb, ptr noundef %cb_data, i64 noundef %lines, i64 noundef %anchor, ptr noundef %begin, ptr noundef %end, ptr noundef %path, ptr noundef %istate) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @parse_range_arg(ptr noundef %arg, ptr nocapture noundef readonly %nth_line_cb, ptr noundef %cb_data, i64 noundef %lines, i64 noundef %anchor, ptr noundef %begin, ptr noundef %end, ptr noundef %path, ptr noundef %istate) local_unnamed_addr #0 {
 entry:
   store i64 0, ptr %end, align 8
   store i64 0, ptr %begin, align 8

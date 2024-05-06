@@ -55,7 +55,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end39 ]
   %n.119 = phi i32 [ %n.0, %for.body.lr.ph ], [ %add40, %if.end39 ]
   %cmp14.not = icmp ne i64 %indvars.iv, 0
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %rem = urem i32 %2, 35
   %cmp15 = icmp eq i32 %rem, 0
   %or.cond = and i1 %cmp14.not, %cmp15
@@ -106,7 +106,7 @@ return:                                           ; preds = %if.end39, %if.end22
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @a2i_ASN1_INTEGER(ptr noundef %bp, ptr nocapture noundef writeonly %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @a2i_ASN1_INTEGER(ptr noundef %bp, ptr nocapture noundef writeonly %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %bs, i64 4
   store i32 2, ptr %type, align 4
@@ -187,7 +187,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end.split.loop.exit128:                       ; preds = %for.body
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit128
@@ -347,9 +347,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @a2i_ASN1_ENUMERATED(ptr noundef %bp, ptr nocapture noundef %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @a2i_ASN1_ENUMERATED(ptr noundef %bp, ptr nocapture noundef %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @a2i_ASN1_INTEGER(ptr noundef %bp, ptr noundef %bs, ptr noundef %buf, i32 noundef %size), !range !9
+  %call = tail call i32 @a2i_ASN1_INTEGER(ptr noundef %bp, ptr noundef %bs, ptr noundef %buf, i32 noundef %size)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -380,4 +380,3 @@ attributes #2 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 2}

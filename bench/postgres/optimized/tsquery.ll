@@ -475,7 +475,7 @@ list_length.exit64:                               ; preds = %list_length.exit62,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i8 0, ptr %8, align 1
   store i32 0, ptr %6, align 4
-  call fastcc void @findoprnd_recurse(ptr noundef %79, ptr noundef nonnull %6, i32 noundef %112, ptr noundef nonnull %8)
+  call fastcc void @findoprnd_recurse(ptr noundef %79, ptr noundef nonnull %6, i32 noundef %112, ptr noundef nonnull writeonly %8)
   %113 = load i32, ptr %6, align 4
   %.not.i65 = icmp eq i32 %113, %112
   br i1 %.not.i65, label %findoprnd.exit, label %114
@@ -503,7 +503,7 @@ findoprnd.exit:                                   ; preds = %._crit_edge
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @gettoken_query_plain(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #3 {
+define internal range(i32 0, 3) i32 @gettoken_query_plain(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #3 {
   store i16 0, ptr %4, align 2
   store i8 0, ptr %5, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -535,7 +535,7 @@ define internal noundef i32 @gettoken_query_plain(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gettoken_query_websearch(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 4) i32 @gettoken_query_websearch(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #0 {
   store i16 0, ptr %4, align 2
   store i8 0, ptr %5, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 28
@@ -768,7 +768,7 @@ define internal noundef i32 @gettoken_query_websearch(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gettoken_query_standard(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 6) i32 @gettoken_query_standard(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca ptr, align 8
   store i16 0, ptr %4, align 2
   store i8 0, ptr %5, align 1
@@ -1046,7 +1046,7 @@ default.unreachable.i:                            ; preds = %83
   br i1 %.not48.i, label %.loopexit, label %.lr.ph.i64, !llvm.loop !10
 
 116:                                              ; preds = %83
-  %117 = trunc i64 %.024.ph54.i to i16
+  %117 = trunc nuw nsw i64 %.024.ph54.i to i16
   store i16 %117, ptr %4, align 2
   store ptr %.02550.i, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -2223,7 +2223,7 @@ define dso_local i64 @tsqueryrecv(ptr nocapture noundef readonly %0) local_unnam
   unreachable
 
 46:                                               ; preds = %41
-  %47 = trunc i64 %31 to i32
+  %47 = trunc nuw i64 %31 to i32
   %.not108122 = icmp eq i32 %47, 0
   br i1 %.not108122, label %._crit_edge, label %.lr.ph
 
@@ -2341,7 +2341,7 @@ switch.early.test:                                ; preds = %73
   %106 = load i32, ptr %105, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  call fastcc void @findoprnd_recurse(ptr noundef %104, ptr noundef nonnull %2, i32 noundef %7, ptr noundef nonnull %3)
+  call fastcc void @findoprnd_recurse(ptr noundef %104, ptr noundef nonnull %2, i32 noundef %7, ptr noundef nonnull writeonly %3)
   %107 = load i32, ptr %2, align 4
   %.not.i = icmp eq i32 %107, %7
   br i1 %.not.i, label %findoprnd.exit, label %108

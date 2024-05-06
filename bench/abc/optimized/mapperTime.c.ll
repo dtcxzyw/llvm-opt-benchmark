@@ -111,7 +111,7 @@ define float @Map_TimeCutComputeArrival(ptr nocapture noundef readonly %0, ptr n
   %38 = phi float [ 0.000000e+00, %.lr.ph ], [ %75, %102 ]
   %indvars.iv = phi i64 [ %33, %.lr.ph ], [ %indvars.iv.next, %102 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %39 = trunc i64 %indvars.iv.next to i32
+  %39 = trunc nsw i64 %indvars.iv.next to i32
   %40 = lshr i32 %29, %39
   %41 = and i32 %40, 1
   %42 = getelementptr inbounds [6 x ptr], ptr %30, i64 0, i64 %indvars.iv.next
@@ -274,7 +274,7 @@ define void @Map_TimePropagateRequiredPhase(ptr nocapture readnone %0, ptr nocap
 
 35:                                               ; preds = %.lr.ph, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
-  %36 = trunc i64 %indvars.iv to i32
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = lshr i32 %30, %36
   %38 = and i32 %37, 1
   %39 = getelementptr inbounds [6 x ptr], ptr %31, i64 0, i64 %indvars.iv
@@ -387,7 +387,7 @@ define float @Map_MatchComputeReqTimes(ptr nocapture noundef readonly %0, i32 no
   %22 = phi float [ 0xC7B9999980000000, %.lr.ph ], [ %53, %75 ]
   %23 = phi float [ 0xC7B9999980000000, %.lr.ph ], [ %54, %75 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = lshr i32 %15, %24
   %26 = and i32 %25, 1
   %27 = getelementptr inbounds [6 x ptr], ptr %16, i64 0, i64 %indvars.iv

@@ -83,7 +83,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [13 x ptr] [ptr @__UNIQUE_ID___addressable_acpi_button_driver_init328, ptr @__UNIQUE_ID___addressable_acpi_lid_open325, ptr @__UNIQUE_ID_author319, ptr @__UNIQUE_ID_description320, ptr @__UNIQUE_ID_file321, ptr @__UNIQUE_ID_license322, ptr @__UNIQUE_ID_lid_init_state326, ptr @__UNIQUE_ID_lid_report_interval324, ptr @__UNIQUE_ID_lid_report_intervaltype323, ptr @__exitcall_acpi_button_driver_exit, ptr @__param_lid_init_state, ptr @__param_lid_report_interval, ptr @acpi_button_driver_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_lid_open() #0 align 16 {
+define dso_local range(i32 -19, 2) i32 @acpi_lid_open() #0 align 16 {
   %1 = alloca i64, align 8
   %2 = load ptr, ptr @lid_device, align 8
   %3 = icmp eq ptr %2, null
@@ -168,7 +168,7 @@ declare dso_local i32 @acpi_evaluate_integer(ptr noundef, ptr noundef, ptr nound
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @param_set_lid_init_state(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @param_set_lid_init_state(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = tail call i32 @__sysfs_match_string(ptr noundef nonnull @lid_init_state_str, i64 noundef 4, ptr noundef %0) #11
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %10, label %5

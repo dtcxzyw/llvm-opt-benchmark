@@ -159,7 +159,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.135 = private unnamed_addr constant [36 x i8] c"bytecode api: invalid buffer id %u\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @cli_bcapi_test1(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef range(i32 85, 305419897) i32 @cli_bcapi_test1(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %1, -267534609
   %5 = icmp eq i32 %2, -1091571699
   %6 = and i1 %4, %5
@@ -168,7 +168,7 @@ define noundef i32 @cli_bcapi_test1(ptr nocapture noundef readnone %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @cli_bcapi_test2(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 21845, 53264) i32 @cli_bcapi_test2(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, 61453
   %4 = select i1 %3, i32 53263, i32 21845
   ret i32 %4
@@ -231,7 +231,7 @@ fmap_readn.exit.thread:                           ; preds = %24, %22, %14
   br label %39
 
 31:                                               ; preds = %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %28, i64 %spec.select.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %1, ptr nonnull align 1 %28, i64 %spec.select.i, i1 false)
   %32 = getelementptr inbounds i8, ptr %0, i64 1312
   %33 = load ptr, ptr %32, align 8
   %34 = load i64, ptr %15, align 8
@@ -913,11 +913,11 @@ define i32 @cli_bcapi_file_find_limit(ptr nocapture noundef readonly %0, ptr nou
   tail call void @cli_event_fastdata(ptr noundef %23, i32 noundef 9, ptr noundef %1, i32 noundef %2) #29
   %24 = getelementptr inbounds i8, ptr %7, i64 88
   %25 = getelementptr inbounds i8, ptr %7, i64 104
-  %.not62 = icmp eq ptr %1, null
+  %.not63 = icmp eq ptr %1, null
   %26 = getelementptr inbounds i8, ptr %1, i64 1
   %27 = add nsw i32 %2, -1
   %28 = zext nneg i32 %27 to i64
-  br i1 %.not62, label %.split.us, label %.split
+  br i1 %.not63, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %16, %fmap_readn.exit.us
   %.043.in.us = phi i64 [ %51, %fmap_readn.exit.us ], [ %18, %16 ]
@@ -972,8 +972,8 @@ fmap_readn.exit.us:                               ; preds = %46, %36
   br i1 %52, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %cli_memmem.exit.us
-  %.043.in.us69 = phi i64 [ %78, %cli_memmem.exit.us ], [ %18, %.split ]
-  %53 = and i64 %.043.in.us69, 4294967295
+  %.043.in.us70 = phi i64 [ %78, %cli_memmem.exit.us ], [ %18, %.split ]
+  %53 = and i64 %.043.in.us70, 4294967295
   %54 = add nuw nsw i64 %53, 4096
   %55 = icmp ugt i64 %54, %19
   br i1 %55, label %56, label %60
@@ -987,12 +987,12 @@ fmap_readn.exit.us:                               ; preds = %46, %36
   br label %60
 
 60:                                               ; preds = %58, %.split.split.us
-  %.0.us70 = phi i64 [ %59, %58 ], [ 4096, %.split.split.us ]
+  %.0.us71 = phi i64 [ %59, %58 ], [ 4096, %.split.split.us ]
   %61 = load i64, ptr %24, align 8
   %62 = icmp ne i64 %61, %53
-  %63 = icmp ne i64 %.0.us70, 0
-  %or.cond.i.us71 = and i1 %63, %62
-  br i1 %or.cond.i.us71, label %64, label %fmap_readn.exit.us74
+  %63 = icmp ne i64 %.0.us71, 0
+  %or.cond.i.us72 = and i1 %63, %62
+  br i1 %or.cond.i.us72, label %64, label %fmap_readn.exit.us75
 
 64:                                               ; preds = %60
   %65 = icmp ult i64 %61, %53
@@ -1000,32 +1000,32 @@ fmap_readn.exit.us:                               ; preds = %46, %36
 
 66:                                               ; preds = %64
   %67 = sub i64 %61, %53
-  %spec.select.i.us72 = call i64 @llvm.umin.i64(i64 %67, i64 %.0.us70)
+  %spec.select.i.us73 = call i64 @llvm.umin.i64(i64 %67, i64 %.0.us71)
   %68 = load ptr, ptr %25, align 8
-  %69 = call ptr %68(ptr noundef nonnull %7, i64 noundef %53, i64 noundef %spec.select.i.us72, i32 noundef 0) #29
-  %.not.i.us73 = icmp eq ptr %69, null
-  br i1 %.not.i.us73, label %fmap_readn.exit.thread, label %70
+  %69 = call ptr %68(ptr noundef nonnull %7, i64 noundef %53, i64 noundef %spec.select.i.us73, i32 noundef 0) #29
+  %.not.i.us74 = icmp eq ptr %69, null
+  br i1 %.not.i.us74, label %fmap_readn.exit.thread, label %70
 
 70:                                               ; preds = %66
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %69, i64 %spec.select.i.us72, i1 false)
-  %71 = icmp ult i64 %spec.select.i.us72, 2147483648
-  %72 = select i1 %71, i64 %spec.select.i.us72, i64 -1
-  br label %fmap_readn.exit.us74
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %5, ptr nonnull align 1 %69, i64 %spec.select.i.us73, i1 false)
+  %71 = icmp ult i64 %spec.select.i.us73, 2147483648
+  %72 = select i1 %71, i64 %spec.select.i.us73, i64 -1
+  br label %fmap_readn.exit.us75
 
-fmap_readn.exit.us74:                             ; preds = %70, %60
-  %.0.i.us75 = phi i64 [ %72, %70 ], [ 0, %60 ]
-  %73 = icmp ult i64 %.0.i.us75, %9
-  %74 = icmp eq i64 %.0.i.us75, -1
-  %or.cond8.us76 = or i1 %73, %74
-  br i1 %or.cond8.us76, label %fmap_readn.exit.thread, label %cli_memmem.exit.us
+fmap_readn.exit.us75:                             ; preds = %70, %60
+  %.0.i.us76 = phi i64 [ %72, %70 ], [ 0, %60 ]
+  %73 = icmp ult i64 %.0.i.us76, %9
+  %74 = icmp eq i64 %.0.i.us76, -1
+  %or.cond8.us77 = or i1 %73, %74
+  br i1 %or.cond8.us77, label %fmap_readn.exit.thread, label %cli_memmem.exit.us
 
-cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us74
+cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us75
   %75 = load i8, ptr %1, align 1
   %76 = zext i8 %75 to i32
-  %77 = call ptr @memchr(ptr noundef nonnull %5, i32 noundef %76, i64 noundef %.0.i.us75) #30
+  %77 = call ptr @memchr(ptr noundef nonnull %5, i32 noundef %76, i64 noundef %.0.i.us76) #30
   %.not.us = icmp eq ptr %77, null
-  %78 = add i64 %.0.i.us75, %53
-  br i1 %.not.us, label %.split.split.us, label %cli_memmem.exit.thread58
+  %78 = add i64 %.0.i.us76, %53
+  br i1 %.not.us, label %.split.split.us, label %cli_memmem.exit.thread59
 
 .split.split:                                     ; preds = %.split, %cli_memmem.exit.thread
   %.043.in = phi i64 [ %119, %cli_memmem.exit.thread ], [ %18, %.split ]
@@ -1063,7 +1063,7 @@ cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us7
   br i1 %.not.i, label %fmap_readn.exit.thread, label %96
 
 96:                                               ; preds = %92
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %95, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %5, ptr nonnull align 1 %95, i64 %spec.select.i, i1 false)
   %97 = icmp ult i64 %spec.select.i, 2147483648
   %98 = select i1 %97, i64 %spec.select.i, i64 -1
   br label %fmap_readn.exit
@@ -1094,9 +1094,9 @@ fmap_readn.exit:                                  ; preds = %86, %96
 
 107:                                              ; preds = %.lr.ph.i
   %108 = getelementptr inbounds i8, ptr %106, i64 1
-  %bcmp.i = call i32 @bcmp(ptr nonnull %108, ptr nonnull %26, i64 %28)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %108, ptr nonnull readonly %26, i64 %28)
   %.not32.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not32.i, label %cli_memmem.exit.thread58, label %109
+  br i1 %.not32.i, label %cli_memmem.exit.thread59, label %109
 
 109:                                              ; preds = %107
   %110 = ptrtoint ptr %.02536.i to i64
@@ -1104,15 +1104,15 @@ fmap_readn.exit:                                  ; preds = %86, %96
   %.neg.i = sub i64 %110, %111
   %112 = trunc i64 %.neg.i to i32
   %113 = add i32 %.02635.i, %112
-  %.not.i53 = icmp ult i32 %113, %2
-  br i1 %.not.i53, label %cli_memmem.exit.thread, label %.lr.ph.i
+  %.not.i54 = icmp ult i32 %113, %2
+  br i1 %.not.i54, label %cli_memmem.exit.thread, label %.lr.ph.i
 
-cli_memmem.exit.thread58:                         ; preds = %107, %cli_memmem.exit.us
-  %.043.in68 = phi i64 [ %.043.in.us69, %cli_memmem.exit.us ], [ %.043.in, %107 ]
-  %.0.i5261 = phi ptr [ %77, %cli_memmem.exit.us ], [ %106, %107 ]
-  %114 = ptrtoint ptr %.0.i5261 to i64
+cli_memmem.exit.thread59:                         ; preds = %107, %cli_memmem.exit.us
+  %.043.in69 = phi i64 [ %.043.in.us70, %cli_memmem.exit.us ], [ %.043.in, %107 ]
+  %.0.i5362 = phi ptr [ %77, %cli_memmem.exit.us ], [ %106, %107 ]
+  %114 = ptrtoint ptr %.0.i5362 to i64
   %115 = ptrtoint ptr %5 to i64
-  %116 = sub i64 %.043.in68, %115
+  %116 = sub i64 %.043.in69, %115
   %117 = add i64 %116, %114
   %118 = trunc i64 %117 to i32
   br label %fmap_readn.exit.thread
@@ -1121,13 +1121,13 @@ cli_memmem.exit.thread:                           ; preds = %109, %.lr.ph.i, %.p
   %119 = add i64 %.0.i, %79
   br label %.split.split
 
-fmap_readn.exit.thread:                           ; preds = %92, %90, %fmap_readn.exit, %82, %56, %64, %66, %fmap_readn.exit.us74, %fmap_readn.exit.us, %42, %40, %32, %cli_memmem.exit.thread58, %13
-  %.042 = phi i32 [ -1, %13 ], [ %118, %cli_memmem.exit.thread58 ], [ -1, %32 ], [ -1, %40 ], [ -1, %42 ], [ -1, %fmap_readn.exit.us ], [ -1, %fmap_readn.exit.us74 ], [ -1, %66 ], [ -1, %64 ], [ -1, %56 ], [ -1, %82 ], [ -1, %fmap_readn.exit ], [ -1, %90 ], [ -1, %92 ]
+fmap_readn.exit.thread:                           ; preds = %92, %90, %fmap_readn.exit, %82, %56, %64, %66, %fmap_readn.exit.us75, %fmap_readn.exit.us, %42, %40, %32, %cli_memmem.exit.thread59, %13
+  %.042 = phi i32 [ -1, %13 ], [ %118, %cli_memmem.exit.thread59 ], [ -1, %32 ], [ -1, %40 ], [ -1, %42 ], [ -1, %fmap_readn.exit.us ], [ -1, %fmap_readn.exit.us75 ], [ -1, %66 ], [ -1, %64 ], [ -1, %56 ], [ -1, %82 ], [ -1, %fmap_readn.exit ], [ -1, %90 ], [ -1, %92 ]
   ret i32 %.042
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcapi_file_byteat(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 256) i32 @cli_bcapi_file_byteat(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1219,7 +1219,7 @@ declare ptr @mpool_create() local_unnamed_addr #2
 declare ptr @mpool_malloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @cli_bcapi_get_pe_section(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 {
+define range(i32 -1, 1) i32 @cli_bcapi_get_pe_section(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1686,7 +1686,7 @@ declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @cli_hashset_init(ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcapi_hashset_add(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_hashset_add(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %get_hashset.exit.thread, label %5
 
@@ -1724,7 +1724,7 @@ get_hashset.exit:                                 ; preds = %8
 declare i32 @cli_hashset_addkey(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcapi_hashset_remove(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_hashset_remove(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %get_hashset.exit.thread, label %5
 
@@ -1762,7 +1762,7 @@ get_hashset.exit:                                 ; preds = %8
 declare i32 @cli_hashset_removekey(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcapi_hashset_contains(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @cli_bcapi_hashset_contains(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %get_hashset.exit.thread, label %5
 
@@ -1799,7 +1799,7 @@ get_hashset.exit:                                 ; preds = %8
 declare zeroext i1 @cli_hashset_contains(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcapi_hashset_empty(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @cli_bcapi_hashset_empty(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %get_hashset.exit.thread, label %4
 
@@ -1835,7 +1835,7 @@ get_hashset.exit:                                 ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_hashset_done(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_hashset_done(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %get_hashset.exit.thread, label %4
 
@@ -2120,7 +2120,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread:     ; preds = %cli_bcapi_buffer_pi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_buffer_pipe_read_stopped(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_buffer_pipe_read_stopped(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1224
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2265,7 +2265,7 @@ cli_bcapi_buffer_pipe_write_avail.exit.thread:    ; preds = %get_buffer.exit.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_buffer_pipe_write_stopped(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_buffer_pipe_write_stopped(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1224
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2306,7 +2306,7 @@ get_buffer.exit:                                  ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_buffer_pipe_done(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_buffer_pipe_done(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1224
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3582,7 +3582,7 @@ cli_bcapi_lzma_done.exit:                         ; preds = %2, %4, %7, %184, %1
 declare i32 @cli_LzmaDecode(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_lzma_done(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_lzma_done(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %get_lzma.exit.thread, label %4
 
@@ -4081,7 +4081,7 @@ declare i32 @BZ2_bzDecompress(ptr noundef) local_unnamed_addr #2
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_bzip2_done(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_bzip2_done(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %get_bzip2.exit.thread, label %4
 
@@ -4231,7 +4231,7 @@ declare void @cli_js_destroy(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_jsnorm_process(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_jsnorm_process(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1088
   %4 = load ptr, ptr %3, align 8
   %5 = icmp slt i32 %1, 0
@@ -4475,7 +4475,7 @@ get_jsnorm.exit.thread:                           ; preds = %cli_bcapi_buffer_pi
 declare void @cli_js_process_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_jsnorm_done(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_jsnorm_done(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %get_jsnorm.exit.thread, label %4
 
@@ -4708,7 +4708,7 @@ define i32 @cli_bcapi_memstr(ptr nocapture noundef readonly %0, ptr noundef %1, 
 declare ptr @cli_memstr(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcapi_hex2ui(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -128, 128) i32 @cli_bcapi_hex2ui(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca i8, align 1
   %5 = alloca [2 x i8], align 1
   store i8 0, ptr %4, align 1
@@ -4788,7 +4788,7 @@ define noundef i32 @cli_bcapi_atoi(ptr nocapture noundef readnone %0, ptr nounde
 declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_debug_print_str_start(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_debug_print_str_start(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq i32 %2, 0
   %or.cond = or i1 %4, %5
@@ -4930,7 +4930,7 @@ define i32 @cli_bcapi_map_new(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 declare i32 @cli_map_init(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcapi_map_addkey(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @cli_bcapi_map_addkey(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp slt i32 %3, 0
   br i1 %5, label %get_hashtab.exit.thread, label %6
 
@@ -4964,7 +4964,7 @@ get_hashtab.exit.thread:                          ; preds = %4, %6, %9, %get_has
 declare i32 @cli_map_addkey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcapi_map_setvalue(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_map_setvalue(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp slt i32 %3, 0
   br i1 %5, label %get_hashtab.exit.thread, label %6
 
@@ -4996,7 +4996,7 @@ get_hashtab.exit.thread:                          ; preds = %4, %6, %9, %get_has
 declare i32 @cli_map_setvalue(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcapi_map_remove(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @cli_bcapi_map_remove(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp slt i32 %3, 0
   br i1 %5, label %get_hashtab.exit.thread, label %6
 
@@ -5030,7 +5030,7 @@ get_hashtab.exit.thread:                          ; preds = %4, %6, %9, %get_has
 declare i32 @cli_map_removekey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcapi_map_find(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @cli_bcapi_map_find(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp slt i32 %3, 0
   br i1 %5, label %get_hashtab.exit.thread, label %6
 
@@ -5129,7 +5129,7 @@ get_hashtab.exit.thread:                          ; preds = %3, %5, %8, %get_has
 declare ptr @cli_map_getvalue(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_map_done(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_map_done(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %get_hashtab.exit.thread, label %4
 
@@ -5272,7 +5272,7 @@ define i32 @cli_bcapi_engine_scan_options(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -5746,7 +5746,7 @@ define i32 @cli_bcapi_engine_db_options(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @cli_bcapi_extract_set_container(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @cli_bcapi_extract_set_container(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp ugt i32 %1, 586
   br i1 %3, label %6, label %4
 
@@ -5761,7 +5761,7 @@ define noundef i32 @cli_bcapi_extract_set_container(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_input_switch(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_input_switch(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 1288
   %5 = load i32, ptr %4, align 8
@@ -5826,7 +5826,7 @@ declare i32 @cli_bytecode_context_setfile(ptr noundef, ptr noundef) local_unname
 declare ptr @fmap(i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_get_environment(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_get_environment(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp ugt i32 %2, 492
   br i1 %4, label %5, label %6
 
@@ -5944,7 +5944,7 @@ define i32 @cli_bcapi_disable_jit_if(ptr nocapture noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @cli_bcapi_version_compare(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #18 {
+define range(i32 -1, 2) i32 @cli_bcapi_version_compare(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #18 {
   %6 = zext i32 %4 to i64
   %7 = zext i32 %2 to i64
   br label %8
@@ -6115,7 +6115,7 @@ split:                                            ; preds = %40, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_check_platform(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @cli_bcapi_check_platform(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 1296
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 4
@@ -6301,7 +6301,7 @@ define i32 @cli_bcapi_pdf_get_flags(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_pdf_set_flags(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_pdf_set_flags(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1056
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -6541,7 +6541,7 @@ define i32 @cli_bcapi_pdf_getobjflags(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_pdf_setobjflags(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @cli_bcapi_pdf_setobjflags(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1056
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -6655,7 +6655,7 @@ define i32 @cli_bcapi_get_file_reliability(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @cli_bcapi_json_is_active(ptr nocapture noundef readonly %0) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @cli_bcapi_json_is_active(ptr nocapture noundef readonly %0) local_unnamed_addr #21 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1088
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 152
@@ -6793,7 +6793,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 declare i32 @json_object_object_get_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_bcapi_json_get_type(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 7) i32 @cli_bcapi_json_get_type(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1088
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 152

@@ -98,7 +98,7 @@ $_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb = comdat any
 @_ZN6hermes8oscompat25SigAltStackLeakSuppressorD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes8oscompat25SigAltStackLeakSuppressorD2Ev
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN6hermes8oscompat9page_sizeEv() local_unnamed_addr #0 {
+define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN6hermes8oscompat9page_sizeEv() local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @getpagesize() #21
   %conv.i = sext i32 %call.i to i64
@@ -595,7 +595,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 %div
+  %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 %div
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i, i8 0, i64 %sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
 
@@ -986,7 +986,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN6hermes8oscompat10process_idEv() local_unnamed_addr #1 {
+define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN6hermes8oscompat10process_idEv() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @getpid() #22
   %conv = sext i32 %call to i64

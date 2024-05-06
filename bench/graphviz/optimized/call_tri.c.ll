@@ -238,7 +238,7 @@ gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %
 
 .lr.ph54:                                         ; preds = %.preheader51
   %36 = getelementptr inbounds i8, ptr %33, i64 8
-  %37 = trunc i64 %indvars.iv66 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv66 to i32
   br label %38
 
 .preheader:                                       ; preds = %._crit_edge

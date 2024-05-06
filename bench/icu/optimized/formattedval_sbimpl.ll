@@ -619,7 +619,7 @@ declare noundef ptr @_ZNK6icu_7522FormattedStringBuilder5charsEv(ptr noundef non
 declare noundef i32 @_ZNK6icu_7522FormattedStringBuilder6lengthEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7531FormattedValueStringBuilderImpl12nextPositionERNS_24ConstrainedFieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(300) %this, ptr noundef nonnull align 8 dereferenceable(25) %cfpos, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7531FormattedValueStringBuilderImpl12nextPositionERNS_24ConstrainedFieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(300) %this, ptr noundef nonnull align 8 dereferenceable(25) %cfpos, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %fNumericField = getelementptr inbounds i8, ptr %this, i64 144
   %agg.tmp.sroa.0.0.copyload = load i8, ptr %fNumericField, align 8
@@ -1121,7 +1121,7 @@ return:                                           ; preds = %for.end304, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7531FormattedValueStringBuilderImpl17nextFieldPositionERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(300) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %fp, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7531FormattedValueStringBuilderImpl17nextFieldPositionERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(300) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %fp, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cfpos = alloca %"class.icu_75::ConstrainedFieldPosition", align 8
   %fField.i = getelementptr inbounds i8, ptr %fp, i64 8

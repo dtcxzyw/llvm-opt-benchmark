@@ -6904,7 +6904,7 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
 
 _ZN6hermes2vm15StringPrimitive13createDynamicERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %while.body.i.i, %if.then
   %cmp.lcssa.i.i = phi i1 [ true, %if.then ], [ %cmp.i.i.i, %while.body.i.i ]
-  %call3.i = tail call { i32, i64 } @_ZN6hermes2vm15StringPrimitive30createDynamicWithKnownEncodingERNS0_7RuntimeEN4llvh8ArrayRefIDsEEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %str.coerce0, i64 %str.coerce1, i1 noundef zeroext %cmp.lcssa.i.i)
+  %call3.i = tail call { i32, i64 } @_ZN6hermes2vm15StringPrimitive30createDynamicWithKnownEncodingERNS0_7RuntimeEN4llvh8ArrayRefIDsEEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readonly %str.coerce0, i64 %str.coerce1, i1 noundef zeroext %cmp.lcssa.i.i)
   br label %return
 
 if.then.i.i.i:                                    ; preds = %entry

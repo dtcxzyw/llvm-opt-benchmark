@@ -48,7 +48,7 @@ define dso_local i64 @rpc_ntop(ptr noundef %0, ptr noundef %1, i64 noundef %2) #
 17:                                               ; preds = %10
   %sext5 = shl i64 %2, 32
   %18 = ashr exact i64 %sext5, 32
-  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %18, ptr noundef nonnull @.str.3) #10
+  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %1, i64 noundef %18, ptr noundef nonnull @.str.3) #10
   br label %rpc_ntop6_noscopeid.exit
 
 20:                                               ; preds = %10
@@ -60,7 +60,7 @@ define dso_local i64 @rpc_ntop(ptr noundef %0, ptr noundef %1, i64 noundef %2) #
 24:                                               ; preds = %20
   %sext4 = shl i64 %2, 32
   %25 = ashr exact i64 %sext4, 32
-  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %25, ptr noundef nonnull @.str.4) #10
+  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %1, i64 noundef %25, ptr noundef nonnull @.str.4) #10
   br label %rpc_ntop6_noscopeid.exit
 
 27:                                               ; preds = %20
@@ -74,11 +74,11 @@ define dso_local i64 @rpc_ntop(ptr noundef %0, ptr noundef %1, i64 noundef %2) #
 
 33:                                               ; preds = %27
   %34 = getelementptr i8, ptr %0, i64 20
-  %35 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %32, ptr noundef nonnull @.str.5, ptr noundef %34) #10
+  %35 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %1, i64 noundef %32, ptr noundef nonnull @.str.5, ptr noundef %34) #10
   br label %rpc_ntop6_noscopeid.exit
 
 36:                                               ; preds = %27
-  %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %32, ptr noundef nonnull @.str.6, ptr noundef %11) #10
+  %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef writeonly %1, i64 noundef %32, ptr noundef nonnull @.str.6, ptr noundef %11) #10
   br label %rpc_ntop6_noscopeid.exit
 
 rpc_ntop6_noscopeid.exit:                         ; preds = %17, %24, %33, %36
@@ -125,7 +125,7 @@ rpc_ntop6_noscopeid.exit:                         ; preds = %17, %24, %33, %36
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @rpc_pton(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local noundef range(i64 0, 29) i64 @rpc_pton(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 align 16 {
   %6 = alloca [13 x i8], align 1
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -157,7 +157,7 @@ define dso_local noundef i64 @rpc_pton(ptr noundef %0, ptr noundef %1, i64 nound
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(28) %3, i8 0, i64 28, i1 false)
-  %25 = trunc i64 %2 to i32
+  %25 = trunc nuw nsw i64 %2 to i32
   %26 = call i32 @in6_pton(ptr noundef %1, i32 noundef %25, ptr noundef %24, i32 noundef 37, ptr noundef nonnull %8) #10
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %63, label %28
@@ -248,7 +248,7 @@ define dso_local noundef i64 @rpc_pton(ptr noundef %0, ptr noundef %1, i64 nound
 68:                                               ; preds = %.loopexit
   %69 = getelementptr inbounds i8, ptr %3, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %70 = trunc i64 %2 to i32
+  %70 = trunc nuw nsw i64 %2 to i32
   %71 = tail call i32 @in4_pton(ptr noundef %1, i32 noundef %70, ptr noundef %69, i32 noundef 0, ptr noundef null) #10
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %74, label %73
@@ -375,7 +375,7 @@ declare dso_local i64 @strlcat(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @rpc_uaddr2sockaddr(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local noundef range(i64 0, 29) i64 @rpc_uaddr2sockaddr(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 align 16 {
   %6 = alloca [61 x i8], align 16
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -423,7 +423,7 @@ define dso_local noundef i64 @rpc_uaddr2sockaddr(ptr noundef %0, ptr nocapture n
   %31 = or disjoint i16 %28, %30
   store i8 0, ptr %19, align 1
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #10
-  %33 = call i64 @rpc_pton(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %32, ptr noundef %3, i64 noundef %4), !range !12
+  %33 = call i64 @rpc_pton(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %32, ptr noundef %3, i64 noundef %4)
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %42, label %35
 
@@ -508,4 +508,3 @@ attributes #10 = { nounwind }
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
 !11 = !{i64 2156557081}
-!12 = !{i64 0, i64 29}

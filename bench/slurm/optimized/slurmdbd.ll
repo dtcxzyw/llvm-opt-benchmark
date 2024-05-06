@@ -2069,7 +2069,7 @@ declare ptr @list_next(ptr noundef) local_unnamed_addr #1
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_find_rollup_stats_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @_find_rollup_stats_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @xstrcmp(ptr noundef %3, ptr noundef %4) #16

@@ -110,7 +110,7 @@ define void @cleanup(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @write_image(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr nocapture noundef readnone %10, i32 noundef %11) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr nocapture noundef readnone %10, i32 noundef %11) local_unnamed_addr #1 {
   %13 = alloca float, align 4
   %14 = alloca float, align 4
   %15 = alloca float, align 4
@@ -621,7 +621,7 @@ define noundef i32 @write_image(ptr noundef %0, ptr noundef %1, ptr nocapture no
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_paper_size(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_paper_size(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 {
   %5 = alloca float, align 4
   %6 = alloca float, align 4
   %7 = alloca float, align 4
@@ -746,7 +746,7 @@ define i32 @bpp(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @levels(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define range(i32 256, 259) i32 @levels(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 432
   %3 = load i32, ptr %2, align 4, !tbaa !57
   %4 = icmp eq i32 %3, 8
@@ -776,7 +776,7 @@ define noundef i32 @flags(ptr nocapture noundef readnone %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dimension(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @dimension(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
   %5 = alloca float, align 4
   %6 = alloca float, align 4
   %7 = alloca float, align 4
@@ -1567,7 +1567,7 @@ define void @free_params(ptr nocapture noundef readnone %0, ptr nocapture nounde
 declare i32 @g_unlink(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8, !tbaa !95

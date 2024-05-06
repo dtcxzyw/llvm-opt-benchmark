@@ -142,7 +142,7 @@ define dso_local zeroext i1 @mce_gen_pool_empty() local_unnamed_addr #3 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mce_gen_pool_add(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @mce_gen_pool_add(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call zeroext i1 @filter_mce(ptr noundef %0) #6
   br i1 %2, label %22, label %3
 

@@ -40385,7 +40385,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviall
 
 invoke.cont16.i:                                  ; preds = %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i51.i, i64 %sub.ptr.sub.i.i.i
-  invoke fastcc void @_ZN4absl23inlined_vector_internal17ConstructElementsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEENS0_16CopyValueAdapterIS4_EEEEvRNS0_12TypeIdentityIT_E4typeENSt16allocator_traitsIS8_E7pointerERT0_NSD_9size_typeE(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %values.i, i64 noundef %n)
+  invoke fastcc void @_ZN4absl23inlined_vector_internal17ConstructElementsISaIN12_GLOBAL__N_124NotTriviallyDestructibleEENS0_16CopyValueAdapterIS4_EEEEvRNS0_12TypeIdentityIT_E4typeENSt16allocator_traitsIS8_E7pointerERT0_NSD_9size_typeE(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %values.i, i64 noundef %n)
           to label %invoke.cont18.i unwind label %lpad11.i
 
 invoke.cont18.i:                                  ; preds = %invoke.cont16.i
@@ -86886,7 +86886,7 @@ invoke.cont3.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %_ZN7testing7Matcher
   store ptr %call5.i.i.i.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2105
   %add.ptr26.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 48
   store ptr %add.ptr26.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2105
-  %call6.i.i.i.i.i.i.i.i.i.i.i.i.i.i = invoke fastcc ptr @_ZN7testing8internal20TransformTupleValuesISt5tupleIJN12_GLOBAL__N_115ValueIsMatcherPIiEES5_EENS0_22CastAndAppendTransformIRKN4absl13test_internal23CopyableMovableInstanceEEESt20back_insert_iteratorISt6vectorINS_7MatcherISC_EESaISH_EEEEET1_T0_RKT_SL_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, ptr nonnull %matchers.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  %call6.i.i.i.i.i.i.i.i.i.i.i.i.i.i = invoke fastcc ptr @_ZN7testing8internal20TransformTupleValuesISt5tupleIJN12_GLOBAL__N_115ValueIsMatcherPIiEES5_EENS0_22CastAndAppendTransformIRKN4absl13test_internal23CopyableMovableInstanceEEESt20back_insert_iteratorISt6vectorINS_7MatcherISC_EESaISH_EEEEET1_T0_RKT_SL_(ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp, ptr nonnull %matchers.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !2105
 
 invoke.cont5.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %invoke.cont3.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -117853,7 +117853,7 @@ _ZN4absl13InlinedVectorIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceELm2ESaIS2
   %2 = load i64, ptr %other, align 8
   store i64 %2, ptr %this, align 8
   %data_.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %data_.i.i.i, i64 16, i1 false)
   store i64 0, ptr %other, align 8
   br label %if.end
 
@@ -131293,7 +131293,7 @@ while.cond.i.i.i:                                 ; preds = %invoke.cont17.i.i, 
 
 _ZN7testing8internal9SkipCommaEPKc.exit.i.i:      ; preds = %while.cond.i.i.i, %invoke.cont17.i.i
   %retval.0.i.i.i = phi ptr [ null, %invoke.cont17.i.i ], [ %incdec.ptr.i.i154.i, %while.cond.i.i.i ]
-  invoke fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN12_GLOBAL__N_112InstanceTestENS0_9TemplatesINS2_25gtest_suite_InstanceTest_40CountConstructorsDestructorsOnAssignmentEJNS5_44CountConstructorsDestructorsOnMoveAssignmentENS5_28CountElemAssignInlineBackingENS5_17RangedConstructorENS5_12RangedAssignENS5_21InitializerListAssignEEEENS0_5TypesIN4absl13test_internal20CopyableOnlyInstanceEJNSF_23CopyableMovableInstanceEEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESL_SL_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISW_EE(ptr noundef nonnull %agg.tmp16.i.i, ptr noundef %retval.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %type_names)
+  invoke fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN12_GLOBAL__N_112InstanceTestENS0_9TemplatesINS2_25gtest_suite_InstanceTest_40CountConstructorsDestructorsOnAssignmentEJNS5_44CountConstructorsDestructorsOnMoveAssignmentENS5_28CountElemAssignInlineBackingENS5_17RangedConstructorENS5_12RangedAssignENS5_21InitializerListAssignEEEENS0_5TypesIN4absl13test_internal20CopyableOnlyInstanceEJNSF_23CopyableMovableInstanceEEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESL_SL_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISW_EE(ptr noundef nonnull %agg.tmp16.i.i, ptr noundef %retval.0.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %type_names)
           to label %invoke.cont21 unwind label %lpad18.i.i
 
 lpad18.i.i:                                       ; preds = %_ZN7testing8internal9SkipCommaEPKc.exit.i.i
@@ -148101,7 +148101,7 @@ while.cond.i.i.i:                                 ; preds = %invoke.cont17.i.i, 
 
 _ZN7testing8internal9SkipCommaEPKc.exit.i.i:      ; preds = %while.cond.i.i.i, %invoke.cont17.i.i
   %retval.0.i.i.i = phi ptr [ null, %invoke.cont17.i.i ], [ %incdec.ptr.i.i154.i, %while.cond.i.i.i ]
-  invoke fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN12_GLOBAL__N_112InstanceTestENS0_9TemplatesINS2_25gtest_suite_InstanceTest_17RangedConstructorEJNS5_12RangedAssignENS5_21InitializerListAssignEEEENS0_5TypesIN4absl13test_internal20CopyableOnlyInstanceEJNSC_23CopyableMovableInstanceEEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESI_SI_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EE(ptr noundef nonnull %agg.tmp16.i.i, ptr noundef %retval.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %type_names)
+  invoke fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN12_GLOBAL__N_112InstanceTestENS0_9TemplatesINS2_25gtest_suite_InstanceTest_17RangedConstructorEJNS5_12RangedAssignENS5_21InitializerListAssignEEEENS0_5TypesIN4absl13test_internal20CopyableOnlyInstanceEJNSC_23CopyableMovableInstanceEEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESI_SI_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EE(ptr noundef nonnull %agg.tmp16.i.i, ptr noundef %retval.0.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %type_names)
           to label %invoke.cont21 unwind label %lpad18.i.i
 
 lpad18.i.i:                                       ; preds = %_ZN7testing8internal9SkipCommaEPKc.exit.i.i
@@ -165113,7 +165113,7 @@ invoke.cont3.i.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN7testing7Matcher
   store ptr %call5.i.i.i.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3418
   %add.ptr26.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 48
   store ptr %add.ptr26.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3418
-  %call6.i.i.i.i.i.i.i.i.i.i.i.i.i = invoke fastcc ptr @_ZN7testing8internal20TransformTupleValuesISt5tupleIJN12_GLOBAL__N_115ValueIsMatcherPIiEES5_EENS0_22CastAndAppendTransformIRKN4absl13test_internal23CopyableMovableInstanceEEESt20back_insert_iteratorISt6vectorINS_7MatcherISC_EESaISH_EEEEET1_T0_RKT_SL_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp18, ptr nonnull %matchers.i.i.i.i.i.i.i.i.i.i.i.i.i)
+  %call6.i.i.i.i.i.i.i.i.i.i.i.i.i = invoke fastcc ptr @_ZN7testing8internal20TransformTupleValuesISt5tupleIJN12_GLOBAL__N_115ValueIsMatcherPIiEES5_EENS0_22CastAndAppendTransformIRKN4absl13test_internal23CopyableMovableInstanceEEESt20back_insert_iteratorISt6vectorINS_7MatcherISC_EESaISH_EEEEET1_T0_RKT_SL_(ptr noundef nonnull readonly align 4 dereferenceable(8) %ref.tmp18, ptr nonnull %matchers.i.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i.i.i.i.i, !noalias !3418
 
 invoke.cont5.i.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %invoke.cont3.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -207416,7 +207416,7 @@ while.cond.i.i.i:                                 ; preds = %invoke.cont17.i.i, 
 
 _ZN7testing8internal9SkipCommaEPKc.exit.i.i:      ; preds = %while.cond.i.i.i, %invoke.cont17.i.i
   %retval.0.i.i.i = phi ptr [ null, %invoke.cont17.i.i ], [ %incdec.ptr.i.i.i, %while.cond.i.i.i ]
-  invoke fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN12_GLOBAL__N_112InstanceTestENS0_9TemplatesINS2_25gtest_suite_InstanceTest_28CountConstructorsDestructorsEJNS5_46CountConstructorsDestructorsOnCopyConstructionENS5_46CountConstructorsDestructorsOnMoveConstructionENS5_40CountConstructorsDestructorsOnAssignmentENS5_44CountConstructorsDestructorsOnMoveAssignmentENS5_28CountElemAssignInlineBackingENS5_17RangedConstructorENS5_12RangedAssignENS5_21InitializerListAssignEEEENS0_5TypesIN4absl13test_internal20CopyableOnlyInstanceEJNSI_23CopyableMovableInstanceEEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESO_SO_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE(ptr noundef nonnull %agg.tmp16.i.i, ptr noundef %retval.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.i)
+  invoke fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN12_GLOBAL__N_112InstanceTestENS0_9TemplatesINS2_25gtest_suite_InstanceTest_28CountConstructorsDestructorsEJNS5_46CountConstructorsDestructorsOnCopyConstructionENS5_46CountConstructorsDestructorsOnMoveConstructionENS5_40CountConstructorsDestructorsOnAssignmentENS5_44CountConstructorsDestructorsOnMoveAssignmentENS5_28CountElemAssignInlineBackingENS5_17RangedConstructorENS5_12RangedAssignENS5_21InitializerListAssignEEEENS0_5TypesIN4absl13test_internal20CopyableOnlyInstanceEJNSI_23CopyableMovableInstanceEEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESO_SO_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISZ_EE(ptr noundef nonnull %agg.tmp16.i.i, ptr noundef %retval.0.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i)
           to label %invoke.cont8.i1299 unwind label %lpad18.i.i
 
 lpad18.i.i:                                       ; preds = %_ZN7testing8internal9SkipCommaEPKc.exit.i.i

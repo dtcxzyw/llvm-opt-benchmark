@@ -630,7 +630,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17h29f76e2e1e1c3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %3, ptr %11, align 8, !noalias !36
-  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 1, i128 -139896706554658727222074634865854235696, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.11.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.12.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 1, i128 -139896706554658727222074634865854235696, ptr noundef nonnull readonly align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.11.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.12.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %24 = load i64, ptr %16, align 8, !range !45, !noundef !5
   %trunc = trunc nuw i64 %24 to i1
@@ -900,7 +900,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17h47011d061699a
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %3, ptr %11, align 8, !noalias !77
-  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 0, i128 undef, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.21.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.22.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 0, i128 undef, ptr noundef nonnull readonly align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.21.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.22.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %24 = load i64, ptr %16, align 8, !range !45, !noundef !5
   %trunc = trunc nuw i64 %24 to i1
@@ -1172,7 +1172,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17h5f343fafb015e
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %3, ptr %11, align 8, !noalias !124
-  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 1, i128 11822386562980765700147178031761493962, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.17.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.18.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 1, i128 11822386562980765700147178031761493962, ptr noundef nonnull readonly align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.17.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.18.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %24 = load i64, ptr %16, align 8, !range !45, !noundef !5
   %trunc = trunc nuw i64 %24 to i1
@@ -1444,7 +1444,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17h8be37b48d17a8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %3, ptr %11, align 8, !noalias !172
-  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 1, i128 61145072028216658745340397613015023902, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.19.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.20.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 1, i128 61145072028216658745340397613015023902, ptr noundef nonnull readonly align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.19.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.20.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %24 = load i64, ptr %16, align 8, !range !45, !noundef !5
   %trunc = trunc nuw i64 %24 to i1
@@ -1716,7 +1716,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17hbfca55048b458
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %3, ptr %11, align 8, !noalias !219
-  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 0, i128 undef, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.27.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.28.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 0, i128 undef, ptr noundef nonnull readonly align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.27.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.28.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %24 = load i64, ptr %16, align 8, !range !45, !noundef !5
   %trunc = trunc nuw i64 %24 to i1
@@ -1988,7 +1988,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17hc273dd51fa818
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %3, ptr %11, align 8, !noalias !266
-  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 0, i128 undef, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.13.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.14.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 0, i128 undef, ptr noundef nonnull readonly align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.13.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.14.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %24 = load i64, ptr %16, align 8, !range !45, !noundef !5
   %trunc = trunc nuw i64 %24 to i1
@@ -2260,7 +2260,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17hc4e543ff6d6f9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %3, ptr %11, align 8, !noalias !313
-  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 0, i128 undef, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.15.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.16.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 0, i128 undef, ptr noundef nonnull readonly align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.15.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.16.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %24 = load i64, ptr %16, align 8, !range !45, !noundef !5
   %trunc = trunc nuw i64 %24 to i1
@@ -2532,7 +2532,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17hd08842ddd5c1b
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %3, ptr %11, align 8, !noalias !360
-  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 1, i128 35896749405683059237025482335941530363, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.23.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.24.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 1, i128 35896749405683059237025482335941530363, ptr noundef nonnull readonly align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.23.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.24.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %24 = load i64, ptr %16, align 8, !range !45, !noundef !5
   %trunc = trunc nuw i64 %24 to i1
@@ -2804,7 +2804,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17hd3b01f1b32bf9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %3, ptr %11, align 8, !noalias !407
-  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 0, i128 undef, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.9.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.10.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 0, i128 undef, ptr noundef nonnull readonly align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.9.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.10.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %24 = load i64, ptr %16, align 8, !range !45, !noundef !5
   %trunc = trunc nuw i64 %24 to i1
@@ -3076,7 +3076,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17he3d27c18f7a6e
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %3, ptr %11, align 8, !noalias !454
-  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 0, i128 undef, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.25.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.26.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$DB$C$Statement$GT$28cached_statement_non_generic17haf2b00ea19b511d3E.llvm.11416644905663497080"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 0, i128 undef, ptr noundef nonnull readonly align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.25.llvm.11416644905663497080, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, ptr noalias noundef nonnull readonly align 1 @anon.19b0594117fdc755ecdf9550998cf895.2, i64 noundef 0, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bdb090a1117cf739f754b9d10bfebc60.26.llvm.11416644905663497080, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %24 = load i64, ptr %16, align 8, !range !45, !noundef !5
   %trunc = trunc nuw i64 %24 to i1
@@ -3512,7 +3512,7 @@ define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as
           to label %24 unwind label %22, !noalias !518
 
 21:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !520
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !520
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !518
   br label %"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$17h2fd67173e8fd79e6E.llvm.10866059451781706916.exit"
 
@@ -3660,7 +3660,7 @@ define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as
           to label %24 unwind label %22, !noalias !545
 
 21:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !547
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !547
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !545
   br label %"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$17h9ed749c3bda380b7E.llvm.10866059451781706916.exit"
 
@@ -3808,7 +3808,7 @@ define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as
           to label %24 unwind label %22, !noalias !572
 
 21:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !574
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !574
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !572
   br label %"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$17hc335af94c95fd1e2E.llvm.10866059451781706916.exit"
 
@@ -3956,7 +3956,7 @@ define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as
           to label %24 unwind label %22, !noalias !599
 
 21:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !601
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !601
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !599
   br label %"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$17hae114576c1b008e4E.llvm.10866059451781706916.exit"
 
@@ -4104,7 +4104,7 @@ define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as
           to label %24 unwind label %22, !noalias !626
 
 21:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !628
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !628
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !626
   br label %"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$17h07378ef27d18faeaE.llvm.10866059451781706916.exit"
 
@@ -4252,7 +4252,7 @@ define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as
           to label %24 unwind label %22, !noalias !653
 
 21:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !655
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !655
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !653
   br label %"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$17h8f0f46e6b79e1a8eE.llvm.10866059451781706916.exit"
 
@@ -4400,7 +4400,7 @@ define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as
           to label %24 unwind label %22, !noalias !680
 
 21:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !682
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !682
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !680
   br label %"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$17h8b6a7de2eb790191E.llvm.10866059451781706916.exit"
 
@@ -4548,7 +4548,7 @@ define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as
           to label %24 unwind label %22, !noalias !707
 
 21:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !709
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !709
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !707
   br label %"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$17he97137e90378f0b1E.llvm.10866059451781706916.exit"
 
@@ -4696,7 +4696,7 @@ define hidden void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as
           to label %24 unwind label %22, !noalias !734
 
 21:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !736
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.i, i64 32, i1 false), !noalias !736
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !734
   br label %"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..Connection$GT$23execute_returning_count28_$u7b$$u7b$closure$u7d$$u7d$17ha2b91fa8fca4d55eE.llvm.10866059451781706916.exit"
 

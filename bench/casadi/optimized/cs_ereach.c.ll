@@ -68,7 +68,7 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
   br i1 %38, label %.lr.ph, label %.loopexit
 
 .preheader69:                                     ; preds = %.lr.ph
-  %39 = trunc i64 %indvars.iv.next to i32
+  %39 = trunc nuw i64 %indvars.iv.next to i32
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph75.preheader, label %.loopexit
 
@@ -109,7 +109,7 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
   br i1 %57, label %.lr.ph75, label %.loopexit.loopexit, !llvm.loop !6
 
 .loopexit.loopexit:                               ; preds = %.lr.ph75
-  %58 = trunc i64 %indvars.iv.next86 to i32
+  %58 = trunc nsw i64 %indvars.iv.next86 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader70, %.loopexit.loopexit, %.preheader69, %.lr.ph79

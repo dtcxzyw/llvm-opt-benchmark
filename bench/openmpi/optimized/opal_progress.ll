@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_threads_pthreads_yield_fn = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_progress_init() local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @opal_progress_init() local_unnamed_addr #0 {
   store volatile i32 0, ptr @progress_lock, align 4
   fence release
   store i64 0, ptr @event_progress_delta, align 8
@@ -349,7 +349,7 @@ define zeroext i1 @opal_progress_set_yield_when_idle(i1 noundef zeroext %0) loca
 declare i64 @opal_timer_base_get_freq() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_progress_register(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @opal_progress_register(ptr noundef %0) local_unnamed_addr #0 {
   %2 = cmpxchg volatile ptr @progress_lock, i32 0, i32 1 acquire monotonic, align 4
   %3 = extractvalue { i32, i1 } %2, 1
   br i1 %3, label %opal_atomic_lock.exit, label %.preheader.i
@@ -510,7 +510,7 @@ _opal_progress_register.exit:                     ; preds = %opal_progress_find_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_progress_register_lp(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @opal_progress_register_lp(ptr noundef %0) local_unnamed_addr #0 {
   %2 = cmpxchg volatile ptr @progress_lock, i32 0, i32 1 acquire monotonic, align 4
   %3 = extractvalue { i32, i1 } %2, 1
   br i1 %3, label %opal_atomic_lock.exit, label %.preheader.i
@@ -671,7 +671,7 @@ _opal_progress_register.exit:                     ; preds = %opal_progress_find_
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @opal_progress_unregister(ptr noundef readnone %0) local_unnamed_addr #7 {
+define range(i32 -13, 1) i32 @opal_progress_unregister(ptr noundef readnone %0) local_unnamed_addr #7 {
   %2 = cmpxchg volatile ptr @progress_lock, i32 0, i32 1 acquire monotonic, align 4
   %3 = extractvalue { i32, i1 } %2, 1
   br i1 %3, label %opal_atomic_lock.exit, label %.preheader.i

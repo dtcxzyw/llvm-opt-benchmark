@@ -56,10 +56,10 @@ Abc_UtilStrsav.exit:                              ; preds = %3
   %8 = tail call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #19
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #20
   %11 = add i64 %10, 1
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #19
-  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %0) #21
+  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %0) #21
   %.pr = load i8, ptr %12, align 1
   %.not165 = icmp eq i8 %.pr, 0
   br i1 %.not165, label %._crit_edge, label %.lr.ph
@@ -232,7 +232,7 @@ Vec_PtrFree.exit:                                 ; preds = %65, %63
   br i1 %.not136, label %._crit_edge171, label %.lr.ph170, !llvm.loop !6
 
 ._crit_edge171:                                   ; preds = %.lr.ph170
-  %78 = trunc i64 %indvars.iv.next to i32
+  %78 = trunc nuw i64 %indvars.iv.next to i32
   %79 = icmp slt i32 %.0110172, %78
   br i1 %79, label %81, label %85
 
@@ -322,8 +322,8 @@ Vec_PtrFree.exit:                                 ; preds = %65, %63
 
 .preheader153:                                    ; preds = %.preheader153.lr.ph, %120
   %indvars.iv198 = phi i64 [ 1, %.preheader153.lr.ph ], [ %indvars.iv.next199, %120 ]
-  %101 = trunc i64 %indvars.iv198 to i32
-  %102 = trunc i64 %indvars.iv198 to i32
+  %101 = trunc nuw nsw i64 %indvars.iv198 to i32
+  %102 = trunc nuw nsw i64 %indvars.iv198 to i32
   br label %103
 
 103:                                              ; preds = %.preheader153, %119
@@ -376,7 +376,7 @@ Vec_PtrFree.exit:                                 ; preds = %65, %63
 
 125:                                              ; preds = %121
   %126 = fpext float %123 to double
-  %127 = trunc i64 %indvars.iv203 to i32
+  %127 = trunc nuw nsw i64 %indvars.iv203 to i32
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 0, ptr noundef nonnull @.str.6, i32 noundef %127, double noundef %126)
   br label %128
 
@@ -459,7 +459,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_add
   br label %19
 
 19:                                               ; preds = %12, %7, %13, %16, %8, %10
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %20 = call i32 (...) @Abc_FrameIsBridgeMode() #21
   %.not9 = icmp eq i32 %20, 0
   br i1 %.not9, label %27, label %21
@@ -478,7 +478,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_add
   br label %29
 
 29:                                               ; preds = %27, %21
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %30
 
 30:                                               ; preds = %2, %29
@@ -492,7 +492,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 declare double @atof(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_FrameSetLutLibrary(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_FrameSetLutLibrary(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @If_LibLutReadString(ptr noundef %1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -609,10 +609,10 @@ define noalias noundef ptr @If_LibLutRead(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %7
 
 7:                                                ; preds = %6
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #20
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #19
-  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %0) #21
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %0) #21
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %6, %7
@@ -691,14 +691,14 @@ Abc_UtilStrsav.exit:                              ; preds = %6, %7
   br i1 %.not109, label %._crit_edge126, label %.lr.ph125, !llvm.loop !12
 
 ._crit_edge126:                                   ; preds = %.lr.ph125
-  %43 = trunc i64 %indvars.iv.next to i32
+  %43 = trunc nuw i64 %indvars.iv.next to i32
   %sext = shl i64 %indvars.iv.next, 32
   %44 = ashr exact i64 %sext, 32
   %45 = icmp slt i64 %indvars.iv149, %44
   br i1 %45, label %46, label %52
 
 46:                                               ; preds = %._crit_edge126
-  %47 = trunc i64 %indvars.iv149 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv149 to i32
   %48 = load ptr, ptr %calloc, align 8
   %.not111 = icmp eq ptr %48, null
   br i1 %.not111, label %50, label %49
@@ -748,7 +748,7 @@ Abc_UtilStrsav.exit:                              ; preds = %6, %7
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge
   %indvars.iv.next150.lcssa.sink = phi i64 [ %indvars.iv149, %.backedge ], [ %indvars.iv.next150, %.outer ]
-  %62 = trunc i64 %indvars.iv.next150.lcssa.sink to i32
+  %62 = trunc nuw nsw i64 %indvars.iv.next150.lcssa.sink to i32
   %63 = add nsw i32 %62, -1
   %64 = getelementptr inbounds i8, ptr %calloc, i64 8
   store i32 %63, ptr %64, align 8
@@ -781,8 +781,8 @@ Abc_UtilStrsav.exit:                              ; preds = %6, %7
 
 .preheader113:                                    ; preds = %.preheader113.lr.ph, %89
   %indvars.iv155 = phi i64 [ 1, %.preheader113.lr.ph ], [ %indvars.iv.next156, %89 ]
-  %70 = trunc i64 %indvars.iv155 to i32
-  %71 = trunc i64 %indvars.iv155 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv155 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv155 to i32
   br label %72
 
 72:                                               ; preds = %.preheader113, %88
@@ -835,7 +835,7 @@ Abc_UtilStrsav.exit:                              ; preds = %6, %7
 
 94:                                               ; preds = %90
   %95 = fpext float %92 to double
-  %96 = trunc i64 %indvars.iv160 to i32
+  %96 = trunc nuw nsw i64 %indvars.iv160 to i32
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 0, ptr noundef nonnull @.str.6, i32 noundef %96, double noundef %95)
   br label %97
 
@@ -871,10 +871,10 @@ define noalias noundef ptr @If_LibLutDup(ptr nocapture noundef readonly %0) loca
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #20
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #20
   %6 = add i64 %5, 1
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #19
-  %8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %3) #21
+  %8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %3) #21
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %4
@@ -919,7 +919,7 @@ define void @If_LibLutPrint(ptr nocapture noundef readonly %0) local_unnamed_add
   %11 = getelementptr inbounds [33 x float], ptr %6, i64 0, i64 %indvars.iv33
   %12 = load float, ptr %11, align 4
   %13 = fpext float %12 to double
-  %14 = trunc i64 %indvars.iv33 to i32
+  %14 = trunc nuw nsw i64 %indvars.iv33 to i32
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.14, i32 noundef %14, double noundef %13)
   br label %15
 
@@ -949,7 +949,7 @@ define void @If_LibLutPrint(ptr nocapture noundef readonly %0) local_unnamed_add
   %26 = getelementptr inbounds [33 x [33 x float]], ptr %9, i64 0, i64 %indvars.iv36
   %27 = load float, ptr %26, align 4
   %28 = fpext float %27 to double
-  %29 = trunc i64 %indvars.iv36 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv36 to i32
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.17, i32 noundef %29, double noundef %25, double noundef %28)
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %30 = load i32, ptr %4, align 8
@@ -962,7 +962,7 @@ define void @If_LibLutPrint(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @If_LibLutDelaysAreDiscrete(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @If_LibLutDelaysAreDiscrete(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 148
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -994,7 +994,7 @@ define noundef i32 @If_LibLutDelaysAreDiscrete(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @If_LibLutDelaysAreDifferent(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @If_LibLutDelaysAreDifferent(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 148
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   %4 = load float, ptr %3, align 4
@@ -1071,16 +1071,16 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.If_LibLutSetSimple, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = tail call noalias dereferenceable_or_null(4504) ptr @malloc(i64 noundef 4504) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4504) %4, ptr noundef nonnull align 8 dereferenceable(4504) %switch.load, i64 4504, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4504) %4, ptr noundef nonnull readonly align 8 dereferenceable(4504) %switch.load, i64 4504, i1 false)
   %5 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %If_LibLutDup.exit, label %6
 
 6:                                                ; preds = %switch.lookup
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #20
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #20
   %8 = add i64 %7, 1
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #19
-  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %5) #21
+  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %5) #21
   br label %If_LibLutDup.exit
 
 If_LibLutDup.exit:                                ; preds = %switch.lookup, %6
@@ -1154,16 +1154,16 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #16
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #16
+declare void @llvm.va_start.p0(ptr) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #17

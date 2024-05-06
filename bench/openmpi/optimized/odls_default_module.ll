@@ -1219,7 +1219,7 @@ declare i32 @pmix_show_help_norender(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @prte_odls_base_default_signal_local_procs(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @send_signal(i32 noundef %0, i32 noundef %1) #1 {
+define internal range(i32 -17, 1) i32 @send_signal(i32 noundef %0, i32 noundef %1) #1 {
   %3 = load i8, ptr getelementptr inbounds (%struct.prte_odls_globals_t, ptr @prte_odls_globals, i64 0, i32 9), align 4
   %4 = trunc i8 %3 to i1
   %5 = sub nsw i32 0, %0

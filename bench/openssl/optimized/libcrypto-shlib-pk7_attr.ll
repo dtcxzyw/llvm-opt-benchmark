@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.PKCS7_add0_attrib_signing_time = private unnamed_addr constant [31 x i8] c"PKCS7_add0_attrib_signing_time\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS7_add_attrib_smimecap(ptr noundef %si, ptr noundef %cap) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_add_attrib_smimecap(ptr noundef %si, ptr noundef %cap) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ASN1_STRING_new() #2
   %cmp = icmp eq ptr %call, null
@@ -90,7 +90,7 @@ declare ptr @PKCS7_get_signed_attribute(ptr noundef, i32 noundef) local_unnamed_
 declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS7_simple_smimecap(ptr noundef %sk, i32 noundef %nid, i32 noundef %arg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_simple_smimecap(ptr noundef %sk, i32 noundef %nid, i32 noundef %arg) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_ALGOR_new() #2
   %cmp = icmp eq ptr %call, null
@@ -201,7 +201,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS7_add0_attrib_signing_time(ptr noundef %si, ptr noundef %t) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_add0_attrib_signing_time(ptr noundef %si, ptr noundef %t) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %t, null
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -238,7 +238,7 @@ declare ptr @X509_gmtime_adj(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @ASN1_TIME_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS7_add1_attrib_digest(ptr noundef %si, ptr noundef %md, i32 noundef %mdlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_add1_attrib_digest(ptr noundef %si, ptr noundef %md, i32 noundef %mdlen) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ASN1_OCTET_STRING_new() #2
   %cmp = icmp eq ptr %call, null

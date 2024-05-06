@@ -852,7 +852,7 @@ if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %28 = phi i16 [ %18, %while.end.i.thread.i.i.i.i ], [ %27, %while.end.i.i.i.i.i ]
   %retval.0.i1118.i.i.i.i = phi i64 [ 1, %while.end.i.thread.i.i.i.i ], [ %add.i.i.i.i.i, %while.end.i.i.i.i.i ]
   %29 = lshr i16 %28, 8
-  %conv8.i.i.i.i.i = trunc i16 %29 to i8
+  %conv8.i.i.i.i.i = trunc nuw i16 %29 to i8
   store i8 %conv8.i.i.i.i.i, ptr %buf.i, align 16, !tbaa !19
   br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit.i"
 
@@ -962,7 +962,7 @@ if.else.i.i.i.i71.i:                              ; preds = %while.end.i.i.i.i66
   %44 = phi i16 [ %34, %while.end.i.thread.i.i.i90.i ], [ %43, %while.end.i.i.i.i66.i ]
   %retval.0.i1118.i.i.i72.i = phi i64 [ 1, %while.end.i.thread.i.i.i90.i ], [ %add.i.i.i.i64.i, %while.end.i.i.i.i66.i ]
   %45 = lshr i16 %44, 8
-  %conv8.i.i.i.i73.i = trunc i16 %45 to i8
+  %conv8.i.i.i.i73.i = trunc nuw i16 %45 to i8
   store i8 %conv8.i.i.i.i73.i, ptr %buf.i, align 16, !tbaa !19
   br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit91.i"
 
@@ -998,7 +998,7 @@ cond.end12.critedge.i:                            ; preds = %.noexc58
 .noexc62:                                         ; preds = %cond.end12.critedge.i
   %51 = load i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, align 2, !tbaa !73
   %52 = lshr i16 %51, 8
-  %conv8.i.i.i.i104.i = trunc i16 %52 to i8
+  %conv8.i.i.i.i104.i = trunc nuw i16 %52 to i8
   store i8 %conv8.i.i.i.i104.i, ptr %buf.i, align 16, !tbaa !19
   %add.ptr.i.i106.i = getelementptr inbounds i8, ptr %buf.i, i64 1
   %vtable.i.i.i4.i109.i = load ptr, ptr %printer_.i.i.i, align 8, !tbaa !7
@@ -1099,7 +1099,7 @@ if.else.i.i.i.i134.i:                             ; preds = %while.end.i.i.i.i12
   %65 = phi i16 [ %56, %while.end.i.thread.i.i.i153.i ], [ %64, %while.end.i.i.i.i129.i ]
   %retval.0.i1118.i.i.i135.i = phi i64 [ 1, %while.end.i.thread.i.i.i153.i ], [ %add.i.i.i.i127.i, %while.end.i.i.i.i129.i ]
   %66 = lshr i16 %65, 8
-  %conv8.i.i.i.i136.i = trunc i16 %66 to i8
+  %conv8.i.i.i.i136.i = trunc nuw i16 %66 to i8
   store i8 %conv8.i.i.i.i136.i, ptr %buf.i, align 16, !tbaa !19
   br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit154.i"
 
@@ -1211,7 +1211,7 @@ if.else.i.i.i.i183.i:                             ; preds = %while.end.i.i.i.i17
   %81 = phi i16 [ %71, %while.end.i.thread.i.i.i202.i ], [ %80, %while.end.i.i.i.i178.i ]
   %retval.0.i1118.i.i.i184.i = phi i64 [ 1, %while.end.i.thread.i.i.i202.i ], [ %add.i.i.i.i176.i, %while.end.i.i.i.i178.i ]
   %82 = lshr i16 %81, 8
-  %conv8.i.i.i.i185.i = trunc i16 %82 to i8
+  %conv8.i.i.i.i185.i = trunc nuw i16 %82 to i8
   store i8 %conv8.i.i.i.i185.i, ptr %buf.i, align 16, !tbaa !19
   br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit203.i"
 
@@ -1325,7 +1325,7 @@ if.else.i.i.i.i227.i:                             ; preds = %while.end.i.i.i.i22
   %97 = phi i16 [ %88, %while.end.i.thread.i.i.i246.i ], [ %96, %while.end.i.i.i.i222.i ]
   %retval.0.i1118.i.i.i228.i = phi i64 [ 1, %while.end.i.thread.i.i.i246.i ], [ %add.i.i.i.i220.i, %while.end.i.i.i.i222.i ]
   %98 = lshr i16 %97, 8
-  %conv8.i.i.i.i229.i = trunc i16 %98 to i8
+  %conv8.i.i.i.i229.i = trunc nuw i16 %98 to i8
   store i8 %conv8.i.i.i.i229.i, ptr %buf.i, align 16, !tbaa !19
   br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit247.i"
 

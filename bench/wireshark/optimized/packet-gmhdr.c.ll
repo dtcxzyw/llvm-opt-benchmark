@@ -298,7 +298,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gmtrailer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 5, 1) i32 @dissect_gmtrailer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.vec_t, align 8
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %7 = icmp ult i32 %6, 5
@@ -377,7 +377,7 @@ define internal i32 @dissect_gmtrailer(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_gmtimestamp_trailer(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 15) i32 @dissect_gmtimestamp_trailer(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = load i32, ptr @gmhdr_decode_timestamp_trailer, align 4
   %.not = icmp eq i32 %6, 0
@@ -487,7 +487,7 @@ define internal fastcc void @dissect_gmtlv(ptr noundef %0, ptr noundef %1, ptr n
   %10 = and i16 %7, 255
   %11 = lshr i16 %7, 8
   %12 = zext nneg i16 %11 to i32
-  %trunc = trunc i16 %11 to i8
+  %trunc = trunc nuw i16 %11 to i8
   switch i8 %trunc, label %78 [
     i8 2, label %13
     i8 1, label %37

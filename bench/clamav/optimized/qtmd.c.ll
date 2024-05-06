@@ -1029,7 +1029,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1146, label %388, label %381
 
 381:                                              ; preds = %.lr.ph1794
-  %382 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %382 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1147 = icmp eq i32 %382, 0
   br i1 %.not1147, label %385, label %383
 
@@ -1051,7 +1051,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1148, label %398, label %391
 
 391:                                              ; preds = %388
-  %392 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %392 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1149 = icmp eq i32 %392, 0
   br i1 %.not1149, label %395, label %393
 
@@ -1244,7 +1244,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1116, label %500, label %493
 
 493:                                              ; preds = %.lr.ph1745
-  %494 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %494 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1117 = icmp eq i32 %494, 0
   br i1 %.not1117, label %497, label %495
 
@@ -1266,7 +1266,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1118, label %510, label %503
 
 503:                                              ; preds = %500
-  %504 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %504 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1119 = icmp eq i32 %504, 0
   br i1 %.not1119, label %507, label %505
 
@@ -1333,7 +1333,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1138, label %541, label %534
 
 534:                                              ; preds = %533
-  %535 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %535 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1139 = icmp eq i32 %535, 0
   br i1 %.not1139, label %538, label %536
 
@@ -1355,7 +1355,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1140, label %551, label %544
 
 544:                                              ; preds = %541
-  %545 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %545 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1141 = icmp eq i32 %545, 0
   br i1 %.not1141, label %548, label %546
 
@@ -1537,7 +1537,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1103, label %651, label %644
 
 644:                                              ; preds = %.lr.ph1712
-  %645 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %645 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1104 = icmp eq i32 %645, 0
   br i1 %.not1104, label %648, label %646
 
@@ -1559,7 +1559,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1105, label %661, label %654
 
 654:                                              ; preds = %651
-  %655 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %655 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1106 = icmp eq i32 %655, 0
   br i1 %.not1106, label %658, label %656
 
@@ -1626,7 +1626,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1108, label %692, label %685
 
 685:                                              ; preds = %684
-  %686 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %686 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1109 = icmp eq i32 %686, 0
   br i1 %.not1109, label %689, label %687
 
@@ -1648,7 +1648,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1110, label %702, label %695
 
 695:                                              ; preds = %692
-  %696 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %696 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1111 = icmp eq i32 %696, 0
   br i1 %.not1111, label %699, label %697
 
@@ -1830,7 +1830,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1077, label %802, label %795
 
 795:                                              ; preds = %.lr.ph1646
-  %796 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %796 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1078 = icmp eq i32 %796, 0
   br i1 %.not1078, label %799, label %797
 
@@ -1852,7 +1852,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1079, label %812, label %805
 
 805:                                              ; preds = %802
-  %806 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %806 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1080 = icmp eq i32 %806, 0
   br i1 %.not1080, label %809, label %807
 
@@ -1920,7 +1920,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1095, label %844, label %837
 
 837:                                              ; preds = %836
-  %838 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %838 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1096 = icmp eq i32 %838, 0
   br i1 %.not1096, label %841, label %839
 
@@ -1942,7 +1942,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1097, label %854, label %847
 
 847:                                              ; preds = %844
-  %848 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %848 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1098 = icmp eq i32 %848, 0
   br i1 %.not1098, label %851, label %849
 
@@ -2134,7 +2134,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1086, label %958, label %951
 
 951:                                              ; preds = %.lr.ph1679
-  %952 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %952 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1087 = icmp eq i32 %952, 0
   br i1 %.not1087, label %955, label %953
 
@@ -2156,7 +2156,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1088, label %968, label %961
 
 961:                                              ; preds = %958
-  %962 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %962 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1089 = icmp eq i32 %962, 0
   br i1 %.not1089, label %965, label %963
 
@@ -2223,7 +2223,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1091, label %999, label %992
 
 992:                                              ; preds = %991
-  %993 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %993 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1092 = icmp eq i32 %993, 0
   br i1 %.not1092, label %996, label %994
 
@@ -2245,7 +2245,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1093, label %1009, label %1002
 
 1002:                                             ; preds = %999
-  %1003 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %1003 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1094 = icmp eq i32 %1003, 0
   br i1 %.not1094, label %1006, label %1004
 
@@ -2547,7 +2547,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1134, label %1139, label %1132
 
 1132:                                             ; preds = %.lr.ph1840
-  %1133 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %1133 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1135 = icmp eq i32 %1133, 0
   br i1 %.not1135, label %1136, label %1134
 
@@ -2569,7 +2569,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1136, label %1149, label %1142
 
 1142:                                             ; preds = %1139
-  %1143 = tail call fastcc i32 @read_input(ptr noundef %0), !range !4
+  %1143 = tail call fastcc i32 @read_input(ptr noundef %0)
   %.not1137 = icmp eq i32 %1143, 0
   br i1 %.not1137, label %1146, label %1144
 
@@ -2728,7 +2728,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @read_input(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @read_input(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -2938,8 +2938,8 @@ define internal fastcc void @qtmd_update_model(ptr nocapture noundef %0) unnamed
 81:                                               ; preds = %.lr.ph69, %81
   %indvars.iv84 = phi i64 [ %56, %.lr.ph69 ], [ %indvars.iv.next85, %81 ]
   %82 = load ptr, ptr %55, align 8
-  %83 = getelementptr %struct.qtmd_modelsym, ptr %82, i64 %indvars.iv84
-  %84 = getelementptr i8, ptr %83, i64 6
+  %83 = getelementptr inbounds %struct.qtmd_modelsym, ptr %82, i64 %indvars.iv84
+  %84 = getelementptr inbounds i8, ptr %83, i64 6
   %85 = load i16, ptr %84, align 2
   %86 = getelementptr inbounds %struct.qtmd_modelsym, ptr %82, i64 %indvars.iv84, i32 1
   %87 = load i16, ptr %86, align 2
@@ -2997,4 +2997,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 4}

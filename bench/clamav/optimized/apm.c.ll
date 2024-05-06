@@ -73,7 +73,7 @@ define i32 @cli_scanapm(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %12
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %2, ptr nonnull align 1 %15, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %2, ptr nonnull align 1 %15, i64 %spec.select.i, i1 false)
   %.not66 = icmp ugt i64 %11, 81
   br i1 %.not66, label %16, label %fmap_readn.exit.thread
 
@@ -129,7 +129,7 @@ fmap_readn.exit.thread:                           ; preds = %12, %9, %fmap_readn
   br i1 %.not26.i135, label %fmap_readn.exit137.thread, label %fmap_readn.exit137
 
 fmap_readn.exit137:                               ; preds = %31
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %3, ptr nonnull align 1 %35, i64 %spec.select.i134, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %3, ptr nonnull align 1 %35, i64 %spec.select.i134, i1 false)
   %.not73 = icmp ugt i64 %32, 135
   br i1 %.not73, label %36, label %fmap_readn.exit137.thread
 
@@ -166,7 +166,7 @@ fmap_readn.exit137.thread:                        ; preds = %31, %30, %fmap_read
   br i1 %.not26.i140, label %fmap_readn.exit142.thread, label %fmap_readn.exit142
 
 fmap_readn.exit142:                               ; preds = %42
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %3, ptr nonnull align 1 %46, i64 %spec.select.i139, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %3, ptr nonnull align 1 %46, i64 %spec.select.i139, i1 false)
   %.not75 = icmp ugt i64 %43, 135
   br i1 %.not75, label %47, label %fmap_readn.exit142.thread
 
@@ -295,7 +295,7 @@ fmap_readn.exit142.thread:                        ; preds = %42, %39, %fmap_read
   br i1 %.not26.i145, label %fmap_readn.exit147.thread, label %fmap_readn.exit147
 
 fmap_readn.exit147:                               ; preds = %106
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %4, ptr nonnull align 1 %110, i64 %spec.select.i144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %4, ptr nonnull align 1 %110, i64 %spec.select.i144, i1 false)
   %.not97 = icmp ugt i64 %107, 135
   br i1 %.not97, label %111, label %fmap_readn.exit147.thread
 
@@ -490,7 +490,7 @@ define internal fastcc i32 @apm_partition_intersection(ptr noundef %0, ptr nocap
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %29, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %6, ptr nonnull align 1 %29, i64 %spec.select.i, i1 false)
   %.not28 = icmp ugt i64 %26, 135
   br i1 %.not28, label %31, label %fmap_readn.exit.thread
 

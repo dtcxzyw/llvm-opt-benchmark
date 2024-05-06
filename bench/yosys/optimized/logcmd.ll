@@ -202,7 +202,7 @@ define internal void @_ZN12_GLOBAL__N_17LogPass7executeESt6vectorINSt7__cxx1112b
   %.020.lcssa.ph = phi i1 [ %.02029, %.._crit_edge.loopexit_crit_edge ], [ %.121, %32 ]
   %.018.lcssa.ph = phi i1 [ %.01830, %.._crit_edge.loopexit_crit_edge ], [ %.119, %32 ]
   %.017.lcssa.ph = phi i8 [ %.01731, %.._crit_edge.loopexit_crit_edge ], [ %.1, %32 ]
-  %41 = trunc i8 %.017.lcssa.ph to i1
+  %41 = trunc nuw i8 %.017.lcssa.ph to i1
   %42 = select i1 %41, ptr @.str.23, ptr @.str.24
   br label %._crit_edge
 

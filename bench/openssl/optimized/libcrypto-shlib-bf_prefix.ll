@@ -124,7 +124,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %i.0.lcssa = phi i64 [ 0, %if.end38 ], [ %i.0.lcssa.ph, %for.end.loopexit ]
   %cmp39.lcssa = phi i1 [ true, %if.end38 ], [ %cmp39.le, %for.end.loopexit ]
   %inc49 = zext i1 %cmp39.lcssa to i64
-  %spec.select = add i64 %i.0.lcssa, %inc49
+  %spec.select = add nuw i64 %i.0.lcssa, %inc49
   %cmp52.not39 = icmp eq i64 %spec.select, 0
   br i1 %cmp52.not39, label %while.end, label %while.body54
 
@@ -266,7 +266,7 @@ return:                                           ; preds = %sw.bb17, %if.else, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @prefix_create(ptr noundef %b) #1 {
+define internal range(i32 0, 2) i32 @prefix_create(ptr noundef %b) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 16, ptr noundef nonnull @.str.3, i32 noundef 54) #4
   %cmp = icmp eq ptr %call, null

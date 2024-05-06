@@ -643,56 +643,56 @@ target triple = "x86_64-unknown-linux-gnu"
 @helper_info_gvec_bitsel = dso_local local_unnamed_addr global { ptr, ptr, i64, i8, i8, i8, i8, i8, i8, i8, i8, [14 x %struct.TCGCallArgumentLoc] } { ptr @helper_gvec_bitsel, ptr @.str.317, i64 0, i8 -80, i8 109, i8 1, i8 0, i8 1, i8 0, i8 0, i8 0, [14 x %struct.TCGCallArgumentLoc] zeroinitializer }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @helper_div_i32(i32 noundef %arg1, i32 noundef %arg2) #0 {
+define dso_local noundef i32 @helper_div_i32(i32 noundef %arg1, i32 noundef %arg2) #0 {
 entry:
   %div = sdiv i32 %arg1, %arg2
   ret i32 %div
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @helper_rem_i32(i32 noundef %arg1, i32 noundef %arg2) #0 {
+define dso_local noundef i32 @helper_rem_i32(i32 noundef %arg1, i32 noundef %arg2) #0 {
 entry:
   %rem = srem i32 %arg1, %arg2
   ret i32 %rem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @helper_divu_i32(i32 noundef %arg1, i32 noundef %arg2) #0 {
+define dso_local noundef i32 @helper_divu_i32(i32 noundef %arg1, i32 noundef %arg2) #0 {
 entry:
   %div = udiv i32 %arg1, %arg2
   ret i32 %div
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @helper_remu_i32(i32 noundef %arg1, i32 noundef %arg2) #0 {
+define dso_local noundef i32 @helper_remu_i32(i32 noundef %arg1, i32 noundef %arg2) #0 {
 entry:
   %rem = urem i32 %arg1, %arg2
   ret i32 %rem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_div_i64(i64 noundef %arg1, i64 noundef %arg2) #0 {
+define dso_local noundef i64 @helper_div_i64(i64 noundef %arg1, i64 noundef %arg2) #0 {
 entry:
   %div = sdiv i64 %arg1, %arg2
   ret i64 %div
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_rem_i64(i64 noundef %arg1, i64 noundef %arg2) #0 {
+define dso_local noundef i64 @helper_rem_i64(i64 noundef %arg1, i64 noundef %arg2) #0 {
 entry:
   %rem = srem i64 %arg1, %arg2
   ret i64 %rem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_divu_i64(i64 noundef %arg1, i64 noundef %arg2) #0 {
+define dso_local noundef i64 @helper_divu_i64(i64 noundef %arg1, i64 noundef %arg2) #0 {
 entry:
   %div = udiv i64 %arg1, %arg2
   ret i64 %div
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_remu_i64(i64 noundef %arg1, i64 noundef %arg2) #0 {
+define dso_local noundef i64 @helper_remu_i64(i64 noundef %arg1, i64 noundef %arg2) #0 {
 entry:
   %rem = urem i64 %arg1, %arg2
   ret i64 %rem
@@ -726,7 +726,7 @@ entry:
   %conv1.i = sext i64 %arg2 to i128
   %mul.i = mul nsw i128 %conv1.i, %conv.i
   %shr.i = lshr i128 %mul.i, 64
-  %conv3.i = trunc i128 %shr.i to i64
+  %conv3.i = trunc nuw i128 %shr.i to i64
   ret i64 %conv3.i
 }
 
@@ -737,716 +737,715 @@ entry:
   %conv1.i = zext i64 %arg2 to i128
   %mul.i = mul nuw i128 %conv1.i, %conv.i
   %shr.i = lshr i128 %mul.i, 64
-  %conv3.i = trunc i128 %shr.i to i64
+  %conv3.i = trunc nuw i128 %shr.i to i64
   ret i64 %conv3.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @helper_clz_i32(i32 noundef %arg, i32 noundef %zero_val) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define dso_local i32 @helper_clz_i32(i32 noundef %arg, i32 noundef %zero_val) #0 {
 entry:
   %tobool.not = icmp eq i32 %arg, 0
-  %0 = tail call i32 @llvm.ctlz.i32(i32 %arg, i1 true), !range !5
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %arg, i1 true)
   %spec.select = select i1 %tobool.not, i32 %zero_val, i32 %0
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @helper_ctz_i32(i32 noundef %arg, i32 noundef %zero_val) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define dso_local i32 @helper_ctz_i32(i32 noundef %arg, i32 noundef %zero_val) #0 {
 entry:
   %tobool.not = icmp eq i32 %arg, 0
-  %0 = tail call i32 @llvm.cttz.i32(i32 %arg, i1 true), !range !5
+  %0 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %arg, i1 true)
   %spec.select = select i1 %tobool.not, i32 %zero_val, i32 %0
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_clz_i64(i64 noundef %arg, i64 noundef %zero_val) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define dso_local i64 @helper_clz_i64(i64 noundef %arg, i64 noundef %zero_val) #0 {
 entry:
   %tobool.not = icmp eq i64 %arg, 0
-  %0 = tail call i64 @llvm.ctlz.i64(i64 %arg, i1 true), !range !6
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %arg, i1 true)
   %cond = select i1 %tobool.not, i64 %zero_val, i64 %0
   ret i64 %cond
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_ctz_i64(i64 noundef %arg, i64 noundef %zero_val) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define dso_local i64 @helper_ctz_i64(i64 noundef %arg, i64 noundef %zero_val) #0 {
 entry:
   %tobool.not = icmp eq i64 %arg, 0
-  %0 = tail call i64 @llvm.cttz.i64(i64 %arg, i1 true), !range !6
+  %0 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %arg, i1 true)
   %cond = select i1 %tobool.not, i64 %zero_val, i64 %0
   ret i64 %cond
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @helper_clrsb_i32(i32 noundef %arg) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define dso_local range(i32 -1, 32) i32 @helper_clrsb_i32(i32 noundef %arg) #0 {
 entry:
   %val.lobit.i = ashr i32 %arg, 31
   %0 = xor i32 %val.lobit.i, %arg
-  %1 = tail call i32 @llvm.ctlz.i32(i32 %0, i1 false), !range !5
+  %1 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %0, i1 false)
   %2 = add nsw i32 %1, -1
   ret i32 %2
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_clrsb_i64(i64 noundef %arg) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define dso_local range(i64 -1, 64) i64 @helper_clrsb_i64(i64 noundef %arg) #0 {
 entry:
   %val.lobit.i = ashr i64 %arg, 63
   %0 = xor i64 %val.lobit.i, %arg
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 false), !range !6
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 false)
   %cast.i = add nsw i64 %1, -1
   ret i64 %cast.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i32 @helper_ctpop_i32(i32 noundef %arg) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define dso_local range(i32 0, 33) i32 @helper_ctpop_i32(i32 noundef %arg) #0 {
 entry:
-  %0 = tail call i32 @llvm.ctpop.i32(i32 %arg), !range !5
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %arg)
   ret i32 %0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_ctpop_i64(i64 noundef %arg) #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define dso_local range(i64 0, 65) i64 @helper_ctpop_i64(i64 noundef %arg) #0 {
 entry:
-  %0 = tail call i64 @llvm.ctpop.i64(i64 %arg), !range !6
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %arg)
   ret i64 %0
 }
 
-declare ptr @helper_lookup_tb_ptr(ptr noundef) #2
+declare ptr @helper_lookup_tb_ptr(ptr noundef) #1
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local void @helper_exit_atomic(ptr noundef %env) #3 {
+define dso_local void @helper_exit_atomic(ptr noundef %env) #2 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i, i64 noundef %1) #8
+  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i, i64 noundef %1) #7
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @memset(ptr noundef writeonly, i32 noundef, i64 noundef) #4
+declare ptr @memset(ptr noundef writeonly, i32 noundef, i64 noundef) #3
 
-declare { i64, i64 } @helper_ld_i128(ptr noundef, i64 noundef, i32 noundef) #2
+declare { i64, i64 } @helper_ld_i128(ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_st_i128(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare void @helper_st_i128(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_cmpxchgb(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_cmpxchgb(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_cmpxchgw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_cmpxchgw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_cmpxchgw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_cmpxchgw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_cmpxchgl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_cmpxchgl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_cmpxchgl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_cmpxchgl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_cmpxchgq_be(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_cmpxchgq_be(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_cmpxchgq_le(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_cmpxchgq_le(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare { i64, i64 } @helper_atomic_cmpxchgo_be(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare { i64, i64 } @helper_atomic_cmpxchgo_be(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare { i64, i64 } @helper_atomic_cmpxchgo_le(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare { i64, i64 } @helper_atomic_cmpxchgo_le(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare { i64, i64 } @helper_nonatomic_cmpxchgo(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare { i64, i64 } @helper_nonatomic_cmpxchgo(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_addb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_addb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_addw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_addw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_addw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_addw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_addl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_addl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_addl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_addl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_addq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_addq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_addq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_addq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_andb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_andb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_andw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_andw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_andw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_andw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_andl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_andl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_andl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_andl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_andq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_andq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_andq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_andq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_orb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_orb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_orw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_orw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_orw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_orw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_orl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_orl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_orl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_orl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_orq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_orq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_orq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_orq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_xorb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_xorb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_xorw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_xorw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_xorw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_xorw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_xorl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_xorl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_xorl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_xorl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_xorq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_xorq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_xorq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_xorq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_sminb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_sminb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_sminw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_sminw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_sminw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_sminw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_sminl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_sminl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_sminl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_sminl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_sminq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_sminq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_sminq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_sminq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_uminb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_uminb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_uminw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_uminw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_uminw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_uminw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_uminl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_uminl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_uminl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_uminl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_uminq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_uminq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_uminq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_uminq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_smaxb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_smaxb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_smaxw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_smaxw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_smaxw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_smaxw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_smaxl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_smaxl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_smaxl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_smaxl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_smaxq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_smaxq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_smaxq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_smaxq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_umaxb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_umaxb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_umaxw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_umaxw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_umaxw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_umaxw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_umaxl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_umaxl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_fetch_umaxl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_fetch_umaxl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_umaxq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_umaxq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_fetch_umaxq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_fetch_umaxq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_add_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_add_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_add_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_add_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_add_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_add_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_add_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_add_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_add_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_add_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_add_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_add_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_add_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_add_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_and_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_and_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_and_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_and_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_and_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_and_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_and_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_and_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_and_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_and_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_and_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_and_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_and_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_and_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_or_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_or_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_or_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_or_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_or_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_or_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_or_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_or_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_or_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_or_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_or_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_or_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_or_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_or_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_xor_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_xor_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_xor_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_xor_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_xor_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_xor_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_xor_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_xor_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_xor_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_xor_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_xor_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_xor_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_xor_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_xor_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_smin_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_smin_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_smin_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_smin_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_smin_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_smin_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_smin_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_smin_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_smin_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_smin_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_smin_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_smin_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_smin_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_smin_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_umin_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_umin_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_umin_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_umin_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_umin_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_umin_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_umin_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_umin_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_umin_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_umin_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_umin_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_umin_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_umin_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_umin_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_smax_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_smax_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_smax_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_smax_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_smax_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_smax_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_smax_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_smax_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_smax_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_smax_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_smax_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_smax_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_smax_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_smax_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_umax_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_umax_fetchb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_umax_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_umax_fetchw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_umax_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_umax_fetchw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_umax_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_umax_fetchl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_umax_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_umax_fetchl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_umax_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_umax_fetchq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_umax_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_umax_fetchq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_xchgb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_xchgb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_xchgw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_xchgw_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_xchgw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_xchgw_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_xchgl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_xchgl_le(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @helper_atomic_xchgl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #2
+declare i32 @helper_atomic_xchgl_be(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_xchgq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_xchgq_le(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @helper_atomic_xchgq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #2
+declare i64 @helper_atomic_xchgq_be(ptr noundef, i64 noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_mov(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_mov(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_dup8(ptr noundef, i32 noundef, i32 noundef) #2
+declare void @helper_gvec_dup8(ptr noundef, i32 noundef, i32 noundef) #1
 
-declare void @helper_gvec_dup16(ptr noundef, i32 noundef, i32 noundef) #2
+declare void @helper_gvec_dup16(ptr noundef, i32 noundef, i32 noundef) #1
 
-declare void @helper_gvec_dup32(ptr noundef, i32 noundef, i32 noundef) #2
+declare void @helper_gvec_dup32(ptr noundef, i32 noundef, i32 noundef) #1
 
-declare void @helper_gvec_dup64(ptr noundef, i32 noundef, i64 noundef) #2
+declare void @helper_gvec_dup64(ptr noundef, i32 noundef, i64 noundef) #1
 
-declare void @helper_gvec_add8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_add8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_add16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_add16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_add32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_add32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_add64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_add64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_adds8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_adds8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_adds16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_adds16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_adds32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_adds32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_adds64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_adds64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_sub8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sub8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_sub16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sub16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_sub32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sub32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_sub64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sub64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_subs8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_subs8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_subs16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_subs16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_subs32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_subs32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_subs64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_subs64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_mul8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_mul8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_mul16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_mul16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_mul32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_mul32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_mul64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_mul64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_muls8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_muls8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_muls16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_muls16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_muls32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_muls32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_muls64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_muls64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_ssadd8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ssadd8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ssadd16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ssadd16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ssadd32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ssadd32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ssadd64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ssadd64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_sssub8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sssub8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_sssub16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sssub16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_sssub32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sssub32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_sssub64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sssub64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_usadd8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_usadd8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_usadd16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_usadd16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_usadd32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_usadd32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_usadd64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_usadd64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ussub8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ussub8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ussub16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ussub16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ussub32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ussub32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ussub64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ussub64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_smin8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_smin8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_smin16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_smin16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_smin32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_smin32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_smin64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_smin64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_smax8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_smax8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_smax16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_smax16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_smax32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_smax32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_smax64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_smax64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_umin8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_umin8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_umin16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_umin16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_umin32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_umin32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_umin64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_umin64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_umax8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_umax8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_umax16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_umax16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_umax32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_umax32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_umax64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_umax64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_neg8(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_neg8(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_neg16(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_neg16(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_neg32(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_neg32(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_neg64(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_neg64(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_abs8(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_abs8(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_abs16(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_abs16(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_abs32(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_abs32(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_abs64(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_abs64(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_not(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_not(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_and(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_and(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_or(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_or(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_xor(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_xor(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_andc(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_andc(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_orc(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_orc(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_nand(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_nand(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_nor(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_nor(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_eqv(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_eqv(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ands(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_ands(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_andcs(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_andcs(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_xors(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_xors(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_ors(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_ors(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_shl8i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shl8i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_shl16i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shl16i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_shl32i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shl32i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_shl64i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shl64i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_shr8i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shr8i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_shr16i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shr16i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_shr32i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shr32i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_shr64i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shr64i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_sar8i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sar8i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_sar16i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sar16i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_sar32i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sar32i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_sar64i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sar64i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_rotl8i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_rotl8i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_rotl16i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_rotl16i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_rotl32i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_rotl32i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_rotl64i(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_rotl64i(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_shl8v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shl8v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_shl16v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shl16v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_shl32v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shl32v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_shl64v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shl64v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_shr8v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shr8v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_shr16v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shr16v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_shr32v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shr32v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_shr64v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_shr64v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_sar8v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sar8v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_sar16v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sar16v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_sar32v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sar32v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_sar64v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_sar64v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_rotl8v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_rotl8v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_rotl16v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_rotl16v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_rotl32v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_rotl32v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_rotl64v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_rotl64v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_rotr8v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_rotr8v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_rotr16v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_rotr16v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_rotr32v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_rotr32v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_rotr64v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_rotr64v(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_eq8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_eq8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_eq16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_eq16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_eq32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_eq32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_eq64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_eq64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ne8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ne8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ne16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ne16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ne32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ne32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ne64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ne64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_lt8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_lt8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_lt16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_lt16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_lt32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_lt32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_lt64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_lt64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_le8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_le8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_le16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_le16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_le32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_le32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_le64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_le64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ltu8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ltu8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ltu16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ltu16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ltu32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ltu32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_ltu64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_ltu64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_leu8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_leu8(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_leu16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_leu16(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_leu32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_leu32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_leu64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_leu64(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @helper_gvec_eqs8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_eqs8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_eqs16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_eqs16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_eqs32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_eqs32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_eqs64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_eqs64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_lts8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_lts8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_lts16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_lts16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_lts32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_lts32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_lts64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_lts64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_les8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_les8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_les16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_les16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_les32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_les32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_les64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_les64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_ltus8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_ltus8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_ltus16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_ltus16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_ltus32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_ltus32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_ltus64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_ltus64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_leus8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_leus8(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_leus16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_leus16(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_leus32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_leus32(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_leus64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @helper_gvec_leus64(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-declare void @helper_gvec_bitsel(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare void @helper_gvec_bitsel(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: noreturn
-declare void @cpu_loop_exit_atomic(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @cpu_loop_exit_atomic(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare ptr @llvm.returnaddress(i32 immarg) #6
+declare ptr @llvm.returnaddress(i32 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #7
+declare i32 @llvm.ctpop.i32(i32) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #7
+declare i64 @llvm.ctpop.i64(i64) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { noreturn nounwind }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -1455,5 +1454,3 @@ attributes #8 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 33}
-!6 = !{i64 0, i64 65}

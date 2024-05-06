@@ -337,7 +337,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @rsa_default_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @RSA_public_encrypt(i64 noundef %flen, ptr noundef %from, ptr noundef %to, ptr noundef %rsa, i32 noundef %padding) local_unnamed_addr #0 {
+define hidden range(i32 -1, -2147483648) i32 @RSA_public_encrypt(i64 noundef %flen, ptr noundef %from, ptr noundef %to, ptr noundef %rsa, i32 noundef %padding) local_unnamed_addr #0 {
 entry:
   %out_len = alloca i64, align 8
   %0 = load ptr, ptr %rsa, align 8
@@ -442,7 +442,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @rsa_default_sign_raw(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @RSA_private_encrypt(i64 noundef %flen, ptr noundef %from, ptr noundef %to, ptr noundef %rsa, i32 noundef %padding) local_unnamed_addr #0 {
+define hidden range(i32 -1, -2147483648) i32 @RSA_private_encrypt(i64 noundef %flen, ptr noundef %from, ptr noundef %to, ptr noundef %rsa, i32 noundef %padding) local_unnamed_addr #0 {
 entry:
   %out_len = alloca i64, align 8
   %0 = load ptr, ptr %rsa, align 8
@@ -524,7 +524,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @rsa_default_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @RSA_private_decrypt(i64 noundef %flen, ptr noundef %from, ptr noundef %to, ptr noundef %rsa, i32 noundef %padding) local_unnamed_addr #0 {
+define hidden range(i32 -1, -2147483648) i32 @RSA_private_decrypt(i64 noundef %flen, ptr noundef %from, ptr noundef %to, ptr noundef %rsa, i32 noundef %padding) local_unnamed_addr #0 {
 entry:
   %out_len = alloca i64, align 8
   %0 = load ptr, ptr %rsa, align 8
@@ -582,7 +582,7 @@ return:                                           ; preds = %RSA_decrypt.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @RSA_public_decrypt(i64 noundef %flen, ptr noundef %from, ptr noundef %to, ptr noundef %rsa, i32 noundef %padding) local_unnamed_addr #0 {
+define hidden range(i32 -1, -2147483648) i32 @RSA_public_decrypt(i64 noundef %flen, ptr noundef %from, ptr noundef %to, ptr noundef %rsa, i32 noundef %padding) local_unnamed_addr #0 {
 entry:
   %out_len = alloca i64, align 8
   %0 = load ptr, ptr %rsa, align 8
@@ -629,7 +629,7 @@ declare i32 @RSA_verify_raw(ptr noundef, ptr noundef, ptr noundef, i64 noundef, 
 declare i64 @rsa_default_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @RSA_is_opaque(ptr nocapture noundef readonly %rsa) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @RSA_is_opaque(ptr nocapture noundef readonly %rsa) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -702,7 +702,7 @@ entry:
 declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @RSA_add_pkcs1_prefix(ptr nocapture noundef writeonly %out_msg, ptr nocapture noundef writeonly %out_msg_len, ptr nocapture noundef writeonly %is_alloced, i32 noundef %hash_nid, ptr noundef %msg, i64 noundef %msg_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_add_pkcs1_prefix(ptr nocapture noundef writeonly %out_msg, ptr nocapture noundef writeonly %out_msg_len, ptr nocapture noundef writeonly %is_alloced, i32 noundef %hash_nid, ptr noundef %msg, i64 noundef %msg_len) local_unnamed_addr #0 {
 entry:
   switch i32 %hash_nid, label %for.cond [
     i32 114, label %if.then
@@ -819,7 +819,7 @@ if.then:                                          ; preds = %RSA_size.exit
 
 if.end:                                           ; preds = %RSA_size.exit
   %conv = zext i32 %in_len to i64
-  %call4 = call i32 @RSA_add_pkcs1_prefix(ptr noundef nonnull %signed_msg, ptr noundef nonnull %signed_msg_len, ptr noundef nonnull %signed_msg_is_alloced, i32 noundef %hash_nid, ptr noundef %in, i64 noundef %conv), !range !10
+  %call4 = call i32 @RSA_add_pkcs1_prefix(ptr noundef nonnull %signed_msg, ptr noundef nonnull %signed_msg_len, ptr noundef nonnull %signed_msg_is_alloced, i32 noundef %hash_nid, ptr noundef %in, i64 noundef %conv)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %if.end7
 
@@ -883,7 +883,7 @@ return:                                           ; preds = %finish, %if.then21,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @RSA_verify(i32 noundef %hash_nid, ptr noundef %msg, i64 noundef %msg_len, ptr noundef %sig, i64 noundef %sig_len, ptr noundef %rsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_verify(i32 noundef %hash_nid, ptr noundef %msg, i64 noundef %msg_len, ptr noundef %sig, i64 noundef %sig_len, ptr noundef %rsa) local_unnamed_addr #0 {
 entry:
   %signed_msg = alloca ptr, align 8
   %signed_msg_len = alloca i64, align 8
@@ -948,7 +948,7 @@ if.end10:                                         ; preds = %if.end7
   br i1 %tobool12.not, label %out, label %if.end14
 
 if.end14:                                         ; preds = %if.end10
-  %call15 = call i32 @RSA_add_pkcs1_prefix(ptr noundef nonnull %signed_msg, ptr noundef nonnull %signed_msg_len, ptr noundef nonnull %signed_msg_is_alloced, i32 noundef %hash_nid, ptr noundef %msg, i64 noundef %msg_len), !range !10
+  %call15 = call i32 @RSA_add_pkcs1_prefix(ptr noundef nonnull %signed_msg, ptr noundef nonnull %signed_msg_len, ptr noundef nonnull %signed_msg_is_alloced, i32 noundef %hash_nid, ptr noundef %msg, i64 noundef %msg_len)
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %out, label %if.end18
 
@@ -986,7 +986,7 @@ return:                                           ; preds = %out, %if.then28, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @RSA_check_key(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_check_key(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
   %n = alloca %struct.bignum_st, align 8
   %pm1 = alloca %struct.bignum_st, align 8
@@ -1112,7 +1112,7 @@ if.end50:                                         ; preds = %if.end44
 for.cond:                                         ; preds = %lor.lhs.false65
   %inc = add nuw i64 %i.049, 1
   %exitcond.not = icmp eq i64 %inc, %call49
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.body:                                         ; preds = %if.end50, %for.cond
   %i.049 = phi i64 [ %inc, %for.cond ], [ 0, %if.end50 ]
@@ -1305,7 +1305,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #2
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @RSA_recover_crt_params(ptr nocapture noundef %rsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_recover_crt_params(ptr nocapture noundef %rsa) local_unnamed_addr #0 {
 entry:
   %n = getelementptr inbounds i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %n, align 8
@@ -1706,5 +1706,4 @@ attributes #10 = { nounwind allocsize(0) }
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = !{i32 0, i32 2}
-!11 = distinct !{!11, !8}
+!10 = distinct !{!10, !8}

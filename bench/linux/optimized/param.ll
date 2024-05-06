@@ -534,7 +534,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare dso_local void @_dev_notice(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_validate_option(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @e1000_validate_option(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %9
@@ -628,7 +628,7 @@ define internal fastcc noundef i32 @e1000_validate_option(ptr nocapture noundef 
   br i1 %52, label %53, label %.preheader, !llvm.loop !6
 
 53:                                               ; preds = %49
-  %54 = trunc i64 %indvars.iv.next to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.next to i32
   %55 = icmp sgt i32 %13, %54
   br label %56
 

@@ -434,7 +434,7 @@ define internal noalias noundef ptr @_set_db_inx_thread(ptr nocapture readnone %
 
 45:                                               ; preds = %44, %.lr.ph
   %46 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 280, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, i32 noundef 405, ptr noundef nonnull @__func__._set_db_inx_thread) #14
-  %47 = call fastcc i32 @_setup_job_start_msg(ptr noundef %46, ptr noundef nonnull %33), !range !8
+  %47 = call fastcc i32 @_setup_job_start_msg(ptr noundef %46, ptr noundef nonnull %33)
   %.not50 = icmp eq i32 %47, 0
   br i1 %.not50, label %70, label %48
 
@@ -593,7 +593,7 @@ _partial_destroy_dbd_job_start.exit:              ; preds = %48, %_partial_free_
 109:                                              ; preds = %99, %.critedge
   %110 = call i32 @slurm_list_count(ptr noundef %8) #14
   %.not52 = icmp eq i32 %110, 0
-  br i1 %.not52, label %._crit_edge, label %.lr.ph64, !llvm.loop !9
+  br i1 %.not52, label %._crit_edge, label %.lr.ph64, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %109, %.loopexit
   store i1 false, ptr @running_db_inx, align 1
@@ -622,7 +622,7 @@ _partial_destroy_dbd_job_start.exit:              ; preds = %48, %_partial_free_
 121:                                              ; preds = %111, %111, %._crit_edge, %118
   %122 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @db_inx_lock) #14
   %.not53 = icmp eq i32 %122, 0
-  br i1 %.not53, label %23, label %123, !llvm.loop !10
+  br i1 %.not53, label %23, label %123, !llvm.loop !9
 
 123:                                              ; preds = %121
   %124 = tail call ptr @__errno_location() #15
@@ -4241,7 +4241,7 @@ define i32 @acct_storage_p_fix_runaway_jobs(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @clusteracct_storage_p_node_down(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @clusteracct_storage_p_node_down(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.persist_msg_t, align 8
   %7 = alloca %struct.dbd_node_state_msg, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -4356,7 +4356,7 @@ define ptr @acct_storage_p_node_inx(ptr nocapture noundef readnone %0, ptr nound
   tail call void @free(ptr noundef nonnull %23) #14
   %29 = tail call ptr @slurm_hostlist_next(ptr noundef %6) #14
   %.not32 = icmp eq ptr %29, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %28, %18
   %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @cluster_hl_mutex) #14
@@ -4414,7 +4414,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 declare ptr @slurm_bit_fmt_full(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @clusteracct_storage_p_node_up(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @clusteracct_storage_p_node_up(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_node_state_msg, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
@@ -4453,7 +4453,7 @@ define i32 @clusteracct_storage_p_node_up(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @clusteracct_storage_p_node_update(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @clusteracct_storage_p_node_update(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_node_state_msg, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
@@ -4502,7 +4502,7 @@ define i32 @clusteracct_storage_p_node_update(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @clusteracct_storage_p_cluster_tres(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 10005, 10004) i32 @clusteracct_storage_p_cluster_tres(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.persist_msg_t, align 8
   %7 = alloca %struct.dbd_cluster_tres_msg, align 8
   %8 = alloca i32, align 4
@@ -4795,7 +4795,7 @@ define i32 @jobacct_storage_p_job_start(ptr noundef %0, ptr noundef %1) local_un
   %5 = alloca %struct.dbd_job_start_msg, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %6, align 8
-  %7 = call fastcc i32 @_setup_job_start_msg(ptr noundef nonnull %5, ptr noundef %1), !range !8
+  %7 = call fastcc i32 @_setup_job_start_msg(ptr noundef nonnull %5, ptr noundef %1)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %84
 
@@ -4951,7 +4951,7 @@ _sending_script_env.exit:                         ; preds = %73, %77
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_setup_job_start_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_setup_job_start_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 216
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -5370,7 +5370,7 @@ define i32 @jobacct_storage_p_job_heavy(ptr noundef %0, ptr noundef %1) local_un
   %31 = load i32, ptr %5, align 4
   %32 = zext i32 %31 to i64
   %33 = icmp ult i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   call void @slurm_xfree(ptr noundef nonnull %26) #14
@@ -5440,7 +5440,7 @@ declare ptr @get_job_script(ptr noundef) local_unnamed_addr #2
 declare void @slurm_free_buf(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @jobacct_storage_p_job_complete(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @jobacct_storage_p_job_complete(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.dbd_job_comp_msg, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -5620,7 +5620,7 @@ define i32 @jobacct_storage_p_job_complete(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @jobacct_storage_p_step_start(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @jobacct_storage_p_step_start(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.dbd_step_start_msg, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -5768,7 +5768,7 @@ define i32 @jobacct_storage_p_step_start(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @jobacct_storage_p_step_complete(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @jobacct_storage_p_step_complete(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.dbd_step_comp_msg, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -5918,7 +5918,7 @@ define i32 @jobacct_storage_p_step_complete(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @jobacct_storage_p_suspend(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @jobacct_storage_p_suspend(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.dbd_job_suspend_msg, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -6212,7 +6212,7 @@ define noundef i32 @acct_storage_p_update_shares_used(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @acct_storage_p_flush_jobs_on_cluster(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @acct_storage_p_flush_jobs_on_cluster(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.dbd_cluster_tres_msg, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -6363,7 +6363,7 @@ define i32 @acct_storage_p_clear_stats(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_storage_p_get_data(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @acct_storage_p_get_data(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   switch i32 %1, label %9 [
     i32 0, label %4
     i32 1, label %7
@@ -6627,8 +6627,7 @@ attributes #15 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}

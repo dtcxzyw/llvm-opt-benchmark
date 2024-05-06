@@ -838,7 +838,7 @@ define internal i32 @i845_check_cursor(ptr noundef %0, ptr noundef %1) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @i9xx_cursor_max_stride(ptr nocapture noundef readonly %0, i32 %1, i64 %2, i32 %3) #4 align 16 {
+define internal range(i32 0, -3) i32 @i9xx_cursor_max_stride(ptr nocapture noundef readonly %0, i32 %1, i64 %2, i32 %3) #4 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1432
   %7 = load i32, ptr %6, align 8

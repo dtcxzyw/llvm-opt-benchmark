@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [23 x i8] c"%s: pthread_join(): %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @init() local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %1 = alloca %union.pthread_attr_t, align 8
   %2 = load i8, ptr getelementptr inbounds (%struct.slurmctld_config, ptr @slurmctld_config, i64 0, i32 9), align 1
   %3 = trunc i8 %2 to i1

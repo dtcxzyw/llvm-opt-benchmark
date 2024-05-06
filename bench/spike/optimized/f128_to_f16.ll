@@ -54,7 +54,7 @@ define i16 @f128_to_f16(i64 %0, i64 %1) local_unnamed_addr #0 {
 
 30:                                               ; preds = %12, %14, %15, %24
   %.0 = phi i64 [ %16, %15 ], [ %25, %24 ], [ 32256, %14 ], [ 32256, %12 ]
-  %31 = trunc i64 %.0 to i16
+  %31 = trunc nuw i64 %.0 to i16
   br label %32
 
 32:                                               ; preds = %30, %26

@@ -72,7 +72,7 @@ define internal void @freeitem(ptr nocapture noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmpitems(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 -1, 2) i32 @cmpitems(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = icmp ugt ptr %5, %6
@@ -969,7 +969,7 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = tail call zeroext i1 @in_poly(ptr %18, i32 %20, double %.sroa.01.0.copyload, double %.sroa.22.0.copyload) #22
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %21, i32 %22, i32 -1111
   br label %23
 
@@ -985,7 +985,7 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
   %29 = getelementptr inbounds i8, ptr %27, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = tail call zeroext i1 @in_poly(ptr %28, i32 %30, double %.sroa.0.0.copyload, double %.sroa.2.0.copyload) #22
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select47 = select i1 %31, i32 %32, i32 -1111
   br label %33
 
@@ -1079,7 +1079,7 @@ define void @makeSpline(ptr noundef %0, ptr nocapture noundef readonly %1, i32 n
   br i1 %exitcond54.not, label %.loopexit.loopexit.i, label %.lr.ph54.i
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph54.i
-  %62 = trunc i64 %indvars.iv.next63.i to i32
+  %62 = trunc nsw i64 %indvars.iv.next63.i to i32
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.preheader.i, %.lr.ph59.i
@@ -1176,7 +1176,7 @@ declare void @clip_and_install(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 declare void @addEdgeLabels(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @splineEdges(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @splineEdges(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = alloca %struct.edgeitem, align 8
   %5 = alloca %struct.expand_t, align 8
   %6 = tail call { <2 x float>, i8 } @esepFactor(ptr noundef %0) #22
@@ -1394,8 +1394,8 @@ declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @dtclose(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @spline_edges1(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @splineEdges(ptr noundef %0, ptr noundef nonnull @_spline_edges, i32 noundef %1), !range !4
+define range(i32 0, 2) i32 @spline_edges1(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @splineEdges(ptr noundef %0, ptr noundef nonnull @_spline_edges, i32 noundef %1)
   ret i32 %3
 }
 
@@ -1930,7 +1930,7 @@ define void @spline_edges0(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call noundef i32 @splineEdges(ptr noundef nonnull %0, ptr noundef nonnull @_spline_edges, i32 noundef %8), !range !4
+  %14 = tail call i32 @splineEdges(ptr noundef nonnull %0, ptr noundef nonnull @_spline_edges, i32 noundef %8)
   br label %15
 
 15:                                               ; preds = %11, %13
@@ -2478,7 +2478,7 @@ define void @spline_edges(ptr noundef %0) local_unnamed_addr #0 {
 
 35:                                               ; preds = %._crit_edge
   %36 = zext nneg i16 %32 to i32
-  %37 = tail call noundef i32 @splineEdges(ptr noundef nonnull %0, ptr noundef nonnull @_spline_edges, i32 noundef %36), !range !4
+  %37 = tail call i32 @splineEdges(ptr noundef nonnull %0, ptr noundef nonnull @_spline_edges, i32 noundef %36)
   br label %spline_edges0.exit
 
 spline_edges0.exit:                               ; preds = %._crit_edge, %35
@@ -3056,4 +3056,3 @@ attributes #23 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

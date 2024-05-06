@@ -92,7 +92,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hea471c1face4dd27E(ptr
           to label %11 unwind label %15
 
 6:                                                ; preds = %2, %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   %7 = load i64, ptr %4, align 8, !range !8, !noundef !3
   %.not = icmp eq i64 %7, -9223372036854775808
@@ -387,7 +387,7 @@ define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h79b1ffd3dba4fc32E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define range(i8 -1, 3) i8 @"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h79b1ffd3dba4fc32E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !noundef !3
   %4 = icmp ne ptr %3, null
   %5 = load ptr, ptr %1, align 8, !noundef !3
@@ -413,7 +413,7 @@ define i8 @"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Partia
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7a6ee54729efa895E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define range(i8 -1, 3) i8 @"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7a6ee54729efa895E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !noundef !3
   %4 = icmp ne ptr %3, null
   %5 = load ptr, ptr %1, align 8, !noundef !3

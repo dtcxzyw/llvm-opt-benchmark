@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ssl3_send_next_proto.kZero = internal constant [32 x i8] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ssl3_connect(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @ssl3_connect(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %ok.i = alloca i32, align 4
   tail call void @ERR_clear_system_error() #11
@@ -1352,7 +1352,7 @@ if.then39:                                        ; preds = %if.end36
 
 while.end:                                        ; preds = %while.cond
   %call41 = call ptr @sk_value(ptr noundef nonnull %call2, i64 noundef 0) #11
-  %call42 = call fastcc i32 @ssl3_check_leaf_certificate(ptr noundef %ssl, ptr noundef %call41), !range !9
+  %call42 = call fastcc i32 @ssl3_check_leaf_certificate(ptr noundef %ssl, ptr noundef %call41)
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %f_err, label %if.end45
 
@@ -1401,7 +1401,7 @@ return:                                           ; preds = %err, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ssl3_verify_server_cert(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @ssl3_verify_server_cert(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %session = getelementptr inbounds i8, ptr %ssl, i64 184
   %0 = load ptr, ptr %session, align 8
@@ -2061,7 +2061,7 @@ if.then73:                                        ; preds = %lor.lhs.false68, %i
 if.end75:                                         ; preds = %lor.lhs.false68
   %call76 = call i64 @sk_push(ptr noundef nonnull %call17, ptr noundef nonnull %call65) #11
   %tobool77.not = icmp eq i64 %call76, 0
-  br i1 %tobool77.not, label %if.then78, label %while.cond, !llvm.loop !10
+  br i1 %tobool77.not, label %if.then78, label %while.cond, !llvm.loop !9
 
 if.then78:                                        ; preds = %if.end75
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1390) #11
@@ -3539,7 +3539,7 @@ for.inc:                                          ; preds = %if.end17, %if.end9,
   %inc = add nuw i64 %i.021, 1
   %call2 = call i64 @sk_num(ptr noundef %call1) #11
   %cmp = icmp ult i64 %inc, %call2
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc
   %6 = icmp eq i32 %any_enabled.1, 0
@@ -3661,7 +3661,7 @@ declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssl3_check_leaf_certificate(ptr noundef %ssl, ptr noundef %leaf) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl3_check_leaf_certificate(ptr noundef %ssl, ptr noundef %leaf) unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_get_pubkey(ptr noundef %leaf) #11
   %cmp = icmp eq ptr %call, null
@@ -3866,7 +3866,7 @@ declare i32 @ssl_private_key_sign(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare i32 @ssl_private_key_sign_complete(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ssl_do_client_cert_cb(ptr noundef %ssl, ptr noundef %out_x509, ptr noundef %out_pkey) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @ssl_do_client_cert_cb(ptr noundef %ssl, ptr noundef %out_x509, ptr noundef %out_pkey) local_unnamed_addr #0 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %ssl, i64 232
   %0 = load ptr, ptr %ctx, align 8
@@ -3979,6 +3979,5 @@ attributes #12 = { nounwind allocsize(0) }
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 0, i32 2}
+!9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}

@@ -261,7 +261,7 @@ declare void @_ZN2EA6Thread19ConditionParametersC1EbPKc(ptr noundef nonnull alig
 declare noundef zeroext i1 @_ZN2EA6Thread9Condition4InitEPKNS0_19ConditionParametersE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA6Thread7RWMutex4LockENS1_8LockTypeERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef %lockType, ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN2EA6Thread7RWMutex4LockENS1_8LockTypeERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef %lockType, ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #0 align 2 {
 entry:
   %mMutex = getelementptr inbounds i8, ptr %this, i64 24
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
@@ -344,7 +344,7 @@ declare noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 de
 declare noundef i64 @_ZN2EA6Thread11GetThreadIdEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA6Thread7RWMutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(168) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 2147483647) i32 @_ZN2EA6Thread7RWMutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(168) %this) local_unnamed_addr #0 align 2 {
 entry:
   %mMutex = getelementptr inbounds i8, ptr %this, i64 24
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)

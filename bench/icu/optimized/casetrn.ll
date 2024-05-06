@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7521CaseMapTransliteratorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7521CaseMapTransliteratorD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @utrans_rep_caseContextIterator_75(ptr nocapture noundef %context, i8 noundef signext %dir) #0 {
+define range(i32 -1, -2147483648) i32 @utrans_rep_caseContextIterator_75(ptr nocapture noundef %context, i8 noundef signext %dir) #0 {
 entry:
   %0 = load ptr, ptr %context, align 8
   %cmp = icmp slt i8 %dir, 0

@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @trace_netfs_sreq.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace440, ptr @trace_netfs_sreq.__UNIQUE_ID___addressable___SCK__tp_func_netfs_sreq439], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @v9fs_init_request(ptr nocapture noundef %0, ptr noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @v9fs_init_request(ptr nocapture noundef %0, ptr noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 282
   %4 = load i8, ptr %3, align 2
   switch i8 %4, label %5 [

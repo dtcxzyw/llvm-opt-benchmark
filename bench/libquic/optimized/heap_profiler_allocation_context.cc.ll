@@ -114,8 +114,8 @@ for.body.i.i.i.i.i:                               ; preds = %if.end.i, %for.body
   br i1 %or.cond, label %_ZN4base11trace_eventeqERKNS0_9BacktraceES3_.exit, label %for.body.i.i.i.i.i, !llvm.loop !5
 
 _ZN4base11trace_eventeqERKNS0_9BacktraceES3_.exit: ; preds = %for.body.i.i.i.i.i, %entry, %if.end.i
-  %retval.0.i = phi i1 [ true, %entry ], [ false, %if.end.i ], [ %cmp.i.i.i.i.i.i.not, %for.body.i.i.i.i.i ]
-  ret i1 %retval.0.i
+  %lnot = phi i1 [ true, %entry ], [ false, %if.end.i ], [ %cmp.i.i.i.i.i.i.not, %for.body.i.i.i.i.i ]
+  ret i1 %lnot
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -208,14 +208,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i, %for.bo
   br i1 %or.cond, label %_ZN4base11trace_eventeqERKNS0_17AllocationContextES3_.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !5
 
 _ZN4base11trace_eventeqERKNS0_17AllocationContextES3_.exit: ; preds = %for.body.i.i.i.i.i.i, %entry, %if.end.i.i
-  %retval.0.i.i = phi i1 [ true, %entry ], [ false, %if.end.i.i ], [ %cmp.i.i.i.i.i.i.i.not, %for.body.i.i.i.i.i.i ]
+  %retval.0.i.i.not = phi i1 [ true, %entry ], [ false, %if.end.i.i ], [ %cmp.i.i.i.i.i.i.i.not, %for.body.i.i.i.i.i.i ]
   %type_name.i = getelementptr inbounds i8, ptr %lhs, i64 776
   %4 = load ptr, ptr %type_name.i, align 8
   %type_name2.i = getelementptr inbounds i8, ptr %rhs, i64 776
   %5 = load ptr, ptr %type_name2.i, align 8
   %cmp.i = icmp ne ptr %4, %5
-  %6 = select i1 %retval.0.i.i, i1 true, i1 %cmp.i
-  ret i1 %6
+  %.not = select i1 %retval.0.i.i.not, i1 true, i1 %cmp.i
+  ret i1 %.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -228,7 +228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK9base_hash4hashIN4base11trace_event9BacktraceEEclERKS3_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %backtrace) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK9base_hash4hashIN4base11trace_event9BacktraceEEclERKS3_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %backtrace) local_unnamed_addr #5 align 2 {
 entry:
   %values = alloca [48 x ptr], align 16
   %frame_count = getelementptr inbounds i8, ptr %backtrace, i64 768

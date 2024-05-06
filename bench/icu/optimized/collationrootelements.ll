@@ -43,7 +43,7 @@ if.end.preheader.i:                               ; preds = %for.cond.preheader.
 
 for.cond.i:                                       ; preds = %if.end.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %5 = trunc i64 %indvars.iv.next.i to i32
+  %5 = trunc nsw i64 %indvars.iv.next.i to i32
   %cmp7.i = icmp eq i32 %limit.038.i, %5
   br i1 %cmp7.i, label %for.cond20.preheader.i, label %if.end.i, !llvm.loop !4
 
@@ -66,7 +66,7 @@ if.end23.preheader.i:                             ; preds = %for.cond20.preheade
 
 for.cond20.i:                                     ; preds = %if.end23.i
   %indvars.iv.next44.i = add nsw i64 %indvars.iv43.i, -1
-  %8 = trunc i64 %indvars.iv.next44.i to i32
+  %8 = trunc nsw i64 %indvars.iv.next44.i to i32
   %cmp21.i = icmp eq i32 %start.037.i, %8
   br i1 %cmp21.i, label %_ZNK6icu_7521CollationRootElements5findPEj.exit, label %if.end23.i, !llvm.loop !6
 
@@ -79,11 +79,11 @@ if.end23.i:                                       ; preds = %for.cond20.i, %if.e
   br i1 %cmp28.i, label %if.end37.loopexit.i, label %for.cond20.i, !llvm.loop !6
 
 if.end37.loopexit.i:                              ; preds = %if.end23.i
-  %10 = trunc i64 %indvars.iv43.i to i32
+  %10 = trunc nsw i64 %indvars.iv43.i to i32
   br label %if.end37.i
 
 if.end37.loopexit56.i:                            ; preds = %if.end.i
-  %11 = trunc i64 %indvars.iv.i to i32
+  %11 = trunc nsw i64 %indvars.iv.i to i32
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end37.loopexit56.i, %if.end37.loopexit.i, %while.body.i
@@ -128,7 +128,7 @@ for.cond:                                         ; preds = %for.cond, %if.else
   %15 = load i32, ptr %arrayidx14, align 4
   %and15 = and i32 %15, 128
   %cmp16 = icmp eq i32 %and15, 0
-  %indvars.iv.next34 = add i64 %indvars.iv33, -1
+  %indvars.iv.next34 = add nsw i64 %indvars.iv33, -1
   br i1 %cmp16, label %if.then17, label %for.cond, !llvm.loop !8
 
 if.then17:                                        ; preds = %for.cond
@@ -138,7 +138,7 @@ if.then17:                                        ; preds = %for.cond
 for.cond23:                                       ; preds = %_ZNK6icu_7521CollationRootElements5findPEj.exit, %for.cond23
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond23 ], [ %idxprom, %_ZNK6icu_7521CollationRootElements5findPEj.exit ]
   %secTer.0 = phi i32 [ %16, %for.cond23 ], [ 83887360, %_ZNK6icu_7521CollationRootElements5findPEj.exit ]
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx26 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
   %16 = load i32, ptr %arrayidx26, align 4
   %and27 = and i32 %16, 128
@@ -196,7 +196,7 @@ if.end.preheader:                                 ; preds = %for.cond.preheader
 
 for.cond:                                         ; preds = %if.end
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %5 = trunc i64 %indvars.iv.next to i32
+  %5 = trunc nsw i64 %indvars.iv.next to i32
   %cmp7 = icmp eq i32 %limit.038, %5
   br i1 %cmp7, label %for.cond20.preheader, label %if.end, !llvm.loop !4
 
@@ -220,7 +220,7 @@ if.end23.preheader:                               ; preds = %for.cond20.preheade
 
 for.cond20:                                       ; preds = %if.end23
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, -1
-  %8 = trunc i64 %indvars.iv.next44 to i32
+  %8 = trunc nsw i64 %indvars.iv.next44 to i32
   %cmp21 = icmp eq i32 %start.037, %8
   br i1 %cmp21, label %while.end, label %if.end23, !llvm.loop !6
 
@@ -233,11 +233,11 @@ if.end23:                                         ; preds = %if.end23.preheader,
   br i1 %cmp28, label %if.end37.loopexit, label %for.cond20, !llvm.loop !6
 
 if.end37.loopexit:                                ; preds = %if.end23
-  %10 = trunc i64 %indvars.iv43 to i32
+  %10 = trunc nsw i64 %indvars.iv43 to i32
   br label %if.end37
 
 if.end37.loopexit56:                              ; preds = %if.end
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nsw i64 %indvars.iv to i32
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end37.loopexit56, %if.end37.loopexit, %while.body
@@ -257,7 +257,7 @@ while.end:                                        ; preds = %for.cond20.preheade
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6icu_7521CollationRootElements25firstCEWithPrimaryAtLeastEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
+define noundef range(i64 83887360, 1) i64 @_ZNK6icu_7521CollationRootElements25firstCEWithPrimaryAtLeastEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %p, 0
   br i1 %cmp, label %return, label %if.end
@@ -296,7 +296,7 @@ if.end.preheader.i:                               ; preds = %for.cond.preheader.
 
 for.cond.i:                                       ; preds = %if.end.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %5 = trunc i64 %indvars.iv.next.i to i32
+  %5 = trunc nsw i64 %indvars.iv.next.i to i32
   %cmp7.i = icmp eq i32 %limit.038.i, %5
   br i1 %cmp7.i, label %for.cond20.preheader.i, label %if.end.i, !llvm.loop !4
 
@@ -319,7 +319,7 @@ if.end23.preheader.i:                             ; preds = %for.cond20.preheade
 
 for.cond20.i:                                     ; preds = %if.end23.i
   %indvars.iv.next44.i = add nsw i64 %indvars.iv43.i, -1
-  %8 = trunc i64 %indvars.iv.next44.i to i32
+  %8 = trunc nsw i64 %indvars.iv.next44.i to i32
   %cmp21.i = icmp eq i32 %start.037.i, %8
   br i1 %cmp21.i, label %_ZNK6icu_7521CollationRootElements5findPEj.exit, label %if.end23.i, !llvm.loop !6
 
@@ -332,11 +332,11 @@ if.end23.i:                                       ; preds = %for.cond20.i, %if.e
   br i1 %cmp28.i, label %if.end37.loopexit.i, label %for.cond20.i, !llvm.loop !6
 
 if.end37.loopexit.i:                              ; preds = %if.end23.i
-  %10 = trunc i64 %indvars.iv43.i to i32
+  %10 = trunc nsw i64 %indvars.iv43.i to i32
   br label %if.end37.i
 
 if.end37.loopexit56.i:                            ; preds = %if.end.i
-  %11 = trunc i64 %indvars.iv.i to i32
+  %11 = trunc nsw i64 %indvars.iv.i to i32
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end37.loopexit56.i, %if.end37.loopexit.i, %while.body.i
@@ -361,7 +361,7 @@ _ZNK6icu_7521CollationRootElements5findPEj.exit:  ; preds = %for.cond20.preheade
 
 for.cond:                                         ; preds = %_ZNK6icu_7521CollationRootElements5findPEj.exit, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ %idxprom, %_ZNK6icu_7521CollationRootElements5findPEj.exit ]
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
   %13 = load i32, ptr %arrayidx6, align 4
   %and7 = and i32 %13, 128
@@ -416,7 +416,7 @@ if.end.preheader.i.i:                             ; preds = %for.cond.preheader.
 
 for.cond.i.i:                                     ; preds = %if.end.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %5 = trunc i64 %indvars.iv.next.i.i to i32
+  %5 = trunc nsw i64 %indvars.iv.next.i.i to i32
   %cmp7.i.i = icmp eq i32 %limit.038.i.i, %5
   br i1 %cmp7.i.i, label %for.cond20.preheader.i.i, label %if.end.i.i, !llvm.loop !4
 
@@ -439,7 +439,7 @@ if.end23.preheader.i.i:                           ; preds = %for.cond20.preheade
 
 for.cond20.i.i:                                   ; preds = %if.end23.i.i
   %indvars.iv.next44.i.i = add nsw i64 %indvars.iv43.i.i, -1
-  %8 = trunc i64 %indvars.iv.next44.i.i to i32
+  %8 = trunc nsw i64 %indvars.iv.next44.i.i to i32
   %cmp21.i.i = icmp eq i32 %start.037.i.i, %8
   br i1 %cmp21.i.i, label %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit, label %if.end23.i.i, !llvm.loop !6
 
@@ -452,11 +452,11 @@ if.end23.i.i:                                     ; preds = %for.cond20.i.i, %if
   br i1 %cmp28.i.i, label %if.end37.loopexit.i.i, label %for.cond20.i.i, !llvm.loop !6
 
 if.end37.loopexit.i.i:                            ; preds = %if.end23.i.i
-  %10 = trunc i64 %indvars.iv43.i.i to i32
+  %10 = trunc nsw i64 %indvars.iv43.i.i to i32
   br label %if.end37.i.i
 
 if.end37.loopexit56.i.i:                          ; preds = %if.end.i.i
-  %11 = trunc i64 %indvars.iv.i.i to i32
+  %11 = trunc nsw i64 %indvars.iv.i.i to i32
   br label %if.end37.i.i
 
 if.end37.i.i:                                     ; preds = %if.end37.loopexit56.i.i, %if.end37.loopexit.i.i, %while.body.i.i
@@ -486,7 +486,7 @@ if.then:                                          ; preds = %_ZNK6icu_7521Collat
 
 do.body:                                          ; preds = %if.then, %do.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %do.body ], [ %idxprom, %if.then ]
-  %indvars.iv.next = add i64 %indvars.iv, -1
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %arrayidx7 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
   %13 = load i32, ptr %arrayidx7, align 4
   %and8 = and i32 %13, 128
@@ -558,7 +558,7 @@ if.end.preheader.i:                               ; preds = %for.cond.preheader.
 
 for.cond.i:                                       ; preds = %if.end.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %5 = trunc i64 %indvars.iv.next.i to i32
+  %5 = trunc nsw i64 %indvars.iv.next.i to i32
   %cmp7.i = icmp eq i32 %limit.038.i, %5
   br i1 %cmp7.i, label %for.cond20.preheader.i, label %if.end.i, !llvm.loop !4
 
@@ -581,7 +581,7 @@ if.end23.preheader.i:                             ; preds = %for.cond20.preheade
 
 for.cond20.i:                                     ; preds = %if.end23.i
   %indvars.iv.next44.i = add nsw i64 %indvars.iv43.i, -1
-  %8 = trunc i64 %indvars.iv.next44.i to i32
+  %8 = trunc nsw i64 %indvars.iv.next44.i to i32
   %cmp21.i = icmp eq i32 %start.037.i, %8
   br i1 %cmp21.i, label %_ZNK6icu_7521CollationRootElements5findPEj.exit, label %if.end23.i, !llvm.loop !6
 
@@ -594,11 +594,11 @@ if.end23.i:                                       ; preds = %for.cond20.i, %if.e
   br i1 %cmp28.i, label %if.end37.loopexit.i, label %for.cond20.i, !llvm.loop !6
 
 if.end37.loopexit.i:                              ; preds = %if.end23.i
-  %10 = trunc i64 %indvars.iv43.i to i32
+  %10 = trunc nsw i64 %indvars.iv43.i to i32
   br label %if.end37.i
 
 if.end37.loopexit56.i:                            ; preds = %if.end.i
-  %11 = trunc i64 %indvars.iv.i to i32
+  %11 = trunc nsw i64 %indvars.iv.i to i32
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end37.loopexit56.i, %if.end37.loopexit.i, %while.body.i
@@ -622,7 +622,7 @@ declare noundef i32 @_ZN6icu_759Collation26decTwoBytePrimaryByOneStepEjai(i32 no
 declare noundef i32 @_ZN6icu_759Collation28decThreeBytePrimaryByOneStepEjai(i32 noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7521CollationRootElements18getSecondaryBeforeEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p, i32 noundef %s) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZNK6icu_7521CollationRootElements18getSecondaryBeforeEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p, i32 noundef %s) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %p, 0
   %0 = load ptr, ptr %this, align 8
@@ -669,7 +669,7 @@ if.end.preheader.i.i:                             ; preds = %for.cond.preheader.
 
 for.cond.i.i:                                     ; preds = %if.end.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %7 = trunc i64 %indvars.iv.next.i.i to i32
+  %7 = trunc nsw i64 %indvars.iv.next.i.i to i32
   %cmp7.i.i = icmp eq i32 %limit.038.i.i, %7
   br i1 %cmp7.i.i, label %for.cond20.preheader.i.i, label %if.end.i.i, !llvm.loop !4
 
@@ -692,7 +692,7 @@ if.end23.preheader.i.i:                           ; preds = %for.cond20.preheade
 
 for.cond20.i.i:                                   ; preds = %if.end23.i.i
   %indvars.iv.next44.i.i = add nsw i64 %indvars.iv43.i.i, -1
-  %10 = trunc i64 %indvars.iv.next44.i.i to i32
+  %10 = trunc nsw i64 %indvars.iv.next44.i.i to i32
   %cmp21.i.i = icmp eq i32 %start.037.i.i, %10
   br i1 %cmp21.i.i, label %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit, label %if.end23.i.i, !llvm.loop !6
 
@@ -705,11 +705,11 @@ if.end23.i.i:                                     ; preds = %for.cond20.i.i, %if
   br i1 %cmp28.i.i, label %if.end37.loopexit.i.i, label %for.cond20.i.i, !llvm.loop !6
 
 if.end37.loopexit.i.i:                            ; preds = %if.end23.i.i
-  %12 = trunc i64 %indvars.iv43.i.i to i32
+  %12 = trunc nsw i64 %indvars.iv43.i.i to i32
   br label %if.end37.i.i
 
 if.end37.loopexit56.i.i:                          ; preds = %if.end.i.i
-  %13 = trunc i64 %indvars.iv.i.i to i32
+  %13 = trunc nsw i64 %indvars.iv.i.i to i32
   br label %if.end37.i.i
 
 if.end37.i.i:                                     ; preds = %if.end37.loopexit56.i.i, %if.end37.loopexit.i.i, %while.body.i.i
@@ -750,7 +750,7 @@ while.body.lr.ph:                                 ; preds = %if.end
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %indvars.iv = phi i64 [ %15, %while.body.lr.ph ], [ %indvars.iv.next, %while.body ]
   %sec.115 = phi i32 [ %sec.112, %while.body.lr.ph ], [ %sec.1, %while.body ]
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx9 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %arrayidx9, align 4
   %sec.1 = lshr i32 %16, 16
@@ -763,7 +763,7 @@ while.end:                                        ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7521CollationRootElements24getFirstSecTerForPrimaryEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 83887361) i32 @_ZNK6icu_7521CollationRootElements24getFirstSecTerForPrimaryEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %idxprom = sext i32 %index to i64
@@ -778,7 +778,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7521CollationRootElements17getTertiaryBeforeEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p, i32 noundef %s, i32 noundef %t) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZNK6icu_7521CollationRootElements17getTertiaryBeforeEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p, i32 noundef %s, i32 noundef %t) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %p, 0
   br i1 %cmp, label %if.then, label %if.else8
@@ -830,7 +830,7 @@ if.end.preheader.i.i:                             ; preds = %for.cond.preheader.
 
 for.cond.i.i:                                     ; preds = %if.end.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %7 = trunc i64 %indvars.iv.next.i.i to i32
+  %7 = trunc nsw i64 %indvars.iv.next.i.i to i32
   %cmp7.i.i = icmp eq i32 %limit.038.i.i, %7
   br i1 %cmp7.i.i, label %for.cond20.preheader.i.i, label %if.end.i.i, !llvm.loop !4
 
@@ -853,7 +853,7 @@ if.end23.preheader.i.i:                           ; preds = %for.cond20.preheade
 
 for.cond20.i.i:                                   ; preds = %if.end23.i.i
   %indvars.iv.next44.i.i = add nsw i64 %indvars.iv43.i.i, -1
-  %10 = trunc i64 %indvars.iv.next44.i.i to i32
+  %10 = trunc nsw i64 %indvars.iv.next44.i.i to i32
   %cmp21.i.i = icmp eq i32 %start.037.i.i, %10
   br i1 %cmp21.i.i, label %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit, label %if.end23.i.i, !llvm.loop !6
 
@@ -866,11 +866,11 @@ if.end23.i.i:                                     ; preds = %for.cond20.i.i, %if
   br i1 %cmp28.i.i, label %if.end37.loopexit.i.i, label %for.cond20.i.i, !llvm.loop !6
 
 if.end37.loopexit.i.i:                            ; preds = %if.end23.i.i
-  %12 = trunc i64 %indvars.iv43.i.i to i32
+  %12 = trunc nsw i64 %indvars.iv43.i.i to i32
   br label %if.end37.i.i
 
 if.end37.loopexit56.i.i:                          ; preds = %if.end.i.i
-  %13 = trunc i64 %indvars.iv.i.i to i32
+  %13 = trunc nsw i64 %indvars.iv.i.i to i32
   br label %if.end37.i.i
 
 if.end37.i.i:                                     ; preds = %if.end37.loopexit56.i.i, %if.end37.loopexit.i.i, %while.body.i.i
@@ -918,7 +918,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %shr = lshr i32 %secTer.117, 16
   %cmp12 = icmp eq i32 %shr, %s
   %spec.select = select i1 %cmp12, i32 %secTer.117, i32 %previousTer.216
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx17 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %arrayidx17, align 4
   %and18 = and i32 %17, -129
@@ -968,7 +968,7 @@ while.body.preheader:                             ; preds = %entry
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %indvars.iv = phi i64 [ %5, %while.body.preheader ], [ %indvars.iv.next, %while.body ]
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx14 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
   %6 = load i32, ptr %arrayidx14, align 4
   %and9 = and i32 %6, 128
@@ -1028,7 +1028,7 @@ for.cond:                                         ; preds = %if.end7, %if.end
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %for.cond
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx10 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
   %7 = load i32, ptr %arrayidx10, align 4
   %and = and i32 %7, 128
@@ -1112,7 +1112,7 @@ if.then13:                                        ; preds = %for.cond, %if.end11
 
 if.end15:                                         ; preds = %if.end15.lr.ph, %for.cond
   %indvars.iv = phi i64 [ %9, %if.end15.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx18 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next
   %10 = load i32, ptr %arrayidx18, align 4
   %and19 = and i32 %10, 128

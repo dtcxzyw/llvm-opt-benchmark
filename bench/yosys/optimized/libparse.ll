@@ -1079,7 +1079,7 @@ define noundef ptr @_ZN5Yosys13LibertyParser5parseEv(ptr nocapture noundef nonnu
   ]
 
 .critedge:                                        ; preds = %56, %56, %56, %56, %56
-  %57 = trunc i32 %.271 to i8
+  %57 = trunc nuw i32 %.271 to i8
   %58 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 noundef signext %57)
           to label %59 unwind label %.loopexit112
 

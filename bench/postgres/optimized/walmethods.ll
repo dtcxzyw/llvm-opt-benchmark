@@ -842,7 +842,7 @@ define internal ptr @tar_open_for_write(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tar_close(ptr noundef %0, i32 noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @tar_close(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca %union.PGAlignedXLogBlock, align 4096
   %4 = alloca [512 x i8], align 16
   %5 = load ptr, ptr %0, align 8
@@ -1342,7 +1342,7 @@ define internal noundef zeroext i1 @tar_finish(ptr nocapture noundef %0) #0 {
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @tar_close(ptr noundef nonnull %6, i32 noundef 0), !range !8
+  %8 = tail call i32 @tar_close(ptr noundef nonnull %6, i32 noundef 0)
   %.not41 = icmp eq i32 %8, 0
   br i1 %.not41, label %9, label %tar_write_compressed_data.exit
 
@@ -1912,4 +1912,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -1, i32 1}

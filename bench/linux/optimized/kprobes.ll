@@ -613,7 +613,7 @@ define dso_local noundef zeroext i1 @__is_insn_slot_addr(ptr noundef %0, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @kprobe_cache_get_kallsym(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kprobe_cache_get_kallsym(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #20
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   br label %7
@@ -802,7 +802,7 @@ define dso_local zeroext i1 @optprobe_queued_unopt(ptr noundef readnone %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @aggr_pre_handler(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @aggr_pre_handler(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
@@ -1708,7 +1708,7 @@ declare dso_local void @cpus_read_lock() local_unnamed_addr #1
 declare dso_local void @cpus_read_unlock() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @arm_kprobe(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @arm_kprobe(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 8
@@ -3023,7 +3023,7 @@ declare dso_local i32 @kernel_text_address(i64 noundef) local_unnamed_addr #1
 declare dso_local i32 @kallsyms_lookup_size_offset(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @kprobe_add_area_blacklist(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @kprobe_add_area_blacklist(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = icmp ult i64 %0, %1
@@ -3096,7 +3096,7 @@ define weak dso_local i32 @arch_kprobe_get_kallsym(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @kprobe_get_kallsym(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -34, 1) i32 @kprobe_get_kallsym(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   tail call void @__rcu_read_lock() #20
   br label %6
@@ -3912,7 +3912,7 @@ declare dso_local void @rethook_recycle(ptr noundef) local_unnamed_addr #1
 declare dso_local void @rethook_hook(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @disarm_kprobe(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @disarm_kprobe(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 8

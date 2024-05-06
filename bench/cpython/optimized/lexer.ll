@@ -51,7 +51,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.38 = private unnamed_addr constant [52 x i8] c"unterminated f-string literal (detected at line %d)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyLexer_update_fstring_expr(ptr nocapture noundef %tok, i8 noundef signext %cur) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyLexer_update_fstring_expr(ptr nocapture noundef %tok, i8 noundef signext %cur) local_unnamed_addr #0 {
 entry:
   %cur1 = getelementptr inbounds i8, ptr %tok, i64 8
   %0 = load ptr, ptr %cur1, align 8
@@ -242,7 +242,7 @@ if.end16.i.i.i:                                   ; preds = %if.end12.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %call.i.i.i.i = tail call ptr @memchr(ptr noundef %10, i32 noundef 0, i64 noundef %sub.ptr.sub.i.i.i) #7
+  %call.i.i.i.i = tail call ptr @memchr(ptr noundef readonly %10, i32 noundef 0, i64 noundef %sub.ptr.sub.i.i.i) #7
   %cmp.i.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp.i.not.i.i.i, label %for.cond.i.i.i, label %if.then23.i.i.i
 
@@ -298,7 +298,7 @@ if.end16.i198.i.i:                                ; preds = %if.end12.i195.i.i
   %sub.ptr.lhs.cast.i199.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i200.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i201.i.i = sub i64 %sub.ptr.lhs.cast.i199.i.i, %sub.ptr.rhs.cast.i200.i.i
-  %call.i.i202.i.i = tail call ptr @memchr(ptr noundef %20, i32 noundef 0, i64 noundef %sub.ptr.sub.i201.i.i) #7
+  %call.i.i202.i.i = tail call ptr @memchr(ptr noundef readonly %20, i32 noundef 0, i64 noundef %sub.ptr.sub.i201.i.i) #7
   %cmp.i.not.i203.i.i = icmp eq ptr %call.i.i202.i.i, null
   br i1 %cmp.i.not.i203.i.i, label %for.cond.i182.i.i, label %if.then23.i204.i.i
 
@@ -481,7 +481,7 @@ if.end16.i264.i.i:                                ; preds = %if.end12.i261.i.i
   %sub.ptr.lhs.cast.i265.i.i = ptrtoint ptr %42 to i64
   %sub.ptr.rhs.cast.i266.i.i = ptrtoint ptr %41 to i64
   %sub.ptr.sub.i267.i.i = sub i64 %sub.ptr.lhs.cast.i265.i.i, %sub.ptr.rhs.cast.i266.i.i
-  %call.i.i268.i.i = tail call ptr @memchr(ptr noundef %41, i32 noundef 0, i64 noundef %sub.ptr.sub.i267.i.i) #7
+  %call.i.i268.i.i = tail call ptr @memchr(ptr noundef readonly %41, i32 noundef 0, i64 noundef %sub.ptr.sub.i267.i.i) #7
   %cmp.i.not.i269.i.i = icmp eq ptr %call.i.i268.i.i, null
   br i1 %cmp.i.not.i269.i.i, label %for.cond.i248.i.i, label %if.then23.i270.i.i
 
@@ -646,7 +646,7 @@ if.end16.i310.i.i:                                ; preds = %if.end12.i307.i.i
   %sub.ptr.lhs.cast.i311.i.i = ptrtoint ptr %67 to i64
   %sub.ptr.rhs.cast.i312.i.i = ptrtoint ptr %66 to i64
   %sub.ptr.sub.i313.i.i = sub i64 %sub.ptr.lhs.cast.i311.i.i, %sub.ptr.rhs.cast.i312.i.i
-  %call.i.i314.i.i = tail call ptr @memchr(ptr noundef %66, i32 noundef 0, i64 noundef %sub.ptr.sub.i313.i.i) #7
+  %call.i.i314.i.i = tail call ptr @memchr(ptr noundef readonly %66, i32 noundef 0, i64 noundef %sub.ptr.sub.i313.i.i) #7
   %cmp.i.not.i315.i.i = icmp eq ptr %call.i.i314.i.i, null
   br i1 %cmp.i.not.i315.i.i, label %for.cond.i294.i.i, label %if.then23.i316.i.i
 
@@ -803,7 +803,7 @@ if.else94.i.i:                                    ; preds = %if.end88.i.i
   ]
 
 if.then98.i.i:                                    ; preds = %if.else94.i.i
-  %call99.i.i = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
+  %call99.i.i = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
   %cmp100.i.i = icmp ne i32 %call99.i.i, 123
   %or.cond2.i.i = select i1 %cmp100.i.i, i1 true, i1 %73
   br i1 %or.cond2.i.i, label %if.then104.i.i, label %if.else121.i.i
@@ -851,7 +851,7 @@ if.then131.i.i:                                   ; preds = %if.then129.i.i
   br label %tok_get.exit
 
 if.end135.i.i:                                    ; preds = %if.then129.i.i
-  %call137.i.i = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
+  %call137.i.i = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
   %cmp138.i.i = icmp ne i32 %call137.i.i, 125
   %or.cond3.i.i = select i1 %cmp138.i.i, i1 true, i1 %73
   br i1 %or.cond3.i.i, label %if.else146.i.i, label %if.then142.i.i
@@ -915,7 +915,7 @@ if.end16.i355.i.i:                                ; preds = %if.end12.i352.i.i
   %sub.ptr.lhs.cast.i356.i.i = ptrtoint ptr %102 to i64
   %sub.ptr.rhs.cast.i357.i.i = ptrtoint ptr %101 to i64
   %sub.ptr.sub.i358.i.i = sub i64 %sub.ptr.lhs.cast.i356.i.i, %sub.ptr.rhs.cast.i357.i.i
-  %call.i.i359.i.i = tail call ptr @memchr(ptr noundef %101, i32 noundef 0, i64 noundef %sub.ptr.sub.i358.i.i) #7
+  %call.i.i359.i.i = tail call ptr @memchr(ptr noundef readonly %101, i32 noundef 0, i64 noundef %sub.ptr.sub.i358.i.i) #7
   %cmp.i.not.i360.i.i = icmp eq ptr %call.i.i359.i.i, null
   br i1 %cmp.i.not.i360.i.i, label %for.cond.i339.i.i, label %if.then23.i361.i.i
 
@@ -980,7 +980,7 @@ if.end16.i388.i.i:                                ; preds = %if.end12.i385.i.i
   %sub.ptr.lhs.cast.i389.i.i = ptrtoint ptr %113 to i64
   %sub.ptr.rhs.cast.i390.i.i = ptrtoint ptr %112 to i64
   %sub.ptr.sub.i391.i.i = sub i64 %sub.ptr.lhs.cast.i389.i.i, %sub.ptr.rhs.cast.i390.i.i
-  %call.i.i392.i.i = tail call ptr @memchr(ptr noundef %112, i32 noundef 0, i64 noundef %sub.ptr.sub.i391.i.i) #7
+  %call.i.i392.i.i = tail call ptr @memchr(ptr noundef readonly %112, i32 noundef 0, i64 noundef %sub.ptr.sub.i391.i.i) #7
   %cmp.i.not.i393.i.i = icmp eq ptr %call.i.i392.i.i, null
   br i1 %cmp.i.not.i393.i.i, label %for.cond.i372.i.i, label %if.then23.i394.i.i
 
@@ -1091,7 +1091,7 @@ if.end16.i434.i.i:                                ; preds = %if.end12.i431.i.i
   %sub.ptr.lhs.cast.i435.i.i = ptrtoint ptr %128 to i64
   %sub.ptr.rhs.cast.i436.i.i = ptrtoint ptr %127 to i64
   %sub.ptr.sub.i437.i.i = sub i64 %sub.ptr.lhs.cast.i435.i.i, %sub.ptr.rhs.cast.i436.i.i
-  %call.i.i438.i.i = tail call ptr @memchr(ptr noundef %127, i32 noundef 0, i64 noundef %sub.ptr.sub.i437.i.i) #7
+  %call.i.i438.i.i = tail call ptr @memchr(ptr noundef readonly %127, i32 noundef 0, i64 noundef %sub.ptr.sub.i437.i.i) #7
   %cmp.i.not.i439.i.i = icmp eq ptr %call.i.i438.i.i, null
   br i1 %cmp.i.not.i439.i.i, label %for.cond.i418.i.i, label %if.then23.i440.i.i
 
@@ -1168,7 +1168,7 @@ tok_backup.exit469.i.i:                           ; preds = %if.end.i462.i.i
   store i32 %dec.i467.i.i, ptr %col_offset.i.i, align 4
   %inc208.i.i = add nuw nsw i32 %i199.0579.i.i, 1
   %exitcond.not = icmp eq i32 %inc208.i.i, %.pre694.i.i
-  br i1 %exitcond.not, label %for.end209.i.i, label %if.then.i458.i.i, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end209.i.i, label %if.then.i458.i.i, !llvm.loop !8
 
 for.end209.i.i:                                   ; preds = %if.end198.i.i, %tok_backup.exit469.i.i, %for.body204.lr.ph.i.i, %for.cond200.preheader.i.i, %tok_backup.exit286.i.i
   %137 = phi ptr [ %.pre.i337685.i.i, %for.cond200.preheader.i.i ], [ %.pre.i337685.i.i, %for.body204.lr.ph.i.i ], [ %.pre.i292680.i.i, %tok_backup.exit286.i.i ], [ %incdec.ptr.i460.i.i, %tok_backup.exit469.i.i ], [ %.pre.i337683.i.i, %if.end198.i.i ]
@@ -1285,7 +1285,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call.i.i = tail call ptr @memchr(ptr noundef %8, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
+  %call.i.i = tail call ptr @memchr(ptr noundef readonly %8, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
   %cmp.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.not.i, label %for.cond.i, label %if.then23.i
 
@@ -1329,7 +1329,7 @@ if.then5:                                         ; preds = %tok_nextc.exit
 if.then15:                                        ; preds = %tok_nextc.exit
   %tobool16.not = icmp eq i32 %cont_line_col.0.ph, 0
   %cond = select i1 %tobool16.not, i32 %col.0, i32 %cont_line_col.0.ph
-  %call17 = tail call fastcc i32 @tok_continuation_line(ptr noundef nonnull %tok), !range !8
+  %call17 = tail call fastcc i32 @tok_continuation_line(ptr noundef nonnull %tok)
   %cmp18 = icmp eq i32 %call17, -1
   br i1 %cmp18, label %if.then19, label %for.cond.outer
 
@@ -1472,7 +1472,7 @@ while.body:                                       ; preds = %land.rhs
   %dec112 = add nsw i32 %24, -1
   store i32 %dec112, ptr %indent, align 4
   %cmp104 = icmp sgt i32 %24, 1
-  br i1 %cmp104, label %land.rhs, label %while.end.loopexit, !llvm.loop !11
+  br i1 %cmp104, label %land.rhs, label %while.end.loopexit, !llvm.loop !10
 
 while.end.loopexit:                               ; preds = %while.body, %land.rhs
   %.lcssa1858.ph = phi i32 [ %24, %land.rhs ], [ 0, %while.body ]
@@ -1585,7 +1585,7 @@ if.end16.i919:                                    ; preds = %if.end12.i916
   %sub.ptr.lhs.cast.i920 = ptrtoint ptr %41 to i64
   %sub.ptr.rhs.cast.i921 = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i922 = sub i64 %sub.ptr.lhs.cast.i920, %sub.ptr.rhs.cast.i921
-  %call.i.i923 = tail call ptr @memchr(ptr noundef %40, i32 noundef 0, i64 noundef %sub.ptr.sub.i922) #7
+  %call.i.i923 = tail call ptr @memchr(ptr noundef readonly %40, i32 noundef 0, i64 noundef %sub.ptr.sub.i922) #7
   %cmp.i.not.i924 = icmp eq ptr %call.i.i923, null
   br i1 %cmp.i.not.i924, label %for.cond.i903, label %if.then23.i925
 
@@ -1676,7 +1676,7 @@ if.end16.i965:                                    ; preds = %if.end12.i962
   %sub.ptr.lhs.cast.i966 = ptrtoint ptr %52 to i64
   %sub.ptr.rhs.cast.i967 = ptrtoint ptr %51 to i64
   %sub.ptr.sub.i968 = sub i64 %sub.ptr.lhs.cast.i966, %sub.ptr.rhs.cast.i967
-  %call.i.i969 = tail call ptr @memchr(ptr noundef %51, i32 noundef 0, i64 noundef %sub.ptr.sub.i968) #7
+  %call.i.i969 = tail call ptr @memchr(ptr noundef readonly %51, i32 noundef 0, i64 noundef %sub.ptr.sub.i968) #7
   %cmp.i.not.i970 = icmp eq ptr %call.i.i969, null
   br i1 %cmp.i.not.i970, label %for.cond.i949.outer, label %if.then23.i971
 
@@ -1748,7 +1748,7 @@ while.cond183.backedge:                           ; preds = %if.end7.i993, %if.t
   %.pre31.i981.be = phi ptr [ %.pre31.i9812444, %if.then2.i992 ], [ %.pre31.i9812444, %if.end.i987 ], [ %64, %if.then23.i1004 ], [ %61, %if.then13.i1006 ], [ %.pre31.i9812444, %if.end7.i993 ]
   %.pre.i980.be = phi ptr [ %.pre.i9802441, %if.then2.i992 ], [ %incdec.ptr.i989, %if.end.i987 ], [ %64, %if.then23.i1004 ], [ %61, %if.then13.i1006 ], [ %.pre.i9802441, %if.end7.i993 ]
   %c.0.be = phi i32 [ -1, %if.then2.i992 ], [ %conv6.i990, %if.end.i987 ], [ -1, %if.then23.i1004 ], [ -1, %if.then13.i1006 ], [ -1, %if.end7.i993 ]
-  br label %while.cond183, !llvm.loop !12
+  br label %while.cond183, !llvm.loop !11
 
 if.end.i987:                                      ; preds = %if.then.i984
   %inc.i988 = add nuw nsw i32 %57, 1
@@ -1762,7 +1762,7 @@ if.end.i987:                                      ; preds = %if.then.i984
 if.end7.i993:                                     ; preds = %for.cond.i982
   %59 = load i32, ptr %done8.i, align 8
   %cmp9.not.i994 = icmp eq i32 %59, 10
-  br i1 %cmp9.not.i994, label %if.end12.i995, label %while.cond183.backedge, !llvm.loop !12
+  br i1 %cmp9.not.i994, label %if.end12.i995, label %while.cond183.backedge, !llvm.loop !11
 
 if.end12.i995:                                    ; preds = %if.end7.i993
   %60 = load ptr, ptr %underflow.i, align 8
@@ -1782,7 +1782,7 @@ if.end16.i998:                                    ; preds = %if.end12.i995
   %sub.ptr.lhs.cast.i999 = ptrtoint ptr %63 to i64
   %sub.ptr.rhs.cast.i1000 = ptrtoint ptr %62 to i64
   %sub.ptr.sub.i1001 = sub i64 %sub.ptr.lhs.cast.i999, %sub.ptr.rhs.cast.i1000
-  %call.i.i1002 = tail call ptr @memchr(ptr noundef %62, i32 noundef 0, i64 noundef %sub.ptr.sub.i1001) #7
+  %call.i.i1002 = tail call ptr @memchr(ptr noundef readonly %62, i32 noundef 0, i64 noundef %sub.ptr.sub.i1001) #7
   %cmp.i.not.i1003 = icmp eq ptr %call.i.i1002, null
   br i1 %cmp.i.not.i1003, label %for.cond.i982, label %if.then23.i1004
 
@@ -1836,7 +1836,7 @@ while.cond214:                                    ; preds = %while.body209, %whi
 while.body223:                                    ; preds = %while.cond214, %while.cond214
   %incdec.ptr = getelementptr i8, ptr %p.2, i64 1
   %inc224 = add i32 %current_starting_col_offset.1, 1
-  br label %while.cond214, !llvm.loop !13
+  br label %while.cond214, !llvm.loop !12
 
 if.else226:                                       ; preds = %while.body209
   %72 = load i8, ptr %p.12142, align 1
@@ -1854,7 +1854,7 @@ if.end236:                                        ; preds = %while.cond214, %if.
   %incdec.ptr237 = getelementptr i8, ptr %prefix.02141, i64 1
   %73 = load i8, ptr %incdec.ptr237, align 1
   %exitcond = icmp eq ptr %incdec.ptr237, getelementptr inbounds ([9 x i8], ptr @.str.28, i64 0, i64 8)
-  br i1 %exitcond, label %if.then240, label %land.rhs204, !llvm.loop !14
+  br i1 %exitcond, label %if.then240, label %land.rhs204, !llvm.loop !13
 
 if.then240:                                       ; preds = %if.end236
   %add.ptr241 = getelementptr i8, ptr %p.3, i64 6
@@ -1920,7 +1920,7 @@ if.then271:                                       ; preds = %land.rhs250, %lor.r
   br i1 %tobool273.not, label %if.end277, label %if.then274
 
 if.then274:                                       ; preds = %if.then271
-  %call275 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
+  %call275 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
   store i32 1, ptr %atbol, align 8
   br label %if.end277
 
@@ -2117,7 +2117,7 @@ if.end16.i1057:                                   ; preds = %if.end12.i1054
   %sub.ptr.lhs.cast.i1058 = ptrtoint ptr %102 to i64
   %sub.ptr.rhs.cast.i1059 = ptrtoint ptr %101 to i64
   %sub.ptr.sub.i1060 = sub i64 %sub.ptr.lhs.cast.i1058, %sub.ptr.rhs.cast.i1059
-  %call.i.i1061 = tail call ptr @memchr(ptr noundef %101, i32 noundef 0, i64 noundef %sub.ptr.sub.i1060) #7
+  %call.i.i1061 = tail call ptr @memchr(ptr noundef readonly %101, i32 noundef 0, i64 noundef %sub.ptr.sub.i1060) #7
   %cmp.i.not.i1062 = icmp eq ptr %call.i.i1061, null
   br i1 %cmp.i.not.i1062, label %for.cond.i1041, label %if.then23.i1063
 
@@ -2183,7 +2183,7 @@ while.cond401.backedge:                           ; preds = %if.end7.i1085, %if.
   %.pre31.i1073.be = phi ptr [ %.pre31.i10732383, %if.then2.i1084 ], [ %.pre31.i10732383, %if.end.i1079 ], [ %114, %if.then23.i1096 ], [ %111, %if.then13.i1098 ], [ %.pre31.i10732383, %if.end7.i1085 ]
   %.pre.i1072.be = phi ptr [ %.pre.i10722380, %if.then2.i1084 ], [ %incdec.ptr.i1081, %if.end.i1079 ], [ %114, %if.then23.i1096 ], [ %111, %if.then13.i1098 ], [ %.pre.i10722380, %if.end7.i1085 ]
   %c.3.be = phi i32 [ -1, %if.then2.i1084 ], [ %conv6.i1082, %if.end.i1079 ], [ -1, %if.then23.i1096 ], [ -1, %if.then13.i1098 ], [ -1, %if.end7.i1085 ]
-  br label %while.cond401, !llvm.loop !15
+  br label %while.cond401, !llvm.loop !14
 
 if.end.i1079:                                     ; preds = %if.then.i1076
   %inc.i1080 = add nuw nsw i32 %107, 1
@@ -2197,7 +2197,7 @@ if.end.i1079:                                     ; preds = %if.then.i1076
 if.end7.i1085:                                    ; preds = %for.cond.i1074
   %109 = load i32, ptr %done8.i, align 8
   %cmp9.not.i1086 = icmp eq i32 %109, 10
-  br i1 %cmp9.not.i1086, label %if.end12.i1087, label %while.cond401.backedge, !llvm.loop !15
+  br i1 %cmp9.not.i1086, label %if.end12.i1087, label %while.cond401.backedge, !llvm.loop !14
 
 if.end12.i1087:                                   ; preds = %if.end7.i1085
   %110 = load ptr, ptr %underflow.i, align 8
@@ -2217,7 +2217,7 @@ if.end16.i1090:                                   ; preds = %if.end12.i1087
   %sub.ptr.lhs.cast.i1091 = ptrtoint ptr %113 to i64
   %sub.ptr.rhs.cast.i1092 = ptrtoint ptr %112 to i64
   %sub.ptr.sub.i1093 = sub i64 %sub.ptr.lhs.cast.i1091, %sub.ptr.rhs.cast.i1092
-  %call.i.i1094 = tail call ptr @memchr(ptr noundef %112, i32 noundef 0, i64 noundef %sub.ptr.sub.i1093) #7
+  %call.i.i1094 = tail call ptr @memchr(ptr noundef readonly %112, i32 noundef 0, i64 noundef %sub.ptr.sub.i1093) #7
   %cmp.i.not.i1095 = icmp eq ptr %call.i.i1094, null
   br i1 %cmp.i.not.i1095, label %for.cond.i1074, label %if.then23.i1096
 
@@ -2572,7 +2572,7 @@ if.end16.i1146:                                   ; preds = %if.end12.i1143
   %sub.ptr.lhs.cast.i1147 = ptrtoint ptr %157 to i64
   %sub.ptr.rhs.cast.i1148 = ptrtoint ptr %156 to i64
   %sub.ptr.sub.i1149 = sub i64 %sub.ptr.lhs.cast.i1147, %sub.ptr.rhs.cast.i1148
-  %call.i.i1150 = tail call ptr @memchr(ptr noundef %156, i32 noundef 0, i64 noundef %sub.ptr.sub.i1149) #7
+  %call.i.i1150 = tail call ptr @memchr(ptr noundef readonly %156, i32 noundef 0, i64 noundef %sub.ptr.sub.i1149) #7
   %cmp.i.not.i1151 = icmp eq ptr %call.i.i1150, null
   br i1 %cmp.i.not.i1151, label %for.cond.i1130, label %if.then23.i1152
 
@@ -2649,7 +2649,7 @@ if.end482:                                        ; preds = %if.end471.if.end482
   br label %return
 
 if.then490:                                       ; preds = %if.end448
-  %call491 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
+  %call491 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
   %167 = and i32 %call491, 255
   %idxprom494 = zext nneg i32 %167 to i64
   %arrayidx495 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %idxprom494
@@ -2663,7 +2663,7 @@ if.else499:                                       ; preds = %if.then490
   br i1 %cmp500, label %if.then502, label %if.end514
 
 if.then502:                                       ; preds = %if.else499
-  %call503 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
+  %call503 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
   %cmp504 = icmp eq i32 %call503, 46
   br i1 %cmp504, label %if.then506, label %if.else510
 
@@ -2704,7 +2704,7 @@ if.then525:                                       ; preds = %if.end518
   br i1 %cmp526, label %if.then528, label %if.else782
 
 if.then528:                                       ; preds = %if.then525
-  %call529 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
+  %call529 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
   %175 = and i32 %call529, -33
   switch i32 %175, label %while.body699 [
     i32 88, label %if.then535
@@ -2713,7 +2713,7 @@ if.then528:                                       ; preds = %if.then525
   ]
 
 if.then535:                                       ; preds = %if.then528
-  %call536 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
+  %call536 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
   br label %do.body537
 
 do.body537:                                       ; preds = %do.cond563, %if.then535
@@ -2773,7 +2773,7 @@ if.end16.i1179:                                   ; preds = %if.end12.i1176
   %sub.ptr.lhs.cast.i1180 = ptrtoint ptr %184 to i64
   %sub.ptr.rhs.cast.i1181 = ptrtoint ptr %183 to i64
   %sub.ptr.sub.i1182 = sub i64 %sub.ptr.lhs.cast.i1180, %sub.ptr.rhs.cast.i1181
-  %call.i.i1183 = tail call ptr @memchr(ptr noundef %183, i32 noundef 0, i64 noundef %sub.ptr.sub.i1182) #7
+  %call.i.i1183 = tail call ptr @memchr(ptr noundef readonly %183, i32 noundef 0, i64 noundef %sub.ptr.sub.i1182) #7
   %cmp.i.not.i1184 = icmp eq ptr %call.i.i1183, null
   br i1 %cmp.i.not.i1184, label %for.cond.i1163, label %if.then23.i1185
 
@@ -2851,14 +2851,14 @@ if.end16.i1212:                                   ; preds = %if.end12.i1209
   %sub.ptr.lhs.cast.i1213 = ptrtoint ptr %194 to i64
   %sub.ptr.rhs.cast.i1214 = ptrtoint ptr %193 to i64
   %sub.ptr.sub.i1215 = sub i64 %sub.ptr.lhs.cast.i1213, %sub.ptr.rhs.cast.i1214
-  %call.i.i1216 = tail call ptr @memchr(ptr noundef %193, i32 noundef 0, i64 noundef %sub.ptr.sub.i1215) #7
+  %call.i.i1216 = tail call ptr @memchr(ptr noundef readonly %193, i32 noundef 0, i64 noundef %sub.ptr.sub.i1215) #7
   %cmp.i.not.i1217 = icmp eq ptr %call.i.i1216, null
   br i1 %cmp.i.not.i1217, label %for.cond.i1196.backedge, label %if.then23.i1218
 
 for.cond.i1196.backedge:                          ; preds = %if.end16.i1212, %tok_nextc.exit1221
   %.pre31.i11952377.be = phi ptr [ %194, %if.end16.i1212 ], [ %.pre31.i11952376, %tok_nextc.exit1221 ]
   %.pre.i11942374.be = phi ptr [ %193, %if.end16.i1212 ], [ %.pre.i11942373, %tok_nextc.exit1221 ]
-  br label %for.cond.i1196, !llvm.loop !16
+  br label %for.cond.i1196, !llvm.loop !15
 
 if.then23.i1218:                                  ; preds = %if.end16.i1212
   %call24.i1219 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %tok, ptr noundef nonnull @.str.25) #8
@@ -2880,10 +2880,10 @@ tok_nextc.exit1221:                               ; preds = %if.end7.i1207, %if.
 
 do.cond563:                                       ; preds = %tok_nextc.exit1221
   %cmp564 = icmp eq i32 %retval.0.i1205, 95
-  br i1 %cmp564, label %do.body537, label %do.end566, !llvm.loop !17
+  br i1 %cmp564, label %do.body537, label %do.end566, !llvm.loop !16
 
 do.end566:                                        ; preds = %do.cond563
-  %call567 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %tok, i32 noundef %retval.0.i1205, ptr noundef nonnull @.str.2), !range !18
+  %call567 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %tok, i32 noundef %retval.0.i1205, ptr noundef nonnull @.str.2)
   %tobool568.not = icmp eq i32 %call567, 0
   br i1 %tobool568.not, label %if.then569, label %if.end876
 
@@ -2892,7 +2892,7 @@ if.then569:                                       ; preds = %do.end566
   br label %return
 
 if.then578:                                       ; preds = %if.then528
-  %call579 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
+  %call579 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
   br label %do.body580
 
 do.body580:                                       ; preds = %do.cond616, %if.then578
@@ -2901,7 +2901,7 @@ do.body580:                                       ; preds = %do.cond616, %if.the
   br i1 %cmp581, label %if.then583, label %if.end585
 
 if.then583:                                       ; preds = %do.body580
-  %call584 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
+  %call584 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
   br label %if.end585
 
 if.end585:                                        ; preds = %if.then583, %do.body580
@@ -2972,7 +2972,7 @@ if.end16.i1245:                                   ; preds = %if.end12.i1242
   %sub.ptr.lhs.cast.i1246 = ptrtoint ptr %207 to i64
   %sub.ptr.rhs.cast.i1247 = ptrtoint ptr %206 to i64
   %sub.ptr.sub.i1248 = sub i64 %sub.ptr.lhs.cast.i1246, %sub.ptr.rhs.cast.i1247
-  %call.i.i1249 = tail call ptr @memchr(ptr noundef %206, i32 noundef 0, i64 noundef %sub.ptr.sub.i1248) #7
+  %call.i.i1249 = tail call ptr @memchr(ptr noundef readonly %206, i32 noundef 0, i64 noundef %sub.ptr.sub.i1248) #7
   %cmp.i.not.i1250 = icmp eq ptr %call.i.i1249, null
   br i1 %cmp.i.not.i1250, label %for.cond.i1229.outer, label %if.then23.i1251
 
@@ -2996,11 +2996,11 @@ tok_nextc.exit1254:                               ; preds = %if.then.i1231
   %conv6.i1237 = zext i8 %209 to i32
   %210 = and i32 %conv6.i1237, 248
   %211 = icmp eq i32 %210, 48
-  br i1 %211, label %for.cond.i1229, label %do.cond616, !llvm.loop !19
+  br i1 %211, label %for.cond.i1229, label %do.cond616, !llvm.loop !17
 
 do.cond616:                                       ; preds = %tok_nextc.exit1254
   %cmp617 = icmp eq i8 %209, 95
-  br i1 %cmp617, label %do.body580, label %do.end619, !llvm.loop !20
+  br i1 %cmp617, label %do.body580, label %do.end619, !llvm.loop !18
 
 do.end619:                                        ; preds = %do.cond616, %if.end7.i1240, %if.then2.i1239, %if.then23.i1251, %if.then13.i1253
   %retval.0.i123816861689 = phi i32 [ -1, %if.then13.i1253 ], [ -1, %if.then23.i1251 ], [ -1, %if.then2.i1239 ], [ -1, %if.end7.i1240 ], [ %conv6.i1237, %do.cond616 ]
@@ -3018,7 +3018,7 @@ if.then626:                                       ; preds = %do.end619
   br label %return
 
 if.end629:                                        ; preds = %do.end619
-  %call630 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %tok, i32 noundef %retval.0.i123816861689, ptr noundef nonnull @.str.5), !range !18
+  %call630 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %tok, i32 noundef %retval.0.i123816861689, ptr noundef nonnull @.str.5)
   %tobool631.not = icmp eq i32 %call630, 0
   br i1 %tobool631.not, label %if.then632, label %if.end876
 
@@ -3027,7 +3027,7 @@ if.then632:                                       ; preds = %if.end629
   br label %return
 
 if.then641:                                       ; preds = %if.then528
-  %call642 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
+  %call642 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
   br label %do.body643
 
 do.body643:                                       ; preds = %do.cond678, %if.then641
@@ -3036,7 +3036,7 @@ do.body643:                                       ; preds = %do.cond678, %if.the
   br i1 %cmp644, label %if.then646, label %if.end648
 
 if.then646:                                       ; preds = %do.body643
-  %call647 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
+  %call647 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
   br label %if.end648
 
 if.end648:                                        ; preds = %if.then646, %do.body643
@@ -3107,7 +3107,7 @@ if.end16.i1278:                                   ; preds = %if.end12.i1275
   %sub.ptr.lhs.cast.i1279 = ptrtoint ptr %223 to i64
   %sub.ptr.rhs.cast.i1280 = ptrtoint ptr %222 to i64
   %sub.ptr.sub.i1281 = sub i64 %sub.ptr.lhs.cast.i1279, %sub.ptr.rhs.cast.i1280
-  %call.i.i1282 = tail call ptr @memchr(ptr noundef %222, i32 noundef 0, i64 noundef %sub.ptr.sub.i1281) #7
+  %call.i.i1282 = tail call ptr @memchr(ptr noundef readonly %222, i32 noundef 0, i64 noundef %sub.ptr.sub.i1281) #7
   %cmp.i.not.i1283 = icmp eq ptr %call.i.i1282, null
   br i1 %cmp.i.not.i1283, label %for.cond.i1262.outer, label %if.then23.i1284
 
@@ -3131,11 +3131,11 @@ tok_nextc.exit1287:                               ; preds = %if.then.i1264
   %conv6.i1270 = zext i8 %225 to i32
   %226 = and i32 %conv6.i1270, 254
   %227 = icmp eq i32 %226, 48
-  br i1 %227, label %for.cond.i1262, label %do.cond678, !llvm.loop !21
+  br i1 %227, label %for.cond.i1262, label %do.cond678, !llvm.loop !19
 
 do.cond678:                                       ; preds = %tok_nextc.exit1287
   %cmp679 = icmp eq i8 %225, 95
-  br i1 %cmp679, label %do.body643, label %do.end681, !llvm.loop !22
+  br i1 %cmp679, label %do.body643, label %do.end681, !llvm.loop !20
 
 do.end681:                                        ; preds = %do.cond678, %if.end7.i1273, %if.then2.i1272, %if.then23.i1284, %if.then13.i1286
   %retval.0.i127116911694 = phi i32 [ -1, %if.then13.i1286 ], [ -1, %if.then23.i1284 ], [ -1, %if.then2.i1272 ], [ -1, %if.end7.i1273 ], [ %conv6.i1270, %do.cond678 ]
@@ -3153,7 +3153,7 @@ if.then688:                                       ; preds = %do.end681
   br label %return
 
 if.end691:                                        ; preds = %do.end681
-  %call692 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %tok, i32 noundef %retval.0.i127116911694, ptr noundef nonnull @.str.8), !range !18
+  %call692 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %tok, i32 noundef %retval.0.i127116911694, ptr noundef nonnull @.str.8)
   %tobool693.not = icmp eq i32 %call692, 0
   br i1 %tobool693.not, label %if.then694, label %if.end876
 
@@ -3167,7 +3167,7 @@ while.body699:                                    ; preds = %if.then528, %while.
   br i1 %cmp700, label %if.then702, label %if.end714
 
 if.then702:                                       ; preds = %while.body699
-  %call703 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
+  %call703 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
   %230 = and i32 %call703, 255
   %idxprom706 = zext nneg i32 %230 to i64
   %arrayidx707 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %idxprom706
@@ -3243,7 +3243,7 @@ if.end16.i1311:                                   ; preds = %if.end12.i1308
   %sub.ptr.lhs.cast.i1312 = ptrtoint ptr %240 to i64
   %sub.ptr.rhs.cast.i1313 = ptrtoint ptr %239 to i64
   %sub.ptr.sub.i1314 = sub i64 %sub.ptr.lhs.cast.i1312, %sub.ptr.rhs.cast.i1313
-  %call.i.i1315 = tail call ptr @memchr(ptr noundef %239, i32 noundef 0, i64 noundef %sub.ptr.sub.i1314) #7
+  %call.i.i1315 = tail call ptr @memchr(ptr noundef readonly %239, i32 noundef 0, i64 noundef %sub.ptr.sub.i1314) #7
   %cmp.i.not.i1316 = icmp eq ptr %call.i.i1315, null
   br i1 %cmp.i.not.i1316, label %for.cond.i1295, label %if.then23.i1317
 
@@ -3263,7 +3263,7 @@ while.end720:                                     ; preds = %if.end714
   br i1 %tobool727.not, label %if.end735, label %if.then728
 
 if.then728:                                       ; preds = %while.end720
-  %call729 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %tok), !range !8
+  %call729 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %tok)
   %cmp730 = icmp eq i32 %call729, 0
   br i1 %cmp730, label %if.then732, label %if.end735
 
@@ -3308,7 +3308,7 @@ if.then759:                                       ; preds = %land.lhs.true756
   br label %return
 
 if.end773:                                        ; preds = %if.else754, %land.lhs.true756
-  %call774 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %tok, i32 noundef %c.13, ptr noundef nonnull @.str.11), !range !18
+  %call774 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %tok, i32 noundef %c.13, ptr noundef nonnull @.str.11)
   %tobool775.not = icmp eq i32 %call774, 0
   br i1 %tobool775.not, label %if.then776, label %if.end876
 
@@ -3317,7 +3317,7 @@ if.then776:                                       ; preds = %if.end773
   br label %return
 
 if.else782:                                       ; preds = %if.end518.thread, %if.then525
-  %call783 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %tok), !range !8
+  %call783 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %tok)
   switch i32 %call783, label %if.end807 [
     i32 0, label %if.then786
     i32 46, label %fraction.sink.split
@@ -3328,7 +3328,7 @@ if.then786:                                       ; preds = %if.else782
   br label %return
 
 fraction.sink.split:                              ; preds = %if.else782, %if.end735
-  %call792 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
+  %call792 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
   br label %fraction
 
 fraction:                                         ; preds = %fraction.sink.split, %if.then490
@@ -3342,7 +3342,7 @@ fraction:                                         ; preds = %fraction.sink.split
   br i1 %tobool798.not, label %if.end807, label %if.then799
 
 if.then799:                                       ; preds = %fraction
-  %call800 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %tok), !range !8
+  %call800 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %tok)
   %cmp801 = icmp eq i32 %call800, 0
   br i1 %cmp801, label %if.then803, label %if.end807
 
@@ -3358,14 +3358,14 @@ if.end807:                                        ; preds = %if.else782, %fracti
 
 exponent:                                         ; preds = %if.else740, %if.end807
   %c.16 = phi i32 [ %c.15, %if.end807 ], [ %c.13, %if.else740 ]
-  %call814 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
+  %call814 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
   switch i32 %call814, label %if.else832 [
     i32 45, label %if.then820
     i32 43, label %if.then820
   ]
 
 if.then820:                                       ; preds = %exponent, %exponent
-  %call821 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
+  %call821 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
   %251 = and i32 %call821, 255
   %idxprom824 = zext nneg i32 %251 to i64
   %arrayidx825 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %idxprom824
@@ -3391,7 +3391,7 @@ if.else832:                                       ; preds = %exponent
 
 if.then839:                                       ; preds = %if.else832
   tail call fastcc void @tok_backup(ptr noundef nonnull %tok, i32 noundef %call814)
-  %call840 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %tok, i32 noundef %c.16, ptr noundef nonnull @.str.11), !range !18
+  %call840 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %tok, i32 noundef %c.16, ptr noundef nonnull @.str.11)
   %tobool841.not = icmp eq i32 %call840, 0
   br i1 %tobool841.not, label %if.then842, label %if.end844
 
@@ -3407,7 +3407,7 @@ if.end844:                                        ; preds = %if.then839
   br label %return
 
 if.end849:                                        ; preds = %if.else832, %if.then820
-  %call850 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %tok), !range !8
+  %call850 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %tok)
   %cmp851 = icmp eq i32 %call850, 0
   br i1 %cmp851, label %if.then853, label %if.end849.if.end856_crit_edge
 
@@ -3426,8 +3426,8 @@ if.end856:                                        ; preds = %if.end849.if.end856
   br i1 %or.cond35, label %imaginary, label %if.else869
 
 imaginary:                                        ; preds = %if.else740, %if.end856
-  %call863 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok), !range !8
-  %call864 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %tok, i32 noundef %call863, ptr noundef nonnull @.str.12), !range !18
+  %call863 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %tok)
+  %call864 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %tok, i32 noundef %call863, ptr noundef nonnull @.str.12)
   %tobool865.not = icmp eq i32 %call864, 0
   br i1 %tobool865.not, label %if.then866, label %if.end876
 
@@ -3436,7 +3436,7 @@ if.then866:                                       ; preds = %imaginary
   br label %return
 
 if.else869:                                       ; preds = %if.end856
-  %call870 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %tok, i32 noundef %c.17, ptr noundef nonnull @.str.11), !range !18
+  %call870 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %tok, i32 noundef %c.17, ptr noundef nonnull @.str.11)
   %tobool871.not = icmp eq i32 %call870, 0
   br i1 %tobool871.not, label %if.then872, label %if.end876
 
@@ -3528,7 +3528,7 @@ if.end16.i1344:                                   ; preds = %if.end12.i1341
   %sub.ptr.lhs.cast.i1345 = ptrtoint ptr %272 to i64
   %sub.ptr.rhs.cast.i1346 = ptrtoint ptr %271 to i64
   %sub.ptr.sub.i1347 = sub i64 %sub.ptr.lhs.cast.i1345, %sub.ptr.rhs.cast.i1346
-  %call.i.i1348 = tail call ptr @memchr(ptr noundef %271, i32 noundef 0, i64 noundef %sub.ptr.sub.i1347) #7
+  %call.i.i1348 = tail call ptr @memchr(ptr noundef readonly %271, i32 noundef 0, i64 noundef %sub.ptr.sub.i1347) #7
   %cmp.i.not.i1349 = icmp eq ptr %call.i.i1348, null
   br i1 %cmp.i.not.i1349, label %for.cond.i1328, label %if.then23.i1350
 
@@ -3592,7 +3592,7 @@ if.end16.i1377:                                   ; preds = %if.end12.i1374
   %sub.ptr.lhs.cast.i1378 = ptrtoint ptr %282 to i64
   %sub.ptr.rhs.cast.i1379 = ptrtoint ptr %281 to i64
   %sub.ptr.sub.i1380 = sub i64 %sub.ptr.lhs.cast.i1378, %sub.ptr.rhs.cast.i1379
-  %call.i.i1381 = tail call ptr @memchr(ptr noundef %281, i32 noundef 0, i64 noundef %sub.ptr.sub.i1380) #7
+  %call.i.i1381 = tail call ptr @memchr(ptr noundef readonly %281, i32 noundef 0, i64 noundef %sub.ptr.sub.i1380) #7
   %cmp.i.not.i1382 = icmp eq ptr %call.i.i1381, null
   br i1 %cmp.i.not.i1382, label %for.cond.i1361, label %if.then23.i1383
 
@@ -3789,7 +3789,7 @@ if.end16.i1423:                                   ; preds = %if.end12.i1420
   %sub.ptr.lhs.cast.i1424 = ptrtoint ptr %309 to i64
   %sub.ptr.rhs.cast.i1425 = ptrtoint ptr %308 to i64
   %sub.ptr.sub.i1426 = sub i64 %sub.ptr.lhs.cast.i1424, %sub.ptr.rhs.cast.i1425
-  %call.i.i1427 = tail call ptr @memchr(ptr noundef %308, i32 noundef 0, i64 noundef %sub.ptr.sub.i1426) #7
+  %call.i.i1427 = tail call ptr @memchr(ptr noundef readonly %308, i32 noundef 0, i64 noundef %sub.ptr.sub.i1426) #7
   %cmp.i.not.i1428 = icmp eq ptr %call.i.i1427, null
   br i1 %cmp.i.not.i1428, label %for.cond.i1407, label %if.then23.i1429
 
@@ -3853,7 +3853,7 @@ if.end16.i1456:                                   ; preds = %if.end12.i1453
   %sub.ptr.lhs.cast.i1457 = ptrtoint ptr %319 to i64
   %sub.ptr.rhs.cast.i1458 = ptrtoint ptr %318 to i64
   %sub.ptr.sub.i1459 = sub i64 %sub.ptr.lhs.cast.i1457, %sub.ptr.rhs.cast.i1458
-  %call.i.i1460 = tail call ptr @memchr(ptr noundef %318, i32 noundef 0, i64 noundef %sub.ptr.sub.i1459) #7
+  %call.i.i1460 = tail call ptr @memchr(ptr noundef readonly %318, i32 noundef 0, i64 noundef %sub.ptr.sub.i1459) #7
   %cmp.i.not.i1461 = icmp eq ptr %call.i.i1460, null
   br i1 %cmp.i.not.i1461, label %for.cond.i1440, label %if.then23.i1462
 
@@ -3982,7 +3982,7 @@ if.end16.i1502:                                   ; preds = %if.end12.i1499
   %sub.ptr.lhs.cast.i1503 = ptrtoint ptr %333 to i64
   %sub.ptr.rhs.cast.i1504 = ptrtoint ptr %332 to i64
   %sub.ptr.sub.i1505 = sub i64 %sub.ptr.lhs.cast.i1503, %sub.ptr.rhs.cast.i1504
-  %call.i.i1506 = tail call ptr @memchr(ptr noundef %332, i32 noundef 0, i64 noundef %sub.ptr.sub.i1505) #7
+  %call.i.i1506 = tail call ptr @memchr(ptr noundef readonly %332, i32 noundef 0, i64 noundef %sub.ptr.sub.i1505) #7
   %cmp.i.not.i1507 = icmp eq ptr %call.i.i1506, null
   br i1 %cmp.i.not.i1507, label %for.cond.i1486, label %if.then23.i1508
 
@@ -4141,7 +4141,7 @@ if.end16.i1535:                                   ; preds = %if.end12.i1532
   %sub.ptr.lhs.cast.i1536 = ptrtoint ptr %348 to i64
   %sub.ptr.rhs.cast.i1537 = ptrtoint ptr %347 to i64
   %sub.ptr.sub.i1538 = sub i64 %sub.ptr.lhs.cast.i1536, %sub.ptr.rhs.cast.i1537
-  %call.i.i1539 = tail call ptr @memchr(ptr noundef %347, i32 noundef 0, i64 noundef %sub.ptr.sub.i1538) #7
+  %call.i.i1539 = tail call ptr @memchr(ptr noundef readonly %347, i32 noundef 0, i64 noundef %sub.ptr.sub.i1538) #7
   %cmp.i.not.i1540 = icmp eq ptr %call.i.i1539, null
   br i1 %cmp.i.not.i1540, label %for.cond.i1519, label %if.then23.i1541
 
@@ -4215,7 +4215,7 @@ if.end16.i1568:                                   ; preds = %if.end12.i1565
   %sub.ptr.lhs.cast.i1569 = ptrtoint ptr %357 to i64
   %sub.ptr.rhs.cast.i1570 = ptrtoint ptr %356 to i64
   %sub.ptr.sub.i1571 = sub i64 %sub.ptr.lhs.cast.i1569, %sub.ptr.rhs.cast.i1570
-  %call.i.i1572 = tail call ptr @memchr(ptr noundef %356, i32 noundef 0, i64 noundef %sub.ptr.sub.i1571) #7
+  %call.i.i1572 = tail call ptr @memchr(ptr noundef readonly %356, i32 noundef 0, i64 noundef %sub.ptr.sub.i1571) #7
   %cmp.i.not.i1573 = icmp eq ptr %call.i.i1572, null
   br i1 %cmp.i.not.i1573, label %for.cond.i1552, label %if.then23.i1574
 
@@ -4234,7 +4234,7 @@ if.end1085:                                       ; preds = %if.end7.i1563, %if.
   %end_quote_size.2 = phi i32 [ %add1069, %if.then1068 ], [ 0, %tok_nextc.exit1544 ], [ 0, %if.else1070 ], [ 0, %tok_nextc.exit1544.thread ], [ 0, %if.then2.i1562 ], [ 0, %if.end.i1557 ], [ 0, %if.then13.i1576 ], [ 0, %if.then23.i1574 ], [ 0, %if.end7.i1563 ]
   %has_escaped_quote.2 = phi i32 [ %has_escaped_quote.02145, %if.then1068 ], [ %spec.select887, %tok_nextc.exit1544 ], [ %has_escaped_quote.02145, %if.else1070 ], [ %spec.select8871709, %tok_nextc.exit1544.thread ], [ %spec.select887, %if.then2.i1562 ], [ %spec.select887, %if.end.i1557 ], [ %spec.select887, %if.then13.i1576 ], [ %spec.select887, %if.then23.i1574 ], [ %spec.select887, %if.end7.i1563 ]
   %cmp986.not = icmp eq i32 %end_quote_size.2, %quote_size965.0
-  br i1 %cmp986.not, label %while.end1086, label %while.body988, !llvm.loop !23
+  br i1 %cmp986.not, label %while.end1086, label %while.body988, !llvm.loop !21
 
 while.end1086:                                    ; preds = %if.end1085, %tok_nextc.exit1511, %if.end984
   %359 = phi ptr [ %.pre.i14842410, %if.end984 ], [ %.pre.i15172420, %if.end1085 ], [ %.pre.i1517, %tok_nextc.exit1511 ]
@@ -4243,7 +4243,7 @@ while.end1086:                                    ; preds = %if.end1085, %tok_ne
   br label %return
 
 if.then1093:                                      ; preds = %letter_quote
-  %call1094 = tail call fastcc i32 @tok_continuation_line(ptr noundef nonnull %tok), !range !8
+  %call1094 = tail call fastcc i32 @tok_continuation_line(ptr noundef nonnull %tok)
   %cmp1095 = icmp eq i32 %call1094, -1
   br i1 %cmp1095, label %if.then1097, label %if.end1099
 
@@ -4290,7 +4290,7 @@ if.then1123:                                      ; preds = %land.lhs.true1119
 
 land.lhs.true1130:                                ; preds = %if.then1123
   %conv1131 = trunc i32 %c.20 to i8
-  %call1132 = tail call i32 @_PyLexer_update_fstring_expr(ptr noundef nonnull %tok, i8 noundef signext %conv1131), !range !18
+  %call1132 = tail call i32 @_PyLexer_update_fstring_expr(ptr noundef nonnull %tok, i8 noundef signext %conv1131)
   %tobool1133.not = icmp eq i32 %call1132, 0
   br i1 %tobool1133.not, label %if.then1134, label %if.end1136
 
@@ -4378,7 +4378,7 @@ if.end16.i1601:                                   ; preds = %if.end12.i1598
   %sub.ptr.lhs.cast.i1602 = ptrtoint ptr %375 to i64
   %sub.ptr.rhs.cast.i1603 = ptrtoint ptr %374 to i64
   %sub.ptr.sub.i1604 = sub i64 %sub.ptr.lhs.cast.i1602, %sub.ptr.rhs.cast.i1603
-  %call.i.i1605 = tail call ptr @memchr(ptr noundef %374, i32 noundef 0, i64 noundef %sub.ptr.sub.i1604) #7
+  %call.i.i1605 = tail call ptr @memchr(ptr noundef readonly %374, i32 noundef 0, i64 noundef %sub.ptr.sub.i1604) #7
   %cmp.i.not.i1606 = icmp eq ptr %call.i.i1605, null
   br i1 %cmp.i.not.i1606, label %for.cond.i1585, label %if.then23.i1607
 
@@ -4446,7 +4446,7 @@ if.end16.i1634:                                   ; preds = %if.end12.i1631
   %sub.ptr.lhs.cast.i1635 = ptrtoint ptr %385 to i64
   %sub.ptr.rhs.cast.i1636 = ptrtoint ptr %384 to i64
   %sub.ptr.sub.i1637 = sub i64 %sub.ptr.lhs.cast.i1635, %sub.ptr.rhs.cast.i1636
-  %call.i.i1638 = tail call ptr @memchr(ptr noundef %384, i32 noundef 0, i64 noundef %sub.ptr.sub.i1637) #7
+  %call.i.i1638 = tail call ptr @memchr(ptr noundef readonly %384, i32 noundef 0, i64 noundef %sub.ptr.sub.i1637) #7
   %cmp.i.not.i1639 = icmp eq ptr %call.i.i1638, null
   br i1 %cmp.i.not.i1639, label %for.cond.i1618, label %if.then23.i1640
 
@@ -4731,7 +4731,7 @@ return:                                           ; preds = %if.end1340, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tok_nextc(ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 256) i32 @tok_nextc(ptr noundef %tok) unnamed_addr #0 {
 entry:
   %cur = getelementptr inbounds i8, ptr %tok, i64 8
   %inp = getelementptr inbounds i8, ptr %tok, i64 16
@@ -4790,7 +4790,7 @@ if.end16:                                         ; preds = %if.end12
   %sub.ptr.lhs.cast = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call.i = tail call ptr @memchr(ptr noundef %7, i32 noundef 0, i64 noundef %sub.ptr.sub) #7
+  %call.i = tail call ptr @memchr(ptr noundef readonly %7, i32 noundef 0, i64 noundef %sub.ptr.sub) #7
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %for.cond, label %if.then23
 
@@ -4806,7 +4806,7 @@ return:                                           ; preds = %if.end7, %if.then23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tok_continuation_line(ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 256) i32 @tok_continuation_line(ptr noundef %tok) unnamed_addr #0 {
 entry:
   %cur.i = getelementptr inbounds i8, ptr %tok, i64 8
   %inp.i = getelementptr inbounds i8, ptr %tok, i64 16
@@ -4847,7 +4847,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call.i.i = tail call ptr @memchr(ptr noundef %4, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
+  %call.i.i = tail call ptr @memchr(ptr noundef readonly %4, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
   %cmp.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.not.i, label %for.cond.i, label %if.then3.sink.split.sink.split
 
@@ -4897,7 +4897,7 @@ if.end16.i35:                                     ; preds = %if.end12.i32
   %sub.ptr.lhs.cast.i36 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i37 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i38 = sub i64 %sub.ptr.lhs.cast.i36, %sub.ptr.rhs.cast.i37
-  %call.i.i39 = tail call ptr @memchr(ptr noundef %13, i32 noundef 0, i64 noundef %sub.ptr.sub.i38) #7
+  %call.i.i39 = tail call ptr @memchr(ptr noundef readonly %13, i32 noundef 0, i64 noundef %sub.ptr.sub.i38) #7
   %cmp.i.not.i40 = icmp eq ptr %call.i.i39, null
   br i1 %cmp.i.not.i40, label %for.cond.i19, label %if.then3.sink.split.sink.split
 
@@ -4950,7 +4950,7 @@ if.end16.i68:                                     ; preds = %if.end12.i65
   %sub.ptr.lhs.cast.i69 = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast.i70 = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i71 = sub i64 %sub.ptr.lhs.cast.i69, %sub.ptr.rhs.cast.i70
-  %call.i.i72 = tail call ptr @memchr(ptr noundef %21, i32 noundef 0, i64 noundef %sub.ptr.sub.i71) #7
+  %call.i.i72 = tail call ptr @memchr(ptr noundef readonly %21, i32 noundef 0, i64 noundef %sub.ptr.sub.i71) #7
   %cmp.i.not.i73 = icmp eq ptr %call.i.i72, null
   br i1 %cmp.i.not.i73, label %for.cond.i52, label %if.then23.i74
 
@@ -5051,7 +5051,7 @@ declare i32 @_PyLexer_type_comment_token_setup(ptr noundef, ptr noundef, i32 nou
 declare i32 @_PyTokenizer_syntaxerror(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @verify_end_of_number(ptr noundef %tok, i32 noundef %c, ptr noundef %kind) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @verify_end_of_number(ptr noundef %tok, i32 noundef %c, ptr noundef %kind) unnamed_addr #0 {
 entry:
   %tok_extra_tokens = getelementptr inbounds i8, ptr %tok, i64 17260
   %0 = load i32, ptr %tok_extra_tokens, align 4
@@ -5069,15 +5069,15 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then1:                                         ; preds = %if.end
-  %call = tail call fastcc i32 @lookahead(ptr noundef nonnull %tok, ptr noundef nonnull @.str.30), !range !18
+  %call = tail call fastcc i32 @lookahead(ptr noundef nonnull %tok, ptr noundef nonnull @.str.30)
   br label %if.end32
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call fastcc i32 @lookahead(ptr noundef nonnull %tok, ptr noundef nonnull @.str.31), !range !18
+  %call4 = tail call fastcc i32 @lookahead(ptr noundef nonnull %tok, ptr noundef nonnull @.str.31)
   br label %if.end32
 
 if.then7:                                         ; preds = %if.end
-  %call8 = tail call fastcc i32 @lookahead(ptr noundef nonnull %tok, ptr noundef nonnull @.str.32), !range !18
+  %call8 = tail call fastcc i32 @lookahead(ptr noundef nonnull %tok, ptr noundef nonnull @.str.32)
   br label %if.end32
 
 if.then11:                                        ; preds = %if.end
@@ -5129,7 +5129,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call.i.i = tail call ptr @memchr(ptr noundef %7, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
+  %call.i.i = tail call ptr @memchr(ptr noundef readonly %7, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
   %cmp.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.not.i, label %for.cond.i, label %if.then23.i
 
@@ -5179,11 +5179,11 @@ if.end9.i:                                        ; preds = %if.end.i44
   br label %if.end32
 
 if.then21:                                        ; preds = %if.end
-  %call22 = tail call fastcc i32 @lookahead(ptr noundef nonnull %tok, ptr noundef nonnull @.str.33), !range !18
+  %call22 = tail call fastcc i32 @lookahead(ptr noundef nonnull %tok, ptr noundef nonnull @.str.33)
   br label %if.end32
 
 if.then25:                                        ; preds = %if.end
-  %call26 = tail call fastcc i32 @lookahead(ptr noundef nonnull %tok, ptr noundef nonnull @.str.34), !range !18
+  %call26 = tail call fastcc i32 @lookahead(ptr noundef nonnull %tok, ptr noundef nonnull @.str.34)
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end9.i, %if.then3, %if.then25, %if.then21, %if.then7, %if.then1
@@ -5287,7 +5287,7 @@ if.end16.i83:                                     ; preds = %if.end12.i80
   %sub.ptr.lhs.cast.i84 = ptrtoint ptr %26 to i64
   %sub.ptr.rhs.cast.i85 = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i86 = sub i64 %sub.ptr.lhs.cast.i84, %sub.ptr.rhs.cast.i85
-  %call.i.i87 = tail call ptr @memchr(ptr noundef %25, i32 noundef 0, i64 noundef %sub.ptr.sub.i86) #7
+  %call.i.i87 = tail call ptr @memchr(ptr noundef readonly %25, i32 noundef 0, i64 noundef %sub.ptr.sub.i86) #7
   %cmp.i.not.i88 = icmp eq ptr %call.i.i87, null
   br i1 %cmp.i.not.i88, label %for.cond.i67, label %if.then23.i89
 
@@ -5351,7 +5351,7 @@ return:                                           ; preds = %if.end7.i78, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tok_decimal_tail(ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 256) i32 @tok_decimal_tail(ptr noundef %tok) unnamed_addr #0 {
 entry:
   %cur.i = getelementptr inbounds i8, ptr %tok, i64 8
   %inp.i = getelementptr inbounds i8, ptr %tok, i64 16
@@ -5412,7 +5412,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call.i.i = tail call ptr @memchr(ptr noundef %5, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
+  %call.i.i = tail call ptr @memchr(ptr noundef readonly %5, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
   %cmp.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.not.i, label %for.cond.i.backedge, label %if.then23.i
 
@@ -5421,7 +5421,7 @@ for.cond.i.backedge:                              ; preds = %if.end16.i, %tok_ne
   %.pre.i.pre75.be = phi ptr [ %5, %if.end16.i ], [ %.pre.i.pre74, %tok_nextc.exit ], [ %.pre.i.pre72, %tok_nextc.exit40 ]
   %.pre31.i70.be = phi ptr [ %6, %if.end16.i ], [ %.pre31.i14, %tok_nextc.exit ], [ %.pre31.i.pre78, %tok_nextc.exit40 ]
   %.pre.i67.be = phi ptr [ %5, %if.end16.i ], [ %.pre.i13, %tok_nextc.exit ], [ %.pre.i.pre72, %tok_nextc.exit40 ]
-  br label %for.cond.i, !llvm.loop !24
+  br label %for.cond.i, !llvm.loop !22
 
 if.then23.i:                                      ; preds = %if.end16.i
   %call24.i = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %tok, ptr noundef nonnull @.str.25) #8
@@ -5496,7 +5496,7 @@ if.end16.i31:                                     ; preds = %if.end12.i28
   %sub.ptr.lhs.cast.i32 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i33 = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i34 = sub i64 %sub.ptr.lhs.cast.i32, %sub.ptr.rhs.cast.i33
-  %call.i.i35 = tail call ptr @memchr(ptr noundef %17, i32 noundef 0, i64 noundef %sub.ptr.sub.i34) #7
+  %call.i.i35 = tail call ptr @memchr(ptr noundef readonly %17, i32 noundef 0, i64 noundef %sub.ptr.sub.i34) #7
   %cmp.i.not.i36 = icmp eq ptr %call.i.i35, null
   br i1 %cmp.i.not.i36, label %for.cond.i15, label %if.then23.i37
 
@@ -5562,7 +5562,7 @@ return:                                           ; preds = %do.end, %tok_backup
 declare i32 @_PyTokenizer_syntaxerror_known_range(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set_fstring_expr(ptr nocapture noundef readonly %tok, ptr nocapture noundef %token) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_fstring_expr(ptr nocapture noundef readonly %tok, ptr nocapture noundef %token) unnamed_addr #0 {
 entry:
   %tok_mode_stack = getelementptr inbounds i8, ptr %tok, i64 2856
   %tok_mode_stack_index = getelementptr inbounds i8, ptr %tok, i64 17256
@@ -5594,7 +5594,7 @@ for.cond.preheader:                               ; preds = %lor.lhs.false
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i64 %i.041, 1
   %exitcond.not = icmp eq i64 %inc, %sub
-  br i1 %exitcond.not, label %if.else55, label %for.body, !llvm.loop !25
+  br i1 %exitcond.not, label %if.else55, label %for.body, !llvm.loop !23
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.041 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -5635,7 +5635,7 @@ if.end43:                                         ; preds = %while.body
   %cmp29 = icmp ne i8 %10, 0
   %cmp31 = icmp slt i64 %inc44, %sub
   %11 = and i1 %cmp31, %cmp29
-  br i1 %11, label %while.body, label %for.inc50, !llvm.loop !26
+  br i1 %11, label %while.body, label %for.inc50, !llvm.loop !24
 
 for.inc50.sink.split:                             ; preds = %while.body, %for.body19
   %.sink = phi i8 [ %8, %for.body19 ], [ 10, %while.body ]
@@ -5650,7 +5650,7 @@ for.inc50:                                        ; preds = %if.end43, %for.inc5
   %j.1 = phi i64 [ %j.049, %while.cond.preheader ], [ %inc47, %for.inc50.sink.split ], [ %j.049, %if.end43 ]
   %inc51 = add i64 %i15.2, 1
   %cmp17 = icmp slt i64 %inc51, %sub
-  br i1 %cmp17, label %for.body19, label %for.end52, !llvm.loop !27
+  br i1 %cmp17, label %for.body19, label %for.end52, !llvm.loop !25
 
 for.end52:                                        ; preds = %for.inc50
   %arrayidx53 = getelementptr i8, ptr %call, i64 %j.1
@@ -5704,7 +5704,7 @@ declare ptr @PyUnicode_AsUTF8String(ptr noundef) local_unnamed_addr #2
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lookahead(ptr noundef %tok, ptr noundef readonly %test) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @lookahead(ptr noundef %tok, ptr noundef readonly %test) unnamed_addr #0 {
 entry:
   %cur.i = getelementptr inbounds i8, ptr %tok, i64 8
   %inp.i = getelementptr inbounds i8, ptr %tok, i64 16
@@ -5769,7 +5769,7 @@ if.end16.i:                                       ; preds = %if.end12.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call.i.i = tail call ptr @memchr(ptr noundef %5, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
+  %call.i.i = tail call ptr @memchr(ptr noundef readonly %5, i32 noundef 0, i64 noundef %sub.ptr.sub.i) #7
   %cmp.i.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.not.i, label %for.cond.i, label %if.then23.i
 
@@ -5890,7 +5890,7 @@ if.end9.i37:                                      ; preds = %if.end.i34
 tok_backup.exit41:                                ; preds = %while.body30, %if.end9.i37
   %24 = phi ptr [ %19, %while.body30 ], [ %incdec.ptr.i32, %if.end9.i37 ]
   %cmp28.not = icmp eq ptr %incdec.ptr31, %test
-  br i1 %cmp28.not, label %while.end, label %while.body30, !llvm.loop !28
+  br i1 %cmp28.not, label %while.end, label %while.body30, !llvm.loop !26
 
 while.end:                                        ; preds = %tok_backup.exit41, %tok_backup.exit
   ret i32 %res.045
@@ -5931,9 +5931,9 @@ attributes #9 = { noreturn nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -1, i32 256}
-!9 = distinct !{!9, !6, !10}
-!10 = !{!"llvm.loop.unswitch.partial.disable"}
+!8 = distinct !{!8, !6, !9}
+!9 = !{!"llvm.loop.unswitch.partial.disable"}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
@@ -5941,7 +5941,7 @@ attributes #9 = { noreturn nounwind }
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = !{i32 0, i32 2}
+!18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
@@ -5950,5 +5950,3 @@ attributes #9 = { noreturn nounwind }
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}

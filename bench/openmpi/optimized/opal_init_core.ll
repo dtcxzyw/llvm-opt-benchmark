@@ -127,7 +127,7 @@ define noundef i32 @opal_init_error(ptr noundef %0, i32 noundef returned %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_init_gethostname() local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @opal_init_gethostname() local_unnamed_addr #0 {
   %1 = tail call noalias dereferenceable_or_null(4096) ptr @calloc(i64 noundef 1, i64 noundef 4096) #11
   %2 = icmp eq ptr %1, null
   br i1 %2, label %27, label %.preheader
@@ -266,7 +266,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %13
   tail call void @opal_finalize_domain_init(ptr noundef nonnull @opal_init_util_domain, ptr noundef nonnull @.str.2) #10
   tail call void @opal_finalize_set_domain(ptr noundef nonnull @opal_init_util_domain) #10
   tail call void @opal_thread_set_main() #10
-  %19 = tail call i32 @opal_init_gethostname(), !range !7
+  %19 = tail call i32 @opal_init_gethostname()
   %.not26 = icmp eq i32 %19, 0
   br i1 %.not26, label %23, label %20
 
@@ -492,4 +492,3 @@ attributes #15 = { cold nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 -13, i32 1}

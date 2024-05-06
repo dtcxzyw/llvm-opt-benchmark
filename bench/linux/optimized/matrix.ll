@@ -1424,7 +1424,7 @@ define dso_local void @irq_matrix_assign_system(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @irq_matrix_reserve_managed(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -28, 1) i32 @irq_matrix_reserve_managed(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8

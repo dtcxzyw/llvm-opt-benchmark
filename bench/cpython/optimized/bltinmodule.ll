@@ -950,7 +950,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [11 x i8] c"__reduce__\00", align 1
 @reduce_doc = internal constant [39 x i8] c"Return state information for pickling.\00", align 16
 @.str.33 = private unnamed_addr constant [6 x i8] c"O(OO)\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.34 = private unnamed_addr constant [3 x i8] c"ON\00", align 1
 @PyExc_TypeError = external local_unnamed_addr global ptr, align 8
 @.str.35 = private unnamed_addr constant [40 x i8] c"map() must have at least two arguments.\00", align 1
@@ -4289,22 +4289,22 @@ if.then10.i:                                      ; preds = %if.end8.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then10.i, %if.end8.i
-  %call12.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call25, ptr noundef nonnull dereferenceable(5) @.str.59) #8
+  %call12.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call25, ptr noundef nonnull dereferenceable(5) @.str.59) #8
   %cmp13.i = icmp eq i32 %call12.i, 0
   br i1 %cmp13.i, label %if.end39.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end11.i
-  %call15.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call25, ptr noundef nonnull dereferenceable(5) @.str.58) #8
+  %call15.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call25, ptr noundef nonnull dereferenceable(5) @.str.58) #8
   %cmp16.i = icmp eq i32 %call15.i, 0
   br i1 %cmp16.i, label %if.end39.i, label %if.else18.i
 
 if.else18.i:                                      ; preds = %if.else.i
-  %call19.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call25, ptr noundef nonnull dereferenceable(7) @.str.115) #8
+  %call19.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call25, ptr noundef nonnull dereferenceable(7) @.str.115) #8
   %cmp20.i = icmp eq i32 %call19.i, 0
   br i1 %cmp20.i, label %if.end39.i, label %if.else22.i
 
 if.else22.i:                                      ; preds = %if.else18.i
-  %call23.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call25, ptr noundef nonnull dereferenceable(10) @.str.116) #8
+  %call23.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call25, ptr noundef nonnull dereferenceable(10) @.str.116) #8
   %cmp24.i = icmp eq i32 %call23.i, 0
   br i1 %cmp24.i, label %if.then25.i, label %if.else30.i
 

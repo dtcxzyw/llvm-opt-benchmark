@@ -195,7 +195,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @epki2pki_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @epki2pki_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %str = alloca ptr, align 8
   %propq = getelementptr inbounds i8, ptr %vctx, i64 8

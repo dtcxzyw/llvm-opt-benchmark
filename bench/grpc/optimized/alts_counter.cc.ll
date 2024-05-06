@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const._Z22alts_counter_incrementP12alts_counterPbPPc.error_msg.3 = private unnamed_addr constant [24 x i8] c"is_overflow is nullptr.\00", align 16
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z19alts_counter_createbmmPP12alts_counterPPc(i1 noundef zeroext %is_client, i64 noundef %counter_size, i64 noundef %overflow_size, ptr noundef %crypter_counter, ptr noundef writeonly %error_details) local_unnamed_addr #0 {
+define noundef range(i32 0, 4) i32 @_Z19alts_counter_createbmmPP12alts_counterPPc(i1 noundef zeroext %is_client, i64 noundef %counter_size, i64 noundef %overflow_size, ptr noundef %crypter_counter, ptr noundef writeonly %error_details) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %counter_size, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -21,7 +21,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 25)
   store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %call2.i, ptr noundef nonnull align 16 dereferenceable(25) @__const._Z19alts_counter_createbmmPP12alts_counterPPc.error_msg, i64 25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %call2.i, ptr noundef nonnull readonly align 16 dereferenceable(25) @__const._Z19alts_counter_createbmmPP12alts_counterPPc.error_msg, i64 25, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -37,7 +37,7 @@ if.then3:                                         ; preds = %if.end
 if.then.i15:                                      ; preds = %if.then3
   %call2.i18 = tail call ptr @gpr_malloc(i64 noundef 26)
   store ptr %call2.i18, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %call2.i18, ptr noundef nonnull align 16 dereferenceable(26) @__const._Z19alts_counter_createbmmPP12alts_counterPPc.error_msg.1, i64 26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %call2.i18, ptr noundef nonnull readonly align 16 dereferenceable(26) @__const._Z19alts_counter_createbmmPP12alts_counterPPc.error_msg.1, i64 26, i1 false)
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -51,7 +51,7 @@ if.then8:                                         ; preds = %if.end6
 if.then.i23:                                      ; preds = %if.then8
   %call2.i26 = tail call ptr @gpr_malloc(i64 noundef 28)
   store ptr %call2.i26, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i26, ptr noundef nonnull align 16 dereferenceable(28) @__const._Z22alts_counter_incrementP12alts_counterPbPPc.error_msg, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i26, ptr noundef nonnull readonly align 16 dereferenceable(28) @__const._Z22alts_counter_incrementP12alts_counterPbPPc.error_msg, i64 28, i1 false)
   br label %return
 
 if.end11:                                         ; preds = %if.end6
@@ -89,7 +89,7 @@ declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #2
 declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef readonly %crypter_counter, ptr noundef writeonly %is_overflow, ptr noundef writeonly %error_details) local_unnamed_addr #0 {
+define noundef range(i32 0, 10) i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef readonly %crypter_counter, ptr noundef writeonly %is_overflow, ptr noundef writeonly %error_details) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %crypter_counter, null
   br i1 %cmp, label %if.then, label %if.end
@@ -101,7 +101,7 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %call2.i = tail call ptr @gpr_malloc(i64 noundef 28)
   store ptr %call2.i, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i, ptr noundef nonnull align 16 dereferenceable(28) @__const._Z22alts_counter_incrementP12alts_counterPbPPc.error_msg, i64 28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %call2.i, ptr noundef nonnull readonly align 16 dereferenceable(28) @__const._Z22alts_counter_incrementP12alts_counterPbPPc.error_msg, i64 28, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -126,7 +126,7 @@ if.then2:                                         ; preds = %if.end
 if.then.i13:                                      ; preds = %if.then2
   %call2.i16 = tail call ptr @gpr_malloc(i64 noundef 24)
   store ptr %call2.i16, ptr %error_details, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %call2.i16, ptr noundef nonnull align 16 dereferenceable(24) @__const._Z22alts_counter_incrementP12alts_counterPbPPc.error_msg.3, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %call2.i16, ptr noundef nonnull readonly align 16 dereferenceable(24) @__const._Z22alts_counter_incrementP12alts_counterPbPPc.error_msg.3, i64 24, i1 false)
   br label %return
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc

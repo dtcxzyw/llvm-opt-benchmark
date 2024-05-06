@@ -359,7 +359,7 @@ define dso_local void @tty_port_unregister_device(ptr nocapture readnone %0, ptr
 declare dso_local void @tty_unregister_device(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tty_port_alloc_xmit_buf(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @tty_port_alloc_xmit_buf(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 288
   tail call void @mutex_lock(ptr noundef %2) #6
   %3 = getelementptr inbounds i8, ptr %0, i64 320
@@ -759,7 +759,7 @@ define dso_local void @tty_port_lower_dtr_rts(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tty_port_block_til_ready(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 -512, 1) i32 @tty_port_block_til_ready(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1001,7 +1001,7 @@ declare dso_local void @tty_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @tty_port_close_start(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @tty_port_close_start(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i32 @tty_hung_up_p(ptr noundef %2) #6
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %67

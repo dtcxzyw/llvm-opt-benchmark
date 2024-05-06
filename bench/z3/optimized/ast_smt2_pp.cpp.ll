@@ -1180,7 +1180,7 @@ _ZNK9func_decl9is_skolemEv.exit.i:                ; preds = %_ZNK4decl13get_fami
   %storemerge179.in = getelementptr inbounds i8, ptr %29, i64 16
   %storemerge179 = load i64, ptr %storemerge179.in, align 8
   store i64 %storemerge179, ptr %s.i, align 8
-  %call10.i127 = invoke noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameERK6symbolRjb(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %s.i, ptr noundef nonnull align 4 dereferenceable(4) %len, i1 zeroext poison)
+  %call10.i127 = invoke noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameERK6symbolRjb(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %s.i, ptr noundef nonnull writeonly align 4 dereferenceable(4) %len, i1 zeroext poison)
           to label %invoke.cont42 unwind label %lpad.loopexit
 
 invoke.cont42:                                    ; preds = %if.then.i123.invoke, %_ZNK9func_decl9is_skolemEv.exit.i
@@ -1444,7 +1444,7 @@ _ZNK9func_decl9is_skolemEv.exit.i:                ; preds = %_ZNK4decl13get_fami
   %storemerge.in = getelementptr inbounds i8, ptr %f, i64 16
   %storemerge = load i64, ptr %storemerge.in, align 8
   store i64 %storemerge, ptr %s.i, align 8
-  %call10.i = call noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameERK6symbolRjb(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %s.i, ptr noundef nonnull align 4 dereferenceable(4) %len, i1 zeroext poison)
+  %call10.i = call noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameERK6symbolRjb(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %s.i, ptr noundef nonnull writeonly align 4 dereferenceable(4) %len, i1 zeroext poison)
   br label %_ZNK19smt2_pp_environment13pp_fdecl_nameEP9func_declRj.exit
 
 _ZNK19smt2_pp_environment13pp_fdecl_nameEP9func_declRj.exit: ; preds = %if.then.i, %if.then5.i, %_ZNK9func_decl9is_skolemEv.exit.i
@@ -2009,7 +2009,7 @@ _ZNK9func_decl9is_skolemEv.exit.i:                ; preds = %_ZNK4decl13get_fami
   %storemerge.in = getelementptr inbounds i8, ptr %f, i64 16
   %storemerge = load i64, ptr %storemerge.in, align 8
   store i64 %storemerge, ptr %s.i, align 8
-  %call10.i = call noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameERK6symbolRjb(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %s.i, ptr noundef nonnull align 4 dereferenceable(4) %len, i1 zeroext poison)
+  %call10.i = call noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameERK6symbolRjb(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %s.i, ptr noundef nonnull writeonly align 4 dereferenceable(4) %len, i1 zeroext poison)
   br label %_ZNK19smt2_pp_environment13pp_fdecl_nameEP9func_declRj.exit
 
 _ZNK19smt2_pp_environment13pp_fdecl_nameEP9func_declRj.exit: ; preds = %if.then.i, %if.then5.i, %_ZNK9func_decl9is_skolemEv.exit.i
@@ -8828,7 +8828,7 @@ _ZNK9func_decl9is_skolemEv.exit.i:                ; preds = %_ZNK4decl13get_fami
   %storemerge.in = getelementptr inbounds i8, ptr %f, i64 16
   %storemerge = load i64, ptr %storemerge.in, align 8
   store i64 %storemerge, ptr %s.i, align 8
-  %call10.i = call noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameERK6symbolRjb(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %s.i, ptr noundef nonnull align 4 dereferenceable(4) %len, i1 zeroext poison)
+  %call10.i = call noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameERK6symbolRjb(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %s.i, ptr noundef nonnull writeonly align 4 dereferenceable(4) %len, i1 zeroext poison)
   br label %_ZNK19smt2_pp_environment13pp_fdecl_nameEP9func_declRj.exit
 
 _ZNK19smt2_pp_environment13pp_fdecl_nameEP9func_declRj.exit: ; preds = %if.then.i, %if.then5.i, %_ZNK9func_decl9is_skolemEv.exit.i
@@ -9114,7 +9114,7 @@ _ZNK9func_decl9is_skolemEv.exit.i:                ; preds = %_ZNK4decl13get_fami
   %storemerge.in = getelementptr inbounds i8, ptr %f, i64 16
   %storemerge = load i64, ptr %storemerge.in, align 8
   store i64 %storemerge, ptr %s.i, align 8
-  %call10.i12 = invoke noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameERK6symbolRjb(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(8) %s.i, ptr noundef nonnull align 4 dereferenceable(4) %len, i1 zeroext poison)
+  %call10.i12 = invoke noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameERK6symbolRjb(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(8) %s.i, ptr noundef nonnull writeonly align 4 dereferenceable(4) %len, i1 zeroext poison)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then5.i.invoke, %_ZNK9func_decl9is_skolemEv.exit.i
@@ -10913,7 +10913,7 @@ _ZNK9func_decl9is_skolemEv.exit.i:                ; preds = %_ZNK4decl13get_fami
   %storemerge323.in = getelementptr inbounds i8, ptr %5, i64 16
   %storemerge323 = load i64, ptr %storemerge323.in, align 8
   store i64 %storemerge323, ptr %s.i, align 8
-  %call10.i18 = invoke noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameERK6symbolRjb(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %s.i, ptr noundef nonnull align 4 dereferenceable(4) %len, i1 zeroext poison)
+  %call10.i18 = invoke noundef ptr @_ZNK19smt2_pp_environment13pp_fdecl_nameERK6symbolRjb(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %s.i, ptr noundef nonnull writeonly align 4 dereferenceable(4) %len, i1 zeroext poison)
           to label %invoke.cont14 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont14:                                    ; preds = %if.then.i.invoke, %_ZNK9func_decl9is_skolemEv.exit.i

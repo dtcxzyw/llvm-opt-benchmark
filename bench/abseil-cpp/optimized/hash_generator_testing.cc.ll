@@ -119,7 +119,7 @@ for.body6.i.i:                                    ; preds = %for.body6.i.i, %for
 for.end.i.i:                                      ; preds = %for.body6.i.i
   %arrayidx10.i.i = getelementptr inbounds [312 x i64], ptr %call, i64 0, i64 %__i.016.i.i
   store i64 %add8.i.i, ptr %arrayidx10.i.i, align 8
-  %tobool.i.i = trunc i8 %__zero.015.i.i to i1
+  %tobool.i.i = trunc nuw i8 %__zero.015.i.i to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc24.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i.i
@@ -144,7 +144,7 @@ for.inc24.i.i:                                    ; preds = %if.else.i.i, %if.th
   br i1 %exitcond.not.i.i, label %for.end26.i.i, label %for.cond4.preheader.i.i, !llvm.loop !9
 
 for.end26.i.i:                                    ; preds = %for.inc24.i.i
-  %tobool27.i.i = trunc i8 %__zero.1.i.i to i1
+  %tobool27.i.i = trunc nuw i8 %__zero.1.i.i to i1
   br i1 %tobool27.i.i, label %if.then28.i.i, label %invoke.cont3
 
 if.then28.i.i:                                    ; preds = %for.end26.i.i
@@ -252,7 +252,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %if.then.i.i.i.i
   %mul.i.i.i.i.i = mul nuw nsw i128 %conv.i.i.i.i.i, 95
   %conv2.i.i.i.i.i = trunc i128 %mul.i.i.i.i.i to i64
   %extract9.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i, 64
-  %extract.t10.i.i.i.i.i = trunc i128 %extract9.i.i.i.i.i to i8
+  %extract.t10.i.i.i.i.i = trunc nuw nsw i128 %extract9.i.i.i.i.i to i8
   %cmp315.i.i.i.i.i = icmp ult i64 %conv2.i.i.i.i.i, 36
   br i1 %cmp315.i.i.i.i.i, label %while.body.i.i.i.i.preheader.i, label %"_ZZNK4absl18container_internal13hash_internal9GeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEclEvENK3$_0clEv.exit.i"
 
@@ -364,7 +364,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
 
 while.cond.if.end.loopexit_crit_edge.i.i.i.i.i:   ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit.i
   %extract13.le.i.i.i.i.i = lshr i128 %mul7.i.i.i.i.i, 64
-  %extract.t14.le.i.i.i.i.i = trunc i128 %extract13.le.i.i.i.i.i to i8
+  %extract.t14.le.i.i.i.i.i = trunc nuw nsw i128 %extract13.le.i.i.i.i.i to i8
   br label %"_ZZNK4absl18container_internal13hash_internal9GeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEclEvENK3$_0clEv.exit.i"
 
 "_ZZNK4absl18container_internal13hash_internal9GeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEclEvENK3$_0clEv.exit.i": ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i.i.i, %call.i.i.i.i.i.noexc
@@ -519,7 +519,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i, %init.c
   %mul.i.i.i.i.i = mul nuw nsw i128 %conv.i.i.i.i.i, 95
   %conv2.i.i.i.i.i = trunc i128 %mul.i.i.i.i.i to i64
   %extract9.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i, 64
-  %extract.t10.i.i.i.i.i = trunc i128 %extract9.i.i.i.i.i to i8
+  %extract.t10.i.i.i.i.i = trunc nuw nsw i128 %extract9.i.i.i.i.i to i8
   %cmp315.i.i.i.i.i = icmp ult i64 %conv2.i.i.i.i.i, 36
   br i1 %cmp315.i.i.i.i.i, label %while.body.i.i.i.i.preheader.i, label %"_ZZNK4absl18container_internal13hash_internal9GeneratorISt17basic_string_viewIcSt11char_traitsIcEEvEclEvENK3$_0clEv.exit.i"
 
@@ -631,7 +631,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
 
 while.cond.if.end.loopexit_crit_edge.i.i.i.i.i:   ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit.i
   %extract13.le.i.i.i.i.i = lshr i128 %mul7.i.i.i.i.i, 64
-  %extract.t14.le.i.i.i.i.i = trunc i128 %extract13.le.i.i.i.i.i to i8
+  %extract.t14.le.i.i.i.i.i = trunc nuw nsw i128 %extract13.le.i.i.i.i.i to i8
   br label %"_ZZNK4absl18container_internal13hash_internal9GeneratorISt17basic_string_viewIcSt11char_traitsIcEEvEclEvENK3$_0clEv.exit.i"
 
 "_ZZNK4absl18container_internal13hash_internal9GeneratorISt17basic_string_viewIcSt11char_traitsIcEEvEclEvENK3$_0clEv.exit.i": ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i.i.i, %if.then.i.i.i.i

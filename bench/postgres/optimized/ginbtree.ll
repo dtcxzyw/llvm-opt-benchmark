@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.ginFindParents = private unnamed_addr constant [15 x i8] c"ginFindParents\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @ginTraverseLock(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local range(i32 1, 3) i32 @ginTraverseLock(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   tail call void @LockBuffer(i32 noundef %0, i32 noundef 1) #5
   %3 = icmp slt i32 %0, 0
   br i1 %3, label %4, label %10
@@ -141,7 +141,7 @@ define dso_local ptr @ginFindLeafPage(ptr noundef %0, i1 noundef zeroext %1, i1 
 
 BufferGetPage.exit:                               ; preds = %24, %30
   %.0.i.i = phi ptr [ %29, %24 ], [ %35, %30 ]
-  %36 = tail call i32 @ginTraverseLock(i32 noundef %22, i1 noundef zeroext %1), !range !5
+  %36 = tail call i32 @ginTraverseLock(i32 noundef %22, i1 noundef zeroext %1)
   br i1 %1, label %46, label %37
 
 37:                                               ; preds = %BufferGetPage.exit
@@ -303,7 +303,7 @@ BufferGetPage.exit66:                             ; preds = %110, %116
   %132 = load i8, ptr %17, align 8
   %133 = and i8 %132, 1
   %134 = icmp eq i8 %133, 0
-  br i1 %134, label %.lr.ph, label %.critedge, !llvm.loop !6
+  br i1 %134, label %.lr.ph, label %.critedge, !llvm.loop !5
 
 .critedge:                                        ; preds = %52, %55, %131, %.lr.ph, %46
   %.060.lcssa = phi ptr [ %.0.i.i, %46 ], [ %.06069, %.lr.ph ], [ %.0.i.i65, %131 ], [ %.06069, %55 ], [ %.06069, %52 ]
@@ -531,7 +531,7 @@ define dso_local void @freeGinBtreeStack(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %6, %.lr.ph
   tail call void @pfree(ptr noundef nonnull %.09) #5
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %7, %1
   ret void
@@ -620,7 +620,7 @@ ginFinishOldSplit.exit:                           ; preds = %27, %29
 46:                                               ; preds = %45, %.lr.ph.i
   tail call void @pfree(ptr noundef nonnull %.09.i) #5
   %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %freeGinBtreeStack.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %freeGinBtreeStack.exit, label %.lr.ph.i, !llvm.loop !7
 
 47:                                               ; preds = %37
   tail call fastcc void @ginFinishSplit(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef %3)
@@ -850,7 +850,7 @@ BufferGetPage.exit139:                            ; preds = %49, %43, %39
 144:                                              ; preds = %143
   %145 = call i32 @BufferGetBlockNumber(i32 noundef %4) #5
   %146 = lshr i32 %145, 16
-  %147 = trunc i32 %146 to i16
+  %147 = trunc nuw i32 %146 to i16
   store i16 %147, ptr %11, align 2
   %148 = trunc i32 %145 to i16
   %149 = getelementptr inbounds i8, ptr %11, i64 2
@@ -862,7 +862,7 @@ BufferGetPage.exit139:                            ; preds = %49, %43, %39
   %154 = getelementptr i8, ptr %.0130, i64 %153
   %155 = load i32, ptr %154, align 4
   %156 = lshr i32 %155, 16
-  %157 = trunc i32 %156 to i16
+  %157 = trunc nuw i32 %156 to i16
   store i16 %157, ptr %150, align 2
   %158 = trunc i32 %155 to i16
   %159 = getelementptr inbounds i8, ptr %11, i64 6
@@ -873,7 +873,7 @@ BufferGetPage.exit139:                            ; preds = %49, %43, %39
 160:                                              ; preds = %144, %143
   %161 = call i64 @XLogInsert(i8 noundef zeroext 13, i8 noundef zeroext 32) #5
   %162 = lshr i64 %161, 32
-  %163 = trunc i64 %162 to i32
+  %163 = trunc nuw i64 %162 to i32
   store i32 %163, ptr %.0.i.i, align 4
   %164 = trunc i64 %161 to i32
   %165 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
@@ -1294,7 +1294,7 @@ BufferGetPage.exit149:                            ; preds = %363, %369
   call void @XLogRegisterData(ptr noundef nonnull %12, i32 noundef 28) #5
   %417 = call i64 @XLogInsert(i8 noundef zeroext 13, i8 noundef zeroext 48) #5
   %418 = lshr i64 %417, 32
-  %419 = trunc i64 %418 to i32
+  %419 = trunc nuw i64 %418 to i32
   store i32 %419, ptr %.0.i.i, align 4
   %420 = trunc i64 %417 to i32
   %421 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
@@ -1520,7 +1520,7 @@ BufferGetPage.exit54:                             ; preds = %46, %52
   %77 = getelementptr inbounds i8, ptr %.059.i, i64 24
   %78 = load ptr, ptr %77, align 8
   %.not.i = icmp eq ptr %78, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph97, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph97, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph97, %71
   %.059.i.lcssa = phi ptr [ %.059.i94, %71 ], [ %.059.i, %.lr.ph97 ]
@@ -1745,7 +1745,7 @@ ginFinishOldSplit.exit63:                         ; preds = %193, %195
   %204 = load i32, ptr %.0, align 8
   %205 = tail call zeroext i16 %203(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i64, i32 noundef %204, i16 noundef zeroext 0) #5
   %206 = icmp eq i16 %205, 0
-  br i1 %206, label %.lr.ph101, label %ginFindParents.exit, !llvm.loop !10
+  br i1 %206, label %.lr.ph101, label %ginFindParents.exit, !llvm.loop !9
 
 ._crit_edge102:                                   ; preds = %122
   %.not69.i = icmp eq i32 %.061.i, -1
@@ -1900,7 +1900,7 @@ ginFinishOldSplit.exit59:                         ; preds = %278, %280
   %291 = tail call zeroext i16 %288(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i5580, i32 noundef %289, i16 noundef zeroext %290) #5
   store i16 %291, ptr %58, align 8
   %292 = icmp eq i16 %291, 0
-  br i1 %292, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %292, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %287, %BufferGetPage.exit54, %ginFindParents.exit
   %.050 = phi ptr [ %83, %ginFindParents.exit ], [ %10, %BufferGetPage.exit54 ], [ %10, %287 ]
@@ -1955,7 +1955,7 @@ BufferGetPage.exit61:                             ; preds = %299, %305
   br i1 %316, label %324, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %320, %.thread82
-  br label %.backedge, !llvm.loop !12
+  br label %.backedge, !llvm.loop !11
 
 .thread82:                                        ; preds = %319
   br i1 %316, label %.thread83, label %.backedge.backedge
@@ -1988,7 +1988,7 @@ BufferGetPage.exit61:                             ; preds = %299, %305
 332:                                              ; preds = %331, %.lr.ph.i
   tail call void @pfree(ptr noundef nonnull %.09.i) #5
   %.not.i62 = icmp eq ptr %328, null
-  br i1 %.not.i62, label %freeGinBtreeStack.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i62, label %freeGinBtreeStack.exit, label %.lr.ph.i, !llvm.loop !7
 
 freeGinBtreeStack.exit:                           ; preds = %332, %.thread83
   ret void
@@ -2039,11 +2039,10 @@ attributes #6 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 1, i32 3}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}

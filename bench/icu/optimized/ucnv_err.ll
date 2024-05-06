@@ -806,7 +806,7 @@ while.body84:                                     ; preds = %while.body84.prehea
   br i1 %exitcond97.not, label %if.end102.loopexit71, label %while.body84, !llvm.loop !12
 
 if.end102.loopexit71:                             ; preds = %while.body84
-  %10 = trunc i64 %indvars.iv.next89 to i32
+  %10 = trunc nuw i64 %indvars.iv.next89 to i32
   br label %if.end102
 
 if.end102:                                        ; preds = %while.body64, %while.body37, %while.body13, %while.body, %if.end102.loopexit71, %while.cond62.preheader, %while.cond35.preheader, %while.cond11.preheader, %while.cond82.preheader, %while.cond.preheader

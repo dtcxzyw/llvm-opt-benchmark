@@ -299,7 +299,7 @@ for.inc:                                          ; preds = %land.rhs
   br i1 %exitcond.not, label %return, label %land.rhs, !llvm.loop !9
 
 for.end:                                          ; preds = %land.rhs
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %or.cond = icmp eq i32 %2, 0
   br i1 %or.cond, label %return, label %if.end17
 
@@ -387,7 +387,7 @@ if.then57:                                        ; preds = %for.cond44
   br i1 %cmp40, label %while.body, label %while.end, !llvm.loop !10
 
 while.end:                                        ; preds = %if.then57
-  %10 = trunc i64 %indvars.iv.next54 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.next54 to i32
   %top = getelementptr inbounds i8, ptr %ret.0, i64 8
   store i32 %10, ptr %top, align 8
   tail call void @bn_correct_top(ptr noundef nonnull %ret.0) #3
@@ -470,7 +470,7 @@ for.inc:                                          ; preds = %land.rhs
   br i1 %exitcond.not, label %err, label %land.rhs, !llvm.loop !11
 
 for.end:                                          ; preds = %land.rhs
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %or.cond = icmp eq i32 %2, 0
   br i1 %or.cond, label %err, label %if.end17
 
@@ -586,7 +586,7 @@ declare i32 @BN_mul_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BN_asc2bn(ptr noundef %bn, ptr noundef %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_asc2bn(ptr noundef %bn, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %a, align 1
   %cmp = icmp eq i8 %0, 45

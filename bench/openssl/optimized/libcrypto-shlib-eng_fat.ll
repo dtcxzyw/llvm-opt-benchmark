@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.12 = private unnamed_addr constant [10 x i8] c"PKEY_ASN1\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ENGINE_set_default(ptr noundef %e, i32 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ENGINE_set_default(ptr noundef %e, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i32 %flags, 64
   %tobool.not = icmp eq i32 %and, 0
@@ -137,7 +137,7 @@ declare i32 @ENGINE_set_default_pkey_meths(ptr noundef) local_unnamed_addr #1
 declare i32 @ENGINE_set_default_pkey_asn1_meths(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ENGINE_set_default_string(ptr noundef %e, ptr noundef %def_list) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ENGINE_set_default_string(ptr noundef %e, ptr noundef %def_list) local_unnamed_addr #0 {
 entry:
   %flags = alloca i32, align 4
   store i32 0, ptr %flags, align 4
@@ -153,7 +153,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %flags, align 4
-  %call1 = call i32 @ENGINE_set_default(ptr noundef %e, i32 noundef %0), !range !4
+  %call1 = call i32 @ENGINE_set_default(ptr noundef %e, i32 noundef %0)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -164,7 +164,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @CONF_parse_list(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @int_def_cb(ptr noundef readonly %alg, i32 noundef %len, ptr nocapture noundef %arg) #2 {
+define internal range(i32 0, 2) i32 @int_def_cb(ptr noundef readonly %alg, i32 noundef %len, ptr nocapture noundef %arg) #2 {
 entry:
   %cmp = icmp eq ptr %alg, null
   br i1 %cmp, label %return, label %if.end
@@ -306,7 +306,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %call3 = tail call ptr @ENGINE_get_next(ptr noundef nonnull %e.05) #4
   %tobool.not = icmp eq ptr %call3, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %entry
   ret i32 1
@@ -332,6 +332,5 @@ attributes #5 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

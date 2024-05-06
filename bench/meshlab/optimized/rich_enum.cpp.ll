@@ -104,7 +104,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN11QDomElement12s
 
 30:                                               ; preds = %.lr.ph
   store ptr %29, ptr %7, align 8
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, i32 noundef %31, i32 noundef 10)
           to label %32 unwind label %71
 

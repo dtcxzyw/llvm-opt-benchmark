@@ -2218,7 +2218,7 @@ define noundef i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @dissect_e212_mcc_mnc_in_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 5, 7) i32 @dissect_e212_mcc_mnc_in_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %3) #3
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
   %7 = and i8 %6, 15
@@ -2318,7 +2318,7 @@ define i32 @dissect_e212_mcc_mnc_in_address(ptr noundef %0, ptr noundef %1, ptr 
 declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dissect_e212_mcc_mnc_in_utf8_address(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 5, 7) i32 @dissect_e212_mcc_mnc_in_utf8_address(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   store i16 0, ptr %5, align 2
@@ -2424,13 +2424,13 @@ define ptr @dissect_e212_imsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br i1 %13, label %is_imsi_string_valid.exit.thread, label %14
 
 14:                                               ; preds = %6
-  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #4
+  %15 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #4
   %16 = add i64 %15, -16
   %or.cond.i = icmp ult i64 %16, -11
   br i1 %or.cond.i, label %is_imsi_string_valid.exit.thread, label %is_imsi_string_valid.exit
 
 is_imsi_string_valid.exit:                        ; preds = %14
-  %17 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 63) #4
+  %17 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 63) #4
   %.not.i.not = icmp eq ptr %17, null
   br i1 %.not.i.not, label %19, label %is_imsi_string_valid.exit.thread
 
@@ -2527,7 +2527,7 @@ proto_item_set_generated.exit:                    ; preds = %19, %23, %26
   br label %dissect_e212_mcc_mnc_high_nibble.exit
 
 85:                                               ; preds = %proto_item_set_generated.exit
-  %86 = call i32 @dissect_e212_mcc_mnc_in_address(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %31, i32 noundef %3), !range !4
+  %86 = call i32 @dissect_e212_mcc_mnc_in_address(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %31, i32 noundef %3)
   br label %dissect_e212_mcc_mnc_high_nibble.exit
 
 dissect_e212_mcc_mnc_high_nibble.exit:            ; preds = %79, %67, %85
@@ -2552,13 +2552,13 @@ define noundef ptr @dissect_e212_utf8_imsi(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %11, label %is_imsi_string_valid.exit.thread, label %12
 
 12:                                               ; preds = %5
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #4
+  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #4
   %14 = add i64 %13, -16
   %or.cond.i = icmp ult i64 %14, -11
   br i1 %or.cond.i, label %is_imsi_string_valid.exit.thread, label %is_imsi_string_valid.exit
 
 is_imsi_string_valid.exit:                        ; preds = %12
-  %15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 63) #4
+  %15 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %8, i32 noundef 63) #4
   %.not.i.not = icmp eq ptr %15, null
   br i1 %.not.i.not, label %17, label %is_imsi_string_valid.exit.thread
 
@@ -2588,7 +2588,7 @@ is_imsi_string_valid.exit.thread:                 ; preds = %12, %5, %is_imsi_st
 proto_item_set_generated.exit:                    ; preds = %17, %20, %23
   %27 = load i32, ptr @ett_e212_imsi, align 4
   %28 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %27) #3
-  %29 = tail call i32 @dissect_e212_mcc_mnc_in_utf8_address(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %28, i32 noundef %3), !range !4
+  %29 = tail call i32 @dissect_e212_mcc_mnc_in_utf8_address(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %28, i32 noundef %3)
   ret ptr %8
 }
 
@@ -2632,4 +2632,3 @@ attributes #4 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 5, i32 7}

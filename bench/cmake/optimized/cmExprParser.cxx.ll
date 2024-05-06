@@ -1003,7 +1003,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
   %wide.trip.count10.i.i = sext i32 %17 to i64
   br label %.lr.ph.split.i.i
 
-.lr.ph.split.i.i:                                 ; preds = %34, %.lr.ph.i.i
+.lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %34
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %34 ], [ %19, %.lr.ph.i.i ]
   %.0333.i.i = phi i32 [ %.2.i.fr.i, %34 ], [ 0, %.lr.ph.i.i ]
   %21 = add nsw i64 %indvars.iv.i.i, %20
@@ -1117,7 +1117,7 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: 
   br label %.preheader.split.us.i, !llvm.loop !12
 
 _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us.i, %.preheader.split.us.i, %54, %.lr.ph
-  %59 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #17
+  %59 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %49) #17
   %.not47 = icmp slt i64 %59, 0
   br i1 %.not47, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread10, label %_ZL9yytnamerrPcPKc.exit.thread
 
@@ -1203,7 +1203,7 @@ _ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us
   br label %_ZL9yytnamerrPcPKc.exit58
 
 .loopexit.thread.i:                               ; preds = %83, %.preheader.split.i, %.preheader.split.i, %71
-  %90 = tail call ptr @stpcpy(ptr noundef nonnull %.036, ptr noundef nonnull %78) #14
+  %90 = tail call ptr @stpcpy(ptr noundef nonnull %.036, ptr noundef nonnull readonly %78) #14
   %91 = ptrtoint ptr %90 to i64
   %92 = ptrtoint ptr %.036 to i64
   %93 = sub i64 %91, %92

@@ -33,7 +33,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @long_c2i(ptr nocapture noundef writeonly %pval, ptr nocapture noundef readonly %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
+define internal range(i32 0, 2) i32 @long_c2i(ptr nocapture noundef writeonly %pval, ptr nocapture noundef readonly %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
 entry:
   %cmp = icmp sgt i32 %len, 8
   br i1 %cmp, label %if.then, label %if.end
@@ -114,7 +114,7 @@ return:                                           ; preds = %if.end24, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @long_i2c(ptr nocapture noundef readonly %pval, ptr noundef writeonly %cont, ptr nocapture readnone %putype, ptr nocapture noundef readonly %it) #1 {
+define internal range(i32 -268435456, 268435457) i32 @long_i2c(ptr nocapture noundef readonly %pval, ptr noundef writeonly %cont, ptr nocapture readnone %putype, ptr nocapture noundef readonly %it) #1 {
 entry:
   %ltmp.0.copyload = load i64, ptr %pval, align 1
   %size = getelementptr inbounds i8, ptr %it, i64 40

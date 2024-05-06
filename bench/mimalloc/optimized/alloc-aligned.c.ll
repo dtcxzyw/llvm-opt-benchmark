@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.mi_page_s = type { i32, i32, i8, i16, i16, %union.mi_page_flags_s, i8, ptr, i32, i32, ptr, i64, i64, ptr, ptr, [1 x i64] }
 %union.mi_page_flags_s = type { i8 }
 
-@_mi_heap_default = external thread_local(initialexec) global ptr, align 8
+@_mi_heap_default = external thread_local(initialexec) local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @mi_heap_malloc_aligned_at(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset) local_unnamed_addr #0 {
@@ -22,7 +22,7 @@ entry:
   br i1 %cmp, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %0 = tail call i64 @llvm.ctpop.i64(i64 %alignment), !range !4
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %cmp.i = icmp ugt i64 %0, 1
   %cmp3 = icmp slt i64 %size, 0
   %or.cond = or i1 %cmp3, %cmp.i
@@ -133,7 +133,7 @@ if.end52.i:                                       ; preds = %if.then49.i, %if.en
 if.then57.i:                                      ; preds = %if.end52.i
   %call58.i = tail call i64 @mi_usable_size(ptr noundef %8) #8
   call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 8) ]
-  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %call58.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr writeonly align 8 %8, i8 0, i64 %call58.i, i1 false)
   br label %return
 
 return:                                           ; preds = %if.then57.i, %if.end52.i, %if.else.i, %if.end20.i, %if.end.thread.i, %if.then.i, %entry, %lor.rhs, %if.then42
@@ -144,12 +144,12 @@ return:                                           ; preds = %if.then57.i, %if.en
 ; Function Attrs: nounwind uwtable
 define noalias ptr @mi_heap_malloc_aligned(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment) local_unnamed_addr #0 {
 entry:
-  %0 = tail call i64 @llvm.ctpop.i64(i64 %alignment), !range !4
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %or.cond.not = icmp eq i64 %0, 1
   br i1 %or.cond.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %1 = tail call i64 @llvm.ctpop.i64(i64 %size), !range !4
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %size)
   %cmp.i10 = icmp ult i64 %1, 2
   %cmp5.not = icmp uge i64 %size, %alignment
   %or.cond.not11 = and i1 %cmp.i10, %cmp5.not
@@ -244,12 +244,12 @@ define noalias ptr @mi_malloc_aligned(i64 noundef %size, i64 noundef %alignment)
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
-  %2 = tail call i64 @llvm.ctpop.i64(i64 %alignment), !range !4
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %or.cond.not.i = icmp eq i64 %2, 1
   br i1 %or.cond.not.i, label %if.end.i, label %mi_heap_malloc_aligned.exit
 
 if.end.i:                                         ; preds = %entry
-  %3 = tail call i64 @llvm.ctpop.i64(i64 %size), !range !4
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %size)
   %cmp.i10.i = icmp ult i64 %3, 2
   %cmp5.not.i = icmp uge i64 %size, %alignment
   %or.cond.not11.i = and i1 %cmp.i10.i, %cmp5.not.i
@@ -394,14 +394,14 @@ if.then18:                                        ; preds = %if.then14
   %cond = select i1 %cmp19, i64 %sub20, i64 0
   %add.ptr = getelementptr inbounds i8, ptr %call.i, i64 %cond
   %sub21 = sub i64 %newsize, %cond
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 0, i64 %sub21, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %add.ptr, i8 0, i64 %sub21, i1 false)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then18, %if.then14
   %cond27 = tail call i64 @llvm.umin.i64(i64 %call6, i64 %newsize)
   call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %p, i64 8) ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i, ptr nonnull align 8 %p, i64 %cond27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %call.i, ptr nonnull readonly align 8 %p, i64 %cond27, i1 false)
   tail call void @mi_free(ptr noundef nonnull %p) #8
   br label %return
 
@@ -689,4 +689,3 @@ attributes #8 = { nounwind "no-builtin-malloc" }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 0, i64 65}

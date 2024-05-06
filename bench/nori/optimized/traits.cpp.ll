@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._ZN7nanogui9type_nameENS_12VariableTypeE = private unnamed_addr constant [12 x ptr] [ptr @.str.3, ptr @.str.2, ptr @.str.5, ptr @.str.4, ptr @.str.7, ptr @.str.6, ptr @.str.9, ptr @.str.8, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.1], align 8
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN7nanogui9type_sizeENS_12VariableTypeE(i32 noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i64 1, 9) i64 @_ZN7nanogui9type_sizeENS_12VariableTypeE(i32 noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 12
   br i1 %2, label %switch.lookup, label %3

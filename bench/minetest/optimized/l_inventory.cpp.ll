@@ -1714,7 +1714,7 @@ cleanup:                                          ; preds = %if.end17, %entry
 declare void @_Z19read_inventory_listP9lua_StateiP9InventoryPKcP8IGameDefi(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6InvRef11l_get_listsEP9lua_State(ptr noundef %L) #5 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN6InvRef11l_get_listsEP9lua_State(ptr noundef %L) #5 align 2 {
 entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN6InvRef9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !17

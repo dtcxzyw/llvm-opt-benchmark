@@ -402,7 +402,7 @@ declare ptr @epl_profile_object_lookup_or_add(ptr noundef, i16 noundef zeroext) 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @subobject_equal(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @subobject_equal(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 10
   %4 = load i16, ptr %3, align 2
   %5 = getelementptr inbounds i8, ptr %1, i64 10
@@ -590,7 +590,7 @@ declare void @xmlXPathFreeContext(ptr noundef) local_unnamed_addr #1
 declare void @xmlFreeDoc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @epl_wmem_iarray_is_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @epl_wmem_iarray_is_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -601,7 +601,7 @@ define hidden i32 @epl_wmem_iarray_is_empty(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @epl_wmem_iarray_is_sorted(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @epl_wmem_iarray_is_sorted(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 1
@@ -704,7 +704,7 @@ define internal fastcc void @epl_wmem_iarray_sort_and_compact(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @find_in_range(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -1, 2) i32 @find_in_range(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i32, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -738,7 +738,7 @@ declare signext i8 @g_ascii_tolower(i8 noundef signext) local_unnamed_addr #2
 declare i32 @g_str_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @populate_profile_name(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @populate_profile_name(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %5, label %22
@@ -774,7 +774,7 @@ define internal noundef i32 @populate_profile_name(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @populate_datatype_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @populate_datatype_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -927,7 +927,7 @@ define internal noundef i32 @populate_object_list(ptr nocapture noundef readonly
   br i1 %.not33, label %22, label %72
 
 22:                                               ; preds = %19
-  %23 = call fastcc i32 @parse_obj_tag(ptr noundef %17, ptr noundef nonnull %3, ptr noundef %1), !range !15
+  %23 = call fastcc i32 @parse_obj_tag(ptr noundef %17, ptr noundef nonnull %3, ptr noundef %1)
   %24 = load i16, ptr %3, align 8
   %.not34 = icmp eq i16 %24, 0
   br i1 %.not34, label %72, label %25
@@ -981,7 +981,7 @@ epl_wmem_iarray_new.exit:                         ; preds = %29, %32
   br i1 %.not36, label %46, label %69
 
 46:                                               ; preds = %43
-  %47 = call fastcc i32 @parse_obj_tag(ptr noundef nonnull %.043, ptr noundef nonnull %10, ptr noundef %1), !range !15
+  %47 = call fastcc i32 @parse_obj_tag(ptr noundef nonnull %.043, ptr noundef nonnull %10, ptr noundef %1)
   %.not37 = icmp eq i32 %47, 0
   br i1 %.not37, label %61, label %48
 
@@ -1030,7 +1030,7 @@ epl_wmem_iarray_insert.exit:                      ; preds = %48, %56
   %70 = getelementptr inbounds i8, ptr %.043, i64 48
   %.0 = load ptr, ptr %70, align 8
   %.not35 = icmp eq ptr %.0, null
-  br i1 %.not35, label %._crit_edge.loopexit, label %43, !llvm.loop !16
+  br i1 %.not35, label %._crit_edge.loopexit, label %43, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %69
   %.pre = load ptr, ptr %40, align 8
@@ -1046,7 +1046,7 @@ epl_wmem_iarray_insert.exit:                      ; preds = %48, %56
   %73 = load i32, ptr %0, align 8
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %14, label %._crit_edge47, !llvm.loop !17
+  br i1 %75, label %14, label %._crit_edge47, !llvm.loop !16
 
 ._crit_edge47:                                    ; preds = %72, %2
   ret i32 0
@@ -1058,7 +1058,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #8
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_obj_tag(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_obj_tag(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2
   %6 = getelementptr inbounds i8, ptr %0, i64 88
@@ -1160,7 +1160,7 @@ define internal fastcc noundef i32 @parse_obj_tag(ptr nocapture noundef readonly
   %51 = getelementptr inbounds i8, ptr %.03556, i64 48
   %.035 = load ptr, ptr %51, align 8
   %.not = icmp eq ptr %.035, null
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %50
   %.not40 = icmp eq ptr %.138, null
@@ -1213,7 +1213,7 @@ declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_un
 declare void @g_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @epl_wmem_iarray_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -1, 2) i32 @epl_wmem_iarray_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ult i32 %3, %4
@@ -1267,7 +1267,6 @@ attributes #13 = { nounwind allocsize(0,1) }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = !{i32 0, i32 2}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}

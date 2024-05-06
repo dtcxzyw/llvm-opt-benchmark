@@ -686,7 +686,7 @@ entry:
   store i32 %sort_by, ptr %sort_by.addr, align 4
   %call = call ptr @g_tree_new_full(ptr noundef nonnull @qsp_tree_cmp, ptr noundef nonnull %sort_by.addr, ptr noundef nonnull @g_free, ptr noundef null) #16
   %0 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %tobool.i = trunc i8 %0 to i1
+  %tobool.i = trunc nuw i8 %0 to i1
   br i1 %tobool.i, label %qsp_init.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -700,7 +700,7 @@ if.end.i:                                         ; preds = %entry
 
 while.cond16.preheader.i.i:                       ; preds = %if.end.i
   %6 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %tobool232.i.i = trunc i8 %6 to i1
+  %tobool232.i.i = trunc nuw i8 %6 to i1
   br i1 %tobool232.i.i, label %qsp_init.exit, label %while.body26.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
@@ -713,7 +713,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 while.body26.i.i:                                 ; preds = %while.cond16.preheader.i.i, %while.body26.i.i
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   %7 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %tobool23.i.i = trunc i8 %7 to i1
+  %tobool23.i.i = trunc nuw i8 %7 to i1
   br i1 %tobool23.i.i, label %qsp_init.exit, label %while.body26.i.i, !llvm.loop !6
 
 qsp_init.exit:                                    ; preds = %while.body26.i.i, %entry, %while.cond16.preheader.i.i, %if.then.i.i
@@ -1038,7 +1038,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare void @g_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qsp_tree_report(ptr nocapture noundef readonly %key, ptr nocapture readnone %value, ptr nocapture noundef %udata) #3 {
+define internal range(i32 0, 2) i32 @qsp_tree_report(ptr nocapture noundef readonly %key, ptr nocapture readnone %value, ptr nocapture noundef %udata) #3 {
 entry:
   %n_entries = getelementptr inbounds i8, ptr %udata, i64 8
   %0 = load i64, ptr %n_entries, align 8
@@ -1121,7 +1121,7 @@ define dso_local void @qsp_reset() local_unnamed_addr #3 {
 entry:
   %call = tail call noalias dereferenceable_or_null(88) ptr @g_malloc_n(i64 noundef 1, i64 noundef 88) #17
   %0 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %tobool.i = trunc i8 %0 to i1
+  %tobool.i = trunc nuw i8 %0 to i1
   br i1 %tobool.i, label %qsp_init.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -1135,7 +1135,7 @@ if.end.i:                                         ; preds = %entry
 
 while.cond16.preheader.i.i:                       ; preds = %if.end.i
   %6 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %tobool232.i.i = trunc i8 %6 to i1
+  %tobool232.i.i = trunc nuw i8 %6 to i1
   br i1 %tobool232.i.i, label %qsp_init.exit, label %while.body26.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
@@ -1148,7 +1148,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 while.body26.i.i:                                 ; preds = %while.cond16.preheader.i.i, %while.body26.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   %7 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %tobool23.i.i = trunc i8 %7 to i1
+  %tobool23.i.i = trunc nuw i8 %7 to i1
   br i1 %tobool23.i.i, label %qsp_init.exit, label %while.body26.i.i, !llvm.loop !6
 
 qsp_init.exit:                                    ; preds = %while.body26.i.i, %entry, %while.cond16.preheader.i.i, %if.then.i.i
@@ -1245,7 +1245,7 @@ entry:
   %4 = load i32, ptr %type.i.i.i, align 4
   %conv2.i.i.i.i = trunc i64 %2 to i32
   %shr3.i.i.i.i = lshr i64 %2, 32
-  %conv4.i.i.i.i = trunc i64 %shr3.i.i.i.i to i32
+  %conv4.i.i.i.i = trunc nuw i64 %shr3.i.i.i.i to i32
   %mul13.i.i.i.i = mul i32 %conv2.i.i.i.i, -2048144777
   %add14.i.i.i.i = add i32 %mul13.i.i.i.i, 1
   %or.i34.i.i.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %add14.i.i.i.i, i32 %add14.i.i.i.i, i32 13)
@@ -1328,7 +1328,7 @@ entry:
   %type4 = getelementptr inbounds i8, ptr %callsite, i64 20
   store i32 %type, ptr %type4, align 4
   %0 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %tobool.i = trunc i8 %0 to i1
+  %tobool.i = trunc nuw i8 %0 to i1
   br i1 %tobool.i, label %qsp_init.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -1342,7 +1342,7 @@ if.end.i:                                         ; preds = %entry
 
 while.cond16.preheader.i.i:                       ; preds = %if.end.i
   %6 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %tobool232.i.i = trunc i8 %6 to i1
+  %tobool232.i.i = trunc nuw i8 %6 to i1
   br i1 %tobool232.i.i, label %qsp_init.exit, label %while.body26.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
@@ -1355,7 +1355,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 while.body26.i.i:                                 ; preds = %while.cond16.preheader.i.i, %while.body26.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   %7 = load atomic i8, ptr @qsp_initialized monotonic, align 1
-  %tobool23.i.i = trunc i8 %7 to i1
+  %tobool23.i.i = trunc nuw i8 %7 to i1
   br i1 %tobool23.i.i, label %qsp_init.exit, label %while.body26.i.i, !llvm.loop !6
 
 qsp_init.exit:                                    ; preds = %while.body26.i.i, %entry, %while.cond16.preheader.i.i, %if.then.i.i
@@ -1370,10 +1370,10 @@ qsp_init.exit:                                    ; preds = %while.body26.i.i, %
   %13 = load i32, ptr %type4, align 4
   %conv.i.i.i.i = trunc i64 %9 to i32
   %shr.i.i.i.i = lshr i64 %9, 32
-  %conv1.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv1.i.i.i.i = trunc nuw i64 %shr.i.i.i.i to i32
   %conv2.i.i.i.i = trunc i64 %11 to i32
   %shr3.i.i.i.i = lshr i64 %11, 32
-  %conv4.i.i.i.i = trunc i64 %shr3.i.i.i.i to i32
+  %conv4.i.i.i.i = trunc nuw i64 %shr3.i.i.i.i to i32
   %mul.i.i.i.i = mul i32 %conv.i.i.i.i, -2048144777
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 606290985
   %or.i.i.i.i.i = call noundef i32 @llvm.fshl.i32(i32 %add.i.i.i.i, i32 %add.i.i.i.i, i32 13)
@@ -1462,7 +1462,7 @@ entry:
   %5 = load i32, ptr %type.i.i.i, align 4
   %conv2.i.i.i.i = trunc i64 %3 to i32
   %shr3.i.i.i.i = lshr i64 %3, 32
-  %conv4.i.i.i.i = trunc i64 %shr3.i.i.i.i to i32
+  %conv4.i.i.i.i = trunc nuw i64 %shr3.i.i.i.i to i32
   %mul13.i.i.i.i = mul i32 %conv2.i.i.i.i, -2048144777
   %add14.i.i.i.i = add i32 %mul13.i.i.i.i, 1
   %or.i34.i.i.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %add14.i.i.i.i, i32 %add14.i.i.i.i, i32 13)

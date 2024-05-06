@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @rmask = internal unnamed_addr constant [9 x i8] c"\00\01\03\07\0F\1F?\7F\FF", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_set_compression_compress(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_set_compression_compress(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @__archive_write_filters_free(ptr noundef %0) #7
   %2 = tail call ptr @__archive_write_allocate_filter(ptr noundef %0) #7
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #7
@@ -34,7 +34,7 @@ archive_write_add_filter_compress.exit:           ; preds = %1, %5
 declare void @__archive_write_filters_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_write_add_filter_compress(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_compress(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @__archive_write_allocate_filter(ptr noundef %0) #7
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef -1329217314, i32 noundef 1, ptr noundef nonnull @.str) #7
   %4 = icmp eq i32 %3, -30
@@ -59,7 +59,7 @@ declare ptr @__archive_write_allocate_filter(ptr noundef) local_unnamed_addr #1
 declare i32 @__archive_check_magic(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_compress_open(ptr nocapture noundef %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_compress_open(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 3, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 80
@@ -161,7 +161,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_compress_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i32 @archive_compressor_compress_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i64 %2, 0
@@ -265,7 +265,7 @@ define internal noundef i32 @archive_compressor_compress_write(ptr nocapture nou
 
 .loopexit:                                        ; preds = %61, %45
   %.2 = phi i32 [ %36, %45 ], [ %spec.select, %61 ]
-  %63 = tail call fastcc i32 @output_code(ptr noundef %0, i32 noundef %33), !range !7
+  %63 = tail call fastcc i32 @output_code(ptr noundef %0, i32 noundef %33)
   %.not92 = icmp eq i32 %63, 0
   br i1 %.not92, label %64, label %.loopexit95
 
@@ -338,7 +338,7 @@ define internal noundef i32 @archive_compressor_compress_write(ptr nocapture nou
   store i32 0, ptr %24, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276004) %18, i8 -1, i64 276004, i1 false)
   store i32 257, ptr %20, align 4
-  %99 = tail call fastcc i32 @output_code(ptr noundef %0, i32 noundef 256), !range !7
+  %99 = tail call fastcc i32 @output_code(ptr noundef %0, i32 noundef 256)
   %.not94 = icmp eq i32 %99, 0
   br i1 %.not94, label %.backedge, label %.loopexit95
 
@@ -353,7 +353,7 @@ define internal i32 @archive_compressor_compress_close(ptr nocapture noundef rea
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 414052
   %5 = load i32, ptr %4, align 4
-  %6 = tail call fastcc i32 @output_code(ptr noundef %0, i32 noundef %5), !range !7
+  %6 = tail call fastcc i32 @output_code(ptr noundef %0, i32 noundef %5)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %output_flush.exit
 
@@ -433,7 +433,7 @@ define internal noundef i32 @archive_compressor_compress_free(ptr nocapture noun
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @output_code(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @output_code(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i32 %1, 256
@@ -608,7 +608,7 @@ output_byte.exit56:                               ; preds = %40, %56, %61
   %112 = load i32, ptr %34, align 8
   %113 = shl nsw i32 %112, 3
   %114 = icmp slt i32 %111, %113
-  br i1 %114, label %88, label %.loopexit, !llvm.loop !8
+  br i1 %114, label %88, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %109, %84
   %115 = phi i32 [ %65, %84 ], [ %112, %109 ]
@@ -668,5 +668,4 @@ attributes #9 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -30, i32 1}
-!8 = distinct !{!8, !6}
+!7 = distinct !{!7, !6}

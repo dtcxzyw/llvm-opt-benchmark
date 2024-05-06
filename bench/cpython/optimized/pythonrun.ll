@@ -896,7 +896,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [31 x i8] c"%s() arg 1 must be a %s object\00", align 1
 @PyExc_SyntaxError = external local_unnamed_addr global ptr, align 8
 @.str.17 = private unnamed_addr constant [45 x i8] c"source code string cannot contain null bytes\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @stdin = external local_unnamed_addr global ptr, align 8
 @.str.18 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.19 = private unnamed_addr constant [6 x i8] c"%U-%d\00", align 1
@@ -938,7 +938,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_PyByteArray_empty_string = external global [0 x i8], align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyRun_AnyFileObject(ptr noundef %fp, ptr noundef %filename, i32 noundef %closeit, ptr noundef %flags) local_unnamed_addr #0 {
+define hidden i32 @_PyRun_AnyFileObject(ptr noundef %fp, ptr noundef %filename, i32 noundef %closeit, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %filename, null
   br i1 %cmp.not, label %if.then, label %if.end3
@@ -961,7 +961,7 @@ if.end3:                                          ; preds = %if.then, %entry
   br i1 %tobool.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %call6 = tail call i32 @_PyRun_InteractiveLoopObject(ptr noundef %fp, ptr noundef nonnull %filename.addr.0, ptr noundef %flags), !range !5
+  %call6 = tail call i32 @_PyRun_InteractiveLoopObject(ptr noundef %fp, ptr noundef nonnull %filename.addr.0, ptr noundef %flags)
   %tobool7.not = icmp eq i32 %closeit, 0
   br i1 %tobool7.not, label %if.end12, label %if.then8
 
@@ -1012,7 +1012,7 @@ entry:
 declare i32 @_Py_FdIsInteractive(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyRun_InteractiveLoopObject(ptr noundef %fp, ptr noundef %filename, ptr noundef %flags) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyRun_InteractiveLoopObject(ptr noundef %fp, ptr noundef %filename, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
   %local_flags = alloca %struct.PyCompilerFlags, align 8
   store i64 55834574848, ptr %local_flags, align 8
@@ -1112,7 +1112,7 @@ if.end23:                                         ; preds = %if.then16, %if.then
 do.cond:                                          ; preds = %do.body, %land.lhs.true, %if.end23
   %nomem_count.2 = phi i32 [ %nomem_count.1, %if.end23 ], [ 0, %land.lhs.true ], [ 0, %do.body ]
   %cmp26.not = icmp eq i32 %call13, 11
-  br i1 %cmp26.not, label %do.end, label %do.body, !llvm.loop !6
+  br i1 %cmp26.not, label %do.end, label %do.body, !llvm.loop !5
 
 do.end:                                           ; preds = %do.cond, %if.then21
   %err.0 = phi i32 [ -1, %if.then21 ], [ 0, %do.cond ]
@@ -1226,7 +1226,7 @@ if.then28:                                        ; preds = %if.end25
   br label %done
 
 if.end30:                                         ; preds = %if.end25
-  %call31 = tail call fastcc i32 @set_main_loader(ptr noundef %call1, ptr noundef %filename, ptr noundef nonnull @.str.8), !range !5
+  %call31 = tail call fastcc i32 @set_main_loader(ptr noundef %call1, ptr noundef %filename, ptr noundef nonnull @.str.8)
   %cmp32 = icmp slt i32 %call31, 0
   br i1 %cmp32, label %if.then33, label %if.end36
 
@@ -1380,7 +1380,7 @@ if.else:                                          ; preds = %if.end19.thread, %i
   br i1 %cmp39.not, label %if.end44, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %call40 = tail call fastcc i32 @set_main_loader(ptr noundef %call1, ptr noundef %filename, ptr noundef nonnull @.str.11), !range !5
+  %call40 = tail call fastcc i32 @set_main_loader(ptr noundef %call1, ptr noundef %filename, ptr noundef nonnull @.str.11)
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %if.then42, label %if.end44
 
@@ -1514,7 +1514,7 @@ return:                                           ; preds = %if.then1.i.i61, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyRun_AnyFileExFlags(ptr noundef %fp, ptr noundef %filename, i32 noundef %closeit, ptr noundef %flags) local_unnamed_addr #0 {
+define dso_local i32 @PyRun_AnyFileExFlags(ptr noundef %fp, ptr noundef %filename, i32 noundef %closeit, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %filename, null
   br i1 %cmp.not, label %if.end3.thread, label %if.then
@@ -1847,7 +1847,7 @@ flush_io_stream.exit10:                           ; preds = %flush_io_stream.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyRun_InteractiveLoopFlags(ptr noundef %fp, ptr noundef %filename, ptr noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyRun_InteractiveLoopFlags(ptr noundef %fp, ptr noundef %filename, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyUnicode_DecodeFSDefault(ptr noundef %filename) #8
   %cmp = icmp eq ptr %call, null
@@ -1860,7 +1860,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @_PyRun_InteractiveLoopObject(ptr noundef %fp, ptr noundef nonnull %call, ptr noundef %flags), !range !5
+  %call1 = tail call i32 @_PyRun_InteractiveLoopObject(ptr noundef %fp, ptr noundef nonnull %call, ptr noundef %flags)
   %2 = load i64, ptr %call, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i3.not = icmp eq i64 %3, 0
@@ -1956,7 +1956,7 @@ declare i32 @PyDict_SetItemString(ptr noundef, ptr noundef, ptr noundef) local_u
 declare ptr @_Py_fopen_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @set_main_loader(ptr noundef %d, ptr noundef %filename, ptr noundef %loader_name) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_main_loader(ptr noundef %d, ptr noundef %filename, ptr noundef %loader_name) unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -2057,7 +2057,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyRun_SimpleStringFlagsWithName(ptr noundef %command, ptr noundef %name, ptr noundef %flags) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyRun_SimpleStringFlagsWithName(ptr noundef %command, ptr noundef %name, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyImport_AddModuleRef(ptr noundef nonnull @.str.3) #8
   %cmp = icmp eq ptr %call, null
@@ -2237,14 +2237,14 @@ _PyRun_StringFlagsWithName.exit:                  ; preds = %entry, %if.end11.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyRun_SimpleStringFlags(ptr noundef %command, ptr noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyRun_SimpleStringFlags(ptr noundef %command, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @_PyRun_SimpleStringFlagsWithName(ptr noundef %command, ptr noundef null, ptr noundef %flags), !range !5
+  %call = tail call i32 @_PyRun_SimpleStringFlagsWithName(ptr noundef %command, ptr noundef null, ptr noundef %flags)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_Py_HandleSystemExit(ptr nocapture noundef writeonly %exitcode_p) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_Py_HandleSystemExit(ptr nocapture noundef writeonly %exitcode_p) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_Py_GetConfig() #8
   %inspect1 = getelementptr inbounds i8, ptr %call, i64 188
@@ -2389,7 +2389,7 @@ entry:
   %exitcode.i = alloca i32, align 4
   %args = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %exitcode.i)
-  %call.i = call i32 @_Py_HandleSystemExit(ptr noundef nonnull %exitcode.i), !range !8
+  %call.i = call i32 @_Py_HandleSystemExit(ptr noundef nonnull %exitcode.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %handle_system_exit.exit, label %if.then.i
 
@@ -2509,7 +2509,7 @@ if.then37:                                        ; preds = %if.end35
 
 if.then41:                                        ; preds = %if.then37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %exitcode.i38)
-  %call.i39 = call i32 @_Py_HandleSystemExit(ptr noundef nonnull %exitcode.i38), !range !8
+  %call.i39 = call i32 @_Py_HandleSystemExit(ptr noundef nonnull %exitcode.i38)
   %tobool.not.i40 = icmp eq i32 %call.i39, 0
   br i1 %tobool.not.i40, label %handle_system_exit.exit43, label %if.then.i41
 
@@ -2773,7 +2773,7 @@ if.then28:                                        ; preds = %fallback
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then28, %fallback
-  %call30 = call fastcc i32 @print_exception_recursive(ptr noundef nonnull %ctx, ptr noundef nonnull %value), !range !5
+  %call30 = call fastcc i32 @print_exception_recursive(ptr noundef nonnull %ctx, ptr noundef nonnull %value)
   %cmp31 = icmp slt i32 %call30, 0
   br i1 %cmp31, label %if.then32, label %if.end34
 
@@ -2831,7 +2831,7 @@ declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PySet_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @print_exception_recursive(ptr nocapture noundef readonly %ctx, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @print_exception_recursive(ptr nocapture noundef readonly %ctx, ptr noundef %value) unnamed_addr #0 {
 entry:
   %tmp.i.i = alloca ptr, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -3854,7 +3854,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyRun_AnyFile(ptr noundef %fp, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local i32 @PyRun_AnyFile(ptr noundef %fp, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %name, null
   br i1 %cmp.not.i, label %if.end3.thread.i, label %if.then.i
@@ -3880,7 +3880,7 @@ if.end3.i:                                        ; preds = %if.then.i
   br i1 %tobool.not.i, label %if.else.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %call6.i = tail call i32 @_PyRun_InteractiveLoopObject(ptr noundef %fp, ptr noundef nonnull %call.i, ptr noundef null), !range !5
+  %call6.i = tail call i32 @_PyRun_InteractiveLoopObject(ptr noundef %fp, ptr noundef nonnull %call.i, ptr noundef null)
   br label %_PyRun_AnyFileObject.exit
 
 if.else.i:                                        ; preds = %if.end3.i
@@ -3910,7 +3910,7 @@ PyRun_AnyFileExFlags.exit:                        ; preds = %if.end3.thread.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyRun_AnyFileEx(ptr noundef %fp, ptr noundef %name, i32 noundef %closeit) local_unnamed_addr #0 {
+define dso_local i32 @PyRun_AnyFileEx(ptr noundef %fp, ptr noundef %name, i32 noundef %closeit) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %name, null
   br i1 %cmp.not.i, label %if.end3.thread.i, label %if.then.i
@@ -3936,7 +3936,7 @@ if.end3.i:                                        ; preds = %if.then.i
   br i1 %tobool.not.i, label %if.else.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %call6.i = tail call i32 @_PyRun_InteractiveLoopObject(ptr noundef %fp, ptr noundef nonnull %call.i, ptr noundef null), !range !5
+  %call6.i = tail call i32 @_PyRun_InteractiveLoopObject(ptr noundef %fp, ptr noundef nonnull %call.i, ptr noundef null)
   %tobool7.not.i = icmp eq i32 %closeit, 0
   br i1 %tobool7.not.i, label %_PyRun_AnyFileObject.exit, label %if.then8.i
 
@@ -3971,7 +3971,7 @@ PyRun_AnyFileExFlags.exit:                        ; preds = %if.end3.thread.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyRun_AnyFileFlags(ptr noundef %fp, ptr noundef %name, ptr noundef %flags) local_unnamed_addr #0 {
+define dso_local i32 @PyRun_AnyFileFlags(ptr noundef %fp, ptr noundef %name, ptr noundef %flags) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %name, null
   br i1 %cmp.not.i, label %if.end3.thread.i, label %if.then.i
@@ -3997,7 +3997,7 @@ if.end3.i:                                        ; preds = %if.then.i
   br i1 %tobool.not.i, label %if.else.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %call6.i = tail call i32 @_PyRun_InteractiveLoopObject(ptr noundef %fp, ptr noundef nonnull %call.i, ptr noundef %flags), !range !5
+  %call6.i = tail call i32 @_PyRun_InteractiveLoopObject(ptr noundef %fp, ptr noundef nonnull %call.i, ptr noundef %flags)
   br label %_PyRun_AnyFileObject.exit
 
 if.else.i:                                        ; preds = %if.end3.i
@@ -4132,9 +4132,9 @@ PyRun_StringFlags.exit:                           ; preds = %entry, %if.end11.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyRun_SimpleString(ptr noundef %s) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyRun_SimpleString(ptr noundef %s) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noundef i32 @_PyRun_SimpleStringFlagsWithName(ptr noundef %s, ptr noundef null, ptr noundef null), !range !5
+  %call.i = tail call i32 @_PyRun_SimpleStringFlagsWithName(ptr noundef %s, ptr noundef null, ptr noundef null)
   ret i32 %call.i
 }
 
@@ -4223,7 +4223,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @PyRun_InteractiveLoop(ptr noundef %f, ptr noundef %p) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyRun_InteractiveLoop(ptr noundef %f, ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyUnicode_DecodeFSDefault(ptr noundef %p) #8
   %cmp.i = icmp eq ptr %call.i, null
@@ -4236,7 +4236,7 @@ if.then.i:                                        ; preds = %entry
   br label %PyRun_InteractiveLoopFlags.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call i32 @_PyRun_InteractiveLoopObject(ptr noundef %f, ptr noundef nonnull %call.i, ptr noundef null), !range !5
+  %call1.i = tail call i32 @_PyRun_InteractiveLoopObject(ptr noundef %f, ptr noundef nonnull %call.i, ptr noundef null)
   %2 = load i64, ptr %call.i, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i3.not.i = icmp eq i64 %3, 0
@@ -4761,7 +4761,7 @@ return:                                           ; preds = %Py_DECREF.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @print_chained(ptr nocapture noundef readonly %ctx, ptr noundef %value, ptr noundef %message) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @print_chained(ptr nocapture noundef readonly %ctx, ptr noundef %value, ptr noundef %message) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -4779,7 +4779,7 @@ _Py_EnterRecursiveCall.exit:                      ; preds = %entry
   br i1 %tobool2.i.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %_Py_EnterRecursiveCall.exit
-  %call1 = tail call fastcc i32 @print_exception_recursive(ptr noundef nonnull %ctx, ptr noundef %value), !range !5
+  %call1 = tail call fastcc i32 @print_exception_recursive(ptr noundef nonnull %ctx, ptr noundef %value)
   %4 = load ptr, ptr %1, align 8
   %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %4, i64 44
   %5 = load i32, ptr %c_recursion_remaining.i.i, align 4
@@ -4865,7 +4865,5 @@ attributes #11 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i32 0, i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

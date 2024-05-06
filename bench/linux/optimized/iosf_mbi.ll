@@ -88,7 +88,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [20 x ptr] [ptr @__UNIQUE_ID___addressable_iosf_mbi_assert_punit_acquired377, ptr @__UNIQUE_ID___addressable_iosf_mbi_available363, ptr @__UNIQUE_ID___addressable_iosf_mbi_block_punit_i2c_access370, ptr @__UNIQUE_ID___addressable_iosf_mbi_init379, ptr @__UNIQUE_ID___addressable_iosf_mbi_modify362, ptr @__UNIQUE_ID___addressable_iosf_mbi_punit_acquire364, ptr @__UNIQUE_ID___addressable_iosf_mbi_punit_release365, ptr @__UNIQUE_ID___addressable_iosf_mbi_read356, ptr @__UNIQUE_ID___addressable_iosf_mbi_register_pmic_bus_access_notifier372, ptr @__UNIQUE_ID___addressable_iosf_mbi_unblock_punit_i2c_access371, ptr @__UNIQUE_ID___addressable_iosf_mbi_unregister_pmic_bus_access_notifier374, ptr @__UNIQUE_ID___addressable_iosf_mbi_unregister_pmic_bus_access_notifier_unlocked373, ptr @__UNIQUE_ID___addressable_iosf_mbi_write359, ptr @__UNIQUE_ID_author380, ptr @__UNIQUE_ID_description381, ptr @__UNIQUE_ID_file382, ptr @__UNIQUE_ID_license383, ptr @__exitcall_iosf_mbi_exit, ptr @iosf_mbi_exit, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @iosf_mbi_read(i8 noundef zeroext %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_read(i8 noundef zeroext %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = icmp eq i8 %0, 6
   br i1 %5, label %6, label %7
 
@@ -166,7 +166,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @iosf_mbi_write(i8 noundef zeroext %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_write(i8 noundef zeroext %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = icmp eq i8 %0, 6
   br i1 %5, label %6, label %7
 
@@ -231,7 +231,7 @@ define dso_local noundef i32 @iosf_mbi_write(i8 noundef zeroext %0, i8 noundef z
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @iosf_mbi_modify(i8 noundef zeroext %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_modify(i8 noundef zeroext %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
   %7 = icmp eq i8 %0, 6
@@ -795,7 +795,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #2
 declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @iosf_mbi_probe(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @iosf_mbi_probe(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = tail call i32 @pci_enable_device(ptr noundef %0) #7
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %7

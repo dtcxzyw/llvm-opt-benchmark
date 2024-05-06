@@ -1360,7 +1360,7 @@ land.lhs.true42:                                  ; preds = %land.lhs.true40
 
 if.then45:                                        ; preds = %call4.i.i.i.i.i.noexc, %if.then.i.i.i.i.i, %land.lhs.true42, %invoke.cont35
   %48 = load i32, ptr %idx.i.i122, align 8
-  %49 = trunc i64 %indvars.iv to i32
+  %49 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN19arith_bounds_tactic8mk_proofER7obj_refI3app11ast_managerERK3refI4goalEjj(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %new_pr, ptr noundef nonnull align 8 dereferenceable(8) %s, i32 noundef %49, i32 noundef %48)
           to label %invoke.cont46 unwind label %lpad30
 
@@ -1425,7 +1425,7 @@ lpad30:                                           ; preds = %invoke.cont126.invo
 
 if.else63:                                        ; preds = %if.then.i.i.i.i, %call4.i.i.i.i.noexc, %if.then.i.i16.i.i, %land.lhs.true42, %land.lhs.true40, %invoke.cont38
   %60 = load i32, ptr %idx.i.i122, align 8
-  %61 = trunc i64 %indvars.iv to i32
+  %61 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN19arith_bounds_tactic8mk_proofER7obj_refI3app11ast_managerERK3refI4goalEjj(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %new_pr, ptr noundef nonnull align 8 dereferenceable(8) %s, i32 noundef %60, i32 noundef %61)
           to label %invoke.cont65 unwind label %lpad30
 
@@ -1474,7 +1474,7 @@ invoke.cont79:                                    ; preds = %if.then.i.i8.i.i94,
   %66 = load i8, ptr %is_strict, align 1
   %frombool83 = and i8 %66, 1
   store i8 %frombool83, ptr %is_strict102, align 4
-  %67 = trunc i64 %indvars.iv to i32
+  %67 = trunc nuw i64 %indvars.iv to i32
   br label %invoke.cont138.invoke
 
 land.lhs.true88:                                  ; preds = %invoke.cont23
@@ -1654,7 +1654,7 @@ land.lhs.true101:                                 ; preds = %land.lhs.true99
 
 if.then104:                                       ; preds = %call4.i.i.i.i.noexc156, %if.then.i.i.i.i154, %land.lhs.true101, %invoke.cont93
   %87 = load i32, ptr %idx.i.i122, align 8
-  %88 = trunc i64 %indvars.iv to i32
+  %88 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN19arith_bounds_tactic8mk_proofER7obj_refI3app11ast_managerERK3refI4goalEjj(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %new_pr, ptr noundef nonnull align 8 dereferenceable(8) %s, i32 noundef %88, i32 noundef %87)
           to label %invoke.cont106 unwind label %lpad30
 
@@ -1713,7 +1713,7 @@ invoke.cont117:                                   ; preds = %if.then.i.i8.i.i207
 
 if.else124:                                       ; preds = %if.then.i.i.i.i186, %call4.i.i.i.i.noexc188, %if.then.i.i16.i.i179, %land.lhs.true101, %land.lhs.true99, %invoke.cont97
   %98 = load i32, ptr %idx.i.i122, align 8
-  %99 = trunc i64 %indvars.iv to i32
+  %99 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN19arith_bounds_tactic8mk_proofER7obj_refI3app11ast_managerERK3refI4goalEjj(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %new_pr, ptr noundef nonnull align 8 dereferenceable(8) %s, i32 noundef %98, i32 noundef %99)
           to label %invoke.cont126.invoke unwind label %lpad30
 
@@ -1768,7 +1768,7 @@ invoke.cont138:                                   ; preds = %if.then.i.i8.i.i232
   %107 = load i8, ptr %is_strict, align 1
   %frombool142 = and i8 %107, 1
   store i8 %frombool142, ptr %is_strict102, align 4
-  %108 = trunc i64 %indvars.iv to i32
+  %108 = trunc nuw i64 %indvars.iv to i32
   br label %invoke.cont138.invoke
 
 invoke.cont138.invoke:                            ; preds = %invoke.cont57, %invoke.cont79, %invoke.cont117, %invoke.cont138

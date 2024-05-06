@@ -119,7 +119,7 @@ cleanup32:                                        ; preds = %cleanup31, %if.then
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_Z15gethugepagesizev() local_unnamed_addr #0 {
+define hidden noundef range(i64 -1, 4294966273) i64 @_Z15gethugepagesizev() local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [4096 x i8], align 16
   %q.i = alloca ptr, align 8

@@ -20,7 +20,7 @@ define noalias noundef ptr @NewDenseMat(i64 noundef %0, i64 noundef %1) local_un
   br i1 %7, label %29, label %8
 
 8:                                                ; preds = %5
-  %9 = mul nsw i64 %1, %0
+  %9 = mul nuw nsw i64 %1, %0
   %10 = shl i64 %9, 3
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #12
   %12 = getelementptr inbounds i8, ptr %6, i64 56
@@ -47,7 +47,7 @@ define noalias noundef ptr @NewDenseMat(i64 noundef %0, i64 noundef %1) local_un
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
   %.038 = phi i64 [ %24, %.lr.ph ], [ 0, %15 ]
-  %21 = mul nsw i64 %.038, %0
+  %21 = mul nuw nsw i64 %.038, %0
   %22 = getelementptr inbounds double, ptr %11, i64 %21
   %23 = getelementptr inbounds ptr, ptr %17, i64 %.038
   store ptr %22, ptr %23, align 8
@@ -109,7 +109,7 @@ define noalias noundef ptr @newDenseMat(i64 noundef %0, i64 noundef %1) local_un
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.024 = phi i64 [ %19, %.lr.ph ], [ 1, %.preheader ]
-  %16 = mul nsw i64 %.024, %0
+  %16 = mul nuw nsw i64 %.024, %0
   %17 = getelementptr inbounds double, ptr %12, i64 %16
   %18 = getelementptr inbounds ptr, ptr %7, i64 %.024
   store ptr %17, ptr %18, align 8

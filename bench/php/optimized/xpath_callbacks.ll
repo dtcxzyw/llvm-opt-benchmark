@@ -624,7 +624,7 @@ define void @php_dom_xpath_callbacks_delayed_lib_registration(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_dom_xpath_callbacks_update_method_handler(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_dom_xpath_callbacks_update_method_handler(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #0 {
   %8 = alloca %struct._zval_struct, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -641,48 +641,48 @@ define noundef i32 @php_dom_xpath_callbacks_update_method_handler(ptr nocapture 
   %14 = getelementptr inbounds i8, ptr %4, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 24
   %16 = load i32, ptr %15, align 8
-  %.not186226.i = icmp eq i32 %16, 0
-  br i1 %.not186226.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not185225.i = icmp eq i32 %16, 0
+  br i1 %.not185225.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13
   %17 = getelementptr inbounds i8, ptr %4, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %8, i64 8
   %20 = icmp eq i32 %5, 1
-  %or.cond.i.i200.i = icmp ult i32 %5, 2
-  %.not199.i = icmp eq ptr %6, null
+  %or.cond.i.i199.i = icmp ult i32 %5, 2
+  %.not198.i = icmp eq ptr %6, null
   br label %21
 
 21:                                               ; preds = %175, %.lr.ph.i
-  %.0163230.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %175 ]
-  %.0166228.i = phi ptr [ %18, %.lr.ph.i ], [ %.1167.i, %175 ]
-  %.0168227.i = phi i32 [ %16, %.lr.ph.i ], [ %176, %175 ]
+  %.0162229.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %175 ]
+  %.0165227.i = phi ptr [ %18, %.lr.ph.i ], [ %.1166.i, %175 ]
+  %.0167226.i = phi i32 [ %16, %.lr.ph.i ], [ %176, %175 ]
   %22 = load i32, ptr %14, align 8
   %23 = and i32 %22, 4
-  %.not187.i = icmp eq i32 %23, 0
-  br i1 %.not187.i, label %26, label %24
+  %.not186.i = icmp eq i32 %23, 0
+  br i1 %.not186.i, label %26, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %.0166228.i, i64 16
+  %25 = getelementptr inbounds i8, ptr %.0165227.i, i64 16
   br label %30
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %.0166228.i, i64 32
-  %28 = getelementptr inbounds i8, ptr %.0166228.i, i64 24
+  %27 = getelementptr inbounds i8, ptr %.0165227.i, i64 32
+  %28 = getelementptr inbounds i8, ptr %.0165227.i, i64 24
   %29 = load ptr, ptr %28, align 8
   br label %30
 
 30:                                               ; preds = %26, %24
-  %.1167.i = phi ptr [ %25, %24 ], [ %27, %26 ]
-  %.1.i = phi ptr [ %.0163230.i, %24 ], [ %29, %26 ]
-  %31 = getelementptr inbounds i8, ptr %.0166228.i, i64 8
+  %.1166.i = phi ptr [ %25, %24 ], [ %27, %26 ]
+  %.1.i = phi ptr [ %.0162229.i, %24 ], [ %29, %26 ]
+  %31 = getelementptr inbounds i8, ptr %.0165227.i, i64 8
   %32 = load i8, ptr %31, align 8
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %175, label %34
 
 34:                                               ; preds = %30
   %35 = call noalias ptr @_emalloc_64() #9
-  %36 = call zeroext i1 @zend_is_callable_ex(ptr noundef nonnull %.0166228.i, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %35, ptr noundef nonnull %9) #9
+  %36 = call zeroext i1 @zend_is_callable_ex(ptr noundef nonnull %.0165227.i, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %35, ptr noundef nonnull %9) #9
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %34
@@ -710,8 +710,8 @@ define noundef i32 @php_dom_xpath_callbacks_update_method_handler(ptr nocapture 
 47:                                               ; preds = %43, %40
   %48 = getelementptr inbounds i8, ptr %35, i64 24
   %49 = load ptr, ptr %48, align 8
-  %.not188.i = icmp eq ptr %49, null
-  br i1 %.not188.i, label %53, label %50
+  %.not187.i = icmp eq ptr %49, null
+  br i1 %.not187.i, label %53, label %50
 
 50:                                               ; preds = %47
   %51 = load i32, ptr %49, align 4
@@ -722,8 +722,8 @@ define noundef i32 @php_dom_xpath_callbacks_update_method_handler(ptr nocapture 
 53:                                               ; preds = %50, %47
   %54 = getelementptr inbounds i8, ptr %35, i64 32
   %55 = load ptr, ptr %54, align 8
-  %.not189.i = icmp eq ptr %55, null
-  br i1 %.not189.i, label %59, label %56
+  %.not188.i = icmp eq ptr %55, null
+  br i1 %.not188.i, label %59, label %56
 
 56:                                               ; preds = %53
   %57 = load i32, ptr %55, align 4
@@ -734,8 +734,8 @@ define noundef i32 @php_dom_xpath_callbacks_update_method_handler(ptr nocapture 
 59:                                               ; preds = %56, %53
   store ptr %35, ptr %8, align 8
   store i32 13, ptr %19, align 8
-  %.not190.i = icmp eq ptr %.1.i, null
-  br i1 %.not190.i, label %60, label %128
+  %.not189.i = icmp eq ptr %.1.i, null
+  br i1 %.not189.i, label %60, label %128
 
 60:                                               ; preds = %59
   %61 = load i8, ptr %31, align 8
@@ -743,12 +743,12 @@ define noundef i32 @php_dom_xpath_callbacks_update_method_handler(ptr nocapture 
   br i1 %62, label %63, label %71
 
 63:                                               ; preds = %60
-  %64 = load ptr, ptr %.0166228.i, align 8
+  %64 = load ptr, ptr %.0165227.i, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, 64
-  %.not191.i = icmp eq i32 %67, 0
-  br i1 %.not191.i, label %68, label %.thread.i
+  %.not190.i = icmp eq i32 %67, 0
+  br i1 %.not190.i, label %68, label %.thread.i
 
 68:                                               ; preds = %63
   %69 = load i32, ptr %64, align 4
@@ -757,22 +757,22 @@ define noundef i32 @php_dom_xpath_callbacks_update_method_handler(ptr nocapture 
   br label %.thread.i
 
 71:                                               ; preds = %60
-  %72 = call ptr @zval_try_get_string_func(ptr noundef nonnull %.0166228.i) #9
-  %.not192.i = icmp eq ptr %72, null
-  br i1 %.not192.i, label %.loopexit.i, label %.thread.i
+  %72 = call ptr @zval_try_get_string_func(ptr noundef nonnull %.0165227.i) #9
+  %.not191.i = icmp eq ptr %72, null
+  br i1 %.not191.i, label %.loopexit.i, label %.thread.i
 
 .thread.i:                                        ; preds = %71, %68, %63
-  %.0207.i = phi ptr [ %72, %71 ], [ %64, %63 ], [ %64, %68 ]
-  %73 = getelementptr inbounds i8, ptr %.0207.i, i64 16
+  %.0206.i = phi ptr [ %72, %71 ], [ %64, %63 ], [ %64, %68 ]
+  %73 = getelementptr inbounds i8, ptr %.0206.i, i64 16
   %74 = load i64, ptr %73, align 8
   %75 = icmp eq i64 %74, 0
   br i1 %75, label %php_dom_xpath_is_callback_name_valid_and_throw.exit.i, label %76
 
 76:                                               ; preds = %.thread.i
-  br i1 %or.cond.i.i200.i, label %77, label %83
+  br i1 %or.cond.i.i199.i, label %77, label %83
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %.0207.i, i64 24
+  %78 = getelementptr inbounds i8, ptr %.0206.i, i64 24
   %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #10
   %.not.i.i.i = icmp eq i64 %74, %79
   br i1 %.not.i.i.i, label %80, label %php_dom_xpath_is_callback_name_valid_and_throw.exit.i
@@ -790,31 +790,31 @@ php_dom_xpath_is_callback_name_valid_and_throw.exit.i: ; preds = %81, %77, %.thr
   br label %.loopexit.i
 
 83:                                               ; preds = %81, %80, %76
-  %84 = call ptr @zend_hash_update(ptr noundef %12, ptr noundef nonnull %.0207.i, ptr noundef nonnull %8) #9
-  br i1 %.not199.i, label %86, label %85
+  %84 = call ptr @zend_hash_update(ptr noundef %12, ptr noundef nonnull %.0206.i, ptr noundef nonnull %8) #9
+  br i1 %.not198.i, label %86, label %85
 
 85:                                               ; preds = %83
-  call void %6(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %.0207.i) #9
+  call void %6(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %.0206.i) #9
   br label %86
 
 86:                                               ; preds = %85, %83
-  %87 = getelementptr inbounds i8, ptr %.0207.i, i64 4
+  %87 = getelementptr inbounds i8, ptr %.0206.i, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = and i32 %88, 64
-  %.not196.i = icmp eq i32 %89, 0
-  br i1 %.not196.i, label %90, label %175
+  %.not195.i = icmp eq i32 %89, 0
+  br i1 %.not195.i, label %90, label %175
 
 90:                                               ; preds = %86
-  %91 = load i32, ptr %.0207.i, align 4
+  %91 = load i32, ptr %.0206.i, align 4
   %92 = icmp ne i32 %91, 0
   call void @llvm.assume(i1 %92)
   %93 = add i32 %91, -1
-  store i32 %93, ptr %.0207.i, align 4
+  store i32 %93, ptr %.0206.i, align 4
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %175
 
 95:                                               ; preds = %90
-  call void @_efree(ptr noundef nonnull %.0207.i) #9
+  call void @_efree(ptr noundef nonnull %.0206.i) #9
   br label %175
 
 .loopexit.i:                                      ; preds = %71, %php_dom_xpath_is_callback_name_valid_and_throw.exit.i
@@ -824,8 +824,8 @@ php_dom_xpath_is_callback_name_valid_and_throw.exit.i: ; preds = %81, %77, %.thr
   %99 = icmp ne ptr %98, null
   call void @llvm.assume(i1 %99)
   %100 = load ptr, ptr %96, align 8
-  %.not193.i = icmp eq ptr %100, null
-  br i1 %.not193.i, label %113, label %101
+  %.not192.i = icmp eq ptr %100, null
+  br i1 %.not192.i, label %113, label %101
 
 101:                                              ; preds = %.loopexit.i
   %102 = load i32, ptr %100, align 4
@@ -854,8 +854,8 @@ php_dom_xpath_is_callback_name_valid_and_throw.exit.i: ; preds = %81, %77, %.thr
 113:                                              ; preds = %112, %107, %106, %.loopexit.i
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %35) #9
   %114 = load ptr, ptr %97, align 8
-  %.not194.i = icmp eq ptr %114, null
-  br i1 %.not194.i, label %127, label %115
+  %.not193.i = icmp eq ptr %114, null
+  br i1 %.not193.i, label %127, label %115
 
 115:                                              ; preds = %113
   %116 = load i32, ptr %114, align 4
@@ -893,21 +893,21 @@ php_dom_xpath_is_callback_name_valid_and_throw.exit.i: ; preds = %81, %77, %.thr
   br i1 %131, label %139, label %132
 
 132:                                              ; preds = %128
-  br i1 %or.cond.i.i200.i, label %133, label %172
+  br i1 %or.cond.i.i199.i, label %133, label %172
 
 133:                                              ; preds = %132
   %134 = getelementptr inbounds i8, ptr %.1.i, i64 24
   %135 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %134) #10
-  %.not.i.i202.i = icmp eq i64 %130, %135
-  br i1 %.not.i.i202.i, label %136, label %139
+  %.not.i.i201.i = icmp eq i64 %130, %135
+  br i1 %.not.i.i201.i, label %136, label %139
 
 136:                                              ; preds = %133
   br i1 %20, label %137, label %172
 
 137:                                              ; preds = %136
   %138 = call i32 @xmlValidateNCName(ptr noundef nonnull %134, i32 noundef 0) #9
-  %.not10.i.i203.i = icmp eq i32 %138, 0
-  br i1 %.not10.i.i203.i, label %172, label %139
+  %.not10.i.i202.i = icmp eq i32 %138, 0
+  br i1 %.not10.i.i202.i, label %172, label %139
 
 139:                                              ; preds = %137, %133, %128
   %140 = getelementptr inbounds i8, ptr %35, i64 24
@@ -917,8 +917,8 @@ php_dom_xpath_is_callback_name_valid_and_throw.exit.i: ; preds = %81, %77, %.thr
   %143 = icmp ne ptr %142, null
   call void @llvm.assume(i1 %143)
   %144 = load ptr, ptr %140, align 8
-  %.not197.i = icmp eq ptr %144, null
-  br i1 %.not197.i, label %157, label %145
+  %.not196.i = icmp eq ptr %144, null
+  br i1 %.not196.i, label %157, label %145
 
 145:                                              ; preds = %139
   %146 = load i32, ptr %144, align 4
@@ -947,8 +947,8 @@ php_dom_xpath_is_callback_name_valid_and_throw.exit.i: ; preds = %81, %77, %.thr
 157:                                              ; preds = %156, %151, %150, %139
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %35) #9
   %158 = load ptr, ptr %141, align 8
-  %.not198.i = icmp eq ptr %158, null
-  br i1 %.not198.i, label %171, label %159
+  %.not197.i = icmp eq ptr %158, null
+  br i1 %.not197.i, label %171, label %159
 
 159:                                              ; preds = %157
   %160 = load i32, ptr %158, align 4
@@ -981,16 +981,16 @@ php_dom_xpath_is_callback_name_valid_and_throw.exit.i: ; preds = %81, %77, %.thr
 
 172:                                              ; preds = %137, %136, %132
   %173 = call ptr @zend_hash_update(ptr noundef %12, ptr noundef nonnull %.1.i, ptr noundef nonnull %8) #9
-  br i1 %.not199.i, label %175, label %174
+  br i1 %.not198.i, label %175, label %174
 
 174:                                              ; preds = %172
   call void %6(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %.1.i) #9
   br label %175
 
 175:                                              ; preds = %174, %172, %95, %90, %86, %30
-  %176 = add i32 %.0168227.i, -1
-  %.not186.i = icmp eq i32 %176, 0
-  br i1 %.not186.i, label %._crit_edge.i, label %21
+  %176 = add i32 %.0167226.i, -1
+  %.not185.i = icmp eq i32 %176, 0
+  br i1 %.not185.i, label %._crit_edge.i, label %21
 
 ._crit_edge.i:                                    ; preds = %175, %13
   %177 = getelementptr inbounds i8, ptr %12, i64 56
@@ -998,8 +998,8 @@ php_dom_xpath_is_callback_name_valid_and_throw.exit.i: ; preds = %81, %77, %.thr
   br label %php_dom_xpath_callback_ns_update_method_handler.exit
 
 178:                                              ; preds = %7
-  %.not181.i = icmp eq ptr %3, null
-  br i1 %.not181.i, label %227, label %179
+  %.not180.i = icmp eq ptr %3, null
+  br i1 %.not180.i, label %227, label %179
 
 179:                                              ; preds = %178
   %180 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1036,8 +1036,8 @@ php_dom_xpath_is_callback_name_valid.exit.i:      ; preds = %189, %188, %183
   %193 = getelementptr inbounds i8, ptr %3, i64 4
   %194 = load i32, ptr %193, align 4
   %195 = and i32 %194, 64
-  %.not182.i = icmp eq i32 %195, 0
-  %196 = select i1 %.not182.i, i32 262, i32 6
+  %.not181.i = icmp eq i32 %195, 0
+  %196 = select i1 %.not181.i, i32 262, i32 6
   %197 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 %196, ptr %197, align 8
   %198 = call zeroext i1 @zend_is_callable_ex(ptr noundef nonnull %11, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %192, ptr noundef nonnull %10) #9
@@ -1068,8 +1068,8 @@ php_dom_xpath_is_callback_name_valid.exit.i:      ; preds = %189, %188, %183
 209:                                              ; preds = %205, %202
   %210 = getelementptr inbounds i8, ptr %192, i64 24
   %211 = load ptr, ptr %210, align 8
-  %.not183.i = icmp eq ptr %211, null
-  br i1 %.not183.i, label %215, label %212
+  %.not182.i = icmp eq ptr %211, null
+  br i1 %.not182.i, label %215, label %212
 
 212:                                              ; preds = %209
   %213 = load i32, ptr %211, align 4
@@ -1080,8 +1080,8 @@ php_dom_xpath_is_callback_name_valid.exit.i:      ; preds = %189, %188, %183
 215:                                              ; preds = %212, %209
   %216 = getelementptr inbounds i8, ptr %192, i64 32
   %217 = load ptr, ptr %216, align 8
-  %.not184.i = icmp eq ptr %217, null
-  br i1 %.not184.i, label %221, label %218
+  %.not183.i = icmp eq ptr %217, null
+  br i1 %.not183.i, label %221, label %218
 
 218:                                              ; preds = %215
   %219 = load i32, ptr %217, align 4
@@ -1094,8 +1094,8 @@ php_dom_xpath_is_callback_name_valid.exit.i:      ; preds = %189, %188, %183
   %222 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 13, ptr %222, align 8
   %223 = call ptr @zend_hash_update(ptr noundef %12, ptr noundef nonnull %3, ptr noundef nonnull %8) #9
-  %.not185.i = icmp eq ptr %6, null
-  br i1 %.not185.i, label %225, label %224
+  %.not184.i = icmp eq ptr %6, null
+  br i1 %.not184.i, label %225, label %224
 
 224:                                              ; preds = %221
   call void %6(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #9
@@ -1112,12 +1112,12 @@ php_dom_xpath_is_callback_name_valid.exit.i:      ; preds = %189, %188, %183
   br label %php_dom_xpath_callback_ns_update_method_handler.exit
 
 php_dom_xpath_callback_ns_update_method_handler.exit: ; preds = %37, %127, %171, %._crit_edge.i, %191, %199, %225, %227
-  %.0162.i = phi i32 [ -1, %171 ], [ -1, %127 ], [ -1, %37 ], [ -1, %199 ], [ -1, %191 ], [ 0, %225 ], [ 0, %227 ], [ 0, %._crit_edge.i ]
+  %.0161.i = phi i32 [ -1, %171 ], [ -1, %127 ], [ -1, %37 ], [ -1, %199 ], [ -1, %191 ], [ 0, %225 ], [ 0, %227 ], [ 0, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  ret i32 %.0162.i
+  ret i32 %.0161.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1186,7 +1186,7 @@ define internal fastcc ptr @php_dom_xpath_callbacks_ensure_ns(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_dom_xpath_callbacks_update_single_method_handler(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_dom_xpath_callbacks_update_single_method_handler(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #0 {
   %8 = alloca %struct._zval_struct, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8
@@ -1282,7 +1282,7 @@ declare noalias ptr @_emalloc_64() local_unnamed_addr #1
 declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_dom_xpath_callbacks_call_php_ns(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_dom_xpath_callbacks_call_php_ns(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
   %7 = icmp eq i32 %2, 0
   br i1 %7, label %php_dom_xpath_callback_cleanup_args.exit.thread, label %8
 
@@ -1306,7 +1306,7 @@ php_dom_xpath_callback_cleanup_args.exit.thread:  ; preds = %6
 16:                                               ; preds = %8
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #10
   %18 = load ptr, ptr %0, align 8
-  %19 = tail call fastcc i32 @php_dom_xpath_callback_dispatch(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %1, ptr noundef %10, i32 noundef %9, ptr noundef nonnull %13, i64 noundef %17), !range !5
+  %19 = tail call fastcc i32 @php_dom_xpath_callback_dispatch(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %1, ptr noundef %10, i32 noundef %9, ptr noundef nonnull %13, i64 noundef %17)
   br label %20
 
 20:                                               ; preds = %16, %15
@@ -1552,7 +1552,7 @@ declare void @zend_type_error(ptr noundef, ...) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @php_dom_xpath_callback_dispatch(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @php_dom_xpath_callback_dispatch(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #0 {
   %8 = alloca %struct._zval_struct, align 8
   %9 = alloca %struct._zend_fcall_info, align 8
   %10 = icmp eq ptr %1, null
@@ -1797,7 +1797,7 @@ thread-pre-split:                                 ; preds = %80
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_dom_xpath_callbacks_call_custom_ns(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_dom_xpath_callbacks_call_custom_ns(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
   %7 = tail call fastcc ptr @php_dom_xpath_callback_fetch_args(ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5)
   %8 = getelementptr inbounds i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -1814,7 +1814,7 @@ define noundef i32 @php_dom_xpath_callbacks_call_custom_ns(ptr nocapture noundef
   %18 = getelementptr inbounds i8, ptr %17, i64 168
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #10
-  %21 = tail call fastcc i32 @php_dom_xpath_callback_dispatch(ptr noundef %0, ptr noundef nonnull %16, ptr noundef %1, ptr noundef %7, i32 noundef %2, ptr noundef %19, i64 noundef %20), !range !5
+  %21 = tail call fastcc i32 @php_dom_xpath_callback_dispatch(ptr noundef %0, ptr noundef nonnull %16, ptr noundef %1, ptr noundef %7, i32 noundef %2, ptr noundef %19, i64 noundef %20)
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %php_dom_xpath_callback_cleanup_args.exit, label %.preheader.i
 
@@ -1944,4 +1944,3 @@ attributes #11 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{}
-!5 = !{i32 -1, i32 1}

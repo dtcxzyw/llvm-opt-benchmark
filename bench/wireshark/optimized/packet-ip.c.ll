@@ -862,7 +862,7 @@ target triple = "x86_64-pc-linux-gnu"
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ip_try_dissect(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ip_try_dissect(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %11, label %8
@@ -2159,9 +2159,9 @@ proto_item_set_hidden.exit530:                    ; preds = %proto_item_set_hidd
 
 411:                                              ; preds = %proto_item_set_hidden.exit530
   %412 = tail call i32 @llvm.bswap.i32(i32 %220)
-  tail call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %412, i32 noundef 0)
+  tail call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef nonnull readonly %1, ptr noundef %0, i32 noundef %412, i32 noundef 0)
   %413 = tail call i32 @llvm.bswap.i32(i32 %310)
-  tail call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %413, i32 noundef 1)
+  tail call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef nonnull readonly %1, ptr noundef %0, i32 noundef %413, i32 noundef 1)
   br label %414
 
 414:                                              ; preds = %proto_item_set_hidden.exit530, %411, %local_network_control_block_addr_valid_ttl.exit.thread
@@ -2552,7 +2552,7 @@ proto_item_set_generated.exit553:                 ; preds = %604, %601, %get_ip_
   %633 = load i32, ptr @try_heuristic_first, align 4
   %634 = load i8, ptr %173, align 1
   %635 = zext i8 %634 to i32
-  %636 = call i32 @ip_try_dissect(i32 noundef %633, i32 noundef %635, ptr noundef nonnull %.0442, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %9), !range !7
+  %636 = call i32 @ip_try_dissect(i32 noundef %633, i32 noundef %635, ptr noundef nonnull %.0442, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %9)
   %.not485 = icmp eq i32 %636, 0
   br i1 %.not485, label %637, label %648
 
@@ -2594,7 +2594,7 @@ declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unname
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_ip_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 0, 2) i32 @dissect_ip_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   %6 = icmp slt i32 %5, 4
   br i1 %6, label %31, label %7
@@ -2713,7 +2713,7 @@ define internal i32 @dissect_ipopt_security(ptr noundef %0, ptr noundef %1, ptr 
   %44 = add i32 %.05360, 1
   %45 = and i8 %40, 1
   %.not56 = icmp eq i8 %45, 0
-  br i1 %.not56, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not56, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %39, %30
   %.05358 = phi i32 [ 4, %30 ], [ %44, %39 ]
@@ -2803,7 +2803,7 @@ define internal i32 @dissect_ipopt_timestamp(ptr noundef %0, ptr noundef %1, ptr
   %44 = add nuw i32 %.07886.us, 8
   %45 = add nsw i32 %.087.us, -8
   %.not100 = icmp eq i32 %.087.us, 8
-  br i1 %.not100, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !9
+  br i1 %.not100, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %50
   %.087 = phi i32 [ %54, %50 ], [ %28, %.lr.ph ]
@@ -2825,7 +2825,7 @@ define internal i32 @dissect_ipopt_timestamp(ptr noundef %0, ptr noundef %1, ptr
   %53 = add nuw i32 %.07886, 4
   %54 = add nsw i32 %.087, -4
   %.not99 = icmp eq i32 %.087, 4
-  br i1 %.not99, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
+  br i1 %.not99, label %.loopexit, label %.lr.ph.split, !llvm.loop !8
 
 .loopexit:                                        ; preds = %50, %38, %20, %48, %.split.us
   %55 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
@@ -2961,7 +2961,7 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   %.2224 = phi i64 [ %57, %.preheader ], [ %.1223273, %50 ]
   %56 = icmp ult i64 %.2224, %54
   %57 = shl i64 %.2224, 1
-  br i1 %56, label %.preheader, label %58, !llvm.loop !10
+  br i1 %56, label %.preheader, label %58, !llvm.loop !9
 
 58:                                               ; preds = %.preheader
   %59 = load ptr, ptr %13, align 8
@@ -2993,12 +2993,12 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   %71 = add nuw nsw i32 %.0214276, 1
   %72 = lshr i32 %.0217275, 1
   %exitcond.not = icmp eq i32 %71, 8
-  br i1 %exitcond.not, label %73, label %46, !llvm.loop !11
+  br i1 %exitcond.not, label %73, label %46, !llvm.loop !10
 
 73:                                               ; preds = %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond309.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond309.not, label %._crit_edge280, label %.preheader246, !llvm.loop !12
+  br i1 %exitcond309.not, label %._crit_edge280, label %.preheader246, !llvm.loop !11
 
 ._crit_edge280:                                   ; preds = %73
   %.not242 = icmp eq ptr %.3221, null
@@ -3063,7 +3063,7 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   %107 = tail call i64 @g_strlcat(ptr noundef nonnull %95, ptr noundef %97, i64 noundef 90) #8
   %108 = add i32 %99, 2
   %.not240 = icmp sgt i32 %108, %82
-  br i1 %.not240, label %._crit_edge271, label %.lr.ph270, !llvm.loop !13
+  br i1 %.not240, label %._crit_edge271, label %.lr.ph270, !llvm.loop !12
 
 ._crit_edge271:                                   ; preds = %106, %93
   %.1.lcssa = phi i32 [ %91, %93 ], [ %99, %106 ]
@@ -3147,7 +3147,7 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   %150 = tail call i64 @g_strlcat(ptr noundef nonnull %129, ptr noundef %131, i64 noundef 96) #8
   %151 = add i32 %.3, 2
   %.not = icmp sgt i32 %151, %116
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %149, %127
   %.2.lcssa = phi i32 [ %125, %127 ], [ %.3, %149 ]
@@ -3211,7 +3211,7 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
 .backedge:                                        ; preds = %164, %177, %32, %._crit_edge271, %87, %._crit_edge, %121, %77, %75, %23
   %.0213.be = phi i32 [ %18, %23 ], [ %172, %177 ], [ %159, %164 ], [ %.2.lcssa, %._crit_edge ], [ %125, %121 ], [ %.1.lcssa, %._crit_edge271 ], [ %91, %87 ], [ %36, %32 ], [ %27, %77 ], [ %27, %75 ]
   %185 = icmp slt i32 %.0213.be, %6
-  br i1 %185, label %14, label %.loopexit, !llvm.loop !15
+  br i1 %185, label %14, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.backedge, %4, %182, %175, %162, %119, %85, %30
   %.0213253 = phi i32 [ %.0213282, %182 ], [ %.0213282, %175 ], [ %.0213282, %162 ], [ %.0213282, %119 ], [ %.0213282, %85 ], [ %.0213282, %30 ], [ 6, %4 ], [ %.0213.be, %.backedge ]
@@ -3299,7 +3299,7 @@ dissect_option_route.exit.us:                     ; preds = %41, %37, %34, %27
   %45 = add nsw i32 %.065.us, -4
   %46 = add nuw i32 %.05064.us, 4
   %.not72 = icmp eq i32 %.065.us, 4
-  br i1 %.not72, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !16
+  br i1 %.not72, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_option_route.exit
   %.065 = phi i32 [ %91, %dissect_option_route.exit ], [ %22, %.lr.ph ]
@@ -3392,7 +3392,7 @@ dissect_option_route.exit:                        ; preds = %87, %83, %80, %75, 
   %91 = add nsw i32 %.065, -4
   %92 = add nuw i32 %.05064, 4
   %.not71 = icmp eq i32 %.065, 4
-  br i1 %.not71, label %.loopexit, label %.lr.ph.split, !llvm.loop !16
+  br i1 %.not71, label %.loopexit, label %.lr.ph.split, !llvm.loop !15
 
 .loopexit:                                        ; preds = %dissect_option_route.exit, %dissect_option_route.exit.us, %21, %.split.us
   %93 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
@@ -3516,7 +3516,7 @@ define internal i32 @dissect_ipopt_sdb(ptr noundef %0, ptr noundef %1, ptr nound
   %16 = add nuw nsw i32 %.01920, 4
   %17 = add nsw i32 %.021, -4
   %18 = icmp ugt i32 %.021, 7
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.019.lcssa = phi i32 [ 2, %4 ], [ %16, %.lr.ph ]
@@ -4386,7 +4386,7 @@ dissect_option_route.exit.us:                     ; preds = %41, %37, %34, %27
   %45 = add nsw i32 %.085111.us, -4
   %46 = add nuw i32 %.084112.us, 4
   %.not123 = icmp eq i32 %.085111.us, 4
-  br i1 %.not123, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !18
+  br i1 %.not123, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_option_route.exit
   %.084112 = phi i32 [ %134, %dissect_option_route.exit ], [ 3, %.lr.ph ]
@@ -4562,7 +4562,7 @@ dissect_option_route.exit:                        ; preds = %80, %129, %125, %12
   %133 = add nsw i32 %.085111, -4
   %134 = add nuw i32 %.084112, 4
   %.not122 = icmp eq i32 %.085111, 4
-  br i1 %.not122, label %.loopexit, label %.lr.ph.split, !llvm.loop !18
+  br i1 %.not122, label %.loopexit, label %.lr.ph.split, !llvm.loop !17
 
 .loopexit:                                        ; preds = %dissect_option_route.exit, %dissect_option_route.exit.us, %20, %.split.us
   %135 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
@@ -4713,7 +4713,7 @@ attributes #9 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
@@ -4724,4 +4724,3 @@ attributes #9 = { nounwind willreturn memory(read) }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}

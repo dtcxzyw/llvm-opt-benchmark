@@ -244,7 +244,7 @@ define dso_local i32 @Curl_output_aws_sigv4(ptr noundef %0, i1 noundef zeroext %
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.critedge6.i
   %.037.i = phi i64 [ %92, %.critedge6.i ], [ %89, %.critedge.i ]
-  %90 = getelementptr inbounds i8, ptr %.pn.i, i64 %.037.i
+  %90 = getelementptr i8, ptr %.pn.i, i64 %.037.i
   %91 = load i8, ptr %90, align 1
   switch i8 %91, label %parse_content_sha_hdr.exit.thread [
     i8 32, label %.critedge6.i

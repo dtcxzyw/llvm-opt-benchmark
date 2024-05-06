@@ -105,7 +105,7 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds i8, ptr %29, i64 12
   store i32 %38, ptr %39, align 4
-  %40 = trunc i64 %.057 to i32
+  %40 = trunc nuw nsw i64 %.057 to i32
   %41 = getelementptr inbounds i8, ptr %29, i64 16
   store i32 %40, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %29, i64 32
@@ -263,7 +263,7 @@ define dso_local ptr @Curl_he2ai(ptr noundef readonly %0, i32 noundef %1) local_
   store i32 %28, ptr %29, align 4
   %30 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 1, ptr %30, align 8
-  %31 = trunc i64 %. to i32
+  %31 = trunc nuw nsw i64 %. to i32
   %32 = getelementptr inbounds i8, ptr %17, i64 16
   store i32 %31, ptr %32, align 8
   switch i32 %28, label %44 [
@@ -445,7 +445,7 @@ define dso_local ptr @Curl_str2addr(ptr noundef %0, i32 noundef %1) local_unname
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %26, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %31, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   store ptr %29, ptr %26, align 8
   %32 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr null, ptr %32, align 8

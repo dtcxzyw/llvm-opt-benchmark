@@ -3,7 +3,7 @@ source_filename = "bench/qemu/original/hw_block_cdrom.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
 define dso_local i32 @cdrom_read_toc(i32 noundef %nb_sectors, ptr noundef %buf, i32 noundef %msf, i32 noundef %start_track) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %start_track, 1
@@ -62,11 +62,11 @@ if.then20:                                        ; preds = %if.end14.thread39, 
   %conv.i = trunc i32 %div1.i to i8
   store i8 %conv.i, ptr %incdec.ptr21, align 1
   %rem.i = srem i32 %div.i, 60
-  %conv3.i = trunc i32 %rem.i to i8
+  %conv3.i = trunc nsw i32 %rem.i to i8
   %arrayidx4.i28 = getelementptr i8, ptr %q.046, i64 6
   store i8 %conv3.i, ptr %arrayidx4.i28, align 1
   %rem5.i = srem i32 %add.i, 75
-  %conv6.i = trunc i32 %rem5.i to i8
+  %conv6.i = trunc nsw i32 %rem5.i to i8
   %arrayidx7.i29 = getelementptr i8, ptr %q.046, i64 7
   store i8 %conv6.i, ptr %arrayidx7.i29, align 1
   br label %if.end25
@@ -96,8 +96,8 @@ return:                                           ; preds = %entry, %if.end25
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local i32 @cdrom_read_toc_raw(i32 noundef %nb_sectors, ptr nocapture noundef writeonly %buf, i32 noundef %msf, i32 noundef %session_num) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
+define dso_local noundef i32 @cdrom_read_toc_raw(i32 noundef %nb_sectors, ptr nocapture noundef writeonly %buf, i32 noundef %msf, i32 noundef %session_num) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr i8, ptr %buf, i64 2
   %incdec.ptr3 = getelementptr i8, ptr %buf, i64 6
@@ -136,11 +136,11 @@ if.then:                                          ; preds = %entry
   %conv.i = trunc i32 %div1.i to i8
   store i8 %conv.i, ptr %incdec.ptr31, align 1
   %rem.i = srem i32 %div.i, 60
-  %conv3.i = trunc i32 %rem.i to i8
+  %conv3.i = trunc nsw i32 %rem.i to i8
   %arrayidx4.i = getelementptr i8, ptr %buf, i64 35
   store i8 %conv3.i, ptr %arrayidx4.i, align 1
   %rem5.i = srem i32 %add.i, 75
-  %conv6.i = trunc i32 %rem5.i to i8
+  %conv6.i = trunc nsw i32 %rem5.i to i8
   %arrayidx7.i = getelementptr i8, ptr %buf, i64 36
   store i8 %conv6.i, ptr %arrayidx7.i, align 1
   br label %if.end
@@ -170,8 +170,8 @@ declare i32 @llvm.bswap.i32(i32) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #2
 
-attributes #0 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

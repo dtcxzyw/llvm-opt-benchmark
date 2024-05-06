@@ -269,7 +269,7 @@ declare dso_local void @acpi_ut_predefined_warning(ptr noundef, i32 noundef, ptr
 declare dso_local void @acpi_exception(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ns_repair_null_element(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12292) i32 @acpi_ns_repair_null_element(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %3, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %34
@@ -335,7 +335,7 @@ declare dso_local i32 @acpi_ns_convert_to_string(ptr noundef, ptr noundef) local
 declare dso_local i32 @acpi_ns_convert_to_buffer(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ns_wrap_with_package(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @acpi_ns_wrap_with_package(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = tail call ptr @acpi_ut_create_package_object(i32 noundef 1) #4
   %5 = icmp eq ptr %4, null
   br i1 %5, label %12, label %6

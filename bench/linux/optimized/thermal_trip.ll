@@ -213,7 +213,7 @@ define dso_local void @__thermal_zone_set_trips(ptr noundef %0) local_unnamed_ad
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @__thermal_zone_get_trip(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) #4 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__thermal_zone_get_trip(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) #4 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %20, label %5
 
@@ -248,7 +248,7 @@ define dso_local noundef i32 @__thermal_zone_get_trip(ptr noundef readonly %0, i
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @thermal_zone_get_trip(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_get_trip(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 992
   tail call void @mutex_lock(ptr noundef %4) #7
   %5 = icmp eq ptr %0, null

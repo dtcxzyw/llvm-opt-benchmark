@@ -255,7 +255,7 @@ geometric_series.exit:                            ; preds = %20, %int_pow.exit.i
   br i1 %41, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !10
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %42 = trunc i64 %indvars.iv.next to i32
+  %42 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %geometric_series.exit, %dep.exit, %5

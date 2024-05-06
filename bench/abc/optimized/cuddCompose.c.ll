@@ -600,7 +600,7 @@ define ptr @Cudd_addSwapVariables(ptr noundef %0, ptr noundef %1, ptr nocapture 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %16 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %17, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -977,7 +977,7 @@ Abc_Clock.exit:                                   ; preds = %23, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_SetVarMap(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_SetVarMap(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 352
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -1027,7 +1027,7 @@ define noundef i32 @Cudd_SetVarMap(ptr noundef %0, ptr nocapture noundef readonl
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %21 ]
   %26 = load ptr, ptr %5, align 8
   %27 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %28, ptr %27, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %22, align 8
@@ -1100,7 +1100,7 @@ define ptr @Cudd_bddSwapVariables(ptr noundef %0, ptr noundef %1, ptr nocapture 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %16 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %17, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1169,7 +1169,7 @@ define ptr @Cudd_bddAdjPermuteX(ptr noundef %0, ptr noundef %1, ptr nocapture no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %17 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %18, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1180,7 +1180,7 @@ define ptr @Cudd_bddAdjPermuteX(ptr noundef %0, ptr noundef %1, ptr nocapture no
   %19 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv35
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr i8, ptr %19, i64 8
+  %22 = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %21 to i64
@@ -1229,7 +1229,7 @@ define ptr @Cudd_addVectorCompose(ptr noundef %0, ptr noundef %1, ptr noundef %2
 16:                                               ; preds = %ddIsIthAddVar.exit, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %ddIsIthAddVar.exit ], [ %14, %11 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw i64 %indvars.iv to i32
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %19, label %ddIsIthAddVar.exit.thread
 
@@ -1447,7 +1447,7 @@ define ptr @Cudd_addGeneralVectorCompose(ptr noundef %0, ptr noundef %1, ptr nou
 17:                                               ; preds = %ddIsIthAddVarPair.exit, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %ddIsIthAddVarPair.exit ], [ %15, %12 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw i64 %indvars.iv to i32
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %ddIsIthAddVarPair.exit.thread
 
@@ -1776,7 +1776,7 @@ ddIsIthAddVar.exit:                               ; preds = %32
   br i1 %.not99, label %82, label %ddIsIthAddVar.exit.thread
 
 ddIsIthAddVar.exit.thread:                        ; preds = %26, %32, %ddIsIthAddVar.exit
-  %40 = trunc i64 %indvars.iv.next to i32
+  %40 = trunc nuw nsw i64 %indvars.iv.next to i32
   %41 = tail call ptr @Cudd_addIthVar(ptr noundef %0, i32 noundef %40) #7
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %44
@@ -1868,7 +1868,7 @@ ddIsIthAddVar.exit.thread:                        ; preds = %26, %32, %ddIsIthAd
 87:                                               ; preds = %ddIsIthAddVar.exit96, %84
   %indvars.iv134 = phi i64 [ %88, %ddIsIthAddVar.exit96 ], [ %86, %84 ]
   %88 = add nsw i64 %indvars.iv134, -1
-  %89 = trunc i64 %indvars.iv134 to i32
+  %89 = trunc nuw i64 %indvars.iv134 to i32
   %90 = icmp sgt i32 %89, 0
   br i1 %90, label %91, label %ddIsIthAddVar.exit96.thread
 
@@ -2261,7 +2261,7 @@ define ptr @Cudd_bddVectorCompose(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 15:                                               ; preds = %18, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ %13, %10 ]
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw i64 %indvars.iv to i32
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %18, label %.split.loop.exit35
 

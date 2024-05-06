@@ -69,7 +69,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @i2c_echo_event(ptr noundef %s, i32 noundef %event) #0 {
+define internal range(i32 -1, 1) i32 @i2c_echo_event(ptr noundef %s, i32 noundef %event) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 18, ptr noundef nonnull @__func__.I2C_ECHO) #2
   switch i32 %event, label %return [
@@ -133,7 +133,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @i2c_echo_send(ptr noundef %s, i8 noundef zeroext %data) #0 {
+define internal range(i32 -1, 1) i32 @i2c_echo_send(ptr noundef %s, i8 noundef zeroext %data) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 18, ptr noundef nonnull @__func__.I2C_ECHO) #2
   %pos = getelementptr inbounds i8, ptr %call.i, i64 192

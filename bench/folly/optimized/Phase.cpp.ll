@@ -15,31 +15,31 @@ entry:
   br i1 %cmp1.not.i, label %_ZN5folly12_GLOBAL__N_117set_process_phaseENS_12ProcessPhaseE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #6
   invoke void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt11logic_error, ptr nonnull @_ZNSt11logic_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt11logic_error, ptr nonnull @_ZNSt11logic_errorD1Ev) #7
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #5
+  tail call void @__cxa_free_exception(ptr %exception.i) #6
   resume { ptr, i32 } %1
 
 _ZN5folly12_GLOBAL__N_117set_process_phaseENS_12ProcessPhaseE.exit: ; preds = %entry
   store atomic i32 1, ptr @_ZN5folly12_GLOBAL__N_113process_phaseE.0 monotonic, align 4
-  %call1 = tail call i32 @atexit(ptr noundef nonnull @"_ZZN5folly18set_process_phasesEvEN3$_08__invokeEv") #5
+  %call1 = tail call i32 @atexit(ptr noundef nonnull @"_ZZN5folly18set_process_phasesEvEN3$_08__invokeEv") #6
   ret void
 }
 
-; Function Attrs: nounwind
+; Function Attrs: nofree nounwind
 declare i32 @atexit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN5folly17get_process_phaseEv() local_unnamed_addr #2 {
+define noundef range(i32 0, 3) i32 @_ZN5folly17get_process_phaseEv() local_unnamed_addr #2 {
 entry:
   %0 = load atomic i32, ptr @_ZN5folly12_GLOBAL__N_113process_phaseE.0 monotonic, align 4
   ret i32 %0
@@ -54,30 +54,30 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
+declare void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZN5folly18set_process_phasesEvEN3$_08__invokeEv"() #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN5folly18set_process_phasesEvEN3$_08__invokeEv"() #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr @_ZN5folly12_GLOBAL__N_113process_phaseE.0 monotonic, align 4
   %cmp1.not.i.i = icmp eq i32 %0, 1
   br i1 %cmp1.not.i.i, label %"_ZZN5folly18set_process_phasesEvENK3$_0clEv.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #6
   invoke void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTISt11logic_error, ptr nonnull @_ZNSt11logic_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTISt11logic_error, ptr nonnull @_ZNSt11logic_errorD1Ev) #7
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #5
+  tail call void @__cxa_free_exception(ptr %exception.i.i) #6
   resume { ptr, i32 } %1
 
 "_ZZN5folly18set_process_phasesEvENK3$_0clEv.exit": ; preds = %entry
@@ -86,12 +86,13 @@ lpad.i.i:                                         ; preds = %if.then.i.i
 }
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

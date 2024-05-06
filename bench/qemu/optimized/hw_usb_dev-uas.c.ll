@@ -514,7 +514,7 @@ usb_uas_alloc_request.exit.thread.i:              ; preds = %if.end20.i
 usb_uas_alloc_request.exit.i:                     ; preds = %if.end20.i
   %bus.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 5864
   %shr.i.i.i.i = lshr i64 %13, 48
-  %14 = trunc i64 %shr.i.i.i.i to i32
+  %14 = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %call1.i.i.i = call ptr @scsi_device_find(ptr noundef nonnull %bus.i.i.i, i32 noundef 0, i32 noundef 0, i32 noundef %14) #9
   %dev.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %call1.i.i.i, ptr %dev.i.i, align 8
@@ -528,10 +528,10 @@ if.end25.i:                                       ; preds = %usb_uas_alloc_reque
   %16 = load i16, ptr %call.i.i, align 8
   %17 = load i64, ptr %lun5.i.i, align 8
   %shr.i.i = lshr i64 %17, 48
-  %18 = trunc i64 %shr.i.i to i32
+  %18 = trunc nuw nsw i64 %shr.i.i to i32
   %conv.i.i = and i32 %18, 255
   %shr.i = lshr i64 %17, 32
-  %conv31.i = trunc i64 %shr.i to i32
+  %conv31.i = trunc nuw i64 %shr.i to i32
   %conv33.i = trunc i64 %17 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %19 = load i32, ptr @trace_events_enabled_count, align 4
@@ -603,7 +603,7 @@ if.end58.i:                                       ; preds = %if.then49.i, %land.
   %conv61.i = zext i16 %.pre.i to i32
   %28 = load i64, ptr %lun5.i.i, align 8
   %shr.i54.i = lshr i64 %28, 48
-  %29 = trunc i64 %shr.i54.i to i32
+  %29 = trunc nuw nsw i64 %shr.i54.i to i32
   %conv.i55.i = and i32 %29, 255
   %cdb.i = getelementptr inbounds i8, ptr %iu, i64 16
   %call64.i = call ptr @scsi_req_new(ptr noundef %27, i32 noundef %conv61.i, i32 noundef %conv.i55.i, ptr noundef nonnull %cdb.i, i64 noundef %add.i, ptr noundef nonnull %call.i.i) #9
@@ -666,13 +666,13 @@ sw.bb6:                                           ; preds = %sw.bb
 
 entry.usb_uas_get_dev.exit_crit_edge.i:           ; preds = %sw.bb6
   %.pre.i78 = lshr i64 %37, 48
-  %.pre87.i = trunc i64 %.pre.i78 to i32
+  %.pre87.i = trunc nuw nsw i64 %.pre.i78 to i32
   br label %usb_uas_get_dev.exit.i
 
 if.end.i.i:                                       ; preds = %sw.bb6
   %bus.i.i = getelementptr inbounds i8, ptr %call.i, i64 5864
   %shr.i.i.i = lshr i64 %37, 48
-  %38 = trunc i64 %shr.i.i.i to i32
+  %38 = trunc nuw nsw i64 %shr.i.i.i to i32
   %call1.i.i = call ptr @scsi_device_find(ptr noundef nonnull %bus.i.i, i32 noundef 0, i32 noundef 0, i32 noundef %38) #9
   br label %usb_uas_get_dev.exit.i
 
@@ -1000,7 +1000,7 @@ if.end80:                                         ; preds = %sw.bb75
   br i1 %tobool82.not, label %if.end97, label %if.then83
 
 if.then83:                                        ; preds = %if.end80
-  %conv85 = trunc i32 %79 to i16
+  %conv85 = trunc nuw nsw i32 %79 to i16
   %requests.i = getelementptr inbounds i8, ptr %call.i, i64 6032
   %req.04.i = load ptr, ptr %requests.i, align 8
   %tobool.not5.i = icmp eq ptr %req.04.i, null
@@ -1560,7 +1560,7 @@ entry:
   %conv2 = sext i32 %4 to i64
   %sub3 = sub i64 %3, %conv2
   %cond = tail call i64 @llvm.umin.i64(i64 %sub3, i64 %conv)
-  %conv5 = trunc i64 %cond to i32
+  %conv5 = trunc nuw i64 %cond to i32
   %uas = getelementptr inbounds i8, ptr %req, i64 16
   %5 = load ptr, ptr %uas, align 8
   %addr = getelementptr inbounds i8, ptr %5, i64 224
@@ -2002,7 +2002,7 @@ entry:
   %sense.sroa.2.0.extract.shift = lshr i24 %sense.coerce, 8
   %sense.sroa.2.0.extract.trunc = trunc i24 %sense.sroa.2.0.extract.shift to i8
   %sense.sroa.3.0.extract.shift = lshr i24 %sense.coerce, 16
-  %sense.sroa.3.0.extract.trunc = trunc i24 %sense.sroa.3.0.extract.shift to i8
+  %sense.sroa.3.0.extract.trunc = trunc nuw i24 %sense.sroa.3.0.extract.shift to i8
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #11
   %status.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i8 3, ptr %status.i, align 4

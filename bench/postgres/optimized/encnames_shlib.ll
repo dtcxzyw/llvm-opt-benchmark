@@ -199,7 +199,7 @@ define ptr @get_encoding_name_for_icu(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @pg_valid_client_encoding(ptr noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 -1, 42) i32 @pg_valid_client_encoding(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pg_char_to_encoding(ptr noundef %0)
   %3 = icmp ult i32 %2, 42
   %.0 = select i1 %3, i32 %2, i32 -1
@@ -301,7 +301,7 @@ clean_encoding_name.exit:                         ; preds = %21
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @pg_valid_server_encoding(ptr noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 -1, 35) i32 @pg_valid_server_encoding(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = tail call i32 @pg_char_to_encoding(ptr noundef %0)
   %3 = icmp ult i32 %2, 35
   %.0 = select i1 %3, i32 %2, i32 -1
@@ -309,7 +309,7 @@ define i32 @pg_valid_server_encoding(ptr noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @pg_valid_server_encoding_id(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @pg_valid_server_encoding_id(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i32 %0, 35
   %3 = zext i1 %2 to i32
   ret i32 %3

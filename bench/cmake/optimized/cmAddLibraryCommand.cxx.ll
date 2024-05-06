@@ -555,7 +555,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit294: ;
   br i1 %180, label %181, label %203
 
 181:                                              ; preds = %178
-  %182 = trunc i8 %.0187488 to i1
+  %182 = trunc nuw i8 %.0187488 to i1
   br i1 %182, label %183, label %193
 
 183:                                              ; preds = %181
@@ -594,7 +594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit301: ;
   br label %.body257
 
 193:                                              ; preds = %181
-  %194 = trunc i8 %.0183489 to i1
+  %194 = trunc nuw i8 %.0183489 to i1
   br i1 %194, label %195, label %227
 
 195:                                              ; preds = %193
@@ -629,7 +629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit301: ;
   br i1 %208, label %227, label %209
 
 209:                                              ; preds = %206
-  %210 = trunc i8 %.0191487 to i1
+  %210 = trunc nuw i8 %.0191487 to i1
   br i1 %210, label %211, label %214
 
 211:                                              ; preds = %209
@@ -707,11 +707,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit301: ;
   %.0176443 = phi i8 [ %.0176490, %.thread376 ], [ %.2178, %227 ]
   %.1171433 = phi i32 [ %.1171491, %.thread376 ], [ %.3173, %227 ]
   %.sroa.0348.0423 = phi ptr [ %.sroa.0348.0492, %.thread376 ], [ %.sroa.0348.0, %227 ]
-  %229 = trunc i8 %.0191473 to i1
+  %229 = trunc nuw i8 %.0191473 to i1
   br i1 %229, label %230, label %234
 
 230:                                              ; preds = %.loopexit
-  %231 = trunc i8 %.0195483 to i1
+  %231 = trunc nuw i8 %.0195483 to i1
   br i1 %231, label %.thread386, label %232
 
 232:                                              ; preds = %230
@@ -720,7 +720,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit301: ;
 
 234:                                              ; preds = %.loopexit
   %235 = icmp eq i32 %.1171433, 7
-  %236 = trunc i8 %.0195483 to i1
+  %236 = trunc nuw i8 %.0195483 to i1
   %or.cond.not = select i1 %235, i1 %236, i1 false
   br i1 %or.cond.not, label %237, label %.thread386
 
@@ -787,7 +787,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %brmerge247, label %257, label %252
 
 252:                                              ; preds = %250
-  %253 = trunc i8 %.0183453573 to i1
+  %253 = trunc nuw i8 %.0183453573 to i1
   br i1 %253, label %257, label %254
 
 254:                                              ; preds = %252
@@ -803,7 +803,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %258, label %259, label %442
 
 259:                                              ; preds = %254, %.thread394, %257
-  %260 = trunc i8 %.0183453573 to i1
+  %260 = trunc nuw i8 %.0183453573 to i1
   br i1 %260, label %261, label %343
 
 261:                                              ; preds = %259
@@ -827,7 +827,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %443
 
 268:                                              ; preds = %261
-  %269 = trunc i8 %.0176443575 to i1
+  %269 = trunc nuw i8 %.0176443575 to i1
   br i1 %269, label %270, label %279
 
 270:                                              ; preds = %268
@@ -1050,7 +1050,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %247, label %344, label %355
 
 344:                                              ; preds = %343
-  %345 = trunc i8 %.0176443575 to i1
+  %345 = trunc nuw i8 %.0176443575 to i1
   br i1 %345, label %346, label %355
 
 346:                                              ; preds = %344
@@ -1180,11 +1180,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit337: ;
   br i1 %247, label %.thread405, label %.thread401
 
 378:                                              ; preds = %.critedge.thread
-  %379 = trunc i8 %.0187463571 to i1
+  %379 = trunc nuw i8 %.0187463571 to i1
   br i1 %379, label %390, label %381
 
 .thread405:                                       ; preds = %.thread397
-  %380 = trunc i8 %.0187463571 to i1
+  %380 = trunc nuw i8 %.0187463571 to i1
   br i1 %380, label %.thread408, label %381
 
 381:                                              ; preds = %.thread405, %378
@@ -1359,7 +1359,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 435:                                              ; preds = %428, %424
   %436 = load ptr, ptr %56, align 8
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2IN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEvEET_SE_RKS6_(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr nonnull %.sroa.0348.0423579, ptr %436, ptr noundef nonnull align 1 dereferenceable(1) %54)
-  %437 = trunc i8 %.0176443575 to i1
+  %437 = trunc nuw i8 %.0176443575 to i1
   %438 = invoke noundef ptr @_ZN10cmMakefile10AddLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums10TargetTypeERKSt6vectorIS5_SaIS5_EEb(ptr noundef nonnull align 8 dereferenceable(3520) %70, ptr noundef nonnull align 8 dereferenceable(32) %83, i32 noundef %.5175400403, ptr noundef nonnull align 8 dereferenceable(24) %53, i1 noundef zeroext %437)
           to label %439 unwind label %440
 

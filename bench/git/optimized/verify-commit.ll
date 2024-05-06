@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [50 x i8] c"%s: cannot verify a non-commit object of type %s.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_verify_commit(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmd_verify_commit(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %signature_check.i.i = alloca %struct.signature_check, align 8
   %oid.i = alloca %struct.object_id, align 4

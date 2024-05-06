@@ -163,7 +163,7 @@ bbstreamer_tar_header.exit:                       ; preds = %.lr.ph
   %81 = zext nneg i32 %.084 to i64
   %82 = tail call i64 @llvm.umin.i64(i64 %80, i64 %81)
   %83 = load ptr, ptr %11, align 8
-  %84 = trunc i64 %82 to i32
+  %84 = trunc nuw nsw i64 %82 to i32
   %85 = load ptr, ptr %83, align 8
   %86 = load ptr, ptr %85, align 8
   tail call void %86(ptr noundef nonnull %83, ptr noundef nonnull %12, ptr noundef %.06083, i32 noundef %84, i32 noundef 2) #7

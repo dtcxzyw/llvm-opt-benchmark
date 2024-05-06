@@ -372,7 +372,7 @@ FindRegisteredWorkerBySlotNumber.exit.thread:     ; preds = %19, %FindRegistered
 106:                                              ; preds = %105, %74
   %107 = getelementptr inbounds i8, ptr %67, i64 1472
   %108 = getelementptr inbounds i8, ptr %67, i64 1496
-  %109 = trunc i64 %indvars.iv to i32
+  %109 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, i8 0, i64 24, i1 false)
   store i32 %109, ptr %108, align 8
   %110 = getelementptr inbounds i8, ptr %67, i64 1500
@@ -1173,7 +1173,7 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   br i1 %31, label %44, label %32
 
 32:                                               ; preds = %28
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = getelementptr inbounds i8, ptr %29, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1472) %34, ptr noundef nonnull align 8 dereferenceable(1472) %0, i64 1472, i1 false)
   %35 = getelementptr inbounds i8, ptr %29, i64 4
@@ -1237,7 +1237,7 @@ declare void @SendPostmasterSignal(i32 noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @GetBackgroundWorkerPid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @GetBackgroundWorkerPid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @BackgroundWorkerData, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i32, ptr %0, align 8
@@ -1288,7 +1288,7 @@ define dso_local noundef i32 @GetBackgroundWorkerPid(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WaitForBackgroundWorkerStartup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @WaitForBackgroundWorkerStartup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   br label %4
 
@@ -1366,7 +1366,7 @@ declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local
 declare void @ResetLatch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @WaitForBackgroundWorkerShutdown(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 2, 4) i32 @WaitForBackgroundWorkerShutdown(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   br label %3
 

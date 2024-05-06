@@ -1259,7 +1259,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_io_BytesIO___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal range(i32 -1, 1) i32 @_io_BytesIO___init__(ptr noundef %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %0 = getelementptr i8, ptr %args, i64 16
@@ -2585,7 +2585,7 @@ if.end7.i:                                        ; preds = %if.end4.i
 
 if.then9.i:                                       ; preds = %if.end7.i
   store i64 %2, ptr %string_size.i, align 8
-  %call11.i = call fastcc i32 @resize_buffer(ptr noundef nonnull %self, i64 noundef %2), !range !8
+  %call11.i = call fastcc i32 @resize_buffer(ptr noundef nonnull %self, i64 noundef %2)
   %cmp12.i = icmp slt i32 %call11.i, 0
   br i1 %cmp12.i, label %exit, label %if.end15.i
 
@@ -2911,7 +2911,7 @@ if.end11:                                         ; preds = %if.end7
   br i1 %cmp14, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.end11
-  %call16 = call fastcc i32 @resize_buffer(ptr noundef nonnull %self, i64 noundef %add), !range !8
+  %call16 = call fastcc i32 @resize_buffer(ptr noundef nonnull %self, i64 noundef %add)
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %done, label %if.end31
 
@@ -2924,7 +2924,7 @@ if.then23:                                        ; preds = %if.else
   %string_size = getelementptr inbounds i8, ptr %self, i64 32
   %8 = load i64, ptr %string_size, align 8
   %add. = call i64 @llvm.umax.i64(i64 %add, i64 %8)
-  %call26 = call fastcc i32 @unshare_buffer(ptr noundef nonnull %self, i64 noundef %add.), !range !8
+  %call26 = call fastcc i32 @unshare_buffer(ptr noundef nonnull %self, i64 noundef %add.)
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %done, label %if.end31
 
@@ -2974,7 +2974,7 @@ return:                                           ; preds = %check_exports.exit,
 declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @resize_buffer(ptr noundef %self, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @resize_buffer(ptr noundef %self, i64 noundef %size) unnamed_addr #0 {
 entry:
   %buf = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %buf, align 8
@@ -3069,7 +3069,7 @@ return:                                           ; preds = %if.then28, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @unshare_buffer(ptr nocapture noundef %self, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unshare_buffer(ptr nocapture noundef %self, i64 noundef %size) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %size) #8
   %cmp = icmp eq ptr %call, null
@@ -3179,7 +3179,7 @@ if.then11:                                        ; preds = %if.end6
   br i1 %cmp14, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.then11
-  %call17 = tail call fastcc i32 @unshare_buffer(ptr noundef nonnull %self, i64 noundef %2), !range !8
+  %call17 = tail call fastcc i32 @unshare_buffer(ptr noundef nonnull %self, i64 noundef %2)
   %cmp18 = icmp slt i32 %call17, 0
   br i1 %cmp18, label %return, label %if.end28
 
@@ -3316,7 +3316,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bytesiobuf_getbuffer(ptr noundef %obj, ptr noundef %view, i32 noundef %flags) #0 {
+define internal range(i32 -1, 1) i32 @bytesiobuf_getbuffer(ptr noundef %obj, ptr noundef %view, i32 noundef %flags) #0 {
 entry:
   %source = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %source, align 8
@@ -3434,4 +3434,3 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 -1, i32 1}

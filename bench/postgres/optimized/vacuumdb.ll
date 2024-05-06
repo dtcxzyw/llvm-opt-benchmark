@@ -665,9 +665,9 @@ escape_quotes.exit:                               ; preds = %94
 
 189:                                              ; preds = %185
   store ptr %.056, ptr %4, align 8
-  %190 = trunc i8 %.042 to i1
-  %191 = trunc i8 %.046 to i1
-  %192 = trunc i8 %.044 to i1
+  %190 = trunc nuw i8 %.042 to i1
+  %191 = trunc nuw i8 %.046 to i1
+  %192 = trunc nuw i8 %.044 to i1
   call fastcc void @vacuum_all_databases(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext %190, i32 noundef %186, ptr noundef %17, i1 noundef zeroext %191, i1 noundef zeroext %192)
   br label %.loopexit
 
@@ -692,12 +692,12 @@ escape_quotes.exit:                               ; preds = %94
 201:                                              ; preds = %197, %195, %199, %193
   %.3 = phi ptr [ %200, %199 ], [ %.2, %193 ], [ %196, %195 ], [ %198, %197 ]
   store ptr %.3, ptr %4, align 8
-  %202 = trunc i8 %.042 to i1
+  %202 = trunc nuw i8 %.042 to i1
   br i1 %202, label %.preheader, label %208
 
 .preheader:                                       ; preds = %201
-  %203 = trunc i8 %.046 to i1
-  %204 = trunc i8 %.044 to i1
+  %203 = trunc nuw i8 %.046 to i1
+  %204 = trunc nuw i8 %.044 to i1
   br label %205
 
 205:                                              ; preds = %.preheader, %205
@@ -710,8 +710,8 @@ escape_quotes.exit:                               ; preds = %94
 
 208:                                              ; preds = %201
   %209 = load i32, ptr %7, align 4
-  %210 = trunc i8 %.046 to i1
-  %211 = trunc i8 %.044 to i1
+  %210 = trunc nuw i8 %.046 to i1
+  %211 = trunc nuw i8 %.044 to i1
   call fastcc void @vacuum_one_database(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %6, i32 noundef %209, ptr noundef %17, i1 noundef zeroext %210, i1 noundef zeroext %211)
   br label %.loopexit
 
@@ -1158,17 +1158,17 @@ define internal fastcc void @vacuum_one_database(ptr noundef %0, ptr nocapture n
 
 118:                                              ; preds = %117
   %119 = load ptr, ptr %3, align 8
-  %.not149171 = icmp eq ptr %119, null
-  br i1 %.not149171, label %._crit_edge.thread, label %.lr.ph
+  %.not149172 = icmp eq ptr %119, null
+  br i1 %.not149172, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %118, %138
-  %.0126173 = phi ptr [ %140, %138 ], [ %119, %118 ]
-  %.0132172 = phi i8 [ %.0132172., %138 ], [ 0, %118 ]
+  %.0126174 = phi ptr [ %140, %138 ], [ %119, %118 ]
+  %.0132173 = phi i8 [ %.0132173., %138 ], [ 0, %118 ]
   store ptr null, ptr %13, align 8
   store ptr null, ptr %14, align 8
-  %120 = trunc i8 %.0132172 to i1
+  %120 = trunc nuw i8 %.0132173 to i1
   %.str.70..str.69 = select i1 %120, ptr @.str.70, ptr @.str.69
-  %.0132172. = select i1 %120, i8 %.0132172, i8 1
+  %.0132173. = select i1 %120, i8 %.0132173, i8 1
   call void @appendPQExpBufferStr(ptr noundef nonnull %11, ptr noundef nonnull %.str.70..str.69) #9
   %121 = load i32, ptr @objfilter, align 4
   %122 = and i32 %121, 24
@@ -1176,7 +1176,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef %0, ptr nocapture n
   br i1 %.not159, label %125, label %123
 
 123:                                              ; preds = %.lr.ph
-  %124 = getelementptr inbounds i8, ptr %.0126173, i64 9
+  %124 = getelementptr inbounds i8, ptr %.0126174, i64 9
   call void @appendStringLiteralConn(ptr noundef nonnull %11, ptr noundef nonnull %124, ptr noundef %15) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %11, ptr noundef nonnull @.str.71) #9
   %.pre = load i32, ptr @objfilter, align 4
@@ -1189,7 +1189,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef %0, ptr nocapture n
   br i1 %.not160, label %132, label %128
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %.0126173, i64 9
+  %129 = getelementptr inbounds i8, ptr %.0126174, i64 9
   %130 = call i32 @PQclientEncoding(ptr noundef %15) #9
   call void @splitTableColumnsSpec(ptr noundef nonnull %129, i32 noundef %130, ptr noundef nonnull %13, ptr noundef nonnull %14) #9
   %131 = load ptr, ptr %13, align 8
@@ -1219,12 +1219,12 @@ define internal fastcc void @vacuum_one_database(ptr noundef %0, ptr nocapture n
   call void @appendPQExpBufferStr(ptr noundef nonnull %11, ptr noundef nonnull @.str.74) #9
   %139 = load ptr, ptr %13, align 8
   call void @pg_free(ptr noundef %139) #9
-  %140 = load ptr, ptr %.0126173, align 8
+  %140 = load ptr, ptr %.0126174, align 8
   %.not149 = icmp eq ptr %140, null
   br i1 %.not149, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %138
-  %141 = trunc i8 %.0132172. to i1
+  %141 = trunc nuw i8 %.0132173. to i1
   br i1 %141, label %142, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %117, %118, %._crit_edge
@@ -1265,7 +1265,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef %0, ptr nocapture n
   br i1 %153, label %154, label %157
 
 154:                                              ; preds = %149
-  %155 = trunc i8 %.0130 to i1
+  %155 = trunc nuw i8 %.0130 to i1
   %156 = select i1 %155, ptr @.str.85, ptr @.str.86
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %11, ptr noundef nonnull @.str.84, ptr noundef nonnull %156) #9
   br label %157
@@ -1277,7 +1277,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef %0, ptr nocapture n
   br i1 %.not152, label %162, label %159
 
 159:                                              ; preds = %157
-  %160 = trunc i8 %.1131 to i1
+  %160 = trunc nuw i8 %.1131 to i1
   %161 = select i1 %160, ptr @.str.85, ptr @.str.86
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %11, ptr noundef nonnull @.str.87, ptr noundef nonnull %161, i32 noundef %158) #9
   br label %162
@@ -1289,7 +1289,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef %0, ptr nocapture n
   br i1 %.not153, label %167, label %164
 
 164:                                              ; preds = %162
-  %165 = trunc i8 %.2 to i1
+  %165 = trunc nuw i8 %.2 to i1
   %166 = select i1 %165, ptr @.str.85, ptr @.str.86
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %11, ptr noundef nonnull @.str.88, ptr noundef nonnull %166, i32 noundef %163) #9
   br label %167
@@ -1314,48 +1314,48 @@ define internal fastcc void @vacuum_one_database(ptr noundef %0, ptr nocapture n
 174:                                              ; preds = %167
   call void @initPQExpBuffer(ptr noundef nonnull %10) #9
   %175 = icmp sgt i32 %171, 0
-  br i1 %175, label %.lr.ph176, label %._crit_edge177
+  br i1 %175, label %.lr.ph177, label %._crit_edge178
 
-.lr.ph176:                                        ; preds = %174
-  br i1 %150, label %.lr.ph176.split.us, label %.lr.ph176.split
+.lr.ph177:                                        ; preds = %174
+  br i1 %150, label %.lr.ph177.split.us, label %.lr.ph177.split
 
-.lr.ph176.split.us:                               ; preds = %.lr.ph176, %182
-  %.0127174.us = phi i32 [ %184, %182 ], [ 0, %.lr.ph176 ]
-  %176 = call ptr @PQgetvalue(ptr noundef %169, i32 noundef %.0127174.us, i32 noundef 1) #9
-  %177 = call ptr @PQgetvalue(ptr noundef %169, i32 noundef %.0127174.us, i32 noundef 0) #9
+.lr.ph177.split.us:                               ; preds = %.lr.ph177, %182
+  %.0127175.us = phi i32 [ %184, %182 ], [ 0, %.lr.ph177 ]
+  %176 = call ptr @PQgetvalue(ptr noundef %169, i32 noundef %.0127175.us, i32 noundef 1) #9
+  %177 = call ptr @PQgetvalue(ptr noundef %169, i32 noundef %.0127175.us, i32 noundef 0) #9
   %178 = call ptr @fmtQualifiedId(ptr noundef %176, ptr noundef %177) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %10, ptr noundef %178) #9
-  %179 = call i32 @PQgetisnull(ptr noundef %169, i32 noundef %.0127174.us, i32 noundef 2) #9
+  %179 = call i32 @PQgetisnull(ptr noundef %169, i32 noundef %.0127175.us, i32 noundef 2) #9
   %.not158.us = icmp eq i32 %179, 0
   br i1 %.not158.us, label %180, label %182
 
-180:                                              ; preds = %.lr.ph176.split.us
-  %181 = call ptr @PQgetvalue(ptr noundef %169, i32 noundef %.0127174.us, i32 noundef 2) #9
+180:                                              ; preds = %.lr.ph177.split.us
+  %181 = call ptr @PQgetvalue(ptr noundef %169, i32 noundef %.0127175.us, i32 noundef 2) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %10, ptr noundef %181) #9
   br label %182
 
-182:                                              ; preds = %180, %.lr.ph176.split.us
+182:                                              ; preds = %180, %.lr.ph177.split.us
   %183 = load ptr, ptr %10, align 8
   call void @simple_string_list_append(ptr noundef nonnull %12, ptr noundef %183) #9
   call void @resetPQExpBuffer(ptr noundef nonnull %10) #9
-  %184 = add nuw nsw i32 %.0127174.us, 1
-  %exitcond179.not = icmp eq i32 %184, %171
-  br i1 %exitcond179.not, label %._crit_edge177, label %.lr.ph176.split.us, !llvm.loop !12
+  %184 = add nuw nsw i32 %.0127175.us, 1
+  %exitcond180.not = icmp eq i32 %184, %171
+  br i1 %exitcond180.not, label %._crit_edge178, label %.lr.ph177.split.us, !llvm.loop !12
 
-.lr.ph176.split:                                  ; preds = %.lr.ph176, %.lr.ph176.split
-  %.0127174 = phi i32 [ %189, %.lr.ph176.split ], [ 0, %.lr.ph176 ]
-  %185 = call ptr @PQgetvalue(ptr noundef %169, i32 noundef %.0127174, i32 noundef 1) #9
-  %186 = call ptr @PQgetvalue(ptr noundef %169, i32 noundef %.0127174, i32 noundef 0) #9
+.lr.ph177.split:                                  ; preds = %.lr.ph177, %.lr.ph177.split
+  %.0127175 = phi i32 [ %189, %.lr.ph177.split ], [ 0, %.lr.ph177 ]
+  %185 = call ptr @PQgetvalue(ptr noundef %169, i32 noundef %.0127175, i32 noundef 1) #9
+  %186 = call ptr @PQgetvalue(ptr noundef %169, i32 noundef %.0127175, i32 noundef 0) #9
   %187 = call ptr @fmtQualifiedId(ptr noundef %185, ptr noundef %186) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %10, ptr noundef %187) #9
   %188 = load ptr, ptr %10, align 8
   call void @simple_string_list_append(ptr noundef nonnull %12, ptr noundef %188) #9
   call void @resetPQExpBuffer(ptr noundef nonnull %10) #9
-  %189 = add nuw nsw i32 %.0127174, 1
+  %189 = add nuw nsw i32 %.0127175, 1
   %exitcond.not = icmp eq i32 %189, %171
-  br i1 %exitcond.not, label %._crit_edge177, label %.lr.ph176.split, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge178, label %.lr.ph177.split, !llvm.loop !12
 
-._crit_edge177:                                   ; preds = %.lr.ph176.split, %182, %174
+._crit_edge178:                                   ; preds = %.lr.ph177.split, %182, %174
   call void @termPQExpBuffer(ptr noundef nonnull %10) #9
   call void @PQclear(ptr noundef %169) #9
   %spec.select = call i32 @llvm.smin.i32(i32 %171, i32 %4)
@@ -1363,15 +1363,15 @@ define internal fastcc void @vacuum_one_database(ptr noundef %0, ptr nocapture n
   %190 = icmp eq i32 %2, -1
   br i1 %190, label %195, label %191
 
-191:                                              ; preds = %._crit_edge177
+191:                                              ; preds = %._crit_edge178
   %192 = sext i32 %2 to i64
   %193 = getelementptr [3 x ptr], ptr @__const.vacuum_one_database.stage_commands, i64 0, i64 %192
   %194 = load ptr, ptr %193, align 8
   call void @executeCommand(ptr noundef %15, ptr noundef %194, i1 noundef zeroext %6) #9
   br label %195
 
-195:                                              ; preds = %._crit_edge177, %191
-  %.0129 = phi ptr [ %194, %191 ], [ null, %._crit_edge177 ]
+195:                                              ; preds = %._crit_edge178, %191
+  %.0129 = phi ptr [ %194, %191 ], [ null, %._crit_edge178 ]
   %196 = call ptr @ParallelSlotsSetup(i32 noundef %spec.store.select, ptr noundef %0, ptr noundef %5, i1 noundef zeroext %6, ptr noundef %.0129) #9
   call void @ParallelSlotsAdoptConn(ptr noundef %196, ptr noundef %15) #9
   call void @initPQExpBuffer(ptr noundef nonnull %9) #9
@@ -1703,15 +1703,15 @@ run_vacuum_command.exit:                          ; preds = %312, %315
 332:                                              ; preds = %330, %326
   %333 = call i32 @PQsendQuery(ptr noundef %329, ptr noundef nonnull @.str.92) #9
   %334 = icmp eq i32 %333, 1
-  br i1 %334, label %run_vacuum_command.exit170, label %335
+  br i1 %334, label %run_vacuum_command.exit171, label %335
 
 335:                                              ; preds = %332
   %336 = call ptr @PQdb(ptr noundef %329) #9
   %337 = call ptr @PQerrorMessage(ptr noundef %329) #9
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.118, ptr noundef %336, ptr noundef %337) #9
-  br label %run_vacuum_command.exit170
+  br label %run_vacuum_command.exit171
 
-run_vacuum_command.exit170:                       ; preds = %332, %335
+run_vacuum_command.exit171:                       ; preds = %332, %335
   %338 = call zeroext i1 @ParallelSlotsWaitCompletion(ptr noundef %196) #9
   call void @ParallelSlotsTerminate(ptr noundef %196) #9
   call void @pg_free(ptr noundef %196) #9
@@ -1724,7 +1724,7 @@ run_vacuum_command.exit170:                       ; preds = %332, %335
   call void @termPQExpBuffer(ptr noundef nonnull %9) #9
   br label %339
 
-339:                                              ; preds = %.critedge169, %run_vacuum_command.exit170
+339:                                              ; preds = %.critedge169, %run_vacuum_command.exit171
   call void @exit(i32 noundef 1) #10
   unreachable
 
@@ -1734,7 +1734,7 @@ run_vacuum_command.exit170:                       ; preds = %332, %335
   call void @termPQExpBuffer(ptr noundef nonnull %9) #9
   br label %340
 
-340:                                              ; preds = %.critedge167, %run_vacuum_command.exit170, %173
+340:                                              ; preds = %.critedge167, %run_vacuum_command.exit171, %173
   ret void
 }
 

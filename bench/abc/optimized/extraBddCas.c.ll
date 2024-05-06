@@ -926,7 +926,7 @@ define void @extraProfileUpdateTopLevel(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Extra_ProfileWidth(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Extra_ProfileWidth(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8

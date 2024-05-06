@@ -206,7 +206,7 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit:           ; preds = %3
   %7 = load i64, ptr %2, align 8
   %.sroa.06.0.extract.trunc = trunc i64 %7 to i32
   %.sroa.3.0.extract.shift = lshr i64 %7, 32
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i32
+  %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   br label %22
 
 8:                                                ; preds = %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit

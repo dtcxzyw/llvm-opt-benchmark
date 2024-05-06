@@ -73,7 +73,7 @@ define dso_local i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %._crit_edge
-  %35 = getelementptr i8, ptr %0, i64 1
+  %35 = getelementptr inbounds i8, ptr %0, i64 1
   %36 = add i64 %1, -1
   %37 = getelementptr inbounds i8, ptr %.0.i, i64 493
   %38 = zext nneg i32 %3 to i64
@@ -193,7 +193,7 @@ HUF_compressWeights.exit:                         ; preds = %71
   %103 = load i8, ptr %102, align 1
   %104 = add i8 %100, %103
   %105 = lshr exact i64 %indvars.iv80, 1
-  %gep = getelementptr i8, ptr %35, i64 %105
+  %gep = getelementptr inbounds i8, ptr %35, i64 %105
   store i8 %104, ptr %gep, align 1
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 2
   %106 = icmp ult i64 %indvars.iv.next81, %38
@@ -442,7 +442,7 @@ define dso_local range(i64 -66, 13) i64 @HUF_buildCTable_wksp(ptr nocapture noun
   br label %.preheader49.i
 
 .preheader48.i:                                   ; preds = %.preheader49.i
-  %invariant.gep.i = getelementptr i8, ptr %.0.i, i64 4102
+  %invariant.gep.i = getelementptr inbounds i8, ptr %.0.i, i64 4102
   br label %38
 
 .preheader49.i:                                   ; preds = %.preheader49.i, %.preheader49.preheader.i
@@ -467,7 +467,7 @@ define dso_local range(i64 -66, 13) i64 @HUF_buildCTable_wksp(ptr nocapture noun
   %43 = sub nuw nsw i32 189, %42
   %44 = select i1 %41, i32 %40, i32 %43
   %45 = zext nneg i32 %44 to i64
-  %gep.i = getelementptr %struct.rankPos, ptr %invariant.gep.i, i64 %45
+  %gep.i = getelementptr inbounds %struct.rankPos, ptr %invariant.gep.i, i64 %45
   %46 = load i16, ptr %gep.i, align 2
   %47 = add i16 %46, 1
   store i16 %47, ptr %gep.i, align 2

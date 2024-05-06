@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [40 x i8] c"Could not gather sufficient random data\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_random_bytes(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_random_bytes(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %.not75 = icmp eq i64 %1, 0
   br i1 %.not75, label %.critedge, label %.lr.ph.lr.ph
@@ -193,14 +193,14 @@ declare i32 @close(i32 noundef) local_unnamed_addr #5
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_random_int(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_random_int(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = icmp eq i64 %0, %1
   br i1 %6, label %.loopexit21.sink.split, label %7
 
 7:                                                ; preds = %4
   %8 = sub i64 %1, %0
-  %9 = call i32 @php_random_bytes(ptr noundef nonnull %5, i64 noundef 8, i1 noundef zeroext %3), !range !4
+  %9 = call i32 @php_random_bytes(ptr noundef nonnull %5, i64 noundef 8, i1 noundef zeroext %3)
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %.loopexit21, label %11
 
@@ -233,7 +233,7 @@ define noundef i32 @php_random_int(i64 noundef %0, i64 noundef %1, ptr nocapture
   br i1 %23, label %24, label %.loopexit
 
 24:                                               ; preds = %21
-  %25 = call i32 @php_random_bytes(ptr noundef nonnull %5, i64 noundef 8, i1 noundef zeroext %3), !range !4
+  %25 = call i32 @php_random_bytes(ptr noundef nonnull %5, i64 noundef 8, i1 noundef zeroext %3)
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %.loopexit21, label %21
 
@@ -269,4 +269,3 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

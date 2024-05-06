@@ -766,12 +766,12 @@ define hidden i32 @mbedtls_ssl_handshake_client_step(ptr noundef %0) local_unnam
   br i1 %186, label %187, label %204
 
 187:                                              ; preds = %180
-  %188 = getelementptr i8, ptr %133, i64 %176
-  %189 = getelementptr i8, ptr %188, i64 38
+  %188 = getelementptr inbounds i8, ptr %133, i64 %176
+  %189 = getelementptr inbounds i8, ptr %188, i64 38
   %190 = load i8, ptr %189, align 1
   %191 = zext i8 %190 to i64
   %192 = shl nuw nsw i64 %191, 8
-  %193 = getelementptr i8, ptr %188, i64 39
+  %193 = getelementptr inbounds i8, ptr %188, i64 39
   %194 = load i8, ptr %193, align 1
   %195 = zext i8 %194 to i64
   %196 = or disjoint i64 %192, %195
@@ -804,16 +804,16 @@ define hidden i32 @mbedtls_ssl_handshake_client_step(ptr noundef %0) local_unnam
 
 210:                                              ; preds = %204, %198
   %.0251.i = phi i64 [ %196, %198 ], [ 0, %204 ]
-  %211 = getelementptr i8, ptr %133, i64 %176
-  %212 = getelementptr i8, ptr %211, i64 35
+  %211 = getelementptr inbounds i8, ptr %133, i64 %176
+  %212 = getelementptr inbounds i8, ptr %211, i64 35
   %213 = load i8, ptr %212, align 1
   %214 = zext i8 %213 to i32
   %215 = shl nuw nsw i32 %214, 8
-  %216 = getelementptr i8, ptr %211, i64 36
+  %216 = getelementptr inbounds i8, ptr %211, i64 36
   %217 = load i8, ptr %216, align 1
   %218 = zext i8 %217 to i32
   %219 = or disjoint i32 %215, %218
-  %220 = getelementptr i8, ptr %211, i64 37
+  %220 = getelementptr inbounds i8, ptr %211, i64 37
   %221 = load i8, ptr %220, align 1
   %.not275.i = icmp eq i8 %221, 0
   br i1 %.not275.i, label %225, label %222
@@ -1619,13 +1619,13 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i:  ; preds = %539, %539, %539, %5
   br label %ssl_parse_certificate_request.exit
 
 591:                                              ; preds = %583
-  %592 = getelementptr i8, ptr %584, i64 1
-  %593 = getelementptr i8, ptr %592, i64 %586
+  %592 = getelementptr inbounds i8, ptr %584, i64 1
+  %593 = getelementptr inbounds i8, ptr %592, i64 %586
   %594 = load i8, ptr %593, align 1
   %595 = zext i8 %594 to i64
   %596 = shl nuw nsw i64 %595, 8
-  %597 = getelementptr i8, ptr %584, i64 2
-  %598 = getelementptr i8, ptr %597, i64 %586
+  %597 = getelementptr inbounds i8, ptr %584, i64 2
+  %598 = getelementptr inbounds i8, ptr %597, i64 %586
   %599 = load i8, ptr %598, align 1
   %600 = zext i8 %599 to i64
   %601 = or disjoint i64 %596, %600
@@ -1674,14 +1674,14 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i:  ; preds = %539, %539, %539, %5
   %621 = add nuw nsw i64 %620, %601
   %622 = icmp eq i8 %.val120.val.i, 1
   %..i131.i = select i1 %622, i64 12, i64 4
-  %623 = getelementptr i8, ptr %576, i64 %..i131.i
-  %624 = getelementptr i8, ptr %623, i64 1
-  %625 = getelementptr i8, ptr %624, i64 %621
+  %623 = getelementptr inbounds i8, ptr %576, i64 %..i131.i
+  %624 = getelementptr inbounds i8, ptr %623, i64 1
+  %625 = getelementptr inbounds i8, ptr %624, i64 %621
   %626 = load i8, ptr %625, align 1
   %627 = zext i8 %626 to i64
   %628 = shl nuw nsw i64 %627, 8
-  %629 = getelementptr i8, ptr %623, i64 2
-  %630 = getelementptr i8, ptr %629, i64 %621
+  %629 = getelementptr inbounds i8, ptr %623, i64 2
+  %630 = getelementptr inbounds i8, ptr %629, i64 %621
   %631 = load i8, ptr %630, align 1
   %632 = zext i8 %631 to i64
   %633 = or disjoint i64 %628, %632

@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched203], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @e1000_set_mac_type(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @e1000_set_mac_type(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 230
   %3 = load i16, ptr %2, align 2
   switch i16 %3, label %26 [
@@ -409,7 +409,7 @@ define internal fastcc void @e1000_phy_init_script(ptr nocapture noundef readonl
 7:                                                ; preds = %1
   store i16 0, ptr %2, align 2, !annotation !7
   tail call void @msleep(i32 noundef 20) #7
-  %8 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 12123, ptr noundef nonnull %2), !range !8
+  %8 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 12123, ptr noundef nonnull %2)
   %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @e1000_phy_lock) #7
   %10 = getelementptr inbounds i8, ptr %0, i64 28
   %11 = load i32, ptr %10, align 4
@@ -633,14 +633,14 @@ define internal fastcc void @e1000_phy_init_script(ptr nocapture noundef readonl
 130:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
   store i16 0, ptr %3, align 2, !annotation !7
-  %131 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 8401, ptr noundef nonnull %3), !range !8
+  %131 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 8401, ptr noundef nonnull %3)
   %132 = load i16, ptr %3, align 2
   %133 = and i16 %132, 256
   %134 = icmp eq i16 %133, 0
   br i1 %134, label %135, label %174
 
 135:                                              ; preds = %130
-  %136 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 8400, ptr noundef nonnull %3), !range !8
+  %136 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 8400, ptr noundef nonnull %3)
   %137 = load i16, ptr %3, align 2
   %138 = and i16 %137, 3968
   %139 = and i16 %137, 112
@@ -1454,7 +1454,7 @@ define dso_local i32 @e1000_setup_link(ptr noundef %0) local_unnamed_addr #1 ali
   br label %select.unfold
 
 83:                                               ; preds = %79
-  %84 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %14), !range !8
+  %84 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %14)
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %.thread90
 
@@ -1464,7 +1464,7 @@ define dso_local i32 @e1000_setup_link(ptr noundef %0) local_unnamed_addr #1 ali
   %89 = shl nuw i32 %88, 16
   store i32 %89, ptr %80, align 8
   call void @__const_udelay(i64 noundef 85900) #7
-  %90 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %15), !range !8
+  %90 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %15)
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %.thread90
 
@@ -1644,7 +1644,7 @@ thread-pre-split:                                 ; preds = %152, %135
   ]
 
 158:                                              ; preds = %.thread94, %156, %156
-  %159 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %16), !range !8
+  %159 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %16)
   %160 = load i16, ptr %16, align 2
   %161 = or i16 %160, 8
   %162 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @e1000_phy_lock) #7
@@ -1710,7 +1710,7 @@ thread-pre-split:                                 ; preds = %152, %135
   br i1 %184, label %185, label %344
 
 185:                                              ; preds = %181
-  %186 = call i32 @e1000_phy_reset(ptr noundef %0), !range !8
+  %186 = call i32 @e1000_phy_reset(ptr noundef %0)
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %188, label %.thread111
 
@@ -1738,7 +1738,7 @@ thread-pre-split:                                 ; preds = %152, %135
   ]
 
 200:                                              ; preds = %198, %198
-  %201 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %11), !range !8
+  %201 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %11)
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %thread-pre-split97, label %.thread104
 
@@ -1782,7 +1782,7 @@ thread-pre-split97:                               ; preds = %200
   ]
 
 220:                                              ; preds = %217
-  %221 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %11), !range !8
+  %221 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %11)
   %222 = icmp eq i32 %221, 0
   br i1 %222, label %223, label %.thread104
 
@@ -1806,7 +1806,7 @@ thread-pre-split97:                               ; preds = %200
   br i1 %234, label %250, label %.thread104
 
 235:                                              ; preds = %217
-  %236 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %11), !range !8
+  %236 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %11)
   %237 = icmp eq i32 %236, 0
   br i1 %237, label %238, label %.thread104
 
@@ -1845,7 +1845,7 @@ thread-pre-split97:                               ; preds = %200
   br label %251
 
 251:                                              ; preds = %250, %188
-  %252 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 18, ptr noundef nonnull %12), !range !8
+  %252 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 18, ptr noundef nonnull %12)
   %253 = icmp eq i32 %252, 0
   br i1 %253, label %254, label %.thread111
 
@@ -1950,7 +1950,7 @@ thread-pre-split97:                               ; preds = %200
   br i1 %303, label %304, label %320
 
 304:                                              ; preds = %300
-  %305 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %12), !range !8
+  %305 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %12)
   %306 = icmp eq i32 %305, 0
   br i1 %306, label %307, label %.thread111
 
@@ -1963,7 +1963,7 @@ thread-pre-split97:                               ; preds = %200
   br i1 %311, label %312, label %.thread111
 
 312:                                              ; preds = %307
-  %313 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 9, ptr noundef nonnull %12), !range !8
+  %313 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 9, ptr noundef nonnull %12)
   %314 = icmp eq i32 %313, 0
   br i1 %314, label %315, label %.thread111
 
@@ -1976,7 +1976,7 @@ thread-pre-split97:                               ; preds = %200
   br i1 %319, label %320, label %.thread111
 
 320:                                              ; preds = %315, %300
-  %321 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 9, ptr noundef nonnull %12), !range !8
+  %321 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 9, ptr noundef nonnull %12)
   %322 = icmp eq i32 %321, 0
   br i1 %322, label %323, label %.thread111
 
@@ -2038,7 +2038,7 @@ thread-pre-split97:                               ; preds = %200
   br label %436
 
 349:                                              ; preds = %345
-  %350 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %10), !range !8
+  %350 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %10)
   %351 = icmp eq i32 %350, 0
   br i1 %351, label %352, label %.thread115
 
@@ -2109,7 +2109,7 @@ thread-pre-split97:                               ; preds = %200
   br i1 %386, label %387, label %408
 
 387:                                              ; preds = %383
-  %388 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %10), !range !8
+  %388 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %10)
   %389 = icmp eq i32 %388, 0
   br i1 %389, label %390, label %.thread115
 
@@ -2145,13 +2145,13 @@ thread-pre-split97:                               ; preds = %200
   br label %.thread119
 
 408:                                              ; preds = %383, %398, %403
-  %409 = call i32 @e1000_phy_reset(ptr noundef %0), !range !8
+  %409 = call i32 @e1000_phy_reset(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #7
   %410 = icmp eq i32 %409, 0
   br i1 %410, label %436, label %.thread119
 
 411:                                              ; preds = %178
-  %412 = call noundef i32 @e1000_phy_reset(ptr noundef %0), !range !8
+  %412 = call noundef i32 @e1000_phy_reset(ptr noundef %0)
   %413 = icmp eq i32 %412, 0
   br i1 %413, label %436, label %.thread119
 
@@ -2177,7 +2177,7 @@ thread-pre-split97:                               ; preds = %200
   %431 = load ptr, ptr %0, align 8
   %432 = getelementptr i8, ptr %431, i64 8
   %433 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %432) #7, !srcloc !5
-  %434 = call noundef i32 @e1000_phy_reset(ptr noundef %0), !range !8
+  %434 = call noundef i32 @e1000_phy_reset(ptr noundef %0)
   %435 = icmp eq i32 %434, 0
   br i1 %435, label %436, label %.thread119
 
@@ -2206,12 +2206,12 @@ thread-pre-split97:                               ; preds = %200
   br label %450
 
 450:                                              ; preds = %448, %440
-  %451 = call i32 @e1000_phy_setup_autoneg(ptr noundef %0), !range !18
+  %451 = call i32 @e1000_phy_setup_autoneg(ptr noundef %0)
   %452 = icmp eq i32 %451, 0
   br i1 %452, label %453, label %.thread124
 
 453:                                              ; preds = %450
-  %454 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %9), !range !8
+  %454 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %9)
   %455 = icmp eq i32 %454, 0
   br i1 %455, label %456, label %.thread124
 
@@ -2237,12 +2237,12 @@ thread-pre-split97:                               ; preds = %200
 
 467:                                              ; preds = %478, %466
   %468 = phi i16 [ 45, %466 ], [ %479, %478 ]
-  %469 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %8), !range !8
+  %469 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %8)
   %470 = icmp eq i32 %469, 0
   br i1 %470, label %471, label %481
 
 471:                                              ; preds = %467
-  %472 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %8), !range !8
+  %472 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %8)
   %473 = icmp eq i32 %472, 0
   br i1 %473, label %474, label %481
 
@@ -2256,7 +2256,7 @@ thread-pre-split97:                               ; preds = %200
   call void @msleep(i32 noundef 100) #7
   %479 = add nsw i16 %468, -1
   %480 = icmp eq i16 %479, 0
-  br i1 %480, label %.thread121, label %467, !llvm.loop !19
+  br i1 %480, label %.thread121, label %467, !llvm.loop !18
 
 .thread121:                                       ; preds = %474, %478
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #7
@@ -2288,7 +2288,7 @@ thread-pre-split97:                               ; preds = %200
   %486 = load ptr, ptr %0, align 8
   %487 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %486) #7, !srcloc !5
   %488 = and i32 %487, -6946
-  %489 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5), !range !8
+  %489 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5)
   %490 = icmp eq i32 %489, 0
   br i1 %490, label %491, label %.thread129
 
@@ -2344,7 +2344,7 @@ thread-pre-split97:                               ; preds = %200
   br i1 %528, label %529, label %546
 
 529:                                              ; preds = %502
-  %530 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %7), !range !8
+  %530 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %7)
   %531 = icmp eq i32 %530, 0
   br i1 %531, label %532, label %.thread129
 
@@ -2373,7 +2373,7 @@ thread-pre-split97:                               ; preds = %200
   br label %561
 
 546:                                              ; preds = %502
-  %547 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 18, ptr noundef nonnull %7), !range !8
+  %547 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 18, ptr noundef nonnull %7)
   %548 = icmp eq i32 %547, 0
   br i1 %548, label %549, label %.thread129
 
@@ -2418,12 +2418,12 @@ thread-pre-split97:                               ; preds = %200
 
 571:                                              ; preds = %582, %570
   %572 = phi i16 [ 20, %570 ], [ %583, %582 ]
-  %573 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %6), !range !8
+  %573 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %6)
   %574 = icmp eq i32 %573, 0
   br i1 %574, label %575, label %.thread129
 
 575:                                              ; preds = %571
-  %576 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %6), !range !8
+  %576 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %6)
   %577 = icmp eq i32 %576, 0
   br i1 %577, label %578, label %.thread129
 
@@ -2437,7 +2437,7 @@ thread-pre-split97:                               ; preds = %200
   call void @msleep(i32 noundef 100) #7
   %583 = add nsw i16 %572, -1
   %584 = icmp eq i16 %583, 0
-  br i1 %584, label %585, label %571, !llvm.loop !20
+  br i1 %584, label %585, label %571, !llvm.loop !19
 
 585:                                              ; preds = %582
   %586 = load i32, ptr %179, align 4
@@ -2455,7 +2455,7 @@ thread-pre-split97:                               ; preds = %200
 591:                                              ; preds = %601
   %592 = add nsw i16 %594, -1
   %593 = icmp eq i16 %592, 0
-  br i1 %593, label %.loopexit, label %.loopexit145, !llvm.loop !21
+  br i1 %593, label %.loopexit, label %.loopexit145, !llvm.loop !20
 
 .loopexit145:                                     ; preds = %.loopexit145.preheader, %591
   %594 = phi i16 [ %592, %591 ], [ 20, %.loopexit145.preheader ]
@@ -2466,12 +2466,12 @@ thread-pre-split97:                               ; preds = %200
 
 598:                                              ; preds = %.loopexit145
   call void @msleep(i32 noundef 100) #7
-  %599 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %6), !range !8
+  %599 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %6)
   %600 = icmp eq i32 %599, 0
   br i1 %600, label %601, label %.thread129
 
 601:                                              ; preds = %598
-  %602 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %6), !range !8
+  %602 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %6)
   %603 = icmp eq i32 %602, 0
   br i1 %603, label %591, label %.thread129
 
@@ -2481,7 +2481,7 @@ thread-pre-split97:                               ; preds = %200
   br i1 %605, label %606, label %635
 
 606:                                              ; preds = %.loopexit
-  %607 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %7), !range !8
+  %607 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %7)
   %608 = icmp eq i32 %607, 0
   br i1 %608, label %609, label %.thread129
 
@@ -2494,7 +2494,7 @@ thread-pre-split97:                               ; preds = %200
   br i1 %613, label %614, label %.thread129
 
 614:                                              ; preds = %609
-  %615 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %7), !range !8
+  %615 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %7)
   %616 = icmp eq i32 %615, 0
   br i1 %616, label %617, label %.thread129
 
@@ -2522,7 +2522,7 @@ thread-pre-split97:                               ; preds = %200
   br i1 %631, label %632, label %635
 
 632:                                              ; preds = %629
-  %633 = call fastcc i32 @e1000_polarity_reversal_workaround(ptr noundef %0), !range !8
+  %633 = call fastcc i32 @e1000_polarity_reversal_workaround(ptr noundef %0)
   %634 = icmp eq i32 %633, 0
   br i1 %634, label %635, label %.thread129
 
@@ -2550,12 +2550,12 @@ thread-pre-split97:                               ; preds = %200
 
 636:                                              ; preds = %.preheader, %649
   %637 = phi i16 [ %650, %649 ], [ 0, %.preheader ]
-  %638 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %17), !range !8
+  %638 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %17)
   %639 = icmp eq i32 %638, 0
   br i1 %639, label %640, label %.thread119
 
 640:                                              ; preds = %636
-  %641 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %17), !range !8
+  %641 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %17)
   %642 = icmp eq i32 %641, 0
   br i1 %642, label %643, label %.thread119
 
@@ -2573,7 +2573,7 @@ thread-pre-split97:                               ; preds = %200
   call void @__const_udelay(i64 noundef 42950) #7
   %650 = add nuw nsw i16 %637, 1
   %651 = icmp eq i16 %650, 10
-  br i1 %651, label %.thread119, label %636, !llvm.loop !22
+  br i1 %651, label %.thread119, label %636, !llvm.loop !21
 
 .thread119:                                       ; preds = %649, %640, %636, %178, %414, %411, %.thread129, %.thread124, %.thread115, %.thread111, %176, %647, %408
   %652 = phi i32 [ %177, %176 ], [ %409, %408 ], [ %648, %647 ], [ %.ph110, %.thread111 ], [ %.ph114, %.thread115 ], [ %.ph123, %.thread124 ], [ %.ph128, %.thread129 ], [ 6, %178 ], [ %434, %414 ], [ %412, %411 ], [ 0, %649 ], [ %641, %640 ], [ %638, %636 ]
@@ -2666,7 +2666,7 @@ thread-pre-split97:                               ; preds = %200
   br label %732
 
 688:                                              ; preds = %685, %685
-  %689 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 29, ptr noundef nonnull %2), !range !8
+  %689 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 29, ptr noundef nonnull %2)
   %690 = icmp eq i32 %689, 0
   br i1 %690, label %691, label %.thread139
 
@@ -2689,7 +2689,7 @@ thread-pre-split97:                               ; preds = %200
   br i1 %701, label %702, label %.thread139
 
 702:                                              ; preds = %699
-  %703 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 30, ptr noundef nonnull %3), !range !8
+  %703 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 30, ptr noundef nonnull %3)
   %704 = icmp eq i32 %703, 0
   br i1 %704, label %705, label %.thread139
 
@@ -2719,7 +2719,7 @@ thread-pre-split97:                               ; preds = %200
   br i1 %719, label %720, label %.thread139
 
 720:                                              ; preds = %717
-  %721 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 30, ptr noundef nonnull %3), !range !8
+  %721 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 30, ptr noundef nonnull %3)
   %722 = icmp eq i32 %721, 0
   br i1 %722, label %723, label %.thread139
 
@@ -2826,7 +2826,7 @@ thread-pre-split97:                               ; preds = %200
 773:                                              ; preds = %766
   %774 = add nuw nsw i32 %767, 1
   %775 = icmp eq i32 %774, 50
-  br i1 %775, label %.thread141, label %766, !llvm.loop !23
+  br i1 %775, label %.thread141, label %766, !llvm.loop !22
 
 .thread141:                                       ; preds = %773
   %776 = getelementptr inbounds i8, ptr %0, i64 148
@@ -2942,7 +2942,7 @@ thread-pre-split97:                               ; preds = %200
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_read_eeprom(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @e1000_read_eeprom(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @e1000_eeprom_lock) #7
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3065,7 +3065,7 @@ define dso_local noundef i32 @e1000_read_eeprom(ptr nocapture noundef readonly %
   tail call void @__udelay(i64 noundef %88) #7
   %89 = add nuw nsw i32 %63, 1
   %90 = icmp eq i32 %89, 16
-  br i1 %90, label %91, label %61, !llvm.loop !24
+  br i1 %90, label %91, label %61, !llvm.loop !23
 
 91:                                               ; preds = %61
   %92 = tail call i16 @llvm.bswap.i16(i16 %80)
@@ -3073,7 +3073,7 @@ define dso_local noundef i32 @e1000_read_eeprom(ptr nocapture noundef readonly %
   store i16 %92, ptr %93, align 2
   %94 = add nuw nsw i64 %56, 1
   %95 = icmp eq i64 %94, %54
-  br i1 %95, label %.loopexit, label %55, !llvm.loop !25
+  br i1 %95, label %.loopexit, label %55, !llvm.loop !24
 
 96:                                               ; preds = %136, %34
   %97 = phi i64 [ 0, %34 ], [ %139, %136 ]
@@ -3123,7 +3123,7 @@ define dso_local noundef i32 @e1000_read_eeprom(ptr nocapture noundef readonly %
   tail call void @__udelay(i64 noundef %133) #7
   %134 = add nuw nsw i32 %108, 1
   %135 = icmp eq i32 %134, 16
-  br i1 %135, label %136, label %106, !llvm.loop !24
+  br i1 %135, label %136, label %106, !llvm.loop !23
 
 136:                                              ; preds = %106
   %137 = getelementptr i16, ptr %3, i64 %97
@@ -3132,7 +3132,7 @@ define dso_local noundef i32 @e1000_read_eeprom(ptr nocapture noundef readonly %
   %138 = tail call i32 @__SCT__cond_resched() #7
   %139 = add nuw nsw i64 %97, 1
   %140 = icmp eq i64 %139, %38
-  br i1 %140, label %.loopexit, label %96, !llvm.loop !26
+  br i1 %140, label %.loopexit, label %96, !llvm.loop !25
 
 .loopexit:                                        ; preds = %136, %91, %32
   tail call fastcc void @e1000_release_eeprom(ptr noundef %0)
@@ -3145,19 +3145,19 @@ define dso_local noundef i32 @e1000_read_eeprom(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_phy_setup_autoneg(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -3, 1) i32 @e1000_phy_setup_autoneg(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #7
   store i16 0, ptr %2, align 2, !annotation !7
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
-  %4 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %2), !range !8
+  %4 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %2)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %55
 
 6:                                                ; preds = %1
   store i16 0, ptr %3, align 2, !annotation !7
-  %7 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 9, ptr noundef nonnull %3), !range !8
+  %7 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 9, ptr noundef nonnull %3)
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %55
 
@@ -3241,7 +3241,7 @@ define dso_local noundef i32 @e1000_phy_setup_autoneg(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_read_phy_reg(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @e1000_read_phy_reg(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 16 {
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @e1000_phy_lock) #7
   %5 = getelementptr inbounds i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
@@ -3283,7 +3283,7 @@ define dso_local noundef i32 @e1000_read_phy_reg(ptr nocapture noundef readonly 
 31:                                               ; preds = %34
   %32 = add nuw nsw i32 %35, 1
   %33 = icmp eq i32 %32, 64
-  br i1 %33, label %.loopexit, label %34, !llvm.loop !27
+  br i1 %33, label %.loopexit, label %34, !llvm.loop !26
 
 34:                                               ; preds = %31, %21
   %35 = phi i32 [ 0, %21 ], [ %32, %31 ]
@@ -3323,7 +3323,7 @@ define dso_local noundef i32 @e1000_read_phy_reg(ptr nocapture noundef readonly 
   %58 = add nuw nsw i32 %52, 1
   %59 = icmp eq i32 %58, 64
   %60 = select i1 %57, i1 true, i1 %59
-  br i1 %60, label %61, label %51, !llvm.loop !28
+  br i1 %60, label %61, label %51, !llvm.loop !27
 
 61:                                               ; preds = %51
   %62 = and i32 %55, 1342177280
@@ -3368,7 +3368,7 @@ define dso_local noundef i32 @e1000_read_phy_reg(ptr nocapture noundef readonly 
   tail call void @__const_udelay(i64 noundef 42950) #7
   %90 = lshr i32 %71, 1
   %91 = icmp ult i32 %71, 2
-  br i1 %91, label %e1000_shift_out_mdi_bits.exit, label %70, !llvm.loop !29
+  br i1 %91, label %e1000_shift_out_mdi_bits.exit, label %70, !llvm.loop !28
 
 e1000_shift_out_mdi_bits.exit:                    ; preds = %70
   %92 = or disjoint i32 %15, 6176
@@ -3406,7 +3406,7 @@ e1000_shift_out_mdi_bits.exit:                    ; preds = %70
   tail call void @__const_udelay(i64 noundef 42950) #7
   %117 = lshr i32 %97, 1
   %118 = icmp ult i32 %97, 2
-  br i1 %118, label %e1000_shift_out_mdi_bits.exit4, label %96, !llvm.loop !29
+  br i1 %118, label %e1000_shift_out_mdi_bits.exit4, label %96, !llvm.loop !28
 
 e1000_shift_out_mdi_bits.exit4:                   ; preds = %96
   %119 = load ptr, ptr %0, align 8
@@ -3460,7 +3460,7 @@ e1000_shift_out_mdi_bits.exit4:                   ; preds = %96
   tail call void @__const_udelay(i64 noundef 42950) #7
   %157 = add nuw nsw i8 %137, 1
   %158 = icmp eq i8 %157, 16
-  br i1 %158, label %159, label %136, !llvm.loop !30
+  br i1 %158, label %159, label %136, !llvm.loop !29
 
 159:                                              ; preds = %136
   %160 = or i32 %147, 2097152
@@ -3490,7 +3490,7 @@ e1000_shift_out_mdi_bits.exit4:                   ; preds = %96
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_write_phy_reg(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @e1000_write_phy_reg(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #1 align 16 {
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @e1000_phy_lock) #7
   %5 = getelementptr inbounds i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
@@ -3537,7 +3537,7 @@ define dso_local void @e1000_config_collision_dist(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_force_mac_fc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -3, 1) i32 @e1000_force_mac_fc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2) #7, !srcloc !5
@@ -3630,12 +3630,12 @@ define dso_local noundef i32 @e1000_check_for_link(ptr nocapture noundef %0) loc
 
 32:                                               ; preds = %28
   store i16 0, ptr %2, align 2, !annotation !7
-  %33 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2), !range !8
+  %33 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %213
 
 35:                                               ; preds = %32
-  %36 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2), !range !8
+  %36 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %213
 
@@ -3669,7 +3669,7 @@ define dso_local noundef i32 @e1000_check_for_link(ptr nocapture noundef %0) loc
   %55 = load ptr, ptr %0, align 8
   %56 = getelementptr i8, ptr %55, i64 216
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %56) #7, !srcloc !6
-  %57 = tail call fastcc i32 @e1000_polarity_reversal_workaround(ptr noundef %0), !range !8
+  %57 = tail call fastcc i32 @e1000_polarity_reversal_workaround(ptr noundef %0)
   %58 = load ptr, ptr %0, align 8
   %59 = getelementptr i8, ptr %58, i64 192
   %60 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %59) #7, !srcloc !5
@@ -3718,12 +3718,12 @@ define dso_local noundef i32 @e1000_check_for_link(ptr nocapture noundef %0) loc
   br label %89
 
 86:                                               ; preds = %72, %72, %72, %72, %72
-  %87 = tail call fastcc i32 @e1000_config_mac_to_phy(ptr noundef %0), !range !8
+  %87 = tail call fastcc i32 @e1000_config_mac_to_phy(ptr noundef %0)
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %213
 
 89:                                               ; preds = %86, %75
-  %90 = tail call fastcc i32 @e1000_config_fc_after_link_up(ptr noundef %0), !range !18
+  %90 = tail call fastcc i32 @e1000_config_fc_after_link_up(ptr noundef %0)
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %213
 
@@ -3737,7 +3737,7 @@ define dso_local noundef i32 @e1000_check_for_link(ptr nocapture noundef %0) loc
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
   store i16 0, ptr %3, align 2, !annotation !7
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
-  %97 = call i32 @e1000_get_speed_and_duplex(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4), !range !8
+  %97 = call i32 @e1000_get_speed_and_duplex(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %99, label %212
 
@@ -3826,7 +3826,7 @@ define dso_local noundef i32 @e1000_check_for_link(ptr nocapture noundef %0) loc
   %153 = or i32 %152, 65
   %154 = load ptr, ptr %0, align 8
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %153, ptr elementtype(i32) %154) #7, !srcloc !6
-  %155 = tail call fastcc i32 @e1000_config_fc_after_link_up(ptr noundef %0), !range !18
+  %155 = tail call fastcc i32 @e1000_config_fc_after_link_up(ptr noundef %0)
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %185, label %213
 
@@ -3946,7 +3946,7 @@ define internal fastcc void @e1000_check_downshift(ptr nocapture noundef %0) unn
   ]
 
 5:                                                ; preds = %1
-  %6 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 19, ptr noundef nonnull %2), !range !8
+  %6 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 19, ptr noundef nonnull %2)
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %22
 
@@ -3959,7 +3959,7 @@ define internal fastcc void @e1000_check_downshift(ptr nocapture noundef %0) unn
   br label %22
 
 13:                                               ; preds = %1
-  %14 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %2), !range !8
+  %14 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %2)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %22
 
@@ -3978,7 +3978,7 @@ define internal fastcc void @e1000_check_downshift(ptr nocapture noundef %0) unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_polarity_reversal_workaround(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -2, 1) i32 @e1000_polarity_reversal_workaround(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #7
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @e1000_phy_lock) #7
@@ -4038,12 +4038,12 @@ define internal fastcc noundef i32 @e1000_polarity_reversal_workaround(ptr nocap
 
 .preheader21:                                     ; preds = %.preheader21.preheader, %43
   %33 = phi i16 [ %44, %43 ], [ 20, %.preheader21.preheader ]
-  %34 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2), !range !8
+  %34 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %.loopexit
 
 36:                                               ; preds = %.preheader21
-  %37 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2), !range !8
+  %37 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %.loopexit
 
@@ -4057,7 +4057,7 @@ define internal fastcc noundef i32 @e1000_polarity_reversal_workaround(ptr nocap
   tail call void @msleep(i32 noundef 100) #7
   %44 = add nsw i16 %33, -1
   %45 = icmp eq i16 %44, 0
-  br i1 %45, label %46, label %.preheader21, !llvm.loop !31
+  br i1 %45, label %46, label %.preheader21, !llvm.loop !30
 
 46:                                               ; preds = %43, %39
   tail call void @msleep(i32 noundef 1000) #7
@@ -4102,12 +4102,12 @@ define internal fastcc noundef i32 @e1000_polarity_reversal_workaround(ptr nocap
 
 .preheader:                                       ; preds = %65, %78
   %68 = phi i16 [ %79, %78 ], [ 20, %65 ]
-  %69 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2), !range !8
+  %69 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %.loopexit
 
 71:                                               ; preds = %.preheader
-  %72 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2), !range !8
+  %72 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %.loopexit
 
@@ -4121,7 +4121,7 @@ define internal fastcc noundef i32 @e1000_polarity_reversal_workaround(ptr nocap
   tail call void @msleep(i32 noundef 100) #7
   %79 = add nsw i16 %68, -1
   %80 = icmp eq i16 %79, 0
-  br i1 %80, label %.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %80, label %.loopexit, label %.preheader, !llvm.loop !31
 
 .loopexit.sink.split:                             ; preds = %50, %27, %17, %7
   %.sink = phi i64 [ %3, %7 ], [ %14, %17 ], [ %24, %27 ], [ %47, %50 ]
@@ -4158,7 +4158,7 @@ define internal fastcc noundef i32 @e1000_config_dsp_after_link_change(ptr nocap
 
 14:                                               ; preds = %13
   store i16 0, ptr %8, align 2, !annotation !7
-  %15 = call i32 @e1000_get_speed_and_duplex(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9), !range !8
+  %15 = call i32 @e1000_get_speed_and_duplex(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %.loopexit40
 
@@ -4191,14 +4191,14 @@ define internal fastcc noundef i32 @e1000_config_dsp_after_link_change(ptr nocap
 30:                                               ; preds = %48
   %31 = add nuw nsw i64 %33, 1
   %32 = icmp eq i64 %31, 4
-  br i1 %32, label %52, label %.preheader, !llvm.loop !33
+  br i1 %32, label %52, label %.preheader, !llvm.loop !32
 
 .preheader:                                       ; preds = %27, %30
   %33 = phi i64 [ %31, %30 ], [ 0, %27 ]
   %34 = getelementptr [4 x i16], ptr @dsp_reg_array, i64 0, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i32
-  %37 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef %36, ptr noundef nonnull %5), !range !8
+  %37 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef %36, ptr noundef nonnull %5)
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %.thread33
 
@@ -4232,7 +4232,7 @@ define internal fastcc noundef i32 @e1000_config_dsp_after_link_change(ptr nocap
   br label %.loopexit
 
 53:                                               ; preds = %27
-  %54 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %5), !range !8
+  %54 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %5)
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %.preheader37, label %.thread33
 
@@ -4241,7 +4241,7 @@ define internal fastcc noundef i32 @e1000_config_dsp_after_link_change(ptr nocap
   %57 = phi i16 [ %73, %71 ], [ 20, %53 ]
   %58 = phi i16 [ %74, %71 ], [ 0, %53 ]
   tail call void @__const_udelay(i64 noundef 4295000) #7
-  %59 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %5), !range !8
+  %59 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %5)
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %.thread33
 
@@ -4265,7 +4265,7 @@ define internal fastcc noundef i32 @e1000_config_dsp_after_link_change(ptr nocap
   %73 = select i1 %72, i16 %57, i16 100
   %74 = add nuw i16 %58, 1
   %75 = icmp ult i16 %74, %73
-  br i1 %75, label %.preheader37, label %.loopexit, !llvm.loop !34
+  br i1 %75, label %.preheader37, label %.loopexit, !llvm.loop !33
 
 .thread33:                                        ; preds = %.preheader37, %.preheader, %48, %20, %.thread, %53, %67
   %.ph32 = phi i32 [ %46, %.thread ], [ %21, %20 ], [ %69, %67 ], [ %54, %53 ], [ %37, %.preheader ], [ %50, %48 ], [ %59, %.preheader37 ]
@@ -4288,7 +4288,7 @@ define internal fastcc noundef i32 @e1000_config_dsp_after_link_change(ptr nocap
   br i1 %79, label %80, label %127
 
 80:                                               ; preds = %76
-  %81 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 12123, ptr noundef nonnull %7), !range !8
+  %81 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 12123, ptr noundef nonnull %7)
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %.loopexit40
 
@@ -4326,14 +4326,14 @@ define internal fastcc noundef i32 @e1000_config_dsp_after_link_change(ptr nocap
 96:                                               ; preds = %115
   %97 = add nuw nsw i64 %99, 1
   %98 = icmp eq i64 %97, 4
-  br i1 %98, label %119, label %.preheader39, !llvm.loop !35
+  br i1 %98, label %119, label %.preheader39, !llvm.loop !34
 
 .preheader39:                                     ; preds = %.preheader39.preheader, %96
   %99 = phi i64 [ %97, %96 ], [ 0, %.preheader39.preheader ]
   %100 = getelementptr [4 x i16], ptr @dsp_reg_array, i64 0, i64 %99
   %101 = load i16, ptr %100, align 2
   %102 = zext i16 %101 to i32
-  %103 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef %102, ptr noundef nonnull %6), !range !8
+  %103 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef %102, ptr noundef nonnull %6)
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %.loopexit40
 
@@ -4386,7 +4386,7 @@ define internal fastcc noundef i32 @e1000_config_dsp_after_link_change(ptr nocap
   br i1 %130, label %131, label %.loopexit40
 
 131:                                              ; preds = %127
-  %132 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 12123, ptr noundef nonnull %7), !range !8
+  %132 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 12123, ptr noundef nonnull %7)
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %134, label %.loopexit40
 
@@ -4448,7 +4448,7 @@ define internal fastcc noundef i32 @e1000_config_dsp_after_link_change(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_config_mac_to_phy(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -2, 1) i32 @e1000_config_mac_to_phy(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #7
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4473,7 +4473,7 @@ define internal fastcc noundef i32 @e1000_config_mac_to_phy(ptr nocapture nounde
   br i1 %12, label %13, label %36
 
 13:                                               ; preds = %5
-  %14 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2), !range !8
+  %14 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %67
 
@@ -4501,7 +4501,7 @@ define internal fastcc noundef i32 @e1000_config_mac_to_phy(ptr nocapture nounde
   br label %64
 
 36:                                               ; preds = %5
-  %37 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %2), !range !8
+  %37 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %2)
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %67
 
@@ -4553,7 +4553,7 @@ define internal fastcc noundef i32 @e1000_config_mac_to_phy(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_config_fc_after_link_up(ptr nocapture noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -3, 1) i32 @e1000_config_fc_after_link_up(ptr nocapture noundef %0) unnamed_addr #1 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
@@ -4641,12 +4641,12 @@ define internal fastcc noundef i32 @e1000_config_fc_after_link_up(ptr nocapture 
 
 .thread8.thread:                                  ; preds = %17, %.thread8
   store i16 0, ptr %2, align 2, !annotation !7
-  %46 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2), !range !8
+  %46 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %112
 
 48:                                               ; preds = %.thread8.thread
-  %49 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2), !range !8
+  %49 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %112
 
@@ -4658,13 +4658,13 @@ define internal fastcc noundef i32 @e1000_config_fc_after_link_up(ptr nocapture 
 
 55:                                               ; preds = %51
   store i16 0, ptr %3, align 2, !annotation !7
-  %56 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %3), !range !8
+  %56 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %3)
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %112
 
 58:                                               ; preds = %55
   store i16 0, ptr %4, align 2, !annotation !7
-  %59 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %4), !range !8
+  %59 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %4)
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %112
 
@@ -4751,7 +4751,7 @@ define internal fastcc noundef i32 @e1000_config_fc_after_link_up(ptr nocapture 
 101:                                              ; preds = %99, %97, %88, %82, %75, %74
   store i16 0, ptr %5, align 2, !annotation !7
   store i16 0, ptr %6, align 2, !annotation !7
-  %102 = call i32 @e1000_get_speed_and_duplex(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6), !range !8
+  %102 = call i32 @e1000_get_speed_and_duplex(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %104, label %112
 
@@ -4766,7 +4766,7 @@ define internal fastcc noundef i32 @e1000_config_fc_after_link_up(ptr nocapture 
   br label %109
 
 109:                                              ; preds = %107, %104
-  %110 = tail call i32 @e1000_force_mac_fc(ptr noundef %0), !range !18
+  %110 = tail call i32 @e1000_force_mac_fc(ptr noundef %0), !range !35
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %.thread7, label %112
 
@@ -4784,7 +4784,7 @@ define internal fastcc noundef i32 @e1000_config_fc_after_link_up(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_get_speed_and_duplex(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @e1000_get_speed_and_duplex(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 16 {
   %4 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4825,7 +4825,7 @@ define dso_local noundef i32 @e1000_get_speed_and_duplex(ptr nocapture noundef r
 
 30:                                               ; preds = %26
   store i16 0, ptr %4, align 2, !annotation !7
-  %31 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 6, ptr noundef nonnull %4), !range !8
+  %31 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 6, ptr noundef nonnull %4)
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %51
 
@@ -4836,7 +4836,7 @@ define dso_local noundef i32 @e1000_get_speed_and_duplex(ptr nocapture noundef r
   br i1 %36, label %50, label %37
 
 37:                                               ; preds = %33
-  %38 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %4), !range !8
+  %38 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %4)
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %51
 
@@ -4873,7 +4873,7 @@ define dso_local noundef i32 @e1000_get_speed_and_duplex(ptr nocapture noundef r
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_write_phy_reg_ex(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -2, 1) i32 @e1000_write_phy_reg_ex(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 9
@@ -4973,7 +4973,7 @@ define internal fastcc noundef i32 @e1000_write_phy_reg_ex(ptr nocapture noundef
   tail call void @__const_udelay(i64 noundef 42950) #7
   %73 = lshr i32 %54, 1
   %74 = icmp ult i32 %54, 2
-  br i1 %74, label %e1000_shift_out_mdi_bits.exit, label %53, !llvm.loop !29
+  br i1 %74, label %e1000_shift_out_mdi_bits.exit, label %53, !llvm.loop !28
 
 e1000_shift_out_mdi_bits.exit:                    ; preds = %53
   %75 = shl nuw nsw i32 %1, 18
@@ -5014,7 +5014,7 @@ e1000_shift_out_mdi_bits.exit:                    ; preds = %53
   tail call void @__const_udelay(i64 noundef 42950) #7
   %103 = lshr i32 %83, 1
   %104 = icmp ult i32 %83, 2
-  br i1 %104, label %e1000_shift_out_mdi_bits.exit1, label %82, !llvm.loop !29
+  br i1 %104, label %e1000_shift_out_mdi_bits.exit1, label %82, !llvm.loop !28
 
 e1000_shift_out_mdi_bits.exit1:                   ; preds = %82, %24, %47
   br label %.loopexit
@@ -5094,7 +5094,7 @@ define dso_local noundef i32 @e1000_phy_hw_reset(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_phy_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @e1000_phy_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #7
   %3 = getelementptr inbounds i8, ptr %0, i64 28
@@ -5108,7 +5108,7 @@ define dso_local noundef i32 @e1000_phy_reset(ptr nocapture noundef readonly %0)
 
 8:                                                ; preds = %1
   store i16 0, ptr %2, align 2, !annotation !7
-  %9 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2), !range !8
+  %9 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %22
 
@@ -5166,12 +5166,12 @@ define dso_local noundef i32 @e1000_phy_get_info(ptr nocapture noundef readonly 
 
 14:                                               ; preds = %2
   store i16 0, ptr %3, align 2, !annotation !7
-  %15 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3), !range !8
+  %15 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3)
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %31
 
 17:                                               ; preds = %14
-  %18 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3), !range !8
+  %18 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %31
 
@@ -5195,7 +5195,7 @@ define dso_local noundef i32 @e1000_phy_get_info(ptr nocapture noundef readonly 
   br label %31
 
 29:                                               ; preds = %24
-  %30 = tail call fastcc i32 @e1000_phy_m88_get_info(ptr noundef %0, ptr noundef %1), !range !8
+  %30 = tail call fastcc i32 @e1000_phy_m88_get_info(ptr noundef %0, ptr noundef %1)
   br label %31
 
 31:                                               ; preds = %29, %27, %24, %24, %20, %17, %14, %2
@@ -5232,7 +5232,7 @@ define internal fastcc noundef i32 @e1000_phy_igp_get_info(ptr nocapture noundef
   ]
 
 15:                                               ; preds = %2
-  %16 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %3), !range !8
+  %16 = call i32 @e1000_read_phy_reg(ptr noundef readonly %0, i32 noundef 17, ptr noundef nonnull %3)
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %e1000_check_polarity.exit
 
@@ -5244,7 +5244,7 @@ define internal fastcc noundef i32 @e1000_phy_igp_get_info(ptr nocapture noundef
   br label %43
 
 23:                                               ; preds = %2
-  %24 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %3), !range !8
+  %24 = call i32 @e1000_read_phy_reg(ptr noundef readonly %0, i32 noundef 17, ptr noundef nonnull %3)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %e1000_check_polarity.exit
 
@@ -5256,7 +5256,7 @@ define internal fastcc noundef i32 @e1000_phy_igp_get_info(ptr nocapture noundef
   br i1 %30, label %31, label %39
 
 31:                                               ; preds = %26
-  %32 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 180, ptr noundef nonnull %3), !range !8
+  %32 = call i32 @e1000_read_phy_reg(ptr noundef readonly %0, i32 noundef 180, ptr noundef nonnull %3)
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %e1000_check_polarity.exit
 
@@ -5283,7 +5283,7 @@ e1000_check_polarity.exit:                        ; preds = %15, %23, %31
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
   %44 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %.0.ph, ptr %44, align 4
-  %45 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %4), !range !8
+  %45 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %4)
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %85
 
@@ -5298,7 +5298,7 @@ e1000_check_polarity.exit:                        ; preds = %15, %23, %31
   br i1 %53, label %54, label %85
 
 54:                                               ; preds = %47
-  %55 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %4), !range !8
+  %55 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %4)
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %85
 
@@ -5356,7 +5356,7 @@ e1000_check_polarity.exit:                        ; preds = %15, %23, %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_phy_m88_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -2, 1) i32 @e1000_phy_m88_get_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
@@ -5366,7 +5366,7 @@ define internal fastcc noundef i32 @e1000_phy_m88_get_info(ptr nocapture noundef
   %7 = zext nneg i8 %6 to i32
   %8 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 %7, ptr %8, align 4
-  %9 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %4), !range !8
+  %9 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %4)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %79
 
@@ -5392,7 +5392,7 @@ define internal fastcc noundef i32 @e1000_phy_m88_get_info(ptr nocapture noundef
   ]
 
 23:                                               ; preds = %11
-  %24 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %3), !range !8
+  %24 = call i32 @e1000_read_phy_reg(ptr noundef readonly %0, i32 noundef 17, ptr noundef nonnull %3)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %e1000_check_polarity.exit
 
@@ -5404,7 +5404,7 @@ define internal fastcc noundef i32 @e1000_phy_m88_get_info(ptr nocapture noundef
   br label %51
 
 31:                                               ; preds = %11
-  %32 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %3), !range !8
+  %32 = call i32 @e1000_read_phy_reg(ptr noundef readonly %0, i32 noundef 17, ptr noundef nonnull %3)
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %e1000_check_polarity.exit
 
@@ -5416,7 +5416,7 @@ define internal fastcc noundef i32 @e1000_phy_m88_get_info(ptr nocapture noundef
   br i1 %38, label %39, label %47
 
 39:                                               ; preds = %34
-  %40 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 180, ptr noundef nonnull %3), !range !8
+  %40 = call i32 @e1000_read_phy_reg(ptr noundef readonly %0, i32 noundef 180, ptr noundef nonnull %3)
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %e1000_check_polarity.exit
 
@@ -5442,7 +5442,7 @@ e1000_check_polarity.exit:                        ; preds = %23, %31, %39
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
   %52 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %.0.ph, ptr %52, align 4
-  %53 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %4), !range !8
+  %53 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %4)
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %79
 
@@ -5462,7 +5462,7 @@ e1000_check_polarity.exit:                        ; preds = %23, %31, %39
   %65 = lshr i32 %61, 7
   %66 = and i32 %65, 7
   store i32 %66, ptr %1, align 4
-  %67 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %4), !range !8
+  %67 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %4)
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %79
 
@@ -5487,7 +5487,7 @@ e1000_check_polarity.exit:                        ; preds = %23, %31, %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @e1000_validate_mdi_setting(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -3, 1) i32 @e1000_validate_mdi_setting(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 239
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 0
@@ -5511,7 +5511,7 @@ define dso_local noundef i32 @e1000_validate_mdi_setting(ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_init_eeprom_params(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @e1000_init_eeprom_params(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
   %2 = alloca i16, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %0, align 8
@@ -5644,7 +5644,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @e1000_validate_eeprom_checksum(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -1, 1) i32 @e1000_validate_eeprom_checksum(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #7
   store i16 0, ptr %2, align 2, !annotation !7
@@ -5676,7 +5676,7 @@ define dso_local i32 @e1000_validate_eeprom_checksum(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_update_eeprom_checksum(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @e1000_update_eeprom_checksum(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #7
@@ -5701,7 +5701,7 @@ define dso_local noundef i32 @e1000_update_eeprom_checksum(ptr nocapture noundef
 14:                                               ; preds = %9
   %15 = sub i16 -17734, %11
   store i16 %15, ptr %2, align 2
-  %16 = call i32 @e1000_write_eeprom(ptr noundef %0, i16 noundef zeroext 63, i16 noundef zeroext 1, ptr noundef nonnull %2), !range !9
+  %16 = call i32 @e1000_write_eeprom(ptr noundef %0, i16 noundef zeroext 63, i16 noundef zeroext 1, ptr noundef nonnull %2)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %14
@@ -5712,7 +5712,7 @@ define dso_local noundef i32 @e1000_update_eeprom_checksum(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_write_eeprom(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @e1000_eeprom_lock) #7
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -5893,7 +5893,7 @@ define dso_local noundef i32 @e1000_write_eeprom(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_read_mac_addr(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @e1000_read_mac_addr(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #7
   store i16 0, ptr %2, align 2, !annotation !7
@@ -5957,7 +5957,7 @@ define dso_local noundef i32 @e1000_read_mac_addr(ptr nocapture noundef %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @e1000_hash_mc_addr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 4096) i32 @e1000_hash_mc_addr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %30 [
@@ -6101,7 +6101,7 @@ define dso_local void @e1000_write_vfta(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_setup_led(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @e1000_setup_led(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %21 [
@@ -6117,7 +6117,7 @@ define dso_local noundef i32 @e1000_setup_led(ptr nocapture noundef %0) local_un
 
 4:                                                ; preds = %1, %1, %1, %1
   %5 = getelementptr inbounds i8, ptr %0, i64 208
-  %6 = tail call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 20, ptr noundef %5), !range !8
+  %6 = tail call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 20, ptr noundef %5)
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %38
 
@@ -6180,7 +6180,7 @@ define dso_local noundef i32 @e1000_setup_led(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_cleanup_led(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @e1000_cleanup_led(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %17 [
@@ -6559,7 +6559,7 @@ define dso_local void @e1000_get_bus_info(ptr nocapture noundef %0) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000_enable_mng_pass_thru(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @e1000_enable_mng_pass_thru(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 108
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -6613,12 +6613,12 @@ define internal fastcc noundef i32 @e1000_copper_link_postconfig(ptr nocapture n
   br label %18
 
 15:                                               ; preds = %1, %1, %1, %1, %1
-  %16 = tail call fastcc i32 @e1000_config_mac_to_phy(ptr noundef %0), !range !8
+  %16 = tail call fastcc i32 @e1000_config_mac_to_phy(ptr noundef %0)
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %29
 
 18:                                               ; preds = %15, %4
-  %19 = tail call fastcc i32 @e1000_config_fc_after_link_up(ptr noundef %0), !range !18
+  %19 = tail call fastcc i32 @e1000_config_fc_after_link_up(ptr noundef %0)
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %29
 
@@ -6642,7 +6642,7 @@ define internal fastcc noundef i32 @e1000_copper_link_postconfig(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_phy_reset_dsp(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -2, 1) i32 @e1000_phy_reset_dsp(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @e1000_phy_lock) #7
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
@@ -6721,7 +6721,7 @@ define internal fastcc noundef i32 @e1000_get_cable_length(ptr nocapture noundef
   ]
 
 7:                                                ; preds = %3
-  %8 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 4466, ptr noundef nonnull %4), !range !8
+  %8 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 4466, ptr noundef nonnull %4)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.preheader, label %.thread
 
@@ -6732,7 +6732,7 @@ define internal fastcc noundef i32 @e1000_get_cable_length(ptr nocapture noundef
   br i1 %12, label %.thread, label %.lr.ph
 
 13:                                               ; preds = %3
-  %14 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %4), !range !8
+  %14 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %4)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.thread
 
@@ -6764,7 +6764,7 @@ define internal fastcc noundef i32 @e1000_get_cable_length(ptr nocapture noundef
   %25 = getelementptr [4 x i16], ptr @e1000_get_cable_length.agc_reg_array, i64 0, i64 %41
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
-  %28 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef %27, ptr noundef nonnull %4), !range !8
+  %28 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef %27, ptr noundef nonnull %4)
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %._crit_edge, !llvm.loop !43
 
@@ -6841,7 +6841,7 @@ define internal fastcc noundef i32 @e1000_get_cable_length(ptr nocapture noundef
 declare dso_local void @ioread16_rep(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @e1000_acquire_eeprom(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @e1000_acquire_eeprom(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6922,7 +6922,7 @@ define internal fastcc noundef i32 @e1000_acquire_eeprom(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @e1000_spi_eeprom_ready(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -1, 1) i32 @e1000_spi_eeprom_ready(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 86
   %3 = getelementptr inbounds i8, ptr %0, i64 90
   br label %4
@@ -6965,7 +6965,7 @@ define internal fastcc i32 @e1000_spi_eeprom_ready(ptr nocapture noundef readonl
   tail call void @__udelay(i64 noundef %32) #7
   %33 = add nuw nsw i32 %12, 1
   %34 = icmp eq i32 %33, 8
-  br i1 %34, label %35, label %11, !llvm.loop !24
+  br i1 %34, label %35, label %11, !llvm.loop !23
 
 35:                                               ; preds = %11
   %36 = and i32 %24, 8
@@ -7274,7 +7274,7 @@ attributes #7 = { nounwind }
 !15 = distinct !{!15, !11, !12}
 !16 = !{i8 0, i8 2}
 !17 = !{}
-!18 = !{i32 -3, i32 1}
+!18 = distinct !{!18, !11, !12}
 !19 = distinct !{!19, !11, !12}
 !20 = distinct !{!20, !11, !12}
 !21 = distinct !{!21, !11, !12}
@@ -7291,7 +7291,7 @@ attributes #7 = { nounwind }
 !32 = distinct !{!32, !11, !12}
 !33 = distinct !{!33, !11, !12}
 !34 = distinct !{!34, !11, !12}
-!35 = distinct !{!35, !11, !12}
+!35 = !{i32 -3, i32 1}
 !36 = distinct !{!36, !11, !12}
 !37 = distinct !{!37, !11, !12}
 !38 = distinct !{!38, !11, !12}

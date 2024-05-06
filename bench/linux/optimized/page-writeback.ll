@@ -464,7 +464,7 @@ define internal void @writeout_period(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @fprop_global_init(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bdi_set_min_ratio_no_scale(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_ratio_no_scale(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp ugt i32 %1, 1000000
   br i1 %3, label %23, label %4
 
@@ -509,7 +509,7 @@ define dso_local noundef i32 @bdi_set_min_ratio_no_scale(ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bdi_set_max_ratio_no_scale(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bdi_set_max_ratio_no_scale(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp ugt i32 %1, 1000000
   br i1 %3, label %15, label %4
 
@@ -540,7 +540,7 @@ define dso_local noundef i32 @bdi_set_max_ratio_no_scale(ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bdi_set_min_ratio(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_ratio(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = mul i32 %1, 10000
   %4 = icmp ugt i32 %3, 1000000
   br i1 %4, label %24, label %5
@@ -586,7 +586,7 @@ define dso_local noundef i32 @bdi_set_min_ratio(ptr nocapture noundef %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bdi_set_max_ratio(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bdi_set_max_ratio(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
   %3 = mul i32 %1, 10000
   %4 = icmp ugt i32 %3, 1000000
   br i1 %4, label %16, label %5
@@ -618,7 +618,7 @@ define dso_local noundef i32 @bdi_set_max_ratio(ptr nocapture noundef %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bdi_get_min_bytes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 18446744073710) i64 @bdi_get_min_bytes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.dirty_throttle_control, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
@@ -649,7 +649,7 @@ define dso_local i64 @bdi_get_min_bytes(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bdi_set_min_bytes(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_bytes(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.dirty_throttle_control, align 8
   %4 = lshr i64 %1, 12
   %5 = load volatile i64, ptr @vm_zone_stat, align 16
@@ -732,7 +732,7 @@ define dso_local noundef i32 @bdi_set_min_bytes(ptr nocapture noundef %0, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @bdi_get_max_bytes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 18446744073710) i64 @bdi_get_max_bytes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.dirty_throttle_control, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
@@ -763,7 +763,7 @@ define dso_local i64 @bdi_get_max_bytes(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bdi_set_max_bytes(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bdi_set_max_bytes(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.dirty_throttle_control, align 8
   %4 = lshr i64 %1, 12
   %5 = load volatile i64, ptr @vm_zone_stat, align 16
@@ -832,7 +832,7 @@ define dso_local noundef i32 @bdi_set_max_bytes(ptr nocapture noundef %0, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bdi_set_strict_limit(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bdi_set_strict_limit(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp ugt i32 %1, 1
   br i1 %3, label %11, label %4
 
@@ -854,7 +854,7 @@ define dso_local noundef i32 @bdi_set_strict_limit(ptr nocapture noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @wb_calc_thresh(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 18446744073710) i64 @wb_calc_thresh(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 312
@@ -1189,7 +1189,7 @@ define internal fastcc void @__wb_update_bandwidth(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @balance_dirty_pages_ratelimited_flags(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local range(i32 -11, 1) i32 @balance_dirty_pages_ratelimited_flags(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @inode_to_bdi(ptr noundef %3) #10
   %5 = getelementptr inbounds i8, ptr %4, i64 68
@@ -1292,7 +1292,7 @@ declare i64 @llvm.read_register.i64(metadata) #4
 declare void @llvm.write_register.i64(metadata, i64) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @balance_dirty_pages(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %struct.dirty_throttle_control, align 8
@@ -3363,7 +3363,7 @@ define dso_local zeroext i1 @folio_mark_dirty(ptr noundef %0) #0 align 16 {
 declare dso_local ptr @folio_mapping(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_page_dirty_lock(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @set_page_dirty_lock(ptr noundef %0) #0 align 16 {
   %2 = tail call i32 @__SCT__might_resched() #10
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load volatile i64, ptr %3, align 8
@@ -3855,7 +3855,7 @@ declare dso_local void @xas_clear_mark(ptr noundef, i32 noundef) local_unnamed_a
 declare dso_local void @folio_wait_bit(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @folio_wait_writeback_killable(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -4, 1) i32 @folio_wait_writeback_killable(ptr noundef %0) #0 align 16 {
   br label %2
 
 2:                                                ; preds = %28, %1

@@ -5491,7 +5491,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @set_params(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @set_params(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !49
   %6 = icmp eq ptr %1, null
@@ -6817,7 +6817,7 @@ declare ptr @dt_conf_get_string(ptr noundef) local_unnamed_addr #4
 declare ptr @dt_control_job_create(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_print_job_run(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_print_job_run(ptr noundef %0) #1 {
   %2 = alloca [20 x ptr], align 16
   %3 = alloca %struct.dt_images_box, align 8
   %4 = alloca %struct.dt_imageio_module_format_t, align 8
@@ -7319,7 +7319,7 @@ define internal noundef nonnull ptr @mime(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @levels(ptr nocapture noundef readonly %0) #17 {
+define internal range(i32 256, 259) i32 @levels(ptr nocapture noundef readonly %0) #17 {
   %2 = getelementptr inbounds i8, ptr %0, i64 148
   %3 = load i32, ptr %2, align 4, !tbaa !219
   %4 = icmp eq i32 %3, 8

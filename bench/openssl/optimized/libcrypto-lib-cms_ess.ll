@@ -55,7 +55,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_get1_ReceiptRequest(ptr noundef %si, ptr noundef writeonly %prr) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @CMS_get1_ReceiptRequest(ptr noundef %si, ptr noundef writeonly %prr) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2obj(i32 noundef 212) #4
   %cmp.not = icmp eq ptr %prr, null
@@ -100,7 +100,7 @@ declare ptr @CMS_signed_get0_data_by_OBJ(ptr noundef, ptr noundef, i32 noundef, 
 declare ptr @ASN1_item_unpack(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cms_check_signing_certs(ptr noundef %si, ptr noundef %chain) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_check_signing_certs(ptr noundef %si, ptr noundef %chain) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @OBJ_nid2obj(i32 noundef 223) #4
   %call1.i = tail call ptr @CMS_signed_get0_data_by_OBJ(ptr noundef %si, ptr noundef %call.i, i32 noundef -3, i32 noundef 16) #4
@@ -244,7 +244,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_add1_ReceiptRequest(ptr noundef %si, ptr noundef %rr) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_add1_ReceiptRequest(ptr noundef %si, ptr noundef %rr) local_unnamed_addr #0 {
 entry:
   %rrder = alloca ptr, align 8
   store ptr null, ptr %rrder, align 8
@@ -346,11 +346,11 @@ if.end21:                                         ; preds = %if.then20, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cms_msgSigDigest_add1(ptr noundef %dest, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_msgSigDigest_add1(ptr noundef %dest, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
   %dig = alloca [64 x i8], align 16
   %diglen = alloca i32, align 4
-  %call = call fastcc i32 @cms_msgSigDigest(ptr noundef %src, ptr noundef nonnull %dig, ptr noundef nonnull %diglen), !range !4
+  %call = call fastcc i32 @cms_msgSigDigest(ptr noundef %src, ptr noundef nonnull %dig, ptr noundef nonnull %diglen)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return.sink.split, label %if.end
 
@@ -374,7 +374,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cms_msgSigDigest(ptr nocapture noundef readonly %si, ptr noundef %dig, ptr noundef %diglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_msgSigDigest(ptr nocapture noundef readonly %si, ptr noundef %dig, ptr noundef %diglen) unnamed_addr #0 {
 entry:
   %digestAlgorithm = getelementptr inbounds i8, ptr %si, i64 16
   %0 = load ptr, ptr %digestAlgorithm, align 8
@@ -405,7 +405,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cms_Receipt_verify(ptr noundef %cms, ptr noundef %req_cms) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_Receipt_verify(ptr noundef %cms, ptr noundef %req_cms) local_unnamed_addr #0 {
 entry:
   %rr = alloca ptr, align 8
   %dig = alloca [64 x i8], align 16
@@ -492,7 +492,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.026, 1
   %call24 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #4
   %cmp25 = icmp slt i32 %inc, %call24
-  br i1 %cmp25, label %for.body, label %for.end, !llvm.loop !5
+  br i1 %cmp25, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %for.body, %for.cond.preheader
   %i.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %i.026, %for.body ], [ %inc, %for.inc ]
@@ -521,7 +521,7 @@ if.then42:                                        ; preds = %if.end36
   br label %err
 
 if.end43:                                         ; preds = %if.end36
-  %call44 = call fastcc i32 @cms_msgSigDigest(ptr noundef %osi.1, ptr noundef nonnull %dig, ptr noundef nonnull %diglen), !range !4
+  %call44 = call fastcc i32 @cms_msgSigDigest(ptr noundef %osi.1, ptr noundef nonnull %dig, ptr noundef nonnull %diglen)
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %if.then46, label %if.end47
 
@@ -583,7 +583,7 @@ if.then63:                                        ; preds = %if.end60
   br label %err
 
 if.end64:                                         ; preds = %if.end60
-  %call65 = call i32 @CMS_get1_ReceiptRequest(ptr noundef %osi.1, ptr noundef nonnull %rr), !range !7
+  %call65 = call i32 @CMS_get1_ReceiptRequest(ptr noundef %osi.1, ptr noundef nonnull %rr)
   %cmp66 = icmp slt i32 %call65, 1
   br i1 %cmp66, label %if.then68, label %if.end69
 
@@ -726,7 +726,5 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

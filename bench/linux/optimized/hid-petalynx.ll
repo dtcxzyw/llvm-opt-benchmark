@@ -135,7 +135,7 @@ define internal noundef ptr @pl_report_fixup(ptr noundef %0, ptr noundef returne
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pl_input_mapping(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @pl_input_mapping(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #2 align 16 {
   %7 = load i32, ptr %3, align 4
   %8 = and i32 %7, -65536
   switch i32 %8, label %125 [

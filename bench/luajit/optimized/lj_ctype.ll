@@ -210,7 +210,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @lj_ctype_getname(ptr nocapture noundef readonly %cts, ptr nocapture noundef writeonly %ctp, ptr noundef %name, i32 noundef %tmask) local_unnamed_addr #4 {
+define hidden range(i32 0, 65536) i32 @lj_ctype_getname(ptr nocapture noundef readonly %cts, ptr nocapture noundef writeonly %ctp, ptr noundef %name, i32 noundef %tmask) local_unnamed_addr #4 {
 entry:
   %hash = getelementptr inbounds i8, ptr %cts, i64 216
   %0 = ptrtoint ptr %name to i64

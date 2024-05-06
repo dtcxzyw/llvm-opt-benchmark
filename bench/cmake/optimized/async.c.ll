@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @uv__async_send.val = internal constant i64 1, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_async_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_async_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 456
   %5 = getelementptr inbounds i8, ptr %0, i64 504
   %6 = load i32, ptr %5, align 8
@@ -221,7 +221,7 @@ uv__async_spin.exit:                              ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__async_fork(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv__async_fork(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 504
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, -1

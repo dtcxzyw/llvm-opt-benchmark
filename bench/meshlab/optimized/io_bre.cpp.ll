@@ -1712,7 +1712,7 @@ _ZNK3vcg3tri2io9BreHeader11TransformedEv.exit:    ; preds = %117, %117
 
 126:                                              ; preds = %_ZNK3vcg3tri2io9BreHeader11TransformedEv.exit
   %scevgep15.i = getelementptr i8, ptr %121, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(64) %scevgep15.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(64) %scevgep15.i, i64 64, i1 false)
   invoke void @_ZN3vcg7InverseIfEENS_8Matrix44IT_EERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %13, ptr noundef nonnull align 4 dereferenceable(64) %14)
           to label %127 unwind label %129
 

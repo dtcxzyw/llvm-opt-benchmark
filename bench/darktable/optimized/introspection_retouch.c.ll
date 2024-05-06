@@ -271,7 +271,7 @@ define noundef i32 @operation_tags_filter() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
   switch i32 %2, label %81 [
     i32 1, label %7
     i32 2, label %76
@@ -2872,7 +2872,7 @@ declare void @gtk_widget_set_tooltip_text(ptr noundef, ptr noundef) local_unname
 declare ptr @dt_iop_togglebutton_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rt_edit_masks_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @rt_edit_masks_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !73
@@ -3050,7 +3050,7 @@ define internal noundef i32 @rt_edit_masks_callback(ptr nocapture readnone %0, p
 declare void @dtgtk_cairo_paint_masks_eye(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rt_add_shape_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @rt_add_shape_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !73
@@ -3587,7 +3587,7 @@ declare void @dtgtk_cairo_paint_masks_ellipse(ptr noundef, i32 noundef, i32 noun
 declare void @dtgtk_cairo_paint_masks_circle(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rt_select_algorithm_callback(ptr noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @rt_select_algorithm_callback(ptr noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !73
@@ -4578,7 +4578,7 @@ define internal noundef i32 @rt_wdbar_button_release(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rt_wdbar_scrolled(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @rt_wdbar_scrolled(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @dt_gui_ignore_scroll(ptr noundef %1) #28
   %6 = icmp eq i32 %5, 0
@@ -5242,7 +5242,7 @@ define internal void @rt_gslider_changed(ptr noundef %0, ptr noundef %1) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rt_auto_levels_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @rt_auto_levels_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !72
   %5 = getelementptr inbounds i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !73
@@ -6765,7 +6765,7 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 270:                                              ; preds = %267
   %271 = load i32, ptr %244, align 64, !tbaa !243
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #28
-  call fastcc void @dt_ioppr_apply_trc(ptr noundef %266, ptr noundef nonnull %7, ptr noundef nonnull %242, ptr noundef nonnull %243, i32 noundef %271)
+  call fastcc void @dt_ioppr_apply_trc(ptr noundef readonly %266, ptr noundef nonnull %7, ptr noundef nonnull readonly %242, ptr noundef nonnull readonly %243, i32 noundef %271)
   %272 = load <4 x float>, ptr %7, align 16
   %273 = load <4 x float>, ptr %241, align 4, !tbaa !16
   %274 = shufflevector <4 x float> %272, <4 x float> poison, <4 x i32> zeroinitializer
@@ -8257,7 +8257,7 @@ dt_ioppr_rgb_matrix_to_lab.exit.us:               ; preds = %98, %95
   %137 = phi float [ %170, %dt_ioppr_rgb_matrix_to_lab.exit ], [ 0x47EFFFFFE0000000, %63 ]
   %138 = getelementptr inbounds float, ptr %1, i64 %133
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #28
-  call fastcc void @dt_ioppr_apply_trc(ptr noundef %138, ptr noundef nonnull %6, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %66)
+  call fastcc void @dt_ioppr_apply_trc(ptr noundef readonly %138, ptr noundef nonnull %6, ptr noundef nonnull readonly %13, ptr noundef nonnull readonly %14, i32 noundef %66)
   %139 = load <4 x float>, ptr %6, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #28
   %140 = extractelement <4 x float> %139, i64 1
@@ -8529,7 +8529,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #19 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !261
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

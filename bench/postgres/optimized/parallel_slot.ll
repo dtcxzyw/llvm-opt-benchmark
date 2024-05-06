@@ -67,7 +67,7 @@ define dso_local ptr @ParallelSlotsGetIdle(ptr noundef %0, ptr noundef %1) local
 
 25:                                               ; preds = %22
   %26 = call ptr @PQdb(ptr noundef nonnull %23) #9
-  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %1) #10
+  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %1) #10
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %find_matching_idle_slot.exit, label %._crit_edge28.i
 
@@ -127,7 +127,7 @@ find_matching_idle_slot.exit.thread:              ; preds = %29, %16, %find_matc
   br i1 %exitcond.not.i, label %.lr.ph.i36.preheader, label %40, !llvm.loop !7
 
 find_unconnected_slot.exit:                       ; preds = %45
-  %49 = trunc i64 %indvars.iv.i34 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv.i34 to i32
   %50 = icmp sgt i32 %49, -1
   br i1 %50, label %51, label %.lr.ph.i36.preheader
 
@@ -155,7 +155,7 @@ find_unconnected_slot.exit:                       ; preds = %45
   br i1 %exitcond.not.i40, label %find_any_idle_slot.exit.thread, label %.lr.ph.i36, !llvm.loop !8
 
 find_any_idle_slot.exit:                          ; preds = %.lr.ph.i36
-  %59 = trunc i64 %indvars.iv.i38 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv.i38 to i32
   %60 = icmp sgt i32 %59, -1
   br i1 %60, label %61, label %find_any_idle_slot.exit.thread
 
@@ -332,7 +332,7 @@ processQueryResult.exit.i:                        ; preds = %127
 134:                                              ; preds = %124
   %135 = getelementptr inbounds i8, ptr %103, i64 8
   store i8 0, ptr %135, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %processQueryResult.exit.i, %134, %119
@@ -580,7 +580,7 @@ consumeQueryResult.exit:                          ; preds = %processQueryResult.
   %25 = getelementptr inbounds i8, ptr %7, i64 8
   store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %7, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %.pre = load i32, ptr %0, align 8
   br label %27
 

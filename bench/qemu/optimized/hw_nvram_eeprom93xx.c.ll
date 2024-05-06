@@ -222,7 +222,7 @@ if.then161:                                       ; preds = %if.then148
   %rem.zext = zext i16 %rem87 to i32
   %sub165 = add nsw i32 %conv133, -2
   %shr166 = lshr i32 %rem.zext, %sub165
-  %trunc = trunc i32 %shr166 to i16
+  %trunc = trunc nuw i32 %shr166 to i16
   switch i16 %trunc, label %if.end216 [
     i16 0, label %sw.bb
     i16 3, label %sw.bb170
@@ -258,7 +258,7 @@ if.then187:                                       ; preds = %if.else179
   %data193 = getelementptr inbounds i8, ptr %eeprom, i64 10
   %20 = load i16, ptr %data193, align 2
   %.lobit = lshr i16 %20, 15
-  %conv198 = trunc i16 %.lobit to i8
+  %conv198 = trunc nuw nsw i16 %.lobit to i8
   %eedo.1 = select i1 %cmp190, i8 %conv198, i8 %1
   %data200 = getelementptr inbounds i8, ptr %eeprom, i64 10
   %shl202 = shl i16 %20, 1
@@ -286,7 +286,7 @@ if.end216:                                        ; preds = %for.body70, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i16 @eeprom93xx_read(ptr nocapture noundef readonly %eeprom) local_unnamed_addr #1 {
+define dso_local zeroext range(i16 0, 256) i16 @eeprom93xx_read(ptr nocapture noundef readonly %eeprom) local_unnamed_addr #1 {
 entry:
   %eedo = getelementptr inbounds i8, ptr %eeprom, i64 6
   %0 = load i8, ptr %eedo, align 2

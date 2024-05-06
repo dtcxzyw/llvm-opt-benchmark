@@ -340,13 +340,13 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define zeroext i1 @Z3_algebraic_is_pos(ptr noundef %c, ptr noundef %a) local_unnamed_addr #3 {
 entry:
-  %call = tail call i32 @Z3_algebraic_sign(ptr noundef %c, ptr noundef %a), !range !4
+  %call = tail call i32 @Z3_algebraic_sign(ptr noundef %c, ptr noundef %a)
   %cmp = icmp sgt i32 %call, 0
   ret i1 %cmp
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @Z3_algebraic_sign(ptr noundef %c, ptr noundef %a) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 2) i32 @Z3_algebraic_sign(ptr noundef %c, ptr noundef %a) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %is_int.i.i = alloca i8, align 1
   %v = alloca %class.rational, align 8
@@ -435,29 +435,29 @@ invoke.cont14:                                    ; preds = %land.rhs.i.i.i.i24
   br i1 %13, label %if.then16, label %if.else26
 
 if.then16:                                        ; preds = %invoke.cont14
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  store i32 0, ptr %v, align 8, !alias.scope !5
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
+  store i32 0, ptr %v, align 8, !alias.scope !4
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %v, i64 4
-  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !5
+  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !4
   %bf.clear3.i.i.i.i = and i8 %bf.load.i.i.i.i, -4
-  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !5
+  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !4
   %m_ptr.i.i.i.i = getelementptr inbounds i8, ptr %v, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !5
+  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !4
   %m_den.i.i.i = getelementptr inbounds i8, ptr %v, i64 16
-  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !5
+  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !4
   %m_kind.i1.i.i.i = getelementptr inbounds i8, ptr %v, i64 20
-  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !5
+  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !4
   %bf.clear3.i3.i.i.i = and i8 %bf.load.i2.i.i.i, -4
-  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !5
+  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !4
   %m_ptr.i4.i.i.i = getelementptr inbounds i8, ptr %v, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !5
+  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !4
   %m_arith_util.i.i.i = getelementptr inbounds i8, ptr %c, i64 296
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !5
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !4
   %call.i1.i = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i, ptr noundef nonnull %a, ptr noundef nonnull align 8 dereferenceable(32) %v, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.then16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !4
   br i1 %call.i1.i, label %invoke.cont19, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont2.i
@@ -609,7 +609,7 @@ terminate.lpad:                                   ; preds = %lpad43
 ; Function Attrs: mustprogress uwtable
 define zeroext i1 @Z3_algebraic_is_neg(ptr noundef %c, ptr noundef %a) local_unnamed_addr #3 {
 entry:
-  %call = tail call i32 @Z3_algebraic_sign(ptr noundef %c, ptr noundef %a), !range !4
+  %call = tail call i32 @Z3_algebraic_sign(ptr noundef %c, ptr noundef %a)
   %cmp = icmp slt i32 %call, 0
   ret i1 %cmp
 }
@@ -617,7 +617,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define zeroext i1 @Z3_algebraic_is_zero(ptr noundef %c, ptr noundef %a) local_unnamed_addr #3 {
 entry:
-  %call = tail call i32 @Z3_algebraic_sign(ptr noundef %c, ptr noundef %a), !range !4
+  %call = tail call i32 @Z3_algebraic_sign(ptr noundef %c, ptr noundef %a)
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -820,29 +820,29 @@ invoke.cont37:                                    ; preds = %land.rhs.i.i.i.i85
   br i1 %22, label %if.then39, label %if.else80
 
 if.then39:                                        ; preds = %invoke.cont37
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  store i32 0, ptr %av, align 8, !alias.scope !8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
+  store i32 0, ptr %av, align 8, !alias.scope !7
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %av, i64 4
-  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !8
+  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !7
   %bf.clear3.i.i.i.i = and i8 %bf.load.i.i.i.i, -4
-  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !8
+  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !7
   %m_ptr.i.i.i.i = getelementptr inbounds i8, ptr %av, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !8
+  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !7
   %m_den.i.i.i = getelementptr inbounds i8, ptr %av, i64 16
-  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !8
+  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !7
   %m_kind.i1.i.i.i = getelementptr inbounds i8, ptr %av, i64 20
-  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !8
+  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !7
   %bf.clear3.i3.i.i.i = and i8 %bf.load.i2.i.i.i, -4
-  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !8
+  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !7
   %m_ptr.i4.i.i.i = getelementptr inbounds i8, ptr %av, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !8
+  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !7
   %m_arith_util.i.i.i92 = getelementptr inbounds i8, ptr %c, i64 296
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !7
   %call.i1.i = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i92, ptr noundef nonnull %a, ptr noundef nonnull align 8 dereferenceable(32) %av, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.then39
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !8
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !7
   br i1 %call.i1.i, label %invoke.cont40, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont2.i
@@ -884,28 +884,28 @@ invoke.cont42:                                    ; preds = %land.rhs.i.i.i.i98
   br i1 %28, label %if.then44, label %if.else
 
 if.then44:                                        ; preds = %invoke.cont42
-  call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  store i32 0, ptr %bv, align 8, !alias.scope !11
+  call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  store i32 0, ptr %bv, align 8, !alias.scope !10
   %m_kind.i.i.i.i108 = getelementptr inbounds i8, ptr %bv, i64 4
-  %bf.load.i.i.i.i109 = load i8, ptr %m_kind.i.i.i.i108, align 4, !alias.scope !11
+  %bf.load.i.i.i.i109 = load i8, ptr %m_kind.i.i.i.i108, align 4, !alias.scope !10
   %bf.clear3.i.i.i.i110 = and i8 %bf.load.i.i.i.i109, -4
-  store i8 %bf.clear3.i.i.i.i110, ptr %m_kind.i.i.i.i108, align 4, !alias.scope !11
+  store i8 %bf.clear3.i.i.i.i110, ptr %m_kind.i.i.i.i108, align 4, !alias.scope !10
   %m_ptr.i.i.i.i111 = getelementptr inbounds i8, ptr %bv, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i111, align 8, !alias.scope !11
+  store ptr null, ptr %m_ptr.i.i.i.i111, align 8, !alias.scope !10
   %m_den.i.i.i112 = getelementptr inbounds i8, ptr %bv, i64 16
-  store i32 1, ptr %m_den.i.i.i112, align 8, !alias.scope !11
+  store i32 1, ptr %m_den.i.i.i112, align 8, !alias.scope !10
   %m_kind.i1.i.i.i113 = getelementptr inbounds i8, ptr %bv, i64 20
-  %bf.load.i2.i.i.i114 = load i8, ptr %m_kind.i1.i.i.i113, align 4, !alias.scope !11
+  %bf.load.i2.i.i.i114 = load i8, ptr %m_kind.i1.i.i.i113, align 4, !alias.scope !10
   %bf.clear3.i3.i.i.i115 = and i8 %bf.load.i2.i.i.i114, -4
-  store i8 %bf.clear3.i3.i.i.i115, ptr %m_kind.i1.i.i.i113, align 4, !alias.scope !11
+  store i8 %bf.clear3.i3.i.i.i115, ptr %m_kind.i1.i.i.i113, align 4, !alias.scope !10
   %m_ptr.i4.i.i.i116 = getelementptr inbounds i8, ptr %bv, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i116, align 8, !alias.scope !11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i107), !noalias !11
+  store ptr null, ptr %m_ptr.i4.i.i.i116, align 8, !alias.scope !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i107), !noalias !10
   %call.i1.i118 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i92, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(32) %bv, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i107)
           to label %invoke.cont2.i120 unwind label %lpad.i119
 
 invoke.cont2.i120:                                ; preds = %if.then44
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i107), !noalias !11
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i107), !noalias !10
   br i1 %call.i1.i118, label %invoke.cont45, label %if.then.i121
 
 if.then.i121:                                     ; preds = %invoke.cont2.i120
@@ -1131,28 +1131,28 @@ invoke.cont84:                                    ; preds = %land.rhs.i.i.i.i163
   br i1 %58, label %if.then86, label %if.else114
 
 if.then86:                                        ; preds = %invoke.cont84
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  store i32 0, ptr %bv87, align 8, !alias.scope !14
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  store i32 0, ptr %bv87, align 8, !alias.scope !13
   %m_kind.i.i.i.i173 = getelementptr inbounds i8, ptr %bv87, i64 4
-  %bf.load.i.i.i.i174 = load i8, ptr %m_kind.i.i.i.i173, align 4, !alias.scope !14
+  %bf.load.i.i.i.i174 = load i8, ptr %m_kind.i.i.i.i173, align 4, !alias.scope !13
   %bf.clear3.i.i.i.i175 = and i8 %bf.load.i.i.i.i174, -4
-  store i8 %bf.clear3.i.i.i.i175, ptr %m_kind.i.i.i.i173, align 4, !alias.scope !14
+  store i8 %bf.clear3.i.i.i.i175, ptr %m_kind.i.i.i.i173, align 4, !alias.scope !13
   %m_ptr.i.i.i.i176 = getelementptr inbounds i8, ptr %bv87, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i176, align 8, !alias.scope !14
+  store ptr null, ptr %m_ptr.i.i.i.i176, align 8, !alias.scope !13
   %m_den.i.i.i177 = getelementptr inbounds i8, ptr %bv87, i64 16
-  store i32 1, ptr %m_den.i.i.i177, align 8, !alias.scope !14
+  store i32 1, ptr %m_den.i.i.i177, align 8, !alias.scope !13
   %m_kind.i1.i.i.i178 = getelementptr inbounds i8, ptr %bv87, i64 20
-  %bf.load.i2.i.i.i179 = load i8, ptr %m_kind.i1.i.i.i178, align 4, !alias.scope !14
+  %bf.load.i2.i.i.i179 = load i8, ptr %m_kind.i1.i.i.i178, align 4, !alias.scope !13
   %bf.clear3.i3.i.i.i180 = and i8 %bf.load.i2.i.i.i179, -4
-  store i8 %bf.clear3.i3.i.i.i180, ptr %m_kind.i1.i.i.i178, align 4, !alias.scope !14
+  store i8 %bf.clear3.i3.i.i.i180, ptr %m_kind.i1.i.i.i178, align 4, !alias.scope !13
   %m_ptr.i4.i.i.i181 = getelementptr inbounds i8, ptr %bv87, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i181, align 8, !alias.scope !14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i172), !noalias !14
+  store ptr null, ptr %m_ptr.i4.i.i.i181, align 8, !alias.scope !13
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i172), !noalias !13
   %call.i1.i183 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i155, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(32) %bv87, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i172)
           to label %invoke.cont2.i185 unwind label %lpad.i184
 
 invoke.cont2.i185:                                ; preds = %if.then86
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i172), !noalias !14
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i172), !noalias !13
   br i1 %call.i1.i183, label %invoke.cont90, label %if.then.i186
 
 if.then.i186:                                     ; preds = %invoke.cont2.i185
@@ -1701,29 +1701,29 @@ invoke.cont37:                                    ; preds = %land.rhs.i.i.i.i85
   br i1 %22, label %if.then39, label %if.else80
 
 if.then39:                                        ; preds = %invoke.cont37
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  store i32 0, ptr %av, align 8, !alias.scope !17
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  store i32 0, ptr %av, align 8, !alias.scope !16
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %av, i64 4
-  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !17
+  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !16
   %bf.clear3.i.i.i.i = and i8 %bf.load.i.i.i.i, -4
-  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !17
+  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !16
   %m_ptr.i.i.i.i = getelementptr inbounds i8, ptr %av, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !17
+  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !16
   %m_den.i.i.i = getelementptr inbounds i8, ptr %av, i64 16
-  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !17
+  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !16
   %m_kind.i1.i.i.i = getelementptr inbounds i8, ptr %av, i64 20
-  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !17
+  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !16
   %bf.clear3.i3.i.i.i = and i8 %bf.load.i2.i.i.i, -4
-  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !17
+  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !16
   %m_ptr.i4.i.i.i = getelementptr inbounds i8, ptr %av, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !17
+  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !16
   %m_arith_util.i.i.i92 = getelementptr inbounds i8, ptr %c, i64 296
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !16
   %call.i1.i = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i92, ptr noundef nonnull %a, ptr noundef nonnull align 8 dereferenceable(32) %av, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.then39
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !17
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !16
   br i1 %call.i1.i, label %invoke.cont40, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont2.i
@@ -1765,28 +1765,28 @@ invoke.cont42:                                    ; preds = %land.rhs.i.i.i.i98
   br i1 %28, label %if.then44, label %if.else
 
 if.then44:                                        ; preds = %invoke.cont42
-  call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  store i32 0, ptr %bv, align 8, !alias.scope !20
+  call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  store i32 0, ptr %bv, align 8, !alias.scope !19
   %m_kind.i.i.i.i108 = getelementptr inbounds i8, ptr %bv, i64 4
-  %bf.load.i.i.i.i109 = load i8, ptr %m_kind.i.i.i.i108, align 4, !alias.scope !20
+  %bf.load.i.i.i.i109 = load i8, ptr %m_kind.i.i.i.i108, align 4, !alias.scope !19
   %bf.clear3.i.i.i.i110 = and i8 %bf.load.i.i.i.i109, -4
-  store i8 %bf.clear3.i.i.i.i110, ptr %m_kind.i.i.i.i108, align 4, !alias.scope !20
+  store i8 %bf.clear3.i.i.i.i110, ptr %m_kind.i.i.i.i108, align 4, !alias.scope !19
   %m_ptr.i.i.i.i111 = getelementptr inbounds i8, ptr %bv, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i111, align 8, !alias.scope !20
+  store ptr null, ptr %m_ptr.i.i.i.i111, align 8, !alias.scope !19
   %m_den.i.i.i112 = getelementptr inbounds i8, ptr %bv, i64 16
-  store i32 1, ptr %m_den.i.i.i112, align 8, !alias.scope !20
+  store i32 1, ptr %m_den.i.i.i112, align 8, !alias.scope !19
   %m_kind.i1.i.i.i113 = getelementptr inbounds i8, ptr %bv, i64 20
-  %bf.load.i2.i.i.i114 = load i8, ptr %m_kind.i1.i.i.i113, align 4, !alias.scope !20
+  %bf.load.i2.i.i.i114 = load i8, ptr %m_kind.i1.i.i.i113, align 4, !alias.scope !19
   %bf.clear3.i3.i.i.i115 = and i8 %bf.load.i2.i.i.i114, -4
-  store i8 %bf.clear3.i3.i.i.i115, ptr %m_kind.i1.i.i.i113, align 4, !alias.scope !20
+  store i8 %bf.clear3.i3.i.i.i115, ptr %m_kind.i1.i.i.i113, align 4, !alias.scope !19
   %m_ptr.i4.i.i.i116 = getelementptr inbounds i8, ptr %bv, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i116, align 8, !alias.scope !20
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i107), !noalias !20
+  store ptr null, ptr %m_ptr.i4.i.i.i116, align 8, !alias.scope !19
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i107), !noalias !19
   %call.i1.i118 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i92, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(32) %bv, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i107)
           to label %invoke.cont2.i120 unwind label %lpad.i119
 
 invoke.cont2.i120:                                ; preds = %if.then44
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i107), !noalias !20
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i107), !noalias !19
   br i1 %call.i1.i118, label %invoke.cont45, label %if.then.i121
 
 if.then.i121:                                     ; preds = %invoke.cont2.i120
@@ -2012,28 +2012,28 @@ invoke.cont84:                                    ; preds = %land.rhs.i.i.i.i163
   br i1 %58, label %if.then86, label %if.else114
 
 if.then86:                                        ; preds = %invoke.cont84
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  store i32 0, ptr %bv87, align 8, !alias.scope !23
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  store i32 0, ptr %bv87, align 8, !alias.scope !22
   %m_kind.i.i.i.i173 = getelementptr inbounds i8, ptr %bv87, i64 4
-  %bf.load.i.i.i.i174 = load i8, ptr %m_kind.i.i.i.i173, align 4, !alias.scope !23
+  %bf.load.i.i.i.i174 = load i8, ptr %m_kind.i.i.i.i173, align 4, !alias.scope !22
   %bf.clear3.i.i.i.i175 = and i8 %bf.load.i.i.i.i174, -4
-  store i8 %bf.clear3.i.i.i.i175, ptr %m_kind.i.i.i.i173, align 4, !alias.scope !23
+  store i8 %bf.clear3.i.i.i.i175, ptr %m_kind.i.i.i.i173, align 4, !alias.scope !22
   %m_ptr.i.i.i.i176 = getelementptr inbounds i8, ptr %bv87, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i176, align 8, !alias.scope !23
+  store ptr null, ptr %m_ptr.i.i.i.i176, align 8, !alias.scope !22
   %m_den.i.i.i177 = getelementptr inbounds i8, ptr %bv87, i64 16
-  store i32 1, ptr %m_den.i.i.i177, align 8, !alias.scope !23
+  store i32 1, ptr %m_den.i.i.i177, align 8, !alias.scope !22
   %m_kind.i1.i.i.i178 = getelementptr inbounds i8, ptr %bv87, i64 20
-  %bf.load.i2.i.i.i179 = load i8, ptr %m_kind.i1.i.i.i178, align 4, !alias.scope !23
+  %bf.load.i2.i.i.i179 = load i8, ptr %m_kind.i1.i.i.i178, align 4, !alias.scope !22
   %bf.clear3.i3.i.i.i180 = and i8 %bf.load.i2.i.i.i179, -4
-  store i8 %bf.clear3.i3.i.i.i180, ptr %m_kind.i1.i.i.i178, align 4, !alias.scope !23
+  store i8 %bf.clear3.i3.i.i.i180, ptr %m_kind.i1.i.i.i178, align 4, !alias.scope !22
   %m_ptr.i4.i.i.i181 = getelementptr inbounds i8, ptr %bv87, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i181, align 8, !alias.scope !23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i172), !noalias !23
+  store ptr null, ptr %m_ptr.i4.i.i.i181, align 8, !alias.scope !22
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i172), !noalias !22
   %call.i1.i183 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i155, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(32) %bv87, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i172)
           to label %invoke.cont2.i185 unwind label %lpad.i184
 
 invoke.cont2.i185:                                ; preds = %if.then86
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i172), !noalias !23
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i172), !noalias !22
   br i1 %call.i1.i183, label %invoke.cont90, label %if.then.i186
 
 if.then.i186:                                     ; preds = %invoke.cont2.i185
@@ -2591,29 +2591,29 @@ invoke.cont37:                                    ; preds = %land.rhs.i.i.i.i85
   br i1 %22, label %if.then39, label %if.else80
 
 if.then39:                                        ; preds = %invoke.cont37
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  store i32 0, ptr %av, align 8, !alias.scope !26
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  store i32 0, ptr %av, align 8, !alias.scope !25
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %av, i64 4
-  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !26
+  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !25
   %bf.clear3.i.i.i.i = and i8 %bf.load.i.i.i.i, -4
-  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !26
+  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !25
   %m_ptr.i.i.i.i = getelementptr inbounds i8, ptr %av, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !26
+  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !25
   %m_den.i.i.i = getelementptr inbounds i8, ptr %av, i64 16
-  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !26
+  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !25
   %m_kind.i1.i.i.i = getelementptr inbounds i8, ptr %av, i64 20
-  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !26
+  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !25
   %bf.clear3.i3.i.i.i = and i8 %bf.load.i2.i.i.i, -4
-  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !26
+  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !25
   %m_ptr.i4.i.i.i = getelementptr inbounds i8, ptr %av, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !26
+  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !25
   %m_arith_util.i.i.i92 = getelementptr inbounds i8, ptr %c, i64 296
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !26
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !25
   %call.i1.i = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i92, ptr noundef nonnull %a, ptr noundef nonnull align 8 dereferenceable(32) %av, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.then39
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !26
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !25
   br i1 %call.i1.i, label %invoke.cont40, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont2.i
@@ -2655,28 +2655,28 @@ invoke.cont42:                                    ; preds = %land.rhs.i.i.i.i98
   br i1 %28, label %if.then44, label %if.else
 
 if.then44:                                        ; preds = %invoke.cont42
-  call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  store i32 0, ptr %bv, align 8, !alias.scope !29
+  call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  store i32 0, ptr %bv, align 8, !alias.scope !28
   %m_kind.i.i.i.i108 = getelementptr inbounds i8, ptr %bv, i64 4
-  %bf.load.i.i.i.i109 = load i8, ptr %m_kind.i.i.i.i108, align 4, !alias.scope !29
+  %bf.load.i.i.i.i109 = load i8, ptr %m_kind.i.i.i.i108, align 4, !alias.scope !28
   %bf.clear3.i.i.i.i110 = and i8 %bf.load.i.i.i.i109, -4
-  store i8 %bf.clear3.i.i.i.i110, ptr %m_kind.i.i.i.i108, align 4, !alias.scope !29
+  store i8 %bf.clear3.i.i.i.i110, ptr %m_kind.i.i.i.i108, align 4, !alias.scope !28
   %m_ptr.i.i.i.i111 = getelementptr inbounds i8, ptr %bv, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i111, align 8, !alias.scope !29
+  store ptr null, ptr %m_ptr.i.i.i.i111, align 8, !alias.scope !28
   %m_den.i.i.i112 = getelementptr inbounds i8, ptr %bv, i64 16
-  store i32 1, ptr %m_den.i.i.i112, align 8, !alias.scope !29
+  store i32 1, ptr %m_den.i.i.i112, align 8, !alias.scope !28
   %m_kind.i1.i.i.i113 = getelementptr inbounds i8, ptr %bv, i64 20
-  %bf.load.i2.i.i.i114 = load i8, ptr %m_kind.i1.i.i.i113, align 4, !alias.scope !29
+  %bf.load.i2.i.i.i114 = load i8, ptr %m_kind.i1.i.i.i113, align 4, !alias.scope !28
   %bf.clear3.i3.i.i.i115 = and i8 %bf.load.i2.i.i.i114, -4
-  store i8 %bf.clear3.i3.i.i.i115, ptr %m_kind.i1.i.i.i113, align 4, !alias.scope !29
+  store i8 %bf.clear3.i3.i.i.i115, ptr %m_kind.i1.i.i.i113, align 4, !alias.scope !28
   %m_ptr.i4.i.i.i116 = getelementptr inbounds i8, ptr %bv, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i116, align 8, !alias.scope !29
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i107), !noalias !29
+  store ptr null, ptr %m_ptr.i4.i.i.i116, align 8, !alias.scope !28
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i107), !noalias !28
   %call.i1.i118 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i92, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(32) %bv, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i107)
           to label %invoke.cont2.i120 unwind label %lpad.i119
 
 invoke.cont2.i120:                                ; preds = %if.then44
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i107), !noalias !29
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i107), !noalias !28
   br i1 %call.i1.i118, label %invoke.cont45, label %if.then.i121
 
 if.then.i121:                                     ; preds = %invoke.cont2.i120
@@ -2902,28 +2902,28 @@ invoke.cont84:                                    ; preds = %land.rhs.i.i.i.i163
   br i1 %58, label %if.then86, label %if.else114
 
 if.then86:                                        ; preds = %invoke.cont84
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  store i32 0, ptr %bv87, align 8, !alias.scope !32
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  store i32 0, ptr %bv87, align 8, !alias.scope !31
   %m_kind.i.i.i.i173 = getelementptr inbounds i8, ptr %bv87, i64 4
-  %bf.load.i.i.i.i174 = load i8, ptr %m_kind.i.i.i.i173, align 4, !alias.scope !32
+  %bf.load.i.i.i.i174 = load i8, ptr %m_kind.i.i.i.i173, align 4, !alias.scope !31
   %bf.clear3.i.i.i.i175 = and i8 %bf.load.i.i.i.i174, -4
-  store i8 %bf.clear3.i.i.i.i175, ptr %m_kind.i.i.i.i173, align 4, !alias.scope !32
+  store i8 %bf.clear3.i.i.i.i175, ptr %m_kind.i.i.i.i173, align 4, !alias.scope !31
   %m_ptr.i.i.i.i176 = getelementptr inbounds i8, ptr %bv87, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i176, align 8, !alias.scope !32
+  store ptr null, ptr %m_ptr.i.i.i.i176, align 8, !alias.scope !31
   %m_den.i.i.i177 = getelementptr inbounds i8, ptr %bv87, i64 16
-  store i32 1, ptr %m_den.i.i.i177, align 8, !alias.scope !32
+  store i32 1, ptr %m_den.i.i.i177, align 8, !alias.scope !31
   %m_kind.i1.i.i.i178 = getelementptr inbounds i8, ptr %bv87, i64 20
-  %bf.load.i2.i.i.i179 = load i8, ptr %m_kind.i1.i.i.i178, align 4, !alias.scope !32
+  %bf.load.i2.i.i.i179 = load i8, ptr %m_kind.i1.i.i.i178, align 4, !alias.scope !31
   %bf.clear3.i3.i.i.i180 = and i8 %bf.load.i2.i.i.i179, -4
-  store i8 %bf.clear3.i3.i.i.i180, ptr %m_kind.i1.i.i.i178, align 4, !alias.scope !32
+  store i8 %bf.clear3.i3.i.i.i180, ptr %m_kind.i1.i.i.i178, align 4, !alias.scope !31
   %m_ptr.i4.i.i.i181 = getelementptr inbounds i8, ptr %bv87, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i181, align 8, !alias.scope !32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i172), !noalias !32
+  store ptr null, ptr %m_ptr.i4.i.i.i181, align 8, !alias.scope !31
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i172), !noalias !31
   %call.i1.i183 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i155, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(32) %bv87, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i172)
           to label %invoke.cont2.i185 unwind label %lpad.i184
 
 invoke.cont2.i185:                                ; preds = %if.then86
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i172), !noalias !32
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i172), !noalias !31
   br i1 %call.i1.i183, label %invoke.cont90, label %if.then.i186
 
 if.then.i186:                                     ; preds = %invoke.cont2.i185
@@ -3463,29 +3463,29 @@ invoke.cont35:                                    ; preds = %land.rhs.i.i.i.i94
   br i1 %20, label %land.lhs.true, label %lor.rhs
 
 land.lhs.true:                                    ; preds = %invoke.cont35
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  store i32 0, ptr %ref.tmp, align 8, !alias.scope !35
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  store i32 0, ptr %ref.tmp, align 8, !alias.scope !34
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
-  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !35
+  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !34
   %bf.clear3.i.i.i.i = and i8 %bf.load.i.i.i.i, -4
-  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !35
+  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !34
   %m_ptr.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !35
+  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !34
   %m_den.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !35
+  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !34
   %m_kind.i1.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
-  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !35
+  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !34
   %bf.clear3.i3.i.i.i = and i8 %bf.load.i2.i.i.i, -4
-  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !35
+  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !34
   %m_ptr.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !35
+  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !34
   %m_arith_util.i.i.i = getelementptr inbounds i8, ptr %c, i64 296
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !35
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !34
   %call.i1.i = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %land.lhs.true
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !35
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !34
   br i1 %call.i1.i, label %invoke.cont39, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont2.i
@@ -3656,29 +3656,29 @@ invoke.cont68:                                    ; preds = %land.rhs.i.i.i.i135
   br i1 %44, label %if.then70, label %if.else112
 
 if.then70:                                        ; preds = %invoke.cont68
-  call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  store i32 0, ptr %av, align 8, !alias.scope !38
+  call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  store i32 0, ptr %av, align 8, !alias.scope !37
   %m_kind.i.i.i.i145 = getelementptr inbounds i8, ptr %av, i64 4
-  %bf.load.i.i.i.i146 = load i8, ptr %m_kind.i.i.i.i145, align 4, !alias.scope !38
+  %bf.load.i.i.i.i146 = load i8, ptr %m_kind.i.i.i.i145, align 4, !alias.scope !37
   %bf.clear3.i.i.i.i147 = and i8 %bf.load.i.i.i.i146, -4
-  store i8 %bf.clear3.i.i.i.i147, ptr %m_kind.i.i.i.i145, align 4, !alias.scope !38
+  store i8 %bf.clear3.i.i.i.i147, ptr %m_kind.i.i.i.i145, align 4, !alias.scope !37
   %m_ptr.i.i.i.i148 = getelementptr inbounds i8, ptr %av, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i148, align 8, !alias.scope !38
+  store ptr null, ptr %m_ptr.i.i.i.i148, align 8, !alias.scope !37
   %m_den.i.i.i149 = getelementptr inbounds i8, ptr %av, i64 16
-  store i32 1, ptr %m_den.i.i.i149, align 8, !alias.scope !38
+  store i32 1, ptr %m_den.i.i.i149, align 8, !alias.scope !37
   %m_kind.i1.i.i.i150 = getelementptr inbounds i8, ptr %av, i64 20
-  %bf.load.i2.i.i.i151 = load i8, ptr %m_kind.i1.i.i.i150, align 4, !alias.scope !38
+  %bf.load.i2.i.i.i151 = load i8, ptr %m_kind.i1.i.i.i150, align 4, !alias.scope !37
   %bf.clear3.i3.i.i.i152 = and i8 %bf.load.i2.i.i.i151, -4
-  store i8 %bf.clear3.i3.i.i.i152, ptr %m_kind.i1.i.i.i150, align 4, !alias.scope !38
+  store i8 %bf.clear3.i3.i.i.i152, ptr %m_kind.i1.i.i.i150, align 4, !alias.scope !37
   %m_ptr.i4.i.i.i153 = getelementptr inbounds i8, ptr %av, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i153, align 8, !alias.scope !38
+  store ptr null, ptr %m_ptr.i4.i.i.i153, align 8, !alias.scope !37
   %m_arith_util.i.i.i154 = getelementptr inbounds i8, ptr %c, i64 296
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i144), !noalias !38
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i144), !noalias !37
   %call.i1.i155 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i154, ptr noundef nonnull %a, ptr noundef nonnull align 8 dereferenceable(32) %av, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i144)
           to label %invoke.cont2.i157 unwind label %lpad.i156
 
 invoke.cont2.i157:                                ; preds = %if.then70
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i144), !noalias !38
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i144), !noalias !37
   br i1 %call.i1.i155, label %invoke.cont71, label %if.then.i158
 
 if.then.i158:                                     ; preds = %invoke.cont2.i157
@@ -3720,28 +3720,28 @@ invoke.cont73:                                    ; preds = %land.rhs.i.i.i.i168
   br i1 %50, label %if.then75, label %if.else
 
 if.then75:                                        ; preds = %invoke.cont73
-  call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  store i32 0, ptr %bv, align 8, !alias.scope !41
+  call void @llvm.experimental.noalias.scope.decl(metadata !40)
+  store i32 0, ptr %bv, align 8, !alias.scope !40
   %m_kind.i.i.i.i178 = getelementptr inbounds i8, ptr %bv, i64 4
-  %bf.load.i.i.i.i179 = load i8, ptr %m_kind.i.i.i.i178, align 4, !alias.scope !41
+  %bf.load.i.i.i.i179 = load i8, ptr %m_kind.i.i.i.i178, align 4, !alias.scope !40
   %bf.clear3.i.i.i.i180 = and i8 %bf.load.i.i.i.i179, -4
-  store i8 %bf.clear3.i.i.i.i180, ptr %m_kind.i.i.i.i178, align 4, !alias.scope !41
+  store i8 %bf.clear3.i.i.i.i180, ptr %m_kind.i.i.i.i178, align 4, !alias.scope !40
   %m_ptr.i.i.i.i181 = getelementptr inbounds i8, ptr %bv, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i181, align 8, !alias.scope !41
+  store ptr null, ptr %m_ptr.i.i.i.i181, align 8, !alias.scope !40
   %m_den.i.i.i182 = getelementptr inbounds i8, ptr %bv, i64 16
-  store i32 1, ptr %m_den.i.i.i182, align 8, !alias.scope !41
+  store i32 1, ptr %m_den.i.i.i182, align 8, !alias.scope !40
   %m_kind.i1.i.i.i183 = getelementptr inbounds i8, ptr %bv, i64 20
-  %bf.load.i2.i.i.i184 = load i8, ptr %m_kind.i1.i.i.i183, align 4, !alias.scope !41
+  %bf.load.i2.i.i.i184 = load i8, ptr %m_kind.i1.i.i.i183, align 4, !alias.scope !40
   %bf.clear3.i3.i.i.i185 = and i8 %bf.load.i2.i.i.i184, -4
-  store i8 %bf.clear3.i3.i.i.i185, ptr %m_kind.i1.i.i.i183, align 4, !alias.scope !41
+  store i8 %bf.clear3.i3.i.i.i185, ptr %m_kind.i1.i.i.i183, align 4, !alias.scope !40
   %m_ptr.i4.i.i.i186 = getelementptr inbounds i8, ptr %bv, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i186, align 8, !alias.scope !41
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i177), !noalias !41
+  store ptr null, ptr %m_ptr.i4.i.i.i186, align 8, !alias.scope !40
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i177), !noalias !40
   %call.i1.i188 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i154, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(32) %bv, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i177)
           to label %invoke.cont2.i190 unwind label %lpad.i189
 
 invoke.cont2.i190:                                ; preds = %if.then75
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i177), !noalias !41
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i177), !noalias !40
   br i1 %call.i1.i188, label %invoke.cont76, label %if.then.i191
 
 if.then.i191:                                     ; preds = %invoke.cont2.i190
@@ -3967,28 +3967,28 @@ invoke.cont116:                                   ; preds = %land.rhs.i.i.i.i238
   br i1 %80, label %if.then118, label %if.else146
 
 if.then118:                                       ; preds = %invoke.cont116
-  call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  store i32 0, ptr %bv119, align 8, !alias.scope !44
+  call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  store i32 0, ptr %bv119, align 8, !alias.scope !43
   %m_kind.i.i.i.i248 = getelementptr inbounds i8, ptr %bv119, i64 4
-  %bf.load.i.i.i.i249 = load i8, ptr %m_kind.i.i.i.i248, align 4, !alias.scope !44
+  %bf.load.i.i.i.i249 = load i8, ptr %m_kind.i.i.i.i248, align 4, !alias.scope !43
   %bf.clear3.i.i.i.i250 = and i8 %bf.load.i.i.i.i249, -4
-  store i8 %bf.clear3.i.i.i.i250, ptr %m_kind.i.i.i.i248, align 4, !alias.scope !44
+  store i8 %bf.clear3.i.i.i.i250, ptr %m_kind.i.i.i.i248, align 4, !alias.scope !43
   %m_ptr.i.i.i.i251 = getelementptr inbounds i8, ptr %bv119, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i251, align 8, !alias.scope !44
+  store ptr null, ptr %m_ptr.i.i.i.i251, align 8, !alias.scope !43
   %m_den.i.i.i252 = getelementptr inbounds i8, ptr %bv119, i64 16
-  store i32 1, ptr %m_den.i.i.i252, align 8, !alias.scope !44
+  store i32 1, ptr %m_den.i.i.i252, align 8, !alias.scope !43
   %m_kind.i1.i.i.i253 = getelementptr inbounds i8, ptr %bv119, i64 20
-  %bf.load.i2.i.i.i254 = load i8, ptr %m_kind.i1.i.i.i253, align 4, !alias.scope !44
+  %bf.load.i2.i.i.i254 = load i8, ptr %m_kind.i1.i.i.i253, align 4, !alias.scope !43
   %bf.clear3.i3.i.i.i255 = and i8 %bf.load.i2.i.i.i254, -4
-  store i8 %bf.clear3.i3.i.i.i255, ptr %m_kind.i1.i.i.i253, align 4, !alias.scope !44
+  store i8 %bf.clear3.i3.i.i.i255, ptr %m_kind.i1.i.i.i253, align 4, !alias.scope !43
   %m_ptr.i4.i.i.i256 = getelementptr inbounds i8, ptr %bv119, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i256, align 8, !alias.scope !44
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i247), !noalias !44
+  store ptr null, ptr %m_ptr.i4.i.i.i256, align 8, !alias.scope !43
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i247), !noalias !43
   %call.i1.i258 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i230, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(32) %bv119, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i247)
           to label %invoke.cont2.i260 unwind label %lpad.i259
 
 invoke.cont2.i260:                                ; preds = %if.then118
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i247), !noalias !44
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i247), !noalias !43
   br i1 %call.i1.i258, label %invoke.cont122, label %if.then.i261
 
 if.then.i261:                                     ; preds = %invoke.cont2.i260
@@ -4445,29 +4445,29 @@ invoke.cont20:                                    ; preds = %land.rhs.i.i.i.i48
   br i1 %13, label %land.lhs.true, label %lor.rhs
 
 land.lhs.true:                                    ; preds = %invoke.cont20
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  store i32 0, ptr %ref.tmp, align 8, !alias.scope !47
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  store i32 0, ptr %ref.tmp, align 8, !alias.scope !46
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
-  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !47
+  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !46
   %bf.clear3.i.i.i.i = and i8 %bf.load.i.i.i.i, -4
-  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !47
+  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !46
   %m_ptr.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !47
+  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !46
   %m_den.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !47
+  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !46
   %m_kind.i1.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
-  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !47
+  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !46
   %bf.clear3.i3.i.i.i = and i8 %bf.load.i2.i.i.i, -4
-  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !47
+  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !46
   %m_ptr.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !47
+  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !46
   %m_arith_util.i.i.i = getelementptr inbounds i8, ptr %c, i64 296
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !47
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !46
   %call.i1.i = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i, ptr noundef nonnull %a, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %land.lhs.true
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !47
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !46
   br i1 %call.i1.i, label %invoke.cont24, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont2.i
@@ -4644,29 +4644,29 @@ invoke.cont59:                                    ; preds = %invoke.cont56
   store ptr %call2.i.i82, ptr %av, align 8
   %m_num.i98 = getelementptr inbounds i8, ptr %av, i64 8
   store ptr null, ptr %m_num.i98, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  store i32 0, ptr %ref.tmp63, align 8, !alias.scope !50
+  call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  store i32 0, ptr %ref.tmp63, align 8, !alias.scope !49
   %m_kind.i.i.i.i101 = getelementptr inbounds i8, ptr %ref.tmp63, i64 4
-  %bf.load.i.i.i.i102 = load i8, ptr %m_kind.i.i.i.i101, align 4, !alias.scope !50
+  %bf.load.i.i.i.i102 = load i8, ptr %m_kind.i.i.i.i101, align 4, !alias.scope !49
   %bf.clear3.i.i.i.i103 = and i8 %bf.load.i.i.i.i102, -4
-  store i8 %bf.clear3.i.i.i.i103, ptr %m_kind.i.i.i.i101, align 4, !alias.scope !50
+  store i8 %bf.clear3.i.i.i.i103, ptr %m_kind.i.i.i.i101, align 4, !alias.scope !49
   %m_ptr.i.i.i.i104 = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i104, align 8, !alias.scope !50
+  store ptr null, ptr %m_ptr.i.i.i.i104, align 8, !alias.scope !49
   %m_den.i.i.i105 = getelementptr inbounds i8, ptr %ref.tmp63, i64 16
-  store i32 1, ptr %m_den.i.i.i105, align 8, !alias.scope !50
+  store i32 1, ptr %m_den.i.i.i105, align 8, !alias.scope !49
   %m_kind.i1.i.i.i106 = getelementptr inbounds i8, ptr %ref.tmp63, i64 20
-  %bf.load.i2.i.i.i107 = load i8, ptr %m_kind.i1.i.i.i106, align 4, !alias.scope !50
+  %bf.load.i2.i.i.i107 = load i8, ptr %m_kind.i1.i.i.i106, align 4, !alias.scope !49
   %bf.clear3.i3.i.i.i108 = and i8 %bf.load.i2.i.i.i107, -4
-  store i8 %bf.clear3.i3.i.i.i108, ptr %m_kind.i1.i.i.i106, align 4, !alias.scope !50
+  store i8 %bf.clear3.i3.i.i.i108, ptr %m_kind.i1.i.i.i106, align 4, !alias.scope !49
   %m_ptr.i4.i.i.i109 = getelementptr inbounds i8, ptr %ref.tmp63, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i109, align 8, !alias.scope !50
+  store ptr null, ptr %m_ptr.i4.i.i.i109, align 8, !alias.scope !49
   %m_arith_util.i.i.i110 = getelementptr inbounds i8, ptr %c, i64 296
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i100), !noalias !50
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i100), !noalias !49
   %call.i1.i111 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i110, ptr noundef nonnull %a, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i100)
           to label %invoke.cont2.i113 unwind label %lpad.i112
 
 invoke.cont2.i113:                                ; preds = %invoke.cont59
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i100), !noalias !50
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i100), !noalias !49
   br i1 %call.i1.i111, label %invoke.cont64, label %if.then.i114
 
 if.then.i114:                                     ; preds = %invoke.cont2.i113
@@ -4979,29 +4979,29 @@ invoke.cont26:                                    ; preds = %invoke.cont23
   store ptr %call2.i.i31, ptr %av, align 8
   %m_num.i44 = getelementptr inbounds i8, ptr %av, i64 8
   store ptr null, ptr %m_num.i44, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  store i32 0, ptr %ref.tmp, align 8, !alias.scope !53
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
+  store i32 0, ptr %ref.tmp, align 8, !alias.scope !52
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
-  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !53
+  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !52
   %bf.clear3.i.i.i.i = and i8 %bf.load.i.i.i.i, -4
-  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !53
+  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !52
   %m_ptr.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !53
+  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !52
   %m_den.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !53
+  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !52
   %m_kind.i1.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
-  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !53
+  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !52
   %bf.clear3.i3.i.i.i = and i8 %bf.load.i2.i.i.i, -4
-  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !53
+  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !52
   %m_ptr.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !53
+  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !52
   %m_arith_util.i.i.i46 = getelementptr inbounds i8, ptr %c, i64 296
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !53
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !52
   %call.i1.i = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i46, ptr noundef nonnull %a, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !53
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !52
   br i1 %call.i1.i, label %invoke.cont30, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont2.i
@@ -5342,29 +5342,29 @@ invoke.cont23:                                    ; preds = %land.rhs.i.i.i.i65
   br i1 %22, label %if.then25, label %if.else51
 
 if.then25:                                        ; preds = %invoke.cont23
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  store i32 0, ptr %av, align 8, !alias.scope !56
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  store i32 0, ptr %av, align 8, !alias.scope !55
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %av, i64 4
-  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !56
+  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !55
   %bf.clear3.i.i.i.i = and i8 %bf.load.i.i.i.i, -4
-  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !56
+  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !55
   %m_ptr.i.i.i.i = getelementptr inbounds i8, ptr %av, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !56
+  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !55
   %m_den.i.i.i = getelementptr inbounds i8, ptr %av, i64 16
-  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !56
+  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !55
   %m_kind.i1.i.i.i = getelementptr inbounds i8, ptr %av, i64 20
-  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !56
+  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !55
   %bf.clear3.i3.i.i.i = and i8 %bf.load.i2.i.i.i, -4
-  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !56
+  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !55
   %m_ptr.i4.i.i.i = getelementptr inbounds i8, ptr %av, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !56
+  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !55
   %m_arith_util.i.i.i72 = getelementptr inbounds i8, ptr %c, i64 296
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !56
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !55
   %call.i1.i = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i72, ptr noundef nonnull %a, ptr noundef nonnull align 8 dereferenceable(32) %av, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.then25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !56
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !55
   br i1 %call.i1.i, label %invoke.cont26, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont2.i
@@ -5406,28 +5406,28 @@ invoke.cont28:                                    ; preds = %land.rhs.i.i.i.i78
   br i1 %28, label %if.then30, label %if.else
 
 if.then30:                                        ; preds = %invoke.cont28
-  call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  store i32 0, ptr %bv, align 8, !alias.scope !59
+  call void @llvm.experimental.noalias.scope.decl(metadata !58)
+  store i32 0, ptr %bv, align 8, !alias.scope !58
   %m_kind.i.i.i.i88 = getelementptr inbounds i8, ptr %bv, i64 4
-  %bf.load.i.i.i.i89 = load i8, ptr %m_kind.i.i.i.i88, align 4, !alias.scope !59
+  %bf.load.i.i.i.i89 = load i8, ptr %m_kind.i.i.i.i88, align 4, !alias.scope !58
   %bf.clear3.i.i.i.i90 = and i8 %bf.load.i.i.i.i89, -4
-  store i8 %bf.clear3.i.i.i.i90, ptr %m_kind.i.i.i.i88, align 4, !alias.scope !59
+  store i8 %bf.clear3.i.i.i.i90, ptr %m_kind.i.i.i.i88, align 4, !alias.scope !58
   %m_ptr.i.i.i.i91 = getelementptr inbounds i8, ptr %bv, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i91, align 8, !alias.scope !59
+  store ptr null, ptr %m_ptr.i.i.i.i91, align 8, !alias.scope !58
   %m_den.i.i.i92 = getelementptr inbounds i8, ptr %bv, i64 16
-  store i32 1, ptr %m_den.i.i.i92, align 8, !alias.scope !59
+  store i32 1, ptr %m_den.i.i.i92, align 8, !alias.scope !58
   %m_kind.i1.i.i.i93 = getelementptr inbounds i8, ptr %bv, i64 20
-  %bf.load.i2.i.i.i94 = load i8, ptr %m_kind.i1.i.i.i93, align 4, !alias.scope !59
+  %bf.load.i2.i.i.i94 = load i8, ptr %m_kind.i1.i.i.i93, align 4, !alias.scope !58
   %bf.clear3.i3.i.i.i95 = and i8 %bf.load.i2.i.i.i94, -4
-  store i8 %bf.clear3.i3.i.i.i95, ptr %m_kind.i1.i.i.i93, align 4, !alias.scope !59
+  store i8 %bf.clear3.i3.i.i.i95, ptr %m_kind.i1.i.i.i93, align 4, !alias.scope !58
   %m_ptr.i4.i.i.i96 = getelementptr inbounds i8, ptr %bv, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i96, align 8, !alias.scope !59
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i87), !noalias !59
+  store ptr null, ptr %m_ptr.i4.i.i.i96, align 8, !alias.scope !58
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i87), !noalias !58
   %call.i1.i98 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i72, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(32) %bv, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i87)
           to label %invoke.cont2.i100 unwind label %lpad.i99
 
 invoke.cont2.i100:                                ; preds = %if.then30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i87), !noalias !59
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i87), !noalias !58
   br i1 %call.i1.i98, label %invoke.cont31, label %if.then.i101
 
 if.then.i101:                                     ; preds = %invoke.cont2.i100
@@ -5609,28 +5609,28 @@ invoke.cont55:                                    ; preds = %land.rhs.i.i.i.i130
   br i1 %53, label %if.then57, label %if.else75
 
 if.then57:                                        ; preds = %invoke.cont55
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  store i32 0, ptr %bv58, align 8, !alias.scope !62
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
+  store i32 0, ptr %bv58, align 8, !alias.scope !61
   %m_kind.i.i.i.i140 = getelementptr inbounds i8, ptr %bv58, i64 4
-  %bf.load.i.i.i.i141 = load i8, ptr %m_kind.i.i.i.i140, align 4, !alias.scope !62
+  %bf.load.i.i.i.i141 = load i8, ptr %m_kind.i.i.i.i140, align 4, !alias.scope !61
   %bf.clear3.i.i.i.i142 = and i8 %bf.load.i.i.i.i141, -4
-  store i8 %bf.clear3.i.i.i.i142, ptr %m_kind.i.i.i.i140, align 4, !alias.scope !62
+  store i8 %bf.clear3.i.i.i.i142, ptr %m_kind.i.i.i.i140, align 4, !alias.scope !61
   %m_ptr.i.i.i.i143 = getelementptr inbounds i8, ptr %bv58, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i143, align 8, !alias.scope !62
+  store ptr null, ptr %m_ptr.i.i.i.i143, align 8, !alias.scope !61
   %m_den.i.i.i144 = getelementptr inbounds i8, ptr %bv58, i64 16
-  store i32 1, ptr %m_den.i.i.i144, align 8, !alias.scope !62
+  store i32 1, ptr %m_den.i.i.i144, align 8, !alias.scope !61
   %m_kind.i1.i.i.i145 = getelementptr inbounds i8, ptr %bv58, i64 20
-  %bf.load.i2.i.i.i146 = load i8, ptr %m_kind.i1.i.i.i145, align 4, !alias.scope !62
+  %bf.load.i2.i.i.i146 = load i8, ptr %m_kind.i1.i.i.i145, align 4, !alias.scope !61
   %bf.clear3.i3.i.i.i147 = and i8 %bf.load.i2.i.i.i146, -4
-  store i8 %bf.clear3.i3.i.i.i147, ptr %m_kind.i1.i.i.i145, align 4, !alias.scope !62
+  store i8 %bf.clear3.i3.i.i.i147, ptr %m_kind.i1.i.i.i145, align 4, !alias.scope !61
   %m_ptr.i4.i.i.i148 = getelementptr inbounds i8, ptr %bv58, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i148, align 8, !alias.scope !62
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i139), !noalias !62
+  store ptr null, ptr %m_ptr.i4.i.i.i148, align 8, !alias.scope !61
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i139), !noalias !61
   %call.i1.i150 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i122, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(32) %bv58, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i139)
           to label %invoke.cont2.i152 unwind label %lpad.i151
 
 invoke.cont2.i152:                                ; preds = %if.then57
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i139), !noalias !62
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i139), !noalias !61
   br i1 %call.i1.i150, label %invoke.cont61, label %if.then.i153
 
 if.then.i153:                                     ; preds = %invoke.cont2.i152
@@ -5933,29 +5933,29 @@ invoke.cont23:                                    ; preds = %land.rhs.i.i.i.i65
   br i1 %22, label %if.then25, label %if.else51
 
 if.then25:                                        ; preds = %invoke.cont23
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  store i32 0, ptr %av, align 8, !alias.scope !65
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
+  store i32 0, ptr %av, align 8, !alias.scope !64
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %av, i64 4
-  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !65
+  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !64
   %bf.clear3.i.i.i.i = and i8 %bf.load.i.i.i.i, -4
-  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !65
+  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !64
   %m_ptr.i.i.i.i = getelementptr inbounds i8, ptr %av, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !65
+  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !64
   %m_den.i.i.i = getelementptr inbounds i8, ptr %av, i64 16
-  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !65
+  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !64
   %m_kind.i1.i.i.i = getelementptr inbounds i8, ptr %av, i64 20
-  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !65
+  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !64
   %bf.clear3.i3.i.i.i = and i8 %bf.load.i2.i.i.i, -4
-  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !65
+  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !64
   %m_ptr.i4.i.i.i = getelementptr inbounds i8, ptr %av, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !65
+  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !64
   %m_arith_util.i.i.i72 = getelementptr inbounds i8, ptr %c, i64 296
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !65
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !64
   %call.i1.i = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i72, ptr noundef nonnull %a, ptr noundef nonnull align 8 dereferenceable(32) %av, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %if.then25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !65
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !64
   br i1 %call.i1.i, label %invoke.cont26, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont2.i
@@ -5997,28 +5997,28 @@ invoke.cont28:                                    ; preds = %land.rhs.i.i.i.i78
   br i1 %28, label %if.then30, label %if.else
 
 if.then30:                                        ; preds = %invoke.cont28
-  call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  store i32 0, ptr %bv, align 8, !alias.scope !68
+  call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  store i32 0, ptr %bv, align 8, !alias.scope !67
   %m_kind.i.i.i.i88 = getelementptr inbounds i8, ptr %bv, i64 4
-  %bf.load.i.i.i.i89 = load i8, ptr %m_kind.i.i.i.i88, align 4, !alias.scope !68
+  %bf.load.i.i.i.i89 = load i8, ptr %m_kind.i.i.i.i88, align 4, !alias.scope !67
   %bf.clear3.i.i.i.i90 = and i8 %bf.load.i.i.i.i89, -4
-  store i8 %bf.clear3.i.i.i.i90, ptr %m_kind.i.i.i.i88, align 4, !alias.scope !68
+  store i8 %bf.clear3.i.i.i.i90, ptr %m_kind.i.i.i.i88, align 4, !alias.scope !67
   %m_ptr.i.i.i.i91 = getelementptr inbounds i8, ptr %bv, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i91, align 8, !alias.scope !68
+  store ptr null, ptr %m_ptr.i.i.i.i91, align 8, !alias.scope !67
   %m_den.i.i.i92 = getelementptr inbounds i8, ptr %bv, i64 16
-  store i32 1, ptr %m_den.i.i.i92, align 8, !alias.scope !68
+  store i32 1, ptr %m_den.i.i.i92, align 8, !alias.scope !67
   %m_kind.i1.i.i.i93 = getelementptr inbounds i8, ptr %bv, i64 20
-  %bf.load.i2.i.i.i94 = load i8, ptr %m_kind.i1.i.i.i93, align 4, !alias.scope !68
+  %bf.load.i2.i.i.i94 = load i8, ptr %m_kind.i1.i.i.i93, align 4, !alias.scope !67
   %bf.clear3.i3.i.i.i95 = and i8 %bf.load.i2.i.i.i94, -4
-  store i8 %bf.clear3.i3.i.i.i95, ptr %m_kind.i1.i.i.i93, align 4, !alias.scope !68
+  store i8 %bf.clear3.i3.i.i.i95, ptr %m_kind.i1.i.i.i93, align 4, !alias.scope !67
   %m_ptr.i4.i.i.i96 = getelementptr inbounds i8, ptr %bv, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i96, align 8, !alias.scope !68
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i87), !noalias !68
+  store ptr null, ptr %m_ptr.i4.i.i.i96, align 8, !alias.scope !67
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i87), !noalias !67
   %call.i1.i98 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i72, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(32) %bv, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i87)
           to label %invoke.cont2.i100 unwind label %lpad.i99
 
 invoke.cont2.i100:                                ; preds = %if.then30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i87), !noalias !68
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i87), !noalias !67
   br i1 %call.i1.i98, label %invoke.cont31, label %if.then.i101
 
 if.then.i101:                                     ; preds = %invoke.cont2.i100
@@ -6204,28 +6204,28 @@ invoke.cont55:                                    ; preds = %land.rhs.i.i.i.i130
   br i1 %52, label %if.then57, label %if.else75
 
 if.then57:                                        ; preds = %invoke.cont55
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  store i32 0, ptr %bv58, align 8, !alias.scope !71
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
+  store i32 0, ptr %bv58, align 8, !alias.scope !70
   %m_kind.i.i.i.i140 = getelementptr inbounds i8, ptr %bv58, i64 4
-  %bf.load.i.i.i.i141 = load i8, ptr %m_kind.i.i.i.i140, align 4, !alias.scope !71
+  %bf.load.i.i.i.i141 = load i8, ptr %m_kind.i.i.i.i140, align 4, !alias.scope !70
   %bf.clear3.i.i.i.i142 = and i8 %bf.load.i.i.i.i141, -4
-  store i8 %bf.clear3.i.i.i.i142, ptr %m_kind.i.i.i.i140, align 4, !alias.scope !71
+  store i8 %bf.clear3.i.i.i.i142, ptr %m_kind.i.i.i.i140, align 4, !alias.scope !70
   %m_ptr.i.i.i.i143 = getelementptr inbounds i8, ptr %bv58, i64 8
-  store ptr null, ptr %m_ptr.i.i.i.i143, align 8, !alias.scope !71
+  store ptr null, ptr %m_ptr.i.i.i.i143, align 8, !alias.scope !70
   %m_den.i.i.i144 = getelementptr inbounds i8, ptr %bv58, i64 16
-  store i32 1, ptr %m_den.i.i.i144, align 8, !alias.scope !71
+  store i32 1, ptr %m_den.i.i.i144, align 8, !alias.scope !70
   %m_kind.i1.i.i.i145 = getelementptr inbounds i8, ptr %bv58, i64 20
-  %bf.load.i2.i.i.i146 = load i8, ptr %m_kind.i1.i.i.i145, align 4, !alias.scope !71
+  %bf.load.i2.i.i.i146 = load i8, ptr %m_kind.i1.i.i.i145, align 4, !alias.scope !70
   %bf.clear3.i3.i.i.i147 = and i8 %bf.load.i2.i.i.i146, -4
-  store i8 %bf.clear3.i3.i.i.i147, ptr %m_kind.i1.i.i.i145, align 4, !alias.scope !71
+  store i8 %bf.clear3.i3.i.i.i147, ptr %m_kind.i1.i.i.i145, align 4, !alias.scope !70
   %m_ptr.i4.i.i.i148 = getelementptr inbounds i8, ptr %bv58, i64 24
-  store ptr null, ptr %m_ptr.i4.i.i.i148, align 8, !alias.scope !71
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i139), !noalias !71
+  store ptr null, ptr %m_ptr.i4.i.i.i148, align 8, !alias.scope !70
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i139), !noalias !70
   %call.i1.i150 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i122, ptr noundef nonnull %b, ptr noundef nonnull align 8 dereferenceable(32) %bv58, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i139)
           to label %invoke.cont2.i152 unwind label %lpad.i151
 
 invoke.cont2.i152:                                ; preds = %if.then57
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i139), !noalias !71
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i139), !noalias !70
   br i1 %call.i1.i150, label %invoke.cont61, label %if.then.i153
 
 if.then.i153:                                     ; preds = %invoke.cont2.i152
@@ -6653,7 +6653,7 @@ for.inc:                                          ; preds = %.noexc58, %lor.lhs.
   %inc.i.i = add i32 %30, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %for.cond, !llvm.loop !74
+  br label %for.cond, !llvm.loop !73
 
 lpad46.loopexit:                                  ; preds = %if.then.i.i, %_ZNK10arith_util6pluginEv.exit.i, %if.then.i.i56
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -6733,7 +6733,7 @@ for.body.i.i:                                     ; preds = %.noexc.i, %for.body
 .noexc.i:                                         ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !76
+  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !75
 
 for.end.i.i:                                      ; preds = %.noexc.i
   %.pre.i.i61 = load ptr, ptr %roots, align 8
@@ -6794,7 +6794,7 @@ for.body.i.i72:                                   ; preds = %.noexc.i76, %for.bo
 .noexc.i76:                                       ; preds = %for.body.i.i72
   %indvars.iv.next.i.i77 = add nuw nsw i64 %indvars.iv.i.i73, 1
   %exitcond.not.i.i78 = icmp eq i64 %indvars.iv.next.i.i77, %wide.trip.count.i.i71
-  br i1 %exitcond.not.i.i78, label %for.end.i.i79, label %for.body.i.i72, !llvm.loop !76
+  br i1 %exitcond.not.i.i78, label %for.end.i.i79, label %for.body.i.i72, !llvm.loop !75
 
 for.end.i.i79:                                    ; preds = %.noexc.i76
   %.pre.i.i80 = load ptr, ptr %as, align 8
@@ -7011,23 +7011,23 @@ invoke.cont:                                      ; preds = %land.rhs.i.i.i.i
   br i1 %8, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  call void @llvm.experimental.noalias.scope.decl(metadata !77)
-  store i32 0, ptr %ref.tmp, align 8, !alias.scope !77
-  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !77
+  call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  store i32 0, ptr %ref.tmp, align 8, !alias.scope !76
+  %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4, !alias.scope !76
   %bf.clear3.i.i.i.i = and i8 %bf.load.i.i.i.i, -4
-  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !77
-  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !77
-  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !77
-  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !77
+  store i8 %bf.clear3.i.i.i.i, ptr %m_kind.i.i.i.i, align 4, !alias.scope !76
+  store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !76
+  store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !76
+  %bf.load.i2.i.i.i = load i8, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !76
   %bf.clear3.i3.i.i.i = and i8 %bf.load.i2.i.i.i, -4
-  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !77
-  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !77
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !77
+  store i8 %bf.clear3.i3.i.i.i, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !76
+  store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !76
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !76
   %call.i1.i = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_arith_util.i.i.i17, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i.i)
           to label %invoke.cont2.i unwind label %lpad.i.loopexit
 
 invoke.cont2.i:                                   ; preds = %if.then
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !77
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_int.i.i), !noalias !76
   br i1 %call.i1.i, label %invoke.cont6, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont2.i
@@ -7209,7 +7209,7 @@ for.inc:                                          ; preds = %_ZN6vectorIN17algeb
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp uge i64 %indvars.iv.next, %2
   %exitcond = icmp eq i64 %indvars.iv.next, %2
-  br i1 %exitcond, label %cleanup.loopexit, label %for.body, !llvm.loop !80
+  br i1 %exitcond, label %cleanup.loopexit, label %for.body, !llvm.loop !79
 
 cleanup.loopexit:                                 ; preds = %for.inc, %invoke.cont15
   %cmp.lcssa.ph = phi i1 [ %cmp57, %invoke.cont15 ], [ %cmp, %for.inc ]
@@ -7315,7 +7315,7 @@ for.body.i:                                       ; preds = %.noexc, %for.body.l
 .noexc:                                           ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !76
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !75
 
 for.end.i:                                        ; preds = %.noexc
   %.pre.i = load ptr, ptr %this, align 8
@@ -7400,7 +7400,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @Z3_algebraic_eval(ptr noundef %c, ptr noundef %p, i32 noundef %n, ptr noundef %a) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 2) i32 @Z3_algebraic_eval(ptr noundef %c, ptr noundef %p, i32 noundef %n, ptr noundef %a) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_p = alloca %class.obj_ref, align 8
   %d = alloca %class._scoped_numeral.37, align 8
@@ -7637,7 +7637,7 @@ for.body.i.i:                                     ; preds = %.noexc.i, %for.body
 .noexc.i:                                         ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !76
+  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !75
 
 for.end.i.i:                                      ; preds = %.noexc.i
   %.pre.i.i = load ptr, ptr %as, align 8
@@ -8078,7 +8078,7 @@ for.body.i.i:                                     ; preds = %.noexc.i42, %for.bo
 .noexc.i42:                                       ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !81
+  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !80
 
 for.end.i.i:                                      ; preds = %.noexc.i42
   %.pre.i.i43 = load ptr, ptr %coeffs, align 8
@@ -8210,7 +8210,7 @@ for.body.i:                                       ; preds = %.noexc, %for.body.l
 .noexc:                                           ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !81
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !80
 
 for.end.i:                                        ; preds = %.noexc
   %.pre.i = load ptr, ptr %this, align 8
@@ -9076,7 +9076,7 @@ if.then2.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
 _ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i: ; preds = %if.then2.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.04.i.i.i, i64 8
   %cmp.i1.i.i = icmp ult ptr %incdec.ptr.i.i.i, %add.ptr.i.i
-  br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %invoke.cont8.i.i, !llvm.loop !82
+  br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %invoke.cont8.i.i, !llvm.loop !81
 
 invoke.cont8.i.i:                                 ; preds = %_ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i
   %.pre.i.i = load ptr, ptr %m_nodes.i.i, align 8
@@ -9147,7 +9147,7 @@ if.then2.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
 _ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i.i: ; preds = %if.then2.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %it.04.i.i.i.i, i64 8
   %cmp.i1.i.i.i = icmp ult ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.i1.i.i.i, label %for.body.i.i.i.i, label %invoke.cont8.i.i.i, !llvm.loop !82
+  br i1 %cmp.i1.i.i.i, label %for.body.i.i.i.i, label %invoke.cont8.i.i.i, !llvm.loop !81
 
 invoke.cont8.i.i.i:                               ; preds = %_ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %m_nodes.i.i.i, align 8
@@ -9364,82 +9364,81 @@ attributes #17 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!7 = distinct !{!7, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!10 = distinct !{!10, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!13 = distinct !{!13, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!16 = distinct !{!16, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!19 = distinct !{!19, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!22 = distinct !{!22, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!25 = distinct !{!25, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!28 = distinct !{!28, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!31 = distinct !{!31, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!34 = distinct !{!34, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!37 = distinct !{!37, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!40 = distinct !{!40, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!43 = distinct !{!43, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!46 = distinct !{!46, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!49 = distinct !{!49, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!52 = distinct !{!52, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!55 = distinct !{!55, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!58 = distinct !{!58, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!61 = distinct !{!61, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!64 = distinct !{!64, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!67 = distinct !{!67, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!70 = distinct !{!70, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!73 = distinct !{!73, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!74 = distinct !{!74, !75}
-!75 = !{!"llvm.loop.mustprogress"}
-!76 = distinct !{!76, !75}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
-!79 = distinct !{!79, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
-!80 = distinct !{!80, !75}
-!81 = distinct !{!81, !75}
-!82 = distinct !{!82, !75}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!6 = distinct !{!6, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!9 = distinct !{!9, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!12 = distinct !{!12, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!15 = distinct !{!15, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!18 = distinct !{!18, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!21 = distinct !{!21, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!24 = distinct !{!24, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!27 = distinct !{!27, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!30 = distinct !{!30, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!33 = distinct !{!33, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!36 = distinct !{!36, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!39 = distinct !{!39, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!42 = distinct !{!42, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!45 = distinct !{!45, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!48 = distinct !{!48, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!51 = distinct !{!51, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!54 = distinct !{!54, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!57 = distinct !{!57, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!60 = distinct !{!60, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!63 = distinct !{!63, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!66 = distinct !{!66, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!69 = distinct !{!69, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!72 = distinct !{!72, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!73 = distinct !{!73, !74}
+!74 = !{!"llvm.loop.mustprogress"}
+!75 = distinct !{!75, !74}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast: %agg.result"}
+!78 = distinct !{!78, !"_ZL12get_rationalP11_Z3_contextP7_Z3_ast"}
+!79 = distinct !{!79, !74}
+!80 = distinct !{!80, !74}
+!81 = distinct !{!81, !74}

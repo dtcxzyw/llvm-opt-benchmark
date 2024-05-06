@@ -133,7 +133,7 @@ declare void @_ZN8FindFileD1Ev(ptr noundef nonnull align 8 dereferenceable(8208)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8ScanTree7GetNextEP8FindData(ptr noundef nonnull align 8 dereferenceable(33216) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 4, 3) i32 @_ZN8ScanTree7GetNextEP8FindData(ptr noundef nonnull align 8 dereferenceable(33216) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8192
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 0
@@ -158,7 +158,7 @@ define noundef i32 @_ZN8ScanTree7GetNextEP8FindData(ptr noundef nonnull align 8 
   br i1 %15, label %16, label %.thread16
 
 16:                                               ; preds = %14, %.backedge
-  %17 = tail call noundef i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef nonnull align 8 dereferenceable(33216) %0, ptr noundef %1), !range !6
+  %17 = tail call noundef i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef nonnull align 8 dereferenceable(33216) %0, ptr noundef %1)
   switch i32 %17, label %26 [
     i32 2, label %18
     i32 3, label %.backedge.backedge
@@ -166,7 +166,7 @@ define noundef i32 @_ZN8ScanTree7GetNextEP8FindData(ptr noundef nonnull align 8 
   ]
 
 .backedge.backedge:                               ; preds = %16, %18, %26, %30, %21
-  br label %.backedge, !llvm.loop !7
+  br label %.backedge, !llvm.loop !6
 
 18:                                               ; preds = %16
   %19 = load i32, ptr %7, align 4
@@ -309,7 +309,7 @@ define noundef zeroext i1 @_ZN8ScanTree11GetNextMaskEv(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef nonnull align 8 dereferenceable(33216) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef nonnull align 8 dereferenceable(33216) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.uiMsgStore, align 8
   %4 = alloca [2048 x i32], align 16
   %5 = alloca i8, align 1
@@ -538,7 +538,7 @@ define noundef i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef nonnull align 8
   %119 = add nsw i32 %113, -1
   store i32 %119, ptr %13, align 8
   %120 = icmp sgt i32 %113, 0
-  br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %118, %108
   %121 = load i8, ptr %5, align 1
@@ -713,7 +713,7 @@ define noundef i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef nonnull align 8
   store ptr @.str.3, ptr %216, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wRA2_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit, label %215, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wRA2_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit, label %215, !llvm.loop !8
 
 _Z5uiMsgIJRA2048_wRA2_KwS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %215
   %217 = getelementptr inbounds i8, ptr %3, i64 64
@@ -790,7 +790,7 @@ define noundef zeroext i1 @_ZN8ScanTree16ExpandFolderMaskEv(ptr noundef nonnull 
 11:                                               ; preds = %9, %.thread
   %.119 = phi i1 [ false, %9 ], [ true, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %6, !llvm.loop !10
+  br label %6, !llvm.loop !9
 
 12:                                               ; preds = %.thread, %6
   %.015 = phi i64 [ 0, %6 ], [ %indvars.iv, %.thread ]
@@ -864,7 +864,7 @@ define noundef zeroext i1 @_ZN8ScanTree16ExpandFolderMaskEv(ptr noundef nonnull 
           to label %.backedge unwind label %.loopexit
 
 .backedge:                                        ; preds = %36, %22
-  br label %19, !llvm.loop !11
+  br label %19, !llvm.loop !10
 
 37:                                               ; preds = %21
   %38 = getelementptr inbounds i8, ptr %0, i64 24656
@@ -973,7 +973,7 @@ define noundef zeroext i1 @_ZN8ScanTree15GetFilteredMaskEv(ptr noundef nonnull a
   %.232 = phi i32 [ %.030, %22 ], [ %spec.select, %25 ]
   %.3 = phi i8 [ %.1, %22 ], [ %spec.select40, %25 ]
   %30 = add i32 %.033, 1
-  br label %.preheader, !llvm.loop !12
+  br label %.preheader, !llvm.loop !11
 
 31:                                               ; preds = %.preheader
   %32 = icmp eq i32 %.030, 0
@@ -1204,7 +1204,7 @@ _ZN5ArrayIjE4PushEj.exit:                         ; preds = %._ZN5ArrayIjE3AddEm
   store ptr @.str.3, ptr %58, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %57, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %57, !llvm.loop !8
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %57
   %59 = getelementptr inbounds i8, ptr %3, i64 64
@@ -1285,10 +1285,9 @@ attributes #17 = { nounwind allocsize(1) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 4}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

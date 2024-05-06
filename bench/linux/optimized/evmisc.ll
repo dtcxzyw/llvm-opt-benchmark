@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [19 x i8] c"AcpiDisable failed\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef zeroext i8 @acpi_ev_is_notify_object(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ev_is_notify_object(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 9
   %3 = load i8, ptr %2, align 1
   switch i8 %3, label %4 [

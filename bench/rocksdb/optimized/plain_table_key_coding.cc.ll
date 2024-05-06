@@ -265,7 +265,7 @@ invoke.cont45:                                    ; preds = %if.then42, %if.then
   br i1 %cmp.i54, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont45
-  %23 = trunc i32 %conv to i8
+  %23 = trunc nuw i32 %conv to i8
   store i8 %23, ptr %size_bytes, align 1
   br label %invoke.cont48
 
@@ -349,7 +349,7 @@ invoke.cont87:                                    ; preds = %if.else68, %if.then
   br i1 %cmp.i100, label %if.then.i109, label %if.else.i101
 
 if.then.i109:                                     ; preds = %invoke.cont87
-  %28 = trunc i32 %sub92 to i8
+  %28 = trunc nuw i32 %sub92 to i8
   %conv6.i110 = or disjoint i8 %28, -128
   store i8 %conv6.i110, ptr %add.ptr94, align 1
   br label %invoke.cont95
@@ -689,7 +689,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw i64 %indvars.iv to i32
   %2 = xor i32 %1, -1
   %sub3 = add i32 %0, %2
   %conv = zext i32 %sub3 to i64
@@ -2723,7 +2723,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

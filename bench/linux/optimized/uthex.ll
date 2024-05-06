@@ -30,7 +30,7 @@ declare dso_local i32 @acpi_ut_short_shift_right(i64 noundef, i32 noundef, ptr n
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef i32 @acpi_ut_ascii_to_hex_byte(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 0, 4102) i32 @acpi_ut_ascii_to_hex_byte(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
   %5 = getelementptr [0 x i8], ptr @_ctype, i64 0, i64 %4

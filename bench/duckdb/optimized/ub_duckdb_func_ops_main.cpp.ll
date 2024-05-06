@@ -29965,7 +29965,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN6duckdb16SubtractOperator9OperationINS_6date_tES2_lEET1_T_T0_(i32 %left.coerce, i32 %right.coerce) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -4294967295, 4294967296) i64 @_ZN6duckdb16SubtractOperator9OperationINS_6date_tES2_lEET1_T_T0_(i32 %left.coerce, i32 %right.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %conv = sext i32 %left.coerce to i64
   %conv3 = sext i32 %right.coerce to i64

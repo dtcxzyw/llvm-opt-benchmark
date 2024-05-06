@@ -616,7 +616,7 @@ define i32 @Dsd_TreeCollectDecomposableVars(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @Dsd_TreeCollectDecomposableVars_rec(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @Dsd_TreeCollectDecomposableVars_rec(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i16, ptr %4, align 8
   %6 = icmp slt i16 %5, 2
@@ -1592,7 +1592,7 @@ Abc_TtPrintHexRev.exit:                           ; preds = %select.unfold..loop
   %74 = and i64 %73, -2
   %75 = inttoptr i64 %74 to ptr
   %76 = trunc i64 %73 to i32
-  %77 = trunc i64 %indvars.iv119 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv119 to i32
   %78 = lshr i32 %29, %77
   %79 = xor i32 %78, %76
   %80 = and i32 %79, 1
@@ -2246,7 +2246,7 @@ define noundef ptr @Dsd_TreeGetPrimeFunctionOld(ptr noundef %0, ptr nocapture no
   %55 = load i32, ptr %54, align 8
   %56 = zext i32 %55 to i64
   %57 = getelementptr inbounds [1000 x i32], ptr @Dsd_TreeGetPrimeFunctionOld.Permute, i64 0, i64 %56
-  %58 = trunc i64 %indvars.iv62 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv62 to i32
   store i32 %58, ptr %57, align 4
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %59 = load i16, ptr %6, align 8

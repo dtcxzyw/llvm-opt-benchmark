@@ -14,7 +14,7 @@ define i32 @_ZN9rand_core11SeedableRng13seed_from_u645pcg3217hbd9752393a2964e2E(
   %7 = xor i64 %5, %6
   %8 = trunc i64 %7 to i32
   %9 = lshr i64 %4, 59
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw nsw i64 %9 to i32
   %11 = tail call i32 @llvm.fshr.i32(i32 %8, i32 %8, i32 %10)
   ret i32 %11
 }

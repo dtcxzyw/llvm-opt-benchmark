@@ -803,7 +803,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare noalias ptr @wmem_map_new_autoreset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @rlc_channel_hash_func(ptr nocapture noundef readonly %0) #2 {
+define internal range(i32 0, 67108352) i32 @rlc_channel_hash_func(ptr nocapture noundef readonly %0) #2 {
   %2 = load i32, ptr %0, align 4
   %3 = shl i32 %2, 10
   %4 = and i32 %3, 67107840
@@ -820,7 +820,7 @@ define internal i32 @rlc_channel_hash_func(ptr nocapture noundef readonly %0) #2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @rlc_channel_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @rlc_channel_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = xor i32 %4, %3
@@ -853,7 +853,7 @@ define internal i32 @rlc_result_hash_func(ptr nocapture noundef readonly %0) #2 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @rlc_result_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @rlc_result_hash_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) %1, i64 8)
   %3 = icmp eq i32 %bcmp, 0
   %4 = zext i1 %3 to i32
@@ -909,7 +909,7 @@ define hidden void @proto_reg_handoff_rlc_lte() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rlc_lte_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_rlc_lte_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #13
   %6 = icmp slt i32 %5, 10
   br i1 %6, label %74, label %7
@@ -1634,11 +1634,11 @@ proto_item_set_generated.exit.i:                  ; preds = %298, %295, %294
   %307 = zext i16 %305 to i32
   %.not12.i.us.i = icmp eq i16 %305, 1
   %308 = select i1 %.not12.i.us.i, ptr @.str.299, ptr @.str.324
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.321, ptr noundef nonnull @.str.322, i32 noundef %307, ptr noundef nonnull %308, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull @.str.322, i32 noundef %307, ptr noundef nonnull %308, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit.us.i
 
 309:                                              ; preds = %.lr.ph.split.us.i
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.326, ptr noundef nonnull @.str.322, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull @.str.322, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit.us.i
 
 show_PDU_in_info.exit.us.i:                       ; preds = %309, %306
@@ -1665,11 +1665,11 @@ show_PDU_in_info.exit.us.i:                       ; preds = %309, %306
   %320 = zext i16 %317 to i32
   %.not12.i.i = icmp eq i16 %317, 1
   %321 = select i1 %.not12.i.i, ptr @.str.299, ptr @.str.324
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %spec.select204.i, i32 noundef %320, ptr noundef nonnull %321, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %spec.select204.i, i32 noundef %320, ptr noundef nonnull %321, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit.i
 
 322:                                              ; preds = %.lr.ph.split.i
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %spec.select204.i, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %spec.select204.i, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit.i
 
 show_PDU_in_info.exit.i:                          ; preds = %322, %319
@@ -1700,13 +1700,13 @@ show_PDU_in_info.exit.i:                          ; preds = %322, %319
   %336 = select i1 %.not12.i171.i, ptr @.str.299, ptr @.str.324
   %.not13.i.i = icmp eq i32 %286, 0
   %337 = select i1 %.not13.i.i, ptr @.str.323, ptr @.str.325
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %334, i32 noundef %331, ptr noundef nonnull %336, ptr noundef nonnull %337)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %334, i32 noundef %331, ptr noundef nonnull %336, ptr noundef nonnull %337)
   br label %show_PDU_in_info.exit172.i
 
 338:                                              ; preds = %._crit_edge.i
   %.not10.i.i = icmp eq i32 %286, 0
   %339 = select i1 %.not10.i.i, ptr @.str.323, ptr @.str.325
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %334, ptr noundef nonnull %339)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %334, ptr noundef nonnull %339)
   br label %show_PDU_in_info.exit172.i
 
 340:                                              ; preds = %288
@@ -1801,7 +1801,7 @@ thread-pre-split.i:                               ; preds = %354
   %380 = phi i16 [ %375, %373 ], [ %377, %.thread.i ]
   %381 = load i64, ptr %27, align 8
   %382 = trunc i64 %381 to i16
-  %383 = call fastcc i32 @checkChannelSequenceInfo(ptr noundef %1, ptr noundef %0, ptr noundef %40, i8 noundef zeroext %379, i16 noundef zeroext %367, i16 noundef zeroext %380, i16 noundef zeroext %.1185.i, i16 noundef zeroext %382, i32 noundef %284, i32 noundef %286, ptr noundef %31, ptr noundef %244)
+  %383 = call fastcc i32 @checkChannelSequenceInfo(ptr noundef %1, ptr noundef %0, ptr noundef %40, i8 noundef zeroext %379, i16 noundef zeroext %367, i16 noundef zeroext %380, i16 noundef zeroext %.1185.i, i16 noundef zeroext %382, i32 noundef %284, i32 noundef %286, ptr noundef writeonly %31, ptr noundef %244)
   br label %384
 
 384:                                              ; preds = %378, %361, %358
@@ -1860,11 +1860,11 @@ thread-pre-split.i:                               ; preds = %354
   %418 = zext i16 %415 to i32
   %.not12.i177.i = icmp eq i16 %415, 1
   %419 = select i1 %.not12.i177.i, ptr @.str.299, ptr @.str.324
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %416, i32 noundef %418, ptr noundef nonnull %419, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %416, i32 noundef %418, ptr noundef nonnull %419, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit178.i
 
 420:                                              ; preds = %.lr.ph202.i
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %416, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %416, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit178.i
 
 show_PDU_in_info.exit178.i:                       ; preds = %420, %417
@@ -1909,13 +1909,13 @@ show_PDU_in_info.exit178.i:                       ; preds = %420, %417
   %442 = select i1 %.not12.i181.i, ptr @.str.299, ptr @.str.324
   %.not13.i182.i = icmp eq i32 %286, 0
   %443 = select i1 %.not13.i182.i, ptr @.str.323, ptr @.str.325
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %440, i32 noundef %437, ptr noundef nonnull %442, ptr noundef nonnull %443)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %440, i32 noundef %437, ptr noundef nonnull %442, ptr noundef nonnull %443)
   br label %dissect_rlc_lte_um.exit
 
 444:                                              ; preds = %.loopexit.i
   %.not10.i180.i = icmp eq i32 %286, 0
   %445 = select i1 %.not10.i180.i, ptr @.str.323, ptr @.str.325
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %440, ptr noundef nonnull %445)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %440, ptr noundef nonnull %445)
   br label %dissect_rlc_lte_um.exit
 
 dissect_rlc_lte_um.exit:                          ; preds = %266, %384, %441, %444
@@ -2260,7 +2260,7 @@ thread-pre-split.i.i:                             ; preds = %589
   br i1 %.not79.i.i.i, label %checkChannelRepeatedNACKInfo.exit.i.i, label %629
 
 629:                                              ; preds = %610
-  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef nonnull %628, ptr noundef nonnull %40, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
+  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef nonnull %628, ptr noundef nonnull readonly %40, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
   br label %checkChannelRepeatedNACKInfo.exit.i.i
 
 630:                                              ; preds = %604
@@ -2387,7 +2387,7 @@ thread-pre-split.i.i:                             ; preds = %589
   %684 = load i32, ptr %683, align 4
   %685 = trunc i32 %684 to i16
   %indvars.iv.next107.i.i.i = add nuw nsw i64 %indvars.iv106.i.i.i, 1
-  %686 = trunc i64 %indvars.iv.next107.i.i.i to i16
+  %686 = trunc nuw nsw i64 %indvars.iv.next107.i.i.i to i16
   store i16 %686, ptr %.069.i.i.i, align 4
   %687 = getelementptr [512 x i16], ptr %680, i64 0, i64 %indvars.iv106.i.i.i
   store i16 %685, ptr %687, align 2
@@ -2448,7 +2448,7 @@ thread-pre-split.i.i:                             ; preds = %589
   %721 = or disjoint i32 %716, %720
   store i32 %721, ptr %.phi.trans.insert.i.i.i.i, align 4
   %722 = call ptr @wmem_map_insert(ptr noundef %702, ptr noundef nonnull %706, ptr noundef nonnull %692) #13
-  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef nonnull %692, ptr noundef %40, ptr noundef %1, ptr noundef %459, ptr noundef %0)
+  call fastcc void @addChannelRepeatedNACKInfo(ptr noundef nonnull %692, ptr noundef readonly %40, ptr noundef %1, ptr noundef %459, ptr noundef %0)
   br label %723
 
 723:                                              ; preds = %._crit_edge.i.i.i.thread, %._crit_edge96.i.i.i, %._crit_edge.i.i.i
@@ -2498,7 +2498,7 @@ checkChannelRepeatedNACKInfo.exit.i.i:            ; preds = %723, %629, %610
   br i1 %.not37.i.i.i, label %checkChannelACKWindow.exit.i.i, label %752
 
 752:                                              ; preds = %733
-  call fastcc void @addChannelSequenceInfo(ptr noundef nonnull %751, i32 noundef 1, ptr noundef nonnull %40, i16 noundef zeroext 0, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
+  call fastcc void @addChannelSequenceInfo(ptr noundef nonnull %751, i32 noundef 1, ptr noundef nonnull %40, i16 noundef zeroext 0, i32 noundef 0, ptr noundef writeonly %31, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
   br label %checkChannelACKWindow.exit.i.i
 
 753:                                              ; preds = %checkChannelRepeatedNACKInfo.exit.i.i
@@ -2582,7 +2582,7 @@ checkChannelRepeatedNACKInfo.exit.i.i:            ; preds = %723, %629, %610
   %817 = or disjoint i32 %812, %816
   store i32 %817, ptr %.phi.trans.insert.i.i129.i.i, align 4
   %818 = call ptr @wmem_map_insert(ptr noundef %798, ptr noundef nonnull %802, ptr noundef %790) #13
-  call fastcc void @addChannelSequenceInfo(ptr noundef %790, i32 noundef 1, ptr noundef nonnull %40, i16 noundef zeroext 0, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
+  call fastcc void @addChannelSequenceInfo(ptr noundef %790, i32 noundef 1, ptr noundef nonnull %40, i16 noundef zeroext 0, i32 noundef 0, ptr noundef writeonly %31, ptr noundef nonnull %1, ptr noundef %459, ptr noundef %0)
   br label %checkChannelACKWindow.exit.i.i
 
 checkChannelACKWindow.exit.i.i:                   ; preds = %788, %773, %753, %752, %733
@@ -2829,11 +2829,11 @@ proto_item_set_generated.exit.i183:               ; preds = %927, %924, %923
   %939 = zext i16 %935 to i32
   %.not12.i.i186 = icmp eq i16 %935, 1
   %940 = select i1 %.not12.i.i186, ptr @.str.299, ptr @.str.324
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %937, i32 noundef %939, ptr noundef nonnull %940, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %937, i32 noundef %939, ptr noundef nonnull %940, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit.i187
 
 941:                                              ; preds = %933
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %937, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %937, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit.i187
 
 show_PDU_in_info.exit.i187:                       ; preds = %941, %938
@@ -2864,13 +2864,13 @@ show_PDU_in_info.exit.i187:                       ; preds = %941, %938
   %955 = select i1 %.not12.i234.i, ptr @.str.299, ptr @.str.324
   %.not13.i.i192 = icmp eq i32 %915, 0
   %956 = select i1 %.not13.i.i192, ptr @.str.323, ptr @.str.325
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %953, i32 noundef %950, ptr noundef nonnull %955, ptr noundef nonnull %956)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %953, i32 noundef %950, ptr noundef nonnull %955, ptr noundef nonnull %956)
   br label %show_PDU_in_info.exit235.i
 
 957:                                              ; preds = %._crit_edge.i189
   %.not10.i.i191 = icmp eq i32 %915, 0
   %958 = select i1 %.not10.i.i191, ptr @.str.323, ptr @.str.325
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %953, ptr noundef nonnull %958)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %953, ptr noundef nonnull %958)
   br label %show_PDU_in_info.exit235.i
 
 959:                                              ; preds = %917
@@ -3021,11 +3021,11 @@ thread-pre-split.i181:                            ; preds = %969
   %1034 = zext i16 %1031 to i32
   %.not12.i240.i = icmp eq i16 %1031, 1
   %1035 = select i1 %.not12.i240.i, ptr @.str.299, ptr @.str.324
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %1032, i32 noundef %1034, ptr noundef nonnull %1035, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %1032, i32 noundef %1034, ptr noundef nonnull %1035, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit241.i
 
 1036:                                             ; preds = %.lr.ph262.i
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %1032, ptr noundef nonnull @.str.325)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %1032, ptr noundef nonnull @.str.325)
   br label %show_PDU_in_info.exit241.i
 
 show_PDU_in_info.exit241.i:                       ; preds = %1036, %1033
@@ -3075,13 +3075,13 @@ show_PDU_in_info.exit241.i:                       ; preds = %1036, %1033
   %1061 = select i1 %.not12.i244.i, ptr @.str.299, ptr @.str.324
   %.not13.i245.i = icmp eq i32 %915, 0
   %1062 = select i1 %.not13.i245.i, ptr @.str.323, ptr @.str.325
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %1059, i32 noundef %1056, ptr noundef nonnull %1061, ptr noundef nonnull %1062)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %1059, i32 noundef %1056, ptr noundef nonnull %1061, ptr noundef nonnull %1062)
   br label %dissect_rlc_lte_am.exit
 
 1063:                                             ; preds = %1049
   %.not10.i243.i = icmp eq i32 %915, 0
   %1064 = select i1 %.not10.i243.i, ptr @.str.323, ptr @.str.325
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %1059, ptr noundef nonnull %1064)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.326, ptr noundef nonnull %1059, ptr noundef nonnull %1064)
   br label %dissect_rlc_lte_am.exit
 
 1065:                                             ; preds = %.loopexit.i176
@@ -3163,9 +3163,9 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 ; Function Attrs: nounwind uwtable
 define internal void @write_pdu_label_and_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ...) unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = call i32 @vsnprintf(ptr noundef nonnull @write_pdu_label_and_info.info_buffer, i64 noundef 256, ptr noundef %3, ptr noundef nonnull %5) #13
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @col_append_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @write_pdu_label_and_info.info_buffer) #13
@@ -3402,14 +3402,8 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3418,12 +3412,12 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #7
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #6
 
 declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #8
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #7
 
 declare void @except_free(ptr noundef) local_unnamed_addr #1
 
@@ -5358,7 +5352,7 @@ proto_item_set_generated.exit264:                 ; preds = %proto_item_set_gene
   %225 = zext i16 %224 to i32
   %226 = sub nsw i32 %223, %225
   %227 = srem i32 %226, 1024
-  %228 = trunc i32 %227 to i16
+  %228 = trunc nsw i32 %227 to i16
   %229 = add nsw i16 %228, 1
   %230 = getelementptr inbounds i8, ptr %5, i64 2104
   store i16 %229, ptr %230, align 8
@@ -5609,7 +5603,7 @@ proto_item_set_generated.exit284:                 ; preds = %proto_item_set_gene
   %375 = zext i16 %374 to i32
   %376 = sub nsw i32 %373, %375
   %377 = srem i32 %376, %.
-  %378 = trunc i32 %377 to i16
+  %378 = trunc nsw i32 %377 to i16
   %379 = add nsw i16 %378, 1
   %380 = getelementptr inbounds i8, ptr %5, i64 2104
   store i16 %379, ptr %380, align 8
@@ -5958,7 +5952,7 @@ define internal fastcc void @reassembly_add_segment(ptr nocapture noundef %0, i1
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = getelementptr [100 x %struct.rlc_segment], ptr %24, i64 0, i64 %18, i32 2
   store ptr %15, ptr %25, align 8
-  %26 = trunc i32 %5 to i16
+  %26 = trunc nuw i32 %5 to i16
   %27 = load ptr, ptr %7, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = getelementptr [100 x %struct.rlc_segment], ptr %28, i64 0, i64 %18, i32 3
@@ -6017,7 +6011,7 @@ declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 n
 declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -6244,7 +6238,7 @@ proto_item_set_generated.exit74:                  ; preds = %proto_item_set_gene
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #8
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #7
 
 declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -6391,6 +6385,12 @@ define internal fastcc void @report_heur_error(ptr noundef %0, ptr noundef %1, p
 
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #9
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
 
@@ -6408,11 +6408,11 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -75,7 +75,7 @@ define hidden { i64, ptr } @"_ZN82_$LT$hyper..common..io..rewind..Rewind$LT$T$GT
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h33a605f2e9b5dd4aE.exit.i": ; preds = %26
   %30 = getelementptr inbounds i8, ptr %24, i64 %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %22, i64 %.0.sroa.speculated.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %22, i64 %.0.sroa.speculated.i, i1 false)
   %31 = getelementptr inbounds i8, ptr %2, i64 24
   %32 = load i64, ptr %31, align 8, !noalias !13, !noundef !4
   %33 = icmp ult i64 %32, %23

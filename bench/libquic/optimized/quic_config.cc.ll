@@ -2181,7 +2181,7 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 declare void @_ZN3net22QuicSocketAddressCoderD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net19QuicFixedIPEndPoint16ProcessPeerHelloERKNS_22CryptoHandshakeMessageENS_9HelloTypeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr noundef nonnull align 8 dereferenceable(72) %peer_hello, i32 %hello_type, ptr noundef %error_details) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 36) i32 @_ZN3net19QuicFixedIPEndPoint16ProcessPeerHelloERKNS_22CryptoHandshakeMessageENS_9HelloTypeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr noundef nonnull align 8 dereferenceable(72) %peer_hello, i32 %hello_type, ptr noundef %error_details) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %address = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2311,8 +2311,8 @@ entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i64 0, i32 0, i64 2), ptr %connection_options_, align 8
   %send_values_.i = getelementptr inbounds i8, ptr %this, i64 56
   %receive_values_.i = getelementptr inbounds i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %send_values_.i, i8 0, i64 25, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %receive_values_.i, i8 0, i64 25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %send_values_.i, i8 0, i64 25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(25) %receive_values_.i, i8 0, i64 25, i1 false)
   %idle_connection_state_lifetime_seconds_ = getelementptr inbounds i8, ptr %this, i64 120
   %tag_.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store i32 1280525129, ptr %tag_.i.i.i, align 8
@@ -2866,7 +2866,7 @@ if.then:                                          ; preds = %entry
 
 land.rhs:                                         ; preds = %if.then
   %connection_options_.i = getelementptr inbounds i8, ptr %this, i64 40
-  call void @_ZNK3net18QuicFixedTagVector17GetReceivedValuesEv(ptr nonnull sret(%"class.std::vector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(73) %connection_options_.i)
+  call void @_ZNK3net18QuicFixedTagVector17GetReceivedValuesEv(ptr nonnull writeonly sret(%"class.std::vector") align 8 %ref.tmp, ptr noundef nonnull readonly align 8 dereferenceable(73) %connection_options_.i)
   %call2 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i32 noundef %tag)
           to label %cleanup.action unwind label %lpad
 
@@ -2897,7 +2897,7 @@ if.else:                                          ; preds = %entry
 
 land.rhs8:                                        ; preds = %if.else
   %connection_options_.i7 = getelementptr inbounds i8, ptr %this, i64 40
-  call void @_ZNK3net18QuicFixedTagVector13GetSendValuesEv(ptr nonnull sret(%"class.std::vector") align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(73) %connection_options_.i7)
+  call void @_ZNK3net18QuicFixedTagVector13GetSendValuesEv(ptr nonnull writeonly sret(%"class.std::vector") align 8 %ref.tmp9, ptr noundef nonnull readonly align 8 dereferenceable(73) %connection_options_.i7)
   %call13 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp9, i32 noundef %tag)
           to label %cleanup.action16 unwind label %lpad11
 
@@ -3649,7 +3649,7 @@ if.end41:                                         ; preds = %if.end37
 
 if.end45:                                         ; preds = %if.end41
   %alternate_server_address_ = getelementptr inbounds i8, ptr %this, i64 472
-  %call44 = tail call noundef i32 @_ZN3net19QuicFixedIPEndPoint16ProcessPeerHelloERKNS_22CryptoHandshakeMessageENS_9HelloTypeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(89) %alternate_server_address_, ptr noundef nonnull align 8 dereferenceable(72) %peer_hello, i32 poison, ptr noundef %error_details), !range !8
+  %call44 = tail call noundef i32 @_ZN3net19QuicFixedIPEndPoint16ProcessPeerHelloERKNS_22CryptoHandshakeMessageENS_9HelloTypeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(89) %alternate_server_address_, ptr noundef nonnull align 8 dereferenceable(72) %peer_hello, i32 poison, ptr noundef %error_details)
   %cmp46 = icmp eq i32 %call44, 0
   br i1 %cmp46, label %if.then47, label %if.end49
 
@@ -3907,7 +3907,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %cond.in.i = getelementptr inbounds i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
-  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !9
+  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
@@ -3979,7 +3979,7 @@ while.body.i26:                                   ; preds = %if.else42, %while.b
   %cond.in.i31 = getelementptr inbounds i8, ptr %__x.021.i27, i64 %cond.in.v.i30
   %__x.0.i32 = load ptr, ptr %cond.in.i31, align 8
   %cmp.not.i33 = icmp eq ptr %__x.0.i32, null
-  br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !9
+  br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !8
 
 while.end.i34:                                    ; preds = %while.body.i26
   br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
@@ -4044,7 +4044,7 @@ while.body.i69:                                   ; preds = %if.else74, %while.b
   %cond.in.i74 = getelementptr inbounds i8, ptr %__x.021.i70, i64 %cond.in.v.i73
   %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8
   %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
-  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !9
+  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !8
 
 while.end.i77:                                    ; preds = %while.body.i69
   br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
@@ -4164,5 +4164,4 @@ attributes #22 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = !{i32 0, i32 36}
-!9 = distinct !{!9, !6}
+!8 = distinct !{!8, !6}

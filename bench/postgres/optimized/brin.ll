@@ -243,7 +243,7 @@ BufferGetPage.exit:                               ; preds = %23, %29
 BufferGetPage.exit61:                             ; preds = %67, %73
   %.0.i.i60 = phi ptr [ %72, %67 ], [ %78, %73 ]
   %79 = lshr i64 %66, 32
-  %80 = trunc i64 %79 to i32
+  %80 = trunc nuw i64 %79 to i32
   store i32 %80, ptr %.0.i.i60, align 4
   %81 = trunc i64 %66 to i32
   %82 = getelementptr inbounds i8, ptr %.0.i.i60, i64 4
@@ -1358,7 +1358,7 @@ define dso_local void @brinrescan(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @bringetbitmap(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
   %5 = alloca i16, align 2
@@ -1730,7 +1730,7 @@ check_null_keys.exit.thread:                      ; preds = %155, %check_null_ke
 
 .loopexit:                                        ; preds = %.preheader, %197
   %.2173 = phi i8 [ %207, %197 ], [ %.0171221, %.preheader ]
-  %220 = trunc i8 %.2173 to i1
+  %220 = trunc nuw i8 %.2173 to i1
   br i1 %220, label %.loopexit._crit_edge, label %.thread
 
 .loopexit._crit_edge:                             ; preds = %208, %.loopexit
@@ -1748,7 +1748,7 @@ check_null_keys.exit.thread:                      ; preds = %155, %check_null_ke
 
 .thread:                                          ; preds = %221, %.loopexit
   %.4 = phi i8 [ %.3, %221 ], [ %.2173, %.loopexit ]
-  %224 = trunc i8 %.4 to i1
+  %224 = trunc nuw i8 %.4 to i1
   br i1 %224, label %.preheader206, label %.thread196
 
 .preheader206:                                    ; preds = %.preheader208, %120, %123, %.thread
@@ -2536,7 +2536,7 @@ define dso_local i64 @brin_summarize_new_values(ptr nocapture noundef readonly %
 declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @brin_summarize_range(ptr nocapture noundef readonly %0) #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @brin_summarize_range(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca double, align 8
@@ -2571,7 +2571,7 @@ define dso_local i64 @brin_summarize_range(ptr nocapture noundef readonly %0) #0
   unreachable
 
 21:                                               ; preds = %16
-  %22 = trunc i64 %9 to i32
+  %22 = trunc nuw i64 %9 to i32
   %23 = tail call i32 @IndexGetRelation(i32 noundef %7, i1 noundef zeroext true) #10
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %33, label %24
@@ -2740,7 +2740,7 @@ define dso_local noundef i64 @brin_desummarize_range(ptr nocapture noundef reado
   unreachable
 
 18:                                               ; preds = %13
-  %19 = trunc i64 %6 to i32
+  %19 = trunc nuw i64 %6 to i32
   %20 = tail call i32 @IndexGetRelation(i32 noundef %4, i1 noundef zeroext true) #10
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %23, label %21

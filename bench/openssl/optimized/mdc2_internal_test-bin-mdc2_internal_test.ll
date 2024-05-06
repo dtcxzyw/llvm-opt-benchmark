@@ -24,7 +24,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_mdc2(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_mdc2(i32 noundef %idx) #0 {
 entry:
   %md = alloca [16 x i8], align 16
   %c = alloca %struct.mdc2_ctx_st, align 4

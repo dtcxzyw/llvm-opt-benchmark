@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_pcre2_ucd_boolprop_sets_8 = external local_unnamed_addr constant [0 x i32], align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i32
   %6 = and i32 %5, 1
@@ -92,7 +92,7 @@ define hidden i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef readonly %1, i32 
   %55 = icmp ult i32 %0, 160
   %56 = and i32 %0, -2048
   %57 = icmp eq i32 %56, 55296
-  %trunc = trunc i32 %0 to i8
+  %trunc = trunc nuw i32 %0 to i8
   br label %58
 
 58:                                               ; preds = %.backedge, %37

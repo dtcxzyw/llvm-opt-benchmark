@@ -115,26 +115,26 @@ if.then8:                                         ; preds = %if.end4
   %bf.load = load i32, ptr %state, align 8
   %4 = and i32 %bf.load, 28
   %cmp9.not = icmp eq i32 %4, 4
-  br i1 %cmp9.not, label %if.end11, label %if.then10
+  br i1 %cmp9.not, label %if.then.i, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
   %5 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.1) #4
   br label %return
 
-if.end11:                                         ; preds = %if.then8
+if.then.i:                                        ; preds = %if.then8
   %6 = and i32 %bf.load, 32
   %tobool.not.i18.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i18.i, label %if.end.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.end11
+if.then.i.i:                                      ; preds = %if.then.i
   %7 = and i32 %bf.load, 64
   %tobool.not.i.i.i = icmp eq i32 %7, 0
   %retval.0.v.i.i.i = select i1 %tobool.not.i.i.i, i64 56, i64 40
   %retval.0.i.i.i = getelementptr i8, ptr %sep, i64 %retval.0.v.i.i.i
   br label %if.end20
 
-if.end.i.i:                                       ; preds = %if.end11
+if.end.i.i:                                       ; preds = %if.then.i
   %8 = getelementptr i8, ptr %sep, i64 56
   %op.val3.i.i = load ptr, ptr %8, align 8
   br label %if.end20

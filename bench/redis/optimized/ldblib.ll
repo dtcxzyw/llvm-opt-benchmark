@@ -472,7 +472,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @db_getupvalue(ptr noundef %L) #0 {
+define internal range(i32 0, 3) i32 @db_getupvalue(ptr noundef %L) #0 {
 entry:
   %call.i = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 2) #8
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 6) #8
@@ -638,7 +638,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @db_setupvalue(ptr noundef %L) #0 {
+define internal range(i32 0, 3) i32 @db_setupvalue(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checkany(ptr noundef %L, i32 noundef 3) #8
   %call.i = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 2) #8

@@ -623,7 +623,7 @@ define internal i32 @dissect_typeinfo_TYPEDESC_item(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_typeinfo_FUNCDESC_through_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 65536) i32 @dissect_typeinfo_FUNCDESC_through_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i16, align 2
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_typeinfo_funcdesc, align 4
@@ -657,7 +657,7 @@ define internal i32 @dissect_typeinfo_FUNCDESC_through_pointer(ptr noundef %0, i
   %34 = load i32, ptr @ett_typeinfo_elemdesc, align 4
   %35 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %0, i32 noundef %32, i32 noundef 0, i32 noundef %34, ptr noundef nonnull %8, ptr noundef nonnull @.str.190) #4
   %36 = load i32, ptr @hf_typeinfo_funcdesc_elemdesc, align 4
-  %37 = call fastcc i32 @dissect_typeinfo_ELEMDESC(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %35, ptr noundef %4, ptr noundef %5, i32 noundef %36), !range !6
+  %37 = call fastcc i32 @dissect_typeinfo_ELEMDESC(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %35, ptr noundef %4, ptr noundef %5, i32 noundef %36)
   %38 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %7) #4
   %39 = load i32, ptr @hf_typeinfo_funcdesc_funcflags, align 4
   %40 = load i32, ptr @ett_typeinfo_funcdesc_funcflags, align 4
@@ -681,7 +681,7 @@ define internal i32 @dissect_typeinfo_ELEMDESC_array(ptr noundef %0, i32 noundef
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_typeinfo_ELEMDESC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65536) i32 @dissect_typeinfo_ELEMDESC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = getelementptr inbounds i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
@@ -730,9 +730,9 @@ define internal fastcc i32 @dissect_typeinfo_ELEMDESC(ptr noundef %0, i32 nounde
 declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_typeinfo_ELEMDESC_through_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 65536) i32 @dissect_typeinfo_ELEMDESC_through_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_typeinfo_funcdesc_elemdesc, align 4
-  %8 = tail call fastcc i32 @dissect_typeinfo_ELEMDESC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7), !range !6
+  %8 = tail call fastcc i32 @dissect_typeinfo_ELEMDESC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -826,4 +826,3 @@ attributes #4 = { nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 65536}

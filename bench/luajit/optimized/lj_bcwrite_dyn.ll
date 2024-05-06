@@ -307,7 +307,7 @@ if.end43:                                         ; preds = %if.end36.thread, %i
   %add.ptr1.i = getelementptr inbounds i8, ptr %pt, i64 108
   %mul.i = shl i32 %sub.i, 2
   %conv.i.i = zext i32 %mul.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.0, ptr nonnull align 1 %add.ptr1.i, i64 %conv.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.0, ptr nonnull readonly align 1 %add.ptr1.i, i64 %conv.i.i, i1 false)
   %26 = load i8, ptr %flags, align 1
   %27 = and i8 %26, 16
   %tobool.not.i = icmp eq i8 %27, 0
@@ -498,7 +498,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %for.cond.i.i
   %i.0.in.lcssa.i.i = phi i64 [ %i.0.in.i.i, %for.body.i.i ], [ 0, %for.cond.i.i ]
-  %conv8.i.i = trunc i64 %i.0.in.lcssa.i.i to i32
+  %conv8.i.i = trunc nuw i64 %i.0.in.lcssa.i.i to i32
   br label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %for.end.i.i, %if.then43.i
@@ -563,7 +563,7 @@ lj_buf_more.exit51.i95.i:                         ; preds = %if.then.i49.i135.i,
   %retval.i36.0.i96.i = phi ptr [ %call.i50.i136.i, %if.then.i49.i135.i ], [ %64, %for.body37.i.i ]
   %66 = load i64, ptr %o.033.i.i, align 8
   %shr.i97.i = ashr i64 %66, 47
-  %conv.i98.i = trunc i64 %shr.i97.i to i32
+  %conv.i98.i = trunc nsw i64 %shr.i97.i to i32
   %cmp.i99.i = icmp eq i32 %conv.i98.i, -5
   %67 = bitcast i64 %66 to double
   br i1 %cmp.i99.i, label %if.then.i118.i, label %if.else.i100.i
@@ -676,7 +676,7 @@ lj_buf_more.exit51.i52.i:                         ; preds = %if.then.i49.i86.i, 
   %retval.i36.0.i53.i = phi ptr [ %call.i50.i87.i, %if.then.i49.i86.i ], [ %79, %if.then53.i.i ]
   %82 = load i64, ptr %key.i.i, align 8
   %shr.i54.i = ashr i64 %82, 47
-  %conv.i55.i = trunc i64 %shr.i54.i to i32
+  %conv.i55.i = trunc nsw i64 %shr.i54.i to i32
   %cmp.i56.i = icmp eq i32 %conv.i55.i, -5
   br i1 %cmp.i56.i, label %if.then.i69.i, label %if.else.i57.i
 
@@ -748,7 +748,7 @@ lj_buf_more.exit51.i.i:                           ; preds = %if.then.i49.i.i, %b
   %retval.i36.0.i.i = phi ptr [ %call.i50.i.i, %if.then.i49.i.i ], [ %storemerge.i62.i, %bcwrite_ktabk.exit88.i ]
   %91 = load i64, ptr %node45.0.i.i, align 8
   %shr.i.i = ashr i64 %91, 47
-  %conv.i40.i = trunc i64 %shr.i.i to i32
+  %conv.i40.i = trunc nsw i64 %shr.i.i to i32
   %cmp.i41.i = icmp eq i32 %conv.i40.i, -5
   %92 = bitcast i64 %91 to double
   br i1 %cmp.i41.i, label %if.then.i44.i, label %if.else.i.i
@@ -915,7 +915,7 @@ if.then12.i:                                      ; preds = %save_int.i
   %113 = load i8, ptr %arrayidx.i, align 1
   %114 = and i8 %113, 7
   %shr.i = lshr i32 %conv.i104, 27
-  %115 = trunc i32 %shr.i to i8
+  %115 = trunc nuw nsw i32 %shr.i to i8
   %116 = and i8 %115, 24
   %conv17.i = or disjoint i8 %114, %116
   store i8 %conv17.i, ptr %arrayidx.i, align 1
@@ -937,7 +937,7 @@ if.then29.i:                                      ; preds = %if.end20.i
   %119 = load i8, ptr %arrayidx30.i, align 1
   %120 = and i8 %119, 7
   %shr34.i = lshr i32 %118, 27
-  %121 = trunc i32 %shr34.i to i8
+  %121 = trunc nuw nsw i32 %shr34.i to i8
   %122 = and i8 %121, 24
   %conv37.i = or disjoint i8 %120, %122
   store i8 %conv37.i, ptr %arrayidx30.i, align 1
@@ -999,7 +999,7 @@ if.then63:                                        ; preds = %if.end60
   %sub.ptr.sub70 = sub i64 %sub.ptr.lhs.cast68, %sub.ptr.rhs.cast69
   %conv71 = trunc i64 %sub.ptr.sub70 to i32
   %sub72 = add i32 %conv71, -5
-  %130 = tail call i32 @llvm.ctlz.i32(i32 %sub72, i1 true), !range !11
+  %130 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub72, i1 true)
   %add73 = sub nuw nsw i32 39, %130
   %mul74 = mul nuw nsw i32 %add73, 9
   %shr = lshr i32 %mul74, 6
@@ -1071,4 +1071,3 @@ attributes #7 = { nounwind }
 !8 = distinct !{!8, !4}
 !9 = distinct !{!9, !4}
 !10 = distinct !{!10, !4}
-!11 = !{i32 0, i32 33}

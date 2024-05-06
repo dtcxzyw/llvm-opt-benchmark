@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.hash_init.18 = private unnamed_addr constant [3 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @hash_init(i32 noundef %type) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @hash_init(i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %type, 3
   br i1 %0, label %switch.lookup, label %return
@@ -313,7 +313,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !15
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
-  %conv.i.i.i = trunc i64 %length to i32
+  %conv.i.i.i = trunc nuw i64 %length to i32
   %shr.i.i.i40.i.i = lshr i64 %add.i39.i.i, 37
   %xor.i.i27.i.i.i = xor i64 %shr.i.i.i40.i.i, %add.i39.i.i
   %mul.i.i41.i.i = mul i64 %xor.i.i27.i.i.i, 1609587791953885689
@@ -403,7 +403,7 @@ for.body.i.i.i.i.i:                               ; preds = %XXH3_accumulate_512
   %mul.i.i.i.i2.i = shl nuw i64 %n.02.i.i.i.i.i, 6
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i1.i, i64 %mul.i.i.i.i2.i
   %add.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1), !noalias !35
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i.i.i, i32 0, i32 3, i32 1), !noalias !35
   %mul2.i.i.i.i.i = shl nuw nsw i64 %n.02.i.i.i.i.i, 3
   %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr @XXH3_kSecret, i64 %mul2.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
@@ -485,7 +485,7 @@ for.body.i29.i.i.i.i:                             ; preds = %for.end.i.i.i.i, %X
   %mul.i31.i.i.i.i = shl nuw i64 %n.02.i30.i.i.i.i, 6
   %add.ptr.i32.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr11.i.i.i4.i, i64 %mul.i31.i.i.i.i
   %add.ptr1.i33.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i32.i.i.i.i, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr1.i33.i.i.i.i, i32 0, i32 3, i32 1), !noalias !65
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i33.i.i.i.i, i32 0, i32 3, i32 1), !noalias !65
   %mul2.i34.i.i.i.i = shl nuw nsw i64 %n.02.i30.i.i.i.i, 3
   %add.ptr3.i35.i.i.i.i = getelementptr inbounds i8, ptr @XXH3_kSecret, i64 %mul2.i34.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)

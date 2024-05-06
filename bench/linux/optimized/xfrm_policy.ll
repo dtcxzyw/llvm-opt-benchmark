@@ -3325,7 +3325,7 @@ define dso_local ptr @xfrm_policy_byid(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_policy_flush(ptr noundef %0, i8 noundef zeroext %1, i1 noundef zeroext %2) #1 align 16 {
+define dso_local noundef range(i32 -3, 1) i32 @xfrm_policy_flush(ptr noundef %0, i8 noundef zeroext %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 3404
   tail call void @_raw_spin_lock_bh(ptr noundef %4) #23
   %5 = getelementptr inbounds i8, ptr %0, i64 2712
@@ -3524,7 +3524,7 @@ define dso_local void @xfrm_audit_policy_delete(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_dev_policy_flush(ptr noundef %0, ptr noundef readnone %1, i1 noundef zeroext %2) #1 align 16 {
+define dso_local noundef range(i32 -3, 1) i32 @xfrm_dev_policy_flush(ptr noundef %0, ptr noundef readnone %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 3404
   tail call void @_raw_spin_lock_bh(ptr noundef %4) #23
   %5 = getelementptr inbounds i8, ptr %0, i64 2712
@@ -3842,7 +3842,7 @@ define dso_local void @xfrm_policy_walk_done(ptr noundef %0, ptr noundef %1) #1 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_policy_delete(ptr noundef %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @xfrm_policy_delete(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 3404
   tail call void @_raw_spin_lock_bh(ptr noundef %4) #23
@@ -4184,7 +4184,7 @@ define dso_local noundef i32 @xfrm_sk_policy_insert(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__xfrm_sk_clone_policy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @__xfrm_sk_clone_policy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   tail call void @__rcu_read_lock() #23
   %3 = getelementptr inbounds i8, ptr %1, i64 304
   %4 = getelementptr inbounds i8, ptr %0, i64 304
@@ -6431,7 +6431,7 @@ define dso_local ptr @xfrm_lookup_route(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__xfrm_decode_session(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
+define dso_local noundef range(i32 -97, 1) i32 @__xfrm_decode_session(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
   %6 = alloca %struct.xfrm_flow_keys, align 4
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %6) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %6, i8 0, i64 60, i1 false)
@@ -6623,7 +6623,7 @@ define dso_local noundef i32 @__xfrm_decode_session(ptr noundef %0, ptr noundef 
 declare dso_local zeroext i1 @__skb_flow_dissect(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__xfrm_policy_check(ptr noundef %0, i32 noundef %1, ptr noundef %2, i16 noundef zeroext %3) #1 align 16 {
+define dso_local range(i32 0, 2) i32 @__xfrm_policy_check(ptr noundef %0, i32 noundef %1, ptr noundef %2, i16 noundef zeroext %3) #1 align 16 {
   %5 = alloca %struct.flowi, align 8
   %6 = alloca %struct.xfrm_if_decode_session_result, align 8
   %7 = alloca [6 x ptr], align 16
@@ -7651,7 +7651,7 @@ define internal fastcc ptr @xfrm_policy_lookup(ptr noundef %0, ptr noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__xfrm_route_forward(ptr noundef %0, i16 noundef zeroext %1) #1 align 16 {
+define dso_local range(i32 0, 2) i32 @__xfrm_route_forward(ptr noundef %0, i16 noundef zeroext %1) #1 align 16 {
   %3 = alloca %struct.flowi, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -7841,7 +7841,7 @@ define dso_local void @xfrm_dst_ifdown(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_policy_register_afinfo(ptr noundef %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef range(i32 -97, 1) i32 @xfrm_policy_register_afinfo(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = icmp ugt i32 %1, 10
   br i1 %3, label %4, label %5, !prof !6
 
@@ -11480,7 +11480,7 @@ declare dso_local i32 @ip6_mtu(ptr noundef) #4
 declare dso_local i32 @ipv4_mtu(ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @xdst_queue_output(ptr nocapture readnone %0, ptr noundef readnone %1, ptr noundef %2) #1 align 16 {
+define internal noundef range(i32 -11, 1) i32 @xdst_queue_output(ptr nocapture readnone %0, ptr noundef readnone %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, -2

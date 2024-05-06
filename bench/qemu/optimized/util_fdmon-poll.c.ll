@@ -9,13 +9,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._GPollFD = type { i32, i16, i16 }
 
 @fdmon_poll_ops = dso_local local_unnamed_addr constant %struct.FDMonOps { ptr @fdmon_poll_update, ptr @fdmon_poll_wait, ptr @aio_poll_disabled }, align 8
-@npfd = internal thread_local global i32 0, align 4
+@npfd = internal thread_local unnamed_addr global i32 0, align 4
 @.str = private unnamed_addr constant [10 x i8] c"npfd == 0\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"../qemu/util/fdmon-poll.c\00", align 1
 @__PRETTY_FUNCTION__.fdmon_poll_wait = private unnamed_addr constant [61 x i8] c"int fdmon_poll_wait(AioContext *, AioHandlerList *, int64_t)\00", align 1
-@pollfds = internal thread_local global ptr null, align 8
-@nodes = internal thread_local global ptr null, align 8
-@nalloc = internal thread_local global i32 0, align 4
+@pollfds = internal thread_local unnamed_addr global ptr null, align 8
+@nodes = internal thread_local unnamed_addr global ptr null, align 8
+@nalloc = internal thread_local unnamed_addr global i32 0, align 4
 @pollfds_cleanup_notifier = internal thread_local global %struct.Notifier zeroinitializer, align 8
 @__func__.add_pollfd = private unnamed_addr constant [11 x i8] c"add_pollfd\00", align 1
 @.str.2 = private unnamed_addr constant [18 x i8] c"nalloc <= INT_MAX\00", align 1

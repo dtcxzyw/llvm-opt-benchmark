@@ -19548,7 +19548,7 @@ return:                                           ; preds = %if.end7, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i8 @_ZN6duckdb8JoinSide11GetJoinSideEmRKSt13unordered_setImSt4hashImESt8equal_toImESaImEES9_(i64 noundef %table_binding, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %left_bindings, ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %right_bindings) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i8 1, 3) i8 @_ZN6duckdb8JoinSide11GetJoinSideEmRKSt13unordered_setImSt4hashImESt8equal_toImESaImEES9_(i64 noundef %table_binding, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %left_bindings, ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %right_bindings) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %left_bindings, i64 24
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8, !tbaa !354
@@ -19982,7 +19982,7 @@ declare void @_ZN6duckdb9ExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_trait
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i8 @_ZN6duckdb8JoinSide11GetJoinSideERKSt13unordered_setImSt4hashImESt8equal_toImESaImEES9_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %bindings, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %left_bindings, ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %right_bindings) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define range(i8 0, 4) i8 @_ZN6duckdb8JoinSide11GetJoinSideERKSt13unordered_setImSt4hashImESt8equal_toImESaImEES9_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %bindings, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %left_bindings, ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %right_bindings) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %bindings, i64 16
   %__begin1.sroa.0.023 = load ptr, ptr %_M_before_begin.i.i.i, align 8, !tbaa !67

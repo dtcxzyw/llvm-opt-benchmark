@@ -356,7 +356,7 @@ define hidden void @_ZN6google24glog_internal_namespace_26InitGoogleLoggingUtili
           to label %17 unwind label %18
 
 .critedge:                                        ; preds = %1
-  %13 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #23
+  %13 = tail call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %0, i32 noundef 47) #23
   %.not.i = icmp eq ptr %13, null
   %14 = getelementptr inbounds i8, ptr %13, i64 1
   %15 = select i1 %.not.i, ptr %0, ptr %14
@@ -430,8 +430,8 @@ define internal void @_ZN6googleL21DumpStackTraceAndExitEv() #12 {
   %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.11, i32 noundef 18, ptr noundef %11, ptr noundef nonnull %spec.select.i.i) #22
   %16 = load ptr, ptr @stderr, align 8
   %17 = call i32 @fileno(ptr noundef %16) #22
-  %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #23
-  %19 = call i64 @write(i32 noundef %17, ptr noundef nonnull %3, i64 noundef %18)
+  %18 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #23
+  %19 = call i64 @write(i32 noundef %17, ptr noundef nonnull readonly %3, i64 noundef %18)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
   br label %26
@@ -441,8 +441,8 @@ define internal void @_ZN6googleL21DumpStackTraceAndExitEv() #12 {
   %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 100, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.11, i32 noundef 18, ptr noundef %11) #22
   %22 = load ptr, ptr @stderr, align 8
   %23 = call i32 @fileno(ptr noundef %22) #22
-  %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
-  %25 = call i64 @write(i32 noundef %23, ptr noundef nonnull %1, i64 noundef %24)
+  %24 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #23
+  %25 = call i64 @write(i32 noundef %23, ptr noundef nonnull readonly %1, i64 noundef %24)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %1)
   br label %26
 

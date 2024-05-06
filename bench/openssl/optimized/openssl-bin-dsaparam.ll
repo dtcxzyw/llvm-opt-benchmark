@@ -69,7 +69,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.55 = private unnamed_addr constant [48 x i8] c"Error, unable to initialise for key generation\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @dsaparam_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @dsaparam_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %numqbits = alloca i32, align 4
   %num = alloca i32, align 4

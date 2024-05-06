@@ -69,7 +69,7 @@ $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_r
 @.str.13 = private unnamed_addr constant [10 x i8] c"succeeded\00", align 1
 @.str.14 = private unnamed_addr constant [10 x i8] c"completed\00", align 1
 @.str.15 = private unnamed_addr constant [5 x i8] c"code\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.16 = private unnamed_addr constant [36 x i8] c"Mod performs HTTP request with URL \00", align 1
 @.str.17 = private unnamed_addr constant [17 x i8] c"secure.http_mods\00", align 1
 @.str.18 = private unnamed_addr constant [20 x i8] c"secure.trusted_mods\00", align 1

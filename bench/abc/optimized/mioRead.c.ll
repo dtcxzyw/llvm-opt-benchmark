@@ -61,10 +61,10 @@ define noundef ptr @Mio_LibraryRead(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i, label %28, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #18
   %16 = add i64 %15, 1
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #19
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %1) #17
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %1) #17
   %19 = tail call ptr @Mio_LibraryReadBuffer(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %.0, i32 poison)
   %.not43 = icmp eq ptr %19, null
   br i1 %.not43, label %31, label %20
@@ -75,10 +75,10 @@ define noundef ptr @Mio_LibraryRead(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i48, label %.thread53, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #18
+  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %21) #18
   %24 = add i64 %23, 1
   %25 = tail call noalias ptr @malloc(i64 noundef %24) #19
-  %26 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %21) #17
+  %26 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull readonly dereferenceable(1) %21) #17
   br label %.thread53
 
 .thread53:                                        ; preds = %22, %20
@@ -102,10 +102,10 @@ define noundef ptr @Mio_LibraryRead(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i50, label %.thread59, label %35
 
 35:                                               ; preds = %33
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #18
+  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #18
   %37 = add i64 %36, 1
   %38 = tail call noalias ptr @malloc(i64 noundef %37) #19
-  %39 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %34) #17
+  %39 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull readonly dereferenceable(1) %34) #17
   br label %.thread59
 
 .thread59:                                        ; preds = %35, %33
@@ -178,10 +178,10 @@ define i32 @Mio_LibraryReadExclude(ptr noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.0911 = phi i32 [ %17, %.lr.ph ], [ 0, %.preheader ]
-  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #18
+  %12 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #18
   %13 = add i64 %12, 1
   %14 = call noalias ptr @malloc(i64 noundef %13) #19
-  %15 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %3) #17
+  %15 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %3) #17
   %16 = call i32 @st__insert(ptr noundef %1, ptr noundef %14, ptr noundef null) #17
   %17 = add nuw nsw i32 %.0911, 1
   %18 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.9, ptr noundef nonnull %3) #17
@@ -231,10 +231,10 @@ define internal fastcc noundef ptr @Mio_LibraryReadOne(ptr noundef %0, i32 nound
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %17
 
 17:                                               ; preds = %16
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %18 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #18
   %19 = add i64 %18, 1
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #19
-  %21 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %0) #17
+  %21 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %0) #17
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %16, %17
@@ -399,10 +399,10 @@ Io_ReadFileRemoveComments.exit:                   ; preds = %15
   br i1 %.not.i.i.i, label %Abc_UtilStrsav.exit.i.i, label %50
 
 50:                                               ; preds = %.thread.i
-  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #18
+  %51 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %49) #18
   %52 = add i64 %51, 1
   %53 = tail call noalias ptr @malloc(i64 noundef %52) #19
-  %54 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %49) #17
+  %54 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull readonly dereferenceable(1) %49) #17
   br label %Abc_UtilStrsav.exit.i.i
 
 Abc_UtilStrsav.exit.i.i:                          ; preds = %50, %.thread.i
@@ -482,10 +482,10 @@ chomp.exit.i.i:                                   ; preds = %88, %81, %._crit_ed
   br i1 %.not.i22.i.i, label %Abc_UtilStrsav.exit23.i.i, label %93
 
 93:                                               ; preds = %chomp.exit.i.i
-  %94 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #18
+  %94 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %92) #18
   %95 = add i64 %94, 1
   %96 = tail call noalias ptr @malloc(i64 noundef %95) #19
-  %97 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull dereferenceable(1) %92) #17
+  %97 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull readonly dereferenceable(1) %92) #17
   br label %Abc_UtilStrsav.exit23.i.i
 
 Abc_UtilStrsav.exit23.i.i:                        ; preds = %93, %chomp.exit.i.i
@@ -512,10 +512,10 @@ Abc_UtilStrsav.exit23.i.i:                        ; preds = %93, %chomp.exit.i.i
   br i1 %.not.i.i.i.i, label %Abc_UtilStrsav.exit.i.i.i, label %107
 
 107:                                              ; preds = %104
-  %108 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #18
+  %108 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %106) #18
   %109 = add i64 %108, 1
   %110 = tail call noalias ptr @malloc(i64 noundef %109) #19
-  %111 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull dereferenceable(1) %106) #17
+  %111 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull readonly dereferenceable(1) %106) #17
   br label %Abc_UtilStrsav.exit.i.i.i
 
 Abc_UtilStrsav.exit.i.i.i:                        ; preds = %107, %104
@@ -1091,10 +1091,10 @@ define noundef ptr @Mio_LibraryCleanStr(ptr noundef readonly %0) local_unnamed_a
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #18
   %4 = add i64 %3, 1
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #19
-  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #17
+  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #17
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %2
@@ -1165,7 +1165,7 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Mio_LibraryCompareGatesByArea(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define range(i32 -1, 2) i32 @Mio_LibraryCompareGatesByArea(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load double, ptr %4, align 8
@@ -1181,7 +1181,7 @@ define i32 @Mio_LibraryCompareGatesByArea(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Mio_LibraryCompareGatesByName(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define range(i32 -1, 2) i32 @Mio_LibraryCompareGatesByName(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -1244,7 +1244,7 @@ define void @Mio_LibrarySortGates(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge41:                                    ; preds = %.lr.ph40, %._crit_edge
   %.pre-phi = phi i64 [ %13, %._crit_edge ], [ %23, %.lr.ph40 ]
   tail call void @qsort(ptr noundef %6, i64 noundef %.pre-phi, i64 noundef 8, ptr noundef nonnull @Mio_LibraryCompareGatesByName) #17
-  %invariant.gep = getelementptr i8, ptr %6, i64 8
+  %invariant.gep = getelementptr inbounds i8, ptr %6, i64 8
   %25 = load i32, ptr %2, align 8
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph44, label %._crit_edge45
@@ -1258,7 +1258,7 @@ define void @Mio_LibrarySortGates(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph44
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv51
+  %gep = getelementptr inbounds ptr, ptr %invariant.gep, i64 %indvars.iv51
   %32 = load ptr, ptr %gep, align 8
   br label %33
 

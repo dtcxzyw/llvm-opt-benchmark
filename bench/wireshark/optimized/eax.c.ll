@@ -111,7 +111,7 @@ Dbl.exit45:                                       ; preds = %37, %38
   br label %82
 
 46:                                               ; preds = %Dbl.exit45
-  call fastcc void @dCMAC(ptr noundef %1, ptr noundef nonnull %12, ptr noundef %0, i16 noundef zeroext %42, ptr noundef null, i16 noundef zeroext 0)
+  call fastcc void @dCMAC(ptr noundef %1, ptr noundef nonnull %12, ptr noundef readonly %0, i16 noundef zeroext %42, ptr noundef null, i16 noundef zeroext 0)
   %47 = icmp eq i8 %7, 2
   br i1 %47, label %48, label %82
 
@@ -128,7 +128,7 @@ Dbl.exit45:                                       ; preds = %37, %38
 52:                                               ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds (%struct.eax_s, ptr @instance, i64 0, i32 2), i64 16, i1 false)
   %53 = trunc i32 %5 to i16
-  call fastcc void @dCMAC(ptr noundef %1, ptr noundef nonnull %13, ptr noundef %2, i16 noundef zeroext %53, ptr noundef null, i16 noundef zeroext 0)
+  call fastcc void @dCMAC(ptr noundef %1, ptr noundef nonnull %13, ptr noundef readonly %2, i16 noundef zeroext %53, ptr noundef null, i16 noundef zeroext 0)
   br label %54
 
 54:                                               ; preds = %52, %54
@@ -152,7 +152,7 @@ Dbl.exit45:                                       ; preds = %37, %38
 63:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 16 dereferenceable(16) %12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull readonly align 16 dereferenceable(16) %12, i64 16, i1 false)
   %64 = getelementptr inbounds i8, ptr %10, i64 12
   %65 = load i8, ptr %64, align 4
   %66 = and i8 %65, 127

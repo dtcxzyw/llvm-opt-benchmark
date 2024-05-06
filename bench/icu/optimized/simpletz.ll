@@ -77,7 +77,7 @@ entry:
   %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
   %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   ret void
 }
 
@@ -106,7 +106,7 @@ invoke.cont2:
   %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
   %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   %rawOffset.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %rawOffsetGMT, ptr %rawOffset.i, align 4
   %startMonth.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -194,7 +194,7 @@ entry:
   %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
   %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   %rawOffset.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %rawOffsetGMT, ptr %rawOffset.i, align 4
   %startMonth.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -245,7 +245,7 @@ entry:
   %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
   %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   %rawOffset.i = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %rawOffsetGMT, ptr %rawOffset.i, align 4
   %startMonth.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -556,7 +556,7 @@ delete.notnull25.i:                               ; preds = %if.end20.i
 _ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv.exit: ; preds = %if.end20.i, %delete.notnull25.i
   %transitionRulesInitialized.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   tail call void @_ZN6icu_7513BasicTimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #13
   ret void
 }
@@ -618,7 +618,7 @@ delete.notnull25:                                 ; preds = %if.end20
 if.end29:                                         ; preds = %delete.notnull25, %if.end20
   %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule, i8 0, i64 32, i1 false)
   ret void
 }
 
@@ -713,7 +713,7 @@ call.i.noexc:                                     ; preds = %if.then.i
   %initialRule.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %transitionRulesInitialized.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i.i, i8 0, i64 32, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %call.i.noexc, %entry
@@ -803,7 +803,7 @@ if.then:                                          ; preds = %entry
   %initialRule.i = getelementptr inbounds i8, ptr %this, i64 128
   %transitionRulesInitialized.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %transitionRulesInitialized.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1949,7 +1949,7 @@ if.end38:                                         ; preds = %lor.lhs.false32
   %17 = load i8, ptr %startDay, align 1
   %startTime = getelementptr inbounds i8, ptr %this, i64 76
   %18 = load i32, ptr %startTime, align 4
-  %call50 = tail call noundef i32 @_ZN6icu_7514SimpleTimeZone13compareToRuleEaaaaaiiNS0_5EModeEaaai(i8 noundef signext %conv43, i8 noundef signext %conv44, i8 noundef signext %conv45, i8 noundef signext %conv46, i8 noundef signext %dayOfWeek, i32 noundef %millis, i32 noundef %spec.select, i32 noundef %15, i8 noundef signext %12, i8 noundef signext %16, i8 noundef signext %17, i32 noundef %18), !range !4
+  %call50 = tail call noundef i32 @_ZN6icu_7514SimpleTimeZone13compareToRuleEaaaaaiiNS0_5EModeEaaai(i8 noundef signext %conv43, i8 noundef signext %conv44, i8 noundef signext %conv45, i8 noundef signext %conv46, i8 noundef signext %dayOfWeek, i32 noundef %millis, i32 noundef %spec.select, i32 noundef %15, i8 noundef signext %12, i8 noundef signext %16, i8 noundef signext %17, i32 noundef %18)
   %cmp52 = icmp sgt i32 %call50, -1
   %19 = xor i1 %cmp41, %cmp52
   br i1 %19, label %if.then55, label %if.end75
@@ -1980,7 +1980,7 @@ cond.end71:                                       ; preds = %if.then55, %cond.tr
   %24 = load i8, ptr %endDay, align 1
   %endTime = getelementptr inbounds i8, ptr %this, i64 92
   %25 = load i32, ptr %endTime, align 4
-  %call74 = tail call noundef i32 @_ZN6icu_7514SimpleTimeZone13compareToRuleEaaaaaiiNS0_5EModeEaaai(i8 noundef signext %conv43, i8 noundef signext %conv44, i8 noundef signext %conv45, i8 noundef signext %conv46, i8 noundef signext %dayOfWeek, i32 noundef %millis, i32 noundef %cond72, i32 noundef %22, i8 noundef signext %13, i8 noundef signext %23, i8 noundef signext %24, i32 noundef %25), !range !4
+  %call74 = tail call noundef i32 @_ZN6icu_7514SimpleTimeZone13compareToRuleEaaaaaiiNS0_5EModeEaaai(i8 noundef signext %conv43, i8 noundef signext %conv44, i8 noundef signext %conv45, i8 noundef signext %conv46, i8 noundef signext %dayOfWeek, i32 noundef %millis, i32 noundef %cond72, i32 noundef %22, i8 noundef signext %13, i8 noundef signext %23, i8 noundef signext %24, i32 noundef %25)
   %26 = icmp slt i32 %call74, 0
   br label %if.end75
 
@@ -2006,7 +2006,7 @@ return:                                           ; preds = %if.end75, %if.then8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_7514SimpleTimeZone13compareToRuleEaaaaaiiNS0_5EModeEaaai(i8 noundef signext %month, i8 noundef signext %monthLen, i8 noundef signext %prevMonthLen, i8 noundef signext %dayOfMonth, i8 noundef signext %dayOfWeek, i32 noundef %millis, i32 noundef %millisDelta, i32 noundef %ruleMode, i8 noundef signext %ruleMonth, i8 noundef signext %ruleDayOfWeek, i8 noundef signext %ruleDay, i32 noundef %ruleMillis) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN6icu_7514SimpleTimeZone13compareToRuleEaaaaaiiNS0_5EModeEaaai(i8 noundef signext %month, i8 noundef signext %monthLen, i8 noundef signext %prevMonthLen, i8 noundef signext %dayOfMonth, i8 noundef signext %dayOfWeek, i32 noundef %millis, i32 noundef %millisDelta, i32 noundef %ruleMode, i8 noundef signext %ruleMonth, i8 noundef signext %ruleDayOfWeek, i8 noundef signext %ruleDay, i32 noundef %ruleMillis) local_unnamed_addr #0 align 2 {
 entry:
   %add = add nsw i32 %millisDelta, %millis
   %cmp53 = icmp sgt i32 %add, 86399999
@@ -2030,7 +2030,7 @@ while.body:                                       ; preds = %entry, %while.body
   %inc6 = zext i1 %cmp5 to i8
   %spec.select42 = add i8 %month.addr.057, %inc6
   %cmp = icmp ugt i32 %millis.addr.054, 172799999
-  br i1 %cmp, label %while.body, label %while.end21, !llvm.loop !5
+  br i1 %cmp, label %while.body, label %while.end21, !llvm.loop !4
 
 while.body9:                                      ; preds = %while.cond7.preheader, %while.body9
   %month.addr.265 = phi i8 [ %spec.select44, %while.body9 ], [ %month, %while.cond7.preheader ]
@@ -2049,7 +2049,7 @@ while.body9:                                      ; preds = %while.cond7.prehead
   %dec19 = sext i1 %cmp17 to i8
   %spec.select44 = add i8 %month.addr.265, %dec19
   %cmp8 = icmp ult i32 %millis.addr.162, -86400000
-  br i1 %cmp8, label %while.body9, label %while.end21, !llvm.loop !7
+  br i1 %cmp8, label %while.body9, label %while.end21, !llvm.loop !6
 
 while.end21:                                      ; preds = %while.body9, %while.body, %while.cond7.preheader
   %millis.addr.1.lcssa = phi i32 [ %add, %while.cond7.preheader ], [ %sub, %while.body ], [ %add10, %while.body9 ]
@@ -2413,7 +2413,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 declare void @_ZN6icu_7517GregorianCalendarC1ERKNS_8TimeZoneER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7514SimpleTimeZone12hasSameRulesERKNS_8TimeZoneE(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #8 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7514SimpleTimeZone12hasSameRulesERKNS_8TimeZoneE(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %typeid.end
@@ -2585,7 +2585,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7514SimpleTimeZone17getNextTransitionEdaRNS_18TimeZoneTransitionE(ptr noundef nonnull align 8 dereferenceable(160) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7514SimpleTimeZone17getNextTransitionEdaRNS_18TimeZoneTransitionE(ptr noundef nonnull align 8 dereferenceable(160) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #1 align 2 {
 entry:
   %status = alloca i32, align 4
   %stdDate = alloca double, align 8
@@ -2734,7 +2734,7 @@ declare void @_ZN6icu_7518TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr no
 declare void @_ZN6icu_7518TimeZoneTransition5setToERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7514SimpleTimeZone21getPreviousTransitionEdaRNS_18TimeZoneTransitionE(ptr noundef nonnull align 8 dereferenceable(160) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7514SimpleTimeZone21getPreviousTransitionEdaRNS_18TimeZoneTransitionE(ptr noundef nonnull align 8 dereferenceable(160) %this, double noundef %base, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #1 align 2 {
 entry:
   %status = alloca i32, align 4
   %stdDate = alloca double, align 8
@@ -2917,7 +2917,7 @@ delete.notnull25.i:                               ; preds = %if.end20.i
 
 _ZN6icu_7514SimpleTimeZone21deleteTransitionRulesEv.exit: ; preds = %if.end20.i, %delete.notnull25.i
   store i8 0, ptr %transitionRulesInitialized, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %initialRule.i, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %tzid, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %tzid, i64 8
   store i16 2, ptr %fUnion2.i, align 8
@@ -3624,7 +3624,7 @@ declare void @_ZN6icu_7519InitialTimeZoneRuleC1ERKNS_13UnicodeStringEii(ptr noun
 declare void @_ZN6icu_7518TimeZoneTransitionC1EdRKNS_12TimeZoneRuleES3_(ptr noundef nonnull align 8 dereferenceable(32), double noundef, ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7514SimpleTimeZone20countTransitionRulesER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #7 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK6icu_7514SimpleTimeZone20countTransitionRulesER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #7 align 2 {
 entry:
   %useDaylight = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load i8, ptr %useDaylight, align 8
@@ -3755,7 +3755,6 @@ attributes #13 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

@@ -88,12 +88,12 @@ define i64 @zend_atol(ptr nocapture noundef readonly %0, i64 noundef %1) local_u
   br i1 %.not.i, label %4, label %.thread.i
 
 .thread.i:                                        ; preds = %2
-  %3 = tail call i64 @strtoll(ptr nocapture noundef %0, ptr noundef null, i32 noundef 0) #27
+  %3 = tail call i64 @strtoll(ptr nocapture noundef readonly %0, ptr noundef null, i32 noundef 0) #27
   br label %7
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
-  %6 = tail call i64 @strtoll(ptr nocapture noundef %0, ptr noundef null, i32 noundef 0) #27
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #28
+  %6 = tail call i64 @strtoll(ptr nocapture noundef readonly %0, ptr noundef null, i32 noundef 0) #27
   %.not11.i = icmp eq i64 %5, 0
   br i1 %.not11.i, label %zend_atol_internal.exit, label %7
 
@@ -137,12 +137,12 @@ define i32 @zend_atoi(ptr nocapture noundef readonly %0, i64 noundef %1) local_u
   br i1 %.not.i, label %4, label %.thread.i
 
 .thread.i:                                        ; preds = %2
-  %3 = tail call i64 @strtoll(ptr nocapture noundef %0, ptr noundef null, i32 noundef 0) #27
+  %3 = tail call i64 @strtoll(ptr nocapture noundef readonly %0, ptr noundef null, i32 noundef 0) #27
   br label %7
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
-  %6 = tail call i64 @strtoll(ptr nocapture noundef %0, ptr noundef null, i32 noundef 0) #27
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #28
+  %6 = tail call i64 @strtoll(ptr nocapture noundef readonly %0, ptr noundef null, i32 noundef 0) #27
   %.not11.i = icmp eq i64 %5, 0
   br i1 %.not11.i, label %zend_atol_internal.exit, label %7
 
@@ -254,7 +254,7 @@ define void @convert_scalar_to_number(ptr noundef %0) local_unnamed_addr #1 {
 35:                                               ; preds = %30
   %36 = getelementptr inbounds i8, ptr %31, i64 16
   %37 = load i64, ptr %36, align 8
-  %38 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %32, i64 noundef %37, ptr noundef nonnull %0, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef null, ptr noundef null), !range !4
+  %38 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %32, i64 noundef %37, ptr noundef nonnull %0, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef null, ptr noundef null)
   %39 = zext nneg i8 %38 to i32
   store i32 %39, ptr %3, align 8
   %40 = icmp eq i8 %38, 0
@@ -451,7 +451,7 @@ define internal fastcc i64 @zendi_try_get_long(ptr nocapture noundef readonly %0
 35:                                               ; preds = %30
   %36 = getelementptr inbounds i8, ptr %31, i64 16
   %37 = load i64, ptr %36, align 8
-  %38 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %32, i64 noundef %37, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %5), !range !4
+  %38 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %32, i64 noundef %37, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %5)
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %.thread, label %40
 
@@ -2201,7 +2201,7 @@ define i64 @zval_get_long_func(ptr nocapture noundef readonly %0, i1 noundef zer
 38:                                               ; preds = %33
   %39 = getelementptr inbounds i8, ptr %34, i64 16
   %40 = load i64, ptr %39, align 8
-  %41 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %35, i64 noundef %40, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef null, ptr noundef null), !range !4
+  %41 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %35, i64 noundef %40, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef null, ptr noundef null)
   switch i8 %41, label %44 [
     i8 0, label %.thread
     i8 4, label %42
@@ -2621,7 +2621,7 @@ zend_double_to_str.exit:                          ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @add_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @add_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2640,7 +2640,7 @@ define noundef i32 @add_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 12:                                               ; preds = %3
   callbr void asm sideeffect "movq\09($1), %rax\0A\09addq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1, ptr %2, i32 4, i64 8) #27
-          to label %.critedge [label %13], !srcloc !5
+          to label %.critedge [label %13], !srcloc !4
 
 13:                                               ; preds = %12
   %14 = load i64, ptr %1, align 8
@@ -2770,7 +2770,7 @@ define noundef i32 @add_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 79:                                               ; preds = %72
   callbr void asm sideeffect "movq\09($1), %rax\0A\09addq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %.0142.i, ptr %.0.i, i32 4, i64 8) #27
-          to label %add_function_slow.exit [label %80], !srcloc !5
+          to label %add_function_slow.exit [label %80], !srcloc !4
 
 80:                                               ; preds = %79
   %81 = load i64, ptr %.0142.i, align 8
@@ -2910,7 +2910,7 @@ define noundef i32 @add_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %160
 
 157:                                              ; preds = %151
-  %158 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0142.i, ptr noundef nonnull %4), !range !6
+  %158 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0142.i, ptr noundef nonnull %4)
   %159 = icmp eq i32 %158, -1
   br i1 %159, label %169, label %160
 
@@ -2929,7 +2929,7 @@ define noundef i32 @add_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %176
 
 166:                                              ; preds = %160
-  %167 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0.i, ptr noundef nonnull %5), !range !6
+  %167 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0.i, ptr noundef nonnull %5)
   %168 = icmp eq i32 %167, -1
   br i1 %168, label %169, label %176
 
@@ -2978,7 +2978,7 @@ zend_binop_error.exit.i:                          ; preds = %171, %169
 
 186:                                              ; preds = %179
   callbr void asm sideeffect "movq\09($1), %rax\0A\09addq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull %4, ptr nonnull %5, i32 4, i64 8) #27
-          to label %add_function_slow.exit [label %187], !srcloc !5
+          to label %add_function_slow.exit [label %187], !srcloc !4
 
 187:                                              ; preds = %186
   %188 = load i64, ptr %4, align 8
@@ -3039,7 +3039,7 @@ add_function_slow.exit:                           ; preds = %79, %80, %87, %92, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @sub_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @sub_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3057,7 +3057,7 @@ define noundef i32 @sub_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 12:                                               ; preds = %3
   callbr void asm sideeffect "movq\09($1), %rax\0A\09subq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %1, ptr %2, i32 4, i64 8) #27
-          to label %.critedge [label %13], !srcloc !7
+          to label %.critedge [label %13], !srcloc !5
 
 13:                                               ; preds = %12
   %14 = load i64, ptr %1, align 8
@@ -3139,7 +3139,7 @@ define noundef i32 @sub_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 54:                                               ; preds = %47
   callbr void asm sideeffect "movq\09($1), %rax\0A\09subq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr %.0134.i, ptr %.0.i, i32 4, i64 8) #27
-          to label %sub_function_slow.exit [label %55], !srcloc !7
+          to label %sub_function_slow.exit [label %55], !srcloc !5
 
 55:                                               ; preds = %54
   %56 = load i64, ptr %.0134.i, align 8
@@ -3220,7 +3220,7 @@ define noundef i32 @sub_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %106
 
 103:                                              ; preds = %97
-  %104 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0134.i, ptr noundef nonnull %4), !range !6
+  %104 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0134.i, ptr noundef nonnull %4)
   %105 = icmp eq i32 %104, -1
   br i1 %105, label %115, label %106
 
@@ -3239,7 +3239,7 @@ define noundef i32 @sub_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %120
 
 112:                                              ; preds = %106
-  %113 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0.i, ptr noundef nonnull %5), !range !6
+  %113 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0.i, ptr noundef nonnull %5)
   %114 = icmp eq i32 %113, -1
   br i1 %114, label %115, label %120
 
@@ -3282,7 +3282,7 @@ zend_binop_error.exit.i:                          ; preds = %117, %115
 
 130:                                              ; preds = %123
   callbr void asm sideeffect "movq\09($1), %rax\0A\09subq   ($2), %rax\0A\09jo     ${5:l}\0A\09movq   %rax, ($0)\0A\09movl   $3, ${4:c}($0)\0A", "r,r,r,n,n,!i,~{rax},~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0, ptr nonnull %4, ptr nonnull %5, i32 4, i64 8) #27
-          to label %sub_function_slow.exit [label %131], !srcloc !7
+          to label %sub_function_slow.exit [label %131], !srcloc !5
 
 131:                                              ; preds = %130
   %132 = load i64, ptr %4, align 8
@@ -3339,7 +3339,7 @@ sub_function_slow.exit:                           ; preds = %54, %83, %94, %zend
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mul_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @mul_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3528,7 +3528,7 @@ define noundef i32 @mul_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %114
 
 111:                                              ; preds = %105
-  %112 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0130.i, ptr noundef nonnull %4), !range !6
+  %112 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0130.i, ptr noundef nonnull %4)
   %113 = icmp eq i32 %112, -1
   br i1 %113, label %123, label %114
 
@@ -3547,7 +3547,7 @@ define noundef i32 @mul_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %128
 
 120:                                              ; preds = %114
-  %121 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0.i, ptr noundef nonnull %5), !range !6
+  %121 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0.i, ptr noundef nonnull %5)
   %122 = icmp eq i32 %121, -1
   br i1 %122, label %123, label %128
 
@@ -3648,7 +3648,7 @@ mul_function_slow.exit:                           ; preds = %91, %102, %zend_bin
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pow_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @pow_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3675,7 +3675,7 @@ define noundef i32 @pow_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 19:                                               ; preds = %12, %16
   %.0 = phi ptr [ %18, %16 ], [ %2, %12 ]
-  %20 = tail call fastcc i32 @pow_function_base(ptr noundef %0, ptr noundef nonnull %.064, ptr noundef nonnull %.0), !range !6
+  %20 = tail call fastcc i32 @pow_function_base(ptr noundef %0, ptr noundef nonnull %.064, ptr noundef nonnull %.0)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %80, label %22
 
@@ -3734,7 +3734,7 @@ define noundef i32 @pow_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %57
 
 54:                                               ; preds = %48
-  %55 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.064, ptr noundef nonnull %4), !range !6
+  %55 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.064, ptr noundef nonnull %4)
   %56 = icmp eq i32 %55, -1
   br i1 %56, label %67, label %57
 
@@ -3754,7 +3754,7 @@ define noundef i32 @pow_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %74
 
 64:                                               ; preds = %57
-  %65 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0, ptr noundef nonnull %5), !range !6
+  %65 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.0, ptr noundef nonnull %5)
   %66 = icmp eq i32 %65, -1
   br i1 %66, label %67, label %74
 
@@ -3787,7 +3787,7 @@ zend_binop_error.exit:                            ; preds = %67, %69
   br label %77
 
 77:                                               ; preds = %76, %74
-  %78 = call fastcc i32 @pow_function_base(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5), !range !6
+  %78 = call fastcc i32 @pow_function_base(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %79 = icmp eq i32 %78, 0
   call void @llvm.assume(i1 %79)
   br label %80
@@ -3798,7 +3798,7 @@ zend_binop_error.exit:                            ; preds = %67, %69
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc noundef i32 @pow_function_base(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @pow_function_base(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = shl i8 %5, 4
@@ -3933,7 +3933,7 @@ define internal fastcc noundef i32 @pow_function_base(ptr nocapture noundef writ
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @div_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @div_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3960,7 +3960,7 @@ define noundef i32 @div_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 19:                                               ; preds = %12, %16
   %.081 = phi ptr [ %18, %16 ], [ %2, %12 ]
-  %20 = tail call fastcc i32 @div_function_base(ptr noundef %0, ptr noundef nonnull %.079, ptr noundef nonnull %.081), !range !8
+  %20 = tail call fastcc i32 @div_function_base(ptr noundef %0, ptr noundef nonnull %.079, ptr noundef nonnull %.081)
   switch i32 %20, label %21 [
     i32 0, label %128
     i32 2, label %div_function_base.exit
@@ -4021,7 +4021,7 @@ define noundef i32 @div_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %56
 
 53:                                               ; preds = %47
-  %54 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.079, ptr noundef nonnull %4), !range !6
+  %54 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.079, ptr noundef nonnull %4)
   %55 = icmp eq i32 %54, -1
   br i1 %55, label %67, label %56
 
@@ -4042,7 +4042,7 @@ define noundef i32 @div_function(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %74
 
 64:                                               ; preds = %56
-  %65 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.081, ptr noundef nonnull %5), !range !6
+  %65 = call fastcc i32 @_zendi_try_convert_scalar_to_number(ptr noundef nonnull %.081, ptr noundef nonnull %5)
   %66 = icmp eq i32 %65, -1
   br i1 %66, label %67, label %._crit_edge
 
@@ -4189,7 +4189,7 @@ div_function_base.exit:                           ; preds = %110, %102, %95, %80
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @div_function_base(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #5 {
+define internal fastcc range(i32 0, 3) i32 @div_function_base(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = shl i8 %5, 4
@@ -4288,7 +4288,7 @@ define internal fastcc noundef i32 @div_function_base(ptr nocapture noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mod_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4526,7 +4526,7 @@ define noundef i32 @boolean_xor_function(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %23, label %52, label %24
 
 24:                                               ; preds = %21, %15, %._crit_edge
-  %25 = tail call i32 @zend_is_true(ptr noundef nonnull %.043), !range !9
+  %25 = tail call i32 @zend_is_true(ptr noundef nonnull %.043)
   br label %26
 
 26:                                               ; preds = %7, %3, %12, %6, %24
@@ -4577,7 +4577,7 @@ define noundef i32 @boolean_xor_function(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %46, label %52, label %47
 
 47:                                               ; preds = %44, %38, %35
-  %48 = tail call i32 @zend_is_true(ptr noundef nonnull %.042), !range !9
+  %48 = tail call i32 @zend_is_true(ptr noundef nonnull %.042)
   br label %49
 
 .fold.split:                                      ; preds = %30
@@ -4596,7 +4596,7 @@ define noundef i32 @boolean_xor_function(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @zend_is_true(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @zend_is_true(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct._zval_struct, align 8
   br label %3
 
@@ -4763,7 +4763,7 @@ define noundef i32 @boolean_not_function(ptr noundef %0, ptr noundef %1) local_u
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %15, %18, %24
-  %28 = tail call i32 @zend_is_true(ptr noundef nonnull %.0), !range !9
+  %28 = tail call i32 @zend_is_true(ptr noundef nonnull %.0)
   %.not27 = icmp eq i32 %28, 0
   %29 = select i1 %.not27, i32 3, i32 2
   br label %.sink.split
@@ -4779,7 +4779,7 @@ define noundef i32 @boolean_not_function(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bitwise_not_function(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @bitwise_not_function(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br label %3
 
 3:                                                ; preds = %76, %2
@@ -4968,7 +4968,7 @@ declare void @zend_type_error(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @zend_zval_value_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bitwise_or_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @bitwise_or_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5278,7 +5278,7 @@ zend_binop_error.exit189:                         ; preds = %145, %147
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bitwise_and_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @bitwise_and_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5578,7 +5578,7 @@ zend_binop_error.exit185:                         ; preds = %139, %141
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bitwise_xor_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @bitwise_xor_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5878,7 +5878,7 @@ zend_binop_error.exit185:                         ; preds = %139, %141
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @shift_left_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6073,7 +6073,7 @@ zend_binop_error.exit81:                          ; preds = %59, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @shift_right_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6262,7 +6262,7 @@ zend_binop_error.exit82:                          ; preds = %59, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @concat_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @concat_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
   switch i8 %5, label %._crit_edge [
@@ -7219,7 +7219,7 @@ define i32 @string_compare_function_ex(ptr nocapture noundef readonly %0, ptr no
   %54 = getelementptr inbounds i8, ptr %.046, i64 24
   %55 = getelementptr inbounds i8, ptr %.045, i64 24
   %56 = tail call i64 @llvm.umin.i64(i64 %21, i64 %23)
-  %57 = tail call i32 @memcmp(ptr noundef nonnull %55, ptr noundef nonnull %54, i64 noundef %56) #28
+  %57 = tail call i32 @memcmp(ptr noundef nonnull readonly %55, ptr noundef nonnull readonly %54, i64 noundef %56) #28
   %.not.i53 = icmp eq i32 %57, 0
   br i1 %.not.i53, label %58, label %zend_binary_strcasecmp.exit
 
@@ -7284,7 +7284,7 @@ zend_binary_strcasecmp.exit:                      ; preds = %58, %53, %52, %48, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @zend_binary_strcasecmp(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #8 {
+define range(i32 -255, 256) i32 @zend_binary_strcasecmp(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #8 {
   %5 = icmp eq ptr %0, %2
   br i1 %5, label %30, label %6
 
@@ -7382,7 +7382,7 @@ define i32 @string_compare_function(ptr nocapture noundef readonly %0, ptr nocap
   %19 = getelementptr inbounds i8, ptr %12, i64 24
   %20 = getelementptr inbounds i8, ptr %10, i64 24
   %21 = tail call i64 @llvm.umin.i64(i64 %16, i64 %18)
-  %22 = tail call i32 @memcmp(ptr noundef nonnull %20, ptr noundef nonnull %19, i64 noundef %21) #28
+  %22 = tail call i32 @memcmp(ptr noundef nonnull readonly %20, ptr noundef nonnull readonly %19, i64 noundef %21) #28
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %zend_binary_strcmp.exit
 
@@ -7426,7 +7426,7 @@ define i32 @string_compare_function(ptr nocapture noundef readonly %0, ptr nocap
   %41 = getelementptr inbounds i8, ptr %.051, i64 24
   %42 = getelementptr inbounds i8, ptr %.068, i64 24
   %43 = tail call i64 @llvm.umin.i64(i64 %36, i64 %38)
-  %44 = tail call i32 @memcmp(ptr noundef nonnull %42, ptr noundef nonnull %41, i64 noundef %43) #28
+  %44 = tail call i32 @memcmp(ptr noundef nonnull readonly %42, ptr noundef nonnull readonly %41, i64 noundef %43) #28
   %.not.i61 = icmp eq i32 %44, 0
   br i1 %.not.i61, label %45, label %zend_binary_strcmp.exit63
 
@@ -7492,7 +7492,7 @@ zend_binary_strcmp.exit:                          ; preds = %23, %14, %60, %65, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @string_case_compare_function(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 -255, 256) i32 @string_case_compare_function(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 6
@@ -7771,7 +7771,7 @@ define i32 @string_locale_compare_function(ptr nocapture noundef readonly %0, pt
 declare i32 @strcoll(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define i32 @numeric_compare_function(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @numeric_compare_function(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 5
@@ -8011,7 +8011,7 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %.us-phi235 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
   %73 = load i64, ptr %.us-phi234, align 8
   %74 = load ptr, ptr %.us-phi235, align 8
-  %75 = call fastcc i32 @compare_long_to_string(i64 noundef %73, ptr noundef %74), !range !10
+  %75 = call fastcc i32 @compare_long_to_string(i64 noundef %73, ptr noundef %74)
   br label %zend_compare_arrays.exit
 
 .split237.us:                                     ; preds = %.outer.split.us, %22
@@ -8019,7 +8019,7 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %.us-phi239 = phi ptr [ %.079, %22 ], [ %.079.ph.ph, %.outer.split.us ]
   %76 = load i64, ptr %.us-phi239, align 8
   %77 = load ptr, ptr %.us-phi238, align 8
-  %78 = call fastcc i32 @compare_long_to_string(i64 noundef %76, ptr noundef %77), !range !10
+  %78 = call fastcc i32 @compare_long_to_string(i64 noundef %76, ptr noundef %77)
   %79 = sub nsw i32 0, %78
   br label %zend_compare_arrays.exit
 
@@ -8032,7 +8032,7 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
 
 82:                                               ; preds = %.split241.us
   %83 = load ptr, ptr %.us-phi243, align 8
-  %84 = call fastcc i32 @compare_double_to_string(double noundef %80, ptr noundef %83), !range !10
+  %84 = call fastcc i32 @compare_double_to_string(double noundef %80, ptr noundef %83)
   br label %zend_compare_arrays.exit
 
 .split245.us:                                     ; preds = %.outer.split.us, %22
@@ -8044,7 +8044,7 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
 
 87:                                               ; preds = %.split245.us
   %88 = load ptr, ptr %.us-phi246, align 8
-  %89 = call fastcc i32 @compare_double_to_string(double noundef %85, ptr noundef %88), !range !10
+  %89 = call fastcc i32 @compare_double_to_string(double noundef %85, ptr noundef %88)
   %90 = sub nsw i32 0, %89
   br label %zend_compare_arrays.exit
 
@@ -8105,7 +8105,7 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br i1 %120, label %121, label %123
 
 121:                                              ; preds = %119
-  %122 = call i32 @zend_is_true(ptr noundef nonnull %.079), !range !9
+  %122 = call i32 @zend_is_true(ptr noundef nonnull %.079)
   %sext101 = sub nsw i32 0, %122
   br label %zend_compare_arrays.exit
 
@@ -8114,7 +8114,7 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br i1 %124, label %125, label %128
 
 125:                                              ; preds = %123
-  %126 = call i32 @zend_is_true(ptr noundef nonnull %.079), !range !9
+  %126 = call i32 @zend_is_true(ptr noundef nonnull %.079)
   %127 = xor i32 %126, 1
   br label %zend_compare_arrays.exit
 
@@ -8123,7 +8123,7 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %128
-  %131 = call i32 @zend_is_true(ptr noundef nonnull %.080.ph.lcssa307), !range !9
+  %131 = call i32 @zend_is_true(ptr noundef nonnull %.080.ph.lcssa307)
   br label %zend_compare_arrays.exit
 
 132:                                              ; preds = %128
@@ -8131,7 +8131,7 @@ define i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %132
-  %135 = call i32 @zend_is_true(ptr noundef nonnull %.080.ph.lcssa307), !range !9
+  %135 = call i32 @zend_is_true(ptr noundef nonnull %.080.ph.lcssa307)
   %sext = add nsw i32 %135, -1
   br label %zend_compare_arrays.exit
 
@@ -8200,7 +8200,7 @@ define i32 @zendi_smart_strcmp(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 13:                                               ; preds = %2
   %14 = load i64, ptr %10, align 8
-  %15 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %9, i64 noundef %14, ptr noundef nonnull %5, ptr noundef nonnull %7, i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef null), !range !4
+  %15 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %9, i64 noundef %14, ptr noundef nonnull %5, ptr noundef nonnull %7, i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef null)
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %.thread, label %16
 
@@ -8213,7 +8213,7 @@ define i32 @zendi_smart_strcmp(ptr noundef %0, ptr noundef %1) local_unnamed_add
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8
-  %23 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %17, i64 noundef %22, ptr noundef nonnull %6, ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef null), !range !4
+  %23 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %17, i64 noundef %22, ptr noundef nonnull %6, ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef null)
   %.not42 = icmp eq i8 %23, 0
   br i1 %.not42, label %.thread, label %24
 
@@ -8306,7 +8306,7 @@ define i32 @zendi_smart_strcmp(ptr noundef %0, ptr noundef %1) local_unnamed_add
 73:                                               ; preds = %.thread
   %74 = getelementptr inbounds i8, ptr %1, i64 24
   %75 = call i64 @llvm.umin.i64(i64 %69, i64 %71)
-  %76 = call i32 @memcmp(ptr noundef nonnull %9, ptr noundef nonnull %74, i64 noundef %75) #28
+  %76 = call i32 @memcmp(ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %74, i64 noundef %75) #28
   %.not.i = icmp eq i32 %76, 0
   br i1 %.not.i, label %77, label %zend_binary_strcmp.exit
 
@@ -8329,7 +8329,7 @@ zend_binary_strcmp.exit:                          ; preds = %77, %73
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @compare_long_to_string(i64 noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @compare_long_to_string(i64 noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca [21 x i8], align 16
   %4 = alloca i64, align 8
   %5 = alloca double, align 8
@@ -8341,7 +8341,7 @@ define internal fastcc i32 @compare_long_to_string(i64 noundef %0, ptr noundef %
 
 10:                                               ; preds = %2
   %11 = load i64, ptr %7, align 8
-  %12 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %6, i64 noundef %11, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef null, ptr noundef null), !range !4
+  %12 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %6, i64 noundef %11, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef null, ptr noundef null)
   switch i8 %12, label %.thread [
     i8 4, label %13
     i8 5, label %19
@@ -8454,7 +8454,7 @@ zend_long_to_str.exit:                            ; preds = %27, %.loopexit.i
 68:                                               ; preds = %zend_long_to_str.exit
   %69 = getelementptr inbounds i8, ptr %.083.i, i64 24
   %70 = call i64 @llvm.umin.i64(i64 %65, i64 %66)
-  %71 = call i32 @memcmp(ptr noundef nonnull %69, ptr noundef nonnull %6, i64 noundef %70) #28
+  %71 = call i32 @memcmp(ptr noundef nonnull readonly %69, ptr noundef nonnull readonly %6, i64 noundef %70) #28
   %.not.i45 = icmp eq i32 %71, 0
   br i1 %.not.i45, label %72, label %zend_binary_strcmp.exit
 
@@ -8508,7 +8508,7 @@ zend_binary_strcmp.exit:                          ; preds = %zend_long_to_str.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @compare_double_to_string(double noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @compare_double_to_string(double noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca [1077 x i8], align 16
   %4 = alloca i64, align 8
   %5 = alloca double, align 8
@@ -8520,7 +8520,7 @@ define internal fastcc i32 @compare_double_to_string(double noundef %0, ptr noun
 
 10:                                               ; preds = %2
   %11 = load i64, ptr %7, align 8
-  %12 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %6, i64 noundef %11, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef null, ptr noundef null), !range !4
+  %12 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %6, i64 noundef %11, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef null, ptr noundef null)
   switch i8 %12, label %.thread [
     i8 4, label %13
     i8 5, label %20
@@ -8575,7 +8575,7 @@ define internal fastcc i32 @compare_double_to_string(double noundef %0, ptr noun
 
 44:                                               ; preds = %.thread
   %45 = call i64 @llvm.umin.i64(i64 %41, i64 %42)
-  %46 = call i32 @memcmp(ptr noundef nonnull %37, ptr noundef nonnull %6, i64 noundef %45) #28
+  %46 = call i32 @memcmp(ptr noundef nonnull readonly %37, ptr noundef nonnull readonly %6, i64 noundef %45) #28
   %.not.i = icmp eq i32 %46, 0
   br i1 %.not.i, label %47, label %zend_binary_strcmp.exit
 
@@ -8663,7 +8663,7 @@ define internal fastcc noundef ptr @_zendi_convert_scalar_to_number_silent(ptr n
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %10, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %11, i64 noundef %17, ptr noundef %1, ptr noundef %1, i1 noundef zeroext true, ptr noundef null, ptr noundef null), !range !4
+  %18 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %11, i64 noundef %17, ptr noundef %1, ptr noundef %1, i1 noundef zeroext true, ptr noundef null, ptr noundef null)
   %19 = zext nneg i8 %18 to i32
   %20 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %19, ptr %20, align 8
@@ -8817,7 +8817,7 @@ define zeroext i1 @zend_is_identical(ptr nocapture noundef readonly %0, ptr noca
 declare i32 @zend_hash_compare(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hash_zval_identical_function(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal range(i32 0, 2) i32 @hash_zval_identical_function(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 10
@@ -9055,7 +9055,7 @@ switch.early.test:                                ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @increment_function(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @increment_function(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
   %3 = alloca double, align 8
   %4 = alloca %struct._zval_struct, align 8
@@ -9087,7 +9087,7 @@ define noundef i32 @increment_function(ptr noundef %0) local_unnamed_addr #1 {
 
 11:                                               ; preds = %9
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.073.ph) #27
-          to label %210 [label %12], !srcloc !11
+          to label %210 [label %12], !srcloc !6
 
 12:                                               ; preds = %11
   store double 0x43E0000000000000, ptr %.073.ph, align 8
@@ -9115,7 +9115,7 @@ define noundef i32 @increment_function(ptr noundef %0) local_unnamed_addr #1 {
 is_numeric_str_function.exit:                     ; preds = %17
   %22 = getelementptr inbounds i8, ptr %18, i64 16
   %23 = load i64, ptr %22, align 8
-  %24 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %19, i64 noundef %23, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef null, ptr noundef null), !range !4
+  %24 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %19, i64 noundef %23, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef null, ptr noundef null)
   switch i8 %24, label %is_numeric_str_function.exit.is_numeric_str_function.exit.thread_crit_edge [
     i8 4, label %25
     i8 5, label %41
@@ -9559,7 +9559,7 @@ increment_string.exit.thread:                     ; preds = %188, %58, %175, %in
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i8 @is_numeric_str_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define zeroext range(i8 0, 6) i8 @is_numeric_str_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i8, ptr %4, align 1
   %6 = icmp sgt i8 %5, 57
@@ -9568,7 +9568,7 @@ define noundef zeroext i8 @is_numeric_str_function(ptr noundef %0, ptr noundef %
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %4, i64 noundef %9, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, ptr noundef null, ptr noundef null), !range !4
+  %10 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %4, i64 noundef %9, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, ptr noundef null, ptr noundef null)
   br label %11
 
 11:                                               ; preds = %3, %7
@@ -9577,7 +9577,7 @@ define noundef zeroext i8 @is_numeric_str_function(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @decrement_function(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @decrement_function(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
   %3 = alloca double, align 8
   %4 = alloca %struct._zval_struct, align 8
@@ -9609,7 +9609,7 @@ define noundef i32 @decrement_function(ptr noundef %0) local_unnamed_addr #1 {
 
 11:                                               ; preds = %9
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0113.ph) #27
-          to label %122 [label %12], !srcloc !12
+          to label %122 [label %12], !srcloc !7
 
 12:                                               ; preds = %11
   store double 0xC3E0000000000000, ptr %.0113.ph, align 8
@@ -9648,7 +9648,7 @@ define noundef i32 @decrement_function(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %27, label %is_numeric_str_function.exit.thread, label %is_numeric_str_function.exit
 
 is_numeric_str_function.exit:                     ; preds = %24
-  %28 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %25, i64 noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef null, ptr noundef null), !range !4
+  %28 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %25, i64 noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef null, ptr noundef null)
   switch i8 %28, label %is_numeric_str_function.exit.is_numeric_str_function.exit.thread_crit_edge [
     i8 4, label %29
     i8 5, label %45
@@ -10882,7 +10882,7 @@ define i32 @zend_binary_strncmp(ptr noundef readonly %0, i64 noundef %1, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @zend_binary_strncasecmp(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #8 {
+define range(i32 -255, 256) i32 @zend_binary_strncasecmp(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #8 {
   %6 = icmp eq ptr %0, %2
   br i1 %6, label %33, label %7
 
@@ -11044,7 +11044,7 @@ define i32 @zend_binary_zval_strcmp(ptr nocapture noundef readonly %0, ptr nocap
   %11 = getelementptr inbounds i8, ptr %6, i64 24
   %12 = getelementptr inbounds i8, ptr %3, i64 24
   %13 = tail call i64 @llvm.umin.i64(i64 %5, i64 %8)
-  %14 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %11, i64 noundef %13) #28
+  %14 = tail call i32 @memcmp(ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %11, i64 noundef %13) #28
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %15, label %zend_binary_strcmp.exit
 
@@ -11077,7 +11077,7 @@ define i32 @zend_binary_zval_strncmp(ptr nocapture noundef readonly %0, ptr noca
   %14 = getelementptr inbounds i8, ptr %4, i64 24
   %15 = tail call i64 @llvm.umin.i64(i64 %6, i64 %9)
   %..i = tail call i64 @llvm.umin.i64(i64 %15, i64 %10)
-  %16 = tail call i32 @memcmp(ptr noundef nonnull %14, ptr noundef nonnull %13, i64 noundef %..i) #28
+  %16 = tail call i32 @memcmp(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %13, i64 noundef %..i) #28
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %zend_binary_strncmp.exit
 
@@ -11115,7 +11115,7 @@ define zeroext i1 @zendi_smart_streq(ptr noundef %0, ptr noundef %1) local_unnam
 
 13:                                               ; preds = %2
   %14 = load i64, ptr %10, align 8
-  %15 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %9, i64 noundef %14, ptr noundef nonnull %5, ptr noundef nonnull %7, i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef null), !range !4
+  %15 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %9, i64 noundef %14, ptr noundef nonnull %5, ptr noundef nonnull %7, i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef null)
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %.thread, label %16
 
@@ -11128,7 +11128,7 @@ define zeroext i1 @zendi_smart_streq(ptr noundef %0, ptr noundef %1) local_unnam
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8
-  %23 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %17, i64 noundef %22, ptr noundef nonnull %6, ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef null), !range !4
+  %23 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %17, i64 noundef %22, ptr noundef nonnull %6, ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef null)
   %.not40 = icmp eq i8 %23, 0
   br i1 %.not40, label %.thread, label %24
 
@@ -11461,7 +11461,7 @@ define ptr @zend_i64_to_str(i64 noundef %0) local_unnamed_addr #1 {
 declare ptr @zend_gcvt(double noundef, i32 noundef, i8 noundef signext, i8 noundef signext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i8 @_is_numeric_string_ex(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i1 noundef zeroext %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #1 {
+define zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i1 noundef zeroext %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %.not118 = icmp eq i64 %1, 0
   br i1 %.not118, label %126, label %9
@@ -12066,7 +12066,7 @@ declare void @zval_add_ref(ptr noundef) #2
 declare { i64, i1 } @llvm.smul.with.overflow.i64(i64, i64) #23
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_zendi_try_convert_scalar_to_number(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @_zendi_try_convert_scalar_to_number(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
@@ -12108,7 +12108,7 @@ define internal fastcc i32 @_zendi_try_convert_scalar_to_number(ptr nocapture no
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %11, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %12, i64 noundef %18, ptr noundef %1, ptr noundef %1, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %3), !range !4
+  %19 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %12, i64 noundef %18, ptr noundef %1, ptr noundef %1, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %3)
   %20 = zext nneg i8 %19 to i32
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %20, ptr %21, align 8
@@ -12219,12 +12219,7 @@ attributes #31 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i8 0, i8 6}
-!5 = !{i64 2759940, i64 2759959, i64 2759986, i64 2760005, i64 2760032}
-!6 = !{i32 -1, i32 1}
-!7 = !{i64 2762590, i64 2762609, i64 2762636, i64 2762655, i64 2762682}
-!8 = !{i32 0, i32 3}
-!9 = !{i32 0, i32 2}
-!10 = !{i32 -1, i32 2}
-!11 = !{i64 2756384, i64 2756399}
-!12 = !{i64 2758047, i64 2758062}
+!4 = !{i64 2759940, i64 2759959, i64 2759986, i64 2760005, i64 2760032}
+!5 = !{i64 2762590, i64 2762609, i64 2762636, i64 2762655, i64 2762682}
+!6 = !{i64 2756384, i64 2756399}
+!7 = !{i64 2758047, i64 2758062}

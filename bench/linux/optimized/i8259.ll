@@ -388,7 +388,7 @@ define internal i32 @probe_8259A() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i8259A_irq_pending(i32 noundef %0) #0 align 16 {
+define internal range(i32 0, 256) i32 @i8259A_irq_pending(i32 noundef %0) #0 align 16 {
   %2 = shl nuw i32 1, %0
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @i8259A_lock) #6
   %4 = icmp ult i32 %0, 8

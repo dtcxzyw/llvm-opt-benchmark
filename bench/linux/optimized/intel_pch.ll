@@ -230,7 +230,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare dso_local ptr @pci_get_class(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @intel_pch_type(ptr noundef readonly %0, i16 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef readonly %0, i16 noundef zeroext %1) unnamed_addr #0 align 16 {
   switch i16 %1, label %573 [
     i16 15104, label %3
     i16 7168, label %25

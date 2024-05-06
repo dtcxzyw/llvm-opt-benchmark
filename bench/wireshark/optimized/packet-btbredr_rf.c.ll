@@ -625,7 +625,7 @@ lookup_connection_info.exit.thread:               ; preds = %20, %62, %58, %54, 
   %103 = load i32, ptr %37, align 8
   %104 = getelementptr inbounds i8, ptr %102, i64 48
   store i32 %103, ptr %104, align 8
-  %105 = trunc i32 %3 to i8
+  %105 = trunc nuw i32 %3 to i8
   %106 = getelementptr inbounds i8, ptr %102, i64 68
   store i8 %105, ptr %106, align 4
   %107 = getelementptr inbounds i8, ptr %102, i64 24
@@ -1772,17 +1772,17 @@ broken_check_hec.exit:                            ; preds = %142
   %.ph1032 = phi i1 [ false, %.thread1027 ], [ %.not11.i, %458 ]
   %.09081023.ph = phi ptr [ null, %.thread1027 ], [ %spec.select.i985, %458 ]
   %487 = getelementptr inbounds i8, ptr %1, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %487, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %487, i8 0, i64 24, i1 false)
   %488 = getelementptr inbounds i8, ptr %1, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %488, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %488, i8 0, i64 24, i1 false)
   br label %503
 
 489:                                              ; preds = %411
   %490 = icmp sgt i32 %.0910, -1
   %491 = getelementptr inbounds i8, ptr %1, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %491, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %491, i8 0, i64 24, i1 false)
   %492 = getelementptr inbounds i8, ptr %1, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %492, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %492, i8 0, i64 24, i1 false)
   %or.cond31 = select i1 %413, i1 true, i1 %414
   %or.cond33.not = or i1 %98, %or.cond31
   br i1 %or.cond33.not, label %503, label %493
@@ -1812,9 +1812,9 @@ broken_check_hec.exit:                            ; preds = %142
   %504 = phi i1 [ %.ph1032, %.thread1033 ], [ false, %489 ]
   %505 = phi i1 [ %.ph1031, %.thread1033 ], [ %490, %489 ]
   %506 = getelementptr inbounds i8, ptr %1, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %506, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %506, i8 0, i64 24, i1 false)
   %507 = getelementptr inbounds i8, ptr %1, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %507, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %507, i8 0, i64 24, i1 false)
   br label %508
 
 508:                                              ; preds = %493, %503, %464
@@ -2244,7 +2244,7 @@ broken_check_hec.exit:                            ; preds = %142
 
 681:                                              ; preds = %676
   %682 = add nuw nsw i32 %.1899, 2
-  %683 = call fastcc i32 @check_crc(i8 noundef zeroext %.1878, ptr noundef %0, i32 noundef 22, i32 noundef %682), !range !8
+  %683 = call fastcc i32 @check_crc(i8 noundef zeroext %.1878, ptr noundef %0, i32 noundef 22, i32 noundef %682)
   %.not946 = icmp eq i32 %683, 0
   br i1 %.not946, label %684, label %686
 
@@ -2417,7 +2417,7 @@ broken_check_hec.exit:                            ; preds = %142
   %781 = load i8, ptr %767, align 4
   %782 = and i8 %781, -4
   %783 = or disjoint i8 %782, %780
-  %784 = trunc i32 %.09121103 to i8
+  %784 = trunc nuw nsw i32 %.09121103 to i8
   %785 = shl nuw nsw i8 %784, 1
   %786 = or disjoint i8 %783, %785
   store i8 %786, ptr %767, align 4
@@ -2425,7 +2425,7 @@ broken_check_hec.exit:                            ; preds = %142
   %788 = load i32, ptr %787, align 4
   %789 = getelementptr inbounds i8, ptr %767, i64 4
   store i32 %788, ptr %789, align 4
-  %790 = trunc i32 %.09111105 to i8
+  %790 = trunc nuw nsw i32 %.09111105 to i8
   %791 = load i8, ptr %775, align 4
   %792 = and i8 %791, -2
   %793 = or disjoint i8 %792, %790
@@ -2769,7 +2769,7 @@ broken_check_hec.exit:                            ; preds = %142
 
 982:                                              ; preds = %977
   %983 = add nuw nsw i32 %.290410481055, 2
-  %984 = call fastcc i32 @check_crc(i8 noundef zeroext %.1878, ptr noundef %0, i32 noundef %.1, i32 noundef %983), !range !8
+  %984 = call fastcc i32 @check_crc(i8 noundef zeroext %.1878, ptr noundef %0, i32 noundef %.1, i32 noundef %983)
   %.not968 = icmp eq i32 %984, 0
   br i1 %.not968, label %985, label %987
 
@@ -2941,7 +2941,7 @@ define internal noundef i32 @dissect_btbredr_fhs(ptr noundef %0, ptr noundef %1,
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %48, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #7
   %50 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef 0, i32 noundef -2147483648) #7
   %51 = lshr i64 %50, 34
-  %52 = trunc i64 %51 to i32
+  %52 = trunc nuw nsw i64 %51 to i32
   %53 = and i32 %52, 16777215
   store i32 %53, ptr %13, align 4
   %54 = load i32, ptr @hf_fhs_uap, align 4
@@ -2999,7 +2999,7 @@ define internal noundef i32 @dissect_btbredr_fhs(ptr noundef %0, ptr noundef %1,
   %90 = getelementptr inbounds i8, ptr %87, i64 4
   store i32 %89, ptr %90, align 4
   %91 = lshr i16 %59, 8
-  %92 = trunc i16 %91 to i8
+  %92 = trunc nuw i16 %91 to i8
   %93 = getelementptr inbounds i8, ptr %87, i64 8
   store i8 %92, ptr %93, align 4
   %94 = trunc i16 %59 to i8
@@ -3356,7 +3356,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_crc(i8 noundef zeroext %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_crc(i8 noundef zeroext %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %rev.i = tail call noundef i8 @llvm.bitreverse.i8(i8 %0)
   %5 = zext i8 %rev.i to i16
   %6 = shl nuw i16 %5, 8
@@ -3382,13 +3382,13 @@ define internal fastcc i32 @check_crc(i8 noundef zeroext %0, ptr noundef %1, i32
   %16 = xor i16 %15, %13
   %17 = add nuw nsw i32 %.01418, 1
   %exitcond.not = icmp eq i32 %17, 8
-  br i1 %exitcond.not, label %18, label %11, !llvm.loop !9
+  br i1 %exitcond.not, label %18, label %11, !llvm.loop !8
 
 18:                                               ; preds = %11
   %19 = add nsw i32 %.01619, -1
   %20 = add i32 %.021, 1
   %21 = icmp sgt i32 %.01619, 1
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %18, %4
   %.015.lcssa = phi i16 [ %6, %4 ], [ %16, %18 ]
@@ -3456,6 +3456,5 @@ attributes #7 = { nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 2}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

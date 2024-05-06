@@ -1142,7 +1142,7 @@ terminate.lpad:                                   ; preds = %lpad9
 declare void @_Z27log_Z3_param_descrs_dec_refP11_Z3_contextP16_Z3_param_descrs(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @Z3_param_descrs_get_kind(ptr noundef %c, ptr noundef %p, ptr noundef %n) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 7) i32 @Z3_param_descrs_get_kind(ptr noundef %c, ptr noundef %p, ptr noundef %n) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.symbol, align 8
   %0 = atomicrmw xchg ptr @g_z3_log_enabled, i8 0 seq_cst, align 1

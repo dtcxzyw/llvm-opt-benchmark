@@ -984,7 +984,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.69 = private unnamed_addr constant [3 x i8] c"OO\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @calendarrule_year_to_timestamp(ptr nocapture noundef readonly %base_self, i32 noundef %year) #0 {
+define hidden range(i64 -185542705159808, 185542705069748) i64 @calendarrule_year_to_timestamp(ptr nocapture noundef readonly %base_self, i32 noundef %year) #0 {
 entry:
   %month = getelementptr inbounds i8, ptr %base_self, i64 8
   %0 = load i8, ptr %month, align 8
@@ -1143,7 +1143,7 @@ ymd_to_ord.exit47:                                ; preds = %if.end.thread, %is_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @calendarrule_new(i32 noundef %month, i32 noundef %week, i32 noundef %day, i32 noundef %hour, i32 noundef %minute, i32 noundef %second, ptr nocapture noundef writeonly %out) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @calendarrule_new(i32 noundef %month, i32 noundef %week, i32 noundef %day, i32 noundef %hour, i32 noundef %minute, i32 noundef %second, ptr nocapture noundef writeonly %out) local_unnamed_addr #1 {
 entry:
   %0 = add i32 %month, -13
   %or.cond = icmp ult i32 %0, -12
@@ -1216,7 +1216,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @dayrule_year_to_timestamp(ptr nocapture noundef readonly %base_self, i32 noundef %year) #0 {
+define hidden range(i64 -185542705159808, 185548367293748) i64 @dayrule_year_to_timestamp(ptr nocapture noundef readonly %base_self, i32 noundef %year) #0 {
 entry:
   %day2 = getelementptr inbounds i8, ptr %base_self, i64 10
   %0 = load i16, ptr %day2, align 2
@@ -1829,7 +1829,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zoneinfomodule_exec(ptr noundef %m) #1 {
+define internal range(i32 -1, 1) i32 @zoneinfomodule_exec(ptr noundef %m) #1 {
 entry:
   %call = tail call ptr @PyCapsule_Import(ptr noundef nonnull @.str.6, i32 noundef 0) #9
   store ptr %call, ptr @PyDateTimeAPI, align 8
@@ -2428,8 +2428,8 @@ if.end4:                                          ; preds = %if.then2, %if.end
 
 for.body:                                         ; preds = %if.end4, %for.inc
   %cmp5 = phi i1 [ true, %if.end4 ], [ false, %for.inc ]
-  %i.037 = phi i64 [ 0, %if.end4 ], [ 1, %for.inc ]
-  %arrayidx = getelementptr [2 x ptr], ptr %trans_list_wall, i64 0, i64 %i.037
+  %i.038 = phi i64 [ 0, %if.end4 ], [ 1, %for.inc ]
+  %arrayidx = getelementptr [2 x ptr], ptr %trans_list_wall, i64 0, i64 %i.038
   %3 = load ptr, ptr %arrayidx, align 8
   %cmp6.not = icmp eq ptr %3, null
   br i1 %cmp6.not, label %for.inc, label %if.then7
@@ -2450,13 +2450,13 @@ for.end:                                          ; preds = %for.inc
 for.cond14.preheader:                             ; preds = %for.end
   %num_ttinfos = getelementptr inbounds i8, ptr %obj_self, i64 48
   %5 = load i64, ptr %num_ttinfos, align 8
-  %cmp1538.not = icmp eq i64 %5, 0
-  br i1 %cmp1538.not, label %for.end21, label %for.body16
+  %cmp1539.not = icmp eq i64 %5, 0
+  br i1 %cmp1539.not, label %for.end21, label %for.body16
 
 for.body16:                                       ; preds = %for.cond14.preheader, %xdecref_ttinfo.exit
-  %i13.039 = phi i64 [ %inc20, %xdecref_ttinfo.exit ], [ 0, %for.cond14.preheader ]
+  %i13.040 = phi i64 [ %inc20, %xdecref_ttinfo.exit ], [ 0, %for.cond14.preheader ]
   %6 = load ptr, ptr %_ttinfos, align 8
-  %arrayidx18 = getelementptr %struct._ttinfo, ptr %6, i64 %i13.039
+  %arrayidx18 = getelementptr %struct._ttinfo, ptr %6, i64 %i13.040
   %cmp.not.i = icmp eq ptr %arrayidx18, null
   br i1 %cmp.not.i, label %xdecref_ttinfo.exit, label %if.then.i
 
@@ -2526,7 +2526,7 @@ if.then1.i.i18.i:                                 ; preds = %if.end.i.i15.i
   br label %xdecref_ttinfo.exit
 
 xdecref_ttinfo.exit:                              ; preds = %for.body16, %Py_XDECREF.exit11.i, %if.then.i13.i, %if.end.i.i15.i, %if.then1.i.i18.i
-  %inc20 = add nuw i64 %i13.039, 1
+  %inc20 = add nuw i64 %i13.040, 1
   %16 = load i64, ptr %num_ttinfos, align 8
   %cmp15 = icmp ult i64 %inc20, %16
   br i1 %cmp15, label %for.body16, label %for.end21.loopexit, !llvm.loop !10
@@ -2620,85 +2620,85 @@ xdecref_ttinfo.exit.i:                            ; preds = %if.then1.i.i18.i.i,
   %std_only.i = getelementptr inbounds i8, ptr %obj_self, i64 184
   %28 = load i8, ptr %std_only.i, align 8
   %tobool.not.i = icmp eq i8 %28, 0
-  br i1 %tobool.not.i, label %if.then.i32, label %if.end.i29
+  br i1 %tobool.not.i, label %if.then.i33, label %if.end.i30
 
-if.then.i32:                                      ; preds = %xdecref_ttinfo.exit.i
+if.then.i33:                                      ; preds = %xdecref_ttinfo.exit.i
   %dst.i = getelementptr inbounds i8, ptr %obj_self, i64 128
   %29 = load ptr, ptr %dst.i, align 8
-  %cmp.not.i.i9.i = icmp eq ptr %29, null
-  br i1 %cmp.not.i.i9.i, label %Py_XDECREF.exit.i12.i, label %if.then.i.i10.i
+  %cmp.not.i.i10.i = icmp eq ptr %29, null
+  br i1 %cmp.not.i.i10.i, label %Py_XDECREF.exit.i13.i, label %if.then.i.i11.i
 
-if.then.i.i10.i:                                  ; preds = %if.then.i32
+if.then.i.i11.i:                                  ; preds = %if.then.i33
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 2147483648
-  %cmp.i2.not.i.i11.i = icmp eq i64 %31, 0
-  br i1 %cmp.i2.not.i.i11.i, label %if.end.i.i.i30.i, label %Py_XDECREF.exit.i12.i
+  %cmp.i2.not.i.i12.i = icmp eq i64 %31, 0
+  br i1 %cmp.i2.not.i.i12.i, label %if.end.i.i.i31.i, label %Py_XDECREF.exit.i13.i
 
-if.end.i.i.i30.i:                                 ; preds = %if.then.i.i10.i
-  %dec.i.i.i31.i = add i64 %30, -1
-  store i64 %dec.i.i.i31.i, ptr %29, align 8
-  %cmp.i.i.i32.i = icmp eq i64 %dec.i.i.i31.i, 0
-  br i1 %cmp.i.i.i32.i, label %if.then1.i.i.i33.i, label %Py_XDECREF.exit.i12.i
+if.end.i.i.i31.i:                                 ; preds = %if.then.i.i11.i
+  %dec.i.i.i32.i = add i64 %30, -1
+  store i64 %dec.i.i.i32.i, ptr %29, align 8
+  %cmp.i.i.i33.i = icmp eq i64 %dec.i.i.i32.i, 0
+  br i1 %cmp.i.i.i33.i, label %if.then1.i.i.i34.i, label %Py_XDECREF.exit.i13.i
 
-if.then1.i.i.i33.i:                               ; preds = %if.end.i.i.i30.i
+if.then1.i.i.i34.i:                               ; preds = %if.end.i.i.i31.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %29) #9
-  br label %Py_XDECREF.exit.i12.i
+  br label %Py_XDECREF.exit.i13.i
 
-Py_XDECREF.exit.i12.i:                            ; preds = %if.then1.i.i.i33.i, %if.end.i.i.i30.i, %if.then.i.i10.i, %if.then.i32
-  %dstoff.i13.i = getelementptr inbounds i8, ptr %obj_self, i64 136
-  %32 = load ptr, ptr %dstoff.i13.i, align 8
-  %cmp.not.i4.i14.i = icmp eq ptr %32, null
-  br i1 %cmp.not.i4.i14.i, label %Py_XDECREF.exit11.i17.i, label %if.then.i5.i15.i
+Py_XDECREF.exit.i13.i:                            ; preds = %if.then1.i.i.i34.i, %if.end.i.i.i31.i, %if.then.i.i11.i, %if.then.i33
+  %dstoff.i14.i = getelementptr inbounds i8, ptr %obj_self, i64 136
+  %32 = load ptr, ptr %dstoff.i14.i, align 8
+  %cmp.not.i4.i15.i = icmp eq ptr %32, null
+  br i1 %cmp.not.i4.i15.i, label %Py_XDECREF.exit11.i18.i, label %if.then.i5.i16.i
 
-if.then.i5.i15.i:                                 ; preds = %Py_XDECREF.exit.i12.i
+if.then.i5.i16.i:                                 ; preds = %Py_XDECREF.exit.i13.i
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, 2147483648
-  %cmp.i2.not.i6.i16.i = icmp eq i64 %34, 0
-  br i1 %cmp.i2.not.i6.i16.i, label %if.end.i.i7.i26.i, label %Py_XDECREF.exit11.i17.i
+  %cmp.i2.not.i6.i17.i = icmp eq i64 %34, 0
+  br i1 %cmp.i2.not.i6.i17.i, label %if.end.i.i7.i27.i, label %Py_XDECREF.exit11.i18.i
 
-if.end.i.i7.i26.i:                                ; preds = %if.then.i5.i15.i
-  %dec.i.i8.i27.i = add i64 %33, -1
-  store i64 %dec.i.i8.i27.i, ptr %32, align 8
-  %cmp.i.i9.i28.i = icmp eq i64 %dec.i.i8.i27.i, 0
-  br i1 %cmp.i.i9.i28.i, label %if.then1.i.i10.i29.i, label %Py_XDECREF.exit11.i17.i
+if.end.i.i7.i27.i:                                ; preds = %if.then.i5.i16.i
+  %dec.i.i8.i28.i = add i64 %33, -1
+  store i64 %dec.i.i8.i28.i, ptr %32, align 8
+  %cmp.i.i9.i29.i = icmp eq i64 %dec.i.i8.i28.i, 0
+  br i1 %cmp.i.i9.i29.i, label %if.then1.i.i10.i30.i, label %Py_XDECREF.exit11.i18.i
 
-if.then1.i.i10.i29.i:                             ; preds = %if.end.i.i7.i26.i
+if.then1.i.i10.i30.i:                             ; preds = %if.end.i.i7.i27.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %32) #9
-  br label %Py_XDECREF.exit11.i17.i
+  br label %Py_XDECREF.exit11.i18.i
 
-Py_XDECREF.exit11.i17.i:                          ; preds = %if.then1.i.i10.i29.i, %if.end.i.i7.i26.i, %if.then.i5.i15.i, %Py_XDECREF.exit.i12.i
-  %tzname.i18.i = getelementptr inbounds i8, ptr %obj_self, i64 144
-  %35 = load ptr, ptr %tzname.i18.i, align 8
-  %cmp.not.i12.i19.i = icmp eq ptr %35, null
-  br i1 %cmp.not.i12.i19.i, label %if.end.i29, label %if.then.i13.i20.i
+Py_XDECREF.exit11.i18.i:                          ; preds = %if.then1.i.i10.i30.i, %if.end.i.i7.i27.i, %if.then.i5.i16.i, %Py_XDECREF.exit.i13.i
+  %tzname.i19.i = getelementptr inbounds i8, ptr %obj_self, i64 144
+  %35 = load ptr, ptr %tzname.i19.i, align 8
+  %cmp.not.i12.i20.i = icmp eq ptr %35, null
+  br i1 %cmp.not.i12.i20.i, label %if.end.i30, label %if.then.i13.i21.i
 
-if.then.i13.i20.i:                                ; preds = %Py_XDECREF.exit11.i17.i
+if.then.i13.i21.i:                                ; preds = %Py_XDECREF.exit11.i18.i
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %36, 2147483648
-  %cmp.i2.not.i14.i21.i = icmp eq i64 %37, 0
-  br i1 %cmp.i2.not.i14.i21.i, label %if.end.i.i15.i22.i, label %if.end.i29
+  %cmp.i2.not.i14.i22.i = icmp eq i64 %37, 0
+  br i1 %cmp.i2.not.i14.i22.i, label %if.end.i.i15.i23.i, label %if.end.i30
 
-if.end.i.i15.i22.i:                               ; preds = %if.then.i13.i20.i
-  %dec.i.i16.i23.i = add i64 %36, -1
-  store i64 %dec.i.i16.i23.i, ptr %35, align 8
-  %cmp.i.i17.i24.i = icmp eq i64 %dec.i.i16.i23.i, 0
-  br i1 %cmp.i.i17.i24.i, label %if.then1.i.i18.i25.i, label %if.end.i29
+if.end.i.i15.i23.i:                               ; preds = %if.then.i13.i21.i
+  %dec.i.i16.i24.i = add i64 %36, -1
+  store i64 %dec.i.i16.i24.i, ptr %35, align 8
+  %cmp.i.i17.i25.i = icmp eq i64 %dec.i.i16.i24.i, 0
+  br i1 %cmp.i.i17.i25.i, label %if.then1.i.i18.i26.i, label %if.end.i30
 
-if.then1.i.i18.i25.i:                             ; preds = %if.end.i.i15.i22.i
+if.then1.i.i18.i26.i:                             ; preds = %if.end.i.i15.i23.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %35) #9
-  br label %if.end.i29
+  br label %if.end.i30
 
-if.end.i29:                                       ; preds = %if.then1.i.i18.i25.i, %if.end.i.i15.i22.i, %if.then.i13.i20.i, %Py_XDECREF.exit11.i17.i, %xdecref_ttinfo.exit.i
+if.end.i30:                                       ; preds = %if.then1.i.i18.i26.i, %if.end.i.i15.i23.i, %if.then.i13.i21.i, %Py_XDECREF.exit11.i18.i, %xdecref_ttinfo.exit.i
   %start.i = getelementptr inbounds i8, ptr %obj_self, i64 168
   %38 = load ptr, ptr %start.i, align 8
-  %cmp.not.i30 = icmp eq ptr %38, null
-  br i1 %cmp.not.i30, label %if.end3.i, label %if.then1.i31
+  %cmp.not.i31 = icmp eq ptr %38, null
+  br i1 %cmp.not.i31, label %if.end3.i, label %if.then1.i32
 
-if.then1.i31:                                     ; preds = %if.end.i29
+if.then1.i32:                                     ; preds = %if.end.i30
   tail call void @PyMem_Free(ptr noundef nonnull %38) #9
   br label %if.end3.i
 
-if.end3.i:                                        ; preds = %if.then1.i31, %if.end.i29
+if.end3.i:                                        ; preds = %if.then1.i32, %if.end.i30
   %end.i = getelementptr inbounds i8, ptr %obj_self, i64 176
   %39 = load ptr, ptr %end.i, align 8
   %cmp4.not.i = icmp eq ptr %39, null
@@ -2711,17 +2711,17 @@ if.then5.i:                                       ; preds = %if.end3.i
 free_tzrule.exit:                                 ; preds = %if.end3.i, %if.then5.i
   %key.i = getelementptr inbounds i8, ptr %obj_self, i64 16
   %40 = load ptr, ptr %key.i, align 8
-  %cmp.not.i33 = icmp eq ptr %40, null
-  br i1 %cmp.not.i33, label %do.body1.i, label %if.then.i34
+  %cmp.not.i34 = icmp eq ptr %40, null
+  br i1 %cmp.not.i34, label %do.body1.i, label %if.then.i35
 
-if.then.i34:                                      ; preds = %free_tzrule.exit
+if.then.i35:                                      ; preds = %free_tzrule.exit
   store ptr null, ptr %key.i, align 8
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, 2147483648
   %cmp.i18.not.i = icmp eq i64 %42, 0
   br i1 %cmp.i18.not.i, label %if.end.i11.i, label %do.body1.i
 
-if.end.i11.i:                                     ; preds = %if.then.i34
+if.end.i11.i:                                     ; preds = %if.then.i35
   %dec.i12.i = add i64 %41, -1
   store i64 %dec.i12.i, ptr %40, align 8
   %cmp.i13.i = icmp eq i64 %dec.i12.i, 0
@@ -2731,20 +2731,20 @@ if.then1.i14.i:                                   ; preds = %if.end.i11.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %40) #9
   br label %do.body1.i
 
-do.body1.i:                                       ; preds = %if.then1.i14.i, %if.end.i11.i, %if.then.i34, %free_tzrule.exit
+do.body1.i:                                       ; preds = %if.then1.i14.i, %if.end.i11.i, %if.then.i35, %free_tzrule.exit
   %file_repr.i = getelementptr inbounds i8, ptr %obj_self, i64 24
   %43 = load ptr, ptr %file_repr.i, align 8
-  %cmp4.not.i35 = icmp eq ptr %43, null
-  br i1 %cmp4.not.i35, label %zoneinfo_clear.exit, label %if.then5.i36
+  %cmp4.not.i36 = icmp eq ptr %43, null
+  br i1 %cmp4.not.i36, label %zoneinfo_clear.exit, label %if.then5.i37
 
-if.then5.i36:                                     ; preds = %do.body1.i
+if.then5.i37:                                     ; preds = %do.body1.i
   store ptr null, ptr %file_repr.i, align 8
   %44 = load i64, ptr %43, align 8
   %45 = and i64 %44, 2147483648
   %cmp.i21.not.i = icmp eq i64 %45, 0
   br i1 %cmp.i21.not.i, label %if.end.i.i, label %zoneinfo_clear.exit
 
-if.end.i.i:                                       ; preds = %if.then5.i36
+if.end.i.i:                                       ; preds = %if.then5.i37
   %dec.i.i = add i64 %44, -1
   store i64 %dec.i.i, ptr %43, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
@@ -2754,7 +2754,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %43) #9
   br label %zoneinfo_clear.exit
 
-zoneinfo_clear.exit:                              ; preds = %do.body1.i, %if.then5.i36, %if.end.i.i, %if.then1.i.i
+zoneinfo_clear.exit:                              ; preds = %do.body1.i, %if.then5.i37, %if.end.i.i, %if.then1.i.i
   %tp_free = getelementptr inbounds i8, ptr %obj_self.val, i64 320
   %46 = load ptr, ptr %tp_free, align 8
   tail call void %46(ptr noundef nonnull %obj_self) #9
@@ -3299,7 +3299,7 @@ if.end:                                           ; preds = %entry, %cond.end
   %cls.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %cls.val, i64 32
   %cls.val.val = load ptr, ptr %3, align 8
-  %call1.i = call fastcc ptr @zoneinfo_new_instance(ptr noundef %cls.val.val, ptr noundef %type, ptr noundef %1)
+  %call1.i = call fastcc ptr @zoneinfo_new_instance(ptr noundef readonly %cls.val.val, ptr noundef %type, ptr noundef %1)
   %cmp.not.i = icmp eq ptr %call1.i, null
   br i1 %cmp.not.i, label %exit, label %if.then.i
 
@@ -3369,7 +3369,7 @@ if.end4.i:                                        ; preds = %if.end.i
   %cls.val.i = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %cls.val.i, i64 32
   %cls.val.val.i = load ptr, ptr %8, align 8
-  %call6.i = call fastcc i32 @load_data(ptr noundef %cls.val.val.i, ptr noundef nonnull %call.i, ptr noundef %4), !range !12
+  %call6.i = call fastcc i32 @load_data(ptr noundef %cls.val.val.i, ptr noundef nonnull %call.i, ptr noundef %4)
   %tobool.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool.not.i, label %if.end8.i, label %if.then.i.i
 
@@ -3604,7 +3604,7 @@ if.then3:                                         ; preds = %cond.end
   br label %return
 
 if.end4:                                          ; preds = %cond.end
-  %call5 = call fastcc i32 @get_local_timestamp(ptr noundef nonnull %dt, ptr noundef nonnull %timestamp), !range !12
+  %call5 = call fastcc i32 @get_local_timestamp(ptr noundef nonnull %dt, ptr noundef nonnull %timestamp)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end8, label %return
 
@@ -3751,7 +3751,7 @@ while.body.i:                                     ; preds = %lor.lhs.false, %whi
   %hi.1.i = select i1 %cmp1.i, i64 %div6.i, i64 %hi.08.i
   %lo.1.i = select i1 %cmp1.i, i64 %lo.09.i, i64 %add2.i
   %cmp.i71 = icmp ult i64 %lo.1.i, %hi.1.i
-  br i1 %cmp.i71, label %while.body.i, label %_bisect.exit, !llvm.loop !13
+  br i1 %cmp.i71, label %while.body.i, label %_bisect.exit, !llvm.loop !12
 
 _bisect.exit:                                     ; preds = %while.body.i
   %cmp54 = icmp ugt i64 %hi.1.i, 1
@@ -4221,7 +4221,7 @@ if.then13:                                        ; preds = %if.end11
 
 if.end18:                                         ; preds = %if.then13, %if.end11
   %file_obj.1 = phi ptr [ %call14, %if.then13 ], [ %file_obj.0, %if.end11 ]
-  %call19 = tail call fastcc i32 @load_data(ptr noundef nonnull %state, ptr noundef nonnull %call8, ptr noundef nonnull %file_obj.1), !range !12
+  %call19 = tail call fastcc i32 @load_data(ptr noundef nonnull %state, ptr noundef nonnull %call8, ptr noundef nonnull %file_obj.1)
   %tobool.not = icmp eq i32 %call19, 0
   br i1 %tobool.not, label %if.end21, label %if.then30
 
@@ -4367,7 +4367,7 @@ declare ptr @PyObject_CallFunctionObjArgs(ptr noundef, ...) local_unnamed_addr #
 declare ptr @PyObject_CallFunction(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @load_data(ptr nocapture noundef readonly %state, ptr nocapture noundef %self, ptr noundef %file_obj) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @load_data(ptr nocapture noundef readonly %state, ptr nocapture noundef %self, ptr noundef %file_obj) unnamed_addr #1 {
 entry:
   %trans_list_utc = getelementptr inbounds i8, ptr %self, i64 56
   %trans_list_wall = getelementptr inbounds i8, ptr %self, i64 64
@@ -4465,7 +4465,7 @@ for.cond:                                         ; preds = %if.end77
   %inc = add nuw i64 %i.0203, 1
   %5 = load i64, ptr %num_transitions39, align 8
   %cmp55 = icmp ult i64 %inc, %5
-  br i1 %cmp55, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp55, label %for.body, label %for.end, !llvm.loop !13
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.0203 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -4562,7 +4562,7 @@ if.else:                                          ; preds = %if.end117
   %inc124 = add nuw i64 %i95.0205, 1
   %14 = load i64, ptr %num_ttinfos40, align 8
   %cmp98 = icmp ult i64 %inc124, %14
-  br i1 %cmp98, label %for.body99, label %for.end125, !llvm.loop !15
+  br i1 %cmp98, label %for.body99, label %for.end125, !llvm.loop !14
 
 for.end125:                                       ; preds = %if.else, %for.cond96.preheader
   %.lcssa200 = phi i64 [ 0, %for.cond96.preheader ], [ %14, %if.else ]
@@ -4577,7 +4577,7 @@ if.end131:                                        ; preds = %for.end125
   %17 = load ptr, ptr %trans_list_utc, align 8
   %18 = load i64, ptr %num_ttinfos40, align 8
   %19 = load i64, ptr %num_transitions39, align 8
-  %call138 = tail call fastcc i32 @ts_to_local(ptr noundef %call50, ptr noundef %17, ptr noundef nonnull %call87, ptr noundef nonnull %trans_list_wall, i64 noundef %18, i64 noundef %19), !range !12
+  %call138 = tail call fastcc i32 @ts_to_local(ptr noundef %call50, ptr noundef %17, ptr noundef nonnull %call87, ptr noundef nonnull %trans_list_wall, i64 noundef %18, i64 noundef %19)
   %tobool139.not = icmp eq i32 %call138, 0
   br i1 %tobool139.not, label %if.end141, label %error
 
@@ -4597,7 +4597,7 @@ for.cond152.preheader:                            ; preds = %if.end141
 for.cond152:                                      ; preds = %if.end161
   %22 = load i64, ptr %num_ttinfos40, align 8
   %cmp154 = icmp ult i64 %inc162, %22
-  br i1 %cmp154, label %for.body156, label %for.end173, !llvm.loop !16
+  br i1 %cmp154, label %for.body156, label %for.end173, !llvm.loop !15
 
 for.body156:                                      ; preds = %for.cond152.preheader, %for.cond152
   %ttinfos_allocated.0208 = phi i64 [ %inc162, %for.cond152 ], [ 0, %for.cond152.preheader ]
@@ -4613,7 +4613,7 @@ if.end161:                                        ; preds = %for.body156
   %24 = load i64, ptr %arrayidx164, align 8
   %25 = load ptr, ptr %_ttinfos, align 8
   %arrayidx166 = getelementptr %struct._ttinfo, ptr %25, i64 %ttinfos_allocated.0208
-  %call167 = tail call fastcc i32 @build_ttinfo(ptr noundef %state, i64 noundef %23, i64 noundef %24, ptr noundef nonnull %call157, ptr noundef %arrayidx166), !range !12
+  %call167 = tail call fastcc i32 @build_ttinfo(ptr noundef %state, i64 noundef %23, i64 noundef %24, ptr noundef nonnull %call157, ptr noundef %arrayidx166)
   %tobool168.not = icmp eq i32 %call167, 0
   br i1 %tobool168.not, label %for.cond152, label %error
 
@@ -4647,7 +4647,7 @@ for.body187:                                      ; preds = %for.cond183.prehead
   %inc194 = add nuw i64 %i182.0211, 1
   %32 = load i64, ptr %num_transitions39, align 8
   %cmp185 = icmp ult i64 %inc194, %32
-  br i1 %cmp185, label %for.body187, label %for.cond197.preheader, !llvm.loop !17
+  br i1 %cmp185, label %for.body187, label %for.cond197.preheader, !llvm.loop !16
 
 for.body201:                                      ; preds = %for.cond197.preheader, %for.inc208
   %i196.0213 = phi i64 [ %inc209, %for.inc208 ], [ 0, %for.cond197.preheader ]
@@ -4666,7 +4666,7 @@ if.then204:                                       ; preds = %for.body201
 for.inc208:                                       ; preds = %for.body201
   %inc209 = add nuw i64 %i196.0213, 1
   %exitcond.not = icmp eq i64 %inc209, %28
-  br i1 %exitcond.not, label %for.end210, label %for.body201, !llvm.loop !18
+  br i1 %exitcond.not, label %for.end210, label %for.body201, !llvm.loop !17
 
 for.end210:                                       ; preds = %for.inc208, %if.then204
   %ttinfo_before211 = getelementptr inbounds i8, ptr %self, i64 88
@@ -4695,7 +4695,7 @@ land.lhs.true225.if.else233_crit_edge:            ; preds = %land.lhs.true225
 
 if.then228:                                       ; preds = %land.lhs.true225
   %tzrule_after = getelementptr inbounds i8, ptr %self, i64 96
-  %call229 = tail call fastcc i32 @parse_tz_str(ptr noundef %state, ptr noundef nonnull %call27, ptr noundef nonnull %tzrule_after), !range !12
+  %call229 = tail call fastcc i32 @parse_tz_str(ptr noundef %state, ptr noundef nonnull %call27, ptr noundef nonnull %tzrule_after)
   %tobool230.not = icmp eq i32 %call229, 0
   br i1 %tobool230.not, label %if.end262, label %error
 
@@ -4845,7 +4845,7 @@ if.then307:                                       ; preds = %for.body302
   br label %for.inc313
 
 for.inc313:                                       ; preds = %for.body302, %if.then307
-  br i1 %cmp300, label %for.body302, label %for.end315, !llvm.loop !19
+  br i1 %cmp300, label %for.body302, label %for.end315, !llvm.loop !18
 
 for.end315:                                       ; preds = %for.inc313
   %55 = load ptr, ptr %_ttinfos, align 8
@@ -4931,7 +4931,7 @@ if.then1.i.i18.i:                                 ; preds = %if.end.i.i15.i
 xdecref_ttinfo.exit:                              ; preds = %for.body324, %Py_XDECREF.exit11.i, %if.then.i13.i, %if.end.i.i15.i, %if.then1.i.i18.i
   %inc328 = add nuw i64 %i320.0217, 1
   %exitcond222.not = icmp eq i64 %inc328, %ttinfos_allocated.1188
-  br i1 %exitcond222.not, label %for.end329.loopexit, label %for.body324, !llvm.loop !20
+  br i1 %exitcond222.not, label %for.end329.loopexit, label %for.body324, !llvm.loop !19
 
 for.end329.loopexit:                              ; preds = %xdecref_ttinfo.exit
   %.pre224 = load ptr, ptr %_ttinfos, align 8
@@ -5111,7 +5111,7 @@ for.inc37:                                        ; preds = %land.lhs.true, %if.
   %cmp4 = icmp uge i64 %inc38, %num_transitions
   %cmp6 = icmp eq i64 %dst_found.1, %num_ttinfos
   %or.cond = select i1 %cmp4, i1 true, i1 %cmp6
-  br i1 %or.cond, label %for.end39, label %if.end, !llvm.loop !21
+  br i1 %or.cond, label %for.end39, label %if.end, !llvm.loop !20
 
 for.end39:                                        ; preds = %for.inc37, %for.cond3.preheader
   %dst_found.0.lcssa = phi i64 [ 0, %for.cond3.preheader ], [ %dst_found.1, %for.inc37 ]
@@ -5138,14 +5138,14 @@ if.then51:                                        ; preds = %land.lhs.true48
 for.inc54:                                        ; preds = %for.body45, %land.lhs.true48, %if.then51
   %inc55 = add nuw i64 %idx42.055, 1
   %exitcond.not = icmp eq i64 %inc55, %num_ttinfos
-  br i1 %exitcond.not, label %if.end57, label %for.body45, !llvm.loop !22
+  br i1 %exitcond.not, label %if.end57, label %for.body45, !llvm.loop !21
 
 if.end57:                                         ; preds = %for.inc54, %entry, %for.end39
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ts_to_local(ptr nocapture noundef readonly %trans_idx, ptr nocapture noundef readonly %trans_utc, ptr nocapture noundef readonly %utcoff, ptr nocapture noundef %trans_local, i64 noundef %num_ttinfos, i64 noundef %num_transitions) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @ts_to_local(ptr nocapture noundef readonly %trans_idx, ptr nocapture noundef readonly %trans_utc, ptr nocapture noundef readonly %utcoff, ptr nocapture noundef %trans_local, i64 noundef %num_ttinfos, i64 noundef %num_transitions) unnamed_addr #1 {
 entry:
   %cmp = icmp eq i64 %num_transitions, 0
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -5165,7 +5165,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.end5:                                          ; preds = %for.body
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call, ptr align 8 %trans_utc, i64 %mul, i1 false)
-  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !23
+  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %if.end5
   %cmp8 = icmp ugt i64 %num_ttinfos, 1
@@ -5223,7 +5223,7 @@ for.body27:                                       ; preds = %for.body27.preheade
   store i64 %add40, ptr %arrayidx39, align 8
   %inc42 = add nuw i64 %i24.049, 1
   %exitcond.not = icmp eq i64 %inc42, %umax
-  br i1 %exitcond.not, label %return, label %for.body27, !llvm.loop !24
+  br i1 %exitcond.not, label %return, label %for.body27, !llvm.loop !23
 
 return:                                           ; preds = %for.body, %for.body27, %if.end18, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end18 ], [ 0, %for.body27 ], [ -1, %for.body ]
@@ -5231,7 +5231,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @build_ttinfo(ptr nocapture noundef readonly %state, i64 noundef %utcoffset, i64 noundef %dstoffset, ptr noundef %tzname, ptr nocapture noundef writeonly %out) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @build_ttinfo(ptr nocapture noundef readonly %state, i64 noundef %utcoffset, i64 noundef %dstoffset, ptr noundef %tzname, ptr nocapture noundef writeonly %out) unnamed_addr #1 {
 entry:
   %tzname1 = getelementptr inbounds i8, ptr %out, i64 16
   %utcoff_seconds = getelementptr inbounds i8, ptr %out, i64 24
@@ -5269,7 +5269,7 @@ return:                                           ; preds = %if.end, %entry, %_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_tz_str(ptr nocapture noundef readonly %state, ptr noundef %tz_str_obj, ptr nocapture noundef writeonly %out) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @parse_tz_str(ptr nocapture noundef readonly %state, ptr noundef %tz_str_obj, ptr nocapture noundef writeonly %out) unnamed_addr #1 {
 entry:
   %ptr.i = alloca ptr, align 8
   %hour.i = alloca i32, align 4
@@ -5323,7 +5323,7 @@ if.end.i18:                                       ; preds = %switch.early.test.i
   %incdec.ptr24.i = getelementptr i8, ptr %ptr.023.i, i64 1
   %5 = load i8, ptr %incdec.ptr24.i, align 1
   %cmp3.not.i = icmp eq i8 %5, 62
-  br i1 %cmp3.not.i, label %while.end.i, label %while.body.i, !llvm.loop !25
+  br i1 %cmp3.not.i, label %while.end.i, label %while.body.i, !llvm.loop !24
 
 while.end.i:                                      ; preds = %if.end.i18, %if.then.i
   %ptr.0.lcssa.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr24.i, %if.end.i18 ]
@@ -5339,7 +5339,7 @@ while.cond26.i:                                   ; preds = %if.end, %while.cond
   %and32.i = and i32 %7, 3
   %tobool33.not.i = icmp eq i32 %and32.i, 0
   %incdec.ptr35.i = getelementptr i8, ptr %ptr.1.i, i64 1
-  br i1 %tobool33.not.i, label %while.end36.i, label %while.cond26.i, !llvm.loop !26
+  br i1 %tobool33.not.i, label %while.end36.i, label %while.cond26.i, !llvm.loop !25
 
 while.end36.i:                                    ; preds = %while.cond26.i
   %cmp37.i = icmp eq ptr %ptr.1.i, %call
@@ -5374,7 +5374,7 @@ if.end8:                                          ; preds = %if.end41.i
   store i32 0, ptr %hours.i, align 4
   store i32 0, ptr %minutes.i, align 4
   store i32 0, ptr %seconds.i, align 4
-  %call.i19 = call fastcc i32 @parse_transition_time(ptr noundef nonnull %p, ptr noundef nonnull %hours.i, ptr noundef nonnull %minutes.i, ptr noundef nonnull %seconds.i), !range !12
+  %call.i19 = call fastcc i32 @parse_transition_time(ptr noundef nonnull %p, ptr noundef nonnull %hours.i, ptr noundef nonnull %minutes.i, ptr noundef nonnull %seconds.i)
   %tobool.not.i = icmp eq i32 %call.i19, 0
   br i1 %tobool.not.i, label %if.end.i21, label %error.thread100
 
@@ -5439,7 +5439,7 @@ if.end.i53:                                       ; preds = %switch.early.test.i
   %incdec.ptr24.i54 = getelementptr i8, ptr %ptr.023.i48, i64 1
   %21 = load i8, ptr %incdec.ptr24.i54, align 1
   %cmp3.not.i55 = icmp eq i8 %21, 62
-  br i1 %cmp3.not.i55, label %while.end.i56, label %while.body.i47, !llvm.loop !25
+  br i1 %cmp3.not.i55, label %while.end.i56, label %while.body.i47, !llvm.loop !24
 
 while.end.i56:                                    ; preds = %if.end.i53, %if.then.i44
   %ptr.0.lcssa.i57 = phi ptr [ %incdec.ptr.i45, %if.then.i44 ], [ %incdec.ptr24.i54, %if.end.i53 ]
@@ -5455,7 +5455,7 @@ while.cond26.i24:                                 ; preds = %if.end13, %while.co
   %and32.i28 = and i32 %23, 3
   %tobool33.not.i29 = icmp eq i32 %and32.i28, 0
   %incdec.ptr35.i30 = getelementptr i8, ptr %ptr.1.i25, i64 1
-  br i1 %tobool33.not.i29, label %while.end36.i31, label %while.cond26.i24, !llvm.loop !26
+  br i1 %tobool33.not.i29, label %while.end36.i31, label %while.cond26.i24, !llvm.loop !25
 
 while.end36.i31:                                  ; preds = %while.cond26.i24
   %cmp37.i32 = icmp eq ptr %ptr.1.i25, %15
@@ -5494,7 +5494,7 @@ if.then30:                                        ; preds = %if.end26
   br label %if.end36
 
 if.else:                                          ; preds = %if.end26
-  %call31 = call fastcc i32 @parse_tz_delta(ptr noundef nonnull %p, ptr noundef nonnull %dst_offset), !range !12
+  %call31 = call fastcc i32 @parse_tz_delta(ptr noundef nonnull %p, ptr noundef nonnull %dst_offset)
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %if.else.if.end36_crit_edge, label %if.then33
 
@@ -5567,7 +5567,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   %add.i.i = add i32 %sub.i.i, %conv5.i.i
   %inc.i.i = add nuw nsw i32 %i.09.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, 2
-  br i1 %exitcond.not.i.i, label %if.end.i63, label %for.body.i.i, !llvm.loop !27
+  br i1 %exitcond.not.i.i, label %if.end.i63, label %for.body.i.i, !llvm.loop !26
 
 parse_digits.exit.i:                              ; preds = %for.body.i.i
   %cmp3.i.not.i = icmp eq i32 %i.09.i.i, 0
@@ -5622,7 +5622,7 @@ if.end22.i:                                       ; preds = %for.body.i30.prehea
 if.then26.i:                                      ; preds = %if.end22.i
   %incdec.ptr27.i = getelementptr i8, ptr %35, i64 5
   store ptr %incdec.ptr27.i, ptr %ptr.i, align 8
-  %call28.i = call fastcc i32 @parse_transition_time(ptr noundef nonnull %ptr.i, ptr noundef nonnull %hour.i, ptr noundef nonnull %minute.i, ptr noundef nonnull %second.i), !range !12
+  %call28.i = call fastcc i32 @parse_transition_time(ptr noundef nonnull %ptr.i, ptr noundef nonnull %hour.i, ptr noundef nonnull %minute.i, ptr noundef nonnull %second.i)
   %tobool29.not.i = icmp eq i32 %call28.i, 0
   br i1 %tobool29.not.i, label %if.end32.i, label %if.then47
 
@@ -5635,7 +5635,7 @@ if.end37.i:                                       ; preds = %if.end32.i
   %43 = load i32, ptr %hour.i, align 4
   %44 = load i32, ptr %minute.i, align 4
   %45 = load i32, ptr %second.i, align 4
-  %call38.i = call i32 @calendarrule_new(i32 noundef %month.179.i, i32 noundef %add.i20.i, i32 noundef %add.i40.i, i32 noundef %43, i32 noundef %44, i32 noundef %45, ptr noundef nonnull %call33.i), !range !12
+  %call38.i = call i32 @calendarrule_new(i32 noundef %month.179.i, i32 noundef %add.i20.i, i32 noundef %add.i40.i, i32 noundef %43, i32 noundef %44, i32 noundef %45, ptr noundef nonnull %call33.i)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %for.inc, label %if.then47.sink.split
 
@@ -5669,7 +5669,7 @@ if.end.i56.i:                                     ; preds = %for.body.i50.i
   %inc.i61.i = add nuw nsw i32 %i.09.i51.i, 1
   %incdec.ptr.i62.i = getelementptr i8, ptr %46, i64 1
   %exitcond.not.i63.i = icmp eq i32 %inc.i61.i, 3
-  br i1 %exitcond.not.i63.i, label %if.end52.loopexit.i, label %for.body.i50.i, !llvm.loop !27
+  br i1 %exitcond.not.i63.i, label %if.end52.loopexit.i, label %for.body.i50.i, !llvm.loop !26
 
 parse_digits.exit68.i:                            ; preds = %for.body.i50.i
   store ptr %46, ptr %ptr.i, align 8
@@ -5690,7 +5690,7 @@ if.end52.i:                                       ; preds = %if.end52.loopexit.i
 if.then56.i:                                      ; preds = %if.end52.i
   %incdec.ptr57.i = getelementptr i8, ptr %49, i64 1
   store ptr %incdec.ptr57.i, ptr %ptr.i, align 8
-  %call58.i = call fastcc i32 @parse_transition_time(ptr noundef nonnull %ptr.i, ptr noundef nonnull %hour.i, ptr noundef nonnull %minute.i, ptr noundef nonnull %second.i), !range !12
+  %call58.i = call fastcc i32 @parse_transition_time(ptr noundef nonnull %ptr.i, ptr noundef nonnull %hour.i, ptr noundef nonnull %minute.i, ptr noundef nonnull %second.i)
   %tobool59.not.i = icmp eq i32 %call58.i, 0
   br i1 %tobool59.not.i, label %if.end62.i, label %if.then47
 
@@ -5765,7 +5765,7 @@ for.inc:                                          ; preds = %dayrule_new.exit.i,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %hour.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %minute.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %second.i)
-  br i1 %cmp37, label %for.body, label %for.end, !llvm.loop !28
+  br i1 %cmp37, label %for.body, label %for.end, !llvm.loop !27
 
 for.end:                                          ; preds = %for.inc
   %59 = load i8, ptr %58, align 1
@@ -5889,12 +5889,12 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @build_tzrule(ptr nocapture noundef readonly %state, ptr noundef %std_abbr, ptr noundef %dst_abbr, i64 noundef %std_offset, i64 noundef %dst_offset, ptr noundef %start, ptr noundef %end, ptr nocapture noundef writeonly %out) unnamed_addr #1 {
 entry:
-  %call.i = tail call fastcc ptr @load_timedelta(ptr noundef %state, i64 noundef %std_offset)
+  %call.i = tail call fastcc ptr @load_timedelta(ptr noundef readonly %state, i64 noundef %std_offset)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call4.i = tail call fastcc ptr @load_timedelta(ptr noundef %state, i64 noundef 0)
+  %call4.i = tail call fastcc ptr @load_timedelta(ptr noundef readonly %state, i64 noundef 0)
   %cmp7.i = icmp eq ptr %call4.i, null
   br i1 %cmp7.i, label %if.then.i.i, label %if.end9.i
 
@@ -5915,14 +5915,14 @@ if.end:                                           ; preds = %if.end.i.i.i, %if.e
 if.then3:                                         ; preds = %if.end
   %sub = sub i64 %dst_offset, %std_offset
   %conv = trunc i64 %sub to i32
-  %call.i7 = tail call fastcc ptr @load_timedelta(ptr noundef %state, i64 noundef %dst_offset)
+  %call.i7 = tail call fastcc ptr @load_timedelta(ptr noundef readonly %state, i64 noundef %dst_offset)
   %cmp.i8 = icmp eq ptr %call.i7, null
   br i1 %cmp.i8, label %if.then.i.i, label %if.end.i9
 
 if.end.i9:                                        ; preds = %if.then3
   %sext = shl i64 %sub, 32
   %conv5 = ashr exact i64 %sext, 32
-  %call4.i11 = tail call fastcc ptr @load_timedelta(ptr noundef %state, i64 noundef %conv5)
+  %call4.i11 = tail call fastcc ptr @load_timedelta(ptr noundef readonly %state, i64 noundef %conv5)
   %cmp7.i12 = icmp eq ptr %call4.i11, null
   br i1 %cmp7.i12, label %if.then.i.i, label %if.end9.i13
 
@@ -6190,7 +6190,7 @@ declare ptr @PyDict_SetDefault(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare ptr @PyBytes_AsString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @parse_tz_delta(ptr nocapture noundef %p, ptr nocapture noundef writeonly %total_seconds) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @parse_tz_delta(ptr nocapture noundef %p, ptr nocapture noundef writeonly %total_seconds) unnamed_addr #5 {
 entry:
   %hours = alloca i32, align 4
   %minutes = alloca i32, align 4
@@ -6198,7 +6198,7 @@ entry:
   store i32 0, ptr %hours, align 4
   store i32 0, ptr %minutes, align 4
   store i32 0, ptr %seconds, align 4
-  %call = call fastcc i32 @parse_transition_time(ptr noundef %p, ptr noundef nonnull %hours, ptr noundef nonnull %minutes, ptr noundef nonnull %seconds), !range !12
+  %call = call fastcc i32 @parse_transition_time(ptr noundef %p, ptr noundef nonnull %hours, ptr noundef nonnull %minutes, ptr noundef nonnull %seconds)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -6229,7 +6229,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @parse_transition_time(ptr nocapture noundef %p, ptr nocapture noundef writeonly %hour, ptr nocapture noundef writeonly %minute, ptr nocapture noundef writeonly %second) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @parse_transition_time(ptr nocapture noundef %p, ptr nocapture noundef writeonly %hour, ptr nocapture noundef writeonly %minute, ptr nocapture noundef writeonly %second) unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %1 = load i8, ptr %0, align 1
@@ -6273,7 +6273,7 @@ if.end.i:                                         ; preds = %for.body.i
   %inc.i = add nuw nsw i32 %i.09.i, 1
   %incdec.ptr.i = getelementptr i8, ptr %ptr.1, i64 1
   %exitcond.not.i = icmp eq i32 %inc.i, 3
-  br i1 %exitcond.not.i, label %if.end11, label %for.body.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %if.end11, label %for.body.i, !llvm.loop !26
 
 parse_digits.exit:                                ; preds = %for.body.i
   %cmp3.i.not = icmp eq i32 %i.09.i, 0
@@ -6316,7 +6316,7 @@ if.end.i14:                                       ; preds = %for.body.i8
   %inc.i19 = add nuw nsw i32 %i.09.i9, 1
   %incdec.ptr.i20 = getelementptr i8, ptr %ptr.3, i64 1
   %exitcond.not.i21 = icmp eq i32 %inc.i19, 2
-  br i1 %exitcond.not.i21, label %if.end20, label %for.body.i8, !llvm.loop !27
+  br i1 %exitcond.not.i21, label %if.end20, label %for.body.i8, !llvm.loop !26
 
 parse_digits.exit26:                              ; preds = %for.body.i8
   %cmp3.i24 = icmp ugt i32 %i.09.i9, 1
@@ -6359,7 +6359,7 @@ if.end.i34:                                       ; preds = %for.body.i28
   %inc.i39 = add nuw nsw i32 %i.09.i29, 1
   %incdec.ptr.i40 = getelementptr i8, ptr %ptr.5, i64 1
   %exitcond.not.i41 = icmp eq i32 %inc.i39, 2
-  br i1 %exitcond.not.i41, label %if.end30, label %for.body.i28, !llvm.loop !27
+  br i1 %exitcond.not.i41, label %if.end30, label %for.body.i28, !llvm.loop !26
 
 parse_digits.exit46:                              ; preds = %for.body.i28
   %cmp3.i44 = icmp ugt i32 %i.09.i29, 1
@@ -6409,7 +6409,7 @@ if.else:                                          ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = call fastcc i32 @get_local_timestamp(ptr noundef %dt, ptr noundef nonnull %ts), !range !12
+  %call = call fastcc i32 @get_local_timestamp(ptr noundef %dt, ptr noundef nonnull %ts)
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %if.end4, label %return
 
@@ -6510,7 +6510,7 @@ while.body.i:                                     ; preds = %lor.lhs.false, %whi
   %hi.1.i = select i1 %cmp1.i, i64 %div6.i, i64 %hi.08.i
   %lo.1.i = select i1 %cmp1.i, i64 %lo.09.i, i64 %add2.i
   %cmp.i18 = icmp ult i64 %lo.1.i, %hi.1.i
-  br i1 %cmp.i18, label %while.body.i, label %_bisect.exit, !llvm.loop !13
+  br i1 %cmp.i18, label %while.body.i, label %_bisect.exit, !llvm.loop !12
 
 _bisect.exit:                                     ; preds = %while.body.i
   %trans_ttinfos = getelementptr inbounds i8, ptr %self, i64 80
@@ -6526,7 +6526,7 @@ return:                                           ; preds = %if.end24.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_local_timestamp(ptr noundef %dt, ptr nocapture noundef writeonly %local_ts) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @get_local_timestamp(ptr noundef %dt, ptr nocapture noundef writeonly %local_ts) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @PyDateTimeAPI, align 8
   %DateTimeType = getelementptr inbounds i8, ptr %0, i64 8
@@ -6814,7 +6814,7 @@ attributes #9 = { nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = !{i32 -1, i32 1}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
@@ -6830,4 +6830,3 @@ attributes #9 = { nounwind }
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}

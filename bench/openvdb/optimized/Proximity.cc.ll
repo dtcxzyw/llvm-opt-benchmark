@@ -235,7 +235,7 @@ if.then7:                                         ; preds = %land.rhs.i.i160, %_
   br i1 %cmp.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %a, i64 24, i1 false)
   br label %_ZN7openvdb5v11_04math28closestPointOnSegmentToPointERKNS1_4Vec3IdEES5_S5_Rd.exit
 
 if.else.i:                                        ; preds = %if.then7
@@ -249,13 +249,13 @@ if.else.i:                                        ; preds = %if.then7
   br i1 %cmp2.i, label %if.else4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.else.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %c, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %c, i64 24, i1 false)
   br label %_ZN7openvdb5v11_04math28closestPointOnSegmentToPointERKNS1_4Vec3IdEES5_S5_Rd.exit
 
 if.else4.i:                                       ; preds = %if.else.i
   %div.i = fdiv double %69, %74
   %mul7.i.i.i = fmul double %73, %div.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %a, i64 24, i1 false)
   %75 = insertelement <2 x double> poison, double %div.i, i64 0
   %76 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> zeroinitializer
   %77 = fmul <2 x double> %41, %76
@@ -381,7 +381,7 @@ if.then12:                                        ; preds = %land.rhs.i.i217, %l
   br i1 %cmp.i257, label %if.else.i259, label %if.then.i258
 
 if.then.i258:                                     ; preds = %if.then12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %a, i64 24, i1 false)
   br label %_ZN7openvdb5v11_04math28closestPointOnSegmentToPointERKNS1_4Vec3IdEES5_S5_Rd.exit273
 
 if.else.i259:                                     ; preds = %if.then12
@@ -395,13 +395,13 @@ if.else.i259:                                     ; preds = %if.then12
   br i1 %cmp2.i261, label %if.else4.i263, label %if.then3.i262
 
 if.then3.i262:                                    ; preds = %if.else.i259
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %b, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %b, i64 24, i1 false)
   br label %_ZN7openvdb5v11_04math28closestPointOnSegmentToPointERKNS1_4Vec3IdEES5_S5_Rd.exit273
 
 if.else4.i263:                                    ; preds = %if.else.i259
   %div.i264 = fdiv double %108, %113
   %mul7.i.i.i267 = fmul double %112, %div.i264
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(24) %a, i64 24, i1 false)
   %114 = insertelement <2 x double> poison, double %div.i264, i64 0
   %115 = shufflevector <2 x double> %114, <2 x double> poison, <2 x i32> zeroinitializer
   %116 = fmul <2 x double> %38, %115
@@ -418,8 +418,8 @@ _ZN7openvdb5v11_04math28closestPointOnSegmentToPointERKNS1_4Vec3IdEES5_S5_Rd.exi
   %t13.0 = phi double [ %div.i264, %if.else4.i263 ], [ 1.000000e+00, %if.then3.i262 ], [ 0.000000e+00, %if.then.i258 ]
   %sub14 = fsub double 1.000000e+00, %t13.0
   store double %sub14, ptr %uvw, align 8
-  %arrayidx.i.i274 = getelementptr inbounds i8, ptr %uvw, i64 8
-  store double %t13.0, ptr %arrayidx.i.i274, align 8
+  %arrayidx.i.i275 = getelementptr inbounds i8, ptr %uvw, i64 8
+  store double %t13.0, ptr %arrayidx.i.i275, align 8
   br label %return
 
 if.end18:                                         ; preds = %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit.i.i232, %_ZN7openvdb5v11_04math18isRelOrApproxEqualIdEEbRKT_S5_S5_S5_.exit11.i.i227, %_ZN7openvdb5v11_04math13isApproxEqualIdEEbRKNS1_4Vec3IT_EES7_.exit237
@@ -435,16 +435,16 @@ if.then21:                                        ; preds = %if.end18
   br label %return
 
 if.end23:                                         ; preds = %if.end18
-  %sub.i.i275 = fsub double %ap.sroa.0.0.copyload, %1
-  %sub5.i.i278 = fsub double %ap.sroa.5.0.copyload, %ab.sroa.8.0.copyload
-  %sub9.i.i281 = fsub double %ap.sroa.9.0.copyload, %ab.sroa.15.0.copyload
-  %122 = insertelement <2 x double> poison, double %sub5.i.i278, i64 0
+  %sub.i.i277 = fsub double %ap.sroa.0.0.copyload, %1
+  %sub5.i.i280 = fsub double %ap.sroa.5.0.copyload, %ab.sroa.8.0.copyload
+  %sub9.i.i283 = fsub double %ap.sroa.9.0.copyload, %ab.sroa.15.0.copyload
+  %122 = insertelement <2 x double> poison, double %sub5.i.i280, i64 0
   %123 = shufflevector <2 x double> %122, <2 x double> poison, <2 x i32> zeroinitializer
   %124 = fmul <2 x double> %47, %123
-  %125 = insertelement <2 x double> poison, double %sub.i.i275, i64 0
+  %125 = insertelement <2 x double> poison, double %sub.i.i277, i64 0
   %126 = shufflevector <2 x double> %125, <2 x double> poison, <2 x i32> zeroinitializer
   %127 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %51, <2 x double> %126, <2 x double> %124)
-  %128 = insertelement <2 x double> poison, double %sub9.i.i281, i64 0
+  %128 = insertelement <2 x double> poison, double %sub9.i.i283, i64 0
   %129 = shufflevector <2 x double> %128, <2 x double> poison, <2 x i32> zeroinitializer
   %130 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %46, <2 x double> %129, <2 x double> %127)
   %131 = extractelement <2 x double> %130, i64 0
@@ -455,8 +455,8 @@ if.end23:                                         ; preds = %if.end18
   br i1 %or.cond104, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %if.end23
-  %arrayidx.i.i292 = getelementptr inbounds i8, ptr %uvw, i64 8
-  store double 1.000000e+00, ptr %arrayidx.i.i292, align 8
+  %arrayidx.i.i294 = getelementptr inbounds i8, ptr %uvw, i64 8
+  store double 1.000000e+00, ptr %arrayidx.i.i294, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %b, i64 24, i1 false)
   br label %return
 
@@ -477,12 +477,12 @@ if.then38:                                        ; preds = %if.end31
   %137 = fsub <2 x double> %57, %130
   %sub39 = extractelement <2 x double> %137, i64 0
   %div = fdiv double %135, %sub39
-  %arrayidx.i.i293 = getelementptr inbounds i8, ptr %uvw, i64 8
-  store double %div, ptr %arrayidx.i.i293, align 8
+  %arrayidx.i.i295 = getelementptr inbounds i8, ptr %uvw, i64 8
+  store double %div, ptr %arrayidx.i.i295, align 8
   %sub42 = fsub double 1.000000e+00, %div
   store double %sub42, ptr %uvw, align 8
   %138 = extractelement <2 x double> %46, i64 0
-  %mul7.i.i.i298 = fmul double %138, %div
+  %mul7.i.i.i301 = fmul double %138, %div
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a, i64 24, i1 false)
   %139 = insertelement <2 x double> poison, double %div, i64 0
   %140 = shufflevector <2 x double> %139, <2 x double> poison, <2 x i32> zeroinitializer
@@ -490,24 +490,24 @@ if.then38:                                        ; preds = %if.end31
   %142 = load <2 x double>, ptr %agg.result, align 8, !alias.scope !14
   %143 = fadd <2 x double> %141, %142
   store <2 x double> %143, ptr %agg.result, align 8, !alias.scope !14
-  %arrayidx8.i.i302 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %144 = load double, ptr %arrayidx8.i.i302, align 8, !alias.scope !14
-  %add9.i.i = fadd double %mul7.i.i.i298, %144
-  store double %add9.i.i, ptr %arrayidx8.i.i302, align 8, !alias.scope !14
+  %arrayidx8.i.i305 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %144 = load double, ptr %arrayidx8.i.i305, align 8, !alias.scope !14
+  %add9.i.i = fadd double %mul7.i.i.i301, %144
+  store double %add9.i.i, ptr %arrayidx8.i.i305, align 8, !alias.scope !14
   br label %return
 
 if.end45:                                         ; preds = %if.end31
-  %sub.i.i303 = fsub double %ap.sroa.0.0.copyload, %81
+  %sub.i.i306 = fsub double %ap.sroa.0.0.copyload, %81
   %145 = extractelement <2 x double> %40, i64 1
-  %sub5.i.i306 = fsub double %ap.sroa.5.0.copyload, %145
-  %sub9.i.i309 = fsub double %ap.sroa.9.0.copyload, %ac.sroa.15.0.copyload
-  %146 = insertelement <2 x double> poison, double %sub5.i.i306, i64 0
+  %sub5.i.i309 = fsub double %ap.sroa.5.0.copyload, %145
+  %sub9.i.i312 = fsub double %ap.sroa.9.0.copyload, %ac.sroa.15.0.copyload
+  %146 = insertelement <2 x double> poison, double %sub5.i.i309, i64 0
   %147 = shufflevector <2 x double> %146, <2 x double> poison, <2 x i32> zeroinitializer
   %148 = fmul <2 x double> %47, %147
-  %149 = insertelement <2 x double> poison, double %sub.i.i303, i64 0
+  %149 = insertelement <2 x double> poison, double %sub.i.i306, i64 0
   %150 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> zeroinitializer
   %151 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %51, <2 x double> %150, <2 x double> %148)
-  %152 = insertelement <2 x double> poison, double %sub9.i.i309, i64 0
+  %152 = insertelement <2 x double> poison, double %sub9.i.i312, i64 0
   %153 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> zeroinitializer
   %154 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %46, <2 x double> %153, <2 x double> %151)
   %155 = extractelement <2 x double> %154, i64 1
@@ -518,8 +518,8 @@ if.end45:                                         ; preds = %if.end31
   br i1 %or.cond105, label %if.end53, label %if.then51
 
 if.then51:                                        ; preds = %if.end45
-  %arrayidx.i.i320 = getelementptr inbounds i8, ptr %uvw, i64 16
-  store double 1.000000e+00, ptr %arrayidx.i.i320, align 8
+  %arrayidx.i.i323 = getelementptr inbounds i8, ptr %uvw, i64 16
+  store double 1.000000e+00, ptr %arrayidx.i.i323, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %c, i64 24, i1 false)
   br label %return
 
@@ -537,12 +537,12 @@ if.end53:                                         ; preds = %if.end45
 if.then61:                                        ; preds = %if.end53
   %sub62 = fsub double %134, %155
   %div63 = fdiv double %134, %sub62
-  %arrayidx.i.i321 = getelementptr inbounds i8, ptr %uvw, i64 16
-  store double %div63, ptr %arrayidx.i.i321, align 8
+  %arrayidx.i.i324 = getelementptr inbounds i8, ptr %uvw, i64 16
+  store double %div63, ptr %arrayidx.i.i324, align 8
   %sub66 = fsub double 1.000000e+00, %div63
   store double %sub66, ptr %uvw, align 8
   %159 = extractelement <2 x double> %46, i64 1
-  %mul7.i.i.i328 = fmul double %159, %div63
+  %mul7.i.i.i332 = fmul double %159, %div63
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %a, i64 24, i1 false)
   %160 = insertelement <2 x double> poison, double %div63, i64 0
   %161 = shufflevector <2 x double> %160, <2 x double> poison, <2 x i32> zeroinitializer
@@ -550,10 +550,10 @@ if.then61:                                        ; preds = %if.end53
   %163 = load <2 x double>, ptr %agg.result, align 8, !alias.scope !17
   %164 = fadd <2 x double> %162, %163
   store <2 x double> %164, ptr %agg.result, align 8, !alias.scope !17
-  %arrayidx8.i.i334 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %165 = load double, ptr %arrayidx8.i.i334, align 8, !alias.scope !17
-  %add9.i.i335 = fadd double %mul7.i.i.i328, %165
-  store double %add9.i.i335, ptr %arrayidx8.i.i334, align 8, !alias.scope !17
+  %arrayidx8.i.i338 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %165 = load double, ptr %arrayidx8.i.i338, align 8, !alias.scope !17
+  %add9.i.i339 = fadd double %mul7.i.i.i332, %165
+  store double %add9.i.i339, ptr %arrayidx8.i.i338, align 8, !alias.scope !17
   br label %return
 
 if.end70:                                         ; preds = %if.end53
@@ -576,15 +576,15 @@ land.lhs.true77:                                  ; preds = %land.lhs.true74
 if.then80:                                        ; preds = %land.lhs.true77
   %add = fadd double %sub75, %sub78
   %div84 = fdiv double %sub75, %add
-  %arrayidx.i.i336 = getelementptr inbounds i8, ptr %uvw, i64 16
-  store double %div84, ptr %arrayidx.i.i336, align 8
+  %arrayidx.i.i340 = getelementptr inbounds i8, ptr %uvw, i64 16
+  store double %div84, ptr %arrayidx.i.i340, align 8
   %sub87 = fsub double 1.000000e+00, %div84
-  %arrayidx.i.i338 = getelementptr inbounds i8, ptr %uvw, i64 8
-  store double %sub87, ptr %arrayidx.i.i338, align 8
+  %arrayidx.i.i342 = getelementptr inbounds i8, ptr %uvw, i64 8
+  store double %sub87, ptr %arrayidx.i.i342, align 8
   %ref.tmp91.sroa.6.0.copyload = load double, ptr %ac.sroa.15.0.c.sroa_idx, align 8
   %168 = load double, ptr %ab.sroa.15.0.b.sroa_idx, align 8, !noalias !20
-  %sub9.i.i346 = fsub double %ref.tmp91.sroa.6.0.copyload, %168
-  %mul7.i.i.i351 = fmul double %div84, %sub9.i.i346
+  %sub9.i.i350 = fsub double %ref.tmp91.sroa.6.0.copyload, %168
+  %mul7.i.i.i355 = fmul double %div84, %sub9.i.i350
   %169 = load <2 x double>, ptr %c, align 8
   %170 = load <2 x double>, ptr %b, align 8, !noalias !20
   %171 = fsub <2 x double> %169, %170
@@ -595,10 +595,10 @@ if.then80:                                        ; preds = %land.lhs.true77
   %175 = load <2 x double>, ptr %agg.result, align 8, !alias.scope !23
   %176 = fadd <2 x double> %174, %175
   store <2 x double> %176, ptr %agg.result, align 8, !alias.scope !23
-  %arrayidx8.i.i357 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %177 = load double, ptr %arrayidx8.i.i357, align 8, !alias.scope !23
-  %add9.i.i358 = fadd double %mul7.i.i.i351, %177
-  store double %add9.i.i358, ptr %arrayidx8.i.i357, align 8, !alias.scope !23
+  %arrayidx8.i.i361 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %177 = load double, ptr %arrayidx8.i.i361, align 8, !alias.scope !23
+  %add9.i.i362 = fadd double %mul7.i.i.i355, %177
+  store double %add9.i.i362, ptr %arrayidx8.i.i361, align 8, !alias.scope !23
   br label %return
 
 if.end92:                                         ; preds = %land.lhs.true77, %land.lhs.true74, %if.end70
@@ -606,20 +606,20 @@ if.end92:                                         ; preds = %land.lhs.true77, %l
   %add94 = fadd double %136, %add93
   %div95 = fdiv double 1.000000e+00, %add94
   %mul = fmul double %136, %div95
-  %arrayidx.i.i359 = getelementptr inbounds i8, ptr %uvw, i64 16
-  store double %mul, ptr %arrayidx.i.i359, align 8
+  %arrayidx.i.i363 = getelementptr inbounds i8, ptr %uvw, i64 16
+  store double %mul, ptr %arrayidx.i.i363, align 8
   %mul97 = fmul double %158, %div95
-  %arrayidx.i.i360 = getelementptr inbounds i8, ptr %uvw, i64 8
-  store double %mul97, ptr %arrayidx.i.i360, align 8
+  %arrayidx.i.i364 = getelementptr inbounds i8, ptr %uvw, i64 8
+  store double %mul97, ptr %arrayidx.i.i364, align 8
   %sub100 = fsub double 1.000000e+00, %mul97
   %sub102 = fsub double %sub100, %mul
   store double %sub102, ptr %uvw, align 8
   %178 = extractelement <2 x double> %46, i64 0
   %mul7.i.i = fmul double %178, %mul97
   %ref.tmp104.sroa.6.0.copyload = load double, ptr %arrayidx.i.i3.i.i, align 8
-  %add9.i.i370 = fadd double %mul7.i.i, %ref.tmp104.sroa.6.0.copyload
+  %add9.i.i375 = fadd double %mul7.i.i, %ref.tmp104.sroa.6.0.copyload
   %179 = extractelement <2 x double> %46, i64 1
-  %mul7.i.i376 = fmul double %179, %mul
+  %mul7.i.i381 = fmul double %179, %mul
   %ref.tmp104.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
   %180 = insertelement <2 x double> poison, double %mul97, i64 0
   %181 = shufflevector <2 x double> %180, <2 x double> poison, <2 x i32> zeroinitializer
@@ -631,8 +631,8 @@ if.end92:                                         ; preds = %land.lhs.true77, %l
   %187 = fmul <2 x double> %41, %186
   %188 = fadd <2 x double> %187, %184
   store <2 x double> %188, ptr %agg.result, align 8, !alias.scope !26
-  %add9.i.i383 = fadd double %mul7.i.i376, %add9.i.i370
-  store double %add9.i.i383, ptr %ref.tmp104.sroa.6.0.agg.result.sroa_idx, align 8, !alias.scope !26
+  %add9.i.i388 = fadd double %mul7.i.i381, %add9.i.i375
+  store double %add9.i.i388, ptr %ref.tmp104.sroa.6.0.agg.result.sroa_idx, align 8, !alias.scope !26
   br label %return
 
 return:                                           ; preds = %if.end92, %if.then80, %if.then61, %if.then51, %if.then38, %if.then29, %if.then21, %_ZN7openvdb5v11_04math28closestPointOnSegmentToPointERKNS1_4Vec3IdEES5_S5_Rd.exit273, %_ZN7openvdb5v11_04math28closestPointOnSegmentToPointERKNS1_4Vec3IdEES5_S5_Rd.exit, %if.then

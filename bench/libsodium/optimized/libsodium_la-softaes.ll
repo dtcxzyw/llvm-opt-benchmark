@@ -58,14 +58,14 @@ entry:
   %arrayidx29 = getelementptr inbounds i8, ptr %ix2, i64 3
   store i8 %conv28, ptr %arrayidx29, align 1
   %sum.shift = lshr i64 %block.coerce1, 56
-  %conv31 = trunc i64 %sum.shift to i8
+  %conv31 = trunc nuw i64 %sum.shift to i8
   store i8 %conv31, ptr %ix3, align 64
   %shr3323 = lshr i64 %block.coerce0, 24
   %conv34 = trunc i64 %shr3323 to i8
   %arrayidx35 = getelementptr inbounds i8, ptr %ix3, i64 1
   store i8 %conv34, ptr %arrayidx35, align 1
   %sum.shift24 = lshr i64 %block.coerce0, 56
-  %conv37 = trunc i64 %sum.shift24 to i8
+  %conv37 = trunc nuw i64 %sum.shift24 to i8
   %arrayidx38 = getelementptr inbounds i8, ptr %ix3, i64 2
   store i8 %conv37, ptr %arrayidx38, align 2
   %shr3926 = lshr i64 %block.coerce1, 24

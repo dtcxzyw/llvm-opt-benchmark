@@ -429,7 +429,7 @@ define dso_local void @pq_putemptymessage(i8 noundef signext %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pq_getmsgbyte(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 256) i32 @pq_getmsgbyte(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

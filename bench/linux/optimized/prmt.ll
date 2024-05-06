@@ -74,7 +74,7 @@ declare dso_local i32 @acpi_get_table(ptr noundef, i32 noundef, ptr noundef) loc
 declare dso_local i32 @acpi_table_parse_entries(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3 section ".init.text"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_parse_prmt(ptr noundef readonly %0, i64 %1) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -12, 1) i32 @acpi_parse_prmt(ptr noundef readonly %0, i64 %1) #0 section ".init.text" align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i16, ptr %3, align 1
   %5 = zext i16 %4 to i64
@@ -222,7 +222,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 declare dso_local i32 @acpi_install_address_space_handler(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_platformrt_space_handler(i32 %0, i64 %1, i32 %2, ptr nocapture noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #4 align 16 {
+define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 %0, i64 %1, i32 %2, ptr nocapture noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #4 align 16 {
   %7 = alloca %struct.prm_context_buffer, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #12
   %8 = load volatile i64, ptr getelementptr inbounds (%struct.efi, ptr @efi, i64 0, i32 28), align 8

@@ -681,7 +681,7 @@ define hidden void @proto_reg_handoff_drbd() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_drbd_protocol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @test_drbd_protocol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   %7 = icmp slt i32 %5, 8
@@ -722,7 +722,7 @@ test_drbd_header.exit.thread9:                    ; preds = %4, %test_drbd_heade
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_drbd_ib(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_drbd_ib(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i16, align 2
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
@@ -926,7 +926,7 @@ test_drbd_rdma_control_header.exit.thread:        ; preds = %test_drbd_rdma_cont
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_drbd_lb_tcp_protocol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @test_drbd_lb_tcp_protocol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   %7 = icmp slt i32 %5, 16
@@ -1329,7 +1329,7 @@ define internal i32 @drbd_twopc_key_hash(ptr nocapture noundef readonly %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @drbd_twopc_key_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @drbd_twopc_key_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -1732,7 +1732,7 @@ define internal void @decode_payload_uuids110(ptr noundef %0, ptr noundef %1, pt
 20:                                               ; preds = %16
   %21 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.035) #8
   %22 = load i32, ptr @hf_drbd_bitmap_uuid, align 4
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %.035, i32 noundef 8, i64 noundef %21, ptr noundef nonnull @.str.377, i32 noundef %23, i64 noundef %21) #8
   %25 = add i32 %.035, 8
   br label %26

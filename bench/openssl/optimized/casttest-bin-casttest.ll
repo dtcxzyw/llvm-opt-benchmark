@@ -36,7 +36,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cast_test_vector(i32 noundef %z) #0 {
+define internal range(i32 0, 2) i32 @cast_test_vector(i32 noundef %z) #0 {
 entry:
   %key = alloca %struct.cast_key_st, align 4
   %out = alloca [80 x i8], align 16
@@ -73,7 +73,7 @@ if.end15:                                         ; preds = %if.then12, %if.end
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cast_test_iterations() #0 {
+define internal range(i32 0, 2) i32 @cast_test_iterations() #0 {
 entry:
   %key = alloca %struct.cast_key_st, align 4
   %key_b = alloca %struct.cast_key_st, align 4

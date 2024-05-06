@@ -944,7 +944,7 @@ define hidden i32 @lut3d_get_cached_clut(ptr nocapture noundef writeonly %0, i32
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @lut3d_read_gmz(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.cimg_library::CImgList", align 8
   %9 = alloca %"struct.cimg_library::CImgList.0", align 8
   %10 = alloca [512 x i8], align 16

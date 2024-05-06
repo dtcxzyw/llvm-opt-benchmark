@@ -6,19 +6,19 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [6 x i8] c"1.5.5\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ZSTD_versionNumber() local_unnamed_addr #0 {
+define noundef i32 @ZSTD_versionNumber() local_unnamed_addr #0 {
 entry:
   ret i32 10505
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ZSTD_versionString() local_unnamed_addr #0 {
+define noundef nonnull ptr @ZSTD_versionString() local_unnamed_addr #0 {
 entry:
   ret ptr @.str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ZSTD_isError(i64 noundef %code) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ZSTD_isError(i64 noundef %code) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i64 %code, -120
   %conv.i = zext i1 %cmp.i to i32
@@ -37,7 +37,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ZSTD_getErrorCode(i64 noundef %code) local_unnamed_addr #0 {
+define noundef i32 @ZSTD_getErrorCode(i64 noundef %code) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp ult i64 %code, -119
   %0 = trunc i64 %code to i32

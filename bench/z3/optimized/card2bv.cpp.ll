@@ -1738,9 +1738,9 @@ _ZNK17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE4sizeEv.exit.i: ; p
   %arrayidx.i.i1.i = getelementptr inbounds ptr, ptr %1, i64 %retval.0.i.i.i
   %5 = load ptr, ptr %arrayidx.i.i1.i, align 8
   %cmp.i.i = icmp eq ptr %5, null
-  br i1 %cmp.i.i, label %_ZN17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE8pop_backEv.exit, label %_Z7deallocIN26model_reconstruction_trail5entryEEvPT_.exit.i.i
+  br i1 %cmp.i.i, label %_ZN17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE8pop_backEv.exit, label %if.end.i.i
 
-_Z7deallocIN26model_reconstruction_trail5entryEEvPT_.exit.i.i: ; preds = %_ZNK17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE4sizeEv.exit.i
+if.end.i.i:                                       ; preds = %_ZNK17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE4sizeEv.exit.i
   tail call void @_ZN26model_reconstruction_trail5entryD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %5) #12
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %5)
   %.pre.i.i = load ptr, ptr %0, align 8
@@ -1749,8 +1749,8 @@ _Z7deallocIN26model_reconstruction_trail5entryEEvPT_.exit.i.i: ; preds = %_ZNK17
   %.pre.i = load ptr, ptr %0, align 8
   br label %_ZN17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE8pop_backEv.exit
 
-_ZN17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE8pop_backEv.exit: ; preds = %_ZNK17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE4sizeEv.exit.i, %_Z7deallocIN26model_reconstruction_trail5entryEEvPT_.exit.i.i
-  %6 = phi ptr [ %1, %_ZNK17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE4sizeEv.exit.i ], [ %.pre.i, %_Z7deallocIN26model_reconstruction_trail5entryEEvPT_.exit.i.i ]
+_ZN17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE8pop_backEv.exit: ; preds = %_ZNK17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE4sizeEv.exit.i, %if.end.i.i
+  %6 = phi ptr [ %1, %_ZNK17scoped_ptr_vectorIN26model_reconstruction_trail5entryEE4sizeEv.exit.i ], [ %.pre.i, %if.end.i.i ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx.i.i, align 4
   %dec.i.i = add i32 %7, -1

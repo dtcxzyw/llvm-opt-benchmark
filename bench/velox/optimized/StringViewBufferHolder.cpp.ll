@@ -107,9 +107,9 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %9 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4, !noalias !4
   %10 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !4
   %cmp.not.i9.i = icmp ult i64 %10, %conv12
-  br i1 %cmp.not.i9.i, label %if.then.i11.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIcEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
+  br i1 %cmp.not.i9.i, label %if.then.i12.i, label %_ZN8facebook5velox13AlignedBuffer8allocateIcEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
 
-if.then.i11.i:                                    ; preds = %if.then
+if.then.i12.i:                                    ; preds = %if.then
   tail call void @llvm.trap()
   unreachable
 

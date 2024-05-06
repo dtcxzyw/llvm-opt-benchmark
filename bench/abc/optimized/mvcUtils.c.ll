@@ -285,7 +285,7 @@ declare ptr @Mvc_CubeAlloc(ptr noundef) local_unnamed_addr #2
 declare void @Mvc_CubeFree(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Mvc_CoverSupportVarBelongs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Mvc_CoverSupportVarBelongs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @Mvc_CubeAlloc(ptr noundef %0) #7
   tail call void @Mvc_CoverSupportAnd(ptr noundef %0, ptr noundef %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -430,7 +430,7 @@ define void @Mvc_CoverCommonCube(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Mvc_CoverIsCubeFree(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Mvc_CoverIsCubeFree(ptr noundef %0) local_unnamed_addr #1 {
   tail call void @Mvc_CoverAllocateMask(ptr noundef %0) #7
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -590,7 +590,7 @@ define noundef ptr @Mvc_CoverCommonCubeCover(ptr noundef %0) local_unnamed_addr 
 declare ptr @Mvc_CoverClone(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Mvc_CoverCheckSuppContainment(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Mvc_CoverCheckSuppContainment(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   tail call void @Mvc_CoverAllocateMask(ptr noundef %0) #7
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -1277,7 +1277,7 @@ define ptr @Mvc_CoverRemap(ptr nocapture noundef readonly %0, ptr nocapture noun
   br i1 %.not20.i, label %Mvc_CoverCopyColumn.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %47
-  %49 = trunc i64 %indvars.iv to i32
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
   %50 = and i32 %49, 31
   %51 = lshr i64 %indvars.iv, 5
   %52 = and i32 %45, 31

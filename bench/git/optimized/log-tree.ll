@@ -630,7 +630,7 @@ for.inc:                                          ; preds = %if.then29, %if.else
 
 for.end:                                          ; preds = %if.then29, %for.inc, %if.then38
   %deco_type.0 = phi i32 [ %42, %if.then38 ], [ %40, %if.then29 ], [ 0, %for.inc ]
-  %call.i29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %refname) #13
+  %call.i29 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %refname) #13
   %cmp.i.i30 = icmp ugt i64 %call.i29, -17
   br i1 %cmp.i.i30, label %if.then.i.i39, label %st_add.exit.i31
 
@@ -650,7 +650,7 @@ add_name_decoration.exit40:                       ; preds = %st_add.exit.i31
   %add.i7.i33 = add nuw i64 %call.i29, 17
   %call3.i34 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i7.i33) #12
   %name4.i35 = getelementptr inbounds i8, ptr %call3.i34, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name4.i35, ptr align 1 %refname, i64 %call.i29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name4.i35, ptr readonly align 1 %refname, i64 %call.i29, i1 false)
   %type5.i36 = getelementptr inbounds i8, ptr %call3.i34, i64 8
   store i32 %deco_type.0, ptr %type5.i36, align 8
   %call6.i37 = tail call ptr @add_decoration(ptr noundef nonnull @name_decoration, ptr noundef %call22, ptr noundef %call3.i34) #12
@@ -680,7 +680,7 @@ if.end52:                                         ; preds = %if.then49, %while.b
   br i1 %tobool53.not, label %return, label %if.end55
 
 if.end55:                                         ; preds = %if.end52
-  %call.i41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %refname) #13
+  %call.i41 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %refname) #13
   %cmp.i.i42 = icmp ugt i64 %call.i41, -17
   br i1 %cmp.i.i42, label %if.then.i.i51, label %st_add.exit.i43
 
@@ -700,7 +700,7 @@ add_name_decoration.exit52:                       ; preds = %st_add.exit.i43
   %add.i7.i45 = add nuw i64 %call.i41, 17
   %call3.i46 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i7.i45) #12
   %name4.i47 = getelementptr inbounds i8, ptr %call3.i46, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name4.i47, ptr align 1 %refname, i64 %call.i41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name4.i47, ptr readonly align 1 %refname, i64 %call.i41, i1 false)
   %type5.i48 = getelementptr inbounds i8, ptr %call3.i46, i64 8
   store i32 3, ptr %type5.i48, align 8
   %call6.i49 = tail call ptr @add_decoration(ptr noundef nonnull @name_decoration, ptr noundef nonnull %45, ptr noundef %call3.i46) #12
@@ -729,7 +729,7 @@ entry:
 add_name_decoration.exit:                         ; preds = %entry
   %call3.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 24) #12
   %name4.i = getelementptr inbounds i8, ptr %call3.i, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %name4.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.38, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %name4.i, ptr noundef nonnull readonly align 1 dereferenceable(7) @.str.38, i64 7, i1 false)
   %type5.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   store i32 6, ptr %type5.i, align 8
   %call6.i = tail call ptr @add_decoration(ptr noundef nonnull @name_decoration, ptr noundef nonnull %call, ptr noundef %call3.i) #12
@@ -1350,7 +1350,7 @@ if.else:                                          ; preds = %strbuf_setlen.exit3
   call void @repo_format_commit_message(ptr noundef %24, ptr noundef %commit, ptr noundef nonnull @.str.9, ptr noundef nonnull %subject.i, ptr noundef nonnull %ctx.i) #12
   %buf.i = getelementptr inbounds i8, ptr %subject.i, i64 16
   %25 = load ptr, ptr %buf.i, align 8
-  call void @fmt_output_subject(ptr noundef nonnull %filename, ptr noundef %25, ptr noundef nonnull %opt)
+  call void @fmt_output_subject(ptr noundef nonnull %filename, ptr noundef %25, ptr noundef nonnull readonly %opt)
   call void @strbuf_release(ptr noundef nonnull %subject.i) #12
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %ctx.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %subject.i)
@@ -1754,11 +1754,11 @@ if.end.i:                                         ; preds = %if.then168
   br i1 %or.cond.i, label %if.else.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  call fastcc void @show_sig_lines(ptr noundef nonnull %opt, i32 noundef %call3.i177, ptr noundef nonnull @.str.48)
+  call fastcc void @show_sig_lines(ptr noundef nonnull readonly %opt, i32 noundef %call3.i177, ptr noundef nonnull @.str.48)
   br label %if.end7.i
 
 if.else.i:                                        ; preds = %if.end.i
-  call fastcc void @show_sig_lines(ptr noundef nonnull %opt, i32 noundef %call3.i177, ptr noundef %69)
+  call fastcc void @show_sig_lines(ptr noundef nonnull readonly %opt, i32 noundef %call3.i177, ptr noundef %69)
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.else.i, %if.then5.i
@@ -1921,8 +1921,8 @@ land.lhs.true250:                                 ; preds = %if.end243
 
 if.then254:                                       ; preds = %land.lhs.true250
   %92 = and i32 %89, -2
-  %.not205 = icmp eq i32 %92, 6
-  br i1 %.not205, label %if.then258, label %if.end259
+  %.not208 = icmp eq i32 %92, 6
+  br i1 %.not208, label %if.then258, label %if.end259
 
 if.then258:                                       ; preds = %if.then254
   %bf.load.i = load i32, ptr %abbrev_commit3, align 4
@@ -1934,13 +1934,13 @@ if.then258:                                       ; preds = %if.then254
   %bf.load3.i = load i32, ptr %abbrev_commit3, align 4
   %bf.set.i = or i32 %bf.load3.i, 2
   store i32 %bf.set.i, ptr %abbrev_commit3, align 4
-  %.pre209 = load ptr, ptr %notes_message248, align 8
+  %.pre212 = load ptr, ptr %notes_message248, align 8
   br label %if.end259
 
 if.end259:                                        ; preds = %if.then258, %if.then254
-  %94 = phi ptr [ %.pre209, %if.then258 ], [ %90, %if.then254 ]
-  %call.i182 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #13
-  call void @strbuf_add(ptr noundef nonnull %msgbuf, ptr noundef %94, i64 noundef %call.i182) #12
+  %94 = phi ptr [ %.pre212, %if.then258 ], [ %90, %if.then254 ]
+  %call.i185 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #13
+  call void @strbuf_add(ptr noundef nonnull %msgbuf, ptr noundef %94, i64 noundef %call.i185) #12
   br label %if.end261
 
 if.end261:                                        ; preds = %if.end259, %land.lhs.true250, %if.end243
@@ -2027,8 +2027,8 @@ if.end313:                                        ; preds = %if.end307, %land.lh
   call void @free(ptr noundef %111) #12
   %112 = load i32, ptr %ctx, align 8
   %113 = and i32 %112, -2
-  %.not206 = icmp eq i32 %113, 6
-  br i1 %.not206, label %land.lhs.true318, label %if.end326
+  %.not209 = icmp eq i32 %113, 6
+  br i1 %.not209, label %land.lhs.true318, label %if.end326
 
 land.lhs.true318:                                 ; preds = %if.end313
   %idiff_oid1 = getelementptr inbounds i8, ptr %opt, i64 2800
@@ -2039,15 +2039,15 @@ land.lhs.true318:                                 ; preds = %if.end313
 if.then320:                                       ; preds = %land.lhs.true318
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dq, ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, i8 0, i64 16, i1 false)
-  %bf.load.i185 = load i32, ptr %abbrev_commit3, align 4
-  %115 = and i32 %bf.load.i185, 2
-  %tobool.not.i186 = icmp eq i32 %115, 0
-  %cond.i187 = select i1 %tobool.not.i186, ptr @.str.55, ptr @.str.50
+  %bf.load.i188 = load i32, ptr %abbrev_commit3, align 4
+  %115 = and i32 %bf.load.i188, 2
+  %tobool.not.i189 = icmp eq i32 %115, 0
+  %cond.i190 = select i1 %tobool.not.i189, ptr @.str.55, ptr @.str.50
   %116 = load ptr, ptr %file289, align 8
-  %call.i190 = call i32 @fputs(ptr noundef nonnull %cond.i187, ptr noundef %116)
-  %bf.load3.i192 = load i32, ptr %abbrev_commit3, align 4
-  %bf.set.i193 = or i32 %bf.load3.i192, 2
-  store i32 %bf.set.i193, ptr %abbrev_commit3, align 4
+  %call.i193 = call i32 @fputs(ptr noundef nonnull %cond.i190, ptr noundef %116)
+  %bf.load3.i195 = load i32, ptr %abbrev_commit3, align 4
+  %bf.set.i196 = or i32 %bf.load3.i195, 2
+  store i32 %bf.set.i196, ptr %abbrev_commit3, align 4
   %117 = load ptr, ptr %file289, align 8
   %idiff_title = getelementptr inbounds i8, ptr %opt, i64 2816
   %118 = load ptr, ptr %idiff_title, align 8
@@ -2057,14 +2057,14 @@ if.then320:                                       ; preds = %land.lhs.true318
   %120 = load ptr, ptr %idiff_oid2, align 8
   call void @show_interdiff(ptr noundef %119, ptr noundef %120, i32 noundef 2, ptr noundef nonnull %diffopt201) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %dq, i64 16, i1 false)
-  %.pre210 = load i32, ptr %ctx, align 8
+  %.pre213 = load i32, ptr %ctx, align 8
   br label %if.end326
 
 if.end326:                                        ; preds = %if.then320, %land.lhs.true318, %if.end313
-  %121 = phi i32 [ %.pre210, %if.then320 ], [ %112, %land.lhs.true318 ], [ %112, %if.end313 ]
+  %121 = phi i32 [ %.pre213, %if.then320 ], [ %112, %land.lhs.true318 ], [ %112, %if.end313 ]
   %122 = and i32 %121, -2
-  %.not207 = icmp eq i32 %122, 6
-  br i1 %.not207, label %land.lhs.true330, label %if.end358
+  %.not210 = icmp eq i32 %122, 6
+  br i1 %.not210, label %land.lhs.true330, label %if.end358
 
 land.lhs.true330:                                 ; preds = %if.end326
   %rdiff1 = getelementptr inbounds i8, ptr %opt, i64 2824
@@ -2084,15 +2084,15 @@ if.then332:                                       ; preds = %land.lhs.true330
   store ptr null, ptr %other_arg, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dq333, ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, i8 0, i64 16, i1 false)
-  %bf.load.i196 = load i32, ptr %abbrev_commit3, align 4
-  %125 = and i32 %bf.load.i196, 2
-  %tobool.not.i197 = icmp eq i32 %125, 0
-  %cond.i198 = select i1 %tobool.not.i197, ptr @.str.55, ptr @.str.50
+  %bf.load.i199 = load i32, ptr %abbrev_commit3, align 4
+  %125 = and i32 %bf.load.i199, 2
+  %tobool.not.i200 = icmp eq i32 %125, 0
+  %cond.i201 = select i1 %tobool.not.i200, ptr @.str.55, ptr @.str.50
   %126 = load ptr, ptr %file289, align 8
-  %call.i201 = call i32 @fputs(ptr noundef nonnull %cond.i198, ptr noundef %126)
-  %bf.load3.i203 = load i32, ptr %abbrev_commit3, align 4
-  %bf.set.i204 = or i32 %bf.load3.i203, 2
-  store i32 %bf.set.i204, ptr %abbrev_commit3, align 4
+  %call.i204 = call i32 @fputs(ptr noundef nonnull %cond.i201, ptr noundef %126)
+  %bf.load3.i206 = load i32, ptr %abbrev_commit3, align 4
+  %bf.set.i207 = or i32 %bf.load3.i206, 2
+  store i32 %bf.set.i207, ptr %abbrev_commit3, align 4
   %127 = load ptr, ptr %file289, align 8
   %rdiff_title = getelementptr inbounds i8, ptr %opt, i64 2848
   %128 = load ptr, ptr %rdiff_title, align 8
@@ -2168,7 +2168,7 @@ declare void @diff_setup_done(ptr noundef) local_unnamed_addr #1
 declare i32 @show_range_diff(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @log_tree_diff_flush(ptr noundef %opt) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @log_tree_diff_flush(ptr noundef %opt) local_unnamed_addr #0 {
 entry:
   %shown_dashes = getelementptr inbounds i8, ptr %opt, i64 292
   %bf.load = load i32, ptr %shown_dashes, align 4
@@ -2378,7 +2378,7 @@ if.then17.i:                                      ; preds = %land.end.i
 
 if.then23.i:                                      ; preds = %if.then17.i
   call void @diff_root_tree_oid(ptr noundef %call.i, ptr noundef nonnull @.str.12, ptr noundef nonnull %diffopt) #12
-  %call25.i = call i32 @log_tree_diff_flush(ptr noundef nonnull %opt), !range !17
+  %call25.i = call i32 @log_tree_diff_flush(ptr noundef nonnull %opt)
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.then23.i, %if.then17.i
@@ -2498,7 +2498,7 @@ if.then12.i.i.i:                                  ; preds = %for.body.i.i.i
 for.inc.i.i.i:                                    ; preds = %if.then12.i.i.i, %for.body.i.i.i
   %call17.i.i.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i.i.i) #12
   %tobool6.not.i.i.i = icmp eq ptr %call17.i.i.i, null
-  br i1 %tobool6.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !18
+  br i1 %tobool6.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !17
 
 for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %if.end.i.i.i
   %32 = load ptr, ptr %additional_path_headers2.i.i.i, align 8
@@ -2531,7 +2531,7 @@ setup_additional_headers.exit.i.i:                ; preds = %if.then22.i.i.i, %s
   %35 = load ptr, ptr %tree.i.i, align 8
   %oid3.i.i = getelementptr inbounds i8, ptr %35, i64 4
   call void @diff_tree_oid(ptr noundef nonnull %oid3.i.i, ptr noundef %call.i, ptr noundef nonnull @.str.12, ptr noundef nonnull %diffopt) #12
-  %call5.i.i = call i32 @log_tree_diff_flush(ptr noundef nonnull %opt), !range !17
+  %call5.i.i = call i32 @log_tree_diff_flush(ptr noundef nonnull %opt)
   %36 = load i32, ptr %pathspec.i.i.i, align 8
   %tobool.not.i15.i.i = icmp eq i32 %36, 0
   %additional_path_headers.i16.i.i = getelementptr inbounds i8, ptr %opt, i64 2056
@@ -2614,7 +2614,7 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
   call void @parse_commit_or_die(ptr noundef %46) #12
   %call71.i = call ptr @get_commit_tree_oid(ptr noundef %46) #12
   call void @diff_tree_oid(ptr noundef %call71.i, ptr noundef %call.i, ptr noundef nonnull @.str.12, ptr noundef nonnull %diffopt) #12
-  %call73.i = call i32 @log_tree_diff_flush(ptr noundef nonnull %opt), !range !17
+  %call73.i = call i32 @log_tree_diff_flush(ptr noundef nonnull %opt)
   %47 = load ptr, ptr %loginfo, align 8
   %tobool75.not.i = icmp eq ptr %47, null
   %lnot.ext77.i = zext i1 %tobool75.not.i to i32
@@ -2780,7 +2780,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cond13 = getelementptr inbounds i8, ptr %call5, i64 %cond13.idx
   %7 = load i8, ptr %cond13, align 1
   %tobool4.not = icmp eq i8 %7, 0
-  br i1 %tobool4.not, label %while.end, label %while.body, !llvm.loop !19
+  br i1 %tobool4.not, label %while.end, label %while.body, !llvm.loop !18
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -2794,7 +2794,7 @@ declare ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #8
 declare i32 @for_each_mergetag(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @show_one_mergetag(ptr nocapture noundef readonly %commit, ptr nocapture noundef readonly %extra, ptr nocapture noundef readonly %data) #0 {
+define internal range(i32 -1, 1) i32 @show_one_mergetag(ptr nocapture noundef readonly %commit, ptr nocapture noundef readonly %extra, ptr nocapture noundef readonly %data) #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
   %verify_message = alloca %struct.strbuf, align 8
@@ -2884,11 +2884,11 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid8, ptr noundef nonnull dereferenceable(32) %oid9, i64 32)
+  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid8, ptr noundef nonnull readonly dereferenceable(32) %oid9, i64 32)
   br label %oideq.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid8, ptr noundef nonnull dereferenceable(20) %oid9, i64 20)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid8, ptr noundef nonnull readonly dereferenceable(20) %oid9, i64 20)
   br label %oideq.exit
 
 oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
@@ -2937,11 +2937,11 @@ if.end.i.i16:                                     ; preds = %if.else.i.i, %if.th
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i16
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid1.i, ptr noundef nonnull dereferenceable(32) %oid1627, i64 32)
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid1.i, ptr noundef nonnull readonly dereferenceable(32) %oid1627, i64 32)
   br label %oideq.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i16
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid1.i, ptr noundef nonnull dereferenceable(20) %oid1627, i64 20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid1.i, ptr noundef nonnull readonly dereferenceable(20) %oid1627, i64 20)
   br label %oideq.exit.i
 
 oideq.exit.i:                                     ; preds = %if.end.i.i.i, %if.then.i.i.i
@@ -2954,7 +2954,7 @@ if.end.i17:                                       ; preds = %oideq.exit.i
   %next.i18 = getelementptr inbounds i8, ptr %parent.07.i, i64 8
   %parent.0.i = load ptr, ptr %next.i18, align 8
   %tobool.not.i19 = icmp eq ptr %parent.0.i, null
-  br i1 %tobool.not.i19, label %if.then18, label %for.body.i, !llvm.loop !20
+  br i1 %tobool.not.i19, label %if.then18, label %for.body.i, !llvm.loop !19
 
 if.then18:                                        ; preds = %if.end.i17, %if.else14.thread29
   %oid1628.ph = phi ptr [ %oid1631, %if.else14.thread29 ], [ %oid1627, %if.end.i17 ]
@@ -3114,7 +3114,6 @@ attributes #14 = { noreturn nounwind }
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = !{i32 0, i32 2}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}

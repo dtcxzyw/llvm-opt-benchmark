@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.13 = private unnamed_addr constant [3 x i8] c"\0D\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @connTypeRegister(ptr noundef %ct) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @connTypeRegister(ptr noundef %ct) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ct, align 8
   %call = tail call ptr %0(ptr noundef null) #4
@@ -351,7 +351,7 @@ for.inc:                                          ; preds = %if.end
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !8
 
 return.split.loop.exit9:                          ; preds = %if.end
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %for.body, %for.inc, %return.split.loop.exit9
@@ -474,7 +474,7 @@ for.body:                                         ; preds = %entry, %for.inc15
 if.end:                                           ; preds = %for.body
   %1 = load ptr, ptr %0, align 8
   %call = tail call ptr %1(ptr noundef null) #4
-  %2 = trunc i64 %indvars.iv22 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv22 to i32
   %call3 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %info.addr.020, ptr noundef nonnull @.str.10, i32 noundef %2, ptr noundef %call) #4
   %count = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %3 = load i32, ptr %count, align 8

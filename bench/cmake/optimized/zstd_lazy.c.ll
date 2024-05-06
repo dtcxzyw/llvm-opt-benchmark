@@ -108,13 +108,13 @@ define dso_local void @ZSTD_dedicatedDictSearch_lazy_loadDictionary(ptr nocaptur
   br i1 %.not164, label %._crit_edge249, label %66
 
 ._crit_edge249:                                   ; preds = %65
-  %.pre250 = trunc i64 %indvars.iv to i32
+  %.pre250 = trunc nuw i64 %indvars.iv to i32
   br label %73
 
 66:                                               ; preds = %65
   %67 = getelementptr inbounds i32, ptr %10, i64 %.pre
   %68 = load i32, ptr %67, align 4
-  %69 = trunc i64 %indvars.iv to i32
+  %69 = trunc nuw i64 %indvars.iv to i32
   %70 = sub i32 %69, %36
   %71 = zext i32 %70 to i64
   %72 = getelementptr inbounds i32, ptr %32, i64 %71
@@ -228,7 +228,7 @@ define dso_local void @ZSTD_dedicatedDictSearch_lazy_loadDictionary(ptr nocaptur
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv237 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next238, %.preheader ]
   %.1154215 = phi i32 [ %45, %.preheader.preheader ], [ %120, %.preheader ]
-  %115 = trunc i64 %indvars.iv237 to i32
+  %115 = trunc nuw i64 %indvars.iv237 to i32
   %116 = shl i32 %115, 2
   %117 = sub i32 %114, %116
   %118 = zext i32 %117 to i64
@@ -324,7 +324,7 @@ define dso_local void @ZSTD_dedicatedDictSearch_lazy_loadDictionary(ptr nocaptur
 
 163:                                              ; preds = %159
   %164 = getelementptr inbounds i32, ptr %10, i64 %158
-  %165 = trunc i64 %indvars.iv246 to i32
+  %165 = trunc nuw i64 %indvars.iv246 to i32
   store i32 %165, ptr %164, align 4
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %166 = icmp ult i64 %indvars.iv.next247, %136
@@ -381,7 +381,7 @@ define dso_local i32 @ZSTD_insertAndFindFirstIndex(ptr nocapture noundef %0, ptr
   %30 = lshr i64 %29, %24
   %31 = getelementptr inbounds i32, ptr %6, i64 %30
   %32 = load i32, ptr %31, align 4
-  %33 = trunc i64 %indvars.iv90 to i32
+  %33 = trunc nuw i64 %indvars.iv90 to i32
   %34 = and i32 %33, %13
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds i32, ptr %10, i64 %35
@@ -399,7 +399,7 @@ define dso_local i32 @ZSTD_insertAndFindFirstIndex(ptr nocapture noundef %0, ptr
   %40 = lshr i64 %39, %24
   %41 = getelementptr inbounds i32, ptr %6, i64 %40
   %42 = load i32, ptr %41, align 4
-  %43 = trunc i64 %indvars.iv87 to i32
+  %43 = trunc nuw i64 %indvars.iv87 to i32
   %44 = and i32 %43, %13
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds i32, ptr %10, i64 %45
@@ -417,7 +417,7 @@ define dso_local i32 @ZSTD_insertAndFindFirstIndex(ptr nocapture noundef %0, ptr
   %50 = lshr i64 %49, %24
   %51 = getelementptr inbounds i32, ptr %6, i64 %50
   %52 = load i32, ptr %51, align 4
-  %53 = trunc i64 %indvars.iv84 to i32
+  %53 = trunc nuw i64 %indvars.iv84 to i32
   %54 = and i32 %53, %13
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds i32, ptr %10, i64 %55
@@ -435,7 +435,7 @@ define dso_local i32 @ZSTD_insertAndFindFirstIndex(ptr nocapture noundef %0, ptr
   %60 = lshr i64 %59, %24
   %61 = getelementptr inbounds i32, ptr %6, i64 %60
   %62 = load i32, ptr %61, align 4
-  %63 = trunc i64 %indvars.iv to i32
+  %63 = trunc nuw i64 %indvars.iv to i32
   %64 = and i32 %63, %13
   %65 = zext nneg i32 %64 to i64
   %66 = getelementptr inbounds i32, ptr %10, i64 %65
@@ -454,7 +454,7 @@ define dso_local i32 @ZSTD_insertAndFindFirstIndex(ptr nocapture noundef %0, ptr
   %71 = zext i32 %70 to i64
   %72 = getelementptr inbounds i32, ptr %6, i64 %71
   %73 = load i32, ptr %72, align 4
-  %74 = trunc i64 %indvars.iv93 to i32
+  %74 = trunc nuw i64 %indvars.iv93 to i32
   %75 = and i32 %74, %13
   %76 = zext nneg i32 %75 to i64
   %77 = getelementptr inbounds i32, ptr %10, i64 %76
@@ -581,14 +581,14 @@ define dso_local void @ZSTD_row_update(ptr nocapture noundef %0, ptr noundef %1)
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i32 %5, i32 0
   %46 = add nuw nsw i32 %45, %43
-  %47 = trunc i32 %46 to i8
+  %47 = trunc nuw nsw i32 %46 to i8
   store i8 %47, ptr %39, align 1
   %48 = trunc i64 %33 to i8
   %49 = zext nneg i32 %46 to i64
   %50 = getelementptr inbounds i8, ptr %39, i64 %49
   store i8 %48, ptr %50, align 1
   %51 = getelementptr inbounds i32, ptr %38, i64 %49
-  %52 = trunc i64 %indvars.iv334 to i32
+  %52 = trunc nuw i64 %indvars.iv334 to i32
   store i32 %52, ptr %51, align 4
   %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334, 1
   %53 = icmp ult i64 %indvars.iv.next335, %28
@@ -615,14 +615,14 @@ define dso_local void @ZSTD_row_update(ptr nocapture noundef %0, ptr noundef %1)
   %69 = icmp eq i32 %68, 0
   %70 = select i1 %69, i32 %5, i32 0
   %71 = add nuw nsw i32 %70, %68
-  %72 = trunc i32 %71 to i8
+  %72 = trunc nuw nsw i32 %71 to i8
   store i8 %72, ptr %64, align 1
   %73 = trunc i64 %58 to i8
   %74 = zext nneg i32 %71 to i64
   %75 = getelementptr inbounds i8, ptr %64, i64 %74
   store i8 %73, ptr %75, align 1
   %76 = getelementptr inbounds i32, ptr %63, i64 %74
-  %77 = trunc i64 %indvars.iv to i32
+  %77 = trunc nuw i64 %indvars.iv to i32
   store i32 %77, ptr %76, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = icmp ult i64 %indvars.iv.next, %28
@@ -649,14 +649,14 @@ define dso_local void @ZSTD_row_update(ptr nocapture noundef %0, ptr noundef %1)
   %94 = icmp eq i32 %93, 0
   %95 = select i1 %94, i32 %5, i32 0
   %96 = add nuw nsw i32 %95, %93
-  %97 = trunc i32 %96 to i8
+  %97 = trunc nuw nsw i32 %96 to i8
   store i8 %97, ptr %89, align 1
   %98 = trunc i32 %84 to i8
   %99 = zext nneg i32 %96 to i64
   %100 = getelementptr inbounds i8, ptr %89, i64 %99
   store i8 %98, ptr %100, align 1
   %101 = getelementptr inbounds i32, ptr %88, i64 %99
-  %102 = trunc i64 %indvars.iv337 to i32
+  %102 = trunc nuw i64 %indvars.iv337 to i32
   store i32 %102, ptr %101, align 4
   %indvars.iv.next338 = add nuw nsw i64 %indvars.iv337, 1
   %103 = icmp ult i64 %indvars.iv.next338, %28
@@ -772,7 +772,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2(ptr nocapture noundef %0, ptr n
   br i1 %.not.i1656, label %.preheader.i, label %76
 
 76:                                               ; preds = %74
-  %77 = tail call i64 @llvm.cttz.i64(i64 %75, i1 true), !range !15
+  %77 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %75, i1 true)
   %78 = lshr i64 %77, 3
   br label %ZSTD_count.exit
 
@@ -789,10 +789,10 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2(ptr nocapture noundef %0, ptr n
   %.040.val.i = load i64, ptr %.040.i, align 1
   %81 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %81, 0
-  br i1 %.not51.i, label %.preheader.i, label %82, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %82, !llvm.loop !15
 
 82:                                               ; preds = %80
-  %83 = tail call i64 @llvm.cttz.i64(i64 %81, i1 true), !range !15
+  %83 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %81, i1 true)
   %84 = lshr i64 %83, 3
   %85 = getelementptr inbounds i8, ptr %.040.i, i64 %84
   %86 = ptrtoint ptr %85 to i64
@@ -906,7 +906,7 @@ ZSTD_count.exit:                                  ; preds = %76, %82, %108
   %137 = zext i32 %136 to i64
   %138 = getelementptr inbounds i32, ptr %121, i64 %137
   %139 = load i32, ptr %138, align 4
-  %140 = trunc i64 %indvars.iv11.i.i to i32
+  %140 = trunc nuw i64 %indvars.iv11.i.i to i32
   %141 = and i32 %140, %125
   %142 = shl nuw i32 %141, 1
   %143 = zext i32 %142 to i64
@@ -917,7 +917,7 @@ ZSTD_count.exit:                                  ; preds = %76, %82, %108
   store i32 1, ptr %145, align 4
   %indvars.iv.next12.i.i = add nuw nsw i64 %indvars.iv11.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next12.i.i, %133
-  br i1 %exitcond.not.i, label %ZSTD_BtFindBestMatch_noDict_4.exit.sink.split, label %.lr.ph.split.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %ZSTD_BtFindBestMatch_noDict_4.exit.sink.split, label %.lr.ph.split.i.i, !llvm.loop !16
 
 146:                                              ; preds = %113
   %147 = load ptr, ptr %11, align 8
@@ -956,7 +956,7 @@ ZSTD_count.exit:                                  ; preds = %76, %82, %108
   %169 = lshr i64 %168, %165
   %170 = getelementptr inbounds i32, ptr %153, i64 %169
   %171 = load i32, ptr %170, align 4
-  %172 = trunc i64 %indvars.iv.i.i to i32
+  %172 = trunc nuw i64 %indvars.iv.i.i to i32
   %173 = and i32 %172, %157
   %174 = shl nuw i32 %173, 1
   %175 = zext i32 %174 to i64
@@ -967,7 +967,7 @@ ZSTD_count.exit:                                  ; preds = %76, %82, %108
   store i32 1, ptr %177, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i1662 = icmp eq i64 %indvars.iv.next.i.i, %166
-  br i1 %exitcond.not.i1662, label %ZSTD_BtFindBestMatch_noDict_4.exit.sink.split, label %.lr.ph.split.us2.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i1662, label %ZSTD_BtFindBestMatch_noDict_4.exit.sink.split, label %.lr.ph.split.us2.i.i, !llvm.loop !16
 
 178:                                              ; preds = %113
   %179 = load ptr, ptr %11, align 8
@@ -1006,7 +1006,7 @@ ZSTD_count.exit:                                  ; preds = %76, %82, %108
   %201 = lshr i64 %200, %197
   %202 = getelementptr inbounds i32, ptr %185, i64 %201
   %203 = load i32, ptr %202, align 4
-  %204 = trunc i64 %indvars.iv8.i.i to i32
+  %204 = trunc nuw i64 %indvars.iv8.i.i to i32
   %205 = and i32 %204, %189
   %206 = shl nuw i32 %205, 1
   %207 = zext i32 %206 to i64
@@ -1017,7 +1017,7 @@ ZSTD_count.exit:                                  ; preds = %76, %82, %108
   store i32 1, ptr %209, align 4
   %indvars.iv.next9.i.i = add nuw nsw i64 %indvars.iv8.i.i, 1
   %exitcond.not.i1667 = icmp eq i64 %indvars.iv.next9.i.i, %198
-  br i1 %exitcond.not.i1667, label %ZSTD_BtFindBestMatch_noDict_4.exit.sink.split, label %.lr.ph.split.us.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i1667, label %ZSTD_BtFindBestMatch_noDict_4.exit.sink.split, label %.lr.ph.split.us.i.i, !llvm.loop !16
 
 default.unreachable:                              ; preds = %113, %453, %280
   unreachable
@@ -1052,7 +1052,7 @@ ZSTD_BtFindBestMatch_noDict_4.exit:               ; preds = %ZSTD_BtFindBestMatc
   %222 = zext i1 %221 to i32
   store i32 %222, ptr %45, align 4
   %223 = icmp ult ptr %220, %10
-  br i1 %223, label %65, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %223, label %65, label %.outer._crit_edge, !llvm.loop !17
 
 .lr.ph1886:                                       ; preds = %.preheader1843, %.backedge
   %.115571885 = phi ptr [ %.11596.be, %.backedge ], [ %.015561874, %.preheader1843 ]
@@ -1085,10 +1085,10 @@ ZSTD_BtFindBestMatch_noDict_4.exit:               ; preds = %ZSTD_BtFindBestMatc
   br i1 %.not.i1685, label %.preheader.i1686, label %ZSTD_count.exit1694.thread
 
 ZSTD_count.exit1694.thread:                       ; preds = %233
-  %235 = tail call i64 @llvm.cttz.i64(i64 %234, i1 true), !range !15
+  %235 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %234, i1 true)
   %236 = lshr i64 %235, 3
   %237 = trunc i64 %.115881881 to i32
-  %238 = tail call i32 @llvm.ctlz.i32(i32 %237, i1 true), !range !19
+  %238 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %237, i1 true)
   br label %271
 
 .preheader.i1686:                                 ; preds = %233, %240
@@ -1104,10 +1104,10 @@ ZSTD_count.exit1694.thread:                       ; preds = %233
   %.040.val.i1692 = load i64, ptr %.040.i1689, align 1
   %241 = xor i64 %.040.val.i1692, %.041.val.i1691
   %.not51.i1693 = icmp eq i64 %241, 0
-  br i1 %.not51.i1693, label %.preheader.i1686, label %242, !llvm.loop !16
+  br i1 %.not51.i1693, label %.preheader.i1686, label %242, !llvm.loop !15
 
 242:                                              ; preds = %240
-  %243 = tail call i64 @llvm.cttz.i64(i64 %241, i1 true), !range !15
+  %243 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %241, i1 true)
   %244 = lshr i64 %243, 3
   %245 = getelementptr inbounds i8, ptr %.040.i1689, i64 %244
   br label %ZSTD_count.exit1694
@@ -1166,7 +1166,7 @@ ZSTD_count.exit1694:                              ; preds = %259, %261, %242
   %266 = ptrtoint ptr %230 to i64
   %267 = sub i64 %265, %266
   %268 = trunc i64 %.115881881 to i32
-  %269 = tail call i32 @llvm.ctlz.i32(i32 %268, i1 true), !range !19
+  %269 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %268, i1 true)
   %270 = icmp ult i64 %267, -4
   br i1 %270, label %271, label %280
 
@@ -1234,7 +1234,7 @@ ZSTD_count.exit1694:                              ; preds = %259, %261, %242
   %304 = zext i32 %303 to i64
   %305 = getelementptr inbounds i32, ptr %288, i64 %304
   %306 = load i32, ptr %305, align 4
-  %307 = trunc i64 %indvars.iv11.i.i1700 to i32
+  %307 = trunc nuw i64 %indvars.iv11.i.i1700 to i32
   %308 = and i32 %307, %292
   %309 = shl nuw i32 %308, 1
   %310 = zext i32 %309 to i64
@@ -1245,7 +1245,7 @@ ZSTD_count.exit1694:                              ; preds = %259, %261, %242
   store i32 1, ptr %312, align 4
   %indvars.iv.next12.i.i1702 = add nuw nsw i64 %indvars.iv11.i.i1700, 1
   %exitcond.not.i1703 = icmp eq i64 %indvars.iv.next12.i.i1702, %300
-  br i1 %exitcond.not.i1703, label %ZSTD_BtFindBestMatch_noDict_4.exit1704, label %.lr.ph.split.i.i1699, !llvm.loop !17
+  br i1 %exitcond.not.i1703, label %ZSTD_BtFindBestMatch_noDict_4.exit1704, label %.lr.ph.split.i.i1699, !llvm.loop !16
 
 313:                                              ; preds = %280
   %314 = load ptr, ptr %11, align 8
@@ -1284,7 +1284,7 @@ ZSTD_count.exit1694:                              ; preds = %259, %261, %242
   %336 = lshr i64 %335, %332
   %337 = getelementptr inbounds i32, ptr %320, i64 %336
   %338 = load i32, ptr %337, align 4
-  %339 = trunc i64 %indvars.iv.i.i1710 to i32
+  %339 = trunc nuw i64 %indvars.iv.i.i1710 to i32
   %340 = and i32 %339, %324
   %341 = shl nuw i32 %340, 1
   %342 = zext i32 %341 to i64
@@ -1295,7 +1295,7 @@ ZSTD_count.exit1694:                              ; preds = %259, %261, %242
   store i32 1, ptr %344, align 4
   %indvars.iv.next.i.i1712 = add nuw nsw i64 %indvars.iv.i.i1710, 1
   %exitcond.not.i1713 = icmp eq i64 %indvars.iv.next.i.i1712, %333
-  br i1 %exitcond.not.i1713, label %ZSTD_BtFindBestMatch_noDict_4.exit1704, label %.lr.ph.split.us2.i.i1709, !llvm.loop !17
+  br i1 %exitcond.not.i1713, label %ZSTD_BtFindBestMatch_noDict_4.exit1704, label %.lr.ph.split.us2.i.i1709, !llvm.loop !16
 
 345:                                              ; preds = %280
   %346 = load ptr, ptr %11, align 8
@@ -1334,7 +1334,7 @@ ZSTD_count.exit1694:                              ; preds = %259, %261, %242
   %368 = lshr i64 %367, %364
   %369 = getelementptr inbounds i32, ptr %352, i64 %368
   %370 = load i32, ptr %369, align 4
-  %371 = trunc i64 %indvars.iv8.i.i1720 to i32
+  %371 = trunc nuw i64 %indvars.iv8.i.i1720 to i32
   %372 = and i32 %371, %356
   %373 = shl nuw i32 %372, 1
   %374 = zext i32 %373 to i64
@@ -1345,12 +1345,12 @@ ZSTD_count.exit1694:                              ; preds = %259, %261, %242
   store i32 1, ptr %376, align 4
   %indvars.iv.next9.i.i1722 = add nuw nsw i64 %indvars.iv8.i.i1720, 1
   %exitcond.not.i1723 = icmp eq i64 %indvars.iv.next9.i.i1722, %365
-  br i1 %exitcond.not.i1723, label %ZSTD_BtFindBestMatch_noDict_4.exit1704, label %.lr.ph.split.us.i.i1719, !llvm.loop !17
+  br i1 %exitcond.not.i1723, label %ZSTD_BtFindBestMatch_noDict_4.exit1704, label %.lr.ph.split.us.i.i1719, !llvm.loop !16
 
 ZSTD_BtFindBestMatch_noDict_4.exit1704.thread:    ; preds = %281, %313, %345
   %377 = shl i64 %.41583, 2
   %378 = trunc i64 %.21589 to i32
-  %379 = tail call i32 @llvm.ctlz.i32(i32 %378, i1 true), !range !19
+  %379 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %378, i1 true)
   br label %397
 
 ZSTD_BtFindBestMatch_noDict_4.exit1704:           ; preds = %.lr.ph.split.us.i.i1719, %.lr.ph.split.us2.i.i1709, %.lr.ph.split.i.i1699, %351, %319, %287
@@ -1359,14 +1359,14 @@ ZSTD_BtFindBestMatch_noDict_4.exit1704:           ; preds = %.lr.ph.split.us.i.i
   %380 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %224, ptr noundef %9, ptr noundef nonnull %7, i32 noundef %spec.select1837, i32 noundef 0)
   %381 = shl i64 %.41583, 2
   %382 = trunc i64 %.21589 to i32
-  %383 = tail call i32 @llvm.ctlz.i32(i32 %382, i1 true), !range !19
+  %383 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %382, i1 true)
   %384 = icmp ugt i64 %380, 3
   br i1 %384, label %385, label %397
 
 385:                                              ; preds = %ZSTD_BtFindBestMatch_noDict_4.exit1704
   %386 = load i64, ptr %7, align 8
   %387 = trunc i64 %386 to i32
-  %388 = tail call i32 @llvm.ctlz.i32(i32 %387, i1 true), !range !19
+  %388 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %387, i1 true)
   %389 = xor i32 %388, 31
   %390 = trunc i64 %381 to i32
   %391 = add nsw i32 %383, -27
@@ -1382,7 +1382,7 @@ ZSTD_BtFindBestMatch_noDict_4.exit1704:           ; preds = %.lr.ph.split.us.i.i
   %.11588.be = phi i64 [ %386, %385 ], [ %555, %552 ]
   %.31582.be = phi i64 [ %380, %385 ], [ %550, %552 ]
   %396 = icmp ult ptr %.11596.be, %10
-  br i1 %396, label %.lr.ph1886, label %._crit_edge1887, !llvm.loop !20
+  br i1 %396, label %.lr.ph1886, label %._crit_edge1887, !llvm.loop !18
 
 397:                                              ; preds = %ZSTD_BtFindBestMatch_noDict_4.exit1704.thread, %ZSTD_BtFindBestMatch_noDict_4.exit1704, %385
   %398 = phi i32 [ %379, %ZSTD_BtFindBestMatch_noDict_4.exit1704.thread ], [ %383, %ZSTD_BtFindBestMatch_noDict_4.exit1704 ], [ %383, %385 ]
@@ -1417,7 +1417,7 @@ ZSTD_BtFindBestMatch_noDict_4.exit1704:           ; preds = %.lr.ph.split.us.i.i
   br i1 %.not.i1742, label %.preheader.i1743, label %ZSTD_count.exit1751.thread
 
 ZSTD_count.exit1751.thread:                       ; preds = %411
-  %413 = tail call i64 @llvm.cttz.i64(i64 %412, i1 true), !range !15
+  %413 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %412, i1 true)
   %414 = lshr i64 %413, 3
   br label %445
 
@@ -1434,10 +1434,10 @@ ZSTD_count.exit1751.thread:                       ; preds = %411
   %.040.val.i1749 = load i64, ptr %.040.i1746, align 1
   %417 = xor i64 %.040.val.i1749, %.041.val.i1748
   %.not51.i1750 = icmp eq i64 %417, 0
-  br i1 %.not51.i1750, label %.preheader.i1743, label %418, !llvm.loop !16
+  br i1 %.not51.i1750, label %.preheader.i1743, label %418, !llvm.loop !15
 
 418:                                              ; preds = %416
-  %419 = tail call i64 @llvm.cttz.i64(i64 %417, i1 true), !range !15
+  %419 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %417, i1 true)
   %420 = lshr i64 %419, 3
   %421 = getelementptr inbounds i8, ptr %.040.i1746, i64 %420
   br label %ZSTD_count.exit1751
@@ -1560,7 +1560,7 @@ ZSTD_count.exit1751:                              ; preds = %435, %437, %418
   %477 = zext i32 %476 to i64
   %478 = getelementptr inbounds i32, ptr %461, i64 %477
   %479 = load i32, ptr %478, align 4
-  %480 = trunc i64 %indvars.iv11.i.i1757 to i32
+  %480 = trunc nuw i64 %indvars.iv11.i.i1757 to i32
   %481 = and i32 %480, %465
   %482 = shl nuw i32 %481, 1
   %483 = zext i32 %482 to i64
@@ -1571,7 +1571,7 @@ ZSTD_count.exit1751:                              ; preds = %435, %437, %418
   store i32 1, ptr %485, align 4
   %indvars.iv.next12.i.i1759 = add nuw nsw i64 %indvars.iv11.i.i1757, 1
   %exitcond.not.i1760 = icmp eq i64 %indvars.iv.next12.i.i1759, %473
-  br i1 %exitcond.not.i1760, label %ZSTD_BtFindBestMatch_noDict_4.exit1761, label %.lr.ph.split.i.i1756, !llvm.loop !17
+  br i1 %exitcond.not.i1760, label %ZSTD_BtFindBestMatch_noDict_4.exit1761, label %.lr.ph.split.i.i1756, !llvm.loop !16
 
 486:                                              ; preds = %453
   %487 = load ptr, ptr %11, align 8
@@ -1610,7 +1610,7 @@ ZSTD_count.exit1751:                              ; preds = %435, %437, %418
   %509 = lshr i64 %508, %505
   %510 = getelementptr inbounds i32, ptr %493, i64 %509
   %511 = load i32, ptr %510, align 4
-  %512 = trunc i64 %indvars.iv.i.i1767 to i32
+  %512 = trunc nuw i64 %indvars.iv.i.i1767 to i32
   %513 = and i32 %512, %497
   %514 = shl nuw i32 %513, 1
   %515 = zext i32 %514 to i64
@@ -1621,7 +1621,7 @@ ZSTD_count.exit1751:                              ; preds = %435, %437, %418
   store i32 1, ptr %517, align 4
   %indvars.iv.next.i.i1769 = add nuw nsw i64 %indvars.iv.i.i1767, 1
   %exitcond.not.i1770 = icmp eq i64 %indvars.iv.next.i.i1769, %506
-  br i1 %exitcond.not.i1770, label %ZSTD_BtFindBestMatch_noDict_4.exit1761, label %.lr.ph.split.us2.i.i1766, !llvm.loop !17
+  br i1 %exitcond.not.i1770, label %ZSTD_BtFindBestMatch_noDict_4.exit1761, label %.lr.ph.split.us2.i.i1766, !llvm.loop !16
 
 518:                                              ; preds = %453
   %519 = load ptr, ptr %11, align 8
@@ -1660,7 +1660,7 @@ ZSTD_count.exit1751:                              ; preds = %435, %437, %418
   %541 = lshr i64 %540, %537
   %542 = getelementptr inbounds i32, ptr %525, i64 %541
   %543 = load i32, ptr %542, align 4
-  %544 = trunc i64 %indvars.iv8.i.i1777 to i32
+  %544 = trunc nuw i64 %indvars.iv8.i.i1777 to i32
   %545 = and i32 %544, %529
   %546 = shl nuw i32 %545, 1
   %547 = zext i32 %546 to i64
@@ -1671,7 +1671,7 @@ ZSTD_count.exit1751:                              ; preds = %435, %437, %418
   store i32 1, ptr %549, align 4
   %indvars.iv.next9.i.i1779 = add nuw nsw i64 %indvars.iv8.i.i1777, 1
   %exitcond.not.i1780 = icmp eq i64 %indvars.iv.next9.i.i1779, %538
-  br i1 %exitcond.not.i1780, label %ZSTD_BtFindBestMatch_noDict_4.exit1761, label %.lr.ph.split.us.i.i1776, !llvm.loop !17
+  br i1 %exitcond.not.i1780, label %ZSTD_BtFindBestMatch_noDict_4.exit1761, label %.lr.ph.split.us.i.i1776, !llvm.loop !16
 
 ZSTD_BtFindBestMatch_noDict_4.exit1761:           ; preds = %.lr.ph.split.us.i.i1776, %.lr.ph.split.us2.i.i1766, %.lr.ph.split.i.i1756, %524, %492, %460
   %.sink2015 = phi i32 [ %469, %460 ], [ %501, %492 ], [ %533, %524 ], [ %469, %.lr.ph.split.i.i1756 ], [ %501, %.lr.ph.split.us2.i.i1766 ], [ %533, %.lr.ph.split.us.i.i1776 ]
@@ -1682,10 +1682,10 @@ ZSTD_BtFindBestMatch_noDict_4.exit1761:           ; preds = %.lr.ph.split.us.i.i
 
 552:                                              ; preds = %ZSTD_BtFindBestMatch_noDict_4.exit1761
   %553 = trunc i64 %.41591 to i32
-  %554 = tail call i32 @llvm.ctlz.i32(i32 %553, i1 true), !range !19
+  %554 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %553, i1 true)
   %555 = load i64, ptr %8, align 8
   %556 = trunc i64 %555 to i32
-  %557 = tail call i32 @llvm.ctlz.i32(i32 %556, i1 true), !range !19
+  %557 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %556, i1 true)
   %558 = xor i32 %557, 31
   %.61585.tr = trunc i64 %.61585 to i32
   %559 = shl i32 %.61585.tr, 2
@@ -1705,7 +1705,7 @@ ZSTD_BtFindBestMatch_noDict_4.exit1761:           ; preds = %.lr.ph.split.us.i.i
   br i1 %565, label %.preheader, label %._crit_edge1887._crit_edge
 
 ._crit_edge1887._crit_edge:                       ; preds = %._crit_edge1887
-  %.pre1969 = trunc i64 %.61593 to i32
+  %.pre1969 = trunc nuw i64 %.61593 to i32
   br label %585
 
 .preheader:                                       ; preds = %._crit_edge1887
@@ -1733,7 +1733,7 @@ ZSTD_BtFindBestMatch_noDict_4.exit1761:           ; preds = %.lr.ph.split.us.i.i
   %580 = getelementptr inbounds i8, ptr %572, i64 %566
   %581 = icmp ugt ptr %580, %16
   %582 = and i1 %579, %581
-  br i1 %582, label %.lr.ph1904, label %.critedge7, !llvm.loop !21
+  br i1 %582, label %.lr.ph1904, label %.critedge7, !llvm.loop !19
 
 .critedge7:                                       ; preds = %.lr.ph1904, %577, %.preheader
   %.71602.lcssa = phi ptr [ %.61601, %.preheader ], [ %572, %577 ], [ %.716021902, %.lr.ph1904 ]
@@ -1760,7 +1760,7 @@ ZSTD_BtFindBestMatch_noDict_4.exit1761:           ; preds = %.lr.ph.split.us.i.i
   store <2 x i64> %.01558.val, ptr %589, align 1
   %591 = icmp ugt i64 %587, 16
   %592 = load ptr, ptr %56, align 8
-  %593 = getelementptr inbounds i8, ptr %592, i64 %587
+  %593 = getelementptr i8, ptr %592, i64 %587
   br i1 %591, label %594, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %590
@@ -1792,7 +1792,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %590
   store <2 x i64> %.val1654, ptr %601, align 1
   %603 = getelementptr inbounds i8, ptr %.11547, i64 32
   %604 = icmp ult ptr %603, %593
-  br i1 %604, label %600, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %604, label %600, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 605:                                              ; preds = %585
   %606 = ptrtoint ptr %588 to i64
@@ -1823,7 +1823,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %590
   store <2 x i64> %.val.i1787, ptr %614, align 1
   %616 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %617 = icmp ult ptr %616, %609
-  br i1 %617, label %613, label %.loopexit.i1788, !llvm.loop !22
+  br i1 %617, label %613, label %.loopexit.i1788, !llvm.loop !20
 
 .loopexit.i1788:                                  ; preds = %613, %607, %605
   %.047.i = phi ptr [ %609, %607 ], [ %589, %605 ], [ %609, %613 ]
@@ -1845,7 +1845,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %590
   %622 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %621, ptr %.14853.i, align 1
   %exitcond.not.i1789 = icmp eq ptr %620, %scevgep.i
-  br i1 %exitcond.not.i1789, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i1789, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %600, %.lr.ph.i, %.loopexit.i1788, %594
   %623 = load ptr, ptr %56, align 8
@@ -1937,7 +1937,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %600, %.lr.ph.i, %.l
   br i1 %.not.i1807, label %.preheader.i1808, label %669
 
 669:                                              ; preds = %667
-  %670 = tail call i64 @llvm.cttz.i64(i64 %668, i1 true), !range !15
+  %670 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %668, i1 true)
   %671 = lshr i64 %670, 3
   br label %ZSTD_count.exit1816
 
@@ -1954,10 +1954,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %600, %.lr.ph.i, %.l
   %.040.val.i1814 = load i64, ptr %.040.i1811, align 1
   %674 = xor i64 %.040.val.i1814, %.041.val.i1813
   %.not51.i1815 = icmp eq i64 %674, 0
-  br i1 %.not51.i1815, label %.preheader.i1808, label %675, !llvm.loop !16
+  br i1 %.not51.i1815, label %.preheader.i1808, label %675, !llvm.loop !15
 
 675:                                              ; preds = %673
-  %676 = tail call i64 @llvm.cttz.i64(i64 %674, i1 true), !range !15
+  %676 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %674, i1 true)
   %677 = lshr i64 %676, 3
   %678 = getelementptr inbounds i8, ptr %.040.i1811, i64 %677
   %679 = ptrtoint ptr %678 to i64
@@ -2065,14 +2065,14 @@ ZSTD_safecopyLiterals.exit1834:                   ; preds = %ZSTD_count.exit1816
   %726 = icmp ule ptr %725, %10
   %727 = icmp ne i32 %.515681911, 0
   %728 = and i1 %727, %726
-  br i1 %728, label %.lr.ph1914, label %.critedge13, !llvm.loop !24
+  br i1 %728, label %.lr.ph1914, label %.critedge13, !llvm.loop !22
 
 .critedge13:                                      ; preds = %720, %.lr.ph1914, %655
   %.61575.lcssa = phi i32 [ %.31572, %655 ], [ %.615751910, %.lr.ph1914 ], [ %.515681911, %720 ]
   %.51568.lcssa = phi i32 [ %.21565, %655 ], [ %.515681911, %.lr.ph1914 ], [ %.615751910, %720 ]
   %.4.lcssa = phi ptr [ %652, %655 ], [ %.41912, %.lr.ph1914 ], [ %725, %720 ]
   %729 = icmp ult ptr %.4.lcssa, %10
-  br i1 %729, label %.lr.ph, label %.outer._crit_edge.loopexit1932, !llvm.loop !18
+  br i1 %729, label %.lr.ph, label %.outer._crit_edge.loopexit1932, !llvm.loop !17
 
 .outer._crit_edge.loopexit1932:                   ; preds = %.critedge13
   %.pre1968 = ptrtoint ptr %.4.lcssa to i64
@@ -2198,7 +2198,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2(ptr nocapture noundef %0, ptr noc
   br i1 %.not.i1656, label %.preheader.i, label %71
 
 71:                                               ; preds = %69
-  %72 = tail call i64 @llvm.cttz.i64(i64 %70, i1 true), !range !15
+  %72 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %70, i1 true)
   %73 = lshr i64 %72, 3
   br label %ZSTD_count.exit
 
@@ -2215,10 +2215,10 @@ define dso_local i64 @ZSTD_compressBlock_lazy2(ptr nocapture noundef %0, ptr noc
   %.040.val.i = load i64, ptr %.040.i, align 1
   %76 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %76, 0
-  br i1 %.not51.i, label %.preheader.i, label %77, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %77, !llvm.loop !15
 
 77:                                               ; preds = %75
-  %78 = tail call i64 @llvm.cttz.i64(i64 %76, i1 true), !range !15
+  %78 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %76, i1 true)
   %79 = lshr i64 %78, 3
   %80 = getelementptr inbounds i8, ptr %.040.i, i64 %79
   %81 = ptrtoint ptr %80 to i64
@@ -2296,15 +2296,15 @@ ZSTD_count.exit:                                  ; preds = %71, %77, %103
   ]
 
 109:                                              ; preds = %108
-  %110 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef %0, ptr noundef %.015561802, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %110 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef %0, ptr noundef %.015561802, ptr noundef %9, ptr noundef nonnull %6)
   br label %115
 
 111:                                              ; preds = %108
-  %112 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef %0, ptr noundef %.015561802, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %112 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef %0, ptr noundef %.015561802, ptr noundef %9, ptr noundef nonnull %6)
   br label %115
 
 113:                                              ; preds = %108
-  %114 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %0, ptr noundef %.015561802, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %114 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %0, ptr noundef %.015561802, ptr noundef %9, ptr noundef nonnull %6)
   br label %115
 
 default.unreachable:                              ; preds = %108, %263, %185
@@ -2334,7 +2334,7 @@ default.unreachable:                              ; preds = %108, %263, %185
   %127 = zext i1 %126 to i32
   store i32 %127, ptr %45, align 4
   %128 = icmp ult ptr %125, %10
-  br i1 %128, label %60, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %128, label %60, label %.outer._crit_edge, !llvm.loop !17
 
 .lr.ph1814:                                       ; preds = %.preheader1771, %.backedge
   %.115571813 = phi ptr [ %.11596.be, %.backedge ], [ %.015561802, %.preheader1771 ]
@@ -2367,10 +2367,10 @@ default.unreachable:                              ; preds = %108, %263, %185
   br i1 %.not.i1674, label %.preheader.i1675, label %ZSTD_count.exit1683.thread
 
 ZSTD_count.exit1683.thread:                       ; preds = %138
-  %140 = tail call i64 @llvm.cttz.i64(i64 %139, i1 true), !range !15
+  %140 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %139, i1 true)
   %141 = lshr i64 %140, 3
   %142 = trunc i64 %.115881809 to i32
-  %143 = tail call i32 @llvm.ctlz.i32(i32 %142, i1 true), !range !19
+  %143 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %142, i1 true)
   br label %176
 
 .preheader.i1675:                                 ; preds = %138, %145
@@ -2386,10 +2386,10 @@ ZSTD_count.exit1683.thread:                       ; preds = %138
   %.040.val.i1681 = load i64, ptr %.040.i1678, align 1
   %146 = xor i64 %.040.val.i1681, %.041.val.i1680
   %.not51.i1682 = icmp eq i64 %146, 0
-  br i1 %.not51.i1682, label %.preheader.i1675, label %147, !llvm.loop !16
+  br i1 %.not51.i1682, label %.preheader.i1675, label %147, !llvm.loop !15
 
 147:                                              ; preds = %145
-  %148 = tail call i64 @llvm.cttz.i64(i64 %146, i1 true), !range !15
+  %148 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %146, i1 true)
   %149 = lshr i64 %148, 3
   %150 = getelementptr inbounds i8, ptr %.040.i1678, i64 %149
   br label %ZSTD_count.exit1683
@@ -2448,7 +2448,7 @@ ZSTD_count.exit1683:                              ; preds = %164, %166, %147
   %171 = ptrtoint ptr %135 to i64
   %172 = sub i64 %170, %171
   %173 = trunc i64 %.115881809 to i32
-  %174 = tail call i32 @llvm.ctlz.i32(i32 %173, i1 true), !range !19
+  %174 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %173, i1 true)
   %175 = icmp ult i64 %172, -4
   br i1 %175, label %176, label %185
 
@@ -2480,29 +2480,29 @@ ZSTD_count.exit1683:                              ; preds = %164, %166, %147
   ]
 
 186:                                              ; preds = %185
-  %187 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef %0, ptr noundef nonnull %129, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %187 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef %0, ptr noundef nonnull %129, ptr noundef %9, ptr noundef nonnull %7)
   br label %192
 
 188:                                              ; preds = %185
-  %189 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef %0, ptr noundef nonnull %129, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %189 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef %0, ptr noundef nonnull %129, ptr noundef %9, ptr noundef nonnull %7)
   br label %192
 
 190:                                              ; preds = %185
-  %191 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %0, ptr noundef nonnull %129, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %191 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %0, ptr noundef nonnull %129, ptr noundef %9, ptr noundef nonnull %7)
   br label %192
 
 192:                                              ; preds = %190, %188, %186
   %.01549 = phi i64 [ %191, %190 ], [ %189, %188 ], [ %187, %186 ]
   %193 = shl i64 %.41583, 2
   %194 = trunc i64 %.21589 to i32
-  %195 = tail call i32 @llvm.ctlz.i32(i32 %194, i1 true), !range !19
+  %195 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %194, i1 true)
   %196 = icmp ugt i64 %.01549, 3
   br i1 %196, label %197, label %209
 
 197:                                              ; preds = %192
   %198 = load i64, ptr %7, align 8
   %199 = trunc i64 %198 to i32
-  %200 = tail call i32 @llvm.ctlz.i32(i32 %199, i1 true), !range !19
+  %200 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %199, i1 true)
   %201 = xor i32 %200, 31
   %202 = trunc i64 %193 to i32
   %203 = add nsw i32 %195, -27
@@ -2518,7 +2518,7 @@ ZSTD_count.exit1683:                              ; preds = %164, %166, %147
   %.11588.be = phi i64 [ %198, %197 ], [ %275, %272 ]
   %.31582.be = phi i64 [ %.01549, %197 ], [ %.01550, %272 ]
   %208 = icmp ult ptr %.11596.be, %10
-  br i1 %208, label %.lr.ph1814, label %._crit_edge1815, !llvm.loop !20
+  br i1 %208, label %.lr.ph1814, label %._crit_edge1815, !llvm.loop !18
 
 209:                                              ; preds = %192, %197
   %210 = icmp ult ptr %129, %10
@@ -2551,7 +2551,7 @@ ZSTD_count.exit1683:                              ; preds = %164, %166, %147
   br i1 %.not.i1701, label %.preheader.i1702, label %ZSTD_count.exit1710.thread
 
 ZSTD_count.exit1710.thread:                       ; preds = %221
-  %223 = tail call i64 @llvm.cttz.i64(i64 %222, i1 true), !range !15
+  %223 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %222, i1 true)
   %224 = lshr i64 %223, 3
   br label %255
 
@@ -2568,10 +2568,10 @@ ZSTD_count.exit1710.thread:                       ; preds = %221
   %.040.val.i1708 = load i64, ptr %.040.i1705, align 1
   %227 = xor i64 %.040.val.i1708, %.041.val.i1707
   %.not51.i1709 = icmp eq i64 %227, 0
-  br i1 %.not51.i1709, label %.preheader.i1702, label %228, !llvm.loop !16
+  br i1 %.not51.i1709, label %.preheader.i1702, label %228, !llvm.loop !15
 
 228:                                              ; preds = %226
-  %229 = tail call i64 @llvm.cttz.i64(i64 %227, i1 true), !range !15
+  %229 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %227, i1 true)
   %230 = lshr i64 %229, 3
   %231 = getelementptr inbounds i8, ptr %.040.i1705, i64 %230
   br label %ZSTD_count.exit1710
@@ -2658,15 +2658,15 @@ ZSTD_count.exit1710:                              ; preds = %245, %247, %228
   ]
 
 264:                                              ; preds = %263
-  %265 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef %0, ptr noundef nonnull %212, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %265 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef %0, ptr noundef nonnull %212, ptr noundef %9, ptr noundef nonnull %8)
   br label %270
 
 266:                                              ; preds = %263
-  %267 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef %0, ptr noundef nonnull %212, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %267 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef %0, ptr noundef nonnull %212, ptr noundef %9, ptr noundef nonnull %8)
   br label %270
 
 268:                                              ; preds = %263
-  %269 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %0, ptr noundef nonnull %212, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %269 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %0, ptr noundef nonnull %212, ptr noundef %9, ptr noundef nonnull %8)
   br label %270
 
 270:                                              ; preds = %268, %266, %264
@@ -2676,10 +2676,10 @@ ZSTD_count.exit1710:                              ; preds = %245, %247, %228
 
 272:                                              ; preds = %270
   %273 = trunc i64 %.41591 to i32
-  %274 = tail call i32 @llvm.ctlz.i32(i32 %273, i1 true), !range !19
+  %274 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %273, i1 true)
   %275 = load i64, ptr %8, align 8
   %276 = trunc i64 %275 to i32
-  %277 = tail call i32 @llvm.ctlz.i32(i32 %276, i1 true), !range !19
+  %277 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %276, i1 true)
   %278 = xor i32 %277, 31
   %.61585.tr = trunc i64 %.61585 to i32
   %279 = shl i32 %.61585.tr, 2
@@ -2699,7 +2699,7 @@ ZSTD_count.exit1710:                              ; preds = %245, %247, %228
   br i1 %285, label %.preheader, label %._crit_edge1815._crit_edge
 
 ._crit_edge1815._crit_edge:                       ; preds = %._crit_edge1815
-  %.pre1898 = trunc i64 %.61593 to i32
+  %.pre1898 = trunc nuw i64 %.61593 to i32
   br label %305
 
 .preheader:                                       ; preds = %._crit_edge1815
@@ -2727,7 +2727,7 @@ ZSTD_count.exit1710:                              ; preds = %245, %247, %228
   %300 = getelementptr inbounds i8, ptr %292, i64 %286
   %301 = icmp ugt ptr %300, %16
   %302 = and i1 %299, %301
-  br i1 %302, label %.lr.ph1833, label %.critedge7, !llvm.loop !21
+  br i1 %302, label %.lr.ph1833, label %.critedge7, !llvm.loop !19
 
 .critedge7:                                       ; preds = %.lr.ph1833, %297, %.preheader
   %.71602.lcssa = phi ptr [ %.61601, %.preheader ], [ %292, %297 ], [ %.716021831, %.lr.ph1833 ]
@@ -2754,7 +2754,7 @@ ZSTD_count.exit1710:                              ; preds = %245, %247, %228
   store <2 x i64> %.01558.val, ptr %309, align 1
   %311 = icmp ugt i64 %307, 16
   %312 = load ptr, ptr %51, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 %307
+  %313 = getelementptr i8, ptr %312, i64 %307
   br i1 %311, label %314, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %310
@@ -2786,7 +2786,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %310
   store <2 x i64> %.val1654, ptr %321, align 1
   %323 = getelementptr inbounds i8, ptr %.11547, i64 32
   %324 = icmp ult ptr %323, %313
-  br i1 %324, label %320, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %324, label %320, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 325:                                              ; preds = %305
   %326 = ptrtoint ptr %308 to i64
@@ -2817,7 +2817,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %310
   store <2 x i64> %.val.i1716, ptr %334, align 1
   %336 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %337 = icmp ult ptr %336, %329
-  br i1 %337, label %333, label %.loopexit.i1717, !llvm.loop !22
+  br i1 %337, label %333, label %.loopexit.i1717, !llvm.loop !20
 
 .loopexit.i1717:                                  ; preds = %333, %327, %325
   %.047.i = phi ptr [ %329, %327 ], [ %309, %325 ], [ %329, %333 ]
@@ -2839,7 +2839,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %310
   %342 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %341, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %340, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %320, %.lr.ph.i, %.loopexit.i1717, %314
   %343 = load ptr, ptr %51, align 8
@@ -2931,7 +2931,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %320, %.lr.ph.i, %.l
   br i1 %.not.i1735, label %.preheader.i1736, label %389
 
 389:                                              ; preds = %387
-  %390 = tail call i64 @llvm.cttz.i64(i64 %388, i1 true), !range !15
+  %390 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %388, i1 true)
   %391 = lshr i64 %390, 3
   br label %ZSTD_count.exit1744
 
@@ -2948,10 +2948,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %320, %.lr.ph.i, %.l
   %.040.val.i1742 = load i64, ptr %.040.i1739, align 1
   %394 = xor i64 %.040.val.i1742, %.041.val.i1741
   %.not51.i1743 = icmp eq i64 %394, 0
-  br i1 %.not51.i1743, label %.preheader.i1736, label %395, !llvm.loop !16
+  br i1 %.not51.i1743, label %.preheader.i1736, label %395, !llvm.loop !15
 
 395:                                              ; preds = %393
-  %396 = tail call i64 @llvm.cttz.i64(i64 %394, i1 true), !range !15
+  %396 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %394, i1 true)
   %397 = lshr i64 %396, 3
   %398 = getelementptr inbounds i8, ptr %.040.i1739, i64 %397
   %399 = ptrtoint ptr %398 to i64
@@ -3059,14 +3059,14 @@ ZSTD_safecopyLiterals.exit1762:                   ; preds = %ZSTD_count.exit1744
   %446 = icmp ule ptr %445, %10
   %447 = icmp ne i32 %.515681840, 0
   %448 = and i1 %447, %446
-  br i1 %448, label %.lr.ph1843, label %.critedge13, !llvm.loop !24
+  br i1 %448, label %.lr.ph1843, label %.critedge13, !llvm.loop !22
 
 .critedge13:                                      ; preds = %440, %.lr.ph1843, %375
   %.61575.lcssa = phi i32 [ %.31572, %375 ], [ %.615751839, %.lr.ph1843 ], [ %.515681840, %440 ]
   %.51568.lcssa = phi i32 [ %.21565, %375 ], [ %.515681840, %.lr.ph1843 ], [ %.615751839, %440 ]
   %.4.lcssa = phi ptr [ %372, %375 ], [ %.41841, %.lr.ph1843 ], [ %445, %440 ]
   %449 = icmp ult ptr %.4.lcssa, %10
-  br i1 %449, label %.lr.ph, label %.outer._crit_edge.loopexit1861, !llvm.loop !18
+  br i1 %449, label %.lr.ph, label %.outer._crit_edge.loopexit1861, !llvm.loop !17
 
 .outer._crit_edge.loopexit1861:                   ; preds = %.critedge13
   %.pre1897 = ptrtoint ptr %.4.lcssa to i64
@@ -3191,7 +3191,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy(ptr nocapture noundef %0, ptr noca
   br i1 %.not.i1653, label %.preheader.i, label %70
 
 70:                                               ; preds = %68
-  %71 = tail call i64 @llvm.cttz.i64(i64 %69, i1 true), !range !15
+  %71 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %69, i1 true)
   %72 = lshr i64 %71, 3
   br label %ZSTD_count.exit
 
@@ -3208,10 +3208,10 @@ define dso_local i64 @ZSTD_compressBlock_lazy(ptr nocapture noundef %0, ptr noca
   %.040.val.i = load i64, ptr %.040.i, align 1
   %75 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %75, 0
-  br i1 %.not51.i, label %.preheader.i, label %76, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %76, !llvm.loop !15
 
 76:                                               ; preds = %74
-  %77 = tail call i64 @llvm.cttz.i64(i64 %75, i1 true), !range !15
+  %77 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %75, i1 true)
   %78 = lshr i64 %77, 3
   %79 = getelementptr inbounds i8, ptr %.040.i, i64 %78
   %80 = ptrtoint ptr %79 to i64
@@ -3289,15 +3289,15 @@ ZSTD_count.exit:                                  ; preds = %70, %76, %102
   ]
 
 108:                                              ; preds = %107
-  %109 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef %0, ptr noundef %.015561763, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %109 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef %0, ptr noundef %.015561763, ptr noundef %8, ptr noundef nonnull %6)
   br label %114
 
 110:                                              ; preds = %107
-  %111 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef %0, ptr noundef %.015561763, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %111 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef %0, ptr noundef %.015561763, ptr noundef %8, ptr noundef nonnull %6)
   br label %114
 
 112:                                              ; preds = %107
-  %113 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %0, ptr noundef %.015561763, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %113 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %0, ptr noundef %.015561763, ptr noundef %8, ptr noundef nonnull %6)
   br label %114
 
 default.unreachable:                              ; preds = %107, %186
@@ -3326,7 +3326,7 @@ default.unreachable:                              ; preds = %107, %186
   %125 = zext i1 %124 to i32
   store i32 %125, ptr %44, align 4
   %126 = icmp ult ptr %123, %9
-  br i1 %126, label %59, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %126, label %59, label %.outer._crit_edge, !llvm.loop !17
 
 127:                                              ; preds = %.preheader1738, %195
   %.11596 = phi ptr [ %130, %195 ], [ %.01595.le, %.preheader1738 ]
@@ -3363,10 +3363,10 @@ default.unreachable:                              ; preds = %107, %186
   br i1 %.not.i1671, label %.preheader.i1672, label %ZSTD_count.exit1680.thread
 
 ZSTD_count.exit1680.thread:                       ; preds = %139
-  %141 = tail call i64 @llvm.cttz.i64(i64 %140, i1 true), !range !15
+  %141 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %140, i1 true)
   %142 = lshr i64 %141, 3
   %143 = trunc i64 %.11588 to i32
-  %144 = tail call i32 @llvm.ctlz.i32(i32 %143, i1 true), !range !19
+  %144 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %143, i1 true)
   br label %177
 
 .preheader.i1672:                                 ; preds = %139, %146
@@ -3382,10 +3382,10 @@ ZSTD_count.exit1680.thread:                       ; preds = %139
   %.040.val.i1678 = load i64, ptr %.040.i1675, align 1
   %147 = xor i64 %.040.val.i1678, %.041.val.i1677
   %.not51.i1679 = icmp eq i64 %147, 0
-  br i1 %.not51.i1679, label %.preheader.i1672, label %148, !llvm.loop !16
+  br i1 %.not51.i1679, label %.preheader.i1672, label %148, !llvm.loop !15
 
 148:                                              ; preds = %146
-  %149 = tail call i64 @llvm.cttz.i64(i64 %147, i1 true), !range !15
+  %149 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %147, i1 true)
   %150 = lshr i64 %149, 3
   %151 = getelementptr inbounds i8, ptr %.040.i1675, i64 %150
   br label %ZSTD_count.exit1680
@@ -3444,7 +3444,7 @@ ZSTD_count.exit1680:                              ; preds = %165, %167, %148
   %172 = ptrtoint ptr %136 to i64
   %173 = sub i64 %171, %172
   %174 = trunc i64 %.11588 to i32
-  %175 = tail call i32 @llvm.ctlz.i32(i32 %174, i1 true), !range !19
+  %175 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %174, i1 true)
   %176 = icmp ult i64 %173, -4
   br i1 %176, label %177, label %186
 
@@ -3476,15 +3476,15 @@ ZSTD_count.exit1680:                              ; preds = %165, %167, %148
   ]
 
 187:                                              ; preds = %186
-  %188 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef %0, ptr noundef nonnull %130, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %188 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef %0, ptr noundef nonnull %130, ptr noundef %8, ptr noundef nonnull %7)
   br label %193
 
 189:                                              ; preds = %186
-  %190 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef %0, ptr noundef nonnull %130, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %190 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef %0, ptr noundef nonnull %130, ptr noundef %8, ptr noundef nonnull %7)
   br label %193
 
 191:                                              ; preds = %186
-  %192 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %0, ptr noundef nonnull %130, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %192 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %0, ptr noundef nonnull %130, ptr noundef %8, ptr noundef nonnull %7)
   br label %193
 
 193:                                              ; preds = %191, %189, %187
@@ -3494,10 +3494,10 @@ ZSTD_count.exit1680:                              ; preds = %165, %167, %148
 
 195:                                              ; preds = %193
   %196 = trunc i64 %.21589 to i32
-  %197 = tail call i32 @llvm.ctlz.i32(i32 %196, i1 true), !range !19
+  %197 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %196, i1 true)
   %198 = load i64, ptr %7, align 8
   %199 = trunc i64 %198 to i32
-  %200 = tail call i32 @llvm.ctlz.i32(i32 %199, i1 true), !range !19
+  %200 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %199, i1 true)
   %201 = xor i32 %200, 31
   %.41583.tr = trunc i64 %.41583 to i32
   %202 = shl i32 %.41583.tr, 2
@@ -3507,7 +3507,7 @@ ZSTD_count.exit1680:                              ; preds = %165, %167, %148
   %205 = shl i32 %.01549.tr, 2
   %206 = sub i32 %205, %201
   %207 = icmp sgt i32 %206, %204
-  br i1 %207, label %127, label %208, !llvm.loop !20
+  br i1 %207, label %127, label %208, !llvm.loop !18
 
 208:                                              ; preds = %193, %195, %127
   %.61601 = phi ptr [ %.11596, %127 ], [ %.21597, %195 ], [ %.21597, %193 ]
@@ -3517,7 +3517,7 @@ ZSTD_count.exit1680:                              ; preds = %165, %167, %148
   br i1 %209, label %.preheader, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %208
-  %.pre1830 = trunc i64 %.61593 to i32
+  %.pre1830 = trunc nuw i64 %.61593 to i32
   br label %229
 
 .preheader:                                       ; preds = %208
@@ -3545,7 +3545,7 @@ ZSTD_count.exit1680:                              ; preds = %165, %167, %148
   %224 = getelementptr inbounds i8, ptr %216, i64 %210
   %225 = icmp ugt ptr %224, %15
   %226 = and i1 %223, %225
-  br i1 %226, label %.lr.ph1771, label %.critedge7, !llvm.loop !21
+  br i1 %226, label %.lr.ph1771, label %.critedge7, !llvm.loop !19
 
 .critedge7:                                       ; preds = %.lr.ph1771, %221, %.preheader
   %.71602.lcssa = phi ptr [ %.61601, %.preheader ], [ %216, %221 ], [ %.716021769, %.lr.ph1771 ]
@@ -3572,7 +3572,7 @@ ZSTD_count.exit1680:                              ; preds = %165, %167, %148
   store <2 x i64> %.01558.val, ptr %233, align 1
   %235 = icmp ugt i64 %231, 16
   %236 = load ptr, ptr %50, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 %231
+  %237 = getelementptr i8, ptr %236, i64 %231
   br i1 %235, label %238, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %234
@@ -3604,7 +3604,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %234
   store <2 x i64> %.val1651, ptr %245, align 1
   %247 = getelementptr inbounds i8, ptr %.11547, i64 32
   %248 = icmp ult ptr %247, %237
-  br i1 %248, label %244, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %248, label %244, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 249:                                              ; preds = %229
   %250 = ptrtoint ptr %232 to i64
@@ -3635,7 +3635,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %234
   store <2 x i64> %.val.i1686, ptr %258, align 1
   %260 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %261 = icmp ult ptr %260, %253
-  br i1 %261, label %257, label %.loopexit.i1687, !llvm.loop !22
+  br i1 %261, label %257, label %.loopexit.i1687, !llvm.loop !20
 
 .loopexit.i1687:                                  ; preds = %257, %251, %249
   %.047.i = phi ptr [ %253, %251 ], [ %233, %249 ], [ %253, %257 ]
@@ -3657,7 +3657,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %234
   %266 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %265, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %264, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %244, %.lr.ph.i, %.loopexit.i1687, %238
   %267 = load ptr, ptr %50, align 8
@@ -3749,7 +3749,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %244, %.lr.ph.i, %.l
   br i1 %.not.i1705, label %.preheader.i1706, label %313
 
 313:                                              ; preds = %311
-  %314 = tail call i64 @llvm.cttz.i64(i64 %312, i1 true), !range !15
+  %314 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %312, i1 true)
   %315 = lshr i64 %314, 3
   br label %ZSTD_count.exit1714
 
@@ -3766,10 +3766,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %244, %.lr.ph.i, %.l
   %.040.val.i1712 = load i64, ptr %.040.i1709, align 1
   %318 = xor i64 %.040.val.i1712, %.041.val.i1711
   %.not51.i1713 = icmp eq i64 %318, 0
-  br i1 %.not51.i1713, label %.preheader.i1706, label %319, !llvm.loop !16
+  br i1 %.not51.i1713, label %.preheader.i1706, label %319, !llvm.loop !15
 
 319:                                              ; preds = %317
-  %320 = tail call i64 @llvm.cttz.i64(i64 %318, i1 true), !range !15
+  %320 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %318, i1 true)
   %321 = lshr i64 %320, 3
   %322 = getelementptr inbounds i8, ptr %.040.i1709, i64 %321
   %323 = ptrtoint ptr %322 to i64
@@ -3877,14 +3877,14 @@ ZSTD_safecopyLiterals.exit1732:                   ; preds = %ZSTD_count.exit1714
   %370 = icmp ule ptr %369, %9
   %371 = icmp ne i32 %.515681778, 0
   %372 = and i1 %371, %370
-  br i1 %372, label %.lr.ph1781, label %.critedge13, !llvm.loop !24
+  br i1 %372, label %.lr.ph1781, label %.critedge13, !llvm.loop !22
 
 .critedge13:                                      ; preds = %364, %.lr.ph1781, %299
   %.61575.lcssa = phi i32 [ %.31572, %299 ], [ %.615751777, %.lr.ph1781 ], [ %.515681778, %364 ]
   %.51568.lcssa = phi i32 [ %.21565, %299 ], [ %.515681778, %.lr.ph1781 ], [ %.615751777, %364 ]
   %.4.lcssa = phi ptr [ %296, %299 ], [ %.41779, %.lr.ph1781 ], [ %369, %364 ]
   %373 = icmp ult ptr %.4.lcssa, %9
-  br i1 %373, label %.lr.ph, label %.outer._crit_edge.loopexit1799, !llvm.loop !18
+  br i1 %373, label %.lr.ph, label %.outer._crit_edge.loopexit1799, !llvm.loop !17
 
 .outer._crit_edge.loopexit1799:                   ; preds = %.critedge13
   %.pre1829 = ptrtoint ptr %.4.lcssa to i64
@@ -3995,15 +3995,15 @@ define dso_local i64 @ZSTD_compressBlock_greedy(ptr nocapture noundef %0, ptr no
   ]
 
 57:                                               ; preds = %.lr.ph.split.us
-  %58 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %0, ptr noundef nonnull %.015561723.us, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %58 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %0, ptr noundef nonnull %.015561723.us, ptr noundef %7, ptr noundef nonnull %6)
   br label %63
 
 59:                                               ; preds = %.lr.ph.split.us
-  %60 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef %0, ptr noundef nonnull %.015561723.us, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %60 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef %0, ptr noundef nonnull %.015561723.us, ptr noundef %7, ptr noundef nonnull %6)
   br label %63
 
 61:                                               ; preds = %.lr.ph.split.us
-  %62 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef %0, ptr noundef nonnull %.015561723.us, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %62 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef %0, ptr noundef nonnull %.015561723.us, ptr noundef %7, ptr noundef nonnull %6)
   br label %63
 
 63:                                               ; preds = %61, %59, %57
@@ -4021,7 +4021,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy(ptr nocapture noundef %0, ptr no
   %72 = zext i1 %71 to i32
   store i32 %72, ptr %43, align 4
   %73 = icmp ult ptr %70, %8
-  br i1 %73, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %73, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %129
   %.015561723 = phi ptr [ %134, %129 ], [ %.01556.ph1759, %.lr.ph ]
@@ -4046,7 +4046,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy(ptr nocapture noundef %0, ptr no
   br i1 %.not.i1650, label %.preheader.i, label %83
 
 83:                                               ; preds = %81
-  %84 = tail call i64 @llvm.cttz.i64(i64 %82, i1 true), !range !15
+  %84 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %82, i1 true)
   %85 = lshr i64 %84, 3
   br label %ZSTD_count.exit
 
@@ -4063,10 +4063,10 @@ define dso_local i64 @ZSTD_compressBlock_greedy(ptr nocapture noundef %0, ptr no
   %.040.val.i = load i64, ptr %.040.i, align 1
   %88 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %88, 0
-  br i1 %.not51.i, label %.preheader.i, label %89, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %89, !llvm.loop !15
 
 89:                                               ; preds = %87
-  %90 = tail call i64 @llvm.cttz.i64(i64 %88, i1 true), !range !15
+  %90 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %88, i1 true)
   %91 = lshr i64 %90, 3
   %92 = getelementptr inbounds i8, ptr %.040.i, i64 %91
   %93 = ptrtoint ptr %92 to i64
@@ -4143,15 +4143,15 @@ ZSTD_count.exit:                                  ; preds = %83, %89, %115
   ]
 
 121:                                              ; preds = %120
-  %122 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef %0, ptr noundef nonnull %.015561723, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %122 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr noundef %0, ptr noundef nonnull %.015561723, ptr noundef %7, ptr noundef nonnull %6)
   br label %127
 
 123:                                              ; preds = %120
-  %124 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef %0, ptr noundef nonnull %.015561723, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %124 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr noundef %0, ptr noundef nonnull %.015561723, ptr noundef %7, ptr noundef nonnull %6)
   br label %127
 
 125:                                              ; preds = %120
-  %126 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %0, ptr noundef nonnull %.015561723, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %126 = call fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr noundef %0, ptr noundef nonnull %.015561723, ptr noundef %7, ptr noundef nonnull %6)
   br label %127
 
 default.unreachable:                              ; preds = %120, %.lr.ph.split.us
@@ -4172,7 +4172,7 @@ default.unreachable:                              ; preds = %120, %.lr.ph.split.
   %136 = zext i1 %135 to i32
   store i32 %136, ptr %43, align 4
   %137 = icmp ult ptr %134, %8
-  br i1 %137, label %.lr.ph.split, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %137, label %.lr.ph.split, label %.outer._crit_edge, !llvm.loop !17
 
 .split1730.us:                                    ; preds = %127, %63
   %.us-phi = phi i64 [ %.01548.us, %63 ], [ %.01548, %127 ]
@@ -4206,7 +4206,7 @@ default.unreachable:                              ; preds = %120, %.lr.ph.split.
   %153 = getelementptr inbounds i8, ptr %145, i64 %139
   %154 = icmp ugt ptr %153, %14
   %155 = and i1 %152, %154
-  br i1 %155, label %.lr.ph1738, label %.critedge7, !llvm.loop !21
+  br i1 %155, label %.lr.ph1738, label %.critedge7, !llvm.loop !19
 
 .critedge7:                                       ; preds = %.lr.ph1738, %150, %.preheader
   %.71602.lcssa = phi ptr [ %.us-phi1732, %.preheader ], [ %145, %150 ], [ %.716021736, %.lr.ph1738 ]
@@ -4234,7 +4234,7 @@ default.unreachable:                              ; preds = %120, %.lr.ph.split.
   store <2 x i64> %.01558.val, ptr %163, align 1
   %165 = icmp ugt i64 %160, 16
   %166 = load ptr, ptr %49, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 %160
+  %167 = getelementptr i8, ptr %166, i64 %160
   br i1 %165, label %168, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %164
@@ -4266,7 +4266,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %164
   store <2 x i64> %.val1648, ptr %175, align 1
   %177 = getelementptr inbounds i8, ptr %.11547, i64 32
   %178 = icmp ult ptr %177, %167
-  br i1 %178, label %174, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %178, label %174, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 179:                                              ; preds = %158
   %180 = ptrtoint ptr %162 to i64
@@ -4297,7 +4297,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %164
   store <2 x i64> %.val.i1656, ptr %188, align 1
   %190 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %191 = icmp ult ptr %190, %183
-  br i1 %191, label %187, label %.loopexit.i1657, !llvm.loop !22
+  br i1 %191, label %187, label %.loopexit.i1657, !llvm.loop !20
 
 .loopexit.i1657:                                  ; preds = %187, %181, %179
   %.047.i = phi ptr [ %183, %181 ], [ %163, %179 ], [ %183, %187 ]
@@ -4319,7 +4319,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %164
   %196 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %195, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %194, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %174, %.lr.ph.i, %.loopexit.i1657, %168
   %197 = load ptr, ptr %49, align 8
@@ -4411,7 +4411,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %174, %.lr.ph.i, %.l
   br i1 %.not.i1675, label %.preheader.i1676, label %243
 
 243:                                              ; preds = %241
-  %244 = tail call i64 @llvm.cttz.i64(i64 %242, i1 true), !range !15
+  %244 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %242, i1 true)
   %245 = lshr i64 %244, 3
   br label %ZSTD_count.exit1684
 
@@ -4428,10 +4428,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %174, %.lr.ph.i, %.l
   %.040.val.i1682 = load i64, ptr %.040.i1679, align 1
   %248 = xor i64 %.040.val.i1682, %.041.val.i1681
   %.not51.i1683 = icmp eq i64 %248, 0
-  br i1 %.not51.i1683, label %.preheader.i1676, label %249, !llvm.loop !16
+  br i1 %.not51.i1683, label %.preheader.i1676, label %249, !llvm.loop !15
 
 249:                                              ; preds = %247
-  %250 = tail call i64 @llvm.cttz.i64(i64 %248, i1 true), !range !15
+  %250 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %248, i1 true)
   %251 = lshr i64 %250, 3
   %252 = getelementptr inbounds i8, ptr %.040.i1679, i64 %251
   %253 = ptrtoint ptr %252 to i64
@@ -4539,14 +4539,14 @@ ZSTD_safecopyLiterals.exit1702:                   ; preds = %ZSTD_count.exit1684
   %300 = icmp ule ptr %299, %8
   %301 = icmp ne i32 %.515681745, 0
   %302 = and i1 %301, %300
-  br i1 %302, label %.lr.ph1748, label %.critedge13, !llvm.loop !24
+  br i1 %302, label %.lr.ph1748, label %.critedge13, !llvm.loop !22
 
 .critedge13:                                      ; preds = %294, %.lr.ph1748, %229
   %.61575.lcssa = phi i32 [ %.31572, %229 ], [ %.615751744, %.lr.ph1748 ], [ %.515681745, %294 ]
   %.51568.lcssa = phi i32 [ %.21565, %229 ], [ %.515681745, %.lr.ph1748 ], [ %.615751744, %294 ]
   %.4.lcssa = phi ptr [ %226, %229 ], [ %.41746, %.lr.ph1748 ], [ %299, %294 ]
   %303 = icmp ult ptr %.4.lcssa, %8
-  br i1 %303, label %.lr.ph, label %.outer._crit_edge.loopexit1768, !llvm.loop !18
+  br i1 %303, label %.lr.ph, label %.outer._crit_edge.loopexit1768, !llvm.loop !17
 
 .outer._crit_edge.loopexit1768:                   ; preds = %.critedge13
   %.pre1800 = ptrtoint ptr %.4.lcssa to i64
@@ -4729,7 +4729,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_dictMatchState(ptr nocapture no
   %110 = zext i32 %109 to i64
   %111 = getelementptr inbounds i32, ptr %95, i64 %110
   %112 = load i32, ptr %111, align 4
-  %113 = trunc i64 %indvars.iv11.i.i to i32
+  %113 = trunc nuw i64 %indvars.iv11.i.i to i32
   %114 = and i32 %113, %99
   %115 = shl nuw i32 %114, 1
   %116 = zext i32 %115 to i64
@@ -4740,7 +4740,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_dictMatchState(ptr nocapture no
   store i32 1, ptr %118, align 4
   %indvars.iv.next12.i.i = add nuw nsw i64 %indvars.iv11.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next12.i.i, %106
-  br i1 %exitcond.not.i, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit.sink.split, label %.lr.ph.split.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit.sink.split, label %.lr.ph.split.i.i, !llvm.loop !16
 
 119:                                              ; preds = %87
   %120 = load ptr, ptr %11, align 8
@@ -4778,7 +4778,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_dictMatchState(ptr nocapture no
   %141 = lshr i64 %140, %137
   %142 = getelementptr inbounds i32, ptr %126, i64 %141
   %143 = load i32, ptr %142, align 4
-  %144 = trunc i64 %indvars.iv.i.i to i32
+  %144 = trunc nuw i64 %indvars.iv.i.i to i32
   %145 = and i32 %144, %130
   %146 = shl nuw i32 %145, 1
   %147 = zext i32 %146 to i64
@@ -4789,7 +4789,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_dictMatchState(ptr nocapture no
   store i32 1, ptr %149, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i1658 = icmp eq i64 %indvars.iv.next.i.i, %138
-  br i1 %exitcond.not.i1658, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit.sink.split, label %.lr.ph.split.us2.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i1658, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit.sink.split, label %.lr.ph.split.us2.i.i, !llvm.loop !16
 
 150:                                              ; preds = %87
   %151 = load ptr, ptr %11, align 8
@@ -4827,7 +4827,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_dictMatchState(ptr nocapture no
   %172 = lshr i64 %171, %168
   %173 = getelementptr inbounds i32, ptr %157, i64 %172
   %174 = load i32, ptr %173, align 4
-  %175 = trunc i64 %indvars.iv8.i.i to i32
+  %175 = trunc nuw i64 %indvars.iv8.i.i to i32
   %176 = and i32 %175, %161
   %177 = shl nuw i32 %176, 1
   %178 = zext i32 %177 to i64
@@ -4838,7 +4838,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_dictMatchState(ptr nocapture no
   store i32 1, ptr %180, align 4
   %indvars.iv.next9.i.i = add nuw nsw i64 %indvars.iv8.i.i, 1
   %exitcond.not.i1663 = icmp eq i64 %indvars.iv.next9.i.i, %169
-  br i1 %exitcond.not.i1663, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit.sink.split, label %.lr.ph.split.us.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i1663, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit.sink.split, label %.lr.ph.split.us.i.i, !llvm.loop !16
 
 default.unreachable:                              ; preds = %87, %374, %228
   unreachable
@@ -4872,7 +4872,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit:       ; preds = %ZSTD_BtFindBestMatc
   %192 = zext i1 %191 to i32
   store i32 %192, ptr %44, align 4
   %193 = icmp ult ptr %190, %10
-  br i1 %193, label %64, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %193, label %64, label %.outer._crit_edge, !llvm.loop !17
 
 .lr.ph1787:                                       ; preds = %.preheader, %.backedge
   %.115571786 = phi ptr [ %.11596.be, %.backedge ], [ %.015561777, %.preheader ]
@@ -4912,7 +4912,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit:       ; preds = %ZSTD_BtFindBestMatc
 
 217:                                              ; preds = %210
   %218 = trunc i64 %.115881784 to i32
-  %219 = tail call i32 @llvm.ctlz.i32(i32 %218, i1 true), !range !19
+  %219 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %218, i1 true)
   %220 = trunc i64 %.315821785 to i32
   %221 = mul i32 %220, 3
   %222 = add nsw i32 %219, -30
@@ -4972,7 +4972,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit:       ; preds = %ZSTD_BtFindBestMatc
   %251 = zext i32 %250 to i64
   %252 = getelementptr inbounds i32, ptr %236, i64 %251
   %253 = load i32, ptr %252, align 4
-  %254 = trunc i64 %indvars.iv11.i.i1669 to i32
+  %254 = trunc nuw i64 %indvars.iv11.i.i1669 to i32
   %255 = and i32 %254, %240
   %256 = shl nuw i32 %255, 1
   %257 = zext i32 %256 to i64
@@ -4983,7 +4983,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit:       ; preds = %ZSTD_BtFindBestMatc
   store i32 1, ptr %259, align 4
   %indvars.iv.next12.i.i1671 = add nuw nsw i64 %indvars.iv11.i.i1669, 1
   %exitcond.not.i1672 = icmp eq i64 %indvars.iv.next12.i.i1671, %247
-  br i1 %exitcond.not.i1672, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit1673, label %.lr.ph.split.i.i1668, !llvm.loop !17
+  br i1 %exitcond.not.i1672, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit1673, label %.lr.ph.split.i.i1668, !llvm.loop !16
 
 260:                                              ; preds = %228
   %261 = load ptr, ptr %11, align 8
@@ -5021,7 +5021,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit:       ; preds = %ZSTD_BtFindBestMatc
   %282 = lshr i64 %281, %278
   %283 = getelementptr inbounds i32, ptr %267, i64 %282
   %284 = load i32, ptr %283, align 4
-  %285 = trunc i64 %indvars.iv.i.i1679 to i32
+  %285 = trunc nuw i64 %indvars.iv.i.i1679 to i32
   %286 = and i32 %285, %271
   %287 = shl nuw i32 %286, 1
   %288 = zext i32 %287 to i64
@@ -5032,7 +5032,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit:       ; preds = %ZSTD_BtFindBestMatc
   store i32 1, ptr %290, align 4
   %indvars.iv.next.i.i1681 = add nuw nsw i64 %indvars.iv.i.i1679, 1
   %exitcond.not.i1682 = icmp eq i64 %indvars.iv.next.i.i1681, %279
-  br i1 %exitcond.not.i1682, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit1673, label %.lr.ph.split.us2.i.i1678, !llvm.loop !17
+  br i1 %exitcond.not.i1682, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit1673, label %.lr.ph.split.us2.i.i1678, !llvm.loop !16
 
 291:                                              ; preds = %228
   %292 = load ptr, ptr %11, align 8
@@ -5070,7 +5070,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit:       ; preds = %ZSTD_BtFindBestMatc
   %313 = lshr i64 %312, %309
   %314 = getelementptr inbounds i32, ptr %298, i64 %313
   %315 = load i32, ptr %314, align 4
-  %316 = trunc i64 %indvars.iv8.i.i1689 to i32
+  %316 = trunc nuw i64 %indvars.iv8.i.i1689 to i32
   %317 = and i32 %316, %302
   %318 = shl nuw i32 %317, 1
   %319 = zext i32 %318 to i64
@@ -5081,11 +5081,11 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit:       ; preds = %ZSTD_BtFindBestMatc
   store i32 1, ptr %321, align 4
   %indvars.iv.next9.i.i1691 = add nuw nsw i64 %indvars.iv8.i.i1689, 1
   %exitcond.not.i1692 = icmp eq i64 %indvars.iv.next9.i.i1691, %310
-  br i1 %exitcond.not.i1692, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit1673, label %.lr.ph.split.us.i.i1688, !llvm.loop !17
+  br i1 %exitcond.not.i1692, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit1673, label %.lr.ph.split.us.i.i1688, !llvm.loop !16
 
 ZSTD_BtFindBestMatch_dictMatchState_4.exit1673.thread: ; preds = %229, %260, %291
   %322 = trunc i64 %.31590 to i32
-  %323 = tail call i32 @llvm.ctlz.i32(i32 %322, i1 true), !range !19
+  %323 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %322, i1 true)
   br label %340
 
 ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i1688, %.lr.ph.split.us2.i.i1678, %.lr.ph.split.i.i1668, %297, %266, %235
@@ -5093,14 +5093,14 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i
   store i32 %.sink1904, ptr %47, align 4
   %324 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %194, ptr noundef %9, ptr noundef nonnull %7, i32 noundef %spec.select1746, i32 noundef 2)
   %325 = trunc i64 %.31590 to i32
-  %326 = tail call i32 @llvm.ctlz.i32(i32 %325, i1 true), !range !19
+  %326 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %325, i1 true)
   %327 = icmp ugt i64 %324, 3
   br i1 %327, label %328, label %340
 
 328:                                              ; preds = %ZSTD_BtFindBestMatch_dictMatchState_4.exit1673
   %329 = load i64, ptr %7, align 8
   %330 = trunc i64 %329 to i32
-  %331 = tail call i32 @llvm.ctlz.i32(i32 %330, i1 true), !range !19
+  %331 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %330, i1 true)
   %332 = xor i32 %331, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %333 = shl i32 %.51584.tr, 2
@@ -5117,7 +5117,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i
   %.11588.be = phi i64 [ %329, %328 ], [ %473, %470 ]
   %.31582.be = phi i64 [ %324, %328 ], [ %468, %470 ]
   %339 = icmp ult ptr %.11596.be, %10
-  br i1 %339, label %.lr.ph1787, label %._crit_edge1788, !llvm.loop !20
+  br i1 %339, label %.lr.ph1787, label %._crit_edge1788, !llvm.loop !18
 
 340:                                              ; preds = %ZSTD_BtFindBestMatch_dictMatchState_4.exit1673.thread, %ZSTD_BtFindBestMatch_dictMatchState_4.exit1673, %328
   %341 = phi i32 [ %323, %ZSTD_BtFindBestMatch_dictMatchState_4.exit1673.thread ], [ %326, %ZSTD_BtFindBestMatch_dictMatchState_4.exit1673 ], [ %326, %328 ]
@@ -5216,7 +5216,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i
   %397 = zext i32 %396 to i64
   %398 = getelementptr inbounds i32, ptr %382, i64 %397
   %399 = load i32, ptr %398, align 4
-  %400 = trunc i64 %indvars.iv11.i.i1699 to i32
+  %400 = trunc nuw i64 %indvars.iv11.i.i1699 to i32
   %401 = and i32 %400, %386
   %402 = shl nuw i32 %401, 1
   %403 = zext i32 %402 to i64
@@ -5227,7 +5227,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i
   store i32 1, ptr %405, align 4
   %indvars.iv.next12.i.i1701 = add nuw nsw i64 %indvars.iv11.i.i1699, 1
   %exitcond.not.i1702 = icmp eq i64 %indvars.iv.next12.i.i1701, %393
-  br i1 %exitcond.not.i1702, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit1703, label %.lr.ph.split.i.i1698, !llvm.loop !17
+  br i1 %exitcond.not.i1702, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit1703, label %.lr.ph.split.i.i1698, !llvm.loop !16
 
 406:                                              ; preds = %374
   %407 = load ptr, ptr %11, align 8
@@ -5265,7 +5265,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i
   %428 = lshr i64 %427, %424
   %429 = getelementptr inbounds i32, ptr %413, i64 %428
   %430 = load i32, ptr %429, align 4
-  %431 = trunc i64 %indvars.iv.i.i1709 to i32
+  %431 = trunc nuw i64 %indvars.iv.i.i1709 to i32
   %432 = and i32 %431, %417
   %433 = shl nuw i32 %432, 1
   %434 = zext i32 %433 to i64
@@ -5276,7 +5276,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i
   store i32 1, ptr %436, align 4
   %indvars.iv.next.i.i1711 = add nuw nsw i64 %indvars.iv.i.i1709, 1
   %exitcond.not.i1712 = icmp eq i64 %indvars.iv.next.i.i1711, %425
-  br i1 %exitcond.not.i1712, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit1703, label %.lr.ph.split.us2.i.i1708, !llvm.loop !17
+  br i1 %exitcond.not.i1712, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit1703, label %.lr.ph.split.us2.i.i1708, !llvm.loop !16
 
 437:                                              ; preds = %374
   %438 = load ptr, ptr %11, align 8
@@ -5314,7 +5314,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i
   %459 = lshr i64 %458, %455
   %460 = getelementptr inbounds i32, ptr %444, i64 %459
   %461 = load i32, ptr %460, align 4
-  %462 = trunc i64 %indvars.iv8.i.i1719 to i32
+  %462 = trunc nuw i64 %indvars.iv8.i.i1719 to i32
   %463 = and i32 %462, %448
   %464 = shl nuw i32 %463, 1
   %465 = zext i32 %464 to i64
@@ -5325,7 +5325,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1673:   ; preds = %.lr.ph.split.us.i.i
   store i32 1, ptr %467, align 4
   %indvars.iv.next9.i.i1721 = add nuw nsw i64 %indvars.iv8.i.i1719, 1
   %exitcond.not.i1722 = icmp eq i64 %indvars.iv.next9.i.i1721, %456
-  br i1 %exitcond.not.i1722, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit1703, label %.lr.ph.split.us.i.i1718, !llvm.loop !17
+  br i1 %exitcond.not.i1722, label %ZSTD_BtFindBestMatch_dictMatchState_4.exit1703, label %.lr.ph.split.us.i.i1718, !llvm.loop !16
 
 ZSTD_BtFindBestMatch_dictMatchState_4.exit1703:   ; preds = %.lr.ph.split.us.i.i1718, %.lr.ph.split.us2.i.i1708, %.lr.ph.split.i.i1698, %443, %412, %381
   %.sink1906 = phi i32 [ %389, %381 ], [ %420, %412 ], [ %451, %443 ], [ %389, %.lr.ph.split.i.i1698 ], [ %420, %.lr.ph.split.us2.i.i1708 ], [ %451, %.lr.ph.split.us.i.i1718 ]
@@ -5336,10 +5336,10 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1703:   ; preds = %.lr.ph.split.us.i.i
 
 470:                                              ; preds = %ZSTD_BtFindBestMatch_dictMatchState_4.exit1703
   %471 = trunc i64 %.51592 to i32
-  %472 = tail call i32 @llvm.ctlz.i32(i32 %471, i1 true), !range !19
+  %472 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %471, i1 true)
   %473 = load i64, ptr %8, align 8
   %474 = trunc i64 %473 to i32
-  %475 = tail call i32 @llvm.ctlz.i32(i32 %474, i1 true), !range !19
+  %475 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %474, i1 true)
   %476 = xor i32 %475, 31
   %.71586.tr = trunc i64 %.71586 to i32
   %477 = shl i32 %.71586.tr, 2
@@ -5359,7 +5359,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1703:   ; preds = %.lr.ph.split.us.i.i
   br i1 %483, label %.critedge, label %._crit_edge1788._crit_edge
 
 ._crit_edge1788._crit_edge:                       ; preds = %._crit_edge1788
-  %.pre1873 = trunc i64 %.61593 to i32
+  %.pre1873 = trunc nuw i64 %.61593 to i32
   br label %505
 
 .critedge:                                        ; preds = %._crit_edge1788
@@ -5394,7 +5394,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1703:   ; preds = %.lr.ph.split.us.i.i
   %501 = icmp ugt ptr %494, %.01558.ph1832
   %502 = icmp ugt ptr %496, %490
   %or.cond = select i1 %501, i1 %502, i1 false
-  br i1 %or.cond, label %.lr.ph1807, label %.critedge7, !llvm.loop !26
+  br i1 %or.cond, label %.lr.ph1807, label %.critedge7, !llvm.loop !23
 
 .critedge7:                                       ; preds = %499, %.lr.ph1807, %.critedge
   %.91604.lcssa = phi ptr [ %.61601, %.critedge ], [ %.916041804, %.lr.ph1807 ], [ %494, %499 ]
@@ -5421,7 +5421,7 @@ ZSTD_BtFindBestMatch_dictMatchState_4.exit1703:   ; preds = %.lr.ph.split.us.i.i
   store <2 x i64> %.01558.val, ptr %509, align 1
   %511 = icmp ugt i64 %507, 16
   %512 = load ptr, ptr %55, align 8
-  %513 = getelementptr inbounds i8, ptr %512, i64 %507
+  %513 = getelementptr i8, ptr %512, i64 %507
   br i1 %511, label %514, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %510
@@ -5453,7 +5453,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %510
   store <2 x i64> %.val1652, ptr %521, align 1
   %523 = getelementptr inbounds i8, ptr %.11547, i64 32
   %524 = icmp ult ptr %523, %513
-  br i1 %524, label %520, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %524, label %520, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 525:                                              ; preds = %505
   %526 = ptrtoint ptr %508 to i64
@@ -5484,7 +5484,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %510
   store <2 x i64> %.val.i, ptr %534, align 1
   %536 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %537 = icmp ult ptr %536, %529
-  br i1 %537, label %533, label %.loopexit.i, !llvm.loop !22
+  br i1 %537, label %533, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %533, %527, %525
   %.047.i = phi ptr [ %529, %527 ], [ %509, %525 ], [ %529, %533 ]
@@ -5506,7 +5506,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %510
   %542 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %541, ptr %.14853.i, align 1
   %exitcond.not.i1724 = icmp eq ptr %540, %scevgep.i
-  br i1 %exitcond.not.i1724, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i1724, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %520, %.lr.ph.i, %.loopexit.i, %514
   %543 = load ptr, ptr %55, align 8
@@ -5614,7 +5614,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %520, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %600
 
 600:                                              ; preds = %598
-  %601 = tail call i64 @llvm.cttz.i64(i64 %599, i1 true), !range !15
+  %601 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %599, i1 true)
   %602 = lshr i64 %601, 3
   br label %ZSTD_count.exit.i
 
@@ -5631,10 +5631,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %520, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %605 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %605, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %606, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %606, !llvm.loop !15
 
 606:                                              ; preds = %604
-  %607 = tail call i64 @llvm.cttz.i64(i64 %605, i1 true), !range !15
+  %607 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %605, i1 true)
   %608 = lshr i64 %607, 3
   %609 = getelementptr inbounds i8, ptr %.040.i.i, i64 %608
   %610 = ptrtoint ptr %609 to i64
@@ -5718,7 +5718,7 @@ ZSTD_count.exit.i:                                ; preds = %634, %606, %600
   br i1 %.not.i39.i, label %.preheader.i40.i, label %644
 
 644:                                              ; preds = %642
-  %645 = tail call i64 @llvm.cttz.i64(i64 %643, i1 true), !range !15
+  %645 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %643, i1 true)
   %646 = lshr i64 %645, 3
   br label %ZSTD_count.exit48.i
 
@@ -5735,10 +5735,10 @@ ZSTD_count.exit.i:                                ; preds = %634, %606, %600
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %649 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %649, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %650, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %650, !llvm.loop !15
 
 650:                                              ; preds = %648
-  %651 = tail call i64 @llvm.cttz.i64(i64 %649, i1 true), !range !15
+  %651 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %649, i1 true)
   %652 = lshr i64 %651, 3
   %653 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %652
   %654 = ptrtoint ptr %653 to i64
@@ -5849,14 +5849,14 @@ ZSTD_safecopyLiterals.exit1745:                   ; preds = %ZSTD_count_2segment
   store ptr %700, ptr %58, align 8
   %701 = getelementptr inbounds i8, ptr %.21816, i64 %681
   %.not1641 = icmp ugt ptr %701, %10
-  br i1 %.not1641, label %.critedge13, label %.lr.ph1818, !llvm.loop !27
+  br i1 %.not1641, label %.critedge13, label %.lr.ph1818, !llvm.loop !24
 
 .critedge13:                                      ; preds = %696, %585, %.lr.ph1818, %575
   %.41573.lcssa = phi i32 [ %.31572, %575 ], [ %.415731814, %.lr.ph1818 ], [ %.415731814, %585 ], [ %.315661815, %696 ]
   %.31566.lcssa = phi i32 [ %.21565, %575 ], [ %.315661815, %.lr.ph1818 ], [ %.315661815, %585 ], [ %.415731814, %696 ]
   %.2.lcssa = phi ptr [ %572, %575 ], [ %.21816, %.lr.ph1818 ], [ %.21816, %585 ], [ %701, %696 ]
   %702 = icmp ult ptr %.2.lcssa, %10
-  br i1 %702, label %.lr.ph, label %.outer._crit_edge.loopexit1843, !llvm.loop !18
+  br i1 %702, label %.lr.ph, label %.outer._crit_edge.loopexit1843, !llvm.loop !17
 
 .outer._crit_edge.loopexit1843:                   ; preds = %.critedge13
   %.pre1872 = ptrtoint ptr %.2.lcssa to i64
@@ -5990,15 +5990,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dictMatchState(ptr nocapture noun
   ]
 
 83:                                               ; preds = %82
-  %84 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr noundef %0, ptr noundef %.015561704, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %84 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr noundef %0, ptr noundef %.015561704, ptr noundef %9, ptr noundef nonnull %6)
   br label %89
 
 85:                                               ; preds = %82
-  %86 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr noundef %0, ptr noundef %.015561704, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %86 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr noundef %0, ptr noundef %.015561704, ptr noundef %9, ptr noundef nonnull %6)
   br label %89
 
 87:                                               ; preds = %82
-  %88 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %0, ptr noundef %.015561704, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %88 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %0, ptr noundef %.015561704, ptr noundef %9, ptr noundef nonnull %6)
   br label %89
 
 default.unreachable:                              ; preds = %82, %192, %136
@@ -6027,7 +6027,7 @@ default.unreachable:                              ; preds = %82, %192, %136
   %100 = zext i1 %99 to i32
   store i32 %100, ptr %44, align 4
   %101 = icmp ult ptr %98, %10
-  br i1 %101, label %59, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %101, label %59, label %.outer._crit_edge, !llvm.loop !17
 
 .lr.ph1714:                                       ; preds = %.preheader, %.backedge
   %.115571713 = phi ptr [ %.11596.be, %.backedge ], [ %.015561704, %.preheader ]
@@ -6067,7 +6067,7 @@ default.unreachable:                              ; preds = %82, %192, %136
 
 125:                                              ; preds = %118
   %126 = trunc i64 %.115881711 to i32
-  %127 = tail call i32 @llvm.ctlz.i32(i32 %126, i1 true), !range !19
+  %127 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %126, i1 true)
   %128 = trunc i64 %.315821712 to i32
   %129 = mul i32 %128, 3
   %130 = add nsw i32 %127, -30
@@ -6092,28 +6092,28 @@ default.unreachable:                              ; preds = %82, %192, %136
   ]
 
 137:                                              ; preds = %136
-  %138 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr noundef %0, ptr noundef nonnull %102, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %138 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr noundef %0, ptr noundef nonnull %102, ptr noundef %9, ptr noundef nonnull %7)
   br label %143
 
 139:                                              ; preds = %136
-  %140 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr noundef %0, ptr noundef nonnull %102, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %140 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr noundef %0, ptr noundef nonnull %102, ptr noundef %9, ptr noundef nonnull %7)
   br label %143
 
 141:                                              ; preds = %136
-  %142 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %0, ptr noundef nonnull %102, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %142 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %0, ptr noundef nonnull %102, ptr noundef %9, ptr noundef nonnull %7)
   br label %143
 
 143:                                              ; preds = %141, %139, %137
   %.01549 = phi i64 [ %142, %141 ], [ %140, %139 ], [ %138, %137 ]
   %144 = trunc i64 %.31590 to i32
-  %145 = tail call i32 @llvm.ctlz.i32(i32 %144, i1 true), !range !19
+  %145 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %144, i1 true)
   %146 = icmp ugt i64 %.01549, 3
   br i1 %146, label %147, label %159
 
 147:                                              ; preds = %143
   %148 = load i64, ptr %7, align 8
   %149 = trunc i64 %148 to i32
-  %150 = tail call i32 @llvm.ctlz.i32(i32 %149, i1 true), !range !19
+  %150 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %149, i1 true)
   %151 = xor i32 %150, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %152 = shl i32 %.51584.tr, 2
@@ -6130,7 +6130,7 @@ default.unreachable:                              ; preds = %82, %192, %136
   %.11588.be = phi i64 [ %148, %147 ], [ %204, %201 ]
   %.31582.be = phi i64 [ %.01549, %147 ], [ %.01550, %201 ]
   %158 = icmp ult ptr %.11596.be, %10
-  br i1 %158, label %.lr.ph1714, label %._crit_edge1715, !llvm.loop !20
+  br i1 %158, label %.lr.ph1714, label %._crit_edge1715, !llvm.loop !18
 
 159:                                              ; preds = %143, %147
   %160 = icmp ult ptr %102, %10
@@ -6193,15 +6193,15 @@ default.unreachable:                              ; preds = %82, %192, %136
   ]
 
 193:                                              ; preds = %192
-  %194 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr noundef %0, ptr noundef nonnull %162, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %194 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr noundef %0, ptr noundef nonnull %162, ptr noundef %9, ptr noundef nonnull %8)
   br label %199
 
 195:                                              ; preds = %192
-  %196 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr noundef %0, ptr noundef nonnull %162, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %196 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr noundef %0, ptr noundef nonnull %162, ptr noundef %9, ptr noundef nonnull %8)
   br label %199
 
 197:                                              ; preds = %192
-  %198 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %0, ptr noundef nonnull %162, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %198 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %0, ptr noundef nonnull %162, ptr noundef %9, ptr noundef nonnull %8)
   br label %199
 
 199:                                              ; preds = %197, %195, %193
@@ -6211,10 +6211,10 @@ default.unreachable:                              ; preds = %82, %192, %136
 
 201:                                              ; preds = %199
   %202 = trunc i64 %.51592 to i32
-  %203 = tail call i32 @llvm.ctlz.i32(i32 %202, i1 true), !range !19
+  %203 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %202, i1 true)
   %204 = load i64, ptr %8, align 8
   %205 = trunc i64 %204 to i32
-  %206 = tail call i32 @llvm.ctlz.i32(i32 %205, i1 true), !range !19
+  %206 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %205, i1 true)
   %207 = xor i32 %206, 31
   %.71586.tr = trunc i64 %.71586 to i32
   %208 = shl i32 %.71586.tr, 2
@@ -6234,7 +6234,7 @@ default.unreachable:                              ; preds = %82, %192, %136
   br i1 %214, label %.critedge, label %._crit_edge1715._crit_edge
 
 ._crit_edge1715._crit_edge:                       ; preds = %._crit_edge1715
-  %.pre1801 = trunc i64 %.61593 to i32
+  %.pre1801 = trunc nuw i64 %.61593 to i32
   br label %236
 
 .critedge:                                        ; preds = %._crit_edge1715
@@ -6269,7 +6269,7 @@ default.unreachable:                              ; preds = %82, %192, %136
   %232 = icmp ugt ptr %225, %.01558.ph1760
   %233 = icmp ugt ptr %227, %221
   %or.cond = select i1 %232, i1 %233, i1 false
-  br i1 %or.cond, label %.lr.ph1735, label %.critedge7, !llvm.loop !26
+  br i1 %or.cond, label %.lr.ph1735, label %.critedge7, !llvm.loop !23
 
 .critedge7:                                       ; preds = %230, %.lr.ph1735, %.critedge
   %.91604.lcssa = phi ptr [ %.61601, %.critedge ], [ %.916041732, %.lr.ph1735 ], [ %225, %230 ]
@@ -6296,7 +6296,7 @@ default.unreachable:                              ; preds = %82, %192, %136
   store <2 x i64> %.01558.val, ptr %240, align 1
   %242 = icmp ugt i64 %238, 16
   %243 = load ptr, ptr %50, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 %238
+  %244 = getelementptr i8, ptr %243, i64 %238
   br i1 %242, label %245, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %241
@@ -6328,7 +6328,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %241
   store <2 x i64> %.val1652, ptr %252, align 1
   %254 = getelementptr inbounds i8, ptr %.11547, i64 32
   %255 = icmp ult ptr %254, %244
-  br i1 %255, label %251, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %255, label %251, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 256:                                              ; preds = %236
   %257 = ptrtoint ptr %239 to i64
@@ -6359,7 +6359,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %241
   store <2 x i64> %.val.i, ptr %265, align 1
   %267 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %268 = icmp ult ptr %267, %260
-  br i1 %268, label %264, label %.loopexit.i, !llvm.loop !22
+  br i1 %268, label %264, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %264, %258, %256
   %.047.i = phi ptr [ %260, %258 ], [ %240, %256 ], [ %260, %264 ]
@@ -6381,7 +6381,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %241
   %273 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %272, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %271, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %251, %.lr.ph.i, %.loopexit.i, %245
   %274 = load ptr, ptr %50, align 8
@@ -6489,7 +6489,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %251, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %331
 
 331:                                              ; preds = %329
-  %332 = tail call i64 @llvm.cttz.i64(i64 %330, i1 true), !range !15
+  %332 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %330, i1 true)
   %333 = lshr i64 %332, 3
   br label %ZSTD_count.exit.i
 
@@ -6506,10 +6506,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %251, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %336 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %336, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %337, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %337, !llvm.loop !15
 
 337:                                              ; preds = %335
-  %338 = tail call i64 @llvm.cttz.i64(i64 %336, i1 true), !range !15
+  %338 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %336, i1 true)
   %339 = lshr i64 %338, 3
   %340 = getelementptr inbounds i8, ptr %.040.i.i, i64 %339
   %341 = ptrtoint ptr %340 to i64
@@ -6593,7 +6593,7 @@ ZSTD_count.exit.i:                                ; preds = %365, %337, %331
   br i1 %.not.i39.i, label %.preheader.i40.i, label %375
 
 375:                                              ; preds = %373
-  %376 = tail call i64 @llvm.cttz.i64(i64 %374, i1 true), !range !15
+  %376 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %374, i1 true)
   %377 = lshr i64 %376, 3
   br label %ZSTD_count.exit48.i
 
@@ -6610,10 +6610,10 @@ ZSTD_count.exit.i:                                ; preds = %365, %337, %331
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %380 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %380, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %381, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %381, !llvm.loop !15
 
 381:                                              ; preds = %379
-  %382 = tail call i64 @llvm.cttz.i64(i64 %380, i1 true), !range !15
+  %382 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %380, i1 true)
   %383 = lshr i64 %382, 3
   %384 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %383
   %385 = ptrtoint ptr %384 to i64
@@ -6724,14 +6724,14 @@ ZSTD_safecopyLiterals.exit1672:                   ; preds = %ZSTD_count_2segment
   store ptr %431, ptr %53, align 8
   %432 = getelementptr inbounds i8, ptr %.21744, i64 %412
   %.not1641 = icmp ugt ptr %432, %10
-  br i1 %.not1641, label %.critedge13, label %.lr.ph1746, !llvm.loop !27
+  br i1 %.not1641, label %.critedge13, label %.lr.ph1746, !llvm.loop !24
 
 .critedge13:                                      ; preds = %427, %316, %.lr.ph1746, %306
   %.41573.lcssa = phi i32 [ %.31572, %306 ], [ %.415731742, %.lr.ph1746 ], [ %.415731742, %316 ], [ %.315661743, %427 ]
   %.31566.lcssa = phi i32 [ %.21565, %306 ], [ %.315661743, %.lr.ph1746 ], [ %.315661743, %316 ], [ %.415731742, %427 ]
   %.2.lcssa = phi ptr [ %303, %306 ], [ %.21744, %.lr.ph1746 ], [ %.21744, %316 ], [ %432, %427 ]
   %433 = icmp ult ptr %.2.lcssa, %10
-  br i1 %433, label %.lr.ph, label %.outer._crit_edge.loopexit1771, !llvm.loop !18
+  br i1 %433, label %.lr.ph, label %.outer._crit_edge.loopexit1771, !llvm.loop !17
 
 .outer._crit_edge.loopexit1771:                   ; preds = %.critedge13
   %.pre1800 = ptrtoint ptr %.2.lcssa to i64
@@ -6864,15 +6864,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dictMatchState(ptr nocapture nound
   ]
 
 82:                                               ; preds = %81
-  %83 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr noundef %0, ptr noundef %.015561697, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %83 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr noundef %0, ptr noundef %.015561697, ptr noundef %8, ptr noundef nonnull %6)
   br label %88
 
 84:                                               ; preds = %81
-  %85 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr noundef %0, ptr noundef %.015561697, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %85 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr noundef %0, ptr noundef %.015561697, ptr noundef %8, ptr noundef nonnull %6)
   br label %88
 
 86:                                               ; preds = %81
-  %87 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %0, ptr noundef %.015561697, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %87 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %0, ptr noundef %.015561697, ptr noundef %8, ptr noundef nonnull %6)
   br label %88
 
 default.unreachable:                              ; preds = %81, %137
@@ -6900,7 +6900,7 @@ default.unreachable:                              ; preds = %81, %137
   %98 = zext i1 %97 to i32
   store i32 %98, ptr %43, align 4
   %99 = icmp ult ptr %96, %9
-  br i1 %99, label %58, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %99, label %58, label %.outer._crit_edge, !llvm.loop !17
 
 100:                                              ; preds = %.preheader, %146
   %.11596 = phi ptr [ %103, %146 ], [ %.01595.le, %.preheader ]
@@ -6944,7 +6944,7 @@ default.unreachable:                              ; preds = %81, %137
 
 126:                                              ; preds = %119
   %127 = trunc i64 %.11588 to i32
-  %128 = tail call i32 @llvm.ctlz.i32(i32 %127, i1 true), !range !19
+  %128 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %127, i1 true)
   %129 = trunc i64 %.31582 to i32
   %130 = mul i32 %129, 3
   %131 = add nsw i32 %128, -30
@@ -6969,15 +6969,15 @@ default.unreachable:                              ; preds = %81, %137
   ]
 
 138:                                              ; preds = %137
-  %139 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr noundef %0, ptr noundef nonnull %103, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %139 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr noundef %0, ptr noundef nonnull %103, ptr noundef %8, ptr noundef nonnull %7)
   br label %144
 
 140:                                              ; preds = %137
-  %141 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr noundef %0, ptr noundef nonnull %103, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %141 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr noundef %0, ptr noundef nonnull %103, ptr noundef %8, ptr noundef nonnull %7)
   br label %144
 
 142:                                              ; preds = %137
-  %143 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %0, ptr noundef nonnull %103, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %143 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %0, ptr noundef nonnull %103, ptr noundef %8, ptr noundef nonnull %7)
   br label %144
 
 144:                                              ; preds = %142, %140, %138
@@ -6987,10 +6987,10 @@ default.unreachable:                              ; preds = %81, %137
 
 146:                                              ; preds = %144
   %147 = trunc i64 %.31590 to i32
-  %148 = tail call i32 @llvm.ctlz.i32(i32 %147, i1 true), !range !19
+  %148 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %147, i1 true)
   %149 = load i64, ptr %7, align 8
   %150 = trunc i64 %149 to i32
-  %151 = tail call i32 @llvm.ctlz.i32(i32 %150, i1 true), !range !19
+  %151 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %150, i1 true)
   %152 = xor i32 %151, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %153 = shl i32 %.51584.tr, 2
@@ -7000,7 +7000,7 @@ default.unreachable:                              ; preds = %81, %137
   %156 = shl i32 %.01549.tr, 2
   %157 = sub i32 %156, %152
   %158 = icmp sgt i32 %157, %155
-  br i1 %158, label %100, label %159, !llvm.loop !20
+  br i1 %158, label %100, label %159, !llvm.loop !18
 
 159:                                              ; preds = %144, %146, %100
   %.61601 = phi ptr [ %.11596, %100 ], [ %.31598, %146 ], [ %.31598, %144 ]
@@ -7010,7 +7010,7 @@ default.unreachable:                              ; preds = %81, %137
   br i1 %160, label %.critedge, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %159
-  %.pre1769 = trunc i64 %.61593 to i32
+  %.pre1769 = trunc nuw i64 %.61593 to i32
   br label %182
 
 .critedge:                                        ; preds = %159
@@ -7045,7 +7045,7 @@ default.unreachable:                              ; preds = %81, %137
   %178 = icmp ugt ptr %171, %.01558.ph1732
   %179 = icmp ugt ptr %173, %167
   %or.cond = select i1 %178, i1 %179, i1 false
-  br i1 %or.cond, label %.lr.ph1707, label %.critedge7, !llvm.loop !26
+  br i1 %or.cond, label %.lr.ph1707, label %.critedge7, !llvm.loop !23
 
 .critedge7:                                       ; preds = %176, %.lr.ph1707, %.critedge
   %.91604.lcssa = phi ptr [ %.61601, %.critedge ], [ %.916041704, %.lr.ph1707 ], [ %171, %176 ]
@@ -7072,7 +7072,7 @@ default.unreachable:                              ; preds = %81, %137
   store <2 x i64> %.01558.val, ptr %186, align 1
   %188 = icmp ugt i64 %184, 16
   %189 = load ptr, ptr %49, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 %184
+  %190 = getelementptr i8, ptr %189, i64 %184
   br i1 %188, label %191, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %187
@@ -7104,7 +7104,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %187
   store <2 x i64> %.val1649, ptr %198, align 1
   %200 = getelementptr inbounds i8, ptr %.11547, i64 32
   %201 = icmp ult ptr %200, %190
-  br i1 %201, label %197, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %201, label %197, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 202:                                              ; preds = %182
   %203 = ptrtoint ptr %185 to i64
@@ -7135,7 +7135,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %187
   store <2 x i64> %.val.i, ptr %211, align 1
   %213 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %214 = icmp ult ptr %213, %206
-  br i1 %214, label %210, label %.loopexit.i, !llvm.loop !22
+  br i1 %214, label %210, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %210, %204, %202
   %.047.i = phi ptr [ %206, %204 ], [ %186, %202 ], [ %206, %210 ]
@@ -7157,7 +7157,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %187
   %219 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %218, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %217, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %197, %.lr.ph.i, %.loopexit.i, %191
   %220 = load ptr, ptr %49, align 8
@@ -7265,7 +7265,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %197, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %277
 
 277:                                              ; preds = %275
-  %278 = tail call i64 @llvm.cttz.i64(i64 %276, i1 true), !range !15
+  %278 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %276, i1 true)
   %279 = lshr i64 %278, 3
   br label %ZSTD_count.exit.i
 
@@ -7282,10 +7282,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %197, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %282 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %282, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %283, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %283, !llvm.loop !15
 
 283:                                              ; preds = %281
-  %284 = tail call i64 @llvm.cttz.i64(i64 %282, i1 true), !range !15
+  %284 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %282, i1 true)
   %285 = lshr i64 %284, 3
   %286 = getelementptr inbounds i8, ptr %.040.i.i, i64 %285
   %287 = ptrtoint ptr %286 to i64
@@ -7369,7 +7369,7 @@ ZSTD_count.exit.i:                                ; preds = %311, %283, %277
   br i1 %.not.i39.i, label %.preheader.i40.i, label %321
 
 321:                                              ; preds = %319
-  %322 = tail call i64 @llvm.cttz.i64(i64 %320, i1 true), !range !15
+  %322 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %320, i1 true)
   %323 = lshr i64 %322, 3
   br label %ZSTD_count.exit48.i
 
@@ -7386,10 +7386,10 @@ ZSTD_count.exit.i:                                ; preds = %311, %283, %277
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %326 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %326, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %327, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %327, !llvm.loop !15
 
 327:                                              ; preds = %325
-  %328 = tail call i64 @llvm.cttz.i64(i64 %326, i1 true), !range !15
+  %328 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %326, i1 true)
   %329 = lshr i64 %328, 3
   %330 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %329
   %331 = ptrtoint ptr %330 to i64
@@ -7500,14 +7500,14 @@ ZSTD_safecopyLiterals.exit1669:                   ; preds = %ZSTD_count_2segment
   store ptr %377, ptr %52, align 8
   %378 = getelementptr inbounds i8, ptr %.21716, i64 %358
   %.not1640 = icmp ugt ptr %378, %9
-  br i1 %.not1640, label %.critedge13, label %.lr.ph1718, !llvm.loop !27
+  br i1 %.not1640, label %.critedge13, label %.lr.ph1718, !llvm.loop !24
 
 .critedge13:                                      ; preds = %373, %262, %.lr.ph1718, %252
   %.41573.lcssa = phi i32 [ %.31572, %252 ], [ %.415731714, %.lr.ph1718 ], [ %.415731714, %262 ], [ %.315661715, %373 ]
   %.31566.lcssa = phi i32 [ %.21565, %252 ], [ %.315661715, %.lr.ph1718 ], [ %.315661715, %262 ], [ %.415731714, %373 ]
   %.2.lcssa = phi ptr [ %249, %252 ], [ %.21716, %.lr.ph1718 ], [ %.21716, %262 ], [ %378, %373 ]
   %379 = icmp ult ptr %.2.lcssa, %9
-  br i1 %379, label %.lr.ph, label %.outer._crit_edge.loopexit1742, !llvm.loop !18
+  br i1 %379, label %.lr.ph, label %.outer._crit_edge.loopexit1742, !llvm.loop !17
 
 .outer._crit_edge.loopexit1742:                   ; preds = %.critedge13
   %.pre1768 = ptrtoint ptr %.2.lcssa to i64
@@ -7639,15 +7639,15 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dictMatchState(ptr nocapture nou
   ]
 
 82:                                               ; preds = %81
-  %83 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr noundef %0, ptr noundef %.015561703, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %83 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr noundef %0, ptr noundef %.015561703, ptr noundef %7, ptr noundef nonnull %6)
   br label %88
 
 84:                                               ; preds = %81
-  %85 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr noundef %0, ptr noundef %.015561703, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %85 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr noundef %0, ptr noundef %.015561703, ptr noundef %7, ptr noundef nonnull %6)
   br label %88
 
 86:                                               ; preds = %81
-  %87 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %0, ptr noundef %.015561703, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %87 = call fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr noundef %0, ptr noundef %.015561703, ptr noundef %7, ptr noundef nonnull %6)
   br label %88
 
 default.unreachable:                              ; preds = %81
@@ -7668,7 +7668,7 @@ default.unreachable:                              ; preds = %81
   %97 = zext i1 %96 to i32
   store i32 %97, ptr %42, align 4
   %98 = icmp ult ptr %95, %8
-  br i1 %98, label %57, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %98, label %57, label %.outer._crit_edge, !llvm.loop !17
 
 99:                                               ; preds = %88
   %100 = icmp ugt i64 %89, 3
@@ -7705,7 +7705,7 @@ default.unreachable:                              ; preds = %81
   %118 = icmp ugt ptr %111, %.01558.ph1738
   %119 = icmp ugt ptr %113, %107
   %or.cond = select i1 %118, i1 %119, i1 false
-  br i1 %or.cond, label %.lr.ph1713, label %.critedge7, !llvm.loop !26
+  br i1 %or.cond, label %.lr.ph1713, label %.critedge7, !llvm.loop !23
 
 .critedge7:                                       ; preds = %116, %.lr.ph1713, %.critedge
   %.91604.lcssa = phi ptr [ %.015561703, %.critedge ], [ %.916041710, %.lr.ph1713 ], [ %111, %116 ]
@@ -7733,7 +7733,7 @@ default.unreachable:                              ; preds = %81
   store <2 x i64> %.01558.val, ptr %127, align 1
   %129 = icmp ugt i64 %124, 16
   %130 = load ptr, ptr %48, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 %124
+  %131 = getelementptr i8, ptr %130, i64 %124
   br i1 %129, label %132, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %128
@@ -7765,7 +7765,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %128
   store <2 x i64> %.val1647, ptr %139, align 1
   %141 = getelementptr inbounds i8, ptr %.11547, i64 32
   %142 = icmp ult ptr %141, %131
-  br i1 %142, label %138, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %142, label %138, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 143:                                              ; preds = %122
   %144 = ptrtoint ptr %126 to i64
@@ -7796,7 +7796,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %128
   store <2 x i64> %.val.i, ptr %152, align 1
   %154 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %155 = icmp ult ptr %154, %147
-  br i1 %155, label %151, label %.loopexit.i, !llvm.loop !22
+  br i1 %155, label %151, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %151, %145, %143
   %.047.i = phi ptr [ %147, %145 ], [ %127, %143 ], [ %147, %151 ]
@@ -7818,7 +7818,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %128
   %160 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %159, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %158, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %138, %.lr.ph.i, %.loopexit.i, %132
   %161 = load ptr, ptr %48, align 8
@@ -7926,7 +7926,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %138, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %218
 
 218:                                              ; preds = %216
-  %219 = tail call i64 @llvm.cttz.i64(i64 %217, i1 true), !range !15
+  %219 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %217, i1 true)
   %220 = lshr i64 %219, 3
   br label %ZSTD_count.exit.i
 
@@ -7943,10 +7943,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %138, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %223 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %223, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %224, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %224, !llvm.loop !15
 
 224:                                              ; preds = %222
-  %225 = tail call i64 @llvm.cttz.i64(i64 %223, i1 true), !range !15
+  %225 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %223, i1 true)
   %226 = lshr i64 %225, 3
   %227 = getelementptr inbounds i8, ptr %.040.i.i, i64 %226
   %228 = ptrtoint ptr %227 to i64
@@ -8030,7 +8030,7 @@ ZSTD_count.exit.i:                                ; preds = %252, %224, %218
   br i1 %.not.i39.i, label %.preheader.i40.i, label %262
 
 262:                                              ; preds = %260
-  %263 = tail call i64 @llvm.cttz.i64(i64 %261, i1 true), !range !15
+  %263 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %261, i1 true)
   %264 = lshr i64 %263, 3
   br label %ZSTD_count.exit48.i
 
@@ -8047,10 +8047,10 @@ ZSTD_count.exit.i:                                ; preds = %252, %224, %218
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %267 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %267, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %268, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %268, !llvm.loop !15
 
 268:                                              ; preds = %266
-  %269 = tail call i64 @llvm.cttz.i64(i64 %267, i1 true), !range !15
+  %269 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %267, i1 true)
   %270 = lshr i64 %269, 3
   %271 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %270
   %272 = ptrtoint ptr %271 to i64
@@ -8161,14 +8161,14 @@ ZSTD_safecopyLiterals.exit1667:                   ; preds = %ZSTD_count_2segment
   store ptr %318, ptr %51, align 8
   %319 = getelementptr inbounds i8, ptr %.21722, i64 %299
   %.not1640 = icmp ugt ptr %319, %8
-  br i1 %.not1640, label %.critedge13, label %.lr.ph1724, !llvm.loop !27
+  br i1 %.not1640, label %.critedge13, label %.lr.ph1724, !llvm.loop !24
 
 .critedge13:                                      ; preds = %314, %203, %.lr.ph1724, %193
   %.41573.lcssa = phi i32 [ %.31572, %193 ], [ %.415731720, %.lr.ph1724 ], [ %.415731720, %203 ], [ %.315661721, %314 ]
   %.31566.lcssa = phi i32 [ %.21565, %193 ], [ %.315661721, %.lr.ph1724 ], [ %.315661721, %203 ], [ %.415731720, %314 ]
   %.2.lcssa = phi ptr [ %190, %193 ], [ %.21722, %.lr.ph1724 ], [ %.21722, %203 ], [ %319, %314 ]
   %320 = icmp ult ptr %.2.lcssa, %8
-  br i1 %320, label %.lr.ph, label %.outer._crit_edge.loopexit1746, !llvm.loop !18
+  br i1 %320, label %.lr.ph, label %.outer._crit_edge.loopexit1746, !llvm.loop !17
 
 .outer._crit_edge.loopexit1746:                   ; preds = %.critedge13
   %.pre1774 = ptrtoint ptr %.2.lcssa to i64
@@ -8302,11 +8302,11 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch(ptr nocapture
   ]
 
 83:                                               ; preds = %82
-  %84 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr noundef %0, ptr noundef %.015561704, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %84 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr noundef %0, ptr noundef %.015561704, ptr noundef %9, ptr noundef nonnull %6)
   br label %89
 
 85:                                               ; preds = %82
-  %86 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr noundef %0, ptr noundef %.015561704, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %86 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr noundef %0, ptr noundef %.015561704, ptr noundef %9, ptr noundef nonnull %6)
   br label %89
 
 87:                                               ; preds = %82
@@ -8339,7 +8339,7 @@ default.unreachable:                              ; preds = %82, %192, %136
   %100 = zext i1 %99 to i32
   store i32 %100, ptr %44, align 4
   %101 = icmp ult ptr %98, %10
-  br i1 %101, label %59, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %101, label %59, label %.outer._crit_edge, !llvm.loop !17
 
 .lr.ph1714:                                       ; preds = %.preheader, %.backedge
   %.115571713 = phi ptr [ %.11596.be, %.backedge ], [ %.015561704, %.preheader ]
@@ -8379,7 +8379,7 @@ default.unreachable:                              ; preds = %82, %192, %136
 
 125:                                              ; preds = %118
   %126 = trunc i64 %.115881711 to i32
-  %127 = tail call i32 @llvm.ctlz.i32(i32 %126, i1 true), !range !19
+  %127 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %126, i1 true)
   %128 = trunc i64 %.315821712 to i32
   %129 = mul i32 %128, 3
   %130 = add nsw i32 %127, -30
@@ -8404,11 +8404,11 @@ default.unreachable:                              ; preds = %82, %192, %136
   ]
 
 137:                                              ; preds = %136
-  %138 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr noundef %0, ptr noundef nonnull %102, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %138 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr noundef %0, ptr noundef nonnull %102, ptr noundef %9, ptr noundef nonnull %7)
   br label %143
 
 139:                                              ; preds = %136
-  %140 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr noundef %0, ptr noundef nonnull %102, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %140 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr noundef %0, ptr noundef nonnull %102, ptr noundef %9, ptr noundef nonnull %7)
   br label %143
 
 141:                                              ; preds = %136
@@ -8418,14 +8418,14 @@ default.unreachable:                              ; preds = %82, %192, %136
 143:                                              ; preds = %141, %139, %137
   %.01549 = phi i64 [ %142, %141 ], [ %140, %139 ], [ %138, %137 ]
   %144 = trunc i64 %.31590 to i32
-  %145 = tail call i32 @llvm.ctlz.i32(i32 %144, i1 true), !range !19
+  %145 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %144, i1 true)
   %146 = icmp ugt i64 %.01549, 3
   br i1 %146, label %147, label %159
 
 147:                                              ; preds = %143
   %148 = load i64, ptr %7, align 8
   %149 = trunc i64 %148 to i32
-  %150 = tail call i32 @llvm.ctlz.i32(i32 %149, i1 true), !range !19
+  %150 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %149, i1 true)
   %151 = xor i32 %150, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %152 = shl i32 %.51584.tr, 2
@@ -8442,7 +8442,7 @@ default.unreachable:                              ; preds = %82, %192, %136
   %.11588.be = phi i64 [ %148, %147 ], [ %204, %201 ]
   %.31582.be = phi i64 [ %.01549, %147 ], [ %.01550, %201 ]
   %158 = icmp ult ptr %.11596.be, %10
-  br i1 %158, label %.lr.ph1714, label %._crit_edge1715, !llvm.loop !20
+  br i1 %158, label %.lr.ph1714, label %._crit_edge1715, !llvm.loop !18
 
 159:                                              ; preds = %143, %147
   %160 = icmp ult ptr %102, %10
@@ -8505,11 +8505,11 @@ default.unreachable:                              ; preds = %82, %192, %136
   ]
 
 193:                                              ; preds = %192
-  %194 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr noundef %0, ptr noundef nonnull %162, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %194 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr noundef %0, ptr noundef nonnull %162, ptr noundef %9, ptr noundef nonnull %8)
   br label %199
 
 195:                                              ; preds = %192
-  %196 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr noundef %0, ptr noundef nonnull %162, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %196 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr noundef %0, ptr noundef nonnull %162, ptr noundef %9, ptr noundef nonnull %8)
   br label %199
 
 197:                                              ; preds = %192
@@ -8523,10 +8523,10 @@ default.unreachable:                              ; preds = %82, %192, %136
 
 201:                                              ; preds = %199
   %202 = trunc i64 %.51592 to i32
-  %203 = tail call i32 @llvm.ctlz.i32(i32 %202, i1 true), !range !19
+  %203 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %202, i1 true)
   %204 = load i64, ptr %8, align 8
   %205 = trunc i64 %204 to i32
-  %206 = tail call i32 @llvm.ctlz.i32(i32 %205, i1 true), !range !19
+  %206 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %205, i1 true)
   %207 = xor i32 %206, 31
   %.71586.tr = trunc i64 %.71586 to i32
   %208 = shl i32 %.71586.tr, 2
@@ -8546,7 +8546,7 @@ default.unreachable:                              ; preds = %82, %192, %136
   br i1 %214, label %.critedge, label %._crit_edge1715._crit_edge
 
 ._crit_edge1715._crit_edge:                       ; preds = %._crit_edge1715
-  %.pre1801 = trunc i64 %.61593 to i32
+  %.pre1801 = trunc nuw i64 %.61593 to i32
   br label %236
 
 .critedge:                                        ; preds = %._crit_edge1715
@@ -8581,7 +8581,7 @@ default.unreachable:                              ; preds = %82, %192, %136
   %232 = icmp ugt ptr %225, %.01558.ph1760
   %233 = icmp ugt ptr %227, %221
   %or.cond = select i1 %232, i1 %233, i1 false
-  br i1 %or.cond, label %.lr.ph1735, label %.critedge7, !llvm.loop !26
+  br i1 %or.cond, label %.lr.ph1735, label %.critedge7, !llvm.loop !23
 
 .critedge7:                                       ; preds = %230, %.lr.ph1735, %.critedge
   %.91604.lcssa = phi ptr [ %.61601, %.critedge ], [ %.916041732, %.lr.ph1735 ], [ %225, %230 ]
@@ -8608,7 +8608,7 @@ default.unreachable:                              ; preds = %82, %192, %136
   store <2 x i64> %.01558.val, ptr %240, align 1
   %242 = icmp ugt i64 %238, 16
   %243 = load ptr, ptr %50, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 %238
+  %244 = getelementptr i8, ptr %243, i64 %238
   br i1 %242, label %245, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %241
@@ -8640,7 +8640,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %241
   store <2 x i64> %.val1652, ptr %252, align 1
   %254 = getelementptr inbounds i8, ptr %.11547, i64 32
   %255 = icmp ult ptr %254, %244
-  br i1 %255, label %251, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %255, label %251, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 256:                                              ; preds = %236
   %257 = ptrtoint ptr %239 to i64
@@ -8671,7 +8671,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %241
   store <2 x i64> %.val.i, ptr %265, align 1
   %267 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %268 = icmp ult ptr %267, %260
-  br i1 %268, label %264, label %.loopexit.i, !llvm.loop !22
+  br i1 %268, label %264, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %264, %258, %256
   %.047.i = phi ptr [ %260, %258 ], [ %240, %256 ], [ %260, %264 ]
@@ -8693,7 +8693,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %241
   %273 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %272, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %271, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %251, %.lr.ph.i, %.loopexit.i, %245
   %274 = load ptr, ptr %50, align 8
@@ -8801,7 +8801,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %251, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %331
 
 331:                                              ; preds = %329
-  %332 = tail call i64 @llvm.cttz.i64(i64 %330, i1 true), !range !15
+  %332 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %330, i1 true)
   %333 = lshr i64 %332, 3
   br label %ZSTD_count.exit.i
 
@@ -8818,10 +8818,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %251, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %336 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %336, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %337, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %337, !llvm.loop !15
 
 337:                                              ; preds = %335
-  %338 = tail call i64 @llvm.cttz.i64(i64 %336, i1 true), !range !15
+  %338 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %336, i1 true)
   %339 = lshr i64 %338, 3
   %340 = getelementptr inbounds i8, ptr %.040.i.i, i64 %339
   %341 = ptrtoint ptr %340 to i64
@@ -8905,7 +8905,7 @@ ZSTD_count.exit.i:                                ; preds = %365, %337, %331
   br i1 %.not.i39.i, label %.preheader.i40.i, label %375
 
 375:                                              ; preds = %373
-  %376 = tail call i64 @llvm.cttz.i64(i64 %374, i1 true), !range !15
+  %376 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %374, i1 true)
   %377 = lshr i64 %376, 3
   br label %ZSTD_count.exit48.i
 
@@ -8922,10 +8922,10 @@ ZSTD_count.exit.i:                                ; preds = %365, %337, %331
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %380 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %380, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %381, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %381, !llvm.loop !15
 
 381:                                              ; preds = %379
-  %382 = tail call i64 @llvm.cttz.i64(i64 %380, i1 true), !range !15
+  %382 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %380, i1 true)
   %383 = lshr i64 %382, 3
   %384 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %383
   %385 = ptrtoint ptr %384 to i64
@@ -9036,14 +9036,14 @@ ZSTD_safecopyLiterals.exit1672:                   ; preds = %ZSTD_count_2segment
   store ptr %431, ptr %53, align 8
   %432 = getelementptr inbounds i8, ptr %.21744, i64 %412
   %.not1641 = icmp ugt ptr %432, %10
-  br i1 %.not1641, label %.critedge13, label %.lr.ph1746, !llvm.loop !27
+  br i1 %.not1641, label %.critedge13, label %.lr.ph1746, !llvm.loop !24
 
 .critedge13:                                      ; preds = %427, %316, %.lr.ph1746, %306
   %.41573.lcssa = phi i32 [ %.31572, %306 ], [ %.415731742, %.lr.ph1746 ], [ %.415731742, %316 ], [ %.315661743, %427 ]
   %.31566.lcssa = phi i32 [ %.21565, %306 ], [ %.315661743, %.lr.ph1746 ], [ %.315661743, %316 ], [ %.415731742, %427 ]
   %.2.lcssa = phi ptr [ %303, %306 ], [ %.21744, %.lr.ph1746 ], [ %.21744, %316 ], [ %432, %427 ]
   %433 = icmp ult ptr %.2.lcssa, %10
-  br i1 %433, label %.lr.ph, label %.outer._crit_edge.loopexit1771, !llvm.loop !18
+  br i1 %433, label %.lr.ph, label %.outer._crit_edge.loopexit1771, !llvm.loop !17
 
 .outer._crit_edge.loopexit1771:                   ; preds = %.critedge13
   %.pre1800 = ptrtoint ptr %.2.lcssa to i64
@@ -9176,11 +9176,11 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch(ptr nocapture 
   ]
 
 82:                                               ; preds = %81
-  %83 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr noundef %0, ptr noundef %.015561697, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %83 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr noundef %0, ptr noundef %.015561697, ptr noundef %8, ptr noundef nonnull %6)
   br label %88
 
 84:                                               ; preds = %81
-  %85 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr noundef %0, ptr noundef %.015561697, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %85 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr noundef %0, ptr noundef %.015561697, ptr noundef %8, ptr noundef nonnull %6)
   br label %88
 
 86:                                               ; preds = %81
@@ -9212,7 +9212,7 @@ default.unreachable:                              ; preds = %81, %137
   %98 = zext i1 %97 to i32
   store i32 %98, ptr %43, align 4
   %99 = icmp ult ptr %96, %9
-  br i1 %99, label %58, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %99, label %58, label %.outer._crit_edge, !llvm.loop !17
 
 100:                                              ; preds = %.preheader, %146
   %.11596 = phi ptr [ %103, %146 ], [ %.01595.le, %.preheader ]
@@ -9256,7 +9256,7 @@ default.unreachable:                              ; preds = %81, %137
 
 126:                                              ; preds = %119
   %127 = trunc i64 %.11588 to i32
-  %128 = tail call i32 @llvm.ctlz.i32(i32 %127, i1 true), !range !19
+  %128 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %127, i1 true)
   %129 = trunc i64 %.31582 to i32
   %130 = mul i32 %129, 3
   %131 = add nsw i32 %128, -30
@@ -9281,11 +9281,11 @@ default.unreachable:                              ; preds = %81, %137
   ]
 
 138:                                              ; preds = %137
-  %139 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr noundef %0, ptr noundef nonnull %103, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %139 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr noundef %0, ptr noundef nonnull %103, ptr noundef %8, ptr noundef nonnull %7)
   br label %144
 
 140:                                              ; preds = %137
-  %141 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr noundef %0, ptr noundef nonnull %103, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %141 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr noundef %0, ptr noundef nonnull %103, ptr noundef %8, ptr noundef nonnull %7)
   br label %144
 
 142:                                              ; preds = %137
@@ -9299,10 +9299,10 @@ default.unreachable:                              ; preds = %81, %137
 
 146:                                              ; preds = %144
   %147 = trunc i64 %.31590 to i32
-  %148 = tail call i32 @llvm.ctlz.i32(i32 %147, i1 true), !range !19
+  %148 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %147, i1 true)
   %149 = load i64, ptr %7, align 8
   %150 = trunc i64 %149 to i32
-  %151 = tail call i32 @llvm.ctlz.i32(i32 %150, i1 true), !range !19
+  %151 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %150, i1 true)
   %152 = xor i32 %151, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %153 = shl i32 %.51584.tr, 2
@@ -9312,7 +9312,7 @@ default.unreachable:                              ; preds = %81, %137
   %156 = shl i32 %.01549.tr, 2
   %157 = sub i32 %156, %152
   %158 = icmp sgt i32 %157, %155
-  br i1 %158, label %100, label %159, !llvm.loop !20
+  br i1 %158, label %100, label %159, !llvm.loop !18
 
 159:                                              ; preds = %144, %146, %100
   %.61601 = phi ptr [ %.11596, %100 ], [ %.31598, %146 ], [ %.31598, %144 ]
@@ -9322,7 +9322,7 @@ default.unreachable:                              ; preds = %81, %137
   br i1 %160, label %.critedge, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %159
-  %.pre1769 = trunc i64 %.61593 to i32
+  %.pre1769 = trunc nuw i64 %.61593 to i32
   br label %182
 
 .critedge:                                        ; preds = %159
@@ -9357,7 +9357,7 @@ default.unreachable:                              ; preds = %81, %137
   %178 = icmp ugt ptr %171, %.01558.ph1732
   %179 = icmp ugt ptr %173, %167
   %or.cond = select i1 %178, i1 %179, i1 false
-  br i1 %or.cond, label %.lr.ph1707, label %.critedge7, !llvm.loop !26
+  br i1 %or.cond, label %.lr.ph1707, label %.critedge7, !llvm.loop !23
 
 .critedge7:                                       ; preds = %176, %.lr.ph1707, %.critedge
   %.91604.lcssa = phi ptr [ %.61601, %.critedge ], [ %.916041704, %.lr.ph1707 ], [ %171, %176 ]
@@ -9384,7 +9384,7 @@ default.unreachable:                              ; preds = %81, %137
   store <2 x i64> %.01558.val, ptr %186, align 1
   %188 = icmp ugt i64 %184, 16
   %189 = load ptr, ptr %49, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 %184
+  %190 = getelementptr i8, ptr %189, i64 %184
   br i1 %188, label %191, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %187
@@ -9416,7 +9416,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %187
   store <2 x i64> %.val1649, ptr %198, align 1
   %200 = getelementptr inbounds i8, ptr %.11547, i64 32
   %201 = icmp ult ptr %200, %190
-  br i1 %201, label %197, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %201, label %197, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 202:                                              ; preds = %182
   %203 = ptrtoint ptr %185 to i64
@@ -9447,7 +9447,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %187
   store <2 x i64> %.val.i, ptr %211, align 1
   %213 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %214 = icmp ult ptr %213, %206
-  br i1 %214, label %210, label %.loopexit.i, !llvm.loop !22
+  br i1 %214, label %210, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %210, %204, %202
   %.047.i = phi ptr [ %206, %204 ], [ %186, %202 ], [ %206, %210 ]
@@ -9469,7 +9469,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %187
   %219 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %218, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %217, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %197, %.lr.ph.i, %.loopexit.i, %191
   %220 = load ptr, ptr %49, align 8
@@ -9577,7 +9577,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %197, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %277
 
 277:                                              ; preds = %275
-  %278 = tail call i64 @llvm.cttz.i64(i64 %276, i1 true), !range !15
+  %278 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %276, i1 true)
   %279 = lshr i64 %278, 3
   br label %ZSTD_count.exit.i
 
@@ -9594,10 +9594,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %197, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %282 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %282, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %283, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %283, !llvm.loop !15
 
 283:                                              ; preds = %281
-  %284 = tail call i64 @llvm.cttz.i64(i64 %282, i1 true), !range !15
+  %284 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %282, i1 true)
   %285 = lshr i64 %284, 3
   %286 = getelementptr inbounds i8, ptr %.040.i.i, i64 %285
   %287 = ptrtoint ptr %286 to i64
@@ -9681,7 +9681,7 @@ ZSTD_count.exit.i:                                ; preds = %311, %283, %277
   br i1 %.not.i39.i, label %.preheader.i40.i, label %321
 
 321:                                              ; preds = %319
-  %322 = tail call i64 @llvm.cttz.i64(i64 %320, i1 true), !range !15
+  %322 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %320, i1 true)
   %323 = lshr i64 %322, 3
   br label %ZSTD_count.exit48.i
 
@@ -9698,10 +9698,10 @@ ZSTD_count.exit.i:                                ; preds = %311, %283, %277
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %326 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %326, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %327, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %327, !llvm.loop !15
 
 327:                                              ; preds = %325
-  %328 = tail call i64 @llvm.cttz.i64(i64 %326, i1 true), !range !15
+  %328 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %326, i1 true)
   %329 = lshr i64 %328, 3
   %330 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %329
   %331 = ptrtoint ptr %330 to i64
@@ -9812,14 +9812,14 @@ ZSTD_safecopyLiterals.exit1669:                   ; preds = %ZSTD_count_2segment
   store ptr %377, ptr %52, align 8
   %378 = getelementptr inbounds i8, ptr %.21716, i64 %358
   %.not1640 = icmp ugt ptr %378, %9
-  br i1 %.not1640, label %.critedge13, label %.lr.ph1718, !llvm.loop !27
+  br i1 %.not1640, label %.critedge13, label %.lr.ph1718, !llvm.loop !24
 
 .critedge13:                                      ; preds = %373, %262, %.lr.ph1718, %252
   %.41573.lcssa = phi i32 [ %.31572, %252 ], [ %.415731714, %.lr.ph1718 ], [ %.415731714, %262 ], [ %.315661715, %373 ]
   %.31566.lcssa = phi i32 [ %.21565, %252 ], [ %.315661715, %.lr.ph1718 ], [ %.315661715, %262 ], [ %.415731714, %373 ]
   %.2.lcssa = phi ptr [ %249, %252 ], [ %.21716, %.lr.ph1718 ], [ %.21716, %262 ], [ %378, %373 ]
   %379 = icmp ult ptr %.2.lcssa, %9
-  br i1 %379, label %.lr.ph, label %.outer._crit_edge.loopexit1742, !llvm.loop !18
+  br i1 %379, label %.lr.ph, label %.outer._crit_edge.loopexit1742, !llvm.loop !17
 
 .outer._crit_edge.loopexit1742:                   ; preds = %.critedge13
   %.pre1768 = ptrtoint ptr %.2.lcssa to i64
@@ -9951,11 +9951,11 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch(ptr nocaptur
   ]
 
 82:                                               ; preds = %81
-  %83 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr noundef %0, ptr noundef %.015561705, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %83 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr noundef %0, ptr noundef %.015561705, ptr noundef %7, ptr noundef nonnull %6)
   br label %88
 
 84:                                               ; preds = %81
-  %85 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr noundef %0, ptr noundef %.015561705, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %85 = call fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr noundef %0, ptr noundef %.015561705, ptr noundef %7, ptr noundef nonnull %6)
   br label %88
 
 86:                                               ; preds = %81
@@ -9980,7 +9980,7 @@ default.unreachable:                              ; preds = %81
   %97 = zext i1 %96 to i32
   store i32 %97, ptr %42, align 4
   %98 = icmp ult ptr %95, %8
-  br i1 %98, label %57, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %98, label %57, label %.outer._crit_edge, !llvm.loop !17
 
 99:                                               ; preds = %88
   %100 = icmp ugt i64 %89, 3
@@ -10017,7 +10017,7 @@ default.unreachable:                              ; preds = %81
   %118 = icmp ugt ptr %111, %.01558.ph1740
   %119 = icmp ugt ptr %113, %107
   %or.cond = select i1 %118, i1 %119, i1 false
-  br i1 %or.cond, label %.lr.ph1715, label %.critedge7, !llvm.loop !26
+  br i1 %or.cond, label %.lr.ph1715, label %.critedge7, !llvm.loop !23
 
 .critedge7:                                       ; preds = %116, %.lr.ph1715, %.critedge
   %.91604.lcssa = phi ptr [ %.015561705, %.critedge ], [ %.916041712, %.lr.ph1715 ], [ %111, %116 ]
@@ -10045,7 +10045,7 @@ default.unreachable:                              ; preds = %81
   store <2 x i64> %.01558.val, ptr %127, align 1
   %129 = icmp ugt i64 %124, 16
   %130 = load ptr, ptr %48, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 %124
+  %131 = getelementptr i8, ptr %130, i64 %124
   br i1 %129, label %132, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %128
@@ -10077,7 +10077,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %128
   store <2 x i64> %.val1648, ptr %139, align 1
   %141 = getelementptr inbounds i8, ptr %.11547, i64 32
   %142 = icmp ult ptr %141, %131
-  br i1 %142, label %138, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %142, label %138, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 143:                                              ; preds = %122
   %144 = ptrtoint ptr %126 to i64
@@ -10108,7 +10108,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %128
   store <2 x i64> %.val.i, ptr %152, align 1
   %154 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %155 = icmp ult ptr %154, %147
-  br i1 %155, label %151, label %.loopexit.i, !llvm.loop !22
+  br i1 %155, label %151, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %151, %145, %143
   %.047.i = phi ptr [ %147, %145 ], [ %127, %143 ], [ %147, %151 ]
@@ -10130,7 +10130,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %128
   %160 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %159, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %158, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %138, %.lr.ph.i, %.loopexit.i, %132
   %161 = load ptr, ptr %48, align 8
@@ -10238,7 +10238,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %138, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %218
 
 218:                                              ; preds = %216
-  %219 = tail call i64 @llvm.cttz.i64(i64 %217, i1 true), !range !15
+  %219 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %217, i1 true)
   %220 = lshr i64 %219, 3
   br label %ZSTD_count.exit.i
 
@@ -10255,10 +10255,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %138, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %223 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %223, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %224, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %224, !llvm.loop !15
 
 224:                                              ; preds = %222
-  %225 = tail call i64 @llvm.cttz.i64(i64 %223, i1 true), !range !15
+  %225 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %223, i1 true)
   %226 = lshr i64 %225, 3
   %227 = getelementptr inbounds i8, ptr %.040.i.i, i64 %226
   %228 = ptrtoint ptr %227 to i64
@@ -10342,7 +10342,7 @@ ZSTD_count.exit.i:                                ; preds = %252, %224, %218
   br i1 %.not.i39.i, label %.preheader.i40.i, label %262
 
 262:                                              ; preds = %260
-  %263 = tail call i64 @llvm.cttz.i64(i64 %261, i1 true), !range !15
+  %263 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %261, i1 true)
   %264 = lshr i64 %263, 3
   br label %ZSTD_count.exit48.i
 
@@ -10359,10 +10359,10 @@ ZSTD_count.exit.i:                                ; preds = %252, %224, %218
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %267 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %267, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %268, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %268, !llvm.loop !15
 
 268:                                              ; preds = %266
-  %269 = tail call i64 @llvm.cttz.i64(i64 %267, i1 true), !range !15
+  %269 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %267, i1 true)
   %270 = lshr i64 %269, 3
   %271 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %270
   %272 = ptrtoint ptr %271 to i64
@@ -10473,14 +10473,14 @@ ZSTD_safecopyLiterals.exit1668:                   ; preds = %ZSTD_count_2segment
   store ptr %318, ptr %51, align 8
   %319 = getelementptr inbounds i8, ptr %.21724, i64 %299
   %.not1641 = icmp ugt ptr %319, %8
-  br i1 %.not1641, label %.critedge13, label %.lr.ph1726, !llvm.loop !27
+  br i1 %.not1641, label %.critedge13, label %.lr.ph1726, !llvm.loop !24
 
 .critedge13:                                      ; preds = %314, %203, %.lr.ph1726, %193
   %.41573.lcssa = phi i32 [ %.31572, %193 ], [ %.415731722, %.lr.ph1726 ], [ %.415731722, %203 ], [ %.315661723, %314 ]
   %.31566.lcssa = phi i32 [ %.21565, %193 ], [ %.315661723, %.lr.ph1726 ], [ %.315661723, %203 ], [ %.415731722, %314 ]
   %.2.lcssa = phi ptr [ %190, %193 ], [ %.21724, %.lr.ph1726 ], [ %.21724, %203 ], [ %319, %314 ]
   %320 = icmp ult ptr %.2.lcssa, %8
-  br i1 %320, label %.lr.ph, label %.outer._crit_edge.loopexit1748, !llvm.loop !18
+  br i1 %320, label %.lr.ph, label %.outer._crit_edge.loopexit1748, !llvm.loop !17
 
 .outer._crit_edge.loopexit1748:                   ; preds = %.critedge13
   %.pre1772 = ptrtoint ptr %.2.lcssa to i64
@@ -10630,7 +10630,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef %0, ptr
   store i32 %90, ptr %97, align 4
   %indvars.iv.next2015 = add nuw nsw i64 %indvars.iv2014, 1
   %exitcond2018.not = icmp eq i64 %indvars.iv.next2015, %wide.trip.count2017
-  br i1 %exitcond2018.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond2018.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   switch i32 %spec.select1773, label %.lr.ph.split.split [
@@ -10668,7 +10668,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef %0, ptr
   store i32 %102, ptr %113, align 4
   %indvars.iv.next2000 = add nuw nsw i64 %indvars.iv1999, 1
   %exitcond2003.not = icmp eq i64 %indvars.iv.next2000, %wide.trip.count2017
-  br i1 %exitcond2003.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !28
+  br i1 %exitcond2003.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.us1850:                        ; preds = %.lr.ph.split, %127
   %indvars.iv = phi i64 [ %indvars.iv.next, %127 ], [ %56, %.lr.ph.split ]
@@ -10700,7 +10700,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef %0, ptr
   store i32 %118, ptr %129, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count2017
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1850, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1850, !llvm.loop !25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not1779, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -10726,7 +10726,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef %0, ptr
   store i32 %133, ptr %141, align 4
   %indvars.iv.next2010 = add nuw nsw i64 %indvars.iv2009, 1
   %exitcond2013.not = icmp eq i64 %indvars.iv.next2010, %wide.trip.count2017
-  br i1 %exitcond2013.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !28
+  br i1 %exitcond2013.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv2004 = phi i64 [ %indvars.iv.next2005, %.lr.ph.split.split.split ], [ %56, %.lr.ph.split.split ]
@@ -10751,7 +10751,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef %0, ptr
   store i32 %145, ptr %154, align 4
   %indvars.iv.next2005 = add nuw nsw i64 %indvars.iv2004, 1
   %exitcond2008.not = icmp eq i64 %indvars.iv.next2005, %wide.trip.count2017
-  br i1 %exitcond2008.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !28
+  br i1 %exitcond2008.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %127, %111, %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.thread.us, %5
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
@@ -10809,7 +10809,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef %0, ptr
   br i1 %.not.i1663, label %.preheader.i, label %182
 
 182:                                              ; preds = %180
-  %183 = tail call i64 @llvm.cttz.i64(i64 %181, i1 true), !range !15
+  %183 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %181, i1 true)
   %184 = lshr i64 %183, 3
   br label %ZSTD_count.exit
 
@@ -10826,10 +10826,10 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef %0, ptr
   %.040.val.i = load i64, ptr %.040.i, align 1
   %187 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %187, 0
-  br i1 %.not51.i, label %.preheader.i, label %188, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %188, !llvm.loop !15
 
 188:                                              ; preds = %186
-  %189 = tail call i64 @llvm.cttz.i64(i64 %187, i1 true), !range !15
+  %189 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %187, i1 true)
   %190 = lshr i64 %189, 3
   %191 = getelementptr inbounds i8, ptr %.040.i, i64 %190
   %192 = ptrtoint ptr %191 to i64
@@ -10914,15 +10914,15 @@ ZSTD_count.exit:                                  ; preds = %182, %188, %214
   ]
 
 221:                                              ; preds = %220
-  %222 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %222 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6)
   br label %241
 
 223:                                              ; preds = %220
-  %224 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %224 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6)
   br label %241
 
 225:                                              ; preds = %220
-  %226 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %226 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6)
   br label %241
 
 227:                                              ; preds = %219
@@ -10933,15 +10933,15 @@ ZSTD_count.exit:                                  ; preds = %182, %188, %214
   ]
 
 228:                                              ; preds = %227
-  %229 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %229 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6)
   br label %241
 
 230:                                              ; preds = %227
-  %231 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %231 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6)
   br label %241
 
 232:                                              ; preds = %227
-  %233 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %233 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6)
   br label %241
 
 234:                                              ; preds = %219
@@ -10952,15 +10952,15 @@ ZSTD_count.exit:                                  ; preds = %182, %188, %214
   ]
 
 235:                                              ; preds = %234
-  %236 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %236 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6)
   br label %241
 
 237:                                              ; preds = %234
-  %238 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %238 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6)
   br label %241
 
 239:                                              ; preds = %234
-  %240 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %240 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %0, ptr noundef %.015561860, ptr noundef %9, ptr noundef nonnull %6)
   br label %241
 
 default.unreachable:                              ; preds = %234, %227, %220, %219, %419, %412, %405, %404, %326, %319, %312, %311
@@ -10990,7 +10990,7 @@ default.unreachable:                              ; preds = %234, %227, %220, %2
   %253 = zext i1 %252 to i32
   store i32 %253, ptr %48, align 4
   %254 = icmp ult ptr %251, %10
-  br i1 %254, label %171, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %254, label %171, label %.outer._crit_edge, !llvm.loop !17
 
 .lr.ph1874:                                       ; preds = %.preheader1783, %.backedge
   %.115571873 = phi ptr [ %.11596.be, %.backedge ], [ %.015561860, %.preheader1783 ]
@@ -11023,10 +11023,10 @@ default.unreachable:                              ; preds = %234, %227, %220, %2
   br i1 %.not.i1681, label %.preheader.i1682, label %ZSTD_count.exit1690.thread
 
 ZSTD_count.exit1690.thread:                       ; preds = %264
-  %266 = tail call i64 @llvm.cttz.i64(i64 %265, i1 true), !range !15
+  %266 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %265, i1 true)
   %267 = lshr i64 %266, 3
   %268 = trunc i64 %.115881869 to i32
-  %269 = tail call i32 @llvm.ctlz.i32(i32 %268, i1 true), !range !19
+  %269 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %268, i1 true)
   br label %302
 
 .preheader.i1682:                                 ; preds = %264, %271
@@ -11042,10 +11042,10 @@ ZSTD_count.exit1690.thread:                       ; preds = %264
   %.040.val.i1688 = load i64, ptr %.040.i1685, align 1
   %272 = xor i64 %.040.val.i1688, %.041.val.i1687
   %.not51.i1689 = icmp eq i64 %272, 0
-  br i1 %.not51.i1689, label %.preheader.i1682, label %273, !llvm.loop !16
+  br i1 %.not51.i1689, label %.preheader.i1682, label %273, !llvm.loop !15
 
 273:                                              ; preds = %271
-  %274 = tail call i64 @llvm.cttz.i64(i64 %272, i1 true), !range !15
+  %274 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %272, i1 true)
   %275 = lshr i64 %274, 3
   %276 = getelementptr inbounds i8, ptr %.040.i1685, i64 %275
   br label %ZSTD_count.exit1690
@@ -11104,7 +11104,7 @@ ZSTD_count.exit1690:                              ; preds = %290, %292, %273
   %297 = ptrtoint ptr %261 to i64
   %298 = sub i64 %296, %297
   %299 = trunc i64 %.115881869 to i32
-  %300 = tail call i32 @llvm.ctlz.i32(i32 %299, i1 true), !range !19
+  %300 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %299, i1 true)
   %301 = icmp ult i64 %298, -4
   br i1 %301, label %302, label %311
 
@@ -11143,15 +11143,15 @@ ZSTD_count.exit1690:                              ; preds = %290, %292, %273
   ]
 
 313:                                              ; preds = %312
-  %314 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %314 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7)
   br label %333
 
 315:                                              ; preds = %312
-  %316 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %316 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7)
   br label %333
 
 317:                                              ; preds = %312
-  %318 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %318 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7)
   br label %333
 
 319:                                              ; preds = %311
@@ -11162,15 +11162,15 @@ ZSTD_count.exit1690:                              ; preds = %290, %292, %273
   ]
 
 320:                                              ; preds = %319
-  %321 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %321 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7)
   br label %333
 
 322:                                              ; preds = %319
-  %323 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %323 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7)
   br label %333
 
 324:                                              ; preds = %319
-  %325 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %325 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7)
   br label %333
 
 326:                                              ; preds = %311
@@ -11181,29 +11181,29 @@ ZSTD_count.exit1690:                              ; preds = %290, %292, %273
   ]
 
 327:                                              ; preds = %326
-  %328 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %328 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7)
   br label %333
 
 329:                                              ; preds = %326
-  %330 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %330 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7)
   br label %333
 
 331:                                              ; preds = %326
-  %332 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %332 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %0, ptr noundef nonnull %255, ptr noundef %9, ptr noundef nonnull %7)
   br label %333
 
 333:                                              ; preds = %331, %329, %327, %324, %322, %320, %317, %315, %313
   %.01549 = phi i64 [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %325, %324 ], [ %323, %322 ], [ %321, %320 ], [ %318, %317 ], [ %316, %315 ], [ %314, %313 ]
   %334 = shl i64 %.41583, 2
   %335 = trunc i64 %.21589 to i32
-  %336 = tail call i32 @llvm.ctlz.i32(i32 %335, i1 true), !range !19
+  %336 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %335, i1 true)
   %337 = icmp ugt i64 %.01549, 3
   br i1 %337, label %338, label %350
 
 338:                                              ; preds = %333
   %339 = load i64, ptr %7, align 8
   %340 = trunc i64 %339 to i32
-  %341 = tail call i32 @llvm.ctlz.i32(i32 %340, i1 true), !range !19
+  %341 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %340, i1 true)
   %342 = xor i32 %341, 31
   %343 = trunc i64 %334 to i32
   %344 = add nsw i32 %336, -27
@@ -11219,7 +11219,7 @@ ZSTD_count.exit1690:                              ; preds = %290, %292, %273
   %.11588.be = phi i64 [ %339, %338 ], [ %431, %428 ]
   %.31582.be = phi i64 [ %.01549, %338 ], [ %.01550, %428 ]
   %349 = icmp ult ptr %.11596.be, %10
-  br i1 %349, label %.lr.ph1874, label %._crit_edge1875, !llvm.loop !20
+  br i1 %349, label %.lr.ph1874, label %._crit_edge1875, !llvm.loop !18
 
 350:                                              ; preds = %333, %338
   %351 = icmp ult ptr %255, %10
@@ -11252,7 +11252,7 @@ ZSTD_count.exit1690:                              ; preds = %290, %292, %273
   br i1 %.not.i1708, label %.preheader.i1709, label %ZSTD_count.exit1717.thread
 
 ZSTD_count.exit1717.thread:                       ; preds = %362
-  %364 = tail call i64 @llvm.cttz.i64(i64 %363, i1 true), !range !15
+  %364 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %363, i1 true)
   %365 = lshr i64 %364, 3
   br label %396
 
@@ -11269,10 +11269,10 @@ ZSTD_count.exit1717.thread:                       ; preds = %362
   %.040.val.i1715 = load i64, ptr %.040.i1712, align 1
   %368 = xor i64 %.040.val.i1715, %.041.val.i1714
   %.not51.i1716 = icmp eq i64 %368, 0
-  br i1 %.not51.i1716, label %.preheader.i1709, label %369, !llvm.loop !16
+  br i1 %.not51.i1716, label %.preheader.i1709, label %369, !llvm.loop !15
 
 369:                                              ; preds = %367
-  %370 = tail call i64 @llvm.cttz.i64(i64 %368, i1 true), !range !15
+  %370 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %368, i1 true)
   %371 = lshr i64 %370, 3
   %372 = getelementptr inbounds i8, ptr %.040.i1712, i64 %371
   br label %ZSTD_count.exit1717
@@ -11366,15 +11366,15 @@ ZSTD_count.exit1717:                              ; preds = %386, %388, %369
   ]
 
 406:                                              ; preds = %405
-  %407 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %407 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8)
   br label %426
 
 408:                                              ; preds = %405
-  %409 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %409 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8)
   br label %426
 
 410:                                              ; preds = %405
-  %411 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %411 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8)
   br label %426
 
 412:                                              ; preds = %404
@@ -11385,15 +11385,15 @@ ZSTD_count.exit1717:                              ; preds = %386, %388, %369
   ]
 
 413:                                              ; preds = %412
-  %414 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %414 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8)
   br label %426
 
 415:                                              ; preds = %412
-  %416 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %416 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8)
   br label %426
 
 417:                                              ; preds = %412
-  %418 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %418 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8)
   br label %426
 
 419:                                              ; preds = %404
@@ -11404,15 +11404,15 @@ ZSTD_count.exit1717:                              ; preds = %386, %388, %369
   ]
 
 420:                                              ; preds = %419
-  %421 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %421 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8)
   br label %426
 
 422:                                              ; preds = %419
-  %423 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %423 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8)
   br label %426
 
 424:                                              ; preds = %419
-  %425 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %425 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %0, ptr noundef nonnull %353, ptr noundef %9, ptr noundef nonnull %8)
   br label %426
 
 426:                                              ; preds = %424, %422, %420, %417, %415, %413, %410, %408, %406
@@ -11422,10 +11422,10 @@ ZSTD_count.exit1717:                              ; preds = %386, %388, %369
 
 428:                                              ; preds = %426
   %429 = trunc i64 %.41591 to i32
-  %430 = tail call i32 @llvm.ctlz.i32(i32 %429, i1 true), !range !19
+  %430 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %429, i1 true)
   %431 = load i64, ptr %8, align 8
   %432 = trunc i64 %431 to i32
-  %433 = tail call i32 @llvm.ctlz.i32(i32 %432, i1 true), !range !19
+  %433 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %432, i1 true)
   %434 = xor i32 %433, 31
   %.61585.tr = trunc i64 %.61585 to i32
   %435 = shl i32 %.61585.tr, 2
@@ -11445,7 +11445,7 @@ ZSTD_count.exit1717:                              ; preds = %386, %388, %369
   br i1 %441, label %.preheader, label %._crit_edge1875._crit_edge
 
 ._crit_edge1875._crit_edge:                       ; preds = %._crit_edge1875
-  %.pre2028 = trunc i64 %.61593 to i32
+  %.pre2028 = trunc nuw i64 %.61593 to i32
   br label %461
 
 .preheader:                                       ; preds = %._crit_edge1875
@@ -11473,7 +11473,7 @@ ZSTD_count.exit1717:                              ; preds = %386, %388, %369
   %456 = getelementptr inbounds i8, ptr %448, i64 %442
   %457 = icmp ugt ptr %456, %16
   %458 = and i1 %455, %457
-  br i1 %458, label %.lr.ph1893, label %.critedge7, !llvm.loop !21
+  br i1 %458, label %.lr.ph1893, label %.critedge7, !llvm.loop !19
 
 .critedge7:                                       ; preds = %.lr.ph1893, %453, %.preheader
   %.71602.lcssa = phi ptr [ %.61601, %.preheader ], [ %448, %453 ], [ %.716021891, %.lr.ph1893 ]
@@ -11500,7 +11500,7 @@ ZSTD_count.exit1717:                              ; preds = %386, %388, %369
   store <2 x i64> %.01558.val, ptr %465, align 1
   %467 = icmp ugt i64 %463, 16
   %468 = load ptr, ptr %160, align 8
-  %469 = getelementptr inbounds i8, ptr %468, i64 %463
+  %469 = getelementptr i8, ptr %468, i64 %463
   br i1 %467, label %470, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %466
@@ -11532,7 +11532,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %466
   store <2 x i64> %.val1661, ptr %477, align 1
   %479 = getelementptr inbounds i8, ptr %.11547, i64 32
   %480 = icmp ult ptr %479, %469
-  br i1 %480, label %476, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %480, label %476, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 481:                                              ; preds = %461
   %482 = ptrtoint ptr %464 to i64
@@ -11563,7 +11563,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %466
   store <2 x i64> %.val.i1723, ptr %490, align 1
   %492 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %493 = icmp ult ptr %492, %485
-  br i1 %493, label %489, label %.loopexit.i1724, !llvm.loop !22
+  br i1 %493, label %489, label %.loopexit.i1724, !llvm.loop !20
 
 .loopexit.i1724:                                  ; preds = %489, %483, %481
   %.047.i = phi ptr [ %485, %483 ], [ %465, %481 ], [ %485, %489 ]
@@ -11585,7 +11585,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %466
   %498 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %497, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %496, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %476, %.lr.ph.i, %.loopexit.i1724, %470
   %499 = load ptr, ptr %160, align 8
@@ -11731,7 +11731,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %476, %.lr.ph.i, %.l
   store i32 %567, ptr %580, align 4
   %indvars.iv.next2020 = add nuw nsw i64 %indvars.iv2019, 1
   %exitcond2023.not = icmp eq i64 %indvars.iv.next2020, %wide.trip.count2022
-  br i1 %exitcond2023.not, label %._crit_edge1902, label %551, !llvm.loop !28
+  br i1 %exitcond2023.not, label %._crit_edge1902, label %551, !llvm.loop !25
 
 ._crit_edge1902:                                  ; preds = %578, %530
   store i32 0, ptr %48, align 4
@@ -11769,7 +11769,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %476, %.lr.ph.i, %.l
   br i1 %.not.i1742, label %.preheader.i1743, label %595
 
 595:                                              ; preds = %593
-  %596 = tail call i64 @llvm.cttz.i64(i64 %594, i1 true), !range !15
+  %596 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %594, i1 true)
   %597 = lshr i64 %596, 3
   br label %ZSTD_count.exit1751
 
@@ -11786,10 +11786,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %476, %.lr.ph.i, %.l
   %.040.val.i1749 = load i64, ptr %.040.i1746, align 1
   %600 = xor i64 %.040.val.i1749, %.041.val.i1748
   %.not51.i1750 = icmp eq i64 %600, 0
-  br i1 %.not51.i1750, label %.preheader.i1743, label %601, !llvm.loop !16
+  br i1 %.not51.i1750, label %.preheader.i1743, label %601, !llvm.loop !15
 
 601:                                              ; preds = %599
-  %602 = tail call i64 @llvm.cttz.i64(i64 %600, i1 true), !range !15
+  %602 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %600, i1 true)
   %603 = lshr i64 %602, 3
   %604 = getelementptr inbounds i8, ptr %.040.i1746, i64 %603
   %605 = ptrtoint ptr %604 to i64
@@ -11897,14 +11897,14 @@ ZSTD_safecopyLiterals.exit1769:                   ; preds = %ZSTD_count.exit1751
   %652 = icmp ule ptr %651, %10
   %653 = icmp ne i32 %.515681904, 0
   %654 = and i1 %653, %652
-  br i1 %654, label %.lr.ph1907, label %.critedge13, !llvm.loop !24
+  br i1 %654, label %.lr.ph1907, label %.critedge13, !llvm.loop !22
 
 .critedge13:                                      ; preds = %646, %.lr.ph1907, %581
   %.61575.lcssa = phi i32 [ %.31572, %581 ], [ %.615751903, %.lr.ph1907 ], [ %.515681904, %646 ]
   %.51568.lcssa = phi i32 [ %.21565, %581 ], [ %.515681904, %.lr.ph1907 ], [ %.615751903, %646 ]
   %.4.lcssa = phi ptr [ %528, %581 ], [ %.41905, %.lr.ph1907 ], [ %651, %646 ]
   %655 = icmp ult ptr %.4.lcssa, %10
-  br i1 %655, label %.lr.ph1861, label %.outer._crit_edge.loopexit1925, !llvm.loop !18
+  br i1 %655, label %.lr.ph1861, label %.outer._crit_edge.loopexit1925, !llvm.loop !17
 
 .outer._crit_edge.loopexit1925:                   ; preds = %.critedge13
   %.pre2027 = ptrtoint ptr %.4.lcssa to i64
@@ -12062,7 +12062,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef %0, ptr 
   store i32 %89, ptr %96, align 4
   %indvars.iv.next1929 = add nuw nsw i64 %indvars.iv1928, 1
   %exitcond1932.not = icmp eq i64 %indvars.iv.next1929, %wide.trip.count1931
-  br i1 %exitcond1932.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond1932.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   switch i32 %spec.select1742, label %.lr.ph.split.split [
@@ -12100,7 +12100,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef %0, ptr 
   store i32 %101, ptr %112, align 4
   %indvars.iv.next1914 = add nuw nsw i64 %indvars.iv1913, 1
   %exitcond1917.not = icmp eq i64 %indvars.iv.next1914, %wide.trip.count1931
-  br i1 %exitcond1917.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !28
+  br i1 %exitcond1917.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.us1802:                        ; preds = %.lr.ph.split, %126
   %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ %55, %.lr.ph.split ]
@@ -12132,7 +12132,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef %0, ptr 
   store i32 %117, ptr %128, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count1931
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1802, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1802, !llvm.loop !25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not1747, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -12158,7 +12158,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef %0, ptr 
   store i32 %132, ptr %140, align 4
   %indvars.iv.next1924 = add nuw nsw i64 %indvars.iv1923, 1
   %exitcond1927.not = icmp eq i64 %indvars.iv.next1924, %wide.trip.count1931
-  br i1 %exitcond1927.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !28
+  br i1 %exitcond1927.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv1918 = phi i64 [ %indvars.iv.next1919, %.lr.ph.split.split.split ], [ %55, %.lr.ph.split.split ]
@@ -12183,7 +12183,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef %0, ptr 
   store i32 %144, ptr %153, align 4
   %indvars.iv.next1919 = add nuw nsw i64 %indvars.iv1918, 1
   %exitcond1922.not = icmp eq i64 %indvars.iv.next1919, %wide.trip.count1931
-  br i1 %exitcond1922.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !28
+  br i1 %exitcond1922.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %126, %110, %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.thread.us, %5
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
@@ -12241,7 +12241,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef %0, ptr 
   br i1 %.not.i1660, label %.preheader.i, label %181
 
 181:                                              ; preds = %179
-  %182 = tail call i64 @llvm.cttz.i64(i64 %180, i1 true), !range !15
+  %182 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %180, i1 true)
   %183 = lshr i64 %182, 3
   br label %ZSTD_count.exit
 
@@ -12258,10 +12258,10 @@ define dso_local i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef %0, ptr 
   %.040.val.i = load i64, ptr %.040.i, align 1
   %186 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %186, 0
-  br i1 %.not51.i, label %.preheader.i, label %187, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %187, !llvm.loop !15
 
 187:                                              ; preds = %185
-  %188 = tail call i64 @llvm.cttz.i64(i64 %186, i1 true), !range !15
+  %188 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %186, i1 true)
   %189 = lshr i64 %188, 3
   %190 = getelementptr inbounds i8, ptr %.040.i, i64 %189
   %191 = ptrtoint ptr %190 to i64
@@ -12346,15 +12346,15 @@ ZSTD_count.exit:                                  ; preds = %181, %187, %213
   ]
 
 220:                                              ; preds = %219
-  %221 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %221 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6)
   br label %240
 
 222:                                              ; preds = %219
-  %223 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %223 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6)
   br label %240
 
 224:                                              ; preds = %219
-  %225 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %225 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6)
   br label %240
 
 226:                                              ; preds = %218
@@ -12365,15 +12365,15 @@ ZSTD_count.exit:                                  ; preds = %181, %187, %213
   ]
 
 227:                                              ; preds = %226
-  %228 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %228 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6)
   br label %240
 
 229:                                              ; preds = %226
-  %230 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %230 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6)
   br label %240
 
 231:                                              ; preds = %226
-  %232 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %232 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6)
   br label %240
 
 233:                                              ; preds = %218
@@ -12384,15 +12384,15 @@ ZSTD_count.exit:                                  ; preds = %181, %187, %213
   ]
 
 234:                                              ; preds = %233
-  %235 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %235 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6)
   br label %240
 
 236:                                              ; preds = %233
-  %237 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %237 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6)
   br label %240
 
 238:                                              ; preds = %233
-  %239 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %239 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %0, ptr noundef %.015561812, ptr noundef %8, ptr noundef nonnull %6)
   br label %240
 
 default.unreachable:                              ; preds = %233, %226, %219, %218, %327, %320, %313, %312
@@ -12421,7 +12421,7 @@ default.unreachable:                              ; preds = %233, %226, %219, %2
   %251 = zext i1 %250 to i32
   store i32 %251, ptr %47, align 4
   %252 = icmp ult ptr %249, %9
-  br i1 %252, label %170, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %252, label %170, label %.outer._crit_edge, !llvm.loop !17
 
 253:                                              ; preds = %.preheader1750, %336
   %.11596 = phi ptr [ %256, %336 ], [ %.01595.le, %.preheader1750 ]
@@ -12458,10 +12458,10 @@ default.unreachable:                              ; preds = %233, %226, %219, %2
   br i1 %.not.i1678, label %.preheader.i1679, label %ZSTD_count.exit1687.thread
 
 ZSTD_count.exit1687.thread:                       ; preds = %265
-  %267 = tail call i64 @llvm.cttz.i64(i64 %266, i1 true), !range !15
+  %267 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %266, i1 true)
   %268 = lshr i64 %267, 3
   %269 = trunc i64 %.11588 to i32
-  %270 = tail call i32 @llvm.ctlz.i32(i32 %269, i1 true), !range !19
+  %270 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %269, i1 true)
   br label %303
 
 .preheader.i1679:                                 ; preds = %265, %272
@@ -12477,10 +12477,10 @@ ZSTD_count.exit1687.thread:                       ; preds = %265
   %.040.val.i1685 = load i64, ptr %.040.i1682, align 1
   %273 = xor i64 %.040.val.i1685, %.041.val.i1684
   %.not51.i1686 = icmp eq i64 %273, 0
-  br i1 %.not51.i1686, label %.preheader.i1679, label %274, !llvm.loop !16
+  br i1 %.not51.i1686, label %.preheader.i1679, label %274, !llvm.loop !15
 
 274:                                              ; preds = %272
-  %275 = tail call i64 @llvm.cttz.i64(i64 %273, i1 true), !range !15
+  %275 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %273, i1 true)
   %276 = lshr i64 %275, 3
   %277 = getelementptr inbounds i8, ptr %.040.i1682, i64 %276
   br label %ZSTD_count.exit1687
@@ -12539,7 +12539,7 @@ ZSTD_count.exit1687:                              ; preds = %291, %293, %274
   %298 = ptrtoint ptr %262 to i64
   %299 = sub i64 %297, %298
   %300 = trunc i64 %.11588 to i32
-  %301 = tail call i32 @llvm.ctlz.i32(i32 %300, i1 true), !range !19
+  %301 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %300, i1 true)
   %302 = icmp ult i64 %299, -4
   br i1 %302, label %303, label %312
 
@@ -12578,15 +12578,15 @@ ZSTD_count.exit1687:                              ; preds = %291, %293, %274
   ]
 
 314:                                              ; preds = %313
-  %315 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %315 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7)
   br label %334
 
 316:                                              ; preds = %313
-  %317 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %317 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7)
   br label %334
 
 318:                                              ; preds = %313
-  %319 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %319 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7)
   br label %334
 
 320:                                              ; preds = %312
@@ -12597,15 +12597,15 @@ ZSTD_count.exit1687:                              ; preds = %291, %293, %274
   ]
 
 321:                                              ; preds = %320
-  %322 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %322 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7)
   br label %334
 
 323:                                              ; preds = %320
-  %324 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %324 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7)
   br label %334
 
 325:                                              ; preds = %320
-  %326 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %326 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7)
   br label %334
 
 327:                                              ; preds = %312
@@ -12616,15 +12616,15 @@ ZSTD_count.exit1687:                              ; preds = %291, %293, %274
   ]
 
 328:                                              ; preds = %327
-  %329 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %329 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7)
   br label %334
 
 330:                                              ; preds = %327
-  %331 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %331 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7)
   br label %334
 
 332:                                              ; preds = %327
-  %333 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %333 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %0, ptr noundef nonnull %256, ptr noundef %8, ptr noundef nonnull %7)
   br label %334
 
 334:                                              ; preds = %332, %330, %328, %325, %323, %321, %318, %316, %314
@@ -12634,10 +12634,10 @@ ZSTD_count.exit1687:                              ; preds = %291, %293, %274
 
 336:                                              ; preds = %334
   %337 = trunc i64 %.21589 to i32
-  %338 = tail call i32 @llvm.ctlz.i32(i32 %337, i1 true), !range !19
+  %338 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %337, i1 true)
   %339 = load i64, ptr %7, align 8
   %340 = trunc i64 %339 to i32
-  %341 = tail call i32 @llvm.ctlz.i32(i32 %340, i1 true), !range !19
+  %341 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %340, i1 true)
   %342 = xor i32 %341, 31
   %.41583.tr = trunc i64 %.41583 to i32
   %343 = shl i32 %.41583.tr, 2
@@ -12647,7 +12647,7 @@ ZSTD_count.exit1687:                              ; preds = %291, %293, %274
   %346 = shl i32 %.01549.tr, 2
   %347 = sub i32 %346, %342
   %348 = icmp sgt i32 %347, %345
-  br i1 %348, label %253, label %349, !llvm.loop !20
+  br i1 %348, label %253, label %349, !llvm.loop !18
 
 349:                                              ; preds = %334, %336, %253
   %.61601 = phi ptr [ %.11596, %253 ], [ %.21597, %336 ], [ %.21597, %334 ]
@@ -12657,7 +12657,7 @@ ZSTD_count.exit1687:                              ; preds = %291, %293, %274
   br i1 %350, label %.preheader, label %._crit_edge1942
 
 ._crit_edge1942:                                  ; preds = %349
-  %.pre1943 = trunc i64 %.61593 to i32
+  %.pre1943 = trunc nuw i64 %.61593 to i32
   br label %370
 
 .preheader:                                       ; preds = %349
@@ -12685,7 +12685,7 @@ ZSTD_count.exit1687:                              ; preds = %291, %293, %274
   %365 = getelementptr inbounds i8, ptr %357, i64 %351
   %366 = icmp ugt ptr %365, %15
   %367 = and i1 %364, %366
-  br i1 %367, label %.lr.ph1822, label %.critedge7, !llvm.loop !21
+  br i1 %367, label %.lr.ph1822, label %.critedge7, !llvm.loop !19
 
 .critedge7:                                       ; preds = %.lr.ph1822, %362, %.preheader
   %.71602.lcssa = phi ptr [ %.61601, %.preheader ], [ %357, %362 ], [ %.716021820, %.lr.ph1822 ]
@@ -12712,7 +12712,7 @@ ZSTD_count.exit1687:                              ; preds = %291, %293, %274
   store <2 x i64> %.01558.val, ptr %374, align 1
   %376 = icmp ugt i64 %372, 16
   %377 = load ptr, ptr %159, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i64 %372
+  %378 = getelementptr i8, ptr %377, i64 %372
   br i1 %376, label %379, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %375
@@ -12744,7 +12744,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %375
   store <2 x i64> %.val1658, ptr %386, align 1
   %388 = getelementptr inbounds i8, ptr %.11547, i64 32
   %389 = icmp ult ptr %388, %378
-  br i1 %389, label %385, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %389, label %385, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 390:                                              ; preds = %370
   %391 = ptrtoint ptr %373 to i64
@@ -12775,7 +12775,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %375
   store <2 x i64> %.val.i1693, ptr %399, align 1
   %401 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %402 = icmp ult ptr %401, %394
-  br i1 %402, label %398, label %.loopexit.i1694, !llvm.loop !22
+  br i1 %402, label %398, label %.loopexit.i1694, !llvm.loop !20
 
 .loopexit.i1694:                                  ; preds = %398, %392, %390
   %.047.i = phi ptr [ %394, %392 ], [ %374, %390 ], [ %394, %398 ]
@@ -12797,7 +12797,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %375
   %407 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %406, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %405, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %385, %.lr.ph.i, %.loopexit.i1694, %379
   %408 = load ptr, ptr %159, align 8
@@ -12943,7 +12943,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %385, %.lr.ph.i, %.l
   store i32 %476, ptr %489, align 4
   %indvars.iv.next1934 = add nuw nsw i64 %indvars.iv1933, 1
   %exitcond1937.not = icmp eq i64 %indvars.iv.next1934, %wide.trip.count1936
-  br i1 %exitcond1937.not, label %._crit_edge1831, label %460, !llvm.loop !28
+  br i1 %exitcond1937.not, label %._crit_edge1831, label %460, !llvm.loop !25
 
 ._crit_edge1831:                                  ; preds = %487, %439
   store i32 0, ptr %47, align 4
@@ -12981,7 +12981,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %385, %.lr.ph.i, %.l
   br i1 %.not.i1712, label %.preheader.i1713, label %504
 
 504:                                              ; preds = %502
-  %505 = tail call i64 @llvm.cttz.i64(i64 %503, i1 true), !range !15
+  %505 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %503, i1 true)
   %506 = lshr i64 %505, 3
   br label %ZSTD_count.exit1721
 
@@ -12998,10 +12998,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %385, %.lr.ph.i, %.l
   %.040.val.i1719 = load i64, ptr %.040.i1716, align 1
   %509 = xor i64 %.040.val.i1719, %.041.val.i1718
   %.not51.i1720 = icmp eq i64 %509, 0
-  br i1 %.not51.i1720, label %.preheader.i1713, label %510, !llvm.loop !16
+  br i1 %.not51.i1720, label %.preheader.i1713, label %510, !llvm.loop !15
 
 510:                                              ; preds = %508
-  %511 = tail call i64 @llvm.cttz.i64(i64 %509, i1 true), !range !15
+  %511 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %509, i1 true)
   %512 = lshr i64 %511, 3
   %513 = getelementptr inbounds i8, ptr %.040.i1716, i64 %512
   %514 = ptrtoint ptr %513 to i64
@@ -13109,14 +13109,14 @@ ZSTD_safecopyLiterals.exit1739:                   ; preds = %ZSTD_count.exit1721
   %561 = icmp ule ptr %560, %9
   %562 = icmp ne i32 %.515681833, 0
   %563 = and i1 %562, %561
-  br i1 %563, label %.lr.ph1836, label %.critedge13, !llvm.loop !24
+  br i1 %563, label %.lr.ph1836, label %.critedge13, !llvm.loop !22
 
 .critedge13:                                      ; preds = %555, %.lr.ph1836, %490
   %.61575.lcssa = phi i32 [ %.31572, %490 ], [ %.615751832, %.lr.ph1836 ], [ %.515681833, %555 ]
   %.51568.lcssa = phi i32 [ %.21565, %490 ], [ %.515681833, %.lr.ph1836 ], [ %.615751832, %555 ]
   %.4.lcssa = phi ptr [ %437, %490 ], [ %.41834, %.lr.ph1836 ], [ %560, %555 ]
   %564 = icmp ult ptr %.4.lcssa, %9
-  br i1 %564, label %.lr.ph1813, label %.outer._crit_edge.loopexit1854, !llvm.loop !18
+  br i1 %564, label %.lr.ph1813, label %.outer._crit_edge.loopexit1854, !llvm.loop !17
 
 .outer._crit_edge.loopexit1854:                   ; preds = %.critedge13
   %.pre1941 = ptrtoint ptr %.4.lcssa to i64
@@ -13273,7 +13273,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef %0, pt
   store i32 %88, ptr %95, align 4
   %indvars.iv.next1861 = add nuw nsw i64 %indvars.iv1860, 1
   %exitcond1864.not = icmp eq i64 %indvars.iv.next1861, %wide.trip.count1863
-  br i1 %exitcond1864.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond1864.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   switch i32 %spec.select1711, label %.lr.ph.split.split [
@@ -13311,7 +13311,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef %0, pt
   store i32 %100, ptr %111, align 4
   %indvars.iv.next1846 = add nuw nsw i64 %indvars.iv1845, 1
   %exitcond1849.not = icmp eq i64 %indvars.iv.next1846, %wide.trip.count1863
-  br i1 %exitcond1849.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !28
+  br i1 %exitcond1849.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.us1757:                        ; preds = %.lr.ph.split, %125
   %indvars.iv = phi i64 [ %indvars.iv.next, %125 ], [ %54, %.lr.ph.split ]
@@ -13343,7 +13343,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef %0, pt
   store i32 %116, ptr %127, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count1863
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1757, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1757, !llvm.loop !25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not1715, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -13369,7 +13369,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef %0, pt
   store i32 %131, ptr %139, align 4
   %indvars.iv.next1856 = add nuw nsw i64 %indvars.iv1855, 1
   %exitcond1859.not = icmp eq i64 %indvars.iv.next1856, %wide.trip.count1863
-  br i1 %exitcond1859.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !28
+  br i1 %exitcond1859.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv1850 = phi i64 [ %indvars.iv.next1851, %.lr.ph.split.split.split ], [ %54, %.lr.ph.split.split ]
@@ -13394,7 +13394,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef %0, pt
   store i32 %143, ptr %152, align 4
   %indvars.iv.next1851 = add nuw nsw i64 %indvars.iv1850, 1
   %exitcond1854.not = icmp eq i64 %indvars.iv.next1851, %wide.trip.count1863
-  br i1 %exitcond1854.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !28
+  br i1 %exitcond1854.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %125, %109, %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.thread.us, %5
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
@@ -13452,7 +13452,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef %0, pt
   br i1 %.not.i1657, label %.preheader.i, label %180
 
 180:                                              ; preds = %178
-  %181 = tail call i64 @llvm.cttz.i64(i64 %179, i1 true), !range !15
+  %181 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %179, i1 true)
   %182 = lshr i64 %181, 3
   br label %ZSTD_count.exit
 
@@ -13469,10 +13469,10 @@ define dso_local i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef %0, pt
   %.040.val.i = load i64, ptr %.040.i, align 1
   %185 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %185, 0
-  br i1 %.not51.i, label %.preheader.i, label %186, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %186, !llvm.loop !15
 
 186:                                              ; preds = %184
-  %187 = tail call i64 @llvm.cttz.i64(i64 %185, i1 true), !range !15
+  %187 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %185, i1 true)
   %188 = lshr i64 %187, 3
   %189 = getelementptr inbounds i8, ptr %.040.i, i64 %188
   %190 = ptrtoint ptr %189 to i64
@@ -13556,15 +13556,15 @@ ZSTD_count.exit:                                  ; preds = %180, %186, %212
   ]
 
 219:                                              ; preds = %218
-  %220 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %220 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6)
   br label %239
 
 221:                                              ; preds = %218
-  %222 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %222 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6)
   br label %239
 
 223:                                              ; preds = %218
-  %224 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %224 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6)
   br label %239
 
 225:                                              ; preds = %217
@@ -13575,15 +13575,15 @@ ZSTD_count.exit:                                  ; preds = %180, %186, %212
   ]
 
 226:                                              ; preds = %225
-  %227 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %227 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6)
   br label %239
 
 228:                                              ; preds = %225
-  %229 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %229 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6)
   br label %239
 
 230:                                              ; preds = %225
-  %231 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %231 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6)
   br label %239
 
 232:                                              ; preds = %217
@@ -13594,15 +13594,15 @@ ZSTD_count.exit:                                  ; preds = %180, %186, %212
   ]
 
 233:                                              ; preds = %232
-  %234 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %234 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6)
   br label %239
 
 235:                                              ; preds = %232
-  %236 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %236 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6)
   br label %239
 
 237:                                              ; preds = %232
-  %238 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %238 = call fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr noundef %0, ptr noundef nonnull %.015561763, ptr noundef %7, ptr noundef nonnull %6)
   br label %239
 
 default.unreachable:                              ; preds = %232, %225, %218, %217
@@ -13624,7 +13624,7 @@ default.unreachable:                              ; preds = %232, %225, %218, %2
   %249 = zext i1 %248 to i32
   store i32 %249, ptr %46, align 4
   %250 = icmp ult ptr %247, %8
-  br i1 %250, label %169, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %250, label %169, label %.outer._crit_edge, !llvm.loop !17
 
 251:                                              ; preds = %239
   %252 = icmp ugt i64 %240, 3
@@ -13655,7 +13655,7 @@ default.unreachable:                              ; preds = %232, %225, %218, %2
   %267 = getelementptr inbounds i8, ptr %259, i64 %253
   %268 = icmp ugt ptr %267, %14
   %269 = and i1 %266, %268
-  br i1 %269, label %.lr.ph1773, label %.critedge7, !llvm.loop !21
+  br i1 %269, label %.lr.ph1773, label %.critedge7, !llvm.loop !19
 
 .critedge7:                                       ; preds = %.lr.ph1773, %264, %.preheader
   %.71602.lcssa = phi ptr [ %.015561763, %.preheader ], [ %259, %264 ], [ %.716021771, %.lr.ph1773 ]
@@ -13683,7 +13683,7 @@ default.unreachable:                              ; preds = %232, %225, %218, %2
   store <2 x i64> %.01558.val, ptr %277, align 1
   %279 = icmp ugt i64 %274, 16
   %280 = load ptr, ptr %158, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 %274
+  %281 = getelementptr i8, ptr %280, i64 %274
   br i1 %279, label %282, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %278
@@ -13715,7 +13715,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %278
   store <2 x i64> %.val1655, ptr %289, align 1
   %291 = getelementptr inbounds i8, ptr %.11547, i64 32
   %292 = icmp ult ptr %291, %281
-  br i1 %292, label %288, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %292, label %288, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 293:                                              ; preds = %272
   %294 = ptrtoint ptr %276 to i64
@@ -13746,7 +13746,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %278
   store <2 x i64> %.val.i1663, ptr %302, align 1
   %304 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %305 = icmp ult ptr %304, %297
-  br i1 %305, label %301, label %.loopexit.i1664, !llvm.loop !22
+  br i1 %305, label %301, label %.loopexit.i1664, !llvm.loop !20
 
 .loopexit.i1664:                                  ; preds = %301, %295, %293
   %.047.i = phi ptr [ %297, %295 ], [ %277, %293 ], [ %297, %301 ]
@@ -13768,7 +13768,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %278
   %310 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %309, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %308, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %288, %.lr.ph.i, %.loopexit.i1664, %282
   %311 = load ptr, ptr %158, align 8
@@ -13914,7 +13914,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %288, %.lr.ph.i, %.l
   store i32 %379, ptr %392, align 4
   %indvars.iv.next1866 = add nuw nsw i64 %indvars.iv1865, 1
   %exitcond1869.not = icmp eq i64 %indvars.iv.next1866, %wide.trip.count1868
-  br i1 %exitcond1869.not, label %._crit_edge1782, label %363, !llvm.loop !28
+  br i1 %exitcond1869.not, label %._crit_edge1782, label %363, !llvm.loop !25
 
 ._crit_edge1782:                                  ; preds = %390, %342
   store i32 0, ptr %46, align 4
@@ -13952,7 +13952,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %288, %.lr.ph.i, %.l
   br i1 %.not.i1682, label %.preheader.i1683, label %407
 
 407:                                              ; preds = %405
-  %408 = tail call i64 @llvm.cttz.i64(i64 %406, i1 true), !range !15
+  %408 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %406, i1 true)
   %409 = lshr i64 %408, 3
   br label %ZSTD_count.exit1691
 
@@ -13969,10 +13969,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %288, %.lr.ph.i, %.l
   %.040.val.i1689 = load i64, ptr %.040.i1686, align 1
   %412 = xor i64 %.040.val.i1689, %.041.val.i1688
   %.not51.i1690 = icmp eq i64 %412, 0
-  br i1 %.not51.i1690, label %.preheader.i1683, label %413, !llvm.loop !16
+  br i1 %.not51.i1690, label %.preheader.i1683, label %413, !llvm.loop !15
 
 413:                                              ; preds = %411
-  %414 = tail call i64 @llvm.cttz.i64(i64 %412, i1 true), !range !15
+  %414 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %412, i1 true)
   %415 = lshr i64 %414, 3
   %416 = getelementptr inbounds i8, ptr %.040.i1686, i64 %415
   %417 = ptrtoint ptr %416 to i64
@@ -14080,14 +14080,14 @@ ZSTD_safecopyLiterals.exit1709:                   ; preds = %ZSTD_count.exit1691
   %464 = icmp ule ptr %463, %8
   %465 = icmp ne i32 %.515681784, 0
   %466 = and i1 %465, %464
-  br i1 %466, label %.lr.ph1787, label %.critedge13, !llvm.loop !24
+  br i1 %466, label %.lr.ph1787, label %.critedge13, !llvm.loop !22
 
 .critedge13:                                      ; preds = %458, %.lr.ph1787, %393
   %.61575.lcssa = phi i32 [ %.31572, %393 ], [ %.615751783, %.lr.ph1787 ], [ %.515681784, %458 ]
   %.51568.lcssa = phi i32 [ %.21565, %393 ], [ %.515681784, %.lr.ph1787 ], [ %.615751783, %458 ]
   %.4.lcssa = phi ptr [ %340, %393 ], [ %.41785, %.lr.ph1787 ], [ %463, %458 ]
   %467 = icmp ult ptr %.4.lcssa, %8
-  br i1 %467, label %.lr.ph1764, label %.outer._crit_edge.loopexit1803, !llvm.loop !18
+  br i1 %467, label %.lr.ph1764, label %.outer._crit_edge.loopexit1803, !llvm.loop !17
 
 .outer._crit_edge.loopexit1803:                   ; preds = %.critedge13
   %.pre1873 = ptrtoint ptr %.4.lcssa to i64
@@ -14243,7 +14243,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dictMatchState_row(ptr nocapture 
   store i32 %89, ptr %96, align 4
   %indvars.iv.next1915 = add nuw nsw i64 %indvars.iv1914, 1
   %exitcond1918.not = icmp eq i64 %indvars.iv.next1915, %wide.trip.count1917
-  br i1 %exitcond1918.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond1918.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   switch i32 %spec.select1681, label %.lr.ph.split.split [
@@ -14281,7 +14281,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dictMatchState_row(ptr nocapture 
   store i32 %101, ptr %112, align 4
   %indvars.iv.next1900 = add nuw nsw i64 %indvars.iv1899, 1
   %exitcond1903.not = icmp eq i64 %indvars.iv.next1900, %wide.trip.count1917
-  br i1 %exitcond1903.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !28
+  br i1 %exitcond1903.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.us1749:                        ; preds = %.lr.ph.split, %126
   %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ %55, %.lr.ph.split ]
@@ -14313,7 +14313,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dictMatchState_row(ptr nocapture 
   store i32 %117, ptr %128, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count1917
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1749, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1749, !llvm.loop !25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not1685, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -14339,7 +14339,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dictMatchState_row(ptr nocapture 
   store i32 %132, ptr %140, align 4
   %indvars.iv.next1910 = add nuw nsw i64 %indvars.iv1909, 1
   %exitcond1913.not = icmp eq i64 %indvars.iv.next1910, %wide.trip.count1917
-  br i1 %exitcond1913.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !28
+  br i1 %exitcond1913.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv1904 = phi i64 [ %indvars.iv.next1905, %.lr.ph.split.split.split ], [ %55, %.lr.ph.split.split ]
@@ -14364,7 +14364,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dictMatchState_row(ptr nocapture 
   store i32 %144, ptr %153, align 4
   %indvars.iv.next1905 = add nuw nsw i64 %indvars.iv1904, 1
   %exitcond1908.not = icmp eq i64 %indvars.iv.next1905, %wide.trip.count1917
-  br i1 %exitcond1908.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !28
+  br i1 %exitcond1908.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %126, %110, %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.thread.us, %5
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
@@ -14449,15 +14449,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dictMatchState_row(ptr nocapture 
   ]
 
 195:                                              ; preds = %194
-  %196 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %196 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 197:                                              ; preds = %194
-  %198 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %198 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 199:                                              ; preds = %194
-  %200 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %200 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 201:                                              ; preds = %193
@@ -14468,15 +14468,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dictMatchState_row(ptr nocapture 
   ]
 
 202:                                              ; preds = %201
-  %203 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %203 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 204:                                              ; preds = %201
-  %205 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %205 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 206:                                              ; preds = %201
-  %207 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %207 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 208:                                              ; preds = %193
@@ -14487,15 +14487,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dictMatchState_row(ptr nocapture 
   ]
 
 209:                                              ; preds = %208
-  %210 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %210 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 211:                                              ; preds = %208
-  %212 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %212 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 213:                                              ; preds = %208
-  %214 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %214 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 default.unreachable:                              ; preds = %208, %201, %194, %193, %348, %341, %334, %333, %277, %270, %263, %262
@@ -14524,7 +14524,7 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   %226 = zext i1 %225 to i32
   store i32 %226, ptr %47, align 4
   %227 = icmp ult ptr %224, %10
-  br i1 %227, label %170, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %227, label %170, label %.outer._crit_edge, !llvm.loop !17
 
 .lr.ph1771:                                       ; preds = %.preheader, %.backedge
   %.115571770 = phi ptr [ %.11596.be, %.backedge ], [ %.015561759, %.preheader ]
@@ -14564,7 +14564,7 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
 
 251:                                              ; preds = %244
   %252 = trunc i64 %.115881768 to i32
-  %253 = tail call i32 @llvm.ctlz.i32(i32 %252, i1 true), !range !19
+  %253 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %252, i1 true)
   %254 = trunc i64 %.315821769 to i32
   %255 = mul i32 %254, 3
   %256 = add nsw i32 %253, -30
@@ -14596,15 +14596,15 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   ]
 
 264:                                              ; preds = %263
-  %265 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %265 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 266:                                              ; preds = %263
-  %267 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %267 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 268:                                              ; preds = %263
-  %269 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %269 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 270:                                              ; preds = %262
@@ -14615,15 +14615,15 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   ]
 
 271:                                              ; preds = %270
-  %272 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %272 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 273:                                              ; preds = %270
-  %274 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %274 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 275:                                              ; preds = %270
-  %276 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %276 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 277:                                              ; preds = %262
@@ -14634,28 +14634,28 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   ]
 
 278:                                              ; preds = %277
-  %279 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %279 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 280:                                              ; preds = %277
-  %281 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %281 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 282:                                              ; preds = %277
-  %283 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %283 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 284:                                              ; preds = %282, %280, %278, %275, %273, %271, %268, %266, %264
   %.01549 = phi i64 [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ]
   %285 = trunc i64 %.31590 to i32
-  %286 = tail call i32 @llvm.ctlz.i32(i32 %285, i1 true), !range !19
+  %286 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %285, i1 true)
   %287 = icmp ugt i64 %.01549, 3
   br i1 %287, label %288, label %300
 
 288:                                              ; preds = %284
   %289 = load i64, ptr %7, align 8
   %290 = trunc i64 %289 to i32
-  %291 = tail call i32 @llvm.ctlz.i32(i32 %290, i1 true), !range !19
+  %291 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %290, i1 true)
   %292 = xor i32 %291, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %293 = shl i32 %.51584.tr, 2
@@ -14672,7 +14672,7 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   %.11588.be = phi i64 [ %289, %288 ], [ %360, %357 ]
   %.31582.be = phi i64 [ %.01549, %288 ], [ %.01550, %357 ]
   %299 = icmp ult ptr %.11596.be, %10
-  br i1 %299, label %.lr.ph1771, label %._crit_edge1772, !llvm.loop !20
+  br i1 %299, label %.lr.ph1771, label %._crit_edge1772, !llvm.loop !18
 
 300:                                              ; preds = %284, %288
   %301 = icmp ult ptr %228, %10
@@ -14742,15 +14742,15 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   ]
 
 335:                                              ; preds = %334
-  %336 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %336 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 337:                                              ; preds = %334
-  %338 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %338 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 339:                                              ; preds = %334
-  %340 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %340 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 341:                                              ; preds = %333
@@ -14761,15 +14761,15 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   ]
 
 342:                                              ; preds = %341
-  %343 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %343 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 344:                                              ; preds = %341
-  %345 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %345 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 346:                                              ; preds = %341
-  %347 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %347 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 348:                                              ; preds = %333
@@ -14780,15 +14780,15 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   ]
 
 349:                                              ; preds = %348
-  %350 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %350 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 351:                                              ; preds = %348
-  %352 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %352 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 353:                                              ; preds = %348
-  %354 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %354 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 355:                                              ; preds = %353, %351, %349, %346, %344, %342, %339, %337, %335
@@ -14798,10 +14798,10 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
 
 357:                                              ; preds = %355
   %358 = trunc i64 %.51592 to i32
-  %359 = tail call i32 @llvm.ctlz.i32(i32 %358, i1 true), !range !19
+  %359 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %358, i1 true)
   %360 = load i64, ptr %8, align 8
   %361 = trunc i64 %360 to i32
-  %362 = tail call i32 @llvm.ctlz.i32(i32 %361, i1 true), !range !19
+  %362 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %361, i1 true)
   %363 = xor i32 %362, 31
   %.71586.tr = trunc i64 %.71586 to i32
   %364 = shl i32 %.71586.tr, 2
@@ -14821,7 +14821,7 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   br i1 %370, label %.critedge, label %._crit_edge1772._crit_edge
 
 ._crit_edge1772._crit_edge:                       ; preds = %._crit_edge1772
-  %.pre1928 = trunc i64 %.61593 to i32
+  %.pre1928 = trunc nuw i64 %.61593 to i32
   br label %392
 
 .critedge:                                        ; preds = %._crit_edge1772
@@ -14856,7 +14856,7 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   %388 = icmp ugt ptr %381, %.01558.ph1821
   %389 = icmp ugt ptr %383, %377
   %or.cond = select i1 %388, i1 %389, i1 false
-  br i1 %or.cond, label %.lr.ph1792, label %.critedge7, !llvm.loop !26
+  br i1 %or.cond, label %.lr.ph1792, label %.critedge7, !llvm.loop !23
 
 .critedge7:                                       ; preds = %386, %.lr.ph1792, %.critedge
   %.91604.lcssa = phi ptr [ %.61601, %.critedge ], [ %.916041789, %.lr.ph1792 ], [ %381, %386 ]
@@ -14883,7 +14883,7 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   store <2 x i64> %.01558.val, ptr %396, align 1
   %398 = icmp ugt i64 %394, 16
   %399 = load ptr, ptr %159, align 8
-  %400 = getelementptr inbounds i8, ptr %399, i64 %394
+  %400 = getelementptr i8, ptr %399, i64 %394
   br i1 %398, label %401, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %397
@@ -14915,7 +14915,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %397
   store <2 x i64> %.val1659, ptr %408, align 1
   %410 = getelementptr inbounds i8, ptr %.11547, i64 32
   %411 = icmp ult ptr %410, %400
-  br i1 %411, label %407, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %411, label %407, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 412:                                              ; preds = %392
   %413 = ptrtoint ptr %395 to i64
@@ -14946,7 +14946,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %397
   store <2 x i64> %.val.i, ptr %421, align 1
   %423 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %424 = icmp ult ptr %423, %416
-  br i1 %424, label %420, label %.loopexit.i, !llvm.loop !22
+  br i1 %424, label %420, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %420, %414, %412
   %.047.i = phi ptr [ %416, %414 ], [ %396, %412 ], [ %416, %420 ]
@@ -14968,7 +14968,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %397
   %429 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %428, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %427, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.loopexit.i, %401
   %430 = load ptr, ptr %159, align 8
@@ -15114,7 +15114,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
   store i32 %498, ptr %511, align 4
   %indvars.iv.next1920 = add nuw nsw i64 %indvars.iv1919, 1
   %exitcond1923.not = icmp eq i64 %indvars.iv.next1920, %wide.trip.count1922
-  br i1 %exitcond1923.not, label %._crit_edge1801, label %482, !llvm.loop !28
+  br i1 %exitcond1923.not, label %._crit_edge1801, label %482, !llvm.loop !25
 
 ._crit_edge1801:                                  ; preds = %509, %461
   store i32 0, ptr %47, align 4
@@ -15168,7 +15168,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %537
 
 537:                                              ; preds = %535
-  %538 = tail call i64 @llvm.cttz.i64(i64 %536, i1 true), !range !15
+  %538 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %536, i1 true)
   %539 = lshr i64 %538, 3
   br label %ZSTD_count.exit.i
 
@@ -15185,10 +15185,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %542 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %542, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %543, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %543, !llvm.loop !15
 
 543:                                              ; preds = %541
-  %544 = tail call i64 @llvm.cttz.i64(i64 %542, i1 true), !range !15
+  %544 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %542, i1 true)
   %545 = lshr i64 %544, 3
   %546 = getelementptr inbounds i8, ptr %.040.i.i, i64 %545
   %547 = ptrtoint ptr %546 to i64
@@ -15272,7 +15272,7 @@ ZSTD_count.exit.i:                                ; preds = %571, %543, %537
   br i1 %.not.i39.i, label %.preheader.i40.i, label %581
 
 581:                                              ; preds = %579
-  %582 = tail call i64 @llvm.cttz.i64(i64 %580, i1 true), !range !15
+  %582 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %580, i1 true)
   %583 = lshr i64 %582, 3
   br label %ZSTD_count.exit48.i
 
@@ -15289,10 +15289,10 @@ ZSTD_count.exit.i:                                ; preds = %571, %543, %537
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %586 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %586, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %587, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %587, !llvm.loop !15
 
 587:                                              ; preds = %585
-  %588 = tail call i64 @llvm.cttz.i64(i64 %586, i1 true), !range !15
+  %588 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %586, i1 true)
   %589 = lshr i64 %588, 3
   %590 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %589
   %591 = ptrtoint ptr %590 to i64
@@ -15403,14 +15403,14 @@ ZSTD_safecopyLiterals.exit1679:                   ; preds = %ZSTD_count_2segment
   store ptr %637, ptr %162, align 8
   %638 = getelementptr inbounds i8, ptr %.21805, i64 %618
   %.not1641 = icmp ugt ptr %638, %10
-  br i1 %.not1641, label %.critedge13, label %.lr.ph1807, !llvm.loop !27
+  br i1 %.not1641, label %.critedge13, label %.lr.ph1807, !llvm.loop !24
 
 .critedge13:                                      ; preds = %633, %522, %.lr.ph1807, %512
   %.41573.lcssa = phi i32 [ %.31572, %512 ], [ %.415731803, %.lr.ph1807 ], [ %.415731803, %522 ], [ %.315661804, %633 ]
   %.31566.lcssa = phi i32 [ %.21565, %512 ], [ %.315661804, %.lr.ph1807 ], [ %.315661804, %522 ], [ %.415731803, %633 ]
   %.2.lcssa = phi ptr [ %459, %512 ], [ %.21805, %.lr.ph1807 ], [ %.21805, %522 ], [ %638, %633 ]
   %639 = icmp ult ptr %.2.lcssa, %10
-  br i1 %639, label %.lr.ph1760, label %.outer._crit_edge.loopexit1832, !llvm.loop !18
+  br i1 %639, label %.lr.ph1760, label %.outer._crit_edge.loopexit1832, !llvm.loop !17
 
 .outer._crit_edge.loopexit1832:                   ; preds = %.critedge13
   %.pre1927 = ptrtoint ptr %.2.lcssa to i64
@@ -15556,7 +15556,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dictMatchState_row(ptr nocapture n
   store i32 %88, ptr %95, align 4
   %indvars.iv.next1865 = add nuw nsw i64 %indvars.iv1864, 1
   %exitcond1868.not = icmp eq i64 %indvars.iv.next1865, %wide.trip.count1867
-  br i1 %exitcond1868.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond1868.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   switch i32 %spec.select1678, label %.lr.ph.split.split [
@@ -15594,7 +15594,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dictMatchState_row(ptr nocapture n
   store i32 %100, ptr %111, align 4
   %indvars.iv.next1850 = add nuw nsw i64 %indvars.iv1849, 1
   %exitcond1853.not = icmp eq i64 %indvars.iv.next1850, %wide.trip.count1867
-  br i1 %exitcond1853.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !28
+  br i1 %exitcond1853.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.us1733:                        ; preds = %.lr.ph.split, %125
   %indvars.iv = phi i64 [ %indvars.iv.next, %125 ], [ %54, %.lr.ph.split ]
@@ -15626,7 +15626,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dictMatchState_row(ptr nocapture n
   store i32 %116, ptr %127, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count1867
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1733, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1733, !llvm.loop !25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not1682, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -15652,7 +15652,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dictMatchState_row(ptr nocapture n
   store i32 %131, ptr %139, align 4
   %indvars.iv.next1860 = add nuw nsw i64 %indvars.iv1859, 1
   %exitcond1863.not = icmp eq i64 %indvars.iv.next1860, %wide.trip.count1867
-  br i1 %exitcond1863.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !28
+  br i1 %exitcond1863.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv1854 = phi i64 [ %indvars.iv.next1855, %.lr.ph.split.split.split ], [ %54, %.lr.ph.split.split ]
@@ -15677,7 +15677,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dictMatchState_row(ptr nocapture n
   store i32 %143, ptr %152, align 4
   %indvars.iv.next1855 = add nuw nsw i64 %indvars.iv1854, 1
   %exitcond1858.not = icmp eq i64 %indvars.iv.next1855, %wide.trip.count1867
-  br i1 %exitcond1858.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !28
+  br i1 %exitcond1858.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %125, %109, %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.thread.us, %5
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
@@ -15762,15 +15762,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dictMatchState_row(ptr nocapture n
   ]
 
 194:                                              ; preds = %193
-  %195 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %195 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 196:                                              ; preds = %193
-  %197 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %197 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 198:                                              ; preds = %193
-  %199 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %199 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 200:                                              ; preds = %192
@@ -15781,15 +15781,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dictMatchState_row(ptr nocapture n
   ]
 
 201:                                              ; preds = %200
-  %202 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %202 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 203:                                              ; preds = %200
-  %204 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %204 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 205:                                              ; preds = %200
-  %206 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %206 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 207:                                              ; preds = %192
@@ -15800,15 +15800,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dictMatchState_row(ptr nocapture n
   ]
 
 208:                                              ; preds = %207
-  %209 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %209 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 210:                                              ; preds = %207
-  %211 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %211 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 212:                                              ; preds = %207
-  %213 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %213 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 default.unreachable:                              ; preds = %207, %200, %193, %192, %278, %271, %264, %263
@@ -15836,7 +15836,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   %224 = zext i1 %223 to i32
   store i32 %224, ptr %46, align 4
   %225 = icmp ult ptr %222, %9
-  br i1 %225, label %169, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %225, label %169, label %.outer._crit_edge, !llvm.loop !17
 
 226:                                              ; preds = %.preheader, %287
   %.11596 = phi ptr [ %229, %287 ], [ %.01595.le, %.preheader ]
@@ -15880,7 +15880,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
 
 252:                                              ; preds = %245
   %253 = trunc i64 %.11588 to i32
-  %254 = tail call i32 @llvm.ctlz.i32(i32 %253, i1 true), !range !19
+  %254 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %253, i1 true)
   %255 = trunc i64 %.31582 to i32
   %256 = mul i32 %255, 3
   %257 = add nsw i32 %254, -30
@@ -15912,15 +15912,15 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   ]
 
 265:                                              ; preds = %264
-  %266 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %266 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 267:                                              ; preds = %264
-  %268 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %268 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 269:                                              ; preds = %264
-  %270 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %270 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 271:                                              ; preds = %263
@@ -15931,15 +15931,15 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   ]
 
 272:                                              ; preds = %271
-  %273 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %273 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 274:                                              ; preds = %271
-  %275 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %275 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 276:                                              ; preds = %271
-  %277 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %277 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 278:                                              ; preds = %263
@@ -15950,15 +15950,15 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   ]
 
 279:                                              ; preds = %278
-  %280 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %280 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 281:                                              ; preds = %278
-  %282 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %282 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 283:                                              ; preds = %278
-  %284 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %284 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 285:                                              ; preds = %283, %281, %279, %276, %274, %272, %269, %267, %265
@@ -15968,10 +15968,10 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
 
 287:                                              ; preds = %285
   %288 = trunc i64 %.31590 to i32
-  %289 = tail call i32 @llvm.ctlz.i32(i32 %288, i1 true), !range !19
+  %289 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %288, i1 true)
   %290 = load i64, ptr %7, align 8
   %291 = trunc i64 %290 to i32
-  %292 = tail call i32 @llvm.ctlz.i32(i32 %291, i1 true), !range !19
+  %292 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %291, i1 true)
   %293 = xor i32 %292, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %294 = shl i32 %.51584.tr, 2
@@ -15981,7 +15981,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   %297 = shl i32 %.01549.tr, 2
   %298 = sub i32 %297, %293
   %299 = icmp sgt i32 %298, %296
-  br i1 %299, label %226, label %300, !llvm.loop !20
+  br i1 %299, label %226, label %300, !llvm.loop !18
 
 300:                                              ; preds = %285, %287, %226
   %.61601 = phi ptr [ %.11596, %226 ], [ %.31598, %287 ], [ %.31598, %285 ]
@@ -15991,7 +15991,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   br i1 %301, label %.critedge, label %._crit_edge1878
 
 ._crit_edge1878:                                  ; preds = %300
-  %.pre1879 = trunc i64 %.61593 to i32
+  %.pre1879 = trunc nuw i64 %.61593 to i32
   br label %323
 
 .critedge:                                        ; preds = %300
@@ -16026,7 +16026,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   %319 = icmp ugt ptr %312, %.01558.ph1784
   %320 = icmp ugt ptr %314, %308
   %or.cond = select i1 %319, i1 %320, i1 false
-  br i1 %or.cond, label %.lr.ph1755, label %.critedge7, !llvm.loop !26
+  br i1 %or.cond, label %.lr.ph1755, label %.critedge7, !llvm.loop !23
 
 .critedge7:                                       ; preds = %317, %.lr.ph1755, %.critedge
   %.91604.lcssa = phi ptr [ %.61601, %.critedge ], [ %.916041752, %.lr.ph1755 ], [ %312, %317 ]
@@ -16053,7 +16053,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   store <2 x i64> %.01558.val, ptr %327, align 1
   %329 = icmp ugt i64 %325, 16
   %330 = load ptr, ptr %158, align 8
-  %331 = getelementptr inbounds i8, ptr %330, i64 %325
+  %331 = getelementptr i8, ptr %330, i64 %325
   br i1 %329, label %332, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %328
@@ -16085,7 +16085,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %328
   store <2 x i64> %.val1656, ptr %339, align 1
   %341 = getelementptr inbounds i8, ptr %.11547, i64 32
   %342 = icmp ult ptr %341, %331
-  br i1 %342, label %338, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %342, label %338, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 343:                                              ; preds = %323
   %344 = ptrtoint ptr %326 to i64
@@ -16116,7 +16116,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %328
   store <2 x i64> %.val.i, ptr %352, align 1
   %354 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %355 = icmp ult ptr %354, %347
-  br i1 %355, label %351, label %.loopexit.i, !llvm.loop !22
+  br i1 %355, label %351, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %351, %345, %343
   %.047.i = phi ptr [ %347, %345 ], [ %327, %343 ], [ %347, %351 ]
@@ -16138,7 +16138,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %328
   %360 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %359, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %358, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.loopexit.i, %332
   %361 = load ptr, ptr %158, align 8
@@ -16284,7 +16284,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
   store i32 %429, ptr %442, align 4
   %indvars.iv.next1870 = add nuw nsw i64 %indvars.iv1869, 1
   %exitcond1873.not = icmp eq i64 %indvars.iv.next1870, %wide.trip.count1872
-  br i1 %exitcond1873.not, label %._crit_edge1764, label %413, !llvm.loop !28
+  br i1 %exitcond1873.not, label %._crit_edge1764, label %413, !llvm.loop !25
 
 ._crit_edge1764:                                  ; preds = %440, %392
   store i32 0, ptr %46, align 4
@@ -16338,7 +16338,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %468
 
 468:                                              ; preds = %466
-  %469 = tail call i64 @llvm.cttz.i64(i64 %467, i1 true), !range !15
+  %469 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %467, i1 true)
   %470 = lshr i64 %469, 3
   br label %ZSTD_count.exit.i
 
@@ -16355,10 +16355,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %473 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %473, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %474, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %474, !llvm.loop !15
 
 474:                                              ; preds = %472
-  %475 = tail call i64 @llvm.cttz.i64(i64 %473, i1 true), !range !15
+  %475 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %473, i1 true)
   %476 = lshr i64 %475, 3
   %477 = getelementptr inbounds i8, ptr %.040.i.i, i64 %476
   %478 = ptrtoint ptr %477 to i64
@@ -16442,7 +16442,7 @@ ZSTD_count.exit.i:                                ; preds = %502, %474, %468
   br i1 %.not.i39.i, label %.preheader.i40.i, label %512
 
 512:                                              ; preds = %510
-  %513 = tail call i64 @llvm.cttz.i64(i64 %511, i1 true), !range !15
+  %513 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %511, i1 true)
   %514 = lshr i64 %513, 3
   br label %ZSTD_count.exit48.i
 
@@ -16459,10 +16459,10 @@ ZSTD_count.exit.i:                                ; preds = %502, %474, %468
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %517 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %517, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %518, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %518, !llvm.loop !15
 
 518:                                              ; preds = %516
-  %519 = tail call i64 @llvm.cttz.i64(i64 %517, i1 true), !range !15
+  %519 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %517, i1 true)
   %520 = lshr i64 %519, 3
   %521 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %520
   %522 = ptrtoint ptr %521 to i64
@@ -16573,14 +16573,14 @@ ZSTD_safecopyLiterals.exit1676:                   ; preds = %ZSTD_count_2segment
   store ptr %568, ptr %161, align 8
   %569 = getelementptr inbounds i8, ptr %.21768, i64 %549
   %.not1640 = icmp ugt ptr %569, %9
-  br i1 %.not1640, label %.critedge13, label %.lr.ph1770, !llvm.loop !27
+  br i1 %.not1640, label %.critedge13, label %.lr.ph1770, !llvm.loop !24
 
 .critedge13:                                      ; preds = %564, %453, %.lr.ph1770, %443
   %.41573.lcssa = phi i32 [ %.31572, %443 ], [ %.415731766, %.lr.ph1770 ], [ %.415731766, %453 ], [ %.315661767, %564 ]
   %.31566.lcssa = phi i32 [ %.21565, %443 ], [ %.315661767, %.lr.ph1770 ], [ %.315661767, %453 ], [ %.415731766, %564 ]
   %.2.lcssa = phi ptr [ %390, %443 ], [ %.21768, %.lr.ph1770 ], [ %.21768, %453 ], [ %569, %564 ]
   %570 = icmp ult ptr %.2.lcssa, %9
-  br i1 %570, label %.lr.ph1744, label %.outer._crit_edge.loopexit1794, !llvm.loop !18
+  br i1 %570, label %.lr.ph1744, label %.outer._crit_edge.loopexit1794, !llvm.loop !17
 
 .outer._crit_edge.loopexit1794:                   ; preds = %.critedge13
   %.pre1877 = ptrtoint ptr %.2.lcssa to i64
@@ -16725,7 +16725,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dictMatchState_row(ptr nocapture
   store i32 %87, ptr %94, align 4
   %indvars.iv.next1862 = add nuw nsw i64 %indvars.iv1861, 1
   %exitcond1865.not = icmp eq i64 %indvars.iv.next1862, %wide.trip.count1864
-  br i1 %exitcond1865.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond1865.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   switch i32 %spec.select1676, label %.lr.ph.split.split [
@@ -16763,7 +16763,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dictMatchState_row(ptr nocapture
   store i32 %99, ptr %110, align 4
   %indvars.iv.next1847 = add nuw nsw i64 %indvars.iv1846, 1
   %exitcond1850.not = icmp eq i64 %indvars.iv.next1847, %wide.trip.count1864
-  br i1 %exitcond1850.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !28
+  br i1 %exitcond1850.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.us1746:                        ; preds = %.lr.ph.split, %124
   %indvars.iv = phi i64 [ %indvars.iv.next, %124 ], [ %53, %.lr.ph.split ]
@@ -16795,7 +16795,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dictMatchState_row(ptr nocapture
   store i32 %115, ptr %126, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count1864
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1746, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1746, !llvm.loop !25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not1680, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -16821,7 +16821,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dictMatchState_row(ptr nocapture
   store i32 %130, ptr %138, align 4
   %indvars.iv.next1857 = add nuw nsw i64 %indvars.iv1856, 1
   %exitcond1860.not = icmp eq i64 %indvars.iv.next1857, %wide.trip.count1864
-  br i1 %exitcond1860.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !28
+  br i1 %exitcond1860.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv1851 = phi i64 [ %indvars.iv.next1852, %.lr.ph.split.split.split ], [ %53, %.lr.ph.split.split ]
@@ -16846,7 +16846,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dictMatchState_row(ptr nocapture
   store i32 %142, ptr %151, align 4
   %indvars.iv.next1852 = add nuw nsw i64 %indvars.iv1851, 1
   %exitcond1855.not = icmp eq i64 %indvars.iv.next1852, %wide.trip.count1864
-  br i1 %exitcond1855.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !28
+  br i1 %exitcond1855.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %124, %108, %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.thread.us, %5
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
@@ -16931,15 +16931,15 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dictMatchState_row(ptr nocapture
   ]
 
 194:                                              ; preds = %193
-  %195 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %195 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 196:                                              ; preds = %193
-  %197 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %197 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 198:                                              ; preds = %193
-  %199 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %199 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 200:                                              ; preds = %192
@@ -16950,15 +16950,15 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dictMatchState_row(ptr nocapture
   ]
 
 201:                                              ; preds = %200
-  %202 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %202 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 203:                                              ; preds = %200
-  %204 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %204 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 205:                                              ; preds = %200
-  %206 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %206 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 207:                                              ; preds = %192
@@ -16969,15 +16969,15 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dictMatchState_row(ptr nocapture
   ]
 
 208:                                              ; preds = %207
-  %209 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %209 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 210:                                              ; preds = %207
-  %211 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %211 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 212:                                              ; preds = %207
-  %213 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %213 = call fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 default.unreachable:                              ; preds = %207, %200, %193, %192
@@ -16998,7 +16998,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   %223 = zext i1 %222 to i32
   store i32 %223, ptr %45, align 4
   %224 = icmp ult ptr %221, %8
-  br i1 %224, label %168, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %224, label %168, label %.outer._crit_edge, !llvm.loop !17
 
 225:                                              ; preds = %214
   %226 = icmp ugt i64 %215, 3
@@ -17035,7 +17035,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   %244 = icmp ugt ptr %237, %.01558.ph1793
   %245 = icmp ugt ptr %239, %233
   %or.cond = select i1 %244, i1 %245, i1 false
-  br i1 %or.cond, label %.lr.ph1764, label %.critedge7, !llvm.loop !26
+  br i1 %or.cond, label %.lr.ph1764, label %.critedge7, !llvm.loop !23
 
 .critedge7:                                       ; preds = %242, %.lr.ph1764, %.critedge
   %.91604.lcssa = phi ptr [ %.015561752, %.critedge ], [ %.916041761, %.lr.ph1764 ], [ %237, %242 ]
@@ -17063,7 +17063,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   store <2 x i64> %.01558.val, ptr %253, align 1
   %255 = icmp ugt i64 %250, 16
   %256 = load ptr, ptr %157, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 %250
+  %257 = getelementptr i8, ptr %256, i64 %250
   br i1 %255, label %258, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %254
@@ -17095,7 +17095,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %254
   store <2 x i64> %.val1654, ptr %265, align 1
   %267 = getelementptr inbounds i8, ptr %.11547, i64 32
   %268 = icmp ult ptr %267, %257
-  br i1 %268, label %264, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %268, label %264, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 269:                                              ; preds = %248
   %270 = ptrtoint ptr %252 to i64
@@ -17126,7 +17126,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %254
   store <2 x i64> %.val.i, ptr %278, align 1
   %280 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %281 = icmp ult ptr %280, %273
-  br i1 %281, label %277, label %.loopexit.i, !llvm.loop !22
+  br i1 %281, label %277, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %277, %271, %269
   %.047.i = phi ptr [ %273, %271 ], [ %253, %269 ], [ %273, %277 ]
@@ -17148,7 +17148,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %254
   %286 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %285, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %284, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.loopexit.i, %258
   %287 = load ptr, ptr %157, align 8
@@ -17294,7 +17294,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
   store i32 %355, ptr %368, align 4
   %indvars.iv.next1867 = add nuw nsw i64 %indvars.iv1866, 1
   %exitcond1870.not = icmp eq i64 %indvars.iv.next1867, %wide.trip.count1869
-  br i1 %exitcond1870.not, label %._crit_edge1773, label %339, !llvm.loop !28
+  br i1 %exitcond1870.not, label %._crit_edge1773, label %339, !llvm.loop !25
 
 ._crit_edge1773:                                  ; preds = %366, %318
   store i32 0, ptr %45, align 4
@@ -17348,7 +17348,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %394
 
 394:                                              ; preds = %392
-  %395 = tail call i64 @llvm.cttz.i64(i64 %393, i1 true), !range !15
+  %395 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %393, i1 true)
   %396 = lshr i64 %395, 3
   br label %ZSTD_count.exit.i
 
@@ -17365,10 +17365,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %399 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %399, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %400, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %400, !llvm.loop !15
 
 400:                                              ; preds = %398
-  %401 = tail call i64 @llvm.cttz.i64(i64 %399, i1 true), !range !15
+  %401 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %399, i1 true)
   %402 = lshr i64 %401, 3
   %403 = getelementptr inbounds i8, ptr %.040.i.i, i64 %402
   %404 = ptrtoint ptr %403 to i64
@@ -17452,7 +17452,7 @@ ZSTD_count.exit.i:                                ; preds = %428, %400, %394
   br i1 %.not.i39.i, label %.preheader.i40.i, label %438
 
 438:                                              ; preds = %436
-  %439 = tail call i64 @llvm.cttz.i64(i64 %437, i1 true), !range !15
+  %439 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %437, i1 true)
   %440 = lshr i64 %439, 3
   br label %ZSTD_count.exit48.i
 
@@ -17469,10 +17469,10 @@ ZSTD_count.exit.i:                                ; preds = %428, %400, %394
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %443 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %443, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %444, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %444, !llvm.loop !15
 
 444:                                              ; preds = %442
-  %445 = tail call i64 @llvm.cttz.i64(i64 %443, i1 true), !range !15
+  %445 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %443, i1 true)
   %446 = lshr i64 %445, 3
   %447 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %446
   %448 = ptrtoint ptr %447 to i64
@@ -17583,14 +17583,14 @@ ZSTD_safecopyLiterals.exit1674:                   ; preds = %ZSTD_count_2segment
   store ptr %494, ptr %160, align 8
   %495 = getelementptr inbounds i8, ptr %.21777, i64 %475
   %.not1640 = icmp ugt ptr %495, %8
-  br i1 %.not1640, label %.critedge13, label %.lr.ph1779, !llvm.loop !27
+  br i1 %.not1640, label %.critedge13, label %.lr.ph1779, !llvm.loop !24
 
 .critedge13:                                      ; preds = %490, %379, %.lr.ph1779, %369
   %.41573.lcssa = phi i32 [ %.31572, %369 ], [ %.415731775, %.lr.ph1779 ], [ %.415731775, %379 ], [ %.315661776, %490 ]
   %.31566.lcssa = phi i32 [ %.21565, %369 ], [ %.315661776, %.lr.ph1779 ], [ %.315661776, %379 ], [ %.415731775, %490 ]
   %.2.lcssa = phi ptr [ %316, %369 ], [ %.21777, %.lr.ph1779 ], [ %.21777, %379 ], [ %495, %490 ]
   %496 = icmp ult ptr %.2.lcssa, %8
-  br i1 %496, label %.lr.ph1753, label %.outer._crit_edge.loopexit1801, !llvm.loop !18
+  br i1 %496, label %.lr.ph1753, label %.outer._crit_edge.loopexit1801, !llvm.loop !17
 
 .outer._crit_edge.loopexit1801:                   ; preds = %.critedge13
   %.pre1874 = ptrtoint ptr %.2.lcssa to i64
@@ -17737,7 +17737,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch_row(ptr nocap
   store i32 %89, ptr %96, align 4
   %indvars.iv.next1915 = add nuw nsw i64 %indvars.iv1914, 1
   %exitcond1918.not = icmp eq i64 %indvars.iv.next1915, %wide.trip.count1917
-  br i1 %exitcond1918.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond1918.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   switch i32 %spec.select1681, label %.lr.ph.split.split [
@@ -17775,7 +17775,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch_row(ptr nocap
   store i32 %101, ptr %112, align 4
   %indvars.iv.next1900 = add nuw nsw i64 %indvars.iv1899, 1
   %exitcond1903.not = icmp eq i64 %indvars.iv.next1900, %wide.trip.count1917
-  br i1 %exitcond1903.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !28
+  br i1 %exitcond1903.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.us1749:                        ; preds = %.lr.ph.split, %126
   %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ %55, %.lr.ph.split ]
@@ -17807,7 +17807,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch_row(ptr nocap
   store i32 %117, ptr %128, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count1917
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1749, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1749, !llvm.loop !25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not1685, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -17833,7 +17833,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch_row(ptr nocap
   store i32 %132, ptr %140, align 4
   %indvars.iv.next1910 = add nuw nsw i64 %indvars.iv1909, 1
   %exitcond1913.not = icmp eq i64 %indvars.iv.next1910, %wide.trip.count1917
-  br i1 %exitcond1913.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !28
+  br i1 %exitcond1913.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv1904 = phi i64 [ %indvars.iv.next1905, %.lr.ph.split.split.split ], [ %55, %.lr.ph.split.split ]
@@ -17858,7 +17858,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch_row(ptr nocap
   store i32 %144, ptr %153, align 4
   %indvars.iv.next1905 = add nuw nsw i64 %indvars.iv1904, 1
   %exitcond1908.not = icmp eq i64 %indvars.iv.next1905, %wide.trip.count1917
-  br i1 %exitcond1908.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !28
+  br i1 %exitcond1908.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %126, %110, %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.thread.us, %5
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
@@ -17943,15 +17943,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch_row(ptr nocap
   ]
 
 195:                                              ; preds = %194
-  %196 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %196 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 197:                                              ; preds = %194
-  %198 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %198 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 199:                                              ; preds = %194
-  %200 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %200 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 201:                                              ; preds = %193
@@ -17962,15 +17962,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch_row(ptr nocap
   ]
 
 202:                                              ; preds = %201
-  %203 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %203 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 204:                                              ; preds = %201
-  %205 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %205 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 206:                                              ; preds = %201
-  %207 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %207 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 208:                                              ; preds = %193
@@ -17981,15 +17981,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch_row(ptr nocap
   ]
 
 209:                                              ; preds = %208
-  %210 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %210 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 211:                                              ; preds = %208
-  %212 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %212 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 213:                                              ; preds = %208
-  %214 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %214 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %0, ptr noundef %.015561759, ptr noundef %9, ptr noundef nonnull %6)
   br label %215
 
 default.unreachable:                              ; preds = %208, %201, %194, %193, %348, %341, %334, %333, %277, %270, %263, %262
@@ -18018,7 +18018,7 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   %226 = zext i1 %225 to i32
   store i32 %226, ptr %47, align 4
   %227 = icmp ult ptr %224, %10
-  br i1 %227, label %170, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %227, label %170, label %.outer._crit_edge, !llvm.loop !17
 
 .lr.ph1771:                                       ; preds = %.preheader, %.backedge
   %.115571770 = phi ptr [ %.11596.be, %.backedge ], [ %.015561759, %.preheader ]
@@ -18058,7 +18058,7 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
 
 251:                                              ; preds = %244
   %252 = trunc i64 %.115881768 to i32
-  %253 = tail call i32 @llvm.ctlz.i32(i32 %252, i1 true), !range !19
+  %253 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %252, i1 true)
   %254 = trunc i64 %.315821769 to i32
   %255 = mul i32 %254, 3
   %256 = add nsw i32 %253, -30
@@ -18090,15 +18090,15 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   ]
 
 264:                                              ; preds = %263
-  %265 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %265 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 266:                                              ; preds = %263
-  %267 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %267 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 268:                                              ; preds = %263
-  %269 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %269 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 270:                                              ; preds = %262
@@ -18109,15 +18109,15 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   ]
 
 271:                                              ; preds = %270
-  %272 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %272 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 273:                                              ; preds = %270
-  %274 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %274 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 275:                                              ; preds = %270
-  %276 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %276 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 277:                                              ; preds = %262
@@ -18128,28 +18128,28 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   ]
 
 278:                                              ; preds = %277
-  %279 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %279 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 280:                                              ; preds = %277
-  %281 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %281 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 282:                                              ; preds = %277
-  %283 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %283 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %0, ptr noundef nonnull %228, ptr noundef %9, ptr noundef nonnull %7)
   br label %284
 
 284:                                              ; preds = %282, %280, %278, %275, %273, %271, %268, %266, %264
   %.01549 = phi i64 [ %283, %282 ], [ %281, %280 ], [ %279, %278 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ]
   %285 = trunc i64 %.31590 to i32
-  %286 = tail call i32 @llvm.ctlz.i32(i32 %285, i1 true), !range !19
+  %286 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %285, i1 true)
   %287 = icmp ugt i64 %.01549, 3
   br i1 %287, label %288, label %300
 
 288:                                              ; preds = %284
   %289 = load i64, ptr %7, align 8
   %290 = trunc i64 %289 to i32
-  %291 = tail call i32 @llvm.ctlz.i32(i32 %290, i1 true), !range !19
+  %291 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %290, i1 true)
   %292 = xor i32 %291, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %293 = shl i32 %.51584.tr, 2
@@ -18166,7 +18166,7 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   %.11588.be = phi i64 [ %289, %288 ], [ %360, %357 ]
   %.31582.be = phi i64 [ %.01549, %288 ], [ %.01550, %357 ]
   %299 = icmp ult ptr %.11596.be, %10
-  br i1 %299, label %.lr.ph1771, label %._crit_edge1772, !llvm.loop !20
+  br i1 %299, label %.lr.ph1771, label %._crit_edge1772, !llvm.loop !18
 
 300:                                              ; preds = %284, %288
   %301 = icmp ult ptr %228, %10
@@ -18236,15 +18236,15 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   ]
 
 335:                                              ; preds = %334
-  %336 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %336 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 337:                                              ; preds = %334
-  %338 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %338 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 339:                                              ; preds = %334
-  %340 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %340 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 341:                                              ; preds = %333
@@ -18255,15 +18255,15 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   ]
 
 342:                                              ; preds = %341
-  %343 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %343 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 344:                                              ; preds = %341
-  %345 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %345 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 346:                                              ; preds = %341
-  %347 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %347 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 348:                                              ; preds = %333
@@ -18274,15 +18274,15 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   ]
 
 349:                                              ; preds = %348
-  %350 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %350 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 351:                                              ; preds = %348
-  %352 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %352 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 353:                                              ; preds = %348
-  %354 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %354 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %0, ptr noundef nonnull %303, ptr noundef %9, ptr noundef nonnull %8)
   br label %355
 
 355:                                              ; preds = %353, %351, %349, %346, %344, %342, %339, %337, %335
@@ -18292,10 +18292,10 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
 
 357:                                              ; preds = %355
   %358 = trunc i64 %.51592 to i32
-  %359 = tail call i32 @llvm.ctlz.i32(i32 %358, i1 true), !range !19
+  %359 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %358, i1 true)
   %360 = load i64, ptr %8, align 8
   %361 = trunc i64 %360 to i32
-  %362 = tail call i32 @llvm.ctlz.i32(i32 %361, i1 true), !range !19
+  %362 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %361, i1 true)
   %363 = xor i32 %362, 31
   %.71586.tr = trunc i64 %.71586 to i32
   %364 = shl i32 %.71586.tr, 2
@@ -18315,7 +18315,7 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   br i1 %370, label %.critedge, label %._crit_edge1772._crit_edge
 
 ._crit_edge1772._crit_edge:                       ; preds = %._crit_edge1772
-  %.pre1928 = trunc i64 %.61593 to i32
+  %.pre1928 = trunc nuw i64 %.61593 to i32
   br label %392
 
 .critedge:                                        ; preds = %._crit_edge1772
@@ -18350,7 +18350,7 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   %388 = icmp ugt ptr %381, %.01558.ph1821
   %389 = icmp ugt ptr %383, %377
   %or.cond = select i1 %388, i1 %389, i1 false
-  br i1 %or.cond, label %.lr.ph1792, label %.critedge7, !llvm.loop !26
+  br i1 %or.cond, label %.lr.ph1792, label %.critedge7, !llvm.loop !23
 
 .critedge7:                                       ; preds = %386, %.lr.ph1792, %.critedge
   %.91604.lcssa = phi ptr [ %.61601, %.critedge ], [ %.916041789, %.lr.ph1792 ], [ %381, %386 ]
@@ -18377,7 +18377,7 @@ default.unreachable:                              ; preds = %208, %201, %194, %1
   store <2 x i64> %.01558.val, ptr %396, align 1
   %398 = icmp ugt i64 %394, 16
   %399 = load ptr, ptr %159, align 8
-  %400 = getelementptr inbounds i8, ptr %399, i64 %394
+  %400 = getelementptr i8, ptr %399, i64 %394
   br i1 %398, label %401, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %397
@@ -18409,7 +18409,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %397
   store <2 x i64> %.val1659, ptr %408, align 1
   %410 = getelementptr inbounds i8, ptr %.11547, i64 32
   %411 = icmp ult ptr %410, %400
-  br i1 %411, label %407, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %411, label %407, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 412:                                              ; preds = %392
   %413 = ptrtoint ptr %395 to i64
@@ -18440,7 +18440,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %397
   store <2 x i64> %.val.i, ptr %421, align 1
   %423 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %424 = icmp ult ptr %423, %416
-  br i1 %424, label %420, label %.loopexit.i, !llvm.loop !22
+  br i1 %424, label %420, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %420, %414, %412
   %.047.i = phi ptr [ %416, %414 ], [ %396, %412 ], [ %416, %420 ]
@@ -18462,7 +18462,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %397
   %429 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %428, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %427, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.loopexit.i, %401
   %430 = load ptr, ptr %159, align 8
@@ -18608,7 +18608,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
   store i32 %498, ptr %511, align 4
   %indvars.iv.next1920 = add nuw nsw i64 %indvars.iv1919, 1
   %exitcond1923.not = icmp eq i64 %indvars.iv.next1920, %wide.trip.count1922
-  br i1 %exitcond1923.not, label %._crit_edge1801, label %482, !llvm.loop !28
+  br i1 %exitcond1923.not, label %._crit_edge1801, label %482, !llvm.loop !25
 
 ._crit_edge1801:                                  ; preds = %509, %461
   store i32 0, ptr %47, align 4
@@ -18662,7 +18662,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %537
 
 537:                                              ; preds = %535
-  %538 = tail call i64 @llvm.cttz.i64(i64 %536, i1 true), !range !15
+  %538 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %536, i1 true)
   %539 = lshr i64 %538, 3
   br label %ZSTD_count.exit.i
 
@@ -18679,10 +18679,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %542 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %542, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %543, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %543, !llvm.loop !15
 
 543:                                              ; preds = %541
-  %544 = tail call i64 @llvm.cttz.i64(i64 %542, i1 true), !range !15
+  %544 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %542, i1 true)
   %545 = lshr i64 %544, 3
   %546 = getelementptr inbounds i8, ptr %.040.i.i, i64 %545
   %547 = ptrtoint ptr %546 to i64
@@ -18766,7 +18766,7 @@ ZSTD_count.exit.i:                                ; preds = %571, %543, %537
   br i1 %.not.i39.i, label %.preheader.i40.i, label %581
 
 581:                                              ; preds = %579
-  %582 = tail call i64 @llvm.cttz.i64(i64 %580, i1 true), !range !15
+  %582 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %580, i1 true)
   %583 = lshr i64 %582, 3
   br label %ZSTD_count.exit48.i
 
@@ -18783,10 +18783,10 @@ ZSTD_count.exit.i:                                ; preds = %571, %543, %537
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %586 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %586, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %587, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %587, !llvm.loop !15
 
 587:                                              ; preds = %585
-  %588 = tail call i64 @llvm.cttz.i64(i64 %586, i1 true), !range !15
+  %588 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %586, i1 true)
   %589 = lshr i64 %588, 3
   %590 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %589
   %591 = ptrtoint ptr %590 to i64
@@ -18897,14 +18897,14 @@ ZSTD_safecopyLiterals.exit1679:                   ; preds = %ZSTD_count_2segment
   store ptr %637, ptr %162, align 8
   %638 = getelementptr inbounds i8, ptr %.21805, i64 %618
   %.not1641 = icmp ugt ptr %638, %10
-  br i1 %.not1641, label %.critedge13, label %.lr.ph1807, !llvm.loop !27
+  br i1 %.not1641, label %.critedge13, label %.lr.ph1807, !llvm.loop !24
 
 .critedge13:                                      ; preds = %633, %522, %.lr.ph1807, %512
   %.41573.lcssa = phi i32 [ %.31572, %512 ], [ %.415731803, %.lr.ph1807 ], [ %.415731803, %522 ], [ %.315661804, %633 ]
   %.31566.lcssa = phi i32 [ %.21565, %512 ], [ %.315661804, %.lr.ph1807 ], [ %.315661804, %522 ], [ %.415731803, %633 ]
   %.2.lcssa = phi ptr [ %459, %512 ], [ %.21805, %.lr.ph1807 ], [ %.21805, %522 ], [ %638, %633 ]
   %639 = icmp ult ptr %.2.lcssa, %10
-  br i1 %639, label %.lr.ph1760, label %.outer._crit_edge.loopexit1832, !llvm.loop !18
+  br i1 %639, label %.lr.ph1760, label %.outer._crit_edge.loopexit1832, !llvm.loop !17
 
 .outer._crit_edge.loopexit1832:                   ; preds = %.critedge13
   %.pre1927 = ptrtoint ptr %.2.lcssa to i64
@@ -19050,7 +19050,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch_row(ptr nocapt
   store i32 %88, ptr %95, align 4
   %indvars.iv.next1865 = add nuw nsw i64 %indvars.iv1864, 1
   %exitcond1868.not = icmp eq i64 %indvars.iv.next1865, %wide.trip.count1867
-  br i1 %exitcond1868.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond1868.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   switch i32 %spec.select1678, label %.lr.ph.split.split [
@@ -19088,7 +19088,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch_row(ptr nocapt
   store i32 %100, ptr %111, align 4
   %indvars.iv.next1850 = add nuw nsw i64 %indvars.iv1849, 1
   %exitcond1853.not = icmp eq i64 %indvars.iv.next1850, %wide.trip.count1867
-  br i1 %exitcond1853.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !28
+  br i1 %exitcond1853.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.us1733:                        ; preds = %.lr.ph.split, %125
   %indvars.iv = phi i64 [ %indvars.iv.next, %125 ], [ %54, %.lr.ph.split ]
@@ -19120,7 +19120,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch_row(ptr nocapt
   store i32 %116, ptr %127, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count1867
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1733, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1733, !llvm.loop !25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not1682, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -19146,7 +19146,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch_row(ptr nocapt
   store i32 %131, ptr %139, align 4
   %indvars.iv.next1860 = add nuw nsw i64 %indvars.iv1859, 1
   %exitcond1863.not = icmp eq i64 %indvars.iv.next1860, %wide.trip.count1867
-  br i1 %exitcond1863.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !28
+  br i1 %exitcond1863.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv1854 = phi i64 [ %indvars.iv.next1855, %.lr.ph.split.split.split ], [ %54, %.lr.ph.split.split ]
@@ -19171,7 +19171,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch_row(ptr nocapt
   store i32 %143, ptr %152, align 4
   %indvars.iv.next1855 = add nuw nsw i64 %indvars.iv1854, 1
   %exitcond1858.not = icmp eq i64 %indvars.iv.next1855, %wide.trip.count1867
-  br i1 %exitcond1858.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !28
+  br i1 %exitcond1858.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %125, %109, %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.thread.us, %5
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
@@ -19256,15 +19256,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch_row(ptr nocapt
   ]
 
 194:                                              ; preds = %193
-  %195 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %195 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 196:                                              ; preds = %193
-  %197 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %197 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 198:                                              ; preds = %193
-  %199 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %199 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 200:                                              ; preds = %192
@@ -19275,15 +19275,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch_row(ptr nocapt
   ]
 
 201:                                              ; preds = %200
-  %202 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %202 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 203:                                              ; preds = %200
-  %204 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %204 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 205:                                              ; preds = %200
-  %206 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %206 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 207:                                              ; preds = %192
@@ -19294,15 +19294,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch_row(ptr nocapt
   ]
 
 208:                                              ; preds = %207
-  %209 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %209 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 210:                                              ; preds = %207
-  %211 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %211 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 212:                                              ; preds = %207
-  %213 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %213 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %0, ptr noundef %.015561743, ptr noundef %8, ptr noundef nonnull %6)
   br label %214
 
 default.unreachable:                              ; preds = %207, %200, %193, %192, %278, %271, %264, %263
@@ -19330,7 +19330,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   %224 = zext i1 %223 to i32
   store i32 %224, ptr %46, align 4
   %225 = icmp ult ptr %222, %9
-  br i1 %225, label %169, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %225, label %169, label %.outer._crit_edge, !llvm.loop !17
 
 226:                                              ; preds = %.preheader, %287
   %.11596 = phi ptr [ %229, %287 ], [ %.01595.le, %.preheader ]
@@ -19374,7 +19374,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
 
 252:                                              ; preds = %245
   %253 = trunc i64 %.11588 to i32
-  %254 = tail call i32 @llvm.ctlz.i32(i32 %253, i1 true), !range !19
+  %254 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %253, i1 true)
   %255 = trunc i64 %.31582 to i32
   %256 = mul i32 %255, 3
   %257 = add nsw i32 %254, -30
@@ -19406,15 +19406,15 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   ]
 
 265:                                              ; preds = %264
-  %266 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %266 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 267:                                              ; preds = %264
-  %268 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %268 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 269:                                              ; preds = %264
-  %270 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %270 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 271:                                              ; preds = %263
@@ -19425,15 +19425,15 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   ]
 
 272:                                              ; preds = %271
-  %273 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %273 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 274:                                              ; preds = %271
-  %275 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %275 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 276:                                              ; preds = %271
-  %277 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %277 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 278:                                              ; preds = %263
@@ -19444,15 +19444,15 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   ]
 
 279:                                              ; preds = %278
-  %280 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %280 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 281:                                              ; preds = %278
-  %282 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %282 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 283:                                              ; preds = %278
-  %284 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %284 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %0, ptr noundef nonnull %229, ptr noundef %8, ptr noundef nonnull %7)
   br label %285
 
 285:                                              ; preds = %283, %281, %279, %276, %274, %272, %269, %267, %265
@@ -19462,10 +19462,10 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
 
 287:                                              ; preds = %285
   %288 = trunc i64 %.31590 to i32
-  %289 = tail call i32 @llvm.ctlz.i32(i32 %288, i1 true), !range !19
+  %289 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %288, i1 true)
   %290 = load i64, ptr %7, align 8
   %291 = trunc i64 %290 to i32
-  %292 = tail call i32 @llvm.ctlz.i32(i32 %291, i1 true), !range !19
+  %292 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %291, i1 true)
   %293 = xor i32 %292, 31
   %.51584.tr = trunc i64 %.51584 to i32
   %294 = shl i32 %.51584.tr, 2
@@ -19475,7 +19475,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   %297 = shl i32 %.01549.tr, 2
   %298 = sub i32 %297, %293
   %299 = icmp sgt i32 %298, %296
-  br i1 %299, label %226, label %300, !llvm.loop !20
+  br i1 %299, label %226, label %300, !llvm.loop !18
 
 300:                                              ; preds = %285, %287, %226
   %.61601 = phi ptr [ %.11596, %226 ], [ %.31598, %287 ], [ %.31598, %285 ]
@@ -19485,7 +19485,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   br i1 %301, label %.critedge, label %._crit_edge1878
 
 ._crit_edge1878:                                  ; preds = %300
-  %.pre1879 = trunc i64 %.61593 to i32
+  %.pre1879 = trunc nuw i64 %.61593 to i32
   br label %323
 
 .critedge:                                        ; preds = %300
@@ -19520,7 +19520,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   %319 = icmp ugt ptr %312, %.01558.ph1784
   %320 = icmp ugt ptr %314, %308
   %or.cond = select i1 %319, i1 %320, i1 false
-  br i1 %or.cond, label %.lr.ph1755, label %.critedge7, !llvm.loop !26
+  br i1 %or.cond, label %.lr.ph1755, label %.critedge7, !llvm.loop !23
 
 .critedge7:                                       ; preds = %317, %.lr.ph1755, %.critedge
   %.91604.lcssa = phi ptr [ %.61601, %.critedge ], [ %.916041752, %.lr.ph1755 ], [ %312, %317 ]
@@ -19547,7 +19547,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   store <2 x i64> %.01558.val, ptr %327, align 1
   %329 = icmp ugt i64 %325, 16
   %330 = load ptr, ptr %158, align 8
-  %331 = getelementptr inbounds i8, ptr %330, i64 %325
+  %331 = getelementptr i8, ptr %330, i64 %325
   br i1 %329, label %332, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %328
@@ -19579,7 +19579,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %328
   store <2 x i64> %.val1656, ptr %339, align 1
   %341 = getelementptr inbounds i8, ptr %.11547, i64 32
   %342 = icmp ult ptr %341, %331
-  br i1 %342, label %338, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %342, label %338, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 343:                                              ; preds = %323
   %344 = ptrtoint ptr %326 to i64
@@ -19610,7 +19610,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %328
   store <2 x i64> %.val.i, ptr %352, align 1
   %354 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %355 = icmp ult ptr %354, %347
-  br i1 %355, label %351, label %.loopexit.i, !llvm.loop !22
+  br i1 %355, label %351, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %351, %345, %343
   %.047.i = phi ptr [ %347, %345 ], [ %327, %343 ], [ %347, %351 ]
@@ -19632,7 +19632,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %328
   %360 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %359, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %358, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.loopexit.i, %332
   %361 = load ptr, ptr %158, align 8
@@ -19778,7 +19778,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
   store i32 %429, ptr %442, align 4
   %indvars.iv.next1870 = add nuw nsw i64 %indvars.iv1869, 1
   %exitcond1873.not = icmp eq i64 %indvars.iv.next1870, %wide.trip.count1872
-  br i1 %exitcond1873.not, label %._crit_edge1764, label %413, !llvm.loop !28
+  br i1 %exitcond1873.not, label %._crit_edge1764, label %413, !llvm.loop !25
 
 ._crit_edge1764:                                  ; preds = %440, %392
   store i32 0, ptr %46, align 4
@@ -19832,7 +19832,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %468
 
 468:                                              ; preds = %466
-  %469 = tail call i64 @llvm.cttz.i64(i64 %467, i1 true), !range !15
+  %469 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %467, i1 true)
   %470 = lshr i64 %469, 3
   br label %ZSTD_count.exit.i
 
@@ -19849,10 +19849,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %473 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %473, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %474, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %474, !llvm.loop !15
 
 474:                                              ; preds = %472
-  %475 = tail call i64 @llvm.cttz.i64(i64 %473, i1 true), !range !15
+  %475 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %473, i1 true)
   %476 = lshr i64 %475, 3
   %477 = getelementptr inbounds i8, ptr %.040.i.i, i64 %476
   %478 = ptrtoint ptr %477 to i64
@@ -19936,7 +19936,7 @@ ZSTD_count.exit.i:                                ; preds = %502, %474, %468
   br i1 %.not.i39.i, label %.preheader.i40.i, label %512
 
 512:                                              ; preds = %510
-  %513 = tail call i64 @llvm.cttz.i64(i64 %511, i1 true), !range !15
+  %513 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %511, i1 true)
   %514 = lshr i64 %513, 3
   br label %ZSTD_count.exit48.i
 
@@ -19953,10 +19953,10 @@ ZSTD_count.exit.i:                                ; preds = %502, %474, %468
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %517 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %517, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %518, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %518, !llvm.loop !15
 
 518:                                              ; preds = %516
-  %519 = tail call i64 @llvm.cttz.i64(i64 %517, i1 true), !range !15
+  %519 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %517, i1 true)
   %520 = lshr i64 %519, 3
   %521 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %520
   %522 = ptrtoint ptr %521 to i64
@@ -20067,14 +20067,14 @@ ZSTD_safecopyLiterals.exit1676:                   ; preds = %ZSTD_count_2segment
   store ptr %568, ptr %161, align 8
   %569 = getelementptr inbounds i8, ptr %.21768, i64 %549
   %.not1640 = icmp ugt ptr %569, %9
-  br i1 %.not1640, label %.critedge13, label %.lr.ph1770, !llvm.loop !27
+  br i1 %.not1640, label %.critedge13, label %.lr.ph1770, !llvm.loop !24
 
 .critedge13:                                      ; preds = %564, %453, %.lr.ph1770, %443
   %.41573.lcssa = phi i32 [ %.31572, %443 ], [ %.415731766, %.lr.ph1770 ], [ %.415731766, %453 ], [ %.315661767, %564 ]
   %.31566.lcssa = phi i32 [ %.21565, %443 ], [ %.315661767, %.lr.ph1770 ], [ %.315661767, %453 ], [ %.415731766, %564 ]
   %.2.lcssa = phi ptr [ %390, %443 ], [ %.21768, %.lr.ph1770 ], [ %.21768, %453 ], [ %569, %564 ]
   %570 = icmp ult ptr %.2.lcssa, %9
-  br i1 %570, label %.lr.ph1744, label %.outer._crit_edge.loopexit1794, !llvm.loop !18
+  br i1 %570, label %.lr.ph1744, label %.outer._crit_edge.loopexit1794, !llvm.loop !17
 
 .outer._crit_edge.loopexit1794:                   ; preds = %.critedge13
   %.pre1877 = ptrtoint ptr %.2.lcssa to i64
@@ -20219,7 +20219,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch_row(ptr noca
   store i32 %87, ptr %94, align 4
   %indvars.iv.next1862 = add nuw nsw i64 %indvars.iv1861, 1
   %exitcond1865.not = icmp eq i64 %indvars.iv.next1862, %wide.trip.count1864
-  br i1 %exitcond1865.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond1865.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   switch i32 %spec.select1676, label %.lr.ph.split.split [
@@ -20257,7 +20257,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch_row(ptr noca
   store i32 %99, ptr %110, align 4
   %indvars.iv.next1847 = add nuw nsw i64 %indvars.iv1846, 1
   %exitcond1850.not = icmp eq i64 %indvars.iv.next1847, %wide.trip.count1864
-  br i1 %exitcond1850.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !28
+  br i1 %exitcond1850.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.us1746:                        ; preds = %.lr.ph.split, %124
   %indvars.iv = phi i64 [ %indvars.iv.next, %124 ], [ %53, %.lr.ph.split ]
@@ -20289,7 +20289,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch_row(ptr noca
   store i32 %115, ptr %126, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count1864
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1746, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1746, !llvm.loop !25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not1680, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -20315,7 +20315,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch_row(ptr noca
   store i32 %130, ptr %138, align 4
   %indvars.iv.next1857 = add nuw nsw i64 %indvars.iv1856, 1
   %exitcond1860.not = icmp eq i64 %indvars.iv.next1857, %wide.trip.count1864
-  br i1 %exitcond1860.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !28
+  br i1 %exitcond1860.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv1851 = phi i64 [ %indvars.iv.next1852, %.lr.ph.split.split.split ], [ %53, %.lr.ph.split.split ]
@@ -20340,7 +20340,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch_row(ptr noca
   store i32 %142, ptr %151, align 4
   %indvars.iv.next1852 = add nuw nsw i64 %indvars.iv1851, 1
   %exitcond1855.not = icmp eq i64 %indvars.iv.next1852, %wide.trip.count1864
-  br i1 %exitcond1855.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !28
+  br i1 %exitcond1855.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %124, %108, %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.thread.us, %5
   tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
@@ -20425,15 +20425,15 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch_row(ptr noca
   ]
 
 194:                                              ; preds = %193
-  %195 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %195 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 196:                                              ; preds = %193
-  %197 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %197 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 198:                                              ; preds = %193
-  %199 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %199 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 200:                                              ; preds = %192
@@ -20444,15 +20444,15 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch_row(ptr noca
   ]
 
 201:                                              ; preds = %200
-  %202 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %202 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 203:                                              ; preds = %200
-  %204 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %204 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 205:                                              ; preds = %200
-  %206 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %206 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 207:                                              ; preds = %192
@@ -20463,15 +20463,15 @@ define dso_local i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch_row(ptr noca
   ]
 
 208:                                              ; preds = %207
-  %209 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %209 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 210:                                              ; preds = %207
-  %211 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %211 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 212:                                              ; preds = %207
-  %213 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %213 = call fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr noundef %0, ptr noundef %.015561752, ptr noundef %7, ptr noundef nonnull %6)
   br label %214
 
 default.unreachable:                              ; preds = %207, %200, %193, %192
@@ -20492,7 +20492,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   %223 = zext i1 %222 to i32
   store i32 %223, ptr %45, align 4
   %224 = icmp ult ptr %221, %8
-  br i1 %224, label %168, label %.outer._crit_edge, !llvm.loop !18
+  br i1 %224, label %168, label %.outer._crit_edge, !llvm.loop !17
 
 225:                                              ; preds = %214
   %226 = icmp ugt i64 %215, 3
@@ -20529,7 +20529,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   %244 = icmp ugt ptr %237, %.01558.ph1793
   %245 = icmp ugt ptr %239, %233
   %or.cond = select i1 %244, i1 %245, i1 false
-  br i1 %or.cond, label %.lr.ph1764, label %.critedge7, !llvm.loop !26
+  br i1 %or.cond, label %.lr.ph1764, label %.critedge7, !llvm.loop !23
 
 .critedge7:                                       ; preds = %242, %.lr.ph1764, %.critedge
   %.91604.lcssa = phi ptr [ %.015561752, %.critedge ], [ %.916041761, %.lr.ph1764 ], [ %237, %242 ]
@@ -20557,7 +20557,7 @@ default.unreachable:                              ; preds = %207, %200, %193, %1
   store <2 x i64> %.01558.val, ptr %253, align 1
   %255 = icmp ugt i64 %250, 16
   %256 = load ptr, ptr %157, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 %250
+  %257 = getelementptr i8, ptr %256, i64 %250
   br i1 %255, label %258, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %254
@@ -20589,7 +20589,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %254
   store <2 x i64> %.val1654, ptr %265, align 1
   %267 = getelementptr inbounds i8, ptr %.11547, i64 32
   %268 = icmp ult ptr %267, %257
-  br i1 %268, label %264, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %268, label %264, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 269:                                              ; preds = %248
   %270 = ptrtoint ptr %252 to i64
@@ -20620,7 +20620,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %254
   store <2 x i64> %.val.i, ptr %278, align 1
   %280 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %281 = icmp ult ptr %280, %273
-  br i1 %281, label %277, label %.loopexit.i, !llvm.loop !22
+  br i1 %281, label %277, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %277, %271, %269
   %.047.i = phi ptr [ %273, %271 ], [ %253, %269 ], [ %273, %277 ]
@@ -20642,7 +20642,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %254
   %286 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %285, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %284, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.loopexit.i, %258
   %287 = load ptr, ptr %157, align 8
@@ -20788,7 +20788,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
   store i32 %355, ptr %368, align 4
   %indvars.iv.next1867 = add nuw nsw i64 %indvars.iv1866, 1
   %exitcond1870.not = icmp eq i64 %indvars.iv.next1867, %wide.trip.count1869
-  br i1 %exitcond1870.not, label %._crit_edge1773, label %339, !llvm.loop !28
+  br i1 %exitcond1870.not, label %._crit_edge1773, label %339, !llvm.loop !25
 
 ._crit_edge1773:                                  ; preds = %366, %318
   store i32 0, ptr %45, align 4
@@ -20842,7 +20842,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %394
 
 394:                                              ; preds = %392
-  %395 = tail call i64 @llvm.cttz.i64(i64 %393, i1 true), !range !15
+  %395 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %393, i1 true)
   %396 = lshr i64 %395, 3
   br label %ZSTD_count.exit.i
 
@@ -20859,10 +20859,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %399 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %399, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %400, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %400, !llvm.loop !15
 
 400:                                              ; preds = %398
-  %401 = tail call i64 @llvm.cttz.i64(i64 %399, i1 true), !range !15
+  %401 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %399, i1 true)
   %402 = lshr i64 %401, 3
   %403 = getelementptr inbounds i8, ptr %.040.i.i, i64 %402
   %404 = ptrtoint ptr %403 to i64
@@ -20946,7 +20946,7 @@ ZSTD_count.exit.i:                                ; preds = %428, %400, %394
   br i1 %.not.i39.i, label %.preheader.i40.i, label %438
 
 438:                                              ; preds = %436
-  %439 = tail call i64 @llvm.cttz.i64(i64 %437, i1 true), !range !15
+  %439 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %437, i1 true)
   %440 = lshr i64 %439, 3
   br label %ZSTD_count.exit48.i
 
@@ -20963,10 +20963,10 @@ ZSTD_count.exit.i:                                ; preds = %428, %400, %394
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %443 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %443, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %444, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %444, !llvm.loop !15
 
 444:                                              ; preds = %442
-  %445 = tail call i64 @llvm.cttz.i64(i64 %443, i1 true), !range !15
+  %445 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %443, i1 true)
   %446 = lshr i64 %445, 3
   %447 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %446
   %448 = ptrtoint ptr %447 to i64
@@ -21077,14 +21077,14 @@ ZSTD_safecopyLiterals.exit1674:                   ; preds = %ZSTD_count_2segment
   store ptr %494, ptr %160, align 8
   %495 = getelementptr inbounds i8, ptr %.21777, i64 %475
   %.not1640 = icmp ugt ptr %495, %8
-  br i1 %.not1640, label %.critedge13, label %.lr.ph1779, !llvm.loop !27
+  br i1 %.not1640, label %.critedge13, label %.lr.ph1779, !llvm.loop !24
 
 .critedge13:                                      ; preds = %490, %379, %.lr.ph1779, %369
   %.41573.lcssa = phi i32 [ %.31572, %369 ], [ %.415731775, %.lr.ph1779 ], [ %.415731775, %379 ], [ %.315661776, %490 ]
   %.31566.lcssa = phi i32 [ %.21565, %369 ], [ %.315661776, %.lr.ph1779 ], [ %.315661776, %379 ], [ %.415731775, %490 ]
   %.2.lcssa = phi ptr [ %316, %369 ], [ %.21777, %.lr.ph1779 ], [ %.21777, %379 ], [ %495, %490 ]
   %496 = icmp ult ptr %.2.lcssa, %8
-  br i1 %496, label %.lr.ph1753, label %.outer._crit_edge.loopexit1801, !llvm.loop !18
+  br i1 %496, label %.lr.ph1753, label %.outer._crit_edge.loopexit1801, !llvm.loop !17
 
 .outer._crit_edge.loopexit1801:                   ; preds = %.critedge13
   %.pre1874 = ptrtoint ptr %.2.lcssa to i64
@@ -21133,7 +21133,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_extDict(ptr nocapture noundef %0
   %30 = icmp eq ptr %14, %3
   %31 = zext i1 %30 to i64
   %32 = getelementptr inbounds i8, ptr %3, i64 %31
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !29
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !26
   %33 = icmp ult ptr %32, %8
   br i1 %33, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
@@ -21213,15 +21213,15 @@ define dso_local i64 @ZSTD_compressBlock_greedy_extDict(ptr nocapture noundef %0
   ]
 
 80:                                               ; preds = %79
-  %81 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr noundef nonnull %0, ptr noundef %.013691487, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %81 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr noundef nonnull %0, ptr noundef %.013691487, ptr noundef %7, ptr noundef nonnull %6)
   br label %86
 
 82:                                               ; preds = %79
-  %83 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr noundef nonnull %0, ptr noundef %.013691487, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %83 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr noundef nonnull %0, ptr noundef %.013691487, ptr noundef %7, ptr noundef nonnull %6)
   br label %86
 
 84:                                               ; preds = %79
-  %85 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef nonnull %0, ptr noundef %.013691487, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %85 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef nonnull %0, ptr noundef %.013691487, ptr noundef %7, ptr noundef nonnull %6)
   br label %86
 
 default.unreachable:                              ; preds = %79
@@ -21242,7 +21242,7 @@ default.unreachable:                              ; preds = %79
   %95 = zext i1 %94 to i32
   store i32 %95, ptr %29, align 4
   %96 = icmp ult ptr %93, %8
-  br i1 %96, label %48, label %.outer._crit_edge, !llvm.loop !30
+  br i1 %96, label %48, label %.outer._crit_edge, !llvm.loop !27
 
 97:                                               ; preds = %86
   %98 = icmp ugt i64 %87, 3
@@ -21279,7 +21279,7 @@ default.unreachable:                              ; preds = %79
   %116 = icmp ugt ptr %109, %.01371.ph1524
   %117 = icmp ugt ptr %111, %106
   %or.cond = select i1 %116, i1 %117, i1 false
-  br i1 %or.cond, label %.lr.ph1498, label %.critedge, !llvm.loop !31
+  br i1 %or.cond, label %.lr.ph1498, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph1498, %114, %99
   %.51394.lcssa = phi ptr [ %.013691487, %99 ], [ %109, %114 ], [ %.513941494, %.lr.ph1498 ]
@@ -21307,7 +21307,7 @@ default.unreachable:                              ; preds = %79
   store <2 x i64> %.01371.val, ptr %125, align 1
   %127 = icmp ugt i64 %122, 16
   %128 = load ptr, ptr %39, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 %122
+  %129 = getelementptr i8, ptr %128, i64 %122
   br i1 %127, label %130, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %126
@@ -21339,7 +21339,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %126
   store <2 x i64> %.val1424, ptr %137, align 1
   %139 = getelementptr inbounds i8, ptr %.11361, i64 32
   %140 = icmp ult ptr %139, %129
-  br i1 %140, label %136, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %140, label %136, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 141:                                              ; preds = %120
   %142 = ptrtoint ptr %124 to i64
@@ -21370,7 +21370,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %126
   store <2 x i64> %.val.i, ptr %150, align 1
   %152 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %153 = icmp ult ptr %152, %145
-  br i1 %153, label %149, label %.loopexit.i, !llvm.loop !22
+  br i1 %153, label %149, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %149, %143, %141
   %.047.i = phi ptr [ %145, %143 ], [ %125, %141 ], [ %145, %149 ]
@@ -21392,7 +21392,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %126
   %158 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %157, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %156, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %136, %.lr.ph.i, %.loopexit.i, %130
   %159 = load ptr, ptr %39, align 8
@@ -21511,7 +21511,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %136, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %225
 
 225:                                              ; preds = %223
-  %226 = tail call i64 @llvm.cttz.i64(i64 %224, i1 true), !range !15
+  %226 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %224, i1 true)
   %227 = lshr i64 %226, 3
   br label %ZSTD_count.exit.i
 
@@ -21528,10 +21528,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %136, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %230 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %230, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %231, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %231, !llvm.loop !15
 
 231:                                              ; preds = %229
-  %232 = tail call i64 @llvm.cttz.i64(i64 %230, i1 true), !range !15
+  %232 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %230, i1 true)
   %233 = lshr i64 %232, 3
   %234 = getelementptr inbounds i8, ptr %.040.i.i, i64 %233
   %235 = ptrtoint ptr %234 to i64
@@ -21615,7 +21615,7 @@ ZSTD_count.exit.i:                                ; preds = %259, %231, %225
   br i1 %.not.i39.i, label %.preheader.i40.i, label %269
 
 269:                                              ; preds = %267
-  %270 = tail call i64 @llvm.cttz.i64(i64 %268, i1 true), !range !15
+  %270 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %268, i1 true)
   %271 = lshr i64 %270, 3
   br label %ZSTD_count.exit48.i
 
@@ -21632,10 +21632,10 @@ ZSTD_count.exit.i:                                ; preds = %259, %231, %225
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %274 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %274, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %275, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %275, !llvm.loop !15
 
 275:                                              ; preds = %273
-  %276 = tail call i64 @llvm.cttz.i64(i64 %274, i1 true), !range !15
+  %276 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %274, i1 true)
   %277 = lshr i64 %276, 3
   %278 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %277
   %279 = ptrtoint ptr %278 to i64
@@ -21746,14 +21746,14 @@ ZSTD_safecopyLiterals.exit1446:                   ; preds = %ZSTD_count_2segment
   store ptr %325, ptr %42, align 8
   %326 = getelementptr inbounds i8, ptr %.21507, i64 %306
   %.not1413 = icmp ugt ptr %326, %8
-  br i1 %.not1413, label %.outer, label %.lr.ph1509, !llvm.loop !32
+  br i1 %.not1413, label %.outer, label %.lr.ph1509, !llvm.loop !29
 
 .outer:                                           ; preds = %321, %210, %.lr.ph1509, %191
   %.21379.lcssa = phi i32 [ %.11378, %191 ], [ %.213791505, %.lr.ph1509 ], [ %.213791505, %210 ], [ %.213761506, %321 ]
   %.21376.lcssa = phi i32 [ %.11375, %191 ], [ %.213761506, %.lr.ph1509 ], [ %.213761506, %210 ], [ %.213791505, %321 ]
   %.2.lcssa = phi ptr [ %188, %191 ], [ %.21507, %.lr.ph1509 ], [ %.21507, %210 ], [ %326, %321 ]
   %327 = icmp ult ptr %.2.lcssa, %8
-  br i1 %327, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !30
+  br i1 %327, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !27
 
 .outer._crit_edge:                                ; preds = %.outer, %89, %5
   %.01377.ph.lcssa1486 = phi i32 [ %28, %5 ], [ %.01377.ph1522, %89 ], [ %.21379.lcssa, %.outer ]
@@ -21800,7 +21800,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_extDict(ptr nocapture noundef %0, 
   %31 = icmp eq ptr %15, %3
   %32 = zext i1 %31 to i64
   %33 = getelementptr inbounds i8, ptr %3, i64 %32
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !29
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !26
   %34 = icmp ult ptr %33, %9
   br i1 %34, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
@@ -21879,15 +21879,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy_extDict(ptr nocapture noundef %0, 
   ]
 
 79:                                               ; preds = %78
-  %80 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr noundef nonnull %0, ptr noundef %.013691485, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %80 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr noundef nonnull %0, ptr noundef %.013691485, ptr noundef %8, ptr noundef nonnull %6)
   br label %85
 
 81:                                               ; preds = %78
-  %82 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr noundef nonnull %0, ptr noundef %.013691485, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %82 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr noundef nonnull %0, ptr noundef %.013691485, ptr noundef %8, ptr noundef nonnull %6)
   br label %85
 
 83:                                               ; preds = %78
-  %84 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef nonnull %0, ptr noundef %.013691485, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %84 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef nonnull %0, ptr noundef %.013691485, ptr noundef %8, ptr noundef nonnull %6)
   br label %85
 
 default.unreachable:                              ; preds = %78, %138
@@ -21915,7 +21915,7 @@ default.unreachable:                              ; preds = %78, %138
   %95 = zext i1 %94 to i32
   store i32 %95, ptr %30, align 4
   %96 = icmp ult ptr %93, %9
-  br i1 %96, label %49, label %.outer._crit_edge, !llvm.loop !30
+  br i1 %96, label %49, label %.outer._crit_edge, !llvm.loop !27
 
 97:                                               ; preds = %.preheader, %147
   %.01396 = phi i32 [ %101, %147 ], [ %53, %.preheader ]
@@ -21970,7 +21970,7 @@ default.unreachable:                              ; preds = %78, %138
 
 127:                                              ; preds = %120
   %128 = trunc i64 %.11384 to i32
-  %129 = tail call i32 @llvm.ctlz.i32(i32 %128, i1 true), !range !19
+  %129 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %128, i1 true)
   %130 = trunc i64 %.21382 to i32
   %131 = mul i32 %130, 3
   %132 = add nsw i32 %129, -30
@@ -21995,15 +21995,15 @@ default.unreachable:                              ; preds = %78, %138
   ]
 
 139:                                              ; preds = %138
-  %140 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr noundef %0, ptr noundef nonnull %100, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %140 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr noundef %0, ptr noundef nonnull %100, ptr noundef %8, ptr noundef nonnull %7)
   br label %145
 
 141:                                              ; preds = %138
-  %142 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr noundef %0, ptr noundef nonnull %100, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %142 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr noundef %0, ptr noundef nonnull %100, ptr noundef %8, ptr noundef nonnull %7)
   br label %145
 
 143:                                              ; preds = %138
-  %144 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef %0, ptr noundef nonnull %100, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %144 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef %0, ptr noundef nonnull %100, ptr noundef %8, ptr noundef nonnull %7)
   br label %145
 
 145:                                              ; preds = %143, %141, %139
@@ -22013,10 +22013,10 @@ default.unreachable:                              ; preds = %78, %138
 
 147:                                              ; preds = %145
   %148 = trunc i64 %.21385 to i32
-  %149 = tail call i32 @llvm.ctlz.i32(i32 %148, i1 true), !range !19
+  %149 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %148, i1 true)
   %150 = load i64, ptr %7, align 8
   %151 = trunc i64 %150 to i32
-  %152 = tail call i32 @llvm.ctlz.i32(i32 %151, i1 true), !range !19
+  %152 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %151, i1 true)
   %153 = xor i32 %152, 31
   %.3.tr = trunc i64 %.3 to i32
   %154 = shl i32 %.3.tr, 2
@@ -22026,7 +22026,7 @@ default.unreachable:                              ; preds = %78, %138
   %157 = shl i32 %.01363.tr, 2
   %158 = sub i32 %157, %153
   %159 = icmp sgt i32 %158, %156
-  br i1 %159, label %97, label %160, !llvm.loop !33
+  br i1 %159, label %97, label %160, !llvm.loop !30
 
 160:                                              ; preds = %145, %147, %97
   %.41393 = phi ptr [ %.11390, %97 ], [ %.21391, %147 ], [ %.21391, %145 ]
@@ -22036,7 +22036,7 @@ default.unreachable:                              ; preds = %78, %138
   br i1 %161, label %162, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %160
-  %.pre1560 = trunc i64 %.41387 to i32
+  %.pre1560 = trunc nuw i64 %.41387 to i32
   br label %184
 
 162:                                              ; preds = %160
@@ -22071,7 +22071,7 @@ default.unreachable:                              ; preds = %78, %138
   %180 = icmp ugt ptr %173, %.01371.ph1522
   %181 = icmp ugt ptr %175, %170
   %or.cond = select i1 %180, i1 %181, i1 false
-  br i1 %or.cond, label %.lr.ph1496, label %.critedge, !llvm.loop !31
+  br i1 %or.cond, label %.lr.ph1496, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph1496, %178, %162
   %.51394.lcssa = phi ptr [ %.41393, %162 ], [ %173, %178 ], [ %.513941492, %.lr.ph1496 ]
@@ -22098,7 +22098,7 @@ default.unreachable:                              ; preds = %78, %138
   store <2 x i64> %.01371.val, ptr %188, align 1
   %190 = icmp ugt i64 %186, 16
   %191 = load ptr, ptr %40, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 %186
+  %192 = getelementptr i8, ptr %191, i64 %186
   br i1 %190, label %193, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %189
@@ -22130,7 +22130,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %189
   store <2 x i64> %.val1429, ptr %200, align 1
   %202 = getelementptr inbounds i8, ptr %.11361, i64 32
   %203 = icmp ult ptr %202, %192
-  br i1 %203, label %199, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %203, label %199, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 204:                                              ; preds = %184
   %205 = ptrtoint ptr %187 to i64
@@ -22161,7 +22161,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %189
   store <2 x i64> %.val.i, ptr %213, align 1
   %215 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %216 = icmp ult ptr %215, %208
-  br i1 %216, label %212, label %.loopexit.i, !llvm.loop !22
+  br i1 %216, label %212, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %212, %206, %204
   %.047.i = phi ptr [ %208, %206 ], [ %188, %204 ], [ %208, %212 ]
@@ -22183,7 +22183,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %189
   %221 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %220, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %219, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %199, %.lr.ph.i, %.loopexit.i, %193
   %222 = load ptr, ptr %40, align 8
@@ -22302,7 +22302,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %199, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %288
 
 288:                                              ; preds = %286
-  %289 = tail call i64 @llvm.cttz.i64(i64 %287, i1 true), !range !15
+  %289 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %287, i1 true)
   %290 = lshr i64 %289, 3
   br label %ZSTD_count.exit.i
 
@@ -22319,10 +22319,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %199, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %293 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %293, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %294, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %294, !llvm.loop !15
 
 294:                                              ; preds = %292
-  %295 = tail call i64 @llvm.cttz.i64(i64 %293, i1 true), !range !15
+  %295 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %293, i1 true)
   %296 = lshr i64 %295, 3
   %297 = getelementptr inbounds i8, ptr %.040.i.i, i64 %296
   %298 = ptrtoint ptr %297 to i64
@@ -22406,7 +22406,7 @@ ZSTD_count.exit.i:                                ; preds = %322, %294, %288
   br i1 %.not.i39.i, label %.preheader.i40.i, label %332
 
 332:                                              ; preds = %330
-  %333 = tail call i64 @llvm.cttz.i64(i64 %331, i1 true), !range !15
+  %333 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %331, i1 true)
   %334 = lshr i64 %333, 3
   br label %ZSTD_count.exit48.i
 
@@ -22423,10 +22423,10 @@ ZSTD_count.exit.i:                                ; preds = %322, %294, %288
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %337 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %337, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %338, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %338, !llvm.loop !15
 
 338:                                              ; preds = %336
-  %339 = tail call i64 @llvm.cttz.i64(i64 %337, i1 true), !range !15
+  %339 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %337, i1 true)
   %340 = lshr i64 %339, 3
   %341 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %340
   %342 = ptrtoint ptr %341 to i64
@@ -22537,14 +22537,14 @@ ZSTD_safecopyLiterals.exit1452:                   ; preds = %ZSTD_count_2segment
   store ptr %388, ptr %43, align 8
   %389 = getelementptr inbounds i8, ptr %.21505, i64 %369
   %.not1414 = icmp ugt ptr %389, %9
-  br i1 %.not1414, label %.outer, label %.lr.ph1507, !llvm.loop !32
+  br i1 %.not1414, label %.outer, label %.lr.ph1507, !llvm.loop !29
 
 .outer:                                           ; preds = %384, %273, %.lr.ph1507, %254
   %.21379.lcssa = phi i32 [ %.11378, %254 ], [ %.213791503, %.lr.ph1507 ], [ %.213791503, %273 ], [ %.213761504, %384 ]
   %.21376.lcssa = phi i32 [ %.11375, %254 ], [ %.213761504, %.lr.ph1507 ], [ %.213761504, %273 ], [ %.213791503, %384 ]
   %.2.lcssa = phi ptr [ %251, %254 ], [ %.21505, %.lr.ph1507 ], [ %.21505, %273 ], [ %389, %384 ]
   %390 = icmp ult ptr %.2.lcssa, %9
-  br i1 %390, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !30
+  br i1 %390, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !27
 
 .outer._crit_edge:                                ; preds = %.outer, %89, %5
   %.01377.ph.lcssa1480 = phi i32 [ %29, %5 ], [ %.01377.ph1520, %89 ], [ %.21379.lcssa, %.outer ]
@@ -22592,7 +22592,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_extDict(ptr nocapture noundef %0,
   %32 = icmp eq ptr %16, %3
   %33 = zext i1 %32 to i64
   %34 = getelementptr inbounds i8, ptr %3, i64 %33
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !29
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !26
   %35 = icmp ult ptr %34, %10
   br i1 %35, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
@@ -22671,15 +22671,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_extDict(ptr nocapture noundef %0,
   ]
 
 80:                                               ; preds = %79
-  %81 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr noundef nonnull %0, ptr noundef %.013691495, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %81 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr noundef nonnull %0, ptr noundef %.013691495, ptr noundef %9, ptr noundef nonnull %6)
   br label %86
 
 82:                                               ; preds = %79
-  %83 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr noundef nonnull %0, ptr noundef %.013691495, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %83 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr noundef nonnull %0, ptr noundef %.013691495, ptr noundef %9, ptr noundef nonnull %6)
   br label %86
 
 84:                                               ; preds = %79
-  %85 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef nonnull %0, ptr noundef %.013691495, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %85 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef nonnull %0, ptr noundef %.013691495, ptr noundef %9, ptr noundef nonnull %6)
   br label %86
 
 default.unreachable:                              ; preds = %79, %198, %137
@@ -22708,7 +22708,7 @@ default.unreachable:                              ; preds = %79, %198, %137
   %97 = zext i1 %96 to i32
   store i32 %97, ptr %31, align 4
   %98 = icmp ult ptr %95, %10
-  br i1 %98, label %50, label %.outer._crit_edge, !llvm.loop !30
+  br i1 %98, label %50, label %.outer._crit_edge, !llvm.loop !27
 
 .lr.ph1506:                                       ; preds = %.preheader, %.backedge
   %.113701505 = phi ptr [ %.11390.be, %.backedge ], [ %.013691495, %.preheader ]
@@ -22759,7 +22759,7 @@ default.unreachable:                              ; preds = %79, %198, %137
 
 126:                                              ; preds = %119
   %127 = trunc i64 %.113841503 to i32
-  %128 = tail call i32 @llvm.ctlz.i32(i32 %127, i1 true), !range !19
+  %128 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %127, i1 true)
   %129 = trunc i64 %.213821504 to i32
   %130 = mul i32 %129, 3
   %131 = add nsw i32 %128, -30
@@ -22784,29 +22784,29 @@ default.unreachable:                              ; preds = %79, %198, %137
   ]
 
 138:                                              ; preds = %137
-  %139 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr noundef %0, ptr noundef nonnull %99, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %139 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr noundef %0, ptr noundef nonnull %99, ptr noundef %9, ptr noundef nonnull %7)
   br label %144
 
 140:                                              ; preds = %137
-  %141 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr noundef %0, ptr noundef nonnull %99, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %141 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr noundef %0, ptr noundef nonnull %99, ptr noundef %9, ptr noundef nonnull %7)
   br label %144
 
 142:                                              ; preds = %137
-  %143 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef %0, ptr noundef nonnull %99, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %143 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef %0, ptr noundef nonnull %99, ptr noundef %9, ptr noundef nonnull %7)
   br label %144
 
 144:                                              ; preds = %142, %140, %138
   %.01363 = phi i64 [ %143, %142 ], [ %141, %140 ], [ %139, %138 ]
   %145 = shl i64 %.3, 2
   %146 = trunc i64 %.21385 to i32
-  %147 = tail call i32 @llvm.ctlz.i32(i32 %146, i1 true), !range !19
+  %147 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %146, i1 true)
   %148 = icmp ugt i64 %.01363, 3
   br i1 %148, label %149, label %161
 
 149:                                              ; preds = %144
   %150 = load i64, ptr %7, align 8
   %151 = trunc i64 %150 to i32
-  %152 = tail call i32 @llvm.ctlz.i32(i32 %151, i1 true), !range !19
+  %152 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %151, i1 true)
   %153 = xor i32 %152, 31
   %154 = trunc i64 %145 to i32
   %155 = add nsw i32 %147, -27
@@ -22823,7 +22823,7 @@ default.unreachable:                              ; preds = %79, %198, %137
   %.11384.be = phi i64 [ %150, %149 ], [ %210, %207 ]
   %.21382.be = phi i64 [ %.01363, %149 ], [ %.01364, %207 ]
   %160 = icmp ult ptr %.11390.be, %10
-  br i1 %160, label %.lr.ph1506, label %._crit_edge1507, !llvm.loop !33
+  br i1 %160, label %.lr.ph1506, label %._crit_edge1507, !llvm.loop !30
 
 161:                                              ; preds = %144, %149
   %162 = icmp ult ptr %99, %10
@@ -22895,15 +22895,15 @@ default.unreachable:                              ; preds = %79, %198, %137
   ]
 
 199:                                              ; preds = %198
-  %200 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr noundef %0, ptr noundef nonnull %164, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %200 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr noundef %0, ptr noundef nonnull %164, ptr noundef %9, ptr noundef nonnull %8)
   br label %205
 
 201:                                              ; preds = %198
-  %202 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr noundef %0, ptr noundef nonnull %164, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %202 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr noundef %0, ptr noundef nonnull %164, ptr noundef %9, ptr noundef nonnull %8)
   br label %205
 
 203:                                              ; preds = %198
-  %204 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef %0, ptr noundef nonnull %164, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %204 = call fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr noundef %0, ptr noundef nonnull %164, ptr noundef %9, ptr noundef nonnull %8)
   br label %205
 
 205:                                              ; preds = %203, %201, %199
@@ -22913,10 +22913,10 @@ default.unreachable:                              ; preds = %79, %198, %137
 
 207:                                              ; preds = %205
   %208 = trunc i64 %.31386 to i32
-  %209 = tail call i32 @llvm.ctlz.i32(i32 %208, i1 true), !range !19
+  %209 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %208, i1 true)
   %210 = load i64, ptr %8, align 8
   %211 = trunc i64 %210 to i32
-  %212 = tail call i32 @llvm.ctlz.i32(i32 %211, i1 true), !range !19
+  %212 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %211, i1 true)
   %213 = xor i32 %212, 31
   %.4.tr = trunc i64 %.4 to i32
   %214 = shl i32 %.4.tr, 2
@@ -22936,7 +22936,7 @@ default.unreachable:                              ; preds = %79, %198, %137
   br i1 %220, label %221, label %._crit_edge1507._crit_edge
 
 ._crit_edge1507._crit_edge:                       ; preds = %._crit_edge1507
-  %.pre1596 = trunc i64 %.41387 to i32
+  %.pre1596 = trunc nuw i64 %.41387 to i32
   br label %243
 
 221:                                              ; preds = %._crit_edge1507
@@ -22971,7 +22971,7 @@ default.unreachable:                              ; preds = %79, %198, %137
   %239 = icmp ugt ptr %232, %.01371.ph1554
   %240 = icmp ugt ptr %234, %229
   %or.cond = select i1 %239, i1 %240, i1 false
-  br i1 %or.cond, label %.lr.ph1528, label %.critedge, !llvm.loop !31
+  br i1 %or.cond, label %.lr.ph1528, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph1528, %237, %221
   %.51394.lcssa = phi ptr [ %.41393, %221 ], [ %232, %237 ], [ %.513941524, %.lr.ph1528 ]
@@ -22998,7 +22998,7 @@ default.unreachable:                              ; preds = %79, %198, %137
   store <2 x i64> %.01371.val, ptr %247, align 1
   %249 = icmp ugt i64 %245, 16
   %250 = load ptr, ptr %41, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 %245
+  %251 = getelementptr i8, ptr %250, i64 %245
   br i1 %249, label %252, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %248
@@ -23030,7 +23030,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %248
   store <2 x i64> %.val1434, ptr %259, align 1
   %261 = getelementptr inbounds i8, ptr %.11361, i64 32
   %262 = icmp ult ptr %261, %251
-  br i1 %262, label %258, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %262, label %258, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 263:                                              ; preds = %243
   %264 = ptrtoint ptr %246 to i64
@@ -23061,7 +23061,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %248
   store <2 x i64> %.val.i, ptr %272, align 1
   %274 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %275 = icmp ult ptr %274, %267
-  br i1 %275, label %271, label %.loopexit.i, !llvm.loop !22
+  br i1 %275, label %271, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %271, %265, %263
   %.047.i = phi ptr [ %267, %265 ], [ %247, %263 ], [ %267, %271 ]
@@ -23083,7 +23083,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %248
   %280 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %279, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %278, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %258, %.lr.ph.i, %.loopexit.i, %252
   %281 = load ptr, ptr %41, align 8
@@ -23202,7 +23202,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %258, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %347
 
 347:                                              ; preds = %345
-  %348 = tail call i64 @llvm.cttz.i64(i64 %346, i1 true), !range !15
+  %348 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %346, i1 true)
   %349 = lshr i64 %348, 3
   br label %ZSTD_count.exit.i
 
@@ -23219,10 +23219,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %258, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %352 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %352, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %353, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %353, !llvm.loop !15
 
 353:                                              ; preds = %351
-  %354 = tail call i64 @llvm.cttz.i64(i64 %352, i1 true), !range !15
+  %354 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %352, i1 true)
   %355 = lshr i64 %354, 3
   %356 = getelementptr inbounds i8, ptr %.040.i.i, i64 %355
   %357 = ptrtoint ptr %356 to i64
@@ -23306,7 +23306,7 @@ ZSTD_count.exit.i:                                ; preds = %381, %353, %347
   br i1 %.not.i39.i, label %.preheader.i40.i, label %391
 
 391:                                              ; preds = %389
-  %392 = tail call i64 @llvm.cttz.i64(i64 %390, i1 true), !range !15
+  %392 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %390, i1 true)
   %393 = lshr i64 %392, 3
   br label %ZSTD_count.exit48.i
 
@@ -23323,10 +23323,10 @@ ZSTD_count.exit.i:                                ; preds = %381, %353, %347
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %396 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %396, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %397, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %397, !llvm.loop !15
 
 397:                                              ; preds = %395
-  %398 = tail call i64 @llvm.cttz.i64(i64 %396, i1 true), !range !15
+  %398 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %396, i1 true)
   %399 = lshr i64 %398, 3
   %400 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %399
   %401 = ptrtoint ptr %400 to i64
@@ -23437,14 +23437,14 @@ ZSTD_safecopyLiterals.exit1458:                   ; preds = %ZSTD_count_2segment
   store ptr %447, ptr %44, align 8
   %448 = getelementptr inbounds i8, ptr %.21537, i64 %428
   %.not1415 = icmp ugt ptr %448, %10
-  br i1 %.not1415, label %.outer, label %.lr.ph1539, !llvm.loop !32
+  br i1 %.not1415, label %.outer, label %.lr.ph1539, !llvm.loop !29
 
 .outer:                                           ; preds = %443, %332, %.lr.ph1539, %313
   %.21379.lcssa = phi i32 [ %.11378, %313 ], [ %.213791535, %.lr.ph1539 ], [ %.213791535, %332 ], [ %.213761536, %443 ]
   %.21376.lcssa = phi i32 [ %.11375, %313 ], [ %.213761536, %.lr.ph1539 ], [ %.213761536, %332 ], [ %.213791535, %443 ]
   %.2.lcssa = phi ptr [ %310, %313 ], [ %.21537, %.lr.ph1539 ], [ %.21537, %332 ], [ %448, %443 ]
   %449 = icmp ult ptr %.2.lcssa, %10
-  br i1 %449, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !30
+  br i1 %449, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !27
 
 .outer._crit_edge:                                ; preds = %.outer, %91, %5
   %.01377.ph.lcssa1490 = phi i32 [ %30, %5 ], [ %.01377.ph1552, %91 ], [ %.21379.lcssa, %.outer ]
@@ -23492,7 +23492,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_extDict(ptr nocapture noundef %
   %32 = icmp eq ptr %16, %3
   %33 = zext i1 %32 to i64
   %34 = getelementptr inbounds i8, ptr %3, i64 %33
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !29
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !26
   %35 = icmp ult ptr %34, %10
   br i1 %35, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
@@ -23611,7 +23611,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_extDict(ptr nocapture noundef %
   %107 = zext i32 %106 to i64
   %108 = getelementptr inbounds i32, ptr %92, i64 %107
   %109 = load i32, ptr %108, align 4
-  %110 = trunc i64 %indvars.iv11.i.i to i32
+  %110 = trunc nuw i64 %indvars.iv11.i.i to i32
   %111 = and i32 %110, %96
   %112 = shl nuw i32 %111, 1
   %113 = zext i32 %112 to i64
@@ -23622,7 +23622,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_extDict(ptr nocapture noundef %
   store i32 1, ptr %115, align 4
   %indvars.iv.next12.i.i = add nuw nsw i64 %indvars.iv11.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next12.i.i, %103
-  br i1 %exitcond.not.i, label %ZSTD_BtFindBestMatch_extDict_4.exit.sink.split, label %.lr.ph.split.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %ZSTD_BtFindBestMatch_extDict_4.exit.sink.split, label %.lr.ph.split.i.i, !llvm.loop !16
 
 116:                                              ; preds = %84
   %117 = load ptr, ptr %11, align 8
@@ -23660,7 +23660,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_extDict(ptr nocapture noundef %
   %138 = lshr i64 %137, %134
   %139 = getelementptr inbounds i32, ptr %123, i64 %138
   %140 = load i32, ptr %139, align 4
-  %141 = trunc i64 %indvars.iv.i.i to i32
+  %141 = trunc nuw i64 %indvars.iv.i.i to i32
   %142 = and i32 %141, %127
   %143 = shl nuw i32 %142, 1
   %144 = zext i32 %143 to i64
@@ -23671,7 +23671,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_extDict(ptr nocapture noundef %
   store i32 1, ptr %146, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i1440 = icmp eq i64 %indvars.iv.next.i.i, %135
-  br i1 %exitcond.not.i1440, label %ZSTD_BtFindBestMatch_extDict_4.exit.sink.split, label %.lr.ph.split.us2.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i1440, label %ZSTD_BtFindBestMatch_extDict_4.exit.sink.split, label %.lr.ph.split.us2.i.i, !llvm.loop !16
 
 147:                                              ; preds = %84
   %148 = load ptr, ptr %11, align 8
@@ -23709,7 +23709,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_extDict(ptr nocapture noundef %
   %169 = lshr i64 %168, %165
   %170 = getelementptr inbounds i32, ptr %154, i64 %169
   %171 = load i32, ptr %170, align 4
-  %172 = trunc i64 %indvars.iv8.i.i to i32
+  %172 = trunc nuw i64 %indvars.iv8.i.i to i32
   %173 = and i32 %172, %158
   %174 = shl nuw i32 %173, 1
   %175 = zext i32 %174 to i64
@@ -23720,7 +23720,7 @@ define dso_local i64 @ZSTD_compressBlock_btlazy2_extDict(ptr nocapture noundef %
   store i32 1, ptr %177, align 4
   %indvars.iv.next9.i.i = add nuw nsw i64 %indvars.iv8.i.i, 1
   %exitcond.not.i1445 = icmp eq i64 %indvars.iv.next9.i.i, %166
-  br i1 %exitcond.not.i1445, label %ZSTD_BtFindBestMatch_extDict_4.exit.sink.split, label %.lr.ph.split.us.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i1445, label %ZSTD_BtFindBestMatch_extDict_4.exit.sink.split, label %.lr.ph.split.us.i.i, !llvm.loop !16
 
 default.unreachable:                              ; preds = %84, %385, %229
   unreachable
@@ -23754,7 +23754,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit:              ; preds = %ZSTD_BtFindBestMatc
   %189 = zext i1 %188 to i32
   store i32 %189, ptr %31, align 4
   %190 = icmp ult ptr %187, %10
-  br i1 %190, label %55, label %.outer._crit_edge, !llvm.loop !30
+  br i1 %190, label %55, label %.outer._crit_edge, !llvm.loop !27
 
 .lr.ph1579:                                       ; preds = %.preheader, %.backedge
   %.113701578 = phi ptr [ %.11390.be, %.backedge ], [ %.013691568, %.preheader ]
@@ -23805,7 +23805,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit:              ; preds = %ZSTD_BtFindBestMatc
 
 218:                                              ; preds = %211
   %219 = trunc i64 %.113841576 to i32
-  %220 = tail call i32 @llvm.ctlz.i32(i32 %219, i1 true), !range !19
+  %220 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %219, i1 true)
   %221 = trunc i64 %.213821577 to i32
   %222 = mul i32 %221, 3
   %223 = add nsw i32 %220, -30
@@ -23866,7 +23866,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit:              ; preds = %ZSTD_BtFindBestMatc
   %253 = zext i32 %252 to i64
   %254 = getelementptr inbounds i32, ptr %237, i64 %253
   %255 = load i32, ptr %254, align 4
-  %256 = trunc i64 %indvars.iv11.i.i1452 to i32
+  %256 = trunc nuw i64 %indvars.iv11.i.i1452 to i32
   %257 = and i32 %256, %241
   %258 = shl nuw i32 %257, 1
   %259 = zext i32 %258 to i64
@@ -23877,7 +23877,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit:              ; preds = %ZSTD_BtFindBestMatc
   store i32 1, ptr %261, align 4
   %indvars.iv.next12.i.i1454 = add nuw nsw i64 %indvars.iv11.i.i1452, 1
   %exitcond.not.i1455 = icmp eq i64 %indvars.iv.next12.i.i1454, %249
-  br i1 %exitcond.not.i1455, label %ZSTD_BtFindBestMatch_extDict_4.exit1456, label %.lr.ph.split.i.i1451, !llvm.loop !17
+  br i1 %exitcond.not.i1455, label %ZSTD_BtFindBestMatch_extDict_4.exit1456, label %.lr.ph.split.i.i1451, !llvm.loop !16
 
 262:                                              ; preds = %229
   %263 = load ptr, ptr %11, align 8
@@ -23916,7 +23916,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit:              ; preds = %ZSTD_BtFindBestMatc
   %285 = lshr i64 %284, %281
   %286 = getelementptr inbounds i32, ptr %269, i64 %285
   %287 = load i32, ptr %286, align 4
-  %288 = trunc i64 %indvars.iv.i.i1462 to i32
+  %288 = trunc nuw i64 %indvars.iv.i.i1462 to i32
   %289 = and i32 %288, %273
   %290 = shl nuw i32 %289, 1
   %291 = zext i32 %290 to i64
@@ -23927,7 +23927,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit:              ; preds = %ZSTD_BtFindBestMatc
   store i32 1, ptr %293, align 4
   %indvars.iv.next.i.i1464 = add nuw nsw i64 %indvars.iv.i.i1462, 1
   %exitcond.not.i1465 = icmp eq i64 %indvars.iv.next.i.i1464, %282
-  br i1 %exitcond.not.i1465, label %ZSTD_BtFindBestMatch_extDict_4.exit1456, label %.lr.ph.split.us2.i.i1461, !llvm.loop !17
+  br i1 %exitcond.not.i1465, label %ZSTD_BtFindBestMatch_extDict_4.exit1456, label %.lr.ph.split.us2.i.i1461, !llvm.loop !16
 
 294:                                              ; preds = %229
   %295 = load ptr, ptr %11, align 8
@@ -23966,7 +23966,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit:              ; preds = %ZSTD_BtFindBestMatc
   %317 = lshr i64 %316, %313
   %318 = getelementptr inbounds i32, ptr %301, i64 %317
   %319 = load i32, ptr %318, align 4
-  %320 = trunc i64 %indvars.iv8.i.i1472 to i32
+  %320 = trunc nuw i64 %indvars.iv8.i.i1472 to i32
   %321 = and i32 %320, %305
   %322 = shl nuw i32 %321, 1
   %323 = zext i32 %322 to i64
@@ -23977,12 +23977,12 @@ ZSTD_BtFindBestMatch_extDict_4.exit:              ; preds = %ZSTD_BtFindBestMatc
   store i32 1, ptr %325, align 4
   %indvars.iv.next9.i.i1474 = add nuw nsw i64 %indvars.iv8.i.i1472, 1
   %exitcond.not.i1475 = icmp eq i64 %indvars.iv.next9.i.i1474, %314
-  br i1 %exitcond.not.i1475, label %ZSTD_BtFindBestMatch_extDict_4.exit1456, label %.lr.ph.split.us.i.i1471, !llvm.loop !17
+  br i1 %exitcond.not.i1475, label %ZSTD_BtFindBestMatch_extDict_4.exit1456, label %.lr.ph.split.us.i.i1471, !llvm.loop !16
 
 ZSTD_BtFindBestMatch_extDict_4.exit1456.thread:   ; preds = %230, %262, %294
   %326 = shl i64 %.3, 2
   %327 = trunc i64 %.21385 to i32
-  %328 = tail call i32 @llvm.ctlz.i32(i32 %327, i1 true), !range !19
+  %328 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %327, i1 true)
   br label %346
 
 ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i1471, %.lr.ph.split.us2.i.i1461, %.lr.ph.split.i.i1451, %300, %268, %236
@@ -23991,14 +23991,14 @@ ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i
   %329 = call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef nonnull %191, ptr noundef %9, ptr noundef nonnull %7, i32 noundef %spec.select1532, i32 noundef 1)
   %330 = shl i64 %.3, 2
   %331 = trunc i64 %.21385 to i32
-  %332 = tail call i32 @llvm.ctlz.i32(i32 %331, i1 true), !range !19
+  %332 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %331, i1 true)
   %333 = icmp ugt i64 %329, 3
   br i1 %333, label %334, label %346
 
 334:                                              ; preds = %ZSTD_BtFindBestMatch_extDict_4.exit1456
   %335 = load i64, ptr %7, align 8
   %336 = trunc i64 %335 to i32
-  %337 = tail call i32 @llvm.ctlz.i32(i32 %336, i1 true), !range !19
+  %337 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %336, i1 true)
   %338 = xor i32 %337, 31
   %339 = trunc i64 %330 to i32
   %340 = add nsw i32 %332, -27
@@ -24015,7 +24015,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i
   %.11384.be = phi i64 [ %335, %334 ], [ %487, %484 ]
   %.21382.be = phi i64 [ %329, %334 ], [ %482, %484 ]
   %345 = icmp ult ptr %.11390.be, %10
-  br i1 %345, label %.lr.ph1579, label %._crit_edge1580, !llvm.loop !33
+  br i1 %345, label %.lr.ph1579, label %._crit_edge1580, !llvm.loop !30
 
 346:                                              ; preds = %ZSTD_BtFindBestMatch_extDict_4.exit1456.thread, %ZSTD_BtFindBestMatch_extDict_4.exit1456, %334
   %347 = phi i32 [ %328, %ZSTD_BtFindBestMatch_extDict_4.exit1456.thread ], [ %332, %ZSTD_BtFindBestMatch_extDict_4.exit1456 ], [ %332, %334 ]
@@ -24125,7 +24125,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i
   %409 = zext i32 %408 to i64
   %410 = getelementptr inbounds i32, ptr %393, i64 %409
   %411 = load i32, ptr %410, align 4
-  %412 = trunc i64 %indvars.iv11.i.i1483 to i32
+  %412 = trunc nuw i64 %indvars.iv11.i.i1483 to i32
   %413 = and i32 %412, %397
   %414 = shl nuw i32 %413, 1
   %415 = zext i32 %414 to i64
@@ -24136,7 +24136,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i
   store i32 1, ptr %417, align 4
   %indvars.iv.next12.i.i1485 = add nuw nsw i64 %indvars.iv11.i.i1483, 1
   %exitcond.not.i1486 = icmp eq i64 %indvars.iv.next12.i.i1485, %405
-  br i1 %exitcond.not.i1486, label %ZSTD_BtFindBestMatch_extDict_4.exit1487, label %.lr.ph.split.i.i1482, !llvm.loop !17
+  br i1 %exitcond.not.i1486, label %ZSTD_BtFindBestMatch_extDict_4.exit1487, label %.lr.ph.split.i.i1482, !llvm.loop !16
 
 418:                                              ; preds = %385
   %419 = load ptr, ptr %11, align 8
@@ -24175,7 +24175,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i
   %441 = lshr i64 %440, %437
   %442 = getelementptr inbounds i32, ptr %425, i64 %441
   %443 = load i32, ptr %442, align 4
-  %444 = trunc i64 %indvars.iv.i.i1493 to i32
+  %444 = trunc nuw i64 %indvars.iv.i.i1493 to i32
   %445 = and i32 %444, %429
   %446 = shl nuw i32 %445, 1
   %447 = zext i32 %446 to i64
@@ -24186,7 +24186,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i
   store i32 1, ptr %449, align 4
   %indvars.iv.next.i.i1495 = add nuw nsw i64 %indvars.iv.i.i1493, 1
   %exitcond.not.i1496 = icmp eq i64 %indvars.iv.next.i.i1495, %438
-  br i1 %exitcond.not.i1496, label %ZSTD_BtFindBestMatch_extDict_4.exit1487, label %.lr.ph.split.us2.i.i1492, !llvm.loop !17
+  br i1 %exitcond.not.i1496, label %ZSTD_BtFindBestMatch_extDict_4.exit1487, label %.lr.ph.split.us2.i.i1492, !llvm.loop !16
 
 450:                                              ; preds = %385
   %451 = load ptr, ptr %11, align 8
@@ -24225,7 +24225,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i
   %473 = lshr i64 %472, %469
   %474 = getelementptr inbounds i32, ptr %457, i64 %473
   %475 = load i32, ptr %474, align 4
-  %476 = trunc i64 %indvars.iv8.i.i1503 to i32
+  %476 = trunc nuw i64 %indvars.iv8.i.i1503 to i32
   %477 = and i32 %476, %461
   %478 = shl nuw i32 %477, 1
   %479 = zext i32 %478 to i64
@@ -24236,7 +24236,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit1456:          ; preds = %.lr.ph.split.us.i.i
   store i32 1, ptr %481, align 4
   %indvars.iv.next9.i.i1505 = add nuw nsw i64 %indvars.iv8.i.i1503, 1
   %exitcond.not.i1506 = icmp eq i64 %indvars.iv.next9.i.i1505, %470
-  br i1 %exitcond.not.i1506, label %ZSTD_BtFindBestMatch_extDict_4.exit1487, label %.lr.ph.split.us.i.i1502, !llvm.loop !17
+  br i1 %exitcond.not.i1506, label %ZSTD_BtFindBestMatch_extDict_4.exit1487, label %.lr.ph.split.us.i.i1502, !llvm.loop !16
 
 ZSTD_BtFindBestMatch_extDict_4.exit1487:          ; preds = %.lr.ph.split.us.i.i1502, %.lr.ph.split.us2.i.i1492, %.lr.ph.split.i.i1482, %456, %424, %392
   %.sink1703 = phi i32 [ %401, %392 ], [ %433, %424 ], [ %465, %456 ], [ %401, %.lr.ph.split.i.i1482 ], [ %433, %.lr.ph.split.us2.i.i1492 ], [ %465, %.lr.ph.split.us.i.i1502 ]
@@ -24247,10 +24247,10 @@ ZSTD_BtFindBestMatch_extDict_4.exit1487:          ; preds = %.lr.ph.split.us.i.i
 
 484:                                              ; preds = %ZSTD_BtFindBestMatch_extDict_4.exit1487
   %485 = trunc i64 %.31386 to i32
-  %486 = tail call i32 @llvm.ctlz.i32(i32 %485, i1 true), !range !19
+  %486 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %485, i1 true)
   %487 = load i64, ptr %8, align 8
   %488 = trunc i64 %487 to i32
-  %489 = tail call i32 @llvm.ctlz.i32(i32 %488, i1 true), !range !19
+  %489 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %488, i1 true)
   %490 = xor i32 %489, 31
   %.4.tr = trunc i64 %.4 to i32
   %491 = shl i32 %.4.tr, 2
@@ -24270,7 +24270,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit1487:          ; preds = %.lr.ph.split.us.i.i
   br i1 %497, label %498, label %._crit_edge1580._crit_edge
 
 ._crit_edge1580._crit_edge:                       ; preds = %._crit_edge1580
-  %.pre1668 = trunc i64 %.41387 to i32
+  %.pre1668 = trunc nuw i64 %.41387 to i32
   br label %520
 
 498:                                              ; preds = %._crit_edge1580
@@ -24305,7 +24305,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit1487:          ; preds = %.lr.ph.split.us.i.i
   %516 = icmp ugt ptr %509, %.01371.ph1626
   %517 = icmp ugt ptr %511, %506
   %or.cond = select i1 %516, i1 %517, i1 false
-  br i1 %or.cond, label %.lr.ph1600, label %.critedge, !llvm.loop !31
+  br i1 %or.cond, label %.lr.ph1600, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph1600, %514, %498
   %.51394.lcssa = phi ptr [ %.41393, %498 ], [ %509, %514 ], [ %.513941596, %.lr.ph1600 ]
@@ -24332,7 +24332,7 @@ ZSTD_BtFindBestMatch_extDict_4.exit1487:          ; preds = %.lr.ph.split.us.i.i
   store <2 x i64> %.01371.val, ptr %524, align 1
   %526 = icmp ugt i64 %522, 16
   %527 = load ptr, ptr %46, align 8
-  %528 = getelementptr inbounds i8, ptr %527, i64 %522
+  %528 = getelementptr i8, ptr %527, i64 %522
   br i1 %526, label %529, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %525
@@ -24364,7 +24364,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %525
   store <2 x i64> %.val1434, ptr %536, align 1
   %538 = getelementptr inbounds i8, ptr %.11361, i64 32
   %539 = icmp ult ptr %538, %528
-  br i1 %539, label %535, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %539, label %535, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 540:                                              ; preds = %520
   %541 = ptrtoint ptr %523 to i64
@@ -24395,7 +24395,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %525
   store <2 x i64> %.val.i, ptr %549, align 1
   %551 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %552 = icmp ult ptr %551, %544
-  br i1 %552, label %548, label %.loopexit.i, !llvm.loop !22
+  br i1 %552, label %548, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %548, %542, %540
   %.047.i = phi ptr [ %544, %542 ], [ %524, %540 ], [ %544, %548 ]
@@ -24417,7 +24417,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %525
   %557 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %556, ptr %.14853.i, align 1
   %exitcond.not.i1509 = icmp eq ptr %555, %scevgep.i
-  br i1 %exitcond.not.i1509, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i1509, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %535, %.lr.ph.i, %.loopexit.i, %529
   %558 = load ptr, ptr %46, align 8
@@ -24536,7 +24536,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %535, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %624
 
 624:                                              ; preds = %622
-  %625 = tail call i64 @llvm.cttz.i64(i64 %623, i1 true), !range !15
+  %625 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %623, i1 true)
   %626 = lshr i64 %625, 3
   br label %ZSTD_count.exit.i
 
@@ -24553,10 +24553,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %535, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %629 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %629, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %630, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %630, !llvm.loop !15
 
 630:                                              ; preds = %628
-  %631 = tail call i64 @llvm.cttz.i64(i64 %629, i1 true), !range !15
+  %631 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %629, i1 true)
   %632 = lshr i64 %631, 3
   %633 = getelementptr inbounds i8, ptr %.040.i.i, i64 %632
   %634 = ptrtoint ptr %633 to i64
@@ -24640,7 +24640,7 @@ ZSTD_count.exit.i:                                ; preds = %658, %630, %624
   br i1 %.not.i39.i, label %.preheader.i40.i, label %668
 
 668:                                              ; preds = %666
-  %669 = tail call i64 @llvm.cttz.i64(i64 %667, i1 true), !range !15
+  %669 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %667, i1 true)
   %670 = lshr i64 %669, 3
   br label %ZSTD_count.exit48.i
 
@@ -24657,10 +24657,10 @@ ZSTD_count.exit.i:                                ; preds = %658, %630, %624
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %673 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %673, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %674, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %674, !llvm.loop !15
 
 674:                                              ; preds = %672
-  %675 = tail call i64 @llvm.cttz.i64(i64 %673, i1 true), !range !15
+  %675 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %673, i1 true)
   %676 = lshr i64 %675, 3
   %677 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %676
   %678 = ptrtoint ptr %677 to i64
@@ -24771,14 +24771,14 @@ ZSTD_safecopyLiterals.exit1531:                   ; preds = %ZSTD_count_2segment
   store ptr %724, ptr %49, align 8
   %725 = getelementptr inbounds i8, ptr %.21609, i64 %705
   %.not1415 = icmp ugt ptr %725, %10
-  br i1 %.not1415, label %.outer, label %.lr.ph1611, !llvm.loop !32
+  br i1 %.not1415, label %.outer, label %.lr.ph1611, !llvm.loop !29
 
 .outer:                                           ; preds = %720, %609, %.lr.ph1611, %590
   %.21379.lcssa = phi i32 [ %.11378, %590 ], [ %.213791607, %.lr.ph1611 ], [ %.213791607, %609 ], [ %.213761608, %720 ]
   %.21376.lcssa = phi i32 [ %.11375, %590 ], [ %.213761608, %.lr.ph1611 ], [ %.213761608, %609 ], [ %.213791607, %720 ]
   %.2.lcssa = phi ptr [ %587, %590 ], [ %.21609, %.lr.ph1611 ], [ %.21609, %609 ], [ %725, %720 ]
   %726 = icmp ult ptr %.2.lcssa, %10
-  br i1 %726, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !30
+  br i1 %726, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !27
 
 .outer._crit_edge:                                ; preds = %.outer, %183, %5
   %.01377.ph.lcssa1563 = phi i32 [ %30, %5 ], [ %.01377.ph1624, %183 ], [ %.21379.lcssa, %.outer ]
@@ -24908,7 +24908,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_extDict_row(ptr nocapture nounde
   store i32 %77, ptr %84, align 4
   %indvars.iv.next1656 = add nuw nsw i64 %indvars.iv1655, 1
   %exitcond1659.not = icmp eq i64 %indvars.iv.next1656, %wide.trip.count1658
-  br i1 %exitcond1659.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond1659.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   switch i32 %spec.select1455, label %.lr.ph.split.split [
@@ -24946,7 +24946,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_extDict_row(ptr nocapture nounde
   store i32 %89, ptr %100, align 4
   %indvars.iv.next1641 = add nuw nsw i64 %indvars.iv1640, 1
   %exitcond1644.not = icmp eq i64 %indvars.iv.next1641, %wide.trip.count1658
-  br i1 %exitcond1644.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !28
+  br i1 %exitcond1644.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.us1539:                        ; preds = %.lr.ph.split, %114
   %indvars.iv = phi i64 [ %indvars.iv.next, %114 ], [ %43, %.lr.ph.split ]
@@ -24978,7 +24978,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_extDict_row(ptr nocapture nounde
   store i32 %105, ptr %116, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count1658
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1539, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1539, !llvm.loop !25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not1459, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -25004,7 +25004,7 @@ define dso_local i64 @ZSTD_compressBlock_greedy_extDict_row(ptr nocapture nounde
   store i32 %120, ptr %128, align 4
   %indvars.iv.next1651 = add nuw nsw i64 %indvars.iv1650, 1
   %exitcond1654.not = icmp eq i64 %indvars.iv.next1651, %wide.trip.count1658
-  br i1 %exitcond1654.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !28
+  br i1 %exitcond1654.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv1645 = phi i64 [ %indvars.iv.next1646, %.lr.ph.split.split.split ], [ %43, %.lr.ph.split.split ]
@@ -25029,10 +25029,10 @@ define dso_local i64 @ZSTD_compressBlock_greedy_extDict_row(ptr nocapture nounde
   store i32 %132, ptr %141, align 4
   %indvars.iv.next1646 = add nuw nsw i64 %indvars.iv1645, 1
   %exitcond1649.not = icmp eq i64 %indvars.iv.next1646, %wide.trip.count1658
-  br i1 %exitcond1649.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !28
+  br i1 %exitcond1649.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %114, %98, %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.thread.us, %5
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !29
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !26
   %142 = icmp ult ptr %35, %8
   br i1 %142, label %.lr.ph1546.lr.ph, label %.outer._crit_edge
 
@@ -25123,15 +25123,15 @@ define dso_local i64 @ZSTD_compressBlock_greedy_extDict_row(ptr nocapture nounde
   ]
 
 192:                                              ; preds = %191
-  %193 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %193 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6)
   br label %212
 
 194:                                              ; preds = %191
-  %195 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %195 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6)
   br label %212
 
 196:                                              ; preds = %191
-  %197 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %197 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6)
   br label %212
 
 198:                                              ; preds = %190
@@ -25142,15 +25142,15 @@ define dso_local i64 @ZSTD_compressBlock_greedy_extDict_row(ptr nocapture nounde
   ]
 
 199:                                              ; preds = %198
-  %200 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %200 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6)
   br label %212
 
 201:                                              ; preds = %198
-  %202 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %202 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6)
   br label %212
 
 203:                                              ; preds = %198
-  %204 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %204 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6)
   br label %212
 
 205:                                              ; preds = %190
@@ -25161,15 +25161,15 @@ define dso_local i64 @ZSTD_compressBlock_greedy_extDict_row(ptr nocapture nounde
   ]
 
 206:                                              ; preds = %205
-  %207 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %207 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6)
   br label %212
 
 208:                                              ; preds = %205
-  %209 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %209 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6)
   br label %212
 
 210:                                              ; preds = %205
-  %211 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6), !range !25
+  %211 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef nonnull %0, ptr noundef %.013691545, ptr noundef %7, ptr noundef nonnull %6)
   br label %212
 
 default.unreachable:                              ; preds = %205, %198, %191, %190
@@ -25190,7 +25190,7 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
   %221 = zext i1 %220 to i32
   store i32 %221, ptr %32, align 4
   %222 = icmp ult ptr %219, %8
-  br i1 %222, label %159, label %.outer._crit_edge, !llvm.loop !30
+  br i1 %222, label %159, label %.outer._crit_edge, !llvm.loop !27
 
 223:                                              ; preds = %212
   %224 = icmp ugt i64 %213, 3
@@ -25227,7 +25227,7 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
   %242 = icmp ugt ptr %235, %.01371.ph1588
   %243 = icmp ugt ptr %237, %232
   %or.cond = select i1 %242, i1 %243, i1 false
-  br i1 %or.cond, label %.lr.ph1558, label %.critedge, !llvm.loop !31
+  br i1 %or.cond, label %.lr.ph1558, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph1558, %240, %225
   %.51394.lcssa = phi ptr [ %.013691545, %225 ], [ %235, %240 ], [ %.513941554, %.lr.ph1558 ]
@@ -25255,7 +25255,7 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
   store <2 x i64> %.01371.val, ptr %251, align 1
   %253 = icmp ugt i64 %248, 16
   %254 = load ptr, ptr %148, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 %248
+  %255 = getelementptr i8, ptr %254, i64 %248
   br i1 %253, label %256, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %252
@@ -25287,7 +25287,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %252
   store <2 x i64> %.val1431, ptr %263, align 1
   %265 = getelementptr inbounds i8, ptr %.11361, i64 32
   %266 = icmp ult ptr %265, %255
-  br i1 %266, label %262, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %266, label %262, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 267:                                              ; preds = %246
   %268 = ptrtoint ptr %250 to i64
@@ -25318,7 +25318,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %252
   store <2 x i64> %.val.i, ptr %276, align 1
   %278 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %279 = icmp ult ptr %278, %271
-  br i1 %279, label %275, label %.loopexit.i, !llvm.loop !22
+  br i1 %279, label %275, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %275, %269, %267
   %.047.i = phi ptr [ %271, %269 ], [ %251, %267 ], [ %271, %275 ]
@@ -25340,7 +25340,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %252
   %284 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %283, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %282, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %262, %.lr.ph.i, %.loopexit.i, %256
   %285 = load ptr, ptr %148, align 8
@@ -25486,7 +25486,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %262, %.lr.ph.i, %.l
   store i32 %353, ptr %366, align 4
   %indvars.iv.next1661 = add nuw nsw i64 %indvars.iv1660, 1
   %exitcond1664.not = icmp eq i64 %indvars.iv.next1661, %wide.trip.count1663
-  br i1 %exitcond1664.not, label %._crit_edge1567, label %337, !llvm.loop !28
+  br i1 %exitcond1664.not, label %._crit_edge1567, label %337, !llvm.loop !25
 
 ._crit_edge1567:                                  ; preds = %364, %316
   store i32 0, ptr %32, align 4
@@ -25551,7 +25551,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %262, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %401
 
 401:                                              ; preds = %399
-  %402 = tail call i64 @llvm.cttz.i64(i64 %400, i1 true), !range !15
+  %402 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %400, i1 true)
   %403 = lshr i64 %402, 3
   br label %ZSTD_count.exit.i
 
@@ -25568,10 +25568,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %262, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %406 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %406, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %407, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %407, !llvm.loop !15
 
 407:                                              ; preds = %405
-  %408 = tail call i64 @llvm.cttz.i64(i64 %406, i1 true), !range !15
+  %408 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %406, i1 true)
   %409 = lshr i64 %408, 3
   %410 = getelementptr inbounds i8, ptr %.040.i.i, i64 %409
   %411 = ptrtoint ptr %410 to i64
@@ -25655,7 +25655,7 @@ ZSTD_count.exit.i:                                ; preds = %435, %407, %401
   br i1 %.not.i39.i, label %.preheader.i40.i, label %445
 
 445:                                              ; preds = %443
-  %446 = tail call i64 @llvm.cttz.i64(i64 %444, i1 true), !range !15
+  %446 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %444, i1 true)
   %447 = lshr i64 %446, 3
   br label %ZSTD_count.exit48.i
 
@@ -25672,10 +25672,10 @@ ZSTD_count.exit.i:                                ; preds = %435, %407, %401
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %450 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %450, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %451, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %451, !llvm.loop !15
 
 451:                                              ; preds = %449
-  %452 = tail call i64 @llvm.cttz.i64(i64 %450, i1 true), !range !15
+  %452 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %450, i1 true)
   %453 = lshr i64 %452, 3
   %454 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %453
   %455 = ptrtoint ptr %454 to i64
@@ -25786,14 +25786,14 @@ ZSTD_safecopyLiterals.exit1453:                   ; preds = %ZSTD_count_2segment
   store ptr %501, ptr %151, align 8
   %502 = getelementptr inbounds i8, ptr %.21571, i64 %482
   %.not1413 = icmp ugt ptr %502, %8
-  br i1 %.not1413, label %.outer, label %.lr.ph1573, !llvm.loop !32
+  br i1 %.not1413, label %.outer, label %.lr.ph1573, !llvm.loop !29
 
 .outer:                                           ; preds = %497, %386, %.lr.ph1573, %367
   %.21379.lcssa = phi i32 [ %.11378, %367 ], [ %.213791569, %.lr.ph1573 ], [ %.213791569, %386 ], [ %.213761570, %497 ]
   %.21376.lcssa = phi i32 [ %.11375, %367 ], [ %.213761570, %.lr.ph1573 ], [ %.213761570, %386 ], [ %.213791569, %497 ]
   %.2.lcssa = phi ptr [ %314, %367 ], [ %.21571, %.lr.ph1573 ], [ %.21571, %386 ], [ %502, %497 ]
   %503 = icmp ult ptr %.2.lcssa, %8
-  br i1 %503, label %.lr.ph1546, label %.outer._crit_edge, !llvm.loop !30
+  br i1 %503, label %.lr.ph1546, label %.outer._crit_edge, !llvm.loop !27
 
 .outer._crit_edge:                                ; preds = %.outer, %215, %._crit_edge
   %.01377.ph.lcssa1534 = phi i32 [ %31, %._crit_edge ], [ %.01377.ph1586, %215 ], [ %.21379.lcssa, %.outer ]
@@ -25924,7 +25924,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_extDict_row(ptr nocapture noundef 
   store i32 %78, ptr %85, align 4
   %indvars.iv.next1672 = add nuw nsw i64 %indvars.iv1671, 1
   %exitcond1675.not = icmp eq i64 %indvars.iv.next1672, %wide.trip.count1674
-  br i1 %exitcond1675.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond1675.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   switch i32 %spec.select1461, label %.lr.ph.split.split [
@@ -25962,7 +25962,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_extDict_row(ptr nocapture noundef 
   store i32 %90, ptr %101, align 4
   %indvars.iv.next1657 = add nuw nsw i64 %indvars.iv1656, 1
   %exitcond1660.not = icmp eq i64 %indvars.iv.next1657, %wide.trip.count1674
-  br i1 %exitcond1660.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !28
+  br i1 %exitcond1660.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.us1533:                        ; preds = %.lr.ph.split, %115
   %indvars.iv = phi i64 [ %indvars.iv.next, %115 ], [ %44, %.lr.ph.split ]
@@ -25994,7 +25994,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_extDict_row(ptr nocapture noundef 
   store i32 %106, ptr %117, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count1674
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1533, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1533, !llvm.loop !25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not1465, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -26020,7 +26020,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy_extDict_row(ptr nocapture noundef 
   store i32 %121, ptr %129, align 4
   %indvars.iv.next1667 = add nuw nsw i64 %indvars.iv1666, 1
   %exitcond1670.not = icmp eq i64 %indvars.iv.next1667, %wide.trip.count1674
-  br i1 %exitcond1670.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !28
+  br i1 %exitcond1670.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv1661 = phi i64 [ %indvars.iv.next1662, %.lr.ph.split.split.split ], [ %44, %.lr.ph.split.split ]
@@ -26045,10 +26045,10 @@ define dso_local i64 @ZSTD_compressBlock_lazy_extDict_row(ptr nocapture noundef 
   store i32 %133, ptr %142, align 4
   %indvars.iv.next1662 = add nuw nsw i64 %indvars.iv1661, 1
   %exitcond1665.not = icmp eq i64 %indvars.iv.next1662, %wide.trip.count1674
-  br i1 %exitcond1665.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !28
+  br i1 %exitcond1665.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %115, %99, %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.thread.us, %5
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !29
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !26
   %143 = icmp ult ptr %36, %9
   br i1 %143, label %.lr.ph1544.lr.ph, label %.outer._crit_edge
 
@@ -26138,15 +26138,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy_extDict_row(ptr nocapture noundef 
   ]
 
 191:                                              ; preds = %190
-  %192 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %192 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6)
   br label %211
 
 193:                                              ; preds = %190
-  %194 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %194 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6)
   br label %211
 
 195:                                              ; preds = %190
-  %196 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %196 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6)
   br label %211
 
 197:                                              ; preds = %189
@@ -26157,15 +26157,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy_extDict_row(ptr nocapture noundef 
   ]
 
 198:                                              ; preds = %197
-  %199 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %199 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6)
   br label %211
 
 200:                                              ; preds = %197
-  %201 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %201 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6)
   br label %211
 
 202:                                              ; preds = %197
-  %203 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %203 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6)
   br label %211
 
 204:                                              ; preds = %189
@@ -26176,15 +26176,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy_extDict_row(ptr nocapture noundef 
   ]
 
 205:                                              ; preds = %204
-  %206 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %206 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6)
   br label %211
 
 207:                                              ; preds = %204
-  %208 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %208 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6)
   br label %211
 
 209:                                              ; preds = %204
-  %210 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6), !range !25
+  %210 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef nonnull %0, ptr noundef %.013691543, ptr noundef %8, ptr noundef nonnull %6)
   br label %211
 
 default.unreachable:                              ; preds = %204, %197, %190, %189, %279, %272, %265, %264
@@ -26212,7 +26212,7 @@ default.unreachable:                              ; preds = %204, %197, %190, %1
   %221 = zext i1 %220 to i32
   store i32 %221, ptr %33, align 4
   %222 = icmp ult ptr %219, %9
-  br i1 %222, label %160, label %.outer._crit_edge, !llvm.loop !30
+  br i1 %222, label %160, label %.outer._crit_edge, !llvm.loop !27
 
 223:                                              ; preds = %.preheader, %288
   %.01396 = phi i32 [ %227, %288 ], [ %164, %.preheader ]
@@ -26267,7 +26267,7 @@ default.unreachable:                              ; preds = %204, %197, %190, %1
 
 253:                                              ; preds = %246
   %254 = trunc i64 %.11384 to i32
-  %255 = tail call i32 @llvm.ctlz.i32(i32 %254, i1 true), !range !19
+  %255 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %254, i1 true)
   %256 = trunc i64 %.21382 to i32
   %257 = mul i32 %256, 3
   %258 = add nsw i32 %255, -30
@@ -26299,15 +26299,15 @@ default.unreachable:                              ; preds = %204, %197, %190, %1
   ]
 
 266:                                              ; preds = %265
-  %267 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %267 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7)
   br label %286
 
 268:                                              ; preds = %265
-  %269 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %269 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7)
   br label %286
 
 270:                                              ; preds = %265
-  %271 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %271 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7)
   br label %286
 
 272:                                              ; preds = %264
@@ -26318,15 +26318,15 @@ default.unreachable:                              ; preds = %204, %197, %190, %1
   ]
 
 273:                                              ; preds = %272
-  %274 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %274 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7)
   br label %286
 
 275:                                              ; preds = %272
-  %276 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %276 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7)
   br label %286
 
 277:                                              ; preds = %272
-  %278 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %278 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7)
   br label %286
 
 279:                                              ; preds = %264
@@ -26337,15 +26337,15 @@ default.unreachable:                              ; preds = %204, %197, %190, %1
   ]
 
 280:                                              ; preds = %279
-  %281 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %281 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7)
   br label %286
 
 282:                                              ; preds = %279
-  %283 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %283 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7)
   br label %286
 
 284:                                              ; preds = %279
-  %285 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7), !range !25
+  %285 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef %0, ptr noundef nonnull %226, ptr noundef %8, ptr noundef nonnull %7)
   br label %286
 
 286:                                              ; preds = %284, %282, %280, %277, %275, %273, %270, %268, %266
@@ -26355,10 +26355,10 @@ default.unreachable:                              ; preds = %204, %197, %190, %1
 
 288:                                              ; preds = %286
   %289 = trunc i64 %.21385 to i32
-  %290 = tail call i32 @llvm.ctlz.i32(i32 %289, i1 true), !range !19
+  %290 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %289, i1 true)
   %291 = load i64, ptr %7, align 8
   %292 = trunc i64 %291 to i32
-  %293 = tail call i32 @llvm.ctlz.i32(i32 %292, i1 true), !range !19
+  %293 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %292, i1 true)
   %294 = xor i32 %293, 31
   %.3.tr = trunc i64 %.3 to i32
   %295 = shl i32 %.3.tr, 2
@@ -26368,7 +26368,7 @@ default.unreachable:                              ; preds = %204, %197, %190, %1
   %298 = shl i32 %.01363.tr, 2
   %299 = sub i32 %298, %294
   %300 = icmp sgt i32 %299, %297
-  br i1 %300, label %223, label %301, !llvm.loop !33
+  br i1 %300, label %223, label %301, !llvm.loop !30
 
 301:                                              ; preds = %286, %288, %223
   %.41393 = phi ptr [ %.11390, %223 ], [ %.21391, %288 ], [ %.21391, %286 ]
@@ -26378,7 +26378,7 @@ default.unreachable:                              ; preds = %204, %197, %190, %1
   br i1 %302, label %303, label %._crit_edge1684
 
 ._crit_edge1684:                                  ; preds = %301
-  %.pre1685 = trunc i64 %.41387 to i32
+  %.pre1685 = trunc nuw i64 %.41387 to i32
   br label %325
 
 303:                                              ; preds = %301
@@ -26413,7 +26413,7 @@ default.unreachable:                              ; preds = %204, %197, %190, %1
   %321 = icmp ugt ptr %314, %.01371.ph1586
   %322 = icmp ugt ptr %316, %311
   %or.cond = select i1 %321, i1 %322, i1 false
-  br i1 %or.cond, label %.lr.ph1556, label %.critedge, !llvm.loop !31
+  br i1 %or.cond, label %.lr.ph1556, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph1556, %319, %303
   %.51394.lcssa = phi ptr [ %.41393, %303 ], [ %314, %319 ], [ %.513941552, %.lr.ph1556 ]
@@ -26440,7 +26440,7 @@ default.unreachable:                              ; preds = %204, %197, %190, %1
   store <2 x i64> %.01371.val, ptr %329, align 1
   %331 = icmp ugt i64 %327, 16
   %332 = load ptr, ptr %149, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 %327
+  %333 = getelementptr i8, ptr %332, i64 %327
   br i1 %331, label %334, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %330
@@ -26472,7 +26472,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %330
   store <2 x i64> %.val1436, ptr %341, align 1
   %343 = getelementptr inbounds i8, ptr %.11361, i64 32
   %344 = icmp ult ptr %343, %333
-  br i1 %344, label %340, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %344, label %340, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 345:                                              ; preds = %325
   %346 = ptrtoint ptr %328 to i64
@@ -26503,7 +26503,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %330
   store <2 x i64> %.val.i, ptr %354, align 1
   %356 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %357 = icmp ult ptr %356, %349
-  br i1 %357, label %353, label %.loopexit.i, !llvm.loop !22
+  br i1 %357, label %353, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %353, %347, %345
   %.047.i = phi ptr [ %349, %347 ], [ %329, %345 ], [ %349, %353 ]
@@ -26525,7 +26525,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %330
   %362 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %361, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %360, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %340, %.lr.ph.i, %.loopexit.i, %334
   %363 = load ptr, ptr %149, align 8
@@ -26671,7 +26671,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %340, %.lr.ph.i, %.l
   store i32 %431, ptr %444, align 4
   %indvars.iv.next1677 = add nuw nsw i64 %indvars.iv1676, 1
   %exitcond1680.not = icmp eq i64 %indvars.iv.next1677, %wide.trip.count1679
-  br i1 %exitcond1680.not, label %._crit_edge1565, label %415, !llvm.loop !28
+  br i1 %exitcond1680.not, label %._crit_edge1565, label %415, !llvm.loop !25
 
 ._crit_edge1565:                                  ; preds = %442, %394
   store i32 0, ptr %33, align 4
@@ -26736,7 +26736,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %340, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %479
 
 479:                                              ; preds = %477
-  %480 = tail call i64 @llvm.cttz.i64(i64 %478, i1 true), !range !15
+  %480 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %478, i1 true)
   %481 = lshr i64 %480, 3
   br label %ZSTD_count.exit.i
 
@@ -26753,10 +26753,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %340, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %484 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %484, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %485, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %485, !llvm.loop !15
 
 485:                                              ; preds = %483
-  %486 = tail call i64 @llvm.cttz.i64(i64 %484, i1 true), !range !15
+  %486 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %484, i1 true)
   %487 = lshr i64 %486, 3
   %488 = getelementptr inbounds i8, ptr %.040.i.i, i64 %487
   %489 = ptrtoint ptr %488 to i64
@@ -26840,7 +26840,7 @@ ZSTD_count.exit.i:                                ; preds = %513, %485, %479
   br i1 %.not.i39.i, label %.preheader.i40.i, label %523
 
 523:                                              ; preds = %521
-  %524 = tail call i64 @llvm.cttz.i64(i64 %522, i1 true), !range !15
+  %524 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %522, i1 true)
   %525 = lshr i64 %524, 3
   br label %ZSTD_count.exit48.i
 
@@ -26857,10 +26857,10 @@ ZSTD_count.exit.i:                                ; preds = %513, %485, %479
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %528 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %528, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %529, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %529, !llvm.loop !15
 
 529:                                              ; preds = %527
-  %530 = tail call i64 @llvm.cttz.i64(i64 %528, i1 true), !range !15
+  %530 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %528, i1 true)
   %531 = lshr i64 %530, 3
   %532 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %531
   %533 = ptrtoint ptr %532 to i64
@@ -26971,14 +26971,14 @@ ZSTD_safecopyLiterals.exit1459:                   ; preds = %ZSTD_count_2segment
   store ptr %579, ptr %152, align 8
   %580 = getelementptr inbounds i8, ptr %.21569, i64 %560
   %.not1414 = icmp ugt ptr %580, %9
-  br i1 %.not1414, label %.outer, label %.lr.ph1571, !llvm.loop !32
+  br i1 %.not1414, label %.outer, label %.lr.ph1571, !llvm.loop !29
 
 .outer:                                           ; preds = %575, %464, %.lr.ph1571, %445
   %.21379.lcssa = phi i32 [ %.11378, %445 ], [ %.213791567, %.lr.ph1571 ], [ %.213791567, %464 ], [ %.213761568, %575 ]
   %.21376.lcssa = phi i32 [ %.11375, %445 ], [ %.213761568, %.lr.ph1571 ], [ %.213761568, %464 ], [ %.213791567, %575 ]
   %.2.lcssa = phi ptr [ %392, %445 ], [ %.21569, %.lr.ph1571 ], [ %.21569, %464 ], [ %580, %575 ]
   %581 = icmp ult ptr %.2.lcssa, %9
-  br i1 %581, label %.lr.ph1544, label %.outer._crit_edge, !llvm.loop !30
+  br i1 %581, label %.lr.ph1544, label %.outer._crit_edge, !llvm.loop !27
 
 .outer._crit_edge:                                ; preds = %.outer, %215, %._crit_edge
   %.01377.ph.lcssa1528 = phi i32 [ %32, %._crit_edge ], [ %.01377.ph1584, %215 ], [ %.21379.lcssa, %.outer ]
@@ -27110,7 +27110,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_extDict_row(ptr nocapture noundef
   store i32 %79, ptr %86, align 4
   %indvars.iv.next1726 = add nuw nsw i64 %indvars.iv1725, 1
   %exitcond1729.not = icmp eq i64 %indvars.iv.next1726, %wide.trip.count1728
-  br i1 %exitcond1729.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond1729.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   switch i32 %spec.select1467, label %.lr.ph.split.split [
@@ -27148,7 +27148,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_extDict_row(ptr nocapture noundef
   store i32 %91, ptr %102, align 4
   %indvars.iv.next1711 = add nuw nsw i64 %indvars.iv1710, 1
   %exitcond1714.not = icmp eq i64 %indvars.iv.next1711, %wide.trip.count1728
-  br i1 %exitcond1714.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !28
+  br i1 %exitcond1714.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.us1552:                        ; preds = %.lr.ph.split, %116
   %indvars.iv = phi i64 [ %indvars.iv.next, %116 ], [ %45, %.lr.ph.split ]
@@ -27180,7 +27180,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_extDict_row(ptr nocapture noundef
   store i32 %107, ptr %118, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count1728
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1552, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us1552, !llvm.loop !25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not1471, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -27206,7 +27206,7 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_extDict_row(ptr nocapture noundef
   store i32 %122, ptr %130, align 4
   %indvars.iv.next1721 = add nuw nsw i64 %indvars.iv1720, 1
   %exitcond1724.not = icmp eq i64 %indvars.iv.next1721, %wide.trip.count1728
-  br i1 %exitcond1724.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !28
+  br i1 %exitcond1724.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !25
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv1715 = phi i64 [ %indvars.iv.next1716, %.lr.ph.split.split.split ], [ %45, %.lr.ph.split.split ]
@@ -27231,10 +27231,10 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_extDict_row(ptr nocapture noundef
   store i32 %134, ptr %143, align 4
   %indvars.iv.next1716 = add nuw nsw i64 %indvars.iv1715, 1
   %exitcond1719.not = icmp eq i64 %indvars.iv.next1716, %wide.trip.count1728
-  br i1 %exitcond1719.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !28
+  br i1 %exitcond1719.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %116, %100, %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.thread.us, %5
-  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !29
+  tail call void asm sideeffect ".p2align 5", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !26
   %144 = icmp ult ptr %37, %10
   br i1 %144, label %.lr.ph1563.lr.ph, label %.outer._crit_edge
 
@@ -27324,15 +27324,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_extDict_row(ptr nocapture noundef
   ]
 
 192:                                              ; preds = %191
-  %193 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %193 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6)
   br label %212
 
 194:                                              ; preds = %191
-  %195 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %195 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6)
   br label %212
 
 196:                                              ; preds = %191
-  %197 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %197 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6)
   br label %212
 
 198:                                              ; preds = %190
@@ -27343,15 +27343,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_extDict_row(ptr nocapture noundef
   ]
 
 199:                                              ; preds = %198
-  %200 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %200 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6)
   br label %212
 
 201:                                              ; preds = %198
-  %202 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %202 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6)
   br label %212
 
 203:                                              ; preds = %198
-  %204 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %204 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6)
   br label %212
 
 205:                                              ; preds = %190
@@ -27362,15 +27362,15 @@ define dso_local i64 @ZSTD_compressBlock_lazy2_extDict_row(ptr nocapture noundef
   ]
 
 206:                                              ; preds = %205
-  %207 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %207 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6)
   br label %212
 
 208:                                              ; preds = %205
-  %209 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %209 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6)
   br label %212
 
 210:                                              ; preds = %205
-  %211 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6), !range !25
+  %211 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef nonnull %0, ptr noundef %.013691562, ptr noundef %9, ptr noundef nonnull %6)
   br label %212
 
 default.unreachable:                              ; preds = %205, %198, %191, %190, %354, %347, %340, %339, %278, %271, %264, %263
@@ -27399,7 +27399,7 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
   %223 = zext i1 %222 to i32
   store i32 %223, ptr %34, align 4
   %224 = icmp ult ptr %221, %10
-  br i1 %224, label %161, label %.outer._crit_edge, !llvm.loop !30
+  br i1 %224, label %161, label %.outer._crit_edge, !llvm.loop !27
 
 .lr.ph1575:                                       ; preds = %.preheader, %.backedge
   %.113701574 = phi ptr [ %.11390.be, %.backedge ], [ %.013691562, %.preheader ]
@@ -27450,7 +27450,7 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
 
 252:                                              ; preds = %245
   %253 = trunc i64 %.113841572 to i32
-  %254 = tail call i32 @llvm.ctlz.i32(i32 %253, i1 true), !range !19
+  %254 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %253, i1 true)
   %255 = trunc i64 %.213821573 to i32
   %256 = mul i32 %255, 3
   %257 = add nsw i32 %254, -30
@@ -27482,15 +27482,15 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
   ]
 
 265:                                              ; preds = %264
-  %266 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %266 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7)
   br label %285
 
 267:                                              ; preds = %264
-  %268 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %268 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7)
   br label %285
 
 269:                                              ; preds = %264
-  %270 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %270 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7)
   br label %285
 
 271:                                              ; preds = %263
@@ -27501,15 +27501,15 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
   ]
 
 272:                                              ; preds = %271
-  %273 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %273 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7)
   br label %285
 
 274:                                              ; preds = %271
-  %275 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %275 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7)
   br label %285
 
 276:                                              ; preds = %271
-  %277 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %277 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7)
   br label %285
 
 278:                                              ; preds = %263
@@ -27520,29 +27520,29 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
   ]
 
 279:                                              ; preds = %278
-  %280 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %280 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7)
   br label %285
 
 281:                                              ; preds = %278
-  %282 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %282 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7)
   br label %285
 
 283:                                              ; preds = %278
-  %284 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7), !range !25
+  %284 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef %0, ptr noundef nonnull %225, ptr noundef %9, ptr noundef nonnull %7)
   br label %285
 
 285:                                              ; preds = %283, %281, %279, %276, %274, %272, %269, %267, %265
   %.01363 = phi i64 [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %277, %276 ], [ %275, %274 ], [ %273, %272 ], [ %270, %269 ], [ %268, %267 ], [ %266, %265 ]
   %286 = shl i64 %.3, 2
   %287 = trunc i64 %.21385 to i32
-  %288 = tail call i32 @llvm.ctlz.i32(i32 %287, i1 true), !range !19
+  %288 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %287, i1 true)
   %289 = icmp ugt i64 %.01363, 3
   br i1 %289, label %290, label %302
 
 290:                                              ; preds = %285
   %291 = load i64, ptr %7, align 8
   %292 = trunc i64 %291 to i32
-  %293 = tail call i32 @llvm.ctlz.i32(i32 %292, i1 true), !range !19
+  %293 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %292, i1 true)
   %294 = xor i32 %293, 31
   %295 = trunc i64 %286 to i32
   %296 = add nsw i32 %288, -27
@@ -27559,7 +27559,7 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
   %.11384.be = phi i64 [ %291, %290 ], [ %366, %363 ]
   %.21382.be = phi i64 [ %.01363, %290 ], [ %.01364, %363 ]
   %301 = icmp ult ptr %.11390.be, %10
-  br i1 %301, label %.lr.ph1575, label %._crit_edge1576, !llvm.loop !33
+  br i1 %301, label %.lr.ph1575, label %._crit_edge1576, !llvm.loop !30
 
 302:                                              ; preds = %285, %290
   %303 = icmp ult ptr %225, %10
@@ -27638,15 +27638,15 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
   ]
 
 341:                                              ; preds = %340
-  %342 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %342 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8)
   br label %361
 
 343:                                              ; preds = %340
-  %344 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %344 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8)
   br label %361
 
 345:                                              ; preds = %340
-  %346 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %346 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8)
   br label %361
 
 347:                                              ; preds = %339
@@ -27657,15 +27657,15 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
   ]
 
 348:                                              ; preds = %347
-  %349 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %349 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8)
   br label %361
 
 350:                                              ; preds = %347
-  %351 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %351 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8)
   br label %361
 
 352:                                              ; preds = %347
-  %353 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %353 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8)
   br label %361
 
 354:                                              ; preds = %339
@@ -27676,15 +27676,15 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
   ]
 
 355:                                              ; preds = %354
-  %356 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %356 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8)
   br label %361
 
 357:                                              ; preds = %354
-  %358 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %358 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8)
   br label %361
 
 359:                                              ; preds = %354
-  %360 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8), !range !25
+  %360 = call fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr noundef %0, ptr noundef nonnull %305, ptr noundef %9, ptr noundef nonnull %8)
   br label %361
 
 361:                                              ; preds = %359, %357, %355, %352, %350, %348, %345, %343, %341
@@ -27694,10 +27694,10 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
 
 363:                                              ; preds = %361
   %364 = trunc i64 %.31386 to i32
-  %365 = tail call i32 @llvm.ctlz.i32(i32 %364, i1 true), !range !19
+  %365 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %364, i1 true)
   %366 = load i64, ptr %8, align 8
   %367 = trunc i64 %366 to i32
-  %368 = tail call i32 @llvm.ctlz.i32(i32 %367, i1 true), !range !19
+  %368 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %367, i1 true)
   %369 = xor i32 %368, 31
   %.4.tr = trunc i64 %.4 to i32
   %370 = shl i32 %.4.tr, 2
@@ -27717,7 +27717,7 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
   br i1 %376, label %377, label %._crit_edge1576._crit_edge
 
 ._crit_edge1576._crit_edge:                       ; preds = %._crit_edge1576
-  %.pre1738 = trunc i64 %.41387 to i32
+  %.pre1738 = trunc nuw i64 %.41387 to i32
   br label %399
 
 377:                                              ; preds = %._crit_edge1576
@@ -27752,7 +27752,7 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
   %395 = icmp ugt ptr %388, %.01371.ph1627
   %396 = icmp ugt ptr %390, %385
   %or.cond = select i1 %395, i1 %396, i1 false
-  br i1 %or.cond, label %.lr.ph1597, label %.critedge, !llvm.loop !31
+  br i1 %or.cond, label %.lr.ph1597, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph1597, %393, %377
   %.51394.lcssa = phi ptr [ %.41393, %377 ], [ %388, %393 ], [ %.513941593, %.lr.ph1597 ]
@@ -27779,7 +27779,7 @@ default.unreachable:                              ; preds = %205, %198, %191, %1
   store <2 x i64> %.01371.val, ptr %403, align 1
   %405 = icmp ugt i64 %401, 16
   %406 = load ptr, ptr %150, align 8
-  %407 = getelementptr inbounds i8, ptr %406, i64 %401
+  %407 = getelementptr i8, ptr %406, i64 %401
   br i1 %405, label %408, label %ZSTD_safecopyLiterals.exit.thread
 
 ZSTD_safecopyLiterals.exit.thread:                ; preds = %404
@@ -27811,7 +27811,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %404
   store <2 x i64> %.val1441, ptr %415, align 1
   %417 = getelementptr inbounds i8, ptr %.11361, i64 32
   %418 = icmp ult ptr %417, %407
-  br i1 %418, label %414, label %ZSTD_safecopyLiterals.exit, !llvm.loop !22
+  br i1 %418, label %414, label %ZSTD_safecopyLiterals.exit, !llvm.loop !20
 
 419:                                              ; preds = %399
   %420 = ptrtoint ptr %402 to i64
@@ -27842,7 +27842,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %404
   store <2 x i64> %.val.i, ptr %428, align 1
   %430 = getelementptr inbounds i8, ptr %.144.i, i64 32
   %431 = icmp ult ptr %430, %423
-  br i1 %431, label %427, label %.loopexit.i, !llvm.loop !22
+  br i1 %431, label %427, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %427, %421, %419
   %.047.i = phi ptr [ %423, %421 ], [ %403, %419 ], [ %423, %427 ]
@@ -27864,7 +27864,7 @@ ZSTD_safecopyLiterals.exit.thread:                ; preds = %404
   %436 = getelementptr inbounds i8, ptr %.14853.i, i64 1
   store i8 %435, ptr %.14853.i, align 1
   %exitcond.not.i = icmp eq ptr %434, %scevgep.i
-  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %ZSTD_safecopyLiterals.exit, label %.lr.ph.i, !llvm.loop !21
 
 ZSTD_safecopyLiterals.exit:                       ; preds = %414, %.lr.ph.i, %.loopexit.i, %408
   %437 = load ptr, ptr %150, align 8
@@ -28010,7 +28010,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %414, %.lr.ph.i, %.l
   store i32 %505, ptr %518, align 4
   %indvars.iv.next1731 = add nuw nsw i64 %indvars.iv1730, 1
   %exitcond1734.not = icmp eq i64 %indvars.iv.next1731, %wide.trip.count1733
-  br i1 %exitcond1734.not, label %._crit_edge1606, label %489, !llvm.loop !28
+  br i1 %exitcond1734.not, label %._crit_edge1606, label %489, !llvm.loop !25
 
 ._crit_edge1606:                                  ; preds = %516, %468
   store i32 0, ptr %34, align 4
@@ -28075,7 +28075,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %414, %.lr.ph.i, %.l
   br i1 %.not.i.i, label %.preheader.i.i, label %553
 
 553:                                              ; preds = %551
-  %554 = tail call i64 @llvm.cttz.i64(i64 %552, i1 true), !range !15
+  %554 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %552, i1 true)
   %555 = lshr i64 %554, 3
   br label %ZSTD_count.exit.i
 
@@ -28092,10 +28092,10 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %414, %.lr.ph.i, %.l
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %558 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %558, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %559, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %559, !llvm.loop !15
 
 559:                                              ; preds = %557
-  %560 = tail call i64 @llvm.cttz.i64(i64 %558, i1 true), !range !15
+  %560 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %558, i1 true)
   %561 = lshr i64 %560, 3
   %562 = getelementptr inbounds i8, ptr %.040.i.i, i64 %561
   %563 = ptrtoint ptr %562 to i64
@@ -28179,7 +28179,7 @@ ZSTD_count.exit.i:                                ; preds = %587, %559, %553
   br i1 %.not.i39.i, label %.preheader.i40.i, label %597
 
 597:                                              ; preds = %595
-  %598 = tail call i64 @llvm.cttz.i64(i64 %596, i1 true), !range !15
+  %598 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %596, i1 true)
   %599 = lshr i64 %598, 3
   br label %ZSTD_count.exit48.i
 
@@ -28196,10 +28196,10 @@ ZSTD_count.exit.i:                                ; preds = %587, %559, %553
   %.040.val.i46.i = load i64, ptr %.040.i43.i, align 1
   %602 = xor i64 %.040.val.i46.i, %.041.val.i45.i
   %.not51.i47.i = icmp eq i64 %602, 0
-  br i1 %.not51.i47.i, label %.preheader.i40.i, label %603, !llvm.loop !16
+  br i1 %.not51.i47.i, label %.preheader.i40.i, label %603, !llvm.loop !15
 
 603:                                              ; preds = %601
-  %604 = tail call i64 @llvm.cttz.i64(i64 %602, i1 true), !range !15
+  %604 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %602, i1 true)
   %605 = lshr i64 %604, 3
   %606 = getelementptr inbounds i8, ptr %.040.i43.i, i64 %605
   %607 = ptrtoint ptr %606 to i64
@@ -28310,14 +28310,14 @@ ZSTD_safecopyLiterals.exit1465:                   ; preds = %ZSTD_count_2segment
   store ptr %653, ptr %153, align 8
   %654 = getelementptr inbounds i8, ptr %.21610, i64 %634
   %.not1415 = icmp ugt ptr %654, %10
-  br i1 %.not1415, label %.outer, label %.lr.ph1612, !llvm.loop !32
+  br i1 %.not1415, label %.outer, label %.lr.ph1612, !llvm.loop !29
 
 .outer:                                           ; preds = %649, %538, %.lr.ph1612, %519
   %.21379.lcssa = phi i32 [ %.11378, %519 ], [ %.213791608, %.lr.ph1612 ], [ %.213791608, %538 ], [ %.213761609, %649 ]
   %.21376.lcssa = phi i32 [ %.11375, %519 ], [ %.213761609, %.lr.ph1612 ], [ %.213761609, %538 ], [ %.213791608, %649 ]
   %.2.lcssa = phi ptr [ %466, %519 ], [ %.21610, %.lr.ph1612 ], [ %.21610, %538 ], [ %654, %649 ]
   %655 = icmp ult ptr %.2.lcssa, %10
-  br i1 %655, label %.lr.ph1563, label %.outer._crit_edge, !llvm.loop !30
+  br i1 %655, label %.lr.ph1563, label %.outer._crit_edge, !llvm.loop !27
 
 .outer._crit_edge:                                ; preds = %.outer, %217, %._crit_edge
   %.01377.ph.lcssa1547 = phi i32 [ %33, %._crit_edge ], [ %.01377.ph1625, %217 ], [ %.21379.lcssa, %.outer ]
@@ -28354,7 +28354,7 @@ define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %.preheader.i, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call i64 @llvm.cttz.i64(i64 %14, i1 true), !range !15
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %14, i1 true)
   %17 = lshr i64 %16, 3
   br label %ZSTD_count.exit
 
@@ -28371,10 +28371,10 @@ define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %0, ptr noundef %1,
   %.040.val.i = load i64, ptr %.040.i, align 1
   %20 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %20, 0
-  br i1 %.not51.i, label %.preheader.i, label %21, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %21, !llvm.loop !15
 
 21:                                               ; preds = %19
-  %22 = tail call i64 @llvm.cttz.i64(i64 %20, i1 true), !range !15
+  %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %20, i1 true)
   %23 = lshr i64 %22, 3
   %24 = getelementptr inbounds i8, ptr %.040.i, i64 %23
   %25 = ptrtoint ptr %24 to i64
@@ -28459,7 +28459,7 @@ ZSTD_count.exit:                                  ; preds = %15, %21, %49
   br i1 %.not.i39, label %.preheader.i40, label %60
 
 60:                                               ; preds = %58
-  %61 = tail call i64 @llvm.cttz.i64(i64 %59, i1 true), !range !15
+  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %59, i1 true)
   %62 = lshr i64 %61, 3
   br label %ZSTD_count.exit48
 
@@ -28476,10 +28476,10 @@ ZSTD_count.exit:                                  ; preds = %15, %21, %49
   %.040.val.i46 = load i64, ptr %.040.i43, align 1
   %65 = xor i64 %.040.val.i46, %.041.val.i45
   %.not51.i47 = icmp eq i64 %65, 0
-  br i1 %.not51.i47, label %.preheader.i40, label %66, !llvm.loop !16
+  br i1 %.not51.i47, label %.preheader.i40, label %66, !llvm.loop !15
 
 66:                                               ; preds = %64
-  %67 = tail call i64 @llvm.cttz.i64(i64 %65, i1 true), !range !15
+  %67 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %65, i1 true)
   %68 = lshr i64 %67, 3
   %69 = getelementptr inbounds i8, ptr %.040.i43, i64 %68
   %70 = ptrtoint ptr %69 to i64
@@ -28561,7 +28561,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_noDict_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -28605,7 +28605,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr nocapture noundef 
   %.fr398 = freeze i32 %34
   %.not343 = icmp eq i32 %.fr398, 0
   %43 = icmp ult i32 %41, %17
-  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !34
+  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !31
 
 .split.us:                                        ; preds = %4
   br i1 %43, label %.lr.ph.preheader, label %.split352.us
@@ -28624,7 +28624,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr nocapture noundef 
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds i32, ptr %36, i64 %49
   %51 = load i32, ptr %50, align 4
-  %52 = trunc i64 %indvars.iv to i32
+  %52 = trunc nuw i64 %indvars.iv to i32
   %53 = and i32 %52, %39
   %54 = zext nneg i32 %53 to i64
   %55 = getelementptr inbounds i32, ptr %7, i64 %54
@@ -28695,7 +28695,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr nocapture noundef 
   br i1 %.not.i.us, label %.preheader.i.us, label %84
 
 84:                                               ; preds = %82
-  %85 = tail call i64 @llvm.cttz.i64(i64 %83, i1 true), !range !15
+  %85 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %83, i1 true)
   %86 = lshr i64 %85, 3
   br label %ZSTD_count.exit.us
 
@@ -28760,10 +28760,10 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_4(ptr nocapture noundef 
   %.040.val.i.us = load i64, ptr %.040.i.us, align 1
   %110 = xor i64 %.040.val.i.us, %.041.val.i.us
   %.not51.i.us = icmp eq i64 %110, 0
-  br i1 %.not51.i.us, label %.preheader.i.us, label %111, !llvm.loop !16
+  br i1 %.not51.i.us, label %.preheader.i.us, label %111, !llvm.loop !15
 
 111:                                              ; preds = %109
-  %112 = tail call i64 @llvm.cttz.i64(i64 %110, i1 true), !range !15
+  %112 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %110, i1 true)
   %113 = lshr i64 %112, 3
   %114 = getelementptr inbounds i8, ptr %.040.i.us, i64 %113
   %115 = ptrtoint ptr %114 to i64
@@ -28797,7 +28797,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %118, %ZSTD_count.ex
   %128 = icmp uge i32 %.0338.us, %28
   %129 = icmp ne i32 %127, 0
   %130 = and i1 %129, %128
-  br i1 %130, label %.lr.ph358.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %130, label %.lr.ph358.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 .loopexit.i.loopexit.us:                          ; preds = %.preheader.i.us
   %131 = icmp ult ptr %.040.i.us, %74
@@ -28884,7 +28884,7 @@ ZSTD_count.exit.thread.us384:                     ; preds = %154, %ZSTD_count.ex
   %163 = icmp uge i32 %.0338.us387, %28
   %164 = icmp ne i32 %162, 0
   %165 = and i1 %164, %163
-  br i1 %165, label %.lr.ph358.split.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %165, label %.lr.ph358.split.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 .lr.ph358.split.split:                            ; preds = %.lr.ph358.split
   %166 = icmp ugt ptr %75, %1
@@ -28958,7 +28958,7 @@ ZSTD_count.exit.thread:                           ; preds = %167, %184, %ZSTD_co
   %193 = icmp uge i32 %.0338, %28
   %194 = icmp ne i32 %192, 0
   %195 = and i1 %194, %193
-  br i1 %195, label %167, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %195, label %167, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 ZSTD_count.exit.thread._crit_edge:                ; preds = %188, %184, %ZSTD_count.exit.thread, %158, %154, %ZSTD_count.exit.thread.us384, %123, %118, %ZSTD_count.exit.thread.us, %.split352.us
   %.2335 = phi i64 [ 3, %.split352.us ], [ %.1334.us, %ZSTD_count.exit.thread.us ], [ %.0340.us, %118 ], [ %.1334.us, %123 ], [ %.1334.us385, %ZSTD_count.exit.thread.us384 ], [ %152, %154 ], [ %.1334.us385, %158 ], [ %.1334, %ZSTD_count.exit.thread ], [ %182, %184 ], [ %.1334, %188 ]
@@ -28966,7 +28966,7 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %188, %184, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_noDict_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -29011,7 +29011,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr nocapture noundef 
   %.fr398 = freeze i32 %34
   %.not343 = icmp eq i32 %.fr398, 0
   %44 = icmp ult i32 %41, %17
-  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !34
+  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !31
 
 .split.us:                                        ; preds = %4
   br i1 %44, label %.lr.ph.preheader, label %.split352.us
@@ -29029,7 +29029,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr nocapture noundef 
   %49 = lshr i64 %48, %43
   %50 = getelementptr inbounds i32, ptr %36, i64 %49
   %51 = load i32, ptr %50, align 4
-  %52 = trunc i64 %indvars.iv to i32
+  %52 = trunc nuw i64 %indvars.iv to i32
   %53 = and i32 %52, %39
   %54 = zext nneg i32 %53 to i64
   %55 = getelementptr inbounds i32, ptr %7, i64 %54
@@ -29098,7 +29098,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr nocapture noundef 
   br i1 %.not.i.us, label %.preheader.i.us, label %82
 
 82:                                               ; preds = %80
-  %83 = tail call i64 @llvm.cttz.i64(i64 %81, i1 true), !range !15
+  %83 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %81, i1 true)
   %84 = lshr i64 %83, 3
   br label %ZSTD_count.exit.us
 
@@ -29163,10 +29163,10 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_5(ptr nocapture noundef 
   %.040.val.i.us = load i64, ptr %.040.i.us, align 1
   %108 = xor i64 %.040.val.i.us, %.041.val.i.us
   %.not51.i.us = icmp eq i64 %108, 0
-  br i1 %.not51.i.us, label %.preheader.i.us, label %109, !llvm.loop !16
+  br i1 %.not51.i.us, label %.preheader.i.us, label %109, !llvm.loop !15
 
 109:                                              ; preds = %107
-  %110 = tail call i64 @llvm.cttz.i64(i64 %108, i1 true), !range !15
+  %110 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %108, i1 true)
   %111 = lshr i64 %110, 3
   %112 = getelementptr inbounds i8, ptr %.040.i.us, i64 %111
   %113 = ptrtoint ptr %112 to i64
@@ -29200,7 +29200,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %116, %ZSTD_count.ex
   %126 = icmp uge i32 %.0338.us, %28
   %127 = icmp ne i32 %125, 0
   %128 = and i1 %127, %126
-  br i1 %128, label %.lr.ph358.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %128, label %.lr.ph358.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 .loopexit.i.loopexit.us:                          ; preds = %.preheader.i.us
   %129 = icmp ult ptr %.040.i.us, %72
@@ -29287,7 +29287,7 @@ ZSTD_count.exit.thread.us384:                     ; preds = %152, %ZSTD_count.ex
   %161 = icmp uge i32 %.0338.us387, %28
   %162 = icmp ne i32 %160, 0
   %163 = and i1 %162, %161
-  br i1 %163, label %.lr.ph358.split.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %163, label %.lr.ph358.split.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 .lr.ph358.split.split:                            ; preds = %.lr.ph358.split
   %164 = icmp ugt ptr %73, %1
@@ -29361,7 +29361,7 @@ ZSTD_count.exit.thread:                           ; preds = %165, %182, %ZSTD_co
   %191 = icmp uge i32 %.0338, %28
   %192 = icmp ne i32 %190, 0
   %193 = and i1 %192, %191
-  br i1 %193, label %165, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %193, label %165, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 ZSTD_count.exit.thread._crit_edge:                ; preds = %186, %182, %ZSTD_count.exit.thread, %156, %152, %ZSTD_count.exit.thread.us384, %121, %116, %ZSTD_count.exit.thread.us, %.split352.us
   %.2335 = phi i64 [ 3, %.split352.us ], [ %.1334.us, %ZSTD_count.exit.thread.us ], [ %.0340.us, %116 ], [ %.1334.us, %121 ], [ %.1334.us385, %ZSTD_count.exit.thread.us384 ], [ %150, %152 ], [ %.1334.us385, %156 ], [ %.1334, %ZSTD_count.exit.thread ], [ %180, %182 ], [ %.1334, %186 ]
@@ -29369,7 +29369,7 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %186, %182, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_noDict_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -29414,7 +29414,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr nocapture noundef 
   %.fr398 = freeze i32 %34
   %.not343 = icmp eq i32 %.fr398, 0
   %44 = icmp ult i32 %41, %17
-  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !34
+  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !31
 
 .split.us:                                        ; preds = %4
   br i1 %44, label %.lr.ph.preheader, label %.split352.us
@@ -29432,7 +29432,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr nocapture noundef 
   %49 = lshr i64 %48, %43
   %50 = getelementptr inbounds i32, ptr %36, i64 %49
   %51 = load i32, ptr %50, align 4
-  %52 = trunc i64 %indvars.iv to i32
+  %52 = trunc nuw i64 %indvars.iv to i32
   %53 = and i32 %52, %39
   %54 = zext nneg i32 %53 to i64
   %55 = getelementptr inbounds i32, ptr %7, i64 %54
@@ -29501,7 +29501,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr nocapture noundef 
   br i1 %.not.i.us, label %.preheader.i.us, label %82
 
 82:                                               ; preds = %80
-  %83 = tail call i64 @llvm.cttz.i64(i64 %81, i1 true), !range !15
+  %83 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %81, i1 true)
   %84 = lshr i64 %83, 3
   br label %ZSTD_count.exit.us
 
@@ -29566,10 +29566,10 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_noDict_6(ptr nocapture noundef 
   %.040.val.i.us = load i64, ptr %.040.i.us, align 1
   %108 = xor i64 %.040.val.i.us, %.041.val.i.us
   %.not51.i.us = icmp eq i64 %108, 0
-  br i1 %.not51.i.us, label %.preheader.i.us, label %109, !llvm.loop !16
+  br i1 %.not51.i.us, label %.preheader.i.us, label %109, !llvm.loop !15
 
 109:                                              ; preds = %107
-  %110 = tail call i64 @llvm.cttz.i64(i64 %108, i1 true), !range !15
+  %110 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %108, i1 true)
   %111 = lshr i64 %110, 3
   %112 = getelementptr inbounds i8, ptr %.040.i.us, i64 %111
   %113 = ptrtoint ptr %112 to i64
@@ -29603,7 +29603,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %116, %ZSTD_count.ex
   %126 = icmp uge i32 %.0338.us, %28
   %127 = icmp ne i32 %125, 0
   %128 = and i1 %127, %126
-  br i1 %128, label %.lr.ph358.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %128, label %.lr.ph358.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 .loopexit.i.loopexit.us:                          ; preds = %.preheader.i.us
   %129 = icmp ult ptr %.040.i.us, %72
@@ -29690,7 +29690,7 @@ ZSTD_count.exit.thread.us384:                     ; preds = %152, %ZSTD_count.ex
   %161 = icmp uge i32 %.0338.us387, %28
   %162 = icmp ne i32 %160, 0
   %163 = and i1 %162, %161
-  br i1 %163, label %.lr.ph358.split.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %163, label %.lr.ph358.split.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 .lr.ph358.split.split:                            ; preds = %.lr.ph358.split
   %164 = icmp ugt ptr %73, %1
@@ -29764,7 +29764,7 @@ ZSTD_count.exit.thread:                           ; preds = %165, %182, %ZSTD_co
   %191 = icmp uge i32 %.0338, %28
   %192 = icmp ne i32 %190, 0
   %193 = and i1 %192, %191
-  br i1 %193, label %165, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %193, label %165, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 ZSTD_count.exit.thread._crit_edge:                ; preds = %186, %182, %ZSTD_count.exit.thread, %156, %152, %ZSTD_count.exit.thread.us384, %121, %116, %ZSTD_count.exit.thread.us, %.split352.us
   %.2335 = phi i64 [ 3, %.split352.us ], [ %.1334.us, %ZSTD_count.exit.thread.us ], [ %.0340.us, %116 ], [ %.1334.us, %121 ], [ %.1334.us385, %ZSTD_count.exit.thread.us384 ], [ %150, %152 ], [ %.1334.us385, %156 ], [ %.1334, %ZSTD_count.exit.thread ], [ %180, %182 ], [ %.1334, %186 ]
@@ -29772,7 +29772,7 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %186, %182, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -29846,7 +29846,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr %57, i32 0, i32 3, i32 1)
   %58 = getelementptr inbounds i8, ptr %9, i64 %56
   tail call void @llvm.prefetch.p0(ptr %58, i32 0, i32 3, i32 1)
-  %59 = trunc i64 %indvars.iv to i32
+  %59 = trunc nuw i64 %indvars.iv to i32
   %60 = and i64 %indvars.iv, 7
   %61 = getelementptr inbounds i32, ptr %10, i64 %60
   %62 = load i32, ptr %61, align 4
@@ -29863,7 +29863,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr nocapture nound
   %72 = icmp eq i8 %70, 0
   %73 = select i1 %72, i32 15, i32 0
   %74 = add nuw nsw i32 %73, %71
-  %75 = trunc i32 %74 to i8
+  %75 = trunc nuw nsw i32 %74 to i8
   store i8 %75, ptr %67, align 1
   %76 = trunc i32 %62 to i8
   %77 = zext nneg i32 %74 to i64
@@ -29926,7 +29926,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr nocapture nound
   %indvars.iv.next949 = add nuw nsw i64 %indvars.iv948, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next949 to i32
   %exitcond951.not = icmp eq i32 %94, %lftr.wideiv
-  br i1 %exitcond951.not, label %.loopexit, label %100, !llvm.loop !28
+  br i1 %exitcond951.not, label %.loopexit, label %100, !llvm.loop !25
 
 .loopexit:                                        ; preds = %100, %._crit_edge, %38
   %112 = phi ptr [ %9, %38 ], [ %80, %._crit_edge ], [ %80, %100 ]
@@ -29960,7 +29960,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr %129, i32 0, i32 3, i32 1)
   %130 = getelementptr inbounds i8, ptr %112, i64 %128
   tail call void @llvm.prefetch.p0(ptr %130, i32 0, i32 3, i32 1)
-  %131 = trunc i64 %indvars.iv952 to i32
+  %131 = trunc nuw i64 %indvars.iv952 to i32
   %132 = and i64 %indvars.iv952, 7
   %133 = getelementptr inbounds i32, ptr %10, i64 %132
   %134 = load i32, ptr %133, align 4
@@ -29977,7 +29977,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr nocapture nound
   %144 = icmp eq i8 %142, 0
   %145 = select i1 %144, i32 15, i32 0
   %146 = add nuw nsw i32 %145, %143
-  %147 = trunc i32 %146 to i8
+  %147 = trunc nuw nsw i32 %146 to i8
   store i8 %147, ptr %139, align 1
   %148 = trunc i32 %134 to i8
   %149 = zext nneg i32 %146 to i64
@@ -30057,8 +30057,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr nocapture nound
   %.0872928 = phi i64 [ %214, %212 ], [ %195, %.lr.ph929.preheader ]
   %.0874927 = phi i64 [ %.1875, %212 ], [ 0, %.lr.ph929.preheader ]
   %.0881926 = phi i32 [ %.1882, %212 ], [ %35, %.lr.ph929.preheader ]
-  %196 = tail call i64 @llvm.cttz.i64(i64 %.0872928, i1 true), !range !15
-  %197 = trunc i64 %196 to i32
+  %196 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872928, i1 true)
+  %197 = trunc nuw nsw i64 %196 to i32
   %198 = add nuw nsw i32 %197, %185
   %199 = and i32 %198, 15
   %200 = zext nneg i32 %199 to i64
@@ -30089,7 +30089,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr nocapture nound
   %215 = icmp ne i64 %214, 0
   %216 = icmp ne i32 %.1882, 0
   %217 = select i1 %215, i1 %216, i1 false
-  br i1 %217, label %.lr.ph929, label %._crit_edge930, !llvm.loop !36
+  br i1 %217, label %.lr.ph929, label %._crit_edge930, !llvm.loop !33
 
 ._crit_edge930:                                   ; preds = %212, %204, %.critedge
   %.0874.lcssa = phi i64 [ 0, %.critedge ], [ %.0874927, %204 ], [ %.1875, %212 ]
@@ -30099,7 +30099,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr nocapture nound
   %221 = icmp eq i8 %219, 0
   %222 = select i1 %221, i32 15, i32 0
   %223 = add nuw nsw i32 %222, %220
-  %224 = trunc i32 %223 to i8
+  %224 = trunc nuw nsw i32 %223 to i8
   store i8 %224, ptr %183, align 1
   %225 = zext nneg i32 %223 to i64
   %226 = getelementptr inbounds i8, ptr %183, i64 %225
@@ -30148,7 +30148,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr nocapture nound
   br i1 %.not.i, label %.preheader.i, label %247
 
 247:                                              ; preds = %245
-  %248 = tail call i64 @llvm.cttz.i64(i64 %246, i1 true), !range !15
+  %248 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %246, i1 true)
   %249 = lshr i64 %248, 3
   br label %ZSTD_count.exit
 
@@ -30165,10 +30165,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_4(ptr nocapture nound
   %.040.val.i = load i64, ptr %.040.i, align 1
   %252 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %252, 0
-  br i1 %.not51.i, label %.preheader.i, label %253, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %253, !llvm.loop !15
 
 253:                                              ; preds = %251
-  %254 = tail call i64 @llvm.cttz.i64(i64 %252, i1 true), !range !15
+  %254 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %252, i1 true)
   %255 = lshr i64 %254, 3
   %256 = getelementptr inbounds i8, ptr %.040.i, i64 %255
   %257 = ptrtoint ptr %256 to i64
@@ -30246,7 +30246,7 @@ ZSTD_count.exit.thread:                           ; preds = %236, %282, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %282 ], [ %.0885935, %ZSTD_count.exit ], [ %.0885935, %236 ]
   %287 = add nuw i64 %.0873936, 1
   %exitcond955.not = icmp eq i64 %287, %.0874.lcssa
-  br i1 %exitcond955.not, label %._crit_edge939, label %236, !llvm.loop !37
+  br i1 %exitcond955.not, label %._crit_edge939, label %236, !llvm.loop !34
 
 ._crit_edge939:                                   ; preds = %ZSTD_count.exit.thread, %282, %._crit_edge930
   %.2887 = phi i64 [ 3, %._crit_edge930 ], [ %.0867, %282 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -30254,7 +30254,7 @@ ZSTD_count.exit.thread:                           ; preds = %236, %282, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -30330,7 +30330,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr nonnull %58, i32 0, i32 3, i32 1)
   %59 = getelementptr inbounds i8, ptr %9, i64 %56
   tail call void @llvm.prefetch.p0(ptr %59, i32 0, i32 3, i32 1)
-  %60 = trunc i64 %indvars.iv to i32
+  %60 = trunc nuw i64 %indvars.iv to i32
   %61 = and i64 %indvars.iv, 7
   %62 = getelementptr inbounds i32, ptr %10, i64 %61
   %63 = load i32, ptr %62, align 4
@@ -30347,7 +30347,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr nocapture nound
   %73 = icmp eq i8 %71, 0
   %74 = select i1 %73, i32 31, i32 0
   %75 = add nuw nsw i32 %74, %72
-  %76 = trunc i32 %75 to i8
+  %76 = trunc nuw nsw i32 %75 to i8
   store i8 %76, ptr %68, align 1
   %77 = trunc i32 %63 to i8
   %78 = zext nneg i32 %75 to i64
@@ -30412,7 +30412,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr nocapture nound
   %indvars.iv.next951 = add nuw nsw i64 %indvars.iv950, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next951 to i32
   %exitcond953.not = icmp eq i32 %95, %lftr.wideiv
-  br i1 %exitcond953.not, label %.loopexit, label %101, !llvm.loop !28
+  br i1 %exitcond953.not, label %.loopexit, label %101, !llvm.loop !25
 
 .loopexit:                                        ; preds = %101, %._crit_edge, %38
   %114 = phi ptr [ %9, %38 ], [ %81, %._crit_edge ], [ %81, %101 ]
@@ -30448,7 +30448,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr nonnull %132, i32 0, i32 3, i32 1)
   %133 = getelementptr inbounds i8, ptr %114, i64 %130
   tail call void @llvm.prefetch.p0(ptr %133, i32 0, i32 3, i32 1)
-  %134 = trunc i64 %indvars.iv954 to i32
+  %134 = trunc nuw i64 %indvars.iv954 to i32
   %135 = and i64 %indvars.iv954, 7
   %136 = getelementptr inbounds i32, ptr %10, i64 %135
   %137 = load i32, ptr %136, align 4
@@ -30465,7 +30465,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr nocapture nound
   %147 = icmp eq i8 %145, 0
   %148 = select i1 %147, i32 31, i32 0
   %149 = add nuw nsw i32 %148, %146
-  %150 = trunc i32 %149 to i8
+  %150 = trunc nuw nsw i32 %149 to i8
   store i8 %150, ptr %142, align 1
   %151 = trunc i32 %137 to i8
   %152 = zext nneg i32 %149 to i64
@@ -30556,8 +30556,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr nocapture nound
   %.0872929 = phi i64 [ %225, %223 ], [ %206, %.lr.ph931.preheader ]
   %.0874928 = phi i64 [ %.1875, %223 ], [ 0, %.lr.ph931.preheader ]
   %.0881927 = phi i32 [ %.1882, %223 ], [ %35, %.lr.ph931.preheader ]
-  %207 = tail call i64 @llvm.cttz.i64(i64 %.0872929, i1 true), !range !15
-  %208 = trunc i64 %207 to i32
+  %207 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872929, i1 true)
+  %208 = trunc nuw nsw i64 %207 to i32
   %209 = add nuw nsw i32 %208, %202
   %210 = and i32 %209, 31
   %211 = zext nneg i32 %210 to i64
@@ -30588,7 +30588,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr nocapture nound
   %226 = icmp ne i64 %225, 0
   %227 = icmp ne i32 %.1882, 0
   %228 = select i1 %226, i1 %227, i1 false
-  br i1 %228, label %.lr.ph931, label %._crit_edge932, !llvm.loop !36
+  br i1 %228, label %.lr.ph931, label %._crit_edge932, !llvm.loop !33
 
 ._crit_edge932:                                   ; preds = %223, %215, %.critedge
   %.0874.lcssa = phi i64 [ 0, %.critedge ], [ %.0874928, %215 ], [ %.1875, %223 ]
@@ -30598,7 +30598,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr nocapture nound
   %232 = icmp eq i8 %230, 0
   %233 = select i1 %232, i32 31, i32 0
   %234 = add nuw nsw i32 %233, %231
-  %235 = trunc i32 %234 to i8
+  %235 = trunc nuw nsw i32 %234 to i8
   store i8 %235, ptr %186, align 1
   %236 = zext nneg i32 %234 to i64
   %237 = getelementptr inbounds i8, ptr %186, i64 %236
@@ -30647,7 +30647,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr nocapture nound
   br i1 %.not.i, label %.preheader.i, label %258
 
 258:                                              ; preds = %256
-  %259 = tail call i64 @llvm.cttz.i64(i64 %257, i1 true), !range !15
+  %259 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %257, i1 true)
   %260 = lshr i64 %259, 3
   br label %ZSTD_count.exit
 
@@ -30664,10 +30664,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_5(ptr nocapture nound
   %.040.val.i = load i64, ptr %.040.i, align 1
   %263 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %263, 0
-  br i1 %.not51.i, label %.preheader.i, label %264, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %264, !llvm.loop !15
 
 264:                                              ; preds = %262
-  %265 = tail call i64 @llvm.cttz.i64(i64 %263, i1 true), !range !15
+  %265 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %263, i1 true)
   %266 = lshr i64 %265, 3
   %267 = getelementptr inbounds i8, ptr %.040.i, i64 %266
   %268 = ptrtoint ptr %267 to i64
@@ -30745,7 +30745,7 @@ ZSTD_count.exit.thread:                           ; preds = %247, %293, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %293 ], [ %.0885937, %ZSTD_count.exit ], [ %.0885937, %247 ]
   %298 = add nuw i64 %.0873938, 1
   %exitcond960.not = icmp eq i64 %298, %.0874.lcssa
-  br i1 %exitcond960.not, label %._crit_edge941, label %247, !llvm.loop !37
+  br i1 %exitcond960.not, label %._crit_edge941, label %247, !llvm.loop !34
 
 ._crit_edge941:                                   ; preds = %ZSTD_count.exit.thread, %293, %._crit_edge932
   %.2887 = phi i64 [ 3, %._crit_edge932 ], [ %.0867, %293 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -30753,7 +30753,7 @@ ZSTD_count.exit.thread:                           ; preds = %247, %293, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -30832,7 +30832,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr %60, i32 0, i32 3, i32 1)
   %61 = getelementptr inbounds i8, ptr %60, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %61, i32 0, i32 3, i32 1)
-  %62 = trunc i64 %indvars.iv to i32
+  %62 = trunc nuw i64 %indvars.iv to i32
   %63 = and i64 %indvars.iv, 7
   %64 = getelementptr inbounds i32, ptr %11, i64 %63
   %65 = load i32, ptr %64, align 4
@@ -30849,7 +30849,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr nocapture nound
   %75 = icmp eq i8 %73, 0
   %76 = select i1 %75, i32 63, i32 0
   %77 = add nuw nsw i32 %76, %74
-  %78 = trunc i32 %77 to i8
+  %78 = trunc nuw nsw i32 %77 to i8
   store i8 %78, ptr %70, align 1
   %79 = trunc i32 %65 to i8
   %80 = zext nneg i32 %77 to i64
@@ -30916,7 +30916,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr nocapture nound
   %indvars.iv.next951 = add nuw nsw i64 %indvars.iv950, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next951 to i32
   %exitcond953.not = icmp eq i32 %97, %lftr.wideiv
-  br i1 %exitcond953.not, label %.loopexit, label %103, !llvm.loop !28
+  br i1 %exitcond953.not, label %.loopexit, label %103, !llvm.loop !25
 
 .loopexit:                                        ; preds = %103, %._crit_edge, %39
   %117 = phi ptr [ %10, %39 ], [ %83, %._crit_edge ], [ %83, %103 ]
@@ -30954,7 +30954,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr %136, i32 0, i32 3, i32 1)
   %137 = getelementptr inbounds i8, ptr %136, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %137, i32 0, i32 3, i32 1)
-  %138 = trunc i64 %indvars.iv954 to i32
+  %138 = trunc nuw i64 %indvars.iv954 to i32
   %139 = and i64 %indvars.iv954, 7
   %140 = getelementptr inbounds i32, ptr %11, i64 %139
   %141 = load i32, ptr %140, align 4
@@ -30971,7 +30971,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr nocapture nound
   %151 = icmp eq i8 %149, 0
   %152 = select i1 %151, i32 63, i32 0
   %153 = add nuw nsw i32 %152, %150
-  %154 = trunc i32 %153 to i8
+  %154 = trunc nuw nsw i32 %153 to i8
   store i8 %154, ptr %146, align 1
   %155 = trunc i32 %141 to i8
   %156 = zext nneg i32 %153 to i64
@@ -31051,7 +31051,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr nocapture nound
   store i32 %203, ptr %204, align 4
   %indvars.iv.next958 = add nuw nsw i64 %indvars.iv957, 1
   %exitcond960.not = icmp eq i64 %indvars.iv.next958, 4
-  br i1 %exitcond960.not, label %205, label %197, !llvm.loop !38
+  br i1 %exitcond960.not, label %205, label %197, !llvm.loop !35
 
 205:                                              ; preds = %197
   %206 = getelementptr inbounds i32, ptr %8, i64 %191
@@ -31085,8 +31085,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr nocapture nound
   %.0872929 = phi i64 [ %245, %243 ], [ %226, %.lr.ph931.preheader ]
   %.0874928 = phi i64 [ %.1875, %243 ], [ 0, %.lr.ph931.preheader ]
   %.0881927 = phi i32 [ %.1882, %243 ], [ %36, %.lr.ph931.preheader ]
-  %227 = tail call i64 @llvm.cttz.i64(i64 %.0872929, i1 true), !range !15
-  %228 = trunc i64 %227 to i32
+  %227 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872929, i1 true)
+  %228 = trunc nuw nsw i64 %227 to i32
   %229 = add nuw nsw i32 %228, %207
   %230 = and i32 %229, 63
   %231 = zext nneg i32 %230 to i64
@@ -31117,7 +31117,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr nocapture nound
   %246 = icmp ne i64 %245, 0
   %247 = icmp ne i32 %.1882, 0
   %248 = select i1 %246, i1 %247, i1 false
-  br i1 %248, label %.lr.ph931, label %._crit_edge932, !llvm.loop !36
+  br i1 %248, label %.lr.ph931, label %._crit_edge932, !llvm.loop !33
 
 ._crit_edge932:                                   ; preds = %243, %235, %205
   %.0874.lcssa = phi i64 [ 0, %205 ], [ %.0874928, %235 ], [ %.1875, %243 ]
@@ -31127,7 +31127,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr nocapture nound
   %252 = icmp eq i8 %250, 0
   %253 = select i1 %252, i32 63, i32 0
   %254 = add nuw nsw i32 %253, %251
-  %255 = trunc i32 %254 to i8
+  %255 = trunc nuw nsw i32 %254 to i8
   store i8 %255, ptr %192, align 1
   %256 = zext nneg i32 %254 to i64
   %257 = getelementptr inbounds i8, ptr %192, i64 %256
@@ -31176,7 +31176,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr nocapture nound
   br i1 %.not.i, label %.preheader.i, label %278
 
 278:                                              ; preds = %276
-  %279 = tail call i64 @llvm.cttz.i64(i64 %277, i1 true), !range !15
+  %279 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %277, i1 true)
   %280 = lshr i64 %279, 3
   br label %ZSTD_count.exit
 
@@ -31193,10 +31193,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_4_6(ptr nocapture nound
   %.040.val.i = load i64, ptr %.040.i, align 1
   %283 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %283, 0
-  br i1 %.not51.i, label %.preheader.i, label %284, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %284, !llvm.loop !15
 
 284:                                              ; preds = %282
-  %285 = tail call i64 @llvm.cttz.i64(i64 %283, i1 true), !range !15
+  %285 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %283, i1 true)
   %286 = lshr i64 %285, 3
   %287 = getelementptr inbounds i8, ptr %.040.i, i64 %286
   %288 = ptrtoint ptr %287 to i64
@@ -31274,7 +31274,7 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %313 ], [ %.0885937, %ZSTD_count.exit ], [ %.0885937, %267 ]
   %318 = add nuw i64 %.0873938, 1
   %exitcond961.not = icmp eq i64 %318, %.0874.lcssa
-  br i1 %exitcond961.not, label %._crit_edge941, label %267, !llvm.loop !37
+  br i1 %exitcond961.not, label %._crit_edge941, label %267, !llvm.loop !34
 
 ._crit_edge941:                                   ; preds = %ZSTD_count.exit.thread, %313, %._crit_edge932
   %.2887 = phi i64 [ 3, %._crit_edge932 ], [ %.0867, %313 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -31282,7 +31282,7 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -31356,7 +31356,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr %57, i32 0, i32 3, i32 1)
   %58 = getelementptr inbounds i8, ptr %9, i64 %56
   tail call void @llvm.prefetch.p0(ptr %58, i32 0, i32 3, i32 1)
-  %59 = trunc i64 %indvars.iv to i32
+  %59 = trunc nuw i64 %indvars.iv to i32
   %60 = and i64 %indvars.iv, 7
   %61 = getelementptr inbounds i32, ptr %10, i64 %60
   %62 = load i32, ptr %61, align 4
@@ -31373,7 +31373,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr nocapture nound
   %72 = icmp eq i8 %70, 0
   %73 = select i1 %72, i32 15, i32 0
   %74 = add nuw nsw i32 %73, %71
-  %75 = trunc i32 %74 to i8
+  %75 = trunc nuw nsw i32 %74 to i8
   store i8 %75, ptr %67, align 1
   %76 = trunc i32 %62 to i8
   %77 = zext nneg i32 %74 to i64
@@ -31436,7 +31436,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr nocapture nound
   %indvars.iv.next949 = add nuw nsw i64 %indvars.iv948, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next949 to i32
   %exitcond951.not = icmp eq i32 %94, %lftr.wideiv
-  br i1 %exitcond951.not, label %.loopexit, label %100, !llvm.loop !28
+  br i1 %exitcond951.not, label %.loopexit, label %100, !llvm.loop !25
 
 .loopexit:                                        ; preds = %100, %._crit_edge, %38
   %112 = phi ptr [ %9, %38 ], [ %80, %._crit_edge ], [ %80, %100 ]
@@ -31470,7 +31470,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr %129, i32 0, i32 3, i32 1)
   %130 = getelementptr inbounds i8, ptr %112, i64 %128
   tail call void @llvm.prefetch.p0(ptr %130, i32 0, i32 3, i32 1)
-  %131 = trunc i64 %indvars.iv952 to i32
+  %131 = trunc nuw i64 %indvars.iv952 to i32
   %132 = and i64 %indvars.iv952, 7
   %133 = getelementptr inbounds i32, ptr %10, i64 %132
   %134 = load i32, ptr %133, align 4
@@ -31487,7 +31487,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr nocapture nound
   %144 = icmp eq i8 %142, 0
   %145 = select i1 %144, i32 15, i32 0
   %146 = add nuw nsw i32 %145, %143
-  %147 = trunc i32 %146 to i8
+  %147 = trunc nuw nsw i32 %146 to i8
   store i8 %147, ptr %139, align 1
   %148 = trunc i32 %134 to i8
   %149 = zext nneg i32 %146 to i64
@@ -31568,8 +31568,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr nocapture nound
   %.0872928 = phi i64 [ %215, %213 ], [ %196, %.lr.ph929.preheader ]
   %.0874927 = phi i64 [ %.1875, %213 ], [ 0, %.lr.ph929.preheader ]
   %.0881926 = phi i32 [ %.1882, %213 ], [ %35, %.lr.ph929.preheader ]
-  %197 = tail call i64 @llvm.cttz.i64(i64 %.0872928, i1 true), !range !15
-  %198 = trunc i64 %197 to i32
+  %197 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872928, i1 true)
+  %198 = trunc nuw nsw i64 %197 to i32
   %199 = add nuw nsw i32 %198, %186
   %200 = and i32 %199, 15
   %201 = zext nneg i32 %200 to i64
@@ -31600,7 +31600,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr nocapture nound
   %216 = icmp ne i64 %215, 0
   %217 = icmp ne i32 %.1882, 0
   %218 = select i1 %216, i1 %217, i1 false
-  br i1 %218, label %.lr.ph929, label %._crit_edge930, !llvm.loop !36
+  br i1 %218, label %.lr.ph929, label %._crit_edge930, !llvm.loop !33
 
 ._crit_edge930:                                   ; preds = %213, %205, %.critedge
   %.0874.lcssa = phi i64 [ 0, %.critedge ], [ %.0874927, %205 ], [ %.1875, %213 ]
@@ -31610,7 +31610,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr nocapture nound
   %222 = icmp eq i8 %220, 0
   %223 = select i1 %222, i32 15, i32 0
   %224 = add nuw nsw i32 %223, %221
-  %225 = trunc i32 %224 to i8
+  %225 = trunc nuw nsw i32 %224 to i8
   store i8 %225, ptr %184, align 1
   %226 = zext nneg i32 %224 to i64
   %227 = getelementptr inbounds i8, ptr %184, i64 %226
@@ -31659,7 +31659,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr nocapture nound
   br i1 %.not.i, label %.preheader.i, label %248
 
 248:                                              ; preds = %246
-  %249 = tail call i64 @llvm.cttz.i64(i64 %247, i1 true), !range !15
+  %249 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %247, i1 true)
   %250 = lshr i64 %249, 3
   br label %ZSTD_count.exit
 
@@ -31676,10 +31676,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_4(ptr nocapture nound
   %.040.val.i = load i64, ptr %.040.i, align 1
   %253 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %253, 0
-  br i1 %.not51.i, label %.preheader.i, label %254, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %254, !llvm.loop !15
 
 254:                                              ; preds = %252
-  %255 = tail call i64 @llvm.cttz.i64(i64 %253, i1 true), !range !15
+  %255 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %253, i1 true)
   %256 = lshr i64 %255, 3
   %257 = getelementptr inbounds i8, ptr %.040.i, i64 %256
   %258 = ptrtoint ptr %257 to i64
@@ -31757,7 +31757,7 @@ ZSTD_count.exit.thread:                           ; preds = %237, %283, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %283 ], [ %.0885935, %ZSTD_count.exit ], [ %.0885935, %237 ]
   %288 = add nuw i64 %.0873936, 1
   %exitcond955.not = icmp eq i64 %288, %.0874.lcssa
-  br i1 %exitcond955.not, label %._crit_edge939, label %237, !llvm.loop !37
+  br i1 %exitcond955.not, label %._crit_edge939, label %237, !llvm.loop !34
 
 ._crit_edge939:                                   ; preds = %ZSTD_count.exit.thread, %283, %._crit_edge930
   %.2887 = phi i64 [ 3, %._crit_edge930 ], [ %.0867, %283 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -31765,7 +31765,7 @@ ZSTD_count.exit.thread:                           ; preds = %237, %283, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -31841,7 +31841,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr nonnull %58, i32 0, i32 3, i32 1)
   %59 = getelementptr inbounds i8, ptr %9, i64 %56
   tail call void @llvm.prefetch.p0(ptr %59, i32 0, i32 3, i32 1)
-  %60 = trunc i64 %indvars.iv to i32
+  %60 = trunc nuw i64 %indvars.iv to i32
   %61 = and i64 %indvars.iv, 7
   %62 = getelementptr inbounds i32, ptr %10, i64 %61
   %63 = load i32, ptr %62, align 4
@@ -31858,7 +31858,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr nocapture nound
   %73 = icmp eq i8 %71, 0
   %74 = select i1 %73, i32 31, i32 0
   %75 = add nuw nsw i32 %74, %72
-  %76 = trunc i32 %75 to i8
+  %76 = trunc nuw nsw i32 %75 to i8
   store i8 %76, ptr %68, align 1
   %77 = trunc i32 %63 to i8
   %78 = zext nneg i32 %75 to i64
@@ -31923,7 +31923,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr nocapture nound
   %indvars.iv.next951 = add nuw nsw i64 %indvars.iv950, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next951 to i32
   %exitcond953.not = icmp eq i32 %95, %lftr.wideiv
-  br i1 %exitcond953.not, label %.loopexit, label %101, !llvm.loop !28
+  br i1 %exitcond953.not, label %.loopexit, label %101, !llvm.loop !25
 
 .loopexit:                                        ; preds = %101, %._crit_edge, %38
   %114 = phi ptr [ %9, %38 ], [ %81, %._crit_edge ], [ %81, %101 ]
@@ -31959,7 +31959,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr nonnull %132, i32 0, i32 3, i32 1)
   %133 = getelementptr inbounds i8, ptr %114, i64 %130
   tail call void @llvm.prefetch.p0(ptr %133, i32 0, i32 3, i32 1)
-  %134 = trunc i64 %indvars.iv954 to i32
+  %134 = trunc nuw i64 %indvars.iv954 to i32
   %135 = and i64 %indvars.iv954, 7
   %136 = getelementptr inbounds i32, ptr %10, i64 %135
   %137 = load i32, ptr %136, align 4
@@ -31976,7 +31976,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr nocapture nound
   %147 = icmp eq i8 %145, 0
   %148 = select i1 %147, i32 31, i32 0
   %149 = add nuw nsw i32 %148, %146
-  %150 = trunc i32 %149 to i8
+  %150 = trunc nuw nsw i32 %149 to i8
   store i8 %150, ptr %142, align 1
   %151 = trunc i32 %137 to i8
   %152 = zext nneg i32 %149 to i64
@@ -32068,8 +32068,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr nocapture nound
   %.0872929 = phi i64 [ %226, %224 ], [ %207, %.lr.ph931.preheader ]
   %.0874928 = phi i64 [ %.1875, %224 ], [ 0, %.lr.ph931.preheader ]
   %.0881927 = phi i32 [ %.1882, %224 ], [ %35, %.lr.ph931.preheader ]
-  %208 = tail call i64 @llvm.cttz.i64(i64 %.0872929, i1 true), !range !15
-  %209 = trunc i64 %208 to i32
+  %208 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872929, i1 true)
+  %209 = trunc nuw nsw i64 %208 to i32
   %210 = add nuw nsw i32 %209, %203
   %211 = and i32 %210, 31
   %212 = zext nneg i32 %211 to i64
@@ -32100,7 +32100,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr nocapture nound
   %227 = icmp ne i64 %226, 0
   %228 = icmp ne i32 %.1882, 0
   %229 = select i1 %227, i1 %228, i1 false
-  br i1 %229, label %.lr.ph931, label %._crit_edge932, !llvm.loop !36
+  br i1 %229, label %.lr.ph931, label %._crit_edge932, !llvm.loop !33
 
 ._crit_edge932:                                   ; preds = %224, %216, %.critedge
   %.0874.lcssa = phi i64 [ 0, %.critedge ], [ %.0874928, %216 ], [ %.1875, %224 ]
@@ -32110,7 +32110,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr nocapture nound
   %233 = icmp eq i8 %231, 0
   %234 = select i1 %233, i32 31, i32 0
   %235 = add nuw nsw i32 %234, %232
-  %236 = trunc i32 %235 to i8
+  %236 = trunc nuw nsw i32 %235 to i8
   store i8 %236, ptr %187, align 1
   %237 = zext nneg i32 %235 to i64
   %238 = getelementptr inbounds i8, ptr %187, i64 %237
@@ -32159,7 +32159,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr nocapture nound
   br i1 %.not.i, label %.preheader.i, label %259
 
 259:                                              ; preds = %257
-  %260 = tail call i64 @llvm.cttz.i64(i64 %258, i1 true), !range !15
+  %260 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %258, i1 true)
   %261 = lshr i64 %260, 3
   br label %ZSTD_count.exit
 
@@ -32176,10 +32176,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_5(ptr nocapture nound
   %.040.val.i = load i64, ptr %.040.i, align 1
   %264 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %264, 0
-  br i1 %.not51.i, label %.preheader.i, label %265, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %265, !llvm.loop !15
 
 265:                                              ; preds = %263
-  %266 = tail call i64 @llvm.cttz.i64(i64 %264, i1 true), !range !15
+  %266 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %264, i1 true)
   %267 = lshr i64 %266, 3
   %268 = getelementptr inbounds i8, ptr %.040.i, i64 %267
   %269 = ptrtoint ptr %268 to i64
@@ -32257,7 +32257,7 @@ ZSTD_count.exit.thread:                           ; preds = %248, %294, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %294 ], [ %.0885937, %ZSTD_count.exit ], [ %.0885937, %248 ]
   %299 = add nuw i64 %.0873938, 1
   %exitcond960.not = icmp eq i64 %299, %.0874.lcssa
-  br i1 %exitcond960.not, label %._crit_edge941, label %248, !llvm.loop !37
+  br i1 %exitcond960.not, label %._crit_edge941, label %248, !llvm.loop !34
 
 ._crit_edge941:                                   ; preds = %ZSTD_count.exit.thread, %294, %._crit_edge932
   %.2887 = phi i64 [ 3, %._crit_edge932 ], [ %.0867, %294 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -32265,7 +32265,7 @@ ZSTD_count.exit.thread:                           ; preds = %248, %294, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -32344,7 +32344,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr %60, i32 0, i32 3, i32 1)
   %61 = getelementptr inbounds i8, ptr %60, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %61, i32 0, i32 3, i32 1)
-  %62 = trunc i64 %indvars.iv to i32
+  %62 = trunc nuw i64 %indvars.iv to i32
   %63 = and i64 %indvars.iv, 7
   %64 = getelementptr inbounds i32, ptr %11, i64 %63
   %65 = load i32, ptr %64, align 4
@@ -32361,7 +32361,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr nocapture nound
   %75 = icmp eq i8 %73, 0
   %76 = select i1 %75, i32 63, i32 0
   %77 = add nuw nsw i32 %76, %74
-  %78 = trunc i32 %77 to i8
+  %78 = trunc nuw nsw i32 %77 to i8
   store i8 %78, ptr %70, align 1
   %79 = trunc i32 %65 to i8
   %80 = zext nneg i32 %77 to i64
@@ -32428,7 +32428,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr nocapture nound
   %indvars.iv.next951 = add nuw nsw i64 %indvars.iv950, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next951 to i32
   %exitcond953.not = icmp eq i32 %97, %lftr.wideiv
-  br i1 %exitcond953.not, label %.loopexit, label %103, !llvm.loop !28
+  br i1 %exitcond953.not, label %.loopexit, label %103, !llvm.loop !25
 
 .loopexit:                                        ; preds = %103, %._crit_edge, %39
   %117 = phi ptr [ %10, %39 ], [ %83, %._crit_edge ], [ %83, %103 ]
@@ -32466,7 +32466,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr %136, i32 0, i32 3, i32 1)
   %137 = getelementptr inbounds i8, ptr %136, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %137, i32 0, i32 3, i32 1)
-  %138 = trunc i64 %indvars.iv954 to i32
+  %138 = trunc nuw i64 %indvars.iv954 to i32
   %139 = and i64 %indvars.iv954, 7
   %140 = getelementptr inbounds i32, ptr %11, i64 %139
   %141 = load i32, ptr %140, align 4
@@ -32483,7 +32483,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr nocapture nound
   %151 = icmp eq i8 %149, 0
   %152 = select i1 %151, i32 63, i32 0
   %153 = add nuw nsw i32 %152, %150
-  %154 = trunc i32 %153 to i8
+  %154 = trunc nuw nsw i32 %153 to i8
   store i8 %154, ptr %146, align 1
   %155 = trunc i32 %141 to i8
   %156 = zext nneg i32 %153 to i64
@@ -32564,7 +32564,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr nocapture nound
   store i32 %204, ptr %205, align 4
   %indvars.iv.next958 = add nuw nsw i64 %indvars.iv957, 1
   %exitcond960.not = icmp eq i64 %indvars.iv.next958, 4
-  br i1 %exitcond960.not, label %206, label %198, !llvm.loop !38
+  br i1 %exitcond960.not, label %206, label %198, !llvm.loop !35
 
 206:                                              ; preds = %198
   %207 = getelementptr inbounds i32, ptr %8, i64 %192
@@ -32598,8 +32598,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr nocapture nound
   %.0872929 = phi i64 [ %246, %244 ], [ %227, %.lr.ph931.preheader ]
   %.0874928 = phi i64 [ %.1875, %244 ], [ 0, %.lr.ph931.preheader ]
   %.0881927 = phi i32 [ %.1882, %244 ], [ %36, %.lr.ph931.preheader ]
-  %228 = tail call i64 @llvm.cttz.i64(i64 %.0872929, i1 true), !range !15
-  %229 = trunc i64 %228 to i32
+  %228 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872929, i1 true)
+  %229 = trunc nuw nsw i64 %228 to i32
   %230 = add nuw nsw i32 %229, %208
   %231 = and i32 %230, 63
   %232 = zext nneg i32 %231 to i64
@@ -32630,7 +32630,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr nocapture nound
   %247 = icmp ne i64 %246, 0
   %248 = icmp ne i32 %.1882, 0
   %249 = select i1 %247, i1 %248, i1 false
-  br i1 %249, label %.lr.ph931, label %._crit_edge932, !llvm.loop !36
+  br i1 %249, label %.lr.ph931, label %._crit_edge932, !llvm.loop !33
 
 ._crit_edge932:                                   ; preds = %244, %236, %206
   %.0874.lcssa = phi i64 [ 0, %206 ], [ %.0874928, %236 ], [ %.1875, %244 ]
@@ -32640,7 +32640,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr nocapture nound
   %253 = icmp eq i8 %251, 0
   %254 = select i1 %253, i32 63, i32 0
   %255 = add nuw nsw i32 %254, %252
-  %256 = trunc i32 %255 to i8
+  %256 = trunc nuw nsw i32 %255 to i8
   store i8 %256, ptr %193, align 1
   %257 = zext nneg i32 %255 to i64
   %258 = getelementptr inbounds i8, ptr %193, i64 %257
@@ -32689,7 +32689,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr nocapture nound
   br i1 %.not.i, label %.preheader.i, label %279
 
 279:                                              ; preds = %277
-  %280 = tail call i64 @llvm.cttz.i64(i64 %278, i1 true), !range !15
+  %280 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %278, i1 true)
   %281 = lshr i64 %280, 3
   br label %ZSTD_count.exit
 
@@ -32706,10 +32706,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_5_6(ptr nocapture nound
   %.040.val.i = load i64, ptr %.040.i, align 1
   %284 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %284, 0
-  br i1 %.not51.i, label %.preheader.i, label %285, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %285, !llvm.loop !15
 
 285:                                              ; preds = %283
-  %286 = tail call i64 @llvm.cttz.i64(i64 %284, i1 true), !range !15
+  %286 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %284, i1 true)
   %287 = lshr i64 %286, 3
   %288 = getelementptr inbounds i8, ptr %.040.i, i64 %287
   %289 = ptrtoint ptr %288 to i64
@@ -32787,7 +32787,7 @@ ZSTD_count.exit.thread:                           ; preds = %268, %314, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %314 ], [ %.0885937, %ZSTD_count.exit ], [ %.0885937, %268 ]
   %319 = add nuw i64 %.0873938, 1
   %exitcond961.not = icmp eq i64 %319, %.0874.lcssa
-  br i1 %exitcond961.not, label %._crit_edge941, label %268, !llvm.loop !37
+  br i1 %exitcond961.not, label %._crit_edge941, label %268, !llvm.loop !34
 
 ._crit_edge941:                                   ; preds = %ZSTD_count.exit.thread, %314, %._crit_edge932
   %.2887 = phi i64 [ 3, %._crit_edge932 ], [ %.0867, %314 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -32795,7 +32795,7 @@ ZSTD_count.exit.thread:                           ; preds = %268, %314, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -32869,7 +32869,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr %57, i32 0, i32 3, i32 1)
   %58 = getelementptr inbounds i8, ptr %9, i64 %56
   tail call void @llvm.prefetch.p0(ptr %58, i32 0, i32 3, i32 1)
-  %59 = trunc i64 %indvars.iv to i32
+  %59 = trunc nuw i64 %indvars.iv to i32
   %60 = and i64 %indvars.iv, 7
   %61 = getelementptr inbounds i32, ptr %10, i64 %60
   %62 = load i32, ptr %61, align 4
@@ -32886,7 +32886,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr nocapture nound
   %72 = icmp eq i8 %70, 0
   %73 = select i1 %72, i32 15, i32 0
   %74 = add nuw nsw i32 %73, %71
-  %75 = trunc i32 %74 to i8
+  %75 = trunc nuw nsw i32 %74 to i8
   store i8 %75, ptr %67, align 1
   %76 = trunc i32 %62 to i8
   %77 = zext nneg i32 %74 to i64
@@ -32949,7 +32949,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr nocapture nound
   %indvars.iv.next949 = add nuw nsw i64 %indvars.iv948, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next949 to i32
   %exitcond951.not = icmp eq i32 %94, %lftr.wideiv
-  br i1 %exitcond951.not, label %.loopexit, label %100, !llvm.loop !28
+  br i1 %exitcond951.not, label %.loopexit, label %100, !llvm.loop !25
 
 .loopexit:                                        ; preds = %100, %._crit_edge, %38
   %112 = phi ptr [ %9, %38 ], [ %80, %._crit_edge ], [ %80, %100 ]
@@ -32983,7 +32983,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr %129, i32 0, i32 3, i32 1)
   %130 = getelementptr inbounds i8, ptr %112, i64 %128
   tail call void @llvm.prefetch.p0(ptr %130, i32 0, i32 3, i32 1)
-  %131 = trunc i64 %indvars.iv952 to i32
+  %131 = trunc nuw i64 %indvars.iv952 to i32
   %132 = and i64 %indvars.iv952, 7
   %133 = getelementptr inbounds i32, ptr %10, i64 %132
   %134 = load i32, ptr %133, align 4
@@ -33000,7 +33000,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr nocapture nound
   %144 = icmp eq i8 %142, 0
   %145 = select i1 %144, i32 15, i32 0
   %146 = add nuw nsw i32 %145, %143
-  %147 = trunc i32 %146 to i8
+  %147 = trunc nuw nsw i32 %146 to i8
   store i8 %147, ptr %139, align 1
   %148 = trunc i32 %134 to i8
   %149 = zext nneg i32 %146 to i64
@@ -33081,8 +33081,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr nocapture nound
   %.0872928 = phi i64 [ %215, %213 ], [ %196, %.lr.ph929.preheader ]
   %.0874927 = phi i64 [ %.1875, %213 ], [ 0, %.lr.ph929.preheader ]
   %.0881926 = phi i32 [ %.1882, %213 ], [ %35, %.lr.ph929.preheader ]
-  %197 = tail call i64 @llvm.cttz.i64(i64 %.0872928, i1 true), !range !15
-  %198 = trunc i64 %197 to i32
+  %197 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872928, i1 true)
+  %198 = trunc nuw nsw i64 %197 to i32
   %199 = add nuw nsw i32 %198, %186
   %200 = and i32 %199, 15
   %201 = zext nneg i32 %200 to i64
@@ -33113,7 +33113,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr nocapture nound
   %216 = icmp ne i64 %215, 0
   %217 = icmp ne i32 %.1882, 0
   %218 = select i1 %216, i1 %217, i1 false
-  br i1 %218, label %.lr.ph929, label %._crit_edge930, !llvm.loop !36
+  br i1 %218, label %.lr.ph929, label %._crit_edge930, !llvm.loop !33
 
 ._crit_edge930:                                   ; preds = %213, %205, %.critedge
   %.0874.lcssa = phi i64 [ 0, %.critedge ], [ %.0874927, %205 ], [ %.1875, %213 ]
@@ -33123,7 +33123,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr nocapture nound
   %222 = icmp eq i8 %220, 0
   %223 = select i1 %222, i32 15, i32 0
   %224 = add nuw nsw i32 %223, %221
-  %225 = trunc i32 %224 to i8
+  %225 = trunc nuw nsw i32 %224 to i8
   store i8 %225, ptr %184, align 1
   %226 = zext nneg i32 %224 to i64
   %227 = getelementptr inbounds i8, ptr %184, i64 %226
@@ -33172,7 +33172,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr nocapture nound
   br i1 %.not.i, label %.preheader.i, label %248
 
 248:                                              ; preds = %246
-  %249 = tail call i64 @llvm.cttz.i64(i64 %247, i1 true), !range !15
+  %249 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %247, i1 true)
   %250 = lshr i64 %249, 3
   br label %ZSTD_count.exit
 
@@ -33189,10 +33189,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_4(ptr nocapture nound
   %.040.val.i = load i64, ptr %.040.i, align 1
   %253 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %253, 0
-  br i1 %.not51.i, label %.preheader.i, label %254, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %254, !llvm.loop !15
 
 254:                                              ; preds = %252
-  %255 = tail call i64 @llvm.cttz.i64(i64 %253, i1 true), !range !15
+  %255 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %253, i1 true)
   %256 = lshr i64 %255, 3
   %257 = getelementptr inbounds i8, ptr %.040.i, i64 %256
   %258 = ptrtoint ptr %257 to i64
@@ -33270,7 +33270,7 @@ ZSTD_count.exit.thread:                           ; preds = %237, %283, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %283 ], [ %.0885935, %ZSTD_count.exit ], [ %.0885935, %237 ]
   %288 = add nuw i64 %.0873936, 1
   %exitcond955.not = icmp eq i64 %288, %.0874.lcssa
-  br i1 %exitcond955.not, label %._crit_edge939, label %237, !llvm.loop !37
+  br i1 %exitcond955.not, label %._crit_edge939, label %237, !llvm.loop !34
 
 ._crit_edge939:                                   ; preds = %ZSTD_count.exit.thread, %283, %._crit_edge930
   %.2887 = phi i64 [ 3, %._crit_edge930 ], [ %.0867, %283 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -33278,7 +33278,7 @@ ZSTD_count.exit.thread:                           ; preds = %237, %283, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -33354,7 +33354,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr nonnull %58, i32 0, i32 3, i32 1)
   %59 = getelementptr inbounds i8, ptr %9, i64 %56
   tail call void @llvm.prefetch.p0(ptr %59, i32 0, i32 3, i32 1)
-  %60 = trunc i64 %indvars.iv to i32
+  %60 = trunc nuw i64 %indvars.iv to i32
   %61 = and i64 %indvars.iv, 7
   %62 = getelementptr inbounds i32, ptr %10, i64 %61
   %63 = load i32, ptr %62, align 4
@@ -33371,7 +33371,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr nocapture nound
   %73 = icmp eq i8 %71, 0
   %74 = select i1 %73, i32 31, i32 0
   %75 = add nuw nsw i32 %74, %72
-  %76 = trunc i32 %75 to i8
+  %76 = trunc nuw nsw i32 %75 to i8
   store i8 %76, ptr %68, align 1
   %77 = trunc i32 %63 to i8
   %78 = zext nneg i32 %75 to i64
@@ -33436,7 +33436,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr nocapture nound
   %indvars.iv.next951 = add nuw nsw i64 %indvars.iv950, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next951 to i32
   %exitcond953.not = icmp eq i32 %95, %lftr.wideiv
-  br i1 %exitcond953.not, label %.loopexit, label %101, !llvm.loop !28
+  br i1 %exitcond953.not, label %.loopexit, label %101, !llvm.loop !25
 
 .loopexit:                                        ; preds = %101, %._crit_edge, %38
   %114 = phi ptr [ %9, %38 ], [ %81, %._crit_edge ], [ %81, %101 ]
@@ -33472,7 +33472,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr nonnull %132, i32 0, i32 3, i32 1)
   %133 = getelementptr inbounds i8, ptr %114, i64 %130
   tail call void @llvm.prefetch.p0(ptr %133, i32 0, i32 3, i32 1)
-  %134 = trunc i64 %indvars.iv954 to i32
+  %134 = trunc nuw i64 %indvars.iv954 to i32
   %135 = and i64 %indvars.iv954, 7
   %136 = getelementptr inbounds i32, ptr %10, i64 %135
   %137 = load i32, ptr %136, align 4
@@ -33489,7 +33489,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr nocapture nound
   %147 = icmp eq i8 %145, 0
   %148 = select i1 %147, i32 31, i32 0
   %149 = add nuw nsw i32 %148, %146
-  %150 = trunc i32 %149 to i8
+  %150 = trunc nuw nsw i32 %149 to i8
   store i8 %150, ptr %142, align 1
   %151 = trunc i32 %137 to i8
   %152 = zext nneg i32 %149 to i64
@@ -33581,8 +33581,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr nocapture nound
   %.0872929 = phi i64 [ %226, %224 ], [ %207, %.lr.ph931.preheader ]
   %.0874928 = phi i64 [ %.1875, %224 ], [ 0, %.lr.ph931.preheader ]
   %.0881927 = phi i32 [ %.1882, %224 ], [ %35, %.lr.ph931.preheader ]
-  %208 = tail call i64 @llvm.cttz.i64(i64 %.0872929, i1 true), !range !15
-  %209 = trunc i64 %208 to i32
+  %208 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872929, i1 true)
+  %209 = trunc nuw nsw i64 %208 to i32
   %210 = add nuw nsw i32 %209, %203
   %211 = and i32 %210, 31
   %212 = zext nneg i32 %211 to i64
@@ -33613,7 +33613,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr nocapture nound
   %227 = icmp ne i64 %226, 0
   %228 = icmp ne i32 %.1882, 0
   %229 = select i1 %227, i1 %228, i1 false
-  br i1 %229, label %.lr.ph931, label %._crit_edge932, !llvm.loop !36
+  br i1 %229, label %.lr.ph931, label %._crit_edge932, !llvm.loop !33
 
 ._crit_edge932:                                   ; preds = %224, %216, %.critedge
   %.0874.lcssa = phi i64 [ 0, %.critedge ], [ %.0874928, %216 ], [ %.1875, %224 ]
@@ -33623,7 +33623,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr nocapture nound
   %233 = icmp eq i8 %231, 0
   %234 = select i1 %233, i32 31, i32 0
   %235 = add nuw nsw i32 %234, %232
-  %236 = trunc i32 %235 to i8
+  %236 = trunc nuw nsw i32 %235 to i8
   store i8 %236, ptr %187, align 1
   %237 = zext nneg i32 %235 to i64
   %238 = getelementptr inbounds i8, ptr %187, i64 %237
@@ -33672,7 +33672,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr nocapture nound
   br i1 %.not.i, label %.preheader.i, label %259
 
 259:                                              ; preds = %257
-  %260 = tail call i64 @llvm.cttz.i64(i64 %258, i1 true), !range !15
+  %260 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %258, i1 true)
   %261 = lshr i64 %260, 3
   br label %ZSTD_count.exit
 
@@ -33689,10 +33689,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_5(ptr nocapture nound
   %.040.val.i = load i64, ptr %.040.i, align 1
   %264 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %264, 0
-  br i1 %.not51.i, label %.preheader.i, label %265, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %265, !llvm.loop !15
 
 265:                                              ; preds = %263
-  %266 = tail call i64 @llvm.cttz.i64(i64 %264, i1 true), !range !15
+  %266 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %264, i1 true)
   %267 = lshr i64 %266, 3
   %268 = getelementptr inbounds i8, ptr %.040.i, i64 %267
   %269 = ptrtoint ptr %268 to i64
@@ -33770,7 +33770,7 @@ ZSTD_count.exit.thread:                           ; preds = %248, %294, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %294 ], [ %.0885937, %ZSTD_count.exit ], [ %.0885937, %248 ]
   %299 = add nuw i64 %.0873938, 1
   %exitcond960.not = icmp eq i64 %299, %.0874.lcssa
-  br i1 %exitcond960.not, label %._crit_edge941, label %248, !llvm.loop !37
+  br i1 %exitcond960.not, label %._crit_edge941, label %248, !llvm.loop !34
 
 ._crit_edge941:                                   ; preds = %ZSTD_count.exit.thread, %294, %._crit_edge932
   %.2887 = phi i64 [ 3, %._crit_edge932 ], [ %.0867, %294 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -33778,7 +33778,7 @@ ZSTD_count.exit.thread:                           ; preds = %248, %294, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -33857,7 +33857,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr %60, i32 0, i32 3, i32 1)
   %61 = getelementptr inbounds i8, ptr %60, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %61, i32 0, i32 3, i32 1)
-  %62 = trunc i64 %indvars.iv to i32
+  %62 = trunc nuw i64 %indvars.iv to i32
   %63 = and i64 %indvars.iv, 7
   %64 = getelementptr inbounds i32, ptr %11, i64 %63
   %65 = load i32, ptr %64, align 4
@@ -33874,7 +33874,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr nocapture nound
   %75 = icmp eq i8 %73, 0
   %76 = select i1 %75, i32 63, i32 0
   %77 = add nuw nsw i32 %76, %74
-  %78 = trunc i32 %77 to i8
+  %78 = trunc nuw nsw i32 %77 to i8
   store i8 %78, ptr %70, align 1
   %79 = trunc i32 %65 to i8
   %80 = zext nneg i32 %77 to i64
@@ -33941,7 +33941,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr nocapture nound
   %indvars.iv.next951 = add nuw nsw i64 %indvars.iv950, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next951 to i32
   %exitcond953.not = icmp eq i32 %97, %lftr.wideiv
-  br i1 %exitcond953.not, label %.loopexit, label %103, !llvm.loop !28
+  br i1 %exitcond953.not, label %.loopexit, label %103, !llvm.loop !25
 
 .loopexit:                                        ; preds = %103, %._crit_edge, %39
   %117 = phi ptr [ %10, %39 ], [ %83, %._crit_edge ], [ %83, %103 ]
@@ -33979,7 +33979,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr nocapture nound
   tail call void @llvm.prefetch.p0(ptr %136, i32 0, i32 3, i32 1)
   %137 = getelementptr inbounds i8, ptr %136, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %137, i32 0, i32 3, i32 1)
-  %138 = trunc i64 %indvars.iv954 to i32
+  %138 = trunc nuw i64 %indvars.iv954 to i32
   %139 = and i64 %indvars.iv954, 7
   %140 = getelementptr inbounds i32, ptr %11, i64 %139
   %141 = load i32, ptr %140, align 4
@@ -33996,7 +33996,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr nocapture nound
   %151 = icmp eq i8 %149, 0
   %152 = select i1 %151, i32 63, i32 0
   %153 = add nuw nsw i32 %152, %150
-  %154 = trunc i32 %153 to i8
+  %154 = trunc nuw nsw i32 %153 to i8
   store i8 %154, ptr %146, align 1
   %155 = trunc i32 %141 to i8
   %156 = zext nneg i32 %153 to i64
@@ -34077,7 +34077,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr nocapture nound
   store i32 %204, ptr %205, align 4
   %indvars.iv.next958 = add nuw nsw i64 %indvars.iv957, 1
   %exitcond960.not = icmp eq i64 %indvars.iv.next958, 4
-  br i1 %exitcond960.not, label %206, label %198, !llvm.loop !38
+  br i1 %exitcond960.not, label %206, label %198, !llvm.loop !35
 
 206:                                              ; preds = %198
   %207 = getelementptr inbounds i32, ptr %8, i64 %192
@@ -34111,8 +34111,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr nocapture nound
   %.0872929 = phi i64 [ %246, %244 ], [ %227, %.lr.ph931.preheader ]
   %.0874928 = phi i64 [ %.1875, %244 ], [ 0, %.lr.ph931.preheader ]
   %.0881927 = phi i32 [ %.1882, %244 ], [ %36, %.lr.ph931.preheader ]
-  %228 = tail call i64 @llvm.cttz.i64(i64 %.0872929, i1 true), !range !15
-  %229 = trunc i64 %228 to i32
+  %228 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872929, i1 true)
+  %229 = trunc nuw nsw i64 %228 to i32
   %230 = add nuw nsw i32 %229, %208
   %231 = and i32 %230, 63
   %232 = zext nneg i32 %231 to i64
@@ -34143,7 +34143,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr nocapture nound
   %247 = icmp ne i64 %246, 0
   %248 = icmp ne i32 %.1882, 0
   %249 = select i1 %247, i1 %248, i1 false
-  br i1 %249, label %.lr.ph931, label %._crit_edge932, !llvm.loop !36
+  br i1 %249, label %.lr.ph931, label %._crit_edge932, !llvm.loop !33
 
 ._crit_edge932:                                   ; preds = %244, %236, %206
   %.0874.lcssa = phi i64 [ 0, %206 ], [ %.0874928, %236 ], [ %.1875, %244 ]
@@ -34153,7 +34153,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr nocapture nound
   %253 = icmp eq i8 %251, 0
   %254 = select i1 %253, i32 63, i32 0
   %255 = add nuw nsw i32 %254, %252
-  %256 = trunc i32 %255 to i8
+  %256 = trunc nuw nsw i32 %255 to i8
   store i8 %256, ptr %193, align 1
   %257 = zext nneg i32 %255 to i64
   %258 = getelementptr inbounds i8, ptr %193, i64 %257
@@ -34202,7 +34202,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr nocapture nound
   br i1 %.not.i, label %.preheader.i, label %279
 
 279:                                              ; preds = %277
-  %280 = tail call i64 @llvm.cttz.i64(i64 %278, i1 true), !range !15
+  %280 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %278, i1 true)
   %281 = lshr i64 %280, 3
   br label %ZSTD_count.exit
 
@@ -34219,10 +34219,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_noDict_6_6(ptr nocapture nound
   %.040.val.i = load i64, ptr %.040.i, align 1
   %284 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %284, 0
-  br i1 %.not51.i, label %.preheader.i, label %285, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %285, !llvm.loop !15
 
 285:                                              ; preds = %283
-  %286 = tail call i64 @llvm.cttz.i64(i64 %284, i1 true), !range !15
+  %286 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %284, i1 true)
   %287 = lshr i64 %286, 3
   %288 = getelementptr inbounds i8, ptr %.040.i, i64 %287
   %289 = ptrtoint ptr %288 to i64
@@ -34300,7 +34300,7 @@ ZSTD_count.exit.thread:                           ; preds = %268, %314, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %314 ], [ %.0885937, %ZSTD_count.exit ], [ %.0885937, %268 ]
   %319 = add nuw i64 %.0873938, 1
   %exitcond961.not = icmp eq i64 %319, %.0874.lcssa
-  br i1 %exitcond961.not, label %._crit_edge941, label %268, !llvm.loop !37
+  br i1 %exitcond961.not, label %._crit_edge941, label %268, !llvm.loop !34
 
 ._crit_edge941:                                   ; preds = %ZSTD_count.exit.thread, %314, %._crit_edge932
   %.2887 = phi i64 [ 3, %._crit_edge932 ], [ %.0867, %314 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -34308,7 +34308,7 @@ ZSTD_count.exit.thread:                           ; preds = %268, %314, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -34359,7 +34359,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr nocapture noundef
   %.fr = freeze i32 %41
   %.not343 = icmp eq i32 %.fr, 0
   %50 = icmp ult i32 %48, %24
-  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !34
+  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !31
 
 .split.us:                                        ; preds = %4
   br i1 %50, label %.lr.ph.preheader, label %.split355.us
@@ -34378,7 +34378,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr nocapture noundef
   %56 = zext i32 %55 to i64
   %57 = getelementptr inbounds i32, ptr %43, i64 %56
   %58 = load i32, ptr %57, align 4
-  %59 = trunc i64 %indvars.iv to i32
+  %59 = trunc nuw i64 %indvars.iv to i32
   %60 = and i32 %59, %46
   %61 = zext nneg i32 %60 to i64
   %62 = getelementptr inbounds i32, ptr %7, i64 %61
@@ -34457,7 +34457,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr nocapture noundef
   br i1 %.not.i, label %.preheader.i, label %95
 
 95:                                               ; preds = %93
-  %96 = tail call i64 @llvm.cttz.i64(i64 %94, i1 true), !range !15
+  %96 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %94, i1 true)
   %97 = lshr i64 %96, 3
   br label %ZSTD_count.exit
 
@@ -34474,10 +34474,10 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_4(ptr nocapture noundef
   %.040.val.i = load i64, ptr %.040.i, align 1
   %100 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %100, 0
-  br i1 %.not51.i, label %.preheader.i, label %101, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %101, !llvm.loop !15
 
 101:                                              ; preds = %99
-  %102 = tail call i64 @llvm.cttz.i64(i64 %100, i1 true), !range !15
+  %102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %100, i1 true)
   %103 = lshr i64 %102, 3
   %104 = getelementptr inbounds i8, ptr %.040.i, i64 %103
   %105 = ptrtoint ptr %104 to i64
@@ -34578,7 +34578,7 @@ ZSTD_count.exit.thread:                           ; preds = %129, %87, %137, %ZS
   %147 = icmp uge i32 %.0338, %35
   %148 = icmp ne i32 %146, 0
   %149 = and i1 %148, %147
-  br i1 %149, label %85, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %149, label %85, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 ZSTD_count.exit.thread._crit_edge:                ; preds = %142, %137, %ZSTD_count.exit.thread, %.split355.us
   %.2335 = phi i64 [ 3, %.split355.us ], [ %.1334, %ZSTD_count.exit.thread ], [ %.0340, %137 ], [ %.1334, %142 ]
@@ -34586,7 +34586,7 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %142, %137, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -34638,7 +34638,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr nocapture noundef
   %.fr = freeze i32 %41
   %.not343 = icmp eq i32 %.fr, 0
   %51 = icmp ult i32 %48, %24
-  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !34
+  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !31
 
 .split.us:                                        ; preds = %4
   br i1 %51, label %.lr.ph.preheader, label %.split355.us
@@ -34656,7 +34656,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr nocapture noundef
   %56 = lshr i64 %55, %50
   %57 = getelementptr inbounds i32, ptr %43, i64 %56
   %58 = load i32, ptr %57, align 4
-  %59 = trunc i64 %indvars.iv to i32
+  %59 = trunc nuw i64 %indvars.iv to i32
   %60 = and i32 %59, %46
   %61 = zext nneg i32 %60 to i64
   %62 = getelementptr inbounds i32, ptr %7, i64 %61
@@ -34733,7 +34733,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr nocapture noundef
   br i1 %.not.i, label %.preheader.i, label %93
 
 93:                                               ; preds = %91
-  %94 = tail call i64 @llvm.cttz.i64(i64 %92, i1 true), !range !15
+  %94 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %92, i1 true)
   %95 = lshr i64 %94, 3
   br label %ZSTD_count.exit
 
@@ -34750,10 +34750,10 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_5(ptr nocapture noundef
   %.040.val.i = load i64, ptr %.040.i, align 1
   %98 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %98, 0
-  br i1 %.not51.i, label %.preheader.i, label %99, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %99, !llvm.loop !15
 
 99:                                               ; preds = %97
-  %100 = tail call i64 @llvm.cttz.i64(i64 %98, i1 true), !range !15
+  %100 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %98, i1 true)
   %101 = lshr i64 %100, 3
   %102 = getelementptr inbounds i8, ptr %.040.i, i64 %101
   %103 = ptrtoint ptr %102 to i64
@@ -34854,7 +34854,7 @@ ZSTD_count.exit.thread:                           ; preds = %127, %85, %135, %ZS
   %145 = icmp uge i32 %.0338, %35
   %146 = icmp ne i32 %144, 0
   %147 = and i1 %146, %145
-  br i1 %147, label %83, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %147, label %83, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 ZSTD_count.exit.thread._crit_edge:                ; preds = %140, %135, %ZSTD_count.exit.thread, %.split355.us
   %.2335 = phi i64 [ 3, %.split355.us ], [ %.1334, %ZSTD_count.exit.thread ], [ %.0340, %135 ], [ %.1334, %140 ]
@@ -34862,7 +34862,7 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %140, %135, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_extDict_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -34914,7 +34914,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr nocapture noundef
   %.fr = freeze i32 %41
   %.not343 = icmp eq i32 %.fr, 0
   %51 = icmp ult i32 %48, %24
-  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !34
+  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !31
 
 .split.us:                                        ; preds = %4
   br i1 %51, label %.lr.ph.preheader, label %.split355.us
@@ -34932,7 +34932,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr nocapture noundef
   %56 = lshr i64 %55, %50
   %57 = getelementptr inbounds i32, ptr %43, i64 %56
   %58 = load i32, ptr %57, align 4
-  %59 = trunc i64 %indvars.iv to i32
+  %59 = trunc nuw i64 %indvars.iv to i32
   %60 = and i32 %59, %46
   %61 = zext nneg i32 %60 to i64
   %62 = getelementptr inbounds i32, ptr %7, i64 %61
@@ -35009,7 +35009,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr nocapture noundef
   br i1 %.not.i, label %.preheader.i, label %93
 
 93:                                               ; preds = %91
-  %94 = tail call i64 @llvm.cttz.i64(i64 %92, i1 true), !range !15
+  %94 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %92, i1 true)
   %95 = lshr i64 %94, 3
   br label %ZSTD_count.exit
 
@@ -35026,10 +35026,10 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_extDict_6(ptr nocapture noundef
   %.040.val.i = load i64, ptr %.040.i, align 1
   %98 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %98, 0
-  br i1 %.not51.i, label %.preheader.i, label %99, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %99, !llvm.loop !15
 
 99:                                               ; preds = %97
-  %100 = tail call i64 @llvm.cttz.i64(i64 %98, i1 true), !range !15
+  %100 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %98, i1 true)
   %101 = lshr i64 %100, 3
   %102 = getelementptr inbounds i8, ptr %.040.i, i64 %101
   %103 = ptrtoint ptr %102 to i64
@@ -35130,7 +35130,7 @@ ZSTD_count.exit.thread:                           ; preds = %127, %85, %135, %ZS
   %145 = icmp uge i32 %.0338, %35
   %146 = icmp ne i32 %144, 0
   %147 = and i1 %146, %145
-  br i1 %147, label %83, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %147, label %83, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 ZSTD_count.exit.thread._crit_edge:                ; preds = %140, %135, %ZSTD_count.exit.thread, %.split355.us
   %.2335 = phi i64 [ 3, %.split355.us ], [ %.1334, %ZSTD_count.exit.thread ], [ %.0340, %135 ], [ %.1334, %140 ]
@@ -35138,7 +35138,7 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %140, %135, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -35219,7 +35219,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr %64, i32 0, i32 3, i32 1)
   %65 = getelementptr inbounds i8, ptr %9, i64 %63
   tail call void @llvm.prefetch.p0(ptr %65, i32 0, i32 3, i32 1)
-  %66 = trunc i64 %indvars.iv to i32
+  %66 = trunc nuw i64 %indvars.iv to i32
   %67 = and i64 %indvars.iv, 7
   %68 = getelementptr inbounds i32, ptr %10, i64 %67
   %69 = load i32, ptr %68, align 4
@@ -35236,7 +35236,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr nocapture noun
   %79 = icmp eq i8 %77, 0
   %80 = select i1 %79, i32 15, i32 0
   %81 = add nuw nsw i32 %80, %78
-  %82 = trunc i32 %81 to i8
+  %82 = trunc nuw nsw i32 %81 to i8
   store i8 %82, ptr %74, align 1
   %83 = trunc i32 %69 to i8
   %84 = zext nneg i32 %81 to i64
@@ -35299,7 +35299,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr nocapture noun
   %indvars.iv.next953 = add nuw nsw i64 %indvars.iv952, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next953 to i32
   %exitcond955.not = icmp eq i32 %101, %lftr.wideiv
-  br i1 %exitcond955.not, label %.loopexit, label %107, !llvm.loop !28
+  br i1 %exitcond955.not, label %.loopexit, label %107, !llvm.loop !25
 
 .loopexit:                                        ; preds = %107, %._crit_edge, %45
   %119 = phi ptr [ %9, %45 ], [ %87, %._crit_edge ], [ %87, %107 ]
@@ -35333,7 +35333,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr %136, i32 0, i32 3, i32 1)
   %137 = getelementptr inbounds i8, ptr %119, i64 %135
   tail call void @llvm.prefetch.p0(ptr %137, i32 0, i32 3, i32 1)
-  %138 = trunc i64 %indvars.iv956 to i32
+  %138 = trunc nuw i64 %indvars.iv956 to i32
   %139 = and i64 %indvars.iv956, 7
   %140 = getelementptr inbounds i32, ptr %10, i64 %139
   %141 = load i32, ptr %140, align 4
@@ -35350,7 +35350,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr nocapture noun
   %151 = icmp eq i8 %149, 0
   %152 = select i1 %151, i32 15, i32 0
   %153 = add nuw nsw i32 %152, %150
-  %154 = trunc i32 %153 to i8
+  %154 = trunc nuw nsw i32 %153 to i8
   store i8 %154, ptr %146, align 1
   %155 = trunc i32 %141 to i8
   %156 = zext nneg i32 %153 to i64
@@ -35430,8 +35430,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr nocapture noun
   %.0872932 = phi i64 [ %221, %219 ], [ %202, %.lr.ph933.preheader ]
   %.0874931 = phi i64 [ %.1875, %219 ], [ 0, %.lr.ph933.preheader ]
   %.0881930 = phi i32 [ %.1882, %219 ], [ %42, %.lr.ph933.preheader ]
-  %203 = tail call i64 @llvm.cttz.i64(i64 %.0872932, i1 true), !range !15
-  %204 = trunc i64 %203 to i32
+  %203 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872932, i1 true)
+  %204 = trunc nuw nsw i64 %203 to i32
   %205 = add nuw nsw i32 %204, %192
   %206 = and i32 %205, 15
   %207 = zext nneg i32 %206 to i64
@@ -35464,7 +35464,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr nocapture noun
   %222 = icmp ne i64 %221, 0
   %223 = icmp ne i32 %.1882, 0
   %224 = select i1 %222, i1 %223, i1 false
-  br i1 %224, label %.lr.ph933, label %._crit_edge934, !llvm.loop !36
+  br i1 %224, label %.lr.ph933, label %._crit_edge934, !llvm.loop !33
 
 ._crit_edge934:                                   ; preds = %219, %211, %.critedge
   %.0874.lcssa = phi i64 [ 0, %.critedge ], [ %.0874931, %211 ], [ %.1875, %219 ]
@@ -35474,7 +35474,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr nocapture noun
   %228 = icmp eq i8 %226, 0
   %229 = select i1 %228, i32 15, i32 0
   %230 = add nuw nsw i32 %229, %227
-  %231 = trunc i32 %230 to i8
+  %231 = trunc nuw nsw i32 %230 to i8
   store i8 %231, ptr %190, align 1
   %232 = zext nneg i32 %230 to i64
   %233 = getelementptr inbounds i8, ptr %190, i64 %232
@@ -35528,7 +35528,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr nocapture noun
   br i1 %.not.i, label %.preheader.i, label %256
 
 256:                                              ; preds = %254
-  %257 = tail call i64 @llvm.cttz.i64(i64 %255, i1 true), !range !15
+  %257 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %255, i1 true)
   %258 = lshr i64 %257, 3
   br label %ZSTD_count.exit
 
@@ -35545,10 +35545,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_4(ptr nocapture noun
   %.040.val.i = load i64, ptr %.040.i, align 1
   %261 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %261, 0
-  br i1 %.not51.i, label %.preheader.i, label %262, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %262, !llvm.loop !15
 
 262:                                              ; preds = %260
-  %263 = tail call i64 @llvm.cttz.i64(i64 %261, i1 true), !range !15
+  %263 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %261, i1 true)
   %264 = lshr i64 %263, 3
   %265 = getelementptr inbounds i8, ptr %.040.i, i64 %264
   %266 = ptrtoint ptr %265 to i64
@@ -35639,7 +35639,7 @@ ZSTD_count.exit.thread:                           ; preds = %290, %248, %298, %Z
   %.1886 = phi i64 [ %.0867, %298 ], [ %.0885939, %ZSTD_count.exit ], [ %.0885939, %248 ], [ %.0885939, %290 ]
   %303 = add nuw i64 %.0873940, 1
   %exitcond959.not = icmp eq i64 %303, %.0874.lcssa
-  br i1 %exitcond959.not, label %._crit_edge943, label %244, !llvm.loop !37
+  br i1 %exitcond959.not, label %._crit_edge943, label %244, !llvm.loop !34
 
 ._crit_edge943:                                   ; preds = %ZSTD_count.exit.thread, %298, %._crit_edge934
   %.2887 = phi i64 [ 3, %._crit_edge934 ], [ %.0867, %298 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -35647,7 +35647,7 @@ ZSTD_count.exit.thread:                           ; preds = %290, %248, %298, %Z
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -35730,7 +35730,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr nonnull %65, i32 0, i32 3, i32 1)
   %66 = getelementptr inbounds i8, ptr %9, i64 %63
   tail call void @llvm.prefetch.p0(ptr %66, i32 0, i32 3, i32 1)
-  %67 = trunc i64 %indvars.iv to i32
+  %67 = trunc nuw i64 %indvars.iv to i32
   %68 = and i64 %indvars.iv, 7
   %69 = getelementptr inbounds i32, ptr %10, i64 %68
   %70 = load i32, ptr %69, align 4
@@ -35747,7 +35747,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr nocapture noun
   %80 = icmp eq i8 %78, 0
   %81 = select i1 %80, i32 31, i32 0
   %82 = add nuw nsw i32 %81, %79
-  %83 = trunc i32 %82 to i8
+  %83 = trunc nuw nsw i32 %82 to i8
   store i8 %83, ptr %75, align 1
   %84 = trunc i32 %70 to i8
   %85 = zext nneg i32 %82 to i64
@@ -35812,7 +35812,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr nocapture noun
   %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next955 to i32
   %exitcond957.not = icmp eq i32 %102, %lftr.wideiv
-  br i1 %exitcond957.not, label %.loopexit, label %108, !llvm.loop !28
+  br i1 %exitcond957.not, label %.loopexit, label %108, !llvm.loop !25
 
 .loopexit:                                        ; preds = %108, %._crit_edge, %45
   %121 = phi ptr [ %9, %45 ], [ %88, %._crit_edge ], [ %88, %108 ]
@@ -35848,7 +35848,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr nonnull %139, i32 0, i32 3, i32 1)
   %140 = getelementptr inbounds i8, ptr %121, i64 %137
   tail call void @llvm.prefetch.p0(ptr %140, i32 0, i32 3, i32 1)
-  %141 = trunc i64 %indvars.iv958 to i32
+  %141 = trunc nuw i64 %indvars.iv958 to i32
   %142 = and i64 %indvars.iv958, 7
   %143 = getelementptr inbounds i32, ptr %10, i64 %142
   %144 = load i32, ptr %143, align 4
@@ -35865,7 +35865,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr nocapture noun
   %154 = icmp eq i8 %152, 0
   %155 = select i1 %154, i32 31, i32 0
   %156 = add nuw nsw i32 %155, %153
-  %157 = trunc i32 %156 to i8
+  %157 = trunc nuw nsw i32 %156 to i8
   store i8 %157, ptr %149, align 1
   %158 = trunc i32 %144 to i8
   %159 = zext nneg i32 %156 to i64
@@ -35956,8 +35956,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr nocapture noun
   %.0872933 = phi i64 [ %232, %230 ], [ %213, %.lr.ph935.preheader ]
   %.0874932 = phi i64 [ %.1875, %230 ], [ 0, %.lr.ph935.preheader ]
   %.0881931 = phi i32 [ %.1882, %230 ], [ %42, %.lr.ph935.preheader ]
-  %214 = tail call i64 @llvm.cttz.i64(i64 %.0872933, i1 true), !range !15
-  %215 = trunc i64 %214 to i32
+  %214 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872933, i1 true)
+  %215 = trunc nuw nsw i64 %214 to i32
   %216 = add nuw nsw i32 %215, %209
   %217 = and i32 %216, 31
   %218 = zext nneg i32 %217 to i64
@@ -35990,7 +35990,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr nocapture noun
   %233 = icmp ne i64 %232, 0
   %234 = icmp ne i32 %.1882, 0
   %235 = select i1 %233, i1 %234, i1 false
-  br i1 %235, label %.lr.ph935, label %._crit_edge936, !llvm.loop !36
+  br i1 %235, label %.lr.ph935, label %._crit_edge936, !llvm.loop !33
 
 ._crit_edge936:                                   ; preds = %230, %222, %.critedge
   %.0874.lcssa = phi i64 [ 0, %.critedge ], [ %.0874932, %222 ], [ %.1875, %230 ]
@@ -36000,7 +36000,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr nocapture noun
   %239 = icmp eq i8 %237, 0
   %240 = select i1 %239, i32 31, i32 0
   %241 = add nuw nsw i32 %240, %238
-  %242 = trunc i32 %241 to i8
+  %242 = trunc nuw nsw i32 %241 to i8
   store i8 %242, ptr %193, align 1
   %243 = zext nneg i32 %241 to i64
   %244 = getelementptr inbounds i8, ptr %193, i64 %243
@@ -36054,7 +36054,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr nocapture noun
   br i1 %.not.i, label %.preheader.i, label %267
 
 267:                                              ; preds = %265
-  %268 = tail call i64 @llvm.cttz.i64(i64 %266, i1 true), !range !15
+  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %266, i1 true)
   %269 = lshr i64 %268, 3
   br label %ZSTD_count.exit
 
@@ -36071,10 +36071,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_5(ptr nocapture noun
   %.040.val.i = load i64, ptr %.040.i, align 1
   %272 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %272, 0
-  br i1 %.not51.i, label %.preheader.i, label %273, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %273, !llvm.loop !15
 
 273:                                              ; preds = %271
-  %274 = tail call i64 @llvm.cttz.i64(i64 %272, i1 true), !range !15
+  %274 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %272, i1 true)
   %275 = lshr i64 %274, 3
   %276 = getelementptr inbounds i8, ptr %.040.i, i64 %275
   %277 = ptrtoint ptr %276 to i64
@@ -36165,7 +36165,7 @@ ZSTD_count.exit.thread:                           ; preds = %301, %259, %309, %Z
   %.1886 = phi i64 [ %.0867, %309 ], [ %.0885941, %ZSTD_count.exit ], [ %.0885941, %259 ], [ %.0885941, %301 ]
   %314 = add nuw i64 %.0873942, 1
   %exitcond964.not = icmp eq i64 %314, %.0874.lcssa
-  br i1 %exitcond964.not, label %._crit_edge945, label %255, !llvm.loop !37
+  br i1 %exitcond964.not, label %._crit_edge945, label %255, !llvm.loop !34
 
 ._crit_edge945:                                   ; preds = %ZSTD_count.exit.thread, %309, %._crit_edge936
   %.2887 = phi i64 [ 3, %._crit_edge936 ], [ %.0867, %309 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -36173,7 +36173,7 @@ ZSTD_count.exit.thread:                           ; preds = %301, %259, %309, %Z
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -36259,7 +36259,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr %67, i32 0, i32 3, i32 1)
   %68 = getelementptr inbounds i8, ptr %67, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %68, i32 0, i32 3, i32 1)
-  %69 = trunc i64 %indvars.iv to i32
+  %69 = trunc nuw i64 %indvars.iv to i32
   %70 = and i64 %indvars.iv, 7
   %71 = getelementptr inbounds i32, ptr %11, i64 %70
   %72 = load i32, ptr %71, align 4
@@ -36276,7 +36276,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr nocapture noun
   %82 = icmp eq i8 %80, 0
   %83 = select i1 %82, i32 63, i32 0
   %84 = add nuw nsw i32 %83, %81
-  %85 = trunc i32 %84 to i8
+  %85 = trunc nuw nsw i32 %84 to i8
   store i8 %85, ptr %77, align 1
   %86 = trunc i32 %72 to i8
   %87 = zext nneg i32 %84 to i64
@@ -36343,7 +36343,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr nocapture noun
   %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next955 to i32
   %exitcond957.not = icmp eq i32 %104, %lftr.wideiv
-  br i1 %exitcond957.not, label %.loopexit, label %110, !llvm.loop !28
+  br i1 %exitcond957.not, label %.loopexit, label %110, !llvm.loop !25
 
 .loopexit:                                        ; preds = %110, %._crit_edge, %46
   %124 = phi ptr [ %10, %46 ], [ %90, %._crit_edge ], [ %90, %110 ]
@@ -36381,7 +36381,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr %143, i32 0, i32 3, i32 1)
   %144 = getelementptr inbounds i8, ptr %143, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %144, i32 0, i32 3, i32 1)
-  %145 = trunc i64 %indvars.iv958 to i32
+  %145 = trunc nuw i64 %indvars.iv958 to i32
   %146 = and i64 %indvars.iv958, 7
   %147 = getelementptr inbounds i32, ptr %11, i64 %146
   %148 = load i32, ptr %147, align 4
@@ -36398,7 +36398,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr nocapture noun
   %158 = icmp eq i8 %156, 0
   %159 = select i1 %158, i32 63, i32 0
   %160 = add nuw nsw i32 %159, %157
-  %161 = trunc i32 %160 to i8
+  %161 = trunc nuw nsw i32 %160 to i8
   store i8 %161, ptr %153, align 1
   %162 = trunc i32 %148 to i8
   %163 = zext nneg i32 %160 to i64
@@ -36478,7 +36478,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr nocapture noun
   store i32 %210, ptr %211, align 4
   %indvars.iv.next962 = add nuw nsw i64 %indvars.iv961, 1
   %exitcond964.not = icmp eq i64 %indvars.iv.next962, 4
-  br i1 %exitcond964.not, label %212, label %204, !llvm.loop !38
+  br i1 %exitcond964.not, label %212, label %204, !llvm.loop !35
 
 212:                                              ; preds = %204
   %213 = getelementptr inbounds i32, ptr %8, i64 %198
@@ -36512,8 +36512,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr nocapture noun
   %.0872933 = phi i64 [ %252, %250 ], [ %233, %.lr.ph935.preheader ]
   %.0874932 = phi i64 [ %.1875, %250 ], [ 0, %.lr.ph935.preheader ]
   %.0881931 = phi i32 [ %.1882, %250 ], [ %43, %.lr.ph935.preheader ]
-  %234 = tail call i64 @llvm.cttz.i64(i64 %.0872933, i1 true), !range !15
-  %235 = trunc i64 %234 to i32
+  %234 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872933, i1 true)
+  %235 = trunc nuw nsw i64 %234 to i32
   %236 = add nuw nsw i32 %235, %214
   %237 = and i32 %236, 63
   %238 = zext nneg i32 %237 to i64
@@ -36546,7 +36546,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr nocapture noun
   %253 = icmp ne i64 %252, 0
   %254 = icmp ne i32 %.1882, 0
   %255 = select i1 %253, i1 %254, i1 false
-  br i1 %255, label %.lr.ph935, label %._crit_edge936, !llvm.loop !36
+  br i1 %255, label %.lr.ph935, label %._crit_edge936, !llvm.loop !33
 
 ._crit_edge936:                                   ; preds = %250, %242, %212
   %.0874.lcssa = phi i64 [ 0, %212 ], [ %.0874932, %242 ], [ %.1875, %250 ]
@@ -36556,7 +36556,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr nocapture noun
   %259 = icmp eq i8 %257, 0
   %260 = select i1 %259, i32 63, i32 0
   %261 = add nuw nsw i32 %260, %258
-  %262 = trunc i32 %261 to i8
+  %262 = trunc nuw nsw i32 %261 to i8
   store i8 %262, ptr %199, align 1
   %263 = zext nneg i32 %261 to i64
   %264 = getelementptr inbounds i8, ptr %199, i64 %263
@@ -36610,7 +36610,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr nocapture noun
   br i1 %.not.i, label %.preheader.i, label %287
 
 287:                                              ; preds = %285
-  %288 = tail call i64 @llvm.cttz.i64(i64 %286, i1 true), !range !15
+  %288 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %286, i1 true)
   %289 = lshr i64 %288, 3
   br label %ZSTD_count.exit
 
@@ -36627,10 +36627,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_4_6(ptr nocapture noun
   %.040.val.i = load i64, ptr %.040.i, align 1
   %292 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %292, 0
-  br i1 %.not51.i, label %.preheader.i, label %293, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %293, !llvm.loop !15
 
 293:                                              ; preds = %291
-  %294 = tail call i64 @llvm.cttz.i64(i64 %292, i1 true), !range !15
+  %294 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %292, i1 true)
   %295 = lshr i64 %294, 3
   %296 = getelementptr inbounds i8, ptr %.040.i, i64 %295
   %297 = ptrtoint ptr %296 to i64
@@ -36721,7 +36721,7 @@ ZSTD_count.exit.thread:                           ; preds = %321, %279, %329, %Z
   %.1886 = phi i64 [ %.0867, %329 ], [ %.0885941, %ZSTD_count.exit ], [ %.0885941, %279 ], [ %.0885941, %321 ]
   %334 = add nuw i64 %.0873942, 1
   %exitcond965.not = icmp eq i64 %334, %.0874.lcssa
-  br i1 %exitcond965.not, label %._crit_edge945, label %275, !llvm.loop !37
+  br i1 %exitcond965.not, label %._crit_edge945, label %275, !llvm.loop !34
 
 ._crit_edge945:                                   ; preds = %ZSTD_count.exit.thread, %329, %._crit_edge936
   %.2887 = phi i64 [ 3, %._crit_edge936 ], [ %.0867, %329 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -36729,7 +36729,7 @@ ZSTD_count.exit.thread:                           ; preds = %321, %279, %329, %Z
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -36810,7 +36810,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr %64, i32 0, i32 3, i32 1)
   %65 = getelementptr inbounds i8, ptr %9, i64 %63
   tail call void @llvm.prefetch.p0(ptr %65, i32 0, i32 3, i32 1)
-  %66 = trunc i64 %indvars.iv to i32
+  %66 = trunc nuw i64 %indvars.iv to i32
   %67 = and i64 %indvars.iv, 7
   %68 = getelementptr inbounds i32, ptr %10, i64 %67
   %69 = load i32, ptr %68, align 4
@@ -36827,7 +36827,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr nocapture noun
   %79 = icmp eq i8 %77, 0
   %80 = select i1 %79, i32 15, i32 0
   %81 = add nuw nsw i32 %80, %78
-  %82 = trunc i32 %81 to i8
+  %82 = trunc nuw nsw i32 %81 to i8
   store i8 %82, ptr %74, align 1
   %83 = trunc i32 %69 to i8
   %84 = zext nneg i32 %81 to i64
@@ -36890,7 +36890,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr nocapture noun
   %indvars.iv.next953 = add nuw nsw i64 %indvars.iv952, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next953 to i32
   %exitcond955.not = icmp eq i32 %101, %lftr.wideiv
-  br i1 %exitcond955.not, label %.loopexit, label %107, !llvm.loop !28
+  br i1 %exitcond955.not, label %.loopexit, label %107, !llvm.loop !25
 
 .loopexit:                                        ; preds = %107, %._crit_edge, %45
   %119 = phi ptr [ %9, %45 ], [ %87, %._crit_edge ], [ %87, %107 ]
@@ -36924,7 +36924,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr %136, i32 0, i32 3, i32 1)
   %137 = getelementptr inbounds i8, ptr %119, i64 %135
   tail call void @llvm.prefetch.p0(ptr %137, i32 0, i32 3, i32 1)
-  %138 = trunc i64 %indvars.iv956 to i32
+  %138 = trunc nuw i64 %indvars.iv956 to i32
   %139 = and i64 %indvars.iv956, 7
   %140 = getelementptr inbounds i32, ptr %10, i64 %139
   %141 = load i32, ptr %140, align 4
@@ -36941,7 +36941,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr nocapture noun
   %151 = icmp eq i8 %149, 0
   %152 = select i1 %151, i32 15, i32 0
   %153 = add nuw nsw i32 %152, %150
-  %154 = trunc i32 %153 to i8
+  %154 = trunc nuw nsw i32 %153 to i8
   store i8 %154, ptr %146, align 1
   %155 = trunc i32 %141 to i8
   %156 = zext nneg i32 %153 to i64
@@ -37022,8 +37022,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr nocapture noun
   %.0872932 = phi i64 [ %222, %220 ], [ %203, %.lr.ph933.preheader ]
   %.0874931 = phi i64 [ %.1875, %220 ], [ 0, %.lr.ph933.preheader ]
   %.0881930 = phi i32 [ %.1882, %220 ], [ %42, %.lr.ph933.preheader ]
-  %204 = tail call i64 @llvm.cttz.i64(i64 %.0872932, i1 true), !range !15
-  %205 = trunc i64 %204 to i32
+  %204 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872932, i1 true)
+  %205 = trunc nuw nsw i64 %204 to i32
   %206 = add nuw nsw i32 %205, %193
   %207 = and i32 %206, 15
   %208 = zext nneg i32 %207 to i64
@@ -37056,7 +37056,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr nocapture noun
   %223 = icmp ne i64 %222, 0
   %224 = icmp ne i32 %.1882, 0
   %225 = select i1 %223, i1 %224, i1 false
-  br i1 %225, label %.lr.ph933, label %._crit_edge934, !llvm.loop !36
+  br i1 %225, label %.lr.ph933, label %._crit_edge934, !llvm.loop !33
 
 ._crit_edge934:                                   ; preds = %220, %212, %.critedge
   %.0874.lcssa = phi i64 [ 0, %.critedge ], [ %.0874931, %212 ], [ %.1875, %220 ]
@@ -37066,7 +37066,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr nocapture noun
   %229 = icmp eq i8 %227, 0
   %230 = select i1 %229, i32 15, i32 0
   %231 = add nuw nsw i32 %230, %228
-  %232 = trunc i32 %231 to i8
+  %232 = trunc nuw nsw i32 %231 to i8
   store i8 %232, ptr %191, align 1
   %233 = zext nneg i32 %231 to i64
   %234 = getelementptr inbounds i8, ptr %191, i64 %233
@@ -37120,7 +37120,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr nocapture noun
   br i1 %.not.i, label %.preheader.i, label %257
 
 257:                                              ; preds = %255
-  %258 = tail call i64 @llvm.cttz.i64(i64 %256, i1 true), !range !15
+  %258 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %256, i1 true)
   %259 = lshr i64 %258, 3
   br label %ZSTD_count.exit
 
@@ -37137,10 +37137,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_4(ptr nocapture noun
   %.040.val.i = load i64, ptr %.040.i, align 1
   %262 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %262, 0
-  br i1 %.not51.i, label %.preheader.i, label %263, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %263, !llvm.loop !15
 
 263:                                              ; preds = %261
-  %264 = tail call i64 @llvm.cttz.i64(i64 %262, i1 true), !range !15
+  %264 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %262, i1 true)
   %265 = lshr i64 %264, 3
   %266 = getelementptr inbounds i8, ptr %.040.i, i64 %265
   %267 = ptrtoint ptr %266 to i64
@@ -37231,7 +37231,7 @@ ZSTD_count.exit.thread:                           ; preds = %291, %249, %299, %Z
   %.1886 = phi i64 [ %.0867, %299 ], [ %.0885939, %ZSTD_count.exit ], [ %.0885939, %249 ], [ %.0885939, %291 ]
   %304 = add nuw i64 %.0873940, 1
   %exitcond959.not = icmp eq i64 %304, %.0874.lcssa
-  br i1 %exitcond959.not, label %._crit_edge943, label %245, !llvm.loop !37
+  br i1 %exitcond959.not, label %._crit_edge943, label %245, !llvm.loop !34
 
 ._crit_edge943:                                   ; preds = %ZSTD_count.exit.thread, %299, %._crit_edge934
   %.2887 = phi i64 [ 3, %._crit_edge934 ], [ %.0867, %299 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -37239,7 +37239,7 @@ ZSTD_count.exit.thread:                           ; preds = %291, %249, %299, %Z
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -37322,7 +37322,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr nonnull %65, i32 0, i32 3, i32 1)
   %66 = getelementptr inbounds i8, ptr %9, i64 %63
   tail call void @llvm.prefetch.p0(ptr %66, i32 0, i32 3, i32 1)
-  %67 = trunc i64 %indvars.iv to i32
+  %67 = trunc nuw i64 %indvars.iv to i32
   %68 = and i64 %indvars.iv, 7
   %69 = getelementptr inbounds i32, ptr %10, i64 %68
   %70 = load i32, ptr %69, align 4
@@ -37339,7 +37339,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr nocapture noun
   %80 = icmp eq i8 %78, 0
   %81 = select i1 %80, i32 31, i32 0
   %82 = add nuw nsw i32 %81, %79
-  %83 = trunc i32 %82 to i8
+  %83 = trunc nuw nsw i32 %82 to i8
   store i8 %83, ptr %75, align 1
   %84 = trunc i32 %70 to i8
   %85 = zext nneg i32 %82 to i64
@@ -37404,7 +37404,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr nocapture noun
   %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next955 to i32
   %exitcond957.not = icmp eq i32 %102, %lftr.wideiv
-  br i1 %exitcond957.not, label %.loopexit, label %108, !llvm.loop !28
+  br i1 %exitcond957.not, label %.loopexit, label %108, !llvm.loop !25
 
 .loopexit:                                        ; preds = %108, %._crit_edge, %45
   %121 = phi ptr [ %9, %45 ], [ %88, %._crit_edge ], [ %88, %108 ]
@@ -37440,7 +37440,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr nonnull %139, i32 0, i32 3, i32 1)
   %140 = getelementptr inbounds i8, ptr %121, i64 %137
   tail call void @llvm.prefetch.p0(ptr %140, i32 0, i32 3, i32 1)
-  %141 = trunc i64 %indvars.iv958 to i32
+  %141 = trunc nuw i64 %indvars.iv958 to i32
   %142 = and i64 %indvars.iv958, 7
   %143 = getelementptr inbounds i32, ptr %10, i64 %142
   %144 = load i32, ptr %143, align 4
@@ -37457,7 +37457,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr nocapture noun
   %154 = icmp eq i8 %152, 0
   %155 = select i1 %154, i32 31, i32 0
   %156 = add nuw nsw i32 %155, %153
-  %157 = trunc i32 %156 to i8
+  %157 = trunc nuw nsw i32 %156 to i8
   store i8 %157, ptr %149, align 1
   %158 = trunc i32 %144 to i8
   %159 = zext nneg i32 %156 to i64
@@ -37549,8 +37549,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr nocapture noun
   %.0872933 = phi i64 [ %233, %231 ], [ %214, %.lr.ph935.preheader ]
   %.0874932 = phi i64 [ %.1875, %231 ], [ 0, %.lr.ph935.preheader ]
   %.0881931 = phi i32 [ %.1882, %231 ], [ %42, %.lr.ph935.preheader ]
-  %215 = tail call i64 @llvm.cttz.i64(i64 %.0872933, i1 true), !range !15
-  %216 = trunc i64 %215 to i32
+  %215 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872933, i1 true)
+  %216 = trunc nuw nsw i64 %215 to i32
   %217 = add nuw nsw i32 %216, %210
   %218 = and i32 %217, 31
   %219 = zext nneg i32 %218 to i64
@@ -37583,7 +37583,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr nocapture noun
   %234 = icmp ne i64 %233, 0
   %235 = icmp ne i32 %.1882, 0
   %236 = select i1 %234, i1 %235, i1 false
-  br i1 %236, label %.lr.ph935, label %._crit_edge936, !llvm.loop !36
+  br i1 %236, label %.lr.ph935, label %._crit_edge936, !llvm.loop !33
 
 ._crit_edge936:                                   ; preds = %231, %223, %.critedge
   %.0874.lcssa = phi i64 [ 0, %.critedge ], [ %.0874932, %223 ], [ %.1875, %231 ]
@@ -37593,7 +37593,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr nocapture noun
   %240 = icmp eq i8 %238, 0
   %241 = select i1 %240, i32 31, i32 0
   %242 = add nuw nsw i32 %241, %239
-  %243 = trunc i32 %242 to i8
+  %243 = trunc nuw nsw i32 %242 to i8
   store i8 %243, ptr %194, align 1
   %244 = zext nneg i32 %242 to i64
   %245 = getelementptr inbounds i8, ptr %194, i64 %244
@@ -37647,7 +37647,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr nocapture noun
   br i1 %.not.i, label %.preheader.i, label %268
 
 268:                                              ; preds = %266
-  %269 = tail call i64 @llvm.cttz.i64(i64 %267, i1 true), !range !15
+  %269 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %267, i1 true)
   %270 = lshr i64 %269, 3
   br label %ZSTD_count.exit
 
@@ -37664,10 +37664,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_5(ptr nocapture noun
   %.040.val.i = load i64, ptr %.040.i, align 1
   %273 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %273, 0
-  br i1 %.not51.i, label %.preheader.i, label %274, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %274, !llvm.loop !15
 
 274:                                              ; preds = %272
-  %275 = tail call i64 @llvm.cttz.i64(i64 %273, i1 true), !range !15
+  %275 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %273, i1 true)
   %276 = lshr i64 %275, 3
   %277 = getelementptr inbounds i8, ptr %.040.i, i64 %276
   %278 = ptrtoint ptr %277 to i64
@@ -37758,7 +37758,7 @@ ZSTD_count.exit.thread:                           ; preds = %302, %260, %310, %Z
   %.1886 = phi i64 [ %.0867, %310 ], [ %.0885941, %ZSTD_count.exit ], [ %.0885941, %260 ], [ %.0885941, %302 ]
   %315 = add nuw i64 %.0873942, 1
   %exitcond964.not = icmp eq i64 %315, %.0874.lcssa
-  br i1 %exitcond964.not, label %._crit_edge945, label %256, !llvm.loop !37
+  br i1 %exitcond964.not, label %._crit_edge945, label %256, !llvm.loop !34
 
 ._crit_edge945:                                   ; preds = %ZSTD_count.exit.thread, %310, %._crit_edge936
   %.2887 = phi i64 [ 3, %._crit_edge936 ], [ %.0867, %310 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -37766,7 +37766,7 @@ ZSTD_count.exit.thread:                           ; preds = %302, %260, %310, %Z
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -37852,7 +37852,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr %67, i32 0, i32 3, i32 1)
   %68 = getelementptr inbounds i8, ptr %67, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %68, i32 0, i32 3, i32 1)
-  %69 = trunc i64 %indvars.iv to i32
+  %69 = trunc nuw i64 %indvars.iv to i32
   %70 = and i64 %indvars.iv, 7
   %71 = getelementptr inbounds i32, ptr %11, i64 %70
   %72 = load i32, ptr %71, align 4
@@ -37869,7 +37869,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr nocapture noun
   %82 = icmp eq i8 %80, 0
   %83 = select i1 %82, i32 63, i32 0
   %84 = add nuw nsw i32 %83, %81
-  %85 = trunc i32 %84 to i8
+  %85 = trunc nuw nsw i32 %84 to i8
   store i8 %85, ptr %77, align 1
   %86 = trunc i32 %72 to i8
   %87 = zext nneg i32 %84 to i64
@@ -37936,7 +37936,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr nocapture noun
   %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next955 to i32
   %exitcond957.not = icmp eq i32 %104, %lftr.wideiv
-  br i1 %exitcond957.not, label %.loopexit, label %110, !llvm.loop !28
+  br i1 %exitcond957.not, label %.loopexit, label %110, !llvm.loop !25
 
 .loopexit:                                        ; preds = %110, %._crit_edge, %46
   %124 = phi ptr [ %10, %46 ], [ %90, %._crit_edge ], [ %90, %110 ]
@@ -37974,7 +37974,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr %143, i32 0, i32 3, i32 1)
   %144 = getelementptr inbounds i8, ptr %143, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %144, i32 0, i32 3, i32 1)
-  %145 = trunc i64 %indvars.iv958 to i32
+  %145 = trunc nuw i64 %indvars.iv958 to i32
   %146 = and i64 %indvars.iv958, 7
   %147 = getelementptr inbounds i32, ptr %11, i64 %146
   %148 = load i32, ptr %147, align 4
@@ -37991,7 +37991,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr nocapture noun
   %158 = icmp eq i8 %156, 0
   %159 = select i1 %158, i32 63, i32 0
   %160 = add nuw nsw i32 %159, %157
-  %161 = trunc i32 %160 to i8
+  %161 = trunc nuw nsw i32 %160 to i8
   store i8 %161, ptr %153, align 1
   %162 = trunc i32 %148 to i8
   %163 = zext nneg i32 %160 to i64
@@ -38072,7 +38072,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr nocapture noun
   store i32 %211, ptr %212, align 4
   %indvars.iv.next962 = add nuw nsw i64 %indvars.iv961, 1
   %exitcond964.not = icmp eq i64 %indvars.iv.next962, 4
-  br i1 %exitcond964.not, label %213, label %205, !llvm.loop !38
+  br i1 %exitcond964.not, label %213, label %205, !llvm.loop !35
 
 213:                                              ; preds = %205
   %214 = getelementptr inbounds i32, ptr %8, i64 %199
@@ -38106,8 +38106,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr nocapture noun
   %.0872933 = phi i64 [ %253, %251 ], [ %234, %.lr.ph935.preheader ]
   %.0874932 = phi i64 [ %.1875, %251 ], [ 0, %.lr.ph935.preheader ]
   %.0881931 = phi i32 [ %.1882, %251 ], [ %43, %.lr.ph935.preheader ]
-  %235 = tail call i64 @llvm.cttz.i64(i64 %.0872933, i1 true), !range !15
-  %236 = trunc i64 %235 to i32
+  %235 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872933, i1 true)
+  %236 = trunc nuw nsw i64 %235 to i32
   %237 = add nuw nsw i32 %236, %215
   %238 = and i32 %237, 63
   %239 = zext nneg i32 %238 to i64
@@ -38140,7 +38140,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr nocapture noun
   %254 = icmp ne i64 %253, 0
   %255 = icmp ne i32 %.1882, 0
   %256 = select i1 %254, i1 %255, i1 false
-  br i1 %256, label %.lr.ph935, label %._crit_edge936, !llvm.loop !36
+  br i1 %256, label %.lr.ph935, label %._crit_edge936, !llvm.loop !33
 
 ._crit_edge936:                                   ; preds = %251, %243, %213
   %.0874.lcssa = phi i64 [ 0, %213 ], [ %.0874932, %243 ], [ %.1875, %251 ]
@@ -38150,7 +38150,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr nocapture noun
   %260 = icmp eq i8 %258, 0
   %261 = select i1 %260, i32 63, i32 0
   %262 = add nuw nsw i32 %261, %259
-  %263 = trunc i32 %262 to i8
+  %263 = trunc nuw nsw i32 %262 to i8
   store i8 %263, ptr %200, align 1
   %264 = zext nneg i32 %262 to i64
   %265 = getelementptr inbounds i8, ptr %200, i64 %264
@@ -38204,7 +38204,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr nocapture noun
   br i1 %.not.i, label %.preheader.i, label %288
 
 288:                                              ; preds = %286
-  %289 = tail call i64 @llvm.cttz.i64(i64 %287, i1 true), !range !15
+  %289 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %287, i1 true)
   %290 = lshr i64 %289, 3
   br label %ZSTD_count.exit
 
@@ -38221,10 +38221,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_5_6(ptr nocapture noun
   %.040.val.i = load i64, ptr %.040.i, align 1
   %293 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %293, 0
-  br i1 %.not51.i, label %.preheader.i, label %294, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %294, !llvm.loop !15
 
 294:                                              ; preds = %292
-  %295 = tail call i64 @llvm.cttz.i64(i64 %293, i1 true), !range !15
+  %295 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %293, i1 true)
   %296 = lshr i64 %295, 3
   %297 = getelementptr inbounds i8, ptr %.040.i, i64 %296
   %298 = ptrtoint ptr %297 to i64
@@ -38315,7 +38315,7 @@ ZSTD_count.exit.thread:                           ; preds = %322, %280, %330, %Z
   %.1886 = phi i64 [ %.0867, %330 ], [ %.0885941, %ZSTD_count.exit ], [ %.0885941, %280 ], [ %.0885941, %322 ]
   %335 = add nuw i64 %.0873942, 1
   %exitcond965.not = icmp eq i64 %335, %.0874.lcssa
-  br i1 %exitcond965.not, label %._crit_edge945, label %276, !llvm.loop !37
+  br i1 %exitcond965.not, label %._crit_edge945, label %276, !llvm.loop !34
 
 ._crit_edge945:                                   ; preds = %ZSTD_count.exit.thread, %330, %._crit_edge936
   %.2887 = phi i64 [ 3, %._crit_edge936 ], [ %.0867, %330 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -38323,7 +38323,7 @@ ZSTD_count.exit.thread:                           ; preds = %322, %280, %330, %Z
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -38404,7 +38404,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr %64, i32 0, i32 3, i32 1)
   %65 = getelementptr inbounds i8, ptr %9, i64 %63
   tail call void @llvm.prefetch.p0(ptr %65, i32 0, i32 3, i32 1)
-  %66 = trunc i64 %indvars.iv to i32
+  %66 = trunc nuw i64 %indvars.iv to i32
   %67 = and i64 %indvars.iv, 7
   %68 = getelementptr inbounds i32, ptr %10, i64 %67
   %69 = load i32, ptr %68, align 4
@@ -38421,7 +38421,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr nocapture noun
   %79 = icmp eq i8 %77, 0
   %80 = select i1 %79, i32 15, i32 0
   %81 = add nuw nsw i32 %80, %78
-  %82 = trunc i32 %81 to i8
+  %82 = trunc nuw nsw i32 %81 to i8
   store i8 %82, ptr %74, align 1
   %83 = trunc i32 %69 to i8
   %84 = zext nneg i32 %81 to i64
@@ -38484,7 +38484,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr nocapture noun
   %indvars.iv.next953 = add nuw nsw i64 %indvars.iv952, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next953 to i32
   %exitcond955.not = icmp eq i32 %101, %lftr.wideiv
-  br i1 %exitcond955.not, label %.loopexit, label %107, !llvm.loop !28
+  br i1 %exitcond955.not, label %.loopexit, label %107, !llvm.loop !25
 
 .loopexit:                                        ; preds = %107, %._crit_edge, %45
   %119 = phi ptr [ %9, %45 ], [ %87, %._crit_edge ], [ %87, %107 ]
@@ -38518,7 +38518,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr %136, i32 0, i32 3, i32 1)
   %137 = getelementptr inbounds i8, ptr %119, i64 %135
   tail call void @llvm.prefetch.p0(ptr %137, i32 0, i32 3, i32 1)
-  %138 = trunc i64 %indvars.iv956 to i32
+  %138 = trunc nuw i64 %indvars.iv956 to i32
   %139 = and i64 %indvars.iv956, 7
   %140 = getelementptr inbounds i32, ptr %10, i64 %139
   %141 = load i32, ptr %140, align 4
@@ -38535,7 +38535,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr nocapture noun
   %151 = icmp eq i8 %149, 0
   %152 = select i1 %151, i32 15, i32 0
   %153 = add nuw nsw i32 %152, %150
-  %154 = trunc i32 %153 to i8
+  %154 = trunc nuw nsw i32 %153 to i8
   store i8 %154, ptr %146, align 1
   %155 = trunc i32 %141 to i8
   %156 = zext nneg i32 %153 to i64
@@ -38616,8 +38616,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr nocapture noun
   %.0872932 = phi i64 [ %222, %220 ], [ %203, %.lr.ph933.preheader ]
   %.0874931 = phi i64 [ %.1875, %220 ], [ 0, %.lr.ph933.preheader ]
   %.0881930 = phi i32 [ %.1882, %220 ], [ %42, %.lr.ph933.preheader ]
-  %204 = tail call i64 @llvm.cttz.i64(i64 %.0872932, i1 true), !range !15
-  %205 = trunc i64 %204 to i32
+  %204 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872932, i1 true)
+  %205 = trunc nuw nsw i64 %204 to i32
   %206 = add nuw nsw i32 %205, %193
   %207 = and i32 %206, 15
   %208 = zext nneg i32 %207 to i64
@@ -38650,7 +38650,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr nocapture noun
   %223 = icmp ne i64 %222, 0
   %224 = icmp ne i32 %.1882, 0
   %225 = select i1 %223, i1 %224, i1 false
-  br i1 %225, label %.lr.ph933, label %._crit_edge934, !llvm.loop !36
+  br i1 %225, label %.lr.ph933, label %._crit_edge934, !llvm.loop !33
 
 ._crit_edge934:                                   ; preds = %220, %212, %.critedge
   %.0874.lcssa = phi i64 [ 0, %.critedge ], [ %.0874931, %212 ], [ %.1875, %220 ]
@@ -38660,7 +38660,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr nocapture noun
   %229 = icmp eq i8 %227, 0
   %230 = select i1 %229, i32 15, i32 0
   %231 = add nuw nsw i32 %230, %228
-  %232 = trunc i32 %231 to i8
+  %232 = trunc nuw nsw i32 %231 to i8
   store i8 %232, ptr %191, align 1
   %233 = zext nneg i32 %231 to i64
   %234 = getelementptr inbounds i8, ptr %191, i64 %233
@@ -38714,7 +38714,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr nocapture noun
   br i1 %.not.i, label %.preheader.i, label %257
 
 257:                                              ; preds = %255
-  %258 = tail call i64 @llvm.cttz.i64(i64 %256, i1 true), !range !15
+  %258 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %256, i1 true)
   %259 = lshr i64 %258, 3
   br label %ZSTD_count.exit
 
@@ -38731,10 +38731,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_4(ptr nocapture noun
   %.040.val.i = load i64, ptr %.040.i, align 1
   %262 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %262, 0
-  br i1 %.not51.i, label %.preheader.i, label %263, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %263, !llvm.loop !15
 
 263:                                              ; preds = %261
-  %264 = tail call i64 @llvm.cttz.i64(i64 %262, i1 true), !range !15
+  %264 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %262, i1 true)
   %265 = lshr i64 %264, 3
   %266 = getelementptr inbounds i8, ptr %.040.i, i64 %265
   %267 = ptrtoint ptr %266 to i64
@@ -38825,7 +38825,7 @@ ZSTD_count.exit.thread:                           ; preds = %291, %249, %299, %Z
   %.1886 = phi i64 [ %.0867, %299 ], [ %.0885939, %ZSTD_count.exit ], [ %.0885939, %249 ], [ %.0885939, %291 ]
   %304 = add nuw i64 %.0873940, 1
   %exitcond959.not = icmp eq i64 %304, %.0874.lcssa
-  br i1 %exitcond959.not, label %._crit_edge943, label %245, !llvm.loop !37
+  br i1 %exitcond959.not, label %._crit_edge943, label %245, !llvm.loop !34
 
 ._crit_edge943:                                   ; preds = %ZSTD_count.exit.thread, %299, %._crit_edge934
   %.2887 = phi i64 [ 3, %._crit_edge934 ], [ %.0867, %299 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -38833,7 +38833,7 @@ ZSTD_count.exit.thread:                           ; preds = %291, %249, %299, %Z
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -38916,7 +38916,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr nonnull %65, i32 0, i32 3, i32 1)
   %66 = getelementptr inbounds i8, ptr %9, i64 %63
   tail call void @llvm.prefetch.p0(ptr %66, i32 0, i32 3, i32 1)
-  %67 = trunc i64 %indvars.iv to i32
+  %67 = trunc nuw i64 %indvars.iv to i32
   %68 = and i64 %indvars.iv, 7
   %69 = getelementptr inbounds i32, ptr %10, i64 %68
   %70 = load i32, ptr %69, align 4
@@ -38933,7 +38933,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr nocapture noun
   %80 = icmp eq i8 %78, 0
   %81 = select i1 %80, i32 31, i32 0
   %82 = add nuw nsw i32 %81, %79
-  %83 = trunc i32 %82 to i8
+  %83 = trunc nuw nsw i32 %82 to i8
   store i8 %83, ptr %75, align 1
   %84 = trunc i32 %70 to i8
   %85 = zext nneg i32 %82 to i64
@@ -38998,7 +38998,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr nocapture noun
   %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next955 to i32
   %exitcond957.not = icmp eq i32 %102, %lftr.wideiv
-  br i1 %exitcond957.not, label %.loopexit, label %108, !llvm.loop !28
+  br i1 %exitcond957.not, label %.loopexit, label %108, !llvm.loop !25
 
 .loopexit:                                        ; preds = %108, %._crit_edge, %45
   %121 = phi ptr [ %9, %45 ], [ %88, %._crit_edge ], [ %88, %108 ]
@@ -39034,7 +39034,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr nonnull %139, i32 0, i32 3, i32 1)
   %140 = getelementptr inbounds i8, ptr %121, i64 %137
   tail call void @llvm.prefetch.p0(ptr %140, i32 0, i32 3, i32 1)
-  %141 = trunc i64 %indvars.iv958 to i32
+  %141 = trunc nuw i64 %indvars.iv958 to i32
   %142 = and i64 %indvars.iv958, 7
   %143 = getelementptr inbounds i32, ptr %10, i64 %142
   %144 = load i32, ptr %143, align 4
@@ -39051,7 +39051,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr nocapture noun
   %154 = icmp eq i8 %152, 0
   %155 = select i1 %154, i32 31, i32 0
   %156 = add nuw nsw i32 %155, %153
-  %157 = trunc i32 %156 to i8
+  %157 = trunc nuw nsw i32 %156 to i8
   store i8 %157, ptr %149, align 1
   %158 = trunc i32 %144 to i8
   %159 = zext nneg i32 %156 to i64
@@ -39143,8 +39143,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr nocapture noun
   %.0872933 = phi i64 [ %233, %231 ], [ %214, %.lr.ph935.preheader ]
   %.0874932 = phi i64 [ %.1875, %231 ], [ 0, %.lr.ph935.preheader ]
   %.0881931 = phi i32 [ %.1882, %231 ], [ %42, %.lr.ph935.preheader ]
-  %215 = tail call i64 @llvm.cttz.i64(i64 %.0872933, i1 true), !range !15
-  %216 = trunc i64 %215 to i32
+  %215 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872933, i1 true)
+  %216 = trunc nuw nsw i64 %215 to i32
   %217 = add nuw nsw i32 %216, %210
   %218 = and i32 %217, 31
   %219 = zext nneg i32 %218 to i64
@@ -39177,7 +39177,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr nocapture noun
   %234 = icmp ne i64 %233, 0
   %235 = icmp ne i32 %.1882, 0
   %236 = select i1 %234, i1 %235, i1 false
-  br i1 %236, label %.lr.ph935, label %._crit_edge936, !llvm.loop !36
+  br i1 %236, label %.lr.ph935, label %._crit_edge936, !llvm.loop !33
 
 ._crit_edge936:                                   ; preds = %231, %223, %.critedge
   %.0874.lcssa = phi i64 [ 0, %.critedge ], [ %.0874932, %223 ], [ %.1875, %231 ]
@@ -39187,7 +39187,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr nocapture noun
   %240 = icmp eq i8 %238, 0
   %241 = select i1 %240, i32 31, i32 0
   %242 = add nuw nsw i32 %241, %239
-  %243 = trunc i32 %242 to i8
+  %243 = trunc nuw nsw i32 %242 to i8
   store i8 %243, ptr %194, align 1
   %244 = zext nneg i32 %242 to i64
   %245 = getelementptr inbounds i8, ptr %194, i64 %244
@@ -39241,7 +39241,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr nocapture noun
   br i1 %.not.i, label %.preheader.i, label %268
 
 268:                                              ; preds = %266
-  %269 = tail call i64 @llvm.cttz.i64(i64 %267, i1 true), !range !15
+  %269 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %267, i1 true)
   %270 = lshr i64 %269, 3
   br label %ZSTD_count.exit
 
@@ -39258,10 +39258,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_5(ptr nocapture noun
   %.040.val.i = load i64, ptr %.040.i, align 1
   %273 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %273, 0
-  br i1 %.not51.i, label %.preheader.i, label %274, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %274, !llvm.loop !15
 
 274:                                              ; preds = %272
-  %275 = tail call i64 @llvm.cttz.i64(i64 %273, i1 true), !range !15
+  %275 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %273, i1 true)
   %276 = lshr i64 %275, 3
   %277 = getelementptr inbounds i8, ptr %.040.i, i64 %276
   %278 = ptrtoint ptr %277 to i64
@@ -39352,7 +39352,7 @@ ZSTD_count.exit.thread:                           ; preds = %302, %260, %310, %Z
   %.1886 = phi i64 [ %.0867, %310 ], [ %.0885941, %ZSTD_count.exit ], [ %.0885941, %260 ], [ %.0885941, %302 ]
   %315 = add nuw i64 %.0873942, 1
   %exitcond964.not = icmp eq i64 %315, %.0874.lcssa
-  br i1 %exitcond964.not, label %._crit_edge945, label %256, !llvm.loop !37
+  br i1 %exitcond964.not, label %._crit_edge945, label %256, !llvm.loop !34
 
 ._crit_edge945:                                   ; preds = %ZSTD_count.exit.thread, %310, %._crit_edge936
   %.2887 = phi i64 [ 3, %._crit_edge936 ], [ %.0867, %310 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -39360,7 +39360,7 @@ ZSTD_count.exit.thread:                           ; preds = %302, %260, %310, %Z
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -39446,7 +39446,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr %67, i32 0, i32 3, i32 1)
   %68 = getelementptr inbounds i8, ptr %67, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %68, i32 0, i32 3, i32 1)
-  %69 = trunc i64 %indvars.iv to i32
+  %69 = trunc nuw i64 %indvars.iv to i32
   %70 = and i64 %indvars.iv, 7
   %71 = getelementptr inbounds i32, ptr %11, i64 %70
   %72 = load i32, ptr %71, align 4
@@ -39463,7 +39463,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr nocapture noun
   %82 = icmp eq i8 %80, 0
   %83 = select i1 %82, i32 63, i32 0
   %84 = add nuw nsw i32 %83, %81
-  %85 = trunc i32 %84 to i8
+  %85 = trunc nuw nsw i32 %84 to i8
   store i8 %85, ptr %77, align 1
   %86 = trunc i32 %72 to i8
   %87 = zext nneg i32 %84 to i64
@@ -39530,7 +39530,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr nocapture noun
   %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next955 to i32
   %exitcond957.not = icmp eq i32 %104, %lftr.wideiv
-  br i1 %exitcond957.not, label %.loopexit, label %110, !llvm.loop !28
+  br i1 %exitcond957.not, label %.loopexit, label %110, !llvm.loop !25
 
 .loopexit:                                        ; preds = %110, %._crit_edge, %46
   %124 = phi ptr [ %10, %46 ], [ %90, %._crit_edge ], [ %90, %110 ]
@@ -39568,7 +39568,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr nocapture noun
   tail call void @llvm.prefetch.p0(ptr %143, i32 0, i32 3, i32 1)
   %144 = getelementptr inbounds i8, ptr %143, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %144, i32 0, i32 3, i32 1)
-  %145 = trunc i64 %indvars.iv958 to i32
+  %145 = trunc nuw i64 %indvars.iv958 to i32
   %146 = and i64 %indvars.iv958, 7
   %147 = getelementptr inbounds i32, ptr %11, i64 %146
   %148 = load i32, ptr %147, align 4
@@ -39585,7 +39585,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr nocapture noun
   %158 = icmp eq i8 %156, 0
   %159 = select i1 %158, i32 63, i32 0
   %160 = add nuw nsw i32 %159, %157
-  %161 = trunc i32 %160 to i8
+  %161 = trunc nuw nsw i32 %160 to i8
   store i8 %161, ptr %153, align 1
   %162 = trunc i32 %148 to i8
   %163 = zext nneg i32 %160 to i64
@@ -39666,7 +39666,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr nocapture noun
   store i32 %211, ptr %212, align 4
   %indvars.iv.next962 = add nuw nsw i64 %indvars.iv961, 1
   %exitcond964.not = icmp eq i64 %indvars.iv.next962, 4
-  br i1 %exitcond964.not, label %213, label %205, !llvm.loop !38
+  br i1 %exitcond964.not, label %213, label %205, !llvm.loop !35
 
 213:                                              ; preds = %205
   %214 = getelementptr inbounds i32, ptr %8, i64 %199
@@ -39700,8 +39700,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr nocapture noun
   %.0872933 = phi i64 [ %253, %251 ], [ %234, %.lr.ph935.preheader ]
   %.0874932 = phi i64 [ %.1875, %251 ], [ 0, %.lr.ph935.preheader ]
   %.0881931 = phi i32 [ %.1882, %251 ], [ %43, %.lr.ph935.preheader ]
-  %235 = tail call i64 @llvm.cttz.i64(i64 %.0872933, i1 true), !range !15
-  %236 = trunc i64 %235 to i32
+  %235 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872933, i1 true)
+  %236 = trunc nuw nsw i64 %235 to i32
   %237 = add nuw nsw i32 %236, %215
   %238 = and i32 %237, 63
   %239 = zext nneg i32 %238 to i64
@@ -39734,7 +39734,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr nocapture noun
   %254 = icmp ne i64 %253, 0
   %255 = icmp ne i32 %.1882, 0
   %256 = select i1 %254, i1 %255, i1 false
-  br i1 %256, label %.lr.ph935, label %._crit_edge936, !llvm.loop !36
+  br i1 %256, label %.lr.ph935, label %._crit_edge936, !llvm.loop !33
 
 ._crit_edge936:                                   ; preds = %251, %243, %213
   %.0874.lcssa = phi i64 [ 0, %213 ], [ %.0874932, %243 ], [ %.1875, %251 ]
@@ -39744,7 +39744,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr nocapture noun
   %260 = icmp eq i8 %258, 0
   %261 = select i1 %260, i32 63, i32 0
   %262 = add nuw nsw i32 %261, %259
-  %263 = trunc i32 %262 to i8
+  %263 = trunc nuw nsw i32 %262 to i8
   store i8 %263, ptr %200, align 1
   %264 = zext nneg i32 %262 to i64
   %265 = getelementptr inbounds i8, ptr %200, i64 %264
@@ -39798,7 +39798,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr nocapture noun
   br i1 %.not.i, label %.preheader.i, label %288
 
 288:                                              ; preds = %286
-  %289 = tail call i64 @llvm.cttz.i64(i64 %287, i1 true), !range !15
+  %289 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %287, i1 true)
   %290 = lshr i64 %289, 3
   br label %ZSTD_count.exit
 
@@ -39815,10 +39815,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_extDict_6_6(ptr nocapture noun
   %.040.val.i = load i64, ptr %.040.i, align 1
   %293 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %293, 0
-  br i1 %.not51.i, label %.preheader.i, label %294, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %294, !llvm.loop !15
 
 294:                                              ; preds = %292
-  %295 = tail call i64 @llvm.cttz.i64(i64 %293, i1 true), !range !15
+  %295 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %293, i1 true)
   %296 = lshr i64 %295, 3
   %297 = getelementptr inbounds i8, ptr %.040.i, i64 %296
   %298 = ptrtoint ptr %297 to i64
@@ -39909,7 +39909,7 @@ ZSTD_count.exit.thread:                           ; preds = %322, %280, %330, %Z
   %.1886 = phi i64 [ %.0867, %330 ], [ %.0885941, %ZSTD_count.exit ], [ %.0885941, %280 ], [ %.0885941, %322 ]
   %335 = add nuw i64 %.0873942, 1
   %exitcond965.not = icmp eq i64 %335, %.0874.lcssa
-  br i1 %exitcond965.not, label %._crit_edge945, label %276, !llvm.loop !37
+  br i1 %exitcond965.not, label %._crit_edge945, label %276, !llvm.loop !34
 
 ._crit_edge945:                                   ; preds = %ZSTD_count.exit.thread, %330, %._crit_edge936
   %.2887 = phi i64 [ 3, %._crit_edge936 ], [ %.0867, %330 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -39917,7 +39917,7 @@ ZSTD_count.exit.thread:                           ; preds = %322, %280, %330, %Z
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -39967,7 +39967,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr nocapture 
   %.fr390 = freeze i32 %40
   %.not343 = icmp eq i32 %.fr390, 0
   %49 = icmp ult i32 %47, %21
-  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !34
+  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !31
 
 .split.us:                                        ; preds = %4
   br i1 %49, label %.lr.ph.preheader, label %.split360.us
@@ -39986,7 +39986,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr nocapture 
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds i32, ptr %42, i64 %55
   %57 = load i32, ptr %56, align 4
-  %58 = trunc i64 %indvars.iv to i32
+  %58 = trunc nuw i64 %indvars.iv to i32
   %59 = and i32 %58, %45
   %60 = zext nneg i32 %59 to i64
   %61 = getelementptr inbounds i32, ptr %7, i64 %60
@@ -40057,7 +40057,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr nocapture 
   br i1 %.not.i.us, label %.preheader.i.us, label %90
 
 90:                                               ; preds = %88
-  %91 = tail call i64 @llvm.cttz.i64(i64 %89, i1 true), !range !15
+  %91 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %89, i1 true)
   %92 = lshr i64 %91, 3
   br label %ZSTD_count.exit.us
 
@@ -40122,10 +40122,10 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_4(ptr nocapture 
   %.040.val.i.us = load i64, ptr %.040.i.us, align 1
   %116 = xor i64 %.040.val.i.us, %.041.val.i.us
   %.not51.i.us = icmp eq i64 %116, 0
-  br i1 %.not51.i.us, label %.preheader.i.us, label %117, !llvm.loop !16
+  br i1 %.not51.i.us, label %.preheader.i.us, label %117, !llvm.loop !15
 
 117:                                              ; preds = %115
-  %118 = tail call i64 @llvm.cttz.i64(i64 %116, i1 true), !range !15
+  %118 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %116, i1 true)
   %119 = lshr i64 %118, 3
   %120 = getelementptr inbounds i8, ptr %.040.i.us, i64 %119
   %121 = ptrtoint ptr %120 to i64
@@ -40159,7 +40159,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %124, %ZSTD_count.ex
   %134 = icmp uge i32 %.0338.us, %32
   %135 = icmp ne i32 %133, 0
   %136 = and i1 %135, %134
-  br i1 %136, label %.lr.ph366.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %136, label %.lr.ph366.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 .loopexit.i.loopexit.us:                          ; preds = %.preheader.i.us
   %137 = icmp ult ptr %.040.i.us, %80
@@ -40254,7 +40254,7 @@ ZSTD_count.exit.thread:                           ; preds = %139, %163, %ZSTD_co
   %172 = icmp uge i32 %.0338, %32
   %173 = icmp ne i32 %171, 0
   %174 = and i1 %173, %172
-  br i1 %174, label %139, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %174, label %139, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 ZSTD_count.exit.thread._crit_edge:                ; preds = %167, %163, %ZSTD_count.exit.thread, %129, %124, %ZSTD_count.exit.thread.us, %.split360.us
   %.0331.lcssa = phi i32 [ %36, %.split360.us ], [ %.0331364.us, %ZSTD_count.exit.thread.us ], [ %.0331364.us, %124 ], [ %133, %129 ], [ %.0331364, %ZSTD_count.exit.thread ], [ %.0331364, %163 ], [ %171, %167 ]
@@ -40338,7 +40338,7 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %167, %163, %ZSTD_co
   %224 = icmp uge i32 %.1339, %182
   %225 = icmp ne i32 %223, 0
   %226 = and i1 %225, %224
-  br i1 %226, label %205, label %.thread._crit_edge, !llvm.loop !39
+  br i1 %226, label %205, label %.thread._crit_edge, !llvm.loop !36
 
 .thread._crit_edge:                               ; preds = %219, %214, %.thread, %ZSTD_count.exit.thread._crit_edge
   %.5 = phi i64 [ %.2335, %ZSTD_count.exit.thread._crit_edge ], [ %.4337, %.thread ], [ %212, %214 ], [ %.4337, %219 ]
@@ -40346,7 +40346,7 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %167, %163, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -40397,7 +40397,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr nocapture 
   %.fr390 = freeze i32 %40
   %.not343 = icmp eq i32 %.fr390, 0
   %50 = icmp ult i32 %47, %21
-  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !34
+  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !31
 
 .split.us:                                        ; preds = %4
   br i1 %50, label %.lr.ph.preheader, label %.split360.us
@@ -40415,7 +40415,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr nocapture 
   %55 = lshr i64 %54, %49
   %56 = getelementptr inbounds i32, ptr %42, i64 %55
   %57 = load i32, ptr %56, align 4
-  %58 = trunc i64 %indvars.iv to i32
+  %58 = trunc nuw i64 %indvars.iv to i32
   %59 = and i32 %58, %45
   %60 = zext nneg i32 %59 to i64
   %61 = getelementptr inbounds i32, ptr %7, i64 %60
@@ -40484,7 +40484,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr nocapture 
   br i1 %.not.i.us, label %.preheader.i.us, label %88
 
 88:                                               ; preds = %86
-  %89 = tail call i64 @llvm.cttz.i64(i64 %87, i1 true), !range !15
+  %89 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %87, i1 true)
   %90 = lshr i64 %89, 3
   br label %ZSTD_count.exit.us
 
@@ -40549,10 +40549,10 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_5(ptr nocapture 
   %.040.val.i.us = load i64, ptr %.040.i.us, align 1
   %114 = xor i64 %.040.val.i.us, %.041.val.i.us
   %.not51.i.us = icmp eq i64 %114, 0
-  br i1 %.not51.i.us, label %.preheader.i.us, label %115, !llvm.loop !16
+  br i1 %.not51.i.us, label %.preheader.i.us, label %115, !llvm.loop !15
 
 115:                                              ; preds = %113
-  %116 = tail call i64 @llvm.cttz.i64(i64 %114, i1 true), !range !15
+  %116 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %114, i1 true)
   %117 = lshr i64 %116, 3
   %118 = getelementptr inbounds i8, ptr %.040.i.us, i64 %117
   %119 = ptrtoint ptr %118 to i64
@@ -40586,7 +40586,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %122, %ZSTD_count.ex
   %132 = icmp uge i32 %.0338.us, %32
   %133 = icmp ne i32 %131, 0
   %134 = and i1 %133, %132
-  br i1 %134, label %.lr.ph366.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %134, label %.lr.ph366.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 .loopexit.i.loopexit.us:                          ; preds = %.preheader.i.us
   %135 = icmp ult ptr %.040.i.us, %78
@@ -40681,7 +40681,7 @@ ZSTD_count.exit.thread:                           ; preds = %137, %161, %ZSTD_co
   %170 = icmp uge i32 %.0338, %32
   %171 = icmp ne i32 %169, 0
   %172 = and i1 %171, %170
-  br i1 %172, label %137, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %172, label %137, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 ZSTD_count.exit.thread._crit_edge:                ; preds = %165, %161, %ZSTD_count.exit.thread, %127, %122, %ZSTD_count.exit.thread.us, %.split360.us
   %.0331.lcssa = phi i32 [ %36, %.split360.us ], [ %.0331364.us, %ZSTD_count.exit.thread.us ], [ %.0331364.us, %122 ], [ %131, %127 ], [ %.0331364, %ZSTD_count.exit.thread ], [ %.0331364, %161 ], [ %169, %165 ]
@@ -40765,7 +40765,7 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %165, %161, %ZSTD_co
   %222 = icmp uge i32 %.1339, %180
   %223 = icmp ne i32 %221, 0
   %224 = and i1 %223, %222
-  br i1 %224, label %203, label %.thread._crit_edge, !llvm.loop !39
+  br i1 %224, label %203, label %.thread._crit_edge, !llvm.loop !36
 
 .thread._crit_edge:                               ; preds = %217, %212, %.thread, %ZSTD_count.exit.thread._crit_edge
   %.5 = phi i64 [ %.2335, %ZSTD_count.exit.thread._crit_edge ], [ %.4337, %.thread ], [ %210, %212 ], [ %.4337, %217 ]
@@ -40773,7 +40773,7 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %165, %161, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -40824,7 +40824,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr nocapture 
   %.fr390 = freeze i32 %40
   %.not343 = icmp eq i32 %.fr390, 0
   %50 = icmp ult i32 %47, %21
-  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !34
+  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !31
 
 .split.us:                                        ; preds = %4
   br i1 %50, label %.lr.ph.preheader, label %.split360.us
@@ -40842,7 +40842,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr nocapture 
   %55 = lshr i64 %54, %49
   %56 = getelementptr inbounds i32, ptr %42, i64 %55
   %57 = load i32, ptr %56, align 4
-  %58 = trunc i64 %indvars.iv to i32
+  %58 = trunc nuw i64 %indvars.iv to i32
   %59 = and i32 %58, %45
   %60 = zext nneg i32 %59 to i64
   %61 = getelementptr inbounds i32, ptr %7, i64 %60
@@ -40911,7 +40911,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr nocapture 
   br i1 %.not.i.us, label %.preheader.i.us, label %88
 
 88:                                               ; preds = %86
-  %89 = tail call i64 @llvm.cttz.i64(i64 %87, i1 true), !range !15
+  %89 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %87, i1 true)
   %90 = lshr i64 %89, 3
   br label %ZSTD_count.exit.us
 
@@ -40976,10 +40976,10 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dictMatchState_6(ptr nocapture 
   %.040.val.i.us = load i64, ptr %.040.i.us, align 1
   %114 = xor i64 %.040.val.i.us, %.041.val.i.us
   %.not51.i.us = icmp eq i64 %114, 0
-  br i1 %.not51.i.us, label %.preheader.i.us, label %115, !llvm.loop !16
+  br i1 %.not51.i.us, label %.preheader.i.us, label %115, !llvm.loop !15
 
 115:                                              ; preds = %113
-  %116 = tail call i64 @llvm.cttz.i64(i64 %114, i1 true), !range !15
+  %116 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %114, i1 true)
   %117 = lshr i64 %116, 3
   %118 = getelementptr inbounds i8, ptr %.040.i.us, i64 %117
   %119 = ptrtoint ptr %118 to i64
@@ -41013,7 +41013,7 @@ ZSTD_count.exit.thread.us:                        ; preds = %122, %ZSTD_count.ex
   %132 = icmp uge i32 %.0338.us, %32
   %133 = icmp ne i32 %131, 0
   %134 = and i1 %133, %132
-  br i1 %134, label %.lr.ph366.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %134, label %.lr.ph366.split.us, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 .loopexit.i.loopexit.us:                          ; preds = %.preheader.i.us
   %135 = icmp ult ptr %.040.i.us, %78
@@ -41108,7 +41108,7 @@ ZSTD_count.exit.thread:                           ; preds = %137, %161, %ZSTD_co
   %170 = icmp uge i32 %.0338, %32
   %171 = icmp ne i32 %169, 0
   %172 = and i1 %171, %170
-  br i1 %172, label %137, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !35
+  br i1 %172, label %137, label %ZSTD_count.exit.thread._crit_edge, !llvm.loop !32
 
 ZSTD_count.exit.thread._crit_edge:                ; preds = %165, %161, %ZSTD_count.exit.thread, %127, %122, %ZSTD_count.exit.thread.us, %.split360.us
   %.0331.lcssa = phi i32 [ %36, %.split360.us ], [ %.0331364.us, %ZSTD_count.exit.thread.us ], [ %.0331364.us, %122 ], [ %131, %127 ], [ %.0331364, %ZSTD_count.exit.thread ], [ %.0331364, %161 ], [ %169, %165 ]
@@ -41192,7 +41192,7 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %165, %161, %ZSTD_co
   %222 = icmp uge i32 %.1339, %180
   %223 = icmp ne i32 %221, 0
   %224 = and i1 %223, %222
-  br i1 %224, label %203, label %.thread._crit_edge, !llvm.loop !39
+  br i1 %224, label %203, label %.thread._crit_edge, !llvm.loop !36
 
 .thread._crit_edge:                               ; preds = %217, %212, %.thread, %ZSTD_count.exit.thread._crit_edge
   %.5 = phi i64 [ %.2335, %ZSTD_count.exit.thread._crit_edge ], [ %.4337, %.thread ], [ %210, %212 ], [ %.4337, %217 ]
@@ -41200,7 +41200,7 @@ ZSTD_count.exit.thread._crit_edge:                ; preds = %165, %161, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -41299,7 +41299,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr %79, i32 0, i32 3, i32 1)
   %80 = getelementptr inbounds i8, ptr %10, i64 %78
   tail call void @llvm.prefetch.p0(ptr %80, i32 0, i32 3, i32 1)
-  %81 = trunc i64 %indvars.iv to i32
+  %81 = trunc nuw i64 %indvars.iv to i32
   %82 = and i64 %indvars.iv, 7
   %83 = getelementptr inbounds i32, ptr %11, i64 %82
   %84 = load i32, ptr %83, align 4
@@ -41316,7 +41316,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr nocaptu
   %94 = icmp eq i8 %92, 0
   %95 = select i1 %94, i32 15, i32 0
   %96 = add nuw nsw i32 %95, %93
-  %97 = trunc i32 %96 to i8
+  %97 = trunc nuw nsw i32 %96 to i8
   store i8 %97, ptr %89, align 1
   %98 = trunc i32 %84 to i8
   %99 = zext nneg i32 %96 to i64
@@ -41379,7 +41379,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr nocaptu
   %indvars.iv.next982 = add nuw nsw i64 %indvars.iv981, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next982 to i32
   %exitcond984.not = icmp eq i32 %116, %lftr.wideiv
-  br i1 %exitcond984.not, label %.loopexit, label %122, !llvm.loop !28
+  br i1 %exitcond984.not, label %.loopexit, label %122, !llvm.loop !25
 
 .loopexit:                                        ; preds = %122, %._crit_edge, %60
   %134 = phi ptr [ %10, %60 ], [ %102, %._crit_edge ], [ %102, %122 ]
@@ -41413,7 +41413,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr %151, i32 0, i32 3, i32 1)
   %152 = getelementptr inbounds i8, ptr %134, i64 %150
   tail call void @llvm.prefetch.p0(ptr %152, i32 0, i32 3, i32 1)
-  %153 = trunc i64 %indvars.iv985 to i32
+  %153 = trunc nuw i64 %indvars.iv985 to i32
   %154 = and i64 %indvars.iv985, 7
   %155 = getelementptr inbounds i32, ptr %11, i64 %154
   %156 = load i32, ptr %155, align 4
@@ -41430,7 +41430,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr nocaptu
   %166 = icmp eq i8 %164, 0
   %167 = select i1 %166, i32 15, i32 0
   %168 = add nuw nsw i32 %167, %165
-  %169 = trunc i32 %168 to i8
+  %169 = trunc nuw nsw i32 %168 to i8
   store i8 %169, ptr %161, align 1
   %170 = trunc i32 %156 to i8
   %171 = zext nneg i32 %168 to i64
@@ -41508,8 +41508,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr nocaptu
   %.0872942 = phi i64 [ %235, %233 ], [ %216, %.lr.ph943.preheader ]
   %.0874941 = phi i64 [ %.1875, %233 ], [ 0, %.lr.ph943.preheader ]
   %.0881940 = phi i32 [ %.1882, %233 ], [ %40, %.lr.ph943.preheader ]
-  %217 = tail call i64 @llvm.cttz.i64(i64 %.0872942, i1 true), !range !15
-  %218 = trunc i64 %217 to i32
+  %217 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872942, i1 true)
+  %218 = trunc nuw nsw i64 %217 to i32
   %219 = add nuw nsw i32 %218, %206
   %220 = and i32 %219, 15
   %221 = zext nneg i32 %220 to i64
@@ -41540,7 +41540,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr nocaptu
   %236 = icmp ne i64 %235, 0
   %237 = icmp ne i32 %.1882, 0
   %238 = select i1 %236, i1 %237, i1 false
-  br i1 %238, label %.lr.ph943, label %._crit_edge944, !llvm.loop !36
+  br i1 %238, label %.lr.ph943, label %._crit_edge944, !llvm.loop !33
 
 ._crit_edge944:                                   ; preds = %233, %225, %.critedge
   %.0881.lcssa = phi i32 [ %40, %.critedge ], [ %.0881940, %225 ], [ %.1882, %233 ]
@@ -41551,7 +41551,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr nocaptu
   %242 = icmp eq i8 %240, 0
   %243 = select i1 %242, i32 15, i32 0
   %244 = add nuw nsw i32 %243, %241
-  %245 = trunc i32 %244 to i8
+  %245 = trunc nuw nsw i32 %244 to i8
   store i8 %245, ptr %204, align 1
   %246 = zext nneg i32 %244 to i64
   %247 = getelementptr inbounds i8, ptr %204, i64 %246
@@ -41600,7 +41600,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr nocaptu
   br i1 %.not.i, label %.preheader.i, label %268
 
 268:                                              ; preds = %266
-  %269 = tail call i64 @llvm.cttz.i64(i64 %267, i1 true), !range !15
+  %269 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %267, i1 true)
   %270 = lshr i64 %269, 3
   br label %ZSTD_count.exit
 
@@ -41617,10 +41617,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_4(ptr nocaptu
   %.040.val.i = load i64, ptr %.040.i, align 1
   %273 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %273, 0
-  br i1 %.not51.i, label %.preheader.i, label %274, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %274, !llvm.loop !15
 
 274:                                              ; preds = %272
-  %275 = tail call i64 @llvm.cttz.i64(i64 %273, i1 true), !range !15
+  %275 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %273, i1 true)
   %276 = lshr i64 %275, 3
   %277 = getelementptr inbounds i8, ptr %.040.i, i64 %276
   %278 = ptrtoint ptr %277 to i64
@@ -41698,7 +41698,7 @@ ZSTD_count.exit.thread:                           ; preds = %257, %303, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %303 ], [ %.0885951, %ZSTD_count.exit ], [ %.0885951, %257 ]
   %308 = add nuw i64 %.0873952, 1
   %exitcond988.not = icmp eq i64 %308, %.0874.lcssa
-  br i1 %exitcond988.not, label %.critedge909, label %257, !llvm.loop !37
+  br i1 %exitcond988.not, label %.critedge909, label %257, !llvm.loop !34
 
 .critedge909:                                     ; preds = %ZSTD_count.exit.thread, %303, %._crit_edge944
   %.2887 = phi i64 [ 3, %._crit_edge944 ], [ %.0867, %303 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -41733,8 +41733,8 @@ ZSTD_count.exit.thread:                           ; preds = %257, %303, %ZSTD_co
   %.0854960 = phi i64 [ %347, %345 ], [ %328, %.lr.ph961.preheader ]
   %.0856959 = phi i64 [ %.1857, %345 ], [ 0, %.lr.ph961.preheader ]
   %.2883958 = phi i32 [ %.3884, %345 ], [ %.0881.lcssa, %.lr.ph961.preheader ]
-  %329 = tail call i64 @llvm.cttz.i64(i64 %.0854960, i1 true), !range !15
-  %330 = trunc i64 %329 to i32
+  %329 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854960, i1 true)
+  %330 = trunc nuw nsw i64 %329 to i32
   %331 = add nuw nsw i32 %330, %317
   %332 = and i32 %331, 15
   %333 = zext nneg i32 %332 to i64
@@ -41765,7 +41765,7 @@ ZSTD_count.exit.thread:                           ; preds = %257, %303, %ZSTD_co
   %348 = icmp ne i64 %347, 0
   %349 = icmp ne i32 %.3884, 0
   %350 = select i1 %348, i1 %349, i1 false
-  br i1 %350, label %.lr.ph961, label %._crit_edge962, !llvm.loop !40
+  br i1 %350, label %.lr.ph961, label %._crit_edge962, !llvm.loop !37
 
 ._crit_edge962:                                   ; preds = %345, %337
   %.0856.lcssa = phi i64 [ %.1857, %345 ], [ %.0856959, %337 ]
@@ -41810,7 +41810,7 @@ ZSTD_count.exit.thread:                           ; preds = %257, %303, %ZSTD_co
   %.4889 = phi i64 [ %362, %364 ], [ %.3888966, %359 ], [ %.3888966, %353 ]
   %369 = add nuw i64 %.0855967, 1
   %exitcond989.not = icmp eq i64 %369, %.0856.lcssa
-  br i1 %exitcond989.not, label %._crit_edge970, label %353, !llvm.loop !41
+  br i1 %exitcond989.not, label %._crit_edge970, label %353, !llvm.loop !38
 
 ._crit_edge970:                                   ; preds = %.thread, %364, %.critedge909, %._crit_edge962
   %.5 = phi i64 [ %.2887, %._crit_edge962 ], [ %.2887, %.critedge909 ], [ %362, %364 ], [ %.4889, %.thread ]
@@ -41818,7 +41818,7 @@ ZSTD_count.exit.thread:                           ; preds = %257, %303, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -41921,7 +41921,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr nonnull %81, i32 0, i32 3, i32 1)
   %82 = getelementptr inbounds i8, ptr %10, i64 %79
   tail call void @llvm.prefetch.p0(ptr %82, i32 0, i32 3, i32 1)
-  %83 = trunc i64 %indvars.iv to i32
+  %83 = trunc nuw i64 %indvars.iv to i32
   %84 = and i64 %indvars.iv, 7
   %85 = getelementptr inbounds i32, ptr %11, i64 %84
   %86 = load i32, ptr %85, align 4
@@ -41938,7 +41938,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr nocaptu
   %96 = icmp eq i8 %94, 0
   %97 = select i1 %96, i32 31, i32 0
   %98 = add nuw nsw i32 %97, %95
-  %99 = trunc i32 %98 to i8
+  %99 = trunc nuw nsw i32 %98 to i8
   store i8 %99, ptr %91, align 1
   %100 = trunc i32 %86 to i8
   %101 = zext nneg i32 %98 to i64
@@ -42003,7 +42003,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr nocaptu
   %indvars.iv.next983 = add nuw nsw i64 %indvars.iv982, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next983 to i32
   %exitcond985.not = icmp eq i32 %118, %lftr.wideiv
-  br i1 %exitcond985.not, label %.loopexit, label %124, !llvm.loop !28
+  br i1 %exitcond985.not, label %.loopexit, label %124, !llvm.loop !25
 
 .loopexit:                                        ; preds = %124, %._crit_edge, %61
   %137 = phi ptr [ %10, %61 ], [ %104, %._crit_edge ], [ %104, %124 ]
@@ -42039,7 +42039,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr nonnull %155, i32 0, i32 3, i32 1)
   %156 = getelementptr inbounds i8, ptr %137, i64 %153
   tail call void @llvm.prefetch.p0(ptr %156, i32 0, i32 3, i32 1)
-  %157 = trunc i64 %indvars.iv986 to i32
+  %157 = trunc nuw i64 %indvars.iv986 to i32
   %158 = and i64 %indvars.iv986, 7
   %159 = getelementptr inbounds i32, ptr %11, i64 %158
   %160 = load i32, ptr %159, align 4
@@ -42056,7 +42056,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr nocaptu
   %170 = icmp eq i8 %168, 0
   %171 = select i1 %170, i32 31, i32 0
   %172 = add nuw nsw i32 %171, %169
-  %173 = trunc i32 %172 to i8
+  %173 = trunc nuw nsw i32 %172 to i8
   store i8 %173, ptr %165, align 1
   %174 = trunc i32 %160 to i8
   %175 = zext nneg i32 %172 to i64
@@ -42145,8 +42145,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr nocaptu
   %.0872939 = phi i64 [ %247, %245 ], [ %228, %.lr.ph941.preheader ]
   %.0874938 = phi i64 [ %.1875, %245 ], [ 0, %.lr.ph941.preheader ]
   %.0881937 = phi i32 [ %.1882, %245 ], [ %40, %.lr.ph941.preheader ]
-  %229 = tail call i64 @llvm.cttz.i64(i64 %.0872939, i1 true), !range !15
-  %230 = trunc i64 %229 to i32
+  %229 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872939, i1 true)
+  %230 = trunc nuw nsw i64 %229 to i32
   %231 = add nuw nsw i32 %230, %224
   %232 = and i32 %231, 31
   %233 = zext nneg i32 %232 to i64
@@ -42177,7 +42177,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr nocaptu
   %248 = icmp ne i64 %247, 0
   %249 = icmp ne i32 %.1882, 0
   %250 = select i1 %248, i1 %249, i1 false
-  br i1 %250, label %.lr.ph941, label %._crit_edge942, !llvm.loop !36
+  br i1 %250, label %.lr.ph941, label %._crit_edge942, !llvm.loop !33
 
 ._crit_edge942:                                   ; preds = %245, %237, %.critedge
   %.0881.lcssa = phi i32 [ %40, %.critedge ], [ %.0881937, %237 ], [ %.1882, %245 ]
@@ -42188,7 +42188,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr nocaptu
   %254 = icmp eq i8 %252, 0
   %255 = select i1 %254, i32 31, i32 0
   %256 = add nuw nsw i32 %255, %253
-  %257 = trunc i32 %256 to i8
+  %257 = trunc nuw nsw i32 %256 to i8
   store i8 %257, ptr %208, align 1
   %258 = zext nneg i32 %256 to i64
   %259 = getelementptr inbounds i8, ptr %208, i64 %258
@@ -42237,7 +42237,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr nocaptu
   br i1 %.not.i, label %.preheader.i, label %280
 
 280:                                              ; preds = %278
-  %281 = tail call i64 @llvm.cttz.i64(i64 %279, i1 true), !range !15
+  %281 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %279, i1 true)
   %282 = lshr i64 %281, 3
   br label %ZSTD_count.exit
 
@@ -42254,10 +42254,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_5(ptr nocaptu
   %.040.val.i = load i64, ptr %.040.i, align 1
   %285 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %285, 0
-  br i1 %.not51.i, label %.preheader.i, label %286, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %286, !llvm.loop !15
 
 286:                                              ; preds = %284
-  %287 = tail call i64 @llvm.cttz.i64(i64 %285, i1 true), !range !15
+  %287 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %285, i1 true)
   %288 = lshr i64 %287, 3
   %289 = getelementptr inbounds i8, ptr %.040.i, i64 %288
   %290 = ptrtoint ptr %289 to i64
@@ -42335,7 +42335,7 @@ ZSTD_count.exit.thread:                           ; preds = %269, %315, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %315 ], [ %.0885949, %ZSTD_count.exit ], [ %.0885949, %269 ]
   %320 = add nuw i64 %.0873950, 1
   %exitcond992.not = icmp eq i64 %320, %.0874.lcssa
-  br i1 %exitcond992.not, label %._crit_edge953, label %269, !llvm.loop !37
+  br i1 %exitcond992.not, label %._crit_edge953, label %269, !llvm.loop !34
 
 ._crit_edge953:                                   ; preds = %ZSTD_count.exit.thread, %315, %._crit_edge942
   %.2887 = phi i64 [ 3, %._crit_edge942 ], [ %.0867, %315 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -42380,8 +42380,8 @@ ZSTD_count.exit.thread:                           ; preds = %269, %315, %ZSTD_co
   %.0854960 = phi i64 [ %367, %365 ], [ %348, %.lr.ph962.preheader ]
   %.0856959 = phi i64 [ %.1857, %365 ], [ 0, %.lr.ph962.preheader ]
   %.2883958 = phi i32 [ %.3884, %365 ], [ %.0881.lcssa, %.lr.ph962.preheader ]
-  %349 = tail call i64 @llvm.cttz.i64(i64 %.0854960, i1 true), !range !15
-  %350 = trunc i64 %349 to i32
+  %349 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854960, i1 true)
+  %350 = trunc nuw nsw i64 %349 to i32
   %351 = add nuw nsw i32 %350, %341
   %352 = and i32 %351, 31
   %353 = zext nneg i32 %352 to i64
@@ -42412,7 +42412,7 @@ ZSTD_count.exit.thread:                           ; preds = %269, %315, %ZSTD_co
   %368 = icmp ne i64 %367, 0
   %369 = icmp ne i32 %.3884, 0
   %370 = select i1 %368, i1 %369, i1 false
-  br i1 %370, label %.lr.ph962, label %._crit_edge963, !llvm.loop !40
+  br i1 %370, label %.lr.ph962, label %._crit_edge963, !llvm.loop !37
 
 ._crit_edge963:                                   ; preds = %365, %357
   %.0856.lcssa = phi i64 [ %.1857, %365 ], [ %.0856959, %357 ]
@@ -42457,7 +42457,7 @@ ZSTD_count.exit.thread:                           ; preds = %269, %315, %ZSTD_co
   %.4889 = phi i64 [ %382, %384 ], [ %.3888967, %379 ], [ %.3888967, %373 ]
   %389 = add nuw i64 %.0855968, 1
   %exitcond996.not = icmp eq i64 %389, %.0856.lcssa
-  br i1 %exitcond996.not, label %._crit_edge971, label %373, !llvm.loop !41
+  br i1 %exitcond996.not, label %._crit_edge971, label %373, !llvm.loop !38
 
 ._crit_edge971:                                   ; preds = %.thread, %384, %._crit_edge953, %._crit_edge963
   %.5 = phi i64 [ %.2887, %._crit_edge963 ], [ %.2887, %._crit_edge953 ], [ %382, %384 ], [ %.4889, %.thread ]
@@ -42465,7 +42465,7 @@ ZSTD_count.exit.thread:                           ; preds = %269, %315, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i32], align 16
   %7 = alloca [64 x i32], align 16
@@ -42574,7 +42574,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr %85, i32 0, i32 3, i32 1)
   %86 = getelementptr inbounds i8, ptr %85, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %86, i32 0, i32 3, i32 1)
-  %87 = trunc i64 %indvars.iv to i32
+  %87 = trunc nuw i64 %indvars.iv to i32
   %88 = and i64 %indvars.iv, 7
   %89 = getelementptr inbounds i32, ptr %13, i64 %88
   %90 = load i32, ptr %89, align 4
@@ -42591,7 +42591,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr nocaptu
   %100 = icmp eq i8 %98, 0
   %101 = select i1 %100, i32 63, i32 0
   %102 = add nuw nsw i32 %101, %99
-  %103 = trunc i32 %102 to i8
+  %103 = trunc nuw nsw i32 %102 to i8
   store i8 %103, ptr %95, align 1
   %104 = trunc i32 %90 to i8
   %105 = zext nneg i32 %102 to i64
@@ -42658,7 +42658,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr nocaptu
   %indvars.iv.next983 = add nuw nsw i64 %indvars.iv982, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next983 to i32
   %exitcond985.not = icmp eq i32 %122, %lftr.wideiv
-  br i1 %exitcond985.not, label %.loopexit, label %128, !llvm.loop !28
+  br i1 %exitcond985.not, label %.loopexit, label %128, !llvm.loop !25
 
 .loopexit:                                        ; preds = %128, %._crit_edge, %64
   %142 = phi ptr [ %12, %64 ], [ %108, %._crit_edge ], [ %108, %128 ]
@@ -42696,7 +42696,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr %161, i32 0, i32 3, i32 1)
   %162 = getelementptr inbounds i8, ptr %161, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %162, i32 0, i32 3, i32 1)
-  %163 = trunc i64 %indvars.iv986 to i32
+  %163 = trunc nuw i64 %indvars.iv986 to i32
   %164 = and i64 %indvars.iv986, 7
   %165 = getelementptr inbounds i32, ptr %13, i64 %164
   %166 = load i32, ptr %165, align 4
@@ -42713,7 +42713,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr nocaptu
   %176 = icmp eq i8 %174, 0
   %177 = select i1 %176, i32 63, i32 0
   %178 = add nuw nsw i32 %177, %175
-  %179 = trunc i32 %178 to i8
+  %179 = trunc nuw nsw i32 %178 to i8
   store i8 %179, ptr %171, align 1
   %180 = trunc i32 %166 to i8
   %181 = zext nneg i32 %178 to i64
@@ -42791,7 +42791,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr nocaptu
   store i32 %227, ptr %228, align 4
   %indvars.iv.next990 = add nuw nsw i64 %indvars.iv989, 1
   %exitcond992.not = icmp eq i64 %indvars.iv.next990, 4
-  br i1 %exitcond992.not, label %229, label %221, !llvm.loop !38
+  br i1 %exitcond992.not, label %229, label %221, !llvm.loop !35
 
 229:                                              ; preds = %221
   %230 = getelementptr inbounds i32, ptr %10, i64 %215
@@ -42825,8 +42825,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr nocaptu
   %.0872939 = phi i64 [ %269, %267 ], [ %250, %.lr.ph941.preheader ]
   %.0874938 = phi i64 [ %.1875, %267 ], [ 0, %.lr.ph941.preheader ]
   %.0881937 = phi i32 [ %.1882, %267 ], [ %42, %.lr.ph941.preheader ]
-  %251 = tail call i64 @llvm.cttz.i64(i64 %.0872939, i1 true), !range !15
-  %252 = trunc i64 %251 to i32
+  %251 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872939, i1 true)
+  %252 = trunc nuw nsw i64 %251 to i32
   %253 = add nuw nsw i32 %252, %231
   %254 = and i32 %253, 63
   %255 = zext nneg i32 %254 to i64
@@ -42857,7 +42857,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr nocaptu
   %270 = icmp ne i64 %269, 0
   %271 = icmp ne i32 %.1882, 0
   %272 = select i1 %270, i1 %271, i1 false
-  br i1 %272, label %.lr.ph941, label %._crit_edge942, !llvm.loop !36
+  br i1 %272, label %.lr.ph941, label %._crit_edge942, !llvm.loop !33
 
 ._crit_edge942:                                   ; preds = %267, %259, %229
   %.0881.lcssa = phi i32 [ %42, %229 ], [ %.0881937, %259 ], [ %.1882, %267 ]
@@ -42868,7 +42868,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr nocaptu
   %276 = icmp eq i8 %274, 0
   %277 = select i1 %276, i32 63, i32 0
   %278 = add nuw nsw i32 %277, %275
-  %279 = trunc i32 %278 to i8
+  %279 = trunc nuw nsw i32 %278 to i8
   store i8 %279, ptr %216, align 1
   %280 = zext nneg i32 %278 to i64
   %281 = getelementptr inbounds i8, ptr %216, i64 %280
@@ -42917,7 +42917,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr nocaptu
   br i1 %.not.i, label %.preheader.i, label %302
 
 302:                                              ; preds = %300
-  %303 = tail call i64 @llvm.cttz.i64(i64 %301, i1 true), !range !15
+  %303 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %301, i1 true)
   %304 = lshr i64 %303, 3
   br label %ZSTD_count.exit
 
@@ -42934,10 +42934,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_4_6(ptr nocaptu
   %.040.val.i = load i64, ptr %.040.i, align 1
   %307 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %307, 0
-  br i1 %.not51.i, label %.preheader.i, label %308, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %308, !llvm.loop !15
 
 308:                                              ; preds = %306
-  %309 = tail call i64 @llvm.cttz.i64(i64 %307, i1 true), !range !15
+  %309 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %307, i1 true)
   %310 = lshr i64 %309, 3
   %311 = getelementptr inbounds i8, ptr %.040.i, i64 %310
   %312 = ptrtoint ptr %311 to i64
@@ -43015,7 +43015,7 @@ ZSTD_count.exit.thread:                           ; preds = %291, %337, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %337 ], [ %.0885949, %ZSTD_count.exit ], [ %.0885949, %291 ]
   %342 = add nuw i64 %.0873950, 1
   %exitcond993.not = icmp eq i64 %342, %.0874.lcssa
-  br i1 %exitcond993.not, label %._crit_edge953, label %291, !llvm.loop !37
+  br i1 %exitcond993.not, label %._crit_edge953, label %291, !llvm.loop !34
 
 ._crit_edge953:                                   ; preds = %ZSTD_count.exit.thread, %337, %._crit_edge942
   %.2887 = phi i64 [ 3, %._crit_edge942 ], [ %.0867, %337 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -43045,7 +43045,7 @@ ZSTD_count.exit.thread:                           ; preds = %291, %337, %ZSTD_co
   store i32 %359, ptr %360, align 4
   %indvars.iv.next995 = add nuw nsw i64 %indvars.iv994, 1
   %exitcond997.not = icmp eq i64 %indvars.iv.next995, 4
-  br i1 %exitcond997.not, label %361, label %353, !llvm.loop !38
+  br i1 %exitcond997.not, label %361, label %353, !llvm.loop !35
 
 361:                                              ; preds = %353
   %.neg907.neg977 = trunc i64 %.neg.neg to i32
@@ -43081,8 +43081,8 @@ ZSTD_count.exit.thread:                           ; preds = %291, %337, %ZSTD_co
   %.0854960 = phi i64 [ %403, %401 ], [ %384, %.lr.ph962.preheader ]
   %.0856959 = phi i64 [ %.1857, %401 ], [ 0, %.lr.ph962.preheader ]
   %.2883958 = phi i32 [ %.3884, %401 ], [ %.0881.lcssa, %.lr.ph962.preheader ]
-  %385 = tail call i64 @llvm.cttz.i64(i64 %.0854960, i1 true), !range !15
-  %386 = trunc i64 %385 to i32
+  %385 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854960, i1 true)
+  %386 = trunc nuw nsw i64 %385 to i32
   %387 = add nuw nsw i32 %386, %362
   %388 = and i32 %387, 63
   %389 = zext nneg i32 %388 to i64
@@ -43113,7 +43113,7 @@ ZSTD_count.exit.thread:                           ; preds = %291, %337, %ZSTD_co
   %404 = icmp ne i64 %403, 0
   %405 = icmp ne i32 %.3884, 0
   %406 = select i1 %404, i1 %405, i1 false
-  br i1 %406, label %.lr.ph962, label %._crit_edge963, !llvm.loop !40
+  br i1 %406, label %.lr.ph962, label %._crit_edge963, !llvm.loop !37
 
 ._crit_edge963:                                   ; preds = %401, %393
   %.0856.lcssa = phi i64 [ %.1857, %401 ], [ %.0856959, %393 ]
@@ -43158,7 +43158,7 @@ ZSTD_count.exit.thread:                           ; preds = %291, %337, %ZSTD_co
   %.4889 = phi i64 [ %418, %420 ], [ %.3888967, %415 ], [ %.3888967, %409 ]
   %425 = add nuw i64 %.0855968, 1
   %exitcond998.not = icmp eq i64 %425, %.0856.lcssa
-  br i1 %exitcond998.not, label %._crit_edge971, label %409, !llvm.loop !41
+  br i1 %exitcond998.not, label %._crit_edge971, label %409, !llvm.loop !38
 
 ._crit_edge971:                                   ; preds = %.thread, %420, %361, %._crit_edge963
   %.5 = phi i64 [ %.2887, %._crit_edge963 ], [ %.2887, %361 ], [ %418, %420 ], [ %.4889, %.thread ]
@@ -43166,7 +43166,7 @@ ZSTD_count.exit.thread:                           ; preds = %291, %337, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -43265,7 +43265,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr %79, i32 0, i32 3, i32 1)
   %80 = getelementptr inbounds i8, ptr %10, i64 %78
   tail call void @llvm.prefetch.p0(ptr %80, i32 0, i32 3, i32 1)
-  %81 = trunc i64 %indvars.iv to i32
+  %81 = trunc nuw i64 %indvars.iv to i32
   %82 = and i64 %indvars.iv, 7
   %83 = getelementptr inbounds i32, ptr %11, i64 %82
   %84 = load i32, ptr %83, align 4
@@ -43282,7 +43282,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr nocaptu
   %94 = icmp eq i8 %92, 0
   %95 = select i1 %94, i32 15, i32 0
   %96 = add nuw nsw i32 %95, %93
-  %97 = trunc i32 %96 to i8
+  %97 = trunc nuw nsw i32 %96 to i8
   store i8 %97, ptr %89, align 1
   %98 = trunc i32 %84 to i8
   %99 = zext nneg i32 %96 to i64
@@ -43345,7 +43345,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr nocaptu
   %indvars.iv.next982 = add nuw nsw i64 %indvars.iv981, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next982 to i32
   %exitcond984.not = icmp eq i32 %116, %lftr.wideiv
-  br i1 %exitcond984.not, label %.loopexit, label %122, !llvm.loop !28
+  br i1 %exitcond984.not, label %.loopexit, label %122, !llvm.loop !25
 
 .loopexit:                                        ; preds = %122, %._crit_edge, %60
   %134 = phi ptr [ %10, %60 ], [ %102, %._crit_edge ], [ %102, %122 ]
@@ -43379,7 +43379,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr %151, i32 0, i32 3, i32 1)
   %152 = getelementptr inbounds i8, ptr %134, i64 %150
   tail call void @llvm.prefetch.p0(ptr %152, i32 0, i32 3, i32 1)
-  %153 = trunc i64 %indvars.iv985 to i32
+  %153 = trunc nuw i64 %indvars.iv985 to i32
   %154 = and i64 %indvars.iv985, 7
   %155 = getelementptr inbounds i32, ptr %11, i64 %154
   %156 = load i32, ptr %155, align 4
@@ -43396,7 +43396,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr nocaptu
   %166 = icmp eq i8 %164, 0
   %167 = select i1 %166, i32 15, i32 0
   %168 = add nuw nsw i32 %167, %165
-  %169 = trunc i32 %168 to i8
+  %169 = trunc nuw nsw i32 %168 to i8
   store i8 %169, ptr %161, align 1
   %170 = trunc i32 %156 to i8
   %171 = zext nneg i32 %168 to i64
@@ -43475,8 +43475,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr nocaptu
   %.0872942 = phi i64 [ %236, %234 ], [ %217, %.lr.ph943.preheader ]
   %.0874941 = phi i64 [ %.1875, %234 ], [ 0, %.lr.ph943.preheader ]
   %.0881940 = phi i32 [ %.1882, %234 ], [ %40, %.lr.ph943.preheader ]
-  %218 = tail call i64 @llvm.cttz.i64(i64 %.0872942, i1 true), !range !15
-  %219 = trunc i64 %218 to i32
+  %218 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872942, i1 true)
+  %219 = trunc nuw nsw i64 %218 to i32
   %220 = add nuw nsw i32 %219, %207
   %221 = and i32 %220, 15
   %222 = zext nneg i32 %221 to i64
@@ -43507,7 +43507,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr nocaptu
   %237 = icmp ne i64 %236, 0
   %238 = icmp ne i32 %.1882, 0
   %239 = select i1 %237, i1 %238, i1 false
-  br i1 %239, label %.lr.ph943, label %._crit_edge944, !llvm.loop !36
+  br i1 %239, label %.lr.ph943, label %._crit_edge944, !llvm.loop !33
 
 ._crit_edge944:                                   ; preds = %234, %226, %.critedge
   %.0881.lcssa = phi i32 [ %40, %.critedge ], [ %.0881940, %226 ], [ %.1882, %234 ]
@@ -43518,7 +43518,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr nocaptu
   %243 = icmp eq i8 %241, 0
   %244 = select i1 %243, i32 15, i32 0
   %245 = add nuw nsw i32 %244, %242
-  %246 = trunc i32 %245 to i8
+  %246 = trunc nuw nsw i32 %245 to i8
   store i8 %246, ptr %205, align 1
   %247 = zext nneg i32 %245 to i64
   %248 = getelementptr inbounds i8, ptr %205, i64 %247
@@ -43567,7 +43567,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr nocaptu
   br i1 %.not.i, label %.preheader.i, label %269
 
 269:                                              ; preds = %267
-  %270 = tail call i64 @llvm.cttz.i64(i64 %268, i1 true), !range !15
+  %270 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %268, i1 true)
   %271 = lshr i64 %270, 3
   br label %ZSTD_count.exit
 
@@ -43584,10 +43584,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_4(ptr nocaptu
   %.040.val.i = load i64, ptr %.040.i, align 1
   %274 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %274, 0
-  br i1 %.not51.i, label %.preheader.i, label %275, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %275, !llvm.loop !15
 
 275:                                              ; preds = %273
-  %276 = tail call i64 @llvm.cttz.i64(i64 %274, i1 true), !range !15
+  %276 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %274, i1 true)
   %277 = lshr i64 %276, 3
   %278 = getelementptr inbounds i8, ptr %.040.i, i64 %277
   %279 = ptrtoint ptr %278 to i64
@@ -43665,7 +43665,7 @@ ZSTD_count.exit.thread:                           ; preds = %258, %304, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %304 ], [ %.0885951, %ZSTD_count.exit ], [ %.0885951, %258 ]
   %309 = add nuw i64 %.0873952, 1
   %exitcond988.not = icmp eq i64 %309, %.0874.lcssa
-  br i1 %exitcond988.not, label %.critedge909, label %258, !llvm.loop !37
+  br i1 %exitcond988.not, label %.critedge909, label %258, !llvm.loop !34
 
 .critedge909:                                     ; preds = %ZSTD_count.exit.thread, %304, %._crit_edge944
   %.2887 = phi i64 [ 3, %._crit_edge944 ], [ %.0867, %304 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -43700,8 +43700,8 @@ ZSTD_count.exit.thread:                           ; preds = %258, %304, %ZSTD_co
   %.0854960 = phi i64 [ %348, %346 ], [ %329, %.lr.ph961.preheader ]
   %.0856959 = phi i64 [ %.1857, %346 ], [ 0, %.lr.ph961.preheader ]
   %.2883958 = phi i32 [ %.3884, %346 ], [ %.0881.lcssa, %.lr.ph961.preheader ]
-  %330 = tail call i64 @llvm.cttz.i64(i64 %.0854960, i1 true), !range !15
-  %331 = trunc i64 %330 to i32
+  %330 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854960, i1 true)
+  %331 = trunc nuw nsw i64 %330 to i32
   %332 = add nuw nsw i32 %331, %318
   %333 = and i32 %332, 15
   %334 = zext nneg i32 %333 to i64
@@ -43732,7 +43732,7 @@ ZSTD_count.exit.thread:                           ; preds = %258, %304, %ZSTD_co
   %349 = icmp ne i64 %348, 0
   %350 = icmp ne i32 %.3884, 0
   %351 = select i1 %349, i1 %350, i1 false
-  br i1 %351, label %.lr.ph961, label %._crit_edge962, !llvm.loop !40
+  br i1 %351, label %.lr.ph961, label %._crit_edge962, !llvm.loop !37
 
 ._crit_edge962:                                   ; preds = %346, %338
   %.0856.lcssa = phi i64 [ %.1857, %346 ], [ %.0856959, %338 ]
@@ -43777,7 +43777,7 @@ ZSTD_count.exit.thread:                           ; preds = %258, %304, %ZSTD_co
   %.4889 = phi i64 [ %363, %365 ], [ %.3888966, %360 ], [ %.3888966, %354 ]
   %370 = add nuw i64 %.0855967, 1
   %exitcond989.not = icmp eq i64 %370, %.0856.lcssa
-  br i1 %exitcond989.not, label %._crit_edge970, label %354, !llvm.loop !41
+  br i1 %exitcond989.not, label %._crit_edge970, label %354, !llvm.loop !38
 
 ._crit_edge970:                                   ; preds = %.thread, %365, %.critedge909, %._crit_edge962
   %.5 = phi i64 [ %.2887, %._crit_edge962 ], [ %.2887, %.critedge909 ], [ %363, %365 ], [ %.4889, %.thread ]
@@ -43785,7 +43785,7 @@ ZSTD_count.exit.thread:                           ; preds = %258, %304, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -43888,7 +43888,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr nonnull %81, i32 0, i32 3, i32 1)
   %82 = getelementptr inbounds i8, ptr %10, i64 %79
   tail call void @llvm.prefetch.p0(ptr %82, i32 0, i32 3, i32 1)
-  %83 = trunc i64 %indvars.iv to i32
+  %83 = trunc nuw i64 %indvars.iv to i32
   %84 = and i64 %indvars.iv, 7
   %85 = getelementptr inbounds i32, ptr %11, i64 %84
   %86 = load i32, ptr %85, align 4
@@ -43905,7 +43905,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr nocaptu
   %96 = icmp eq i8 %94, 0
   %97 = select i1 %96, i32 31, i32 0
   %98 = add nuw nsw i32 %97, %95
-  %99 = trunc i32 %98 to i8
+  %99 = trunc nuw nsw i32 %98 to i8
   store i8 %99, ptr %91, align 1
   %100 = trunc i32 %86 to i8
   %101 = zext nneg i32 %98 to i64
@@ -43970,7 +43970,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr nocaptu
   %indvars.iv.next983 = add nuw nsw i64 %indvars.iv982, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next983 to i32
   %exitcond985.not = icmp eq i32 %118, %lftr.wideiv
-  br i1 %exitcond985.not, label %.loopexit, label %124, !llvm.loop !28
+  br i1 %exitcond985.not, label %.loopexit, label %124, !llvm.loop !25
 
 .loopexit:                                        ; preds = %124, %._crit_edge, %61
   %137 = phi ptr [ %10, %61 ], [ %104, %._crit_edge ], [ %104, %124 ]
@@ -44006,7 +44006,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr nonnull %155, i32 0, i32 3, i32 1)
   %156 = getelementptr inbounds i8, ptr %137, i64 %153
   tail call void @llvm.prefetch.p0(ptr %156, i32 0, i32 3, i32 1)
-  %157 = trunc i64 %indvars.iv986 to i32
+  %157 = trunc nuw i64 %indvars.iv986 to i32
   %158 = and i64 %indvars.iv986, 7
   %159 = getelementptr inbounds i32, ptr %11, i64 %158
   %160 = load i32, ptr %159, align 4
@@ -44023,7 +44023,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr nocaptu
   %170 = icmp eq i8 %168, 0
   %171 = select i1 %170, i32 31, i32 0
   %172 = add nuw nsw i32 %171, %169
-  %173 = trunc i32 %172 to i8
+  %173 = trunc nuw nsw i32 %172 to i8
   store i8 %173, ptr %165, align 1
   %174 = trunc i32 %160 to i8
   %175 = zext nneg i32 %172 to i64
@@ -44113,8 +44113,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr nocaptu
   %.0872939 = phi i64 [ %248, %246 ], [ %229, %.lr.ph941.preheader ]
   %.0874938 = phi i64 [ %.1875, %246 ], [ 0, %.lr.ph941.preheader ]
   %.0881937 = phi i32 [ %.1882, %246 ], [ %40, %.lr.ph941.preheader ]
-  %230 = tail call i64 @llvm.cttz.i64(i64 %.0872939, i1 true), !range !15
-  %231 = trunc i64 %230 to i32
+  %230 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872939, i1 true)
+  %231 = trunc nuw nsw i64 %230 to i32
   %232 = add nuw nsw i32 %231, %225
   %233 = and i32 %232, 31
   %234 = zext nneg i32 %233 to i64
@@ -44145,7 +44145,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr nocaptu
   %249 = icmp ne i64 %248, 0
   %250 = icmp ne i32 %.1882, 0
   %251 = select i1 %249, i1 %250, i1 false
-  br i1 %251, label %.lr.ph941, label %._crit_edge942, !llvm.loop !36
+  br i1 %251, label %.lr.ph941, label %._crit_edge942, !llvm.loop !33
 
 ._crit_edge942:                                   ; preds = %246, %238, %.critedge
   %.0881.lcssa = phi i32 [ %40, %.critedge ], [ %.0881937, %238 ], [ %.1882, %246 ]
@@ -44156,7 +44156,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr nocaptu
   %255 = icmp eq i8 %253, 0
   %256 = select i1 %255, i32 31, i32 0
   %257 = add nuw nsw i32 %256, %254
-  %258 = trunc i32 %257 to i8
+  %258 = trunc nuw nsw i32 %257 to i8
   store i8 %258, ptr %209, align 1
   %259 = zext nneg i32 %257 to i64
   %260 = getelementptr inbounds i8, ptr %209, i64 %259
@@ -44205,7 +44205,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr nocaptu
   br i1 %.not.i, label %.preheader.i, label %281
 
 281:                                              ; preds = %279
-  %282 = tail call i64 @llvm.cttz.i64(i64 %280, i1 true), !range !15
+  %282 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %280, i1 true)
   %283 = lshr i64 %282, 3
   br label %ZSTD_count.exit
 
@@ -44222,10 +44222,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_5(ptr nocaptu
   %.040.val.i = load i64, ptr %.040.i, align 1
   %286 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %286, 0
-  br i1 %.not51.i, label %.preheader.i, label %287, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %287, !llvm.loop !15
 
 287:                                              ; preds = %285
-  %288 = tail call i64 @llvm.cttz.i64(i64 %286, i1 true), !range !15
+  %288 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %286, i1 true)
   %289 = lshr i64 %288, 3
   %290 = getelementptr inbounds i8, ptr %.040.i, i64 %289
   %291 = ptrtoint ptr %290 to i64
@@ -44303,7 +44303,7 @@ ZSTD_count.exit.thread:                           ; preds = %270, %316, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %316 ], [ %.0885949, %ZSTD_count.exit ], [ %.0885949, %270 ]
   %321 = add nuw i64 %.0873950, 1
   %exitcond992.not = icmp eq i64 %321, %.0874.lcssa
-  br i1 %exitcond992.not, label %._crit_edge953, label %270, !llvm.loop !37
+  br i1 %exitcond992.not, label %._crit_edge953, label %270, !llvm.loop !34
 
 ._crit_edge953:                                   ; preds = %ZSTD_count.exit.thread, %316, %._crit_edge942
   %.2887 = phi i64 [ 3, %._crit_edge942 ], [ %.0867, %316 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -44348,8 +44348,8 @@ ZSTD_count.exit.thread:                           ; preds = %270, %316, %ZSTD_co
   %.0854960 = phi i64 [ %368, %366 ], [ %349, %.lr.ph962.preheader ]
   %.0856959 = phi i64 [ %.1857, %366 ], [ 0, %.lr.ph962.preheader ]
   %.2883958 = phi i32 [ %.3884, %366 ], [ %.0881.lcssa, %.lr.ph962.preheader ]
-  %350 = tail call i64 @llvm.cttz.i64(i64 %.0854960, i1 true), !range !15
-  %351 = trunc i64 %350 to i32
+  %350 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854960, i1 true)
+  %351 = trunc nuw nsw i64 %350 to i32
   %352 = add nuw nsw i32 %351, %342
   %353 = and i32 %352, 31
   %354 = zext nneg i32 %353 to i64
@@ -44380,7 +44380,7 @@ ZSTD_count.exit.thread:                           ; preds = %270, %316, %ZSTD_co
   %369 = icmp ne i64 %368, 0
   %370 = icmp ne i32 %.3884, 0
   %371 = select i1 %369, i1 %370, i1 false
-  br i1 %371, label %.lr.ph962, label %._crit_edge963, !llvm.loop !40
+  br i1 %371, label %.lr.ph962, label %._crit_edge963, !llvm.loop !37
 
 ._crit_edge963:                                   ; preds = %366, %358
   %.0856.lcssa = phi i64 [ %.1857, %366 ], [ %.0856959, %358 ]
@@ -44425,7 +44425,7 @@ ZSTD_count.exit.thread:                           ; preds = %270, %316, %ZSTD_co
   %.4889 = phi i64 [ %383, %385 ], [ %.3888967, %380 ], [ %.3888967, %374 ]
   %390 = add nuw i64 %.0855968, 1
   %exitcond996.not = icmp eq i64 %390, %.0856.lcssa
-  br i1 %exitcond996.not, label %._crit_edge971, label %374, !llvm.loop !41
+  br i1 %exitcond996.not, label %._crit_edge971, label %374, !llvm.loop !38
 
 ._crit_edge971:                                   ; preds = %.thread, %385, %._crit_edge953, %._crit_edge963
   %.5 = phi i64 [ %.2887, %._crit_edge963 ], [ %.2887, %._crit_edge953 ], [ %383, %385 ], [ %.4889, %.thread ]
@@ -44433,7 +44433,7 @@ ZSTD_count.exit.thread:                           ; preds = %270, %316, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i32], align 16
   %7 = alloca [64 x i32], align 16
@@ -44542,7 +44542,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr %85, i32 0, i32 3, i32 1)
   %86 = getelementptr inbounds i8, ptr %85, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %86, i32 0, i32 3, i32 1)
-  %87 = trunc i64 %indvars.iv to i32
+  %87 = trunc nuw i64 %indvars.iv to i32
   %88 = and i64 %indvars.iv, 7
   %89 = getelementptr inbounds i32, ptr %13, i64 %88
   %90 = load i32, ptr %89, align 4
@@ -44559,7 +44559,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr nocaptu
   %100 = icmp eq i8 %98, 0
   %101 = select i1 %100, i32 63, i32 0
   %102 = add nuw nsw i32 %101, %99
-  %103 = trunc i32 %102 to i8
+  %103 = trunc nuw nsw i32 %102 to i8
   store i8 %103, ptr %95, align 1
   %104 = trunc i32 %90 to i8
   %105 = zext nneg i32 %102 to i64
@@ -44626,7 +44626,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr nocaptu
   %indvars.iv.next983 = add nuw nsw i64 %indvars.iv982, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next983 to i32
   %exitcond985.not = icmp eq i32 %122, %lftr.wideiv
-  br i1 %exitcond985.not, label %.loopexit, label %128, !llvm.loop !28
+  br i1 %exitcond985.not, label %.loopexit, label %128, !llvm.loop !25
 
 .loopexit:                                        ; preds = %128, %._crit_edge, %64
   %142 = phi ptr [ %12, %64 ], [ %108, %._crit_edge ], [ %108, %128 ]
@@ -44664,7 +44664,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr %161, i32 0, i32 3, i32 1)
   %162 = getelementptr inbounds i8, ptr %161, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %162, i32 0, i32 3, i32 1)
-  %163 = trunc i64 %indvars.iv986 to i32
+  %163 = trunc nuw i64 %indvars.iv986 to i32
   %164 = and i64 %indvars.iv986, 7
   %165 = getelementptr inbounds i32, ptr %13, i64 %164
   %166 = load i32, ptr %165, align 4
@@ -44681,7 +44681,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr nocaptu
   %176 = icmp eq i8 %174, 0
   %177 = select i1 %176, i32 63, i32 0
   %178 = add nuw nsw i32 %177, %175
-  %179 = trunc i32 %178 to i8
+  %179 = trunc nuw nsw i32 %178 to i8
   store i8 %179, ptr %171, align 1
   %180 = trunc i32 %166 to i8
   %181 = zext nneg i32 %178 to i64
@@ -44760,7 +44760,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr nocaptu
   store i32 %228, ptr %229, align 4
   %indvars.iv.next990 = add nuw nsw i64 %indvars.iv989, 1
   %exitcond992.not = icmp eq i64 %indvars.iv.next990, 4
-  br i1 %exitcond992.not, label %230, label %222, !llvm.loop !38
+  br i1 %exitcond992.not, label %230, label %222, !llvm.loop !35
 
 230:                                              ; preds = %222
   %231 = getelementptr inbounds i32, ptr %10, i64 %216
@@ -44794,8 +44794,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr nocaptu
   %.0872939 = phi i64 [ %270, %268 ], [ %251, %.lr.ph941.preheader ]
   %.0874938 = phi i64 [ %.1875, %268 ], [ 0, %.lr.ph941.preheader ]
   %.0881937 = phi i32 [ %.1882, %268 ], [ %42, %.lr.ph941.preheader ]
-  %252 = tail call i64 @llvm.cttz.i64(i64 %.0872939, i1 true), !range !15
-  %253 = trunc i64 %252 to i32
+  %252 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872939, i1 true)
+  %253 = trunc nuw nsw i64 %252 to i32
   %254 = add nuw nsw i32 %253, %232
   %255 = and i32 %254, 63
   %256 = zext nneg i32 %255 to i64
@@ -44826,7 +44826,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr nocaptu
   %271 = icmp ne i64 %270, 0
   %272 = icmp ne i32 %.1882, 0
   %273 = select i1 %271, i1 %272, i1 false
-  br i1 %273, label %.lr.ph941, label %._crit_edge942, !llvm.loop !36
+  br i1 %273, label %.lr.ph941, label %._crit_edge942, !llvm.loop !33
 
 ._crit_edge942:                                   ; preds = %268, %260, %230
   %.0881.lcssa = phi i32 [ %42, %230 ], [ %.0881937, %260 ], [ %.1882, %268 ]
@@ -44837,7 +44837,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr nocaptu
   %277 = icmp eq i8 %275, 0
   %278 = select i1 %277, i32 63, i32 0
   %279 = add nuw nsw i32 %278, %276
-  %280 = trunc i32 %279 to i8
+  %280 = trunc nuw nsw i32 %279 to i8
   store i8 %280, ptr %217, align 1
   %281 = zext nneg i32 %279 to i64
   %282 = getelementptr inbounds i8, ptr %217, i64 %281
@@ -44886,7 +44886,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr nocaptu
   br i1 %.not.i, label %.preheader.i, label %303
 
 303:                                              ; preds = %301
-  %304 = tail call i64 @llvm.cttz.i64(i64 %302, i1 true), !range !15
+  %304 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %302, i1 true)
   %305 = lshr i64 %304, 3
   br label %ZSTD_count.exit
 
@@ -44903,10 +44903,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_5_6(ptr nocaptu
   %.040.val.i = load i64, ptr %.040.i, align 1
   %308 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %308, 0
-  br i1 %.not51.i, label %.preheader.i, label %309, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %309, !llvm.loop !15
 
 309:                                              ; preds = %307
-  %310 = tail call i64 @llvm.cttz.i64(i64 %308, i1 true), !range !15
+  %310 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %308, i1 true)
   %311 = lshr i64 %310, 3
   %312 = getelementptr inbounds i8, ptr %.040.i, i64 %311
   %313 = ptrtoint ptr %312 to i64
@@ -44984,7 +44984,7 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %338 ], [ %.0885949, %ZSTD_count.exit ], [ %.0885949, %292 ]
   %343 = add nuw i64 %.0873950, 1
   %exitcond993.not = icmp eq i64 %343, %.0874.lcssa
-  br i1 %exitcond993.not, label %._crit_edge953, label %292, !llvm.loop !37
+  br i1 %exitcond993.not, label %._crit_edge953, label %292, !llvm.loop !34
 
 ._crit_edge953:                                   ; preds = %ZSTD_count.exit.thread, %338, %._crit_edge942
   %.2887 = phi i64 [ 3, %._crit_edge942 ], [ %.0867, %338 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -45014,7 +45014,7 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
   store i32 %360, ptr %361, align 4
   %indvars.iv.next995 = add nuw nsw i64 %indvars.iv994, 1
   %exitcond997.not = icmp eq i64 %indvars.iv.next995, 4
-  br i1 %exitcond997.not, label %362, label %354, !llvm.loop !38
+  br i1 %exitcond997.not, label %362, label %354, !llvm.loop !35
 
 362:                                              ; preds = %354
   %.neg907.neg977 = trunc i64 %.neg.neg to i32
@@ -45050,8 +45050,8 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
   %.0854960 = phi i64 [ %404, %402 ], [ %385, %.lr.ph962.preheader ]
   %.0856959 = phi i64 [ %.1857, %402 ], [ 0, %.lr.ph962.preheader ]
   %.2883958 = phi i32 [ %.3884, %402 ], [ %.0881.lcssa, %.lr.ph962.preheader ]
-  %386 = tail call i64 @llvm.cttz.i64(i64 %.0854960, i1 true), !range !15
-  %387 = trunc i64 %386 to i32
+  %386 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854960, i1 true)
+  %387 = trunc nuw nsw i64 %386 to i32
   %388 = add nuw nsw i32 %387, %363
   %389 = and i32 %388, 63
   %390 = zext nneg i32 %389 to i64
@@ -45082,7 +45082,7 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
   %405 = icmp ne i64 %404, 0
   %406 = icmp ne i32 %.3884, 0
   %407 = select i1 %405, i1 %406, i1 false
-  br i1 %407, label %.lr.ph962, label %._crit_edge963, !llvm.loop !40
+  br i1 %407, label %.lr.ph962, label %._crit_edge963, !llvm.loop !37
 
 ._crit_edge963:                                   ; preds = %402, %394
   %.0856.lcssa = phi i64 [ %.1857, %402 ], [ %.0856959, %394 ]
@@ -45127,7 +45127,7 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
   %.4889 = phi i64 [ %419, %421 ], [ %.3888967, %416 ], [ %.3888967, %410 ]
   %426 = add nuw i64 %.0855968, 1
   %exitcond998.not = icmp eq i64 %426, %.0856.lcssa
-  br i1 %exitcond998.not, label %._crit_edge971, label %410, !llvm.loop !41
+  br i1 %exitcond998.not, label %._crit_edge971, label %410, !llvm.loop !38
 
 ._crit_edge971:                                   ; preds = %.thread, %421, %362, %._crit_edge963
   %.5 = phi i64 [ %.2887, %._crit_edge963 ], [ %.2887, %362 ], [ %419, %421 ], [ %.4889, %.thread ]
@@ -45135,7 +45135,7 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -45234,7 +45234,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr %79, i32 0, i32 3, i32 1)
   %80 = getelementptr inbounds i8, ptr %10, i64 %78
   tail call void @llvm.prefetch.p0(ptr %80, i32 0, i32 3, i32 1)
-  %81 = trunc i64 %indvars.iv to i32
+  %81 = trunc nuw i64 %indvars.iv to i32
   %82 = and i64 %indvars.iv, 7
   %83 = getelementptr inbounds i32, ptr %11, i64 %82
   %84 = load i32, ptr %83, align 4
@@ -45251,7 +45251,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr nocaptu
   %94 = icmp eq i8 %92, 0
   %95 = select i1 %94, i32 15, i32 0
   %96 = add nuw nsw i32 %95, %93
-  %97 = trunc i32 %96 to i8
+  %97 = trunc nuw nsw i32 %96 to i8
   store i8 %97, ptr %89, align 1
   %98 = trunc i32 %84 to i8
   %99 = zext nneg i32 %96 to i64
@@ -45314,7 +45314,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr nocaptu
   %indvars.iv.next982 = add nuw nsw i64 %indvars.iv981, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next982 to i32
   %exitcond984.not = icmp eq i32 %116, %lftr.wideiv
-  br i1 %exitcond984.not, label %.loopexit, label %122, !llvm.loop !28
+  br i1 %exitcond984.not, label %.loopexit, label %122, !llvm.loop !25
 
 .loopexit:                                        ; preds = %122, %._crit_edge, %60
   %134 = phi ptr [ %10, %60 ], [ %102, %._crit_edge ], [ %102, %122 ]
@@ -45348,7 +45348,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr %151, i32 0, i32 3, i32 1)
   %152 = getelementptr inbounds i8, ptr %134, i64 %150
   tail call void @llvm.prefetch.p0(ptr %152, i32 0, i32 3, i32 1)
-  %153 = trunc i64 %indvars.iv985 to i32
+  %153 = trunc nuw i64 %indvars.iv985 to i32
   %154 = and i64 %indvars.iv985, 7
   %155 = getelementptr inbounds i32, ptr %11, i64 %154
   %156 = load i32, ptr %155, align 4
@@ -45365,7 +45365,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr nocaptu
   %166 = icmp eq i8 %164, 0
   %167 = select i1 %166, i32 15, i32 0
   %168 = add nuw nsw i32 %167, %165
-  %169 = trunc i32 %168 to i8
+  %169 = trunc nuw nsw i32 %168 to i8
   store i8 %169, ptr %161, align 1
   %170 = trunc i32 %156 to i8
   %171 = zext nneg i32 %168 to i64
@@ -45444,8 +45444,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr nocaptu
   %.0872942 = phi i64 [ %236, %234 ], [ %217, %.lr.ph943.preheader ]
   %.0874941 = phi i64 [ %.1875, %234 ], [ 0, %.lr.ph943.preheader ]
   %.0881940 = phi i32 [ %.1882, %234 ], [ %40, %.lr.ph943.preheader ]
-  %218 = tail call i64 @llvm.cttz.i64(i64 %.0872942, i1 true), !range !15
-  %219 = trunc i64 %218 to i32
+  %218 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872942, i1 true)
+  %219 = trunc nuw nsw i64 %218 to i32
   %220 = add nuw nsw i32 %219, %207
   %221 = and i32 %220, 15
   %222 = zext nneg i32 %221 to i64
@@ -45476,7 +45476,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr nocaptu
   %237 = icmp ne i64 %236, 0
   %238 = icmp ne i32 %.1882, 0
   %239 = select i1 %237, i1 %238, i1 false
-  br i1 %239, label %.lr.ph943, label %._crit_edge944, !llvm.loop !36
+  br i1 %239, label %.lr.ph943, label %._crit_edge944, !llvm.loop !33
 
 ._crit_edge944:                                   ; preds = %234, %226, %.critedge
   %.0881.lcssa = phi i32 [ %40, %.critedge ], [ %.0881940, %226 ], [ %.1882, %234 ]
@@ -45487,7 +45487,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr nocaptu
   %243 = icmp eq i8 %241, 0
   %244 = select i1 %243, i32 15, i32 0
   %245 = add nuw nsw i32 %244, %242
-  %246 = trunc i32 %245 to i8
+  %246 = trunc nuw nsw i32 %245 to i8
   store i8 %246, ptr %205, align 1
   %247 = zext nneg i32 %245 to i64
   %248 = getelementptr inbounds i8, ptr %205, i64 %247
@@ -45536,7 +45536,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr nocaptu
   br i1 %.not.i, label %.preheader.i, label %269
 
 269:                                              ; preds = %267
-  %270 = tail call i64 @llvm.cttz.i64(i64 %268, i1 true), !range !15
+  %270 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %268, i1 true)
   %271 = lshr i64 %270, 3
   br label %ZSTD_count.exit
 
@@ -45553,10 +45553,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_4(ptr nocaptu
   %.040.val.i = load i64, ptr %.040.i, align 1
   %274 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %274, 0
-  br i1 %.not51.i, label %.preheader.i, label %275, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %275, !llvm.loop !15
 
 275:                                              ; preds = %273
-  %276 = tail call i64 @llvm.cttz.i64(i64 %274, i1 true), !range !15
+  %276 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %274, i1 true)
   %277 = lshr i64 %276, 3
   %278 = getelementptr inbounds i8, ptr %.040.i, i64 %277
   %279 = ptrtoint ptr %278 to i64
@@ -45634,7 +45634,7 @@ ZSTD_count.exit.thread:                           ; preds = %258, %304, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %304 ], [ %.0885951, %ZSTD_count.exit ], [ %.0885951, %258 ]
   %309 = add nuw i64 %.0873952, 1
   %exitcond988.not = icmp eq i64 %309, %.0874.lcssa
-  br i1 %exitcond988.not, label %.critedge909, label %258, !llvm.loop !37
+  br i1 %exitcond988.not, label %.critedge909, label %258, !llvm.loop !34
 
 .critedge909:                                     ; preds = %ZSTD_count.exit.thread, %304, %._crit_edge944
   %.2887 = phi i64 [ 3, %._crit_edge944 ], [ %.0867, %304 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -45669,8 +45669,8 @@ ZSTD_count.exit.thread:                           ; preds = %258, %304, %ZSTD_co
   %.0854960 = phi i64 [ %348, %346 ], [ %329, %.lr.ph961.preheader ]
   %.0856959 = phi i64 [ %.1857, %346 ], [ 0, %.lr.ph961.preheader ]
   %.2883958 = phi i32 [ %.3884, %346 ], [ %.0881.lcssa, %.lr.ph961.preheader ]
-  %330 = tail call i64 @llvm.cttz.i64(i64 %.0854960, i1 true), !range !15
-  %331 = trunc i64 %330 to i32
+  %330 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854960, i1 true)
+  %331 = trunc nuw nsw i64 %330 to i32
   %332 = add nuw nsw i32 %331, %318
   %333 = and i32 %332, 15
   %334 = zext nneg i32 %333 to i64
@@ -45701,7 +45701,7 @@ ZSTD_count.exit.thread:                           ; preds = %258, %304, %ZSTD_co
   %349 = icmp ne i64 %348, 0
   %350 = icmp ne i32 %.3884, 0
   %351 = select i1 %349, i1 %350, i1 false
-  br i1 %351, label %.lr.ph961, label %._crit_edge962, !llvm.loop !40
+  br i1 %351, label %.lr.ph961, label %._crit_edge962, !llvm.loop !37
 
 ._crit_edge962:                                   ; preds = %346, %338
   %.0856.lcssa = phi i64 [ %.1857, %346 ], [ %.0856959, %338 ]
@@ -45746,7 +45746,7 @@ ZSTD_count.exit.thread:                           ; preds = %258, %304, %ZSTD_co
   %.4889 = phi i64 [ %363, %365 ], [ %.3888966, %360 ], [ %.3888966, %354 ]
   %370 = add nuw i64 %.0855967, 1
   %exitcond989.not = icmp eq i64 %370, %.0856.lcssa
-  br i1 %exitcond989.not, label %._crit_edge970, label %354, !llvm.loop !41
+  br i1 %exitcond989.not, label %._crit_edge970, label %354, !llvm.loop !38
 
 ._crit_edge970:                                   ; preds = %.thread, %365, %.critedge909, %._crit_edge962
   %.5 = phi i64 [ %.2887, %._crit_edge962 ], [ %.2887, %.critedge909 ], [ %363, %365 ], [ %.4889, %.thread ]
@@ -45754,7 +45754,7 @@ ZSTD_count.exit.thread:                           ; preds = %258, %304, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -45857,7 +45857,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr nonnull %81, i32 0, i32 3, i32 1)
   %82 = getelementptr inbounds i8, ptr %10, i64 %79
   tail call void @llvm.prefetch.p0(ptr %82, i32 0, i32 3, i32 1)
-  %83 = trunc i64 %indvars.iv to i32
+  %83 = trunc nuw i64 %indvars.iv to i32
   %84 = and i64 %indvars.iv, 7
   %85 = getelementptr inbounds i32, ptr %11, i64 %84
   %86 = load i32, ptr %85, align 4
@@ -45874,7 +45874,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr nocaptu
   %96 = icmp eq i8 %94, 0
   %97 = select i1 %96, i32 31, i32 0
   %98 = add nuw nsw i32 %97, %95
-  %99 = trunc i32 %98 to i8
+  %99 = trunc nuw nsw i32 %98 to i8
   store i8 %99, ptr %91, align 1
   %100 = trunc i32 %86 to i8
   %101 = zext nneg i32 %98 to i64
@@ -45939,7 +45939,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr nocaptu
   %indvars.iv.next983 = add nuw nsw i64 %indvars.iv982, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next983 to i32
   %exitcond985.not = icmp eq i32 %118, %lftr.wideiv
-  br i1 %exitcond985.not, label %.loopexit, label %124, !llvm.loop !28
+  br i1 %exitcond985.not, label %.loopexit, label %124, !llvm.loop !25
 
 .loopexit:                                        ; preds = %124, %._crit_edge, %61
   %137 = phi ptr [ %10, %61 ], [ %104, %._crit_edge ], [ %104, %124 ]
@@ -45975,7 +45975,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr nonnull %155, i32 0, i32 3, i32 1)
   %156 = getelementptr inbounds i8, ptr %137, i64 %153
   tail call void @llvm.prefetch.p0(ptr %156, i32 0, i32 3, i32 1)
-  %157 = trunc i64 %indvars.iv986 to i32
+  %157 = trunc nuw i64 %indvars.iv986 to i32
   %158 = and i64 %indvars.iv986, 7
   %159 = getelementptr inbounds i32, ptr %11, i64 %158
   %160 = load i32, ptr %159, align 4
@@ -45992,7 +45992,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr nocaptu
   %170 = icmp eq i8 %168, 0
   %171 = select i1 %170, i32 31, i32 0
   %172 = add nuw nsw i32 %171, %169
-  %173 = trunc i32 %172 to i8
+  %173 = trunc nuw nsw i32 %172 to i8
   store i8 %173, ptr %165, align 1
   %174 = trunc i32 %160 to i8
   %175 = zext nneg i32 %172 to i64
@@ -46082,8 +46082,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr nocaptu
   %.0872939 = phi i64 [ %248, %246 ], [ %229, %.lr.ph941.preheader ]
   %.0874938 = phi i64 [ %.1875, %246 ], [ 0, %.lr.ph941.preheader ]
   %.0881937 = phi i32 [ %.1882, %246 ], [ %40, %.lr.ph941.preheader ]
-  %230 = tail call i64 @llvm.cttz.i64(i64 %.0872939, i1 true), !range !15
-  %231 = trunc i64 %230 to i32
+  %230 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872939, i1 true)
+  %231 = trunc nuw nsw i64 %230 to i32
   %232 = add nuw nsw i32 %231, %225
   %233 = and i32 %232, 31
   %234 = zext nneg i32 %233 to i64
@@ -46114,7 +46114,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr nocaptu
   %249 = icmp ne i64 %248, 0
   %250 = icmp ne i32 %.1882, 0
   %251 = select i1 %249, i1 %250, i1 false
-  br i1 %251, label %.lr.ph941, label %._crit_edge942, !llvm.loop !36
+  br i1 %251, label %.lr.ph941, label %._crit_edge942, !llvm.loop !33
 
 ._crit_edge942:                                   ; preds = %246, %238, %.critedge
   %.0881.lcssa = phi i32 [ %40, %.critedge ], [ %.0881937, %238 ], [ %.1882, %246 ]
@@ -46125,7 +46125,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr nocaptu
   %255 = icmp eq i8 %253, 0
   %256 = select i1 %255, i32 31, i32 0
   %257 = add nuw nsw i32 %256, %254
-  %258 = trunc i32 %257 to i8
+  %258 = trunc nuw nsw i32 %257 to i8
   store i8 %258, ptr %209, align 1
   %259 = zext nneg i32 %257 to i64
   %260 = getelementptr inbounds i8, ptr %209, i64 %259
@@ -46174,7 +46174,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr nocaptu
   br i1 %.not.i, label %.preheader.i, label %281
 
 281:                                              ; preds = %279
-  %282 = tail call i64 @llvm.cttz.i64(i64 %280, i1 true), !range !15
+  %282 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %280, i1 true)
   %283 = lshr i64 %282, 3
   br label %ZSTD_count.exit
 
@@ -46191,10 +46191,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_5(ptr nocaptu
   %.040.val.i = load i64, ptr %.040.i, align 1
   %286 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %286, 0
-  br i1 %.not51.i, label %.preheader.i, label %287, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %287, !llvm.loop !15
 
 287:                                              ; preds = %285
-  %288 = tail call i64 @llvm.cttz.i64(i64 %286, i1 true), !range !15
+  %288 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %286, i1 true)
   %289 = lshr i64 %288, 3
   %290 = getelementptr inbounds i8, ptr %.040.i, i64 %289
   %291 = ptrtoint ptr %290 to i64
@@ -46272,7 +46272,7 @@ ZSTD_count.exit.thread:                           ; preds = %270, %316, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %316 ], [ %.0885949, %ZSTD_count.exit ], [ %.0885949, %270 ]
   %321 = add nuw i64 %.0873950, 1
   %exitcond992.not = icmp eq i64 %321, %.0874.lcssa
-  br i1 %exitcond992.not, label %._crit_edge953, label %270, !llvm.loop !37
+  br i1 %exitcond992.not, label %._crit_edge953, label %270, !llvm.loop !34
 
 ._crit_edge953:                                   ; preds = %ZSTD_count.exit.thread, %316, %._crit_edge942
   %.2887 = phi i64 [ 3, %._crit_edge942 ], [ %.0867, %316 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -46317,8 +46317,8 @@ ZSTD_count.exit.thread:                           ; preds = %270, %316, %ZSTD_co
   %.0854960 = phi i64 [ %368, %366 ], [ %349, %.lr.ph962.preheader ]
   %.0856959 = phi i64 [ %.1857, %366 ], [ 0, %.lr.ph962.preheader ]
   %.2883958 = phi i32 [ %.3884, %366 ], [ %.0881.lcssa, %.lr.ph962.preheader ]
-  %350 = tail call i64 @llvm.cttz.i64(i64 %.0854960, i1 true), !range !15
-  %351 = trunc i64 %350 to i32
+  %350 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854960, i1 true)
+  %351 = trunc nuw nsw i64 %350 to i32
   %352 = add nuw nsw i32 %351, %342
   %353 = and i32 %352, 31
   %354 = zext nneg i32 %353 to i64
@@ -46349,7 +46349,7 @@ ZSTD_count.exit.thread:                           ; preds = %270, %316, %ZSTD_co
   %369 = icmp ne i64 %368, 0
   %370 = icmp ne i32 %.3884, 0
   %371 = select i1 %369, i1 %370, i1 false
-  br i1 %371, label %.lr.ph962, label %._crit_edge963, !llvm.loop !40
+  br i1 %371, label %.lr.ph962, label %._crit_edge963, !llvm.loop !37
 
 ._crit_edge963:                                   ; preds = %366, %358
   %.0856.lcssa = phi i64 [ %.1857, %366 ], [ %.0856959, %358 ]
@@ -46394,7 +46394,7 @@ ZSTD_count.exit.thread:                           ; preds = %270, %316, %ZSTD_co
   %.4889 = phi i64 [ %383, %385 ], [ %.3888967, %380 ], [ %.3888967, %374 ]
   %390 = add nuw i64 %.0855968, 1
   %exitcond996.not = icmp eq i64 %390, %.0856.lcssa
-  br i1 %exitcond996.not, label %._crit_edge971, label %374, !llvm.loop !41
+  br i1 %exitcond996.not, label %._crit_edge971, label %374, !llvm.loop !38
 
 ._crit_edge971:                                   ; preds = %.thread, %385, %._crit_edge953, %._crit_edge963
   %.5 = phi i64 [ %.2887, %._crit_edge963 ], [ %.2887, %._crit_edge953 ], [ %383, %385 ], [ %.4889, %.thread ]
@@ -46402,7 +46402,7 @@ ZSTD_count.exit.thread:                           ; preds = %270, %316, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i32], align 16
   %7 = alloca [64 x i32], align 16
@@ -46511,7 +46511,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr %85, i32 0, i32 3, i32 1)
   %86 = getelementptr inbounds i8, ptr %85, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %86, i32 0, i32 3, i32 1)
-  %87 = trunc i64 %indvars.iv to i32
+  %87 = trunc nuw i64 %indvars.iv to i32
   %88 = and i64 %indvars.iv, 7
   %89 = getelementptr inbounds i32, ptr %13, i64 %88
   %90 = load i32, ptr %89, align 4
@@ -46528,7 +46528,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr nocaptu
   %100 = icmp eq i8 %98, 0
   %101 = select i1 %100, i32 63, i32 0
   %102 = add nuw nsw i32 %101, %99
-  %103 = trunc i32 %102 to i8
+  %103 = trunc nuw nsw i32 %102 to i8
   store i8 %103, ptr %95, align 1
   %104 = trunc i32 %90 to i8
   %105 = zext nneg i32 %102 to i64
@@ -46595,7 +46595,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr nocaptu
   %indvars.iv.next983 = add nuw nsw i64 %indvars.iv982, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next983 to i32
   %exitcond985.not = icmp eq i32 %122, %lftr.wideiv
-  br i1 %exitcond985.not, label %.loopexit, label %128, !llvm.loop !28
+  br i1 %exitcond985.not, label %.loopexit, label %128, !llvm.loop !25
 
 .loopexit:                                        ; preds = %128, %._crit_edge, %64
   %142 = phi ptr [ %12, %64 ], [ %108, %._crit_edge ], [ %108, %128 ]
@@ -46633,7 +46633,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr nocaptu
   tail call void @llvm.prefetch.p0(ptr %161, i32 0, i32 3, i32 1)
   %162 = getelementptr inbounds i8, ptr %161, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %162, i32 0, i32 3, i32 1)
-  %163 = trunc i64 %indvars.iv986 to i32
+  %163 = trunc nuw i64 %indvars.iv986 to i32
   %164 = and i64 %indvars.iv986, 7
   %165 = getelementptr inbounds i32, ptr %13, i64 %164
   %166 = load i32, ptr %165, align 4
@@ -46650,7 +46650,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr nocaptu
   %176 = icmp eq i8 %174, 0
   %177 = select i1 %176, i32 63, i32 0
   %178 = add nuw nsw i32 %177, %175
-  %179 = trunc i32 %178 to i8
+  %179 = trunc nuw nsw i32 %178 to i8
   store i8 %179, ptr %171, align 1
   %180 = trunc i32 %166 to i8
   %181 = zext nneg i32 %178 to i64
@@ -46729,7 +46729,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr nocaptu
   store i32 %228, ptr %229, align 4
   %indvars.iv.next990 = add nuw nsw i64 %indvars.iv989, 1
   %exitcond992.not = icmp eq i64 %indvars.iv.next990, 4
-  br i1 %exitcond992.not, label %230, label %222, !llvm.loop !38
+  br i1 %exitcond992.not, label %230, label %222, !llvm.loop !35
 
 230:                                              ; preds = %222
   %231 = getelementptr inbounds i32, ptr %10, i64 %216
@@ -46763,8 +46763,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr nocaptu
   %.0872939 = phi i64 [ %270, %268 ], [ %251, %.lr.ph941.preheader ]
   %.0874938 = phi i64 [ %.1875, %268 ], [ 0, %.lr.ph941.preheader ]
   %.0881937 = phi i32 [ %.1882, %268 ], [ %42, %.lr.ph941.preheader ]
-  %252 = tail call i64 @llvm.cttz.i64(i64 %.0872939, i1 true), !range !15
-  %253 = trunc i64 %252 to i32
+  %252 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872939, i1 true)
+  %253 = trunc nuw nsw i64 %252 to i32
   %254 = add nuw nsw i32 %253, %232
   %255 = and i32 %254, 63
   %256 = zext nneg i32 %255 to i64
@@ -46795,7 +46795,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr nocaptu
   %271 = icmp ne i64 %270, 0
   %272 = icmp ne i32 %.1882, 0
   %273 = select i1 %271, i1 %272, i1 false
-  br i1 %273, label %.lr.ph941, label %._crit_edge942, !llvm.loop !36
+  br i1 %273, label %.lr.ph941, label %._crit_edge942, !llvm.loop !33
 
 ._crit_edge942:                                   ; preds = %268, %260, %230
   %.0881.lcssa = phi i32 [ %42, %230 ], [ %.0881937, %260 ], [ %.1882, %268 ]
@@ -46806,7 +46806,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr nocaptu
   %277 = icmp eq i8 %275, 0
   %278 = select i1 %277, i32 63, i32 0
   %279 = add nuw nsw i32 %278, %276
-  %280 = trunc i32 %279 to i8
+  %280 = trunc nuw nsw i32 %279 to i8
   store i8 %280, ptr %217, align 1
   %281 = zext nneg i32 %279 to i64
   %282 = getelementptr inbounds i8, ptr %217, i64 %281
@@ -46855,7 +46855,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr nocaptu
   br i1 %.not.i, label %.preheader.i, label %303
 
 303:                                              ; preds = %301
-  %304 = tail call i64 @llvm.cttz.i64(i64 %302, i1 true), !range !15
+  %304 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %302, i1 true)
   %305 = lshr i64 %304, 3
   br label %ZSTD_count.exit
 
@@ -46872,10 +46872,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dictMatchState_6_6(ptr nocaptu
   %.040.val.i = load i64, ptr %.040.i, align 1
   %308 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %308, 0
-  br i1 %.not51.i, label %.preheader.i, label %309, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %309, !llvm.loop !15
 
 309:                                              ; preds = %307
-  %310 = tail call i64 @llvm.cttz.i64(i64 %308, i1 true), !range !15
+  %310 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %308, i1 true)
   %311 = lshr i64 %310, 3
   %312 = getelementptr inbounds i8, ptr %.040.i, i64 %311
   %313 = ptrtoint ptr %312 to i64
@@ -46953,7 +46953,7 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %338 ], [ %.0885949, %ZSTD_count.exit ], [ %.0885949, %292 ]
   %343 = add nuw i64 %.0873950, 1
   %exitcond993.not = icmp eq i64 %343, %.0874.lcssa
-  br i1 %exitcond993.not, label %._crit_edge953, label %292, !llvm.loop !37
+  br i1 %exitcond993.not, label %._crit_edge953, label %292, !llvm.loop !34
 
 ._crit_edge953:                                   ; preds = %ZSTD_count.exit.thread, %338, %._crit_edge942
   %.2887 = phi i64 [ 3, %._crit_edge942 ], [ %.0867, %338 ], [ %.1886, %ZSTD_count.exit.thread ]
@@ -46983,7 +46983,7 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
   store i32 %360, ptr %361, align 4
   %indvars.iv.next995 = add nuw nsw i64 %indvars.iv994, 1
   %exitcond997.not = icmp eq i64 %indvars.iv.next995, 4
-  br i1 %exitcond997.not, label %362, label %354, !llvm.loop !38
+  br i1 %exitcond997.not, label %362, label %354, !llvm.loop !35
 
 362:                                              ; preds = %354
   %.neg907.neg977 = trunc i64 %.neg.neg to i32
@@ -47019,8 +47019,8 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
   %.0854960 = phi i64 [ %404, %402 ], [ %385, %.lr.ph962.preheader ]
   %.0856959 = phi i64 [ %.1857, %402 ], [ 0, %.lr.ph962.preheader ]
   %.2883958 = phi i32 [ %.3884, %402 ], [ %.0881.lcssa, %.lr.ph962.preheader ]
-  %386 = tail call i64 @llvm.cttz.i64(i64 %.0854960, i1 true), !range !15
-  %387 = trunc i64 %386 to i32
+  %386 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0854960, i1 true)
+  %387 = trunc nuw nsw i64 %386 to i32
   %388 = add nuw nsw i32 %387, %363
   %389 = and i32 %388, 63
   %390 = zext nneg i32 %389 to i64
@@ -47051,7 +47051,7 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
   %405 = icmp ne i64 %404, 0
   %406 = icmp ne i32 %.3884, 0
   %407 = select i1 %405, i1 %406, i1 false
-  br i1 %407, label %.lr.ph962, label %._crit_edge963, !llvm.loop !40
+  br i1 %407, label %.lr.ph962, label %._crit_edge963, !llvm.loop !37
 
 ._crit_edge963:                                   ; preds = %402, %394
   %.0856.lcssa = phi i64 [ %.1857, %402 ], [ %.0856959, %394 ]
@@ -47096,7 +47096,7 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
   %.4889 = phi i64 [ %419, %421 ], [ %.3888967, %416 ], [ %.3888967, %410 ]
   %426 = add nuw i64 %.0855968, 1
   %exitcond998.not = icmp eq i64 %426, %.0856.lcssa
-  br i1 %exitcond998.not, label %._crit_edge971, label %410, !llvm.loop !41
+  br i1 %exitcond998.not, label %._crit_edge971, label %410, !llvm.loop !38
 
 ._crit_edge971:                                   ; preds = %.thread, %421, %362, %._crit_edge963
   %.5 = phi i64 [ %.2887, %._crit_edge963 ], [ %.2887, %362 ], [ %419, %421 ], [ %.4889, %.thread ]
@@ -47104,7 +47104,7 @@ ZSTD_count.exit.thread:                           ; preds = %292, %338, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #6 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -47166,7 +47166,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr nocap
   %.fr = freeze i32 %50
   %.not343 = icmp eq i32 %.fr, 0
   %59 = icmp ult i32 %57, %21
-  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !34
+  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !31
 
 .split.us:                                        ; preds = %4
   br i1 %59, label %.lr.ph.preheader, label %.split371.us
@@ -47185,7 +47185,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr nocap
   %65 = zext i32 %64 to i64
   %66 = getelementptr inbounds i32, ptr %52, i64 %65
   %67 = load i32, ptr %66, align 4
-  %68 = trunc i64 %indvars.iv to i32
+  %68 = trunc nuw i64 %indvars.iv to i32
   %69 = and i32 %68, %55
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds i32, ptr %7, i64 %70
@@ -47259,7 +47259,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr nocap
   br i1 %.not.i, label %.preheader.i, label %102
 
 102:                                              ; preds = %100
-  %103 = tail call i64 @llvm.cttz.i64(i64 %101, i1 true), !range !15
+  %103 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %101, i1 true)
   %104 = lshr i64 %103, 3
   br label %ZSTD_count.exit
 
@@ -47276,10 +47276,10 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_4(ptr nocap
   %.040.val.i = load i64, ptr %.040.i, align 1
   %107 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %107, 0
-  br i1 %.not51.i, label %.preheader.i, label %108, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %108, !llvm.loop !15
 
 108:                                              ; preds = %106
-  %109 = tail call i64 @llvm.cttz.i64(i64 %107, i1 true), !range !15
+  %109 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %107, i1 true)
   %110 = lshr i64 %109, 3
   %111 = getelementptr inbounds i8, ptr %.040.i, i64 %110
   %112 = ptrtoint ptr %111 to i64
@@ -47367,7 +47367,7 @@ ZSTD_count.exit.thread:                           ; preds = %93, %137, %ZSTD_cou
   %147 = icmp uge i32 %.0338, %32
   %148 = icmp ne i32 %146, 0
   %149 = and i1 %148, %147
-  br i1 %149, label %93, label %._crit_edge, !llvm.loop !35
+  br i1 %149, label %93, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %ZSTD_count.exit.thread, %137, %142, %.split371.us
   %.0331.lcssa = phi i32 [ %36, %.split371.us ], [ %146, %142 ], [ %.0331375, %137 ], [ %.0331375, %ZSTD_count.exit.thread ]
@@ -47393,7 +47393,7 @@ ZSTD_count.exit.thread:                           ; preds = %93, %137, %ZSTD_cou
   tail call void @llvm.prefetch.p0(ptr %161, i32 0, i32 3, i32 1)
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next414, 3
-  br i1 %exitcond.not, label %162, label %156, !llvm.loop !42
+  br i1 %exitcond.not, label %162, label %156, !llvm.loop !39
 
 162:                                              ; preds = %156
   %163 = tail call i32 @llvm.umin.i32(i32 %.0331.lcssa, i32 3)
@@ -47420,8 +47420,8 @@ ZSTD_count.exit.thread:                           ; preds = %93, %137, %ZSTD_cou
   %indvars.iv416 = phi i64 [ 0, %.lr.ph388 ], [ %indvars.iv.next417, %.thread ]
   %.0317386 = phi i64 [ %.2335, %.lr.ph388 ], [ %.1, %.thread ]
   %175 = load ptr, ptr %46, align 8
-  %176 = getelementptr i32, ptr %175, i64 %45
-  %177 = getelementptr i32, ptr %176, i64 %indvars.iv416
+  %176 = getelementptr inbounds i32, ptr %175, i64 %45
+  %177 = getelementptr inbounds i32, ptr %176, i64 %indvars.iv416
   %178 = load i32, ptr %177, align 4
   %179 = zext i32 %178 to i64
   %180 = getelementptr inbounds i8, ptr %151, i64 %179
@@ -47453,7 +47453,7 @@ ZSTD_count.exit.thread:                           ; preds = %93, %137, %ZSTD_cou
   %.1 = phi i64 [ %186, %188 ], [ %.0317386, %183 ], [ %.0317386, %181 ]
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %exitcond419.not = icmp eq i64 %indvars.iv.next417, %wide.trip.count
-  br i1 %exitcond419.not, label %._crit_edge389.loopexit, label %174, !llvm.loop !43
+  br i1 %exitcond419.not, label %._crit_edge389.loopexit, label %174, !llvm.loop !40
 
 ._crit_edge389.loopexit:                          ; preds = %.thread
   %.pre = load ptr, ptr %46, align 8
@@ -47477,7 +47477,7 @@ ZSTD_count.exit.thread:                           ; preds = %93, %137, %ZSTD_cou
   %197 = load ptr, ptr %168, align 8
   %198 = zext nneg i32 %.pre-phi to i64
   %wide.trip.count423 = zext nneg i32 %196 to i64
-  %invariant.gep434 = getelementptr i32, ptr %197, i64 %198
+  %invariant.gep434 = getelementptr inbounds i32, ptr %197, i64 %198
   br label %203
 
 .preheader:                                       ; preds = %203
@@ -47493,14 +47493,14 @@ ZSTD_count.exit.thread:                           ; preds = %93, %137, %ZSTD_cou
 
 203:                                              ; preds = %.lr.ph394, %203
   %indvars.iv420 = phi i64 [ 0, %.lr.ph394 ], [ %indvars.iv.next421, %203 ]
-  %gep435 = getelementptr i32, ptr %invariant.gep434, i64 %indvars.iv420
+  %gep435 = getelementptr inbounds i32, ptr %invariant.gep434, i64 %indvars.iv420
   %204 = load i32, ptr %gep435, align 4
   %205 = zext i32 %204 to i64
   %206 = getelementptr inbounds i8, ptr %151, i64 %205
   tail call void @llvm.prefetch.p0(ptr %206, i32 0, i32 3, i32 1)
   %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
   %exitcond424.not = icmp eq i64 %indvars.iv.next421, %wide.trip.count423
-  br i1 %exitcond424.not, label %.preheader, label %203, !llvm.loop !44
+  br i1 %exitcond424.not, label %.preheader, label %203, !llvm.loop !41
 
 207:                                              ; preds = %.lr.ph398, %.thread357
   %indvars.iv425 = phi i64 [ %202, %.lr.ph398 ], [ %indvars.iv.next426, %.thread357 ]
@@ -47536,7 +47536,7 @@ ZSTD_count.exit.thread:                           ; preds = %93, %137, %ZSTD_cou
   %224 = add nuw nsw i32 %.1324395, 1
   %indvars.iv.next426 = add nuw nsw i64 %indvars.iv425, 1
   %exitcond427.not = icmp eq i32 %224, %196
-  br i1 %exitcond427.not, label %.loopexit, label %207, !llvm.loop !45
+  br i1 %exitcond427.not, label %.loopexit, label %207, !llvm.loop !42
 
 .loopexit:                                        ; preds = %174, %188, %.thread357, %219, %._crit_edge389, %.preheader
   %.0 = phi i64 [ %.0317.lcssa, %.preheader ], [ %.0317.lcssa, %._crit_edge389 ], [ %.3, %.thread357 ], [ %217, %219 ], [ %186, %188 ], [ %.0317386, %174 ]
@@ -47544,7 +47544,7 @@ ZSTD_count.exit.thread:                           ; preds = %93, %137, %ZSTD_cou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #6 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -47607,7 +47607,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr nocap
   %.fr = freeze i32 %50
   %.not343 = icmp eq i32 %.fr, 0
   %60 = icmp ult i32 %57, %21
-  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !34
+  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !31
 
 .split.us:                                        ; preds = %4
   br i1 %60, label %.lr.ph.preheader, label %.split371.us
@@ -47625,7 +47625,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr nocap
   %65 = lshr i64 %64, %59
   %66 = getelementptr inbounds i32, ptr %52, i64 %65
   %67 = load i32, ptr %66, align 4
-  %68 = trunc i64 %indvars.iv to i32
+  %68 = trunc nuw i64 %indvars.iv to i32
   %69 = and i32 %68, %55
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds i32, ptr %7, i64 %70
@@ -47697,7 +47697,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr nocap
   br i1 %.not.i, label %.preheader.i, label %100
 
 100:                                              ; preds = %98
-  %101 = tail call i64 @llvm.cttz.i64(i64 %99, i1 true), !range !15
+  %101 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %99, i1 true)
   %102 = lshr i64 %101, 3
   br label %ZSTD_count.exit
 
@@ -47714,10 +47714,10 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_5(ptr nocap
   %.040.val.i = load i64, ptr %.040.i, align 1
   %105 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %105, 0
-  br i1 %.not51.i, label %.preheader.i, label %106, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %106, !llvm.loop !15
 
 106:                                              ; preds = %104
-  %107 = tail call i64 @llvm.cttz.i64(i64 %105, i1 true), !range !15
+  %107 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %105, i1 true)
   %108 = lshr i64 %107, 3
   %109 = getelementptr inbounds i8, ptr %.040.i, i64 %108
   %110 = ptrtoint ptr %109 to i64
@@ -47805,7 +47805,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   %145 = icmp uge i32 %.0338, %32
   %146 = icmp ne i32 %144, 0
   %147 = and i1 %146, %145
-  br i1 %147, label %91, label %._crit_edge, !llvm.loop !35
+  br i1 %147, label %91, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %ZSTD_count.exit.thread, %135, %140, %.split371.us
   %.0331.lcssa = phi i32 [ %36, %.split371.us ], [ %144, %140 ], [ %.0331375, %135 ], [ %.0331375, %ZSTD_count.exit.thread ]
@@ -47831,7 +47831,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   tail call void @llvm.prefetch.p0(ptr %159, i32 0, i32 3, i32 1)
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next414, 3
-  br i1 %exitcond.not, label %160, label %154, !llvm.loop !42
+  br i1 %exitcond.not, label %160, label %154, !llvm.loop !39
 
 160:                                              ; preds = %154
   %161 = tail call i32 @llvm.umin.i32(i32 %.0331.lcssa, i32 3)
@@ -47891,7 +47891,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   %.1 = phi i64 [ %184, %186 ], [ %.0317386, %181 ], [ %.0317386, %179 ]
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %exitcond419.not = icmp eq i64 %indvars.iv.next417, %wide.trip.count
-  br i1 %exitcond419.not, label %._crit_edge389.loopexit, label %172, !llvm.loop !43
+  br i1 %exitcond419.not, label %._crit_edge389.loopexit, label %172, !llvm.loop !40
 
 ._crit_edge389.loopexit:                          ; preds = %.thread
   %.pre = load ptr, ptr %46, align 8
@@ -47915,7 +47915,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   %195 = load ptr, ptr %166, align 8
   %196 = zext nneg i32 %.pre-phi to i64
   %wide.trip.count423 = zext nneg i32 %194 to i64
-  %invariant.gep434 = getelementptr i32, ptr %195, i64 %196
+  %invariant.gep434 = getelementptr inbounds i32, ptr %195, i64 %196
   br label %201
 
 .preheader:                                       ; preds = %201
@@ -47931,14 +47931,14 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
 
 201:                                              ; preds = %.lr.ph394, %201
   %indvars.iv420 = phi i64 [ 0, %.lr.ph394 ], [ %indvars.iv.next421, %201 ]
-  %gep435 = getelementptr i32, ptr %invariant.gep434, i64 %indvars.iv420
+  %gep435 = getelementptr inbounds i32, ptr %invariant.gep434, i64 %indvars.iv420
   %202 = load i32, ptr %gep435, align 4
   %203 = zext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %149, i64 %203
   tail call void @llvm.prefetch.p0(ptr %204, i32 0, i32 3, i32 1)
   %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
   %exitcond424.not = icmp eq i64 %indvars.iv.next421, %wide.trip.count423
-  br i1 %exitcond424.not, label %.preheader, label %201, !llvm.loop !44
+  br i1 %exitcond424.not, label %.preheader, label %201, !llvm.loop !41
 
 205:                                              ; preds = %.lr.ph398, %.thread357
   %indvars.iv425 = phi i64 [ %200, %.lr.ph398 ], [ %indvars.iv.next426, %.thread357 ]
@@ -47974,7 +47974,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   %222 = add nuw nsw i32 %.1324395, 1
   %indvars.iv.next426 = add nuw nsw i64 %indvars.iv425, 1
   %exitcond427.not = icmp eq i32 %222, %194
-  br i1 %exitcond427.not, label %.loopexit, label %205, !llvm.loop !45
+  br i1 %exitcond427.not, label %.loopexit, label %205, !llvm.loop !42
 
 .loopexit:                                        ; preds = %172, %186, %.thread357, %217, %._crit_edge389, %.preheader
   %.0 = phi i64 [ %.0317.lcssa, %.preheader ], [ %.0317.lcssa, %._crit_edge389 ], [ %.3, %.thread357 ], [ %215, %217 ], [ %184, %186 ], [ %.0317386, %172 ]
@@ -48045,7 +48045,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr nocap
   %.fr = freeze i32 %50
   %.not343 = icmp eq i32 %.fr, 0
   %60 = icmp ult i32 %57, %21
-  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !34
+  br i1 %.not343, label %.split.us, label %.split, !llvm.loop !31
 
 .split.us:                                        ; preds = %4
   br i1 %60, label %.lr.ph.preheader, label %.split371.us
@@ -48063,7 +48063,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr nocap
   %65 = lshr i64 %64, %59
   %66 = getelementptr inbounds i32, ptr %52, i64 %65
   %67 = load i32, ptr %66, align 4
-  %68 = trunc i64 %indvars.iv to i32
+  %68 = trunc nuw i64 %indvars.iv to i32
   %69 = and i32 %68, %55
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds i32, ptr %7, i64 %70
@@ -48135,7 +48135,7 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr nocap
   br i1 %.not.i, label %.preheader.i, label %100
 
 100:                                              ; preds = %98
-  %101 = tail call i64 @llvm.cttz.i64(i64 %99, i1 true), !range !15
+  %101 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %99, i1 true)
   %102 = lshr i64 %101, 3
   br label %ZSTD_count.exit
 
@@ -48152,10 +48152,10 @@ define internal fastcc i64 @ZSTD_HcFindBestMatch_dedicatedDictSearch_6(ptr nocap
   %.040.val.i = load i64, ptr %.040.i, align 1
   %105 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %105, 0
-  br i1 %.not51.i, label %.preheader.i, label %106, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %106, !llvm.loop !15
 
 106:                                              ; preds = %104
-  %107 = tail call i64 @llvm.cttz.i64(i64 %105, i1 true), !range !15
+  %107 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %105, i1 true)
   %108 = lshr i64 %107, 3
   %109 = getelementptr inbounds i8, ptr %.040.i, i64 %108
   %110 = ptrtoint ptr %109 to i64
@@ -48243,7 +48243,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   %145 = icmp uge i32 %.0338, %32
   %146 = icmp ne i32 %144, 0
   %147 = and i1 %146, %145
-  br i1 %147, label %91, label %._crit_edge, !llvm.loop !35
+  br i1 %147, label %91, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %ZSTD_count.exit.thread, %135, %140, %.split371.us
   %.0331.lcssa = phi i32 [ %36, %.split371.us ], [ %144, %140 ], [ %.0331375, %135 ], [ %.0331375, %ZSTD_count.exit.thread ]
@@ -48269,7 +48269,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   tail call void @llvm.prefetch.p0(ptr %159, i32 0, i32 3, i32 1)
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next414, 3
-  br i1 %exitcond.not, label %160, label %154, !llvm.loop !42
+  br i1 %exitcond.not, label %160, label %154, !llvm.loop !39
 
 160:                                              ; preds = %154
   %161 = tail call i32 @llvm.umin.i32(i32 %.0331.lcssa, i32 3)
@@ -48329,7 +48329,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   %.1 = phi i64 [ %184, %186 ], [ %.0317386, %181 ], [ %.0317386, %179 ]
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %exitcond419.not = icmp eq i64 %indvars.iv.next417, %wide.trip.count
-  br i1 %exitcond419.not, label %._crit_edge389.loopexit, label %172, !llvm.loop !43
+  br i1 %exitcond419.not, label %._crit_edge389.loopexit, label %172, !llvm.loop !40
 
 ._crit_edge389.loopexit:                          ; preds = %.thread
   %.pre = load ptr, ptr %46, align 8
@@ -48353,7 +48353,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   %195 = load ptr, ptr %166, align 8
   %196 = zext nneg i32 %.pre-phi to i64
   %wide.trip.count423 = zext nneg i32 %194 to i64
-  %invariant.gep434 = getelementptr i32, ptr %195, i64 %196
+  %invariant.gep434 = getelementptr inbounds i32, ptr %195, i64 %196
   br label %201
 
 .preheader:                                       ; preds = %201
@@ -48369,14 +48369,14 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
 
 201:                                              ; preds = %.lr.ph394, %201
   %indvars.iv420 = phi i64 [ 0, %.lr.ph394 ], [ %indvars.iv.next421, %201 ]
-  %gep435 = getelementptr i32, ptr %invariant.gep434, i64 %indvars.iv420
+  %gep435 = getelementptr inbounds i32, ptr %invariant.gep434, i64 %indvars.iv420
   %202 = load i32, ptr %gep435, align 4
   %203 = zext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %149, i64 %203
   tail call void @llvm.prefetch.p0(ptr %204, i32 0, i32 3, i32 1)
   %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
   %exitcond424.not = icmp eq i64 %indvars.iv.next421, %wide.trip.count423
-  br i1 %exitcond424.not, label %.preheader, label %201, !llvm.loop !44
+  br i1 %exitcond424.not, label %.preheader, label %201, !llvm.loop !41
 
 205:                                              ; preds = %.lr.ph398, %.thread357
   %indvars.iv425 = phi i64 [ %200, %.lr.ph398 ], [ %indvars.iv.next426, %.thread357 ]
@@ -48412,7 +48412,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
   %222 = add nuw nsw i32 %.1324395, 1
   %indvars.iv.next426 = add nuw nsw i64 %indvars.iv425, 1
   %exitcond427.not = icmp eq i32 %222, %194
-  br i1 %exitcond427.not, label %.loopexit, label %205, !llvm.loop !45
+  br i1 %exitcond427.not, label %.loopexit, label %205, !llvm.loop !42
 
 .loopexit:                                        ; preds = %172, %186, %.thread357, %217, %._crit_edge389, %.preheader
   %.0 = phi i64 [ %.0317.lcssa, %.preheader ], [ %.0317.lcssa, %._crit_edge389 ], [ %.3, %.thread357 ], [ %215, %217 ], [ %184, %186 ], [ %.0317386, %172 ]
@@ -48420,7 +48420,7 @@ ZSTD_count.exit.thread:                           ; preds = %91, %135, %ZSTD_cou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -48516,7 +48516,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr no
   tail call void @llvm.prefetch.p0(ptr %77, i32 0, i32 3, i32 1)
   %78 = getelementptr inbounds i8, ptr %9, i64 %76
   tail call void @llvm.prefetch.p0(ptr %78, i32 0, i32 3, i32 1)
-  %79 = trunc i64 %indvars.iv to i32
+  %79 = trunc nuw i64 %indvars.iv to i32
   %80 = and i64 %indvars.iv, 7
   %81 = getelementptr inbounds i32, ptr %10, i64 %80
   %82 = load i32, ptr %81, align 4
@@ -48533,7 +48533,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr no
   %92 = icmp eq i8 %90, 0
   %93 = select i1 %92, i32 15, i32 0
   %94 = add nuw nsw i32 %93, %91
-  %95 = trunc i32 %94 to i8
+  %95 = trunc nuw nsw i32 %94 to i8
   store i8 %95, ptr %87, align 1
   %96 = trunc i32 %82 to i8
   %97 = zext nneg i32 %94 to i64
@@ -48596,7 +48596,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr no
   %indvars.iv.next997 = add nuw nsw i64 %indvars.iv996, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next997 to i32
   %exitcond999.not = icmp eq i32 %114, %lftr.wideiv
-  br i1 %exitcond999.not, label %.loopexit932, label %120, !llvm.loop !28
+  br i1 %exitcond999.not, label %.loopexit932, label %120, !llvm.loop !25
 
 .loopexit932:                                     ; preds = %120, %._crit_edge, %58
   %132 = phi ptr [ %9, %58 ], [ %100, %._crit_edge ], [ %100, %120 ]
@@ -48630,7 +48630,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr no
   tail call void @llvm.prefetch.p0(ptr %149, i32 0, i32 3, i32 1)
   %150 = getelementptr inbounds i8, ptr %132, i64 %148
   tail call void @llvm.prefetch.p0(ptr %150, i32 0, i32 3, i32 1)
-  %151 = trunc i64 %indvars.iv1000 to i32
+  %151 = trunc nuw i64 %indvars.iv1000 to i32
   %152 = and i64 %indvars.iv1000, 7
   %153 = getelementptr inbounds i32, ptr %10, i64 %152
   %154 = load i32, ptr %153, align 4
@@ -48647,7 +48647,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr no
   %164 = icmp eq i8 %162, 0
   %165 = select i1 %164, i32 15, i32 0
   %166 = add nuw nsw i32 %165, %163
-  %167 = trunc i32 %166 to i8
+  %167 = trunc nuw nsw i32 %166 to i8
   store i8 %167, ptr %159, align 1
   %168 = trunc i32 %154 to i8
   %169 = zext nneg i32 %166 to i64
@@ -48725,8 +48725,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr no
   %.0872949 = phi i64 [ %233, %231 ], [ %214, %.lr.ph950.preheader ]
   %.0874948 = phi i64 [ %.1875, %231 ], [ 0, %.lr.ph950.preheader ]
   %.0881947 = phi i32 [ %.1882, %231 ], [ %39, %.lr.ph950.preheader ]
-  %215 = tail call i64 @llvm.cttz.i64(i64 %.0872949, i1 true), !range !15
-  %216 = trunc i64 %215 to i32
+  %215 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872949, i1 true)
+  %216 = trunc nuw nsw i64 %215 to i32
   %217 = add nuw nsw i32 %216, %204
   %218 = and i32 %217, 15
   %219 = zext nneg i32 %218 to i64
@@ -48757,7 +48757,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr no
   %234 = icmp ne i64 %233, 0
   %235 = icmp ne i32 %.1882, 0
   %236 = select i1 %234, i1 %235, i1 false
-  br i1 %236, label %.lr.ph950, label %._crit_edge951, !llvm.loop !36
+  br i1 %236, label %.lr.ph950, label %._crit_edge951, !llvm.loop !33
 
 ._crit_edge951:                                   ; preds = %231, %223, %.critedge
   %.0881.lcssa = phi i32 [ %39, %.critedge ], [ %.0881947, %223 ], [ %.1882, %231 ]
@@ -48768,7 +48768,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr no
   %240 = icmp eq i8 %238, 0
   %241 = select i1 %240, i32 15, i32 0
   %242 = add nuw nsw i32 %241, %239
-  %243 = trunc i32 %242 to i8
+  %243 = trunc nuw nsw i32 %242 to i8
   store i8 %243, ptr %202, align 1
   %244 = zext nneg i32 %242 to i64
   %245 = getelementptr inbounds i8, ptr %202, i64 %244
@@ -48817,7 +48817,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr no
   br i1 %.not.i, label %.preheader.i, label %266
 
 266:                                              ; preds = %264
-  %267 = tail call i64 @llvm.cttz.i64(i64 %265, i1 true), !range !15
+  %267 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %265, i1 true)
   %268 = lshr i64 %267, 3
   br label %ZSTD_count.exit
 
@@ -48834,10 +48834,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_4(ptr no
   %.040.val.i = load i64, ptr %.040.i, align 1
   %271 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %271, 0
-  br i1 %.not51.i, label %.preheader.i, label %272, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %272, !llvm.loop !15
 
 272:                                              ; preds = %270
-  %273 = tail call i64 @llvm.cttz.i64(i64 %271, i1 true), !range !15
+  %273 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %271, i1 true)
   %274 = lshr i64 %273, 3
   %275 = getelementptr inbounds i8, ptr %.040.i, i64 %274
   %276 = ptrtoint ptr %275 to i64
@@ -48915,7 +48915,7 @@ ZSTD_count.exit.thread:                           ; preds = %255, %301, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %301 ], [ %.0885958, %ZSTD_count.exit ], [ %.0885958, %255 ]
   %306 = add nuw i64 %.0873959, 1
   %exitcond1003.not = icmp eq i64 %306, %.0874.lcssa
-  br i1 %exitcond1003.not, label %._crit_edge962, label %255, !llvm.loop !37
+  br i1 %exitcond1003.not, label %._crit_edge962, label %255, !llvm.loop !34
 
 ._crit_edge962:                                   ; preds = %301, %ZSTD_count.exit.thread, %._crit_edge951
   %.2887 = phi i64 [ 3, %._crit_edge951 ], [ %.1886, %ZSTD_count.exit.thread ], [ %.0867, %301 ]
@@ -48940,7 +48940,7 @@ ZSTD_count.exit.thread:                           ; preds = %255, %301, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %318, i32 0, i32 3, i32 1)
   %indvars.iv.next1005 = add nuw nsw i64 %indvars.iv1004, 1
   %exitcond1007.not = icmp eq i64 %indvars.iv.next1005, 3
-  br i1 %exitcond1007.not, label %319, label %313, !llvm.loop !42
+  br i1 %exitcond1007.not, label %319, label %313, !llvm.loop !39
 
 319:                                              ; preds = %313
   %320 = add i32 %.0881.lcssa, %55
@@ -48968,8 +48968,8 @@ ZSTD_count.exit.thread:                           ; preds = %255, %301, %ZSTD_co
   %indvars.iv1008 = phi i64 [ 0, %.lr.ph970 ], [ %indvars.iv.next1009, %.thread ]
   %.0851968 = phi i64 [ %.2887, %.lr.ph970 ], [ %.1, %.thread ]
   %333 = load ptr, ptr %49, align 8
-  %334 = getelementptr i32, ptr %333, i64 %48
-  %335 = getelementptr i32, ptr %334, i64 %indvars.iv1008
+  %334 = getelementptr inbounds i32, ptr %333, i64 %48
+  %335 = getelementptr inbounds i32, ptr %334, i64 %indvars.iv1008
   %336 = load i32, ptr %335, align 4
   %337 = zext i32 %336 to i64
   %338 = getelementptr inbounds i8, ptr %308, i64 %337
@@ -49001,7 +49001,7 @@ ZSTD_count.exit.thread:                           ; preds = %255, %301, %ZSTD_co
   %.1 = phi i64 [ %344, %346 ], [ %.0851968, %341 ], [ %.0851968, %339 ]
   %indvars.iv.next1009 = add nuw nsw i64 %indvars.iv1008, 1
   %exitcond1012.not = icmp eq i64 %indvars.iv.next1009, %wide.trip.count1011
-  br i1 %exitcond1012.not, label %._crit_edge971.loopexit, label %332, !llvm.loop !43
+  br i1 %exitcond1012.not, label %._crit_edge971.loopexit, label %332, !llvm.loop !40
 
 ._crit_edge971.loopexit:                          ; preds = %.thread
   %.pre1022 = load ptr, ptr %49, align 8
@@ -49025,7 +49025,7 @@ ZSTD_count.exit.thread:                           ; preds = %255, %301, %ZSTD_co
   %355 = load ptr, ptr %325, align 8
   %356 = zext nneg i32 %.pre-phi to i64
   %wide.trip.count1016 = zext nneg i32 %354 to i64
-  %invariant.gep1029 = getelementptr i32, ptr %355, i64 %356
+  %invariant.gep1029 = getelementptr inbounds i32, ptr %355, i64 %356
   br label %361
 
 .preheader:                                       ; preds = %361
@@ -49041,14 +49041,14 @@ ZSTD_count.exit.thread:                           ; preds = %255, %301, %ZSTD_co
 
 361:                                              ; preds = %.lr.ph976, %361
   %indvars.iv1013 = phi i64 [ 0, %.lr.ph976 ], [ %indvars.iv.next1014, %361 ]
-  %gep1030 = getelementptr i32, ptr %invariant.gep1029, i64 %indvars.iv1013
+  %gep1030 = getelementptr inbounds i32, ptr %invariant.gep1029, i64 %indvars.iv1013
   %362 = load i32, ptr %gep1030, align 4
   %363 = zext i32 %362 to i64
   %364 = getelementptr inbounds i8, ptr %308, i64 %363
   tail call void @llvm.prefetch.p0(ptr %364, i32 0, i32 3, i32 1)
   %indvars.iv.next1014 = add nuw nsw i64 %indvars.iv1013, 1
   %exitcond1017.not = icmp eq i64 %indvars.iv.next1014, %wide.trip.count1016
-  br i1 %exitcond1017.not, label %.preheader, label %361, !llvm.loop !44
+  br i1 %exitcond1017.not, label %.preheader, label %361, !llvm.loop !41
 
 365:                                              ; preds = %.lr.ph980, %.thread922
   %indvars.iv1018 = phi i64 [ %360, %.lr.ph980 ], [ %indvars.iv.next1019, %.thread922 ]
@@ -49084,7 +49084,7 @@ ZSTD_count.exit.thread:                           ; preds = %255, %301, %ZSTD_co
   %382 = add nuw nsw i32 %.1861977, 1
   %indvars.iv.next1019 = add nuw nsw i64 %indvars.iv1018, 1
   %exitcond1020.not = icmp eq i32 %382, %354
-  br i1 %exitcond1020.not, label %.loopexit, label %365, !llvm.loop !45
+  br i1 %exitcond1020.not, label %.loopexit, label %365, !llvm.loop !42
 
 .loopexit:                                        ; preds = %332, %346, %.thread922, %377, %._crit_edge971, %.preheader
   %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge971 ], [ %.3, %.thread922 ], [ %375, %377 ], [ %344, %346 ], [ %.0851968, %332 ]
@@ -49092,7 +49092,7 @@ ZSTD_count.exit.thread:                           ; preds = %255, %301, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -49190,7 +49190,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr no
   tail call void @llvm.prefetch.p0(ptr nonnull %78, i32 0, i32 3, i32 1)
   %79 = getelementptr inbounds i8, ptr %9, i64 %76
   tail call void @llvm.prefetch.p0(ptr %79, i32 0, i32 3, i32 1)
-  %80 = trunc i64 %indvars.iv to i32
+  %80 = trunc nuw i64 %indvars.iv to i32
   %81 = and i64 %indvars.iv, 7
   %82 = getelementptr inbounds i32, ptr %10, i64 %81
   %83 = load i32, ptr %82, align 4
@@ -49207,7 +49207,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr no
   %93 = icmp eq i8 %91, 0
   %94 = select i1 %93, i32 31, i32 0
   %95 = add nuw nsw i32 %94, %92
-  %96 = trunc i32 %95 to i8
+  %96 = trunc nuw nsw i32 %95 to i8
   store i8 %96, ptr %88, align 1
   %97 = trunc i32 %83 to i8
   %98 = zext nneg i32 %95 to i64
@@ -49272,7 +49272,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr no
   %indvars.iv.next999 = add nuw nsw i64 %indvars.iv998, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next999 to i32
   %exitcond1001.not = icmp eq i32 %115, %lftr.wideiv
-  br i1 %exitcond1001.not, label %.loopexit932, label %121, !llvm.loop !28
+  br i1 %exitcond1001.not, label %.loopexit932, label %121, !llvm.loop !25
 
 .loopexit932:                                     ; preds = %121, %._crit_edge, %58
   %134 = phi ptr [ %9, %58 ], [ %101, %._crit_edge ], [ %101, %121 ]
@@ -49308,7 +49308,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr no
   tail call void @llvm.prefetch.p0(ptr nonnull %152, i32 0, i32 3, i32 1)
   %153 = getelementptr inbounds i8, ptr %134, i64 %150
   tail call void @llvm.prefetch.p0(ptr %153, i32 0, i32 3, i32 1)
-  %154 = trunc i64 %indvars.iv1002 to i32
+  %154 = trunc nuw i64 %indvars.iv1002 to i32
   %155 = and i64 %indvars.iv1002, 7
   %156 = getelementptr inbounds i32, ptr %10, i64 %155
   %157 = load i32, ptr %156, align 4
@@ -49325,7 +49325,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr no
   %167 = icmp eq i8 %165, 0
   %168 = select i1 %167, i32 31, i32 0
   %169 = add nuw nsw i32 %168, %166
-  %170 = trunc i32 %169 to i8
+  %170 = trunc nuw nsw i32 %169 to i8
   store i8 %170, ptr %162, align 1
   %171 = trunc i32 %157 to i8
   %172 = zext nneg i32 %169 to i64
@@ -49414,8 +49414,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr no
   %.0872950 = phi i64 [ %244, %242 ], [ %225, %.lr.ph952.preheader ]
   %.0874949 = phi i64 [ %.1875, %242 ], [ 0, %.lr.ph952.preheader ]
   %.0881948 = phi i32 [ %.1882, %242 ], [ %39, %.lr.ph952.preheader ]
-  %226 = tail call i64 @llvm.cttz.i64(i64 %.0872950, i1 true), !range !15
-  %227 = trunc i64 %226 to i32
+  %226 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872950, i1 true)
+  %227 = trunc nuw nsw i64 %226 to i32
   %228 = add nuw nsw i32 %227, %221
   %229 = and i32 %228, 31
   %230 = zext nneg i32 %229 to i64
@@ -49446,7 +49446,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr no
   %245 = icmp ne i64 %244, 0
   %246 = icmp ne i32 %.1882, 0
   %247 = select i1 %245, i1 %246, i1 false
-  br i1 %247, label %.lr.ph952, label %._crit_edge953, !llvm.loop !36
+  br i1 %247, label %.lr.ph952, label %._crit_edge953, !llvm.loop !33
 
 ._crit_edge953:                                   ; preds = %242, %234, %.critedge
   %.0881.lcssa = phi i32 [ %39, %.critedge ], [ %.0881948, %234 ], [ %.1882, %242 ]
@@ -49457,7 +49457,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr no
   %251 = icmp eq i8 %249, 0
   %252 = select i1 %251, i32 31, i32 0
   %253 = add nuw nsw i32 %252, %250
-  %254 = trunc i32 %253 to i8
+  %254 = trunc nuw nsw i32 %253 to i8
   store i8 %254, ptr %205, align 1
   %255 = zext nneg i32 %253 to i64
   %256 = getelementptr inbounds i8, ptr %205, i64 %255
@@ -49506,7 +49506,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr no
   br i1 %.not.i, label %.preheader.i, label %277
 
 277:                                              ; preds = %275
-  %278 = tail call i64 @llvm.cttz.i64(i64 %276, i1 true), !range !15
+  %278 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %276, i1 true)
   %279 = lshr i64 %278, 3
   br label %ZSTD_count.exit
 
@@ -49523,10 +49523,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_5(ptr no
   %.040.val.i = load i64, ptr %.040.i, align 1
   %282 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %282, 0
-  br i1 %.not51.i, label %.preheader.i, label %283, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %283, !llvm.loop !15
 
 283:                                              ; preds = %281
-  %284 = tail call i64 @llvm.cttz.i64(i64 %282, i1 true), !range !15
+  %284 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %282, i1 true)
   %285 = lshr i64 %284, 3
   %286 = getelementptr inbounds i8, ptr %.040.i, i64 %285
   %287 = ptrtoint ptr %286 to i64
@@ -49604,7 +49604,7 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %312 ], [ %.0885960, %ZSTD_count.exit ], [ %.0885960, %266 ]
   %317 = add nuw i64 %.0873961, 1
   %exitcond1008.not = icmp eq i64 %317, %.0874.lcssa
-  br i1 %exitcond1008.not, label %._crit_edge964, label %266, !llvm.loop !37
+  br i1 %exitcond1008.not, label %._crit_edge964, label %266, !llvm.loop !34
 
 ._crit_edge964:                                   ; preds = %312, %ZSTD_count.exit.thread, %._crit_edge953
   %.2887 = phi i64 [ 3, %._crit_edge953 ], [ %.1886, %ZSTD_count.exit.thread ], [ %.0867, %312 ]
@@ -49629,7 +49629,7 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %329, i32 0, i32 3, i32 1)
   %indvars.iv.next1010 = add nuw nsw i64 %indvars.iv1009, 1
   %exitcond1012.not = icmp eq i64 %indvars.iv.next1010, 3
-  br i1 %exitcond1012.not, label %330, label %324, !llvm.loop !42
+  br i1 %exitcond1012.not, label %330, label %324, !llvm.loop !39
 
 330:                                              ; preds = %324
   %331 = add i32 %.0881.lcssa, %55
@@ -49657,8 +49657,8 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
   %indvars.iv1013 = phi i64 [ 0, %.lr.ph972 ], [ %indvars.iv.next1014, %.thread ]
   %.0851970 = phi i64 [ %.2887, %.lr.ph972 ], [ %.1, %.thread ]
   %344 = load ptr, ptr %49, align 8
-  %345 = getelementptr i32, ptr %344, i64 %48
-  %346 = getelementptr i32, ptr %345, i64 %indvars.iv1013
+  %345 = getelementptr inbounds i32, ptr %344, i64 %48
+  %346 = getelementptr inbounds i32, ptr %345, i64 %indvars.iv1013
   %347 = load i32, ptr %346, align 4
   %348 = zext i32 %347 to i64
   %349 = getelementptr inbounds i8, ptr %319, i64 %348
@@ -49690,7 +49690,7 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
   %.1 = phi i64 [ %355, %357 ], [ %.0851970, %352 ], [ %.0851970, %350 ]
   %indvars.iv.next1014 = add nuw nsw i64 %indvars.iv1013, 1
   %exitcond1017.not = icmp eq i64 %indvars.iv.next1014, %wide.trip.count1016
-  br i1 %exitcond1017.not, label %._crit_edge973.loopexit, label %343, !llvm.loop !43
+  br i1 %exitcond1017.not, label %._crit_edge973.loopexit, label %343, !llvm.loop !40
 
 ._crit_edge973.loopexit:                          ; preds = %.thread
   %.pre1027 = load ptr, ptr %49, align 8
@@ -49714,7 +49714,7 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
   %366 = load ptr, ptr %336, align 8
   %367 = zext nneg i32 %.pre-phi to i64
   %wide.trip.count1021 = zext nneg i32 %365 to i64
-  %invariant.gep1034 = getelementptr i32, ptr %366, i64 %367
+  %invariant.gep1034 = getelementptr inbounds i32, ptr %366, i64 %367
   br label %372
 
 .preheader:                                       ; preds = %372
@@ -49730,14 +49730,14 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
 
 372:                                              ; preds = %.lr.ph978, %372
   %indvars.iv1018 = phi i64 [ 0, %.lr.ph978 ], [ %indvars.iv.next1019, %372 ]
-  %gep1035 = getelementptr i32, ptr %invariant.gep1034, i64 %indvars.iv1018
+  %gep1035 = getelementptr inbounds i32, ptr %invariant.gep1034, i64 %indvars.iv1018
   %373 = load i32, ptr %gep1035, align 4
   %374 = zext i32 %373 to i64
   %375 = getelementptr inbounds i8, ptr %319, i64 %374
   tail call void @llvm.prefetch.p0(ptr %375, i32 0, i32 3, i32 1)
   %indvars.iv.next1019 = add nuw nsw i64 %indvars.iv1018, 1
   %exitcond1022.not = icmp eq i64 %indvars.iv.next1019, %wide.trip.count1021
-  br i1 %exitcond1022.not, label %.preheader, label %372, !llvm.loop !44
+  br i1 %exitcond1022.not, label %.preheader, label %372, !llvm.loop !41
 
 376:                                              ; preds = %.lr.ph982, %.thread922
   %indvars.iv1023 = phi i64 [ %371, %.lr.ph982 ], [ %indvars.iv.next1024, %.thread922 ]
@@ -49773,7 +49773,7 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
   %393 = add nuw nsw i32 %.1861979, 1
   %indvars.iv.next1024 = add nuw nsw i64 %indvars.iv1023, 1
   %exitcond1025.not = icmp eq i32 %393, %365
-  br i1 %exitcond1025.not, label %.loopexit, label %376, !llvm.loop !45
+  br i1 %exitcond1025.not, label %.loopexit, label %376, !llvm.loop !42
 
 .loopexit:                                        ; preds = %343, %357, %.thread922, %388, %._crit_edge973, %.preheader
   %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge973 ], [ %.3, %.thread922 ], [ %386, %388 ], [ %355, %357 ], [ %.0851970, %343 ]
@@ -49781,7 +49781,7 @@ ZSTD_count.exit.thread:                           ; preds = %266, %312, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -49882,7 +49882,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr no
   tail call void @llvm.prefetch.p0(ptr %80, i32 0, i32 3, i32 1)
   %81 = getelementptr inbounds i8, ptr %80, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %81, i32 0, i32 3, i32 1)
-  %82 = trunc i64 %indvars.iv to i32
+  %82 = trunc nuw i64 %indvars.iv to i32
   %83 = and i64 %indvars.iv, 7
   %84 = getelementptr inbounds i32, ptr %11, i64 %83
   %85 = load i32, ptr %84, align 4
@@ -49899,7 +49899,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr no
   %95 = icmp eq i8 %93, 0
   %96 = select i1 %95, i32 63, i32 0
   %97 = add nuw nsw i32 %96, %94
-  %98 = trunc i32 %97 to i8
+  %98 = trunc nuw nsw i32 %97 to i8
   store i8 %98, ptr %90, align 1
   %99 = trunc i32 %85 to i8
   %100 = zext nneg i32 %97 to i64
@@ -49966,7 +49966,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr no
   %indvars.iv.next999 = add nuw nsw i64 %indvars.iv998, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next999 to i32
   %exitcond1001.not = icmp eq i32 %117, %lftr.wideiv
-  br i1 %exitcond1001.not, label %.loopexit932, label %123, !llvm.loop !28
+  br i1 %exitcond1001.not, label %.loopexit932, label %123, !llvm.loop !25
 
 .loopexit932:                                     ; preds = %123, %._crit_edge, %59
   %137 = phi ptr [ %10, %59 ], [ %103, %._crit_edge ], [ %103, %123 ]
@@ -50004,7 +50004,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr no
   tail call void @llvm.prefetch.p0(ptr %156, i32 0, i32 3, i32 1)
   %157 = getelementptr inbounds i8, ptr %156, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %157, i32 0, i32 3, i32 1)
-  %158 = trunc i64 %indvars.iv1002 to i32
+  %158 = trunc nuw i64 %indvars.iv1002 to i32
   %159 = and i64 %indvars.iv1002, 7
   %160 = getelementptr inbounds i32, ptr %11, i64 %159
   %161 = load i32, ptr %160, align 4
@@ -50021,7 +50021,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr no
   %171 = icmp eq i8 %169, 0
   %172 = select i1 %171, i32 63, i32 0
   %173 = add nuw nsw i32 %172, %170
-  %174 = trunc i32 %173 to i8
+  %174 = trunc nuw nsw i32 %173 to i8
   store i8 %174, ptr %166, align 1
   %175 = trunc i32 %161 to i8
   %176 = zext nneg i32 %173 to i64
@@ -50099,7 +50099,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr no
   store i32 %222, ptr %223, align 4
   %indvars.iv.next1006 = add nuw nsw i64 %indvars.iv1005, 1
   %exitcond1008.not = icmp eq i64 %indvars.iv.next1006, 4
-  br i1 %exitcond1008.not, label %224, label %216, !llvm.loop !38
+  br i1 %exitcond1008.not, label %224, label %216, !llvm.loop !35
 
 224:                                              ; preds = %216
   %225 = getelementptr inbounds i32, ptr %8, i64 %210
@@ -50133,8 +50133,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr no
   %.0872950 = phi i64 [ %264, %262 ], [ %245, %.lr.ph952.preheader ]
   %.0874949 = phi i64 [ %.1875, %262 ], [ 0, %.lr.ph952.preheader ]
   %.0881948 = phi i32 [ %.1882, %262 ], [ %40, %.lr.ph952.preheader ]
-  %246 = tail call i64 @llvm.cttz.i64(i64 %.0872950, i1 true), !range !15
-  %247 = trunc i64 %246 to i32
+  %246 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872950, i1 true)
+  %247 = trunc nuw nsw i64 %246 to i32
   %248 = add nuw nsw i32 %247, %226
   %249 = and i32 %248, 63
   %250 = zext nneg i32 %249 to i64
@@ -50165,7 +50165,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr no
   %265 = icmp ne i64 %264, 0
   %266 = icmp ne i32 %.1882, 0
   %267 = select i1 %265, i1 %266, i1 false
-  br i1 %267, label %.lr.ph952, label %._crit_edge953, !llvm.loop !36
+  br i1 %267, label %.lr.ph952, label %._crit_edge953, !llvm.loop !33
 
 ._crit_edge953:                                   ; preds = %262, %254, %224
   %.0881.lcssa = phi i32 [ %40, %224 ], [ %.0881948, %254 ], [ %.1882, %262 ]
@@ -50176,7 +50176,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr no
   %271 = icmp eq i8 %269, 0
   %272 = select i1 %271, i32 63, i32 0
   %273 = add nuw nsw i32 %272, %270
-  %274 = trunc i32 %273 to i8
+  %274 = trunc nuw nsw i32 %273 to i8
   store i8 %274, ptr %211, align 1
   %275 = zext nneg i32 %273 to i64
   %276 = getelementptr inbounds i8, ptr %211, i64 %275
@@ -50225,7 +50225,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr no
   br i1 %.not.i, label %.preheader.i, label %297
 
 297:                                              ; preds = %295
-  %298 = tail call i64 @llvm.cttz.i64(i64 %296, i1 true), !range !15
+  %298 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %296, i1 true)
   %299 = lshr i64 %298, 3
   br label %ZSTD_count.exit
 
@@ -50242,10 +50242,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_4_6(ptr no
   %.040.val.i = load i64, ptr %.040.i, align 1
   %302 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %302, 0
-  br i1 %.not51.i, label %.preheader.i, label %303, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %303, !llvm.loop !15
 
 303:                                              ; preds = %301
-  %304 = tail call i64 @llvm.cttz.i64(i64 %302, i1 true), !range !15
+  %304 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %302, i1 true)
   %305 = lshr i64 %304, 3
   %306 = getelementptr inbounds i8, ptr %.040.i, i64 %305
   %307 = ptrtoint ptr %306 to i64
@@ -50323,7 +50323,7 @@ ZSTD_count.exit.thread:                           ; preds = %286, %332, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %332 ], [ %.0885960, %ZSTD_count.exit ], [ %.0885960, %286 ]
   %337 = add nuw i64 %.0873961, 1
   %exitcond1009.not = icmp eq i64 %337, %.0874.lcssa
-  br i1 %exitcond1009.not, label %._crit_edge964, label %286, !llvm.loop !37
+  br i1 %exitcond1009.not, label %._crit_edge964, label %286, !llvm.loop !34
 
 ._crit_edge964:                                   ; preds = %332, %ZSTD_count.exit.thread, %._crit_edge953
   %.2887 = phi i64 [ 3, %._crit_edge953 ], [ %.1886, %ZSTD_count.exit.thread ], [ %.0867, %332 ]
@@ -50348,7 +50348,7 @@ ZSTD_count.exit.thread:                           ; preds = %286, %332, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %349, i32 0, i32 3, i32 1)
   %indvars.iv.next1011 = add nuw nsw i64 %indvars.iv1010, 1
   %exitcond1013.not = icmp eq i64 %indvars.iv.next1011, 3
-  br i1 %exitcond1013.not, label %350, label %344, !llvm.loop !42
+  br i1 %exitcond1013.not, label %350, label %344, !llvm.loop !39
 
 350:                                              ; preds = %344
   %351 = add i32 %.0881.lcssa, %56
@@ -50376,8 +50376,8 @@ ZSTD_count.exit.thread:                           ; preds = %286, %332, %ZSTD_co
   %indvars.iv1014 = phi i64 [ 0, %.lr.ph972 ], [ %indvars.iv.next1015, %.thread ]
   %.0851970 = phi i64 [ %.2887, %.lr.ph972 ], [ %.1, %.thread ]
   %364 = load ptr, ptr %50, align 8
-  %365 = getelementptr i32, ptr %364, i64 %49
-  %366 = getelementptr i32, ptr %365, i64 %indvars.iv1014
+  %365 = getelementptr inbounds i32, ptr %364, i64 %49
+  %366 = getelementptr inbounds i32, ptr %365, i64 %indvars.iv1014
   %367 = load i32, ptr %366, align 4
   %368 = zext i32 %367 to i64
   %369 = getelementptr inbounds i8, ptr %339, i64 %368
@@ -50409,7 +50409,7 @@ ZSTD_count.exit.thread:                           ; preds = %286, %332, %ZSTD_co
   %.1 = phi i64 [ %375, %377 ], [ %.0851970, %372 ], [ %.0851970, %370 ]
   %indvars.iv.next1015 = add nuw nsw i64 %indvars.iv1014, 1
   %exitcond1018.not = icmp eq i64 %indvars.iv.next1015, %wide.trip.count1017
-  br i1 %exitcond1018.not, label %._crit_edge973.loopexit, label %363, !llvm.loop !43
+  br i1 %exitcond1018.not, label %._crit_edge973.loopexit, label %363, !llvm.loop !40
 
 ._crit_edge973.loopexit:                          ; preds = %.thread
   %.pre1028 = load ptr, ptr %50, align 8
@@ -50433,7 +50433,7 @@ ZSTD_count.exit.thread:                           ; preds = %286, %332, %ZSTD_co
   %386 = load ptr, ptr %356, align 8
   %387 = zext nneg i32 %.pre-phi to i64
   %wide.trip.count1022 = zext nneg i32 %385 to i64
-  %invariant.gep1035 = getelementptr i32, ptr %386, i64 %387
+  %invariant.gep1035 = getelementptr inbounds i32, ptr %386, i64 %387
   br label %392
 
 .preheader:                                       ; preds = %392
@@ -50449,14 +50449,14 @@ ZSTD_count.exit.thread:                           ; preds = %286, %332, %ZSTD_co
 
 392:                                              ; preds = %.lr.ph978, %392
   %indvars.iv1019 = phi i64 [ 0, %.lr.ph978 ], [ %indvars.iv.next1020, %392 ]
-  %gep1036 = getelementptr i32, ptr %invariant.gep1035, i64 %indvars.iv1019
+  %gep1036 = getelementptr inbounds i32, ptr %invariant.gep1035, i64 %indvars.iv1019
   %393 = load i32, ptr %gep1036, align 4
   %394 = zext i32 %393 to i64
   %395 = getelementptr inbounds i8, ptr %339, i64 %394
   tail call void @llvm.prefetch.p0(ptr %395, i32 0, i32 3, i32 1)
   %indvars.iv.next1020 = add nuw nsw i64 %indvars.iv1019, 1
   %exitcond1023.not = icmp eq i64 %indvars.iv.next1020, %wide.trip.count1022
-  br i1 %exitcond1023.not, label %.preheader, label %392, !llvm.loop !44
+  br i1 %exitcond1023.not, label %.preheader, label %392, !llvm.loop !41
 
 396:                                              ; preds = %.lr.ph982, %.thread922
   %indvars.iv1024 = phi i64 [ %391, %.lr.ph982 ], [ %indvars.iv.next1025, %.thread922 ]
@@ -50492,7 +50492,7 @@ ZSTD_count.exit.thread:                           ; preds = %286, %332, %ZSTD_co
   %413 = add nuw nsw i32 %.1861979, 1
   %indvars.iv.next1025 = add nuw nsw i64 %indvars.iv1024, 1
   %exitcond1026.not = icmp eq i32 %413, %385
-  br i1 %exitcond1026.not, label %.loopexit, label %396, !llvm.loop !45
+  br i1 %exitcond1026.not, label %.loopexit, label %396, !llvm.loop !42
 
 .loopexit:                                        ; preds = %363, %377, %.thread922, %408, %._crit_edge973, %.preheader
   %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge973 ], [ %.3, %.thread922 ], [ %406, %408 ], [ %375, %377 ], [ %.0851970, %363 ]
@@ -50500,7 +50500,7 @@ ZSTD_count.exit.thread:                           ; preds = %286, %332, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -50596,7 +50596,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr no
   tail call void @llvm.prefetch.p0(ptr %77, i32 0, i32 3, i32 1)
   %78 = getelementptr inbounds i8, ptr %9, i64 %76
   tail call void @llvm.prefetch.p0(ptr %78, i32 0, i32 3, i32 1)
-  %79 = trunc i64 %indvars.iv to i32
+  %79 = trunc nuw i64 %indvars.iv to i32
   %80 = and i64 %indvars.iv, 7
   %81 = getelementptr inbounds i32, ptr %10, i64 %80
   %82 = load i32, ptr %81, align 4
@@ -50613,7 +50613,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr no
   %92 = icmp eq i8 %90, 0
   %93 = select i1 %92, i32 15, i32 0
   %94 = add nuw nsw i32 %93, %91
-  %95 = trunc i32 %94 to i8
+  %95 = trunc nuw nsw i32 %94 to i8
   store i8 %95, ptr %87, align 1
   %96 = trunc i32 %82 to i8
   %97 = zext nneg i32 %94 to i64
@@ -50676,7 +50676,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr no
   %indvars.iv.next997 = add nuw nsw i64 %indvars.iv996, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next997 to i32
   %exitcond999.not = icmp eq i32 %114, %lftr.wideiv
-  br i1 %exitcond999.not, label %.loopexit932, label %120, !llvm.loop !28
+  br i1 %exitcond999.not, label %.loopexit932, label %120, !llvm.loop !25
 
 .loopexit932:                                     ; preds = %120, %._crit_edge, %58
   %132 = phi ptr [ %9, %58 ], [ %100, %._crit_edge ], [ %100, %120 ]
@@ -50710,7 +50710,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr no
   tail call void @llvm.prefetch.p0(ptr %149, i32 0, i32 3, i32 1)
   %150 = getelementptr inbounds i8, ptr %132, i64 %148
   tail call void @llvm.prefetch.p0(ptr %150, i32 0, i32 3, i32 1)
-  %151 = trunc i64 %indvars.iv1000 to i32
+  %151 = trunc nuw i64 %indvars.iv1000 to i32
   %152 = and i64 %indvars.iv1000, 7
   %153 = getelementptr inbounds i32, ptr %10, i64 %152
   %154 = load i32, ptr %153, align 4
@@ -50727,7 +50727,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr no
   %164 = icmp eq i8 %162, 0
   %165 = select i1 %164, i32 15, i32 0
   %166 = add nuw nsw i32 %165, %163
-  %167 = trunc i32 %166 to i8
+  %167 = trunc nuw nsw i32 %166 to i8
   store i8 %167, ptr %159, align 1
   %168 = trunc i32 %154 to i8
   %169 = zext nneg i32 %166 to i64
@@ -50806,8 +50806,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr no
   %.0872949 = phi i64 [ %234, %232 ], [ %215, %.lr.ph950.preheader ]
   %.0874948 = phi i64 [ %.1875, %232 ], [ 0, %.lr.ph950.preheader ]
   %.0881947 = phi i32 [ %.1882, %232 ], [ %39, %.lr.ph950.preheader ]
-  %216 = tail call i64 @llvm.cttz.i64(i64 %.0872949, i1 true), !range !15
-  %217 = trunc i64 %216 to i32
+  %216 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872949, i1 true)
+  %217 = trunc nuw nsw i64 %216 to i32
   %218 = add nuw nsw i32 %217, %205
   %219 = and i32 %218, 15
   %220 = zext nneg i32 %219 to i64
@@ -50838,7 +50838,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr no
   %235 = icmp ne i64 %234, 0
   %236 = icmp ne i32 %.1882, 0
   %237 = select i1 %235, i1 %236, i1 false
-  br i1 %237, label %.lr.ph950, label %._crit_edge951, !llvm.loop !36
+  br i1 %237, label %.lr.ph950, label %._crit_edge951, !llvm.loop !33
 
 ._crit_edge951:                                   ; preds = %232, %224, %.critedge
   %.0881.lcssa = phi i32 [ %39, %.critedge ], [ %.0881947, %224 ], [ %.1882, %232 ]
@@ -50849,7 +50849,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr no
   %241 = icmp eq i8 %239, 0
   %242 = select i1 %241, i32 15, i32 0
   %243 = add nuw nsw i32 %242, %240
-  %244 = trunc i32 %243 to i8
+  %244 = trunc nuw nsw i32 %243 to i8
   store i8 %244, ptr %203, align 1
   %245 = zext nneg i32 %243 to i64
   %246 = getelementptr inbounds i8, ptr %203, i64 %245
@@ -50898,7 +50898,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr no
   br i1 %.not.i, label %.preheader.i, label %267
 
 267:                                              ; preds = %265
-  %268 = tail call i64 @llvm.cttz.i64(i64 %266, i1 true), !range !15
+  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %266, i1 true)
   %269 = lshr i64 %268, 3
   br label %ZSTD_count.exit
 
@@ -50915,10 +50915,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_4(ptr no
   %.040.val.i = load i64, ptr %.040.i, align 1
   %272 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %272, 0
-  br i1 %.not51.i, label %.preheader.i, label %273, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %273, !llvm.loop !15
 
 273:                                              ; preds = %271
-  %274 = tail call i64 @llvm.cttz.i64(i64 %272, i1 true), !range !15
+  %274 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %272, i1 true)
   %275 = lshr i64 %274, 3
   %276 = getelementptr inbounds i8, ptr %.040.i, i64 %275
   %277 = ptrtoint ptr %276 to i64
@@ -50996,7 +50996,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %302 ], [ %.0885958, %ZSTD_count.exit ], [ %.0885958, %256 ]
   %307 = add nuw i64 %.0873959, 1
   %exitcond1003.not = icmp eq i64 %307, %.0874.lcssa
-  br i1 %exitcond1003.not, label %._crit_edge962, label %256, !llvm.loop !37
+  br i1 %exitcond1003.not, label %._crit_edge962, label %256, !llvm.loop !34
 
 ._crit_edge962:                                   ; preds = %302, %ZSTD_count.exit.thread, %._crit_edge951
   %.2887 = phi i64 [ 3, %._crit_edge951 ], [ %.1886, %ZSTD_count.exit.thread ], [ %.0867, %302 ]
@@ -51021,7 +51021,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %319, i32 0, i32 3, i32 1)
   %indvars.iv.next1005 = add nuw nsw i64 %indvars.iv1004, 1
   %exitcond1007.not = icmp eq i64 %indvars.iv.next1005, 3
-  br i1 %exitcond1007.not, label %320, label %314, !llvm.loop !42
+  br i1 %exitcond1007.not, label %320, label %314, !llvm.loop !39
 
 320:                                              ; preds = %314
   %321 = add i32 %.0881.lcssa, %55
@@ -51082,7 +51082,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   %.1 = phi i64 [ %345, %347 ], [ %.0851968, %342 ], [ %.0851968, %340 ]
   %indvars.iv.next1009 = add nuw nsw i64 %indvars.iv1008, 1
   %exitcond1012.not = icmp eq i64 %indvars.iv.next1009, %wide.trip.count1011
-  br i1 %exitcond1012.not, label %._crit_edge971.loopexit, label %333, !llvm.loop !43
+  br i1 %exitcond1012.not, label %._crit_edge971.loopexit, label %333, !llvm.loop !40
 
 ._crit_edge971.loopexit:                          ; preds = %.thread
   %.pre1022 = load ptr, ptr %49, align 8
@@ -51106,7 +51106,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   %356 = load ptr, ptr %326, align 8
   %357 = zext nneg i32 %.pre-phi to i64
   %wide.trip.count1016 = zext nneg i32 %355 to i64
-  %invariant.gep1029 = getelementptr i32, ptr %356, i64 %357
+  %invariant.gep1029 = getelementptr inbounds i32, ptr %356, i64 %357
   br label %362
 
 .preheader:                                       ; preds = %362
@@ -51122,14 +51122,14 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
 
 362:                                              ; preds = %.lr.ph976, %362
   %indvars.iv1013 = phi i64 [ 0, %.lr.ph976 ], [ %indvars.iv.next1014, %362 ]
-  %gep1030 = getelementptr i32, ptr %invariant.gep1029, i64 %indvars.iv1013
+  %gep1030 = getelementptr inbounds i32, ptr %invariant.gep1029, i64 %indvars.iv1013
   %363 = load i32, ptr %gep1030, align 4
   %364 = zext i32 %363 to i64
   %365 = getelementptr inbounds i8, ptr %309, i64 %364
   tail call void @llvm.prefetch.p0(ptr %365, i32 0, i32 3, i32 1)
   %indvars.iv.next1014 = add nuw nsw i64 %indvars.iv1013, 1
   %exitcond1017.not = icmp eq i64 %indvars.iv.next1014, %wide.trip.count1016
-  br i1 %exitcond1017.not, label %.preheader, label %362, !llvm.loop !44
+  br i1 %exitcond1017.not, label %.preheader, label %362, !llvm.loop !41
 
 366:                                              ; preds = %.lr.ph980, %.thread922
   %indvars.iv1018 = phi i64 [ %361, %.lr.ph980 ], [ %indvars.iv.next1019, %.thread922 ]
@@ -51165,7 +51165,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   %383 = add nuw nsw i32 %.1861977, 1
   %indvars.iv.next1019 = add nuw nsw i64 %indvars.iv1018, 1
   %exitcond1020.not = icmp eq i32 %383, %355
-  br i1 %exitcond1020.not, label %.loopexit, label %366, !llvm.loop !45
+  br i1 %exitcond1020.not, label %.loopexit, label %366, !llvm.loop !42
 
 .loopexit:                                        ; preds = %333, %347, %.thread922, %378, %._crit_edge971, %.preheader
   %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge971 ], [ %.3, %.thread922 ], [ %376, %378 ], [ %345, %347 ], [ %.0851968, %333 ]
@@ -51173,7 +51173,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -51271,7 +51271,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr no
   tail call void @llvm.prefetch.p0(ptr nonnull %78, i32 0, i32 3, i32 1)
   %79 = getelementptr inbounds i8, ptr %9, i64 %76
   tail call void @llvm.prefetch.p0(ptr %79, i32 0, i32 3, i32 1)
-  %80 = trunc i64 %indvars.iv to i32
+  %80 = trunc nuw i64 %indvars.iv to i32
   %81 = and i64 %indvars.iv, 7
   %82 = getelementptr inbounds i32, ptr %10, i64 %81
   %83 = load i32, ptr %82, align 4
@@ -51288,7 +51288,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr no
   %93 = icmp eq i8 %91, 0
   %94 = select i1 %93, i32 31, i32 0
   %95 = add nuw nsw i32 %94, %92
-  %96 = trunc i32 %95 to i8
+  %96 = trunc nuw nsw i32 %95 to i8
   store i8 %96, ptr %88, align 1
   %97 = trunc i32 %83 to i8
   %98 = zext nneg i32 %95 to i64
@@ -51353,7 +51353,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr no
   %indvars.iv.next999 = add nuw nsw i64 %indvars.iv998, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next999 to i32
   %exitcond1001.not = icmp eq i32 %115, %lftr.wideiv
-  br i1 %exitcond1001.not, label %.loopexit932, label %121, !llvm.loop !28
+  br i1 %exitcond1001.not, label %.loopexit932, label %121, !llvm.loop !25
 
 .loopexit932:                                     ; preds = %121, %._crit_edge, %58
   %134 = phi ptr [ %9, %58 ], [ %101, %._crit_edge ], [ %101, %121 ]
@@ -51389,7 +51389,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr no
   tail call void @llvm.prefetch.p0(ptr nonnull %152, i32 0, i32 3, i32 1)
   %153 = getelementptr inbounds i8, ptr %134, i64 %150
   tail call void @llvm.prefetch.p0(ptr %153, i32 0, i32 3, i32 1)
-  %154 = trunc i64 %indvars.iv1002 to i32
+  %154 = trunc nuw i64 %indvars.iv1002 to i32
   %155 = and i64 %indvars.iv1002, 7
   %156 = getelementptr inbounds i32, ptr %10, i64 %155
   %157 = load i32, ptr %156, align 4
@@ -51406,7 +51406,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr no
   %167 = icmp eq i8 %165, 0
   %168 = select i1 %167, i32 31, i32 0
   %169 = add nuw nsw i32 %168, %166
-  %170 = trunc i32 %169 to i8
+  %170 = trunc nuw nsw i32 %169 to i8
   store i8 %170, ptr %162, align 1
   %171 = trunc i32 %157 to i8
   %172 = zext nneg i32 %169 to i64
@@ -51496,8 +51496,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr no
   %.0872950 = phi i64 [ %245, %243 ], [ %226, %.lr.ph952.preheader ]
   %.0874949 = phi i64 [ %.1875, %243 ], [ 0, %.lr.ph952.preheader ]
   %.0881948 = phi i32 [ %.1882, %243 ], [ %39, %.lr.ph952.preheader ]
-  %227 = tail call i64 @llvm.cttz.i64(i64 %.0872950, i1 true), !range !15
-  %228 = trunc i64 %227 to i32
+  %227 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872950, i1 true)
+  %228 = trunc nuw nsw i64 %227 to i32
   %229 = add nuw nsw i32 %228, %222
   %230 = and i32 %229, 31
   %231 = zext nneg i32 %230 to i64
@@ -51528,7 +51528,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr no
   %246 = icmp ne i64 %245, 0
   %247 = icmp ne i32 %.1882, 0
   %248 = select i1 %246, i1 %247, i1 false
-  br i1 %248, label %.lr.ph952, label %._crit_edge953, !llvm.loop !36
+  br i1 %248, label %.lr.ph952, label %._crit_edge953, !llvm.loop !33
 
 ._crit_edge953:                                   ; preds = %243, %235, %.critedge
   %.0881.lcssa = phi i32 [ %39, %.critedge ], [ %.0881948, %235 ], [ %.1882, %243 ]
@@ -51539,7 +51539,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr no
   %252 = icmp eq i8 %250, 0
   %253 = select i1 %252, i32 31, i32 0
   %254 = add nuw nsw i32 %253, %251
-  %255 = trunc i32 %254 to i8
+  %255 = trunc nuw nsw i32 %254 to i8
   store i8 %255, ptr %206, align 1
   %256 = zext nneg i32 %254 to i64
   %257 = getelementptr inbounds i8, ptr %206, i64 %256
@@ -51588,7 +51588,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr no
   br i1 %.not.i, label %.preheader.i, label %278
 
 278:                                              ; preds = %276
-  %279 = tail call i64 @llvm.cttz.i64(i64 %277, i1 true), !range !15
+  %279 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %277, i1 true)
   %280 = lshr i64 %279, 3
   br label %ZSTD_count.exit
 
@@ -51605,10 +51605,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_5(ptr no
   %.040.val.i = load i64, ptr %.040.i, align 1
   %283 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %283, 0
-  br i1 %.not51.i, label %.preheader.i, label %284, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %284, !llvm.loop !15
 
 284:                                              ; preds = %282
-  %285 = tail call i64 @llvm.cttz.i64(i64 %283, i1 true), !range !15
+  %285 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %283, i1 true)
   %286 = lshr i64 %285, 3
   %287 = getelementptr inbounds i8, ptr %.040.i, i64 %286
   %288 = ptrtoint ptr %287 to i64
@@ -51686,7 +51686,7 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %313 ], [ %.0885960, %ZSTD_count.exit ], [ %.0885960, %267 ]
   %318 = add nuw i64 %.0873961, 1
   %exitcond1008.not = icmp eq i64 %318, %.0874.lcssa
-  br i1 %exitcond1008.not, label %._crit_edge964, label %267, !llvm.loop !37
+  br i1 %exitcond1008.not, label %._crit_edge964, label %267, !llvm.loop !34
 
 ._crit_edge964:                                   ; preds = %313, %ZSTD_count.exit.thread, %._crit_edge953
   %.2887 = phi i64 [ 3, %._crit_edge953 ], [ %.1886, %ZSTD_count.exit.thread ], [ %.0867, %313 ]
@@ -51711,7 +51711,7 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %330, i32 0, i32 3, i32 1)
   %indvars.iv.next1010 = add nuw nsw i64 %indvars.iv1009, 1
   %exitcond1012.not = icmp eq i64 %indvars.iv.next1010, 3
-  br i1 %exitcond1012.not, label %331, label %325, !llvm.loop !42
+  br i1 %exitcond1012.not, label %331, label %325, !llvm.loop !39
 
 331:                                              ; preds = %325
   %332 = add i32 %.0881.lcssa, %55
@@ -51772,7 +51772,7 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
   %.1 = phi i64 [ %356, %358 ], [ %.0851970, %353 ], [ %.0851970, %351 ]
   %indvars.iv.next1014 = add nuw nsw i64 %indvars.iv1013, 1
   %exitcond1017.not = icmp eq i64 %indvars.iv.next1014, %wide.trip.count1016
-  br i1 %exitcond1017.not, label %._crit_edge973.loopexit, label %344, !llvm.loop !43
+  br i1 %exitcond1017.not, label %._crit_edge973.loopexit, label %344, !llvm.loop !40
 
 ._crit_edge973.loopexit:                          ; preds = %.thread
   %.pre1027 = load ptr, ptr %49, align 8
@@ -51796,7 +51796,7 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
   %367 = load ptr, ptr %337, align 8
   %368 = zext nneg i32 %.pre-phi to i64
   %wide.trip.count1021 = zext nneg i32 %366 to i64
-  %invariant.gep1034 = getelementptr i32, ptr %367, i64 %368
+  %invariant.gep1034 = getelementptr inbounds i32, ptr %367, i64 %368
   br label %373
 
 .preheader:                                       ; preds = %373
@@ -51812,14 +51812,14 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
 
 373:                                              ; preds = %.lr.ph978, %373
   %indvars.iv1018 = phi i64 [ 0, %.lr.ph978 ], [ %indvars.iv.next1019, %373 ]
-  %gep1035 = getelementptr i32, ptr %invariant.gep1034, i64 %indvars.iv1018
+  %gep1035 = getelementptr inbounds i32, ptr %invariant.gep1034, i64 %indvars.iv1018
   %374 = load i32, ptr %gep1035, align 4
   %375 = zext i32 %374 to i64
   %376 = getelementptr inbounds i8, ptr %320, i64 %375
   tail call void @llvm.prefetch.p0(ptr %376, i32 0, i32 3, i32 1)
   %indvars.iv.next1019 = add nuw nsw i64 %indvars.iv1018, 1
   %exitcond1022.not = icmp eq i64 %indvars.iv.next1019, %wide.trip.count1021
-  br i1 %exitcond1022.not, label %.preheader, label %373, !llvm.loop !44
+  br i1 %exitcond1022.not, label %.preheader, label %373, !llvm.loop !41
 
 377:                                              ; preds = %.lr.ph982, %.thread922
   %indvars.iv1023 = phi i64 [ %372, %.lr.ph982 ], [ %indvars.iv.next1024, %.thread922 ]
@@ -51855,7 +51855,7 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
   %394 = add nuw nsw i32 %.1861979, 1
   %indvars.iv.next1024 = add nuw nsw i64 %indvars.iv1023, 1
   %exitcond1025.not = icmp eq i32 %394, %366
-  br i1 %exitcond1025.not, label %.loopexit, label %377, !llvm.loop !45
+  br i1 %exitcond1025.not, label %.loopexit, label %377, !llvm.loop !42
 
 .loopexit:                                        ; preds = %344, %358, %.thread922, %389, %._crit_edge973, %.preheader
   %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge973 ], [ %.3, %.thread922 ], [ %387, %389 ], [ %356, %358 ], [ %.0851970, %344 ]
@@ -51863,7 +51863,7 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -51964,7 +51964,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr no
   tail call void @llvm.prefetch.p0(ptr %80, i32 0, i32 3, i32 1)
   %81 = getelementptr inbounds i8, ptr %80, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %81, i32 0, i32 3, i32 1)
-  %82 = trunc i64 %indvars.iv to i32
+  %82 = trunc nuw i64 %indvars.iv to i32
   %83 = and i64 %indvars.iv, 7
   %84 = getelementptr inbounds i32, ptr %11, i64 %83
   %85 = load i32, ptr %84, align 4
@@ -51981,7 +51981,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr no
   %95 = icmp eq i8 %93, 0
   %96 = select i1 %95, i32 63, i32 0
   %97 = add nuw nsw i32 %96, %94
-  %98 = trunc i32 %97 to i8
+  %98 = trunc nuw nsw i32 %97 to i8
   store i8 %98, ptr %90, align 1
   %99 = trunc i32 %85 to i8
   %100 = zext nneg i32 %97 to i64
@@ -52048,7 +52048,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr no
   %indvars.iv.next999 = add nuw nsw i64 %indvars.iv998, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next999 to i32
   %exitcond1001.not = icmp eq i32 %117, %lftr.wideiv
-  br i1 %exitcond1001.not, label %.loopexit932, label %123, !llvm.loop !28
+  br i1 %exitcond1001.not, label %.loopexit932, label %123, !llvm.loop !25
 
 .loopexit932:                                     ; preds = %123, %._crit_edge, %59
   %137 = phi ptr [ %10, %59 ], [ %103, %._crit_edge ], [ %103, %123 ]
@@ -52086,7 +52086,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr no
   tail call void @llvm.prefetch.p0(ptr %156, i32 0, i32 3, i32 1)
   %157 = getelementptr inbounds i8, ptr %156, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %157, i32 0, i32 3, i32 1)
-  %158 = trunc i64 %indvars.iv1002 to i32
+  %158 = trunc nuw i64 %indvars.iv1002 to i32
   %159 = and i64 %indvars.iv1002, 7
   %160 = getelementptr inbounds i32, ptr %11, i64 %159
   %161 = load i32, ptr %160, align 4
@@ -52103,7 +52103,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr no
   %171 = icmp eq i8 %169, 0
   %172 = select i1 %171, i32 63, i32 0
   %173 = add nuw nsw i32 %172, %170
-  %174 = trunc i32 %173 to i8
+  %174 = trunc nuw nsw i32 %173 to i8
   store i8 %174, ptr %166, align 1
   %175 = trunc i32 %161 to i8
   %176 = zext nneg i32 %173 to i64
@@ -52182,7 +52182,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr no
   store i32 %223, ptr %224, align 4
   %indvars.iv.next1006 = add nuw nsw i64 %indvars.iv1005, 1
   %exitcond1008.not = icmp eq i64 %indvars.iv.next1006, 4
-  br i1 %exitcond1008.not, label %225, label %217, !llvm.loop !38
+  br i1 %exitcond1008.not, label %225, label %217, !llvm.loop !35
 
 225:                                              ; preds = %217
   %226 = getelementptr inbounds i32, ptr %8, i64 %211
@@ -52216,8 +52216,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr no
   %.0872950 = phi i64 [ %265, %263 ], [ %246, %.lr.ph952.preheader ]
   %.0874949 = phi i64 [ %.1875, %263 ], [ 0, %.lr.ph952.preheader ]
   %.0881948 = phi i32 [ %.1882, %263 ], [ %40, %.lr.ph952.preheader ]
-  %247 = tail call i64 @llvm.cttz.i64(i64 %.0872950, i1 true), !range !15
-  %248 = trunc i64 %247 to i32
+  %247 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872950, i1 true)
+  %248 = trunc nuw nsw i64 %247 to i32
   %249 = add nuw nsw i32 %248, %227
   %250 = and i32 %249, 63
   %251 = zext nneg i32 %250 to i64
@@ -52248,7 +52248,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr no
   %266 = icmp ne i64 %265, 0
   %267 = icmp ne i32 %.1882, 0
   %268 = select i1 %266, i1 %267, i1 false
-  br i1 %268, label %.lr.ph952, label %._crit_edge953, !llvm.loop !36
+  br i1 %268, label %.lr.ph952, label %._crit_edge953, !llvm.loop !33
 
 ._crit_edge953:                                   ; preds = %263, %255, %225
   %.0881.lcssa = phi i32 [ %40, %225 ], [ %.0881948, %255 ], [ %.1882, %263 ]
@@ -52259,7 +52259,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr no
   %272 = icmp eq i8 %270, 0
   %273 = select i1 %272, i32 63, i32 0
   %274 = add nuw nsw i32 %273, %271
-  %275 = trunc i32 %274 to i8
+  %275 = trunc nuw nsw i32 %274 to i8
   store i8 %275, ptr %212, align 1
   %276 = zext nneg i32 %274 to i64
   %277 = getelementptr inbounds i8, ptr %212, i64 %276
@@ -52308,7 +52308,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr no
   br i1 %.not.i, label %.preheader.i, label %298
 
 298:                                              ; preds = %296
-  %299 = tail call i64 @llvm.cttz.i64(i64 %297, i1 true), !range !15
+  %299 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %297, i1 true)
   %300 = lshr i64 %299, 3
   br label %ZSTD_count.exit
 
@@ -52325,10 +52325,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_5_6(ptr no
   %.040.val.i = load i64, ptr %.040.i, align 1
   %303 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %303, 0
-  br i1 %.not51.i, label %.preheader.i, label %304, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %304, !llvm.loop !15
 
 304:                                              ; preds = %302
-  %305 = tail call i64 @llvm.cttz.i64(i64 %303, i1 true), !range !15
+  %305 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %303, i1 true)
   %306 = lshr i64 %305, 3
   %307 = getelementptr inbounds i8, ptr %.040.i, i64 %306
   %308 = ptrtoint ptr %307 to i64
@@ -52406,7 +52406,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %333 ], [ %.0885960, %ZSTD_count.exit ], [ %.0885960, %287 ]
   %338 = add nuw i64 %.0873961, 1
   %exitcond1009.not = icmp eq i64 %338, %.0874.lcssa
-  br i1 %exitcond1009.not, label %._crit_edge964, label %287, !llvm.loop !37
+  br i1 %exitcond1009.not, label %._crit_edge964, label %287, !llvm.loop !34
 
 ._crit_edge964:                                   ; preds = %333, %ZSTD_count.exit.thread, %._crit_edge953
   %.2887 = phi i64 [ 3, %._crit_edge953 ], [ %.1886, %ZSTD_count.exit.thread ], [ %.0867, %333 ]
@@ -52431,7 +52431,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %350, i32 0, i32 3, i32 1)
   %indvars.iv.next1011 = add nuw nsw i64 %indvars.iv1010, 1
   %exitcond1013.not = icmp eq i64 %indvars.iv.next1011, 3
-  br i1 %exitcond1013.not, label %351, label %345, !llvm.loop !42
+  br i1 %exitcond1013.not, label %351, label %345, !llvm.loop !39
 
 351:                                              ; preds = %345
   %352 = add i32 %.0881.lcssa, %56
@@ -52492,7 +52492,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   %.1 = phi i64 [ %376, %378 ], [ %.0851970, %373 ], [ %.0851970, %371 ]
   %indvars.iv.next1015 = add nuw nsw i64 %indvars.iv1014, 1
   %exitcond1018.not = icmp eq i64 %indvars.iv.next1015, %wide.trip.count1017
-  br i1 %exitcond1018.not, label %._crit_edge973.loopexit, label %364, !llvm.loop !43
+  br i1 %exitcond1018.not, label %._crit_edge973.loopexit, label %364, !llvm.loop !40
 
 ._crit_edge973.loopexit:                          ; preds = %.thread
   %.pre1028 = load ptr, ptr %50, align 8
@@ -52516,7 +52516,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   %387 = load ptr, ptr %357, align 8
   %388 = zext nneg i32 %.pre-phi to i64
   %wide.trip.count1022 = zext nneg i32 %386 to i64
-  %invariant.gep1035 = getelementptr i32, ptr %387, i64 %388
+  %invariant.gep1035 = getelementptr inbounds i32, ptr %387, i64 %388
   br label %393
 
 .preheader:                                       ; preds = %393
@@ -52532,14 +52532,14 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
 
 393:                                              ; preds = %.lr.ph978, %393
   %indvars.iv1019 = phi i64 [ 0, %.lr.ph978 ], [ %indvars.iv.next1020, %393 ]
-  %gep1036 = getelementptr i32, ptr %invariant.gep1035, i64 %indvars.iv1019
+  %gep1036 = getelementptr inbounds i32, ptr %invariant.gep1035, i64 %indvars.iv1019
   %394 = load i32, ptr %gep1036, align 4
   %395 = zext i32 %394 to i64
   %396 = getelementptr inbounds i8, ptr %340, i64 %395
   tail call void @llvm.prefetch.p0(ptr %396, i32 0, i32 3, i32 1)
   %indvars.iv.next1020 = add nuw nsw i64 %indvars.iv1019, 1
   %exitcond1023.not = icmp eq i64 %indvars.iv.next1020, %wide.trip.count1022
-  br i1 %exitcond1023.not, label %.preheader, label %393, !llvm.loop !44
+  br i1 %exitcond1023.not, label %.preheader, label %393, !llvm.loop !41
 
 397:                                              ; preds = %.lr.ph982, %.thread922
   %indvars.iv1024 = phi i64 [ %392, %.lr.ph982 ], [ %indvars.iv.next1025, %.thread922 ]
@@ -52575,7 +52575,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   %414 = add nuw nsw i32 %.1861979, 1
   %indvars.iv.next1025 = add nuw nsw i64 %indvars.iv1024, 1
   %exitcond1026.not = icmp eq i32 %414, %386
-  br i1 %exitcond1026.not, label %.loopexit, label %397, !llvm.loop !45
+  br i1 %exitcond1026.not, label %.loopexit, label %397, !llvm.loop !42
 
 .loopexit:                                        ; preds = %364, %378, %.thread922, %409, %._crit_edge973, %.preheader
   %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge973 ], [ %.3, %.thread922 ], [ %407, %409 ], [ %376, %378 ], [ %.0851970, %364 ]
@@ -52583,7 +52583,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -52679,7 +52679,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr no
   tail call void @llvm.prefetch.p0(ptr %77, i32 0, i32 3, i32 1)
   %78 = getelementptr inbounds i8, ptr %9, i64 %76
   tail call void @llvm.prefetch.p0(ptr %78, i32 0, i32 3, i32 1)
-  %79 = trunc i64 %indvars.iv to i32
+  %79 = trunc nuw i64 %indvars.iv to i32
   %80 = and i64 %indvars.iv, 7
   %81 = getelementptr inbounds i32, ptr %10, i64 %80
   %82 = load i32, ptr %81, align 4
@@ -52696,7 +52696,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr no
   %92 = icmp eq i8 %90, 0
   %93 = select i1 %92, i32 15, i32 0
   %94 = add nuw nsw i32 %93, %91
-  %95 = trunc i32 %94 to i8
+  %95 = trunc nuw nsw i32 %94 to i8
   store i8 %95, ptr %87, align 1
   %96 = trunc i32 %82 to i8
   %97 = zext nneg i32 %94 to i64
@@ -52759,7 +52759,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr no
   %indvars.iv.next997 = add nuw nsw i64 %indvars.iv996, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next997 to i32
   %exitcond999.not = icmp eq i32 %114, %lftr.wideiv
-  br i1 %exitcond999.not, label %.loopexit932, label %120, !llvm.loop !28
+  br i1 %exitcond999.not, label %.loopexit932, label %120, !llvm.loop !25
 
 .loopexit932:                                     ; preds = %120, %._crit_edge, %58
   %132 = phi ptr [ %9, %58 ], [ %100, %._crit_edge ], [ %100, %120 ]
@@ -52793,7 +52793,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr no
   tail call void @llvm.prefetch.p0(ptr %149, i32 0, i32 3, i32 1)
   %150 = getelementptr inbounds i8, ptr %132, i64 %148
   tail call void @llvm.prefetch.p0(ptr %150, i32 0, i32 3, i32 1)
-  %151 = trunc i64 %indvars.iv1000 to i32
+  %151 = trunc nuw i64 %indvars.iv1000 to i32
   %152 = and i64 %indvars.iv1000, 7
   %153 = getelementptr inbounds i32, ptr %10, i64 %152
   %154 = load i32, ptr %153, align 4
@@ -52810,7 +52810,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr no
   %164 = icmp eq i8 %162, 0
   %165 = select i1 %164, i32 15, i32 0
   %166 = add nuw nsw i32 %165, %163
-  %167 = trunc i32 %166 to i8
+  %167 = trunc nuw nsw i32 %166 to i8
   store i8 %167, ptr %159, align 1
   %168 = trunc i32 %154 to i8
   %169 = zext nneg i32 %166 to i64
@@ -52889,8 +52889,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr no
   %.0872949 = phi i64 [ %234, %232 ], [ %215, %.lr.ph950.preheader ]
   %.0874948 = phi i64 [ %.1875, %232 ], [ 0, %.lr.ph950.preheader ]
   %.0881947 = phi i32 [ %.1882, %232 ], [ %39, %.lr.ph950.preheader ]
-  %216 = tail call i64 @llvm.cttz.i64(i64 %.0872949, i1 true), !range !15
-  %217 = trunc i64 %216 to i32
+  %216 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872949, i1 true)
+  %217 = trunc nuw nsw i64 %216 to i32
   %218 = add nuw nsw i32 %217, %205
   %219 = and i32 %218, 15
   %220 = zext nneg i32 %219 to i64
@@ -52921,7 +52921,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr no
   %235 = icmp ne i64 %234, 0
   %236 = icmp ne i32 %.1882, 0
   %237 = select i1 %235, i1 %236, i1 false
-  br i1 %237, label %.lr.ph950, label %._crit_edge951, !llvm.loop !36
+  br i1 %237, label %.lr.ph950, label %._crit_edge951, !llvm.loop !33
 
 ._crit_edge951:                                   ; preds = %232, %224, %.critedge
   %.0881.lcssa = phi i32 [ %39, %.critedge ], [ %.0881947, %224 ], [ %.1882, %232 ]
@@ -52932,7 +52932,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr no
   %241 = icmp eq i8 %239, 0
   %242 = select i1 %241, i32 15, i32 0
   %243 = add nuw nsw i32 %242, %240
-  %244 = trunc i32 %243 to i8
+  %244 = trunc nuw nsw i32 %243 to i8
   store i8 %244, ptr %203, align 1
   %245 = zext nneg i32 %243 to i64
   %246 = getelementptr inbounds i8, ptr %203, i64 %245
@@ -52981,7 +52981,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr no
   br i1 %.not.i, label %.preheader.i, label %267
 
 267:                                              ; preds = %265
-  %268 = tail call i64 @llvm.cttz.i64(i64 %266, i1 true), !range !15
+  %268 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %266, i1 true)
   %269 = lshr i64 %268, 3
   br label %ZSTD_count.exit
 
@@ -52998,10 +52998,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_4(ptr no
   %.040.val.i = load i64, ptr %.040.i, align 1
   %272 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %272, 0
-  br i1 %.not51.i, label %.preheader.i, label %273, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %273, !llvm.loop !15
 
 273:                                              ; preds = %271
-  %274 = tail call i64 @llvm.cttz.i64(i64 %272, i1 true), !range !15
+  %274 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %272, i1 true)
   %275 = lshr i64 %274, 3
   %276 = getelementptr inbounds i8, ptr %.040.i, i64 %275
   %277 = ptrtoint ptr %276 to i64
@@ -53079,7 +53079,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %302 ], [ %.0885958, %ZSTD_count.exit ], [ %.0885958, %256 ]
   %307 = add nuw i64 %.0873959, 1
   %exitcond1003.not = icmp eq i64 %307, %.0874.lcssa
-  br i1 %exitcond1003.not, label %._crit_edge962, label %256, !llvm.loop !37
+  br i1 %exitcond1003.not, label %._crit_edge962, label %256, !llvm.loop !34
 
 ._crit_edge962:                                   ; preds = %302, %ZSTD_count.exit.thread, %._crit_edge951
   %.2887 = phi i64 [ 3, %._crit_edge951 ], [ %.1886, %ZSTD_count.exit.thread ], [ %.0867, %302 ]
@@ -53104,7 +53104,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %319, i32 0, i32 3, i32 1)
   %indvars.iv.next1005 = add nuw nsw i64 %indvars.iv1004, 1
   %exitcond1007.not = icmp eq i64 %indvars.iv.next1005, 3
-  br i1 %exitcond1007.not, label %320, label %314, !llvm.loop !42
+  br i1 %exitcond1007.not, label %320, label %314, !llvm.loop !39
 
 320:                                              ; preds = %314
   %321 = add i32 %.0881.lcssa, %55
@@ -53165,7 +53165,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   %.1 = phi i64 [ %345, %347 ], [ %.0851968, %342 ], [ %.0851968, %340 ]
   %indvars.iv.next1009 = add nuw nsw i64 %indvars.iv1008, 1
   %exitcond1012.not = icmp eq i64 %indvars.iv.next1009, %wide.trip.count1011
-  br i1 %exitcond1012.not, label %._crit_edge971.loopexit, label %333, !llvm.loop !43
+  br i1 %exitcond1012.not, label %._crit_edge971.loopexit, label %333, !llvm.loop !40
 
 ._crit_edge971.loopexit:                          ; preds = %.thread
   %.pre1022 = load ptr, ptr %49, align 8
@@ -53189,7 +53189,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   %356 = load ptr, ptr %326, align 8
   %357 = zext nneg i32 %.pre-phi to i64
   %wide.trip.count1016 = zext nneg i32 %355 to i64
-  %invariant.gep1029 = getelementptr i32, ptr %356, i64 %357
+  %invariant.gep1029 = getelementptr inbounds i32, ptr %356, i64 %357
   br label %362
 
 .preheader:                                       ; preds = %362
@@ -53205,14 +53205,14 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
 
 362:                                              ; preds = %.lr.ph976, %362
   %indvars.iv1013 = phi i64 [ 0, %.lr.ph976 ], [ %indvars.iv.next1014, %362 ]
-  %gep1030 = getelementptr i32, ptr %invariant.gep1029, i64 %indvars.iv1013
+  %gep1030 = getelementptr inbounds i32, ptr %invariant.gep1029, i64 %indvars.iv1013
   %363 = load i32, ptr %gep1030, align 4
   %364 = zext i32 %363 to i64
   %365 = getelementptr inbounds i8, ptr %309, i64 %364
   tail call void @llvm.prefetch.p0(ptr %365, i32 0, i32 3, i32 1)
   %indvars.iv.next1014 = add nuw nsw i64 %indvars.iv1013, 1
   %exitcond1017.not = icmp eq i64 %indvars.iv.next1014, %wide.trip.count1016
-  br i1 %exitcond1017.not, label %.preheader, label %362, !llvm.loop !44
+  br i1 %exitcond1017.not, label %.preheader, label %362, !llvm.loop !41
 
 366:                                              ; preds = %.lr.ph980, %.thread922
   %indvars.iv1018 = phi i64 [ %361, %.lr.ph980 ], [ %indvars.iv.next1019, %.thread922 ]
@@ -53248,7 +53248,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
   %383 = add nuw nsw i32 %.1861977, 1
   %indvars.iv.next1019 = add nuw nsw i64 %indvars.iv1018, 1
   %exitcond1020.not = icmp eq i32 %383, %355
-  br i1 %exitcond1020.not, label %.loopexit, label %366, !llvm.loop !45
+  br i1 %exitcond1020.not, label %.loopexit, label %366, !llvm.loop !42
 
 .loopexit:                                        ; preds = %333, %347, %.thread922, %378, %._crit_edge971, %.preheader
   %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge971 ], [ %.3, %.thread922 ], [ %376, %378 ], [ %345, %347 ], [ %.0851968, %333 ]
@@ -53256,7 +53256,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %302, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [64 x i32], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -53354,7 +53354,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr no
   tail call void @llvm.prefetch.p0(ptr nonnull %78, i32 0, i32 3, i32 1)
   %79 = getelementptr inbounds i8, ptr %9, i64 %76
   tail call void @llvm.prefetch.p0(ptr %79, i32 0, i32 3, i32 1)
-  %80 = trunc i64 %indvars.iv to i32
+  %80 = trunc nuw i64 %indvars.iv to i32
   %81 = and i64 %indvars.iv, 7
   %82 = getelementptr inbounds i32, ptr %10, i64 %81
   %83 = load i32, ptr %82, align 4
@@ -53371,7 +53371,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr no
   %93 = icmp eq i8 %91, 0
   %94 = select i1 %93, i32 31, i32 0
   %95 = add nuw nsw i32 %94, %92
-  %96 = trunc i32 %95 to i8
+  %96 = trunc nuw nsw i32 %95 to i8
   store i8 %96, ptr %88, align 1
   %97 = trunc i32 %83 to i8
   %98 = zext nneg i32 %95 to i64
@@ -53436,7 +53436,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr no
   %indvars.iv.next999 = add nuw nsw i64 %indvars.iv998, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next999 to i32
   %exitcond1001.not = icmp eq i32 %115, %lftr.wideiv
-  br i1 %exitcond1001.not, label %.loopexit932, label %121, !llvm.loop !28
+  br i1 %exitcond1001.not, label %.loopexit932, label %121, !llvm.loop !25
 
 .loopexit932:                                     ; preds = %121, %._crit_edge, %58
   %134 = phi ptr [ %9, %58 ], [ %101, %._crit_edge ], [ %101, %121 ]
@@ -53472,7 +53472,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr no
   tail call void @llvm.prefetch.p0(ptr nonnull %152, i32 0, i32 3, i32 1)
   %153 = getelementptr inbounds i8, ptr %134, i64 %150
   tail call void @llvm.prefetch.p0(ptr %153, i32 0, i32 3, i32 1)
-  %154 = trunc i64 %indvars.iv1002 to i32
+  %154 = trunc nuw i64 %indvars.iv1002 to i32
   %155 = and i64 %indvars.iv1002, 7
   %156 = getelementptr inbounds i32, ptr %10, i64 %155
   %157 = load i32, ptr %156, align 4
@@ -53489,7 +53489,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr no
   %167 = icmp eq i8 %165, 0
   %168 = select i1 %167, i32 31, i32 0
   %169 = add nuw nsw i32 %168, %166
-  %170 = trunc i32 %169 to i8
+  %170 = trunc nuw nsw i32 %169 to i8
   store i8 %170, ptr %162, align 1
   %171 = trunc i32 %157 to i8
   %172 = zext nneg i32 %169 to i64
@@ -53579,8 +53579,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr no
   %.0872950 = phi i64 [ %245, %243 ], [ %226, %.lr.ph952.preheader ]
   %.0874949 = phi i64 [ %.1875, %243 ], [ 0, %.lr.ph952.preheader ]
   %.0881948 = phi i32 [ %.1882, %243 ], [ %39, %.lr.ph952.preheader ]
-  %227 = tail call i64 @llvm.cttz.i64(i64 %.0872950, i1 true), !range !15
-  %228 = trunc i64 %227 to i32
+  %227 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872950, i1 true)
+  %228 = trunc nuw nsw i64 %227 to i32
   %229 = add nuw nsw i32 %228, %222
   %230 = and i32 %229, 31
   %231 = zext nneg i32 %230 to i64
@@ -53611,7 +53611,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr no
   %246 = icmp ne i64 %245, 0
   %247 = icmp ne i32 %.1882, 0
   %248 = select i1 %246, i1 %247, i1 false
-  br i1 %248, label %.lr.ph952, label %._crit_edge953, !llvm.loop !36
+  br i1 %248, label %.lr.ph952, label %._crit_edge953, !llvm.loop !33
 
 ._crit_edge953:                                   ; preds = %243, %235, %.critedge
   %.0881.lcssa = phi i32 [ %39, %.critedge ], [ %.0881948, %235 ], [ %.1882, %243 ]
@@ -53622,7 +53622,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr no
   %252 = icmp eq i8 %250, 0
   %253 = select i1 %252, i32 31, i32 0
   %254 = add nuw nsw i32 %253, %251
-  %255 = trunc i32 %254 to i8
+  %255 = trunc nuw nsw i32 %254 to i8
   store i8 %255, ptr %206, align 1
   %256 = zext nneg i32 %254 to i64
   %257 = getelementptr inbounds i8, ptr %206, i64 %256
@@ -53671,7 +53671,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr no
   br i1 %.not.i, label %.preheader.i, label %278
 
 278:                                              ; preds = %276
-  %279 = tail call i64 @llvm.cttz.i64(i64 %277, i1 true), !range !15
+  %279 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %277, i1 true)
   %280 = lshr i64 %279, 3
   br label %ZSTD_count.exit
 
@@ -53688,10 +53688,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_5(ptr no
   %.040.val.i = load i64, ptr %.040.i, align 1
   %283 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %283, 0
-  br i1 %.not51.i, label %.preheader.i, label %284, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %284, !llvm.loop !15
 
 284:                                              ; preds = %282
-  %285 = tail call i64 @llvm.cttz.i64(i64 %283, i1 true), !range !15
+  %285 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %283, i1 true)
   %286 = lshr i64 %285, 3
   %287 = getelementptr inbounds i8, ptr %.040.i, i64 %286
   %288 = ptrtoint ptr %287 to i64
@@ -53769,7 +53769,7 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %313 ], [ %.0885960, %ZSTD_count.exit ], [ %.0885960, %267 ]
   %318 = add nuw i64 %.0873961, 1
   %exitcond1008.not = icmp eq i64 %318, %.0874.lcssa
-  br i1 %exitcond1008.not, label %._crit_edge964, label %267, !llvm.loop !37
+  br i1 %exitcond1008.not, label %._crit_edge964, label %267, !llvm.loop !34
 
 ._crit_edge964:                                   ; preds = %313, %ZSTD_count.exit.thread, %._crit_edge953
   %.2887 = phi i64 [ 3, %._crit_edge953 ], [ %.1886, %ZSTD_count.exit.thread ], [ %.0867, %313 ]
@@ -53794,7 +53794,7 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %330, i32 0, i32 3, i32 1)
   %indvars.iv.next1010 = add nuw nsw i64 %indvars.iv1009, 1
   %exitcond1012.not = icmp eq i64 %indvars.iv.next1010, 3
-  br i1 %exitcond1012.not, label %331, label %325, !llvm.loop !42
+  br i1 %exitcond1012.not, label %331, label %325, !llvm.loop !39
 
 331:                                              ; preds = %325
   %332 = add i32 %.0881.lcssa, %55
@@ -53855,7 +53855,7 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
   %.1 = phi i64 [ %356, %358 ], [ %.0851970, %353 ], [ %.0851970, %351 ]
   %indvars.iv.next1014 = add nuw nsw i64 %indvars.iv1013, 1
   %exitcond1017.not = icmp eq i64 %indvars.iv.next1014, %wide.trip.count1016
-  br i1 %exitcond1017.not, label %._crit_edge973.loopexit, label %344, !llvm.loop !43
+  br i1 %exitcond1017.not, label %._crit_edge973.loopexit, label %344, !llvm.loop !40
 
 ._crit_edge973.loopexit:                          ; preds = %.thread
   %.pre1027 = load ptr, ptr %49, align 8
@@ -53879,7 +53879,7 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
   %367 = load ptr, ptr %337, align 8
   %368 = zext nneg i32 %.pre-phi to i64
   %wide.trip.count1021 = zext nneg i32 %366 to i64
-  %invariant.gep1034 = getelementptr i32, ptr %367, i64 %368
+  %invariant.gep1034 = getelementptr inbounds i32, ptr %367, i64 %368
   br label %373
 
 .preheader:                                       ; preds = %373
@@ -53895,14 +53895,14 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
 
 373:                                              ; preds = %.lr.ph978, %373
   %indvars.iv1018 = phi i64 [ 0, %.lr.ph978 ], [ %indvars.iv.next1019, %373 ]
-  %gep1035 = getelementptr i32, ptr %invariant.gep1034, i64 %indvars.iv1018
+  %gep1035 = getelementptr inbounds i32, ptr %invariant.gep1034, i64 %indvars.iv1018
   %374 = load i32, ptr %gep1035, align 4
   %375 = zext i32 %374 to i64
   %376 = getelementptr inbounds i8, ptr %320, i64 %375
   tail call void @llvm.prefetch.p0(ptr %376, i32 0, i32 3, i32 1)
   %indvars.iv.next1019 = add nuw nsw i64 %indvars.iv1018, 1
   %exitcond1022.not = icmp eq i64 %indvars.iv.next1019, %wide.trip.count1021
-  br i1 %exitcond1022.not, label %.preheader, label %373, !llvm.loop !44
+  br i1 %exitcond1022.not, label %.preheader, label %373, !llvm.loop !41
 
 377:                                              ; preds = %.lr.ph982, %.thread922
   %indvars.iv1023 = phi i64 [ %372, %.lr.ph982 ], [ %indvars.iv.next1024, %.thread922 ]
@@ -53938,7 +53938,7 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
   %394 = add nuw nsw i32 %.1861979, 1
   %indvars.iv.next1024 = add nuw nsw i64 %indvars.iv1023, 1
   %exitcond1025.not = icmp eq i32 %394, %366
-  br i1 %exitcond1025.not, label %.loopexit, label %377, !llvm.loop !45
+  br i1 %exitcond1025.not, label %.loopexit, label %377, !llvm.loop !42
 
 .loopexit:                                        ; preds = %344, %358, %.thread922, %389, %._crit_edge973, %.preheader
   %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge973 ], [ %.3, %.thread922 ], [ %387, %389 ], [ %356, %358 ], [ %.0851970, %344 ]
@@ -53946,7 +53946,7 @@ ZSTD_count.exit.thread:                           ; preds = %267, %313, %ZSTD_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i64 3, 0) i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -54047,7 +54047,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr no
   tail call void @llvm.prefetch.p0(ptr %80, i32 0, i32 3, i32 1)
   %81 = getelementptr inbounds i8, ptr %80, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %81, i32 0, i32 3, i32 1)
-  %82 = trunc i64 %indvars.iv to i32
+  %82 = trunc nuw i64 %indvars.iv to i32
   %83 = and i64 %indvars.iv, 7
   %84 = getelementptr inbounds i32, ptr %11, i64 %83
   %85 = load i32, ptr %84, align 4
@@ -54064,7 +54064,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr no
   %95 = icmp eq i8 %93, 0
   %96 = select i1 %95, i32 63, i32 0
   %97 = add nuw nsw i32 %96, %94
-  %98 = trunc i32 %97 to i8
+  %98 = trunc nuw nsw i32 %97 to i8
   store i8 %98, ptr %90, align 1
   %99 = trunc i32 %85 to i8
   %100 = zext nneg i32 %97 to i64
@@ -54131,7 +54131,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr no
   %indvars.iv.next999 = add nuw nsw i64 %indvars.iv998, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next999 to i32
   %exitcond1001.not = icmp eq i32 %117, %lftr.wideiv
-  br i1 %exitcond1001.not, label %.loopexit932, label %123, !llvm.loop !28
+  br i1 %exitcond1001.not, label %.loopexit932, label %123, !llvm.loop !25
 
 .loopexit932:                                     ; preds = %123, %._crit_edge, %59
   %137 = phi ptr [ %10, %59 ], [ %103, %._crit_edge ], [ %103, %123 ]
@@ -54169,7 +54169,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr no
   tail call void @llvm.prefetch.p0(ptr %156, i32 0, i32 3, i32 1)
   %157 = getelementptr inbounds i8, ptr %156, i64 32
   tail call void @llvm.prefetch.p0(ptr nonnull %157, i32 0, i32 3, i32 1)
-  %158 = trunc i64 %indvars.iv1002 to i32
+  %158 = trunc nuw i64 %indvars.iv1002 to i32
   %159 = and i64 %indvars.iv1002, 7
   %160 = getelementptr inbounds i32, ptr %11, i64 %159
   %161 = load i32, ptr %160, align 4
@@ -54186,7 +54186,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr no
   %171 = icmp eq i8 %169, 0
   %172 = select i1 %171, i32 63, i32 0
   %173 = add nuw nsw i32 %172, %170
-  %174 = trunc i32 %173 to i8
+  %174 = trunc nuw nsw i32 %173 to i8
   store i8 %174, ptr %166, align 1
   %175 = trunc i32 %161 to i8
   %176 = zext nneg i32 %173 to i64
@@ -54265,7 +54265,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr no
   store i32 %223, ptr %224, align 4
   %indvars.iv.next1006 = add nuw nsw i64 %indvars.iv1005, 1
   %exitcond1008.not = icmp eq i64 %indvars.iv.next1006, 4
-  br i1 %exitcond1008.not, label %225, label %217, !llvm.loop !38
+  br i1 %exitcond1008.not, label %225, label %217, !llvm.loop !35
 
 225:                                              ; preds = %217
   %226 = getelementptr inbounds i32, ptr %8, i64 %211
@@ -54299,8 +54299,8 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr no
   %.0872950 = phi i64 [ %265, %263 ], [ %246, %.lr.ph952.preheader ]
   %.0874949 = phi i64 [ %.1875, %263 ], [ 0, %.lr.ph952.preheader ]
   %.0881948 = phi i32 [ %.1882, %263 ], [ %40, %.lr.ph952.preheader ]
-  %247 = tail call i64 @llvm.cttz.i64(i64 %.0872950, i1 true), !range !15
-  %248 = trunc i64 %247 to i32
+  %247 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0872950, i1 true)
+  %248 = trunc nuw nsw i64 %247 to i32
   %249 = add nuw nsw i32 %248, %227
   %250 = and i32 %249, 63
   %251 = zext nneg i32 %250 to i64
@@ -54331,7 +54331,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr no
   %266 = icmp ne i64 %265, 0
   %267 = icmp ne i32 %.1882, 0
   %268 = select i1 %266, i1 %267, i1 false
-  br i1 %268, label %.lr.ph952, label %._crit_edge953, !llvm.loop !36
+  br i1 %268, label %.lr.ph952, label %._crit_edge953, !llvm.loop !33
 
 ._crit_edge953:                                   ; preds = %263, %255, %225
   %.0881.lcssa = phi i32 [ %40, %225 ], [ %.0881948, %255 ], [ %.1882, %263 ]
@@ -54342,7 +54342,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr no
   %272 = icmp eq i8 %270, 0
   %273 = select i1 %272, i32 63, i32 0
   %274 = add nuw nsw i32 %273, %271
-  %275 = trunc i32 %274 to i8
+  %275 = trunc nuw nsw i32 %274 to i8
   store i8 %275, ptr %212, align 1
   %276 = zext nneg i32 %274 to i64
   %277 = getelementptr inbounds i8, ptr %212, i64 %276
@@ -54391,7 +54391,7 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr no
   br i1 %.not.i, label %.preheader.i, label %298
 
 298:                                              ; preds = %296
-  %299 = tail call i64 @llvm.cttz.i64(i64 %297, i1 true), !range !15
+  %299 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %297, i1 true)
   %300 = lshr i64 %299, 3
   br label %ZSTD_count.exit
 
@@ -54408,10 +54408,10 @@ define internal fastcc i64 @ZSTD_RowFindBestMatch_dedicatedDictSearch_6_6(ptr no
   %.040.val.i = load i64, ptr %.040.i, align 1
   %303 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %303, 0
-  br i1 %.not51.i, label %.preheader.i, label %304, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %304, !llvm.loop !15
 
 304:                                              ; preds = %302
-  %305 = tail call i64 @llvm.cttz.i64(i64 %303, i1 true), !range !15
+  %305 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %303, i1 true)
   %306 = lshr i64 %305, 3
   %307 = getelementptr inbounds i8, ptr %.040.i, i64 %306
   %308 = ptrtoint ptr %307 to i64
@@ -54489,7 +54489,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   %.1886 = phi i64 [ %.0867, %333 ], [ %.0885960, %ZSTD_count.exit ], [ %.0885960, %287 ]
   %338 = add nuw i64 %.0873961, 1
   %exitcond1009.not = icmp eq i64 %338, %.0874.lcssa
-  br i1 %exitcond1009.not, label %._crit_edge964, label %287, !llvm.loop !37
+  br i1 %exitcond1009.not, label %._crit_edge964, label %287, !llvm.loop !34
 
 ._crit_edge964:                                   ; preds = %333, %ZSTD_count.exit.thread, %._crit_edge953
   %.2887 = phi i64 [ 3, %._crit_edge953 ], [ %.1886, %ZSTD_count.exit.thread ], [ %.0867, %333 ]
@@ -54514,7 +54514,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   tail call void @llvm.prefetch.p0(ptr %350, i32 0, i32 3, i32 1)
   %indvars.iv.next1011 = add nuw nsw i64 %indvars.iv1010, 1
   %exitcond1013.not = icmp eq i64 %indvars.iv.next1011, 3
-  br i1 %exitcond1013.not, label %351, label %345, !llvm.loop !42
+  br i1 %exitcond1013.not, label %351, label %345, !llvm.loop !39
 
 351:                                              ; preds = %345
   %352 = add i32 %.0881.lcssa, %56
@@ -54575,7 +54575,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   %.1 = phi i64 [ %376, %378 ], [ %.0851970, %373 ], [ %.0851970, %371 ]
   %indvars.iv.next1015 = add nuw nsw i64 %indvars.iv1014, 1
   %exitcond1018.not = icmp eq i64 %indvars.iv.next1015, %wide.trip.count1017
-  br i1 %exitcond1018.not, label %._crit_edge973.loopexit, label %364, !llvm.loop !43
+  br i1 %exitcond1018.not, label %._crit_edge973.loopexit, label %364, !llvm.loop !40
 
 ._crit_edge973.loopexit:                          ; preds = %.thread
   %.pre1028 = load ptr, ptr %50, align 8
@@ -54599,7 +54599,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   %387 = load ptr, ptr %357, align 8
   %388 = zext nneg i32 %.pre-phi to i64
   %wide.trip.count1022 = zext nneg i32 %386 to i64
-  %invariant.gep1035 = getelementptr i32, ptr %387, i64 %388
+  %invariant.gep1035 = getelementptr inbounds i32, ptr %387, i64 %388
   br label %393
 
 .preheader:                                       ; preds = %393
@@ -54615,14 +54615,14 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
 
 393:                                              ; preds = %.lr.ph978, %393
   %indvars.iv1019 = phi i64 [ 0, %.lr.ph978 ], [ %indvars.iv.next1020, %393 ]
-  %gep1036 = getelementptr i32, ptr %invariant.gep1035, i64 %indvars.iv1019
+  %gep1036 = getelementptr inbounds i32, ptr %invariant.gep1035, i64 %indvars.iv1019
   %394 = load i32, ptr %gep1036, align 4
   %395 = zext i32 %394 to i64
   %396 = getelementptr inbounds i8, ptr %340, i64 %395
   tail call void @llvm.prefetch.p0(ptr %396, i32 0, i32 3, i32 1)
   %indvars.iv.next1020 = add nuw nsw i64 %indvars.iv1019, 1
   %exitcond1023.not = icmp eq i64 %indvars.iv.next1020, %wide.trip.count1022
-  br i1 %exitcond1023.not, label %.preheader, label %393, !llvm.loop !44
+  br i1 %exitcond1023.not, label %.preheader, label %393, !llvm.loop !41
 
 397:                                              ; preds = %.lr.ph982, %.thread922
   %indvars.iv1024 = phi i64 [ %392, %.lr.ph982 ], [ %indvars.iv.next1025, %.thread922 ]
@@ -54658,7 +54658,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %333, %ZSTD_co
   %414 = add nuw nsw i32 %.1861979, 1
   %indvars.iv.next1025 = add nuw nsw i64 %indvars.iv1024, 1
   %exitcond1026.not = icmp eq i32 %414, %386
-  br i1 %exitcond1026.not, label %.loopexit, label %397, !llvm.loop !45
+  br i1 %exitcond1026.not, label %.loopexit, label %397, !llvm.loop !42
 
 .loopexit:                                        ; preds = %364, %378, %.thread922, %409, %._crit_edge973, %.preheader
   %.0849 = phi i64 [ %.0851.lcssa, %.preheader ], [ %.0851.lcssa, %._crit_edge973 ], [ %.3, %.thread922 ], [ %407, %409 ], [ %376, %378 ], [ %.0851970, %364 ]
@@ -54760,7 +54760,7 @@ define internal fastcc i64 @ZSTD_DUBT_findBestMatch(ptr nocapture noundef %0, pt
   %62 = add i32 %.0214273, -1
   %.0195 = load i32, ptr %.0210275, align 4
   %63 = icmp ugt i32 %.0195, %53
-  br i1 %63, label %.lr.ph, label %.lr.ph281, !llvm.loop !46
+  br i1 %63, label %.lr.ph, label %.lr.ph281, !llvm.loop !43
 
 .critedge:                                        ; preds = %.lr.ph
   br i1 %59, label %64, label %.critedge229
@@ -54874,7 +54874,7 @@ define internal fastcc i64 @ZSTD_DUBT_findBestMatch(ptr nocapture noundef %0, pt
   br i1 %.not.i.i, label %.preheader.i.i, label %120
 
 120:                                              ; preds = %118
-  %121 = tail call i64 @llvm.cttz.i64(i64 %119, i1 true), !range !15
+  %121 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %119, i1 true)
   %122 = lshr i64 %121, 3
   br label %ZSTD_count.exit.i
 
@@ -54891,10 +54891,10 @@ define internal fastcc i64 @ZSTD_DUBT_findBestMatch(ptr nocapture noundef %0, pt
   %.040.val.i.i = load i64, ptr %.040.i.i, align 1
   %125 = xor i64 %.040.val.i.i, %.041.val.i.i
   %.not51.i.i = icmp eq i64 %125, 0
-  br i1 %.not51.i.i, label %.preheader.i.i, label %126, !llvm.loop !16
+  br i1 %.not51.i.i, label %.preheader.i.i, label %126, !llvm.loop !15
 
 126:                                              ; preds = %124
-  %127 = tail call i64 @llvm.cttz.i64(i64 %125, i1 true), !range !15
+  %127 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %125, i1 true)
   %128 = lshr i64 %127, 3
   %129 = getelementptr inbounds i8, ptr %.040.i.i, i64 %128
   %130 = ptrtoint ptr %129 to i64
@@ -55012,7 +55012,7 @@ ZSTD_count.exit.i:                                ; preds = %152, %126, %120
   %179 = icmp ne i32 %178, 0
   %180 = icmp ugt i32 %.0110.i, %96
   %181 = select i1 %179, i1 %180, i1 false
-  br i1 %181, label %103, label %ZSTD_insertDUBT1.exit, !llvm.loop !47
+  br i1 %181, label %103, label %ZSTD_insertDUBT1.exit, !llvm.loop !44
 
 ZSTD_insertDUBT1.exit:                            ; preds = %165, %173, %176, %177, %67
   %.2114.i = phi ptr [ %89, %67 ], [ %.1113.i, %177 ], [ %.0112129.i, %165 ], [ %.0112129.i, %173 ], [ %7, %176 ]
@@ -55022,7 +55022,7 @@ ZSTD_insertDUBT1.exit:                            ; preds = %165, %173, %176, %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %182 = add i32 %.1215279, 1
   %.not = icmp eq i32 %71, 0
-  br i1 %.not, label %._crit_edge, label %67, !llvm.loop !48
+  br i1 %.not, label %._crit_edge, label %67, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %ZSTD_insertDUBT1.exit, %29, %.critedge229
   %183 = getelementptr inbounds i8, ptr %0, i64 16
@@ -55085,7 +55085,7 @@ ZSTD_insertDUBT1.exit:                            ; preds = %165, %173, %176, %1
   br i1 %.not.i239, label %.preheader.i, label %215
 
 215:                                              ; preds = %213
-  %216 = tail call i64 @llvm.cttz.i64(i64 %214, i1 true), !range !15
+  %216 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %214, i1 true)
   %217 = lshr i64 %216, 3
   br label %ZSTD_count.exit
 
@@ -55102,10 +55102,10 @@ ZSTD_insertDUBT1.exit:                            ; preds = %165, %173, %176, %1
   %.040.val.i = load i64, ptr %.040.i, align 1
   %220 = xor i64 %.040.val.i, %.041.val.i
   %.not51.i = icmp eq i64 %220, 0
-  br i1 %.not51.i, label %.preheader.i, label %221, !llvm.loop !16
+  br i1 %.not51.i, label %.preheader.i, label %221, !llvm.loop !15
 
 221:                                              ; preds = %219
-  %222 = tail call i64 @llvm.cttz.i64(i64 %220, i1 true), !range !15
+  %222 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %220, i1 true)
   %223 = lshr i64 %222, 3
   %224 = getelementptr inbounds i8, ptr %.040.i, i64 %223
   %225 = ptrtoint ptr %224 to i64
@@ -55202,11 +55202,11 @@ ZSTD_count.exit:                                  ; preds = %215, %221, %247
   %269 = shl nsw i32 %268, 2
   %270 = sub i32 %36, %.2289
   %271 = add i32 %270, 1
-  %272 = tail call i32 @llvm.ctlz.i32(i32 %271, i1 true), !range !19
+  %272 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %271, i1 true)
   %273 = xor i32 %272, 31
   %274 = load i64, ptr %3, align 8
   %275 = trunc i64 %274 to i32
-  %276 = tail call i32 @llvm.ctlz.i32(i32 %275, i1 true), !range !19
+  %276 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %275, i1 true)
   %277 = xor i32 %276, 31
   %278 = sub nsw i32 %273, %277
   %279 = icmp sgt i32 %269, %278
@@ -55263,7 +55263,7 @@ ZSTD_count.exit:                                  ; preds = %215, %221, %247
   %300 = icmp ne i32 %299, 0
   %301 = icmp ugt i32 %.3, %45
   %302 = select i1 %300, i1 %301, i1 false
-  br i1 %302, label %201, label %.loopexit, !llvm.loop !49
+  br i1 %302, label %201, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %298, %294, %297, %._crit_edge, %286
   %.1213 = phi i32 [ %spec.select230, %286 ], [ %56, %._crit_edge ], [ %299, %298 ], [ %.0212284, %294 ], [ %.0212284, %297 ]
@@ -55387,12 +55387,12 @@ ZSTD_count.exit:                                  ; preds = %215, %221, %247
   %377 = add i32 %353, %.0107121.i
   %378 = sub i32 %356, %377
   %379 = add i32 %378, 1
-  %380 = tail call i32 @llvm.ctlz.i32(i32 %379, i1 true), !range !19
+  %380 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %379, i1 true)
   %381 = xor i32 %380, 31
   %382 = load i64, ptr %3, align 8
   %383 = trunc i64 %382 to i32
   %384 = add i32 %383, 1
-  %385 = tail call i32 @llvm.ctlz.i32(i32 %384, i1 true), !range !19
+  %385 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %384, i1 true)
   %386 = xor i32 %385, 31
   %387 = sub nsw i32 %381, %386
   %388 = icmp sgt i32 %376, %387
@@ -55439,7 +55439,7 @@ ZSTD_count.exit:                                  ; preds = %215, %221, %247
   %407 = icmp ne i32 %406, 0
   %408 = icmp ugt i32 %.0107.i247, %341
   %409 = select i1 %407, i1 %408, i1 false
-  br i1 %409, label %359, label %ZSTD_DUBT_findBetterDictMatch.exit, !llvm.loop !50
+  br i1 %409, label %359, label %ZSTD_DUBT_findBetterDictMatch.exit, !llvm.loop !47
 
 ZSTD_DUBT_findBetterDictMatch.exit:               ; preds = %405, %404, %401, %392, %327, %.loopexit
   %.4 = phi i64 [ %.3199, %.loopexit ], [ %.3199, %327 ], [ %.2.i245, %405 ], [ %.1.i248, %392 ], [ %.2.i245, %401 ], [ %.2.i245, %404 ]
@@ -55511,21 +55511,21 @@ attributes #10 = { nounwind }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = !{i64 72637}
-!15 = !{i64 0, i64 65}
+!15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = !{i32 0, i32 33}
+!19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
-!25 = !{i64 3, i64 0}
-!26 = distinct !{!26, !6}
+!25 = distinct !{!25, !6}
+!26 = !{i64 91133}
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
-!29 = !{i64 91133}
+!29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
@@ -55544,6 +55544,3 @@ attributes #10 = { nounwind }
 !45 = distinct !{!45, !6}
 !46 = distinct !{!46, !6}
 !47 = distinct !{!47, !6}
-!48 = distinct !{!48, !6}
-!49 = distinct !{!49, !6}
-!50 = distinct !{!50, !6}

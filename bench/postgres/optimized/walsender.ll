@@ -699,7 +699,7 @@ WalSndSetState.exit:                              ; preds = %35, %26, %1
 97:                                               ; preds = %95, %89
   %.0.i = phi i64 [ %.0.i.i, %89 ], [ %96, %95 ]
   %98 = lshr i64 %.0.i, 32
-  %99 = trunc i64 %98 to i32
+  %99 = trunc nuw i64 %98 to i32
   %100 = trunc i64 %.0.i to i32
   %101 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %21, i64 noundef 64, ptr noundef nonnull @.str.24, i32 noundef %99, i32 noundef %100) #16
   %102 = load i32, ptr @MyDatabaseId, align 4
@@ -847,7 +847,7 @@ IdentifySystem.exit:                              ; preds = %119, %123
 
 156:                                              ; preds = %152
   %157 = lshr i64 %.sroa.210.0.copyload.i, 32
-  %158 = trunc i64 %157 to i32
+  %158 = trunc nuw i64 %157 to i32
   %159 = trunc i64 %.sroa.210.0.copyload.i to i32
   %160 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 64, ptr noundef nonnull @.str.24, i32 noundef %158, i32 noundef %159) #16
   %161 = call ptr @cstring_to_text(ptr noundef nonnull %16) #16
@@ -1253,7 +1253,7 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %262, %.lr.ph.i.i, %
   %340 = getelementptr inbounds i8, ptr %339, i64 120
   %341 = load i64, ptr %340, align 8
   %342 = lshr i64 %341, 32
-  %343 = trunc i64 %342 to i32
+  %343 = trunc nuw i64 %342 to i32
   %344 = trunc i64 %341 to i32
   %345 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 64, ptr noundef nonnull @.str.24, i32 noundef %343, i32 noundef %344) #16
   %346 = call ptr @CreateDestReceiver(i32 noundef 4) #16
@@ -2066,13 +2066,13 @@ define internal fastcc void @StartReplication(ptr nocapture noundef readonly %0)
   call void @llvm.assume(i1 %58)
   %59 = load i64, ptr %54, align 8
   %60 = lshr i64 %59, 32
-  %61 = trunc i64 %60 to i32
+  %61 = trunc nuw i64 %60 to i32
   %62 = trunc i64 %59 to i32
   %63 = load i32, ptr %42, align 8
   %64 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.72, i32 noundef %61, i32 noundef %62, i32 noundef %63) #16
   %65 = load i32, ptr %42, align 8
   %66 = lshr i64 %51, 32
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw i64 %66 to i32
   %68 = trunc i64 %51 to i32
   %69 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.73, i32 noundef %65, i32 noundef %67, i32 noundef %68) #16
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 927, ptr noundef nonnull @__func__.StartReplication) #16
@@ -2093,7 +2093,7 @@ define internal fastcc void @StartReplication(ptr nocapture noundef readonly %0)
 72:                                               ; preds = %48, %53
   store i64 %51, ptr @sendTimeLineValidUpto, align 8
   %.pre = load i8, ptr @sendTimeLineIsHistoric, align 1
-  %73 = trunc i8 %.pre to i1
+  %73 = trunc nuw i8 %.pre to i1
   store i1 false, ptr @streamingDoneReceiving, align 1
   store i1 false, ptr @streamingDoneSending, align 1
   br i1 %73, label %74, label %78
@@ -2163,10 +2163,10 @@ WalSndSetState.exit:                              ; preds = %78, %88
   call void @llvm.assume(i1 %108)
   %109 = load i64, ptr %104, align 8
   %110 = lshr i64 %109, 32
-  %111 = trunc i64 %110 to i32
+  %111 = trunc nuw i64 %110 to i32
   %112 = trunc i64 %109 to i32
   %113 = lshr i64 %.0, 32
-  %114 = trunc i64 %113 to i32
+  %114 = trunc nuw i64 %113 to i32
   %115 = trunc i64 %.0 to i32
   %116 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.74, i32 noundef %111, i32 noundef %112, i32 noundef %114, i32 noundef %115) #16
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 971, ptr noundef nonnull @__func__.StartReplication) #16
@@ -2241,14 +2241,14 @@ WalSndSetState.exit42:                            ; preds = %143, %133, %74
 
 146:                                              ; preds = %145, %WalSndSetState.exit42
   %147 = load i8, ptr @sendTimeLineIsHistoric, align 1
-  %148 = trunc i8 %147 to i1
+  %148 = trunc nuw i8 %147 to i1
   br i1 %148, label %149, label %163
 
 149:                                              ; preds = %146
   store i16 0, ptr %9, align 2
   %150 = load i64, ptr @sendTimeLineValidUpto, align 8
   %151 = lshr i64 %150, 32
-  %152 = trunc i64 %151 to i32
+  %152 = trunc nuw i64 %151 to i32
   %153 = trunc i64 %150 to i32
   %154 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 18, ptr noundef nonnull @.str.24, i32 noundef %152, i32 noundef %153) #16
   %155 = call ptr @CreateDestReceiver(i32 noundef 4) #16
@@ -3302,7 +3302,7 @@ define internal void @WalSndSegmentOpen(ptr nocapture noundef %0, i64 noundef %1
   %6 = load i32, ptr @sendTimeLine, align 4
   store i32 %6, ptr %2, align 4
   %7 = load i8, ptr @sendTimeLineIsHistoric, align 1
-  %8 = trunc i8 %7 to i1
+  %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %3
@@ -3328,7 +3328,7 @@ define internal void @WalSndSegmentOpen(ptr nocapture noundef %0, i64 noundef %1
   %24 = udiv i64 %1, %23
   %25 = trunc i64 %24 to i32
   %26 = urem i64 %1, %23
-  %27 = trunc i64 %26 to i32
+  %27 = trunc nuw i64 %26 to i32
   %28 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.67, i32 noundef %19, i32 noundef %25, i32 noundef %27) #16
   %29 = call i32 @BasicOpenFile(ptr noundef nonnull %4, i32 noundef 0) #16
   %30 = getelementptr inbounds i8, ptr %0, i64 1208
@@ -3771,13 +3771,13 @@ define internal fastcc void @ProcessRepliesIfAny() unnamed_addr #0 {
 
 47:                                               ; preds = %43
   %48 = lshr i64 %37, 32
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw i64 %48 to i32
   %50 = trunc i64 %37 to i32
   %51 = lshr i64 %38, 32
-  %52 = trunc i64 %51 to i32
+  %52 = trunc nuw i64 %51 to i32
   %53 = trunc i64 %38 to i32
   %54 = lshr i64 %39, 32
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   %56 = trunc i64 %39 to i32
   %57 = select i1 %.not.i.i, ptr @.str.61, ptr @.str.60
   %58 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.59, i32 noundef %49, i32 noundef %50, i32 noundef %52, i32 noundef %53, i32 noundef %55, i32 noundef %56, ptr noundef nonnull %57, ptr noundef %45) #16
@@ -4288,7 +4288,7 @@ LagTrackerRead.exit91.i.i:                        ; preds = %219, %196, %.thread
   %294 = call i64 @ReadNextFullTransactionId() #16
   %295 = trunc i64 %294 to i32
   %296 = lshr i64 %294, 32
-  %297 = trunc i64 %296 to i32
+  %297 = trunc nuw i64 %296 to i32
   %.not.i.i5.i = icmp ugt i32 %265, %295
   br i1 %.not.i.i5.i, label %299, label %298
 
@@ -4312,7 +4312,7 @@ TransactionIdInRecentPast.exit.i.i:               ; preds = %299, %298
   %304 = call i64 @ReadNextFullTransactionId() #16
   %305 = trunc i64 %304 to i32
   %306 = lshr i64 %304, 32
-  %307 = trunc i64 %306 to i32
+  %307 = trunc nuw i64 %306 to i32
   %.not.i33.i.i = icmp ugt i32 %267, %305
   br i1 %.not.i33.i.i, label %309, label %308
 
@@ -4682,7 +4682,7 @@ define internal fastcc void @XLogFileName(ptr noundef %0, i32 noundef %1, i64 no
   %7 = udiv i64 %2, %6
   %8 = trunc i64 %7 to i32
   %9 = urem i64 %2, %6
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   %11 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %0, i64 noundef 64, ptr noundef nonnull @.str.68, i32 noundef %1, i32 noundef %8, i32 noundef %10) #16
   ret void
 }
@@ -5221,7 +5221,7 @@ WalSndSetState.exit:                              ; preds = %16, %6, %0
 
 18:                                               ; preds = %WalSndSetState.exit
   %19 = load i8, ptr @sendTimeLineIsHistoric, align 1
-  %20 = trunc i8 %19 to i1
+  %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18
@@ -5259,8 +5259,8 @@ WalSndSetState.exit:                              ; preds = %16, %6, %0
   br i1 %.not48.not, label %43, label %36
 
 36:                                               ; preds = %.critedge, %32
-  %.056 = phi i32 [ %.pre.i, %32 ], [ %31, %.critedge ]
-  %37 = call ptr @readTimeLineHistory(i32 noundef %.056) #16
+  %.057 = phi i32 [ %.pre.i, %32 ], [ %31, %.critedge ]
+  %37 = call ptr @readTimeLineHistory(i32 noundef %.057) #16
   %38 = load i32, ptr @sendTimeLine, align 4
   %39 = call i64 @tliSwitchPoint(i32 noundef %38, ptr noundef %37, ptr noundef nonnull @sendTimeLineNextTLI) #16
   store i64 %39, ptr @sendTimeLineValidUpto, align 8
@@ -5332,7 +5332,7 @@ WalSndSetState.exit:                              ; preds = %16, %6, %0
 
 LagTrackerWrite.exit:                             ; preds = %43, %47, %64
   %72 = load i8, ptr @sendTimeLineIsHistoric, align 1
-  %73 = trunc i8 %72 to i1
+  %73 = trunc nuw i8 %72 to i1
   %.pre = load i64, ptr @sentPtr, align 8
   %74 = load i64, ptr @sendTimeLineValidUpto, align 8
   %.not49 = icmp ule i64 %74, %.pre
@@ -5363,11 +5363,11 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
 86:                                               ; preds = %81
   %87 = load i64, ptr @sendTimeLineValidUpto, align 8
   %88 = lshr i64 %87, 32
-  %89 = trunc i64 %88 to i32
+  %89 = trunc nuw i64 %88 to i32
   %90 = trunc i64 %87 to i32
   %91 = load i64, ptr @sentPtr, align 8
   %92 = lshr i64 %91, 32
-  %93 = trunc i64 %92 to i32
+  %93 = trunc nuw i64 %92 to i32
   %94 = trunc i64 %91 to i32
   %95 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.80, i32 noundef %89, i32 noundef %90, i32 noundef %93, i32 noundef %94) #16
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3122, ptr noundef nonnull @__func__.XLogSendPhysical) #16
@@ -5568,7 +5568,7 @@ LagTrackerWrite.exit:                             ; preds = %43, %47, %64
 208:                                              ; preds = %203
   %209 = load i64, ptr @sentPtr, align 8
   %210 = lshr i64 %209, 32
-  %211 = trunc i64 %210 to i32
+  %211 = trunc nuw i64 %210 to i32
   %212 = trunc i64 %209 to i32
   %213 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 50, ptr noundef nonnull @.str.81, i32 noundef %211, i32 noundef %212) #16
   %214 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #19

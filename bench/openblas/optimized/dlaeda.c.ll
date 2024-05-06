@@ -72,7 +72,7 @@ define void @dlaeda_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %55 = and i64 %51, 2
   %56 = icmp eq i64 %55, 0
   %57 = select i1 %56, i32 1, i32 %54
-  %58 = mul nsw i32 %57, %50
+  %58 = mul nuw nsw i32 %57, %50
   %59 = icmp ult i64 %51, 4
   br i1 %59, label %62, label %.preheader25, !llvm.loop !7
 
@@ -99,7 +99,7 @@ define void @dlaeda_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %73 = and i64 %69, 2
   %74 = icmp eq i64 %73, 0
   %75 = select i1 %74, i32 1, i32 %72
-  %76 = mul nsw i32 %75, %68
+  %76 = mul nuw nsw i32 %75, %68
   %77 = icmp ult i64 %69, 4
   br i1 %77, label %.loopexit24, label %.preheader23, !llvm.loop !7
 
@@ -204,7 +204,7 @@ define void @dlaeda_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %155 = and i64 %151, 2
   %156 = icmp eq i64 %155, 0
   %157 = select i1 %156, i32 1, i32 %154
-  %158 = mul nsw i32 %157, %150
+  %158 = mul nuw nsw i32 %157, %150
   %159 = icmp ult i64 %151, 4
   br i1 %159, label %.loopexit22, label %.preheader21, !llvm.loop !7
 
@@ -250,7 +250,7 @@ define void @dlaeda_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %189 = and i64 %185, 2
   %190 = icmp eq i64 %189, 0
   %191 = select i1 %190, i32 1, i32 %188
-  %192 = mul nsw i32 %191, %184
+  %192 = mul nuw nsw i32 %191, %184
   %193 = icmp ult i64 %185, 4
   br i1 %193, label %.loopexit19, label %.preheader18, !llvm.loop !7
 
@@ -280,7 +280,7 @@ define void @dlaeda_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %211 = and i64 %207, 2
   %212 = icmp eq i64 %211, 0
   %213 = select i1 %212, i32 1, i32 %210
-  %214 = mul nsw i32 %213, %206
+  %214 = mul nuw nsw i32 %213, %206
   %215 = icmp ult i64 %207, 4
   br i1 %215, label %.loopexit17, label %.preheader16, !llvm.loop !7
 
@@ -534,7 +534,7 @@ define void @dlaeda_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %399 = and i64 %395, 2
   %400 = icmp eq i64 %399, 0
   %401 = select i1 %400, i32 1, i32 %398
-  %402 = mul nsw i32 %401, %394
+  %402 = mul nuw nsw i32 %401, %394
   %403 = icmp ult i64 %395, 4
   br i1 %403, label %.loopexit, label %.preheader, !llvm.loop !7
 

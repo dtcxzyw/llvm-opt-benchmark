@@ -318,7 +318,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @ResolveRecoveryConflictWithSnapshot(i32 noundef %0, i1 noundef zeroext %1, i64 %2, i32 %3) local_unnamed_addr #0 {
   %.sroa.1.0.extract.shift = lshr i64 %2, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %11, label %5
 
@@ -460,8 +460,8 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
   br i1 %.not37, label %72, label %49
 
 49:                                               ; preds = %48
-  %50 = trunc i8 %.13339 to i1
-  %51 = trunc i8 %.140 to i1
+  %50 = trunc nuw i8 %.13339 to i1
+  %51 = trunc nuw i8 %.140 to i1
   %52 = select i1 %50, i1 %51, i1 false
   br i1 %52, label %72, label %._crit_edge51
 
@@ -524,8 +524,8 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
   br i1 %.not35, label %._crit_edge48, label %19, !llvm.loop !9
 
 ._crit_edge48:                                    ; preds = %._crit_edge
-  %78 = trunc i8 %.133.lcssa to i1
-  %79 = trunc i8 %.1.lcssa to i1
+  %78 = trunc nuw i8 %.133.lcssa to i1
+  %79 = trunc nuw i8 %.1.lcssa to i1
   br i1 %78, label %80, label %82
 
 80:                                               ; preds = %._crit_edge48
@@ -556,7 +556,7 @@ define dso_local void @ResolveRecoveryConflictWithSnapshotFullXid(i64 %0, i1 nou
 8:                                                ; preds = %4
   %9 = trunc i64 %0 to i32
   %.sroa.1.0.extract.shift.i = lshr i64 %2, 32
-  %.sroa.1.0.extract.trunc.i = trunc i64 %.sroa.1.0.extract.shift.i to i32
+  %.sroa.1.0.extract.trunc.i = trunc nuw i64 %.sroa.1.0.extract.shift.i to i32
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %ResolveRecoveryConflictWithSnapshot.exit, label %10
 
@@ -1364,7 +1364,7 @@ define dso_local i64 @LogStandbySnapshot() local_unnamed_addr #0 {
 46:                                               ; preds = %45
   %47 = load i32, ptr %11, align 8
   %48 = lshr i64 %41, 32
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw i64 %48 to i32
   %50 = trunc i64 %41 to i32
   %51 = load i32, ptr %26, align 8
   %52 = load i32, ptr %28, align 4
@@ -1379,7 +1379,7 @@ define dso_local i64 @LogStandbySnapshot() local_unnamed_addr #0 {
   %57 = load i32, ptr %11, align 8
   %58 = load i32, ptr %18, align 4
   %59 = lshr i64 %41, 32
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nuw i64 %59 to i32
   %61 = trunc i64 %41 to i32
   %62 = load i32, ptr %26, align 8
   %63 = load i32, ptr %28, align 4

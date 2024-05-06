@@ -692,7 +692,7 @@ define internal i32 @crypto_gcm_setkey(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @crypto_gcm_setauthsize(ptr nocapture readnone %0, i32 noundef %1) #6 align 16 {
+define internal noundef range(i32 -22, 1) i32 @crypto_gcm_setauthsize(ptr nocapture readnone %0, i32 noundef %1) #6 align 16 {
   switch i32 %1, label %4 [
     i32 4, label %3
     i32 8, label %3

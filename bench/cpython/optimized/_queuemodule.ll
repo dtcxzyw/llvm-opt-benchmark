@@ -213,7 +213,7 @@ queue_clear.exit:                                 ; preds = %do.body1.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @queuemodule_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @queuemodule_exec(ptr noundef %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8

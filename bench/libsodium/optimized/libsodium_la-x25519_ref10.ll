@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @has_small_order.blocklist = internal unnamed_addr constant <{ [32 x i8], <{ i8, [31 x i8] }>, [32 x i8], [32 x i8], [32 x i8], [32 x i8], [32 x i8] }> <{ [32 x i8] zeroinitializer, <{ i8, [31 x i8] }> <{ i8 1, [31 x i8] zeroinitializer }>, [32 x i8] c"\E0\EBz|;A\B8\AE\16V\E3\FA\F1\9F\C4j\DA\09\8D\EB\9C2\B1\FD\86b\05\16_I\B8\00", [32 x i8] c"_\9C\95\BC\A3P\8C$\B1\D0\B1U\9C\83\EF[\04D\\\C4X\1C\8E\86\D8\22N\DD\D0\9F\11W", [32 x i8] c"\EC\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\7F", [32 x i8] c"\ED\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\7F", [32 x i8] c"\EE\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\7F" }>, align 16
 
 ; Function Attrs: nounwind ssp uwtable
-define internal noundef i32 @crypto_scalarmult_curve25519_ref10(ptr noundef %q, ptr nocapture noundef readonly %n, ptr noundef %p) #0 {
+define internal range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_ref10(ptr noundef %q, ptr nocapture noundef readonly %n, ptr noundef %p) #0 {
 entry:
   %c.i = alloca [7 x i8], align 1
   %t = alloca [32 x i8], align 16
@@ -103,8 +103,8 @@ for.body.preheader:                               ; preds = %has_small_order.exi
   call void @_sodium_fe25519_frombytes(ptr noundef nonnull %x1, ptr noundef %p) #6
   store i64 1, ptr %x2, align 16
   %arrayidx1.i = getelementptr inbounds i8, ptr %x2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %z2, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(40) %z2, i8 0, i64 40, i1 false)
   %x3.sroa.0.0.copyload = load i64, ptr %x1, align 16
   %x3.sroa.10.0.x1.sroa_idx = getelementptr inbounds i8, ptr %x1, i64 8
   %x3.sroa.10.0.copyload = load i64, ptr %x3.sroa.10.0.x1.sroa_idx, align 8
@@ -116,7 +116,7 @@ for.body.preheader:                               ; preds = %has_small_order.exi
   %x3.sroa.37.0.copyload = load i64, ptr %x3.sroa.37.0.x1.sroa_idx, align 16
   store i64 1, ptr %z3, align 16
   %arrayidx1.i15 = getelementptr inbounds i8, ptr %z3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i15, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %arrayidx1.i15, i8 0, i64 32, i1 false)
   %arrayidx2.i = getelementptr inbounds i8, ptr %x2, i64 16
   %arrayidx3.i = getelementptr inbounds i8, ptr %x2, i64 24
   %arrayidx4.i = getelementptr inbounds i8, ptr %x2, i64 32
@@ -706,7 +706,7 @@ for.body20:                                       ; preds = %for.body.preheader,
   %mul38.i = mul nuw nsw i128 %shr37.i, 19
   %conv39.i = and i128 %mul.i451, 2251799813685246
   %add40.i = add nuw nsw i128 %mul38.i, %conv39.i
-  %conv41.i = trunc i128 %add40.i to i64
+  %conv41.i = trunc nuw nsw i128 %add40.i to i64
   %add.i463 = add nuw nsw i64 %and67.i142, %conv41.i
   %add4.i466 = add nuw nsw i64 %and9.i, %and70.i145
   %add7.i469 = add nuw nsw i64 %and18.i, %add71.i146
@@ -884,7 +884,7 @@ for.end:                                          ; preds = %for.body
   %arrayidx35.i.i = getelementptr inbounds i8, ptr %tempZ.i, i64 32
   store i64 %sub30.i.i, ptr %arrayidx35.i.i, align 16
   call void @_sodium_fe25519_invert(ptr noundef nonnull %tempZ.i, ptr noundef nonnull %tempZ.i) #6
-  call fastcc void @fe25519_mul(ptr noundef nonnull %pk, ptr noundef nonnull %tempX.i, ptr noundef nonnull %tempZ.i)
+  call fastcc void @fe25519_mul(ptr noundef nonnull writeonly %pk, ptr noundef nonnull %tempX.i, ptr noundef nonnull %tempZ.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tempX.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tempZ.i)
   call void @_sodium_fe25519_tobytes(ptr noundef nonnull %q, ptr noundef nonnull %pk) #6

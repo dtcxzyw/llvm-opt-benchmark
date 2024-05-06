@@ -210,7 +210,7 @@ define hidden void @_ZN8rawspeed23PanasonicV4DecompressorC2ENS_8RawImageENS_10By
   unreachable
 
 86:                                               ; preds = %75
-  %87 = trunc i64 %69 to i32
+  %87 = trunc nuw i64 %69 to i32
   %88 = load ptr, ptr %2, align 8, !tbaa !14, !noalias !99, !nonnull !102, !noundef !102
   %89 = icmp sgt i32 %81, -1
   tail call void @llvm.assume(i1 %89)
@@ -718,7 +718,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV4Decompressor18process
   %18 = getelementptr inbounds i8, ptr %8, i64 48
   %19 = load i32, ptr %18, align 8, !tbaa !157, !noalias !152
   %20 = ashr i32 %19, 1
-  %21 = mul nsw i32 %20, %17
+  %21 = mul nuw nsw i32 %20, %17
   %22 = icmp sgt i32 %15, -1
   tail call void @llvm.assume(i1 %22)
   %23 = icmp sgt i32 %17, -1
@@ -743,7 +743,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV4Decompressor18process
   tail call void @llvm.assume(i1 %30)
   %31 = icmp ugt i32 %17, %2
   tail call void @llvm.assume(i1 %31)
-  %32 = mul nsw i32 %20, %2
+  %32 = mul nuw nsw i32 %20, %2
   %33 = add nuw nsw i32 %32, %15
   %34 = icmp ule i32 %33, %21
   tail call void @llvm.assume(i1 %34)
@@ -878,7 +878,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed23PanasonicV4Decompressor18process
   br i1 %131, label %132, label %171
 
 132:                                              ; preds = %122
-  %133 = trunc i64 %48 to i32
+  %133 = trunc nuw nsw i64 %48 to i32
   %134 = or i32 %40, %133
   %135 = load ptr, ptr %41, align 8, !tbaa !11
   %136 = load ptr, ptr %42, align 8, !tbaa !162

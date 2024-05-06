@@ -1092,7 +1092,7 @@ define dso_local void @PageTruncateLinePointerArray(ptr nocapture noundef %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @PageGetFreeSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local range(i64 0, 65532) i64 @PageGetFreeSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 14
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
@@ -1108,7 +1108,7 @@ define dso_local i64 @PageGetFreeSpace(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @PageGetFreeSpaceForMultipleTuples(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @PageGetFreeSpaceForMultipleTuples(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 14
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i32
@@ -1125,7 +1125,7 @@ define dso_local i64 @PageGetFreeSpaceForMultipleTuples(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @PageGetExactFreeSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local range(i64 0, 65536) i64 @PageGetExactFreeSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 14
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32

@@ -127,7 +127,7 @@ define dso_local void @efi_delete_dummy_variable() local_unnamed_addr #1 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i64 @efivar_reserved_space() #2 align 16 {
+define dso_local range(i64 0, 5121) i64 @efivar_reserved_space() #2 align 16 {
   %1 = load i1, ptr @efi_no_storage_paranoia, align 1
   %2 = select i1 %1, i64 0, i64 5120
   ret i64 %2
@@ -715,7 +715,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local void @memunmap(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @efi_reuse_config(i64 noundef %0, i32 noundef %1) local_unnamed_addr #5 section ".init.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @efi_reuse_config(i64 noundef %0, i32 noundef %1) local_unnamed_addr #5 section ".init.text" align 16 {
   %3 = alloca %struct.guid_t, align 8
   %4 = alloca %struct.guid_t, align 8
   %5 = icmp eq i32 %1, 0

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @replay_mode = external local_unnamed_addr global i32, align 4
 @deterministic = internal unnamed_addr global i1 false, align 1
 @error_fatal = external global ptr, align 8
-@thread_rand = internal thread_local global ptr null, align 8
+@thread_rand = internal thread_local unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [28 x i8] c"../qemu/util/guest-random.c\00", align 1
 @__func__.qemu_guest_random_seed_thread_part2 = private unnamed_addr constant [36 x i8] c"qemu_guest_random_seed_thread_part2\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"thread_rand == NULL\00", align 1
@@ -66,7 +66,7 @@ if.then8.i:                                       ; preds = %for.end.i
   store i32 %call9.i, ptr %x.i, align 4
   %add.ptr10.i = getelementptr i8, ptr %buf, i64 %i.0.lcssa.i
   %sub.i = sub i64 %len, %i.0.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr10.i, ptr nonnull align 4 %x.i, i64 %sub.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr10.i, ptr nonnull align 4 %x.i, i64 %sub.i, i1 false)
   br label %glib_random_bytes.exit
 
 glib_random_bytes.exit:                           ; preds = %for.end.i, %if.then8.i
@@ -173,7 +173,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 declare ptr @g_rand_new_with_seed_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_guest_random_seed_main(ptr noundef %seedstr, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qemu_guest_random_seed_main(ptr noundef %seedstr, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %seed.addr.i = alloca i64, align 8
   %seed = alloca i64, align 8

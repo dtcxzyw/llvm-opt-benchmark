@@ -498,7 +498,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
 invoke.cont8:                                     ; preds = %invoke.cont2
   %shard_mask_.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i32, ptr %shard_mask_.i, align 8
-  %2 = call noundef i32 @llvm.ctpop.i32(i32 %1), !range !11
+  %2 = call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
   %call10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 200, ptr noundef nonnull @.str.1, i32 noundef %2) #16
   %call13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %buffer)
           to label %invoke.cont12 unwind label %lpad4
@@ -591,7 +591,7 @@ define noundef i32 @_ZNK7rocksdb16ShardedCacheBase15GetNumShardBitsEv(ptr nocapt
 entry:
   %shard_mask_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %shard_mask_, align 8
-  %1 = tail call noundef i32 @llvm.ctpop.i32(i32 %0), !range !11
+  %1 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
   ret i32 %1
 }
 
@@ -614,7 +614,7 @@ while.body:                                       ; preds = %while.cond
   %shr = lshr i64 %num_shards.0, 1
   %inc = add nuw nsw i32 %num_shard_bits.0, 1
   %exitcond = icmp eq i32 %inc, 6
-  br i1 %exitcond, label %return, label %while.cond, !llvm.loop !12
+  br i1 %exitcond, label %return, label %while.cond, !llvm.loop !11
 
 return:                                           ; preds = %while.cond, %while.body
   %retval.0 = phi i32 [ 6, %while.body ], [ %num_shard_bits.0, %while.cond ]
@@ -870,6 +870,5 @@ attributes #18 = { noreturn nounwind }
 !8 = !{!9}
 !9 = distinct !{!9, !10, !"_ZN7rocksdb6Status2OKEv: %agg.result"}
 !10 = distinct !{!10, !"_ZN7rocksdb6Status2OKEv"}
-!11 = !{i32 0, i32 33}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}

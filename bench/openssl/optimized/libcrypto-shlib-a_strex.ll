@@ -250,7 +250,7 @@ if.end99:                                         ; preds = %if.end96, %if.end45
   %or.cond60 = or i1 %tobool104.not, %cmp100
   %orflags.0 = select i1 %or.cond60, i64 0, i64 128
   %or = or i64 %orflags.0, %flags
-  %call109 = call fastcc i32 @do_print_ex(ptr noundef %io_ch, ptr noundef %arg, i64 noundef %or, ptr noundef %call48), !range !7
+  %call109 = call fastcc i32 @do_print_ex(ptr noundef %io_ch, ptr noundef %arg, i64 noundef %or, ptr noundef %call48)
   %cmp110 = icmp slt i32 %call109, 0
   br i1 %cmp110, label %return, label %if.end113
 
@@ -258,7 +258,7 @@ if.end113:                                        ; preds = %if.end99
   %add114 = add nsw i32 %call109, %outlen.3
   %inc = add nuw nsw i32 %i.092, 1
   %exitcond.not = icmp eq i32 %inc, %call11
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
 return:                                           ; preds = %for.body.i, %if.then28, %if.else33, %if.end73, %if.end92, %if.end99, %if.end113, %for.body.i63, %for.body.i73, %sw.epilog, %if.end2
   %retval.0 = phi i32 [ -1, %if.end2 ], [ %spec.store.select, %sw.epilog ], [ -1, %for.body.i73 ], [ -1, %for.body.i63 ], [ -1, %if.then28 ], [ -1, %if.else33 ], [ -1, %if.end73 ], [ -1, %if.end92 ], [ -1, %if.end99 ], [ %add114, %if.end113 ], [ -1, %for.body.i ]
@@ -266,7 +266,7 @@ return:                                           ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @send_bio_chars(ptr noundef %arg, ptr noundef %buf, i32 noundef %len) #0 {
+define internal range(i32 0, 2) i32 @send_bio_chars(ptr noundef %arg, ptr noundef %buf, i32 noundef %len) #0 {
 entry:
   %tobool.not = icmp eq ptr %arg, null
   br i1 %tobool.not, label %return, label %if.end
@@ -312,7 +312,7 @@ declare ptr @BIO_new_fp(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @send_fp_chars(ptr noundef %arg, ptr nocapture noundef %buf, i32 noundef %len) #2 {
+define internal range(i32 0, 2) i32 @send_fp_chars(ptr noundef %arg, ptr nocapture noundef %buf, i32 noundef %len) #2 {
 entry:
   %tobool.not = icmp eq ptr %arg, null
   br i1 %tobool.not, label %return, label %if.end
@@ -331,14 +331,14 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_STRING_print_ex(ptr noundef %out, ptr noundef %str, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @ASN1_STRING_print_ex(ptr noundef %out, ptr noundef %str, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @do_print_ex(ptr noundef nonnull @send_bio_chars, ptr noundef %out, i64 noundef %flags, ptr noundef %str), !range !7
+  %call = tail call fastcc i32 @do_print_ex(ptr noundef nonnull @send_bio_chars, ptr noundef %out, i64 noundef %flags, ptr noundef %str)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_print_ex(ptr nocapture noundef readonly %io_ch, ptr noundef %arg, i64 noundef %lflags, ptr noundef %str) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @do_print_ex(ptr nocapture noundef readonly %io_ch, ptr noundef %arg, i64 noundef %lflags, ptr noundef %str) unnamed_addr #0 {
 entry:
   %hextmp.i16.i = alloca [2 x i8], align 1
   %hextmp.i.i = alloca [2 x i8], align 1
@@ -441,7 +441,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.then.i.i
 while.cond.i.i:                                   ; preds = %while.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.08.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i, label %do_hex_dump.exit.i, label %while.body.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i, label %do_hex_dump.exit.i, label %while.body.i.i, !llvm.loop !8
 
 while.body.i.i:                                   ; preds = %while.cond.i.i, %while.body.lr.ph.i.i
   %p.08.i.i = phi ptr [ %5, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %while.cond.i.i ]
@@ -501,7 +501,7 @@ while.body.lr.ph.i22.i:                           ; preds = %if.end16.i
 while.cond.i32.i:                                 ; preds = %while.body.i24.i
   %incdec.ptr.i33.i = getelementptr inbounds i8, ptr %p.08.i25.i, i64 1
   %cmp.not.i34.i = icmp eq ptr %incdec.ptr.i33.i, %add.ptr.i20.i
-  br i1 %cmp.not.i34.i, label %do_hex_dump.exit38.i, label %while.body.i24.i, !llvm.loop !9
+  br i1 %cmp.not.i34.i, label %do_hex_dump.exit38.i, label %while.body.i24.i, !llvm.loop !8
 
 while.body.i24.i:                                 ; preds = %while.cond.i32.i, %while.body.lr.ph.i22.i
   %p.08.i25.i = phi ptr [ %call12.i, %while.body.lr.ph.i22.i ], [ %incdec.ptr.i33.i, %while.cond.i32.i ]
@@ -563,7 +563,7 @@ if.end44.thread:                                  ; preds = %if.else, %land.lhs.
   %data = getelementptr inbounds i8, ptr %str, i64 8
   %20 = load ptr, ptr %data, align 8
   %21 = load i32, ptr %str, align 8
-  %call53 = call fastcc i32 @do_buf(ptr noundef %20, i32 noundef %21, i32 noundef %type.2, i16 noundef zeroext %conv, ptr noundef nonnull %quotes, ptr noundef %io_ch, ptr noundef null), !range !10
+  %call53 = call fastcc i32 @do_buf(ptr noundef %20, i32 noundef %21, i32 noundef %type.2, i16 noundef zeroext %conv, ptr noundef nonnull %quotes, ptr noundef %io_ch, ptr noundef null)
   %cmp54 = icmp slt i32 %call53, 0
   br i1 %cmp54, label %return, label %if.end57
 
@@ -587,7 +587,7 @@ land.lhs.true68:                                  ; preds = %if.end65
 if.end72:                                         ; preds = %land.lhs.true68, %if.end65
   %23 = load ptr, ptr %data, align 8
   %24 = load i32, ptr %str, align 8
-  %call75 = call fastcc i32 @do_buf(ptr noundef %23, i32 noundef %24, i32 noundef %type.2, i16 noundef zeroext %conv, ptr noundef null, ptr noundef %io_ch, ptr noundef nonnull %arg), !range !10
+  %call75 = call fastcc i32 @do_buf(ptr noundef %23, i32 noundef %24, i32 noundef %type.2, i16 noundef zeroext %conv, ptr noundef null, ptr noundef %io_ch, ptr noundef nonnull %arg)
   %cmp76 = icmp slt i32 %call75, 0
   br i1 %cmp76, label %return, label %if.end79
 
@@ -610,9 +610,9 @@ return:                                           ; preds = %do_dump.exit, %do_d
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_STRING_print_ex_fp(ptr noundef %fp, ptr noundef %str, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @ASN1_STRING_print_ex_fp(ptr noundef %fp, ptr noundef %str, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @do_print_ex(ptr noundef nonnull @send_fp_chars, ptr noundef %fp, i64 noundef %flags, ptr noundef %str), !range !7
+  %call = tail call fastcc i32 @do_print_ex(ptr noundef nonnull @send_fp_chars, ptr noundef %fp, i64 noundef %flags, ptr noundef %str)
   ret i32 %call
 }
 
@@ -695,7 +695,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 declare ptr @ASN1_tag2str(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_buf(ptr noundef %buf, i32 noundef %buflen, i32 noundef %type, i16 noundef zeroext %flags, ptr noundef %quotes, ptr nocapture noundef readonly %io_ch, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @do_buf(ptr noundef %buf, i32 noundef %buflen, i32 noundef %type, i16 noundef zeroext %flags, ptr noundef %quotes, ptr nocapture noundef readonly %io_ch, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %c = alloca i64, align 8
   %utfbuf = alloca [6 x i8], align 1
@@ -814,14 +814,14 @@ sw.epilog42.us:                                   ; preds = %sw.bb12.us, %sw.bb2
   %or.cond40.us = or i1 %tobool9.not, %cmp43.us
   %orflags.1.us = select i1 %or.cond40.us, i16 %orflags.0.us, i16 64
   %or7038.us = or i16 %orflags.1.us, %flags
-  %call72.us = call fastcc i32 @do_esc_char(i64 noundef %8, i16 noundef zeroext %or7038.us, ptr noundef %quotes, ptr noundef %io_ch, ptr noundef %arg), !range !11
+  %call72.us = call fastcc i32 @do_esc_char(i64 noundef %8, i16 noundef zeroext %or7038.us, ptr noundef %quotes, ptr noundef %io_ch, ptr noundef %arg)
   %cmp73.us = icmp slt i32 %call72.us, 0
   br i1 %cmp73.us, label %return, label %if.end76.us
 
 if.end76.us:                                      ; preds = %sw.epilog42.us
   %add77.us = add nuw nsw i32 %call72.us, %outlen.047.us
   %cmp.not.us = icmp eq ptr %p.1.us, %add.ptr
-  br i1 %cmp.not.us, label %return, label %while.body.us, !llvm.loop !12
+  br i1 %cmp.not.us, label %return, label %while.body.us, !llvm.loop !9
 
 while.body:                                       ; preds = %while.body.lr.ph.split, %if.end78.loopexit
   %buflen.addr.049 = phi i32 [ %buflen.addr.1, %if.end78.loopexit ], [ %buflen, %while.body.lr.ph.split ]
@@ -915,7 +915,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %arrayidx = getelementptr inbounds [6 x i8], ptr %utfbuf, i64 0, i64 %indvars.iv
   %17 = load i8, ptr %arrayidx, align 1
   %conv57 = zext i8 %17 to i64
-  %call62 = call fastcc i32 @do_esc_char(i64 noundef %conv57, i16 noundef zeroext %or6039, ptr noundef %quotes, ptr noundef %io_ch, ptr noundef %arg), !range !11
+  %call62 = call fastcc i32 @do_esc_char(i64 noundef %conv57, i16 noundef zeroext %or6039, ptr noundef %quotes, ptr noundef %io_ch, ptr noundef %arg)
   %cmp63 = icmp slt i32 %call62, 0
   br i1 %cmp63, label %return, label %if.end66
 
@@ -923,12 +923,12 @@ if.end66:                                         ; preds = %for.body
   %add = add nuw nsw i32 %call62, %outlen.144
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.end78.loopexit, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %if.end78.loopexit, label %for.body, !llvm.loop !10
 
 if.end78.loopexit:                                ; preds = %if.end66, %sw.epilog42
   %outlen.1.lcssa = phi i32 [ %outlen.047, %sw.epilog42 ], [ %add, %if.end66 ]
   %cmp.not = icmp eq ptr %p.1, %add.ptr
-  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !12
+  br i1 %cmp.not, label %return, label %while.body, !llvm.loop !9
 
 return.sink.split:                                ; preds = %sw.bb2, %sw.bb
   %.sink64 = phi i32 [ 155, %sw.bb ], [ 161, %sw.bb2 ]
@@ -960,7 +960,7 @@ declare i32 @UTF8_getc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare i32 @UTF8_putc(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_esc_char(i64 noundef %c, i16 noundef zeroext %flags, ptr noundef writeonly %do_quotes, ptr nocapture noundef readonly %io_ch, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 11) i32 @do_esc_char(i64 noundef %c, i16 noundef zeroext %flags, ptr noundef writeonly %do_quotes, ptr nocapture noundef readonly %io_ch, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %chtmp = alloca i8, align 1
   %tmphex = alloca [19 x i8], align 16
@@ -1113,10 +1113,7 @@ attributes #9 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = !{ptr @send_bio_chars, ptr @send_fp_chars}
-!7 = !{i32 -2147483647, i32 -2147483648}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = !{i32 -1, i32 -2147483648}
-!11 = !{i32 -1, i32 11}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!10 = distinct !{!10, !5}

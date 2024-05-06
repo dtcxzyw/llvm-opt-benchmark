@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @aegis128l_soft_implementation = hidden local_unnamed_addr global %struct.aegis128l_implementation { ptr @encrypt_detached, ptr @decrypt_detached }, align 8
 
 ; Function Attrs: nounwind ssp uwtable
-define internal noundef i32 @encrypt_detached(ptr nocapture noundef writeonly %c, ptr nocapture noundef writeonly %mac, i64 noundef %maclen, ptr nocapture noundef readonly %m, i64 noundef %mlen, ptr nocapture noundef readonly %ad, i64 noundef %adlen, ptr nocapture noundef readonly %npub, ptr nocapture noundef readonly %k) #0 {
+define internal range(i32 -1, 1) i32 @encrypt_detached(ptr nocapture noundef writeonly %c, ptr nocapture noundef writeonly %mac, i64 noundef %maclen, ptr nocapture noundef readonly %m, i64 noundef %mlen, ptr nocapture noundef readonly %ad, i64 noundef %adlen, ptr nocapture noundef readonly %npub, ptr nocapture noundef readonly %k) #0 {
 entry:
   %state = alloca [8 x %struct.SoftAesBlock], align 16
   %src = alloca [32 x i8], align 32
@@ -338,10 +338,10 @@ for.body12:                                       ; preds = %if.end, %for.body12
   %xor84.i53.i = xor i64 %112, %99
   %in.sroa.0.0.extract.trunc.i.i = trunc i64 %xor1.i44.i to i32
   %in.sroa.2.0.extract.shift.i.i = lshr i64 %xor1.i44.i, 32
-  %in.sroa.2.0.extract.trunc.i.i = trunc i64 %in.sroa.2.0.extract.shift.i.i to i32
+  %in.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %in.sroa.2.0.extract.shift.i.i to i32
   %in.sroa.3.8.extract.trunc.i.i = trunc i64 %xor84.i45.i to i32
   %in.sroa.5.8.extract.shift.i.i = lshr i64 %xor84.i45.i, 32
-  %in.sroa.5.8.extract.trunc.i.i = trunc i64 %in.sroa.5.8.extract.shift.i.i to i32
+  %in.sroa.5.8.extract.trunc.i.i = trunc nuw i64 %in.sroa.5.8.extract.shift.i.i to i32
   store i32 %in.sroa.0.0.extract.trunc.i.i, ptr %add.ptr13, align 1
   %add.ptr1.i.i = getelementptr i8, ptr %add.ptr13, i64 4
   store i32 %in.sroa.2.0.extract.trunc.i.i, ptr %add.ptr1.i.i, align 1
@@ -352,10 +352,10 @@ for.body12:                                       ; preds = %if.end, %for.body12
   %add.ptr26.i = getelementptr i8, ptr %add.ptr13, i64 16
   %in.sroa.0.0.extract.trunc.i57.i = trunc i64 %xor1.i52.i to i32
   %in.sroa.2.0.extract.shift.i58.i = lshr i64 %xor1.i52.i, 32
-  %in.sroa.2.0.extract.trunc.i59.i = trunc i64 %in.sroa.2.0.extract.shift.i58.i to i32
+  %in.sroa.2.0.extract.trunc.i59.i = trunc nuw i64 %in.sroa.2.0.extract.shift.i58.i to i32
   %in.sroa.3.8.extract.trunc.i60.i = trunc i64 %xor84.i53.i to i32
   %in.sroa.5.8.extract.shift.i61.i = lshr i64 %xor84.i53.i, 32
-  %in.sroa.5.8.extract.trunc.i62.i = trunc i64 %in.sroa.5.8.extract.shift.i61.i to i32
+  %in.sroa.5.8.extract.trunc.i62.i = trunc nuw i64 %in.sroa.5.8.extract.shift.i61.i to i32
   store i32 %in.sroa.0.0.extract.trunc.i57.i, ptr %add.ptr26.i, align 1
   %add.ptr1.i63.i = getelementptr i8, ptr %add.ptr13, i64 20
   store i32 %in.sroa.2.0.extract.trunc.i59.i, ptr %add.ptr1.i63.i, align 1
@@ -467,10 +467,10 @@ if.then21:                                        ; preds = %for.end18
   %xor84.i53.i56 = xor i64 %154, %137
   %in.sroa.0.0.extract.trunc.i.i57 = trunc i64 %xor1.i44.i50 to i32
   %in.sroa.2.0.extract.shift.i.i58 = lshr i64 %xor1.i44.i50, 32
-  %in.sroa.2.0.extract.trunc.i.i59 = trunc i64 %in.sroa.2.0.extract.shift.i.i58 to i32
+  %in.sroa.2.0.extract.trunc.i.i59 = trunc nuw i64 %in.sroa.2.0.extract.shift.i.i58 to i32
   %in.sroa.3.8.extract.trunc.i.i60 = trunc i64 %xor84.i45.i51 to i32
   %in.sroa.5.8.extract.shift.i.i61 = lshr i64 %xor84.i45.i51, 32
-  %in.sroa.5.8.extract.trunc.i.i62 = trunc i64 %in.sroa.5.8.extract.shift.i.i61 to i32
+  %in.sroa.5.8.extract.trunc.i.i62 = trunc nuw i64 %in.sroa.5.8.extract.shift.i.i61 to i32
   store i32 %in.sroa.0.0.extract.trunc.i.i57, ptr %dst, align 32
   %dst.4.dst.4.dst.4.add.ptr1.i.i63.sroa_idx = getelementptr inbounds i8, ptr %dst, i64 4
   store i32 %in.sroa.2.0.extract.trunc.i.i59, ptr %dst.4.dst.4.dst.4.add.ptr1.i.i63.sroa_idx, align 4
@@ -480,10 +480,10 @@ if.then21:                                        ; preds = %for.end18
   store i32 %in.sroa.5.8.extract.trunc.i.i62, ptr %dst.12.dst.12.dst.12.add.ptr3.i56.i65.sroa_idx, align 4
   %in.sroa.0.0.extract.trunc.i57.i67 = trunc i64 %xor1.i52.i55 to i32
   %in.sroa.2.0.extract.shift.i58.i68 = lshr i64 %xor1.i52.i55, 32
-  %in.sroa.2.0.extract.trunc.i59.i69 = trunc i64 %in.sroa.2.0.extract.shift.i58.i68 to i32
+  %in.sroa.2.0.extract.trunc.i59.i69 = trunc nuw i64 %in.sroa.2.0.extract.shift.i58.i68 to i32
   %in.sroa.3.8.extract.trunc.i60.i70 = trunc i64 %xor84.i53.i56 to i32
   %in.sroa.5.8.extract.shift.i61.i71 = lshr i64 %xor84.i53.i56, 32
-  %in.sroa.5.8.extract.trunc.i62.i72 = trunc i64 %in.sroa.5.8.extract.shift.i61.i71 to i32
+  %in.sroa.5.8.extract.trunc.i62.i72 = trunc nuw i64 %in.sroa.5.8.extract.shift.i61.i71 to i32
   %dst.16.dst.16.dst.16.add.ptr26.i66.sroa_idx = getelementptr inbounds i8, ptr %dst, i64 16
   store i32 %in.sroa.0.0.extract.trunc.i57.i67, ptr %dst.16.dst.16.dst.16.add.ptr26.i66.sroa_idx, align 16
   %dst.20.dst.20.dst.20.add.ptr1.i63.i73.sroa_idx = getelementptr inbounds i8, ptr %dst, i64 20
@@ -541,7 +541,7 @@ if.then21:                                        ; preds = %for.end18
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then21, %for.end18
-  %call = call fastcc i32 @aegis128l_mac(ptr noundef %mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %mlen, ptr noundef nonnull %state), !range !8
+  %call = call fastcc i32 @aegis128l_mac(ptr noundef %mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %mlen, ptr noundef nonnull %state)
   ret i32 %call
 }
 
@@ -709,7 +709,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %xor84.i29.i185 = xor i64 %51, %add.ptr3.val.i4.i
   %add = add i64 %add335, 32
   %cmp.not = icmp ugt i64 %add, %adlen
-  br i1 %cmp.not, label %for.cond.for.end_crit_edge, label %for.body, !llvm.loop !9
+  br i1 %cmp.not, label %for.cond.for.end_crit_edge, label %for.body, !llvm.loop !8
 
 for.cond.for.end_crit_edge:                       ; preds = %for.body
   store i64 %44, ptr %arrayidx19.i, align 16
@@ -884,10 +884,10 @@ for.body14:                                       ; preds = %for.cond11.preheade
   %xor84.i57.i = xor i64 %112, %99
   %in.sroa.0.0.extract.trunc.i.i = trunc i64 %xor1.i48.i to i32
   %in.sroa.2.0.extract.shift.i.i = lshr i64 %xor1.i48.i, 32
-  %in.sroa.2.0.extract.trunc.i.i = trunc i64 %in.sroa.2.0.extract.shift.i.i to i32
+  %in.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %in.sroa.2.0.extract.shift.i.i to i32
   %in.sroa.3.8.extract.trunc.i.i = trunc i64 %xor84.i49.i to i32
   %in.sroa.5.8.extract.shift.i.i = lshr i64 %xor84.i49.i, 32
-  %in.sroa.5.8.extract.trunc.i.i = trunc i64 %in.sroa.5.8.extract.shift.i.i to i32
+  %in.sroa.5.8.extract.trunc.i.i = trunc nuw i64 %in.sroa.5.8.extract.shift.i.i to i32
   store i32 %in.sroa.0.0.extract.trunc.i.i, ptr %add.ptr15, align 1
   %add.ptr1.i.i = getelementptr i8, ptr %add.ptr15, i64 4
   store i32 %in.sroa.2.0.extract.trunc.i.i, ptr %add.ptr1.i.i, align 1
@@ -898,10 +898,10 @@ for.body14:                                       ; preds = %for.cond11.preheade
   %add.ptr25.i = getelementptr i8, ptr %add.ptr15, i64 16
   %in.sroa.0.0.extract.trunc.i61.i = trunc i64 %xor1.i56.i to i32
   %in.sroa.2.0.extract.shift.i62.i = lshr i64 %xor1.i56.i, 32
-  %in.sroa.2.0.extract.trunc.i63.i = trunc i64 %in.sroa.2.0.extract.shift.i62.i to i32
+  %in.sroa.2.0.extract.trunc.i63.i = trunc nuw i64 %in.sroa.2.0.extract.shift.i62.i to i32
   %in.sroa.3.8.extract.trunc.i64.i = trunc i64 %xor84.i57.i to i32
   %in.sroa.5.8.extract.shift.i65.i = lshr i64 %xor84.i57.i, 32
-  %in.sroa.5.8.extract.trunc.i66.i = trunc i64 %in.sroa.5.8.extract.shift.i65.i to i32
+  %in.sroa.5.8.extract.trunc.i66.i = trunc nuw i64 %in.sroa.5.8.extract.shift.i65.i to i32
   store i32 %in.sroa.0.0.extract.trunc.i61.i, ptr %add.ptr25.i, align 1
   %add.ptr1.i67.i = getelementptr i8, ptr %add.ptr15, i64 20
   store i32 %in.sroa.2.0.extract.trunc.i63.i, ptr %add.ptr1.i67.i, align 1
@@ -939,7 +939,7 @@ for.body14:                                       ; preds = %for.cond11.preheade
   %xor84.i29.i229 = xor i64 %120, %xor84.i57.i
   %add12 = add i64 %add12442, 32
   %cmp13.not = icmp ugt i64 %add12, %clen
-  br i1 %cmp13.not, label %if.end31, label %for.body14, !llvm.loop !10
+  br i1 %cmp13.not, label %if.end31, label %for.body14, !llvm.loop !9
 
 for.body24:                                       ; preds = %for.cond21.preheader, %for.body24
   %add22388 = phi i64 [ %add22, %for.body24 ], [ 32, %for.cond21.preheader ]
@@ -1014,7 +1014,7 @@ for.body24:                                       ; preds = %for.cond21.preheade
   %xor84.i29.i251 = xor i64 %169, %136
   %add22 = add i64 %add22388, 32
   %cmp23.not = icmp ugt i64 %add22, %clen
-  br i1 %cmp23.not, label %if.end31, label %for.body24, !llvm.loop !11
+  br i1 %cmp23.not, label %if.end31, label %for.body24, !llvm.loop !10
 
 if.end31:                                         ; preds = %for.body24, %for.body14
   %storemerge615 = phi i64 [ %113, %for.body14 ], [ %142, %for.body24 ]
@@ -1090,7 +1090,7 @@ if.then36:                                        ; preds = %if.end31.thread546,
   %186 = sub nuw nsw i64 32, %rem32541553
   %187 = getelementptr i8, ptr %pad.i, i64 %rem32541553
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %187, i8 0, i64 %186, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr align 1 %add.ptr38, i64 %rem32541553, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr readonly align 1 %add.ptr38, i64 %rem32541553, i1 false)
   %in.val.i.i93 = load i64, ptr %pad.i, align 16
   %add.ptr3.i.i94 = getelementptr inbounds i8, ptr %pad.i, i64 8
   %add.ptr3.val.i.i95 = load i64, ptr %add.ptr3.i.i94, align 8
@@ -1116,10 +1116,10 @@ if.then36:                                        ; preds = %if.end31.thread546,
   %xor84.i58.i = xor i64 %195, %178
   %in.sroa.0.0.extract.trunc.i.i105 = trunc i64 %xor1.i49.i to i32
   %in.sroa.2.0.extract.shift.i.i106 = lshr i64 %xor1.i49.i, 32
-  %in.sroa.2.0.extract.trunc.i.i107 = trunc i64 %in.sroa.2.0.extract.shift.i.i106 to i32
+  %in.sroa.2.0.extract.trunc.i.i107 = trunc nuw i64 %in.sroa.2.0.extract.shift.i.i106 to i32
   %in.sroa.3.8.extract.trunc.i.i108 = trunc i64 %xor84.i50.i to i32
   %in.sroa.5.8.extract.shift.i.i109 = lshr i64 %xor84.i50.i, 32
-  %in.sroa.5.8.extract.trunc.i.i110 = trunc i64 %in.sroa.5.8.extract.shift.i.i109 to i32
+  %in.sroa.5.8.extract.trunc.i.i110 = trunc nuw i64 %in.sroa.5.8.extract.shift.i.i109 to i32
   store i32 %in.sroa.0.0.extract.trunc.i.i105, ptr %pad.i, align 16
   %add.ptr1.i.i111 = getelementptr inbounds i8, ptr %pad.i, i64 4
   store i32 %in.sroa.2.0.extract.trunc.i.i107, ptr %add.ptr1.i.i111, align 4
@@ -1128,10 +1128,10 @@ if.then36:                                        ; preds = %if.end31.thread546,
   store i32 %in.sroa.5.8.extract.trunc.i.i110, ptr %add.ptr3.i61.i, align 4
   %in.sroa.0.0.extract.trunc.i62.i = trunc i64 %xor1.i57.i to i32
   %in.sroa.2.0.extract.shift.i63.i = lshr i64 %xor1.i57.i, 32
-  %in.sroa.2.0.extract.trunc.i64.i = trunc i64 %in.sroa.2.0.extract.shift.i63.i to i32
+  %in.sroa.2.0.extract.trunc.i64.i = trunc nuw i64 %in.sroa.2.0.extract.shift.i63.i to i32
   %in.sroa.3.8.extract.trunc.i65.i = trunc i64 %xor84.i58.i to i32
   %in.sroa.5.8.extract.shift.i66.i = lshr i64 %xor84.i58.i, 32
-  %in.sroa.5.8.extract.trunc.i67.i = trunc i64 %in.sroa.5.8.extract.shift.i66.i to i32
+  %in.sroa.5.8.extract.trunc.i67.i = trunc nuw i64 %in.sroa.5.8.extract.shift.i66.i to i32
   store i32 %in.sroa.0.0.extract.trunc.i62.i, ptr %add.ptr.i96, align 16
   %add.ptr1.i68.i = getelementptr inbounds i8, ptr %pad.i, i64 20
   store i32 %in.sroa.2.0.extract.trunc.i64.i, ptr %add.ptr1.i68.i, align 4
@@ -1139,7 +1139,7 @@ if.then36:                                        ; preds = %if.end31.thread546,
   %add.ptr3.i70.i = getelementptr inbounds i8, ptr %pad.i, i64 28
   store i32 %in.sroa.5.8.extract.trunc.i67.i, ptr %add.ptr3.i70.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %187, i8 0, i64 %186, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr37, ptr nonnull align 16 %pad.i, i64 %rem32541553, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %add.ptr37, ptr nonnull align 16 %pad.i, i64 %rem32541553, i1 false)
   %in.val.i71.i = load i64, ptr %pad.i, align 16
   %add.ptr3.val.i73.i = load i64, ptr %add.ptr3.i.i94, align 8
   %in.val.i76.i = load i64, ptr %add.ptr.i96, align 16
@@ -1215,7 +1215,7 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   %228 = sub nuw nsw i64 32, %rem32541544
   %229 = getelementptr i8, ptr %pad.i112, i64 %rem32541544
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %229, i8 0, i64 %228, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i112, ptr align 1 %add.ptr43, i64 %rem32541544, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i112, ptr readonly align 1 %add.ptr43, i64 %rem32541544, i1 false)
   %in.val.i.i113 = load i64, ptr %pad.i112, align 16
   %add.ptr3.i.i114 = getelementptr inbounds i8, ptr %pad.i112, i64 8
   %add.ptr3.val.i.i115 = load i64, ptr %add.ptr3.i.i114, align 8
@@ -1241,10 +1241,10 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   %xor84.i58.i135 = xor i64 %237, %220
   %in.sroa.0.0.extract.trunc.i.i136 = trunc i64 %xor1.i49.i129 to i32
   %in.sroa.2.0.extract.shift.i.i137 = lshr i64 %xor1.i49.i129, 32
-  %in.sroa.2.0.extract.trunc.i.i138 = trunc i64 %in.sroa.2.0.extract.shift.i.i137 to i32
+  %in.sroa.2.0.extract.trunc.i.i138 = trunc nuw i64 %in.sroa.2.0.extract.shift.i.i137 to i32
   %in.sroa.3.8.extract.trunc.i.i139 = trunc i64 %xor84.i50.i130 to i32
   %in.sroa.5.8.extract.shift.i.i140 = lshr i64 %xor84.i50.i130, 32
-  %in.sroa.5.8.extract.trunc.i.i141 = trunc i64 %in.sroa.5.8.extract.shift.i.i140 to i32
+  %in.sroa.5.8.extract.trunc.i.i141 = trunc nuw i64 %in.sroa.5.8.extract.shift.i.i140 to i32
   store i32 %in.sroa.0.0.extract.trunc.i.i136, ptr %pad.i112, align 16
   %add.ptr1.i.i142 = getelementptr inbounds i8, ptr %pad.i112, i64 4
   store i32 %in.sroa.2.0.extract.trunc.i.i138, ptr %add.ptr1.i.i142, align 4
@@ -1253,10 +1253,10 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   store i32 %in.sroa.5.8.extract.trunc.i.i141, ptr %add.ptr3.i61.i143, align 4
   %in.sroa.0.0.extract.trunc.i62.i144 = trunc i64 %xor1.i57.i134 to i32
   %in.sroa.2.0.extract.shift.i63.i145 = lshr i64 %xor1.i57.i134, 32
-  %in.sroa.2.0.extract.trunc.i64.i146 = trunc i64 %in.sroa.2.0.extract.shift.i63.i145 to i32
+  %in.sroa.2.0.extract.trunc.i64.i146 = trunc nuw i64 %in.sroa.2.0.extract.shift.i63.i145 to i32
   %in.sroa.3.8.extract.trunc.i65.i147 = trunc i64 %xor84.i58.i135 to i32
   %in.sroa.5.8.extract.shift.i66.i148 = lshr i64 %xor84.i58.i135, 32
-  %in.sroa.5.8.extract.trunc.i67.i149 = trunc i64 %in.sroa.5.8.extract.shift.i66.i148 to i32
+  %in.sroa.5.8.extract.trunc.i67.i149 = trunc nuw i64 %in.sroa.5.8.extract.shift.i66.i148 to i32
   store i32 %in.sroa.0.0.extract.trunc.i62.i144, ptr %add.ptr.i116, align 16
   %add.ptr1.i68.i150 = getelementptr inbounds i8, ptr %pad.i112, i64 20
   store i32 %in.sroa.2.0.extract.trunc.i64.i146, ptr %add.ptr1.i68.i150, align 4
@@ -1316,7 +1316,7 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end31.thread546, %if.end31.thread, %if.then36, %if.else41, %if.end31
-  %call = call fastcc i32 @aegis128l_mac(ptr noundef nonnull %computed_mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %clen, ptr noundef nonnull %state), !range !8
+  %call = call fastcc i32 @aegis128l_mac(ptr noundef nonnull %computed_mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %clen, ptr noundef nonnull %state)
   %cmp50 = icmp eq i32 %call, 0
   br i1 %cmp50, label %if.then51, label %if.end63
 
@@ -1355,7 +1355,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc noundef i32 @aegis128l_mac(ptr nocapture noundef writeonly %mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %mlen, ptr nocapture noundef %state) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @aegis128l_mac(ptr nocapture noundef writeonly %mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %mlen, ptr nocapture noundef %state) unnamed_addr #0 {
 entry:
   %shl = shl i64 %mlen, 3
   %shl2 = shl i64 %adlen, 3
@@ -1372,7 +1372,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call fastcc void @aegis128l_update(ptr noundef %state, i64 %xor1.i, i64 %xor84.i, i64 %xor1.i, i64 %xor84.i)
   %inc = add nuw nsw i32 %i.0109, 1
   %exitcond.not = icmp eq i32 %inc, 7
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body
   switch i64 %maclen, label %if.else46 [
@@ -1420,10 +1420,10 @@ if.then:                                          ; preds = %for.end
   %xor84.i64 = xor i64 %xor84.i56, %22
   %in.sroa.0.0.extract.trunc.i = trunc i64 %xor1.i63 to i32
   %in.sroa.2.0.extract.shift.i = lshr i64 %xor1.i63, 32
-  %in.sroa.2.0.extract.trunc.i = trunc i64 %in.sroa.2.0.extract.shift.i to i32
+  %in.sroa.2.0.extract.trunc.i = trunc nuw i64 %in.sroa.2.0.extract.shift.i to i32
   %in.sroa.3.8.extract.trunc.i = trunc i64 %xor84.i64 to i32
   %in.sroa.5.8.extract.shift.i = lshr i64 %xor84.i64, 32
-  %in.sroa.5.8.extract.trunc.i = trunc i64 %in.sroa.5.8.extract.shift.i to i32
+  %in.sroa.5.8.extract.trunc.i = trunc nuw i64 %in.sroa.5.8.extract.shift.i to i32
   store i32 %in.sroa.0.0.extract.trunc.i, ptr %mac, align 1
   %add.ptr1.i = getelementptr i8, ptr %mac, i64 4
   store i32 %in.sroa.2.0.extract.trunc.i, ptr %add.ptr1.i, align 1
@@ -1455,10 +1455,10 @@ if.then25:                                        ; preds = %for.end
   %xor84.i76 = xor i64 %xor84.i68, %33
   %in.sroa.0.0.extract.trunc.i79 = trunc i64 %xor1.i75 to i32
   %in.sroa.2.0.extract.shift.i80 = lshr i64 %xor1.i75, 32
-  %in.sroa.2.0.extract.trunc.i81 = trunc i64 %in.sroa.2.0.extract.shift.i80 to i32
+  %in.sroa.2.0.extract.trunc.i81 = trunc nuw i64 %in.sroa.2.0.extract.shift.i80 to i32
   %in.sroa.3.8.extract.trunc.i82 = trunc i64 %xor84.i76 to i32
   %in.sroa.5.8.extract.shift.i83 = lshr i64 %xor84.i76, 32
-  %in.sroa.5.8.extract.trunc.i84 = trunc i64 %in.sroa.5.8.extract.shift.i83 to i32
+  %in.sroa.5.8.extract.trunc.i84 = trunc nuw i64 %in.sroa.5.8.extract.shift.i83 to i32
   store i32 %in.sroa.0.0.extract.trunc.i79, ptr %mac, align 1
   %add.ptr1.i85 = getelementptr i8, ptr %mac, i64 4
   store i32 %in.sroa.2.0.extract.trunc.i81, ptr %add.ptr1.i85, align 1
@@ -1491,10 +1491,10 @@ if.then25:                                        ; preds = %for.end
   %add.ptr = getelementptr i8, ptr %mac, i64 16
   %in.sroa.0.0.extract.trunc.i100 = trunc i64 %xor1.i96 to i32
   %in.sroa.2.0.extract.shift.i101 = lshr i64 %xor1.i96, 32
-  %in.sroa.2.0.extract.trunc.i102 = trunc i64 %in.sroa.2.0.extract.shift.i101 to i32
+  %in.sroa.2.0.extract.trunc.i102 = trunc nuw i64 %in.sroa.2.0.extract.shift.i101 to i32
   %in.sroa.3.8.extract.trunc.i103 = trunc i64 %xor84.i97 to i32
   %in.sroa.5.8.extract.shift.i104 = lshr i64 %xor84.i97, 32
-  %in.sroa.5.8.extract.trunc.i105 = trunc i64 %in.sroa.5.8.extract.shift.i104 to i32
+  %in.sroa.5.8.extract.trunc.i105 = trunc nuw i64 %in.sroa.5.8.extract.shift.i104 to i32
   store i32 %in.sroa.0.0.extract.trunc.i100, ptr %add.ptr, align 1
   %add.ptr1.i106 = getelementptr i8, ptr %mac, i64 20
   store i32 %in.sroa.2.0.extract.trunc.i102, ptr %add.ptr1.i106, align 1
@@ -1641,8 +1641,7 @@ attributes #5 = { nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -1, i32 1}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

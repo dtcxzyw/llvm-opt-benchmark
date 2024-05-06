@@ -397,7 +397,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_ssl_conn_config_init(ptr nocapture noundef readonly %data, ptr nocapture noundef %conn) local_unnamed_addr #2 {
+define hidden range(i32 0, 28) i32 @Curl_ssl_conn_config_init(ptr nocapture noundef readonly %data, ptr nocapture noundef %conn) local_unnamed_addr #2 {
 entry:
   %ssl = getelementptr inbounds i8, ptr %data, i64 1296
   %ssl_config = getelementptr inbounds i8, ptr %conn, i64 448
@@ -1424,7 +1424,7 @@ for.end:                                          ; preds = %for.cond, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_ssl_addsessionid(ptr nocapture noundef readonly %cf, ptr nocapture noundef readonly %data, ptr noundef %ssl_sessionid, i64 noundef %idsize, ptr noundef writeonly %added) local_unnamed_addr #2 {
+define hidden range(i32 0, 28) i32 @Curl_ssl_addsessionid(ptr nocapture noundef readonly %cf, ptr nocapture noundef readonly %data, ptr noundef %ssl_sessionid, i64 noundef %idsize, ptr noundef writeonly %added) local_unnamed_addr #2 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -1835,7 +1835,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_ssl_initsessions(ptr nocapture noundef %data, i64 noundef %amount) local_unnamed_addr #2 {
+define hidden range(i32 0, 28) i32 @Curl_ssl_initsessions(ptr nocapture noundef %data, i64 noundef %amount) local_unnamed_addr #2 {
 entry:
   %session1 = getelementptr inbounds i8, ptr %data, i64 3272
   %0 = load ptr, ptr %session1, align 8
@@ -1918,7 +1918,7 @@ if.end:                                           ; preds = %for.end, %entry
 declare void @curl_slist_free_all(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_ssl_init_certinfo(ptr nocapture noundef %data, i32 noundef %num) local_unnamed_addr #2 {
+define hidden range(i32 0, 28) i32 @Curl_ssl_init_certinfo(ptr nocapture noundef %data, i32 noundef %num) local_unnamed_addr #2 {
 entry:
   %certs.i = getelementptr inbounds i8, ptr %data, i64 5264
   %0 = load i32, ptr %certs.i, align 8
@@ -1976,7 +1976,7 @@ return:                                           ; preds = %Curl_ssl_free_certi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_ssl_push_certinfo_len(ptr nocapture noundef readonly %data, i32 noundef %certnum, ptr noundef %label, ptr noundef %value, i64 noundef %valuelen) local_unnamed_addr #2 {
+define hidden range(i32 0, 28) i32 @Curl_ssl_push_certinfo_len(ptr nocapture noundef readonly %data, i32 noundef %certnum, ptr noundef %label, ptr noundef %value, i64 noundef %valuelen) local_unnamed_addr #2 {
 entry:
   %build = alloca %struct.dynbuf, align 8
   call void @Curl_dyn_init(ptr noundef nonnull %build, i64 noundef 10000) #18
@@ -2473,7 +2473,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_init_sslset_nolock(i32 noundef %id, ptr noundef %name, ptr noundef writeonly %avail) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @Curl_init_sslset_nolock(i32 noundef %id, ptr noundef %name, ptr noundef writeonly %avail) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %avail, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2651,7 +2651,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_ssl_peer_init(ptr nocapture noundef %peer, ptr nocapture noundef readonly %cf) local_unnamed_addr #2 {
+define hidden range(i32 0, 28) i32 @Curl_ssl_peer_init(ptr nocapture noundef %peer, ptr nocapture noundef readonly %cf) local_unnamed_addr #2 {
 entry:
   %addr.i = alloca %struct.in6_addr, align 4
   %ctx = getelementptr inbounds i8, ptr %cf, i64 16
@@ -3020,7 +3020,7 @@ lor.lhs.false:                                    ; preds = %do.end24
 if.end31:                                         ; preds = %lor.lhs.false
   store i8 0, ptr %done, align 1
   %peer = getelementptr inbounds i8, ptr %0, i64 8
-  %call32 = tail call i32 @Curl_ssl_peer_init(ptr noundef nonnull %peer, ptr noundef nonnull %cf), !range !15
+  %call32 = tail call i32 @Curl_ssl_peer_init(ptr noundef nonnull %peer, ptr noundef nonnull %cf)
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %if.end35, label %do.body54
 
@@ -3681,7 +3681,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %next.i = getelementptr inbounds i8, ptr %cf.addr.07.i, i64 8
   %3 = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i, label %if.end13, label %for.body.i, !llvm.loop !16
+  br i1 %tobool.not.i, label %if.end13, label %for.body.i, !llvm.loop !15
 
 do.body:                                          ; preds = %for.body.i
   %ctx = getelementptr inbounds i8, ptr %cf.addr.07.i, i64 16
@@ -3705,7 +3705,7 @@ if.end13:                                         ; preds = %for.inc.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_ssl_cfilter_remove(ptr noundef %data, i32 noundef %sockindex) local_unnamed_addr #2 {
+define hidden range(i32 0, 81) i32 @Curl_ssl_cfilter_remove(ptr noundef %data, i32 noundef %sockindex) local_unnamed_addr #2 {
 entry:
   %conn = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8
@@ -3740,7 +3740,7 @@ for.inc:                                          ; preds = %for.body
   %next = getelementptr inbounds i8, ptr %cf.011, i64 8
   %5 = load ptr, ptr %next, align 8
   %tobool2.not = icmp eq ptr %5, null
-  br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %entry, %cond.end, %if.then
   %result.1 = phi i32 [ %spec.select, %if.then ], [ 0, %cond.end ], [ 0, %entry ], [ 0, %for.inc ]
@@ -3750,7 +3750,7 @@ for.end:                                          ; preds = %for.inc, %entry, %c
 declare zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @Curl_alpn_to_proto_buf(ptr nocapture noundef writeonly %buf, ptr noundef readonly %spec) local_unnamed_addr #10 {
+define hidden range(i32 0, 3) i32 @Curl_alpn_to_proto_buf(ptr nocapture noundef writeonly %buf, ptr noundef readonly %spec) local_unnamed_addr #10 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %buf, i8 0, i64 40, i1 false)
   %tobool.not = icmp eq ptr %spec, null
@@ -3806,7 +3806,7 @@ return:                                           ; preds = %for.body, %if.end, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @Curl_alpn_to_proto_str(ptr nocapture noundef writeonly %buf, ptr noundef readonly %spec) local_unnamed_addr #10 {
+define hidden range(i32 0, 3) i32 @Curl_alpn_to_proto_str(ptr nocapture noundef writeonly %buf, ptr noundef readonly %spec) local_unnamed_addr #10 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %buf, i8 0, i64 40, i1 false)
   %tobool.not = icmp eq ptr %spec, null
@@ -4110,7 +4110,7 @@ for.inc:                                          ; preds = %for.body, %if.then8
   %arrayidx = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next
   %6 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %6, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %if.then
   %p.0.lcssa = phi ptr [ @multissl_version.backends, %if.then ], [ %p.1, %for.inc ]
@@ -4738,7 +4738,6 @@ attributes #19 = { nounwind willreturn memory(read) }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = !{}
-!15 = !{i32 0, i32 28}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}

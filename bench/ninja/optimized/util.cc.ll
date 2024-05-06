@@ -156,7 +156,7 @@ define dso_local void @_Z7WarningPKcz(ptr nocapture noundef readonly %0, ...) lo
   %3 = load ptr, ptr @stderr, align 8
   %4 = call i64 @fwrite(ptr nonnull @.str.2, i64 16, i64 1, ptr %3) #26
   %5 = load ptr, ptr @stderr, align 8
-  %6 = call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef nonnull %2) #27
+  %6 = call i32 @vfprintf(ptr noundef %5, ptr noundef readonly %0, ptr noundef nonnull %2) #27
   %7 = load ptr, ptr @stderr, align 8
   %fputc.i = call i32 @fputc(i32 10, ptr %7)
   call void @llvm.va_end.p0(ptr nonnull %2)
@@ -181,7 +181,7 @@ define dso_local void @_Z5ErrorPKcz(ptr nocapture noundef readonly %0, ...) loca
   %3 = load ptr, ptr @stderr, align 8
   %4 = call i64 @fwrite(ptr nonnull @.str.3, i64 14, i64 1, ptr %3) #26
   %5 = load ptr, ptr @stderr, align 8
-  %6 = call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef nonnull %2) #27
+  %6 = call i32 @vfprintf(ptr noundef %5, ptr noundef readonly %0, ptr noundef nonnull %2) #27
   %7 = load ptr, ptr @stderr, align 8
   %fputc.i = call i32 @fputc(i32 10, ptr %7)
   call void @llvm.va_end.p0(ptr nonnull %2)
@@ -206,7 +206,7 @@ define dso_local void @_Z4InfoPKcz(ptr nocapture noundef readonly %0, ...) local
   %3 = load ptr, ptr @stdout, align 8
   %4 = call i64 @fwrite(ptr nonnull @.str.4, i64 7, i64 1, ptr %3)
   %5 = load ptr, ptr @stdout, align 8
-  %6 = call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef nonnull %2) #29
+  %6 = call i32 @vfprintf(ptr noundef %5, ptr noundef readonly %0, ptr noundef nonnull %2) #29
   %7 = load ptr, ptr @stdout, align 8
   %fputc.i = call i32 @fputc(i32 10, ptr %7)
   call void @llvm.va_end.p0(ptr nonnull %2)
@@ -665,7 +665,7 @@ _ZL24StringNeedsWin32EscapingRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z8ReadFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS4_S7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_Z8ReadFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS4_S7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.stat64, align 8
   %5 = alloca [65536 x i8], align 16
   %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #29
@@ -1658,8 +1658,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10MountPoint5parseERKNSt7__
   br i1 %19, label %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit38, label %.preheader
 
 .preheader:                                       ; preds = %2, %_ZNK11StringPieceeqERKS_.exit.thread
-  %.01758 = phi i64 [ %28, %_ZNK11StringPieceeqERKS_.exit.thread ], [ 6, %2 ]
-  %20 = getelementptr inbounds %struct.StringPiece, ptr %14, i64 %.01758
+  %.01757 = phi i64 [ %28, %_ZNK11StringPieceeqERKS_.exit.thread ], [ 6, %2 ]
+  %20 = getelementptr inbounds %struct.StringPiece, ptr %14, i64 %.01757
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 1
@@ -1677,12 +1677,12 @@ _ZNK11StringPieceeqERKS_.exit:                    ; preds = %.preheader
   br label %.body
 
 _ZNK11StringPieceeqERKS_.exit.thread:             ; preds = %.preheader, %_ZNK11StringPieceeqERKS_.exit
-  %28 = add nuw i64 %.01758, 1
+  %28 = add nuw i64 %.01757, 1
   %exitcond.not = icmp eq i64 %28, %18
   br i1 %exitcond.not, label %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit38, label %.preheader, !llvm.loop !25
 
 29:                                               ; preds = %_ZNK11StringPieceeqERKS_.exit
-  %30 = add i64 %.01758, 4
+  %30 = add i64 %.01757, 4
   %.not = icmp eq i64 %30, %18
   br i1 %.not, label %31, label %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit38
 
@@ -1797,7 +1797,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EEaSEOS2_.exit:   ; preds = %63
 _ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit:      ; preds = %63, %_ZNSt6vectorI11StringPieceSaIS0_EEaSEOS2_.exit, %70
   %71 = load ptr, ptr %5, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 96
-  %.idx = shl nsw i64 %.01758, 4
+  %.idx = shl nsw i64 %.01757, 4
   %gepdiff = add nsw i64 %.idx, -96
   %73 = icmp ugt i64 %gepdiff, 9223372036854775792
   br i1 %73, label %74, label %_ZNSt6vectorI11StringPieceSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i
@@ -1810,7 +1810,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit:      ; preds = %63, %_ZNSt6vectorI1
   unreachable
 
 _ZNSt6vectorI11StringPieceSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i: ; preds = %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit
-  %.not.i.i.i26 = icmp eq i64 %.01758, 6
+  %.not.i.i.i26 = icmp eq i64 %.01757, 6
   br i1 %.not.i.i.i26, label %_ZNSt6vectorI11StringPieceSaIS0_EEC2IPS0_vEET_S5_RKS1_.exit, label %.lr.ph.i.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZNSt6vectorI11StringPieceSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i
@@ -1848,7 +1848,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EEC2IPS0_vEET_S5_RKS1_.exit: ; preds = %_ZNSt6ve
 
 _ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit33:    ; preds = %81, %_ZNSt6vectorI11StringPieceSaIS0_EEC2IPS0_vEET_S5_RKS1_.exit
   %82 = phi ptr [ %.pre, %81 ], [ %71, %_ZNSt6vectorI11StringPieceSaIS0_EEC2IPS0_vEET_S5_RKS1_.exit ]
-  %83 = getelementptr %struct.StringPiece, ptr %82, i64 %.01758
+  %83 = getelementptr %struct.StringPiece, ptr %82, i64 %.01757
   %84 = getelementptr i8, ptr %83, i64 16
   %85 = getelementptr inbounds i8, ptr %0, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %84, i64 16, i1 false)

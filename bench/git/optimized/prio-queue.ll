@@ -46,7 +46,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_swap_buffer.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %nr, align 4
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %reass.sub = sub i32 %3, %4
   %sub1 = add i32 %reass.sub, -2
   %5 = sext i32 %sub1 to i64

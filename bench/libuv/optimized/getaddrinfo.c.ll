@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__getaddrinfo_translate_error(i32 noundef %sys_err) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__getaddrinfo_translate_error(i32 noundef %sys_err) local_unnamed_addr #0 {
 entry:
   switch i32 %sys_err, label %sw.epilog [
     i32 0, label %return
@@ -346,7 +346,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_if_indextoname(i32 noundef %ifindex, ptr noundef writeonly %buffer, ptr noundef %size) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_if_indextoname(i32 noundef %ifindex, ptr noundef writeonly %buffer, ptr noundef %size) local_unnamed_addr #0 {
 entry:
   %ifname_buf = alloca [17 x i8], align 16
   %cmp = icmp eq ptr %buffer, null
@@ -400,7 +400,7 @@ declare ptr @if_indextoname(i32 noundef, ptr noundef) local_unnamed_addr #6
 declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_if_indextoiid(i32 noundef %ifindex, ptr noundef writeonly %buffer, ptr noundef %size) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_if_indextoiid(i32 noundef %ifindex, ptr noundef writeonly %buffer, ptr noundef %size) local_unnamed_addr #0 {
 entry:
   %ifname_buf.i = alloca [17 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %ifname_buf.i)
@@ -437,7 +437,7 @@ if.then11.i:                                      ; preds = %if.end7.i
   br label %uv_if_indextoname.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buffer, ptr nonnull align 16 %ifname_buf.i, i64 %call9.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %buffer, ptr nonnull align 16 %ifname_buf.i, i64 %call9.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %buffer, i64 %call9.i
   store i8 0, ptr %arrayidx.i, align 1
   store i64 %call9.i, ptr %size, align 8

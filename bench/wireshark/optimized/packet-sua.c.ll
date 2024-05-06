@@ -1162,7 +1162,7 @@ sua_assoc.exit:                                   ; preds = %64, %200
 
 proto_item_set_generated.exit.i:                  ; preds = %245, %242, %239, %237
   %249 = load i32, ptr @message_type, align 4
-  %250 = trunc i32 %249 to i8
+  %250 = trunc nuw i32 %249 to i8
   store i8 %250, ptr %17, align 8
   %251 = load i32, ptr @drn, align 4
   %252 = getelementptr inbounds i8, ptr %17, i64 4

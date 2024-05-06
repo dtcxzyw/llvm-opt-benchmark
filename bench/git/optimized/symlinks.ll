@@ -16,11 +16,11 @@ target triple = "x86_64-unknown-linux-gnu"
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @threaded_has_symlink_leading_path(ptr noundef %cache, ptr nocapture noundef readonly %name, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @threaded_has_symlink_leading_path(ptr noundef %cache, ptr nocapture noundef readonly %name, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %flags.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i)
-  %call.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef %cache, ptr noundef %name, i32 noundef %len, ptr noundef nonnull %flags.i, i32 noundef 5, i32 noundef 0)
+  %call.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef %cache, ptr noundef readonly %name, i32 noundef %len, ptr noundef nonnull %flags.i, i32 noundef 5, i32 noundef 0)
   %0 = load i32, ptr %flags.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i)
   %and = and i32 %0, 4
@@ -28,11 +28,11 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @has_symlink_leading_path(ptr nocapture noundef readonly %name, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @has_symlink_leading_path(ptr nocapture noundef readonly %name, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %flags.i.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i.i)
-  %call.i.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef nonnull @default_cache, ptr noundef %name, i32 noundef %len, ptr noundef nonnull %flags.i.i, i32 noundef 5, i32 noundef 0)
+  %call.i.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef nonnull @default_cache, ptr noundef readonly %name, i32 noundef %len, ptr noundef nonnull %flags.i.i, i32 noundef 5, i32 noundef 0)
   %0 = load i32, ptr %flags.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i.i)
   %and.i = and i32 %0, 4
@@ -89,11 +89,11 @@ threaded_check_leading_path.exit:                 ; preds = %entry, %if.else.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @has_dirs_only_path(ptr nocapture noundef readonly %name, i32 noundef %len, i32 noundef %prefix_len) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @has_dirs_only_path(ptr nocapture noundef readonly %name, i32 noundef %len, i32 noundef %prefix_len) local_unnamed_addr #0 {
 entry:
   %flags.i.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i.i)
-  %call.i.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef nonnull @default_cache, ptr noundef %name, i32 noundef %len, ptr noundef nonnull %flags.i.i, i32 noundef 33, i32 noundef %prefix_len)
+  %call.i.i = call fastcc i32 @lstat_cache_matchlen(ptr noundef nonnull @default_cache, ptr noundef readonly %name, i32 noundef %len, ptr noundef nonnull %flags.i.i, i32 noundef 33, i32 noundef %prefix_len)
   %0 = load i32, ptr %flags.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i.i)
   %and.i = and i32 %0, 1
@@ -139,7 +139,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 while.body.i:                                     ; preds = %land.rhs.i
   %cmp10.i = icmp eq i8 %4, 47
-  %6 = trunc i64 %indvars.iv.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i to i32
   %spec.select.i = select i1 %cmp10.i, i32 %6, i32 %match_len.029.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -192,7 +192,7 @@ while.body:                                       ; preds = %while.body.preheade
   %arrayidx = getelementptr inbounds i8, ptr %name, i64 %indvars.iv
   %10 = load i8, ptr %arrayidx, align 1
   %cmp6 = icmp eq i8 %10, 47
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nsw i64 %indvars.iv to i32
   %spec.select = select i1 %cmp6, i32 %11, i32 %last_slash.025
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -229,7 +229,7 @@ land.lhs.true.i18:                                ; preds = %while.body.i16
   br i1 %tobool3.not.i, label %do_remove_scheduled_dirs.exit, label %lor.lhs.false.i19
 
 lor.lhs.false.i19:                                ; preds = %land.lhs.true.i18, %while.body.i16
-  %call.i.i = tail call i32 @rmdir(ptr noundef %.pre8.i) #12
+  %call.i.i = tail call i32 @rmdir(ptr noundef readonly %.pre8.i) #12
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %do_remove_scheduled_dirs.exit
 
@@ -314,7 +314,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   br i1 %tobool3.not.i, label %do_remove_scheduled_dirs.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i, %while.body.i
-  %call.i.i = tail call i32 @rmdir(ptr noundef %.pre8.i) #12
+  %call.i.i = tail call i32 @rmdir(ptr noundef readonly %.pre8.i) #12
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %do_remove_scheduled_dirs.exit
 
@@ -460,7 +460,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 
 while.body.i:                                     ; preds = %land.rhs.i
   %cmp10.i = icmp eq i8 %5, 47
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %spec.select.i = select i1 %cmp10.i, i32 %7, i32 %match_len.029.i
   %spec.select24.i = select i1 %cmp10.i, i32 %match_len.029.i, i32 %match_len_prev.030.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -587,8 +587,8 @@ land.rhs.us:                                      ; preds = %do.body.us
   br i1 %cmp52.not.us, label %land.rhs.us.do.end.us_crit_edge, label %do.body.us, !llvm.loop !9
 
 land.rhs.us.do.end.us_crit_edge:                  ; preds = %land.rhs.us
-  %20 = trunc i64 %indvars.iv.next to i32
-  %21 = trunc i64 %indvars.iv to i32
+  %20 = trunc nsw i64 %indvars.iv.next to i32
+  %21 = trunc nsw i64 %indvars.iv to i32
   %sext122 = shl i64 %indvars.iv.next, 32
   %.pre121 = ashr exact i64 %sext122, 32
   br label %do.end.us
@@ -654,12 +654,12 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp52.not, label %do.end, label %do.body, !llvm.loop !9
 
 do.end:                                           ; preds = %land.rhs
-  %30 = trunc i64 %indvars.iv.next117 to i32
+  %30 = trunc nsw i64 %indvars.iv.next117 to i32
   %cmp54.not.not = icmp slt i32 %30, %len
   br i1 %cmp54.not.not, label %if.end60, label %while.end
 
 if.end60:                                         ; preds = %do.end
-  %31 = trunc i64 %indvars.iv116 to i32
+  %31 = trunc nsw i64 %indvars.iv116 to i32
   %32 = load ptr, ptr %buf44, align 8
   %sext150 = shl i64 %indvars.iv.next117, 32
   %idxprom63 = ashr exact i64 %sext150, 32

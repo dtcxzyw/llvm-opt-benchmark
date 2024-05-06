@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @lj_obj_itypename = external hidden local_unnamed_addr constant [14 x ptr], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lj_cconv_compatptr(ptr nocapture noundef readonly %cts, ptr noundef readonly %d, ptr noundef readonly %s, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lj_cconv_compatptr(ptr nocapture noundef readonly %cts, ptr noundef readonly %d, ptr noundef readonly %s, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and61 = and i32 %flags, 1
   %tobool.not62 = icmp ne i32 %and61, 0
@@ -712,7 +712,7 @@ if.end302:                                        ; preds = %sw.bb295
   br label %conv_I_F
 
 sw.bb307:                                         ; preds = %if.end
-  %call308 = tail call i32 @lj_cconv_compatptr(ptr noundef %cts, ptr noundef nonnull %d.tr423, ptr noundef nonnull %s.tr424, i32 noundef %flags), !range !6
+  %call308 = tail call i32 @lj_cconv_compatptr(ptr noundef %cts, ptr noundef nonnull %d.tr423, ptr noundef nonnull %s.tr424, i32 noundef %flags)
   %tobool309.not = icmp eq i32 %call308, 0
   br i1 %tobool309.not, label %err_conv, label %if.end311
 
@@ -746,7 +746,7 @@ if.else.i392:                                     ; preds = %cdata_getptr.exit
   br label %sw.epilog
 
 sw.bb313:                                         ; preds = %if.end, %if.end
-  %call314 = tail call i32 @lj_cconv_compatptr(ptr noundef %cts, ptr noundef nonnull %d.tr423, ptr noundef nonnull %s.tr424, i32 noundef %flags), !range !6
+  %call314 = tail call i32 @lj_cconv_compatptr(ptr noundef %cts, ptr noundef nonnull %d.tr423, ptr noundef nonnull %s.tr424, i32 noundef %flags)
   %tobool315.not = icmp eq i32 %call314, 0
   br i1 %tobool315.not, label %err_conv, label %if.end317
 
@@ -776,7 +776,7 @@ sw.bb318:                                         ; preds = %if.end
   br i1 %or.cond220, label %err_conv, label %lor.lhs.false332
 
 lor.lhs.false332:                                 ; preds = %sw.bb318
-  %call333 = tail call i32 @lj_cconv_compatptr(ptr noundef %cts, ptr noundef nonnull %d.tr423, ptr noundef nonnull %s.tr424, i32 noundef %flags), !range !6
+  %call333 = tail call i32 @lj_cconv_compatptr(ptr noundef %cts, ptr noundef nonnull %d.tr423, ptr noundef nonnull %s.tr424, i32 noundef %flags)
   %tobool334.not = icmp eq i32 %call333, 0
   br i1 %tobool334.not, label %err_conv, label %copyval
 
@@ -869,7 +869,7 @@ if.else21:                                        ; preds = %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lj_cconv_tv_ct(ptr noundef %cts, ptr noundef %s, i32 noundef %sid, ptr noundef %o, ptr noundef %sp) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @lj_cconv_tv_ct(ptr noundef %cts, ptr noundef %s, i32 noundef %sid, ptr noundef %o, ptr noundef %sp) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %s, align 8
   %cmp = icmp ult i32 %0, 268435456
@@ -1125,7 +1125,7 @@ while.cond.i:                                     ; preds = %while.body.i, %if.e
 
 while.body.i:                                     ; preds = %while.cond.i
   %and.i.i = and i32 %6, 65535
-  br label %while.cond.i, !llvm.loop !7
+  br label %while.cond.i, !llvm.loop !6
 
 if.then23:                                        ; preds = %while.cond.i
   %sub.ptr.lhs.cast = ptrtoint ptr %d to i64
@@ -1186,7 +1186,7 @@ do.body.i:                                        ; preds = %do.body.i.preheader
   %13 = load i32, ptr %arrayidx.i.i226, align 8
   %shr.i227.mask = and i32 %13, -268435456
   %cmp.i228 = icmp eq i32 %shr.i227.mask, -2147483648
-  br i1 %cmp.i228, label %do.body.i, label %ctype_rawchild.exit, !llvm.loop !8
+  br i1 %cmp.i228, label %do.body.i, label %ctype_rawchild.exit, !llvm.loop !7
 
 ctype_rawchild.exit:                              ; preds = %do.body.i
   %len = getelementptr inbounds i8, ptr %8, i64 20
@@ -1238,7 +1238,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %21 = load i32, ptr %arrayidx.i.i.i, align 8
   %shr.i.mask.i = and i32 %21, -268435456
   %cmp.i.i = icmp eq i32 %shr.i.mask.i, -2147483648
-  br i1 %cmp.i.i, label %do.body.i.i, label %ctype_rawchild.exit.i, !llvm.loop !8
+  br i1 %cmp.i.i, label %do.body.i.i, label %ctype_rawchild.exit.i, !llvm.loop !7
 
 ctype_rawchild.exit.i:                            ; preds = %do.body.i.i
   %22 = inttoptr i64 %and106 to ptr
@@ -1326,7 +1326,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr18.i, ptr align 1 %dp, i64 %conv.i98, i1 false)
   %add20.i = add i32 %ofs.2.i108, %24
   %cmp16.i = icmp ult i32 %add20.i, %23
-  br i1 %cmp16.i, label %for.body.i, label %return, !llvm.loop !9
+  br i1 %cmp16.i, label %for.body.i, label %return, !llvm.loop !8
 
 if.else.i:                                        ; preds = %if.then12.i
   %idx.ext22.i = zext i32 %ofs.0.i to i64
@@ -1600,7 +1600,7 @@ sw.epilog:                                        ; preds = %if.end12, %sw.bb27,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lj_cconv_multi_init(ptr noundef %cts, ptr noundef readonly %d, ptr nocapture noundef readonly %o) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @lj_cconv_multi_init(ptr noundef %cts, ptr noundef readonly %d, ptr nocapture noundef readonly %o) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %d, align 8
   %and = and i32 %0, -67108864
@@ -1721,7 +1721,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %8 = load i32, ptr %arrayidx.i.i.i, align 8
   %shr.i.mask.i = and i32 %8, -268435456
   %cmp.i.i = icmp eq i32 %shr.i.mask.i, -2147483648
-  br i1 %cmp.i.i, label %do.body.i.i, label %ctype_rawchild.exit.i, !llvm.loop !8
+  br i1 %cmp.i.i, label %do.body.i.i, label %ctype_rawchild.exit.i, !llvm.loop !7
 
 ctype_rawchild.exit.i:                            ; preds = %do.body.i.i
   %size.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
@@ -1752,7 +1752,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %add.i = add i32 %ofs.028.i, %9
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
   %ofs.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %add.i, %for.body.i ]
@@ -1774,7 +1774,7 @@ for.body8.i:                                      ; preds = %for.body8.i, %for.b
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr10.i, ptr align 1 %dp, i64 %conv.i23, i1 false)
   %add12.i = add i32 %ofs.131.i, %9
   %cmp7.i = icmp ult i32 %add12.i, %sz
-  br i1 %cmp7.i, label %for.body8.i, label %if.end17, !llvm.loop !11
+  br i1 %cmp7.i, label %for.body8.i, label %if.end17, !llvm.loop !10
 
 if.else.i:                                        ; preds = %for.end.i
   %idx.ext14.i = zext i32 %ofs.0.lcssa.i to i64
@@ -1939,7 +1939,7 @@ while.cond.backedge:                              ; preds = %ctype_rawchild.exit
   br i1 %tobool.not.old, label %while.end, label %while.body.backedge
 
 while.body.backedge:                              ; preds = %while.cond.backedge, %if.end50
-  br label %while.body, !llvm.loop !12
+  br label %while.body, !llvm.loop !11
 
 if.end39:                                         ; preds = %lor.lhs.false34, %if.end29
   %tv.0 = phi ptr [ %call32, %lor.lhs.false34 ], [ %cond, %if.end29 ]
@@ -1960,7 +1960,7 @@ do.body.i74:                                      ; preds = %do.body.i74.prehead
   %16 = load i32, ptr %arrayidx.i.i78, align 8
   %shr.i79.mask = and i32 %16, -268435456
   %cmp.i80 = icmp eq i32 %shr.i79.mask, -2147483648
-  br i1 %cmp.i80, label %do.body.i74, label %ctype_rawchild.exit81, !llvm.loop !8
+  br i1 %cmp.i80, label %do.body.i74, label %ctype_rawchild.exit81, !llvm.loop !7
 
 ctype_rawchild.exit81:                            ; preds = %do.body.i74
   %size = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
@@ -1999,7 +1999,7 @@ do.body.i:                                        ; preds = %if.else55, %do.body
   %21 = load i32, ptr %arrayidx.i.i, align 8
   %shr.i.mask = and i32 %21, -268435456
   %cmp.i = icmp eq i32 %shr.i.mask, -2147483648
-  br i1 %cmp.i, label %do.body.i, label %ctype_rawchild.exit, !llvm.loop !8
+  br i1 %cmp.i, label %do.body.i, label %ctype_rawchild.exit, !llvm.loop !7
 
 ctype_rawchild.exit:                              ; preds = %do.body.i
   %size62 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
@@ -2067,7 +2067,7 @@ do.body.i56:                                      ; preds = %do.body.i56.prehead
   %9 = load i32, ptr %arrayidx.i.i60, align 8
   %shr.i61.mask = and i32 %9, -268435456
   %cmp.i62 = icmp eq i32 %shr.i61.mask, -2147483648
-  br i1 %cmp.i62, label %do.body.i56, label %ctype_rawchild.exit63, !llvm.loop !8
+  br i1 %cmp.i62, label %do.body.i56, label %ctype_rawchild.exit63, !llvm.loop !7
 
 ctype_rawchild.exit63:                            ; preds = %do.body.i56
   %size = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
@@ -2110,7 +2110,7 @@ do.body.i:                                        ; preds = %if.else32, %do.body
   %14 = load i32, ptr %arrayidx.i.i, align 8
   %shr.i.mask = and i32 %14, -268435456
   %cmp.i = icmp eq i32 %shr.i.mask, -2147483648
-  br i1 %cmp.i, label %do.body.i, label %ctype_rawchild.exit, !llvm.loop !8
+  br i1 %cmp.i, label %do.body.i, label %ctype_rawchild.exit, !llvm.loop !7
 
 ctype_rawchild.exit:                              ; preds = %do.body.i
   %size39 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
@@ -2130,7 +2130,7 @@ while.cond.backedge:                              ; preds = %if.else32, %if.then
   br i1 %tobool.not.old.old, label %while.end, label %while.body.backedge
 
 while.body.backedge:                              ; preds = %while.cond.backedge, %if.end27, %ctype_rawchild.exit
-  br label %while.body, !llvm.loop !13
+  br label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %while.cond.backedge, %if.end, %if.end27, %ctype_rawchild.exit, %entry
   ret void
@@ -2166,11 +2166,10 @@ attributes #11 = { noreturn nounwind }
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
 !5 = distinct !{!5, !4}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !4}
 !7 = distinct !{!7, !4}
 !8 = distinct !{!8, !4}
 !9 = distinct !{!9, !4}
 !10 = distinct !{!10, !4}
 !11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}

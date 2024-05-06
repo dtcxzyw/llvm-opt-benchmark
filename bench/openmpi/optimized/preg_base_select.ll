@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_class_init_epoch = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_preg_base_select() local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @pmix_preg_base_select() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca i32, align 4
   store ptr null, ptr %1, align 8

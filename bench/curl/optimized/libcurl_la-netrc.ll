@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [9 x i8] c"password\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_parsenetrc(ptr noundef %host, ptr nocapture noundef %loginp, ptr nocapture noundef %passwordp, ptr noundef readonly %netrcfile) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @Curl_parsenetrc(ptr noundef %host, ptr nocapture noundef %loginp, ptr nocapture noundef %passwordp, ptr noundef readonly %netrcfile) local_unnamed_addr #0 {
 entry:
   %pwbuf = alloca [1024 x i8], align 16
   %pw = alloca %struct.passwd, align 8
@@ -56,7 +56,7 @@ if.then14:                                        ; preds = %if.end11
   br label %return
 
 if.end15:                                         ; preds = %if.end11
-  %call16 = call fastcc i32 @parsenetrc(ptr noundef %host, ptr noundef %loginp, ptr noundef %passwordp, ptr noundef nonnull %call12), !range !4
+  %call16 = call fastcc i32 @parsenetrc(ptr noundef %host, ptr noundef %loginp, ptr noundef %passwordp, ptr noundef nonnull %call12)
   %3 = load ptr, ptr @Curl_cfree, align 8
   call void %3(ptr noundef nonnull %call12) #4
   %4 = load ptr, ptr @Curl_cfree, align 8
@@ -64,7 +64,7 @@ if.end15:                                         ; preds = %if.end11
   br label %return
 
 if.else17:                                        ; preds = %entry
-  %call18 = tail call fastcc i32 @parsenetrc(ptr noundef %host, ptr noundef %loginp, ptr noundef %passwordp, ptr noundef nonnull %netrcfile), !range !4
+  %call18 = tail call fastcc i32 @parsenetrc(ptr noundef %host, ptr noundef %loginp, ptr noundef %passwordp, ptr noundef nonnull %netrcfile)
   br label %return
 
 return:                                           ; preds = %if.else, %if.end15, %if.else17, %if.then14
@@ -82,7 +82,7 @@ declare i32 @geteuid() local_unnamed_addr #2
 declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parsenetrc(ptr noundef %host, ptr nocapture noundef %loginp, ptr nocapture noundef %passwordp, ptr nocapture noundef readonly %netrcfile) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @parsenetrc(ptr noundef %host, ptr nocapture noundef %loginp, ptr nocapture noundef %passwordp, ptr nocapture noundef readonly %netrcfile) unnamed_addr #0 {
 entry:
   %netrcbuffer = alloca [4096 x i8], align 16
   %0 = load ptr, ptr %loginp, align 8
@@ -163,7 +163,7 @@ while.cond24:                                     ; preds = %while.cond21, %whil
 
 while.body31:                                     ; preds = %while.cond24, %while.cond24
   %incdec.ptr = getelementptr inbounds i8, ptr %tok.1, i64 1
-  br label %while.cond24, !llvm.loop !5
+  br label %while.cond24, !llvm.loop !4
 
 while.cond45:                                     ; preds = %while.cond24, %while.body63
   %6 = phi i8 [ %.pr, %while.body63 ], [ %5, %while.cond24 ]
@@ -181,7 +181,7 @@ lor.rhs53:                                        ; preds = %while.cond45
 while.body63:                                     ; preds = %lor.rhs53
   %incdec.ptr64 = getelementptr inbounds i8, ptr %tok_end.0, i64 1
   %.pr = load i8, ptr %incdec.ptr64, align 1
-  br label %while.cond45, !llvm.loop !7
+  br label %while.cond45, !llvm.loop !6
 
 if.else66:                                        ; preds = %while.cond24
   %incdec.ptr67 = getelementptr inbounds i8, ptr %tok.1, i64 1
@@ -205,7 +205,7 @@ while.body70:                                     ; preds = %while.body70.lr.ph,
   %10 = phi i8 [ %9, %while.body70.lr.ph ], [ %11, %if.then80 ]
   %escape.0176 = phi i8 [ %escape.0.ph188, %while.body70.lr.ph ], [ 1, %if.then80 ]
   %tok_end.1175 = phi ptr [ %tok_end.1.ph187, %while.body70.lr.ph ], [ %incdec.ptr81, %if.then80 ]
-  %tobool71 = trunc i8 %escape.0176 to i1
+  %tobool71 = trunc nuw i8 %escape.0176 to i1
   br i1 %tobool71, label %if.then72, label %if.else76
 
 if.then72:                                        ; preds = %while.body70
@@ -234,7 +234,7 @@ if.then80:                                        ; preds = %if.else76
   %incdec.ptr81 = getelementptr inbounds i8, ptr %tok_end.1175, i64 1
   %11 = load i8, ptr %incdec.ptr81, align 1
   %tobool69.not.not = icmp eq i8 %11, 0
-  br i1 %tobool69.not.not, label %while.end93.thread, label %while.body70, !llvm.loop !8
+  br i1 %tobool69.not.not, label %while.end93.thread, label %while.body70, !llvm.loop !7
 
 if.end90:                                         ; preds = %if.else76, %if.then72, %sw.bb, %sw.bb74, %sw.bb75
   %escape.1 = phi i8 [ 0, %if.then72 ], [ 0, %sw.bb75 ], [ 0, %sw.bb74 ], [ 0, %sw.bb ], [ %escape.0176, %if.else76 ]
@@ -244,7 +244,7 @@ if.end90:                                         ; preds = %if.else76, %if.then
   %incdec.ptr92 = getelementptr inbounds i8, ptr %tok_end.1175, i64 1
   %12 = load i8, ptr %incdec.ptr92, align 1
   %tobool69.not.not174 = icmp eq i8 %12, 0
-  br i1 %tobool69.not.not174, label %while.end93.thread, label %while.body70.lr.ph, !llvm.loop !8
+  br i1 %tobool69.not.not174, label %while.end93.thread, label %while.body70.lr.ph, !llvm.loop !7
 
 while.end93:                                      ; preds = %if.else76
   %incdec.ptr87 = getelementptr inbounds i8, ptr %tok_end.1175, i64 1
@@ -329,7 +329,7 @@ lor.lhs.false147:                                 ; preds = %if.else145
   br i1 %tobool149.not, label %sw.epilog197, label %if.then150
 
 if.then150:                                       ; preds = %lor.lhs.false147, %if.else145
-  %tobool151 = trunc i8 %login_alloc.1 to i1
+  %tobool151 = trunc nuw i8 %login_alloc.1 to i1
   br i1 %tobool151, label %if.then152, label %if.end153
 
 if.then152:                                       ; preds = %if.then150
@@ -363,7 +363,7 @@ lor.lhs.false168:                                 ; preds = %land.lhs.true166
   br i1 %tobool170.not, label %sw.epilog197, label %if.then171
 
 if.then171:                                       ; preds = %lor.lhs.false168, %land.lhs.true166
-  %tobool172 = trunc i8 %password_alloc.1 to i1
+  %tobool172 = trunc nuw i8 %password_alloc.1 to i1
   br i1 %tobool172, label %if.then173, label %if.end174
 
 if.then173:                                       ; preds = %if.then171
@@ -409,7 +409,7 @@ sw.epilog197:                                     ; preds = %if.else188, %sw.bb1
   %login.3 = phi ptr [ %login.1, %sw.bb111 ], [ %login.1, %if.else115 ], [ %login.1, %if.else119 ], [ %login.1, %sw.bb126 ], [ %login.1, %sw.bb131 ], [ %call154, %if.end153 ], [ %login.1, %lor.lhs.false147 ], [ %login.1, %if.then141 ], [ %login.1, %lor.lhs.false168 ], [ %login.1, %if.then162 ], [ %login.1, %if.end174 ], [ %login.1, %if.else180 ], [ %login.1, %if.else184 ], [ %login.1, %if.else188 ]
   %retcode.2 = phi i32 [ %retcode.1, %sw.bb111 ], [ %retcode.1, %if.else115 ], [ %spec.select76, %if.else119 ], [ %retcode.1, %sw.bb126 ], [ %retcode.1., %sw.bb131 ], [ %retcode.1, %if.end153 ], [ %retcode.1, %lor.lhs.false147 ], [ %retcode.1, %if.then141 ], [ %retcode.1, %lor.lhs.false168 ], [ %retcode.1, %if.then162 ], [ %retcode.1, %if.end174 ], [ %retcode.1, %if.else180 ], [ %retcode.1, %if.else184 ], [ %retcode.1, %if.else188 ]
   %incdec.ptr198 = getelementptr inbounds i8, ptr %tok_end.3, i64 1
-  br label %while.cond21, !llvm.loop !9
+  br label %while.cond21, !llvm.loop !8
 
 out.split:                                        ; preds = %while.cond, %land.lhs.true106
   %password.0.ph578 = phi ptr [ %password.1, %land.lhs.true106 ], [ %password.0.ph579, %while.cond ]
@@ -421,7 +421,7 @@ out.split:                                        ; preds = %while.cond, %land.l
   br i1 %tobool201.not, label %if.then202, label %if.else215
 
 if.then202:                                       ; preds = %out.split
-  %tobool203 = trunc i8 %login_alloc.0.ph571 to i1
+  %tobool203 = trunc nuw i8 %login_alloc.0.ph571 to i1
   br i1 %tobool203, label %if.then204, label %if.end208
 
 if.then204:                                       ; preds = %if.then202
@@ -439,7 +439,7 @@ if.end207:                                        ; preds = %if.then206, %if.the
   br label %if.end208
 
 if.end208:                                        ; preds = %if.end207, %if.then202
-  %tobool209 = trunc i8 %password_alloc.0.ph564 to i1
+  %tobool209 = trunc nuw i8 %password_alloc.0.ph564 to i1
   br i1 %tobool209, label %if.then210, label %if.end222
 
 if.then210:                                       ; preds = %if.end208
@@ -513,9 +513,8 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

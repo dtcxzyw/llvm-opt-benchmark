@@ -403,7 +403,7 @@ define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
   %171 = xor <8 x i64> %170, %169
   %172 = mul <8 x i64> %171, <i64 -3808689974395783757, i64 -3808689974395783757, i64 -3808689974395783757, i64 -3808689974395783757, i64 -3808689974395783757, i64 -3808689974395783757, i64 -3808689974395783757, i64 -3808689974395783757>
   %173 = lshr <8 x i64> %172, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
-  %174 = trunc <8 x i64> %173 to <8 x i32>
+  %174 = trunc nuw <8 x i64> %173 to <8 x i32>
   %175 = or disjoint <8 x i64> %164, <i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3>
   %176 = mul <8 x i64> %166, %175
   %177 = lshr <8 x i64> %176, <i64 33, i64 33, i64 33, i64 33, i64 33, i64 33, i64 33, i64 33>
@@ -413,7 +413,7 @@ define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
   %181 = xor <8 x i64> %180, %179
   %182 = mul <8 x i64> %181, <i64 -3808689974395783757, i64 -3808689974395783757, i64 -3808689974395783757, i64 -3808689974395783757, i64 -3808689974395783757, i64 -3808689974395783757, i64 -3808689974395783757, i64 -3808689974395783757>
   %183 = lshr <8 x i64> %182, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
-  %184 = trunc <8 x i64> %183 to <8 x i32>
+  %184 = trunc nuw <8 x i64> %183 to <8 x i32>
   %185 = shl <8 x i32> %184, <i32 9, i32 9, i32 9, i32 9, i32 9, i32 9, i32 9, i32 9>
   %186 = xor <8 x i32> %174, <i32 635086878, i32 635086878, i32 635086878, i32 635086878, i32 635086878, i32 635086878, i32 635086878, i32 635086878>
   %187 = xor <8 x i32> %184, <i32 -1171427716, i32 -1171427716, i32 -1171427716, i32 -1171427716, i32 -1171427716, i32 -1171427716, i32 -1171427716, i32 -1171427716>
@@ -455,7 +455,7 @@ define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
   %223 = xor <8 x i32> %221, %210
   %224 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %221, <8 x i32> %221, <8 x i32> <i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11>)
   %225 = lshr <8 x i32> %219, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %226 = uitofp <8 x i32> %225 to <8 x float>
+  %226 = uitofp nneg <8 x i32> %225 to <8 x float>
   %227 = fmul reassoc nsz arcp contract afn <8 x float> %226, <float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000>
   %228 = fadd reassoc nsz arcp contract afn <8 x float> %218, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
   %229 = fadd reassoc nsz arcp contract afn <8 x float> %228, %227
@@ -468,7 +468,7 @@ define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
   %235 = xor <8 x i32> %234, %223
   %236 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %234, <8 x i32> %234, <8 x i32> <i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11>)
   %237 = lshr <8 x i32> %233, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %238 = uitofp <8 x i32> %237 to <8 x float>
+  %238 = uitofp nneg <8 x i32> %237 to <8 x float>
   %239 = fmul reassoc nsz arcp contract afn <8 x float> %238, <float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000>
   %240 = fadd reassoc nsz arcp contract afn <8 x float> %232, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
   %241 = fadd reassoc nsz arcp contract afn <8 x float> %240, %239
@@ -479,7 +479,7 @@ define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
   %245 = uitofp <8 x i8> %217 to <8 x float>
   %246 = add <8 x i32> %235, %236
   %247 = lshr <8 x i32> %246, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %248 = uitofp <8 x i32> %247 to <8 x float>
+  %248 = uitofp nneg <8 x i32> %247 to <8 x float>
   %249 = fmul reassoc nsz arcp contract afn <8 x float> %248, <float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000, float 0x3E70000000000000>
   %250 = fadd reassoc nsz arcp contract afn <8 x float> %245, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
   %251 = fadd reassoc nsz arcp contract afn <8 x float> %250, %249
@@ -511,7 +511,7 @@ define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
   %267 = xor i64 %266, %265
   %268 = mul i64 %267, -3808689974395783757
   %269 = lshr i64 %268, 32
-  %270 = trunc i64 %269 to i32
+  %270 = trunc nuw i64 %269 to i32
   %271 = or disjoint i64 %261, 3
   %272 = mul i64 %262, %271
   %273 = lshr i64 %272, 33
@@ -521,7 +521,7 @@ define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
   %277 = xor i64 %276, %275
   %278 = mul i64 %277, -3808689974395783757
   %279 = lshr i64 %278, 32
-  %280 = trunc i64 %279 to i32
+  %280 = trunc nuw i64 %279 to i32
   %281 = shl i32 %280, 9
   %282 = xor i32 %270, 635086878
   %283 = xor i32 %280, -1171427716
@@ -560,7 +560,7 @@ define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
   %316 = xor i32 %314, %306
   %317 = tail call noundef i32 @llvm.fshl.i32(i32 %314, i32 %314, i32 11)
   %318 = lshr i32 %312, 8
-  %319 = uitofp i32 %318 to float
+  %319 = uitofp nneg i32 %318 to float
   %320 = fmul reassoc nsz arcp contract afn float %319, 0x3E70000000000000
   %321 = fadd reassoc nsz arcp contract afn float %311, -5.000000e-01
   %322 = fadd reassoc nsz arcp contract afn float %321, %320
@@ -575,7 +575,7 @@ define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
   %330 = xor i32 %329, %316
   %331 = tail call noundef i32 @llvm.fshl.i32(i32 %329, i32 %329, i32 11)
   %332 = lshr i32 %328, 8
-  %333 = uitofp i32 %332 to float
+  %333 = uitofp nneg i32 %332 to float
   %334 = fmul reassoc nsz arcp contract afn float %333, 0x3E70000000000000
   %335 = fadd reassoc nsz arcp contract afn float %327, -5.000000e-01
   %336 = fadd reassoc nsz arcp contract afn float %335, %334
@@ -588,7 +588,7 @@ define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
   %342 = uitofp i8 %341 to float
   %343 = add i32 %330, %331
   %344 = lshr i32 %343, 8
-  %345 = uitofp i32 %344 to float
+  %345 = uitofp nneg i32 %344 to float
   %346 = fmul reassoc nsz arcp contract afn float %345, 0x3E70000000000000
   %347 = fadd reassoc nsz arcp contract afn float %342, -5.000000e-01
   %348 = fadd reassoc nsz arcp contract afn float %347, %346
@@ -876,7 +876,7 @@ declare i32 @dt_lib_is_visible_in_view(ptr noundef, ptr noundef) local_unnamed_a
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @try_enter(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @try_enter(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !45
   %3 = tail call i32 @dt_camctl_can_enter_tether_mode(ptr noundef %2, ptr noundef null) #18
   %4 = icmp eq i32 %3, 0
@@ -1279,7 +1279,7 @@ declare void @dt_camctl_camera_set_property_string(ptr noundef, ptr noundef, ptr
 declare void @dt_control_queue_redraw_center(...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @button_pressed(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 20), align 8, !tbaa !45
   %9 = getelementptr inbounds i8, ptr %8, i64 144
   %10 = load ptr, ptr %9, align 8, !tbaa !46
@@ -1345,7 +1345,7 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
 declare void @dt_control_change_cursor(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @button_released(ptr nocapture noundef readnone %0, double noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @button_released(ptr nocapture noundef readnone %0, double noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = icmp eq i32 %3, 1
   br i1 %6, label %7, label %12
 

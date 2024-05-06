@@ -2557,7 +2557,7 @@ while.body:                                       ; preds = %invoke.cont54, %if.
   %ch.0278 = phi i32 [ %div35, %if.end73 ], [ %9, %invoke.cont54 ]
   %and = and i32 %ch.0278, 15
   %cmp62 = icmp ult i32 %and, 10
-  %41 = trunc i32 %and to i8
+  %41 = trunc nuw nsw i32 %and to i8
   %42 = load ptr, ptr %buff, align 8
   %cmp.i120 = icmp eq ptr %42, null
   br i1 %cmp62, label %if.then63, label %if.else
@@ -2767,7 +2767,7 @@ _ZN6bufferIcLb0ELj16EE6expandEv.exit.i210:        ; preds = %.noexc220, %for.end
   br label %for.inc
 
 if.else84:                                        ; preds = %invoke.cont45, %land.lhs.true, %lor.lhs.false38
-  %conv86 = trunc i32 %9 to i8
+  %conv86 = trunc nuw i32 %9 to i8
   %65 = load i32, ptr %m_capacity.i223, align 4
   %cmp.not.i224 = icmp ult i32 %6, %65
   br i1 %cmp.not.i224, label %entry.if.end_crit_edge.i251, label %if.then.i225

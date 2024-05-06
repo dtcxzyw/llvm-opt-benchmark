@@ -125,7 +125,7 @@ define void @_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expr
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false)
   %40 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %40, i64 24, i1 false)
   invoke void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf7ac3418a3ace438E"(ptr nonnull sret({ ptr, i64, ptr, ptr, {}, { {} } }) align 8 %11, ptr nonnull align 8 %10)
           to label %41 unwind label %37
 

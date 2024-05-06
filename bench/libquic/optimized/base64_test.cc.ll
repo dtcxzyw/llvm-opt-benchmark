@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main() local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
 entry:
   %out.i1 = alloca [6 x i8], align 1
   %len.i = alloca i64, align 8
@@ -145,7 +145,7 @@ if.then30.i:                                      ; preds = %if.end28.i
 if.end32.i:                                       ; preds = %if.end28.i
   %rem33.i = urem i64 %call.i4, 3
   %cmp34.not.i = icmp eq i64 %rem33.i, 0
-  %11 = trunc i64 %rem33.i to i32
+  %11 = trunc nuw nsw i64 %rem33.i to i32
   %12 = xor i32 %11, 3
   %conv39.i = select i1 %cmp34.not.i, i32 0, i32 %12
   %ret.0.i = sub nsw i32 %call23.i, %conv39.i

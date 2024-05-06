@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [39 x i8] c" test mmap at 0x%lx failed (errno %d)\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @output_shmem(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @output_shmem(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lstopo_shmem_header, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.stat, align 8
@@ -256,7 +256,7 @@ declare i32 @hwloc_shmem_topology_write(ptr noundef, i32 noundef, i64 noundef, p
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lstopo_shmem_adopt(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @lstopo_shmem_adopt(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.lstopo_shmem_header, align 8
   %5 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0) #10

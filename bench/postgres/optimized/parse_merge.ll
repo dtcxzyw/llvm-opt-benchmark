@@ -100,7 +100,7 @@ define dso_local noundef ptr @transformMergeStmt(ptr noundef %0, ptr nocapture n
   unreachable
 
 switch.hole_check:                                ; preds = %34
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 39, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %.split

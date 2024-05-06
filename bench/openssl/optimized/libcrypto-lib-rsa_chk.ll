@@ -25,16 +25,16 @@ entry:
 declare i32 @ossl_rsa_sp800_56b_check_private(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_rsa_validate_pairwise(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_validate_pairwise(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @rsa_validate_keypair_multiprime(ptr noundef %key, ptr noundef null), !range !4
+  %call = tail call fastcc i32 @rsa_validate_keypair_multiprime(ptr noundef %key, ptr noundef null)
   %cmp = icmp sgt i32 %call, 0
   %conv = zext i1 %cmp to i32
   ret i32 %conv
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rsa_validate_keypair_multiprime(ptr nocapture noundef readonly %key, ptr noundef %cb) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @rsa_validate_keypair_multiprime(ptr nocapture noundef readonly %key, ptr noundef %cb) unnamed_addr #0 {
 entry:
   %p = getelementptr inbounds i8, ptr %key, i64 64
   %0 = load ptr, ptr %p, align 8
@@ -209,7 +209,7 @@ for.inc:                                          ; preds = %for.body, %if.then6
   %ret.5 = phi i32 [ 0, %if.then62 ], [ %ret.4141, %for.body ]
   %inc = add nuw nsw i32 %idx.0142, 1
   %exitcond.not = icmp eq i32 %inc, %ex_primes.0
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %if.end56
   %ret.4.lcssa = phi i32 [ %ret.3, %if.end56 ], [ %ret.5, %for.inc ]
@@ -229,7 +229,7 @@ for.body72.lr.ph:                                 ; preds = %for.cond70.preheade
 for.cond70:                                       ; preds = %for.body72
   %inc81 = add nuw nsw i32 %idx.1144, 1
   %exitcond156.not = icmp eq i32 %inc81, %ex_primes.0
-  br i1 %exitcond156.not, label %for.end82, label %for.body72, !llvm.loop !7
+  br i1 %exitcond156.not, label %for.end82, label %for.body72, !llvm.loop !6
 
 for.body72:                                       ; preds = %for.body72.lr.ph, %for.cond70
   %idx.1144 = phi i32 [ 0, %for.body72.lr.ph ], [ %inc81, %for.cond70 ]
@@ -295,7 +295,7 @@ for.body117.lr.ph:                                ; preds = %for.cond115.prehead
 for.cond115:                                      ; preds = %if.end133
   %inc139 = add nuw nsw i32 %idx.2146, 1
   %exitcond157.not = icmp eq i32 %inc139, %ex_primes.0
-  br i1 %exitcond157.not, label %for.end140, label %for.body117, !llvm.loop !8
+  br i1 %exitcond157.not, label %for.end140, label %for.body117, !llvm.loop !7
 
 for.body117:                                      ; preds = %for.body117.lr.ph, %for.cond115
   %idx.2146 = phi i32 [ 0, %for.body117.lr.ph ], [ %inc139, %for.cond115 ]
@@ -491,7 +491,7 @@ for.inc230:                                       ; preds = %if.end225, %if.then
   %ret.13 = phi i32 [ 0, %if.then228 ], [ %ret.12, %if.end225 ]
   %inc231 = add nuw nsw i32 %idx.3149, 1
   %exitcond158.not = icmp eq i32 %inc231, %ex_primes.0
-  br i1 %exitcond158.not, label %err, label %for.body202, !llvm.loop !9
+  br i1 %exitcond158.not, label %err, label %for.body202, !llvm.loop !8
 
 err:                                              ; preds = %for.body72, %if.end133, %if.end129, %if.end125, %for.body117, %for.inc230, %for.body202, %if.end210, %if.end220, %if.end199, %if.end187, %if.end177, %if.end171, %if.end161, %if.then155, %for.end140, %if.end110, %if.end106, %if.end102, %if.end96, %if.end90, %for.end, %if.then36
   %ret.14 = phi i32 [ -1, %if.then36 ], [ -1, %for.end ], [ -1, %if.end90 ], [ -1, %if.end96 ], [ -1, %if.end102 ], [ -1, %if.end106 ], [ -1, %if.end110 ], [ -1, %for.end140 ], [ -1, %if.then155 ], [ -1, %if.end161 ], [ -1, %if.end171 ], [ -1, %if.end177 ], [ -1, %if.end187 ], [ %ret.10, %if.end199 ], [ %ret.13, %for.inc230 ], [ -1, %for.body202 ], [ -1, %if.end210 ], [ -1, %if.end220 ], [ -1, %for.body117 ], [ -1, %if.end125 ], [ -1, %if.end129 ], [ -1, %if.end133 ], [ -1, %for.body72 ]
@@ -509,16 +509,16 @@ return:                                           ; preds = %err, %if.then16, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_check_key(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @RSA_check_key(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call fastcc i32 @rsa_validate_keypair_multiprime(ptr noundef %key, ptr noundef null), !range !4
+  %call.i = tail call fastcc i32 @rsa_validate_keypair_multiprime(ptr noundef readonly %key, ptr noundef null)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_check_key_ex(ptr nocapture noundef readonly %key, ptr noundef %cb) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @RSA_check_key_ex(ptr nocapture noundef readonly %key, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @rsa_validate_keypair_multiprime(ptr noundef %key, ptr noundef %cb), !range !4
+  %call = tail call fastcc i32 @rsa_validate_keypair_multiprime(ptr noundef %key, ptr noundef %cb)
   ret i32 %call
 }
 
@@ -576,9 +576,8 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

@@ -904,7 +904,7 @@ define dso_local void @StartupReplicationOrigin() local_unnamed_addr #0 {
   %76 = zext i16 %75 to i32
   %77 = load i64, ptr %37, align 8
   %78 = lshr i64 %77, 32
-  %79 = trunc i64 %78 to i32
+  %79 = trunc nuw i64 %78 to i32
   %80 = trunc i64 %77 to i32
   %81 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, i32 noundef %76, i32 noundef %79, i32 noundef %80) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 809, ptr noundef nonnull @__func__.StartupReplicationOrigin) #10
@@ -1266,7 +1266,7 @@ define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noun
   %20 = icmp eq i16 %19, 0
   %21 = icmp eq i32 %.02532, -1
   %or.cond = select i1 %20, i1 %21, i1 false
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %or.cond, label %36, label %23
 
 23:                                               ; preds = %17
@@ -1493,7 +1493,7 @@ define dso_local i64 @replorigin_session_get_progress(i1 noundef zeroext %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_replication_origin_create(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 65536) i64 @pg_replication_origin_create(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #10
   br i1 %2, label %3, label %replorigin_check_prerequisites.exit
 
@@ -1603,7 +1603,7 @@ replorigin_check_prerequisites.exit:              ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_replication_origin_oid(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 65536) i64 @pg_replication_origin_oid(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #10
   br i1 %2, label %3, label %replorigin_check_prerequisites.exit
 
@@ -1683,7 +1683,7 @@ define dso_local noundef i64 @pg_replication_origin_session_reset(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_replication_origin_session_is_setup(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_replication_origin_session_is_setup(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #10
   br i1 %2, label %3, label %replorigin_check_prerequisites.exit
 

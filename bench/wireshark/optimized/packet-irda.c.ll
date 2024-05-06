@@ -502,7 +502,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @check_iap_octet_result(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @check_iap_octet_result(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %.not = icmp eq i8 %4, 2
   br i1 %.not, label %10, label %6
 
@@ -525,7 +525,7 @@ define hidden noundef i32 @check_iap_octet_result(ptr noundef %0, ptr noundef %1
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i8 @check_iap_lsap_result(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 112) i8 @check_iap_lsap_result(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %.not = icmp eq i8 %4, 1
   br i1 %.not, label %6, label %9
 
@@ -547,7 +547,7 @@ define hidden zeroext i8 @check_iap_lsap_result(ptr noundef %0, ptr noundef %1, 
   br label %15
 
 13:                                               ; preds = %6
-  %14 = trunc i32 %7 to i8
+  %14 = trunc nuw nsw i32 %7 to i8
   br label %15
 
 15:                                               ; preds = %9, %10, %13
@@ -1502,7 +1502,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread132.i.i.i, %
   %405 = add nuw nsw i32 %404, 3
   %406 = call ptr @proto_tree_add_item(ptr noundef %365, i32 noundef %403, ptr noundef %.0.i.i, i32 noundef %.0266.i.i.i, i32 noundef %405, i32 noundef 0) #6
   %indvars.iv.next.i148.i.i = add nuw nsw i64 %indvars.iv.i147.i.i, 1
-  %407 = trunc i64 %indvars.iv.next.i148.i.i to i32
+  %407 = trunc nuw nsw i64 %indvars.iv.next.i148.i.i to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %406, ptr noundef nonnull @.str.252, i32 noundef %407) #6
   %408 = getelementptr [32 x i32], ptr @ett_iap_entry, i64 0, i64 %indvars.iv.i147.i.i
   %409 = load i32, ptr %408, align 4
@@ -1530,7 +1530,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread132.i.i.i, %
   %420 = getelementptr inbounds i8, ptr %418, i64 8
   %421 = load ptr, ptr %420, align 8
   %422 = load i8, ptr %5, align 1
-  %423 = trunc i64 %indvars.iv.i147.i.i to i32
+  %423 = trunc nuw nsw i64 %indvars.iv.i147.i.i to i32
   %424 = call i32 %421(ptr noundef %.0.i.i, i32 noundef %415, ptr noundef %1, ptr noundef %410, i32 noundef %423, i8 noundef zeroext 1, i8 noundef zeroext %422) #6
   %.not247.i.i.i = icmp eq i32 %424, 0
   br i1 %.not247.i.i.i, label %425, label %459
@@ -1554,7 +1554,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread132.i.i.i, %
   %434 = getelementptr inbounds i8, ptr %432, i64 8
   %435 = load ptr, ptr %434, align 8
   %436 = load i8, ptr %5, align 1
-  %437 = trunc i64 %indvars.iv.i147.i.i to i32
+  %437 = trunc nuw nsw i64 %indvars.iv.i147.i.i to i32
   %438 = call i32 %435(ptr noundef %.0.i.i, i32 noundef %415, ptr noundef %1, ptr noundef %410, i32 noundef %437, i8 noundef zeroext 2, i8 noundef zeroext %436) #6
   %.not244.i.i.i = icmp eq i32 %438, 0
   br i1 %.not244.i.i.i, label %439, label %459
@@ -1580,7 +1580,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread132.i.i.i, %
   %450 = getelementptr inbounds i8, ptr %448, i64 8
   %451 = load ptr, ptr %450, align 8
   %452 = load i8, ptr %5, align 1
-  %453 = trunc i64 %indvars.iv.i147.i.i to i32
+  %453 = trunc nuw nsw i64 %indvars.iv.i147.i.i to i32
   %454 = call i32 %451(ptr noundef %.0.i.i, i32 noundef %415, ptr noundef %1, ptr noundef %410, i32 noundef %453, i8 noundef zeroext 3, i8 noundef zeroext %452) #6
   %.not241.i.i.i = icmp eq i32 %454, 0
   br i1 %.not241.i.i.i, label %455, label %459

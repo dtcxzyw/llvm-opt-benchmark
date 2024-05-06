@@ -61,7 +61,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xhci_hub_con
 @llvm.compiler.used = appending global [11 x ptr] [ptr @__UNIQUE_ID___addressable_xhci_find_slot_id_by_port1160, ptr @__UNIQUE_ID___addressable_xhci_hub_control1161, ptr @__UNIQUE_ID___addressable_xhci_port_state_to_neutral1159, ptr @trace_xhci_dbg_quirks.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace385, ptr @trace_xhci_dbg_quirks.__UNIQUE_ID___addressable___SCK__tp_func_xhci_dbg_quirks384, ptr @trace_xhci_get_port_status.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace987, ptr @trace_xhci_get_port_status.__UNIQUE_ID___addressable___SCK__tp_func_xhci_get_port_status986, ptr @trace_xhci_hub_status_data.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1001, ptr @trace_xhci_hub_status_data.__UNIQUE_ID___addressable___SCK__tp_func_xhci_hub_status_data1000, ptr @trace_xhci_stop_device.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace623, ptr @trace_xhci_stop_device.__UNIQUE_ID___addressable___SCK__tp_func_xhci_stop_device622], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @xhci_port_state_to_neutral(i32 noundef %0) #0 align 16 {
+define dso_local noundef range(i32 0, 1308688362) i32 @xhci_port_state_to_neutral(i32 noundef %0) #0 align 16 {
   %2 = and i32 %0, 1308688361
   ret i32 %2
 }
@@ -623,7 +623,7 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
   %252 = trunc i32 %251 to i8
   store i8 %252, ptr %232, align 1
   %253 = lshr i32 %251, 16
-  %254 = trunc i32 %253 to i16
+  %254 = trunc nuw i32 %253 to i16
   store i16 %254, ptr %233, align 1
   br label %255
 
@@ -687,7 +687,7 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
   %295 = lshr i8 %293, 4
   %296 = and i8 %295, 3
   %297 = lshr i32 %292, 16
-  %298 = trunc i32 %297 to i16
+  %298 = trunc nuw i32 %297 to i16
   %299 = and i32 %292, 192
   %300 = icmp eq i8 %296, 3
   br i1 %300, label %309, label %.preheader
@@ -763,7 +763,7 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
   %355 = and i32 %292, 16711695
   %356 = or disjoint i32 %355, %354
   %357 = or disjoint i32 %356, %352
-  %358 = trunc i32 %299 to i8
+  %358 = trunc nuw i32 %299 to i8
   switch i8 %358, label %374 [
     i8 0, label %359
     i8 -128, label %365
@@ -2463,7 +2463,7 @@ define internal fastcc i32 @xhci_exit_test_mode(ptr noundef %0) unnamed_addr #3 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xhci_hub_status_data(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 -268435456, 268435456) i32 @xhci_hub_status_data(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 16 {
   %3 = tail call i32 @usb_hcd_is_primary_hcd(ptr noundef %0) #13
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %8
@@ -2660,7 +2660,7 @@ define dso_local i32 @xhci_hub_status_data(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xhci_bus_suspend(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -16, 1) i32 @xhci_bus_suspend(ptr noundef %0) local_unnamed_addr #3 align 16 {
   %2 = alloca [31 x i32], align 16
   %3 = tail call i32 @usb_hcd_is_primary_hcd(ptr noundef %0) #13
   %4 = icmp eq i32 %3, 0
@@ -2957,7 +2957,7 @@ define dso_local noundef i32 @xhci_bus_suspend(ptr noundef %0) local_unnamed_add
 declare dso_local zeroext i1 @usb_amd_pt_check_port(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xhci_bus_resume(ptr noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -108, 1) i32 @xhci_bus_resume(ptr noundef %0) local_unnamed_addr #3 align 16 {
   %2 = tail call i32 @usb_hcd_is_primary_hcd(ptr noundef %0) #13
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %7

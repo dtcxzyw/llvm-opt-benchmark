@@ -256,7 +256,7 @@ declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unname
 declare ptr @ShmemInitHash(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @WaitEventExtensionNew(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 117440512, 117506048) i32 @WaitEventExtensionNew(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i16, align 2
   %3 = alloca i8, align 1
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
@@ -459,7 +459,7 @@ define dso_local noundef ptr @pgstat_get_wait_event_type(i32 noundef %0) local_u
 3:                                                ; preds = %1
   %4 = add i32 %0, -16777216
   %5 = lshr i32 %4, 24
-  %trunc = trunc i32 %5 to i8
+  %trunc = trunc nuw i32 %5 to i8
   %6 = icmp ult i8 %trunc, 10
   br i1 %6, label %switch.lookup, label %8
 
@@ -485,7 +485,7 @@ define dso_local ptr @pgstat_get_wait_event(i32 noundef %0) local_unnamed_addr #
   %6 = trunc i32 %0 to i16
   %7 = add i32 %0, -16777216
   %8 = lshr i32 %7, 24
-  %trunc = trunc i32 %8 to i8
+  %trunc = trunc nuw i32 %8 to i8
   switch i8 %trunc, label %pgstat_get_wait_activity.exit [
     i8 0, label %9
     i8 2, label %12

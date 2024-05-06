@@ -66,7 +66,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.40 = private unnamed_addr constant [36 x i8] c"BIO_ADDR_copy(dst->peer, src->peer)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @qtest_create_quic_objects(ptr noundef %libctx, ptr noundef %clientctx, ptr noundef %serverctx, ptr noundef %certfile, ptr noundef %keyfile, i32 noundef %flags, ptr nocapture noundef %qtserv, ptr nocapture noundef %cssl, ptr noundef %fault, ptr noundef writeonly %tracebio) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %libctx, ptr noundef %clientctx, ptr noundef %serverctx, ptr noundef %certfile, ptr noundef %keyfile, i32 noundef %flags, ptr nocapture noundef %qtserv, ptr nocapture noundef %cssl, ptr noundef %fault, ptr noundef writeonly %tracebio) local_unnamed_addr #0 {
 entry:
   %alpn = alloca [9 x i8], align 1
   %tserver_args = alloca %struct.quic_tserver_args_st, align 8
@@ -763,7 +763,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @qtest_wait_for_timeout(ptr noundef %s, ptr noundef %qtserv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_wait_for_timeout(ptr noundef %s, ptr noundef %qtserv) local_unnamed_addr #0 {
 entry:
   %tv = alloca %struct.timeval, align 8
   %cinf = alloca i32, align 4
@@ -885,7 +885,7 @@ declare i64 @ossl_quic_tserver_get_deadline(ptr noundef) local_unnamed_addr #3
 declare void @OSSL_sleep(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @qtest_create_quic_connection_ex(ptr noundef %qtserv, ptr noundef %clientssl, i32 noundef %wanterr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_create_quic_connection_ex(ptr noundef %qtserv, ptr noundef %clientssl, i32 noundef %wanterr) local_unnamed_addr #0 {
 entry:
   %t = alloca i64, align 8
   store i64 0, ptr %t, align 8
@@ -1044,7 +1044,7 @@ if.end80:                                         ; preds = %land.lhs.true76, %i
   br i1 %or.cond48, label %do.cond, label %if.then89
 
 if.then89:                                        ; preds = %if.end80
-  %call90 = call i32 @qtest_wait_for_timeout(ptr noundef %clientssl, ptr noundef %qtserv.addr.0), !range !5
+  %call90 = call i32 @qtest_wait_for_timeout(ptr noundef %clientssl, ptr noundef %qtserv.addr.0)
   %tobool91.not = icmp eq i32 %call90, 0
   br i1 %tobool91.not, label %err128, label %do.cond
 
@@ -1062,7 +1062,7 @@ land.rhs:                                         ; preds = %lor.rhs
 do.body.backedge:                                 ; preds = %land.rhs, %do.cond
   %clienterr.0.be = phi i32 [ %clienterr.1, %land.rhs ], [ 0, %do.cond ]
   %servererr.0.be = phi i32 [ 0, %land.rhs ], [ %servererr.161, %do.cond ]
-  br label %do.body, !llvm.loop !6
+  br label %do.body, !llvm.loop !5
 
 do.end:                                           ; preds = %lor.rhs
   %or.cond9 = and i1 %cmp29, %cmp85
@@ -1104,7 +1104,7 @@ err128:                                           ; preds = %if.then89, %if.end6
 define internal void @run_server_thread() #0 {
 entry:
   %0 = load ptr, ptr @globtserv, align 8
-  %call.i = tail call noundef i32 @qtest_create_quic_connection_ex(ptr noundef %0, ptr noundef null, i32 noundef 0), !range !5
+  %call.i = tail call i32 @qtest_create_quic_connection_ex(ptr noundef %0, ptr noundef null, i32 noundef 0)
   store i32 %call.i, ptr @globserverret, align 4
   ret void
 }
@@ -1126,14 +1126,14 @@ declare i32 @ossl_quic_tserver_is_term_any(ptr noundef) local_unnamed_addr #3
 declare i32 @ossl_quic_tserver_is_handshake_confirmed(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @qtest_create_quic_connection(ptr noundef %qtserv, ptr noundef %clientssl) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_create_quic_connection(ptr noundef %qtserv, ptr noundef %clientssl) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @qtest_create_quic_connection_ex(ptr noundef %qtserv, ptr noundef %clientssl, i32 noundef 0), !range !5
+  %call = tail call i32 @qtest_create_quic_connection_ex(ptr noundef %qtserv, ptr noundef %clientssl, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @qtest_shutdown(ptr noundef %qtserv, ptr noundef %clientssl) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_shutdown(ptr noundef %qtserv, ptr noundef %clientssl) local_unnamed_addr #0 {
 entry:
   %t = alloca i64, align 8
   store i64 0, ptr %t, align 8
@@ -1216,7 +1216,7 @@ do.body:                                          ; preds = %do.body, %entry
   %call = tail call i32 @ossl_quic_tserver_tick(ptr noundef %0) #10
   %1 = load atomic i32, ptr @shutdowndone monotonic, align 4
   %tobool.not = icmp eq i32 %1, 0
-  br i1 %tobool.not, label %do.body, label %do.end, !llvm.loop !8
+  br i1 %tobool.not, label %do.body, label %do.end, !llvm.loop !7
 
 do.end:                                           ; preds = %do.body
   ret void
@@ -1225,7 +1225,7 @@ do.end:                                           ; preds = %do.body
 declare i32 @SSL_shutdown(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @qtest_check_server_transport_err(ptr noundef %qtserv, i64 noundef %code) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_check_server_transport_err(ptr noundef %qtserv, i64 noundef %code) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_quic_tserver_tick(ptr noundef %qtserv) #10
   %call1 = tail call i32 @ossl_quic_tserver_is_term_any(ptr noundef %qtserv) #10
@@ -1276,16 +1276,16 @@ declare ptr @ossl_quic_tserver_get_terminate_cause(ptr noundef) local_unnamed_ad
 declare i32 @test_uint64_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @qtest_check_server_protocol_err(ptr noundef %qtserv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_check_server_protocol_err(ptr noundef %qtserv) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @qtest_check_server_transport_err(ptr noundef %qtserv, i64 noundef 10), !range !5
+  %call = tail call i32 @qtest_check_server_transport_err(ptr noundef %qtserv, i64 noundef 10)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @qtest_check_server_frame_encoding_err(ptr noundef %qtserv) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_check_server_frame_encoding_err(ptr noundef %qtserv) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @qtest_check_server_transport_err(ptr noundef %qtserv, i64 noundef 7), !range !5
+  %call = tail call i32 @qtest_check_server_transport_err(ptr noundef %qtserv, i64 noundef 7)
   ret i32 %call
 }
 
@@ -1346,7 +1346,7 @@ entry:
 declare i32 @ossl_quic_tserver_set_plain_packet_mutator(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @packet_plain_mutate(ptr nocapture noundef readonly %hdrin, ptr nocapture noundef readonly %iovecin, i64 noundef %numin, ptr nocapture noundef writeonly %hdrout, ptr nocapture noundef writeonly %iovecout, ptr nocapture noundef writeonly %numout, ptr noundef %arg) #0 {
+define internal range(i32 0, 2) i32 @packet_plain_mutate(ptr nocapture noundef readonly %hdrin, ptr nocapture noundef readonly %iovecin, i64 noundef %numin, ptr nocapture noundef writeonly %hdrout, ptr nocapture noundef writeonly %iovecout, ptr nocapture noundef writeonly %numout, ptr noundef %arg) #0 {
 entry:
   %cmp31.not = icmp eq i64 %numin, 0
   br i1 %cmp31.not, label %for.end, label %for.body
@@ -1359,7 +1359,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add = add i64 %0, %bufsz.033
   %inc = add nuw i64 %i.032, 1
   %exitcond.not = icmp eq i64 %inc, %numin
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %entry
   %bufsz.0.lcssa = phi i64 [ 0, %entry ], [ %add, %for.body ]
@@ -1392,7 +1392,7 @@ for.body9:                                        ; preds = %if.end, %for.body9
   %add.ptr = getelementptr inbounds i8, ptr %cur.036, i64 %2
   %inc17 = add nuw i64 %i.135, 1
   %exitcond37.not = icmp eq i64 %inc17, %numin
-  br i1 %exitcond37.not, label %for.end18, label %for.body9, !llvm.loop !10
+  br i1 %exitcond37.not, label %for.end18, label %for.body9, !llvm.loop !9
 
 for.end18:                                        ; preds = %for.body9, %if.end
   %pplainhdr = getelementptr inbounds i8, ptr %arg, i64 8
@@ -1422,7 +1422,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @qtest_fault_resize_plain_packet(ptr nocapture noundef %fault, i64 noundef %newlen) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @qtest_fault_resize_plain_packet(ptr nocapture noundef %fault, i64 noundef %newlen) local_unnamed_addr #6 {
 entry:
   %pplainio = getelementptr inbounds i8, ptr %fault, i64 96
   %buf_len = getelementptr inbounds i8, ptr %fault, i64 104
@@ -1457,7 +1457,7 @@ return:                                           ; preds = %entry, %if.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @qtest_fault_prepend_frame(ptr nocapture noundef %fault, ptr nocapture noundef readonly %frame, i64 noundef %frame_len) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_fault_prepend_frame(ptr nocapture noundef %fault, ptr nocapture noundef readonly %frame, i64 noundef %frame_len) local_unnamed_addr #0 {
 entry:
   %pplainbuf_alloc = getelementptr inbounds i8, ptr %fault, i64 112
   %0 = load i64, ptr %pplainbuf_alloc, align 8
@@ -1523,7 +1523,7 @@ entry:
 declare i32 @ossl_quic_tserver_set_handshake_mutator(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @handshake_mutate(ptr nocapture noundef readonly %msgin, i64 noundef %msginlen, ptr nocapture noundef writeonly %msgout, ptr nocapture noundef writeonly %msgoutlen, ptr noundef %arg) #0 {
+define internal range(i32 0, 2) i32 @handshake_mutate(ptr nocapture noundef readonly %msgin, i64 noundef %msginlen, ptr nocapture noundef writeonly %msgout, ptr nocapture noundef writeonly %msgoutlen, ptr noundef %arg) #0 {
 entry:
   %ee = alloca %struct.qtest_fault_encrypted_extensions, align 8
   %add = add i64 %msginlen, 1024
@@ -1624,7 +1624,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @qtest_fault_resize_handshake(ptr nocapture noundef %fault, i64 noundef %newlen) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @qtest_fault_resize_handshake(ptr nocapture noundef %fault, i64 noundef %newlen) local_unnamed_addr #6 {
 entry:
   %handbuflen = getelementptr inbounds i8, ptr %fault, i64 152
   %0 = load i64, ptr %handbuflen, align 8
@@ -1657,7 +1657,7 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @qtest_fault_resize_message(ptr nocapture noundef %fault, i64 noundef %newlen) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @qtest_fault_resize_message(ptr nocapture noundef %fault, i64 noundef %newlen) local_unnamed_addr #6 {
 entry:
   %add = add i64 %newlen, 4
   %handbuflen.i = getelementptr inbounds i8, ptr %fault, i64 152
@@ -1706,7 +1706,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @qtest_fault_delete_extension(ptr nocapture noundef %fault, i32 noundef %exttype, ptr noundef %ext, ptr nocapture noundef %extlen, ptr noundef %old_ext) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_fault_delete_extension(ptr nocapture noundef %fault, i32 noundef %exttype, ptr noundef %ext, ptr nocapture noundef %extlen, ptr noundef %old_ext) local_unnamed_addr #0 {
 entry:
   %old_ext_wpkt = alloca %struct.wpacket_st, align 8
   %w = alloca i64, align 8
@@ -1768,7 +1768,7 @@ do.cond:                                          ; preds = %lor.lhs.false.i33
   %add.ptr.i.i6.i43 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i42, i64 %or.i.i.i39
   %sub.i.i7.i = sub i64 %sub.i.i.i40, %or.i.i.i39
   %cmp.not = icmp eq i32 %or.i.i, %exttype
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !11
+  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !10
 
 do.end:                                           ; preds = %do.cond
   %cmp13.not = icmp eq ptr %old_ext, null
@@ -1988,7 +1988,7 @@ if.end39:                                         ; preds = %do.body
 do.cond:                                          ; preds = %if.end39
   %pkt.val = load i64, ptr %remaining.i, align 8
   %cmp47.not = icmp eq i64 %pkt.val, 0
-  br i1 %cmp47.not, label %if.end48, label %do.body, !llvm.loop !12
+  br i1 %cmp47.not, label %if.end48, label %do.body, !llvm.loop !11
 
 if.end48:                                         ; preds = %do.cond, %if.end17
   %10 = load ptr, ptr %datagramcb49, align 8
@@ -2013,7 +2013,7 @@ if.end62:                                         ; preds = %if.end57
   store i64 0, ptr %msgalloc, align 8
   %inc = add nuw i64 %i.055, 1
   %exitcond.not = icmp eq i64 %inc, %num_msg
-  br i1 %exitcond.not, label %out.sink.split, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %out.sink.split, label %for.body, !llvm.loop !12
 
 out.sink.split:                                   ; preds = %if.end62, %if.end57
   %num_msg.sink = phi i64 [ %i.055, %if.end57 ], [ %num_msg, %if.end62 ]
@@ -2076,7 +2076,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @qtest_fault_resize_datagram(ptr nocapture noundef %fault, i64 noundef %newlen) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @qtest_fault_resize_datagram(ptr nocapture noundef %fault, i64 noundef %newlen) local_unnamed_addr #6 {
 entry:
   %msgalloc = getelementptr inbounds i8, ptr %fault, i64 264
   %0 = load i64, ptr %msgalloc, align 8
@@ -2107,7 +2107,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bio_msg_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @bio_msg_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dst, align 8
   %1 = load ptr, ptr %src, align 8
@@ -2223,12 +2223,11 @@ attributes #11 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}

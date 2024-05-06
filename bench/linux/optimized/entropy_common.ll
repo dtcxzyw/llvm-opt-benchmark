@@ -9,7 +9,7 @@ define dso_local noundef i32 @FSE_versionNumber() local_unnamed_addr #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @FSE_isError(i64 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @FSE_isError(i64 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp ugt i64 %0, -120
   %3 = zext i1 %2 to i32
   ret i32 %3
@@ -26,7 +26,7 @@ define dso_local ptr @FSE_getErrorName(i64 noundef %0) local_unnamed_addr #1 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @HUF_isError(i64 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @HUF_isError(i64 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp ugt i64 %0, -120
   %3 = zext i1 %2 to i32
   ret i32 %3
@@ -612,7 +612,7 @@ define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noc
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call fastcc i64 @HUF_readStats_body_bmi2(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8), !range !11
+  %13 = tail call fastcc i64 @HUF_readStats_body_bmi2(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8)
   br label %.thread10
 
 14:                                               ; preds = %10
@@ -660,7 +660,7 @@ define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noc
   store i8 %37, ptr %39, align 1
   %40 = add nuw nsw i64 %30, 2
   %41 = icmp ult i64 %40, %21
-  br i1 %41, label %.preheader11, label %.loopexit, !llvm.loop !12
+  br i1 %41, label %.preheader11, label %.loopexit, !llvm.loop !11
 
 42:                                               ; preds = %16
   %43 = icmp ult i64 %18, %6
@@ -703,7 +703,7 @@ define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noc
   %68 = add i32 %54, 1
   %69 = zext i32 %68 to i64
   %70 = icmp ugt i64 %50, %69
-  br i1 %70, label %.preheader, label %71, !llvm.loop !13
+  br i1 %70, label %.preheader, label %71, !llvm.loop !12
 
 71:                                               ; preds = %58
   %72 = icmp eq i32 %67, 0
@@ -728,7 +728,7 @@ define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noc
 
 85:                                               ; preds = %77
   %86 = sub nuw nsw i32 32, %81
-  %87 = trunc i32 %86 to i8
+  %87 = trunc nuw nsw i32 %86 to i8
   %88 = getelementptr i8, ptr %0, i64 %50
   store i8 %87, ptr %88, align 1
   %89 = zext nneg i32 %86 to i64
@@ -760,7 +760,7 @@ define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noc
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @HUF_readStats_body_bmi2(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8) unnamed_addr #6 align 16 {
+define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_body_bmi2(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8) unnamed_addr #6 align 16 {
   %10 = icmp eq i64 %6, 0
   br i1 %10, label %.thread10, label %11
 
@@ -805,7 +805,7 @@ define internal fastcc i64 @HUF_readStats_body_bmi2(ptr noundef %0, i64 noundef 
   store i8 %32, ptr %34, align 1
   %35 = add nuw nsw i64 %25, 2
   %36 = icmp ult i64 %35, %16
-  br i1 %36, label %.preheader11, label %.loopexit, !llvm.loop !12
+  br i1 %36, label %.preheader11, label %.loopexit, !llvm.loop !11
 
 37:                                               ; preds = %11
   %38 = icmp ult i64 %13, %6
@@ -848,7 +848,7 @@ define internal fastcc i64 @HUF_readStats_body_bmi2(ptr noundef %0, i64 noundef 
   %63 = add i32 %49, 1
   %64 = zext i32 %63 to i64
   %65 = icmp ugt i64 %45, %64
-  br i1 %65, label %.preheader, label %66, !llvm.loop !13
+  br i1 %65, label %.preheader, label %66, !llvm.loop !12
 
 66:                                               ; preds = %53
   %67 = icmp eq i32 %62, 0
@@ -873,7 +873,7 @@ define internal fastcc i64 @HUF_readStats_body_bmi2(ptr noundef %0, i64 noundef 
 
 80:                                               ; preds = %72
   %81 = sub nuw nsw i32 32, %76
-  %82 = trunc i32 %81 to i8
+  %82 = trunc nuw nsw i32 %81 to i8
   %83 = getelementptr i8, ptr %0, i64 %45
   store i8 %82, ptr %83, align 1
   %84 = zext nneg i32 %81 to i64
@@ -941,6 +941,5 @@ attributes #10 = { nounwind }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
 !10 = !{!"auto-init"}
-!11 = !{i64 -119, i64 -9223372036854775807}
+!11 = distinct !{!11, !8, !9}
 !12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}

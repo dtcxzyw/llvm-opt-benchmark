@@ -12,7 +12,7 @@ define hidden ptr @lexbor_array_obj_create() local_unnamed_addr #0 {
 declare ptr @lexbor_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lexbor_array_obj_init(ptr noundef writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 8) i32 @lexbor_array_obj_init(ptr noundef writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %16, label %5
 
@@ -344,7 +344,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @lexbor_array_obj_erase_noi(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
 

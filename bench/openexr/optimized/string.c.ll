@@ -149,7 +149,7 @@ if.end:                                           ; preds = %if.then1
   br label %return
 
 if.end5.split:                                    ; preds = %if.then
-  %conv = trunc i64 %call to i32
+  %conv = trunc nuw nsw i64 %call to i32
   %tobool.not.i9 = icmp eq ptr %ctxt, null
   br i1 %tobool.not.i9, label %return, label %if.end6.i
 
@@ -205,7 +205,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %exr_attr_string_init.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
   %alloc_fn.i = getelementptr inbounds i8, ptr %ctxt, i64 88
   %2 = load ptr, ptr %alloc_fn.i, align 8
   %add.i = add nuw nsw i32 %len, 1
@@ -291,7 +291,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end.i.i:                                       ; preds = %if.end.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
   %alloc_fn.i.i = getelementptr inbounds i8, ptr %ctxt, i64 88
   %1 = load ptr, ptr %alloc_fn.i.i, align 8
   %call7.i.i = tail call ptr %1(i64 noundef 1) #4
@@ -338,7 +338,7 @@ if.end:                                           ; preds = %if.then1
   br label %return
 
 if.end5.split:                                    ; preds = %if.then
-  %conv = trunc i64 %call to i32
+  %conv = trunc nuw nsw i64 %call to i32
   %tobool.not.i9 = icmp eq ptr %ctxt, null
   br i1 %tobool.not.i9, label %return, label %if.end.i10
 
@@ -353,7 +353,7 @@ if.then2.i28:                                     ; preds = %if.end.i10
   br label %return
 
 if.end6.i.i:                                      ; preds = %if.end.i10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
   %alloc_fn.i.i13 = getelementptr inbounds i8, ptr %ctxt, i64 88
   %6 = load ptr, ptr %alloc_fn.i.i13, align 8
   %add.i.i = add nuw nsw i32 %conv, 1
@@ -387,7 +387,7 @@ if.then5.i19:                                     ; preds = %exr_attr_string_ini
   br i1 %cmp6.i.not, label %if.end13.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then5.i19
-  %call10.i = tail call ptr @strncpy(ptr noundef %8, ptr noundef nonnull %d, i64 noundef %call) #4
+  %call10.i = tail call ptr @strncpy(ptr noundef %8, ptr noundef nonnull readonly %d, i64 noundef %call) #4
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then9.i, %if.then5.i19
@@ -510,7 +510,7 @@ if.then7.i:                                       ; preds = %if.then5.i
   br i1 %tobool8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then7.i
-  %call10.i = tail call ptr @strncpy(ptr noundef %8, ptr noundef nonnull %d, i64 noundef %conv11.i) #4
+  %call10.i = tail call ptr @strncpy(ptr noundef %8, ptr noundef nonnull readonly %d, i64 noundef %conv11.i) #4
   br label %if.end13.i
 
 if.else.i:                                        ; preds = %if.then7.i
@@ -529,7 +529,7 @@ return:                                           ; preds = %if.end13.i, %exr_at
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @exr_attr_string_destroy(ptr noundef readonly %ctxt, ptr noundef %s) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @exr_attr_string_destroy(ptr noundef readonly %ctxt, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -589,7 +589,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %alloc_size.i = getelementptr inbounds i8, ptr %s, i64 4
   %1 = load i32, ptr %alloc_size.i, align 4
   %cmp7.i = icmp sgt i32 %1, 0
-  br i1 %cmp7.i, label %if.then8.i, label %if.end6.i.i.i
+  br i1 %cmp7.i, label %if.then8.i, label %if.then2.i.i
 
 if.then8.i:                                       ; preds = %if.end3.i
   store i32 0, ptr %s, align 8
@@ -598,7 +598,7 @@ if.then8.i:                                       ; preds = %if.end3.i
   store i8 0, ptr %2, align 1
   br label %return
 
-if.end6.i.i.i:                                    ; preds = %if.end3.i
+if.then2.i.i:                                     ; preds = %if.end3.i
   %str.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %alloc_fn.i.i.i = getelementptr inbounds i8, ptr %ctxt, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
@@ -608,12 +608,12 @@ if.end6.i.i.i:                                    ; preds = %if.end3.i
   %cmp9.i.i.i = icmp eq ptr %call7.i.i.i, null
   br i1 %cmp9.i.i.i, label %exr_attr_string_init.exit.i.i, label %exr_attr_string_init.exit.thread.i.i
 
-exr_attr_string_init.exit.thread.i.i:             ; preds = %if.end6.i.i.i
+exr_attr_string_init.exit.thread.i.i:             ; preds = %if.then2.i.i
   store i32 0, ptr %s, align 8
   store i32 1, ptr %alloc_size.i, align 4
   br label %if.then5.i.i
 
-exr_attr_string_init.exit.i.i:                    ; preds = %if.end6.i.i.i
+exr_attr_string_init.exit.i.i:                    ; preds = %if.then2.i.i
   %standard_error.i.i.i = getelementptr inbounds i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error.i.i.i, align 8
   %call12.i.i.i = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 1) #4
@@ -645,7 +645,7 @@ if.end:                                           ; preds = %if.then1
   br label %return
 
 if.end5.split:                                    ; preds = %if.then
-  %conv = trunc i64 %call to i32
+  %conv = trunc nuw nsw i64 %call to i32
   %call78 = tail call i32 @exr_attr_string_set_with_length(ptr noundef %ctxt, ptr noundef %s, ptr noundef nonnull %d, i32 noundef %conv)
   br label %return
 

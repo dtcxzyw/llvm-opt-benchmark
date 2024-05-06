@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hash.asso_values = internal unnamed_addr constant [256 x i8] c":987654\102;\0F;\19;;;;;;\03;;;;;;;;;;;;10/.-,+*;;;;;;;;;\15;;;;;;;;;;;;;;;;\02;;;;;;;;;;;;;;;;;;;;;;;;;;;;;(\14'&%\0E\05$\14\07\19\22\1D \10;\1F;;\02\01;\19\0F;\0E;;\1C;\02;;;\0B;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;\18;\16;;\0B;;;;;\07;\00;;\10;\01;;\10;;;\0F;;;\06;;;;\00;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;", align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @onigenc_unicode_fold2_key(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 32768) i32 @onigenc_unicode_fold2_key(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @onig_codes_byte_at(ptr noundef %0, i32 noundef 5) #2
   %3 = and i32 %2, 255
   %4 = zext nneg i32 %3 to i64

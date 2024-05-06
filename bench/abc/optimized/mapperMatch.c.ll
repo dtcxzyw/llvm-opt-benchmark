@@ -25,7 +25,7 @@ define void @Map_MatchClean(ptr nocapture noundef writeonly %0) local_unnamed_ad
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Map_MatchCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Map_MatchCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
   %.not = icmp eq i32 %3, 0
   %5 = getelementptr inbounds i8, ptr %0, i64 124
   %6 = load float, ptr %5, align 4
@@ -653,7 +653,7 @@ define noundef i32 @Map_MatchNodePhase(ptr nocapture noundef %0, ptr noundef %1,
   br label %63
 
 61:                                               ; preds = %.thread
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %4, i8 0, i64 24, i1 false)
   %62 = getelementptr inbounds i8, ptr %4, i64 24
   store <4 x float> <float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000, float 0x47B9999980000000>, ptr %62, align 8
   br label %63
@@ -728,7 +728,7 @@ define noundef i32 @Map_MatchNodePhase(ptr nocapture noundef %0, ptr noundef %1,
 
 100:                                              ; preds = %94
   %101 = load i32, ptr %9, align 4
-  %102 = call i32 @Map_MatchCompare(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %86, i32 noundef %101), !range !7
+  %102 = call i32 @Map_MatchCompare(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %86, i32 noundef %101)
   %.not110 = icmp eq i32 %102, 0
   br i1 %.not110, label %108, label %103
 
@@ -747,7 +747,7 @@ define noundef i32 @Map_MatchNodePhase(ptr nocapture noundef %0, ptr noundef %1,
   %.1 = phi float [ %.0116, %78 ], [ %.0116, %.thread112 ], [ %.0116, %.thread112.thread ], [ %.0116, %89 ], [ %.0116, %94 ], [ %107, %106 ], [ %.0116, %103 ], [ %.0116, %100 ]
   %.0100 = load ptr, ptr %.0100117, align 8
   %.not107 = icmp eq ptr %.0100, null
-  br i1 %.not107, label %._crit_edge, label %73, !llvm.loop !8
+  br i1 %.not107, label %._crit_edge, label %73, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %108, %63
   %.098.lcssa = phi ptr [ %8, %63 ], [ %.199, %108 ]
@@ -936,7 +936,7 @@ define void @Map_MappingSetPiArrivalTimes(ptr nocapture noundef readonly %0) loc
   %77 = load i32, ptr %2, align 8
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %9, label %._crit_edge, !llvm.loop !9
+  br i1 %79, label %9, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %61, %1
   ret void
@@ -1259,7 +1259,7 @@ define void @Map_NodeTransferArrivalTimes(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Map_MappingMatches(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Map_MappingMatches(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 116
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -1457,7 +1457,7 @@ Map_NodeTransferArrivalTimes.exit:                ; preds = %73, %76, %92, %93
   br i1 %114, label %Extra_ProgressBarUpdate.exit, label %115
 
 115:                                              ; preds = %111, %Map_NodeTransferArrivalTimes.exit
-  %116 = trunc i64 %indvars.iv to i32
+  %116 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %16, i32 noundef %116, ptr noundef nonnull @.str.4) #10
   br label %Extra_ProgressBarUpdate.exit
 
@@ -1468,7 +1468,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %115, %111, %41, %43
   %119 = load i32, ptr %118, align 8
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv.next, %120
-  br i1 %121, label %22, label %._crit_edge, !llvm.loop !10
+  br i1 %121, label %22, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %Extra_ProgressBarUpdate.exit, %10
   tail call void @Extra_ProgressBarStop(ptr noundef %16) #10
@@ -1525,7 +1525,6 @@ attributes #10 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

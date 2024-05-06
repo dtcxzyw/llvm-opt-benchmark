@@ -112,7 +112,7 @@ define i32 @cli_parsejpeg(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %12
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %15, i64 %spec.select.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %15, i64 %spec.select.i, i1 false)
   %.not191 = icmp ugt i64 %11, 3
   br i1 %.not191, label %16, label %fmap_readn.exit.thread
 
@@ -244,7 +244,7 @@ fmap_readn.exit217.thread:                        ; preds = %.lr.ph
   br i1 %.not26.i220, label %fmap_readn.exit222, label %67
 
 67:                                               ; preds = %63
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %66, i64 %spec.select.i219, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %66, i64 %spec.select.i219, i1 false)
   br label %fmap_readn.exit222
 
 fmap_readn.exit222:                               ; preds = %60, %61, %63, %67
@@ -280,7 +280,7 @@ fmap_readn.exit222._crit_edge:                    ; preds = %fmap_readn.exit222
   br i1 %.not26.i225, label %fmap_readn.exit227.thread, label %fmap_readn.exit227
 
 fmap_readn.exit227:                               ; preds = %75
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %4, ptr nonnull align 1 %78, i64 %spec.select.i224, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 2 %4, ptr nonnull align 1 %78, i64 %spec.select.i224, i1 false)
   %.not195 = icmp ugt i64 %76, 1
   br i1 %.not195, label %86, label %fmap_readn.exit227.thread
 
@@ -405,7 +405,7 @@ fmap_readn.exit227.thread:                        ; preds = %75, %.thread._crit_
   br i1 %.not26.i230, label %fmap_readn.exit232.thread, label %fmap_readn.exit232
 
 fmap_readn.exit232:                               ; preds = %113
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %116, i64 %spec.select.i229, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %116, i64 %spec.select.i229, i1 false)
   %117 = icmp ugt i64 %114, 4
   br i1 %117, label %118, label %fmap_readn.exit232.thread
 
@@ -495,7 +495,7 @@ fmap_readn.exit232.thread:                        ; preds = %113, %111, %118, %f
   br i1 %.not26.i235, label %fmap_readn.exit237.thread, label %fmap_readn.exit237
 
 fmap_readn.exit237:                               ; preds = %151
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %154, i64 %spec.select.i234, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %154, i64 %spec.select.i234, i1 false)
   %155 = icmp ugt i64 %152, 5
   br i1 %155, label %156, label %fmap_readn.exit237.thread
 
@@ -569,7 +569,7 @@ fmap_readn.exit237.thread:                        ; preds = %151, %149, %156, %f
   br i1 %.not26.i240, label %fmap_readn.exit242.thread, label %fmap_readn.exit242
 
 fmap_readn.exit242:                               ; preds = %184
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %187, i64 %spec.select.i239, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %187, i64 %spec.select.i239, i1 false)
   %188 = icmp ugt i64 %185, 6
   br i1 %188, label %189, label %fmap_readn.exit242.thread
 
@@ -600,7 +600,7 @@ fmap_readn.exit242.thread:                        ; preds = %184, %fmap_readn.ex
   br i1 %.not26.i245, label %fmap_readn.exit247.thread, label %fmap_readn.exit247
 
 fmap_readn.exit247:                               ; preds = %194
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %197, i64 %spec.select.i244, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %197, i64 %spec.select.i244, i1 false)
   %198 = icmp ugt i64 %195, 12
   br i1 %198, label %199, label %fmap_readn.exit247.thread
 
@@ -633,7 +633,7 @@ fmap_readn.exit247.thread:                        ; preds = %194, %192, %199, %f
   br i1 %.not26.i250, label %fmap_readn.exit252.thread, label %fmap_readn.exit252
 
 fmap_readn.exit252:                               ; preds = %206
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %209, i64 %spec.select.i249, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %209, i64 %spec.select.i249, i1 false)
   %210 = icmp ugt i64 %207, 5
   br i1 %210, label %211, label %fmap_readn.exit252.thread
 
@@ -709,7 +709,7 @@ fmap_readn.exit252.thread:                        ; preds = %206, %204, %211, %f
   br i1 %.not26.i255, label %fmap_readn.exit257.thread, label %fmap_readn.exit257
 
 fmap_readn.exit257:                               ; preds = %236
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %239, i64 %spec.select.i254, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %239, i64 %spec.select.i254, i1 false)
   %240 = icmp ugt i64 %237, 13
   br i1 %240, label %241, label %fmap_readn.exit257.thread
 
@@ -769,7 +769,7 @@ fmap_readn.exit257:                               ; preds = %236
   br i1 %.not26.i.i, label %.thread294, label %fmap_readn.exit.i
 
 fmap_readn.exit.i:                                ; preds = %269
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2, ptr nonnull align 1 %272, i64 %spec.select.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 4 %2, ptr nonnull align 1 %272, i64 %spec.select.i.i, i1 false)
   %.not30.i = icmp ugt i64 %270, 3
   br i1 %.not30.i, label %273, label %.thread294
 
@@ -852,7 +852,7 @@ fmap_readn.exit257.thread:                        ; preds = %236, %234, %241, %f
   br i1 %.not26.i263, label %fmap_readn.exit265.thread, label %fmap_readn.exit265
 
 fmap_readn.exit265:                               ; preds = %293
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %296, i64 %spec.select.i262, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 16 %3, ptr nonnull align 1 %296, i64 %spec.select.i262, i1 false)
   %297 = icmp ugt i64 %294, 5
   br i1 %297, label %298, label %fmap_readn.exit265.thread
 

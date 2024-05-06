@@ -125,7 +125,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_x509_cmp_time_current() #0 {
+define internal range(i32 0, 2) i32 @test_x509_cmp_time_current() #0 {
 entry:
   %call = tail call i64 @time(ptr noundef null) #4
   %call1 = tail call ptr @ASN1_TIME_adj(ptr noundef null, i64 noundef %call, i32 noundef -1, i64 noundef 0) #4
@@ -144,7 +144,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_X509_cmp_timeframe() #0 {
+define internal range(i32 0, 2) i32 @test_X509_cmp_timeframe() #0 {
 entry:
   %call = tail call i64 @time(ptr noundef null) #4
   %call1 = tail call ptr @ASN1_TIME_adj(ptr noundef null, i64 noundef %call, i32 noundef 0, i64 noundef 0) #4
@@ -155,18 +155,18 @@ entry:
   br i1 %cmp, label %finish, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call5 = tail call fastcc i32 @test_X509_cmp_timeframe_vpm(ptr noundef null, ptr noundef %call2, ptr noundef %call1, ptr noundef %call3), !range !5
+  %call5 = tail call fastcc i32 @test_X509_cmp_timeframe_vpm(ptr noundef null, ptr noundef %call2, ptr noundef %call1, ptr noundef %call3)
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %land.end17.critedge, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
-  %call6 = tail call fastcc i32 @test_X509_cmp_timeframe_vpm(ptr noundef nonnull %call4, ptr noundef %call2, ptr noundef %call1, ptr noundef %call3), !range !5
+  %call6 = tail call fastcc i32 @test_X509_cmp_timeframe_vpm(ptr noundef nonnull %call4, ptr noundef %call2, ptr noundef %call1, ptr noundef %call3)
   %tobool7.not = icmp eq i32 %call6, 0
   tail call void @X509_VERIFY_PARAM_set_time(ptr noundef nonnull %call4, i64 noundef %call) #4
   br i1 %tobool7.not, label %land.end17, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.rhs
-  %call9 = tail call fastcc i32 @test_X509_cmp_timeframe_vpm(ptr noundef nonnull %call4, ptr noundef %call2, ptr noundef %call1, ptr noundef %call3), !range !5
+  %call9 = tail call fastcc i32 @test_X509_cmp_timeframe_vpm(ptr noundef nonnull %call4, ptr noundef %call2, ptr noundef %call1, ptr noundef %call3)
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %land.end17, label %land.lhs.true11
 
@@ -176,7 +176,7 @@ land.lhs.true11:                                  ; preds = %land.lhs.true
   br i1 %tobool13.not, label %land.end17, label %land.rhs14
 
 land.rhs14:                                       ; preds = %land.lhs.true11
-  %call15 = tail call fastcc i32 @test_X509_cmp_timeframe_vpm(ptr noundef nonnull %call4, ptr noundef %call2, ptr noundef %call1, ptr noundef %call3), !range !5
+  %call15 = tail call fastcc i32 @test_X509_cmp_timeframe_vpm(ptr noundef nonnull %call4, ptr noundef %call2, ptr noundef %call1, ptr noundef %call3)
   br label %land.end17
 
 land.end17.critedge:                              ; preds = %if.end
@@ -199,7 +199,7 @@ finish:                                           ; preds = %entry, %land.end17
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_x509_cmp_time(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_x509_cmp_time(i32 noundef %idx) #0 {
 entry:
   %t = alloca %struct.asn1_string_st, align 8
   %idxprom = sext i32 %idx to i64
@@ -235,7 +235,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_x509_time(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_x509_time(i32 noundef %idx) #0 {
 entry:
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds [20 x %struct.TESTDATA_FORMAT], ptr @x509_format_tests, i64 0, i64 %idxprom
@@ -323,7 +323,7 @@ return:                                           ; preds = %if.end14, %out, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_days(i32 noundef %n) #0 {
+define internal range(i32 0, 2) i32 @test_days(i32 noundef %n) #0 {
 entry:
   %d = alloca [16 x i8], align 16
   %t = alloca %struct.tm, align 8
@@ -386,7 +386,7 @@ return:                                           ; preds = %entry, %land.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_x509_time_print_rfc_822(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_x509_time_print_rfc_822(i32 noundef %idx) #0 {
 entry:
   %pp = alloca ptr, align 8
   %call = tail call ptr @BIO_s_mem() #4
@@ -439,7 +439,7 @@ err:                                              ; preds = %lor.lhs.false18, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_x509_time_print_iso_8601(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_x509_time_print_iso_8601(i32 noundef %idx) #0 {
 entry:
   %pp = alloca ptr, align 8
   %call = tail call ptr @BIO_s_mem() #4
@@ -505,7 +505,7 @@ declare void @ASN1_TIME_free(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_VERIFY_PARAM_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_X509_cmp_timeframe_vpm(ptr noundef %vpm, ptr noundef %asn1_before, ptr noundef readnone %asn1_mid, ptr noundef %asn1_after) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_X509_cmp_timeframe_vpm(ptr noundef %vpm, ptr noundef %asn1_before, ptr noundef readnone %asn1_mid, ptr noundef %asn1_after) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %vpm, null
   br i1 %cmp.not, label %land.end, label %land.lhs.true
@@ -642,4 +642,3 @@ attributes #5 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

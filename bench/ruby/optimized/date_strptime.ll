@@ -580,11 +580,11 @@ define internal fastcc i64 @date__strptime_internal(ptr noundef %0, i64 noundef 
   br i1 %exitcond1582.not, label %.critedge4, label %.preheader, !llvm.loop !11
 
 .critedge4.split.loop.exit:                       ; preds = %.preheader
-  %75 = trunc i64 %indvars.iv to i32
+  %75 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge4
 
 .critedge4.split.loop.exit1766:                   ; preds = %70
-  %76 = trunc i64 %indvars.iv to i32
+  %76 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge4
 
 .critedge4:                                       ; preds = %74, %.critedge4.split.loop.exit1766, %.critedge4.split.loop.exit
@@ -631,7 +631,7 @@ define internal fastcc i64 @date__strptime_internal(ptr noundef %0, i64 noundef 
   br i1 %.not.i747, label %head_match_p.exit.thread, label %head_match_p.exit
 
 head_match_p.exit:                                ; preds = %90
-  %94 = tail call i32 @strncasecmp(ptr noundef %92, ptr noundef %89, i64 noundef %93) #11
+  %94 = tail call i32 @strncasecmp(ptr noundef readonly %92, ptr noundef readonly %89, i64 noundef %93) #11
   %.not1211 = icmp eq i32 %94, 0
   br i1 %.not1211, label %96, label %head_match_p.exit.thread
 
@@ -639,7 +639,7 @@ head_match_p.exit.thread:                         ; preds = %90, %head_match_p.e
   br i1 %.not.i748, label %head_match_p.exit749.thread, label %head_match_p.exit749
 
 head_match_p.exit749:                             ; preds = %head_match_p.exit.thread
-  %95 = tail call i32 @strncasecmp(ptr noundef %92, ptr noundef %89, i64 noundef 3) #11
+  %95 = tail call i32 @strncasecmp(ptr noundef readonly %92, ptr noundef readonly %89, i64 noundef 3) #11
   %.not1212 = icmp eq i32 %95, 0
   br i1 %.not1212, label %96, label %head_match_p.exit749.thread
 
@@ -695,7 +695,7 @@ head_match_p.exit749.thread:                      ; preds = %head_match_p.exit.t
   br i1 %.not.i762, label %head_match_p.exit763.thread, label %head_match_p.exit763
 
 head_match_p.exit763:                             ; preds = %108
-  %112 = tail call i32 @strncasecmp(ptr noundef %110, ptr noundef %107, i64 noundef %111) #11
+  %112 = tail call i32 @strncasecmp(ptr noundef readonly %110, ptr noundef readonly %107, i64 noundef %111) #11
   %.not1209 = icmp eq i32 %112, 0
   br i1 %.not1209, label %114, label %head_match_p.exit763.thread
 
@@ -703,7 +703,7 @@ head_match_p.exit763.thread:                      ; preds = %108, %head_match_p.
   br i1 %.not.i764, label %head_match_p.exit765.thread, label %head_match_p.exit765
 
 head_match_p.exit765:                             ; preds = %head_match_p.exit763.thread
-  %113 = tail call i32 @strncasecmp(ptr noundef %110, ptr noundef %107, i64 noundef 3) #11
+  %113 = tail call i32 @strncasecmp(ptr noundef readonly %110, ptr noundef readonly %107, i64 noundef 3) #11
   %.not1210 = icmp eq i32 %113, 0
   br i1 %.not1210, label %114, label %head_match_p.exit765.thread
 

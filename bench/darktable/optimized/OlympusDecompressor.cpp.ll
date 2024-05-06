@@ -316,7 +316,7 @@ define hidden void @_ZNK8rawspeed19OlympusDecompressor13decompressRowERNS_14BitS
 
 34:                                               ; preds = %3
   %35 = load i64, ptr %1, align 8, !tbaa !100
-  %36 = mul nsw i32 %25, %22
+  %36 = mul nuw nsw i32 %25, %22
   %37 = getelementptr inbounds i8, ptr %1, i64 8
   %38 = getelementptr inbounds i8, ptr %1, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !11, !nonnull !96, !noundef !96
@@ -429,7 +429,7 @@ define hidden void @_ZNK8rawspeed19OlympusDecompressor13decompressRowERNS_14BitS
   %117 = icmp sgt i32 %103, -1
   tail call void @llvm.assume(i1 %117)
   %118 = lshr i64 %105, 49
-  %119 = trunc i64 %118 to i32
+  %119 = trunc nuw nsw i64 %118 to i32
   %120 = lshr i32 %119, 14
   %121 = sub nsw i32 0, %120
   %122 = and i64 %118, 4095
@@ -447,7 +447,7 @@ define hidden void @_ZNK8rawspeed19OlympusDecompressor13decompressRowERNS_14BitS
   %131 = add nuw nsw i32 %116, 48
   %132 = zext nneg i32 %131 to i64
   %133 = lshr i64 %128, %132
-  %134 = trunc i64 %133 to i32
+  %134 = trunc nuw nsw i64 %133 to i32
   %.neg8 = add nuw nsw i32 %104, %116
   %135 = add nsw i32 %.neg8, -31
   %136 = zext nneg i32 %129 to i64
@@ -477,7 +477,7 @@ define hidden void @_ZNK8rawspeed19OlympusDecompressor13decompressRowERNS_14BitS
   %153 = sub nuw nsw i32 64, %116
   %154 = zext nneg i32 %153 to i64
   %155 = lshr i64 %148, %154
-  %156 = trunc i64 %155 to i32
+  %156 = trunc nuw nsw i64 %155 to i32
   %157 = sub nsw i32 %147, %116
   store i32 %157, ptr %37, align 8, !tbaa !102
   %158 = zext nneg i32 %116 to i64

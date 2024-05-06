@@ -121,7 +121,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @x11_delete_xauth(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_x11_forward(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @setup_x11_forward(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i16, align 2
   %4 = alloca [2 x i16], align 4
@@ -369,7 +369,7 @@ define internal noundef zeroext i1 @_x11_socket_readable(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_x11_socket_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 -1, 1) i32 @_x11_socket_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.net_forward_msg_t, align 8

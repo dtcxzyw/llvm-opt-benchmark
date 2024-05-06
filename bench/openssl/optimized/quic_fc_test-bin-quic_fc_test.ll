@@ -83,7 +83,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_txfc(i32 noundef %is_stream) #0 {
+define internal range(i32 0, 2) i32 @test_txfc(i32 noundef %is_stream) #0 {
 entry:
   %conn_txfc = alloca %struct.quic_txfc_st, align 8
   %stream_txfc = alloca %struct.quic_txfc_st, align 8
@@ -503,7 +503,7 @@ err:                                              ; preds = %if.end349, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_rxfc(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_rxfc(i32 noundef %idx) #0 {
 entry:
   %conn_rxfc.i = alloca %struct.quic_rxfc_st, align 8
   %stream_rxfc.i = alloca [3 x %struct.quic_rxfc_st], align 16

@@ -344,7 +344,7 @@ define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr nocapture noundef r
   %13 = load i64, ptr %12, align 8
   %14 = xor i64 %13, -1
   %15 = and i64 %.122, %14
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = shl nuw nsw i32 1, %16
   %18 = zext nneg i32 %17 to i64
   %19 = shl i64 %15, %18
@@ -426,7 +426,7 @@ define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr nocapture noundef r
   store i8 %80, ptr %77, align 1
   store i8 %78, ptr %79, align 1
   %81 = lshr i32 %76, %16
-  %82 = trunc i64 %indvars.iv.next to i32
+  %82 = trunc nuw nsw i64 %indvars.iv.next to i32
   %83 = lshr i32 %76, %82
   %84 = xor i32 %81, %83
   %85 = and i32 %84, 1
@@ -454,7 +454,7 @@ define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr nocapture noundef r
   store i8 %98, ptr %95, align 1
   store i8 %96, ptr %97, align 1
   %99 = lshr i32 %94, %16
-  %100 = trunc i64 %indvars.iv.next to i32
+  %100 = trunc nuw nsw i64 %indvars.iv.next to i32
   %101 = lshr i32 %94, %100
   %102 = xor i32 %99, %101
   %103 = and i32 %102, 1
@@ -513,7 +513,7 @@ define i64 @Extra_Truth6MinimumRoundMany_noEBFC(i64 noundef %0, ptr nocapture no
   %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, %.122
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = shl nuw nsw i32 1, %18
   %20 = zext nneg i32 %19 to i64
   %21 = shl i64 %17, %20
@@ -535,7 +535,7 @@ adjustInfoAfterSwap.exit.i:                       ; preds = %11
   store i8 %33, ptr %30, align 1
   store i8 %31, ptr %32, align 1
   %34 = lshr i32 %29, %18
-  %35 = trunc i64 %indvars.iv.next to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.next to i32
   %36 = lshr i32 %29, %35
   %37 = xor i32 %34, %36
   %38 = and i32 %37, 1
@@ -597,7 +597,7 @@ define i64 @Extra_Truth6MinimumRoundMany1(i64 noundef %0, ptr nocapture noundef 
   %20 = getelementptr inbounds i8, ptr %17, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, %.122.i
-  %23 = trunc i64 %indvars.iv.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   %24 = shl nuw nsw i32 1, %23
   %25 = zext nneg i32 %24 to i64
   %26 = shl i64 %22, %25
@@ -618,7 +618,7 @@ adjustInfoAfterSwap.exit.i.i:                     ; preds = %16
   store i8 %37, ptr %34, align 1
   store i8 %35, ptr %36, align 1
   %38 = lshr i32 %12, %23
-  %39 = trunc i64 %indvars.iv.next.i to i32
+  %39 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %40 = lshr i32 %12, %39
   %41 = xor i32 %38, %40
   %42 = and i32 %41, 1
@@ -673,7 +673,7 @@ Extra_Truth6MinimumRoundOne_noEBFC.exit.i:        ; preds = %adjustInfoAfterSwap
   %63 = getelementptr inbounds i8, ptr %60, i64 8
   %64 = load i64, ptr %63, align 8
   %65 = and i64 %64, %.122.i49
-  %66 = trunc i64 %indvars.iv.i48 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv.i48 to i32
   %67 = shl nuw nsw i32 1, %66
   %68 = zext nneg i32 %67 to i64
   %69 = shl i64 %65, %68
@@ -694,7 +694,7 @@ adjustInfoAfterSwap.exit.i.i57:                   ; preds = %59
   store i8 %80, ptr %77, align 1
   store i8 %78, ptr %79, align 1
   %81 = lshr i32 %55, %66
-  %82 = trunc i64 %indvars.iv.next.i51 to i32
+  %82 = trunc nuw nsw i64 %indvars.iv.next.i51 to i32
   %83 = lshr i32 %55, %82
   %84 = xor i32 %81, %83
   %85 = and i32 %84, 1
@@ -744,7 +744,7 @@ Extra_Truth6MinimumRoundMany_noEBFC.exit60:       ; preds = %89
   %101 = getelementptr inbounds i8, ptr %98, i64 8
   %102 = load i64, ptr %101, align 8
   %103 = and i64 %102, %.122.i63
-  %104 = trunc i64 %indvars.iv.i62 to i32
+  %104 = trunc nuw nsw i64 %indvars.iv.i62 to i32
   %105 = shl nuw nsw i32 1, %104
   %106 = zext nneg i32 %105 to i64
   %107 = shl i64 %103, %106
@@ -765,7 +765,7 @@ adjustInfoAfterSwap.exit.i.i71:                   ; preds = %97
   store i8 %118, ptr %115, align 1
   store i8 %116, ptr %117, align 1
   %119 = lshr i32 %.0.i.i.i7376, %104
-  %120 = trunc i64 %indvars.iv.next.i65 to i32
+  %120 = trunc nuw nsw i64 %indvars.iv.next.i65 to i32
   %121 = lshr i32 %.0.i.i.i7376, %120
   %122 = xor i32 %119, %121
   %123 = and i32 %122, 1

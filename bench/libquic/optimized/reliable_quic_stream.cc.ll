@@ -1213,7 +1213,7 @@ if.end32:                                         ; preds = %land.lhs.true9, %wh
   %add.ptr = getelementptr inbounds i8, ptr %call37, i64 %10
   store ptr %add.ptr, ptr %iov, align 8
   store i64 %sub, ptr %iov_len, align 8
-  %tobool39 = trunc i8 %fin.1 to i1
+  %tobool39 = trunc nuw i8 %fin.1 to i1
   %call40 = call { i64, i8 } @_ZN3net18ReliableQuicStream10WritevDataEPK5iovecibPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr noundef nonnull %iov, i32 noundef 1, i1 noundef zeroext %tobool39, ptr noundef %2)
   %11 = extractvalue { i64, i8 } %call40, 0
   %12 = load i64, ptr %queued_data_bytes_, align 8

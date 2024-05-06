@@ -249,7 +249,7 @@ define internal i64 @count_objects_size(i32 noundef %0, ptr noundef %1, i64 %2) 
   br i1 %.not, label %23, label %11
 
 11:                                               ; preds = %8
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = call fastcc i64 @type2sym(i32 noundef %12)
   %14 = load i64, ptr %9, align 8
   %15 = add i64 %14, %.024

@@ -49,7 +49,7 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) lo
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph60.split.us
   %24 = sext i32 %19 to i64
-  %25 = trunc i64 %indvars.iv71 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv71 to i32
   br label %.lr.ph.us
 
 .loopexit.us:                                     ; preds = %35, %.lr.ph60.split.us
@@ -103,7 +103,7 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) lo
 
 .thread.preheader:                                ; preds = %.lr.ph60.split
   %45 = sext i32 %40 to i64
-  %46 = trunc i64 %indvars.iv65 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv65 to i32
   br label %.thread
 
 .thread:                                          ; preds = %.thread.preheader, %59

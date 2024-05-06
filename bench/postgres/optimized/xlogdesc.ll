@@ -77,7 +77,7 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %12 = icmp eq i8 %9, 0
   %13 = load i64, ptr %6, align 8
   %14 = lshr i64 %13, 32
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   %16 = trunc i64 %13 to i32
   %17 = getelementptr inbounds i8, ptr %6, i64 8
   %18 = load i32, ptr %17, align 8
@@ -90,7 +90,7 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %25 = getelementptr inbounds i8, ptr %6, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = lshr i64 %26, 32
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw i64 %27 to i32
   %29 = trunc i64 %26 to i32
   %30 = getelementptr inbounds i8, ptr %6, i64 32
   %31 = load i32, ptr %30, align 8
@@ -143,7 +143,7 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly 
 57:                                               ; preds = %56
   %.0.copyload16 = load i64, ptr %6, align 1
   %58 = lshr i64 %.0.copyload16, 32
-  %59 = trunc i64 %58 to i32
+  %59 = trunc nuw i64 %58 to i32
   %60 = trunc i64 %.0.copyload16 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %59, i32 noundef %60) #3
   br label %83
@@ -211,7 +211,7 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 1
   %79 = lshr i64 %.sroa.0.0.copyload, 32
-  %80 = trunc i64 %79 to i32
+  %80 = trunc nuw i64 %79 to i32
   %81 = trunc i64 %.sroa.0.0.copyload to i32
   %82 = tail call ptr @timestamptz_to_str(i64 noundef %.sroa.3.0.copyload) #3
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %80, i32 noundef %81, ptr noundef %82) #3

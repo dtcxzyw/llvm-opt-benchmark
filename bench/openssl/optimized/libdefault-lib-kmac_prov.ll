@@ -141,7 +141,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kmac_init(ptr noundef %vmacctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kmac_init(ptr noundef %vmacctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %params) #0 {
 entry:
   %cparams = alloca [2 x %struct.ossl_param_st], align 16
   %ctx1 = getelementptr inbounds i8, ptr %vmacctx, i64 8
@@ -151,7 +151,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call2 = tail call i32 @kmac_set_ctx_params(ptr noundef nonnull %vmacctx, ptr noundef %params), !range !4
+  %call2 = tail call i32 @kmac_set_ctx_params(ptr noundef nonnull %vmacctx, ptr noundef %params)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end
 
@@ -160,7 +160,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %call5 = tail call fastcc i32 @kmac_setkey(ptr noundef nonnull %vmacctx, ptr noundef nonnull %key, i64 noundef %keylen), !range !4
+  %call5 = tail call fastcc i32 @kmac_setkey(ptr noundef nonnull %vmacctx, ptr noundef nonnull %key, i64 noundef %keylen)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %if.end12
 
@@ -205,7 +205,7 @@ if.end24:                                         ; preds = %if.end18
 
 if.then27:                                        ; preds = %if.end24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %cparams, ptr noundef nonnull align 16 dereferenceable(80) @__const.kmac_init.cparams, i64 80, i1 false)
-  %call28 = call i32 @kmac_set_ctx_params(ptr noundef nonnull %vmacctx, ptr noundef nonnull %cparams), !range !4
+  %call28 = call i32 @kmac_set_ctx_params(ptr noundef nonnull %vmacctx, ptr noundef nonnull %cparams)
   %.pre = load i64, ptr %custom_len, align 8
   br label %if.end35
 
@@ -234,13 +234,13 @@ if.end19.i:                                       ; preds = %if.end11.i
   %conv20.i = trunc nuw i32 %call21 to i8
   %incdec.ptr21.i = getelementptr inbounds i8, ptr %call36, i64 2
   store i8 %conv20.i, ptr %incdec.ptr.i, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %incdec.ptr21.i, ptr noundef nonnull align 1 dereferenceable(6) @kmac_string, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %incdec.ptr21.i, ptr noundef nonnull readonly align 1 dereferenceable(6) @kmac_string, i64 6, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %call36, i64 8
   %cmp24.i.not = icmp eq i64 %6, 0
   br i1 %cmp24.i.not, label %if.end28.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.end19.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %custom, i64 %6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %custom, i64 %6, i1 false)
   %add.ptr27.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %6
   br label %if.end28.i
 
@@ -301,7 +301,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kmac_final(ptr nocapture noundef readonly %vmacctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
+define internal range(i32 0, 2) i32 @kmac_final(ptr nocapture noundef readonly %vmacctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
 entry:
   %encoded_outlen = alloca [4 x i8], align 1
   %ctx1 = getelementptr inbounds i8, ptr %vmacctx, i64 8
@@ -331,7 +331,7 @@ while.body.i.i:                                   ; preds = %cond.end, %while.bo
   %tobool.i.i = icmp ugt i64 %bits.addr.07.i.i, 255
   %cmp.i.i = icmp ult i32 %cnt.06.i.i, 7
   %3 = select i1 %tobool.i.i, i1 %cmp.i.i, i1 false
-  br i1 %3, label %while.body.i.i, label %get_encode_size.exit.i, !llvm.loop !5
+  br i1 %3, label %while.body.i.i, label %get_encode_size.exit.i, !llvm.loop !4
 
 get_encode_size.exit.i:                           ; preds = %while.body.i.i
   %conv.i = zext nneg i32 %inc.i.i to i64
@@ -362,7 +362,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i8 %conv4.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i64 %bits.addr.011.i, 8
   %cmp2.i = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %cmp2.i, label %for.body.i, label %land.lhs.true, !llvm.loop !7
+  br i1 %cmp2.i, label %for.body.i, label %land.lhs.true, !llvm.loop !6
 
 land.lhs.true:                                    ; preds = %for.body.i
   %conv5.i = trunc nuw i32 %spec.store.select.i18.i to i8
@@ -401,7 +401,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kmac_get_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kmac_get_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.5) #7
   %cmp.not = icmp eq ptr %call, null
@@ -442,7 +442,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kmac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @kmac_set_ctx_params(ptr noundef %vmacctx, ptr noundef %params) #0 {
 entry:
   %sz = alloca i64, align 8
   %cmp = icmp eq ptr %params, null
@@ -496,7 +496,7 @@ land.lhs.true18:                                  ; preds = %if.end15
   %1 = load ptr, ptr %data, align 8
   %data_size = getelementptr inbounds i8, ptr %call16, i64 24
   %2 = load i64, ptr %data_size, align 8
-  %call19 = call fastcc i32 @kmac_setkey(ptr noundef %vmacctx, ptr noundef %1, i64 noundef %2), !range !4
+  %call19 = call fastcc i32 @kmac_setkey(ptr noundef %vmacctx, ptr noundef %1, i64 noundef %2)
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %return, label %if.end22
 
@@ -538,7 +538,7 @@ while.body.i.i:                                   ; preds = %if.else.i, %while.b
   %tobool.i.i = icmp ugt i64 %bits.addr.07.i.i, 255
   %cmp.i.i = icmp ult i32 %cnt.06.i.i, 7
   %5 = select i1 %tobool.i.i, i1 %cmp.i.i, i1 false
-  br i1 %5, label %while.body.i.i, label %get_encode_size.exit.i, !llvm.loop !5
+  br i1 %5, label %while.body.i.i, label %get_encode_size.exit.i, !llvm.loop !4
 
 get_encode_size.exit.i:                           ; preds = %while.body.i.i, %if.else.i
   %cnt.0.lcssa.i.i = phi i32 [ 0, %if.else.i ], [ %inc.i.i, %while.body.i.i ]
@@ -569,12 +569,12 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %shr.i = lshr i64 %bits.015.i, 8
   %dec.i = add nsw i64 %i.016.i, -1
   %cmp6.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp6.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
+  br i1 %cmp6.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.body.i
   %add.ptr.i = getelementptr inbounds i8, ptr %custom, i64 %conv.i
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i, ptr nonnull align 1 %4, i64 %3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr10.i, ptr nonnull readonly align 1 %4, i64 %3, i1 false)
   br label %encode_string.exit
 
 encode_string.exit:                               ; preds = %if.end29, %for.end.i
@@ -710,7 +710,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @kmac_setkey(ptr noundef %kctx, ptr noundef readonly %key, i64 noundef %keylen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @kmac_setkey(ptr noundef %kctx, ptr noundef readonly %key, i64 noundef %keylen) unnamed_addr #0 {
 entry:
   %tmp.i = alloca [516 x i8], align 16
   %digest1 = getelementptr inbounds i8, ptr %kctx, i64 16
@@ -756,7 +756,7 @@ while.body.i.i.i:                                 ; preds = %if.else.i.i, %while
   %tobool.i.i.i = icmp ugt i64 %bits.addr.07.i.i.i, 255
   %cmp.i.i.i = icmp ult i32 %cnt.06.i.i.i, 7
   %1 = select i1 %tobool.i.i.i, i1 %cmp.i.i.i, i1 false
-  br i1 %1, label %while.body.i.i.i, label %get_encode_size.exit.i.i, !llvm.loop !5
+  br i1 %1, label %while.body.i.i.i, label %get_encode_size.exit.i.i, !llvm.loop !4
 
 get_encode_size.exit.i.i:                         ; preds = %while.body.i.i.i
   %conv.i.i = zext nneg i32 %inc.i.i.i to i64
@@ -779,12 +779,12 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %shr.i.i = lshr i64 %bits.015.i.i, 8
   %dec.i.i = add nsw i64 %i.016.i.i, -1
   %cmp6.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp6.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !8
+  br i1 %cmp6.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !7
 
 for.end.i.i:                                      ; preds = %for.body.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 %conv.i.i
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr10.i.i, ptr nonnull align 1 %key, i64 %keylen, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %add.ptr10.i.i, ptr nonnull readonly align 1 %key, i64 %keylen, i1 false)
   br label %if.end.i
 
 encode_string.exit.i:                             ; preds = %get_encode_size.exit.i.i
@@ -811,7 +811,7 @@ if.end19.i.i:                                     ; preds = %if.end.i
   %conv20.i.i = trunc nuw i32 %call2 to i8
   %incdec.ptr21.i.i = getelementptr inbounds i8, ptr %kctx, i64 70
   store i8 %conv20.i.i, ptr %incdec.ptr.i.i, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr21.i.i, ptr nonnull align 16 %tmp.i, i64 %tmp_len.0.ph.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr21.i.i, ptr nonnull readonly align 16 %tmp.i, i64 %tmp_len.0.ph.i, i1 false)
   %add.ptr.i12.i = getelementptr inbounds i8, ptr %incdec.ptr21.i.i, i64 %tmp_len.0.ph.i
   %p.0.fr.i.i = freeze ptr %add.ptr.i12.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %p.0.fr.i.i to i64
@@ -903,8 +903,7 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

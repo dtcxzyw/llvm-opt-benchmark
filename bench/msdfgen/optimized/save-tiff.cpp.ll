@@ -376,7 +376,7 @@ if.end:                                           ; preds = %if.else, %if.then
   store i32 1, ptr %value.addr.i213, align 4
   %call.i214 = call i64 @fwrite(ptr noundef nonnull %value.addr.i213, i64 noundef 4, i64 noundef 1, ptr noundef %file)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i213)
-  %conv39 = trunc i32 %channels to i16
+  %conv39 = trunc nuw nsw i32 %channels to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %value.addr.i216)
   store i16 %conv39, ptr %value.addr.i216, align 2
   %call.i217 = call i64 @fwrite(ptr noundef nonnull %value.addr.i216, i64 noundef 2, i64 noundef 1, ptr noundef %file)

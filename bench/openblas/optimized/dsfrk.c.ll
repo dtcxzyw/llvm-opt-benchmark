@@ -106,7 +106,7 @@ define void @dsfrk_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 64:                                               ; preds = %62
   %65 = add nuw nsw i32 %40, 1
-  %66 = mul nsw i32 %65, %40
+  %66 = mul nuw nsw i32 %65, %40
   %67 = icmp slt i32 %66, 2
   br i1 %67, label %375, label %68
 
@@ -501,7 +501,7 @@ define void @dsfrk_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 338:                                              ; preds = %301
   %339 = add nuw nsw i32 %76, 1
-  %340 = mul nsw i32 %339, %76
+  %340 = mul nuw nsw i32 %339, %76
   %341 = zext nneg i32 %340 to i64
   %342 = getelementptr double, ptr %19, i64 %341
   %343 = getelementptr i8, ptr %342, i64 8

@@ -418,8 +418,8 @@ if.then:                                          ; preds = %entry
 sz_psz2ind.exit:                                  ; preds = %if.then
   %cmp.i.i = icmp ne i64 %add, 0
   tail call void @llvm.assume(i1 %cmp.i.i)
-  %1 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 false), !range !5
-  %2 = trunc i64 %1 to i32
+  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 false)
+  %2 = trunc nuw nsw i64 %1 to i32
   %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %2)
   %cmp4.i = icmp ugt i32 %2, 49
   %add.i = add nuw nsw i32 %cond.i, 11
@@ -571,7 +571,7 @@ edata_list_inactive_append.exit.i:                ; preds = %do.body2.i.i, %if.e
   %shr.i = lshr i64 %call2.val.i, 12
   %add.i = add i64 %shr.i, %nstashed.010.i
   %cmp.i = icmp ult i64 %add.i, %npages_decay_max
-  br i1 %cmp.i, label %while.body.i, label %if.then4, !llvm.loop !6
+  br i1 %cmp.i, label %while.body.i, label %if.then4, !llvm.loop !5
 
 pac_stash_decayed.exit:                           ; preds = %while.body.i
   %cmp3.not = icmp eq i64 %nstashed.010.i, 0
@@ -647,7 +647,7 @@ edata_list_inactive_remove.exit.us.i:             ; preds = %if.end.i.us.i, %do.
   tail call void @extent_dalloc_wrapper(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i.i16, ptr noundef nonnull %14) #8
   %add14.us.i = add i64 %shr.us.i, %nunmapped.04.us.i
   %cmp4.not.us.i = icmp eq ptr %decay_extents.sroa.0.2, null
-  br i1 %cmp4.not.us.i, label %pac_decay_stashed.exit, label %if.end.i.us.i, !llvm.loop !8
+  br i1 %cmp4.not.us.i, label %pac_decay_stashed.exit, label %if.end.i.us.i, !llvm.loop !7
 
 if.end.i.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %30 = phi ptr [ %decay_extents.sroa.0.3, %for.inc.i ], [ %decay_extents.sroa.0.131, %for.body.lr.ph.i ]
@@ -711,7 +711,7 @@ sw.bb13.i:                                        ; preds = %if.then.i, %edata_l
 for.inc.i:                                        ; preds = %sw.bb13.i, %if.then11.i
   %nunmapped.1.i = phi i64 [ %add14.i, %sw.bb13.i ], [ %nunmapped.04.i, %if.then11.i ]
   %cmp4.not.i = icmp eq ptr %decay_extents.sroa.0.3, null
-  br i1 %cmp4.not.i, label %pac_decay_stashed.exit, label %if.end.i.i, !llvm.loop !8
+  br i1 %cmp4.not.i, label %pac_decay_stashed.exit, label %if.end.i.i, !llvm.loop !7
 
 pac_decay_stashed.exit:                           ; preds = %for.inc.i, %edata_list_inactive_remove.exit.us.i, %land.end.i, %land.end.thread.i
   %npurged.0.lcssa.i = phi i64 [ 0, %land.end.i ], [ 0, %land.end.thread.i ], [ %add.us.i, %edata_list_inactive_remove.exit.us.i ], [ %add.i21, %for.inc.i ]
@@ -918,7 +918,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @extent_destroy_wrapper(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i, ptr noundef nonnull %call38) #8
   %call3 = tail call ptr @ecache_evict(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i, ptr noundef nonnull %ecache_retained, i64 noundef 0) #8
   %cmp.not = icmp eq ptr %call3, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !9
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -991,8 +991,7 @@ attributes #8 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

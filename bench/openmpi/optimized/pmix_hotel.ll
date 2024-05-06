@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_hotel_t_class = local_unnamed_addr global %struct.pmix_class_t { ptr @.str, ptr @pmix_object_t_class, ptr @constructor, ptr @destructor, i32 0, i32 0, ptr null, ptr null, i64 192 }, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_hotel_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -27, 1) i32 @pmix_hotel_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %1, 1
   %7 = icmp eq ptr %4, null
   %or.cond = or i1 %6, %7
@@ -65,7 +65,7 @@ define noundef i32 @pmix_hotel_init(ptr noundef %0, i32 noundef %1, ptr noundef 
   store ptr null, ptr %29, align 8
   %30 = load ptr, ptr %24, align 8
   %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %32, ptr %31, align 4
   %33 = load ptr, ptr %21, align 8
   %34 = getelementptr inbounds %struct.pmix_hotel_room_eviction_callback_arg_t, ptr %33, i64 %indvars.iv

@@ -233,7 +233,7 @@ define hidden void @_ZNK8rawspeed20SonyArw1Decompressor10decompressENS_10ByteStr
   %14 = getelementptr inbounds i8, ptr %4, i64 48
   %15 = load i32, ptr %14, align 8, !tbaa !95, !noalias !89
   %16 = ashr i32 %15, 1
-  %17 = mul nsw i32 %16, %13
+  %17 = mul nuw nsw i32 %16, %13
   %18 = icmp sgt i32 %11, -1
   tail call void @llvm.assume(i1 %18)
   %19 = icmp sgt i32 %13, -1
@@ -371,7 +371,7 @@ define hidden void @_ZNK8rawspeed20SonyArw1Decompressor10decompressENS_10ByteStr
   %101 = icmp eq i32 %64, %13
   %102 = select i1 %101, i32 1, i32 %64
   %103 = lshr i64 %98, 62
-  %104 = trunc i64 %103 to i32
+  %104 = trunc nuw nsw i64 %103 to i32
   %105 = shl i64 %98, 2
   %106 = icmp eq i32 %104, 1
   br i1 %106, label %107, label %111
@@ -474,7 +474,7 @@ define hidden void @_ZNK8rawspeed20SonyArw1Decompressor10decompressENS_10ByteStr
   %172 = sub nuw nsw i32 64, %169
   %173 = zext nneg i32 %172 to i64
   %174 = lshr i64 %171, %173
-  %175 = trunc i64 %174 to i32
+  %175 = trunc nuw nsw i64 %174 to i32
   %176 = sub nuw nsw i32 %170, %169
   %177 = zext nneg i32 %169 to i64
   %178 = shl i64 %171, %177
@@ -498,7 +498,7 @@ define hidden void @_ZNK8rawspeed20SonyArw1Decompressor10decompressENS_10ByteStr
   unreachable
 
 191:                                              ; preds = %184
-  %192 = trunc i32 %188 to i16
+  %192 = trunc nuw nsw i32 %188 to i16
   tail call void @llvm.assume(i1 %59)
   %193 = icmp ugt i32 %13, %102
   tail call void @llvm.assume(i1 %193)

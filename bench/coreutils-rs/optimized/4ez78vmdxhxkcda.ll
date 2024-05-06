@@ -1581,7 +1581,7 @@ _ZN4core3str7pattern14TwoWaySearcher4next17h1f78ac9bc6c22bd4E.exit: ; preds = %1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.llvm.14055365465535721004"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #13 {
+define hidden noundef range(i32 0, 1114113) i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.llvm.14055365465535721004"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #13 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !224, !nonnull !4, !noundef !4

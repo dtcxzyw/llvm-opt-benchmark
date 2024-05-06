@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__getaddrinfo_translate_error(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv__getaddrinfo_translate_error(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %18 [
     i32 0, label %19
     i32 -9, label %2
@@ -341,7 +341,7 @@ define dso_local void @uv_freeaddrinfo(ptr noundef %0) local_unnamed_addr #0 {
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_if_indextoname(i32 noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_if_indextoname(i32 noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [17 x i8], align 16
   %5 = icmp eq ptr %1, null
   %6 = icmp eq ptr %2, null
@@ -394,7 +394,7 @@ declare ptr @if_indextoname(i32 noundef, ptr noundef) local_unnamed_addr #6
 declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_if_indextoiid(i32 noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_if_indextoiid(i32 noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [17 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %4)
   %5 = icmp eq ptr %1, null
@@ -430,7 +430,7 @@ define dso_local i32 @uv_if_indextoiid(i32 noundef %0, ptr noundef writeonly %1,
   br label %uv_if_indextoname.exit
 
 22:                                               ; preds = %17
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 16 %4, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %1, ptr nonnull align 16 %4, i64 %18, i1 false)
   %23 = getelementptr inbounds i8, ptr %1, i64 %18
   store i8 0, ptr %23, align 1
   store i64 %18, ptr %2, align 8

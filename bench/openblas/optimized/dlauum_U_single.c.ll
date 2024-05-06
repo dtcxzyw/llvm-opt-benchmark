@@ -104,7 +104,7 @@ define noundef i32 @dlauum_U_single(ptr noundef %0, ptr nocapture readnone %1, p
   %76 = phi i64 [ %86, %.preheader8 ], [ 0, %.loopexit11 ]
   %77 = sub nsw i64 %41, %76
   %78 = call i64 @llvm.smin.i64(i64 %77, i64 192)
-  %79 = mul nsw i64 %76, %41
+  %79 = mul nuw nsw i64 %76, %41
   %80 = getelementptr inbounds double, ptr %4, i64 %79
   %81 = add nuw nsw i64 %76, %39
   %82 = mul nsw i64 %81, %16
@@ -140,7 +140,7 @@ define noundef i32 @dlauum_U_single(ptr noundef %0, ptr nocapture readnone %1, p
   %102 = phi i64 [ %113, %.preheader ], [ 0, %91 ]
   %103 = sub nsw i64 %41, %102
   %104 = call i64 @llvm.smin.i64(i64 %103, i64 192)
-  %105 = mul nsw i64 %102, %41
+  %105 = mul nuw nsw i64 %102, %41
   %106 = getelementptr inbounds double, ptr %4, i64 %105
   %107 = add nuw nsw i64 %102, %39
   %108 = mul nsw i64 %107, %16

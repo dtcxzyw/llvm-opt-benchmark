@@ -122,9 +122,9 @@ base64_encode_value.exit51:                       ; preds = %if.end43, %if.end.i
   %incdec.ptr52 = getelementptr inbounds i8, ptr %codechar.2, i64 1
   store i8 %retval.0.i50, ptr %codechar.2, align 1
   %15 = and i8 %12, 63
-  %idxprom.i53 = zext nneg i8 %15 to i64
-  %arrayidx.i54 = getelementptr inbounds i8, ptr @.str, i64 %idxprom.i53
-  %16 = load i8, ptr %arrayidx.i54, align 1
+  %idxprom.i54 = zext nneg i8 %15 to i64
+  %arrayidx.i55 = getelementptr inbounds i8, ptr @.str, i64 %idxprom.i54
+  %16 = load i8, ptr %arrayidx.i55, align 1
   %incdec.ptr58 = getelementptr inbounds i8, ptr %codechar.2, i64 2
   store i8 %16, ptr %incdec.ptr52, align 1
   %stepcount = getelementptr inbounds i8, ptr %state_in, i64 8

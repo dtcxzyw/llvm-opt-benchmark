@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/asn1/a_enum.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_ENUMERATED_set(ptr nocapture noundef %a, i64 noundef %v) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_ENUMERATED_set(ptr nocapture noundef %a, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %buf = alloca [9 x i8], align 1
   %type = getelementptr inbounds i8, ptr %a, i64 4
@@ -57,7 +57,7 @@ if.end23.preheader:                               ; preds = %if.end17.thread, %i
   br label %if.end23
 
 for.body30.preheader:                             ; preds = %if.end23
-  %2 = trunc i64 %indvars.iv.next to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.next to i32
   %3 = and i64 %indvars.iv.next, 4294967295
   br label %for.body30
 

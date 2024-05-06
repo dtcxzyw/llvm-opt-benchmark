@@ -246,10 +246,10 @@ if.end28.i.i.if.then.i.i.i_crit_edge.i:           ; preds = %if.end28.i.i.i
 if.then.i.i.i.i:                                  ; preds = %if.end28.i.i.if.then.i.i.i_crit_edge.i, %if.end13.i.i.i
   %1 = phi ptr [ %.pre.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i ], [ %add.ptr.i.i.i.i.i.i, %if.end13.i.i.i ]
   %2 = phi i32 [ %.pre.i.i, %if.end28.i.i.if.then.i.i.i_crit_edge.i ], [ %0, %if.end13.i.i.i ]
-  %conv.i34.i.i.i = zext i32 %2 to i64
+  %conv.i35.i.i.i = zext i32 %2 to i64
   %3 = load ptr, ptr %set, align 8
-  %add.ptr.i65.i.idx.i.i = shl nuw nsw i64 %conv.i34.i.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 4 %3, i64 %add.ptr.i65.i.idx.i.i, i1 false)
+  %gepdiff.i.i.i = shl nuw nsw i64 %conv.i35.i.i.i, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 4 %3, i64 %gepdiff.i.i.i, i1 false)
   %.pre.pre = load i32, ptr %Size.i.i.i, align 8
   br label %return.sink.split.i.i.i
 
@@ -686,10 +686,10 @@ if.end28.i.i.if.then.i.i.i_crit_edge.i31:         ; preds = %if.end28.i.i.i27
 if.then.i.i.i.i23:                                ; preds = %if.end28.i.i.if.then.i.i.i_crit_edge.i31, %if.end13.i.i.i21
   %50 = phi ptr [ %.pre.i32, %if.end28.i.i.if.then.i.i.i_crit_edge.i31 ], [ %add.ptr.i.i.i.i.i.i14, %if.end13.i.i.i21 ]
   %51 = phi i32 [ %.pre.i.i29, %if.end28.i.i.if.then.i.i.i_crit_edge.i31 ], [ %49, %if.end13.i.i.i21 ]
-  %conv.i34.i.i.i24 = zext i32 %51 to i64
+  %conv.i35.i.i.i24 = zext i32 %51 to i64
   %52 = load ptr, ptr %canonicalized, align 8
-  %add.ptr.i65.i.idx.i.i25 = shl nuw nsw i64 %conv.i34.i.i.i24, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 4 %52, i64 %add.ptr.i65.i.idx.i.i25, i1 false)
+  %gepdiff.i.i.i25 = shl nuw nsw i64 %conv.i35.i.i.i24, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 4 %52, i64 %gepdiff.i.i.i25, i1 false)
   %.pre240.pre = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %return.sink.split.i.i.i26
 
@@ -756,7 +756,7 @@ for.body21.i:                                     ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ %57, %for.body21.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %indvars58.i = trunc i64 %indvars.iv.i to i32
   %59 = sub nuw nsw i64 %indvars.iv.i, %57
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nuw nsw i64 %59 to i32
   %rem.i.i58 = urem i32 %60, %bf.cast2.i.i57
   %cmp.i13.i = icmp eq i32 %rem.i.i58, 0
   %add.i14.i = select i1 %cmp.i13.i, i32 %bf.cast12.i, i32 0

@@ -635,7 +635,7 @@ opal_obj_run_constructors.exit61:                 ; preds = %.lr.ph.i58, %127
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_ob1_add_comm(ptr noundef %0) #0 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_add_comm(ptr noundef %0) #0 {
   %2 = load i64, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_pml_ob1_comm_t_class, i64 0, i32 8), align 8
   %3 = tail call noalias ptr @malloc(i64 noundef %2) #11
   %4 = load i32, ptr @opal_class_init_epoch, align 4
@@ -1086,7 +1086,7 @@ mca_bml_base_get_endpoint.exit:                   ; preds = %30, %44, %47
   %53 = load ptr, ptr %31, align 8
   %54 = getelementptr inbounds i8, ptr %28, i64 28
   %55 = load volatile i32, ptr %54, align 4
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.7, i32 noundef %56, i32 noundef %52, ptr noundef %53, i32 noundef %55) #10
   %57 = getelementptr inbounds i8, ptr %28, i64 96
   %58 = load volatile i64, ptr %57, align 8
@@ -1578,7 +1578,7 @@ define internal fastcc void @mca_pml_ob1_dump_frag_list(ptr noundef %0, i1 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_ob1_send_control_btl(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_send_control_btl(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -1758,7 +1758,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   %25 = extractvalue { i128, i1 } %23, 0
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %25 to i64
   %.sroa.4.0.extract.shift.i.i.i = lshr i128 %25, 64
-  %.sroa.4.0.extract.trunc.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i, ptr %.sroa.4.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
@@ -2182,7 +2182,7 @@ mca_pml_ob1_send_control_any.exit:                ; preds = %35
   %134 = getelementptr inbounds i8, ptr %.01629, i64 64
   %135 = getelementptr inbounds i8, ptr %.01629, i64 144
   %136 = load i64, ptr %135, align 8
-  %137 = call i32 @mca_pml_ob1_send_control_btl(ptr noundef nonnull %37, i32 noundef %133, ptr noundef nonnull %134, i64 noundef %136, i1 noundef zeroext false), !range !15
+  %137 = call i32 @mca_pml_ob1_send_control_btl(ptr noundef nonnull %37, i32 noundef %133, ptr noundef nonnull %134, i64 noundef %136, i1 noundef zeroext false)
   %.not19 = icmp eq i32 %137, 0
   br i1 %.not19, label %158, label %mca_pml_ob1_send_control_any.exit.thread35
 
@@ -2291,7 +2291,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %183, %173
 opal_free_list_return.exit:                       ; preds = %opal_free_list_return_mt.exit.sink.split.i, %183, %175, %173, %opal_lifo_push_atomic.exit.i.i, %140, %150
   %187 = add nuw nsw i32 %.042, 1
   %exitcond.not = icmp eq i32 %187, %4
-  br i1 %exitcond.not, label %opal_list_remove_first.exit21.thread, label %.lr.ph43, !llvm.loop !16
+  br i1 %exitcond.not, label %opal_list_remove_first.exit21.thread, label %.lr.ph43, !llvm.loop !15
 
 opal_list_remove_first.exit21.thread:             ; preds = %opal_free_list_return.exit, %13, %1, %opal_list_remove_first.exit21.thread30
   ret void
@@ -2376,14 +2376,14 @@ opal_list_remove_first.exit:                      ; preds = %8, %11
   %40 = add nuw nsw i32 %.010, 1
   %exitcond.not = icmp eq i32 %40, %2
   %or.cond = select i1 %39, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %25, %38, %0
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_ob1_send_control_any(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_send_control_any(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -2454,7 +2454,7 @@ mca_bml_base_get_endpoint.exit:                   ; preds = %5, %17, %20
 
 mca_bml_base_btl_array_get_next.exit:             ; preds = %31, %33
   %.0.i = phi ptr [ %32, %31 ], [ %38, %33 ]
-  %39 = tail call i32 @mca_pml_ob1_send_control_btl(ptr noundef %.0.i, i32 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext false), !range !15
+  %39 = tail call i32 @mca_pml_ob1_send_control_btl(ptr noundef %.0.i, i32 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext false)
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %.loopexit, label %26
 
@@ -2471,7 +2471,7 @@ mca_bml_base_btl_array_get_next.exit:             ; preds = %31, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_ob1_send_fin(ptr nocapture noundef readnone %0, ptr noundef %1, i64 %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_send_fin(ptr nocapture noundef readnone %0, ptr noundef %1, i64 %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.mca_pml_ob1_fin_hdr_t, align 8
   %.not = icmp eq i32 %5, 0
   %8 = sext i32 %5 to i64
@@ -2484,12 +2484,12 @@ define noundef i32 @mca_pml_ob1_send_fin(ptr nocapture noundef readnone %0, ptr 
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %9, ptr %12, align 8
   %13 = zext i8 %4 to i32
-  %14 = call i32 @mca_pml_ob1_send_control_btl(ptr noundef %1, i32 noundef %13, ptr noundef nonnull %7, i64 noundef 24, i1 noundef zeroext true), !range !15
+  %14 = call i32 @mca_pml_ob1_send_control_btl(ptr noundef %1, i32 noundef %13, ptr noundef nonnull %7, i64 noundef 24, i1 noundef zeroext true)
   ret i32 %14
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_ob1_send_cid(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_send_cid(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.mca_pml_ob1_cid_hdr_t, align 8
   store i8 74, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
@@ -2507,7 +2507,7 @@ define noundef i32 @mca_pml_ob1_send_cid(ptr noundef %0, ptr nocapture noundef r
   %.val8.i = load i32, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %3, i64 28
   store i32 %.val8.i, ptr %13, align 4
-  %14 = call i32 @mca_pml_ob1_send_control_any(ptr noundef %0, i32 noundef 255, ptr noundef nonnull %3, i64 noundef 32, i1 noundef zeroext true), !range !15
+  %14 = call i32 @mca_pml_ob1_send_control_any(ptr noundef %0, i32 noundef 255, ptr noundef nonnull %3, i64 noundef 32, i1 noundef zeroext true)
   ret i32 %14
 }
 
@@ -2524,7 +2524,7 @@ declare ptr @ompi_pmix_print_name(ptr noundef) local_unnamed_addr #1
 declare void @ompi_mpi_errors_are_fatal_comm_handler(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @mca_pml_ob1_com_btl_comp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @mca_pml_ob1_com_btl_comp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load float, ptr %4, align 4
@@ -2600,6 +2600,5 @@ attributes #12 = { noreturn nounwind }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = !{i32 -2, i32 1}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}

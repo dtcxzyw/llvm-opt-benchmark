@@ -80,7 +80,7 @@ define dso_local ptr @GinFormTuple(ptr nocapture noundef readonly %0, i16 nounde
   %39 = add nuw nsw i32 %.053, 1
   %40 = and i32 %39, -2
   store i16 -32768, ptr %28, align 2
-  %41 = trunc i32 %40 to i16
+  %41 = trunc nuw nsw i32 %40 to i16
   %42 = getelementptr inbounds i8, ptr %28, i64 2
   store i16 %41, ptr %42, align 2
   %43 = trunc i32 %6 to i16
@@ -128,7 +128,7 @@ define dso_local ptr @GinFormTuple(ptr nocapture noundef readonly %0, i16 nounde
   call void @llvm.memset.p0.i64(ptr align 1 %68, i8 0, i64 %69, i1 false)
   %70 = load i16, ptr %64, align 2
   %71 = and i16 %70, -8192
-  %72 = trunc i32 %48 to i16
+  %72 = trunc nuw i32 %48 to i16
   %73 = or disjoint i16 %71, %72
   store i16 %73, ptr %64, align 2
   br label %74
@@ -300,7 +300,7 @@ define dso_local void @ginEntryFillRoot(ptr nocapture readnone %0, ptr noundef %
   %36 = and i32 %narrow.i, -8
   %37 = zext i32 %36 to i64
   %38 = tail call ptr @palloc(i64 noundef %37) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %38, ptr nonnull align 2 %19, i64 %37, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %38, ptr nonnull readonly align 2 %19, i64 %37, i1 false)
   %39 = getelementptr inbounds i8, ptr %38, i64 6
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, -8192
@@ -318,7 +318,7 @@ define dso_local void @ginEntryFillRoot(ptr nocapture readnone %0, ptr noundef %
   %50 = load i16, ptr %45, align 2
   %51 = and i16 %50, 8191
   %52 = zext nneg i16 %51 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %49, ptr align 2 %19, i64 %52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %49, ptr readonly align 2 %19, i64 %52, i1 false)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %49, i64 6
   %.pre = load i16, ptr %.phi.trans.insert, align 2
   br label %GinFormInteriorTuple.exit
@@ -327,7 +327,7 @@ GinFormInteriorTuple.exit:                        ; preds = %30, %44
   %53 = phi i16 [ %.pre, %44 ], [ %43, %30 ]
   %.0.i = phi ptr [ %49, %44 ], [ %38, %30 ]
   %54 = lshr i32 %2, 16
-  %55 = trunc i32 %54 to i16
+  %55 = trunc nuw i32 %54 to i16
   store i16 %55, ptr %.0.i, align 2
   %56 = trunc i32 %2 to i16
   %57 = getelementptr inbounds i8, ptr %.0.i, i64 2
@@ -393,7 +393,7 @@ GinFormInteriorTuple.exit:                        ; preds = %30, %44
   %96 = and i32 %narrow.i21, -8
   %97 = zext i32 %96 to i64
   %98 = tail call ptr @palloc(i64 noundef %97) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %98, ptr nonnull align 2 %79, i64 %97, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %98, ptr nonnull readonly align 2 %79, i64 %97, i1 false)
   %99 = getelementptr inbounds i8, ptr %98, i64 6
   %100 = load i16, ptr %99, align 2
   %101 = and i16 %100, -8192
@@ -411,7 +411,7 @@ GinFormInteriorTuple.exit:                        ; preds = %30, %44
   %110 = load i16, ptr %105, align 2
   %111 = and i16 %110, 8191
   %112 = zext nneg i16 %111 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %109, ptr align 2 %79, i64 %112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %109, ptr readonly align 2 %79, i64 %112, i1 false)
   %.phi.trans.insert24 = getelementptr inbounds i8, ptr %109, i64 6
   %.pre25 = load i16, ptr %.phi.trans.insert24, align 2
   br label %GinFormInteriorTuple.exit23
@@ -420,7 +420,7 @@ GinFormInteriorTuple.exit23:                      ; preds = %90, %104
   %113 = phi i16 [ %.pre25, %104 ], [ %103, %90 ]
   %.0.i22 = phi ptr [ %109, %104 ], [ %98, %90 ]
   %114 = lshr i32 %4, 16
-  %115 = trunc i32 %114 to i16
+  %115 = trunc nuw i32 %114 to i16
   store i16 %115, ptr %.0.i22, align 2
   %116 = trunc i32 %4 to i16
   %117 = getelementptr inbounds i8, ptr %.0.i22, i64 2
@@ -569,7 +569,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %53 = zext i16 %.04565 to i32
   %54 = sub nsw i32 %53, %52
   %55 = sdiv i32 %54, 2
-  %56 = trunc i32 %55 to i16
+  %56 = trunc nsw i32 %55 to i16
   %57 = add i16 %.04466, %56
   %58 = icmp eq i16 %57, %43
   br i1 %58, label %59, label %65
@@ -775,7 +775,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %40 = zext i16 %.03542 to i32
   %41 = sub nsw i32 %40, %39
   %42 = sdiv i32 %41, 2
-  %43 = trunc i32 %42 to i16
+  %43 = trunc nsw i32 %42 to i16
   %44 = add i16 %.03443, %43
   %45 = zext i16 %44 to i64
   %46 = add nsw i64 %45, -1
@@ -907,7 +907,7 @@ define internal zeroext i16 @entryFindChildPtr(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @entryBeginPlaceToPage(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture readnone %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) #0 {
+define internal range(i32 1, 3) i32 @entryBeginPlaceToPage(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture readnone %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) #0 {
   %9 = alloca [2 x %union.PGAlignedBlock], align 16
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load i16, ptr %10, align 8
@@ -1037,7 +1037,7 @@ BufferGetPage.exit97.i:                           ; preds = %62, %52
   %94 = zext nneg i32 %93 to i64
   %95 = getelementptr i8, ptr %71, i64 %94
   %96 = lshr i32 %4, 16
-  %97 = trunc i32 %96 to i16
+  %97 = trunc nuw i32 %96 to i16
   store i16 %97, ptr %95, align 2
   %98 = trunc i32 %4 to i16
   %99 = getelementptr inbounds i8, ptr %95, i64 2
@@ -1265,7 +1265,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr i8, ptr %.0.i.i, i64 %41
   %43 = lshr i32 %4, 16
-  %44 = trunc i32 %43 to i16
+  %44 = trunc nuw i32 %43 to i16
   store i16 %44, ptr %42, align 2
   %45 = trunc i32 %4 to i16
   %46 = getelementptr inbounds i8, ptr %42, i64 2
@@ -1418,7 +1418,7 @@ BufferGetPage.exit:                               ; preds = %4, %10
   %47 = and i32 %narrow.i, -8
   %48 = zext i32 %47 to i64
   %49 = tail call ptr @palloc(i64 noundef %48) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %49, ptr nonnull align 2 %29, i64 %48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %49, ptr nonnull readonly align 2 %29, i64 %48, i1 false)
   %50 = getelementptr inbounds i8, ptr %49, i64 6
   %51 = load i16, ptr %50, align 2
   %52 = and i16 %51, -8192
@@ -1436,13 +1436,13 @@ BufferGetPage.exit:                               ; preds = %4, %10
   %61 = load i16, ptr %56, align 2
   %62 = and i16 %61, 8191
   %63 = zext nneg i16 %62 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %60, ptr align 2 %29, i64 %63, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %60, ptr readonly align 2 %29, i64 %63, i1 false)
   br label %GinFormInteriorTuple.exit
 
 GinFormInteriorTuple.exit:                        ; preds = %41, %55
   %.0.i = phi ptr [ %60, %55 ], [ %49, %41 ]
   %64 = lshr i32 %16, 16
-  %65 = trunc i32 %64 to i16
+  %65 = trunc nuw i32 %64 to i16
   store i16 %65, ptr %.0.i, align 2
   %66 = trunc i32 %16 to i16
   %67 = getelementptr inbounds i8, ptr %.0.i, i64 2

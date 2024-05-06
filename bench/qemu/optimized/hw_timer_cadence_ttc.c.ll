@@ -93,7 +93,7 @@ declare void @sysbus_init_mmio(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @cadence_ttc_read(ptr nocapture noundef %opaque, i64 noundef %offset, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @cadence_ttc_read(ptr nocapture noundef %opaque, i64 noundef %offset, i32 %size) #0 {
 entry:
   %shr.i.i = lshr i64 %offset, 2
   %rem.i.i = urem i64 %shr.i.i, 3
@@ -458,7 +458,7 @@ if.then.i60.us:                                   ; preds = %is_between.exit53.u
   br i1 %14, label %if.then42.us, label %for.inc.us
 
 if.then42.us:                                     ; preds = %if.then.i60.us, %is_between.exit53.us, %if.end25.us
-  %15 = trunc i64 %indvars.iv81 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv81 to i32
   %shl43.us = shl nuw nsw i32 2, %15
   %16 = load i32, ptr %reg_intr, align 8
   %or.us = or i32 %16, %shl43.us
@@ -500,7 +500,7 @@ if.end.i55:                                       ; preds = %is_between.exit53.t
   br i1 %18, label %if.then42, label %for.inc
 
 if.then42:                                        ; preds = %is_between.exit53.thread, %if.end25, %if.end.i55
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %shl43 = shl nuw nsw i32 2, %19
   %20 = load i32, ptr %reg_intr, align 8
   %or = or i32 %20, %shl43
@@ -539,7 +539,7 @@ if.end57:                                         ; preds = %for.end, %if.then50
   %27 = add i64 %cond16, %26
   %28 = add i64 %27, %conv8
   %rem = urem i64 %28, %cond
-  %conv61 = trunc i64 %rem to i32
+  %conv61 = trunc nuw i64 %rem to i32
   store i32 %conv61, ptr %reg_value, align 4
   %irq.i = getelementptr inbounds i8, ptr %s, i64 64
   %29 = load ptr, ptr %irq.i, align 8

@@ -836,7 +836,7 @@ return:                                           ; preds = %for.body, %sw.bb12,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @buffer_new(ptr nocapture noundef writeonly %bi) #2 {
+define internal range(i32 0, 2) i32 @buffer_new(ptr nocapture noundef writeonly %bi) #2 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str.1, i32 noundef 47) #6
   %cmp = icmp eq ptr %call, null
@@ -884,7 +884,7 @@ return:                                           ; preds = %entry, %if.end11, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @buffer_free(ptr noundef %a) #2 {
+define internal range(i32 0, 2) i32 @buffer_free(ptr noundef %a) #2 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end

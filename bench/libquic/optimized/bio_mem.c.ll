@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @BIO_mem_contents(ptr nocapture noundef readonly %bio, ptr nocapture noundef writeonly %out_contents, ptr nocapture noundef writeonly %out_len) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @BIO_mem_contents(ptr nocapture noundef readonly %bio, ptr nocapture noundef writeonly %out_contents, ptr nocapture noundef writeonly %out_len) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %bio, align 8
   %cmp.not = icmp eq ptr %0, @mem_method
@@ -184,7 +184,7 @@ entry:
   tail call void @BIO_clear_retry_flags(ptr noundef %bio) #9
   %1 = load i64, ptr %0, align 8
   %cmp = icmp ult i64 %1, 2147483647
-  %conv = trunc i64 %1 to i32
+  %conv = trunc nuw nsw i64 %1 to i32
   %spec.select = tail call i32 @llvm.smin.i32(i32 %conv, i32 %outl)
   %ret.0 = select i1 %cmp, i32 %spec.select, i32 %outl
   %cmp6 = icmp sgt i32 %ret.0, 0
@@ -275,7 +275,7 @@ if.end11.i:                                       ; preds = %if.end3.i
   %data.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %data.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %conv5.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i, ptr align 1 %str, i64 %conv6.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i, ptr readonly align 1 %str, i64 %conv6.i, i1 false)
   br label %mem_write.exit
 
 mem_write.exit:                                   ; preds = %if.then.i, %if.end.i, %if.end3.i, %if.end11.i
@@ -315,7 +315,7 @@ for.body:                                         ; preds = %if.end10, %for.inc
   br i1 %cmp14, label %if.then16, label %for.inc
 
 if.then16:                                        ; preds = %for.body
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %inc = add nuw nsw i32 %4, 1
   br label %for.end
 
@@ -330,7 +330,7 @@ for.end:                                          ; preds = %for.inc, %if.then16
   tail call void @BIO_clear_retry_flags(ptr noundef %bio) #9
   %6 = load i64, ptr %5, align 8
   %cmp.i = icmp ult i64 %6, 2147483647
-  %conv.i = trunc i64 %6 to i32
+  %conv.i = trunc nuw nsw i64 %6 to i32
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %conv.i, i32 %i.1)
   %ret.0.i = select i1 %cmp.i, i32 %spec.select.i, i32 %i.1
   %cmp6.i = icmp sgt i32 %ret.0.i, 0
@@ -340,7 +340,7 @@ if.then8.i:                                       ; preds = %for.end
   %data.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %data.i, align 8
   %conv9.i = zext nneg i32 %ret.0.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 %7, i64 %conv9.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %buf, ptr align 1 %7, i64 %conv9.i, i1 false)
   %8 = load i64, ptr %5, align 8
   %sub.i = sub i64 %8, %conv9.i
   store i64 %sub.i, ptr %5, align 8
@@ -534,7 +534,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb27, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mem_new(ptr nocapture noundef writeonly %bio) #0 {
+define internal range(i32 0, 2) i32 @mem_new(ptr nocapture noundef writeonly %bio) #0 {
 entry:
   %call = tail call ptr @BUF_MEM_new() #9
   %cmp = icmp eq ptr %call, null
@@ -557,7 +557,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mem_free(ptr noundef %bio) #0 {
+define internal range(i32 0, 2) i32 @mem_free(ptr noundef %bio) #0 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_dsa_key_from_pkcs8 = private unnamed_addr constant [24 x i8] c"ossl_dsa_key_from_pkcs8\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_dsa_key_fromdata(ptr noundef %dsa, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dsa_key_fromdata(ptr noundef %dsa, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
 entry:
   %priv_key = alloca ptr, align 8
   %pub_key = alloca ptr, align 8
@@ -85,7 +85,7 @@ declare void @BN_clear_free(ptr noundef) local_unnamed_addr #1
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_dsa_is_foreign(ptr noundef %dsa) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dsa_is_foreign(ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
   %engine = getelementptr inbounds i8, ptr %dsa, i64 168
   %0 = load ptr, ptr %engine, align 8

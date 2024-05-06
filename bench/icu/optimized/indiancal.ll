@@ -130,7 +130,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7514IndianCalendar20handleGetMonthLengthEii(ptr nocapture nonnull readnone align 8 %this, i32 noundef %eyear, i32 noundef %month) unnamed_addr #0 align 2 {
+define noundef range(i32 30, 32) i32 @_ZNK6icu_7514IndianCalendar20handleGetMonthLengthEii(ptr nocapture nonnull readnone align 8 %this, i32 noundef %eyear, i32 noundef %month) unnamed_addr #0 align 2 {
 entry:
   %month.addr = alloca i32, align 4
   store i32 %month, ptr %month.addr, align 4
@@ -174,7 +174,7 @@ _ZN6icu_75L15isGregorianLeapEi.exit:              ; preds = %if.end, %land.rhs.i
 declare noundef i32 @_ZN6icu_759ClockMath11floorDivideEiiPi(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK6icu_7514IndianCalendar19handleGetYearLengthEi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %eyear) unnamed_addr #4 align 2 {
+define noundef range(i32 365, 367) i32 @_ZNK6icu_7514IndianCalendar19handleGetYearLengthEi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %eyear) unnamed_addr #4 align 2 {
 entry:
   %add = add i32 %eyear, 78
   %and.i.i = and i32 %add, 3

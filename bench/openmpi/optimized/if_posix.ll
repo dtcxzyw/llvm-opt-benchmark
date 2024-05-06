@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @if_posix_open() #0 {
+define internal range(i32 -6, 1) i32 @if_posix_open() #0 {
   %1 = alloca %struct.ifconf, align 8
   %2 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
   %3 = icmp slt i32 %2, 0

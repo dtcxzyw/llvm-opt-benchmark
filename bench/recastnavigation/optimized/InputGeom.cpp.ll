@@ -348,12 +348,12 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11loadGeomSetEP9rcContextRKNSt
   ]
 
 72:                                               ; preds = %.lr.ph.i
-  %73 = trunc i8 %.01824.i to i1
+  %73 = trunc nuw i8 %.01824.i to i1
   %not..i = xor i1 %73, true
   br label %81
 
 74:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %75 = trunc i8 %.01824.i to i1
+  %75 = trunc nuw i8 %.01824.i to i1
   br i1 %75, label %81, label %76
 
 76:                                               ; preds = %74, %.lr.ph.i
@@ -532,12 +532,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   ]
 
 152:                                              ; preds = %.lr.ph.i82
-  %153 = trunc i8 %.01824.i85 to i1
+  %153 = trunc nuw i8 %.01824.i85 to i1
   %not..i91 = xor i1 %153, true
   br label %161
 
 154:                                              ; preds = %.lr.ph.i82, %.lr.ph.i82
-  %155 = trunc i8 %.01824.i85 to i1
+  %155 = trunc nuw i8 %.01824.i85 to i1
   br i1 %155, label %161, label %156
 
 156:                                              ; preds = %154, %.lr.ph.i82
@@ -1108,7 +1108,7 @@ _ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit:          ; preds = %39, %45, %49, %68
   br i1 %103, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph64
-  %104 = mul nsw i32 %102, 3
+  %104 = mul nuw nsw i32 %102, 3
   %105 = zext nneg i32 %104 to i64
   br label %.lr.ph
 
@@ -1121,12 +1121,12 @@ _ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit:          ; preds = %39, %45, %49, %68
   %109 = mul nsw i32 %108, 3
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds float, ptr %85, i64 %110
-  %112 = getelementptr i8, ptr %107, i64 4
+  %112 = getelementptr inbounds i8, ptr %107, i64 4
   %113 = load i32, ptr %112, align 4
   %114 = mul nsw i32 %113, 3
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds float, ptr %85, i64 %115
-  %117 = getelementptr i8, ptr %107, i64 8
+  %117 = getelementptr inbounds i8, ptr %107, i64 8
   %118 = load i32, ptr %117, align 4
   %119 = mul nsw i32 %118, 3
   %120 = sext i32 %119 to i64
@@ -1672,7 +1672,7 @@ define dso_local void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noca
   %96 = load i32, ptr %24, align 4
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next, %97
-  %99 = trunc i64 %indvars.iv to i32
+  %99 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %98, label %34, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %34, %14
@@ -1780,7 +1780,7 @@ define dso_local void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noca
   %175 = load i32, ptr %122, align 4
   %176 = sext i32 %175 to i64
   %177 = icmp slt i64 %indvars.iv.next174, %176
-  %178 = trunc i64 %indvars.iv173 to i32
+  %178 = trunc nuw nsw i64 %indvars.iv173 to i32
   br i1 %177, label %131, label %._crit_edge156, !llvm.loop !20
 
 ._crit_edge156:                                   ; preds = %131, %112

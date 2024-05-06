@@ -222,7 +222,7 @@ do.body:                                          ; preds = %if.end71, %for.inc1
   br i1 %cmp83, label %if.then85, label %if.else92
 
 if.then85:                                        ; preds = %do.body
-  %conv88 = trunc i32 %12 to i16
+  %conv88 = trunc nuw i32 %12 to i16
   br label %for.inc108
 
 if.else92:                                        ; preds = %do.body
@@ -309,7 +309,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal signext i8 @compareEntries(ptr %p1.coerce, ptr %p2.coerce) #7 {
+define internal signext range(i8 0, 2) i8 @compareEntries(ptr %p1.coerce, ptr %p2.coerce) #7 {
 entry:
   %0 = ptrtoint ptr %p1.coerce to i64
   %p1.sroa.0.0.extract.trunc = trunc i64 %0 to i32
@@ -480,7 +480,7 @@ while.body8.lr.ph.i:                              ; preds = %while.cond4.prehead
   %arrayidx.i = getelementptr inbounds [16 x i32], ptr @indexes, i64 0, i64 %3
   %cmp20.i = icmp eq i64 %indvars.iv.i, 4
   %cmp73.i = icmp ugt i64 %indvars.iv.i, 3
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %conv76.i = trunc i64 %indvars.iv.i to i16
   br label %while.body8.i
 

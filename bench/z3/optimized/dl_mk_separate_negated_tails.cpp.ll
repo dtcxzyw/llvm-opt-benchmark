@@ -1135,7 +1135,7 @@ for.body44.lr.ph:                                 ; preds = %for.cond42.preheade
 for.body17:                                       ; preds = %for.body17.lr.ph, %for.inc38
   %26 = phi ptr [ null, %for.body17.lr.ph ], [ %65, %for.inc38 ]
   %indvars.iv170 = phi i64 [ %5, %for.body17.lr.ph ], [ %indvars.iv.next171, %for.inc38 ]
-  %27 = trunc i64 %indvars.iv170 to i32
+  %27 = trunc nuw i64 %indvars.iv170 to i32
   invoke void @_ZN7datalog25mk_separate_negated_tails16get_private_varsERKNS_4ruleEj(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(80) %r, i32 noundef %27)
           to label %invoke.cont18 unwind label %lpad7.loopexit.split-lp.loopexit
 

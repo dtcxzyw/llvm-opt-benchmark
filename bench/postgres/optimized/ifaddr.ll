@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @pg_range_sockaddr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @pg_range_sockaddr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = load i16, ptr %0, align 8
   switch i16 %4, label %range_sockaddr_AF_INET6.exit [
     i16 2, label %5
@@ -59,7 +59,7 @@ range_sockaddr_AF_INET6.exit:                     ; preds = %17, %16, %3, %5
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef i32 @pg_sockaddr_cidr_mask(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.sockaddr_in6, align 4
   %6 = icmp eq ptr %1, null
@@ -127,7 +127,7 @@ define dso_local noundef i32 @pg_sockaddr_cidr_mask(ptr nocapture noundef writeo
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %29
-  %32 = trunc i64 %.133 to i16
+  %32 = trunc nuw i64 %.133 to i16
   %33 = sub nuw nsw i16 8, %32
   %34 = shl nuw nsw i16 255, %33
   %35 = trunc i16 %34 to i8
@@ -169,7 +169,7 @@ declare i32 @llvm.bswap.i32(i32) #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @pg_foreach_ifaddr(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #6 {
+define dso_local range(i32 -1, 1) i32 @pg_foreach_ifaddr(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = alloca %struct.sockaddr_in6, align 4
   %4 = alloca %struct.sockaddr_storage, align 8
   %5 = alloca ptr, align 8
@@ -269,7 +269,7 @@ select.unfold.i:                                  ; preds = %14, %13
 38:                                               ; preds = %select.unfold.i, %select.unfold.thread30.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.8..8..sroa_idx, i8 -1, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false)
   br label %39
 
 39:                                               ; preds = %38, %37

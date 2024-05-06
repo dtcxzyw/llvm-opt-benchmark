@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @php_hash_bin2hex.hexits = internal unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @zend_add_system_entropy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_add_system_entropy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %.b = load i1, ptr @finalized, align 4
   br i1 %.b, label %9, label %5
 

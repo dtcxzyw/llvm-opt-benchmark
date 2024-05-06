@@ -661,7 +661,7 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit.i: ; preds = %if.end8
 for.body.i:                                       ; preds = %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit.i, %for.inc.i
   %__begin1.016.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %1, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit.i ]
   %4 = load ptr, ptr %__begin1.016.i, align 8
-  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull align 8 poison, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
+  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull readonly align 8 poison, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
           to label %for.inc.i unwind label %lpad.loopexit.split-lp.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -706,7 +706,7 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit12.i: ; preds = %for.end.i
 for.body15.i:                                     ; preds = %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit12.i, %for.inc18.i
   %__begin17.018.i = phi ptr [ %incdec.ptr19.i, %for.inc18.i ], [ %6, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit12.i ]
   %9 = load ptr, ptr %__begin17.018.i, align 8
-  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull align 8 poison, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
+  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull readonly align 8 poison, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
           to label %for.inc18.i unwind label %lpad.loopexit.i
 
 for.inc18.i:                                      ; preds = %for.body15.i
@@ -1767,7 +1767,7 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit.i: ; preds = %if.end8
 for.body.i:                                       ; preds = %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit.i, %for.inc.i
   %__begin1.016.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %1, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit.i ]
   %4 = load ptr, ptr %__begin1.016.i, align 8
-  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull align 8 poison, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
+  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull readonly align 8 poison, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
           to label %for.inc.i unwind label %lpad.loopexit.split-lp.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -1812,7 +1812,7 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit12.i: ; preds = %for.end.i
 for.body15.i:                                     ; preds = %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit12.i, %for.inc18.i
   %__begin17.018.i = phi ptr [ %incdec.ptr19.i, %for.inc18.i ], [ %6, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit12.i ]
   %9 = load ptr, ptr %__begin17.018.i, align 8
-  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull align 8 poison, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
+  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull readonly align 8 poison, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
           to label %for.inc18.i unwind label %lpad.loopexit.i
 
 for.inc18.i:                                      ; preds = %for.body15.i
@@ -3384,7 +3384,7 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit.i: ; preds = %if.end
 for.body.i:                                       ; preds = %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit.i, %for.inc.i
   %__begin1.016.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %3, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit.i ]
   %6 = load ptr, ptr %__begin1.016.i, align 8
-  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull align 8 poison, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
+  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull readonly align 8 poison, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
           to label %for.inc.i unwind label %lpad.loopexit.split-lp.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -3429,7 +3429,7 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit12.i: ; preds = %for.end.i
 for.body15.i:                                     ; preds = %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit12.i, %for.inc18.i
   %__begin17.018.i = phi ptr [ %incdec.ptr19.i, %for.inc18.i ], [ %8, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit12.i ]
   %11 = load ptr, ptr %__begin17.018.i, align 8
-  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull align 8 poison, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
+  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull readonly align 8 poison, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
           to label %for.inc18.i unwind label %lpad.loopexit.i
 
 for.inc18.i:                                      ; preds = %for.body15.i
@@ -4860,7 +4860,7 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit.i: ; preds = %entry
 for.body.i:                                       ; preds = %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit.i, %for.inc.i
   %__begin1.016.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %1, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit.i ]
   %4 = load ptr, ptr %__begin1.016.i, align 8
-  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull align 8 poison, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
+  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull readonly align 8 poison, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
           to label %for.inc.i unwind label %lpad.loopexit.split-lp.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -4905,7 +4905,7 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit12.i: ; preds = %for.end.i
 for.body15.i:                                     ; preds = %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit12.i, %for.inc18.i
   %__begin17.018.i = phi ptr [ %incdec.ptr19.i, %for.inc18.i ], [ %6, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit12.i ]
   %9 = load ptr, ptr %__begin17.018.i, align 8
-  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull align 8 poison, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
+  invoke void @_ZN2dd10simplifier10add_to_useEPNS_6solver8equationER6vectorI10ptr_vectorIS2_ELb1EjE(ptr nonnull readonly align 8 poison, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %use_list)
           to label %for.inc18.i unwind label %lpad.loopexit.i
 
 for.inc18.i:                                      ; preds = %for.body15.i
@@ -10028,7 +10028,7 @@ _ZN6vectorIZN2dd10simplifier14simplify_exlinERKS_I8uint_setLb1EjERKS_INS0_3pddEL
   %54 = phi ptr [ %52, %_ZN6vectorIZN2dd10simplifier14simplify_exlinERKS_I8uint_setLb1EjERKS_INS0_3pddELb1EjERS7_E3monLb0EjE13expand_vectorEv.exit.i ], [ %47, %lor.lhs.false.i ]
   %idx.ext.i = zext i32 %53 to i64
   %add.ptr.i = getelementptr inbounds %struct.mon, ptr %54, i64 %idx.ext.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i, ptr noundef nonnull align 4 dereferenceable(12) %m_data.i, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %m_data.i, i64 12, i1 false)
   %55 = load ptr, ptr %46, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %55, i64 -4
   %56 = load i32, ptr %arrayidx10.i, align 4

@@ -141,7 +141,7 @@ define internal noundef i32 @regcache_maple_exit(ptr nocapture noundef %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @regcache_maple_read(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @regcache_maple_read(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca %struct.ma_state, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 568
   %6 = load ptr, ptr %5, align 8

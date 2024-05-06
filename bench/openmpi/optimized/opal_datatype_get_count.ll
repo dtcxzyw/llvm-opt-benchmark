@@ -500,7 +500,7 @@ define i64 @opal_datatype_compute_remote_size(ptr nocapture noundef %0, ptr noca
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 4, %21 ]
   %.01925 = phi i64 [ %.1, %34 ], [ 0, %21 ]
   %.02024 = phi i32 [ %.121, %34 ], [ %4, %21 ]
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = shl nuw nsw i32 1, %22
   %24 = and i32 %23, %.02024
   %.not23 = icmp eq i32 %24, 0

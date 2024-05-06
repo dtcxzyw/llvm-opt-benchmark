@@ -72,7 +72,7 @@ define dso_local void @io_delay_init() local_unnamed_addr #2 section ".init.text
 declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @io_delay_param(ptr noundef readonly %0) #3 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @io_delay_param(ptr noundef readonly %0) #3 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %17, label %3
 

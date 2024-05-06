@@ -95,7 +95,7 @@ define void @Mvc_CoverSetCubeList(ptr nocapture noundef writeonly %0, ptr nocapt
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Mvc_CoverIsEmpty(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Mvc_CoverIsEmpty(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -104,7 +104,7 @@ define i32 @Mvc_CoverIsEmpty(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Mvc_CoverIsTautology(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Mvc_CoverIsTautology(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 1
@@ -142,7 +142,7 @@ define noundef i32 @Mvc_CoverIsTautology(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Mvc_CoverIsBinaryBuffer(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Mvc_CoverIsBinaryBuffer(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 2

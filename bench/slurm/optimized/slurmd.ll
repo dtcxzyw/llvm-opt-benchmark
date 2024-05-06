@@ -998,7 +998,7 @@ _slurm_conf_file_exists.exit.i.i:                 ; preds = %300
   %333 = load ptr, ptr @conf, align 8
   %334 = getelementptr inbounds i8, ptr %333, i64 4360
   store ptr %332, ptr %334, align 8
-  %335 = call fastcc i32 @_set_slurmd_spooldir(ptr noundef %332), !range !9
+  %335 = call fastcc i32 @_set_slurmd_spooldir(ptr noundef %332)
   %336 = icmp slt i32 %335, 0
   br i1 %336, label %337, label %339
 
@@ -1018,7 +1018,7 @@ _slurm_conf_file_exists.exit.i.i:                 ; preds = %300
   %346 = load ptr, ptr @conf, align 8
   %347 = getelementptr inbounds i8, ptr %346, i64 4144
   %348 = load ptr, ptr %347, align 8
-  %349 = call fastcc i32 @_set_slurmd_spooldir(ptr noundef %348), !range !9
+  %349 = call fastcc i32 @_set_slurmd_spooldir(ptr noundef %348)
   %350 = icmp slt i32 %349, 0
   br i1 %350, label %351, label %353
 
@@ -1048,7 +1048,7 @@ _slurm_conf_file_exists.exit.i.i:                 ; preds = %300
   %366 = getelementptr inbounds i8, ptr %365, i64 4304
   %367 = load ptr, ptr %366, align 8
   %368 = call i32 @setenv(ptr noundef nonnull @.str.106, ptr noundef %367, i32 noundef 1) #19
-  %369 = call fastcc i32 @_set_slurmd_spooldir(ptr noundef nonnull @.str.139), !range !9
+  %369 = call fastcc i32 @_set_slurmd_spooldir(ptr noundef nonnull @.str.139)
   %370 = icmp slt i32 %369, 0
   br i1 %370, label %.sink.split.i.i.i, label %371
 
@@ -2185,7 +2185,7 @@ _read_config.exit:                                ; preds = %997
   %1019 = load ptr, ptr @conf, align 8
   %1020 = getelementptr inbounds i8, ptr %1019, i64 4360
   %1021 = load ptr, ptr %1020, align 8
-  %1022 = call fastcc i32 @_set_slurmd_spooldir(ptr noundef %1021), !range !9
+  %1022 = call fastcc i32 @_set_slurmd_spooldir(ptr noundef %1021)
   %1023 = icmp slt i32 %1022, 0
   br i1 %1023, label %1024, label %1026
 
@@ -2316,7 +2316,7 @@ _read_config.exit:                                ; preds = %997
   br i1 %1093, label %1094, label %1096
 
 1094:                                             ; preds = %1090, %1085
-  %1095 = call fastcc i32 @_set_work_dir(), !range !9
+  %1095 = call fastcc i32 @_set_work_dir()
   %.not19.i = icmp eq i32 %1095, 0
   br i1 %.not19.i, label %1096, label %1119
 
@@ -2708,7 +2708,7 @@ _create_msg_socket.exit:                          ; preds = %1213, %1219, %1235,
   br label %.lr.ph.split.us.i.backedge
 
 .lr.ph.split.us.i.backedge:                       ; preds = %1281, %1278
-  br label %.lr.ph.split.us.i, !llvm.loop !10
+  br label %.lr.ph.split.us.i, !llvm.loop !9
 
 1282:                                             ; preds = %1273, %.split26.us.i
   %1283 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.94) #19
@@ -3115,7 +3115,7 @@ _wait_on_old_slurmd.exit:                         ; preds = %1289, %1301
   br label %.lr.ph.i.i66.backedge
 
 .lr.ph.i.i66.backedge:                            ; preds = %1449, %1447
-  br label %.lr.ph.i.i66, !llvm.loop !11
+  br label %.lr.ph.i.i66, !llvm.loop !10
 
 .outer._crit_edge.i.i:                            ; preds = %.split57.us.i.i
   %1450 = icmp sgt i32 %1446, 2
@@ -3189,7 +3189,7 @@ _wait_on_old_slurmd.exit:                         ; preds = %1289, %1301
   %1483 = phi i64 [ %1471, %.lr.ph106.i.i ], [ %1471, %1474 ], [ %.pre140.i.i, %1479 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %1484 = icmp ugt i64 %1483, %indvars.iv.next.i.i
-  br i1 %1484, label %.lr.ph106.i.i, label %._crit_edge107.i.i, !llvm.loop !12
+  br i1 %1484, label %.lr.ph106.i.i, label %._crit_edge107.i.i, !llvm.loop !11
 
 ._crit_edge107.i.i:                               ; preds = %1482, %1468
   %.b41.i.i = load i1, ptr @under_systemd, align 1
@@ -3353,7 +3353,7 @@ _handle_connection.exit.i:                        ; preds = %1545, %1543
 
 .backedge.i:                                      ; preds = %1552, %1548, %_handle_connection.exit.i
   %.b3.i = load i1, ptr @_shutdown, align 4
-  br i1 %.b3.i, label %._crit_edge.i, label %1345, !llvm.loop !13
+  br i1 %.b3.i, label %._crit_edge.i, label %1345, !llvm.loop !12
 
 1548:                                             ; preds = %1511
   call void @slurm_xfree(ptr noundef nonnull %19) #19
@@ -4046,7 +4046,7 @@ define internal noalias noundef ptr @_registration_engine(ptr nocapture readnone
   %12 = load i64, ptr @sent_reg_time, align 8
   %.not = icmp ne i64 %12, 0
   %.not6 = select i1 %.b, i1 true, i1 %.not
-  br i1 %.not6, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not6, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %9, %.lr.ph, %1
   %13 = tail call i32 @get_log_level() #19
@@ -4114,7 +4114,7 @@ define internal fastcc void @_wait_for_all_threads(i32 noundef %0) unnamed_addr 
 20:                                               ; preds = %17, %15
   %21 = load i32, ptr @active_threads, align 4
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !15
+  br i1 %22, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !14
 
 23:                                               ; preds = %1
   %24 = tail call ptr @__errno_location() #21
@@ -4163,7 +4163,7 @@ define internal fastcc void @_wait_for_all_threads(i32 noundef %0) unnamed_addr 
 
 43:                                               ; preds = %29
   %44 = icmp sgt i32 %32, 0
-  br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
+  br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %43, %20, %.preheader
   %45 = call i32 @pthread_cond_signal(ptr noundef nonnull @active_cond) #19
@@ -4541,7 +4541,7 @@ define dso_local i32 @send_registration_msg(i32 noundef %0) local_unnamed_addr #
 .backedge.i:                                      ; preds = %210, %198
   %201 = call ptr @list_next(ptr noundef %186) #19
   %.not106.i = icmp eq ptr %201, null
-  br i1 %.not106.i, label %.outer._crit_edge.i, label %189, !llvm.loop !16
+  br i1 %.not106.i, label %.outer._crit_edge.i, label %189, !llvm.loop !15
 
 202:                                              ; preds = %189
   %203 = load i16, ptr %195, align 8
@@ -4596,7 +4596,7 @@ define dso_local i32 @send_registration_msg(i32 noundef %0) local_unnamed_addr #
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %228 = call ptr @list_next(ptr noundef %186) #19
   %.not106113.i = icmp eq ptr %228, null
-  br i1 %.not106113.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not106113.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.i, %173
   call void @list_iterator_destroy(ptr noundef %186) #19
@@ -5166,7 +5166,7 @@ define internal fastcc void @_increment_thd_count() unnamed_addr #0 {
 13:                                               ; preds = %.critedge, %10
   %14 = load i32, ptr @active_threads, align 4
   %15 = icmp sgt i32 %14, 255
-  br i1 %15, label %.critedge, label %._crit_edge, !llvm.loop !17
+  br i1 %15, label %.critedge, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %13, %.preheader
   %.lcssa = phi i32 [ %2, %.preheader ], [ %14, %13 ]
@@ -5505,7 +5505,7 @@ define internal fastcc void @_print_gres() unnamed_addr #13 {
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_set_slurmd_spooldir(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_set_slurmd_spooldir(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @get_log_level() #19
   %3 = icmp sgt i32 %2, 6
   br i1 %3, label %4, label %5
@@ -5660,7 +5660,7 @@ define internal fastcc void @_resource_spec_init() unnamed_addr #0 {
   %24 = getelementptr inbounds i8, ptr %4, i64 4158
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
-  %27 = mul nsw i32 %23, %26
+  %27 = mul nuw nsw i32 %23, %26
   store i32 %27, ptr @ncpus, align 4
   %28 = shl nsw i32 %23, 2
   store i32 %28, ptr @res_abs_core_size, align 4
@@ -5746,7 +5746,7 @@ define internal fastcc void @_resource_spec_init() unnamed_addr #0 {
   %76 = load i32, ptr @ncpus, align 4
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next.i.i, %77
-  br i1 %78, label %.lr.ph.i.i, label %.loopexit20.i.i, !llvm.loop !18
+  br i1 %78, label %.lr.ph.i.i, label %.loopexit20.i.i, !llvm.loop !17
 
 .loopexit20.i.i:                                  ; preds = %75, %.preheader19.i.i, %55
   %79 = load ptr, ptr @res_abs_cores, align 8
@@ -5790,14 +5790,14 @@ define internal fastcc void @_resource_spec_init() unnamed_addr #0 {
   %101 = load i16, ptr %100, align 2
   %102 = zext i16 %101 to i32
   %103 = icmp ult i32 %98, %102
-  br i1 %103, label %.lr.ph23.i.i, label %.loopexit.i.i, !llvm.loop !19
+  br i1 %103, label %.lr.ph23.i.i, label %.loopexit.i.i, !llvm.loop !18
 
 .loopexit.i.i:                                    ; preds = %.lr.ph23.i.i, %.preheader.i.i, %.lr.ph26.i.i
   %indvars.iv.next30.i.i = add nuw nsw i64 %indvars.iv29.i.i, 1
   %104 = load i32, ptr @ncores, align 4
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next30.i.i, %105
-  br i1 %106, label %.lr.ph26.i.i, label %_validate_and_convert_cpu_list.exit.i, !llvm.loop !20
+  br i1 %106, label %.lr.ph26.i.i, label %_validate_and_convert_cpu_list.exit.i, !llvm.loop !19
 
 _validate_and_convert_cpu_list.exit.i:            ; preds = %.loopexit.i.i, %.loopexit20.i.i
   %107 = load ptr, ptr @res_cpu_bitmap, align 8
@@ -5965,7 +5965,7 @@ _resource_spec_fini.exit31.i:                     ; preds = %135, %133
   %175 = icmp ne i32 %173, 0
   %176 = icmp ne i32 %174, %.024.i.i
   %177 = select i1 %175, i1 %176, i1 false
-  br i1 %177, label %159, label %._crit_edge37.us.i.i, !llvm.loop !21
+  br i1 %177, label %159, label %._crit_edge37.us.i.i, !llvm.loop !20
 
 .lr.ph.us.i.i:                                    ; preds = %.lr.ph.us.i.i, %.lr.ph.us.preheader.i.i
   %indvars.iv.i33.i = phi i64 [ 0, %.lr.ph.us.preheader.i.i ], [ %indvars.iv.next.i34.i, %.lr.ph.us.i.i ]
@@ -5978,13 +5978,13 @@ _resource_spec_fini.exit31.i:                     ; preds = %135, %133
   %182 = load i16, ptr %181, align 2
   %183 = zext i16 %182 to i64
   %184 = icmp ult i64 %indvars.iv.next.i34.i, %183
-  br i1 %184, label %.lr.ph.us.i.i, label %._crit_edge.us.loopexit.i.i, !llvm.loop !22
+  br i1 %184, label %.lr.ph.us.i.i, label %._crit_edge.us.loopexit.i.i, !llvm.loop !21
 
 ._crit_edge37.us.i.i:                             ; preds = %._crit_edge.us.i.i
   %185 = add nsw i32 %.03139.us.i.i, %.023.i.i
   %186 = icmp ne i32 %185, %.027.i.i
   %187 = select i1 %175, i1 %186, i1 false
-  br i1 %187, label %.preheader.us.i.i, label %_select_spec_cores.exit.i, !llvm.loop !23
+  br i1 %187, label %.preheader.us.i.i, label %_select_spec_cores.exit.i, !llvm.loop !22
 
 _select_spec_cores.exit.i:                        ; preds = %._crit_edge37.us.i.i, %153
   %188 = load ptr, ptr @res_abs_cores, align 8
@@ -6175,7 +6175,7 @@ _resource_spec_fini.exit45.i:                     ; preds = %239, %237
   %265 = load i32, ptr @ncpus, align 4
   %266 = sext i32 %265 to i64
   %267 = icmp slt i64 %indvars.iv.next.i, %266
-  br i1 %267, label %252, label %._crit_edge.i, !llvm.loop !24
+  br i1 %267, label %252, label %._crit_edge.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %264, %244
   %.not20.i = icmp eq ptr %247, null
@@ -6566,7 +6566,7 @@ define internal fastcc void @_print_conf() unnamed_addr #0 {
   %142 = load i16, ptr %141, align 8
   %143 = zext i16 %142 to i64
   %144 = icmp ult i64 %indvars.iv.next, %143
-  br i1 %144, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %144, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %128
   %145 = call i32 @get_log_level() #19
@@ -6604,7 +6604,7 @@ define internal fastcc void @_print_conf() unnamed_addr #0 {
   %163 = load i16, ptr %162, align 8
   %164 = zext i16 %163 to i64
   %165 = icmp ult i64 %indvars.iv.next26, %164
-  br i1 %165, label %.lr.ph20, label %._crit_edge21, !llvm.loop !26
+  br i1 %165, label %.lr.ph20, label %._crit_edge21, !llvm.loop !25
 
 ._crit_edge21:                                    ; preds = %.lr.ph20, %149
   %166 = call i32 @get_log_level() #19
@@ -6942,7 +6942,7 @@ define internal fastcc void @_stepd_cleanup_batch_dirs(ptr noundef %0) unnamed_a
 40:                                               ; preds = %35, %25, %.lr.ph
   %41 = call ptr @readdir(ptr noundef nonnull %17) #19
   %.not = icmp eq ptr %41, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %40, %.preheader
   %42 = call i32 @closedir(ptr noundef nonnull %17)
@@ -6953,7 +6953,7 @@ define internal fastcc void @_stepd_cleanup_batch_dirs(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_set_work_dir() unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_set_work_dir() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = load ptr, ptr @conf, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 4328
@@ -7512,7 +7512,7 @@ attributes #23 = { cold }
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i32 -1, i32 1}
+!9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
@@ -7530,4 +7530,3 @@ attributes #23 = { cold }
 !24 = distinct !{!24, !8}
 !25 = distinct !{!25, !8}
 !26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}

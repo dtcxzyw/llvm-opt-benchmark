@@ -1874,7 +1874,7 @@ _ZNR5folly8OptionalINS_14AsyncUDPSocket6TXTimeEE5valueEv.exit186: ; preds = %lor
   %mul = mul i64 %25, 1000000000
   %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   %26 = load i64, ptr %tv_nsec, align 8, !tbaa !129
-  %mul.i.i.i = mul nsw i64 %options.coerce1, 1000
+  %mul.i.i.i = mul nuw nsw i64 %options.coerce1, 1000
   %add105 = add i64 %26, %mul.i.i.i
   %add109 = add i64 %add105, %mul
   %__cmsg_data110 = getelementptr inbounds i8, ptr %cm.1, i64 16
@@ -2002,7 +2002,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %5 = icmp ugt i64 %count, 288230376151711743
-  %6 = shl i64 %count, 6
+  %6 = shl nuw i64 %count, 6
   %7 = select i1 %5, i64 -1, i64 %6
   %call7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #36
   %mul8 = mul i64 %mul2, 24
@@ -4045,7 +4045,7 @@ _ZNR5folly8OptionalINS_14AsyncUDPSocket6TXTimeEE5valueEv.exit131: ; preds = %if.
   %mul = mul i64 %16, 1000000000
   %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   %17 = load i64, ptr %tv_nsec, align 8, !tbaa !129
-  %mul.i.i.i = mul nsw i64 %options.coerce1, 1000
+  %mul.i.i.i = mul nuw nsw i64 %options.coerce1, 1000
   %add72 = add i64 %17, %mul.i.i.i
   %add76 = add i64 %add72, %mul
   %__cmsg_data77 = getelementptr inbounds i8, ptr %call62, i64 16
@@ -6613,7 +6613,7 @@ declare void @_ZN5folly5IOBuf21coalesceAndReallocateEmmPS0_m(ptr noundef nonnull
 declare noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN5folly14AsyncUDPSocket16getZeroCopyFlagsEv(ptr nocapture noundef nonnull align 16 dereferenceable(768) %this) local_unnamed_addr #18 align 2 {
+define noundef range(i32 0, 67108865) i32 @_ZN5folly14AsyncUDPSocket16getZeroCopyFlagsEv(ptr nocapture noundef nonnull align 16 dereferenceable(768) %this) local_unnamed_addr #18 align 2 {
 entry:
   %zeroCopyEnabled_ = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load i8, ptr %zeroCopyEnabled_, align 16, !tbaa !115, !range !20, !noundef !21
@@ -7622,7 +7622,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 
 invoke.cont28:                                    ; preds = %_ZN5folly13checkedMallocEm.exit
   %and.i.i.i65 = and i64 %14, 4611686018427387903
-  %add.ptr.i66.idx = mul nsw i64 %and.i.i.i65, 136
+  %add.ptr.i66.idx = mul nuw nsw i64 %and.i.i.i65, 136
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 1 %cond.i58, i64 %add.ptr.i66.idx, i1 false)
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE16makeSizeInternalIZNS5_8makeSizeEmEUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
@@ -9608,7 +9608,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val) #30
   store i32 %txTime.sroa.0.0.extract.trunc, ptr %val, align 4, !tbaa !266
   %0 = lshr i64 %txTime.coerce, 32
-  %1 = trunc i64 %0 to i32
+  %1 = trunc nuw i64 %0 to i32
   %cond = and i32 %1, 1
   %flags = getelementptr inbounds i8, ptr %val, i64 4
   store i32 %cond, ptr %flags, align 4, !tbaa !268

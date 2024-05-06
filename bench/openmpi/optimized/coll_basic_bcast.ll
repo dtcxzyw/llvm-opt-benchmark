@@ -34,7 +34,7 @@ define i32 @mca_coll_basic_bcast_log_intra(ptr noundef %0, i32 noundef %1, ptr n
   %15 = xor i32 %notmask.i, -1
   %16 = and i32 %12, %15
   %17 = icmp eq i32 %16, 0
-  %18 = tail call i32 @llvm.ctlz.i32(i32 %16, i1 true), !range !4
+  %18 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %16, i1 true)
   %19 = xor i32 %18, 31
   %.0.i = select i1 %17, i32 -1, i32 %19
   %20 = icmp sgt i32 %12, 0
@@ -134,7 +134,7 @@ ompi_request_cancel.exit.i:                       ; preds = %59, %56
 67:                                               ; preds = %63, %ompi_request_cancel.exit.i, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i, !llvm.loop !4
 
 68:                                               ; preds = %39, %42
   %.159 = phi i32 [ %45, %42 ], [ %.05895, %39 ]
@@ -142,7 +142,7 @@ ompi_request_cancel.exit.i:                       ; preds = %59, %56
   %69 = add i32 %.06393, 1
   %70 = shl i32 %.06294, 1
   %exitcond.not = icmp eq i32 %69, %14
-  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %68
   %71 = icmp sgt i32 %.159, 0
@@ -193,7 +193,7 @@ ompi_request_cancel.exit.i87:                     ; preds = %84, %81
 92:                                               ; preds = %88, %ompi_request_cancel.exit.i87, %.lr.ph.i79
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, %74
-  br i1 %exitcond.not.i85, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i79, !llvm.loop !5
+  br i1 %exitcond.not.i85, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i79, !llvm.loop !4
 
 ompi_coll_base_free_reqs.exit:                    ; preds = %67, %92, %35, %49, %._crit_edge, %72, %30, %21
   %.0 = phi i32 [ %29, %21 ], [ -2, %30 ], [ 0, %72 ], [ 0, %._crit_edge ], [ %48, %49 ], [ 0, %35 ], [ %75, %92 ], [ %48, %67 ]
@@ -250,7 +250,7 @@ ompi_comm_remote_size.exit:                       ; preds = %6, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %28 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 11), align 8
   %29 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   %31 = tail call i32 %28(ptr noundef %0, i64 noundef %26, ptr noundef %2, i32 noundef %30, i32 noundef -17, i32 noundef 4, ptr noundef %4, ptr noundef nonnull %29) #4
   %.not39 = icmp eq i32 %31, 0
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
@@ -298,11 +298,11 @@ ompi_request_cancel.exit.i:                       ; preds = %41, %38
 49:                                               ; preds = %45, %ompi_request_cancel.exit.i, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i, !llvm.loop !4
 
 50:                                               ; preds = %27
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %50, %.preheader
   %51 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
@@ -354,7 +354,7 @@ ompi_request_cancel.exit.i50:                     ; preds = %62, %59
 70:                                               ; preds = %66, %ompi_request_cancel.exit.i50, %.lr.ph.i42
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, %wide.trip.count.i41
-  br i1 %exitcond.not.i48, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i42, !llvm.loop !5
+  br i1 %exitcond.not.i48, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i42, !llvm.loop !4
 
 ompi_coll_base_free_reqs.exit:                    ; preds = %49, %70, %._crit_edge, %16, %ompi_comm_remote_size.exit, %20
   %.031 = phi i32 [ -2, %20 ], [ %19, %16 ], [ %53, %._crit_edge ], [ 0, %ompi_comm_remote_size.exit ], [ %53, %70 ], [ %31, %49 ]
@@ -381,8 +381,7 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 1, i32 33}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

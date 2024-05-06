@@ -252,7 +252,7 @@ declare noalias ptr @_emalloc_large(i64 noundef) local_unnamed_addr #3
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ir_compute_live_ranges(ptr noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ir_compute_live_ranges(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca [4 x i32], align 16
   %3 = alloca %struct._ir_target_constraints, align 1
   %4 = alloca %struct._ir_list, align 8
@@ -4713,7 +4713,7 @@ ir_hint_conflict.exit109.i:                       ; preds = %469
 
 ir_hint_conflict.exit109.thread.i:                ; preds = %472, %ir_hint_conflict.exit109.i, %._crit_edge.i97.i
   %476 = trunc nuw nsw i64 %indvars.iv496 to i32
-  tail call fastcc void @ir_swap_operands(ptr noundef %0, i32 noundef %476, ptr noundef nonnull %304)
+  tail call fastcc void @ir_swap_operands(ptr noundef readonly %0, i32 noundef %476, ptr noundef nonnull %304)
   br label %ir_try_swap_operands.exit
 
 477:                                              ; preds = %ir_hint_conflict.exit109.i, %ir_vregs_overlap.exit87.i
@@ -4970,7 +4970,7 @@ ir_try_swap_operands.exit:                        ; preds = %379, %481, %.crited
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @ir_block_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -1, 2) i32 @ir_block_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -5408,7 +5408,7 @@ define hidden noundef i32 @ir_compute_dessa_moves(ptr nocapture noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ir_gen_dessa_moves(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ir_gen_dessa_moves(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
@@ -6129,7 +6129,7 @@ define hidden i32 @ir_allocate_spill_slot(ptr nocapture noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ir_reg_alloc(ptr noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ir_reg_alloc(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca [10 x i8], align 4
   %3 = alloca [10 x i8], align 4
   %4 = alloca [32 x i32], align 16
@@ -6179,7 +6179,7 @@ define hidden noundef i32 @ir_reg_alloc(ptr noundef %0) local_unnamed_addr #1 {
 
 26:                                               ; preds = %.lr.ph.i
   store ptr %.0193461.i, ptr %10, align 8
-  %27 = tail call i32 @ir_gen_dessa_moves(ptr noundef nonnull %0, i32 noundef %.0194460.i, ptr noundef nonnull @ir_fix_dessa_tmps), !range !4
+  %27 = tail call i32 @ir_gen_dessa_moves(ptr noundef nonnull %0, i32 noundef %.0194460.i, ptr noundef nonnull @ir_fix_dessa_tmps)
   %.pre.i = load i32, ptr %19, align 4
   br label %28
 
@@ -11980,4 +11980,3 @@ attributes #22 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

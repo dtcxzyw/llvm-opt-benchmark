@@ -325,7 +325,7 @@ define dso_local void @ethnl_cable_test_finished(ptr nocapture noundef readonly 
 declare dso_local i32 @ethnl_multicast(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ethnl_cable_test_result(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_result(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 1200
@@ -404,7 +404,7 @@ define dso_local noundef i32 @ethnl_cable_test_result(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ethnl_cable_test_fault_length(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_fault_length(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 1200
@@ -779,7 +779,7 @@ thread-pre-split:                                 ; preds = %145, %.thread23
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ethnl_cable_test_amplitude(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i16 noundef signext %2) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_amplitude(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i16 noundef signext %2) #0 align 16 {
   %4 = alloca i16, align 2
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 1200
@@ -858,7 +858,7 @@ define dso_local noundef i32 @ethnl_cable_test_amplitude(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ethnl_cable_test_pulse(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_pulse(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 1200
   %5 = load ptr, ptr %4, align 8
@@ -926,7 +926,7 @@ define dso_local noundef i32 @ethnl_cable_test_pulse(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ethnl_cable_test_step(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_step(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

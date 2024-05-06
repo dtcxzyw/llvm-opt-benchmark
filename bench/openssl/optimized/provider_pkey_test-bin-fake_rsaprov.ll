@@ -145,7 +145,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fake_rsa_provider_init(ptr nocapture readnone %handle, ptr nocapture readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_provider_init(ptr nocapture readnone %handle, ptr nocapture readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #1 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #12
   store ptr %call, ptr %provctx, align 8
@@ -219,7 +219,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fake_rsa_sig_sign_init(ptr noundef %ctx, ptr noundef %provkey, ptr nocapture readnone %params) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_sig_sign_init(ptr noundef %ctx, ptr noundef %provkey, ptr nocapture readnone %params) #1 {
 entry:
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 320, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -247,7 +247,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fake_rsa_sig_sign(ptr noundef %ctx, ptr noundef writeonly %sig, ptr nocapture noundef %siglen, i64 noundef %sigsize, ptr nocapture readnone %tbs, i64 %tbslen) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_sig_sign(ptr noundef %ctx, ptr noundef writeonly %sig, ptr nocapture noundef %siglen, i64 noundef %sigsize, ptr nocapture readnone %tbs, i64 %tbslen) #1 {
 entry:
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 339, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -307,14 +307,14 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fake_rsa_dgstsgn_init(ptr noundef %ctx, ptr nocapture readnone %mdname, ptr noundef %provkey, ptr noundef %params) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstsgn_init(ptr noundef %ctx, ptr nocapture readnone %mdname, ptr noundef %provkey, ptr noundef %params) #1 {
 entry:
-  %call = tail call fastcc i32 @fake_rsa_dgstsgnvfy_init(ptr noundef %ctx, i8 noundef zeroext 1, ptr noundef %provkey, ptr noundef %params), !range !5
+  %call = tail call fastcc i32 @fake_rsa_dgstsgnvfy_init(ptr noundef %ctx, i8 noundef zeroext 1, ptr noundef %provkey, ptr noundef %params)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fake_rsa_dgstsgnvfy_update(ptr noundef %ctx, ptr nocapture readnone %data, i64 %datalen) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_update(ptr noundef %ctx, ptr nocapture readnone %data, i64 %datalen) #1 {
 entry:
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 425, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -339,7 +339,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fake_rsa_dgstsgnvfy_final(ptr noundef %ctx, ptr noundef writeonly %sig, ptr noundef %siglen, i64 noundef %sigsize) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_final(ptr noundef %ctx, ptr noundef writeonly %sig, ptr noundef %siglen, i64 noundef %sigsize) #1 {
 entry:
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 441, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -404,7 +404,7 @@ return:                                           ; preds = %if.end36, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fake_rsa_dgstsgn(ptr noundef %ctx, ptr noundef writeonly %sig, ptr noundef %siglen, i64 noundef %sigsize, ptr nocapture readnone %tbs, i64 %tbslen) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstsgn(ptr noundef %ctx, ptr noundef writeonly %sig, ptr noundef %siglen, i64 noundef %sigsize, ptr nocapture readnone %tbs, i64 %tbslen) #1 {
 entry:
   %call.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 425, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -464,7 +464,7 @@ if.then28.i:                                      ; preds = %if.then25.i
 
 if.end34.i:                                       ; preds = %if.then28.i
   %3 = load i64, ptr %siglen, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %sig, i8 97, i64 %3, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull writeonly align 1 %sig, i8 97, i64 %3, i1 false)
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.end34.i, %if.then25.i, %if.end23.i
@@ -484,14 +484,14 @@ return:                                           ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fake_rsa_dgstvfy_init(ptr noundef %ctx, ptr nocapture readnone %mdname, ptr noundef %provkey, ptr noundef %params) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstvfy_init(ptr noundef %ctx, ptr nocapture readnone %mdname, ptr noundef %provkey, ptr noundef %params) #1 {
 entry:
-  %call = tail call fastcc i32 @fake_rsa_dgstsgnvfy_init(ptr noundef %ctx, i8 noundef zeroext 2, ptr noundef %provkey, ptr noundef %params), !range !5
+  %call = tail call fastcc i32 @fake_rsa_dgstsgnvfy_init(ptr noundef %ctx, i8 noundef zeroext 2, ptr noundef %provkey, ptr noundef %params)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fake_rsa_dgstvfy_final(ptr noundef %ctx, ptr nocapture readnone %sig, i64 %siglen) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstvfy_final(ptr noundef %ctx, ptr nocapture readnone %sig, i64 %siglen) #1 {
 entry:
   %call.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 441, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -511,7 +511,7 @@ if.end14.i:                                       ; preds = %if.end.i
   br i1 %cmp39.not.i, label %fake_rsa_dgstsgnvfy_final.exit, label %if.then41.i
 
 if.then41.i:                                      ; preds = %if.end14.i
-  %or.i = or i8 %0, 8
+  %or.i = or disjoint i8 %0, 8
   store i8 %or.i, ptr %ctx, align 1
   br label %fake_rsa_dgstsgnvfy_final.exit
 
@@ -521,7 +521,7 @@ fake_rsa_dgstsgnvfy_final.exit:                   ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fake_rsa_dgstvfy(ptr noundef %ctx, ptr nocapture readnone %sig, i64 %siglen, ptr nocapture readnone %tbv, i64 %tbvlen) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstvfy(ptr noundef %ctx, ptr nocapture readnone %sig, i64 %siglen, ptr nocapture readnone %tbv, i64 %tbvlen) #1 {
 entry:
   %call.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 425, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -556,7 +556,7 @@ if.end14.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp39.not.i.i, label %return, label %if.then41.i.i
 
 if.then41.i.i:                                    ; preds = %if.end14.i.i
-  %or.i.i = or i8 %2, 8
+  %or.i.i = or disjoint i8 %2, 8
   store i8 %or.i.i, ptr %ctx, align 1
   br label %return
 
@@ -579,7 +579,7 @@ declare i32 @test_int_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @fake_rsa_dgstsgnvfy_init(ptr noundef %ctx, i8 noundef zeroext %type, ptr noundef %provkey, ptr noundef %params) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_init(ptr noundef %ctx, i8 noundef zeroext %type, ptr noundef %provkey, ptr noundef %params) unnamed_addr #1 {
 entry:
   %dup = alloca i32, align 4
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 383, ptr noundef nonnull @.str.17, ptr noundef %ctx) #12
@@ -790,12 +790,12 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @fake_rsa_st_open(ptr nocapture readnone %provctx, ptr nocapture noundef readonly %uri) #1 {
 entry:
-  %call.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %uri, ptr noundef nonnull dereferenceable(10) @fake_rsa_scheme, i64 noundef 9) #13
+  %call.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %uri, ptr noundef nonnull dereferenceable(10) @fake_rsa_scheme, i64 noundef 9) #13
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %fake_rsa_st_open_ex.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %uri, ptr noundef nonnull dereferenceable(20) @fake_rsa_openpwtest, i64 noundef 19) #13
+  %call1.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %uri, ptr noundef nonnull dereferenceable(20) @fake_rsa_openpwtest, i64 noundef 19) #13
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %fake_rsa_st_open_ex.exit, label %if.end16.i
 
@@ -968,7 +968,7 @@ if.end23:                                         ; preds = %if.then22, %sw.epil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fake_rsa_st_eof(ptr nocapture noundef readonly %loaderctx) #8 {
+define internal range(i32 0, 2) i32 @fake_rsa_st_eof(ptr nocapture noundef readonly %loaderctx) #8 {
 entry:
   %0 = load i8, ptr %loaderctx, align 1
   %cmp = icmp ne i8 %0, 0
@@ -1034,4 +1034,3 @@ attributes #13 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}

@@ -129,7 +129,7 @@ define dso_local noundef zeroext i1 @wait_result_is_any_signal(i32 noundef %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @wait_result_to_exit_code(i32 noundef %0) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 256) i32 @wait_result_to_exit_code(i32 noundef %0) local_unnamed_addr #2 {
   %2 = icmp eq i32 %0, -1
   br i1 %2, label %13, label %3
 

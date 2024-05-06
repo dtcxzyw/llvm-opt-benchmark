@@ -145,7 +145,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.55 = private unnamed_addr constant [39 x i8] c"description string must be valid UTF-8\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define noundef i32 @FLAC__format_sample_rate_is_valid(i32 noundef %sample_rate) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__format_sample_rate_is_valid(i32 noundef %sample_rate) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %sample_rate, 1048576
   %. = zext i1 %cmp to i32
@@ -153,7 +153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define noundef i32 @FLAC__format_blocksize_is_subset(i32 noundef %blocksize, i32 noundef %sample_rate) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__format_blocksize_is_subset(i32 noundef %blocksize, i32 noundef %sample_rate) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %blocksize, 16385
   %cmp1 = icmp ugt i32 %sample_rate, 48000
@@ -165,7 +165,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define noundef i32 @FLAC__format_sample_rate_is_subset(i32 noundef %sample_rate) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @FLAC__format_sample_rate_is_subset(i32 noundef %sample_rate) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %sample_rate, 655359
   br i1 %cmp, label %return, label %lor.lhs.false1
@@ -184,7 +184,7 @@ return:                                           ; preds = %lor.lhs.false1, %en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @FLAC__format_seektable_is_legal(ptr nocapture noundef readonly %seek_table) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @FLAC__format_seektable_is_legal(ptr nocapture noundef readonly %seek_table) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %seek_table, align 8
   %cmp = icmp ugt i32 %0, 932067
@@ -310,7 +310,7 @@ return:                                           ; preds = %for.body35, %if.end
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @seekpoint_compare_(ptr nocapture noundef readonly %l, ptr nocapture noundef readonly %r) #4 {
+define internal range(i32 -1, 2) i32 @seekpoint_compare_(ptr nocapture noundef readonly %l, ptr nocapture noundef readonly %r) #4 {
 entry:
   %0 = load i64, ptr %l, align 8
   %1 = load i64, ptr %r, align 8
@@ -325,7 +325,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr nocapture noundef readonly %name) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr nocapture noundef readonly %name) local_unnamed_addr #1 {
 entry:
   %c.06 = load i8, ptr %name, align 1
   %tobool.not7 = icmp eq i8 %c.06, 0
@@ -352,7 +352,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef readonly %value, i32 noundef %length) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef readonly %value, i32 noundef %length) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq i32 %length, -1
   br i1 %cmp, label %while.cond.preheader, label %if.else
@@ -364,7 +364,7 @@ while.cond.preheader:                             ; preds = %entry
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end
   %value.addr.017 = phi ptr [ %add.ptr, %if.end ], [ %value, %while.cond.preheader ]
-  %call = tail call fastcc i32 @utf8len_(ptr noundef nonnull %value.addr.017), !range !9
+  %call = tail call fastcc i32 @utf8len_(ptr noundef nonnull %value.addr.017)
   %cmp1 = icmp eq i32 %call, 0
   br i1 %cmp1, label %return, label %if.end
 
@@ -373,7 +373,7 @@ if.end:                                           ; preds = %while.body
   %add.ptr = getelementptr inbounds i8, ptr %value.addr.017, i64 %idx.ext
   %1 = load i8, ptr %add.ptr, align 1
   %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end19, label %while.body, !llvm.loop !10
+  br i1 %tobool.not, label %if.end19, label %while.body, !llvm.loop !9
 
 if.else:                                          ; preds = %entry
   %idx.ext3 = zext i32 %length to i64
@@ -383,7 +383,7 @@ if.else:                                          ; preds = %entry
 
 while.body7:                                      ; preds = %if.else, %if.end12
   %value.addr.115 = phi ptr [ %add.ptr14, %if.end12 ], [ %value, %if.else ]
-  %call9 = tail call fastcc i32 @utf8len_(ptr noundef %value.addr.115), !range !9
+  %call9 = tail call fastcc i32 @utf8len_(ptr noundef %value.addr.115)
   %cmp10 = icmp eq i32 %call9, 0
   br i1 %cmp10, label %return, label %if.end12
 
@@ -391,7 +391,7 @@ if.end12:                                         ; preds = %while.body7
   %idx.ext13 = zext nneg i32 %call9 to i64
   %add.ptr14 = getelementptr inbounds i8, ptr %value.addr.115, i64 %idx.ext13
   %cmp6 = icmp ult ptr %add.ptr14, %add.ptr4
-  br i1 %cmp6, label %while.body7, label %while.end15, !llvm.loop !11
+  br i1 %cmp6, label %while.body7, label %while.end15, !llvm.loop !10
 
 while.end15:                                      ; preds = %if.end12, %if.else
   %value.addr.1.lcssa = phi ptr [ %value, %if.else ], [ %add.ptr14, %if.end12 ]
@@ -407,7 +407,7 @@ return:                                           ; preds = %while.body7, %while
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @utf8len_(ptr nocapture noundef readonly %utf8) unnamed_addr #4 {
+define internal fastcc range(i32 0, 7) i32 @utf8len_(ptr nocapture noundef readonly %utf8) unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %utf8, align 1
   %conv = zext i8 %0 to i32
@@ -612,7 +612,7 @@ return:                                           ; preds = %land.lhs.true66, %i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef readonly %entry1, i32 noundef %length) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef readonly %entry1, i32 noundef %length) local_unnamed_addr #1 {
 entry:
   %idx.ext = zext i32 %length to i64
   %add.ptr = getelementptr inbounds i8, ptr %entry1, i64 %idx.ext
@@ -633,7 +633,7 @@ for.body:                                         ; preds = %land.rhs
 for.inc:                                          ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %s.020, i64 1
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp, label %land.rhs, label %for.end, !llvm.loop !12
+  br i1 %cmp, label %land.rhs, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %land.rhs, %for.inc, %entry
   %s.0.lcssa = phi ptr [ %entry1, %entry ], [ %incdec.ptr, %for.inc ], [ %s.020, %land.rhs ]
@@ -647,7 +647,7 @@ if.end13:                                         ; preds = %for.end
 
 while.body:                                       ; preds = %if.end13, %if.end20
   %s.123 = phi ptr [ %add.ptr22, %if.end20 ], [ %incdec.ptr14, %if.end13 ]
-  %call = tail call fastcc i32 @utf8len_(ptr noundef %s.123), !range !9
+  %call = tail call fastcc i32 @utf8len_(ptr noundef %s.123)
   %cmp17 = icmp eq i32 %call, 0
   br i1 %cmp17, label %return, label %if.end20
 
@@ -655,7 +655,7 @@ if.end20:                                         ; preds = %while.body
   %idx.ext21 = zext nneg i32 %call to i64
   %add.ptr22 = getelementptr inbounds i8, ptr %s.123, i64 %idx.ext21
   %cmp15 = icmp ult ptr %add.ptr22, %add.ptr
-  br i1 %cmp15, label %while.body, label %while.end, !llvm.loop !13
+  br i1 %cmp15, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end20, %if.end13
   %s.1.lcssa = phi ptr [ %incdec.ptr14, %if.end13 ], [ %add.ptr22, %if.end20 ]
@@ -669,7 +669,7 @@ return:                                           ; preds = %for.body, %while.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @FLAC__format_cuesheet_is_legal(ptr nocapture noundef readonly %cue_sheet, i32 noundef %check_cd_da_subset, ptr noundef writeonly %violation) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr nocapture noundef readonly %cue_sheet, i32 noundef %check_cd_da_subset, ptr noundef writeonly %violation) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %check_cd_da_subset, 0
   br i1 %tobool.not, label %if.end12, label %if.then
@@ -766,7 +766,7 @@ if.end121.us:                                     ; preds = %if.end42.us
 for.inc176.us:                                    ; preds = %for.inc.us.us, %if.end121.us
   %inc177.us = add nuw i32 %i.076.us, 1
   %exitcond97.not = icmp eq i32 %inc177.us, %1
-  br i1 %exitcond97.not, label %return, label %for.body.us, !llvm.loop !14
+  br i1 %exitcond97.not, label %return, label %for.body.us, !llvm.loop !13
 
 for.body130.lr.ph.us:                             ; preds = %if.end107.us, %if.end121.us
   %9 = phi i8 [ %.pre99, %if.end121.us ], [ %6, %if.end107.us ]
@@ -795,7 +795,7 @@ if.then150.us.us:                                 ; preds = %for.body130.us.us
 for.inc.us.us:                                    ; preds = %if.then150.us.us, %for.body130.us.us
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
-  br i1 %exitcond95.not, label %for.inc176.us, label %for.body130.us.us, !llvm.loop !15
+  br i1 %exitcond95.not, label %for.inc176.us, label %for.body130.us.us, !llvm.loop !14
 
 for.body:                                         ; preds = %land.lhs.true, %for.inc176
   %i.076 = phi i32 [ %inc177, %for.inc176 ], [ 0, %land.lhs.true ]
@@ -904,12 +904,12 @@ if.then170:                                       ; preds = %if.then150, %if.the
 for.inc:                                          ; preds = %if.end147, %if.then150
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.inc176, label %for.body130, !llvm.loop !15
+  br i1 %exitcond.not, label %for.inc176, label %for.body130, !llvm.loop !14
 
 for.inc176:                                       ; preds = %for.inc, %if.end121
   %inc177 = add nuw i32 %i.076, 1
   %exitcond90.not = icmp eq i32 %inc177, %2
-  br i1 %exitcond90.not, label %return, label %for.body, !llvm.loop !14
+  br i1 %exitcond90.not, label %return, label %for.body, !llvm.loop !13
 
 return.sink.split:                                ; preds = %if.then170, %if.then143, %if.then116, %if.then103, %if.then83, %if.then67, %if.then38, %if.then23, %if.then14, %if.then7, %if.then1
   %.str.53.sink = phi ptr [ @.str.42, %if.then1 ], [ @.str.43, %if.then7 ], [ @.str.44, %if.then14 ], [ @.str.45, %if.then23 ], [ @.str.46, %if.then38 ], [ @.str.47, %if.then67 ], [ %.str.48..str.49, %if.then83 ], [ @.str.50, %if.then103 ], [ @.str.51, %if.then116 ], [ @.str.52, %if.then143 ], [ @.str.53, %if.then170 ]
@@ -922,7 +922,7 @@ return:                                           ; preds = %for.inc176, %for.in
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @FLAC__format_picture_is_legal(ptr nocapture noundef readonly %picture, ptr noundef writeonly %violation) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @FLAC__format_picture_is_legal(ptr nocapture noundef readonly %picture, ptr noundef writeonly %violation) local_unnamed_addr #6 {
 entry:
   %mime_type = getelementptr inbounds i8, ptr %picture, i64 8
   %0 = load ptr, ptr %mime_type, align 8
@@ -934,7 +934,7 @@ for.cond:                                         ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %p.012, i64 1
   %2 = load i8, ptr %incdec.ptr, align 1
   %tobool.not = icmp eq i8 %2, 0
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !16
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.body:                                         ; preds = %entry, %for.cond
   %3 = phi i8 [ %2, %for.cond ], [ %1, %entry ]
@@ -956,7 +956,7 @@ for.end:                                          ; preds = %for.cond, %entry
 
 for.body10:                                       ; preds = %for.end, %if.end17
   %b.014 = phi ptr [ %add.ptr, %if.end17 ], [ %5, %for.end ]
-  %call = tail call fastcc i32 @utf8len_(ptr noundef nonnull %b.014), !range !9
+  %call = tail call fastcc i32 @utf8len_(ptr noundef nonnull %b.014)
   %cmp11 = icmp eq i32 %call, 0
   br i1 %cmp11, label %if.then13, label %if.end17
 
@@ -969,7 +969,7 @@ if.end17:                                         ; preds = %for.body10
   %add.ptr = getelementptr inbounds i8, ptr %b.014, i64 %idx.ext
   %7 = load i8, ptr %add.ptr, align 1
   %tobool9.not = icmp eq i8 %7, 0
-  br i1 %tobool9.not, label %return, label %for.body10, !llvm.loop !17
+  br i1 %tobool9.not, label %return, label %for.body10, !llvm.loop !16
 
 return.sink.split:                                ; preds = %if.then13, %if.then
   %.str.55.sink = phi ptr [ @.str.54, %if.then ], [ @.str.55, %if.then13 ]
@@ -995,7 +995,7 @@ while.body:                                       ; preds = %entry, %while.body
   %shr = lshr exact i32 %blocksize.addr.06, 1
   %0 = and i32 %blocksize.addr.06, 2
   %tobool.not = icmp eq i32 %0, 0
-  br i1 %tobool.not, label %while.body, label %while.end, !llvm.loop !18
+  br i1 %tobool.not, label %while.body, label %while.end, !llvm.loop !17
 
 while.end:                                        ; preds = %while.body, %entry
   %max_rice_partition_order.0.lcssa = phi i32 [ 0, %entry ], [ %inc, %while.body ]
@@ -1015,7 +1015,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   %cmp1.not = icmp ugt i32 %shr, %predictor_order
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp1.not
   %dec = add i32 %max_rice_partition_order.0, -1
-  br i1 %or.cond, label %while.end, label %while.cond, !llvm.loop !19
+  br i1 %or.cond, label %while.end, label %while.cond, !llvm.loop !18
 
 while.end:                                        ; preds = %while.cond
   ret i32 %max_rice_partition_order.0
@@ -1050,7 +1050,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %object, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %object, i8 0, i64 20, i1 false)
   ret void
 }
 
@@ -1058,7 +1058,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden noundef i32 @FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size(ptr nocapture noundef %object, i32 noundef %max_partition_order) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size(ptr nocapture noundef %object, i32 noundef %max_partition_order) local_unnamed_addr #9 {
 entry:
   %capacity_by_order = getelementptr inbounds i8, ptr %object, i64 16
   %0 = load i32, ptr %capacity_by_order, align 8
@@ -1148,7 +1148,7 @@ attributes #15 = { nounwind allocsize(1) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 0, i32 7}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
@@ -1158,4 +1158,3 @@ attributes #15 = { nounwind allocsize(1) }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}

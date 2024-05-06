@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.make_scalar_key = private unnamed_addr constant [16 x i8] c"make_scalar_key\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gin_compare_jsonb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @gin_compare_jsonb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -675,7 +675,7 @@ define internal fastcc ptr @extract_jsp_query(ptr noundef %0, i16 noundef zeroex
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds i8, ptr %6, i64 16
   %.lobit = lshr i32 %10, 31
-  %12 = trunc i32 %.lobit to i8
+  %12 = trunc nuw nsw i32 %.lobit to i8
   store i8 %12, ptr %11, align 8
   %spec.select = select i1 %2, ptr @jsonb_path_ops__add_path_item, ptr @jsonb_ops__add_path_item
   %spec.select15 = select i1 %2, ptr @jsonb_path_ops__extract_nodes, ptr @jsonb_ops__extract_nodes
@@ -733,7 +733,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gin_consistent_jsonb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -934,7 +934,7 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gin_triconsistent_jsonb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1235,7 +1235,7 @@ define dso_local i64 @gin_extract_jsonb_query_path(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gin_consistent_jsonb_path(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb_path(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1307,7 +1307,7 @@ define dso_local i64 @gin_consistent_jsonb_path(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gin_triconsistent_jsonb_path(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb_path(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1563,12 +1563,12 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   br label %38
 
 27:                                               ; preds = %23, %18
-  %28 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull %2, i1 noundef zeroext true)
+  %28 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext true)
   %29 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   store i64 %28, ptr %30, align 8
-  %31 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull %2, i1 noundef zeroext false)
+  %31 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext false)
   %32 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
@@ -1585,7 +1585,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
 
 38:                                               ; preds = %26, %22, %23, %23
   %.ph = phi i1 [ true, %23 ], [ true, %23 ], [ false, %22 ], [ false, %26 ]
-  %39 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull %2, i1 noundef zeroext %.ph)
+  %39 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext %.ph)
   %40 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
@@ -1593,7 +1593,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   br label %46
 
 42:                                               ; preds = %._crit_edge
-  %43 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull %2, i1 noundef zeroext false)
+  %43 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext false)
   %44 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8

@@ -206,7 +206,7 @@ if.end:                                           ; preds = %cond.end
   br i1 %cmp5, label %if.then11, label %lor.end
 
 lor.end:                                          ; preds = %if.end
-  %0 = trunc i64 %sub to i32
+  %0 = trunc nuw i64 %sub to i32
   %conv = add nuw nsw i32 %0, 1
   %call6 = tail call i32 @lua_checkstack(ptr noundef %L, i32 noundef %conv) #4
   %tobool.not = icmp eq i32 %call6, 0

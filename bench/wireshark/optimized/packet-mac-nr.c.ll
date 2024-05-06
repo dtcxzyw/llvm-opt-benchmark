@@ -2313,7 +2313,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mac_nr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -1, 1) i32 @dissect_mac_nr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2882,7 +2882,7 @@ define hidden void @proto_reg_handoff_mac_nr() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mac_nr_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_mac_nr_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %7 = icmp slt i32 %6, 11
@@ -2922,7 +2922,7 @@ define internal noundef i32 @dissect_mac_nr_heur(ptr noundef %0, ptr noundef %1,
 27:                                               ; preds = %21, %15
   %28 = phi i32 [ %26, %21 ], [ %.pre, %15 ]
   %29 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %28) #12
-  %30 = tail call i32 @dissect_mac_nr(ptr noundef %29, ptr noundef %1, ptr noundef %2, ptr poison), !range !13
+  %30 = tail call i32 @dissect_mac_nr(ptr noundef %29, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %31
 
 31:                                               ; preds = %8, %4, %27
@@ -3298,7 +3298,7 @@ proto_item_set_hidden.exit:                       ; preds = %82, %93, %96
 173:                                              ; preds = %174
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %lookup_rlc_bearer_from_lcid.exit.thread, label %174, !llvm.loop !14
+  br i1 %exitcond.not.i, label %lookup_rlc_bearer_from_lcid.exit.thread, label %174, !llvm.loop !13
 
 174:                                              ; preds = %173, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %173 ]
@@ -3763,7 +3763,7 @@ lookup_rlc_bearer_from_lcid.exit.thread:          ; preds = %173, %187, %181, %.
 
 402:                                              ; preds = %396, %414
   %indvars.iv = phi i64 [ 1, %396 ], [ %indvars.iv.next, %414 ]
-  %403 = trunc i64 %indvars.iv to i32
+  %403 = trunc nuw nsw i64 %indvars.iv to i32
   %404 = shl nuw nsw i32 1, %403
   %405 = and i32 %404, %401
   %.not562 = icmp eq i32 %405, 0
@@ -3783,14 +3783,14 @@ lookup_rlc_bearer_from_lcid.exit.thread:          ; preds = %173, %187, %181, %.
 414:                                              ; preds = %402, %406
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %415, label %402, !llvm.loop !15
+  br i1 %exitcond.not, label %415, label %402, !llvm.loop !14
 
 415:                                              ; preds = %414
   br i1 %379, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %415, %428
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %428 ], [ 0, %415 ]
-  %416 = trunc i64 %indvars.iv68 to i32
+  %416 = trunc nuw nsw i64 %indvars.iv68 to i32
   %417 = shl nuw nsw i32 1, %416
   %418 = and i32 %417, %.0539
   %.not561 = icmp eq i32 %418, 0
@@ -3811,7 +3811,7 @@ lookup_rlc_bearer_from_lcid.exit.thread:          ; preds = %173, %187, %181, %.
 428:                                              ; preds = %.preheader, %419
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next69, 24
-  br i1 %exitcond71.not, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %exitcond71.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %428, %415
   br i1 %.not.i644, label %431, label %429
@@ -3926,7 +3926,7 @@ write_pdu_label_and_info_literal.exit587:         ; preds = %433, %434
   %496 = sub i32 %495, %487
   %497 = load i32, ptr %9, align 4
   %498 = icmp ult i32 %496, %497
-  br i1 %498, label %.lr.ph60, label %._crit_edge61, !llvm.loop !17
+  br i1 %498, label %.lr.ph60, label %._crit_edge61, !llvm.loop !16
 
 ._crit_edge61:                                    ; preds = %.lr.ph60, %485
   br i1 %.not.i644, label %501, label %499
@@ -4376,7 +4376,7 @@ write_pdu_label_and_info_literal.exit595:         ; preds = %574, %575
   %736 = add i32 %.053655, 1
   %737 = sub i32 %735, %682
   %738 = icmp ult i32 %737, %713
-  br i1 %738, label %.lr.ph57, label %.loopexit40.loopexit, !llvm.loop !18
+  br i1 %738, label %.lr.ph57, label %.loopexit40.loopexit, !llvm.loop !17
 
 .loopexit40.loopexit:                             ; preds = %733
   %.pre72 = load i32, ptr %27, align 4
@@ -4412,7 +4412,7 @@ write_pdu_label_and_info_literal.exit595:         ; preds = %574, %575
   %756 = sub i32 %755, %682
   %757 = load i32, ptr %9, align 4
   %758 = icmp ult i32 %756, %757
-  br i1 %758, label %.lr.ph58, label %.loopexit39, !llvm.loop !19
+  br i1 %758, label %.lr.ph58, label %.loopexit39, !llvm.loop !18
 
 .loopexit39:                                      ; preds = %.lr.ph58, %.preheader38, %.loopexit40
   %759 = load i32, ptr %26, align 4
@@ -4530,7 +4530,7 @@ write_pdu_label_and_info_literal.exit595:         ; preds = %574, %575
   %814 = sub i32 %storemerge550, %802
   %815 = load i32, ptr %9, align 4
   %816 = icmp ult i32 %814, %815
-  br i1 %816, label %.lr.ph53, label %._crit_edge54, !llvm.loop !20
+  br i1 %816, label %.lr.ph53, label %._crit_edge54, !llvm.loop !19
 
 ._crit_edge54:                                    ; preds = %.lr.ph53, %801
   br i1 %.not.i644, label %819, label %817
@@ -4582,7 +4582,7 @@ write_pdu_label_and_info_literal.exit595:         ; preds = %574, %575
   %836 = sub i32 %storemerge, %824
   %837 = load i32, ptr %9, align 4
   %838 = icmp ult i32 %836, %837
-  br i1 %838, label %.lr.ph48, label %._crit_edge, !llvm.loop !21
+  br i1 %838, label %.lr.ph48, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph48, %823
   br i1 %.not.i644, label %841, label %839
@@ -4658,7 +4658,7 @@ write_pdu_label_and_info_literal.exit595:         ; preds = %574, %575
   %881 = sub i32 %880, %846
   %882 = load i32, ptr %9, align 4
   %883 = icmp ult i32 %881, %882
-  br i1 %883, label %.lr.ph, label %.loopexit42, !llvm.loop !22
+  br i1 %883, label %.lr.ph, label %.loopexit42, !llvm.loop !21
 
 .loopexit42:                                      ; preds = %.lr.ph, %.preheader41, %845
   br i1 %.not.i644, label %886, label %884
@@ -4895,7 +4895,7 @@ write_pdu_label_and_info_literal.exit:            ; preds = %962, %961, %939, %9
   %974 = load i32, ptr %7, align 4
   %975 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %974) #12
   %.not576 = icmp eq i32 %975, 0
-  br i1 %.not576, label %976, label %42, !llvm.loop !23
+  br i1 %.not576, label %976, label %42, !llvm.loop !22
 
 976:                                              ; preds = %write_pdu_label_and_info_literal.exit
   ret void
@@ -5334,7 +5334,7 @@ attributes #15 = { noreturn nounwind }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = !{i32 -1, i32 1}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
@@ -5344,4 +5344,3 @@ attributes #15 = { noreturn nounwind }
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}

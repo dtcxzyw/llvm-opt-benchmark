@@ -37,7 +37,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_color_lu
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_drm_color_ctm_s31_32_to_qm_n367, ptr @__UNIQUE_ID___addressable_drm_color_lut_check381, ptr @__UNIQUE_ID___addressable_drm_crtc_enable_color_mgmt368, ptr @__UNIQUE_ID___addressable_drm_mode_crtc_set_gamma_size369, ptr @__UNIQUE_ID___addressable_drm_plane_create_color_properties380], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @drm_color_ctm_s31_32_to_qm_n(i64 noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @drm_color_ctm_s31_32_to_qm_n(i64 noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = icmp ugt i32 %1, 32
   %5 = icmp ugt i32 %2, 32
   %6 = or i1 %4, %5
@@ -124,7 +124,7 @@ define dso_local void @drm_crtc_enable_color_mgmt(ptr noundef %0, i32 noundef %1
 declare dso_local void @drm_object_attach_property(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_mode_crtc_set_gamma_size(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_mode_crtc_set_gamma_size(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 416
   store i32 %1, ptr %3, align 8
   %4 = sext i32 %1 to i64
@@ -522,7 +522,7 @@ declare dso_local void @drm_modeset_acquire_fini(ptr noundef) local_unnamed_addr
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_mode_gamma_get_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -95, 1) i32 @drm_mode_gamma_get_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 176
@@ -656,7 +656,7 @@ define dso_local ptr @drm_get_color_range_name(i32 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_plane_create_color_properties(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_plane_create_color_properties(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca [3 x %struct.drm_prop_enum_list], align 16
   %7 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #6
@@ -712,7 +712,7 @@ define dso_local noundef i32 @drm_plane_create_color_properties(ptr noundef %0, 
 32:                                               ; preds = %.preheader
   %33 = sext i32 %28 to i64
   %34 = getelementptr [3 x %struct.drm_prop_enum_list], ptr %6, i64 0, i64 %33
-  %35 = trunc i64 %27 to i32
+  %35 = trunc nuw nsw i64 %27 to i32
   store i32 %35, ptr %34, align 16
   %36 = getelementptr [3 x ptr], ptr @color_encoding_name, i64 0, i64 %27
   %37 = load ptr, ptr %36, align 8
@@ -762,7 +762,7 @@ define dso_local noundef i32 @drm_plane_create_color_properties(ptr noundef %0, 
 62:                                               ; preds = %55
   %63 = sext i32 %58 to i64
   %64 = getelementptr [3 x %struct.drm_prop_enum_list], ptr %6, i64 0, i64 %63
-  %65 = trunc i64 %57 to i32
+  %65 = trunc nuw nsw i64 %57 to i32
   store i32 %65, ptr %64, align 16
   %66 = getelementptr [2 x ptr], ptr @color_range_name, i64 0, i64 %57
   %67 = load ptr, ptr %66, align 8
@@ -803,7 +803,7 @@ define dso_local noundef i32 @drm_plane_create_color_properties(ptr noundef %0, 
 declare dso_local ptr @drm_property_create_enum(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_color_lut_check(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_color_lut_check(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne i32 %1, 0
   %5 = and i1 %3, %4

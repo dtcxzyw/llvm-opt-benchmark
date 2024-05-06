@@ -27,7 +27,7 @@ define dso_local i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr nocap
   br i1 %.not32, label %12, label %11
 
 11:                                               ; preds = %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 1 dereferenceable(3) %1, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
   br label %copy_special_str.exit
 
 12:                                               ; preds = %10
@@ -153,7 +153,7 @@ define dso_local i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr nocap
   %98 = lshr i64 %94, %97
   %99 = trunc i64 %98 to i32
   %100 = urem i32 %99, 10
-  %101 = trunc i32 %100 to i8
+  %101 = trunc nuw nsw i32 %100 to i8
   br label %102
 
 102:                                              ; preds = %82, %78
@@ -277,7 +277,7 @@ multipleOfPowerOf5.exit169.i:                     ; preds = %.lr.ph.i.i165.i, %1
   %173 = lshr i64 %170, %172
   %174 = trunc i64 %173 to i32
   %175 = urem i32 %174, 10
-  %176 = trunc i32 %175 to i8
+  %176 = trunc nuw nsw i32 %175 to i8
   br label %177
 
 177:                                              ; preds = %158, %155
@@ -318,7 +318,7 @@ multipleOfPowerOf5.exit169.i:                     ; preds = %.lr.ph.i.i165.i, %1
   %191 = icmp eq i8 %.3145184.i, 0
   %192 = and i1 %.1139.in185.i, %191
   %193 = urem i32 %.1123186.i, 10
-  %194 = trunc i32 %193 to i8
+  %194 = trunc nuw nsw i32 %193 to i8
   %195 = udiv i32 %.1123186.i, 10
   %196 = add i32 %.0120187.i, 1
   %197 = udiv i32 %190, 10
@@ -361,7 +361,7 @@ multipleOfPowerOf5.exit169.i:                     ; preds = %.lr.ph.i.i165.i, %1
   br i1 %215, label %.lr.ph194.i, label %._crit_edge195.i, !llvm.loop !7
 
 ._crit_edge195.i:                                 ; preds = %.lr.ph194.i
-  %216 = trunc i32 %211 to i8
+  %216 = trunc nuw nsw i32 %211 to i8
   br label %217
 
 217:                                              ; preds = %._crit_edge195.i, %.preheader.i
@@ -506,7 +506,7 @@ decimalLength.exit.i:                             ; preds = %238, %236, %234, %2
   br i1 %279, label %280, label %296
 
 280:                                              ; preds = %._crit_edge.i.i
-  %.lhs.trunc.i.i = trunc i32 %.069.lcssa.i.i to i16
+  %.lhs.trunc.i.i = trunc nuw i32 %.069.lcssa.i.i to i16
   %281 = urem i16 %.lhs.trunc.i.i, 100
   %282 = shl nuw nsw i16 %281, 1
   %283 = udiv i16 %.lhs.trunc.i.i, 100
@@ -549,7 +549,7 @@ decimalLength.exit.i:                             ; preds = %238, %236, %234, %2
   br label %316
 
 311:                                              ; preds = %296
-  %312 = trunc i32 %.170.i.i to i8
+  %312 = trunc nuw i32 %.170.i.i to i8
   %313 = or disjoint i8 %312, 48
   %314 = sext i32 %.0.i91.i to i64
   %315 = getelementptr i8, ptr %247, i64 %314
@@ -687,7 +687,7 @@ to_chars_f.exit.i:                                ; preds = %342, %338
   br i1 %380, label %381, label %397
 
 381:                                              ; preds = %._crit_edge.i25
-  %.lhs.trunc.i = trunc i32 %.282.lcssa.i to i16
+  %.lhs.trunc.i = trunc nuw i32 %.282.lcssa.i to i16
   %382 = urem i16 %.lhs.trunc.i, 100
   %383 = shl nuw nsw i16 %382, 1
   %384 = udiv i16 %.lhs.trunc.i, 100
@@ -730,7 +730,7 @@ to_chars_f.exit.i:                                ; preds = %342, %338
   br label %415
 
 412:                                              ; preds = %397
-  %413 = trunc i32 %.3.i to i8
+  %413 = trunc nuw i32 %.3.i to i8
   %414 = or disjoint i8 %413, 48
   br label %415
 

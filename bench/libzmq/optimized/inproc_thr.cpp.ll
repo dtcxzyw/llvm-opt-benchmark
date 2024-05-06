@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.2 = private unnamed_addr constant [49 x i8] c"usage: inproc_thr <message-size> <message-count>\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local noundef range(i32 -1, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %local_thread = alloca i64, align 8
   %msg = alloca %struct.zmq_msg_t, align 8
@@ -109,7 +109,7 @@ if.then32:                                        ; preds = %if.end29
 
 if.end36:                                         ; preds = %if.end29
   %6 = load i64, ptr @_ZL12message_size, align 8
-  %conv37 = trunc i64 %6 to i32
+  %conv37 = trunc nsw i64 %6 to i32
   %call38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %conv37)
   %7 = load i32, ptr @_ZL13message_count, align 4
   %call39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %7)

@@ -97,7 +97,7 @@ err:                                              ; preds = %if.end, %entry
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 55, ptr noundef nonnull @__func__.def_serial_cb) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef 524301, ptr noundef null) #9
-  %call4 = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef %ctx, i32 noundef 2, ptr noundef nonnull @.str.3), !range !4
+  %call4 = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef %ctx, i32 noundef 2, ptr noundef nonnull @.str.3)
   tail call void @ASN1_INTEGER_free(ptr noundef %call) #9
   br label %return
 
@@ -107,7 +107,7 @@ return:                                           ; preds = %if.end, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @def_time_cb(ptr nocapture noundef readonly %ctx, ptr nocapture readnone %data, ptr nocapture noundef writeonly %sec, ptr nocapture noundef writeonly %usec) #0 {
+define internal range(i32 0, 2) i32 @def_time_cb(ptr nocapture noundef readonly %ctx, ptr nocapture readnone %data, ptr nocapture noundef writeonly %sec, ptr nocapture noundef writeonly %usec) #0 {
 entry:
   %call = tail call i64 @ossl_time_now() #9
   %cmp.i.not.not.i.not = icmp eq i64 %call, 0
@@ -117,7 +117,7 @@ if.then:                                          ; preds = %entry
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 70, ptr noundef nonnull @__func__.def_time_cb) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef 122, ptr noundef null) #9
-  %call3 = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef %ctx, i32 noundef 2, ptr noundef nonnull @.str.4), !range !4
+  %call3 = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef %ctx, i32 noundef 2, ptr noundef nonnull @.str.4)
   %response.i = getelementptr inbounds i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %response.i, align 8
   %1 = load ptr, ptr %0, align 8
@@ -148,7 +148,7 @@ if.end:                                           ; preds = %entry
   %t.sroa.0.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %call, i64 999)
   %div.i = udiv i64 %t.sroa.0.0.i, 1000000000
   %rem.i = urem i64 %t.sroa.0.0.i, 1000000000
-  %div7.lhs.trunc.i = trunc i64 %rem.i to i32
+  %div7.lhs.trunc.i = trunc nuw nsw i64 %rem.i to i32
   %div77.i = udiv i32 %div7.lhs.trunc.i, 1000
   %div7.zext.i = zext nneg i32 %div77.i to i64
   store i64 %div.i, ptr %sec, align 8
@@ -163,7 +163,7 @@ return:                                           ; preds = %err.i, %if.end.i, %
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @def_extension_cb(ptr nocapture noundef readonly %ctx, ptr nocapture readnone %ext, ptr nocapture readnone %data) #0 {
 entry:
-  %call = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef %ctx, i32 noundef 2, ptr noundef nonnull @.str.5), !range !4
+  %call = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef %ctx, i32 noundef 2, ptr noundef nonnull @.str.5)
   %response.i = getelementptr inbounds i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %response.i, align 8
   %1 = load ptr, ptr %0, align 8
@@ -272,7 +272,7 @@ declare void @ASN1_OBJECT_free(ptr noundef) #1
 declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_RESP_CTX_set_signer_cert(ptr nocapture noundef %ctx, ptr noundef %signer) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_set_signer_cert(ptr nocapture noundef %ctx, ptr noundef %signer) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_check_purpose(ptr noundef %signer, i32 noundef 9, i32 noundef 0) #9
   %cmp.not = icmp eq i32 %call, 1
@@ -328,7 +328,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_RESP_CTX_set_def_policy(ptr nocapture noundef %ctx, ptr noundef %def_policy) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_set_def_policy(ptr nocapture noundef %ctx, ptr noundef %def_policy) local_unnamed_addr #0 {
 entry:
   %default_policy = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %default_policy, align 8
@@ -352,7 +352,7 @@ return:                                           ; preds = %entry, %err
 declare ptr @OBJ_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @TS_RESP_CTX_set_certs(ptr nocapture noundef %ctx, ptr noundef %certs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_set_certs(ptr nocapture noundef %ctx, ptr noundef %certs) local_unnamed_addr #0 {
 entry:
   %certs1 = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %certs1, align 8
@@ -376,7 +376,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 declare ptr @X509_chain_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_RESP_CTX_add_policy(ptr nocapture noundef %ctx, ptr noundef %policy) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_add_policy(ptr nocapture noundef %ctx, ptr noundef %policy) local_unnamed_addr #0 {
 entry:
   %policies = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %policies, align 8
@@ -420,7 +420,7 @@ declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_RESP_CTX_add_md(ptr nocapture noundef %ctx, ptr noundef %md) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_add_md(ptr nocapture noundef %ctx, ptr noundef %md) local_unnamed_addr #0 {
 entry:
   %mds = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load ptr, ptr %mds, align 8
@@ -451,7 +451,7 @@ return:                                           ; preds = %if.end, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_RESP_CTX_set_accuracy(ptr nocapture noundef %ctx, i32 noundef %secs, i32 noundef %millis, i32 noundef %micros) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_set_accuracy(ptr nocapture noundef %ctx, i32 noundef %secs, i32 noundef %millis, i32 noundef %micros) local_unnamed_addr #0 {
 entry:
   %seconds = getelementptr inbounds i8, ptr %ctx, i64 64
   %0 = load ptr, ptr %seconds, align 8
@@ -577,7 +577,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_RESP_CTX_set_status_info(ptr nocapture noundef readonly %ctx, i32 noundef %status, ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_set_status_info(ptr nocapture noundef readonly %ctx, i32 noundef %status, ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @TS_STATUS_INFO_new() #9
   %cmp = icmp eq ptr %call, null
@@ -664,7 +664,7 @@ declare void @TS_STATUS_INFO_free(ptr noundef) local_unnamed_addr #1
 declare void @ASN1_UTF8STRING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_RESP_CTX_set_status_info_cond(ptr nocapture noundef readonly %ctx, i32 noundef %status, ptr noundef %text) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_set_status_info_cond(ptr nocapture noundef readonly %ctx, i32 noundef %status, ptr noundef %text) local_unnamed_addr #0 {
 entry:
   %response = getelementptr inbounds i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %response, align 8
@@ -675,7 +675,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef %status, ptr noundef %text), !range !4
+  %call2 = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef %status, ptr noundef %text)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -686,7 +686,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_RESP_CTX_add_failure_info(ptr nocapture noundef readonly %ctx, i32 noundef %failure) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_add_failure_info(ptr nocapture noundef readonly %ctx, i32 noundef %failure) local_unnamed_addr #0 {
 entry:
   %response = getelementptr inbounds i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %response, align 8
@@ -740,7 +740,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @TS_RESP_CTX_set_clock_precision_digits(ptr nocapture noundef writeonly %ctx, i32 noundef %precision) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @TS_RESP_CTX_set_clock_precision_digits(ptr nocapture noundef writeonly %ctx, i32 noundef %precision) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ugt i32 %precision, 6
   br i1 %cmp, label %return, label %if.end
@@ -766,7 +766,7 @@ entry:
   %usec.i = alloca i64, align 8
   %md_alg_name.i = alloca [50 x i8], align 16
   %request.i = getelementptr inbounds i8, ptr %ctx, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %request.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %request.i, i8 0, i64 24, i1 false)
   %call = tail call ptr @TS_RESP_new() #9
   %response1 = getelementptr inbounds i8, ptr %ctx, i64 152
   store ptr %call, ptr %response1, align 8
@@ -786,7 +786,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %if.end
-  %call5 = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.1), !range !4
+  %call5 = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.1)
   %0 = load ptr, ptr %response1, align 8
   %1 = load ptr, ptr %0, align 8
   %failure_info.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -813,7 +813,7 @@ err.i:                                            ; preds = %if.end.i, %land.lhs
   br label %if.then32
 
 if.end7:                                          ; preds = %if.end
-  %call8 = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null), !range !4
+  %call8 = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef null)
   %tobool.not = icmp eq i32 %call8, 0
   br i1 %tobool.not, label %if.then32, label %if.end10
 
@@ -825,7 +825,7 @@ if.end10:                                         ; preds = %if.end7
   br i1 %cmp.not.i, label %if.end.i21, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end10
-  %call2.i = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.6), !range !4
+  %call2.i = tail call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.6)
   %5 = load ptr, ptr %response1, align 8
   %6 = load ptr, ptr %5, align 8
   %failure_info.i.i = getelementptr inbounds i8, ptr %6, i64 16
@@ -878,7 +878,7 @@ for.body.i:                                       ; preds = %land.rhs.i
   br i1 %tobool.not.i22, label %land.rhs.i, label %if.end19.i
 
 if.then16.i:                                      ; preds = %land.rhs.i
-  %call17.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.7), !range !4
+  %call17.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.7)
   %14 = load ptr, ptr %response1, align 8
   %15 = load ptr, ptr %14, align 8
   %failure_info.i23.i = getelementptr inbounds i8, ptr %15, i64 16
@@ -916,7 +916,7 @@ land.lhs.true.i23:                                ; preds = %if.end19.i
   br i1 %cmp23.not.i, label %if.end27.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %land.lhs.true.i23
-  %call25.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.8), !range !4
+  %call25.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.8)
   %19 = load ptr, ptr %response1, align 8
   %20 = load ptr, ptr %19, align 8
   %failure_info.i35.i = getelementptr inbounds i8, ptr %20, i64 16
@@ -951,7 +951,7 @@ if.end27.i:                                       ; preds = %land.lhs.true.i23, 
   br i1 %cmp29.not.i, label %if.end14, label %if.then30.i
 
 if.then30.i:                                      ; preds = %if.end27.i
-  %call31.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.9), !range !4
+  %call31.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.9)
   %25 = load ptr, ptr %response1, align 8
   %26 = load ptr, ptr %25, align 8
   %failure_info.i47.i = getelementptr inbounds i8, ptr %26, i64 16
@@ -1029,13 +1029,13 @@ for.body.i41:                                     ; preds = %land.rhs.i29
   %inc.i42 = add nuw nsw i32 %i.019.i, 1
   %cond25.i = icmp eq ptr %call12.i, null
   %cond.i = or i1 %cond25.i, %tobool14.not.i
-  br i1 %cond.i, label %land.rhs.i29, label %if.end18, !llvm.loop !5
+  br i1 %cond.i, label %land.rhs.i29, label %if.end18, !llvm.loop !4
 
 if.then18.i:                                      ; preds = %land.rhs.i29
   call void @ERR_new() #9
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 512, ptr noundef nonnull @__func__.ts_RESP_get_policy) #9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef 125, ptr noundef null) #9
-  %call19.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.10), !range !4
+  %call19.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.10)
   %34 = load ptr, ptr %response1, align 8
   %35 = load ptr, ptr %34, align 8
   %failure_info.i.i31 = getelementptr inbounds i8, ptr %35, i64 16
@@ -1338,7 +1338,7 @@ if.then101.i:                                     ; preds = %end.i, %if.end88.i,
   br i1 %cmp.i47.i, label %if.then.i.i, label %ts_RESP_create_tst_info.exit
 
 if.then.i.i:                                      ; preds = %if.then101.i
-  %call2.i.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.11), !range !4
+  %call2.i.i = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.11)
   br label %ts_RESP_create_tst_info.exit
 
 ts_RESP_create_tst_info.exit:                     ; preds = %if.end80.i, %end.i, %if.then101.i, %if.then.i.i
@@ -1377,7 +1377,7 @@ for.body.i66:                                     ; preds = %land.rhs.i63
   %call4.i67 = call i32 %69(ptr noundef nonnull %ctx, ptr noundef %call3.i, ptr noundef null) #9
   %inc.i68 = add nuw nsw i32 %i.08.i, 1
   %tobool.not.i69 = icmp eq i32 %call4.i67, 0
-  br i1 %tobool.not.i69, label %if.then32, label %land.rhs.i63, !llvm.loop !7
+  br i1 %tobool.not.i69, label %if.then32, label %land.rhs.i63, !llvm.loop !6
 
 if.end26:                                         ; preds = %land.rhs.i63
   %70 = load ptr, ptr %ctx, align 8
@@ -1450,7 +1450,7 @@ for.body.i113:                                    ; preds = %for.cond.preheader.
   %81 = load ptr, ptr %certs16.i, align 8
   %call21.i = call i32 @OPENSSL_sk_num(ptr noundef %81) #9
   %cmp22.i = icmp slt i32 %inc.i115, %call21.i
-  br i1 %cmp22.i, label %for.body.i113, label %if.end28.i, !llvm.loop !8
+  br i1 %cmp22.i, label %for.body.i113, label %if.end28.i, !llvm.loop !7
 
 if.end28.i:                                       ; preds = %for.body.i113, %for.cond.preheader.i, %if.then13.i, %if.end11.i82
   %signer_md29.i = getelementptr inbounds i8, ptr %ctx, i64 16
@@ -1700,7 +1700,7 @@ if.then110.i:                                     ; preds = %if.end108.i
   br i1 %cmp.i63.i, label %if.then.i.i107, label %ts_RESP_sign.exit
 
 if.then.i.i107:                                   ; preds = %if.then110.i
-  %call2.i.i108 = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.16), !range !4
+  %call2.i.i108 = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.16)
   br label %ts_RESP_sign.exit
 
 ts_RESP_sign.exit:                                ; preds = %if.then110.i, %if.then.i.i107
@@ -1726,7 +1726,7 @@ if.then35:                                        ; preds = %if.then32
   br i1 %cmp.i119, label %TS_RESP_CTX_set_status_info_cond.exit, label %if.end43
 
 TS_RESP_CTX_set_status_info_cond.exit:            ; preds = %if.then35
-  %call2.i123 = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull @.str.2), !range !4
+  %call2.i123 = call i32 @TS_RESP_CTX_set_status_info(ptr noundef nonnull readonly %ctx, i32 noundef 2, ptr noundef nonnull @.str.2)
   %cmp37 = icmp eq i32 %call2.i123, 0
   br i1 %cmp37, label %if.then38, label %if.end43
 
@@ -1976,8 +1976,7 @@ attributes #10 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

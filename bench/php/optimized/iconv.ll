@@ -167,7 +167,7 @@ define hidden ptr @get_iconv_version() local_unnamed_addr #0 {
 declare ptr @gnu_get_libc_version() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zm_startup_miconv(i32 noundef %0, i32 noundef %1) #0 {
+define hidden range(i32 -1, 1) i32 @zm_startup_miconv(i32 noundef %0, i32 noundef %1) #0 {
   %3 = tail call i32 @zend_register_ini_entries_ex(ptr noundef nonnull @ini_entries, i32 noundef %1, i32 noundef %0) #16
   %4 = tail call i32 @php_stream_filter_register_factory(ptr noundef nonnull @.str.90, ptr noundef nonnull @php_iconv_stream_filter_register_factory.filter_factory) #16
   %.not = icmp eq i32 %4, -1
@@ -231,7 +231,7 @@ define internal ptr @php_iconv_output_handler_init(ptr noundef %0, i64 noundef %
 declare i32 @php_output_handler_conflict_register(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_iconv_output_conflict(ptr noundef %0, i64 noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @php_iconv_output_conflict(ptr noundef %0, i64 noundef %1) #0 {
   %3 = tail call i32 @php_output_get_level() #16
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
@@ -267,20 +267,20 @@ declare void @php_info_print_table_end() local_unnamed_addr #3
 declare void @display_ini_entries(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_iconv_string(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 7) i32 @php_iconv_string(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
+  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #17
   %11 = icmp ugt i64 %10, 8
   br i1 %11, label %12, label %.thread.i
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %3, i64 %10
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.76, ptr noundef nonnull dereferenceable(1) %14) #17
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.76, ptr noundef nonnull readonly dereferenceable(1) %14) #17
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %_php_check_ignore.exit, label %17
 
@@ -290,7 +290,7 @@ define i32 @php_iconv_string(ptr noundef %0, i64 noundef %1, ptr nocapture nound
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %13, i64 -18
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(19) @.str.77, ptr noundef nonnull dereferenceable(1) %20) #17
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(19) @.str.77, ptr noundef nonnull readonly dereferenceable(1) %20) #17
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %_php_check_ignore.exit, label %.thread.i
 
@@ -670,7 +670,7 @@ get_internal_encoding.exit:                       ; preds = %19, %21
   %31 = getelementptr inbounds i8, ptr %30, i64 24
   %32 = getelementptr inbounds i8, ptr %30, i64 16
   %33 = load i64, ptr %32, align 8
-  %34 = call fastcc i32 @_php_iconv_strlen(ptr noundef nonnull %6, ptr noundef nonnull %31, i64 noundef %33, ptr noundef %29), !range !4
+  %34 = call fastcc i32 @_php_iconv_strlen(ptr noundef nonnull %6, ptr noundef nonnull %31, i64 noundef %33, ptr noundef %29)
   %35 = load ptr, ptr %3, align 8
   call fastcc void @_php_iconv_show_error(i32 noundef %34, ptr noundef nonnull @_generic_superset_name, ptr noundef %35)
   %36 = icmp eq i32 %34, 0
@@ -700,7 +700,7 @@ declare void @llvm.assume(i1 noundef) #5
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_php_iconv_strlen(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 7) i32 @_php_iconv_strlen(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [8 x i8], align 1
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -938,7 +938,7 @@ thread-pre-split:                                 ; preds = %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %51 = call fastcc i32 @_php_iconv_strlen(ptr noundef nonnull %8, ptr noundef nonnull %49, i64 noundef %46, ptr noundef %38), !range !4
+  %51 = call fastcc i32 @_php_iconv_strlen(ptr noundef nonnull %8, ptr noundef nonnull %49, i64 noundef %46, ptr noundef %38)
   %.not.i133 = icmp eq i32 %51, 0
   br i1 %.not.i133, label %52, label %_php_iconv_substr.exit
 
@@ -1068,7 +1068,7 @@ thread-pre-split:                                 ; preds = %37
 
 112:                                              ; preds = %106, %104
   %.1.i = phi ptr [ %107, %106 ], [ %.079120.i, %104 ]
-  %113 = call fastcc i32 @_php_iconv_appendl(ptr noundef nonnull %15, ptr noundef nonnull %3, i64 noundef 4, ptr noundef %.1.i), !range !4
+  %113 = call fastcc i32 @_php_iconv_appendl(ptr noundef nonnull %15, ptr noundef nonnull %3, i64 noundef 4, ptr noundef %.1.i)
   %.not106.i = icmp eq i32 %113, 0
   br i1 %.not106.i, label %114, label %thread-pre-split.loopexit.i
 
@@ -1108,7 +1108,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.lo
   br i1 %.not107.i, label %.thread136.i, label %123
 
 123:                                              ; preds = %122
-  %124 = call fastcc i32 @_php_iconv_appendl(ptr noundef nonnull %15, ptr noundef null, i64 noundef 0, ptr noundef nonnull %.3.i), !range !4
+  %124 = call fastcc i32 @_php_iconv_appendl(ptr noundef nonnull %15, ptr noundef null, i64 noundef 0, ptr noundef nonnull %.3.i)
   br label %.thread136.i
 
 .thread136.i:                                     ; preds = %123, %122, %90
@@ -1355,7 +1355,7 @@ get_internal_encoding.exit:                       ; preds = %22, %24
   %37 = getelementptr inbounds i8, ptr %36, i64 24
   %38 = getelementptr inbounds i8, ptr %36, i64 16
   %39 = load i64, ptr %38, align 8
-  %40 = call fastcc i32 @_php_iconv_strlen(ptr noundef nonnull %5, ptr noundef nonnull %37, i64 noundef %39, ptr noundef %32), !range !4
+  %40 = call fastcc i32 @_php_iconv_strlen(ptr noundef nonnull %5, ptr noundef nonnull %37, i64 noundef %39, ptr noundef %32)
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %44, label %41
 
@@ -1401,7 +1401,7 @@ get_internal_encoding.exit:                       ; preds = %22, %24
   %64 = load i64, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %54, i64 24
   %66 = load ptr, ptr %3, align 8
-  %67 = call fastcc i32 @_php_iconv_strpos(ptr noundef nonnull %9, ptr noundef nonnull %62, i64 noundef %64, ptr noundef nonnull %65, i64 noundef %56, i64 noundef %53, ptr noundef %66, i1 noundef zeroext false), !range !5
+  %67 = call fastcc i32 @_php_iconv_strpos(ptr noundef nonnull %9, ptr noundef nonnull %62, i64 noundef %64, ptr noundef nonnull %65, i64 noundef %56, i64 noundef %53, ptr noundef %66, i1 noundef zeroext false)
   %68 = load ptr, ptr %3, align 8
   call fastcc void @_php_iconv_show_error(i32 noundef %67, ptr noundef nonnull @_generic_superset_name, ptr noundef %68)
   %69 = icmp eq i32 %67, 0
@@ -1428,7 +1428,7 @@ get_internal_encoding.exit:                       ; preds = %22, %24
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_php_iconv_strpos(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 10) i32 @_php_iconv_strpos(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca [4 x i8], align 1
   %10 = alloca ptr, align 8
   %11 = alloca i64, align 8
@@ -1436,7 +1436,7 @@ define internal fastcc i32 @_php_iconv_strpos(ptr nocapture noundef writeonly %0
   %13 = alloca i64, align 8
   %14 = alloca ptr, align 8
   store i64 -1, ptr %0, align 8
-  %15 = call i32 @php_iconv_string(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %14, ptr noundef nonnull @_generic_superset_name, ptr noundef %6), !range !4
+  %15 = call i32 @php_iconv_string(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %14, ptr noundef nonnull @_generic_superset_name, ptr noundef %6)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %19, label %16
 
@@ -1705,7 +1705,7 @@ get_internal_encoding.exit:                       ; preds = %27, %29
   %42 = getelementptr inbounds i8, ptr %40, i64 16
   %43 = load i64, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %39, i64 24
-  %45 = call fastcc i32 @_php_iconv_strpos(ptr noundef nonnull %7, ptr noundef nonnull %41, i64 noundef %43, ptr noundef nonnull %44, i64 noundef %38, i64 noundef 0, ptr noundef %37, i1 noundef zeroext true), !range !5
+  %45 = call fastcc i32 @_php_iconv_strpos(ptr noundef nonnull %7, ptr noundef nonnull %41, i64 noundef %43, ptr noundef nonnull %44, i64 noundef %38, i64 noundef 0, ptr noundef %37, i1 noundef zeroext true)
   %46 = load ptr, ptr %3, align 8
   call fastcc void @_php_iconv_show_error(i32 noundef %45, ptr noundef nonnull @_generic_superset_name, ptr noundef %46)
   %47 = icmp eq i32 %45, 0
@@ -2007,7 +2007,7 @@ get_internal_encoding.exit:                       ; preds = %12, %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %143 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1209) #17
-  %144 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0205) #17
+  %144 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0205) #17
   %145 = add i64 %138, 2
   %.not.i263 = icmp ult i64 %145, %.1207
   %146 = add i64 %143, 12
@@ -2043,7 +2043,7 @@ get_internal_encoding.exit:                       ; preds = %12, %14
 161:                                              ; preds = %154
   %162 = call noalias ptr @_safe_emalloc(i64 noundef 1, i64 noundef %.1207, i64 noundef 5) #16
   %163 = ptrtoint ptr %162 to i64
-  %164 = call fastcc i32 @_php_iconv_appendl(ptr noundef nonnull %10, ptr noundef nonnull %136, i64 noundef %138, ptr noundef %148), !range !4
+  %164 = call fastcc i32 @_php_iconv_appendl(ptr noundef nonnull %10, ptr noundef nonnull %136, i64 noundef %138, ptr noundef %148)
   %165 = sub i64 %.1207, %138
   %166 = load ptr, ptr %10, align 8
   %.not592.i = icmp eq ptr %166, null
@@ -2121,7 +2121,7 @@ get_internal_encoding.exit:                       ; preds = %12, %14
   %.1536.i = phi i64 [ %.0535.i, %197 ], [ %195, %192 ]
   %201 = getelementptr inbounds i8, ptr %200, i64 24
   %202 = getelementptr inbounds i8, ptr %201, i64 %199
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %202, ptr nonnull align 1 %.0205, i64 %144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %202, ptr nonnull readonly align 1 %.0205, i64 %144, i1 false)
   %203 = load ptr, ptr %10, align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 16
   store i64 %.1536.i, ptr %204, align 8
@@ -3232,7 +3232,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
 33:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
   store i8 %28, ptr %16, align 1
-  %34 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %16, i64 noundef 1, ptr noundef %20), !range !4
+  %34 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %16, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
   %.not331 = icmp ne i32 %34, 0
   %or.cond349 = and i1 %.not307, %.not331
@@ -3255,7 +3255,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %.0227403 to i64
   %42 = sub i64 %40, %41
-  %43 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %42, ptr noundef %20), !range !4
+  %43 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %42, ptr noundef %20)
   %.not329 = icmp eq i32 %43, 0
   br i1 %.not329, label %233, label %.loopexit
 
@@ -3277,16 +3277,16 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
 48:                                               ; preds = %46, %46
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
   store i8 61, ptr %15, align 1
-  %49 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 1, ptr noundef %20), !range !4
+  %49 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
   store i8 63, ptr %14, align 1
-  %50 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 1, ptr noundef %20), !range !4
+  %50 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
   %51 = ptrtoint ptr %.0248396 to i64
   %52 = ptrtoint ptr %.0238399 to i64
   %53 = sub i64 %51, %52
-  %54 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0238399, i64 noundef %53, ptr noundef %20), !range !4
+  %54 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0238399, i64 noundef %53, ptr noundef %20)
   %.not319 = icmp eq i32 %54, 0
   br i1 %.not319, label %55, label %.loopexit
 
@@ -3314,7 +3314,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   %67 = ptrtoint ptr %66 to i64
   %68 = ptrtoint ptr %.0227403 to i64
   %69 = sub i64 %67, %68
-  %70 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %69, ptr noundef %20), !range !4
+  %70 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %69, ptr noundef %20)
   %.not326 = icmp eq i32 %70, 0
   br i1 %.not326, label %233, label %.loopexit
 
@@ -3379,7 +3379,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   %96 = ptrtoint ptr %95 to i64
   %97 = ptrtoint ptr %.0227403 to i64
   %98 = sub i64 %96, %97
-  %99 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %98, ptr noundef %20), !range !4
+  %99 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %98, ptr noundef %20)
   %.not324 = icmp eq i32 %99, 0
   br i1 %.not324, label %233, label %.thread363
 
@@ -3409,7 +3409,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   %109 = ptrtoint ptr %108 to i64
   %110 = ptrtoint ptr %.0227403 to i64
   %111 = sub i64 %109, %110
-  %112 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %111, ptr noundef %20), !range !4
+  %112 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %111, ptr noundef %20)
   %.not317 = icmp eq i32 %112, 0
   br i1 %.not317, label %233, label %.loopexit
 
@@ -3425,7 +3425,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   %117 = ptrtoint ptr %116 to i64
   %118 = ptrtoint ptr %.0227403 to i64
   %119 = sub i64 %117, %118
-  %120 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %119, ptr noundef %20), !range !4
+  %120 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %119, ptr noundef %20)
   %.not314 = icmp eq i32 %120, 0
   br i1 %.not314, label %233, label %.loopexit
 
@@ -3450,12 +3450,12 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
 131:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
   store i8 13, ptr %13, align 1
-  %132 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 1, ptr noundef %20), !range !4
+  %132 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
   %133 = load i8, ptr %.0248396, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   store i8 %133, ptr %12, align 1
-  %134 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 1, ptr noundef %20), !range !4
+  %134 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
   br label %233
 
@@ -3472,7 +3472,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
 138:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   store i8 32, ptr %11, align 1
-  %139 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %11, i64 noundef 1, ptr noundef %20), !range !4
+  %139 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %11, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   br label %233
 
@@ -3488,7 +3488,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   %144 = ptrtoint ptr %143 to i64
   %145 = ptrtoint ptr %.0227403 to i64
   %146 = sub i64 %144, %145
-  %147 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %146, ptr noundef %20), !range !4
+  %147 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %146, ptr noundef %20)
   %.not308 = icmp eq i32 %147, 0
   br i1 %.not308, label %233, label %.loopexit
 
@@ -3509,7 +3509,7 @@ define internal fastcc i32 @_php_iconv_mime_decode(ptr noundef %0, ptr noundef %
   %155 = ptrtoint ptr %154 to i64
   %156 = ptrtoint ptr %.0227403 to i64
   %157 = sub i64 %155, %156
-  %158 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %157, ptr noundef %20), !range !4
+  %158 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %157, ptr noundef %20)
   %.not298 = icmp eq i32 %158, 0
   br i1 %.not298, label %233, label %.loopexit
 
@@ -3546,7 +3546,7 @@ switch.hole_check:                                ; preds = %150
   %168 = ptrtoint ptr %167 to i64
   %169 = ptrtoint ptr %.0227403 to i64
   %170 = sub i64 %168, %169
-  %171 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %170, ptr noundef %20), !range !4
+  %171 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %170, ptr noundef %20)
   %.not305 = icmp eq i32 %171, 0
   br i1 %.not305, label %233, label %.loopexit
 
@@ -3554,12 +3554,12 @@ switch.hole_check:                                ; preds = %150
   %173 = getelementptr inbounds i8, ptr %.0, i64 24
   %174 = getelementptr inbounds i8, ptr %.0, i64 16
   %175 = load i64, ptr %174, align 8
-  %176 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %173, i64 noundef %175, ptr noundef %.0253395), !range !4
+  %176 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %173, i64 noundef %175, ptr noundef %.0253395)
   %177 = icmp eq i32 %176, 0
   br i1 %177, label %178, label %180
 
 178:                                              ; preds = %172
-  %179 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef null, i64 noundef 0, ptr noundef %.0253395), !range !4
+  %179 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef null, i64 noundef 0, ptr noundef %.0253395)
   br label %180
 
 180:                                              ; preds = %178, %172
@@ -3594,7 +3594,7 @@ switch.hole_check:                                ; preds = %150
   %193 = ptrtoint ptr %.0248396 to i64
   %194 = ptrtoint ptr %.0227403 to i64
   %195 = sub i64 %193, %194
-  %196 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %195, ptr noundef %20), !range !4
+  %196 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %.0227403, i64 noundef %195, ptr noundef %20)
   %.not302 = icmp eq i32 %196, 0
   br i1 %.not302, label %197, label %233
 
@@ -3624,7 +3624,7 @@ switch.hole_check:                                ; preds = %150
 203:                                              ; preds = %198
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   store i8 %199, ptr %10, align 1
-  %204 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 1, ptr noundef %20), !range !4
+  %204 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   br label %233
 
@@ -3658,7 +3658,7 @@ switch.hole_check:                                ; preds = %150
   %214 = ptrtoint ptr %.0248396 to i64
   %215 = ptrtoint ptr %.0225404 to i64
   %216 = sub i64 %214, %215
-  %217 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %.0225404, i64 noundef %216, ptr noundef %20), !range !4
+  %217 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %.0225404, i64 noundef %216, ptr noundef %20)
   br label %233
 
 218:                                              ; preds = %207
@@ -3669,7 +3669,7 @@ switch.hole_check:                                ; preds = %150
   %220 = ptrtoint ptr %.0248396 to i64
   %221 = ptrtoint ptr %.0225404 to i64
   %222 = sub i64 %220, %221
-  %223 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %.0225404, i64 noundef %222, ptr noundef %20), !range !4
+  %223 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %.0225404, i64 noundef %222, ptr noundef %20)
   %.pre = load i8, ptr %.0248396, align 1
   br label %224
 
@@ -3677,7 +3677,7 @@ switch.hole_check:                                ; preds = %150
   %225 = phi i8 [ %.pre, %219 ], [ %28, %218 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   store i8 %225, ptr %9, align 1
-  %226 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 1, ptr noundef %20), !range !4
+  %226 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   br label %233
 
@@ -3702,7 +3702,7 @@ switch.hole_check:                                ; preds = %150
 231:                                              ; preds = %230, %227
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store i8 %28, ptr %8, align 1
-  %232 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 1, ptr noundef %20), !range !4
+  %232 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   br label %233
 
@@ -3746,7 +3746,7 @@ default.unreachable421:                           ; preds = %27
 240:                                              ; preds = %238
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   store i8 61, ptr %7, align 1
-  %241 = call fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 1, ptr noundef %20), !range !4
+  %241 = call fastcc i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 1, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br label %._crit_edge407.thread
 
@@ -4108,7 +4108,7 @@ define hidden void @zif_iconv(ptr nocapture noundef readonly %0, ptr nocapture n
   %27 = load i64, ptr %26, align 8
   %28 = load ptr, ptr %4, align 8
   %29 = load ptr, ptr %3, align 8
-  %30 = call i32 @php_iconv_string(ptr noundef nonnull %25, i64 noundef %27, ptr noundef nonnull %8, ptr noundef %28, ptr noundef %29), !range !4
+  %30 = call i32 @php_iconv_string(ptr noundef nonnull %25, i64 noundef %27, ptr noundef nonnull %8, ptr noundef %28, ptr noundef %29)
   %31 = load ptr, ptr %4, align 8
   %32 = load ptr, ptr %3, align 8
   call fastcc void @_php_iconv_show_error(i32 noundef %30, ptr noundef %31, ptr noundef %32)
@@ -4574,7 +4574,7 @@ get_internal_encoding.exit228:                    ; preds = %93, %95
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateInputEncoding(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateInputEncoding(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %8, 63
@@ -4599,7 +4599,7 @@ define internal noundef i32 @OnUpdateInputEncoding(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateOutputEncoding(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateOutputEncoding(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %8, 63
@@ -4624,7 +4624,7 @@ define internal noundef i32 @OnUpdateOutputEncoding(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateInternalEncoding(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateInternalEncoding(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %8, 63
@@ -4661,7 +4661,7 @@ declare i32 @php_output_handler_conflict(ptr noundef, i64 noundef, ptr noundef, 
 declare ptr @php_output_handler_create_internal(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_iconv_output_handler(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @php_iconv_output_handler(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %1, align 8
@@ -4878,7 +4878,7 @@ get_output_encoding.exit65:                       ; preds = %88, %90
 
 get_internal_encoding.exit:                       ; preds = %93, %95
   %.0.i68 = phi ptr [ %96, %95 ], [ %92, %93 ]
-  %97 = call i32 @php_iconv_string(ptr noundef %86, i64 noundef %79, ptr noundef nonnull %4, ptr noundef %.0.i64, ptr noundef %.0.i68), !range !4
+  %97 = call i32 @php_iconv_string(ptr noundef %86, i64 noundef %79, ptr noundef nonnull %4, ptr noundef %.0.i64, ptr noundef %.0.i68)
   %98 = load ptr, ptr getelementptr inbounds (%struct._zend_iconv_globals, ptr @iconv_globals, i64 0, i32 2), align 8
   %.not.i69 = icmp eq ptr %98, null
   br i1 %.not.i69, label %101, label %99
@@ -4983,7 +4983,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #3
 declare ptr @php_get_internal_encoding() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 7) i32 @_php_iconv_appendl(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -5204,12 +5204,12 @@ define internal ptr @php_iconv_stream_filter_factory_create(ptr noundef %0, ptr 
   %31 = getelementptr inbounds i8, ptr %23, i64 40
   store i64 %17, ptr %31, align 8
   %32 = load ptr, ptr %26, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 1 %18, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull readonly align 1 %18, i64 %19, i1 false)
   %33 = load ptr, ptr %26, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %19
   store i8 0, ptr %34, align 1
   %35 = load ptr, ptr %30, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr nonnull align 1 %11, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr nonnull readonly align 1 %11, i64 %17, i1 false)
   %36 = load ptr, ptr %30, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 %17
   store i8 0, ptr %37, align 1
@@ -5230,7 +5230,7 @@ php_iconv_stream_filter_ctor.exit.thread:         ; preds = %.split30
 php_iconv_stream_filter_ctor.exit:                ; preds = %22
   %44 = zext i8 %2 to i32
   %45 = tail call noalias dereferenceable_or_null(184) ptr @__zend_malloc(i64 noundef 184) #19
-  %46 = tail call fastcc i32 @php_iconv_stream_filter_ctor(ptr noundef %45, ptr noundef nonnull %18, i64 noundef %19, ptr noundef nonnull %11, i64 noundef %17, i32 noundef %44), !range !4
+  %46 = tail call fastcc i32 @php_iconv_stream_filter_ctor(ptr noundef %45, ptr noundef nonnull %18, i64 noundef %19, ptr noundef nonnull %11, i64 noundef %17, i32 noundef %44)
   %.not37 = icmp eq i32 %46, 0
   br i1 %.not37, label %51, label %47
 
@@ -5275,7 +5275,7 @@ declare i32 @php_stream_filter_register_factory(ptr noundef, ptr noundef) local_
 declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @php_iconv_stream_filter_ctor(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 7) i32 @php_iconv_stream_filter_ctor(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
   %7 = add nuw nsw i64 %2, 1
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5389,7 +5389,7 @@ define internal fastcc void @php_iconv_stream_filter_dtor(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_iconv_stream_filter_do_filter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef writeonly %4, i32 noundef %5) #0 {
+define internal range(i32 0, 3) i32 @php_iconv_stream_filter_do_filter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef writeonly %4, i32 noundef %5) #0 {
   %7 = alloca i64, align 8
   store i64 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5517,7 +5517,7 @@ php_iconv_stream_filter_dtor.exit:                ; preds = %16, %17
 declare void @php_stream_bucket_unlink(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @php_iconv_stream_filter_append_bucket(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @php_iconv_stream_filter_append_bucket(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -5928,5 +5928,3 @@ attributes #20 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 7}
-!5 = !{i32 0, i32 10}

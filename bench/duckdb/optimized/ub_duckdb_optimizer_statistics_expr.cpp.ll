@@ -1446,7 +1446,7 @@ ehcleanup145:                                     ; preds = %ehcleanup141, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN6duckdb20StatisticsPropagator19PropagateComparisonERNS_14BaseStatisticsES2_NS_14ExpressionTypeE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(88) %lstats, ptr noundef nonnull align 8 dereferenceable(88) %rstats, i8 noundef zeroext %comparison) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 5) i8 @_ZN6duckdb20StatisticsPropagator19PropagateComparisonERNS_14BaseStatisticsES2_NS_14ExpressionTypeE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(88) %lstats, ptr noundef nonnull align 8 dereferenceable(88) %rstats, i8 noundef zeroext %comparison) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::Value", align 8
   %ref.tmp8 = alloca %"class.duckdb::Value", align 8

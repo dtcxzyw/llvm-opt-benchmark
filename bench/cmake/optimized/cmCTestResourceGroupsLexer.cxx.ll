@@ -55,7 +55,7 @@ declare void @_ZN5cmsys18SystemToolsManagerD1Ev(ptr noundef nonnull align 1 dere
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z27cmCTestResourceGroups_yylexPv(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_Z27cmCTestResourceGroups_yylexPv(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1048,7 +1048,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i184, %338
   br i1 %exitcond179.not.i, label %.critedge.i, label %430, !llvm.loop !14
 
 .critedge.split.loop.exit.i:                      ; preds = %430, %430
-  %443 = trunc i64 %indvars.iv.i to i32
+  %443 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %433, %.critedge.split.loop.exit.i
@@ -2583,7 +2583,7 @@ define dso_local void @_Z33cmCTestResourceGroups_yyset_debugiPv(i32 noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @_Z32cmCTestResourceGroups_yylex_initPPv(ptr noundef writeonly %0) local_unnamed_addr #14 {
+define dso_local noundef range(i32 0, 2) i32 @_Z32cmCTestResourceGroups_yylex_initPPv(ptr noundef writeonly %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -2611,7 +2611,7 @@ declare ptr @__errno_location() local_unnamed_addr #15
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define dso_local noundef i32 @_Z38cmCTestResourceGroups_yylex_init_extraP32cmCTestResourceGroupsLexerHelperPPv(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #14 {
+define dso_local noundef range(i32 0, 2) i32 @_Z38cmCTestResourceGroups_yylex_init_extraP32cmCTestResourceGroupsLexerHelperPPv(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #14 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

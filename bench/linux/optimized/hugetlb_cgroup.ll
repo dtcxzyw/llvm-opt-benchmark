@@ -81,13 +81,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched21], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @hugetlb_cgroup_charge_cgroup(i32 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @hugetlb_cgroup_charge_cgroup(i32 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = tail call fastcc i32 @__hugetlb_cgroup_charge_cgroup(i32 noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext false), !range !5
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__hugetlb_cgroup_charge_cgroup(i32 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__hugetlb_cgroup_charge_cgroup(i32 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   store ptr null, ptr %5, align 8, !annotation !6
@@ -286,7 +286,7 @@ define internal fastcc noundef i32 @__hugetlb_cgroup_charge_cgroup(i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @hugetlb_cgroup_charge_cgroup_rsvd(i32 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @hugetlb_cgroup_charge_cgroup_rsvd(i32 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = tail call fastcc i32 @__hugetlb_cgroup_charge_cgroup(i32 noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext true), !range !5
   ret i32 %4
 }
@@ -1156,7 +1156,7 @@ define internal fastcc void @__hugetlb_cgroup_file_dfl_init(i32 noundef %0) unna
   %13 = select i1 %9, i64 30, i64 %11
   %14 = select i1 %9, ptr @.str.8, ptr %12
   %15 = lshr i64 %8, %13
-  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull %14, i64 noundef %15) #9
+  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull %14, i64 noundef %15) #9
   %17 = getelementptr inbounds i8, ptr %4, i64 2168
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %17, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %2) #9
   %19 = shl i32 %0, 16
@@ -1267,7 +1267,7 @@ define internal fastcc void @__hugetlb_cgroup_file_legacy_init(i32 noundef %0) u
   %13 = select i1 %9, i64 30, i64 %11
   %14 = select i1 %9, ptr @.str.8, ptr %12
   %15 = lshr i64 %8, %13
-  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull %14, i64 noundef %15) #9
+  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull %14, i64 noundef %15) #9
   %17 = getelementptr inbounds i8, ptr %4, i64 3896
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %17, i64 noundef 64, ptr noundef nonnull @.str.20, ptr noundef nonnull %2) #9
   %19 = shl i32 %0, 16

@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @netmon_2_x_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @netmon_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca %struct.netmon_hdr, align 4
   %6 = alloca %struct.tm, align 16
@@ -820,7 +820,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netmon_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @netmon_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 48
@@ -863,7 +863,7 @@ define internal noundef i32 @netmon_read(ptr nocapture noundef readonly %0, ptr 
   %32 = tail call i64 @file_tell(ptr noundef %31) #13
   store i64 %32, ptr %5, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = tail call fastcc i32 @netmon_process_record(ptr noundef nonnull %0, ptr noundef %33, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4), !range !7
+  %34 = tail call fastcc i32 @netmon_process_record(ptr noundef nonnull %0, ptr noundef %33, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   switch i32 %34, label %12 [
     i32 1, label %.loopexit
     i32 0, label %.loopexit.loopexit
@@ -878,7 +878,7 @@ define internal noundef i32 @netmon_read(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netmon_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @netmon_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #13
@@ -887,7 +887,7 @@ define internal noundef i32 @netmon_seek_read(ptr nocapture noundef readonly %0,
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = tail call fastcc i32 @netmon_process_record(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5), !range !7
+  %13 = tail call fastcc i32 @netmon_process_record(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   switch i32 %13, label %14 [
     i32 0, label %17
     i32 1, label %16
@@ -1065,7 +1065,7 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr nocapture noundef readonly %0, i
   %40 = add i32 %.173, 2
   %41 = add i32 %.173, 3
   %42 = icmp ult i32 %41, %1
-  br i1 %42, label %.lr.ph, label %.critedge, !llvm.loop !8
+  br i1 %42, label %.lr.ph, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %.lr.ph, %15, %18, %39
   %.074.lcssa.ph = phi i64 [ %.07492, %.lr.ph ], [ %.07492, %15 ], [ %.07492, %18 ], [ %.175, %39 ]
@@ -1143,7 +1143,7 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr nocapture noundef readonly %0, i
   %80 = add i32 %.3, 2
   %81 = add i32 %.3, 3
   %82 = icmp ult i32 %81, %1
-  br i1 %82, label %.lr.ph102, label %.critedge10, !llvm.loop !9
+  br i1 %82, label %.lr.ph102, label %.critedge10, !llvm.loop !8
 
 .critedge10:                                      ; preds = %.lr.ph102, %55, %58, %79, %.critedge.thread, %.critedge
   %83 = phi ptr [ %44, %.critedge ], [ %4, %.critedge.thread ], [ %44, %79 ], [ %44, %58 ], [ %44, %55 ], [ %44, %.lr.ph102 ]
@@ -1185,7 +1185,7 @@ declare i32 @g_unichar_to_utf8(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @netmon_process_record(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @netmon_process_record(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.netmon_atm_hdr, align 2
   %8 = alloca %union.anon, align 8
   %9 = alloca %union.anon.0, align 1
@@ -1679,7 +1679,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare void @atm_guess_traffic_type(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @netmon_dump_can_write_encap_1_x(i32 noundef %0) #8 {
+define internal range(i32 -8, 1) i32 @netmon_dump_can_write_encap_1_x(i32 noundef %0) #8 {
   %2 = icmp ugt i32 %0, 13
   %3 = zext nneg i32 %0 to i64
   %4 = lshr i64 8089, %3
@@ -1691,7 +1691,7 @@ define internal i32 @netmon_dump_can_write_encap_1_x(i32 noundef %0) #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netmon_dump_open_1_x(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @netmon_dump_open_1_x(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = tail call i64 @wtap_dump_file_seek(ptr noundef %0, i64 noundef 128, i32 noundef 0, ptr noundef %1) #13
   %5 = icmp eq i64 %4, -1
   br i1 %5, label %netmon_dump_open.exit, label %6
@@ -1723,7 +1723,7 @@ netmon_dump_open.exit:                            ; preds = %3, %6
 declare i64 @wtap_dump_file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netmon_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.netmonrec_1_x_hdr, align 4
   %7 = alloca %struct.netmonrec_2_x_hdr, align 8
   %8 = alloca %struct.netmonrec_2_1_trlr, align 1
@@ -2054,7 +2054,7 @@ define internal noundef i32 @netmon_dump(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netmon_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @netmon_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca %struct.netmon_hdr, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -2205,7 +2205,7 @@ declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @localtime(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @netmon_dump_can_write_encap_2_x(i32 noundef %0) #8 {
+define internal range(i32 -8, 1) i32 @netmon_dump_can_write_encap_2_x(i32 noundef %0) #8 {
   %2 = icmp eq i32 %0, -1
   br i1 %2, label %9, label %3
 
@@ -2227,7 +2227,7 @@ define internal i32 @netmon_dump_can_write_encap_2_x(i32 noundef %0) #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netmon_dump_open_2_x(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @netmon_dump_open_2_x(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = tail call i64 @wtap_dump_file_seek(ptr noundef %0, i64 noundef 128, i32 noundef 0, ptr noundef %1) #13
   %5 = icmp eq i64 %4, -1
   br i1 %5, label %netmon_dump_open.exit, label %6
@@ -2300,6 +2300,5 @@ attributes #15 = { nounwind allocsize(0) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 3}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

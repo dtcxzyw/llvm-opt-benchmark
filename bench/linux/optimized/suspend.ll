@@ -189,7 +189,7 @@ define internal noundef i32 @mem_sleep_default_setup(ptr nocapture noundef reado
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = trunc i64 %3 to i32
+  %9 = trunc nuw nsw i64 %3 to i32
   store i32 %9, ptr @mem_sleep_default, align 4
   br label %.loopexit
 
@@ -274,7 +274,7 @@ thread-pre-split:                                 ; preds = %17, %14, %7, %10
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @suspend_valid_only_mem(i32 noundef %0) #6 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @suspend_valid_only_mem(i32 noundef %0) #6 align 16 {
   %2 = icmp eq i32 %0, 3
   %3 = zext i1 %2 to i32
   ret i32 %3
@@ -1028,7 +1028,7 @@ declare dso_local i32 @dpm_suspend_start(i32) local_unnamed_addr #3
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @suspend_test(i32 noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @suspend_test(i32 noundef %0) unnamed_addr #1 align 16 {
   %2 = load i32, ptr @pm_test_level, align 4
   %3 = icmp eq i32 %2, %0
   br i1 %3, label %4, label %.loopexit

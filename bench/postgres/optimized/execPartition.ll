@@ -2055,7 +2055,7 @@ list_length.exit134.i:                            ; preds = %48, %.lr.ph26
   br i1 %exitcond.not.i, label %.critedge.i, label %105, !llvm.loop !13
 
 109:                                              ; preds = %105
-  %110 = trunc i64 %indvars.iv.i to i32
+  %110 = trunc nsw i64 %indvars.iv.i to i32
   %sext.i = shl i64 %indvars.iv.i, 32
   %111 = ashr exact i64 %sext.i, 32
   %112 = getelementptr i32, ptr %103, i64 %111
@@ -2313,7 +2313,7 @@ CreatePartitionPruneState.exit:                   ; preds = %._crit_edge150.i, %
 
 .sink.split.i:                                    ; preds = %245, %233
   %250 = load ptr, ptr %223, align 8
-  %251 = trunc i64 %indvars.iv.i19 to i32
+  %251 = trunc nuw nsw i64 %indvars.iv.i19 to i32
   %252 = tail call ptr @bms_add_member(ptr noundef %250, i32 noundef %251) #8
   store ptr %252, ptr %223, align 8
   br label %253

@@ -54,7 +54,7 @@ define noundef i32 @Nm_ManTableAdd(ptr nocapture noundef %0, ptr noundef %1) loc
 
 21:                                               ; preds = %.lr.ph.i.i
   %22 = add nuw nsw i32 %.01116.i.i, 2
-  %23 = mul nsw i32 %22, %22
+  %23 = mul nuw nsw i32 %22, %22
   %.not.i.i = icmp ugt i32 %23, %19
   br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
@@ -277,7 +277,7 @@ Nm_HashString.exit.i34:                           ; preds = %.lr.ph.i.i30, %94
 .lr.ph40.split.us.i:                              ; preds = %Nm_HashString.exit.i34, %.loopexit.us.i
   %.02237.us.i = phi ptr [ %.022.us.i, %.loopexit.us.i ], [ %.02235.i, %Nm_HashString.exit.i34 ]
   %138 = getelementptr inbounds i8, ptr %.02237.us.i, i64 32
-  %139 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull dereferenceable(1) %117) #13
+  %139 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull readonly dereferenceable(1) %117) #13
   %.not26.us.i = icmp eq i32 %139, 0
   br i1 %.not26.us.i, label %Nm_ManTableLookupName.exit.thread41, label %140
 
@@ -298,7 +298,7 @@ Nm_HashString.exit.i34:                           ; preds = %.lr.ph.i.i30, %94
 .lr.ph.us.i:                                      ; preds = %140, %147
   %.033.us.us.i = phi ptr [ %149, %147 ], [ %142, %140 ]
   %145 = getelementptr inbounds i8, ptr %.033.us.us.i, i64 32
-  %146 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %145, ptr noundef nonnull dereferenceable(1) %117) #13
+  %146 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %145, ptr noundef nonnull readonly dereferenceable(1) %117) #13
   %.not28.us.us.i = icmp eq i32 %146, 0
   br i1 %.not28.us.us.i, label %Nm_ManTableLookupName.exit, label %147
 

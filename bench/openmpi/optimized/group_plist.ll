@@ -25,7 +25,7 @@ define noundef i32 @ompi_group_calc_plist(i32 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_group_incl_plist(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
+define range(i32 0, 10) i32 @ompi_group_incl_plist(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
   %5 = icmp eq i32 %1, 0
   br i1 %5, label %6, label %15
 
@@ -218,7 +218,7 @@ ompi_group_get_proc_name.exit28.i:                ; preds = %44, %40
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %ompi_group_get_proc_name.exit28.i
-  %50 = trunc i64 %indvars.iv.i to i32
+  %50 = trunc nuw nsw i64 %indvars.iv.i to i32
   %51 = call i32 @opal_bitmap_set_bit(ptr noundef nonnull %4, i32 noundef %50) #3
   %.not.i54 = icmp eq i32 %51, 0
   br i1 %.not.i54, label %52, label %ompi_group_dense_overlap.exit
@@ -372,7 +372,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %78, %80
 119:                                              ; preds = %.lr.ph84, %129
   %indvars.iv90 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next91, %129 ]
   %.04282 = phi i32 [ %.lcssa, %.lr.ph84 ], [ %.1, %129 ]
-  %120 = trunc i64 %indvars.iv90 to i32
+  %120 = trunc nuw nsw i64 %indvars.iv90 to i32
   %121 = call zeroext i1 @opal_bitmap_is_set_bit(ptr noundef nonnull %4, i32 noundef %120) #3
   br i1 %121, label %129, label %122
 
@@ -556,7 +556,7 @@ ompi_group_get_proc_name.exit28.i:                ; preds = %44, %40
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %ompi_group_get_proc_name.exit28.i
-  %50 = trunc i64 %indvars.iv.i to i32
+  %50 = trunc nuw nsw i64 %indvars.iv.i to i32
   %51 = call i32 @opal_bitmap_set_bit(ptr noundef nonnull %4, i32 noundef %50) #3
   %.not.i41 = icmp eq i32 %51, 0
   br i1 %.not.i41, label %52, label %ompi_group_dense_overlap.exit
@@ -679,7 +679,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %76, %78
 105:                                              ; preds = %.lr.ph, %115
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %115 ]
   %.068 = phi i32 [ 0, %.lr.ph ], [ %.1, %115 ]
-  %106 = trunc i64 %indvars.iv to i32
+  %106 = trunc nuw nsw i64 %indvars.iv to i32
   %107 = call zeroext i1 @opal_bitmap_is_set_bit(ptr noundef nonnull %4, i32 noundef %106) #3
   br i1 %107, label %115, label %108
 

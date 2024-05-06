@@ -107,7 +107,7 @@ rb_num2int_inline.exit:                           ; preds = %5, %7
   %9 = trunc i64 %.0.i to i32
   %10 = add i32 %9, -2
   %or.cond = icmp ult i32 %10, 35
-  %11 = tail call i32 @llvm.ctpop.i32(i32 %9), !range !6
+  %11 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %9)
   %12 = icmp ult i32 %11, 2
   %or.cond10 = select i1 %or.cond, i1 %12, i1 false
   br i1 %or.cond10, label %15, label %13
@@ -250,4 +250,3 @@ attributes #5 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 0, i32 7}

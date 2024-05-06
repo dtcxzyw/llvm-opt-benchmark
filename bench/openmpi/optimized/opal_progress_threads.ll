@@ -374,7 +374,7 @@ define internal void @dummy_timeout_cb(i32 %0, i16 signext %1, ptr noundef %2) #
 declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_progress_thread_finalize(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @opal_progress_thread_finalize(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.b18 = load i1, ptr @inited, align 1
   br i1 %.b18, label %2, label %.loopexit
 
@@ -486,7 +486,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_progress_thread_pause(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @opal_progress_thread_pause(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.b10 = load i1, ptr @inited, align 1
   br i1 %.b10, label %2, label %.loopexit
 

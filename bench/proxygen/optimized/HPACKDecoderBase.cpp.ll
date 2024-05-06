@@ -190,11 +190,11 @@ if.end7:                                          ; preds = %if.else.i, %if.then
   %cond.i.i.i = select i1 %cmp.i.i.i, i64 %sub.i.i.i, i64 %9
   %add13.i.i = add i64 %cond.i.i.i, %conv.i
   %cmp.i.i.i.i.i.i7 = icmp ugt i64 %add13.i.i, 4294967295
-  %11 = shl i64 %add13.i.i, 32
+  %11 = shl nuw i64 %add13.i.i, 32
   %12 = or disjoint i64 %11, 1
   %retval.sroa.0.0.insert.insert.i.i.i.i = select i1 %cmp.i.i.i.i.i.i7, i64 2818, i64 %12
   %ref.tmp11.sroa.21.0.extract.shift.i.i = lshr i64 %retval.sroa.0.0.insert.insert.i.i.i.i, 32
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc i64 %ref.tmp11.sroa.21.0.extract.shift.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc nuw i64 %ref.tmp11.sroa.21.0.extract.shift.i.i to i32
   %13 = and i64 %retval.sroa.0.0.insert.insert.i.i.i.i, 3
   %cmp.i.i1.i = icmp eq i64 %13, 1
   %retval.0.i.i.i = select i1 %cmp.i.i1.i, i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i, i32 -1
@@ -622,7 +622,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #22
   %tobool.not = icmp eq ptr %cond.i17, null
-  br i1 %tobool.not, label %if.end.thread, label %if.then.i32
+  br i1 %tobool.not, label %if.end.thread, label %if.then.i35
 
 if.end.thread:                                    ; preds = %lpad
   tail call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #22
@@ -634,11 +634,11 @@ lpad19:                                           ; preds = %invoke.cont21
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i32:                                      ; preds = %lpad
+if.then.i35:                                      ; preds = %lpad
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #26
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %if.then.i32, %if.end.thread
+invoke.cont21:                                    ; preds = %if.then.i35, %if.end.thread
   invoke void @__cxa_rethrow() #24
           to label %unreachable unwind label %lpad19
 
@@ -713,7 +713,7 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then7.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
-  %3 = trunc i64 %sub.ptr.sub.i to i8
+  %3 = trunc nuw i64 %sub.ptr.sub.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %3
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1

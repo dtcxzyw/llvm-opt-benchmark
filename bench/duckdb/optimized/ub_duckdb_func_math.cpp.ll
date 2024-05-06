@@ -6431,7 +6431,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6duckdb12SignOperator9OperationIfaEET0_T_(float noundef %input) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 -1, 2) i8 @_ZN6duckdb12SignOperator9OperationIfaEET0_T_(float noundef %input) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = fcmp oeq float %input, 0.000000e+00
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -6453,7 +6453,7 @@ return:                                           ; preds = %if.else, %lor.lhs.f
 declare noundef zeroext i1 @_ZN6duckdb5Value5IsNanIfEEbT_(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6duckdb12SignOperator9OperationIdaEET0_T_(double noundef %input) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 -1, 2) i8 @_ZN6duckdb12SignOperator9OperationIdaEET0_T_(double noundef %input) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = fcmp oeq double %input, 0.000000e+00
   br i1 %cmp, label %return, label %lor.lhs.false

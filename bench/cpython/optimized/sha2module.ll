@@ -1143,7 +1143,7 @@ declare zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr noundef, p
 declare ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_384() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sha2_exec(ptr noundef %module) #0 {
+define internal range(i32 -1, 1) i32 @sha2_exec(ptr noundef %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8

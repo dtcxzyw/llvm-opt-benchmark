@@ -2317,7 +2317,7 @@ if.end19:                                         ; preds = %if.then14.if.end19_
   %splash.i.i = getelementptr inbounds i8, ptr %call.i, i64 192
   %9 = load ptr, ptr %splash.i.i, align 8
   call void @g_free(ptr noundef %9) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %boot_config.i.i, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %boot_config.i.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %6, i64 72, i1 false)
   %10 = load ptr, ptr %6, align 8
   %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %if.then.i, label %machine_copy_boot_config.exit

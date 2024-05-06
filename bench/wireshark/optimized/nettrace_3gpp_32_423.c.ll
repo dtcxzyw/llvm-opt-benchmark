@@ -63,7 +63,7 @@ target triple = "x86_64-pc-linux-gnu"
 @nettrace_3gpp_32_423_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @nettrace_3gpp_32_423_file_open(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @nettrace_3gpp_32_423_file_open(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1025 x i8], align 16
   %5 = alloca %struct.nstime_t, align 8
   %6 = load ptr, ptr %0, align 8
@@ -181,7 +181,7 @@ declare ptr @g_byte_array_sized_new(i32 noundef) local_unnamed_addr #1
 declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @nettrace_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @nettrace_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca [1024 x i8], align 16
   %8 = getelementptr inbounds i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -256,7 +256,7 @@ read_until.exit.thread:                           ; preds = %22, %20
   %52 = and i64 %45, 4294967295
   %53 = add i64 %51, %52
   store i64 %53, ptr %5, align 8
-  %54 = call fastcc i32 @nettrace_msg_to_packet(ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %38, i64 noundef %49, ptr noundef %3, ptr noundef %4), !range !6
+  %54 = call fastcc i32 @nettrace_msg_to_packet(ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %38, i64 noundef %49, ptr noundef %3, ptr noundef %4)
   %55 = load ptr, ptr %9, align 8
   %56 = load ptr, ptr %55, align 8
   %57 = ptrtoint ptr %56 to i64
@@ -270,7 +270,7 @@ read_until.exit.thread:                           ; preds = %22, %20
   %61 = call ptr @g_byte_array_remove_range(ptr noundef %60, i32 noundef 0, i32 noundef -1) #11
   %62 = add i64 %.04147, -4294967295
   %63 = icmp ugt i64 %62, 4294967295
-  br i1 %63, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
+  br i1 %63, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %9, align 8
@@ -279,7 +279,7 @@ read_until.exit.thread:                           ; preds = %22, %20
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %43
   %64 = phi ptr [ %55, %43 ], [ %.pre, %._crit_edge.loopexit ]
   %.041.lcssa = phi i64 [ %58, %43 ], [ %62, %._crit_edge.loopexit ]
-  %65 = trunc i64 %.041.lcssa to i32
+  %65 = trunc nuw i64 %.041.lcssa to i32
   %66 = call ptr @g_byte_array_remove_range(ptr noundef %64, i32 noundef 0, i32 noundef %65) #11
   %67 = load i64, ptr %50, align 8
   %68 = add i64 %67, %.041.lcssa
@@ -298,7 +298,7 @@ read_until.exit.thread:                           ; preds = %22, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @nettrace_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @nettrace_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca [1024 x i8], align 16
   %8 = getelementptr inbounds i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -357,7 +357,7 @@ read_until.exit.thread:                           ; preds = %27, %25
   %41 = ptrtoint ptr %39 to i64
   %42 = sub i64 %40, %41
   %43 = and i64 %42, 4294967295
-  %44 = call fastcc i32 @nettrace_msg_to_packet(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %3, ptr noundef %39, i64 noundef %43, ptr noundef %4, ptr noundef %5), !range !6
+  %44 = call fastcc i32 @nettrace_msg_to_packet(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %3, ptr noundef %39, i64 noundef %43, ptr noundef %4, ptr noundef %5)
   %45 = load ptr, ptr %9, align 8
   %46 = call ptr @g_byte_array_set_size(ptr noundef %45, i32 noundef 0) #11
   br label %47
@@ -405,7 +405,7 @@ declare ptr @g_strrstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @nettrace_msg_to_packet(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
   %8 = alloca %struct.exported_pdu_info, align 8
   %9 = alloca [65 x i8], align 16
   %10 = alloca [65 x i8], align 16
@@ -911,7 +911,7 @@ thread-pre-split:                                 ; preds = %155, %151
   store i8 %255, ptr %.0200270, align 1
   %257 = add nuw nsw i32 %.0201269, 1
   %exitcond.not = icmp eq i32 %257, %238
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
 
 258:                                              ; preds = %.lr.ph
   %259 = add i32 %237, %238
@@ -1224,6 +1224,5 @@ attributes #14 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.20a582f737fa3601ca67c489f5713313.18 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.20a582f737fa3601ca67c489f5713313.7, [8 x i8] c"\07\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define i8 @_ZN22cranelift_codegen_meta3isa3Isa9from_name17h83d8bfaf4e61ab71E(ptr align 1 %0, i64 %1) unnamed_addr #0 {
+define range(i8 0, 5) i8 @_ZN22cranelift_codegen_meta3isa3Isa9from_name17h83d8bfaf4e61ab71E(ptr align 1 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { { ptr, ptr, {} } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   store ptr %0, ptr %4, align 8
@@ -37,7 +37,7 @@ define i8 @_ZN22cranelift_codegen_meta3isa3Isa9from_name17h83d8bfaf4e61ab71E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i8 @_ZN22cranelift_codegen_meta3isa3Isa9from_arch17h011ec0d7c25a08ccE(ptr align 1 %0, i64 %1) unnamed_addr #0 {
+define range(i8 0, 5) i8 @_ZN22cranelift_codegen_meta3isa3Isa9from_arch17h011ec0d7c25a08ccE(ptr align 1 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { ptr, i64 }, align 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -155,7 +155,7 @@ define hidden void @_ZN22cranelift_codegen_meta3isa6define17hed87b6b4bd0f64abE(p
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN71_$LT$cranelift_codegen_meta..isa..Isa$u20$as$u20$core..clone..Clone$GT$5clone17h5421f5bb8db66f46E"(ptr nocapture readonly align 1 %0) unnamed_addr #2 {
+define hidden noundef range(i8 0, 4) i8 @"_ZN71_$LT$cranelift_codegen_meta..isa..Isa$u20$as$u20$core..clone..Clone$GT$5clone17h5421f5bb8db66f46E"(ptr nocapture readonly align 1 %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1, !range !6, !noundef !4
   ret i8 %2
 }

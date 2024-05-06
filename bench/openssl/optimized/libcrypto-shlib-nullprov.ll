@@ -31,7 +31,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @null_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #2 {
+define internal range(i32 0, 2) i32 @null_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #2 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str) #4
   %cmp.not = icmp eq ptr %call, null

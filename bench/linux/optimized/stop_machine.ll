@@ -1136,7 +1136,7 @@ declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #5 
 declare dso_local i32 @smpboot_register_percpu_thread(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @cpu_stop_should_run(i32 noundef %0) #0 align 16 {
+define internal range(i32 0, 2) i32 @cpu_stop_should_run(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %2
   %4 = load i64, ptr %3, align 8

@@ -53,7 +53,7 @@ define internal ptr @wmem_block_fast_alloc(ptr nocapture noundef %0, i64 noundef
   br label %39
 
 14:                                               ; preds = %2
-  %15 = trunc i64 %1 to i32
+  %15 = trunc nuw i64 %1 to i32
   %16 = add nuw nsw i32 %15, 15
   %17 = and i32 %16, 4194288
   %18 = add nuw nsw i32 %17, 16
@@ -157,7 +157,7 @@ define internal ptr @wmem_block_fast_realloc(ptr nocapture noundef %0, ptr nound
   br label %wmem_block_fast_alloc.exit
 
 33:                                               ; preds = %21
-  %34 = trunc i64 %2 to i32
+  %34 = trunc nuw i64 %2 to i32
   %35 = add nuw nsw i32 %34, 15
   %36 = and i32 %35, 4194288
   %37 = add nuw nsw i32 %36, 16

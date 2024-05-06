@@ -196,7 +196,7 @@ return:                                           ; preds = %if.end, %if.then3, 
 declare i32 @OSSL_PARAM_BLD_push_BN(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_param_build_set_multi_key_bn(ptr noundef %bld, ptr noundef %params, ptr nocapture noundef readonly %names, ptr noundef %stk) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_param_build_set_multi_key_bn(ptr noundef %bld, ptr noundef %params, ptr nocapture noundef readonly %names, ptr noundef %stk) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %stk) #2
   %cmp.not = icmp eq ptr %bld, null
@@ -225,7 +225,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   br i1 %cmp2.not, label %return, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i21 = tail call ptr @OPENSSL_sk_value(ptr noundef %stk, i32 noundef %1) #2
   %cmp4.not = icmp eq ptr %call.i21, null
   br i1 %cmp4.not, label %for.inc, label %land.lhs.true
@@ -249,7 +249,7 @@ land.rhs12:                                       ; preds = %land.rhs12.preheade
   br i1 %cmp15.not, label %return, label %for.body17
 
 for.body17:                                       ; preds = %land.rhs12
-  %4 = trunc i64 %indvars.iv37 to i32
+  %4 = trunc nuw nsw i64 %indvars.iv37 to i32
   %call.i22 = tail call ptr @OPENSSL_sk_value(ptr noundef %stk, i32 noundef %4) #2
   %5 = load ptr, ptr %arrayidx14, align 8
   %call21 = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef %5) #2

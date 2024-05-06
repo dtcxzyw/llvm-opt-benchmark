@@ -28,7 +28,7 @@ define void @Init_nonblock() local_unnamed_addr #0 {
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rb_io_nonblock_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @rb_io_nonblock_p(i64 noundef %0) #0 {
   %2 = tail call i32 @rb_io_descriptor(i64 noundef %0) #3
   %3 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %2, i32 noundef 3) #3
   %4 = icmp eq i32 %3, -1

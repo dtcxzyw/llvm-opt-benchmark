@@ -149,8 +149,8 @@ if.end28.i:                                       ; preds = %if.end15.i
   %conv26.i = and i16 %11, 15
   %or.i30.i = or disjoint i16 %conv26.i, %and.i28.i
   store i16 %or.i30.i, ptr %add.ptr22.i, align 1
-  %.pr39.i = load i32, ptr %speed.i, align 4
-  %cmp30.i = icmp ugt i32 %.pr39.i, 2
+  %.pr41.i = load i32, ptr %speed.i, align 4
+  %cmp30.i = icmp ugt i32 %.pr41.i, 2
   br i1 %cmp30.i, label %if.then32.i, label %pcie_cap_fill_slot_lnk.exit
 
 if.then32.i:                                      ; preds = %if.end28.i
@@ -380,7 +380,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @pcie_cap_get_type(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
+define dso_local zeroext range(i8 0, -15) i8 @pcie_cap_get_type(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
 entry:
   %exp = getelementptr inbounds i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
@@ -404,7 +404,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @pcie_cap_get_version(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
+define dso_local zeroext range(i8 0, 16) i8 @pcie_cap_get_version(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
 entry:
   %exp = getelementptr inbounds i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
@@ -466,7 +466,7 @@ entry:
   %add.ptr1 = getelementptr i8, ptr %add.ptr, i64 2
   %add.ptr1.val = load i16, ptr %add.ptr1, align 1
   %2 = lshr i16 %add.ptr1.val, 9
-  %3 = trunc i16 %2 to i8
+  %3 = trunc nuw nsw i16 %2 to i8
   %conv4 = and i8 %3, 31
   ret i8 %conv4
 }
@@ -1721,7 +1721,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @pcie_find_capability(ptr nocapture noundef readonly %dev, i16 noundef zeroext %cap_id) local_unnamed_addr #0 {
+define dso_local zeroext range(i16 0, 4093) i16 @pcie_find_capability(ptr nocapture noundef readonly %dev, i16 noundef zeroext %cap_id) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %dev, i64 168
   %dev.val = load ptr, ptr %0, align 8
@@ -1757,7 +1757,7 @@ if.end10.i:                                       ; preds = %if.end4.i
 
 for.inc.i:                                        ; preds = %if.end10.i
   %shr.i = lshr i32 %add.ptr13.val.i, 20
-  %2 = trunc i32 %shr.i to i16
+  %2 = trunc nuw nsw i32 %shr.i to i16
   %conv20.i = and i16 %2, 4092
   %tobool1.not.i = icmp eq i16 %conv20.i, 0
   br i1 %tobool1.not.i, label %pcie_find_capability_list.exit, label %for.body.i, !llvm.loop !5
@@ -1847,7 +1847,7 @@ if.end10.i:                                       ; preds = %if.end4.i
   %add.ptr13.i = getelementptr i8, ptr %dev.val21, i64 %idx.ext.i
   %add.ptr13.val.i = load i32, ptr %add.ptr13.i, align 1
   %shr.i = lshr i32 %add.ptr13.val.i, 20
-  %2 = trunc i32 %shr.i to i16
+  %2 = trunc nuw nsw i32 %shr.i to i16
   %conv20.i = and i16 %2, 4092
   %tobool1.not.i = icmp eq i16 %conv20.i, 0
   br i1 %tobool1.not.i, label %if.end41, label %for.body.i, !llvm.loop !5
@@ -1960,7 +1960,7 @@ if.end34:                                         ; preds = %if.else25, %if.then
 if.then41:                                        ; preds = %if.end34
   %conv44 = and i32 %lnksta.0.in, 65520
   %or48 = or disjoint i32 %conv44, %and38
-  %conv49 = trunc i32 %or48 to i16
+  %conv49 = trunc nuw i32 %or48 to i16
   br label %if.end60
 
 if.else50:                                        ; preds = %if.end34

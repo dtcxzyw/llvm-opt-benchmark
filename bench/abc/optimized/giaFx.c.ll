@@ -590,7 +590,7 @@ Vec_IntCheckUniqueSmall.exit:                     ; preds = %47
   %77 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv79
   %78 = load i32, ptr %77, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = trunc i64 %indvars.iv.next to i32
+  %79 = trunc nuw nsw i64 %indvars.iv.next to i32
   %80 = add i32 %78, %79
   %81 = load ptr, ptr %25, align 8
   %82 = getelementptr inbounds i32, ptr %81, i64 %indvars.iv
@@ -618,7 +618,7 @@ Vec_IntCheckUniqueSmall.exit:                     ; preds = %47
 .lr.ph.preheader.i:                               ; preds = %._crit_edge.i57, %.lr.ph27.preheader.i
   %indvars.iv32.i = phi i64 [ 0, %.lr.ph27.preheader.i ], [ %indvars.iv.next33.i, %._crit_edge.i57 ]
   %indvars.iv.i54 = phi i64 [ 1, %.lr.ph27.preheader.i ], [ %indvars.iv.next.i58, %._crit_edge.i57 ]
-  %91 = trunc i64 %indvars.iv32.i to i32
+  %91 = trunc nuw nsw i64 %indvars.iv32.i to i32
   br label %.lr.ph.i55
 
 .lr.ph.i55:                                       ; preds = %.lr.ph.i55, %.lr.ph.preheader.i
@@ -630,7 +630,7 @@ Vec_IntCheckUniqueSmall.exit:                     ; preds = %47
   %95 = getelementptr inbounds i32, ptr %.val47, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = icmp slt i32 %93, %96
-  %98 = trunc i64 %indvars.iv29.i to i32
+  %98 = trunc nuw nsw i64 %indvars.iv29.i to i32
   %spec.select.i = select i1 %97, i32 %98, i32 %.024.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count.i
@@ -661,7 +661,7 @@ Vec_IntSelectSort.exit:                           ; preds = %._crit_edge.i57
   %106 = load ptr, ptr %25, align 8
   %107 = getelementptr inbounds i32, ptr %106, i64 %indvars.iv.i61
   %108 = load i32, ptr %107, align 4
-  %109 = trunc i64 %indvars.iv.i61 to i32
+  %109 = trunc nuw nsw i64 %indvars.iv.i61 to i32
   %110 = xor i32 %109, -1
   %111 = add i32 %105, %110
   %112 = sext i32 %111 to i64
@@ -1450,7 +1450,7 @@ Vec_IntGrow.exit.i109:                            ; preds = %254, %252
 .lr.ph.preheader.i:                               ; preds = %._crit_edge.i, %.lr.ph27.preheader.i
   %indvars.iv32.i = phi i64 [ 0, %.lr.ph27.preheader.i ], [ %indvars.iv.next33.i, %._crit_edge.i ]
   %indvars.iv.i111 = phi i64 [ 1, %.lr.ph27.preheader.i ], [ %indvars.iv.next.i113, %._crit_edge.i ]
-  %278 = trunc i64 %indvars.iv32.i to i32
+  %278 = trunc nuw nsw i64 %indvars.iv32.i to i32
   br label %.lr.ph.i112
 
 .lr.ph.i112:                                      ; preds = %.lr.ph.i112, %.lr.ph.preheader.i
@@ -1462,7 +1462,7 @@ Vec_IntGrow.exit.i109:                            ; preds = %254, %252
   %282 = getelementptr inbounds i32, ptr %274, i64 %281
   %283 = load i32, ptr %282, align 4
   %284 = icmp slt i32 %280, %283
-  %285 = trunc i64 %indvars.iv29.i to i32
+  %285 = trunc nuw nsw i64 %indvars.iv29.i to i32
   %spec.select.i = select i1 %284, i32 %285, i32 %.024.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count.i
@@ -1860,7 +1860,7 @@ Vec_IntStart.exit73:                              ; preds = %Vec_IntAlloc.exit.t
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds i32, ptr %.val61, i64 %42
-  %48 = trunc i64 %indvars.iv100 to i32
+  %48 = trunc nuw nsw i64 %indvars.iv100 to i32
   store i32 %48, ptr %47, align 4
   %.pre = load i32, ptr %43, align 4
   br label %49
@@ -1966,7 +1966,7 @@ Vec_IntStart.exit87:                              ; preds = %Vec_IntAlloc.exit.t
   br i1 %.not56, label %82, label %84
 
 82:                                               ; preds = %79
-  %83 = trunc i64 %indvars.iv108 to i32
+  %83 = trunc nsw i64 %indvars.iv108 to i32
   tail call void @Gia_ManFxTopoOrder_rec(ptr noundef %0, ptr noundef nonnull %16, ptr noundef nonnull %36, ptr noundef nonnull %64, ptr noundef nonnull %53, i32 noundef %83)
   br label %84
 
@@ -2023,10 +2023,10 @@ define ptr @Gia_ManFxInsert(ptr noundef %0, ptr nocapture noundef readonly %1, p
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #21
+  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %17) #21
   %20 = add i64 %19, 1
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #18
-  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %17) #17
+  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %17) #17
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %14, %18
@@ -2038,10 +2038,10 @@ Abc_UtilStrsav.exit:                              ; preds = %14, %18
   br i1 %.not.i243, label %Abc_UtilStrsav.exit244, label %26
 
 26:                                               ; preds = %Abc_UtilStrsav.exit
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #21
+  %27 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %25) #21
   %28 = add i64 %27, 1
   %29 = tail call noalias ptr @malloc(i64 noundef %28) #18
-  %30 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %25) #17
+  %30 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %25) #17
   br label %Abc_UtilStrsav.exit244
 
 Abc_UtilStrsav.exit244:                           ; preds = %Abc_UtilStrsav.exit, %26
@@ -3503,7 +3503,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4

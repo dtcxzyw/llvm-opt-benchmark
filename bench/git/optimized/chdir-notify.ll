@@ -107,7 +107,7 @@ if.end7:                                          ; preds = %if.then5, %do.body,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @chdir_notify(ptr noundef %new_cwd) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @chdir_notify(ptr noundef %new_cwd) local_unnamed_addr #0 {
 entry:
   %old_cwd = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %old_cwd, ptr noundef nonnull align 8 dereferenceable(24) @__const.chdir_notify.old_cwd, i64 24, i1 false)

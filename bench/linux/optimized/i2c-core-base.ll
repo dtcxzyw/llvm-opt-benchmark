@@ -1329,7 +1329,7 @@ define dso_local i32 @i2c_recover_bus(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i2c_device_match(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @i2c_device_match(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @i2c_client_type
@@ -1685,7 +1685,7 @@ define dso_local ptr @i2c_verify_client(ptr noundef readonly %0) #7 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @i2c_check_7bit_addr_validity_strict(i16 noundef zeroext %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @i2c_check_7bit_addr_validity_strict(i16 noundef zeroext %0) local_unnamed_addr #2 align 16 {
   %2 = add i16 %0, -120
   %3 = icmp ult i16 %2, -112
   %4 = select i1 %3, i32 -22, i32 0
@@ -2318,7 +2318,7 @@ define dso_local ptr @i2c_verify_adapter(ptr noundef readonly %0) #7 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i2c_handle_smbus_host_notify(ptr noundef readonly %0, i16 noundef zeroext %1) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @i2c_handle_smbus_host_notify(ptr noundef readonly %0, i16 noundef zeroext %1) #1 align 16 {
   %3 = alloca i32, align 4
   %4 = icmp eq ptr %0, null
   br i1 %4, label %16, label %5
@@ -3200,7 +3200,7 @@ define dso_local ptr @i2c_find_adapter_by_fwnode(ptr noundef %0) #1 align 16 {
 declare dso_local ptr @bus_find_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i2c_dev_or_parent_fwnode_match(ptr noundef %0, ptr noundef readnone %1) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @i2c_dev_or_parent_fwnode_match(ptr noundef %0, ptr noundef readnone %1) #1 align 16 {
   %3 = tail call ptr @__dev_fwnode(ptr noundef %0) #21
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %13, label %5
@@ -4615,7 +4615,7 @@ define dso_local noundef ptr @i2c_client_get_device_id(ptr noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i2c_probe_func_quick_read(ptr noundef %0, i16 noundef zeroext %1) #1 align 16 {
+define dso_local range(i32 0, 2) i32 @i2c_probe_func_quick_read(ptr noundef %0, i16 noundef zeroext %1) #1 align 16 {
   %3 = tail call i32 @i2c_smbus_xfer(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext 0, i8 noundef zeroext 1, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null) #21
   %4 = icmp sgt i32 %3, -1
   %5 = zext i1 %4 to i32
@@ -4687,7 +4687,7 @@ define dso_local noundef ptr @i2c_new_scanned_device(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i2c_default_probe(ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #1 align 16 {
+define internal range(i32 0, 2) i32 @i2c_default_probe(ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #1 align 16 {
   %3 = alloca %union.i2c_smbus_data, align 2
   call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %3) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(34) %3, i8 0, i64 34, i1 false), !annotation !14
@@ -5113,7 +5113,7 @@ declare dso_local i32 @__pm_runtime_idle(ptr noundef, i32 noundef) local_unnamed
 declare dso_local void @disable_irq(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @name_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #13 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @name_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #13 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @i2c_client_type
@@ -5128,7 +5128,7 @@ define internal noundef i64 @name_show(ptr noundef %0, ptr nocapture readnone %1
 declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @modalias_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
   %4 = tail call i32 @acpi_device_modalias(ptr noundef %0, ptr noundef %2, i32 noundef 4095) #21
   %5 = icmp eq i32 %4, -19
   br i1 %5, label %6, label %9
@@ -5335,7 +5335,7 @@ declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapt
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @delete_device_store(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #1 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @delete_device_store(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #1 align 16 {
   %5 = alloca i16, align 2
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #21

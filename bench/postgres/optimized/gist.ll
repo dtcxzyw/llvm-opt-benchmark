@@ -271,7 +271,7 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
   br label %56
 
 .preheader.loopexit:                              ; preds = %95
-  %41 = trunc i64 %indvars.iv.next to i32
+  %41 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %11
@@ -299,7 +299,7 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %95 ]
   %57 = getelementptr [32 x %struct.FmgrInfo], ptr %30, i64 0, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = trunc i64 %indvars.iv.next to i16
+  %58 = trunc nuw nsw i64 %indvars.iv.next to i16
   %59 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %58, i16 noundef zeroext 1) #8
   tail call void @fmgr_info_copy(ptr noundef %57, ptr noundef %59, ptr noundef %13) #8
   %60 = getelementptr [32 x %struct.FmgrInfo], ptr %31, i64 0, i64 %indvars.iv
@@ -475,7 +475,7 @@ define dso_local void @gistdoinsert(ptr noundef %0, ptr noundef %1, i64 noundef 
 .lr.ph:                                           ; preds = %26, %33
   %.1133 = phi ptr [ %37, %33 ], [ %.0, %26 ]
   %.195132 = phi i8 [ 0, %33 ], [ %.094, %26 ]
-  %29 = trunc i8 %.195132 to i1
+  %29 = trunc nuw i8 %.195132 to i1
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %.lr.ph
@@ -513,7 +513,7 @@ define dso_local void @gistdoinsert(ptr noundef %0, ptr noundef %1, i64 noundef 
   br label %49
 
 49:                                               ; preds = %44, %._crit_edge
-  %50 = trunc i8 %.195.lcssa to i1
+  %50 = trunc nuw i8 %.195.lcssa to i1
   br i1 %50, label %56, label %51
 
 51:                                               ; preds = %49
@@ -722,7 +722,7 @@ gistformdownlink.exit.i:                          ; preds = %._crit_edge.thread.
   %.2.i.i = phi ptr [ %.1.i.i, %._crit_edge.i.i ], [ %168, %._crit_edge.thread.i.i ]
   %172 = call i32 @BufferGetBlockNumber(i32 noundef %.0.i) #8
   %173 = lshr i32 %172, 16
-  %174 = trunc i32 %173 to i16
+  %174 = trunc nuw i32 %173 to i16
   store i16 %174, ptr %.2.i.i, align 2
   %175 = trunc i32 %172 to i16
   %176 = getelementptr inbounds i8, ptr %.2.i.i, i64 2
@@ -817,7 +817,7 @@ list_length.exit.i:                               ; preds = %gistfixsplit.exit
   br i1 %.not.i124, label %gistinserttuples.exit, label %223
 
 223:                                              ; preds = %221
-  call fastcc void @gistfinishsplit(ptr noundef nonnull %14, ptr noundef nonnull %211, ptr noundef %3, ptr noundef nonnull %222, i1 noundef zeroext false) #10
+  call fastcc void @gistfinishsplit(ptr noundef nonnull readonly %14, ptr noundef nonnull %211, ptr noundef %3, ptr noundef nonnull %222, i1 noundef zeroext false) #10
   br label %gistinserttuples.exit
 
 gistinserttuples.exit:                            ; preds = %221, %223
@@ -852,7 +852,7 @@ gistfinishsplit.exit:                             ; preds = %225, %gistfixsplit.
   %237 = load i16, ptr %116, align 2
   %238 = load i32, ptr %231, align 8
   %239 = load i32, ptr %230, align 8
-  %240 = call fastcc zeroext i1 @gistinserttuples(ptr noundef nonnull %14, ptr noundef %236, ptr noundef %3, ptr noundef nonnull %8, i32 noundef 2, i16 noundef zeroext %237, i32 noundef %238, i32 noundef %239, i1 noundef zeroext true, i1 noundef zeroext false) #11
+  %240 = call fastcc zeroext i1 @gistinserttuples(ptr noundef nonnull readonly %14, ptr noundef %236, ptr noundef %3, ptr noundef nonnull %8, i32 noundef 2, i16 noundef zeroext %237, i32 noundef %238, i32 noundef %239, i1 noundef zeroext true, i1 noundef zeroext false) #11
   store i16 0, ptr %116, align 2
   %241 = getelementptr inbounds i8, ptr %103, i64 24
   store i8 1, ptr %241, align 8
@@ -1007,7 +1007,7 @@ BufferGetPage.exit117:                            ; preds = %300, %306
   br i1 %.not.i.i118, label %gistinserttuple.exit, label %324
 
 324:                                              ; preds = %314
-  call fastcc void @gistfinishsplit(ptr noundef nonnull %14, ptr noundef nonnull %.1.lcssa, ptr noundef %3, ptr noundef nonnull %323, i1 noundef zeroext false) #11
+  call fastcc void @gistfinishsplit(ptr noundef nonnull readonly %14, ptr noundef nonnull %.1.lcssa, ptr noundef %3, ptr noundef nonnull %323, i1 noundef zeroext false) #11
   br label %gistinserttuple.exit
 
 gistinserttuple.exit:                             ; preds = %314, %324
@@ -1137,7 +1137,7 @@ BufferGetPage.exit120:                            ; preds = %342, %348
   br i1 %.not.i.i121, label %gistinserttuple.exit122, label %391
 
 391:                                              ; preds = %380
-  call fastcc void @gistfinishsplit(ptr noundef nonnull %14, ptr noundef nonnull %.1.lcssa, ptr noundef %3, ptr noundef nonnull %390, i1 noundef zeroext false) #11
+  call fastcc void @gistfinishsplit(ptr noundef nonnull readonly %14, ptr noundef nonnull %.1.lcssa, ptr noundef %3, ptr noundef nonnull %390, i1 noundef zeroext false) #11
   br label %gistinserttuple.exit122
 
 gistinserttuple.exit122:                          ; preds = %380, %391
@@ -1260,7 +1260,7 @@ BufferGetPage.exit:                               ; preds = %20, %26
   %70 = add i32 %.036.i, 1
   %71 = sext i32 %.036.i to i64
   %72 = getelementptr [408 x i16], ptr %14, i64 0, i64 %71
-  %73 = trunc i64 %indvars.iv.i to i16
+  %73 = trunc nuw i64 %indvars.iv.i to i16
   store i16 %73, ptr %72, align 2
   br label %74
 
@@ -1340,7 +1340,7 @@ BufferGetPage.exit:                               ; preds = %20, %26
 116:                                              ; preds = %114, %112
   %.sink.i = phi i64 [ %113, %112 ], [ %115, %114 ]
   %117 = lshr i64 %.sink.i, 32
-  %118 = trunc i64 %117 to i32
+  %118 = trunc nuw i64 %117 to i32
   store i32 %118, ptr %.0.i.i, align 4
   %119 = trunc i64 %.sink.i to i32
   %120 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
@@ -1515,7 +1515,7 @@ BufferGetPage.exit271:                            ; preds = %189, %195
   %209 = load ptr, ptr %208, align 8
   %210 = load i32, ptr %.3300, align 8
   %211 = lshr i32 %210, 16
-  %212 = trunc i32 %211 to i16
+  %212 = trunc nuw i32 %211 to i16
   store i16 %212, ptr %209, align 2
   %213 = trunc i32 %210 to i16
   %214 = getelementptr inbounds i8, ptr %209, i64 2
@@ -1643,7 +1643,7 @@ BufferGetPage.exit273:                            ; preds = %221, %227
   %.not265 = icmp eq ptr %7, null
   %.not266 = xor i1 %10, true
   %271 = lshr i64 %.0240, 32
-  %272 = trunc i64 %271 to i32
+  %272 = trunc nuw i64 %271 to i32
   %273 = trunc i64 %.0240 to i32
   br label %274
 
@@ -1936,7 +1936,7 @@ BufferGetPage.exit277:                            ; preds = %408, %414
 
 .lr.ph336:                                        ; preds = %441
   %442 = lshr i64 %.0, 32
-  %443 = trunc i64 %442 to i32
+  %443 = trunc nuw i64 %442 to i32
   %444 = trunc i64 %.0 to i32
   br label %445
 
@@ -2066,7 +2066,7 @@ BufferGetPage.exit277:                            ; preds = %408, %414
 499:                                              ; preds = %475, %495, %497
   %.1 = phi i64 [ %496, %495 ], [ %498, %497 ], [ 1, %475 ]
   %500 = lshr i64 %.1, 32
-  %501 = trunc i64 %500 to i32
+  %501 = trunc nuw i64 %500 to i32
   store i32 %501, ptr %.0.i.i, align 4
   %502 = trunc i64 %.1 to i32
   %503 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
@@ -2107,7 +2107,7 @@ BufferGetPage.exit277:                            ; preds = %408, %414
 BufferGetPage.exit279:                            ; preds = %507, %513
   %.0.i.i278 = phi ptr [ %512, %507 ], [ %518, %513 ]
   %519 = lshr i64 %.2, 32
-  %520 = trunc i64 %519 to i32
+  %520 = trunc nuw i64 %519 to i32
   %521 = getelementptr inbounds i8, ptr %.0.i.i278, i64 16
   %522 = load i16, ptr %521, align 4
   %523 = zext i16 %522 to i64

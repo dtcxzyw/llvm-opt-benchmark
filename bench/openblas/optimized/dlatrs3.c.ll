@@ -83,7 +83,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %57 = select i1 %56, i32 1, i32 %55
   %58 = select i1 %56, i32 %53, i32 32
   %59 = tail call i32 @llvm.smax.i32(i32 %52, i32 %58)
-  %60 = mul nsw i32 %59, %52
+  %60 = mul nuw nsw i32 %59, %52
   %61 = add nuw i32 %59, %52
   %62 = mul i32 %61, %52
   %63 = sitofp i32 %62 to double
@@ -462,7 +462,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 301:                                              ; preds = %.loopexit57, %289
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %.loopexit57 ], [ 0, %289 ]
   %302 = phi i64 [ %380, %.loopexit57 ], [ 1, %289 ]
-  %303 = trunc i64 %indvars.iv38 to i32
+  %303 = trunc nuw nsw i64 %indvars.iv38 to i32
   %304 = mul i32 %34, %303
   %305 = add i32 %297, %304
   %306 = sext i32 %305 to i64

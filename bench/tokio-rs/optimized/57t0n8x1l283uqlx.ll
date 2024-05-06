@@ -114,7 +114,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h7a69b3466c
 
 7:                                                ; preds = %3
   %.sroa.52.0.extract.shift = lshr i24 %6, 16
-  %.sroa.52.0.extract.trunc = trunc i24 %.sroa.52.0.extract.shift to i8
+  %.sroa.52.0.extract.trunc = trunc nuw i24 %.sroa.52.0.extract.shift to i8
   %.sroa.4.0.extract.shift = lshr i24 %6, 8
   %.sroa.4.0.extract.trunc = trunc i24 %.sroa.4.0.extract.shift to i8
   store i8 %.sroa.4.0.extract.trunc, ptr %5, align 1
@@ -198,7 +198,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %22 = getelementptr inbounds i8, ptr %2, i64 24
   %23 = load i8, ptr %22, align 8, !range !39, !noundef !5
-  %24 = trunc i8 %23 to i1
+  %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %26, %21
@@ -329,7 +329,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$5close17h2d3ca4015
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %3 = getelementptr inbounds i8, ptr %2, i64 440
   %4 = load i8, ptr %3, align 8, !range !39, !noundef !5
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %1
@@ -349,7 +349,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Tx$LT$T$C$S$GT$4send17h9c00040c67
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   %5 = getelementptr inbounds i8, ptr %4, i64 136
   %6 = invoke noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdd5a1c9f53a0ea88E"(ptr noundef nonnull align 8 %5)
           to label %7 unwind label %12, !noalias !44

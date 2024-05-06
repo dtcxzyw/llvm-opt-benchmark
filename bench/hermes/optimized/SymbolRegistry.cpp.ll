@@ -310,7 +310,7 @@ _ZN4llvh8DenseMapIN6hermes2vm8SymbolIDENS_6detail13DenseSetEmptyENS_12DenseMapIn
   %or6.i = or i64 %shr5.i, %or4.i
   %shr7.i = lshr i64 %or6.i, 16
   %or8.i = or i64 %shr7.i, %or6.i
-  %2 = trunc i64 %or8.i to i32
+  %2 = trunc nuw i64 %or8.i to i32
   %conv3 = add i32 %2, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %conv3, i32 64)
   store i32 %.sroa.speculated, ptr %NumBuckets, align 8

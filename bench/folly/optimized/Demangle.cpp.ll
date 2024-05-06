@@ -260,7 +260,7 @@ if.then6.i.i:                                     ; preds = %if.else.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i: ; preds = %if.then6.i.i, %if.else.i.i, %sw.bb4.i.i, %if.then.i.i
-  %5 = trunc i64 %call.i.i to i8
+  %5 = trunc nuw nsw i64 %call.i.i to i8
   %conv.i.i.i = sub nuw nsw i8 23, %5
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 23
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i, align 1, !tbaa !7

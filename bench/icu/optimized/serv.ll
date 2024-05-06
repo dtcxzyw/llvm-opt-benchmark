@@ -164,7 +164,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7513ICUServiceKey12isFallbackOfERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %id) unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7513ICUServiceKey12isFallbackOfERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %id) unnamed_addr #0 align 2 {
 entry:
   %_id = getelementptr inbounds i8, ptr %this, i64 8
   %fUnion.i.i = getelementptr inbounds i8, ptr %id, i64 8
@@ -680,7 +680,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_7510StringPair7isBogusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510StringPair7isBogusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #7 align 2 {
 entry:
   %fUnion.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i16, ptr %fUnion.i, align 8
@@ -2901,7 +2901,7 @@ declare void @_ZN6icu_757UVectorC1EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr nound
 declare void @_ZN6icu_757UVector15insertElementAtEPviR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7510ICUService10unregisterEPKvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %rkey, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510ICUService10unregisterEPKvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %rkey, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %rkey, null
   br i1 %cmp.not, label %if.end13, label %land.lhs.true
@@ -3050,7 +3050,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext i8 @_ZNK6icu_7510ICUService9isDefaultEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #9 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510ICUService9isDefaultEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #9 align 2 {
 entry:
   %factories.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %factories.i, align 8
@@ -3244,7 +3244,7 @@ delete.end:                                       ; preds = %_ZN6icu_759Hashtabl
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef signext i8 @_ZNK6icu_7510ICUService15acceptsListenerERKNS_13EventListenerE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %l) unnamed_addr #10 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510ICUService15acceptsListenerERKNS_13EventListenerE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %l) unnamed_addr #10 align 2 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %l, ptr nonnull @_ZTIN6icu_7513EventListenerE, ptr nonnull @_ZTIN6icu_7515ServiceListenerE, i64 0) #15
   %cmp = icmp ne ptr %0, null

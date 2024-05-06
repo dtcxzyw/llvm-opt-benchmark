@@ -690,7 +690,7 @@ define noundef i32 @rb_Digest_MD5_Finish(ptr noundef %0, ptr nocapture noundef w
   %5 = lshr i64 %.036, 2
   %6 = getelementptr inbounds [2 x i32], ptr %0, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
-  %.0.tr = trunc i64 %.036 to i32
+  %.0.tr = trunc nuw i64 %.036 to i32
   %8 = shl nuw nsw i32 %.0.tr, 3
   %9 = and i32 %8, 24
   %10 = lshr i32 %7, %9
@@ -840,7 +840,7 @@ rb_Digest_MD5_Update.exit25:                      ; preds = %60, %._crit_edge.i1
   %78 = lshr i64 %.137, 2
   %79 = getelementptr inbounds [4 x i32], ptr %76, i64 0, i64 %78
   %80 = load i32, ptr %79, align 4
-  %.1.tr = trunc i64 %.137 to i32
+  %.1.tr = trunc nuw i64 %.137 to i32
   %81 = shl nuw nsw i32 %.1.tr, 3
   %82 = and i32 %81, 24
   %83 = lshr i32 %80, %82

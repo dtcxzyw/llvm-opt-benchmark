@@ -294,7 +294,7 @@ define hidden void @_ZNK8rawspeed20SonyArw2Decompressor13decompressRowEi(ptr noc
   %14 = getelementptr inbounds i8, ptr %4, i64 48
   %15 = load i32, ptr %14, align 8, !tbaa !108, !noalias !103
   %16 = ashr i32 %15, 1
-  %17 = mul nsw i32 %16, %13
+  %17 = mul nuw nsw i32 %16, %13
   %18 = icmp sgt i32 %11, -1
   tail call void @llvm.assume(i1 %18)
   %19 = icmp sgt i32 %13, -1
@@ -717,7 +717,7 @@ define hidden void @_ZNK8rawspeed20SonyArw2Decompressor13decompressRowEi(ptr noc
   %290 = phi i32 [ %242, %238 ], [ %242, %245 ], [ %284, %277 ]
   %291 = phi i64 [ %241, %238 ], [ %241, %245 ], [ %283, %277 ]
   %292 = phi i32 [ %109, %238 ], [ %144, %245 ], [ %287, %277 ]
-  %293 = trunc i32 %292 to i16
+  %293 = trunc nuw nsw i32 %292 to i16
   %294 = shl nuw nsw i16 %293, 1
   %295 = shl nuw nsw i64 %239, 1
   %296 = add nuw nsw i64 %295, %229
@@ -758,7 +758,7 @@ define hidden void @_ZNK8rawspeed20SonyArw2Decompressor13decompressRowEi(ptr noc
   %323 = mul nuw nsw i32 %322, 15700
   %324 = lshr i32 %240, 16
   %325 = add nuw nsw i32 %323, %324
-  %326 = trunc i32 %321 to i16
+  %326 = trunc nuw nsw i32 %321 to i16
   %327 = add i16 %312, %326
   br label %333
 

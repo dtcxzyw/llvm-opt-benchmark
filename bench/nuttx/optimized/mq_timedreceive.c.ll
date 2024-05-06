@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_readytorun = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define i64 @file_mq_timedreceive(ptr nocapture noundef readonly %0, ptr noundef %1, i64 %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @file_mq_timedreceive(ptr nocapture noundef readonly %0, ptr noundef %1, i64 %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
@@ -141,7 +141,7 @@ declare i32 @wd_cancel(ptr noundef) local_unnamed_addr #1
 declare i64 @nxmq_do_receive(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @nxmq_timedreceive(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @nxmq_timedreceive(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %6) #3
   %8 = icmp slt i32 %7, 0
@@ -153,7 +153,7 @@ define i64 @nxmq_timedreceive(i32 noundef %0, ptr noundef %1, i64 noundef %2, pt
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
-  %13 = call i64 @file_mq_timedreceive(ptr noundef %12, ptr noundef %1, i64 poison, ptr noundef %3, ptr noundef %4), !range !9
+  %13 = call i64 @file_mq_timedreceive(ptr noundef %12, ptr noundef %1, i64 poison, ptr noundef %3, ptr noundef %4)
   br label %14
 
 14:                                               ; preds = %11, %9
@@ -164,7 +164,7 @@ define i64 @nxmq_timedreceive(i32 noundef %0, ptr noundef %1, i64 noundef %2, pt
 declare i32 @fs_getfilep(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @mq_timedreceive(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i64 -1, 2147483648) i64 @mq_timedreceive(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %7 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %6) #3
@@ -177,13 +177,13 @@ define i64 @mq_timedreceive(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr 
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
-  %13 = call i64 @file_mq_timedreceive(ptr noundef %12, ptr noundef %1, i64 poison, ptr noundef %3, ptr noundef %4), !range !9
+  %13 = call i64 @file_mq_timedreceive(ptr noundef %12, ptr noundef %1, i64 poison, ptr noundef %3, ptr noundef %4)
   br label %nxmq_timedreceive.exit
 
 nxmq_timedreceive.exit:                           ; preds = %9, %11
   %.0.i = phi i64 [ %10, %9 ], [ %13, %11 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %14 = trunc i64 %.0.i to i32
+  %14 = trunc nsw i64 %.0.i to i32
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %19
 
@@ -226,4 +226,3 @@ attributes #3 = { nounwind }
 !6 = !{i64 268027, i64 268045}
 !7 = !{i64 268646}
 !8 = !{i64 268767}
-!9 = !{i64 -2147483648, i64 2147483648}

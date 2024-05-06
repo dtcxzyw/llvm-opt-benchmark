@@ -205,7 +205,7 @@ declare dso_local void @acpi_exception(ptr noundef, i32 noundef, i32 noundef, pt
 declare dso_local ptr @acpi_ut_get_mutex_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ut_release_mutex(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_ut_release_mutex(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp ugt i32 %0, 5
   br i1 %2, label %14, label %3
 

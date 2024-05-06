@@ -84,7 +84,7 @@ entry:
 declare noundef i32 @_ZN3net16GetAddressFamilyERKNS_9IPAddressE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK3net10IPEndPoint17GetSockAddrFamilyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, 11) i32 @_ZNK3net10IPEndPoint17GetSockAddrFamilyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %this) local_unnamed_addr #4 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8

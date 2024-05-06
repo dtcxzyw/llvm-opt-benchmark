@@ -456,7 +456,7 @@ do.end:                                           ; preds = %while.body
   ]
 
 if.end34:                                         ; preds = %do.end, %if.end
-  %tobool35 = trunc i8 %keepon.0160 to i1
+  %tobool35 = trunc nuw i8 %keepon.0160 to i1
   br i1 %tobool35, label %if.else37, label %if.end139
 
 if.else37:                                        ; preds = %if.end34
@@ -594,7 +594,7 @@ if.end139:                                        ; preds = %if.else103, %if.the
   %29 = load i32, ptr %buffer_size, align 4
   %conv = zext i32 %29 to i64
   %cmp = icmp ult i64 %28, %conv
-  %tobool = trunc i8 %keepon.3 to i1
+  %tobool = trunc nuw i8 %keepon.3 to i1
   %30 = select i1 %cmp, i1 %tobool, i1 false
   br i1 %30, label %while.body, label %while.end, !llvm.loop !6
 
@@ -624,7 +624,7 @@ declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @Curl_memdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @Curl_pp_getsock(ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %pp, ptr nocapture noundef writeonly %socks) local_unnamed_addr #5 {
+define hidden range(i32 1, 65537) i32 @Curl_pp_getsock(ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %pp, ptr nocapture noundef writeonly %socks) local_unnamed_addr #5 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8

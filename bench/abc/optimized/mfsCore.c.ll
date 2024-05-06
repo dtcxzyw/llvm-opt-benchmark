@@ -32,7 +32,7 @@ define void @Abc_NtkMfsParsDefault(ptr nocapture noundef writeonly %0) local_unn
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_WinNode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Abc_WinNode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 764
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, 1
@@ -196,7 +196,7 @@ define void @Abc_NtkMfsPowerResub(ptr noundef %0, ptr nocapture readnone %1) loc
   br i1 %or.cond138, label %.critedge2, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call i32 @Abc_WinNode(ptr noundef nonnull %0, ptr noundef nonnull %17), !range !4
+  %33 = tail call i32 @Abc_WinNode(ptr noundef nonnull %0, ptr noundef nonnull %17)
   %.not102 = icmp eq i32 %33, 0
   br i1 %.not102, label %.preheader148, label %.critedge2
 
@@ -250,7 +250,7 @@ Abc_MfsObjProb.exit:                              ; preds = %36, %37, %49
   br i1 %56, label %60, label %57
 
 57:                                               ; preds = %Abc_MfsObjProb.exit
-  %58 = trunc i64 %indvars.iv to i32
+  %58 = trunc nuw nsw i64 %indvars.iv to i32
   %59 = tail call i32 @Abc_NtkMfsSolveSatResub(ptr noundef nonnull %0, ptr noundef nonnull %17, i32 noundef %58, i32 noundef 0, i32 noundef 0) #11
   %.val111.pre = load i32, ptr %29, align 4
   br label %60
@@ -260,7 +260,7 @@ Abc_MfsObjProb.exit:                              ; preds = %36, %37, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = sext i32 %.val111 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %36, label %.critedge2, !llvm.loop !5
+  br i1 %62, label %36, label %.critedge2, !llvm.loop !4
 
 .critedge2:                                       ; preds = %60, %.preheader148, %22, %19, %13, %32, %28
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
@@ -269,7 +269,7 @@ Abc_MfsObjProb.exit:                              ; preds = %36, %37, %49
   %.val104 = load i32, ptr %64, align 4
   %65 = sext i32 %.val104 to i64
   %66 = icmp slt i64 %indvars.iv.next168, %65
-  br i1 %66, label %13, label %.critedge.preheader, !llvm.loop !7
+  br i1 %66, label %13, label %.critedge.preheader, !llvm.loop !6
 
 .critedge4.preheader:                             ; preds = %.critedge6
   %67 = icmp sgt i32 %.val103, 0
@@ -315,7 +315,7 @@ Abc_MfsObjProb.exit:                              ; preds = %36, %37, %49
   br i1 %or.cond141, label %.critedge6, label %88
 
 88:                                               ; preds = %84
-  %89 = tail call i32 @Abc_WinNode(ptr noundef nonnull %0, ptr noundef nonnull %73), !range !4
+  %89 = tail call i32 @Abc_WinNode(ptr noundef nonnull %0, ptr noundef nonnull %73)
   %.not99 = icmp eq i32 %89, 0
   br i1 %.not99, label %.preheader147, label %.critedge6
 
@@ -369,7 +369,7 @@ Abc_MfsObjProb.exit132:                           ; preds = %92, %93, %105
   br i1 %112, label %116, label %113
 
 113:                                              ; preds = %Abc_MfsObjProb.exit132
-  %114 = trunc i64 %indvars.iv170 to i32
+  %114 = trunc nuw nsw i64 %indvars.iv170 to i32
   %115 = tail call i32 @Abc_NtkMfsSolveSatResub(ptr noundef nonnull %0, ptr noundef nonnull %73, i32 noundef %114, i32 noundef 0, i32 noundef 0) #11
   %.val108.pre = load i32, ptr %85, align 4
   br label %116
@@ -379,7 +379,7 @@ Abc_MfsObjProb.exit132:                           ; preds = %92, %93, %105
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %117 = sext i32 %.val108 to i64
   %118 = icmp slt i64 %indvars.iv.next171, %117
-  br i1 %118, label %92, label %.critedge6, !llvm.loop !8
+  br i1 %118, label %92, label %.critedge6, !llvm.loop !7
 
 .critedge6:                                       ; preds = %116, %.preheader147, %78, %75, %69, %88, %84
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
@@ -388,7 +388,7 @@ Abc_MfsObjProb.exit132:                           ; preds = %92, %93, %105
   %.val103 = load i32, ptr %120, align 4
   %121 = sext i32 %.val103 to i64
   %122 = icmp slt i64 %indvars.iv.next174, %121
-  br i1 %122, label %69, label %.critedge4.preheader, !llvm.loop !9
+  br i1 %122, label %69, label %.critedge4.preheader, !llvm.loop !8
 
 123:                                              ; preds = %.lr.ph165, %.critedge10
   %indvars.iv179 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next180, %.critedge10 ]
@@ -426,7 +426,7 @@ Abc_MfsObjProb.exit132:                           ; preds = %92, %93, %105
   br i1 %or.cond144, label %.critedge10, label %142
 
 142:                                              ; preds = %138
-  %143 = tail call i32 @Abc_WinNode(ptr noundef nonnull %0, ptr noundef nonnull %127), !range !4
+  %143 = tail call i32 @Abc_WinNode(ptr noundef nonnull %0, ptr noundef nonnull %127)
   %.not96 = icmp eq i32 %143, 0
   br i1 %.not96, label %.preheader, label %.critedge10
 
@@ -480,7 +480,7 @@ Abc_MfsObjProb.exit136:                           ; preds = %146, %147, %159
   br i1 %166, label %170, label %167
 
 167:                                              ; preds = %Abc_MfsObjProb.exit136
-  %168 = trunc i64 %indvars.iv176 to i32
+  %168 = trunc nuw nsw i64 %indvars.iv176 to i32
   %169 = tail call i32 @Abc_NtkMfsSolveSatResub(ptr noundef nonnull %0, ptr noundef nonnull %127, i32 noundef %168, i32 noundef 1, i32 noundef 0) #11
   %.val105.pre = load i32, ptr %139, align 4
   br label %170
@@ -490,7 +490,7 @@ Abc_MfsObjProb.exit136:                           ; preds = %146, %147, %159
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %171 = sext i32 %.val105 to i64
   %172 = icmp slt i64 %indvars.iv.next177, %171
-  br i1 %172, label %146, label %.critedge10, !llvm.loop !10
+  br i1 %172, label %146, label %.critedge10, !llvm.loop !9
 
 .critedge10:                                      ; preds = %170, %.preheader, %132, %129, %123, %142, %138
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
@@ -499,7 +499,7 @@ Abc_MfsObjProb.exit136:                           ; preds = %146, %147, %159
   %.val = load i32, ptr %174, align 4
   %175 = sext i32 %.val to i64
   %176 = icmp slt i64 %indvars.iv.next180, %175
-  br i1 %176, label %123, label %.critedge8, !llvm.loop !11
+  br i1 %176, label %123, label %.critedge8, !llvm.loop !10
 
 .critedge8:                                       ; preds = %.critedge10, %2, %.critedge.preheader, %.critedge4.preheader
   ret void
@@ -854,7 +854,7 @@ declare i32 @Abc_NtkMfsResubNode(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @Abc_NtkMfsResubNode2(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkMfsNode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Abc_NtkMfsNode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -1168,7 +1168,7 @@ declare ptr @Abc_NodeIfNodeResyn(ptr noundef, ptr noundef, ptr noundef, i32 noun
 declare i32 @Hop_DagSize(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkMfs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Abc_NtkMfs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -1342,7 +1342,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   %.val191.val = load i32, ptr %83, align 4
   %84 = sext i32 %.val191.val to i64
   %85 = icmp slt i64 %indvars.iv.next, %84
-  br i1 %85, label %.lr.ph, label %.critedge, !llvm.loop !12
+  br i1 %85, label %.lr.ph, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader212, %73
   %86 = call i32 @Abc_NtkLevel(ptr noundef nonnull %0) #11
@@ -1434,7 +1434,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br i1 %129, label %Extra_ProgressBarUpdate.exit, label %130
 
 130:                                              ; preds = %126, %125
-  %131 = trunc i64 %indvars.iv237 to i32
+  %131 = trunc nuw nsw i64 %indvars.iv237 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %99, i32 noundef %131, ptr noundef null) #11
   br label %Extra_ProgressBarUpdate.exit
 
@@ -1448,7 +1448,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %130, %126, %122
   br label %137
 
 135:                                              ; preds = %Extra_ProgressBarUpdate.exit
-  %136 = call i32 @Abc_NtkMfsNode(ptr noundef nonnull %29, ptr noundef nonnull %107), !range !4
+  %136 = call i32 @Abc_NtkMfsNode(ptr noundef nonnull %29, ptr noundef nonnull %107)
   br label %137
 
 137:                                              ; preds = %112, %109, %103, %135, %133, %118
@@ -1458,7 +1458,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %130, %126, %122
   %.val176 = load i32, ptr %139, align 4
   %140 = sext i32 %.val176 to i64
   %141 = icmp slt i64 %indvars.iv.next238, %140
-  br i1 %141, label %103, label %.critedge2, !llvm.loop !13
+  br i1 %141, label %103, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %137, %95
   call void @Extra_ProgressBarStop(ptr noundef %99) #11
@@ -1559,7 +1559,7 @@ Extra_ProgressBarUpdate.exit200:                  ; preds = %162, %159, %152
   br label %188
 
 186:                                              ; preds = %182
-  %187 = call i32 @Abc_NtkMfsNode(ptr noundef nonnull %29, ptr noundef nonnull %169), !range !4
+  %187 = call i32 @Abc_NtkMfsNode(ptr noundef nonnull %29, ptr noundef nonnull %169)
   br label %188
 
 188:                                              ; preds = %184, %186, %178
@@ -1567,7 +1567,7 @@ Extra_ProgressBarUpdate.exit200:                  ; preds = %162, %159, %152
   %.val175 = load i32, ptr %164, align 4
   %189 = sext i32 %.val175 to i64
   %190 = icmp slt i64 %indvars.iv.next241, %189
-  br i1 %190, label %167, label %.critedge6, !llvm.loop !14
+  br i1 %190, label %167, label %.critedge6, !llvm.loop !13
 
 .critedge6:                                       ; preds = %173, %188, %Extra_ProgressBarUpdate.exit200
   %.val175.lcssa = phi i32 [ %.val175221, %Extra_ProgressBarUpdate.exit200 ], [ %.val175, %188 ], [ %.val175223, %173 ]
@@ -1576,7 +1576,7 @@ Extra_ProgressBarUpdate.exit200:                  ; preds = %162, %159, %152
   %.val197 = load i32, ptr %146, align 4
   %192 = sext i32 %.val197 to i64
   %193 = icmp slt i64 %indvars.iv.next244, %192
-  br i1 %193, label %152, label %.critedge4, !llvm.loop !15
+  br i1 %193, label %152, label %.critedge4, !llvm.loop !14
 
 .critedge4:                                       ; preds = %.critedge6, %142
   call void @Extra_ProgressBarStop(ptr noundef %144) #11
@@ -1617,7 +1617,7 @@ Vec_PtrFree.exit.i:                               ; preds = %202, %199
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %204 = sext i32 %.val.i to i64
   %205 = icmp slt i64 %indvars.iv.next.i, %204
-  br i1 %205, label %196, label %.critedge.i, !llvm.loop !16
+  br i1 %205, label %196, label %.critedge.i, !llvm.loop !15
 
 .critedge.i:                                      ; preds = %203, %.critedge4
   %206 = getelementptr inbounds i8, ptr %145, i64 8
@@ -1668,7 +1668,7 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %208
   %.val192.val = load i32, ptr %221, align 4
   %222 = sext i32 %.val192.val to i64
   %223 = icmp slt i64 %indvars.iv.next247, %222
-  br i1 %223, label %.lr.ph235, label %.critedge8, !llvm.loop !17
+  br i1 %223, label %.lr.ph235, label %.critedge8, !llvm.loop !16
 
 .critedge8:                                       ; preds = %.lr.ph235, %.preheader, %209
   %224 = load i32, ptr %32, align 4
@@ -1789,17 +1789,16 @@ attributes #11 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

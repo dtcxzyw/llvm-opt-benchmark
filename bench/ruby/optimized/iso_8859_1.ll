@@ -36,7 +36,7 @@ declare i32 @onigenc_single_byte_code_to_mbclen(i32 noundef, ptr noundef) #1
 declare i32 @onigenc_single_byte_code_to_mbc(i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @mbc_case_fold(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4) #2 {
+define internal range(i32 1, 3) i32 @mbc_case_fold(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4) #2 {
   %6 = load ptr, ptr %1, align 8
   %7 = load i8, ptr %6, align 1
   %8 = icmp ne i8 %7, -33
@@ -73,7 +73,7 @@ define internal i32 @apply_all_case_fold(i32 noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @get_case_fold_codes_by_str(i32 %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4) #3 {
+define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4) #3 {
   %6 = load i8, ptr %1, align 1
   %.fr = freeze i8 %6
   %7 = add i8 %.fr, -65
@@ -239,7 +239,7 @@ switch.early.test:                                ; preds = %66
 declare i32 @onigenc_minimum_property_name_to_ctype(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr nocapture readnone %2) #4 {
+define internal range(i32 0, 2) i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr nocapture readnone %2) #4 {
   %4 = icmp ult i32 %0, 256
   br i1 %4, label %5, label %12
 

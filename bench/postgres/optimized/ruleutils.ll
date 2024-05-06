@@ -10800,7 +10800,7 @@ list_length.exit230.i:                            ; preds = %163, %160
 
 175:                                              ; preds = %169, %list_length.exit230.i
   %.0181.i = phi ptr [ %174, %169 ], [ %.0180.i, %list_length.exit230.i ]
-  %176 = tail call fastcc ptr @make_colname_unique(ptr noundef %.0181.i, ptr noundef nonnull %0, ptr noundef nonnull %62)
+  %176 = tail call fastcc ptr @make_colname_unique(ptr noundef %.0181.i, ptr noundef nonnull readonly %0, ptr noundef nonnull %62)
   %177 = load ptr, ptr %113, align 8
   %178 = getelementptr ptr, ptr %177, i64 %indvars.iv.i
   store ptr %176, ptr %178, align 8
@@ -11084,7 +11084,7 @@ list_length.exit232.i:                            ; preds = %190, %._crit_edge.i
   br i1 %.not45.i162, label %307, label %304
 
 304:                                              ; preds = %301
-  %305 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %303, ptr noundef nonnull dereferenceable(1) %257) #13
+  %305 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %303, ptr noundef nonnull readonly dereferenceable(1) %257) #13
   %306 = icmp eq i32 %305, 0
   br i1 %306, label %.loopexit182, label %307
 
@@ -11101,7 +11101,7 @@ list_length.exit232.i:                            ; preds = %190, %._crit_edge.i
   br i1 %.not44.i156, label %314, label %311
 
 311:                                              ; preds = %308
-  %312 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %310, ptr noundef nonnull dereferenceable(1) %257) #13
+  %312 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %310, ptr noundef nonnull readonly dereferenceable(1) %257) #13
   %313 = icmp eq i32 %312, 0
   br i1 %313, label %.loopexit182, label %314
 
@@ -11136,7 +11136,7 @@ list_length.exit232.i:                            ; preds = %190, %._crit_edge.i
   %indvars.iv86.i150 = phi i64 [ 0, %.lr.ph64.i148 ], [ %indvars.iv.next87.i151, %321 ]
   %323 = getelementptr %union.ListCell, ptr %320, i64 %indvars.iv86.i150
   %324 = load ptr, ptr %323, align 8
-  %325 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %324, ptr noundef nonnull dereferenceable(1) %257) #13
+  %325 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %324, ptr noundef nonnull readonly dereferenceable(1) %257) #13
   %326 = icmp eq i32 %325, 0
   br i1 %326, label %.loopexit182, label %321
 
@@ -11166,7 +11166,7 @@ list_length.exit232.i:                            ; preds = %190, %._crit_edge.i
   %indvars.iv91.i144 = phi i64 [ 0, %.lr.ph75.i142 ], [ %indvars.iv.next92.i146, %333 ]
   %335 = getelementptr %union.ListCell, ptr %332, i64 %indvars.iv91.i144
   %336 = load ptr, ptr %335, align 8
-  %337 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %336, ptr noundef nonnull dereferenceable(1) %257) #13
+  %337 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %336, ptr noundef nonnull readonly dereferenceable(1) %257) #13
   %.not99.i145 = icmp eq i32 %337, 0
   br i1 %.not99.i145, label %.loopexit182, label %333
 
@@ -11235,7 +11235,7 @@ colname_is_unique.exit133:                        ; preds = %colname_is_unique.e
   br i1 %.not45.i130, label %368, label %365
 
 365:                                              ; preds = %362
-  %366 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %364, ptr noundef nonnull dereferenceable(1) %342) #13
+  %366 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %364, ptr noundef nonnull readonly dereferenceable(1) %342) #13
   %367 = icmp eq i32 %366, 0
   br i1 %367, label %colname_is_unique.exit133.backedge, label %368, !llvm.loop !41
 
@@ -11252,7 +11252,7 @@ colname_is_unique.exit133:                        ; preds = %colname_is_unique.e
   br i1 %.not44.i124, label %375, label %372
 
 372:                                              ; preds = %369
-  %373 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %371, ptr noundef nonnull dereferenceable(1) %342) #13
+  %373 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %371, ptr noundef nonnull readonly dereferenceable(1) %342) #13
   %374 = icmp eq i32 %373, 0
   br i1 %374, label %colname_is_unique.exit133.backedge, label %375, !llvm.loop !41
 
@@ -11287,7 +11287,7 @@ colname_is_unique.exit133:                        ; preds = %colname_is_unique.e
   %indvars.iv86.i118 = phi i64 [ 0, %.lr.ph64.i116 ], [ %indvars.iv.next87.i119, %382 ]
   %384 = getelementptr %union.ListCell, ptr %381, i64 %indvars.iv86.i118
   %385 = load ptr, ptr %384, align 8
-  %386 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %385, ptr noundef nonnull dereferenceable(1) %342) #13
+  %386 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %385, ptr noundef nonnull readonly dereferenceable(1) %342) #13
   %387 = icmp eq i32 %386, 0
   br i1 %387, label %colname_is_unique.exit133.backedge, label %382, !llvm.loop !41
 
@@ -11317,7 +11317,7 @@ colname_is_unique.exit133:                        ; preds = %colname_is_unique.e
   %indvars.iv91.i112 = phi i64 [ 0, %.lr.ph75.i110 ], [ %indvars.iv.next92.i114, %394 ]
   %396 = getelementptr %union.ListCell, ptr %393, i64 %indvars.iv91.i112
   %397 = load ptr, ptr %396, align 8
-  %398 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %397, ptr noundef nonnull dereferenceable(1) %342) #13
+  %398 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %397, ptr noundef nonnull readonly dereferenceable(1) %342) #13
   %.not99.i113 = icmp eq i32 %398, 0
   br i1 %.not99.i113, label %colname_is_unique.exit133.backedge, label %394, !llvm.loop !41
 
@@ -11492,7 +11492,7 @@ make_colname_unique.exit60:                       ; preds = %333, %.lr.ph67.i108
   br i1 %.not45.i98, label %477, label %474
 
 474:                                              ; preds = %471
-  %475 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %473, ptr noundef nonnull dereferenceable(1) %427) #13
+  %475 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %473, ptr noundef nonnull readonly dereferenceable(1) %427) #13
   %476 = icmp eq i32 %475, 0
   br i1 %476, label %.loopexit, label %477
 
@@ -11509,7 +11509,7 @@ make_colname_unique.exit60:                       ; preds = %333, %.lr.ph67.i108
   br i1 %.not44.i92, label %484, label %481
 
 481:                                              ; preds = %478
-  %482 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %480, ptr noundef nonnull dereferenceable(1) %427) #13
+  %482 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %480, ptr noundef nonnull readonly dereferenceable(1) %427) #13
   %483 = icmp eq i32 %482, 0
   br i1 %483, label %.loopexit, label %484
 
@@ -11544,7 +11544,7 @@ make_colname_unique.exit60:                       ; preds = %333, %.lr.ph67.i108
   %indvars.iv86.i86 = phi i64 [ 0, %.lr.ph64.i84 ], [ %indvars.iv.next87.i87, %491 ]
   %493 = getelementptr %union.ListCell, ptr %490, i64 %indvars.iv86.i86
   %494 = load ptr, ptr %493, align 8
-  %495 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %494, ptr noundef nonnull dereferenceable(1) %427) #13
+  %495 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %494, ptr noundef nonnull readonly dereferenceable(1) %427) #13
   %496 = icmp eq i32 %495, 0
   br i1 %496, label %.loopexit, label %491
 
@@ -11574,7 +11574,7 @@ make_colname_unique.exit60:                       ; preds = %333, %.lr.ph67.i108
   %indvars.iv91.i80 = phi i64 [ 0, %.lr.ph75.i78 ], [ %indvars.iv.next92.i82, %503 ]
   %505 = getelementptr %union.ListCell, ptr %502, i64 %indvars.iv91.i80
   %506 = load ptr, ptr %505, align 8
-  %507 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %506, ptr noundef nonnull dereferenceable(1) %427) #13
+  %507 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %506, ptr noundef nonnull readonly dereferenceable(1) %427) #13
   %.not99.i81 = icmp eq i32 %507, 0
   br i1 %.not99.i81, label %.loopexit, label %503
 
@@ -11643,7 +11643,7 @@ colname_is_unique.exit:                           ; preds = %colname_is_unique.e
   br i1 %.not45.i, label %538, label %535
 
 535:                                              ; preds = %532
-  %536 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %534, ptr noundef nonnull dereferenceable(1) %512) #13
+  %536 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %534, ptr noundef nonnull readonly dereferenceable(1) %512) #13
   %537 = icmp eq i32 %536, 0
   br i1 %537, label %colname_is_unique.exit.backedge, label %538, !llvm.loop !41
 
@@ -11660,7 +11660,7 @@ colname_is_unique.exit:                           ; preds = %colname_is_unique.e
   br i1 %.not44.i, label %545, label %542
 
 542:                                              ; preds = %539
-  %543 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %541, ptr noundef nonnull dereferenceable(1) %512) #13
+  %543 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %541, ptr noundef nonnull readonly dereferenceable(1) %512) #13
   %544 = icmp eq i32 %543, 0
   br i1 %544, label %colname_is_unique.exit.backedge, label %545, !llvm.loop !41
 
@@ -11695,7 +11695,7 @@ colname_is_unique.exit:                           ; preds = %colname_is_unique.e
   %indvars.iv86.i = phi i64 [ 0, %.lr.ph64.i ], [ %indvars.iv.next87.i, %552 ]
   %554 = getelementptr %union.ListCell, ptr %551, i64 %indvars.iv86.i
   %555 = load ptr, ptr %554, align 8
-  %556 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %555, ptr noundef nonnull dereferenceable(1) %512) #13
+  %556 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %555, ptr noundef nonnull readonly dereferenceable(1) %512) #13
   %557 = icmp eq i32 %556, 0
   br i1 %557, label %colname_is_unique.exit.backedge, label %552, !llvm.loop !41
 
@@ -11725,7 +11725,7 @@ colname_is_unique.exit:                           ; preds = %colname_is_unique.e
   %indvars.iv91.i = phi i64 [ 0, %.lr.ph75.i ], [ %indvars.iv.next92.i, %564 ]
   %566 = getelementptr %union.ListCell, ptr %563, i64 %indvars.iv91.i
   %567 = load ptr, ptr %566, align 8
-  %568 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %567, ptr noundef nonnull dereferenceable(1) %512) #13
+  %568 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %567, ptr noundef nonnull readonly dereferenceable(1) %512) #13
   %.not99.i = icmp eq i32 %568, 0
   br i1 %.not99.i, label %colname_is_unique.exit.backedge, label %564, !llvm.loop !41
 
@@ -15080,7 +15080,7 @@ list_length.exit150:                              ; preds = %108, %114
 133:                                              ; preds = %122
   %134 = getelementptr inbounds i8, ptr %25, i64 88
   %135 = load ptr, ptr %134, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(144) %25, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(144) %25, i64 144, i1 false)
   %136 = getelementptr inbounds i8, ptr %25, i64 64
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds i8, ptr %25, i64 72
@@ -15114,7 +15114,7 @@ list_length.exit150:                              ; preds = %108, %114
 152:                                              ; preds = %151, %146
   %153 = load ptr, ptr %138, align 8
   %154 = tail call ptr @list_delete_first(ptr noundef %153) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %25, ptr noundef nonnull align 8 dereferenceable(144) %5, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %25, ptr noundef nonnull readonly align 8 dereferenceable(144) %5, i64 144, i1 false)
   store ptr %154, ptr %138, align 8
   br label %224
 
@@ -15265,7 +15265,7 @@ define internal fastcc void @get_parameter(ptr nocapture noundef readonly %0, pt
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(144) %8, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(144) %8, i64 144, i1 false)
   %11 = getelementptr inbounds i8, ptr %8, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 16
@@ -15307,7 +15307,7 @@ switch.edge:                                      ; preds = %7
   store i8 %23, ptr %21, align 4
   %28 = load ptr, ptr %11, align 8
   tail call void @list_free(ptr noundef %28) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(144) %5, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull readonly align 8 dereferenceable(144) %5, i64 144, i1 false)
   br label %75
 
 29:                                               ; preds = %2
@@ -16794,7 +16794,7 @@ common.ret782:                                    ; preds = %.loopexit, %290, %1
   %37 = load ptr, ptr %5, align 8
   %38 = load ptr, ptr %6, align 8
   %39 = load ptr, ptr %38, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(144) %37, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(144) %37, i64 144, i1 false)
   %40 = getelementptr inbounds i8, ptr %37, i64 72
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 16
@@ -16811,7 +16811,7 @@ common.ret782:                                    ; preds = %.loopexit, %290, %1
   %50 = tail call fastcc ptr @get_name_for_var_field(ptr noundef nonnull %35, i32 noundef %1, i32 noundef 0, ptr noundef %3)
   %51 = load ptr, ptr %40, align 8
   tail call void @list_free(ptr noundef %51) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %37, ptr noundef nonnull align 8 dereferenceable(144) %7, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %37, ptr noundef nonnull readonly align 8 dereferenceable(144) %7, i64 144, i1 false)
   br label %common.ret782
 
 .thread:                                          ; preds = %..thread_crit_edge, %.lr.ph581
@@ -16953,7 +16953,7 @@ list_length.exit214:                              ; preds = %93, %95
   %122 = getelementptr inbounds i8, ptr %80, i64 72
   %123 = load ptr, ptr %122, align 8
   %124 = tail call ptr @list_delete_first(ptr noundef %123) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %80, ptr noundef nonnull align 8 dereferenceable(144) %8, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %80, ptr noundef nonnull readonly align 8 dereferenceable(144) %8, i64 144, i1 false)
   store ptr %124, ptr %122, align 8
   br label %common.ret782
 
@@ -16979,7 +16979,7 @@ list_length.exit214:                              ; preds = %93, %95
 134:                                              ; preds = %128
   %135 = getelementptr inbounds i8, ptr %80, i64 88
   %136 = load ptr, ptr %135, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(144) %80, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(144) %80, i64 144, i1 false)
   %137 = getelementptr inbounds i8, ptr %80, i64 64
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds i8, ptr %80, i64 72
@@ -16992,7 +16992,7 @@ list_length.exit214:                              ; preds = %93, %95
   %144 = tail call fastcc ptr @get_name_for_var_field(ptr noundef %143, i32 noundef %1, i32 noundef %.tr226.ph, ptr noundef nonnull %3)
   %145 = load ptr, ptr %139, align 8
   %146 = tail call ptr @list_delete_first(ptr noundef %145) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %80, ptr noundef nonnull align 8 dereferenceable(144) %9, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %80, ptr noundef nonnull readonly align 8 dereferenceable(144) %9, i64 144, i1 false)
   store ptr %146, ptr %139, align 8
   br label %common.ret782
 
@@ -17133,7 +17133,7 @@ tailrecurse:                                      ; preds = %150
   %221 = getelementptr inbounds i8, ptr %80, i64 72
   %222 = load ptr, ptr %221, align 8
   %223 = tail call ptr @list_delete_first(ptr noundef %222) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %80, ptr noundef nonnull align 8 dereferenceable(144) %11, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %80, ptr noundef nonnull readonly align 8 dereferenceable(144) %11, i64 144, i1 false)
   store ptr %223, ptr %221, align 8
   br label %common.ret782
 
@@ -17296,7 +17296,7 @@ list_length.exit216:                              ; preds = %165
   %316 = getelementptr inbounds i8, ptr %80, i64 72
   %317 = load ptr, ptr %316, align 8
   %318 = tail call ptr @list_delete_first(ptr noundef %317) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %80, ptr noundef nonnull align 8 dereferenceable(144) %13, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %80, ptr noundef nonnull readonly align 8 dereferenceable(144) %13, i64 144, i1 false)
   store ptr %318, ptr %316, align 8
   br label %common.ret782
 
@@ -18033,7 +18033,7 @@ common.ret210:                                    ; preds = %105, %tailrecurse._
 42:                                               ; preds = %32, %.sink.split
   %43 = getelementptr inbounds i8, ptr %17, i64 80
   %44 = load ptr, ptr %43, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(144) %17, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(144) %17, i64 144, i1 false)
   %45 = load ptr, ptr %35, align 8
   %46 = getelementptr inbounds i8, ptr %17, i64 72
   %47 = load ptr, ptr %46, align 8
@@ -18045,7 +18045,7 @@ common.ret210:                                    ; preds = %105, %tailrecurse._
   tail call fastcc void @resolve_special_varno(ptr noundef %50, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   %51 = load ptr, ptr %46, align 8
   %52 = tail call ptr @list_delete_first(ptr noundef %51) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef nonnull align 8 dereferenceable(144) %5, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef nonnull readonly align 8 dereferenceable(144) %5, i64 144, i1 false)
   store ptr %52, ptr %46, align 8
   store ptr %34, ptr %33, align 8
   br label %common.ret210
@@ -18075,7 +18075,7 @@ common.ret210:                                    ; preds = %105, %tailrecurse._
 65:                                               ; preds = %56
   %66 = getelementptr inbounds i8, ptr %17, i64 88
   %67 = load ptr, ptr %66, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(144) %17, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(144) %17, i64 144, i1 false)
   %68 = getelementptr inbounds i8, ptr %17, i64 64
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %17, i64 72
@@ -18088,7 +18088,7 @@ common.ret210:                                    ; preds = %105, %tailrecurse._
   tail call fastcc void @resolve_special_varno(ptr noundef %74, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   %75 = load ptr, ptr %70, align 8
   %76 = tail call ptr @list_delete_first(ptr noundef %75) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef nonnull readonly align 8 dereferenceable(144) %6, i64 144, i1 false)
   store ptr %76, ptr %70, align 8
   br label %common.ret210
 

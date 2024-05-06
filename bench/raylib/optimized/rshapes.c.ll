@@ -2929,8 +2929,8 @@ define void @DrawSplineBasis(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %13 = getelementptr inbounds %struct.Vector2, ptr %0, i64 %indvars.iv170
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %14 = getelementptr inbounds %struct.Vector2, ptr %0, i64 %indvars.iv.next171
-  %15 = getelementptr i8, ptr %13, i64 16
-  %16 = getelementptr i8, ptr %13, i64 24
+  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds i8, ptr %13, i64 24
   %17 = load <2 x float>, ptr %13, align 4
   %18 = load <2 x float>, ptr %14, align 4
   %19 = load <2 x float>, ptr %15, align 4
@@ -3105,8 +3105,8 @@ define void @DrawSplineCatmullRom(ptr nocapture noundef readonly %0, i32 noundef
   %14 = getelementptr inbounds %struct.Vector2, ptr %0, i64 %indvars.iv152
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %15 = getelementptr inbounds %struct.Vector2, ptr %0, i64 %indvars.iv.next153
-  %16 = getelementptr i8, ptr %14, i64 16
-  %17 = getelementptr i8, ptr %14, i64 24
+  %16 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load <2 x float>, ptr %14, align 4
   %19 = load <2 x float>, ptr %15, align 4
   %20 = load <2 x float>, ptr %16, align 4
@@ -3250,7 +3250,7 @@ define void @DrawSplineBezierQuadratic(ptr nocapture noundef readonly %0, i32 no
   %11 = getelementptr inbounds %struct.Vector2, ptr %0, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = getelementptr inbounds %struct.Vector2, ptr %0, i64 %indvars.iv.next
-  %13 = getelementptr i8, ptr %11, i64 16
+  %13 = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load <2 x float>, ptr %11, align 4
   %15 = load <2 x float>, ptr %12, align 4
   %16 = load <2 x float>, ptr %13, align 4
@@ -3438,8 +3438,8 @@ define void @DrawSplineBezierCubic(ptr nocapture noundef readonly %0, i32 nounde
   %7 = getelementptr inbounds %struct.Vector2, ptr %0, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = getelementptr inbounds %struct.Vector2, ptr %0, i64 %indvars.iv.next
-  %9 = getelementptr i8, ptr %7, i64 16
-  %10 = getelementptr i8, ptr %7, i64 24
+  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load <2 x float>, ptr %7, align 4
   %12 = load <2 x float>, ptr %8, align 4
   %13 = load <2 x float>, ptr %9, align 4

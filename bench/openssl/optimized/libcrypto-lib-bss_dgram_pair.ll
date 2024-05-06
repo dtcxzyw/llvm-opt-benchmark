@@ -39,7 +39,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @BIO_new_bio_dgram_pair(ptr nocapture noundef writeonly %pbio1, i64 noundef %writebuf1, ptr nocapture noundef writeonly %pbio2, i64 noundef %writebuf2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BIO_new_bio_dgram_pair(ptr nocapture noundef writeonly %pbio1, i64 noundef %writebuf1, ptr nocapture noundef writeonly %pbio2, i64 noundef %writebuf2) local_unnamed_addr #1 {
 entry:
   %call1 = tail call ptr @BIO_new(ptr noundef nonnull @dgram_pair_method) #8
   %cmp = icmp eq ptr %call1, null
@@ -368,7 +368,7 @@ if.then44.i:                                      ; preds = %if.end40.i
 ring_buf_init.exit.i:                             ; preds = %if.then44.i
   store i64 %7, ptr %len.i, align 8
   %count.i.i = getelementptr inbounds i8, ptr %2, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %count.i.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %count.i.i, i8 0, i64 24, i1 false)
   %.pre.i = load i64, ptr %req_buf_len26.i, align 8
   br label %if.end51.i
 
@@ -395,7 +395,7 @@ if.then57.i:                                      ; preds = %if.end51.i
 ring_buf_init.exit35.i:                           ; preds = %if.then57.i
   store i64 %10, ptr %len53.i, align 8
   %count.i33.i = getelementptr inbounds i8, ptr %3, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %count.i33.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %count.i33.i, i8 0, i64 24, i1 false)
   br label %if.end66.i
 
 if.then63.i:                                      ; preds = %if.then57.i
@@ -480,7 +480,7 @@ sw.epilog:                                        ; preds = %if.end.i13, %sw.bb3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dgram_pair_init(ptr nocapture noundef writeonly %bio) #1 {
+define internal range(i32 0, 2) i32 @dgram_pair_init(ptr nocapture noundef writeonly %bio) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str.1, i32 noundef 277) #8
   %cmp = icmp eq ptr %call, null
@@ -512,7 +512,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dgram_pair_free(ptr noundef %bio) #1 {
+define internal range(i32 0, 2) i32 @dgram_pair_free(ptr noundef %bio) #1 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end
@@ -565,7 +565,7 @@ return:                                           ; preds = %if.end, %entry, %dg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dgram_pair_sendmmsg(ptr noundef %bio, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
+define internal range(i32 0, 2) i32 @dgram_pair_sendmmsg(ptr noundef %bio, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
 entry:
   %cmp = icmp eq i64 %num_msg, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -641,7 +641,7 @@ return:                                           ; preds = %out, %if.then2, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dgram_pair_recvmmsg(ptr noundef %bio, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
+define internal range(i32 0, 2) i32 @dgram_pair_recvmmsg(ptr noundef %bio, ptr nocapture noundef %msg, i64 noundef %stride, i64 noundef %num_msg, i64 %flags, ptr nocapture noundef writeonly %num_processed) #1 {
 entry:
   %ptr = getelementptr inbounds i8, ptr %bio, i64 64
   %0 = load ptr, ptr %ptr, align 8
@@ -938,7 +938,7 @@ if.then3.i.i:                                     ; preds = %if.end.i
 
 if.then.i33.i.i:                                  ; preds = %if.end.i
   %rem.i.i = urem i64 %current.addr.07.i, 5
-  %rem.tr.i.i = trunc i64 %rem.i.i to i8
+  %rem.tr.i.i = trunc nuw nsw i64 %rem.i.i to i8
   %.lhs.trunc.i.i = shl nuw nsw i8 %rem.tr.i.i, 3
   %8 = udiv i8 %.lhs.trunc.i.i, 5
   %.zext.i.i = zext nneg i8 %8 to i64
@@ -970,7 +970,7 @@ if.then.i:                                        ; preds = %lor.lhs.false
 
 if.end.i.i:                                       ; preds = %if.then.i
   store i64 %retval.0.i38, ptr %len1.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %count.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %count.i, i8 0, i64 24, i1 false)
   br label %if.end9
 
 if.end.i16:                                       ; preds = %lor.lhs.false
@@ -1475,7 +1475,7 @@ sw.bb7:                                           ; preds = %if.end
 
 sw.bb8:                                           ; preds = %if.end
   %count.i.i33 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %count.i.i33, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %count.i.i33, i8 0, i64 24, i1 false)
   br label %return
 
 sw.bb10:                                          ; preds = %if.end
@@ -1840,7 +1840,7 @@ return:                                           ; preds = %if.end14, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dgram_mem_init(ptr nocapture noundef writeonly %bio) #1 {
+define internal range(i32 0, 2) i32 @dgram_mem_init(ptr nocapture noundef writeonly %bio) #1 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str.1, i32 noundef 277) #8
   %cmp.i = icmp eq ptr %call.i, null
@@ -1880,7 +1880,7 @@ if.end3:                                          ; preds = %if.end
   %len.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 15336, ptr %len.i, align 8
   %count.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %count.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %count.i, i8 0, i64 24, i1 false)
   %grows_on_write = getelementptr inbounds i8, ptr %call.i, i64 80
   %bf.load = load i8, ptr %grows_on_write, align 8
   %bf.set = or i8 %bf.load, 8

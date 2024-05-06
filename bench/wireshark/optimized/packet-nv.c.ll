@@ -99,7 +99,7 @@ define internal i32 @dissect_nv(ptr noundef %0, ptr nocapture noundef readonly %
   %20 = zext i8 %19 to i32
   %21 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6) #3
   %22 = zext i16 %21 to i32
-  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 199, ptr noundef nonnull @.str.28, i32 noundef %10, i32 noundef %12, i32 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef %20, i32 noundef %22) #3
+  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, i64 noundef 199, ptr noundef nonnull @.str.28, i32 noundef %10, i32 noundef %12, i32 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef %20, i32 noundef %22) #3
   %24 = load ptr, ptr %6, align 8
   call void @col_append_str(ptr noundef %24, i32 noundef 25, ptr noundef nonnull %5) #3
   %.not = icmp eq ptr %2, null
@@ -129,7 +129,7 @@ define internal i32 @dissect_nv(ptr noundef %0, ptr nocapture noundef readonly %
   %45 = zext i8 %44 to i32
   %46 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #3
   %47 = zext i8 %46 to i32
-  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 199, ptr noundef nonnull @.str.29, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %43, i32 noundef %45, i32 noundef %47) #3
+  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, i64 noundef 199, ptr noundef nonnull @.str.29, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %43, i32 noundef %45, i32 noundef %47) #3
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %35, ptr noundef nonnull @.str.27, ptr noundef nonnull %5) #3
   %49 = load i32, ptr @hf_nv_count, align 4
   %50 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %49, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #3
@@ -153,7 +153,7 @@ define internal i32 @dissect_nv(ptr noundef %0, ptr nocapture noundef readonly %
   %62 = zext i16 %61 to i32
   %63 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %55) #3
   %64 = zext i16 %63 to i32
-  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 199, ptr noundef nonnull @.str.30, i32 noundef %62, i32 noundef %64) #3
+  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull writeonly dereferenceable(1) %5, i64 noundef 199, ptr noundef nonnull @.str.30, i32 noundef %62, i32 noundef %64) #3
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %60, ptr noundef nonnull @.str.27, ptr noundef nonnull %5) #3
   %66 = load i32, ptr @ett_nv_var, align 4
   %67 = call ptr @proto_item_add_subtree(ptr noundef %60, i32 noundef %66) #3

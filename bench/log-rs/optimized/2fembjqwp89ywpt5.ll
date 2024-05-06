@@ -190,7 +190,7 @@ define noundef zeroext i1 @"_ZN49_$LT$log..Level$u20$as$u20$core..fmt..Display$G
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @_ZN3log5Level10from_usize17h61e8a9f6cf6140e3E(i64 noundef %0) unnamed_addr #3 {
+define noundef range(i64 0, 6) i64 @_ZN3log5Level10from_usize17h61e8a9f6cf6140e3E(i64 noundef %0) unnamed_addr #3 {
 switch.lookup:
   %switch.tableidx = add i64 %0, -1
   %1 = icmp ult i64 %switch.tableidx, 5
@@ -216,7 +216,7 @@ define { i64, i64 } @_ZN3log5Level4iter17h00f212dcd991353bE() unnamed_addr #3 {
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h9f42b3c402f19291E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h9f42b3c402f19291E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
 .lr.ph.i:
   %2 = alloca { i64, { i64, i64 } }, align 8
   %3 = alloca { i64, { i64, i64 } }, align 8
@@ -311,7 +311,7 @@ define noundef zeroext i1 @"_ZN55_$LT$log..LevelFilter$u20$as$u20$core..fmt..Dis
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @_ZN3log11LevelFilter10from_usize17he24ba9de421af765E(i64 noundef %0) unnamed_addr #3 {
+define noundef range(i64 0, 7) i64 @_ZN3log11LevelFilter10from_usize17he24ba9de421af765E(i64 noundef %0) unnamed_addr #3 {
 switch.lookup:
   %spec.select = tail call i64 @llvm.umin.i64(i64 %0, i64 6)
   ret i64 %spec.select

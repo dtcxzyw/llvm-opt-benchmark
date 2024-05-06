@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [22 x i8] c"arch/x86/pci/direct.c\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_conf1_read(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @pci_conf1_read(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 align 16 {
   %7 = icmp ne i32 %0, 0
   %8 = or i32 %2, %1
   %9 = icmp ugt i32 %8, 255
@@ -90,7 +90,7 @@ define internal noundef i32 @pci_conf1_read(i32 noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_conf1_write(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @pci_conf1_write(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
   %7 = icmp ne i32 %0, 0
   %8 = or i32 %2, %1
   %9 = icmp ugt i32 %8, 255
@@ -184,7 +184,7 @@ define dso_local void @pci_direct_init(i32 noundef %0) local_unnamed_addr #1 sec
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @pci_direct_probe() local_unnamed_addr #1 section ".init.text" align 16 {
+define dso_local noundef range(i32 0, 3) i32 @pci_direct_probe() local_unnamed_addr #1 section ".init.text" align 16 {
   %1 = load i32, ptr @pci_probe, align 4
   %2 = and i32 %1, 2
   %3 = icmp eq i32 %2, 0
@@ -252,7 +252,7 @@ define dso_local noundef i32 @pci_direct_probe() local_unnamed_addr #1 section "
 declare dso_local ptr @__request_region(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @pci_check_type1() unnamed_addr #1 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @pci_check_type1() unnamed_addr #1 section ".init.text" align 16 {
   %1 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
   store i64 0, ptr %1, align 8, !annotation !12
@@ -290,7 +290,7 @@ define internal fastcc noundef i32 @pci_check_type1() unnamed_addr #1 section ".
 declare dso_local void @__release_region(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @pci_check_type2() unnamed_addr #1 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @pci_check_type2() unnamed_addr #1 section ".init.text" align 16 {
   %1 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
   store i64 0, ptr %1, align 8, !annotation !12
@@ -341,7 +341,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_conf2_read(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 align 16 {
+define internal noundef range(i32 -22, 135) i32 @pci_conf2_read(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 align 16 {
   %7 = icmp eq i32 %0, 0
   br i1 %7, label %9, label %8, !prof !16
 
@@ -423,7 +423,7 @@ define internal noundef i32 @pci_conf2_read(i32 noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_conf2_write(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
+define internal noundef range(i32 -22, 135) i32 @pci_conf2_write(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
   %7 = icmp eq i32 %0, 0
   br i1 %7, label %9, label %8, !prof !16
 
@@ -496,7 +496,7 @@ define internal noundef i32 @pci_conf2_write(i32 noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @pci_sanity_check(ptr nocapture noundef readonly %0) unnamed_addr #1 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @pci_sanity_check(ptr nocapture noundef readonly %0) unnamed_addr #1 section ".init.text" align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
   store i32 0, ptr %2, align 4

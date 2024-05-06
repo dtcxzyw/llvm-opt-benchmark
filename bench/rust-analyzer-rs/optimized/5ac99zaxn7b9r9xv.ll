@@ -699,7 +699,7 @@ switch.lookup:
   %or.cond.i = icmp eq i64 %.sroa.010.0.insert.insert, 0
   %.sroa.616.17.insert.insert.i = select i1 %or.cond.i, i64 5121, i64 %61
   %.sroa.616.20.insert.insert.i = or disjoint i64 %.sroa.616.17.insert.insert.i, %.sroa.613.0.insert.shift
-  tail call void @"_ZN6syntax3ast9token_ext60_$LT$impl$u20$syntax..ast..generated..tokens..ByteString$GT$5value28_$u7b$$u7b$closure$u7d$$u7d$17h23cce49a6197486aE.llvm.11162169574061779932"(ptr noalias noundef nonnull align 8 dereferenceable(40) %.val, i64 noundef %60, i64 noundef %59, i64 %.sroa.616.20.insert.insert.i)
+  tail call void @"_ZN6syntax3ast9token_ext60_$LT$impl$u20$syntax..ast..generated..tokens..ByteString$GT$5value28_$u7b$$u7b$closure$u7d$$u7d$17h23cce49a6197486aE.llvm.11162169574061779932"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.val, i64 noundef %60, i64 noundef %59, i64 %.sroa.616.20.insert.insert.i)
   %62 = icmp eq ptr %.sroa.0.4.ph3645, %4
   br i1 %62, label %.thread, label %7
 }
@@ -833,7 +833,7 @@ switch.lookup:
   %or.cond.i = icmp eq i64 %.sroa.010.0.insert.insert, 0
   %.sroa.616.17.insert.insert.i = select i1 %or.cond.i, i64 5121, i64 %61
   %.sroa.616.20.insert.insert.i = or disjoint i64 %.sroa.616.17.insert.insert.i, %.sroa.613.0.insert.shift
-  tail call void @"_ZN6syntax3ast9token_ext56_$LT$impl$u20$syntax..ast..generated..tokens..String$GT$5value28_$u7b$$u7b$closure$u7d$$u7d$17h5d159828f4408856E.llvm.11162169574061779932"(ptr noalias noundef nonnull align 8 dereferenceable(40) %.val, i64 noundef %60, i64 noundef %59, i64 %.sroa.616.20.insert.insert.i)
+  tail call void @"_ZN6syntax3ast9token_ext56_$LT$impl$u20$syntax..ast..generated..tokens..String$GT$5value28_$u7b$$u7b$closure$u7d$$u7d$17h5d159828f4408856E.llvm.11162169574061779932"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.val, i64 noundef %60, i64 noundef %59, i64 %.sroa.616.20.insert.insert.i)
   %62 = icmp eq ptr %.sroa.0.4.ph3645, %4
   br i1 %62, label %.thread, label %7
 }
@@ -4807,7 +4807,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hb8353e33e96a1c5eE.exit.i: ; pr
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread8.i": ; preds = %.lr.ph.i.i.i, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.i"
   %.val.i.i.i = load ptr, ptr %.val.i.i, align 8, !noalias !397, !nonnull !7, !noundef !7
-  call void @"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h71b543bdaad99925E.llvm.11162169574061779932"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.val.i.i.i, i64 noundef 1, i64 noundef %64, i8 noundef 22), !noalias !397
+  call void @"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h71b543bdaad99925E.llvm.11162169574061779932"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val.i.i.i, i64 noundef 1, i64 noundef %64, i8 noundef 22), !noalias !397
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit.thread.thread.i"
 
 144:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i60.i", %139
@@ -4928,7 +4928,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i: ;
 
 .critedge.thread.i:                               ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i, %185, %184
   %.val.i.i63.i = load ptr, ptr %.val.i.i, align 8, !noalias !397, !nonnull !7, !noundef !7
-  call void @"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h71b543bdaad99925E.llvm.11162169574061779932"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.val.i.i63.i, i64 noundef 1, i64 noundef %64, i8 noundef 21), !noalias !397
+  call void @"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h71b543bdaad99925E.llvm.11162169574061779932"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val.i.i63.i, i64 noundef 1, i64 noundef %64, i8 noundef 21), !noalias !397
   br label %_ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h02f45b36973fe20fE.exit
 
 _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h02f45b36973fe20fE.exit: ; preds = %184, %187, %189, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i, %.critedge.thread.i
@@ -4962,7 +4962,7 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h02f45b36973fe20fE.exit:
   %214 = lshr i64 %.sroa.8.0, 8
   %215 = trunc i64 %214 to i8
   %.sroa.4.0.extract.trunc.i.i = select i1 %or.cond18.i, i8 20, i8 %215
-  call void @"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h71b543bdaad99925E.llvm.11162169574061779932"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.val.i, i64 noundef 1, i64 noundef %64, i8 noundef %.sroa.4.0.extract.trunc.i.i)
+  call void @"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h71b543bdaad99925E.llvm.11162169574061779932"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val.i, i64 noundef 1, i64 noundef %64, i8 noundef %.sroa.4.0.extract.trunc.i.i)
   br label %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit"
 
 "_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit": ; preds = %.loopexit, %213
@@ -7132,7 +7132,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   %50 = getelementptr inbounds i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8, !alias.scope !689, !noalias !694, !nonnull !7, !noundef !7
   %52 = getelementptr inbounds i8, ptr %51, i64 %49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0, i64 %42, i1 false)
   %53 = load i64, ptr %43, align 8, !alias.scope !689, !noalias !694, !noundef !7
   %54 = add i64 %53, %42
   store i64 %54, ptr %43, align 8, !alias.scope !689, !noalias !694
@@ -7499,7 +7499,7 @@ define hidden void @"_ZN6syntax3ast9token_ext56_$LT$impl$u20$syntax..ast..genera
   %52 = getelementptr inbounds i8, ptr %5, i64 8
   %53 = load ptr, ptr %52, align 8, !alias.scope !720, !noalias !725, !nonnull !7, !noundef !7
   %54 = getelementptr inbounds i8, ptr %53, i64 %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 1 %33, i64 %36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %33, i64 %36, i1 false)
   %55 = load i64, ptr %25, align 8, !alias.scope !720, !noalias !725, !noundef !7
   %56 = add i64 %55, %36
   store i64 %56, ptr %25, align 8, !alias.scope !720, !noalias !725
@@ -7632,7 +7632,7 @@ define hidden void @"_ZN6syntax3ast9token_ext60_$LT$impl$u20$syntax..ast..genera
   %63 = getelementptr inbounds i8, ptr %5, i64 8
   %64 = load ptr, ptr %63, align 8, !alias.scope !741, !noalias !746, !nonnull !7, !noundef !7
   %65 = getelementptr inbounds i8, ptr %64, i64 %62
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr nonnull align 1 %44, i64 %47, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr nonnull readonly align 1 %44, i64 %47, i1 false)
   %66 = load i64, ptr %36, align 8, !alias.scope !741, !noalias !746, !noundef !7
   %67 = add i64 %66, %47
   store i64 %67, ptr %36, align 8, !alias.scope !741, !noalias !746

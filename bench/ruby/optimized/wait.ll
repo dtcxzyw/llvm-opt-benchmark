@@ -27,7 +27,7 @@ declare void @rb_ext_ractor_safe(i1 noundef zeroext) local_unnamed_addr #1
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @io_nread(i64 noundef %0) #0 {
+define internal range(i64 1, 4294967296) i64 @io_nread(i64 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = tail call i64 @rb_io_taint_check(i64 noundef %0) #4
   %4 = inttoptr i64 %3 to ptr

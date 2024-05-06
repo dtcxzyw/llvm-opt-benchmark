@@ -91,7 +91,7 @@ dsa_minimum_size.exit:                            ; preds = %6
 16:                                               ; preds = %dsa_minimum_size.exit
   %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %17)
-  %18 = tail call i64 @dsa_minimum_size(), !range !7
+  %18 = tail call i64 @dsa_minimum_size()
   %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, i64 noundef %18, i64 noundef %1) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1236, ptr noundef nonnull @__func__.create_internal) #10
   unreachable
@@ -152,7 +152,7 @@ dsa_minimum_size.exit:                            ; preds = %6
   tail call void @LWLockInitialize(ptr noundef %50, i32 noundef %51) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 38
-  br i1 %exitcond.not, label %52, label %47, !llvm.loop !8
+  br i1 %exitcond.not, label %52, label %47, !llvm.loop !7
 
 52:                                               ; preds = %47
   store ptr %4, ptr %44, align 8
@@ -177,7 +177,7 @@ dsa_minimum_size.exit:                            ; preds = %6
   br label %62
 
 62:                                               ; preds = %59, %52
-  %63 = tail call i64 @llvm.ctlz.i64(i64 %28, i1 true), !range !9
+  %63 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %28, i1 true)
   %64 = sub nuw nsw i64 64, %63
   %65 = tail call i64 @llvm.umin.i64(i64 %64, i64 15)
   %66 = select i1 %.not73, i64 0, i64 %65
@@ -229,7 +229,7 @@ define dso_local void @dsa_on_dsm_detach_release_in_place(ptr nocapture readnone
   %19 = sext i32 %18 to i64
   %20 = load i64, ptr %10, align 8
   %.not.i = icmp ult i64 %20, %19
-  br i1 %.not.i, label %dsa_release_in_place.exit, label %12, !llvm.loop !10
+  br i1 %.not.i, label %dsa_release_in_place.exit, label %12, !llvm.loop !8
 
 dsa_release_in_place.exit:                        ; preds = %17, %2
   tail call void @LWLockRelease(ptr noundef nonnull %4) #10
@@ -390,7 +390,7 @@ define dso_local void @dsa_release_in_place(ptr noundef %0) local_unnamed_addr #
   %17 = sext i32 %16 to i64
   %18 = load i64, ptr %8, align 8
   %.not = icmp ult i64 %18, %17
-  br i1 %.not, label %.loopexit, label %10, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !8
 
 .loopexit:                                        ; preds = %15, %1
   tail call void @LWLockRelease(ptr noundef nonnull %2) #10
@@ -431,7 +431,7 @@ define dso_local void @dsa_on_shmem_exit_release_in_place(i32 noundef %0, i64 no
   %19 = sext i32 %18 to i64
   %20 = load i64, ptr %10, align 8
   %.not.i = icmp ult i64 %20, %19
-  br i1 %.not.i, label %dsa_release_in_place.exit, label %12, !llvm.loop !10
+  br i1 %.not.i, label %dsa_release_in_place.exit, label %12, !llvm.loop !8
 
 dsa_release_in_place.exit:                        ; preds = %17, %2
   tail call void @LWLockRelease(ptr noundef nonnull %4) #10
@@ -474,7 +474,7 @@ define dso_local void @dsa_pin_mapping(ptr nocapture noundef %0) local_unnamed_a
   %14 = sext i32 %13 to i64
   %15 = load i64, ptr %5, align 8
   %.not10 = icmp ult i64 %15, %14
-  br i1 %.not10, label %.loopexit, label %7, !llvm.loop !11
+  br i1 %.not10, label %.loopexit, label %7, !llvm.loop !9
 
 .loopexit:                                        ; preds = %12, %1
   ret void
@@ -674,12 +674,12 @@ init_span.exit:                                   ; preds = %55, %73
   %113 = load i16, ptr %112, align 2
   %114 = zext i16 %113 to i64
   %115 = icmp ult i64 %114, %1
-  %116 = trunc i32 %110 to i16
+  %116 = trunc nuw i32 %110 to i16
   %117 = add nuw i16 %116, 1
   %.173 = select i1 %115, i16 %117, i16 %.07287
   %.1 = select i1 %115, i16 %.07188, i16 %116
   %118 = icmp ult i16 %.173, %.1
-  br i1 %118, label %.preheader, label %.loopexit, !llvm.loop !12
+  br i1 %118, label %.preheader, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %101
   %.070 = phi i16 [ %106, %101 ], [ %.173, %.preheader ]
@@ -842,7 +842,7 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef %1) unnamed
   br label %65
 
 65:                                               ; preds = %62, %35
-  br i1 %.not108.i, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not108.i, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %65
   %.pre = load i64, ptr %9, align 8
@@ -960,7 +960,7 @@ transfer_first_span.exit36:                       ; preds = %.critedge113.i
   %119 = shl i64 %118, 12
   %120 = or i64 %119, %117
   %spec.select.i = select i1 %14, i64 %120, i64 %.2.i
-  %121 = trunc i32 %1 to i16
+  %121 = trunc nuw i32 %1 to i16
   %122 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %spec.select.i)
   %.mask = and i32 %1, 65535
   %123 = zext nneg i32 %.mask to i64
@@ -1042,7 +1042,7 @@ init_span.exit:                                   ; preds = %._crit_edge.i, %142
   store i64 %spec.select.i, ptr %159, align 8
   %160 = add nuw nsw i64 %.096.i47, 1
   %exitcond.not = icmp eq i64 %160, %.097.i
-  br i1 %exitcond.not, label %ensure_active_superblock.exit.thread, label %155, !llvm.loop !14
+  br i1 %exitcond.not, label %ensure_active_superblock.exit.thread, label %155, !llvm.loop !12
 
 ensure_active_superblock.exit.thread.sink.split.sink.split: ; preds = %85, %74
   %.sink55 = phi i64 [ %76, %74 ], [ %87, %85 ]
@@ -1200,7 +1200,7 @@ define internal fastcc ptr @get_best_segment(ptr noundef %0, i64 noundef %1) unn
   %23 = sext i32 %22 to i64
   %24 = load i64, ptr %8, align 8
   %.not22.i = icmp ult i64 %24, %23
-  br i1 %.not22.i, label %25, label %10, !llvm.loop !15
+  br i1 %.not22.i, label %25, label %10, !llvm.loop !13
 
 25:                                               ; preds = %21
   store i64 %5, ptr %6, align 8
@@ -1208,7 +1208,7 @@ define internal fastcc ptr @get_best_segment(ptr noundef %0, i64 noundef %1) unn
 
 check_for_freed_segments_locked.exit:             ; preds = %2, %25
   %26 = icmp eq i64 %1, 0
-  %27 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 true), !range !9
+  %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
   %28 = sub nuw nsw i64 64, %27
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 15)
   %30 = select i1 %26, i64 0, i64 %29
@@ -1243,7 +1243,7 @@ check_for_freed_segments_locked.exit:             ; preds = %2, %25
 
 .backedge:                                        ; preds = %.lr.ph, %51
   %.not = icmp eq i64 %42, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 48:                                               ; preds = %.lr.ph
   %49 = icmp ult i64 %46, %33
@@ -1259,7 +1259,7 @@ check_for_freed_segments_locked.exit:             ; preds = %2, %25
 ._crit_edge:                                      ; preds = %.backedge, %31
   %52 = add nuw nsw i64 %.02533, 1
   %exitcond.not = icmp eq i64 %52, 16
-  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge, %51
   %.0 = phi ptr [ %38, %51 ], [ null, %._crit_edge ]
@@ -1282,7 +1282,7 @@ define internal fastcc noundef ptr @make_new_segment(ptr noundef %0, i64 noundef
 9:                                                ; preds = %5
   %10 = add nuw nsw i64 %.096119, 1
   %exitcond.not = icmp eq i64 %10, 1024
-  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !16
 
 .thread:                                          ; preds = %5
   %11 = getelementptr inbounds i8, ptr %3, i64 6112
@@ -1409,7 +1409,7 @@ define internal fastcc noundef ptr @make_new_segment(ptr noundef %0, i64 noundef
   %87 = getelementptr inbounds i8, ptr %86, i64 16
   store i64 %.098, ptr %87, align 8
   %88 = icmp eq i64 %.099, 0
-  %89 = tail call i64 @llvm.ctlz.i64(i64 %.099, i1 true), !range !9
+  %89 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.099, i1 true)
   %90 = sub nuw nsw i64 64, %89
   %91 = tail call i64 @llvm.umin.i64(i64 %90, i64 15)
   %92 = select i1 %88, i64 0, i64 %91
@@ -1466,7 +1466,7 @@ define dso_local void @dsa_free(ptr noundef %0, i64 noundef %1) local_unnamed_ad
 
 tailrecurse:                                      ; preds = %unlink_span.exit, %2
   %.tr61 = phi i64 [ %1, %2 ], [ %41, %unlink_span.exit ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 6144
   %8 = load i64, ptr %7, align 8
@@ -1510,7 +1510,7 @@ tailrecurse:                                      ; preds = %unlink_span.exit, %
   %29 = sext i32 %28 to i64
   %30 = load i64, ptr %4, align 8
   %.not22.i.i = icmp ult i64 %30, %29
-  br i1 %.not22.i.i, label %31, label %.preheader.i.i, !llvm.loop !15
+  br i1 %.not22.i.i, label %31, label %.preheader.i.i, !llvm.loop !13
 
 31:                                               ; preds = %27
   store i64 %15, ptr %3, align 8
@@ -1743,7 +1743,7 @@ define dso_local ptr @dsa_get_address(ptr noundef %0, i64 noundef %1) local_unna
   br i1 %.not, label %47, label %3
 
 3:                                                ; preds = %2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 6144
   %6 = load i64, ptr %5, align 8
@@ -1793,7 +1793,7 @@ define dso_local ptr @dsa_get_address(ptr noundef %0, i64 noundef %1) local_unna
   %31 = sext i32 %30 to i64
   %32 = load i64, ptr %16, align 8
   %.not22.i.i = icmp ult i64 %32, %31
-  br i1 %.not22.i.i, label %33, label %18, !llvm.loop !15
+  br i1 %.not22.i.i, label %33, label %18, !llvm.loop !13
 
 33:                                               ; preds = %29
   store i64 %14, ptr %7, align 8
@@ -1908,7 +1908,7 @@ define internal fastcc void @rebin_segment(ptr noundef %0, ptr noundef %1) unnam
   %5 = getelementptr inbounds i8, ptr %4, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
-  %8 = tail call i64 @llvm.ctlz.i64(i64 %6, i1 true), !range !9
+  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %6, i1 true)
   %9 = sub nuw nsw i64 64, %8
   %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 15)
   %11 = select i1 %7, i64 0, i64 %10
@@ -2095,7 +2095,7 @@ unlink_span.exit:                                 ; preds = %15, %19
   %51 = sext i32 %50 to i64
   %52 = load i64, ptr %36, align 8
   %.not22.i = icmp ult i64 %52, %51
-  br i1 %.not22.i, label %53, label %38, !llvm.loop !15
+  br i1 %.not22.i, label %53, label %38, !llvm.loop !13
 
 53:                                               ; preds = %49
   store i64 %33, ptr %34, align 8
@@ -2333,7 +2333,7 @@ define dso_local void @dsa_trim(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %8, %87
   %.01820 = phi i64 [ %80, %87 ], [ %14, %8 ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 6144
   %17 = load i64, ptr %16, align 8
@@ -2377,7 +2377,7 @@ define dso_local void @dsa_trim(ptr noundef %0) local_unnamed_addr #0 {
   %38 = sext i32 %37 to i64
   %39 = load i64, ptr %3, align 8
   %.not22.i.i.i = icmp ult i64 %39, %38
-  br i1 %.not22.i.i.i, label %40, label %.preheader.i.i.i, !llvm.loop !15
+  br i1 %.not22.i.i.i, label %40, label %.preheader.i.i.i, !llvm.loop !13
 
 40:                                               ; preds = %36
   store i64 %24, ptr %2, align 8
@@ -2470,7 +2470,7 @@ dsa_get_address.exit:                             ; preds = %76, %67, %check_for
 
 87:                                               ; preds = %86, %dsa_get_address.exit
   %.not = icmp eq i64 %80, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %87, %8
   %88 = load ptr, ptr %0, align 8
@@ -2482,7 +2482,7 @@ dsa_get_address.exit:                             ; preds = %76, %67, %check_for
 91:                                               ; preds = %6, %._crit_edge
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not24 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not24, label %92, label %6, !llvm.loop !21
+  br i1 %.not24, label %92, label %6, !llvm.loop !19
 
 92:                                               ; preds = %91
   ret void
@@ -2532,7 +2532,7 @@ define dso_local void @dsa_dump(ptr nocapture noundef %0) local_unnamed_addr #0 
   %25 = sext i32 %24 to i64
   %26 = load i64, ptr %10, align 8
   %.not22.i = icmp ult i64 %26, %25
-  br i1 %.not22.i, label %27, label %12, !llvm.loop !15
+  br i1 %.not22.i, label %27, label %12, !llvm.loop !13
 
 27:                                               ; preds = %23
   store i64 %7, ptr %8, align 8
@@ -2593,7 +2593,7 @@ check_for_freed_segments_locked.exit:             ; preds = %1, %27
   br label %75
 
 70:                                               ; preds = %65
-  %71 = trunc i64 %.078 to i32
+  %71 = trunc nuw i64 %.078 to i32
   %72 = add nsw i32 %71, -1
   %73 = shl nuw nsw i32 1, %72
   %74 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %67, ptr noundef nonnull @.str.15, i64 noundef %.078, i32 noundef %73) #10
@@ -2683,12 +2683,12 @@ get_segment_by_index.exit:                        ; preds = %.lr.ph, %100, %109
   %122 = getelementptr inbounds i8, ptr %121, i64 32
   %.065 = load i64, ptr %122, align 8
   %.not70 = icmp eq i64 %.065, -1
-  br i1 %.not70, label %.loopexit74, label %.lr.ph, !llvm.loop !22
+  br i1 %.not70, label %.loopexit74, label %.lr.ph, !llvm.loop !20
 
 .loopexit74:                                      ; preds = %get_segment_by_index.exit, %75, %60
   %123 = add nuw nsw i64 %.078, 1
   %exitcond.not = icmp eq i64 %123, 16
-  br i1 %exitcond.not, label %124, label %60, !llvm.loop !23
+  br i1 %exitcond.not, label %124, label %60, !llvm.loop !21
 
 124:                                              ; preds = %.loopexit74
   %125 = load ptr, ptr %0, align 8
@@ -2717,7 +2717,7 @@ get_segment_by_index.exit:                        ; preds = %.lr.ph, %100, %109
   %spec.select = select i1 %.not68, i1 true, i1 %.06180
   %139 = add nuw nsw i64 %.06379, 1
   %exitcond84.not = icmp eq i64 %139, 4
-  br i1 %exitcond84.not, label %140, label %136, !llvm.loop !24
+  br i1 %exitcond84.not, label %140, label %136, !llvm.loop !22
 
 140:                                              ; preds = %136
   br i1 %spec.select, label %141, label %.loopexit73
@@ -2767,7 +2767,7 @@ get_segment_by_index.exit:                        ; preds = %.lr.ph, %100, %109
 
 162:                                              ; preds = %160, %dsa_get_address.exit
   %.06081 = phi i64 [ %156, %160 ], [ %240, %dsa_get_address.exit ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   %163 = load ptr, ptr %0, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 6144
   %165 = load i64, ptr %164, align 8
@@ -2811,7 +2811,7 @@ get_segment_by_index.exit:                        ; preds = %.lr.ph, %100, %109
   %186 = sext i32 %185 to i64
   %187 = load i64, ptr %59, align 8
   %.not22.i.i.i = icmp ult i64 %187, %186
-  br i1 %.not22.i.i.i, label %188, label %.preheader.i.i.i, !llvm.loop !15
+  br i1 %.not22.i.i.i, label %188, label %.preheader.i.i.i, !llvm.loop !13
 
 188:                                              ; preds = %184
   store i64 %172, ptr %8, align 8
@@ -2904,12 +2904,12 @@ dsa_get_address.exit:                             ; preds = %224, %215, %check_f
   %239 = getelementptr inbounds i8, ptr %226, i64 16
   %240 = load i64, ptr %239, align 8
   %.not67 = icmp eq i64 %240, 0
-  br i1 %.not67, label %.loopexit, label %162, !llvm.loop !25
+  br i1 %.not67, label %.loopexit, label %162, !llvm.loop !23
 
 .loopexit:                                        ; preds = %dsa_get_address.exit, %158
   %241 = add nuw nsw i64 %.16482, 1
   %exitcond85.not = icmp eq i64 %241, 4
-  br i1 %exitcond85.not, label %.loopexit73.loopexit, label %152, !llvm.loop !26
+  br i1 %exitcond85.not, label %.loopexit73.loopexit, label %152, !llvm.loop !24
 
 .loopexit73.loopexit:                             ; preds = %.loopexit
   %.pre89 = load ptr, ptr %0, align 8
@@ -2922,7 +2922,7 @@ dsa_get_address.exit:                             ; preds = %224, %215, %check_f
   tail call void @LWLockRelease(ptr noundef %244) #10
   %245 = add nuw nsw i64 %.183, 1
   %exitcond86.not = icmp eq i64 %245, 38
-  br i1 %exitcond86.not, label %246, label %129, !llvm.loop !27
+  br i1 %exitcond86.not, label %246, label %129, !llvm.loop !25
 
 246:                                              ; preds = %.loopexit73
   ret void
@@ -2931,7 +2931,7 @@ dsa_get_address.exit:                             ; preds = %224, %215, %check_f
 declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i64 @dsa_minimum_size() local_unnamed_addr #5 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @dsa_minimum_size() local_unnamed_addr #5 {
   br label %1
 
 1:                                                ; preds = %0, %1
@@ -2974,7 +2974,7 @@ define dso_local void @dsa_detach(ptr noundef %0) local_unnamed_addr #0 {
   %11 = sext i32 %10 to i64
   %12 = load i64, ptr %2, align 8
   %.not = icmp ult i64 %12, %11
-  br i1 %.not, label %13, label %4, !llvm.loop !28
+  br i1 %.not, label %13, label %4, !llvm.loop !26
 
 13:                                               ; preds = %9
   tail call void @pfree(ptr noundef nonnull %0) #10
@@ -3028,9 +3028,9 @@ attributes #11 = { cold nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 -2147483648, i64 2147483648}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
-!9 = !{i64 0, i64 65}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
@@ -3038,9 +3038,9 @@ attributes #11 = { cold nounwind }
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
+!17 = !{i64 2149195835}
 !18 = distinct !{!18, !6}
-!19 = !{i64 2149195835}
+!19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
@@ -3048,5 +3048,3 @@ attributes #11 = { cold nounwind }
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}

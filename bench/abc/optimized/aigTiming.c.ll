@@ -49,7 +49,7 @@ define i32 @Aig_ObjRequiredLevel(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Aig_ObjReverseLevelNew(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @Aig_ObjReverseLevelNew(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 4294967232
@@ -458,7 +458,7 @@ Vec_VecAlloc.exit:                                ; preds = %6, %11
   %19 = getelementptr i8, ptr %1, i64 24
   %.val54 = load i64, ptr %19, align 8
   %20 = lshr i64 %.val54, 32
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   %22 = and i32 %21, 16777215
   %23 = getelementptr i8, ptr %1, i64 16
   %.val.i = load ptr, ptr %23, align 8
@@ -480,12 +480,12 @@ Vec_VecAlloc.exit:                                ; preds = %6, %11
   %35 = getelementptr inbounds i8, ptr %34, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = lshr i64 %36, 32
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw i64 %37 to i32
   %39 = and i32 %38, 16777215
   %40 = getelementptr inbounds i8, ptr %27, i64 24
   %41 = load i64, ptr %40, align 8
   %42 = lshr i64 %41, 32
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw i64 %42 to i32
   %44 = and i32 %43, 16777215
   %45 = tail call i32 @llvm.umax.i32(i32 %39, i32 %44)
   %46 = add nuw nsw i32 %45, %30
@@ -500,7 +500,7 @@ Vec_VecAlloc.exit:                                ; preds = %6, %11
   %52 = getelementptr inbounds i8, ptr %51, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = lshr i64 %53, 32
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   %56 = and i32 %55, 16777215
   br label %Aig_ObjLevelNew.exit
 
@@ -599,12 +599,12 @@ Vec_VecClear.exit:                                ; preds = %Vec_VecClear.exit.l
   %103 = getelementptr inbounds i8, ptr %102, i64 24
   %104 = load i64, ptr %103, align 8
   %105 = lshr i64 %104, 32
-  %106 = trunc i64 %105 to i32
+  %106 = trunc nuw i64 %105 to i32
   %107 = and i32 %106, 16777215
   %108 = getelementptr inbounds i8, ptr %95, i64 24
   %109 = load i64, ptr %108, align 8
   %110 = lshr i64 %109, 32
-  %111 = trunc i64 %110 to i32
+  %111 = trunc nuw i64 %110 to i32
   %112 = and i32 %111, 16777215
   %113 = tail call i32 @llvm.umax.i32(i32 %107, i32 %112)
   %114 = add nuw nsw i32 %113, %98
@@ -619,7 +619,7 @@ Vec_VecClear.exit:                                ; preds = %Vec_VecClear.exit.l
   %120 = getelementptr inbounds i8, ptr %119, i64 24
   %121 = load i64, ptr %120, align 8
   %122 = lshr i64 %121, 32
-  %123 = trunc i64 %122 to i32
+  %123 = trunc nuw i64 %122 to i32
   br label %Aig_ObjLevelNew.exit69
 
 Aig_ObjLevelNew.exit69:                           ; preds = %94, %115
@@ -695,7 +695,7 @@ Aig_ManObj.exit:                                  ; preds = %144, %148
 160:                                              ; preds = %Aig_ManObj.exit
   %161 = load ptr, ptr %3, align 8
   %162 = lshr i64 %.val60, 32
-  %163 = trunc i64 %162 to i32
+  %163 = trunc nuw i64 %162 to i32
   %164 = and i32 %163, 16777215
   %165 = getelementptr inbounds i8, ptr %161, i64 4
   %166 = load i32, ptr %165, align 4
@@ -1194,7 +1194,7 @@ Vec_VecClear.exit:                                ; preds = %Vec_VecClear.exit.l
   br i1 %98, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %99 = trunc i64 %indvars.iv214 to i32
+  %99 = trunc nsw i64 %indvars.iv214 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %518
@@ -2214,7 +2214,7 @@ define void @Aig_ManVerifyLevel(ptr nocapture noundef readonly %0) local_unnamed
 
 16:                                               ; preds = %11
   %17 = lshr i64 %.val21, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 16777215
   %20 = getelementptr i8, ptr %9, i64 16
   %.val.i = load ptr, ptr %20, align 8
@@ -2232,7 +2232,7 @@ Aig_ObjLevelNew.exit:                             ; preds = %16
   %27 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = lshr i64 %28, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   %31 = and i32 %30, 16777215
   %.not17 = icmp eq i32 %19, %31
   br i1 %.not17, label %56, label %Aig_ObjLevelNew.exit27
@@ -2250,12 +2250,12 @@ Aig_ObjLevelNew.exit.thread:                      ; preds = %16
   %40 = getelementptr inbounds i8, ptr %39, i64 24
   %41 = load i64, ptr %40, align 8
   %42 = lshr i64 %41, 32
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw i64 %42 to i32
   %44 = and i32 %43, 16777215
   %45 = getelementptr inbounds i8, ptr %32, i64 24
   %46 = load i64, ptr %45, align 8
   %47 = lshr i64 %46, 32
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw i64 %47 to i32
   %49 = and i32 %48, 16777215
   %50 = tail call i32 @llvm.umax.i32(i32 %44, i32 %49)
   %51 = add nuw nsw i32 %50, %35
@@ -2332,7 +2332,7 @@ define void @Aig_ManVerifyReverseLevel(ptr nocapture noundef readonly %0) local_
 
 19:                                               ; preds = %14
   %20 = lshr i64 %.val22, 32
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   %22 = and i32 %21, 16777215
   %23 = getelementptr i8, ptr %12, i64 16
   %.val.i = load ptr, ptr %23, align 8
@@ -2354,12 +2354,12 @@ define void @Aig_ManVerifyReverseLevel(ptr nocapture noundef readonly %0) local_
   %35 = getelementptr inbounds i8, ptr %34, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = lshr i64 %36, 32
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw i64 %37 to i32
   %39 = and i32 %38, 16777215
   %40 = getelementptr inbounds i8, ptr %27, i64 24
   %41 = load i64, ptr %40, align 8
   %42 = lshr i64 %41, 32
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw i64 %42 to i32
   %44 = and i32 %43, 16777215
   %45 = tail call i32 @llvm.umax.i32(i32 %39, i32 %44)
   %46 = add nuw nsw i32 %45, %30
@@ -2374,7 +2374,7 @@ define void @Aig_ManVerifyReverseLevel(ptr nocapture noundef readonly %0) local_
   %52 = getelementptr inbounds i8, ptr %51, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = lshr i64 %53, 32
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   %56 = and i32 %55, 16777215
   br label %Aig_ObjLevelNew.exit
 

@@ -343,7 +343,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i8 @_ZN4node6crypto6CSPRNGEPvm(ptr noundef %buffer, i64 noundef %length) local_unnamed_addr #4 {
+define dso_local range(i8 0, 2) i8 @_ZN4node6crypto6CSPRNGEPvm(ptr noundef %buffer, i64 noundef %length) local_unnamed_addr #4 {
 entry:
   br label %do.body
 
@@ -2063,7 +2063,7 @@ cond.true.i:                                      ; preds = %_ZN4node6crypto17Is
   br label %cond.end
 
 cond.false.i:                                     ; preds = %_ZN4node6crypto17IsAnyBufferSourceEN2v85LocalINS1_5ValueEEE.exit.i
-  tail call void @_ZN4node6crypto10ByteSource10FromStringEPNS_11EnvironmentEN2v85LocalINS4_6StringEEEb(ptr sret(%"class.node::crypto::ByteSource") align 8 %agg.result, ptr noundef %env, ptr nonnull %value.coerce, i1 noundef zeroext false)
+  tail call void @_ZN4node6crypto10ByteSource10FromStringEPNS_11EnvironmentEN2v85LocalINS4_6StringEEEb(ptr writeonly sret(%"class.node::crypto::ByteSource") align 8 %agg.result, ptr noundef readonly %env, ptr nonnull %value.coerce, i1 noundef zeroext false)
   br label %cond.end
 
 cond.false:                                       ; preds = %_ZN4node6crypto17IsAnyBufferSourceEN2v85LocalINS1_5ValueEEE.exit
@@ -2862,7 +2862,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 %conv
+  %add.ptr.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 %conv
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i, i8 0, i64 %sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
 

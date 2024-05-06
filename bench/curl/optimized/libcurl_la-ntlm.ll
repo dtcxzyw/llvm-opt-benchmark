@@ -164,7 +164,7 @@ declare i32 @Curl_read32_le(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_auth_create_ntlm_type1_message(ptr nocapture noundef readnone %data, ptr nocapture noundef readnone %userp, ptr nocapture noundef readnone %passwdp, ptr nocapture noundef readnone %service, ptr nocapture noundef readnone %hostname, ptr nocapture noundef %ntlm, ptr noundef %out) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_auth_create_ntlm_type1_message(ptr nocapture noundef readnone %data, ptr nocapture noundef readnone %userp, ptr nocapture noundef readnone %passwdp, ptr nocapture noundef readnone %service, ptr nocapture noundef readnone %hostname, ptr nocapture noundef %ntlm, ptr noundef %out) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   %target_info.i = getelementptr inbounds i8, ptr %ntlm, i64 16
@@ -281,7 +281,7 @@ if.end38:                                         ; preds = %if.end30
 if.end44:                                         ; preds = %if.end38
   %2 = load ptr, ptr %ntlmv2resp, align 8
   %.pre = load i32, ptr %ntresplen, align 4
-  %.pre137 = load i32, ptr %ntlm, align 8
+  %.pre138 = load i32, ptr %ntlm, align 8
   br label %if.end67
 
 if.else45:                                        ; preds = %if.end
@@ -304,7 +304,7 @@ if.end60:                                         ; preds = %if.end51
   br label %if.end67
 
 if.end67:                                         ; preds = %if.end60, %if.end44
-  %4 = phi i32 [ %.pre137, %if.end44 ], [ %and66, %if.end60 ]
+  %4 = phi i32 [ %.pre138, %if.end44 ], [ %and66, %if.end60 ]
   %5 = phi i32 [ %.pre, %if.end44 ], [ 24, %if.end60 ]
   %ptr_ntresp.0 = phi ptr [ %2, %if.end44 ], [ %ntresp, %if.end60 ]
   %hostlen.0 = select i1 %tobool.not, i64 11, i64 22
@@ -333,7 +333,7 @@ if.end67:                                         ; preds = %if.end60, %if.end44
   %conv114 = and i32 %11, 255
   %12 = lshr i32 %11, 8
   %conv117 = and i32 %12, 255
-  %conv119 = trunc i64 %hostlen.0 to i32
+  %conv119 = trunc nuw nsw i64 %hostlen.0 to i32
   %13 = trunc i64 %add75 to i32
   %conv129 = and i32 %13, 255
   %14 = lshr i32 %13, 8
@@ -408,11 +408,11 @@ for.body.i:                                       ; preds = %if.then182, %for.bo
 
 if.end186.thread:                                 ; preds = %do.end180
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx185, ptr align 1 %domain.0, i64 %domlen.0, i1 false)
-  %add187123 = add i64 %add157, %domlen.0
-  %arrayidx195 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add187123
+  %add187124 = add i64 %add157, %domlen.0
+  %arrayidx195 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add187124
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx195, ptr align 1 %user.1, i64 %call8, i1 false)
-  %add197130 = add i64 %add187123, %call8
-  %arrayidx206 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add197130
+  %add197131 = add i64 %add187124, %call8
+  %arrayidx206 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add197131
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %arrayidx206, ptr noundef nonnull align 16 dereferenceable(11) %host, i64 11, i1 false)
   br label %if.end208
 
@@ -421,8 +421,8 @@ if.end186:                                        ; preds = %for.body.i
   br label %if.then191
 
 if.then191:                                       ; preds = %if.end186, %if.then182
-  %add187128 = phi i64 [ %add187, %if.end186 ], [ %add157, %if.then182 ]
-  %arrayidx192 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add187128
+  %add187129 = phi i64 [ %add187, %if.end186 ], [ %add157, %if.then182 ]
+  %arrayidx192 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add187129
   %div193100 = and i64 %call8, 9223372036854775807
   %cmp6.not.i102 = icmp eq i64 %div193100, 0
   br i1 %cmp6.not.i102, label %if.then201, label %for.body.i103
@@ -442,31 +442,31 @@ for.body.i103:                                    ; preds = %if.then191, %for.bo
   br i1 %exitcond.not.i111, label %if.end196, label %for.body.i103, !llvm.loop !4
 
 if.end196:                                        ; preds = %for.body.i103
-  %add197 = add i64 %add187128, %userlen.0
+  %add197 = add i64 %add187129, %userlen.0
   br label %if.then201
 
 if.then201:                                       ; preds = %if.end196, %if.then191
-  %add197136 = phi i64 [ %add197, %if.end196 ], [ %add187128, %if.then191 ]
-  %arrayidx202 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add197136
-  br label %for.body.i113
+  %add197137 = phi i64 [ %add197, %if.end196 ], [ %add187129, %if.then191 ]
+  %arrayidx202 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add197137
+  br label %for.body.i114
 
-for.body.i113:                                    ; preds = %for.body.i113, %if.then201
-  %i.07.i114 = phi i64 [ %inc.i120, %for.body.i113 ], [ 0, %if.then201 ]
-  %arrayidx.i115 = getelementptr inbounds i8, ptr %host, i64 %i.07.i114
-  %20 = load i8, ptr %arrayidx.i115, align 1
-  %mul.i116 = shl nuw i64 %i.07.i114, 1
-  %arrayidx1.i117 = getelementptr inbounds i8, ptr %arrayidx202, i64 %mul.i116
-  store i8 %20, ptr %arrayidx1.i117, align 1
-  %add.i118 = or disjoint i64 %mul.i116, 1
-  %arrayidx3.i119 = getelementptr inbounds i8, ptr %arrayidx202, i64 %add.i118
-  store i8 0, ptr %arrayidx3.i119, align 1
-  %inc.i120 = add nuw nsw i64 %i.07.i114, 1
-  %exitcond.not.i121 = icmp eq i64 %inc.i120, 11
-  br i1 %exitcond.not.i121, label %if.end208, label %for.body.i113, !llvm.loop !4
+for.body.i114:                                    ; preds = %if.then201, %for.body.i114
+  %i.07.i115 = phi i64 [ %inc.i121, %for.body.i114 ], [ 0, %if.then201 ]
+  %arrayidx.i116 = getelementptr inbounds i8, ptr %host, i64 %i.07.i115
+  %20 = load i8, ptr %arrayidx.i116, align 1
+  %mul.i117 = shl nuw i64 %i.07.i115, 1
+  %arrayidx1.i118 = getelementptr inbounds i8, ptr %arrayidx202, i64 %mul.i117
+  store i8 %20, ptr %arrayidx1.i118, align 1
+  %add.i119 = or disjoint i64 %mul.i117, 1
+  %arrayidx3.i120 = getelementptr inbounds i8, ptr %arrayidx202, i64 %add.i119
+  store i8 0, ptr %arrayidx3.i120, align 1
+  %inc.i121 = add nuw nsw i64 %i.07.i115, 1
+  %exitcond.not.i122 = icmp eq i64 %inc.i121, 11
+  br i1 %exitcond.not.i122, label %if.end208, label %for.body.i114, !llvm.loop !4
 
-if.end208:                                        ; preds = %for.body.i113, %if.end186.thread
-  %add197131 = phi i64 [ %add197130, %if.end186.thread ], [ %add197136, %for.body.i113 ]
-  %add209 = add i64 %add197131, %hostlen.0
+if.end208:                                        ; preds = %for.body.i114, %if.end186.thread
+  %add197132 = phi i64 [ %add197131, %if.end186.thread ], [ %add197137, %for.body.i114 ]
+  %add209 = add i64 %add197132, %hostlen.0
   %call211 = call i32 @Curl_bufref_memdup(ptr noundef %out, ptr noundef nonnull %ntlmbuf, i64 noundef %add209) #7
   %21 = load ptr, ptr @Curl_cfree, align 8
   %target_info.i = getelementptr inbounds i8, ptr %ntlm, i64 16

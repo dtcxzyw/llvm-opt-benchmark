@@ -89,7 +89,7 @@ define internal i32 @lzma2_encoder_init(ptr nocapture noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @lzma_lzma2_encoder_memusage(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 65704, 65703) i64 @lzma_lzma2_encoder_memusage(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @lzma_lzma_encoder_memusage(ptr noundef %0) #8
   %3 = icmp eq i64 %2, -1
   %4 = add i64 %2, 65704
@@ -161,7 +161,7 @@ get_dist_slot.exit:                               ; preds = %20, %26, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @lzma_lzma2_block_size(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 1048576, 12884901886) i64 @lzma_lzma2_block_size(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp ugt i32 %2, 349525
   %4 = zext i32 %2 to i64
@@ -349,7 +349,7 @@ define internal i32 @lzma2_encode(ptr noundef %0, ptr noalias noundef %1, ptr no
   %96 = add i64 %69, -1
   %97 = lshr i64 %96, 16
   %98 = add nuw nsw i64 %.0.i, 1
-  %99 = getelementptr [65542 x i8], ptr %8, i64 0, i64 %.0.i
+  %99 = getelementptr inbounds [65542 x i8], ptr %8, i64 0, i64 %.0.i
   %100 = load i8, ptr %99, align 1
   %101 = trunc i64 %97 to i8
   %102 = add i8 %100, %101
@@ -375,8 +375,8 @@ define internal i32 @lzma2_encode(ptr noundef %0, ptr noalias noundef %1, ptr no
   br i1 %84, label %117, label %lzma2_header_lzma.exit
 
 117:                                              ; preds = %95
-  %118 = getelementptr i8, ptr %99, i64 5
-  %119 = tail call zeroext i1 @lzma_lzma_lclppb_encode(ptr noundef nonnull %16, ptr noundef %118) #8
+  %118 = getelementptr inbounds i8, ptr %99, i64 5
+  %119 = tail call zeroext i1 @lzma_lzma_lclppb_encode(ptr noundef nonnull %16, ptr noundef nonnull %118) #8
   %.pre.i = load i64, ptr %17, align 8
   br label %lzma2_header_lzma.exit
 
@@ -421,7 +421,7 @@ lzma2_header_lzma.exit:                           ; preds = %95, %117
   %137 = getelementptr inbounds i8, ptr %.val, i64 %136
   %138 = sub i64 0, %134
   %139 = getelementptr inbounds i8, ptr %137, i64 %138
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %135, ptr align 1 %139, i64 %..i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %135, ptr readonly align 1 %139, i64 %..i, i1 false)
   %140 = add i64 %..i, %132
   store i64 %140, ptr %3, align 8
   %141 = sub i64 %134, %..i
@@ -455,7 +455,7 @@ define internal void @lzma2_encoder_end(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @lzma2_encoder_options_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 12) i32 @lzma2_encoder_options_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

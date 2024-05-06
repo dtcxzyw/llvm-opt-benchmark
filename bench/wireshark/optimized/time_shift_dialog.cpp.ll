@@ -3278,7 +3278,7 @@ define void @_ZN15TimeShiftDialog16checkFrameNumberER14SyntaxLineEdit(ptr nocapt
 
 15:                                               ; preds = %14, %.noexc
   %.0.i.i = phi i64 [ %13, %.noexc ], [ 0, %14 ]
-  %16 = trunc i64 %.0.i.i to i32
+  %16 = trunc nuw i64 %.0.i.i to i32
   %17 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i

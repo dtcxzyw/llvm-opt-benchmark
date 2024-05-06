@@ -111,7 +111,7 @@ if.end.i38:                                       ; preds = %sw.bb19
   br i1 %cmp1.not.i, label %while.end, label %if.end31.thread
 
 if.end31.thread:                                  ; preds = %if.end.i38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %op.0103, ptr nonnull align 1 %add.ptr10, i64 %retval.0.i.ph, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %op.0103, ptr nonnull readonly align 1 %add.ptr10, i64 %retval.0.i.ph, i1 false)
   br label %if.end35
 
 sw.epilog:                                        ; preds = %if.end14
@@ -3959,7 +3959,7 @@ if.end:                                           ; preds = %entry
   %phase.i = getelementptr inbounds i8, ptr %call, i64 10284
   store i32 0, ptr %phase.i, align 4
   %previousDstEnd.i = getelementptr inbounds i8, ptr %call, i64 10256
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %previousDstEnd.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %previousDstEnd.i, i8 0, i64 16, i1 false)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -4107,7 +4107,7 @@ if.end.i:                                         ; preds = %sw.bb30
   br i1 %cmp1.not.i, label %sw.epilog.thread, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst, ptr align 1 %src, i64 %srcSize, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %dst, ptr readonly align 1 %src, i64 %srcSize, i1 false)
   br label %sw.epilog
 
 sw.epilog.thread:                                 ; preds = %if.end27, %if.end.i

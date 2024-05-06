@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_sseu_status(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @intel_sseu_status(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [8 x i32], align 16
   %4 = alloca [16 x i32], align 16
   %5 = alloca [2 x i32], align 8
@@ -183,12 +183,12 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   %106 = and i32 %105, 2
   %107 = xor i32 %106, 2
   %108 = add nuw nsw i32 %104, %107
-  %109 = trunc i32 %108 to i16
+  %109 = trunc nuw nsw i32 %108 to i16
   %110 = add i16 %85, %109
   store i16 %110, ptr %62, align 8
   %111 = zext i8 %84 to i32
   %112 = tail call i32 @llvm.umax.i32(i32 %108, i32 %111)
-  %113 = trunc i32 %112 to i8
+  %113 = trunc nuw i32 %112 to i8
   store i8 %113, ptr %63, align 2
   br label %114
 
@@ -727,7 +727,7 @@ declare dso_local i32 @single_release(ptr noundef, ptr noundef) #2
 declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sseu_status_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @sseu_status_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @intel_sseu_status(ptr noundef %0, ptr noundef %4), !range !21

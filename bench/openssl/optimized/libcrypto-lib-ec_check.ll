@@ -74,7 +74,7 @@ declare ptr @EC_curve_nid2nist(i32 noundef) local_unnamed_addr #1
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @EC_GROUP_check(ptr noundef %group, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_GROUP_check(ptr noundef %group, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %group, null
   br i1 %cmp, label %if.then, label %lor.lhs.false

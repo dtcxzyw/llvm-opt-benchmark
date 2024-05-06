@@ -104,7 +104,7 @@ define float @Map_CutGetRootArea(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Map_CutGetLeafPhase(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Map_CutGetLeafPhase(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [2 x %struct.Map_MatchStruct_t_], ptr %4, i64 0, i64 %5, i32 2
@@ -116,7 +116,7 @@ define i32 @Map_CutGetLeafPhase(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Map_NodeGetLeafPhase(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Map_NodeGetLeafPhase(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %5

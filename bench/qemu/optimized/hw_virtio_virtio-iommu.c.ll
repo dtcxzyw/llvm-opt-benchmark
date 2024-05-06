@@ -1120,7 +1120,7 @@ if.then.i.i4.i:                                   ; preds = %if.end16.i.i
   br i1 %55, label %virtio_iommu_handle_attach.exit, label %do.body.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end16.i.i
-  %frombool.i.i.i = trunc i32 %19 to i8
+  %frombool.i.i.i = trunc nuw i32 %19 to i8
   %call9.i.i.i = call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #13
   store i32 %17, ptr %call9.i.i.i, align 8
   %call10.i.i.i = call ptr @g_tree_new_full(ptr noundef nonnull @interval_cmp, ptr noundef null, ptr noundef nonnull @g_free, ptr noundef nonnull @g_free) #12
@@ -1874,7 +1874,7 @@ if.else.i.i4.i:                                   ; preds = %for.body.i.i.i
   unreachable
 
 if.end9.i.i.i:                                    ; preds = %for.body.i.i.i
-  %conv16.i.i.i = trunc i32 %168 to i8
+  %conv16.i.i.i = trunc nuw i32 %168 to i8
   %.val.i.i.i = load i64, ptr %167, align 8
   %169 = getelementptr i8, ptr %167, i64 8
   %.val13.i.i.i = load i64, ptr %169, align 8
@@ -2548,7 +2548,7 @@ declare i64 @dma_aligned_pow2_mask(i64 noundef, i64 noundef, i32 noundef) local_
 declare ptr @g_tree_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @interval_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture readnone %user_data) #8 {
+define internal range(i32 -1, 2) i32 @interval_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture readnone %user_data) #8 {
 entry:
   %high = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i64, ptr %high, align 8
@@ -2849,7 +2849,7 @@ declare void @virtio_delete_queue(ptr noundef) local_unnamed_addr #1
 declare void @virtio_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal i32 @int_cmp(ptr noundef %a, ptr noundef %b, ptr nocapture readnone %user_data) #2 {
+define internal range(i32 -1, 2) i32 @int_cmp(ptr noundef %a, ptr noundef %b, ptr nocapture readnone %user_data) #2 {
 entry:
   %0 = ptrtoint ptr %a to i64
   %conv = trunc i64 %0 to i32
@@ -3223,7 +3223,7 @@ entry:
   store i64 %add, ptr %high, align 8
   %config = getelementptr inbounds i8, ptr %0, i64 536
   %1 = load i64, ptr %config, align 8
-  %2 = tail call i64 @llvm.cttz.i64(i64 %1, i1 true), !range !16
+  %2 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
   store ptr @address_space_memory, ptr %agg.result, align 8
   %iova = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %addr, ptr %iova, align 8
@@ -3358,7 +3358,7 @@ for.inc:                                          ; preds = %for.body, %range_co
   %next = getelementptr inbounds i8, ptr %l.080, i64 8
   %l.0 = load ptr, ptr %next, align 8
   %tobool27.not = icmp eq ptr %l.0, null
-  br i1 %tobool27.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %tobool27.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %if.end26
   %domain33 = getelementptr inbounds i8, ptr %call5, i64 8
@@ -3543,7 +3543,7 @@ unlock:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_iommu_notify_flag_changed(ptr nocapture noundef readonly %iommu_mr, i32 noundef %old, i32 noundef %new, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @virtio_iommu_notify_flag_changed(ptr nocapture noundef readonly %iommu_mr, i32 noundef %old, i32 noundef %new, ptr noundef %errp) #0 {
 entry:
   %_now.i.i3 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3647,7 +3647,7 @@ return:                                           ; preds = %trace_virtio_iommu_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_iommu_set_page_size_mask(ptr nocapture noundef readonly %mr, i64 noundef %new_mask, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @virtio_iommu_set_page_size_mask(ptr nocapture noundef readonly %mr, i64 noundef %new_mask, ptr noundef %errp) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %add.ptr = getelementptr i8, ptr %mr, i64 -32
@@ -3729,7 +3729,7 @@ return:                                           ; preds = %if.then3, %if.end12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_iommu_set_iova_ranges(ptr noundef %mr, ptr noundef %iova_ranges, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @virtio_iommu_set_iova_ranges(ptr noundef %mr, ptr noundef %iova_ranges, ptr noundef %errp) #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %new_ranges = alloca ptr, align 8
@@ -3796,13 +3796,13 @@ for.inc:                                          ; preds = %range_is_empty.exit
   %next = getelementptr inbounds i8, ptr %l.017, i64 8
   %6 = load ptr, ptr %next, align 8
   %tobool5.not.not = icmp eq ptr %6, null
-  br i1 %tobool5.not.not, label %error, label %for.body6, !llvm.loop !18
+  br i1 %tobool5.not.not, label %error, label %for.body6, !llvm.loop !17
 
 for.inc12:                                        ; preds = %range_contains_range.exit
   %next13 = getelementptr inbounds i8, ptr %tmp1.020, i64 8
   %tmp1.0 = load ptr, ptr %next13, align 8
   %tobool3.not = icmp eq ptr %tmp1.0, null
-  br i1 %tobool3.not, label %out, label %for.body, !llvm.loop !19
+  br i1 %tobool3.not, label %out, label %for.body, !llvm.loop !18
 
 if.end15:                                         ; preds = %entry
   %probe_done = getelementptr i8, ptr %mr, i64 944
@@ -3925,7 +3925,7 @@ trace_virtio_iommu_host_resv_regions.exit.i:      ; preds = %if.else.i.i.i15, %i
   %next.i = getelementptr inbounds i8, ptr %l.058.i, i64 8
   %l.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %l.0.i, null
-  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !20
+  br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !19
 
 for.end.i:                                        ; preds = %trace_virtio_iommu_host_resv_regions.exit.i, %if.end18
   %20 = load ptr, ptr %add.ptr, align 16
@@ -4183,8 +4183,7 @@ attributes #15 = { nounwind allocsize(0,1) }
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = !{i64 0, i64 65}
+!16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}

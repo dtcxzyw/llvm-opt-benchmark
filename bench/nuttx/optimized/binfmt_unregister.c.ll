@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_binfmts = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @unregister_binfmt(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @unregister_binfmt(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %.preheader
 

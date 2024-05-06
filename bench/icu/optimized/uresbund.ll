@@ -553,7 +553,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7520StackUResourceBundleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this) unnamed_addr #6 align 2 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %this, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %this, i8 0, i64 136, i1 false)
   ret void
 }
 
@@ -749,7 +749,7 @@ if.end20.i:                                       ; preds = %if.then8.i
 
 if.end36.i:                                       ; preds = %if.end20.i, %if.end.i
   %5 = phi ptr [ %call.i, %if.end20.i ], [ %fResBuf.i, %if.end.i ]
-  %call38.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %3) #20
+  %call38.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %3) #20
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end36.i, %if.then19.i, %do.body
@@ -1244,7 +1244,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @ures_hasNext_75(ptr noundef readonly %resB) local_unnamed_addr #9 {
+define signext range(i8 0, 2) i8 @ures_hasNext_75(ptr noundef readonly %resB) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq ptr %resB, null
   br i1 %cmp, label %return, label %if.end
@@ -1911,7 +1911,7 @@ define noundef ptr @ures_getStringByKeyWithFallback_75(ptr noundef %resB, ptr no
 entry:
   %stack = alloca %struct.UResourceBundle, align 8
   %length = alloca i32, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %stack, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %stack, i8 0, i64 136, i1 false)
   %call = call ptr @ures_getByKeyWithFallback_75(ptr noundef %resB, ptr noundef %inKey, ptr noundef nonnull %stack, ptr noundef %status)
   %cmp.i = icmp eq ptr %status, null
   br i1 %cmp.i, label %ures_getString_75.exit, label %lor.lhs.false.i
@@ -3429,7 +3429,7 @@ _ZL9initCacheP10UErrorCode.exit.i:                ; preds = %.noexc, %if.else.i.
   br i1 %cmp.i.i, label %if.end.i, label %if.end13.thread
 
 if.end.i:                                         ; preds = %_ZL9initCacheP10UErrorCode.exit.i
-  %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %5, i64 noundef 156) #20
+  %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull readonly dereferenceable(1) %5, i64 noundef 156) #20
   %arrayidx.i = getelementptr inbounds i8, ptr %name.i, i64 156
   store i8 0, ptr %arrayidx.i, align 4
   %call15.i39 = invoke ptr @uloc_getDefault_75()
@@ -3482,7 +3482,7 @@ lor.lhs.false.i:                                  ; preds = %if.then22.i
   br i1 %cmp.not.i.i, label %if.end54.i, label %_ZL13mayHaveParentPc.exit.i
 
 _ZL13mayHaveParentPc.exit.i:                      ; preds = %lor.lhs.false.i
-  %call.i.i = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull dereferenceable(1) %name.i) #24
+  %call.i.i = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull readonly dereferenceable(1) %name.i) #24
   %cmp1.i.not.i = icmp eq ptr %call.i.i, null
   %tobool44.i = icmp ne i8 %.pre93.i, 0
   %or.cond.i = select i1 %cmp1.i.not.i, i1 true, i1 %tobool44.i
@@ -3543,7 +3543,7 @@ lor.lhs.false74.i:                                ; preds = %if.then72.i
   br i1 %cmp.not.i56.i, label %if.else106thread-pre-split.i, label %_ZL13mayHaveParentPc.exit61.i
 
 _ZL13mayHaveParentPc.exit61.i:                    ; preds = %lor.lhs.false74.i
-  %call.i58.i = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull dereferenceable(1) %name.i) #24
+  %call.i58.i = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull readonly dereferenceable(1) %name.i) #24
   %cmp1.i59.not.i = icmp eq ptr %call.i58.i, null
   %tobool80.i = icmp ne i8 %.pr.pre.i, 0
   %or.cond8.i = select i1 %cmp1.i59.not.i, i1 true, i1 %tobool80.i
@@ -3614,7 +3614,7 @@ land.lhs.true115.i:                               ; preds = %land.lhs.true112.i
 
 if.then117.i:                                     ; preds = %land.lhs.true115.i
   %call119.i = invoke fastcc noundef signext i8 @_ZL16insertRootBundleRP18UResourceDataEntryP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %t1.i, ptr noundef nonnull %status)
-          to label %invoke.cont118.i unwind label %lpad.i, !range !18
+          to label %invoke.cont118.i unwind label %lpad.i
 
 invoke.cont118.i:                                 ; preds = %if.then117.i
   %tobool120.not.i = icmp eq i8 %call119.i, 0
@@ -3865,7 +3865,7 @@ land.lhs.true42.i:                                ; preds = %if.then39.i
 
 if.then45.i68:                                    ; preds = %land.lhs.true42.i
   %call47.i = invoke fastcc noundef signext i8 @_ZL16insertRootBundleRP18UResourceDataEntryP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %t1.i41, ptr noundef nonnull %status)
-          to label %if.end49.i unwind label %lpad.i55, !range !18
+          to label %if.end49.i unwind label %lpad.i55
 
 if.end49.i:                                       ; preds = %if.then45.i68, %land.lhs.true42.i, %if.then39.i, %invoke.cont36.i
   %51 = load i32, ptr %status, align 4
@@ -3894,7 +3894,7 @@ while.body.i:                                     ; preds = %if.end54.i61, %whil
   %fParent57.i = getelementptr inbounds i8, ptr %55, i64 16
   %56 = load ptr, ptr %fParent57.i, align 8
   %cmp58.not.i = icmp eq ptr %56, null
-  br i1 %cmp58.not.i, label %if.end62.loopexit.i, label %while.body.i, !llvm.loop !19
+  br i1 %cmp58.not.i, label %if.end62.loopexit.i, label %while.body.i, !llvm.loop !18
 
 if.end62.loopexit.i:                              ; preds = %while.body.i, %if.end54.i61
   %.lcssa.i62 = phi ptr [ %t1.promoted.i, %if.end54.i61 ], [ %55, %while.body.i ]
@@ -4091,7 +4091,7 @@ return:                                           ; preds = %if.end, %if.then
 define i32 @ures_countArrayItems_75(ptr noundef %resourceBundle, ptr noundef %resourceKey, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %resData = alloca %struct.UResourceBundle, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %resData, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %resData, i8 0, i64 136, i1 false)
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
@@ -4486,8 +4486,8 @@ invoke.cont14:                                    ; preds = %if.end12
 
 invoke.cont18:                                    ; preds = %invoke.cont14
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink13) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %bund1, i8 0, i64 136, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %bund2, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %bund1, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %bund2, i8 0, i64 136, i1 false)
   %call20 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %base, ptr noundef nonnull %parent, i32 noundef 1024, ptr noundef nonnull align 4 dereferenceable(4) %subStatus)
           to label %invoke.cont19 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4518,9 +4518,9 @@ call.i.noexc:                                     ; preds = %while.cond.i
   br i1 %cmp.not.i, label %invoke.cont33, label %while.body.i
 
 while.body.i:                                     ; preds = %call.i.noexc
-  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i82, ptr noundef nonnull dereferenceable(1) %parent) #24
+  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i82, ptr noundef nonnull readonly dereferenceable(1) %parent) #24
   %cmp2.i = icmp eq i32 %call1.i, 0
-  br i1 %cmp2.i, label %invoke.cont33, label %while.cond.i, !llvm.loop !20
+  br i1 %cmp2.i, label %invoke.cont33, label %while.cond.i, !llvm.loop !19
 
 invoke.cont33:                                    ; preds = %while.body.i, %call.i.noexc
   %retval.0.i = phi i8 [ 1, %while.body.i ], [ 0, %call.i.noexc ]
@@ -4661,7 +4661,7 @@ land.lhs.true112:                                 ; preds = %do.cond
 land.rhs:                                         ; preds = %land.lhs.true112
   %23 = load i32, ptr %status, align 4
   %cmp.i96 = icmp sgt i32 %23, 0
-  br i1 %cmp.i96, label %do.end, label %do.body, !llvm.loop !21
+  br i1 %cmp.i96, label %do.end, label %do.body, !llvm.loop !20
 
 do.end:                                           ; preds = %land.lhs.true112, %do.cond, %land.rhs
   %call121 = invoke noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %base, ptr noundef nonnull %parent, i32 noundef 1024, ptr noundef nonnull align 4 dereferenceable(4) %subStatus)
@@ -4825,7 +4825,7 @@ invoke.cont240:                                   ; preds = %invoke.cont239
 land.rhs247:                                      ; preds = %invoke.cont240
   %37 = load i32, ptr %status, align 4
   %cmp.i119 = icmp sgt i32 %37, 0
-  br i1 %cmp.i119, label %land.lhs.true256, label %do.body125, !llvm.loop !22
+  br i1 %cmp.i119, label %land.lhs.true256, label %do.body125, !llvm.loop !21
 
 do.end252:                                        ; preds = %invoke.cont240
   br i1 %tobool243, label %land.lhs.true256, label %if.end360
@@ -4976,7 +4976,7 @@ invoke.cont347:                                   ; preds = %invoke.cont346
 land.rhs354:                                      ; preds = %invoke.cont347
   %56 = load i32, ptr %status, align 4
   %cmp.i132 = icmp sgt i32 %56, 0
-  br i1 %cmp.i132, label %if.end420, label %do.body276, !llvm.loop !23
+  br i1 %cmp.i132, label %if.end420, label %do.body276, !llvm.loop !22
 
 if.end360:                                        ; preds = %invoke.cont347, %land.rhs.i.i, %invoke.cont260, %do.end252
   %.pr = load i32, ptr %status, align 4
@@ -5262,8 +5262,8 @@ entry:
   %item = alloca %struct.UResourceBundle, align 8
   %subItem = alloca %struct.UResourceBundle, align 8
   %subStatus = alloca i32, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %item, i8 0, i64 136, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %subItem, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %item, i8 0, i64 136, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(136) %subItem, i8 0, i64 136, i1 false)
   %call = tail call ptr @ures_openAvailableLocales_75(ptr noundef %path, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -5316,7 +5316,7 @@ lor.lhs.false.split:                              ; preds = %lor.lhs.false
 if.then9:                                         ; preds = %while.body, %lor.lhs.false.split
   %call3 = call ptr @uenum_next_75(ptr noundef %call, ptr noundef nonnull %locLen, ptr noundef nonnull %status)
   %cmp.not = icmp eq ptr %call3, null
-  br i1 %cmp.not, label %while.end58, label %while.body, !llvm.loop !24
+  br i1 %cmp.not, label %while.end58, label %while.body, !llvm.loop !23
 
 ures_getKey_75.exit:                              ; preds = %ures_getKey_75.exit.lr.ph, %if.then27
   %call1243 = phi ptr [ %call123956, %ures_getKey_75.exit.lr.ph ], [ %call12, %if.then27 ]
@@ -5353,12 +5353,12 @@ if.then27:                                        ; preds = %lor.lhs.false24, %l
   %5 = load i32, ptr %subStatus, align 4
   %cmp.i30 = icmp sgt i32 %5, 0
   %or.cond = select i1 %cmp13.not, i1 true, i1 %cmp.i30
-  br i1 %or.cond, label %while.end, label %ures_getKey_75.exit, !llvm.loop !25
+  br i1 %or.cond, label %while.end, label %ures_getKey_75.exit, !llvm.loop !24
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.then36, label %for.body, !llvm.loop !26
+  br i1 %exitcond.not, label %if.then36, label %for.body, !llvm.loop !25
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
@@ -5405,7 +5405,7 @@ if.end57:                                         ; preds = %for.body, %if.then4
   %7 = load i32, ptr %subStatus, align 4
   %cmp.i3041 = icmp sgt i32 %7, 0
   %or.cond42 = select i1 %cmp13.not40, i1 true, i1 %cmp.i3041
-  br i1 %or.cond42, label %while.end, label %ures_getKey_75.exit.lr.ph, !llvm.loop !25
+  br i1 %or.cond42, label %while.end, label %ures_getKey_75.exit.lr.ph, !llvm.loop !24
 
 ures_getKey_75.exit.lr.ph:                        ; preds = %while.cond11.preheader, %if.end57
   %call123956 = phi ptr [ %call1239, %if.end57 ], [ %call123950, %while.cond11.preheader ]
@@ -5419,7 +5419,7 @@ while.end:                                        ; preds = %if.end57, %if.then2
   call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef nonnull %call.i, i8 noundef signext 1)
   %call335 = call ptr @uenum_next_75(ptr noundef %call, ptr noundef nonnull %locLen, ptr noundef nonnull %status)
   %cmp.not36 = icmp eq ptr %call335, null
-  br i1 %cmp.not36, label %while.end58, label %while.body.lr.ph, !llvm.loop !24
+  br i1 %cmp.not36, label %while.end58, label %while.body.lr.ph, !llvm.loop !23
 
 while.end58:                                      ; preds = %while.end, %if.then9, %if.end
   %valuesIndex.0.ph.lcssa = phi i32 [ 0, %if.end ], [ %valuesIndex.0.ph62, %if.then9 ], [ %valuesIndex.1.ph.lcssa, %while.end ]
@@ -5749,7 +5749,7 @@ if.end36.i:                                       ; preds = %if.end33.i, %if.end
   %21 = phi ptr [ %call.i, %if.end20.i ], [ %call30.i, %if.end33.i ], [ %19, %if.end.i ]
   %idx.ext.i = sext i32 %18 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %21, i64 %idx.ext.i
-  %call38.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(1) %containerResPath) #20
+  %call38.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(1) %containerResPath) #20
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end36.i, %if.then32.i, %if.then19.i, %_ZL13entryIncreaseP18UResourceDataEntry.exit
@@ -5817,7 +5817,7 @@ if.end36.i84:                                     ; preds = %if.end33.i96, %if.e
   %26 = phi ptr [ %call.i99, %if.end20.i101 ], [ %call30.i94, %if.end33.i96 ], [ %24, %if.end.i81 ]
   %idx.ext.i85 = sext i32 %22 to i64
   %add.ptr.i86 = getelementptr inbounds i8, ptr %26, i64 %idx.ext.i85
-  %call38.i87 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i86, ptr noundef nonnull dereferenceable(1) %key) #20
+  %call38.i87 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i86, ptr noundef nonnull readonly dereferenceable(1) %key) #20
   br label %_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit106
 
 _ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode.exit106: ; preds = %if.then19.i103, %if.then32.i97, %if.end36.i84
@@ -6287,7 +6287,7 @@ if.end20.i:                                       ; preds = %call.i.noexc
 
 if.end36.i:                                       ; preds = %if.end20.i, %if.end.i
   %44 = phi ptr [ %call.i126, %if.end20.i ], [ %fResBuf.i, %if.end.i ]
-  %call38.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %keyPath.0173) #20
+  %call38.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(1) %keyPath.0173) #20
   br label %invoke.cont162
 
 invoke.cont162:                                   ; preds = %if.end36.i, %if.then19.i
@@ -6359,7 +6359,7 @@ if.end172:                                        ; preds = %if.end167, %lor.lhs
   %54 = load ptr, ptr %myPath, align 8
   %55 = load i8, ptr %54, align 1
   %tobool137.not = icmp eq i8 %55, 0
-  br i1 %tobool137.not, label %while.end, label %land.rhs, !llvm.loop !27
+  br i1 %tobool137.not, label %while.end, label %land.rhs, !llvm.loop !26
 
 while.end:                                        ; preds = %if.end172, %invoke.cont142.while.end.loopexit_crit_edge, %for.cond
   %56 = phi i32 [ %.pre213, %for.cond ], [ %.pre212.pre, %invoke.cont142.while.end.loopexit_crit_edge ], [ %51, %if.end172 ]
@@ -6384,7 +6384,7 @@ if.end183:                                        ; preds = %if.end180
   %call186 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %keyPath.0173) #20
   %.pre = load ptr, ptr %myPath, align 8
   %.pre213.pre = load i32, ptr %status, align 4
-  br label %for.cond, !llvm.loop !28
+  br label %for.cond, !llvm.loop !27
 
 cleanup.sink.split:                               ; preds = %if.end180, %call30.i.noexc156, %call.i.noexc154
   %.sink = phi i32 [ 7, %call.i.noexc154 ], [ 7, %call30.i.noexc156 ], [ 2, %if.end180 ]
@@ -6528,7 +6528,7 @@ for.cond:                                         ; preds = %if.end121
   %inc = add nuw nsw i32 %i.091, 1
   %call2 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %itemsTable, i32 noundef %inc, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool3.not = icmp eq i8 %call2, 0
-  br i1 %tobool3.not, label %for.end, label %for.body, !llvm.loop !29
+  br i1 %tobool3.not, label %for.end, label %for.body, !llvm.loop !28
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.091 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -6732,7 +6732,7 @@ cleanup:                                          ; preds = %invoke.cont55, %if.
   %fParent = getelementptr inbounds i8, ptr %entry43.3, i64 16
   %42 = load ptr, ptr %fParent, align 8
   %cmp46.not = icmp eq ptr %42, null
-  br i1 %cmp46.not, label %cleanup104, label %while.body, !llvm.loop !30
+  br i1 %cmp46.not, label %cleanup104, label %while.body, !llvm.loop !29
 
 cleanup104:                                       ; preds = %cleanup, %invoke.cont42
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %tablePath) #20
@@ -7052,7 +7052,7 @@ while.body.i:                                     ; preds = %if.end26.i, %if.els
   %21 = load i32, ptr %add.ptr1.i, align 4
   %idxprom.i = sext i32 %21 to i64
   %arrayidx.i25 = getelementptr inbounds i8, ptr @_ZL17parentLocaleChars, i64 %idxprom.i
-  %call.i26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %arrayidx.i25) #24
+  %call.i26 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull readonly dereferenceable(1) %arrayidx.i25) #24
   %cmp2.i = icmp eq i32 %call.i26, 0
   br i1 %cmp2.i, label %if.then32.i, label %if.else.i27
 
@@ -7062,7 +7062,7 @@ if.else.i27:                                      ; preds = %while.body.i
   %top.1.i = select i1 %cmp6.i, ptr %add.ptr1.i, ptr %top.010.i
   %bottom.1.i = select i1 %cmp6.i, ptr %bottom.011.i, ptr %add.ptr9.i
   %cmp.i28 = icmp ult ptr %bottom.1.i, %top.1.i
-  br i1 %cmp.i28, label %while.body.i, label %if.end35.i, !llvm.loop !31
+  br i1 %cmp.i28, label %while.body.i, label %if.end35.i, !llvm.loop !30
 
 if.then32.i:                                      ; preds = %while.body.i
   %arrayidx3.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 4
@@ -7402,7 +7402,7 @@ if.end29:                                         ; preds = %if.then27, %land.lh
   %68 = phi i8 [ %.pre, %if.then27 ], [ %66, %land.lhs.true ], [ %retval.0.i, %if.end23 ]
   %tobool = icmp ne i8 %68, 0
   %69 = and i1 %cmp7, %tobool
-  br i1 %69, label %while.body, label %return, !llvm.loop !32
+  br i1 %69, label %while.body, label %return, !llvm.loop !31
 
 return.sink.split:                                ; preds = %if.else21, %if.end23.thread38
   store i8 0, ptr %foundParent, align 1
@@ -7461,7 +7461,7 @@ if.then13:                                        ; preds = %if.then10
 
 if.end14:                                         ; preds = %if.then10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %call11, i8 0, i64 120, i1 false)
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.0) #24
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name.0) #24
   %conv.i66 = trunc i64 %call.i to i32
   %cmp4.i = icmp slt i32 %conv.i66, 3
   br i1 %cmp4.i, label %if.end12.thread.i, label %if.end12.i
@@ -7485,7 +7485,7 @@ _ZL12setEntryNameP18UResourceDataEntryPKcP10UErrorCode.exit.thread: ; preds = %i
 
 _ZL12setEntryNameP18UResourceDataEntryPKcP10UErrorCode.exit: ; preds = %if.end12.thread.i, %if.end12.i
   %storemerge14.i = phi ptr [ %fNameBuffer.i, %if.end12.thread.i ], [ %call10.i, %if.end12.i ]
-  %call18.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %storemerge14.i, ptr noundef nonnull dereferenceable(1) %name.0) #20
+  %call18.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %storemerge14.i, ptr noundef nonnull readonly dereferenceable(1) %name.0) #20
   %.pre = load i32, ptr %status, align 4
   %3 = icmp slt i32 %.pre, 1
   br i1 %3, label %if.end18, label %if.then17
@@ -7644,7 +7644,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   %fAlias96 = getelementptr inbounds i8, ptr %r.1, i64 24
   %20 = load ptr, ptr %fAlias96, align 8
   %cmp97.not = icmp eq ptr %20, null
-  br i1 %cmp97.not, label %while.end, label %while.cond, !llvm.loop !33
+  br i1 %cmp97.not, label %while.end, label %while.cond, !llvm.loop !32
 
 while.end:                                        ; preds = %while.cond
   %fCountExisting = getelementptr inbounds i8, ptr %r.1, i64 108
@@ -7671,7 +7671,7 @@ return:                                           ; preds = %if.end93.thread, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(8) %t1, ptr noundef %name, ptr nocapture noundef %status) unnamed_addr #1 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(8) %t1, ptr noundef %name, ptr nocapture noundef %status) unnamed_addr #1 {
 entry:
   %parentLocaleLen = alloca i32, align 4
   %parentStatus = alloca i32, align 4
@@ -7758,7 +7758,7 @@ lor.rhs:                                          ; preds = %if.else
   br i1 %cmp.not.i29, label %return, label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs
-  %call.i30 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull dereferenceable(1) %name) #24
+  %call.i30 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull readonly dereferenceable(1) %name) #24
   %cmp1.i.not = icmp eq ptr %call.i30, null
   br i1 %cmp1.i.not, label %return, label %land.lhs.true.backedge
 
@@ -7767,7 +7767,7 @@ land.lhs.true.backedge:                           ; preds = %lor.end, %_ZL10chop
   %fParent = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load ptr, ptr %fParent, align 8
   %cmp = icmp eq ptr %16, null
-  br i1 %cmp, label %land.lhs.true2, label %return, !llvm.loop !34
+  br i1 %cmp, label %land.lhs.true2, label %return, !llvm.loop !33
 
 return:                                           ; preds = %if.then18, %land.lhs.true2, %land.lhs.true.backedge, %lor.end, %land.rhs, %lor.rhs, %land.lhs.true.preheader, %entry, %if.then28
   %retval.0 = phi i8 [ 0, %if.then28 ], [ 0, %entry ], [ 1, %land.lhs.true.preheader ], [ 1, %lor.rhs ], [ 1, %land.rhs ], [ 1, %lor.end ], [ 1, %land.lhs.true.backedge ], [ 1, %land.lhs.true2 ], [ 1, %if.then18 ]
@@ -7775,7 +7775,7 @@ return:                                           ; preds = %if.then18, %land.lh
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext i8 @_ZL16insertRootBundleRP18UResourceDataEntryP10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(8) %t1, ptr nocapture noundef %status) unnamed_addr #1 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL16insertRootBundleRP18UResourceDataEntryP10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(8) %t1, ptr nocapture noundef %status) unnamed_addr #1 {
 entry:
   %parentStatus = alloca i32, align 4
   %0 = load i32, ptr %status, align 4
@@ -7828,7 +7828,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL14compareEntries8UElementS_(ptr nocapture readonly %p1.coerce, ptr nocapture readonly %p2.coerce) #1 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL14compareEntries8UElementS_(ptr nocapture readonly %p1.coerce, ptr nocapture readonly %p2.coerce) #1 {
 entry:
   %0 = load ptr, ptr %p1.coerce, align 8
   %1 = load ptr, ptr %p2.coerce, align 8
@@ -7891,7 +7891,7 @@ while.body.i:                                     ; preds = %invoke.cont.i
   %fCountExisting.i = getelementptr inbounds i8, ptr %3, i64 108
   %4 = load i32, ptr %fCountExisting.i, align 4
   %cmp2.i = icmp eq i32 %4, 0
-  br i1 %cmp2.i, label %if.then3.i, label %while.cond.i, !llvm.loop !35
+  br i1 %cmp2.i, label %if.then3.i, label %while.cond.i, !llvm.loop !34
 
 if.then3.i:                                       ; preds = %while.body.i
   %5 = load ptr, ptr @_ZL5cache, align 8
@@ -7949,7 +7949,7 @@ while.cond.i.i:                                   ; preds = %if.end12.i.i, %whil
   %fAlias15.i.i = getelementptr inbounds i8, ptr %alias.0.i.i, i64 24
   %11 = load ptr, ptr %fAlias15.i.i, align 8
   %cmp16.not.i.i = icmp eq ptr %11, null
-  br i1 %cmp16.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !36
+  br i1 %cmp16.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !35
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
   %fCountExisting18.i.i = getelementptr inbounds i8, ptr %alias.0.i.i, i64 108
@@ -7960,7 +7960,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
 
 if.end20.i.i:                                     ; preds = %while.end.i.i, %if.end12.i.i
   invoke void @uprv_free_75(ptr noundef nonnull %3)
-          to label %while.cond.i.outer unwind label %lpad.i.loopexit.split-lp, !llvm.loop !35
+          to label %while.cond.i.outer unwind label %lpad.i.loopexit.split-lp, !llvm.loop !34
 
 lpad.i.loopexit:                                  ; preds = %while.cond.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -7988,7 +7988,7 @@ _ZN6icu_755MutexD2Ev.exit.i:                      ; preds = %lpad.i
   resume { ptr, i32 } %lpad.phi
 
 do.cond.i:                                        ; preds = %invoke.cont.i
-  br i1 %tobool.not.i, label %cleanup.i, label %do.body.i, !llvm.loop !37
+  br i1 %tobool.not.i, label %cleanup.i, label %do.body.i, !llvm.loop !36
 
 cleanup.i:                                        ; preds = %do.cond.i, %if.then
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZL9resbMutex)
@@ -8073,7 +8073,7 @@ while.cond:                                       ; preds = %if.end12, %while.co
   %fAlias15 = getelementptr inbounds i8, ptr %alias.0, i64 24
   %5 = load ptr, ptr %fAlias15, align 8
   %cmp16.not = icmp eq ptr %5, null
-  br i1 %cmp16.not, label %while.end, label %while.cond, !llvm.loop !36
+  br i1 %cmp16.not, label %while.end, label %while.cond, !llvm.loop !35
 
 while.end:                                        ; preds = %while.cond
   %fCountExisting18 = getelementptr inbounds i8, ptr %alias.0, i64 108
@@ -8201,7 +8201,7 @@ while.body.i:                                     ; preds = %if.else.i, %if.end
   %18 = load i32, ptr %add.ptr1.i, align 4
   %idxprom.i = sext i32 %18 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr @_ZL15dsLocaleIDChars, i64 %idxprom.i
-  %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %arrayidx.i) #24
+  %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %arrayidx.i) #24
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %cleanup, label %if.else.i
 
@@ -8211,7 +8211,7 @@ if.else.i:                                        ; preds = %while.body.i
   %top.1.i = select i1 %cmp6.i, ptr %add.ptr1.i, ptr %top.010.i
   %bottom.1.i = select i1 %cmp6.i, ptr %bottom.011.i, ptr %add.ptr9.i
   %cmp.i16 = icmp ult ptr %bottom.1.i, %top.1.i
-  br i1 %cmp.i16, label %while.body.i, label %cleanup.thread56, !llvm.loop !31
+  br i1 %cmp.i16, label %while.body.i, label %cleanup.thread56, !llvm.loop !30
 
 cleanup.thread56:                                 ; preds = %if.else.i
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %localeID) #20
@@ -8240,7 +8240,7 @@ while.body.i17:                                   ; preds = %if.else.i31, %if.th
   %21 = load i32, ptr %add.ptr1.i26, align 4
   %idxprom.i27 = sext i32 %21 to i64
   %arrayidx.i28 = getelementptr inbounds i8, ptr @_ZL15dsLocaleIDChars, i64 %idxprom.i27
-  %call.i29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %arrayidx.i28) #24
+  %call.i29 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %arrayidx.i28) #24
   %cmp2.i30 = icmp eq i32 %call.i29, 0
   br i1 %cmp2.i30, label %if.then.i38, label %if.else.i31
 
@@ -8255,7 +8255,7 @@ if.else.i31:                                      ; preds = %while.body.i17
   %top.1.i34 = select i1 %cmp6.i32, ptr %add.ptr1.i26, ptr %top.010.i19
   %bottom.1.i35 = select i1 %cmp6.i32, ptr %bottom.011.i18, ptr %add.ptr9.i33
   %cmp.i36 = icmp ult ptr %bottom.1.i35, %top.1.i34
-  br i1 %cmp.i36, label %while.body.i17, label %nrvo.skipdtor, !llvm.loop !31
+  br i1 %cmp.i36, label %while.body.i17, label %nrvo.skipdtor, !llvm.loop !30
 
 if.then23:                                        ; preds = %cleanup, %if.then.i38
   %idxprom4.i40.pn.in = phi i32 [ %22, %if.then.i38 ], [ %19, %cleanup ]
@@ -8484,7 +8484,7 @@ attributes #24 = { nounwind willreturn memory(read) }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = !{i8 0, i8 2}
+!18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
@@ -8503,4 +8503,3 @@ attributes #24 = { nounwind willreturn memory(read) }
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}

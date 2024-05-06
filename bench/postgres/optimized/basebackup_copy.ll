@@ -388,7 +388,7 @@ define internal fastcc void @SendXlogRecPtrResult(i64 noundef %0, i32 noundef %1
   tail call void @TupleDescInitBuiltinEntry(ptr noundef %6, i16 noundef signext 2, ptr noundef nonnull @.str.2, i32 noundef 20, i32 noundef -1, i32 noundef 0) #7
   %7 = tail call ptr @begin_tup_output_tupdesc(ptr noundef %5, ptr noundef %6, ptr noundef nonnull @TTSOpsVirtual) #7
   %8 = lshr i64 %0, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   %10 = trunc i64 %0 to i32
   %11 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.3, i32 noundef %9, i32 noundef %10) #7
   %12 = tail call ptr @cstring_to_text(ptr noundef %11) #7

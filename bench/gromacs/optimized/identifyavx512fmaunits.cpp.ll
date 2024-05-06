@@ -31,7 +31,7 @@ $_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_
 @_ZN3gmx12_GLOBAL__N_19initMutexE = internal global { %union.pthread_mutex_t } zeroinitializer, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3gmx22identifyAvx512FmaUnitsEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN3gmx22identifyAvx512FmaUnitsEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.gmx::CpuInfo", align 8
   %.b34 = load i1, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE11initialized, align 1
   br i1 %.b34, label %45, label %2

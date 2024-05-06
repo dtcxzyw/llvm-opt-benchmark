@@ -554,7 +554,7 @@ Extra_MmFixedStart.exit.preheader:                ; preds = %1
 
 Extra_MmFixedStart.exit:                          ; preds = %Extra_MmFixedStart.exit.preheader, %Extra_MmFixedStart.exit
   %indvars.iv = phi i64 [ 0, %Extra_MmFixedStart.exit.preheader ], [ %indvars.iv.next, %Extra_MmFixedStart.exit ]
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = shl i32 8, %7
   %calloc.i = tail call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
   store i32 %8, ptr %calloc.i, align 8
@@ -616,7 +616,7 @@ Extra_MmFixedStart.exit:                          ; preds = %Extra_MmFixedStart.
 
 .lr.ph42:                                         ; preds = %.lr.ph42.preheader, %._crit_edge40
   %indvars.iv53 = phi i64 [ 0, %.lr.ph42.preheader ], [ %indvars.iv.next54, %._crit_edge40 ]
-  %29 = trunc i64 %indvars.iv53 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv53 to i32
   %30 = shl i32 4, %29
   %31 = shl i32 8, %29
   %.not37.not = icmp slt i32 %30, %31

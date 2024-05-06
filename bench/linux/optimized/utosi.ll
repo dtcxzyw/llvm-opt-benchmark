@@ -145,7 +145,7 @@ define dso_local i32 @acpi_ut_interface_terminate() local_unnamed_addr #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ut_install_interface(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 5) i32 @acpi_ut_install_interface(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
@@ -203,7 +203,7 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ut_remove_interface(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 7) i32 @acpi_ut_remove_interface(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr @acpi_gbl_supported_interfaces, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %4
@@ -410,7 +410,7 @@ define dso_local i32 @acpi_ut_osi_implementation(ptr nocapture noundef %0) local
 
 46:                                               ; preds = %.thread
   %47 = load ptr, ptr %18, align 8
-  %48 = trunc i64 %41 to i32
+  %48 = trunc nsw i64 %41 to i32
   %49 = tail call i32 %44(ptr noundef %47, i32 noundef %48) #9
   %50 = icmp eq i32 %49, 0
   %51 = select i1 %50, i64 %41, i64 -1

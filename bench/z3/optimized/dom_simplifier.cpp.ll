@@ -234,8 +234,8 @@ if.then15:                                        ; preds = %invoke.cont13
   %13 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i14 = zext i32 %13 to i64
   %add.ptr.i15.idx = shl nuw nsw i64 %idx.ext.i14, 3
-  %14 = getelementptr i8, ptr %9, i64 %add.ptr.i15.idx
-  %add.ptr.i15.ptr = getelementptr i8, ptr %14, i64 32
+  %14 = getelementptr inbounds i8, ptr %9, i64 %add.ptr.i15.idx
+  %add.ptr.i15.ptr = getelementptr inbounds i8, ptr %14, i64 32
   %cmp.not156 = icmp eq i32 %13, 0
   br i1 %cmp.not156, label %if.then28, label %for.body.outer
 
@@ -424,8 +424,8 @@ invoke.cont32:                                    ; preds = %.noexc44, %lor.lhs.
   %34 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i51 = zext i32 %34 to i64
   %add.ptr.i52.idx = shl nuw nsw i64 %idx.ext.i51, 3
-  %35 = getelementptr i8, ptr %9, i64 %add.ptr.i52.idx
-  %add.ptr.i52.ptr = getelementptr i8, ptr %35, i64 32
+  %35 = getelementptr inbounds i8, ptr %9, i64 %add.ptr.i52.idx
+  %add.ptr.i52.ptr = getelementptr inbounds i8, ptr %35, i64 32
   %cmp40.not159 = icmp eq i32 %34, 0
   br i1 %cmp40.not159, label %if.end50, label %_ZN7obj_mapI4expr10ptr_vectorIS0_EE8key_dataC2EPS0_RKS2_.exit.i
 
@@ -4453,8 +4453,8 @@ if.then11:                                        ; preds = %invoke.cont9
   %16 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i9 = zext i32 %16 to i64
   %add.ptr.i10.idx = shl nuw nsw i64 %idx.ext.i9, 3
-  %17 = getelementptr i8, ptr %7, i64 %add.ptr.i10.idx
-  %add.ptr.i10.ptr = getelementptr i8, ptr %17, i64 32
+  %17 = getelementptr inbounds i8, ptr %7, i64 %add.ptr.i10.idx
+  %add.ptr.i10.ptr = getelementptr inbounds i8, ptr %17, i64 32
   %cmp.not102 = icmp eq i32 %16, 0
   br i1 %cmp.not102, label %for.end.if.end26_crit_edge, label %for.body.preheader
 

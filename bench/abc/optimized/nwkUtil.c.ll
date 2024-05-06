@@ -370,7 +370,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare i32 @Hop_DagSize(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Nwk_NodeCompareLevelsIncrease(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define range(i32 -1, 2) i32 @Nwk_NodeCompareLevelsIncrease(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 44
   %5 = load i32, ptr %4, align 4
@@ -385,7 +385,7 @@ define i32 @Nwk_NodeCompareLevelsIncrease(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Nwk_NodeCompareLevelsDecrease(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define range(i32 -1, 2) i32 @Nwk_NodeCompareLevelsDecrease(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1220,12 +1220,12 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
 
 .lr.ph187:                                        ; preds = %Vec_IntStart.exit160
   %59 = getelementptr i8, ptr %58, i64 8
-  %invariant.gep = getelementptr i8, ptr %.val130, i64 240
-  %invariant.gep239 = getelementptr i8, ptr %.val130, i64 200
-  %invariant.gep241 = getelementptr i8, ptr %.val130, i64 160
-  %invariant.gep243 = getelementptr i8, ptr %.val130, i64 120
-  %invariant.gep245 = getelementptr i8, ptr %.val130, i64 80
-  %invariant.gep247 = getelementptr i8, ptr %.val130, i64 40
+  %invariant.gep = getelementptr inbounds i8, ptr %.val130, i64 240
+  %invariant.gep239 = getelementptr inbounds i8, ptr %.val130, i64 200
+  %invariant.gep241 = getelementptr inbounds i8, ptr %.val130, i64 160
+  %invariant.gep243 = getelementptr inbounds i8, ptr %.val130, i64 120
+  %invariant.gep245 = getelementptr inbounds i8, ptr %.val130, i64 80
+  %invariant.gep247 = getelementptr inbounds i8, ptr %.val130, i64 40
   br label %60
 
 60:                                               ; preds = %.lr.ph187, %157
@@ -1266,7 +1266,7 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
   %.lhs.trunc168 = trunc nuw i32 %.val126 to i8
   %79 = udiv i8 %.lhs.trunc168, 10
   %80 = zext nneg i8 %79 to i64
-  %gep248 = getelementptr i32, ptr %invariant.gep247, i64 %80
+  %gep248 = getelementptr inbounds i32, ptr %invariant.gep247, i64 %80
   br label %.sink.split
 
 81:                                               ; preds = %76
@@ -1277,7 +1277,7 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
   %.lhs.trunc170 = trunc nuw i32 %.val126 to i16
   %84 = udiv i16 %.lhs.trunc170, 100
   %85 = zext nneg i16 %84 to i64
-  %gep246 = getelementptr i32, ptr %invariant.gep245, i64 %85
+  %gep246 = getelementptr inbounds i32, ptr %invariant.gep245, i64 %85
   br label %.sink.split
 
 86:                                               ; preds = %81
@@ -1288,7 +1288,7 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
   %.lhs.trunc172 = trunc nuw i32 %.val126 to i16
   %89 = udiv i16 %.lhs.trunc172, 1000
   %90 = zext nneg i16 %89 to i64
-  %gep244 = getelementptr i32, ptr %invariant.gep243, i64 %90
+  %gep244 = getelementptr inbounds i32, ptr %invariant.gep243, i64 %90
   br label %.sink.split
 
 91:                                               ; preds = %86
@@ -1298,7 +1298,7 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
 93:                                               ; preds = %91
   %94 = udiv i32 %.val126, 10000
   %95 = zext nneg i32 %94 to i64
-  %gep242 = getelementptr i32, ptr %invariant.gep241, i64 %95
+  %gep242 = getelementptr inbounds i32, ptr %invariant.gep241, i64 %95
   br label %.sink.split
 
 96:                                               ; preds = %91
@@ -1308,7 +1308,7 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
 98:                                               ; preds = %96
   %99 = udiv i32 %.val126, 100000
   %100 = zext nneg i32 %99 to i64
-  %gep240 = getelementptr i32, ptr %invariant.gep239, i64 %100
+  %gep240 = getelementptr inbounds i32, ptr %invariant.gep239, i64 %100
   br label %.sink.split
 
 101:                                              ; preds = %96
@@ -1318,7 +1318,7 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
 103:                                              ; preds = %101
   %104 = udiv i32 %.val126, 1000000
   %105 = zext nneg i32 %104 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %105
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %105
   br label %.sink.split
 
 .sink.split:                                      ; preds = %73, %83, %93, %103, %98, %88, %78
@@ -1347,8 +1347,8 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
   %116 = udiv i8 %.lhs.trunc, 10
   %.val138 = load ptr, ptr %59, align 8
   %117 = zext nneg i8 %116 to i64
-  %118 = getelementptr i32, ptr %.val138, i64 %117
-  %119 = getelementptr i8, ptr %118, i64 40
+  %118 = getelementptr inbounds i32, ptr %.val138, i64 %117
+  %119 = getelementptr inbounds i8, ptr %118, i64 40
   br label %.sink.split251
 
 120:                                              ; preds = %113
@@ -1360,8 +1360,8 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
   %123 = udiv i16 %.lhs.trunc164, 100
   %.val139 = load ptr, ptr %59, align 8
   %124 = zext nneg i16 %123 to i64
-  %125 = getelementptr i32, ptr %.val139, i64 %124
-  %126 = getelementptr i8, ptr %125, i64 80
+  %125 = getelementptr inbounds i32, ptr %.val139, i64 %124
+  %126 = getelementptr inbounds i8, ptr %125, i64 80
   br label %.sink.split251
 
 127:                                              ; preds = %120
@@ -1373,8 +1373,8 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
   %130 = udiv i16 %.lhs.trunc166, 1000
   %.val140 = load ptr, ptr %59, align 8
   %131 = zext nneg i16 %130 to i64
-  %132 = getelementptr i32, ptr %.val140, i64 %131
-  %133 = getelementptr i8, ptr %132, i64 120
+  %132 = getelementptr inbounds i32, ptr %.val140, i64 %131
+  %133 = getelementptr inbounds i8, ptr %132, i64 120
   br label %.sink.split251
 
 134:                                              ; preds = %127
@@ -1385,8 +1385,8 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
   %137 = udiv i32 %.val129, 10000
   %.val141 = load ptr, ptr %59, align 8
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr i32, ptr %.val141, i64 %138
-  %140 = getelementptr i8, ptr %139, i64 160
+  %139 = getelementptr inbounds i32, ptr %.val141, i64 %138
+  %140 = getelementptr inbounds i8, ptr %139, i64 160
   br label %.sink.split251
 
 141:                                              ; preds = %134
@@ -1397,8 +1397,8 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
   %144 = udiv i32 %.val129, 100000
   %.val142 = load ptr, ptr %59, align 8
   %145 = zext nneg i32 %144 to i64
-  %146 = getelementptr i32, ptr %.val142, i64 %145
-  %147 = getelementptr i8, ptr %146, i64 200
+  %146 = getelementptr inbounds i32, ptr %.val142, i64 %145
+  %147 = getelementptr inbounds i8, ptr %146, i64 200
   br label %.sink.split251
 
 148:                                              ; preds = %141
@@ -1409,8 +1409,8 @@ Vec_IntStart.exit160:                             ; preds = %Vec_IntAlloc.exit.t
   %151 = udiv i32 %.val129, 1000000
   %.val143 = load ptr, ptr %59, align 8
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr i32, ptr %.val143, i64 %152
-  %154 = getelementptr i8, ptr %153, i64 240
+  %153 = getelementptr inbounds i32, ptr %.val143, i64 %152
+  %154 = getelementptr inbounds i8, ptr %153, i64 240
   br label %.sink.split251
 
 .sink.split251:                                   ; preds = %110, %122, %136, %150, %143, %129, %115
@@ -1598,7 +1598,7 @@ define void @Nwk_ManCleanMarks(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Nwk_ManMinimumBaseNode(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Nwk_ManMinimumBaseNode(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
@@ -1729,7 +1729,7 @@ define i32 @Nwk_ManMinimumBaseInt(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %.not, label %19, label %22
 
 19:                                               ; preds = %16
-  %20 = tail call i32 @Nwk_ManMinimumBaseNode(ptr noundef nonnull %14, ptr noundef nonnull %3, i32 noundef %1), !range !27
+  %20 = tail call i32 @Nwk_ManMinimumBaseNode(ptr noundef nonnull %14, ptr noundef nonnull %3, i32 noundef %1)
   %21 = add nsw i32 %20, %.022
   %.pre = load ptr, ptr %7, align 8
   br label %22
@@ -1742,7 +1742,7 @@ define i32 @Nwk_ManMinimumBaseInt(ptr nocapture noundef readonly %0, i32 noundef
   %.val = load i32, ptr %24, align 4
   %25 = sext i32 %.val to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !28
+  br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %22
   %27 = icmp ne i32 %1, 0
@@ -1795,7 +1795,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 11:                                               ; preds = %11, %Abc_Clock.exit
   %12 = call i32 @Nwk_ManMinimumBaseInt(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %11, !llvm.loop !29
+  br i1 %.not, label %13, label %11, !llvm.loop !28
 
 13:                                               ; preds = %11
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35)
@@ -1893,7 +1893,7 @@ define void @Nwk_ManMinimumBase(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %.not, label %19, label %22
 
 19:                                               ; preds = %16
-  %20 = tail call i32 @Nwk_ManMinimumBaseNode(ptr noundef nonnull %14, ptr noundef nonnull %3, i32 noundef %1), !range !27
+  %20 = tail call i32 @Nwk_ManMinimumBaseNode(ptr noundef nonnull %14, ptr noundef nonnull %3, i32 noundef %1)
   %21 = add nsw i32 %20, %.021
   %.pre = load ptr, ptr %7, align 8
   br label %22
@@ -1906,7 +1906,7 @@ define void @Nwk_ManMinimumBase(ptr nocapture noundef readonly %0, i32 noundef %
   %.val = load i32, ptr %24, align 4
   %25 = sext i32 %.val to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !30
+  br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %22
   %27 = icmp ne i32 %1, 0
@@ -1942,7 +1942,7 @@ define void @Nwk_ManRemoveDupFaninsNode(ptr noundef %0, i32 noundef %1, i32 noun
   %10 = tail call ptr @Hop_IthVar(ptr noundef %7, i32 noundef %1) #16
   %11 = tail call ptr @Hop_Compose(ptr noundef %7, ptr noundef %9, ptr noundef %10, i32 noundef %2) #16
   store ptr %11, ptr %8, align 8
-  %12 = tail call i32 @Nwk_ManMinimumBaseNode(ptr noundef nonnull %0, ptr noundef %3, i32 noundef 0), !range !27
+  %12 = tail call i32 @Nwk_ManMinimumBaseNode(ptr noundef nonnull %0, ptr noundef %3, i32 noundef 0)
   ret void
 }
 
@@ -2002,7 +2002,7 @@ define void @Nwk_ManRemoveDupFanins(ptr nocapture noundef readonly %0, i32 nound
 .critedge39.loopexit:                             ; preds = %84, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %Nwk_ManMinimumBaseNode.exit, label %25, !llvm.loop !31
+  br i1 %exitcond67.not, label %Nwk_ManMinimumBaseNode.exit, label %25, !llvm.loop !30
 
 25:                                               ; preds = %.lr.ph52, %.critedge39.loopexit
   %indvars.iv63 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next64, %.critedge39.loopexit ]
@@ -2112,7 +2112,7 @@ define void @Nwk_ManRemoveDupFanins(ptr nocapture noundef readonly %0, i32 nound
 84:                                               ; preds = %29
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count66
-  br i1 %exitcond.not, label %.critedge39.loopexit, label %29, !llvm.loop !32
+  br i1 %exitcond.not, label %.critedge39.loopexit, label %29, !llvm.loop !31
 
 Nwk_ManMinimumBaseNode.exit:                      ; preds = %.critedge39.loopexit, %.critedge39.preheader, %.critedge.i, %44, %17, %11
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
@@ -2121,7 +2121,7 @@ Nwk_ManMinimumBaseNode.exit:                      ; preds = %.critedge39.loopexi
   %.val = load i32, ptr %86, align 4
   %87 = sext i32 %.val to i64
   %88 = icmp slt i64 %indvars.iv.next69, %87
-  br i1 %88, label %11, label %.critedge.loopexit, !llvm.loop !33
+  br i1 %88, label %11, label %.critedge.loopexit, !llvm.loop !32
 
 .critedge.loopexit:                               ; preds = %Nwk_ManMinimumBaseNode.exit
   %.pre = load ptr, ptr %6, align 8
@@ -2248,10 +2248,9 @@ attributes #18 = { nounwind willreturn memory(read) }
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = !{i32 0, i32 2}
+!27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}

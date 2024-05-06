@@ -283,7 +283,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr nocapture readnone %engine, ptr noundef %key, ptr noundef %iv, i32 noundef %enc) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr nocapture readnone %engine, ptr noundef %key, ptr noundef %iv, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %enc, -1
   br i1 %cmp, label %if.then, label %if.else
@@ -511,7 +511,7 @@ return:                                           ; preds = %if.then76, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %ctx, i32 noundef %command, i32 noundef %arg, ptr noundef %ptr) local_unnamed_addr #0 {
+define hidden range(i32 0, -1) i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %ctx, i32 noundef %command, i32 noundef %arg, ptr noundef %ptr) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -546,7 +546,7 @@ return:                                           ; preds = %if.end4, %if.then7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @EVP_CIPHER_CTX_flags(ptr nocapture noundef readonly %ctx) local_unnamed_addr #8 {
+define hidden range(i32 0, -63) i32 @EVP_CIPHER_CTX_flags(ptr nocapture noundef readonly %ctx) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %flags = getelementptr inbounds i8, ptr %0, i64 20
@@ -556,7 +556,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @EVP_CIPHER_CTX_mode(ptr nocapture noundef readonly %ctx) local_unnamed_addr #8 {
+define hidden range(i32 0, 64) i32 @EVP_CIPHER_CTX_mode(ptr nocapture noundef readonly %ctx) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %flags = getelementptr inbounds i8, ptr %0, i64 20
@@ -575,21 +575,21 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_EncryptInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr nocapture noundef readnone %impl, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_EncryptInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr nocapture noundef readnone %impl, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 1), !range !7
+  %call = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_DecryptInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr nocapture noundef readnone %impl, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_DecryptInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr nocapture noundef readnone %impl, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 0), !range !7
+  %call = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_EncryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef %out_len, ptr noundef %in, i32 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_EncryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef %out_len, ptr noundef %in, i32 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %flags = getelementptr inbounds i8, ptr %0, i64 20
@@ -826,7 +826,7 @@ return:                                           ; preds = %for.end, %if.then24
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_DecryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef %out_len, ptr noundef %in, i32 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_DecryptUpdate(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef %out_len, ptr noundef %in, i32 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %flags = getelementptr inbounds i8, ptr %0, i64 20
@@ -869,7 +869,7 @@ if.end11:                                         ; preds = %if.end5
   br i1 %tobool14.not, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %if.end11
-  %call16 = tail call i32 @EVP_EncryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef %out_len, ptr noundef %in, i32 noundef %in_len), !range !7
+  %call16 = tail call i32 @EVP_EncryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef %out_len, ptr noundef %in, i32 noundef %in_len)
   br label %return
 
 if.end17:                                         ; preds = %if.end11
@@ -889,7 +889,7 @@ if.then20:                                        ; preds = %if.end17
 
 if.end23:                                         ; preds = %if.end17, %if.then20
   %out.addr.0 = phi ptr [ %add.ptr, %if.then20 ], [ %out, %if.end17 ]
-  %call24 = tail call i32 @EVP_EncryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out.addr.0, ptr noundef %out_len, ptr noundef %in, i32 noundef %in_len), !range !7
+  %call24 = tail call i32 @EVP_EncryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out.addr.0, ptr noundef %out_len, ptr noundef %in, i32 noundef %in_len)
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %return, label %if.end27
 
@@ -935,7 +935,7 @@ return:                                           ; preds = %if.end38, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_DecryptFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_DecryptFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %out_len, align 4
   %0 = load ptr, ptr %ctx, align 8
@@ -1014,7 +1014,7 @@ if.then26:                                        ; preds = %if.end20
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.033, 1
   %exitcond.not = icmp eq i32 %inc, %conv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.body:                                         ; preds = %if.end20, %for.cond
   %b.034 = phi i32 [ %dec, %for.cond ], [ %3, %if.end20 ]
@@ -1047,7 +1047,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   store i8 %10, ptr %arrayidx49, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond38.not, label %if.end54, label %for.body44, !llvm.loop !10
+  br i1 %exitcond38.not, label %if.end54, label %for.body44, !llvm.loop !9
 
 if.end54:                                         ; preds = %for.body44, %for.end, %if.end13
   %storemerge = phi i32 [ 0, %if.end13 ], [ %sub40, %for.end ], [ %sub40, %for.body44 ]
@@ -1070,7 +1070,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_CipherUpdate(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef %out_len, ptr noundef %in, i32 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_CipherUpdate(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef %out_len, ptr noundef %in, i32 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %encrypt = getelementptr inbounds i8, ptr %ctx, i64 28
   %0 = load i32, ptr %encrypt, align 4
@@ -1078,11 +1078,11 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @EVP_EncryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef %out_len, ptr noundef %in, i32 noundef %in_len), !range !7
+  %call = tail call i32 @EVP_EncryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef %out_len, ptr noundef %in, i32 noundef %in_len)
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call i32 @EVP_DecryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef %out_len, ptr noundef %in, i32 noundef %in_len), !range !7
+  %call1 = tail call i32 @EVP_DecryptUpdate(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef %out_len, ptr noundef %in, i32 noundef %in_len)
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -1179,7 +1179,7 @@ if.then24.i:                                      ; preds = %for.end.i
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call i32 @EVP_DecryptFinal_ex(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef %out_len), !range !7
+  %call1 = tail call i32 @EVP_DecryptFinal_ex(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef %out_len)
   br label %return
 
 return:                                           ; preds = %if.then24.i, %for.end.i, %if.end15.i, %if.then14.i, %if.then7.i, %if.else.i, %if.then.i, %if.else
@@ -1249,7 +1249,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_CIPHER_CTX_set_key_length(ptr nocapture noundef %c, i32 noundef %key_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_CIPHER_CTX_set_key_length(ptr nocapture noundef %c, i32 noundef %key_len) local_unnamed_addr #0 {
 entry:
   %key_len1 = getelementptr inbounds i8, ptr %c, i64 24
   %0 = load i32, ptr %key_len1, align 8
@@ -1313,7 +1313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @EVP_CIPHER_flags(ptr nocapture noundef readonly %cipher) local_unnamed_addr #9 {
+define hidden range(i32 0, -63) i32 @EVP_CIPHER_flags(ptr nocapture noundef readonly %cipher) local_unnamed_addr #9 {
 entry:
   %flags = getelementptr inbounds i8, ptr %cipher, i64 20
   %0 = load i32, ptr %flags, align 4
@@ -1322,7 +1322,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @EVP_CIPHER_mode(ptr nocapture noundef readonly %cipher) local_unnamed_addr #9 {
+define hidden range(i32 0, 64) i32 @EVP_CIPHER_mode(ptr nocapture noundef readonly %cipher) local_unnamed_addr #9 {
 entry:
   %flags = getelementptr inbounds i8, ptr %cipher, i64 20
   %0 = load i32, ptr %flags, align 4
@@ -1331,18 +1331,18 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_CipherInit(ptr noundef %ctx, ptr noundef %cipher, ptr noundef %key, ptr noundef %iv, i32 noundef %enc) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_CipherInit(ptr noundef %ctx, ptr noundef %cipher, ptr noundef %key, ptr noundef %iv, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %cipher, null
   br i1 %tobool.not, label %entry.split, label %if.then
 
 entry.split:                                      ; preds = %entry
-  %call3 = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef null, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef %enc), !range !7
+  %call3 = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef null, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef %enc)
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
-  %call4 = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef %enc), !range !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
+  %call4 = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef %enc)
   br label %if.end
 
 if.end:                                           ; preds = %entry.split, %if.then
@@ -1351,18 +1351,18 @@ if.end:                                           ; preds = %entry.split, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_EncryptInit(ptr noundef %ctx, ptr noundef %cipher, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_EncryptInit(ptr noundef %ctx, ptr noundef %cipher, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %cipher, null
   br i1 %tobool.not.i, label %entry.split.i, label %if.then.i
 
 entry.split.i:                                    ; preds = %entry
-  %call3.i = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef null, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 1), !range !7
+  %call3.i = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef null, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 1)
   br label %EVP_CipherInit.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
-  %call4.i = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 1), !range !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
+  %call4.i = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 1)
   br label %EVP_CipherInit.exit
 
 EVP_CipherInit.exit:                              ; preds = %entry.split.i, %if.then.i
@@ -1371,18 +1371,18 @@ EVP_CipherInit.exit:                              ; preds = %entry.split.i, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_DecryptInit(ptr noundef %ctx, ptr noundef %cipher, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_DecryptInit(ptr noundef %ctx, ptr noundef %cipher, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %cipher, null
   br i1 %tobool.not.i, label %entry.split.i, label %if.then.i
 
 entry.split.i:                                    ; preds = %entry
-  %call3.i = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef null, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 0), !range !7
+  %call3.i = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef null, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 0)
   br label %EVP_CipherInit.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
-  %call4.i = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 0), !range !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
+  %call4.i = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 0)
   br label %EVP_CipherInit.exit
 
 EVP_CipherInit.exit:                              ; preds = %entry.split.i, %if.then.i
@@ -1529,7 +1529,6 @@ attributes #14 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

@@ -1246,7 +1246,7 @@ define noundef i64 @_ZN12RtpAudioFile10readSampleEPs(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN12RtpAudioFile15getTotalSamplesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #8 align 2 {
+define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN12RtpAudioFile15getTotalSamplesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = sdiv i64 %3, 2
@@ -1254,7 +1254,7 @@ define noundef i64 @_ZN12RtpAudioFile15getTotalSamplesEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN12RtpAudioFile21getEndOfSilenceSampleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #8 align 2 {
+define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN12RtpAudioFile21getEndOfSilenceSampleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 92
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1

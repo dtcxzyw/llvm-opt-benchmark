@@ -840,7 +840,7 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915_gem_get_tiling_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @i915_gem_get_tiling_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 9304
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32

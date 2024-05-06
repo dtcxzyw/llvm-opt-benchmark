@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [6 x i8] c"close\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @daemonize(i32 noundef %nochdir, i32 noundef %noclose) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @daemonize(i32 noundef %nochdir, i32 noundef %noclose) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @fork() #6
   switch i32 %call, label %sw.default [

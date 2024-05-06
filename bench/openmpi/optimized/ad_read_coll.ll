@@ -489,7 +489,7 @@ define void @ADIOI_GEN_ReadStridedColl(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %266, label %270, label %284
 
 270:                                              ; preds = %258
-  %271 = trunc i64 %indvars.iv392.i to i32
+  %271 = trunc nsw i64 %indvars.iv392.i to i32
   %272 = trunc i64 %264 to i32
   store i32 %272, ptr %227, align 4
   %273 = add nsw i32 %271, 1
@@ -564,7 +564,7 @@ define void @ADIOI_GEN_ReadStridedColl(ptr noundef %0, ptr noundef %1, i32 nound
   %.0274.lcssa415419.i = phi i64 [ %.2276.i, %291 ], [ %.2276.i, %._crit_edge356.i ], [ 0, %210 ]
   %298 = load i32, ptr %11, align 4
   %299 = load i64, ptr %15, align 8
-  call fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %1, ptr noundef %.0270.i, ptr noundef %122, ptr noundef %123, ptr noundef %192, ptr noundef %193, ptr noundef %190, ptr noundef %195, ptr noundef %191, ptr noundef %194, i32 noundef %139, i32 noundef %140, i32 noundef %298, i32 noundef %124, i64 noundef %142, i64 noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef %141, i32 noundef %.0280361.i, i64 noundef %299, ptr noundef %146)
+  call fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %1, ptr noundef %.0270.i, ptr noundef readonly %122, ptr noundef readonly %123, ptr noundef %192, ptr noundef %193, ptr noundef %190, ptr noundef %195, ptr noundef %191, ptr noundef %194, i32 noundef %139, i32 noundef %140, i32 noundef %298, i32 noundef %124, i64 noundef %142, i64 noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef readonly %141, i32 noundef %.0280361.i, i64 noundef %299, ptr noundef %146)
   %.not309.i = icmp eq i64 %.0274.lcssa415419.i, 0
   br i1 %.not309.i, label %309, label %300
 
@@ -617,7 +617,7 @@ define void @ADIOI_GEN_ReadStridedColl(ptr noundef %0, ptr noundef %1, i32 nound
   %.1281368.i = phi i32 [ %322, %.lr.ph370.i ], [ %317, %._crit_edge367.i ]
   %320 = load i32, ptr %11, align 4
   %321 = load i64, ptr %15, align 8
-  call fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %1, ptr noundef %.0270.i, ptr noundef %122, ptr noundef %123, ptr noundef %192, ptr noundef %193, ptr noundef %190, ptr noundef %195, ptr noundef %191, ptr noundef %194, i32 noundef %139, i32 noundef %140, i32 noundef %320, i32 noundef %124, i64 noundef %142, i64 noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef %141, i32 noundef %.1281368.i, i64 noundef %321, ptr noundef %146)
+  call fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %1, ptr noundef %.0270.i, ptr noundef readonly %122, ptr noundef readonly %123, ptr noundef %192, ptr noundef %193, ptr noundef %190, ptr noundef %195, ptr noundef %191, ptr noundef %194, i32 noundef %139, i32 noundef %140, i32 noundef %320, i32 noundef %124, i64 noundef %142, i64 noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef readonly %141, i32 noundef %.1281368.i, i64 noundef %321, ptr noundef %146)
   %322 = add nsw i32 %.1281368.i, 1
   %323 = load i32, ptr %10, align 4
   %324 = icmp slt i32 %322, %323
@@ -818,7 +818,7 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
   br i1 %103, label %104, label %112
 
 104:                                              ; preds = %98
-  %105 = trunc i64 %indvars.iv293 to i32
+  %105 = trunc nuw nsw i64 %indvars.iv293 to i32
   %106 = add nuw nsw i32 %105, 1
   %107 = zext nneg i32 %106 to i64
   %108 = getelementptr inbounds i64, ptr %82, i64 %107
@@ -868,7 +868,7 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
   br i1 %130, label %131, label %140
 
 131:                                              ; preds = %126
-  %132 = trunc i64 %indvars.iv to i32
+  %132 = trunc nuw nsw i64 %indvars.iv to i32
   %133 = sub nsw i64 %129, %120
   %134 = getelementptr inbounds i8, ptr %73, i64 24
   %135 = load ptr, ptr %134, align 8
@@ -924,7 +924,7 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
   %156 = add nsw i32 %.0198256, 1
   %157 = sext i32 %156 to i64
   %158 = srem i64 %157, %143
-  %159 = trunc i64 %158 to i32
+  %159 = trunc nsw i64 %158 to i32
   %160 = getelementptr inbounds i64, ptr %152, i64 %158
   %161 = load i64, ptr %160, align 8
   %162 = sub nsw i64 %148, %155
@@ -996,7 +996,7 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
   %200 = sext i32 %199 to i64
   %201 = load i64, ptr %175, align 8
   %202 = srem i64 %200, %201
-  %203 = trunc i64 %202 to i32
+  %203 = trunc nsw i64 %202 to i32
   %204 = icmp eq i32 %203, 0
   %205 = zext i1 %204 to i64
   %206 = add nsw i64 %.1214268, %205
@@ -1012,7 +1012,7 @@ define void @ADIOI_Calc_my_off_len(ptr nocapture noundef %0, i32 noundef %1, ptr
   %sext = add i64 %210, 4294967296
   %211 = ashr exact i64 %sext, 32
   %212 = srem i64 %211, %201
-  %213 = trunc i64 %212 to i32
+  %213 = trunc nsw i64 %212 to i32
   %214 = icmp eq i32 %213, 0
   %215 = zext i1 %214 to i64
   %216 = add nsw i64 %.2215259, %215
@@ -1696,7 +1696,7 @@ define internal fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %
   %48 = getelementptr inbounds i64, ptr %22, i64 %indvars.iv196
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %1, i64 %49
-  %51 = trunc i64 %indvars.iv196 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv196 to i32
   %52 = add i32 %43, %51
   %53 = load ptr, ptr %25, align 8
   %54 = sext i32 %.0141178 to i64
@@ -1763,7 +1763,7 @@ define internal fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %
 79:                                               ; preds = %76
   %80 = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv206
   %81 = load ptr, ptr %80, align 8
-  %82 = trunc i64 %indvars.iv206 to i32
+  %82 = trunc nuw nsw i64 %indvars.iv206 to i32
   %83 = add i32 %70, %82
   %84 = load ptr, ptr %25, align 8
   %85 = sext i32 %.2143184 to i64
@@ -1841,7 +1841,7 @@ define internal fastcc void @ADIOI_R_Exchange_data(ptr noundef %0, ptr noundef %
   %127 = call i32 @ADIOI_Type_create_hindexed_x(i32 noundef %116, ptr noundef %123, ptr noundef %126, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %24) #5
   %128 = call i32 @PMPI_Type_commit(ptr noundef nonnull %24) #5
   %129 = load ptr, ptr %24, align 8
-  %130 = trunc i64 %indvars.iv211 to i32
+  %130 = trunc nuw nsw i64 %indvars.iv211 to i32
   %131 = add i32 %91, %130
   %132 = load ptr, ptr %25, align 8
   %133 = sext i32 %.4145189 to i64

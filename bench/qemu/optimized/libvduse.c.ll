@@ -620,7 +620,7 @@ for.body107:                                      ; preds = %for.cond104.prehead
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %for.body107 ], [ 0, %for.cond104.preheader ]
   %42 = load ptr, ptr %in_sg.i, align 8
   %arrayidx109 = getelementptr %struct.iovec, ptr %42, i64 %indvars.iv70
-  %43 = trunc i64 %indvars.iv70 to i32
+  %43 = trunc nuw i64 %indvars.iv70 to i32
   %add110 = add i32 %26, %43
   %idxprom111 = zext i32 %add110 to i64
   %arrayidx112 = getelementptr [1024 x %struct.iovec], ptr %iov, i64 0, i64 %idxprom111
@@ -997,7 +997,7 @@ if.then27:                                        ; preds = %for.body
   %53 = load i64, ptr %avail_addr, align 8
   %used_addr = getelementptr inbounds i8, ptr %arrayidx25, i64 24
   %54 = load i64, ptr %used_addr, align 8
-  %call30 = tail call fastcc i32 @vduse_queue_update_vring(ptr noundef %arrayidx25, i64 noundef %52, i64 noundef %53, i64 noundef %54), !range !11
+  %call30 = tail call fastcc i32 @vduse_queue_update_vring(ptr noundef %arrayidx25, i64 noundef %52, i64 noundef %53, i64 noundef %54)
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %for.inc, label %if.then32
 
@@ -1052,7 +1052,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @vduse_queue_update_vring(ptr nocapture noundef %vq, i64 noundef %desc_addr, i64 noundef %avail_addr, i64 noundef %used_addr) unnamed_addr #2 {
+define internal fastcc range(i32 -22, 1) i32 @vduse_queue_update_vring(ptr nocapture noundef %vq, i64 noundef %desc_addr, i64 noundef %avail_addr, i64 noundef %used_addr) unnamed_addr #2 {
 entry:
   %len = alloca i64, align 8
   %dev1 = getelementptr inbounds i8, ptr %vq, i64 88
@@ -1245,7 +1245,7 @@ if.end10:                                         ; preds = %if.end
   %10 = load i64, ptr %device_addr, align 8
   %used_addr = getelementptr inbounds i8, ptr %vq, i64 24
   store i64 %10, ptr %used_addr, align 8
-  %call19 = call fastcc i32 @vduse_queue_update_vring(ptr noundef nonnull %vq, i64 noundef %8, i64 noundef %9, i64 noundef %10), !range !11
+  %call19 = call fastcc i32 @vduse_queue_update_vring(ptr noundef nonnull %vq, i64 noundef %8, i64 noundef %9, i64 noundef %10)
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %if.end24, label %if.then21
 
@@ -1321,7 +1321,7 @@ if.end.i:                                         ; preds = %if.then.i
   %idxprom.i = zext nneg i16 %24 to i64
   %arrayidx.i = getelementptr [0 x %struct.VduseDescStateSplit], ptr %desc.i, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !12
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !11
   %25 = load i16, ptr %used_idx.i, align 4
   %26 = load ptr, ptr %log.i, align 8
   %used_idx23.i = getelementptr inbounds i8, ptr %26, i64 14
@@ -1478,13 +1478,13 @@ return:                                           ; preds = %if.end, %if.end49, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @vduse_set_reconnect_log_file(ptr nocapture noundef %dev, ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
+define dso_local range(i32 -22, 1) i32 @vduse_set_reconnect_log_file(ptr nocapture noundef %dev, ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
 entry:
   %num_queues = getelementptr inbounds i8, ptr %dev, i64 8224
   %0 = load i16, ptr %num_queues, align 8
   %conv = zext i16 %0 to i64
   %mul = mul nuw nsw i64 %conv, 16448
-  %call.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef %filename, i32 noundef 66, i32 noundef 384) #19
+  %call.i = tail call i32 (ptr, i32, ...) @open64(ptr noundef readonly %filename, i32 noundef 66, i32 noundef 384) #19
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %if.then.sink.split, label %if.end.i
 
@@ -1604,7 +1604,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
   %arrayidx.i = getelementptr %struct.VduseVirtq, ptr %call.i, i64 %indvars.iv.i
   %index.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 68
-  %8 = trunc i64 %indvars.iv.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %8, ptr %index.i, align 4
   %dev5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 88
   store ptr %call4, ptr %dev5.i, align 8
@@ -1647,12 +1647,12 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #25
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #25
   %cmp.i = icmp ugt i64 %call.i, 255
   br i1 %cmp.i, label %if.then, label %vduse_name_is_invalid.exit
 
 vduse_name_is_invalid.exit:                       ; preds = %lor.lhs.false
-  %call1.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) @.str.38) #25
+  %call1.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) @.str.38) #25
   %tobool.i = icmp ne ptr %call1.i, null
   %tobool2 = icmp eq ptr %ops, null
   %or.cond.not = or i1 %tobool2, %tobool.i
@@ -1768,7 +1768,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
   %arrayidx.i = getelementptr %struct.VduseVirtq, ptr %call.i, i64 %indvars.iv.i
   %index.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 68
-  %6 = trunc i64 %indvars.iv.i to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %6, ptr %index.i, align 4
   %dev5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 88
   store ptr %dev, ptr %dev5.i, align 8
@@ -1810,12 +1810,12 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #25
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #25
   %cmp.i = icmp ugt i64 %call.i, 255
   br i1 %cmp.i, label %if.then, label %vduse_name_is_invalid.exit
 
 vduse_name_is_invalid.exit:                       ; preds = %lor.lhs.false
-  %call1.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) @.str.38) #25
+  %call1.i = tail call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) @.str.38) #25
   %tobool.i.not = icmp eq ptr %call1.i, null
   br i1 %tobool.i.not, label %lor.lhs.false1, label %if.then
 
@@ -1897,12 +1897,12 @@ if.then34:                                        ; preds = %if.end31
   br label %err_dev
 
 if.end36:                                         ; preds = %if.end31
-  %call.i41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #25
+  %call.i41 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #25
   %cmp.i42 = icmp ugt i64 %call.i41, 255
   br i1 %cmp.i42, label %if.else, label %vduse_name_is_invalid.exit46
 
 vduse_name_is_invalid.exit46:                     ; preds = %if.end36
-  %call1.i44 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) @.str.38) #25
+  %call1.i44 = call ptr @strstr(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) @.str.38) #25
   %tobool.i45.not = icmp eq ptr %call1.i44, null
   br i1 %tobool.i45.not, label %if.end39, label %if.else
 
@@ -2273,7 +2273,7 @@ declare i32 @eventfd(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @inflight_desc_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #1 {
+define internal range(i32 -1, 2) i32 @inflight_desc_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #1 {
 entry:
   %counter = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load i64, ptr %counter, align 8
@@ -2351,5 +2351,4 @@ attributes #25 = { nounwind willreturn memory(read) }
 !8 = !{i64 2148239169}
 !9 = !{i64 2148241626}
 !10 = !{i64 2148237855}
-!11 = !{i32 -22, i32 1}
-!12 = !{i64 2148237763}
+!11 = !{i64 2148237763}

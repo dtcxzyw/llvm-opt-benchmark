@@ -2531,7 +2531,7 @@ for.end:                                          ; preds = %for.body, %_ZN3smt1
 declare void @_ZN3smt12clause_proof9propagateEN3sat7literalERKNS_13justificationERK7svectorIS2_jE(ptr noundef nonnull align 8 dereferenceable(1392), i32, ptr noundef nonnull align 8 dereferenceable(9), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN3smt19conflict_resolution34skip_literals_above_conflict_levelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(356) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef range(i32 0, -1) i32 @_ZN3smt19conflict_resolution34skip_literals_above_conflict_levelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(356) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_assigned_literals = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_assigned_literals, align 8

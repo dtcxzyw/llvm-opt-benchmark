@@ -82,7 +82,7 @@ define void @_Z22gmx_espresso_read_confRKNSt10filesystem7__cxx114pathEP8t_symtab
   br label %20
 
 20:                                               ; preds = %18, %7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %6, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 4 dereferenceable(36) %6, i8 0, i64 36, i1 false)
   %21 = getelementptr inbounds i8, ptr %3, i64 64
   %22 = getelementptr inbounds i8, ptr %3, i64 65
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %21, i8 0, i64 5, i1 false)

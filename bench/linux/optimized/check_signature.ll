@@ -9,7 +9,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_check_signat
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_check_signature72], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @check_signature(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @check_signature(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 

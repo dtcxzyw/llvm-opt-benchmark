@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.IDAArhsQ = private unnamed_addr constant [9 x i8] c"IDAArhsQ\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAAdjInit(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @IDAAdjInit(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -205,7 +205,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IDAAhermiteMalloc(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, 2) i32 @IDAAhermiteMalloc(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 712
@@ -520,7 +520,7 @@ define internal void @IDAAhermiteFree(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IDAAhermiteGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal i32 @IDAAhermiteGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = alloca [4 x double], align 16
@@ -544,7 +544,7 @@ define internal noundef i32 @IDAAhermiteGetY(ptr nocapture noundef readonly %0, 
 
 23:                                               ; preds = %6, %20
   %24 = phi i32 [ %22, %20 ], [ 0, %6 ]
-  %25 = call fastcc i32 @IDAAfindIndex(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8), !range !4
+  %25 = call fastcc i32 @IDAAfindIndex(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %26, label %151
 
@@ -785,7 +785,7 @@ define internal noundef i32 @IDAAhermiteGetY(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IDAAhermiteStorePnt(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -28, 1) i32 @IDAAhermiteStorePnt(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -976,7 +976,7 @@ IDAAGettnSolutionYpS.exit:                        ; preds = %._crit_edge.i31, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IDAApolynomialMalloc(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, 2) i32 @IDAApolynomialMalloc(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 712
@@ -1358,7 +1358,7 @@ define internal void @IDAApolynomialFree(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IDAApolynomialGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 2112
@@ -1380,7 +1380,7 @@ define internal noundef i32 @IDAApolynomialGetY(ptr nocapture noundef readonly %
 20:                                               ; preds = %6, %17
   %21 = phi i32 [ %19, %17 ], [ 0, %6 ]
   %.fr257 = freeze i32 %21
-  %22 = call fastcc i32 @IDAAfindIndex(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8), !range !4
+  %22 = call fastcc i32 @IDAAfindIndex(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %23, label %.loopexit229
 
@@ -1822,7 +1822,7 @@ define internal noundef i32 @IDAApolynomialGetY(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IDAApolynomialStorePnt(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -28, 1) i32 @IDAApolynomialStorePnt(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2017,7 +2017,7 @@ IDAAGettnSolutionYpS.exit:                        ; preds = %._crit_edge.i37, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAAdjReInit(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDAAdjReInit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -2443,7 +2443,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   store i32 %77, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %45, i64 584
   store i32 3, ptr %79, align 8
-  %80 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef nonnull %0, ptr noundef nonnull %45), !range !5
+  %80 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef nonnull %0, ptr noundef nonnull %45)
   %.not29.i = icmp eq i32 %80, 0
   br i1 %.not29.i, label %81, label %84
 
@@ -2754,7 +2754,7 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   %spec.select.i = select i1 %254, i32 %255, i32 6
   %256 = getelementptr inbounds i8, ptr %203, i64 584
   store i32 %spec.select.i, ptr %256, align 8
-  %257 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef nonnull %0, ptr noundef nonnull %203), !range !5
+  %257 = tail call fastcc i32 @IDAAckpntAllocVectors(ptr noundef nonnull %0, ptr noundef nonnull %203)
   %.not82.i = icmp eq i32 %257, 0
   br i1 %.not82.i, label %258, label %259
 
@@ -2858,7 +2858,7 @@ declare i32 @IDAGetSolution(ptr noundef, double noundef, ptr noundef, ptr nounde
 declare i32 @IDASolve(ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDACreateB(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDACreateB(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2979,7 +2979,7 @@ define i32 @IDAInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, double noun
 
 .lr.ph:                                           ; preds = %.lr.ph, %28
   %.sink = phi ptr [ %32, %.lr.ph ], [ %29, %28 ]
-  %.039 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
+  %.039 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %30 = load i32, ptr %.039, align 8
   %31 = icmp eq i32 %30, %1
   %32 = getelementptr inbounds i8, ptr %.039, i64 128
@@ -3163,7 +3163,7 @@ define i32 @IDAInitBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, double nou
 
 .lr.ph:                                           ; preds = %.lr.ph, %32
   %.sink = phi ptr [ %36, %.lr.ph ], [ %33, %32 ]
-  %.040 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
+  %.040 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %34 = load i32, ptr %.040, align 8
   %35 = icmp eq i32 %34, %1
   %36 = getelementptr inbounds i8, ptr %.040, i64 128
@@ -3252,7 +3252,7 @@ define i32 @IDAReInitB(ptr noundef %0, i32 noundef %1, double noundef %2, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph, %27
   %.sink = phi ptr [ %31, %.lr.ph ], [ %28, %27 ]
-  %.024 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
+  %.024 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %29 = load i32, ptr %.024, align 8
   %30 = icmp eq i32 %29, %1
   %31 = getelementptr inbounds i8, ptr %.024, i64 128
@@ -3308,7 +3308,7 @@ define i32 @IDASStolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2, 
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.017 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
+  %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.017, align 8
   %21 = icmp eq i32 %20, %1
   %22 = getelementptr inbounds i8, ptr %.017, i64 128
@@ -3364,7 +3364,7 @@ define i32 @IDASVtolerancesB(ptr noundef %0, i32 noundef %1, double noundef %2, 
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.017 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
+  %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.017, align 8
   %21 = icmp eq i32 %20, %1
   %22 = getelementptr inbounds i8, ptr %.017, i64 128
@@ -3420,7 +3420,7 @@ define i32 @IDAQuadSStolerancesB(ptr noundef %0, i32 noundef %1, double noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.017 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
+  %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.017, align 8
   %21 = icmp eq i32 %20, %1
   %22 = getelementptr inbounds i8, ptr %.017, i64 128
@@ -3476,7 +3476,7 @@ define i32 @IDAQuadSVtolerancesB(ptr noundef %0, i32 noundef %1, double noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.017 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
+  %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.017, align 8
   %21 = icmp eq i32 %20, %1
   %22 = getelementptr inbounds i8, ptr %.017, i64 128
@@ -3532,7 +3532,7 @@ define i32 @IDAQuadInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.022 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
+  %.022 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.022, align 8
   %21 = icmp eq i32 %20, %1
   %22 = getelementptr inbounds i8, ptr %.022, i64 128
@@ -3675,7 +3675,7 @@ define i32 @IDAQuadInitBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.021 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
+  %.021 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.021, align 8
   %21 = icmp eq i32 %20, %1
   %22 = getelementptr inbounds i8, ptr %.021, i64 128
@@ -3737,7 +3737,7 @@ define i32 @IDAQuadReInitB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.sink = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.017 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
+  %.017 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %19 = load i32, ptr %.017, align 8
   %20 = icmp eq i32 %19, %1
   %21 = getelementptr inbounds i8, ptr %.017, i64 128
@@ -4257,7 +4257,7 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %.not154.us.us, label %152, label %150
 
 150:                                              ; preds = %.split223.us.split.us
-  %151 = tail call fastcc i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %.0138179), !range !7
+  %151 = tail call fastcc i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %.0138179)
   %.not155.us.us = icmp eq i32 %151, 0
   br i1 %.not155.us.us, label %152, label %.critedge164
 
@@ -4268,7 +4268,7 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %.not154.us.us, label %155, label %153
 
 153:                                              ; preds = %.split223.us.split.split.us
-  %154 = tail call fastcc i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %.0138179), !range !7
+  %154 = tail call fastcc i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %.0138179)
   %.not155.us.us235 = icmp eq i32 %154, 0
   br i1 %.not155.us.us235, label %155, label %.critedge164
 
@@ -4282,7 +4282,7 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %.not154, label %.lr.ph215.preheader, label %157
 
 157:                                              ; preds = %.split223
-  %158 = call fastcc i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %.1139), !range !7
+  %158 = call fastcc i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %.1139)
   %.not155 = icmp eq i32 %158, 0
   br i1 %.not155, label %.lr.ph215.preheader, label %.critedge164
 
@@ -4379,7 +4379,7 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
 declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @IDAAdataStore(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -106, 1) i32 @IDAAdataStore(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2112
   %5 = load ptr, ptr %4, align 8
@@ -4616,7 +4616,7 @@ define internal fastcc noundef i32 @IDAAdataStore(ptr noundef %0, ptr noundef %1
   %indvars.iv.next168.i = add nuw nsw i64 %indvars.iv167.i, 1
   %148 = sext i32 %146 to i64
   %149 = icmp slt i64 %indvars.iv.next168.i, %148
-  br i1 %149, label %.preheader141.i, label %.loopexit143.i, !llvm.loop !8
+  br i1 %149, label %.preheader141.i, label %.loopexit143.i, !llvm.loop !5
 
 .loopexit143.i:                                   ; preds = %._crit_edge151.i, %.preheader141.lr.ph.i, %.preheader142.i, %.loopexit145.i
   %150 = phi i32 [ %123, %.preheader142.i ], [ %123, %.loopexit145.i ], [ %123, %.preheader141.lr.ph.i ], [ %147, %._crit_edge151.i ]
@@ -4671,7 +4671,7 @@ define internal fastcc noundef i32 @IDAAdataStore(ptr noundef %0, ptr noundef %1
   %indvars.iv.next174.i = add nuw nsw i64 %indvars.iv173.i, 1
   %175 = sext i32 %173 to i64
   %176 = icmp slt i64 %indvars.iv.next174.i, %175
-  br i1 %176, label %.preheader.i, label %.loopexit.i, !llvm.loop !10
+  br i1 %176, label %.preheader.i, label %.loopexit.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %._crit_edge155.i, %.preheader.lr.ph.i, %.preheader140.i, %.loopexit143.i
   %177 = getelementptr inbounds i8, ptr %1, i64 344
@@ -4791,7 +4791,7 @@ IDAAckpntGet.exit.thread:                         ; preds = %226, %42, %31, %24,
 declare i32 @IDASetStopTime(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @IDAGetB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -101, 1) i32 @IDAGetB(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -4827,7 +4827,7 @@ define noundef i32 @IDAGetB(ptr noundef %0, i32 noundef %1, ptr nocapture nounde
 
 .lr.ph:                                           ; preds = %.lr.ph, %19
   %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
-  %.0 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
+  %.0 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %21 = load i32, ptr %.0, align 8
   %22 = icmp eq i32 %21, %1
   %23 = getelementptr inbounds i8, ptr %.0, i64 128
@@ -4888,7 +4888,7 @@ define i32 @IDAGetQuadB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph, %19
   %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
-  %.026 = load ptr, ptr %.sink, align 8, !nonnull !6, !noundef !6
+  %.026 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
   %21 = load i32, ptr %.026, align 8
   %22 = icmp eq i32 %21, %1
   %23 = getelementptr inbounds i8, ptr %.026, i64 128
@@ -4956,7 +4956,7 @@ declare void @IDAFree(ptr noundef) local_unnamed_addr #1
 declare void @N_VDestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @IDAAckpntAllocVectors(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @IDAAckpntAllocVectors(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 584
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -5390,7 +5390,7 @@ define internal fastcc void @IDAAckpntCopyVectors(ptr noundef %0, ptr noundef %1
   %51 = phi i32 [ %48, %._crit_edge100.loopexit ], [ %39, %.preheader93 ]
   %52 = add nuw nsw i32 %.178101, 1
   %53 = icmp slt i32 %52, %50
-  br i1 %53, label %.preheader93, label %.loopexit.loopexit, !llvm.loop !11
+  br i1 %53, label %.preheader93, label %.loopexit.loopexit, !llvm.loop !8
 
 .loopexit.loopexit:                               ; preds = %._crit_edge100
   %.pre134 = load i32, ptr %27, align 8
@@ -5472,7 +5472,7 @@ define internal fastcc void @IDAAckpntCopyVectors(ptr noundef %0, ptr noundef %1
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %95 = sext i32 %93 to i64
   %96 = icmp slt i64 %indvars.iv.next126, %95
-  br i1 %96, label %.preheader91, label %._crit_edge106, !llvm.loop !12
+  br i1 %96, label %.preheader91, label %._crit_edge106, !llvm.loop !9
 
 ._crit_edge106:                                   ; preds = %._crit_edge104, %.preheader91.lr.ph, %.preheader92.._crit_edge106_crit_edge
   %97 = phi i32 [ %.pre136, %.preheader92.._crit_edge106_crit_edge ], [ %62, %.preheader91.lr.ph ], [ %94, %._crit_edge104 ]
@@ -5563,7 +5563,7 @@ define internal fastcc void @IDAAckpntCopyVectors(ptr noundef %0, ptr noundef %1
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %147 = sext i32 %145 to i64
   %148 = icmp slt i64 %indvars.iv.next132, %147
-  br i1 %148, label %.preheader, label %._crit_edge112, !llvm.loop !13
+  br i1 %148, label %.preheader, label %._crit_edge112, !llvm.loop !10
 
 ._crit_edge112:                                   ; preds = %._crit_edge110, %.preheader.lr.ph, %.preheader90.._crit_edge112_crit_edge
   %149 = phi i32 [ %.pre139, %.preheader90.._crit_edge112_crit_edge ], [ %114, %.preheader.lr.ph ], [ %146, %._crit_edge110 ]
@@ -5599,7 +5599,7 @@ declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @N_VLinearCombinationVectorArray(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @IDAAfindIndex(ptr nocapture noundef readonly %0, double noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc range(i32 -107, 1) i32 @IDAAfindIndex(ptr nocapture noundef readonly %0, double noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 2112
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 120
@@ -5767,13 +5767,10 @@ attributes #11 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -107, i32 1}
-!5 = !{i32 0, i32 2}
-!6 = !{}
-!7 = !{i32 -106, i32 1}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unswitch.partial.disable"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
+!4 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.unswitch.partial.disable"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

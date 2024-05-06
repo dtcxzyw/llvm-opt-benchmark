@@ -995,7 +995,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_RecipientInfo_ktri_get0_algs(ptr nocapture noundef readonly %ri, ptr noundef writeonly %pk, ptr noundef writeonly %recip, ptr noundef writeonly %palg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_ktri_get0_algs(ptr nocapture noundef readonly %ri, ptr noundef writeonly %pk, ptr noundef writeonly %recip, ptr noundef writeonly %palg) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 0
@@ -1101,7 +1101,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @ossl_cms_SignerIdentifier_cert_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_RecipientInfo_set0_pkey(ptr nocapture noundef readonly %ri, ptr noundef %pkey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_set0_pkey(ptr nocapture noundef readonly %ri, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 0
@@ -1359,7 +1359,7 @@ declare void @ASN1_STRING_set0(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare i32 @X509_ALGOR_set0(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_RecipientInfo_kekri_get0_id(ptr nocapture noundef readonly %ri, ptr noundef writeonly %palg, ptr noundef writeonly %pid, ptr noundef writeonly %pdate, ptr noundef writeonly %potherid, ptr noundef writeonly %pothertype) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_kekri_get0_id(ptr nocapture noundef readonly %ri, ptr noundef writeonly %palg, ptr noundef writeonly %pid, ptr noundef writeonly %pdate, ptr noundef writeonly %potherid, ptr noundef writeonly %pothertype) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 2
@@ -1449,7 +1449,7 @@ return:                                           ; preds = %if.end16, %if.else2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @CMS_RecipientInfo_set0_key(ptr nocapture noundef readonly %ri, ptr noundef %key, i64 noundef %keylen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_set0_key(ptr nocapture noundef readonly %ri, ptr noundef %key, i64 noundef %keylen) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 2
@@ -2438,7 +2438,7 @@ return:                                           ; preds = %if.end14, %if.end, 
 declare ptr @ossl_cms_EncryptedContent_init_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_cms_EnvelopedData_final(ptr nocapture noundef readonly %cms, ptr noundef %chain) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_EnvelopedData_final(ptr nocapture noundef readonly %cms, ptr noundef %chain) local_unnamed_addr #0 {
 entry:
   %ctx = alloca ptr, align 8
   store ptr null, ptr %ctx, align 8
@@ -2666,7 +2666,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cms_AuthEnvelopedData_final(ptr nocapture noundef readonly %cms, ptr noundef %cmsbio) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_AuthEnvelopedData_final(ptr nocapture noundef readonly %cms, ptr noundef %cmsbio) local_unnamed_addr #0 {
 entry:
   %ctx = alloca ptr, align 8
   %call = call i64 @BIO_ctrl(ptr noundef %cmsbio, i32 noundef 129, i64 noundef 0, ptr noundef nonnull %ctx) #6

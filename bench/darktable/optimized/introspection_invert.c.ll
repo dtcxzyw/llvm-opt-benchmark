@@ -58,7 +58,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   %7 = alloca [4 x [3 x double]], align 16
   %8 = icmp eq i32 %2, 1
   br i1 %8, label %9, label %36
@@ -493,7 +493,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %.pre-phi59 = phi i64 [ %.pre58, %._crit_edge ], [ %73, %130 ], [ %73, %109 ], [ %73, %88 ]
   %134 = phi i64 [ 0, %._crit_edge ], [ %62, %130 ], [ 2, %109 ], [ 1, %88 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #16
-  %135 = trunc i64 %134 to i32
+  %135 = trunc nuw nsw i64 %134 to i32
   %136 = add i32 %.pre51, %135
   %137 = add i32 %136, 600
   %138 = srem i32 %137, 6
@@ -801,7 +801,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 
 369:                                              ; preds = %355
   %370 = or disjoint i64 %368, %344
-  %371 = trunc i64 %370 to i32
+  %371 = trunc nuw nsw i64 %370 to i32
   %372 = shl nuw nsw i32 %371, 1
   %373 = lshr i32 %27, %372
   %374 = and i32 %373, 3
@@ -882,7 +882,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %422 = add nuw nsw i64 %421, %332
   %423 = and i64 %422, 1
   %424 = or disjoint i64 %423, %368
-  %425 = trunc i64 %424 to i32
+  %425 = trunc nuw nsw i64 %424 to i32
   %426 = shl nuw nsw i32 %425, 1
   %427 = lshr i32 %27, %426
   %428 = and i32 %427, 3
@@ -936,7 +936,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %464 = add <8 x i64> %463, %347
   %465 = and <8 x i64> %464, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
   %466 = or disjoint <8 x i64> %465, %459
-  %467 = trunc <8 x i64> %466 to <8 x i32>
+  %467 = trunc nuw nsw <8 x i64> %466 to <8 x i32>
   %468 = shl nuw nsw <8 x i32> %467, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
   %469 = lshr <8 x i32> %349, %468
   %470 = and <8 x i32> %469, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
@@ -981,7 +981,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %497 = add i64 %493, %332
   %498 = and i64 %497, 1
   %499 = or disjoint i64 %498, %368
-  %500 = trunc i64 %499 to i32
+  %500 = trunc nuw nsw i64 %499 to i32
   %501 = shl nuw nsw i32 %500, 1
   %502 = lshr i32 %27, %501
   %503 = and i32 %502, 3
@@ -1023,7 +1023,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %528 = xor i1 %526, true
   %529 = zext i1 %528 to i64
   %530 = or disjoint i64 %368, %527
-  %531 = trunc i64 %530 to i32
+  %531 = trunc nuw nsw i64 %530 to i32
   %532 = shl nuw nsw i32 %531, 1
   %533 = lshr i32 %27, %532
   %534 = and i32 %533, 3
@@ -1031,7 +1031,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %536 = getelementptr inbounds [4 x float], ptr %9, i64 0, i64 %535
   %537 = load float, ptr %536, align 4, !tbaa !6
   %538 = or disjoint i64 %368, %529
-  %539 = trunc i64 %538 to i32
+  %539 = trunc nuw nsw i64 %538 to i32
   %540 = shl nuw nsw i32 %539, 1
   %541 = lshr i32 %27, %540
   %542 = and i32 %541, 3
@@ -1626,7 +1626,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !110
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

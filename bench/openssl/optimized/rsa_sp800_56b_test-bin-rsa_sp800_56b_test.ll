@@ -169,7 +169,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_check_public_exponent() #0 {
+define internal range(i32 0, 2) i32 @test_check_public_exponent() #0 {
 entry:
   %call = tail call ptr @BN_new() #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.11, i32 noundef 113, ptr noundef nonnull @.str.12, ptr noundef %call) #2
@@ -290,7 +290,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_check_prime_factor_range() #0 {
+define internal range(i32 0, 2) i32 @test_check_prime_factor_range() #0 {
 entry:
   %call = tail call ptr @BN_new() #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.11, i32 noundef 151, ptr noundef nonnull @.str.21, ptr noundef %call) #2
@@ -489,7 +489,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_check_prime_factor() #0 {
+define internal range(i32 0, 2) i32 @test_check_prime_factor() #0 {
 entry:
   %call = tail call ptr @BN_new() #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.11, i32 noundef 193, ptr noundef nonnull @.str.21, ptr noundef %call) #2
@@ -624,7 +624,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_check_private_exponent() #0 {
+define internal range(i32 0, 2) i32 @test_check_private_exponent() #0 {
 entry:
   %call = tail call ptr @RSA_new() #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.11, i32 noundef 228, ptr noundef nonnull @.str.43, ptr noundef %call) #2
@@ -813,7 +813,7 @@ end:                                              ; preds = %if.end68, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_check_crt_components() #0 {
+define internal range(i32 0, 2) i32 @test_check_crt_components() #0 {
 entry:
   %call = tail call ptr @RSA_new() #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.11, i32 noundef 289, ptr noundef nonnull @.str.43, ptr noundef %call) #2
@@ -1251,7 +1251,7 @@ end:                                              ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_check_private_key() #0 {
+define internal range(i32 0, 2) i32 @test_check_private_key() #0 {
 entry:
   %call = tail call ptr @RSA_new() #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.11, i32 noundef 510, ptr noundef nonnull @.str.43, ptr noundef %call) #2
@@ -1371,7 +1371,7 @@ end:                                              ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_check_public_key() #0 {
+define internal range(i32 0, 2) i32 @test_check_public_key() #0 {
 entry:
   %call = tail call ptr @RSA_new() #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.11, i32 noundef 543, ptr noundef nonnull @.str.43, ptr noundef %call) #2
@@ -1533,7 +1533,7 @@ end:                                              ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_invalid_keypair() #0 {
+define internal range(i32 0, 2) i32 @test_invalid_keypair() #0 {
 entry:
   %call = tail call ptr @RSA_new() #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.11, i32 noundef 417, ptr noundef nonnull @.str.43, ptr noundef %call) #2
@@ -1875,7 +1875,7 @@ end:                                              ; preds = %if.end44, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pq_diff() #0 {
+define internal range(i32 0, 2) i32 @test_pq_diff() #0 {
 entry:
   %call = tail call ptr @BN_new() #2
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.11, i32 noundef 391, ptr noundef nonnull @.str.120, ptr noundef %call) #2
@@ -1970,7 +1970,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_sp80056b_keygen(i32 noundef %id) #0 {
+define internal range(i32 0, 2) i32 @test_sp80056b_keygen(i32 noundef %id) #0 {
 entry:
   %idxprom = sext i32 %id to i64
   %arrayidx = getelementptr inbounds [2 x i32], ptr @keygen_size, i64 0, i64 %idxprom

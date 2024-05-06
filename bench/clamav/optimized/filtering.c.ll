@@ -41,7 +41,7 @@ define void @filter_init(ptr nocapture noundef writeonly %0) local_unnamed_addr 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @filter_add_static(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture readnone %3) local_unnamed_addr #2 {
+define range(i32 -1, 257) i32 @filter_add_static(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture readnone %3) local_unnamed_addr #2 {
   %spec.store.select7 = tail call i64 @llvm.umin.i64(i64 %2, i64 255)
   %5 = icmp ult i64 %2, 2
   br i1 %5, label %._crit_edge142.thread, label %6
@@ -311,7 +311,7 @@ define i32 @filter_add_acpatt(ptr nocapture noundef %0, ptr nocapture noundef re
 
 32:                                               ; preds = %._crit_edge
   %33 = zext nneg i32 %spec.select to i64
-  %34 = call i32 @filter_add_static(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %33, ptr poison), !range !4
+  %34 = call i32 @filter_add_static(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %33, ptr poison)
   br label %.loopexit
 
 35:                                               ; preds = %._crit_edge
@@ -2221,7 +2221,7 @@ filter_set_end.exit.us:                           ; preds = %814, %805, %.lr.ph9
 
 filter_set_end.exit:                              ; preds = %832, %825, %822, %.lr.ph992.split.split
   %exitcond1202.not = icmp eq i32 %.1991, %798
-  br i1 %exitcond1202.not, label %._crit_edge993, label %.lr.ph992.split.splitthread-pre-split, !llvm.loop !5
+  br i1 %exitcond1202.not, label %._crit_edge993, label %.lr.ph992.split.splitthread-pre-split, !llvm.loop !4
 
 ._crit_edge993:                                   ; preds = %filter_set_end.exit.us, %filter_set_end.exit, %.lr.ph992.split, %.preheader
   %.1.lcssa = phi i32 [ %.03541003, %.preheader ], [ %801, %.lr.ph992.split ], [ %801, %filter_set_end.exit ], [ %801, %filter_set_end.exit.us ]
@@ -2264,7 +2264,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #4
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @filter_search_ext(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @filter_search_ext(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 65536
   %6 = icmp ult i64 %2, 2
   br i1 %6, label %.loopexit, label %.lr.ph.preheader
@@ -2304,7 +2304,7 @@ define noundef i32 @filter_search_ext(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @filter_search(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
+define range(i64 -8, -10) i64 @filter_search(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 65536
   %5 = icmp ult i64 %2, 2
   br i1 %5, label %.loopexit, label %.lr.ph.preheader
@@ -2374,6 +2374,5 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 257}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.unswitch.partial.disable"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.unswitch.partial.disable"}

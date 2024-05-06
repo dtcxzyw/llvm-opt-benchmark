@@ -252,7 +252,7 @@ define internal void @idma32_resume_chan(ptr nocapture noundef readonly %0, i1 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @idma32_prepare_ctllo(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i32 402653184, 406847488) i32 @idma32_prepare_ctllo(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %14 [
@@ -312,7 +312,7 @@ define internal i32 @idma32_bytes2block(ptr nocapture noundef readonly %0, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal i64 @idma32_block2bytes(ptr nocapture readnone %0, i32 noundef %1, i32 %2) #4 align 16 {
+define internal range(i64 0, 131072) i64 @idma32_block2bytes(ptr nocapture readnone %0, i32 noundef %1, i32 %2) #4 align 16 {
   %4 = and i32 %1, 131071
   %5 = zext nneg i32 %4 to i64
   ret i64 %5

@@ -691,7 +691,7 @@ if.end45.i:                                       ; preds = %if.end34.i37
   %tmp.i = getelementptr inbounds i8, ptr %mv.i12, i64 96
   store ptr %arrayidx65.i, ptr %tmp.i, align 8
   store i64 4, ptr %vn.i, align 8
-  %mul71.i = mul nsw i64 %4, 3
+  %mul71.i = mul nuw nsw i64 %4, 3
   %arrayidx72.i = getelementptr inbounds i8, ptr %call40.i, i64 %mul71.i
   %empty.i = getelementptr inbounds i8, ptr %mv.i12, i64 104
   store ptr %arrayidx72.i, ptr %empty.i, align 8

@@ -54,7 +54,7 @@ declare ptr @ASN1_STRING_type_new(i32 noundef) local_unnamed_addr #1
 declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_set_serialNumber(ptr noundef readonly %x, ptr noundef %serial) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_set_serialNumber(ptr noundef readonly %x, ptr noundef %serial) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %if.end
@@ -139,7 +139,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_set_notBefore(ptr noundef readonly %x, ptr noundef %tm) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_set_notBefore(ptr noundef readonly %x, ptr noundef %tm) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -185,7 +185,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_set_notAfter(ptr noundef readonly %x, ptr noundef %tm) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_set_notAfter(ptr noundef readonly %x, ptr noundef %tm) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %x, null
   br i1 %cmp, label %return, label %lor.lhs.false

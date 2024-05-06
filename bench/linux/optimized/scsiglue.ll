@@ -142,7 +142,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #2 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @queuecommand(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 4182) i32 @queuecommand(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #10
@@ -217,7 +217,7 @@ define internal ptr @host_info(ptr noundef readnone %0) #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @command_abort(ptr noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 8194, 8196) i32 @command_abort(ptr noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 2064
@@ -271,7 +271,7 @@ command_abort_matching.exit:                      ; preds = %10, %16, %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @device_reset(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 8194, 8196) i32 @device_reset(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 2064
@@ -320,7 +320,7 @@ command_abort_matching.exit:                      ; preds = %10, %18
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @bus_reset(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 8194, 8196) i32 @bus_reset(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 2064
@@ -423,7 +423,7 @@ define internal noundef i32 @slave_configure(ptr nocapture noundef %0) #0 align 
   %43 = tail call i64 @dma_max_mapping_size(ptr noundef %8) #10
   %44 = lshr i64 %43, 9
   %45 = tail call i64 @llvm.umin.i64(i64 %44, i64 %42)
-  %46 = trunc i64 %45 to i32
+  %46 = trunc nuw i64 %45 to i32
   tail call void @blk_queue_max_hw_sectors(ptr noundef %39, i32 noundef %46) #10
   %47 = load ptr, ptr %3, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 80
@@ -1189,7 +1189,7 @@ declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 declare dso_local void @seq_putc(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @max_sectors_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #7 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @max_sectors_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #7 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -432
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 144

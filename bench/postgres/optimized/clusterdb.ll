@@ -236,8 +236,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 62:                                               ; preds = %59
   store ptr %.053, ptr %4, align 8
-  %63 = trunc i8 %.038 to i1
-  %64 = trunc i8 %.043 to i1
+  %63 = trunc nuw i8 %.038 to i1
+  %64 = trunc nuw i8 %.043 to i1
   %65 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %8, i1 noundef zeroext %64) #8
   %66 = call ptr @executeQuery(ptr noundef %65, ptr noundef nonnull @.str.25, i1 noundef zeroext %64) #8
   call void @PQfinish(ptr noundef %65) #8
@@ -297,8 +297,8 @@ cluster_all_databases.exit:                       ; preds = %.lr.ph.split.i, %.l
   store ptr %.3, ptr %4, align 8
   %88 = load ptr, ptr %5, align 8
   %.not65 = icmp eq ptr %88, null
-  %89 = trunc i8 %.038 to i1
-  %90 = trunc i8 %.043 to i1
+  %89 = trunc nuw i8 %.038 to i1
+  %90 = trunc nuw i8 %.043 to i1
   br i1 %.not65, label %93, label %.preheader
 
 .preheader:                                       ; preds = %87, %.preheader

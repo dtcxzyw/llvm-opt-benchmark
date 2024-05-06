@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.iovec = type { ptr, i64 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @writev(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @writev(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %.loopexit32
 
@@ -43,7 +43,7 @@ define i64 @writev(i32 noundef %0, ptr nocapture noundef readonly %1, i32 nounde
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %.023, i64 %11
   %17 = sub i64 %.024, %11
-  %18 = add nsw i64 %11, %.1
+  %18 = add nuw nsw i64 %11, %.1
   %.not30 = icmp eq i64 %17, 0
   br i1 %.not30, label %.loopexit, label %10, !llvm.loop !6
 

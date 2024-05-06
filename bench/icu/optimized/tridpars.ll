@@ -2338,7 +2338,7 @@ declare void @_ZN6icu_7510UnicodeSetC1ERKNS_13UnicodeStringERNS_13ParsePositionE
 declare void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7522TransliteratorIDParser15parseCompoundIDERKNS_13UnicodeStringEiRS1_RNS_7UVectorERPNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(64) %id, i32 noundef %dir, ptr noundef nonnull align 8 dereferenceable(64) %canonID, ptr noundef nonnull align 8 dereferenceable(40) %list, ptr nocapture noundef nonnull align 8 dereferenceable(8) %globalFilter) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522TransliteratorIDParser15parseCompoundIDERKNS_13UnicodeStringEiRS1_RNS_7UVectorERPNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(64) %id, i32 noundef %dir, ptr noundef nonnull align 8 dereferenceable(64) %canonID, ptr noundef nonnull align 8 dereferenceable(40) %list, ptr nocapture noundef nonnull align 8 dereferenceable(8) %globalFilter) local_unnamed_addr #1 align 2 {
 entry:
   %srcChar.addr.i = alloca i16, align 2
   %ec = alloca i32, align 4

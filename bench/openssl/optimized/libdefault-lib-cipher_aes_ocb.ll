@@ -49,21 +49,21 @@ aes_ocb_newctx.exit:                              ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_ocb_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @aes_ocb_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @aes_ocb_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 1), !range !4
+  %call = tail call fastcc i32 @aes_ocb_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_ocb_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @aes_ocb_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc i32 @aes_ocb_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 0), !range !4
+  %call = tail call fastcc i32 @aes_ocb_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aes_ocb_block_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
+define internal range(i32 0, 2) i32 @aes_ocb_block_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %key_set = getelementptr inbounds i8, ptr %vctx, i64 868
   %bf.load = load i8, ptr %key_set, align 4
@@ -110,13 +110,13 @@ if.end3:                                          ; preds = %if.end
 if.then5.split:                                   ; preds = %if.end3
   %aad_buf_len = getelementptr inbounds i8, ptr %vctx, i64 888
   %aad_buf = getelementptr inbounds i8, ptr %vctx, i64 928
-  %call810 = tail call fastcc i32 @aes_ocb_block_update_internal(ptr noundef nonnull %vctx, ptr noundef nonnull %aad_buf, ptr noundef nonnull %aad_buf_len, ptr noundef null, ptr noundef %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl, ptr noundef nonnull @cipher_updateaad), !range !4
+  %call810 = tail call fastcc i32 @aes_ocb_block_update_internal(ptr noundef nonnull %vctx, ptr noundef nonnull %aad_buf, ptr noundef nonnull %aad_buf_len, ptr noundef null, ptr noundef %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl, ptr noundef nonnull @cipher_updateaad)
   br label %return
 
 if.else.split:                                    ; preds = %if.end3
   %data_buf_len = getelementptr inbounds i8, ptr %vctx, i64 880
   %data_buf = getelementptr inbounds i8, ptr %vctx, i64 912
-  %call811 = tail call fastcc i32 @aes_ocb_block_update_internal(ptr noundef nonnull %vctx, ptr noundef nonnull %data_buf, ptr noundef nonnull %data_buf_len, ptr noundef nonnull %out, ptr noundef %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl, ptr noundef nonnull @aes_generic_ocb_cipher), !range !4
+  %call811 = tail call fastcc i32 @aes_ocb_block_update_internal(ptr noundef nonnull %vctx, ptr noundef nonnull %data_buf, ptr noundef nonnull %data_buf_len, ptr noundef nonnull %out, ptr noundef %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl, ptr noundef nonnull @aes_generic_ocb_cipher)
   br label %return
 
 return:                                           ; preds = %if.then5.i, %lor.lhs.false, %lor.lhs.false, %if.then5.split, %if.else.split, %entry, %if.then2
@@ -125,7 +125,7 @@ return:                                           ; preds = %if.then5.i, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_ocb_block_final(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
+define internal range(i32 0, 2) i32 @aes_ocb_block_final(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -250,7 +250,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_ocb_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
+define internal range(i32 0, 2) i32 @aes_ocb_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -355,7 +355,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_ocb_get_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @aes_ocb_get_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #5
   %cmp.not = icmp eq ptr %call, null
@@ -534,7 +534,7 @@ return:                                           ; preds = %if.end65, %if.end78
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_ocb_set_ctx_params(ptr nocapture noundef %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @aes_ocb_set_ctx_params(ptr nocapture noundef %vctx, ptr noundef %params) #0 {
 entry:
   %sz = alloca i64, align 8
   %keylen = alloca i64, align 8
@@ -746,7 +746,7 @@ declare void @ossl_cipher_generic_initkey(ptr noundef, i64 noundef, i64 noundef,
 declare ptr @ossl_prov_cipher_hw_aes_ocb(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @aes_ocb_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @aes_ocb_init(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -755,7 +755,7 @@ entry:
 if.end:                                           ; preds = %entry
   %data_buf_len = getelementptr inbounds i8, ptr %vctx, i64 880
   %enc1 = getelementptr inbounds i8, ptr %vctx, i64 108
-  %0 = trunc i32 %enc to i8
+  %0 = trunc nuw nsw i32 %enc to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_buf_len, i8 0, i64 16, i1 false)
   %bf.load = load i8, ptr %enc1, align 4
   %bf.value = shl i8 %0, 1
@@ -822,7 +822,7 @@ if.end26:                                         ; preds = %if.then21
   br i1 %tobool30.not, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.end26, %if.end19
-  %call34 = tail call i32 @aes_ocb_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params), !range !4
+  %call34 = tail call i32 @aes_ocb_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params)
   br label %return
 
 return:                                           ; preds = %if.end26, %if.end13, %entry, %if.end33, %if.then25, %if.then9
@@ -839,7 +839,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @ossl_cipher_generic_initiv(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cipher_updateaad(ptr noundef %ctx, ptr noundef %in, ptr nocapture readnone %out, i64 noundef %len) #0 {
+define internal range(i32 0, 2) i32 @cipher_updateaad(ptr noundef %ctx, ptr noundef %in, ptr nocapture readnone %out, i64 noundef %len) #0 {
 entry:
   %ocb.i = getelementptr inbounds i8, ptr %ctx, i64 688
   %call.i = tail call i32 @CRYPTO_ocb128_aad(ptr noundef nonnull %ocb.i, ptr noundef %in, i64 noundef %len) #5
@@ -849,7 +849,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_generic_ocb_cipher(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) #0 {
+define internal range(i32 0, 2) i32 @aes_generic_ocb_cipher(ptr noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) #0 {
 entry:
   %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   %bf.load = load i8, ptr %enc, align 4
@@ -877,7 +877,7 @@ return:                                           ; preds = %if.else, %if.then, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @aes_ocb_block_update_internal(ptr noundef %ctx, ptr noundef %buf, ptr noundef %bufsz, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl, ptr nocapture noundef readonly %ciph) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @aes_ocb_block_update_internal(ptr noundef %ctx, ptr noundef %buf, ptr noundef %bufsz, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl, ptr nocapture noundef readonly %ciph) unnamed_addr #0 {
 entry:
   %in.addr = alloca ptr, align 8
   %inl.addr = alloca i64, align 8
@@ -908,7 +908,7 @@ if.then4:                                         ; preds = %if.then2
   br label %return
 
 if.end5:                                          ; preds = %if.then2
-  %call6 = call i32 %ciph(ptr noundef %ctx, ptr noundef %buf, ptr noundef %out, i64 noundef 16) #5, !callees !5
+  %call6 = call i32 %ciph(ptr noundef %ctx, ptr noundef %buf, ptr noundef %out, i64 noundef 16) #5, !callees !4
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.then7, label %if.end8
 
@@ -945,7 +945,7 @@ if.then16:                                        ; preds = %if.then14
 
 if.end17:                                         ; preds = %if.then14
   %1 = load ptr, ptr %in.addr, align 8
-  %call18 = call i32 %ciph(ptr noundef %ctx, ptr noundef %1, ptr noundef %out.addr.0, i64 noundef %nextblocks.021) #5, !callees !5
+  %call18 = call i32 %ciph(ptr noundef %ctx, ptr noundef %1, ptr noundef %out.addr.0, i64 noundef %nextblocks.021) #5, !callees !4
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.then20, label %if.end21
 
@@ -1056,5 +1056,4 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = !{ptr @aes_generic_ocb_cipher, ptr @cipher_updateaad}
+!4 = !{ptr @aes_generic_ocb_cipher, ptr @cipher_updateaad}

@@ -20,7 +20,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pci_unmap_ro
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_pci_disable_rom353, ptr @__UNIQUE_ID___addressable_pci_enable_rom352, ptr @__UNIQUE_ID___addressable_pci_map_rom356, ptr @__UNIQUE_ID___addressable_pci_unmap_rom357], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_enable_rom(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @pci_enable_rom(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.pci_bus_region, align 8
   %3 = alloca i32, align 4
   %4 = getelementptr i8, ptr %0, i64 1304

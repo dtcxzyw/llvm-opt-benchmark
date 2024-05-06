@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.31 = private unnamed_addr constant [35 x i8] c"could not determine preferred pack\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @load_pack_revindex_from_disk(ptr noundef %p) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @load_pack_revindex_from_disk(ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @open_pack_index(ptr noundef %p) #10
   %tobool.not = icmp eq i32 %call, 0
@@ -53,14 +53,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %pack_name.i = getelementptr inbounds i8, ptr %p, i64 240
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pack_name.i) #11
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pack_name.i) #11
   %cmp.i.i.i = icmp ult i64 %call.i.i, 5
   br i1 %cmp.i.i.i, label %if.then.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.end
   %sub.i.i.i = add i64 %call.i.i, -5
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %pack_name.i, i64 %sub.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.15, i64 5)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.15, i64 5)
   %tobool.not.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %pack_revindex_filename.exit, label %if.then.i
 
@@ -75,7 +75,7 @@ pack_revindex_filename.exit:                      ; preds = %lor.lhs.false.i.i.i
   %0 = load i32, ptr %num_objects, align 8
   %revindex_map = getelementptr inbounds i8, ptr %p, i64 208
   %revindex_size = getelementptr inbounds i8, ptr %p, i64 216
-  %call2 = tail call fastcc i32 @load_revindex_from_disk(ptr noundef %call3.i, i32 noundef %0, ptr noundef nonnull %revindex_map, ptr noundef nonnull %revindex_size), !range !5
+  %call2 = tail call fastcc i32 @load_revindex_from_disk(ptr noundef %call3.i, i32 noundef %0, ptr noundef nonnull %revindex_map, ptr noundef nonnull %revindex_size)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end5, label %cleanup
 
@@ -98,7 +98,7 @@ return:                                           ; preds = %entry, %cleanup
 declare i32 @open_pack_index(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @load_revindex_from_disk(ptr noundef %revindex_name, i32 noundef %num_objects, ptr nocapture noundef writeonly %data_p, ptr nocapture noundef writeonly %len_p) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @load_revindex_from_disk(ptr noundef %revindex_name, i32 noundef %num_objects, ptr nocapture noundef writeonly %data_p, ptr nocapture noundef writeonly %len_p) unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %call = tail call i32 @git_env_bool(ptr noundef nonnull @.str.18, i32 noundef 0) #10
@@ -192,7 +192,7 @@ _.exit33:                                         ; preds = %if.then25, %if.end3
 if.end29:                                         ; preds = %if.end17
   %call30 = tail call ptr @xmmap(ptr noundef null, i64 noundef %1, i32 noundef 1, i32 noundef 2, i32 noundef %call1, i64 noundef 0) #10
   %7 = load i32, ptr %call30, align 4
-  %8 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %7) #13, !srcloc !6
+  %8 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %7) #13, !srcloc !5
   %cmp32.not = icmp eq i32 %8, 1380533336
   br i1 %cmp32.not, label %if.end38, label %if.then34
 
@@ -213,7 +213,7 @@ _.exit39:                                         ; preds = %if.then34, %if.end3
 if.end38:                                         ; preds = %if.end29
   %version = getelementptr inbounds i8, ptr %call30, i64 4
   %10 = load i32, ptr %version, align 4
-  %11 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #13, !srcloc !6
+  %11 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #13, !srcloc !5
   %cmp40.not = icmp eq i32 %11, 1
   br i1 %cmp40.not, label %if.end48, label %if.then42
 
@@ -230,19 +230,19 @@ if.end3.i46:                                      ; preds = %if.then42
 if.else.i50:                                      ; preds = %if.end3.i46, %if.then42
   %13 = phi i32 [ %.pre, %if.end3.i46 ], [ %10, %if.then42 ]
   %retval.0.i48 = phi ptr [ %call.i47, %if.end3.i46 ], [ @.str.24, %if.then42 ]
-  %14 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %13) #13, !srcloc !6
+  %14 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %13) #13, !srcloc !5
   %call46 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i48, ptr noundef %revindex_name, i32 noundef %14) #10
   br label %if.then66
 
 if.end48:                                         ; preds = %if.end38
   %hash_id = getelementptr inbounds i8, ptr %call30, i64 8
   %15 = load i32, ptr %hash_id, align 4
-  %16 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #13, !srcloc !6
+  %16 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #13, !srcloc !5
   %cmp50 = icmp eq i32 %16, 1
   br i1 %cmp50, label %if.else, label %if.else.i60
 
 if.else.i60:                                      ; preds = %if.end48
-  %17 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #13, !srcloc !6
+  %17 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #13, !srcloc !5
   %cmp54 = icmp eq i32 %17, 2
   br i1 %cmp54, label %if.else, label %if.then56
 
@@ -259,7 +259,7 @@ if.end3.i66:                                      ; preds = %if.then56
 if.else.i70:                                      ; preds = %if.end3.i66, %if.then56
   %19 = phi i32 [ %.pre95, %if.end3.i66 ], [ %15, %if.then56 ]
   %retval.0.i68 = phi ptr [ %call.i67, %if.end3.i66 ], [ @.str.25, %if.then56 ]
-  %20 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %19) #13, !srcloc !6
+  %20 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %19) #13, !srcloc !5
   %call60 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i68, ptr noundef %revindex_name, i32 noundef %20) #10
   br label %if.then66
 
@@ -286,7 +286,7 @@ if.end74:                                         ; preds = %if.end, %if.then72
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @load_pack_revindex(ptr noundef %r, ptr noundef %p) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @load_pack_revindex(ptr noundef %r, ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %revindex = getelementptr inbounds i8, ptr %p, i64 192
   %0 = load ptr, ptr %revindex, align 8
@@ -307,12 +307,12 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool2.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call = tail call i32 @load_pack_revindex_from_disk(ptr noundef nonnull %p), !range !5
+  %call = tail call i32 @load_pack_revindex_from_disk(ptr noundef nonnull %p)
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %return, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
-  %call5 = tail call fastcc i32 @create_pack_revindex_in_memory(ptr noundef nonnull %p), !range !7
+  %call5 = tail call fastcc i32 @create_pack_revindex_in_memory(ptr noundef nonnull %p)
   %tobool6.not = icmp ne i32 %call5, 0
   %. = sext i1 %tobool6.not to i32
   br label %return
@@ -325,7 +325,7 @@ return:                                           ; preds = %if.else, %land.lhs.
 declare void @prepare_repo_settings(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @create_pack_revindex_in_memory(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @create_pack_revindex_in_memory(ptr noundef %p) unnamed_addr #0 {
 entry:
   %call = tail call i32 @git_env_bool(ptr noundef nonnull @.str.28, i32 noundef 0) #10
   %tobool.not = icmp eq i32 %call, 0
@@ -392,7 +392,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %off_32.050.i = phi ptr [ %add.ptr9.i, %for.body.preheader.i ], [ %incdec.ptr.i, %if.end.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %off_32.050.i, i64 4
   %7 = load i32, ptr %off_32.050.i, align 4
-  %8 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %7) #13, !srcloc !6
+  %8 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %7) #13, !srcloc !5
   %tobool.not.i = icmp sgt i32 %8, -1
   br i1 %tobool.not.i, label %if.then15.i, label %if.else.i
 
@@ -451,20 +451,20 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %off_64.1.i = phi ptr [ %add.ptr23.i, %if.else.i ], [ %off_64.051.i, %if.then15.i ]
   %19 = load ptr, ptr %revindex.i, align 8
   %nr.i = getelementptr inbounds %struct.revindex_entry, ptr %19, i64 %indvars.iv56.i, i32 1
-  %20 = trunc i64 %indvars.iv56.i to i32
+  %20 = trunc nuw i64 %indvars.iv56.i to i32
   store i32 %20, ptr %nr.i, align 8
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %wide.trip.count59.i
-  br i1 %exitcond60.not.i, label %if.end49.i, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond60.not.i, label %if.end49.i, label %for.body.i, !llvm.loop !6
 
 for.body31.i:                                     ; preds = %for.body31.i, %for.body31.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body31.lr.ph.i ], [ %indvars.iv.next.i, %for.body31.i ]
-  %21 = trunc i64 %indvars.iv.i to i32
+  %21 = trunc nuw i64 %indvars.iv.i to i32
   %mul33.i = mul i64 %indvars.iv.i, %add32.i
   %idx.ext34.i = and i64 %mul33.i, 4294967295
   %add.ptr35.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext34.i
   %22 = load i32, ptr %add.ptr35.i, align 4
-  %23 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #13, !srcloc !6
+  %23 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #13, !srcloc !5
   %conv37.i = zext i32 %23 to i64
   %24 = load ptr, ptr %revindex.i, align 8
   %arrayidx40.i = getelementptr inbounds %struct.revindex_entry, ptr %24, i64 %indvars.iv.i
@@ -474,7 +474,7 @@ for.body31.i:                                     ; preds = %for.body31.i, %for.
   store i32 %21, ptr %nr45.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.end49.i, label %for.body31.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %if.end49.i, label %for.body31.i, !llvm.loop !8
 
 if.end49.i:                                       ; preds = %for.body31.i, %if.end.i, %if.then.i, %for.cond28.preheader.i
   %pack_size.i = getelementptr inbounds i8, ptr %p, i64 48
@@ -500,7 +500,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.end49.i
   br i1 %cmp1249.not.i, label %for.body.us.i.i, label %for.body.us42.i.i
 
 for.body.us.i.i:                                  ; preds = %for.body.lr.ph.i.i, %for.cond23.preheader.us.i.i
-  %indvars.iv98.i.i = phi i64 [ %indvars.iv.next99.i.i, %for.cond23.preheader.us.i.i ], [ 0, %for.body.lr.ph.i.i ]
+  %indvars.iv97.i.i = phi i64 [ %indvars.iv.next98.i.i, %for.cond23.preheader.us.i.i ], [ 0, %for.body.lr.ph.i.i ]
   %from.039.us.i.i = phi ptr [ %to.038.us.i.i, %for.cond23.preheader.us.i.i ], [ %29, %for.body.lr.ph.i.i ]
   %to.038.us.i.i = phi ptr [ %from.039.us.i.i, %for.cond23.preheader.us.i.i ], [ %call3.i.i, %for.body.lr.ph.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(262144) %call1.i.i, i8 0, i64 262144, i1 false)
@@ -508,34 +508,34 @@ for.body.us.i.i:                                  ; preds = %for.body.lr.ph.i.i,
 
 for.body14.us.i.i:                                ; preds = %for.body14.us.i.i, %for.body.us.i.i
   %31 = phi i32 [ 0, %for.body.us.i.i ], [ %add.us.i.i, %for.body14.us.i.i ]
-  %indvars.iv93.i.i = phi i64 [ 1, %for.body.us.i.i ], [ %indvars.iv.next94.i.i, %for.body14.us.i.i ]
-  %arrayidx18.us.i.i = getelementptr inbounds i32, ptr %call1.i.i, i64 %indvars.iv93.i.i
+  %indvars.iv92.i.i = phi i64 [ 1, %for.body.us.i.i ], [ %indvars.iv.next93.i.i, %for.body14.us.i.i ]
+  %arrayidx18.us.i.i = getelementptr inbounds i32, ptr %call1.i.i, i64 %indvars.iv92.i.i
   %32 = load i32, ptr %arrayidx18.us.i.i, align 4
   %add.us.i.i = add i32 %32, %31
   store i32 %add.us.i.i, ptr %arrayidx18.us.i.i, align 4
-  %indvars.iv.next94.i.i = add nuw nsw i64 %indvars.iv93.i.i, 1
-  %exitcond97.not.i.i = icmp eq i64 %indvars.iv.next94.i.i, 65536
-  br i1 %exitcond97.not.i.i, label %for.cond23.preheader.us.i.i, label %for.body14.us.i.i, !llvm.loop !11
+  %indvars.iv.next93.i.i = add nuw nsw i64 %indvars.iv92.i.i, 1
+  %exitcond96.not.i.i = icmp eq i64 %indvars.iv.next93.i.i, 65536
+  br i1 %exitcond96.not.i.i, label %for.cond23.preheader.us.i.i, label %for.body14.us.i.i, !llvm.loop !9
 
 for.cond23.preheader.us.i.i:                      ; preds = %for.body14.us.i.i
-  %indvars.iv.next99.i.i = add nuw nsw i64 %indvars.iv98.i.i, 16
-  %shr.us.i.i = ashr i64 %30, %indvars.iv.next99.i.i
+  %indvars.iv.next98.i.i = add nuw nsw i64 %indvars.iv97.i.i, 16
+  %shr.us.i.i = ashr i64 %30, %indvars.iv.next98.i.i
   %tobool.not.us.i.i = icmp eq i64 %shr.us.i.i, 0
-  br i1 %tobool.not.us.i.i, label %for.end44.i.i, label %for.body.us.i.i, !llvm.loop !12
+  br i1 %tobool.not.us.i.i, label %for.end44.i.i, label %for.body.us.i.i, !llvm.loop !10
 
 for.body.us42.i.i:                                ; preds = %for.body.lr.ph.i.i, %for.cond23.do.body_crit_edge.us.i.i
-  %indvars.iv90.i.i = phi i64 [ %indvars.iv.next91.i.i, %for.cond23.do.body_crit_edge.us.i.i ], [ 0, %for.body.lr.ph.i.i ]
+  %indvars.iv89.i.i = phi i64 [ %indvars.iv.next90.i.i, %for.cond23.do.body_crit_edge.us.i.i ], [ 0, %for.body.lr.ph.i.i ]
   %from.039.us45.i.i = phi ptr [ %to.038.us46.i.i, %for.cond23.do.body_crit_edge.us.i.i ], [ %29, %for.body.lr.ph.i.i ]
   %to.038.us46.i.i = phi ptr [ %from.039.us45.i.i, %for.cond23.do.body_crit_edge.us.i.i ], [ %call3.i.i, %for.body.lr.ph.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(262144) %call1.i.i, i8 0, i64 262144, i1 false)
   br label %for.body6.us57.i.i
 
 for.body26.us.i.i:                                ; preds = %for.body14.us47.i.i, %for.body26.us.i.i
-  %indvars.iv86.i.i = phi i64 [ %33, %for.body26.us.i.i ], [ %idxprom52.i, %for.body14.us47.i.i ]
-  %33 = add nsw i64 %indvars.iv86.i.i, -1
+  %indvars.iv85.i.i = phi i64 [ %33, %for.body26.us.i.i ], [ %idxprom52.i, %for.body14.us47.i.i ]
+  %33 = add nsw i64 %indvars.iv85.i.i, -1
   %arrayidx28.us.i.i = getelementptr inbounds %struct.revindex_entry, ptr %from.039.us45.i.i, i64 %33
   %34 = load i64, ptr %arrayidx28.us.i.i, align 8
-  %shr31.us.i.i = ashr i64 %34, %indvars.iv90.i.i
+  %shr31.us.i.i = ashr i64 %34, %indvars.iv89.i.i
   %and32.us.i.i = and i64 %shr31.us.i.i, 65535
   %arrayidx33.us.i.i = getelementptr inbounds i32, ptr %call1.i.i, i64 %and32.us.i.i
   %35 = load i32, ptr %arrayidx33.us.i.i, align 4
@@ -545,24 +545,24 @@ for.body26.us.i.i:                                ; preds = %for.body14.us47.i.i
   %arrayidx35.us.i.i = getelementptr inbounds %struct.revindex_entry, ptr %to.038.us46.i.i, i64 %idxprom34.us.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx35.us.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx28.us.i.i, i64 16, i1 false)
   %cmp24.not.us.wide.i.i = icmp eq i64 %33, 0
-  br i1 %cmp24.not.us.wide.i.i, label %for.cond23.do.body_crit_edge.us.i.i, label %for.body26.us.i.i, !llvm.loop !13
+  br i1 %cmp24.not.us.wide.i.i, label %for.cond23.do.body_crit_edge.us.i.i, label %for.body26.us.i.i, !llvm.loop !11
 
 for.body14.us47.i.i:                              ; preds = %for.body14.us47.preheader.i.i, %for.body14.us47.i.i
   %36 = phi i32 [ %.pre.i.i, %for.body14.us47.preheader.i.i ], [ %add.us54.i.i, %for.body14.us47.i.i ]
-  %indvars.iv81.i.i = phi i64 [ 1, %for.body14.us47.preheader.i.i ], [ %indvars.iv.next82.i.i, %for.body14.us47.i.i ]
-  %arrayidx18.us53.i.i = getelementptr inbounds i32, ptr %call1.i.i, i64 %indvars.iv81.i.i
+  %indvars.iv80.i.i = phi i64 [ 1, %for.body14.us47.preheader.i.i ], [ %indvars.iv.next81.i.i, %for.body14.us47.i.i ]
+  %arrayidx18.us53.i.i = getelementptr inbounds i32, ptr %call1.i.i, i64 %indvars.iv80.i.i
   %37 = load i32, ptr %arrayidx18.us53.i.i, align 4
   %add.us54.i.i = add i32 %37, %36
   store i32 %add.us54.i.i, ptr %arrayidx18.us53.i.i, align 4
-  %indvars.iv.next82.i.i = add nuw nsw i64 %indvars.iv81.i.i, 1
-  %exitcond85.not.i.i = icmp eq i64 %indvars.iv.next82.i.i, 65536
-  br i1 %exitcond85.not.i.i, label %for.body26.us.i.i, label %for.body14.us47.i.i, !llvm.loop !11
+  %indvars.iv.next81.i.i = add nuw nsw i64 %indvars.iv80.i.i, 1
+  %exitcond84.not.i.i = icmp eq i64 %indvars.iv.next81.i.i, 65536
+  br i1 %exitcond84.not.i.i, label %for.body26.us.i.i, label %for.body14.us47.i.i, !llvm.loop !9
 
 for.body6.us57.i.i:                               ; preds = %for.body6.us57.i.i, %for.body.us42.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.us42.i.i ], [ %indvars.iv.next.i.i, %for.body6.us57.i.i ]
   %arrayidx.us60.i.i = getelementptr inbounds %struct.revindex_entry, ptr %from.039.us45.i.i, i64 %indvars.iv.i.i
   %38 = load i64, ptr %arrayidx.us60.i.i, align 8
-  %shr8.us61.i.i = ashr i64 %38, %indvars.iv90.i.i
+  %shr8.us61.i.i = ashr i64 %38, %indvars.iv89.i.i
   %and.us62.i.i = and i64 %shr8.us61.i.i, 65535
   %arrayidx9.us63.i.i = getelementptr inbounds i32, ptr %call1.i.i, i64 %and.us62.i.i
   %39 = load i32, ptr %arrayidx9.us63.i.i, align 4
@@ -570,17 +570,17 @@ for.body6.us57.i.i:                               ; preds = %for.body6.us57.i.i,
   store i32 %inc.us64.i.i, ptr %arrayidx9.us63.i.i, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %idxprom52.i
-  br i1 %exitcond.not.i.i, label %for.body14.us47.preheader.i.i, label %for.body6.us57.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %for.body14.us47.preheader.i.i, label %for.body6.us57.i.i, !llvm.loop !12
 
 for.body14.us47.preheader.i.i:                    ; preds = %for.body6.us57.i.i
   %.pre.i.i = load i32, ptr %call1.i.i, align 4
   br label %for.body14.us47.i.i
 
 for.cond23.do.body_crit_edge.us.i.i:              ; preds = %for.body26.us.i.i
-  %indvars.iv.next91.i.i = add nuw nsw i64 %indvars.iv90.i.i, 16
-  %shr.us73.i.i = ashr i64 %30, %indvars.iv.next91.i.i
+  %indvars.iv.next90.i.i = add nuw nsw i64 %indvars.iv89.i.i, 16
+  %shr.us73.i.i = ashr i64 %30, %indvars.iv.next90.i.i
   %tobool.not.us74.i.i = icmp eq i64 %shr.us73.i.i, 0
-  br i1 %tobool.not.us74.i.i, label %for.end44.i.i, label %for.body.us42.i.i, !llvm.loop !12
+  br i1 %tobool.not.us74.i.i, label %for.end44.i.i, label %for.body.us42.i.i, !llvm.loop !10
 
 for.end44.i.i:                                    ; preds = %for.cond23.do.body_crit_edge.us.i.i, %for.cond23.preheader.us.i.i
   %from.0.lcssa.i.i = phi ptr [ %to.038.us.i.i, %for.cond23.preheader.us.i.i ], [ %to.038.us46.i.i, %for.cond23.do.body_crit_edge.us.i.i ]
@@ -589,7 +589,7 @@ for.end44.i.i:                                    ; preds = %for.cond23.do.body_
   br i1 %or.cond.i.i, label %create_pack_revindex.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.end44.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %call3.i.i, i64 %mul.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %29, ptr readonly align 1 %call3.i.i, i64 %mul.i.i.i, i1 false)
   br label %create_pack_revindex.exit
 
 create_pack_revindex.exit:                        ; preds = %if.end49.i, %for.end44.i.i, %if.then.i.i.i
@@ -603,7 +603,7 @@ return:                                           ; preds = %if.end, %create_pac
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @verify_pack_revindex(ptr noundef %p) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @verify_pack_revindex(ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %revindex_map = getelementptr inbounds i8, ptr %p, i64 208
   %0 = load ptr, ptr %revindex_map, align 8
@@ -639,7 +639,7 @@ _.exit:                                           ; preds = %if.then4, %if.end3.
 
 if.end8:                                          ; preds = %_.exit, %if.end
   %res.0 = phi i32 [ 0, %if.end ], [ -1, %_.exit ]
-  %call9 = tail call fastcc i32 @create_pack_revindex_in_memory(ptr noundef nonnull %p), !range !7
+  %call9 = tail call fastcc i32 @create_pack_revindex_in_memory(ptr noundef nonnull %p)
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %for.cond.preheader, label %return
 
@@ -703,7 +703,7 @@ for.inc:                                          ; preds = %for.body, %_.exit21
   %inc = add nuw nsw i64 %i.024, 1
   %conv = zext i32 %14 to i64
   %cmp = icmp ult i64 %inc, %conv
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !15
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !13
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %if.end8, %entry, %lor.lhs.false
   %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %res.0, %if.end8 ], [ %res.0, %for.cond.preheader ], [ %res.2, %for.inc ]
@@ -715,7 +715,7 @@ declare i32 @hashfile_checksum_valid(ptr noundef, i64 noundef) local_unnamed_add
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @load_midx_revindex(ptr noundef %m) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @load_midx_revindex(ptr noundef %m) local_unnamed_addr #0 {
 entry:
   %revindex_name = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %revindex_name, ptr noundef nonnull align 8 dereferenceable(24) @__const.load_midx_revindex.revindex_name, i64 24, i1 false)
@@ -771,7 +771,7 @@ if.end4:                                          ; preds = %_.exit.i, %if.end
   %9 = load i32, ptr %num_objects, align 4
   %revindex_map = getelementptr inbounds i8, ptr %m, i64 32
   %revindex_len = getelementptr inbounds i8, ptr %m, i64 40
-  %call5 = call fastcc i32 @load_revindex_from_disk(ptr noundef %8, i32 noundef %9, ptr noundef nonnull %revindex_map, ptr noundef nonnull %revindex_len), !range !5
+  %call5 = call fastcc i32 @load_revindex_from_disk(ptr noundef %8, i32 noundef %9, ptr noundef nonnull %revindex_map, ptr noundef nonnull %revindex_len)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end8, label %cleanup
 
@@ -827,7 +827,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @offset_to_pack_pos(ptr noundef %p, i64 noundef %ofs, ptr nocapture noundef writeonly %pos) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @offset_to_pack_pos(ptr noundef %p, i64 noundef %ofs, ptr nocapture noundef writeonly %pos) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %revindex.i = getelementptr inbounds i8, ptr %p, i64 192
@@ -849,12 +849,12 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %tobool2.not.i, label %load_pack_revindex.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %call.i = tail call i32 @load_pack_revindex_from_disk(ptr noundef nonnull %p), !range !5
+  %call.i = tail call i32 @load_pack_revindex_from_disk(ptr noundef nonnull %p)
   %tobool3.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool3.not.i, label %if.end, label %load_pack_revindex.exit
 
 load_pack_revindex.exit:                          ; preds = %if.end.i, %land.lhs.true.i
-  %call5.i = tail call fastcc i32 @create_pack_revindex_in_memory(ptr noundef nonnull %p), !range !7
+  %call5.i = tail call fastcc i32 @create_pack_revindex_in_memory(ptr noundef nonnull %p)
   %tobool6.not.i.not = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i.not, label %if.end, label %return
 
@@ -884,7 +884,7 @@ if.else:                                          ; preds = %do.body
   %hi.1 = select i1 %cmp5, i32 %add1, i32 %hi.0
   %lo.1 = select i1 %cmp5, i32 %lo.0, i32 %add8
   %cmp11 = icmp ult i32 %lo.1, %hi.1
-  br i1 %cmp11, label %do.body, label %do.end, !llvm.loop !16
+  br i1 %cmp11, label %do.body, label %do.end, !llvm.loop !14
 
 do.end:                                           ; preds = %if.else
   %call12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7) #10
@@ -1104,7 +1104,7 @@ if.end2:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @midx_to_pack_pos(ptr noundef %m, i32 noundef %at, ptr nocapture noundef writeonly %pos) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @midx_to_pack_pos(ptr noundef %m, i32 noundef %at, ptr nocapture noundef writeonly %pos) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.midx_pack_key, align 8
   %revindex_data = getelementptr inbounds i8, ptr %m, i64 24
@@ -1181,7 +1181,7 @@ declare i32 @nth_midxed_pack_int_id(ptr noundef, i32 noundef) local_unnamed_addr
 declare i64 @nth_midxed_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @midx_pair_to_pack_pos(ptr noundef %m, i32 noundef %pack_int_id, i64 noundef %ofs, ptr nocapture noundef writeonly %pos) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @midx_pair_to_pack_pos(ptr noundef %m, i32 noundef %pack_int_id, i64 noundef %ofs, ptr nocapture noundef writeonly %pos) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.midx_pack_key, align 8
   store i32 %pack_int_id, ptr %key, align 8
@@ -1268,7 +1268,7 @@ declare i32 @midx_preferred_pack(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @midx_pack_order_cmp(ptr nocapture noundef readonly %va, ptr noundef %vb) #0 {
+define internal range(i32 -1, 2) i32 @midx_pack_order_cmp(ptr nocapture noundef readonly %va, ptr noundef %vb) #0 {
 entry:
   %midx1 = getelementptr inbounds i8, ptr %va, i64 24
   %0 = load ptr, ptr %midx1, align 8
@@ -1379,15 +1379,13 @@ attributes #13 = { nounwind memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 2}
-!6 = !{i64 3416282}
-!7 = !{i32 -1, i32 1}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
+!5 = !{i64 3416282}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

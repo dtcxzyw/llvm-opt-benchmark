@@ -147,7 +147,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_TRACE_MEMORY_REGION_SUBPAGE_READ_DSTATE = external local_unnamed_addr global i16, align 2
 @.str.55 = private unnamed_addr constant [87 x i8] c"%d@%zu.%06zu:memory_region_subpage_read cpu %d mr %p offset 0x%lx value 0x%lx size %u\0A\00", align 1
 @.str.56 = private unnamed_addr constant [74 x i8] c"memory_region_subpage_read cpu %d mr %p offset 0x%lx value 0x%lx size %u\0A\00", align 1
-@current_cpu = external thread_local global ptr, align 8
+@current_cpu = external thread_local local_unnamed_addr global ptr, align 8
 @.str.57 = private unnamed_addr constant [91 x i8] c"%d@%zu.%06zu:memory_region_ops_read cpu %d mr %p addr 0x%lx value 0x%lx size %u name '%s'\0A\00", align 1
 @.str.58 = private unnamed_addr constant [78 x i8] c"memory_region_ops_read cpu %d mr %p addr 0x%lx value 0x%lx size %u name '%s'\0A\00", align 1
 @__func__.adjust_endianness = private unnamed_addr constant [18 x i8] c"adjust_endianness\00", align 1
@@ -5458,7 +5458,7 @@ for.body3.i:                                      ; preds = %address_space_get_f
   br i1 %cmp5.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body3.i
-  tail call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull %fr.013.i, ptr noundef nonnull %as.016.i, ptr noundef nonnull %2, i1 noundef zeroext false)
+  tail call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull %fr.013.i, ptr noundef nonnull %as.016.i, ptr noundef nonnull readonly %2, i1 noundef zeroext false)
   %.pre.i = load ptr, ptr %ranges.i, align 8
   %.pre17.i = load i32, ptr %nr.i, align 8
   br label %for.inc.i
@@ -5583,7 +5583,7 @@ for.body3.i:                                      ; preds = %for.body.i, %for.in
   br i1 %cmp5.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body3.i
-  tail call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull %fr.013.i, ptr noundef nonnull %as.016.i, ptr noundef nonnull %call, i1 noundef zeroext true)
+  tail call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull %fr.013.i, ptr noundef nonnull %as.016.i, ptr noundef nonnull readonly %call, i1 noundef zeroext true)
   %.pre.i = load ptr, ptr %ranges.i, align 8
   %.pre17.i = load i32, ptr %nr.i, align 8
   br label %for.inc.i
@@ -5651,7 +5651,7 @@ entry:
   br i1 %tobool9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %0 = tail call i32 @llvm.cttz.i32(i32 %size, i1 true), !range !54
+  %0 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %size, i1 true)
   %1 = getelementptr i8, ptr %mr, i64 80
   %mr.val = load ptr, ptr %1, align 16
   %2 = getelementptr i8, ptr %mr.val, i64 32
@@ -5759,7 +5759,7 @@ memory_region_ioeventfd_before.exit.us:           ; preds = %if.else53.i.us
 for.inc.us:                                       ; preds = %memory_region_ioeventfd_before.exit.us, %if.else53.i.us, %if.else35.i.us, %if.else20.i.us, %if.else.i.us
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %for.end, label %for.body.us, !llvm.loop !55
+  br i1 %exitcond63.not, label %for.end, label %for.body.us, !llvm.loop !54
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.lr.ph ]
@@ -5802,7 +5802,7 @@ if.else45.i:                                      ; preds = %if.else35.i
 for.inc:                                          ; preds = %if.else35.i, %if.else20.i, %if.else.i, %if.else45.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count62
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !55
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !54
 
 for.end.loopexit.split.loop.exit:                 ; preds = %if.else45.i.us
   %19 = trunc nuw i64 %indvars.iv59 to i32
@@ -5895,7 +5895,7 @@ entry:
   br i1 %tobool9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %0 = tail call i32 @llvm.cttz.i32(i32 %size, i1 true), !range !54
+  %0 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %size, i1 true)
   %1 = getelementptr i8, ptr %mr, i64 80
   %mr.val = load ptr, ptr %1, align 16
   %2 = getelementptr i8, ptr %mr.val, i64 32
@@ -5962,7 +5962,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 for.inc.us:                                       ; preds = %for.body.us
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %if.else, label %for.body.us, !llvm.loop !56
+  br i1 %exitcond71.not, label %if.else, label %for.body.us, !llvm.loop !55
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   br i1 %match_data, label %for.body.us41, label %for.body
@@ -6005,7 +6005,7 @@ land.lhs.true35.i.us:                             ; preds = %land.lhs.true24.i.u
 for.inc.us47:                                     ; preds = %land.lhs.true35.i.us, %land.lhs.true24.i.us, %land.lhs.true19.i.us, %lor.lhs.false11.i.us, %for.body.us41
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count70
-  br i1 %exitcond66.not, label %if.else, label %for.body.us41, !llvm.loop !56
+  br i1 %exitcond66.not, label %if.else, label %for.body.us41, !llvm.loop !55
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.lr.ph.split ]
@@ -6039,7 +6039,7 @@ land.lhs.true24.i:                                ; preds = %land.lhs.true19.i
 for.inc:                                          ; preds = %land.lhs.true24.i, %land.lhs.true19.i, %lor.lhs.false11.i, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count70
-  br i1 %exitcond.not, label %if.else, label %for.body, !llvm.loop !56
+  br i1 %exitcond.not, label %if.else, label %for.body, !llvm.loop !55
 
 for.end.loopexit:                                 ; preds = %for.body.us
   %19 = trunc nuw i64 %indvars.iv67 to i32
@@ -6130,7 +6130,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %alias.0.in = getelementptr inbounds i8, ptr %alias.011, i64 160
   %alias.0 = load ptr, ptr %alias.0.in, align 16
   %tobool3.not = icmp eq ptr %alias.0, null
-  br i1 %tobool3.not, label %for.end.loopexit, label %for.body, !llvm.loop !57
+  br i1 %tobool3.not, label %for.end.loopexit, label %for.body, !llvm.loop !56
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre = load ptr, ptr %container, align 16
@@ -6187,7 +6187,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %subregions_link10.i = getelementptr inbounds i8, ptr %other.025.i, i64 200
   %other.0.i = load ptr, ptr %subregions_link10.i, align 8
   %tobool.not.i = icmp eq ptr %other.0.i, null
-  br i1 %tobool.not.i, label %do.body11.i, label %for.body.i, !llvm.loop !58
+  br i1 %tobool.not.i, label %do.body11.i, label %for.body.i, !llvm.loop !57
 
 do.body11.i:                                      ; preds = %for.inc.i, %memory_region_ref.exit.i
   %subregions_link12.i = getelementptr inbounds i8, ptr %subregion, i64 200
@@ -6268,7 +6268,7 @@ for.body:                                         ; preds = %for.cond
   %dec = add i32 %2, -1
   store i32 %dec, ptr %mapped_via_alias, align 8
   %cmp4 = icmp sgt i32 %dec, -1
-  br i1 %cmp4, label %for.cond, label %if.else6, !llvm.loop !59
+  br i1 %cmp4, label %for.cond, label %if.else6, !llvm.loop !58
 
 if.else6:                                         ; preds = %for.body
   tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 2675, ptr noundef nonnull @__PRETTY_FUNCTION__.memory_region_del_subregion) #20
@@ -6613,14 +6613,14 @@ for.body:                                         ; preds = %entry, %for.body
   %container = getelementptr inbounds i8, ptr %2, i64 96
   %4 = load ptr, ptr %container, align 16
   %tobool.not = icmp eq ptr %4, null
-  br i1 %tobool.not, label %while.cond.i.preheader, label %for.body, !llvm.loop !60
+  br i1 %tobool.not, label %while.cond.i.preheader, label %for.body, !llvm.loop !59
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %while.cond.i
   %mr.addr.0.i = phi ptr [ %5, %while.cond.i ], [ %root.0.lcssa, %while.cond.i.preheader ]
   %container.i = getelementptr inbounds i8, ptr %mr.addr.0.i, i64 96
   %5 = load ptr, ptr %container.i, align 16
   %tobool.not.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i, label %for.cond.preheader.i, label %while.cond.i, !llvm.loop !61
+  br i1 %tobool.not.i, label %for.cond.preheader.i, label %while.cond.i, !llvm.loop !60
 
 for.cond.preheader.i:                             ; preds = %while.cond.i
   %as.06.i = load ptr, ptr @address_spaces, align 8
@@ -6638,7 +6638,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %address_spaces_link.i = getelementptr inbounds i8, ptr %as.08.i, i64 72
   %as.0.i = load ptr, ptr %address_spaces_link.i, align 8
   %tobool2.not.i = icmp eq ptr %as.0.i, null
-  br i1 %tobool2.not.i, label %return, label %for.body.i, !llvm.loop !62
+  br i1 %tobool2.not.i, label %return, label %for.body.i, !llvm.loop !61
 
 if.end:                                           ; preds = %for.body.i
   %start.sroa.0.0.insert.ext.i = zext i64 %addr.addr.0.lcssa to i128
@@ -6703,7 +6703,7 @@ lor.rhs.i:                                        ; preds = %addrrange_contains.
 while.body:                                       ; preds = %lor.rhs.i, %addrrange_contains.exit.i
   %arrayidx = getelementptr i8, ptr %fr.046, i64 -64
   %cmp = icmp ugt ptr %arrayidx, %11
-  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !63
+  br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !62
 
 while.end:                                        ; preds = %while.body, %lor.rhs.i, %while.cond.preheader
   %fr.0.lcssa = phi ptr [ %call.i, %while.cond.preheader ], [ %fr.046, %lor.rhs.i ], [ %arrayidx, %while.body ]
@@ -7049,7 +7049,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   %link = getelementptr inbounds i8, ptr %_listener.012, i64 160
   %_listener.0 = load ptr, ptr %link, align 8
   %tobool13.not = icmp eq ptr %_listener.0, null
-  br i1 %tobool13.not, label %do.end, label %for.body, !llvm.loop !64
+  br i1 %tobool13.not, label %do.end, label %for.body, !llvm.loop !63
 
 do.end:                                           ; preds = %for.inc, %for.cond.preheader
   tail call void @qemu_flush_coalesced_mmio_buffer() #19
@@ -7230,7 +7230,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   %_listener.0.in = load ptr, ptr %_listener.0.in.in, align 8
   %_listener.0 = load ptr, ptr %_listener.0.in, align 8
   %tobool9.not = icmp eq ptr %_listener.0, null
-  br i1 %tobool9.not, label %if.end17, label %for.body, !llvm.loop !65
+  br i1 %tobool9.not, label %if.end17, label %for.body, !llvm.loop !64
 
 if.end17:                                         ; preds = %for.inc, %if.then8, %trace_global_dirty_changed.exit
   ret void
@@ -7294,7 +7294,7 @@ for.inc:                                          ; preds = %for.body
   %link16 = getelementptr inbounds i8, ptr %other.048, i64 160
   %8 = load ptr, ptr %link16, align 8
   %tobool10.not = icmp eq ptr %8, null
-  br i1 %tobool10.not, label %do.body17, label %for.body, !llvm.loop !66
+  br i1 %tobool10.not, label %do.body17, label %for.body, !llvm.loop !65
 
 do.body17:                                        ; preds = %for.inc, %for.body
   %other.0.lcssa = phi ptr [ null, %for.inc ], [ %other.048, %for.body ]
@@ -7350,7 +7350,7 @@ for.inc63:                                        ; preds = %for.body57
   %link_as64 = getelementptr inbounds i8, ptr %other.149, i64 176
   %19 = load ptr, ptr %link_as64, align 8
   %tobool56.not = icmp eq ptr %19, null
-  br i1 %tobool56.not, label %do.body66, label %for.body57, !llvm.loop !67
+  br i1 %tobool56.not, label %do.body66, label %for.body57, !llvm.loop !66
 
 do.body66:                                        ; preds = %for.inc63, %for.body57
   %other.1.lcssa = phi ptr [ null, %for.inc63 ], [ %other.149, %for.body57 ]
@@ -7391,7 +7391,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then5.i, %if.then3.i, %if.end.i
-  %call.i = tail call ptr @address_space_get_flatview(ptr noundef %as)
+  %call.i = tail call ptr @address_space_get_flatview(ptr noundef readonly %as)
   %ranges.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %25 = load ptr, ptr %ranges.i, align 8
   %nr.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -7415,40 +7415,40 @@ for.body.lr.ph.i:                                 ; preds = %if.end8.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %fr.030.i = phi ptr [ %25, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %addr.i.i = getelementptr inbounds i8, ptr %fr.030.i, i64 16
   %size1.i.i = getelementptr inbounds i8, ptr %fr.030.i, i64 32
-  %27 = load i128, ptr %size1.i.i, align 16, !noalias !68
-  store i128 %27, ptr %section.i, align 16, !alias.scope !68
-  %28 = load ptr, ptr %fr.030.i, align 16, !noalias !68
-  store ptr %28, ptr %mr.i.i, align 16, !alias.scope !68
-  store ptr %call.i, ptr %fv3.i.i, align 8, !alias.scope !68
+  %27 = load i128, ptr %size1.i.i, align 16, !noalias !67
+  store i128 %27, ptr %section.i, align 16, !alias.scope !67
+  %28 = load ptr, ptr %fr.030.i, align 16, !noalias !67
+  store ptr %28, ptr %mr.i.i, align 16, !alias.scope !67
+  store ptr %call.i, ptr %fv3.i.i, align 8, !alias.scope !67
   %offset_in_region.i.i = getelementptr inbounds i8, ptr %fr.030.i, i64 8
-  %29 = load i64, ptr %offset_in_region.i.i, align 8, !noalias !68
-  store i64 %29, ptr %offset_within_region.i.i, align 16, !alias.scope !68
-  %30 = load i128, ptr %addr.i.i, align 16, !noalias !68
+  %29 = load i64, ptr %offset_in_region.i.i, align 8, !noalias !67
+  store i64 %29, ptr %offset_within_region.i.i, align 16, !alias.scope !67
+  %30 = load i128, ptr %addr.i.i, align 16, !noalias !67
   %cmp.i.i.i = icmp ult i128 %30, 18446744073709551616
   br i1 %cmp.i.i.i, label %section_from_flat_range.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i
-  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !68
+  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !67
   unreachable
 
 section_from_flat_range.exit.i:                   ; preds = %for.body.i
   %coerce.sroa.0.0.extract.trunc.i.i = trunc nuw i128 %30 to i64
-  store i64 %coerce.sroa.0.0.extract.trunc.i.i, ptr %offset_within_address_space.i.i, align 8, !alias.scope !68
+  store i64 %coerce.sroa.0.0.extract.trunc.i.i, ptr %offset_within_address_space.i.i, align 8, !alias.scope !67
   %readonly5.i.i = getelementptr inbounds i8, ptr %fr.030.i, i64 50
-  %31 = load i8, ptr %readonly5.i.i, align 2, !noalias !68
+  %31 = load i8, ptr %readonly5.i.i, align 2, !noalias !67
   %frombool.i.i = and i8 %31, 1
-  store i8 %frombool.i.i, ptr %readonly.i.i, align 16, !alias.scope !68
+  store i8 %frombool.i.i, ptr %readonly.i.i, align 16, !alias.scope !67
   %nonvolatile6.i.i = getelementptr inbounds i8, ptr %fr.030.i, i64 51
-  %32 = load i8, ptr %nonvolatile6.i.i, align 1, !noalias !68
+  %32 = load i8, ptr %nonvolatile6.i.i, align 1, !noalias !67
   %frombool8.i.i = and i8 %32, 1
-  store i8 %frombool8.i.i, ptr %nonvolatile.i.i, align 1, !alias.scope !68
+  store i8 %frombool8.i.i, ptr %nonvolatile.i.i, align 1, !alias.scope !67
   %unmergeable9.i.i = getelementptr inbounds i8, ptr %fr.030.i, i64 52
-  %33 = load i8, ptr %unmergeable9.i.i, align 4, !noalias !68
+  %33 = load i8, ptr %unmergeable9.i.i, align 4, !noalias !67
   %frombool11.i.i = and i8 %33, 1
-  store i8 %frombool11.i.i, ptr %unmergeable.i.i, align 2, !alias.scope !68
+  store i8 %frombool11.i.i, ptr %unmergeable.i.i, align 2, !alias.scope !67
   %34 = load ptr, ptr %region_add.i, align 8
   %tobool10.not.i = icmp eq ptr %34, null
   br i1 %tobool10.not.i, label %if.end13.i, label %if.then11.i
@@ -7480,7 +7480,7 @@ for.inc.i:                                        ; preds = %if.then16.i, %land.
   %idx.ext.i = zext i32 %38 to i64
   %add.ptr.i = getelementptr %struct.FlatRange, ptr %37, i64 %idx.ext.i
   %cmp.i = icmp ult ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !71
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !70
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end8.i
   %commit.i = getelementptr inbounds i8, ptr %listener, i64 8
@@ -7558,7 +7558,7 @@ if.then.i:                                        ; preds = %if.end5
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end5
-  %call.i = tail call ptr @address_space_get_flatview(ptr noundef %4)
+  %call.i = tail call ptr @address_space_get_flatview(ptr noundef readonly %4)
   %ranges.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %6 = load ptr, ptr %ranges.i, align 8
   %nr.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -7582,40 +7582,40 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %fr.026.i = phi ptr [ %6, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !72)
+  call void @llvm.experimental.noalias.scope.decl(metadata !71)
   %addr.i.i = getelementptr inbounds i8, ptr %fr.026.i, i64 16
   %size1.i.i = getelementptr inbounds i8, ptr %fr.026.i, i64 32
-  %8 = load i128, ptr %size1.i.i, align 16, !noalias !72
-  store i128 %8, ptr %section.i, align 16, !alias.scope !72
-  %9 = load ptr, ptr %fr.026.i, align 16, !noalias !72
-  store ptr %9, ptr %mr.i.i, align 16, !alias.scope !72
-  store ptr %call.i, ptr %fv3.i.i, align 8, !alias.scope !72
+  %8 = load i128, ptr %size1.i.i, align 16, !noalias !71
+  store i128 %8, ptr %section.i, align 16, !alias.scope !71
+  %9 = load ptr, ptr %fr.026.i, align 16, !noalias !71
+  store ptr %9, ptr %mr.i.i, align 16, !alias.scope !71
+  store ptr %call.i, ptr %fv3.i.i, align 8, !alias.scope !71
   %offset_in_region.i.i = getelementptr inbounds i8, ptr %fr.026.i, i64 8
-  %10 = load i64, ptr %offset_in_region.i.i, align 8, !noalias !72
-  store i64 %10, ptr %offset_within_region.i.i, align 16, !alias.scope !72
-  %11 = load i128, ptr %addr.i.i, align 16, !noalias !72
+  %10 = load i64, ptr %offset_in_region.i.i, align 8, !noalias !71
+  store i64 %10, ptr %offset_within_region.i.i, align 16, !alias.scope !71
+  %11 = load i128, ptr %addr.i.i, align 16, !noalias !71
   %cmp.i.i.i = icmp ult i128 %11, 18446744073709551616
   br i1 %cmp.i.i.i, label %section_from_flat_range.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i
-  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !72
+  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !71
   unreachable
 
 section_from_flat_range.exit.i:                   ; preds = %for.body.i
   %coerce.sroa.0.0.extract.trunc.i.i = trunc nuw i128 %11 to i64
-  store i64 %coerce.sroa.0.0.extract.trunc.i.i, ptr %offset_within_address_space.i.i, align 8, !alias.scope !72
+  store i64 %coerce.sroa.0.0.extract.trunc.i.i, ptr %offset_within_address_space.i.i, align 8, !alias.scope !71
   %readonly5.i.i = getelementptr inbounds i8, ptr %fr.026.i, i64 50
-  %12 = load i8, ptr %readonly5.i.i, align 2, !noalias !72
+  %12 = load i8, ptr %readonly5.i.i, align 2, !noalias !71
   %frombool.i.i = and i8 %12, 1
-  store i8 %frombool.i.i, ptr %readonly.i.i, align 16, !alias.scope !72
+  store i8 %frombool.i.i, ptr %readonly.i.i, align 16, !alias.scope !71
   %nonvolatile6.i.i = getelementptr inbounds i8, ptr %fr.026.i, i64 51
-  %13 = load i8, ptr %nonvolatile6.i.i, align 1, !noalias !72
+  %13 = load i8, ptr %nonvolatile6.i.i, align 1, !noalias !71
   %frombool8.i.i = and i8 %13, 1
-  store i8 %frombool8.i.i, ptr %nonvolatile.i.i, align 1, !alias.scope !72
+  store i8 %frombool8.i.i, ptr %nonvolatile.i.i, align 1, !alias.scope !71
   %unmergeable9.i.i = getelementptr inbounds i8, ptr %fr.026.i, i64 52
-  %14 = load i8, ptr %unmergeable9.i.i, align 4, !noalias !72
+  %14 = load i8, ptr %unmergeable9.i.i, align 4, !noalias !71
   %frombool11.i.i = and i8 %14, 1
-  store i8 %frombool11.i.i, ptr %unmergeable.i.i, align 2, !alias.scope !72
+  store i8 %frombool11.i.i, ptr %unmergeable.i.i, align 2, !alias.scope !71
   %dirty_log_mask.i = getelementptr inbounds i8, ptr %fr.026.i, i64 48
   %15 = load i8, ptr %dirty_log_mask.i, align 16
   %conv.i = zext i8 %15 to i32
@@ -7647,7 +7647,7 @@ for.inc.i:                                        ; preds = %if.then11.i, %if.en
   %idx.ext.i = zext i32 %19 to i64
   %add.ptr.i = getelementptr %struct.FlatRange, ptr %18, i64 %idx.ext.i
   %cmp.i = icmp ult ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !75
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !74
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end.i
   %commit.i = getelementptr inbounds i8, ptr %listener, i64 8
@@ -7725,7 +7725,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @memory_listener_unregister(ptr noundef nonnull %1)
   %2 = load ptr, ptr %listeners, align 8
   %cmp.not = icmp eq ptr %2, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !76
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !75
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -8071,7 +8071,7 @@ if.end20.i:                                       ; preds = %if.then17.i, %for.b
   %storemerge.i = load ptr, ptr %address_spaces_link.i, align 8
   store ptr %storemerge.i, ptr %as.i, align 8
   %tobool13.not.i = icmp eq ptr %storemerge.i, null
-  br i1 %tobool13.not.i, label %mtree_info_flatview.exit, label %for.body.i, !llvm.loop !77
+  br i1 %tobool13.not.i, label %mtree_info_flatview.exit, label %for.body.i, !llvm.loop !76
 
 mtree_info_flatview.exit:                         ; preds = %if.end20.i, %if.end.i
   call void @g_hash_table_foreach(ptr noundef %call.i, ptr noundef nonnull @mtree_print_flatview, ptr noundef nonnull %fvi.i) #19
@@ -8110,7 +8110,7 @@ for.body.i6:                                      ; preds = %if.else, %for.body.
   %address_spaces_link.i8 = getelementptr inbounds i8, ptr %as.020.i, i64 72
   %as.0.i = load ptr, ptr %address_spaces_link.i8, align 8
   %tobool9.not.i = icmp eq ptr %as.0.i, null
-  br i1 %tobool9.not.i, label %for.end.i, label %for.body.i6, !llvm.loop !78
+  br i1 %tobool9.not.i, label %for.end.i, label %for.body.i6, !llvm.loop !77
 
 for.end.i:                                        ; preds = %for.body.i6, %if.else
   call void @g_hash_table_foreach(ptr noundef %call.i4, ptr noundef nonnull @mtree_print_as, ptr noundef nonnull %asi.i) #19
@@ -8143,7 +8143,7 @@ memory_region_name.exit.i:                        ; preds = %if.then.i.i, %for.b
   %mrqueue.i = getelementptr inbounds i8, ptr %ml.023.i, i64 8
   %ml.0.i = load ptr, ptr %mrqueue.i, align 8
   %tobool16.not.i11 = icmp eq ptr %ml.0.i, null
-  br i1 %tobool16.not.i11, label %for.end25.i, label %for.body17.i, !llvm.loop !79
+  br i1 %tobool16.not.i11, label %for.end25.i, label %for.body17.i, !llvm.loop !78
 
 for.end25.i:                                      ; preds = %memory_region_name.exit.i
   %.pre.i = load ptr, ptr %ml_head.i, align 8
@@ -8156,7 +8156,7 @@ land.rhs.i:                                       ; preds = %for.end25.i, %land.
   %8 = load ptr, ptr %mrqueue28.i, align 8
   call void @g_free(ptr noundef nonnull %ml.125.i) #19
   %tobool27.not.i = icmp eq ptr %8, null
-  br i1 %tobool27.not.i, label %mtree_info_as.exit, label %land.rhs.i, !llvm.loop !80
+  br i1 %tobool27.not.i, label %mtree_info_as.exit, label %land.rhs.i, !llvm.loop !79
 
 mtree_info_as.exit:                               ; preds = %land.rhs.i, %for.end.i, %for.end25.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ml_head.i)
@@ -8393,9 +8393,9 @@ flatview_new.exit:                                ; preds = %memory_region_ref.e
   br i1 %tobool.not.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %flatview_new.exit
-  store i128 0, ptr %agg.tmp, align 16, !alias.scope !81
+  store i128 0, ptr %agg.tmp, align 16, !alias.scope !80
   %size4.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store i128 18446744073709551616, ptr %size4.i, align 16, !alias.scope !81
+  store i128 18446744073709551616, ptr %size4.i, align 16, !alias.scope !80
   tail call fastcc void @render_memory_region(ptr noundef nonnull %call.i, ptr noundef nonnull %mr, i64 noundef 0, i64 noundef 0, ptr noundef nonnull byval(%struct.AddrRange) align 16 %agg.tmp, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %if.end
 
@@ -8530,7 +8530,7 @@ while.body7.i:                                    ; preds = %can_merge.exit.i
   %40 = load i32, ptr %nr.i, align 8
   %41 = zext i32 %40 to i64
   %cmp3.i = icmp ult i64 %indvars.iv.next44.i, %41
-  br i1 %cmp3.i, label %land.rhs.i, label %while.end.loopexit.i, !llvm.loop !84
+  br i1 %cmp3.i, label %land.rhs.i, label %while.end.loopexit.i, !llvm.loop !83
 
 while.end.loopexit.i:                             ; preds = %while.body7.i, %can_merge.exit.i, %land.lhs.true48.i.i, %land.lhs.true40.i.i, %land.lhs.true32.i.i, %land.lhs.true25.i.i, %land.lhs.true20.i.i, %land.lhs.true6.i.i, %land.lhs.true.i.i20, %land.rhs.i
   %42 = phi i32 [ %11, %can_merge.exit.i ], [ %40, %while.body7.i ], [ %11, %land.lhs.true48.i.i ], [ %11, %land.lhs.true40.i.i ], [ %11, %land.lhs.true32.i.i ], [ %11, %land.lhs.true25.i.i ], [ %11, %land.lhs.true20.i.i ], [ %11, %land.lhs.true6.i.i ], [ %11, %land.lhs.true.i.i20 ], [ %11, %land.rhs.i ]
@@ -8567,7 +8567,7 @@ memory_region_unref.exit.i:                       ; preds = %if.then.i.i19, %lan
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next48.i to i32
   %exitcond = icmp eq i32 %j.0.lcssa.i, %lftr.wideiv
-  br i1 %exitcond, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !85
+  br i1 %exitcond, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !84
 
 for.end.loopexit.i:                               ; preds = %memory_region_unref.exit.i
   %.pre.i = load i32, ptr %nr.i, align 8
@@ -8589,7 +8589,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %51 = zext i32 %sub32.i to i64
   %cmp.i = icmp ult i64 %indvars.iv.next52.i, %51
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %cmp.i, label %while.body.i, label %flatview_simplify.exit, !llvm.loop !86
+  br i1 %cmp.i, label %while.body.i, label %flatview_simplify.exit, !llvm.loop !85
 
 flatview_simplify.exit:                           ; preds = %for.end.i, %if.end
   %call9 = tail call ptr @address_space_dispatch_new(ptr noundef nonnull %call.i) #19
@@ -8615,45 +8615,45 @@ for.body:                                         ; preds = %for.body.lr.ph, %se
   %53 = load ptr, ptr %ranges, align 8
   %idxprom = sext i32 %i.023 to i64
   %arrayidx = getelementptr %struct.FlatRange, ptr %53, i64 %idxprom
-  call void @llvm.experimental.noalias.scope.decl(metadata !87)
+  call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %addr.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %size1.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
-  %54 = load i128, ptr %size1.i, align 16, !noalias !87
-  store i128 %54, ptr %mrs, align 16, !alias.scope !87
-  %55 = load ptr, ptr %arrayidx, align 16, !noalias !87
-  store ptr %55, ptr %mr.i, align 16, !alias.scope !87
-  store ptr %call.i, ptr %fv3.i, align 8, !alias.scope !87
+  %54 = load i128, ptr %size1.i, align 16, !noalias !86
+  store i128 %54, ptr %mrs, align 16, !alias.scope !86
+  %55 = load ptr, ptr %arrayidx, align 16, !noalias !86
+  store ptr %55, ptr %mr.i, align 16, !alias.scope !86
+  store ptr %call.i, ptr %fv3.i, align 8, !alias.scope !86
   %offset_in_region.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %56 = load i64, ptr %offset_in_region.i, align 8, !noalias !87
-  store i64 %56, ptr %offset_within_region.i, align 16, !alias.scope !87
-  %57 = load i128, ptr %addr.i, align 16, !noalias !87
+  %56 = load i64, ptr %offset_in_region.i, align 8, !noalias !86
+  store i64 %56, ptr %offset_within_region.i, align 16, !alias.scope !86
+  %57 = load i128, ptr %addr.i, align 16, !noalias !86
   %cmp.i.i21 = icmp ult i128 %57, 18446744073709551616
   br i1 %cmp.i.i21, label %section_from_flat_range.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !87
+  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !86
   unreachable
 
 section_from_flat_range.exit:                     ; preds = %for.body
   %coerce.sroa.0.0.extract.trunc.i = trunc nuw i128 %57 to i64
-  store i64 %coerce.sroa.0.0.extract.trunc.i, ptr %offset_within_address_space.i, align 8, !alias.scope !87
+  store i64 %coerce.sroa.0.0.extract.trunc.i, ptr %offset_within_address_space.i, align 8, !alias.scope !86
   %readonly5.i = getelementptr inbounds i8, ptr %arrayidx, i64 50
-  %58 = load i8, ptr %readonly5.i, align 2, !noalias !87
+  %58 = load i8, ptr %readonly5.i, align 2, !noalias !86
   %frombool.i = and i8 %58, 1
-  store i8 %frombool.i, ptr %readonly.i, align 16, !alias.scope !87
+  store i8 %frombool.i, ptr %readonly.i, align 16, !alias.scope !86
   %nonvolatile6.i = getelementptr inbounds i8, ptr %arrayidx, i64 51
-  %59 = load i8, ptr %nonvolatile6.i, align 1, !noalias !87
+  %59 = load i8, ptr %nonvolatile6.i, align 1, !noalias !86
   %frombool8.i = and i8 %59, 1
-  store i8 %frombool8.i, ptr %nonvolatile.i, align 1, !alias.scope !87
+  store i8 %frombool8.i, ptr %nonvolatile.i, align 1, !alias.scope !86
   %unmergeable9.i = getelementptr inbounds i8, ptr %arrayidx, i64 52
-  %60 = load i8, ptr %unmergeable9.i, align 4, !noalias !87
+  %60 = load i8, ptr %unmergeable9.i, align 4, !noalias !86
   %frombool11.i = and i8 %60, 1
-  store i8 %frombool11.i, ptr %unmergeable.i, align 2, !alias.scope !87
+  store i8 %frombool11.i, ptr %unmergeable.i, align 2, !alias.scope !86
   call void @flatview_add_to_dispatch(ptr noundef nonnull %call.i, ptr noundef nonnull %mrs) #19
   %inc = add nuw i32 %i.023, 1
   %61 = load i32, ptr %nr.i, align 8
   %cmp = icmp ult i32 %inc, %61
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !90
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !89
 
 for.end.loopexit:                                 ; preds = %section_from_flat_range.exit
   %.pre = load ptr, ptr %dispatch, align 8
@@ -8846,7 +8846,7 @@ for.body:                                         ; preds = %if.end49, %for.body
   %subregions_link = getelementptr inbounds i8, ptr %subregion.0311, i64 200
   %subregion.0 = load ptr, ptr %subregions_link, align 8
   %tobool50.not = icmp eq ptr %subregion.0, null
-  br i1 %tobool50.not, label %for.end, label %for.body, !llvm.loop !91
+  br i1 %tobool50.not, label %for.end, label %for.body, !llvm.loop !90
 
 for.end:                                          ; preds = %for.body, %if.end49
   %terminates = getelementptr inbounds i8, ptr %mr.tr303, i64 152
@@ -9117,7 +9117,7 @@ for.inc149:                                       ; preds = %for.body85, %int128
   %cmp = icmp uge i32 %inc150, %56
   %cmp.i75.not = icmp eq i128 %remain.2, 0
   %or.cond = select i1 %cmp, i1 true, i1 %cmp.i75.not
-  br i1 %or.cond, label %for.end151, label %for.body85, !llvm.loop !92
+  br i1 %or.cond, label %for.end151, label %for.body85, !llvm.loop !91
 
 for.end151:                                       ; preds = %for.inc149, %memory_region_get_dirty_log_mask.exit
   %remain.0.lcssa = phi i128 [ %27, %memory_region_get_dirty_log_mask.exit ], [ %remain.2, %for.inc149 ]
@@ -9407,50 +9407,50 @@ if.then29:                                        ; preds = %if.then27
 
 for.body.i:                                       ; preds = %if.then29, %for.body.i
   %cmr.06.i = phi ptr [ %cmr.0.i, %for.body.i ], [ %cmr.04.i, %if.then29 ]
-  call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull %arrayidx, ptr noundef %as, ptr noundef nonnull %cmr.06.i, i1 noundef zeroext false)
+  call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull readonly %arrayidx, ptr noundef readonly %as, ptr noundef nonnull %cmr.06.i, i1 noundef zeroext false)
   %link.i = getelementptr inbounds i8, ptr %cmr.06.i, i64 32
   %cmr.0.i = load ptr, ptr %link.i, align 8
   %tobool.not.i = icmp eq ptr %cmr.0.i, null
-  br i1 %tobool.not.i, label %flat_range_coalesced_io_del.exit, label %for.body.i, !llvm.loop !93
+  br i1 %tobool.not.i, label %flat_range_coalesced_io_del.exit, label %for.body.i, !llvm.loop !92
 
 flat_range_coalesced_io_del.exit:                 ; preds = %for.body.i, %if.then29
   %29 = load atomic i64, ptr %current_map.i123 monotonic, align 8
   %30 = inttoptr i64 %29 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
-  call void @llvm.experimental.noalias.scope.decl(metadata !94)
+  call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %addr.i86 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %size1.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
-  %31 = load i128, ptr %size1.i, align 16, !noalias !94
-  store i128 %31, ptr %mrs, align 16, !alias.scope !94
-  %32 = load ptr, ptr %arrayidx, align 16, !noalias !94
-  store ptr %32, ptr %mr.i, align 16, !alias.scope !94
-  store ptr %30, ptr %fv3.i, align 8, !alias.scope !94
+  %31 = load i128, ptr %size1.i, align 16, !noalias !93
+  store i128 %31, ptr %mrs, align 16, !alias.scope !93
+  %32 = load ptr, ptr %arrayidx, align 16, !noalias !93
+  store ptr %32, ptr %mr.i, align 16, !alias.scope !93
+  store ptr %30, ptr %fv3.i, align 8, !alias.scope !93
   %offset_in_region.i87 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %33 = load i64, ptr %offset_in_region.i87, align 8, !noalias !94
-  store i64 %33, ptr %offset_within_region.i, align 16, !alias.scope !94
-  %34 = load i128, ptr %addr.i86, align 16, !noalias !94
+  %33 = load i64, ptr %offset_in_region.i87, align 8, !noalias !93
+  store i64 %33, ptr %offset_within_region.i, align 16, !alias.scope !93
+  %34 = load i128, ptr %addr.i86, align 16, !noalias !93
   %cmp.i.i = icmp ult i128 %34, 18446744073709551616
   br i1 %cmp.i.i, label %section_from_flat_range.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %flat_range_coalesced_io_del.exit
-  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !94
+  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !93
   unreachable
 
 section_from_flat_range.exit:                     ; preds = %flat_range_coalesced_io_del.exit
   %coerce.sroa.0.0.extract.trunc.i = trunc nuw i128 %34 to i64
-  store i64 %coerce.sroa.0.0.extract.trunc.i, ptr %offset_within_address_space.i, align 8, !alias.scope !94
+  store i64 %coerce.sroa.0.0.extract.trunc.i, ptr %offset_within_address_space.i, align 8, !alias.scope !93
   %readonly5.i = getelementptr inbounds i8, ptr %arrayidx, i64 50
-  %35 = load i8, ptr %readonly5.i, align 2, !noalias !94
+  %35 = load i8, ptr %readonly5.i, align 2, !noalias !93
   %frombool.i = and i8 %35, 1
-  store i8 %frombool.i, ptr %readonly.i88, align 16, !alias.scope !94
+  store i8 %frombool.i, ptr %readonly.i88, align 16, !alias.scope !93
   %nonvolatile6.i = getelementptr inbounds i8, ptr %arrayidx, i64 51
-  %36 = load i8, ptr %nonvolatile6.i, align 1, !noalias !94
+  %36 = load i8, ptr %nonvolatile6.i, align 1, !noalias !93
   %frombool8.i = and i8 %36, 1
-  store i8 %frombool8.i, ptr %nonvolatile.i89, align 1, !alias.scope !94
+  store i8 %frombool8.i, ptr %nonvolatile.i89, align 1, !alias.scope !93
   %unmergeable9.i = getelementptr inbounds i8, ptr %arrayidx, i64 52
-  %37 = load i8, ptr %unmergeable9.i, align 4, !noalias !94
+  %37 = load i8, ptr %unmergeable9.i, align 4, !noalias !93
   %frombool11.i = and i8 %37, 1
-  store i8 %frombool11.i, ptr %unmergeable.i90, align 2, !alias.scope !94
+  store i8 %frombool11.i, ptr %unmergeable.i90, align 2, !alias.scope !93
   %.pn75252 = load ptr, ptr %tql_prev111, align 8
   %_listener.0.in.in253 = getelementptr inbounds i8, ptr %.pn75252, i64 8
   %_listener.0.in254 = load ptr, ptr %_listener.0.in.in253, align 8
@@ -9476,11 +9476,11 @@ for.inc:                                          ; preds = %for.body, %if.then3
   %_listener.0.in = load ptr, ptr %_listener.0.in.in, align 8
   %_listener.0 = load ptr, ptr %_listener.0.in, align 8
   %tobool33.not = icmp eq ptr %_listener.0, null
-  br i1 %tobool33.not, label %if.end42, label %for.body, !llvm.loop !97
+  br i1 %tobool33.not, label %if.end42, label %for.body, !llvm.loop !96
 
 if.end42:                                         ; preds = %for.inc, %section_from_flat_range.exit, %if.then27
   %inc = add i32 %iold.0, 1
-  br label %while.cond, !llvm.loop !98
+  br label %while.cond, !llvm.loop !97
 
 land.lhs.true47:                                  ; preds = %lor.lhs.false17, %flatrange_equal.exit
   %addr14.le = getelementptr inbounds i8, ptr %arrayidx10, i64 16
@@ -9551,34 +9551,34 @@ do.body52:                                        ; preds = %if.then49
   %59 = load atomic i64, ptr %current_map.i123 monotonic, align 8
   %60 = inttoptr i64 %59 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
-  call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  %61 = load i128, ptr %40, align 16, !noalias !99
-  store i128 %61, ptr %mrs53, align 16, !alias.scope !99
-  %62 = load ptr, ptr %arrayidx10, align 16, !noalias !99
-  store ptr %62, ptr %mr.i126, align 16, !alias.scope !99
-  store ptr %60, ptr %fv3.i127, align 8, !alias.scope !99
-  %63 = load i64, ptr %offset_in_region4.i104, align 8, !noalias !99
-  store i64 %63, ptr %offset_within_region.i128, align 16, !alias.scope !99
-  %64 = load i128, ptr %addr14.le, align 16, !noalias !99
+  call void @llvm.experimental.noalias.scope.decl(metadata !98)
+  %61 = load i128, ptr %40, align 16, !noalias !98
+  store i128 %61, ptr %mrs53, align 16, !alias.scope !98
+  %62 = load ptr, ptr %arrayidx10, align 16, !noalias !98
+  store ptr %62, ptr %mr.i126, align 16, !alias.scope !98
+  store ptr %60, ptr %fv3.i127, align 8, !alias.scope !98
+  %63 = load i64, ptr %offset_in_region4.i104, align 8, !noalias !98
+  store i64 %63, ptr %offset_within_region.i128, align 16, !alias.scope !98
+  %64 = load i128, ptr %addr14.le, align 16, !noalias !98
   %cmp.i.i130 = icmp ult i128 %64, 18446744073709551616
   br i1 %cmp.i.i130, label %section_from_flat_range.exit143, label %if.else.i.i131
 
 if.else.i.i131:                                   ; preds = %do.body52
-  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !99
+  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !98
   unreachable
 
 section_from_flat_range.exit143:                  ; preds = %do.body52
   %coerce.sroa.0.0.extract.trunc.i132 = trunc nuw i128 %64 to i64
-  store i64 %coerce.sroa.0.0.extract.trunc.i132, ptr %offset_within_address_space.i133, align 8, !alias.scope !99
-  %65 = load i8, ptr %readonly15.i112, align 2, !noalias !99
+  store i64 %coerce.sroa.0.0.extract.trunc.i132, ptr %offset_within_address_space.i133, align 8, !alias.scope !98
+  %65 = load i8, ptr %readonly15.i112, align 2, !noalias !98
   %frombool.i136 = and i8 %65, 1
-  store i8 %frombool.i136, ptr %readonly.i134, align 16, !alias.scope !99
-  %66 = load i8, ptr %nonvolatile23.i116, align 1, !noalias !99
+  store i8 %frombool.i136, ptr %readonly.i134, align 16, !alias.scope !98
+  %66 = load i8, ptr %nonvolatile23.i116, align 1, !noalias !98
   %frombool8.i139 = and i8 %66, 1
-  store i8 %frombool8.i139, ptr %nonvolatile.i137, align 1, !alias.scope !99
-  %67 = load i8, ptr %unmergeable30.i120, align 4, !noalias !99
+  store i8 %frombool8.i139, ptr %nonvolatile.i137, align 1, !alias.scope !98
+  %67 = load i8, ptr %unmergeable30.i120, align 4, !noalias !98
   %frombool11.i142 = and i8 %67, 1
-  store i8 %frombool11.i142, ptr %unmergeable.i140, align 2, !alias.scope !99
+  store i8 %frombool11.i142, ptr %unmergeable.i140, align 2, !alias.scope !98
   %_listener56.0240 = load ptr, ptr %listeners57, align 8
   %tobool59.not241 = icmp eq ptr %_listener56.0240, null
   br i1 %tobool59.not241, label %do.end69, label %for.body60
@@ -9598,7 +9598,7 @@ for.inc65:                                        ; preds = %for.body60, %if.the
   %link_as66 = getelementptr inbounds i8, ptr %_listener56.0242, i64 176
   %_listener56.0 = load ptr, ptr %link_as66, align 8
   %tobool59.not = icmp eq ptr %_listener56.0, null
-  br i1 %tobool59.not, label %do.end69, label %for.body60, !llvm.loop !102
+  br i1 %tobool59.not, label %do.end69, label %for.body60, !llvm.loop !101
 
 do.end69:                                         ; preds = %for.inc65, %section_from_flat_range.exit143
   %dirty_log_mask = getelementptr inbounds i8, ptr %arrayidx10, i64 48
@@ -9616,34 +9616,34 @@ do.body74:                                        ; preds = %do.end69
   %71 = load atomic i64, ptr %current_map.i123 monotonic, align 8
   %72 = inttoptr i64 %71 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
-  call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  %73 = load i128, ptr %40, align 16, !noalias !103
-  store i128 %73, ptr %mrs75, align 16, !alias.scope !103
-  %74 = load ptr, ptr %arrayidx10, align 16, !noalias !103
-  store ptr %74, ptr %mr.i147, align 16, !alias.scope !103
-  store ptr %72, ptr %fv3.i148, align 8, !alias.scope !103
-  %75 = load i64, ptr %offset_in_region4.i104, align 8, !noalias !103
-  store i64 %75, ptr %offset_within_region.i149, align 16, !alias.scope !103
-  %76 = load i128, ptr %addr14.le, align 16, !noalias !103
+  call void @llvm.experimental.noalias.scope.decl(metadata !102)
+  %73 = load i128, ptr %40, align 16, !noalias !102
+  store i128 %73, ptr %mrs75, align 16, !alias.scope !102
+  %74 = load ptr, ptr %arrayidx10, align 16, !noalias !102
+  store ptr %74, ptr %mr.i147, align 16, !alias.scope !102
+  store ptr %72, ptr %fv3.i148, align 8, !alias.scope !102
+  %75 = load i64, ptr %offset_in_region4.i104, align 8, !noalias !102
+  store i64 %75, ptr %offset_within_region.i149, align 16, !alias.scope !102
+  %76 = load i128, ptr %addr14.le, align 16, !noalias !102
   %cmp.i.i151 = icmp ult i128 %76, 18446744073709551616
   br i1 %cmp.i.i151, label %section_from_flat_range.exit164, label %if.else.i.i152
 
 if.else.i.i152:                                   ; preds = %do.body74
-  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !103
+  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !102
   unreachable
 
 section_from_flat_range.exit164:                  ; preds = %do.body74
   %coerce.sroa.0.0.extract.trunc.i153 = trunc nuw i128 %76 to i64
-  store i64 %coerce.sroa.0.0.extract.trunc.i153, ptr %offset_within_address_space.i154, align 8, !alias.scope !103
-  %77 = load i8, ptr %readonly15.i112, align 2, !noalias !103
+  store i64 %coerce.sroa.0.0.extract.trunc.i153, ptr %offset_within_address_space.i154, align 8, !alias.scope !102
+  %77 = load i8, ptr %readonly15.i112, align 2, !noalias !102
   %frombool.i157 = and i8 %77, 1
-  store i8 %frombool.i157, ptr %readonly.i155, align 16, !alias.scope !103
-  %78 = load i8, ptr %nonvolatile23.i116, align 1, !noalias !103
+  store i8 %frombool.i157, ptr %readonly.i155, align 16, !alias.scope !102
+  %78 = load i8, ptr %nonvolatile23.i116, align 1, !noalias !102
   %frombool8.i160 = and i8 %78, 1
-  store i8 %frombool8.i160, ptr %nonvolatile.i158, align 1, !alias.scope !103
-  %79 = load i8, ptr %unmergeable30.i120, align 4, !noalias !103
+  store i8 %frombool8.i160, ptr %nonvolatile.i158, align 1, !alias.scope !102
+  %79 = load i8, ptr %unmergeable30.i120, align 4, !noalias !102
   %frombool11.i163 = and i8 %79, 1
-  store i8 %frombool11.i163, ptr %unmergeable.i161, align 2, !alias.scope !103
+  store i8 %frombool11.i163, ptr %unmergeable.i161, align 2, !alias.scope !102
   %_listener78.0243 = load ptr, ptr %listeners57, align 8
   %tobool81.not244 = icmp eq ptr %_listener78.0243, null
   br i1 %tobool81.not244, label %if.end96, label %for.body82
@@ -9667,7 +9667,7 @@ for.inc91:                                        ; preds = %for.body82, %if.the
   %link_as92 = getelementptr inbounds i8, ptr %_listener78.0245, i64 176
   %_listener78.0 = load ptr, ptr %link_as92, align 8
   %tobool81.not = icmp eq ptr %_listener78.0, null
-  br i1 %tobool81.not, label %if.end96, label %for.body82, !llvm.loop !106
+  br i1 %tobool81.not, label %if.end96, label %for.body82, !llvm.loop !105
 
 if.end96:                                         ; preds = %for.inc91, %section_from_flat_range.exit164, %do.end69
   %83 = load i8, ptr %dirty_log_mask70, align 16
@@ -9683,34 +9683,34 @@ do.body105:                                       ; preds = %if.end96
   %85 = load atomic i64, ptr %current_map.i123 monotonic, align 8
   %86 = inttoptr i64 %85 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
-  call void @llvm.experimental.noalias.scope.decl(metadata !107)
-  %87 = load i128, ptr %40, align 16, !noalias !107
-  store i128 %87, ptr %mrs106, align 16, !alias.scope !107
-  %88 = load ptr, ptr %arrayidx10, align 16, !noalias !107
-  store ptr %88, ptr %mr.i168, align 16, !alias.scope !107
-  store ptr %86, ptr %fv3.i169, align 8, !alias.scope !107
-  %89 = load i64, ptr %offset_in_region4.i104, align 8, !noalias !107
-  store i64 %89, ptr %offset_within_region.i170, align 16, !alias.scope !107
-  %90 = load i128, ptr %addr14.le, align 16, !noalias !107
+  call void @llvm.experimental.noalias.scope.decl(metadata !106)
+  %87 = load i128, ptr %40, align 16, !noalias !106
+  store i128 %87, ptr %mrs106, align 16, !alias.scope !106
+  %88 = load ptr, ptr %arrayidx10, align 16, !noalias !106
+  store ptr %88, ptr %mr.i168, align 16, !alias.scope !106
+  store ptr %86, ptr %fv3.i169, align 8, !alias.scope !106
+  %89 = load i64, ptr %offset_in_region4.i104, align 8, !noalias !106
+  store i64 %89, ptr %offset_within_region.i170, align 16, !alias.scope !106
+  %90 = load i128, ptr %addr14.le, align 16, !noalias !106
   %cmp.i.i172 = icmp ult i128 %90, 18446744073709551616
   br i1 %cmp.i.i172, label %section_from_flat_range.exit185, label %if.else.i.i173
 
 if.else.i.i173:                                   ; preds = %do.body105
-  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !107
+  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !106
   unreachable
 
 section_from_flat_range.exit185:                  ; preds = %do.body105
   %coerce.sroa.0.0.extract.trunc.i174 = trunc nuw i128 %90 to i64
-  store i64 %coerce.sroa.0.0.extract.trunc.i174, ptr %offset_within_address_space.i175, align 8, !alias.scope !107
-  %91 = load i8, ptr %readonly15.i112, align 2, !noalias !107
+  store i64 %coerce.sroa.0.0.extract.trunc.i174, ptr %offset_within_address_space.i175, align 8, !alias.scope !106
+  %91 = load i8, ptr %readonly15.i112, align 2, !noalias !106
   %frombool.i178 = and i8 %91, 1
-  store i8 %frombool.i178, ptr %readonly.i176, align 16, !alias.scope !107
-  %92 = load i8, ptr %nonvolatile23.i116, align 1, !noalias !107
+  store i8 %frombool.i178, ptr %readonly.i176, align 16, !alias.scope !106
+  %92 = load i8, ptr %nonvolatile23.i116, align 1, !noalias !106
   %frombool8.i181 = and i8 %92, 1
-  store i8 %frombool8.i181, ptr %nonvolatile.i179, align 1, !alias.scope !107
-  %93 = load i8, ptr %unmergeable30.i120, align 4, !noalias !107
+  store i8 %frombool8.i181, ptr %nonvolatile.i179, align 1, !alias.scope !106
+  %93 = load i8, ptr %unmergeable30.i120, align 4, !noalias !106
   %frombool11.i184 = and i8 %93, 1
-  store i8 %frombool11.i184, ptr %unmergeable.i182, align 2, !alias.scope !107
+  store i8 %frombool11.i184, ptr %unmergeable.i182, align 2, !alias.scope !106
   %.pn246 = load ptr, ptr %tql_prev111, align 8
   %_listener109.0.in.in247 = getelementptr inbounds i8, ptr %.pn246, i64 8
   %_listener109.0.in248 = load ptr, ptr %_listener109.0.in.in247, align 8
@@ -9740,7 +9740,7 @@ for.inc125:                                       ; preds = %for.body116, %if.th
   %_listener109.0.in = load ptr, ptr %_listener109.0.in.in, align 8
   %_listener109.0 = load ptr, ptr %_listener109.0.in, align 8
   %tobool115.not = icmp eq ptr %_listener109.0, null
-  br i1 %tobool115.not, label %if.end134, label %for.body116, !llvm.loop !110
+  br i1 %tobool115.not, label %if.end134, label %for.body116, !llvm.loop !109
 
 if.end134:                                        ; preds = %for.inc125, %section_from_flat_range.exit185, %if.end96, %if.then49
   %inc135 = add i32 %iold.0, 1
@@ -9749,7 +9749,7 @@ if.end134:                                        ; preds = %for.inc125, %sectio
 while.cond.outer.backedge:                        ; preds = %if.else137, %do.end157, %for.body.i209, %if.end134
   %iold.0.ph.be = phi i32 [ %inc135, %if.end134 ], [ %iold.0, %for.body.i209 ], [ %iold.0, %do.end157 ], [ %iold.0, %if.else137 ]
   %inew.0.ph.be = add i32 %inew.0.ph, 1
-  br label %while.cond.outer, !llvm.loop !98
+  br label %while.cond.outer, !llvm.loop !97
 
 if.else137:                                       ; preds = %if.end12, %if.end12.thread, %land.lhs.true47, %land.lhs.true.i92, %land.lhs.true3.i102, %land.lhs.true6.i106, %land.lhs.true12.i110, %land.lhs.true20.i114, %if.end12.thread232, %flatrange_equal.exit122
   %frnew.0215225 = phi ptr [ %arrayidx10, %flatrange_equal.exit122 ], [ %arrayidx10236, %if.end12.thread232 ], [ %arrayidx10, %land.lhs.true20.i114 ], [ %arrayidx10, %land.lhs.true12.i110 ], [ %arrayidx10, %land.lhs.true6.i106 ], [ %arrayidx10, %land.lhs.true3.i102 ], [ %arrayidx10, %land.lhs.true.i92 ], [ %arrayidx10, %land.lhs.true47 ], [ null, %if.end12.thread ], [ %arrayidx10, %if.end12 ]
@@ -9759,40 +9759,40 @@ do.body140:                                       ; preds = %if.else137
   %97 = load atomic i64, ptr %current_map.i123 monotonic, align 8
   %98 = inttoptr i64 %97 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
-  call void @llvm.experimental.noalias.scope.decl(metadata !111)
+  call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %addr.i187 = getelementptr inbounds i8, ptr %frnew.0215225, i64 16
   %size1.i188 = getelementptr inbounds i8, ptr %frnew.0215225, i64 32
-  %99 = load i128, ptr %size1.i188, align 16, !noalias !111
-  store i128 %99, ptr %mrs141, align 16, !alias.scope !111
-  %100 = load ptr, ptr %frnew.0215225, align 16, !noalias !111
-  store ptr %100, ptr %mr.i189, align 16, !alias.scope !111
-  store ptr %98, ptr %fv3.i190, align 8, !alias.scope !111
+  %99 = load i128, ptr %size1.i188, align 16, !noalias !110
+  store i128 %99, ptr %mrs141, align 16, !alias.scope !110
+  %100 = load ptr, ptr %frnew.0215225, align 16, !noalias !110
+  store ptr %100, ptr %mr.i189, align 16, !alias.scope !110
+  store ptr %98, ptr %fv3.i190, align 8, !alias.scope !110
   %offset_in_region.i192 = getelementptr inbounds i8, ptr %frnew.0215225, i64 8
-  %101 = load i64, ptr %offset_in_region.i192, align 8, !noalias !111
-  store i64 %101, ptr %offset_within_region.i191, align 16, !alias.scope !111
-  %102 = load i128, ptr %addr.i187, align 16, !noalias !111
+  %101 = load i64, ptr %offset_in_region.i192, align 8, !noalias !110
+  store i64 %101, ptr %offset_within_region.i191, align 16, !alias.scope !110
+  %102 = load i128, ptr %addr.i187, align 16, !noalias !110
   %cmp.i.i193 = icmp ult i128 %102, 18446744073709551616
   br i1 %cmp.i.i193, label %section_from_flat_range.exit206, label %if.else.i.i194
 
 if.else.i.i194:                                   ; preds = %do.body140
-  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !111
+  call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !110
   unreachable
 
 section_from_flat_range.exit206:                  ; preds = %do.body140
   %coerce.sroa.0.0.extract.trunc.i195 = trunc nuw i128 %102 to i64
-  store i64 %coerce.sroa.0.0.extract.trunc.i195, ptr %offset_within_address_space.i196, align 8, !alias.scope !111
+  store i64 %coerce.sroa.0.0.extract.trunc.i195, ptr %offset_within_address_space.i196, align 8, !alias.scope !110
   %readonly5.i198 = getelementptr inbounds i8, ptr %frnew.0215225, i64 50
-  %103 = load i8, ptr %readonly5.i198, align 2, !noalias !111
+  %103 = load i8, ptr %readonly5.i198, align 2, !noalias !110
   %frombool.i199 = and i8 %103, 1
-  store i8 %frombool.i199, ptr %readonly.i197, align 16, !alias.scope !111
+  store i8 %frombool.i199, ptr %readonly.i197, align 16, !alias.scope !110
   %nonvolatile6.i201 = getelementptr inbounds i8, ptr %frnew.0215225, i64 51
-  %104 = load i8, ptr %nonvolatile6.i201, align 1, !noalias !111
+  %104 = load i8, ptr %nonvolatile6.i201, align 1, !noalias !110
   %frombool8.i202 = and i8 %104, 1
-  store i8 %frombool8.i202, ptr %nonvolatile.i200, align 1, !alias.scope !111
+  store i8 %frombool8.i202, ptr %nonvolatile.i200, align 1, !alias.scope !110
   %unmergeable9.i204 = getelementptr inbounds i8, ptr %frnew.0215225, i64 52
-  %105 = load i8, ptr %unmergeable9.i204, align 4, !noalias !111
+  %105 = load i8, ptr %unmergeable9.i204, align 4, !noalias !110
   %frombool11.i205 = and i8 %105, 1
-  store i8 %frombool11.i205, ptr %unmergeable.i203, align 2, !alias.scope !111
+  store i8 %frombool11.i205, ptr %unmergeable.i203, align 2, !alias.scope !110
   %_listener144.0258 = load ptr, ptr %listeners57, align 8
   %tobool147.not259 = icmp eq ptr %_listener144.0258, null
   br i1 %tobool147.not259, label %do.end157, label %for.body148
@@ -9812,7 +9812,7 @@ for.inc153:                                       ; preds = %for.body148, %if.th
   %link_as154 = getelementptr inbounds i8, ptr %_listener144.0260, i64 176
   %_listener144.0 = load ptr, ptr %link_as154, align 8
   %tobool147.not = icmp eq ptr %_listener144.0, null
-  br i1 %tobool147.not, label %do.end157, label %for.body148, !llvm.loop !114
+  br i1 %tobool147.not, label %do.end157, label %for.body148, !llvm.loop !113
 
 do.end157:                                        ; preds = %for.inc153, %section_from_flat_range.exit206
   %107 = load ptr, ptr %frnew.0215225, align 16
@@ -9823,11 +9823,11 @@ do.end157:                                        ; preds = %for.inc153, %sectio
 
 for.body.i209:                                    ; preds = %do.end157, %for.body.i209
   %cmr.05.i = phi ptr [ %109, %for.body.i209 ], [ %108, %do.end157 ]
-  call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull %frnew.0215225, ptr noundef %as, ptr noundef nonnull %cmr.05.i, i1 noundef zeroext true)
+  call fastcc void @flat_range_coalesced_io_notify(ptr noundef nonnull readonly %frnew.0215225, ptr noundef readonly %as, ptr noundef nonnull %cmr.05.i, i1 noundef zeroext true)
   %link.i210 = getelementptr inbounds i8, ptr %cmr.05.i, i64 32
   %109 = load ptr, ptr %link.i210, align 16
   %tobool.not.i211 = icmp eq ptr %109, null
-  br i1 %tobool.not.i211, label %while.cond.outer.backedge, label %for.body.i209, !llvm.loop !115
+  br i1 %tobool.not.i211, label %while.cond.outer.backedge, label %for.body.i209, !llvm.loop !114
 
 while.end:                                        ; preds = %lor.rhs
   ret void
@@ -9935,44 +9935,44 @@ if.end:                                           ; preds = %addrrange_intersect
   br i1 %add, label %do.body, label %do.body26
 
 do.body:                                          ; preds = %if.end
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  %8 = load i128, ptr %2, align 16, !noalias !116
-  store i128 %8, ptr %mrs, align 16, !alias.scope !116
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
+  %8 = load i128, ptr %2, align 16, !noalias !115
+  store i128 %8, ptr %mrs, align 16, !alias.scope !115
   %mr.i = getelementptr inbounds i8, ptr %mrs, i64 16
-  %9 = load ptr, ptr %fr, align 16, !noalias !116
-  store ptr %9, ptr %mr.i, align 16, !alias.scope !116
+  %9 = load ptr, ptr %fr, align 16, !noalias !115
+  store ptr %9, ptr %mr.i, align 16, !alias.scope !115
   %fv3.i = getelementptr inbounds i8, ptr %mrs, i64 24
-  store ptr %7, ptr %fv3.i, align 8, !alias.scope !116
+  store ptr %7, ptr %fv3.i, align 8, !alias.scope !115
   %offset_within_region.i = getelementptr inbounds i8, ptr %mrs, i64 32
-  %10 = load i64, ptr %offset_in_region, align 8, !noalias !116
-  store i64 %10, ptr %offset_within_region.i, align 16, !alias.scope !116
-  %11 = load i128, ptr %addr2, align 16, !noalias !116
+  %10 = load i64, ptr %offset_in_region, align 8, !noalias !115
+  store i64 %10, ptr %offset_within_region.i, align 16, !alias.scope !115
+  %11 = load i128, ptr %addr2, align 16, !noalias !115
   %cmp.i.i = icmp ult i128 %11, 18446744073709551616
   br i1 %cmp.i.i, label %section_from_flat_range.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %do.body
-  tail call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !116
+  tail call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !115
   unreachable
 
 section_from_flat_range.exit:                     ; preds = %do.body
   %coerce.sroa.0.0.extract.trunc.i = trunc nuw i128 %11 to i64
   %offset_within_address_space.i = getelementptr inbounds i8, ptr %mrs, i64 40
-  store i64 %coerce.sroa.0.0.extract.trunc.i, ptr %offset_within_address_space.i, align 8, !alias.scope !116
+  store i64 %coerce.sroa.0.0.extract.trunc.i, ptr %offset_within_address_space.i, align 8, !alias.scope !115
   %readonly.i = getelementptr inbounds i8, ptr %mrs, i64 48
   %readonly5.i = getelementptr inbounds i8, ptr %fr, i64 50
-  %12 = load i8, ptr %readonly5.i, align 2, !noalias !116
+  %12 = load i8, ptr %readonly5.i, align 2, !noalias !115
   %frombool.i = and i8 %12, 1
-  store i8 %frombool.i, ptr %readonly.i, align 16, !alias.scope !116
+  store i8 %frombool.i, ptr %readonly.i, align 16, !alias.scope !115
   %nonvolatile.i = getelementptr inbounds i8, ptr %mrs, i64 49
   %nonvolatile6.i = getelementptr inbounds i8, ptr %fr, i64 51
-  %13 = load i8, ptr %nonvolatile6.i, align 1, !noalias !116
+  %13 = load i8, ptr %nonvolatile6.i, align 1, !noalias !115
   %frombool8.i = and i8 %13, 1
-  store i8 %frombool8.i, ptr %nonvolatile.i, align 1, !alias.scope !116
+  store i8 %frombool8.i, ptr %nonvolatile.i, align 1, !alias.scope !115
   %unmergeable.i = getelementptr inbounds i8, ptr %mrs, i64 50
   %unmergeable9.i = getelementptr inbounds i8, ptr %fr, i64 52
-  %14 = load i8, ptr %unmergeable9.i, align 4, !noalias !116
+  %14 = load i8, ptr %unmergeable9.i, align 4, !noalias !115
   %frombool11.i = and i8 %14, 1
-  store i8 %frombool11.i, ptr %unmergeable.i, align 2, !alias.scope !116
+  store i8 %frombool11.i, ptr %unmergeable.i, align 2, !alias.scope !115
   %listeners = getelementptr inbounds i8, ptr %as, i64 56
   %_listener.069 = load ptr, ptr %listeners, align 8
   %tobool15.not70 = icmp eq ptr %_listener.069, null
@@ -10003,7 +10003,7 @@ for.inc.us.us:                                    ; preds = %if.then17.us.us, %f
   %link_as.us.us = getelementptr inbounds i8, ptr %_listener.071.us.us, i64 176
   %_listener.0.us.us = load ptr, ptr %link_as.us.us, align 8
   %tobool15.not.us.us = icmp eq ptr %_listener.0.us.us, null
-  br i1 %tobool15.not.us.us, label %if.end54, label %for.body.us.us, !llvm.loop !119
+  br i1 %tobool15.not.us.us, label %if.end54, label %for.body.us.us, !llvm.loop !118
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.inc.us
   %_listener.071.us = phi ptr [ %_listener.0.us, %for.inc.us ], [ %_listener.069, %for.body.lr.ph.split.us ]
@@ -10016,7 +10016,7 @@ for.inc.us:                                       ; preds = %for.body.us
   %link_as.us = getelementptr inbounds i8, ptr %_listener.071.us, i64 176
   %_listener.0.us = load ptr, ptr %link_as.us, align 8
   %tobool15.not.us = icmp eq ptr %_listener.0.us, null
-  br i1 %tobool15.not.us, label %if.end54, label %for.body.us, !llvm.loop !119
+  br i1 %tobool15.not.us, label %if.end54, label %for.body.us, !llvm.loop !118
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %_listener.071 = phi ptr [ %_listener.0, %for.inc ], [ %_listener.069, %for.body.lr.ph ]
@@ -10037,47 +10037,47 @@ for.inc:                                          ; preds = %for.body
   %link_as = getelementptr inbounds i8, ptr %_listener.071, i64 176
   %_listener.0 = load ptr, ptr %link_as, align 8
   %tobool15.not = icmp eq ptr %_listener.0, null
-  br i1 %tobool15.not, label %if.end54, label %for.body, !llvm.loop !119
+  br i1 %tobool15.not, label %if.end54, label %for.body, !llvm.loop !118
 
 do.body26:                                        ; preds = %if.end
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
-  %18 = load i128, ptr %2, align 16, !noalias !120
-  store i128 %18, ptr %mrs27, align 16, !alias.scope !120
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
+  %18 = load i128, ptr %2, align 16, !noalias !119
+  store i128 %18, ptr %mrs27, align 16, !alias.scope !119
   %mr.i33 = getelementptr inbounds i8, ptr %mrs27, i64 16
-  %19 = load ptr, ptr %fr, align 16, !noalias !120
-  store ptr %19, ptr %mr.i33, align 16, !alias.scope !120
+  %19 = load ptr, ptr %fr, align 16, !noalias !119
+  store ptr %19, ptr %mr.i33, align 16, !alias.scope !119
   %fv3.i34 = getelementptr inbounds i8, ptr %mrs27, i64 24
-  store ptr %7, ptr %fv3.i34, align 8, !alias.scope !120
+  store ptr %7, ptr %fv3.i34, align 8, !alias.scope !119
   %offset_within_region.i35 = getelementptr inbounds i8, ptr %mrs27, i64 32
-  %20 = load i64, ptr %offset_in_region, align 8, !noalias !120
-  store i64 %20, ptr %offset_within_region.i35, align 16, !alias.scope !120
-  %21 = load i128, ptr %addr2, align 16, !noalias !120
+  %20 = load i64, ptr %offset_in_region, align 8, !noalias !119
+  store i64 %20, ptr %offset_within_region.i35, align 16, !alias.scope !119
+  %21 = load i128, ptr %addr2, align 16, !noalias !119
   %cmp.i.i37 = icmp ult i128 %21, 18446744073709551616
   br i1 %cmp.i.i37, label %section_from_flat_range.exit50, label %if.else.i.i38
 
 if.else.i.i38:                                    ; preds = %do.body26
-  tail call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !120
+  tail call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20, !noalias !119
   unreachable
 
 section_from_flat_range.exit50:                   ; preds = %do.body26
   %coerce.sroa.0.0.extract.trunc.i39 = trunc nuw i128 %21 to i64
   %offset_within_address_space.i40 = getelementptr inbounds i8, ptr %mrs27, i64 40
-  store i64 %coerce.sroa.0.0.extract.trunc.i39, ptr %offset_within_address_space.i40, align 8, !alias.scope !120
+  store i64 %coerce.sroa.0.0.extract.trunc.i39, ptr %offset_within_address_space.i40, align 8, !alias.scope !119
   %readonly.i41 = getelementptr inbounds i8, ptr %mrs27, i64 48
   %readonly5.i42 = getelementptr inbounds i8, ptr %fr, i64 50
-  %22 = load i8, ptr %readonly5.i42, align 2, !noalias !120
+  %22 = load i8, ptr %readonly5.i42, align 2, !noalias !119
   %frombool.i43 = and i8 %22, 1
-  store i8 %frombool.i43, ptr %readonly.i41, align 16, !alias.scope !120
+  store i8 %frombool.i43, ptr %readonly.i41, align 16, !alias.scope !119
   %nonvolatile.i44 = getelementptr inbounds i8, ptr %mrs27, i64 49
   %nonvolatile6.i45 = getelementptr inbounds i8, ptr %fr, i64 51
-  %23 = load i8, ptr %nonvolatile6.i45, align 1, !noalias !120
+  %23 = load i8, ptr %nonvolatile6.i45, align 1, !noalias !119
   %frombool8.i46 = and i8 %23, 1
-  store i8 %frombool8.i46, ptr %nonvolatile.i44, align 1, !alias.scope !120
+  store i8 %frombool8.i46, ptr %nonvolatile.i44, align 1, !alias.scope !119
   %unmergeable.i47 = getelementptr inbounds i8, ptr %mrs27, i64 50
   %unmergeable9.i48 = getelementptr inbounds i8, ptr %fr, i64 52
-  %24 = load i8, ptr %unmergeable9.i48, align 4, !noalias !120
+  %24 = load i8, ptr %unmergeable9.i48, align 4, !noalias !119
   %frombool11.i49 = and i8 %24, 1
-  store i8 %frombool11.i49, ptr %unmergeable.i47, align 2, !alias.scope !120
+  store i8 %frombool11.i49, ptr %unmergeable.i47, align 2, !alias.scope !119
   %tql_prev = getelementptr inbounds i8, ptr %as, i64 64
   %.pn63 = load ptr, ptr %tql_prev, align 8
   %_listener30.0.in.in64 = getelementptr inbounds i8, ptr %.pn63, i64 8
@@ -10114,7 +10114,7 @@ for.inc46.us.us:                                  ; preds = %if.then37.us.us, %f
   %_listener30.0.in.us.us = load ptr, ptr %_listener30.0.in.in.us.us, align 8
   %_listener30.0.us.us = load ptr, ptr %_listener30.0.in.us.us, align 8
   %tobool34.not.us.us = icmp eq ptr %_listener30.0.us.us, null
-  br i1 %tobool34.not.us.us, label %if.end54, label %for.body35.us.us, !llvm.loop !123
+  br i1 %tobool34.not.us.us, label %if.end54, label %for.body35.us.us, !llvm.loop !122
 
 for.body35.us:                                    ; preds = %for.body35.lr.ph.split.us, %for.inc46.us
   %_listener30.068.us = phi ptr [ %_listener30.0.us, %for.inc46.us ], [ %_listener30.066, %for.body35.lr.ph.split.us ]
@@ -10130,7 +10130,7 @@ for.inc46.us:                                     ; preds = %for.body35.us
   %_listener30.0.in.us = load ptr, ptr %_listener30.0.in.in.us, align 8
   %_listener30.0.us = load ptr, ptr %_listener30.0.in.us, align 8
   %tobool34.not.us = icmp eq ptr %_listener30.0.us, null
-  br i1 %tobool34.not.us, label %if.end54, label %for.body35.us, !llvm.loop !123
+  br i1 %tobool34.not.us, label %if.end54, label %for.body35.us, !llvm.loop !122
 
 for.body35:                                       ; preds = %for.body35.lr.ph, %for.inc46
   %_listener30.068 = phi ptr [ %_listener30.0, %for.inc46 ], [ %_listener30.066, %for.body35.lr.ph ]
@@ -10154,7 +10154,7 @@ for.inc46:                                        ; preds = %for.body35
   %_listener30.0.in = load ptr, ptr %_listener30.0.in.in, align 8
   %_listener30.0 = load ptr, ptr %_listener30.0.in, align 8
   %tobool34.not = icmp eq ptr %_listener30.0, null
-  br i1 %tobool34.not, label %if.end54, label %for.body35, !llvm.loop !123
+  br i1 %tobool34.not, label %if.end54, label %for.body35, !llvm.loop !122
 
 if.end54:                                         ; preds = %for.inc46, %for.inc46.us, %for.inc46.us.us, %for.inc, %for.inc.us, %for.inc.us.us, %section_from_flat_range.exit50, %section_from_flat_range.exit, %lor.rhs.i, %addrrange_intersects.exit
   ret void
@@ -10736,7 +10736,7 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @cmp_flatrange_addr(ptr nocapture noundef readonly %addr_, ptr nocapture noundef readonly %fr_) #4 {
+define internal range(i32 -1, 2) i32 @cmp_flatrange_addr(ptr nocapture noundef readonly %addr_, ptr nocapture noundef readonly %fr_) #4 {
 entry:
   %addr_.val = load i128, ptr %addr_, align 16
   %0 = getelementptr i8, ptr %addr_, i64 16
@@ -10863,7 +10863,7 @@ if.end:                                           ; preds = %memory_region_name.
   %inc11 = add nuw i32 %i.0166, 1
   %15 = load i32, ptr %len, align 8
   %cmp = icmp ult i32 %inc11, %15
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !124
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !123
 
 for.end:                                          ; preds = %if.end, %entry
   %root12 = getelementptr inbounds i8, ptr %key, i64 48
@@ -11195,13 +11195,13 @@ for.inc141:                                       ; preds = %cond.end132, %if.th
   %inc142 = add nuw i32 %i.1168, 1
   %63 = load i32, ptr %len, align 8
   %cmp106 = icmp ult i32 %inc142, %63
-  br i1 %cmp106, label %for.body107, label %if.end144, !llvm.loop !125
+  br i1 %cmp106, label %for.body107, label %if.end144, !llvm.loop !124
 
 if.end144:                                        ; preds = %for.inc141, %for.cond104.preheader, %if.end101
   %call145 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.87) #19
   %incdec.ptr = getelementptr i8, ptr %range.0170, i64 64
   %tobool21.not = icmp eq i32 %dec172, 0
-  br i1 %tobool21.not, label %while.end, label %while.body, !llvm.loop !126
+  br i1 %tobool21.not, label %while.end, label %while.body, !llvm.loop !125
 
 while.end:                                        ; preds = %if.end144
   %dispatch_tree = getelementptr inbounds i8, ptr %user_data, i64 4
@@ -11379,7 +11379,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %mrqueue = getelementptr inbounds i8, ptr %ml.0171, i64 8
   %ml.0 = load ptr, ptr %mrqueue, align 8
   %tobool18.not = icmp eq ptr %ml.0, null
-  br i1 %tobool18.not, label %for.end, label %for.body, !llvm.loop !127
+  br i1 %tobool18.not, label %for.end, label %for.body, !llvm.loop !126
 
 for.end:                                          ; preds = %for.body
   br i1 %spec.select, label %if.end35, label %if.then25
@@ -11414,7 +11414,7 @@ for.body42:                                       ; preds = %for.cond40.preheade
   %call43 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.114) #19
   %inc = add nuw i32 %i.0173, 1
   %exitcond.not = icmp eq i32 %inc, %level
-  br i1 %exitcond.not, label %for.end45, label %for.body42, !llvm.loop !128
+  br i1 %exitcond.not, label %for.end45, label %for.body42, !llvm.loop !127
 
 for.end45:                                        ; preds = %for.body42, %for.cond40.preheader
   %priority = getelementptr inbounds i8, ptr %mr, i64 176
@@ -11563,7 +11563,7 @@ for.body86:                                       ; preds = %for.cond84.preheade
   %call87 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.114) #19
   %inc89 = add nuw i32 %i.1175, 1
   %exitcond189.not = icmp eq i32 %inc89, %level
-  br i1 %exitcond189.not, label %for.end90, label %for.body86, !llvm.loop !129
+  br i1 %exitcond189.not, label %for.end90, label %for.body86, !llvm.loop !128
 
 for.end90:                                        ; preds = %for.body86, %for.cond84.preheader
   %priority91 = getelementptr inbounds i8, ptr %mr, i64 176
@@ -11734,7 +11734,7 @@ for.inc149:                                       ; preds = %lor.lhs.false123, %
   %mrqueue150 = getelementptr inbounds i8, ptr %ml.1178, i64 8
   %ml.1 = load ptr, ptr %mrqueue150, align 8
   %tobool116.not = icmp eq ptr %ml.1, null
-  br i1 %tobool116.not, label %do.body154, label %for.body117, !llvm.loop !130
+  br i1 %tobool116.not, label %do.body154, label %for.body117, !llvm.loop !129
 
 do.body154:                                       ; preds = %for.inc149, %for.body112
   %mrqueue155 = getelementptr inbounds i8, ptr %call113, i64 8
@@ -11750,7 +11750,7 @@ for.inc165:                                       ; preds = %for.end151.thread, 
   %subregions_link = getelementptr inbounds i8, ptr %submr.0181, i64 200
   %submr.0 = load ptr, ptr %subregions_link, align 8
   %tobool111.not = icmp eq ptr %submr.0, null
-  br i1 %tobool111.not, label %for.cond167.preheader, label %for.body112, !llvm.loop !131
+  br i1 %tobool111.not, label %for.cond167.preheader, label %for.body112, !llvm.loop !130
 
 for.body169:                                      ; preds = %for.body169.lr.ph, %for.body169
   %ml.2185 = phi ptr [ %ml.2183.pre, %for.body169.lr.ph ], [ %ml.2, %for.body169 ]
@@ -11759,7 +11759,7 @@ for.body169:                                      ; preds = %for.body169.lr.ph, 
   %mrqueue175 = getelementptr inbounds i8, ptr %ml.2185, i64 8
   %ml.2 = load ptr, ptr %mrqueue175, align 8
   %tobool168.not = icmp eq ptr %ml.2, null
-  br i1 %tobool168.not, label %for.end176, label %for.body169, !llvm.loop !132
+  br i1 %tobool168.not, label %for.end176, label %for.body169, !llvm.loop !131
 
 for.end176:                                       ; preds = %for.body169
   %.pre = load ptr, ptr %submr_print_queue, align 8
@@ -11772,7 +11772,7 @@ land.rhs:                                         ; preds = %for.end176, %land.r
   %50 = load ptr, ptr %mrqueue179, align 8
   call void @g_free(ptr noundef nonnull %ml.3187) #19
   %tobool178.not = icmp eq ptr %50, null
-  br i1 %tobool178.not, label %for.end182, label %land.rhs, !llvm.loop !133
+  br i1 %tobool178.not, label %for.end182, label %land.rhs, !llvm.loop !132
 
 for.end182:                                       ; preds = %land.rhs, %do.body107, %for.cond167.preheader, %for.end176, %entry
   ret void
@@ -11855,7 +11855,7 @@ while.body:                                       ; preds = %if.end, %while.body
   tail call void @memory_region_del_subregion(ptr noundef nonnull %call.i, ptr noundef nonnull %3)
   %4 = load ptr, ptr %subregions, align 8
   %cmp.not = icmp eq ptr %4, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !134
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !133
 
 while.end:                                        ; preds = %while.body, %if.end
   tail call void @memory_region_transaction_commit()
@@ -12083,7 +12083,7 @@ attributes #23 = { nounwind allocsize(0) }
 !51 = distinct !{!51, !6}
 !52 = distinct !{!52, !6}
 !53 = distinct !{!53, !6}
-!54 = !{i32 0, i32 33}
+!54 = distinct !{!54, !6}
 !55 = distinct !{!55, !6}
 !56 = distinct !{!56, !6}
 !57 = distinct !{!57, !6}
@@ -12096,62 +12096,62 @@ attributes #23 = { nounwind allocsize(0) }
 !64 = distinct !{!64, !6}
 !65 = distinct !{!65, !6}
 !66 = distinct !{!66, !6}
-!67 = distinct !{!67, !6}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"section_from_flat_range: %agg.result"}
-!70 = distinct !{!70, !"section_from_flat_range"}
-!71 = distinct !{!71, !6}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"section_from_flat_range: %agg.result"}
-!74 = distinct !{!74, !"section_from_flat_range"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"section_from_flat_range: %agg.result"}
+!69 = distinct !{!69, !"section_from_flat_range"}
+!70 = distinct !{!70, !6}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"section_from_flat_range: %agg.result"}
+!73 = distinct !{!73, !"section_from_flat_range"}
+!74 = distinct !{!74, !6}
 !75 = distinct !{!75, !6}
 !76 = distinct !{!76, !6}
 !77 = distinct !{!77, !6}
 !78 = distinct !{!78, !6}
 !79 = distinct !{!79, !6}
-!80 = distinct !{!80, !6}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"addrrange_make: %agg.result"}
-!83 = distinct !{!83, !"addrrange_make"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"addrrange_make: %agg.result"}
+!82 = distinct !{!82, !"addrrange_make"}
+!83 = distinct !{!83, !6}
 !84 = distinct !{!84, !6}
 !85 = distinct !{!85, !6}
-!86 = distinct !{!86, !6}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"section_from_flat_range: %agg.result"}
-!89 = distinct !{!89, !"section_from_flat_range"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"section_from_flat_range: %agg.result"}
+!88 = distinct !{!88, !"section_from_flat_range"}
+!89 = distinct !{!89, !6}
 !90 = distinct !{!90, !6}
 !91 = distinct !{!91, !6}
 !92 = distinct !{!92, !6}
-!93 = distinct !{!93, !6}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"section_from_flat_range: %agg.result"}
-!96 = distinct !{!96, !"section_from_flat_range"}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"section_from_flat_range: %agg.result"}
+!95 = distinct !{!95, !"section_from_flat_range"}
+!96 = distinct !{!96, !6}
 !97 = distinct !{!97, !6}
-!98 = distinct !{!98, !6}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"section_from_flat_range: %agg.result"}
-!101 = distinct !{!101, !"section_from_flat_range"}
-!102 = distinct !{!102, !6}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"section_from_flat_range: %agg.result"}
-!105 = distinct !{!105, !"section_from_flat_range"}
-!106 = distinct !{!106, !6}
-!107 = !{!108}
-!108 = distinct !{!108, !109, !"section_from_flat_range: %agg.result"}
-!109 = distinct !{!109, !"section_from_flat_range"}
-!110 = distinct !{!110, !6}
-!111 = !{!112}
-!112 = distinct !{!112, !113, !"section_from_flat_range: %agg.result"}
-!113 = distinct !{!113, !"section_from_flat_range"}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"section_from_flat_range: %agg.result"}
+!100 = distinct !{!100, !"section_from_flat_range"}
+!101 = distinct !{!101, !6}
+!102 = !{!103}
+!103 = distinct !{!103, !104, !"section_from_flat_range: %agg.result"}
+!104 = distinct !{!104, !"section_from_flat_range"}
+!105 = distinct !{!105, !6}
+!106 = !{!107}
+!107 = distinct !{!107, !108, !"section_from_flat_range: %agg.result"}
+!108 = distinct !{!108, !"section_from_flat_range"}
+!109 = distinct !{!109, !6}
+!110 = !{!111}
+!111 = distinct !{!111, !112, !"section_from_flat_range: %agg.result"}
+!112 = distinct !{!112, !"section_from_flat_range"}
+!113 = distinct !{!113, !6}
 !114 = distinct !{!114, !6}
-!115 = distinct !{!115, !6}
-!116 = !{!117}
-!117 = distinct !{!117, !118, !"section_from_flat_range: %agg.result"}
-!118 = distinct !{!118, !"section_from_flat_range"}
-!119 = distinct !{!119, !6}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"section_from_flat_range: %agg.result"}
-!122 = distinct !{!122, !"section_from_flat_range"}
+!115 = !{!116}
+!116 = distinct !{!116, !117, !"section_from_flat_range: %agg.result"}
+!117 = distinct !{!117, !"section_from_flat_range"}
+!118 = distinct !{!118, !6}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"section_from_flat_range: %agg.result"}
+!121 = distinct !{!121, !"section_from_flat_range"}
+!122 = distinct !{!122, !6}
 !123 = distinct !{!123, !6}
 !124 = distinct !{!124, !6}
 !125 = distinct !{!125, !6}
@@ -12163,4 +12163,3 @@ attributes #23 = { nounwind allocsize(0) }
 !131 = distinct !{!131, !6}
 !132 = distinct !{!132, !6}
 !133 = distinct !{!133, !6}
-!134 = distinct !{!134, !6}

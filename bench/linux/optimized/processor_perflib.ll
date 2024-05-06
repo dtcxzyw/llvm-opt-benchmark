@@ -144,7 +144,7 @@ define dso_local void @acpi_processor_ppc_has_changed(ptr noundef %0, i32 nounde
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @acpi_processor_get_platform_limit(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @acpi_processor_get_platform_limit(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   store i64 0, ptr %2, align 8
@@ -234,7 +234,7 @@ declare dso_local void @cpufreq_update_limits(i32 noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @acpi_processor_get_bios_limit(i32 noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_get_bios_limit(i32 noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8
@@ -394,7 +394,7 @@ define dso_local void @acpi_processor_ppc_exit(ptr nocapture noundef readonly %0
 declare dso_local i32 @freq_qos_remove_request(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_processor_get_performance_info(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.acpi_buffer, align 8
   %3 = alloca %struct.acpi_buffer, align 8
   %4 = alloca %struct.acpi_buffer, align 8
@@ -788,7 +788,7 @@ define dso_local noundef i32 @acpi_processor_get_performance_info(ptr noundef %0
 declare dso_local zeroext i1 @acpi_has_method(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_processor_pstate_control() local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -5, 2) i32 @acpi_processor_pstate_control() local_unnamed_addr #0 align 16 {
   %1 = load i32, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 6), align 1
   %2 = icmp ne i32 %1, 0
   %3 = load i8, ptr getelementptr inbounds (%struct.acpi_table_fadt, ptr @acpi_gbl_FADT, i64 0, i32 10), align 1
@@ -823,7 +823,7 @@ declare dso_local i32 @acpi_os_write_port(i64 noundef, i32 noundef, i32 noundef)
 declare dso_local ptr @acpi_format_exception(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_processor_notify_smm(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -22, 2) i32 @acpi_processor_notify_smm(ptr noundef %0) #0 align 16 {
   %2 = load i8, ptr @acpi_processor_cpufreq_init, align 1, !range !16, !noundef !17
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %33, label %4
@@ -891,7 +891,7 @@ declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #2
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_processor_get_psd(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_get_psd(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.acpi_buffer, align 8
   %4 = alloca %struct.acpi_buffer, align 8
   %5 = alloca %struct.acpi_buffer, align 8
@@ -985,7 +985,7 @@ declare dso_local i32 @acpi_extract_package(ptr noundef, ptr noundef, ptr nounde
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_processor_preregister_performance(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(ptr noundef %0) #0 align 16 {
   %2 = alloca [1 x %struct.cpumask], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   store i64 0, ptr %2, align 8
@@ -1374,7 +1374,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_processor_register_performance(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_processor_register_performance(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = load i8, ptr @acpi_processor_cpufreq_init, align 1, !range !16, !noundef !17
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %26, label %5
@@ -1408,7 +1408,7 @@ define dso_local noundef i32 @acpi_processor_register_performance(ptr noundef %0
 
 20:                                               ; preds = %19, %17
   store ptr %0, ptr %14, align 8
-  %21 = tail call i32 @acpi_processor_get_performance_info(ptr noundef nonnull %11), !range !5
+  %21 = tail call i32 @acpi_processor_get_performance_info(ptr noundef nonnull %11)
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %24, label %23
 

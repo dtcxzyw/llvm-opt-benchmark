@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i64 @curl_getdate(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 -1, ptr %3, align 8
-  %4 = call fastcc i32 @parsedate(ptr noundef %0, ptr noundef nonnull %3), !range !5
+  %4 = call fastcc i32 @parsedate(ptr noundef %0, ptr noundef nonnull %3)
   %5 = icmp eq i32 %4, 0
   %6 = load i64, ptr %3, align 8
   %7 = icmp eq i64 %6, -1
@@ -51,7 +51,7 @@ define dso_local i64 @curl_getdate(ptr noundef %0, ptr nocapture noundef readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parsedate(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parsedate(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load i8, ptr %0, align 1
   %.not322 = icmp eq i8 %4, 0
@@ -90,7 +90,7 @@ define internal fastcc noundef i32 @parsedate(ptr noundef %0, ptr nocapture noun
   %15 = add i8 %14, -65
   %16 = icmp ult i8 %15, 26
   %or.cond14.i = or i1 %16, %or.cond12.i
-  br i1 %or.cond14.i, label %skip.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %or.cond14.i, label %skip.exit, label %.lr.ph.i, !llvm.loop !5
 
 skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   %.pre-phi329 = phi i8 [ %8, %.lr.ph ], [ %15, %.lr.ph.i ]
@@ -125,7 +125,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   %27 = getelementptr inbounds i8, ptr %.0122, i64 1
   %28 = add nuw nsw i64 %.0123, 1
   %.pre328 = load i8, ptr %27, align 1
-  br label %.preheader, !llvm.loop !8
+  br label %.preheader, !llvm.loop !7
 
 .critedge:                                        ; preds = %22, %20, %25
   %.not171 = icmp eq i64 %.0123, 12
@@ -164,7 +164,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   %42 = getelementptr inbounds i8, ptr %.117.i, i64 8
   %43 = add nuw nsw i32 %.01316.i, 1
   %exitcond.not.i = icmp eq i32 %43, 7
-  br i1 %exitcond.not.i, label %.loopexit286, label %35, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.loopexit286, label %35, !llvm.loop !8
 
 .loopexit286:                                     ; preds = %41, %33, %29
   %.1 = phi i32 [ %.0117315, %29 ], [ -1, %33 ], [ -1, %41 ]
@@ -187,7 +187,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   %48 = getelementptr inbounds i8, ptr %.011.i, i64 8
   %49 = add nuw nsw i32 %.0710.i, 1
   %exitcond.not.i192 = icmp eq i32 %49, 12
-  br i1 %exitcond.not.i192, label %.loopexit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond.not.i192, label %.loopexit, label %.preheader.i, !llvm.loop !9
 
 .loopexit:                                        ; preds = %47, %44, %.loopexit286
   %.1119 = phi i32 [ %.0118314, %.loopexit286 ], [ -1, %44 ], [ -1, %47 ]
@@ -212,7 +212,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   %56 = getelementptr inbounds i8, ptr %.01116.i, i64 12
   %57 = add nuw nsw i32 %.01215.i, 1
   %exitcond.not.i194 = icmp eq i32 %57, 69
-  br i1 %exitcond.not.i194, label %.thread267, label %.preheader.i193, !llvm.loop !11
+  br i1 %exitcond.not.i194, label %.thread267, label %.preheader.i193, !llvm.loop !10
 
 checktz.exit:                                     ; preds = %53
   %58 = getelementptr inbounds i8, ptr %.01116.i, i64 8
@@ -471,7 +471,7 @@ match_time.exit.thread:                           ; preds = %66, %78, %81, %oneo
   %178 = icmp ne i8 %177, 0
   %179 = icmp ult i32 %.0129313, 5
   %180 = select i1 %178, i1 %179, i1 false
-  br i1 %180, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %180, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %175, %2
   %.0226.lcssa = phi i32 [ -1, %2 ], [ %.3229, %175 ]
@@ -552,7 +552,7 @@ match_time.exit.thread:                           ; preds = %66, %78, %81, %oneo
 define dso_local i64 @Curl_getdate_capped(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   store i64 -1, ptr %2, align 8
-  %3 = call fastcc i32 @parsedate(ptr noundef %0, ptr noundef nonnull %2), !range !5
+  %3 = call fastcc i32 @parsedate(ptr noundef %0, ptr noundef nonnull %2)
   %cond = icmp eq i32 %3, 0
   %4 = load i64, ptr %2, align 8
   %5 = icmp eq i64 %4, -1
@@ -562,7 +562,7 @@ define dso_local i64 @Curl_getdate_capped(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_gmtime(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 44) i32 @Curl_gmtime(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call ptr @gmtime_r(ptr noundef nonnull %3, ptr noundef %1) #7
@@ -604,11 +604,10 @@ attributes #8 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}

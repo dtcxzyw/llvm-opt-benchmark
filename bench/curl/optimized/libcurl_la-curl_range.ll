@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_range(ptr nocapture noundef %data) local_unnamed_addr #0 {
+define hidden range(i32 0, 34) i32 @Curl_range(ptr nocapture noundef %data) local_unnamed_addr #0 {
 entry:
   %from = alloca i64, align 8
   %to = alloca i64, align 8

@@ -299,8 +299,8 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %48, %43, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %44, %43 ], [ %58, %.loopexit.i.i ], [ %50, %48 ]
   %60 = add i64 %2, 4
-  %.0.i.i27 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  store i64 %31, ptr %.0.i.i27, align 8
+  %.0.i.i29 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
+  store i64 %31, ptr %.0.i.i29, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 %27, ptr %.sroa.3.0..sroa_idx, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 376
@@ -583,8 +583,8 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %62, %57, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %58, %57 ], [ %72, %.loopexit.i.i ], [ %64, %62 ]
   %74 = add i64 %2, 4
-  %.0.i.i31 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  store i64 %45, ptr %.0.i.i31, align 8
+  %.0.i.i33 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
+  store i64 %45, ptr %.0.i.i33, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 %34, ptr %.sroa.3.0..sroa_idx, align 8
   %75 = getelementptr inbounds i8, ptr %0, i64 376

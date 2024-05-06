@@ -194,7 +194,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmac_get_ctx_params(ptr nocapture noundef readonly %vmacctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @cmac_get_ctx_params(ptr nocapture noundef readonly %vmacctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #3
   %cmp.not = icmp eq ptr %call, null

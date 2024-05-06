@@ -70,7 +70,7 @@ define noundef zeroext i1 @_Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi(
   br i1 %.not486, label %40, label %.preheader533
 
 .preheader533:                                    ; preds = %30
-  %invariant.gep = getelementptr i8, ptr %29, i64 4
+  %invariant.gep = getelementptr inbounds i8, ptr %29, i64 4
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph.preheader, label %.loopexit532
 
@@ -83,7 +83,7 @@ define noundef zeroext i1 @_Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi(
   %.0429537 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader ], [ %37, %.lr.ph ]
   %.0435536 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %34 = mul nuw nsw i64 %indvars.iv, 3
-  %gep = getelementptr float, ptr %invariant.gep, i64 %34
+  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %34
   %35 = load float, ptr %gep, align 4
   %36 = fcmp olt float %.0429537, %35
   %37 = select i1 %36, float %.0429537, float %35
@@ -299,12 +299,12 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %indvars.iv655 = phi i64 [ 0, %.lr.ph556.us.preheader ], [ %indvars.iv.next656, %._crit_edge.us ]
   %.0444564.us = phi i32 [ 0, %.lr.ph556.us.preheader ], [ %.1445.lcssa.us, %._crit_edge.us ]
   %.0447563.us = phi i32 [ 0, %.lr.ph556.us.preheader ], [ %.1448.lcssa.us, %._crit_edge.us ]
-  %143 = trunc i64 %indvars.iv655 to i32
+  %143 = trunc nuw nsw i64 %indvars.iv655 to i32
   %144 = mul i32 %140, %143
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds i16, ptr %139, i64 %145
   %147 = add i32 %5, %.0444564.us
-  %invariant.gep733 = getelementptr i16, ptr %146, i64 %142
+  %invariant.gep733 = getelementptr inbounds i16, ptr %146, i64 %142
   br label %148
 
 148:                                              ; preds = %.lr.ph556.us, %152
@@ -318,7 +318,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 
 152:                                              ; preds = %148
   %153 = add nsw i32 %.1445555.us, 1
-  %gep734 = getelementptr i16, ptr %invariant.gep733, i64 %indvars.iv650
+  %gep734 = getelementptr inbounds i16, ptr %invariant.gep733, i64 %indvars.iv650
   %154 = load i16, ptr %gep734, align 2
   %.not494.us = icmp slt i16 %154, 0
   %155 = and i16 %154, 15
@@ -403,7 +403,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 187:                                              ; preds = %.lr.ph580, %._crit_edge
   %indvars.iv667 = phi i64 [ 0, %.lr.ph580 ], [ %indvars.iv.next668, %._crit_edge ]
   %.0455578 = phi i32 [ 0, %.lr.ph580 ], [ %201, %._crit_edge ]
-  %188 = trunc i64 %indvars.iv667 to i32
+  %188 = trunc nuw nsw i64 %indvars.iv667 to i32
   %189 = mul i32 %185, %188
   %190 = sext i32 %189 to i64
   %191 = getelementptr inbounds i16, ptr %184, i64 %190
@@ -440,7 +440,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 202:                                              ; preds = %.lr.ph592, %._crit_edge586
   %indvars.iv679 = phi i64 [ 0, %.lr.ph592 ], [ %indvars.iv.next680, %._crit_edge586 ]
   %.0462591 = phi i32 [ 0, %.lr.ph592 ], [ %212, %._crit_edge586 ]
-  %203 = trunc i64 %indvars.iv679 to i32
+  %203 = trunc nuw nsw i64 %indvars.iv679 to i32
   %204 = mul i32 %175, %203
   %205 = sext i32 %204 to i64
   %206 = getelementptr inbounds i16, ptr %174, i64 %205
@@ -1018,7 +1018,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   br i1 %exitcond706.not, label %._crit_edge622.loopexit, label %536, !llvm.loop !20
 
 ._crit_edge622.loopexit:                          ; preds = %536
-  %548 = trunc i64 %indvars.iv.next704 to i32
+  %548 = trunc nsw i64 %indvars.iv.next704 to i32
   br label %._crit_edge622
 
 ._crit_edge622:                                   ; preds = %._crit_edge622.loopexit, %.lr.ph626
@@ -1187,7 +1187,7 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %indvars.iv154 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next155, %206 ]
   %23 = getelementptr inbounds %struct.BVItem, ptr %11, i64 %indvars.iv154
   %24 = getelementptr inbounds i8, ptr %23, i64 12
-  %25 = trunc i64 %indvars.iv154 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv154 to i32
   store i32 %25, ptr %24, align 4
   %26 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %26, null
@@ -1259,7 +1259,7 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %66 = fptosi float %65 to i32
   %67 = tail call i32 @llvm.smin.i32(i32 %66, i32 65535)
   %68 = tail call i32 @llvm.smax.i32(i32 %67, i32 0)
-  %69 = trunc i32 %68 to i16
+  %69 = trunc nuw i32 %68 to i16
   store i16 %69, ptr %23, align 4
   %70 = load float, ptr %17, align 4
   %71 = fsub float %.sroa.4117.0.lcssa, %70
@@ -1267,7 +1267,7 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %73 = fptosi float %72 to i32
   %74 = tail call i32 @llvm.smin.i32(i32 %73, i32 65535)
   %75 = tail call i32 @llvm.smax.i32(i32 %74, i32 0)
-  %76 = trunc i32 %75 to i16
+  %76 = trunc nuw i32 %75 to i16
   %77 = getelementptr inbounds i8, ptr %23, i64 2
   store i16 %76, ptr %77, align 2
   %78 = load float, ptr %18, align 4
@@ -1276,7 +1276,7 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %81 = fptosi float %80 to i32
   %82 = tail call i32 @llvm.smin.i32(i32 %81, i32 65535)
   %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
-  %84 = trunc i32 %83 to i16
+  %84 = trunc nuw i32 %83 to i16
   %85 = getelementptr inbounds i8, ptr %23, i64 4
   store i16 %84, ptr %85, align 4
   %86 = load float, ptr %16, align 4
@@ -1285,7 +1285,7 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %89 = fptosi float %88 to i32
   %90 = tail call i32 @llvm.smin.i32(i32 %89, i32 65535)
   %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
-  %92 = trunc i32 %91 to i16
+  %92 = trunc nuw i32 %91 to i16
   %93 = getelementptr inbounds i8, ptr %23, i64 6
   store i16 %92, ptr %93, align 2
   %94 = load float, ptr %17, align 4
@@ -1294,7 +1294,7 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %97 = fptosi float %96 to i32
   %98 = tail call i32 @llvm.smin.i32(i32 %97, i32 65535)
   %99 = tail call i32 @llvm.smax.i32(i32 %98, i32 0)
-  %100 = trunc i32 %99 to i16
+  %100 = trunc nuw i32 %99 to i16
   %101 = getelementptr inbounds i8, ptr %23, i64 8
   store i16 %100, ptr %101, align 2
   %102 = load float, ptr %18, align 4
@@ -1303,7 +1303,7 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %105 = fptosi float %104 to i32
   %106 = tail call i32 @llvm.smin.i32(i32 %105, i32 65535)
   %107 = tail call i32 @llvm.smax.i32(i32 %106, i32 0)
-  %108 = trunc i32 %107 to i16
+  %108 = trunc nuw i32 %107 to i16
   %109 = getelementptr inbounds i8, ptr %23, i64 10
   store i16 %108, ptr %109, align 2
   br label %206
@@ -1329,8 +1329,8 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %125 = load i16, ptr %116, align 2
   %126 = zext i16 %125 to i64
   %127 = mul nuw nsw i64 %126, 3
-  %128 = getelementptr i16, ptr %124, i64 %127
-  %129 = getelementptr i8, ptr %128, i64 2
+  %128 = getelementptr inbounds i16, ptr %124, i64 %127
+  %129 = getelementptr inbounds i8, ptr %128, i64 2
   %130 = load i16, ptr %129, align 2
   %131 = getelementptr inbounds i8, ptr %23, i64 8
   store i16 %130, ptr %131, align 2
@@ -1340,8 +1340,8 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %134 = load i16, ptr %116, align 2
   %135 = zext i16 %134 to i64
   %136 = mul nuw nsw i64 %135, 3
-  %137 = getelementptr i16, ptr %133, i64 %136
-  %138 = getelementptr i8, ptr %137, i64 4
+  %137 = getelementptr inbounds i16, ptr %133, i64 %136
+  %138 = getelementptr inbounds i8, ptr %137, i64 4
   %139 = load i16, ptr %138, align 2
   %140 = getelementptr inbounds i8, ptr %23, i64 10
   store i16 %139, ptr %140, align 2
@@ -1370,9 +1370,9 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %156 = mul nuw nsw i64 %154, 3
   %157 = getelementptr inbounds i16, ptr %155, i64 %156
   %158 = load i16, ptr %157, align 2
-  %159 = getelementptr i8, ptr %157, i64 2
+  %159 = getelementptr inbounds i8, ptr %157, i64 2
   %160 = load i16, ptr %159, align 2
-  %161 = getelementptr i8, ptr %157, i64 4
+  %161 = getelementptr inbounds i8, ptr %157, i64 4
   %162 = load i16, ptr %161, align 2
   %163 = icmp ult i16 %158, %149
   br i1 %163, label %164, label %165
@@ -1475,7 +1475,7 @@ define noundef zeroext i1 @_Z25dtNavMeshHeaderSwapEndianPhi(ptr noundef %0, i32 
   %3 = load i32, ptr %0, align 4
   %4 = trunc i32 %3 to i8
   %5 = lshr i32 %3, 24
-  %6 = trunc i32 %5 to i8
+  %6 = trunc nuw i32 %5 to i8
   %7 = lshr i32 %3, 8
   %8 = trunc i32 %7 to i8
   %9 = lshr i32 %3, 16
@@ -1501,7 +1501,7 @@ define noundef zeroext i1 @_Z25dtNavMeshHeaderSwapEndianPhi(ptr noundef %0, i32 
   %.in.in = phi i32 [ 117440512, %14 ], [ 7, %11 ]
   %18 = trunc i32 %.in.in to i8
   %.in = lshr i32 %.in.in, 24
-  %19 = trunc i32 %.in to i8
+  %19 = trunc nuw nsw i32 %.in to i8
   %20 = getelementptr inbounds i8, ptr %0, i64 3
   store i8 %6, ptr %0, align 1
   store i8 %4, ptr %20, align 1
@@ -1996,7 +1996,7 @@ declare float @llvm.ceil.f32(float) #2
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL12compareItemXPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal noundef range(i32 -1, 2) i32 @_ZL12compareItemXPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = load i16, ptr %0, align 4
   %4 = load i16, ptr %1, align 4
   %5 = icmp ult i16 %3, %4
@@ -2007,7 +2007,7 @@ define internal noundef i32 @_ZL12compareItemXPKvS0_(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL12compareItemYPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal noundef range(i32 -1, 2) i32 @_ZL12compareItemYPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2
   %5 = getelementptr inbounds i8, ptr %1, i64 2
@@ -2020,7 +2020,7 @@ define internal noundef i32 @_ZL12compareItemYPKvS0_(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL12compareItemZPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal noundef range(i32 -1, 2) i32 @_ZL12compareItemZPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i16, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4

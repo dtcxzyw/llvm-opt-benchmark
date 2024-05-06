@@ -17,7 +17,7 @@ define void @DynBuf_SeekToBeg(ptr nocapture noundef writeonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @DynBuf_Write(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @DynBuf_Write(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16

@@ -40,7 +40,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ecdh_simple_compute_key(ptr nocapture noundef writeonly %pout, ptr nocapture noundef writeonly %poutlen, ptr noundef %pub_key, ptr noundef %ecdh) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ecdh_simple_compute_key(ptr nocapture noundef writeonly %pout, ptr nocapture noundef writeonly %poutlen, ptr noundef %pub_key, ptr noundef %ecdh) local_unnamed_addr #0 {
 entry:
   %libctx = getelementptr inbounds i8, ptr %ecdh, i64 80
   %0 = load ptr, ptr %libctx, align 8

@@ -97,7 +97,7 @@ target triple = "x86_64-pc-linux-gnu"
 @rjit_constant_state_changed.rbimpl_id = internal unnamed_addr global i64 0, align 8
 @.str.57 = private unnamed_addr constant [26 x i8] c"on_constant_state_changed\00", align 1
 @ruby_single_main_ractor = external local_unnamed_addr global ptr, align 8
-@ruby_current_ec = external thread_local global ptr, align 8
+@ruby_current_ec = external thread_local local_unnamed_addr global ptr, align 8
 @rjit_iseq_update_references.rbimpl_id = internal unnamed_addr global i64 0, align 8
 @.str.58 = private unnamed_addr constant [21 x i8] c"on_update_references\00", align 1
 
@@ -1889,7 +1889,7 @@ define hidden void @Init_builtin_rjit() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @builtin_inline_class_4(ptr nocapture readnone %0, i64 %1) #10 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_4(ptr nocapture readnone %0, i64 %1) #10 {
   %3 = load i8, ptr @rb_rjit_enabled, align 1
   %4 = trunc i8 %3 to i1
   %5 = select i1 %4, i64 20, i64 0
@@ -1903,7 +1903,7 @@ define internal noundef i64 @builtin_inline_class_9(ptr nocapture readnone %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @rjit_stats_enabled_p(ptr nocapture readnone %0, i64 %1) #10 {
+define internal range(i64 0, 21) i64 @rjit_stats_enabled_p(ptr nocapture readnone %0, i64 %1) #10 {
   %3 = load i8, ptr @rb_rjit_stats_enabled, align 1
   %4 = trunc i8 %3 to i1
   %5 = select i1 %4, i64 20, i64 0
@@ -1917,7 +1917,7 @@ define internal noundef i64 @rjit_stop_stats(ptr nocapture readnone %0, i64 %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @rjit_trace_exits_enabled_p(ptr nocapture readnone %0, i64 %1) #10 {
+define internal range(i64 0, 21) i64 @rjit_trace_exits_enabled_p(ptr nocapture readnone %0, i64 %1) #10 {
   %3 = load i8, ptr @rb_rjit_trace_exits_enabled, align 1
   %4 = trunc i8 %3 to i1
   %5 = select i1 %4, i64 20, i64 0

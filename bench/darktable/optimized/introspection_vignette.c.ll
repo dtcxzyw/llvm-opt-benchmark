@@ -139,7 +139,7 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
   switch i32 %2, label %79 [
     i32 1, label %7
     i32 2, label %48
@@ -630,7 +630,7 @@ define internal fastcc void @draw_overlay(ptr noundef %0, float noundef %1, floa
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mouse_moved(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @mouse_moved(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #1 {
   %7 = alloca float, align 4
   %8 = alloca float, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 704
@@ -1105,14 +1105,14 @@ declare void @dt_bauhaus_slider_set(ptr noundef, float noundef) local_unnamed_ad
 declare void @dt_control_queue_redraw_center(...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @button_pressed(ptr nocapture noundef readnone %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @button_pressed(ptr nocapture noundef readnone %0, float noundef %1, float noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7) local_unnamed_addr #0 {
   %9 = icmp eq i32 %4, 1
   %10 = zext i1 %9 to i32
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @button_released(ptr nocapture noundef readnone %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @button_released(ptr nocapture noundef readnone %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) local_unnamed_addr #0 {
   %7 = icmp eq i32 %3, 1
   %8 = zext i1 %7 to i32
   ret i32 %8
@@ -2018,7 +2018,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #15 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !138
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

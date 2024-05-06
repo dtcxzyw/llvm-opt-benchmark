@@ -625,7 +625,7 @@ declare signext i16 @csnStreamDissector(ptr noundef, ptr noundef, ptr noundef, p
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef signext i16 @Seg3A_LAI_Dissector(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define internal signext range(i16 -1, 1) i16 @Seg3A_LAI_Dissector(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
   %6 = alloca [5 x i8], align 1
   %7 = load i32, ptr %1, align 8
   %8 = icmp slt i32 %7, 40
@@ -661,7 +661,7 @@ define internal noundef signext i16 @Seg3A_LAI_Dissector(ptr noundef %0, ptr noc
   %26 = and i8 %25, 15
   %27 = zext nneg i8 %26 to i32
   %28 = add nuw nsw i32 %23, %27
-  %29 = trunc i32 %28 to i16
+  %29 = trunc nuw nsw i32 %28 to i16
   store i16 %29, ptr %3, align 2
   %30 = getelementptr inbounds i8, ptr %6, i64 2
   %31 = load i8, ptr %30, align 1

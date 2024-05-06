@@ -477,7 +477,7 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_sha512_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @mbedtls_sha512_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %5
 
@@ -581,8 +581,8 @@ define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef wri
   store i8 -128, ptr %8, align 1
   %9 = icmp ult i32 %5, 112
   %10 = and i64 %3, 127
-  %11 = getelementptr i8, ptr %6, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 1
+  %11 = getelementptr inbounds i8, ptr %6, i64 %10
+  %12 = getelementptr inbounds i8, ptr %11, i64 1
   br i1 %9, label %13, label %16
 
 13:                                               ; preds = %2
@@ -606,7 +606,7 @@ define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef wri
   %24 = tail call i64 @llvm.fshl.i64(i64 %23, i64 %21, i64 3)
   %25 = shl i64 %21, 3
   %26 = lshr i64 %24, 56
-  %27 = trunc i64 %26 to i8
+  %27 = trunc nuw i64 %26 to i8
   %28 = getelementptr inbounds i8, ptr %0, i64 192
   store i8 %27, ptr %28, align 8
   %29 = lshr i64 %24, 48
@@ -637,7 +637,7 @@ define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef wri
   %48 = getelementptr inbounds i8, ptr %0, i64 199
   store i8 %47, ptr %48, align 1
   %49 = lshr i64 %25, 56
-  %50 = trunc i64 %49 to i8
+  %50 = trunc nuw i64 %49 to i8
   %51 = getelementptr inbounds i8, ptr %0, i64 200
   store i8 %50, ptr %51, align 8
   %52 = lshr i64 %25, 48
@@ -671,7 +671,7 @@ define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef wri
   %73 = getelementptr inbounds i8, ptr %0, i64 16
   %74 = load i64, ptr %73, align 8
   %75 = lshr i64 %74, 56
-  %76 = trunc i64 %75 to i8
+  %76 = trunc nuw i64 %75 to i8
   store i8 %76, ptr %1, align 1
   %77 = load i64, ptr %73, align 8
   %78 = lshr i64 %77, 48
@@ -710,7 +710,7 @@ define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef wri
   %104 = getelementptr inbounds i8, ptr %0, i64 24
   %105 = load i64, ptr %104, align 8
   %106 = lshr i64 %105, 56
-  %107 = trunc i64 %106 to i8
+  %107 = trunc nuw i64 %106 to i8
   %108 = getelementptr inbounds i8, ptr %1, i64 8
   store i8 %107, ptr %108, align 1
   %109 = load i64, ptr %104, align 8
@@ -750,7 +750,7 @@ define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef wri
   %136 = getelementptr inbounds i8, ptr %0, i64 32
   %137 = load i64, ptr %136, align 8
   %138 = lshr i64 %137, 56
-  %139 = trunc i64 %138 to i8
+  %139 = trunc nuw i64 %138 to i8
   %140 = getelementptr inbounds i8, ptr %1, i64 16
   store i8 %139, ptr %140, align 1
   %141 = load i64, ptr %136, align 8
@@ -790,7 +790,7 @@ define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef wri
   %168 = getelementptr inbounds i8, ptr %0, i64 40
   %169 = load i64, ptr %168, align 8
   %170 = lshr i64 %169, 56
-  %171 = trunc i64 %170 to i8
+  %171 = trunc nuw i64 %170 to i8
   %172 = getelementptr inbounds i8, ptr %1, i64 24
   store i8 %171, ptr %172, align 1
   %173 = load i64, ptr %168, align 8
@@ -830,7 +830,7 @@ define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef wri
   %200 = getelementptr inbounds i8, ptr %0, i64 48
   %201 = load i64, ptr %200, align 8
   %202 = lshr i64 %201, 56
-  %203 = trunc i64 %202 to i8
+  %203 = trunc nuw i64 %202 to i8
   %204 = getelementptr inbounds i8, ptr %1, i64 32
   store i8 %203, ptr %204, align 1
   %205 = load i64, ptr %200, align 8
@@ -870,7 +870,7 @@ define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef wri
   %232 = getelementptr inbounds i8, ptr %0, i64 56
   %233 = load i64, ptr %232, align 8
   %234 = lshr i64 %233, 56
-  %235 = trunc i64 %234 to i8
+  %235 = trunc nuw i64 %234 to i8
   %236 = getelementptr inbounds i8, ptr %1, i64 40
   store i8 %235, ptr %236, align 1
   %237 = load i64, ptr %232, align 8
@@ -916,7 +916,7 @@ define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef wri
   %268 = getelementptr inbounds i8, ptr %0, i64 64
   %269 = load i64, ptr %268, align 8
   %270 = lshr i64 %269, 56
-  %271 = trunc i64 %270 to i8
+  %271 = trunc nuw i64 %270 to i8
   %272 = getelementptr inbounds i8, ptr %1, i64 48
   store i8 %271, ptr %272, align 1
   %273 = load i64, ptr %268, align 8
@@ -956,7 +956,7 @@ define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef wri
   %300 = getelementptr inbounds i8, ptr %0, i64 72
   %301 = load i64, ptr %300, align 8
   %302 = lshr i64 %301, 56
-  %303 = trunc i64 %302 to i8
+  %303 = trunc nuw i64 %302 to i8
   %304 = getelementptr inbounds i8, ptr %1, i64 56
   store i8 %303, ptr %304, align 1
   %305 = load i64, ptr %300, align 8
@@ -1000,7 +1000,7 @@ define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_sha512(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @mbedtls_sha512(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.mbedtls_sha512_context, align 8
   %6 = icmp eq i32 %3, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %5, i8 0, i64 216, i1 false)
@@ -1080,7 +1080,7 @@ mbedtls_sha512_update.exit:                       ; preds = %mbedtls_internal_sh
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_sha512_self_test(i32 noundef %0) local_unnamed_addr #2 {
+define hidden range(i32 -1, 2) i32 @mbedtls_sha512_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca %struct.mbedtls_sha512_context, align 8
   %4 = tail call noalias dereferenceable_or_null(1024) ptr @calloc(i64 noundef 1024, i64 noundef 1) #13
@@ -1096,7 +1096,7 @@ define hidden noundef i32 @mbedtls_sha512_self_test(i32 noundef %0) local_unname
   br label %71
 
 8:                                                ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %3, i8 0, i64 216, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(216) %3, i8 0, i64 216, i1 false)
   %.not37 = icmp eq i32 %0, 0
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = getelementptr inbounds i8, ptr %3, i64 32
@@ -1123,7 +1123,7 @@ define hidden noundef i32 @mbedtls_sha512_self_test(i32 noundef %0) local_unname
   br label %22
 
 22:                                               ; preds = %18, %.backedge
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   br i1 %.cmp, label %23, label %mbedtls_sha512_starts.exit
 
 23:                                               ; preds = %22
@@ -1171,7 +1171,7 @@ mbedtls_sha512_starts.exit:                       ; preds = %22, %23
 42:                                               ; preds = %41
   %43 = and i64 %31, 127
   %44 = getelementptr inbounds i8, ptr %15, i64 %43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 1 dereferenceable(1) %4, i64 %35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %35, i1 false)
   %45 = call i32 @mbedtls_internal_sha512_process(ptr noundef nonnull %3, ptr noundef nonnull %15)
   %46 = getelementptr inbounds i8, ptr %4, i64 %35
   %47 = sub nuw nsw i64 1000, %35

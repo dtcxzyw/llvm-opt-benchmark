@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_pcre2_substring_copy_byname(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_byname(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 1
@@ -177,7 +177,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   %98 = getelementptr inbounds i8, ptr %0, i64 32
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 %66
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %100, i64 %93, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %2, ptr align 1 %100, i64 %93, i1 false)
   %101 = getelementptr inbounds i8, ptr %2, i64 %93
   store i8 0, ptr %101, align 1
   store i64 %93, ptr %3, align 8
@@ -195,7 +195,7 @@ php_pcre2_substring_copy_bynumber.exit:           ; preds = %44, %102, %php_pcre
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_pcre2_substring_nametable_scan(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -50, 65536) i32 @php_pcre2_substring_nametable_scan(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 134
   %6 = load i16, ptr %5, align 2
   %7 = getelementptr inbounds i8, ptr %0, i64 132
@@ -301,7 +301,7 @@ define i32 @php_pcre2_substring_nametable_scan(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @php_pcre2_substring_copy_bynumber(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
+define range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumber(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 100
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, -2
@@ -506,7 +506,7 @@ define i32 @php_pcre2_substring_length_bynumber(ptr nocapture noundef readonly %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 1
@@ -702,7 +702,7 @@ php_pcre2_substring_get_bynumber.exit:            ; preds = %44, %106, %php_pcre
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_pcre2_substring_get_bynumber(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 100
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, -2
@@ -1015,7 +1015,7 @@ php_pcre2_substring_length_bynumber.exit:         ; preds = %43, %94, %php_pcre2
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_pcre2_substring_list_get(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 100
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 0
@@ -1183,8 +1183,8 @@ define void @php_pcre2_substring_list_free(ptr noundef %0) local_unnamed_addr #0
 declare i32 @_pcre2_strcmp_8(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_pcre2_substring_number_from_name(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @php_pcre2_substring_nametable_scan(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null), !range !4
+define range(i32 -50, 65536) i32 @php_pcre2_substring_number_from_name(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @php_pcre2_substring_nametable_scan(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null)
   ret i32 %3
 }
 
@@ -1205,4 +1205,3 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -50, i32 65536}

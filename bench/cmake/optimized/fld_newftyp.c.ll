@@ -46,7 +46,7 @@ define dso_local noalias noundef ptr @new_fieldtype(ptr noundef %0, ptr noundef 
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local noundef i32 @free_fieldtype(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local range(i32 -4, 1) i32 @free_fieldtype(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %2
 

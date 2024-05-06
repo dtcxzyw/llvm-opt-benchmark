@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [34 x i8] c"Unknown control opcode=0x%X Op=%p\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ds_exec_begin_control_op(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 16389) i32 @acpi_ds_exec_begin_control_op(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 10
   %4 = load i16, ptr %3, align 2
   switch i16 %4, label %43 [

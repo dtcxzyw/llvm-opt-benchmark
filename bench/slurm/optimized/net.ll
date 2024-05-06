@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @slurm_net_stream_listen = alias i32 (ptr, ptr), ptr @net_stream_listen
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @net_stream_listen(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define range(i32 -1, 2) i32 @net_stream_listen(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct.sockaddr_storage, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -104,7 +104,7 @@ declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @net_set_keep_alive(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @net_set_keep_alive(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.linger, align 4
   %4 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 82), align 8

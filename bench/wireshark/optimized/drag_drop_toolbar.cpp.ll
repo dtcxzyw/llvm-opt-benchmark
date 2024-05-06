@@ -2393,14 +2393,14 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIPP7QActionEET_S4_S4_S4_St26r
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %.053, align 8
-  %.idx78 = shl i64 %.076, 3
-  %31 = getelementptr i8, ptr %.053, i64 %.idx78
-  %.not.i.i.i.i.i = icmp eq i64 %.idx78, 8
+  %.idx = shl i64 %.076, 3
+  %31 = getelementptr i8, ptr %.053, i64 %.idx
+  %.not.i.i.i.i.i = icmp eq i64 %.idx, 8
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr i8, ptr %.053, i64 8
-  %gepdiff = add i64 %.idx78, -8
+  %gepdiff = add i64 %.idx, -8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.053, ptr align 8 %33, i64 %gepdiff, i1 false)
   br label %_ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit
 
@@ -2411,33 +2411,33 @@ _ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit:         ; preds = %29, %32
 
 35:                                               ; preds = %27
   %36 = icmp sgt i64 %25, 0
-  br i1 %36, label %.lr.ph91.preheader, label %._crit_edge92
+  br i1 %36, label %.lr.ph90.preheader, label %._crit_edge91
 
-.lr.ph91.preheader:                               ; preds = %35
+.lr.ph90.preheader:                               ; preds = %35
   %37 = getelementptr ptr, ptr %.053, i64 %.074
-  br label %.lr.ph91
+  br label %.lr.ph90
 
-.lr.ph91:                                         ; preds = %.lr.ph91.preheader, %.lr.ph91
-  %.05189 = phi i64 [ %42, %.lr.ph91 ], [ 0, %.lr.ph91.preheader ]
-  %.05288 = phi ptr [ %41, %.lr.ph91 ], [ %37, %.lr.ph91.preheader ]
-  %.187 = phi ptr [ %40, %.lr.ph91 ], [ %.053, %.lr.ph91.preheader ]
-  %38 = load ptr, ptr %.187, align 8
-  %39 = load ptr, ptr %.05288, align 8
-  store ptr %39, ptr %.187, align 8
-  store ptr %38, ptr %.05288, align 8
-  %40 = getelementptr i8, ptr %.187, i64 8
-  %41 = getelementptr i8, ptr %.05288, i64 8
-  %42 = add nuw nsw i64 %.05189, 1
-  %exitcond100.not = icmp eq i64 %42, %25
-  br i1 %exitcond100.not, label %._crit_edge92, label %.lr.ph91, !llvm.loop !10
+.lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
+  %.05188 = phi i64 [ %42, %.lr.ph90 ], [ 0, %.lr.ph90.preheader ]
+  %.05287 = phi ptr [ %41, %.lr.ph90 ], [ %37, %.lr.ph90.preheader ]
+  %.186 = phi ptr [ %40, %.lr.ph90 ], [ %.053, %.lr.ph90.preheader ]
+  %38 = load ptr, ptr %.186, align 8
+  %39 = load ptr, ptr %.05287, align 8
+  store ptr %39, ptr %.186, align 8
+  store ptr %38, ptr %.05287, align 8
+  %40 = getelementptr i8, ptr %.186, i64 8
+  %41 = getelementptr i8, ptr %.05287, i64 8
+  %42 = add nuw nsw i64 %.05188, 1
+  %exitcond99.not = icmp eq i64 %42, %25
+  br i1 %exitcond99.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !10
 
-._crit_edge92:                                    ; preds = %.lr.ph91, %35
-  %.1.lcssa = phi ptr [ %.053, %35 ], [ %40, %.lr.ph91 ]
+._crit_edge91:                                    ; preds = %.lr.ph90, %35
+  %.1.lcssa = phi ptr [ %.053, %35 ], [ %40, %.lr.ph90 ]
   %43 = srem i64 %.076, %.074
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %_ZSt11swap_rangesIPP7QActionS2_ET0_T_S4_S3_.exit, label %45
 
-45:                                               ; preds = %._crit_edge92
+45:                                               ; preds = %._crit_edge91
   %46 = sub i64 %.074, %43
   br label %.backedge
 
@@ -2473,16 +2473,16 @@ _ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit: ; preds = %50, %53
   br i1 %62, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %59, %.lr.ph
-  %.086 = phi i64 [ %67, %.lr.ph ], [ 0, %59 ]
-  %.04985 = phi ptr [ %64, %.lr.ph ], [ %49, %59 ]
-  %.284 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
-  %63 = getelementptr i8, ptr %.284, i64 -8
-  %64 = getelementptr i8, ptr %.04985, i64 -8
+  %.085 = phi i64 [ %67, %.lr.ph ], [ 0, %59 ]
+  %.04984 = phi ptr [ %64, %.lr.ph ], [ %49, %59 ]
+  %.283 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
+  %63 = getelementptr i8, ptr %.283, i64 -8
+  %64 = getelementptr i8, ptr %.04984, i64 -8
   %65 = load ptr, ptr %63, align 8
   %66 = load ptr, ptr %64, align 8
   store ptr %66, ptr %63, align 8
   store ptr %65, ptr %64, align 8
-  %67 = add nuw nsw i64 %.086, 1
+  %67 = add nuw nsw i64 %.085, 1
   %exitcond.not = icmp eq i64 %67, %.074
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
@@ -2498,8 +2498,8 @@ _ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit: ; preds = %50, %53
   %.053.be = phi ptr [ %.1.lcssa, %45 ], [ %.2.lcssa, %._crit_edge ]
   br label %24, !llvm.loop !12
 
-_ZSt11swap_rangesIPP7QActionS2_ET0_T_S4_S3_.exit: ; preds = %._crit_edge, %._crit_edge92, %.lr.ph.i, %5, %3, %_ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit
-  %.050 = phi ptr [ %23, %_ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit ], [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge92 ], [ %23, %._crit_edge ]
+_ZSt11swap_rangesIPP7QActionS2_ET0_T_S4_S3_.exit: ; preds = %._crit_edge, %._crit_edge91, %.lr.ph.i, %5, %3, %_ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit
+  %.050 = phi ptr [ %23, %_ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit ], [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge91 ], [ %23, %._crit_edge ]
   ret ptr %.050
 }
 

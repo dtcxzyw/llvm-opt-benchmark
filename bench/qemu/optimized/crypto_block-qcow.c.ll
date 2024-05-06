@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.qcrypto_block_qcow_decrypt = private unnamed_addr constant [86 x i8] c"int qcrypto_block_qcow_decrypt(QCryptoBlock *, uint64_t, uint8_t *, size_t, Error **)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcrypto_block_qcow_open(ptr noundef %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture readnone %readfunc, ptr nocapture readnone %opaque, i32 noundef %flags, i64 noundef %n_threads, ptr noundef %errp) #0 {
+define internal range(i32 -95, 1) i32 @qcrypto_block_qcow_open(ptr noundef %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture readnone %readfunc, ptr nocapture readnone %opaque, i32 noundef %flags, i64 noundef %n_threads, ptr noundef %errp) #0 {
 entry:
   %and = and i32 %flags, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -43,7 +43,7 @@ if.then2:                                         ; preds = %if.else
   br label %return
 
 if.end:                                           ; preds = %if.else
-  %call = tail call fastcc i32 @qcrypto_block_qcow_init(ptr noundef %block, ptr noundef nonnull %0, i64 noundef %n_threads, ptr noundef %errp), !range !5
+  %call = tail call fastcc i32 @qcrypto_block_qcow_init(ptr noundef %block, ptr noundef nonnull %0, i64 noundef %n_threads, ptr noundef %errp)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then2, %if.then
@@ -52,7 +52,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcrypto_block_qcow_create(ptr noundef %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture readnone %initfunc, ptr nocapture readnone %writefunc, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -95, 1) i32 @qcrypto_block_qcow_create(ptr noundef %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture readnone %initfunc, ptr nocapture readnone %writefunc, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
 entry:
   %u = getelementptr inbounds i8, ptr %options, i64 8
   %0 = load ptr, ptr %u, align 8
@@ -66,7 +66,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @qcrypto_block_qcow_init(ptr noundef %block, ptr noundef nonnull %0, i64 noundef 1, ptr noundef %errp), !range !5
+  %call = tail call fastcc i32 @qcrypto_block_qcow_init(ptr noundef %block, ptr noundef nonnull %0, i64 noundef 1, ptr noundef %errp)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -139,7 +139,7 @@ entry:
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @qcrypto_block_qcow_init(ptr noundef %block, ptr noundef %keysecret, i64 noundef %n_threads, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -95, 1) i32 @qcrypto_block_qcow_init(ptr noundef %block, ptr noundef %keysecret, i64 noundef %n_threads, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %keybuf = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %keybuf, i8 0, i64 16, i1 false)
@@ -238,4 +238,3 @@ attributes #10 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -95, i32 1}

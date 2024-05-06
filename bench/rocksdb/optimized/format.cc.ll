@@ -213,7 +213,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
 _ZN7rocksdb14EncodeVarint64EPcm.exit.i:           ; preds = %while.body.i.i, %entry
   %v.addr.0.lcssa.i.i = phi i64 [ %0, %entry ], [ %shr.i.i, %while.body.i.i ]
   %ptr.0.lcssa.i.i = phi ptr [ %buf.i, %entry ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %conv1.i.i = trunc i64 %v.addr.0.lcssa.i.i to i8
+  %conv1.i.i = trunc nuw nsw i64 %v.addr.0.lcssa.i.i to i8
   %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %ptr.0.lcssa.i.i, i64 1
   store i8 %conv1.i.i, ptr %ptr.0.lcssa.i.i, align 1
   %cmp6.i2.i = icmp ugt i64 %1, 127
@@ -233,7 +233,7 @@ while.body.i7.i:                                  ; preds = %_ZN7rocksdb14Encode
 _ZN7rocksdb19PutVarint64Varint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit: ; preds = %while.body.i7.i, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i
   %v.addr.0.lcssa.i3.i = phi i64 [ %1, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i ], [ %shr.i12.i, %while.body.i7.i ]
   %ptr.0.lcssa.i4.i = phi ptr [ %incdec.ptr2.i.i, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i ], [ %incdec.ptr.i11.i, %while.body.i7.i ]
-  %conv1.i5.i = trunc i64 %v.addr.0.lcssa.i3.i to i8
+  %conv1.i5.i = trunc nuw nsw i64 %v.addr.0.lcssa.i3.i to i8
   %incdec.ptr2.i6.i = getelementptr inbounds i8, ptr %ptr.0.lcssa.i4.i, i64 1
   store i8 %conv1.i5.i, ptr %ptr.0.lcssa.i4.i, align 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr2.i6.i to i64
@@ -265,7 +265,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
 _ZN7rocksdb14EncodeVarint64EPcm.exit:             ; preds = %while.body.i, %entry
   %v.addr.0.lcssa.i = phi i64 [ %0, %entry ], [ %shr.i, %while.body.i ]
   %ptr.0.lcssa.i = phi ptr [ %dst, %entry ], [ %incdec.ptr.i, %while.body.i ]
-  %conv1.i = trunc i64 %v.addr.0.lcssa.i to i8
+  %conv1.i = trunc nuw nsw i64 %v.addr.0.lcssa.i to i8
   %incdec.ptr2.i = getelementptr inbounds i8, ptr %ptr.0.lcssa.i, i64 1
   store i8 %conv1.i, ptr %ptr.0.lcssa.i, align 1
   %size_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -287,7 +287,7 @@ while.body.i7:                                    ; preds = %_ZN7rocksdb14Encode
 _ZN7rocksdb14EncodeVarint64EPcm.exit14:           ; preds = %while.body.i7, %_ZN7rocksdb14EncodeVarint64EPcm.exit
   %v.addr.0.lcssa.i3 = phi i64 [ %2, %_ZN7rocksdb14EncodeVarint64EPcm.exit ], [ %shr.i12, %while.body.i7 ]
   %ptr.0.lcssa.i4 = phi ptr [ %incdec.ptr2.i, %_ZN7rocksdb14EncodeVarint64EPcm.exit ], [ %incdec.ptr.i11, %while.body.i7 ]
-  %conv1.i5 = trunc i64 %v.addr.0.lcssa.i3 to i8
+  %conv1.i5 = trunc nuw nsw i64 %v.addr.0.lcssa.i3 to i8
   %incdec.ptr2.i6 = getelementptr inbounds i8, ptr %ptr.0.lcssa.i4, i64 1
   store i8 %conv1.i5, ptr %ptr.0.lcssa.i4, align 1
   ret ptr %incdec.ptr2.i6
@@ -412,7 +412,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 _ZN7rocksdb14EncodeVarint64EPcm.exit.i.i:         ; preds = %while.body.i.i.i, %entry
   %v.addr.0.lcssa.i.i.i = phi i64 [ %0, %entry ], [ %shr.i.i.i, %while.body.i.i.i ]
   %ptr.0.lcssa.i.i.i = phi ptr [ %buf.i.i, %entry ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %conv1.i.i.i = trunc i64 %v.addr.0.lcssa.i.i.i to i8
+  %conv1.i.i.i = trunc nuw nsw i64 %v.addr.0.lcssa.i.i.i to i8
   %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %ptr.0.lcssa.i.i.i, i64 1
   store i8 %conv1.i.i.i, ptr %ptr.0.lcssa.i.i.i, align 1
   %cmp6.i2.i.i = icmp ugt i64 %1, 127
@@ -432,7 +432,7 @@ while.body.i7.i.i:                                ; preds = %_ZN7rocksdb14Encode
 _ZN7rocksdb19PutVarint64Varint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit.i: ; preds = %while.body.i7.i.i, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i.i
   %v.addr.0.lcssa.i3.i.i = phi i64 [ %1, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i.i ], [ %shr.i12.i.i, %while.body.i7.i.i ]
   %ptr.0.lcssa.i4.i.i = phi ptr [ %incdec.ptr2.i.i.i, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i.i ], [ %incdec.ptr.i11.i.i, %while.body.i7.i.i ]
-  %conv1.i5.i.i = trunc i64 %v.addr.0.lcssa.i3.i.i to i8
+  %conv1.i5.i.i = trunc nuw nsw i64 %v.addr.0.lcssa.i3.i.i to i8
   %incdec.ptr2.i6.i.i = getelementptr inbounds i8, ptr %ptr.0.lcssa.i4.i.i, i64 1
   store i8 %conv1.i5.i.i, ptr %ptr.0.lcssa.i4.i.i, align 1
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %incdec.ptr2.i6.i.i to i64
@@ -518,7 +518,7 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
 _ZN7rocksdb17PutVarsignedint64EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEl.exit: ; preds = %while.body.i.i, %if.then
   %v.addr.0.lcssa.i.i = phi i64 [ %xor.i.i, %if.then ], [ %shr.i1.i, %while.body.i.i ]
   %ptr.0.lcssa.i.i = phi ptr [ %buf.i, %if.then ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %conv1.i.i = trunc i64 %v.addr.0.lcssa.i.i to i8
+  %conv1.i.i = trunc nuw nsw i64 %v.addr.0.lcssa.i.i to i8
   %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %ptr.0.lcssa.i.i, i64 1
   store i8 %conv1.i.i, ptr %ptr.0.lcssa.i.i, align 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr2.i.i to i64
@@ -550,7 +550,7 @@ while.body.i.i.i:                                 ; preds = %if.else, %while.bod
 _ZN7rocksdb14EncodeVarint64EPcm.exit.i.i:         ; preds = %while.body.i.i.i, %if.else
   %v.addr.0.lcssa.i.i.i = phi i64 [ %3, %if.else ], [ %shr.i.i.i, %while.body.i.i.i ]
   %ptr.0.lcssa.i.i.i = phi ptr [ %buf.i.i, %if.else ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %conv1.i.i.i = trunc i64 %v.addr.0.lcssa.i.i.i to i8
+  %conv1.i.i.i = trunc nuw nsw i64 %v.addr.0.lcssa.i.i.i to i8
   %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %ptr.0.lcssa.i.i.i, i64 1
   store i8 %conv1.i.i.i, ptr %ptr.0.lcssa.i.i.i, align 1
   %cmp6.i2.i.i = icmp ugt i64 %4, 127
@@ -570,7 +570,7 @@ while.body.i7.i.i:                                ; preds = %_ZN7rocksdb14Encode
 _ZNK7rocksdb11BlockHandle8EncodeToEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %while.body.i7.i.i, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i.i
   %v.addr.0.lcssa.i3.i.i = phi i64 [ %4, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i.i ], [ %shr.i12.i.i, %while.body.i7.i.i ]
   %ptr.0.lcssa.i4.i.i = phi ptr [ %incdec.ptr2.i.i.i, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i.i ], [ %incdec.ptr.i11.i.i, %while.body.i7.i.i ]
-  %conv1.i5.i.i = trunc i64 %v.addr.0.lcssa.i3.i.i to i8
+  %conv1.i5.i.i = trunc nuw nsw i64 %v.addr.0.lcssa.i3.i.i to i8
   %incdec.ptr2.i6.i.i = getelementptr inbounds i8, ptr %ptr.0.lcssa.i4.i.i, i64 1
   store i8 %conv1.i5.i.i, ptr %ptr.0.lcssa.i4.i.i, align 1
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %incdec.ptr2.i6.i.i to i64
@@ -894,7 +894,7 @@ if.end:                                           ; preds = %entry
   store i64 %magic_number, ptr %add.ptr4, align 1
   %cmp14 = icmp ugt i32 %format_version, 5
   %4 = lshr i64 %magic_number, 56
-  %conv.i11.i = trunc i64 %4 to i32
+  %conv.i11.i = trunc nuw nsw i64 %4 to i32
   br i1 %cmp14, label %if.then15, label %if.else48
 
 if.then15:                                        ; preds = %if.end
@@ -919,7 +919,7 @@ if.then37:                                        ; preds = %if.then15
   br label %return
 
 if.end40:                                         ; preds = %if.then15
-  %conv33 = trunc i64 %5 to i32
+  %conv33 = trunc nuw i64 %5 to i32
   %add.ptr31 = getelementptr inbounds i8, ptr %this, i64 29
   store i32 %conv33, ptr %add.ptr31, align 1
   %add.ptr41 = getelementptr inbounds i8, ptr %this, i64 33
@@ -958,7 +958,7 @@ _ZN7rocksdb22ComputeBuiltinChecksumENS_12ChecksumTypeEPKcm.exit: ; preds = %if.e
   %cmp.not.i = icmp eq i32 %base_context_checksum, 0
   %conv.i.i39 = trunc i64 %footer_offset to i32
   %shr.i.i = lshr i64 %footer_offset, 32
-  %conv.i3.i = trunc i64 %shr.i.i to i32
+  %conv.i3.i = trunc nuw i64 %shr.i.i to i32
   %add.i = add i32 %conv.i3.i, %conv.i.i39
   %xor.i = xor i32 %add.i, %base_context_checksum
   %and.i = select i1 %cmp.not.i, i32 0, i32 %xor.i
@@ -987,7 +987,7 @@ while.body.i.i:                                   ; preds = %if.else48, %while.b
 _ZN7rocksdb14EncodeVarint64EPcm.exit.i:           ; preds = %while.body.i.i, %if.else48
   %v.addr.0.lcssa.i.i = phi i64 [ %6, %if.else48 ], [ %shr.i.i43, %while.body.i.i ]
   %ptr.0.lcssa.i.i = phi ptr [ %part2.075, %if.else48 ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %conv1.i.i = trunc i64 %v.addr.0.lcssa.i.i to i8
+  %conv1.i.i = trunc nuw nsw i64 %v.addr.0.lcssa.i.i to i8
   %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %ptr.0.lcssa.i.i, i64 1
   store i8 %conv1.i.i, ptr %ptr.0.lcssa.i.i, align 1
   %size_.i40 = getelementptr inbounds i8, ptr %metaindex_handle, i64 8
@@ -1009,7 +1009,7 @@ while.body.i7.i:                                  ; preds = %_ZN7rocksdb14Encode
 _ZNK7rocksdb11BlockHandle8EncodeToEPc.exit:       ; preds = %while.body.i7.i, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i
   %v.addr.0.lcssa.i3.i = phi i64 [ %8, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i ], [ %shr.i12.i, %while.body.i7.i ]
   %ptr.0.lcssa.i4.i = phi ptr [ %incdec.ptr2.i.i, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i ], [ %incdec.ptr.i11.i, %while.body.i7.i ]
-  %conv1.i5.i = trunc i64 %v.addr.0.lcssa.i3.i to i8
+  %conv1.i5.i = trunc nuw nsw i64 %v.addr.0.lcssa.i3.i to i8
   %incdec.ptr2.i6.i = getelementptr inbounds i8, ptr %ptr.0.lcssa.i4.i, i64 1
   store i8 %conv1.i5.i, ptr %ptr.0.lcssa.i4.i, align 1
   %10 = load i64, ptr %index_handle, align 8
@@ -1030,7 +1030,7 @@ while.body.i.i63:                                 ; preds = %_ZNK7rocksdb11Block
 _ZN7rocksdb14EncodeVarint64EPcm.exit.i45:         ; preds = %while.body.i.i63, %_ZNK7rocksdb11BlockHandle8EncodeToEPc.exit
   %v.addr.0.lcssa.i.i46 = phi i64 [ %10, %_ZNK7rocksdb11BlockHandle8EncodeToEPc.exit ], [ %shr.i.i68, %while.body.i.i63 ]
   %ptr.0.lcssa.i.i47 = phi ptr [ %incdec.ptr2.i6.i, %_ZNK7rocksdb11BlockHandle8EncodeToEPc.exit ], [ %incdec.ptr.i.i67, %while.body.i.i63 ]
-  %conv1.i.i48 = trunc i64 %v.addr.0.lcssa.i.i46 to i8
+  %conv1.i.i48 = trunc nuw nsw i64 %v.addr.0.lcssa.i.i46 to i8
   %incdec.ptr2.i.i49 = getelementptr inbounds i8, ptr %ptr.0.lcssa.i.i47, i64 1
   store i8 %conv1.i.i48, ptr %ptr.0.lcssa.i.i47, align 1
   %size_.i50 = getelementptr inbounds i8, ptr %index_handle, i64 8
@@ -1052,7 +1052,7 @@ while.body.i7.i56:                                ; preds = %_ZN7rocksdb14Encode
 _ZNK7rocksdb11BlockHandle8EncodeToEPc.exit70:     ; preds = %while.body.i7.i56, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i45
   %v.addr.0.lcssa.i3.i52 = phi i64 [ %12, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i45 ], [ %shr.i12.i61, %while.body.i7.i56 ]
   %ptr.0.lcssa.i4.i53 = phi ptr [ %incdec.ptr2.i.i49, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i45 ], [ %incdec.ptr.i11.i60, %while.body.i7.i56 ]
-  %conv1.i5.i54 = trunc i64 %v.addr.0.lcssa.i3.i52 to i8
+  %conv1.i5.i54 = trunc nuw nsw i64 %v.addr.0.lcssa.i3.i52 to i8
   %incdec.ptr2.i6.i55 = getelementptr inbounds i8, ptr %ptr.0.lcssa.i4.i53, i64 1
   store i8 %conv1.i5.i54, ptr %ptr.0.lcssa.i4.i53, align 1
   %tobool.not.i.i.i = icmp eq ptr %part3.074, %incdec.ptr2.i6.i55
@@ -1516,7 +1516,7 @@ if.then131:                                       ; preds = %if.end122
 if.end134:                                        ; preds = %if.end122
   %conv.i.i = trunc i64 %add to i32
   %shr.i.i = lshr i64 %add, 32
-  %conv.i3.i = trunc i64 %shr.i.i to i32
+  %conv.i3.i = trunc nuw i64 %shr.i.i to i32
   %add.i109 = add i32 %conv.i3.i, %conv.i.i
   %xor.i = xor i32 %result.0.copyload.i.i101, %add.i109
   %add137 = add i32 %xor.i, %computed_checksum.0
@@ -1921,7 +1921,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -2069,7 +2069,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -2210,7 +2210,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -4774,7 +4774,7 @@ if.else:                                          ; preds = %entry
   %and = and i64 %mul, -4096
   %add = add i64 %and, 4096
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %add, i64 4294967295)
-  %conv4 = trunc i64 %.sroa.speculated to i32
+  %conv4 = trunc nuw i64 %.sroa.speculated to i32
   store i32 %conv4, ptr %output_len, align 4
   br label %if.end5
 
@@ -4783,7 +4783,7 @@ if.end5:                                          ; preds = %_ZN7rocksdb11compre
   %input_data.addr.1 = phi ptr [ %input_data, %if.else ], [ %retval.0.i9.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %_stream, i8 0, i64 112, i1 false)
   %cmp6 = icmp sgt i32 %windowBits, 0
-  %add7 = add nsw i32 %windowBits, 32
+  %add7 = add nuw nsw i32 %windowBits, 32
   %cond = select i1 %cmp6, i32 %add7, i32 %windowBits
   %call8 = call i32 @inflateInit2_(ptr noundef nonnull %_stream, i32 noundef %cond, ptr noundef nonnull @.str.34, i32 noundef 112)
   %cmp9.not = icmp eq i32 %call8, 0

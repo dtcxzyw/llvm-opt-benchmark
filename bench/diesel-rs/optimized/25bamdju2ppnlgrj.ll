@@ -92,7 +92,7 @@ define { ptr, ptr } @"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecInPlaceCollect$LT$T$C$I$GT$$GT$16collect_in_place17h35563892cd6b757cE"(ptr align 8 %0, ptr %1, ptr %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define range(i64 0, 768614336404564651) i64 @"_ZN83_$LT$I$u20$as$u20$alloc..vec..in_place_collect..SpecInPlaceCollect$LT$T$C$I$GT$$GT$16collect_in_place17h35563892cd6b757cE"(ptr align 8 %0, ptr %1, ptr %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = tail call { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h02b470d3778eb5e4E(ptr align 8 %0, ptr %1, ptr %1, ptr nonnull align 1 %4, ptr %2)
   %6 = extractvalue { ptr, ptr } %5, 0

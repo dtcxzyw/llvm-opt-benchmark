@@ -196,7 +196,7 @@ define dso_local void @read_persistent_clock64(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @add_rtc_cmos() #5 section ".init.text" align 16 {
+define internal noundef range(i32 -19, 1) i32 @add_rtc_cmos() #5 section ".init.text" align 16 {
   %1 = load ptr, ptr @pnp_global, align 8
   %2 = icmp eq ptr %1, @pnp_global
   br i1 %2, label %.loopexit3, label %.preheader

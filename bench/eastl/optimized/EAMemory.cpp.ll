@@ -1655,7 +1655,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC6MemcmpEPKvS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %nCharCount) local_unnamed_addr #2 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN2EA4StdC6MemcmpEPKvS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %nCharCount) local_unnamed_addr #2 {
 entry:
   %cmp.not7 = icmp eq i64 %nCharCount, 0
   br i1 %cmp.not7, label %return, label %for.body

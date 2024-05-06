@@ -115,7 +115,7 @@ define i32 @Llb_ManComputeBestQuant(ptr nocapture noundef readonly %0) local_unn
   %16 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv64
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
-  %19 = trunc i64 %indvars.iv64 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv64 to i32
   %20 = shl i32 %19, 16
   br i1 %18, label %.loopexit, label %.lr.ph.split
 
@@ -202,7 +202,7 @@ Llb_ManComputeCommonQuant.exit:                   ; preds = %.thread27.i
   %59 = icmp sgt i32 %.1.i, 0
   %60 = icmp slt i32 %.12839, %.1.i
   %or.cond35 = select i1 %59, i1 %60, i1 false
-  %61 = trunc i64 %indvars.iv61 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv61 to i32
   %62 = or i32 %20, %61
   %spec.select = select i1 %or.cond35, i32 %.1.i, i32 %.12839
   %spec.select58 = select i1 %or.cond35, i32 %62, i32 %.140
@@ -478,7 +478,7 @@ define i32 @Llb_ManComputeBestAttr(ptr nocapture noundef readonly %0) local_unna
   %15 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv59
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
-  %18 = trunc i64 %indvars.iv59 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv59 to i32
   %19 = shl i32 %18, 16
   br i1 %17, label %.loopexit, label %.lr.ph.split
 
@@ -563,7 +563,7 @@ Llb_ManComputeCommonAttr.exit:                    ; preds = %51, %29
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %Llb_ManComputeCommonAttr.exit
-  %60 = trunc i64 %indvars.iv56 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv56 to i32
   %61 = or i32 %19, %60
   br label %62
 
@@ -1057,7 +1057,7 @@ define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
   %19 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv64.i
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 0
-  %22 = trunc i64 %indvars.iv64.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv64.i to i32
   %23 = shl i32 %22, 16
   br i1 %21, label %.loopexit.i, label %.lr.ph.split.i
 
@@ -1144,7 +1144,7 @@ Llb_ManComputeCommonQuant.exit.i:                 ; preds = %.thread27.i.i
   %62 = icmp sgt i32 %.1.i.i, 0
   %63 = icmp slt i32 %.12839.i, %.1.i.i
   %or.cond35.i = select i1 %62, i1 %63, i1 false
-  %64 = trunc i64 %indvars.iv61.i to i32
+  %64 = trunc nuw nsw i64 %indvars.iv61.i to i32
   %65 = or i32 %23, %64
   %spec.select.i = select i1 %or.cond35.i, i32 %.1.i.i, i32 %.12839.i
   %spec.select58.i = select i1 %or.cond35.i, i32 %65, i32 %.140.i

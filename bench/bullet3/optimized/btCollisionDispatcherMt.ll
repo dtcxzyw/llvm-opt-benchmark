@@ -1241,7 +1241,7 @@ for.body61:                                       ; preds = %for.body61.lr.ph, %
   %arrayidx.i93 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv118
   %41 = load ptr, ptr %arrayidx.i93, align 8
   %m_index1a = getelementptr inbounds i8, ptr %41, i64 876
-  %42 = trunc i64 %indvars.iv118 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv118 to i32
   store i32 %42, ptr %m_index1a, align 4
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %43 = load i32, ptr %m_size.i90, align 4

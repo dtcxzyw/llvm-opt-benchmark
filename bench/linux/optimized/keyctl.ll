@@ -1562,7 +1562,7 @@ define dso_local i64 @keyctl_setperm_key(i32 noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @keyctl_instantiate_key(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -9223372036854775808, 2147483648) i64 @keyctl_instantiate_key(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.iov_iter, align 8
   %6 = icmp ne ptr %1, null
   %7 = icmp ne i64 %2, 0
@@ -1602,7 +1602,7 @@ define dso_local i64 @keyctl_instantiate_key(i32 noundef %0, ptr noundef %1, i64
 declare dso_local i32 @import_ubuf(i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @keyctl_instantiate_key_common(i32 noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -9223372036854775808, 2147483648) i64 @keyctl_instantiate_key_common(i32 noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !11
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 1784
@@ -1746,7 +1746,7 @@ define internal fastcc i64 @keyctl_instantiate_key_common(i32 noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @keyctl_instantiate_key_iov(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -9223372036854775808, 2147483648) i64 @keyctl_instantiate_key_iov(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca [8 x %struct.iovec], align 16
   %6 = alloca ptr, align 8
   %7 = alloca %struct.iov_iter, align 8
@@ -1780,13 +1780,13 @@ define dso_local i64 @keyctl_instantiate_key_iov(i32 noundef %0, ptr noundef %1,
 declare dso_local i64 @import_iovec(i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @keyctl_negate_key(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = tail call i64 @keyctl_reject_key(i32 noundef %0, i32 noundef %1, i32 noundef 126, i32 noundef %2), !range !18
+define dso_local range(i64 -9223372036854775808, 2147483648) i64 @keyctl_negate_key(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+  %4 = tail call i64 @keyctl_reject_key(i32 noundef %0, i32 noundef %1, i32 noundef 126, i32 noundef %2)
   ret i64 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @keyctl_reject_key(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -9223372036854775808, 2147483648) i64 @keyctl_reject_key(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !11
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds i8, ptr %6, i64 1784
@@ -1935,7 +1935,7 @@ define internal fastcc void @keyctl_change_reqkey_auth(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @keyctl_set_reqkey_keyring(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 256) i64 @keyctl_set_reqkey_keyring(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !11
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 1784
@@ -2537,7 +2537,7 @@ define dso_local i64 @keyctl_restrict_keyring(i32 noundef %0, ptr noundef %1, pt
 declare dso_local i32 @keyring_restrict(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @keyctl_capabilities(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i64 -14, 3) i64 @keyctl_capabilities(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %24, label %4
 
@@ -2990,7 +2990,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %223 = trunc i64 %1 to i32
   %224 = trunc i64 %2 to i32
   %225 = trunc i64 %3 to i32
-  %226 = tail call i64 @keyctl_reject_key(i32 noundef %223, i32 noundef %224, i32 noundef 126, i32 noundef %225), !range !18
+  %226 = tail call i64 @keyctl_reject_key(i32 noundef %223, i32 noundef %224, i32 noundef 126, i32 noundef %225)
   br label %keyctl_keyring_clear.exit
 
 227:                                              ; preds = %5
@@ -3074,7 +3074,7 @@ define internal fastcc i64 @__se_sys_keyctl(i64 noundef %0, i64 noundef %1, i64 
   %271 = trunc i64 %2 to i32
   %272 = trunc i64 %3 to i32
   %273 = trunc i64 %4 to i32
-  %274 = tail call i64 @keyctl_reject_key(i32 noundef %270, i32 noundef %271, i32 noundef %272, i32 noundef %273), !range !18
+  %274 = tail call i64 @keyctl_reject_key(i32 noundef %270, i32 noundef %271, i32 noundef %272, i32 noundef %273)
   br label %keyctl_keyring_clear.exit
 
 275:                                              ; preds = %5

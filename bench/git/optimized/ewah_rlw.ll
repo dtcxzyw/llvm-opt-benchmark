@@ -34,7 +34,7 @@ if.end.i:                                         ; preds = %entry
   store i64 %add5.i, ptr %pointer, align 8
   %.val.i = load i64, ptr %0, align 8
   %shr.i16.i = lshr i64 %.val.i, 33
-  %conv.i = trunc i64 %shr.i16.i to i32
+  %conv.i = trunc nuw nsw i64 %shr.i16.i to i32
   %literal_words.i = getelementptr inbounds i8, ptr %it, i64 40
   store i32 %conv.i, ptr %literal_words.i, align 8
   %.val14.i = load i64, ptr %0, align 8
@@ -129,7 +129,7 @@ if.end39:                                         ; preds = %if.then30
   store i64 %add5.i, ptr %pointer.i, align 8
   %.val.i = load i64, ptr %arrayidx.i, align 8
   %shr.i16.i = lshr i64 %.val.i, 33
-  %conv.i26 = trunc i64 %shr.i16.i to i32
+  %conv.i26 = trunc nuw nsw i64 %shr.i16.i to i32
   store i32 %conv.i26, ptr %literal_words, align 8
   %.val14.i = load i64, ptr %arrayidx.i, align 8
   %shr.i17.i = lshr i64 %.val14.i, 1
@@ -250,7 +250,7 @@ if.end39.i:                                       ; preds = %if.then30.i
   store i64 %add5.i.i, ptr %pointer.i.i, align 8
   %.val.i.i = load i64, ptr %arrayidx.i.i, align 8
   %shr.i16.i.i = lshr i64 %.val.i.i, 33
-  %conv.i26.i = trunc i64 %shr.i16.i.i to i32
+  %conv.i26.i = trunc nuw nsw i64 %shr.i16.i.i to i32
   store i32 %conv.i26.i, ptr %0, align 8
   %.val14.i.i = load i64, ptr %arrayidx.i.i, align 8
   %shr.i17.i.i = lshr i64 %.val14.i.i, 1

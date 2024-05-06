@@ -40,7 +40,7 @@ define internal noundef i32 @escape_xml_attr_quote_init(ptr nocapture noundef wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @fun_so_escape_xml_attr_quote(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #3 {
+define internal range(i64 1, 3) i64 @fun_so_escape_xml_attr_quote(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #3 {
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %9
@@ -62,7 +62,7 @@ define internal i64 @fun_so_escape_xml_attr_quote(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @escape_xml_attr_quote_finish(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 %2) #3 {
+define internal range(i64 1, 3) i64 @escape_xml_attr_quote_finish(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 %2) #3 {
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %7

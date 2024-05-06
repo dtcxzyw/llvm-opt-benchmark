@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i32 @isalnum(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @isalnum(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @isalpha(i32 noundef %0) #2
   %.not = icmp ne i32 %2, 0
   %isdigittmp = add i32 %0, -48
@@ -18,7 +18,7 @@ define i32 @isalnum(i32 noundef %0) local_unnamed_addr #0 {
 declare i32 @isalpha(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i32 @isalnum_l(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @isalnum_l(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = tail call i32 @isalpha(i32 noundef %0) #2
   %.not.i = icmp ne i32 %3, 0
   %isdigittmp.i = add i32 %0, -48

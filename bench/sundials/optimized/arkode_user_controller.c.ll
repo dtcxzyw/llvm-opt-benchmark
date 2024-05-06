@@ -77,7 +77,7 @@ define noundef i32 @SUNAdaptController_GetType_ARKUserControl(ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SUNAdaptController_EstimateStep_ARKUserControl(ptr nocapture noundef readonly %0, double noundef %1, i32 %2, double noundef %3, ptr noundef %4) #0 {
+define range(i32 -9984, 1) i32 @SUNAdaptController_EstimateStep_ARKUserControl(ptr nocapture noundef readonly %0, double noundef %1, i32 %2, double noundef %3, ptr noundef %4) #0 {
   %6 = fcmp ugt double %3, 1.000000e+00
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 32

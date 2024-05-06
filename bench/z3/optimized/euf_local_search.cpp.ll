@@ -87,7 +87,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3euf6solver12local_searchER7svectorIbjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(8) %phase) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @_ZN3euf6solver12local_searchER7svectorIbjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(8) %phase) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scoped_rl = alloca %struct.scoped_limits, align 8
   %bool_search = alloca %"class.sat::ddfw", align 8

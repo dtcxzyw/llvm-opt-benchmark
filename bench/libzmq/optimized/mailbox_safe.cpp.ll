@@ -1052,7 +1052,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @_ZN3zmq10signaler_t4sendEv(ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq14mailbox_safe_t4recvEPNS_9command_tEi(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef writeonly %cmd_, i32 noundef %timeout_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14mailbox_safe_t4recvEPNS_9command_tEi(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef writeonly %cmd_, i32 noundef %timeout_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::chrono::time_point", align 8
   %_queue.i.i = getelementptr inbounds i8, ptr %this, i64 16

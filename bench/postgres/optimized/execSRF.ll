@@ -753,7 +753,7 @@ define internal fastcc void @tupledesc_match(ptr nocapture noundef readonly %0, 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %18, i64 68
   %30 = getelementptr inbounds i8, ptr %17, i64 68
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %32)
   %33 = tail call i32 @errcode(i32 noundef 67141764) #5
@@ -784,7 +784,7 @@ define internal fastcc void @tupledesc_match(ptr nocapture noundef readonly %0, 
   br i1 %.not23, label %58, label %51
 
 51:                                               ; preds = %46, %41
-  %52 = trunc i64 %indvars.iv to i32
+  %52 = trunc nuw nsw i64 %indvars.iv to i32
   %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %53)
   %54 = tail call i32 @errcode(i32 noundef 67141764) #5

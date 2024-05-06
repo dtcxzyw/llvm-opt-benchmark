@@ -151,7 +151,7 @@ define dso_local void @agp_put_bridge(ptr noundef %0) #1 align 16 {
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @agp_add_bridge(ptr noundef %0) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #1 align 16 {
   %2 = load i32, ptr @agp_off, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %149

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN76_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..default..Default$GT$7default17h1e5eb22652e48186E"(ptr noalias nocapture noundef writeonly sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = tail call noundef i64 @_ZN7dashmap20default_shard_amount17h3643e49c6ea168d1E(), !noalias !4
-  tail call void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h46d3bf0e28eca5f1E.llvm.12527026600063868487"(ptr noalias nocapture noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24) %0, i64 noundef 0, i64 noundef %2)
+  tail call void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h46d3bf0e28eca5f1E.llvm.12527026600063868487"(ptr noalias nocapture noundef nonnull writeonly sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24) %0, i64 noundef 0, i64 noundef %2)
   ret void
 }
 
@@ -37,7 +37,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call i64 @llvm.ctpop.i64(i64 %2), !range !7
+  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -52,8 +52,8 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %20 = udiv i64 %.0, %2
   store i64 %20, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !11
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !7
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !10
   store ptr %7, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -61,10 +61,10 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
-  call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h2d9c5fd67e032b8dE.llvm.17170699433178345342"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !11
-  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h183e6ca355b2a912E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !8
+  call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h2d9c5fd67e032b8dE.llvm.17170699433178345342"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5), !noalias !17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !10
+  %21 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h183e6ca355b2a912E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !7
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !7
   %22 = sub i64 64, %14
   %23 = extractvalue { ptr, i64 } %21, 0
   %24 = extractvalue { ptr, i64 } %21, 1
@@ -130,15 +130,14 @@ attributes #5 = { noreturn }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17hbb121a1dc963dd00E.llvm.12527026600063868487: argument 0"}
 !6 = distinct !{!6, !"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17hbb121a1dc963dd00E.llvm.12527026600063868487"}
-!7 = !{i64 0, i64 65}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN107_$LT$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$GT$9from_iter17hc9e07215e1b9d084E: argument 0"}
-!10 = distinct !{!10, !"_ZN107_$LT$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$GT$9from_iter17hc9e07215e1b9d084E"}
-!11 = !{!12, !14, !15, !17, !9}
-!12 = distinct !{!12, !13, !"_ZN95_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h36d484228fff552dE.llvm.10480026428917835996: argument 0"}
-!13 = distinct !{!13, !"_ZN95_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h36d484228fff552dE.llvm.10480026428917835996"}
-!14 = distinct !{!14, !13, !"_ZN95_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h36d484228fff552dE.llvm.10480026428917835996: argument 1"}
-!15 = distinct !{!15, !16, !"_ZN4core4iter6traits8iterator8Iterator7collect17hcb5224e99edda0a5E.llvm.10480026428917835996: argument 0"}
-!16 = distinct !{!16, !"_ZN4core4iter6traits8iterator8Iterator7collect17hcb5224e99edda0a5E.llvm.10480026428917835996"}
-!17 = distinct !{!17, !16, !"_ZN4core4iter6traits8iterator8Iterator7collect17hcb5224e99edda0a5E.llvm.10480026428917835996: argument 1"}
-!18 = !{!14, !17, !9}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN107_$LT$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$GT$9from_iter17hc9e07215e1b9d084E: argument 0"}
+!9 = distinct !{!9, !"_ZN107_$LT$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$GT$9from_iter17hc9e07215e1b9d084E"}
+!10 = !{!11, !13, !14, !16, !8}
+!11 = distinct !{!11, !12, !"_ZN95_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h36d484228fff552dE.llvm.10480026428917835996: argument 0"}
+!12 = distinct !{!12, !"_ZN95_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h36d484228fff552dE.llvm.10480026428917835996"}
+!13 = distinct !{!13, !12, !"_ZN95_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h36d484228fff552dE.llvm.10480026428917835996: argument 1"}
+!14 = distinct !{!14, !15, !"_ZN4core4iter6traits8iterator8Iterator7collect17hcb5224e99edda0a5E.llvm.10480026428917835996: argument 0"}
+!15 = distinct !{!15, !"_ZN4core4iter6traits8iterator8Iterator7collect17hcb5224e99edda0a5E.llvm.10480026428917835996"}
+!16 = distinct !{!16, !15, !"_ZN4core4iter6traits8iterator8Iterator7collect17hcb5224e99edda0a5E.llvm.10480026428917835996: argument 1"}
+!17 = !{!13, !16, !8}

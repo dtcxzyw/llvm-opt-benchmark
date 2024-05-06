@@ -100,7 +100,7 @@ define dso_local ptr @find_variable(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %16, %20
   %.09.i = phi ptr [ %.0.i, %20 ], [ %.07.i, %16 ]
   %17 = load ptr, ptr %.09.i, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %0) #9
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %0) #9
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %find_simple.exit, label %20
 
@@ -170,7 +170,7 @@ find_simple.exit:                                 ; preds = %.lr.ph.i
 .lr.ph.i53:                                       ; preds = %56, %60
   %.09.i54 = phi ptr [ %.0.i55, %60 ], [ %.07.i51, %56 ]
   %57 = load ptr, ptr %.09.i54, align 8
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %0) #9
+  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull readonly dereferenceable(1) %0) #9
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %find_simple.exit58.thread61, label %60
 

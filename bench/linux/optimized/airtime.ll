@@ -297,7 +297,7 @@ define dso_local i32 @ieee80211_calc_tx_airtime(ptr nocapture noundef readonly %
   %36 = icmp ne i16 %35, 0
   %37 = zext i1 %36 to i8
   %38 = lshr i16 %23, 10
-  %39 = trunc i16 %38 to i8
+  %39 = trunc nuw nsw i16 %38 to i8
   %40 = and i8 %39, 4
   %41 = or disjoint i8 %40, %37
   store i8 %41, ptr %9, align 2
@@ -525,7 +525,7 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr nocapture noundef r
   %111 = icmp ne i16 %110, 0
   %112 = zext i1 %111 to i8
   %113 = lshr i16 %97, 10
-  %114 = trunc i16 %113 to i8
+  %114 = trunc nuw nsw i16 %113 to i8
   %115 = and i8 %114, 4
   %116 = or disjoint i8 %115, %112
   store i8 %116, ptr %109, align 2

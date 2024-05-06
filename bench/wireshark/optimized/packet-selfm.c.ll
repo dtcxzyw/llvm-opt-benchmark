@@ -1224,7 +1224,7 @@ fastser_uns_wordbit_save.exit:                    ; preds = %47, %.sink.split.i
 
 .preheader:                                       ; preds = %.preheader.preheader, %fastser_uns_wordbit_save.exit181
   %.116732 = phi i32 [ %68, %fastser_uns_wordbit_save.exit181 ], [ 254, %.preheader.preheader ]
-  %56 = trunc i32 %.116732 to i8
+  %56 = trunc nuw i32 %.116732 to i8
   %57 = tail call ptr @wmem_file_scope() #4
   %58 = tail call noalias ptr @wmem_alloc(ptr noundef %57, i64 noundef 8) #4
   %59 = icmp ult i8 %56, -2
@@ -3450,7 +3450,7 @@ proto_item_set_generated.exit:                    ; preds = %134, %131, %126, %1
 154:                                              ; preds = %102, %proto_item_set_generated.exit, %146, %150
   %.2 = phi i32 [ %.1245, %102 ], [ %153, %150 ], [ %149, %146 ], [ %145, %proto_item_set_generated.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %155 = trunc i64 %indvars.iv.next to i32
+  %155 = trunc nuw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %156, label %94, !llvm.loop !39
 

@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [75 x i8] c"usage: <used/free>\0Aused: dump all allocated node\0Afree: dump all free node\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @meminfo_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, i32 %2, i32 %3) #0 {
+define internal range(i32 -12, 1) i32 @meminfo_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, i32 %2, i32 %3) #0 {
   %5 = tail call noalias dereferenceable_or_null(272) ptr @zalloc(i64 noundef 272) #12
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -129,7 +129,7 @@ define internal i64 @meminfo_read(ptr nocapture noundef %0, ptr noundef %1, i64 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @meminfo_dup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal range(i32 -12, 1) i32 @meminfo_dup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias dereferenceable_or_null(272) ptr @malloc(i64 noundef 272) #14

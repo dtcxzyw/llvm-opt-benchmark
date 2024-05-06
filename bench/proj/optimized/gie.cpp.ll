@@ -528,7 +528,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %1, ptr %13, align 8
   %14 = load ptr, ptr %1, align 8
-  %15 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 92) #27
+  %15 = tail call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %14, i32 noundef 92) #27
   %16 = icmp ugt ptr %15, %14
   %17 = getelementptr inbounds i8, ptr %15, i64 1
   %spec.select.i = select i1 %16, ptr %17, ptr %14
@@ -2071,7 +2071,7 @@ _ZL7get_inpP4ffio.exit.i:                         ; preds = %_ZL16at_end_delimit
   br i1 %.not.i10.i, label %513, label %1293
 
 513:                                              ; preds = %_ZL7get_inpP4ffio.exit.i
-  %514 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(10) @.str.39) #27
+  %514 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(10) @.str.39) #27
   %515 = icmp eq i32 %514, 0
   br i1 %515, label %516, label %567
 
@@ -2197,7 +2197,7 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %559, %_ZL6ignorePKc
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 567:                                              ; preds = %513
-  %568 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(8) @.str.40) #27
+  %568 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(8) @.str.40) #27
   %569 = icmp eq i32 %568, 0
   br i1 %569, label %570, label %573
 
@@ -2216,7 +2216,7 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %559, %_ZL6ignorePKc
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 573:                                              ; preds = %567
-  %574 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(8) @.str.41) #27
+  %574 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(8) @.str.41) #27
   %575 = icmp eq i32 %574, 0
   br i1 %575, label %576, label %579
 
@@ -2240,7 +2240,7 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %559, %_ZL6ignorePKc
   br i1 %.not31.i.i, label %589, label %581
 
 581:                                              ; preds = %579
-  %582 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(7) @.str.44) #27
+  %582 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(7) @.str.44) #27
   %583 = icmp eq i32 %582, 0
   br i1 %583, label %584, label %_ZL8dispatchPKcS0_.exit.i.backedge
 
@@ -2254,7 +2254,7 @@ _ZL9operationPKc.exit.i.i:                        ; preds = %559, %_ZL6ignorePKc
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 589:                                              ; preds = %579
-  %590 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(7) @.str.43) #27
+  %590 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(7) @.str.43) #27
   %591 = icmp eq i32 %590, 0
   br i1 %591, label %592, label %599
 
@@ -2278,7 +2278,7 @@ _ZL6acceptPKc.exit.i:                             ; preds = %595, %592
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 599:                                              ; preds = %589
-  %600 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(7) @.str.44) #27
+  %600 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(7) @.str.44) #27
   %601 = icmp eq i32 %600, 0
   br i1 %601, label %602, label %1122
 
@@ -2470,7 +2470,7 @@ _ZL6columnPKci.exit100.i.i:                       ; preds = %625
   %fputs.i.i.i = call i32 @fputs(ptr nonnull %676, ptr %675)
   %677 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
   %678 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 27), align 8
-  %679 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %678, i32 noundef 92) #27
+  %679 = call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %678, i32 noundef 92) #27
   %680 = icmp ugt ptr %679, %678
   %681 = getelementptr inbounds i8, ptr %679, i64 1
   %spec.select.i8.i.i.i = select i1 %680, ptr %681, ptr %678
@@ -2667,15 +2667,15 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i26.i: ; preds = %778, %7
   ]
 
 784:                                              ; preds = %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i26.i
-  call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %19, ptr noundef %782, i32 noundef %783, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %13)
+  call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %19, ptr noundef %782, i32 noundef %783, ptr noundef nonnull readonly byval(%union.PJ_COORD) align 8 %13)
   br label %_ZL18expect_trans_n_dimRK8PJ_COORD.exit.i.i
 
 785:                                              ; preds = %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i26.i
-  call void @_Z18pj_approx_3D_transP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %19, ptr noundef %782, i32 noundef %783, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %13)
+  call void @_Z18pj_approx_3D_transP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %19, ptr noundef %782, i32 noundef %783, ptr noundef nonnull readonly byval(%union.PJ_COORD) align 8 %13)
   br label %_ZL18expect_trans_n_dimRK8PJ_COORD.exit.i.i
 
 786:                                              ; preds = %_ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i26.i
-  call void @_Z18pj_approx_2D_transP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %19, ptr noundef %782, i32 noundef %783, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %13)
+  call void @_Z18pj_approx_2D_transP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %19, ptr noundef %782, i32 noundef %783, ptr noundef nonnull readonly byval(%union.PJ_COORD) align 8 %13)
   br label %_ZL18expect_trans_n_dimRK8PJ_COORD.exit.i.i
 
 _ZL18expect_trans_n_dimRK8PJ_COORD.exit.i.i:      ; preds = %786, %785, %784
@@ -2877,7 +2877,7 @@ _ZL20err_const_from_errnoi.exit111.i.i:           ; preds = %807, %814
   %fputs.i114.i.i = call i32 @fputs(ptr nonnull %904, ptr %903)
   %905 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
   %906 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 27), align 8
-  %907 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %906, i32 noundef 92) #27
+  %907 = call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %906, i32 noundef 92) #27
   %908 = icmp ugt ptr %907, %906
   %909 = getelementptr inbounds i8, ptr %907, i64 1
   %spec.select.i2.i.i.i = select i1 %908, ptr %909, ptr %906
@@ -3043,15 +3043,15 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit135.i.i: ; preds = %977, %
   ]
 
 994:                                              ; preds = %990
-  call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %21, ptr noundef %992, i32 noundef %993, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %18)
+  call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %21, ptr noundef %992, i32 noundef %993, ptr noundef nonnull readonly byval(%union.PJ_COORD) align 8 %18)
   br label %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i
 
 995:                                              ; preds = %990
-  call void @_Z18pj_approx_3D_transP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %21, ptr noundef %992, i32 noundef %993, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %18)
+  call void @_Z18pj_approx_3D_transP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %21, ptr noundef %992, i32 noundef %993, ptr noundef nonnull readonly byval(%union.PJ_COORD) align 8 %18)
   br label %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i
 
 996:                                              ; preds = %990
-  call void @_Z18pj_approx_2D_transP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %21, ptr noundef %992, i32 noundef %993, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %18)
+  call void @_Z18pj_approx_2D_transP8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %21, ptr noundef %992, i32 noundef %993, ptr noundef nonnull readonly byval(%union.PJ_COORD) align 8 %18)
   br label %_ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i
 
 _ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i:   ; preds = %996, %995, %994
@@ -3225,7 +3225,7 @@ _ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %_ZL11tode
   %fputs.i147.i.i = call i32 @fputs(ptr nonnull %1073, ptr %1072)
   %1074 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
   %1075 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 27), align 8
-  %1076 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1075, i32 noundef 92) #27
+  %1076 = call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %1075, i32 noundef 92) #27
   %1077 = icmp ugt ptr %1076, %1075
   %1078 = getelementptr inbounds i8, ptr %1076, i64 1
   %spec.select.i8.i148.i.i = select i1 %1077, ptr %1078, ptr %1075
@@ -3305,7 +3305,7 @@ _ZL6expectPKc.exit.i:                             ; preds = %1113, %1106, %1050,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1122:                                             ; preds = %599
-  %1123 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(10) @.str.45) #27
+  %1123 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(10) @.str.45) #27
   %1124 = icmp eq i32 %1123, 0
   br i1 %1124, label %1125, label %1249
 
@@ -3494,7 +3494,7 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %1187, %11
   %fputs.i.i = call i32 @fputs(ptr nonnull %1222, ptr %1221)
   %1223 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 28), align 8
   %1224 = load ptr, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 27), align 8
-  %1225 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1224, i32 noundef 92) #27
+  %1225 = call noundef ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %1224, i32 noundef 92) #27
   %1226 = icmp ugt ptr %1225, %1224
   %1227 = getelementptr inbounds i8, ptr %1225, i64 1
   %spec.select.i28.i.i = select i1 %1226, ptr %1227, ptr %1224
@@ -3534,7 +3534,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1240, %1198, %1151,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1249:                                             ; preds = %1122
-  %1250 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(7) @.str.46) #27
+  %1250 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(7) @.str.46) #27
   %1251 = icmp eq i32 %1250, 0
   br i1 %1251, label %1252, label %1253
 
@@ -3543,7 +3543,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1240, %1198, %1151,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1253:                                             ; preds = %1249
-  %1254 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(8) @.str.47) #27
+  %1254 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(8) @.str.47) #27
   %1255 = icmp eq i32 %1254, 0
   br i1 %1255, label %1256, label %1257
 
@@ -3552,7 +3552,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1240, %1198, %1151,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1257:                                             ; preds = %1253
-  %1258 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(10) @.str.48) #27
+  %1258 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(10) @.str.48) #27
   %1259 = icmp eq i32 %1258, 0
   br i1 %1259, label %1260, label %1261
 
@@ -3561,7 +3561,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1240, %1198, %1151,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1261:                                             ; preds = %1257
-  %1262 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(10) @.str.49) #27
+  %1262 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(10) @.str.49) #27
   %1263 = icmp eq i32 %1262, 0
   br i1 %1263, label %1264, label %1267
 
@@ -3573,7 +3573,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1240, %1198, %1151,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1267:                                             ; preds = %1261
-  %1268 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(7) @.str.50) #27
+  %1268 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(7) @.str.50) #27
   %1269 = icmp eq i32 %1268, 0
   br i1 %1269, label %1270, label %1271
 
@@ -3582,7 +3582,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1240, %1198, %1151,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1271:                                             ; preds = %1267
-  %1272 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(13) @.str.51) #27
+  %1272 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(13) @.str.51) #27
   %1273 = icmp eq i32 %1272, 0
   br i1 %1273, label %1274, label %1275
 
@@ -3591,7 +3591,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1240, %1198, %1151,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1275:                                             ; preds = %1271
-  %1276 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(5) @.str.52) #27
+  %1276 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(5) @.str.52) #27
   %1277 = icmp eq i32 %1276, 0
   br i1 %1277, label %1278, label %1281
 
@@ -3601,7 +3601,7 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1240, %1198, %1151,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1281:                                             ; preds = %1275
-  %1282 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(5) @.str.53) #27
+  %1282 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(5) @.str.53) #27
   %1283 = icmp eq i32 %1282, 0
   br i1 %1283, label %1284, label %1286
 
@@ -3612,12 +3612,12 @@ _ZL9roundtripPKc.exit.i:                          ; preds = %1240, %1198, %1151,
   br label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1286:                                             ; preds = %1281
-  %1287 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull dereferenceable(21) @.str.42) #27
+  %1287 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %509, ptr noundef nonnull dereferenceable(21) @.str.42) #27
   %1288 = icmp eq i32 %1287, 0
   br i1 %1288, label %1289, label %_ZL8dispatchPKcS0_.exit.i.backedge
 
 1289:                                             ; preds = %1286
-  %1290 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %511, ptr noundef nonnull dereferenceable(5) @.str.132) #27
+  %1290 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %511, ptr noundef nonnull dereferenceable(5) @.str.132) #27
   %1291 = icmp eq i32 %1290, 0
   %1292 = zext i1 %1291 to i32
   store i32 %1292, ptr getelementptr inbounds (%struct.gie_ctx, ptr @_ZL1T, i64 0, i32 24), align 8

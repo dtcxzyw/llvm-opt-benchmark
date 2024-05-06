@@ -33,7 +33,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dma_spin_loc
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_dma_spin_lock293, ptr @__UNIQUE_ID___addressable_free_dma292, ptr @__UNIQUE_ID___addressable_proc_dma_init290, ptr @__UNIQUE_ID___addressable_request_dma291], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @request_dma(i32 noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @request_dma(i32 noundef %0, ptr noundef %1) #0 align 16 {
   %3 = icmp ugt i32 %0, 7
   br i1 %3, label %11, label %4
 

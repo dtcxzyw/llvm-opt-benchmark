@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.12 = private unnamed_addr constant [17 x i8] c"cb_data.password\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_old) #4
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_new_ui) #4
@@ -31,7 +31,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_old() #0 {
+define internal range(i32 0, 2) i32 @test_old() #0 {
 entry:
   %defpass = alloca [9 x i8], align 1
   %pass = alloca [16 x i8], align 16
@@ -79,7 +79,7 @@ err:                                              ; preds = %sw.epilog, %if.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_new_ui() #0 {
+define internal range(i32 0, 2) i32 @test_new_ui() #0 {
 entry:
   %cb_data = alloca %struct.pw_cb_data, align 8
   %pass = alloca [16 x i8], align 16

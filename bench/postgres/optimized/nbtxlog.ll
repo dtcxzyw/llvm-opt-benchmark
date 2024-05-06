@@ -294,7 +294,7 @@ BufferGetPage.exit.i:                             ; preds = %45, %39
 147:                                              ; preds = %139, %._crit_edge.i
   call void @PageRestoreTempPage(ptr noundef %83, ptr noundef nonnull %.0.i.i.i) #7
   %148 = lshr i64 %30, 32
-  %149 = trunc i64 %148 to i32
+  %149 = trunc nuw i64 %148 to i32
   store i32 %149, ptr %.0.i.i.i, align 4
   %150 = trunc i64 %30 to i32
   %151 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
@@ -387,7 +387,7 @@ BufferGetPage.exit.i19:                           ; preds = %173, %167
   %201 = and i16 %200, -65
   store i16 %201, ptr %199, align 4
   %202 = lshr i64 %158, 32
-  %203 = trunc i64 %202 to i32
+  %203 = trunc nuw i64 %202 to i32
   store i32 %203, ptr %.0.i.i.i20, align 4
   %204 = trunc i64 %158 to i32
   %205 = getelementptr inbounds i8, ptr %.0.i.i.i20, i64 4
@@ -500,7 +500,7 @@ BufferGetPage.exit.i22:                           ; preds = %235, %229
   %265 = and i16 %264, -65
   store i16 %265, ptr %263, align 4
   %266 = lshr i64 %212, 32
-  %267 = trunc i64 %266 to i32
+  %267 = trunc nuw i64 %266 to i32
   store i32 %267, ptr %.0.i.i.i23, align 4
   %268 = trunc i64 %212 to i32
   %269 = getelementptr inbounds i8, ptr %.0.i.i.i23, i64 4
@@ -578,7 +578,7 @@ BufferGetPage.exit.i26:                           ; preds = %290, %284
   store <2 x i16> %311, ptr %310, align 2
   call void @PageIndexTupleDelete(ptr noundef %.0.i.i.i27, i16 noundef zeroext %297) #7
   %312 = lshr i64 %276, 32
-  %313 = trunc i64 %312 to i32
+  %313 = trunc nuw i64 %312 to i32
   store i32 %313, ptr %.0.i.i.i27, align 4
   %314 = trunc i64 %276 to i32
   %315 = getelementptr inbounds i8, ptr %.0.i.i.i27, i64 4
@@ -642,7 +642,7 @@ BufferGetPage.exit55.i:                           ; preds = %329, %323
   %348 = getelementptr inbounds i8, ptr %278, i64 16
   %349 = load i32, ptr %348, align 4
   %350 = lshr i32 %349, 16
-  %351 = trunc i32 %350 to i16
+  %351 = trunc nuw i32 %350 to i16
   store i16 %351, ptr %8, align 2
   %352 = trunc i32 %349 to i16
   %353 = getelementptr inbounds i8, ptr %8, i64 2
@@ -663,7 +663,7 @@ BufferGetPage.exit55.i:                           ; preds = %329, %323
 
 btree_xlog_mark_page_halfdead.exit:               ; preds = %BufferGetPage.exit55.i
   %360 = lshr i64 %276, 32
-  %361 = trunc i64 %360 to i32
+  %361 = trunc nuw i64 %360 to i32
   store i32 %361, ptr %.0.i.i54.i, align 4
   %362 = trunc i64 %276 to i32
   %363 = getelementptr inbounds i8, ptr %.0.i.i54.i, i64 4
@@ -730,7 +730,7 @@ BufferGetPage.exit.i30:                           ; preds = %390, %384
   %400 = getelementptr inbounds i8, ptr %399, i64 4
   store i32 %373, ptr %400, align 4
   %401 = lshr i64 %368, 32
-  %402 = trunc i64 %401 to i32
+  %402 = trunc nuw i64 %401 to i32
   store i32 %402, ptr %.0.i.i.i31, align 4
   %403 = trunc i64 %368 to i32
   %404 = getelementptr inbounds i8, ptr %.0.i.i.i31, i64 4
@@ -804,7 +804,7 @@ BufferGetPage.exit77.i:                           ; preds = %416, %410
   %444 = getelementptr inbounds i8, ptr %425, i64 14
   store i16 0, ptr %444, align 2
   %445 = lshr i64 %368, 32
-  %446 = trunc i64 %445 to i32
+  %446 = trunc nuw i64 %445 to i32
   store i32 %446, ptr %.0.i.i76.i, align 4
   %447 = trunc i64 %368 to i32
   %448 = getelementptr inbounds i8, ptr %.0.i.i76.i, i64 4
@@ -926,7 +926,7 @@ BufferGetPage.exit81.i:                           ; preds = %496, %490
   %515 = getelementptr inbounds i8, ptr %370, i64 32
   %516 = load i32, ptr %515, align 8
   %517 = lshr i32 %516, 16
-  %518 = trunc i32 %517 to i16
+  %518 = trunc nuw i32 %517 to i16
   store i16 %518, ptr %6, align 2
   %519 = trunc i32 %516 to i16
   %520 = getelementptr inbounds i8, ptr %6, i64 2
@@ -1066,7 +1066,7 @@ BufferGetPage.exit.i.i:                           ; preds = %581, %575
   %593 = and i16 %592, -129
   store i16 %593, ptr %591, align 4
   %594 = lshr i64 %569, 32
-  %595 = trunc i64 %594 to i32
+  %595 = trunc nuw i64 %594 to i32
   store i32 %595, ptr %.0.i.i.i.i, align 4
   %596 = trunc i64 %569 to i32
   %597 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 4
@@ -1090,7 +1090,7 @@ _bt_clear_incomplete_split.exit.i:                ; preds = %601, %599
 
 btree_xlog_newroot.exit:                          ; preds = %562, %_bt_clear_incomplete_split.exit.i
   %602 = lshr i64 %534, 32
-  %603 = trunc i64 %602 to i32
+  %603 = trunc nuw i64 %602 to i32
   store i32 %603, ptr %.0.i.i.i33, align 4
   %604 = trunc i64 %534 to i32
   %605 = getelementptr inbounds i8, ptr %.0.i.i.i33, i64 4
@@ -1189,7 +1189,7 @@ BufferGetPage.exit.i:                             ; preds = %26, %20
   %38 = and i16 %37, -129
   store i16 %38, ptr %36, align 4
   %39 = lshr i64 %9, 32
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw i64 %39 to i32
   store i32 %40, ptr %.0.i.i.i, align 4
   %41 = trunc i64 %9 to i32
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
@@ -1297,7 +1297,7 @@ BufferGetPage.exit:                               ; preds = %54, %60
 
 103:                                              ; preds = %74, %66
   %104 = lshr i64 %9, 32
-  %105 = trunc i64 %104 to i32
+  %105 = trunc nuw i64 %104 to i32
   store i32 %105, ptr %.0.i.i, align 4
   %106 = trunc i64 %9 to i32
   %107 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
@@ -1394,7 +1394,7 @@ BufferGetPage.exit.i:                             ; preds = %34, %28
   %46 = and i16 %45, -129
   store i16 %46, ptr %44, align 4
   %47 = lshr i64 %22, 32
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw i64 %47 to i32
   store i32 %48, ptr %.0.i.i.i, align 4
   %49 = trunc i64 %22 to i32
   %50 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
@@ -1462,7 +1462,7 @@ BufferGetPage.exit:                               ; preds = %59, %65
   %84 = trunc i64 %83 to i32
   call fastcc void @_bt_restore_page(ptr noundef %.0.i.i, ptr noundef %57, i32 noundef %84)
   %85 = lshr i64 %11, 32
-  %86 = trunc i64 %85 to i32
+  %86 = trunc nuw i64 %85 to i32
   store i32 %86, ptr %.0.i.i, align 4
   %87 = trunc i64 %11 to i32
   %88 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
@@ -1697,11 +1697,11 @@ BufferGetPage.exit121._crit_edge:                 ; preds = %BufferGetPage.exit1
   br i1 %222, label %.lr.ph.split, label %._crit_edge.loopexit142, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %190
-  %223 = trunc i64 %indvars.iv.next146 to i16
+  %223 = trunc nuw i64 %indvars.iv.next146 to i16
   br label %._crit_edge
 
 ._crit_edge.loopexit142:                          ; preds = %219
-  %224 = trunc i64 %indvars.iv.next to i16
+  %224 = trunc nuw i64 %indvars.iv.next to i16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit142, %._crit_edge.loopexit, %150
@@ -1882,7 +1882,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
   %49 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
   store i16 72, ptr %49, align 4
   %50 = lshr i64 %5, 32
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw i64 %50 to i32
   store i32 %51, ptr %.0.i.i, align 4
   %52 = trunc i64 %5 to i32
   %53 = getelementptr inbounds i8, ptr %.0.i.i, i64 4

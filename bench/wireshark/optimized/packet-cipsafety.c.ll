@@ -1025,7 +1025,7 @@ define internal i32 @dissect_s_supervisor_exception_detail_common(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_s_supervisor_configuration_unid(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
+define internal range(i32 -2147483648, 11) i32 @dissect_s_supervisor_configuration_unid(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
   %7 = icmp slt i32 %5, 10
   br i1 %7, label %8, label %10
 
@@ -1049,7 +1049,7 @@ define internal noundef i32 @dissect_s_supervisor_configuration_unid(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_s_supervisor_safety_configuration_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
+define internal range(i32 -2147483648, 11) i32 @dissect_s_supervisor_safety_configuration_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
   %7 = icmp slt i32 %5, 10
   br i1 %7, label %8, label %10
 
@@ -1085,7 +1085,7 @@ dissect_cipsafety_snn.exit:                       ; preds = %21, %20, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_s_supervisor_target_unid(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
+define internal range(i32 -2147483648, 11) i32 @dissect_s_supervisor_target_unid(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
   %7 = icmp slt i32 %5, 10
   br i1 %7, label %8, label %10
 
@@ -1180,7 +1180,7 @@ define internal i32 @dissect_s_supervisor_output_connection_point_owners(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_s_supervisor_proposed_tunid(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
+define internal range(i32 -2147483648, 11) i32 @dissect_s_supervisor_proposed_tunid(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
   %7 = icmp slt i32 %5, 10
   br i1 %7, label %8, label %10
 
@@ -1204,7 +1204,7 @@ define internal noundef i32 @dissect_s_supervisor_proposed_tunid(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_s_validator_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
+define internal range(i32 -2147483648, 2) i32 @dissect_s_validator_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
   %7 = icmp slt i32 %5, 1
   br i1 %7, label %8, label %10
 
@@ -1224,7 +1224,7 @@ define internal noundef i32 @dissect_s_validator_type(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_s_validator_time_coord_msg_min_mult(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
+define internal range(i32 -2147483648, 512) i32 @dissect_s_validator_time_coord_msg_min_mult(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
   %7 = load i32, ptr @hf_cip_svalidator_time_coord_msg_min_mult_size, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef -2147483648) #6
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %4) #6
@@ -1261,7 +1261,7 @@ define internal i32 @dissect_s_validator_time_coord_msg_min_mult(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_s_validator_network_time_multiplier(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
+define internal range(i32 -2147483648, 512) i32 @dissect_s_validator_network_time_multiplier(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
   %7 = load i32, ptr @hf_cip_svalidator_network_time_multiplier_size, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef -2147483648) #6
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %4) #6
@@ -1298,7 +1298,7 @@ define internal i32 @dissect_s_validator_network_time_multiplier(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_s_validator_timeout_multiplier(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
+define internal range(i32 -2147483648, 257) i32 @dissect_s_validator_timeout_multiplier(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
   %7 = load i32, ptr @hf_cip_svalidator_timeout_multiplier_size, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef -2147483648) #6
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %4) #6
@@ -1334,7 +1334,7 @@ define internal i32 @dissect_s_validator_timeout_multiplier(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_s_validator_coordination_conn_inst(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
+define internal range(i32 -2147483648, 512) i32 @dissect_s_validator_coordination_conn_inst(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
   %7 = load i32, ptr @hf_cip_svalidator_coordination_conn_inst_size, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef -2147483648) #6
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %4) #6
@@ -1381,7 +1381,7 @@ define internal noundef i32 @dissect_s_validator_app_data_path(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_s_validator_prod_cons_fault_count(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
+define internal range(i32 -2147483648, 257) i32 @dissect_s_validator_prod_cons_fault_count(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
   %7 = load i32, ptr @hf_cip_svalidator_prod_cons_fault_count_size, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef -2147483648) #6
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %4) #6
@@ -1424,7 +1424,7 @@ define internal noundef i32 @dissect_sercosiii_safety_network_number(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_sercosiii_link_error_count_p1p2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
+define internal range(i32 -2147483648, 5) i32 @dissect_sercosiii_link_error_count_p1p2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #2 {
   %7 = icmp slt i32 %5, 4
   br i1 %7, label %8, label %10
 
@@ -1602,7 +1602,7 @@ define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr nound
   %60 = lshr i64 %59, 16
   %61 = trunc i64 %60 to i16
   %62 = lshr i64 %59, 32
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw i64 %62 to i32
   %64 = trunc i64 %59 to i16
   br label %75
 
@@ -1614,7 +1614,7 @@ define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr nound
   %70 = lshr i64 %69, 16
   %71 = trunc i64 %70 to i16
   %72 = lshr i64 %69, 32
-  %73 = trunc i64 %72 to i32
+  %73 = trunc nuw i64 %72 to i32
   %74 = trunc i64 %69 to i16
   br label %75
 
@@ -1847,7 +1847,7 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %119, %116, 
   br i1 %30, label %182, label %184
 
 182:                                              ; preds = %180
-  %183 = tail call fastcc ptr @get_timestamp_packet_data(ptr noundef nonnull %1, ptr noundef %3, i16 noundef zeroext %181)
+  %183 = tail call fastcc ptr @get_timestamp_packet_data(ptr noundef nonnull %1, ptr noundef readonly %3, i16 noundef zeroext %181)
   br label %184
 
 184:                                              ; preds = %182, %180
@@ -2189,7 +2189,7 @@ define internal i32 @dissect_cip_class_s_supervisor(ptr noundef %0, ptr noundef 
   %153 = load i32, ptr @hf_cip_ssupervisor_reset_tunid_nodeid, align 4
   %154 = load i32, ptr @ett_ssupervisor_reset_tunid, align 4
   %155 = load i32, ptr @ett_ssupervisor_reset_tunid_snn, align 4
-  call void @dissect_unid(ptr noundef %0, ptr nonnull poison, i32 noundef %148, ptr noundef %149, ptr noundef nonnull @.str.439, i32 noundef %150, i32 noundef %151, i32 noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef %155)
+  call void @dissect_unid(ptr noundef %0, ptr nonnull readnone poison, i32 noundef %148, ptr noundef %149, ptr noundef nonnull @.str.439, i32 noundef %150, i32 noundef %151, i32 noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef %155)
   %156 = load i32, ptr %5, align 4
   %157 = icmp eq i32 %156, 2
   br i1 %157, label %158, label %dissect_safety_supervisor_safety_reset.exit.i
@@ -2417,7 +2417,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_class_svalidator_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 0, 2) i32 @dissect_class_svalidator_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #2 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
   %6 = and i8 %5, 127
   %7 = icmp eq i8 %6, 1

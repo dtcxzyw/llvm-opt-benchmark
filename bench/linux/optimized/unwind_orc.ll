@@ -149,7 +149,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 declare dso_local void @sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @orc_sort_cmp(ptr noundef %0, ptr noundef %1) #4 align 16 {
+define internal range(i32 -1, 2) i32 @orc_sort_cmp(ptr noundef %0, ptr noundef %1) #4 align 16 {
   %3 = ptrtoint ptr %0 to i64
   %4 = load i32, ptr %0, align 4
   %5 = sext i32 %4 to i64
@@ -712,7 +712,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %194 = phi ptr [ @orc_fp_entry, %.thread ], [ %187, %.thread57 ]
   %195 = getelementptr inbounds i8, ptr %194, i64 4
   %196 = lshr i16 %193, 11
-  %197 = trunc i16 %196 to i8
+  %197 = trunc nuw nsw i16 %196 to i8
   %198 = and i8 %197, 1
   store i8 %198, ptr %18, align 1
   %199 = load i16, ptr %195, align 1

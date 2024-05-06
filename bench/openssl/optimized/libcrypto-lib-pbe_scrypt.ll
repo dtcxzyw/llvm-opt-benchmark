@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [13 x i8] c"maxmem_bytes\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PBE_scrypt_ex(ptr noundef %pass, i64 noundef %passlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef %N, i64 noundef %r, i64 noundef %p, i64 noundef %maxmem, ptr noundef %key, i64 noundef %keylen, ptr noundef %ctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PBE_scrypt_ex(ptr noundef %pass, i64 noundef %passlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef %N, i64 noundef %r, i64 noundef %p, i64 noundef %maxmem, ptr noundef %key, i64 noundef %keylen, ptr noundef %ctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %N.addr = alloca i64, align 8
   %r.addr = alloca i64, align 8
@@ -124,9 +124,9 @@ declare i32 @EVP_KDF_derive(ptr noundef, ptr noundef, i64 noundef, ptr noundef) 
 declare void @EVP_KDF_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PBE_scrypt(ptr noundef %pass, i64 noundef %passlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef %N, i64 noundef %r, i64 noundef %p, i64 noundef %maxmem, ptr noundef %key, i64 noundef %keylen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PBE_scrypt(ptr noundef %pass, i64 noundef %passlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef %N, i64 noundef %r, i64 noundef %p, i64 noundef %maxmem, ptr noundef %key, i64 noundef %keylen) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @EVP_PBE_scrypt_ex(ptr noundef %pass, i64 noundef %passlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef %N, i64 noundef %r, i64 noundef %p, i64 noundef %maxmem, ptr noundef %key, i64 noundef %keylen, ptr noundef null, ptr noundef null), !range !4
+  %call = tail call i32 @EVP_PBE_scrypt_ex(ptr noundef %pass, i64 noundef %passlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef %N, i64 noundef %r, i64 noundef %p, i64 noundef %maxmem, ptr noundef %key, i64 noundef %keylen, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
@@ -141,4 +141,3 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

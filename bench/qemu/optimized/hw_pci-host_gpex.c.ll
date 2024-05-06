@@ -65,7 +65,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_gpex_register, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @gpex_set_irq_num(ptr nocapture noundef writeonly %s, i32 noundef %index, i32 noundef %gsi) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @gpex_set_irq_num(ptr nocapture noundef writeonly %s, i32 noundef %index, i32 noundef %gsi) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %index, 3
   br i1 %cmp, label %return, label %if.end

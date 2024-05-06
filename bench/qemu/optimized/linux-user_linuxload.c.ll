@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
-@thread_cpu = external thread_local global ptr, align 8
+@thread_cpu = external thread_local local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [31 x i8] c"../qemu/linux-user/linuxload.c\00", align 1
 @__func__.imgsrc_read = private unnamed_addr constant [12 x i8] c"imgsrc_read\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"read past end of buffer\00", align 1
@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [15 x i8] c"prepare_binprm\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @memcpy_to_target(i64 noundef %dest, ptr nocapture noundef readonly %src, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i64 -14, 1) i64 @memcpy_to_target(i64 noundef %dest, ptr nocapture noundef readonly %src, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @lock_user(i32 noundef 3, i64 noundef %dest, i64 noundef %len, i1 noundef zeroext false) #12
   %tobool.not = icmp eq ptr %call, null
@@ -190,7 +190,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 declare i64 @target_strlen(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @loader_exec(i32 noundef %fdexec, ptr noundef %filename, ptr noundef %argv, ptr noundef %envp, ptr noundef %regs, ptr noundef %infop, ptr noundef %bprm) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @loader_exec(i32 noundef %fdexec, ptr noundef %filename, ptr noundef %argv, ptr noundef %envp, ptr noundef %regs, ptr noundef %infop, ptr noundef %bprm) local_unnamed_addr #0 {
 entry:
   %st.i = alloca %struct.stat, align 8
   %fd = getelementptr inbounds i8, ptr %bprm, i64 1036

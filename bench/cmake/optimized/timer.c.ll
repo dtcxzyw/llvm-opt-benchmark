@@ -32,7 +32,7 @@ define dso_local noundef i32 @uv_timer_init(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @uv_timer_start(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+define dso_local range(i32 -22, 1) i32 @uv_timer_start(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.heap_node, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   %7 = load i32, ptr %6, align 8
@@ -605,7 +605,7 @@ heap_remove.exit:                                 ; preds = %112, %timer_less_th
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @uv_timer_again(ptr noundef %0) local_unnamed_addr #1 {
+define dso_local range(i32 -22, 1) i32 @uv_timer_again(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -621,7 +621,7 @@ define dso_local noundef i32 @uv_timer_again(ptr noundef %0) local_unnamed_addr 
   %9 = tail call i32 @uv_timer_stop(ptr noundef nonnull %0)
   %10 = load ptr, ptr %2, align 8
   %11 = load i64, ptr %6, align 8
-  %12 = tail call i32 @uv_timer_start(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %11, i64 noundef %11), !range !12
+  %12 = tail call i32 @uv_timer_start(ptr noundef nonnull %0, ptr noundef %10, i64 noundef %11, i64 noundef %11)
   br label %13
 
 13:                                               ; preds = %5, %8, %1
@@ -713,7 +713,7 @@ define dso_local void @uv__run_timers(ptr nocapture noundef readonly %0) local_u
   %17 = tail call i32 @uv_timer_stop(ptr noundef nonnull %11)
   %18 = load ptr, ptr %13, align 8
   %19 = load i64, ptr %14, align 8
-  %20 = tail call i32 @uv_timer_start(ptr noundef nonnull %11, ptr noundef %18, i64 noundef %19, i64 noundef %19), !range !12
+  %20 = tail call i32 @uv_timer_start(ptr noundef nonnull %11, ptr noundef %18, i64 noundef %19, i64 noundef %19)
   br label %uv_timer_again.exit
 
 uv_timer_again.exit:                              ; preds = %10, %16
@@ -780,4 +780,3 @@ attributes #10 = { nounwind }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = !{i32 -22, i32 1}

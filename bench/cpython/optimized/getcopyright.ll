@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @cprt = internal constant [308 x i8] c"Copyright (c) 2001-2023 Python Software Foundation.\0AAll Rights Reserved.\0A\0ACopyright (c) 2000 BeOpen.com.\0AAll Rights Reserved.\0A\0ACopyright (c) 1995-2001 Corporation for National Research Initiatives.\0AAll Rights Reserved.\0A\0ACopyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.\0AAll Rights Reserved.\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @Py_GetCopyright() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @Py_GetCopyright() local_unnamed_addr #0 {
 entry:
   ret ptr @cprt
 }

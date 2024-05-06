@@ -54,7 +54,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_alsa_hwdep_init325, ptr @__UNIQUE_ID___addressable_snd_hwdep_new323, ptr @__UNIQUE_ID_author319, ptr @__UNIQUE_ID_description320, ptr @__UNIQUE_ID_file321, ptr @__UNIQUE_ID_license322, ptr @__exitcall_alsa_hwdep_exit, ptr @alsa_hwdep_exit, ptr @snd_hwdep_proc_done], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hwdep_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_hwdep_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %47, label %6
 
@@ -178,7 +178,7 @@ define internal noundef i32 @snd_hwdep_dev_free(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @snd_hwdep_dev_register(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @snd_hwdep_dev_register(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -247,7 +247,7 @@ define internal i32 @snd_hwdep_dev_register(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snd_hwdep_dev_disconnect(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @snd_hwdep_dev_disconnect(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -363,7 +363,7 @@ define internal void @alsa_hwdep_exit() #3 section ".exit.text" align 16 {
 declare dso_local i32 @snd_ctl_unregister_ioctl(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @snd_hwdep_control_ioctl(ptr noundef readnone %0, ptr nocapture readnone %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
+define internal range(i32 -515, 1) i32 @snd_hwdep_control_ioctl(ptr noundef readnone %0, ptr nocapture readnone %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca %struct.snd_hwdep_info, align 4
   switch i32 %2, label %99 [
     i32 -1073457888, label %6
@@ -631,7 +631,7 @@ define internal i32 @snd_hwdep_poll(ptr noundef %0, ptr noundef %1) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @snd_hwdep_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @snd_hwdep_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.snd_hwdep_dsp_image, align 8
   %5 = alloca %struct.snd_hwdep_dsp_status, align 4
   %6 = alloca %struct.snd_hwdep_info, align 4
@@ -1095,7 +1095,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_hwdep_dsp_load(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @snd_hwdep_dsp_load(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [18 x i8] c"fs/9p/vfs_inode.c\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local i32 @v9fs_uflags2omode(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 8192) i32 @v9fs_uflags2omode(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = and i32 %0, 3
   %4 = icmp eq i32 %3, 1
   %5 = zext i1 %4 to i32
@@ -159,7 +159,7 @@ define dso_local void @v9fs_set_netfs_context(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @v9fs_init_inode(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @v9fs_init_inode(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
   tail call void @inode_init_owner(ptr noundef nonnull @nop_mnt_idmap, ptr noundef %1, ptr noundef null, i16 noundef zeroext %2) #14
   %5 = getelementptr inbounds i8, ptr %1, i64 144
   store i64 0, ptr %5, align 8
@@ -1317,7 +1317,7 @@ define dso_local void @v9fs_stat2inode(ptr nocapture noundef readonly %0, ptr no
   %66 = phi i32 [ %54, %51 ], [ %64, %58 ]
   %67 = load i16, ptr %1, align 8
   %68 = and i16 %67, -4096
-  %69 = trunc i32 %66 to i16
+  %69 = trunc nuw nsw i32 %66 to i16
   %70 = or disjoint i16 %68, %69
   store i16 %70, ptr %1, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1544,7 +1544,7 @@ define internal fastcc zeroext i16 @p9mode2unixmode(ptr nocapture noundef readon
 
 79:                                               ; preds = %24, %30, %40, %50, %77, %.thread, %76
   %.in = phi i32 [ %22, %76 ], [ %25, %24 ], [ %31, %30 ], [ %41, %40 ], [ %51, %50 ], [ %78, %77 ], [ %71, %.thread ]
-  %80 = trunc i32 %.in to i16
+  %80 = trunc nuw i32 %.in to i16
   ret i16 %80
 }
 
@@ -1557,7 +1557,7 @@ define internal noundef i32 @v9fs_test_new_inode(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal i32 @v9fs_test_inode(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 align 16 {
+define internal range(i32 0, 2) i32 @v9fs_test_inode(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2697,7 +2697,7 @@ define internal i32 @v9fs_vfs_atomic_open(ptr nocapture noundef %0, ptr noundef 
   %83 = or i1 %82, %80
   %84 = select i1 %83, i32 %73, i32 2
   %85 = or disjoint i32 %84, %76
-  %86 = trunc i32 %85 to i8
+  %86 = trunc nuw i32 %85 to i8
   %87 = tail call fastcc ptr @v9fs_create(ptr noundef %34, ptr noundef %0, ptr noundef %20, ptr noundef null, i32 noundef %68, i8 noundef zeroext %86)
   store ptr %87, ptr %6, align 8
   %88 = icmp ugt ptr %87, inttoptr (i64 -4096 to ptr)

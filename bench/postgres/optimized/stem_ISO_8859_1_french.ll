@@ -198,7 +198,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_1_6 = internal constant [1 x i8] c"Y", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @french_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @french_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -245,7 +245,7 @@ define hidden i32 @french_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 
   br label %27
 
 23:                                               ; preds = %20
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nsw i64 %indvars.iv to i32
   %25 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_0) #3
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %r_un_double.exit, label %92
@@ -277,7 +277,7 @@ define hidden i32 @french_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 
   br label %42
 
 38:                                               ; preds = %35
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nsw i64 %indvars.iv to i32
   %40 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_1) #3
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %r_un_double.exit, label %92
@@ -296,7 +296,7 @@ define hidden i32 @french_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not132.i, label %49, label %.thread.i
 
 49:                                               ; preds = %45
-  %50 = trunc i64 %indvars.iv to i32
+  %50 = trunc nsw i64 %indvars.iv to i32
   %51 = add i32 %13, 1
   store i32 %51, ptr %2, align 8
   store i32 %51, ptr %6, align 8
@@ -306,7 +306,7 @@ define hidden i32 @french_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 
 
 .thread.i:                                        ; preds = %45, %42, %27, %10
   %54 = phi i32 [ %13, %42 ], [ %43, %45 ], [ %.pre168.i, %10 ], [ %13, %27 ]
-  %55 = trunc i64 %indvars.iv to i32
+  %55 = trunc nsw i64 %indvars.iv to i32
   store i32 %55, ptr %2, align 8
   store i32 %55, ptr %4, align 4
   %56 = icmp eq i32 %54, %55
@@ -403,7 +403,7 @@ define hidden i32 @french_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 
 
 96:                                               ; preds = %.thread140.i.thread
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %97 = trunc i64 %indvars.iv.next to i32
+  %97 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %97, ptr %2, align 8
   br label %10
 

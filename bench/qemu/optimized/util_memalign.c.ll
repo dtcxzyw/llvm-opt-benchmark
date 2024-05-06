@@ -29,7 +29,7 @@ entry:
   br i1 %cmp, label %if.end3, label %do.body
 
 do.body:                                          ; preds = %entry
-  %0 = tail call i64 @llvm.ctpop.i64(i64 %alignment), !range !5
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %tobool1.not.i = icmp ult i64 %0, 2
   br i1 %tobool1.not.i, label %if.end3, label %if.else2
 
@@ -218,4 +218,3 @@ attributes #13 = { cold }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}

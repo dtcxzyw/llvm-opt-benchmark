@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @perm_3 = internal unnamed_addr constant [64 x i8] c"\00\01\04\10\14\11\05\02\08 \15\06\12\18\09!$\03\0C0\16\19%(\22\0A\07\13\1C\0D14)&\1A\17\1D5\0B#,\0E28*\1B'-\1E69<3\0F+.:=7\1F>;/?", align 256
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @zfp_decode_block_int32_3(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_decode_block_int32_3(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i32], align 256
   %4 = alloca [64 x i32], align 256
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -823,9 +823,9 @@ decode_few_ints_prec_uint32.exit:                 ; preds = %.loopexit.i34, %75
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @zfp_decode_block_strided_int32_3(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_decode_block_strided_int32_3(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [64 x i32], align 256
-  %7 = call i64 @zfp_decode_block_int32_3(ptr noundef %0, ptr noundef nonnull %6), !range !17
+  %7 = call i64 @zfp_decode_block_int32_3(ptr noundef %0, ptr noundef nonnull %6)
   %8 = shl nsw i64 %2, 2
   %9 = sub nsw i64 %3, %8
   %10 = shl nsw i64 %3, 2
@@ -873,9 +873,9 @@ scatter_int32_3.exit:                             ; preds = %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @zfp_decode_partial_block_strided_int32_3(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @zfp_decode_partial_block_strided_int32_3(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [64 x i32], align 256
-  %10 = call i64 @zfp_decode_block_int32_3(ptr noundef %0, ptr noundef nonnull %9), !range !17
+  %10 = call i64 @zfp_decode_block_int32_3(ptr noundef %0, ptr noundef nonnull %9)
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %scatter_partial_int32_3.exit, label %.preheader33.lr.ph.i
 
@@ -978,4 +978,3 @@ attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !14 = !{!15}
 !15 = distinct !{!15, !13, !"decode_few_ints_prec_uint32: argument 1"}
 !16 = !{!12, !15}
-!17 = !{i64 0, i64 4294967296}

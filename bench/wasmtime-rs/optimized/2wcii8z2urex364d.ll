@@ -680,7 +680,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar14singleton_
   unreachable
 
 _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet14concrete_types17h6b235b1af0488031E.exit.i: ; preds = %61
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !6
@@ -1858,7 +1858,7 @@ common.resume:                                    ; preds = %.body, %.body6, %88
 
 _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet7lane_of17hdce0b6bbcb872e74E.exit: ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %20, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %20, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %20)
@@ -1955,7 +1955,7 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.e
   store ptr null, ptr %59, align 8, !noalias !19
   %.sroa.01.sroa.6.0..sroa_idx16.i = getelementptr inbounds i8, ptr %17, i64 112
   store i64 0, ptr %.sroa.01.sroa.6.0..sroa_idx16.i, align 8, !noalias !19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %17, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %17, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %17)
   br label %103
@@ -2115,7 +2115,7 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet17dynamic_to_vector17h4a5858bbb4
   store ptr null, ptr %96, align 8, !noalias !28
   %.sroa.01.sroa.4.0..sroa_idx6.i = getelementptr inbounds i8, ptr %7, i64 40
   store i64 0, ptr %.sroa.01.sroa.4.0..sroa_idx6.i, align 8, !noalias !28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %7, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %7, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -2145,7 +2145,7 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet17dynamic_to_vector17h4a5858bbb4
 
 106:                                              ; preds = %71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %15, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %15, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
@@ -2171,7 +2171,7 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet17dynamic_to_vector17h4a5858bbb4
 
 111:                                              ; preds = %81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %11, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %11, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
@@ -2953,15 +2953,15 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
           to label %33 unwind label %38
 
 33:                                               ; preds = %32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i64 24, i1 false)
   %34 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %34, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 24, i1 false)
   %35 = getelementptr inbounds i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %35, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
   %36 = getelementptr inbounds i8, ptr %0, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %36, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false)
   %37 = getelementptr inbounds i8, ptr %0, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %37, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void
 
 38:                                               ; preds = %29, %32
@@ -2996,7 +2996,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nocapture readonly align 2 %0, i16 %1, i16 %2, i16 %3) unnamed_addr #0 {
+define internal fastcc range(i48 65536, 2199023255552) i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nocapture readonly align 2 %0, i16 %1, i16 %2, i16 %3) unnamed_addr #0 {
   %5 = load i16, ptr %0, align 2, !range !31, !noundef !3
   switch i16 %5, label %default.unreachable11 [
     i16 0, label %6
@@ -3017,7 +3017,7 @@ default.unreachable11:                            ; preds = %4
   %10 = load i16, ptr %9, align 2, !noundef !3
   %11 = getelementptr inbounds i8, ptr %0, i64 4
   %12 = load i16, ptr %11, align 2, !noundef !3
-  %13 = tail call i16 @llvm.ctpop.i16(i16 %10), !range !32
+  %13 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %10)
   %14 = icmp eq i16 %13, 1
   br i1 %14, label %16, label %19
 
@@ -3035,7 +3035,7 @@ default.unreachable11:                            ; preds = %4
   ret i48 %.sroa.01.0.insert.insert
 
 16:                                               ; preds = %8
-  %17 = tail call i16 @llvm.ctpop.i16(i16 %12), !range !32
+  %17 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %12)
   %18 = icmp eq i16 %17, 1
   br i1 %18, label %20, label %21
 
@@ -3073,7 +3073,7 @@ default.unreachable11:                            ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i48 @"_ZN129_$LT$cranelift_codegen_meta..cdsl..typevar..Interval$u20$as$u20$core..convert..From$LT$core..ops..range..Range$LT$u16$GT$$GT$$GT$4from17h6f51d43053088633E"(i16 %0, i16 %1) unnamed_addr #3 {
+define range(i48 2, 0) i48 @"_ZN129_$LT$cranelift_codegen_meta..cdsl..typevar..Interval$u20$as$u20$core..convert..From$LT$core..ops..range..Range$LT$u16$GT$$GT$$GT$4from17h6f51d43053088633E"(i16 %0, i16 %1) unnamed_addr #3 {
   %.sroa.3.0.insert.ext = zext i16 %1 to i48
   %.sroa.3.0.insert.shift = shl nuw i48 %.sroa.3.0.insert.ext, 32
   %.sroa.2.0.insert.ext = zext i16 %0 to i48
@@ -3099,7 +3099,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_
   br i1 %6, label %.loopexit17, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i16 @llvm.ctpop.i16(i16 %.sroa.22.0.extract.trunc), !range !32
+  %8 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %.sroa.22.0.extract.trunc)
   %9 = icmp eq i16 %8, 1
   br i1 %9, label %10, label %.invoke
 
@@ -3108,7 +3108,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_
   ret void
 
 10:                                               ; preds = %7
-  %11 = tail call i16 @llvm.ctpop.i16(i16 %.sroa.33.0.extract.trunc), !range !32
+  %11 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %.sroa.33.0.extract.trunc)
   %12 = icmp eq i16 %11, 1
   br i1 %12, label %16, label %.invoke
 
@@ -3127,9 +3127,9 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_
   br i1 %.not, label %.invoke, label %17
 
 17:                                               ; preds = %16
-  %18 = tail call i16 @llvm.cttz.i16(i16 %.sroa.22.0.extract.trunc, i1 false), !range !32
+  %18 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.22.0.extract.trunc, i1 false)
   %19 = zext nneg i16 %18 to i32
-  %20 = tail call i16 @llvm.cttz.i16(i16 %.sroa.33.0.extract.trunc, i1 false), !range !32
+  %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.33.0.extract.trunc, i1 false)
   %21 = zext nneg i16 %20 to i32
   store i32 %19, ptr %3, align 4
   %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
@@ -3696,4 +3696,3 @@ attributes #16 = { cold noreturn nounwind }
 !29 = distinct !{!29, !30, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet17dynamic_to_vector17h4a5858bbb414f08fE: argument 0"}
 !30 = distinct !{!30, !"_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet17dynamic_to_vector17h4a5858bbb414f08fE"}
 !31 = !{i16 0, i16 3}
-!32 = !{i16 0, i16 17}

@@ -909,7 +909,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [56 x i8] c"Weakref proxy referenced a non-iterator '%.200s' object\00", align 1
 @.str.20 = private unnamed_addr constant [10 x i8] c"__bytes__\00", align 1
 @.str.21 = private unnamed_addr constant [13 x i8] c"__reversed__\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden i64 @_PyWeakref_GetWeakrefCount(ptr noundef readonly %head) local_unnamed_addr #0 {
@@ -1422,7 +1422,7 @@ return:                                           ; preds = %lor.lhs.false11, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @weakref___init__(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #1 {
+define internal range(i32 -1, 1) i32 @weakref___init__(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #1 {
 entry:
   %tmp = alloca ptr, align 8
   %cmp = icmp eq ptr %kwargs, null
@@ -1566,7 +1566,7 @@ if.then20:                                        ; preds = %if.end17
   store ptr %18, ptr %wr_object.i, align 8
   %wr_prev.i = getelementptr inbounds i8, ptr %call18, i64 40
   %cmp.not.i.i.i = icmp eq ptr %19, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wr_prev.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %wr_prev.i, i8 0, i64 16, i1 false)
   br i1 %cmp.not.i.i.i, label %init_weakref.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then20
@@ -2572,7 +2572,7 @@ if.then.i29:                                      ; preds = %if.else
   %wr_object.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %ob, ptr %wr_object.i.i, align 8
   %wr_prev.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wr_prev.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %wr_prev.i.i, i8 0, i64 16, i1 false)
   br i1 %cmp781, label %if.then.i.i.i.i, label %if.then14
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i29
@@ -2851,7 +2851,7 @@ if.then.i30:                                      ; preds = %if.else
   %wr_object.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %ob, ptr %wr_object.i.i, align 8
   %wr_prev.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wr_prev.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %wr_prev.i.i, i8 0, i64 16, i1 false)
   br i1 %cmp779, label %if.then.i.i.i.i, label %if.then14
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i30
@@ -3003,7 +3003,7 @@ return:                                           ; preds = %if.else, %if.then11
 declare i32 @PyCallable_Check(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyWeakref_GetRef(ptr noundef readonly %ref, ptr nocapture noundef writeonly %pobj) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @PyWeakref_GetRef(ptr noundef readonly %ref, ptr nocapture noundef writeonly %pobj) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ref, null
   br i1 %cmp, label %if.then, label %if.end

@@ -46,29 +46,29 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @proc_exit(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @MyProcPid, align 4
-  %3 = tail call i32 @getpid() #7
+  %3 = tail call i32 @getpid() #8
   %.not = icmp eq i32 %2, %3
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #9
   tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 108, ptr noundef nonnull @__func__.proc_exit) #7
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 108, ptr noundef nonnull @__func__.proc_exit) #8
   unreachable
 
 7:                                                ; preds = %1
   tail call fastcc void @proc_exit_prepare(i32 noundef %0)
-  %8 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #7
+  %8 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #8
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @__func__.proc_exit) #7
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @__func__.proc_exit) #8
   br label %11
 
 11:                                               ; preds = %7, %9
-  tail call void @exit(i32 noundef %0) #9
+  tail call void @exit(i32 noundef %0) #10
   unreachable
 }
 
@@ -95,13 +95,13 @@ define internal fastcc void @proc_exit_prepare(i32 noundef %0) unnamed_addr #4 {
   store ptr null, ptr @error_context_stack, align 8
   store ptr null, ptr @debug_query_string, align 8
   tail call void @shmem_exit(i32 noundef %0)
-  %2 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #7
+  %2 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #8
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %1
   %4 = load i32, ptr @on_proc_exit_index, align 4
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0, i32 noundef %4) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 201, ptr noundef nonnull @__func__.proc_exit_prepare) #7
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0, i32 noundef %4) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 201, ptr noundef nonnull @__func__.proc_exit_prepare) #8
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -118,7 +118,7 @@ define internal fastcc void @proc_exit_prepare(i32 noundef %0) unnamed_addr #4 {
   %13 = load ptr, ptr %12, align 16
   %14 = getelementptr inbounds i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8
-  tail call void %13(i32 noundef %0, i64 noundef %15) #7
+  tail call void %13(i32 noundef %0, i64 noundef %15) #8
   %16 = load i32, ptr @on_proc_exit_index, align 4
   %17 = add i32 %16, -1
   store i32 %17, ptr @on_proc_exit_index, align 4
@@ -136,13 +136,13 @@ declare void @exit(i32 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define dso_local void @shmem_exit(i32 noundef %0) local_unnamed_addr #4 {
   store i8 1, ptr @shmem_exit_inprogress, align 1
-  %2 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #7
+  %2 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #8
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %1
   %4 = load i32, ptr @before_shmem_exit_index, align 4
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %0, i32 noundef %4) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 241, ptr noundef nonnull @__func__.shmem_exit) #7
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %0, i32 noundef %4) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 241, ptr noundef nonnull @__func__.shmem_exit) #8
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -159,7 +159,7 @@ define dso_local void @shmem_exit(i32 noundef %0) local_unnamed_addr #4 {
   %13 = load ptr, ptr %12, align 16
   %14 = getelementptr inbounds i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8
-  tail call void %13(i32 noundef %0, i64 noundef %15) #7
+  tail call void %13(i32 noundef %0, i64 noundef %15) #8
   %16 = load i32, ptr @before_shmem_exit_index, align 4
   %17 = add i32 %16, -1
   store i32 %17, ptr @before_shmem_exit_index, align 4
@@ -168,14 +168,14 @@ define dso_local void @shmem_exit(i32 noundef %0) local_unnamed_addr #4 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   store i32 0, ptr @before_shmem_exit_index, align 4
-  tail call void @dsm_backend_shutdown() #7
-  %19 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #7
+  tail call void @dsm_backend_shutdown() #8
+  %19 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #8
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %._crit_edge
   %21 = load i32, ptr @on_shmem_exit_index, align 4
-  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %0, i32 noundef %21) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 274, ptr noundef nonnull @__func__.shmem_exit) #7
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %0, i32 noundef %21) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 274, ptr noundef nonnull @__func__.shmem_exit) #8
   br label %23
 
 23:                                               ; preds = %._crit_edge, %20
@@ -192,7 +192,7 @@ define dso_local void @shmem_exit(i32 noundef %0) local_unnamed_addr #4 {
   %30 = load ptr, ptr %29, align 16
   %31 = getelementptr inbounds i8, ptr %29, i64 8
   %32 = load i64, ptr %31, align 8
-  tail call void %30(i32 noundef %0, i64 noundef %32) #7
+  tail call void %30(i32 noundef %0, i64 noundef %32) #8
   %33 = load i32, ptr @on_shmem_exit_index, align 4
   %34 = add i32 %33, -1
   store i32 %34, ptr @on_shmem_exit_index, align 4
@@ -214,11 +214,11 @@ define dso_local void @on_proc_exit(ptr noundef %0, i64 noundef %1) local_unname
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #9
   tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 261) #7
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 314, ptr noundef nonnull @__func__.on_proc_exit) #7
+  %7 = tail call i32 @errcode(i32 noundef 261) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 314, ptr noundef nonnull @__func__.on_proc_exit) #8
   unreachable
 
 9:                                                ; preds = %2
@@ -233,7 +233,7 @@ define dso_local void @on_proc_exit(ptr noundef %0, i64 noundef %1) local_unname
   br i1 %.b1, label %16, label %14
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @atexit(ptr noundef nonnull @atexit_callback) #7
+  %15 = tail call i32 @atexit(ptr noundef nonnull @atexit_callback) #8
   store i1 true, ptr @atexit_callback_setup, align 1
   br label %16
 
@@ -243,8 +243,8 @@ define dso_local void @on_proc_exit(ptr noundef %0, i64 noundef %1) local_unname
 
 declare i32 @errcode(i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #1
+; Function Attrs: nofree nounwind
+declare i32 @atexit(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal void @atexit_callback() #4 {
@@ -259,11 +259,11 @@ define dso_local void @before_shmem_exit(ptr noundef %0, i64 noundef %1) local_u
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #9
   tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 261) #7
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 342, ptr noundef nonnull @__func__.before_shmem_exit) #7
+  %7 = tail call i32 @errcode(i32 noundef 261) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 342, ptr noundef nonnull @__func__.before_shmem_exit) #8
   unreachable
 
 9:                                                ; preds = %2
@@ -278,7 +278,7 @@ define dso_local void @before_shmem_exit(ptr noundef %0, i64 noundef %1) local_u
   br i1 %.b1, label %16, label %14
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @atexit(ptr noundef nonnull @atexit_callback) #7
+  %15 = tail call i32 @atexit(ptr noundef nonnull @atexit_callback) #8
   store i1 true, ptr @atexit_callback_setup, align 1
   br label %16
 
@@ -293,11 +293,11 @@ define dso_local void @on_shmem_exit(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #9
   tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 261) #7
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 370, ptr noundef nonnull @__func__.on_shmem_exit) #7
+  %7 = tail call i32 @errcode(i32 noundef 261) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 370, ptr noundef nonnull @__func__.on_shmem_exit) #8
   unreachable
 
 9:                                                ; preds = %2
@@ -312,7 +312,7 @@ define dso_local void @on_shmem_exit(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %.b1, label %16, label %14
 
 14:                                               ; preds = %9
-  %15 = tail call i32 @atexit(ptr noundef nonnull @atexit_callback) #7
+  %15 = tail call i32 @atexit(ptr noundef nonnull @atexit_callback) #8
   store i1 true, ptr @atexit_callback_setup, align 1
   br label %16
 
@@ -345,10 +345,10 @@ define dso_local void @cancel_before_shmem_exit(ptr noundef %0, i64 noundef %1) 
   ret void
 
 16:                                               ; preds = %11, %5, %2
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef %0, i64 noundef %1) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 403, ptr noundef nonnull @__func__.cancel_before_shmem_exit) #7
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef %0, i64 noundef %1) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 403, ptr noundef nonnull @__func__.cancel_before_shmem_exit) #8
   unreachable
 }
 
@@ -357,7 +357,7 @@ define dso_local void @on_exit_reset() local_unnamed_addr #4 {
   store i32 0, ptr @before_shmem_exit_index, align 4
   store i32 0, ptr @on_shmem_exit_index, align 4
   store i32 0, ptr @on_proc_exit_index, align 4
-  tail call void @reset_on_dsm_detach() #7
+  tail call void @reset_on_dsm_detach() #8
   ret void
 }
 
@@ -370,10 +370,10 @@ define dso_local void @check_on_shmem_exit_lists_are_empty() local_unnamed_addr 
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
+  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #9
   tail call void @llvm.assume(i1 %3)
-  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 435, ptr noundef nonnull @__func__.check_on_shmem_exit_lists_are_empty) #7
+  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 435, ptr noundef nonnull @__func__.check_on_shmem_exit_lists_are_empty) #8
   unreachable
 
 5:                                                ; preds = %0
@@ -382,10 +382,10 @@ define dso_local void @check_on_shmem_exit_lists_are_empty() local_unnamed_addr 
   br i1 %.not1, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #9
   tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 437, ptr noundef nonnull @__func__.check_on_shmem_exit_lists_are_empty) #7
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 437, ptr noundef nonnull @__func__.check_on_shmem_exit_lists_are_empty) #8
   unreachable
 
 10:                                               ; preds = %5
@@ -393,7 +393,7 @@ define dso_local void @check_on_shmem_exit_lists_are_empty() local_unnamed_addr 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
+declare void @llvm.assume(i1 noundef) #7
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -401,10 +401,11 @@ attributes #2 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-pr
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
-attributes #9 = { noreturn nounwind }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
+attributes #10 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

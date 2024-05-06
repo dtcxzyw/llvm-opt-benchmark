@@ -30,10 +30,10 @@ define dso_local void @acpi_ut_predefined_warning(ptr noundef %0, i32 noundef %1
 9:                                                ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !5
   tail call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str, ptr noundef %2) #5
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   call void @acpi_os_vprintf(ptr noundef %4, ptr noundef nonnull %6) #5
   call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.1, i32 noundef 539166248, ptr noundef %0, i32 noundef %1) #5
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   br label %10
 
 10:                                               ; preds = %9, %5
@@ -50,14 +50,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @acpi_os_printf(ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @acpi_os_vprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
@@ -73,10 +67,10 @@ define dso_local void @acpi_ut_predefined_info(ptr noundef %0, i32 noundef %1, p
 9:                                                ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !5
   tail call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.2, ptr noundef %2) #5
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   call void @acpi_os_vprintf(ptr noundef %4, ptr noundef nonnull %6) #5
   call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.1, i32 noundef 539166248, ptr noundef %0, i32 noundef %1) #5
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   br label %10
 
 10:                                               ; preds = %9, %5
@@ -95,10 +89,10 @@ define dso_local void @acpi_ut_predefined_bios_error(ptr noundef %0, i32 noundef
 9:                                                ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !5
   tail call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.3, ptr noundef %2) #5
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   call void @acpi_os_vprintf(ptr noundef %4, ptr noundef nonnull %6) #5
   call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.1, i32 noundef 539166248, ptr noundef %0, i32 noundef %1) #5
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   br label %10
 
 10:                                               ; preds = %9, %5
@@ -181,6 +175,12 @@ declare dso_local void @acpi_ns_print_node_pathname(ptr noundef, ptr noundef) lo
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

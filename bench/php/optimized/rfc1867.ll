@@ -540,7 +540,7 @@ multipart_buffer_eof.exit.thread:                 ; preds = %202, %187, %multipa
   br i1 %.not.i.i, label %multipart_buffer_headers.exit, label %214
 
 214:                                              ; preds = %212
-  %215 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %213, ptr noundef nonnull dereferenceable(1) %211) #22
+  %215 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %213, ptr noundef nonnull readonly dereferenceable(1) %211) #22
   %.not4.i.i = icmp eq i32 %215, 0
   br i1 %.not4.i.i, label %find_boundary.exit.outer.i, label %212
 
@@ -717,7 +717,7 @@ multipart_buffer_headers.exit:                    ; preds = %212
 .lr.ph.i:                                         ; preds = %288, %292
   %.013.i = phi ptr [ %293, %292 ], [ %289, %288 ]
   %290 = load ptr, ptr %.013.i, align 8
-  %291 = call i32 @strcasecmp(ptr noundef %290, ptr noundef nonnull @.str.7) #22
+  %291 = call i32 @strcasecmp(ptr noundef %290, ptr noundef nonnull readonly @.str.7) #22
   %.not10.i = icmp eq i32 %291, 0
   br i1 %.not10.i, label %php_mime_get_hdr_value.exit, label %292
 
@@ -1578,7 +1578,7 @@ register_http_post_files_variable.exit548:        ; preds = %626, %631
 .lr.ph.i550:                                      ; preds = %633, %637
   %.013.i551 = phi ptr [ %638, %637 ], [ %634, %633 ]
   %635 = load ptr, ptr %.013.i551, align 8
-  %636 = call i32 @strcasecmp(ptr noundef %635, ptr noundef nonnull @.str.25) #22
+  %636 = call i32 @strcasecmp(ptr noundef %635, ptr noundef nonnull readonly @.str.25) #22
   %.not10.i552 = icmp eq i32 %636, 0
   br i1 %.not10.i552, label %php_mime_get_hdr_value.exit555, label %637
 
@@ -2308,7 +2308,7 @@ fill_buffer.exit:                                 ; preds = %fill_buffer.exit.lo
   %53 = add i32 %38, %52
   %54 = tail call i32 @llvm.smin.i32(i32 %53, i32 %44)
   %55 = sext i32 %54 to i64
-  %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %42, ptr nonnull %50, i64 %55)
+  %bcmp.us.i = tail call i32 @bcmp(ptr nonnull readonly %42, ptr nonnull %50, i64 %55)
   %56 = icmp eq i32 %bcmp.us.i, 0
   br i1 %56, label %php_ap_memstr.exit, label %57
 
@@ -2333,7 +2333,7 @@ php_ap_memstr.exit:                               ; preds = %.lr.ph.split.us.i
   %66 = add i32 %38, %65
   %67 = tail call i32 @llvm.smin.i32(i32 %66, i32 %44)
   %68 = sext i32 %67 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %42, ptr nonnull %63, i64 %68)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %42, ptr nonnull %63, i64 %68)
   %69 = icmp ne i32 %bcmp.i, 0
   %.not22.i = icmp slt i32 %66, %44
   %or.cond.i = or i1 %69, %.not22.i

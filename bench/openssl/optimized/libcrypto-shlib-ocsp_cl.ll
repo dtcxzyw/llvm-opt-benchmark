@@ -48,7 +48,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @OCSP_ONEREQ_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OCSP_request_set1_name(ptr nocapture noundef %req, ptr noundef %nm) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_request_set1_name(ptr nocapture noundef %req, ptr noundef %nm) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @GENERAL_NAME_new() #6
   %cmp = icmp eq ptr %call, null
@@ -117,7 +117,7 @@ declare ptr @OCSP_SIGNATURE_new() local_unnamed_addr #1
 declare i32 @ossl_x509_add_cert_new(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OCSP_request_sign(ptr noundef %req, ptr noundef %signer, ptr noundef %key, ptr noundef %dgst, ptr noundef %certs, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_request_sign(ptr noundef %req, ptr noundef %signer, ptr noundef %key, ptr noundef %dgst, ptr noundef %certs, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_get_subject_name(ptr noundef %signer) #6
   %call.i = tail call ptr @GENERAL_NAME_new() #6
@@ -374,7 +374,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @OCSP_resp_get0_id(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %pid, ptr nocapture noundef writeonly %pname) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OCSP_resp_get0_id(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %pid, ptr nocapture noundef writeonly %pname) local_unnamed_addr #4 {
 entry:
   %responderId = getelementptr inbounds i8, ptr %bs, i64 8
   %0 = load i32, ptr %responderId, align 8
@@ -401,7 +401,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OCSP_resp_get1_id(ptr nocapture noundef readonly %bs, ptr nocapture noundef %pid, ptr nocapture noundef %pname) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_resp_get1_id(ptr nocapture noundef readonly %bs, ptr nocapture noundef %pid, ptr nocapture noundef %pname) local_unnamed_addr #0 {
 entry:
   %responderId = getelementptr inbounds i8, ptr %bs, i64 8
   %0 = load i32, ptr %responderId, align 8
@@ -443,7 +443,7 @@ declare ptr @X509_NAME_dup(ptr noundef) local_unnamed_addr #1
 declare ptr @ASN1_OCTET_STRING_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OCSP_resp_find(ptr noundef readonly %bs, ptr noundef %id, i32 noundef %last) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @OCSP_resp_find(ptr noundef readonly %bs, ptr noundef %id, i32 noundef %last) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %bs, null
   br i1 %cmp, label %return, label %if.end
@@ -549,7 +549,7 @@ return:                                           ; preds = %if.end16, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OCSP_resp_find_status(ptr noundef readonly %bs, ptr noundef %id, ptr noundef writeonly %status, ptr noundef writeonly %reason, ptr noundef writeonly %revtime, ptr noundef writeonly %thisupd, ptr noundef writeonly %nextupd) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_resp_find_status(ptr noundef readonly %bs, ptr noundef %id, ptr noundef writeonly %status, ptr noundef writeonly %reason, ptr noundef writeonly %revtime, ptr noundef writeonly %thisupd, ptr noundef writeonly %nextupd) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %bs, null
   br i1 %cmp.i, label %return, label %if.end.i
@@ -654,7 +654,7 @@ return:                                           ; preds = %for.inc.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @OCSP_check_validity(ptr noundef %thisupd, ptr noundef %nextupd, i64 noundef %nsec, i64 noundef %maxsec) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_check_validity(ptr noundef %thisupd, ptr noundef %nextupd, i64 noundef %nsec, i64 noundef %maxsec) local_unnamed_addr #0 {
 entry:
   %t_now = alloca i64, align 8
   %t_tmp = alloca i64, align 8

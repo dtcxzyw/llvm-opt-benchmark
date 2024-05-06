@@ -192,7 +192,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8facebook5velox4type7Scanner3lexEPNS1_6Parser10value_typeE(ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef %yylval) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 270) i32 @_ZN8facebook5velox4type7Scanner3lexEPNS1_6Parser10value_typeE(ptr noundef nonnull align 8 dereferenceable(760) %this, ptr noundef %yylval) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp80 = alloca %"class.std::allocator", align 1
@@ -805,7 +805,7 @@ yy_match.backedge:                                ; preds = %for.inc.i102, %sw.b
   br label %yy_match
 
 if.else169:                                       ; preds = %if.end147
-  %call170 = tail call noundef i32 @_ZN16veloxtpFlexLexer18yy_get_next_bufferEv(ptr noundef nonnull align 8 dereferenceable(732) %this), !range !8
+  %call170 = tail call noundef i32 @_ZN16veloxtpFlexLexer18yy_get_next_bufferEv(ptr noundef nonnull align 8 dereferenceable(732) %this)
   switch i32 %call170, label %default.unreachable240 [
     i32 1, label %sw.bb171
     i32 0, label %sw.bb192
@@ -1122,28 +1122,28 @@ entry:
   store ptr %src.coerce0, ptr %src, align 8
   %0 = getelementptr inbounds i8, ptr %src, i64 8
   store ptr %src.coerce1, ptr %0, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %src.i.i), !noalias !9
-  store ptr %src.coerce0, ptr %src.i.i, align 8, !noalias !15
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %src.i.i), !noalias !8
+  store ptr %src.coerce0, ptr %src.i.i, align 8, !noalias !14
   %1 = getelementptr inbounds i8, ptr %src.i.i, i64 8
-  store ptr %src.coerce1, ptr %1, align 8, !noalias !15
-  %call.i.i.i = call i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef nonnull %src.i.i) #34, !noalias !15
-  call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  store ptr %src.coerce1, ptr %1, align 8, !noalias !14
+  %call.i.i.i = call i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef nonnull %src.i.i) #34, !noalias !14
+  call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %2 = and i64 %call.i.i.i, 255
   %cmp.i.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %retval.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %src.i.i, align 8, !noalias !22
-  %retval.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %1, align 8, !noalias !22
-  store ptr %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %tmp, align 8, !alias.scope !22
+  %retval.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %src.i.i, align 8, !noalias !21
+  %retval.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %1, align 8, !noalias !21
+  store ptr %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %tmp, align 8, !alias.scope !21
   %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %tmp, i64 8
-  store ptr %retval.sroa.2.0.copyload.i.i.i.i.i, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i, align 8, !alias.scope !22
+  store ptr %retval.sroa.2.0.copyload.i.i.i.i.i, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i, align 8, !alias.scope !21
   %3 = getelementptr inbounds i8, ptr %tmp, i64 16
-  store i8 1, ptr %3, align 8, !alias.scope !22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %src.i.i), !noalias !9
+  store i8 1, ptr %3, align 8, !alias.scope !21
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %src.i.i), !noalias !8
   %cmp.not4.i.i.i.i = icmp eq ptr %retval.sroa.0.0.copyload.i.i.i.i.i, %retval.sroa.2.0.copyload.i.i.i.i.i
   br i1 %cmp.not4.i.i.i.i, label %_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IiEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit, label %for.body.i.i.i.i
 
@@ -1163,7 +1163,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i, %for.c
 if.end.i.i:                                       ; preds = %entry
   %ref.tmp.sroa.2.0.extract.shift.i.i = lshr i64 %call.i.i.i, 8
   %ref.tmp.sroa.2.0.extract.trunc.i.i = trunc i64 %ref.tmp.sroa.2.0.extract.shift.i.i to i8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %src.i.i), !noalias !9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %src.i.i), !noalias !8
   store ptr %src, ptr %ref.tmp2, align 8
   call void @_ZZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_ENKUlNS_14ConversionCodeEE_clES9_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, i8 noundef zeroext %ref.tmp.sroa.2.0.extract.trunc.i.i)
   call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %ref.tmp.sroa.2.0.extract.trunc.i.i) #37
@@ -1177,7 +1177,7 @@ if.end.i.i2:                                      ; preds = %for.body.i.i.i.i
 
 _ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_IiEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit: ; preds = %for.cond.i.i.i.i, %if.then.i.i
   %ref.tmp.sroa.31.0.extract.shift.i.i = lshr i64 %call.i.i.i, 32
-  %ref.tmp.sroa.31.0.extract.trunc.i.i = trunc i64 %ref.tmp.sroa.31.0.extract.shift.i.i to i32
+  %ref.tmp.sroa.31.0.extract.trunc.i.i = trunc nuw i64 %ref.tmp.sroa.31.0.extract.shift.i.i to i32
   ret i32 %ref.tmp.sroa.31.0.extract.trunc.i.i
 }
 
@@ -1265,7 +1265,7 @@ if.end6:                                          ; preds = %entry, %entry, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN16veloxtpFlexLexer18yy_get_next_bufferEv(ptr noundef nonnull align 8 dereferenceable(732) %this) local_unnamed_addr #4 align 2 {
+define noundef range(i32 0, 3) i32 @_ZN16veloxtpFlexLexer18yy_get_next_bufferEv(ptr noundef nonnull align 8 dereferenceable(732) %this) local_unnamed_addr #4 align 2 {
 entry:
   %yy_buffer_stack = getelementptr inbounds i8, ptr %this, i64 648
   %0 = load ptr, ptr %yy_buffer_stack, align 8
@@ -1334,7 +1334,7 @@ for.body:                                         ; preds = %if.end16, %for.body
   store i8 %17, ptr %dest.034, align 1
   %inc = add nuw nsw i32 %i.032, 1
   %exitcond.not = icmp eq i32 %inc, %conv
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !22
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre42 = load ptr, ptr %yy_buffer_stack, align 8
@@ -1425,7 +1425,7 @@ if.end75:                                         ; preds = %if.then72, %if.then
   %.pn = load i32, ptr %.pn.in, align 8
   %num_to_read.0 = add i32 %.pn, %22
   %cmp41 = icmp slt i32 %num_to_read.0, 1
-  br i1 %cmp41, label %while.body, label %while.end, !llvm.loop !24
+  br i1 %cmp41, label %while.body, label %while.end, !llvm.loop !23
 
 while.end:                                        ; preds = %if.end75, %if.else35
   %33 = phi ptr [ %18, %if.else35 ], [ %32, %if.end75 ]
@@ -1614,7 +1614,7 @@ cond.end25:                                       ; preds = %entry
 invoke.cont27:                                    ; preds = %cond.end25
   %yy_c_buf_p.i = getelementptr inbounds i8, ptr %this, i64 608
   %yylineno.i = getelementptr inbounds i8, ptr %this, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %yy_c_buf_p.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %yy_c_buf_p.i, i8 0, i64 16, i1 false)
   %yy_did_buffer_switch_on_eof.i = getelementptr inbounds i8, ptr %this, i64 624
   store i32 0, ptr %yy_did_buffer_switch_on_eof.i, align 8
   %yy_looking_for_trail_begin.i = getelementptr inbounds i8, ptr %this, i64 712
@@ -1624,8 +1624,8 @@ invoke.cont27:                                    ; preds = %cond.end25
   %yy_buffer_stack_top.i = getelementptr inbounds i8, ptr %this, i64 632
   %yy_state_buf.i = getelementptr inbounds i8, ptr %this, i64 672
   store ptr null, ptr %yy_state_buf.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %yy_buffer_stack_top.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %yy_looking_for_trail_begin.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %yy_buffer_stack_top.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %yy_looking_for_trail_begin.i, i8 0, i64 20, i1 false)
   ret void
 
 lpad15:                                           ; preds = %entry, %cond.end25
@@ -1691,7 +1691,7 @@ invoke.cont8:                                     ; preds = %entry
 invoke.cont10:                                    ; preds = %invoke.cont8
   %yy_c_buf_p.i = getelementptr inbounds i8, ptr %this, i64 608
   %yylineno.i = getelementptr inbounds i8, ptr %this, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %yy_c_buf_p.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %yy_c_buf_p.i, i8 0, i64 16, i1 false)
   %yy_did_buffer_switch_on_eof.i = getelementptr inbounds i8, ptr %this, i64 624
   store i32 0, ptr %yy_did_buffer_switch_on_eof.i, align 8
   %yy_looking_for_trail_begin.i = getelementptr inbounds i8, ptr %this, i64 712
@@ -1701,8 +1701,8 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   %yy_buffer_stack_top.i = getelementptr inbounds i8, ptr %this, i64 632
   %yy_state_buf.i = getelementptr inbounds i8, ptr %this, i64 672
   store ptr null, ptr %yy_state_buf.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %yy_buffer_stack_top.i, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %yy_looking_for_trail_begin.i, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %yy_buffer_stack_top.i, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %yy_looking_for_trail_begin.i, i8 0, i64 20, i1 false)
   ret void
 
 lpad7:                                            ; preds = %invoke.cont8, %entry
@@ -1972,7 +1972,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %yy_ch_buf20 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %yy_ch_buf20, align 8
   %cmp21 = icmp ugt ptr %incdec.ptr, %16
-  br i1 %cmp21, label %while.body, label %while.end.loopexit, !llvm.loop !25
+  br i1 %cmp21, label %while.body, label %while.end.loopexit, !llvm.loop !24
 
 while.end.loopexit:                               ; preds = %while.body
   %yy_buf_size33.phi.trans.insert = getelementptr inbounds i8, ptr %15, i64 24
@@ -2029,7 +2029,7 @@ if.end46:                                         ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN16veloxtpFlexLexer7yyinputEv(ptr noundef nonnull align 8 dereferenceable(732) %this) local_unnamed_addr #4 align 2 {
+define noundef range(i32 0, 256) i32 @_ZN16veloxtpFlexLexer7yyinputEv(ptr noundef nonnull align 8 dereferenceable(732) %this) local_unnamed_addr #4 align 2 {
 entry:
   %yy_hold_char = getelementptr inbounds i8, ptr %this, i64 600
   %yy_c_buf_p = getelementptr inbounds i8, ptr %this, i64 608
@@ -2073,7 +2073,7 @@ if.else:                                          ; preds = %if.then
   %10 = load ptr, ptr %yytext, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %4, i64 1
   store ptr %incdec.ptr, ptr %yy_c_buf_p, align 8
-  %call = tail call noundef i32 @_ZN16veloxtpFlexLexer18yy_get_next_bufferEv(ptr noundef nonnull align 8 dereferenceable(732) %this), !range !8
+  %call = tail call noundef i32 @_ZN16veloxtpFlexLexer18yy_get_next_bufferEv(ptr noundef nonnull align 8 dereferenceable(732) %this)
   switch i32 %call, label %default.unreachable31 [
     i32 2, label %sw.bb
     i32 1, label %sw.bb11
@@ -2803,7 +2803,7 @@ if.end22.i:                                       ; preds = %if.then19.i, %if.th
 
 _ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit: ; preds = %if.end.i, %if.end8.i, %if.end22.i
   %8 = phi i64 [ 0, %if.end.i ], [ %3, %if.end8.i ], [ %.pre, %if.end22.i ]
-  %9 = load ptr, ptr %yy_buffer_stack.i, align 8, !nonnull !26, !noundef !26
+  %9 = load ptr, ptr %yy_buffer_stack.i, align 8, !nonnull !25, !noundef !25
   %yy_buffer_stack_top = getelementptr inbounds i8, ptr %this, i64 632
   %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %8
   %10 = load ptr, ptr %arrayidx, align 8
@@ -3172,7 +3172,7 @@ lpad15.i.i:                                       ; preds = %cond.end25.i.i, %.n
 invoke.cont:                                      ; preds = %cond.end25.i.i
   %yy_c_buf_p.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 608
   %yylineno.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %yy_c_buf_p.i.i.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %yy_c_buf_p.i.i.i, i8 0, i64 16, i1 false)
   %yy_did_buffer_switch_on_eof.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 624
   store i32 0, ptr %yy_did_buffer_switch_on_eof.i.i.i, align 8
   %yy_looking_for_trail_begin.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 712
@@ -3182,8 +3182,8 @@ invoke.cont:                                      ; preds = %cond.end25.i.i
   %yy_buffer_stack_top.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 632
   %yy_state_buf.i.i.i = getelementptr inbounds i8, ptr %scanner, i64 672
   store ptr null, ptr %yy_state_buf.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %yy_buffer_stack_top.i.i.i, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %yy_looking_for_trail_begin.i.i.i, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %yy_buffer_stack_top.i.i.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(20) %yy_looking_for_trail_begin.i.i.i, i8 0, i64 20, i1 false)
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8facebook5velox4type7ScannerE, i64 0, i32 0, i64 2), ptr %scanner, align 8
   %outputType_.i = getelementptr inbounds i8, ptr %scanner, i64 736
   store ptr %agg.result, ptr %outputType_.i, align 8
@@ -3746,22 +3746,21 @@ attributes #40 = { nounwind willreturn memory(none) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 3}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN5folly6detail11parseToWrapIiEENSt9enable_ifIXntsr3std7is_voidIDTcl7parseTotlNS_5RangeIPKcEEEclsr3stdE7declvalIRT_EEEEEE5valueES9_E4typeES6_S8_: %agg.result"}
-!11 = distinct !{!11, !"_ZN5folly6detail11parseToWrapIiEENSt9enable_ifIXntsr3std7is_voidIDTcl7parseTotlNS_5RangeIPKcEEEclsr3stdE7declvalIRT_EEEEEE5valueES9_E4typeES6_S8_"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN5folly7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS_8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEEEE4typeES7_RS2_: %agg.result"}
-!14 = distinct !{!14, !"_ZN5folly7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS_8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEEEE4typeES7_RS2_"}
-!15 = !{!13, !10}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZNO5folly8ExpectedIiNS_14ConversionCodeEE4thenIJZNS_7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS0_INS_5RangeIPKcEES1_EEE4typeESA_RS6_EUliE_ELb0ETnNS5_IXooT0_scbgesZT_Li1EEiE4typeELi0EEEDTclsr15expected_detail14ExpectedHelperE5then_clL_ZSt7declvalIONS_15expected_detail15ExpectedStorageIiS1_LNSJ_11StorageTypeE0EEEEDTcl9__declvalIS6_ELi0EEEvEEspclsr3stdE7declvalIT_EEEEDpOSP_: %agg.result"}
-!18 = distinct !{!18, !"_ZNO5folly8ExpectedIiNS_14ConversionCodeEE4thenIJZNS_7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS0_INS_5RangeIPKcEES1_EEE4typeESA_RS6_EUliE_ELb0ETnNS5_IXooT0_scbgesZT_Li1EEiE4typeELi0EEEDTclsr15expected_detail14ExpectedHelperE5then_clL_ZSt7declvalIONS_15expected_detail15ExpectedStorageIiS1_LNSJ_11StorageTypeE0EEEEDTcl9__declvalIS6_ELi0EEEvEEspclsr3stdE7declvalIT_EEEEDpOSP_"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN5folly15expected_detail30expected_detail_ExpectedHelper14ExpectedHelper5then_INS0_15ExpectedStorageIiNS_14ConversionCodeELNS0_11StorageTypeE0EEEZNS_7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS_8ExpectedINS_5RangeIPKcEES5_EEE4typeESF_RSA_EUliE_JES5_S2_EEDTclsrT3_5then_clsrSL_7return_IT2_Ecmclclsr3stdE7declvalIT0_EEcldtclsr3stdE7declvalISA_EE5valueEEL_ZNS_L4unitEEEspclsr3stdE7declvalIT1_EEEEOSA_OSN_DpOSO_: %agg.result"}
-!21 = distinct !{!21, !"_ZN5folly15expected_detail30expected_detail_ExpectedHelper14ExpectedHelper5then_INS0_15ExpectedStorageIiNS_14ConversionCodeELNS0_11StorageTypeE0EEEZNS_7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS_8ExpectedINS_5RangeIPKcEES5_EEE4typeESF_RSA_EUliE_JES5_S2_EEDTclsrT3_5then_clsrSL_7return_IT2_Ecmclclsr3stdE7declvalIT0_EEcldtclsr3stdE7declvalISA_EE5valueEEL_ZNS_L4unitEEEspclsr3stdE7declvalIT1_EEEEOSA_OSN_DpOSO_"}
-!22 = !{!20, !17, !13, !10}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZN5folly6detail11parseToWrapIiEENSt9enable_ifIXntsr3std7is_voidIDTcl7parseTotlNS_5RangeIPKcEEEclsr3stdE7declvalIRT_EEEEEE5valueES9_E4typeES6_S8_: %agg.result"}
+!10 = distinct !{!10, !"_ZN5folly6detail11parseToWrapIiEENSt9enable_ifIXntsr3std7is_voidIDTcl7parseTotlNS_5RangeIPKcEEEclsr3stdE7declvalIRT_EEEEEE5valueES9_E4typeES6_S8_"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN5folly7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS_8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEEEE4typeES7_RS2_: %agg.result"}
+!13 = distinct !{!13, !"_ZN5folly7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS_8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEEEE4typeES7_RS2_"}
+!14 = !{!12, !9}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNO5folly8ExpectedIiNS_14ConversionCodeEE4thenIJZNS_7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS0_INS_5RangeIPKcEES1_EEE4typeESA_RS6_EUliE_ELb0ETnNS5_IXooT0_scbgesZT_Li1EEiE4typeELi0EEEDTclsr15expected_detail14ExpectedHelperE5then_clL_ZSt7declvalIONS_15expected_detail15ExpectedStorageIiS1_LNSJ_11StorageTypeE0EEEEDTcl9__declvalIS6_ELi0EEEvEEspclsr3stdE7declvalIT_EEEEDpOSP_: %agg.result"}
+!17 = distinct !{!17, !"_ZNO5folly8ExpectedIiNS_14ConversionCodeEE4thenIJZNS_7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS0_INS_5RangeIPKcEES1_EEE4typeESA_RS6_EUliE_ELb0ETnNS5_IXooT0_scbgesZT_Li1EEiE4typeELi0EEEDTclsr15expected_detail14ExpectedHelperE5then_clL_ZSt7declvalIONS_15expected_detail15ExpectedStorageIiS1_LNSJ_11StorageTypeE0EEEEDTcl9__declvalIS6_ELi0EEEvEEspclsr3stdE7declvalIT_EEEEDpOSP_"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZN5folly15expected_detail30expected_detail_ExpectedHelper14ExpectedHelper5then_INS0_15ExpectedStorageIiNS_14ConversionCodeELNS0_11StorageTypeE0EEEZNS_7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS_8ExpectedINS_5RangeIPKcEES5_EEE4typeESF_RSA_EUliE_JES5_S2_EEDTclsrT3_5then_clsrSL_7return_IT2_Ecmclclsr3stdE7declvalIT0_EEcldtclsr3stdE7declvalISA_EE5valueEEL_ZNS_L4unitEEEspclsr3stdE7declvalIT1_EEEEOSA_OSN_DpOSO_: %agg.result"}
+!20 = distinct !{!20, !"_ZN5folly15expected_detail30expected_detail_ExpectedHelper14ExpectedHelper5then_INS0_15ExpectedStorageIiNS_14ConversionCodeELNS0_11StorageTypeE0EEEZNS_7parseToIiEENSt9enable_ifIX15is_arithmetic_vIT_EENS_8ExpectedINS_5RangeIPKcEES5_EEE4typeESF_RSA_EUliE_JES5_S2_EEDTclsrT3_5then_clsrSL_7return_IT2_Ecmclclsr3stdE7declvalIT0_EEcldtclsr3stdE7declvalISA_EE5valueEEL_ZNS_L4unitEEEspclsr3stdE7declvalIT1_EEEEOSA_OSN_DpOSO_"}
+!21 = !{!19, !16, !12, !9}
+!22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = !{}
+!25 = !{}

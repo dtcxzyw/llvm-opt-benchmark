@@ -217,7 +217,7 @@ land.lhs.true:                                    ; preds = %for.body
   %4 = load i64, ptr %it.014, align 8
   %conv.i = trunc i64 %4 to i32
   %cmp.i11 = icmp ne i32 %conv.i, %l.coerce
-  %tobool = trunc i8 %found.017 to i1
+  %tobool = trunc nuw i8 %found.017 to i1
   %5 = select i1 %cmp.i11, i1 true, i1 %tobool
   br i1 %5, label %if.else, label %for.inc
 
@@ -235,7 +235,7 @@ for.inc:                                          ; preds = %land.lhs.true, %if.
 
 for.end:                                          ; preds = %for.inc
   %.pre = load ptr, ptr %wlist, align 8
-  %6 = trunc i8 %found.1 to i1
+  %6 = trunc nuw i8 %found.1 to i1
   %tobool.not.i = icmp eq ptr %.pre, null
   br i1 %tobool.not.i, label %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i
 

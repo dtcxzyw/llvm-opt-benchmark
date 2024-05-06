@@ -2350,8 +2350,8 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %if.end60, %if.then.
   %46 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i = zext i32 %46 to i64
   %add.ptr.i73.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %47 = getelementptr i8, ptr %4, i64 %add.ptr.i73.idx
-  %add.ptr.i73.ptr = getelementptr i8, ptr %47, i64 32
+  %47 = getelementptr inbounds i8, ptr %4, i64 %add.ptr.i73.idx
+  %add.ptr.i73.ptr = getelementptr inbounds i8, ptr %47, i64 32
   %cmp67.not103 = icmp eq i32 %46, 0
   br i1 %cmp67.not103, label %for.end, label %for.body68.preheader
 
@@ -4170,8 +4170,8 @@ if.then28:                                        ; preds = %if.end
   %22 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i43 = zext i32 %22 to i64
   %add.ptr.i44.idx = shl nuw nsw i64 %idx.ext.i43, 3
-  %23 = getelementptr i8, ptr %21, i64 %add.ptr.i44.idx
-  %add.ptr.i44.ptr = getelementptr i8, ptr %23, i64 32
+  %23 = getelementptr inbounds i8, ptr %21, i64 %add.ptr.i44.idx
+  %add.ptr.i44.ptr = getelementptr inbounds i8, ptr %23, i64 32
   %cmp36.not157 = icmp eq i32 %22, 0
   br i1 %cmp36.not157, label %if.end43, label %for.body37.preheader
 

@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [13 x i8] c"asn1_oct_int\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ASN1_TYPE_set_octetstring(ptr noundef %a, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_TYPE_set_octetstring(ptr noundef %a, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ASN1_OCTET_STRING_new() #4
   %cmp = icmp eq ptr %call, null
@@ -108,7 +108,7 @@ declare i32 @ASN1_STRING_length(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_TYPE_set_int_octetstring(ptr noundef %a, i64 noundef %num, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_TYPE_set_int_octetstring(ptr noundef %a, i64 noundef %num, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %a.addr = alloca ptr, align 8
   %atmp = alloca %struct.asn1_int_oct, align 8
@@ -172,7 +172,7 @@ if.then7.i:                                       ; preds = %if.end.i
   %call.max_len.i = tail call i32 @llvm.smin.i32(i32 %call.i, i32 %max_len)
   %call8.i = tail call ptr @ASN1_STRING_get0_data(ptr noundef %2) #4
   %conv9.i = sext i32 %call.max_len.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data, ptr align 1 %call8.i, i64 %conv9.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %data, ptr align 1 %call8.i, i64 %conv9.i, i1 false)
   br label %asn1_type_get_int_oct.exit
 
 asn1_type_get_int_oct.exit:                       ; preds = %if.end.i, %if.then7.i
@@ -198,7 +198,7 @@ declare ptr @ASN1_TYPE_unpack_sequence(ptr noundef, ptr noundef) local_unnamed_a
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_asn1_type_set_octetstring_int(ptr noundef %a, i64 noundef %num, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_asn1_type_set_octetstring_int(ptr noundef %a, i64 noundef %num, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %a.addr = alloca ptr, align 8
   %atmp = alloca %struct.asn1_oct_int, align 8
@@ -260,7 +260,7 @@ if.then7.i:                                       ; preds = %if.end.i
   %call.max_len.i = tail call i32 @llvm.smin.i32(i32 %call.i, i32 %max_len)
   %call8.i = tail call ptr @ASN1_STRING_get0_data(ptr noundef %2) #4
   %conv9.i = sext i32 %call.max_len.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data, ptr align 1 %call8.i, i64 %conv9.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 1 %data, ptr align 1 %call8.i, i64 %conv9.i, i1 false)
   br label %asn1_type_get_int_oct.exit
 
 asn1_type_get_int_oct.exit:                       ; preds = %if.end.i, %if.then7.i

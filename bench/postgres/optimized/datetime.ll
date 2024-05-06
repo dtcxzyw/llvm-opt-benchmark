@@ -44,7 +44,7 @@ define void @PGTYPESdate_free(ptr nocapture noundef %0) local_unnamed_addr #2 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @PGTYPESdate_from_timestamp(i64 noundef %0) local_unnamed_addr #4 {
+define noundef range(i64 -106751991, 106751992) i64 @PGTYPESdate_from_timestamp(i64 noundef %0) local_unnamed_addr #4 {
   %2 = add i64 %0, -9223372036854775807
   %or.cond = icmp ult i64 %2, 2
   %3 = sdiv i64 %0, 86400000000
@@ -53,7 +53,7 @@ define noundef i64 @PGTYPESdate_from_timestamp(i64 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @PGTYPESdate_from_asc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @PGTYPESdate_from_asc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.tm, align 8
   %5 = alloca i32, align 4
@@ -199,7 +199,7 @@ define void @PGTYPESdate_mdyjul(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PGTYPESdate_dayofweek(i64 noundef %0) local_unnamed_addr #0 {
+define range(i32 -6, 7) i32 @PGTYPESdate_dayofweek(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #11
   %3 = trunc i64 %0 to i32
   %4 = add i32 %3, 1
@@ -238,7 +238,7 @@ define void @PGTYPESdate_today(ptr nocapture noundef writeonly %0) local_unnamed
 declare void @GetCurrentDateTime(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.tm, align 8
   %5 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %1) #11
   %6 = tail call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #11
@@ -380,7 +380,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [3 x [2 x i32]], align 16
   %5 = alloca [3 x i32], align 4
   %6 = alloca [3 x i32], align 4
@@ -482,7 +482,7 @@ define noundef i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr noundef 
   br label %245
 
 50:                                               ; preds = %.critedge, %.critedge
-  %51 = add i64 %46, 3
+  %51 = add nuw nsw i64 %46, 3
   %52 = tail call ptr @pgtypes_alloc(i64 noundef %51) #11
   %.not219 = icmp eq ptr %52, null
   br i1 %.not219, label %245, label %53

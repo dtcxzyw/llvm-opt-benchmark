@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL8pRealloc = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: mustprogress allocsize(0) uwtable
-define noalias ptr @uprv_malloc_75(i64 noundef %s) local_unnamed_addr #0 {
+define noalias noundef ptr @uprv_malloc_75(i64 noundef %s) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %s, 0
   br i1 %cmp.not, label %return, label %if.then
@@ -38,7 +38,7 @@ return:                                           ; preds = %entry, %if.else, %i
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress allocsize(1) uwtable
-define ptr @uprv_realloc_75(ptr noundef %buffer, i64 noundef %size) local_unnamed_addr #2 {
+define noundef ptr @uprv_realloc_75(ptr noundef %buffer, i64 noundef %size) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %buffer, @_ZL7zeroMem
   %cmp.not.i = icmp eq i64 %size, 0
@@ -128,7 +128,7 @@ if.end2:                                          ; preds = %if.then1, %if.else,
 }
 
 ; Function Attrs: mustprogress allocsize(0,1) uwtable
-define noalias ptr @uprv_calloc_75(i64 noundef %num, i64 noundef %size) local_unnamed_addr #6 {
+define noalias noundef ptr @uprv_calloc_75(i64 noundef %num, i64 noundef %size) local_unnamed_addr #6 {
 entry:
   %mul = mul i64 %size, %num
   %cmp.not.i = icmp eq i64 %mul, 0
@@ -197,7 +197,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define signext i8 @cmemory_cleanup_75() local_unnamed_addr #9 {
+define noundef signext i8 @cmemory_cleanup_75() local_unnamed_addr #9 {
 entry:
   store ptr null, ptr @_ZL8pContext, align 8
   store ptr null, ptr @_ZL6pAlloc, align 8

@@ -835,15 +835,15 @@ for.cond188.preheader.us:                         ; preds = %for.cond188.prehead
   %uv.1301.us = phi ptr [ %uv.0, %for.cond188.preheader.us.preheader ], [ %uv.3.us, %for.cond188.for.inc282_crit_edge.us ]
   %pv.0300.us = phi ptr [ %call155, %for.cond188.preheader.us.preheader ], [ %incdec.ptr232.us, %for.cond188.for.inc282_crit_edge.us ]
   %f.0299.us = phi ptr [ %41, %for.cond188.preheader.us.preheader ], [ %incdec.ptr280.us, %for.cond188.for.inc282_crit_edge.us ]
-  %53 = trunc i64 %indvars.iv326 to i32
-  %conv192.us = uitofp i32 %53 to float
+  %53 = trunc nuw nsw i64 %indvars.iv326 to i32
+  %conv192.us = uitofp nneg i32 %53 to float
   %54 = mul nuw i64 %indvars.iv326, %52
   %add202.us = fadd float %conv192.us, 1.000000e+00
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %55 = mul nuw i64 %indvars.iv.next327, %52
   %mul240.us = fmul float %step_y.0, %conv192.us
-  %56 = trunc i64 %indvars.iv.next327 to i32
-  %conv247.us = uitofp i32 %56 to float
+  %56 = trunc nuw nsw i64 %indvars.iv.next327 to i32
+  %conv247.us = uitofp nneg i32 %56 to float
   %mul248.us = fmul float %step_y.0, %conv247.us
   br label %for.body191.us
 
@@ -853,8 +853,8 @@ for.body191.us:                                   ; preds = %for.cond188.prehead
   %uv.2292.us = phi ptr [ %uv.1301.us, %for.cond188.preheader.us ], [ %uv.3.us, %for.inc278.us ]
   %pv.1291.us = phi ptr [ %pv.0300.us, %for.cond188.preheader.us ], [ %incdec.ptr232.us, %for.inc278.us ]
   %f.1290.us = phi ptr [ %f.0299.us, %for.cond188.preheader.us ], [ %incdec.ptr280.us, %for.inc278.us ]
-  %57 = trunc i64 %indvars.iv317 to i32
-  %conv193.us = uitofp i32 %57 to float
+  %57 = trunc nuw nsw i64 %indvars.iv317 to i32
+  %conv193.us = uitofp nneg i32 %57 to float
   %58 = add nuw i64 %indvars.iv317, %54
   %arrayidx197.us = getelementptr inbounds i16, ptr %add.ptr.i.i226, i64 %58
   %59 = load i16, ptr %arrayidx197.us, align 2
@@ -918,7 +918,7 @@ if.then235.us:                                    ; preds = %for.body191.us
   store float 0.000000e+00, ptr %ref.tmp243.sroa.3.0.incdec.ptr242.sroa_idx.us, align 4
   %69 = trunc i64 %indvars.iv317 to i32
   %70 = add i32 %69, 1
-  %conv253.us = uitofp i32 %70 to float
+  %conv253.us = uitofp nneg i32 %70 to float
   %mul254.us = fmul float %step_x.0, %conv253.us
   %incdec.ptr259.us = getelementptr inbounds i8, ptr %uv.2292.us, i64 36
   store float %mul254.us, ptr %incdec.ptr250.us, align 4

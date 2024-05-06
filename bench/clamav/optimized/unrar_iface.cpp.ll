@@ -66,7 +66,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.55 = private unnamed_addr constant [42 x i8] c"unrar_retcode: Unexpected error code: %d\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libclamunrar_iface_LTX_unrar_open(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_open(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = insertelement <4 x ptr> poison, ptr %1, i64 0
   %7 = insertelement <4 x ptr> %6, ptr %0, i64 1
   %8 = insertelement <4 x ptr> %7, ptr %2, i64 2
@@ -138,7 +138,7 @@ define noundef i32 @libclamunrar_iface_LTX_unrar_open(ptr noundef %0, ptr nounde
 35:                                               ; preds = %32, %34
   %36 = getelementptr inbounds i8, ptr %16, i64 20
   %37 = load i32, ptr %36, align 1
-  %38 = tail call fastcc noundef i32 @_ZL13unrar_retcodei(i32 noundef %37), !range !4
+  %38 = tail call fastcc noundef i32 @_ZL13unrar_retcodei(i32 noundef %37)
   br label %.thread133
 
 39:                                               ; preds = %28
@@ -225,7 +225,7 @@ define noundef i32 @libclamunrar_iface_LTX_unrar_open(ptr noundef %0, ptr nounde
 65:                                               ; preds = %.lr.ph.i.i
   %66 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %66, %61
-  br i1 %exitcond.not.i.i, label %_ZL13unrar_strnlenPKcm.exit.i, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %_ZL13unrar_strnlenPKcm.exit.i, label %.lr.ph.i.i, !llvm.loop !4
 
 _ZL13unrar_strnlenPKcm.exit.i:                    ; preds = %65, %.lr.ph.i.i, %62
   %.0.lcssa.i.i = phi i64 [ 0, %62 ], [ %61, %65 ], [ %.05.i.i, %.lr.ph.i.i ]
@@ -235,7 +235,7 @@ _ZL13unrar_strnlenPKcm.exit.i:                    ; preds = %65, %.lr.ph.i.i, %6
   br i1 %.not13.i, label %70, label %_ZL13unrar_strndupPKcm.exit
 
 _ZL13unrar_strndupPKcm.exit:                      ; preds = %_ZL13unrar_strnlenPKcm.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr nonnull align 1 %60, i64 %.0.lcssa.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr nonnull readonly align 1 %60, i64 %.0.lcssa.i.i, i1 false)
   %69 = getelementptr inbounds i8, ptr %68, i64 %.0.lcssa.i.i
   store i8 0, ptr %69, align 1
   store ptr %68, ptr %2, align 8
@@ -415,7 +415,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare ptr @RAROpenArchiveEx(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL13unrar_retcodei(i32 noundef %0) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 6) i32 @_ZL13unrar_retcodei(i32 noundef %0) unnamed_addr #1 {
   %2 = load i8, ptr @unrar_debug, align 1
   %.not15 = icmp eq i8 %2, 0
   switch i32 %0, label %29 [
@@ -541,7 +541,7 @@ define internal fastcc noundef i32 @_ZL13unrar_retcodei(i32 noundef %0) unnamed_
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libclamunrar_iface_LTX_unrar_peek_file_header(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_peek_file_header(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.RARHeaderDataEx, align 1
   %4 = alloca [2048 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14340) %3, i8 0, i64 14340, i1 false)
@@ -573,7 +573,7 @@ define noundef i32 @libclamunrar_iface_LTX_unrar_peek_file_header(ptr noundef %0
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %10
-  %16 = call fastcc noundef i32 @_ZL13unrar_retcodei(i32 noundef %14), !range !4
+  %16 = call fastcc noundef i32 @_ZL13unrar_retcodei(i32 noundef %14)
   br label %.thread49.thread
 
 17:                                               ; preds = %10
@@ -683,7 +683,7 @@ declare i32 @RARReadHeaderEx(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libclamunrar_iface_LTX_unrar_extract_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_extract_file(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -724,7 +724,7 @@ define noundef i32 @libclamunrar_iface_LTX_unrar_extract_file(ptr noundef %0, pt
   br label %19
 
 17:                                               ; preds = %12
-  %18 = tail call fastcc noundef i32 @_ZL13unrar_retcodei(i32 noundef %13), !range !4
+  %18 = tail call fastcc noundef i32 @_ZL13unrar_retcodei(i32 noundef %13)
   br label %.thread
 
 19:                                               ; preds = %12, %16
@@ -744,7 +744,7 @@ define noundef i32 @libclamunrar_iface_LTX_unrar_extract_file(ptr noundef %0, pt
 declare void @RARSetCallback(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @CallbackProc(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 {
+define range(i32 -1, 2) i32 @CallbackProc(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 {
   switch i32 %0, label %29 [
     i32 3, label %5
     i32 1, label %8
@@ -829,7 +829,7 @@ define noundef i32 @CallbackProc(i32 noundef %0, i64 noundef %1, i64 noundef %2,
 declare i32 @RARProcessFile(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @libclamunrar_iface_LTX_unrar_skip_file(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_skip_file(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %6
 
@@ -848,7 +848,7 @@ define noundef i32 @libclamunrar_iface_LTX_unrar_skip_file(ptr noundef %0) local
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call fastcc noundef i32 @_ZL13unrar_retcodei(i32 noundef %7), !range !4
+  %9 = tail call fastcc noundef i32 @_ZL13unrar_retcodei(i32 noundef %7)
   br label %13
 
 10:                                               ; preds = %6
@@ -914,6 +914,5 @@ attributes #15 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 6}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

@@ -258,7 +258,7 @@ define dso_local ptr @acpi_ns_get_normalized_pathname(ptr noundef readonly %0, i
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @acpi_ns_get_pathname_length(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @acpi_ns_get_pathname_length(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 15

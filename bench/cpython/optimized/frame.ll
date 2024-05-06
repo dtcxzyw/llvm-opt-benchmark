@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @PyMethod_Type = external global %struct._typeobject, align 8
 @PyMethodDescr_Type = external global %struct._typeobject, align 8
 @PyUnstable_ExecutableKinds = dso_local local_unnamed_addr constant [6 x ptr] [ptr @_PyNone_Type, ptr @PyCode_Type, ptr null, ptr @PyMethod_Type, ptr @PyMethodDescr_Type, ptr null], align 16
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyFrame_Traverse(ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %visit, ptr noundef %arg) local_unnamed_addr #0 {

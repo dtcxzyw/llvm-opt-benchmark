@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [10 x i8] c"\09%s (%s)\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @decode_as_command_option(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.protocol_name_search, align 8
   %3 = alloca ptr, align 8
   %4 = tail call noalias ptr @g_strdup(ptr noundef %0) #7
@@ -195,7 +195,7 @@ define hidden noundef i32 @decode_as_command_option(ptr noundef %0) local_unname
   br label %146
 
 66:                                               ; preds = %60
-  %67 = trunc i64 %61 to i32
+  %67 = trunc nuw i64 %61 to i32
   %68 = load i8, ptr %62, align 1
   switch i8 %68, label %91 [
     i8 0, label %.thread170
@@ -223,7 +223,7 @@ define hidden noundef i32 @decode_as_command_option(ptr noundef %0) local_unname
   br label %146
 
 78:                                               ; preds = %75
-  %79 = trunc i64 %71 to i32
+  %79 = trunc nuw i64 %71 to i32
   %80 = icmp eq i8 %68, 58
   br i1 %80, label %81, label %88
 
@@ -425,7 +425,7 @@ define hidden noundef i32 @decode_as_command_option(ptr noundef %0) local_unname
 
 .lr.ph191:                                        ; preds = %.lr.ph191.preheader, %.lr.ph191
   %.1189 = phi i64 [ %142, %.lr.ph191 ], [ %140, %.lr.ph191.preheader ]
-  %141 = trunc i64 %.1189 to i32
+  %141 = trunc nuw i64 %.1189 to i32
   call void @dissector_change_uint(ptr noundef nonnull %.0126, i32 noundef %141, ptr noundef nonnull %119) #7
   %142 = add nuw nsw i64 %.1189, 1
   %exitcond.not = icmp eq i64 %.1189, %139

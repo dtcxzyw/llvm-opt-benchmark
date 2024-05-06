@@ -260,7 +260,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.end3
-  %trunc = trunc i32 %and to i8
+  %trunc = trunc nuw i32 %and to i8
   switch i8 %trunc, label %sw.default [
     i8 0, label %sw.bb
     i8 32, label %sw.bb8
@@ -411,7 +411,7 @@ lpad:                                             ; preds = %entry
 
 if.end:                                           ; preds = %invoke.cont
   %srcLength.lobit = lshr i32 %srcLength, 31
-  %conv = trunc i32 %srcLength.lobit to i8
+  %conv = trunc nuw nsw i32 %srcLength.lobit to i8
   store ptr %src, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %s, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %srcLength)
           to label %invoke.cont4 unwind label %lpad3
@@ -538,7 +538,7 @@ if.end:                                           ; preds = %invoke.cont.thread2
   %retval.0.i25 = phi ptr [ %titleIter, %invoke.cont.thread20 ], [ %call7.i, %invoke.cont ]
   %ownedIter.sroa.0.024 = phi ptr [ null, %invoke.cont.thread20 ], [ %call7.i, %invoke.cont ]
   %srcLength.lobit = lshr i32 %srcLength, 31
-  %conv = trunc i32 %srcLength.lobit to i8
+  %conv = trunc nuw nsw i32 %srcLength.lobit to i8
   store ptr %src, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %s, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %srcLength)
           to label %invoke.cont4 unwind label %lpad3
@@ -667,7 +667,7 @@ _ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit18: ; preds = %invoke.cont
 
 if.end10:                                         ; preds = %_ZN6icu_7512LocalPointerINS_13BreakIteratorEED2Ev.exit18, %if.end
   %srcLength.lobit = lshr i32 %srcLength, 31
-  %conv = trunc i32 %srcLength.lobit to i8
+  %conv = trunc nuw nsw i32 %srcLength.lobit to i8
   store ptr %src, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %s, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %srcLength)
           to label %invoke.cont13 unwind label %lpad12

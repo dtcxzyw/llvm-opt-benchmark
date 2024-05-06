@@ -45696,11 +45696,11 @@ _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i
 
 69:                                               ; preds = %66
   %70 = zext nneg i32 %57 to i64
-  %71 = getelementptr i8, ptr %.012, i64 %70
-  %72 = getelementptr i8, ptr %71, i64 1
+  %71 = getelementptr inbounds i8, ptr %.012, i64 %70
+  %72 = getelementptr inbounds i8, ptr %71, i64 1
   %73 = sext i32 %55 to i64
   %74 = sub nsw i64 %73, %70
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %72, ptr nonnull align 1 %71, i64 %74, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull align 1 %71, i64 %74, i1 false)
   store i8 46, ptr %71, align 1
   %75 = getelementptr i8, ptr %.012, i64 %73
   %76 = getelementptr i8, ptr %75, i64 1

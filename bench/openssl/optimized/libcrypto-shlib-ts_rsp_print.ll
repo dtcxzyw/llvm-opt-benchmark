@@ -62,7 +62,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call4 = tail call i32 @TS_TST_INFO_print_bio(ptr noundef %bio, ptr noundef nonnull %1), !range !4
+  %call4 = tail call i32 @TS_TST_INFO_print_bio(ptr noundef %bio, ptr noundef nonnull %1)
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -120,7 +120,7 @@ if.end13:                                         ; preds = %if.then11, %for.bod
   %4 = load ptr, ptr %text, align 8
   %call8 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #2
   %cmp9 = icmp slt i32 %inc, %call8
-  br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !5
+  br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %if.end13
   br i1 %cmp923, label %if.then20, label %if.end22
@@ -164,7 +164,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %a.addr.01.i, i64 16
   %8 = load i32, ptr %incdec.ptr.i, align 8
   %cmp.i = icmp sgt i32 %8, -1
-  br i1 %cmp.i, label %for.body.i, label %ts_status_map_print.exit, !llvm.loop !7
+  br i1 %cmp.i, label %for.body.i, label %ts_status_map_print.exit, !llvm.loop !6
 
 ts_status_map_print.exit:                         ; preds = %for.inc.i
   %9 = icmp eq i32 %lines.1.i, 0
@@ -180,7 +180,7 @@ if.end32:                                         ; preds = %if.then30, %ts_stat
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @TS_TST_INFO_print_bio(ptr noundef %bio, ptr noundef readonly %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_TST_INFO_print_bio(ptr noundef %bio, ptr noundef readonly %a) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.end
@@ -369,7 +369,6 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

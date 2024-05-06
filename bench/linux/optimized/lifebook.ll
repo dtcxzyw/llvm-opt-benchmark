@@ -32,7 +32,7 @@ define dso_local void @lifebook_module_init() local_unnamed_addr #0 section ".in
 declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local i32 @lifebook_detect(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -6, 1) i32 @lifebook_detect(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 16 {
   %3 = load i8, ptr @lifebook_present, align 1, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %20, label %5
@@ -209,7 +209,7 @@ declare dso_local void @input_set_capability(ptr noundef, i32 noundef, i32 nound
 declare dso_local void @input_set_abs_params(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @lifebook_process_byte(ptr noundef %0) #4 align 16 {
+define internal range(i32 0, 3) i32 @lifebook_process_byte(ptr noundef %0) #4 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8

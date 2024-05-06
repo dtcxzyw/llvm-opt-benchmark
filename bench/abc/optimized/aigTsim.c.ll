@@ -55,7 +55,7 @@ define noalias noundef ptr @Aig_TsiStart(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %.lr.ph.i
   %21 = add nuw nsw i32 %.01116.i, 2
-  %22 = mul nsw i32 %21, %21
+  %22 = mul nuw nsw i32 %21, %21
   %.not.i = icmp ugt i32 %22, %18
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -151,7 +151,7 @@ define i32 @Aig_TsiStateHash(ptr nocapture noundef readonly %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Aig_TsiStateLookup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Aig_TsiStateLookup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %2, 0
@@ -601,7 +601,7 @@ define noalias noundef ptr @Aig_ManTernarySimulate(ptr noundef %0, i32 noundef %
   %60 = getelementptr i8, ptr %59, i64 24
   %.val204 = load i64, ptr %60, align 8
   %61 = lshr i64 %.val204, 56
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw nsw i64 %61 to i32
   %63 = and i32 %62, 1
   %.not176 = icmp eq i32 %63, 0
   br i1 %.not176, label %73, label %64
@@ -687,7 +687,7 @@ Aig_TsiStateHash.exit.i:                          ; preds = %.lr.ph.i.i, %89
 
 .lr.ph.i:                                         ; preds = %Aig_TsiStateHash.exit.i, %106
   %.01115.i = phi ptr [ %.011.i, %106 ], [ %.01113.i, %Aig_TsiStateHash.exit.i ]
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.01115.i, ptr %51, i64 %105)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.01115.i, ptr readonly %51, i64 %105)
   %.not12.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not12.i, label %Aig_TsiStateLookup.exit, label %106
 
@@ -761,7 +761,7 @@ Aig_TsiStateInsert.exit:                          ; preds = %.lr.ph.i.i221, %.lo
   %138 = getelementptr i8, ptr %137, i64 24
   %.val.i226 = load i64, ptr %138, align 8
   %139 = lshr i64 %.val.i226, 56
-  %140 = trunc i64 %139 to i32
+  %140 = trunc nuw nsw i64 %139 to i32
   %141 = and i64 %135, 1
   %.not.i227 = icmp eq i64 %141, 0
   %switch.selectcmp.i.i = icmp eq i32 %140, 2
@@ -777,7 +777,7 @@ Aig_TsiStateInsert.exit:                          ; preds = %.lr.ph.i.i221, %.lo
   %147 = getelementptr i8, ptr %146, i64 24
   %.val.i228 = load i64, ptr %147, align 8
   %148 = lshr i64 %.val.i228, 56
-  %149 = trunc i64 %148 to i32
+  %149 = trunc nuw nsw i64 %148 to i32
   %150 = and i64 %144, 1
   %.not.i229 = icmp eq i64 %150, 0
   %switch.selectcmp.i.i230 = icmp eq i32 %149, 2
@@ -850,7 +850,7 @@ Aig_TsiStateInsert.exit:                          ; preds = %.lr.ph.i.i221, %.lo
   %180 = getelementptr i8, ptr %179, i64 24
   %.val.i235 = load i64, ptr %180, align 8
   %181 = lshr i64 %.val.i235, 56
-  %182 = trunc i64 %181 to i32
+  %182 = trunc nuw nsw i64 %181 to i32
   %183 = and i64 %177, 1
   %.not.i236 = icmp eq i64 %183, 0
   %switch.selectcmp.i.i237 = icmp eq i32 %182, 2

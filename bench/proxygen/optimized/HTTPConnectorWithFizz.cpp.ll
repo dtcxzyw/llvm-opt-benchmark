@@ -12758,7 +12758,7 @@ for.body:                                         ; preds = %entry, %_ZSt8_Destr
   %2 = load ptr, ptr %__node.069, align 8
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %_ZSt8_DestroyIN4fizz6detail12PendingEventEEvPT_.exit.i.i.i, %for.body
+for.body.i.i.i:                                   ; preds = %for.body, %_ZSt8_DestroyIN4fizz6detail12PendingEventEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i.idx = phi i64 [ %__first.addr.04.i.i.i.add, %_ZSt8_DestroyIN4fizz6detail12PendingEventEEvPT_.exit.i.i.i ], [ 0, %for.body ]
   %__first.addr.04.i.i.i.ptr = getelementptr inbounds i8, ptr %2, i64 %__first.addr.04.i.i.i.idx
   %type_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.ptr, i64 32
@@ -15755,9 +15755,9 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %and.i.i = and i64 %0, 4611686018427387903
   %u.i.i.ptr = getelementptr inbounds i8, ptr %o, i64 16
-  %add.ptr.i.idx = mul nsw i64 %and.i.i, 208
-  %5 = getelementptr i8, ptr %o, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %5, i64 16
+  %add.ptr.i.idx = mul nuw nsw i64 %and.i.i, 208
+  %5 = getelementptr inbounds i8, ptr %o, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %5, i64 16
   %cmp.i.i.not8.i.i.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp.i.i.not8.i.i.i, label %_ZSt18uninitialized_copyISt13move_iteratorIPN4fizz6client6ActionEES4_ET0_T_S7_S6_.exit, label %for.body.i.i.i
 
@@ -17538,7 +17538,7 @@ for.body:                                         ; preds = %entry, %_ZSt8_Destr
   %invariant.gep = getelementptr inbounds i8, ptr %2, i64 8
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %_ZSt8_DestroyIN4fizz8AppWriteEEvPT_.exit.i.i.i, %for.body
+for.body.i.i.i:                                   ; preds = %for.body, %_ZSt8_DestroyIN4fizz8AppWriteEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i.idx = phi i64 [ %__first.addr.04.i.i.i.add, %_ZSt8_DestroyIN4fizz8AppWriteEEvPT_.exit.i.i.i ], [ 0, %for.body ]
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %__first.addr.04.i.i.i.idx
   %3 = load ptr, ptr %gep, align 8

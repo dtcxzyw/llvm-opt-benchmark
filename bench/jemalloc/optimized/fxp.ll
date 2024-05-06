@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [4 x i8] c"%lu\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @fxp_parse(ptr nocapture noundef writeonly %result, ptr noundef %str, ptr noundef writeonly %end) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @fxp_parse(ptr nocapture noundef writeonly %result, ptr noundef %str, ptr noundef writeonly %end) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %str, align 1
   %cmp.not = icmp eq i8 %0, 46
@@ -89,7 +89,7 @@ while.cond38:                                     ; preds = %for.body, %while.co
 do.end:                                           ; preds = %while.cond38
   %shl43 = shl i64 %fractional_part.1, 16
   %div = udiv i64 %shl43, 100000000000000
-  %conv44 = trunc i64 %div to i32
+  %conv44 = trunc nuw nsw i64 %div to i32
   %add46 = add i32 %integer_part.0.lcssa, %conv44
   store i32 %add46, ptr %result, align 4
   %cmp47.not = icmp eq ptr %end, null

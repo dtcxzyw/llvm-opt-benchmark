@@ -417,7 +417,7 @@ declare void @closelog() local_unnamed_addr #7
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @logg(i32 noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @logg(i32 noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.tm, align 8
   %5 = alloca %struct.stat, align 8

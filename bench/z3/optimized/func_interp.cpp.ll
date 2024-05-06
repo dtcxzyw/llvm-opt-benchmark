@@ -652,10 +652,10 @@ entry:
   store i32 %1, ptr %m_arity.i, align 8
   %m_entries.i = getelementptr inbounds i8, ptr %call, i64 16
   %m_args_are_values.i = getelementptr inbounds i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_entries.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_entries.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %m_args_are_values.i, align 8
   %m_interp.i = getelementptr inbounds i8, ptr %call, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interp.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_interp.i, i8 0, i64 16, i1 false)
   %m_entries = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %m_entries, align 8
   %cmp.i.i = icmp eq ptr %2, null
@@ -2697,7 +2697,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %for.body17
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw i64 %indvars.iv to i32
   %call25 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %10, i32 noundef %12, ptr noundef %call23)
           to label %invoke.cont24 unwind label %lpad
 
@@ -3049,8 +3049,8 @@ invoke.cont3:                                     ; preds = %entry
   %2 = load i32, ptr %m_arity.i.i, align 8
   %idx.ext.i = zext i32 %2 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 3
-  %3 = getelementptr i8, ptr %f, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %3, i64 48
+  %3 = getelementptr inbounds i8, ptr %f, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %3, i64 48
   %cmp7.not372 = icmp eq i32 %2, 0
   br i1 %cmp7.not372, label %for.end, label %for.body.preheader
 
@@ -3400,7 +3400,7 @@ invoke.cont89:                                    ; preds = %if.end.i.i.i, %invo
   %retval.0.i.i.i = phi i64 [ %59, %if.end.i.i.i ], [ 4294967295, %invoke.cont82 ]
   %arrayidx.i1.i.i = getelementptr inbounds ptr, ptr %56, i64 %retval.0.i.i.i
   %60 = load ptr, ptr %arrayidx.i1.i.i, align 8
-  %61 = trunc i64 %indvars.iv387 to i32
+  %61 = trunc nuw i64 %indvars.iv387 to i32
   %62 = xor i32 %61, -1
   %sub88 = add i32 %55, %62
   %call92 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %54, i32 noundef %sub88, ptr noundef %60)
@@ -4596,10 +4596,10 @@ entry:
   store i32 %1, ptr %m_arity.i, align 8
   %m_entries.i = getelementptr inbounds i8, ptr %call, i64 16
   %m_args_are_values.i = getelementptr inbounds i8, ptr %call, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_entries.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_entries.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %m_args_are_values.i, align 8
   %m_interp.i = getelementptr inbounds i8, ptr %call, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_interp.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %m_interp.i, i8 0, i64 16, i1 false)
   %m_entries = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %m_entries, align 8
   %cmp.i.i = icmp eq ptr %2, null

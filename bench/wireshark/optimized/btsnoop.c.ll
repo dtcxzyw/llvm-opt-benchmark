@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [28 x i8] c"btsnoop: Unknown channel %u\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @btsnoop_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @btsnoop_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [8 x i8], align 1
   %5 = alloca %struct.btsnoop_hdr, align 4
   %6 = load ptr, ptr %0, align 8
@@ -223,7 +223,7 @@ define internal fastcc i32 @btsnoop_read_record(ptr nocapture noundef readonly %
   %31 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %30, ptr %31, align 8
   %32 = srem i64 %25, 1000000
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nsw i64 %32 to i32
   %34 = mul nsw i32 %33, 1000
   %35 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 %34, ptr %35, align 8
@@ -279,7 +279,7 @@ define internal fastcc i32 @btsnoop_read_record(ptr nocapture noundef readonly %
   %58 = getelementptr inbounds i8, ptr %2, i64 82
   store i16 %56, ptr %58, align 2
   %59 = lshr i32 %15, 16
-  %60 = trunc i32 %59 to i16
+  %60 = trunc nuw i32 %59 to i16
   store i16 %60, ptr %57, align 8
   br label %61
 
@@ -301,7 +301,7 @@ declare i32 @wtap_read_packet_bytes(ptr noundef, ptr noundef, i32 noundef, ptr n
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @btsnoop_dump_can_write_encap(i32 noundef %0) #2 {
+define internal range(i32 -9, 1) i32 @btsnoop_dump_can_write_encap(i32 noundef %0) #2 {
   switch i32 %0, label %.fold.split [
     i32 -1, label %3
     i32 159, label %2
@@ -321,7 +321,7 @@ define internal noundef i32 @btsnoop_dump_can_write_encap(i32 noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @btsnoop_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 0, 2) i32 @btsnoop_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = alloca %struct.btsnoop_hdr, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @btsnoop_dump, ptr %5, align 8
@@ -368,7 +368,7 @@ define internal i32 @btsnoop_dump_open(ptr noundef %0, ptr noundef %1, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @btsnoop_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 0, 2) i32 @btsnoop_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = alloca %struct.btsnooprec_hdr, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 64
   %8 = getelementptr inbounds i8, ptr %1, i64 80

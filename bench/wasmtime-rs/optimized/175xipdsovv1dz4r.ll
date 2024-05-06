@@ -143,7 +143,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h7e2b742c493dc953E
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull readonly align 8 dereferenceable(72) %0, i64 72, i1 false)
   call void @_ZN4core4iter6traits8iterator8Iterator3map17hf58eb36c0ba20e84E(ptr nonnull sret({ { { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }, {} }) align 8 %5, ptr nonnull align 8 %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
   call void @_ZN4core4iter6traits8iterator8Iterator4fold17h4aa676d3bd19c4c2E(ptr nonnull align 8 %3, ptr nonnull align 8 %1)
@@ -187,7 +187,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17ha48ea33f393399dbE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i8 @"_ZN4core4iter8adapters6cloned14clone_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h62ea7ab3c8aa0f1dE"(ptr align 8 %0, ptr align 1 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define range(i8 0, 5) i8 @"_ZN4core4iter8adapters6cloned14clone_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h62ea7ab3c8aa0f1dE"(ptr align 8 %0, ptr align 1 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = tail call i8 @"_ZN71_$LT$cranelift_codegen_meta..isa..Isa$u20$as$u20$core..clone..Clone$GT$5clone17h5421f5bb8db66f46E"(ptr align 1 %1), !range !3
   %4 = tail call i8 @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hf2ebb3c76b6b5d81E"(ptr align 8 %0, i8 %3), !range !4
   ret i8 %4

@@ -33,7 +33,7 @@ entry:
   %fUDataMem.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %fUDataMem.i, align 8
   %fRefCount.i = getelementptr inbounds i8, ptr %this, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   store atomic i32 0, ptr %fRefCount.i seq_cst, align 8
   %fDontFreeData.i = getelementptr inbounds i8, ptr %this, i64 136
   store i8 1, ptr %fDontFreeData.i, align 8
@@ -196,7 +196,7 @@ entry:
   %fUDataMem.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %fUDataMem.i, align 8
   %fRefCount.i = getelementptr inbounds i8, ptr %this, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   store atomic i32 0, ptr %fRefCount.i seq_cst, align 8
   %fDontFreeData.i = getelementptr inbounds i8, ptr %this, i64 136
   store i8 1, ptr %fDontFreeData.i, align 8
@@ -226,7 +226,7 @@ entry:
   %fUDataMem.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %fUDataMem.i, align 8
   %fRefCount.i = getelementptr inbounds i8, ptr %this, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   store atomic i32 0, ptr %fRefCount.i seq_cst, align 8
   %fDontFreeData.i = getelementptr inbounds i8, ptr %this, i64 136
   store i8 1, ptr %fDontFreeData.i, align 8
@@ -308,7 +308,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZN6icu_7515RBBIDataWrapper23isDataVersionAcceptableEPKh(ptr nocapture noundef readonly %version) local_unnamed_addr #3 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7515RBBIDataWrapper23isDataVersionAcceptableEPKh(ptr nocapture noundef readonly %version) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i8, ptr %version, align 1
   %cmp = icmp eq i8 %0, 6

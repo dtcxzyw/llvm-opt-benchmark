@@ -97,13 +97,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.82 = private unnamed_addr constant [27 x i8] c"Legacy provider is missing\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.test_options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @NCONF_new(ptr noundef null) #7
   store ptr %call, ptr @conf, align 8
@@ -229,7 +229,7 @@ declare void @test_note(ptr noundef, ...) local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_load_config() #1 {
+define internal range(i32 0, 2) i32 @test_load_config() #1 {
 entry:
   %errline = alloca i64, align 8
   %val = alloca i64, align 8
@@ -396,7 +396,7 @@ return:                                           ; preds = %if.end41, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_check_null_numbers() #1 {
+define internal range(i32 0, 2) i32 @test_check_null_numbers() #1 {
 entry:
   %val = alloca i64, align 8
   store i64 0, ptr %val, align 8
@@ -444,7 +444,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_check_overflow() #1 {
+define internal range(i32 0, 2) i32 @test_check_overflow() #1 {
 entry:
   %val = alloca i64, align 8
   %max = alloca [24 x i8], align 16
@@ -500,7 +500,7 @@ return:                                           ; preds = %while.end, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_available_providers() #1 {
+define internal range(i32 0, 2) i32 @test_available_providers() #1 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #7
   store ptr %call, ptr @libctx, align 8

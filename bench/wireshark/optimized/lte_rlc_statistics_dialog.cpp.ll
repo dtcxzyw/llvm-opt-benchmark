@@ -2372,7 +2372,7 @@ define void @_ZN22LteRlcStatisticsDialog8tapResetEPv(ptr noundef %0) #2 align 2 
 declare void @_ZN11QTreeWidget5clearEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN22LteRlcStatisticsDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN22LteRlcStatisticsDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QVariant, align 8
   %7 = alloca %class.QVariant, align 8
   %8 = icmp ne ptr %0, null
@@ -3116,7 +3116,7 @@ define linkonce_odr void @_ZN19RlcUeTreeWidgetItem4drawEv(ptr noundef nonnull al
   %32 = getelementptr inbounds i8, ptr %0, i64 128
   %33 = getelementptr inbounds i8, ptr %0, i64 108
   %34 = load i32, ptr %33, align 4
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %31, ptr noundef nonnull dereferenceable(16) %32, i64 16)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %31, ptr noundef nonnull readonly dereferenceable(16) %32, i64 16)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %_ZL12calculate_bwPK8nstime_tS1_j.exit, label %35
 
@@ -3151,7 +3151,7 @@ _ZL12calculate_bwPK8nstime_tS1_j.exit:            ; preds = %1, %35, %51
   %57 = getelementptr inbounds i8, ptr %0, i64 184
   %58 = getelementptr inbounds i8, ptr %0, i64 160
   %59 = load i32, ptr %58, align 8
-  %bcmp.i21 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %56, ptr noundef nonnull dereferenceable(16) %57, i64 16)
+  %bcmp.i21 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %56, ptr noundef nonnull readonly dereferenceable(16) %57, i64 16)
   %.not.i22 = icmp eq i32 %bcmp.i21, 0
   br i1 %.not.i22, label %_ZL12calculate_bwPK8nstime_tS1_j.exit24, label %60
 
@@ -6982,7 +6982,7 @@ _ZN5QListI8QVariantElsEOS0_.exit44:               ; preds = %55
   %57 = getelementptr inbounds i8, ptr %1, i64 112
   %58 = getelementptr inbounds i8, ptr %1, i64 128
   %59 = load i32, ptr %53, align 4
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %57, ptr noundef nonnull dereferenceable(16) %58, i64 16)
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %57, ptr noundef nonnull readonly dereferenceable(16) %58, i64 16)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %_ZL12calculate_bwPK8nstime_tS1_j.exit, label %60
 
@@ -7086,7 +7086,7 @@ _ZN5QListI8QVariantElsEOS0_.exit50:               ; preds = %101
   %103 = getelementptr inbounds i8, ptr %1, i64 168
   %104 = getelementptr inbounds i8, ptr %1, i64 184
   %105 = load i32, ptr %99, align 8
-  %bcmp.i51 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %103, ptr noundef nonnull dereferenceable(16) %104, i64 16)
+  %bcmp.i51 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %103, ptr noundef nonnull readonly dereferenceable(16) %104, i64 16)
   %.not.i52 = icmp eq i32 %bcmp.i51, 0
   br i1 %.not.i52, label %_ZL12calculate_bwPK8nstime_tS1_j.exit54, label %106
 
@@ -8347,7 +8347,7 @@ define linkonce_odr void @_ZN24RlcChannelTreeWidgetItem4drawEv(ptr noundef nonnu
   %29 = getelementptr inbounds i8, ptr %0, i64 152
   %30 = getelementptr inbounds i8, ptr %0, i64 132
   %31 = load i32, ptr %30, align 4
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %28, ptr noundef nonnull dereferenceable(16) %29, i64 16)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %28, ptr noundef nonnull readonly dereferenceable(16) %29, i64 16)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %_ZL12calculate_bwPK8nstime_tS1_j.exit, label %32
 
@@ -8382,7 +8382,7 @@ _ZL12calculate_bwPK8nstime_tS1_j.exit:            ; preds = %1, %32, %48
   %54 = getelementptr inbounds i8, ptr %0, i64 200
   %55 = getelementptr inbounds i8, ptr %0, i64 176
   %56 = load i32, ptr %55, align 8
-  %bcmp.i6 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %53, ptr noundef nonnull dereferenceable(16) %54, i64 16)
+  %bcmp.i6 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %53, ptr noundef nonnull readonly dereferenceable(16) %54, i64 16)
   %.not.i7 = icmp eq i32 %bcmp.i6, 0
   br i1 %.not.i7, label %_ZL12calculate_bwPK8nstime_tS1_j.exit9, label %57
 

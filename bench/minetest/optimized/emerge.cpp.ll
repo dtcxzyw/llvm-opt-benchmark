@@ -5069,7 +5069,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit23:          ; preds = %_ZNSt5queueIN3irr4c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN12EmergeThread18getBlockOrStartGenERKN3irr4core8vector3dIsEEbPP8MapBlockP13BlockMakeData(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %pos, i1 noundef zeroext %allow_gen, ptr nocapture noundef writeonly %block, ptr noundef %bmdata) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 5) i32 @_ZN12EmergeThread18getBlockOrStartGenERKN3irr4core8vector3dIsEEbPP8MapBlockP13BlockMakeData(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %pos, i1 noundef zeroext %allow_gen, ptr nocapture noundef writeonly %block, ptr noundef %bmdata) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_server = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_server, align 8, !tbaa !207

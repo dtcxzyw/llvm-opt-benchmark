@@ -95,7 +95,7 @@ run_command_on_repo.exit.loopexit.us:             ; preds = %for.body.i.us
   call void @free(ptr noundef %call.i.us) #7
   %call3.i.us = call i32 @run_command(ptr noundef nonnull %child.i) #7
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %child.i)
-  %indvars.iv.next12 = add nuw i64 %indvars.iv11, 1
+  %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %tobool10.not.us = icmp eq i32 %call3.i.us, 0
   br i1 %tobool10.not.us, label %land.rhs.us, label %return, !llvm.loop !7
 
@@ -119,7 +119,7 @@ for.body:                                         ; preds = %land.rhs
   call void @free(ptr noundef %call.i) #7
   %call3.i = call i32 @run_command(ptr noundef nonnull %child.i) #7
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %child.i)
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %tobool10.not = icmp eq i32 %call3.i, 0
   br i1 %tobool10.not, label %land.rhs, label %return, !llvm.loop !7
 

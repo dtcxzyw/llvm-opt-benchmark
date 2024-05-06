@@ -1530,7 +1530,7 @@ cleanup24:                                        ; preds = %if.end21, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK8Profiler11getAvgCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(192) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, -2147483648) i32 @_ZNK8Profiler11getAvgCountERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(192) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8, !tbaa !4

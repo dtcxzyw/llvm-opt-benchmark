@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind allocsize(2) uwtable
 define noalias ptr @mm_memalign(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ult i64 %1, 9223372036854775807
-  %5 = tail call i64 @llvm.ctpop.i64(i64 %1), !range !6
+  %5 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %1)
   %.not = icmp ult i64 %5, 2
   %or.cond98 = select i1 %4, i1 %.not, i1 false
   br i1 %or.cond98, label %6, label %84
@@ -182,4 +182,3 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i64 0, i64 64}

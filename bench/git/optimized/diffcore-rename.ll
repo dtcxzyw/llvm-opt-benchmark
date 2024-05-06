@@ -258,11 +258,11 @@ land.lhs.true34:                                  ; preds = %if.else32
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true34
-  %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %8, ptr noundef nonnull dereferenceable(32) %15, i64 32)
+  %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %8, ptr noundef nonnull readonly dereferenceable(32) %15, i64 32)
   br label %is_empty_blob_oid.exit
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true34
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %8, ptr noundef nonnull dereferenceable(20) %15, i64 20)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %8, ptr noundef nonnull readonly dereferenceable(20) %15, i64 20)
   br label %is_empty_blob_oid.exit
 
 is_empty_blob_oid.exit:                           ; preds = %if.then.i.i.i, %if.end.i.i.i
@@ -341,11 +341,11 @@ land.lhs.true54:                                  ; preds = %if.else50
   br i1 %cmp.i.i.i160, label %if.then.i.i.i166, label %if.end.i.i.i161
 
 if.then.i.i.i166:                                 ; preds = %land.lhs.true54
-  %bcmp3.i.i.i167 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %6, ptr noundef nonnull dereferenceable(32) %27, i64 32)
+  %bcmp3.i.i.i167 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %6, ptr noundef nonnull readonly dereferenceable(32) %27, i64 32)
   br label %is_empty_blob_oid.exit168
 
 if.end.i.i.i161:                                  ; preds = %land.lhs.true54
-  %bcmp.i.i.i162 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %6, ptr noundef nonnull dereferenceable(20) %27, i64 20)
+  %bcmp.i.i.i162 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %6, ptr noundef nonnull readonly dereferenceable(20) %27, i64 20)
   br label %is_empty_blob_oid.exit168
 
 is_empty_blob_oid.exit168:                        ; preds = %if.then.i.i.i166, %if.end.i.i.i161
@@ -571,11 +571,11 @@ if.end.i24.i.i:                                   ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i24.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %62, ptr noundef nonnull dereferenceable(32) %56, i64 32)
+  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %62, ptr noundef nonnull readonly dereferenceable(32) %56, i64 32)
   br label %oideq.exit.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i24.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %62, ptr noundef nonnull dereferenceable(20) %56, i64 20)
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %62, ptr noundef nonnull readonly dereferenceable(20) %56, i64 20)
   br label %oideq.exit.i.i
 
 oideq.exit.i.i:                                   ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
@@ -612,8 +612,8 @@ if.end29.i.i:                                     ; preds = %land.lhs.true.i.i, 
   %72 = getelementptr i8, ptr %62, i64 40
   %.val.i.i = load ptr, ptr %72, align 8
   %.val21.i.i = load ptr, ptr %61, align 8
-  %call.i27.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.i.i) #16
-  %call2.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val21.i.i) #16
+  %call.i27.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val.i.i) #16
+  %call2.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val21.i.i) #16
   %sext.i.i.i = shl i64 %call2.i.i.i, 32
   %73 = ashr exact i64 %sext.i.i.i, 32
   %sext14.i.i.i = shl i64 %call.i27.i.i, 32
@@ -1104,7 +1104,7 @@ for.body.i210:                                    ; preds = %initialize_dir_rena
   %149 = load ptr, ptr %148, align 8
   %path.i213 = getelementptr inbounds i8, ptr %149, i64 40
   %150 = load ptr, ptr %path.i213, align 8
-  %call.i.i214 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %150, i32 noundef 47) #16
+  %call.i.i214 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %150, i32 noundef 47) #16
   %tobool.not.i.i215 = icmp eq ptr %call.i.i214, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i214, i64 1
   %cond.i.i216 = select i1 %tobool.not.i.i215, ptr %150, ptr %add.ptr.i.i
@@ -1143,7 +1143,7 @@ if.end21.i:                                       ; preds = %for.body10.i
   %157 = load ptr, ptr %two.i206, align 8
   %path15.i = getelementptr inbounds i8, ptr %157, i64 40
   %158 = load ptr, ptr %path15.i, align 8
-  %call.i44.i207 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %158, i32 noundef 47) #16
+  %call.i44.i207 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %158, i32 noundef 47) #16
   %tobool.not.i45.i = icmp eq ptr %call.i44.i207, null
   %add.ptr.i46.i = getelementptr inbounds i8, ptr %call.i44.i207, i64 1
   %cond.i47.i = select i1 %tobool.not.i45.i, ptr %158, ptr %add.ptr.i46.i
@@ -1211,7 +1211,7 @@ land.lhs.true51.i:                                ; preds = %for.body42.i
   br i1 %tobool53.not.i, label %for.inc102.i, label %if.end55.i
 
 if.end55.i:                                       ; preds = %land.lhs.true51.i, %for.body42.i
-  %call.i52.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %168, i32 noundef 47) #16
+  %call.i52.i = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %168, i32 noundef 47) #16
   %tobool.not.i53.i = icmp eq ptr %call.i52.i, null
   %add.ptr.i54.i = getelementptr inbounds i8, ptr %call.i52.i, i64 1
   %cond.i55.i = select i1 %tobool.not.i53.i, ptr %168, ptr %add.ptr.i54.i
@@ -1991,8 +1991,8 @@ if.end203:                                        ; preds = %land.lhs.true196, %
   %282 = getelementptr i8, ptr %280, i64 40
   %.val = load ptr, ptr %282, align 8
   %.val151 = load ptr, ptr %276, align 8
-  %call.i286 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #16
-  %call2.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val151) #16
+  %call.i286 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val) #16
+  %call2.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val151) #16
   %sext.i = shl i64 %call2.i, 32
   %283 = ashr exact i64 %sext.i, 32
   %sext14.i = shl i64 %call.i286, 32
@@ -3483,7 +3483,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %tobool5.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %for.body
-  %call.i20 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 47) #16
+  %call.i20 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %8, i32 noundef 47) #16
   %tobool.not.i = icmp eq ptr %call.i20, null
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i20, i64 1
   %cond.i = select i1 %tobool.not.i, ptr %8, ptr %add.ptr.i
@@ -3653,7 +3653,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %6 = load i64, ptr %len.i, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %5, i64 %6
   store i8 0, ptr %arrayidx3.i, align 1
-  %call.i8 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %filename, i32 noundef 47) #16
+  %call.i8 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %filename, i32 noundef 47) #16
   %tobool.not.i9 = icmp eq ptr %call.i8, null
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i8, i64 1
   %cond.i10 = select i1 %tobool.not.i9, ptr %filename, ptr %add.ptr.i

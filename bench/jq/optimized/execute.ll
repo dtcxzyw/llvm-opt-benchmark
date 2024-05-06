@@ -295,7 +295,7 @@ stack_push_block.exit:                            ; preds = %3, %13
 52:                                               ; preds = %stack_push_block.exit, %45
   %53 = phi i32 [ %51, %45 ], [ 0, %stack_push_block.exit ]
   %.sroa.223.0.extract.shift = lshr i64 %2, 32
-  %.sroa.223.0.extract.trunc = trunc i64 %.sroa.223.0.extract.shift to i32
+  %.sroa.223.0.extract.trunc = trunc nuw i64 %.sroa.223.0.extract.shift to i32
   %.sroa.022.0.extract.trunc = trunc i64 %2 to i32
   %54 = getelementptr inbounds i8, ptr %33, i64 8
   store i32 %53, ptr %54, align 8
@@ -6657,7 +6657,7 @@ declare void @bytecode_free(ptr noundef) local_unnamed_addr #2
 declare void @jv_mem_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @jq_compile_args(ptr noundef %0, ptr noundef %1, i64 %2, ptr %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @jq_compile_args(ptr noundef %0, ptr noundef %1, i64 %2, ptr %3) local_unnamed_addr #0 {
   %5 = alloca %struct.block, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6909,11 +6909,11 @@ optimize_code.exit:                               ; preds = %36, %._crit_edge
 declare void @locfile_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @jq_compile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @jq_compile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call { i64, ptr } @jv_object() #12
   %4 = extractvalue { i64, ptr } %3, 0
   %5 = extractvalue { i64, ptr } %3, 1
-  %6 = tail call i32 @jq_compile_args(ptr noundef %0, ptr noundef %1, i64 %4, ptr %5), !range !18
+  %6 = tail call i32 @jq_compile_args(ptr noundef %0, ptr noundef %1, i64 %4, ptr %5)
   ret i32 %6
 }
 
@@ -7188,4 +7188,3 @@ attributes #14 = { nounwind willreturn memory(read) }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = !{i32 0, i32 2}

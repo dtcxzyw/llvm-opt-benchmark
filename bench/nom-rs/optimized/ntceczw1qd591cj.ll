@@ -158,7 +158,7 @@ define void @"_ZN140_$LT$nom..error..VerboseError$LT$alloc..string..String$GT$$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN3nom5error12error_to_u3217he09258b1f3daa5cbE(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #1 {
+define noundef range(i32 1, 79) i32 @_ZN3nom5error12error_to_u3217he09258b1f3daa5cbE(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #1 {
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !6, !noundef !4
   %2 = zext nneg i8 %1 to i64

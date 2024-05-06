@@ -26,7 +26,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define hidden void @_ZN9s_integerC2EPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, ptr nocapture noundef readonly %str) unnamed_addr #3 align 2 {
 entry:
-  %call = tail call i64 @strtol(ptr nocapture noundef %str, ptr noundef null, i32 noundef 10) #9
+  %call = tail call i64 @strtol(ptr nocapture noundef %str, ptr noundef null, i32 noundef 10) #8
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %this, align 4
   ret void
@@ -63,8 +63,8 @@ while.end:                                        ; preds = %while.body, %entry
   ret i32 %retval.sroa.0.0.lcssa
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_Z3gcdRK9s_integerS1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r2) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define hidden i32 @_Z3gcdRK9s_integerS1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r2) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %r1, align 4
   %1 = load i32, ptr %r2, align 4
@@ -85,8 +85,8 @@ if.then9:                                         ; preds = %for.cond
   ret i32 %retval.sroa.0.2
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_Z3lcmRK9s_integerS1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r2) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define hidden i32 @_Z3lcmRK9s_integerS1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r2) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %r1, align 4
   %1 = load i32, ptr %r2, align 4
@@ -110,10 +110,10 @@ _Z3gcdRK9s_integerS1_.exit:                       ; preds = %for.cond.i
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_s_integer.cpp() #7 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_s_integer.cpp() #6 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #8
   store i32 0, ptr @_ZN9s_integer6m_zeroE, align 4
   store i32 1, ptr @_ZN9s_integer5m_oneE, align 4
   store i32 -1, ptr @_ZN9s_integer11m_minus_oneE, align 4
@@ -121,13 +121,13 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #8
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -135,10 +135,9 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #6 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

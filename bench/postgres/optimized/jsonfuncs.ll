@@ -2608,7 +2608,7 @@ setPathObject.exit:                               ; preds = %._crit_edge, %340
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @json_array_length(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @json_array_length(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.JsonLexContext, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -2740,7 +2740,7 @@ define internal noundef i32 @alen_array_element_start(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_array_length(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @jsonb_array_length(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -3446,7 +3446,7 @@ define internal fastcc i64 @populate_record_worker(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_populate_record_valid(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @jsonb_populate_record_valid(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ErrorSaveContext, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) @__const.jsonb_populate_record_valid.escontext, i64 16, i1 false)
   %3 = call fastcc i64 @populate_record_worker(ptr noundef %0, ptr noundef nonnull @.str.18, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %2)
@@ -5333,7 +5333,7 @@ define dso_local i64 @jsonb_insert(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @parse_jsonb_index_flags(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 16) i32 @parse_jsonb_index_flags(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -9050,7 +9050,7 @@ populate_array_assign_ndims.exit:                 ; preds = %41, %16
   %63 = load i32, ptr %62, align 4
   %64 = load ptr, ptr %48, align 8
   %65 = load ptr, ptr %49, align 8
-  %66 = call fastcc i64 @populate_record_field(ptr noundef %59, i32 noundef %61, i32 noundef %63, ptr noundef null, ptr noundef %64, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef %65)
+  %66 = call fastcc i64 @populate_record_field(ptr noundef %59, i32 noundef %61, i32 noundef %63, ptr noundef null, ptr noundef %64, i64 noundef 0, ptr noundef nonnull readonly %7, ptr noundef nonnull %4, ptr noundef %65)
   %67 = load ptr, ptr %49, align 8
   %.not.i = icmp eq ptr %67, null
   br i1 %.not.i, label %populate_array_element.exit.thread, label %68
@@ -9112,7 +9112,7 @@ populate_array_element.exit:                      ; preds = %71
 declare i64 @makeMdArrayResult(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @populate_array_object_start(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, 20) i32 @populate_array_object_start(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 44
   %4 = load i32, ptr %3, align 4
@@ -9162,7 +9162,7 @@ populate_array_assign_ndims.exit:                 ; preds = %19, %populate_array
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @populate_array_array_end(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, 20) i32 @populate_array_array_end(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -9258,7 +9258,7 @@ define internal noundef i32 @populate_array_element_start(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @populate_array_element_end(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 {
+define internal range(i32 0, 20) i32 @populate_array_element_end(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 {
   %3 = alloca i8, align 1
   %4 = alloca %struct.JsValue, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9322,7 +9322,7 @@ define internal noundef i32 @populate_array_element_end(ptr nocapture noundef re
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %6, i64 64
   %44 = load ptr, ptr %43, align 8
-  %45 = call fastcc i64 @populate_record_field(ptr noundef %36, i32 noundef %38, i32 noundef %40, ptr noundef null, ptr noundef %42, i64 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %44)
+  %45 = call fastcc i64 @populate_record_field(ptr noundef %36, i32 noundef %38, i32 noundef %40, ptr noundef null, ptr noundef %42, i64 noundef 0, ptr noundef nonnull readonly %4, ptr noundef nonnull %3, ptr noundef %44)
   %46 = load ptr, ptr %43, align 8
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %populate_array_element.exit.thread, label %47
@@ -9369,7 +9369,7 @@ populate_array_element.exit:                      ; preds = %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @populate_array_scalar(ptr nocapture noundef %0, ptr noundef %1, i32 %2) #0 {
+define internal range(i32 0, 20) i32 @populate_array_scalar(ptr nocapture noundef %0, ptr noundef %1, i32 %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8

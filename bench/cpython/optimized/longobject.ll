@@ -919,7 +919,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.25 = private unnamed_addr constant [25 x i8] c"can't init int info type\00", align 1
 @_PyRuntime = external global %struct.pyruntimestate, align 8
 @.str.26 = private unnamed_addr constant [116 x i8] c"Exceeds the limit (%d digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.27 = private unnamed_addr constant [8 x i8] c"_pylong\00", align 1
 @.str.28 = private unnamed_addr constant [22 x i8] c"int_to_decimal_string\00", align 1
 @.str.29 = private unnamed_addr constant [2 x i8] c"O\00", align 1
@@ -2256,7 +2256,7 @@ return:                                           ; preds = %while.end.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @_PyLong_Sign(ptr nocapture noundef readonly %vv) local_unnamed_addr #6 {
+define dso_local range(i32 -2, 2) i32 @_PyLong_Sign(ptr nocapture noundef readonly %vv) local_unnamed_addr #6 {
 entry:
   %0 = getelementptr i8, ptr %vv, i64 16
   %vv.val = load i64, ptr %0, align 8
@@ -2286,7 +2286,7 @@ if.end:                                           ; preds = %if.then
   %1 = load i32, ptr %arrayidx, align 4
   %mul = mul nuw i64 %sub, 30
   %cmp.not.i.i = icmp eq i32 %1, 0
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %1, i1 true), !range !20
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)
   %sub.i.i = sub nuw nsw i32 32, %2
   %retval.0.i.i = select i1 %cmp.not.i.i, i32 0, i32 %sub.i.i
   %conv = zext nneg i32 %retval.0.i.i to i64
@@ -2348,7 +2348,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.055, 1
   %add.ptr21 = getelementptr i8, ptr %p.056, i64 %incr.0.neg
   %exitcond.not = icmp eq i64 %inc, %n
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body, %for.inc
   %i.0.lcssa = phi i64 [ %i.055, %for.body ], [ %n, %for.inc ]
@@ -2446,7 +2446,7 @@ for.inc60.us:                                     ; preds = %for.body44.us, %if.
   %inc61.us = add nuw nsw i64 %i39.059.us, 1
   %add.ptr63.us = getelementptr i8, ptr %p40.063.us, i64 %incr.0
   %cmp42.us = icmp ult i64 %inc61.us, %numsignificantbytes.0
-  br i1 %cmp42.us, label %for.body44.us, label %for.end64, !llvm.loop !22
+  br i1 %cmp42.us, label %for.body44.us, label %for.end64, !llvm.loop !21
 
 for.body44:                                       ; preds = %for.body44.lr.ph, %for.inc60
   %p40.063 = phi ptr [ %add.ptr63, %for.inc60 ], [ %pstartbyte.0, %for.body44.lr.ph ]
@@ -2485,7 +2485,7 @@ for.inc60:                                        ; preds = %for.body44, %if.the
   %inc61 = add nuw nsw i64 %i39.059, 1
   %add.ptr63 = getelementptr i8, ptr %p40.063, i64 %incr.0
   %cmp42 = icmp ult i64 %inc61, %numsignificantbytes.0
-  br i1 %cmp42, label %for.body44, label %for.end64, !llvm.loop !22
+  br i1 %cmp42, label %for.body44, label %for.end64, !llvm.loop !21
 
 for.end64:                                        ; preds = %for.inc60, %for.inc60.us
   %idigit.0.lcssa = phi i64 [ %idigit.1.us, %for.inc60.us ], [ %idigit.1, %for.inc60 ]
@@ -2528,7 +2528,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %arrayidx.i = getelementptr [1 x i32], ptr %ob_digit.i, i64 0, i64 %sub.i44
   %16 = load i32, ptr %arrayidx.i, align 4
   %cmp1.i = icmp eq i32 %16, 0
-  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !23
+  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !22
 
 while.end.i:                                      ; preds = %land.rhs.i
   %cmp2.not.i = icmp eq i64 %i.0.i, %shr.i.i
@@ -2608,7 +2608,7 @@ land.rhs:                                         ; preds = %while.cond
   %arrayidx = getelementptr [1 x i32], ptr %ob_digit, i64 0, i64 %sub
   %1 = load i32, ptr %arrayidx, align 4
   %cmp1 = icmp eq i32 %1, 0
-  br i1 %cmp1, label %while.cond, label %while.end, !llvm.loop !23
+  br i1 %cmp1, label %while.cond, label %while.end, !llvm.loop !22
 
 while.end:                                        ; preds = %land.rhs
   %cmp2.not = icmp eq i64 %i.0, %shr.i
@@ -2634,7 +2634,7 @@ if.end5:                                          ; preds = %if.end5.sink.split,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyLong_AsByteArray(ptr nocapture noundef readonly %v, ptr nocapture noundef %bytes, i64 noundef %n, i32 noundef %little_endian, i32 noundef %is_signed) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyLong_AsByteArray(ptr nocapture noundef readonly %v, ptr nocapture noundef %bytes, i64 noundef %n, i32 noundef %little_endian, i32 noundef %is_signed) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 16
   %v.val = load i64, ptr %0, align 8
@@ -2713,7 +2713,7 @@ while.body.us:                                    ; preds = %if.then15.us, %whil
   %shr21.us = lshr i32 %s.062.us, 1
   %inc.us = add i32 %accumbits.161.us, 1
   %cmp19.not.us = icmp ult i32 %s.062.us, 2
-  br i1 %cmp19.not.us, label %if.end24.us, label %while.body.us, !llvm.loop !24
+  br i1 %cmp19.not.us, label %if.end24.us, label %while.body.us, !llvm.loop !23
 
 if.end24.us:                                      ; preds = %while.body.us, %if.then15.us
   %accumbits.2.us = phi i32 [ %accumbits.074.us, %if.then15.us ], [ %inc.us, %while.body.us ]
@@ -2736,7 +2736,7 @@ for.inc.us:                                       ; preds = %if.end32.us, %if.en
   %accum.1.lcssa.us = phi i64 [ %or.us, %if.end24.us ], [ %shr38.us, %if.end32.us ]
   %inc40.us = add nuw nsw i64 %i.079.us, 1
   %exitcond95.not = icmp eq i64 %inc40.us, %shr.i
-  br i1 %exitcond95.not, label %for.end, label %for.body.us, !llvm.loop !25
+  br i1 %exitcond95.not, label %for.end, label %for.body.us, !llvm.loop !24
 
 while.body28.us:                                  ; preds = %while.body28.us.preheader, %if.end32.us
   %accum.167.us = phi i64 [ %shr38.us, %if.end32.us ], [ %or.us, %while.body28.us.preheader ]
@@ -2755,7 +2755,7 @@ if.end32.us:                                      ; preds = %while.body28.us
   %shr38.us = lshr i64 %accum.167.us, 8
   %lftr.wideiv93 = trunc i64 %inc33.us to i32
   %exitcond94.not = icmp eq i32 %6, %lftr.wideiv93
-  br i1 %exitcond94.not, label %for.inc.us, label %while.body28.us, !llvm.loop !26
+  br i1 %exitcond94.not, label %for.inc.us, label %while.body28.us, !llvm.loop !25
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %i.079 = phi i64 [ %inc40, %for.inc ], [ 0, %for.body.preheader ]
@@ -2782,7 +2782,7 @@ while.body:                                       ; preds = %if.then15, %while.b
   %shr21 = lshr i32 %s.062, 1
   %inc = add i32 %accumbits.161, 1
   %cmp19.not = icmp ult i32 %s.062, 2
-  br i1 %cmp19.not, label %if.end24, label %while.body, !llvm.loop !24
+  br i1 %cmp19.not, label %if.end24, label %while.body, !llvm.loop !23
 
 if.end24.thread:                                  ; preds = %for.body
   %add23 = add nuw nsw i32 %accumbits.074, 30
@@ -2819,7 +2819,7 @@ if.end32:                                         ; preds = %while.body28
   %shr38 = lshr i64 %accum.167, 8
   %lftr.wideiv = trunc i64 %inc33 to i32
   %exitcond.not = icmp eq i32 %12, %lftr.wideiv
-  br i1 %exitcond.not, label %for.inc, label %while.body28, !llvm.loop !26
+  br i1 %exitcond.not, label %for.inc, label %while.body28, !llvm.loop !25
 
 for.inc:                                          ; preds = %if.end32, %if.end24
   %accumbits.3.lcssa = phi i32 [ %accumbits.2, %if.end24 ], [ %sub37, %if.end32 ]
@@ -2828,7 +2828,7 @@ for.inc:                                          ; preds = %if.end32, %if.end24
   %accum.1.lcssa = phi i64 [ %or, %if.end24 ], [ %shr38, %if.end32 ]
   %inc40 = add nuw nsw i64 %i.079, 1
   %exitcond92.not = icmp eq i64 %inc40, %shr.i
-  br i1 %exitcond92.not, label %for.end, label %for.body, !llvm.loop !25
+  br i1 %exitcond92.not, label %for.end, label %for.body, !llvm.loop !24
 
 for.end:                                          ; preds = %for.inc, %for.inc.us
   %pincr.0111 = phi i64 [ %pincr.0, %for.inc.us ], [ %pincr.0103, %for.inc ]
@@ -2892,7 +2892,7 @@ for.body84:                                       ; preds = %if.end77, %for.body
   %inc86 = add nuw i64 %j.388, 1
   %add.ptr88 = getelementptr i8, ptr %p.489, i64 %pincr.0111138
   %exitcond96.not = icmp eq i64 %inc86, %n
-  br i1 %exitcond96.not, label %return, label %for.body84, !llvm.loop !27
+  br i1 %exitcond96.not, label %return, label %for.body84, !llvm.loop !26
 
 return.sink.split:                                ; preds = %while.body28, %while.body28.us, %if.then43, %if.then66, %if.then
   %.str.15.sink = phi ptr [ @.str.14, %if.then ], [ @.str.15, %if.then66 ], [ @.str.15, %if.then43 ], [ @.str.15, %while.body28.us ], [ @.str.15, %while.body28 ]
@@ -3038,7 +3038,7 @@ while.cond:                                       ; preds = %while.cond, %if.end
   %t.0 = phi i1 [ %6, %if.end10 ], [ true, %while.cond ]
   %ndigits.0 = phi i32 [ 2, %if.end10 ], [ %inc, %while.cond ]
   %inc = add i32 %ndigits.0, 1
-  br i1 %t.0, label %while.end, label %while.cond, !llvm.loop !28
+  br i1 %t.0, label %while.end, label %while.cond, !llvm.loop !27
 
 while.end:                                        ; preds = %while.cond
   %conv15 = sext i32 %ndigits.0 to i64
@@ -3097,7 +3097,7 @@ while.body26:                                     ; preds = %if.then19, %while.b
   store i32 %conv27, ptr %p.040, align 4
   %shr28 = lshr i64 %t.139, 30
   %tobool25.not = icmp ult i64 %t.139, 1073741824
-  br i1 %tobool25.not, label %return, label %while.body26, !llvm.loop !29
+  br i1 %tobool25.not, label %return, label %while.body26, !llvm.loop !28
 
 return:                                           ; preds = %while.body26, %if.then19, %_PyLong_New.exit.thread, %_PyObject_Init.exit.i, %if.then.i, %if.then
   %retval.0 = phi ptr [ %arrayidx.i, %if.then ], [ null, %if.then.i ], [ %call.i, %_PyObject_Init.exit.i ], [ null, %_PyLong_New.exit.thread ], [ %call.i24, %if.then19 ], [ %call.i24, %while.body26 ]
@@ -3125,7 +3125,7 @@ while.body:                                       ; preds = %while.body.preheade
   %inc = add nuw nsw i32 %ndigits.021, 1
   %shr = lshr i64 %t.020, 30
   %tobool.not = icmp ult i64 %t.020, 1073741824
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !30
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !29
 
 while.end:                                        ; preds = %while.body
   %conv6 = zext nneg i32 %inc to i64
@@ -3179,7 +3179,7 @@ while.body15:                                     ; preds = %while.body15.prehea
   store i32 %conv16, ptr %p.024, align 4
   %shr17 = lshr i64 %t.123, 30
   %tobool14.not = icmp ult i64 %t.123, 1073741824
-  br i1 %tobool14.not, label %return, label %while.body15, !llvm.loop !31
+  br i1 %tobool14.not, label %return, label %while.body15, !llvm.loop !30
 
 return:                                           ; preds = %while.body15, %_PyLong_New.exit.thread, %if.then
   %retval.0 = phi ptr [ %arrayidx.i, %if.then ], [ null, %_PyLong_New.exit.thread ], [ %call.i, %while.body15 ]
@@ -3229,7 +3229,7 @@ if.then10:                                        ; preds = %if.end7
   br label %if.end14
 
 if.else12:                                        ; preds = %if.end7
-  %call13 = call i32 @_PyLong_AsByteArray(ptr noundef nonnull %v.0, ptr noundef nonnull %bytes, i64 noundef 8, i32 noundef 1, i32 noundef 1), !range !32
+  %call13 = call i32 @_PyLong_AsByteArray(ptr noundef nonnull %v.0, ptr noundef nonnull %bytes, i64 noundef 8, i32 noundef 1, i32 noundef 1)
   %5 = icmp slt i32 %call13, 0
   br label %if.end14
 
@@ -3304,7 +3304,7 @@ if.then6:                                         ; preds = %if.end3
   br label %return
 
 if.else:                                          ; preds = %if.end3
-  %call8 = call i32 @_PyLong_AsByteArray(ptr noundef nonnull %vv, ptr noundef nonnull %bytes, i64 noundef 8, i32 noundef 1, i32 noundef 0), !range !32
+  %call8 = call i32 @_PyLong_AsByteArray(ptr noundef nonnull %vv, ptr noundef nonnull %bytes, i64 noundef 8, i32 noundef 1, i32 noundef 0)
   %6 = icmp slt i32 %call8, 0
   %.pre = load i64, ptr %bytes, align 8
   %spec.select = select i1 %6, i64 -1, i64 %.pre
@@ -3365,7 +3365,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %conv.i11 = zext i32 %5 to i64
   %or.i = or i64 %shl.i, %conv.i11
   %cmp9.i = icmp ugt i64 %i.021.i, 1
-  br i1 %cmp9.i, label %while.body.i, label %while.end.i, !llvm.loop !33
+  br i1 %cmp9.i, label %while.body.i, label %while.end.i, !llvm.loop !31
 
 while.end.i:                                      ; preds = %while.body.i
   %conv.i18.i = sub nsw i64 1, %4
@@ -3421,7 +3421,7 @@ while.body.i29:                                   ; preds = %while.body.i29, %wh
   %conv.i35 = zext i32 %12 to i64
   %or.i36 = or i64 %shl.i33, %conv.i35
   %cmp9.i37 = icmp ugt i64 %i.021.i30, 1
-  br i1 %cmp9.i37, label %while.body.i29, label %while.end.i38, !llvm.loop !33
+  br i1 %cmp9.i37, label %while.body.i29, label %while.end.i38, !llvm.loop !31
 
 while.end.i38:                                    ; preds = %while.body.i29
   %conv.i18.i26 = sub nsw i64 1, %11
@@ -3514,7 +3514,7 @@ while.body:                                       ; preds = %while.cond
   %add = add i64 %shl, %conv
   %shr = lshr i64 %add, 30
   %cmp16.not = icmp eq i64 %shr, %x.0
-  br i1 %cmp16.not, label %while.cond, label %if.then18, !llvm.loop !34
+  br i1 %cmp16.not, label %while.cond, label %if.then18, !llvm.loop !32
 
 if.then18:                                        ; preds = %while.body
   store i32 %conv.i32, ptr %overflow, align 4
@@ -3565,7 +3565,7 @@ return:                                           ; preds = %exit, %if.then35, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyLong_UnsignedShort_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyLong_UnsignedShort_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -3617,7 +3617,7 @@ return:                                           ; preds = %land.lhs.true4, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyLong_UnsignedInt_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyLong_UnsignedInt_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -3669,7 +3669,7 @@ return:                                           ; preds = %land.lhs.true4, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyLong_UnsignedLong_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyLong_UnsignedLong_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -3711,7 +3711,7 @@ return:                                           ; preds = %land.lhs.true4, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyLong_UnsignedLongLong_Converter(ptr nocapture noundef readonly %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyLong_UnsignedLongLong_Converter(ptr nocapture noundef readonly %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
 entry:
   %bytes.i = alloca i64, align 8
   %0 = getelementptr i8, ptr %obj, i64 8
@@ -3757,7 +3757,7 @@ if.then6.i:                                       ; preds = %if.end3.i
   br label %PyLong_AsUnsignedLongLong.exit
 
 if.else.i:                                        ; preds = %if.end3.i
-  %call8.i = call i32 @_PyLong_AsByteArray(ptr noundef nonnull %obj, ptr noundef nonnull %bytes.i, i64 noundef 8, i32 noundef 1, i32 noundef 0), !range !32
+  %call8.i = call i32 @_PyLong_AsByteArray(ptr noundef nonnull readonly %obj, ptr noundef nonnull %bytes.i, i64 noundef 8, i32 noundef 1, i32 noundef 0)
   %7 = icmp slt i32 %call8.i, 0
   %.pre.i = load i64, ptr %bytes.i, align 8
   br i1 %7, label %PyLong_AsUnsignedLongLong.exit.thread, label %PyLong_AsUnsignedLongLong.exit
@@ -3788,7 +3788,7 @@ return:                                           ; preds = %land.lhs.true4, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyLong_Size_t_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_PyLong_Size_t_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -3837,11 +3837,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = call fastcc i32 @long_to_decimal_string_internal(ptr noundef %obj, ptr noundef nonnull %str, ptr noundef null, ptr noundef null, ptr noundef null), !range !32
+  %call = call fastcc i32 @long_to_decimal_string_internal(ptr noundef %obj, ptr noundef nonnull %str, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call1 = call fastcc i32 @long_format_binary(ptr noundef %obj, i32 noundef %base, i32 noundef 1, ptr noundef nonnull %str, ptr noundef null, ptr noundef null, ptr noundef null), !range !32
+  %call1 = call fastcc i32 @long_format_binary(ptr noundef %obj, i32 noundef %base, i32 noundef 1, ptr noundef nonnull %str, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -3853,7 +3853,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @long_to_decimal_string_internal(ptr noundef %aa, ptr nocapture noundef writeonly %p_output, ptr noundef %writer, ptr noundef %bytes_writer, ptr nocapture noundef %bytes_str) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @long_to_decimal_string_internal(ptr noundef %aa, ptr nocapture noundef writeonly %p_output, ptr noundef %writer, ptr noundef %bytes_writer, ptr nocapture noundef %bytes_str) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %aa, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -4022,7 +4022,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   store i8 %24, ptr %p.049.us.i, align 1
   %inc.us.i = add nuw nsw i64 %i.050.us.i, 1
   %exitcond65.not.i = icmp eq i64 %inc.us.i, %call1.val37.i
-  br i1 %exitcond65.not.i, label %for.end.i, label %for.body.us.i, !llvm.loop !35
+  br i1 %exitcond65.not.i, label %for.end.i, label %for.body.us.i, !llvm.loop !33
 
 for.body.us52.i:                                  ; preds = %for.body.lr.ph.i, %for.body.us52.i
   %i.050.us53.i = phi i64 [ %inc.us59.i, %for.body.us52.i ], [ 0, %for.body.lr.ph.i ]
@@ -4034,7 +4034,7 @@ for.body.us52.i:                                  ; preds = %for.body.lr.ph.i, %
   store i8 %conv.us57.i, ptr %p.049.us54.i, align 1
   %inc.us59.i = add nuw nsw i64 %i.050.us53.i, 1
   %exitcond.not.i = icmp eq i64 %inc.us59.i, %call1.val37.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.us52.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.us52.i, !llvm.loop !33
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
   %i.050.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
@@ -4046,7 +4046,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   store i8 %conv.i179, ptr %p.049.i, align 1
   %inc.i = add nuw nsw i64 %i.050.i, 1
   %exitcond66.not.i = icmp eq i64 %inc.i, %call1.val37.i
-  br i1 %exitcond66.not.i, label %for.end.i, label %for.body.i, !llvm.loop !35
+  br i1 %exitcond66.not.i, label %for.end.i, label %for.body.i, !llvm.loop !33
 
 for.end.i:                                        ; preds = %for.body.us52.i, %for.body.us.i, %for.body.i, %for.cond.preheader.i
   %p.0.lcssa.i = phi ptr [ %call33.i, %for.cond.preheader.i ], [ %incdec.ptr.i, %for.body.i ], [ %incdec.ptr.us.i, %for.body.us.i ], [ %incdec.ptr.us58.i, %for.body.us52.i ]
@@ -4210,7 +4210,7 @@ for.body40:                                       ; preds = %for.body, %for.body
   store i32 %conv48, ptr %arrayidx41, align 4
   %inc = add nuw nsw i64 %j.0274, 1
   %exitcond.not = icmp eq i64 %inc, %size.0
-  br i1 %exitcond.not, label %while.cond.preheader, label %for.body40, !llvm.loop !36
+  br i1 %exitcond.not, label %while.cond.preheader, label %for.body40, !llvm.loop !34
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %size.1278 = phi i64 [ %inc52, %while.body ], [ %size.0, %while.cond.preheader ]
@@ -4221,13 +4221,13 @@ while.body:                                       ; preds = %while.cond.preheade
   store i32 %rem51, ptr %arrayidx53, align 4
   %div54 = udiv i32 %hi.1277, 1000000000
   %tobool50.not = icmp ult i32 %hi.1277, 1000000000
-  br i1 %tobool50.not, label %do.body, label %while.body, !llvm.loop !37
+  br i1 %tobool50.not, label %do.body, label %while.body, !llvm.loop !35
 
 do.body:                                          ; preds = %while.body, %while.cond.preheader
   %size.1.lcssa = phi i64 [ %size.0, %while.cond.preheader ], [ %inc52, %while.body ]
   %call55 = tail call i32 @PyErr_CheckSignals() #16
   %tobool56.not = icmp eq i32 %call55, 0
-  br i1 %tobool56.not, label %for.cond, label %if.then57, !llvm.loop !38
+  br i1 %tobool56.not, label %for.cond, label %if.then57, !llvm.loop !36
 
 if.then57:                                        ; preds = %do.body
   %43 = load i64, ptr %call.i183, align 8
@@ -4270,7 +4270,7 @@ while.body76:                                     ; preds = %if.end65, %while.bo
   %mul77 = mul i32 %tenpow.0281, 10
   %inc78 = add i64 %strlen.0282, 1
   %cmp74.not = icmp ult i32 %45, %mul77
-  br i1 %cmp74.not, label %while.end79, label %while.body76, !llvm.loop !39
+  br i1 %cmp74.not, label %while.end79, label %while.body76, !llvm.loop !37
 
 while.end79:                                      ; preds = %while.body76, %if.end65
   %strlen.0.lcssa = phi i64 [ %add70, %if.end65 ], [ %inc78, %while.body76 ]
@@ -4451,12 +4451,12 @@ for.body148:                                      ; preds = %for.body143, %for.b
   %div152 = udiv i32 %rem.0284, 10
   %inc154 = add nuw nsw i64 %j.1285, 1
   %exitcond319.not = icmp eq i64 %inc154, 9
-  br i1 %exitcond319.not, label %for.inc156, label %for.body148, !llvm.loop !40
+  br i1 %exitcond319.not, label %for.inc156, label %for.body148, !llvm.loop !38
 
 for.inc156:                                       ; preds = %for.body148
   %inc157 = add nuw nsw i64 %i.1288, 1
   %exitcond320.not = icmp eq i64 %inc157, %sub68
-  br i1 %exitcond320.not, label %for.end158, label %for.body143, !llvm.loop !41
+  br i1 %exitcond320.not, label %for.end158, label %for.body143, !llvm.loop !39
 
 for.end158:                                       ; preds = %for.inc156, %if.then137
   %i.1.lcssa = phi i64 [ 0, %if.then137 ], [ %sub68, %for.inc156 ]
@@ -4475,7 +4475,7 @@ do.body160:                                       ; preds = %do.body160, %for.en
   store i8 %conv163, ptr %incdec.ptr164, align 1
   %div165 = udiv i32 %rem.1, 10
   %cmp166.not = icmp ult i32 %rem.1, 10
-  br i1 %cmp166.not, label %do.end168, label %do.body160, !llvm.loop !42
+  br i1 %cmp166.not, label %do.end168, label %do.body160, !llvm.loop !40
 
 do.end168:                                        ; preds = %do.body160
   br i1 %cmp.i176, label %if.then170, label %if.end357
@@ -4567,12 +4567,12 @@ for.body201:                                      ; preds = %for.body196, %for.b
   %div206 = udiv i32 %rem.2300, 10
   %inc208 = add nuw nsw i64 %j.2301, 1
   %exitcond323.not = icmp eq i64 %inc208, 9
-  br i1 %exitcond323.not, label %for.inc210, label %for.body201, !llvm.loop !43
+  br i1 %exitcond323.not, label %for.inc210, label %for.body201, !llvm.loop !41
 
 for.inc210:                                       ; preds = %for.body201
   %inc211 = add nuw nsw i64 %i.2304, 1
   %exitcond324.not = icmp eq i64 %inc211, %sub68
-  br i1 %exitcond324.not, label %for.end212, label %for.body196, !llvm.loop !44
+  br i1 %exitcond324.not, label %for.end212, label %for.body196, !llvm.loop !42
 
 for.end212:                                       ; preds = %for.inc210, %do.body191
   %i.2.lcssa = phi i64 [ 0, %do.body191 ], [ %sub68, %for.inc210 ]
@@ -4591,7 +4591,7 @@ do.body214:                                       ; preds = %do.body214, %for.en
   store i8 %conv217, ptr %incdec.ptr218, align 1
   %div219 = udiv i32 %rem.3, 10
   %cmp221.not = icmp ult i32 %rem.3, 10
-  br i1 %cmp221.not, label %do.end223, label %do.body214, !llvm.loop !45
+  br i1 %cmp221.not, label %do.end223, label %do.body214, !llvm.loop !43
 
 do.end223:                                        ; preds = %do.body214
   br i1 %cmp.i176, label %if.then225, label %if.end357
@@ -4675,12 +4675,12 @@ for.body263:                                      ; preds = %for.body258, %for.b
   %div268 = udiv i32 %rem.4292, 10
   %inc270 = add nuw nsw i64 %j.3293, 1
   %exitcond321.not = icmp eq i64 %inc270, 9
-  br i1 %exitcond321.not, label %for.inc272, label %for.body263, !llvm.loop !46
+  br i1 %exitcond321.not, label %for.inc272, label %for.body263, !llvm.loop !44
 
 for.inc272:                                       ; preds = %for.body263
   %inc273 = add nuw nsw i64 %i.3296, 1
   %exitcond322.not = icmp eq i64 %inc273, %sub68
-  br i1 %exitcond322.not, label %for.end274, label %for.body258, !llvm.loop !47
+  br i1 %exitcond322.not, label %for.end274, label %for.body258, !llvm.loop !45
 
 for.end274:                                       ; preds = %for.inc272, %do.body253
   %i.3.lcssa = phi i64 [ 0, %do.body253 ], [ %sub68, %for.inc272 ]
@@ -4699,7 +4699,7 @@ do.body276:                                       ; preds = %do.body276, %for.en
   store i16 %conv279, ptr %incdec.ptr280, align 2
   %div281 = udiv i32 %rem.5, 10
   %cmp283.not = icmp ult i32 %rem.5, 10
-  br i1 %cmp283.not, label %do.end285, label %do.body276, !llvm.loop !48
+  br i1 %cmp283.not, label %do.end285, label %do.body276, !llvm.loop !46
 
 do.end285:                                        ; preds = %do.body276
   br i1 %cmp.i176, label %if.then287, label %if.end357
@@ -4782,12 +4782,12 @@ for.body322:                                      ; preds = %for.body317, %for.b
   %div326 = udiv i32 %rem.6308, 10
   %inc328 = add nuw nsw i64 %j.4309, 1
   %exitcond325.not = icmp eq i64 %inc328, 9
-  br i1 %exitcond325.not, label %for.inc330, label %for.body322, !llvm.loop !49
+  br i1 %exitcond325.not, label %for.inc330, label %for.body322, !llvm.loop !47
 
 for.inc330:                                       ; preds = %for.body322
   %inc331 = add nuw nsw i64 %i.4312, 1
   %exitcond326.not = icmp eq i64 %inc331, %sub68
-  br i1 %exitcond326.not, label %for.end332, label %for.body317, !llvm.loop !50
+  br i1 %exitcond326.not, label %for.end332, label %for.body317, !llvm.loop !48
 
 for.end332:                                       ; preds = %for.inc330, %do.body312
   %i.4.lcssa = phi i64 [ 0, %do.body312 ], [ %sub68, %for.inc330 ]
@@ -4805,7 +4805,7 @@ do.body334:                                       ; preds = %do.body334, %for.en
   store i32 %add336, ptr %incdec.ptr337, align 4
   %div338 = udiv i32 %rem.7, 10
   %cmp340.not = icmp ult i32 %rem.7, 10
-  br i1 %cmp340.not, label %do.end342, label %do.body334, !llvm.loop !51
+  br i1 %cmp340.not, label %do.end342, label %do.body334, !llvm.loop !49
 
 do.end342:                                        ; preds = %do.body334
   br i1 %cmp.i176, label %if.then344, label %if.end357
@@ -4862,7 +4862,7 @@ return:                                           ; preds = %if.then2.i, %return
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @long_format_binary(ptr noundef readonly %aa, i32 noundef %base, i32 noundef %alternate, ptr nocapture noundef writeonly %p_output, ptr noundef %writer, ptr noundef %bytes_writer, ptr nocapture noundef %bytes_str) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @long_format_binary(ptr noundef readonly %aa, i32 noundef %base, i32 noundef %alternate, ptr nocapture noundef writeonly %p_output, ptr noundef %writer, ptr noundef %bytes_writer, ptr nocapture noundef %bytes_str) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %aa, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -4922,7 +4922,7 @@ if.end12:                                         ; preds = %if.else
   %arrayidx = getelementptr [1 x i32], ptr %ob_digit, i64 0, i64 %sub
   %5 = load i32, ptr %arrayidx, align 4
   %cmp.not.i.i = icmp eq i32 %5, 0
-  %6 = tail call i32 @llvm.ctlz.i32(i32 %5, i1 true), !range !20
+  %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 true)
   %sub.i.i = sub nuw nsw i32 32, %6
   %retval.0.i.i = select i1 %cmp.not.i.i, i32 0, i32 %sub.i.i
   %conv15 = zext nneg i32 %retval.0.i.i to i64
@@ -5053,12 +5053,12 @@ do.body75:                                        ; preds = %do.body75, %for.bod
   %cmp93 = icmp sge i32 %sub87, %bits.0
   %cmp96 = icmp ne i64 %shr, 0
   %cond99.in = select i1 %cmp90, i1 %cmp93, i1 %cmp96
-  br i1 %cond99.in, label %do.body75, label %for.inc, !llvm.loop !52
+  br i1 %cond99.in, label %do.body75, label %for.inc, !llvm.loop !50
 
 for.inc:                                          ; preds = %do.body75
   %inc = add nuw nsw i64 %i.0249, 1
   %exitcond.not = icmp eq i64 %inc, %shr.i
-  br i1 %exitcond.not, label %if.end101, label %for.body, !llvm.loop !53
+  br i1 %exitcond.not, label %if.end101, label %for.body, !llvm.loop !51
 
 if.end101:                                        ; preds = %for.inc, %if.then66
   %p.2 = phi ptr [ %incdec.ptr, %if.then66 ], [ %incdec.ptr86, %for.inc ]
@@ -5191,12 +5191,12 @@ do.body162:                                       ; preds = %do.body162, %for.bo
   %cmp184 = icmp sge i32 %sub176, %bits.0
   %cmp187 = icmp ne i64 %shr178, 0
   %cond190.in = select i1 %cmp181, i1 %cmp184, i1 %cmp187
-  br i1 %cond190.in, label %do.body162, label %for.inc193, !llvm.loop !54
+  br i1 %cond190.in, label %do.body162, label %for.inc193, !llvm.loop !52
 
 for.inc193:                                       ; preds = %do.body162
   %inc194 = add nuw nsw i64 %i149.0260, 1
   %exitcond269.not = icmp eq i64 %inc194, %shr.i
-  br i1 %exitcond269.not, label %if.end196, label %for.body153, !llvm.loop !55
+  br i1 %exitcond269.not, label %if.end196, label %for.body153, !llvm.loop !53
 
 if.end196:                                        ; preds = %for.inc193, %if.then144
   %p129.3 = phi ptr [ %incdec.ptr145, %if.then144 ], [ %incdec.ptr175, %for.inc193 ]
@@ -5323,12 +5323,12 @@ do.body264:                                       ; preds = %do.body264, %for.bo
   %cmp287 = icmp sge i32 %sub279, %bits.0
   %cmp290 = icmp ne i64 %shr281, 0
   %cond293.in = select i1 %cmp284, i1 %cmp287, i1 %cmp290
-  br i1 %cond293.in, label %do.body264, label %for.inc296, !llvm.loop !56
+  br i1 %cond293.in, label %do.body264, label %for.inc296, !llvm.loop !54
 
 for.inc296:                                       ; preds = %do.body264
   %inc297 = add nuw nsw i64 %i251.0254, 1
   %exitcond268.not = icmp eq i64 %inc297, %shr.i
-  br i1 %exitcond268.not, label %if.end299, label %for.body255, !llvm.loop !57
+  br i1 %exitcond268.not, label %if.end299, label %for.body255, !llvm.loop !55
 
 if.end299:                                        ; preds = %for.inc296, %if.then246
   %p230.3 = phi ptr [ %incdec.ptr247, %if.then246 ], [ %incdec.ptr278, %for.inc296 ]
@@ -5454,12 +5454,12 @@ do.body364:                                       ; preds = %do.body364, %for.bo
   %cmp387 = icmp sge i32 %sub379, %bits.0
   %cmp390 = icmp ne i64 %shr381, 0
   %cond393.in = select i1 %cmp384, i1 %cmp387, i1 %cmp390
-  br i1 %cond393.in, label %do.body364, label %for.inc396, !llvm.loop !58
+  br i1 %cond393.in, label %do.body364, label %for.inc396, !llvm.loop !56
 
 for.inc396:                                       ; preds = %do.body364
   %inc397 = add nuw nsw i64 %i351.0266, 1
   %exitcond270.not = icmp eq i64 %inc397, %shr.i
-  br i1 %exitcond270.not, label %if.end399, label %for.body355, !llvm.loop !59
+  br i1 %exitcond270.not, label %if.end399, label %for.body355, !llvm.loop !57
 
 if.end399:                                        ; preds = %for.inc396, %if.then346
   %p330.3 = phi ptr [ %incdec.ptr347, %if.then346 ], [ %incdec.ptr378, %for.inc396 ]
@@ -5516,17 +5516,17 @@ return:                                           ; preds = %if.then433, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyLong_FormatWriter(ptr noundef %writer, ptr noundef %obj, i32 noundef %base, i32 noundef %alternate) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyLong_FormatWriter(ptr noundef %writer, ptr noundef %obj, i32 noundef %base, i32 noundef %alternate) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %base, 10
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = tail call fastcc i32 @long_to_decimal_string_internal(ptr noundef %obj, ptr noundef null, ptr noundef %writer, ptr noundef null, ptr noundef null), !range !32
+  %call = tail call fastcc i32 @long_to_decimal_string_internal(ptr noundef %obj, ptr noundef null, ptr noundef %writer, ptr noundef null, ptr noundef null)
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call fastcc i32 @long_format_binary(ptr noundef %obj, i32 noundef %base, i32 noundef %alternate, ptr noundef null, ptr noundef %writer, ptr noundef null, ptr noundef null), !range !32
+  %call1 = tail call fastcc i32 @long_format_binary(ptr noundef %obj, i32 noundef %base, i32 noundef %alternate, ptr noundef null, ptr noundef %writer, ptr noundef null, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -5543,11 +5543,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = call fastcc i32 @long_to_decimal_string_internal(ptr noundef %obj, ptr noundef null, ptr noundef null, ptr noundef %writer, ptr noundef nonnull %str2), !range !32
+  %call = call fastcc i32 @long_to_decimal_string_internal(ptr noundef %obj, ptr noundef null, ptr noundef null, ptr noundef %writer, ptr noundef nonnull %str2)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call1 = call fastcc i32 @long_format_binary(ptr noundef %obj, i32 noundef %base, i32 noundef %alternate, ptr noundef null, ptr noundef null, ptr noundef %writer, ptr noundef nonnull %str2), !range !32
+  %call1 = call fastcc i32 @long_format_binary(ptr noundef %obj, i32 noundef %base, i32 noundef %alternate, ptr noundef null, ptr noundef null, ptr noundef %writer, ptr noundef nonnull %str2)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -5594,7 +5594,7 @@ while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr i8, ptr %str.addr.0137, i64 1
   %4 = load i8, ptr %incdec.ptr, align 1
   %cmp3.not = icmp eq i8 %4, 0
-  br i1 %cmp3.not, label %if.end19, label %land.rhs, !llvm.loop !60
+  br i1 %cmp3.not, label %if.end19, label %land.rhs, !llvm.loop !58
 
 while.end:                                        ; preds = %land.rhs
   switch i8 %2, label %if.end19 [
@@ -5696,14 +5696,14 @@ if.end117.thread:                                 ; preds = %if.else28, %land.lh
   %base.addr.048.ph65 = phi i32 [ %base.addr.04959, %if.then110 ], [ %base, %land.lhs.true71 ], [ 10, %if.else28 ]
   %tobool126.not46.ph66 = phi i1 [ true, %if.then110 ], [ true, %land.lhs.true71 ], [ false, %if.else28 ]
   %str.addr.2.ph67 = phi ptr [ %add.ptr, %if.then110 ], [ %str.addr.1, %land.lhs.true71 ], [ %str.addr.1, %if.else28 ]
-  %11 = tail call i32 @llvm.ctpop.i32(i32 %base.addr.048.ph65), !range !20
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %base.addr.048.ph65)
   br label %while.cond.preheader.i
 
 if.end117:                                        ; preds = %if.then114, %if.then22, %if.end66
   %12 = phi i8 [ %5, %if.end66 ], [ %5, %if.then22 ], [ %.pr64.pre, %if.then114 ]
   %base.addr.048 = phi i32 [ %base, %if.end66 ], [ 10, %if.then22 ], [ %base.addr.04959, %if.then114 ]
   %str.addr.2 = phi ptr [ %str.addr.1, %if.end66 ], [ %str.addr.1, %if.then22 ], [ %incdec.ptr115, %if.then114 ]
-  %13 = tail call i32 @llvm.ctpop.i32(i32 %base.addr.048), !range !20
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %base.addr.048)
   %cmp2.i = icmp eq i8 %12, 95
   br i1 %cmp2.i, label %onError, label %while.cond.preheader.i
 
@@ -5752,7 +5752,7 @@ if.end22.i:                                       ; preds = %if.else.i, %if.then
   %cmp8.i = icmp sgt i32 %base.addr.04873, %conv7.i
   %cmp11.i = icmp eq i8 %.pr.i, 95
   %or.cond41.i = or i1 %cmp11.i, %cmp8.i
-  br i1 %or.cond41.i, label %while.body.i, label %while.end.i, !llvm.loop !61
+  br i1 %or.cond41.i, label %while.body.i, label %while.end.i, !llvm.loop !59
 
 while.end.i:                                      ; preds = %if.end22.i
   %18 = icmp eq i8 %16, 95
@@ -5780,7 +5780,7 @@ while.body42.i:                                   ; preds = %land.rhs.i
   %incdec.ptr43.i = getelementptr i8, ptr %p.160.i, i64 1
   %21 = load i8, ptr %incdec.ptr43.i, align 1
   %tobool.not.i = icmp eq i8 %21, 0
-  br i1 %tobool.not.i, label %if.end49.i, label %land.rhs.i, !llvm.loop !62
+  br i1 %tobool.not.i, label %if.end49.i, label %land.rhs.i, !llvm.loop !60
 
 while.end44.i:                                    ; preds = %land.rhs.i
   br i1 %tobool.not59.i, label %if.end49.i, label %onError
@@ -5790,7 +5790,7 @@ if.end49.i:                                       ; preds = %while.body42.i, %wh
   br i1 %cmp.i1978, label %if.then51.i, label %if.else52.i
 
 if.then51.i:                                      ; preds = %if.end49.i
-  call fastcc void @long_from_binary_base(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, i64 noundef %digits.1.i, i32 noundef %base.addr.04873, ptr noundef nonnull %z)
+  call fastcc void @long_from_binary_base(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, i64 noundef %digits.1.i, i32 noundef %base.addr.04873, ptr noundef nonnull writeonly %z)
   br label %if.end121
 
 if.else52.i:                                      ; preds = %if.end49.i
@@ -5822,11 +5822,11 @@ if.end66.i:                                       ; preds = %if.then55.i
   br i1 %or.cond.i, label %if.then72.i, label %if.end74.i
 
 if.then72.i:                                      ; preds = %if.end66.i
-  call fastcc void @pylong_int_from_string(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull %z)
+  call fastcc void @pylong_int_from_string(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull writeonly %z)
   br label %if.end121
 
 if.end74.i:                                       ; preds = %if.end66.i, %if.else52.i
-  call fastcc void @long_from_non_binary_base(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, i64 noundef %digits.1.i, i32 noundef %base.addr.04873, ptr noundef nonnull %z)
+  call fastcc void @long_from_non_binary_base(ptr noundef nonnull %str.addr.277, ptr noundef nonnull %incdec.ptr.i, i64 noundef %digits.1.i, i32 noundef %base.addr.04873, ptr noundef nonnull writeonly %z)
   br label %if.end121
 
 if.end121:                                        ; preds = %if.end74.i, %if.then72.i, %if.then51.i
@@ -5875,7 +5875,7 @@ land.rhs.i21:                                     ; preds = %while.cond.i
   %arrayidx.i22 = getelementptr [1 x i32], ptr %ob_digit.i, i64 0, i64 %sub.i
   %31 = load i32, ptr %arrayidx.i22, align 4
   %cmp1.i = icmp eq i32 %31, 0
-  br i1 %cmp1.i, label %while.cond.i, label %while.end.i23, !llvm.loop !23
+  br i1 %cmp1.i, label %while.cond.i, label %while.end.i23, !llvm.loop !22
 
 while.end.i23:                                    ; preds = %land.rhs.i21
   %cmp2.not.i = icmp eq i64 %i.0.i, %shr.i.i
@@ -6213,7 +6213,7 @@ if.end:                                           ; preds = %entry
   %arrayidx = getelementptr [1 x i32], ptr %ob_digit, i64 0, i64 %sub
   %1 = load i32, ptr %arrayidx, align 4
   %cmp.not.i.i = icmp eq i32 %1, 0
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %1, i1 true), !range !20
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)
   %sub.i.i = sub nuw nsw i32 32, %2
   %retval.0.i.i = select i1 %cmp.not.i.i, i32 0, i32 %sub.i.i
   %conv = zext nneg i32 %retval.0.i.i to i64
@@ -6256,7 +6256,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %shr.i42 = lshr i64 %or.i, 30
   %inc.i = add nuw nsw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %shr.i
-  br i1 %exitcond.not.i, label %v_lshift.exit, label %for.body.i, !llvm.loop !63
+  br i1 %exitcond.not.i, label %v_lshift.exit, label %for.body.i, !llvm.loop !61
 
 v_lshift.exit:                                    ; preds = %for.body.i
   %conv4.i = trunc i64 %shr.i42 to i32
@@ -6295,7 +6295,7 @@ for.body.i47:                                     ; preds = %if.else, %for.body.
   %arrayidx5.i = getelementptr i32, ptr %x_digits, i64 %dec.i
   store i32 %conv4.i56, ptr %arrayidx5.i, align 4
   %cmp.i = icmp ugt i64 %i.08.i48, 1
-  br i1 %cmp.i, label %for.body.i47, label %v_rshift.exit, !llvm.loop !64
+  br i1 %cmp.i, label %for.body.i47, label %v_rshift.exit, !llvm.loop !62
 
 v_rshift.exit:                                    ; preds = %for.body.i47
   %5 = icmp eq i32 %and.i54, 0
@@ -6320,7 +6320,7 @@ while.body:                                       ; preds = %while.cond
   %arrayidx46 = getelementptr [1 x i32], ptr %ob_digit, i64 0, i64 %dec
   %7 = load i32, ptr %arrayidx46, align 4
   %tobool47.not = icmp eq i32 %7, 0
-  br i1 %tobool47.not, label %while.cond, label %if.then48, !llvm.loop !65
+  br i1 %tobool47.not, label %while.cond, label %if.then48, !llvm.loop !63
 
 if.then48:                                        ; preds = %while.body
   %8 = load i32, ptr %x_digits, align 4
@@ -6353,7 +6353,7 @@ while.body64:                                     ; preds = %if.end53, %while.bo
   %conv68 = uitofp i32 %12 to double
   %13 = tail call double @llvm.fmuladd.f64(double %dx.061, double 0x41D0000000000000, double %conv68)
   %cmp62 = icmp ugt i64 %x_size.160, 1
-  br i1 %cmp62, label %while.body64, label %while.end69, !llvm.loop !66
+  br i1 %cmp62, label %while.body64, label %while.end69, !llvm.loop !64
 
 while.end69:                                      ; preds = %while.body64, %if.end53
   %dx.0.lcssa = phi double [ %conv60, %if.end53 ], [ %13, %while.body64 ]
@@ -6611,7 +6611,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.e
   %t.0.i = phi i1 [ %6, %if.end6 ], [ true, %while.cond.i ]
   %ndigits.0.i = phi i64 [ 2, %if.end6 ], [ %inc.i, %while.cond.i ]
   %inc.i = add i64 %ndigits.0.i, 1
-  br i1 %t.0.i, label %while.end.i, label %while.cond.i, !llvm.loop !67
+  br i1 %t.0.i, label %while.end.i, label %while.cond.i, !llvm.loop !65
 
 while.end.i:                                      ; preds = %while.cond.i
   %cmp.i.i = icmp sgt i64 %ndigits.0.i, 2305843009213693945
@@ -6678,7 +6678,7 @@ while.body6.i:                                    ; preds = %if.then3.i, %while.
   store i32 %conv.i11, ptr %p.018.i, align 4
   %shr7.i = lshr i64 %t.117.i, 30
   %tobool5.not.i = icmp ult i64 %t.117.i, 1073741824
-  br i1 %tobool5.not.i, label %return, label %while.body6.i, !llvm.loop !68
+  br i1 %tobool5.not.i, label %return, label %while.body6.i, !llvm.loop !66
 
 return:                                           ; preds = %while.body6.i, %if.then3.i, %if.then2.i.i, %if.then.i.i12, %_PyObject_Init.exit.i, %if.then.i, %if.then
   %retval.0 = phi ptr [ %arrayidx.i, %if.then ], [ null, %if.then.i ], [ %call.i, %_PyObject_Init.exit.i ], [ null, %if.then.i.i12 ], [ null, %if.then2.i.i ], [ %call.i.i, %if.then3.i ], [ %call.i.i, %while.body6.i ]
@@ -6782,7 +6782,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %shr = lshr i32 %add11, 30
   %inc = add nuw nsw i64 %i.037, 1
   %exitcond.not = icmp eq i64 %inc, %size_b.0
-  br i1 %exitcond.not, label %for.cond15.preheader, label %for.body, !llvm.loop !69
+  br i1 %exitcond.not, label %for.cond15.preheader, label %for.body, !llvm.loop !67
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %for.body17
   %carry.142 = phi i32 [ %carry.0.lcssa, %for.body17.lr.ph ], [ %shr26, %for.body17 ]
@@ -6796,7 +6796,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %shr26 = lshr i32 %add21, 30
   %inc28 = add nuw nsw i64 %i.141, 1
   %exitcond46.not = icmp eq i64 %inc28, %size_a.0
-  br i1 %exitcond46.not, label %for.end29, label %for.body17, !llvm.loop !70
+  br i1 %exitcond46.not, label %for.end29, label %for.body17, !llvm.loop !68
 
 for.end29:                                        ; preds = %for.body17, %for.cond15.preheader
   %i.1.lcssa = phi i64 [ %size_b.0, %for.cond15.preheader ], [ %size_a.0, %for.body17 ]
@@ -6817,7 +6817,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %arrayidx.i = getelementptr [1 x i32], ptr %ob_digit.i, i64 0, i64 %sub.i
   %11 = load i32, ptr %arrayidx.i, align 4
   %cmp1.i = icmp eq i32 %11, 0
-  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !23
+  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !22
 
 while.end.i:                                      ; preds = %land.rhs.i
   %cmp2.not.i = icmp eq i64 %i.0.i, %shr.i.i
@@ -6876,7 +6876,7 @@ land.rhs:                                         ; preds = %while.cond
   %arrayidx7 = getelementptr [1 x i32], ptr %ob_digit6, i64 0, i64 %dec
   %3 = load i32, ptr %arrayidx7, align 4
   %cmp8 = icmp eq i32 %2, %3
-  br i1 %cmp8, label %while.cond, label %if.end, !llvm.loop !71
+  br i1 %cmp8, label %while.cond, label %if.end, !llvm.loop !69
 
 if.end:                                           ; preds = %land.rhs
   %cmp18 = icmp ult i32 %2, %3
@@ -6971,7 +6971,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %and39 = and i32 %shr, 1
   %inc = add nuw nsw i64 %i.165, 1
   %exitcond.not = icmp eq i64 %inc, %size_b.0
-  br i1 %exitcond.not, label %for.cond40.preheader, label %for.body, !llvm.loop !72
+  br i1 %exitcond.not, label %for.cond40.preheader, label %for.body, !llvm.loop !70
 
 for.body42:                                       ; preds = %for.body42.lr.ph, %for.body42
   %borrow.170 = phi i32 [ %borrow.0.lcssa, %for.body42.lr.ph ], [ %and52, %for.body42 ]
@@ -6986,7 +6986,7 @@ for.body42:                                       ; preds = %for.body42.lr.ph, %
   %and52 = and i32 %shr51, 1
   %inc54 = add nuw nsw i64 %i.269, 1
   %exitcond73.not = icmp eq i64 %inc54, %size_a.0
-  br i1 %exitcond73.not, label %for.end55, label %for.body42, !llvm.loop !73
+  br i1 %exitcond73.not, label %for.end55, label %for.body42, !llvm.loop !71
 
 for.end55:                                        ; preds = %for.body42, %for.cond40.preheader
   %v.val.i.pre = load i64, ptr %long_value.i.i, align 8
@@ -7016,7 +7016,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %arrayidx.i = getelementptr [1 x i32], ptr %ob_digit.i, i64 0, i64 %sub.i
   %15 = load i32, ptr %arrayidx.i, align 4
   %cmp1.i = icmp eq i32 %15, 0
-  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !23
+  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !22
 
 while.end.i:                                      ; preds = %land.rhs.i
   %cmp2.not.i = icmp eq i64 %i.0.i, %shr.i.i
@@ -7370,7 +7370,7 @@ if.then98.us.i:                                   ; preds = %while.cond82.while.
 for.inc103.us.i:                                  ; preds = %while.cond82.while.end96_crit_edge.us.i, %if.then98.us.i
   %inc104.us.i = add nuw nsw i64 %i.176.us.i, 1
   %exitcond95.not.i = icmp eq i64 %inc104.us.i, %shr.i.i
-  br i1 %exitcond95.not.i, label %if.end106.i, label %for.body57.us.i, !llvm.loop !74
+  br i1 %exitcond95.not.i, label %if.end106.i, label %for.body57.us.i, !llvm.loop !72
 
 while.body85.us.i:                                ; preds = %while.body85.us.i, %while.body85.us.preheader.i
   %pb.073.us.i = phi ptr [ %incdec.ptr87.us.i, %while.body85.us.i ], [ %ob_digit70.i, %while.body85.us.preheader.i ]
@@ -7390,7 +7390,7 @@ while.body85.us.i:                                ; preds = %while.body85.us.i, 
   store i32 %conv93.us.i, ptr %pz64.072.us.i, align 4
   %shr95.us.i = lshr i64 %add91.us.i, 30
   %cmp83.us.i = icmp ult ptr %incdec.ptr87.us.i, %add.ptr75.i
-  br i1 %cmp83.us.i, label %while.body85.us.i, label %while.cond82.while.end96_crit_edge.us.i, !llvm.loop !75
+  br i1 %cmp83.us.i, label %while.body85.us.i, label %while.cond82.while.end96_crit_edge.us.i, !llvm.loop !73
 
 while.cond82.while.end96_crit_edge.us.i:          ; preds = %while.body85.us.i
   %tobool97.not.us.i = icmp ult i64 %add91.us.i, 1073741824
@@ -7463,7 +7463,7 @@ while.body.i:                                     ; preds = %do.end.i, %while.bo
   %pa.0.i = getelementptr i8, ptr %pa.082.i, i64 4
   %carry.0.i = lshr i64 %add36.i, 30
   %cmp29.i = icmp ult ptr %pa.0.i, %add.ptr.i
-  br i1 %cmp29.i, label %while.body.i, label %while.end.i, !llvm.loop !76
+  br i1 %cmp29.i, label %while.body.i, label %while.end.i, !llvm.loop !74
 
 while.end.i:                                      ; preds = %while.body.i, %do.end.i
   %carry.0.in.lcssa.i = phi i64 [ %add26.i, %do.end.i ], [ %add36.i, %while.body.i ]
@@ -7493,7 +7493,7 @@ if.then49.i:                                      ; preds = %if.then42.i
 for.inc.i:                                        ; preds = %if.then49.i, %if.then42.i, %while.end.i
   %inc.i = add nuw nsw i64 %i.088.i, 1
   %exitcond96.not.i = icmp eq i64 %inc.i, %shr.i.i
-  br i1 %exitcond96.not.i, label %if.end106.i, label %for.body.i, !llvm.loop !77
+  br i1 %exitcond96.not.i, label %if.end106.i, label %for.body.i, !llvm.loop !75
 
 for.body57.i:                                     ; preds = %for.body57.lr.ph.i, %while.cond82.preheader.i
   %i.176.i = phi i64 [ %inc104.i, %while.cond82.preheader.i ], [ 0, %for.body57.lr.ph.i ]
@@ -7504,7 +7504,7 @@ for.body57.i:                                     ; preds = %for.body57.lr.ph.i,
 while.cond82.preheader.i:                         ; preds = %for.body57.i
   %inc104.i = add nuw nsw i64 %i.176.i, 1
   %exitcond.not.i = icmp eq i64 %inc104.i, %shr.i.i
-  br i1 %exitcond.not.i, label %if.end106.i, label %for.body57.i, !llvm.loop !74
+  br i1 %exitcond.not.i, label %if.end106.i, label %for.body57.i, !llvm.loop !72
 
 if.then79.i:                                      ; preds = %for.body57.i, %for.body57.us.i
   %27 = load i64, ptr %call.i.i, align 8
@@ -7537,7 +7537,7 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
   %arrayidx.i.i = getelementptr [1 x i32], ptr %ob_digit.i.i, i64 0, i64 %sub.i.i
   %29 = load i32, ptr %arrayidx.i.i, align 4
   %cmp1.i.i = icmp eq i32 %29, 0
-  br i1 %cmp1.i.i, label %while.cond.i.i, label %while.end.i.i, !llvm.loop !23
+  br i1 %cmp1.i.i, label %while.cond.i.i, label %while.end.i.i, !llvm.loop !22
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i
   %cmp2.not.i.i = icmp eq i64 %i.0.i.i, %shr.i.i.i
@@ -7723,7 +7723,7 @@ for.body.i291:                                    ; preds = %if.end20.i, %for.bo
   %shr.i296 = lshr i32 %add2.i, 30
   %inc.i297 = add nuw nsw i64 %i.020.i, 1
   %exitcond.not.i298 = icmp eq i64 %inc.i297, %shr.i301
-  br i1 %exitcond.not.i298, label %for.cond4.preheader.i, label %for.body.i291, !llvm.loop !78
+  br i1 %exitcond.not.i298, label %for.cond4.preheader.i, label %for.body.i291, !llvm.loop !76
 
 for.body6.i:                                      ; preds = %for.cond4.preheader.i, %for.body6.i
   %carry.126.i = phi i32 [ %shr11.i, %for.body6.i ], [ %shr.i296, %for.cond4.preheader.i ]
@@ -7738,7 +7738,7 @@ for.body6.i:                                      ; preds = %for.cond4.preheader
   %tobool.i299 = icmp ugt i32 %add8.i, 1073741823
   %cmp5.i300 = icmp slt i64 %inc13.i, %sub.i
   %50 = select i1 %tobool.i299, i1 %cmp5.i300, i1 false
-  br i1 %50, label %for.body6.i, label %v_iadd.exit, !llvm.loop !79
+  br i1 %50, label %for.body6.i, label %v_iadd.exit, !llvm.loop !77
 
 v_iadd.exit:                                      ; preds = %for.body6.i, %if.end20.i, %for.cond4.preheader.i
   %51 = load i64, ptr %call17.i, align 8
@@ -7760,7 +7760,7 @@ _Py_DECREF_INT.exit290:                           ; preds = %v_iadd.exit, %if.en
   %sub31.i = sub nsw i64 %bsize.0.i375, %cond.i
   %add32.i = add i64 %cond.i, %nbdone.0.i374
   %cmp8.i = icmp sgt i64 %sub31.i, 0
-  br i1 %cmp8.i, label %while.body.i96, label %while.end.i94, !llvm.loop !80
+  br i1 %cmp8.i, label %while.body.i96, label %while.end.i94, !llvm.loop !78
 
 while.end.i94:                                    ; preds = %_Py_DECREF_INT.exit290, %_PyLong_New.exit327
   %53 = load i64, ptr %call.i308, align 8
@@ -7793,7 +7793,7 @@ land.rhs.i:                                       ; preds = %while.cond.i272
   %arrayidx.i275 = getelementptr [1 x i32], ptr %ob_digit.i347, i64 0, i64 %sub.i274
   %55 = load i32, ptr %arrayidx.i275, align 4
   %cmp1.i = icmp eq i32 %55, 0
-  br i1 %cmp1.i, label %while.cond.i272, label %while.end.i276, !llvm.loop !23
+  br i1 %cmp1.i, label %while.cond.i272, label %while.end.i276, !llvm.loop !22
 
 while.end.i276:                                   ; preds = %land.rhs.i
   %cmp2.not.i = icmp eq i64 %i.0.i, %shr.i.i270
@@ -7853,7 +7853,7 @@ if.then1.i.i268:                                  ; preds = %if.end.i.i265
 
 if.end16:                                         ; preds = %if.end11
   %shr = lshr i64 %bsize.0, 1
-  %call17 = call fastcc i32 @kmul_split(ptr noundef nonnull %a.addr.0, i64 noundef %shr, ptr noundef nonnull %ah, ptr noundef nonnull %al), !range !32
+  %call17 = call fastcc i32 @kmul_split(ptr noundef nonnull %a.addr.0, i64 noundef %shr, ptr noundef nonnull %ah, ptr noundef nonnull %al)
   %cmp18 = icmp slt i32 %call17, 0
   br i1 %cmp18, label %Py_XDECREF.exit, label %if.end21
 
@@ -7888,7 +7888,7 @@ _Py_NewRef.exit109:                               ; preds = %_Py_NewRef.exit, %i
   br label %if.end33
 
 if.else27:                                        ; preds = %if.end21
-  %call28 = call fastcc i32 @kmul_split(ptr noundef nonnull %b.addr.0, i64 noundef %shr, ptr noundef nonnull %bh, ptr noundef nonnull %bl), !range !32
+  %call28 = call fastcc i32 @kmul_split(ptr noundef nonnull %b.addr.0, i64 noundef %shr, ptr noundef nonnull %bh, ptr noundef nonnull %bl)
   %cmp29 = icmp slt i32 %call28, 0
   br i1 %cmp29, label %Py_XDECREF.exit, label %if.end33
 
@@ -8043,7 +8043,7 @@ for.body.i129:                                    ; preds = %if.end88, %for.body
   %and4.i = and i32 %shr.i131, 1
   %inc.i132 = add nuw nsw i64 %i.023.i, 1
   %exitcond.not.i133 = icmp eq i64 %inc.i132, %shr.i128.pre-phi
-  br i1 %exitcond.not.i133, label %for.cond5.preheader.i, label %for.body.i129, !llvm.loop !81
+  br i1 %exitcond.not.i133, label %for.cond5.preheader.i, label %for.body.i129, !llvm.loop !79
 
 for.body7.i:                                      ; preds = %for.cond5.preheader.i, %for.body7.i
   %i.128.i = phi i64 [ %inc15.i, %for.body7.i ], [ %shr.i128.pre-phi, %for.cond5.preheader.i ]
@@ -8057,7 +8057,7 @@ for.body7.i:                                      ; preds = %for.cond5.preheader
   %tobool.i = icmp ne i32 %86, 0
   %cmp6.i = icmp slt i64 %inc15.i, %sub90
   %87 = select i1 %tobool.i, i1 %cmp6.i, i1 false
-  br i1 %87, label %for.body7.i, label %v_isub.exit, !llvm.loop !82
+  br i1 %87, label %for.body7.i, label %v_isub.exit, !llvm.loop !80
 
 v_isub.exit:                                      ; preds = %for.body7.i, %if.end88, %for.cond5.preheader.i
   %88 = load i64, ptr %call64, align 8
@@ -8102,7 +8102,7 @@ for.body.i141:                                    ; preds = %_Py_DECREF_INT.exit
   %and4.i149 = and i32 %shr.i148, 1
   %inc.i150 = add nuw nsw i64 %i.023.i143, 1
   %exitcond.not.i151 = icmp eq i64 %inc.i150, %shr.i138
-  br i1 %exitcond.not.i151, label %for.cond5.preheader.i152, label %for.body.i141, !llvm.loop !81
+  br i1 %exitcond.not.i151, label %for.cond5.preheader.i152, label %for.body.i141, !llvm.loop !79
 
 for.body7.i155:                                   ; preds = %for.cond5.preheader.i152, %for.body7.i155
   %i.128.i156 = phi i64 [ %inc15.i162, %for.body7.i155 ], [ %shr.i138, %for.cond5.preheader.i152 ]
@@ -8116,7 +8116,7 @@ for.body7.i155:                                   ; preds = %for.cond5.preheader
   %tobool.i163 = icmp ne i32 %95, 0
   %cmp6.i164 = icmp slt i64 %inc15.i162, %sub90
   %96 = select i1 %tobool.i163, i1 %cmp6.i164, i1 false
-  br i1 %96, label %for.body7.i155, label %v_isub.exit165, !llvm.loop !82
+  br i1 %96, label %for.body7.i155, label %v_isub.exit165, !llvm.loop !80
 
 v_isub.exit165:                                   ; preds = %for.body7.i155, %_Py_DECREF_INT.exit, %for.cond5.preheader.i152
   %97 = load i64, ptr %call39, align 8
@@ -8530,7 +8530,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
 
 if.end5.i.i:                                      ; preds = %if.then20
   %ob_digit.i.i = getelementptr inbounds i8, ptr %a, i64 24
-  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i, ptr noundef nonnull %ob_digit.i.i)
+  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i, ptr noundef nonnull readonly %ob_digit.i.i)
   br label %return
 
 if.end22:                                         ; preds = %if.then17
@@ -8616,7 +8616,7 @@ for.body:                                         ; preds = %if.then41, %for.bod
   %or = or i32 %12, %sticky.074
   %inc = add nuw nsw i64 %j.075, 1
   %exitcond.not = icmp eq i64 %inc, %wordshift.addr.0
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !83
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !81
 
 for.end.loopexit:                                 ; preds = %for.body
   %13 = icmp ne i32 %or, 0
@@ -8661,7 +8661,7 @@ for.body61:                                       ; preds = %for.body61.lr.ph, %
   %inc73 = add nuw i64 %i.079, 1
   %j56.0 = add nsw i64 %j56.080, 1
   %exitcond83.not = icmp eq i64 %inc73, %16
-  br i1 %exitcond83.not, label %for.end75, label %for.body61, !llvm.loop !84
+  br i1 %exitcond83.not, label %for.end75, label %for.body61, !llvm.loop !82
 
 for.end75:                                        ; preds = %for.body61, %if.end53
   %accum.1.lcssa = phi i64 [ %shr55, %if.end53 ], [ %shr71, %for.body61 ]
@@ -8683,7 +8683,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %arrayidx.i = getelementptr [1 x i32], ptr %ob_digit.i, i64 0, i64 %sub.i59
   %19 = load i32, ptr %arrayidx.i, align 4
   %cmp1.i = icmp eq i32 %19, 0
-  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !23
+  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !22
 
 while.end.i:                                      ; preds = %land.rhs.i
   %cmp2.not.i = icmp eq i64 %i.0.i, %shr.i.i
@@ -8894,7 +8894,7 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %inc33 = add nuw i64 %i.156, 1
   %inc34 = add nuw nsw i64 %j.057, 1
   %exitcond.not = icmp eq i64 %inc34, %shr.i
-  br i1 %exitcond.not, label %for.end35.loopexit, label %for.body22, !llvm.loop !85
+  br i1 %exitcond.not, label %for.end35.loopexit, label %for.body22, !llvm.loop !83
 
 for.end35.loopexit:                               ; preds = %for.body22
   %14 = trunc i64 %shr to i32
@@ -8924,7 +8924,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %arrayidx.i = getelementptr [1 x i32], ptr %ob_digit.i, i64 0, i64 %sub.i41
   %15 = load i32, ptr %arrayidx.i, align 4
   %cmp1.i = icmp eq i32 %15, 0
-  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !23
+  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !22
 
 while.end.i:                                      ; preds = %land.rhs.i
   %cmp2.not.i = icmp eq i64 %i.0.i, %shr.i.i
@@ -9105,7 +9105,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %11 = load i32, ptr %arrayidx11.i, align 4
   %sub12.i = sub i32 %10, %11
   %tobool13.not.i = icmp eq i32 %sub12.i, 0
-  br i1 %tobool13.not.i, label %while.cond.i, label %while.end.i, !llvm.loop !86
+  br i1 %tobool13.not.i, label %while.cond.i, label %while.end.i, !llvm.loop !84
 
 while.end.i:                                      ; preds = %while.body.i, %while.cond.i
   %diff.1.i = phi i32 [ %sub12.i, %while.body.i ], [ 0, %while.cond.i ]
@@ -9163,7 +9163,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx = getelementptr [1 x i32], ptr %ob_digit, i64 0, i64 %sub
   %13 = load i32, ptr %arrayidx, align 4
   %cmp.not.i.i = icmp eq i32 %13, 0
-  %14 = tail call i32 @llvm.ctlz.i32(i32 %13, i1 true), !range !20
+  %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %sub.i.i189 = sub nuw nsw i32 32, %14
   %retval.0.i.i = select i1 %cmp.not.i.i, i32 0, i32 %sub.i.i189
   %15 = getelementptr i8, ptr %b.1414, i64 16
@@ -9179,7 +9179,7 @@ entry.if.end5_crit_edge.i:                        ; preds = %if.then22
   %.pre.i = and i64 %a.1.val415, 3
   %16 = icmp eq i64 %.pre.i, 2
   %17 = zext i1 %16 to i32
-  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef %17, i64 noundef %shr.i188416, ptr noundef nonnull %ob_digit)
+  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef %17, i64 noundef %shr.i188416, ptr noundef nonnull readonly %ob_digit)
   store ptr %call9.i, ptr %r, align 8
   %18 = load i64, ptr %a.1411, align 8
   %19 = and i64 %18, 2147483648
@@ -9359,7 +9359,7 @@ for.end:                                          ; preds = %if.end100, %if.end9
   br i1 %cmp103, label %if.then105, label %if.end112
 
 if.then105:                                       ; preds = %cond.end84, %for.end
-  %call106 = call fastcc i32 @l_mod(ptr noundef %a.1411, ptr noundef %b.1414, ptr noundef nonnull %r), !range !32
+  %call106 = call fastcc i32 @l_mod(ptr noundef %a.1411, ptr noundef %b.1414, ptr noundef nonnull %r)
   %cmp107 = icmp slt i32 %call106, 0
   br i1 %cmp107, label %error, label %do.body
 
@@ -9386,7 +9386,7 @@ do.end:                                           ; preds = %if.end.i292, %if.th
   %shr.i211 = lshr i64 %.val, 3
   %a.1.val = load i64, ptr %15, align 8
   %cmp18 = icmp ugt i64 %a.1.val, 23
-  br i1 %cmp18, label %while.body, label %while.end221, !llvm.loop !87
+  br i1 %cmp18, label %while.body, label %while.end221, !llvm.loop !85
 
 if.end112:                                        ; preds = %for.end
   %and = and i32 %k.0.lcssa, 1
@@ -9594,7 +9594,7 @@ while.body177:                                    ; preds = %if.end155, %while.b
   %shr197 = ashr i64 %add183, 30
   %shr198 = ashr i64 %add190, 30
   %cmp175 = icmp ult ptr %incdec.ptr, %add.ptr161
-  br i1 %cmp175, label %while.body177, label %while.cond199.preheader, !llvm.loop !88
+  br i1 %cmp175, label %while.body177, label %while.cond199.preheader, !llvm.loop !86
 
 while.body202:                                    ; preds = %while.cond199.preheader, %while.body202
   %d_digit.1442 = phi ptr [ %incdec.ptr215, %while.body202 ], [ %d_digit.0.lcssa, %while.cond199.preheader ]
@@ -9620,7 +9620,7 @@ while.body202:                                    ; preds = %while.cond199.prehe
   %shr216 = ashr i64 %add205, 30
   %shr217 = ashr i64 %sub209, 30
   %cmp200 = icmp ult ptr %incdec.ptr206, %add.ptr
-  br i1 %cmp200, label %while.body202, label %while.end218, !llvm.loop !89
+  br i1 %cmp200, label %while.body202, label %while.end218, !llvm.loop !87
 
 while.end218:                                     ; preds = %while.body202, %while.cond199.preheader
   %55 = load i32, ptr %c.1, align 8
@@ -9690,7 +9690,7 @@ land.rhs.i:                                       ; preds = %while.cond.i255
   %arrayidx.i259 = getelementptr [1 x i32], ptr %ob_digit169, i64 0, i64 %sub.i258
   %62 = load i32, ptr %arrayidx.i259, align 4
   %cmp1.i = icmp eq i32 %62, 0
-  br i1 %cmp1.i, label %while.cond.i255, label %while.end.i260, !llvm.loop !23
+  br i1 %cmp1.i, label %while.cond.i255, label %while.end.i260, !llvm.loop !22
 
 while.end.i260:                                   ; preds = %land.rhs.i
   %cmp2.not.i = icmp eq i64 %i.0.i256, %shr.i.i253
@@ -9728,7 +9728,7 @@ land.rhs.i271:                                    ; preds = %while.cond.i268
   %arrayidx.i273 = getelementptr [1 x i32], ptr %ob_digit172, i64 0, i64 %sub.i272
   %64 = load i32, ptr %arrayidx.i273, align 4
   %cmp1.i274 = icmp eq i32 %64, 0
-  br i1 %cmp1.i274, label %while.cond.i268, label %while.end.i275, !llvm.loop !23
+  br i1 %cmp1.i274, label %while.cond.i268, label %while.end.i275, !llvm.loop !22
 
 while.end.i275:                                   ; preds = %land.rhs.i271
   %cmp2.not.i276 = icmp eq i64 %i.0.i269, %shr.i.i266
@@ -9754,7 +9754,7 @@ long_normalize.exit286:                           ; preds = %while.end.i275, %wh
   %b.1.val.pre531 = phi i64 [ %v.val.i265, %while.end.i275 ], [ %v.val.i265, %while.end.thread.i284 ], [ %.sink.i282, %if.end5.sink.split.i281 ]
   %a.1.val408 = phi i64 [ %a.1.val408529, %while.end.i275 ], [ %a.1.val408529, %while.end.thread.i284 ], [ %a.1.val408.pre, %if.end5.sink.split.i281 ]
   %cmp18410 = icmp ugt i64 %a.1.val408, 23
-  br i1 %cmp18410, label %while.body.lr.ph, label %while.end221, !llvm.loop !87
+  br i1 %cmp18410, label %while.body.lr.ph, label %while.end221, !llvm.loop !85
 
 while.end221:                                     ; preds = %long_normalize.exit286, %do.end
   %d.0.ph.lcssa389 = phi ptr [ %d.0.ph447, %do.end ], [ %d.1, %long_normalize.exit286 ]
@@ -9871,7 +9871,7 @@ while.body241:                                    ; preds = %Py_DECREF.exit261, 
   %y.1459 = phi i64 [ %rem, %while.body241 ], [ %cond237, %Py_DECREF.exit261 ]
   %rem = srem i64 %x.1460, %y.1459
   %cmp239.not = icmp eq i64 %rem, 0
-  br i1 %cmp239.not, label %while.end242, label %while.body241, !llvm.loop !90
+  br i1 %cmp239.not, label %while.end242, label %while.body241, !llvm.loop !88
 
 while.end242:                                     ; preds = %while.body241, %Py_DECREF.exit261
   %x.1.lcssa = phi i64 [ %cond230, %Py_DECREF.exit261 ], [ %y.1459, %while.body241 ]
@@ -9980,7 +9980,7 @@ if.then.i:                                        ; preds = %if.then
 entry.if.end5_crit_edge.i.i:                      ; preds = %if.then
   %shr.i.i.i = lshr i64 %v.val, 3
   %ob_digit.i.i = getelementptr inbounds i8, ptr %v, i64 24
-  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i.i.i, ptr noundef nonnull %ob_digit.i.i)
+  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i.i.i, ptr noundef nonnull readonly %ob_digit.i.i)
   %cmp.not.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp.not.i, label %return, label %if.then4.i
 
@@ -10086,7 +10086,7 @@ if.end5.i:                                        ; preds = %if.end.i.i.i.i, %if
   %ob_digit.i.i13 = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i32 0, ptr %ob_digit.i.i13, align 8
   store i64 %shl.i.i.i, ptr %long_value.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %ob_digit.i.i13, ptr nonnull align 4 %ob_digit.i.i51821, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %ob_digit.i.i13, ptr nonnull readonly align 4 %ob_digit.i.i51821, i64 %9, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then3.i, %if.end5.i.i, %if.then3.i.i, %if.end.i.i.i, %if.then.i10, %if.then4.i, %entry.if.end5_crit_edge.i.i, %if.then.i
@@ -10095,7 +10095,7 @@ return:                                           ; preds = %if.end5.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @l_mod(ptr noundef %v, ptr nocapture noundef readonly %w, ptr nocapture noundef writeonly %pmod) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @l_mod(ptr noundef %v, ptr nocapture noundef readonly %w, ptr nocapture noundef writeonly %pmod) unnamed_addr #0 {
 entry:
   %mod = alloca ptr, align 8
   %0 = getelementptr i8, ptr %v, i64 16
@@ -10217,7 +10217,7 @@ if.end5.i.i.i:                                    ; preds = %if.then.i.i.i, %ent
   %cmp.i13.i.i.i = icmp eq i64 %and.i12.pre-phi.i.i.i, 2
   %conv8.i.i.i = zext i1 %cmp.i13.i.i.i to i32
   %ob_digit.i.i.i = getelementptr inbounds i8, ptr %v, i64 24
-  %call9.i.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i.i, i64 noundef %shr.i, ptr noundef nonnull %ob_digit.i.i.i)
+  %call9.i.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i.i, i64 noundef %shr.i, ptr noundef nonnull readonly %ob_digit.i.i.i)
   br label %long_rem.exit
 
 if.end13.i:                                       ; preds = %land.lhs.true.i, %lor.lhs.false.i
@@ -10246,7 +10246,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %or.i.i.i = or i64 %shl.i.i.i, %conv.i.i.i
   %rem2.i.i.i = urem i64 %or.i.i.i, %conv1.i.i.i
   %cmp.i.i.i = icmp ugt i64 %size.addr.04.i.i.i, 1
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %rem1.exit.i, !llvm.loop !91
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %rem1.exit.i, !llvm.loop !89
 
 rem1.exit.i:                                      ; preds = %while.body.i.i.i, %if.then16.i
   %rem.0.lcssa.i.i.i = phi i64 [ 0, %if.then16.i ], [ %rem2.i.i.i, %while.body.i.i.i ]
@@ -10256,7 +10256,7 @@ rem1.exit.i:                                      ; preds = %while.body.i.i.i, %
   br i1 %cmp21.i, label %return, label %if.end31.i
 
 if.else.i24:                                      ; preds = %if.end13.i
-  %call25.i = call fastcc ptr @x_divrem(ptr noundef nonnull %v, ptr noundef nonnull %w, ptr noundef nonnull %mod)
+  %call25.i = call fastcc ptr @x_divrem(ptr noundef nonnull %v, ptr noundef nonnull readonly %w, ptr noundef nonnull %mod)
   %cmp.not.i.i = icmp eq ptr %call25.i, null
   br i1 %cmp.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i32.i
 
@@ -10425,7 +10425,7 @@ lor.lhs.false.i34:                                ; preds = %if.then20
   br i1 %tobool4.not.i, label %long_add.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %lor.lhs.false.i34
-  %call5.i = tail call ptr @_PyLong_Add(ptr noundef nonnull %32, ptr noundef nonnull %w)
+  %call5.i = tail call ptr @_PyLong_Add(ptr noundef nonnull readonly %32, ptr noundef nonnull readonly %w)
   br label %long_add.exit
 
 long_add.exit:                                    ; preds = %if.then20, %lor.lhs.false.i34, %do.end.i
@@ -10505,7 +10505,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %and.i45 = and i64 %b.val37, 3
   %cmp.i46 = icmp eq i64 %and.i45, 2
   %9 = xor i1 %cmp.i44, %cmp.i46
-  %call10 = call fastcc i32 @long_divrem(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull %quo, ptr noundef nonnull %rem), !range !32
+  %call10 = call fastcc i32 @long_divrem(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull %quo, ptr noundef nonnull %rem)
   %cmp11 = icmp slt i32 %call10, 0
   br i1 %cmp11, label %error, label %if.end14
 
@@ -10548,7 +10548,7 @@ if.end7.i:                                        ; preds = %do.end.i
   br i1 %cmp.i13.i, label %long_lshift.exit.thread, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end7.i
-  %call12.i = call fastcc i32 @divmod_shift(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6), ptr noundef nonnull %wordshift.i, ptr noundef nonnull %remshift.i), !range !32
+  %call12.i = call fastcc i32 @divmod_shift(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6), ptr noundef nonnull %wordshift.i, ptr noundef nonnull %remshift.i)
   %cmp.i47 = icmp slt i32 %call12.i, 0
   br i1 %cmp.i47, label %long_lshift.exit.thread121, label %long_lshift.exit
 
@@ -10566,7 +10566,7 @@ long_lshift.exit.thread121:                       ; preds = %if.then6.i, %if.end
 long_lshift.exit:                                 ; preds = %if.end11.i
   %18 = load i64, ptr %wordshift.i, align 8
   %19 = load i32, ptr %remshift.i, align 4
-  %call15.i = tail call fastcc ptr @long_lshift1(ptr noundef nonnull %10, i64 noundef %18, i32 noundef %19)
+  %call15.i = tail call fastcc ptr @long_lshift1(ptr noundef nonnull readonly %10, i64 noundef %18, i32 noundef %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %wordshift.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %remshift.i)
   %cmp17 = icmp eq ptr %call15.i, null
@@ -10598,7 +10598,7 @@ entry.if.end5_crit_edge.i.i:                      ; preds = %if.then22
   %23 = zext i1 %22 to i32
   %shr.i.i.i = lshr i64 %v.val.i, 3
   %ob_digit.i.i = getelementptr inbounds i8, ptr %retval.0.i119, i64 24
-  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %23, i64 noundef %shr.i.i.i, ptr noundef nonnull %ob_digit.i.i)
+  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %23, i64 noundef %shr.i.i.i, ptr noundef nonnull readonly %ob_digit.i.i)
   %cmp.not.i = icmp eq ptr %call9.i.i, null
   br i1 %cmp.not.i, label %long_neg.exit, label %if.then4.i
 
@@ -10690,7 +10690,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %32 = load i32, ptr %arrayidx11.i, align 4
   %sub12.i = sub i32 %31, %32
   %tobool13.not.i = icmp eq i32 %sub12.i, 0
-  br i1 %tobool13.not.i, label %while.cond.i, label %while.end.i, !llvm.loop !86
+  br i1 %tobool13.not.i, label %while.cond.i, label %while.end.i, !llvm.loop !84
 
 while.end.i:                                      ; preds = %while.body.i, %while.cond.i
   %diff.1.i = phi i32 [ %sub12.i, %while.body.i ], [ 0, %while.cond.i ]
@@ -10762,7 +10762,7 @@ lor.lhs.false.i63:                                ; preds = %if.then44
   br i1 %tobool4.not.i66, label %do.body48, label %do.end.i67
 
 do.end.i67:                                       ; preds = %lor.lhs.false.i63
-  %call5.i = tail call ptr @_PyLong_Subtract(ptr noundef nonnull %35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6))
+  %call5.i = tail call ptr @_PyLong_Subtract(ptr noundef nonnull readonly %35, ptr noundef nonnull readonly getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6))
   br label %do.body48
 
 if.else:                                          ; preds = %if.then42
@@ -10777,7 +10777,7 @@ lor.lhs.false.i72:                                ; preds = %if.else
   br i1 %tobool4.not.i75, label %do.body48, label %do.end.i76
 
 do.end.i76:                                       ; preds = %lor.lhs.false.i72
-  %call5.i77 = tail call ptr @_PyLong_Add(ptr noundef nonnull %35, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6))
+  %call5.i77 = tail call ptr @_PyLong_Add(ptr noundef nonnull readonly %35, ptr noundef nonnull readonly getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6))
   br label %do.body48
 
 do.body48:                                        ; preds = %do.end.i76, %lor.lhs.false.i72, %if.else, %do.end.i67, %lor.lhs.false.i63, %if.then44
@@ -10824,7 +10824,7 @@ lor.lhs.false.i82:                                ; preds = %if.then57
   br i1 %tobool4.not.i85, label %do.body62, label %do.end.i86
 
 do.end.i86:                                       ; preds = %lor.lhs.false.i82
-  %call5.i87 = tail call ptr @_PyLong_Add(ptr noundef nonnull %46, ptr noundef nonnull %b)
+  %call5.i87 = tail call ptr @_PyLong_Add(ptr noundef nonnull readonly %46, ptr noundef nonnull readonly %b)
   br label %do.body62
 
 if.else59:                                        ; preds = %if.end55
@@ -10839,7 +10839,7 @@ lor.lhs.false.i93:                                ; preds = %if.else59
   br i1 %tobool4.not.i96, label %do.body62, label %do.end.i97
 
 do.end.i97:                                       ; preds = %lor.lhs.false.i93
-  %call5.i98 = tail call ptr @_PyLong_Subtract(ptr noundef nonnull %46, ptr noundef nonnull %b)
+  %call5.i98 = tail call ptr @_PyLong_Subtract(ptr noundef nonnull readonly %46, ptr noundef nonnull readonly %b)
   br label %do.body62
 
 do.body62:                                        ; preds = %do.end.i97, %lor.lhs.false.i93, %if.else59, %do.end.i86, %lor.lhs.false.i82, %if.then57
@@ -10926,7 +10926,7 @@ return:                                           ; preds = %if.then1.i.i115, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @long_divrem(ptr noundef %a, ptr nocapture noundef readonly %b, ptr nocapture noundef writeonly %pdiv, ptr nocapture noundef %prem) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @long_divrem(ptr noundef %a, ptr nocapture noundef readonly %b, ptr nocapture noundef writeonly %pdiv, ptr nocapture noundef %prem) unnamed_addr #0 {
 entry:
   %rem = alloca i32, align 4
   %0 = getelementptr i8, ptr %a, i64 16
@@ -11006,7 +11006,7 @@ if.end5.i.i:                                      ; preds = %if.then.i.i, %entry
   %cmp.i13.i.i = icmp eq i64 %and.i12.pre-phi.i.i, 2
   %conv8.i.i = zext i1 %cmp.i13.i.i to i32
   %ob_digit.i.i = getelementptr inbounds i8, ptr %a, i64 24
-  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i, i64 noundef %shr.i, ptr noundef nonnull %ob_digit.i.i)
+  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i, i64 noundef %shr.i, ptr noundef nonnull readonly %ob_digit.i.i)
   br label %long_long.exit
 
 long_long.exit.thread:                            ; preds = %if.then.i, %if.end.i.i.i
@@ -11371,7 +11371,7 @@ if.end7:                                          ; preds = %do.end
   br i1 %cmp.i13, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %call12 = call fastcc i32 @divmod_shift(ptr noundef nonnull %b, ptr noundef nonnull %wordshift, ptr noundef nonnull %remshift), !range !32
+  %call12 = call fastcc i32 @divmod_shift(ptr noundef nonnull %b, ptr noundef nonnull %wordshift, ptr noundef nonnull %remshift)
   %cmp = icmp slt i32 %call12, 0
   br i1 %cmp, label %return, label %if.end14
 
@@ -11410,7 +11410,7 @@ entry.if.end5_crit_edge.i:                        ; preds = %entry
   %3 = zext i1 %2 to i32
   %shr.i.i = lshr i64 %v.val, 3
   %ob_digit.i = getelementptr inbounds i8, ptr %v, i64 24
-  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef %3, i64 noundef %shr.i.i, ptr noundef nonnull %ob_digit.i)
+  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef %3, i64 noundef %shr.i.i, ptr noundef nonnull readonly %ob_digit.i)
   %cmp.not = icmp eq ptr %call9.i, null
   br i1 %cmp.not, label %return, label %if.then4
 
@@ -11536,7 +11536,7 @@ return:                                           ; preds = %if.end11, %if.then9
 define internal ptr @long_to_decimal_string(ptr noundef %aa) #0 {
 entry:
   %v = alloca ptr, align 8
-  %call = call fastcc i32 @long_to_decimal_string_internal(ptr noundef %aa, ptr noundef nonnull %v, ptr noundef null, ptr noundef null, ptr noundef null), !range !32
+  %call = call fastcc i32 @long_to_decimal_string_internal(ptr noundef %aa, ptr noundef nonnull %v, ptr noundef null, ptr noundef null, ptr noundef null)
   %cmp = icmp eq i32 %call, -1
   %0 = load ptr, ptr %v, align 8
   %retval.0 = select i1 %cmp, ptr null, ptr %0
@@ -11544,7 +11544,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i64 @long_hash(ptr nocapture noundef readonly %v) #10 {
+define internal range(i64 -4611686018427387900, 2305843009213693951) i64 @long_hash(ptr nocapture noundef readonly %v) #10 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 16
   %v.val16 = load i64, ptr %0, align 8
@@ -11583,7 +11583,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub = add nsw i64 %add, -2305843009213693951
   %spec.select = select i1 %cmp7, i64 %sub, i64 %add
   %cmp6 = icmp ugt i64 %i.024, 1
-  br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !92
+  br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !90
 
 while.end:                                        ; preds = %while.body
   %mul = mul nsw i64 %spec.select, %conv.i21
@@ -11677,7 +11677,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %11 = load i32, ptr %arrayidx11.i, align 4
   %sub12.i = sub i32 %10, %11
   %tobool13.not.i = icmp eq i32 %sub12.i, 0
-  br i1 %tobool13.not.i, label %while.cond.i, label %while.end.i, !llvm.loop !86
+  br i1 %tobool13.not.i, label %while.cond.i, label %while.end.i, !llvm.loop !84
 
 while.end.i:                                      ; preds = %while.body.i, %while.cond.i
   %diff.1.i = phi i32 [ %sub12.i, %while.body.i ], [ 0, %while.cond.i ]
@@ -11986,7 +11986,7 @@ entry:
 declare void @_PyStructSequence_FiniBuiltin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @PyUnstable_Long_IsCompact(ptr nocapture noundef readonly %op) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @PyUnstable_Long_IsCompact(ptr nocapture noundef readonly %op) local_unnamed_addr #6 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 16
   %op.val = load i64, ptr %0, align 8
@@ -11996,7 +11996,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @PyUnstable_Long_CompactValue(ptr nocapture noundef readonly %op) local_unnamed_addr #6 {
+define dso_local range(i64 -8589934590, 4294967296) i64 @PyUnstable_Long_CompactValue(ptr nocapture noundef readonly %op) local_unnamed_addr #6 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 16
   %op.val = load i64, ptr %0, align 8
@@ -12046,7 +12046,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %shr = ashr i64 %n.030, 1
   %inc = add i32 %bits_per_char.029, 1
   %tobool.not = icmp ult i64 %n.030, 2
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !93
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !91
 
 for.end:                                          ; preds = %for.body, %entry
   %bits_per_char.0.lcssa = phi i32 [ -1, %entry ], [ %inc, %for.body ]
@@ -12128,7 +12128,7 @@ while.cond:                                       ; preds = %while.cond.outer, %
 while.body:                                       ; preds = %while.cond
   %6 = load i8, ptr %incdec.ptr, align 1
   %cmp12 = icmp eq i8 %6, 95
-  br i1 %cmp12, label %while.cond, label %if.end15, !llvm.loop !94
+  br i1 %cmp12, label %while.cond, label %if.end15, !llvm.loop !92
 
 if.end15:                                         ; preds = %while.body
   %idxprom = zext i8 %6 to i64
@@ -12140,7 +12140,7 @@ if.end15:                                         ; preds = %while.body
   %or = or i64 %shl, %accum.0.ph
   %add20 = add i32 %bits_in_accum.0.ph, %bits_per_char.0.lcssa
   %cmp21 = icmp sgt i32 %add20, 29
-  br i1 %cmp21, label %if.then23, label %while.cond.outer, !llvm.loop !94
+  br i1 %cmp21, label %if.then23, label %while.cond.outer, !llvm.loop !92
 
 if.then23:                                        ; preds = %if.end15
   %8 = trunc i64 %or to i32
@@ -12149,7 +12149,7 @@ if.then23:                                        ; preds = %if.end15
   store i32 %conv25, ptr %pdigit.0.ph.ph, align 4
   %shr27 = lshr i64 %or, 30
   %sub28 = add nsw i32 %add20, -30
-  br label %while.cond.outer.outer, !llvm.loop !94
+  br label %while.cond.outer.outer, !llvm.loop !92
 
 while.end:                                        ; preds = %while.cond
   %tobool30.not = icmp eq i32 %bits_in_accum.0.ph, 0
@@ -12178,7 +12178,7 @@ while.body41:                                     ; preds = %if.end34, %while.bo
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %cmp39 = icmp slt i64 %sub.ptr.div, %div4
-  br i1 %cmp39, label %while.body41, label %return, !llvm.loop !95
+  br i1 %cmp39, label %while.body41, label %return, !llvm.loop !93
 
 return:                                           ; preds = %while.body41, %if.end34, %if.then7, %if.then
   %call.i.sink = phi ptr [ null, %if.then7 ], [ null, %if.then ], [ %call.i, %if.end34 ], [ %call.i, %while.body41 ]
@@ -12412,7 +12412,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then38:                                        ; preds = %while.body
   %incdec.ptr = getelementptr i8, ptr %p.0108, i64 1
   %cmp33 = icmp ult ptr %incdec.ptr, %end
-  br i1 %cmp33, label %while.body, label %return, !llvm.loop !96
+  br i1 %cmp33, label %while.body, label %return, !llvm.loop !94
 
 if.end39:                                         ; preds = %while.body
   %idxprom43 = zext i8 %12 to i64
@@ -12449,7 +12449,7 @@ for.inc:                                          ; preds = %for.body, %if.end56
   %cmp48 = icmp slt i32 %i.1, %10
   %cmp50 = icmp ne ptr %p.1, %end
   %17 = and i1 %cmp48, %cmp50
-  br i1 %17, label %for.body, label %for.end68, !llvm.loop !97
+  br i1 %17, label %for.body, label %for.end68, !llvm.loop !95
 
 for.end68:                                        ; preds = %for.inc
   %cmp69.not = icmp eq i32 %i.1, %10
@@ -12465,7 +12465,7 @@ for.body76:                                       ; preds = %for.cond73.preheade
   %mul78 = mul i64 %convmult.0120, %idxprom
   %dec = add nsw i32 %i.2121, -1
   %cmp74 = icmp ugt i32 %i.2121, 2
-  br i1 %cmp74, label %for.body76, label %if.end81, !llvm.loop !98
+  br i1 %cmp74, label %for.body76, label %if.end81, !llvm.loop !96
 
 if.end81:                                         ; preds = %for.body76, %if.end39, %for.cond73.preheader, %for.end68
   %p.1.lcssa149 = phi ptr [ %p.1, %for.end68 ], [ %p.1, %for.cond73.preheader ], [ %p.1110, %if.end39 ], [ %p.1, %for.body76 ]
@@ -12492,7 +12492,7 @@ for.body86:                                       ; preds = %if.end81, %for.body
   %shr = lshr i64 %add89, 30
   %incdec.ptr93 = getelementptr i8, ptr %pz.0124, i64 4
   %cmp84 = icmp ult ptr %incdec.ptr93, %add.ptr
-  br i1 %cmp84, label %for.body86, label %for.end94, !llvm.loop !99
+  br i1 %cmp84, label %for.body86, label %for.end94, !llvm.loop !97
 
 for.end94:                                        ; preds = %for.body86, %if.end81
   %pz.0.lcssa = phi ptr [ %ob_digit, %if.end81 ], [ %incdec.ptr93, %for.body86 ]
@@ -12608,7 +12608,7 @@ if.end122:                                        ; preds = %if.then99, %do.end,
   %z.1 = phi ptr [ %z.0.ph129, %if.then99 ], [ %call.i79, %do.end ], [ %z.0.ph129, %for.end94 ]
   %size_z.1 = phi i64 [ %size_z.0.ph131, %if.then99 ], [ %add103, %do.end ], [ %size_z.0.ph131, %for.end94 ]
   %cmp33107 = icmp ult ptr %p.1.lcssa149, %end
-  br i1 %cmp33107, label %while.body.lr.ph, label %return, !llvm.loop !96
+  br i1 %cmp33107, label %while.body.lr.ph, label %return, !llvm.loop !94
 
 return:                                           ; preds = %if.end122, %if.then38, %if.end28, %if.end.i126, %if.then1.i129, %if.then107, %if.then2.i, %if.then.i, %if.then21
   %z.0.ph.lcssa105.sink = phi ptr [ null, %if.then21 ], [ null, %if.then.i ], [ null, %if.then2.i ], [ null, %if.then107 ], [ null, %if.then1.i129 ], [ null, %if.end.i126 ], [ %call.i, %if.end28 ], [ %z.0.ph129, %if.then38 ], [ %z.1, %if.end122 ]
@@ -12620,7 +12620,7 @@ return:                                           ; preds = %if.end122, %if.then
 declare double @log(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @kmul_split(ptr nocapture noundef readonly %n, i64 noundef %size, ptr nocapture noundef writeonly %high, ptr nocapture noundef writeonly %low) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @kmul_split(ptr nocapture noundef readonly %n, i64 noundef %size, ptr nocapture noundef writeonly %high, ptr nocapture noundef writeonly %low) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %n, i64 16
   %n.val = load i64, ptr %0, align 8
@@ -12757,7 +12757,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %arrayidx.i = getelementptr [1 x i32], ptr %ob_digit.i, i64 0, i64 %sub.i
   %15 = load i32, ptr %arrayidx.i, align 4
   %cmp1.i = icmp eq i32 %15, 0
-  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !23
+  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !22
 
 while.end.i:                                      ; preds = %land.rhs.i
   %cmp2.not.i = icmp eq i64 %i.0.i, %shr.i.i
@@ -12794,7 +12794,7 @@ land.rhs.i50:                                     ; preds = %while.cond.i47
   %arrayidx.i52 = getelementptr [1 x i32], ptr %ob_digit.i35, i64 0, i64 %sub.i51
   %16 = load i32, ptr %arrayidx.i52, align 4
   %cmp1.i53 = icmp eq i32 %16, 0
-  br i1 %cmp1.i53, label %while.cond.i47, label %while.end.i54, !llvm.loop !23
+  br i1 %cmp1.i53, label %while.cond.i47, label %while.end.i54, !llvm.loop !22
 
 while.end.i54:                                    ; preds = %land.rhs.i50
   %cmp2.not.i55 = icmp eq i64 %i.0.i48, %shr.i.i45
@@ -12850,7 +12850,7 @@ for.body:                                         ; preds = %entry, %for.body
   %shr = lshr i32 %add2, 30
   %inc = add nuw nsw i64 %i.020, 1
   %exitcond.not = icmp eq i64 %inc, %n
-  br i1 %exitcond.not, label %for.cond4.preheader, label %for.body, !llvm.loop !78
+  br i1 %exitcond.not, label %for.cond4.preheader, label %for.body, !llvm.loop !76
 
 for.body6:                                        ; preds = %for.cond4.preheader, %for.body6
   %carry.126 = phi i32 [ %shr11, %for.body6 ], [ %shr, %for.cond4.preheader ]
@@ -12865,7 +12865,7 @@ for.body6:                                        ; preds = %for.cond4.preheader
   %tobool = icmp ugt i32 %add8, 1073741823
   %cmp5 = icmp slt i64 %inc13, %m
   %4 = select i1 %tobool, i1 %cmp5, i1 false
-  br i1 %4, label %for.body6, label %for.end14, !llvm.loop !79
+  br i1 %4, label %for.body6, label %for.end14, !llvm.loop !77
 
 for.end14:                                        ; preds = %for.body6, %entry, %for.cond4.preheader
   ret void
@@ -12920,7 +12920,7 @@ if.end5.i:                                        ; preds = %if.then.i, %entry.i
   %cmp.i13.i = icmp eq i64 %and.i12.pre-phi.i, 2
   %conv8.i = zext i1 %cmp.i13.i to i32
   %ob_digit.i = getelementptr inbounds i8, ptr %v, i64 24
-  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i, i64 noundef %shr.i.i, ptr noundef nonnull %ob_digit.i)
+  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i, i64 noundef %shr.i.i, ptr noundef nonnull readonly %ob_digit.i)
   br label %return
 
 return:                                           ; preds = %if.end5.i, %if.then3.i, %if.end.i.i, %if.then
@@ -13059,7 +13059,7 @@ if.end6:                                          ; preds = %if.end.i.i.i113, %i
   %arrayidx = getelementptr [1 x i32], ptr %ob_digit, i64 0, i64 %sub
   %16 = load i32, ptr %arrayidx, align 4
   %cmp.not.i.i = icmp eq i32 %16, 0
-  %17 = tail call i32 @llvm.ctlz.i32(i32 %16, i1 true), !range !20
+  %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 true)
   %18 = add nsw i32 %17, -2
   %sub8 = select i1 %cmp.not.i.i, i32 30, i32 %18
   br i1 %tobool.not.i, label %v_lshift.exit, label %for.body.lr.ph.i
@@ -13084,7 +13084,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %shr.i121 = lshr i64 %or.i, 30
   %inc.i = add nuw nsw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %shr.i98
-  br i1 %exitcond.not.i, label %v_lshift.exit, label %for.body.i, !llvm.loop !63
+  br i1 %exitcond.not.i, label %v_lshift.exit, label %for.body.i, !llvm.loop !61
 
 v_lshift.exit:                                    ; preds = %for.body.i, %if.end6
   %ob_digit19 = getelementptr inbounds i8, ptr %v1, i64 24
@@ -13111,7 +13111,7 @@ for.body.i126:                                    ; preds = %for.body.i126, %for
   %shr.i137 = lshr i64 %or.i133, 30
   %inc.i138 = add nuw nsw i64 %i.08.i127, 1
   %exitcond.not.i139 = icmp eq i64 %inc.i138, %shr.i
-  br i1 %exitcond.not.i139, label %v_lshift.exit142, label %for.body.i126, !llvm.loop !63
+  br i1 %exitcond.not.i139, label %v_lshift.exit142, label %for.body.i126, !llvm.loop !61
 
 v_lshift.exit142:                                 ; preds = %for.body.i126
   %conv4.i141 = trunc i64 %shr.i137 to i32
@@ -13328,7 +13328,7 @@ while.body:                                       ; preds = %while.cond
   %dec = add i32 %q.0, -1
   %add78 = add i32 %r.0, %33
   %cmp79 = icmp ugt i32 %add78, 1073741823
-  br i1 %cmp79, label %while.end, label %while.cond, !llvm.loop !100
+  br i1 %cmp79, label %while.end, label %while.cond, !llvm.loop !98
 
 while.end:                                        ; preds = %while.body, %while.cond
   %q.1 = phi i32 [ %dec, %while.body ], [ %q.0, %while.cond ]
@@ -13357,7 +13357,7 @@ for.body86:                                       ; preds = %for.body86.lr.ph, %
   %conv97 = trunc i64 %shr to i32
   %inc98 = add nuw nsw i64 %i.0222, 1
   %exitcond.not = icmp eq i64 %inc98, %shr.i98
-  br i1 %exitcond.not, label %for.end, label %for.body86, !llvm.loop !101
+  br i1 %exitcond.not, label %for.end, label %for.body86, !llvm.loop !99
 
 for.end:                                          ; preds = %for.body86
   %add99 = add i32 %41, %conv97
@@ -13385,7 +13385,7 @@ for.body106:                                      ; preds = %for.cond103.prehead
   %shr113 = lshr i32 %add110, 30
   %inc115 = add nuw nsw i64 %i.1226, 1
   %exitcond233.not = icmp eq i64 %inc115, %shr.i98
-  br i1 %exitcond233.not, label %for.end116, label %for.body106, !llvm.loop !102
+  br i1 %exitcond233.not, label %for.end116, label %for.body106, !llvm.loop !100
 
 for.end116:                                       ; preds = %for.body106, %for.end.thread, %for.cond103.preheader
   %dec117 = add i32 %q.1, -1
@@ -13396,7 +13396,7 @@ if.end118:                                        ; preds = %for.end.thread, %fo
   %incdec.ptr119 = getelementptr i8, ptr %ak.0229, i64 -4
   store i32 %q.2, ptr %incdec.ptr119, align 4
   %cmp56 = icmp ugt ptr %incdec.ptr230, %ob_digit.i
-  br i1 %cmp56, label %do.body, label %for.end120, !llvm.loop !103
+  br i1 %cmp56, label %do.body, label %for.end120, !llvm.loop !101
 
 for.end120:                                       ; preds = %if.end118, %if.end41
   %notmask.i = shl nsw i32 -1, %sub8
@@ -13424,7 +13424,7 @@ for.body.i171:                                    ; preds = %for.body.i171, %for
   %arrayidx5.i = getelementptr i32, ptr %ob_digit.i115, i64 %dec.i174
   store i32 %conv4.i181, ptr %arrayidx5.i, align 4
   %cmp.i182 = icmp ugt i64 %i.08.i172, 1
-  br i1 %cmp.i182, label %for.body.i171, label %v_rshift.exit, !llvm.loop !64
+  br i1 %cmp.i182, label %for.body.i171, label %v_rshift.exit, !llvm.loop !62
 
 v_rshift.exit:                                    ; preds = %for.body.i171, %for.end120
   %49 = load i64, ptr %call.i, align 8
@@ -13457,7 +13457,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %arrayidx.i185 = getelementptr [1 x i32], ptr %ob_digit.i115, i64 0, i64 %sub.i184
   %51 = load i32, ptr %arrayidx.i185, align 4
   %cmp1.i = icmp eq i32 %51, 0
-  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !23
+  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !22
 
 while.end.i:                                      ; preds = %land.rhs.i
   %cmp2.not.i = icmp eq i64 %i.0.i, %shr.i.i
@@ -13494,7 +13494,7 @@ land.rhs.i194:                                    ; preds = %while.cond.i191
   %arrayidx.i196 = getelementptr [1 x i32], ptr %ob_digit.i161, i64 0, i64 %sub.i195
   %52 = load i32, ptr %arrayidx.i196, align 4
   %cmp1.i197 = icmp eq i32 %52, 0
-  br i1 %cmp1.i197, label %while.cond.i191, label %while.end.i198, !llvm.loop !23
+  br i1 %cmp1.i197, label %while.cond.i191, label %while.end.i198, !llvm.loop !22
 
 while.end.i198:                                   ; preds = %land.rhs.i194
   %cmp2.not.i199 = icmp eq i64 %i.0.i192, %shr.i.i189
@@ -13597,7 +13597,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %arrayidx6.i = getelementptr i32, ptr %ob_digit.i, i64 %dec.i
   store i32 %conv3.i, ptr %arrayidx6.i, align 4
   %cmp.i5 = icmp ugt i64 %size.addr.08.i, 1
-  br i1 %cmp.i5, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !104
+  br i1 %cmp.i5, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !102
 
 while.end.loopexit.i:                             ; preds = %while.body.i
   %conv5.i = trunc nuw i64 %rem.i to i32
@@ -13620,7 +13620,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %arrayidx.i7 = getelementptr [1 x i32], ptr %ob_digit.i, i64 0, i64 %sub.i
   %8 = load i32, ptr %arrayidx.i7, align 4
   %cmp1.i = icmp eq i32 %8, 0
-  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !23
+  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !22
 
 while.end.i:                                      ; preds = %land.rhs.i
   %cmp2.not.i = icmp eq i64 %i.0.i, %shr.i.i
@@ -13647,7 +13647,7 @@ return:                                           ; preds = %if.then2.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @divmod_shift(ptr noundef %shiftby, ptr nocapture noundef %wordshift, ptr nocapture noundef writeonly %remshift) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @divmod_shift(ptr noundef %shiftby, ptr nocapture noundef %wordshift, ptr nocapture noundef writeonly %remshift) unnamed_addr #0 {
 entry:
   %call = tail call i64 @PyLong_AsSsize_t(ptr noundef %shiftby)
   %cmp = icmp sgt i64 %call, -1
@@ -13835,7 +13835,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool4.not, label %return, label %do.end
 
 do.end:                                           ; preds = %lor.lhs.false
-  %call5 = call fastcc i32 @l_mod(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull %mod), !range !32
+  %call5 = call fastcc i32 @l_mod(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull %mod)
   %cmp = icmp slt i32 %call5, 0
   %.pre = load ptr, ptr %mod, align 8
   %spec.select = select i1 %cmp, ptr null, ptr %.pre
@@ -13869,7 +13869,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool4.not, label %return, label %do.end
 
 do.end:                                           ; preds = %lor.lhs.false
-  %call5 = call fastcc i32 @l_divmod(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull %div, ptr noundef nonnull %mod), !range !32
+  %call5 = call fastcc i32 @l_divmod(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull %div, ptr noundef nonnull %mod)
   %cmp = icmp slt i32 %call5, 0
   br i1 %cmp, label %return, label %if.end7
 
@@ -14105,7 +14105,7 @@ if.then3.i:                                       ; preds = %if.then.i
 if.end5.i:                                        ; preds = %if.then27, %if.then.i
   %shr.i.i = lshr i64 %.val200, 3
   %ob_digit.i = getelementptr inbounds i8, ptr %x, i64 24
-  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i.i, ptr noundef nonnull %ob_digit.i)
+  %call9.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i.i, ptr noundef nonnull readonly %ob_digit.i)
   br label %_PyLong_Copy.exit
 
 _PyLong_Copy.exit:                                ; preds = %if.then3.i, %if.end5.i
@@ -14218,7 +14218,7 @@ if.then3.i644:                                    ; preds = %if.then.i634
 if.end5.i639:                                     ; preds = %if.then46, %if.then.i634
   %shr.i.i640 = lshr i64 %.val197, 3
   %ob_digit.i641 = getelementptr inbounds i8, ptr %w, i64 24
-  %call9.i642 = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i.i640, ptr noundef nonnull %ob_digit.i641)
+  %call9.i642 = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i.i640, ptr noundef nonnull readonly %ob_digit.i641)
   br label %_PyLong_Copy.exit646
 
 _PyLong_Copy.exit646:                             ; preds = %if.then3.i644, %if.end5.i639
@@ -14294,7 +14294,7 @@ lor.lhs.false68:                                  ; preds = %if.end66
   br i1 %cmp71, label %if.then72, label %if.end86
 
 if.then72:                                        ; preds = %lor.lhs.false68, %if.end66
-  %call73 = call fastcc i32 @l_mod(ptr noundef nonnull %a.0, ptr noundef nonnull %c.1, ptr noundef nonnull %temp), !range !32
+  %call73 = call fastcc i32 @l_mod(ptr noundef nonnull %a.0, ptr noundef nonnull %c.1, ptr noundef nonnull %temp)
   %cmp74 = icmp slt i32 %call73, 0
   br i1 %cmp74, label %for.end486, label %do.body77
 
@@ -14376,7 +14376,7 @@ Py_XDECREF.exit:                                  ; preds = %if.end102, %if.end.
   br i1 %cmp104.not, label %do.end112, label %if.then105
 
 if.then105:                                       ; preds = %Py_XDECREF.exit
-  %call106 = call fastcc i32 @l_mod(ptr noundef nonnull %call99, ptr noundef nonnull %.fr, ptr noundef nonnull %temp), !range !32
+  %call106 = call fastcc i32 @l_mod(ptr noundef nonnull %call99, ptr noundef nonnull %.fr, ptr noundef nonnull %temp)
   %cmp107 = icmp slt i32 %call106, 0
   br i1 %cmp107, label %if.then476, label %if.then.i647
 
@@ -14418,7 +14418,7 @@ if.end119:                                        ; preds = %do.body115
   br i1 %cmp104.not, label %if.end457, label %if.then122
 
 if.then122:                                       ; preds = %if.end119
-  %call123 = call fastcc i32 @l_mod(ptr noundef nonnull %call116, ptr noundef nonnull %.fr, ptr noundef nonnull %temp), !range !32
+  %call123 = call fastcc i32 @l_mod(ptr noundef nonnull %call116, ptr noundef nonnull %.fr, ptr noundef nonnull %temp)
   %cmp124 = icmp slt i32 %call123, 0
   br i1 %cmp124, label %if.then476, label %if.then.i656
 
@@ -14475,7 +14475,7 @@ Py_XDECREF.exit250:                               ; preds = %if.end138, %if.end.
   br i1 %cmp140.not, label %if.end457, label %if.then141
 
 if.then141:                                       ; preds = %Py_XDECREF.exit250
-  %call142 = call fastcc i32 @l_mod(ptr noundef nonnull %call135, ptr noundef nonnull %.fr, ptr noundef nonnull %temp), !range !32
+  %call142 = call fastcc i32 @l_mod(ptr noundef nonnull %call135, ptr noundef nonnull %.fr, ptr noundef nonnull %temp)
   %cmp143 = icmp slt i32 %call142, 0
   br i1 %cmp143, label %if.then476, label %if.then.i665
 
@@ -14597,7 +14597,7 @@ Py_XDECREF.exit263:                               ; preds = %if.then.i256, %if.e
   br i1 %cmp172.not, label %do.end180, label %if.then173
 
 if.then173:                                       ; preds = %Py_XDECREF.exit263
-  %call174 = call fastcc i32 @l_mod(ptr noundef %75, ptr noundef nonnull %.fr, ptr noundef nonnull %temp), !range !32
+  %call174 = call fastcc i32 @l_mod(ptr noundef %75, ptr noundef nonnull %.fr, ptr noundef nonnull %temp)
   %cmp175 = icmp slt i32 %call174, 0
   br i1 %cmp175, label %do.body472, label %if.end177
 
@@ -14677,7 +14677,7 @@ Py_XDECREF.exit292:                               ; preds = %if.then.i285, %if.e
   br i1 %cmp172.not, label %for.inc199, label %if.then190
 
 if.then190:                                       ; preds = %Py_XDECREF.exit292
-  %call191 = call fastcc i32 @l_mod(ptr noundef nonnull %retval.0.i282416, ptr noundef nonnull %.fr, ptr noundef nonnull %temp), !range !32
+  %call191 = call fastcc i32 @l_mod(ptr noundef nonnull %retval.0.i282416, ptr noundef nonnull %.fr, ptr noundef nonnull %temp)
   %cmp192 = icmp slt i32 %call191, 0
   br i1 %cmp192, label %if.then476, label %if.then.i294
 
@@ -14706,7 +14706,7 @@ for.inc199:                                       ; preds = %do.end180, %Py_XDEC
   %z.4 = phi ptr [ %88, %Py_XDECREF.exit301 ], [ %retval.0.i282416, %Py_XDECREF.exit292 ], [ %z.3, %do.end180 ]
   %shr200 = lshr i32 %bit.2533, 1
   %cmp165.not = icmp ult i32 %bit.2533, 2
-  br i1 %cmp165.not, label %for.end201, label %do.body166, !llvm.loop !105
+  br i1 %cmp165.not, label %for.end201, label %do.body166, !llvm.loop !103
 
 for.end201:                                       ; preds = %for.inc199, %for.cond163
   %z.2.lcssa = phi ptr [ %z.1, %for.cond163 ], [ %z.4, %for.inc199 ]
@@ -14738,7 +14738,7 @@ if.end217:                                        ; preds = %_Py_NewRef.exit305
   br i1 %cmp219.not, label %do.end227, label %if.then220
 
 if.then220:                                       ; preds = %if.end217
-  %call221 = call fastcc i32 @l_mod(ptr noundef nonnull %call214, ptr noundef nonnull %.fr, ptr noundef nonnull %temp), !range !32
+  %call221 = call fastcc i32 @l_mod(ptr noundef nonnull %call214, ptr noundef nonnull %.fr, ptr noundef nonnull %temp)
   %cmp222 = icmp slt i32 %call221, 0
   br i1 %cmp222, label %if.then476, label %if.then.i674
 
@@ -14802,7 +14802,7 @@ Py_XDECREF.exit326:                               ; preds = %for.body230, %lor.l
   br i1 %cmp219.not, label %do.end253, label %if.then243
 
 if.then243:                                       ; preds = %Py_XDECREF.exit326
-  %call245 = call fastcc i32 @l_mod(ptr noundef nonnull %retval.0.i316419, ptr noundef nonnull %.fr, ptr noundef nonnull %temp), !range !32
+  %call245 = call fastcc i32 @l_mod(ptr noundef nonnull %retval.0.i316419, ptr noundef nonnull %.fr, ptr noundef nonnull %temp)
   %cmp246 = icmp slt i32 %call245, 0
   br i1 %cmp246, label %if.then476, label %if.then.i328
 
@@ -14832,7 +14832,7 @@ do.end253:                                        ; preds = %Py_XDECREF.exit335,
   %104 = phi ptr [ %103, %Py_XDECREF.exit335 ], [ %retval.0.i316419, %Py_XDECREF.exit326 ]
   %inc255 = add nuw nsw i64 %i.1495, 1
   %exitcond.not = icmp eq i64 %inc255, 16
-  br i1 %exitcond.not, label %do.body257, label %for.body230, !llvm.loop !106
+  br i1 %exitcond.not, label %do.body257, label %for.body230, !llvm.loop !104
 
 do.body257:                                       ; preds = %do.end253
   %cmp258.not = icmp eq ptr %a2.0, null
@@ -14867,7 +14867,7 @@ do.end261:                                        ; preds = %do.body257, %if.the
 
 for.cond264.loopexit:                             ; preds = %for.inc371
   %cmp265 = icmp sgt i64 %i.2516.in, 1
-  br i1 %cmp265, label %for.body266, label %for.end376, !llvm.loop !107
+  br i1 %cmp265, label %for.body266, label %for.end376, !llvm.loop !105
 
 for.body266:                                      ; preds = %do.end261, %for.cond264.loopexit
   %109 = phi ptr [ %135, %for.cond264.loopexit ], [ %.fr, %do.end261 ]
@@ -14914,7 +14914,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %shr287 = ashr exact i32 %pending.2498, 1
   %115 = and i32 %pending.2498, 2
   %cmp285 = icmp eq i32 %115, 0
-  br i1 %cmp285, label %while.body, label %while.end, !llvm.loop !108
+  br i1 %cmp285, label %while.body, label %while.end, !llvm.loop !106
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %pending.2.lcssa = phi i32 [ %or, %while.cond.preheader ], [ %shr287, %while.body ]
@@ -14965,7 +14965,7 @@ Py_XDECREF.exit359:                               ; preds = %if.then.i352, %if.e
   br i1 %cmp219.not, label %do.cond, label %if.then297
 
 if.then297:                                       ; preds = %Py_XDECREF.exit359
-  %call298 = call fastcc i32 @l_mod(ptr noundef %121, ptr noundef nonnull %.fr, ptr noundef nonnull %temp), !range !32
+  %call298 = call fastcc i32 @l_mod(ptr noundef %121, ptr noundef nonnull %.fr, ptr noundef nonnull %temp)
   %cmp299 = icmp slt i32 %call298, 0
   br i1 %cmp299, label %do.body472, label %if.end301
 
@@ -14979,7 +14979,7 @@ do.cond:                                          ; preds = %Py_XDECREF.exit359,
   %z.8 = phi ptr [ %122, %if.end301 ], [ %121, %Py_XDECREF.exit359 ]
   %dec305 = add i32 %blen.2, -1
   %tobool306.not = icmp eq i32 %dec305, 0
-  br i1 %tobool306.not, label %do.body308, label %do.body289, !llvm.loop !109
+  br i1 %tobool306.not, label %do.body308, label %do.body289, !llvm.loop !107
 
 do.body308:                                       ; preds = %do.cond
   %shr309 = ashr i32 %pending.2.lcssa, 1
@@ -14997,7 +14997,7 @@ if.end314:                                        ; preds = %do.body308
   br i1 %cmp219.not, label %do.end326.thread, label %if.then317
 
 if.then317:                                       ; preds = %if.end314
-  %call318 = call fastcc i32 @l_mod(ptr noundef nonnull %call311, ptr noundef nonnull %.fr, ptr noundef nonnull %temp), !range !32
+  %call318 = call fastcc i32 @l_mod(ptr noundef nonnull %call311, ptr noundef nonnull %.fr, ptr noundef nonnull %temp)
   %cmp319 = icmp slt i32 %call318, 0
   br i1 %cmp319, label %if.then476, label %if.then.i683
 
@@ -15053,7 +15053,7 @@ if.then1.i.i698:                                  ; preds = %if.end.i.i695
 
 Py_XDECREF.exit699:                               ; preds = %if.then.i692, %if.end.i.i695, %if.then1.i.i698
   %cmp329.us = icmp ugt i32 %dec328504.us.in, 1
-  br i1 %cmp329.us, label %do.body331.us, label %while.cond327.for.inc371.loopexit_crit_edge.split.us, !llvm.loop !110
+  br i1 %cmp329.us, label %do.body331.us, label %while.cond327.for.inc371.loopexit_crit_edge.split.us, !llvm.loop !108
 
 do.body472.thread:                                ; preds = %do.body331.us
   store ptr null, ptr %temp, align 8
@@ -15075,7 +15075,7 @@ do.body331:                                       ; preds = %Py_XDECREF.exit690,
 if.end335:                                        ; preds = %do.body331
   tail call fastcc void @Py_XDECREF(ptr noundef %z.10503)
   store ptr null, ptr %temp, align 8
-  %call339 = call fastcc i32 @l_mod(ptr noundef nonnull %call332, ptr noundef nonnull %.fr, ptr noundef nonnull %temp), !range !32
+  %call339 = call fastcc i32 @l_mod(ptr noundef nonnull %call332, ptr noundef nonnull %.fr, ptr noundef nonnull %temp)
   %cmp340 = icmp slt i32 %call339, 0
   br i1 %cmp340, label %if.then476, label %if.then.i701
 
@@ -15099,7 +15099,7 @@ Py_XDECREF.exit708:                               ; preds = %if.then.i701, %if.e
   %131 = load ptr, ptr %temp, align 8
   store ptr null, ptr %temp, align 8
   %cmp329 = icmp ugt i32 %dec328504.in, 1
-  br i1 %cmp329, label %do.body331, label %for.inc371, !llvm.loop !110
+  br i1 %cmp329, label %do.body331, label %for.inc371, !llvm.loop !108
 
 do.body353:                                       ; preds = %for.body273
   %call354 = tail call ptr @long_mul(ptr noundef %z.6507, ptr noundef %z.6507)
@@ -15114,7 +15114,7 @@ if.end357:                                        ; preds = %do.body353
   br i1 %cmp359.not, label %for.inc371, label %if.then360
 
 if.then360:                                       ; preds = %if.end357
-  %call361 = call fastcc i32 @l_mod(ptr noundef nonnull %call354, ptr noundef nonnull %114, ptr noundef nonnull %temp), !range !32
+  %call361 = call fastcc i32 @l_mod(ptr noundef nonnull %call354, ptr noundef nonnull %114, ptr noundef nonnull %temp)
   %cmp362 = icmp slt i32 %call361, 0
   br i1 %cmp362, label %if.then476, label %if.then.i710
 
@@ -15147,7 +15147,7 @@ for.inc371:                                       ; preds = %Py_XDECREF.exit708,
   %blen.3 = phi i32 [ %inc280, %if.then279 ], [ %blen.1509, %Py_XDECREF.exit717 ], [ %blen.1509, %if.end357 ], [ 0, %Py_XDECREF.exit690 ], [ 0, %while.cond327.for.inc371.loopexit_crit_edge.split.us ], [ 0, %do.end326.thread ], [ 0, %Py_XDECREF.exit708 ]
   %dec372 = add nsw i64 %j.0510, -1
   %cmp272.not = icmp eq i64 %j.0510, 0
-  br i1 %cmp272.not, label %for.cond264.loopexit, label %for.body273, !llvm.loop !111
+  br i1 %cmp272.not, label %for.cond264.loopexit, label %for.body273, !llvm.loop !109
 
 for.end376:                                       ; preds = %for.cond264.loopexit
   %tobool377.not = icmp eq i32 %pending.3, 0
@@ -15165,7 +15165,7 @@ while.body384:                                    ; preds = %while.cond381.prehe
   %shr386 = ashr exact i32 %pending.4522, 1
   %137 = and i32 %pending.4522, 2
   %cmp383 = icmp eq i32 %137, 0
-  br i1 %cmp383, label %while.body384, label %while.end387, !llvm.loop !112
+  br i1 %cmp383, label %while.body384, label %while.end387, !llvm.loop !110
 
 while.end387:                                     ; preds = %while.body384, %while.cond381.preheader
   %pending.4.lcssa = phi i32 [ %pending.3, %while.cond381.preheader ], [ %shr386, %while.body384 ]
@@ -15188,7 +15188,7 @@ if.end394:                                        ; preds = %do.body389
   br i1 %cmp396.not, label %do.cond407, label %if.then397
 
 if.then397:                                       ; preds = %if.end394
-  %call398 = call fastcc i32 @l_mod(ptr noundef nonnull %call391, ptr noundef nonnull %135, ptr noundef nonnull %temp), !range !32
+  %call398 = call fastcc i32 @l_mod(ptr noundef nonnull %call391, ptr noundef nonnull %135, ptr noundef nonnull %temp)
   %cmp399 = icmp slt i32 %call398, 0
   br i1 %cmp399, label %if.then476, label %if.then.i719
 
@@ -15217,7 +15217,7 @@ do.cond407:                                       ; preds = %if.end394, %Py_XDEC
   %z.14 = phi ptr [ %140, %Py_XDECREF.exit726 ], [ %call391, %if.end394 ]
   %dec408 = add i32 %blen.4, -1
   %tobool409.not = icmp eq i32 %dec408, 0
-  br i1 %tobool409.not, label %do.body411, label %do.body389, !llvm.loop !113
+  br i1 %tobool409.not, label %do.body411, label %do.body389, !llvm.loop !111
 
 do.body411:                                       ; preds = %do.cond407
   %shr412 = ashr i32 %pending.4.lcssa, 1
@@ -15235,7 +15235,7 @@ if.end418:                                        ; preds = %do.body411
   br i1 %cmp396.not, label %do.end430, label %if.then421
 
 if.then421:                                       ; preds = %if.end418
-  %call422 = call fastcc i32 @l_mod(ptr noundef nonnull %call415, ptr noundef nonnull %135, ptr noundef nonnull %temp), !range !32
+  %call422 = call fastcc i32 @l_mod(ptr noundef nonnull %call415, ptr noundef nonnull %135, ptr noundef nonnull %temp)
   %cmp423 = icmp slt i32 %call422, 0
   br i1 %cmp423, label %if.then476, label %if.then.i728
 
@@ -15280,7 +15280,7 @@ if.end439:                                        ; preds = %do.body435
   br i1 %cmp396.not, label %do.end451, label %if.then442
 
 if.then442:                                       ; preds = %if.end439
-  %call443 = call fastcc i32 @l_mod(ptr noundef nonnull %call436, ptr noundef nonnull %135, ptr noundef nonnull %temp), !range !32
+  %call443 = call fastcc i32 @l_mod(ptr noundef nonnull %call436, ptr noundef nonnull %135, ptr noundef nonnull %temp)
   %cmp444 = icmp slt i32 %call443, 0
   br i1 %cmp444, label %if.then476, label %if.then.i737
 
@@ -15308,7 +15308,7 @@ Py_XDECREF.exit744:                               ; preds = %if.then.i737, %if.e
 do.end451:                                        ; preds = %Py_XDECREF.exit744, %if.end439
   %z.17 = phi ptr [ %147, %Py_XDECREF.exit744 ], [ %call436, %if.end439 ]
   %cmp433 = icmp ugt i32 %dec432529.in, 1
-  br i1 %cmp433, label %do.body435, label %if.end457, !llvm.loop !114
+  br i1 %cmp433, label %do.body435, label %if.end457, !llvm.loop !112
 
 if.end457:                                        ; preds = %do.end451, %for.end201, %do.end261, %do.end430, %if.end86, %for.end376, %if.end119, %Py_XDECREF.exit663, %do.end112, %Py_XDECREF.exit250, %Py_XDECREF.exit672, %if.else131
   %z.18 = phi ptr [ %59, %Py_XDECREF.exit663 ], [ %call116, %if.end119 ], [ %z.0, %do.end112 ], [ %64, %Py_XDECREF.exit672 ], [ %call135, %Py_XDECREF.exit250 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6), %if.else131 ], [ %z.12, %for.end376 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6), %if.end86 ], [ %z.15, %do.end430 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6), %do.end261 ], [ %z.2.lcssa, %for.end201 ], [ %z.17, %do.end451 ]
@@ -15403,7 +15403,7 @@ if.then1.i502:                                    ; preds = %if.end.i499
 for.inc484:                                       ; preds = %if.end.i499, %if.then1.i502, %for.body482
   %inc485 = add nuw nsw i64 %i.3536, 1
   %exitcond563.not = icmp eq i64 %inc485, %num_table_entries.3
-  br i1 %exitcond563.not, label %for.end486, label %for.body482, !llvm.loop !115
+  br i1 %exitcond563.not, label %for.end486, label %for.body482, !llvm.loop !113
 
 for.end486:                                       ; preds = %for.inc484, %if.then72, %if.end57, %do.end54, %_PyLong_Copy.exit646, %_PyLong_Negate.exit, %_PyLong_Copy.exit, %if.then24, %land.lhs.true40, %Done
   %c.3 = phi ptr [ %.fr, %Done ], [ %c.1, %_PyLong_Copy.exit646 ], [ %c.1, %do.end54 ], [ %c.1, %if.end57 ], [ %c.1, %if.then72 ], [ %c.1, %land.lhs.true40 ], [ %x, %_PyLong_Copy.exit ], [ null, %_PyLong_Negate.exit ], [ %x, %if.then24 ], [ %.fr, %for.inc484 ]
@@ -15509,7 +15509,7 @@ return:                                           ; preds = %if.then1.i.i387, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @long_bool(ptr nocapture noundef readonly %v) #6 {
+define internal range(i32 0, 2) i32 @long_bool(ptr nocapture noundef readonly %v) #6 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 16
   %v.val = load i64, ptr %0, align 8
@@ -15556,7 +15556,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %tobool4.not.i, label %if.end6, label %long_add.exit
 
 long_add.exit:                                    ; preds = %lor.lhs.false.i
-  %call5.i = tail call ptr @_PyLong_Add(ptr noundef nonnull %v, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6))
+  %call5.i = tail call ptr @_PyLong_Add(ptr noundef nonnull readonly %v, ptr noundef nonnull readonly getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6))
   %cmp = icmp eq ptr %call5.i, null
   br i1 %cmp, label %return, label %if.end6
 
@@ -15647,7 +15647,7 @@ if.end7:                                          ; preds = %do.end
   br i1 %cmp.i13, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %call12 = call fastcc i32 @divmod_shift(ptr noundef nonnull %b, ptr noundef nonnull %wordshift, ptr noundef nonnull %remshift), !range !32
+  %call12 = call fastcc i32 @divmod_shift(ptr noundef nonnull %b, ptr noundef nonnull %wordshift, ptr noundef nonnull %remshift)
   %cmp = icmp slt i32 %call12, 0
   br i1 %cmp, label %return, label %if.end14
 
@@ -15919,7 +15919,7 @@ fast_floor_div.exit:                              ; preds = %if.then.i, %if.else
   br label %return
 
 if.end10:                                         ; preds = %land.lhs.true, %do.end
-  %call11 = call fastcc i32 @l_divmod(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull %div, ptr noundef null), !range !32
+  %call11 = call fastcc i32 @l_divmod(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef nonnull %div, ptr noundef null)
   %cmp12 = icmp slt i32 %call11, 0
   %.pre = load ptr, ptr %div, align 8
   %spec.select = select i1 %cmp12, ptr null, ptr %.pre
@@ -16023,7 +16023,7 @@ while.body:                                       ; preds = %if.then42, %while.b
   %conv53 = uitofp i32 %15 to double
   %16 = tail call double @llvm.fmuladd.f64(double %da.0182, double 0x41D0000000000000, double %conv53)
   %cmp47 = icmp ugt i64 %a_size.0183, 1
-  br i1 %cmp47, label %while.body, label %while.end, !llvm.loop !116
+  br i1 %cmp47, label %while.body, label %while.end, !llvm.loop !114
 
 while.end:                                        ; preds = %while.body, %if.then42
   %da.0.lcssa = phi double [ %conv46, %if.then42 ], [ %16, %while.body ]
@@ -16044,7 +16044,7 @@ while.body62:                                     ; preds = %while.end, %while.b
   %conv67 = uitofp i32 %18 to double
   %19 = tail call double @llvm.fmuladd.f64(double %db.0185, double 0x41D0000000000000, double %conv67)
   %cmp60 = icmp sgt i64 %b_size.0186, 1
-  br i1 %cmp60, label %while.body62, label %while.end68, !llvm.loop !117
+  br i1 %cmp60, label %while.body62, label %while.end68, !llvm.loop !115
 
 while.end68:                                      ; preds = %while.body62, %while.end
   %db.0.lcssa = phi double [ %conv58, %while.end ], [ %19, %while.body62 ]
@@ -16067,7 +16067,7 @@ if.end77:                                         ; preds = %if.else
   %arrayidx81 = getelementptr [1 x i32], ptr %ob_digit79, i64 0, i64 %sub80
   %20 = load i32, ptr %arrayidx81, align 4
   %cmp.not.i.i = icmp eq i32 %20, 0
-  %21 = tail call i32 @llvm.ctlz.i32(i32 %20, i1 true), !range !20
+  %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
   %sub.i.i = sub nuw nsw i32 32, %21
   %retval.0.i.i = select i1 %cmp.not.i.i, i32 0, i32 %sub.i.i
   %conv83 = zext nneg i32 %retval.0.i.i to i64
@@ -16077,7 +16077,7 @@ if.end77:                                         ; preds = %if.else
   %arrayidx87 = getelementptr [1 x i32], ptr %ob_digit85, i64 0, i64 %sub86
   %22 = load i32, ptr %arrayidx87, align 4
   %cmp.not.i.i131 = icmp eq i32 %22, 0
-  %23 = tail call i32 @llvm.ctlz.i32(i32 %22, i1 true), !range !20
+  %23 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %22, i1 true)
   %sub.i.i132 = sub nuw nsw i32 32, %23
   %retval.0.i.i133 = select i1 %cmp.not.i.i131, i32 0, i32 %sub.i.i132
   %conv89 = zext nneg i32 %retval.0.i.i133 to i64
@@ -16138,7 +16138,7 @@ for.body.i:                                       ; preds = %for.end, %for.body.
   %shr.i136 = lshr i64 %or.i, 30
   %inc.i = add nuw nsw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %shr.i
-  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !63
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !61
 
 for.end.loopexit.i:                               ; preds = %for.body.i
   %conv4.i = trunc nuw nsw i64 %shr.i136 to i32
@@ -16185,7 +16185,7 @@ for.body.i141:                                    ; preds = %if.end148, %for.bod
   %arrayidx5.i = getelementptr i32, ptr %ob_digit150, i64 %dec.i144
   store i32 %conv4.i151, ptr %arrayidx5.i, align 4
   %cmp.i152 = icmp ugt i64 %i.08.i142, 1
-  br i1 %cmp.i152, label %for.body.i141, label %v_rshift.exit, !llvm.loop !64
+  br i1 %cmp.i152, label %for.body.i141, label %v_rshift.exit, !llvm.loop !62
 
 v_rshift.exit:                                    ; preds = %for.body.i141
   %tobool160.not = icmp eq i32 %and.i149.fr, 0
@@ -16203,7 +16203,7 @@ while.body169:                                    ; preds = %27, %while.body169
   %tobool174.not = icmp ne i32 %28, 0
   %cmp166 = icmp slt i64 %shift_digits140.0191, 2
   %.not = or i1 %cmp166, %tobool174.not
-  br i1 %.not, label %if.end178.loopexit, label %while.body169, !llvm.loop !118
+  br i1 %.not, label %if.end178.loopexit, label %while.body169, !llvm.loop !116
 
 if.end178.loopexit:                               ; preds = %while.body169
   %spec.select114 = zext i1 %tobool174.not to i32
@@ -16252,7 +16252,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %rem.i.fr = freeze i64 %rem.i
   store i32 %conv3.i164, ptr %arrayidx.i161, align 4
   %cmp.i165 = icmp ugt i64 %size.addr.08.i, 1
-  br i1 %cmp.i165, label %while.body.i, label %inplace_divrem1.exit, !llvm.loop !104
+  br i1 %cmp.i165, label %while.body.i, label %inplace_divrem1.exit, !llvm.loop !102
 
 inplace_divrem1.exit:                             ; preds = %while.body.i
   %call195 = tail call fastcc ptr @long_normalize(ptr noundef nonnull %x.0)
@@ -16317,7 +16317,7 @@ if.end212:                                        ; preds = %32, %inplace_divrem
   %arrayidx219 = getelementptr [1 x i32], ptr %ob_digit217, i64 0, i64 %sub214
   %40 = load i32, ptr %arrayidx219, align 4
   %cmp.not.i.i169 = icmp eq i32 %40, 0
-  %41 = tail call i32 @llvm.ctlz.i32(i32 %40, i1 true), !range !20
+  %41 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %40, i1 true)
   %sub.i.i170 = sub nuw nsw i32 32, %41
   %retval.0.i.i171 = select i1 %cmp.not.i.i169, i32 0, i32 %sub.i.i170
   %conv221 = zext nneg i32 %retval.0.i.i171 to i64
@@ -16361,7 +16361,7 @@ while.body259:                                    ; preds = %if.end244, %while.b
   %conv265 = uitofp i32 %45 to double
   %46 = tail call double @llvm.fmuladd.f64(double %dx.0196, double 0x41D0000000000000, double %conv265)
   %cmp257 = icmp sgt i64 %x_size.0197, 1
-  br i1 %cmp257, label %while.body259, label %while.end266, !llvm.loop !119
+  br i1 %cmp257, label %while.body259, label %while.end266, !llvm.loop !117
 
 while.end266:                                     ; preds = %while.body259, %if.end244
   %dx.0.lcssa = phi double [ %conv255, %if.end244 ], [ %46, %while.body259 ]
@@ -16423,7 +16423,7 @@ return:                                           ; preds = %if.then13, %overflo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @l_divmod(ptr noundef %v, ptr noundef %w, ptr noundef writeonly %pdiv, ptr noundef writeonly %pmod) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @l_divmod(ptr noundef %v, ptr noundef %w, ptr noundef writeonly %pdiv, ptr noundef writeonly %pmod) unnamed_addr #0 {
 entry:
   %div = alloca ptr, align 8
   %mod = alloca ptr, align 8
@@ -16700,7 +16700,7 @@ if.then1.i.i72:                                   ; preds = %if.end.i.i69
   br label %return
 
 if.end27:                                         ; preds = %if.end19
-  %call28 = call fastcc i32 @long_divrem(ptr noundef nonnull %v, ptr noundef nonnull %w, ptr noundef nonnull %div, ptr noundef nonnull %mod), !range !32
+  %call28 = call fastcc i32 @long_divrem(ptr noundef nonnull %v, ptr noundef nonnull %w, ptr noundef nonnull %div, ptr noundef nonnull %mod)
   %cmp29 = icmp slt i32 %call28, 0
   br i1 %cmp29, label %return, label %if.end31
 
@@ -16745,7 +16745,7 @@ lor.lhs.false.i81:                                ; preds = %if.then38
   br i1 %tobool4.not.i, label %long_add.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %lor.lhs.false.i81
-  %call5.i = tail call ptr @_PyLong_Add(ptr noundef nonnull %40, ptr noundef nonnull %w)
+  %call5.i = tail call ptr @_PyLong_Add(ptr noundef nonnull readonly %40, ptr noundef nonnull readonly %w)
   br label %long_add.exit
 
 long_add.exit:                                    ; preds = %if.then38, %lor.lhs.false.i81, %do.end.i
@@ -16805,7 +16805,7 @@ lor.lhs.false.i86:                                ; preds = %if.end42
   br i1 %tobool4.not.i89, label %do.body48, label %long_sub.exit
 
 long_sub.exit:                                    ; preds = %lor.lhs.false.i86
-  %call5.i91 = tail call ptr @_PyLong_Subtract(ptr noundef nonnull %50, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6))
+  %call5.i91 = tail call ptr @_PyLong_Subtract(ptr noundef nonnull readonly %50, ptr noundef nonnull readonly getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6))
   %cmp45 = icmp eq ptr %call5.i91, null
   br i1 %cmp45, label %if.then46, label %do.body48
 
@@ -16950,7 +16950,7 @@ while.body:                                       ; preds = %Py_INCREF.exit, %do
   %c.083 = phi ptr [ %retval.0.i69, %do.end21 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 5), %Py_INCREF.exit ]
   %a.addr.082 = phi ptr [ %n.addr.084, %do.end21 ], [ %a, %Py_INCREF.exit ]
   %b.081 = phi ptr [ %c.083, %do.end21 ], [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6), %Py_INCREF.exit ]
-  %call6 = call fastcc i32 @l_divmod(ptr noundef nonnull %a.addr.082, ptr noundef nonnull %n.addr.084, ptr noundef nonnull %q, ptr noundef nonnull %r), !range !32
+  %call6 = call fastcc i32 @l_divmod(ptr noundef nonnull %a.addr.082, ptr noundef nonnull %n.addr.084, ptr noundef nonnull %q, ptr noundef nonnull %r)
   %cmp7 = icmp eq i32 %call6, -1
   br i1 %cmp7, label %Error, label %do.body
 
@@ -17036,7 +17036,7 @@ lor.lhs.false.i63:                                ; preds = %if.end13
   br i1 %tobool4.not.i66, label %long_sub.exit, label %do.end.i67
 
 do.end.i67:                                       ; preds = %lor.lhs.false.i63
-  %call5.i68 = call ptr @_PyLong_Subtract(ptr noundef nonnull %b.081, ptr noundef nonnull %retval.0.i)
+  %call5.i68 = call ptr @_PyLong_Subtract(ptr noundef nonnull readonly %b.081, ptr noundef nonnull readonly %retval.0.i)
   br label %long_sub.exit
 
 long_sub.exit:                                    ; preds = %if.end13, %lor.lhs.false.i63, %do.end.i67
@@ -17081,7 +17081,7 @@ do.end21:                                         ; preds = %if.end.i100, %if.th
   %n.addr.0.val = load i64, ptr %26, align 8
   %and.i = and i64 %n.addr.0.val, 3
   %cmp.i59 = icmp eq i64 %and.i, 1
-  br i1 %cmp.i59, label %while.end, label %while.body, !llvm.loop !120
+  br i1 %cmp.i59, label %while.end, label %while.body, !llvm.loop !118
 
 while.end:                                        ; preds = %do.end21, %Py_INCREF.exit
   %b.0.lcssa = phi ptr [ getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 0, i64 6), %Py_INCREF.exit ], [ %c.083, %do.end21 ]
@@ -17172,7 +17172,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %34 = load i32, ptr %arrayidx11.i, align 4
   %sub12.i = sub i32 %33, %34
   %tobool13.not.i = icmp eq i32 %sub12.i, 0
-  br i1 %tobool13.not.i, label %while.cond.i, label %while.end.i, !llvm.loop !86
+  br i1 %tobool13.not.i, label %while.cond.i, label %while.end.i, !llvm.loop !84
 
 while.end.i:                                      ; preds = %while.body.i, %while.cond.i
   %diff.1.i = phi i32 [ %sub12.i, %while.body.i ], [ 0, %while.cond.i ]
@@ -17384,7 +17384,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %shr.i118 = lshr i32 %add.i116, 30
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %shr.i
-  br i1 %exitcond.not.i, label %if.end8, label %for.body.i, !llvm.loop !121
+  br i1 %exitcond.not.i, label %if.end8, label %for.body.i, !llvm.loop !119
 
 if.else:                                          ; preds = %entry
   %8 = load i32, ptr %a, align 8
@@ -17487,7 +17487,7 @@ for.body.i147:                                    ; preds = %if.end18, %for.body
   %shr.i155 = lshr i32 %add.i152, 30
   %inc.i156 = add nuw nsw i64 %i.07.i149, 1
   %exitcond.not.i157 = icmp eq i64 %inc.i156, %shr.i119
-  br i1 %exitcond.not.i157, label %if.end26, label %for.body.i147, !llvm.loop !121
+  br i1 %exitcond.not.i157, label %if.end26, label %for.body.i147, !llvm.loop !119
 
 if.else25:                                        ; preds = %if.end8
   %19 = load i32, ptr %b, align 8
@@ -17665,7 +17665,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %and55, ptr %arrayidx58, align 4
   %inc = add nuw nsw i64 %i.0221, 1
   %exitcond229.not = icmp eq i64 %inc, %size_b.0
-  br i1 %exitcond229.not, label %sw.epilog96, label %for.body, !llvm.loop !122
+  br i1 %exitcond229.not, label %sw.epilog96, label %for.body, !llvm.loop !120
 
 for.body63:                                       ; preds = %for.body63.lr.ph, %for.body63
   %i.1218 = phi i64 [ 0, %for.body63.lr.ph ], [ %inc75, %for.body63 ]
@@ -17678,7 +17678,7 @@ for.body63:                                       ; preds = %for.body63.lr.ph, %
   store i32 %or70, ptr %arrayidx73, align 4
   %inc75 = add nuw nsw i64 %i.1218, 1
   %exitcond228.not = icmp eq i64 %inc75, %size_b.0
-  br i1 %exitcond228.not, label %sw.epilog96, label %for.body63, !llvm.loop !123
+  br i1 %exitcond228.not, label %sw.epilog96, label %for.body63, !llvm.loop !121
 
 for.body81:                                       ; preds = %for.body81.lr.ph, %for.body81
   %i.2216 = phi i64 [ 0, %for.body81.lr.ph ], [ %inc93, %for.body81 ]
@@ -17691,7 +17691,7 @@ for.body81:                                       ; preds = %for.body81.lr.ph, %
   store i32 %xor88, ptr %arrayidx91, align 4
   %inc93 = add nuw nsw i64 %i.2216, 1
   %exitcond.not = icmp eq i64 %inc93, %size_b.0
-  br i1 %exitcond.not, label %sw.epilog96, label %for.body81, !llvm.loop !124
+  br i1 %exitcond.not, label %sw.epilog96, label %for.body81, !llvm.loop !122
 
 sw.default95:                                     ; preds = %if.end45
   unreachable
@@ -17719,7 +17719,7 @@ for.body105:                                      ; preds = %for.body105.lr.ph, 
   store i32 %xor109, ptr %arrayidx112, align 4
   %inc114 = add nuw nsw i64 %i.4224, 1
   %exitcond230.not = icmp eq i64 %inc114, %size_z.0
-  br i1 %exitcond230.not, label %if.end127, label %for.body105, !llvm.loop !125
+  br i1 %exitcond230.not, label %if.end127, label %for.body105, !llvm.loop !123
 
 if.else116:                                       ; preds = %for.cond.preheader, %for.cond60.preheader, %sw.epilog96
   %i.3235 = phi i64 [ %size_b.0, %sw.epilog96 ], [ 0, %for.cond60.preheader ], [ 0, %for.cond.preheader ]
@@ -17763,7 +17763,7 @@ for.body.i184:                                    ; preds = %if.then129, %for.bo
   %shr.i192 = lshr i32 %add.i189, 30
   %inc.i193 = add nuw nsw i64 %i.07.i186, 1
   %exitcond.not.i194 = icmp eq i64 %i.07.i186, %size_z.0
-  br i1 %exitcond.not.i194, label %if.end140, label %for.body.i184, !llvm.loop !121
+  br i1 %exitcond.not.i194, label %if.end140, label %for.body.i184, !llvm.loop !119
 
 if.end140:                                        ; preds = %for.body.i184, %if.end127
   %40 = load i64, ptr %a.addr.1, align 8
@@ -17812,7 +17812,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %arrayidx.i197 = getelementptr [1 x i32], ptr %ob_digit.i177, i64 0, i64 %sub.i
   %44 = load i32, ptr %arrayidx.i197, align 4
   %cmp1.i = icmp eq i32 %44, 0
-  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !23
+  br i1 %cmp1.i, label %while.cond.i, label %while.end.i, !llvm.loop !22
 
 while.end.i:                                      ; preds = %land.rhs.i
   %cmp2.not.i = icmp eq i64 %i.0.i, %shr.i.i
@@ -17925,7 +17925,7 @@ if.end5.i.i:                                      ; preds = %if.then.i.i, %entry
   %cmp.i13.i.i = icmp eq i64 %and.i12.pre-phi.i.i, 2
   %conv8.i.i = zext i1 %cmp.i13.i.i to i32
   %ob_digit.i.i = getelementptr inbounds i8, ptr %self, i64 24
-  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i, i64 noundef %shr.i.i.i, ptr noundef nonnull %ob_digit.i.i)
+  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i, i64 noundef %shr.i.i.i, ptr noundef nonnull readonly %ob_digit.i.i)
   br label %long_long.exit
 
 long_long.exit:                                   ; preds = %if.then.i, %if.end.i.i.i, %if.then3.i.i, %if.end5.i.i
@@ -17948,7 +17948,7 @@ if.end.i:                                         ; preds = %entry
   %arrayidx.i = getelementptr [1 x i32], ptr %ob_digit.i, i64 0, i64 %sub.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %cmp.not.i.i.i = icmp eq i32 %1, 0
-  %2 = tail call i32 @llvm.ctlz.i32(i32 %1, i1 true), !range !20
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)
   %sub.i.i.i = sub nuw nsw i32 32, %2
   %retval.0.i.i.i = select i1 %cmp.not.i.i.i, i32 0, i32 %sub.i.i.i
   %cmp3.i = icmp ult i64 %self.val.i, 2459565876494606888
@@ -17972,7 +17972,7 @@ while.body.i.i:                                   ; preds = %if.then4.i, %while.
   %inc.i.i = add nuw nsw i32 %ndigits.021.i.i, 1
   %shr.i33.i = lshr i64 %t.020.i.i, 30
   %tobool.not.i.i = icmp ult i64 %t.020.i.i, 1073741824
-  br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !30
+  br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !29
 
 while.end.i.i:                                    ; preds = %while.body.i.i
   %conv6.i.i = zext nneg i32 %inc.i.i to i64
@@ -18026,7 +18026,7 @@ while.body15.i.i:                                 ; preds = %while.body15.i.i, %
   store i32 %conv16.i.i, ptr %p.024.i.i, align 4
   %shr17.i.i = lshr i64 %t.123.i.i, 30
   %tobool14.not.i.i = icmp ult i64 %t.123.i.i, 1073741824
-  br i1 %tobool14.not.i.i, label %int_bit_length_impl.exit, label %while.body15.i.i, !llvm.loop !31
+  br i1 %tobool14.not.i.i, label %int_bit_length_impl.exit, label %while.body15.i.i, !llvm.loop !30
 
 while.body.i38.i:                                 ; preds = %if.end.i, %while.body.i38.i
   %ndigits.021.i39.i = phi i32 [ %inc.i41.i, %while.body.i38.i ], [ 0, %if.end.i ]
@@ -18034,7 +18034,7 @@ while.body.i38.i:                                 ; preds = %if.end.i, %while.bo
   %inc.i41.i = add nuw nsw i32 %ndigits.021.i39.i, 1
   %shr.i42.i = lshr i64 %t.020.i40.i, 30
   %tobool.not.i43.i = icmp ult i64 %t.020.i40.i, 1073741824
-  br i1 %tobool.not.i43.i, label %while.end.i44.i, label %while.body.i38.i, !llvm.loop !30
+  br i1 %tobool.not.i43.i, label %while.end.i44.i, label %while.body.i38.i, !llvm.loop !29
 
 while.end.i44.i:                                  ; preds = %while.body.i38.i
   %conv6.i45.i = zext nneg i32 %inc.i41.i to i64
@@ -18088,7 +18088,7 @@ while.body15.i61.i:                               ; preds = %while.body15.i61.i,
   store i32 %conv16.i64.i, ptr %p.024.i62.i, align 4
   %shr17.i66.i = lshr i64 %t.123.i63.i, 30
   %tobool14.not.i67.i = icmp ult i64 %t.123.i63.i, 1073741824
-  br i1 %tobool14.not.i67.i, label %if.end18.i, label %while.body15.i61.i, !llvm.loop !31
+  br i1 %tobool14.not.i67.i, label %if.end18.i, label %while.body15.i61.i, !llvm.loop !30
 
 if.end18.i:                                       ; preds = %while.body15.i61.i
   %a.val.i.i = load ptr, ptr %ob_type.i.i.i.i51.i, align 8
@@ -18172,7 +18172,7 @@ lor.lhs.false.i81.i:                              ; preds = %if.end29.i
   br i1 %tobool4.not.i84.i, label %long_add.exit.i, label %do.end.i85.i
 
 do.end.i85.i:                                     ; preds = %lor.lhs.false.i81.i
-  %call5.i86.i = tail call ptr @_PyLong_Add(ptr noundef nonnull %retval.0.i77.i, ptr noundef nonnull %call25.i)
+  %call5.i86.i = tail call ptr @_PyLong_Add(ptr noundef nonnull readonly %retval.0.i77.i, ptr noundef nonnull readonly %call25.i)
   br label %long_add.exit.i
 
 long_add.exit.i:                                  ; preds = %do.end.i85.i, %lor.lhs.false.i81.i, %if.end29.i
@@ -18253,12 +18253,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %i.032.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
   %arrayidx.i = getelementptr [1 x i32], ptr %ob_digit.i, i64 0, i64 %i.032.i
   %1 = load i32, ptr %arrayidx.i, align 4
-  %2 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !20
+  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
   %conv.i = zext nneg i32 %2 to i64
   %add.i = add i64 %bit_count.033.i, %conv.i
   %inc.i = add nuw nsw i64 %i.032.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %cond.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !126
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !124
 
 for.end.i:                                        ; preds = %for.body.i
   %3 = add i64 %add.i, 5
@@ -18280,7 +18280,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %inc.i.i = add nuw nsw i32 %ndigits.021.i.i, 1
   %shr.i25.i = lshr i64 %t.020.i.i, 30
   %tobool.not.i.i = icmp ult i64 %t.020.i.i, 1073741824
-  br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !30
+  br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !29
 
 while.end.i.i:                                    ; preds = %while.body.i.i
   %conv6.i.i = zext nneg i32 %inc.i.i to i64
@@ -18334,7 +18334,7 @@ while.body15.i.i:                                 ; preds = %while.body15.i.i, %
   store i32 %conv16.i.i, ptr %p.024.i.i, align 4
   %shr17.i.i = lshr i64 %t.123.i.i, 30
   %tobool14.not.i.i = icmp ult i64 %t.123.i.i, 1073741824
-  br i1 %tobool14.not.i.i, label %PyLong_FromSsize_t.exit.i, label %while.body15.i.i, !llvm.loop !31
+  br i1 %tobool14.not.i.i, label %PyLong_FromSsize_t.exit.i, label %while.body15.i.i, !llvm.loop !30
 
 PyLong_FromSsize_t.exit.i:                        ; preds = %while.body15.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %arrayidx.i.i.i, %if.then.i.i ], [ %call.i.i.i, %while.body15.i.i ]
@@ -18354,7 +18354,7 @@ for.body10.i:                                     ; preds = %for.inc26.i, %for.b
   %result.035.i = phi ptr [ %retval.0.i.i, %for.body10.lr.ph.i ], [ %retval.0.i27.i, %for.inc26.i ]
   %arrayidx13.i = getelementptr [1 x i32], ptr %ob_digit12.i, i64 0, i64 %i6.036.i
   %12 = load i32, ptr %arrayidx13.i, align 4
-  %13 = tail call i32 @llvm.ctpop.i32(i32 %12), !range !20
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %12)
   %conv15.i = zext nneg i32 %13 to i64
   %call16.i = tail call ptr @PyLong_FromLong(i64 noundef %conv15.i)
   %cmp17.i = icmp eq ptr %call16.i, null
@@ -18379,7 +18379,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end20.i
   br i1 %tobool4.not.i.i, label %long_add.exit.i, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %lor.lhs.false.i.i
-  %call5.i.i = tail call ptr @_PyLong_Add(ptr noundef nonnull %result.035.i, ptr noundef nonnull %call16.i)
+  %call5.i.i = tail call ptr @_PyLong_Add(ptr noundef nonnull readonly %result.035.i, ptr noundef nonnull readonly %call16.i)
   br label %long_add.exit.i
 
 long_add.exit.i:                                  ; preds = %do.end.i.i, %lor.lhs.false.i.i, %if.end20.i
@@ -18422,7 +18422,7 @@ if.then1.i35.i:                                   ; preds = %if.end.i32.i
 for.inc26.i:                                      ; preds = %if.then1.i35.i, %if.end.i32.i, %do.body.i
   %inc27.i = add nuw nsw i64 %i6.036.i, 1
   %exitcond39.not.i = icmp eq i64 %inc27.i, %shr.i.i
-  br i1 %exitcond39.not.i, label %int_bit_count_impl.exit, label %for.body10.i, !llvm.loop !127
+  br i1 %exitcond39.not.i, label %int_bit_count_impl.exit, label %for.body10.i, !llvm.loop !125
 
 error.i:                                          ; preds = %Py_DECREF.exit46.i, %for.body10.i
   %24 = load i64, ptr %result.035.i, align 8
@@ -18669,7 +18669,7 @@ if.end11.i:                                       ; preds = %if.end, %if.end8.i3
 
 if.end15.i:                                       ; preds = %if.end11.i
   %ob_sval.i.i = getelementptr inbounds i8, ptr %call12.i, i64 32
-  %call17.i = call i32 @_PyLong_AsByteArray(ptr noundef %self, ptr noundef nonnull %ob_sval.i.i, i64 noundef %length.1587085, i32 noundef %little_endian.0.i86, i32 noundef %is_signed.07184), !range !32
+  %call17.i = call i32 @_PyLong_AsByteArray(ptr noundef readonly %self, ptr noundef nonnull %ob_sval.i.i, i64 noundef %length.1587085, i32 noundef %little_endian.0.i86, i32 noundef %is_signed.07184)
   %cmp18.i = icmp slt i32 %call17.i, 0
   br i1 %cmp18.i, label %if.then19.i, label %exit
 
@@ -18884,7 +18884,7 @@ if.end5.i.i.i:                                    ; preds = %if.then.i.i.i, %ent
   %cmp.i13.i.i.i = icmp eq i64 %and.i12.pre-phi.i.i.i, 2
   %conv8.i.i.i = zext i1 %cmp.i13.i.i.i to i32
   %ob_digit.i.i.i = getelementptr inbounds i8, ptr %self, i64 24
-  %call9.i.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i.i, i64 noundef %shr.i.i.i.i, ptr noundef nonnull %ob_digit.i.i.i)
+  %call9.i.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i.i, i64 noundef %shr.i.i.i.i, ptr noundef nonnull readonly %ob_digit.i.i.i)
   br label %long_long.exit.i
 
 long_long.exit.i:                                 ; preds = %if.end5.i.i.i, %if.then3.i.i.i
@@ -18982,7 +18982,7 @@ if.end5.i.i.i:                                    ; preds = %if.then.i.i.i, %ent
   %cmp.i13.i.i.i = icmp eq i64 %and.i12.pre-phi.i.i.i, 2
   %conv8.i.i.i = zext i1 %cmp.i13.i.i.i to i32
   %ob_digit.i.i.i = getelementptr inbounds i8, ptr %self, i64 24
-  %call9.i.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i.i, i64 noundef %shr.i.i.i.i, ptr noundef nonnull %ob_digit.i.i.i)
+  %call9.i.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i.i, i64 noundef %shr.i.i.i.i, ptr noundef nonnull readonly %ob_digit.i.i.i)
   br label %exit
 
 if.end.i:                                         ; preds = %skip_optional
@@ -19060,7 +19060,7 @@ if.end5.i.i57.i:                                  ; preds = %if.then.i.i50.i, %e
   %cmp.i13.i.i60.i = icmp eq i64 %and.i12.pre-phi.i.i58.i, 2
   %conv8.i.i61.i = zext i1 %cmp.i13.i.i60.i to i32
   %ob_digit.i.i62.i = getelementptr inbounds i8, ptr %self, i64 24
-  %call9.i.i63.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i61.i, i64 noundef %shr.i.i.i59.i, ptr noundef nonnull %ob_digit.i.i62.i)
+  %call9.i.i63.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i61.i, i64 noundef %shr.i.i.i59.i, ptr noundef nonnull readonly %ob_digit.i.i62.i)
   br label %exit
 
 if.end8.i:                                        ; preds = %if.end4.i
@@ -19077,7 +19077,7 @@ if.then.i75.i:                                    ; preds = %if.end8.i
 entry.if.end5_crit_edge.i.i77.i:                  ; preds = %if.end8.i
   %shr.i.i.i79.i = lshr i64 %call1.val.i, 3
   %ob_digit.i.i80.i = getelementptr inbounds i8, ptr %call1.i, i64 24
-  %call9.i.i81.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i.i.i79.i, ptr noundef nonnull %ob_digit.i.i80.i)
+  %call9.i.i81.i = tail call ptr @_PyLong_FromDigits(i32 noundef 1, i64 noundef %shr.i.i.i79.i, ptr noundef nonnull readonly %ob_digit.i.i80.i)
   %cmp.not.i.i = icmp eq ptr %call9.i.i81.i, null
   br i1 %cmp.not.i.i, label %long_neg.exit.i, label %if.then4.i.i
 
@@ -19192,7 +19192,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end32.i
   br i1 %tobool4.not.i.i, label %long_sub.exit.i, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %lor.lhs.false.i.i
-  %call5.i.i = tail call ptr @_PyLong_Subtract(ptr noundef nonnull %self, ptr noundef nonnull %25)
+  %call5.i.i = tail call ptr @_PyLong_Subtract(ptr noundef nonnull readonly %self, ptr noundef nonnull readonly %25)
   br label %long_sub.exit.i
 
 long_sub.exit.i:                                  ; preds = %do.end.i.i, %lor.lhs.false.i.i, %if.end32.i
@@ -19250,7 +19250,7 @@ if.end5.i.i:                                      ; preds = %if.then.i.i, %entry
   %cmp.i13.i.i = icmp eq i64 %and.i12.pre-phi.i.i, 2
   %conv8.i.i = zext i1 %cmp.i13.i.i to i32
   %ob_digit.i.i = getelementptr inbounds i8, ptr %self, i64 24
-  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i, i64 noundef %shr.i.i.i, ptr noundef nonnull %ob_digit.i.i)
+  %call9.i.i = tail call ptr @_PyLong_FromDigits(i32 noundef %conv8.i.i, i64 noundef %shr.i.i.i, ptr noundef nonnull readonly %ob_digit.i.i)
   br label %int___getnewargs___impl.exit
 
 int___getnewargs___impl.exit:                     ; preds = %if.then3.i.i, %if.end5.i.i
@@ -19339,7 +19339,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %inc.i = add nuw nsw i32 %ndigits.021.i, 1
   %shr.i = lshr i64 %t.020.i, 30
   %tobool.not.i = icmp ult i64 %t.020.i, 1073741824
-  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !30
+  br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !29
 
 while.end.i:                                      ; preds = %while.body.i
   %conv6.i = zext nneg i32 %inc.i to i64
@@ -19393,7 +19393,7 @@ while.body15.i:                                   ; preds = %while.body15.i, %wh
   store i32 %conv16.i, ptr %p.024.i, align 4
   %shr17.i = lshr i64 %t.123.i, 30
   %tobool14.not.i = icmp ult i64 %t.123.i, 1073741824
-  br i1 %tobool14.not.i, label %exit, label %while.body15.i, !llvm.loop !31
+  br i1 %tobool14.not.i, label %exit, label %while.body15.i, !llvm.loop !30
 
 land.lhs.true:                                    ; preds = %entry
   %call1 = tail call ptr @PyErr_Occurred() #16
@@ -19507,7 +19507,7 @@ for.body.i:                                       ; preds = %if.end8.i, %for.bod
   store i32 %5, ptr %arrayidx15.i, align 4
   %inc.i = add nuw nsw i64 %i.0.i41, 1
   %exitcond.not = icmp eq i64 %inc.i, %spec.store.select.i
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !128
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !126
 
 for.end.i:                                        ; preds = %for.body.i
   %6 = load i64, ptr %call.i, align 8
@@ -19722,7 +19722,7 @@ attributes #17 = { nounwind willreturn memory(read) }
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = !{i32 0, i32 33}
+!20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
@@ -19734,7 +19734,7 @@ attributes #17 = { nounwind willreturn memory(read) }
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
-!32 = !{i32 -1, i32 1}
+!32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
 !35 = distinct !{!35, !6}
@@ -19829,5 +19829,3 @@ attributes #17 = { nounwind willreturn memory(read) }
 !124 = distinct !{!124, !6}
 !125 = distinct !{!125, !6}
 !126 = distinct !{!126, !6}
-!127 = distinct !{!127, !6}
-!128 = distinct !{!128, !6}

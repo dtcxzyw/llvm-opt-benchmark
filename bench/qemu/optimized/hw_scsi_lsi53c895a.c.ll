@@ -695,7 +695,7 @@ declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @lsi_mmio_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 256) i64 @lsi_mmio_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %0 = trunc i64 %addr to i32
   %conv = and i32 %0, 255
@@ -4637,8 +4637,8 @@ if.then30.i:                                      ; preds = %if.end12.i
   %96 = load ptr, ptr %95, align 8
   call void @scsi_req_continue(ptr noundef %96) #11
   %97 = load i32, ptr %command_complete.i, align 16
-  %tobool44.not49.i = icmp eq i32 %97, 0
-  br i1 %tobool44.not49.i, label %if.then47.i, label %lsi_do_command.exit
+  %tobool44.not50.i = icmp eq i32 %97, 0
+  br i1 %tobool44.not50.i, label %if.then47.i, label %lsi_do_command.exit
 
 if.end42.i:                                       ; preds = %if.end12.i
   %98 = load i32, ptr %command_complete.i, align 16
@@ -4649,11 +4649,11 @@ if.then47.i:                                      ; preds = %if.then30.i
   call fastcc void @lsi_add_msg_byte(ptr noundef nonnull %s, i8 noundef zeroext 2)
   call fastcc void @lsi_add_msg_byte(ptr noundef nonnull %s, i8 noundef zeroext 4)
   %99 = load i8, ptr %sbcl335, align 2
-  %conv5.i41.i = or i8 %99, -121
-  store i8 %conv5.i41.i, ptr %sbcl335, align 2
+  %conv5.i42.i = or i8 %99, -121
+  store i8 %conv5.i42.i, ptr %sbcl335, align 2
   %100 = load i8, ptr %sstat1504, align 1
-  %conv9.i43.i = or i8 %100, 7
-  store i8 %conv9.i43.i, ptr %sstat1504, align 1
+  %conv9.i44.i = or i8 %100, 7
+  store i8 %conv9.i44.i, ptr %sstat1504, align 1
   store i32 1, ptr %msg_action.i460, align 16
   %101 = load ptr, ptr %current.i544, align 8
   %tag.i.i = getelementptr inbounds i8, ptr %101, i64 8
@@ -4734,12 +4734,12 @@ lsi_queue_command.exit.i:                         ; preds = %if.end.i.i
 if.else48.i:                                      ; preds = %if.end42.i
   %116 = load i8, ptr %sbcl335, align 2
   %117 = and i8 %116, 120
-  %conv5.i46.i = or disjoint i8 %117, -127
-  store i8 %conv5.i46.i, ptr %sbcl335, align 2
+  %conv5.i47.i = or disjoint i8 %117, -127
+  store i8 %conv5.i47.i, ptr %sbcl335, align 2
   %118 = load i8, ptr %sstat1504, align 1
   %119 = and i8 %118, -8
-  %conv9.i48.i = or disjoint i8 %119, 1
-  store i8 %conv9.i48.i, ptr %sstat1504, align 1
+  %conv9.i49.i = or disjoint i8 %119, 1
+  store i8 %conv9.i49.i, ptr %sstat1504, align 1
   br label %lsi_do_command.exit
 
 lsi_do_command.exit:                              ; preds = %if.then7.i, %if.end42.i, %if.then30.i, %lsi_queue_command.exit.i, %if.else48.i
@@ -5760,12 +5760,12 @@ sw.bb36.i:                                        ; preds = %if.else34.i
 sw.bb37.i:                                        ; preds = %if.else34.i
   %323 = load i8, ptr %sbcl335, align 2
   %324 = and i8 %323, 120
-  %conv5.i34.i = or disjoint i8 %324, -127
-  store i8 %conv5.i34.i, ptr %sbcl335, align 2
+  %conv5.i35.i = or disjoint i8 %324, -127
+  store i8 %conv5.i35.i, ptr %sbcl335, align 2
   %325 = load i8, ptr %sstat1504, align 1
   %326 = and i8 %325, -8
-  %conv9.i36.i = or disjoint i8 %326, 1
-  store i8 %conv9.i36.i, ptr %sstat1504, align 1
+  %conv9.i37.i = or disjoint i8 %326, 1
+  store i8 %conv9.i37.i, ptr %sstat1504, align 1
   br label %sw.epilog153
 
 sw.default.i:                                     ; preds = %if.else34.i
@@ -7731,7 +7731,7 @@ stn_le_p.exit:                                    ; preds = %sw.bb.i, %sw.bb1.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @lsi_io_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 256) i64 @lsi_io_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %0 = trunc i64 %addr to i32
   %conv = and i32 %0, 255
@@ -8265,7 +8265,7 @@ declare void @address_space_destroy(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @lsi_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #8 {
+define internal range(i32 -22, 1) i32 @lsi_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #8 {
 entry:
   %msg_len = getelementptr inbounds i8, ptr %opaque, i64 3540
   %0 = load i32, ptr %msg_len, align 4

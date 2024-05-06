@@ -25,13 +25,13 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @null_update(ptr nocapture readnone %ctx, ptr nocapture readnone %data, i64 %datalen) #1 {
+define internal noundef i32 @null_update(ptr nocapture readnone %ctx, ptr nocapture readnone %data, i64 %datalen) #1 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @nullmd_internal_final(ptr nocapture readnone %ctx, ptr nocapture readnone %out, ptr nocapture noundef writeonly %outl, i64 %outsz) #0 {
+define internal range(i32 0, 2) i32 @nullmd_internal_final(ptr nocapture readnone %ctx, ptr nocapture readnone %out, ptr nocapture noundef writeonly %outl, i64 %outsz) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -85,7 +85,7 @@ entry:
 declare ptr @ossl_digest_default_gettable_params(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @nullmd_internal_init(ptr nocapture readnone %ctx, ptr nocapture readnone %params) #0 {
+define internal range(i32 0, 2) i32 @nullmd_internal_init(ptr nocapture readnone %ctx, ptr nocapture readnone %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp ne i32 %call, 0

@@ -201,7 +201,7 @@ multi_serial_get_port_count.exit:                 ; preds = %entry, %sw.bb1.i
   %mul = shl nuw nsw i64 %retval.0.i, 3
   tail call void @memory_region_init(ptr noundef nonnull %iobar, ptr noundef %dev, ptr noundef nonnull @.str.9, i64 noundef %mul) #3
   tail call void @pci_register_bar(ptr noundef %dev, i32 noundef 0, i8 noundef zeroext 1, ptr noundef nonnull %iobar) #3
-  %conv = trunc i64 %retval.0.i to i32
+  %conv = trunc nuw nsw i64 %retval.0.i to i32
   %call9 = tail call ptr @qemu_allocate_irqs(ptr noundef nonnull @multi_serial_irq_mux, ptr noundef %dev, i32 noundef %conv) #3
   %irqs = getelementptr inbounds i8, ptr %dev, i64 5568
   store ptr %call9, ptr %irqs, align 16

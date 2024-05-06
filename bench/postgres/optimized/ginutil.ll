@@ -270,7 +270,7 @@ define dso_local void @initGinState(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %93, label %94, label %101
 
 94:                                               ; preds = %90
-  %95 = trunc i64 %indvars.iv.next to i32
+  %95 = trunc nuw nsw i64 %indvars.iv.next to i32
   %96 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %96)
   %97 = getelementptr inbounds i8, ptr %1, i64 56
@@ -1186,7 +1186,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %5, i8 noundef zeroext 14) #7
   %57 = call i64 @XLogInsert(i8 noundef zeroext 13, i8 noundef zeroext 96) #7
   %58 = lshr i64 %57, 32
-  %59 = trunc i64 %58 to i32
+  %59 = trunc nuw i64 %58 to i32
   store i32 %59, ptr %.0.i.i, align 4
   %60 = trunc i64 %57 to i32
   %61 = getelementptr inbounds i8, ptr %.0.i.i, i64 4

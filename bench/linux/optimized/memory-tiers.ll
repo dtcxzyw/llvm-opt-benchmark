@@ -391,7 +391,7 @@ define dso_local void @clear_node_memory_type(i32 noundef %0, ptr noundef readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mt_set_default_dram_perf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @mt_set_default_dram_perf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @memory_tier_lock) #11
   %4 = load i1, ptr @default_dram_perf_error, align 1
   br i1 %4, label %63, label %5
@@ -489,7 +489,7 @@ declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_a
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mt_perf_to_adistance(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @mt_perf_to_adistance(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = load i1, ptr @default_dram_perf_error, align 1
   br i1 %3, label %37, label %4
 
@@ -1115,7 +1115,7 @@ declare dso_local i32 @device_register(ptr noundef) local_unnamed_addr #3
 declare dso_local void @put_device(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @nodelist_show(ptr noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @nodelist_show(ptr noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.nodemask_t, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   tail call void @mutex_lock(ptr noundef nonnull @memory_tier_lock) #11
@@ -1166,7 +1166,7 @@ declare dso_local i32 @sysfs_create_group(ptr noundef, ptr noundef) local_unname
 declare dso_local void @kobject_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @demotion_enabled_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @demotion_enabled_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = load i8, ptr @numa_demotion_enabled, align 1, !range !36, !noundef !37
   %5 = icmp eq i8 %4, 0
   %6 = select i1 %5, ptr @.str.20, ptr @.str.19

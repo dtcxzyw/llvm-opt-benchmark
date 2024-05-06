@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.rlimit = type { i64, i64 }
 
 @target_to_host_signal_table = internal unnamed_addr global [65 x i8] zeroinitializer, align 16
-@thread_cpu = external thread_local global ptr, align 8
+@thread_cpu = external thread_local local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [28 x i8] c"../qemu/linux-user/signal.c\00", align 1
 @__func__.do_sigprocmask = private unnamed_addr constant [15 x i8] c"do_sigprocmask\00", align 1
 @__func__.tswap_siginfo = private unnamed_addr constant [14 x i8] c"tswap_siginfo\00", align 1
@@ -84,7 +84,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.die_from_signal = private unnamed_addr constant [7 x ptr] [ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.19, ptr @.str.22, ptr @.str.23, ptr @.str.24], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @host_to_target_signal(i32 noundef %sig) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 256) i32 @host_to_target_signal(i32 noundef %sig) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %sig, 1
   br i1 %cmp, label %return, label %if.end
@@ -106,7 +106,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @target_to_host_signal(i32 noundef %sig) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 256) i32 @target_to_host_signal(i32 noundef %sig) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %sig, 1
   br i1 %cmp, label %return, label %if.end
@@ -143,7 +143,7 @@ host_to_target_signal.exit:                       ; preds = %entry, %for.inc
   br i1 %or.cond, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %host_to_target_signal.exit
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %call3 = tail call i32 @sigismember(ptr noundef %s, i32 noundef %2) #16
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %for.inc, label %if.then4
@@ -186,7 +186,7 @@ host_to_target_signal.exit.i:                     ; preds = %for.inc.i, %entry
   br i1 %or.cond.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %host_to_target_signal.exit.i
-  %2 = trunc i64 %indvars.iv.i to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call3.i = tail call i32 @sigismember(ptr noundef %s, i32 noundef %2) #16
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %for.inc.i, label %if.then4.i
@@ -304,7 +304,7 @@ host_to_target_signal.exit.i.i:                   ; preds = %for.inc.i.i, %entry
   br i1 %or.cond.i.i, label %for.inc.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %host_to_target_signal.exit.i.i
-  %2 = trunc i64 %indvars.iv.i.i to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %call3.i.i = tail call i32 @sigismember(ptr noundef %sigset, i32 noundef %2) #16
   %tobool.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool.not.i.i, label %for.inc.i.i, label %if.then4.i.i
@@ -392,7 +392,7 @@ declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @do_sigprocmask(i32 noundef %how, ptr noundef %set, ptr noundef writeonly %oldset) local_unnamed_addr #1 {
+define dso_local range(i32 -512, 1) i32 @do_sigprocmask(i32 noundef %how, ptr noundef %set, ptr noundef writeonly %oldset) local_unnamed_addr #1 {
 entry:
   %set.i = alloca %struct.__sigset_t, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
@@ -497,7 +497,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @on_sig_stack(i64 noundef %sp) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @on_sig_stack(i64 noundef %sp) local_unnamed_addr #7 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
@@ -514,7 +514,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @sas_ss_flags(i64 noundef %sp) local_unnamed_addr #7 {
+define dso_local range(i32 0, 3) i32 @sas_ss_flags(i64 noundef %sp) local_unnamed_addr #7 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
@@ -611,7 +611,7 @@ sas_ss_flags.exit:                                ; preds = %entry, %cond.false.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @target_restore_altstack(ptr nocapture noundef readonly %uss, ptr nocapture noundef readonly %env) local_unnamed_addr #6 {
+define dso_local range(i64 -22, 1) i64 @target_restore_altstack(ptr nocapture noundef readonly %uss, ptr nocapture noundef readonly %env) local_unnamed_addr #6 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
@@ -671,7 +671,7 @@ entry:
   store i32 %2, ptr %si_errno, align 1
   %si_code9 = getelementptr inbounds i8, ptr %tinfo, i64 8
   store i32 %shr.i36, ptr %si_code9, align 1
-  %trunc = trunc i32 %shr.i to i16
+  %trunc = trunc nuw i32 %shr.i to i16
   switch i16 %trunc, label %do.body94 [
     i16 0, label %do.body11
     i16 1, label %do.body21
@@ -954,7 +954,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %hsig.026.i = phi i32 [ %hsig.0.i, %for.body.i ], [ %hsig.022.i, %entry ]
   %tsig.025.i = phi i32 [ %inc6.i, %for.body.i ], [ 32, %entry ]
-  %conv.i = trunc i32 %tsig.025.i to i8
+  %conv.i = trunc nuw i32 %tsig.025.i to i8
   %idxprom3.i = sext i32 %hsig.026.i to i64
   %arrayidx4.i = getelementptr [65 x i8], ptr @host_to_target_signal_table, i64 0, i64 %idxprom3.i
   store i8 %conv.i, ptr %arrayidx4.i, align 1
@@ -1082,14 +1082,14 @@ signal_table_init.exit:                           ; preds = %for.end59.i, %land.
 
 target_to_host_signal.exit:                       ; preds = %signal_table_init.exit, %for.inc
   %indvars.iv = phi i64 [ 1, %signal_table_init.exit ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx.i10 = getelementptr [65 x i8], ptr @target_to_host_signal_table, i64 0, i64 %indvars.iv
-  %14 = load i8, ptr %arrayidx.i10, align 1
-  %conv.i11 = zext i8 %14 to i32
+  %arrayidx.i11 = getelementptr [65 x i8], ptr @target_to_host_signal_table, i64 0, i64 %indvars.iv
+  %14 = load i8, ptr %arrayidx.i11, align 1
+  %conv.i12 = zext i8 %14 to i32
   %cmp3 = icmp ugt i8 %14, 64
   br i1 %cmp3, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %target_to_host_signal.exit
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %15, label %16 [
     i32 6, label %if.then5
     i32 7, label %core_dump_signal.exit
@@ -1102,7 +1102,7 @@ if.end:                                           ; preds = %target_to_host_sign
 
 if.then5:                                         ; preds = %if.end
   %call6 = call i32 @sigaction(i32 noundef 6, ptr noundef null, ptr noundef nonnull %oact) #16
-  %call7 = call i32 @sigaction(i32 noundef %conv.i11, ptr noundef nonnull %act, ptr noundef null) #16
+  %call7 = call i32 @sigaction(i32 noundef %conv.i12, ptr noundef nonnull %act, ptr noundef null) #16
   br label %if.end10
 
 16:                                               ; preds = %if.end
@@ -1110,7 +1110,7 @@ if.then5:                                         ; preds = %if.end
 
 core_dump_signal.exit:                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %16
   %17 = phi ptr [ null, %16 ], [ %act, %if.end ], [ %act, %if.end ], [ %act, %if.end ], [ %act, %if.end ], [ %act, %if.end ], [ %act, %if.end ]
-  %call9 = call i32 @sigaction(i32 noundef %conv.i11, ptr noundef %17, ptr noundef nonnull %oact) #16
+  %call9 = call i32 @sigaction(i32 noundef %conv.i12, ptr noundef %17, ptr noundef nonnull %oact) #16
   br label %if.end10
 
 if.end10:                                         ; preds = %core_dump_signal.exit, %if.then5
@@ -1274,7 +1274,7 @@ host_signal_write.exit.i27:                       ; preds = %land.rhs.i.i, %sw.b
   br i1 %call3.i, label %if.end.i29, label %if.then.i
 
 if.then.i:                                        ; preds = %host_signal_write.exit.i27
-  call fastcc void @die_from_signal(ptr noundef nonnull %info) #18
+  call fastcc void @die_from_signal(ptr noundef nonnull readonly %info) #18
   unreachable
 
 if.end.i29:                                       ; preds = %host_signal_write.exit.i27
@@ -2163,7 +2163,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %tobool36.not, label %if.then37, label %for.inc
 
 if.then37:                                        ; preds = %land.lhs.true
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   call fastcc void @handle_pending_signal(ptr noundef %cpu_env, i32 noundef %10, ptr noundef nonnull %arrayidx29)
   br label %restart_scan
 
@@ -2364,7 +2364,7 @@ host_to_target_signal.exit.i:                     ; preds = %for.inc.i, %if.end4
   br i1 %or.cond.i, label %for.inc.i, label %if.end.i43
 
 if.end.i43:                                       ; preds = %host_to_target_signal.exit.i
-  %18 = trunc i64 %indvars.iv.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call3.i = call i32 @sigismember(ptr noundef nonnull %signal_mask, i32 noundef %18) #16
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %for.inc.i, label %if.then4.i
@@ -2408,7 +2408,7 @@ if.end61:                                         ; preds = %if.end6, %if.else19
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @process_sigsuspend_mask(ptr nocapture noundef writeonly %pset, i64 noundef %sigset, i64 noundef %sigsize) local_unnamed_addr #1 {
+define dso_local range(i32 -22, 1) i32 @process_sigsuspend_mask(ptr nocapture noundef writeonly %pset, i64 noundef %sigset, i64 noundef %sigsize) local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
@@ -2543,7 +2543,7 @@ if.then:                                          ; preds = %switch.hole_check, 
   br label %if.end
 
 switch.hole_check:                                ; preds = %sw.bb8
-  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 119, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %if.then

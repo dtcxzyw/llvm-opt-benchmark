@@ -2275,7 +2275,7 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_tds_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_tds_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #11
   %6 = icmp ult i32 %5, 8
   br i1 %6, label %netlib_check_login_pkt.exit.thread, label %7
@@ -3070,7 +3070,7 @@ dissect_tds_type_info.exit.i:                     ; preds = %.sink.split.i.i, %.
 
 321:                                              ; preds = %dissect_tds_type_info.exit.i
   %322 = load i32, ptr @hf_tds_rpc_parameter_value, align 4
-  call fastcc void @dissect_tds_type_varbyte(ptr noundef %.0181, ptr noundef nonnull %35, ptr noundef %1, ptr noundef %214, i32 noundef %322, ptr noundef nonnull %.0, i8 noundef zeroext %244, i8 noundef zeroext 0, i32 noundef %.276.i, i32 noundef -1, ptr noundef null)
+  call fastcc void @dissect_tds_type_varbyte(ptr noundef %.0181, ptr noundef nonnull %35, ptr noundef %1, ptr noundef %214, i32 noundef %322, ptr noundef nonnull readonly %.0, i8 noundef zeroext %244, i8 noundef zeroext 0, i32 noundef %.276.i, i32 noundef -1, ptr noundef null)
   %323 = load i32, ptr %35, align 4
   call void @proto_item_set_end(ptr noundef %212, ptr noundef %.0181, i32 noundef %323) #11
   %324 = load i32, ptr %35, align 4
@@ -3547,7 +3547,7 @@ dissect_tds45_login.exit:                         ; preds = %dissect_tds45_login
   %.val.i197 = load ptr, ptr %584, align 8
   %585 = getelementptr i8, ptr %.val.i197, i64 50
   %.val.val.i198 = load i16, ptr %585, align 2
-  call fastcc void @set_tds_version(i16 %.val.val.i198, ptr noundef nonnull %.0, i32 noundef %583)
+  call fastcc void @set_tds_version(i16 %.val.val.i198, ptr noundef nonnull writeonly %.0, i32 noundef %583)
   %586 = load i32, ptr @hf_tds7login_packet_size, align 4
   %587 = getelementptr inbounds i8, ptr %30, i64 8
   %588 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %577, i32 noundef %586, ptr noundef nonnull %.0181, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %587) #11
@@ -4551,7 +4551,7 @@ dissect_tds5_dbrpc_token.exit.i:                  ; preds = %1070, %._crit_edge.
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %1103 = load ptr, ptr %1098, align 8
   %1104 = trunc nuw i64 %indvars.iv.next.i.i to i32
-  call fastcc void @dissect_tds_type_varbyte(ptr noundef %.0181, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %744, i32 noundef %1096, ptr noundef nonnull %.0, i8 noundef zeroext %1100, i8 noundef zeroext %1102, i32 noundef 0, i32 noundef %1104, ptr noundef %1103)
+  call fastcc void @dissect_tds_type_varbyte(ptr noundef %.0181, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %744, i32 noundef %1096, ptr noundef nonnull readonly %.0, i8 noundef zeroext %1100, i8 noundef zeroext %1102, i32 noundef 0, i32 noundef %1104, ptr noundef %1103)
   %exitcond.not.i209 = icmp eq i64 %indvars.iv.next.i.i, %1094
   br i1 %exitcond.not.i209, label %._crit_edge.loopexit.i.i, label %1095, !llvm.loop !10
 
@@ -5274,7 +5274,7 @@ dissect_tds_col_name_token.exit:                  ; preds = %204, %._crit_edge.i
 
 300:                                              ; preds = %259, %259, %259, %259, %259, %259, %259, %259, %259, %259, %259, %259
   %301 = zext nneg i8 %278 to i32
-  %302 = call fastcc i32 @get_size_by_coltype(i32 noundef %301), !range !14
+  %302 = call fastcc i32 @get_size_by_coltype(i32 noundef %301)
   %303 = getelementptr inbounds i8, ptr %260, i64 8
   store i32 %302, ptr %303, align 8
   br label %304
@@ -5284,7 +5284,7 @@ dissect_tds_col_name_token.exit:                  ; preds = %204, %._crit_edge.i
   %305 = sub i32 %.1.i, %.0115130.i
   call void @proto_item_set_len(ptr noundef %247, i32 noundef %305) #11
   %306 = icmp ult i32 %.1.i, %242
-  br i1 %306, label %.lr.ph.i216, label %._crit_edge.i215, !llvm.loop !15
+  br i1 %306, label %.lr.ph.i216, label %._crit_edge.i215, !llvm.loop !14
 
 ._crit_edge.i215:                                 ; preds = %304, %234
   %.0116.lcssa.i = phi i32 [ 0, %234 ], [ %250, %304 ]
@@ -5343,7 +5343,7 @@ dissect_tds_colfmt_token.exit:                    ; preds = %244, %._crit_edge.i
   %330 = add i32 %329, %.0222.i
   %indvars.iv.next.i230 = add nuw nsw i64 %indvars.iv.i227, 1
   %331 = icmp ult i32 %330, %317
-  br i1 %331, label %.lr.ph.i226, label %._crit_edge.i225, !llvm.loop !16
+  br i1 %331, label %.lr.ph.i226, label %._crit_edge.i225, !llvm.loop !15
 
 ._crit_edge.i225:                                 ; preds = %326, %309
   %.022.lcssa.i = phi i32 [ %315, %309 ], [ %330, %326 ]
@@ -5431,7 +5431,7 @@ dissect_tds_control_token.exit:                   ; preds = %319, %._crit_edge.i
   %indvars.iv.next.i235 = add nuw nsw i64 %indvars.iv.i234, 1
   %382 = load ptr, ptr %377, align 8
   %383 = trunc nuw i64 %indvars.iv.next.i235 to i32
-  call fastcc void @dissect_tds_type_varbyte(ptr noundef %0, ptr noundef nonnull %35, ptr noundef %1, ptr noundef %119, i32 noundef %375, ptr noundef %3, i8 noundef zeroext %379, i8 noundef zeroext %381, i32 noundef 0, i32 noundef %383, ptr noundef %382)
+  call fastcc void @dissect_tds_type_varbyte(ptr noundef %0, ptr noundef nonnull %35, ptr noundef %1, ptr noundef %119, i32 noundef %375, ptr noundef readonly %3, i8 noundef zeroext %379, i8 noundef zeroext %381, i32 noundef 0, i32 noundef %383, ptr noundef %382)
   %exitcond342.not = icmp eq i64 %indvars.iv.next.i235, %373
   br i1 %exitcond342.not, label %._crit_edge.loopexit.i236, label %374, !llvm.loop !10
 
@@ -5644,7 +5644,7 @@ dissect_tds5_params_token.exit:                   ; preds = %370, %._crit_edge.l
 
 493:                                              ; preds = %440, %440, %440, %440, %440, %440, %440, %440, %440, %440, %440, %440
   %494 = zext nneg i8 %464 to i32
-  %495 = call fastcc i32 @get_size_by_coltype(i32 noundef %494), !range !14
+  %495 = call fastcc i32 @get_size_by_coltype(i32 noundef %494)
   %496 = getelementptr inbounds i8, ptr %431, i64 8
   store i32 %495, ptr %496, align 8
   br label %497
@@ -5686,7 +5686,7 @@ dissect_tds5_params_token.exit:                   ; preds = %370, %._crit_edge.l
   %518 = sub i32 %516, %.0158181.i
   call void @proto_item_set_len(ptr noundef %517, i32 noundef %518) #11
   %519 = icmp ult i32 %516, %417
-  br i1 %519, label %.lr.ph.i240, label %._crit_edge.i238, !llvm.loop !17
+  br i1 %519, label %.lr.ph.i240, label %._crit_edge.i238, !llvm.loop !16
 
 ._crit_edge.i238:                                 ; preds = %512, %402
   %.0159.lcssa.i = phi i32 [ 0, %402 ], [ %423, %512 ]
@@ -5753,7 +5753,7 @@ dissect_tds5_params_token.exit:                   ; preds = %370, %._crit_edge.l
   store i8 %551, ptr %552, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond341.not = icmp eq i64 %indvars.iv.next.i.i, %528
-  br i1 %exitcond341.not, label %copy_nl_data.exit.i, label %529, !llvm.loop !18
+  br i1 %exitcond341.not, label %copy_nl_data.exit.i, label %529, !llvm.loop !17
 
 copy_nl_data.exit.i:                              ; preds = %537, %524
   %553 = getelementptr inbounds i8, ptr %406, i64 16
@@ -6057,7 +6057,7 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %420, %556
   br label %704
 
 701:                                              ; preds = %652, %652, %652, %652, %652, %652, %652, %652, %652, %652, %652, %652
-  %702 = call fastcc i32 @get_size_by_coltype(i32 noundef %670), !range !14
+  %702 = call fastcc i32 @get_size_by_coltype(i32 noundef %670)
   %703 = getelementptr inbounds i8, ptr %588, i64 8
   store i32 %702, ptr %703, align 8
   br label %704
@@ -6091,7 +6091,7 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %420, %556
   %719 = sub i32 %717, %.0164209.i
   call void @proto_item_set_len(ptr noundef %718, i32 noundef %719) #11
   %720 = icmp ult i32 %717, %574
-  br i1 %720, label %.lr.ph.i260, label %._crit_edge.i252, !llvm.loop !19
+  br i1 %720, label %.lr.ph.i260, label %._crit_edge.i252, !llvm.loop !18
 
 ._crit_edge.i252:                                 ; preds = %713, %559
   %.0166.lcssa.i = phi i32 [ 0, %559 ], [ %580, %713 ]
@@ -6158,7 +6158,7 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %420, %556
   store i8 %752, ptr %753, align 2
   %indvars.iv.next.i.i258 = add nuw nsw i64 %indvars.iv.i.i256, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i258, %729
-  br i1 %exitcond.not, label %copy_nl_data.exit.i259, label %730, !llvm.loop !18
+  br i1 %exitcond.not, label %copy_nl_data.exit.i259, label %730, !llvm.loop !17
 
 copy_nl_data.exit.i259:                           ; preds = %738, %725
   %754 = getelementptr inbounds i8, ptr %563, i64 16
@@ -6576,7 +6576,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
   ]
 
 904:                                              ; preds = %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i
-  %905 = call fastcc i32 @get_size_by_coltype(i32 noundef %899), !range !14
+  %905 = call fastcc i32 @get_size_by_coltype(i32 noundef %899)
   %906 = getelementptr inbounds i8, ptr %901, i64 8
   store i32 %905, ptr %906, align 8
   br label %.loopexit.i
@@ -6896,7 +6896,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
   %1103 = add i32 %1101, %1100
   %1104 = add nuw nsw i32 %.0605655.i, 1
   %exitcond668.not.i = icmp eq i32 %1104, %1091
-  br i1 %exitcond668.not.i, label %.loopexit.i, label %.lr.ph657.i, !llvm.loop !20
+  br i1 %exitcond668.not.i, label %.loopexit.i, label %.lr.ph657.i, !llvm.loop !19
 
 1105:                                             ; preds = %1087, %1084
   %1106 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1081) #11
@@ -6962,7 +6962,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
   %1151 = add i32 %1149, %1148
   %1152 = add nuw nsw i32 %.0603653.i, 1
   %exitcond.not.i = icmp eq i32 %1152, %1139
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i279, !llvm.loop !21
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i279, !llvm.loop !20
 
 1153:                                             ; preds = %1135, %1132
   %1154 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1129) #11
@@ -7004,7 +7004,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
   %1178 = sub i32 %.11.i, %.0602661.i
   call void @proto_item_set_len(ptr noundef %800, i32 noundef %1178) #11
   %.not626.i = icmp eq i64 %indvars.iv.next.i276, %797
-  br i1 %.not626.i, label %._crit_edge.i277, label %798, !llvm.loop !22
+  br i1 %.not626.i, label %._crit_edge.i277, label %798, !llvm.loop !21
 
 ._crit_edge.i277:                                 ; preds = %1177, %795
   %.0602.lcssa.i = phi i32 [ %796, %795 ], [ %.11.i, %1177 ]
@@ -7072,7 +7072,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
   %1220 = add i32 %1204, %1217
   %1221 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1220) #11
   %1222 = icmp sgt i32 %1221, 0
-  br i1 %1222, label %.lr.ph.i284, label %dissect_tds_featureextack_token.exit, !llvm.loop !23
+  br i1 %1222, label %.lr.ph.i284, label %dissect_tds_featureextack_token.exit, !llvm.loop !22
 
 dissect_tds_featureextack_token.exit:             ; preds = %.lr.ph.i284, %1214, %1198
   %.1.i283 = phi i32 [ %1199, %1198 ], [ %1220, %1214 ], [ %1203, %.lr.ph.i284 ]
@@ -7149,13 +7149,13 @@ dissect_tds_type_info_minimal.exit.i:             ; preds = %.sink.split.i.i, %1
   %1257 = add nuw nsw i64 %indvars.iv.i287, 1
   %1258 = load ptr, ptr %1247, align 8
   %1259 = trunc nuw i64 %1257 to i32
-  call fastcc void @dissect_tds_type_varbyte(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %785, i32 noundef %1254, ptr noundef %3, i8 noundef zeroext %1249, i8 noundef zeroext %1256, i32 noundef %.027.i, i32 noundef %1259, ptr noundef %1258)
+  call fastcc void @dissect_tds_type_varbyte(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %785, i32 noundef %1254, ptr noundef readonly %3, i8 noundef zeroext %1249, i8 noundef zeroext %1256, i32 noundef %.027.i, i32 noundef %1259, ptr noundef %1258)
   br label %1260
 
 1260:                                             ; preds = %dissect_tds_type_info_minimal.exit.i, %._crit_edge31.i
   %indvars.iv.next.pre-phi.i = phi i64 [ %.pre32.i, %._crit_edge31.i ], [ %1257, %dissect_tds_type_info_minimal.exit.i ]
   %1261 = icmp ult i64 %indvars.iv.next.pre-phi.i, %1234
-  br i1 %1261, label %1235, label %._crit_edge.loopexit.i288, !llvm.loop !24
+  br i1 %1261, label %1235, label %._crit_edge.loopexit.i288, !llvm.loop !23
 
 ._crit_edge.loopexit.i288:                        ; preds = %1260
   %.pre.i289 = load i32, ptr %9, align 4
@@ -7250,7 +7250,7 @@ dissect_tds_nbc_row_token.exit:                   ; preds = %1227, %._crit_edge.
   %1319 = add i32 %1318, -3
   %1320 = load i32, ptr %8, align 4
   %1321 = icmp ult i32 %1319, %1320
-  br i1 %1321, label %.lr.ph.i292, label %dissect_tds_sessionstate_token.exit, !llvm.loop !25
+  br i1 %1321, label %.lr.ph.i292, label %dissect_tds_sessionstate_token.exit, !llvm.loop !24
 
 dissect_tds_sessionstate_token.exit:              ; preds = %1313, %1283
   %.lcssa.i = phi i32 [ 9, %1283 ], [ %1318, %1313 ]
@@ -7325,7 +7325,7 @@ dissect_tds7_colmetadata_token.exit:              ; preds = %._crit_edge.i277, %
   %.1203 = add i32 %.0.pn, %.0202323
   %1349 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1203) #11
   %1350 = icmp sgt i32 %1349, 0
-  br i1 %1350, label %76, label %.thread306, !llvm.loop !26
+  br i1 %1350, label %76, label %.thread306, !llvm.loop !25
 
 .thread306:                                       ; preds = %1348, %dissect_tds7_colmetadata_token.exit, %tds7_token_to_idx.exit, %dissect_tds_prelogin_response.exit, %dissect_tds_prelogin_response.exit.thread, %.thread300
   ret void
@@ -7623,7 +7623,7 @@ set_tds_version.exit:                             ; preds = %24, %28
 set_tds_version_from_prog_version.exit:           ; preds = %91, %63, %104, %106, %129, %123, %117, %111, %98, %92, %53
   %135 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %62) #11
   %136 = icmp sgt i32 %135, 0
-  br i1 %136, label %43, label %.loopexit, !llvm.loop !27
+  br i1 %136, label %43, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %set_tds_version_from_prog_version.exit, %set_tds_version.exit, %51, %detect_tls.exit
   ret void
@@ -7718,7 +7718,7 @@ define internal fastcc void @dissect_tds_all_headers(ptr noundef %0, ptr nocaptu
   %61 = add i32 %60, %59
   store i32 %61, ptr %1, align 4
   %62 = icmp slt i32 %61, %20
-  br i1 %62, label %22, label %.loopexit, !llvm.loop !28
+  br i1 %62, label %22, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %58, %33
   %63 = phi i32 [ %.pre, %33 ], [ %61, %58 ]
@@ -8453,7 +8453,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %386 = or disjoint i64 %.0564667, %385
   %387 = shl i64 %386, 8
   %388 = icmp ugt i32 %.0565668.in, 2
-  br i1 %388, label %.lr.ph669, label %._crit_edge670.loopexit, !llvm.loop !29
+  br i1 %388, label %.lr.ph669, label %._crit_edge670.loopexit, !llvm.loop !28
 
 ._crit_edge670.loopexit:                          ; preds = %.lr.ph669
   %.pre700 = load i32, ptr %1, align 4
@@ -8476,7 +8476,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %395 = fdiv double %.0563673, 1.000000e+01
   %396 = add nuw nsw i32 %.1566672, 1
   %exitcond697.not = icmp eq i32 %396, %394
-  br i1 %exitcond697.not, label %._crit_edge676, label %.lr.ph675, !llvm.loop !30
+  br i1 %exitcond697.not, label %._crit_edge676, label %.lr.ph675, !llvm.loop !29
 
 ._crit_edge676:                                   ; preds = %.lr.ph675, %._crit_edge670
   %.0563.lcssa = phi double [ %393, %._crit_edge670 ], [ %395, %.lr.ph675 ]
@@ -8566,7 +8566,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %442 = or disjoint i64 %.0557655, %441
   %443 = shl i64 %442, 8
   %444 = icmp ugt i32 %.0561.in654, 2
-  br i1 %444, label %.lr.ph657, label %._crit_edge658.loopexit, !llvm.loop !31
+  br i1 %444, label %.lr.ph657, label %._crit_edge658.loopexit, !llvm.loop !30
 
 ._crit_edge658.loopexit:                          ; preds = %.lr.ph657
   %.pre699 = load i32, ptr %1, align 4
@@ -8588,7 +8588,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %450 = fdiv double %.0556661, 1.000000e+01
   %451 = add nuw nsw i32 %.1562660, 1
   %exitcond696.not = icmp eq i32 %451, %433
-  br i1 %exitcond696.not, label %._crit_edge664, label %.lr.ph663, !llvm.loop !32
+  br i1 %exitcond696.not, label %._crit_edge664, label %.lr.ph663, !llvm.loop !31
 
 ._crit_edge664:                                   ; preds = %.lr.ph663, %._crit_edge658
   %.0556.lcssa = phi double [ %449, %._crit_edge658 ], [ %450, %.lr.ph663 ]
@@ -8668,7 +8668,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %504 = or disjoint i64 %.0552643, %503
   %505 = shl i64 %504, 8
   %506 = icmp ugt i32 %.0554.in642, 2
-  br i1 %506, label %.lr.ph645, label %._crit_edge646.loopexit, !llvm.loop !33
+  br i1 %506, label %.lr.ph645, label %._crit_edge646.loopexit, !llvm.loop !32
 
 ._crit_edge646.loopexit:                          ; preds = %.lr.ph645
   %.pre698 = load i32, ptr %1, align 4
@@ -8690,7 +8690,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %512 = fdiv double %.0551649, 1.000000e+01
   %513 = add nuw nsw i32 %.1555648, 1
   %exitcond695.not = icmp eq i32 %513, %495
-  br i1 %exitcond695.not, label %._crit_edge652, label %.lr.ph651, !llvm.loop !34
+  br i1 %exitcond695.not, label %._crit_edge652, label %.lr.ph651, !llvm.loop !33
 
 ._crit_edge652:                                   ; preds = %.lr.ph651, %._crit_edge646
   %.0551.lcssa = phi double [ %511, %._crit_edge646 ], [ %512, %.lr.ph651 ]
@@ -8808,7 +8808,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %590 = or disjoint i64 %586, %589
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge633, label %.lr.ph632, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge633, label %.lr.ph632, !llvm.loop !34
 
 ._crit_edge633:                                   ; preds = %.lr.ph632, %581
   %.0549.lcssa = phi i64 [ 0, %581 ], [ %590, %.lr.ph632 ]
@@ -8882,7 +8882,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %631 = or disjoint i64 %627, %630
   %indvars.iv.next693 = add nsw i64 %indvars.iv692, -1
   %.not721 = icmp eq i64 %indvars.iv692, 0
-  br i1 %.not721, label %._crit_edge640, label %.lr.ph639, !llvm.loop !36
+  br i1 %.not721, label %._crit_edge640, label %.lr.ph639, !llvm.loop !35
 
 ._crit_edge640:                                   ; preds = %.lr.ph639, %620
   %.0.lcssa = phi i64 [ 0, %620 ], [ %631, %.lr.ph639 ]
@@ -9476,7 +9476,7 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = zext i32 %56 to i64
   %58 = icmp ult i64 %indvars.iv.next, %57
-  br i1 %58, label %34, label %._crit_edge.loopexit, !llvm.loop !37
+  br i1 %58, label %34, label %._crit_edge.loopexit, !llvm.loop !36
 
 ._crit_edge.loopexit:                             ; preds = %.thread
   %.pre19 = load i32, ptr %5, align 4
@@ -9487,7 +9487,7 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef %0, ptr no
   %.lcssa = phi i32 [ 0, %30 ], [ %56, %._crit_edge.loopexit ]
   %60 = add i32 %.lcssa, %21
   %61 = icmp ult i32 %60, %59
-  br i1 %61, label %.lr.ph11, label %._crit_edge12, !llvm.loop !38
+  br i1 %61, label %.lr.ph11, label %._crit_edge12, !llvm.loop !37
 
 ._crit_edge12:                                    ; preds = %._crit_edge, %4
   %.038.lcssa = phi i32 [ 2, %4 ], [ %60, %._crit_edge ]
@@ -10414,7 +10414,7 @@ define internal fastcc noundef i32 @dissect_tds_order_token(ptr noundef %0, i32 
   %25 = add nuw i32 %.027, 1
   %26 = load i32, ptr %5, align 4
   %27 = icmp ult i32 %25, %26
-  br i1 %27, label %.lr.ph28, label %.loopexit, !llvm.loop !39
+  br i1 %27, label %.lr.ph28, label %.loopexit, !llvm.loop !38
 
 28:                                               ; preds = %18, %14
   %29 = load i32, ptr %5, align 4
@@ -10431,7 +10431,7 @@ define internal fastcc noundef i32 @dissect_tds_order_token(ptr noundef %0, i32 
   %34 = load i32, ptr %5, align 4
   %35 = lshr i32 %34, 1
   %36 = icmp ult i32 %33, %35
-  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !40
+  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph28, %28, %20
   %.2 = phi i32 [ %11, %20 ], [ %11, %28 ], [ %24, %.lr.ph28 ], [ %32, %.lr.ph ]
@@ -10573,7 +10573,7 @@ define internal fastcc i32 @dissect_tds_paramfmt_token(ptr noundef %0, ptr nound
 
 81:                                               ; preds = %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36
   %82 = zext nneg i8 %65 to i32
-  %83 = call fastcc i32 @get_size_by_coltype(i32 noundef %82), !range !14
+  %83 = call fastcc i32 @get_size_by_coltype(i32 noundef %82)
   %84 = getelementptr inbounds i8, ptr %63, i64 8
   store i32 %83, ptr %84, align 8
   br label %85
@@ -10586,7 +10586,7 @@ define internal fastcc i32 @dissect_tds_paramfmt_token(ptr noundef %0, ptr nound
   %89 = add i32 %88, %.1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %90 = icmp ult i32 %89, %23
-  br i1 %90, label %28, label %._crit_edge.loopexit, !llvm.loop !41
+  br i1 %90, label %28, label %._crit_edge.loopexit, !llvm.loop !40
 
 ._crit_edge.loopexit:                             ; preds = %85
   %91 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -10741,7 +10741,7 @@ define internal fastcc i32 @dissect_tds_paramfmt2_token(ptr noundef %0, ptr noun
 
 83:                                               ; preds = %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36
   %84 = zext nneg i8 %67 to i32
-  %85 = call fastcc i32 @get_size_by_coltype(i32 noundef %84), !range !14
+  %85 = call fastcc i32 @get_size_by_coltype(i32 noundef %84)
   %86 = getelementptr inbounds i8, ptr %65, i64 8
   store i32 %85, ptr %86, align 8
   br label %87
@@ -10754,7 +10754,7 @@ define internal fastcc i32 @dissect_tds_paramfmt2_token(ptr noundef %0, ptr noun
   %91 = add i32 %90, %.1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %92 = icmp ult i32 %91, %23
-  br i1 %92, label %28, label %._crit_edge.loopexit, !llvm.loop !42
+  br i1 %92, label %28, label %._crit_edge.loopexit, !llvm.loop !41
 
 ._crit_edge.loopexit:                             ; preds = %87
   %93 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -10864,7 +10864,7 @@ dissect_tds_type_info_minimal.exit:               ; preds = %34, %39, %.sink.spl
   %48 = load i32, ptr %.0, align 8
   %49 = zext i32 %48 to i64
   %50 = icmp ult i64 %indvars.iv.next, %49
-  br i1 %50, label %34, label %._crit_edge.loopexit, !llvm.loop !43
+  br i1 %50, label %34, label %._crit_edge.loopexit, !llvm.loop !42
 
 ._crit_edge.loopexit:                             ; preds = %dissect_tds_type_info_minimal.exit
   %.pre = load i32, ptr %7, align 4
@@ -10901,7 +10901,7 @@ declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @get_size_by_coltype(i32 noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 -1, 17) i32 @get_size_by_coltype(i32 noundef %0) unnamed_addr #7 {
   switch i32 %0, label %12 [
     i32 48, label %13
     i32 52, label %2
@@ -11134,7 +11134,7 @@ attributes #12 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 -1, i32 17}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
@@ -11163,4 +11163,3 @@ attributes #12 = { nounwind willreturn memory(read) }
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}

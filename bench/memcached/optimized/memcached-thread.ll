@@ -1664,7 +1664,7 @@ memcached_thread_notify_init.exit32:              ; preds = %memcached_thread_no
   %storage = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %11, i64 %indvars.iv56, i32 14
   store ptr %arg, ptr %storage, align 8
   %thread_baseid = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %11, i64 %indvars.iv56, i32 7
-  %12 = trunc i64 %indvars.iv56 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv56 to i32
   store i32 %12, ptr %thread_baseid, align 4
   %arrayidx59 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %11, i64 %indvars.iv56
   %call.i33 = tail call ptr @event_config_new() #14

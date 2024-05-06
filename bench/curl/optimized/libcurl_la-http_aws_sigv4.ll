@@ -245,7 +245,7 @@ while.end.i:                                      ; preds = %while.cond.i
 
 land.rhs19.i:                                     ; preds = %while.end.i, %while.body31.i
   %len.017.i = phi i64 [ %dec.i, %while.body31.i ], [ %call15.i, %while.end.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %call3.pn.i, i64 %len.017.i
+  %arrayidx.i = getelementptr i8, ptr %call3.pn.i, i64 %len.017.i
   %12 = load i8, ptr %arrayidx.i, align 1
   switch i8 %12, label %parse_content_sha_hdr.exit.thread [
     i8 32, label %while.body31.i

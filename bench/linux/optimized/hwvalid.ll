@@ -57,7 +57,7 @@ define dso_local i32 @acpi_hw_read_port(i64 noundef %0, ptr noundef %1, i32 noun
 
 16:                                               ; preds = %10
   %17 = lshr i64 %8, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = trunc i64 %8 to i32
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 119, ptr noundef nonnull @.str.1, i32 noundef %18, i32 noundef %19, i32 noundef %11) #3
   br label %.thread
@@ -123,7 +123,7 @@ define dso_local i32 @acpi_hw_read_port(i64 noundef %0, ptr noundef %1, i32 noun
 
 54:                                               ; preds = %.preheader
   %55 = lshr i64 %52, 32
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw i64 %55 to i32
   %57 = trunc i64 %52 to i32
   call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 119, ptr noundef nonnull @.str.1, i32 noundef %56, i32 noundef %57, i32 noundef 1) #3
   br label %90
@@ -226,7 +226,7 @@ define dso_local i32 @acpi_hw_write_port(i64 noundef %0, i32 noundef %1, i32 nou
 
 15:                                               ; preds = %9
   %16 = lshr i64 %7, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   %18 = trunc i64 %7 to i32
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 119, ptr noundef nonnull @.str.1, i32 noundef %17, i32 noundef %18, i32 noundef %10) #3
   br label %.thread
@@ -287,7 +287,7 @@ define dso_local i32 @acpi_hw_write_port(i64 noundef %0, i32 noundef %1, i32 nou
 
 53:                                               ; preds = %.preheader
   %54 = lshr i64 %51, 32
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   %56 = trunc i64 %51 to i32
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 119, ptr noundef nonnull @.str.1, i32 noundef %55, i32 noundef %56, i32 noundef 1) #3
   br label %86
@@ -352,7 +352,7 @@ define dso_local i32 @acpi_hw_write_port(i64 noundef %0, i32 noundef %1, i32 nou
 declare dso_local i32 @acpi_os_write_port(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_hw_validate_io_block(i64 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12321) i32 @acpi_hw_validate_io_block(i64 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %.thread, label %5
 
@@ -384,7 +384,7 @@ define dso_local noundef i32 @acpi_hw_validate_io_block(i64 noundef %0, i32 noun
 
 16:                                               ; preds = %.split
   %17 = lshr i64 %11, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = trunc i64 %11 to i32
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 119, ptr noundef nonnull @.str.1, i32 noundef %18, i32 noundef %19, i32 noundef %6) #3
   br label %.thread

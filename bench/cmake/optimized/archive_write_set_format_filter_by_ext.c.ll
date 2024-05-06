@@ -26,20 +26,20 @@ define dso_local i32 @archive_write_set_format_filter_by_ext(ptr noundef %0, ptr
   br i1 %3, label %get_array_index.exit.thread, label %.split.i
 
 .split.i:                                         ; preds = %2
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #3
+  %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #3
   br label %5
 
 5:                                                ; preds = %cmpsuff.exit.thread.i, %.split.i
   %indvars.iv.i = phi i64 [ 0, %.split.i ], [ %indvars.iv.next.i, %cmpsuff.exit.thread.i ]
   %6 = phi ptr [ @.str.1, %.split.i ], [ %13, %cmpsuff.exit.thread.i ]
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #3
+  %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #3
   %.not.i.i = icmp ult i64 %4, %7
   br i1 %.not.i.i, label %cmpsuff.exit.thread.i, label %cmpsuff.exit.i
 
 cmpsuff.exit.i:                                   ; preds = %5
   %8 = sub i64 %4, %7
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %6) #3
+  %10 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %6) #3
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %get_array_index.exit, label %cmpsuff.exit.thread.i
 
@@ -89,20 +89,20 @@ define dso_local i32 @archive_write_set_format_filter_by_ext_def(ptr noundef %0,
   br i1 %4, label %get_array_index.exit.thread, label %.split.i
 
 .split.i:                                         ; preds = %3
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #3
+  %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #3
   br label %6
 
 6:                                                ; preds = %cmpsuff.exit.thread.i, %.split.i
   %indvars.iv.i = phi i64 [ 0, %.split.i ], [ %indvars.iv.next.i, %cmpsuff.exit.thread.i ]
   %7 = phi ptr [ @.str.1, %.split.i ], [ %14, %cmpsuff.exit.thread.i ]
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #3
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #3
   %.not.i.i = icmp ult i64 %5, %8
   br i1 %.not.i.i, label %cmpsuff.exit.thread.i, label %cmpsuff.exit.i
 
 cmpsuff.exit.i:                                   ; preds = %6
   %9 = sub i64 %5, %8
   %10 = getelementptr inbounds i8, ptr %1, i64 %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %7) #3
+  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %7) #3
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %get_array_index.exit, label %cmpsuff.exit.thread.i
 
@@ -123,20 +123,20 @@ get_array_index.exit.thread:                      ; preds = %cmpsuff.exit.thread
   br i1 %16, label %get_array_index.exit25.thread, label %.split.i16
 
 .split.i16:                                       ; preds = %get_array_index.exit.thread
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #3
+  %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #3
   br label %18
 
 18:                                               ; preds = %cmpsuff.exit.thread.i20, %.split.i16
   %indvars.iv.i17 = phi i64 [ 0, %.split.i16 ], [ %indvars.iv.next.i21, %cmpsuff.exit.thread.i20 ]
   %19 = phi ptr [ @.str.1, %.split.i16 ], [ %26, %cmpsuff.exit.thread.i20 ]
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #3
+  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %19) #3
   %.not.i.i18 = icmp ult i64 %17, %20
   br i1 %.not.i.i18, label %cmpsuff.exit.thread.i20, label %cmpsuff.exit.i19
 
 cmpsuff.exit.i19:                                 ; preds = %18
   %21 = sub i64 %17, %20
   %22 = getelementptr inbounds i8, ptr %2, i64 %21
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %19) #3
+  %23 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull readonly dereferenceable(1) %19) #3
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %get_array_index.exit25, label %cmpsuff.exit.thread.i20
 

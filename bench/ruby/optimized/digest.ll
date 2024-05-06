@@ -314,7 +314,7 @@ define internal noundef i64 @rb_digest_instance_block_length(i64 noundef %0) #2 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @rb_digest_instance_equal(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @rb_digest_instance_equal(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = load i64, ptr @rb_mDigest_Instance, align 8

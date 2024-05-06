@@ -61,7 +61,7 @@ if.end.i:                                         ; preds = %if.end2
 
 if.end2.i:                                        ; preds = %if.end.i
   %conv.i = sext i32 %len to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %val, i64 %conv.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr readonly align 1 %val, i64 %conv.i, i1 false)
   br label %fdt_setprop_inplace_namelen_partial.exit
 
 fdt_setprop_inplace_namelen_partial.exit:         ; preds = %if.end2, %if.end.i, %if.end2.i
@@ -132,7 +132,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare i32 @fdt_next_node(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_nop_node(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @fdt_nop_node(ptr noundef %fdt, i32 noundef %nodeoffset) local_unnamed_addr #0 {
 entry:
   %depth.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %depth.i)

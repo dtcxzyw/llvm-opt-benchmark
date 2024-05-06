@@ -487,7 +487,7 @@ define internal fastcc void @yenta_allocate_resources(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @yenta_interrupt(i32 %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @yenta_interrupt(i32 %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #10, !srcloc !6
@@ -630,7 +630,7 @@ define internal fastcc void @yenta_get_socket_capabilities(ptr nocapture noundef
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call fastcc i32 @yenta_probe_irq(ptr noundef %0), !range !13
+  %8 = tail call fastcc i32 @yenta_probe_irq(ptr noundef %0)
   %.pre = load i32, ptr %2, align 8
   br label %9
 
@@ -685,7 +685,7 @@ define internal fastcc void @yenta_fixup_parent_bridge(ptr noundef %0) unnamed_a
   %30 = select i1 %27, i8 %21, i8 %29
   %31 = load ptr, ptr %20, align 8
   %32 = icmp eq ptr %31, %17
-  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %13
   %33 = phi i8 [ %16, %13 ], [ %30, %.preheader ]
@@ -715,7 +715,7 @@ define internal fastcc void @yenta_fixup_parent_bridge(ptr noundef %0) unnamed_a
   %49 = getelementptr inbounds i8, ptr %3, i64 216
   %50 = load i8, ptr %49, align 8
   %51 = zext i8 %50 to i32
-  %52 = trunc i64 %40 to i32
+  %52 = trunc nuw nsw i64 %40 to i32
   %53 = and i32 %46, 255
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %48, ptr noundef nonnull @.str.42, i32 noundef %51, i32 noundef %52, i32 noundef %53) #11
   %54 = zext nneg i32 %53 to i64
@@ -903,19 +903,19 @@ define internal noundef i32 @yenta_sock_init(ptr noundef %0) #2 align 16 {
   store ptr %2, ptr %36, align 8
   %37 = call i32 @yenta_set_socket(ptr noundef %0, ptr noundef nonnull @dead_socket)
   store i8 0, ptr %3, align 8
-  %38 = call i32 @yenta_set_io_map(ptr noundef %0, ptr noundef nonnull %3), !range !17
+  %38 = call i32 @yenta_set_io_map(ptr noundef %0, ptr noundef nonnull %3), !range !16
   store i8 1, ptr %3, align 8
-  %39 = call i32 @yenta_set_io_map(ptr noundef %0, ptr noundef nonnull %3), !range !17
+  %39 = call i32 @yenta_set_io_map(ptr noundef %0, ptr noundef nonnull %3), !range !16
   br label %40
 
 40:                                               ; preds = %.critedge, %40
   %41 = phi i32 [ %44, %40 ], [ 0, %.critedge ]
   %42 = trunc i32 %41 to i8
   store i8 %42, ptr %4, align 8
-  %43 = call i32 @yenta_set_mem_map(ptr noundef %0, ptr noundef nonnull %4), !range !17
+  %43 = call i32 @yenta_set_mem_map(ptr noundef %0, ptr noundef nonnull %4), !range !16
   %44 = add nuw nsw i32 %41, 1
   %45 = icmp eq i32 %44, 5
-  br i1 %45, label %46, label %40, !llvm.loop !18
+  br i1 %45, label %46, label %40, !llvm.loop !17
 
 46:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #10
@@ -1246,7 +1246,7 @@ define internal noundef i32 @yenta_set_socket(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @yenta_set_io_map(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @yenta_set_io_map(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = load i8, ptr %1, align 8
   %4 = zext i8 %3 to i32
   %5 = icmp ugt i8 %3, 1
@@ -1264,7 +1264,7 @@ define internal noundef i32 @yenta_set_io_map(ptr nocapture noundef readonly %0,
   br i1 %14, label %24, label %15
 
 15:                                               ; preds = %6
-  %16 = trunc i32 %7 to i8
+  %16 = trunc nuw i32 %7 to i8
   %17 = xor i8 %16, -1
   %18 = and i8 %11, %17
   %19 = load ptr, ptr %8, align 8
@@ -1332,7 +1332,7 @@ define internal noundef i32 @yenta_set_io_map(ptr nocapture noundef readonly %0,
   %74 = getelementptr i8, ptr %73, i64 2055
   %75 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %74) #10, !srcloc !8
   %76 = shl nuw nsw i32 15, %26
-  %77 = trunc i32 %76 to i8
+  %77 = trunc nuw i32 %76 to i8
   %78 = xor i8 %77, -1
   %79 = and i8 %75, %78
   %80 = getelementptr inbounds i8, ptr %1, i64 1
@@ -1340,19 +1340,19 @@ define internal noundef i32 @yenta_set_io_map(ptr nocapture noundef readonly %0,
   %82 = and i8 %81, 8
   %83 = icmp eq i8 %82, 0
   %84 = shl nuw nsw i32 4, %26
-  %85 = trunc i32 %84 to i8
+  %85 = trunc nuw i32 %84 to i8
   %86 = select i1 %83, i8 0, i8 %85
   %87 = or i8 %86, %79
   %88 = and i8 %81, 2
   %89 = icmp eq i8 %88, 0
   %90 = shl nuw nsw i32 1, %26
-  %91 = trunc i32 %90 to i8
+  %91 = trunc nuw i32 %90 to i8
   %92 = select i1 %89, i8 0, i8 %91
   %93 = or i8 %87, %92
   %94 = and i8 %81, 4
   %95 = icmp eq i8 %94, 0
   %96 = shl nuw nsw i32 2, %26
-  %97 = trunc i32 %96 to i8
+  %97 = trunc nuw i32 %96 to i8
   %98 = select i1 %95, i8 0, i8 %97
   %99 = or i8 %93, %98
   %100 = load ptr, ptr %8, align 8
@@ -1367,7 +1367,7 @@ define internal noundef i32 @yenta_set_io_map(ptr nocapture noundef readonly %0,
   br i1 %107, label %116, label %108
 
 108:                                              ; preds = %24
-  %109 = trunc i32 %7 to i8
+  %109 = trunc nuw i32 %7 to i8
   %110 = or i8 %25, %109
   %111 = load ptr, ptr %8, align 8
   %112 = getelementptr i8, ptr %111, i64 2054
@@ -1383,7 +1383,7 @@ define internal noundef i32 @yenta_set_io_map(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @yenta_set_mem_map(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @yenta_set_mem_map(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = alloca %struct.pci_bus_region, align 8
   %4 = getelementptr i8, ptr %0, i64 -64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
@@ -1431,7 +1431,7 @@ define internal noundef i32 @yenta_set_mem_map(ptr nocapture noundef readonly %0
   br i1 %39, label %49, label %40
 
 40:                                               ; preds = %31
-  %41 = trunc i32 %32 to i8
+  %41 = trunc nuw i32 %32 to i8
   %42 = xor i8 %41, -1
   %43 = and i8 %36, %42
   %44 = load ptr, ptr %33, align 8
@@ -1478,7 +1478,7 @@ define internal noundef i32 @yenta_set_mem_map(ptr nocapture noundef readonly %0
   %81 = getelementptr i8, ptr %79, i64 %80
   call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %77, ptr elementtype(i8) %81) #10, !srcloc !7
   %82 = lshr exact i16 %74, 8
-  %83 = trunc i16 %82 to i8
+  %83 = trunc nuw i16 %82 to i8
   %84 = load ptr, ptr %33, align 8
   %85 = getelementptr i8, ptr %84, i64 2048
   %86 = getelementptr i8, ptr %85, i64 %80
@@ -1526,7 +1526,7 @@ define internal noundef i32 @yenta_set_mem_map(ptr nocapture noundef readonly %0
   %115 = getelementptr i8, ptr %113, i64 %114
   call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %111, ptr elementtype(i8) %115) #10, !srcloc !7
   %116 = lshr i16 %109, 8
-  %117 = trunc i16 %116 to i8
+  %117 = trunc nuw i16 %116 to i8
   %118 = load ptr, ptr %33, align 8
   %119 = getelementptr i8, ptr %118, i64 2048
   %120 = getelementptr i8, ptr %119, i64 %114
@@ -1562,7 +1562,7 @@ define internal noundef i32 @yenta_set_mem_map(ptr nocapture noundef readonly %0
   %149 = getelementptr i8, ptr %147, i64 %148
   call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %145, ptr elementtype(i8) %149) #10, !srcloc !7
   %150 = lshr exact i16 %143, 8
-  %151 = trunc i16 %150 to i8
+  %151 = trunc nuw i16 %150 to i8
   %152 = load ptr, ptr %33, align 8
   %153 = getelementptr i8, ptr %152, i64 2048
   %154 = getelementptr i8, ptr %153, i64 %148
@@ -1583,7 +1583,7 @@ define internal noundef i32 @yenta_set_mem_map(ptr nocapture noundef readonly %0
   br i1 %167, label %176, label %168
 
 168:                                              ; preds = %108
-  %169 = trunc i32 %32 to i8
+  %169 = trunc nuw i32 %32 to i8
   %170 = or i8 %50, %169
   %171 = load ptr, ptr %33, align 8
   %172 = getelementptr i8, ptr %171, i64 2054
@@ -1760,7 +1760,7 @@ declare dso_local i32 @pci_write_config_dword(ptr noundef, i32 noundef, i32 noun
 declare dso_local i32 @pci_write_config_byte(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @yenta_allocate_res(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @yenta_allocate_res(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %struct.pci_bus_region, align 8
@@ -1909,7 +1909,7 @@ declare dso_local void @pcibios_bus_to_resource(ptr noundef, ptr noundef, ptr no
 declare dso_local i32 @pci_claim_resource(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @yenta_search_res(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -1949,7 +1949,7 @@ define internal fastcc noundef i32 @yenta_search_res(ptr nocapture noundef reado
 30:                                               ; preds = %24
   %31 = add nuw nsw i64 %28, 1
   %32 = lshr i64 %31, 3
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw nsw i64 %32 to i32
   %34 = icmp ult i32 %33, 2
   br i1 %34, label %.loopexit, label %.preheader
 
@@ -1959,7 +1959,7 @@ define internal fastcc noundef i32 @yenta_search_res(ptr nocapture noundef reado
   %37 = lshr i32 %36, 1
   %38 = add nuw nsw i32 %35, 1
   %39 = icmp ult i32 %36, 4
-  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %30
   %40 = phi i32 [ 0, %30 ], [ %38, %.preheader ]
@@ -1989,7 +1989,7 @@ define internal fastcc noundef i32 @yenta_search_res(ptr nocapture noundef reado
   %58 = lshr i32 %53, 1
   %59 = icmp ult i32 %58, %2
   %60 = or i1 %57, %59
-  br i1 %60, label %61, label %51, !llvm.loop !20
+  br i1 %60, label %61, label %51, !llvm.loop !19
 
 61:                                               ; preds = %51
   br i1 %57, label %71, label %62
@@ -2003,7 +2003,7 @@ define internal fastcc noundef i32 @yenta_search_res(ptr nocapture noundef reado
   %68 = icmp ne ptr %67, null
   %69 = icmp slt i32 %63, 4
   %70 = or i1 %69, %68
-  br i1 %70, label %10, label %71, !llvm.loop !21
+  br i1 %70, label %10, label %71, !llvm.loop !20
 
 71:                                               ; preds = %62, %61
   %72 = phi i32 [ 1, %61 ], [ 0, %62 ]
@@ -2241,7 +2241,7 @@ define internal noundef i32 @ti113x_override(ptr nocapture noundef %0) #2 align 
   br i1 %15, label %45, label %16
 
 16:                                               ; preds = %12
-  %17 = call fastcc i32 @yenta_probe_irq(ptr noundef %0), !range !13
+  %17 = call fastcc i32 @yenta_probe_irq(ptr noundef %0)
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %45, label %.preheader
 
@@ -2251,7 +2251,7 @@ define internal noundef i32 @ti113x_override(ptr nocapture noundef %0) #2 align 
   %21 = lshr i32 %19, 1
   %22 = add nsw i32 %20, 1
   %23 = icmp ult i32 %19, 2
-  br i1 %23, label %24, label %.preheader, !llvm.loop !22
+  br i1 %23, label %24, label %.preheader, !llvm.loop !21
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3320,7 +3320,7 @@ define internal void @ti1250_zoom_video(ptr nocapture noundef readonly %0, i32 n
 
 27:                                               ; preds = %2
   %28 = shl nuw nsw i32 1, %23
-  %29 = trunc i32 %28 to i8
+  %29 = trunc nuw nsw i32 %28 to i8
   %30 = or i8 %26, %29
   %31 = or disjoint i8 %30, -128
   br label %38
@@ -3328,7 +3328,7 @@ define internal void @ti1250_zoom_video(ptr nocapture noundef readonly %0, i32 n
 32:                                               ; preds = %2
   %33 = xor i8 %26, -64
   %34 = shl nuw nsw i32 1, %23
-  %35 = trunc i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = xor i8 %35, -1
   %37 = and i8 %33, %36
   br label %38
@@ -3343,7 +3343,7 @@ define internal void @ti1250_zoom_video(ptr nocapture noundef readonly %0, i32 n
 declare dso_local i32 @pci_read_config_byte(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @yenta_probe_irq(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 65536) i32 @yenta_probe_irq(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %3) #10, !srcloc !5
@@ -3401,7 +3401,7 @@ define internal fastcc i32 @yenta_probe_irq(ptr nocapture noundef readonly %0) u
 43:                                               ; preds = %26, %21
   %44 = add nuw nsw i64 %22, 1
   %45 = icmp eq i64 %44, 16
-  br i1 %45, label %46, label %21, !llvm.loop !23
+  br i1 %45, label %46, label %21, !llvm.loop !22
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr %2, align 8
@@ -3651,7 +3651,7 @@ define internal fastcc i32 @yenta_probe_cb_irq(ptr noundef %0) unnamed_addr #2 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @yenta_probe_handler(i32 %0, ptr nocapture noundef %1) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @yenta_probe_handler(i32 %0, ptr nocapture noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #10, !srcloc !6
@@ -3684,7 +3684,7 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ti12xx_tie_interrupts(ptr nocapture noundef %0, ptr noundef writeonly %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ti12xx_tie_interrupts(ptr nocapture noundef %0, ptr noundef writeonly %1) unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
   store i32 0, ptr %3, align 4, !annotation !9
@@ -3763,7 +3763,7 @@ declare dso_local ptr @pci_get_slot(ptr noundef, i32 noundef) local_unnamed_addr
 declare dso_local void @pci_dev_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ti12xx_2nd_slot_empty(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 2) i32 @ti12xx_2nd_slot_empty(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 62
@@ -3983,7 +3983,7 @@ define internal void @ene_tune_bridge(ptr nocapture noundef readonly %0, ptr nou
 10:                                               ; preds = %6
   %11 = tail call ptr @pci_match_id(ptr noundef nonnull @ene_tune_tbl, ptr noundef %8) #10
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %6, label %13, !llvm.loop !24
+  br i1 %12, label %6, label %13, !llvm.loop !23
 
 13:                                               ; preds = %10, %6
   %14 = phi ptr [ %11, %10 ], [ null, %6 ]
@@ -4038,7 +4038,7 @@ declare dso_local void @pcmcia_parse_events(ptr noundef, i32 noundef) local_unna
 declare dso_local void @add_timer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_yenta_registers(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_yenta_registers(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.44) #10
@@ -4067,7 +4067,7 @@ define internal i64 @show_yenta_registers(ptr nocapture noundef readonly %0, ptr
   %23 = add i32 %22, %18
   %24 = add nuw nsw i64 %9, 4
   %25 = icmp ult i64 %9, 32
-  br i1 %25, label %8, label %26, !llvm.loop !25
+  br i1 %25, label %8, label %26, !llvm.loop !24
 
 26:                                               ; preds = %17
   %27 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %23, ptr noundef nonnull @.str.47) #10
@@ -4110,7 +4110,7 @@ define internal i64 @show_yenta_registers(ptr nocapture noundef readonly %0, ptr
   %53 = add i32 %52, %46
   %54 = add nuw nsw i64 %30, 1
   %55 = icmp eq i64 %54, 69
-  br i1 %55, label %56, label %29, !llvm.loop !26
+  br i1 %55, label %56, label %29, !llvm.loop !25
 
 56:                                               ; preds = %45
   %57 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %53, ptr noundef nonnull @.str.50) #10
@@ -4249,17 +4249,16 @@ attributes #12 = { nounwind allocsize(2) }
 !10 = !{i32 0, i32 2}
 !11 = !{i8 0, i8 2}
 !12 = !{}
-!13 = !{i32 0, i32 65536}
-!14 = distinct !{!14, !15, !16}
-!15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.unroll.disable"}
-!17 = !{i32 -22, i32 1}
-!18 = distinct !{!18, !15, !16}
-!19 = distinct !{!19, !15, !16}
-!20 = distinct !{!20, !15, !16}
-!21 = distinct !{!21, !15, !16}
-!22 = distinct !{!22, !15, !16}
-!23 = distinct !{!23, !15, !16}
-!24 = distinct !{!24, !15, !16}
-!25 = distinct !{!25, !15, !16}
-!26 = distinct !{!26, !15, !16}
+!13 = distinct !{!13, !14, !15}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!"llvm.loop.unroll.disable"}
+!16 = !{i32 -22, i32 1}
+!17 = distinct !{!17, !14, !15}
+!18 = distinct !{!18, !14, !15}
+!19 = distinct !{!19, !14, !15}
+!20 = distinct !{!20, !14, !15}
+!21 = distinct !{!21, !14, !15}
+!22 = distinct !{!22, !14, !15}
+!23 = distinct !{!23, !14, !15}
+!24 = distinct !{!24, !14, !15}
+!25 = distinct !{!25, !14, !15}

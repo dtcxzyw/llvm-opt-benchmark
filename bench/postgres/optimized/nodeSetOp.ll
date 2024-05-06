@@ -252,7 +252,7 @@ fetch_tuple_flag.exit.i:                          ; preds = %slot_getsomeattrs.e
   %73 = call ptr @MemoryContextAlloc(ptr noundef %72, i64 noundef 16) #7
   %74 = getelementptr inbounds i8, ptr %66, i64 8
   store ptr %73, ptr %74, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false)
   br label %75
 
 75:                                               ; preds = %69, %65
@@ -416,7 +416,7 @@ ExecProcNode.exit.i21:                            ; preds = %144, %142
   %160 = phi ptr [ %157, %152 ], [ %140, %139 ]
   %161 = call ptr @ExecStoreHeapTuple(ptr noundef %160, ptr noundef %127, i1 noundef zeroext true) #7
   store ptr null, ptr %128, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %126, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %126, i8 0, i64 16, i1 false)
   %.val.i15 = load ptr, ptr %4, align 8
   %162 = getelementptr i8, ptr %.val.i15, i64 144
   %.val.val.i16 = load i16, ptr %162, align 8

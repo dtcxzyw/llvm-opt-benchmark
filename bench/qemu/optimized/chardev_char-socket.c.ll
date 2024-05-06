@@ -381,7 +381,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @tcp_set_msgfds(ptr noundef %chr, ptr nocapture noundef readonly %fds, i32 noundef %num) #0 {
+define internal range(i32 -1, 1) i32 @tcp_set_msgfds(ptr noundef %chr, ptr nocapture noundef readonly %fds, i32 noundef %num) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
   %write_msgfds = getelementptr inbounds i8, ptr %call.i, i64 232
@@ -1077,7 +1077,7 @@ if.then.i61:                                      ; preds = %if.else
   br label %if.end136
 
 if.else.i59:                                      ; preds = %if.else
-  %call1.i = call fastcc i32 @tcp_chr_connect_client_sync(ptr noundef nonnull %chr, ptr noundef %errp), !range !7
+  %call1.i = call fastcc i32 @tcp_chr_connect_client_sync(ptr noundef nonnull %chr, ptr noundef %errp)
   br label %if.end136
 
 if.end136:                                        ; preds = %if.then5.i, %if.then.i, %if.then10.i, %if.then16.i, %if.then22.i, %if.then39.i, %if.then36.i, %if.then31.i, %if.else.i59, %if.then.i61, %if.else.i52, %if.then22.i54, %if.then13.i, %if.then111, %if.end88, %if.then86, %if.then80
@@ -1085,7 +1085,7 @@ if.end136:                                        ; preds = %if.then5.i, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @tcp_chr_wait_connected(ptr noundef %chr, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @tcp_chr_wait_connected(ptr noundef %chr, ptr noundef %errp) #0 {
 entry:
   %optset = alloca [4 x i8], align 1
   %err = alloca ptr, align 8
@@ -1128,7 +1128,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i64 %i.023, 1
   %exitcond.not = icmp eq i64 %inc, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc
   %reconnect_timer.i = getelementptr inbounds i8, ptr %call.i, i64 296
@@ -1200,7 +1200,7 @@ if.then27:                                        ; preds = %while.body
 
 if.else28:                                        ; preds = %while.body
   store ptr null, ptr %err, align 8
-  %call29 = call fastcc i32 @tcp_chr_connect_client_sync(ptr noundef %chr, ptr noundef nonnull %err), !range !7
+  %call29 = call fastcc i32 @tcp_chr_connect_client_sync(ptr noundef %chr, ptr noundef nonnull %err)
   %cmp30 = icmp slt i32 %call29, 0
   br i1 %cmp30, label %if.then31, label %if.end39
 
@@ -1224,7 +1224,7 @@ if.else36:                                        ; preds = %if.then31
 if.end39:                                         ; preds = %if.else28, %if.then33, %if.then27
   %19 = load i32, ptr %state, align 8
   %cmp25.not = icmp eq i32 %19, 2
-  br i1 %cmp25.not, label %return, label %while.body, !llvm.loop !9
+  br i1 %cmp25.not, label %return, label %while.body, !llvm.loop !8
 
 return:                                           ; preds = %if.end39, %if.end23, %if.else36, %if.then14, %if.then
   %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.else36 ], [ -1, %if.then14 ], [ 0, %if.end23 ], [ 0, %if.end39 ]
@@ -1321,8 +1321,8 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %ioc, align 8
   %call1 = tail call i32 @qio_channel_set_blocking(ptr noundef %1, i1 noundef zeroext true, ptr noundef null) #9
   %conv = sext i32 %len to i64
-  %call2 = tail call fastcc i64 @tcp_chr_recv(ptr noundef %chr, ptr noundef %buf, i64 noundef %conv), !range !10
-  %conv3 = trunc i64 %call2 to i32
+  %call2 = tail call fastcc i64 @tcp_chr_recv(ptr noundef %chr, ptr noundef %buf, i64 noundef %conv)
+  %conv3 = trunc nsw i64 %call2 to i32
   %call4 = tail call ptr @__errno_location() #12
   %2 = load i32, ptr %call4, align 4
   %3 = load i32, ptr %state, align 8
@@ -1410,7 +1410,7 @@ for.body:                                         ; preds = %if.then7, %for.body
   %conv9 = sext i32 %inc to i64
   %6 = load i64, ptr %read_msgfds_num, align 8
   %cmp11 = icmp ugt i64 %6, %conv9
-  br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !11
+  br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %if.then7
   %7 = load ptr, ptr %read_msgfds, align 8
@@ -1423,7 +1423,7 @@ if.end18:                                         ; preds = %for.end, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @tcp_chr_add_client(ptr noundef %chr, i32 noundef %fd) #0 {
+define internal range(i32 -1, 1) i32 @tcp_chr_add_client(ptr noundef %chr, i32 noundef %fd) #0 {
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
@@ -1474,7 +1474,7 @@ if.then5:                                         ; preds = %tcp_chr_change_stat
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %tcp_chr_change_state.exit
-  %call8 = call fastcc i32 @tcp_chr_new_client(ptr noundef nonnull %chr, ptr noundef nonnull %call1), !range !7
+  %call8 = call fastcc i32 @tcp_chr_new_client(ptr noundef nonnull %chr, ptr noundef nonnull %call1)
   call void @object_unref(ptr noundef nonnull %call1) #9
   br label %return
 
@@ -1773,7 +1773,7 @@ if.then:                                          ; preds = %tcp_chr_change_stat
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %tcp_chr_change_state.exit
-  %call3 = call fastcc i32 @tcp_chr_new_client(ptr noundef nonnull %chr, ptr noundef %call1), !range !7
+  %call3 = call fastcc i32 @tcp_chr_new_client(ptr noundef nonnull %chr, ptr noundef %call1)
   call void @object_unref(ptr noundef %call1) #9
   ret void
 }
@@ -1821,7 +1821,7 @@ if.then:                                          ; preds = %tcp_chr_change_stat
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %tcp_chr_change_state.exit
-  %call3 = call fastcc i32 @tcp_chr_new_client(ptr noundef nonnull %call.i, ptr noundef %cioc), !range !7
+  %call3 = call fastcc i32 @tcp_chr_new_client(ptr noundef nonnull %call.i, ptr noundef %cioc)
   ret void
 }
 
@@ -1832,7 +1832,7 @@ declare ptr @qio_net_listener_wait_client(ptr noundef) local_unnamed_addr #1
 declare void @yank_register_function(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @tcp_chr_new_client(ptr noundef %chr, ptr noundef %sioc) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tcp_chr_new_client(ptr noundef %chr, ptr noundef %sioc) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
   %state = getelementptr inbounds i8, ptr %call.i, i64 200
@@ -2250,7 +2250,7 @@ if.end3:                                          ; preds = %if.then1, %if.else2
 declare ptr @qio_channel_add_watch_source(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @tcp_chr_telnet_init_io(ptr noundef %ioc, i32 %cond, ptr noundef %user_data) #0 {
+define internal range(i32 0, 2) i32 @tcp_chr_telnet_init_io(ptr noundef %ioc, i32 %cond, ptr noundef %user_data) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %user_data, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
   %telnet_init = getelementptr inbounds i8, ptr %user_data, i64 280
@@ -2408,8 +2408,8 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %narrow = tail call i32 @llvm.umin.i32(i32 %1, i32 4096)
   %spec.select = zext nneg i32 %narrow to i64
-  %call8 = call fastcc i64 @tcp_chr_recv(ptr noundef %call.i, ptr noundef nonnull %buf, i64 noundef %spec.select), !range !10
-  %conv9 = trunc i64 %call8 to i32
+  %call8 = call fastcc i64 @tcp_chr_recv(ptr noundef %call.i, ptr noundef nonnull %buf, i64 noundef %spec.select)
+  %conv9 = trunc nsw i64 %call8 to i32
   switch i32 %conv9, label %if.else [
     i32 0, label %if.then18
     i32 -1, label %land.lhs.true
@@ -2568,7 +2568,7 @@ for.inc.i:                                        ; preds = %if.end113.i, %if.th
   %j.3.i = phi i32 [ %j.061.i, %if.then103.i ], [ %inc114.i, %if.end113.i ], [ %j.257.i, %14 ]
   %exitcond.not = icmp eq i64 %indvars.iv.i, %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %exitcond.not, label %if.end24, label %for.body.i, !llvm.loop !12
+  br i1 %exitcond.not, label %if.end24, label %for.body.i, !llvm.loop !10
 
 if.end24:                                         ; preds = %for.inc.i
   %cmp25 = icmp sgt i32 %j.3.i, 0
@@ -2605,7 +2605,7 @@ declare i32 @g_source_attach(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @qemu_chr_be_can_write(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @tcp_chr_recv(ptr noundef %chr, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @tcp_chr_recv(ptr noundef %chr, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 {
 entry:
   %iov = alloca %struct.iovec, align 8
   %msgfds = alloca ptr, align 8
@@ -2660,7 +2660,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i64 %i.022, 1
   %6 = load i64, ptr %read_msgfds_num, align 8
   %cmp = icmp ult i64 %inc, %6
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body
   %7 = icmp eq i64 %6, 0
@@ -2710,7 +2710,7 @@ for.inc29:                                        ; preds = %for.body22, %if.end
   %15 = phi i64 [ %12, %for.body22 ], [ %.pre27, %if.end28 ]
   %inc30 = add nuw i64 %i.124, 1
   %cmp20 = icmp ult i64 %inc30, %15
-  br i1 %cmp20, label %for.body22, label %for.end31, !llvm.loop !14
+  br i1 %cmp20, label %for.body22, label %for.end31, !llvm.loop !12
 
 for.end31:                                        ; preds = %for.inc29, %if.end17
   switch i32 %ret.033, label %if.end42 [
@@ -2799,7 +2799,7 @@ if.end:                                           ; preds = %if.then, %tcp_chr_c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @tcp_chr_connect_client_sync(ptr noundef %chr, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @tcp_chr_connect_client_sync(ptr noundef %chr, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
@@ -2853,7 +2853,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %call6 = call fastcc i32 @tcp_chr_new_client(ptr noundef nonnull %chr, ptr noundef %call1), !range !7
+  %call6 = call fastcc i32 @tcp_chr_new_client(ptr noundef nonnull %chr, ptr noundef %call1)
   call void @object_unref(ptr noundef %call1) #9
   br label %return
 
@@ -2925,7 +2925,7 @@ check_report_connect_error.exit:                  ; preds = %if.then.i, %if.else
 if.end7:                                          ; preds = %entry
   %connect_err_reported = getelementptr inbounds i8, ptr %call.i11, i64 312
   store i8 0, ptr %connect_err_reported, align 8
-  %call8 = call fastcc i32 @tcp_chr_new_client(ptr noundef %call.i10, ptr noundef %call.i), !range !7
+  %call8 = call fastcc i32 @tcp_chr_new_client(ptr noundef %call.i10, ptr noundef %call.i)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end7, %check_report_connect_error.exit
@@ -3128,11 +3128,9 @@ attributes #12 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 -1, i32 1}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i64 -2147483648, i64 2147483648}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}

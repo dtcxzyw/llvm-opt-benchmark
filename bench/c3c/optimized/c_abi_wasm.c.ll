@@ -33,7 +33,7 @@ define dso_local ptr @wasm_create_params(ptr noundef readonly %0) local_unnamed_
   %10 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = tail call fastcc ptr @type_lowering(ptr noundef %11)
-  %13 = tail call fastcc ptr @type_lowering(ptr noundef %12)
+  %13 = tail call fastcc ptr @type_lowering(ptr noundef readonly %12)
   %14 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef %13) #3
   br i1 %14, label %15, label %19
 
@@ -234,7 +234,7 @@ wasm_classify_return.exit:                        ; preds = %8, %10
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @type_get_ptr(ptr noundef %17) #3
-  %19 = tail call fastcc ptr @type_lowering(ptr noundef %18)
+  %19 = tail call fastcc ptr @type_lowering(ptr noundef readonly %18)
   %20 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef %19) #3
   br i1 %20, label %21, label %25
 

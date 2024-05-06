@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [21 x i8] c"ADIOI_GEN_SetLock64:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ADIOI_GEN_SetLock(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 15) i32 @ADIOI_GEN_SetLock(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.flock, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
@@ -99,7 +99,7 @@ declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #3
 declare i32 @PMPI_Abort(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ADIOI_GEN_SetLock64(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 15) i32 @ADIOI_GEN_SetLock64(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.flock64, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4

@@ -111,7 +111,7 @@ entry:
   store ptr %call, ptr %file, align 8
   %blob = getelementptr inbounds i8, ptr %file, i64 8
   store ptr %file_blob, ptr %blob, align 8
-  %0 = tail call i32 @llvm.ctpop.i32(i32 %alloc_align), !range !7
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %alloc_align)
   %tobool.not = icmp ult i32 %0, 2
   br i1 %tobool.not, label %if.end, label %if.else
 
@@ -134,14 +134,14 @@ for.body.lr.ph.i:                                 ; preds = %if.end
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i32 %i.06.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %2
-  br i1 %exitcond.not.i, label %if.end6, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %if.end6, label %for.body.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.06.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
   %idxprom.i = sext i32 %i.06.i to i64
   %arrayidx.i = getelementptr %struct.BiosLinkerFileEntry, ptr %3, i64 %idxprom.i
   %4 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %file_name) #12
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %file_name) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.else5, label %for.cond.i
 
@@ -199,14 +199,14 @@ for.body.lr.ph.i:                                 ; preds = %entry
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i32 %i.06.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %1
-  br i1 %exitcond.not.i, label %if.else, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %if.else, label %for.body.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.06.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
   %idxprom.i = sext i32 %i.06.i to i64
   %arrayidx.i = getelementptr %struct.BiosLinkerFileEntry, ptr %2, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %file_name) #12
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %file_name) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %for.cond.i
 
@@ -292,14 +292,14 @@ for.body.lr.ph.i:                                 ; preds = %entry
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i32 %i.06.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %1
-  br i1 %exitcond.not.i, label %for.body.lr.ph.i24, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %for.body.lr.ph.i24, label %for.body.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.06.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
   %idxprom.i = sext i32 %i.06.i to i64
   %arrayidx.i = getelementptr %struct.BiosLinkerFileEntry, ptr %2, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %dest_file) #12
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %dest_file) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %for.body.lr.ph.i24, label %for.cond.i
 
@@ -310,14 +310,14 @@ for.body.lr.ph.i24:                               ; preds = %for.cond.i, %for.bo
 for.cond.i31:                                     ; preds = %for.body.i25
   %inc.i32 = add nuw i32 %i.06.i26, 1
   %exitcond.not.i33 = icmp eq i32 %inc.i32, %1
-  br i1 %exitcond.not.i33, label %bios_linker_find_file.exit35.thread, label %for.body.i25, !llvm.loop !8
+  br i1 %exitcond.not.i33, label %bios_linker_find_file.exit35.thread, label %for.body.i25, !llvm.loop !7
 
 for.body.i25:                                     ; preds = %for.cond.i31, %for.body.lr.ph.i24
   %i.06.i26 = phi i32 [ 0, %for.body.lr.ph.i24 ], [ %inc.i32, %for.cond.i31 ]
   %idxprom.i27 = sext i32 %i.06.i26 to i64
   %arrayidx.i28 = getelementptr %struct.BiosLinkerFileEntry, ptr %2, i64 %idxprom.i27
   %4 = load ptr, ptr %arrayidx.i28, align 8
-  %call.i29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %src_file) #12
+  %call.i29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %src_file) #12
   %tobool.not.i30 = icmp eq i32 %call.i29, 0
   br i1 %tobool.not.i30, label %bios_linker_find_file.exit35, label %for.cond.i31
 
@@ -428,14 +428,14 @@ for.body.lr.ph.i:                                 ; preds = %entry
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i32 %i.06.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %1
-  br i1 %exitcond.not.i, label %if.else, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %if.else, label %for.body.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.06.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
   %idxprom.i = sext i32 %i.06.i to i64
   %arrayidx.i = getelementptr %struct.BiosLinkerFileEntry, ptr %2, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %src_file) #12
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %src_file) #12
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end, label %for.cond.i
 
@@ -515,5 +515,4 @@ attributes #12 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 33}
-!8 = distinct !{!8, !6}
+!7 = distinct !{!7, !6}

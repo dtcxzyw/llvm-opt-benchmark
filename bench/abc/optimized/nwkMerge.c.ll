@@ -46,7 +46,7 @@ define noalias noundef ptr @Nwk_ManGraphAlloc(i32 noundef %0) local_unnamed_addr
 
 7:                                                ; preds = %.lr.ph.i
   %8 = add nuw nsw i32 %.01116.i, 2
-  %9 = mul nsw i32 %8, %8
+  %9 = mul nuw nsw i32 %8, %8
   %.not.i = icmp ugt i32 %9, %5
   br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -2929,7 +2929,7 @@ declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @Nwk_ManLutMergeGraphTest(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1073741824, 1073741824) i32 @Nwk_ManLutMergeGraphTest(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8

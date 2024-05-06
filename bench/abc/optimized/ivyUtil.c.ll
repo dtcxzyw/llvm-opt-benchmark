@@ -544,7 +544,7 @@ define ptr @Ivy_ManCutTruth(ptr noundef %0, ptr nocapture noundef %1, ptr nocapt
   %15 = getelementptr inbounds ptr, ptr %.val46.val, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 4
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %18, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val41 = load i32, ptr %6, align 4
@@ -778,7 +778,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Ivy_ManLevels(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2097152) i32 @Ivy_ManLevels(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -816,7 +816,7 @@ define i32 @Ivy_ManLevels(ptr nocapture noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Ivy_ManResetLevels_rec(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define range(i32 0, 2097152) i32 @Ivy_ManResetLevels_rec(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp ult i32 %3, 2048
@@ -845,7 +845,7 @@ define i32 @Ivy_ManResetLevels_rec(ptr nocapture noundef %0) local_unnamed_addr 
   %11 = ptrtoint ptr %.val14 to i64
   %12 = and i64 %11, -2
   %13 = inttoptr i64 %12 to ptr
-  %14 = tail call i32 @Ivy_ManResetLevels_rec(ptr noundef %13), !range !18
+  %14 = tail call i32 @Ivy_ManResetLevels_rec(ptr noundef %13)
   br i1 %.not22, label %15, label %20
 
 common.ret23:                                     ; preds = %15, %7, %20
@@ -866,7 +866,7 @@ common.ret23:                                     ; preds = %15, %7, %20
   %22 = ptrtoint ptr %.val15 to i64
   %23 = and i64 %22, -2
   %24 = inttoptr i64 %23 to ptr
-  %25 = tail call i32 @Ivy_ManResetLevels_rec(ptr noundef %24), !range !18
+  %25 = tail call i32 @Ivy_ManResetLevels_rec(ptr noundef %24)
   %.val8.i = load i32, ptr %2, align 8
   %26 = and i32 %.val8.i, 15
   %27 = icmp eq i32 %26, 6
@@ -937,7 +937,7 @@ define void @Ivy_ManResetLevels(ptr nocapture noundef readonly %0) local_unnamed
   %.val18 = load i32, ptr %18, align 4
   %19 = sext i32 %.val18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %.critedge.preheader, !llvm.loop !19
+  br i1 %20, label %.lr.ph, label %.critedge.preheader, !llvm.loop !18
 
 .lr.ph29:                                         ; preds = %.critedge.preheader, %.critedge
   %21 = phi ptr [ %35, %.critedge ], [ %17, %.critedge.preheader ]
@@ -964,7 +964,7 @@ define void @Ivy_ManResetLevels(ptr nocapture noundef readonly %0) local_unnamed
   %31 = ptrtoint ptr %.val21 to i64
   %32 = and i64 %31, -2
   %33 = inttoptr i64 %32 to ptr
-  %34 = tail call i32 @Ivy_ManResetLevels_rec(ptr noundef %33), !range !18
+  %34 = tail call i32 @Ivy_ManResetLevels_rec(ptr noundef %33)
   %.pre35 = load ptr, ptr %2, align 8
   br label %.critedge
 
@@ -975,7 +975,7 @@ define void @Ivy_ManResetLevels(ptr nocapture noundef readonly %0) local_unnamed
   %.val = load i32, ptr %36, align 4
   %37 = sext i32 %.val to i64
   %38 = icmp slt i64 %indvars.iv.next32, %37
-  br i1 %38, label %.lr.ph29, label %.critedge2, !llvm.loop !20
+  br i1 %38, label %.lr.ph29, label %.critedge2, !llvm.loop !19
 
 .critedge2:                                       ; preds = %.critedge, %1, %.critedge.preheader
   ret void
@@ -1266,7 +1266,7 @@ define void @Ivy_ObjUpdateLevel_rec(ptr noundef %0, ptr noundef %1) local_unname
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = sext i32 %.val to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph, label %.critedge, !llvm.loop !21
+  br i1 %41, label %.lr.ph, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %39, %2
   %.pr = load ptr, ptr %6, align 8
@@ -1286,7 +1286,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %.crited
 declare void @Ivy_ObjCollectFanouts(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ivy_ObjLevelRNew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483647) i32 @Ivy_ObjLevelRNew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
@@ -1324,7 +1324,7 @@ define i32 @Ivy_ObjLevelRNew(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %19 = tail call i32 @llvm.smin.i32(i32 %.022, i32 %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread.loopexit, label %9, !llvm.loop !22
+  br i1 %exitcond.not, label %.critedge.thread.loopexit, label %9, !llvm.loop !21
 
 .critedge:                                        ; preds = %2
   %.not.i = icmp eq ptr %.pr.pre, null
@@ -1423,7 +1423,7 @@ tailrecurse:                                      ; preds = %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Ivy_ObjIsMuxType(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Ivy_ObjIsMuxType(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val41 = load i32, ptr %2, align 8
   %3 = and i32 %.val41, 15
@@ -2057,7 +2057,7 @@ define void @Ivy_ObjPrintVerbose(ptr nocapture readnone %0, ptr noundef readonly
   %83 = and i64 %82, -2
   %84 = inttoptr i64 %83 to ptr
   %.not66 = icmp eq ptr %84, %1
-  br i1 %.not66, label %._crit_edge96, label %.lr.ph95, !llvm.loop !23
+  br i1 %.not66, label %._crit_edge96, label %.lr.ph95, !llvm.loop !22
 
 ._crit_edge96:                                    ; preds = %.lr.ph95, %70
   %85 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17)
@@ -2073,7 +2073,7 @@ define void @Ivy_ObjPrintVerbose(ptr nocapture readnone %0, ptr noundef readonly
   %88 = getelementptr i8, ptr %.1, i64 12
   %.1.val = load i32, ptr %88, align 4
   %89 = icmp eq i32 %.1.val, 0
-  br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.1.lcssa = phi ptr [ %.189, %.preheader ], [ %.1, %.lr.ph ]
@@ -2112,7 +2112,7 @@ define void @Ivy_ManPrintVerbose(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.val47 = load i32, ptr %14, align 4
   %15 = sext i32 %.val47 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %.critedge, !llvm.loop !25
+  br i1 %16, label %.lr.ph, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %.lr.ph, %2
   %putchar = tail call i32 @putchar(i32 10)
@@ -2139,7 +2139,7 @@ define void @Ivy_ManPrintVerbose(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.val46 = load i32, ptr %29, align 4
   %30 = sext i32 %.val46 to i64
   %31 = icmp slt i64 %indvars.iv.next72, %30
-  br i1 %31, label %.lr.ph62, label %.critedge2, !llvm.loop !26
+  br i1 %31, label %.lr.ph62, label %.critedge2, !llvm.loop !25
 
 .critedge2:                                       ; preds = %.lr.ph62, %.critedge
   %putchar40 = tail call i32 @putchar(i32 10)
@@ -2190,7 +2190,7 @@ define void @Ivy_ManPrintVerbose(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.val = load i32, ptr %57, align 4
   %58 = sext i32 %.val to i64
   %59 = icmp slt i64 %indvars.iv.next75, %58
-  br i1 %59, label %.lr.ph65, label %.critedge4, !llvm.loop !27
+  br i1 %59, label %.lr.ph65, label %.critedge4, !llvm.loop !26
 
 .critedge4:                                       ; preds = %55, %.critedge2
   %putchar41 = tail call i32 @putchar(i32 10)
@@ -2222,7 +2222,7 @@ define void @Ivy_ManPrintVerbose(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.val52 = load i32, ptr %62, align 4
   %71 = sext i32 %.val52 to i64
   %72 = icmp slt i64 %indvars.iv.next78, %71
-  br i1 %72, label %.lr.ph68, label %.critedge6, !llvm.loop !28
+  br i1 %72, label %.lr.ph68, label %.critedge6, !llvm.loop !27
 
 .critedge6:                                       ; preds = %.lr.ph68, %70, %.critedge4
   %putchar42 = tail call i32 @putchar(i32 10)
@@ -2266,7 +2266,7 @@ define noundef i32 @Ivy_CutTruthPrint2(ptr nocapture noundef readnone %0, ptr no
   %16 = load i16, ptr %6, align 4
   %17 = sext i16 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %10, label %._crit_edge, !llvm.loop !29
+  br i1 %18, label %10, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %10, %3
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26)
@@ -2299,7 +2299,7 @@ define i32 @Ivy_CutTruthPrint(ptr noundef %0, ptr nocapture noundef readonly %1,
   %12 = add nuw nsw i32 %11, %.053
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %8, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %12, %8 ]
@@ -2342,7 +2342,7 @@ define i32 @Ivy_CutTruthPrint(ptr noundef %0, ptr nocapture noundef readonly %1,
 28:                                               ; preds = %32
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
-  br i1 %exitcond69.not, label %.critedge, label %29, !llvm.loop !31
+  br i1 %exitcond69.not, label %.critedge, label %29, !llvm.loop !30
 
 29:                                               ; preds = %.lr.ph56, %28
   %indvars.iv65 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next66, %28 ]
@@ -2368,7 +2368,7 @@ define i32 @Ivy_CutTruthPrint(ptr noundef %0, ptr nocapture noundef readonly %1,
   %37 = load i16, ptr %4, align 4
   %38 = sext i16 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next71, %38
-  br i1 %39, label %19, label %._crit_edge62, !llvm.loop !32
+  br i1 %39, label %19, label %._crit_edge62, !llvm.loop !31
 
 ._crit_edge62:                                    ; preds = %.critedge, %._crit_edge
   %.043.lcssa = phi i32 [ 0, %._crit_edge ], [ %.144, %.critedge ]
@@ -2438,7 +2438,7 @@ attributes #19 = { nounwind }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = !{i32 0, i32 2097152}
+!18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
@@ -2452,4 +2452,3 @@ attributes #19 = { nounwind }
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}

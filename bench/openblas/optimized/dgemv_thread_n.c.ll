@@ -216,7 +216,7 @@ define noundef i32 @dgemv_thread_n(i64 noundef %0, i64 noundef %1, double nounde
 
 .split.us:                                        ; preds = %127, %.loopexit.us
   %129 = phi i64 [ %142, %.loopexit.us ], [ 0, %127 ]
-  %130 = mul nsw i64 %129, %0
+  %130 = mul nuw nsw i64 %129, %0
   br label %131
 
 131:                                              ; preds = %131, %.split.us

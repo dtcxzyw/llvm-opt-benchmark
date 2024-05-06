@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__kunmap_atomic.__UNIQUE_ID___addressable___SCK__preempt_schedule325], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @build_id_parse(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -368,7 +368,7 @@ define dso_local noundef i32 @build_id_parse(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef i32 @build_id_parse_buf(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @build_id_parse_buf(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = zext i32 %2 to i64
   br label %5
 
@@ -436,7 +436,7 @@ define dso_local noundef i32 @build_id_parse_buf(ptr nocapture noundef readonly 
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree nounwind null_pointer_is_valid optsize memory(readwrite, argmem: none, inaccessiblemem: none)
 define dso_local void @init_vmlinux_build_id() local_unnamed_addr #2 section ".init.text" align 16 {
-  %1 = tail call i32 @build_id_parse_buf(ptr noundef @__start_notes, ptr noundef nonnull @vmlinux_build_id, i32 noundef trunc (i64 sub (i64 ptrtoint (ptr @__stop_notes to i64), i64 ptrtoint (ptr @__start_notes to i64)) to i32)), !range !21
+  %1 = tail call i32 @build_id_parse_buf(ptr noundef @__start_notes, ptr noundef nonnull @vmlinux_build_id, i32 noundef trunc (i64 sub (i64 ptrtoint (ptr @__stop_notes to i64), i64 ptrtoint (ptr @__start_notes to i64)) to i32))
   ret void
 }
 
@@ -509,4 +509,3 @@ attributes #13 = { nounwind memory(none) }
 !18 = !{i64 2154234878}
 !19 = !{i64 856048, i64 856092, i64 2148340775, i64 2148340796, i64 2148340822, i64 2148340855, i64 2148340889, i64 2148340913}
 !20 = !{i64 2148674271, i64 2148674310, i64 2148674331, i64 2148674368, i64 2148674391, i64 2148674400, i64 2148674474}
-!21 = !{i32 -22, i32 1}

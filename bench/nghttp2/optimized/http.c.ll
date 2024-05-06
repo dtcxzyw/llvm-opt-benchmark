@@ -39,7 +39,7 @@ if.end:                                           ; preds = %if.then, %lor.rhs, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llhttp__after_headers_complete(ptr nocapture noundef readonly %parser, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
+define range(i32 0, 6) i32 @llhttp__after_headers_complete(ptr nocapture noundef readonly %parser, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #1 {
 entry:
   %flags = getelementptr inbounds i8, ptr %parser, i64 80
   %0 = load i16, ptr %flags, align 8
@@ -152,7 +152,7 @@ return:                                           ; preds = %llhttp_message_need
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llhttp_message_needs_eof(ptr nocapture noundef readonly %parser) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @llhttp_message_needs_eof(ptr nocapture noundef readonly %parser) local_unnamed_addr #1 {
 entry:
   %type = getelementptr inbounds i8, ptr %parser, i64 72
   %0 = load i8, ptr %type, align 8
@@ -199,7 +199,7 @@ return:                                           ; preds = %switch.early.test, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @llhttp__after_message_complete(ptr nocapture noundef %parser, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @llhttp__after_message_complete(ptr nocapture noundef %parser, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
 entry:
   %http_major.i = getelementptr inbounds i8, ptr %parser, i64 74
   %0 = load i8, ptr %http_major.i, align 2
@@ -275,7 +275,7 @@ llhttp_should_keep_alive.exit:                    ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llhttp_should_keep_alive(ptr nocapture noundef readonly %parser) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @llhttp_should_keep_alive(ptr nocapture noundef readonly %parser) local_unnamed_addr #1 {
 entry:
   %http_major = getelementptr inbounds i8, ptr %parser, i64 74
   %0 = load i8, ptr %http_major, align 2

@@ -612,7 +612,7 @@ define internal fastcc noundef zeroext i1 @_is_job_id(ptr noundef %0) unnamed_ad
   br i1 %.027, label %.loopexit, label %24
 
 9:                                                ; preds = %4
-  %10 = trunc i8 %.025 to i1
+  %10 = trunc nuw i8 %.025 to i1
   br i1 %10, label %.loopexit, label %24
 
 11:                                               ; preds = %4
@@ -628,7 +628,7 @@ define internal fastcc noundef zeroext i1 @_is_job_id(ptr noundef %0) unnamed_ad
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %15
-  %18 = trunc i8 %.025 to i1
+  %18 = trunc nuw i8 %.025 to i1
   br i1 %18, label %24, label %.loopexit
 
 19:                                               ; preds = %4, %4
@@ -3739,7 +3739,7 @@ declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_notify_job(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @parse_requeue_flags(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @parse_requeue_flags(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
   %sext = shl i64 %3, 32
   %4 = ashr exact i64 %sext, 32

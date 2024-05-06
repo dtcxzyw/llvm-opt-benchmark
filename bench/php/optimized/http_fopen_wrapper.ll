@@ -610,7 +610,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %.02359 = phi i64 [ %251, %243 ], [ %258, %253 ]
   %.02358 = phi ptr [ %252, %243 ], [ %257, %253 ]
   %254 = urem i64 %.02359, 10
-  %255 = trunc i64 %254 to i8
+  %255 = trunc nuw nsw i64 %254 to i8
   %256 = or disjoint i8 %255, 48
   %257 = getelementptr inbounds i8, ptr %.02358, i64 -1
   store i8 %256, ptr %257, align 1
@@ -1332,7 +1332,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %.sink3448 = load ptr, ptr %18, align 8
   %536 = getelementptr inbounds i8, ptr %.sink3448, i64 16
   store i64 %.sink3446, ptr %536, align 8
-  %537 = trunc i8 %.024433021 to i1
+  %537 = trunc nuw i8 %.024433021 to i1
   %.not = xor i1 %537, true
   %or.cond39 = and i1 %148, %.not
   br i1 %or.cond39, label %538, label %544
@@ -1350,7 +1350,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 544:                                              ; preds = %540, %538, %535
   %.12444 = phi i8 [ %543, %540 ], [ %.024433021, %538 ], [ %.024433021, %535 ]
-  %545 = trunc i8 %.12444 to i1
+  %545 = trunc nuw i8 %.12444 to i1
   br i1 %545, label %546, label %561
 
 546:                                              ; preds = %544
@@ -2431,7 +2431,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %.02363 = phi i64 [ %1049, %1041 ], [ %1056, %1051 ]
   %.02361 = phi ptr [ %1050, %1041 ], [ %1055, %1051 ]
   %1052 = urem i64 %.02363, 10
-  %1053 = trunc i64 %1052 to i8
+  %1053 = trunc nuw nsw i64 %1052 to i8
   %1054 = or disjoint i8 %1053, 48
   %1055 = getelementptr inbounds i8, ptr %.02361, i64 -1
   store i8 %1054, ptr %1055, align 1
@@ -2700,7 +2700,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %.02368 = phi i64 [ %1178, %1169 ], [ %1185, %1180 ]
   %.02365 = phi ptr [ %1179, %1169 ], [ %1184, %1180 ]
   %1181 = urem i64 %.02368, 10
-  %1182 = trunc i64 %1181 to i8
+  %1182 = trunc nuw nsw i64 %1181 to i8
   %1183 = or disjoint i8 %1182, 48
   %1184 = getelementptr inbounds i8, ptr %.02365, i64 -1
   store i8 %1183, ptr %1184, align 1
@@ -2908,7 +2908,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   %.02375 = phi i64 [ %1274, %1265 ], [ %1281, %1276 ]
   %.02369 = phi ptr [ %1275, %1265 ], [ %1280, %1276 ]
   %1277 = urem i64 %.02375, 10
-  %1278 = trunc i64 %1277 to i8
+  %1278 = trunc nuw nsw i64 %1277 to i8
   %1279 = or disjoint i8 %1278, 48
   %1280 = getelementptr inbounds i8, ptr %.02369, i64 -1
   store i8 %1279, ptr %1280, align 1
@@ -3558,11 +3558,11 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
   br i1 %.not2939, label %.critedge2997.thread, label %1534
 
 1534:                                             ; preds = %1532
-  %1535 = trunc i8 %.02431.lcssa to i1
+  %1535 = trunc nuw i8 %.02431.lcssa to i1
   br i1 %1535, label %.thread3410, label %.critedge2997.thread
 
 1536:                                             ; preds = %._crit_edge3188
-  %.pre3404 = trunc i8 %.02431.lcssa to i1
+  %.pre3404 = trunc nuw i8 %.02431.lcssa to i1
   br i1 %.pre3404, label %.thread3410, label %.critedge2997.thread
 
 .thread3410:                                      ; preds = %1534, %1536

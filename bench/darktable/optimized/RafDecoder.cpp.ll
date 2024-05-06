@@ -1715,7 +1715,7 @@ declare { ptr, i64 } @_ZNK8rawspeed9TiffEntry14getRootIfdDataEv(ptr noundef nonn
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK8rawspeed10RafDecoder12isCompressedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZNK8rawspeed10RafDecoder12isCompressedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD13getIFDWithTagENS_7TiffTagEj(ptr noundef nonnull align 8 dereferenceable(104) %3, i32 noundef 61447, i32 noundef 0)
@@ -2604,7 +2604,7 @@ define hidden void @_ZN8rawspeed10RafDecoder16applyCorrectionsEPKNS_6CameraE(ptr
   %245 = getelementptr inbounds i8, ptr %235, i64 48
   %246 = load i32, ptr %245, align 8, !tbaa !169, !noalias !163
   %247 = ashr i32 %246, 1
-  %248 = mul nsw i32 %247, %244
+  %248 = mul nuw nsw i32 %247, %244
   %249 = icmp sgt i32 %242, -1
   call void @llvm.assume(i1 %249)
   %250 = icmp sgt i32 %244, -1
@@ -2631,7 +2631,7 @@ define hidden void @_ZN8rawspeed10RafDecoder16applyCorrectionsEPKNS_6CameraE(ptr
   %266 = getelementptr inbounds i8, ptr %189, i64 64
   %267 = load i32, ptr %266, align 8, !tbaa !169, !noalias !170
   %268 = ashr i32 %267, 1
-  %269 = mul nsw i32 %268, %265
+  %269 = mul nuw nsw i32 %268, %265
   %270 = icmp sgt i32 %263, -1
   call void @llvm.assume(i1 %270)
   %271 = icmp sgt i32 %265, -1
@@ -2735,7 +2735,7 @@ define hidden void @_ZN8rawspeed10RafDecoder16applyCorrectionsEPKNS_6CameraE(ptr
   call void @llvm.assume(i1 %339)
   %340 = icmp ugt i32 %265, %331
   call void @llvm.assume(i1 %340)
-  %341 = mul nsw i32 %331, %268
+  %341 = mul nuw nsw i32 %331, %268
   %342 = add nuw nsw i32 %341, %263
   %343 = icmp ule i32 %342, %269
   call void @llvm.assume(i1 %343)
@@ -2801,7 +2801,7 @@ define hidden void @_ZN8rawspeed10RafDecoder16applyCorrectionsEPKNS_6CameraE(ptr
   call void @llvm.assume(i1 %385)
   %386 = icmp ugt i32 %265, %368
   call void @llvm.assume(i1 %386)
-  %387 = mul nsw i32 %368, %268
+  %387 = mul nuw nsw i32 %368, %268
   %388 = add nuw nsw i32 %387, %263
   %389 = icmp ule i32 %388, %269
   call void @llvm.assume(i1 %389)
@@ -3144,13 +3144,13 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
   %85 = icmp ne i32 %77, 0
   %86 = xor i1 %84, %85
   call void @llvm.assume(i1 %86)
-  %87 = mul nsw i32 %80, %77
+  %87 = mul nuw nsw i32 %80, %77
   %88 = icmp eq i32 %71, %87
   call void @llvm.assume(i1 %88)
   %89 = icmp eq i32 %77, 1
   %90 = icmp eq i32 %80, %74
   %91 = or i1 %89, %90
-  %92 = mul nsw i32 %77, %74
+  %92 = mul nuw nsw i32 %77, %74
   call void @llvm.assume(i1 %91)
   %93 = invoke noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(52) %46, i32 noundef 0)
           to label %94 unwind label %108
@@ -3244,13 +3244,13 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
   %144 = icmp ne i32 %136, 0
   %145 = xor i1 %143, %144
   call void @llvm.assume(i1 %145)
-  %146 = mul nsw i32 %139, %136
+  %146 = mul nuw nsw i32 %139, %136
   %147 = icmp eq i32 %130, %146
   call void @llvm.assume(i1 %147)
   %148 = icmp eq i32 %136, 1
   %149 = icmp eq i32 %139, %133
   %150 = or i1 %148, %149
-  %151 = mul nsw i32 %136, %133
+  %151 = mul nuw nsw i32 %136, %133
   call void @llvm.assume(i1 %150)
   %152 = zext nneg i32 %151 to i64
   %153 = getelementptr inbounds i32, ptr %128, i64 %152
@@ -3621,13 +3621,13 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
   %371 = icmp ne i32 %363, 0
   %372 = xor i1 %370, %371
   call void @llvm.assume(i1 %372)
-  %373 = mul nsw i32 %366, %363
+  %373 = mul nuw nsw i32 %366, %363
   %374 = icmp eq i32 %357, %373
   call void @llvm.assume(i1 %374)
   %375 = icmp eq i32 %363, 1
   %376 = icmp eq i32 %366, %360
   %377 = or i1 %375, %376
-  %378 = mul nsw i32 %363, %360
+  %378 = mul nuw nsw i32 %363, %360
   call void @llvm.assume(i1 %377)
   %379 = zext nneg i32 %378 to i64
   %380 = getelementptr inbounds i32, ptr %355, i64 %379

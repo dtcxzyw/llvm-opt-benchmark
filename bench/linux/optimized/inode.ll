@@ -294,7 +294,7 @@ define internal i32 @efivarfs_create(ptr nocapture readnone %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @efivarfs_unlink(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @efivarfs_unlink(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 592
@@ -348,7 +348,7 @@ declare dso_local void @drop_nlink(ptr noundef) local_unnamed_addr #1
 declare dso_local void @dput(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @efivarfs_fileattr_set(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -95, 1) i32 @efivarfs_fileattr_set(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 2

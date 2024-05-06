@@ -116,7 +116,7 @@ define internal noundef i32 @activate_jump_labels() #1 section ".init.text" alig
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @vmware_platform() #1 section ".init.text" align 16 {
+define internal noundef range(i32 0, 1073741825) i32 @vmware_platform() #1 section ".init.text" align 16 {
   %1 = alloca [3 x i32], align 4
   %2 = load volatile i64, ptr getelementptr inbounds (%struct.cpuinfo_x86, ptr @boot_cpu_data, i64 0, i32 11, i32 1, i64 8), align 8
   %3 = and i64 %2, 2147483648
@@ -331,7 +331,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 declare dso_local i32 @dmi_name_in_serial(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define internal i64 @vmware_get_tsc_khz() #5 align 16 {
+define internal range(i64 0, 18446744073709552) i64 @vmware_get_tsc_khz() #5 align 16 {
   %1 = load i64, ptr @vmware_tsc_khz, align 8
   ret i64 %1
 }

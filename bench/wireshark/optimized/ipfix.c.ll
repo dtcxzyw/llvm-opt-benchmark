@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ipfix_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ipfix_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @ipfix_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.ipfix_message_header_s, align 4
   %6 = alloca %struct.ipfix_set_header_s, align 2
@@ -46,7 +46,7 @@ define hidden i32 @ipfix_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 15:                                               ; preds = %.lr.ph58, %._crit_edge
   %.03956 = phi i32 [ 0, %.lr.ph58 ], [ %56, %._crit_edge ]
   %16 = load ptr, ptr %0, align 8
-  %17 = call fastcc i32 @ipfix_read_message_header(ptr noundef nonnull %5, ptr noundef %16, ptr noundef %1, ptr noundef %2), !range !4
+  %17 = call fastcc i32 @ipfix_read_message_header(ptr noundef nonnull %5, ptr noundef %16, ptr noundef %1, ptr noundef %2)
   %.not45 = icmp eq i32 %17, 0
   br i1 %.not45, label %18, label %24
 
@@ -123,12 +123,12 @@ define hidden i32 @ipfix_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %53 = zext i16 %.narrow to i32
   %54 = load i16, ptr %13, align 2
   %55 = icmp ult i16 %.narrow, %54
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %51, %.preheader
   %56 = add nuw nsw i32 %.03956, 1
   %exitcond.not = icmp eq i32 %56, %.038
-  br i1 %exitcond.not, label %.loopexit50, label %15, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit50, label %15, !llvm.loop !6
 
 .loopexit50:                                      ; preds = %._crit_edge, %22
   %57 = load ptr, ptr %0, align 8
@@ -164,7 +164,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
 declare zeroext i1 @ws_strtoi32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ipfix_read_message_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ipfix_read_message_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef %0, i32 noundef 16, ptr noundef %2, ptr noundef %3) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %32, label %6
@@ -230,14 +230,14 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ipfix_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @ipfix_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca %struct.ipfix_message_header_s, align 4
   %8 = load ptr, ptr %0, align 8
   %9 = tail call i64 @file_tell(ptr noundef %8) #5
   store i64 %9, ptr %5, align 8
   %10 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %11 = call fastcc i32 @ipfix_read_message_header(ptr noundef nonnull %7, ptr noundef %10, ptr noundef %3, ptr noundef %4), !range !4
+  %11 = call fastcc i32 @ipfix_read_message_header(ptr noundef nonnull %7, ptr noundef %10, ptr noundef %3, ptr noundef %4)
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %ipfix_read_message.exit.thread, label %ipfix_read_message.exit
 
@@ -281,7 +281,7 @@ ipfix_read_message.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ipfix_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @ipfix_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.ipfix_message_header_s, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -292,7 +292,7 @@ define internal noundef i32 @ipfix_seek_read(ptr nocapture noundef readonly %0, 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %14 = call fastcc i32 @ipfix_read_message_header(ptr noundef nonnull %7, ptr noundef %13, ptr noundef %4, ptr noundef %5), !range !4
+  %14 = call fastcc i32 @ipfix_read_message_header(ptr noundef nonnull %7, ptr noundef %13, ptr noundef %4, ptr noundef %5)
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %ipfix_read_message.exit.thread, label %ipfix_read_message.exit
 
@@ -389,7 +389,6 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

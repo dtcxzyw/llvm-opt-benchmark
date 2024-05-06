@@ -29,7 +29,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %b.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   store ptr null, ptr %b.i, align 8
-  %call.i = call i32 @asn1_d2i_read_bio(ptr noundef nonnull %call1, ptr noundef nonnull %b.i), !range !4
+  %call.i = call i32 @asn1_d2i_read_bio(ptr noundef nonnull %call1, ptr noundef nonnull %b.i)
   %cmp.i = icmp slt i32 %call.i, 0
   %.pre.i = load ptr, ptr %b.i, align 8
   br i1 %cmp.i, label %ASN1_d2i_bio.exit, label %if.end.i
@@ -73,7 +73,7 @@ entry:
   %b = alloca ptr, align 8
   %p = alloca ptr, align 8
   store ptr null, ptr %b, align 8
-  %call = call i32 @asn1_d2i_read_bio(ptr noundef %in, ptr noundef nonnull %b), !range !4
+  %call = call i32 @asn1_d2i_read_bio(ptr noundef %in, ptr noundef nonnull %b)
   %cmp = icmp slt i32 %call, 0
   %.pre = load ptr, ptr %b, align 8
   br i1 %cmp, label %err, label %if.end
@@ -95,7 +95,7 @@ err:                                              ; preds = %entry, %if.end
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @asn1_d2i_read_bio(ptr noundef %in, ptr nocapture noundef writeonly %pb) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %in, ptr nocapture noundef writeonly %pb) local_unnamed_addr #0 {
 entry:
   %q = alloca ptr, align 8
   %slen = alloca i64, align 8
@@ -145,7 +145,7 @@ lor.lhs.false:                                    ; preds = %if.then3
 if.end9:                                          ; preds = %lor.lhs.false
   %0 = load ptr, ptr %data, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 %len.0
-  %conv = trunc i64 %sub4 to i32
+  %conv = trunc nuw nsw i64 %sub4 to i32
   %call10 = call i32 @BIO_read(ptr noundef %in, ptr noundef %arrayidx, i32 noundef %conv) #4
   %cmp11 = icmp slt i32 %call10, 0
   %cmp13 = icmp eq i64 %len.0, %off.0
@@ -275,14 +275,14 @@ if.end108:                                        ; preds = %while.body100
   %add110 = add i64 %len.377, %conv109
   %sub112 = sub i64 %chunk.078, %conv109
   %cmp98.not = icmp eq i64 %sub112, 0
-  br i1 %cmp98.not, label %while.end, label %while.body100, !llvm.loop !5
+  br i1 %cmp98.not, label %while.end, label %while.body100, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end108
   %cmp113 = icmp ult i64 %chunk_max.082, 1073741823
   %mul = zext i1 %cmp113 to i64
   %spec.select = shl nuw nsw i64 %chunk_max.082, %mul
   %cmp87.not = icmp eq i64 %sub96, 0
-  br i1 %cmp87.not, label %if.end118.loopexit, label %while.body, !llvm.loop !7
+  br i1 %cmp87.not, label %if.end118.loopexit, label %while.body, !llvm.loop !6
 
 if.end118.loopexit:                               ; preds = %while.end
   %.pre = load i64, ptr %slen, align 8
@@ -305,7 +305,7 @@ for.end:                                          ; preds = %if.then66, %if.end1
 
 if.end135:                                        ; preds = %for.end
   store ptr %call, ptr %pb, align 8
-  %conv136 = trunc i64 %off.2 to i32
+  %conv136 = trunc nuw nsw i64 %off.2 to i32
   br label %return
 
 err.sink.split:                                   ; preds = %if.end118, %if.then76, %if.then19, %if.end9, %if.then3, %lor.lhs.false, %if.then54, %while.body, %while.body100, %for.end
@@ -338,7 +338,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call i32 @asn1_d2i_read_bio(ptr noundef nonnull %in, ptr noundef nonnull %b), !range !4
+  %call = call i32 @asn1_d2i_read_bio(ptr noundef nonnull %in, ptr noundef nonnull %b)
   %cmp1 = icmp slt i32 %call, 0
   %.pre = load ptr, ptr %b, align 8
   br i1 %cmp1, label %err, label %if.end3
@@ -375,7 +375,7 @@ entry:
   br i1 %cmp.i, label %ASN1_item_d2i_bio_ex.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = call i32 @asn1_d2i_read_bio(ptr noundef nonnull %in, ptr noundef nonnull %b.i), !range !4
+  %call.i = call i32 @asn1_d2i_read_bio(ptr noundef nonnull %in, ptr noundef nonnull %b.i)
   %cmp1.i = icmp slt i32 %call.i, 0
   %.pre.i = load ptr, ptr %b.i, align 8
   br i1 %cmp1.i, label %err.i, label %if.end3.i
@@ -421,7 +421,7 @@ if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %b.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   store ptr null, ptr %b.i, align 8
-  %call.i = call i32 @asn1_d2i_read_bio(ptr noundef nonnull %call1, ptr noundef nonnull %b.i), !range !4
+  %call.i = call i32 @asn1_d2i_read_bio(ptr noundef nonnull %call1, ptr noundef nonnull %b.i)
   %cmp1.i = icmp slt i32 %call.i, 0
   %.pre.i = load ptr, ptr %b.i, align 8
   br i1 %cmp1.i, label %ASN1_item_d2i_bio_ex.exit, label %if.end3.i
@@ -491,7 +491,6 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 -2147483648}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

@@ -2467,7 +2467,7 @@ declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_xapl(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_xapl(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -2489,7 +2489,7 @@ define internal noundef i32 @check_xapl(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_xapl_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_xapl_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond.i = and i1 %11, %12
@@ -2566,7 +2566,7 @@ check_xapl.exit.thread42:                         ; preds = %check_xapl.exit, %c
   %55 = sext i32 %54 to i64
   %56 = tail call noalias ptr @wmem_alloc(ptr noundef %53, i64 noundef %55) #7
   %57 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 1 %6, i64 %57, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr readonly align 1 %6, i64 %57, i1 false)
   %58 = getelementptr i8, ptr %56, i64 %57
   store i8 0, ptr %58, align 1
   %59 = tail call i64 @g_ascii_strtoull(ptr noundef %56, ptr noundef null, i32 noundef 10) #7
@@ -2588,7 +2588,7 @@ check_xapl.exit.thread:                           ; preds = %check_xapl.exit, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_iphoneaccev(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_iphoneaccev(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -2597,7 +2597,7 @@ define internal noundef i32 @check_iphoneaccev(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_iphoneaccev_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_iphoneaccev_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp ne i32 %4, 2
   %12 = icmp ne i16 %5, 61
   %or.cond.i.not = or i1 %11, %12
@@ -2613,7 +2613,7 @@ define internal noundef i32 @dissect_iphoneaccev_parameter(ptr noundef %0, ptr n
   %18 = sext i32 %17 to i64
   %19 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef %18) #7
   %20 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %6, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr readonly align 1 %6, i64 %20, i1 false)
   %21 = getelementptr i8, ptr %19, i64 %20
   store i8 0, ptr %21, align 1
   %22 = tail call i64 @g_ascii_strtoull(ptr noundef %19, ptr noundef null, i32 noundef 10) #7
@@ -2630,7 +2630,7 @@ define internal noundef i32 @dissect_iphoneaccev_parameter(ptr noundef %0, ptr n
   %30 = sext i32 %29 to i64
   %31 = tail call noalias ptr @wmem_alloc(ptr noundef %28, i64 noundef %30) #7
   %32 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %6, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr readonly align 1 %6, i64 %32, i1 false)
   %33 = getelementptr i8, ptr %31, i64 %32
   store i8 0, ptr %33, align 1
   %34 = tail call i64 @g_ascii_strtoull(ptr noundef %31, ptr noundef null, i32 noundef 10) #7
@@ -2659,7 +2659,7 @@ define internal noundef i32 @dissect_iphoneaccev_parameter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_aplsiri(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_aplsiri(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 63
   %or.cond = and i1 %3, %4
@@ -2672,7 +2672,7 @@ define internal noundef i32 @check_aplsiri(i32 noundef %0, i16 noundef zeroext %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_aplsiri_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_aplsiri_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 63
   %or.cond.i = and i1 %11, %12
@@ -2690,7 +2690,7 @@ define internal noundef i32 @dissect_aplsiri_parameter(ptr noundef %0, ptr nound
   %19 = sext i32 %18 to i64
   %20 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef %19) #7
   %21 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %6, i64 %21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr readonly align 1 %6, i64 %21, i1 false)
   %22 = getelementptr i8, ptr %20, i64 %21
   store i8 0, ptr %22, align 1
   %23 = tail call i64 @g_ascii_strtoull(ptr noundef %20, ptr noundef null, i32 noundef 10) #7
@@ -2711,7 +2711,7 @@ define internal noundef i32 @dissect_aplsiri_parameter(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_aplefm(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_aplefm(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -2724,7 +2724,7 @@ define internal noundef i32 @check_aplefm(i32 noundef %0, i16 noundef zeroext %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_aplefm_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_aplefm_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond.i = and i1 %11, %12
@@ -2742,7 +2742,7 @@ define internal noundef i32 @dissect_aplefm_parameter(ptr noundef %0, ptr nounde
   %19 = sext i32 %18 to i64
   %20 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef %19) #7
   %21 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %6, i64 %21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr readonly align 1 %6, i64 %21, i1 false)
   %22 = getelementptr i8, ptr %20, i64 %21
   store i8 0, ptr %22, align 1
   %23 = tail call i64 @g_ascii_strtoull(ptr noundef %20, ptr noundef null, i32 noundef 10) #7
@@ -2762,7 +2762,7 @@ define internal noundef i32 @dissect_aplefm_parameter(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_biev(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_biev(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -2771,7 +2771,7 @@ define internal noundef i32 @check_biev(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_biev_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_biev_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp ne i32 %4, 2
   %12 = icmp ne i16 %5, 61
   %or.cond.i.not = or i1 %11, %12
@@ -2789,7 +2789,7 @@ define internal noundef i32 @dissect_biev_parameter(ptr noundef %0, ptr noundef 
   %17 = sext i32 %16 to i64
   %18 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef %17) #7
   %19 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %6, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr readonly align 1 %6, i64 %19, i1 false)
   %20 = getelementptr i8, ptr %18, i64 %19
   store i8 0, ptr %20, align 1
   %21 = tail call i64 @g_ascii_strtoull(ptr noundef %18, ptr noundef null, i32 noundef 10) #7
@@ -2817,7 +2817,7 @@ define internal noundef i32 @dissect_biev_parameter(ptr noundef %0, ptr noundef 
   %35 = sext i32 %34 to i64
   %36 = tail call noalias ptr @wmem_alloc(ptr noundef %33, i64 noundef %35) #7
   %37 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 %6, i64 %37, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr readonly align 1 %6, i64 %37, i1 false)
   %38 = getelementptr i8, ptr %36, i64 %37
   store i8 0, ptr %38, align 1
   %39 = tail call i64 @g_ascii_strtoull(ptr noundef %36, ptr noundef null, i32 noundef 10) #7
@@ -2832,7 +2832,7 @@ define internal noundef i32 @dissect_biev_parameter(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_bind(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_bind(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -2856,7 +2856,7 @@ define internal noundef i32 @check_bind(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bind_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_bind_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   br i1 %11, label %12, label %13
 
@@ -2885,7 +2885,7 @@ check_bind.exit:                                  ; preds = %12, %12, %12, %13
   %20 = sext i32 %19 to i64
   %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #7
   %22 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %6, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr readonly align 1 %6, i64 %22, i1 false)
   %23 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %23, align 1
   %24 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10) #7
@@ -2900,7 +2900,7 @@ check_bind.exit:                                  ; preds = %12, %12, %12, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_bac(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_bac(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -2909,7 +2909,7 @@ define internal noundef i32 @check_bac(i32 noundef %0, i16 noundef zeroext %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bac_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_bac_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp ne i32 %4, 2
   %12 = icmp ne i16 %5, 61
   %or.cond.i.not = or i1 %11, %12
@@ -2921,7 +2921,7 @@ define internal noundef i32 @dissect_bac_parameter(ptr noundef %0, ptr noundef %
   %16 = sext i32 %15 to i64
   %17 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef %16) #7
   %18 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %6, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr readonly align 1 %6, i64 %18, i1 false)
   %19 = getelementptr i8, ptr %17, i64 %18
   store i8 0, ptr %19, align 1
   %20 = tail call i64 @g_ascii_strtoull(ptr noundef %17, ptr noundef null, i32 noundef 10) #7
@@ -2942,7 +2942,7 @@ define internal noundef i32 @dissect_bac_parameter(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_bcs(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_bcs(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -2955,7 +2955,7 @@ define internal noundef i32 @check_bcs(i32 noundef %0, i16 noundef zeroext %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bcs_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_bcs_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond.i = and i1 %11, %12
@@ -2973,7 +2973,7 @@ define internal noundef i32 @dissect_bcs_parameter(ptr noundef %0, ptr noundef %
   %18 = sext i32 %17 to i64
   %19 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef %18) #7
   %20 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %6, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr readonly align 1 %6, i64 %20, i1 false)
   %21 = getelementptr i8, ptr %19, i64 %20
   store i8 0, ptr %21, align 1
   %22 = tail call i64 @g_ascii_strtoull(ptr noundef %19, ptr noundef null, i32 noundef 10) #7
@@ -2994,7 +2994,7 @@ define internal noundef i32 @dissect_bcs_parameter(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_bcc(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_bcc(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 13
   %or.cond = and i1 %3, %4
@@ -3008,7 +3008,7 @@ define internal noundef i32 @dissect_no_parameter(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_btrh(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_btrh(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = and i16 %1, -3
   %or.cond = icmp eq i16 %4, 61
@@ -3022,7 +3022,7 @@ define internal noundef i32 @check_btrh(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btrh_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_btrh_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -3046,7 +3046,7 @@ define internal noundef i32 @dissect_btrh_parameter(ptr noundef %0, ptr noundef 
   %20 = sext i32 %19 to i64
   %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #7
   %22 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %6, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr readonly align 1 %6, i64 %22, i1 false)
   %23 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %23, align 1
   %24 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10) #7
@@ -3066,7 +3066,7 @@ define internal noundef i32 @dissect_btrh_parameter(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_bsir(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_bsir(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 1
   %4 = icmp eq i16 %1, 58
   %or.cond = and i1 %3, %4
@@ -3075,7 +3075,7 @@ define internal noundef i32 @check_bsir(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bsir_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_bsir_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 1
   %12 = icmp eq i16 %5, 58
   %or.cond = and i1 %11, %12
@@ -3089,7 +3089,7 @@ define internal noundef i32 @dissect_bsir_parameter(ptr noundef %0, ptr noundef 
   %16 = sext i32 %15 to i64
   %17 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef %16) #7
   %18 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %6, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr readonly align 1 %6, i64 %18, i1 false)
   %19 = getelementptr i8, ptr %17, i64 %18
   store i8 0, ptr %19, align 1
   %20 = tail call i64 @g_ascii_strtoull(ptr noundef %17, ptr noundef null, i32 noundef 10) #7
@@ -3109,7 +3109,7 @@ define internal noundef i32 @dissect_bsir_parameter(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_vgs(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_vgs(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3122,7 +3122,7 @@ define internal noundef i32 @check_vgs(i32 noundef %0, i16 noundef zeroext %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_vgs_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_vgs_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -3146,7 +3146,7 @@ define internal noundef i32 @dissect_vgs_parameter(ptr noundef %0, ptr noundef %
   %20 = sext i32 %19 to i64
   %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #7
   %22 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %6, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr readonly align 1 %6, i64 %22, i1 false)
   %23 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %23, align 1
   %24 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10) #7
@@ -3166,7 +3166,7 @@ define internal noundef i32 @dissect_vgs_parameter(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_vgm(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_vgm(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3179,7 +3179,7 @@ define internal noundef i32 @check_vgm(i32 noundef %0, i16 noundef zeroext %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_vgm_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_vgm_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -3203,7 +3203,7 @@ define internal noundef i32 @dissect_vgm_parameter(ptr noundef %0, ptr noundef %
   %20 = sext i32 %19 to i64
   %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #7
   %22 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %6, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr readonly align 1 %6, i64 %22, i1 false)
   %23 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %23, align 1
   %24 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10) #7
@@ -3223,7 +3223,7 @@ define internal noundef i32 @dissect_vgm_parameter(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_nrec(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_nrec(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3232,7 +3232,7 @@ define internal noundef i32 @check_nrec(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_nrec_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_nrec_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -3256,7 +3256,7 @@ define internal noundef i32 @dissect_nrec_parameter(ptr noundef %0, ptr noundef 
   %20 = sext i32 %19 to i64
   %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #7
   %22 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %6, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr readonly align 1 %6, i64 %22, i1 false)
   %23 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %23, align 1
   %24 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10) #7
@@ -3276,7 +3276,7 @@ define internal noundef i32 @dissect_nrec_parameter(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_brsf(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_brsf(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3289,7 +3289,7 @@ define internal noundef i32 @check_brsf(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_brsf_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_brsf_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -3313,7 +3313,7 @@ define internal noundef i32 @dissect_brsf_parameter(ptr noundef %0, ptr noundef 
   %20 = sext i32 %19 to i64
   %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #7
   %22 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %6, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr readonly align 1 %6, i64 %22, i1 false)
   %23 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %23, align 1
   %24 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10) #7
@@ -3349,7 +3349,7 @@ define internal noundef i32 @dissect_brsf_parameter(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_bvra(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_bvra(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3362,7 +3362,7 @@ define internal noundef i32 @check_bvra(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bvra_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_bvra_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -3386,7 +3386,7 @@ define internal noundef i32 @dissect_bvra_parameter(ptr noundef %0, ptr noundef 
   %20 = sext i32 %19 to i64
   %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #7
   %22 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %6, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr readonly align 1 %6, i64 %22, i1 false)
   %23 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %23, align 1
   %24 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10) #7
@@ -3406,7 +3406,7 @@ define internal noundef i32 @dissect_bvra_parameter(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_bldn(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_bldn(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 13
   %or.cond = and i1 %3, %4
@@ -3415,7 +3415,7 @@ define internal noundef i32 @check_bldn(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_binp(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_binp(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3428,7 +3428,7 @@ define internal noundef i32 @check_binp(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_binp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_binp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -3450,7 +3450,7 @@ define internal noundef i32 @dissect_binp_parameter(ptr noundef %0, ptr noundef 
   %20 = sext i32 %19 to i64
   %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #7
   %22 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %6, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr readonly align 1 %6, i64 %22, i1 false)
   %23 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %23, align 1
   %24 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10) #7
@@ -3475,7 +3475,7 @@ define internal noundef i32 @dissect_binp_parameter(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_bia(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_bia(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3484,7 +3484,7 @@ define internal noundef i32 @check_bia(i32 noundef %0, i16 noundef zeroext %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_bia_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_bia_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp ne i32 %4, 2
   %12 = icmp ne i16 %5, 61
   %or.cond.not19 = or i1 %11, %12
@@ -3498,7 +3498,7 @@ define internal noundef i32 @dissect_bia_parameter(ptr noundef %0, ptr noundef %
   %17 = sext i32 %16 to i64
   %18 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef %17) #7
   %19 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %6, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr readonly align 1 %6, i64 %19, i1 false)
   %20 = getelementptr i8, ptr %18, i64 %19
   store i8 0, ptr %20, align 1
   %21 = tail call i64 @g_ascii_strtoull(ptr noundef %18, ptr noundef null, i32 noundef 10) #7
@@ -3520,7 +3520,7 @@ define internal noundef i32 @dissect_bia_parameter(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_ccwa(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_ccwa(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -3544,7 +3544,7 @@ define internal noundef i32 @check_ccwa(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_ccwa_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_ccwa_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   br i1 %11, label %12, label %check_ccwa.exit
 
@@ -3661,7 +3661,7 @@ check_ccwa.exit.thread89:                         ; preds = %18, %27, %23, %19, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_chld(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_chld(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -3684,7 +3684,7 @@ define internal noundef i32 @check_chld(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_chld_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_chld_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   br i1 %11, label %12, label %check_chld.exit
 
@@ -3766,7 +3766,7 @@ check_chld.exit.thread46:                         ; preds = %12, %check_chld.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_chup(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_chup(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %switch.selectcmp.case1 = icmp eq i16 %1, 15679
   %switch.selectcmp.case2 = icmp eq i16 %1, 13
@@ -3777,7 +3777,7 @@ define internal noundef i32 @check_chup(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_cind(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_cind(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -3800,7 +3800,7 @@ define internal noundef i32 @check_cind(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_cind_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture readnone %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_cind_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture readnone %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   br i1 %11, label %12, label %13
 
@@ -3835,7 +3835,7 @@ check_cind.exit:                                  ; preds = %12, %12, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_clcc(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_clcc(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -3858,7 +3858,7 @@ define internal noundef i32 @check_clcc(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_clcc_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_clcc_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 13
   %or.cond = and i1 %11, %12
@@ -3895,7 +3895,7 @@ define internal noundef i32 @dissect_clcc_parameter(ptr noundef %0, ptr noundef 
   %22 = sext i32 %21 to i64
   %23 = tail call noalias ptr @wmem_alloc(ptr noundef %20, i64 noundef %22) #7
   %24 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %6, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr readonly align 1 %6, i64 %24, i1 false)
   %25 = getelementptr i8, ptr %23, i64 %24
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %23, ptr noundef null, i32 noundef 10) #7
@@ -3910,7 +3910,7 @@ define internal noundef i32 @dissect_clcc_parameter(ptr noundef %0, ptr noundef 
   %33 = sext i32 %32 to i64
   %34 = tail call noalias ptr @wmem_alloc(ptr noundef %31, i64 noundef %33) #7
   %35 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %6, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr readonly align 1 %6, i64 %35, i1 false)
   %36 = getelementptr i8, ptr %34, i64 %35
   store i8 0, ptr %36, align 1
   %37 = tail call i64 @g_ascii_strtoull(ptr noundef %34, ptr noundef null, i32 noundef 10) #7
@@ -3925,7 +3925,7 @@ define internal noundef i32 @dissect_clcc_parameter(ptr noundef %0, ptr noundef 
   %44 = sext i32 %43 to i64
   %45 = tail call noalias ptr @wmem_alloc(ptr noundef %42, i64 noundef %44) #7
   %46 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 1 %6, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr readonly align 1 %6, i64 %46, i1 false)
   %47 = getelementptr i8, ptr %45, i64 %46
   store i8 0, ptr %47, align 1
   %48 = tail call i64 @g_ascii_strtoull(ptr noundef %45, ptr noundef null, i32 noundef 10) #7
@@ -3940,7 +3940,7 @@ define internal noundef i32 @dissect_clcc_parameter(ptr noundef %0, ptr noundef 
   %55 = sext i32 %54 to i64
   %56 = tail call noalias ptr @wmem_alloc(ptr noundef %53, i64 noundef %55) #7
   %57 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 1 %6, i64 %57, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr readonly align 1 %6, i64 %57, i1 false)
   %58 = getelementptr i8, ptr %56, i64 %57
   store i8 0, ptr %58, align 1
   %59 = tail call i64 @g_ascii_strtoull(ptr noundef %56, ptr noundef null, i32 noundef 10) #7
@@ -3955,7 +3955,7 @@ define internal noundef i32 @dissect_clcc_parameter(ptr noundef %0, ptr noundef 
   %66 = sext i32 %65 to i64
   %67 = tail call noalias ptr @wmem_alloc(ptr noundef %64, i64 noundef %66) #7
   %68 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 1 %6, i64 %68, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr readonly align 1 %6, i64 %68, i1 false)
   %69 = getelementptr i8, ptr %67, i64 %68
   store i8 0, ptr %69, align 1
   %70 = tail call i64 @g_ascii_strtoull(ptr noundef %67, ptr noundef null, i32 noundef 10) #7
@@ -3975,7 +3975,7 @@ define internal noundef i32 @dissect_clcc_parameter(ptr noundef %0, ptr noundef 
   %80 = sext i32 %79 to i64
   %81 = tail call noalias ptr @wmem_alloc(ptr noundef %78, i64 noundef %80) #7
   %82 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 1 %6, i64 %82, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr readonly align 1 %6, i64 %82, i1 false)
   %83 = getelementptr i8, ptr %81, i64 %82
   store i8 0, ptr %83, align 1
   %84 = tail call i64 @g_ascii_strtoull(ptr noundef %81, ptr noundef null, i32 noundef 10) #7
@@ -4001,7 +4001,7 @@ define internal noundef i32 @dissect_clcc_parameter(ptr noundef %0, ptr noundef 
   %97 = sext i32 %96 to i64
   %98 = tail call noalias ptr @wmem_alloc(ptr noundef %95, i64 noundef %97) #7
   %99 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr align 1 %6, i64 %99, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr readonly align 1 %6, i64 %99, i1 false)
   %100 = getelementptr i8, ptr %98, i64 %99
   store i8 0, ptr %100, align 1
   %101 = tail call i64 @g_ascii_strtoull(ptr noundef %98, ptr noundef null, i32 noundef 10) #7
@@ -4019,7 +4019,7 @@ default.unreachable:                              ; preds = %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_cops(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_cops(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = and i16 %1, -3
   %or.cond = icmp eq i16 %4, 61
@@ -4033,7 +4033,7 @@ define internal noundef i32 @check_cops(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_cops_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_cops_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = and i16 %5, -3
   %or.cond = icmp eq i16 %12, 61
@@ -4066,7 +4066,7 @@ define internal noundef i32 @dissect_cops_parameter(ptr noundef %0, ptr nocaptur
   %22 = sext i32 %21 to i64
   %23 = tail call noalias ptr @wmem_alloc(ptr noundef %20, i64 noundef %22) #7
   %24 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %6, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr readonly align 1 %6, i64 %24, i1 false)
   %25 = getelementptr i8, ptr %23, i64 %24
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %23, ptr noundef null, i32 noundef 10) #7
@@ -4081,7 +4081,7 @@ define internal noundef i32 @dissect_cops_parameter(ptr noundef %0, ptr nocaptur
   %33 = sext i32 %32 to i64
   %34 = tail call noalias ptr @wmem_alloc(ptr noundef %31, i64 noundef %33) #7
   %35 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %6, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr readonly align 1 %6, i64 %35, i1 false)
   %36 = getelementptr i8, ptr %34, i64 %35
   store i8 0, ptr %36, align 1
   %37 = tail call i64 @g_ascii_strtoull(ptr noundef %34, ptr noundef null, i32 noundef 10) #7
@@ -4101,7 +4101,7 @@ define internal noundef i32 @dissect_cops_parameter(ptr noundef %0, ptr nocaptur
   %47 = sext i32 %46 to i64
   %48 = tail call noalias ptr @wmem_alloc(ptr noundef %45, i64 noundef %47) #7
   %49 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr align 1 %6, i64 %49, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr readonly align 1 %6, i64 %49, i1 false)
   %50 = getelementptr i8, ptr %48, i64 %49
   store i8 0, ptr %50, align 1
   %51 = tail call i64 @g_ascii_strtoull(ptr noundef %48, ptr noundef null, i32 noundef 10) #7
@@ -4119,7 +4119,7 @@ default.unreachable:                              ; preds = %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_cmee(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_cmee(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -4128,7 +4128,7 @@ define internal noundef i32 @check_cmee(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_cmee_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_cmee_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -4142,7 +4142,7 @@ define internal noundef i32 @dissect_cmee_parameter(ptr noundef %0, ptr nocaptur
   %16 = sext i32 %15 to i64
   %17 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef %16) #7
   %18 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %6, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr readonly align 1 %6, i64 %18, i1 false)
   %19 = getelementptr i8, ptr %17, i64 %18
   store i8 0, ptr %19, align 1
   %20 = tail call i64 @g_ascii_strtoull(ptr noundef %17, ptr noundef null, i32 noundef 10) #7
@@ -4157,7 +4157,7 @@ define internal noundef i32 @dissect_cmee_parameter(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_cme(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_cme(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 1
   %4 = icmp eq i16 %1, 58
   %or.cond = and i1 %3, %4
@@ -4166,7 +4166,7 @@ define internal noundef i32 @check_cme(i32 noundef %0, i16 noundef zeroext %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_cme_error_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_cme_error_parameter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 1
   %12 = icmp eq i16 %5, 58
   %or.cond = and i1 %11, %12
@@ -4180,7 +4180,7 @@ define internal noundef i32 @dissect_cme_error_parameter(ptr noundef %0, ptr noc
   %16 = sext i32 %15 to i64
   %17 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef %16) #7
   %18 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %6, i64 %18, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr readonly align 1 %6, i64 %18, i1 false)
   %19 = getelementptr i8, ptr %17, i64 %18
   store i8 0, ptr %19, align 1
   %20 = tail call i64 @g_ascii_strtoull(ptr noundef %17, ptr noundef null, i32 noundef 10) #7
@@ -4195,7 +4195,7 @@ define internal noundef i32 @dissect_cme_error_parameter(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_clip(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_clip(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4219,7 +4219,7 @@ define internal noundef i32 @check_clip(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_clip_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_clip_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   br i1 %11, label %12, label %check_clip.exit
 
@@ -4259,7 +4259,7 @@ check_clip.exit:                                  ; preds = %10
   %24 = sext i32 %23 to i64
   %25 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef %24) #7
   %26 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %6, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr readonly align 1 %6, i64 %26, i1 false)
   %27 = getelementptr i8, ptr %25, i64 %26
   store i8 0, ptr %27, align 1
   %28 = tail call i64 @g_ascii_strtoull(ptr noundef %25, ptr noundef null, i32 noundef 10) #7
@@ -4274,7 +4274,7 @@ check_clip.exit:                                  ; preds = %10
   %35 = sext i32 %34 to i64
   %36 = tail call noalias ptr @wmem_alloc(ptr noundef %33, i64 noundef %35) #7
   %37 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 %6, i64 %37, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr readonly align 1 %6, i64 %37, i1 false)
   %38 = getelementptr i8, ptr %36, i64 %37
   store i8 0, ptr %38, align 1
   %39 = tail call i64 @g_ascii_strtoull(ptr noundef %36, ptr noundef null, i32 noundef 10) #7
@@ -4338,7 +4338,7 @@ check_clip.exit.thread75:                         ; preds = %12, %32, %21, %20, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_cmer(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_cmer(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4362,7 +4362,7 @@ define internal noundef i32 @check_cmer(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_cmer_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_cmer_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp ne i32 %4, 2
   %12 = icmp ne i16 %5, 61
   %or.cond.not55 = or i1 %11, %12
@@ -4376,7 +4376,7 @@ define internal noundef i32 @dissect_cmer_parameter(ptr noundef %0, ptr noundef 
   %17 = sext i32 %16 to i64
   %18 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef %17) #7
   %19 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %6, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr readonly align 1 %6, i64 %19, i1 false)
   %20 = getelementptr i8, ptr %18, i64 %19
   store i8 0, ptr %20, align 1
   %21 = tail call i64 @g_ascii_strtoull(ptr noundef %18, ptr noundef null, i32 noundef 10) #7
@@ -4448,7 +4448,7 @@ default.unreachable:                              ; preds = %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_ciev(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_ciev(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 1
   %4 = icmp eq i16 %1, 58
   %or.cond = and i1 %3, %4
@@ -4457,7 +4457,7 @@ define internal noundef i32 @check_ciev(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_ciev_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_ciev_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef %9) #0 {
   %11 = icmp eq i32 %4, 1
   %12 = icmp eq i16 %5, 58
   %or.cond = and i1 %11, %12
@@ -4477,7 +4477,7 @@ define internal noundef i32 @dissect_ciev_parameter(ptr noundef %0, ptr noundef 
   %19 = sext i32 %18 to i64
   %20 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef %19) #7
   %21 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %6, i64 %21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr readonly align 1 %6, i64 %21, i1 false)
   %22 = getelementptr i8, ptr %20, i64 %21
   store i8 0, ptr %22, align 1
   %23 = tail call i64 @g_ascii_strtoull(ptr noundef %20, ptr noundef null, i32 noundef 10) #7
@@ -4515,7 +4515,7 @@ define internal noundef i32 @dissect_ciev_parameter(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_vts(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_vts(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4538,7 +4538,7 @@ define internal noundef i32 @check_vts(i32 noundef %0, i16 noundef zeroext %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_vts_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_vts_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 2
   %12 = icmp eq i16 %5, 61
   %or.cond = and i1 %11, %12
@@ -4568,7 +4568,7 @@ define internal noundef i32 @dissect_vts_parameter(ptr noundef %0, ptr noundef %
   %24 = sext i32 %23 to i64
   %25 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef %24) #7
   %26 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %6, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr readonly align 1 %6, i64 %26, i1 false)
   %27 = getelementptr i8, ptr %25, i64 %26
   store i8 0, ptr %27, align 1
   %28 = tail call i64 @g_ascii_strtoull(ptr noundef %25, ptr noundef null, i32 noundef 10) #7
@@ -4583,7 +4583,7 @@ define internal noundef i32 @dissect_vts_parameter(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_cnum(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_cnum(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 13
   %or.cond = and i1 %3, %4
@@ -4596,7 +4596,7 @@ define internal noundef i32 @check_cnum(i32 noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_cnum_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
+define internal range(i32 0, 2) i32 @dissect_cnum_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9) #0 {
   %11 = icmp eq i32 %4, 1
   %12 = icmp eq i16 %5, 58
   %or.cond = and i1 %11, %12
@@ -4637,7 +4637,7 @@ define internal noundef i32 @dissect_cnum_parameter(ptr noundef %0, ptr noundef 
   %28 = sext i32 %27 to i64
   %29 = tail call noalias ptr @wmem_alloc(ptr noundef %26, i64 noundef %28) #7
   %30 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %6, i64 %30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr readonly align 1 %6, i64 %30, i1 false)
   %31 = getelementptr i8, ptr %29, i64 %30
   store i8 0, ptr %31, align 1
   %32 = tail call i64 @g_ascii_strtoull(ptr noundef %29, ptr noundef null, i32 noundef 10) #7
@@ -4658,7 +4658,7 @@ define internal noundef i32 @dissect_cnum_parameter(ptr noundef %0, ptr noundef 
   %42 = sext i32 %41 to i64
   %43 = tail call noalias ptr @wmem_alloc(ptr noundef %40, i64 noundef %42) #7
   %44 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 1 %6, i64 %44, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr readonly align 1 %6, i64 %44, i1 false)
   %45 = getelementptr i8, ptr %43, i64 %44
   store i8 0, ptr %45, align 1
   %46 = tail call i64 @g_ascii_strtoull(ptr noundef %43, ptr noundef null, i32 noundef 10) #7
@@ -4678,7 +4678,7 @@ define internal noundef i32 @dissect_cnum_parameter(ptr noundef %0, ptr noundef 
   %56 = sext i32 %55 to i64
   %57 = tail call noalias ptr @wmem_alloc(ptr noundef %54, i64 noundef %56) #7
   %58 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 1 %6, i64 %58, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr readonly align 1 %6, i64 %58, i1 false)
   %59 = getelementptr i8, ptr %57, i64 %58
   store i8 0, ptr %59, align 1
   %60 = tail call i64 @g_ascii_strtoull(ptr noundef %57, ptr noundef null, i32 noundef 10) #7
@@ -4698,7 +4698,7 @@ define internal noundef i32 @dissect_cnum_parameter(ptr noundef %0, ptr noundef 
   %70 = sext i32 %69 to i64
   %71 = tail call noalias ptr @wmem_alloc(ptr noundef %68, i64 noundef %70) #7
   %72 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr align 1 %6, i64 %72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr readonly align 1 %6, i64 %72, i1 false)
   %73 = getelementptr i8, ptr %71, i64 %72
   store i8 0, ptr %73, align 1
   %74 = tail call i64 @g_ascii_strtoull(ptr noundef %71, ptr noundef null, i32 noundef 10) #7
@@ -4721,7 +4721,7 @@ default.unreachable:                              ; preds = %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_only_ag_role(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_only_ag_role(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 1
   %4 = icmp eq i16 %1, 3338
   %or.cond = and i1 %3, %4
@@ -4730,7 +4730,7 @@ define internal noundef i32 @check_only_ag_role(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @check_only_hs_role(i32 noundef %0, i16 noundef zeroext %1) #5 {
+define internal range(i32 0, 2) i32 @check_only_hs_role(i32 noundef %0, i16 noundef zeroext %1) #5 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 13
   %or.cond = and i1 %3, %4

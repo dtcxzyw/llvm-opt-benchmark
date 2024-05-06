@@ -181,7 +181,7 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
 21:                                               ; preds = %19
   %22 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.41, ptr noundef nonnull %14, ptr noundef nonnull %16) #12
   %23 = load ptr, ptr %3, align 8
-  %24 = call fastcc i32 @ssh_launch_agent_lookup(ptr noundef nonnull @.str.42, ptr noundef %23), !range !4
+  %24 = call fastcc i32 @ssh_launch_agent_lookup(ptr noundef nonnull @.str.42, ptr noundef %23)
   %.not32 = icmp eq i32 %24, 0
   br i1 %.not32, label %36, label %25
 
@@ -225,7 +225,7 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not33, label %57, label %43
 
 43:                                               ; preds = %41
-  %44 = call fastcc i32 @ssh_launch_agent_lookup(ptr noundef nonnull @.str.45, ptr noundef null), !range !4
+  %44 = call fastcc i32 @ssh_launch_agent_lookup(ptr noundef nonnull @.str.45, ptr noundef null)
   %.not34 = icmp eq i32 %44, 0
   br i1 %.not34, label %55, label %45
 
@@ -257,7 +257,7 @@ define internal i32 @ssh_component_query(ptr nocapture noundef writeonly %0, ptr
   br label %98
 
 57:                                               ; preds = %38, %41, %8
-  %58 = call fastcc i32 @ssh_launch_agent_lookup(ptr noundef null, ptr noundef null), !range !4
+  %58 = call fastcc i32 @ssh_launch_agent_lookup(ptr noundef null, ptr noundef null)
   %.not35 = icmp eq i32 %58, 0
   br i1 %.not35, label %98, label %59
 
@@ -445,7 +445,7 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   %31 = getelementptr inbounds i8, ptr %.03851, i64 1
   %32 = load i8, ptr %31, align 1
   %.not45 = icmp eq i8 %32, 0
-  br i1 %.not45, label %.critedge, label %24, !llvm.loop !5
+  br i1 %.not45, label %.critedge, label %24, !llvm.loop !4
 
 .critedge:                                        ; preds = %24, %30, %.preheader
   %char066 = phi i8 [ 0, %.preheader ], [ 0, %30 ], [ %25, %24 ]
@@ -516,7 +516,7 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   %64 = getelementptr inbounds ptr, ptr %.037, i64 %indvars.iv.next62
   %65 = load ptr, ptr %64, align 8
   %.not = icmp eq ptr %65, null
-  br i1 %.not, label %.sink.split, label %.preheader, !llvm.loop !7
+  br i1 %.not, label %.sink.split, label %.preheader, !llvm.loop !6
 
 .sink.split:                                      ; preds = %63, %18, %60
   %.0.ph = phi ptr [ %56, %60 ], [ null, %18 ], [ null, %63 ]
@@ -565,7 +565,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #8
 declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ssh_launch_agent_lookup(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -13, 1) i32 @ssh_launch_agent_lookup(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = load ptr, ptr getelementptr inbounds (%struct.prte_mca_plm_ssh_component_t, ptr @prte_mca_plm_ssh_component, i64 0, i32 12), align 8
   %5 = icmp eq ptr %4, null
@@ -662,7 +662,7 @@ define internal fastcc noundef i32 @ssh_launch_agent_lookup(ptr noundef %0, ptr 
   %56 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv.next
   %57 = load ptr, ptr %56, align 8
   %.not27 = icmp eq ptr %57, null
-  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.preheader, %55
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 1, %.preheader ]
@@ -728,8 +728,7 @@ attributes #14 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -13, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

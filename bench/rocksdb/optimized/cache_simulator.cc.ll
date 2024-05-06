@@ -687,7 +687,7 @@ if.end:                                           ; preds = %if.then.i7.i, %clea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(185) %access) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK7rocksdb25PrioritizedCacheSimulator20ComputeBlockPriorityERKNS_21BlockCacheTraceRecordE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(185) %access) local_unnamed_addr #5 align 2 {
 entry:
   %block_type = getelementptr inbounds i8, ptr %access, i64 40
   %0 = load i8, ptr %block_type, align 8

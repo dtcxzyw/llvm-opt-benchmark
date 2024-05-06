@@ -83,7 +83,7 @@ define dso_local void @spgUpdateNodeLink(ptr nocapture noundef %0, i32 noundef %
 
 13:                                               ; preds = %.lr.ph
   %14 = lshr i32 %2, 16
-  %15 = trunc i32 %14 to i16
+  %15 = trunc nuw i32 %14 to i16
   store i16 %15, ptr %.015, align 2
   %16 = trunc i32 %2 to i16
   %17 = getelementptr inbounds i8, ptr %.015, i64 2
@@ -220,7 +220,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @cmpOffsetNumbers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -65535, 65536) i32 @cmpOffsetNumbers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i16, ptr %0, align 2
   %4 = load i16, ptr %1, align 2
   %5 = zext i16 %3 to i32
@@ -699,7 +699,7 @@ BufferGetPage.exit:                               ; preds = %197, %203
 
 saveNodeLink.exit.i:                              ; preds = %.lr.ph.i.i.i
   %289 = lshr i32 %264, 16
-  %290 = trunc i32 %289 to i16
+  %290 = trunc nuw i32 %289 to i16
   store i16 %290, ptr %.015.i.i.i, align 2
   %291 = trunc i32 %264 to i16
   %292 = getelementptr inbounds i8, ptr %.015.i.i.i, i64 2
@@ -854,7 +854,7 @@ saveNodeLink.exit.i:                              ; preds = %.lr.ph.i.i.i
   %384 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 16) #10
   %385 = load ptr, ptr %96, align 8
   %386 = lshr i64 %384, 32
-  %387 = trunc i64 %386 to i32
+  %387 = trunc nuw i64 %386 to i32
   store i32 %387, ptr %385, align 4
   %388 = trunc i64 %384 to i32
   %389 = getelementptr inbounds i8, ptr %385, i64 4
@@ -1421,7 +1421,7 @@ fetch_att.exit505.i:                              ; preds = %586, %580, %577, %5
 .lr.ph45.i.i:                                     ; preds = %.lr.ph45.i.i, %663
   %indvars.iv52.i.i = phi i64 [ %indvars.iv.next53.i.i, %.lr.ph45.i.i ], [ 0, %663 ]
   %664 = load i32, ptr %121, align 8
-  %665 = trunc i64 %indvars.iv52.i.i to i32
+  %665 = trunc nuw nsw i64 %indvars.iv52.i.i to i32
   %666 = srem i32 %665, %664
   %667 = load ptr, ptr %122, align 8
   %668 = getelementptr i32, ptr %667, i64 %indvars.iv52.i.i
@@ -2044,7 +2044,7 @@ BufferGetPage.exit512.i:                          ; preds = %974, %968
   store i16 %986, ptr %987, align 2
   %988 = load ptr, ptr %953, align 8
   %989 = lshr i32 %948, 16
-  %990 = trunc i32 %989 to i16
+  %990 = trunc nuw i32 %989 to i16
   store i16 %990, ptr %988, align 2
   %991 = trunc i32 %948 to i16
   %992 = getelementptr inbounds i8, ptr %988, i64 2
@@ -2143,7 +2143,7 @@ BufferGetPage.exit512.i:                          ; preds = %974, %968
 
 saveNodeLink.exit.i165:                           ; preds = %.lr.ph.i.i.i160
   %1038 = lshr i32 %1013, 16
-  %1039 = trunc i32 %1038 to i16
+  %1039 = trunc nuw i32 %1038 to i16
   store i16 %1039, ptr %.015.i.i.i161, align 2
   %1040 = trunc i32 %1013 to i16
   %1041 = getelementptr inbounds i8, ptr %.015.i.i.i161, i64 2
@@ -2167,7 +2167,7 @@ saveNodeLink.exit.i165:                           ; preds = %.lr.ph.i.i.i160
   %1052 = getelementptr i8, ptr %.sroa.9.0.copyload.i, i64 %1051
   %1053 = getelementptr inbounds i8, ptr %1052, i64 6
   %1054 = lshr i32 %1044, 16
-  %1055 = trunc i32 %1054 to i16
+  %1055 = trunc nuw i32 %1054 to i16
   store i16 %1055, ptr %1053, align 2
   %1056 = trunc i32 %1044 to i16
   %1057 = getelementptr inbounds i8, ptr %1052, i64 8
@@ -2269,7 +2269,7 @@ BufferGetPage.exit515.i:                          ; preds = %1070, %1064
 
 saveNodeLink.exit524.i:                           ; preds = %.lr.ph.i.i519.i
   %1111 = lshr i32 %1085, 16
-  %1112 = trunc i32 %1111 to i16
+  %1112 = trunc nuw i32 %1111 to i16
   store i16 %1112, ptr %.015.i.i520.i, align 2
   %1113 = trunc i32 %1085 to i16
   %1114 = getelementptr inbounds i8, ptr %.015.i.i520.i, i64 2
@@ -2293,7 +2293,7 @@ saveNodeLink.exit524.i:                           ; preds = %.lr.ph.i.i519.i
   %1125 = getelementptr i8, ptr %.sroa.9.0.copyload.i, i64 %1124
   %1126 = getelementptr inbounds i8, ptr %1125, i64 6
   %1127 = lshr i32 %1117, 16
-  %1128 = trunc i32 %1127 to i16
+  %1128 = trunc nuw i32 %1127 to i16
   store i16 %1128, ptr %1126, align 2
   %1129 = trunc i32 %1117 to i16
   %1130 = getelementptr inbounds i8, ptr %1125, i64 8
@@ -2451,7 +2451,7 @@ saveNodeLink.exit524.i:                           ; preds = %.lr.ph.i.i519.i
 BufferGetPage.exit527.i:                          ; preds = %1204, %1198
   %.0.i.i526.i = phi ptr [ %1203, %1198 ], [ %1209, %1204 ]
   %1210 = lshr i64 %1195, 32
-  %1211 = trunc i64 %1210 to i32
+  %1211 = trunc nuw i64 %1210 to i32
   store i32 %1211, ptr %.0.i.i526.i, align 4
   %1212 = trunc i64 %1195 to i32
   %1213 = getelementptr inbounds i8, ptr %.0.i.i526.i, i64 4
@@ -2463,7 +2463,7 @@ BufferGetPage.exit527.i:                          ; preds = %1204, %1198
 
 ._crit_edge708.i:                                 ; preds = %1214
   %.pre709.i = lshr i64 %1195, 32
-  %.pre710.i = trunc i64 %.pre709.i to i32
+  %.pre710.i = trunc nuw i64 %.pre709.i to i32
   %.pre712.i = trunc i64 %1195 to i32
   br label %1233
 
@@ -2490,7 +2490,7 @@ BufferGetPage.exit527.i:                          ; preds = %1204, %1198
 BufferGetPage.exit529.i:                          ; preds = %1223, %1217
   %.0.i.i528.i = phi ptr [ %1222, %1217 ], [ %1228, %1223 ]
   %1229 = lshr i64 %1195, 32
-  %1230 = trunc i64 %1229 to i32
+  %1230 = trunc nuw i64 %1229 to i32
   store i32 %1230, ptr %.0.i.i528.i, align 4
   %1231 = trunc i64 %1195 to i32
   %1232 = getelementptr inbounds i8, ptr %.0.i.i528.i, i64 4
@@ -2999,7 +2999,7 @@ addNode.exit.i:                                   ; preds = %1416, %1414, %._cri
   %1475 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 48) #10
   %1476 = load ptr, ptr %96, align 8
   %1477 = lshr i64 %1475, 32
-  %1478 = trunc i64 %1477 to i32
+  %1478 = trunc nuw i64 %1477 to i32
   store i32 %1478, ptr %1476, align 4
   %1479 = trunc i64 %1475 to i32
   %1480 = getelementptr inbounds i8, ptr %1476, i64 4
@@ -3141,7 +3141,7 @@ BufferGetPage.exit.i187:                          ; preds = %1507, %1501
 
 saveNodeLink.exit.i197:                           ; preds = %.lr.ph.i.i.i192
   %1554 = lshr i32 %1527, 16
-  %1555 = trunc i32 %1554 to i16
+  %1555 = trunc nuw i32 %1554 to i16
   store i16 %1555, ptr %.015.i.i.i193, align 2
   %1556 = trunc i32 %1527 to i16
   %1557 = getelementptr inbounds i8, ptr %.015.i.i.i193, i64 2
@@ -3245,7 +3245,7 @@ saveNodeLink.exit.i197:                           ; preds = %.lr.ph.i.i.i192
   %1613 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 48) #10
   %1614 = load ptr, ptr %96, align 8
   %1615 = lshr i64 %1613, 32
-  %1616 = trunc i64 %1615 to i32
+  %1616 = trunc nuw i64 %1615 to i32
   store i32 %1616, ptr %1614, align 4
   %1617 = trunc i64 %1613 to i32
   %1618 = getelementptr inbounds i8, ptr %1614, i64 4
@@ -3574,7 +3574,7 @@ BufferGetPage.exit.i206:                          ; preds = %1766, %1760
 
 spgUpdateNodeLink.exit.i:                         ; preds = %.lr.ph.i.i211
   %1795 = lshr i32 %.0114.i, 16
-  %1796 = trunc i32 %1795 to i16
+  %1796 = trunc nuw i32 %1795 to i16
   store i16 %1796, ptr %.015.i.i, align 2
   %1797 = trunc i32 %.0114.i to i16
   %1798 = getelementptr inbounds i8, ptr %.015.i.i, i64 2
@@ -3688,7 +3688,7 @@ spgUpdateNodeLink.exit132.i:                      ; preds = %.lr.ph.i127.i
   %1858 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 64) #10
   %1859 = load ptr, ptr %96, align 8
   %1860 = lshr i64 %1858, 32
-  %1861 = trunc i64 %1860 to i32
+  %1861 = trunc nuw i64 %1860 to i32
   store i32 %1861, ptr %1859, align 4
   %1862 = trunc i64 %1858 to i32
   %1863 = getelementptr inbounds i8, ptr %1859, i64 4
@@ -3958,7 +3958,7 @@ BufferGetPage.exit:                               ; preds = %59, %65
   %74 = load volatile i32, ptr @CritSectionCount, align 4
   %75 = add i32 %74, 1
   store volatile i32 %75, ptr @CritSectionCount, align 4
-  %76 = trunc i8 %.0121.lcssa to i1
+  %76 = trunc nuw i8 %.0121.lcssa to i1
   %77 = icmp slt i32 %.0111.lcssa, 1
   %or.cond.not = select i1 %76, i1 true, i1 %77
   br i1 %or.cond.not, label %.loopexit, label %.lr.ph143.preheader
@@ -4092,7 +4092,7 @@ BufferGetPage.exit:                               ; preds = %59, %65
 
 saveNodeLink.exit:                                ; preds = %.lr.ph.i.i
   %158 = lshr i32 %71, 16
-  %159 = trunc i32 %158 to i16
+  %159 = trunc nuw i32 %158 to i16
   store i16 %159, ptr %.015.i.i, align 2
   %160 = trunc i32 %71 to i16
   %161 = getelementptr inbounds i8, ptr %.015.i.i, i64 2
@@ -4180,7 +4180,7 @@ saveNodeLink.exit:                                ; preds = %.lr.ph.i.i
   %213 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 32) #10
   %214 = load ptr, ptr %10, align 8
   %215 = lshr i64 %213, 32
-  %216 = trunc i64 %215 to i32
+  %216 = trunc nuw i64 %215 to i32
   store i32 %216, ptr %214, align 4
   %217 = trunc i64 %213 to i32
   %218 = getelementptr inbounds i8, ptr %214, i64 4

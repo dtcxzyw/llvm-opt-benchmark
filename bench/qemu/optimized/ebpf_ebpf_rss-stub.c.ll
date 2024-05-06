@@ -10,19 +10,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @ebpf_rss_is_loaded(ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ebpf_rss_is_loaded(ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @ebpf_rss_load(ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ebpf_rss_load(ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @ebpf_rss_set_all(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %config, ptr nocapture noundef readnone %indirections_table, ptr nocapture noundef readnone %toeplitz_key) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ebpf_rss_set_all(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %config, ptr nocapture noundef readnone %indirections_table, ptr nocapture noundef readnone %toeplitz_key) local_unnamed_addr #0 {
 entry:
   ret i1 false
 }

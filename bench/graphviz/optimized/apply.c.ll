@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.agapply = private unnamed_addr constant [4 x ptr] [ptr @subgraph_search, ptr @subnode_search, ptr @subedge_search, ptr @subedge_search], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @agapply(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @agapply(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
 switch.lookup:
   %5 = load i32, ptr %1, align 8
   %6 = and i32 %5, 3

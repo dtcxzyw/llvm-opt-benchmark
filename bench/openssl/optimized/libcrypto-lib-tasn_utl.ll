@@ -206,7 +206,7 @@ if.end:                                           ; preds = %if.end.i, %lor.lhs.
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_asn1_enc_save(ptr noundef readonly %pval, ptr nocapture noundef readonly %in, i32 noundef %inlen, ptr nocapture noundef readonly %it) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_asn1_enc_save(ptr noundef readonly %pval, ptr nocapture noundef readonly %in, i32 noundef %inlen, ptr nocapture noundef readonly %it) local_unnamed_addr #2 {
 entry:
   %cmp.i = icmp eq ptr %pval, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
@@ -265,7 +265,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ossl_asn1_enc_restore(ptr noundef writeonly %len, ptr noundef %out, ptr noundef readonly %pval, ptr nocapture noundef readonly %it) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_asn1_enc_restore(ptr noundef writeonly %len, ptr noundef %out, ptr noundef readonly %pval, ptr nocapture noundef readonly %it) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq ptr %pval, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i

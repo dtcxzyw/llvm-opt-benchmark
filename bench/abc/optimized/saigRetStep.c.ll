@@ -421,7 +421,7 @@ Saig_ManRetimeNodeFwd.exit.Saig_ManRetimeNodeFwd.exit.thread_crit_edge: ; preds 
   br label %Saig_ManRetimeNodeFwd.exit.thread
 
 107:                                              ; preds = %Saig_ManRetimeNodeFwd.exit
-  %108 = trunc i64 %indvars.iv to i32
+  %108 = trunc nuw nsw i64 %indvars.iv to i32
   %109 = inttoptr i64 %105 to ptr
   tail call void @Aig_ObjReplace(ptr noundef nonnull %0, ptr noundef nonnull %44, ptr noundef nonnull %109, i32 noundef 0) #3
   %.pre116 = load ptr, ptr %22, align 8
@@ -438,7 +438,7 @@ Saig_ManRetimeNodeFwd.exit.thread:                ; preds = %Saig_ManRetimeNodeF
   br i1 %114, label %39, label %.critedge.loopexit, !llvm.loop !4
 
 .critedge.loopexit:                               ; preds = %Saig_ManRetimeNodeFwd.exit.thread
-  %115 = trunc i64 %indvars.iv.next to i32
+  %115 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader70, %107

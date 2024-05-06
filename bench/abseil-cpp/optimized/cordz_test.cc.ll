@@ -983,7 +983,7 @@ $_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE = comdat any
 @_ZTSN4absl12_GLOBAL__N_135CordzTest_MakeCordFromExternal_TestE = internal constant [59 x i8] c"N4absl12_GLOBAL__N_135CordzTest_MakeCordFromExternal_TestE\00", align 1
 @_ZTIN4absl12_GLOBAL__N_135CordzTest_MakeCordFromExternal_TestE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4absl12_GLOBAL__N_135CordzTest_MakeCordFromExternal_TestE, ptr @_ZTIN7testing4TestE }, align 8
 @.str.152 = private unnamed_addr constant [12 x i8] c"Hello world\00", align 1
-@_ZN4absl13cord_internal17cordz_next_sampleE = external thread_local global i64, align 8
+@_ZN4absl13cord_internal17cordz_next_sampleE = external thread_local local_unnamed_addr global i64, align 8
 @_ZTVN7testing8internal15TestFactoryImplIN4absl12_GLOBAL__N_140CordzTest_MakeCordFromEmptyExternal_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN4absl12_GLOBAL__N_140CordzTest_MakeCordFromEmptyExternal_TestEEE, ptr @_ZN7testing8internal15TestFactoryImplIN4absl12_GLOBAL__N_140CordzTest_MakeCordFromEmptyExternal_TestEED2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4absl12_GLOBAL__N_140CordzTest_MakeCordFromEmptyExternal_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN4absl12_GLOBAL__N_140CordzTest_MakeCordFromEmptyExternal_TestEE10CreateTestEv] }, align 8
 @_ZTSN7testing8internal15TestFactoryImplIN4absl12_GLOBAL__N_140CordzTest_MakeCordFromEmptyExternal_TestEEE = internal constant [102 x i8] c"N7testing8internal15TestFactoryImplIN4absl12_GLOBAL__N_140CordzTest_MakeCordFromEmptyExternal_TestEEE\00", align 1
 @_ZTIN7testing8internal15TestFactoryImplIN4absl12_GLOBAL__N_140CordzTest_MakeCordFromEmptyExternal_TestEEE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN4absl12_GLOBAL__N_140CordzTest_MakeCordFromEmptyExternal_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, align 8
@@ -1179,7 +1179,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %if.else
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEEE, i64 0) #15
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEEE, i64 0) #15
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
@@ -1550,7 +1550,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
 dynamic_cast.end.i:                               ; preds = %if.else
-  %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEEE, i64 0) #15
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEEE, i64 0) #15
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 

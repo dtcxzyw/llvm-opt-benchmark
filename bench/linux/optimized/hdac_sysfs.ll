@@ -69,7 +69,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @widget_sysfs_ops = internal constant %struct.sysfs_ops { ptr @widget_attr_show, ptr @widget_attr_store }, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @hda_widget_sysfs_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @hda_widget_sysfs_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -265,7 +265,7 @@ define dso_local void @hda_widget_sysfs_exit(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @hda_widget_sysfs_reinit(ptr nocapture noundef %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @hda_widget_sysfs_reinit(ptr nocapture noundef %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = trunc i32 %2 to i16
   %5 = add i16 %4, %1
   %6 = getelementptr inbounds i8, ptr %0, i64 872
@@ -449,7 +449,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @kobject_uevent(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @type_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @type_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 728
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef %5) #8
@@ -461,7 +461,7 @@ define internal i64 @type_show(ptr nocapture noundef readonly %0, ptr nocapture 
 declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @vendor_id_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @vendor_id_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 772
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef %5) #8
@@ -470,7 +470,7 @@ define internal i64 @vendor_id_show(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @subsystem_id_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @subsystem_id_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 776
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef %5) #8
@@ -479,7 +479,7 @@ define internal i64 @subsystem_id_show(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @revision_id_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @revision_id_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 780
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef %5) #8
@@ -488,7 +488,7 @@ define internal i64 @revision_id_show(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @afg_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @afg_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 768
   %5 = load i16, ptr %4, align 8
   %6 = zext i16 %5 to i32
@@ -498,7 +498,7 @@ define internal i64 @afg_show(ptr nocapture noundef readonly %0, ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @mfg_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @mfg_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 770
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
@@ -508,7 +508,7 @@ define internal i64 @mfg_show(ptr nocapture noundef readonly %0, ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @vendor_name_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @vendor_name_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 800
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -519,7 +519,7 @@ define internal i64 @vendor_name_show(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @chip_name_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @chip_name_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 808
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -530,7 +530,7 @@ define internal i64 @chip_name_show(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @modalias_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i32 @snd_hdac_codec_modalias(ptr noundef %0, ptr noundef %2, i64 noundef 256) #8
   %5 = sext i32 %4 to i64
   ret i64 %5
@@ -549,7 +549,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pcm_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pcm_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 768
@@ -598,7 +598,7 @@ define internal i64 @pcm_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr n
 declare dso_local i32 @_snd_hdac_read_parm(ptr noundef, i16 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pcm_formats_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pcm_formats_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 768
@@ -644,7 +644,7 @@ define internal i64 @pcm_formats_show(ptr noundef %0, i16 noundef zeroext %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @amp_in_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @amp_in_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 768
@@ -682,7 +682,7 @@ define internal i64 @amp_in_caps_show(ptr noundef %0, i16 noundef zeroext %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @amp_out_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @amp_out_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 768
@@ -720,7 +720,7 @@ define internal i64 @amp_out_caps_show(ptr noundef %0, i16 noundef zeroext %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @power_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @power_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 768
@@ -758,7 +758,7 @@ define internal i64 @power_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @gpio_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @gpio_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   store i32 0, ptr %5, align 4, !annotation !12
@@ -779,7 +779,7 @@ declare dso_local void @kobject_put(ptr noundef) local_unnamed_addr #3
 declare dso_local void @sysfs_remove_group(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   store i32 0, ptr %5, align 4, !annotation !12
@@ -794,7 +794,7 @@ define internal i64 @caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pin_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pin_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
@@ -826,7 +826,7 @@ define internal i64 @pin_caps_show(ptr noundef %0, i16 noundef zeroext %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pin_cfg_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pin_cfg_show(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8

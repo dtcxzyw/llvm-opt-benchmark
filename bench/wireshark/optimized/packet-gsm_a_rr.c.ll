@@ -4011,7 +4011,7 @@ target triple = "x86_64-pc-linux-gnu"
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @f_k(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -1023, 1024) i32 @f_k(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -4529,11 +4529,11 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i16 @parse_reduced_frame_number(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden zeroext range(i16 -1275, -23091) i16 @parse_reduced_frame_number(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1) #10
   %4 = lshr i16 %3, 5
   %5 = and i16 %4, 63
-  %6 = trunc i16 %5 to i8
+  %6 = trunc nuw nsw i16 %5 to i8
   %7 = trunc i16 %3 to i8
   %8 = and i8 %7, 31
   %.lhs.trunc = sub nsw i8 %6, %8
@@ -4636,7 +4636,7 @@ define internal noundef zeroext i16 @de_rr_cell_ch_dsc(ptr noundef %0, ptr nound
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %8)
+  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %8)
   ret i16 %11
 }
 
@@ -5717,12 +5717,12 @@ define internal noundef zeroext i16 @de_rr_chnl_req_desc2(ptr noundef %0, ptr no
 37:                                               ; preds = %33, %7
   %.0 = phi i32 [ %36, %33 ], [ %27, %7 ]
   %38 = load i32, ptr @hf_gsm_a_rr_multiple_tbf_procedures, align 4
-  %39 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.0, i32 noundef %38), !range !27
+  %39 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.0, i32 noundef %38)
   %40 = add i32 %.0, 2
   %41 = add i32 %4, %3
   %42 = shl i32 %41, 3
   %43 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_7, align 4
-  %44 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %42, i32 noundef %40, i32 noundef %43), !range !27
+  %44 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %42, i32 noundef %40, i32 noundef %43)
   %.not65 = icmp eq i32 %44, 0
   br i1 %.not65, label %65, label %45
 
@@ -5741,7 +5741,7 @@ define internal noundef zeroext i16 @de_rr_chnl_req_desc2(ptr noundef %0, ptr no
   %57 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 2, i32 noundef 0) #10
   %58 = add i32 %.0, 9
   %59 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_9, align 4
-  %60 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %42, i32 noundef %58, i32 noundef %59), !range !27
+  %60 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %42, i32 noundef %58, i32 noundef %59)
   %.not66 = icmp eq i32 %60, 0
   br i1 %.not66, label %65, label %61
 
@@ -5810,7 +5810,7 @@ define internal noundef zeroext i16 @de_rr_dtm_info_details(ptr noundef %0, ptr 
   %18 = add i32 %4, %3
   %19 = shl i32 %18, 3
   %20 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_6, align 4
-  %21 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %19, i32 noundef %17, i32 noundef %20), !range !27
+  %21 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %19, i32 noundef %17, i32 noundef %20)
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %36, label %22
 
@@ -5868,7 +5868,7 @@ define internal noundef zeroext i16 @de_rr_dyn_arfcn_map(ptr noundef %0, ptr nou
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #10
   %29 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0) #10
   %.not = icmp sgt i8 %28, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.0.lcssa = phi i32 [ %8, %7 ], [ %25, %.lr.ph ]
@@ -5910,7 +5910,7 @@ define internal noundef zeroext i16 @de_rr_freq_ch_seq(ptr noundef %0, ptr nound
   %15 = add i32 %.01415, 4
   %16 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %16, 16
-  br i1 %exitcond.not, label %17, label %12, !llvm.loop !29
+  br i1 %exitcond.not, label %17, label %12, !llvm.loop !28
 
 17:                                               ; preds = %12
   ret i16 9
@@ -5921,7 +5921,7 @@ define internal noundef zeroext i16 @de_rr_freq_list(ptr noundef %0, ptr noundef
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %8)
+  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %8)
   ret i16 %11
 }
 
@@ -5930,7 +5930,7 @@ define internal noundef zeroext i16 @de_rr_freq_short_list(ptr noundef %0, ptr n
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 9, i8 noundef zeroext %8)
+  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 9, i8 noundef zeroext %8)
   ret i16 %11
 }
 
@@ -5939,7 +5939,7 @@ define internal noundef zeroext i16 @de_rr_freq_short_list2(ptr noundef %0, ptr 
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 8, i8 noundef zeroext %8)
+  %11 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 8, i8 noundef zeroext %8)
   ret i16 %11
 }
 
@@ -5982,16 +5982,16 @@ define internal zeroext i16 @de_rr_ia_rest_oct(ptr noundef %0, ptr noundef %1, p
   %18 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
   %19 = trunc i32 %18 to i8
   %20 = and i32 %18, 255
-  %.tr = trunc i32 %20 to i16
+  %.tr = trunc nuw nsw i32 %20 to i16
   %21 = shl nuw nsw i16 %.tr, 3
   %22 = shl i32 %3, 3
   %23 = or disjoint i32 %22, 1
   %24 = load i32, ptr @hf_gsm_a_rr_first_discriminator_bit, align 4
-  %25 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %22, i32 noundef %24), !range !27
+  %25 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %22, i32 noundef %24)
   %26 = icmp eq i32 %25, 0
   %27 = or disjoint i32 %22, 2
   %28 = load i32, ptr @hf_gsm_a_rr_second_discriminator_bit, align 4
-  %29 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %23, i32 noundef %28), !range !27
+  %29 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %23, i32 noundef %28)
   %30 = icmp eq i32 %29, 0
   br i1 %26, label %31, label %563
 
@@ -6001,10 +6001,10 @@ define internal zeroext i16 @de_rr_ia_rest_oct(ptr noundef %0, ptr noundef %1, p
 
 33:                                               ; preds = %31
   %34 = load i32, ptr @hf_gsm_a_rr_a_compressed_inter_rat_handover_info, align 4
-  %35 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %27, i32 noundef %34), !range !27
+  %35 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %27, i32 noundef %34)
   %36 = or disjoint i32 %22, 4
   %37 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_13, align 4
-  %38 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %32, i32 noundef %37), !range !27
+  %38 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %32, i32 noundef %37)
   %.not178 = icmp eq i32 %38, 0
   br i1 %.not178, label %1054, label %39
 
@@ -6065,7 +6065,7 @@ define internal zeroext i16 @de_rr_ia_rest_oct(ptr noundef %0, ptr noundef %1, p
 79:                                               ; preds = %69
   %80 = load i32, ptr @hf_gsm_a_rr_access_tech_type, align 4
   %81 = call ptr @proto_tree_add_bits_item(ptr noundef %66, i32 noundef %80, ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef 0) #10
-  br label %69, !llvm.loop !30
+  br label %69, !llvm.loop !29
 
 82:                                               ; preds = %69
   %83 = zext nneg i16 %21 to i32
@@ -6268,7 +6268,7 @@ define internal zeroext i16 @de_rr_ia_rest_oct(ptr noundef %0, ptr noundef %1, p
 235:                                              ; preds = %233
   %236 = add nuw nsw i32 %.5.i, 1
   %237 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_7, align 4
-  %238 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %66, i32 noundef 0, i32 noundef %.5.i, i32 noundef %237), !range !27
+  %238 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %66, i32 noundef 0, i32 noundef %.5.i, i32 noundef %237)
   %.not244.i = icmp eq i32 %238, 0
   br i1 %.not244.i, label %de_rr_ia_rest_oct_egprs_packet_uplink_assignment.exit, label %239
 
@@ -6449,7 +6449,7 @@ define internal zeroext i16 @de_rr_ia_rest_oct(ptr noundef %0, ptr noundef %1, p
 369:                                              ; preds = %367
   %370 = add nuw nsw i32 %.9.i, 1
   %371 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_7, align 4
-  %372 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %66, i32 noundef 0, i32 noundef %.9.i, i32 noundef %371), !range !27
+  %372 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %66, i32 noundef 0, i32 noundef %.9.i, i32 noundef %371)
   %.not235.i = icmp eq i32 %372, 0
   br i1 %.not235.i, label %de_rr_ia_rest_oct_egprs_packet_uplink_assignment.exit, label %373
 
@@ -6531,7 +6531,7 @@ de_rr_ia_rest_oct_egprs_packet_uplink_assignment.exit: ; preds = %233, %235, %24
 422:                                              ; preds = %410
   %423 = call zeroext i16 @tvb_get_bits16(ptr noundef %0, i32 noundef %421, i32 noundef 12, i32 noundef 0) #10
   %424 = lshr i16 %423, 8
-  %425 = trunc i16 %424 to i8
+  %425 = trunc nuw i16 %424 to i8
   %426 = and i8 %425, 15
   %427 = or disjoint i8 %426, 48
   store i8 %427, ptr %13, align 1
@@ -6552,7 +6552,7 @@ de_rr_ia_rest_oct_egprs_packet_uplink_assignment.exit: ; preds = %233, %235, %24
   %439 = add i32 %22, 63
   %440 = call zeroext i16 @tvb_get_bits16(ptr noundef %0, i32 noundef %439, i32 noundef 12, i32 noundef 0) #10
   %441 = lshr i16 %440, 8
-  %442 = trunc i16 %441 to i8
+  %442 = trunc nuw i16 %441 to i8
   %443 = and i8 %442, 15
   %444 = or disjoint i8 %443, 48
   store i8 %444, ptr %14, align 1
@@ -6715,7 +6715,7 @@ de_rr_ia_rest_oct_multiple_blocks_packet_downlink_assignment.exit: ; preds = %39
   %.0166 = phi i32 [ %.10.i, %de_rr_ia_rest_oct_egprs_packet_uplink_assignment.exit ], [ %.0.i181, %de_rr_ia_rest_oct_multiple_blocks_packet_downlink_assignment.exit ], [ %32, %546 ]
   %550 = add i32 %.0166, 1
   %551 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_13, align 4
-  %552 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.0166, i32 noundef %551), !range !27
+  %552 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.0166, i32 noundef %551)
   %.not177 = icmp eq i32 %552, 0
   br i1 %.not177, label %1054, label %553
 
@@ -6768,16 +6768,16 @@ de_rr_ia_rest_oct_multiple_blocks_packet_downlink_assignment.exit: ; preds = %39
   %585 = add i32 %.1218, 1
   %586 = add i32 %.0167217, -1
   %.not175 = icmp eq i32 %586, 0
-  br i1 %.not175, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %.not175, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.lr.ph, %569, %564
   %.2 = phi i32 [ %567, %564 ], [ %573, %569 ], [ %585, %.lr.ph ]
   %587 = add i32 %.2, 1
   %588 = load i32, ptr @hf_gsm_a_rr_a_compressed_inter_rat_handover_info, align 4
-  %589 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.2, i32 noundef %588), !range !27
+  %589 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.2, i32 noundef %588)
   %590 = add i32 %.2, 2
   %591 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_13, align 4
-  %592 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %587, i32 noundef %591), !range !27
+  %592 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %587, i32 noundef %591)
   %.not176 = icmp eq i32 %592, 0
   br i1 %.not176, label %1054, label %593
 
@@ -7002,7 +7002,7 @@ de_rr_ia_rest_oct_multiple_blocks_packet_downlink_assignment.exit: ; preds = %39
   %761 = add i32 %.3.i190, 23
   %762 = add i32 %.3.i190, 24
   %763 = load i32, ptr @hf_gsm_a_rr_p0_present, align 4
-  %764 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %622, i32 noundef 0, i32 noundef %761, i32 noundef %763), !range !27
+  %764 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %622, i32 noundef 0, i32 noundef %761, i32 noundef %763)
   %.not165.i = icmp eq i32 %764, 0
   br i1 %.not165.i, label %775, label %765
 
@@ -7026,7 +7026,7 @@ de_rr_ia_rest_oct_multiple_blocks_packet_downlink_assignment.exit: ; preds = %39
 777:                                              ; preds = %775
   %778 = add nuw nsw i32 %.4.i187, 1
   %779 = load i32, ptr @hf_gsm_a_rr_additions_in_r99, align 4
-  %780 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %622, i32 noundef 0, i32 noundef %.4.i187, i32 noundef %779), !range !27
+  %780 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %622, i32 noundef 0, i32 noundef %.4.i187, i32 noundef %779)
   %.not172.i = icmp eq i32 %780, 0
   br i1 %.not172.i, label %795, label %781
 
@@ -7057,7 +7057,7 @@ de_rr_ia_rest_oct_multiple_blocks_packet_downlink_assignment.exit: ; preds = %39
 797:                                              ; preds = %795
   %798 = add nuw nsw i32 %.5.i188, 1
   %799 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_6, align 4
-  %800 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %622, i32 noundef 0, i32 noundef %.5.i188, i32 noundef %799), !range !27
+  %800 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %622, i32 noundef 0, i32 noundef %.5.i188, i32 noundef %799)
   %.not174.i = icmp eq i32 %800, 0
   br i1 %.not174.i, label %de_rr_ia_rest_oct_packet_uplink_assignment.exit, label %801
 
@@ -7215,7 +7215,7 @@ de_rr_ia_rest_oct_packet_uplink_assignment.exit:  ; preds = %795, %797, %801, %8
 906:                                              ; preds = %904
   %907 = add nuw nsw i32 %.4.i196, 1
   %908 = load i32, ptr @hf_gsm_a_rr_additions_in_r99, align 4
-  %909 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %821, i32 noundef 0, i32 noundef %.4.i196, i32 noundef %908), !range !27
+  %909 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %821, i32 noundef 0, i32 noundef %.4.i196, i32 noundef %908)
   %.not139.i = icmp eq i32 %909, 0
   br i1 %.not139.i, label %930, label %910
 
@@ -7252,7 +7252,7 @@ de_rr_ia_rest_oct_packet_uplink_assignment.exit:  ; preds = %795, %797, %801, %8
 932:                                              ; preds = %930
   %933 = add nuw nsw i32 %.5.i197, 1
   %934 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_6, align 4
-  %935 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %821, i32 noundef 0, i32 noundef %.5.i197, i32 noundef %934), !range !27
+  %935 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %821, i32 noundef 0, i32 noundef %.5.i197, i32 noundef %934)
   %.not141.i = icmp eq i32 %935, 0
   br i1 %.not141.i, label %950, label %936
 
@@ -7283,7 +7283,7 @@ de_rr_ia_rest_oct_packet_uplink_assignment.exit:  ; preds = %795, %797, %801, %8
 952:                                              ; preds = %950
   %953 = add nuw nsw i32 %.6.i198, 1
   %954 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_7, align 4
-  %955 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %821, i32 noundef 0, i32 noundef %.6.i198, i32 noundef %954), !range !27
+  %955 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %821, i32 noundef 0, i32 noundef %.6.i198, i32 noundef %954)
   %.not143.i = icmp eq i32 %955, 0
   br i1 %.not143.i, label %de_rr_ia_rest_oct_packet_downlink_assignment.exit, label %956
 
@@ -7378,7 +7378,7 @@ de_rr_ia_rest_oct_packet_downlink_assignment.exit: ; preds = %950, %952, %1001
 1015:                                             ; preds = %1009
   %1016 = or disjoint i32 %22, 4
   %1017 = load i32, ptr @hf_gsm_a_rr_additions_in_r99, align 4
-  %1018 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1013, i32 noundef 0, i32 noundef %604, i32 noundef %1017), !range !27
+  %1018 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1013, i32 noundef 0, i32 noundef %604, i32 noundef %1017)
   %.not.i205 = icmp eq i32 %1018, 0
   br i1 %.not.i205, label %de_rr_ia_rest_oct_second_part_packet_assignment.exit, label %1019
 
@@ -7411,7 +7411,7 @@ de_rr_ia_rest_oct_second_part_packet_assignment.exit: ; preds = %1009, %1015, %1
   %.3 = phi i32 [ %.6.i189, %de_rr_ia_rest_oct_packet_uplink_assignment.exit ], [ %.9.i199, %de_rr_ia_rest_oct_packet_downlink_assignment.exit ], [ %.0.i203, %de_rr_ia_rest_oct_second_part_packet_assignment.exit ]
   %1033 = add i32 %.3, 1
   %1034 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_10, align 4
-  %1035 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.3, i32 noundef %1034), !range !27
+  %1035 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.3, i32 noundef %1034)
   %.not = icmp eq i32 %1035, 0
   br i1 %.not, label %1043, label %1036
 
@@ -7428,7 +7428,7 @@ de_rr_ia_rest_oct_second_part_packet_assignment.exit: ; preds = %1009, %1015, %1
   %.4 = phi i32 [ %1041, %1036 ], [ %1033, %1032 ]
   %1044 = add i32 %.4, 1
   %1045 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_13, align 4
-  %1046 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.4, i32 noundef %1045), !range !27
+  %1046 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.4, i32 noundef %1045)
   %.not173 = icmp eq i32 %1046, 0
   br i1 %.not173, label %1054, label %1047
 
@@ -7487,7 +7487,7 @@ define internal zeroext i16 @de_rr_iar_rest_oct(ptr noundef %0, ptr noundef %1, 
   %.1 = phi i32 [ %23, %20 ], [ %11, %10 ]
   %26 = add nuw nsw i8 %.02730, 1
   %exitcond.not = icmp eq i8 %26, 4
-  br i1 %exitcond.not, label %27, label %10, !llvm.loop !32
+  br i1 %exitcond.not, label %27, label %10, !llvm.loop !31
 
 27:                                               ; preds = %25
   %28 = icmp ult i8 %.126, 4
@@ -7496,7 +7496,7 @@ define internal zeroext i16 @de_rr_iar_rest_oct(ptr noundef %0, ptr noundef %1, 
 29:                                               ; preds = %27
   %30 = add i32 %.1, 1
   %31 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_13, align 4
-  %32 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.1, i32 noundef %31), !range !27
+  %32 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.1, i32 noundef %31)
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %37, label %33
 
@@ -7526,7 +7526,7 @@ define internal zeroext i16 @de_rr_iax_rest_oct(ptr noundef %0, ptr noundef %1, 
   %12 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef 0) #10
   %13 = or disjoint i32 %9, 2
   %14 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_13, align 4
-  %15 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %11, i32 noundef %14), !range !27
+  %15 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %11, i32 noundef %14)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %20, label %16
 
@@ -7584,7 +7584,7 @@ define internal noundef zeroext i16 @de_rr_mult_all(ptr noundef %0, ptr noundef 
 
 ._crit_edge52:                                    ; preds = %12, %15
   %exitcond.not = icmp eq i32 %.pre, 7
-  br i1 %exitcond.not, label %16, label %12, !llvm.loop !33
+  br i1 %exitcond.not, label %16, label %12, !llvm.loop !32
 
 16:                                               ; preds = %._crit_edge52
   %17 = add i32 %3, 1
@@ -7612,7 +7612,7 @@ define internal noundef zeroext i16 @de_rr_mult_all(ptr noundef %0, ptr noundef 
 
 ._crit_edge51:                                    ; preds = %23, %26
   %exitcond49.not = icmp eq i32 %.pre53, 7
-  br i1 %exitcond49.not, label %.loopexit.loopexit, label %23, !llvm.loop !34
+  br i1 %exitcond49.not, label %.loopexit.loopexit, label %23, !llvm.loop !33
 
 .loopexit.loopexit:                               ; preds = %._crit_edge51
   %27 = add i32 %3, 2
@@ -7630,7 +7630,7 @@ define internal noundef zeroext i16 @de_rr_mult_all(ptr noundef %0, ptr noundef 
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %30, ptr noundef %0, i32 noundef %.13744, i32 noundef 1, i32 noundef 0) #10
   %32 = add i32 %.13744, 1
   %exitcond50.not = icmp eq i32 %32, %28
-  br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   %.137.lcssa = phi i32 [ %.036, %.loopexit ], [ %28, %.lr.ph ]
@@ -7650,7 +7650,7 @@ define internal noundef zeroext i16 @de_rr_neigh_cell_desc(ptr noundef %0, ptr n
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %15 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %17 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %14)
+  %17 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %14)
   ret i16 %17
 }
 
@@ -7667,7 +7667,7 @@ define internal noundef zeroext i16 @de_rr_neigh_cell_desc2(ptr noundef %0, ptr 
   %16 = and i8 %15, -65
   %17 = load i32, ptr @hf_gsm_a_rr_format_id2, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %17, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %19 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %16)
+  %19 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %16)
   ret i16 %19
 }
 
@@ -7679,7 +7679,7 @@ define internal zeroext i16 @de_rr_p1_rest_oct(ptr noundef %0, ptr noundef %1, p
   %11 = shl i32 %3, 3
   %12 = or disjoint i32 %11, 1
   %13 = load i32, ptr @hf_gsm_a_rr_nln_pch_present, align 4
-  %14 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %11, i32 noundef %13), !range !27
+  %14 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %11, i32 noundef %13)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %22, label %15
 
@@ -7696,7 +7696,7 @@ define internal zeroext i16 @de_rr_p1_rest_oct(ptr noundef %0, ptr noundef %1, p
   %.0 = phi i32 [ %21, %15 ], [ %12, %7 ]
   %23 = add nuw i32 %.0, 1
   %24 = load i32, ptr @hf_gsm_a_call_prio1, align 4
-  %25 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.0, i32 noundef %24), !range !27
+  %25 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.0, i32 noundef %24)
   %.not74 = icmp eq i32 %25, 0
   br i1 %.not74, label %30, label %26
 
@@ -7711,7 +7711,7 @@ define internal zeroext i16 @de_rr_p1_rest_oct(ptr noundef %0, ptr noundef %1, p
   %.1 = phi i32 [ %29, %26 ], [ %23, %22 ]
   %31 = add i32 %.1, 1
   %32 = load i32, ptr @hf_gsm_a_call_prio2, align 4
-  %33 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.1, i32 noundef %32), !range !27
+  %33 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.1, i32 noundef %32)
   %.not75 = icmp eq i32 %33, 0
   br i1 %.not75, label %38, label %34
 
@@ -7726,7 +7726,7 @@ define internal zeroext i16 @de_rr_p1_rest_oct(ptr noundef %0, ptr noundef %1, p
   %.2 = phi i32 [ %37, %34 ], [ %31, %30 ]
   %39 = add i32 %.2, 1
   %40 = load i32, ptr @hf_gsm_a_rr_group_call_information, align 4
-  %41 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.2, i32 noundef %40), !range !27
+  %41 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.2, i32 noundef %40)
   %.not76 = icmp eq i32 %41, 0
   br i1 %.not76, label %87, label %42
 
@@ -7796,9 +7796,9 @@ define internal zeroext i16 @de_rr_p1_rest_oct(ptr noundef %0, ptr noundef %1, p
   %88 = trunc i32 %8 to i8
   %89 = add i32 %.4, 1
   %90 = load i32, ptr @hf_gsm_a_rr_packet_page_indication_1, align 4
-  %91 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.4, i32 noundef %90), !range !27
+  %91 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.4, i32 noundef %90)
   %92 = load i32, ptr @hf_gsm_a_rr_packet_page_indication_2, align 4
-  %93 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %89, i32 noundef %92), !range !27
+  %93 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %89, i32 noundef %92)
   %94 = trunc i32 %.4 to i16
   %95 = add i16 %94, 2
   tail call fastcc void @gsm_rr_padding_bits(ptr noundef %1, ptr noundef %0, i16 noundef zeroext %95, i8 noundef zeroext %88, i8 noundef zeroext 43)
@@ -7815,7 +7815,7 @@ define internal zeroext i16 @de_rr_p2_rest_oct(ptr noundef %0, ptr noundef %1, p
   %11 = shl i32 %3, 3
   %12 = or disjoint i32 %11, 1
   %13 = load i32, ptr @hf_gsm_a_rr_chnl_needed_ch3_present, align 4
-  %14 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %11, i32 noundef %13), !range !27
+  %14 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %11, i32 noundef %13)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %19, label %15
 
@@ -7829,7 +7829,7 @@ define internal zeroext i16 @de_rr_p2_rest_oct(ptr noundef %0, ptr noundef %1, p
   %.0 = phi i32 [ %18, %15 ], [ %12, %7 ]
   %20 = add nuw i32 %.0, 1
   %21 = load i32, ptr @hf_gsm_a_rr_nln_pch_present, align 4
-  %22 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.0, i32 noundef %21), !range !27
+  %22 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.0, i32 noundef %21)
   %.not77 = icmp eq i32 %22, 0
   br i1 %.not77, label %30, label %23
 
@@ -7846,7 +7846,7 @@ define internal zeroext i16 @de_rr_p2_rest_oct(ptr noundef %0, ptr noundef %1, p
   %.1 = phi i32 [ %29, %23 ], [ %20, %19 ]
   %31 = add i32 %.1, 1
   %32 = load i32, ptr @hf_gsm_a_call_prio1, align 4
-  %33 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.1, i32 noundef %32), !range !27
+  %33 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.1, i32 noundef %32)
   %.not78 = icmp eq i32 %33, 0
   br i1 %.not78, label %38, label %34
 
@@ -7861,7 +7861,7 @@ define internal zeroext i16 @de_rr_p2_rest_oct(ptr noundef %0, ptr noundef %1, p
   %.2 = phi i32 [ %37, %34 ], [ %31, %30 ]
   %39 = add i32 %.2, 1
   %40 = load i32, ptr @hf_gsm_a_call_prio2, align 4
-  %41 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.2, i32 noundef %40), !range !27
+  %41 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.2, i32 noundef %40)
   %.not79 = icmp eq i32 %41, 0
   br i1 %.not79, label %46, label %42
 
@@ -7876,7 +7876,7 @@ define internal zeroext i16 @de_rr_p2_rest_oct(ptr noundef %0, ptr noundef %1, p
   %.3 = phi i32 [ %45, %42 ], [ %39, %38 ]
   %47 = add i32 %.3, 1
   %48 = load i32, ptr @hf_gsm_a_call_prio3, align 4
-  %49 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.3, i32 noundef %48), !range !27
+  %49 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.3, i32 noundef %48)
   %.not80 = icmp eq i32 %49, 0
   br i1 %.not80, label %54, label %50
 
@@ -7891,16 +7891,16 @@ define internal zeroext i16 @de_rr_p2_rest_oct(ptr noundef %0, ptr noundef %1, p
   %.4 = phi i32 [ %53, %50 ], [ %47, %46 ]
   %55 = add i32 %.4, 1
   %56 = load i32, ptr @hf_gsm_a_rr_packet_paging_procedure_1, align 4
-  %57 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.4, i32 noundef %56), !range !27
+  %57 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.4, i32 noundef %56)
   %58 = add i32 %.4, 2
   %59 = load i32, ptr @hf_gsm_a_rr_packet_paging_procedure_2, align 4
-  %60 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %55, i32 noundef %59), !range !27
+  %60 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %55, i32 noundef %59)
   %61 = add i32 %.4, 3
   %62 = load i32, ptr @hf_gsm_a_rr_packet_paging_procedure_3, align 4
-  %63 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %58, i32 noundef %62), !range !27
+  %63 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %58, i32 noundef %62)
   %64 = add i32 %.4, 4
   %65 = load i32, ptr @hf_gsm_a_rr_additions_in_release_6_present, align 4
-  %66 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %61, i32 noundef %65), !range !27
+  %66 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %61, i32 noundef %65)
   %.not81 = icmp eq i32 %66, 0
   br i1 %.not81, label %71, label %67
 
@@ -7928,7 +7928,7 @@ define internal zeroext i16 @de_rr_p3_rest_oct(ptr noundef %0, ptr noundef %1, p
   %11 = shl i32 %3, 3
   %12 = or disjoint i32 %11, 1
   %13 = load i32, ptr @hf_gsm_a_rr_chnl_needed_ch3and4, align 4
-  %14 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %11, i32 noundef %13), !range !27
+  %14 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %11, i32 noundef %13)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %22, label %15
 
@@ -7945,7 +7945,7 @@ define internal zeroext i16 @de_rr_p3_rest_oct(ptr noundef %0, ptr noundef %1, p
   %.0 = phi i32 [ %21, %15 ], [ %12, %7 ]
   %23 = add nuw i32 %.0, 1
   %24 = load i32, ptr @hf_gsm_a_rr_nln_pch_present, align 4
-  %25 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.0, i32 noundef %24), !range !27
+  %25 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.0, i32 noundef %24)
   %.not69 = icmp eq i32 %25, 0
   br i1 %.not69, label %33, label %26
 
@@ -7962,7 +7962,7 @@ define internal zeroext i16 @de_rr_p3_rest_oct(ptr noundef %0, ptr noundef %1, p
   %.1 = phi i32 [ %32, %26 ], [ %23, %22 ]
   %34 = add i32 %.1, 1
   %35 = load i32, ptr @hf_gsm_a_call_prio1, align 4
-  %36 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.1, i32 noundef %35), !range !27
+  %36 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.1, i32 noundef %35)
   %.not70 = icmp eq i32 %36, 0
   br i1 %.not70, label %41, label %37
 
@@ -7977,7 +7977,7 @@ define internal zeroext i16 @de_rr_p3_rest_oct(ptr noundef %0, ptr noundef %1, p
   %.2 = phi i32 [ %40, %37 ], [ %34, %33 ]
   %42 = add i32 %.2, 1
   %43 = load i32, ptr @hf_gsm_a_call_prio2, align 4
-  %44 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.2, i32 noundef %43), !range !27
+  %44 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.2, i32 noundef %43)
   %.not71 = icmp eq i32 %44, 0
   br i1 %.not71, label %49, label %45
 
@@ -7992,7 +7992,7 @@ define internal zeroext i16 @de_rr_p3_rest_oct(ptr noundef %0, ptr noundef %1, p
   %.3 = phi i32 [ %48, %45 ], [ %42, %41 ]
   %50 = add i32 %.3, 1
   %51 = load i32, ptr @hf_gsm_a_call_prio3, align 4
-  %52 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.3, i32 noundef %51), !range !27
+  %52 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.3, i32 noundef %51)
   %.not72 = icmp eq i32 %52, 0
   br i1 %.not72, label %57, label %53
 
@@ -8007,7 +8007,7 @@ define internal zeroext i16 @de_rr_p3_rest_oct(ptr noundef %0, ptr noundef %1, p
   %.4 = phi i32 [ %56, %53 ], [ %50, %49 ]
   %58 = add i32 %.4, 1
   %59 = load i32, ptr @hf_gsm_a_call_prio4, align 4
-  %60 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.4, i32 noundef %59), !range !27
+  %60 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef %.4, i32 noundef %59)
   %.not73 = icmp eq i32 %60, 0
   br i1 %.not73, label %65, label %61
 
@@ -8193,7 +8193,7 @@ define internal noundef zeroext i16 @de_rr_req_ref(ptr noundef %0, ptr noundef %
   %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %10) #10
   %12 = lshr i16 %11, 5
   %13 = and i16 %12, 63
-  %14 = trunc i16 %13 to i8
+  %14 = trunc nuw nsw i16 %13 to i8
   %15 = trunc i16 %11 to i8
   %16 = and i8 %15, 31
   %.lhs.trunc.i = sub nsw i8 %14, %16
@@ -8254,7 +8254,7 @@ define internal zeroext i16 @de_rr_si1_rest_oct(ptr noundef %0, ptr noundef %1, 
   %9 = shl i32 %3, 3
   %10 = or disjoint i32 %9, 1
   %11 = load i32, ptr @hf_gsm_a_rr_nch_position_present, align 4
-  %12 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %9, i32 noundef %11), !range !27
+  %12 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %9, i32 noundef %11)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %17, label %13
 
@@ -8268,7 +8268,7 @@ define internal zeroext i16 @de_rr_si1_rest_oct(ptr noundef %0, ptr noundef %1, 
   %.0 = phi i32 [ %16, %13 ], [ %10, %7 ]
   %18 = trunc i32 %8 to i8
   %19 = load i32, ptr @hf_gsm_a_rr_band_indicator, align 4
-  %20 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.0, i32 noundef %19), !range !27
+  %20 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.0, i32 noundef %19)
   %21 = trunc i32 %.0 to i16
   %22 = add i16 %21, 1
   tail call fastcc void @gsm_rr_padding_bits(ptr noundef %1, ptr noundef %0, i16 noundef zeroext %22, i8 noundef zeroext %18, i8 noundef zeroext 43)
@@ -8287,7 +8287,7 @@ define internal zeroext i16 @de_rr_si2ter_rest_oct(ptr noundef %0, ptr noundef %
   %12 = shl i32 %3, 3
   %13 = or disjoint i32 %12, 1
   %14 = load i32, ptr @hf_gsm_a_rr_si2ter_mp_change_mark_present, align 4
-  %15 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %12, i32 noundef %14), !range !27
+  %15 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %12, i32 noundef %14)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %177, label %16
 
@@ -8484,7 +8484,7 @@ define internal zeroext i16 @de_rr_si2ter_rest_oct(ptr noundef %0, ptr noundef %
 150:                                              ; preds = %147
   %151 = add i32 %.6, 1
   %152 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_5, align 4
-  %153 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.6, i32 noundef %152), !range !27
+  %153 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.6, i32 noundef %152)
   %.not140 = icmp eq i32 %153, 0
   br i1 %.not140, label %177, label %154
 
@@ -8779,7 +8779,7 @@ define internal zeroext i16 @de_rr_si2quater_rest_oct(ptr noundef %0, ptr nounde
   %185 = add i8 %.0391464, -1
   %186 = add nsw i32 %.0392463, -1
   %.not402 = icmp eq i8 %185, 0
-  br i1 %.not402, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !36
+  br i1 %.not402, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre475 = ashr i32 %184, 3
@@ -9124,7 +9124,7 @@ define internal zeroext i16 @de_rr_si2quater_rest_oct(ptr noundef %0, ptr nounde
 415:                                              ; preds = %412
   %416 = add i32 %.22, 1
   %417 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_5, align 4
-  %418 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.22, i32 noundef %417), !range !27
+  %418 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.22, i32 noundef %417)
   %.not416 = icmp eq i32 %418, 0
   br i1 %.not416, label %549, label %419
 
@@ -9186,7 +9186,7 @@ define internal zeroext i16 @de_rr_si2quater_rest_oct(ptr noundef %0, ptr nounde
 455:                                              ; preds = %452
   %456 = add i32 %.24, 1
   %457 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_6, align 4
-  %458 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.24, i32 noundef %457), !range !27
+  %458 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.24, i32 noundef %457)
   %.not419 = icmp eq i32 %458, 0
   br i1 %.not419, label %549, label %459
 
@@ -9201,7 +9201,7 @@ define internal zeroext i16 @de_rr_si2quater_rest_oct(ptr noundef %0, ptr nounde
 465:                                              ; preds = %459
   %466 = add i32 %.24, 3
   %467 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_7, align 4
-  %468 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %462, i32 noundef %467), !range !27
+  %468 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %462, i32 noundef %467)
   %.not420 = icmp eq i32 %468, 0
   br i1 %.not420, label %549, label %469
 
@@ -9259,7 +9259,7 @@ define internal zeroext i16 @de_rr_si2quater_rest_oct(ptr noundef %0, ptr nounde
 506:                                              ; preds = %503
   %507 = add i32 %.26, 1
   %508 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_8, align 4
-  %509 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.26, i32 noundef %508), !range !27
+  %509 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.26, i32 noundef %508)
   %.not423 = icmp eq i32 %509, 0
   br i1 %.not423, label %549, label %510
 
@@ -9337,7 +9337,7 @@ define internal zeroext i16 @de_rr_si3_rest_oct(ptr noundef %0, ptr noundef %1, 
   %11 = add i32 %10, %9
   %12 = add i32 %11, 1
   %13 = load i32, ptr @hf_gsm_a_rr_power_offset_present, align 4
-  %14 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %11, i32 noundef %13), !range !27
+  %14 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %11, i32 noundef %13)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %19, label %15
 
@@ -9351,13 +9351,13 @@ define internal zeroext i16 @de_rr_si3_rest_oct(ptr noundef %0, ptr noundef %1, 
   %.0 = phi i32 [ %18, %15 ], [ %12, %7 ]
   %20 = add i32 %.0, 1
   %21 = load i32, ptr @hf_gsm_a_rr_system_information_type_2ter, align 4
-  %22 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.0, i32 noundef %21), !range !27
+  %22 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.0, i32 noundef %21)
   %23 = add i32 %.0, 2
   %24 = load i32, ptr @hf_gsm_a_rr_early_classmark_sending, align 4
-  %25 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %20, i32 noundef %24), !range !27
+  %25 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %20, i32 noundef %24)
   %26 = add i32 %.0, 3
   %27 = load i32, ptr @hf_gsm_a_rr_scheduling_if_and_where, align 4
-  %28 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %23, i32 noundef %27), !range !27
+  %28 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %23, i32 noundef %27)
   %.not62 = icmp eq i32 %28, 0
   br i1 %.not62, label %33, label %29
 
@@ -9371,7 +9371,7 @@ define internal zeroext i16 @de_rr_si3_rest_oct(ptr noundef %0, ptr noundef %1, 
   %.1 = phi i32 [ %32, %29 ], [ %26, %19 ]
   %34 = add i32 %.1, 1
   %35 = load i32, ptr @hf_gsm_a_rr_gprs_indicator, align 4
-  %36 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.1, i32 noundef %35), !range !27
+  %36 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.1, i32 noundef %35)
   %.not63 = icmp eq i32 %36, 0
   br i1 %.not63, label %47, label %37
 
@@ -9391,10 +9391,10 @@ define internal zeroext i16 @de_rr_si3_rest_oct(ptr noundef %0, ptr noundef %1, 
   %.2 = phi i32 [ %46, %37 ], [ %34, %33 ]
   %48 = add i32 %.2, 1
   %49 = load i32, ptr @hf_gsm_a_rr_3g_early_classmark_sending_restriction, align 4
-  %50 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.2, i32 noundef %49), !range !27
+  %50 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.2, i32 noundef %49)
   %51 = add i32 %.2, 2
   %52 = load i32, ptr @hf_gsm_a_rr_si2quater_indicator, align 4
-  %53 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %48, i32 noundef %52), !range !27
+  %53 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %48, i32 noundef %52)
   %.not64 = icmp eq i32 %53, 0
   br i1 %.not64, label %58, label %54
 
@@ -9418,7 +9418,7 @@ define internal zeroext i16 @de_rr_si3_rest_oct(ptr noundef %0, ptr noundef %1, 
   %.4 = phi i32 [ %62, %59 ], [ %.3, %58 ]
   %64 = add i32 %.4, 1
   %65 = load i32, ptr @hf_gsm_a_rr_si21_indicator, align 4
-  %66 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.4, i32 noundef %65), !range !27
+  %66 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.4, i32 noundef %65)
   %.not65 = icmp eq i32 %66, 0
   br i1 %.not65, label %71, label %67
 
@@ -9454,7 +9454,7 @@ define internal zeroext i16 @de_rr_si4_rest_oct(ptr noundef %0, ptr noundef %1, 
   %18 = add i32 %17, %13
   %19 = add i32 %18, 1
   %20 = load i32, ptr @hf_gsm_a_rr_power_offset_present, align 4
-  %21 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %16, i32 noundef %12, i32 noundef %18, i32 noundef %20), !range !27
+  %21 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %16, i32 noundef %12, i32 noundef %18, i32 noundef %20)
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %26, label %22
 
@@ -9468,7 +9468,7 @@ define internal zeroext i16 @de_rr_si4_rest_oct(ptr noundef %0, ptr noundef %1, 
   %.0 = phi i32 [ %25, %22 ], [ %19, %7 ]
   %27 = add i32 %.0, 1
   %28 = load i32, ptr @hf_gsm_a_rr_gprs_indicator, align 4
-  %29 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %16, i32 noundef %12, i32 noundef %.0, i32 noundef %28), !range !27
+  %29 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %16, i32 noundef %12, i32 noundef %.0, i32 noundef %28)
   %.not121 = icmp eq i32 %29, 0
   br i1 %.not121, label %40, label %30
 
@@ -9493,7 +9493,7 @@ define internal zeroext i16 @de_rr_si4_rest_oct(ptr noundef %0, ptr noundef %1, 
   call void @proto_item_set_len(ptr noundef %41, i32 noundef %43) #10
   %44 = add i32 %.1, 1
   %45 = load i32, ptr @hf_gsm_a_rr_si4_rest_octets_s, align 4
-  %46 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %12, i32 noundef %.1, i32 noundef %45), !range !27
+  %46 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %12, i32 noundef %.1, i32 noundef %45)
   %.not122 = icmp eq i32 %46, 0
   br i1 %.not122, label %147, label %47
 
@@ -9503,7 +9503,7 @@ define internal zeroext i16 @de_rr_si4_rest_oct(ptr noundef %0, ptr noundef %1, 
   %50 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %48, i32 noundef -1, i32 noundef %49, ptr noundef nonnull %8, ptr noundef nonnull @.str.1618) #10
   %51 = add i32 %.1, 2
   %52 = load i32, ptr @hf_gsm_a_rr_lsa_parameters, align 4
-  %53 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %50, i32 noundef %12, i32 noundef %44, i32 noundef %52), !range !27
+  %53 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %50, i32 noundef %12, i32 noundef %44, i32 noundef %52)
   %.not123 = icmp eq i32 %53, 0
   br i1 %.not123, label %84, label %54
 
@@ -9551,7 +9551,7 @@ define internal zeroext i16 @de_rr_si4_rest_oct(ptr noundef %0, ptr noundef %1, 
   %.3 = phi i32 [ %.2, %80 ], [ %51, %47 ]
   %85 = add i32 %.3, 1
   %86 = load i32, ptr @hf_gsm_a_rr_cell_id_present, align 4
-  %87 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %50, i32 noundef %12, i32 noundef %.3, i32 noundef %86), !range !27
+  %87 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %50, i32 noundef %12, i32 noundef %.3, i32 noundef %86)
   %.not125 = icmp eq i32 %87, 0
   br i1 %.not125, label %92, label %88
 
@@ -9565,7 +9565,7 @@ define internal zeroext i16 @de_rr_si4_rest_oct(ptr noundef %0, ptr noundef %1, 
   %.4 = phi i32 [ %91, %88 ], [ %85, %84 ]
   %93 = add i32 %.4, 1
   %94 = load i32, ptr @hf_gsm_a_rr_lsa_id_information, align 4
-  %95 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %50, i32 noundef %12, i32 noundef %.4, i32 noundef %94), !range !27
+  %95 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %50, i32 noundef %12, i32 noundef %.4, i32 noundef %94)
   %.not126 = icmp eq i32 %95, 0
   br i1 %.not126, label %.loopexit, label %96
 
@@ -9604,13 +9604,13 @@ define internal zeroext i16 @de_rr_si4_rest_oct(ptr noundef %0, ptr noundef %1, 
   %120 = zext i8 %118 to i32
   %121 = and i32 %116, %120
   %.not133 = icmp eq i32 %121, 0
-  br i1 %.not133, label %.loopexit, label %100, !llvm.loop !37
+  br i1 %.not133, label %.loopexit, label %100, !llvm.loop !36
 
 .loopexit:                                        ; preds = %100, %92
   %.7 = phi i32 [ %93, %92 ], [ %113, %100 ]
   %122 = add i32 %.7, 1
   %123 = load i32, ptr @hf_gsm_a_rr_cbq3_present, align 4
-  %124 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %12, i32 noundef %.7, i32 noundef %123), !range !27
+  %124 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %12, i32 noundef %.7, i32 noundef %123)
   %.not129 = icmp eq i32 %124, 0
   br i1 %.not129, label %129, label %125
 
@@ -9652,7 +9652,7 @@ define internal zeroext i16 @de_rr_si4_rest_oct(ptr noundef %0, ptr noundef %1, 
 147:                                              ; preds = %40
   %148 = add i32 %.1, 2
   %149 = load i32, ptr @hf_gsm_a_rr_break_indicator, align 4
-  %150 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %12, i32 noundef %44, i32 noundef %149), !range !27
+  %150 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %12, i32 noundef %44, i32 noundef %149)
   br label %151
 
 151:                                              ; preds = %147, %143
@@ -9673,7 +9673,7 @@ define internal zeroext i16 @de_rr_si6_rest_oct(ptr noundef %0, ptr noundef %1, 
   %11 = shl i32 %3, 3
   %12 = or disjoint i32 %11, 1
   %13 = load i32, ptr @hf_gsm_a_rr_pch_and_nch_info, align 4
-  %14 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %11, i32 noundef %13), !range !27
+  %14 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %11, i32 noundef %13)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %41, label %15
 
@@ -9717,7 +9717,7 @@ define internal zeroext i16 @de_rr_si6_rest_oct(ptr noundef %0, ptr noundef %1, 
   %.1 = phi i32 [ %37, %34 ], [ %12, %7 ]
   %42 = add i32 %.1, 1
   %43 = load i32, ptr @hf_gsm_a_rr_vbs_vgcs_options, align 4
-  %44 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.1, i32 noundef %43), !range !27
+  %44 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.1, i32 noundef %43)
   %.not103 = icmp eq i32 %44, 0
   br i1 %.not103, label %58, label %45
 
@@ -9742,7 +9742,7 @@ define internal zeroext i16 @de_rr_si6_rest_oct(ptr noundef %0, ptr noundef %1, 
   %.2 = phi i32 [ %54, %45 ], [ %42, %41 ]
   %59 = add i32 %.2, 1
   %60 = load i32, ptr @hf_gsm_a_rr_dtm, align 4
-  %61 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.2, i32 noundef %60), !range !27
+  %61 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.2, i32 noundef %60)
   %.not104 = icmp eq i32 %61, 0
   br i1 %.not104, label %69, label %62
 
@@ -9759,10 +9759,10 @@ define internal zeroext i16 @de_rr_si6_rest_oct(ptr noundef %0, ptr noundef %1, 
   %.3 = phi i32 [ %68, %62 ], [ %59, %58 ]
   %70 = add i32 %.3, 1
   %71 = load i32, ptr @hf_gsm_a_rr_band_indicator, align 4
-  %72 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.3, i32 noundef %71), !range !27
+  %72 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.3, i32 noundef %71)
   %73 = add i32 %.3, 2
   %74 = load i32, ptr @hf_gsm_a_rr_gprs_ms_txpwr_max_ccch_present, align 4
-  %75 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %70, i32 noundef %74), !range !27
+  %75 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %70, i32 noundef %74)
   %.not105 = icmp eq i32 %75, 0
   br i1 %.not105, label %80, label %76
 
@@ -9776,7 +9776,7 @@ define internal zeroext i16 @de_rr_si6_rest_oct(ptr noundef %0, ptr noundef %1, 
   %.4 = phi i32 [ %79, %76 ], [ %73, %69 ]
   %81 = add i32 %.4, 1
   %82 = load i32, ptr @hf_gsm_a_rr_mbms_procedures, align 4
-  %83 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.4, i32 noundef %82), !range !27
+  %83 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.4, i32 noundef %82)
   %.not106 = icmp eq i32 %83, 0
   br i1 %.not106, label %91, label %84
 
@@ -9793,7 +9793,7 @@ define internal zeroext i16 @de_rr_si6_rest_oct(ptr noundef %0, ptr noundef %1, 
   %.5 = phi i32 [ %90, %84 ], [ %81, %80 ]
   %92 = add i32 %.5, 1
   %93 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_7, align 4
-  %94 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.5, i32 noundef %93), !range !27
+  %94 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.5, i32 noundef %93)
   %.not107 = icmp eq i32 %94, 0
   br i1 %.not107, label %109, label %95
 
@@ -9820,7 +9820,7 @@ define internal zeroext i16 @de_rr_si6_rest_oct(ptr noundef %0, ptr noundef %1, 
   %.6 = phi i32 [ %108, %105 ], [ %96, %95 ], [ %92, %91 ]
   %110 = add i32 %.6, 1
   %111 = load i32, ptr @hf_gsm_a_rr_rand_bit_stream_ind, align 4
-  %112 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.6, i32 noundef %111), !range !27
+  %112 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.6, i32 noundef %111)
   %.not109 = icmp eq i32 %112, 0
   br i1 %.not109, label %117, label %113
 
@@ -9853,7 +9853,7 @@ define internal zeroext i16 @de_rr_si13_rest_oct(ptr noundef %0, ptr noundef %1,
   %14 = shl i32 %3, 3
   %15 = or disjoint i32 %14, 1
   %16 = load i32, ptr @hf_gsm_a_rr_si13_contents, align 4
-  %17 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %14, i32 noundef %16), !range !27
+  %17 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %14, i32 noundef %16)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %232, label %18
 
@@ -9908,7 +9908,7 @@ define internal zeroext i16 @de_rr_si13_rest_oct(ptr noundef %0, ptr noundef %1,
   %51 = load i32, ptr @hf_gsm_a_rr_rfl_number, align 4
   %52 = call ptr @proto_tree_add_bits_item(ptr noundef %36, i32 noundef %51, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0) #10
   %53 = add i32 %.041.i, 5
-  br label %40, !llvm.loop !38
+  br label %40, !llvm.loop !37
 
 54:                                               ; preds = %40
   %55 = add i32 %.041.i, 2
@@ -9941,7 +9941,7 @@ define internal zeroext i16 @de_rr_si13_rest_oct(ptr noundef %0, ptr noundef %1,
   %74 = load i32, ptr @hf_gsm_a_rr_arfcn_index, align 4
   %75 = call ptr @proto_tree_add_bits_item(ptr noundef %36, i32 noundef %74, ptr noundef %0, i32 noundef %64, i32 noundef 6, i32 noundef 0) #10
   %76 = add i32 %.1.i, 7
-  br label %.preheader.i, !llvm.loop !39
+  br label %.preheader.i, !llvm.loop !38
 
 77:                                               ; preds = %54
   %78 = load i32, ptr @hf_gsm_a_rr_ma_length, align 4
@@ -9970,7 +9970,7 @@ define internal zeroext i16 @de_rr_si13_rest_oct(ptr noundef %0, ptr noundef %1,
   %92 = add i32 %.250.i, 1
   %93 = add i8 %.051.i, -1
   %.not43.i = icmp eq i8 %93, 0
-  br i1 %.not43.i, label %de_rr_rest_oct_gprs_mobile_allocation.exit, label %.lr.ph.i, !llvm.loop !40
+  br i1 %.not43.i, label %de_rr_rest_oct_gprs_mobile_allocation.exit, label %.lr.ph.i, !llvm.loop !39
 
 de_rr_rest_oct_gprs_mobile_allocation.exit:       ; preds = %.preheader.i, %.lr.ph.i, %77
   %.3.i = phi i32 [ %80, %77 ], [ %92, %.lr.ph.i ], [ %64, %.preheader.i ]
@@ -10090,7 +10090,7 @@ de_rr_rest_oct_gprs_mobile_allocation.exit:       ; preds = %.preheader.i, %.lr.
 174:                                              ; preds = %172
   %175 = add nuw nsw i32 %.2, 1
   %176 = load i32, ptr @hf_gsm_a_rr_additions_in_r99, align 4
-  %177 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.2, i32 noundef %176), !range !27
+  %177 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.2, i32 noundef %176)
   %.not164 = icmp eq i32 %177, 0
   br i1 %.not164, label %232, label %178
 
@@ -10104,7 +10104,7 @@ de_rr_rest_oct_gprs_mobile_allocation.exit:       ; preds = %.preheader.i, %.lr.
 183:                                              ; preds = %178
   %184 = add nuw nsw i32 %.2, 3
   %185 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_4, align 4
-  %186 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %181, i32 noundef %185), !range !27
+  %186 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %181, i32 noundef %185)
   %.not165 = icmp eq i32 %186, 0
   br i1 %.not165, label %232, label %187
 
@@ -10118,14 +10118,14 @@ de_rr_rest_oct_gprs_mobile_allocation.exit:       ; preds = %.preheader.i, %.lr.
 192:                                              ; preds = %187
   %193 = add nuw nsw i32 %.2, 5
   %194 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_6, align 4
-  %195 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %190, i32 noundef %194), !range !27
+  %195 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %190, i32 noundef %194)
   %.not166 = icmp eq i32 %195, 0
   br i1 %.not166, label %232, label %196
 
 196:                                              ; preds = %192
   %197 = add nuw nsw i32 %.2, 6
   %198 = load i32, ptr @hf_gsm_a_rr_lb_ms_txpwr_max_cch_present, align 4
-  %199 = call fastcc i32 @gsm_rr_csn_flag(ptr noundef %0, ptr noundef %1, i32 noundef %193, i32 noundef %198), !range !27
+  %199 = call fastcc i32 @gsm_rr_csn_flag(ptr noundef %0, ptr noundef %1, i32 noundef %193, i32 noundef %198)
   %.not167 = icmp eq i32 %199, 0
   br i1 %.not167, label %204, label %200
 
@@ -10142,10 +10142,10 @@ de_rr_rest_oct_gprs_mobile_allocation.exit:       ; preds = %.preheader.i, %.lr.
   %207 = add nuw nsw i32 %.3, 2
   %208 = add nuw nsw i32 %.3, 3
   %209 = load i32, ptr @hf_gsm_a_rr_si_change_alt, align 4
-  %210 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %207, i32 noundef %209), !range !27
+  %210 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %207, i32 noundef %209)
   %211 = add nuw nsw i32 %.3, 4
   %212 = load i32, ptr @hf_gsm_a_rr_peo_dsc_and_rcc_present, align 4
-  %213 = call fastcc i32 @gsm_rr_csn_flag(ptr noundef %0, ptr noundef %1, i32 noundef %208, i32 noundef %212), !range !27
+  %213 = call fastcc i32 @gsm_rr_csn_flag(ptr noundef %0, ptr noundef %1, i32 noundef %208, i32 noundef %212)
   %.not168 = icmp eq i32 %213, 0
   br i1 %.not168, label %221, label %214
 
@@ -10162,7 +10162,7 @@ de_rr_rest_oct_gprs_mobile_allocation.exit:       ; preds = %.preheader.i, %.lr.
   %.4 = phi i32 [ %220, %214 ], [ %211, %204 ]
   %222 = add nuw nsw i32 %.4, 1
   %223 = load i32, ptr @hf_gsm_a_rr_c1_delta_present, align 4
-  %224 = call fastcc i32 @gsm_rr_csn_flag(ptr noundef %0, ptr noundef %1, i32 noundef %.4, i32 noundef %223), !range !27
+  %224 = call fastcc i32 @gsm_rr_csn_flag(ptr noundef %0, ptr noundef %1, i32 noundef %.4, i32 noundef %223)
   %.not169 = icmp eq i32 %224, 0
   br i1 %.not169, label %232, label %225
 
@@ -10240,7 +10240,7 @@ define internal noundef zeroext i16 @de_rr_starting_time(ptr noundef %0, ptr nou
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #10
   %9 = lshr i16 %8, 5
   %10 = and i16 %9, 63
-  %11 = trunc i16 %10 to i8
+  %11 = trunc nuw nsw i16 %10 to i8
   %12 = trunc i16 %8 to i8
   %13 = and i8 %12, 31
   %.lhs.trunc.i = sub nsw i8 %11, %13
@@ -10353,7 +10353,7 @@ define internal noundef zeroext i16 @de_rr_ext_meas_result(ptr noundef %0, ptr n
   %22 = add i32 %.02526, 6
   %23 = add nuw nsw i32 %.027, 1
   %exitcond.not = icmp eq i32 %23, 21
-  br i1 %exitcond.not, label %24, label %15, !llvm.loop !41
+  br i1 %exitcond.not, label %24, label %15, !llvm.loop !40
 
 24:                                               ; preds = %15
   %25 = trunc i32 %4 to i16
@@ -10369,7 +10369,7 @@ define internal noundef zeroext i16 @de_rr_ext_meas_freq_list(ptr noundef %0, pt
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %13 = load i32, ptr @hf_gsm_a_rr_format_id, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %15 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %12)
+  %15 = tail call fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef 16, i8 noundef zeroext %12)
   ret i16 %15
 }
 
@@ -10658,7 +10658,7 @@ define internal noundef zeroext i16 @de_rr_ec_fua(ptr noundef %0, ptr noundef %1
 
 .backedge:                                        ; preds = %96, %93
   %.3.be = phi i32 [ %83, %96 ], [ %95, %93 ]
-  br label %72, !llvm.loop !42
+  br label %72, !llvm.loop !41
 
 99:                                               ; preds = %72
   %100 = trunc i32 %4 to i16
@@ -11125,7 +11125,7 @@ define hidden void @proto_register_gsm_a_rr() local_unnamed_addr #2 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 81
-  br i1 %exitcond.not, label %.preheader30, label %7, !llvm.loop !43
+  br i1 %exitcond.not, label %.preheader30, label %7, !llvm.loop !42
 
 .preheader30:                                     ; preds = %7, %.preheader30
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.preheader30 ], [ 87, %7 ]
@@ -11136,7 +11136,7 @@ define hidden void @proto_register_gsm_a_rr() local_unnamed_addr #2 {
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next47, 90
-  br i1 %exitcond53.not, label %.preheader29, label %.preheader30, !llvm.loop !44
+  br i1 %exitcond53.not, label %.preheader29, label %.preheader30, !llvm.loop !43
 
 .preheader29:                                     ; preds = %.preheader30, %.preheader29
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.preheader29 ], [ 177, %.preheader30 ]
@@ -11147,7 +11147,7 @@ define hidden void @proto_register_gsm_a_rr() local_unnamed_addr #2 {
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next55, 61
-  br i1 %exitcond61.not, label %.preheader, label %.preheader29, !llvm.loop !45
+  br i1 %exitcond61.not, label %.preheader, label %.preheader29, !llvm.loop !44
 
 .preheader:                                       ; preds = %.preheader29, %.preheader
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.preheader ], [ 238, %.preheader29 ]
@@ -11158,7 +11158,7 @@ define hidden void @proto_register_gsm_a_rr() local_unnamed_addr #2 {
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next63, 10
-  br i1 %exitcond69.not, label %16, label %.preheader, !llvm.loop !46
+  br i1 %exitcond69.not, label %16, label %.preheader, !llvm.loop !45
 
 16:                                               ; preds = %.preheader
   %17 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.1674, ptr noundef nonnull @.str.1675, ptr noundef nonnull @.str.1676) #10
@@ -11198,7 +11198,7 @@ define internal void @gsm_a_rr_ec_ma_number_fmt(ptr nocapture noundef writeonly 
 ; Function Attrs: nounwind uwtable
 define internal void @ra_est_cause_convert(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
-  %4 = call fastcc i32 @ra_channel_request_parse(ptr noundef nonnull %3, ptr noundef null, i32 noundef %1), !range !27
+  %4 = call fastcc i32 @ra_channel_request_parse(ptr noundef nonnull %3, ptr noundef null, i32 noundef %1)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
 
@@ -11218,7 +11218,7 @@ define internal void @ra_est_cause_convert(ptr nocapture noundef writeonly %0, i
 ; Function Attrs: nounwind uwtable
 define internal void @ra_rand_ref_convert(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
   %3 = alloca i8, align 1
-  %4 = call fastcc i32 @ra_channel_request_parse(ptr noundef null, ptr noundef nonnull %3, i32 noundef %1), !range !27
+  %4 = call fastcc i32 @ra_channel_request_parse(ptr noundef null, ptr noundef nonnull %3, i32 noundef %1)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
 
@@ -11647,13 +11647,13 @@ define internal fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef 
 22:                                               ; preds = %20, %16
   %indvars.iv.next18 = add nsw i32 %indvars.iv17, -1
   %.not88 = icmp eq i32 %indvars.iv17, 0
-  br i1 %.not88, label %23, label %16, !llvm.loop !47
+  br i1 %.not88, label %23, label %16, !llvm.loop !46
 
 23:                                               ; preds = %22
   %24 = add i32 %.0818, 1
   %25 = add i32 %.0799, 1
   %.not87 = icmp ugt i32 %25, %12
-  br i1 %.not87, label %.loopexit, label %13, !llvm.loop !48
+  br i1 %.not87, label %.loopexit, label %13, !llvm.loop !47
 
 26:                                               ; preds = %6
   %27 = and i32 %7, 200
@@ -11688,7 +11688,7 @@ define internal fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef 
   %42 = lshr i8 %41, 7
   %43 = zext nneg i8 %42 to i32
   %44 = or disjoint i32 %39, %43
-  %45 = trunc i32 %44 to i16
+  %45 = trunc nuw nsw i32 %44 to i16
   %46 = load i32, ptr @hf_gsm_a_rr_arfcn_list, align 4
   %47 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %1, i32 noundef %46, ptr noundef %0, i32 noundef %3, i32 noundef %4, ptr noundef null, ptr noundef nonnull @.str.1777, i32 noundef %44) #10
   %48 = add i32 %4, -3
@@ -11721,13 +11721,13 @@ define internal fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef 
 59:                                               ; preds = %56, %52
   %indvars.iv.next = add nsw i32 %indvars.iv, -1
   %.not85 = icmp eq i32 %indvars.iv, 0
-  br i1 %.not85, label %60, label %52, !llvm.loop !49
+  br i1 %.not85, label %60, label %52, !llvm.loop !48
 
 60:                                               ; preds = %59
   %61 = add i32 %.1823, 1
   %62 = add i32 %.1804, 1
   %.not = icmp ugt i32 %62, %48
-  br i1 %.not, label %.loopexit, label %49, !llvm.loop !50
+  br i1 %.not, label %.loopexit, label %49, !llvm.loop !49
 
 .loopexit.sink.split:                             ; preds = %29, %26, %31, %30
   %.sink = phi i32 [ 256, %30 ], [ 128, %31 ], [ 1024, %26 ], [ 512, %29 ]
@@ -11823,7 +11823,7 @@ define internal fastcc void @dissect_channel_list_n_range(ptr noundef %0, ptr no
   %43 = load ptr, ptr %32, align 8
   %44 = sext i32 %35 to i64
   %45 = tail call ptr @decode_bits_in_field(ptr noundef %43, i32 noundef %.16896, i32 noundef %.18091, i64 noundef %44, i32 noundef 0) #10
-  %46 = trunc i64 %indvars.iv to i32
+  %46 = trunc nuw nsw i64 %indvars.iv to i32
   %47 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %10, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef %42, ptr noundef null, ptr noundef nonnull @.str.1781, ptr noundef %45, i32 noundef %46, i32 noundef %35) #10
   %48 = ashr i32 %39, 3
   %49 = sub i32 %48, %3
@@ -11850,7 +11850,7 @@ define internal fastcc void @dissect_channel_list_n_range(ptr noundef %0, ptr no
   %.173 = select i1 %60, i32 0, i32 %59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !51
+  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !50
 
 .loopexit:                                        ; preds = %53, %51
   %.2 = phi i32 [ %52, %51 ], [ %.170, %53 ]
@@ -11885,7 +11885,7 @@ greatest_power_of_2_lesser_or_equal_to.exit.i:    ; preds = %65
   %71 = add i32 %69, -1
   %72 = ashr exact i32 %66, 1
   %73 = sdiv i32 %63, %72
-  %74 = trunc i64 %indvars.iv104 to i32
+  %74 = trunc nuw nsw i64 %indvars.iv104 to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %97, %.preheader.preheader.i
@@ -11949,7 +11949,7 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   store i8 1, ptr %104, align 1
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108 = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108, label %._crit_edge, label %.preheader, !llvm.loop !52
+  br i1 %exitcond108, label %._crit_edge, label %.preheader, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %f_k.exit, %.loopexit
   %105 = load i32, ptr @hf_gsm_a_rr_arfcn_list, align 4
@@ -11964,14 +11964,14 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   br i1 %.not.i, label %112, label %110
 
 110:                                              ; preds = %107
-  %111 = trunc i64 %indvars.iv.i to i32
+  %111 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %106, ptr noundef nonnull @.str.1776, i32 noundef %111) #10
   br label %112
 
 112:                                              ; preds = %110, %107
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 1024
-  br i1 %exitcond.not.i, label %display_channel_list.exit, label %107, !llvm.loop !53
+  br i1 %exitcond.not.i, label %display_channel_list.exit, label %107, !llvm.loop !52
 
 display_channel_list.exit:                        ; preds = %112
   ret void
@@ -11990,7 +11990,7 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #6
 declare ptr @decode_bits_in_field(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @gsm_rr_csn_flag(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @gsm_rr_csn_flag(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
   %5 = and i32 %2, 7
   %6 = lshr exact i32 128, %5
   %7 = ashr i32 %2, 3
@@ -12073,7 +12073,7 @@ define internal fastcc i32 @de_rr_eutran_pcid(ptr noundef %0, ptr noundef %1, i3
   %15 = load i32, ptr @hf_gsm_a_rr_eutran_pcid, align 4
   %16 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %5, i32 noundef 9, i32 noundef 0) #10
   %17 = add i32 %.063, 10
-  br label %4, !llvm.loop !54
+  br label %4, !llvm.loop !53
 
 18:                                               ; preds = %4
   %19 = add i32 %.063, 2
@@ -12127,7 +12127,7 @@ define internal fastcc i32 @de_rr_eutran_pcid(ptr noundef %0, ptr noundef %1, i3
 42:                                               ; preds = %34, %39
   %43 = add nuw nsw i32 %.06473, 1
   %exitcond.not = icmp eq i32 %43, 6
-  br i1 %exitcond.not, label %44, label %34, !llvm.loop !55
+  br i1 %exitcond.not, label %44, label %34, !llvm.loop !54
 
 44:                                               ; preds = %42
   %45 = add i32 %.063, 8
@@ -12175,7 +12175,7 @@ define internal fastcc i32 @de_rr_eutran_pcid(ptr noundef %0, ptr noundef %1, i3
   %72 = or i32 %71, %.06274
   %73 = add nuw nsw i32 %.075, 1
   %exitcond78.not = icmp eq i32 %73, %68
-  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph, %56
   %.062.lcssa = phi i32 [ %69, %56 ], [ %72, %.lr.ph ]
@@ -12184,7 +12184,7 @@ define internal fastcc i32 @de_rr_eutran_pcid(ptr noundef %0, ptr noundef %1, i3
   %75 = load i32, ptr @hf_gsm_a_rr_eutran_pcid_pattern_sense, align 4
   %76 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %75, ptr noundef %0, i32 noundef %74, i32 noundef 1, i32 noundef 0) #10
   %77 = add i32 %74, 1
-  br label %46, !llvm.loop !57
+  br label %46, !llvm.loop !56
 
 78:                                               ; preds = %46
   %79 = sub i32 %47, %2
@@ -12198,7 +12198,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
   %6 = alloca [13 x i8], align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %6, ptr noundef nonnull align 1 dereferenceable(13) @__const.gsm_rr_csn_HL_flag.bits_str, i64 13, i1 false)
   %7 = add i32 %2, -1
@@ -12442,7 +12442,7 @@ define internal fastcc i32 @de_rr_rest_oct_gprs_cell_options(ptr noundef %0, ptr
 
 151:                                              ; preds = %144
   %152 = load i32, ptr @hf_gsm_a_rr_msms_procedures, align 4
-  %153 = call fastcc i32 @gsm_rr_csn_flag(ptr noundef %0, ptr noundef %62, i32 noundef %147, i32 noundef %152), !range !27
+  %153 = call fastcc i32 @gsm_rr_csn_flag(ptr noundef %0, ptr noundef %62, i32 noundef %147, i32 noundef %152)
   %.not183 = icmp eq i32 %153, 0
   %154 = add i32 %.1167, 9
   br i1 %.not183, label %173, label %155
@@ -12466,13 +12466,13 @@ define internal fastcc i32 @de_rr_rest_oct_gprs_cell_options(ptr noundef %0, ptr
   %167 = load i32, ptr @hf_gsm_a_rr_mnci_support, align 4
   %168 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %167, ptr noundef %0, i32 noundef %162, i32 noundef 1, i32 noundef 0) #10
   %169 = add i32 %.1167, 11
-  %170 = trunc i32 %.0 to i16
+  %170 = trunc nsw i32 %.0 to i16
   %171 = add nsw i16 %170, -11
   %172 = icmp eq i16 %171, 0
   br i1 %172, label %186, label %177
 
 173:                                              ; preds = %151
-  %174 = trunc i32 %.0 to i16
+  %174 = trunc nsw i32 %.0 to i16
   %175 = add nsw i16 %174, -9
   %176 = icmp eq i16 %175, 0
   br i1 %176, label %186, label %177
@@ -12669,7 +12669,7 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   %62 = and i32 %57, %61
   %.0.in.in.not = icmp eq i32 %62, 0
   %.1110 = add i32 %.1110.in130, 8
-  br i1 %.0.in.in.not, label %.lr.ph, label %._crit_edge, !llvm.loop !58
+  br i1 %.0.in.in.not, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
   %.1110.in.lcssa = phi i32 [ %.0109, %38 ], [ %54, %.lr.ph ]
@@ -12723,7 +12723,7 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   %95 = and i32 %90, %94
   %.2.in.in.not = icmp eq i32 %95, 0
   %.3112 = add i32 %.3112.in135, 8
-  br i1 %.2.in.in.not, label %.lr.ph138, label %._crit_edge139, !llvm.loop !59
+  br i1 %.2.in.in.not, label %.lr.ph138, label %._crit_edge139, !llvm.loop !58
 
 ._crit_edge139:                                   ; preds = %.lr.ph138, %.lr.ph147
   %.3112.in.lcssa = phi i32 [ %.2111145, %.lr.ph147 ], [ %87, %.lr.ph138 ]
@@ -12738,7 +12738,7 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   %103 = and i32 %98, %102
   %.1.in.in.not = icmp eq i32 %103, 0
   %.2111 = add i32 %.3112.in.lcssa, 2
-  br i1 %.1.in.in.not, label %.lr.ph147, label %.loopexit125, !llvm.loop !60
+  br i1 %.1.in.in.not, label %.lr.ph147, label %.loopexit125, !llvm.loop !59
 
 .loopexit125:                                     ; preds = %._crit_edge139, %._crit_edge, %4
   %.4 = phi i32 [ %13, %4 ], [ %.2111143, %._crit_edge ], [ %.2111, %._crit_edge139 ]
@@ -12817,7 +12817,7 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   %157 = zext i16 %156 to i32
   %158 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %12, i32 noundef %152, ptr noundef %0, i32 noundef %153, i32 noundef 2, i32 noundef %155, ptr noundef nonnull @.str.1830, i32 noundef %.2108, i32 noundef %157) #10
   %159 = add i32 %.6, 13
-  br label %141, !llvm.loop !61
+  br label %141, !llvm.loop !60
 
 .preheader:                                       ; preds = %171, %141
   %.7 = phi i32 [ %142, %141 ], [ %172, %171 ]
@@ -12850,7 +12850,7 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   %179 = zext i8 %177 to i32
   %180 = and i32 %175, %179
   %.not123 = icmp eq i32 %180, 0
-  br i1 %.not123, label %181, label %.preheader, !llvm.loop !62
+  br i1 %.not123, label %181, label %.preheader, !llvm.loop !61
 
 181:                                              ; preds = %171
   %182 = load i32, ptr @hf_gsm_a_rr_rtd_index, align 4
@@ -12861,7 +12861,7 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
   %187 = zext i16 %186 to i32
   %188 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %12, i32 noundef %182, ptr noundef %0, i32 noundef %183, i32 noundef 2, i32 noundef %185, ptr noundef nonnull @.str.1830, i32 noundef %170, i32 noundef %187) #10
   %189 = add i32 %.8, 13
-  br label %171, !llvm.loop !63
+  br label %171, !llvm.loop !62
 
 .loopexit124:                                     ; preds = %.preheader, %113, %.loopexit125
   %.9 = phi i32 [ %114, %113 ], [ %104, %.loopexit125 ], [ %160, %.preheader ]
@@ -12926,7 +12926,7 @@ define internal fastcc noundef i32 @de_rr_bsic_desc(ptr noundef %0, ptr noundef 
   %40 = add i32 %.141, 7
   %41 = add nsw i32 %.042, -1
   %.not38 = icmp eq i32 %41, 0
-  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
   %.1.lcssa = phi i32 [ %34, %25 ], [ %40, %.lr.ph ]
@@ -12965,7 +12965,7 @@ define internal fastcc noundef i32 @de_rr_report_priority_desc(ptr noundef %0, p
   %20 = add i32 %.02224, 1
   %21 = add nsw i32 %.025, -1
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.022.lcssa = phi i32 [ %17, %4 ], [ %20, %.lr.ph ]
@@ -13288,7 +13288,7 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_fdd_desc(ptr noundef
   %.188 = select i1 %77, i32 0, i32 %76
   %80 = add i32 %.085117, 1
   %81 = icmp sgt i32 %75, 0
-  br i1 %81, label %.preheader106, label %82, !llvm.loop !66
+  br i1 %81, label %.preheader106, label %82, !llvm.loop !65
 
 82:                                               ; preds = %74
   %83 = add i32 %.2119, %.083118
@@ -13391,11 +13391,11 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   %128 = call ptr @proto_tree_add_uint(ptr noundef %60, i32 noundef %125, ptr noundef %0, i32 noundef %86, i32 noundef 0, i32 noundef %127) #10
   %129 = add i32 %.186121, 1
   %.not98 = icmp sgt i32 %129, %85
-  br i1 %.not98, label %.loopexit, label %.preheader, !llvm.loop !67
+  br i1 %.not98, label %.loopexit, label %.preheader, !llvm.loop !66
 
 .loopexit:                                        ; preds = %f_k.exit, %.thread, %68
   %.5 = phi i32 [ %51, %68 ], [ %84, %.thread ], [ %84, %f_k.exit ]
-  br label %22, !llvm.loop !68
+  br label %22, !llvm.loop !67
 
 130:                                              ; preds = %22
   %131 = load ptr, ptr %4, align 8
@@ -13523,7 +13523,7 @@ define internal fastcc i32 @de_rr_si2quater_meas_info_utran_tdd_desc(ptr noundef
   %.195 = select i1 %78, i32 0, i32 %77
   %81 = add i32 %.092124, 1
   %82 = icmp sgt i32 %76, 0
-  br i1 %82, label %.preheader113, label %83, !llvm.loop !69
+  br i1 %82, label %.preheader113, label %83, !llvm.loop !68
 
 83:                                               ; preds = %75
   %84 = add i32 %.2126, %.090125
@@ -13630,11 +13630,11 @@ f_k.exit:                                         ; preds = %greatest_power_of_2
   %133 = call ptr @proto_tree_add_uint(ptr noundef %59, i32 noundef %130, ptr noundef %0, i32 noundef %87, i32 noundef 0, i32 noundef %132) #10
   %134 = add i32 %.193128, 1
   %.not105 = icmp sgt i32 %134, %86
-  br i1 %.not105, label %.loopexit, label %.preheader, !llvm.loop !70
+  br i1 %.not105, label %.loopexit, label %.preheader, !llvm.loop !69
 
 .loopexit:                                        ; preds = %f_k.exit, %.thread, %69
   %.5 = phi i32 [ %50, %69 ], [ %85, %.thread ], [ %85, %f_k.exit ]
-  br label %21, !llvm.loop !71
+  br label %21, !llvm.loop !70
 
 135:                                              ; preds = %21
   %136 = load ptr, ptr %4, align 8
@@ -13825,7 +13825,7 @@ define internal fastcc i32 @de_rr_priority_and_eutran_param_desc(ptr noundef %0,
   %106 = load i32, ptr @hf_gsm_a_rr_utran_frequency_index, align 4
   %107 = call ptr @proto_tree_add_bits_item(ptr noundef %94, i32 noundef %106, ptr noundef %0, i32 noundef %96, i32 noundef 5, i32 noundef 0) #10
   %108 = add i32 %.2.i, 6
-  br label %95, !llvm.loop !72
+  br label %95, !llvm.loop !71
 
 109:                                              ; preds = %95
   %110 = add i32 %.2.i, 2
@@ -13896,7 +13896,7 @@ define internal fastcc i32 @de_rr_priority_and_eutran_param_desc(ptr noundef %0,
   %reass.sub = sub nsw i32 %156, %92
   %157 = add nsw i32 %reass.sub, 1
   call void @proto_item_set_len(ptr noundef %155, i32 noundef %157) #10
-  br label %81, !llvm.loop !73
+  br label %81, !llvm.loop !72
 
 de_rr_3g_priority_param_desc.exit:                ; preds = %81
   %158 = load ptr, ptr %7, align 8
@@ -14205,7 +14205,7 @@ de_rr_3g_priority_param_desc.exit:                ; preds = %81
 
 .backedge:                                        ; preds = %359, %346
   %.0.i.i.be = phi i32 [ %362, %359 ], [ %350, %346 ]
-  br label %336, !llvm.loop !74
+  br label %336, !llvm.loop !73
 
 363:                                              ; preds = %336
   %364 = add i32 %.0.i.i, 2
@@ -14277,7 +14277,7 @@ de_rr_eutran_neighbour_cells.exit.i:              ; preds = %404, %394
   %410 = add nsw i32 %reass.sub76, 1
   call void @proto_item_set_len(ptr noundef %408, i32 noundef %410) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %322, !llvm.loop !75
+  br label %322, !llvm.loop !74
 
 .preheader147.i:                                  ; preds = %322, %420
   %.6.i = phi i32 [ %422, %420 ], [ %323, %322 ]
@@ -14296,7 +14296,7 @@ de_rr_eutran_neighbour_cells.exit.i:              ; preds = %404, %394
 420:                                              ; preds = %.preheader147.i
   %421 = call fastcc i32 @de_rr_eutran_not_allowed_cells(ptr noundef %0, ptr noundef %173, i32 noundef %411)
   %422 = add i32 %421, %411
-  br label %.preheader147.i, !llvm.loop !76
+  br label %.preheader147.i, !llvm.loop !75
 
 .preheader.i:                                     ; preds = %.preheader147.i, %de_rr_eutran_pcid_to_ta_mapping.exit.i
   %.7.i = phi i32 [ %437, %de_rr_eutran_pcid_to_ta_mapping.exit.i ], [ %411, %.preheader147.i ]
@@ -14336,7 +14336,7 @@ de_rr_eutran_neighbour_cells.exit.i:              ; preds = %404, %394
 446:                                              ; preds = %436
   %447 = call fastcc i32 @de_rr_eutran_pcid(ptr noundef %0, ptr noundef %435, i32 noundef %437)
   %448 = add i32 %447, %437
-  br label %436, !llvm.loop !77
+  br label %436, !llvm.loop !76
 
 de_rr_eutran_pcid_to_ta_mapping.exit.i:           ; preds = %436
   %449 = load ptr, ptr %4, align 8
@@ -14345,7 +14345,7 @@ de_rr_eutran_pcid_to_ta_mapping.exit.i:           ; preds = %436
   %451 = add nsw i32 %reass.sub77, 1
   call void @proto_item_set_len(ptr noundef %449, i32 noundef %451) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %.preheader.i, !llvm.loop !78
+  br label %.preheader.i, !llvm.loop !77
 
 de_rr_eutran_param_desc.exit:                     ; preds = %.preheader.i
   %452 = load ptr, ptr %6, align 8
@@ -14415,7 +14415,7 @@ define internal fastcc i32 @de_rr_3g_csg_desc(ptr noundef %0, ptr noundef %1, i3
   %32 = load i32, ptr @hf_gsm_a_rr_psc, align 4
   %33 = call ptr @proto_tree_add_bits_item(ptr noundef %7, i32 noundef %32, ptr noundef %0, i32 noundef %22, i32 noundef 9, i32 noundef 0) #10
   %34 = add i32 %.1, 10
-  br label %.preheader73, !llvm.loop !79
+  br label %.preheader73, !llvm.loop !78
 
 .preheader72:                                     ; preds = %.preheader73, %44
   %.2 = phi i32 [ %59, %44 ], [ %22, %.preheader73 ]
@@ -14448,7 +14448,7 @@ define internal fastcc i32 @de_rr_3g_csg_desc(ptr noundef %0, ptr noundef %1, i3
   %57 = load i32, ptr @hf_gsm_a_rr_utran_psc_pattern_sense, align 4
   %58 = call ptr @proto_tree_add_bits_item(ptr noundef %7, i32 noundef %57, ptr noundef %0, i32 noundef %56, i32 noundef 1, i32 noundef 0) #10
   %59 = add i32 %56, 1
-  br label %.preheader72, !llvm.loop !80
+  br label %.preheader72, !llvm.loop !79
 
 .preheader71:                                     ; preds = %.preheader72, %69
   %.3 = phi i32 [ %72, %69 ], [ %35, %.preheader72 ]
@@ -14462,13 +14462,13 @@ define internal fastcc i32 @de_rr_3g_csg_desc(ptr noundef %0, ptr noundef %1, i3
   %67 = zext i8 %65 to i32
   %68 = and i32 %63, %67
   %.not68 = icmp eq i32 %68, 0
-  br i1 %.not68, label %.loopexit, label %69, !llvm.loop !81
+  br i1 %.not68, label %.loopexit, label %69, !llvm.loop !80
 
 69:                                               ; preds = %.preheader71
   %70 = load i32, ptr @hf_gsm_a_rr_utran_frequency_index, align 4
   %71 = call ptr @proto_tree_add_bits_item(ptr noundef %7, i32 noundef %70, ptr noundef %0, i32 noundef %60, i32 noundef 5, i32 noundef 0) #10
   %72 = add i32 %.3, 6
-  br label %.preheader71, !llvm.loop !82
+  br label %.preheader71, !llvm.loop !81
 
 73:                                               ; preds = %.preheader, %81
   %.4 = phi i32 [ %.5, %81 ], [ %.060, %.preheader ]
@@ -14496,7 +14496,7 @@ define internal fastcc i32 @de_rr_3g_csg_desc(ptr noundef %0, ptr noundef %1, i3
   %89 = select i1 %.not70, i32 %hf_gsm_a_rr_utran_csg_fdd_uarfcn.val, i32 %hf_gsm_a_rr_utran_csg_tdd_uarfcn.val
   %90 = call ptr @proto_tree_add_bits_item(ptr noundef %7, i32 noundef %89, ptr noundef %0, i32 noundef %82, i32 noundef 14, i32 noundef 0) #10
   %.5 = add i32 %.4, 16
-  br label %73, !llvm.loop !83
+  br label %73, !llvm.loop !82
 
 91:                                               ; preds = %73
   %92 = load ptr, ptr %4, align 8
@@ -14534,7 +14534,7 @@ define internal fastcc i32 @de_rr_eutran_csg_desc(ptr noundef %0, ptr noundef %1
 18:                                               ; preds = %8
   %19 = call fastcc i32 @de_rr_eutran_pcid(ptr noundef %0, ptr noundef %7, i32 noundef %9)
   %20 = add i32 %19, %9
-  br label %8, !llvm.loop !84
+  br label %8, !llvm.loop !83
 
 .preheader:                                       ; preds = %8, %30
   %.1 = phi i32 [ %33, %30 ], [ %9, %8 ]
@@ -14554,7 +14554,7 @@ define internal fastcc i32 @de_rr_eutran_csg_desc(ptr noundef %0, ptr noundef %1
   %31 = load i32, ptr @hf_gsm_a_rr_csg_earfcn, align 4
   %32 = call ptr @proto_tree_add_bits_item(ptr noundef %7, i32 noundef %31, ptr noundef %0, i32 noundef %21, i32 noundef 16, i32 noundef 0) #10
   %33 = add i32 %.1, 17
-  br label %.preheader, !llvm.loop !85
+  br label %.preheader, !llvm.loop !84
 
 34:                                               ; preds = %.preheader
   %35 = load ptr, ptr %4, align 8
@@ -14949,7 +14949,7 @@ define internal fastcc i32 @de_rr_rest_oct_opt_sel_param(ptr noundef %0, ptr nou
   %4 = alloca ptr, align 8
   %5 = add nuw i32 %2, 1
   %6 = load i32, ptr @hf_gsm_a_rr_selection_parameters, align 4
-  %7 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %2, i32 noundef %6), !range !27
+  %7 = tail call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %2, i32 noundef %6)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %28, label %8
 
@@ -18748,7 +18748,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ra_channel_request_parse(ptr noundef writeonly %0, ptr noundef writeonly %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @ra_channel_request_parse(ptr noundef writeonly %0, ptr noundef writeonly %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = and i32 %2, 224
   %6 = call ptr @try_val_to_str_idx(i32 noundef %5, ptr noundef nonnull @gsm_a_rr_cannel_request_3bit_est_cause_vals, ptr noundef nonnull %4) #10
@@ -18951,7 +18951,7 @@ define internal void @sacch_rr_enh_meas_report(ptr noundef %0, ptr noundef %1, p
   %73 = load i32, ptr @hf_gsm_a_rr_rxlev_ncell, align 4
   %74 = call ptr @proto_tree_add_bits_item(ptr noundef %66, i32 noundef %73, ptr noundef %0, i32 noundef %72, i32 noundef 6, i32 noundef 0) #10
   %75 = add i32 %.1145, 18
-  br label %.sink.split, !llvm.loop !86
+  br label %.sink.split, !llvm.loop !85
 
 76:                                               ; preds = %53
   %77 = add i32 %.1145, 2
@@ -19006,7 +19006,7 @@ define internal void @sacch_rr_enh_meas_report(ptr noundef %0, ptr noundef %1, p
   %112 = and i32 %109, 255
   %113 = icmp ult i32 %112, 96
   %114 = select i1 %111, i1 %113, i1 false
-  br i1 %114, label %.lr.ph, label %.loopexit, !llvm.loop !87
+  br i1 %114, label %.lr.ph, label %.loopexit, !llvm.loop !86
 
 .loopexit:                                        ; preds = %108, %86, %76
   %.4 = phi i32 [ %77, %76 ], [ %77, %86 ], [ %.3, %108 ]
@@ -19016,7 +19016,7 @@ define internal void @sacch_rr_enh_meas_report(ptr noundef %0, ptr noundef %1, p
 116:                                              ; preds = %.loopexit
   %117 = add nuw nsw i32 %.4, 1
   %118 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_8, align 4
-  %119 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.4, i32 noundef %118), !range !27
+  %119 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.4, i32 noundef %118)
   %.not150 = icmp eq i32 %119, 0
   br i1 %.not150, label %198, label %120
 
@@ -19069,7 +19069,7 @@ define internal void @sacch_rr_enh_meas_report(ptr noundef %0, ptr noundef %1, p
   %156 = and i32 %153, 255
   %157 = icmp slt i32 %156, %130
   %158 = select i1 %155, i1 %157, i1 false
-  br i1 %158, label %.lr.ph165, label %._crit_edge, !llvm.loop !88
+  br i1 %158, label %.lr.ph165, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %152, %120
   %.5.lcssa = phi i32 [ %128, %120 ], [ %.6, %152 ]
@@ -19122,7 +19122,7 @@ define internal void @sacch_rr_enh_meas_report(ptr noundef %0, ptr noundef %1, p
   %191 = sub i32 %189, %159
   %192 = icmp ult i32 %191, %170
   %or.cond.i = and i1 %190, %192
-  br i1 %or.cond.i, label %.lr.ph.i, label %sacch_rr_eutran_meas_report.exit, !llvm.loop !89
+  br i1 %or.cond.i, label %.lr.ph.i, label %sacch_rr_eutran_meas_report.exit, !llvm.loop !88
 
 sacch_rr_eutran_meas_report.exit:                 ; preds = %.lr.ph.i, %168
   %.lcssa.i = phi i32 [ 2, %168 ], [ %191, %.lr.ph.i ]
@@ -19515,7 +19515,7 @@ define internal void @sacch_rr_meas_info(ptr noundef %0, ptr noundef %1, ptr nou
   %.12 = phi i32 [ %253, %248 ], [ %255, %254 ], [ %230, %229 ], [ %228, %223 ], [ %222, %217 ], [ %216, %215 ], [ %204, %.lr.ph ]
   %257 = add i8 %.0319403, -1
   %.not333 = icmp eq i8 %257, 0
-  br i1 %.not333, label %._crit_edge, label %.lr.ph, !llvm.loop !90
+  br i1 %.not333, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %256, %197
   %.10.lcssa = phi i32 [ %202, %197 ], [ %.12, %256 ]
@@ -19704,7 +19704,7 @@ define internal void @sacch_rr_meas_info(ptr noundef %0, ptr noundef %1, ptr nou
 380:                                              ; preds = %377
   %381 = add i32 %.21, 1
   %382 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_5, align 4
-  %383 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.21, i32 noundef %382), !range !27
+  %383 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.21, i32 noundef %382)
   %.not341 = icmp eq i32 %383, 0
   br i1 %.not341, label %694, label %384
 
@@ -19735,7 +19735,7 @@ define internal void @sacch_rr_meas_info(ptr noundef %0, ptr noundef %1, ptr nou
 400:                                              ; preds = %397
   %401 = add i32 %.22, 1
   %402 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_7, align 4
-  %403 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.22, i32 noundef %402), !range !27
+  %403 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.22, i32 noundef %402)
   %.not343 = icmp eq i32 %403, 0
   br i1 %.not343, label %694, label %404
 
@@ -19793,7 +19793,7 @@ define internal void @sacch_rr_meas_info(ptr noundef %0, ptr noundef %1, ptr nou
 441:                                              ; preds = %438
   %442 = add i32 %.24, 1
   %443 = load i32, ptr @hf_gsm_a_rr_additions_in_rel_8, align 4
-  %444 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.24, i32 noundef %443), !range !27
+  %444 = call fastcc i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %.24, i32 noundef %443)
   %.not346 = icmp eq i32 %444, 0
   br i1 %.not346, label %694, label %445
 
@@ -19899,7 +19899,7 @@ define internal void @sacch_rr_meas_info(ptr noundef %0, ptr noundef %1, ptr nou
   %513 = load i32, ptr @hf_gsm_a_rr_utran_frequency_index, align 4
   %514 = call ptr @proto_tree_add_bits_item(ptr noundef %501, i32 noundef %513, ptr noundef %0, i32 noundef %503, i32 noundef 5, i32 noundef 0) #10
   %515 = add i32 %.0.i.i, 6
-  br label %502, !llvm.loop !91
+  br label %502, !llvm.loop !90
 
 de_rr_utran_measurement_control_param_mi.exit.i:  ; preds = %502
   %516 = load i32, ptr @hf_gsm_a_rr_3g_control_param_desc_meas_ctrl_utran, align 4
@@ -19911,7 +19911,7 @@ de_rr_utran_measurement_control_param_mi.exit.i:  ; preds = %502
   %521 = add nsw i32 %reass.sub406, 1
   call void @proto_item_set_len(ptr noundef %519, i32 noundef %521) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %488, !llvm.loop !92
+  br label %488, !llvm.loop !91
 
 de_rr_3g_supplementary_param_desc_mi.exit:        ; preds = %488, %455
   %.2.i = phi i32 [ %465, %455 ], [ %489, %488 ]
@@ -20009,7 +20009,7 @@ de_rr_3g_supplementary_param_desc_mi.exit:        ; preds = %488, %455
   %580 = zext i8 %578 to i32
   %581 = and i32 %576, %580
   %.not26.i.i = icmp eq i32 %581, 0
-  br i1 %.not26.i.i, label %582, label %570, !llvm.loop !93
+  br i1 %.not26.i.i, label %582, label %570, !llvm.loop !92
 
 582:                                              ; preds = %570
   %583 = add i32 %.sink27.i.i, 18
@@ -20038,7 +20038,7 @@ de_rr_eutran_neighbour_cells_mi.exit.i:           ; preds = %592, %582
   %598 = add nsw i32 %reass.sub408, 1
   call void @proto_item_set_len(ptr noundef %596, i32 noundef %598) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %556, !llvm.loop !94
+  br label %556, !llvm.loop !93
 
 .preheader73.i:                                   ; preds = %556, %608
   %.2.i358 = phi i32 [ %610, %608 ], [ %557, %556 ]
@@ -20057,7 +20057,7 @@ de_rr_eutran_neighbour_cells_mi.exit.i:           ; preds = %592, %582
 608:                                              ; preds = %.preheader73.i
   %609 = call fastcc i32 @de_rr_eutran_not_allowed_cells(ptr noundef %0, ptr noundef %537, i32 noundef %599)
   %610 = add i32 %609, %599
-  br label %.preheader73.i, !llvm.loop !95
+  br label %.preheader73.i, !llvm.loop !94
 
 611:                                              ; preds = %.preheader73.i
   %612 = add i32 %.2.i358, 2
@@ -20127,13 +20127,13 @@ de_rr_eutran_neighbour_cells_mi.exit.i:           ; preds = %592, %582
   %655 = load i32, ptr @hf_gsm_a_rr_eutran_frequency_index, align 4
   %656 = call ptr @proto_tree_add_bits_item(ptr noundef %537, i32 noundef %655, ptr noundef %0, i32 noundef %645, i32 noundef 3, i32 noundef 0) #10
   %657 = add i32 %.5.i, 4
-  br label %.preheader.i, !llvm.loop !96
+  br label %.preheader.i, !llvm.loop !95
 
 658:                                              ; preds = %.preheader.i
   %659 = load i32, ptr @hf_gsm_a_rr_eutran_measurement_control_eutran, align 4
   %660 = call ptr @proto_tree_add_bits_item(ptr noundef %537, i32 noundef %659, ptr noundef %0, i32 noundef %645, i32 noundef 1, i32 noundef 0) #10
   %661 = add i32 %.5.i, 2
-  br label %635, !llvm.loop !97
+  br label %635, !llvm.loop !96
 
 de_rr_eutran_param_desc_mi.exit:                  ; preds = %635, %611
   %.6.i = phi i32 [ %612, %611 ], [ %636, %635 ]
@@ -20183,7 +20183,7 @@ de_rr_eutran_param_desc_mi.exit:                  ; preds = %635, %611
 688:                                              ; preds = %678
   %689 = call fastcc i32 @de_rr_eutran_pcid(ptr noundef %0, ptr noundef %677, i32 noundef %679)
   %690 = add i32 %689, %679
-  br label %678, !llvm.loop !98
+  br label %678, !llvm.loop !97
 
 de_rr_eutran_csg_desc_mi.exit:                    ; preds = %678
   %691 = load ptr, ptr %6, align 8
@@ -20373,7 +20373,7 @@ define internal void @dtap_rr_ec_imm_ass_type_2(ptr noundef %0, ptr noundef %1, 
 
 .backedge:                                        ; preds = %131, %128
   %.4.be = phi i32 [ %118, %131 ], [ %130, %128 ]
-  br label %107, !llvm.loop !99
+  br label %107, !llvm.loop !98
 
 134:                                              ; preds = %107
   ret void
@@ -20701,7 +20701,7 @@ define internal fastcc noundef i32 @dtap_rr_ec_paging_imsi(ptr noundef %0, ptr n
   %23 = trunc i64 %22 to i32
   %24 = and i32 %23, 255
   %.not = icmp ult i32 %24, %21
-  br i1 %.not, label %25, label %14, !llvm.loop !100
+  br i1 %.not, label %25, label %14, !llvm.loop !99
 
 25:                                               ; preds = %14
   %26 = load i32, ptr @hf_gsm_a_rr_ec_imsi, align 4
@@ -20770,7 +20770,7 @@ attributes #11 = { noreturn nounwind }
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = !{i32 0, i32 2}
+!27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
@@ -20843,4 +20843,3 @@ attributes #11 = { noreturn nounwind }
 !97 = distinct !{!97, !5}
 !98 = distinct !{!98, !5}
 !99 = distinct !{!99, !5}
-!100 = distinct !{!100, !5}

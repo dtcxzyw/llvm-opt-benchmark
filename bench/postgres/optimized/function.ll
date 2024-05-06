@@ -84,7 +84,7 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   br i1 %30, label %.lr.ph51.preheader, label %._crit_edge52
 
 .lr.ph51.preheader:                               ; preds = %.lr.ph63
-  %31 = trunc i64 %indvars.iv71 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv71 to i32
   br label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
@@ -113,7 +113,7 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
 
 .lr.ph57:                                         ; preds = %._crit_edge52
   %43 = getelementptr inbounds i8, ptr %28, i64 8
-  %44 = trunc i64 %indvars.iv71 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv71 to i32
   br label %45
 
 45:                                               ; preds = %.lr.ph57, %62

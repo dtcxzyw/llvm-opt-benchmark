@@ -27,7 +27,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_ec_init(ptr nocapture noundef writeonly %ctx) #1 {
+define internal range(i32 0, 2) i32 @pkey_ec_init(ptr nocapture noundef writeonly %ctx) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 64, ptr noundef nonnull @.str, i32 noundef 51) #5
   %cmp = icmp eq ptr %call, null
@@ -48,7 +48,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_ec_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #1 {
+define internal range(i32 0, 2) i32 @pkey_ec_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #1 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 64, ptr noundef nonnull @.str, i32 noundef 51) #5
   %cmp.i = icmp eq ptr %call.i, null
@@ -262,7 +262,7 @@ return:                                           ; preds = %cond.true, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_ec_sign(ptr nocapture noundef readonly %ctx, ptr noundef %sig, ptr nocapture noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
+define internal range(i32 -2147483648, 2) i32 @pkey_ec_sign(ptr nocapture noundef readonly %ctx, ptr noundef %sig, ptr nocapture noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #1 {
 entry:
   %sltmp = alloca i32, align 4
   %data = getelementptr inbounds i8, ptr %ctx, i64 152
@@ -349,7 +349,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_ec_kdf_derive(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture noundef %keylen) #1 {
+define internal range(i32 0, 2) i32 @pkey_ec_kdf_derive(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture noundef %keylen) #1 {
 entry:
   %ktmplen = alloca i64, align 8
   %data = getelementptr inbounds i8, ptr %ctx, i64 152
@@ -360,7 +360,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call fastcc i32 @pkey_ec_derive(ptr noundef nonnull %ctx, ptr noundef %key, ptr noundef %keylen), !range !4
+  %call = tail call fastcc i32 @pkey_ec_derive(ptr noundef nonnull %ctx, ptr noundef %key, ptr noundef %keylen)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -381,7 +381,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp5.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end3
-  %call9 = call fastcc i32 @pkey_ec_derive(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef nonnull %ktmplen), !range !4
+  %call9 = call fastcc i32 @pkey_ec_derive(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef nonnull %ktmplen)
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %return, label %if.end12
 
@@ -392,7 +392,7 @@ if.end12:                                         ; preds = %if.end8
   br i1 %cmp14, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.end12
-  %call18 = call fastcc i32 @pkey_ec_derive(ptr noundef nonnull %ctx, ptr noundef nonnull %call13, ptr noundef nonnull %ktmplen), !range !4
+  %call18 = call fastcc i32 @pkey_ec_derive(ptr noundef nonnull %ctx, ptr noundef nonnull %call13, ptr noundef nonnull %ktmplen)
   %tobool19.not = icmp eq i32 %call18, 0
   %.pre = load i64, ptr %ktmplen, align 8
   br i1 %tobool19.not, label %err, label %if.end21
@@ -509,7 +509,7 @@ if.else18:                                        ; preds = %sw.bb7
   br i1 %or.cond, label %return, label %if.end25
 
 if.end25:                                         ; preds = %if.else18
-  %conv26 = trunc i32 %p1 to i8
+  %conv26 = trunc nsw i32 %p1 to i8
   %cofactor_mode27 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %conv26, ptr %cofactor_mode27, align 8
   %cmp28.not = icmp eq i32 %p1, -1
@@ -592,7 +592,7 @@ if.end72:                                         ; preds = %sw.bb67
   br i1 %or.cond1, label %return, label %if.end78
 
 if.end78:                                         ; preds = %if.end72
-  %conv79 = trunc i32 %p1 to i8
+  %conv79 = trunc nuw i32 %p1 to i8
   %kdf_type80 = getelementptr inbounds i8, ptr %0, i64 25
   store i8 %conv79, ptr %kdf_type80, align 1
   br label %return
@@ -862,7 +862,7 @@ declare i32 @ECDSA_sign(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr 
 declare i32 @ECDSA_verify(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pkey_ec_derive(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture noundef %keylen) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @pkey_ec_derive(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture noundef %keylen) unnamed_addr #1 {
 entry:
   %data = getelementptr inbounds i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %data, align 8
@@ -1002,4 +1002,3 @@ attributes #6 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

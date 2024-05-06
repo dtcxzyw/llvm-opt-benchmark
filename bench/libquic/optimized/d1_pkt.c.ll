@@ -10,14 +10,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [18 x i8] c"SSL alert number \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dtls1_read_app_data(ptr noundef %ssl, ptr nocapture noundef writeonly %buf, i32 noundef %len, i32 noundef %peek) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 65536) i32 @dtls1_read_app_data(ptr noundef %ssl, ptr nocapture noundef writeonly %buf, i32 noundef %len, i32 noundef %peek) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @dtls1_read_bytes(ptr noundef %ssl, i32 noundef 23, ptr noundef %buf, i32 noundef %len, i32 noundef %peek), !range !7
+  %call = tail call i32 @dtls1_read_bytes(ptr noundef %ssl, i32 noundef 23, ptr noundef %buf, i32 noundef %len, i32 noundef %peek)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dtls1_read_bytes(ptr noundef %ssl, i32 noundef %type, ptr nocapture noundef writeonly %buf, i32 noundef %len, i32 noundef %peek) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 65536) i32 @dtls1_read_bytes(ptr noundef %ssl, i32 noundef %type, ptr nocapture noundef writeonly %buf, i32 noundef %len, i32 noundef %peek) local_unnamed_addr #0 {
 entry:
   %type.i = alloca i8, align 1
   %alert.i = alloca i8, align 1
@@ -142,7 +142,7 @@ dtls1_get_record.exit:                            ; preds = %sw.bb.i
   %rrec.i = getelementptr inbounds i8, ptr %6, i64 120
   %7 = load i8, ptr %type.i, align 1
   store i8 %7, ptr %rrec.i, align 8
-  %conv.i = trunc i64 %3 to i16
+  %conv.i = trunc nuw i64 %3 to i16
   %length.i = getelementptr inbounds i8, ptr %6, i64 122
   store i16 %conv.i, ptr %length.i, align 2
   %data.i = getelementptr inbounds i8, ptr %6, i64 128
@@ -216,7 +216,7 @@ if.end51:                                         ; preds = %if.end47
 
 if.then63:                                        ; preds = %if.end51
   %14 = load i16, ptr %length, align 2
-  %15 = trunc i32 %conv43.len to i16
+  %15 = trunc nuw i32 %conv43.len to i16
   %conv66 = sub i16 %14, %15
   store i16 %conv66, ptr %length, align 2
   %16 = load ptr, ptr %data, align 8
@@ -406,10 +406,10 @@ return:                                           ; preds = %if.then196, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dtls1_read_change_cipher_spec(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @dtls1_read_change_cipher_spec(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %byte = alloca i8, align 1
-  %call = call i32 @dtls1_read_bytes(ptr noundef %ssl, i32 noundef 20, ptr noundef nonnull %byte, i32 noundef 1, i32 noundef 0), !range !7
+  %call = call i32 @dtls1_read_bytes(ptr noundef %ssl, i32 noundef 20, ptr noundef nonnull %byte, i32 noundef 1, i32 noundef 0)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %if.end
 
@@ -485,7 +485,7 @@ declare i32 @dtls1_check_timeout_num(ptr noundef) local_unnamed_addr #1
 declare i32 @dtls1_retransmit_buffered_messages(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dtls1_write_app_data(ptr noundef %ssl, ptr noundef %buf_, i32 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 16385) i32 @dtls1_write_app_data(ptr noundef %ssl, ptr noundef %buf_, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %len, 16384
   br i1 %cmp, label %if.then, label %if.end
@@ -495,7 +495,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call fastcc i32 @do_dtls1_write(ptr noundef %ssl, i32 noundef 23, ptr noundef %buf_, i32 noundef %len, i32 noundef 1), !range !8
+  %call.i = tail call fastcc i32 @do_dtls1_write(ptr noundef %ssl, i32 noundef 23, ptr noundef %buf_, i32 noundef %len, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -504,14 +504,14 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dtls1_write_bytes(ptr noundef %ssl, i32 noundef %type, ptr noundef %buf, i32 noundef %len, i32 noundef %use_epoch) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 16385) i32 @dtls1_write_bytes(ptr noundef %ssl, i32 noundef %type, ptr noundef %buf, i32 noundef %len, i32 noundef %use_epoch) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @do_dtls1_write(ptr noundef %ssl, i32 noundef %type, ptr noundef %buf, i32 noundef %len, i32 noundef %use_epoch), !range !8
+  %call = tail call fastcc i32 @do_dtls1_write(ptr noundef %ssl, i32 noundef %type, ptr noundef %buf, i32 noundef %len, i32 noundef %use_epoch)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_dtls1_write(ptr noundef %ssl, i32 noundef %type, ptr noundef %buf, i32 noundef %len, i32 noundef %use_epoch) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 16385) i32 @do_dtls1_write(ptr noundef %ssl, i32 noundef %type, ptr noundef %buf, i32 noundef %len, i32 noundef %use_epoch) unnamed_addr #0 {
 entry:
   %out = alloca ptr, align 8
   %ciphertext_len = alloca i64, align 8
@@ -576,7 +576,7 @@ return:                                           ; preds = %if.end17, %if.end5,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dtls1_dispatch_alert(ptr noundef %ssl) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @dtls1_dispatch_alert(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -584,7 +584,7 @@ entry:
   store i32 0, ptr %alert_dispatch, align 4
   %1 = load ptr, ptr %s3, align 8
   %send_alert = getelementptr inbounds i8, ptr %1, i64 248
-  %call = tail call fastcc i32 @do_dtls1_write(ptr noundef %ssl, i32 noundef 21, ptr noundef nonnull %send_alert, i32 noundef 2, i32 noundef 1), !range !8
+  %call = tail call fastcc i32 @do_dtls1_write(ptr noundef %ssl, i32 noundef 21, ptr noundef nonnull %send_alert, i32 noundef 2, i32 noundef 1)
   %cmp = icmp slt i32 %call, 1
   %2 = load ptr, ptr %s3, align 8
   br i1 %cmp, label %if.then, label %if.end
@@ -708,5 +708,3 @@ attributes #6 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 -2147483648, i32 65536}
-!8 = !{i32 -2147483648, i32 16385}

@@ -35,7 +35,7 @@ $_ZN5vcpkg6Checks19msg_exit_with_errorERKNS_8LineInfoERKNS_15LocalizedStringE = 
 @_ZN5vcpkg24msgEndOfStringInCodeUnitE = external local_unnamed_addr global %"struct.vcpkg::msg::MessageT", align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN5vcpkg7Unicode22utf8_encode_code_pointERA4_cDi(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(4) %0, i32 noundef zeroext %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 5) i32 @_ZN5vcpkg7Unicode22utf8_encode_code_pointERA4_cDi(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(4) %0, i32 noundef zeroext %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.fmt::v10::format_arg_store", align 16
   %4 = alloca %"struct.vcpkg::LineInfo", align 8
   %5 = alloca %"struct.vcpkg::LocalizedString", align 8
@@ -583,7 +583,7 @@ define dso_local noundef i32 @_ZN5vcpkg7Unicode11Utf8Decoder4nextEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i32 @_ZN5vcpkg7Unicode30utf16_surrogates_to_code_pointEDiDi(i32 noundef zeroext %0, i32 noundef zeroext %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext range(i32 65536, 1114112) i32 @_ZN5vcpkg7Unicode30utf16_surrogates_to_code_pointEDiDi(i32 noundef zeroext %0, i32 noundef zeroext %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::LineInfo", align 8
   %4 = alloca %"struct.vcpkg::LineInfo", align 8
   store i32 190, ptr %3, align 8

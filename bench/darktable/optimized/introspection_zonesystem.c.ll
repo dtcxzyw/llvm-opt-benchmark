@@ -2837,7 +2837,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_button_release(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dt_iop_zonesystem_bar_scrolled(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal noundef range(i32 0, 2) i32 @dt_iop_zonesystem_bar_scrolled(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 680
   %6 = load ptr, ptr %5, align 8, !tbaa !125
@@ -2972,7 +2972,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
+define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !149
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8

@@ -960,7 +960,7 @@ define hidden ptr @timelib_timezone_identifiers_list(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @timelib_timezone_id_is_valid(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @timelib_timezone_id_is_valid(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -1595,7 +1595,7 @@ read_posix_string.exit:                           ; preds = %296
   br label %309
 
 306:                                              ; preds = %read_posix_string.exit
-  %307 = tail call fastcc i32 @integrate_posix_string(ptr noundef nonnull %33), !range !4
+  %307 = tail call fastcc i32 @integrate_posix_string(ptr noundef nonnull %33)
   %.not41 = icmp eq i32 %307, 0
   br i1 %.not41, label %308, label %309
 
@@ -1613,7 +1613,7 @@ read_posix_string.exit:                           ; preds = %296
 
 311:                                              ; preds = %309
   %312 = getelementptr inbounds i8, ptr %33, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %312, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %312, i8 0, i64 16, i1 false)
   %313 = tail call noalias ptr @_emalloc_8() #17
   %314 = getelementptr inbounds i8, ptr %33, i64 152
   store ptr %313, ptr %314, align 8
@@ -1735,7 +1735,7 @@ define hidden void @timelib_tzinfo_dtor(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @integrate_posix_string(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @integrate_posix_string(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @timelib_parse_posix_str(ptr noundef %3) #17
@@ -1779,7 +1779,7 @@ define internal fastcc noundef i32 @integrate_posix_string(ptr nocapture noundef
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %29) #19
+  %30 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %29) #19
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %34
 
@@ -1818,7 +1818,7 @@ find_ttinfo_index.exit:                           ; preds = %34, %6, %32
   store i32 0, ptr %52, align 4
   %53 = getelementptr inbounds i8, ptr %0, i64 72
   %54 = load i64, ptr %53, align 8
-  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #19
+  %55 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %45) #19
   %56 = add i64 %55, %54
   %57 = add i64 %56, 1
   %58 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1826,8 +1826,8 @@ find_ttinfo_index.exit:                           ; preds = %34, %6, %32
   %60 = tail call ptr @_erealloc(ptr noundef %59, i64 noundef %57) #20
   store ptr %60, ptr %58, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 %54
-  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr align 1 %45, i64 %62, i1 false)
+  %62 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %45) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr readonly align 1 %45, i64 %62, i1 false)
   store i64 %57, ptr %53, align 8
   %63 = load ptr, ptr %58, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 %56
@@ -1893,7 +1893,7 @@ find_ttinfo_index.exit:                           ; preds = %34, %6, %32
   %102 = load i32, ptr %101, align 4
   %103 = zext i32 %102 to i64
   %104 = getelementptr inbounds i8, ptr %100, i64 %103
-  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) %104) #19
+  %105 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) %104) #19
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %109
 
@@ -1933,7 +1933,7 @@ find_ttinfo_index.exit30:                         ; preds = %109, %83, %107
   store i32 1, ptr %128, align 4
   %129 = getelementptr inbounds i8, ptr %0, i64 72
   %130 = load i64, ptr %129, align 8
-  %131 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %121) #19
+  %131 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %121) #19
   %132 = add i64 %131, %130
   %133 = add i64 %132, 1
   %134 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1941,8 +1941,8 @@ find_ttinfo_index.exit30:                         ; preds = %109, %83, %107
   %136 = tail call ptr @_erealloc(ptr noundef %135, i64 noundef %133) #20
   store ptr %136, ptr %134, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 %130
-  %138 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %121) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %137, ptr align 1 %121, i64 %138, i1 false)
+  %138 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %121) #19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %137, ptr readonly align 1 %121, i64 %138, i1 false)
   store i64 %133, ptr %129, align 8
   %139 = load ptr, ptr %134, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 %132
@@ -2348,7 +2348,7 @@ fetch_leaptime_offset.exit.thread:                ; preds = %.preheader, %20, %2
 declare ptr @timelib_time_offset_ctor() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @timelib_get_time_zone_offset_info(i64 noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @timelib_get_time_zone_offset_info(i64 noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = icmp eq ptr %1, null
   br i1 %7, label %20, label %8
@@ -2392,7 +2392,7 @@ define hidden noundef i32 @timelib_get_time_zone_offset_info(i64 noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @timelib_get_current_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i64 -2147483648, 2147483648) i64 @timelib_get_current_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8
@@ -2442,7 +2442,7 @@ timelib_get_time_zone_offset_info.exit:           ; preds = %13, %19, %21
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @timelib_same_timezone(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @timelib_same_timezone(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 232
@@ -2567,4 +2567,3 @@ attributes #20 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}

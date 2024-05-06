@@ -1153,7 +1153,7 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$alloc..vec..Vec$LT$aws_sdk_
   %.07.i.i = phi i64 [ %8, %.lr.ph.i.i ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, i8, [7 x i8] }], ptr %3, i64 0, i64 %.07.i.i
   %8 = add nuw i64 %.07.i.i, 1
-  tail call fastcc void @"_ZN4core3ptr82drop_in_place$LT$aws_sdk_glue..types.._view_representation..ViewRepresentation$GT$17hafe48a63a6bb64a9E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %7), !noalias !799
+  tail call fastcc void @"_ZN4core3ptr82drop_in_place$LT$aws_sdk_glue..types.._view_representation..ViewRepresentation$GT$17hafe48a63a6bb64a9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %7), !noalias !799
   %9 = icmp eq i64 %8, %5
   br i1 %9, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h395a2d60ae4690daE.llvm.13640993958878838948.exit", label %.lr.ph.i.i
 
@@ -3171,7 +3171,7 @@ define hidden void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMa
 "_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17ha0d947a2ec946b17E.llvm.13640993958878838948.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.13640993958878838948.exit.i.i", %1
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2018)
-  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h42704b07338de7f9E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h42704b07338de7f9E.llvm.13640993958878838948"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %15 unwind label %9
 
 9:                                                ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$$u5b$http..header..map..Pos$u5d$$GT$$GT$17ha0d947a2ec946b17E.llvm.13640993958878838948.exit"
@@ -3829,7 +3829,7 @@ define hidden void @"_ZN4core3ptr130drop_in_place$LT$aws_smithy_runtime_api..cli
           to label %common.resume unwind label %33
 
 "_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.llvm.13640993958878838948.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.13640993958878838948.exit.i1.i", %15
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h20f97c3a01e9fd92E.exit.i" unwind label %22
 
 22:                                               ; preds = %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hc6a94347afb6542aE.llvm.13640993958878838948.exit"
@@ -3966,7 +3966,7 @@ define hidden void @"_ZN4core3ptr133drop_in_place$LT$core..option..Option$LT$all
   %.07.i.i.i = phi i64 [ %11, %.lr.ph.i.i.i ], [ 0, %4 ]
   %10 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, i8, [7 x i8] }], ptr %6, i64 0, i64 %.07.i.i.i
   %11 = add nuw i64 %.07.i.i.i, 1
-  tail call fastcc void @"_ZN4core3ptr82drop_in_place$LT$aws_sdk_glue..types.._view_representation..ViewRepresentation$GT$17hafe48a63a6bb64a9E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %10), !noalias !2458
+  tail call fastcc void @"_ZN4core3ptr82drop_in_place$LT$aws_sdk_glue..types.._view_representation..ViewRepresentation$GT$17hafe48a63a6bb64a9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %10), !noalias !2458
   %12 = icmp eq i64 %11, %8
   br i1 %12, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h395a2d60ae4690daE.llvm.13640993958878838948.exit.i", label %.lr.ph.i.i.i
 
@@ -5323,7 +5323,7 @@ define hidden void @"_ZN4core3ptr154drop_in_place$LT$core..result..Result$LT$aws
   br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h20f97c3a01e9fd92E.exit.i" unwind label %4
 
 4:                                                ; preds = %3
@@ -6497,7 +6497,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %31 = getelementptr inbounds i8, ptr %0, i64 1616
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3164)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3167)
-  invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h961af95bb85e8099E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31)
+  invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h961af95bb85e8099E.llvm.13640993958878838948"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %31)
           to label %40 unwind label %32
 
 32:                                               ; preds = %30
@@ -7221,7 +7221,7 @@ define hidden void @"_ZN4core3ptr181drop_in_place$LT$aws_smithy_runtime_api..cli
           to label %common.resume unwind label %17
 
 5:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h20f97c3a01e9fd92E.exit.i" unwind label %6
 
 6:                                                ; preds = %5
@@ -7281,7 +7281,7 @@ define hidden void @"_ZN4core3ptr182drop_in_place$LT$core..option..Option$LT$cor
   ret void
 
 3:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h20f97c3a01e9fd92E.exit.i.i" unwind label %4
 
 4:                                                ; preds = %3
@@ -7729,7 +7729,7 @@ define hidden void @"_ZN4core3ptr192drop_in_place$LT$aws_smithy_runtime_api..cli
           to label %common.resume unwind label %16
 
 "_ZN4core3ptr81drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$17h432f2272a1552affE.exit": ; preds = %1
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h20f97c3a01e9fd92E.exit.i" unwind label %5
 
 5:                                                ; preds = %"_ZN4core3ptr81drop_in_place$LT$aws_smithy_runtime_api..client..interceptors..context..Error$GT$17h432f2272a1552affE.exit"
@@ -9852,14 +9852,14 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$aws_sdk_glue..client..Handle
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 480
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h7a90fd9260d7ef85E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h7a90fd9260d7ef85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %"_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h327d072f550f6b63E.exit" unwind label %7
 
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = getelementptr inbounds i8, ptr %0, i64 504
-  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h7a90fd9260d7ef85E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #19
+  invoke void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h7a90fd9260d7ef85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9) #19
           to label %common.resume unwind label %10
 
 10:                                               ; preds = %7
@@ -9874,7 +9874,7 @@ common.resume:                                    ; preds = %2, %7
 
 "_ZN4core3ptr83drop_in_place$LT$aws_smithy_runtime_api..client..runtime_plugin..RuntimePlugins$GT$17h327d072f550f6b63E.exit": ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 504
-  tail call void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h7a90fd9260d7ef85E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
+  tail call void @"_ZN4core3ptr111drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..runtime_plugin..SharedRuntimePlugin$GT$$GT$17h7a90fd9260d7ef85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
   ret void
 
 13:                                               ; preds = %2
@@ -10999,7 +10999,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$aws_sdk_glue..types.._table.
   br i1 %121, label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._table_identifier..TableIdentifier$GT$$GT$17h9d848663ecb19112E.exit", label %122
 
 122:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf614fc4dff0b0130E.llvm.13640993958878838948.exit56"
-  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_sdk_glue..types.._table_identifier..TableIdentifier$GT$17h99c0c438dd71b9f4E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %119)
+  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_sdk_glue..types.._table_identifier..TableIdentifier$GT$17h99c0c438dd71b9f4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %119)
   br label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._table_identifier..TableIdentifier$GT$$GT$17h9d848663ecb19112E.exit"
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf614fc4dff0b0130E.llvm.13640993958878838948.exit58": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.13640993958878838948.exit.i.i1.i.i.i57", %115, %"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17h4312c8d0839231f2E.llvm.13640993958878838948.exit54"
@@ -11009,7 +11009,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$aws_sdk_glue..types.._table.
   br i1 %125, label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._table_identifier..TableIdentifier$GT$$GT$17h9d848663ecb19112E.exit59", label %126
 
 126:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf614fc4dff0b0130E.llvm.13640993958878838948.exit58"
-  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_sdk_glue..types.._table_identifier..TableIdentifier$GT$17h99c0c438dd71b9f4E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %123)
+  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_sdk_glue..types.._table_identifier..TableIdentifier$GT$17h99c0c438dd71b9f4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %123)
   br label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._table_identifier..TableIdentifier$GT$$GT$17h9d848663ecb19112E.exit59"
 
 "_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._table_identifier..TableIdentifier$GT$$GT$17h9d848663ecb19112E.exit": ; preds = %122, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf614fc4dff0b0130E.llvm.13640993958878838948.exit56"
@@ -11174,7 +11174,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$aws_sdk_glue..types.._table.
   br label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._federated_table..FederatedTable$GT$$GT$17h7a80b7a30ae5a9fbE.exit"
 
 182:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf614fc4dff0b0130E.llvm.13640993958878838948.exit65"
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$aws_sdk_glue..types.._view_definition..ViewDefinition$GT$17h1888fba46a68dd86E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %156)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$aws_sdk_glue..types.._view_definition..ViewDefinition$GT$17h1888fba46a68dd86E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %156)
   br label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._view_definition..ViewDefinition$GT$$GT$17h5252e2633624b05aE.exit"
 
 "_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._federated_table..FederatedTable$GT$$GT$17h7a80b7a30ae5a9fbE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.13640993958878838948.exit.i.i1.i.i.i8.i.i", %178, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf614fc4dff0b0130E.llvm.13640993958878838948.exit5.i.i", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf614fc4dff0b0130E.llvm.13640993958878838948.exit67"
@@ -11184,7 +11184,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$aws_sdk_glue..types.._table.
   br i1 %185, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._view_definition..ViewDefinition$GT$$GT$17h5252e2633624b05aE.exit68", label %186
 
 186:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._federated_table..FederatedTable$GT$$GT$17h7a80b7a30ae5a9fbE.exit"
-  tail call void @"_ZN4core3ptr74drop_in_place$LT$aws_sdk_glue..types.._view_definition..ViewDefinition$GT$17h1888fba46a68dd86E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %183)
+  tail call void @"_ZN4core3ptr74drop_in_place$LT$aws_sdk_glue..types.._view_definition..ViewDefinition$GT$17h1888fba46a68dd86E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %183)
   br label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._view_definition..ViewDefinition$GT$$GT$17h5252e2633624b05aE.exit68"
 
 "_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._view_definition..ViewDefinition$GT$$GT$17h5252e2633624b05aE.exit68": ; preds = %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._federated_table..FederatedTable$GT$$GT$17h7a80b7a30ae5a9fbE.exit", %186
@@ -12736,7 +12736,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http
 30:                                               ; preds = %32, %16
   %.pn4 = phi { ptr, i32 } [ %33, %32 ], [ %.pn, %16 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 208
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(96) %31)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %31)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h20f97c3a01e9fd92E.exit" unwind label %36
 
 32:                                               ; preds = %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hb5915bbb4dd7b990E.exit"
@@ -12746,7 +12746,7 @@ define hidden void @"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http
 
 34:                                               ; preds = %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17hb5915bbb4dd7b990E.exit"
   %35 = getelementptr inbounds i8, ptr %0, i64 208
-  tail call void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(96) %35)
+  tail call void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %35)
   ret void
 
 36:                                               ; preds = %30, %16, %3
@@ -13219,7 +13219,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$aws_smithy_runtime_api..http
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr69drop_in_place$LT$aws_smithy_runtime_api..http..response..Response$GT$17h6d3deeb5e2868cc7E"(ptr noalias noundef align 8 dereferenceable(208) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h20f97c3a01e9fd92E.exit" unwind label %2
 
 2:                                                ; preds = %1
@@ -14060,7 +14060,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$aws_sdk_glue..types.._view_d
   %.07.i.i.i.i = phi i64 [ %37, %.lr.ph.i.i.i.i2 ], [ 0, %30 ]
   %36 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, i8, [7 x i8] }], ptr %32, i64 0, i64 %.07.i.i.i.i
   %37 = add nuw i64 %.07.i.i.i.i, 1
-  tail call fastcc void @"_ZN4core3ptr82drop_in_place$LT$aws_sdk_glue..types.._view_representation..ViewRepresentation$GT$17hafe48a63a6bb64a9E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %36), !noalias !6013
+  tail call fastcc void @"_ZN4core3ptr82drop_in_place$LT$aws_sdk_glue..types.._view_representation..ViewRepresentation$GT$17hafe48a63a6bb64a9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %36), !noalias !6013
   %38 = icmp eq i64 %37, %34
   br i1 %38, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h395a2d60ae4690daE.llvm.13640993958878838948.exit.i.i", label %.lr.ph.i.i.i.i2
 
@@ -15411,7 +15411,7 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$aws_sdk_glue..types.._storag
   br i1 %166, label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._schema_reference..SchemaReference$GT$$GT$17h131c13c3bb8f2a4aE.exit", label %167
 
 167:                                              ; preds = %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._skewed_info..SkewedInfo$GT$$GT$17hf1f37b32ed8e89bcE.exit"
-  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_sdk_glue..types.._schema_reference..SchemaReference$GT$17h8cff1ea8f4db66cfE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %0)
+  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_sdk_glue..types.._schema_reference..SchemaReference$GT$17h8cff1ea8f4db66cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %0)
   br label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._schema_reference..SchemaReference$GT$$GT$17h131c13c3bb8f2a4aE.exit"
 
 168:                                              ; preds = %164
@@ -15425,7 +15425,7 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$aws_sdk_glue..types.._storag
   br i1 %171, label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._schema_reference..SchemaReference$GT$$GT$17h131c13c3bb8f2a4aE.exit42", label %172
 
 172:                                              ; preds = %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._skewed_info..SkewedInfo$GT$$GT$17hf1f37b32ed8e89bcE.exit41"
-  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_sdk_glue..types.._schema_reference..SchemaReference$GT$17h8cff1ea8f4db66cfE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %0)
+  tail call void @"_ZN4core3ptr76drop_in_place$LT$aws_sdk_glue..types.._schema_reference..SchemaReference$GT$17h8cff1ea8f4db66cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %0)
   br label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._schema_reference..SchemaReference$GT$$GT$17h131c13c3bb8f2a4aE.exit42"
 
 "_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._schema_reference..SchemaReference$GT$$GT$17h131c13c3bb8f2a4aE.exit42": ; preds = %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$aws_sdk_glue..types.._skewed_info..SkewedInfo$GT$$GT$17hf1f37b32ed8e89bcE.exit41", %172
@@ -15828,7 +15828,7 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$aws_smithy_runtime_api..clie
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr84drop_in_place$LT$bytes_utils..segmented..SegmentedBuf$LT$bytes..bytes..Bytes$GT$$GT$17hdf9b7f0621b4d0b9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7030)
-  invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h961af95bb85e8099E.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h961af95bb85e8099E.llvm.13640993958878838948"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %10 unwind label %2
 
 2:                                                ; preds = %1
@@ -17391,7 +17391,7 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$aws_smithy_runtime_api..clie
   br i1 %28, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h76c0c338a07b92c2E.llvm.13640993958878838948.exit", label %29
 
 29:                                               ; preds = %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$aws_smithy_runtime_api..http..request..Request$GT$$GT$17h3e211de5ce392ccaE.llvm.13640993958878838948.exit10"
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(96) %26)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %26)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h20f97c3a01e9fd92E.exit.i.i" unwind label %30
 
 30:                                               ; preds = %29
@@ -18294,7 +18294,7 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$aws_
   ret void
 
 5:                                                ; preds = %1
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$http..header..map..HeaderMap$LT$aws_smithy_runtime_api..http..headers..header_value..HeaderValue$GT$$GT$17ha858bdabe1d7941eE.llvm.13640993958878838948"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0)
           to label %"_ZN4core3ptr67drop_in_place$LT$aws_smithy_runtime_api..http..headers..Headers$GT$17h20f97c3a01e9fd92E.exit.i" unwind label %6
 
 6:                                                ; preds = %5
@@ -19122,7 +19122,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %.07.i = phi i64 [ %8, %.lr.ph.i ], [ 0, %1 ]
   %7 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, i8, [7 x i8] }], ptr %3, i64 0, i64 %.07.i
   %8 = add nuw i64 %.07.i, 1
-  tail call fastcc void @"_ZN4core3ptr82drop_in_place$LT$aws_sdk_glue..types.._view_representation..ViewRepresentation$GT$17hafe48a63a6bb64a9E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %7)
+  tail call fastcc void @"_ZN4core3ptr82drop_in_place$LT$aws_sdk_glue..types.._view_representation..ViewRepresentation$GT$17hafe48a63a6bb64a9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %7)
   %9 = icmp eq i64 %8, %5
   br i1 %9, label %"_ZN4core3ptr92drop_in_place$LT$$u5b$aws_sdk_glue..types.._view_representation..ViewRepresentation$u5d$$GT$17h0a610928233c3107E.llvm.13640993958878838948.exit", label %.lr.ph.i
 
@@ -20968,7 +20968,7 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17haab043c4bea42552E.llvm.13640993958878838948"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #8 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17haab043c4bea42552E.llvm.13640993958878838948"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #8 {
   %3 = load i64, ptr %0, align 8, !range !8793, !noundef !4
   %4 = load i64, ptr %1, align 8, !range !1017, !noundef !4
   %5 = icmp ult i64 %3, %4

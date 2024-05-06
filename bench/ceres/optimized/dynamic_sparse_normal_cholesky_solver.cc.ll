@@ -6074,7 +6074,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
   %86 = getelementptr inbounds i8, ptr %.sroa.0112.0130, i64 16
   %87 = load <4 x i32>, ptr %86, align 16
   %88 = bitcast <2 x i64> %83 to <4 x i32>
-  %invariant.gep.i.i.i = getelementptr i8, ptr %.sroa.0112.0130, i64 48
+  %invariant.gep.i.i.i = getelementptr inbounds i8, ptr %.sroa.0112.0130, i64 48
   %89 = icmp ugt i64 %5, 15
   br i1 %89, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -6086,7 +6086,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
   %91 = getelementptr inbounds i32, ptr %.sroa.0112.0130, i64 %.05775.i.i.i
   %92 = load <4 x i32>, ptr %91, align 16
   %93 = add <4 x i32> %92, %.sroa.064.073.i.i.i
-  %gep.i.i.i = getelementptr i32, ptr %invariant.gep.i.i.i, i64 %.057.in74.i.i.i
+  %gep.i.i.i = getelementptr inbounds i32, ptr %invariant.gep.i.i.i, i64 %.057.in74.i.i.i
   %94 = load <4 x i32>, ptr %gep.i.i.i, align 16
   %95 = add <4 x i32> %94, %90
   %.057.i.i.i = add nuw nsw i64 %.05775.i.i.i, 8

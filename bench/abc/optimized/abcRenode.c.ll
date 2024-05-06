@@ -170,7 +170,7 @@ declare i32 @Abc_NtkGetChoiceNum(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Abc_NtkRenodeEvalBdd(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -2147483648, 2147483647) i32 @Abc_NtkRenodeEvalBdd(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
   %3 = alloca [32 x i32], align 16
   %4 = getelementptr i8, ptr %1, i64 36
   %5 = getelementptr inbounds i8, ptr %1, i64 28
@@ -1000,7 +1000,7 @@ Kit_TruthNot.exit140:                             ; preds = %select.unfold.i137,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Abc_NtkRenodeEvalMv(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -2147483648, 4096) i32 @Abc_NtkRenodeEvalMv(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 28
   %4 = load i64, ptr %3, align 4
   %5 = lshr i64 %4, 24

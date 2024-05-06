@@ -1242,14 +1242,14 @@ define linkonce_odr dso_local void @_ZN19V3OrderCFuncEmitter9emitLogicEPK16Order
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %11, ptr noundef null)
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %.thread84, label %13
+  br i1 %.not.i, label %.thread85, label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %12, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %14, align 8
   %15 = add i16 %.sroa.0.0.copyload.i.i.i, -331
   %spec.select.i.i = icmp ult i16 %15, 9
-  br i1 %spec.select.i.i, label %16, label %.thread84
+  br i1 %spec.select.i.i, label %16, label %.thread85
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %12, i64 152
@@ -1262,48 +1262,48 @@ define linkonce_odr dso_local void @_ZN19V3OrderCFuncEmitter9emitLogicEPK16Order
   %24 = trunc i8 %23 to i1
   br i1 %24, label %28, label %30
 
-.thread84:                                        ; preds = %2, %13
+.thread85:                                        ; preds = %2, %13
   %25 = getelementptr inbounds i8, ptr %0, i64 32
   %26 = load i8, ptr %25, align 8
   %27 = trunc i8 %26 to i1
-  br label %.thread90
+  br label %.thread91
 
 28:                                               ; preds = %16
-  br i1 %19, label %.thread87, label %.thread90
+  br i1 %19, label %.thread88, label %.thread91
 
-.thread87:                                        ; preds = %28
+.thread88:                                        ; preds = %28
   %29 = icmp ne i16 %.sroa.0.0.copyload.i.i.i, 331
   br label %31
 
 30:                                               ; preds = %16
-  br i1 %19, label %31, label %.thread90
+  br i1 %19, label %31, label %.thread91
 
-31:                                               ; preds = %.thread87, %30
-  %32 = phi i1 [ %29, %.thread87 ], [ false, %30 ]
+31:                                               ; preds = %.thread88, %30
+  %32 = phi i1 [ %29, %.thread88 ], [ false, %30 ]
   %33 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 0, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr null, ptr %34, align 8
-  br label %.thread90
+  br label %.thread91
 
-.thread90:                                        ; preds = %.thread84, %28, %31, %30
-  %35 = phi i1 [ %32, %31 ], [ false, %30 ], [ true, %28 ], [ %27, %.thread84 ]
-  %36 = phi ptr [ %12, %31 ], [ %12, %30 ], [ %12, %28 ], [ null, %.thread84 ]
-  %.not8192 = phi i1 [ false, %31 ], [ false, %30 ], [ false, %28 ], [ true, %.thread84 ]
-  %37 = phi i1 [ true, %31 ], [ false, %30 ], [ false, %28 ], [ false, %.thread84 ]
-  %38 = phi i1 [ %21, %31 ], [ %21, %30 ], [ %21, %28 ], [ false, %.thread84 ]
+.thread91:                                        ; preds = %.thread85, %28, %31, %30
+  %35 = phi i1 [ %32, %31 ], [ false, %30 ], [ true, %28 ], [ %27, %.thread85 ]
+  %36 = phi ptr [ %12, %31 ], [ %12, %30 ], [ %12, %28 ], [ null, %.thread85 ]
+  %.not8293 = phi i1 [ false, %31 ], [ false, %30 ], [ false, %28 ], [ true, %.thread85 ]
+  %37 = phi i1 [ true, %31 ], [ false, %30 ], [ false, %28 ], [ false, %.thread85 ]
+  %38 = phi i1 [ %21, %31 ], [ %21, %30 ], [ %21, %28 ], [ false, %.thread85 ]
   %39 = load i8, ptr getelementptr inbounds (%class.V3Global, ptr @v3Global, i64 0, i32 22, i32 64), align 2
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %44
 
-41:                                               ; preds = %.thread90
+41:                                               ; preds = %.thread91
   %42 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 0, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr null, ptr %43, align 8
   br label %44
 
-44:                                               ; preds = %41, %.thread90
+44:                                               ; preds = %41, %.thread91
   %45 = getelementptr inbounds i8, ptr %0, i64 112
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1327,7 +1327,7 @@ define linkonce_odr dso_local void @_ZN19V3OrderCFuncEmitter9emitLogicEPK16Order
   br label %58
 
 58:                                               ; preds = %55, %50, %44
-  br i1 %.not8192, label %_ZZN19V3OrderCFuncEmitter9emitLogicEPK16OrderLogicVertexENKUlvE_clEv.exit, label %59
+  br i1 %.not8293, label %_ZZN19V3OrderCFuncEmitter9emitLogicEPK16OrderLogicVertexENKUlvE_clEv.exit, label %59
 
 59:                                               ; preds = %58
   %60 = getelementptr inbounds i8, ptr %36, i64 32
@@ -1348,11 +1348,11 @@ _ZZN19V3OrderCFuncEmitter9emitLogicEPK16OrderLogicVertexENKUlvE_clEv.exit.thread
   br label %.lr.ph
 
 _ZZN19V3OrderCFuncEmitter9emitLogicEPK16OrderLogicVertexENKUlvE_clEv.exit: ; preds = %58
-  %.not46119 = icmp eq ptr %12, null
-  br i1 %.not46119, label %._crit_edge, label %.lr.ph
+  %.not46120 = icmp eq ptr %12, null
+  br i1 %.not46120, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZZN19V3OrderCFuncEmitter9emitLogicEPK16OrderLogicVertexENKUlvE_clEv.exit.thread, %_ZZN19V3OrderCFuncEmitter9emitLogicEPK16OrderLogicVertexENKUlvE_clEv.exit
-  %.0.i145 = phi ptr [ %61, %_ZZN19V3OrderCFuncEmitter9emitLogicEPK16OrderLogicVertexENKUlvE_clEv.exit.thread ], [ %12, %_ZZN19V3OrderCFuncEmitter9emitLogicEPK16OrderLogicVertexENKUlvE_clEv.exit ]
+  %.0.i146 = phi ptr [ %61, %_ZZN19V3OrderCFuncEmitter9emitLogicEPK16OrderLogicVertexENKUlvE_clEv.exit.thread ], [ %12, %_ZZN19V3OrderCFuncEmitter9emitLogicEPK16OrderLogicVertexENKUlvE_clEv.exit ]
   %67 = getelementptr inbounds i8, ptr %0, i64 40
   %68 = getelementptr inbounds i8, ptr %0, i64 48
   %69 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1366,8 +1366,8 @@ _ZZN19V3OrderCFuncEmitter9emitLogicEPK16OrderLogicVertexENKUlvE_clEv.exit: ; pre
   br label %77
 
 77:                                               ; preds = %.lr.ph, %213
-  %.0120 = phi ptr [ %.0.i145, %.lr.ph ], [ %79, %213 ]
-  %78 = getelementptr inbounds i8, ptr %.0120, i64 8
+  %.0121 = phi ptr [ %.0.i146, %.lr.ph ], [ %79, %213 ]
+  %78 = getelementptr inbounds i8, ptr %.0121, i64 8
   %79 = load ptr, ptr %78, align 8
   %.not47 = icmp eq ptr %79, null
   br i1 %.not47, label %82, label %80
@@ -1383,9 +1383,9 @@ _ZZN19V3OrderCFuncEmitter9emitLogicEPK16OrderLogicVertexENKUlvE_clEv.exit: ; pre
   %84 = load i64, ptr %67, align 8
   %85 = load i64, ptr %68, align 8
   %.not48 = icmp ult i64 %84, %85
-  br i1 %.not48, label %86, label %.thread149
+  br i1 %.not48, label %86, label %.thread150
 
-.thread149:                                       ; preds = %83
+.thread150:                                       ; preds = %83
   store i64 0, ptr %67, align 8
   store ptr null, ptr %69, align 8
   br label %92
@@ -1396,19 +1396,19 @@ _ZZN19V3OrderCFuncEmitter9emitLogicEPK16OrderLogicVertexENKUlvE_clEv.exit: ; pre
   br i1 %.not49, label %87, label %_ZN8AstCFunc9addStmtspEP7AstNode.exit
 
 87:                                               ; preds = %86
-  %.pr148 = load i64, ptr %67, align 8
-  %.not50 = icmp eq i64 %.pr148, 0
+  %.pr149 = load i64, ptr %67, align 8
+  %.not50 = icmp eq i64 %.pr149, 0
   br i1 %.not50, label %92, label %88
 
 88:                                               ; preds = %87
   %89 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.12, i32 noundef 134, i1 noundef zeroext true)
   %90 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %91 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull @.str.13)
-  call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %.0120, ptr noundef nonnull align 8 dereferenceable(112) %91) #22
+  call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %.0121, ptr noundef nonnull align 8 dereferenceable(112) %91) #22
   unreachable
 
-92:                                               ; preds = %.thread149, %87
-  %93 = getelementptr inbounds i8, ptr %.0120, i64 88
+92:                                               ; preds = %.thread150, %87
+  %93 = getelementptr inbounds i8, ptr %.0121, i64 88
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %70, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 200
@@ -1711,7 +1711,7 @@ _ZN9AstActive9addStmtspEP7AstNode.exit:           ; preds = %_ZN11AstNodeExpr8ma
 
 _ZN8AstCFunc9addStmtspEP7AstNode.exit:            ; preds = %_ZN9AstActive9addStmtspEP7AstNode.exit, %86
   %205 = phi ptr [ %.pre, %_ZN9AstActive9addStmtspEP7AstNode.exit ], [ %.pr, %86 ]
-  call void @_ZN7AstNode7addOp3pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %205, ptr noundef nonnull %.0120)
+  call void @_ZN7AstNode7addOp3pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %205, ptr noundef nonnull %.0121)
   %206 = load i8, ptr %76, align 1
   %207 = trunc i8 %206 to i1
   br i1 %207, label %208, label %213
@@ -1721,7 +1721,7 @@ _ZN8AstCFunc9addStmtspEP7AstNode.exit:            ; preds = %_ZN9AstActive9addSt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i32 0, ptr %3, align 4
   store ptr %3, ptr %4, align 8
-  call void @_ZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT0_b(ptr noundef nonnull %.0120, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext false)
+  call void @_ZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT0_b(ptr noundef nonnull %.0121, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext false)
   %209 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)

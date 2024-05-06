@@ -86,7 +86,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp18.not = icmp ugt i64 %9, %best_fit_size.062
   %or.cond = select i1 %cmp16.not, i1 true, i1 %cmp18.not
   %best_fit_size.1 = select i1 %or.cond, i64 %best_fit_size.062, i64 %9
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %best_fit_block.1 = select i1 %or.cond, i32 %best_fit_block.063, i32 %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -819,7 +819,7 @@ for.body111.preheader:                            ; preds = %if.then96
 
 for.body111:                                      ; preds = %for.body111.preheader, %for.inc161
   %indvars.iv119 = phi i64 [ %29, %for.body111.preheader ], [ %indvars.iv.next120, %for.inc161 ]
-  %30 = trunc i64 %indvars.iv119 to i32
+  %30 = trunc nsw i64 %indvars.iv119 to i32
   br i1 %tobool.not, label %cond.end117, label %cond.true113
 
 cond.true113:                                     ; preds = %for.body111
@@ -902,7 +902,7 @@ for.inc161:                                       ; preds = %for.inc158, %for.bo
   br i1 %exitcond122.not, label %for.end163, label %for.body111, !llvm.loop !12
 
 for.end163:                                       ; preds = %for.inc161, %if.then96
-  %46 = trunc i64 %28 to i32
+  %46 = trunc nuw nsw i64 %28 to i32
   %spec.select = select i1 %tobool.not, i32 %last_barrier_pos.0102, i32 %46
   br label %for.inc169
 
@@ -1407,7 +1407,7 @@ ggml_gallocr_alloc_graph.exit:                    ; preds = %entry.if.end18_crit
   %7 = load ptr, ptr %hash_values22.i, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %7, i8 0, i64 %mul21.pre-phi.i, i1 false)
   store ptr %1, ptr %0, align 8
-  tail call fastcc void @ggml_tallocr_alloc_graph_impl(ptr noundef nonnull %0, ptr noundef nonnull %graph)
+  tail call fastcc void @ggml_tallocr_alloc_graph_impl(ptr noundef nonnull %0, ptr noundef nonnull readonly %graph)
   store ptr null, ptr %0, align 8
   %max_size.i.i = getelementptr inbounds i8, ptr %1, i64 4136
   %8 = load i64, ptr %max_size.i.i, align 8
@@ -1907,7 +1907,7 @@ for.body.i:                                       ; preds = %for.inc101.i, %for.
 
 if.then9.i:                                       ; preds = %for.body.i
   %size6.i.le60 = getelementptr inbounds i8, ptr %arrayidx.i3, i64 8
-  %12 = trunc i64 %indvars.iv.i to i32
+  %12 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add.i = add i64 %11, %add2.i.i
   store i64 %add.i, ptr %size6.i.le60, align 8
   %sub.i = add nsw i32 %9, -1
@@ -1951,7 +1951,7 @@ if.end47.i:                                       ; preds = %for.body.i
 
 if.then52.i:                                      ; preds = %if.end47.i
   %size6.i.le = getelementptr inbounds i8, ptr %arrayidx.i3, i64 8
-  %15 = trunc i64 %indvars.iv.i to i32
+  %15 = trunc nuw nsw i64 %indvars.iv.i to i32
   store ptr %7, ptr %arrayidx.i3, align 8
   %add55.i = add i64 %11, %add2.i.i
   store i64 %add55.i, ptr %size6.i.le, align 8
@@ -2022,7 +2022,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %exitcond119.not.i, label %for.end137.i, label %land.rhs.i, !llvm.loop !21
 
 while.end.i:                                      ; preds = %land.rhs.i
-  %21 = trunc i64 %indvars.iv115.i to i32
+  %21 = trunc nuw nsw i64 %indvars.iv115.i to i32
   %cmp12598.i = icmp sgt i32 %9, %21
   br i1 %cmp12598.i, label %for.body127.lr.ph.i, label %for.end137.i
 

@@ -3756,7 +3756,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit39:          ; preds = %lpad14, %ehcleanup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN7Minimap15getMinimapShapeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #12 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN7Minimap15getMinimapShapeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #12 align 2 {
 entry:
   %data = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %data, align 8, !tbaa !139

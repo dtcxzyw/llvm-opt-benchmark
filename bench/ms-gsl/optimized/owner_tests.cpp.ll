@@ -217,7 +217,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local void @_ZN27owner_tests_basic_test_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-_ZN7testing15AssertionResultD2Ev.exit34:
+_ZN7testing15AssertionResultD2Ev.exit35:
   ret void
 }
 

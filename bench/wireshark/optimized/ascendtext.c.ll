@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ascend_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ascend_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @ascend_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [128 x i8], align 16
   %5 = alloca %struct.ascend_state_t, align 8
   %6 = alloca %struct.stat, align 8
@@ -248,7 +248,7 @@ define internal fastcc i64 @ascend_find_next_packet(ptr nocapture noundef readon
 declare zeroext i1 @run_ascend_parser(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ascend_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @ascend_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
@@ -267,7 +267,7 @@ define internal noundef i32 @ascend_read(ptr nocapture noundef readonly %0, ptr 
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   %20 = load i32, ptr %19, align 8
-  %21 = tail call fastcc i32 @parse_ascend(ptr noundef nonnull %8, ptr noundef %18, ptr noundef %1, ptr noundef %2, i32 noundef %20, ptr noundef nonnull %10, ptr noundef %3, ptr noundef %4), !range !7
+  %21 = tail call fastcc i32 @parse_ascend(ptr noundef nonnull %8, ptr noundef %18, ptr noundef %1, ptr noundef %2, i32 noundef %20, ptr noundef nonnull %10, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %26, label %22
 
@@ -292,7 +292,7 @@ define internal noundef i32 @ascend_read(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ascend_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @ascend_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -305,7 +305,7 @@ define internal noundef i32 @ascend_seek_read(ptr nocapture noundef readonly %0,
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
-  %17 = tail call fastcc i32 @parse_ascend(ptr noundef %8, ptr noundef %14, ptr noundef %2, ptr noundef %3, i32 noundef %16, ptr noundef null, ptr noundef %4, ptr noundef %5), !range !7
+  %17 = tail call fastcc i32 @parse_ascend(ptr noundef %8, ptr noundef %14, ptr noundef %2, ptr noundef %3, i32 noundef %16, ptr noundef null, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %21, label %18
 
@@ -353,7 +353,7 @@ declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_ascend(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_ascend(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.ascend_state_t, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %10, i8 0, i64 160, i1 false)
@@ -513,4 +513,3 @@ attributes #5 = { nounwind allocsize(0,1) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}

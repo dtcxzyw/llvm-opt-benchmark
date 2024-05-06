@@ -5351,7 +5351,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @inflight_desc_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #10 {
+define internal range(i32 -1, 2) i32 @inflight_desc_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #10 {
 entry:
   %counter = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load i64, ptr %counter, align 8

@@ -82,7 +82,7 @@ entry:
 declare void @nghttp2_pq_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @stream_less(ptr nocapture noundef readonly %lhsx, ptr nocapture noundef readonly %rhsx) #2 {
+define internal range(i32 0, 2) i32 @stream_less(ptr nocapture noundef readonly %lhsx, ptr nocapture noundef readonly %rhsx) #2 {
 entry:
   %cycle = getelementptr inbounds i8, ptr %lhsx, i64 72
   %0 = load i64, ptr %cycle, align 8
@@ -171,7 +171,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %cycle.i = getelementptr inbounds i8, ptr %stream.addr.017, i64 72
   store i64 %add2.i, ptr %cycle.i, align 8
   %rem.i = urem i64 %add.i, %conv1.i
-  %conv5.i = trunc i64 %rem.i to i32
+  %conv5.i = trunc nuw i64 %rem.i to i32
   store i32 %conv5.i, ptr %pending_penalty.i, align 4
   %descendant_next_seq = getelementptr inbounds i8, ptr %dep_stream.018, i64 80
   %5 = load i64, ptr %descendant_next_seq, align 8
@@ -250,7 +250,7 @@ if.end8:                                          ; preds = %if.end5
   %add2.i = add i64 %div.i, %sub20
   store i64 %add2.i, ptr %cycle, align 8
   %rem.i = urem i64 %add18, %conv1.i
-  %conv5.i = trunc i64 %rem.i to i32
+  %conv5.i = trunc nuw i64 %rem.i to i32
   store i32 %conv5.i, ptr %pending_penalty, align 4
   %descendant_last_cycle = getelementptr inbounds i8, ptr %1, i64 64
   %8 = load i64, ptr %descendant_last_cycle, align 8
@@ -344,7 +344,7 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
   %cycle.i.i.i = getelementptr inbounds i8, ptr %stream.addr.013.i.i, i64 72
   store i64 %add2.i.i.i, ptr %cycle.i.i.i, align 8
   %rem.i.i.i = urem i64 %add.i.i.i, %conv1.i.i.i
-  %conv5.i.i.i = trunc i64 %rem.i.i.i to i32
+  %conv5.i.i.i = trunc nuw i64 %rem.i.i.i to i32
   store i32 %conv5.i.i.i, ptr %pending_penalty.i.i.i, align 4
   %descendant_next_seq.i.i = getelementptr inbounds i8, ptr %dep_stream.addr.012.i.i, i64 80
   %10 = load i64, ptr %descendant_next_seq.i.i, align 8
@@ -544,7 +544,7 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
   %cycle.i.i.i = getelementptr inbounds i8, ptr %stream.addr.013.i.i, i64 72
   store i64 %add2.i.i.i, ptr %cycle.i.i.i, align 8
   %rem.i.i.i = urem i64 %add.i.i.i, %conv1.i.i.i
-  %conv5.i.i.i = trunc i64 %rem.i.i.i to i32
+  %conv5.i.i.i = trunc nuw i64 %rem.i.i.i to i32
   store i32 %conv5.i.i.i, ptr %pending_penalty.i.i.i, align 4
   %descendant_next_seq.i.i = getelementptr inbounds i8, ptr %dep_stream.addr.012.i.i, i64 80
   %9 = load i64, ptr %descendant_next_seq.i.i, align 8
@@ -570,7 +570,7 @@ return:                                           ; preds = %if.end.i.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @nghttp2_stream_check_deferred_item(ptr nocapture noundef readonly %stream) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @nghttp2_stream_check_deferred_item(ptr nocapture noundef readonly %stream) local_unnamed_addr #2 {
 entry:
   %item = getelementptr inbounds i8, ptr %stream, i64 152
   %0 = load ptr, ptr %item, align 8
@@ -591,7 +591,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @nghttp2_stream_check_deferred_by_flow_control(ptr nocapture noundef readonly %stream) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @nghttp2_stream_check_deferred_by_flow_control(ptr nocapture noundef readonly %stream) local_unnamed_addr #2 {
 entry:
   %item = getelementptr inbounds i8, ptr %stream, i64 152
   %0 = load ptr, ptr %item, align 8
@@ -612,7 +612,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @nghttp2_stream_update_remote_initial_window_size(ptr nocapture noundef %stream, i32 noundef %new_initial_window_size, i32 noundef %old_initial_window_size) local_unnamed_addr #3 {
+define hidden range(i32 -1, 1) i32 @nghttp2_stream_update_remote_initial_window_size(ptr nocapture noundef %stream, i32 noundef %new_initial_window_size, i32 noundef %old_initial_window_size) local_unnamed_addr #3 {
 entry:
   %remote_window_size = getelementptr inbounds i8, ptr %stream, i64 172
   %0 = load i32, ptr %remote_window_size, align 4
@@ -626,7 +626,7 @@ entry:
   br i1 %or.cond.i, label %update_initial_window_size.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %conv6.i = trunc i64 %sub.i to i32
+  %conv6.i = trunc nsw i64 %sub.i to i32
   store i32 %conv6.i, ptr %remote_window_size, align 4
   br label %update_initial_window_size.exit
 
@@ -636,7 +636,7 @@ update_initial_window_size.exit:                  ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @nghttp2_stream_update_local_initial_window_size(ptr nocapture noundef %stream, i32 noundef %new_initial_window_size, i32 noundef %old_initial_window_size) local_unnamed_addr #3 {
+define hidden range(i32 -1, 1) i32 @nghttp2_stream_update_local_initial_window_size(ptr nocapture noundef %stream, i32 noundef %new_initial_window_size, i32 noundef %old_initial_window_size) local_unnamed_addr #3 {
 entry:
   %local_window_size = getelementptr inbounds i8, ptr %stream, i64 188
   %0 = load i32, ptr %local_window_size, align 4
@@ -650,7 +650,7 @@ entry:
   br i1 %or.cond.i, label %update_initial_window_size.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %conv6.i = trunc i64 %sub.i to i32
+  %conv6.i = trunc nsw i64 %sub.i to i32
   store i32 %conv6.i, ptr %local_window_size, align 4
   br label %update_initial_window_size.exit
 
@@ -672,7 +672,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @nghttp2_stream_dep_find_ancestor(ptr noundef readonly %stream, ptr noundef readnone %target) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @nghttp2_stream_dep_find_ancestor(ptr noundef readonly %stream, ptr noundef readnone %target) local_unnamed_addr #5 {
 entry:
   %tobool.not3 = icmp eq ptr %stream, null
   br i1 %tobool.not3, label %return, label %for.body
@@ -752,7 +752,7 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
   %cycle.i.i.i = getelementptr inbounds i8, ptr %stream.addr.013.i.i, i64 72
   store i64 %add2.i.i.i, ptr %cycle.i.i.i, align 8
   %rem.i.i.i = urem i64 %add.i.i.i, %conv1.i.i.i
-  %conv5.i.i.i = trunc i64 %rem.i.i.i to i32
+  %conv5.i.i.i = trunc nuw i64 %rem.i.i.i to i32
   store i32 %conv5.i.i.i, ptr %pending_penalty.i.i.i, align 4
   %descendant_next_seq.i.i = getelementptr inbounds i8, ptr %dep_stream.addr.012.i.i, i64 80
   %9 = load i64, ptr %descendant_next_seq.i.i, align 8
@@ -832,7 +832,7 @@ for.body.i:                                       ; preds = %land.rhs.i
   %cycle.i.i = getelementptr inbounds i8, ptr %stream.addr.013.i, i64 72
   store i64 %add2.i.i, ptr %cycle.i.i, align 8
   %rem.i.i = urem i64 %add.i.i, %conv1.i.i
-  %conv5.i.i = trunc i64 %rem.i.i to i32
+  %conv5.i.i = trunc nuw i64 %rem.i.i to i32
   store i32 %conv5.i.i, ptr %pending_penalty.i.i, align 4
   %descendant_next_seq.i = getelementptr inbounds i8, ptr %dep_stream.addr.012.i, i64 80
   %20 = load i64, ptr %descendant_next_seq.i, align 8
@@ -974,7 +974,7 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
   %cycle.i.i.i = getelementptr inbounds i8, ptr %stream.addr.013.i.i, i64 72
   store i64 %add2.i.i.i, ptr %cycle.i.i.i, align 8
   %rem.i.i.i = urem i64 %add.i.i.i, %conv1.i.i.i
-  %conv5.i.i.i = trunc i64 %rem.i.i.i to i32
+  %conv5.i.i.i = trunc nuw i64 %rem.i.i.i to i32
   store i32 %conv5.i.i.i, ptr %pending_penalty.i.i.i, align 4
   %descendant_next_seq.i.i = getelementptr inbounds i8, ptr %dep_stream.addr.012.i.i, i64 80
   %11 = load i64, ptr %descendant_next_seq.i.i, align 8
@@ -1301,7 +1301,7 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
   %cycle.i.i.i = getelementptr inbounds i8, ptr %stream.addr.013.i.i, i64 72
   store i64 %add2.i.i.i, ptr %cycle.i.i.i, align 8
   %rem.i.i.i = urem i64 %add.i.i.i, %conv1.i.i.i
-  %conv5.i.i.i = trunc i64 %rem.i.i.i to i32
+  %conv5.i.i.i = trunc nuw i64 %rem.i.i.i to i32
   store i32 %conv5.i.i.i, ptr %pending_penalty.i.i.i, align 4
   %descendant_next_seq.i.i = getelementptr inbounds i8, ptr %dep_stream.addr.012.i.i, i64 80
   %12 = load i64, ptr %descendant_next_seq.i.i, align 8
@@ -1381,7 +1381,7 @@ for.body.i:                                       ; preds = %land.rhs.i
   %cycle.i.i = getelementptr inbounds i8, ptr %stream.addr.013.i, i64 72
   store i64 %add2.i.i, ptr %cycle.i.i, align 8
   %rem.i.i = urem i64 %add.i.i, %conv1.i.i
-  %conv5.i.i = trunc i64 %rem.i.i to i32
+  %conv5.i.i = trunc nuw i64 %rem.i.i to i32
   store i32 %conv5.i.i, ptr %pending_penalty.i.i, align 4
   %descendant_next_seq.i = getelementptr inbounds i8, ptr %dep_stream.addr.012.i, i64 80
   %23 = load i64, ptr %descendant_next_seq.i, align 8
@@ -1488,7 +1488,7 @@ for.body.i:                                       ; preds = %land.rhs.i
   %cycle.i.i = getelementptr inbounds i8, ptr %stream.addr.013.i, i64 72
   store i64 %add2.i.i, ptr %cycle.i.i, align 8
   %rem.i.i = urem i64 %add.i.i, %conv1.i.i
-  %conv5.i.i = trunc i64 %rem.i.i to i32
+  %conv5.i.i = trunc nuw i64 %rem.i.i to i32
   store i32 %conv5.i.i, ptr %pending_penalty.i.i, align 4
   %descendant_next_seq.i = getelementptr inbounds i8, ptr %dep_stream.addr.012.i, i64 80
   %12 = load i64, ptr %descendant_next_seq.i, align 8
@@ -1624,7 +1624,7 @@ if.end15:                                         ; preds = %for.inc.i, %stream_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @nghttp2_stream_in_dep_tree(ptr nocapture noundef readonly %stream) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @nghttp2_stream_in_dep_tree(ptr nocapture noundef readonly %stream) local_unnamed_addr #2 {
 entry:
   %dep_prev = getelementptr inbounds i8, ptr %stream, i64 96
   %0 = load ptr, ptr %dep_prev, align 8
@@ -1713,7 +1713,7 @@ return:                                           ; preds = %if.end, %for.cond1.
 declare ptr @nghttp2_pq_top(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nghttp2_stream_get_state(ptr nocapture noundef readonly %stream) local_unnamed_addr #2 {
+define range(i32 1, 8) i32 @nghttp2_stream_get_state(ptr nocapture noundef readonly %stream) local_unnamed_addr #2 {
 entry:
   %flags = getelementptr inbounds i8, ptr %stream, i64 216
   %0 = load i8, ptr %flags, align 8

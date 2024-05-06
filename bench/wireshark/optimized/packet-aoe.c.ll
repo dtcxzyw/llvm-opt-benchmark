@@ -570,7 +570,7 @@ define internal i32 @ata_cmd_hash_unmatched(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @ata_cmd_equal_unmatched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @ata_cmd_equal_unmatched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -598,7 +598,7 @@ define internal noundef i32 @ata_cmd_hash_matched(ptr noundef %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ata_cmd_equal_matched(ptr noundef readnone %0, ptr noundef readnone %1) #3 {
+define internal range(i32 0, 2) i32 @ata_cmd_equal_matched(ptr noundef readnone %0, ptr noundef readnone %1) #3 {
   %3 = icmp eq ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4

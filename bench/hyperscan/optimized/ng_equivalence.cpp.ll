@@ -385,7 +385,7 @@ _ZN3ue212_GLOBAL__N_19WorkQueueC2Ej.exit:         ; preds = %entry, %_ZNSt12_Vec
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %w_vi.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp96.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %infos, i8 0, i64 24, i1 false), !alias.scope !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %infos, i8 0, i64 24, i1 false), !alias.scope !7
   %mul.i = shl i64 %0, 1
   %cmp.i.i = icmp ugt i64 %mul.i, 1152921504606846975
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
@@ -439,17 +439,17 @@ _ZNKSt6vectorIPN3ue212_GLOBAL__N_110VertexInfoESaIS3_EE12_M_check_lenEmPKc.exit.
 
 call5.i.i.i.i.i.noexc.i:                          ; preds = %_ZNKSt6vectorIPN3ue212_GLOBAL__N_110VertexInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   store ptr null, ptr %call5.i.i.i.i.i53.i, align 8, !noalias !7
-  %cmp.i.i.i.i.i25.i.i.i = icmp eq i64 %0, 1
-  br i1 %cmp.i.i.i.i.i25.i.i.i, label %invoke.cont4.i, label %if.end.i.i.i.i.i26.i.i.i
+  %cmp.i.i.i.i.i24.i.i.i = icmp eq i64 %0, 1
+  br i1 %cmp.i.i.i.i.i24.i.i.i, label %invoke.cont4.i, label %if.end.i.i.i.i.i25.i.i.i
 
-if.end.i.i.i.i.i26.i.i.i:                         ; preds = %call5.i.i.i.i.i.noexc.i
+if.end.i.i.i.i.i25.i.i.i:                         ; preds = %call5.i.i.i.i.i.noexc.i
   %incdec.ptr.i.i.i23.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i53.i, i64 8
   %4 = add nsw i64 %mul.i.i.i.i.i.i, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i23.i.i.i, i8 0, i64 %4, i1 false), !noalias !7
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %incdec.ptr.i.i.i23.i.i.i, i8 0, i64 %4, i1 false), !noalias !7
   br label %invoke.cont4.i
 
-invoke.cont4.i:                                   ; preds = %if.end.i.i.i.i.i26.i.i.i, %call5.i.i.i.i.i.noexc.i, %invoke.cont.i
-  %vertex_map.sroa.0.0.i = phi ptr [ %call5.i.i.i.i.i53.i, %if.end.i.i.i.i.i26.i.i.i ], [ %call5.i.i.i.i.i53.i, %call5.i.i.i.i.i.noexc.i ], [ null, %invoke.cont.i ]
+invoke.cont4.i:                                   ; preds = %if.end.i.i.i.i.i25.i.i.i, %call5.i.i.i.i.i.noexc.i, %invoke.cont.i
+  %vertex_map.sroa.0.0.i = phi ptr [ %call5.i.i.i.i.i53.i, %if.end.i.i.i.i.i25.i.i.i ], [ %call5.i.i.i.i.i53.i, %call5.i.i.i.i.i.noexc.i ], [ null, %invoke.cont.i ]
   %m_header.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 16
   %__begin1.sroa.0.0138.i = load ptr, ptr %m_header.i.i.i.i.i.i.i, align 8, !noalias !7
   %cmp.i.i.i.i.not139.i = icmp eq ptr %__begin1.sroa.0.0138.i, %m_header.i.i.i.i.i.i.i
@@ -928,7 +928,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i98.i, 
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %infos.val.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %classes, i8 0, i64 24, i1 false), !alias.scope !22
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %classes, i8 0, i64 24, i1 false), !alias.scope !22
   %_M_single_bucket.i.i.i12 = getelementptr inbounds i8, ptr %classinfomap.i, i64 48
   store ptr %_M_single_bucket.i.i.i12, ptr %classinfomap.i, align 8, !noalias !22
   %_M_bucket_count.i.i.i13 = getelementptr inbounds i8, ptr %classinfomap.i, i64 8
@@ -1174,9 +1174,9 @@ invoke.cont28.i:                                  ; preds = %cleanup.done.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp3.i.i.i.i.i.i14.i.i), !noalias !22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp4.i.i.i.i.i.i15.i.i), !noalias !22
   %cr10.i.i = getelementptr inbounds i8, ptr %call12.val26.i, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %cr10.i.i, i64 32, i1 false), !noalias !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %cr10.i.i, i64 32, i1 false), !noalias !22
   %cond-lvalue.i.i = getelementptr inbounds i8, ptr %call12.val26.i, i64 %cond-lvalue.v.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %adjacent_cr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i.i, i64 32, i1 false), !noalias !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %adjacent_cr.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %cond-lvalue.i.i, i64 32, i1 false), !noalias !22
   %v17.i.i = getelementptr inbounds i8, ptr %call12.val26.i, i64 64
   %agg.tmp16.sroa.0.0.copyload.i.i = load ptr, ptr %v17.i.i, align 8, !noalias !22
   %index.i.i = getelementptr inbounds i8, ptr %agg.tmp16.sroa.0.0.copyload.i.i, i64 80
@@ -1245,13 +1245,13 @@ land.lhs.true5.i.i.i151.i:                        ; preds = %land.lhs.true.i.i.i
 
 land.lhs.true10.i.i.i158.i:                       ; preds = %land.lhs.true5.i.i.i151.i
   %cr11.i.i.i160.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i378.i, i64 80
-  %bcmp.i.i.i.i.i.i.i.i.i.i161.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %cr.i.i, ptr noundef nonnull dereferenceable(32) %cr11.i.i.i160.i, i64 32), !noalias !22
+  %bcmp.i.i.i.i.i.i.i.i.i.i161.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %cr.i.i, ptr noundef nonnull readonly dereferenceable(32) %cr11.i.i.i160.i, i64 32), !noalias !22
   %tobool1.not.i.i.i.i.i.i.i.i.i.i162.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i161.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i162.i, label %land.lhs.true13.i.i.i163.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit204.i
 
 land.lhs.true13.i.i.i163.i:                       ; preds = %land.lhs.true10.i.i.i158.i
   %adjacent_cr14.i.i.i165.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i378.i, i64 112
-  %bcmp.i.i.i.i.i.i.i12.i.i.i166.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %adjacent_cr.i.i, ptr noundef nonnull dereferenceable(32) %adjacent_cr14.i.i.i165.i, i64 32), !noalias !22
+  %bcmp.i.i.i.i.i.i.i12.i.i.i166.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %adjacent_cr.i.i, ptr noundef nonnull readonly dereferenceable(32) %adjacent_cr14.i.i.i165.i, i64 32), !noalias !22
   %tobool1.not.i.i.i.i.i.i.i13.i.i.i167.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i12.i.i.i166.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i13.i.i.i167.i, label %land.lhs.true16.i.i.i168.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit204.i
 
@@ -1322,7 +1322,7 @@ _ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_
   br i1 %cmp.i.not.i.i.i, label %if.then39.i, label %for.body.i.i.i, !llvm.loop !46
 
 if.end15.i.i.i:                                   ; preds = %invoke.cont28.i
-  %call16.i.i.i = call fastcc noundef i64 @_ZNKSt8__detail15_Hash_code_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_(ptr noundef nonnull align 8 dereferenceable(156) %ci.i), !noalias !22
+  %call16.i.i.i = call fastcc noundef i64 @_ZNKSt8__detail15_Hash_code_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_(ptr noundef nonnull readonly align 8 dereferenceable(156) %ci.i), !noalias !22
   %this.val5.i.i.i = load i64, ptr %_M_bucket_count.i.i.i13, align 8, !noalias !22
   %rem.i.i.i.i.i.i = urem i64 %call16.i.i.i, %this.val5.i.i.i
   %this.val6.i.i.i = load ptr, ptr %classinfomap.i, align 8, !noalias !22
@@ -1381,13 +1381,13 @@ land.lhs.true5.i.i.i.i:                           ; preds = %land.lhs.true.i.i.i
 
 land.lhs.true10.i.i.i.i:                          ; preds = %land.lhs.true5.i.i.i.i
   %cr11.i.i.i.i = getelementptr inbounds i8, ptr %104, i64 80
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %cr.i.i, ptr noundef nonnull dereferenceable(32) %cr11.i.i.i.i, i64 32), !noalias !22
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %cr.i.i, ptr noundef nonnull readonly dereferenceable(32) %cr11.i.i.i.i, i64 32), !noalias !22
   %tobool1.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true13.i.i.i.i, label %if.end3.i.i.i.i.i
 
 land.lhs.true13.i.i.i.i:                          ; preds = %land.lhs.true10.i.i.i.i
   %adjacent_cr14.i.i.i.i = getelementptr inbounds i8, ptr %104, i64 112
-  %bcmp.i.i.i.i.i.i.i12.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %adjacent_cr.i.i, ptr noundef nonnull dereferenceable(32) %adjacent_cr14.i.i.i.i, i64 32), !noalias !22
+  %bcmp.i.i.i.i.i.i.i12.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %adjacent_cr.i.i, ptr noundef nonnull readonly dereferenceable(32) %adjacent_cr14.i.i.i.i, i64 32), !noalias !22
   %tobool1.not.i.i.i.i.i.i.i13.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i12.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i13.i.i.i.i, label %land.lhs.true16.i.i.i.i, label %if.end3.i.i.i.i.i
 
@@ -1486,7 +1486,7 @@ if.then39.i:                                      ; preds = %lor.lhs.false.i.i.i
   store i64 1, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i61.i, align 8, !noalias !22
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i.i60.i, align 8, !noalias !22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i.i.i), !noalias !22
-  invoke fastcc void @_ZN3ue28flat_setIPNS_12_GLOBAL__N_110VertexInfoENS1_16VertexInfoPtrCmpESaIS3_EE6insertERKS3_(ptr noalias nonnull align 8 %tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp43.i)
+  invoke fastcc void @_ZN3ue28flat_setIPNS_12_GLOBAL__N_110VertexInfoENS1_16VertexInfoPtrCmpESaIS3_EE6insertERKS3_(ptr noalias nonnull align 8 %tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp43.i)
           to label %invoke.cont48.i unwind label %lpad.i.i, !noalias !22
 
 lpad.i.i:                                         ; preds = %if.then39.i
@@ -1656,13 +1656,13 @@ land.lhs.true5.i.i.i215.i:                        ; preds = %land.lhs.true.i.i.i
 
 land.lhs.true10.i.i.i222.i:                       ; preds = %land.lhs.true5.i.i.i215.i
   %cr11.i.i.i224.i = getelementptr inbounds i8, ptr %__it.sroa.0.0.i.i.i381.i, i64 80
-  %bcmp.i.i.i.i.i.i.i.i.i.i225.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %cr.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %cr11.i.i.i224.i, i64 32), !noalias !22
+  %bcmp.i.i.i.i.i.i.i.i.i.i225.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %cr.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(32) %cr11.i.i.i224.i, i64 32), !noalias !22
   %tobool1.not.i.i.i.i.i.i.i.i.i.i226.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i225.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i226.i, label %land.lhs.true13.i.i.i227.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit268.i
 
 land.lhs.true13.i.i.i227.i:                       ; preds = %land.lhs.true10.i.i.i222.i
   %adjacent_cr14.i.i.i229.i = getelementptr inbounds i8, ptr %__it.sroa.0.0.i.i.i381.i, i64 112
-  %bcmp.i.i.i.i.i.i.i12.i.i.i230.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %adjacent_cr.i.i.i228.i, ptr noundef nonnull dereferenceable(32) %adjacent_cr14.i.i.i229.i, i64 32), !noalias !22
+  %bcmp.i.i.i.i.i.i.i12.i.i.i230.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %adjacent_cr.i.i.i228.i, ptr noundef nonnull readonly dereferenceable(32) %adjacent_cr14.i.i.i229.i, i64 32), !noalias !22
   %tobool1.not.i.i.i.i.i.i.i13.i.i.i231.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i12.i.i.i230.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i13.i.i.i231.i, label %land.lhs.true16.i.i.i232.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue212_GLOBAL__N_19ClassInfoESt4pairIKS3_jENS_10_Select1stESt8equal_toIS3_ENS1_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit268.i
 
@@ -1809,13 +1809,13 @@ land.lhs.true5.i.i.i:                             ; preds = %land.lhs.true.i.i.i
 
 land.lhs.true10.i.i.i:                            ; preds = %land.lhs.true5.i.i.i
   %cr11.i.i.i = getelementptr inbounds i8, ptr %172, i64 80
-  %bcmp.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %cr.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(32) %cr11.i.i.i, i64 32), !noalias !22
+  %bcmp.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %cr.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(32) %cr11.i.i.i, i64 32), !noalias !22
   %tobool1.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.i.i, label %land.lhs.true13.i.i.i, label %if.end3.i.i.i.i.i.i
 
 land.lhs.true13.i.i.i:                            ; preds = %land.lhs.true10.i.i.i
   %adjacent_cr14.i.i.i = getelementptr inbounds i8, ptr %172, i64 112
-  %bcmp.i.i.i.i.i.i.i12.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %adjacent_cr.i.i.i, ptr noundef nonnull dereferenceable(32) %adjacent_cr14.i.i.i, i64 32), !noalias !22
+  %bcmp.i.i.i.i.i.i.i12.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %adjacent_cr.i.i.i, ptr noundef nonnull readonly dereferenceable(32) %adjacent_cr14.i.i.i, i64 32), !noalias !22
   %tobool1.not.i.i.i.i.i.i.i13.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i12.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i13.i.i.i, label %land.lhs.true16.i.i.i, label %if.end3.i.i.i.i.i.i
 
@@ -2186,7 +2186,7 @@ invoke.cont8.i.i.i.i.i.i.i:                       ; preds = %call5.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.not.i.i.i.i.i.i, label %if.then19.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont8.i.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i.i.i.i.i101.i, ptr nonnull align 8 %call.val.i.i, i64 %sub.ptr.sub.i.i.i.i23.i.i, i1 false), !noalias !93
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %call5.i.i.i.i.i.i.i.i.i.i.i101.i, ptr nonnull align 8 %call.val.i.i, i64 %sub.ptr.sub.i.i.i.i23.i.i, i1 false), !noalias !93
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i.i.i.i101.i, i64 %sub.ptr.sub.i.i.i.i23.i.i
   br label %if.then19.i.i.i.i.i.i.i
 
@@ -2202,7 +2202,7 @@ if.then19.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
 if.then.i.i23.i.i.i.i.i.i.i:                      ; preds = %if.then19.i.i.i.i.i.i.i
   %sub.ptr.lhs.cast.i.i24.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i88.i to i64
   %sub.ptr.sub.i.i26.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i24.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i.i.i.i20.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i11.i.i, ptr nonnull align 8 %__first.val.i.i.i.i, i64 %sub.ptr.sub.i.i26.i.i.i.i.i.i.i, i1 false), !noalias !93
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i.i.i.i.i11.i.i, ptr nonnull align 8 %__first.val.i.i.i.i, i64 %sub.ptr.sub.i.i26.i.i.i.i.i.i.i, i1 false), !noalias !93
   %add.ptr.i.i.i27.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i11.i.i, i64 %sub.ptr.sub.i.i26.i.i.i.i.i.i.i
   br label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIPN3ue212_GLOBAL__N_110VertexInfoESaIvEvEEPS6_S9_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SD_E4typeERT_SC_SC_SD_.exit28.i.i.i.i.i.i.i
 
@@ -2258,7 +2258,7 @@ invoke.cont3.i.i.i.i.i.i.i:                       ; preds = %_ZN5boost9container
   %sub.ptr.div.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 3
   %idx.neg.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i.i
   %add.ptr.i34.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i88.i, i64 %idx.neg.i.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i34.i.i.i.i.i.i, ptr nonnull align 8 %__first.val.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false), !noalias !82
+  call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %add.ptr.i34.i.i.i.i.i.i, ptr nonnull align 8 %__first.val.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false), !noalias !82
   br label %_ZN5boost9container13move_backwardIPPN3ue212_GLOBAL__N_110VertexInfoES6_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_SA_E4typeES9_S9_SA_.exit.i.i.i.i.i.i
 
 _ZN5boost9container13move_backwardIPPN3ue212_GLOBAL__N_110VertexInfoES6_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_SA_E4typeES9_S9_SA_.exit.i.i.i.i.i.i: ; preds = %invoke.cont3.i.i.i.i.i.i.i, %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIPN3ue212_GLOBAL__N_110VertexInfoESaIvEvEEPS6_S9_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SD_E4typeERT_SC_SC_SD_.exit.i.i.i.i.i.i
@@ -4204,7 +4204,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i86.i
   %sub.ptr.lhs.cast.i.i.i.i.i88.i = ptrtoint ptr %add.ptr.i.i.i85.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i89.i = ptrtoint ptr %add.ptr.i.i6.i.i to i64
   %sub.ptr.sub.i.i.i.i.i90.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i88.i, %sub.ptr.rhs.cast.i.i.i.i.i89.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %it.sroa.0.0.i.i.i, ptr nonnull align 8 %add.ptr.i.i6.i.i, i64 %sub.ptr.sub.i.i.i.i.i90.i, i1 false), !noalias !191
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %it.sroa.0.0.i.i.i, ptr nonnull align 8 %add.ptr.i.i6.i.i, i64 %sub.ptr.sub.i.i.i.i.i90.i, i1 false), !noalias !191
   %.pre.i.i.i.i109 = load i64, ptr %446, align 8, !noalias !191
   br label %_ZN3ue28flat_setIPNS_12_GLOBAL__N_110VertexInfoENS1_16VertexInfoPtrCmpESaIS3_EE5eraseENS_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPS3_Lb1EEEKS3_EE.exit.i.i
 
@@ -6015,7 +6015,7 @@ if.then.i.i.i.i.i163.i.i:                         ; preds = %if.then.i.i.i205
   %sub.ptr.lhs.cast.i.i.i.i.i164.i.i = ptrtoint ptr %add.ptr.i.i.i160.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i165.i.i = ptrtoint ptr %add.ptr.i.i6.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i166.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i164.i.i, %sub.ptr.rhs.cast.i.i.i.i.i165.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %it.sroa.0.0.i.i.i.i, ptr nonnull align 8 %add.ptr.i.i6.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i166.i.i, i1 false), !noalias !292
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %it.sroa.0.0.i.i.i.i, ptr nonnull align 8 %add.ptr.i.i6.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i166.i.i, i1 false), !noalias !292
   %.pre.i.i.i.i.i = load i64, ptr %630, align 8, !noalias !292
   %.pre894.pre.i.i = load ptr, ptr %pred_info.i.i, align 8
   br label %_ZN3ue28flat_setIPNS_12_GLOBAL__N_110VertexInfoENS1_16VertexInfoPtrCmpESaIS3_EE5eraseENS_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPS3_Lb1EEEKS3_EE.exit.i.i.i
@@ -6573,7 +6573,7 @@ if.then.i.i.i.i.i277.i.i:                         ; preds = %if.then.i269.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i278.i.i = ptrtoint ptr %add.ptr.i.i.i256.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i279.i.i = ptrtoint ptr %add.ptr.i.i6.i270.i.i to i64
   %sub.ptr.sub.i.i.i.i.i280.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i278.i.i, %sub.ptr.rhs.cast.i.i.i.i.i279.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %it.sroa.0.0.i.i267.i.i, ptr nonnull align 8 %add.ptr.i.i6.i270.i.i, i64 %sub.ptr.sub.i.i.i.i.i280.i.i, i1 false), !noalias !323
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %it.sroa.0.0.i.i267.i.i, ptr nonnull align 8 %add.ptr.i.i6.i270.i.i, i64 %sub.ptr.sub.i.i.i.i.i280.i.i, i1 false), !noalias !323
   %.pre.i.i.i281.i.i = load i64, ptr %678, align 8, !noalias !323
   br label %_ZN3ue28flat_setIPNS_12_GLOBAL__N_110VertexInfoENS1_16VertexInfoPtrCmpESaIS3_EE5eraseENS_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPS3_Lb1EEEKS3_EE.exit.i274.i.i
 
@@ -7921,7 +7921,7 @@ invoke.cont8.i.i.i.i.i:                           ; preds = %_ZN5boost9container
   br i1 %cmp.i.i.i.not.i.i.i.i, label %if.then21.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont8.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i.i.i.i, ptr nonnull align 8 %call.val, i64 %sub.ptr.sub.i.i.i.i23, i1 false), !noalias !415
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %call5.i.i.i.i.i.i.i.i.i.i, ptr nonnull align 8 %call.val, i64 %sub.ptr.sub.i.i.i.i23, i1 false), !noalias !415
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i23
   br label %if.then21.i.i.i.i.i
 
@@ -7937,7 +7937,7 @@ if.then21.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i
 if.then.i.i23.i.i.i.i.i:                          ; preds = %if.then21.i.i.i.i.i
   %sub.ptr.lhs.cast.i.i24.i.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i.i26.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i24.i.i.i.i.i, %sub.ptr.lhs.cast.i.i.i.i20
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i11, ptr nonnull align 8 %__first.val.i.i, i64 %sub.ptr.sub.i.i26.i.i.i.i.i, i1 false), !noalias !415
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %add.ptr.i.i.i.i.i11, ptr nonnull align 8 %__first.val.i.i, i64 %sub.ptr.sub.i.i26.i.i.i.i.i, i1 false), !noalias !415
   %add.ptr.i.i.i27.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i11, i64 %sub.ptr.sub.i.i26.i.i.i.i.i
   br label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIPN3ue212_GLOBAL__N_110VertexInfoESaIvEvEEPS6_S9_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SD_E4typeERT_SC_SC_SD_.exit28.i.i.i.i.i
 
@@ -7993,7 +7993,7 @@ invoke.cont3.i.i.i.i.i:                           ; preds = %_ZN5boost9container
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i34.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i, i64 %idx.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i34.i.i.i.i, ptr nonnull align 8 %__first.val.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false), !noalias !404
+  tail call void @llvm.memmove.p0.p0.i64(ptr writeonly align 8 %add.ptr.i34.i.i.i.i, ptr nonnull align 8 %__first.val.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false), !noalias !404
   br label %_ZN5boost9container13move_backwardIPPN3ue212_GLOBAL__N_110VertexInfoES6_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_SA_E4typeES9_S9_SA_.exit.i.i.i.i
 
 _ZN5boost9container13move_backwardIPPN3ue212_GLOBAL__N_110VertexInfoES6_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_SA_E4typeES9_S9_SA_.exit.i.i.i.i: ; preds = %invoke.cont3.i.i.i.i.i, %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIPN3ue212_GLOBAL__N_110VertexInfoESaIvEvEEPS6_S9_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SD_E4typeERT_SC_SC_SD_.exit.i.i.i.i
@@ -8220,7 +8220,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.then10.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, ptr %0, align 8
   store i64 %x.val8.i.i.i.i.i.i.i.i.i.i, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, ptr nonnull align 8 %x.val.i.i.i.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %call5.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i, ptr nonnull align 8 %x.val.i.i.i.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZN5boost9container6vectorIPN3ue212_GLOBAL__N_110VertexInfoENS0_22small_vector_allocatorIS5_SaIvEvEEvE6assignINS_13move_iteratorIPS5_EEEEvT_SE_PNS_11move_detail13disable_if_orIvNSF_7is_sameINSF_17integral_constantIjLj1EEENSI_IjLj0EEEEENSF_14is_convertibleISE_mEENS0_3dtl17is_input_iteratorISE_Xsr21has_iterator_categoryISE_EE5valueEEENSF_5bool_ILb0EEEE4typeE.exit.i.i.i.i.i.i.i.i.i.i
 
 if.end25.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.else.i.i.i.i.i.i.i.i.i.i
@@ -8228,7 +8228,7 @@ if.end25.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container6vectorIPN3ue212_GLOBAL__N_110VertexInfoENS0_22small_vector_allocatorIS5_SaIvEvEEvE6assignINS_13move_iteratorIPS5_EEEEvT_SE_PNS_11move_detail13disable_if_orIvNSF_7is_sameINSF_17integral_constantIjLj1EEENSI_IjLj0EEEEENSF_14is_convertibleISE_mEENS0_3dtl17is_input_iteratorISE_Xsr21has_iterator_categoryISE_EE5valueEEENSF_5bool_ILb0EEEE4typeE.exit.i.i.i.i.i.i.i.i.i.i
 
 invoke.cont1.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %if.end25.i.i.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %m_storage_start.i.i.i.i.i.i.i.i.i.i.i, ptr align 8 %x.val.i.i.i.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %m_storage_start.i.i.i.i.i.i.i.i.i.i.i, ptr readonly align 8 %x.val.i.i.i.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZN5boost9container6vectorIPN3ue212_GLOBAL__N_110VertexInfoENS0_22small_vector_allocatorIS5_SaIvEvEEvE6assignINS_13move_iteratorIPS5_EEEEvT_SE_PNS_11move_detail13disable_if_orIvNSF_7is_sameINSF_17integral_constantIjLj1EEENSI_IjLj0EEEEENSF_14is_convertibleISE_mEENS0_3dtl17is_input_iteratorISE_Xsr21has_iterator_categoryISE_EE5valueEEENSF_5bool_ILb0EEEE4typeE.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZN5boost9container6vectorIPN3ue212_GLOBAL__N_110VertexInfoENS0_22small_vector_allocatorIS5_SaIvEvEEvE6assignINS_13move_iteratorIPS5_EEEEvT_SE_PNS_11move_detail13disable_if_orIvNSF_7is_sameINSF_17integral_constantIjLj1EEENSI_IjLj0EEEEENSF_14is_convertibleISE_mEENS0_3dtl17is_input_iteratorISE_Xsr21has_iterator_categoryISE_EE5valueEEENSF_5bool_ILb0EEEE4typeE.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %invoke.cont1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end25.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i
@@ -8325,7 +8325,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.then10.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i, align 8
   store i64 %x.val8.i.i.i.i.i.i.i.i.i.i.i, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, ptr nonnull align 8 %x.val.i.i.i.i.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %call5.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, ptr nonnull align 8 %x.val.i.i.i.i.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZN5boost9container6vectorIPN3ue212_GLOBAL__N_110VertexInfoENS0_22small_vector_allocatorIS5_SaIvEvEEvE6assignINS_13move_iteratorIPS5_EEEEvT_SE_PNS_11move_detail13disable_if_orIvNSF_7is_sameINSF_17integral_constantIjLj1EEENSI_IjLj0EEEEENSF_14is_convertibleISE_mEENS0_3dtl17is_input_iteratorISE_Xsr21has_iterator_categoryISE_EE5valueEEENSF_5bool_ILb0EEEE4typeE.exit.i.i.i.i.i.i.i.i.i.i.i
 
 if.end25.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i
@@ -8333,7 +8333,7 @@ if.end25.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container6vectorIPN3ue212_GLOBAL__N_110VertexInfoENS0_22small_vector_allocatorIS5_SaIvEvEEvE6assignINS_13move_iteratorIPS5_EEEEvT_SE_PNS_11move_detail13disable_if_orIvNSF_7is_sameINSF_17integral_constantIjLj1EEENSI_IjLj0EEEEENSF_14is_convertibleISE_mEENS0_3dtl17is_input_iteratorISE_Xsr21has_iterator_categoryISE_EE5valueEEENSF_5bool_ILb0EEEE4typeE.exit.i.i.i.i.i.i.i.i.i.i.i
 
 invoke.cont1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %if.end25.i.i.i.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %m_storage_start.i.i.i.i.i.i.i.i.i.i.i.i, ptr align 8 %x.val.i.i.i.i.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %m_storage_start.i.i.i.i.i.i.i.i.i.i.i.i, ptr readonly align 8 %x.val.i.i.i.i.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZN5boost9container6vectorIPN3ue212_GLOBAL__N_110VertexInfoENS0_22small_vector_allocatorIS5_SaIvEvEEvE6assignINS_13move_iteratorIPS5_EEEEvT_SE_PNS_11move_detail13disable_if_orIvNSF_7is_sameINSF_17integral_constantIjLj1EEENSI_IjLj0EEEEENSF_14is_convertibleISE_mEENS0_3dtl17is_input_iteratorISE_Xsr21has_iterator_categoryISE_EE5valueEEENSF_5bool_ILb0EEEE4typeE.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN5boost9container6vectorIPN3ue212_GLOBAL__N_110VertexInfoENS0_22small_vector_allocatorIS5_SaIvEvEEvE6assignINS_13move_iteratorIPS5_EEEEvT_SE_PNS_11move_detail13disable_if_orIvNSF_7is_sameINSF_17integral_constantIjLj1EEENSI_IjLj0EEEEENSF_14is_convertibleISE_mEENS0_3dtl17is_input_iteratorISE_Xsr21has_iterator_categoryISE_EE5valueEEENSF_5bool_ILb0EEEE4typeE.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %invoke.cont1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end25.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i.i
@@ -8401,7 +8401,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %if.then10.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %__cur.05.i.i.i.i.i, align 8, !alias.scope !418, !noalias !421
   store i64 %x.val8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !418, !noalias !421
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !418, !noalias !421
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr nonnull align 8 %x.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull writeonly align 8 %call5.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr nonnull align 8 %x.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt16allocator_traitsISaIN3ue28flat_setIPNS0_12_GLOBAL__N_110VertexInfoENS2_16VertexInfoPtrCmpESaIS4_EEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i.i.i
 
 if.end25.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -8409,7 +8409,7 @@ if.end25.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3ue28flat_setIPNS0_12_GLOBAL__N_110VertexInfoENS2_16VertexInfoPtrCmpESaIS4_EEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i.i.i
 
 invoke.cont1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.end25.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %m_storage_start.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr align 8 %x.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull writeonly align 8 %m_storage_start.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr readonly align 8 %x.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt16allocator_traitsISaIN3ue28flat_setIPNS0_12_GLOBAL__N_110VertexInfoENS2_16VertexInfoPtrCmpESaIS4_EEEEE9constructIS7_JS7_EEEvRS8_PT_DpOT0_.exit.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.loopexit.i.i.i.i.i: ; preds = %if.then10.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i

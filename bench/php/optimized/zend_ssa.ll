@@ -868,7 +868,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   %84 = load ptr, ptr %77, align 8
   %85 = load ptr, ptr %75, align 8
   %86 = shl nuw nsw i64 %73, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %85, i8 0, i64 %86, i1 false)
+  call void @llvm.memset.p0.i64(ptr writeonly align 8 %85, i8 0, i64 %86, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %87 = load ptr, ptr %9, align 8
@@ -937,7 +937,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   %127 = load ptr, ptr %95, align 8
   %128 = load i32, ptr %127, align 4
   %129 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %130 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %129, i32 noundef %128, i32 noundef %126)
+  %130 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %129, i32 noundef %128, i32 noundef %126)
   %.not542.i = icmp eq ptr %130, null
   br i1 %.not542.i, label %.thread665.i, label %131
 
@@ -965,7 +965,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   %145 = getelementptr inbounds i8, ptr %144, i64 4
   %146 = load i32, ptr %145, align 4
   %147 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %148 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %147, i32 noundef %146, i32 noundef %143)
+  %148 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %147, i32 noundef %146, i32 noundef %143)
   %.not.i = icmp eq ptr %148, null
   br i1 %.not.i, label %.thread665.i, label %149
 
@@ -1254,7 +1254,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
 
 297:                                              ; preds = %296
   %298 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %299 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %298, i32 noundef %.0488.i, i32 noundef %.2656.i)
+  %299 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %298, i32 noundef %.0488.i, i32 noundef %.2656.i)
   %.not576.i = icmp eq ptr %299, null
   br i1 %.not576.i, label %312, label %300
 
@@ -1283,7 +1283,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br label %312
 
 312:                                              ; preds = %300, %297
-  %313 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %298, i32 noundef %.0489.i, i32 noundef %.2656.i)
+  %313 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %298, i32 noundef %.0489.i, i32 noundef %.2656.i)
   %.not577.i = icmp eq ptr %313, null
   br i1 %.not577.i, label %.critedge.thread.i, label %314
 
@@ -1313,7 +1313,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
 
 326:                                              ; preds = %296
   %327 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %328 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %327, i32 noundef %.0489.i, i32 noundef %.2656.i)
+  %328 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %327, i32 noundef %.0489.i, i32 noundef %.2656.i)
   %.not574.i = icmp eq ptr %328, null
   br i1 %.not574.i, label %341, label %329
 
@@ -1342,7 +1342,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br label %341
 
 341:                                              ; preds = %329, %326
-  %342 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %327, i32 noundef %.0488.i, i32 noundef %.2656.i)
+  %342 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %327, i32 noundef %.0488.i, i32 noundef %.2656.i)
   %.not575.i = icmp eq ptr %342, null
   br i1 %.not575.i, label %.critedge.thread.i, label %343
 
@@ -1377,7 +1377,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br i1 %.not571.i, label %._crit_edge675.i, label %357
 
 357:                                              ; preds = %355
-  %358 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %.pre678.i, i32 noundef %.0488.i, i32 noundef %.2656.i)
+  %358 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %.pre678.i, i32 noundef %.0488.i, i32 noundef %.2656.i)
   %.not572.i = icmp eq ptr %358, null
   br i1 %.not572.i, label %._crit_edge675.i, label %359
 
@@ -1406,7 +1406,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br label %._crit_edge675.i
 
 ._crit_edge675.i:                                 ; preds = %359, %357, %355
-  %371 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %.pre678.i, i32 noundef %.0489.i, i32 noundef %.2656.i)
+  %371 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %.pre678.i, i32 noundef %.0489.i, i32 noundef %.2656.i)
   %.not573.i = icmp eq ptr %371, null
   br i1 %.not573.i, label %.critedge.thread.i, label %372
 
@@ -1435,7 +1435,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
 
 383:                                              ; preds = %296
   %384 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %385 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %384, i32 noundef %.0488.i, i32 noundef %.2656.i)
+  %385 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %384, i32 noundef %.0488.i, i32 noundef %.2656.i)
   %.not568.i = icmp eq ptr %385, null
   %.pre673.i = load i64, ptr %7, align 8
   br i1 %.not568.i, label %397, label %386
@@ -1468,7 +1468,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br i1 %.not569.i, label %.critedge.thread.i, label %398
 
 398:                                              ; preds = %397
-  %399 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %384, i32 noundef %.0489.i, i32 noundef %.2656.i)
+  %399 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %384, i32 noundef %.0489.i, i32 noundef %.2656.i)
   %.not570.i = icmp eq ptr %399, null
   br i1 %.not570.i, label %.critedge.thread.i, label %400
 
@@ -1513,7 +1513,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
 
 415:                                              ; preds = %413
   %416 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %417 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %416, i32 noundef %.0488.i, i32 noundef %.2493650.i)
+  %417 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %416, i32 noundef %.0488.i, i32 noundef %.2493650.i)
   %.not586.i = icmp eq ptr %417, null
   br i1 %.not586.i, label %430, label %418
 
@@ -1542,7 +1542,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br label %430
 
 430:                                              ; preds = %418, %415
-  %431 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %416, i32 noundef %.0489.i, i32 noundef %.2493650.i)
+  %431 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %416, i32 noundef %.0489.i, i32 noundef %.2493650.i)
   %.not587.i = icmp eq ptr %431, null
   br i1 %.not587.i, label %.thread665.i, label %432
 
@@ -1572,7 +1572,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
 
 444:                                              ; preds = %413
   %445 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %446 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %445, i32 noundef %.0489.i, i32 noundef %.2493650.i)
+  %446 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %445, i32 noundef %.0489.i, i32 noundef %.2493650.i)
   %.not584.i = icmp eq ptr %446, null
   br i1 %.not584.i, label %459, label %447
 
@@ -1601,7 +1601,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br label %459
 
 459:                                              ; preds = %447, %444
-  %460 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %445, i32 noundef %.0488.i, i32 noundef %.2493650.i)
+  %460 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %445, i32 noundef %.0488.i, i32 noundef %.2493650.i)
   %.not585.i = icmp eq ptr %460, null
   br i1 %.not585.i, label %.thread665.i, label %461
 
@@ -1636,7 +1636,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br i1 %.not581.i, label %._crit_edge676.i, label %475
 
 475:                                              ; preds = %473
-  %476 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %.pre677.i, i32 noundef %.0488.i, i32 noundef %.2493650.i)
+  %476 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %.pre677.i, i32 noundef %.0488.i, i32 noundef %.2493650.i)
   %.not582.i = icmp eq ptr %476, null
   br i1 %.not582.i, label %._crit_edge676.i, label %477
 
@@ -1665,7 +1665,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br label %._crit_edge676.i
 
 ._crit_edge676.i:                                 ; preds = %477, %475, %473
-  %489 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %.pre677.i, i32 noundef %.0489.i, i32 noundef %.2493650.i)
+  %489 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %.pre677.i, i32 noundef %.0489.i, i32 noundef %.2493650.i)
   %.not583.i = icmp eq ptr %489, null
   br i1 %.not583.i, label %.thread665.i, label %490
 
@@ -1694,7 +1694,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
 
 501:                                              ; preds = %413
   %502 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %503 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %502, i32 noundef %.0488.i, i32 noundef %.2493650.i)
+  %503 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %502, i32 noundef %.0488.i, i32 noundef %.2493650.i)
   %.not578.i = icmp eq ptr %503, null
   %.pre674.i = load i64, ptr %6, align 8
   br i1 %.not578.i, label %515, label %504
@@ -1727,7 +1727,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br i1 %.not579.i, label %.thread665.i, label %516
 
 516:                                              ; preds = %515
-  %517 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %502, i32 noundef %.0489.i, i32 noundef %.2493650.i)
+  %517 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %502, i32 noundef %.0489.i, i32 noundef %.2493650.i)
   %.not580.i = icmp eq ptr %517, null
   br i1 %.not580.i, label %.thread665.i, label %518
 
@@ -1788,7 +1788,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
 
 547:                                              ; preds = %542
   %548 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %549 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %548, i32 noundef %.0489.i, i32 noundef %546)
+  %549 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %548, i32 noundef %.0489.i, i32 noundef %546)
   %.not563.i = icmp eq ptr %549, null
   br i1 %.not563.i, label %557, label %550
 
@@ -1808,7 +1808,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br label %557
 
 557:                                              ; preds = %550, %547
-  %558 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %548, i32 noundef %.0488.i, i32 noundef %546)
+  %558 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %548, i32 noundef %.0488.i, i32 noundef %546)
   %.not564.i = icmp eq ptr %558, null
   br i1 %.not564.i, label %.thread665.i, label %559
 
@@ -1829,7 +1829,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
 
 566:                                              ; preds = %542
   %567 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %568 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %567, i32 noundef %.0489.i, i32 noundef %546)
+  %568 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %567, i32 noundef %.0489.i, i32 noundef %546)
   %.not561.i = icmp eq ptr %568, null
   br i1 %.not561.i, label %577, label %569
 
@@ -1851,7 +1851,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br label %577
 
 577:                                              ; preds = %569, %566
-  %578 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %567, i32 noundef %.0488.i, i32 noundef %546)
+  %578 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %567, i32 noundef %.0488.i, i32 noundef %546)
   %.not562.i = icmp eq ptr %578, null
   br i1 %.not562.i, label %.thread665.i, label %579
 
@@ -1892,7 +1892,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   %600 = lshr i32 %599, 4
   %601 = add nsw i32 %600, -5
   %602 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %603 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %602, i32 noundef %.0489.i, i32 noundef %601)
+  %603 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %602, i32 noundef %.0489.i, i32 noundef %601)
   %.not559.i = icmp eq ptr %603, null
   br i1 %.not559.i, label %609, label %604
 
@@ -1908,7 +1908,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br label %609
 
 609:                                              ; preds = %604, %597
-  %610 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %602, i32 noundef %.0488.i, i32 noundef %601)
+  %610 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %602, i32 noundef %.0488.i, i32 noundef %601)
   %.not560.i = icmp eq ptr %610, null
   br i1 %.not560.i, label %.thread665.i, label %611
 
@@ -1949,7 +1949,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   %633 = getelementptr inbounds i8, ptr %103, i64 -44
   %634 = load i32, ptr %633, align 4
   %635 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %636 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %635, i32 noundef %.0488.i, i32 noundef %632)
+  %636 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %635, i32 noundef %.0488.i, i32 noundef %632)
   %.not556.i = icmp eq ptr %636, null
   br i1 %.not556.i, label %644, label %637
 
@@ -1975,7 +1975,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br i1 %.not557.i, label %.thread665.i, label %645
 
 645:                                              ; preds = %644
-  %646 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %635, i32 noundef %.0489.i, i32 noundef %632)
+  %646 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %635, i32 noundef %.0489.i, i32 noundef %632)
   %.not558.i = icmp eq ptr %646, null
   br i1 %.not558.i, label %.thread665.i, label %647
 
@@ -2095,7 +2095,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br i1 %712, label %714, label %730
 
 714:                                              ; preds = %709
-  %715 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %713, i32 noundef %.0488.i, i32 noundef %.0487.i)
+  %715 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %713, i32 noundef %.0488.i, i32 noundef %.0487.i)
   %.not554.i = icmp eq ptr %715, null
   br i1 %.not554.i, label %721, label %716
 
@@ -2113,7 +2113,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br label %721
 
 721:                                              ; preds = %716, %714
-  %722 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %713, i32 noundef %.0489.i, i32 noundef %.0487.i)
+  %722 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %713, i32 noundef %.0489.i, i32 noundef %.0487.i)
   %.not555.i = icmp eq ptr %722, null
   br i1 %.not555.i, label %.thread665.i, label %723
 
@@ -2133,7 +2133,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br label %.thread665.i
 
 730:                                              ; preds = %709
-  %731 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %713, i32 noundef %.0489.i, i32 noundef %.0487.i)
+  %731 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %713, i32 noundef %.0489.i, i32 noundef %.0487.i)
   %.not552.i = icmp eq ptr %731, null
   br i1 %.not552.i, label %737, label %732
 
@@ -2151,7 +2151,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br label %737
 
 737:                                              ; preds = %732, %730
-  %738 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %713, i32 noundef %.0488.i, i32 noundef %.0487.i)
+  %738 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %713, i32 noundef %.0488.i, i32 noundef %.0487.i)
   %.not553.i = icmp eq ptr %738, null
   br i1 %.not553.i, label %.thread665.i, label %739
 
@@ -2229,7 +2229,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
 
 785:                                              ; preds = %780
   %786 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %787 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %786, i32 noundef %.0488.i, i32 noundef %766)
+  %787 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %4, i32 noundef %786, i32 noundef %.0488.i, i32 noundef %766)
   %.not545.i = icmp eq ptr %787, null
   br i1 %.not545.i, label %.thread665.i, label %788
 
@@ -6016,7 +6016,7 @@ define hidden void @zend_ssa_remove_block(ptr nocapture noundef readonly %0, ptr
   br i1 %38, label %39, label %52
 
 39:                                               ; preds = %33
-  tail call void @zend_ssa_remove_uses_of_var(ptr noundef nonnull %1, i32 noundef %37)
+  tail call void @zend_ssa_remove_uses_of_var(ptr noundef nonnull readonly %1, i32 noundef %37)
   %40 = load ptr, ptr %24, align 8
   %41 = load i32, ptr %36, align 4
   %42 = sext i32 %41 to i64
@@ -6044,7 +6044,7 @@ define hidden void @zend_ssa_remove_block(ptr nocapture noundef readonly %0, ptr
   br i1 %55, label %56, label %69
 
 56:                                               ; preds = %52
-  tail call void @zend_ssa_remove_uses_of_var(ptr noundef nonnull %1, i32 noundef %54)
+  tail call void @zend_ssa_remove_uses_of_var(ptr noundef nonnull readonly %1, i32 noundef %54)
   %57 = load ptr, ptr %24, align 8
   %58 = load i32, ptr %53, align 4
   %59 = sext i32 %58 to i64
@@ -6072,7 +6072,7 @@ define hidden void @zend_ssa_remove_block(ptr nocapture noundef readonly %0, ptr
   br i1 %72, label %73, label %zend_ssa_remove_defs_of_instr.exit
 
 73:                                               ; preds = %69
-  tail call void @zend_ssa_remove_uses_of_var(ptr noundef nonnull %1, i32 noundef %71)
+  tail call void @zend_ssa_remove_uses_of_var(ptr noundef nonnull readonly %1, i32 noundef %71)
   %74 = load ptr, ptr %24, align 8
   %75 = load i32, ptr %70, align 4
   %76 = sext i32 %75 to i64

@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @rcsid], section "llvm.metadata"
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @file_fsmagic(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
   %.fr112 = freeze i32 %5
@@ -142,7 +142,7 @@ define hidden i32 @file_fsmagic(ptr noundef %0, ptr noundef %1, ptr nocapture no
   br i1 %.not92, label %59, label %56
 
 56:                                               ; preds = %55
-  %57 = tail call fastcc i32 @handle_mime(ptr noundef nonnull %0, i32 noundef %6, ptr noundef nonnull @.str.7), !range !4
+  %57 = tail call fastcc i32 @handle_mime(ptr noundef nonnull %0, i32 noundef %6, ptr noundef nonnull @.str.7)
   %58 = icmp eq i32 %57, -1
   br i1 %58, label %handle_mime.exit.thread, label %63
 
@@ -166,7 +166,7 @@ define hidden i32 @file_fsmagic(ptr noundef %0, ptr noundef %1, ptr nocapture no
   br i1 %.not92, label %71, label %68
 
 68:                                               ; preds = %67
-  %69 = tail call fastcc i32 @handle_mime(ptr noundef nonnull %0, i32 noundef %6, ptr noundef nonnull @.str.9), !range !4
+  %69 = tail call fastcc i32 @handle_mime(ptr noundef nonnull %0, i32 noundef %6, ptr noundef nonnull @.str.9)
   %70 = icmp eq i32 %69, -1
   %brmerge114 = or i1 %70, %.not113
   %.mux115 = select i1 %70, i32 -1, i32 1
@@ -255,7 +255,7 @@ define hidden i32 @file_fsmagic(ptr noundef %0, ptr noundef %1, ptr nocapture no
   br i1 %.not92, label %114, label %111
 
 111:                                              ; preds = %110
-  %112 = tail call fastcc i32 @handle_mime(ptr noundef nonnull %0, i32 noundef %6, ptr noundef nonnull @.str.14), !range !4
+  %112 = tail call fastcc i32 @handle_mime(ptr noundef nonnull %0, i32 noundef %6, ptr noundef nonnull @.str.14)
   %113 = icmp eq i32 %112, -1
   %brmerge116 = or i1 %113, %.not113
   %.mux117 = select i1 %113, i32 -1, i32 1
@@ -314,7 +314,7 @@ declare i32 @file_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @handle_mime(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @handle_mime(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = and i32 %1, 16
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %13, label %5
@@ -366,4 +366,3 @@ attributes #6 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -1, i32 1}

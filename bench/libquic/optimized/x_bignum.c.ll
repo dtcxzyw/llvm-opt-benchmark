@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @CBIGNUM_it = hidden local_unnamed_addr constant %struct.ASN1_ITEM_st { i8 0, i64 2, ptr null, i64 0, ptr @bignum_pf, i64 1, ptr @.str }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bn_new(ptr nocapture noundef writeonly %pval, ptr nocapture readnone %it) #0 {
+define internal range(i32 0, 2) i32 @bn_new(ptr nocapture noundef writeonly %pval, ptr nocapture readnone %it) #0 {
 entry:
   %call = tail call ptr @BN_new() #2
   store ptr %call, ptr %pval, align 8
@@ -52,7 +52,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bn_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #0 {
+define internal range(i32 0, 2) i32 @bn_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #0 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   %tobool.not = icmp eq ptr %0, null

@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lzma_footer_magic = external constant [2 x i8], align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define dso_local noundef i32 @lzma_stream_header_decode(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 10) i32 @lzma_stream_header_decode(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %1, ptr noundef nonnull dereferenceable(6) @lzma_header_magic, i64 6)
   %.not = icmp eq i32 %bcmp, 0
   br i1 %.not, label %3, label %stream_flags_decode.exit.thread
@@ -51,7 +51,7 @@ stream_flags_decode.exit.thread:                  ; preds = %7, %9, %3, %2, %12
 declare i32 @lzma_crc32(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define dso_local noundef i32 @lzma_stream_footer_decode(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 10) i32 @lzma_stream_footer_decode(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 10
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %4, ptr noundef nonnull dereferenceable(2) @lzma_footer_magic, i64 2)

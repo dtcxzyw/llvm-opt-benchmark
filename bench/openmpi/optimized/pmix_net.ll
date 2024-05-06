@@ -462,7 +462,7 @@ declare ptr @gai_strerror(i32 noundef) local_unnamed_addr #3
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @pmix_net_get_port(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define range(i32 -1, 65536) i32 @pmix_net_get_port(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
   %2 = load i16, ptr %0, align 2
   switch i16 %2, label %7 [
     i16 2, label %.sink.split

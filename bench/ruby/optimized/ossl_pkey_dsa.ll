@@ -191,7 +191,7 @@ define internal noundef i64 @ossl_dsa_initialize(i32 noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_dsa_is_public(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_dsa_is_public(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #5
   %.not = icmp eq ptr %3, null
@@ -222,7 +222,7 @@ define internal i64 @ossl_dsa_is_public(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_dsa_is_private(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_dsa_is_private(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #5
   %.not = icmp eq ptr %3, null

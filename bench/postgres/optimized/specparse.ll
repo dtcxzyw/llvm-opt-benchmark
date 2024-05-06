@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [17 x i8] c"memory exhausted\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @spec_yyparse() local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %1 = alloca [200 x i8], align 16
   %2 = alloca [200 x %union.YYSTYPE], align 16
   store i32 -2, ptr @spec_yychar, align 4
@@ -45,7 +45,7 @@ define dso_local noundef i32 @spec_yyparse() local_unnamed_addr #0 {
   %.0240 = phi ptr [ %1, %0 ], [ %.1241, %3 ]
   %.0238 = phi i64 [ 200, %0 ], [ %.1239, %3 ]
   %.1 = phi i32 [ 0, %0 ], [ %.0, %3 ]
-  %6 = trunc i32 %.1 to i8
+  %6 = trunc nsw i32 %.1 to i8
   store i8 %6, ptr %.1244, align 1
   %7 = getelementptr i8, ptr %.0240, i64 %.0238
   %8 = getelementptr i8, ptr %7, i64 -1

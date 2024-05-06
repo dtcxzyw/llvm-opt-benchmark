@@ -253,8 +253,8 @@ entry:
   %3 = load i32, ptr %m_size.i, align 8
   %idx.ext.i = zext i32 %3 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %4 = getelementptr i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %4, i64 64
+  %4 = getelementptr inbounds i8, ptr %this, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %4, i64 64
   %cmp5.not18 = icmp eq i32 %3, 0
   br i1 %cmp5.not18, label %return, label %for.body.lr.ph
 
@@ -358,8 +358,8 @@ entry:
   %0 = load i32, ptr %m_size.i, align 8
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %1 = getelementptr i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 64
+  %1 = getelementptr inbounds i8, ptr %this, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 64
   %cmp.not6 = icmp eq i32 %0, 0
   br i1 %cmp.not6, label %for.end, label %for.body.preheader
 
@@ -695,8 +695,8 @@ for.body50.lr.ph:                                 ; preds = %for.cond48.preheade
 if.then39:                                        ; preds = %if.end35
   %idx.ext.i = zext i32 %6 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %9 = getelementptr i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %9, i64 64
+  %9 = getelementptr inbounds i8, ptr %this, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %9, i64 64
   %cmp42.not142 = icmp eq i32 %6, 0
   br i1 %cmp42.not142, label %return, label %for.body.preheader
 
@@ -758,7 +758,7 @@ if.end73:                                         ; preds = %if.then66, %if.then
   %vtable74 = load ptr, ptr %this, align 8
   %vfn75 = getelementptr inbounds i8, ptr %vtable74, i64 80
   %16 = load ptr, ptr %vfn75, align 8
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw i64 %indvars.iv to i32
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %17, i32 noundef %j.0134) #17
   br label %if.end76
 
@@ -827,7 +827,7 @@ if.then105:                                       ; preds = %for.body92
   %vtable106 = load ptr, ptr %this, align 8
   %vfn107 = getelementptr inbounds i8, ptr %vtable106, i64 80
   %26 = load ptr, ptr %vfn107, align 8
-  %27 = trunc i64 %indvars.iv151 to i32
+  %27 = trunc nuw i64 %indvars.iv151 to i32
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %27, i32 noundef %j.0.lcssa) #17
   %alit.sroa.0.0.copyload9 = load i32, ptr %arrayidx.i99, align 4
   br label %for.inc110
@@ -969,8 +969,8 @@ _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit:     ; preds = %if.then, %if.then.i
   %4 = phi i32 [ %0, %if.then ], [ %.pre, %if.then.i ]
   %idx.ext.i = zext i32 %4 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %5 = getelementptr i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %5, i64 64
+  %5 = getelementptr inbounds i8, ptr %this, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %5, i64 64
   %cmp7.not15 = icmp eq i32 %4, 0
   br i1 %cmp7.not15, label %return, label %for.body.preheader
 
@@ -1075,14 +1075,14 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK2pb4card4evalERKNS_16solver_interfaceE(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %s) unnamed_addr #6 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZNK2pb4card4evalERKNS_16solver_interfaceE(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %s) unnamed_addr #6 align 2 {
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %m_size.i, align 8
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %1 = getelementptr i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 64
+  %1 = getelementptr inbounds i8, ptr %this, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 64
   %cmp.not9 = icmp eq i32 %0, 0
   br i1 %cmp.not9, label %for.end, label %for.body.preheader
 
@@ -1133,14 +1133,14 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK2pb4card4evalERK7svectorI5lbooljE(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %m) unnamed_addr #8 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZNK2pb4card4evalERK7svectorI5lbooljE(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %m) unnamed_addr #8 align 2 {
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %m_size.i, align 8
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %1 = getelementptr i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 64
+  %1 = getelementptr inbounds i8, ptr %this, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 64
   %cmp.not9 = icmp eq i32 %0, 0
   br i1 %cmp.not9, label %for.end, label %for.body.lr.ph
 
@@ -1204,8 +1204,8 @@ entry:
   %1 = load i32, ptr %m_size.i, align 8
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %2 = getelementptr i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %2, i64 64
+  %2 = getelementptr inbounds i8, ptr %this, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %2, i64 64
   %cmp.not5 = icmp eq i32 %1, 0
   br i1 %cmp.not5, label %for.end, label %for.body.preheader
 
@@ -1264,8 +1264,8 @@ entry:
   %0 = load i32, ptr %m_size.i, align 8
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %1 = getelementptr i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr i8, ptr %1, i64 64
+  %1 = getelementptr inbounds i8, ptr %this, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 64
   %cmp.not6 = icmp eq i32 %0, 0
   br i1 %cmp.not6, label %for.end, label %for.body.lr.ph
 

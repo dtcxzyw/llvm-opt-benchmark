@@ -29,22 +29,22 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_scan() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_scan.core2_hs_scan = select i1 %tobool8.not, ptr @error_hs_scan, ptr @core2_hs_scan
   br label %return
@@ -57,22 +57,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_stream_size() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_stream_size.core2_hs_stream_size = select i1 %tobool8.not, ptr @error_hs_stream_size, ptr @core2_hs_stream_size
   br label %return
@@ -85,22 +85,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_database_size() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_database_size.core2_hs_database_size = select i1 %tobool8.not, ptr @error_hs_database_size, ptr @core2_hs_database_size
   br label %return
@@ -113,22 +113,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_dbIsValid() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_dbIsValid.core2_dbIsValid = select i1 %tobool8.not, ptr @error_dbIsValid, ptr @core2_dbIsValid
   br label %return
@@ -141,22 +141,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_free_database() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_free_database.core2_hs_free_database = select i1 %tobool8.not, ptr @error_hs_free_database, ptr @core2_hs_free_database
   br label %return
@@ -169,22 +169,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_open_stream() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_open_stream.core2_hs_open_stream = select i1 %tobool8.not, ptr @error_hs_open_stream, ptr @core2_hs_open_stream
   br label %return
@@ -197,22 +197,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_scan_stream() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_scan_stream.core2_hs_scan_stream = select i1 %tobool8.not, ptr @error_hs_scan_stream, ptr @core2_hs_scan_stream
   br label %return
@@ -225,22 +225,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_close_stream() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_close_stream.core2_hs_close_stream = select i1 %tobool8.not, ptr @error_hs_close_stream, ptr @core2_hs_close_stream
   br label %return
@@ -253,22 +253,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_scan_vector() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_scan_vector.core2_hs_scan_vector = select i1 %tobool8.not, ptr @error_hs_scan_vector, ptr @core2_hs_scan_vector
   br label %return
@@ -281,22 +281,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_database_info() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_database_info.core2_hs_database_info = select i1 %tobool8.not, ptr @error_hs_database_info, ptr @core2_hs_database_info
   br label %return
@@ -309,22 +309,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_copy_stream() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_copy_stream.core2_hs_copy_stream = select i1 %tobool8.not, ptr @error_hs_copy_stream, ptr @core2_hs_copy_stream
   br label %return
@@ -337,22 +337,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_reset_stream() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_reset_stream.core2_hs_reset_stream = select i1 %tobool8.not, ptr @error_hs_reset_stream, ptr @core2_hs_reset_stream
   br label %return
@@ -365,22 +365,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_reset_and_copy_stream() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_reset_and_copy_stream.core2_hs_reset_and_copy_stream = select i1 %tobool8.not, ptr @error_hs_reset_and_copy_stream, ptr @core2_hs_reset_and_copy_stream
   br label %return
@@ -393,22 +393,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_serialize_database() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_serialize_database.core2_hs_serialize_database = select i1 %tobool8.not, ptr @error_hs_serialize_database, ptr @core2_hs_serialize_database
   br label %return
@@ -421,22 +421,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_deserialize_database() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_deserialize_database.core2_hs_deserialize_database = select i1 %tobool8.not, ptr @error_hs_deserialize_database, ptr @core2_hs_deserialize_database
   br label %return
@@ -449,22 +449,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_deserialize_database_at() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_deserialize_database_at.core2_hs_deserialize_database_at = select i1 %tobool8.not, ptr @error_hs_deserialize_database_at, ptr @core2_hs_deserialize_database_at
   br label %return
@@ -477,22 +477,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_serialized_database_info() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_serialized_database_info.core2_hs_serialized_database_info = select i1 %tobool8.not, ptr @error_hs_serialized_database_info, ptr @core2_hs_serialized_database_info
   br label %return
@@ -505,22 +505,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_serialized_database_size() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_serialized_database_size.core2_hs_serialized_database_size = select i1 %tobool8.not, ptr @error_hs_serialized_database_size, ptr @core2_hs_serialized_database_size
   br label %return
@@ -533,22 +533,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_compress_stream() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_compress_stream.core2_hs_compress_stream = select i1 %tobool8.not, ptr @error_hs_compress_stream, ptr @core2_hs_compress_stream
   br label %return
@@ -561,22 +561,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_expand_stream() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_expand_stream.core2_hs_expand_stream = select i1 %tobool8.not, ptr @error_hs_expand_stream, ptr @core2_hs_expand_stream
   br label %return
@@ -589,22 +589,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_hs_reset_and_expand_stream() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_hs_reset_and_expand_stream.core2_hs_reset_and_expand_stream = select i1 %tobool8.not, ptr @error_hs_reset_and_expand_stream, ptr @core2_hs_reset_and_expand_stream
   br label %return
@@ -617,22 +617,22 @@ return:                                           ; preds = %if.end6, %land.lhs.
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
 define internal ptr @resolve_Crc32c_ComputeBuf() #0 {
 entry:
-  %call = tail call fastcc i32 @check_avx2(), !range !5
+  %call = tail call fastcc i32 @check_avx2()
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @check_sse42(), !range !5
+  %call1 = tail call fastcc i32 @check_sse42()
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call3 = tail call fastcc i32 @check_popcnt(), !range !5
+  %call3 = tail call fastcc i32 @check_popcnt()
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %call7 = tail call fastcc i32 @check_ssse3(), !range !5
+  %call7 = tail call fastcc i32 @check_ssse3()
   %tobool8.not = icmp eq i32 %call7, 0
   %error_Crc32c_ComputeBuf.core2_Crc32c_ComputeBuf = select i1 %tobool8.not, ptr @error_Crc32c_ComputeBuf, ptr @core2_Crc32c_ComputeBuf
   br label %return
@@ -643,7 +643,7 @@ return:                                           ; preds = %if.end6, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_avx2() unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @check_avx2() unnamed_addr #1 {
 entry:
   %eax = alloca i32, align 4
   %ebx = alloca i32, align 4
@@ -677,7 +677,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 declare i32 @avx2_hs_scan(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_sse42() unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @check_sse42() unnamed_addr #1 {
 entry:
   %eax = alloca i32, align 4
   %ebx = alloca i32, align 4
@@ -691,7 +691,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_popcnt() unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @check_popcnt() unnamed_addr #1 {
 entry:
   %eax = alloca i32, align 4
   %ebx = alloca i32, align 4
@@ -707,7 +707,7 @@ entry:
 declare i32 @corei7_hs_scan(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_ssse3() unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @check_ssse3() unnamed_addr #1 {
 entry:
   %eax = alloca i32, align 4
   %ebx = alloca i32, align 4
@@ -731,7 +731,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cpuid(i32 noundef %op, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx) unnamed_addr #1 {
 entry:
-  %0 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %op, i32 0) #3, !srcloc !6
+  %0 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %op, i32 0) #3, !srcloc !5
   %asmresult = extractvalue { i32, i32, i32, i32 } %0, 0
   %asmresult1 = extractvalue { i32, i32, i32, i32 } %0, 1
   %asmresult2 = extractvalue { i32, i32, i32, i32 } %0, 2
@@ -746,7 +746,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @xgetbv() unnamed_addr #1 {
 entry:
-  %0 = tail call { i32, i32 } asm sideeffect "xgetbv\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #4, !srcloc !7
+  %0 = tail call { i32, i32 } asm sideeffect "xgetbv\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #4, !srcloc !6
   %asmresult = extractvalue { i32, i32 } %0, 0
   %asmresult1 = extractvalue { i32, i32 } %0, 1
   %conv = zext i32 %asmresult1 to i64
@@ -1021,6 +1021,5 @@ attributes #4 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = !{i64 2151494993, i64 2151495029, i64 2151495053}
-!7 = !{i64 3993709}
+!5 = !{i64 2151494993, i64 2151495029, i64 2151495053}
+!6 = !{i64 3993709}

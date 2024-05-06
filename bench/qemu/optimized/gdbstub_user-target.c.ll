@@ -59,7 +59,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !5
 
 return.split.loop.exit6:                          ; preds = %for.body
-  %1 = trunc i64 %indvars.iv to i32
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %for.inc, %return.split.loop.exit6
@@ -148,7 +148,7 @@ if.end10:                                         ; preds = %if.end
   %spec.store.select.sub = tail call i64 @llvm.umin.i64(i64 %spec.store.select, i64 %sub)
   %call17 = tail call ptr @g_string_assign(ptr noundef %9, ptr noundef nonnull %.str.3..str.4) #9
   %10 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 15), align 8
-  %conv = trunc i64 %spec.store.select.sub to i32
+  %conv = trunc nuw nsw i64 %spec.store.select.sub to i32
   %call20 = tail call ptr @g_byte_array_set_size(ptr noundef %10, i32 noundef %conv) #9
   %11 = load ptr, ptr getelementptr inbounds (%struct.GDBState, ptr @gdbserver_state, i64 0, i32 2), align 8
   %add = add i64 %7, %2

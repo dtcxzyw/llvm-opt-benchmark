@@ -628,7 +628,7 @@ define hidden void @dissect_nmas_reply(ptr noundef %0, ptr noundef %1, ptr nound
   %65 = load i32, ptr @hf_lsm_verb, align 4
   %66 = tail call ptr @val_to_str(i32 noundef %.0, ptr noundef nonnull @nmas_lsmverb_enum, ptr noundef nonnull @.str.6) #2
   %67 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %22, i32 noundef %65, ptr noundef %0, i32 noundef 20, i32 noundef -1, i32 noundef %.0, ptr noundef nonnull @.str.7, ptr noundef %66) #2
-  %trunc154 = trunc i32 %.0 to i8
+  %trunc154 = trunc nuw i32 %.0 to i8
   switch i8 %trunc154, label %98 [
     i8 1, label %68
     i8 3, label %68
@@ -651,7 +651,7 @@ define hidden void @dissect_nmas_reply(ptr noundef %0, ptr noundef %1, ptr nound
   %75 = load i32, ptr @hf_msg_verb, align 4
   %76 = tail call ptr @val_to_str(i32 noundef %.0, ptr noundef nonnull @nmas_msgverb_enum, ptr noundef nonnull @.str.6) #2
   %77 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %22, i32 noundef %75, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef %.0, ptr noundef nonnull @.str.7, ptr noundef %76) #2
-  %trunc = trunc i32 %.0 to i8
+  %trunc = trunc nuw i32 %.0 to i8
   switch i8 %trunc, label %98 [
     i8 1, label %78
     i8 3, label %84

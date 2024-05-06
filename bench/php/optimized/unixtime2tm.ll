@@ -105,7 +105,7 @@ define hidden void @timelib_unixtime2gmt(ptr nocapture noundef writeonly %0, i64
   %isneg = icmp slt i64 %7, 0
   %39 = select i1 %isneg, i64 86400, i64 0
   %40 = add nsw i64 %39, %7
-  %.lhs.trunc = trunc i64 %40 to i32
+  %.lhs.trunc = trunc nsw i64 %40 to i32
   %41 = sdiv i32 %.lhs.trunc, 3600
   %.sext = sext i32 %41 to i64
   %.neg = mul nsw i64 %.sext, 4294963696
@@ -207,7 +207,7 @@ define hidden void @timelib_update_from_sse(ptr nocapture noundef %0) local_unna
   %isneg.i = icmp slt i64 %21, 0
   %53 = select i1 %isneg.i, i64 86400, i64 0
   %54 = add nsw i64 %53, %21
-  %.lhs.trunc.i = trunc i64 %54 to i32
+  %.lhs.trunc.i = trunc nsw i64 %54 to i32
   %55 = sdiv i32 %.lhs.trunc.i, 3600
   %.sext.i = sext i32 %55 to i64
   %.neg.i = mul nsw i64 %.sext.i, 4294963696
@@ -282,7 +282,7 @@ define hidden void @timelib_update_from_sse(ptr nocapture noundef %0) local_unna
   %isneg.i27 = icmp slt i64 %74, 0
   %106 = select i1 %isneg.i27, i64 86400, i64 0
   %107 = add nsw i64 %106, %74
-  %.lhs.trunc.i28 = trunc i64 %107 to i32
+  %.lhs.trunc.i28 = trunc nsw i64 %107 to i32
   %108 = sdiv i32 %.lhs.trunc.i28, 3600
   %.sext.i29 = sext i32 %108 to i64
   %.neg.i30 = mul nsw i64 %.sext.i29, 4294963696
@@ -350,7 +350,7 @@ define hidden void @timelib_update_from_sse(ptr nocapture noundef %0) local_unna
   %isneg.i40 = icmp slt i64 %120, 0
   %152 = select i1 %isneg.i40, i64 86400, i64 0
   %153 = add nsw i64 %152, %120
-  %.lhs.trunc.i41 = trunc i64 %153 to i32
+  %.lhs.trunc.i41 = trunc nsw i64 %153 to i32
   %154 = sdiv i32 %.lhs.trunc.i41, 3600
   %.sext.i42 = sext i32 %154 to i64
   %.neg.i43 = mul nsw i64 %.sext.i42, 4294963696
@@ -453,7 +453,7 @@ define hidden void @timelib_unixtime2local(ptr noundef %0, i64 noundef %1) local
   %isneg.i = icmp slt i64 %19, 0
   %51 = select i1 %isneg.i, i64 86400, i64 0
   %52 = add nsw i64 %51, %19
-  %.lhs.trunc.i = trunc i64 %52 to i32
+  %.lhs.trunc.i = trunc nsw i64 %52 to i32
   %53 = sdiv i32 %.lhs.trunc.i, 3600
   %.sext.i = sext i32 %53 to i64
   %.neg.i = mul nsw i64 %.sext.i, 4294963696
@@ -532,7 +532,7 @@ define hidden void @timelib_unixtime2local(ptr noundef %0, i64 noundef %1) local
   %isneg.i39 = icmp slt i64 %74, 0
   %106 = select i1 %isneg.i39, i64 86400, i64 0
   %107 = add nsw i64 %106, %74
-  %.lhs.trunc.i40 = trunc i64 %107 to i32
+  %.lhs.trunc.i40 = trunc nsw i64 %107 to i32
   %108 = sdiv i32 %.lhs.trunc.i40, 3600
   %.sext.i41 = sext i32 %108 to i64
   %.neg.i42 = mul nsw i64 %.sext.i41, 4294963696
@@ -688,7 +688,7 @@ define hidden void @timelib_set_timezone(ptr nocapture noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @timelib_apply_localtime(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @timelib_apply_localtime(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %9, label %3
 
@@ -755,7 +755,7 @@ define hidden noundef i32 @timelib_apply_localtime(ptr noundef %0, i32 noundef %
   %isneg.i = icmp slt i64 %16, 0
   %48 = select i1 %isneg.i, i64 86400, i64 0
   %49 = add nsw i64 %48, %16
-  %.lhs.trunc.i = trunc i64 %49 to i32
+  %.lhs.trunc.i = trunc nsw i64 %49 to i32
   %50 = sdiv i32 %.lhs.trunc.i, 3600
   %.sext.i = sext i32 %50 to i64
   %.neg.i = mul nsw i64 %.sext.i, 4294963696

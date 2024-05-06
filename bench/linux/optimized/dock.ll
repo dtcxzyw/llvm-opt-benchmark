@@ -139,7 +139,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @is_dock_device(ptr noundef readonly %0) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @is_dock_device(ptr noundef readonly %0) #0 align 16 {
   %2 = load i32, ptr @dock_station_count, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.loopexit, label %4
@@ -186,7 +186,7 @@ define dso_local noundef i32 @is_dock_device(ptr noundef readonly %0) #0 align 1
 declare dso_local zeroext i1 @acpi_dock_match(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @dock_notify(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [13 x i8], align 1
   %4 = alloca [2 x ptr], align 16
   %5 = alloca i64, align 8
@@ -520,7 +520,7 @@ define dso_local noundef i32 @dock_notify(ptr noundef readonly %0, i32 noundef %
   br label %.thread24
 
 .thread24:                                        ; preds = %170, %.thread23
-  %177 = call fastcc i32 @handle_eject_request(ptr noundef nonnull %23), !range !17
+  %177 = call fastcc i32 @handle_eject_request(ptr noundef nonnull %23)
   br label %.thread
 
 178:                                              ; preds = %170
@@ -589,7 +589,7 @@ declare dso_local i32 @acpi_evaluate_lck(ptr noundef, i32 noundef) local_unnamed
 declare dso_local i32 @acpi_update_all_gpes() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @handle_eject_request(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @handle_eject_request(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.acpi_object_list, align 8
   %4 = alloca %union.acpi_object, align 8
@@ -703,7 +703,7 @@ define internal fastcc noundef i32 @handle_eject_request(ptr noundef %0) unnamed
   %62 = getelementptr inbounds i8, ptr %48, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, %24
-  br i1 %64, label %.loopexit11.loopexit, label %.preheader10, !llvm.loop !18
+  br i1 %64, label %.loopexit11.loopexit, label %.preheader10, !llvm.loop !17
 
 .preheader:                                       ; preds = %.loopexit11, %.preheader
   %65 = phi ptr [ %69, %.preheader ], [ %46, %.loopexit11 ]
@@ -713,7 +713,7 @@ define internal fastcc noundef i32 @handle_eject_request(ptr noundef %0) unnamed
   %68 = getelementptr inbounds i8, ptr %65, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, %24
-  br i1 %70, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %70, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
@@ -967,7 +967,7 @@ declare dso_local i32 @acpi_evaluate_ej0(ptr noundef) local_unnamed_addr #2
 declare dso_local void @acpi_bus_trim(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @docked_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @docked_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -1001,7 +1001,7 @@ declare dso_local ptr @acpi_fetch_acpi_dev(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @flags_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @flags_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1024,7 +1024,7 @@ define internal noundef i64 @undock_store(ptr nocapture noundef readonly %0, ptr
   %10 = load i32, ptr %9, align 8
   %11 = or i32 %10, 2
   store i32 %11, ptr %9, align 8
-  %12 = tail call fastcc i32 @handle_eject_request(ptr noundef %8), !range !17
+  %12 = tail call fastcc i32 @handle_eject_request(ptr noundef %8)
   tail call void @acpi_scan_lock_release() #8
   %13 = icmp eq i32 %12, 0
   %14 = sext i32 %12 to i64
@@ -1043,7 +1043,7 @@ declare dso_local void @acpi_scan_lock_acquire() local_unnamed_addr #2
 declare dso_local void @acpi_scan_lock_release() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @uid_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @uid_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   store i64 0, ptr %4, align 8, !annotation !10
@@ -1067,7 +1067,7 @@ define internal i64 @uid_show(ptr nocapture noundef readonly %0, ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @type_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @type_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1127,6 +1127,5 @@ attributes #9 = { cold nounwind }
 !14 = distinct !{!14, !6, !7}
 !15 = !{i8 0, i8 2}
 !16 = !{}
-!17 = !{i32 -16, i32 1}
+!17 = distinct !{!17, !6, !7}
 !18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}

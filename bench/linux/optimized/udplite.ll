@@ -177,7 +177,7 @@ declare dso_local i32 @__udp6_lib_rcv(ptr noundef, ptr noundef, i32 noundef) loc
 declare dso_local i32 @__udp6_lib_err(ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @udplite6_proc_init_net(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 -12, 1) i32 @udplite6_proc_init_net(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   %4 = tail call ptr @proc_create_net_data(ptr noundef nonnull @.str.2, i16 noundef zeroext 292, ptr noundef %3, ptr noundef nonnull @udp6_seq_ops, i32 noundef 16, ptr noundef nonnull @udplite6_seq_afinfo) #6

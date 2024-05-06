@@ -529,7 +529,7 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
   %59 = getelementptr inbounds i8, ptr %4, i64 16
   %60 = load i32, ptr %59, align 8
   %61 = load ptr, ptr %4, align 8
-  %62 = tail call fastcc i32 @inet_spg_consistent_bitmap(ptr noundef %58, i32 noundef %60, ptr noundef %61, i1 noundef zeroext false), !range !10
+  %62 = tail call fastcc i32 @inet_spg_consistent_bitmap(ptr noundef %58, i32 noundef %60, ptr noundef %61, i1 noundef zeroext false)
   br label %.loopexit52
 
 .loopexit52:                                      ; preds = %46, %54
@@ -580,14 +580,14 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
   %83 = phi i32 [ %72, %.lr.ph56 ], [ %.pre, %75 ]
   %84 = add nuw nsw i32 %.155, 1
   %85 = icmp slt i32 %84, %83
-  br i1 %85, label %.lr.ph56, label %.loopexit, !llvm.loop !11
+  br i1 %85, label %.lr.ph56, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %82, %63, %.loopexit52
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @inet_spg_consistent_bitmap(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %. = select i1 %3, i32 1, i32 15
   %5 = load i8, ptr %0, align 1
   %6 = and i8 %5, 1
@@ -985,7 +985,7 @@ select.unfold285:                                 ; preds = %178, %174, %176, %1
   %.11 = phi i32 [ %.6, %115 ], [ %.7273, %.thread270 ], [ %.9, %.thread280 ], [ %.1296, %37 ], [ %.1296, %38 ], [ %.1296, %40 ], [ %.3, %86 ], [ %.3, %87 ], [ %.3, %89 ], [ %.9, %174 ], [ %.9, %176 ], [ %.9, %179 ], [ %.9, %181 ], [ %.9, %183 ], [ %.9, %178 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %19, !llvm.loop !12
+  br i1 %exitcond.not, label %.thread, label %19, !llvm.loop !11
 
 .thread:                                          ; preds = %select.unfold285, %select.unfold244, %select.unfold257, %select.unfold268, %select.unfold277, %37, %38, %40, %60, %75, %67, %86, %87, %89, %126, %178, %174, %176, %179, %181, %183, %4
   %.12 = phi i32 [ %., %4 ], [ 0, %183 ], [ 0, %181 ], [ 0, %179 ], [ 0, %176 ], [ 0, %174 ], [ 0, %178 ], [ 0, %126 ], [ 0, %89 ], [ 0, %87 ], [ 0, %86 ], [ 0, %67 ], [ 0, %75 ], [ 0, %60 ], [ 0, %40 ], [ 0, %38 ], [ 0, %37 ], [ 0, %select.unfold277 ], [ 0, %select.unfold268 ], [ 0, %select.unfold257 ], [ 0, %select.unfold244 ], [ %.11, %select.unfold285 ]
@@ -993,7 +993,7 @@ select.unfold285:                                 ; preds = %178, %174, %176, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @inet_spg_leaf_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local range(i64 0, 2) i64 @inet_spg_leaf_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1011,7 +1011,7 @@ define dso_local i64 @inet_spg_leaf_consistent(ptr nocapture noundef readonly %0
   %14 = getelementptr inbounds i8, ptr %4, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = load ptr, ptr %4, align 8
-  %17 = tail call fastcc i32 @inet_spg_consistent_bitmap(ptr noundef %11, i32 noundef %15, ptr noundef %16, i1 noundef zeroext true), !range !10
+  %17 = tail call fastcc i32 @inet_spg_consistent_bitmap(ptr noundef %11, i32 noundef %15, ptr noundef %16, i1 noundef zeroext true)
   %18 = icmp ne i32 %17, 0
   %19 = zext i1 %18 to i64
   ret i64 %19
@@ -1043,6 +1043,5 @@ attributes #4 = { nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = !{i32 0, i32 16}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}

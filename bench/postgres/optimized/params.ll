@@ -412,7 +412,7 @@ define dso_local ptr @BuildParamLogString(ptr nocapture noundef readonly %0, ptr
   %.not29.us = icmp eq i64 %indvars.iv33, 0
   %19 = select i1 %.not29.us, ptr @.str.3, ptr @.str.2
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
-  %20 = trunc i64 %indvars.iv.next34 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.next34 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %19, i32 noundef %20) #6
   %21 = getelementptr inbounds i8, ptr %18, i64 8
   %22 = load i8, ptr %21, align 8
@@ -449,7 +449,7 @@ define dso_local ptr @BuildParamLogString(ptr nocapture noundef readonly %0, ptr
   %.not29 = icmp eq i64 %indvars.iv, 0
   %37 = select i1 %.not29, ptr @.str.3, ptr @.str.2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = trunc i64 %indvars.iv.next to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.next to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %37, i32 noundef %38) #6
   %39 = getelementptr inbounds i8, ptr %36, i64 8
   %40 = load i8, ptr %39, align 8

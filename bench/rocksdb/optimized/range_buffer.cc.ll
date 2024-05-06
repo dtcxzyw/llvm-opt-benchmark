@@ -170,7 +170,7 @@ return:                                           ; preds = %if.else6, %if.then4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK4toku12range_buffer8iterator6record4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i64 10, 131081) i64 @_ZNK4toku12range_buffer8iterator6record4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #0 align 2 {
 entry:
   %left_key_size = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i16, ptr %left_key_size, align 4

@@ -371,7 +371,7 @@ define void @Bac_ManWriteBlifGate(ptr nocapture noundef %0, ptr nocapture nounde
   %.val14 = load ptr, ptr %8, align 8
   %13 = getelementptr inbounds i32, ptr %.val14, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = tail call ptr @Mio_GateReadPinName(ptr noundef %2, i32 noundef %15) #5
   %.val.i.i.i = load ptr, ptr %9, align 8
   %17 = sext i32 %14 to i64
@@ -822,7 +822,7 @@ Bac_ManNtkIsOk.exit.i.i:                          ; preds = %15
   %.val97.val = load ptr, ptr %26, align 8
   %27 = tail call ptr @Abc_NamStr(ptr noundef %.val97.val, i32 noundef %.val98) #5
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %27) #5
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @Bac_ManWriteBlifArray2(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %29)
   br label %130
 
@@ -939,7 +939,7 @@ Bac_ObjNameStr.exit114:                           ; preds = %72, %77
   %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %68, ptr noundef %82) #5
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %.val93 = load i32, ptr %3, align 4
-  %84 = trunc i64 %indvars.iv.next168 to i32
+  %84 = trunc nuw i64 %indvars.iv.next168 to i32
   %85 = icmp sgt i32 %.val93, %84
   br i1 %85, label %.lr.ph147, label %.critedge2, !llvm.loop !15
 
@@ -1027,7 +1027,7 @@ Bac_ObjNameStr.exit134:                           ; preds = %.lr.ph156
   %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %120) #5
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %.val94 = load i32, ptr %3, align 4
-  %122 = trunc i64 %indvars.iv.next176 to i32
+  %122 = trunc nuw i64 %indvars.iv.next176 to i32
   %123 = icmp sgt i32 %.val94, %122
   br i1 %123, label %.lr.ph156, label %.critedge6, !llvm.loop !17
 

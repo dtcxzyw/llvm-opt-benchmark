@@ -541,13 +541,13 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   ]
 
 .preheader418.i.preheader.i:                      ; preds = %.thread441.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(24) %44, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, ptr noundef nonnull readonly align 4 dereferenceable(24) %44, i64 24, i1 false)
   br label %.loopexit56.i
 
 .preheader.i.i:                                   ; preds = %.thread441.i.i
-  %invariant.gep.i.i = getelementptr i8, ptr %.sroa.02.013, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(24) %44, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 4 dereferenceable(24) %invariant.gep.i.i, i64 24, i1 false)
+  %invariant.gep.i.i = getelementptr inbounds i8, ptr %.sroa.02.013, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, ptr noundef nonnull readonly align 4 dereferenceable(24) %44, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull readonly align 4 dereferenceable(24) %invariant.gep.i.i, i64 24, i1 false)
   br label %.loopexit56.i
 
 57:                                               ; preds = %.thread441.i.i
@@ -600,7 +600,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
 
 87:                                               ; preds = %.thread441.i.i, %.thread441.i.i, %.thread441.i.i, %.thread441.i.i
   %88 = load float, ptr %44, align 4
-  %89 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %88, i32 noundef 0, i32 noundef %0, ptr noundef nonnull @.str.4), !range !13
+  %89 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %88, i32 noundef 0, i32 noundef %0, ptr noundef nonnull @.str.4)
   store i32 %89, ptr %10, align 16
   %90 = getelementptr inbounds i8, ptr %.sroa.02.013, i64 28
   %91 = load float, ptr %90, align 4
@@ -632,7 +632,7 @@ _ZL8IS_ANGLEi.exit.thread.i.i:                    ; preds = %_ZL8IS_ANGLEi.exit.
   %102 = load float, ptr %44, align 4
   store float %102, ptr %10, align 16
   %scevgep.i = getelementptr i8, ptr %.sroa.02.013, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %25, ptr noundef nonnull align 4 dereferenceable(20) %scevgep.i, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %25, ptr noundef nonnull readonly align 4 dereferenceable(20) %scevgep.i, i64 20, i1 false)
   br label %.loopexit56.i
 
 103:                                              ; preds = %.thread441.i.i
@@ -934,7 +934,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %261, %256, %247
 272:                                              ; preds = %263
   %273 = getelementptr inbounds i8, ptr %.sroa.02.013, i64 32
   %274 = load float, ptr %273, align 4
-  %275 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %274, i32 noundef -99, i32 noundef %0, ptr noundef nonnull @.str.5), !range !13
+  %275 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %274, i32 noundef -99, i32 noundef %0, ptr noundef nonnull @.str.5)
   store i32 %275, ptr %26, align 8
   br label %.loopexit56.i
 
@@ -977,7 +977,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %261, %256, %247
 
 306:                                              ; preds = %.thread441.i.i
   %307 = load float, ptr %44, align 4
-  %308 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %307, i32 noundef 0, i32 noundef 53, ptr noundef nonnull @.str.6), !range !13
+  %308 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %307, i32 noundef 0, i32 noundef 53, ptr noundef nonnull @.str.6)
   store i32 %308, ptr %29, align 4
   %309 = add nsw i32 %308, -1
   %or.cond.i.i = icmp ult i32 %309, 8
@@ -1016,16 +1016,16 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %261, %256, %247
 
 328:                                              ; preds = %.thread441.i.i
   %329 = load float, ptr %44, align 4
-  %330 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %329, i32 noundef 1, i32 noundef 56, ptr noundef nonnull @.str.10), !range !13
+  %330 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %329, i32 noundef 1, i32 noundef 56, ptr noundef nonnull @.str.10)
   %331 = add nsw i32 %330, -1
   store i32 %331, ptr %10, align 16
   %332 = getelementptr inbounds i8, ptr %.sroa.02.013, i64 28
   %333 = load float, ptr %332, align 4
-  %334 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %333, i32 noundef 1, i32 noundef 56, ptr noundef nonnull @.str.8), !range !13
+  %334 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %333, i32 noundef 1, i32 noundef 56, ptr noundef nonnull @.str.8)
   store i32 %334, ptr %26, align 8
   %335 = getelementptr inbounds i8, ptr %.sroa.02.013, i64 32
   %336 = load float, ptr %335, align 4
-  %337 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %336, i32 noundef 0, i32 noundef 56, ptr noundef nonnull @.str.11), !range !13
+  %337 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %336, i32 noundef 0, i32 noundef 56, ptr noundef nonnull @.str.11)
   store i32 %337, ptr %25, align 4
   %338 = getelementptr inbounds i8, ptr %.sroa.02.013, i64 36
   %339 = load <2 x float>, ptr %338, align 4
@@ -1148,7 +1148,7 @@ _ZL12set_ljparams15CombinationRuledddPfS0_.exit.i: ; preds = %261, %256, %247
 
 425:                                              ; preds = %.thread441.i.i
   %426 = load float, ptr %44, align 4
-  %427 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %426, i32 noundef 1, i32 noundef 74, ptr noundef nonnull @.str.12), !range !13
+  %427 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %426, i32 noundef 1, i32 noundef 74, ptr noundef nonnull @.str.12)
   store i32 %427, ptr %10, align 16
   %428 = getelementptr inbounds i8, ptr %.sroa.02.013, i64 28
   %429 = load float, ptr %428, align 4
@@ -1195,11 +1195,11 @@ _ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit.
 
 .thread.i:                                        ; preds = %.thread441.i.i
   %438 = load float, ptr %44, align 4
-  %439 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %438, i32 noundef 0, i32 noundef 54, ptr noundef nonnull @.str.8), !range !13
+  %439 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %438, i32 noundef 0, i32 noundef 54, ptr noundef nonnull @.str.8)
   store i32 %439, ptr %29, align 4
   %440 = getelementptr inbounds i8, ptr %.sroa.02.013, i64 28
   %441 = load float, ptr %440, align 4
-  %442 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %441, i32 noundef 1, i32 noundef 54, ptr noundef nonnull @.str.9), !range !13
+  %442 = tail call fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %441, i32 noundef 1, i32 noundef 54, ptr noundef nonnull @.str.9)
   store i32 %442, ptr %28, align 16
   %443 = getelementptr inbounds i8, ptr %.sroa.02.013, i64 32
   %444 = load <4 x float>, ptr %443, align 4
@@ -1240,7 +1240,7 @@ _ZL12enter_paramsP14gmx_ffparams_tiN3gmx8ArrayRefIKfEE15CombinationRulefib.exit.
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %lftr.wideiv.i, %450
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !13
 
 .thread54.i:                                      ; preds = %.thread.i, %445
   %460 = phi ptr [ %.pre25, %445 ], [ %.pre24, %.thread.i ]
@@ -1698,7 +1698,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
 declare double @cos(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL11round_checkfiiPKc(float noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -99, -2147483648) i32 @_ZL11round_checkfiiPKc(float noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %7 = tail call float @llvm.rint.f32(float %0)
@@ -1873,5 +1873,4 @@ attributes #18 = { nounwind }
 !10 = distinct !{!10, !"_ZSt11make_uniqueISt5arrayI15InteractionListLm94EEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = !{i32 -99, i32 -2147483648}
-!14 = distinct !{!14, !6}
+!13 = distinct !{!13, !6}

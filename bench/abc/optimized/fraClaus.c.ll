@@ -56,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.9 = private unnamed_addr constant [28 x i8] c"Error: BMC solver is unsat.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fra_ClausRunBmc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_ClausRunBmc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [2 x i32], align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
@@ -119,7 +119,7 @@ define noundef i32 @Fra_ClausRunBmc(ptr nocapture noundef readonly %0) local_unn
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fra_ClausRunSat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_ClausRunSat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = add i32 %2, 1
   %4 = sext i32 %3 to i64
@@ -197,7 +197,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fra_ClausRunSat0(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_ClausRunSat0(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [2 x i32], align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -346,8 +346,8 @@ define i32 @Fra_ClausProcessClausesCut(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv65 = phi i64 [ 0, %.preheader47.us ], [ %indvars.iv.next66, %30 ]
   %31 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %indvars.iv65
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr i32, ptr %32, i64 %indvars.iv70
-  %34 = getelementptr i32, ptr %33, i64 %27
+  %33 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv70
+  %34 = getelementptr inbounds i32, ptr %33, i64 %27
   %35 = load i32, ptr %34, align 4
   %36 = add nuw nsw i64 %29, %indvars.iv65
   %37 = sub nsw i64 31, %36
@@ -655,8 +655,8 @@ define void @Fra_ClausProcessClausesCut3(ptr nocapture noundef readonly %0, ptr 
   %indvars.iv98 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next99, %39 ]
   %40 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %indvars.iv98
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr i32, ptr %41, i64 %indvars.iv103
-  %43 = getelementptr i32, ptr %42, i64 %37
+  %42 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv103
+  %43 = getelementptr inbounds i32, ptr %42, i64 %37
   %44 = load i32, ptr %43, align 4
   %45 = add nuw nsw i64 %38, %indvars.iv98
   %46 = sub nsw i64 31, %45
@@ -1428,7 +1428,7 @@ Vec_IntPush.exit25:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Fra_ClausSmlNodeIsConst(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Fra_ClausSmlNodeIsConst(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1465,7 +1465,7 @@ define noundef i32 @Fra_ClausSmlNodeIsConst(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Fra_ClausSmlNodesAreImp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Fra_ClausSmlNodesAreImp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1511,7 +1511,7 @@ define noundef i32 @Fra_ClausSmlNodesAreImp(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef i32 @Fra_ClausSmlNodesAreImpC(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Fra_ClausSmlNodesAreImpC(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2843,7 +2843,7 @@ Fra_ClausSmlNodesAreImpC.exit:                    ; preds = %.lr.ph.i192, %Fra_C
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fra_ClausProcessClauses(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Fra_ClausProcessClauses(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca [32 x i32], align 16
   %5 = alloca [16 x ptr], align 16
@@ -3161,8 +3161,8 @@ Abc_Clock.exit140:                                ; preds = %106, %109
   %indvars.iv65.i = phi i64 [ 0, %.preheader47.us.i ], [ %indvars.iv.next66.i, %156 ]
   %157 = getelementptr inbounds [16 x ptr], ptr %11, i64 0, i64 %indvars.iv65.i
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr i32, ptr %158, i64 %indvars.iv70.i
-  %160 = getelementptr i32, ptr %159, i64 %154
+  %159 = getelementptr inbounds i32, ptr %158, i64 %indvars.iv70.i
+  %160 = getelementptr inbounds i32, ptr %159, i64 %154
   %161 = load i32, ptr %160, align 4
   %162 = add nuw nsw i64 %155, %indvars.iv65.i
   %163 = sub nsw i64 31, %162
@@ -3511,8 +3511,8 @@ Abc_Clock.exit148:                                ; preds = %267, %270
   %indvars.iv65.i175 = phi i64 [ 0, %.preheader47.us.i173 ], [ %indvars.iv.next66.i176, %316 ]
   %317 = getelementptr inbounds [16 x ptr], ptr %5, i64 0, i64 %indvars.iv65.i175
   %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr i32, ptr %318, i64 %indvars.iv70.i174
-  %320 = getelementptr i32, ptr %319, i64 %314
+  %319 = getelementptr inbounds i32, ptr %318, i64 %indvars.iv70.i174
+  %320 = getelementptr inbounds i32, ptr %319, i64 %314
   %321 = load i32, ptr %320, align 4
   %322 = add nuw nsw i64 %315, %indvars.iv65.i175
   %323 = sub nsw i64 31, %322
@@ -3804,7 +3804,7 @@ declare ptr @Fra_SmlSimulateComb(ptr noundef, i32 noundef, i32 noundef) local_un
 declare void @Aig_MmFixedStop(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fra_ClausProcessClauses2(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Fra_ClausProcessClauses2(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 Abc_Clock.exit:
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
@@ -4747,7 +4747,7 @@ define void @Fra_ClausSimInfoRecord(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Fra_ClausSimInfoCheck(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @Fra_ClausSimInfoCheck(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = alloca [16 x ptr], align 16
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph, label %._crit_edge.thread
@@ -5181,7 +5181,7 @@ Fra_ClausSimInfoClean.exit:                       ; preds = %25, %13
   br i1 %.not157, label %168, label %157
 
 157:                                              ; preds = %154
-  %158 = tail call i32 @Fra_ClausRunSat0(ptr noundef nonnull %0), !range !74
+  %158 = tail call i32 @Fra_ClausRunSat0(ptr noundef nonnull %0)
   %.not158 = icmp eq i32 %158, 0
   %159 = getelementptr inbounds i8, ptr %0, i64 36
   %160 = load i32, ptr %159, align 4
@@ -5253,7 +5253,7 @@ Fra_ClausSimInfoClean.exit:                       ; preds = %25, %13
   %194 = sext i32 %.3150214 to i64
   %195 = getelementptr inbounds i32, ptr %.val180, i64 %194
   %196 = sub nsw i32 %187, %.3150214
-  %197 = tail call i32 @Fra_ClausSimInfoCheck(ptr noundef nonnull %0, ptr noundef %195, i32 noundef %196), !range !74
+  %197 = tail call i32 @Fra_ClausSimInfoCheck(ptr noundef nonnull %0, ptr noundef %195, i32 noundef %196)
   %.not162 = icmp eq i32 %197, 0
   br i1 %.not162, label %.preheader, label %204
 
@@ -5283,7 +5283,7 @@ Fra_ClausSimInfoClean.exit:                       ; preds = %25, %13
   store i32 %208, ptr %206, align 4
   %indvars.iv.next240 = add nsw i64 %indvars.iv239, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next240, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge208, label %.lr.ph207, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge208, label %.lr.ph207, !llvm.loop !74
 
 ._crit_edge208:                                   ; preds = %.lr.ph207
   %209 = load ptr, ptr %3, align 8
@@ -5301,7 +5301,7 @@ Fra_ClausSimInfoClean.exit:                       ; preds = %25, %13
   store i32 %216, ptr %214, align 4
   %indvars.iv.next243 = add nsw i64 %indvars.iv242, 1
   %exitcond246.not = icmp eq i64 %indvars.iv.next243, %wide.trip.count
-  br i1 %exitcond246.not, label %._crit_edge212, label %.lr.ph211, !llvm.loop !76
+  br i1 %exitcond246.not, label %._crit_edge212, label %.lr.ph211, !llvm.loop !75
 
 ._crit_edge212:                                   ; preds = %.lr.ph211, %._crit_edge208.thread, %._crit_edge208
   %217 = phi i32 [ %203, %._crit_edge208.thread ], [ %213, %._crit_edge208 ], [ %213, %.lr.ph211 ]
@@ -5348,7 +5348,7 @@ Fra_ClausSimInfoClean.exit:                       ; preds = %25, %13
   %.val167 = load i32, ptr %242, align 4
   %243 = sext i32 %.val167 to i64
   %244 = icmp slt i64 %indvars.iv.next248, %243
-  br i1 %244, label %183, label %.critedge4, !llvm.loop !77
+  br i1 %244, label %183, label %.critedge4, !llvm.loop !76
 
 .critedge4:                                       ; preds = %240, %176
   %.0145.lcssa = phi i32 [ 0, %176 ], [ %.1146, %240 ]
@@ -5375,7 +5375,7 @@ Fra_ClausSimInfoClean.exit:                       ; preds = %25, %13
   %.val = load i32, ptr %257, align 4
   %258 = sext i32 %.val to i64
   %259 = icmp slt i64 %indvars.iv.next251, %258
-  br i1 %259, label %.lr.ph222, label %.loopexit, !llvm.loop !78
+  br i1 %259, label %.lr.ph222, label %.loopexit, !llvm.loop !77
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %120, %6
   %str.4.sink = phi ptr [ @str.8, %6 ], [ @str.5, %120 ], [ @str.5, %.lr.ph ]
@@ -5806,7 +5806,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %28, ptr %59, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit, %.preheader
   %60 = load ptr, ptr %11, align 8
@@ -5899,7 +5899,7 @@ Vec_IntPush.exit45:                               ; preds = %.Vec_IntGrow.exit10
   %.val35 = load i32, ptr %103, align 4
   %104 = sext i32 %.val35 to i64
   %105 = icmp slt i64 %indvars.iv.next55, %104
-  br i1 %105, label %14, label %.critedge, !llvm.loop !80
+  br i1 %105, label %14, label %.critedge, !llvm.loop !79
 
 .critedge:                                        ; preds = %101, %1
   %106 = phi ptr [ %6, %1 ], [ %102, %101 ]
@@ -5980,7 +5980,7 @@ define void @Fra_ClausPrintIndClauses(ptr nocapture noundef readonly %0) local_u
 22:                                               ; preds = %17, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !81
+  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !80
 
 .critedge:                                        ; preds = %22, %1
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %.val21)
@@ -6002,7 +6002,7 @@ define void @Fra_ClausPrintIndClauses(ptr nocapture noundef readonly %0) local_u
 31:                                               ; preds = %25, %28
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next29, 8
-  br i1 %exitcond31.not, label %32, label %25, !llvm.loop !82
+  br i1 %exitcond31.not, label %32, label %25, !llvm.loop !81
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %2, i64 32
@@ -6029,7 +6029,7 @@ Aig_ManObj.exit:
   %7 = getelementptr inbounds i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 32
-  %.val = load ptr, ptr %9, align 8, !nonnull !83, !noundef !83
+  %.val = load ptr, ptr %9, align 8, !nonnull !82, !noundef !82
   %10 = getelementptr i8, ptr %.val, i64 8
   %.val.i = load ptr, ptr %10, align 8
   %11 = sext i32 %6 to i64
@@ -6087,7 +6087,7 @@ define void @Fra_ClausWriteIndClauses(ptr nocapture noundef readonly %0) local_u
 24:                                               ; preds = %16, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !84
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %24, %1
   %25 = tail call ptr @Aig_ManDupWithoutPos(ptr noundef nonnull %10) #22
@@ -6119,7 +6119,7 @@ define void @Fra_ClausWriteIndClauses(ptr nocapture noundef readonly %0) local_u
   %43 = load i32, ptr %42, align 4
   %44 = load ptr, ptr %9, align 8
   %45 = getelementptr i8, ptr %44, i64 32
-  %.val.i = load ptr, ptr %45, align 8, !nonnull !83, !noundef !83
+  %.val.i = load ptr, ptr %45, align 8, !nonnull !82, !noundef !82
   %46 = getelementptr i8, ptr %.val.i, i64 8
   %.val.i.i = load ptr, ptr %46, align 8
   %47 = sext i32 %43 to i64
@@ -6151,7 +6151,7 @@ define void @Fra_ClausWriteIndClauses(ptr nocapture noundef readonly %0) local_u
   %64 = load i32, ptr %63, align 4
   %65 = load ptr, ptr %9, align 8
   %66 = getelementptr i8, ptr %65, i64 32
-  %.val.i53 = load ptr, ptr %66, align 8, !nonnull !83, !noundef !83
+  %.val.i53 = load ptr, ptr %66, align 8, !nonnull !82, !noundef !82
   %67 = getelementptr i8, ptr %.val.i53, i64 8
   %.val.i.i54 = load ptr, ptr %67, align 8
   %68 = sext i32 %64 to i64
@@ -6168,7 +6168,7 @@ define void @Fra_ClausWriteIndClauses(ptr nocapture noundef readonly %0) local_u
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next71 to i32
   %exitcond73.not = icmp eq i32 %36, %lftr.wideiv
-  br i1 %exitcond73.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !85
+  br i1 %exitcond73.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !84
 
 ._crit_edge62:                                    ; preds = %.lr.ph61, %.lr.ph68
   %.045.lcssa = phi ptr [ %56, %.lr.ph68 ], [ %78, %.lr.ph61 ]
@@ -6179,7 +6179,7 @@ define void @Fra_ClausWriteIndClauses(ptr nocapture noundef readonly %0) local_u
   %.val = load i32, ptr %81, align 4
   %82 = sext i32 %.val to i64
   %83 = icmp slt i64 %indvars.iv.next75, %82
-  br i1 %83, label %.lr.ph68, label %.critedge.thread, !llvm.loop !86
+  br i1 %83, label %.lr.ph68, label %.critedge.thread, !llvm.loop !85
 
 .critedge:                                        ; preds = %._crit_edge
   %.not = icmp eq ptr %8, null
@@ -6272,14 +6272,14 @@ define void @Fra_ClausEstimateCoverageOne(ptr noundef %0, ptr nocapture noundef 
   store i32 %27, ptr %16, align 4
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
-  br i1 %exitcond41.not, label %._crit_edge.us, label %17, !llvm.loop !87
+  br i1 %exitcond41.not, label %._crit_edge.us, label %17, !llvm.loop !86
 
 ._crit_edge.us:                                   ; preds = %17
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %28 = load i32, ptr %11, align 4
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next43, %29
-  br i1 %30, label %.lr.ph28.us, label %._crit_edge31, !llvm.loop !88
+  br i1 %30, label %.lr.ph28.us, label %._crit_edge31, !llvm.loop !87
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
@@ -6296,7 +6296,7 @@ define void @Fra_ClausEstimateCoverageOne(ptr noundef %0, ptr nocapture noundef 
   store ptr %40, ptr %41, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %31, !llvm.loop !89
+  br i1 %exitcond.not, label %.preheader, label %31, !llvm.loop !88
 
 .lr.ph30.split:                                   ; preds = %.lr.ph30.split.preheader, %.lr.ph30.split
   %indvars.iv34 = phi i64 [ 0, %.lr.ph30.split.preheader ], [ %indvars.iv.next35, %.lr.ph30.split ]
@@ -6306,7 +6306,7 @@ define void @Fra_ClausEstimateCoverageOne(ptr noundef %0, ptr nocapture noundef 
   %43 = load i32, ptr %15, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next35, %44
-  br i1 %45, label %.lr.ph30.split, label %._crit_edge31, !llvm.loop !88
+  br i1 %45, label %.lr.ph30.split, label %._crit_edge31, !llvm.loop !87
 
 ._crit_edge31:                                    ; preds = %.lr.ph30.split, %._crit_edge.us, %.preheader.thread, %.preheader
   ret void
@@ -6376,7 +6376,7 @@ Abc_Clock.exit:                                   ; preds = %1, %7
 35:                                               ; preds = %27, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !90
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %35, %Abc_Clock.exit
   %36 = getelementptr i8, ptr %21, i64 24
@@ -6461,14 +6461,14 @@ Abc_Clock.exit:                                   ; preds = %1, %7
   store i32 %83, ptr %72, align 4
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count.i
-  br i1 %exitcond41.not.i, label %._crit_edge.us.i, label %73, !llvm.loop !87
+  br i1 %exitcond41.not.i, label %._crit_edge.us.i, label %73, !llvm.loop !86
 
 ._crit_edge.us.i:                                 ; preds = %73
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %84 = load i32, ptr %42, align 4
   %85 = sext i32 %84 to i64
   %86 = icmp slt i64 %indvars.iv.next43.i, %85
-  br i1 %86, label %.lr.ph28.us.i, label %Fra_ClausEstimateCoverageOne.exit, !llvm.loop !88
+  br i1 %86, label %.lr.ph28.us.i, label %Fra_ClausEstimateCoverageOne.exit, !llvm.loop !87
 
 87:                                               ; preds = %87, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %87 ]
@@ -6485,7 +6485,7 @@ Abc_Clock.exit:                                   ; preds = %1, %7
   store ptr %96, ptr %97, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %87, !llvm.loop !89
+  br i1 %exitcond.not.i, label %.preheader.i, label %87, !llvm.loop !88
 
 .lr.ph30.split.i:                                 ; preds = %.preheader.thread.i, %.lr.ph30.split.i
   %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %.lr.ph30.split.i ], [ 0, %.preheader.thread.i ]
@@ -6495,7 +6495,7 @@ Abc_Clock.exit:                                   ; preds = %1, %7
   %99 = load i32, ptr %42, align 4
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next35.i, %100
-  br i1 %101, label %.lr.ph30.split.i, label %Fra_ClausEstimateCoverageOne.exit, !llvm.loop !88
+  br i1 %101, label %.lr.ph30.split.i, label %Fra_ClausEstimateCoverageOne.exit, !llvm.loop !87
 
 Fra_ClausEstimateCoverageOne.exit:                ; preds = %.lr.ph30.split.i, %._crit_edge.us.i, %.preheader.i, %.preheader.thread.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
@@ -6511,7 +6511,7 @@ Fra_ClausEstimateCoverageOne.exit:                ; preds = %.lr.ph30.split.i, %
   store i32 %107, ptr %105, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next91, 2048
-  br i1 %exitcond93.not, label %108, label %102, !llvm.loop !91
+  br i1 %exitcond93.not, label %108, label %102, !llvm.loop !90
 
 108:                                              ; preds = %102
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
@@ -6520,7 +6520,7 @@ Fra_ClausEstimateCoverageOne.exit:                ; preds = %.lr.ph30.split.i, %
   %.val66 = load i32, ptr %110, align 4
   %111 = sext i32 %.val66 to i64
   %112 = icmp slt i64 %indvars.iv.next95, %111
-  br i1 %112, label %.lr.ph82, label %.critedge.preheader, !llvm.loop !92
+  br i1 %112, label %.lr.ph82, label %.critedge.preheader, !llvm.loop !91
 
 .critedge.preheader:                              ; preds = %108, %._crit_edge
   br label %.critedge
@@ -6552,7 +6552,7 @@ Fra_ClausEstimateCoverageOne.exit:                ; preds = %.lr.ph30.split.i, %
   %134 = add nuw i32 %133, %131
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 2048
-  br i1 %exitcond100.not, label %135, label %.critedge, !llvm.loop !93
+  br i1 %exitcond100.not, label %135, label %.critedge, !llvm.loop !92
 
 135:                                              ; preds = %.critedge
   call void @Fra_SmlStop(ptr noundef nonnull %14) #22
@@ -6804,7 +6804,7 @@ Abc_Clock.exit134:                                ; preds = %Fra_ClausRunBmc.exi
   br i1 %.not117, label %Abc_Clock.exit136, label %130
 
 130:                                              ; preds = %127
-  %131 = call i32 @Fra_ClausRunSat(ptr noundef nonnull %37), !range !74
+  %131 = call i32 @Fra_ClausRunSat(ptr noundef nonnull %37)
   %.not118 = icmp eq i32 %131, 0
   br i1 %.not118, label %Abc_Clock.exit136, label %132
 
@@ -6819,7 +6819,7 @@ Abc_Clock.exit136:                                ; preds = %130, %127
   %134 = load i32, ptr %51, align 4
   store i32 0, ptr %51, align 4
   store i32 0, ptr %100, align 8
-  %135 = call i32 @Fra_ClausProcessClauses2(ptr noundef nonnull %37, i32 noundef %10), !range !94
+  %135 = call i32 @Fra_ClausProcessClauses2(ptr noundef nonnull %37, i32 noundef %10)
   store i32 %134, ptr %51, align 4
   %136 = load i32, ptr %101, align 4
   %137 = mul nsw i32 %136, %134
@@ -6914,7 +6914,7 @@ Abc_Clock.exit146.us:                             ; preds = %Abc_Clock.exit142.s
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   %174 = call i32 @Fra_ClausInductiveClauses(ptr noundef nonnull %37)
   %175 = icmp sgt i32 %174, 0
-  br i1 %175, label %Abc_Clock.exit146.us, label %.split.us.loopexit, !llvm.loop !95
+  br i1 %175, label %Abc_Clock.exit146.us, label %.split.us.loopexit, !llvm.loop !93
 
 Abc_Clock.exit142.split:                          ; preds = %Abc_Clock.exit142.split.preheader, %Abc_Clock.exit146
   %176 = phi i32 [ %183, %Abc_Clock.exit146 ], [ %.pre166, %Abc_Clock.exit142.split.preheader ]
@@ -6973,7 +6973,7 @@ Abc_Clock.exit146:                                ; preds = %Abc_Clock.exit144, 
   %.0.i145.neg = phi i64 [ %.neg160, %199 ], [ 1, %Abc_Clock.exit144 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   %202 = add nuw nsw i32 %.0107162, 1
-  br i1 %179, label %Abc_Clock.exit142.split, label %.split.us, !llvm.loop !95
+  br i1 %179, label %Abc_Clock.exit142.split, label %.split.us, !llvm.loop !93
 
 .split.us.loopexit:                               ; preds = %Abc_Clock.exit146.us, %Abc_Clock.exit142.split.us.preheader
   %.lcssa172 = phi i32 [ %168, %Abc_Clock.exit142.split.us.preheader ], [ %174, %Abc_Clock.exit146.us ]
@@ -7055,7 +7055,7 @@ Abc_Clock.exit150:                                ; preds = %223, %227
 236:                                              ; preds = %Abc_Clock.exit150, %Abc_Clock.exit148
   %237 = load i32, ptr %93, align 8
   %238 = icmp slt i32 %116, %237
-  br i1 %238, label %114, label %Abc_Clock.exit148._crit_edge, !llvm.loop !96
+  br i1 %238, label %114, label %Abc_Clock.exit148._crit_edge, !llvm.loop !94
 
 Abc_Clock.exit148._crit_edge:                     ; preds = %236, %Abc_Clock.exit148, %.preheader
   %239 = phi i32 [ %61, %.preheader ], [ 1, %Abc_Clock.exit148 ], [ %204, %236 ]
@@ -7238,7 +7238,7 @@ attributes #25 = { nounwind willreturn memory(read) }
 !71 = distinct !{!71, !5}
 !72 = distinct !{!72, !5}
 !73 = distinct !{!73, !5}
-!74 = !{i32 0, i32 2}
+!74 = distinct !{!74, !5}
 !75 = distinct !{!75, !5}
 !76 = distinct !{!76, !5}
 !77 = distinct !{!77, !5}
@@ -7246,8 +7246,8 @@ attributes #25 = { nounwind willreturn memory(read) }
 !79 = distinct !{!79, !5}
 !80 = distinct !{!80, !5}
 !81 = distinct !{!81, !5}
-!82 = distinct !{!82, !5}
-!83 = !{}
+!82 = !{}
+!83 = distinct !{!83, !5}
 !84 = distinct !{!84, !5}
 !85 = distinct !{!85, !5}
 !86 = distinct !{!86, !5}
@@ -7258,6 +7258,4 @@ attributes #25 = { nounwind willreturn memory(read) }
 !91 = distinct !{!91, !5}
 !92 = distinct !{!92, !5}
 !93 = distinct !{!93, !5}
-!94 = !{i32 -1, i32 2}
-!95 = distinct !{!95, !5}
-!96 = distinct !{!96, !5}
+!94 = distinct !{!94, !5}

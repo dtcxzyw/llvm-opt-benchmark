@@ -16,13 +16,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [15 x i8] c"1.3.0.1-motley\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @zlibVersion() local_unnamed_addr #0 {
+define noundef nonnull ptr @zlibVersion() local_unnamed_addr #0 {
 entry:
   ret ptr @.str.9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @zlibCompileFlags() local_unnamed_addr #0 {
+define noundef i64 @zlibCompileFlags() local_unnamed_addr #0 {
 entry:
   ret i64 169
 }
@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias ptr @zcalloc(ptr nocapture noundef readnone %opaque, i32 noundef %items, i32 noundef %size) local_unnamed_addr #1 {
+define noalias noundef ptr @zcalloc(ptr nocapture noundef readnone %opaque, i32 noundef %items, i32 noundef %size) local_unnamed_addr #1 {
 entry:
   %mul = mul i32 %size, %items
   %conv = zext i32 %mul to i64

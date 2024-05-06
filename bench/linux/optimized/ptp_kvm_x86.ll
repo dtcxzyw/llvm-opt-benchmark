@@ -64,7 +64,7 @@ define dso_local void @kvm_arch_ptp_exit() local_unnamed_addr #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @kvm_arch_ptp_get_clock(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @kvm_arch_ptp_get_clock(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
   %2 = load i64, ptr @clock_pair_gpa, align 8
   %3 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09vmcall\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 8*32+15)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09vmmcall\0A6651:\0A.popsection\0A", "={ax},{ax},{bx},{cx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 9, i64 %2, i64 0) #4, !srcloc !5
   %4 = icmp eq i64 %3, 0
@@ -101,7 +101,7 @@ declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @kvm_arch_ptp_get_crosststamp(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @kvm_arch_ptp_get_crosststamp(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @hv_clock_per_cpu) #4, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds i8, ptr %1, i64 8

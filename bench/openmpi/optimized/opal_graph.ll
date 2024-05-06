@@ -537,7 +537,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %17, %1
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @opal_graph_add_edge(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @opal_graph_add_edge(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1066,7 +1066,7 @@ define i32 @opal_graph_get_adjacent_vertices(ptr noundef readnone %0, ptr nocapt
   %30 = load i64, ptr %19, align 8
   %31 = mul i64 %30, %25
   %32 = getelementptr inbounds i8, ptr %29, i64 %31
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 8 %4, i64 %30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull readonly align 8 %4, i64 %30, i1 false)
   br label %opal_value_array_append_item.exit
 
 opal_value_array_append_item.exit:                ; preds = %20, %28
@@ -1293,7 +1293,7 @@ define i32 @opal_graph_dijkstra(ptr noundef readonly %0, ptr noundef readonly %1
   br i1 %.not56, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %23 = trunc i64 %indvars.iv.next to i32
+  %23 = trunc nuw i64 %indvars.iv.next to i32
   %24 = and i64 %indvars.iv.next, 4294967295
   tail call void @qsort(ptr noundef nonnull %11, i64 noundef %24, i64 noundef 16, ptr noundef nonnull @compare_vertex_distance) #12
   %25 = icmp sgt i32 %23, 0
@@ -1419,7 +1419,7 @@ opal_graph_adjacent.exit:                         ; preds = %58, %37, %41, %44, 
   %74 = load i64, ptr %31, align 8
   %75 = mul i64 %74, %68
   %76 = getelementptr inbounds i8, ptr %73, i64 %75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr nonnull align 1 %72, i64 %74, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr nonnull readonly align 1 %72, i64 %74, i1 false)
   br label %opal_value_array_append_item.exit
 
 opal_value_array_append_item.exit:                ; preds = %67, %71
@@ -1442,7 +1442,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_vertex_distance(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @compare_vertex_distance(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8

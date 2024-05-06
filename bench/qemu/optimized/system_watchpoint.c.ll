@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.CPU_GET_CLASS = private unnamed_addr constant [14 x i8] c"CPU_GET_CLASS\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @cpu_watchpoint_insert(ptr noundef %cpu, i64 noundef %addr, i64 noundef %len, i32 noundef %flags, ptr noundef writeonly %watchpoint) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @cpu_watchpoint_insert(ptr noundef %cpu, i64 noundef %addr, i64 noundef %len, i32 noundef %flags, ptr noundef writeonly %watchpoint) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %len, 0
   %0 = sub i64 0, %len
@@ -100,7 +100,7 @@ declare void @tlb_flush_page(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @tlb_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @cpu_watchpoint_remove(ptr noundef %cpu, i64 noundef %addr, i64 noundef %len, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cpu_watchpoint_remove(ptr noundef %cpu, i64 noundef %addr, i64 noundef %len, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %watchpoints = getelementptr inbounds i8, ptr %cpu, i64 600
   %wp.08 = load ptr, ptr %watchpoints, align 8

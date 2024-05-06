@@ -352,7 +352,7 @@ declare dso_local ptr @handshake_req_hash_lookup(ptr noundef) local_unnamed_addr
 declare dso_local i32 @tls_alert_send(ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @tls_handshake_accept(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @tls_handshake_accept(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -671,7 +671,7 @@ declare dso_local ptr @handshake_req_private(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @handshake_genl_put(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tls_handshake_put_peer_identity(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_peer_identity(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   %5 = getelementptr inbounds i8, ptr %1, i64 52
@@ -703,7 +703,7 @@ define internal fastcc noundef i32 @tls_handshake_put_peer_identity(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @tls_handshake_put_certificate(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_certificate(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 44

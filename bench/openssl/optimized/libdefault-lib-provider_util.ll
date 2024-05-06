@@ -34,7 +34,7 @@ declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ENGINE_finish(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_prov_cipher_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_prov_cipher_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
   %alloc_cipher = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load ptr, ptr %alloc_cipher, align 8
@@ -87,7 +87,7 @@ declare i32 @EVP_CIPHER_up_ref(ptr noundef) local_unnamed_addr #1
 declare i32 @ENGINE_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_prov_cipher_load_from_params(ptr nocapture noundef %pc, ptr noundef %params, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_prov_cipher_load_from_params(ptr nocapture noundef %pc, ptr noundef %params, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %propquery = alloca ptr, align 8
   %cmp = icmp eq ptr %params, null
@@ -95,7 +95,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %engine = getelementptr inbounds i8, ptr %pc, i64 16
-  %call = call fastcc i32 @load_common(ptr noundef nonnull %params, ptr noundef nonnull %propquery, ptr noundef nonnull %engine), !range !4
+  %call = call fastcc i32 @load_common(ptr noundef nonnull %params, ptr noundef nonnull %propquery, ptr noundef nonnull %engine)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
@@ -165,7 +165,7 @@ return:                                           ; preds = %if.end6, %if.end2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @load_common(ptr noundef %params, ptr nocapture noundef writeonly %propquery, ptr nocapture noundef %engine) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @load_common(ptr noundef %params, ptr nocapture noundef writeonly %propquery, ptr nocapture noundef %engine) unnamed_addr #0 {
 entry:
   store ptr null, ptr %propquery, align 8
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.3) #5
@@ -266,7 +266,7 @@ entry:
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_prov_digest_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_prov_digest_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
   %alloc_md = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load ptr, ptr %alloc_md, align 8
@@ -331,7 +331,7 @@ entry:
 declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_prov_digest_load_from_params(ptr nocapture noundef %pd, ptr noundef %params, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_prov_digest_load_from_params(ptr nocapture noundef %pd, ptr noundef %params, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %propquery = alloca ptr, align 8
   %cmp = icmp eq ptr %params, null
@@ -339,7 +339,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %engine = getelementptr inbounds i8, ptr %pd, i64 16
-  %call = call fastcc i32 @load_common(ptr noundef nonnull %params, ptr noundef nonnull %propquery, ptr noundef nonnull %engine), !range !4
+  %call = call fastcc i32 @load_common(ptr noundef nonnull %params, ptr noundef nonnull %propquery, ptr noundef nonnull %engine)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
@@ -581,7 +581,7 @@ declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) 
 declare i32 @EVP_MAC_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_prov_macctx_load_from_params(ptr nocapture noundef %macctx, ptr noundef %params, ptr noundef %macname, ptr noundef %ciphername, ptr noundef %mdname, ptr noundef %libctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_prov_macctx_load_from_params(ptr nocapture noundef %macctx, ptr noundef %params, ptr noundef %macname, ptr noundef %ciphername, ptr noundef %mdname, ptr noundef %libctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %macname, null
   br i1 %cmp, label %land.lhs.true, label %if.end4
@@ -712,7 +712,7 @@ for.inc:                                          ; preds = %lor.lhs.false, %if.
   %arrayidx1 = getelementptr inbounds %struct.ag_capable_st, ptr %in, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx1, align 8
   %cmp3.not = icmp eq ptr %3, null
-  br i1 %cmp3.not, label %for.end.loopexit, label %for.body, !llvm.loop !5
+  br i1 %cmp3.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
 
 for.end.loopexit:                                 ; preds = %for.inc
   %4 = sext i32 %j.1 to i64
@@ -730,7 +730,7 @@ if.end23:                                         ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_prov_memdup(ptr noundef %src, i64 noundef %src_len, ptr nocapture noundef writeonly %dest, ptr nocapture noundef writeonly %dest_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_prov_memdup(ptr noundef %src, i64 noundef %src_len, ptr nocapture noundef writeonly %dest, ptr nocapture noundef writeonly %dest_len) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %src, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -777,6 +777,5 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

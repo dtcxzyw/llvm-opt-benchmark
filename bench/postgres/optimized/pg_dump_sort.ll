@@ -312,7 +312,7 @@ define dso_local void @sortDumpableObjects(ptr nocapture noundef %0, i32 noundef
 26:                                               ; preds = %.lr.ph94.i
   %27 = zext nneg i32 %22 to i64
   %28 = getelementptr i32, ptr %18, i64 %27
-  %29 = trunc i64 %indvars.iv117.i to i32
+  %29 = trunc nuw nsw i64 %indvars.iv117.i to i32
   store i32 %29, ptr %28, align 4
   %30 = getelementptr inbounds i8, ptr %20, i64 56
   %31 = load i32, ptr %30, align 8
@@ -761,7 +761,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   br i1 %244, label %245, label %260
 
 245:                                              ; preds = %.lr.ph.i.i
-  %246 = trunc i64 %indvars.iv427.i.i to i32
+  %246 = trunc nuw nsw i64 %indvars.iv427.i.i to i32
   %247 = add nsw i32 %122, -1
   %248 = icmp sgt i32 %247, %246
   %gep57.i = getelementptr ptr, ptr %invariant.gep.i, i64 %indvars.iv427.i.i
@@ -822,7 +822,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
   br i1 %exitcond441.not.i.i, label %..loopexit319_crit_edge.us.i.i, label %.preheader318.us.i.i, !llvm.loop !18
 
 .split355.us.i.i:                                 ; preds = %.preheader318.us.i.i
-  %270 = trunc i64 %indvars.iv437.i.i to i32
+  %270 = trunc nuw nsw i64 %indvars.iv437.i.i to i32
   %271 = add nsw i32 %122, -1
   %272 = icmp sgt i32 %271, %270
   %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %indvars.iv437.i.i
@@ -1827,7 +1827,7 @@ declare i32 @getMaxDumpId() local_unnamed_addr #1
 declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @int_cmp(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #5 {
+define internal range(i32 -1, 2) i32 @int_cmp(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #5 {
   %4 = ptrtoint ptr %0 to i64
   %5 = trunc i64 %4 to i32
   %6 = ptrtoint ptr %1 to i64

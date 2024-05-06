@@ -358,7 +358,7 @@ declare void @uv_mutex_lock(ptr noundef) local_unnamed_addr #2
 declare void @uv_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @uv__loop_configure(ptr nocapture noundef %loop, i32 noundef %option, ptr nocapture noundef %ap) local_unnamed_addr #3 {
+define hidden range(i32 -38, 1) i32 @uv__loop_configure(ptr nocapture noundef %loop, i32 noundef %option, ptr nocapture noundef %ap) local_unnamed_addr #3 {
 entry:
   switch i32 %option, label %return [
     i32 1, label %if.then

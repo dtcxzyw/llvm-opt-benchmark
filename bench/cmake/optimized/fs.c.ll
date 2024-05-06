@@ -552,7 +552,7 @@ uv__fs_copyfile.exit:                             ; preds = %217, %145, %222, %2
 246:                                              ; preds = %114
   %247 = load i32, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %18)
-  %248 = call fastcc i32 @uv__fs_statx(i32 noundef %247, ptr noundef nonnull @.str, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %42)
+  %248 = call fastcc i32 @uv__fs_statx(i32 noundef %247, ptr noundef nonnull @.str, i32 noundef 1, i32 noundef 0, ptr noundef nonnull writeonly %42)
   %.not.i78 = icmp eq i32 %248, -38
   br i1 %.not.i78, label %249, label %uv__fs_fstat.exit
 
@@ -587,7 +587,7 @@ uv__fs_copyfile.exit:                             ; preds = %217, %145, %222, %2
   %265 = load <2 x i64>, ptr %93, align 8
   %266 = shufflevector <2 x i64> %265, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   store <4 x i64> %266, ptr %62, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   br label %uv__fs_fstat.exit
 
 uv__fs_fstat.exit:                                ; preds = %246, %249, %252
@@ -696,7 +696,7 @@ uv__fs_fstat.exit:                                ; preds = %246, %249, %252
 332:                                              ; preds = %114
   %333 = load ptr, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %15)
-  %334 = call fastcc i32 @uv__fs_statx(i32 noundef -1, ptr noundef %333, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %42)
+  %334 = call fastcc i32 @uv__fs_statx(i32 noundef -1, ptr noundef %333, i32 noundef 0, i32 noundef 1, ptr noundef nonnull writeonly %42)
   %.not.i88 = icmp eq i32 %334, -38
   br i1 %.not.i88, label %335, label %uv__fs_lstat.exit
 
@@ -731,7 +731,7 @@ uv__fs_fstat.exit:                                ; preds = %246, %249, %252
   %351 = load <2 x i64>, ptr %81, align 8
   %352 = shufflevector <2 x i64> %351, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   store <4 x i64> %352, ptr %62, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   br label %uv__fs_lstat.exit
 
 uv__fs_lstat.exit:                                ; preds = %332, %335, %338
@@ -1568,7 +1568,7 @@ uv__fs_sendfile.exit:                             ; preds = %.critedge.thread25.
 679:                                              ; preds = %114
   %680 = load ptr, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  %681 = call fastcc i32 @uv__fs_statx(i32 noundef -1, ptr noundef %680, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %42)
+  %681 = call fastcc i32 @uv__fs_statx(i32 noundef -1, ptr noundef %680, i32 noundef 0, i32 noundef 0, ptr noundef nonnull writeonly %42)
   %.not.i107 = icmp eq i32 %681, -38
   br i1 %.not.i107, label %682, label %uv__fs_stat.exit
 
@@ -1603,7 +1603,7 @@ uv__fs_sendfile.exit:                             ; preds = %.critedge.thread25.
   %698 = load <2 x i64>, ptr %61, align 8
   %699 = shufflevector <2 x i64> %698, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   store <4 x i64> %699, ptr %62, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   br label %uv__fs_stat.exit
 
 uv__fs_stat.exit:                                 ; preds = %679, %682, %685

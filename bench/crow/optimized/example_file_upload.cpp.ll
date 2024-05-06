@@ -2515,7 +2515,7 @@ $_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4crow6ServerINS3_4CrowIJEE
 @.str.227 = private unnamed_addr constant [18 x i8] c"Element not found\00", align 1
 @.str.228 = private unnamed_addr constant [58 x i8] c"The descriptor does not fit into the select call's fd_set\00", align 1
 @.str.229 = private unnamed_addr constant [16 x i8] c"asio.misc error\00", align 1
-@_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E = linkonce_odr dso_local thread_local global ptr null, comdat, align 8
+@_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E = linkonce_odr dso_local thread_local local_unnamed_addr global ptr null, comdat, align 8
 @_ZZN4asio6detail16get_signal_stateEvE5state = linkonce_odr dso_local global %"struct.asio::detail::signal_state" { %"struct.asio::detail::posix_static_mutex" zeroinitializer, i32 -1, i32 -1, i8 0, ptr null, [65 x i64] zeroinitializer }, comdat, align 8
 @.str.230 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.231 = private unnamed_addr constant [6 x i8] c"Crow/\00", align 1
@@ -2778,8 +2778,8 @@ $_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4crow6ServerINS3_4CrowIJEE
 @_ZTINSt13__future_base12_Result_baseE = external constant ptr
 @_ZTINSt13__future_base7_ResultIvEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSNSt13__future_base7_ResultIvEE, ptr @_ZTINSt13__future_base12_Result_baseE }, comdat, align 8
 @_ZTIN10__cxxabiv115__forced_unwindE = external constant ptr
-@_ZSt15__once_callable = external thread_local global ptr, align 8
-@_ZSt11__once_call = external thread_local global ptr, align 8
+@_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
+@_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @.str.333 = private unnamed_addr constant [47 x i8] c"Worker Crash: An uncaught exception occurred: \00", align 1
 @.str.334 = private unnamed_addr constant [26 x i8] c"%a, %d %b %Y %H:%M:%S GMT\00", align 1
 @_ZTSZZN4crow6ServerINS_4CrowIJEEENS_13SocketAdaptorEJEE3runEvENKUlvE_clEvEUlvE0_ = linkonce_odr dso_local constant [77 x i8] c"ZZN4crow6ServerINS_4CrowIJEEENS_13SocketAdaptorEJEE3runEvENKUlvE_clEvEUlvE0_\00", comdat, align 1
@@ -29802,7 +29802,7 @@ _ZNSt6vectorISt6futureIvESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norm
 
 180:                                              ; preds = %176
   %181 = getelementptr inbounds i8, ptr %0, i64 344
-  %182 = mul nsw i64 %178, 1000000
+  %182 = mul nuw nsw i64 %178, 1000000
   %183 = load ptr, ptr %181, align 8, !tbaa !146
   %184 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #33
   %185 = icmp sgt i64 %184, -1

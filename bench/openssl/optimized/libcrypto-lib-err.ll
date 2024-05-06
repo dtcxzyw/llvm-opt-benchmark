@@ -202,7 +202,7 @@ declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_LH_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_err_load_ERR_strings() local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_err_load_ERR_strings() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_string_init, ptr noundef nonnull @do_err_strings_init_ossl_) #8
   %tobool = icmp ne i32 %call, 0
@@ -300,9 +300,9 @@ do_err_strings_init.exit:                         ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ERR_load_strings(i32 noundef %lib, ptr noundef %str) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ERR_load_strings(i32 noundef %lib, ptr noundef %str) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_err_load_ERR_strings(), !range !7
+  %call = tail call i32 @ossl_err_load_ERR_strings()
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -322,7 +322,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.04.i, i64 16
   %4 = load i64, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq i64 %4, 0
-  br i1 %cmp.not.i, label %err_patch.exit, label %for.body.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %err_patch.exit, label %for.body.i, !llvm.loop !7
 
 err_patch.exit:                                   ; preds = %for.body.i, %if.end
   %5 = load ptr, ptr @err_string_lock, align 8
@@ -355,9 +355,9 @@ return:                                           ; preds = %for.end.i, %err_pat
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ERR_load_strings_const(ptr noundef %str) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ERR_load_strings_const(ptr noundef %str) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_err_load_ERR_strings(), !range !7
+  %call = tail call i32 @ossl_err_load_ERR_strings()
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -392,7 +392,7 @@ return:                                           ; preds = %for.end.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ERR_unload_strings(i32 noundef %lib, ptr noundef %str) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ERR_unload_strings(i32 noundef %lib, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_string_init, ptr noundef nonnull @do_err_strings_init_ossl_) #8
   %tobool = icmp ne i32 %call, 0
@@ -419,7 +419,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %incdec.ptr = getelementptr inbounds i8, ptr %str.addr.04, i64 16
   %4 = load i64, ptr %incdec.ptr, align 8
   %tobool6.not = icmp eq i64 %4, 0
-  br i1 %tobool6.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %tobool6.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %5 = load ptr, ptr @err_string_lock, align 8
@@ -509,7 +509,7 @@ err_clear.exit:                                   ; preds = %if.then.i.i, %if.en
   store ptr null, ptr %arrayidx7.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %err_clear.exit
   %bottom = getelementptr inbounds i8, ptr %call, i64 900
@@ -738,7 +738,7 @@ while.cond.backedge:                              ; preds = %err_clear.exit, %er
   %10 = phi i32 [ %spec.select, %err_clear.exit ], [ %.pre, %err_clear.exit85 ]
   %11 = load i32, ptr %bottom, align 4
   %cmp1.not = icmp eq i32 %11, %10
-  br i1 %cmp1.not, label %return, label %while.body, !llvm.loop !11
+  br i1 %cmp1.not, label %return, label %while.body, !llvm.loop !10
 
 if.end10:                                         ; preds = %while.body
   %add = add nsw i32 %3, 1
@@ -1353,7 +1353,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @err_shelve_state(ptr nocapture noundef writeonly %state) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @err_shelve_state(ptr nocapture noundef writeonly %state) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @__errno_location() #9
   %0 = load i32, ptr %call, align 4
@@ -1494,14 +1494,11 @@ err_set_error_data_int.exit:                      ; preds = %entry, %err_set_dat
 define void @ERR_add_error_data(i32 noundef %num, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   call void @ERR_add_error_vdata(i32 noundef %num, ptr noundef nonnull %args)
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
 
 ; Function Attrs: nounwind uwtable
 define void @ERR_add_error_vdata(i32 noundef %num, ptr nocapture noundef %args) local_unnamed_addr #0 {
@@ -1620,7 +1617,7 @@ if.end51:                                         ; preds = %vaarg.end.if.end51_
   %str.2 = phi ptr [ %str.136, %vaarg.end.if.end51_crit_edge ], [ %call46, %if.then43 ]
   %call53 = tail call i64 @OPENSSL_strlcat(ptr noundef %str.2, ptr noundef nonnull %spec.store.select, i64 noundef %conv52.pre-phi) #8
   %cmp32 = icmp ugt i32 %dec38.in, 1
-  br i1 %cmp32, label %while.body, label %while.end, !llvm.loop !12
+  br i1 %cmp32, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end51, %if.end29.while.end_crit_edge
   %conv54.pre-phi = phi i64 [ %.pre41, %if.end29.while.end_crit_edge ], [ %conv52.pre-phi, %if.end51 ]
@@ -1698,9 +1695,6 @@ if.end58:                                         ; preds = %err_set_error_data_
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
-
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1721,9 +1715,9 @@ if.end:                                           ; preds = %entry
   %sub.i.i.i = add i32 %clear, -1
   %and.i.i.i = and i32 %sub.i.i.i, %not.i.i.i
   %shr.neg.i.i.i.i = ashr i32 %and.i.i.i, 31
-  %1 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i.i.i.i) #11, !srcloc !13
+  %1 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i.i.i.i) #11, !srcloc !12
   %not.i.i = xor i32 %shr.neg.i.i.i.i, -1
-  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #11, !srcloc !13
+  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #11, !srcloc !12
   %and2.i.i = and i32 %2, 2
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [16 x i32], ptr %call, i64 0, i64 %idxprom
@@ -1741,7 +1735,7 @@ declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #1
 declare ptr @OPENSSL_LH_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @err_string_data_hash(ptr nocapture noundef readonly %a) #6 {
+define internal i64 @err_string_data_hash(ptr nocapture noundef readonly %a) #5 {
 entry:
   %0 = load i64, ptr %a, align 8
   %and.i = and i64 %0, 2147483648
@@ -1757,7 +1751,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @err_string_data_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #6 {
+define internal range(i32 -1, 2) i32 @err_string_data_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
@@ -1776,6 +1770,12 @@ declare ptr @OPENSSL_LH_retrieve(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @CRYPTO_THREAD_init_local(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
@@ -1787,8 +1787,8 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(none) }
@@ -1804,10 +1804,9 @@ attributes #11 = { nounwind memory(none) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = !{i64 1224527}
+!12 = !{i64 1224527}

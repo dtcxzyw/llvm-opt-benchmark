@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000e_poll_eerd_eewr_done(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @e1000e_poll_eerd_eewr_done(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %3, label %.split.us, label %.split
@@ -54,7 +54,7 @@ declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000e_acquire_nvm(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @e1000e_acquire_nvm(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 16
@@ -131,7 +131,7 @@ define dso_local void @e1000e_release_nvm(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @e1000e_read_nvm_eerd(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @e1000e_read_nvm_eerd(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 1136
   %6 = load i16, ptr %5, align 8
   %7 = icmp ugt i16 %6, %1
@@ -182,7 +182,7 @@ define dso_local noundef i32 @e1000e_read_nvm_eerd(ptr noundef %0, i16 noundef z
   %38 = getelementptr i8, ptr %37, i64 20
   %39 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38) #5, !srcloc !5
   %40 = lshr i32 %39, 16
-  %41 = trunc i32 %40 to i16
+  %41 = trunc nuw i32 %40 to i16
   %42 = getelementptr i16, ptr %3, i64 %21
   store i16 %41, ptr %42, align 2
   %43 = add nuw nsw i64 %21, 1
@@ -410,7 +410,7 @@ define dso_local i32 @e1000e_write_nvm_spi(ptr noundef %0, i16 noundef zeroext %
   %148 = tail call i16 @llvm.bswap.i16(i16 %147)
   tail call fastcc void @e1000_shift_out_eec_bits(ptr noundef %0, i16 noundef zeroext %148, i16 noundef zeroext 16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %149 = trunc i64 %indvars.iv.next to i32
+  %149 = trunc nuw i64 %indvars.iv.next to i32
   %150 = add nuw nsw i32 %149, %6
   %151 = shl nuw nsw i32 %150, 1
   %152 = load i16, ptr %24, align 8
@@ -560,10 +560,10 @@ define dso_local i32 @e1000_read_pba_string_generic(ptr noundef %0, ptr noundef 
 
 22:                                               ; preds = %20
   %23 = lshr i16 %18, 12
-  %24 = trunc i16 %23 to i8
+  %24 = trunc nuw nsw i16 %23 to i8
   store i8 %24, ptr %1, align 1
   %25 = lshr i16 %18, 8
-  %26 = trunc i16 %25 to i8
+  %26 = trunc nuw i16 %25 to i8
   %27 = and i8 %26, 15
   %28 = getelementptr i8, ptr %1, i64 1
   store i8 %27, ptr %28, align 1
@@ -576,11 +576,11 @@ define dso_local i32 @e1000_read_pba_string_generic(ptr noundef %0, ptr noundef 
   store i8 %32, ptr %33, align 1
   %34 = load i16, ptr %5, align 2
   %35 = lshr i16 %34, 12
-  %36 = trunc i16 %35 to i8
+  %36 = trunc nuw nsw i16 %35 to i8
   %37 = getelementptr i8, ptr %1, i64 4
   store i8 %36, ptr %37, align 1
   %38 = lshr i16 %34, 8
-  %39 = trunc i16 %38 to i8
+  %39 = trunc nuw i16 %38 to i8
   %40 = and i8 %39, 15
   %41 = getelementptr i8, ptr %1, i64 5
   store i8 %40, ptr %41, align 1
@@ -670,7 +670,7 @@ define dso_local i32 @e1000_read_pba_string_generic(ptr noundef %0, ptr noundef 
 92:                                               ; preds = %.preheader
   %93 = load i16, ptr %4, align 2
   %94 = lshr i16 %93, 8
-  %95 = trunc i16 %94 to i8
+  %95 = trunc nuw i16 %94 to i8
   %96 = shl nuw nsw i64 %85, 1
   %97 = getelementptr i8, ptr %1, i64 %96
   store i8 %95, ptr %97, align 1

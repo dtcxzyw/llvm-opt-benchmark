@@ -70,7 +70,7 @@ define noalias noundef ptr @Dau_DsdDivisors(ptr nocapture noundef readonly %0, i
   %32 = icmp eq i64 %indvars.iv112, 0
   %33 = icmp ult i64 %indvars.iv112, 6
   %34 = add nsw i64 %indvars.iv112, -6
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nsw i64 %34 to i32
   %36 = shl nuw i32 1, %35
   %37 = icmp eq i64 %34, 31
   %38 = shl i32 2, %35
@@ -78,7 +78,7 @@ define noalias noundef ptr @Dau_DsdDivisors(ptr nocapture noundef readonly %0, i
   %40 = sext i32 %36 to i64
   %smax.i = call i32 @llvm.smax.i32(i32 %36, i32 1)
   %wide.trip.count.i50 = zext nneg i32 %smax.i to i64
-  %41 = trunc i64 %indvars.iv112 to i32
+  %41 = trunc nuw nsw i64 %indvars.iv112 to i32
   %notmask = shl nsw i32 -1, %41
   %42 = xor i32 %notmask, -1
   %43 = getelementptr inbounds [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 0, i64 %indvars.iv112
@@ -195,7 +195,7 @@ Abc_TtSwapVars.exit.thread:                       ; preds = %50
 .thread:                                          ; preds = %..thread_crit_edge, %Abc_TtSwapVars.exit.thread
   %97 = phi i64 [ %.pre, %..thread_crit_edge ], [ %94, %Abc_TtSwapVars.exit.thread ]
   %98 = getelementptr inbounds [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 1, i64 %indvars.iv108
-  %99 = trunc i64 %indvars.iv108 to i32
+  %99 = trunc nuw nsw i64 %indvars.iv108 to i32
   %100 = shl nuw i32 1, %99
   %101 = add i32 %100, -2
   %102 = load i64, ptr %98, align 8
@@ -222,7 +222,7 @@ Abc_TtSwapVars.exit.thread:                       ; preds = %50
   br i1 %.not.i, label %Abc_TtSwapVars.exit74, label %.lr.ph.i68
 
 .lr.ph.i68:                                       ; preds = %117
-  %118 = trunc i64 %indvars.iv108 to i32
+  %118 = trunc nuw nsw i64 %indvars.iv108 to i32
   %119 = shl nuw nsw i32 1, %118
   %120 = add nsw i32 %119, -2
   %121 = getelementptr inbounds [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 1, i64 %indvars.iv108
@@ -252,7 +252,7 @@ Abc_TtSwapVars.exit.thread:                       ; preds = %50
 
 138:                                              ; preds = %115
   %139 = add nsw i64 %indvars.iv108, -6
-  %140 = trunc i64 %139 to i32
+  %140 = trunc nsw i64 %139 to i32
   %141 = shl nuw i32 1, %140
   br i1 %.not.i, label %Abc_TtSwapVars.exit74, label %.preheader.lr.ph.i56
 

@@ -163,7 +163,7 @@ define noundef zeroext i8 @_ZNK8proxygen19RequestWorkerThread11getWorkerIdEv(ptr
 entry:
   %0 = load i64, ptr %this, align 8
   %shr = lshr i64 %0, 56
-  %conv = trunc i64 %shr to i8
+  %conv = trunc nuw i64 %shr to i8
   ret i8 %conv
 }
 
@@ -334,7 +334,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont2:                                     ; preds = %invoke.cont
   %0 = load i64, ptr %this, align 8
   %shr.i = lshr i64 %0, 56
-  %conv.i = trunc i64 %shr.i to i32
+  %conv.i = trunc nuw nsw i64 %shr.i to i32
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call3, i32 noundef %conv.i)
           to label %invoke.cont5 unwind label %lpad
 

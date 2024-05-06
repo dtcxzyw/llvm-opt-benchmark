@@ -214,7 +214,7 @@ define dso_local noundef zeroext i1 @cppc_allow_fast_switch() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_get_psd_map(i32 noundef %0, ptr noundef %1) #2 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @acpi_get_psd_map(i32 noundef %0, ptr noundef %1) #2 align 16 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8
@@ -719,7 +719,7 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr nocapture noundef readonly %
 declare dso_local i32 @acpi_evaluate_object_typed(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @pcc_data_alloc(i32 noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @pcc_data_alloc(i32 noundef %0) unnamed_addr #2 align 16 {
   %2 = zext nneg i32 %0 to i64
   %3 = getelementptr [256 x ptr], ptr @pcc_data, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
@@ -832,7 +832,7 @@ define internal fastcc i32 @acpi_get_psd(ptr noundef %0, ptr noundef %1) unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @register_pcc_channel(i32 noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @register_pcc_channel(i32 noundef %0) unnamed_addr #2 align 16 {
   %2 = tail call ptr @pcc_mbox_request_channel(ptr noundef nonnull @cppc_mbox_cl, i32 noundef %0) #13
   %3 = icmp ugt ptr %2, inttoptr (i64 -4096 to ptr)
   br i1 %3, label %4, label %6
@@ -1019,13 +1019,13 @@ define weak dso_local i32 @cpc_write_ffh(i32 noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cppc_get_desired_perf(i32 noundef %0, ptr noundef %1) #2 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @cppc_get_desired_perf(i32 noundef %0, ptr noundef %1) #2 align 16 {
   %3 = tail call fastcc i32 @cppc_get_perf(i32 noundef %0, i32 noundef 5, ptr noundef %1), !range !19
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @cppc_get_perf(i32 noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @cppc_get_perf(i32 noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = sext i32 %0 to i64
   %5 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4
   %6 = load i64, ptr %5, align 8
@@ -1085,19 +1085,19 @@ define internal fastcc noundef i32 @cppc_get_perf(i32 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cppc_get_nominal_perf(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @cppc_get_nominal_perf(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = tail call fastcc i32 @cppc_get_perf(i32 noundef %0, i32 noundef 1, ptr noundef %1), !range !19
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cppc_get_epp_perf(i32 noundef %0, ptr noundef %1) #2 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @cppc_get_epp_perf(i32 noundef %0, ptr noundef %1) #2 align 16 {
   %3 = tail call fastcc i32 @cppc_get_perf(i32 noundef %0, i32 noundef 17, ptr noundef %1), !range !19
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cppc_get_perf_caps(i32 noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local range(i32 -19, 1) i32 @cppc_get_perf_caps(i32 noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -1900,7 +1900,7 @@ define dso_local noundef zeroext i1 @cppc_perf_ctrs_in_pcc() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cppc_get_perf_ctrs(i32 noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @cppc_get_perf_ctrs(i32 noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -2305,7 +2305,7 @@ define internal fastcc i32 @cpc_write(i32 noundef %0, ptr noundef %1, i64 nounde
   %19 = shl i32 8, %18
   %20 = getelementptr inbounds i8, ptr %1, i64 23
   %21 = load i64, ptr %20, align 1
-  %22 = trunc i64 %2 to i32
+  %22 = trunc nuw i64 %2 to i32
   %23 = tail call i32 @acpi_os_write_port(i64 noundef %21, i32 noundef %22, i32 noundef %19) #13
   %24 = icmp eq i32 %23, 0
   %25 = select i1 %24, i32 0, i32 -14
@@ -2378,7 +2378,7 @@ define internal fastcc i32 @cpc_write(i32 noundef %0, ptr noundef %1, i64 nounde
   br label %67
 
 64:                                               ; preds = %53
-  %65 = trunc i64 %2 to i32
+  %65 = trunc nuw i64 %2 to i32
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{dirflag},~{fpsr},~{flags}"(i32 %65, ptr elementtype(i32) %54) #13, !srcloc !33
   br label %67
 
@@ -2392,7 +2392,7 @@ define internal fastcc i32 @cpc_write(i32 noundef %0, ptr noundef %1, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cppc_get_auto_sel_caps(i32 noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @cppc_get_auto_sel_caps(i32 noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
   %3 = alloca i64, align 8
   %4 = sext i32 %0 to i64
   %5 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4
@@ -2867,7 +2867,7 @@ define dso_local i32 @cppc_set_perf(i32 noundef %0, ptr nocapture noundef readon
 declare dso_local void @down_read(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @check_pcc_chan(i32 noundef %0, i1 noundef zeroext %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -110, 1) i32 @check_pcc_chan(i32 noundef %0, i1 noundef zeroext %1) unnamed_addr #2 align 16 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr [256 x ptr], ptr @pcc_data, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
@@ -3186,7 +3186,7 @@ define internal void @cppc_chan_tx_done(ptr nocapture readnone %0, ptr nocapture
 declare dso_local ptr @ioremap_cache(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_feedback_ctrs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_feedback_ctrs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = alloca %struct.cppc_perf_fb_ctrs, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -3214,7 +3214,7 @@ define internal i64 @show_feedback_ctrs(ptr nocapture noundef readonly %0, ptr n
 declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_reference_perf(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_reference_perf(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = alloca %struct.cppc_perf_fb_ctrs, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -3238,7 +3238,7 @@ define internal i64 @show_reference_perf(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_wraparound_time(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_wraparound_time(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = alloca %struct.cppc_perf_fb_ctrs, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -3262,7 +3262,7 @@ define internal i64 @show_wraparound_time(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_highest_perf(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_highest_perf(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = alloca %struct.cppc_perf_caps, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
@@ -3287,7 +3287,7 @@ define internal i64 @show_highest_perf(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_lowest_perf(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_lowest_perf(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = alloca %struct.cppc_perf_caps, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
@@ -3312,7 +3312,7 @@ define internal i64 @show_lowest_perf(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_lowest_nonlinear_perf(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_lowest_nonlinear_perf(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = alloca %struct.cppc_perf_caps, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
@@ -3337,7 +3337,7 @@ define internal i64 @show_lowest_nonlinear_perf(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_nominal_perf(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_nominal_perf(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = alloca %struct.cppc_perf_caps, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
@@ -3362,7 +3362,7 @@ define internal i64 @show_nominal_perf(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_nominal_freq(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_nominal_freq(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = alloca %struct.cppc_perf_caps, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
@@ -3387,7 +3387,7 @@ define internal i64 @show_nominal_freq(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show_lowest_freq(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_lowest_freq(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = alloca %struct.cppc_perf_caps, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)

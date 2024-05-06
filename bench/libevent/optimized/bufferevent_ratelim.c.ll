@@ -53,7 +53,7 @@ if.end11:                                         ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @ev_token_bucket_update_(ptr nocapture noundef %bucket, ptr nocapture noundef readonly %cfg, i32 noundef %current_tick) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ev_token_bucket_update_(ptr nocapture noundef %bucket, ptr nocapture noundef readonly %cfg, i32 noundef %current_tick) local_unnamed_addr #0 {
 entry:
   %last_updated = getelementptr inbounds i8, ptr %bucket, i64 16
   %0 = load i32, ptr %last_updated, align 8
@@ -374,7 +374,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bufferevent_decrement_read_buckets_(ptr noundef %bev, i64 noundef %bytes) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_decrement_read_buckets_(ptr noundef %bev, i64 noundef %bytes) local_unnamed_addr #2 {
 entry:
   %rate_limiting = getelementptr inbounds i8, ptr %bev, i64 472
   %0 = load ptr, ptr %rate_limiting, align 8
@@ -681,7 +681,7 @@ do.end34:                                         ; preds = %for.inc29, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bufferevent_decrement_write_buckets_(ptr noundef %bev, i64 noundef %bytes) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_decrement_write_buckets_(ptr noundef %bev, i64 noundef %bytes) local_unnamed_addr #2 {
 entry:
   %rate_limiting = getelementptr inbounds i8, ptr %bev, i64 472
   %0 = load ptr, ptr %rate_limiting, align 8
@@ -984,7 +984,7 @@ do.end34:                                         ; preds = %for.inc29, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @bufferevent_set_rate_limit(ptr noundef %bev, ptr noundef %cfg) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_set_rate_limit(ptr noundef %bev, ptr noundef %cfg) local_unnamed_addr #2 {
 entry:
   %now = alloca %struct.timeval, align 8
   %lock = getelementptr inbounds i8, ptr %bev, i64 448
@@ -1524,7 +1524,7 @@ do.end39:                                         ; preds = %do.body32, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @bufferevent_rate_limit_group_set_min_share(ptr nocapture noundef %g, i64 noundef %share) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_rate_limit_group_set_min_share(ptr nocapture noundef %g, i64 noundef %share) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %share, 0
   br i1 %cmp, label %return, label %if.end
@@ -1550,7 +1550,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @evutil_weakrand_seed_(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @bufferevent_rate_limit_group_set_cfg(ptr noundef %g, ptr noundef %cfg) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_rate_limit_group_set_cfg(ptr noundef %g, ptr noundef %cfg) local_unnamed_addr #2 {
 entry:
   %tobool = icmp ne ptr %g, null
   %tobool1 = icmp ne ptr %cfg, null
@@ -1690,7 +1690,7 @@ do.end19:                                         ; preds = %do.end3, %do.body13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @bufferevent_add_to_rate_limit_group(ptr noundef %bev, ptr noundef %g) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_add_to_rate_limit_group(ptr noundef %bev, ptr noundef %g) local_unnamed_addr #2 {
 entry:
   %lock = getelementptr inbounds i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -2440,7 +2440,7 @@ do.end9:                                          ; preds = %do.end.thread, %do.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bufferevent_decrement_read_limit(ptr noundef %bev, i64 noundef %decr) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_decrement_read_limit(ptr noundef %bev, i64 noundef %decr) local_unnamed_addr #2 {
 entry:
   %lock = getelementptr inbounds i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -2514,7 +2514,7 @@ do.end41:                                         ; preds = %if.then36, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bufferevent_decrement_write_limit(ptr noundef %bev, i64 noundef %decr) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_decrement_write_limit(ptr noundef %bev, i64 noundef %decr) local_unnamed_addr #2 {
 entry:
   %lock = getelementptr inbounds i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -2802,7 +2802,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bufferevent_ratelim_init_(ptr nocapture noundef %bev) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_ratelim_init_(ptr nocapture noundef %bev) local_unnamed_addr #2 {
 entry:
   %rate_limiting = getelementptr inbounds i8, ptr %bev, i64 472
   store ptr null, ptr %rate_limiting, align 8

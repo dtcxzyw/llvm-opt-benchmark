@@ -163,7 +163,7 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.bac
 
 60:                                               ; preds = %53
   %61 = load ptr, ptr @optarg, align 8
-  %62 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(10) @.str.4, i64 noundef 9) #14
+  %62 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %61, ptr noundef nonnull dereferenceable(10) @.str.4, i64 noundef 9) #14
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %71
 

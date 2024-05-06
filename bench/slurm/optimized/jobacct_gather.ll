@@ -239,7 +239,7 @@ define void @jobacctinfo_pack(ptr noundef readonly %0, i16 noundef zeroext %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @jobacctinfo_unpack(ptr nocapture noundef %0, i16 noundef zeroext %1, i16 zeroext %2, ptr noundef %3, i1 noundef zeroext %4) #0 {
+define range(i32 -1, 1) i32 @jobacctinfo_unpack(ptr nocapture noundef %0, i16 noundef zeroext %1, i16 zeroext %2, ptr noundef %3, i1 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
@@ -522,7 +522,7 @@ define void @jobacctinfo_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @jobacct_gather_init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @jobacct_gather_init() local_unnamed_addr #0 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #10
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
@@ -1189,7 +1189,7 @@ define i32 @jobacct_gather_endpoll() local_unnamed_addr #0 {
 declare void @list_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @jobacct_gather_add_task(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @jobacct_gather_add_task(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.assoc_mgr_lock_t, align 4
   %6 = alloca %struct.jobacct_id_t, align 8
@@ -1803,7 +1803,7 @@ _jobacct_shutdown_test.exit:                      ; preds = %8
 declare ptr @list_remove(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @jobacct_gather_set_proctrack_container_id(i64 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @jobacct_gather_set_proctrack_container_id(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @plugin_inited, align 4
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %12, label %4
@@ -1835,7 +1835,7 @@ define noundef i32 @jobacct_gather_set_proctrack_container_id(i64 noundef %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @jobacct_gather_set_mem_limit(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @jobacct_gather_set_mem_limit(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @plugin_inited, align 4
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %19, label %5
@@ -2044,7 +2044,7 @@ define internal fastcc void @_free_tres_usage(ptr noundef %0) unnamed_addr #0 {
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @jobacctinfo_setinfo(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @jobacctinfo_setinfo(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.assoc_mgr_lock_t, align 4
@@ -2323,7 +2323,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 declare void @free_buf(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @jobacctinfo_getinfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2606,7 +2606,7 @@ define noundef i32 @jobacctinfo_getinfo(ptr noundef %0, i32 noundef %1, ptr noun
 
 .outer._crit_edge:                                ; preds = %.split143.us, %.outer68._crit_edge
   %103 = tail call ptr @create_buf(ptr noundef %60, i32 noundef %.pre) #10
-  %104 = call i32 @jobacctinfo_unpack(ptr noundef nonnull %5, i16 noundef zeroext %3, i16 zeroext poison, ptr noundef %103, i1 noundef zeroext false), !range !15
+  %104 = call i32 @jobacctinfo_unpack(ptr noundef nonnull %5, i16 noundef zeroext %3, i16 zeroext poison, ptr noundef %103, i1 noundef zeroext false)
   %.not = icmp eq ptr %103, null
   br i1 %.not, label %135, label %105
 
@@ -3019,7 +3019,7 @@ define void @jobacctinfo_aggregate(ptr nocapture noundef %0, ptr noundef readonl
   %196 = load i32, ptr %57, align 8
   %197 = zext i32 %196 to i64
   %198 = icmp ult i64 %indvars.iv.next.i, %197
-  br i1 %198, label %87, label %_jobacctinfo_aggregate_tres_usage.exit, !llvm.loop !16
+  br i1 %198, label %87, label %_jobacctinfo_aggregate_tres_usage.exit, !llvm.loop !15
 
 _jobacctinfo_aggregate_tres_usage.exit:           ; preds = %195, %56, %2
   ret void
@@ -3125,7 +3125,7 @@ define void @jobacctinfo_2_stats(ptr nocapture noundef writeonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @jobacct_gather_get_clk_tck() local_unnamed_addr #0 {
+define range(i64 1, -9223372036854775808) i64 @jobacct_gather_get_clk_tck() local_unnamed_addr #0 {
   %1 = tail call i64 @sysconf(i32 noundef 2) #10
   %2 = icmp slt i64 %1, 1
   br i1 %2, label %3, label %5
@@ -3214,7 +3214,7 @@ define internal fastcc void @_init_tres_usage(ptr nocapture noundef %0, ptr noun
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %113 ]
   %41 = load ptr, ptr @assoc_mgr_tres_array, align 8
   %.not = icmp eq ptr %41, null
-  %42 = trunc i64 %indvars.iv to i32
+  %42 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not, label %48, label %43
 
 43:                                               ; preds = %40
@@ -3336,7 +3336,7 @@ define internal fastcc void @_init_tres_usage(ptr nocapture noundef %0, ptr noun
   %116 = load i32, ptr %4, align 8
   %117 = zext i32 %116 to i64
   %118 = icmp ult i64 %indvars.iv.next, %117
-  br i1 %118, label %40, label %._crit_edge, !llvm.loop !17
+  br i1 %118, label %40, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %113, %3
   ret void
@@ -3387,6 +3387,5 @@ attributes #12 = { noreturn nounwind }
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = !{i32 -1, i32 1}
+!15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}

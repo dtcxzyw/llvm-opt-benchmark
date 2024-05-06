@@ -85,7 +85,7 @@ define dso_local i32 @lzma_auto_decoder(ptr noundef %0, i64 noundef %1, i32 noun
 declare i32 @lzma_strm_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @auto_decoder_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+define internal range(i32 0, 9) i32 @auto_decoder_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, ptrtoint (ptr @auto_decoder_init to i64)

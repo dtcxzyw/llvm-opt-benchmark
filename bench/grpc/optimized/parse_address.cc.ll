@@ -469,7 +469,7 @@ if.end.i.i:                                       ; preds = %if.end
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4copyEPcmm.exit
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4copyEPcmm.exit: ; preds = %if.end, %if.end.i.i
-  %11 = trunc i64 %path.coerce0 to i32
+  %11 = trunc nuw i64 %path.coerce0 to i32
   %conv = add nuw nsw i32 %11, 3
   %len = getelementptr inbounds i8, ptr %resolved_addr, i64 128
   store i32 %conv, ptr %len, align 4
@@ -874,7 +874,7 @@ if.then35.invoke:                                 ; preds = %if.then33, %if.then
           to label %cleanup unwind label %lpad
 
 if.end39:                                         ; preds = %if.end26
-  %conv = trunc i32 %8 to i16
+  %conv = trunc nuw i32 %8 to i16
   %call41 = invoke noundef zeroext i16 @_Z10grpc_htonst(i16 noundef zeroext %conv)
           to label %invoke.cont40 unwind label %lpad
 
@@ -1159,7 +1159,7 @@ if.then86.invoke:                                 ; preds = %if.then84, %if.then
           to label %cleanup unwind label %lpad
 
 if.end90:                                         ; preds = %if.end77
-  %conv = trunc i32 %13 to i16
+  %conv = trunc nuw i32 %13 to i16
   %call92 = invoke noundef zeroext i16 @_Z10grpc_htonst(i16 noundef zeroext %conv)
           to label %invoke.cont91 unwind label %lpad
 

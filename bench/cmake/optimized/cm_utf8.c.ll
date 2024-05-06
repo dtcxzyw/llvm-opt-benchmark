@@ -91,7 +91,7 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @cm_utf8_is_valid(ptr noundef readonly %0) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %37, label %2
 

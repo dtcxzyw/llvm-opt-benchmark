@@ -37,7 +37,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @uriCompareRangeA(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @uriCompareRangeA(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %b, null
@@ -108,7 +108,7 @@ return:                                           ; preds = %if.else44, %if.end3
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriRemoveDotSegmentsA(ptr noundef %uri, i32 noundef %relative, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriRemoveDotSegmentsA(ptr noundef %uri, i32 noundef %relative, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %uri, null
   br i1 %cmp, label %return, label %if.end
@@ -116,7 +116,7 @@ entry:
 if.end:                                           ; preds = %entry
   %owner = getelementptr inbounds i8, ptr %uri, i64 148
   %0 = load i32, ptr %owner, align 4
-  %call = tail call i32 @uriRemoveDotSegmentsExA(ptr noundef nonnull %uri, i32 noundef %relative, i32 noundef %0, ptr noundef %memory), !range !4
+  %call = tail call i32 @uriRemoveDotSegmentsExA(ptr noundef nonnull %uri, i32 noundef %relative, i32 noundef %0, ptr noundef %memory)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -125,7 +125,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriRemoveDotSegmentsExA(ptr noundef %uri, i32 noundef %relative, i32 noundef %pathOwned, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriRemoveDotSegmentsExA(ptr noundef %uri, i32 noundef %relative, i32 noundef %pathOwned, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %uri, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -189,7 +189,7 @@ if.then18:                                        ; preds = %land.lhs.true
 for.cond:                                         ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %ch.0214, i64 1
   %exitcond.not = icmp eq ptr %incdec.ptr, %8
-  br i1 %exitcond.not, label %if.then38, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %if.then38, label %for.body, !llvm.loop !4
 
 for.body:                                         ; preds = %if.then18, %for.cond
   %ch.0214 = phi ptr [ %incdec.ptr, %for.cond ], [ %7, %if.then18 ]
@@ -537,7 +537,7 @@ if.then330:                                       ; preds = %for.body, %do.body,
 do.cond:                                          ; preds = %if.end237, %if.end296, %if.end324, %if.end60, %if.then330
   %walker.2 = phi ptr [ %66, %if.then330 ], [ %24, %if.end237 ], [ %24, %if.end296 ], [ %24, %if.end324 ], [ %5, %if.end60 ]
   %cmp342.not = icmp eq ptr %walker.2, null
-  br i1 %cmp342.not, label %return, label %do.body, !llvm.loop !7
+  br i1 %cmp342.not, label %return, label %do.body, !llvm.loop !6
 
 return:                                           ; preds = %do.cond, %if.then80, %if.else85, %if.else89, %entry, %lor.lhs.false, %if.end201
   %retval.0 = phi i32 [ 0, %if.end201 ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ 1, %if.else89 ], [ 1, %if.else85 ], [ 1, %if.then80 ], [ 1, %do.cond ]
@@ -545,7 +545,7 @@ return:                                           ; preds = %do.cond, %if.then80
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @uriIsHostSetA(ptr noundef readonly %uri) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @uriIsHostSetA(ptr noundef readonly %uri) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %uri, null
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -581,7 +581,7 @@ land.end:                                         ; preds = %land.rhs, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef %uri, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef %uri, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %cmp.i = icmp eq ptr %uri, null
   br i1 %cmp.i, label %uriRemoveDotSegmentsA.exit, label %if.end.i
@@ -589,7 +589,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %owner.i = getelementptr inbounds i8, ptr %uri, i64 148
   %0 = load i32, ptr %owner.i, align 4
-  %call.i = tail call i32 @uriRemoveDotSegmentsExA(ptr noundef nonnull %uri, i32 noundef 0, i32 noundef %0, ptr noundef %memory), !range !4
+  %call.i = tail call i32 @uriRemoveDotSegmentsExA(ptr noundef nonnull %uri, i32 noundef 0, i32 noundef %0, ptr noundef %memory)
   br label %uriRemoveDotSegmentsA.exit
 
 uriRemoveDotSegmentsA.exit:                       ; preds = %entry, %if.end.i
@@ -616,7 +616,7 @@ return:                                           ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @uriHexToLetterA(i32 noundef %value) local_unnamed_addr #6 {
+define signext range(i8 48, 103) i8 @uriHexToLetterA(i32 noundef %value) local_unnamed_addr #6 {
 entry:
   %0 = icmp ult i32 %value, 15
   br i1 %0, label %switch.lookup, label %uriHexToLetterExA.exit
@@ -633,7 +633,7 @@ uriHexToLetterExA.exit:                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @uriHexToLetterExA(i32 noundef %value, i32 noundef %uppercase) local_unnamed_addr #6 {
+define signext range(i8 48, 103) i8 @uriHexToLetterExA(i32 noundef %value, i32 noundef %uppercase) local_unnamed_addr #6 {
 entry:
   switch i32 %value, label %sw.default [
     i32 0, label %return
@@ -716,7 +716,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriCopyPathA(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriCopyPathA(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %pathHead = getelementptr inbounds i8, ptr %source, i64 96
   %0 = load ptr, ptr %pathHead, align 8
@@ -754,7 +754,7 @@ if.end7:                                          ; preds = %do.body
   %next15 = getelementptr inbounds i8, ptr %sourceWalker.0, i64 16
   %2 = load ptr, ptr %next15, align 8
   %cmp16.not = icmp eq ptr %2, null
-  br i1 %cmp16.not, label %do.end, label %do.body, !llvm.loop !8
+  br i1 %cmp16.not, label %do.end, label %do.body, !llvm.loop !7
 
 do.end:                                           ; preds = %if.end7
   %pathTail17 = getelementptr inbounds i8, ptr %dest, i64 104
@@ -779,7 +779,7 @@ return:                                           ; preds = %if.then4, %if.then6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriCopyAuthorityA(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriCopyAuthorityA(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %userInfo = getelementptr inbounds i8, ptr %dest, i64 16
   %userInfo1 = getelementptr inbounds i8, ptr %source, i64 16
@@ -850,7 +850,7 @@ return:                                           ; preds = %if.then20, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriFixAmbiguityA(ptr nocapture noundef %uri, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriFixAmbiguityA(ptr nocapture noundef %uri, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %absolutePath = getelementptr inbounds i8, ptr %uri, i64 144
   %0 = load i32, ptr %absolutePath, align 8
@@ -992,7 +992,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i32 @uriCompareRangeW(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #8 {
+define range(i32 -1, 2) i32 @uriCompareRangeW(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %a, null
   %cmp1 = icmp eq ptr %b, null
@@ -1065,7 +1065,7 @@ return:                                           ; preds = %if.else46, %if.end3
 declare i32 @wcsncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriRemoveDotSegmentsW(ptr noundef %uri, i32 noundef %relative, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriRemoveDotSegmentsW(ptr noundef %uri, i32 noundef %relative, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %uri, null
   br i1 %cmp, label %return, label %if.end
@@ -1073,7 +1073,7 @@ entry:
 if.end:                                           ; preds = %entry
   %owner = getelementptr inbounds i8, ptr %uri, i64 148
   %0 = load i32, ptr %owner, align 4
-  %call = tail call i32 @uriRemoveDotSegmentsExW(ptr noundef nonnull %uri, i32 noundef %relative, i32 noundef %0, ptr noundef %memory), !range !4
+  %call = tail call i32 @uriRemoveDotSegmentsExW(ptr noundef nonnull %uri, i32 noundef %relative, i32 noundef %0, ptr noundef %memory)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1082,7 +1082,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriRemoveDotSegmentsExW(ptr noundef %uri, i32 noundef %relative, i32 noundef %pathOwned, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef %uri, i32 noundef %relative, i32 noundef %pathOwned, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %uri, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1147,7 +1147,7 @@ if.then17:                                        ; preds = %land.lhs.true
 for.cond:                                         ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %ch.0214, i64 4
   %cmp24 = icmp ult ptr %incdec.ptr, %8
-  br i1 %cmp24, label %for.body, label %if.then36, !llvm.loop !9
+  br i1 %cmp24, label %for.body, label %if.then36, !llvm.loop !8
 
 for.body:                                         ; preds = %if.then17, %for.cond
   %ch.0214 = phi ptr [ %incdec.ptr, %for.cond ], [ %7, %if.then17 ]
@@ -1495,7 +1495,7 @@ if.then325:                                       ; preds = %for.body, %do.body,
 do.cond:                                          ; preds = %if.end232, %if.end291, %if.end319, %if.end58, %if.then325
   %walker.2 = phi ptr [ %66, %if.then325 ], [ %24, %if.end232 ], [ %24, %if.end291 ], [ %24, %if.end319 ], [ %5, %if.end58 ]
   %cmp337.not = icmp eq ptr %walker.2, null
-  br i1 %cmp337.not, label %return, label %do.body, !llvm.loop !10
+  br i1 %cmp337.not, label %return, label %do.body, !llvm.loop !9
 
 return:                                           ; preds = %do.cond, %if.then78, %if.else83, %if.else87, %entry, %lor.lhs.false, %if.end196
   %retval.0 = phi i32 [ 0, %if.end196 ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ 1, %if.else87 ], [ 1, %if.else83 ], [ 1, %if.then78 ], [ 1, %do.cond ]
@@ -1503,7 +1503,7 @@ return:                                           ; preds = %do.cond, %if.then78
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @uriIsHostSetW(ptr noundef readonly %uri) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @uriIsHostSetW(ptr noundef readonly %uri) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %uri, null
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -1539,7 +1539,7 @@ land.end:                                         ; preds = %land.rhs, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef %uri, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef %uri, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %cmp.i = icmp eq ptr %uri, null
   br i1 %cmp.i, label %uriRemoveDotSegmentsW.exit, label %if.end.i
@@ -1547,7 +1547,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %owner.i = getelementptr inbounds i8, ptr %uri, i64 148
   %0 = load i32, ptr %owner.i, align 4
-  %call.i = tail call i32 @uriRemoveDotSegmentsExW(ptr noundef nonnull %uri, i32 noundef 0, i32 noundef %0, ptr noundef %memory), !range !4
+  %call.i = tail call i32 @uriRemoveDotSegmentsExW(ptr noundef nonnull %uri, i32 noundef 0, i32 noundef %0, ptr noundef %memory)
   br label %uriRemoveDotSegmentsW.exit
 
 uriRemoveDotSegmentsW.exit:                       ; preds = %entry, %if.end.i
@@ -1574,7 +1574,7 @@ return:                                           ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @uriHexToLetterW(i32 noundef %value) local_unnamed_addr #6 {
+define range(i32 48, 103) i32 @uriHexToLetterW(i32 noundef %value) local_unnamed_addr #6 {
 entry:
   %0 = icmp ult i32 %value, 15
   br i1 %0, label %switch.lookup, label %uriHexToLetterExW.exit
@@ -1591,7 +1591,7 @@ uriHexToLetterExW.exit:                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @uriHexToLetterExW(i32 noundef %value, i32 noundef %uppercase) local_unnamed_addr #6 {
+define range(i32 48, 103) i32 @uriHexToLetterExW(i32 noundef %value, i32 noundef %uppercase) local_unnamed_addr #6 {
 entry:
   switch i32 %value, label %sw.default [
     i32 0, label %return
@@ -1674,7 +1674,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriCopyPathW(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriCopyPathW(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %pathHead = getelementptr inbounds i8, ptr %source, i64 96
   %0 = load ptr, ptr %pathHead, align 8
@@ -1712,7 +1712,7 @@ if.end7:                                          ; preds = %do.body
   %next15 = getelementptr inbounds i8, ptr %sourceWalker.0, i64 16
   %2 = load ptr, ptr %next15, align 8
   %cmp16.not = icmp eq ptr %2, null
-  br i1 %cmp16.not, label %do.end, label %do.body, !llvm.loop !11
+  br i1 %cmp16.not, label %do.end, label %do.body, !llvm.loop !10
 
 do.end:                                           ; preds = %if.end7
   %pathTail17 = getelementptr inbounds i8, ptr %dest, i64 104
@@ -1734,7 +1734,7 @@ return:                                           ; preds = %if.then4, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriCopyAuthorityW(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriCopyAuthorityW(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %userInfo = getelementptr inbounds i8, ptr %dest, i64 16
   %userInfo1 = getelementptr inbounds i8, ptr %source, i64 16
@@ -1805,7 +1805,7 @@ return:                                           ; preds = %if.then20, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @uriFixAmbiguityW(ptr nocapture noundef %uri, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriFixAmbiguityW(ptr nocapture noundef %uri, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %absolutePath = getelementptr inbounds i8, ptr %uri, i64 144
   %0 = load i32, ptr %absolutePath, align 8
@@ -1951,11 +1951,10 @@ attributes #11 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

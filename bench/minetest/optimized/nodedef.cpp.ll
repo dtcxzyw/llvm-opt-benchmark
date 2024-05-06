@@ -336,14 +336,14 @@ $_ZSt19piecewise_construct = comdat any
 @.str.46 = private unnamed_addr constant [17 x i8] c"unknown_node.png\00", align 1
 @.str.47 = private unnamed_addr constant [7 x i8] c"ignore\00", align 1
 @.str.48 = private unnamed_addr constant [7 x i8] c"group:\00", align 1
-@warningstream = external thread_local global %class.LogStream, align 8
+@warningstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.49 = private unnamed_addr constant [39 x i8] c"NodeDefManager: Absolute limit reached\00", align 1
 @.str.50 = private unnamed_addr constant [6 x i8] c"float\00", align 1
-@verbosestream = external thread_local global %class.LogStream, align 8
+@verbosestream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.51 = private unnamed_addr constant [41 x i8] c"NodeDefManager: registering content id \22\00", align 1
 @.str.52 = private unnamed_addr constant [10 x i8] c"\22: name=\22\00", align 1
 @.str.53 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.54 = private unnamed_addr constant [72 x i8] c"NodeDefManager::applyTextureOverrides(): Applying overrides to textures\00", align 1
 @.str.55 = private unnamed_addr constant [72 x i8] c"NodeDefManager::updateTextures(): Updating textures in node definitions\00", align 1
 @.str.56 = private unnamed_addr constant [9 x i8] c"Overflow\00", align 1
@@ -353,13 +353,13 @@ $_ZSt19piecewise_construct = comdat any
 @.str.59 = private unnamed_addr constant [58 x i8] c"NodeDefManager::deSerialize(): not changing builtin node \00", align 1
 @.str.60 = private unnamed_addr constant [51 x i8] c"NodeDefManager::deSerialize(): received empty name\00", align 1
 @.str.61 = private unnamed_addr constant [67 x i8] c"NodeDefManager::deSerialize(): already defined with different ID: \00", align 1
-@tracestream = external thread_local global %class.LogStream, align 8
+@tracestream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.62 = private unnamed_addr constant [23 x i8] c"NodeDef: deserialized \00", align 1
 @_ZZNK14NodeDefManager15nodeboxConnectsE7MapNodeS0_hE3rot = internal unnamed_addr constant [132 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\04 \10\08\00\00\00\00\00\00\00\00\00\00\00\00\08\04 \10\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\10\08\04 \00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00 \10\08\04", align 16
 @_ZTV12NodeResolver = dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI12NodeResolver, ptr @_ZN12NodeResolverD2Ev, ptr @_ZN12NodeResolverD0Ev, ptr @__cxa_pure_virtual] }, align 8
 @.str.63 = private unnamed_addr constant [62 x i8] c"NodeResolver can only be cloned after resolving has completed\00", align 1
 @__PRETTY_FUNCTION__._ZNK12NodeResolver7cloneToEPS_ = private unnamed_addr constant [49 x i8] c"void NodeResolver::cloneTo(NodeResolver *) const\00", align 1
-@errorstream = external thread_local global %class.LogStream, align 8
+@errorstream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.64 = private unnamed_addr constant [36 x i8] c"NodeResolver: no more nodes in list\00", align 1
 @.str.65 = private unnamed_addr constant [44 x i8] c"NodeResolver: failed to resolve node name '\00", align 1
 @.str.66 = private unnamed_addr constant [3 x i8] c"'.\00", align 1
@@ -10562,7 +10562,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i8 @_ZNK15ContentFeatures17getAlphaForLegacyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3706) %this) local_unnamed_addr #12 align 2 {
+define dso_local noundef zeroext range(i8 -1, 1) i8 @_ZNK15ContentFeatures17getAlphaForLegacyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3706) %this) local_unnamed_addr #12 align 2 {
 entry:
   %alpha = getelementptr inbounds i8, ptr %this, i64 2928
   %0 = load i8, ptr %alpha, align 8, !tbaa !275

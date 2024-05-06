@@ -27,7 +27,7 @@ $_ZNSt6vectorIcSaIcEE13_M_assign_auxIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1
 @_ZN15cmProcessOutputC1ENS_8EncodingEj = dso_local unnamed_addr alias void (ptr, i32, i32), ptr @_ZN15cmProcessOutputC2ENS_8EncodingEj
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN15cmProcessOutput12FindEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 5) i32 @_ZN15cmProcessOutput12FindEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str) #12
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %16, label %4

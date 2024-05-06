@@ -562,7 +562,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco15LinearSequencer24GenerateSequ
 
 _ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %.lr.ph
   %20 = getelementptr inbounds %"class.draco::IndexType", ptr %14, i64 %indvars.iv
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %21, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %2, align 8

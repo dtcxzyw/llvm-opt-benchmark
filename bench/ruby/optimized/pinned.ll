@@ -94,7 +94,7 @@ rb_obj_write.exit:                                ; preds = %2, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ref(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ref(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @pinned_data_type) #4
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -117,7 +117,7 @@ define internal noundef i64 @clear(i64 noundef returned %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @cleared_p(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @cleared_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @pinned_data_type) #4
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0

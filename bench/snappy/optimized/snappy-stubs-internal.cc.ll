@@ -11,7 +11,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %conv.i = trunc i32 %value to i8
+  %conv.i = trunc nuw nsw i32 %value to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %buf, i64 1
   store i8 %conv.i, ptr %buf, align 1
   br label %_ZN6snappy6Varint8Encode32EPcj.exit
@@ -26,7 +26,7 @@ if.then2.i:                                       ; preds = %if.else.i
   %incdec.ptr4.i = getelementptr inbounds i8, ptr %buf, i64 1
   store i8 %conv3.i, ptr %buf, align 1
   %shr.i = lshr i32 %value, 7
-  %conv5.i = trunc i32 %shr.i to i8
+  %conv5.i = trunc nuw nsw i32 %shr.i to i8
   %incdec.ptr6.i = getelementptr inbounds i8, ptr %buf, i64 2
   store i8 %conv5.i, ptr %incdec.ptr4.i, align 1
   br label %_ZN6snappy6Varint8Encode32EPcj.exit
@@ -46,7 +46,7 @@ if.then9.i:                                       ; preds = %if.else7.i
   %incdec.ptr16.i = getelementptr inbounds i8, ptr %buf, i64 2
   store i8 %conv15.i, ptr %incdec.ptr12.i, align 1
   %shr17.i = lshr i32 %value, 14
-  %conv18.i = trunc i32 %shr17.i to i8
+  %conv18.i = trunc nuw nsw i32 %shr17.i to i8
   %incdec.ptr19.i = getelementptr inbounds i8, ptr %buf, i64 3
   store i8 %conv18.i, ptr %incdec.ptr16.i, align 1
   br label %_ZN6snappy6Varint8Encode32EPcj.exit
@@ -81,7 +81,7 @@ if.else37.i:                                      ; preds = %if.else20.i
   %incdec.ptr52.i = getelementptr inbounds i8, ptr %buf, i64 4
   store i8 %conv51.i, ptr %incdec.ptr33.i, align 1
   %shr53.i = lshr i32 %value, 28
-  %conv54.i = trunc i32 %shr53.i to i8
+  %conv54.i = trunc nuw nsw i32 %shr53.i to i8
   %incdec.ptr55.i = getelementptr inbounds i8, ptr %buf, i64 5
   store i8 %conv54.i, ptr %incdec.ptr52.i, align 1
   br label %_ZN6snappy6Varint8Encode32EPcj.exit

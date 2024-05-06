@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define i32 @X509_check_purpose(ptr noundef %x, i32 noundef %id, i32 noundef %non_leaf) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.x509_purpose_st, align 8
-  %call = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x), !range !4
+  %call = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -99,7 +99,7 @@ return:                                           ; preds = %X509_PURPOSE_get_by
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_x509v3_cache_extensions(ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %ex_nid.i = alloca i32, align 4
   %i.i = alloca i32, align 4
@@ -408,7 +408,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   store i32 %inc, ptr %i, align 4
   %call144 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call137) #8
   %cmp145 = icmp slt i32 %inc, %call144
-  br i1 %cmp145, label %for.body, label %for.end, !llvm.loop !5
+  br i1 %cmp145, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %if.then140
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call137, ptr noundef nonnull @ASN1_OBJECT_free) #8
@@ -507,13 +507,13 @@ if.then236:                                       ; preds = %if.end230
   %or238 = or i32 %48, 32
   store i32 %or238, ptr %ex_flags4, align 8
   %49 = load ptr, ptr %akid, align 8
-  %call240 = call i32 @X509_check_akid(ptr noundef nonnull %x, ptr noundef %49), !range !7
+  %call240 = call i32 @X509_check_akid(ptr noundef nonnull %x, ptr noundef %49)
   %cmp241 = icmp eq i32 %call240, 0
   br i1 %cmp241, label %land.lhs.true243, label %if.end252
 
 land.lhs.true243:                                 ; preds = %if.then236
   %call244 = call ptr @X509_get0_pubkey(ptr noundef nonnull %x) #8
-  %call245 = call fastcc i32 @check_sig_alg_match(ptr noundef %call244, ptr noundef nonnull %x), !range !8
+  %call245 = call fastcc i32 @check_sig_alg_match(ptr noundef %call244, ptr noundef nonnull %x)
   %cmp246 = icmp eq i32 %call245, 0
   br i1 %cmp246, label %if.then248, label %if.end252
 
@@ -663,7 +663,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
   %70 = load ptr, ptr %CRLissuer32.i.i, align 8
   %call34.i.i = call i32 @OPENSSL_sk_num(ptr noundef %70) #8
   %cmp35.i.i = icmp slt i32 %inc.i.i, %call34.i.i
-  br i1 %cmp35.i.i, label %for.body.i.i, label %if.then47.i.i, !llvm.loop !9
+  br i1 %cmp35.i.i, label %for.body.i.i, label %if.then47.i.i, !llvm.loop !6
 
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.cond.i.i
   %i.026.i.i = phi i32 [ %inc.i.i, %for.cond.i.i ], [ 0, %for.cond.preheader.i.i ]
@@ -697,7 +697,7 @@ for.inc.i:                                        ; preds = %if.end49.i.i, %lor.
   %76 = load ptr, ptr %crldp.i, align 8
   %call5.i = call i32 @OPENSSL_sk_num(ptr noundef %76) #8
   %cmp6.i = icmp slt i32 %inc.i, %call5.i
-  br i1 %cmp6.i, label %for.body.i, label %setup_crldp.exit.thread, !llvm.loop !10
+  br i1 %cmp6.i, label %for.body.i, label %setup_crldp.exit.thread, !llvm.loop !7
 
 setup_crldp.exit.thread:                          ; preds = %for.inc.i, %if.end49.i.i, %for.cond.preheader.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i)
@@ -817,7 +817,7 @@ for.inc342:                                       ; preds = %switch.hole_check, 
   store i32 %inc343, ptr %i, align 4
   %call305 = call i32 @X509_get_ext_count(ptr noundef %x) #8
   %cmp306 = icmp slt i32 %inc343, %call305
-  br i1 %cmp306, label %for.body308, label %for.end344, !llvm.loop !11
+  br i1 %cmp306, label %for.body308, label %for.end344, !llvm.loop !8
 
 for.end344:                                       ; preds = %for.inc342, %if.end303, %if.then324
   %call345 = call i32 @ossl_x509_init_sig_info(ptr noundef %x) #8
@@ -845,7 +845,7 @@ return:                                           ; preds = %for.end344, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_PURPOSE_get_by_id(i32 noundef %purpose) local_unnamed_addr #0 {
+define range(i32 -1, -2147483638) i32 @X509_PURPOSE_get_by_id(i32 noundef %purpose) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.x509_purpose_st, align 8
   %0 = add i32 %purpose, -1
@@ -897,7 +897,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_PURPOSE_set(ptr nocapture noundef writeonly %p, i32 noundef %purpose) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_PURPOSE_set(ptr nocapture noundef writeonly %p, i32 noundef %purpose) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.x509_purpose_st, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %tmp.i)
@@ -1007,7 +1007,7 @@ X509_PURPOSE_get0.exit:                           ; preds = %if.then2.i, %if.end
 
 for.inc:                                          ; preds = %X509_PURPOSE_get0.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %for.cond, !llvm.loop !12
+  br label %for.cond, !llvm.loop !9
 
 return.split.loop.exit8:                          ; preds = %X509_PURPOSE_get0.exit
   %6 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1024,7 +1024,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare i32 @OPENSSL_sk_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_PURPOSE_add(i32 noundef %id, i32 noundef %trust, i32 noundef %flags, ptr noundef %ck, ptr noundef %name, ptr noundef %sname, ptr noundef %arg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_PURPOSE_add(i32 noundef %id, i32 noundef %trust, i32 noundef %flags, ptr noundef %ck, ptr noundef %name, ptr noundef %sname, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.x509_purpose_st, align 8
   %and = and i32 %flags, -4
@@ -1257,7 +1257,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_supported_extension(ptr noundef %ex) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_supported_extension(ptr noundef %ex) local_unnamed_addr #0 {
 entry:
   %ex_nid = alloca i32, align 4
   %call = tail call ptr @X509_EXTENSION_get_object(ptr noundef %ex) #8
@@ -1314,7 +1314,7 @@ declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_check_akid(ptr noundef %issuer, ptr noundef readonly %akid) local_unnamed_addr #0 {
+define range(i32 0, 32) i32 @X509_check_akid(ptr noundef %issuer, ptr noundef readonly %akid) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %akid, null
   br i1 %cmp, label %return, label %if.end
@@ -1363,7 +1363,7 @@ for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.021, 1
   %call21 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %4) #8
   %cmp22 = icmp slt i32 %inc, %call21
-  br i1 %cmp22, label %for.body, label %if.end35, !llvm.loop !13
+  br i1 %cmp22, label %for.body, label %if.end35, !llvm.loop !10
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.021 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -1393,7 +1393,7 @@ return:                                           ; preds = %land.lhs.true29, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_sig_alg_match(ptr noundef %issuer_key, ptr nocapture noundef readonly %subject) unnamed_addr #0 {
+define internal fastcc range(i32 0, 78) i32 @check_sig_alg_match(ptr noundef %issuer_key, ptr nocapture noundef readonly %subject) unnamed_addr #0 {
 entry:
   %subj_sig_nid = alloca i32, align 4
   %cmp = icmp eq ptr %issuer_key, null
@@ -1471,9 +1471,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_check_ca(ptr noundef %x) local_unnamed_addr #0 {
+define range(i32 0, 6) i32 @X509_check_ca(ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x), !range !4
+  %call = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1531,7 +1531,7 @@ return:                                           ; preds = %if.end33.i, %land.l
 ; Function Attrs: nounwind uwtable
 define i32 @X509_check_issued(ptr noundef %issuer, ptr noundef %subject) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @ossl_x509_likely_issued(ptr noundef %issuer, ptr noundef %subject), !range !8
+  %call = tail call i32 @ossl_x509_likely_issued(ptr noundef %issuer, ptr noundef %subject)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -1575,7 +1575,7 @@ return:                                           ; preds = %if.end16.i, %land.l
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_x509_likely_issued(ptr noundef %issuer, ptr noundef %subject) local_unnamed_addr #0 {
+define range(i32 0, 78) i32 @ossl_x509_likely_issued(ptr noundef %issuer, ptr noundef %subject) local_unnamed_addr #0 {
 entry:
   %subj_sig_nid.i = alloca i32, align 4
   %call = tail call ptr @X509_get_subject_name(ptr noundef %issuer) #8
@@ -1585,19 +1585,19 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call3 = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %issuer), !range !4
+  %call3 = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %issuer)
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call4 = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %subject), !range !4
+  %call4 = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %subject)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %if.end7
 
 if.end7:                                          ; preds = %lor.lhs.false
   %akid = getelementptr inbounds i8, ptr %subject, i64 256
   %0 = load ptr, ptr %akid, align 8
-  %call8 = tail call i32 @X509_check_akid(ptr noundef %issuer, ptr noundef %0), !range !7
+  %call8 = tail call i32 @X509_check_akid(ptr noundef %issuer, ptr noundef %0)
   %cmp9.not = icmp eq i32 %call8, 0
   br i1 %cmp9.not, label %if.end11, label %return
 
@@ -1642,7 +1642,7 @@ return:                                           ; preds = %if.end7, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @ossl_x509_signing_allowed(ptr nocapture noundef readonly %issuer, ptr nocapture noundef readonly %subject) local_unnamed_addr #4 {
+define range(i32 0, 40) i32 @ossl_x509_signing_allowed(ptr nocapture noundef readonly %issuer, ptr nocapture noundef readonly %subject) local_unnamed_addr #4 {
 entry:
   %ex_flags = getelementptr inbounds i8, ptr %subject, i64 232
   %0 = load i32, ptr %ex_flags, align 8
@@ -1691,7 +1691,7 @@ declare ptr @X509_get0_serialNumber(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @X509_get_extension_flags(ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x), !range !4
+  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x)
   %ex_flags = getelementptr inbounds i8, ptr %x, i64 232
   %0 = load i32, ptr %ex_flags, align 8
   ret i32 %0
@@ -1700,7 +1700,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @X509_get_key_usage(ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x), !range !4
+  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end
 
@@ -1724,7 +1724,7 @@ return:                                           ; preds = %entry, %cond.true, 
 ; Function Attrs: nounwind uwtable
 define i32 @X509_get_extended_key_usage(ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x), !range !4
+  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end
 
@@ -1748,7 +1748,7 @@ return:                                           ; preds = %entry, %cond.true, 
 ; Function Attrs: nounwind uwtable
 define ptr @X509_get0_subject_key_id(ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x), !range !4
+  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end
 
@@ -1765,7 +1765,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define ptr @X509_get0_authority_key_id(ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x), !range !4
+  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end
 
@@ -1787,7 +1787,7 @@ return:                                           ; preds = %entry, %cond.true, 
 ; Function Attrs: nounwind uwtable
 define ptr @X509_get0_authority_issuer(ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x), !range !4
+  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end
 
@@ -1810,7 +1810,7 @@ return:                                           ; preds = %entry, %cond.true, 
 ; Function Attrs: nounwind uwtable
 define ptr @X509_get0_authority_serial(ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x), !range !4
+  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end
 
@@ -1833,7 +1833,7 @@ return:                                           ; preds = %entry, %cond.true, 
 ; Function Attrs: nounwind uwtable
 define i64 @X509_get_pathlen(ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x), !range !4
+  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %lor.lhs.false
 
@@ -1857,7 +1857,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define i64 @X509_get_proxy_pathlen(ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x), !range !4
+  %call.i = tail call i32 @ossl_x509v3_cache_extensions(ptr noundef %x)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %lor.lhs.false
 
@@ -1879,7 +1879,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @check_purpose_ssl_client(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %non_leaf) #4 {
+define internal range(i32 0, 2) i32 @check_purpose_ssl_client(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %non_leaf) #4 {
 entry:
   %ex_flags = getelementptr inbounds i8, ptr %x, i64 232
   %0 = load i32, ptr %ex_flags, align 8
@@ -1975,7 +1975,7 @@ return:                                           ; preds = %lor.rhs.i, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @check_purpose_ssl_server(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %non_leaf) #4 {
+define internal range(i32 0, 2) i32 @check_purpose_ssl_server(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %non_leaf) #4 {
 entry:
   %ex_flags = getelementptr inbounds i8, ptr %x, i64 232
   %0 = load i32, ptr %ex_flags, align 8
@@ -2458,7 +2458,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @check_purpose_ocsp_helper(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %non_leaf) #4 {
+define internal range(i32 0, 6) i32 @check_purpose_ocsp_helper(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %non_leaf) #4 {
 entry:
   %tobool.not = icmp eq i32 %non_leaf, 0
   br i1 %tobool.not, label %return, label %if.then
@@ -2515,7 +2515,7 @@ return:                                           ; preds = %if.end33.i, %land.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_purpose_timestamp_sign(ptr nocapture readnone %xp, ptr noundef %x, i32 noundef %non_leaf) #0 {
+define internal range(i32 0, 6) i32 @check_purpose_timestamp_sign(ptr nocapture readnone %xp, ptr noundef %x, i32 noundef %non_leaf) #0 {
 entry:
   %tobool.not = icmp eq i32 %non_leaf, 0
   %ex_flags = getelementptr inbounds i8, ptr %x, i64 232
@@ -2613,7 +2613,7 @@ return:                                           ; preds = %if.end33.i, %land.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_purpose_code_sign(ptr nocapture readnone %xp, ptr noundef %x, i32 noundef %non_leaf) #0 {
+define internal range(i32 0, 6) i32 @check_purpose_code_sign(ptr nocapture readnone %xp, ptr noundef %x, i32 noundef %non_leaf) #0 {
 entry:
   %tobool.not = icmp eq i32 %non_leaf, 0
   %ex_flags = getelementptr inbounds i8, ptr %x, i64 232
@@ -2752,13 +2752,10 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 32}
-!8 = !{i32 0, i32 78}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

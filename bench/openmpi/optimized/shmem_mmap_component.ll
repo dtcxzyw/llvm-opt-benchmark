@@ -47,7 +47,7 @@ define internal noundef i32 @mmap_query(ptr nocapture noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mmap_register() #2 {
+define internal range(i32 -2147483648, 1) i32 @mmap_register() #2 {
   store i32 50, ptr getelementptr inbounds (%struct.opal_shmem_mmap_component_t, ptr @mca_shmem_mmap_component, i64 0, i32 1), align 8
   %1 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_shmem_mmap_component, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 4, i32 noundef 2, i32 noundef 6, ptr noundef nonnull getelementptr inbounds (%struct.opal_shmem_mmap_component_t, ptr @mca_shmem_mmap_component, i64 0, i32 1)) #5
   %2 = icmp slt i32 %1, 0

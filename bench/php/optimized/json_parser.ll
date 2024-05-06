@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @validate_parser_methods = internal constant %struct._php_json_parser_methods { ptr @php_json_parser_array_create_validate, ptr @php_json_parser_array_append_validate, ptr null, ptr null, ptr @php_json_parser_object_create_validate, ptr @php_json_parser_object_update_validate, ptr null, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @php_json_yyparse(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @php_json_yyparse(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %union.PHP_JSON_YYSTYPE, align 8
   %3 = alloca [200 x i8], align 16
   %4 = alloca [200 x %union.PHP_JSON_YYSTYPE], align 16
@@ -184,7 +184,7 @@ define hidden noundef i32 @php_json_yyparse(ptr noundef %0) local_unnamed_addr #
   br label %php_json_yylex.exit
 
 .critedge.i:                                      ; preds = %69, %66, %63, %59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   br label %php_json_yylex.exit
 
 php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %57
@@ -970,13 +970,13 @@ define void @php_json_parser_init(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %9 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) @default_parser_methods, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull readonly align 8 dereferenceable(64) @default_parser_methods, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_json_parse(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @php_json_yyparse(ptr noundef %0), !range !4
+define range(i32 0, 3) i32 @php_json_parse(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @php_json_yyparse(ptr noundef %0)
   ret i32 %2
 }
 
@@ -1030,7 +1030,7 @@ define internal noundef i32 @php_json_parser_array_append(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_json_parser_object_update(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @php_json_parser_object_update(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8
@@ -1225,4 +1225,3 @@ attributes #12 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 0, i32 3}

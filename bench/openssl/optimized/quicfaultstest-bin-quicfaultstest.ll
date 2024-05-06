@@ -77,7 +77,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -141,7 +141,7 @@ declare ptr @test_mk_file_path(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_basic() #1 {
+define internal range(i32 0, 2) i32 @test_basic() #1 {
 entry:
   %qtserv = alloca ptr, align 8
   %cssl = alloca ptr, align 8
@@ -211,7 +211,7 @@ err:                                              ; preds = %if.end30, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unknown_frame() #1 {
+define internal range(i32 0, 2) i32 @test_unknown_frame() #1 {
 entry:
   %qtserv = alloca ptr, align 8
   %cssl = alloca ptr, align 8
@@ -350,7 +350,7 @@ err:                                              ; preds = %if.end66, %if.end60
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_drop_extensions(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_drop_extensions(i32 noundef %idx) #1 {
 entry:
   %qtserv = alloca ptr, align 8
   %cssl = alloca ptr, align 8
@@ -421,7 +421,7 @@ err34:                                            ; preds = %if.end25, %if.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_corrupted_data(i32 noundef %idx) #1 {
+define internal range(i32 0, 2) i32 @test_corrupted_data(i32 noundef %idx) #1 {
 entry:
   %fault = alloca ptr, align 8
   %qtserv = alloca ptr, align 8
@@ -672,7 +672,7 @@ declare i32 @qtest_fault_prepend_frame(ptr noundef, ptr noundef, i64 noundef) lo
 declare i32 @qtest_fault_set_hand_enc_ext_listener(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drop_extensions_cb(ptr noundef %fault, ptr noundef %ee, i64 %eelen, ptr nocapture noundef readonly %encextcbarg) #1 {
+define internal range(i32 0, 2) i32 @drop_extensions_cb(ptr noundef %fault, ptr noundef %ee, i64 %eelen, ptr nocapture noundef readonly %encextcbarg) #1 {
 entry:
   %0 = load i32, ptr %encextcbarg, align 4
   %1 = load ptr, ptr %ee, align 8

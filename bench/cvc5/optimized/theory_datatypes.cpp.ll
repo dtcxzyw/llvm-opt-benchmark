@@ -25374,7 +25374,7 @@ declare noundef i32 @_ZNK4cvc58internal16DTypeConstructor24getSelectorIndexInter
 declare void @_ZNK4cvc58internal6EnvObj7rewriteENS0_12NodeTemplateILb0EEE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory9datatypes15TheoryDatatypes17getEqualityStatusENS0_12NodeTemplateILb0EEES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2008) %this, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 2, 6) i32 @_ZN4cvc58internal6theory9datatypes15TheoryDatatypes17getEqualityStatusENS0_12NodeTemplateILb0EEES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2008) %this, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.733", align 8
   %agg.tmp2 = alloca %"class.cvc5::internal::NodeTemplate.733", align 8

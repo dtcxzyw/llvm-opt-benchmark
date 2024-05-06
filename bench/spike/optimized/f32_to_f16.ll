@@ -55,7 +55,7 @@ define i16 @f32_to_f16(i32 %0) local_unnamed_addr #0 {
 
 30:                                               ; preds = %9, %11, %12, %23
   %.0.shrunk = phi i32 [ %15, %12 ], [ %25, %23 ], [ 32256, %11 ], [ 32256, %9 ]
-  %31 = trunc i32 %.0.shrunk to i16
+  %31 = trunc nuw i32 %.0.shrunk to i16
   br label %32
 
 32:                                               ; preds = %30, %26

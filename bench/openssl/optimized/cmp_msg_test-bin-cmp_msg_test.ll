@@ -134,7 +134,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @test_skip_common_options() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -1165,7 +1165,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cmp_create_rp() #0 {
+define internal range(i32 0, 2) i32 @test_cmp_create_rp() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.40)
   %cmp = icmp eq ptr %call, null
@@ -1333,7 +1333,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cmp_create_certrep() #0 {
+define internal range(i32 0, 2) i32 @test_cmp_create_certrep() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.42)
   %cmp = icmp eq ptr %call, null
@@ -1430,7 +1430,7 @@ return:                                           ; preds = %entry, %execute_cer
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cmp_create_pollrep() #0 {
+define internal range(i32 0, 2) i32 @test_cmp_create_pollrep() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.43)
   %cmp = icmp eq ptr %call, null

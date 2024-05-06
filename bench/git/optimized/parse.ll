@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @git_parse_signed(ptr noundef %value, ptr nocapture noundef writeonly %ret, i64 noundef %max) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @git_parse_signed(ptr noundef %value, ptr nocapture noundef writeonly %ret, i64 noundef %max) local_unnamed_addr #0 {
 entry:
   %end = alloca ptr, align 8
   %tobool.not = icmp eq ptr %value, null
@@ -62,17 +62,17 @@ if.end14:                                         ; preds = %if.end9
   br i1 %tobool.not.i, label %if.end19, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end14
-  %call.i = call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.10) #13
+  %call.i = call i32 @strcasecmp(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.10) #13
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.end19, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.else.i
-  %call4.i = call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.11) #13
+  %call4.i = call i32 @strcasecmp(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.11) #13
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.end19, label %if.else7.i
 
 if.else7.i:                                       ; preds = %if.else3.i
-  %call8.i = call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.12) #13
+  %call8.i = call i32 @strcasecmp(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.12) #13
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %if.end19, label %if.then17
 
@@ -129,10 +129,10 @@ declare ptr @__errno_location() local_unnamed_addr #2
 declare i64 @strtoimax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @git_parse_int(ptr noundef %value, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @git_parse_int(ptr noundef %value, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
 entry:
   %tmp = alloca i64, align 8
-  %call = call i32 @git_parse_signed(ptr noundef %value, ptr noundef nonnull %tmp, i64 noundef 2147483647), !range !5
+  %call = call i32 @git_parse_signed(ptr noundef %value, ptr noundef nonnull %tmp, i64 noundef 2147483647)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -148,10 +148,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @git_parse_int64(ptr noundef %value, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @git_parse_int64(ptr noundef %value, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
 entry:
   %tmp = alloca i64, align 8
-  %call = call i32 @git_parse_signed(ptr noundef %value, ptr noundef nonnull %tmp, i64 noundef 9223372036854775807), !range !5
+  %call = call i32 @git_parse_signed(ptr noundef %value, ptr noundef nonnull %tmp, i64 noundef 9223372036854775807)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -166,7 +166,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @git_parse_ulong(ptr noundef %value, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @git_parse_ulong(ptr noundef %value, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
 entry:
   %end.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
@@ -210,17 +210,17 @@ if.end15.i:                                       ; preds = %if.end10.i
   br i1 %tobool.not.i.i, label %land.lhs.true22.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end15.i
-  %call.i.i = call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.10) #13
+  %call.i.i = call i32 @strcasecmp(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.10) #13
   %tobool1.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool1.not.i.i, label %land.lhs.true22.i, label %if.else3.i.i
 
 if.else3.i.i:                                     ; preds = %if.else.i.i
-  %call4.i.i = call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.11) #13
+  %call4.i.i = call i32 @strcasecmp(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.11) #13
   %tobool5.not.i.i = icmp eq i32 %call4.i.i, 0
   br i1 %tobool5.not.i.i, label %land.lhs.true22.i, label %if.else7.i.i
 
 if.else7.i.i:                                     ; preds = %if.else3.i.i
-  %call8.i.i = call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.12) #13
+  %call8.i.i = call i32 @strcasecmp(ptr noundef nonnull readonly %2, ptr noundef nonnull @.str.12) #13
   %tobool9.not.i.i = icmp eq i32 %call8.i.i, 0
   br i1 %tobool9.not.i.i, label %land.lhs.true22.i, label %if.then18.i
 
@@ -259,10 +259,10 @@ return:                                           ; preds = %git_parse_unsigned.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @git_parse_ssize_t(ptr noundef %value, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @git_parse_ssize_t(ptr noundef %value, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
 entry:
   %tmp = alloca i64, align 8
-  %call = call i32 @git_parse_signed(ptr noundef %value, ptr noundef nonnull %tmp, i64 noundef 9223372036854775807), !range !5
+  %call = call i32 @git_parse_signed(ptr noundef %value, ptr noundef nonnull %tmp, i64 noundef 9223372036854775807)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -277,7 +277,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i32 @git_parse_maybe_bool_text(ptr noundef readonly %value) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 2) i32 @git_parse_maybe_bool_text(ptr noundef readonly %value) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %return, label %if.end
@@ -327,16 +327,16 @@ return:                                           ; preds = %lor.lhs.false17, %i
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @git_parse_maybe_bool(ptr noundef %value) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @git_parse_maybe_bool(ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca i64, align 8
-  %call = tail call i32 @git_parse_maybe_bool_text(ptr noundef %value), !range !6
+  %call = tail call i32 @git_parse_maybe_bool_text(ptr noundef %value)
   %cmp = icmp sgt i32 %call, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i)
-  %call.i = call i32 @git_parse_signed(ptr noundef %value, ptr noundef nonnull %tmp.i, i64 noundef 2147483647), !range !5
+  %call.i = call i32 @git_parse_signed(ptr noundef %value, ptr noundef nonnull %tmp.i, i64 noundef 2147483647)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %git_parse_int.exit.thread, label %if.then2
 
@@ -366,13 +366,13 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call i32 @git_parse_maybe_bool_text(ptr noundef nonnull %call), !range !6
+  %call.i = tail call i32 @git_parse_maybe_bool_text(ptr noundef nonnull %call)
   %cmp.i = icmp sgt i32 %call.i, -1
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i)
-  %call.i.i = call i32 @git_parse_signed(ptr noundef nonnull %call, ptr noundef nonnull %tmp.i.i, i64 noundef 2147483647), !range !5
+  %call.i.i = call i32 @git_parse_signed(ptr noundef nonnull %call, ptr noundef nonnull %tmp.i.i, i64 noundef 2147483647)
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.then2, label %if.then2.i
 
@@ -432,7 +432,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call1 = call i32 @git_parse_ulong(ptr noundef nonnull %call, ptr noundef nonnull %val.addr), !range !5
+  %call1 = call i32 @git_parse_ulong(ptr noundef nonnull %call, ptr noundef nonnull %val.addr)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.then, label %land.lhs.true.if.end_crit_edge
 
@@ -490,5 +490,3 @@ attributes #13 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = !{i32 -1, i32 2}

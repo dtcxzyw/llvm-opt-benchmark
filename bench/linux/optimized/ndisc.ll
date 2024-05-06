@@ -286,7 +286,7 @@ define internal noundef range(i32 -22, 1) i32 @ndisc_constructor(ptr nocapture n
   store i8 %74, ptr %75, align 1
   %76 = getelementptr i8, ptr %0, i64 162
   %77 = getelementptr i8, ptr %0, i64 374
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(10) %76, ptr noundef align 1 dereferenceable(10) %77, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef writeonly align 1 dereferenceable(10) %76, ptr noundef readonly align 1 dereferenceable(10) %77, i64 10, i1 false)
   br label %ndisc_mc_map.exit.thread
 
 78:                                               ; preds = %50
@@ -331,7 +331,7 @@ define internal noundef range(i32 -22, 1) i32 @ndisc_constructor(ptr nocapture n
   %108 = getelementptr inbounds i8, ptr %4, i64 813
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 8 %107, i64 %110, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr writeonly align 1 %52, ptr readonly align 8 %107, i64 %110, i1 false)
   br label %ndisc_mc_map.exit.thread
 
 111:                                              ; preds = %49

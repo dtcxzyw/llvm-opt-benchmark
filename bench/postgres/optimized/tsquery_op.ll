@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.tsquery_phrase_distance = private unnamed_addr constant [24 x i8] c"tsquery_phrase_distance\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @tsquery_numnode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @tsquery_numnode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -410,7 +410,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare ptr @QT2QTN(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tsquery_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @tsquery_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -492,7 +492,7 @@ CompareTSQ.exit:                                  ; preds = %14, %22, %25, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tsquery_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @tsquery_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -573,7 +573,7 @@ CompareTSQ.exit:                                  ; preds = %14, %21, %23, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tsquery_le(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @tsquery_le(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -654,7 +654,7 @@ CompareTSQ.exit:                                  ; preds = %14, %21, %23, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tsquery_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @tsquery_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -726,7 +726,7 @@ CompareTSQ.exit:                                  ; preds = %14, %1, %17, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tsquery_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @tsquery_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -809,7 +809,7 @@ CompareTSQ.exit:                                  ; preds = %14, %22, %25, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tsquery_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @tsquery_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -892,7 +892,7 @@ CompareTSQ.exit:                                  ; preds = %14, %22, %25, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tsquery_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @tsquery_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1004,7 +1004,7 @@ define dso_local i64 @makeTSQuerySign(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @tsq_mcontains(ptr nocapture noundef readonly %0) #2 {
+define dso_local range(i64 0, 2) i64 @tsq_mcontains(ptr nocapture noundef readonly %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1044,7 +1044,7 @@ define dso_local noundef i64 @tsq_mcontains(ptr nocapture noundef readonly %0) #
   %30 = zext nneg i32 %29 to i64
   %31 = getelementptr i8, ptr %13, i64 %30
   %32 = zext nneg i32 %24 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %31, i64 %32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr readonly align 1 %31, i64 %32, i1 false)
   %33 = getelementptr i8, ptr %27, i64 %32
   store i8 0, ptr %33, align 1
   %34 = add i32 %.02225.i, 1
@@ -1097,7 +1097,7 @@ collectTSQueryValues.exit:                        ; preds = %37, %1
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr i8, ptr %47, i64 %64
   %66 = zext nneg i32 %58 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr align 1 %65, i64 %66, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr readonly align 1 %65, i64 %66, i1 false)
   %67 = getelementptr i8, ptr %61, i64 %66
   store i8 0, ptr %67, align 1
   %68 = add i32 %.02225.i22, 1
@@ -1246,7 +1246,7 @@ qunique.exit36:                                   ; preds = %qunique.exit, %113
   br i1 %exitcond.not, label %.loopexit, label %124, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %124
-  %130 = trunc i64 %indvars.iv to i32
+  %130 = trunc nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader

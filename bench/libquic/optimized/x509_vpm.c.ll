@@ -138,7 +138,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_VERIFY_PARAM_inherit(ptr noundef %dest, ptr noundef readonly %src) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_inherit(ptr noundef %dest, ptr noundef readonly %src) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %src, null
   br i1 %tobool.not, label %return, label %if.end
@@ -308,12 +308,12 @@ lor.lhs.false76:                                  ; preds = %land.lhs.true74
   br i1 %cmp78, label %if.then79, label %lor.lhs.false86.thread
 
 if.then79:                                        ; preds = %lor.lhs.false76, %land.lhs.true74
-  %call = tail call i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef nonnull %dest, ptr noundef nonnull %20), !range !7
+  %call = tail call i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef nonnull %dest, ptr noundef nonnull %20)
   %tobool81.not = icmp eq i32 %call, 0
   br i1 %tobool81.not, label %return, label %lor.lhs.false86
 
 if.then79.thread:                                 ; preds = %if.end67
-  %call97 = tail call i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef nonnull %dest, ptr noundef %20), !range !7
+  %call97 = tail call i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef nonnull %dest, ptr noundef %20)
   %tobool81.not98 = icmp eq i32 %call97, 0
   br i1 %tobool81.not98, label %return, label %if.then95
 
@@ -538,7 +538,7 @@ return:                                           ; preds = %if.end.i.i71, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef %param, ptr noundef %policies) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_policies(ptr noundef %param, ptr noundef %policies) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %param, null
   br i1 %tobool.not, label %return, label %if.end
@@ -576,7 +576,7 @@ for.cond:                                         ; preds = %if.end20
   %inc = add nuw i64 %i.017, 1
   %call15 = tail call i64 @sk_num(ptr noundef nonnull %policies) #15
   %cmp = icmp ult i64 %inc, %call15
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.017 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -626,7 +626,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_VERIFY_PARAM_set1_email(ptr nocapture noundef readonly %param, ptr noundef %email, i64 noundef %emaillen) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_email(ptr nocapture noundef readonly %param, ptr noundef %email, i64 noundef %emaillen) local_unnamed_addr #0 {
 entry:
   %id = getelementptr inbounds i8, ptr %param, i64 56
   %0 = load ptr, ptr %id, align 8
@@ -676,7 +676,7 @@ int_x509_param_set1.exit:                         ; preds = %if.end.i, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_VERIFY_PARAM_set1_ip(ptr nocapture noundef readonly %param, ptr noundef %ip, i64 noundef %iplen) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_ip(ptr nocapture noundef readonly %param, ptr noundef %ip, i64 noundef %iplen) local_unnamed_addr #0 {
 entry:
   switch i64 %iplen, label %return [
     i64 16, label %if.end
@@ -733,19 +733,19 @@ return:                                           ; preds = %if.end11.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_VERIFY_PARAM_set1(ptr noundef %to, ptr noundef %from) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1(ptr noundef %to, ptr noundef %from) local_unnamed_addr #0 {
 entry:
   %inh_flags = getelementptr inbounds i8, ptr %to, i64 16
   %0 = load i64, ptr %inh_flags, align 8
   %or = or i64 %0, 1
   store i64 %or, ptr %inh_flags, align 8
-  %call = tail call i32 @X509_VERIFY_PARAM_inherit(ptr noundef %to, ptr noundef %from), !range !7
+  %call = tail call i32 @X509_VERIFY_PARAM_inherit(ptr noundef %to, ptr noundef %from)
   store i64 %0, ptr %inh_flags, align 8
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_VERIFY_PARAM_set1_name(ptr nocapture noundef %param, ptr noundef %name) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_name(ptr nocapture noundef %param, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %param, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -839,7 +839,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_VERIFY_PARAM_add0_policy(ptr nocapture noundef %param, ptr noundef %policy) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_add0_policy(ptr nocapture noundef %param, ptr noundef %policy) local_unnamed_addr #0 {
 entry:
   %policies = getelementptr inbounds i8, ptr %param, i64 48
   %0 = load ptr, ptr %policies, align 8
@@ -877,16 +877,16 @@ declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare ptr @OBJ_dup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_VERIFY_PARAM_set1_host(ptr nocapture noundef readonly %param, ptr noundef %name, i64 noundef %namelen) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_host(ptr nocapture noundef readonly %param, ptr noundef %name, i64 noundef %namelen) local_unnamed_addr #0 {
 entry:
   %id = getelementptr inbounds i8, ptr %param, i64 56
   %0 = load ptr, ptr %id, align 8
-  %call = tail call fastcc i32 @int_x509_param_set_hosts(ptr noundef %0, i32 noundef 0, ptr noundef %name, i64 noundef %namelen), !range !7
+  %call = tail call fastcc i32 @int_x509_param_set_hosts(ptr noundef %0, i32 noundef 0, ptr noundef %name, i64 noundef %namelen)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @int_x509_param_set_hosts(ptr nocapture noundef %id, i32 noundef %mode, ptr noundef %name, i64 noundef %namelen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @int_x509_param_set_hosts(ptr nocapture noundef %id, i32 noundef %mode, ptr noundef %name, i64 noundef %namelen) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -960,11 +960,11 @@ return:                                           ; preds = %if.end23, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_VERIFY_PARAM_add1_host(ptr nocapture noundef readonly %param, ptr noundef %name, i64 noundef %namelen) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_add1_host(ptr nocapture noundef readonly %param, ptr noundef %name, i64 noundef %namelen) local_unnamed_addr #0 {
 entry:
   %id = getelementptr inbounds i8, ptr %param, i64 56
   %0 = load ptr, ptr %id, align 8
-  %call = tail call fastcc i32 @int_x509_param_set_hosts(ptr noundef %0, i32 noundef 1, ptr noundef %name, i64 noundef %namelen), !range !7
+  %call = tail call fastcc i32 @int_x509_param_set_hosts(ptr noundef %0, i32 noundef 1, ptr noundef %name, i64 noundef %namelen)
   ret i32 %call
 }
 
@@ -989,7 +989,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_VERIFY_PARAM_set1_ip_asc(ptr nocapture noundef readonly %param, ptr noundef %ipasc) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_ip_asc(ptr nocapture noundef readonly %param, ptr noundef %ipasc) local_unnamed_addr #0 {
 entry:
   %ipout = alloca [16 x i8], align 16
   %call = call i32 @a2i_ipadd(ptr noundef nonnull %ipout, ptr noundef %ipasc) #15
@@ -1049,7 +1049,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_VERIFY_PARAM_add0_table(ptr noundef %param) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_VERIFY_PARAM_add0_table(ptr noundef %param) local_unnamed_addr #0 {
 entry:
   %idx = alloca i64, align 8
   %0 = load ptr, ptr @param_table, align 8
@@ -1186,7 +1186,7 @@ if.then3:                                         ; preds = %if.then
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %for.body.preheader ]
@@ -1264,7 +1264,6 @@ attributes #16 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

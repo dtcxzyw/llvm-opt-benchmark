@@ -141,7 +141,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_consonant = internal constant [10 x i8] c"\FF\FF\FF\FF\9F\00\00\00\F8\07", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @hindi_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @hindi_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -203,7 +203,7 @@ define hidden void @hindi_UTF_8_close_env(ptr noundef %0) local_unnamed_addr #0 
 declare void @SN_close_env(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @r_CONSONANT(ptr noundef %0) #0 {
+define internal range(i32 0, 2) i32 @r_CONSONANT(ptr noundef %0) #0 {
   %2 = tail call i32 @in_grouping_b_U(ptr noundef %0, ptr noundef nonnull @g_consonant, i32 noundef 2325, i32 noundef 2399, i32 noundef 0) #2
   %.not = icmp eq i32 %2, 0
   %. = zext i1 %.not to i32

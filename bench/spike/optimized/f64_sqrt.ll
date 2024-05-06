@@ -55,13 +55,13 @@ define i64 @f64_sqrt(i64 %0) local_unnamed_addr #0 {
   %24 = or i64 %.053, 4503599627370496
   %25 = lshr i64 %24, 21
   %26 = trunc i64 %25 to i32
-  %27 = trunc i64 %23 to i32
+  %27 = trunc nuw nsw i64 %23 to i32
   %28 = tail call i32 @softfloat_approxRecipSqrt32_1(i32 noundef %27, i32 noundef %26) #2
   %29 = and i64 %25, 4294967295
   %30 = zext i32 %28 to i64
   %31 = mul nuw i64 %29, %30
   %32 = lshr i64 %31, 32
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   %.056 = lshr i32 %33, %27
   %.1.v = xor i64 %23, 9
   %.1 = shl i64 %24, %.1.v

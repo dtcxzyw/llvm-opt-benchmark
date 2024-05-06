@@ -701,7 +701,7 @@ define void @_ZN6sparse6common13sparse_vector12SparseVector3new17h9fe2292ba5171e
   %10 = load i64, ptr %9, align 8, !alias.scope !127, !noalias !130, !noundef !5
   %11 = getelementptr inbounds i8, ptr %5, i64 40
   %12 = load i64, ptr %11, align 8, !alias.scope !127, !noalias !130, !noundef !5
-  invoke void @_ZN6sparse6common13sparse_vector27validate_sparse_vector_impl17h7e14b09662cb8fcaE(ptr noalias nocapture noundef nonnull sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 4 %8, i64 noundef %10, ptr noalias nonnull readonly align 4 poison, i64 noundef %12)
+  invoke void @_ZN6sparse6common13sparse_vector27validate_sparse_vector_impl17h7e14b09662cb8fcaE(ptr noalias nocapture noundef nonnull writeonly sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 4 %8, i64 noundef %10, ptr noalias nonnull readonly align 4 poison, i64 noundef %12)
           to label %"_ZN91_$LT$sparse..common..sparse_vector..SparseVector$u20$as$u20$validator..traits..Validate$GT$8validate17h5fb13d77d1e07b3cE.exit" unwind label %13
 
 13:                                               ; preds = %3
@@ -1216,7 +1216,7 @@ define void @"_ZN134_$LT$sparse..common..sparse_vector..SparseVector$u20$as$u20$
   %50 = load i64, ptr %49, align 8, !alias.scope !199, !noalias !202, !noundef !5
   %51 = getelementptr inbounds i8, ptr %4, i64 40
   %52 = load i64, ptr %51, align 8, !alias.scope !199, !noalias !202, !noundef !5
-  invoke void @_ZN6sparse6common13sparse_vector27validate_sparse_vector_impl17h7e14b09662cb8fcaE(ptr noalias nocapture noundef nonnull sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 4 %48, i64 noundef %50, ptr noalias nonnull readonly align 4 poison, i64 noundef %52)
+  invoke void @_ZN6sparse6common13sparse_vector27validate_sparse_vector_impl17h7e14b09662cb8fcaE(ptr noalias nocapture noundef nonnull writeonly sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 4 %48, i64 noundef %50, ptr noalias nonnull readonly align 4 poison, i64 noundef %52)
           to label %"_ZN91_$LT$sparse..common..sparse_vector..SparseVector$u20$as$u20$validator..traits..Validate$GT$8validate17h5fb13d77d1e07b3cE.exit.i" unwind label %53, !noalias !193
 
 53:                                               ; preds = %45
@@ -1233,7 +1233,7 @@ define void @"_ZN134_$LT$sparse..common..sparse_vector..SparseVector$u20$as$u20$
 57:                                               ; preds = %"_ZN91_$LT$sparse..common..sparse_vector..SparseVector$u20$as$u20$validator..traits..Validate$GT$8validate17h5fb13d77d1e07b3cE.exit.i"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !193
   %58 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %58, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !204
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(48) %58, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !204
   store i64 0, ptr %0, align 8, !alias.scope !198, !noalias !204
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !193
   br label %62
@@ -1245,7 +1245,7 @@ define void @"_ZN134_$LT$sparse..common..sparse_vector..SparseVector$u20$as$u20$
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %55, ptr %59, align 8, !alias.scope !198, !noalias !204
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.27.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.27.i, i64 40, i1 false), !noalias !204
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %.sroa.27.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.27.i, i64 40, i1 false), !noalias !204
   store i64 1, ptr %0, align 8, !alias.scope !198, !noalias !204
   call void @"_ZN4core3ptr64drop_in_place$LT$sparse..common..sparse_vector..SparseVector$GT$17h00f33ca56422d285E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !193
@@ -1345,7 +1345,7 @@ define void @_ZN6sparse6common13sparse_vector27validate_sparse_vector_impl17h7e1
   %10 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   %11 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !210, !noalias !211, !noundef !5
-  %trunc.i.i.i = trunc i64 %11 to i1
+  %trunc.i.i.i = trunc nuw i64 %11 to i1
   br i1 %trunc.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h17e3c6271bdc9f84E.exit", label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i
 
 _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i: ; preds = %5
@@ -1378,7 +1378,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i: ; 
 19:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h17e3c6271bdc9f84E.exit", %28
   %20 = getelementptr inbounds i32, ptr %1, i64 %2
   %21 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !210, !noalias !222, !noundef !5
-  %trunc.i.i.i.i = trunc i64 %21 to i1
+  %trunc.i.i.i.i = trunc nuw i64 %21 to i1
   br i1 %trunc.i.i.i.i, label %29, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i.i
 
 _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i.i: ; preds = %19
@@ -1632,7 +1632,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !264
   store i64 -9223372036854775808, ptr %11, align 8, !noalias !264
   %44 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17h1f381a0e61bae689E, align 8, !range !210, !noalias !267, !noundef !5
-  %trunc.i.i.i.i = trunc i64 %44 to i1
+  %trunc.i.i.i.i = trunc nuw i64 %44 to i1
   br i1 %trunc.i.i.i.i, label %55, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i.i
 
 _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i.i: ; preds = %_ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit
@@ -1702,17 +1702,17 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i.i: 
   %64 = extractelement <2 x i64> %63, i64 0
   %65 = add i64 %64, 1
   store i64 %65, ptr %.0.i.i2.i.i, align 8, !noalias !274
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, i8 0, i64 40, i1 false), !alias.scope !264
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(40) %61, i8 0, i64 40, i1 false), !alias.scope !264
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   store i64 0, ptr %37, align 8, !alias.scope !264
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !264
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !264
   store ptr @anon.30f34e5a9fd2306e2b5288d77ea6d58a.7, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !264
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !264
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %.sroa.7.0..sroa_idx.i, i8 0, i64 24, i1 false), !alias.scope !264
   store <2 x i64> %63, ptr %.sroa.8.0..sroa_idx.i, align 8, !alias.scope !264
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !264
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !264

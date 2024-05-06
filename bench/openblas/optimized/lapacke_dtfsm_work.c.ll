@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [19 x i8] c"LAPACKE_dtfsm_work\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @LAPACKE_dtfsm_work(i32 noundef %0, i8 noundef signext %1, i8 noundef signext %2, i8 noundef signext %3, i8 noundef signext %4, i8 noundef signext %5, i32 noundef %6, i32 noundef %7, double noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11) local_unnamed_addr #0 {
+define noundef range(i32 -1011, 1) i32 @LAPACKE_dtfsm_work(i32 noundef %0, i8 noundef signext %1, i8 noundef signext %2, i8 noundef signext %3, i8 noundef signext %4, i8 noundef signext %5, i32 noundef %6, i32 noundef %7, double noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = alloca i8, align 1
   %14 = alloca i8, align 1
   %15 = alloca i8, align 1
@@ -58,7 +58,7 @@ define noundef i32 @LAPACKE_dtfsm_work(i32 noundef %0, i8 noundef signext %1, i8
 
 37:                                               ; preds = %35
   %38 = add nuw nsw i32 %30, 1
-  %39 = mul nsw i32 %38, %30
+  %39 = mul nuw nsw i32 %38, %30
   %40 = zext nneg i32 %39 to i64
   %41 = shl nuw nsw i64 %40, 2
   %42 = tail call noalias ptr @malloc(i64 noundef %41) #7

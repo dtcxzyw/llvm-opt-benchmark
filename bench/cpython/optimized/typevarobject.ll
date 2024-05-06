@@ -946,7 +946,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.26 = private unnamed_addr constant [35 x i8] c"A single constraint is not allowed\00", align 1
 @.str.27 = private unnamed_addr constant [46 x i8] c"Constraints cannot be combined with bound=...\00", align 1
 @.str.28 = private unnamed_addr constant [12 x i8] c"_type_check\00", align 1
-@_Py_tss_tstate = external thread_local global ptr, align 8
+@_Py_tss_tstate = external thread_local local_unnamed_addr global ptr, align 8
 @.str.29 = private unnamed_addr constant [5 x i8] c"%c%U\00", align 1
 @.str.30 = private unnamed_addr constant [9 x i8] c"__name__\00", align 1
 @.str.31 = private unnamed_addr constant [14 x i8] c"__covariant__\00", align 1
@@ -2402,7 +2402,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_Py_initialize_generic(ptr nocapture noundef writeonly %interp) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_Py_initialize_generic(ptr nocapture noundef writeonly %interp) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyType_FromSpec(ptr noundef nonnull @generic_spec) #7
   %cmp = icmp eq ptr %call, null

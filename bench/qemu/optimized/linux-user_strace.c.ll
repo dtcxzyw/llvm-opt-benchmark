@@ -937,7 +937,7 @@ if.then6.i:                                       ; preds = %for.end.i
   br i1 %cmp7.not.i, label %if.else.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then6.i
-  %conv.i = trunc i64 %flags.addr.1.i to i32
+  %conv.i = trunc nuw i64 %flags.addr.1.i to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, ptr noundef %sep.1.i, i32 noundef %conv.i, ptr noundef nonnull @.str.24) #9
   br label %print_flags.exit
 
@@ -946,7 +946,7 @@ if.else.i:                                        ; preds = %if.then6.i
   br label %print_flags.exit
 
 if.else11.i:                                      ; preds = %for.end.i
-  %conv12.i = trunc i64 %flags.addr.1.i to i32
+  %conv12.i = trunc nuw i64 %flags.addr.1.i to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %conv12.i, ptr noundef nonnull @.str.24) #9
   br label %print_flags.exit
 
@@ -995,7 +995,7 @@ if.then6.i40:                                     ; preds = %for.end.i37
   br i1 %cmp7.not.i41, label %if.else.i44, label %if.then8.i42
 
 if.then8.i42:                                     ; preds = %if.then6.i40
-  %conv.i43 = trunc i64 %flags.addr.1.i31 to i32
+  %conv.i43 = trunc nuw i64 %flags.addr.1.i31 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, ptr noundef %sep.1.i32, i32 noundef %conv.i43, ptr noundef nonnull @.str.24) #9
   br label %print_flags.exit49
 
@@ -1004,7 +1004,7 @@ if.else.i44:                                      ; preds = %if.then6.i40
   br label %print_flags.exit49
 
 if.else11.i38:                                    ; preds = %for.end.i37
-  %conv12.i39 = trunc i64 %flags.addr.1.i31 to i32
+  %conv12.i39 = trunc nuw i64 %flags.addr.1.i31 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %conv12.i39, ptr noundef nonnull @.str.24) #9
   br label %print_flags.exit49
 
@@ -1018,30 +1018,30 @@ if.then:                                          ; preds = %print_flags.exit49
   br label %for.inc.i52
 
 for.body.i50:                                     ; preds = %for.inc.i52
-  %incdec.ptr.i53 = getelementptr i8, ptr %e.addr.011.i234, i64 16
+  %incdec.ptr.i53 = getelementptr i8, ptr %e.addr.011.i242, i64 16
   %14 = load i64, ptr %incdec.ptr.i53, align 8
   %cmp1.i51 = icmp eq i64 %14, %conv7
-  br i1 %cmp1.i51, label %for.end.i55, label %for.inc.i52, !llvm.loop !7
+  br i1 %cmp1.i51, label %for.end.i56, label %for.inc.i52, !llvm.loop !7
 
 for.inc.i52:                                      ; preds = %if.then, %for.body.i50
-  %e.addr.011.i234 = phi ptr [ %incdec.ptr.i53, %for.body.i50 ], [ @termios_oflags_NLDLY, %if.then ]
-  %e_string.i = getelementptr i8, ptr %e.addr.011.i234, i64 24
+  %e.addr.011.i242 = phi ptr [ %incdec.ptr.i53, %for.body.i50 ], [ @termios_oflags_NLDLY, %if.then ]
+  %e_string.i = getelementptr i8, ptr %e.addr.011.i242, i64 24
   %15 = load ptr, ptr %e_string.i, align 8
   %cmp.not.i54 = icmp eq ptr %15, null
   br i1 %cmp.not.i54, label %if.then5.i, label %for.body.i50, !llvm.loop !7
 
-for.end.i55:                                      ; preds = %for.body.i50
-  %e_string.le.i = getelementptr i8, ptr %e.addr.011.i234, i64 24
+for.end.i56:                                      ; preds = %for.body.i50
+  %e_string.le.i = getelementptr i8, ptr %e.addr.011.i242, i64 24
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull %15) #9
   %.pr.i = load ptr, ptr %e_string.le.i, align 8
   %cmp4.i = icmp eq ptr %.pr.i, null
   br i1 %cmp4.i, label %if.then5.i, label %print_enums.exit
 
-if.then5.i:                                       ; preds = %for.inc.i52, %for.end.i55
+if.then5.i:                                       ; preds = %for.inc.i52, %for.end.i56
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %and5) #9
   br label %print_enums.exit
 
-print_enums.exit:                                 ; preds = %for.end.i55, %if.then5.i
+print_enums.exit:                                 ; preds = %for.end.i56, %if.then5.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #9
   br label %if.end
 
@@ -1052,185 +1052,185 @@ if.end:                                           ; preds = %print_enums.exit, %
 
 if.then10:                                        ; preds = %if.end
   %conv12 = zext nneg i32 %and8 to i64
-  br label %for.inc.i60
+  br label %for.inc.i61
 
-for.body.i57:                                     ; preds = %for.inc.i60
-  %incdec.ptr.i61 = getelementptr i8, ptr %e.addr.011.i58237, i64 16
-  %16 = load i64, ptr %incdec.ptr.i61, align 8
-  %cmp1.i59 = icmp eq i64 %16, %conv12
-  br i1 %cmp1.i59, label %for.end.i65, label %for.inc.i60, !llvm.loop !7
+for.body.i58:                                     ; preds = %for.inc.i61
+  %incdec.ptr.i62 = getelementptr i8, ptr %e.addr.011.i59245, i64 16
+  %16 = load i64, ptr %incdec.ptr.i62, align 8
+  %cmp1.i60 = icmp eq i64 %16, %conv12
+  br i1 %cmp1.i60, label %for.end.i67, label %for.inc.i61, !llvm.loop !7
 
-for.inc.i60:                                      ; preds = %if.then10, %for.body.i57
-  %e.addr.011.i58237 = phi ptr [ %incdec.ptr.i61, %for.body.i57 ], [ @termios_oflags_CRDLY, %if.then10 ]
-  %e_string.i62 = getelementptr i8, ptr %e.addr.011.i58237, i64 24
-  %17 = load ptr, ptr %e_string.i62, align 8
-  %cmp.not.i63 = icmp eq ptr %17, null
-  br i1 %cmp.not.i63, label %if.then5.i64, label %for.body.i57, !llvm.loop !7
+for.inc.i61:                                      ; preds = %if.then10, %for.body.i58
+  %e.addr.011.i59245 = phi ptr [ %incdec.ptr.i62, %for.body.i58 ], [ @termios_oflags_CRDLY, %if.then10 ]
+  %e_string.i63 = getelementptr i8, ptr %e.addr.011.i59245, i64 24
+  %17 = load ptr, ptr %e_string.i63, align 8
+  %cmp.not.i64 = icmp eq ptr %17, null
+  br i1 %cmp.not.i64, label %if.then5.i65, label %for.body.i58, !llvm.loop !7
 
-for.end.i65:                                      ; preds = %for.body.i57
-  %e_string.le.i66 = getelementptr i8, ptr %e.addr.011.i58237, i64 24
+for.end.i67:                                      ; preds = %for.body.i58
+  %e_string.le.i68 = getelementptr i8, ptr %e.addr.011.i59245, i64 24
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull %17) #9
-  %.pr.i67 = load ptr, ptr %e_string.le.i66, align 8
-  %cmp4.i68 = icmp eq ptr %.pr.i67, null
-  br i1 %cmp4.i68, label %if.then5.i64, label %print_enums.exit69
+  %.pr.i69 = load ptr, ptr %e_string.le.i68, align 8
+  %cmp4.i70 = icmp eq ptr %.pr.i69, null
+  br i1 %cmp4.i70, label %if.then5.i65, label %print_enums.exit71
 
-if.then5.i64:                                     ; preds = %for.inc.i60, %for.end.i65
+if.then5.i65:                                     ; preds = %for.inc.i61, %for.end.i67
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %and8) #9
-  br label %print_enums.exit69
+  br label %print_enums.exit71
 
-print_enums.exit69:                               ; preds = %for.end.i65, %if.then5.i64
+print_enums.exit71:                               ; preds = %for.end.i67, %if.then5.i65
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #9
   br label %if.end13
 
-if.end13:                                         ; preds = %print_enums.exit69, %if.end
+if.end13:                                         ; preds = %print_enums.exit71, %if.end
   %and14 = and i32 %1, 6144
   %tobool15.not = icmp eq i32 %and14, 0
   br i1 %tobool15.not, label %if.end19, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
   %conv18 = zext nneg i32 %and14 to i64
-  br label %for.inc.i74
+  br label %for.inc.i76
 
-for.body.i71:                                     ; preds = %for.inc.i74
-  %incdec.ptr.i75 = getelementptr i8, ptr %e.addr.011.i72241, i64 16
-  %18 = load i64, ptr %incdec.ptr.i75, align 8
-  %cmp1.i73 = icmp eq i64 %18, %conv18
-  br i1 %cmp1.i73, label %for.end.i79, label %for.inc.i74, !llvm.loop !7
+for.body.i73:                                     ; preds = %for.inc.i76
+  %incdec.ptr.i77 = getelementptr i8, ptr %e.addr.011.i74249, i64 16
+  %18 = load i64, ptr %incdec.ptr.i77, align 8
+  %cmp1.i75 = icmp eq i64 %18, %conv18
+  br i1 %cmp1.i75, label %for.end.i82, label %for.inc.i76, !llvm.loop !7
 
-for.inc.i74:                                      ; preds = %if.then16, %for.body.i71
-  %e.addr.011.i72241 = phi ptr [ %incdec.ptr.i75, %for.body.i71 ], [ @termios_oflags_TABDLY, %if.then16 ]
-  %e_string.i76 = getelementptr i8, ptr %e.addr.011.i72241, i64 24
-  %19 = load ptr, ptr %e_string.i76, align 8
-  %cmp.not.i77 = icmp eq ptr %19, null
-  br i1 %cmp.not.i77, label %if.then5.i78, label %for.body.i71, !llvm.loop !7
+for.inc.i76:                                      ; preds = %if.then16, %for.body.i73
+  %e.addr.011.i74249 = phi ptr [ %incdec.ptr.i77, %for.body.i73 ], [ @termios_oflags_TABDLY, %if.then16 ]
+  %e_string.i78 = getelementptr i8, ptr %e.addr.011.i74249, i64 24
+  %19 = load ptr, ptr %e_string.i78, align 8
+  %cmp.not.i79 = icmp eq ptr %19, null
+  br i1 %cmp.not.i79, label %if.then5.i80, label %for.body.i73, !llvm.loop !7
 
-for.end.i79:                                      ; preds = %for.body.i71
-  %e_string.le.i80 = getelementptr i8, ptr %e.addr.011.i72241, i64 24
+for.end.i82:                                      ; preds = %for.body.i73
+  %e_string.le.i83 = getelementptr i8, ptr %e.addr.011.i74249, i64 24
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull %19) #9
-  %.pr.i81 = load ptr, ptr %e_string.le.i80, align 8
-  %cmp4.i82 = icmp eq ptr %.pr.i81, null
-  br i1 %cmp4.i82, label %if.then5.i78, label %print_enums.exit83
+  %.pr.i84 = load ptr, ptr %e_string.le.i83, align 8
+  %cmp4.i85 = icmp eq ptr %.pr.i84, null
+  br i1 %cmp4.i85, label %if.then5.i80, label %print_enums.exit86
 
-if.then5.i78:                                     ; preds = %for.inc.i74, %for.end.i79
+if.then5.i80:                                     ; preds = %for.inc.i76, %for.end.i82
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %and14) #9
-  br label %print_enums.exit83
+  br label %print_enums.exit86
 
-print_enums.exit83:                               ; preds = %for.end.i79, %if.then5.i78
+print_enums.exit86:                               ; preds = %for.end.i82, %if.then5.i80
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #9
   br label %if.end19
 
-if.end19:                                         ; preds = %print_enums.exit83, %if.end13
+if.end19:                                         ; preds = %print_enums.exit86, %if.end13
   %and20 = and i32 %1, 8192
   %tobool21.not = icmp eq i32 %and20, 0
   br i1 %tobool21.not, label %if.end25, label %if.then22
 
 if.then22:                                        ; preds = %if.end19
   %conv24 = zext nneg i32 %and20 to i64
-  br label %for.inc.i88
+  br label %for.inc.i91
 
-for.body.i85:                                     ; preds = %for.inc.i88
-  %incdec.ptr.i89 = getelementptr i8, ptr %e.addr.011.i86245, i64 16
-  %20 = load i64, ptr %incdec.ptr.i89, align 8
-  %cmp1.i87 = icmp eq i64 %20, %conv24
-  br i1 %cmp1.i87, label %for.end.i93, label %for.inc.i88, !llvm.loop !7
+for.body.i88:                                     ; preds = %for.inc.i91
+  %incdec.ptr.i92 = getelementptr i8, ptr %e.addr.011.i89253, i64 16
+  %20 = load i64, ptr %incdec.ptr.i92, align 8
+  %cmp1.i90 = icmp eq i64 %20, %conv24
+  br i1 %cmp1.i90, label %for.end.i97, label %for.inc.i91, !llvm.loop !7
 
-for.inc.i88:                                      ; preds = %if.then22, %for.body.i85
-  %e.addr.011.i86245 = phi ptr [ %incdec.ptr.i89, %for.body.i85 ], [ @termios_oflags_BSDLY, %if.then22 ]
-  %e_string.i90 = getelementptr i8, ptr %e.addr.011.i86245, i64 24
-  %21 = load ptr, ptr %e_string.i90, align 8
-  %cmp.not.i91 = icmp eq ptr %21, null
-  br i1 %cmp.not.i91, label %if.then5.i92, label %for.body.i85, !llvm.loop !7
+for.inc.i91:                                      ; preds = %if.then22, %for.body.i88
+  %e.addr.011.i89253 = phi ptr [ %incdec.ptr.i92, %for.body.i88 ], [ @termios_oflags_BSDLY, %if.then22 ]
+  %e_string.i93 = getelementptr i8, ptr %e.addr.011.i89253, i64 24
+  %21 = load ptr, ptr %e_string.i93, align 8
+  %cmp.not.i94 = icmp eq ptr %21, null
+  br i1 %cmp.not.i94, label %if.then5.i95, label %for.body.i88, !llvm.loop !7
 
-for.end.i93:                                      ; preds = %for.body.i85
-  %e_string.le.i94 = getelementptr i8, ptr %e.addr.011.i86245, i64 24
+for.end.i97:                                      ; preds = %for.body.i88
+  %e_string.le.i98 = getelementptr i8, ptr %e.addr.011.i89253, i64 24
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull %21) #9
-  %.pr.i95 = load ptr, ptr %e_string.le.i94, align 8
-  %cmp4.i96 = icmp eq ptr %.pr.i95, null
-  br i1 %cmp4.i96, label %if.then5.i92, label %print_enums.exit97
+  %.pr.i99 = load ptr, ptr %e_string.le.i98, align 8
+  %cmp4.i100 = icmp eq ptr %.pr.i99, null
+  br i1 %cmp4.i100, label %if.then5.i95, label %print_enums.exit101
 
-if.then5.i92:                                     ; preds = %for.inc.i88, %for.end.i93
+if.then5.i95:                                     ; preds = %for.inc.i91, %for.end.i97
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %and20) #9
-  br label %print_enums.exit97
+  br label %print_enums.exit101
 
-print_enums.exit97:                               ; preds = %for.end.i93, %if.then5.i92
+print_enums.exit101:                              ; preds = %for.end.i97, %if.then5.i95
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #9
   br label %if.end25
 
-if.end25:                                         ; preds = %print_enums.exit97, %if.end19
+if.end25:                                         ; preds = %print_enums.exit101, %if.end19
   %and26 = and i32 %1, 16384
   %tobool27.not = icmp eq i32 %and26, 0
   br i1 %tobool27.not, label %if.end31, label %if.then28
 
 if.then28:                                        ; preds = %if.end25
   %conv30 = zext nneg i32 %and26 to i64
-  br label %for.inc.i102
+  br label %for.inc.i106
 
-for.body.i99:                                     ; preds = %for.inc.i102
-  %incdec.ptr.i103 = getelementptr i8, ptr %e.addr.011.i100249, i64 16
-  %22 = load i64, ptr %incdec.ptr.i103, align 8
-  %cmp1.i101 = icmp eq i64 %22, %conv30
-  br i1 %cmp1.i101, label %for.end.i107, label %for.inc.i102, !llvm.loop !7
+for.body.i103:                                    ; preds = %for.inc.i106
+  %incdec.ptr.i107 = getelementptr i8, ptr %e.addr.011.i104257, i64 16
+  %22 = load i64, ptr %incdec.ptr.i107, align 8
+  %cmp1.i105 = icmp eq i64 %22, %conv30
+  br i1 %cmp1.i105, label %for.end.i112, label %for.inc.i106, !llvm.loop !7
 
-for.inc.i102:                                     ; preds = %if.then28, %for.body.i99
-  %e.addr.011.i100249 = phi ptr [ %incdec.ptr.i103, %for.body.i99 ], [ @termios_oflags_VTDLY, %if.then28 ]
-  %e_string.i104 = getelementptr i8, ptr %e.addr.011.i100249, i64 24
-  %23 = load ptr, ptr %e_string.i104, align 8
-  %cmp.not.i105 = icmp eq ptr %23, null
-  br i1 %cmp.not.i105, label %if.then5.i106, label %for.body.i99, !llvm.loop !7
+for.inc.i106:                                     ; preds = %if.then28, %for.body.i103
+  %e.addr.011.i104257 = phi ptr [ %incdec.ptr.i107, %for.body.i103 ], [ @termios_oflags_VTDLY, %if.then28 ]
+  %e_string.i108 = getelementptr i8, ptr %e.addr.011.i104257, i64 24
+  %23 = load ptr, ptr %e_string.i108, align 8
+  %cmp.not.i109 = icmp eq ptr %23, null
+  br i1 %cmp.not.i109, label %if.then5.i110, label %for.body.i103, !llvm.loop !7
 
-for.end.i107:                                     ; preds = %for.body.i99
-  %e_string.le.i108 = getelementptr i8, ptr %e.addr.011.i100249, i64 24
+for.end.i112:                                     ; preds = %for.body.i103
+  %e_string.le.i113 = getelementptr i8, ptr %e.addr.011.i104257, i64 24
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull %23) #9
-  %.pr.i109 = load ptr, ptr %e_string.le.i108, align 8
-  %cmp4.i110 = icmp eq ptr %.pr.i109, null
-  br i1 %cmp4.i110, label %if.then5.i106, label %print_enums.exit111
+  %.pr.i114 = load ptr, ptr %e_string.le.i113, align 8
+  %cmp4.i115 = icmp eq ptr %.pr.i114, null
+  br i1 %cmp4.i115, label %if.then5.i110, label %print_enums.exit116
 
-if.then5.i106:                                    ; preds = %for.inc.i102, %for.end.i107
+if.then5.i110:                                    ; preds = %for.inc.i106, %for.end.i112
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %and26) #9
-  br label %print_enums.exit111
+  br label %print_enums.exit116
 
-print_enums.exit111:                              ; preds = %for.end.i107, %if.then5.i106
+print_enums.exit116:                              ; preds = %for.end.i112, %if.then5.i110
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #9
   br label %if.end31
 
-if.end31:                                         ; preds = %print_enums.exit111, %if.end25
+if.end31:                                         ; preds = %print_enums.exit116, %if.end25
   %and32 = and i32 %1, 32768
   %tobool33.not = icmp eq i32 %and32, 0
   br i1 %tobool33.not, label %if.end37, label %if.then34
 
 if.then34:                                        ; preds = %if.end31
   %conv36 = zext nneg i32 %and32 to i64
-  br label %for.inc.i116
+  br label %for.inc.i121
 
-for.body.i113:                                    ; preds = %for.inc.i116
-  %incdec.ptr.i117 = getelementptr i8, ptr %e.addr.011.i114253, i64 16
-  %24 = load i64, ptr %incdec.ptr.i117, align 8
-  %cmp1.i115 = icmp eq i64 %24, %conv36
-  br i1 %cmp1.i115, label %for.end.i121, label %for.inc.i116, !llvm.loop !7
+for.body.i118:                                    ; preds = %for.inc.i121
+  %incdec.ptr.i122 = getelementptr i8, ptr %e.addr.011.i119261, i64 16
+  %24 = load i64, ptr %incdec.ptr.i122, align 8
+  %cmp1.i120 = icmp eq i64 %24, %conv36
+  br i1 %cmp1.i120, label %for.end.i127, label %for.inc.i121, !llvm.loop !7
 
-for.inc.i116:                                     ; preds = %if.then34, %for.body.i113
-  %e.addr.011.i114253 = phi ptr [ %incdec.ptr.i117, %for.body.i113 ], [ @termios_oflags_FFDLY, %if.then34 ]
-  %e_string.i118 = getelementptr i8, ptr %e.addr.011.i114253, i64 24
-  %25 = load ptr, ptr %e_string.i118, align 8
-  %cmp.not.i119 = icmp eq ptr %25, null
-  br i1 %cmp.not.i119, label %if.then5.i120, label %for.body.i113, !llvm.loop !7
+for.inc.i121:                                     ; preds = %if.then34, %for.body.i118
+  %e.addr.011.i119261 = phi ptr [ %incdec.ptr.i122, %for.body.i118 ], [ @termios_oflags_FFDLY, %if.then34 ]
+  %e_string.i123 = getelementptr i8, ptr %e.addr.011.i119261, i64 24
+  %25 = load ptr, ptr %e_string.i123, align 8
+  %cmp.not.i124 = icmp eq ptr %25, null
+  br i1 %cmp.not.i124, label %if.then5.i125, label %for.body.i118, !llvm.loop !7
 
-for.end.i121:                                     ; preds = %for.body.i113
-  %e_string.le.i122 = getelementptr i8, ptr %e.addr.011.i114253, i64 24
+for.end.i127:                                     ; preds = %for.body.i118
+  %e_string.le.i128 = getelementptr i8, ptr %e.addr.011.i119261, i64 24
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull %25) #9
-  %.pr.i123 = load ptr, ptr %e_string.le.i122, align 8
-  %cmp4.i124 = icmp eq ptr %.pr.i123, null
-  br i1 %cmp4.i124, label %if.then5.i120, label %print_enums.exit125
+  %.pr.i129 = load ptr, ptr %e_string.le.i128, align 8
+  %cmp4.i130 = icmp eq ptr %.pr.i129, null
+  br i1 %cmp4.i130, label %if.then5.i125, label %print_enums.exit131
 
-if.then5.i120:                                    ; preds = %for.inc.i116, %for.end.i121
+if.then5.i125:                                    ; preds = %for.inc.i121, %for.end.i127
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %and32) #9
-  br label %print_enums.exit125
+  br label %print_enums.exit131
 
-print_enums.exit125:                              ; preds = %for.end.i121, %if.then5.i120
+print_enums.exit131:                              ; preds = %for.end.i127, %if.then5.i125
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #9
   br label %if.end37
 
-if.end37:                                         ; preds = %print_enums.exit125, %if.end31
+if.end37:                                         ; preds = %print_enums.exit131, %if.end31
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3) #9
   %and38 = and i32 %2, 4111
   %tobool39.not = icmp eq i32 %and38, 0
@@ -1238,188 +1238,188 @@ if.end37:                                         ; preds = %print_enums.exit125
 
 if.then40:                                        ; preds = %if.end37
   %conv42 = zext nneg i32 %and38 to i64
-  br label %for.inc.i130
+  br label %for.inc.i136
 
-for.body.i127:                                    ; preds = %for.inc.i130
-  %incdec.ptr.i131 = getelementptr i8, ptr %e.addr.011.i128257, i64 16
-  %26 = load i64, ptr %incdec.ptr.i131, align 8
-  %cmp1.i129 = icmp eq i64 %26, %conv42
-  br i1 %cmp1.i129, label %for.end.i135, label %for.inc.i130, !llvm.loop !7
+for.body.i133:                                    ; preds = %for.inc.i136
+  %incdec.ptr.i137 = getelementptr i8, ptr %e.addr.011.i134265, i64 16
+  %26 = load i64, ptr %incdec.ptr.i137, align 8
+  %cmp1.i135 = icmp eq i64 %26, %conv42
+  br i1 %cmp1.i135, label %for.end.i142, label %for.inc.i136, !llvm.loop !7
 
-for.inc.i130:                                     ; preds = %if.then40, %for.body.i127
-  %e.addr.011.i128257 = phi ptr [ %incdec.ptr.i131, %for.body.i127 ], [ @termios_cflags_CBAUD, %if.then40 ]
-  %e_string.i132 = getelementptr i8, ptr %e.addr.011.i128257, i64 24
-  %27 = load ptr, ptr %e_string.i132, align 8
-  %cmp.not.i133 = icmp eq ptr %27, null
-  br i1 %cmp.not.i133, label %if.then5.i134, label %for.body.i127, !llvm.loop !7
+for.inc.i136:                                     ; preds = %if.then40, %for.body.i133
+  %e.addr.011.i134265 = phi ptr [ %incdec.ptr.i137, %for.body.i133 ], [ @termios_cflags_CBAUD, %if.then40 ]
+  %e_string.i138 = getelementptr i8, ptr %e.addr.011.i134265, i64 24
+  %27 = load ptr, ptr %e_string.i138, align 8
+  %cmp.not.i139 = icmp eq ptr %27, null
+  br i1 %cmp.not.i139, label %if.then5.i140, label %for.body.i133, !llvm.loop !7
 
-for.end.i135:                                     ; preds = %for.body.i127
-  %e_string.le.i136 = getelementptr i8, ptr %e.addr.011.i128257, i64 24
+for.end.i142:                                     ; preds = %for.body.i133
+  %e_string.le.i143 = getelementptr i8, ptr %e.addr.011.i134265, i64 24
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull %27) #9
-  %.pr.i137 = load ptr, ptr %e_string.le.i136, align 8
-  %cmp4.i138 = icmp eq ptr %.pr.i137, null
-  br i1 %cmp4.i138, label %if.then5.i134, label %print_enums.exit139
+  %.pr.i144 = load ptr, ptr %e_string.le.i143, align 8
+  %cmp4.i145 = icmp eq ptr %.pr.i144, null
+  br i1 %cmp4.i145, label %if.then5.i140, label %print_enums.exit146
 
-if.then5.i134:                                    ; preds = %for.inc.i130, %for.end.i135
+if.then5.i140:                                    ; preds = %for.inc.i136, %for.end.i142
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %and38) #9
-  br label %print_enums.exit139
+  br label %print_enums.exit146
 
-print_enums.exit139:                              ; preds = %for.end.i135, %if.then5.i134
+print_enums.exit146:                              ; preds = %for.end.i142, %if.then5.i140
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #9
   br label %if.end43
 
-if.end43:                                         ; preds = %print_enums.exit139, %if.end37
+if.end43:                                         ; preds = %print_enums.exit146, %if.end37
   %and44 = and i32 %2, 48
   %tobool45.not = icmp eq i32 %and44, 0
   br i1 %tobool45.not, label %if.end49, label %if.then46
 
 if.then46:                                        ; preds = %if.end43
   %conv48 = zext nneg i32 %and44 to i64
-  br label %for.inc.i144
+  br label %for.inc.i151
 
-for.body.i141:                                    ; preds = %for.inc.i144
-  %incdec.ptr.i145 = getelementptr i8, ptr %e.addr.011.i142261, i64 16
-  %28 = load i64, ptr %incdec.ptr.i145, align 8
-  %cmp1.i143 = icmp eq i64 %28, %conv48
-  br i1 %cmp1.i143, label %for.end.i149, label %for.inc.i144, !llvm.loop !7
+for.body.i148:                                    ; preds = %for.inc.i151
+  %incdec.ptr.i152 = getelementptr i8, ptr %e.addr.011.i149269, i64 16
+  %28 = load i64, ptr %incdec.ptr.i152, align 8
+  %cmp1.i150 = icmp eq i64 %28, %conv48
+  br i1 %cmp1.i150, label %for.end.i157, label %for.inc.i151, !llvm.loop !7
 
-for.inc.i144:                                     ; preds = %if.then46, %for.body.i141
-  %e.addr.011.i142261 = phi ptr [ %incdec.ptr.i145, %for.body.i141 ], [ @termios_cflags_CSIZE, %if.then46 ]
-  %e_string.i146 = getelementptr i8, ptr %e.addr.011.i142261, i64 24
-  %29 = load ptr, ptr %e_string.i146, align 8
-  %cmp.not.i147 = icmp eq ptr %29, null
-  br i1 %cmp.not.i147, label %if.then5.i148, label %for.body.i141, !llvm.loop !7
+for.inc.i151:                                     ; preds = %if.then46, %for.body.i148
+  %e.addr.011.i149269 = phi ptr [ %incdec.ptr.i152, %for.body.i148 ], [ @termios_cflags_CSIZE, %if.then46 ]
+  %e_string.i153 = getelementptr i8, ptr %e.addr.011.i149269, i64 24
+  %29 = load ptr, ptr %e_string.i153, align 8
+  %cmp.not.i154 = icmp eq ptr %29, null
+  br i1 %cmp.not.i154, label %if.then5.i155, label %for.body.i148, !llvm.loop !7
 
-for.end.i149:                                     ; preds = %for.body.i141
-  %e_string.le.i150 = getelementptr i8, ptr %e.addr.011.i142261, i64 24
+for.end.i157:                                     ; preds = %for.body.i148
+  %e_string.le.i158 = getelementptr i8, ptr %e.addr.011.i149269, i64 24
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull %29) #9
-  %.pr.i151 = load ptr, ptr %e_string.le.i150, align 8
-  %cmp4.i152 = icmp eq ptr %.pr.i151, null
-  br i1 %cmp4.i152, label %if.then5.i148, label %print_enums.exit153
+  %.pr.i159 = load ptr, ptr %e_string.le.i158, align 8
+  %cmp4.i160 = icmp eq ptr %.pr.i159, null
+  br i1 %cmp4.i160, label %if.then5.i155, label %print_enums.exit161
 
-if.then5.i148:                                    ; preds = %for.inc.i144, %for.end.i149
+if.then5.i155:                                    ; preds = %for.inc.i151, %for.end.i157
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %and44) #9
-  br label %print_enums.exit153
+  br label %print_enums.exit161
 
-print_enums.exit153:                              ; preds = %for.end.i149, %if.then5.i148
+print_enums.exit161:                              ; preds = %for.end.i157, %if.then5.i155
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #9
   br label %if.end49
 
-if.end49:                                         ; preds = %print_enums.exit153, %if.end43
+if.end49:                                         ; preds = %print_enums.exit161, %if.end43
   %and50 = and i32 %2, -4160
   %conv51 = zext i32 %and50 to i64
-  br label %for.body.i154
+  br label %for.body.i162
 
-for.body.i154:                                    ; preds = %for.inc.i162, %if.end49
-  %30 = phi ptr [ %33, %for.inc.i162 ], [ @.str.89, %if.end49 ]
-  %n.023.i155 = phi i32 [ %n.1.i165, %for.inc.i162 ], [ 0, %if.end49 ]
-  %sep.022.i156 = phi ptr [ %sep.1.i164, %for.inc.i162 ], [ @.str.18, %if.end49 ]
-  %f.addr.021.i157 = phi ptr [ %incdec.ptr.i166, %for.inc.i162 ], [ @termios_cflags, %if.end49 ]
-  %flags.addr.020.i158 = phi i64 [ %flags.addr.1.i163, %for.inc.i162 ], [ %conv51, %if.end49 ]
-  %f_mask.i159 = getelementptr inbounds i8, ptr %f.addr.021.i157, i64 8
-  %31 = load i64, ptr %f_mask.i159, align 8
-  %and.i160 = and i64 %31, %flags.addr.020.i158
-  %32 = load i64, ptr %f.addr.021.i157, align 8
-  %cmp1.i161 = icmp eq i64 %and.i160, %32
-  br i1 %cmp1.i161, label %if.then.i177, label %for.inc.i162
+for.body.i162:                                    ; preds = %for.inc.i170, %if.end49
+  %30 = phi ptr [ %33, %for.inc.i170 ], [ @.str.89, %if.end49 ]
+  %n.023.i163 = phi i32 [ %n.1.i173, %for.inc.i170 ], [ 0, %if.end49 ]
+  %sep.022.i164 = phi ptr [ %sep.1.i172, %for.inc.i170 ], [ @.str.18, %if.end49 ]
+  %f.addr.021.i165 = phi ptr [ %incdec.ptr.i174, %for.inc.i170 ], [ @termios_cflags, %if.end49 ]
+  %flags.addr.020.i166 = phi i64 [ %flags.addr.1.i171, %for.inc.i170 ], [ %conv51, %if.end49 ]
+  %f_mask.i167 = getelementptr inbounds i8, ptr %f.addr.021.i165, i64 8
+  %31 = load i64, ptr %f_mask.i167, align 8
+  %and.i168 = and i64 %31, %flags.addr.020.i166
+  %32 = load i64, ptr %f.addr.021.i165, align 8
+  %cmp1.i169 = icmp eq i64 %and.i168, %32
+  br i1 %cmp1.i169, label %if.then.i185, label %for.inc.i170
 
-if.then.i177:                                     ; preds = %for.body.i154
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef %sep.022.i156, ptr noundef nonnull %30) #9
-  %not.i178 = xor i64 %31, -1
-  %and4.i179 = and i64 %flags.addr.020.i158, %not.i178
-  %inc.i180 = add i32 %n.023.i155, 1
-  br label %for.inc.i162
+if.then.i185:                                     ; preds = %for.body.i162
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef %sep.022.i164, ptr noundef nonnull %30) #9
+  %not.i186 = xor i64 %31, -1
+  %and4.i187 = and i64 %flags.addr.020.i166, %not.i186
+  %inc.i188 = add i32 %n.023.i163, 1
+  br label %for.inc.i170
 
-for.inc.i162:                                     ; preds = %if.then.i177, %for.body.i154
-  %flags.addr.1.i163 = phi i64 [ %and4.i179, %if.then.i177 ], [ %flags.addr.020.i158, %for.body.i154 ]
-  %sep.1.i164 = phi ptr [ @.str.20, %if.then.i177 ], [ %sep.022.i156, %for.body.i154 ]
-  %n.1.i165 = phi i32 [ %inc.i180, %if.then.i177 ], [ %n.023.i155, %for.body.i154 ]
-  %incdec.ptr.i166 = getelementptr i8, ptr %f.addr.021.i157, i64 24
-  %f_string.i167 = getelementptr i8, ptr %f.addr.021.i157, i64 40
-  %33 = load ptr, ptr %f_string.i167, align 8
-  %cmp.not.i168 = icmp eq ptr %33, null
-  br i1 %cmp.not.i168, label %for.end.i169, label %for.body.i154, !llvm.loop !5
+for.inc.i170:                                     ; preds = %if.then.i185, %for.body.i162
+  %flags.addr.1.i171 = phi i64 [ %and4.i187, %if.then.i185 ], [ %flags.addr.020.i166, %for.body.i162 ]
+  %sep.1.i172 = phi ptr [ @.str.20, %if.then.i185 ], [ %sep.022.i164, %for.body.i162 ]
+  %n.1.i173 = phi i32 [ %inc.i188, %if.then.i185 ], [ %n.023.i163, %for.body.i162 ]
+  %incdec.ptr.i174 = getelementptr i8, ptr %f.addr.021.i165, i64 24
+  %f_string.i175 = getelementptr i8, ptr %f.addr.021.i165, i64 40
+  %33 = load ptr, ptr %f_string.i175, align 8
+  %cmp.not.i176 = icmp eq ptr %33, null
+  br i1 %cmp.not.i176, label %for.end.i177, label %for.body.i162, !llvm.loop !5
 
-for.end.i169:                                     ; preds = %for.inc.i162
-  %34 = icmp sgt i32 %n.1.i165, 0
-  br i1 %34, label %if.then6.i172, label %if.else11.i170
+for.end.i177:                                     ; preds = %for.inc.i170
+  %34 = icmp sgt i32 %n.1.i173, 0
+  br i1 %34, label %if.then6.i180, label %if.else11.i178
 
-if.then6.i172:                                    ; preds = %for.end.i169
-  %cmp7.not.i173 = icmp eq i64 %flags.addr.1.i163, 0
-  br i1 %cmp7.not.i173, label %if.else.i176, label %if.then8.i174
+if.then6.i180:                                    ; preds = %for.end.i177
+  %cmp7.not.i181 = icmp eq i64 %flags.addr.1.i171, 0
+  br i1 %cmp7.not.i181, label %if.else.i184, label %if.then8.i182
 
-if.then8.i174:                                    ; preds = %if.then6.i172
-  %conv.i175 = trunc i64 %flags.addr.1.i163 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, ptr noundef %sep.1.i164, i32 noundef %conv.i175, ptr noundef nonnull @.str.24) #9
-  br label %print_flags.exit181
+if.then8.i182:                                    ; preds = %if.then6.i180
+  %conv.i183 = trunc nuw i64 %flags.addr.1.i171 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, ptr noundef %sep.1.i172, i32 noundef %conv.i183, ptr noundef nonnull @.str.24) #9
+  br label %print_flags.exit189
 
-if.else.i176:                                     ; preds = %if.then6.i172
+if.else.i184:                                     ; preds = %if.then6.i180
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #9
-  br label %print_flags.exit181
+  br label %print_flags.exit189
 
-if.else11.i170:                                   ; preds = %for.end.i169
-  %conv12.i171 = trunc i64 %flags.addr.1.i163 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %conv12.i171, ptr noundef nonnull @.str.24) #9
-  br label %print_flags.exit181
+if.else11.i178:                                   ; preds = %for.end.i177
+  %conv12.i179 = trunc nuw i64 %flags.addr.1.i171 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %conv12.i179, ptr noundef nonnull @.str.24) #9
+  br label %print_flags.exit189
 
-print_flags.exit181:                              ; preds = %if.then8.i174, %if.else.i176, %if.else11.i170
+print_flags.exit189:                              ; preds = %if.then8.i182, %if.else.i184, %if.else11.i178
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4) #9
   %conv52 = zext i32 %3 to i64
-  br label %for.body.i182
+  br label %for.body.i190
 
-for.body.i182:                                    ; preds = %for.inc.i190, %print_flags.exit181
-  %35 = phi ptr [ %38, %for.inc.i190 ], [ @.str.96, %print_flags.exit181 ]
-  %n.023.i183 = phi i32 [ %n.1.i193, %for.inc.i190 ], [ 0, %print_flags.exit181 ]
-  %sep.022.i184 = phi ptr [ %sep.1.i192, %for.inc.i190 ], [ @.str.18, %print_flags.exit181 ]
-  %f.addr.021.i185 = phi ptr [ %incdec.ptr.i194, %for.inc.i190 ], [ @termios_lflags, %print_flags.exit181 ]
-  %flags.addr.020.i186 = phi i64 [ %flags.addr.1.i191, %for.inc.i190 ], [ %conv52, %print_flags.exit181 ]
-  %f_mask.i187 = getelementptr inbounds i8, ptr %f.addr.021.i185, i64 8
-  %36 = load i64, ptr %f_mask.i187, align 8
-  %and.i188 = and i64 %36, %flags.addr.020.i186
-  %37 = load i64, ptr %f.addr.021.i185, align 8
-  %cmp1.i189 = icmp eq i64 %and.i188, %37
-  br i1 %cmp1.i189, label %if.then.i205, label %for.inc.i190
+for.body.i190:                                    ; preds = %for.inc.i198, %print_flags.exit189
+  %35 = phi ptr [ %38, %for.inc.i198 ], [ @.str.96, %print_flags.exit189 ]
+  %n.023.i191 = phi i32 [ %n.1.i201, %for.inc.i198 ], [ 0, %print_flags.exit189 ]
+  %sep.022.i192 = phi ptr [ %sep.1.i200, %for.inc.i198 ], [ @.str.18, %print_flags.exit189 ]
+  %f.addr.021.i193 = phi ptr [ %incdec.ptr.i202, %for.inc.i198 ], [ @termios_lflags, %print_flags.exit189 ]
+  %flags.addr.020.i194 = phi i64 [ %flags.addr.1.i199, %for.inc.i198 ], [ %conv52, %print_flags.exit189 ]
+  %f_mask.i195 = getelementptr inbounds i8, ptr %f.addr.021.i193, i64 8
+  %36 = load i64, ptr %f_mask.i195, align 8
+  %and.i196 = and i64 %36, %flags.addr.020.i194
+  %37 = load i64, ptr %f.addr.021.i193, align 8
+  %cmp1.i197 = icmp eq i64 %and.i196, %37
+  br i1 %cmp1.i197, label %if.then.i213, label %for.inc.i198
 
-if.then.i205:                                     ; preds = %for.body.i182
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef %sep.022.i184, ptr noundef nonnull %35) #9
-  %not.i206 = xor i64 %36, -1
-  %and4.i207 = and i64 %flags.addr.020.i186, %not.i206
-  %inc.i208 = add i32 %n.023.i183, 1
-  br label %for.inc.i190
+if.then.i213:                                     ; preds = %for.body.i190
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef %sep.022.i192, ptr noundef nonnull %35) #9
+  %not.i214 = xor i64 %36, -1
+  %and4.i215 = and i64 %flags.addr.020.i194, %not.i214
+  %inc.i216 = add i32 %n.023.i191, 1
+  br label %for.inc.i198
 
-for.inc.i190:                                     ; preds = %if.then.i205, %for.body.i182
-  %flags.addr.1.i191 = phi i64 [ %and4.i207, %if.then.i205 ], [ %flags.addr.020.i186, %for.body.i182 ]
-  %sep.1.i192 = phi ptr [ @.str.20, %if.then.i205 ], [ %sep.022.i184, %for.body.i182 ]
-  %n.1.i193 = phi i32 [ %inc.i208, %if.then.i205 ], [ %n.023.i183, %for.body.i182 ]
-  %incdec.ptr.i194 = getelementptr i8, ptr %f.addr.021.i185, i64 24
-  %f_string.i195 = getelementptr i8, ptr %f.addr.021.i185, i64 40
-  %38 = load ptr, ptr %f_string.i195, align 8
-  %cmp.not.i196 = icmp eq ptr %38, null
-  br i1 %cmp.not.i196, label %for.end.i197, label %for.body.i182, !llvm.loop !5
+for.inc.i198:                                     ; preds = %if.then.i213, %for.body.i190
+  %flags.addr.1.i199 = phi i64 [ %and4.i215, %if.then.i213 ], [ %flags.addr.020.i194, %for.body.i190 ]
+  %sep.1.i200 = phi ptr [ @.str.20, %if.then.i213 ], [ %sep.022.i192, %for.body.i190 ]
+  %n.1.i201 = phi i32 [ %inc.i216, %if.then.i213 ], [ %n.023.i191, %for.body.i190 ]
+  %incdec.ptr.i202 = getelementptr i8, ptr %f.addr.021.i193, i64 24
+  %f_string.i203 = getelementptr i8, ptr %f.addr.021.i193, i64 40
+  %38 = load ptr, ptr %f_string.i203, align 8
+  %cmp.not.i204 = icmp eq ptr %38, null
+  br i1 %cmp.not.i204, label %for.end.i205, label %for.body.i190, !llvm.loop !5
 
-for.end.i197:                                     ; preds = %for.inc.i190
-  %39 = icmp sgt i32 %n.1.i193, 0
-  br i1 %39, label %if.then6.i200, label %if.else11.i198
+for.end.i205:                                     ; preds = %for.inc.i198
+  %39 = icmp sgt i32 %n.1.i201, 0
+  br i1 %39, label %if.then6.i208, label %if.else11.i206
 
-if.then6.i200:                                    ; preds = %for.end.i197
-  %cmp7.not.i201 = icmp eq i64 %flags.addr.1.i191, 0
-  br i1 %cmp7.not.i201, label %if.else.i204, label %if.then8.i202
+if.then6.i208:                                    ; preds = %for.end.i205
+  %cmp7.not.i209 = icmp eq i64 %flags.addr.1.i199, 0
+  br i1 %cmp7.not.i209, label %if.else.i212, label %if.then8.i210
 
-if.then8.i202:                                    ; preds = %if.then6.i200
-  %conv.i203 = trunc i64 %flags.addr.1.i191 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, ptr noundef %sep.1.i192, i32 noundef %conv.i203, ptr noundef nonnull @.str.24) #9
-  br label %print_flags.exit209
+if.then8.i210:                                    ; preds = %if.then6.i208
+  %conv.i211 = trunc nuw i64 %flags.addr.1.i199 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, ptr noundef %sep.1.i200, i32 noundef %conv.i211, ptr noundef nonnull @.str.24) #9
+  br label %print_flags.exit217
 
-if.else.i204:                                     ; preds = %if.then6.i200
+if.else.i212:                                     ; preds = %if.then6.i208
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #9
-  br label %print_flags.exit209
+  br label %print_flags.exit217
 
-if.else11.i198:                                   ; preds = %for.end.i197
-  %conv12.i199 = trunc i64 %flags.addr.1.i191 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %conv12.i199, ptr noundef nonnull @.str.24) #9
-  br label %print_flags.exit209
+if.else11.i206:                                   ; preds = %for.end.i205
+  %conv12.i207 = trunc nuw i64 %flags.addr.1.i199 to i32
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %conv12.i207, ptr noundef nonnull @.str.24) #9
+  br label %print_flags.exit217
 
-print_flags.exit209:                              ; preds = %if.then8.i202, %if.else.i204, %if.else11.i198
+print_flags.exit217:                              ; preds = %if.then8.i210, %if.else.i212, %if.else11.i206
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5) #9
   %c_cc = getelementptr inbounds i8, ptr %arg, i64 17
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, ptr noundef nonnull %c_cc) #9
@@ -1748,7 +1748,7 @@ sw.epilog.i:                                      ; preds = %sw.bb7.i, %sw.bb6.i
   br label %print_si_code.exit
 
 print_si_code.exit:                               ; preds = %sw.default.i, %sw.epilog.i
-  %trunc = trunc i32 %shr.i to i16
+  %trunc = trunc nuw i32 %shr.i to i16
   switch i16 %trunc, label %do.body [
     i16 0, label %sw.bb
     i16 1, label %sw.bb5
@@ -2647,7 +2647,7 @@ if.then6.i.i:                                     ; preds = %for.end.i.i
   br i1 %cmp7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then6.i.i
-  %conv.i.i = trunc i64 %flags.addr.1.i.i to i32
+  %conv.i.i = trunc nuw i64 %flags.addr.1.i.i to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, ptr noundef %sep.1.i.i, i32 noundef %conv.i.i, ptr noundef nonnull @.str.24) #9
   br label %do_print_clone.exit
 
@@ -2656,7 +2656,7 @@ if.else.i.i:                                      ; preds = %if.then6.i.i
   br label %do_print_clone.exit
 
 if.else11.i.i:                                    ; preds = %for.end.i.i
-  %conv12.i.i = trunc i64 %flags.addr.1.i.i to i32
+  %conv12.i.i = trunc nuw i64 %flags.addr.1.i.i to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %conv12.i.i, ptr noundef nonnull @.str.24) #9
   br label %do_print_clone.exit
 
@@ -6230,7 +6230,7 @@ if.then:                                          ; preds = %print_signal.exit
   store i32 %info.val.i, ptr %uinfo, align 8
   %si_code11.i = getelementptr inbounds i8, ptr %uinfo, i64 8
   %_sifields.i = getelementptr inbounds i8, ptr %uinfo, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %_sifields.i, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(112) %_sifields.i, i8 0, i64 112, i1 false)
   switch i32 %si_code6.val.i, label %sw.default.i [
     i32 0, label %do.body12.i
     i32 -6, label %do.body12.i
@@ -6342,7 +6342,7 @@ if.then:                                          ; preds = %print_signal.exit
   store i32 %info.val.i, ptr %uinfo, align 8
   %si_code11.i = getelementptr inbounds i8, ptr %uinfo, i64 8
   %_sifields.i = getelementptr inbounds i8, ptr %uinfo, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %_sifields.i, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(112) %_sifields.i, i8 0, i64 112, i1 false)
   switch i32 %si_code6.val.i, label %sw.default.i [
     i32 0, label %do.body12.i
     i32 -6, label %do.body12.i
@@ -6679,7 +6679,7 @@ print_socket_domain.exit:                         ; preds = %sw.bb.i, %sw.bb1.i,
   br i1 %1, label %switch.hole_check, label %sw.epilog.i
 
 switch.hole_check:                                ; preds = %print_socket_domain.exit
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 543, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.epilog.i
@@ -7539,7 +7539,7 @@ if.then:                                          ; preds = %print_signal.exit
   store i32 %info.val.i, ptr %uinfo, align 8
   %si_code11.i = getelementptr inbounds i8, ptr %uinfo, i64 8
   %_sifields.i = getelementptr inbounds i8, ptr %uinfo, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %_sifields.i, i8 0, i64 112, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(112) %_sifields.i, i8 0, i64 112, i1 false)
   switch i32 %si_code6.val.i, label %sw.default.i [
     i32 0, label %do.body12.i
     i32 -6, label %do.body12.i
@@ -7886,7 +7886,7 @@ if.then6.i:                                       ; preds = %for.end.i
   br i1 %cmp7.not.i, label %if.else.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then6.i
-  %conv.i = trunc i64 %flags.addr.1.i to i32
+  %conv.i = trunc nuw nsw i64 %flags.addr.1.i to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, ptr noundef %sep.1.i, i32 noundef %conv.i, ptr noundef nonnull @.str.18) #9
   br label %print_flags.exit
 
@@ -7895,7 +7895,7 @@ if.else.i:                                        ; preds = %if.then6.i
   br label %print_flags.exit
 
 if.else11.i:                                      ; preds = %for.end.i
-  %conv12.i = trunc i64 %flags.addr.1.i to i32
+  %conv12.i = trunc nuw nsw i64 %flags.addr.1.i to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %conv12.i, ptr noundef nonnull @.str.18) #9
   br label %print_flags.exit
 

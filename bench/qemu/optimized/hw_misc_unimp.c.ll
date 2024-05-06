@@ -89,8 +89,8 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %sub = add i64 %0, -1
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %sub, i1 false), !range !5
-  %cast.i = trunc i64 %2 to i32
+  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub, i1 false)
+  %cast.i = trunc nuw nsw i64 %2 to i32
   %sub7 = sub nuw nsw i32 67, %cast.i
   %div12 = lshr i32 %sub7, 2
   %offset_fmt_width = getelementptr inbounds i8, ptr %call.i, i64 1088
@@ -177,4 +177,3 @@ attributes #3 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}

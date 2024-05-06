@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [23 x i8] c"%s: pthread_join(): %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @init() local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %1 = alloca %union.pthread_attr_t, align 8
   tail call void (ptr, ...) @sched_verbose(ptr noundef nonnull @.str) #5
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @thread_flag_mutex) #5

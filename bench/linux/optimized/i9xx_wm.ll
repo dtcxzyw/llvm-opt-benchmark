@@ -1161,7 +1161,7 @@ declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_u
 declare dso_local void @intel_print_wm_latency(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ilk_compute_pipe_wm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ilk_compute_pipe_wm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.ilk_wm_maximums, align 8
   %4 = alloca %struct.ilk_wm_maximums, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1386,7 +1386,7 @@ ilk_validate_pipe_wm.exit:                        ; preds = %119, %121
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ilk_compute_intermediate_wm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ilk_compute_intermediate_wm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.ilk_wm_maximums, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3118,7 +3118,7 @@ define internal fastcc void @ilk_wm_merge(ptr noundef readonly %0, i32 %.0.val, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vlv_compute_pipe_wm(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 144
@@ -4942,7 +4942,7 @@ define internal void @vlv_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef i32 @_vlv_compute_pipe_wm(ptr nocapture noundef %0) unnamed_addr #10 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @_vlv_compute_pipe_wm(ptr nocapture noundef %0) unnamed_addr #10 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1556
@@ -5748,7 +5748,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @g4x_compute_pipe_wm(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 144
@@ -7257,7 +7257,7 @@ define internal void @g4x_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef i32 @_g4x_compute_pipe_wm(ptr nocapture noundef %0) unnamed_addr #11 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @_g4x_compute_pipe_wm(ptr nocapture noundef %0) unnamed_addr #11 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1556
   %4 = getelementptr inbounds i8, ptr %0, i64 1644

@@ -12,7 +12,7 @@ define i32 @cs_dropzeros(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @cs_fkeep(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @cs_nonzero(i32 %0, i32 %1, double noundef %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 0, 2) i32 @cs_nonzero(i32 %0, i32 %1, double noundef %2, ptr nocapture readnone %3) #2 {
   %5 = fcmp une double %2, 0.000000e+00
   %6 = zext i1 %5 to i32
   ret i32 %6

@@ -21,7 +21,7 @@ define dso_local void @acpi_tb_print_table_header(i64 noundef %0, ptr noundef %1
 
 6:                                                ; preds = %2
   %7 = lshr i64 %0, 32
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw i64 %7 to i32
   %9 = trunc i64 %0 to i32
   %10 = getelementptr inbounds i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 1
@@ -67,7 +67,7 @@ define dso_local void @acpi_tb_print_table_header(i64 noundef %0, ptr noundef %1
 
 34:                                               ; preds = %30, %18
   %35 = lshr i64 %0, 32
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw i64 %35 to i32
   %37 = trunc i64 %0 to i32
   %38 = getelementptr inbounds i8, ptr %1, i64 15
   %39 = load i8, ptr %38, align 1
@@ -203,7 +203,7 @@ define dso_local void @acpi_tb_print_table_header(i64 noundef %0, ptr noundef %1
 
 118:                                              ; preds = %114, %102
   %119 = lshr i64 %0, 32
-  %120 = trunc i64 %119 to i32
+  %120 = trunc nuw i64 %119 to i32
   %121 = trunc i64 %0 to i32
   %122 = getelementptr inbounds i8, ptr %3, i64 4
   %123 = load i32, ptr %122, align 1

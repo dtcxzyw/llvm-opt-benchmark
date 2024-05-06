@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [19 x i8] c"missing get params\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_err_load_OSSL_ENCODER_strings() local_unnamed_addr #0 {
+define noundef i32 @ossl_err_load_OSSL_ENCODER_strings() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ERR_reason_error_string(i64 noundef 494927973) #2
   %cmp = icmp eq ptr %call, null

@@ -8345,7 +8345,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %21
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648) #5
   %28 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5) #5
   %29 = and i16 %28, 32767
-  %30 = uitofp i16 %29 to double
+  %30 = uitofp nneg i16 %29 to double
   %31 = fmul double %30, 1.250000e+00
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.1441, double noundef %31) #5
   ret void

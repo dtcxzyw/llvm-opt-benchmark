@@ -261,7 +261,7 @@ define noundef ptr @Llb_NonlinCreateCube2(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Llb_NonlinHasSingletonVars(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Llb_NonlinHasSingletonVars(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -437,7 +437,7 @@ define void @Llb_NonlinPrint(ptr nocapture noundef readonly %0) local_unnamed_ad
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Llb_NonlinQuantify1(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Llb_NonlinQuantify1(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i32, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %28, label %5
@@ -788,10 +788,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv106 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next107, %184 ]
   %185 = getelementptr inbounds ptr, ptr %.pre110, i64 %indvars.iv106
   %186 = load ptr, ptr %185, align 8
-  %187 = call i32 @Llb_NonlinQuantify1(ptr noundef %0, ptr noundef %186, i32 noundef 0), !range !16
+  %187 = call i32 @Llb_NonlinQuantify1(ptr noundef %0, ptr noundef %186, i32 noundef 0)
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2.thread, label %184, !llvm.loop !17
+  br i1 %exitcond.not, label %.critedge2.thread, label %184, !llvm.loop !16
 
 .critedge2:                                       ; preds = %.preheader
   %.not.i = icmp eq ptr %.pre110, null
@@ -836,7 +836,7 @@ define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr nou
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !17
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
@@ -917,7 +917,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Llb_NonlinQuantify2(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Llb_NonlinQuantify2(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @Llb_NonlinCreateCube2(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   tail call void @Cudd_Ref(ptr noundef %4) #19
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1080,7 +1080,7 @@ Vec_IntRemove.exit:                               ; preds = %66, %._crit_edge.i,
   %.val145 = load i32, ptr %88, align 4
   %89 = sext i32 %.val145 to i64
   %90 = icmp slt i64 %indvars.iv.next, %89
-  br i1 %90, label %46, label %.critedge.preheader, !llvm.loop !19
+  br i1 %90, label %46, label %.critedge.preheader, !llvm.loop !18
 
 91:                                               ; preds = %.lr.ph200, %Vec_IntRemove.exit178
   %indvars.iv218 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next219, %Vec_IntRemove.exit178 ]
@@ -1172,7 +1172,7 @@ Vec_IntRemove.exit178:                            ; preds = %111, %._crit_edge.i
   %.val144 = load i32, ptr %133, align 4
   %134 = sext i32 %.val144 to i64
   %135 = icmp slt i64 %indvars.iv.next219, %134
-  br i1 %135, label %91, label %.critedge2, !llvm.loop !20
+  br i1 %135, label %91, label %.critedge2, !llvm.loop !19
 
 .critedge2:                                       ; preds = %Vec_IntRemove.exit178, %.critedge.preheader
   %136 = load ptr, ptr %5, align 8
@@ -1361,7 +1361,7 @@ Vec_IntPush.exit185:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %231 = sext i32 %230 to i64
   %232 = icmp slt i64 %indvars.iv.next222, %231
-  br i1 %232, label %145, label %._crit_edge, !llvm.loop !21
+  br i1 %232, label %145, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %229, %.critedge2
   %.0.lcssa = phi i32 [ 0, %.critedge2 ], [ %150, %229 ]
@@ -1451,7 +1451,7 @@ Llb_NonlinRemoveVar.exit:                         ; preds = %257, %264
   %.val143 = load i32, ptr %273, align 4
   %274 = sext i32 %.val143 to i64
   %275 = icmp slt i64 %indvars.iv.next225, %274
-  br i1 %275, label %246, label %.critedge4.preheader, !llvm.loop !22
+  br i1 %275, label %246, label %.critedge4.preheader, !llvm.loop !21
 
 276:                                              ; preds = %.lr.ph210, %.critedge4
   %indvars.iv227 = phi i64 [ 0, %.lr.ph210 ], [ %indvars.iv.next228, %.critedge4 ]
@@ -1515,7 +1515,7 @@ Llb_NonlinRemoveVar.exit187:                      ; preds = %289, %296
   %.val140 = load i32, ptr %304, align 4
   %305 = sext i32 %.val140 to i64
   %306 = icmp slt i64 %indvars.iv.next228, %305
-  br i1 %306, label %276, label %.critedge6, !llvm.loop !23
+  br i1 %306, label %276, label %.critedge6, !llvm.loop !22
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4.preheader
   %307 = load ptr, ptr %18, align 8
@@ -1573,10 +1573,10 @@ Llb_NonlinRemovePart.exit190:                     ; preds = %Llb_NonlinRemovePar
   %indvars.iv230 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next231, %328 ]
   %329 = getelementptr inbounds ptr, ptr %.pre233, i64 %indvars.iv230
   %330 = load ptr, ptr %329, align 8
-  %331 = tail call i32 @Llb_NonlinQuantify1(ptr noundef %0, ptr noundef %330, i32 noundef 0), !range !16
+  %331 = tail call i32 @Llb_NonlinQuantify1(ptr noundef %0, ptr noundef %330, i32 noundef 0)
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge8.thread, label %328, !llvm.loop !24
+  br i1 %exitcond.not, label %.critedge8.thread, label %328, !llvm.loop !23
 
 .critedge8:                                       ; preds = %Llb_NonlinRemovePart.exit190
   %.not.i = icmp eq ptr %.pre233, null
@@ -1754,7 +1754,7 @@ define noundef ptr @Llb_NonlinCutNodes(ptr noundef %0, ptr nocapture noundef rea
   %.val18 = load i32, ptr %4, align 4
   %12 = sext i32 %.val18 to i64
   %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %8, label %.critedge, !llvm.loop !25
+  br i1 %13, label %8, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %8, %3
   %14 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
@@ -1783,7 +1783,7 @@ define noundef ptr @Llb_NonlinCutNodes(ptr noundef %0, ptr nocapture noundef rea
   %.val = load i32, ptr %18, align 4
   %24 = sext i32 %.val to i64
   %25 = icmp slt i64 %indvars.iv.next29, %24
-  br i1 %25, label %21, label %.critedge2, !llvm.loop !26
+  br i1 %25, label %21, label %.critedge2, !llvm.loop !25
 
 .critedge2:                                       ; preds = %21, %.critedge
   ret ptr %14
@@ -1821,7 +1821,7 @@ define noalias noundef ptr @Llb_NonlinBuildBdds(ptr noundef %0, ptr nocapture no
   %.val82 = load i32, ptr %8, align 4
   %17 = sext i32 %.val82 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %11, label %.critedge, !llvm.loop !27
+  br i1 %18, label %11, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %11, %4
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #19
@@ -1846,7 +1846,7 @@ define noalias noundef ptr @Llb_NonlinBuildBdds(ptr noundef %0, ptr nocapture no
   %.val18.i = load i32, ptr %8, align 4
   %26 = sext i32 %.val18.i to i64
   %27 = icmp slt i64 %indvars.iv.next.i, %26
-  br i1 %27, label %22, label %.critedge.i, !llvm.loop !25
+  br i1 %27, label %22, label %.critedge.i, !llvm.loop !24
 
 .critedge.i:                                      ; preds = %22, %.critedge
   %28 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
@@ -1875,7 +1875,7 @@ define noalias noundef ptr @Llb_NonlinBuildBdds(ptr noundef %0, ptr nocapture no
   %.val.i = load i32, ptr %32, align 4
   %38 = sext i32 %.val.i to i64
   %39 = icmp slt i64 %indvars.iv.next29.i, %38
-  br i1 %39, label %35, label %Llb_NonlinCutNodes.exit, !llvm.loop !26
+  br i1 %39, label %35, label %Llb_NonlinCutNodes.exit, !llvm.loop !25
 
 Llb_NonlinCutNodes.exit:                          ; preds = %35
   %.val81104.pre = load i32, ptr %29, align 4
@@ -1942,7 +1942,7 @@ Llb_NonlinCutNodes.exit:                          ; preds = %35
 72:                                               ; preds = %.lr.ph114, %71
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge4, label %.lr.ph114, !llvm.loop !28
+  br i1 %exitcond.not, label %.critedge4, label %.lr.ph114, !llvm.loop !27
 
 .critedge4:                                       ; preds = %72, %.preheader
   %73 = load ptr, ptr %31, align 8
@@ -1956,7 +1956,7 @@ Llb_NonlinCutNodes.exit:                          ; preds = %35
   %75 = sext i32 %.val81 to i64
   %76 = icmp slt i64 %indvars.iv.next119, %75
   %indvars.iv.next131 = add nuw nsw i32 %indvars.iv130, 1
-  br i1 %76, label %.lr.ph106, label %.critedge2.loopexit, !llvm.loop !29
+  br i1 %76, label %.lr.ph106, label %.critedge2.loopexit, !llvm.loop !28
 
 .critedge2.loopexit:                              ; preds = %74
   %.val80107.pre = load i32, ptr %32, align 4
@@ -2096,7 +2096,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val80 = load i32, ptr %32, align 4
   %139 = sext i32 %.val80 to i64
   %140 = icmp slt i64 %indvars.iv.next122, %139
-  br i1 %140, label %84, label %.critedge6.preheader.loopexit, !llvm.loop !30
+  br i1 %140, label %84, label %.critedge6.preheader.loopexit, !llvm.loop !29
 
 .critedge6:                                       ; preds = %.critedge6.preheader, %.critedge6
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %.critedge6 ], [ 0, %.critedge6.preheader ]
@@ -2110,7 +2110,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val = load i32, ptr %29, align 4
   %145 = sext i32 %.val to i64
   %146 = icmp slt i64 %indvars.iv.next125, %145
-  br i1 %146, label %.critedge6, label %.critedge8, !llvm.loop !31
+  br i1 %146, label %.critedge6, label %.critedge8, !llvm.loop !30
 
 .critedge8:                                       ; preds = %.critedge6, %.critedge6.preheader
   %147 = load ptr, ptr %31, align 8
@@ -2388,7 +2388,7 @@ define void @Llb_NonlinAddPartition(ptr nocapture noundef %0, i32 noundef %1, pt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %33, label %._crit_edge, !llvm.loop !32
+  br i1 %48, label %33, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %45, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %38, %45 ]
@@ -2400,7 +2400,7 @@ define void @Llb_NonlinAddPartition(ptr nocapture noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Llb_NonlinStart(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Llb_NonlinStart(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -2432,7 +2432,7 @@ define noundef i32 @Llb_NonlinStart(ptr nocapture noundef %0) local_unnamed_addr
   tail call void @Llb_NonlinAddPartition(ptr noundef nonnull %0, i32 noundef %17, ptr noundef %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread, label %14, !llvm.loop !33
+  br i1 %exitcond.not, label %.critedge.thread, label %14, !llvm.loop !32
 
 .critedge:                                        ; preds = %.preheader
   %.not.i = icmp eq ptr %.val16, null
@@ -2458,7 +2458,7 @@ define void @Llb_NonlinCheckVars(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Llb_NonlinNextPartitions(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Llb_NonlinNextPartitions(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -2497,7 +2497,7 @@ define noundef i32 @Llb_NonlinNextPartitions(ptr nocapture noundef readonly %0, 
   %.142 = phi ptr [ %.04148, %8 ], [ %10, %20 ], [ %.04148, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !34
+  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !33
 
 .critedge:                                        ; preds = %21
   %22 = icmp eq ptr %.142, null
@@ -2558,7 +2558,7 @@ define noundef i32 @Llb_NonlinNextPartitions(ptr nocapture noundef readonly %0, 
   %.137 = phi ptr [ %.03651, %29 ], [ %34, %36 ], [ %.036., %._crit_edge ], [ %.03651, %38 ]
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %.critedge2, label %29, !llvm.loop !35
+  br i1 %exitcond61.not, label %.critedge2, label %29, !llvm.loop !34
 
 .critedge2:                                       ; preds = %46, %.preheader
   %.038.lcssa = phi ptr [ null, %.preheader ], [ %.139, %46 ]
@@ -2741,7 +2741,7 @@ define void @Llb_NonlinRecomputeScores(ptr nocapture noundef readonly %0) local_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %11, label %.critedge.preheader, !llvm.loop !36
+  br i1 %24, label %11, label %.critedge.preheader, !llvm.loop !35
 
 25:                                               ; preds = %.lr.ph38, %.critedge4
   %indvars.iv43 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next44, %.critedge4 ]
@@ -2783,14 +2783,14 @@ define void @Llb_NonlinRecomputeScores(ptr nocapture noundef readonly %0) local_
   %.val = load i32, ptr %33, align 4
   %45 = sext i32 %.val to i64
   %46 = icmp slt i64 %indvars.iv.next41, %45
-  br i1 %46, label %.lr.ph36, label %.critedge4, !llvm.loop !37
+  br i1 %46, label %.lr.ph36, label %.critedge4, !llvm.loop !36
 
 .critedge4:                                       ; preds = %.lr.ph36, %29, %25
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %47 = load i32, ptr %6, align 4
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next44, %48
-  br i1 %49, label %25, label %.critedge2, !llvm.loop !38
+  br i1 %49, label %25, label %.critedge2, !llvm.loop !37
 
 .critedge2:                                       ; preds = %.critedge4, %.critedge.preheader
   ret void
@@ -2903,7 +2903,7 @@ Llb_NonlinRemoveVar.exit:                         ; preds = %16, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %11, label %.critedge.preheader, !llvm.loop !39
+  br i1 %28, label %11, label %.critedge.preheader, !llvm.loop !38
 
 29:                                               ; preds = %.lr.ph41, %.critedge
   %30 = phi i32 [ %7, %.lr.ph41 ], [ %46, %.critedge ]
@@ -2945,7 +2945,7 @@ Llb_NonlinRemovePart.exit:                        ; preds = %34, %42
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next44, %47
-  br i1 %48, label %29, label %.critedge2, !llvm.loop !40
+  br i1 %48, label %29, label %.critedge2, !llvm.loop !39
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %49 = getelementptr inbounds i8, ptr %0, i64 48
@@ -3085,7 +3085,7 @@ Abc_Clock.exit77:                                 ; preds = %Abc_Clock.exit, %26
   call void @Llb_NonlinAddPartition(ptr noundef nonnull %33, i32 noundef %63, ptr noundef %62)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.thread.i.loopexit, label %60, !llvm.loop !33
+  br i1 %exitcond.not.i, label %.critedge.thread.i.loopexit, label %60, !llvm.loop !32
 
 .critedge.i:                                      ; preds = %.preheader.i
   %.not.i.i = icmp eq ptr %.val16.i, null
@@ -3161,13 +3161,13 @@ Abc_Clock.exit77:                                 ; preds = %Abc_Clock.exit, %26
   br i1 %90, label %Llb_NonlinHasSingletonVars.exit, label %80
 
 Llb_NonlinHasSingletonVars.exit:                  ; preds = %81
-  %91 = call i32 @Llb_NonlinQuantify1(ptr noundef nonnull %33, ptr noundef nonnull %72, i32 noundef 0), !range !16
+  %91 = call i32 @Llb_NonlinQuantify1(ptr noundef nonnull %33, ptr noundef nonnull %72, i32 noundef 0)
   br label %Llb_NonlinHasSingletonVars.exit.thread
 
 Llb_NonlinHasSingletonVars.exit.thread:           ; preds = %80, %74, %70, %Llb_NonlinHasSingletonVars.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %70, !llvm.loop !41
+  br i1 %exitcond.not, label %.critedge, label %70, !llvm.loop !40
 
 .critedge:                                        ; preds = %Llb_NonlinHasSingletonVars.exit.thread, %65
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
@@ -3244,7 +3244,7 @@ Abc_Clock.exit89:                                 ; preds = %Abc_Clock.exit87, %
 126:                                              ; preds = %121, %.lr.ph.i91
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i92, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next.i93, %114
-  br i1 %exitcond168.not, label %.critedge.preheader.i, label %.lr.ph.i91, !llvm.loop !36
+  br i1 %exitcond168.not, label %.critedge.preheader.i, label %.lr.ph.i91, !llvm.loop !35
 
 .lr.ph38.i:                                       ; preds = %.lr.ph38.i.preheader, %.critedge4.i
   %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %.critedge4.i ], [ 0, %.lr.ph38.i.preheader ]
@@ -3285,12 +3285,12 @@ Abc_Clock.exit89:                                 ; preds = %Abc_Clock.exit87, %
   %.val.i90 = load i32, ptr %134, align 4
   %146 = sext i32 %.val.i90 to i64
   %147 = icmp slt i64 %indvars.iv.next41.i, %146
-  br i1 %147, label %.lr.ph36.i, label %.critedge4.i, !llvm.loop !37
+  br i1 %147, label %.lr.ph36.i, label %.critedge4.i, !llvm.loop !36
 
 .critedge4.i:                                     ; preds = %.lr.ph36.i, %130, %.lr.ph38.i
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next44.i, %117
-  br i1 %exitcond169.not, label %Llb_NonlinRecomputeScores.exit, label %.lr.ph38.i, !llvm.loop !38
+  br i1 %exitcond169.not, label %Llb_NonlinRecomputeScores.exit, label %.lr.ph38.i, !llvm.loop !37
 
 Llb_NonlinRecomputeScores.exit:                   ; preds = %.critedge4.i, %.critedge.preheader.i
   %.not69 = icmp eq ptr %8, null
@@ -3349,7 +3349,7 @@ Llb_NonlinRecomputeScores.exit:                   ; preds = %.critedge4.i, %.cri
   %.142.i = phi ptr [ %.04148.i, %160 ], [ %162, %172 ], [ %.04148.i, %166 ]
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
   %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i96
-  br i1 %exitcond.not.i99, label %.critedge.i100, label %160, !llvm.loop !34
+  br i1 %exitcond.not.i99, label %.critedge.i100, label %160, !llvm.loop !33
 
 .critedge.i100:                                   ; preds = %173
   %174 = icmp eq ptr %.142.i, null
@@ -3409,7 +3409,7 @@ Llb_NonlinRecomputeScores.exit:                   ; preds = %.critedge4.i, %.cri
   %.137.i = phi ptr [ %.03651.i, %180 ], [ %185, %187 ], [ %.036..i, %._crit_edge.i ], [ %.03651.i, %189 ]
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count60.i
-  br i1 %exitcond61.not.i, label %Llb_NonlinNextPartitions.exit, label %180, !llvm.loop !35
+  br i1 %exitcond61.not.i, label %Llb_NonlinNextPartitions.exit, label %180, !llvm.loop !34
 
 Llb_NonlinNextPartitions.exit:                    ; preds = %197, %.preheader.i101
   %.1137 = phi ptr [ null, %.preheader.i101 ], [ %.139.i, %197 ]
@@ -3431,7 +3431,7 @@ Abc_Clock.exit105:                                ; preds = %Llb_NonlinNextParti
   %.0.i104.neg162 = phi i64 [ %.neg161, %200 ], [ 1, %Llb_NonlinNextPartitions.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   %203 = call i32 @Cudd_ReadReorderings(ptr noundef %4) #19
-  %204 = call i32 @Llb_NonlinQuantify2(ptr noundef nonnull %33, ptr noundef %.1137, ptr noundef %.1135), !range !16
+  %204 = call i32 @Llb_NonlinQuantify2(ptr noundef nonnull %33, ptr noundef %.1137, ptr noundef %.1135)
   %.not72 = icmp eq i32 %204, 0
   br i1 %.not72, label %205, label %206
 
@@ -3526,7 +3526,7 @@ Abc_Clock.exit109.Llb_NonlinRecomputeScores.exit130_crit_edge: ; preds = %Abc_Cl
 246:                                              ; preds = %241, %.lr.ph.i125
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i126, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next.i129, %234
-  br i1 %exitcond170.not, label %.critedge.preheader.i110, label %.lr.ph.i125, !llvm.loop !36
+  br i1 %exitcond170.not, label %.critedge.preheader.i110, label %.lr.ph.i125, !llvm.loop !35
 
 .lr.ph38.i112:                                    ; preds = %.lr.ph38.i112.preheader, %.critedge4.i116
   %indvars.iv43.i113 = phi i64 [ %indvars.iv.next44.i117, %.critedge4.i116 ], [ 0, %.lr.ph38.i112.preheader ]
@@ -3567,17 +3567,17 @@ Abc_Clock.exit109.Llb_NonlinRecomputeScores.exit130_crit_edge: ; preds = %Abc_Cl
   %.val.i124 = load i32, ptr %254, align 4
   %266 = sext i32 %.val.i124 to i64
   %267 = icmp slt i64 %indvars.iv.next41.i123, %266
-  br i1 %267, label %.lr.ph36.i119, label %.critedge4.i116, !llvm.loop !37
+  br i1 %267, label %.lr.ph36.i119, label %.critedge4.i116, !llvm.loop !36
 
 .critedge4.i116:                                  ; preds = %.lr.ph36.i119, %250, %.lr.ph38.i112
   %indvars.iv.next44.i117 = add nuw nsw i64 %indvars.iv43.i113, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next44.i117, %237
-  br i1 %exitcond171.not, label %Llb_NonlinRecomputeScores.exit130, label %.lr.ph38.i112, !llvm.loop !38
+  br i1 %exitcond171.not, label %Llb_NonlinRecomputeScores.exit130, label %.lr.ph38.i112, !llvm.loop !37
 
 Llb_NonlinRecomputeScores.exit130:                ; preds = %.critedge4.i116, %Abc_Clock.exit109.Llb_NonlinRecomputeScores.exit130_crit_edge
   %268 = phi i32 [ %.pre175, %Abc_Clock.exit109.Llb_NonlinRecomputeScores.exit130_crit_edge ], [ %235, %.critedge4.i116 ]
   %269 = icmp sgt i32 %268, 0
-  br i1 %269, label %.lr.ph.i95, label %.critedge.i100._crit_edge, !llvm.loop !42
+  br i1 %269, label %.lr.ph.i95, label %.critedge.i100._crit_edge, !llvm.loop !41
 
 .critedge.i100._crit_edge:                        ; preds = %.critedge.preheader.i110, %Llb_NonlinRecomputeScores.exit130, %.critedge.i100, %155
   %.062.in.lcssa = phi i64 [ %113, %155 ], [ %228, %.critedge.preheader.i110 ], [ %.062.in151, %.critedge.i100 ], [ %228, %Llb_NonlinRecomputeScores.exit130 ]
@@ -3615,7 +3615,7 @@ Llb_NonlinRecomputeScores.exit130:                ; preds = %.critedge4.i116, %A
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %286 = sext i32 %285 to i64
   %287 = icmp slt i64 %indvars.iv.next173, %286
-  br i1 %287, label %.lr.ph157, label %.critedge2, !llvm.loop !43
+  br i1 %287, label %.lr.ph157, label %.critedge2, !llvm.loop !42
 
 .critedge2:                                       ; preds = %284, %.critedge.i100._crit_edge
   %.064.lcssa = phi ptr [ %271, %.critedge.i100._crit_edge ], [ %.165, %284 ]
@@ -3756,7 +3756,7 @@ Abc_Clock.exit:                                   ; preds = %7, %12
   call void @Llb_NonlinAddPartition(ptr noundef nonnull %21, i32 noundef %51, ptr noundef %50)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.thread.i, label %48, !llvm.loop !33
+  br i1 %exitcond.not.i, label %.critedge.thread.i, label %48, !llvm.loop !32
 
 .critedge.i:                                      ; preds = %.preheader.i
   %.not.i.i = icmp eq ptr %.val16.i, null
@@ -3891,7 +3891,7 @@ Abc_Clock.exit:                                   ; preds = %5, %14
   br i1 %48, label %Llb_NonlinHasSingletonVars.exit, label %38
 
 Llb_NonlinHasSingletonVars.exit:                  ; preds = %39
-  %49 = call i32 @Llb_NonlinQuantify1(ptr noundef %26, ptr noundef nonnull %29, i32 noundef 0), !range !16
+  %49 = call i32 @Llb_NonlinQuantify1(ptr noundef %26, ptr noundef nonnull %29, i32 noundef 0)
   %.pre = load ptr, ptr @p, align 8
   br label %Llb_NonlinHasSingletonVars.exit.thread
 
@@ -3902,7 +3902,7 @@ Llb_NonlinHasSingletonVars.exit.thread:           ; preds = %38, %31, %.lr.ph, %
   %52 = load i32, ptr %51, align 8
   %53 = sext i32 %52 to i64
   %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph, label %.critedge, !llvm.loop !44
+  br i1 %54, label %.lr.ph, label %.critedge, !llvm.loop !43
 
 .critedge:                                        ; preds = %Llb_NonlinHasSingletonVars.exit.thread, %Abc_Clock.exit
   %.lcssa100 = phi ptr [ %22, %Abc_Clock.exit ], [ %50, %Llb_NonlinHasSingletonVars.exit.thread ]
@@ -3973,7 +3973,7 @@ Llb_NonlinReorder.exit:                           ; preds = %.critedge
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next.i44, %90
-  br i1 %91, label %78, label %.critedge.preheader.i, !llvm.loop !36
+  br i1 %91, label %78, label %.critedge.preheader.i, !llvm.loop !35
 
 92:                                               ; preds = %.critedge4.i, %.lr.ph38.i
   %indvars.iv43.i = phi i64 [ 0, %.lr.ph38.i ], [ %indvars.iv.next44.i, %.critedge4.i ]
@@ -4015,14 +4015,14 @@ Llb_NonlinReorder.exit:                           ; preds = %.critedge
   %.val.i41 = load i32, ptr %100, align 4
   %112 = sext i32 %.val.i41 to i64
   %113 = icmp slt i64 %indvars.iv.next41.i, %112
-  br i1 %113, label %.lr.ph36.i, label %.critedge4.i, !llvm.loop !37
+  br i1 %113, label %.lr.ph36.i, label %.critedge4.i, !llvm.loop !36
 
 .critedge4.i:                                     ; preds = %.lr.ph36.i, %96, %92
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %114 = load i32, ptr %73, align 4
   %115 = sext i32 %114 to i64
   %116 = icmp slt i64 %indvars.iv.next44.i, %115
-  br i1 %116, label %92, label %Llb_NonlinRecomputeScores.exit, !llvm.loop !38
+  br i1 %116, label %92, label %Llb_NonlinRecomputeScores.exit, !llvm.loop !37
 
 Llb_NonlinRecomputeScores.exit:                   ; preds = %.critedge4.i, %.critedge.preheader.i
   %117 = load ptr, ptr @p, align 8
@@ -4073,7 +4073,7 @@ Llb_NonlinRecomputeScores.exit:                   ; preds = %.critedge4.i, %.cri
   %.142.i = phi ptr [ %.04148.i, %127 ], [ %129, %139 ], [ %.04148.i, %133 ]
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i46
-  br i1 %exitcond.not.i49, label %.critedge.i, label %127, !llvm.loop !34
+  br i1 %exitcond.not.i49, label %.critedge.i, label %127, !llvm.loop !33
 
 .critedge.i:                                      ; preds = %140
   %141 = icmp eq ptr %.142.i, null
@@ -4134,7 +4134,7 @@ Llb_NonlinRecomputeScores.exit:                   ; preds = %.critedge4.i, %.cri
   %.137.i = phi ptr [ %.03651.i, %148 ], [ %153, %155 ], [ %.036..i, %._crit_edge.i ], [ %.03651.i, %157 ]
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count60.i
-  br i1 %exitcond61.not.i, label %Llb_NonlinNextPartitions.exit, label %148, !llvm.loop !35
+  br i1 %exitcond61.not.i, label %Llb_NonlinNextPartitions.exit, label %148, !llvm.loop !34
 
 Llb_NonlinNextPartitions.exit:                    ; preds = %165, %.preheader.i
   %.185 = phi ptr [ null, %.preheader.i ], [ %.139.i, %165 ]
@@ -4160,7 +4160,7 @@ Abc_Clock.exit53:                                 ; preds = %Llb_NonlinNextParti
   %176 = load ptr, ptr %175, align 8
   %177 = call i32 @Cudd_ReadReorderings(ptr noundef %176) #19
   %178 = load ptr, ptr @p, align 8
-  %179 = call i32 @Llb_NonlinQuantify2(ptr noundef %178, ptr noundef %.185, ptr noundef %.183), !range !16
+  %179 = call i32 @Llb_NonlinQuantify2(ptr noundef %178, ptr noundef %.185, ptr noundef %.183)
   %.not38 = icmp eq i32 %179, 0
   br i1 %.not38, label %180, label %182
 
@@ -4261,7 +4261,7 @@ Abc_Clock.exit57:                                 ; preds = %Abc_Clock.exit55, %
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i74, 1
   %233 = sext i32 %232 to i64
   %234 = icmp slt i64 %indvars.iv.next.i77, %233
-  br i1 %234, label %221, label %.critedge.preheader.i58, !llvm.loop !36
+  br i1 %234, label %221, label %.critedge.preheader.i58, !llvm.loop !35
 
 235:                                              ; preds = %.critedge4.i64, %.lr.ph38.i60
   %indvars.iv43.i61 = phi i64 [ 0, %.lr.ph38.i60 ], [ %indvars.iv.next44.i65, %.critedge4.i64 ]
@@ -4303,21 +4303,21 @@ Abc_Clock.exit57:                                 ; preds = %Abc_Clock.exit55, %
   %.val.i72 = load i32, ptr %243, align 4
   %255 = sext i32 %.val.i72 to i64
   %256 = icmp slt i64 %indvars.iv.next41.i71, %255
-  br i1 %256, label %.lr.ph36.i67, label %.critedge4.i64, !llvm.loop !37
+  br i1 %256, label %.lr.ph36.i67, label %.critedge4.i64, !llvm.loop !36
 
 .critedge4.i64:                                   ; preds = %.lr.ph36.i67, %239, %235
   %indvars.iv.next44.i65 = add nuw nsw i64 %indvars.iv43.i61, 1
   %257 = load i32, ptr %216, align 4
   %258 = sext i32 %257 to i64
   %259 = icmp slt i64 %indvars.iv.next44.i65, %258
-  br i1 %259, label %235, label %Llb_NonlinRecomputeScores.exit78, !llvm.loop !38
+  br i1 %259, label %235, label %Llb_NonlinRecomputeScores.exit78, !llvm.loop !37
 
 Llb_NonlinRecomputeScores.exit78:                 ; preds = %.critedge4.i64, %.critedge.preheader.i58, %Abc_Clock.exit57
   %260 = load ptr, ptr @p, align 8
   %261 = getelementptr inbounds i8, ptr %260, i64 60
   %262 = load i32, ptr %261, align 4
   %263 = icmp sgt i32 %262, 0
-  br i1 %263, label %.lr.ph.i45, label %.critedge.i._crit_edge.loopexit, !llvm.loop !45
+  br i1 %263, label %.lr.ph.i45, label %.critedge.i._crit_edge.loopexit, !llvm.loop !44
 
 .critedge.i._crit_edge.loopexit:                  ; preds = %.critedge.i, %Llb_NonlinRecomputeScores.exit78
   %.030.lcssa.ph = phi i32 [ %204, %Llb_NonlinRecomputeScores.exit78 ], [ %.030102, %.critedge.i ]
@@ -4384,7 +4384,7 @@ Llb_NonlinRecomputeScores.exit78:                 ; preds = %.critedge4.i64, %.c
   %296 = load i32, ptr %295, align 8
   %297 = sext i32 %296 to i64
   %298 = icmp slt i64 %indvars.iv.next122, %297
-  br i1 %298, label %.lr.ph110, label %.critedge2, !llvm.loop !46
+  br i1 %298, label %.lr.ph110, label %.critedge2, !llvm.loop !45
 
 .critedge2:                                       ; preds = %293, %.critedge.i._crit_edge
   %.031.lcssa = phi ptr [ %267, %.critedge.i._crit_edge ], [ %.1, %293 ]
@@ -4531,7 +4531,7 @@ attributes #23 = { nounwind willreturn memory(read) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i32 0, i32 2}
+!16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
@@ -4561,4 +4561,3 @@ attributes #23 = { nounwind willreturn memory(read) }
 !43 = distinct !{!43, !5}
 !44 = distinct !{!44, !5}
 !45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}

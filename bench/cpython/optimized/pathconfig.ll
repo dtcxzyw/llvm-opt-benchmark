@@ -635,7 +635,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_PyPathConfig_ComputeSysPath0(ptr nocapture noundef readonly %argv, ptr nocapture noundef writeonly %path0_p) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @_PyPathConfig_ComputeSysPath0(ptr nocapture noundef readonly %argv, ptr nocapture noundef writeonly %path0_p) local_unnamed_addr #1 {
 entry:
   %fullpath = alloca [4096 x i32], align 16
   %link = alloca [4097 x i32], align 16

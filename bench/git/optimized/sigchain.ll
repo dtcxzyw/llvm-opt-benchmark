@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sigchain_push(i32 noundef %sig, ptr noundef %f) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sigchain_push(i32 noundef %sig, ptr noundef %f) local_unnamed_addr #0 {
 entry:
   %idx.ext = sext i32 %sig to i64
   %add.ptr = getelementptr inbounds %struct.sigchain_signal, ptr @signals, i64 %idx.ext
@@ -80,7 +80,7 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @sigchain_pop(i32 noundef %sig) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sigchain_pop(i32 noundef %sig) local_unnamed_addr #0 {
 entry:
   %idx.ext = sext i32 %sig to i64
   %add.ptr = getelementptr inbounds %struct.sigchain_signal, ptr @signals, i64 %idx.ext

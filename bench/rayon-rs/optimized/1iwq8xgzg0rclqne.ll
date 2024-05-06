@@ -178,7 +178,7 @@ define internal fastcc void @"_ZN4core3ptr61drop_in_place$LT$std..sync..mutex..M
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 4
-  %3 = trunc i8 %.8.val to i1
+  %3 = trunc nuw i8 %.8.val to i1
   br i1 %3, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i, label %4
 
 4:                                                ; preds = %0
@@ -938,7 +938,7 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h48fd43abfedc4925E(pt
 
 139:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit"
   %140 = load i8, ptr %96, align 8, !range !54, !noundef !8
-  %141 = trunc i8 %140 to i1
+  %141 = trunc nuw i8 %140 to i1
   br i1 %141, label %144, label %142
 
 142:                                              ; preds = %139, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit"
@@ -1107,7 +1107,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit.i: ; pre
           to label %.critedge unwind label %199
 
 188:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.exit.i"
-  %189 = trunc i8 %.0.i.i.i.i to i1
+  %189 = trunc nuw i8 %.0.i.i.i.i to i1
   br i1 %189, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i, label %190
 
 190:                                              ; preds = %188

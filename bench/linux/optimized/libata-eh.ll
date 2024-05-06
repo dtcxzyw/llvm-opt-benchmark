@@ -9047,7 +9047,7 @@ ata_dev_disable.exit:                             ; preds = %1210, %1217, %1194
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ata_eh_schedule_probe(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ata_eh_schedule_probe(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = tail call ptr @ata_dev_phys_link(ptr noundef %0) #18
   %4 = getelementptr inbounds i8, ptr %2, i64 928

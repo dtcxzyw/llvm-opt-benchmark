@@ -125,7 +125,7 @@ define void @PQfreeCancel(ptr nocapture noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PQcancel(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PQcancel(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.anon, align 4
   %6 = alloca [32 x i8], align 16
@@ -258,7 +258,7 @@ define noundef i32 @PQcancel(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %.042 = phi i32 [ %75, %74 ], [ %82, %77 ]
   %.0 = phi ptr [ %76, %74 ], [ %81, %77 ]
   %78 = srem i32 %.042, 10
-  %79 = trunc i32 %78 to i8
+  %79 = trunc nsw i32 %78 to i8
   %80 = add nsw i8 %79, 48
   %81 = getelementptr i8, ptr %.0, i64 -1
   store i8 %80, ptr %81, align 1
@@ -316,7 +316,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 declare ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PQrequestCancel(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PQrequestCancel(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %28, label %2
 
@@ -349,7 +349,7 @@ define noundef i32 @PQrequestCancel(ptr noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %12
   %20 = trunc i64 %17 to i32
-  %21 = tail call i32 @PQcancel(ptr noundef nonnull %13, ptr noundef %15, i32 noundef %20), !range !6
+  %21 = tail call i32 @PQcancel(ptr noundef nonnull %13, ptr noundef %15, i32 noundef %20)
   tail call void @free(ptr noundef nonnull %13) #15
   %.not24 = icmp eq i32 %21, 0
   br i1 %.not24, label %22, label %28
@@ -412,4 +412,3 @@ attributes #17 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i32 0, i32 2}

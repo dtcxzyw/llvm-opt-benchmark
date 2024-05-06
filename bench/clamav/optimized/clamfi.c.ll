@@ -1425,7 +1425,7 @@ declare ptr @__errno_location() local_unnamed_addr #7
 declare ptr @cli_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @clamfi_connect(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @clamfi_connect(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %4
 
@@ -1462,7 +1462,7 @@ declare i32 @islocalnet_sock(ptr noundef) local_unnamed_addr #1
 declare i32 @islocalnet_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @init_actions(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @init_actions(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.34) #17
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8
@@ -1551,7 +1551,7 @@ define dso_local noundef i32 @init_actions(ptr noundef %0) local_unnamed_addr #0
 43:                                               ; preds = %39
   %44 = getelementptr inbounds i8, ptr %40, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call fastcc i32 @parse_action(ptr noundef %45), !range !5
+  %46 = tail call fastcc i32 @parse_action(ptr noundef %45)
   %47 = icmp ult i32 %46, 3
   br i1 %47, label %switch.lookup, label %48
 
@@ -1578,7 +1578,7 @@ switch.lookup:                                    ; preds = %43
 56:                                               ; preds = %52
   %57 = getelementptr inbounds i8, ptr %53, i64 16
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call fastcc i32 @parse_action(ptr noundef %58), !range !5
+  %59 = tail call fastcc i32 @parse_action(ptr noundef %58)
   %60 = icmp ult i32 %59, 5
   br i1 %60, label %switch.lookup73, label %61
 
@@ -1605,7 +1605,7 @@ switch.lookup73:                                  ; preds = %56
 69:                                               ; preds = %65
   %70 = getelementptr inbounds i8, ptr %66, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call fastcc i32 @parse_action(ptr noundef %71), !range !5
+  %72 = tail call fastcc i32 @parse_action(ptr noundef %71)
   switch i32 %72, label %122 [
     i32 0, label %73
     i32 1, label %74
@@ -1748,7 +1748,7 @@ switch.lookup73:                                  ; preds = %56
 declare ptr @optget(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_action(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 5) i32 @parse_action(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.69) #18
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %13, label %3
@@ -1803,7 +1803,7 @@ define internal noundef i32 @action_blackhole(ptr nocapture readnone %0) #11 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @action_quarantine(ptr noundef %0) #0 {
+define internal range(i32 3, 5) i32 @action_quarantine(ptr noundef %0) #0 {
   %2 = tail call i32 @smfi_quarantine(ptr noundef %0, ptr noundef nonnull @.str.75) #17
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -1849,7 +1849,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 declare ptr @__ctype_b_loc() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @clamfi_envfrom(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @clamfi_envfrom(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @smfi_getsymval(ptr noundef %0, ptr noundef nonnull @.str.52) #17
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
@@ -1932,7 +1932,7 @@ declare i32 @allowed(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @smfi_setpriv(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @clamfi_envrcpt(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @clamfi_envrcpt(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @smfi_getpriv(ptr noundef %0) #17
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %32, label %4
@@ -2049,4 +2049,3 @@ attributes #22 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 5}

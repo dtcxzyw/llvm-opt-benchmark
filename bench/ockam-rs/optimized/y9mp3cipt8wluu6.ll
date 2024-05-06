@@ -1234,7 +1234,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 16, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1278,7 +1278,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 8, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1322,7 +1322,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 11, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1366,7 +1366,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 5, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1410,7 +1410,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 7, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1454,7 +1454,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 18, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1498,7 +1498,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 10, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1542,7 +1542,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 6, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1586,7 +1586,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 9, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1630,7 +1630,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 17, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1674,7 +1674,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 4, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1718,7 +1718,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 3, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1762,7 +1762,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 2, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1806,7 +1806,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 14, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1850,7 +1850,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 1, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1894,7 +1894,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 13, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1938,7 +1938,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 12, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -1982,7 +1982,7 @@ define hidden void @_ZN22aws_smithy_runtime_api6client12interceptors5error16Inte
   %11 = extractvalue { ptr, i64 } %8, 1
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 15, ptr %13, align 8
   store ptr %10, ptr %0, align 8
@@ -2239,7 +2239,7 @@ default.unreachable108:                           ; preds = %38, %19
 "_ZN22aws_smithy_runtime_api6client6result21SdkError$LT$E$C$R$GT$14response_error17h6bb087981eea268eE.exit": ; preds = %76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %78, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false)
   %87 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %87, ptr noundef nonnull align 8 dereferenceable(208) %13, i64 208, i1 false), !alias.scope !112, !noalias !113
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(208) %87, ptr noundef nonnull align 8 dereferenceable(208) %13, i64 208, i1 false), !alias.scope !112, !noalias !113
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %78, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !98, !noalias !114
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 224
@@ -2308,7 +2308,7 @@ default.unreachable108:                           ; preds = %38, %19
 104:                                              ; preds = %92
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %94, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false)
   %105 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %105, ptr noundef nonnull align 8 dereferenceable(208) %10, i64 208, i1 false), !alias.scope !129, !noalias !130
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(208) %105, ptr noundef nonnull align 8 dereferenceable(208) %10, i64 208, i1 false), !alias.scope !129, !noalias !130
   %.sroa.4.0..sroa_idx.i56 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %94, ptr %.sroa.4.0..sroa_idx.i56, align 8, !alias.scope !115, !noalias !131
   %.sroa.5.0..sroa_idx.i57 = getelementptr inbounds i8, ptr %0, i64 224
@@ -2398,7 +2398,7 @@ default.unreachable108:                           ; preds = %38, %19
 126:                                              ; preds = %122
   %127 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17h43491b2a7994e310E"(ptr nonnull %40, ptr nonnull %42) #29
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17h43491b2a7994e310E"(ptr nonnull %40, ptr nonnull readonly %42) #29
           to label %.body.i65 unwind label %128, !noalias !152
 
 128:                                              ; preds = %126
@@ -2423,7 +2423,7 @@ default.unreachable108:                           ; preds = %38, %19
 
 135:                                              ; preds = %130
   %136 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %136, ptr noundef nonnull align 8 dereferenceable(112) %40, i64 112, i1 false), !noalias !156
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(112) %136, ptr noundef nonnull align 8 dereferenceable(112) %40, i64 112, i1 false), !noalias !156
   store i64 5, ptr %0, align 8, !alias.scope !141, !noalias !156
   tail call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef 112, i64 noundef 8) #27, !noalias !157
   %137 = load i64, ptr %7, align 8, !range !94, !alias.scope !158, !noalias !155, !noundef !5
@@ -2437,12 +2437,12 @@ default.unreachable108:                           ; preds = %38, %19
 140:                                              ; preds = %132
   call void @_ZN22aws_smithy_runtime_api6client6result14ConnectorError5other17h05a2e96ab405fbd1E(ptr noalias nocapture noundef nonnull sret({ { i16, [43 x i16] }, { ptr, ptr }, i8, [7 x i8] }) align 8 dereferenceable(112) %5, ptr noundef nonnull align 1 %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %42, i8 noundef 4), !noalias !161
   %141 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %141, ptr noundef nonnull align 8 dereferenceable(112) %5, i64 112, i1 false), !noalias !156
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(112) %141, ptr noundef nonnull align 8 dereferenceable(112) %5, i64 112, i1 false), !noalias !156
   br label %.sink.split
 
 142:                                              ; preds = %132
   %143 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %143, ptr noundef nonnull align 8 dereferenceable(208) %7, i64 208, i1 false), !alias.scope !161, !noalias !144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(208) %143, ptr noundef nonnull align 8 dereferenceable(208) %7, i64 208, i1 false), !alias.scope !161, !noalias !144
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %40, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !162, !noalias !165
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 224
@@ -5169,7 +5169,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
   %6 = extractvalue { ptr, i64 } %4, 1
   %7 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store ptr %5, ptr %0, align 8, !alias.scope !627, !noalias !635
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %6, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !627, !noalias !635
@@ -6369,7 +6369,7 @@ define hidden void @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv.
   br i1 %.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0708adb77b0fe600E.exit.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0708adb77b0fe600E.exit.thread.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0708adb77b0fe600E.exit.i": ; preds = %10
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %.fca.0.extract.i, ptr nonnull %2, i64 %3), !alias.scope !642
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %.fca.0.extract.i, ptr nonnull readonly %2, i64 %3), !alias.scope !642
   %13 = icmp eq i32 %bcmp.i.i, 0
   br i1 %13, label %14, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0708adb77b0fe600E.exit.thread.i"
 
@@ -6380,7 +6380,7 @@ define hidden void @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv.
 14:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0708adb77b0fe600E.exit.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !648
   call void @"_ZN65_$LT$log..kv..value..Value$u20$as$u20$log..kv..value..ToValue$GT$8to_value17h026c555a860f2457E"(ptr noalias nocapture noundef nonnull sret({ { { i8, [23 x i8] } } }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6), !noalias !640
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !646
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !646
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !648
   br label %"_ZN57_$LT$$LP$K$C$V$RP$$u20$as$u20$log..kv..source..Source$GT$3get17hb132305318dfeb00E.exit"
 
@@ -6389,7 +6389,7 @@ define hidden void @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv..source..Source$GT$5count17h07e60ed8188b54f8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, 2) i64 @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv..source..Source$GT$5count17h07e60ed8188b54f8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !range !636, !noundef !5
   %4 = icmp ne i8 %3, 15
@@ -6451,7 +6451,7 @@ define hidden void @"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..F
   %6 = extractvalue { ptr, i64 } %4, 1
   %7 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store ptr %5, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8
@@ -6503,7 +6503,7 @@ define hidden { ptr, ptr } @"_ZN77_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN79_$LT$tracing_core..field..DisplayValue$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h19dd4c5e64f4920aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8, !nonnull !5, !align !90, !noundef !5
-  %3 = tail call noundef zeroext i1 @"_ZN100_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h70b7faef6cebe7acE"(ptr noundef nonnull align 8 %.val, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %3 = tail call noundef zeroext i1 @"_ZN100_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h70b7faef6cebe7acE"(ptr noundef nonnull readonly align 8 %.val, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %3
 }
 
@@ -6624,21 +6624,21 @@ default.unreachable:                              ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN79_$LT$tracing_core..field..DisplayValue$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h7f9392233d79e4eaE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8, !nonnull !5, !align !90, !noundef !5
-  %3 = tail call noundef zeroext i1 @"_ZN100_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he80e8c5a52895d29E"(ptr noundef nonnull align 8 %.val, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %3 = tail call noundef zeroext i1 @"_ZN100_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he80e8c5a52895d29E"(ptr noundef nonnull readonly align 8 %.val, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN79_$LT$tracing_core..field..DisplayValue$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h9d6ffced2d211475E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8, !nonnull !5, !align !90, !noundef !5
-  %3 = tail call noundef zeroext i1 @"_ZN100_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h8392fdcc5c5e68e3E"(ptr noundef nonnull align 8 %.val, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %3 = tail call noundef zeroext i1 @"_ZN100_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h8392fdcc5c5e68e3E"(ptr noundef nonnull readonly align 8 %.val, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN79_$LT$tracing_core..field..DisplayValue$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha7183c5267793a7aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8, !nonnull !5, !align !90, !noundef !5
-  %3 = tail call noundef zeroext i1 @"_ZN100_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h493545a0731be742E"(ptr noundef nonnull align 8 %.val, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %3 = tail call noundef zeroext i1 @"_ZN100_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h493545a0731be742E"(ptr noundef nonnull readonly align 8 %.val, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %3
 }
 

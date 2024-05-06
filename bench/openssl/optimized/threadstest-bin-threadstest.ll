@@ -170,7 +170,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -259,7 +259,7 @@ declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #2
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_multi_default() #1 {
+define internal range(i32 0, 2) i32 @test_multi_default() #1 {
 entry:
   %.b = load i1, ptr @multidefault_run, align 4
   br i1 %.b, label %if.then, label %if.end
@@ -270,7 +270,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i1 true, ptr @multidefault_run, align 4
-  %call1 = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @thread_multi_simple_fetch, i64 noundef 2, ptr noundef nonnull @thread_multi_simple_fetch, i32 noundef 0, ptr noundef nonnull @default_provider), !range !7
+  %call1 = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @thread_multi_simple_fetch, i64 noundef 2, ptr noundef nonnull @thread_multi_simple_fetch, i32 noundef 0, ptr noundef nonnull @default_provider)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -279,7 +279,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_lock() #1 {
+define internal range(i32 0, 2) i32 @test_lock() #1 {
 entry:
   %call = tail call ptr @CRYPTO_THREAD_lock_new() #8
   %call1 = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %call) #8
@@ -321,7 +321,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_once() #1 {
+define internal range(i32 0, 2) i32 @test_once() #1 {
 entry:
   %thread = alloca i64, align 8
   %call.i = call i32 @pthread_create(ptr noundef nonnull %thread, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef nonnull @once_run_thread_cb) #8
@@ -358,7 +358,7 @@ return:                                           ; preds = %lor.lhs.false10, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_thread_local() #1 {
+define internal range(i32 0, 2) i32 @test_thread_local() #1 {
 entry:
   %thread = alloca i64, align 8
   %call = tail call i32 @CRYPTO_THREAD_init_local(ptr noundef nonnull @thread_local_key, ptr noundef nonnull @thread_local_destructor) #8
@@ -425,7 +425,7 @@ return:                                           ; preds = %if.end29, %if.end25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_atomic() #1 {
+define internal range(i32 0, 2) i32 @test_atomic() #1 {
 entry:
   %val = alloca i32, align 4
   %ret = alloca i32, align 4
@@ -623,7 +623,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_multi_load() #1 {
+define internal range(i32 0, 2) i32 @test_multi_load() #1 {
 entry:
   %.b = load i1, ptr @multidefault_run, align 4
   br i1 %.b, label %if.end, label %if.then
@@ -639,7 +639,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then
   store i1 true, ptr @multidefault_run, align 4
-  %call1.i = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @thread_multi_simple_fetch, i64 noundef 2, ptr noundef nonnull @thread_multi_simple_fetch, i32 noundef 0, ptr noundef nonnull @default_provider), !range !7
+  %call1.i = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @thread_multi_simple_fetch, i64 noundef 2, ptr noundef nonnull @thread_multi_simple_fetch, i32 noundef 0, ptr noundef nonnull @default_provider)
   %0 = icmp ne i32 %call1.i, 0
   br label %if.end
 
@@ -656,7 +656,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.then2, %if.end
   %call4 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %call1) #8
-  %call5 = tail call fastcc i32 @thread_run_test(ptr noundef null, i64 noundef 10, ptr noundef nonnull @test_multi_load_worker, i32 noundef 0, ptr noundef null), !range !7
+  %call5 = tail call fastcc i32 @thread_run_test(ptr noundef null, i64 noundef 10, ptr noundef nonnull @test_multi_load_worker, i32 noundef 0, ptr noundef null)
   %tobool6 = icmp ne i32 %call5, 0
   %1 = select i1 %tobool6, i1 %res.0, i1 false
   %land.ext = zext i1 %1 to i32
@@ -664,9 +664,9 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_multi_general_worker_default_provider() #1 {
+define internal range(i32 0, 2) i32 @test_multi_general_worker_default_provider() #1 {
 entry:
-  %call = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @thread_general_worker, i64 noundef 2, ptr noundef nonnull @thread_general_worker, i32 noundef 1, ptr noundef nonnull @default_provider), !range !7
+  %call = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @thread_general_worker, i64 noundef 2, ptr noundef nonnull @thread_general_worker, i32 noundef 1, ptr noundef nonnull @default_provider)
   ret i32 %call
 }
 
@@ -681,7 +681,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @thread_general_worker, i64 noundef 2, ptr noundef nonnull @thread_general_worker, i32 noundef 1, ptr noundef nonnull @fips_provider), !range !7
+  %call1 = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @thread_general_worker, i64 noundef 2, ptr noundef nonnull @thread_general_worker, i32 noundef 1, ptr noundef nonnull @fips_provider)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -690,28 +690,28 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_multi_fetch_worker() #1 {
+define internal range(i32 0, 2) i32 @test_multi_fetch_worker() #1 {
 entry:
-  %call = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @thread_multi_simple_fetch, i64 noundef 2, ptr noundef nonnull @thread_multi_simple_fetch, i32 noundef 1, ptr noundef nonnull @default_provider), !range !7
+  %call = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @thread_multi_simple_fetch, i64 noundef 2, ptr noundef nonnull @thread_multi_simple_fetch, i32 noundef 1, ptr noundef nonnull @default_provider)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_multi_shared_pkey() #1 {
+define internal range(i32 0, 2) i32 @test_multi_shared_pkey() #1 {
 entry:
-  %call = tail call fastcc i32 @test_multi_shared_pkey_common(ptr noundef nonnull @thread_shared_evp_pkey), !range !7
+  %call = tail call fastcc i32 @test_multi_shared_pkey_common(ptr noundef nonnull @thread_shared_evp_pkey)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_multi_downgrade_shared_pkey() #1 {
+define internal range(i32 0, 2) i32 @test_multi_downgrade_shared_pkey() #1 {
 entry:
-  %call = tail call fastcc i32 @test_multi_shared_pkey_common(ptr noundef nonnull @thread_downgrade_shared_evp_pkey), !range !7
+  %call = tail call fastcc i32 @test_multi_shared_pkey_common(ptr noundef nonnull @thread_downgrade_shared_evp_pkey)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_multi_load_unload_provider() #1 {
+define internal range(i32 0, 2) i32 @test_multi_load_unload_provider() #1 {
 entry:
   store i1 true, ptr @multi_success, align 4
   store ptr null, ptr @multi_libctx, align 8
@@ -758,7 +758,7 @@ if.end:                                           ; preds = %lor.lhs.false8
 for.cond.i:                                       ; preds = %for.body.i
   %inc7.i = add nuw nsw i64 %i.04.i, 1
   %exitcond.not.i = icmp eq i64 %inc7.i, 2
-  br i1 %exitcond.not.i, label %if.end15, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %if.end15, label %for.body.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %if.end, %for.cond.i
   %i.04.i = phi i64 [ %inc7.i, %for.cond.i ], [ 0, %if.end ]
@@ -783,7 +783,7 @@ for.cond.i10:                                     ; preds = %for.body.i4
   %inc.i11 = add nuw i64 %i.04.i5, 1
   %6 = load i64, ptr @multi_num_threads, align 8
   %cmp.i12 = icmp ult i64 %inc.i11, %6
-  br i1 %cmp.i12, label %for.body.i4, label %lor.lhs.false18, !llvm.loop !9
+  br i1 %cmp.i12, label %for.body.i4, label %lor.lhs.false18, !llvm.loop !8
 
 for.body.i4:                                      ; preds = %if.end15, %for.cond.i10
   %i.04.i5 = phi i64 [ %inc.i11, %for.cond.i10 ], [ 0, %if.end15 ]
@@ -821,7 +821,7 @@ for.body.i14:                                     ; preds = %err, %for.body.i14
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.04.i, i64 8
   %10 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i14, !llvm.loop !10
+  br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i14, !llvm.loop !9
 
 thead_teardown_libctx.exit:                       ; preds = %for.body.i14, %err
   %11 = load ptr, ptr @multi_libctx, align 8
@@ -835,16 +835,16 @@ thead_teardown_libctx.exit:                       ; preds = %for.body.i14, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_obj_add() #1 {
+define internal range(i32 0, 2) i32 @test_obj_add() #1 {
 entry:
-  %call = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @test_obj_create_one, i64 noundef 10, ptr noundef nonnull @test_obj_create_one, i32 noundef 1, ptr noundef nonnull @default_provider), !range !7
+  %call = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @test_obj_create_one, i64 noundef 10, ptr noundef nonnull @test_obj_create_one, i32 noundef 1, ptr noundef nonnull @default_provider)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_lib_ctx_load_config() #1 {
+define internal range(i32 0, 2) i32 @test_lib_ctx_load_config() #1 {
 entry:
-  %call = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @test_lib_ctx_load_config_worker, i64 noundef 10, ptr noundef nonnull @test_lib_ctx_load_config_worker, i32 noundef 1, ptr noundef nonnull @default_provider), !range !7
+  %call = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @test_lib_ctx_load_config_worker, i64 noundef 10, ptr noundef nonnull @test_lib_ctx_load_config_worker, i32 noundef 1, ptr noundef nonnull @default_provider)
   ret i32 %call
 }
 
@@ -865,7 +865,7 @@ if.end:                                           ; preds = %entry
   store ptr %0, ptr @multi_bio1, align 8
   %1 = load ptr, ptr %bio2, align 8
   store ptr %1, ptr @multi_bio2, align 8
-  %call2 = call fastcc i32 @thread_run_test(ptr noundef nonnull @test_bio_dgram_pair_worker, i64 noundef 10, ptr noundef nonnull @test_bio_dgram_pair_worker, i32 noundef 1, ptr noundef nonnull @default_provider), !range !7
+  %call2 = call fastcc i32 @thread_run_test(ptr noundef nonnull @test_bio_dgram_pair_worker, i64 noundef 10, ptr noundef nonnull @test_bio_dgram_pair_worker, i32 noundef 1, ptr noundef nonnull @default_provider)
   br label %err
 
 err:                                              ; preds = %entry, %if.end
@@ -878,9 +878,9 @@ err:                                              ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_pem_read() #1 {
+define internal range(i32 0, 2) i32 @test_pem_read() #1 {
 entry:
-  %call = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @test_pem_read_one, i64 noundef 10, ptr noundef nonnull @test_pem_read_one, i32 noundef 1, ptr noundef nonnull @default_provider), !range !7
+  %call = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @test_pem_read_one, i64 noundef 10, ptr noundef nonnull @test_pem_read_one, i32 noundef 1, ptr noundef nonnull @default_provider)
   ret i32 %call
 }
 
@@ -901,14 +901,14 @@ declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #2
 declare i32 @test_skip(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @thread_run_test(ptr noundef readonly %main_func, i64 noundef %num_threads, ptr noundef %thread_func, i32 noundef %libctx, ptr noundef %providers) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @thread_run_test(ptr noundef readonly %main_func, i64 noundef %num_threads, ptr noundef %thread_func, i32 noundef %libctx, ptr noundef %providers) unnamed_addr #1 {
 entry:
   store i1 true, ptr @multi_success, align 4
   store ptr null, ptr @multi_libctx, align 8
   store i64 0, ptr @multi_num_threads, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) @multi_threads, i8 0, i64 80, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @multi_provider, i8 0, i64 40, i1 false)
-  %call = tail call fastcc i32 @thread_setup_libctx(i32 noundef %libctx, ptr noundef %providers), !range !7
+  %call = tail call fastcc i32 @thread_setup_libctx(i32 noundef %libctx, ptr noundef %providers)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
 
@@ -926,7 +926,7 @@ for.cond.preheader.i:                             ; preds = %lor.lhs.false
 for.cond.i:                                       ; preds = %for.body.i
   %inc7.i = add nuw i64 %i.04.i, 1
   %exitcond.not.i = icmp eq i64 %inc7.i, %num_threads
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.cond.i
   %i.04.i = phi i64 [ %inc7.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
@@ -958,7 +958,7 @@ for.cond.i9:                                      ; preds = %for.body.i3
   %inc.i10 = add nuw i64 %i.04.i4, 1
   %3 = load i64, ptr @multi_num_threads, align 8
   %cmp.i = icmp ult i64 %inc.i10, %3
-  br i1 %cmp.i, label %for.body.i3, label %lor.lhs.false7, !llvm.loop !9
+  br i1 %cmp.i, label %for.body.i3, label %lor.lhs.false7, !llvm.loop !8
 
 for.body.i3:                                      ; preds = %if.end4, %for.cond.i9
   %i.04.i4 = phi i64 [ %inc.i10, %for.cond.i9 ], [ 0, %if.end4 ]
@@ -992,7 +992,7 @@ for.body.i12:                                     ; preds = %err, %for.body.i12
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.04.i, i64 8
   %7 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %7, null
-  br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i12, !llvm.loop !10
+  br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i12, !llvm.loop !9
 
 thead_teardown_libctx.exit:                       ; preds = %for.body.i12, %err
   %8 = load ptr, ptr @multi_libctx, align 8
@@ -1034,7 +1034,7 @@ if.end:                                           ; preds = %if.end.i, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @thread_setup_libctx(i32 noundef %libctx, ptr noundef readonly %providers) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @thread_setup_libctx(i32 noundef %libctx, ptr noundef readonly %providers) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i32 %libctx, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -1062,7 +1062,7 @@ for.cond:                                         ; preds = %lor.lhs.false
   %arrayidx = getelementptr inbounds ptr, ptr %providers, i64 %inc
   %2 = load ptr, ptr %arrayidx, align 8
   %cmp6.not = icmp eq ptr %2, null
-  br i1 %cmp6.not, label %return, label %for.body, !llvm.loop !11
+  br i1 %cmp6.not, label %return, label %for.body, !llvm.loop !10
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %n.08 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -1093,7 +1093,7 @@ for.body.i:                                       ; preds = %if.then15, %for.bod
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.04.i, i64 8
   %7 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %7, null
-  br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i, !llvm.loop !10
+  br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i, !llvm.loop !9
 
 thead_teardown_libctx.exit:                       ; preds = %for.body.i, %if.then15
   %8 = load ptr, ptr @multi_libctx, align 8
@@ -1311,7 +1311,7 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false9
 for.cond:                                         ; preds = %lor.lhs.false25
   %inc = add nuw nsw i32 %i.021, 1
   %exitcond.not = icmp eq i32 %inc, 5
-  br i1 %exitcond.not, label %for.body36, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %for.body36, label %for.body, !llvm.loop !11
 
 for.body:                                         ; preds = %lor.lhs.false12, %for.cond
   %i.021 = phi i32 [ %inc, %for.cond ], [ 0, %lor.lhs.false12 ]
@@ -1341,7 +1341,7 @@ lor.lhs.false25:                                  ; preds = %lor.lhs.false19
 for.cond33:                                       ; preds = %lor.lhs.false52
   %inc62 = add nuw nsw i32 %i.122, 1
   %exitcond24.not = icmp eq i32 %inc62, 5
-  br i1 %exitcond24.not, label %for.end63, label %for.body36, !llvm.loop !13
+  br i1 %exitcond24.not, label %for.end63, label %for.body36, !llvm.loop !12
 
 for.body36:                                       ; preds = %for.cond, %for.cond33
   %i.122 = phi i32 [ %inc62, %for.cond33 ], [ 0, %for.cond ]
@@ -1440,7 +1440,7 @@ declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #2
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_multi_shared_pkey_common(ptr noundef %worker) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_multi_shared_pkey_common(ptr noundef %worker) unnamed_addr #1 {
 entry:
   store i1 true, ptr @multi_success, align 4
   store ptr null, ptr @multi_libctx, align 8
@@ -1449,7 +1449,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @multi_provider, i8 0, i64 40, i1 false)
   %.b = load i1, ptr @do_fips, align 4
   %cond = select i1 %.b, ptr @fips_and_default_providers, ptr @default_provider
-  %call = tail call fastcc i32 @thread_setup_libctx(i32 noundef 1, ptr noundef nonnull %cond), !range !7
+  %call = tail call fastcc i32 @thread_setup_libctx(i32 noundef 1, ptr noundef nonnull %cond)
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %err, label %lor.lhs.false
 
@@ -1510,7 +1510,7 @@ for.cond.i26:                                     ; preds = %for.body.i20
   %inc.i27 = add nuw i64 %i.04.i21, 1
   %7 = load i64, ptr @multi_num_threads, align 8
   %cmp.i = icmp ult i64 %inc.i27, %7
-  br i1 %cmp.i, label %for.body.i20, label %lor.lhs.false13, !llvm.loop !9
+  br i1 %cmp.i, label %for.body.i20, label %lor.lhs.false13, !llvm.loop !8
 
 for.body.i20:                                     ; preds = %for.cond.i15, %for.cond.i26
   %i.04.i21 = phi i64 [ %inc.i27, %for.cond.i26 ], [ 0, %for.cond.i15 ]
@@ -1546,7 +1546,7 @@ for.body.i29:                                     ; preds = %err, %for.body.i29
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.04.i, i64 8
   %12 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %12, null
-  br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i29, !llvm.loop !10
+  br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i29, !llvm.loop !9
 
 thead_teardown_libctx.exit:                       ; preds = %for.body.i29, %err
   %13 = load ptr, ptr @multi_libctx, align 8
@@ -1572,7 +1572,7 @@ entry:
 for.cond:                                         ; preds = %lor.lhs.false29
   %.b = load i1, ptr @do_fips, align 4
   %cmp = and i1 %.b, %cmp1.not
-  br i1 %cmp, label %for.body, label %if.end38.critedge, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %if.end38.critedge, !llvm.loop !13
 
 for.body:                                         ; preds = %entry, %for.cond
   %cmp1.not = phi i1 [ true, %entry ], [ false, %for.cond ]
@@ -1967,11 +1967,10 @@ attributes #8 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i32 0, i32 2}
+!7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}

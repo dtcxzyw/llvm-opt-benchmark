@@ -9,7 +9,7 @@ define i32 @softfloat_shiftRightJam32(i32 noundef %0, i64 noundef %1) local_unna
   br i1 %3, label %4, label %13
 
 4:                                                ; preds = %2
-  %5 = trunc i64 %1 to i32
+  %5 = trunc nuw i64 %1 to i32
   %6 = lshr i32 %0, %5
   %7 = sub nsw i32 0, %5
   %8 = and i32 %7, 31

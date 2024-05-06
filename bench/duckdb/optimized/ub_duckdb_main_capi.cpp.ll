@@ -1370,7 +1370,7 @@ $_ZTIN6duckdb23NotImplementedExceptionE = comdat any
 @switch.table.duckdb_result_statement_type = private unnamed_addr constant [29 x i32] [i32 0, i32 1, i32 2, i32 3, i32 7, i32 5, i32 6, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 4, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28], align 4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_appender_create(ptr noundef %connection, ptr noundef %schema, ptr noundef %table, ptr noundef writeonly %out_appender) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_appender_create(ptr noundef %connection, ptr noundef %schema, ptr noundef %table, ptr noundef writeonly %out_appender) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %schema.addr = alloca ptr, align 8
   %table.addr = alloca ptr, align 8
@@ -1733,7 +1733,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_appender_destroy(ptr noundef %appender) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_appender_destroy(ptr noundef %appender) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %appender, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -1793,7 +1793,7 @@ return:                                           ; preds = %if.end4, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_appender_close(ptr noundef %appender) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_appender_close(ptr noundef %appender) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not.i = icmp eq ptr %appender, null
   br i1 %tobool.not.i, label %"_Z28duckdb_appender_run_functionIZ21duckdb_appender_closeE3$_0E12duckdb_stateP16_duckdb_appenderOT_.exit", label %if.end.i
@@ -1900,7 +1900,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_appender_end_row(ptr noundef %appender) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_appender_end_row(ptr noundef %appender) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not.i = icmp eq ptr %appender, null
   br i1 %tobool.not.i, label %"_Z28duckdb_appender_run_functionIZ23duckdb_appender_end_rowE3$_0E12duckdb_stateP16_duckdb_appenderOT_.exit", label %if.end.i
@@ -3390,7 +3390,7 @@ declare void @_ZN6duckdb5ValueC1ERKS0_(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_appender_flush(ptr noundef %appender) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_appender_flush(ptr noundef %appender) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not.i = icmp eq ptr %appender, null
   br i1 %tobool.not.i, label %"_Z28duckdb_appender_run_functionIZ21duckdb_appender_flushE3$_0E12duckdb_stateP16_duckdb_appenderOT_.exit", label %if.end.i
@@ -3466,7 +3466,7 @@ terminate.lpad.i:                                 ; preds = %lpad15.i, %lpad7.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_append_data_chunk(ptr noundef %appender, ptr noundef %chunk) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_append_data_chunk(ptr noundef %appender, ptr noundef %chunk) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %chunk, null
   %tobool.not.i = icmp eq ptr %appender, null
@@ -3544,7 +3544,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_query_arrow(ptr noundef %connection, ptr noundef readonly %query, ptr nocapture noundef writeonly %out_result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_query_arrow(ptr noundef %connection, ptr noundef readonly %query, ptr nocapture noundef writeonly %out_result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.duckdb::unique_ptr.15", align 8
@@ -3755,7 +3755,7 @@ return:                                           ; preds = %if.end, %entry
 declare void @_ZN6duckdb14ArrowConverter13ToArrowSchemaEP11ArrowSchemaRKNS_6vectorINS_11LogicalTypeELb1EEERKNS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEERKNS_16ClientPropertiesE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_prepared_arrow_schema(ptr noundef %prepared, ptr noundef readonly %out_schema) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_prepared_arrow_schema(ptr noundef %prepared, ptr noundef readonly %out_schema) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %properties = alloca %"struct.duckdb::ClientProperties", align 8
@@ -4380,7 +4380,7 @@ _ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_query_arrow_array(ptr noundef %result, ptr noundef readonly %out_array) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_query_arrow_array(ptr noundef %result, ptr noundef readonly %out_array) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %agg.tmp = alloca %"struct.duckdb::ClientProperties", align 8
@@ -5258,7 +5258,7 @@ if.end:                                           ; preds = %_ZN6duckdb18ArrowRe
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_execute_prepared_arrow(ptr noundef %prepared_statement, ptr noundef writeonly %out_result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_execute_prepared_arrow(ptr noundef %prepared_statement, ptr noundef writeonly %out_result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %"class.duckdb::unique_ptr.50", align 8
   %tobool.not = icmp eq ptr %prepared_statement, null
@@ -5340,7 +5340,7 @@ declare noundef zeroext i1 @_ZNK6duckdb17PreparedStatement8HasErrorEv(ptr nounde
 declare void @_ZN6duckdb17PreparedStatement7ExecuteERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5ValueENS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaISt4pairIKS7_S8_EEEb(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.50") align 8, ptr noundef nonnull align 8 dereferenceable(224), ptr noundef nonnull align 8 dereferenceable(56), i1 noundef zeroext) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_arrow_scan(ptr noundef %connection, ptr noundef readonly %table_name, ptr noundef %arrow) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_arrow_scan(ptr noundef %connection, ptr noundef readonly %table_name, ptr noundef %arrow) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i50.i = alloca i64, align 8
   %agg.tmp.ensured.i = alloca %"class.std::shared_ptr.779", align 8
@@ -5994,7 +5994,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_arrow_array_scan(ptr noundef %connection, ptr noundef %table_name, ptr noundef %arrow_schema, ptr noundef %arrow_array, ptr nocapture noundef writeonly %out_stream) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @duckdb_arrow_array_scan(ptr noundef %connection, ptr noundef %table_name, ptr noundef %arrow_schema, ptr noundef %arrow_array, ptr nocapture noundef writeonly %out_stream) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   %done.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -6018,7 +6018,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_19GetSchemaEP16ArrowArrayStreamP11ArrowSchema(ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %out) #16 {
+define internal noundef range(i32 0, 2) i32 @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_19GetSchemaEP16ArrowArrayStreamP11ArrowSchema(ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %out) #16 {
 entry:
   %private_data1 = getelementptr inbounds i8, ptr %stream, i64 32
   %0 = load ptr, ptr %private_data1, align 8, !tbaa !148
@@ -6080,7 +6080,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_create_config(ptr noundef writeonly %out_config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_create_config(ptr noundef writeonly %out_config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.duckdb::Value", align 8
@@ -6205,7 +6205,7 @@ entry:
 declare noundef i64 @_ZN6duckdb8DBConfig14GetOptionCountEv() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_get_config_flag(i64 noundef %index, ptr noundef writeonly %out_name, ptr noundef writeonly %out_description) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @duckdb_get_config_flag(i64 noundef %index, ptr noundef writeonly %out_name, ptr noundef writeonly %out_description) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZN6duckdb8DBConfig16GetOptionByIndexEm(i64 noundef %index)
   %tobool.not = icmp eq ptr %call, null
@@ -6238,7 +6238,7 @@ cleanup:                                          ; preds = %if.then5, %if.end3,
 declare noundef ptr @_ZN6duckdb8DBConfig16GetOptionByIndexEm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_set_config(ptr noundef %config, ptr noundef readonly %name, ptr noundef %option) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_set_config(ptr noundef %config, ptr noundef readonly %name, ptr noundef %option) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6560,7 +6560,7 @@ return:                                           ; preds = %if.end, %entry
 declare void @_ZN6duckdb9DataChunk5ResetEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @duckdb_data_chunk_get_column_count(ptr noundef readonly %chunk) local_unnamed_addr #8 {
+define range(i64 -88686269585142075, 88686269585142076) i64 @duckdb_data_chunk_get_column_count(ptr noundef readonly %chunk) local_unnamed_addr #8 {
 entry:
   %tobool.not = icmp eq ptr %chunk, null
   br i1 %tobool.not, label %return, label %if.end
@@ -6879,7 +6879,7 @@ return:                                           ; preds = %if.end, %entry
 declare noundef i64 @_ZN6duckdb10ListVector11GetListSizeERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_list_vector_set_size(ptr noundef %vector, i64 noundef %size) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @duckdb_list_vector_set_size(ptr noundef %vector, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %vector, null
   br i1 %tobool.not, label %return, label %if.end
@@ -6896,7 +6896,7 @@ return:                                           ; preds = %if.end, %entry
 declare void @_ZN6duckdb10ListVector11SetListSizeERNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_list_vector_reserve(ptr noundef %vector, i64 noundef %required_capacity) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @duckdb_list_vector_reserve(ptr noundef %vector, i64 noundef %required_capacity) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %vector, null
   br i1 %tobool.not, label %return, label %if.end
@@ -7109,7 +7109,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @duckdb_from_date(i32 %date.coerce) local_unnamed_addr #0 {
+define range(i64 0, 281474976710656) i64 @duckdb_from_date(i32 %date.coerce) local_unnamed_addr #0 {
 entry:
   %year = alloca i32, align 4
   %month = alloca i32, align 4
@@ -7309,7 +7309,7 @@ entry:
 declare i64 @_ZN6duckdb9Timestamp12FromDatetimeENS_6date_tENS_7dtime_tE(i32, i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_open_ext(ptr noundef %path, ptr nocapture noundef writeonly %out, ptr noundef %config, ptr noundef writeonly %error) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_open_ext(ptr noundef %path, ptr nocapture noundef writeonly %out, ptr noundef %config, ptr noundef writeonly %error) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %default_config = alloca %"struct.duckdb::DBConfig", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7509,7 +7509,7 @@ _ZNSt10unique_ptrIN6duckdb6DuckDBESt14default_deleteIS1_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_open(ptr noundef %path, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @duckdb_open(ptr noundef %path, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @duckdb_open_ext(ptr noundef %path, ptr noundef %out, ptr noundef null, ptr noundef null), !range !17
   ret i32 %call
@@ -7546,7 +7546,7 @@ if.end:                                           ; preds = %_ZN6duckdb12Databas
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_connect(ptr noundef %database, ptr noundef writeonly %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_connect(ptr noundef %database, ptr noundef writeonly %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool = icmp ne ptr %database, null
   %tobool1 = icmp ne ptr %out, null
@@ -7742,7 +7742,7 @@ if.end:                                           ; preds = %delete.notnull, %la
 declare void @_ZN6duckdb10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_query(ptr noundef %connection, ptr noundef readonly %query, ptr noundef writeonly %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_query(ptr noundef %connection, ptr noundef readonly %query, ptr noundef writeonly %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %result = alloca %"class.duckdb::unique_ptr.15", align 8
@@ -7971,7 +7971,7 @@ ehcleanup10:                                      ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6duckdb23duckdb_translate_resultENS_10unique_ptrINS_11QueryResultESt14default_deleteIS1_ELb1EEEP13duckdb_result(ptr noundef nonnull %result_p, ptr noundef writeonly %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN6duckdb23duckdb_translate_resultENS_10unique_ptrINS_11QueryResultESt14default_deleteIS1_ELb1EEEP13duckdb_result(ptr noundef nonnull %result_p, ptr noundef writeonly %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(280) ptr @_ZNK6duckdb10unique_ptrINS_11QueryResultESt14default_deleteIS1_ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %result_p)
   %tobool.not = icmp eq ptr %out, null
@@ -8760,7 +8760,7 @@ return:                                           ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN6duckdb17ConvertCPPTypeToCERKNS_11LogicalTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sql_type) local_unnamed_addr #8 {
+define noundef range(i32 0, 30) i32 @_ZN6duckdb17ConvertCPPTypeToCERKNS_11LogicalTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sql_type) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %sql_type, align 8, !tbaa !197
   switch i8 %0, label %sw.default [
@@ -10698,7 +10698,7 @@ return:                                           ; preds = %if.end, %_ZL19Asser
 declare noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @duckdb_decimal_internal_type(ptr noundef readonly %type) local_unnamed_addr #8 {
+define noundef range(i32 0, 17) i32 @duckdb_decimal_internal_type(ptr noundef readonly %type) local_unnamed_addr #8 {
 entry:
   %tobool.not.i = icmp eq ptr %type, null
   br i1 %tobool.not.i, label %return, label %_ZL19AssertLogicalTypeIdP20_duckdb_logical_typeN6duckdb13LogicalTypeIdE.exit
@@ -11150,7 +11150,7 @@ return:                                           ; preds = %invoke.cont, %_ZL18
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb10StructType12GetChildTypeERKNS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z32duckdb_pending_prepared_internalP26_duckdb_prepared_statementPP22_duckdb_pending_resultb(ptr noundef %prepared_statement, ptr noundef writeonly %out_result, i1 noundef zeroext %allow_streaming) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_Z32duckdb_pending_prepared_internalP26_duckdb_prepared_statementPP22_duckdb_pending_resultb(ptr noundef %prepared_statement, ptr noundef writeonly %out_result, i1 noundef zeroext %allow_streaming) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::unique_ptr.460", align 8
   %ref.tmp11 = alloca %"class.duckdb::unique_ptr.460", align 8
@@ -11791,14 +11791,14 @@ _ZN6duckdb10unique_ptrINS_18PendingQueryResultESt14default_deleteIS1_ELb1EE13Ass
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_pending_prepared(ptr noundef %prepared_statement, ptr noundef %out_result) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @duckdb_pending_prepared(ptr noundef %prepared_statement, ptr noundef %out_result) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i32 @_Z32duckdb_pending_prepared_internalP26_duckdb_prepared_statementPP22_duckdb_pending_resultb(ptr noundef %prepared_statement, ptr noundef %out_result, i1 noundef zeroext false), !range !17
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_pending_prepared_streaming(ptr noundef %prepared_statement, ptr noundef %out_result) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @duckdb_pending_prepared_streaming(ptr noundef %prepared_statement, ptr noundef %out_result) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i32 @_Z32duckdb_pending_prepared_internalP26_duckdb_prepared_statementPP22_duckdb_pending_resultb(ptr noundef %prepared_statement, ptr noundef %out_result, i1 noundef zeroext true), !range !17
   ret i32 %call
@@ -11868,7 +11868,7 @@ return:                                           ; preds = %if.end2, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_pending_execute_task(ptr noundef %pending_result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 256) i32 @duckdb_pending_execute_task(ptr noundef %pending_result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.duckdb::PreservedError", align 8
   %agg.tmp29 = alloca %"class.duckdb::PreservedError", align 8
@@ -12012,7 +12012,7 @@ entry:
 declare noundef zeroext i1 @_ZN6duckdb18PendingQueryResult10IsFinishedENS_22PendingExecutionResultE(i8 noundef zeroext) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_execute_pending(ptr noundef %pending_result, ptr noundef writeonly %out_result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_execute_pending(ptr noundef %pending_result, ptr noundef writeonly %out_result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::unique_ptr.50", align 8
   %agg.tmp = alloca %"class.duckdb::unique_ptr.50", align 8
@@ -12127,7 +12127,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 declare void @_ZN6duckdb18PendingQueryResult7ExecuteEv(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.50") align 8, ptr noundef nonnull align 8 dereferenceable(249)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define i64 @duckdb_extract_statements(ptr noundef %connection, ptr noundef readonly %query, ptr noundef writeonly %out_extracted_statements) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i64 -1152921504606846976, 1152921504606846976) i64 @duckdb_extract_statements(ptr noundef %connection, ptr noundef readonly %query, ptr noundef writeonly %out_extracted_statements) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.duckdb::vector.469", align 16
@@ -12375,7 +12375,7 @@ terminate.lpad:                                   ; preds = %lpad13
 declare void @_ZN6duckdb10Connection17ExtractStatementsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.duckdb::vector.469") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_prepare_extracted_statement(ptr noundef %connection, ptr noundef %extracted_statements, i64 noundef %index, ptr noundef writeonly %out_prepared_statement) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_prepare_extracted_statement(ptr noundef %connection, ptr noundef %extracted_statements, i64 noundef %index, ptr noundef writeonly %out_prepared_statement) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::unique_ptr.118", align 8
   %agg.tmp = alloca %"class.duckdb::unique_ptr.206", align 8
@@ -12585,7 +12585,7 @@ cleanup:                                          ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_prepare(ptr noundef %connection, ptr noundef readonly %query, ptr noundef writeonly %out_prepared_statement) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_prepare(ptr noundef %connection, ptr noundef readonly %query, ptr noundef writeonly %out_prepared_statement) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.duckdb::unique_ptr.118", align 8
@@ -13243,7 +13243,7 @@ cleanup39:                                        ; preds = %_ZNSt7__cxx1112basi
 declare noundef zeroext i1 @_ZN6duckdb21PreparedStatementData10TryGetTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_clear_bindings(ptr noundef %prepared_statement) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_clear_bindings(ptr noundef %prepared_statement) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %prepared_statement, null
   br i1 %tobool.not, label %cleanup, label %lor.lhs.false
@@ -13307,7 +13307,7 @@ cleanup:                                          ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_value(ptr noundef %prepared_statement, i64 noundef %param_idx, ptr noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_value(ptr noundef %prepared_statement, i64 noundef %param_idx, ptr noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.duckdb::PreservedError", align 8
@@ -14004,7 +14004,7 @@ _ZNSt10shared_ptrIN6duckdb9ExceptionEEaSEOS2_.exit: ; preds = %if.then7.i.i.i.i.
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6duckdb5ValueaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_parameter_index(ptr noundef %prepared_statement, ptr noundef writeonly %param_idx_out, ptr noundef readonly %name_p) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_parameter_index(ptr noundef %prepared_statement, ptr noundef writeonly %param_idx_out, ptr noundef readonly %name_p) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14154,7 +14154,7 @@ cleanup35:                                        ; preds = %_ZNSt7__cxx1112basi
 declare noundef zeroext i1 @_ZN6duckdb10StringUtil8CIEqualsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_boolean(ptr noundef %prepared_statement, i64 noundef %param_idx, i1 noundef zeroext %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_boolean(ptr noundef %prepared_statement, i64 noundef %param_idx, i1 noundef zeroext %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   %frombool = zext i1 %val to i8
@@ -14179,7 +14179,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb5Value7BOOLEANEa(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i8 noundef signext) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_int8(ptr noundef %prepared_statement, i64 noundef %param_idx, i8 noundef signext %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_int8(ptr noundef %prepared_statement, i64 noundef %param_idx, i8 noundef signext %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14203,7 +14203,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb5Value7TINYINTEa(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i8 noundef signext) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_int16(ptr noundef %prepared_statement, i64 noundef %param_idx, i16 noundef signext %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_int16(ptr noundef %prepared_statement, i64 noundef %param_idx, i16 noundef signext %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14227,7 +14227,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb5Value8SMALLINTEs(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i16 noundef signext) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_int32(ptr noundef %prepared_statement, i64 noundef %param_idx, i32 noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_int32(ptr noundef %prepared_statement, i64 noundef %param_idx, i32 noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14251,7 +14251,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb5Value7INTEGEREi(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_int64(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_int64(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14273,7 +14273,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_hugeint(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 %val.coerce0, i64 %val.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_hugeint(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 %val.coerce0, i64 %val.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14297,7 +14297,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb5Value7HUGEINTENS_9hugeint_tE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64, i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_uint8(ptr noundef %prepared_statement, i64 noundef %param_idx, i8 noundef zeroext %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_uint8(ptr noundef %prepared_statement, i64 noundef %param_idx, i8 noundef zeroext %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14321,7 +14321,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb5Value8UTINYINTEh(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i8 noundef zeroext) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_uint16(ptr noundef %prepared_statement, i64 noundef %param_idx, i16 noundef zeroext %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_uint16(ptr noundef %prepared_statement, i64 noundef %param_idx, i16 noundef zeroext %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14345,7 +14345,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb5Value9USMALLINTEt(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i16 noundef zeroext) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_uint32(ptr noundef %prepared_statement, i64 noundef %param_idx, i32 noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_uint32(ptr noundef %prepared_statement, i64 noundef %param_idx, i32 noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14369,7 +14369,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb5Value8UINTEGEREj(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_uint64(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_uint64(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14393,7 +14393,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb5Value7UBIGINTEm(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_float(ptr noundef %prepared_statement, i64 noundef %param_idx, float noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_float(ptr noundef %prepared_statement, i64 noundef %param_idx, float noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14417,7 +14417,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb5Value5FLOATEf(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, float noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_double(ptr noundef %prepared_statement, i64 noundef %param_idx, double noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_double(ptr noundef %prepared_statement, i64 noundef %param_idx, double noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14441,7 +14441,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb5Value6DOUBLEEd(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, double noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_date(ptr noundef %prepared_statement, i64 noundef %param_idx, i32 %val.coerce) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_date(ptr noundef %prepared_statement, i64 noundef %param_idx, i32 %val.coerce) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14465,7 +14465,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb5Value4DATEENS_6date_tE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i32) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_time(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 %val.coerce) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_time(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 %val.coerce) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14489,7 +14489,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb5Value4TIMEENS_7dtime_tE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_timestamp(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 %val.coerce) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_timestamp(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 %val.coerce) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14513,7 +14513,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb5Value9TIMESTAMPENS_11timestamp_tE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_interval(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 %val.coerce0, i64 %val.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_interval(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 %val.coerce0, i64 %val.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   %val.sroa.0.0.extract.trunc = trunc i64 %val.coerce0 to i32
@@ -14540,7 +14540,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb5Value8INTERVALEiil(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_varchar(ptr noundef %prepared_statement, i64 noundef %param_idx, ptr noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_varchar(ptr noundef %prepared_statement, i64 noundef %param_idx, ptr noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14581,7 +14581,7 @@ return:                                           ; preds = %ehcleanup, %invoke.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_varchar_length(ptr noundef %prepared_statement, i64 noundef %param_idx, ptr noundef readonly %val, i64 noundef %length) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_varchar_length(ptr noundef %prepared_statement, i64 noundef %param_idx, ptr noundef readonly %val, i64 noundef %length) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %value = alloca %"class.duckdb::Value", align 8
@@ -14776,7 +14776,7 @@ declare void @_ZN6duckdb5Value7DECIMALENS_9hugeint_tEhh(ptr dead_on_unwind writa
 declare void @_ZN6duckdb5Value7DECIMALElhh(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64 noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_blob(ptr noundef %prepared_statement, i64 noundef %param_idx, ptr noundef %data, i64 noundef %length) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_blob(ptr noundef %prepared_statement, i64 noundef %param_idx, ptr noundef %data, i64 noundef %length) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %value) #32
@@ -14798,7 +14798,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_null(ptr noundef %prepared_statement, i64 noundef %param_idx) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_null(ptr noundef %prepared_statement, i64 noundef %param_idx) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.duckdb::Value", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
@@ -14836,7 +14836,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_execute_prepared(ptr noundef %prepared_statement, ptr noundef writeonly %out_result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_execute_prepared(ptr noundef %prepared_statement, ptr noundef writeonly %out_result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %"class.duckdb::unique_ptr.50", align 8
   %agg.tmp = alloca %"class.duckdb::unique_ptr.50", align 8
@@ -14982,7 +14982,7 @@ cleanup:                                          ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_execute_prepared_streaming(ptr noundef %prepared_statement, ptr noundef writeonly %out_result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_execute_prepared_streaming(ptr noundef %prepared_statement, ptr noundef writeonly %out_result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %"class.duckdb::unique_ptr.50", align 8
   %agg.tmp = alloca %"class.duckdb::unique_ptr.50", align 8
@@ -16741,7 +16741,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6duckdb34deprecated_duckdb_translate_columnERNS_23MaterializedQueryResultEP13duckdb_columnm(ptr noundef nonnull align 8 dereferenceable(425) %result, ptr noundef %column, i64 noundef %col) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN6duckdb34deprecated_duckdb_translate_columnERNS_23MaterializedQueryResultEP13duckdb_columnm(ptr noundef nonnull align 8 dereferenceable(425) %result, ptr noundef %column, i64 noundef %col) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -27794,7 +27794,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_register_table_function(ptr noundef %connection, ptr noundef %function) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_register_table_function(ptr noundef %connection, ptr noundef %function) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %con = alloca ptr, align 8
   %tf = alloca ptr, align 8
@@ -28086,7 +28086,7 @@ ehcleanup:                                        ; preds = %if.then.i.i24, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @duckdb_bind_get_parameter_count(ptr noundef readonly %info) local_unnamed_addr #25 {
+define range(i64 -144115188075855872, 144115188075855872) i64 @duckdb_bind_get_parameter_count(ptr noundef readonly %info) local_unnamed_addr #25 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28606,7 +28606,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @duckdb_init_get_column_count(ptr noundef readonly %info) local_unnamed_addr #25 {
+define range(i64 -1152921504606846976, 1152921504606846976) i64 @duckdb_init_get_column_count(ptr noundef readonly %info) local_unnamed_addr #25 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end

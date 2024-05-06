@@ -63,7 +63,7 @@ define hidden void @_ZN5ceres8internal14PreconditionerD0Ev(ptr nocapture nonnull
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN5ceres8internal14Preconditioner28PreconditionerForZeroEBlocksENS_18PreconditionerTypeE(i32 noundef %0) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 3, 2) i32 @_ZN5ceres8internal14Preconditioner28PreconditionerForZeroEBlocksENS_18PreconditionerTypeE(i32 noundef %0) local_unnamed_addr #4 align 2 {
   switch i32 %0, label %2 [
     i32 5, label %3
     i32 4, label %3

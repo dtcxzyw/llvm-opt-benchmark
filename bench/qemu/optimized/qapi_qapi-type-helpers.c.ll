@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @human_readable_text_from_str(ptr nocapture noundef %str) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @human_readable_text_from_str(ptr nocapture noundef %str) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 8) #2
   %0 = load ptr, ptr %str, align 8

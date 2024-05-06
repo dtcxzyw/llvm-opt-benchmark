@@ -23,7 +23,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !6
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store ptr %5, ptr %3, align 8, !noalias !6
-  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h3f3e3e7d38ec950bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.a35a79827839fc437f8c6deac10cb88a.0, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.a35a79827839fc437f8c6deac10cb88a.1, i64 noundef 3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a35a79827839fc437f8c6deac10cb88a.2, ptr noalias noundef nonnull readonly align 1 @anon.a35a79827839fc437f8c6deac10cb88a.3, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a35a79827839fc437f8c6deac10cb88a.4)
+  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h3f3e3e7d38ec950bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.a35a79827839fc437f8c6deac10cb88a.0, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.a35a79827839fc437f8c6deac10cb88a.1, i64 noundef 3, ptr noundef nonnull readonly align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a35a79827839fc437f8c6deac10cb88a.2, ptr noalias noundef nonnull readonly align 1 @anon.a35a79827839fc437f8c6deac10cb88a.3, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a35a79827839fc437f8c6deac10cb88a.4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !6
   ret i1 %6
 }
@@ -3957,7 +3957,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
   %17 = getelementptr inbounds i8, ptr %16, i64 %10
   %18 = load i8, ptr %17, align 1, !noalias !698, !noundef !4
   %19 = lshr i64 %7, 57
-  %20 = trunc i64 %19 to i8
+  %20 = trunc nuw nsw i64 %19 to i8
   %21 = add i64 %10, -16
   %22 = getelementptr inbounds i8, ptr %5, i64 8
   %23 = load i64, ptr %22, align 8, !alias.scope !701, !noalias !698, !noundef !4
@@ -3999,7 +3999,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN9hashbrown11
   %10 = getelementptr inbounds i8, ptr %9, i64 %8
   %11 = load i8, ptr %10, align 1, !noalias !706, !noundef !4
   %12 = lshr i64 %6, 57
-  %13 = trunc i64 %12 to i8
+  %13 = trunc nuw nsw i64 %12 to i8
   %14 = add i64 %8, -16
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !alias.scope !709, !noalias !706, !noundef !4
@@ -4064,7 +4064,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
   %17 = getelementptr inbounds i8, ptr %16, i64 %10
   %18 = load i8, ptr %17, align 1, !noalias !714, !noundef !4
   %19 = lshr i64 %7, 57
-  %20 = trunc i64 %19 to i8
+  %20 = trunc nuw nsw i64 %19 to i8
   %21 = add i64 %10, -16
   %22 = getelementptr inbounds i8, ptr %5, i64 8
   %23 = load i64, ptr %22, align 8, !alias.scope !717, !noalias !714, !noundef !4
@@ -4129,7 +4129,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
   %17 = getelementptr inbounds i8, ptr %16, i64 %10
   %18 = load i8, ptr %17, align 1, !noalias !722, !noundef !4
   %19 = lshr i64 %7, 57
-  %20 = trunc i64 %19 to i8
+  %20 = trunc nuw nsw i64 %19 to i8
   %21 = add i64 %10, -16
   %22 = getelementptr inbounds i8, ptr %5, i64 8
   %23 = load i64, ptr %22, align 8, !alias.scope !725, !noalias !722, !noundef !4
@@ -4194,7 +4194,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
   %17 = getelementptr inbounds i8, ptr %16, i64 %10
   %18 = load i8, ptr %17, align 1, !noalias !730, !noundef !4
   %19 = lshr i64 %7, 57
-  %20 = trunc i64 %19 to i8
+  %20 = trunc nuw nsw i64 %19 to i8
   %21 = add i64 %10, -16
   %22 = getelementptr inbounds i8, ptr %5, i64 8
   %23 = load i64, ptr %22, align 8, !alias.scope !733, !noalias !730, !noundef !4

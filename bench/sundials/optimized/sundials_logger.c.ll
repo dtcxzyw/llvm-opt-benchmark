@@ -30,7 +30,7 @@ define void @sunCreateLogMessage(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   store ptr null, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.va_copy.p0(ptr nonnull %8, ptr %5)
-  %9 = call noundef i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %4, ptr noundef nonnull %8) #14
+  %9 = call noundef i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %4, ptr noundef nonnull %8) #14
   call void @llvm.va_end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %10 = icmp slt i32 %9, 0
@@ -44,7 +44,7 @@ define void @sunCreateLogMessage(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   br i1 %15, label %sunvasnprintf.exit.thread, label %sunvasnprintf.exit
 
 sunvasnprintf.exit:                               ; preds = %11
-  %16 = call i32 @vsprintf(ptr noundef nonnull %14, ptr noundef %4, ptr noundef %5) #14
+  %16 = call i32 @vsprintf(ptr noundef nonnull %14, ptr noundef readonly %4, ptr noundef %5) #14
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %sunvasnprintf.exit.thread, label %20
 
@@ -88,7 +88,7 @@ define internal noundef i32 @sunsnprintf(ptr nocapture noundef %0, i64 noundef %
   call void @llvm.va_start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.va_copy.p0(ptr nonnull %4, ptr nonnull %5)
-  %6 = call noundef i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #14
+  %6 = call noundef i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull readonly @.str.6, ptr noundef nonnull %4) #14
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %5)
@@ -102,7 +102,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNLogger_Create(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -9999, 1) i32 @SUNLogger_Create(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(88) ptr @malloc(i64 noundef 88) #15
   store ptr %4, ptr %2, align 8
   %5 = icmp eq ptr %4, null
@@ -163,7 +163,7 @@ SUNHashMap_New.exit:                              ; preds = %.preheader.i, %SUNH
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNLogger_CreateFromEnv(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -9999, 1) i32 @SUNLogger_CreateFromEnv(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @getenv(ptr noundef nonnull @.str.7) #14
   %.not = icmp eq ptr %4, null
@@ -236,12 +236,12 @@ SUNLogger_Create.exit:                            ; preds = %15
   br label %SUNLogger_Create.exit.thread30
 
 SUNLogger_Create.exit.thread:                     ; preds = %.preheader.i.i, %SUNLogger_Create.exit.thread33
-  %34 = tail call i32 @SUNLogger_SetErrorFilename(ptr noundef nonnull %13, ptr noundef %9), !range !4
+  %34 = tail call i32 @SUNLogger_SetErrorFilename(ptr noundef nonnull %13, ptr noundef %9)
   %.not21 = icmp eq i32 %34, 0
   br i1 %.not21, label %35, label %.thread
 
 35:                                               ; preds = %SUNLogger_Create.exit.thread
-  %36 = tail call i32 @SUNLogger_SetWarningFilename(ptr noundef nonnull %13, ptr noundef %10), !range !4
+  %36 = tail call i32 @SUNLogger_SetWarningFilename(ptr noundef nonnull %13, ptr noundef %10)
   %.not22 = icmp eq i32 %36, 0
   br i1 %.not22, label %38, label %.thread
 
@@ -266,7 +266,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #5
 declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @SUNLogger_SetErrorFilename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -9999, 1) i32 @SUNLogger_SetErrorFilename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %SUNHashMap_Insert.exit, label %3
 
@@ -314,7 +314,7 @@ fnv1a_hash.exit.i:                                ; preds = %.lr.ph.i.i
 
 26:                                               ; preds = %fnv1a_hash.exit.i
   %27 = load ptr, ptr %24, align 8
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %1) #17
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %1) #17
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %44, label %29
 
@@ -342,7 +342,7 @@ sunHashMapLinearProbeGet.exit.thread.i:           ; preds = %38, %34
 38:                                               ; preds = %34
   %39 = trunc nsw i64 %indvars.iv.i.i to i32
   %40 = load ptr, ptr %36, align 8
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %1) #17
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %1) #17
   %.not.i29.i = icmp ne i32 %41, 0
   %.not.i28.i = icmp eq i32 %39, -1
   %or.cond.i = select i1 %.not.i29.i, i1 true, i1 %.not.i28.i
@@ -362,7 +362,7 @@ SUNHashMap_Iterate.exit.i:                        ; preds = %38
   br label %SUNHashMap_Insert.exit
 
 SUNHashMap_Iterate.exit.i.thread:                 ; preds = %sunHashMapLinearProbeGet.exit.thread.i, %29, %5, %fnv1a_hash.exit.i, %SUNHashMap_Iterate.exit.i
-  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.15) #17
+  %48 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.15) #17
   %.not.i20 = icmp eq i32 %48, 0
   br i1 %.not.i20, label %49, label %51
 
@@ -371,7 +371,7 @@ SUNHashMap_Iterate.exit.i.thread:                 ; preds = %sunHashMapLinearPro
   br label %sunOpenLogFile.exit
 
 51:                                               ; preds = %SUNHashMap_Iterate.exit.i.thread
-  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.16) #17
+  %52 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.16) #17
   %.not7.i = icmp eq i32 %52, 0
   br i1 %.not7.i, label %53, label %55
 
@@ -380,7 +380,7 @@ SUNHashMap_Iterate.exit.i.thread:                 ; preds = %sunHashMapLinearPro
   br label %sunOpenLogFile.exit
 
 55:                                               ; preds = %51
-  %56 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.13)
+  %56 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.13)
   br label %sunOpenLogFile.exit
 
 sunOpenLogFile.exit:                              ; preds = %49, %53, %55
@@ -478,7 +478,7 @@ SUNHashMap_Insert.exit:                           ; preds = %81, %78, %92, %89, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @SUNLogger_SetWarningFilename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -9999, 1) i32 @SUNLogger_SetWarningFilename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %SUNHashMap_Insert.exit, label %3
 
@@ -526,7 +526,7 @@ fnv1a_hash.exit.i:                                ; preds = %.lr.ph.i.i
 
 26:                                               ; preds = %fnv1a_hash.exit.i
   %27 = load ptr, ptr %24, align 8
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %1) #17
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %1) #17
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %44, label %29
 
@@ -554,7 +554,7 @@ sunHashMapLinearProbeGet.exit.thread.i:           ; preds = %38, %34
 38:                                               ; preds = %34
   %39 = trunc nsw i64 %indvars.iv.i.i to i32
   %40 = load ptr, ptr %36, align 8
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %1) #17
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %1) #17
   %.not.i29.i = icmp ne i32 %41, 0
   %.not.i28.i = icmp eq i32 %39, -1
   %or.cond.i = select i1 %.not.i29.i, i1 true, i1 %.not.i28.i
@@ -574,7 +574,7 @@ SUNHashMap_Iterate.exit.i:                        ; preds = %38
   br label %SUNHashMap_Insert.exit
 
 SUNHashMap_Iterate.exit.i.thread:                 ; preds = %sunHashMapLinearProbeGet.exit.thread.i, %29, %5, %fnv1a_hash.exit.i, %SUNHashMap_Iterate.exit.i
-  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.15) #17
+  %48 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.15) #17
   %.not.i20 = icmp eq i32 %48, 0
   br i1 %.not.i20, label %49, label %51
 
@@ -583,7 +583,7 @@ SUNHashMap_Iterate.exit.i.thread:                 ; preds = %sunHashMapLinearPro
   br label %sunOpenLogFile.exit
 
 51:                                               ; preds = %SUNHashMap_Iterate.exit.i.thread
-  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.16) #17
+  %52 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.16) #17
   %.not7.i = icmp eq i32 %52, 0
   br i1 %.not7.i, label %53, label %55
 
@@ -592,7 +592,7 @@ SUNHashMap_Iterate.exit.i.thread:                 ; preds = %sunHashMapLinearPro
   br label %sunOpenLogFile.exit
 
 55:                                               ; preds = %51
-  %56 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.13)
+  %56 = tail call noalias ptr @fopen(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.13)
   br label %sunOpenLogFile.exit
 
 sunOpenLogFile.exit:                              ; preds = %49, %53, %55
@@ -690,14 +690,14 @@ SUNHashMap_Insert.exit:                           ; preds = %81, %78, %92, %89, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @SUNLogger_SetDebugFilename(ptr noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #7 {
+define noundef range(i32 -9999, 1) i32 @SUNLogger_SetDebugFilename(ptr noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   %spec.select = select i1 %.not, i32 -9999, i32 0
   ret i32 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @SUNLogger_SetInfoFilename(ptr noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #7 {
+define noundef range(i32 -9999, 1) i32 @SUNLogger_SetInfoFilename(ptr noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   %spec.select = select i1 %.not, i32 -9999, i32 0
   ret i32 %spec.select
@@ -1015,7 +1015,7 @@ define i32 @SUNLogger_Flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @SUNLogger_GetOutputRank(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
+define range(i32 -9999, 1) i32 @SUNLogger_GetOutputRank(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -1088,4 +1088,3 @@ attributes #17 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i32 -9999, i32 1}

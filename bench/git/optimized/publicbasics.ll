@@ -109,7 +109,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hash_size(i32 noundef %id) local_unnamed_addr #0 {
+define dso_local range(i32 20, 33) i32 @hash_size(i32 noundef %id) local_unnamed_addr #0 {
 entry:
   switch i32 %id, label %sw.epilog [
     i32 0, label %return

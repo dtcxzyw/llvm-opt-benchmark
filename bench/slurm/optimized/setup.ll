@@ -760,7 +760,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
 
 .critedge2.us.i.i:                                ; preds = %66, %61
   %indvars.iv.next240.i.i = add nuw nsw i64 %indvars.iv239.i.i, 1
-  %72 = trunc i64 %indvars.iv.next240.i.i to i32
+  %72 = trunc nsw i64 %indvars.iv.next240.i.i to i32
   %73 = icmp ugt i32 %44, %72
   br i1 %73, label %61, label %.critedge.thread.us.i.i, !llvm.loop !11
 
@@ -785,7 +785,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   br i1 %86, label %.critedge.us.i.i, label %.critedge4.us.loopexit.i.i
 
 .critedge4.us.loopexit.i.i:                       ; preds = %80, %.lr.ph202.us.i.i
-  %87 = trunc i64 %indvars.iv243.i.i to i32
+  %87 = trunc nsw i64 %indvars.iv243.i.i to i32
   br label %.critedge4.us.i.i
 
 .critedge4.us.i.i:                                ; preds = %.critedge.preheader.us.i.i, %.critedge4.us.loopexit.i.i
@@ -806,7 +806,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   store i16 %90, ptr %75, align 2
   %91 = add i32 %.2137200.us.i.i, 1
   %indvars.iv.next244.i.i = add nuw nsw i64 %indvars.iv243.i.i, 1
-  %92 = trunc i64 %indvars.iv.next244.i.i to i32
+  %92 = trunc nsw i64 %indvars.iv.next244.i.i to i32
   %93 = icmp ugt i32 %44, %92
   br i1 %93, label %.lr.ph202.us.i.i, label %.critedge4.us.thread.i.i, !llvm.loop !13
 
@@ -816,7 +816,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   br label %.critedge.thread.us.i.i
 
 .critedge.preheader.us.i.i:                       ; preds = %66
-  %95 = trunc i64 %indvars.iv239.i.i to i32
+  %95 = trunc nsw i64 %indvars.iv239.i.i to i32
   %96 = icmp ugt i32 %44, %95
   br i1 %96, label %.lr.ph202.us.i.i, label %.critedge4.us.i.i
 
@@ -930,7 +930,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   %indvars.iv225.i.i = phi i64 [ 0, %.lr.ph173.us.i.i ], [ %indvars.iv.next226.i.i, %152 ]
   %indvars227.i.i = trunc i64 %indvars.iv225.i.i to i32
   %141 = add i32 %.6178.us.i.i, %indvars227.i.i
-  %gep.i.i = getelementptr i32, ptr %invariant.gep.i.i, i64 %indvars.iv225.i.i
+  %gep.i.i = getelementptr inbounds i32, ptr %invariant.gep.i.i, i64 %indvars.iv225.i.i
   %142 = load i32, ptr %gep.i.i, align 4
   %.not149.us.i.i = icmp eq i32 %141, %142
   br i1 %.not149.us.i.i, label %152, label %._crit_edge.us.i.i
@@ -941,7 +941,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   br i1 %.not150.us.i.i, label %146, label %.critedge12.us.loopexit.i.i
 
 .critedge12.us.loopexit.i.i:                      ; preds = %._crit_edge.us.i.i, %130
-  %143 = trunc i64 %indvars.iv231.i.i to i32
+  %143 = trunc nsw i64 %indvars.iv231.i.i to i32
   br label %.critedge12.us.i.i
 
 .critedge12.us.i.i:                               ; preds = %.critedge12.us.loopexit.i.i, %.critedge10.us.i.i
@@ -962,7 +962,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   store i16 %147, ptr %132, align 2
   %148 = add i32 %.6178.us.i.i, %.0141.lcssa.us.i.i
   %indvars.iv.next232.i.i = add nuw nsw i64 %indvars.iv231.i.i, 1
-  %149 = trunc i64 %indvars.iv.next232.i.i to i32
+  %149 = trunc nsw i64 %indvars.iv.next232.i.i to i32
   %150 = icmp ugt i32 %44, %149
   br i1 %150, label %130, label %.critedge12.us.thread.i.i, !llvm.loop !16
 
@@ -994,7 +994,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   br i1 %162, label %.lr.ph173.us.i.i, label %._crit_edge.us.i.i
 
 .critedge6.preheader.us.i.i:                      ; preds = %115
-  %163 = trunc i64 %indvars.iv.i.i to i32
+  %163 = trunc nsw i64 %indvars.iv.i.i to i32
   %sext.i.i = shl i64 %indvars.iv.i.i, 32
   %164 = ashr exact i64 %sext.i.i, 32
   %165 = getelementptr inbounds ptr, ptr %52, i64 %164
@@ -1017,7 +1017,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   %174 = load ptr, ptr %173, align 8
   %175 = zext i16 %133 to i64
   %wide.trip.count.i.i = zext nneg i32 %161 to i64
-  %invariant.gep.i.i = getelementptr i32, ptr %174, i64 %175
+  %invariant.gep.i.i = getelementptr inbounds i32, ptr %174, i64 %175
   br label %140
 
 .lr.ph180.us.i.i:                                 ; preds = %.critedge10.us.i.i
@@ -1056,7 +1056,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   br i1 %186, label %192, label %187
 
 187:                                              ; preds = %.lr.ph.i.i
-  %188 = trunc i64 %indvars.iv234.i.i to i32
+  %188 = trunc nuw nsw i64 %indvars.iv234.i.i to i32
   %189 = sub nsw i32 %188, %.4196.i.i
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.49, i32 noundef %.4196.i.i, i32 noundef %189, i32 noundef %.0142194.i.i) #13
   %190 = load i16, ptr %183, align 2

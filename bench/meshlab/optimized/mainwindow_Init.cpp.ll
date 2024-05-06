@@ -16166,7 +16166,7 @@ _ZN5QListIP5QMenuE3endEv.exit:                    ; preds = %_ZN9QtPrivate8RefCo
   %.034 = phi i32 [ %.sroa.speculated, %_ZN10MainWindow24longestActionWidthInMenuEP5QMenu.exit ], [ 0, %_ZN5QListIP5QMenuE3endEv.exit ]
   %.sroa.024.033 = phi ptr [ %73, %_ZN10MainWindow24longestActionWidthInMenuEP5QMenu.exit ], [ %43, %_ZN5QListIP5QMenuE3endEv.exit ]
   %71 = load ptr, ptr %.sroa.024.033, align 8
-  %72 = invoke noundef i32 @_ZN10MainWindow24longestActionWidthInMenuEP5QMenui(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef %71, i32 noundef 0)
+  %72 = invoke noundef i32 @_ZN10MainWindow24longestActionWidthInMenuEP5QMenui(ptr noundef nonnull readnone align 8 dereferenceable(1376) %0, ptr noundef %71, i32 noundef 0)
           to label %_ZN10MainWindow24longestActionWidthInMenuEP5QMenu.exit unwind label %.loopexit
 
 _ZN10MainWindow24longestActionWidthInMenuEP5QMenu.exit: ; preds = %.lr.ph

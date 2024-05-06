@@ -907,7 +907,7 @@ ossl_x509stctx_set_time.exit:                     ; preds = %rb_num2long_inline.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_x509stctx_verify(i64 noundef %0) #0 {
+define internal range(i64 0, 21) i64 @ossl_x509stctx_verify(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_x509stctx_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -968,7 +968,7 @@ define internal i64 @ossl_x509stctx_get_chain(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_x509stctx_get_err(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ossl_x509stctx_get_err(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_x509stctx_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
@@ -1037,7 +1037,7 @@ define internal i64 @ossl_x509stctx_get_err_string(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ossl_x509stctx_get_err_depth(i64 noundef %0) #0 {
+define internal range(i64 1, 0) i64 @ossl_x509stctx_get_err_depth(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_x509stctx_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5

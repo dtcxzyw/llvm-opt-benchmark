@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_procfs_operations = external constant %struct.mountpt_operations, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @nx_mount(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @nx_mount(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct.inode_search_s, align 8
@@ -31,7 +31,7 @@ define i32 @nx_mount(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br i1 %16, label %56, label %.critedge
 
 .critedge:                                        ; preds = %5, %14
-  %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str) #5
+  %17 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str) #5
   %.not34 = icmp eq i32 %17, 0
   br i1 %.not34, label %18, label %56
 
@@ -143,8 +143,8 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare i32 @inode_remove(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mount(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = tail call i32 @nx_mount(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4), !range !6
+define range(i32 -1, 1) i32 @mount(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = tail call i32 @nx_mount(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %11
 
@@ -182,4 +182,3 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i32 -2147483648, i32 1}

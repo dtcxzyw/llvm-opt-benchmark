@@ -27,7 +27,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %err_get_slot.exit
 
 if.then.i:                                        ; preds = %if.end
-  %2 = trunc i32 %rem.i to i8
+  %2 = trunc nsw i32 %rem.i to i8
   %rem5.lhs.trunc.i = add nsw i8 %2, 1
   %rem56.i = srem i8 %rem5.lhs.trunc.i, 16
   %rem5.sext.i = sext i8 %rem56.i to i32
@@ -124,7 +124,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %if.end15.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %file) #7
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %file) #7
   %add.i = add i64 %call.i, 1
   %call6.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i, ptr noundef null, i32 noundef 0) #6
   store ptr %call6.i, ptr %arrayidx.i, align 8
@@ -132,7 +132,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
   br i1 %cmp9.not.i, label %if.end15.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.else.i
-  %call14.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call6.i, ptr noundef nonnull dereferenceable(1) %file) #6
+  %call14.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call6.i, ptr noundef nonnull readonly dereferenceable(1) %file) #6
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then11.i, %if.else.i, %if.then.i
@@ -156,7 +156,7 @@ if.then25.i:                                      ; preds = %lor.lhs.false20.i, 
   br label %return
 
 if.else28.i:                                      ; preds = %lor.lhs.false20.i
-  %call29.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %func) #7
+  %call29.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %func) #7
   %add30.i = add i64 %call29.i, 1
   %call31.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add30.i, ptr noundef null, i32 noundef 0) #6
   store ptr %call31.i, ptr %arrayidx17.i, align 8
@@ -164,7 +164,7 @@ if.else28.i:                                      ; preds = %lor.lhs.false20.i
   br i1 %cmp34.not.i, label %return, label %if.then36.i
 
 if.then36.i:                                      ; preds = %if.else28.i
-  %call39.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call31.i, ptr noundef nonnull dereferenceable(1) %func) #6
+  %call39.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call31.i, ptr noundef nonnull readonly dereferenceable(1) %func) #6
   br label %return
 
 return:                                           ; preds = %if.then36.i, %if.else28.i, %if.then25.i, %entry
@@ -175,14 +175,11 @@ return:                                           ; preds = %if.then36.i, %if.el
 define void @ERR_set_error(i32 noundef %lib, i32 noundef %reason, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %args)
+  call void @llvm.va_start.p0(ptr nonnull %args)
   call void @ERR_vset_error(i32 noundef %lib, i32 noundef %reason, ptr noundef %fmt, ptr noundef nonnull %args)
-  call void @llvm.va_end(ptr nonnull %args)
+  call void @llvm.va_end.p0(ptr nonnull %args)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define void @ERR_vset_error(i32 noundef %lib, i32 noundef %reason, ptr noundef %fmt, ptr noundef %args) local_unnamed_addr #0 {
@@ -344,9 +341,6 @@ if.end54:                                         ; preds = %entry, %err_set_dat
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
-
 declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @BIO_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -356,19 +350,25 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }

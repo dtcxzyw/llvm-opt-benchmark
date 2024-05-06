@@ -135,7 +135,7 @@ define hidden void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f85
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.3707938170552112821(ptr nocapture noundef nonnull writeonly align 1 %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !range !6, !noundef !4
-  %4 = trunc i8 %3 to i1
+  %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.3707938170552112821.exit.thread, label %5
 
 5:                                                ; preds = %2
@@ -250,7 +250,7 @@ define hidden void @"_ZN4core3ptr61drop_in_place$LT$std..sync..mutex..MutexGuard
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %5 = load i8, ptr %4, align 8, !range !6, !alias.scope !14, !noundef !4
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.3707938170552112821.exit.i, label %7
 
 7:                                                ; preds = %1
@@ -622,7 +622,7 @@ define hidden { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h498a
 define hidden { ptr, i8 } @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i8 }, align 8
   %4 = load i64, ptr %0, align 8, !range !15, !noundef !4
-  %trunc = trunc i64 %4 to i1
+  %trunc = trunc nuw i64 %4 to i1
   br i1 %trunc, label %12, label %5
 
 5:                                                ; preds = %2
@@ -756,7 +756,7 @@ define hidden void @"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %5 = load i8, ptr %4, align 8, !range !6, !alias.scope !16, !noundef !4
-  %6 = trunc i8 %5 to i1
+  %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.3707938170552112821.exit, label %7
 
 7:                                                ; preds = %1
@@ -906,7 +906,7 @@ common.resume:                                    ; preds = %37, %30, %18
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hd1113d1d88291f80E.exit"
-  %23 = trunc i8 %.0.i.i.i to i1
+  %23 = trunc nuw i8 %.0.i.i.i to i1
   %24 = getelementptr inbounds i8, ptr %0, i64 5
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = getelementptr inbounds i8, ptr %3, i64 8
@@ -914,7 +914,7 @@ common.resume:                                    ; preds = %37, %30, %18
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821.exit2": ; preds = %_ZN3std4sync7condvar7Condvar4wait17ha09c8eaa5d30637bE.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821.exit"
   %27 = load i8, ptr %24, align 1, !range !6, !noundef !4
-  %28 = trunc i8 %27 to i1
+  %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %42, label %29
 
 29:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821.exit2"
@@ -1056,7 +1056,7 @@ common.resume:                                    ; preds = %37, %30, %18
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hd1113d1d88291f80E.exit"
-  %23 = trunc i8 %.0.i.i.i to i1
+  %23 = trunc nuw i8 %.0.i.i.i to i1
   %24 = getelementptr inbounds i8, ptr %0, i64 5
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1064,7 +1064,7 @@ common.resume:                                    ; preds = %37, %30, %18
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821.exit2": ; preds = %_ZN3std4sync7condvar7Condvar4wait17ha09c8eaa5d30637bE.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821.exit"
   %27 = load i8, ptr %24, align 1, !range !6, !noundef !4
-  %28 = trunc i8 %27 to i1
+  %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %42, label %29
 
 29:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821.exit2"

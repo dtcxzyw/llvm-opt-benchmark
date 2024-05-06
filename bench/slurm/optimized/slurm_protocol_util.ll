@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.slurm_set_port = private unnamed_addr constant [15 x i8] c"slurm_set_port\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @check_header_version(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @check_header_version(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @working_cluster_rec, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3

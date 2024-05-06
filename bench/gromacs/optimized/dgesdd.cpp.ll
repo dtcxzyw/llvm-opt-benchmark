@@ -77,11 +77,11 @@ define void @dgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   ]
 
 54:                                               ; preds = %53, %53
-  %55 = mul nsw i32 %41, 7
+  %55 = mul nuw nsw i32 %41, 7
   br label %60
 
 56:                                               ; preds = %53
-  %57 = mul nsw i32 %41, 3
+  %57 = mul nuw nsw i32 %41, 3
   %58 = add nuw i32 %57, 4
   %59 = mul i32 %58, %41
   br label %60
@@ -98,7 +98,7 @@ define void @dgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   ]
 
 62:                                               ; preds = %61, %61
-  %63 = mul nsw i32 %41, 67
+  %63 = mul nuw nsw i32 %41, 67
   store i32 %63, ptr %15, align 4
   %64 = add nsw i32 %.0659, %41
   store i32 %64, ptr %16, align 4
@@ -106,16 +106,16 @@ define void @dgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br label %122
 
 66:                                               ; preds = %61
-  %67 = mul nsw i32 %41, 67
+  %67 = mul nuw nsw i32 %41, 67
   %68 = shl i32 %40, 5
   %69 = add nsw i32 %41, %68
   %70 = tail call i32 @llvm.smax.i32(i32 %67, i32 %69)
   store i32 %70, ptr %15, align 4
-  %71 = mul nsw i32 %41, 3
+  %71 = mul nuw nsw i32 %41, 3
   %72 = add nsw i32 %.0659, %71
   store i32 %72, ptr %16, align 4
   %73 = tail call i32 @llvm.smax.i32(i32 %70, i32 %72)
-  %74 = mul nsw i32 %41, %41
+  %74 = mul nuw nsw i32 %41, %41
   %75 = add nuw nsw i32 %73, %74
   br label %122
 
@@ -126,7 +126,7 @@ define void @dgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   ]
 
 77:                                               ; preds = %76, %76
-  %78 = mul nsw i32 %41, 3
+  %78 = mul nuw nsw i32 %41, 3
   %79 = shl nsw i32 %41, 5
   %80 = add nuw nsw i32 %79, %40
   %81 = add nuw nsw i32 %80, %78
@@ -138,7 +138,7 @@ define void @dgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 84:                                               ; preds = %76
   store i32 1, ptr %15, align 4
-  %85 = mul nsw i32 %41, 3
+  %85 = mul nuw nsw i32 %41, 3
   %86 = add nsw i32 %.0659, %85
   store i32 %86, ptr %16, align 4
   %87 = tail call i32 @llvm.smax.i32(i32 %86, i32 1)
@@ -151,11 +151,11 @@ define void @dgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   ]
 
 89:                                               ; preds = %88, %88
-  %90 = mul nsw i32 %40, 7
+  %90 = mul nuw nsw i32 %40, 7
   br label %95
 
 91:                                               ; preds = %88
-  %92 = mul nsw i32 %40, 3
+  %92 = mul nuw nsw i32 %40, 3
   %93 = add nuw i32 %92, 4
   %94 = mul i32 %93, %40
   br label %95
@@ -172,7 +172,7 @@ define void @dgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   ]
 
 97:                                               ; preds = %96, %96
-  %98 = mul nsw i32 %40, 67
+  %98 = mul nuw nsw i32 %40, 67
   store i32 %98, ptr %15, align 4
   %99 = add nsw i32 %.1660, %40
   store i32 %99, ptr %16, align 4
@@ -180,23 +180,23 @@ define void @dgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br label %122
 
 101:                                              ; preds = %96
-  %102 = mul nsw i32 %40, 67
+  %102 = mul nuw nsw i32 %40, 67
   %103 = shl nsw i32 %41, 5
   %104 = add nuw nsw i32 %103, %40
   %105 = tail call i32 @llvm.smax.i32(i32 %102, i32 %104)
   store i32 %105, ptr %15, align 4
-  %106 = mul nsw i32 %40, 3
+  %106 = mul nuw nsw i32 %40, 3
   %107 = add nsw i32 %.1660, %106
   store i32 %107, ptr %16, align 4
   %108 = tail call i32 @llvm.smax.i32(i32 %105, i32 %107)
-  %109 = mul nsw i32 %40, %40
+  %109 = mul nuw nsw i32 %40, %40
   %110 = add nuw nsw i32 %108, %109
   br label %122
 
 111:                                              ; preds = %95
-  %112 = mul nsw i32 %40, 3
+  %112 = mul nuw nsw i32 %40, 3
   %113 = shl nsw i32 %41, 5
-  %114 = shl i32 %40, 2
+  %114 = shl nuw i32 %40, 2
   %115 = add nuw i32 %114, %113
   switch i8 %46, label %119 [
     i8 111, label %116

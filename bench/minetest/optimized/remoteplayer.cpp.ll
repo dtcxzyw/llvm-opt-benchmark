@@ -93,7 +93,7 @@ $_ZTI6Player = comdat any
 @.str.25 = private unnamed_addr constant [32 x i8] c"movement_liquid_fluidity_smooth\00", align 1
 @.str.26 = private unnamed_addr constant [21 x i8] c"movement_liquid_sink\00", align 1
 @.str.27 = private unnamed_addr constant [17 x i8] c"movement_gravity\00", align 1
-@infostream = external thread_local global %class.LogStream, align 8
+@infostream = external thread_local local_unnamed_addr global %class.LogStream, align 8
 @.str.28 = private unnamed_addr constant [8 x i8] c"Player \00", align 1
 @.str.29 = private unnamed_addr constant [47 x i8] c" chat limited due to excessive message amount.\00", align 1
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -2317,7 +2317,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: uwtable
-define dso_local noundef i32 @_ZN12RemotePlayer18canSendChatMessageEv(ptr noundef nonnull align 8 dereferenceable(970) %this) local_unnamed_addr #11 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN12RemotePlayer18canSendChatMessageEv(ptr noundef nonnull align 8 dereferenceable(970) %this) local_unnamed_addr #11 align 2 {
 entry:
   %call = tail call i64 @time(ptr noundef null) #22
   %conv = trunc i64 %call to i32

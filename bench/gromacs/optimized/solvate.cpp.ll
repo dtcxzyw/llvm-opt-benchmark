@@ -633,7 +633,7 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit24:      ; preds = %_ZNSt6vectorIN3gmx1
   br label %173
 
 165:                                              ; preds = %163
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %41, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull writeonly align 16 dereferenceable(36) %41, i8 0, i64 32, i1 false)
   %166 = load float, ptr %31, align 4
   store float %166, ptr %41, align 16
   %167 = getelementptr inbounds i8, ptr %31, i64 4
@@ -2282,7 +2282,7 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit64:      ; preds = %_ZNSt6vectorIN3gmx1
 265:                                              ; preds = %260
   %266 = getelementptr inbounds [3 x i32], ptr %42, i64 0, i64 %indvars.iv.i65
   store i32 %storemerge.i, ptr %266, align 4
-  %267 = mul nsw i32 %storemerge.i, %.0163.i
+  %267 = mul nuw nsw i32 %storemerge.i, %.0163.i
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, 3
   br i1 %exitcond.not.i67, label %268, label %255, !llvm.loop !17
@@ -2550,8 +2550,8 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET_S7_S7_.
 
 395:                                              ; preds = %390
   %396 = load ptr, ptr %330, align 8
-  %397 = getelementptr %struct.t_atom, ptr %396, i64 %indvars.iv215.i
-  %398 = getelementptr i8, ptr %397, i64 60
+  %397 = getelementptr inbounds %struct.t_atom, ptr %396, i64 %indvars.iv215.i
+  %398 = getelementptr inbounds i8, ptr %397, i64 60
   %399 = load i32, ptr %398, align 4
   %400 = getelementptr inbounds %struct.t_atom, ptr %396, i64 %indvars.iv215.i, i32 7
   %401 = load i32, ptr %400, align 4

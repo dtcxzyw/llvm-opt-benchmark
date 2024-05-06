@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [45 x i8] c"Frame size is larger than maximum frame size\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z36alts_zero_copy_grpc_protector_createRKN9grpc_core23GsecKeyFactoryInterfaceEbbbPmPP28tsi_zero_copy_grpc_protector(ptr noundef nonnull align 8 dereferenceable(8) %key_factory, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext %enable_extra_copy, ptr noundef %max_protected_frame_size, ptr noundef writeonly %protector) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 8) i32 @_Z36alts_zero_copy_grpc_protector_createRKN9grpc_core23GsecKeyFactoryInterfaceEbbbPmPP28tsi_zero_copy_grpc_protector(ptr noundef nonnull align 8 dereferenceable(8) %key_factory, i1 noundef zeroext %is_client, i1 noundef zeroext %is_integrity_only, i1 noundef zeroext %enable_extra_copy, ptr noundef %max_protected_frame_size, ptr noundef writeonly %protector) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %agg.tmp8 = alloca %"class.std::unique_ptr", align 8
@@ -445,7 +445,7 @@ do.end.i:                                         ; preds = %do.body.i, %do.body
   br i1 %cmp63.i, label %if.then10, label %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit
 
 _ZL15read_frame_sizePK17grpc_slice_bufferPj.exit: ; preds = %do.end.i
-  %15 = trunc i64 %or61.i to i32
+  %15 = trunc nuw i64 %or61.i to i32
   %conv67.i = add nuw nsw i32 %15, 4
   store i32 %conv67.i, ptr %parsed_frame_size, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %frame_size_buffer.i)
@@ -534,7 +534,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZL44alts_zero_copy_grpc_protector_max_frame_sizeP28tsi_zero_copy_grpc_protectorPm(ptr noundef readonly %self, ptr noundef writeonly %max_frame_size) #4 {
+define internal noundef range(i32 0, 3) i32 @_ZL44alts_zero_copy_grpc_protector_max_frame_sizeP28tsi_zero_copy_grpc_protectorPm(ptr noundef readonly %self, ptr noundef writeonly %max_frame_size) #4 {
 entry:
   %cmp = icmp eq ptr %self, null
   %cmp1 = icmp eq ptr %max_frame_size, null

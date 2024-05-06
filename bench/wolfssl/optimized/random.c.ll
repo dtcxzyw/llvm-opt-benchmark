@@ -131,7 +131,7 @@ return:                                           ; preds = %if.end, %if.end13, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @wc_RNG_TestSeed(ptr nocapture noundef readonly %seed, i32 noundef %seedSz) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @wc_RNG_TestSeed(ptr nocapture noundef readonly %seed, i32 noundef %seedSz) local_unnamed_addr #1 {
 entry:
   %sub = add i32 %seedSz, -4
   %cmp13.not = icmp eq i32 %sub, 0
@@ -196,7 +196,7 @@ entry:
   br i1 %tobool.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call fastcc i32 @_InitRng(ptr noundef nonnull %call, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %heap, i32 noundef -2), !range !9
+  %call1 = tail call fastcc i32 @_InitRng(ptr noundef nonnull %call, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %heap, i32 noundef -2)
   %cmp.not = icmp eq i32 %call1, 0
   br i1 %cmp.not, label %if.end7, label %if.then5
 
@@ -212,7 +212,7 @@ if.end7:                                          ; preds = %if.then, %if.then5,
 declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_InitRng(ptr noundef %rng, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %heap, i32 noundef %devId) unnamed_addr #0 {
+define internal fastcc range(i32 -209, 3) i32 @_InitRng(ptr noundef %rng, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %heap, i32 noundef %devId) unnamed_addr #0 {
 entry:
   %seed = alloca [52 x i8], align 16
   %cmp = icmp eq ptr %rng, null
@@ -233,7 +233,7 @@ if.end4:                                          ; preds = %if.end
   store i8 0, ptr %status, align 8
   %cmp6 = icmp eq i32 %nonceSz, 0
   %spec.select = select i1 %cmp6, i32 52, i32 36
-  %call = tail call fastcc i32 @wc_RNG_HealthTestLocal(i32 noundef 0, ptr noundef %heap, i32 noundef %devId), !range !10
+  %call = tail call fastcc i32 @wc_RNG_HealthTestLocal(i32 noundef 0, ptr noundef %heap, i32 noundef %devId)
   %cmp10 = icmp eq i32 %call, 0
   br i1 %cmp10, label %if.then11, label %if.then54
 
@@ -277,7 +277,7 @@ if.end17.i:                                       ; preds = %while.body.i
   %idx.ext.i = ashr exact i64 %sext.i, 32
   %add.ptr.i = getelementptr inbounds i8, ptr %output.addr.0.i, i64 %idx.ext.i
   %tobool18.not.i = icmp eq i32 %sz.addr.0.i, %conv13.i
-  br i1 %tobool18.not.i, label %while.cond.i, label %wc_GenerateSeed.exit.thread50, !llvm.loop !11
+  br i1 %tobool18.not.i, label %while.cond.i, label %wc_GenerateSeed.exit.thread50, !llvm.loop !9
 
 wc_GenerateSeed.exit.thread50:                    ; preds = %while.body.i, %if.end17.i
   %1 = load i32, ptr %rng, align 4
@@ -471,7 +471,7 @@ while.body.i.i.i:                                 ; preds = %if.then2.i, %while.
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %z.013.i.i.i, i64 1
   store volatile i8 0, ptr %z.013.i.i.i, align 1
   %tobool.not.i.i.i = icmp eq i32 %dec.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %for.body.i.i.i.preheader, label %while.body.i.i.i, !llvm.loop !12
+  br i1 %tobool.not.i.i.i, label %for.body.i.i.i.preheader, label %while.body.i.i.i, !llvm.loop !10
 
 while.cond9.preheader.i.i.i:                      ; preds = %for.body.i.i.i
   %tobool11.not20.i.i.i = icmp eq i32 %sub8.i.i.i, 0
@@ -530,7 +530,7 @@ while.body.i:                                     ; preds = %wc_FreeRng.exit, %w
   %incdec.ptr.i = getelementptr inbounds i8, ptr %z.013.i, i64 1
   store volatile i8 0, ptr %z.013.i, align 1
   %tobool.not.i6 = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i6, label %for.body.i.preheader, label %while.body.i, !llvm.loop !12
+  br i1 %tobool.not.i6, label %for.body.i.preheader, label %while.body.i, !llvm.loop !10
 
 while.cond9.preheader.i:                          ; preds = %for.body.i
   %tobool11.not20.i = icmp eq i32 %sub8.i, 0
@@ -563,7 +563,7 @@ if.end4:                                          ; preds = %ForceZero.exit, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_FreeRng(ptr noundef %rng) local_unnamed_addr #0 {
+define range(i32 -199, 1) i32 @wc_FreeRng(ptr noundef %rng) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %rng, null
   br i1 %cmp, label %return, label %if.end
@@ -594,7 +594,7 @@ while.body.i.i:                                   ; preds = %if.then2, %while.bo
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %z.013.i.i, i64 1
   store volatile i8 0, ptr %z.013.i.i, align 1
   %tobool.not.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %tobool.not.i.i, label %for.body.i.i.preheader, label %while.body.i.i, !llvm.loop !12
+  br i1 %tobool.not.i.i, label %for.body.i.i.preheader, label %while.body.i.i, !llvm.loop !10
 
 while.cond9.preheader.i.i:                        ; preds = %for.body.i.i
   %tobool11.not20.i.i = icmp eq i32 %sub8.i.i, 0
@@ -630,7 +630,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %or.i = or i32 %compareSum.05.i, %conv2.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %Hash_DRBG_Uninstantiate.exit, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %Hash_DRBG_Uninstantiate.exit, label %for.body.i, !llvm.loop !11
 
 Hash_DRBG_Uninstantiate.exit:                     ; preds = %for.body.i
   %cmp3.i.not = icmp eq i32 %or.i, 0
@@ -681,7 +681,7 @@ while.body:                                       ; preds = %entry, %while.body
   %incdec.ptr = getelementptr inbounds i8, ptr %z.013, i64 1
   store volatile i8 0, ptr %z.013, align 1
   %tobool.not = icmp eq i32 %dec, 0
-  br i1 %tobool.not, label %for.cond.preheader, label %while.body, !llvm.loop !12
+  br i1 %tobool.not, label %for.cond.preheader, label %while.body, !llvm.loop !10
 
 while.cond9.preheader:                            ; preds = %for.body, %for.cond.preheader
   %len.addr.0.lcssa = phi i32 [ %sub3, %for.cond.preheader ], [ %sub8, %for.body ]
@@ -712,35 +712,35 @@ while.end14:                                      ; preds = %while.body12, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wc_InitRng(ptr noundef %rng) local_unnamed_addr #0 {
+define range(i32 -209, 3) i32 @wc_InitRng(ptr noundef %rng) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @_InitRng(ptr noundef %rng, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef -2), !range !9
+  %call = tail call fastcc i32 @_InitRng(ptr noundef %rng, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef -2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wc_InitRng_ex(ptr noundef %rng, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define range(i32 -209, 3) i32 @wc_InitRng_ex(ptr noundef %rng, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @_InitRng(ptr noundef %rng, ptr noundef null, i32 noundef 0, ptr noundef %heap, i32 noundef %devId), !range !9
+  %call = tail call fastcc i32 @_InitRng(ptr noundef %rng, ptr noundef null, i32 noundef 0, ptr noundef %heap, i32 noundef %devId)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wc_InitRngNonce(ptr noundef %rng, ptr noundef %nonce, i32 noundef %nonceSz) local_unnamed_addr #0 {
+define range(i32 -209, 3) i32 @wc_InitRngNonce(ptr noundef %rng, ptr noundef %nonce, i32 noundef %nonceSz) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @_InitRng(ptr noundef %rng, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef null, i32 noundef -2), !range !9
+  %call = tail call fastcc i32 @_InitRng(ptr noundef %rng, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef null, i32 noundef -2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wc_InitRngNonce_ex(ptr noundef %rng, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
+define range(i32 -209, 3) i32 @wc_InitRngNonce_ex(ptr noundef %rng, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
 entry:
-  %call = tail call fastcc i32 @_InitRng(ptr noundef %rng, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %heap, i32 noundef %devId), !range !9
+  %call = tail call fastcc i32 @_InitRng(ptr noundef %rng, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %heap, i32 noundef %devId)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef %output, i32 noundef %sz) local_unnamed_addr #0 {
+define range(i32 -209, 1) i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef %output, i32 noundef %sz) local_unnamed_addr #0 {
 entry:
   %check.i = alloca [128 x i8], align 16
   %newSeed = alloca [36 x i8], align 16
@@ -766,7 +766,7 @@ if.end8:                                          ; preds = %if.end4
 if.end13:                                         ; preds = %if.end8
   %drbg = getelementptr inbounds i8, ptr %rng, i64 16
   %1 = load ptr, ptr %drbg, align 8
-  %call = tail call fastcc i32 @Hash_DRBG_Generate(ptr noundef %1, ptr noundef nonnull %output, i32 noundef %sz), !range !14
+  %call = tail call fastcc i32 @Hash_DRBG_Generate(ptr noundef %1, ptr noundef nonnull %output, i32 noundef %sz)
   %cmp14 = icmp eq i32 %call, 2
   br i1 %cmp14, label %if.then16, label %if.end51
 
@@ -774,7 +774,7 @@ if.then16:                                        ; preds = %if.end13
   %heap = getelementptr inbounds i8, ptr %rng, i64 8
   %2 = load ptr, ptr %heap, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %check.i)
-  %call.i = call i32 @wc_RNG_HealthTest_ex(i32 noundef 1, ptr noundef null, i32 noundef 0, ptr noundef nonnull @seedA_data, i32 noundef 48, ptr noundef nonnull @reseedSeedA_data, i32 noundef 32, ptr noundef nonnull %check.i, i32 noundef 128, ptr noundef %2, i32 poison), !range !10
+  %call.i = call i32 @wc_RNG_HealthTest_ex(i32 noundef 1, ptr noundef null, i32 noundef 0, ptr noundef nonnull @seedA_data, i32 noundef 48, ptr noundef nonnull @reseedSeedA_data, i32 noundef 32, ptr noundef nonnull %check.i, i32 noundef 128, ptr noundef %2, i32 poison)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %for.body.i.i, label %wc_RNG_HealthTestLocal.exit.thread
 
@@ -802,12 +802,12 @@ wc_RNG_HealthTestLocal.exit:                      ; preds = %for.body.i.i
   br i1 %cmp4.not.i.not, label %if.then23, label %return.sink.split
 
 if.then23:                                        ; preds = %wc_RNG_HealthTestLocal.exit
-  %call24 = call i32 @wc_GenerateSeed(ptr noundef %rng, ptr noundef nonnull %newSeed, i32 noundef 36), !range !10
+  %call24 = call i32 @wc_GenerateSeed(ptr noundef %rng, ptr noundef nonnull %newSeed, i32 noundef 36)
   %cmp25.not.not = icmp eq i32 %call24, 0
   br i1 %cmp25.not.not, label %if.end35, label %if.end48
 
 if.end35:                                         ; preds = %if.then23
-  %call34 = call i32 @wc_RNG_TestSeed(ptr noundef nonnull %newSeed, i32 noundef 36), !range !15
+  %call34 = call i32 @wc_RNG_TestSeed(ptr noundef nonnull %newSeed, i32 noundef 36)
   %cmp36 = icmp eq i32 %call34, 0
   br i1 %cmp36, label %if.end42, label %if.end48
 
@@ -820,7 +820,7 @@ if.end42:                                         ; preds = %if.end35
 
 if.then45:                                        ; preds = %if.end42
   %6 = load ptr, ptr %drbg, align 8
-  %call47 = call fastcc i32 @Hash_DRBG_Generate(ptr noundef %6, ptr noundef %output, i32 noundef %sz), !range !14
+  %call47 = call fastcc i32 @Hash_DRBG_Generate(ptr noundef %6, ptr noundef %output, i32 noundef %sz)
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then23, %if.end35, %if.then45, %if.end42
@@ -850,7 +850,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Hash_DRBG_Generate(ptr noundef %drbg, ptr noundef writeonly %out, i32 noundef %outSz) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @Hash_DRBG_Generate(ptr noundef %drbg, ptr noundef writeonly %out, i32 noundef %outSz) unnamed_addr #0 {
 entry:
   %data.i = alloca [55 x i8], align 16
   %digest.i = alloca [32 x i8], align 16
@@ -879,7 +879,7 @@ if.else:                                          ; preds = %if.end
   %tobool.not.i = icmp ne i32 %rem.i, 0
   %cond.i = zext i1 %tobool.not.i to i32
   %add.i = add nuw nsw i32 %div14.i, %cond.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(55) %data.i, ptr noundef nonnull align 1 dereferenceable(55) %V, i64 55, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(55) %data.i, ptr noundef nonnull readonly align 1 dereferenceable(55) %V, i64 55, i1 false)
   %cmp45.not.i = icmp eq i32 %add.i, 0
   br i1 %cmp45.not.i, label %for.cond.preheader.i.i, label %for.body.i
 
@@ -931,7 +931,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   %dec.i.i = add nsw i32 %i.05.i.i, -1
   %cmp.not.i.i = icmp eq i32 %i.05.i.i, 0
   %or.cond.i.i = or i1 %cmp.not.i.i, %cmp3.not.i.i
-  br i1 %or.cond.i.i, label %for.inc.loopexit.i, label %for.body.i.i, !llvm.loop !16
+  br i1 %or.cond.i.i, label %for.inc.loopexit.i, label %for.body.i.i, !llvm.loop !12
 
 if.else.i:                                        ; preds = %if.then23.i
   %conv.i = zext nneg i32 %outSz.addr.06.i to i64
@@ -948,7 +948,7 @@ for.inc.i:                                        ; preds = %for.inc.loopexit.i,
   %out.addr.1.i = phi ptr [ %out.addr.07.i, %if.else.i ], [ %out.addr.07.i, %if.then20.i ], [ %add.ptr.i, %for.inc.loopexit.i ]
   %inc.i = add nuw nsw i32 %i.08.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %add.i
-  br i1 %exitcond.not.i, label %for.cond.preheader.i.i, label %for.body.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %for.cond.preheader.i.i, label %for.body.i, !llvm.loop !13
 
 for.cond.preheader.i.i:                           ; preds = %for.inc.i, %if.end17.i, %if.end17.thread.i, %if.else
   %cmp5 = phi i1 [ false, %if.end17.thread.i ], [ false, %if.else ], [ %cmp19.i, %for.inc.i ], [ false, %if.end17.i ]
@@ -1021,7 +1021,7 @@ for.body.i16:                                     ; preds = %if.end26, %for.body
   %7 = lshr i16 %add12.i, 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp5.i = icmp ugt i64 %indvars.iv29.i, 1
-  br i1 %cmp5.i, label %for.body.i16, label %for.body23.i, !llvm.loop !18
+  br i1 %cmp5.i, label %for.body.i16, label %for.body23.i, !llvm.loop !14
 
 for.body23.i:                                     ; preds = %for.body.i16, %for.body23.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %for.body23.i ], [ 22, %for.body.i16 ]
@@ -1035,7 +1035,7 @@ for.body23.i:                                     ; preds = %for.body.i16, %for.
   %9 = lshr i16 %add29.i, 8
   %indvars.iv.next32.i = add nsw i64 %indvars.iv31.i, -1
   %cmp21.not.i = icmp eq i64 %indvars.iv31.i, 0
-  br i1 %cmp21.not.i, label %array_add.exit, label %for.body23.i, !llvm.loop !19
+  br i1 %cmp21.not.i, label %array_add.exit, label %for.body23.i, !llvm.loop !15
 
 array_add.exit:                                   ; preds = %for.body23.i
   %C = getelementptr inbounds i8, ptr %drbg, i64 59
@@ -1059,7 +1059,7 @@ for.body.i19:                                     ; preds = %for.body.i19, %arra
   %12 = lshr i16 %add12.i29, 8
   %indvars.iv.next.i31 = add nsw i64 %indvars.iv.i21, -1
   %cmp5.i32 = icmp ugt i64 %indvars.iv29.i20, 1
-  br i1 %cmp5.i32, label %for.body.i19, label %array_add.exit45, !llvm.loop !18
+  br i1 %cmp5.i32, label %for.body.i19, label %array_add.exit45, !llvm.loop !14
 
 array_add.exit45:                                 ; preds = %for.body.i19
   %13 = load i32, ptr %reseedCtr, align 4
@@ -1085,7 +1085,7 @@ for.body.i46:                                     ; preds = %for.body.i46, %arra
   %16 = lshr i16 %add12.i56, 8
   %indvars.iv.next.i58 = add nsw i64 %indvars.iv.i48, -1
   %cmp5.i59 = icmp ugt i64 %indvars.iv29.i47, 1
-  br i1 %cmp5.i59, label %for.body.i46, label %for.body23.i63, !llvm.loop !18
+  br i1 %cmp5.i59, label %for.body.i46, label %for.body23.i63, !llvm.loop !14
 
 for.body23.i63:                                   ; preds = %for.body.i46, %for.body23.i63
   %indvars.iv31.i64 = phi i64 [ %indvars.iv.next32.i70, %for.body23.i63 ], [ 50, %for.body.i46 ]
@@ -1099,7 +1099,7 @@ for.body23.i63:                                   ; preds = %for.body.i46, %for.
   %18 = lshr i16 %add29.i68, 8
   %indvars.iv.next32.i70 = add nsw i64 %indvars.iv31.i64, -1
   %cmp21.not.i71 = icmp eq i64 %indvars.iv31.i64, 0
-  br i1 %cmp21.not.i71, label %if.end39, label %for.body23.i63, !llvm.loop !19
+  br i1 %cmp21.not.i71, label %if.end39, label %for.body23.i63, !llvm.loop !15
 
 if.end39:                                         ; preds = %for.body23.i63, %if.end26.thread, %if.end26
   %19 = phi i32 [ 1, %if.end26.thread ], [ 1, %if.end26 ], [ 0, %for.body23.i63 ]
@@ -1127,14 +1127,14 @@ return:                                           ; preds = %for.body.i75, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wc_RNG_HealthTestLocal(i32 noundef %reseed, ptr noundef %heap, i32 noundef %devId) unnamed_addr #0 {
+define internal fastcc range(i32 -173, 1) i32 @wc_RNG_HealthTestLocal(i32 noundef %reseed, ptr noundef %heap, i32 noundef %devId) unnamed_addr #0 {
 entry:
   %check = alloca [128 x i8], align 16
   %tobool.not = icmp eq i32 %reseed, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = call i32 @wc_RNG_HealthTest_ex(i32 noundef 1, ptr noundef null, i32 noundef 0, ptr noundef nonnull @seedA_data, i32 noundef 48, ptr noundef nonnull @reseedSeedA_data, i32 noundef 32, ptr noundef nonnull %check, i32 noundef 128, ptr noundef %heap, i32 poison), !range !10
+  %call = call i32 @wc_RNG_HealthTest_ex(i32 noundef 1, ptr noundef null, i32 noundef 0, ptr noundef nonnull @seedA_data, i32 noundef 48, ptr noundef nonnull @reseedSeedA_data, i32 noundef 32, ptr noundef nonnull %check, i32 noundef 128, ptr noundef %heap, i32 poison)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %for.body.i, label %if.end30
 
@@ -1158,7 +1158,7 @@ ConstantCompare.exit:                             ; preds = %for.body.i
   br label %if.end30
 
 if.else:                                          ; preds = %entry
-  %call8 = call i32 @wc_RNG_HealthTest_ex(i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef nonnull @seedB_data, i32 noundef 48, ptr noundef null, i32 noundef 0, ptr noundef nonnull %check, i32 noundef 128, ptr noundef %heap, i32 poison), !range !10
+  %call8 = call i32 @wc_RNG_HealthTest_ex(i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef nonnull @seedB_data, i32 noundef 48, ptr noundef null, i32 noundef 0, ptr noundef nonnull %check, i32 noundef 128, ptr noundef %heap, i32 poison)
   %cmp9 = icmp eq i32 %call8, 0
   br i1 %cmp9, label %for.body.i14, label %if.end30
 
@@ -1181,7 +1181,7 @@ ConstantCompare.exit24:                           ; preds = %for.body.i14
   br i1 %cmp13.not, label %if.then18, label %if.end30
 
 if.then18:                                        ; preds = %ConstantCompare.exit24
-  %call20 = call i32 @wc_RNG_HealthTest_ex(i32 noundef 0, ptr noundef nonnull getelementptr inbounds ([48 x i8], ptr @seedB_data, i64 0, i64 32), i32 noundef 16, ptr noundef nonnull @seedB_data, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %check, i32 noundef 128, ptr noundef %heap, i32 poison), !range !10
+  %call20 = call i32 @wc_RNG_HealthTest_ex(i32 noundef 0, ptr noundef nonnull getelementptr inbounds ([48 x i8], ptr @seedB_data, i64 0, i64 32), i32 noundef 16, ptr noundef nonnull @seedB_data, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %check, i32 noundef 128, ptr noundef %heap, i32 poison)
   %cmp21 = icmp eq i32 %call20, 0
   br i1 %cmp21, label %for.body.i25, label %if.end30
 
@@ -1210,7 +1210,7 @@ if.end30:                                         ; preds = %ConstantCompare.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wc_GenerateSeed(ptr noundef %os, ptr nocapture noundef %output, i32 noundef %sz) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_GenerateSeed(ptr noundef %os, ptr nocapture noundef %output, i32 noundef %sz) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %os, null
   br i1 %cmp, label %return, label %if.end
@@ -1249,7 +1249,7 @@ if.end17:                                         ; preds = %while.body
   %idx.ext = ashr exact i64 %sext, 32
   %add.ptr = getelementptr inbounds i8, ptr %output.addr.0, i64 %idx.ext
   %tobool18.not = icmp eq i32 %sz.addr.0, %conv13
-  br i1 %tobool18.not, label %while.cond, label %while.end, !llvm.loop !11
+  br i1 %tobool18.not, label %while.cond, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end17, %while.body, %while.cond
   %ret.0 = phi i32 [ 0, %while.cond ], [ -102, %while.body ], [ -105, %if.end17 ]
@@ -1263,21 +1263,21 @@ return:                                           ; preds = %if.then3, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wc_RNG_GenerateByte(ptr noundef %rng, ptr noundef %b) local_unnamed_addr #0 {
+define range(i32 -209, 1) i32 @wc_RNG_GenerateByte(ptr noundef %rng, ptr noundef %b) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef %b, i32 noundef 1), !range !20
+  %call = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef %b, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RNG_HealthTest(i32 noundef %reseed, ptr noundef %seedA, i32 noundef %seedASz, ptr noundef %seedB, i32 noundef %seedBSz, ptr noundef %output, i32 noundef %outputSz) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_RNG_HealthTest(i32 noundef %reseed, ptr noundef %seedA, i32 noundef %seedASz, ptr noundef %seedB, i32 noundef %seedBSz, ptr noundef %output, i32 noundef %outputSz) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @wc_RNG_HealthTest_ex(i32 noundef %reseed, ptr noundef null, i32 noundef 0, ptr noundef %seedA, i32 noundef %seedASz, ptr noundef %seedB, i32 noundef %seedBSz, ptr noundef %output, i32 noundef %outputSz, ptr noundef null, i32 poison), !range !10
+  %call = tail call i32 @wc_RNG_HealthTest_ex(i32 noundef %reseed, ptr noundef null, i32 noundef 0, ptr noundef %seedA, i32 noundef %seedASz, ptr noundef %seedB, i32 noundef %seedBSz, ptr noundef %output, i32 noundef %outputSz, ptr noundef null, i32 poison)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_RNG_HealthTest_ex(i32 noundef %reseed, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %seedA, i32 noundef %seedASz, ptr noundef %seedB, i32 noundef %seedBSz, ptr noundef %output, i32 noundef %outputSz, ptr noundef %heap, i32 %devId) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_RNG_HealthTest_ex(i32 noundef %reseed, ptr noundef %nonce, i32 noundef %nonceSz, ptr noundef %seedA, i32 noundef %seedASz, ptr noundef %seedB, i32 noundef %seedBSz, ptr noundef %output, i32 noundef %outputSz, ptr noundef %heap, i32 %devId) local_unnamed_addr #0 {
 entry:
   %newV.i = alloca [55 x i8], align 16
   %drbg_var = alloca %struct.DRBG_internal, align 8
@@ -1318,8 +1318,8 @@ if.end11:                                         ; preds = %land.lhs.true.i
 if.then12:                                        ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 55, ptr nonnull %newV.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(55) %newV.i, i8 0, i64 55, i1 false)
-  %call.i16 = call fastcc i32 @Hash_df(ptr noundef nonnull %drbg_var, ptr noundef nonnull %newV.i, i8 noundef zeroext 1, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef %seedB, i32 noundef %seedBSz)
-  %cmp3.i = icmp eq i32 %call.i16, 0
+  %call.i17 = call fastcc i32 @Hash_df(ptr noundef nonnull %drbg_var, ptr noundef nonnull %newV.i, i8 noundef zeroext 1, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef %seedB, i32 noundef %seedBSz)
+  %cmp3.i = icmp eq i32 %call.i17, 0
   br i1 %cmp3.i, label %if.then4.i, label %Hash_DRBG_Reseed.exit.thread
 
 if.then4.i:                                       ; preds = %if.then12
@@ -1359,43 +1359,43 @@ Hash_DRBG_Reseed.exit:                            ; preds = %if.end13.i
   br label %if.end17
 
 if.end17:                                         ; preds = %Hash_DRBG_Reseed.exit, %if.end11
-  %call18 = call fastcc i32 @Hash_DRBG_Generate(ptr noundef nonnull %drbg_var, ptr noundef %output, i32 noundef 128), !range !14
+  %call18 = call fastcc i32 @Hash_DRBG_Generate(ptr noundef nonnull %drbg_var, ptr noundef %output, i32 noundef 128)
   %cmp19.not = icmp eq i32 %call18, 0
   br i1 %cmp19.not, label %if.end21, label %for.cond.preheader.i.i
 
 if.end21:                                         ; preds = %if.end17
-  %call22 = call fastcc i32 @Hash_DRBG_Generate(ptr noundef nonnull %drbg_var, ptr noundef %output, i32 noundef 128), !range !14
+  %call22 = call fastcc i32 @Hash_DRBG_Generate(ptr noundef nonnull %drbg_var, ptr noundef %output, i32 noundef 128)
   %cmp23.not = icmp ne i32 %call22, 0
   %spec.select = sext i1 %cmp23.not to i32
   br label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.end17, %if.end21, %Hash_DRBG_Reseed.exit.thread, %land.lhs.true.i, %if.end8
   %ret.0 = phi i32 [ -1, %if.end17 ], [ %spec.select, %if.end21 ], [ -1, %Hash_DRBG_Reseed.exit.thread ], [ -1, %land.lhs.true.i ], [ -1, %if.end8 ]
-  br label %for.body.i.i18
+  br label %for.body.i.i19
 
-for.body.i.i18:                                   ; preds = %for.body.i.i18, %for.cond.preheader.i.i
-  %w.017.i.i19 = phi ptr [ %incdec.ptr7.i.i21, %for.body.i.i18 ], [ %drbg_var, %for.cond.preheader.i.i ]
-  %len.addr.016.i.i20 = phi i32 [ %sub8.i.i22, %for.body.i.i18 ], [ 128, %for.cond.preheader.i.i ]
-  %incdec.ptr7.i.i21 = getelementptr inbounds i8, ptr %w.017.i.i19, i64 8
-  store volatile i64 0, ptr %w.017.i.i19, align 8
-  %sub8.i.i22 = add nsw i32 %len.addr.016.i.i20, -8
-  %cmp5.i.i23.not = icmp eq i32 %sub8.i.i22, 0
-  br i1 %cmp5.i.i23.not, label %for.body.i, label %for.body.i.i18, !llvm.loop !4
+for.body.i.i19:                                   ; preds = %for.body.i.i19, %for.cond.preheader.i.i
+  %w.017.i.i20 = phi ptr [ %incdec.ptr7.i.i22, %for.body.i.i19 ], [ %drbg_var, %for.cond.preheader.i.i ]
+  %len.addr.016.i.i21 = phi i32 [ %sub8.i.i23, %for.body.i.i19 ], [ 128, %for.cond.preheader.i.i ]
+  %incdec.ptr7.i.i22 = getelementptr inbounds i8, ptr %w.017.i.i20, i64 8
+  store volatile i64 0, ptr %w.017.i.i20, align 8
+  %sub8.i.i23 = add nsw i32 %len.addr.016.i.i21, -8
+  %cmp5.i.i24.not = icmp eq i32 %sub8.i.i23, 0
+  br i1 %cmp5.i.i24.not, label %for.body.i, label %for.body.i.i19, !llvm.loop !4
 
-for.body.i:                                       ; preds = %for.body.i.i18, %for.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.i18 ]
-  %compareSum.05.i = phi i32 [ %or.i, %for.body.i ], [ 0, %for.body.i.i18 ]
+for.body.i:                                       ; preds = %for.body.i.i19, %for.body.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.i19 ]
+  %compareSum.05.i = phi i32 [ %or.i, %for.body.i ], [ 0, %for.body.i.i19 ]
   %arrayidx.i = getelementptr inbounds i8, ptr %drbg_var, i64 %indvars.iv.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv2.i = zext i8 %0 to i32
   %or.i = or i32 %compareSum.05.i, %conv2.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %Hash_DRBG_Uninstantiate.exit, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %Hash_DRBG_Uninstantiate.exit, label %for.body.i, !llvm.loop !11
 
 Hash_DRBG_Uninstantiate.exit:                     ; preds = %for.body.i
-  %cmp3.i30.not = icmp eq i32 %or.i, 0
-  %spec.select14 = select i1 %cmp3.i30.not, i32 %ret.0, i32 -1
+  %cmp3.i31.not = icmp eq i32 %or.i, 0
+  %spec.select14 = select i1 %cmp3.i31.not, i32 %ret.0, i32 -1
   br label %return
 
 return:                                           ; preds = %if.end5, %if.end, %entry, %Hash_DRBG_Uninstantiate.exit
@@ -1415,7 +1415,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Hash_df(ptr noundef readnone %drbg, ptr nocapture noundef writeonly %out, i8 noundef zeroext %type, ptr noundef %inA, i32 noundef %inASz, ptr noundef %inB, i32 noundef %inBSz) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Hash_df(ptr noundef readnone %drbg, ptr nocapture noundef writeonly %out, i8 noundef zeroext %type, ptr noundef %inA, i32 noundef %inASz, ptr noundef %inB, i32 noundef %inBSz) unnamed_addr #0 {
 entry:
   %type.addr = alloca i8, align 1
   %ctr = alloca i8, align 1
@@ -1510,7 +1510,7 @@ for.inc:                                          ; preds = %if.end46.thread, %i
   %ret.534 = phi i32 [ 0, %if.then53 ], [ 0, %if.else ], [ %call45, %if.end46 ], [ %ret.5.ph, %if.end46.thread ]
   %outSz.addr.1 = phi i32 [ %sub, %if.then53 ], [ %outSz.addr.035, %if.else ], [ %outSz.addr.035, %if.end46 ], [ %outSz.addr.035, %if.end46.thread ]
   %out.addr.1 = phi ptr [ %add.ptr, %if.then53 ], [ %out.addr.036, %if.else ], [ %out.addr.036, %if.end46 ], [ %out.addr.036, %if.end46.thread ]
-  br i1 %cmp1, label %for.body, label %for.cond.preheader.i, !llvm.loop !21
+  br i1 %cmp1, label %for.body, label %for.cond.preheader.i, !llvm.loop !16
 
 for.cond.preheader.i:                             ; preds = %for.inc, %for.body
   %ret.6 = phi i32 [ %call2, %for.body ], [ %ret.534, %for.inc ]
@@ -1580,16 +1580,11 @@ attributes #9 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = !{i32 -209, i32 3}
-!10 = !{i32 -173, i32 1}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = !{i32 0, i32 3}
-!15 = !{i32 0, i32 4}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = !{i32 -209, i32 1}
-!21 = distinct !{!21, !5}

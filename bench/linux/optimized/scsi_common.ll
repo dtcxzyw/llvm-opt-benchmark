@@ -81,7 +81,7 @@ define dso_local ptr @scsi_device_type(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @scsi_pr_type_to_block(i32 noundef %0) #0 align 16 {
+define dso_local noundef range(i32 0, 7) i32 @scsi_pr_type_to_block(i32 noundef %0) #0 align 16 {
   switch i32 %0, label %7 [
     i32 1, label %8
     i32 3, label %2
@@ -115,7 +115,7 @@ define dso_local noundef i32 @scsi_pr_type_to_block(i32 noundef %0) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @block_pr_type_to_scsi(i32 noundef %0) #0 align 16 {
+define dso_local noundef range(i32 0, 9) i32 @block_pr_type_to_scsi(i32 noundef %0) #0 align 16 {
   switch i32 %0, label %7 [
     i32 1, label %8
     i32 2, label %2
@@ -382,7 +382,7 @@ define dso_local void @scsi_build_sense_buffer(i32 noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @scsi_set_sense_information(ptr noundef %0, i32 noundef %1, i64 noundef %2) #6 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @scsi_set_sense_information(ptr noundef %0, i32 noundef %1, i64 noundef %2) #6 align 16 {
   %4 = load i8, ptr %0, align 1
   %5 = and i8 %4, 127
   switch i8 %5, label %57 [
@@ -481,7 +481,7 @@ define dso_local noundef i32 @scsi_set_sense_information(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @scsi_set_sense_field_pointer(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, i8 noundef zeroext %3, i1 noundef zeroext %4) #6 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @scsi_set_sense_field_pointer(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, i8 noundef zeroext %3, i1 noundef zeroext %4) #6 align 16 {
   %6 = load i8, ptr %0, align 1
   %7 = and i8 %6, 127
   switch i8 %7, label %72 [

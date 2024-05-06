@@ -277,7 +277,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_wire_encode(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_wire_encode(i32 noundef %idx) #0 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %pkt = alloca %struct.PACKET, align 8
@@ -403,7 +403,7 @@ if.end55:                                         ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_wire_ack(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_wire_ack(i32 noundef %idx) #0 {
 entry:
   %pkt = alloca %struct.PACKET, align 8
   %idxprom = sext i32 %idx to i64
@@ -461,7 +461,7 @@ err:                                              ; preds = %if.end12, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_wire_pkt_hdr_pn(i32 noundef %tidx) #0 {
+define internal range(i32 0, 2) i32 @test_wire_pkt_hdr_pn(i32 noundef %tidx) #0 {
 entry:
   %buf = alloca [4 x i8], align 1
   %res_pn = alloca i64, align 8
@@ -519,7 +519,7 @@ err:                                              ; preds = %if.end27, %if.end18
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_wire_retry_integrity_tag() #0 {
+define internal range(i32 0, 2) i32 @test_wire_retry_integrity_tag() #0 {
 entry:
   %pkt = alloca %struct.PACKET, align 8
   %hdr = alloca %struct.quic_pkt_hdr_st, align 8
@@ -576,7 +576,7 @@ err:                                              ; preds = %if.end24, %if.end19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_wire_minimal(i32 noundef %idx) #0 {
+define internal range(i32 0, 2) i32 @test_wire_minimal(i32 noundef %idx) #0 {
 entry:
   %is_minimal = alloca i32, align 4
   %frame_type = alloca i64, align 8
@@ -634,7 +634,7 @@ declare i32 @WPACKET_finish(ptr noundef) local_unnamed_addr #1
 declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_1_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_1_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_padding(ptr noundef %pkt, i64 noundef 3) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -644,7 +644,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_1_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_1_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %cmp = icmp sgt i64 %fail, -1
   br i1 %cmp, label %return, label %if.end
@@ -663,7 +663,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_2_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_2_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_ping(ptr noundef %pkt) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 56, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -673,7 +673,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_2_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_2_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_decode_frame_ping(ptr noundef %pkt) #3
   %fail.lobit = lshr i64 %fail, 63
@@ -685,7 +685,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_3_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_3_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_ack(ptr noundef %pkt, i32 noundef 3, ptr noundef nonnull @encode_case_3_f) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 90, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -695,7 +695,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_3_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_3_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %ranges = alloca [4 x %struct.ossl_quic_ack_range_st], align 16
   %f = alloca %struct.ossl_quic_frame_ack_st, align 8
@@ -811,7 +811,7 @@ return:                                           ; preds = %if.end56, %if.end52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_4_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_4_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_reset_stream(ptr noundef %pkt, ptr noundef nonnull @encode_case_4_f) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 177, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -821,7 +821,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_4_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_4_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %f = alloca %struct.ossl_quic_frame_reset_stream_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %f, i8 0, i64 24, i1 false)
@@ -848,7 +848,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_5_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_5_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_stop_sending(ptr noundef %pkt, ptr noundef nonnull @encode_case_5_f) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 214, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -858,7 +858,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_5_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_5_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %f = alloca %struct.ossl_quic_frame_stop_sending_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %f, i8 0, i64 16, i1 false)
@@ -885,7 +885,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_6_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_6_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call ptr @ossl_quic_wire_encode_frame_crypto(ptr noundef %pkt, ptr noundef nonnull @encode_case_6_f) #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 254, ptr noundef nonnull @.str.51, ptr noundef %call) #3
@@ -895,7 +895,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_6_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_6_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %f = alloca %struct.ossl_quic_frame_crypto_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %f, i8 0, i64 24, i1 false)
@@ -938,7 +938,7 @@ return:                                           ; preds = %if.end13, %if.end9,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_7_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_7_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_new_token(ptr noundef %pkt, ptr noundef nonnull @encode_case_7_token, i64 noundef 16) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 300, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -948,7 +948,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_7_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_7_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %token = alloca ptr, align 8
   %token_len = alloca i64, align 8
@@ -979,7 +979,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_8_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_8_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call ptr @ossl_quic_wire_encode_frame_stream(ptr noundef %pkt, ptr noundef nonnull @encode_case_8_f) #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 344, ptr noundef nonnull @.str.62, ptr noundef %call) #3
@@ -989,7 +989,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_8_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_8_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %f = alloca %struct.ossl_quic_frame_stream_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %f, i8 0, i64 40, i1 false)
@@ -1061,7 +1061,7 @@ return:                                           ; preds = %if.end29, %if.end25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_9_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_9_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call ptr @ossl_quic_wire_encode_frame_stream(ptr noundef %pkt, ptr noundef nonnull @encode_case_9_f) #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 406, ptr noundef nonnull @.str.69, ptr noundef %call) #3
@@ -1071,7 +1071,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_9_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_9_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %f = alloca %struct.ossl_quic_frame_stream_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %f, i8 0, i64 40, i1 false)
@@ -1139,7 +1139,7 @@ return:                                           ; preds = %if.end26, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_10_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_10_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_max_data(ptr noundef %pkt, i64 noundef 4660) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 455, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -1149,7 +1149,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_10_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_10_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %max_data = alloca i64, align 8
   store i64 0, ptr %max_data, align 8
@@ -1177,7 +1177,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_11_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_11_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_max_stream_data(ptr noundef %pkt, i64 noundef 4660, i64 noundef 38785) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 487, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -1187,7 +1187,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_11_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_11_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %stream_id = alloca i64, align 8
   %max_data = alloca i64, align 8
@@ -1223,7 +1223,7 @@ return:                                           ; preds = %if.end9, %if.end5, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_12_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_12_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_max_streams(ptr noundef %pkt, i8 noundef signext 0, i64 noundef 4660) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 523, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -1243,7 +1243,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_case_12_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_12_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %max_streams_1 = alloca i64, align 8
   %max_streams_2 = alloca i64, align 8
@@ -1346,7 +1346,7 @@ return:                                           ; preds = %land.lhs.true88, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_13_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_13_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_data_blocked(ptr noundef %pkt, i64 noundef 4660) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 597, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -1356,7 +1356,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_13_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_13_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %max_data = alloca i64, align 8
   store i64 0, ptr %max_data, align 8
@@ -1384,7 +1384,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_14_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_14_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_stream_data_blocked(ptr noundef %pkt, i64 noundef 4660, i64 noundef 38785) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 630, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -1394,7 +1394,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_14_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_14_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %stream_id = alloca i64, align 8
   %max_data = alloca i64, align 8
@@ -1430,7 +1430,7 @@ return:                                           ; preds = %if.end9, %if.end5, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_15_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_15_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_streams_blocked(ptr noundef %pkt, i8 noundef signext 0, i64 noundef 4660) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 666, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -1450,7 +1450,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_case_15_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_15_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %max_streams_1 = alloca i64, align 8
   %max_streams_2 = alloca i64, align 8
@@ -1558,7 +1558,7 @@ return:                                           ; preds = %land.lhs.true93, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_16_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_16_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_new_conn_id(ptr noundef %pkt, ptr noundef nonnull @encode_case_16_f) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 759, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -1568,7 +1568,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_16_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_16_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %f = alloca %struct.ossl_quic_frame_new_conn_id_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %f, i8 0, i64 56, i1 false)
@@ -1625,7 +1625,7 @@ return:                                           ; preds = %if.end26, %if.end18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_16b_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_16b_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_new_conn_id(ptr noundef %pkt, ptr noundef nonnull @encode_case_16b_f) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 826, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -1635,7 +1635,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_16b_dec(ptr noundef %pkt, i64 %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_16b_dec(ptr noundef %pkt, i64 %fail) #0 {
 entry:
   %f = alloca %struct.ossl_quic_frame_new_conn_id_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %f, i8 0, i64 56, i1 false)
@@ -1662,7 +1662,7 @@ return:                                           ; preds = %PACKET_forward.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_17_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_17_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_retire_conn_id(ptr noundef %pkt, i64 noundef 4660) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 858, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -1672,7 +1672,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_17_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_17_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %seq_num = alloca i64, align 8
   store i64 0, ptr %seq_num, align 8
@@ -1700,7 +1700,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_18_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_18_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_path_challenge(ptr noundef %pkt, i64 noundef 6866601848073295924) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 892, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -1710,7 +1710,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_18_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_18_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %challenge = alloca i64, align 8
   store i64 0, ptr %challenge, align 8
@@ -1738,7 +1738,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_19_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_19_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_path_response(ptr noundef %pkt, i64 noundef 6866601848073295924) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 926, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -1748,7 +1748,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_19_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_19_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %challenge = alloca i64, align 8
   store i64 0, ptr %challenge, align 8
@@ -1776,7 +1776,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_20_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_20_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_conn_close(ptr noundef %pkt, ptr noundef nonnull @encode_case_20_f) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 971, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -1786,7 +1786,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_20_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_20_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %f = alloca %struct.ossl_quic_frame_conn_close_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %f, i8 0, i64 40, i1 false)
@@ -1845,7 +1845,7 @@ return:                                           ; preds = %if.end21, %if.end17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_21_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_21_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_frame_handshake_done(ptr noundef %pkt) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 1019, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -1855,7 +1855,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_21_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_21_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_decode_frame_handshake_done(ptr noundef %pkt) #3
   %fail.lobit = lshr i64 %fail, 63
@@ -1867,7 +1867,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_case_22_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_22_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef %pkt, i64 noundef 4660, ptr noundef nonnull @encode_case_22_data, i64 noundef 5) #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 1047, ptr noundef nonnull @.str.139, ptr noundef %call) #3
@@ -1892,7 +1892,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_case_22_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_22_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %id = alloca i64, align 8
   %len = alloca i64, align 8
@@ -2008,7 +2008,7 @@ return:                                           ; preds = %land.lhs.true87, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_case_23_enc(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @encode_case_23_enc(ptr noundef %pkt) #0 {
 entry:
   %call = tail call i32 @ossl_quic_wire_encode_transport_param_int(ptr noundef %pkt, i64 noundef 4660, i64 noundef 38785) #3
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 1138, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.8, i32 noundef %call, i32 noundef 1) #3
@@ -2028,7 +2028,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_case_23_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
+define internal range(i32 0, 2) i32 @encode_case_23_dec(ptr noundef %pkt, i64 noundef %fail) #0 {
 entry:
   %id = alloca i64, align 8
   %value = alloca i64, align 8
@@ -2195,7 +2195,7 @@ declare i32 @ossl_quic_wire_encode_transport_param_int(ptr noundef, i64 noundef,
 declare i32 @ossl_quic_wire_decode_transport_param_int(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ack_generic_decode(ptr noundef %pkt) #0 {
+define internal range(i32 0, 2) i32 @ack_generic_decode(ptr noundef %pkt) #0 {
 entry:
   %ranges = alloca [8 x %struct.ossl_quic_ack_range_st], align 16
   %f = alloca %struct.ossl_quic_frame_ack_st, align 8

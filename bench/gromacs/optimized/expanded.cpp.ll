@@ -4307,8 +4307,8 @@ _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.i: ; preds = %58, %5
   %109 = load float, ptr %101, align 4
   %110 = fpext float %109 to double
   %111 = load ptr, ptr %95, align 8
-  %112 = getelementptr double, ptr %111, i64 %indvars.iv111.i
-  %113 = getelementptr double, ptr %112, i64 %indvars.iv114.i
+  %112 = getelementptr inbounds double, ptr %111, i64 %indvars.iv111.i
+  %113 = getelementptr inbounds double, ptr %112, i64 %indvars.iv114.i
   %114 = load double, ptr %113, align 8
   %115 = fmul double %114, %110
   store double %115, ptr %113, align 8
@@ -4346,8 +4346,8 @@ _ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit.i: ; preds = %58, %5
   %128 = load float, ptr %126, align 4
   %129 = fpext float %128 to double
   %130 = load ptr, ptr %105, align 8
-  %131 = getelementptr double, ptr %130, i64 %indvars.iv117.i
-  %132 = getelementptr double, ptr %131, i64 %indvars.iv120.i
+  %131 = getelementptr inbounds double, ptr %130, i64 %indvars.iv117.i
+  %132 = getelementptr inbounds double, ptr %131, i64 %indvars.iv120.i
   %133 = load double, ptr %132, align 8
   %134 = fmul double %133, %129
   store double %134, ptr %132, align 8

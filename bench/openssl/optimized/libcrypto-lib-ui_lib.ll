@@ -737,7 +737,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @UI_dup_user_data(ptr noundef %ui, ptr noundef %user_data) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @UI_dup_user_data(ptr noundef %ui, ptr noundef %user_data) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ui, align 8
   %ui_duplicate_data = getelementptr inbounds i8, ptr %0, i64 48
@@ -934,7 +934,7 @@ return:                                           ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @UI_process(ptr noundef %ui) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @UI_process(ptr noundef %ui) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ui, align 8
   %ui_open_session = getelementptr inbounds i8, ptr %0, i64 8
@@ -1073,7 +1073,7 @@ if.end72:                                         ; preds = %land.lhs.true60, %i
 declare void @ERR_print_errors_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @print_error(ptr noundef %str, i64 %len, ptr noundef %ui) #0 {
+define internal range(i32 -1, 1) i32 @print_error(ptr noundef %str, i64 %len, ptr noundef %ui) #0 {
 entry:
   %uis = alloca %struct.ui_string_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %uis, i8 0, i64 72, i1 false)
@@ -1100,7 +1100,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @UI_ctrl(ptr noundef %ui, i32 noundef %cmd, i64 noundef %i, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %f) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @UI_ctrl(ptr noundef %ui, i32 noundef %cmd, i64 noundef %i, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %f) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ui, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1245,7 +1245,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @UI_method_set_opener(ptr noundef writeonly %method, ptr noundef %opener) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @UI_method_set_opener(ptr noundef writeonly %method, ptr noundef %opener) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1261,7 +1261,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @UI_method_set_writer(ptr noundef writeonly %method, ptr noundef %writer) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @UI_method_set_writer(ptr noundef writeonly %method, ptr noundef %writer) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1277,7 +1277,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @UI_method_set_flusher(ptr noundef writeonly %method, ptr noundef %flusher) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @UI_method_set_flusher(ptr noundef writeonly %method, ptr noundef %flusher) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1293,7 +1293,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @UI_method_set_reader(ptr noundef writeonly %method, ptr noundef %reader) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @UI_method_set_reader(ptr noundef writeonly %method, ptr noundef %reader) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1309,7 +1309,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @UI_method_set_closer(ptr noundef writeonly %method, ptr noundef %closer) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @UI_method_set_closer(ptr noundef writeonly %method, ptr noundef %closer) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1325,7 +1325,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @UI_method_set_data_duplicator(ptr noundef writeonly %method, ptr noundef %duplicator, ptr noundef %destructor) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @UI_method_set_data_duplicator(ptr noundef writeonly %method, ptr noundef %duplicator, ptr noundef %destructor) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1343,7 +1343,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @UI_method_set_prompt_constructor(ptr noundef writeonly %method, ptr noundef %prompt_constructor) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @UI_method_set_prompt_constructor(ptr noundef writeonly %method, ptr noundef %prompt_constructor) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq ptr %method, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1596,16 +1596,16 @@ return:                                           ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @UI_set_result(ptr nocapture noundef %ui, ptr nocapture noundef %uis, ptr nocapture noundef readonly %result) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @UI_set_result(ptr nocapture noundef %ui, ptr nocapture noundef %uis, ptr nocapture noundef readonly %result) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %result) #8
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @UI_set_result_ex(ptr noundef %ui, ptr noundef %uis, ptr noundef %result, i32 noundef %conv), !range !8
+  %call1 = tail call i32 @UI_set_result_ex(ptr noundef %ui, ptr noundef %uis, ptr noundef %result, i32 noundef %conv)
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @UI_set_result_ex(ptr nocapture noundef %ui, ptr nocapture noundef %uis, ptr nocapture noundef readonly %result, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @UI_set_result_ex(ptr nocapture noundef %ui, ptr nocapture noundef %uis, ptr nocapture noundef readonly %result, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %ui, i64 40
   %0 = load i32, ptr %flags, align 8
@@ -1709,7 +1709,7 @@ for.cond:                                         ; preds = %if.end45
   %incdec.ptr = getelementptr inbounds i8, ptr %p.036, i64 1
   %14 = load i8, ptr %incdec.ptr, align 1
   %tobool.not = icmp eq i8 %14, 0
-  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !9
+  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !8
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %15 = phi i8 [ %12, %for.body.lr.ph ], [ %14, %for.cond ]
@@ -1821,5 +1821,4 @@ attributes #8 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -1, i32 1}
-!9 = distinct !{!9, !5}
+!8 = distinct !{!8, !5}

@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @RSA_default_method = hidden local_unnamed_addr constant %struct.rsa_meth_st { %struct.openssl_method_common_st { i32 0, i8 1 }, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i32 6, ptr null, ptr null, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @rsa_default_size(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @rsa_default_size(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
 entry:
   %n = getelementptr inbounds i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %n, align 8
@@ -23,7 +23,7 @@ entry:
 declare i32 @BN_num_bytes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @rsa_default_encrypt(ptr noundef %rsa, ptr nocapture noundef writeonly %out_len, ptr noundef %out, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len, i32 noundef %padding) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @rsa_default_encrypt(ptr noundef %rsa, ptr nocapture noundef writeonly %out_len, ptr noundef %out, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len, i32 noundef %padding) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @RSA_size(ptr noundef %rsa) #7
   %conv = zext i32 %call to i64
@@ -216,7 +216,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @rsa_default_sign_raw(ptr noundef %rsa, ptr nocapture noundef writeonly %out_len, ptr noundef %out, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len, i32 noundef %padding) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @rsa_default_sign_raw(ptr noundef %rsa, ptr nocapture noundef writeonly %out_len, ptr noundef %out, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len, i32 noundef %padding) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @RSA_size(ptr noundef %rsa) #7
   %conv = zext i32 %call to i64
@@ -286,7 +286,7 @@ declare i32 @RSA_padding_add_PKCS1_type_1(ptr noundef, i32 noundef, ptr noundef,
 declare i32 @RSA_private_transform(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @rsa_default_decrypt(ptr noundef %rsa, ptr nocapture noundef writeonly %out_len, ptr noundef %out, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len, i32 noundef %padding) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @rsa_default_decrypt(ptr noundef %rsa, ptr nocapture noundef writeonly %out_len, ptr noundef %out, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len, i32 noundef %padding) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @RSA_size(ptr noundef %rsa) #7
   %conv = zext i32 %call to i64
@@ -379,7 +379,7 @@ declare i32 @RSA_padding_check_PKCS1_type_2(ptr noundef, i32 noundef, ptr nounde
 declare i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @RSA_verify_raw(ptr noundef %rsa, ptr nocapture noundef writeonly %out_len, ptr noundef %out, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len, i32 noundef %padding) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_verify_raw(ptr noundef %rsa, ptr nocapture noundef writeonly %out_len, ptr noundef %out, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len, i32 noundef %padding) local_unnamed_addr #0 {
 entry:
   %n = getelementptr inbounds i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %n, align 8
@@ -562,7 +562,7 @@ return:                                           ; preds = %if.then6.i, %if.the
 declare i32 @RSA_padding_check_PKCS1_type_1(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @rsa_default_private_transform(ptr noundef %rsa, ptr noundef %out, ptr noundef %in, i64 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @rsa_default_private_transform(ptr noundef %rsa, ptr noundef %out, ptr noundef %in, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %blinding_index = alloca i32, align 4
   %local_d = alloca %struct.bignum_st, align 8
@@ -683,7 +683,7 @@ land.lhs.true44:                                  ; preds = %land.lhs.true42
   br i1 %cmp45.not, label %if.else, label %if.then46
 
 if.then46:                                        ; preds = %land.lhs.true44
-  %call47 = tail call fastcc i32 @mod_exp(ptr noundef nonnull %call2, ptr noundef nonnull %call1, ptr noundef nonnull %rsa, ptr noundef nonnull %call), !range !7
+  %call47 = tail call fastcc i32 @mod_exp(ptr noundef nonnull %call2, ptr noundef nonnull %call1, ptr noundef nonnull %rsa, ptr noundef nonnull %call)
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %if.end79, label %if.end64
 
@@ -785,7 +785,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.end12, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %if.end12, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
   %arrayidx.le = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
@@ -880,7 +880,7 @@ return:                                           ; preds = %if.end12, %err1, %i
 declare i32 @BN_BLINDING_convert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mod_exp(ptr noundef %r0, ptr noundef %I, ptr noundef %rsa, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @mod_exp(ptr noundef %r0, ptr noundef %I, ptr noundef %rsa, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %local_dmp1 = alloca %struct.bignum_st, align 8
   %local_dmq1 = alloca %struct.bignum_st, align 8
@@ -1035,7 +1035,7 @@ for.cond.preheader:                               ; preds = %if.end84
 for.cond:                                         ; preds = %lor.lhs.false123
   %inc = add nuw i64 %i.0138, 1
   %exitcond.not = icmp eq i64 %inc, %num_additional_primes.0
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.0138 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
@@ -1166,7 +1166,7 @@ declare i32 @BN_mod_exp_mont_consttime(ptr noundef, ptr noundef, ptr noundef, pt
 declare i32 @BN_BLINDING_invert(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @rsa_default_multi_prime_keygen(ptr nocapture noundef %rsa, i32 noundef %bits, i32 noundef %num_primes, ptr noundef %e_value, ptr noundef %cb) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr nocapture noundef %rsa, i32 noundef %bits, i32 noundef %num_primes, ptr noundef %e_value, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %local_r0 = alloca %struct.bignum_st, align 8
   %local_d = alloca %struct.bignum_st, align 8
@@ -1211,7 +1211,7 @@ if.then17:                                        ; preds = %if.end15
 for.cond:                                         ; preds = %lor.lhs.false43
   %inc = add nuw nsw i32 %i.0225, 1
   %exitcond.not = icmp eq i32 %inc, %num_primes
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.body:                                         ; preds = %if.then17, %for.cond
   %i.0225 = phi i32 [ %inc, %for.cond ], [ 2, %if.then17 ]
@@ -1429,7 +1429,7 @@ do.cond:                                          ; preds = %do.body
 land.rhs:                                         ; preds = %do.cond
   %inc154 = add nuw nsw i32 %degenerate.0, 1
   %exitcond257.not = icmp eq i32 %inc154, 3
-  br i1 %exitcond257.not, label %if.then157, label %do.body, !llvm.loop !12
+  br i1 %exitcond257.not, label %if.then157, label %do.body, !llvm.loop !11
 
 if.then157:                                       ; preds = %land.rhs
   tail call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 126, ptr noundef nonnull @.str, i32 noundef 937) #7
@@ -1556,7 +1556,7 @@ for.body226.us.us:                                ; preds = %lor.lhs.false214.us
 for.inc236.us.us:                                 ; preds = %for.body226.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond261.not = icmp eq i64 %indvars.iv.next, %indvars.iv262
-  br i1 %exitcond261.not, label %for.end238.us.us, label %for.body226.us.us, !llvm.loop !13
+  br i1 %exitcond261.not, label %for.end238.us.us, label %for.body226.us.us, !llvm.loop !12
 
 for.end238.us.us:                                 ; preds = %for.inc236.us.us, %for.body226.us.us
   %j.0.lcssa.us.us.in = phi i64 [ %indvars.iv, %for.body226.us.us ], [ %indvars.iv262, %for.inc236.us.us ]
@@ -1686,7 +1686,7 @@ if.end302:                                        ; preds = %if.else, %if.then28
   %call303 = tail call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 3, i32 noundef 1) #7
   %tobool304.not = icmp eq i32 %call303, 0
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
-  br i1 %tobool304.not, label %if.then414, label %for.cond189, !llvm.loop !14
+  br i1 %tobool304.not, label %if.then414, label %for.cond189, !llvm.loop !13
 
 for.end309:                                       ; preds = %for.cond189
   %64 = load ptr, ptr %p69, align 8
@@ -1732,7 +1732,7 @@ for.body340.preheader:                            ; preds = %for.cond337.prehead
 for.cond337:                                      ; preds = %lor.lhs.false349
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %exitcond280.not = icmp eq i64 %indvars.iv.next276, %wide.trip.count
-  br i1 %exitcond280.not, label %for.end356, label %for.body340, !llvm.loop !15
+  br i1 %exitcond280.not, label %for.end356, label %for.body340, !llvm.loop !14
 
 for.body340:                                      ; preds = %for.body340.preheader, %for.cond337
   %indvars.iv275 = phi i64 [ 2, %for.body340.preheader ], [ %indvars.iv.next276, %for.cond337 ]
@@ -1791,7 +1791,7 @@ for.body384.preheader:                            ; preds = %for.cond381.prehead
 for.cond381:                                      ; preds = %lor.lhs.false400
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %exitcond287.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count286
-  br i1 %exitcond287.not, label %for.end410, label %for.body384, !llvm.loop !16
+  br i1 %exitcond287.not, label %for.end410, label %for.body384, !llvm.loop !15
 
 for.body384:                                      ; preds = %for.body384.preheader, %for.cond381
   %indvars.iv281 = phi i64 [ 2, %for.body384.preheader ], [ %indvars.iv.next282, %for.cond381 ]
@@ -1886,9 +1886,9 @@ declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @rsa_default_keygen(ptr nocapture noundef %rsa, i32 noundef %bits, ptr noundef %e_value, ptr noundef %cb) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @rsa_default_keygen(ptr nocapture noundef %rsa, i32 noundef %bits, ptr noundef %e_value, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @rsa_default_multi_prime_keygen(ptr noundef %rsa, i32 noundef %bits, i32 noundef 2, ptr noundef %e_value, ptr noundef %cb), !range !7
+  %call = tail call i32 @rsa_default_multi_prime_keygen(ptr noundef %rsa, i32 noundef %bits, i32 noundef 2, ptr noundef %e_value, ptr noundef %cb)
   ret i32 %call
 }
 
@@ -1938,13 +1938,12 @@ attributes #8 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = !{i32 0, i32 2}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}

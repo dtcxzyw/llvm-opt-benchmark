@@ -69,7 +69,7 @@ define dso_local i64 @Curl_bufref_len(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_bufref_memdup(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 28) i32 @Curl_bufref_memdup(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
